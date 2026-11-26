@@ -7,6 +7,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QOpenGLTimeMonitor that Python can take functions over in. Every QOpenGLTimeMonitor
 //  Python makes is one. Each function below asks the Python
@@ -182,6 +183,25 @@ const QMetaObject *ritual_ZNK18QOpenGLTimeMonitor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLTimeMonitor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QOpenGLTimeMonitor11qt_metacastEPKc(
+    QOpenGLTimeMonitor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLTimeMonitor::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QOpenGLTimeMonitor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLTimeMonitor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLTimeMonitor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QOpenGLTimeMonitor2trEPKcS1_i(
@@ -238,6 +258,13 @@ bool ritual_ZNK18QOpenGLTimeMonitor9isCreatedEv(
   return self->isCreated();
 }
 
+//  QList<GLuint> QOpenGLTimeMonitor::objectIds() const
+extern "C" Q_DECL_EXPORT
+QList<GLuint> *ritual_ZNK18QOpenGLTimeMonitor9objectIdsEv(
+    const QOpenGLTimeMonitor *self) {
+  return new QList<GLuint>(self->objectIds());
+}
+
 //  int QOpenGLTimeMonitor::recordSample()
 extern "C" Q_DECL_EXPORT
 int ritual_ZN18QOpenGLTimeMonitor12recordSampleEv(QOpenGLTimeMonitor *self) {
@@ -251,10 +278,38 @@ bool ritual_ZNK18QOpenGLTimeMonitor17isResultAvailableEv(
   return self->isResultAvailable();
 }
 
+//  QList<GLuint64> QOpenGLTimeMonitor::waitForSamples() const
+extern "C" Q_DECL_EXPORT
+QList<GLuint64> *ritual_ZNK18QOpenGLTimeMonitor14waitForSamplesEv(
+    const QOpenGLTimeMonitor *self) {
+  return new QList<GLuint64>(self->waitForSamples());
+}
+
+//  QList<GLuint64> QOpenGLTimeMonitor::waitForIntervals() const
+extern "C" Q_DECL_EXPORT
+QList<GLuint64> *ritual_ZNK18QOpenGLTimeMonitor16waitForIntervalsEv(
+    const QOpenGLTimeMonitor *self) {
+  return new QList<GLuint64>(self->waitForIntervals());
+}
+
 //  void QOpenGLTimeMonitor::reset()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QOpenGLTimeMonitor5resetEv(QOpenGLTimeMonitor *self) {
   self->reset();
+}
+
+//  QOpenGLTimeMonitorPrivate *QOpenGLTimeMonitor::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLTimeMonitorPrivate *ritual_ZN18QOpenGLTimeMonitor6d_funcEv(
+    QOpenGLTimeMonitor *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLTimeMonitorPrivate *QOpenGLTimeMonitor::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOpenGLTimeMonitorPrivate *ritual_ZNK18QOpenGLTimeMonitor6d_funcEv(
+    const QOpenGLTimeMonitor *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQOpenGLTimeMonitor, for the function
@@ -265,6 +320,18 @@ bool ritual_take_QOpenGLTimeMonitor(
     const char *key,
     void *call) {
   return static_cast<CuteQOpenGLTimeMonitor *>(self)->take(key, call);
+}
+
+//  a QList<GLuint> a ritual of QOpenGLTimeMonitor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLTimeMonitor__QList_GLuint(QList<GLuint> *self) {
+  delete self;
+}
+
+//  a QList<GLuint64> a ritual of QOpenGLTimeMonitor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLTimeMonitor__QList_GLuint64(QList<GLuint64> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_OPENGL) && !QT_CONFIG(opengles2)

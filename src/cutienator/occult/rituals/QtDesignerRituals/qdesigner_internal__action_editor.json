@@ -8,14 +8,134 @@
     "ritual_ZNK18qdesigner_internal12ActionEditor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal12ActionEditor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal12ActionEditor2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditorC1EP28QDesignerFormEditorInterfaceP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12ActionEditor10formWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor13setFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12ActionEditor4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12ActionEditor9actionNewEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12ActionEditor12actionDeleteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12ActionEditor6filterEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor12manageActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor14unmanageActionEP7QAction": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN18qdesigner_internal12ActionEditor16objectNamingModeEv": [
       "int"
     ],
     "ritual_ZN18qdesigner_internal12ActionEditor19setObjectNamingModeENS_16ObjectNamingModeE": [
       "nothing", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor16actionTextToNameERK7QStringS3_": [
+      "text", "text", "text"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor25createConfigureMenuButtonERK7QStringPP5QMenu": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor9setFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor20mainContainerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor12selectActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor22slotCurrentItemChangedEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor20slotSelectionChangedERK14QItemSelectionS3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor10editActionEP7QActioni": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor17editCurrentActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor27navigateToSlotCurrentActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor17slotActionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor13slotNewActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor10slotDeleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor20resourceImageDroppedERK7QStringP7QAction": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor24slotContextMenuRequestedEP17QContextMenuEventP7QAction": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor12slotViewModeEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor26slotSelectAssociatedWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor8slotCopyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor7slotCutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor9slotPasteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor13itemActivatedEP7QActioni": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor20contextMenuRequestedEP5QMenuP7QAction": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor13deleteActionsEP28QDesignerFormWindowInterfaceRK5QListIP7QActionE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor11copyActionsEP28QDesignerFormWindowInterfaceRK5QListIP7QActionE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor15restoreSettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor12saveSettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor21updateViewModeActionsEv": [
+      "nothing", "address"
     ],
     "ritual_take_qdesigner_internal_ActionEditor": [
       "bool", "address", "chars", "address"

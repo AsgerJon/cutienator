@@ -6,6 +6,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  Only a class built on QAbstractObjectRegistryRef may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -187,6 +189,25 @@ const QMetaObject *ritual_ZNK26QAbstractObjectRegistryRef10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractObjectRegistryRef::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QAbstractObjectRegistryRef11qt_metacastEPKc(
+    QAbstractObjectRegistryRef *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractObjectRegistryRef::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QAbstractObjectRegistryRef11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractObjectRegistryRef *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractObjectRegistryRef::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -241,12 +262,43 @@ void ritual_ZN26QAbstractObjectRegistryRef6setKeyERK7QString(
   self->setKey(*key);
 }
 
+//  QQmlListProperty<QObject> QAbstractObjectRegistryRef::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN26QAbstractObjectRegistryRef4dataEv(
+    QAbstractObjectRegistryRef *self) {
+  return new QQmlListProperty<QObject>(self->data());
+}
+
+//  QAbstractObjectRegistryRef::QAbstractObjectRegistryRef(QAbstractObjectReg
+//      istryRefPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractObjectRegistryRef *ritual_ZN26QAbstractObjectRegistryRefC1ER33QAbstractObjectRegistryRefPrivateP7QObject(
+    QAbstractObjectRegistryRefPrivate *dd,
+    QObject *parent) {
+  return new CuteQAbstractObjectRegistryRef(*dd, parent);
+}
+
 //  bool QAbstractObjectRegistryRef::event(QEvent *a0)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN26QAbstractObjectRegistryRef5eventEP6QEvent(
     QAbstractObjectRegistryRef *self,
     QEvent *a0) {
   return self->event(a0);
+}
+
+//  void QAbstractObjectRegistryRef::keyChanged(const QString &key)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractObjectRegistryRef10keyChangedERK7QString(
+    QAbstractObjectRegistryRef *self,
+    const QString *key) {
+  self->keyChanged(*key);
+}
+
+//  void QAbstractObjectRegistryRef::dataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractObjectRegistryRef11dataChangedEv(
+    QAbstractObjectRegistryRef *self) {
+  self->dataChanged();
 }
 
 //  a Python function taken by a CuteQAbstractObjectRegistryRef, for the
@@ -266,4 +318,11 @@ bool ritual_own_ZN26QAbstractObjectRegistryRef5eventEP6QEvent(
     QEvent *a0) {
   return static_cast<OwnQAbstractObjectRegistryRef *>(self)->OwnQAbstractObjectRegistryRef::event(
       a0);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QAbstractObjectRegistryRef gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractObjectRegistryRef__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

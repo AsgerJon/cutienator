@@ -15,8 +15,23 @@
     "ritual_ZNK10QArrayData14detachCapacityEx": [
       "long long", "address", "long long"
     ],
+    "ritual_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE": [
+      "address", "address", "long long", "long long", "long long", "int"
+    ],
+    "ritual_ZN10QArrayData9allocate1EPPS_xNS_16AllocationOptionE": [
+      "address", "address", "long long", "int"
+    ],
+    "ritual_ZN10QArrayData9allocate2EPPS_xNS_16AllocationOptionE": [
+      "address", "address", "long long", "int"
+    ],
+    "ritual_ZN10QArrayData19reallocateUnalignedEPS_PvxxNS_16AllocationOptionE": [
+      "address", "address", "address", "long long", "long long", "int"
+    ],
     "ritual_ZN10QArrayData10deallocateEPS_xx": [
       "nothing", "address", "long long", "long long"
+    ],
+    "ritual_drop_QArrayData__std_pair_QArrayData_void": [
+      "nothing", "address"
     ]
   }
 }

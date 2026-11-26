@@ -44,6 +44,18 @@
     "ritual_ZNK19QCommonStylePrivate15removeAnimationEPK7QObject": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK19QCommonStylePrivate20iconFromWindowsThemeEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate16iconFromMacThemeEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate24iconFromApplicationThemeEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate21iconFromResourceThemeEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN19QCommonStylePrivate3rtlEPK12QStyleOption": [
       "bool", "address"
     ],

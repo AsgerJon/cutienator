@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15SplineAnimationC1EP15SplineChartItemiR12QEasingCurve": [
+      "address", "address", "int", "address"
+    ],
     "ritual_ZN15SplineAnimationD1Ev": ["nothing", "address"],
     "ritual_ZN15SplineAnimation5setupERK5QListI7QPointFES4_S4_S4_i": [
       "nothing", "address", "address", "address", "address", "address", "int"

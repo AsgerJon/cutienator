@@ -8,8 +8,50 @@
     "ritual_ZNK13Qt3DAnimation18QAdditiveClipBlend10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlendC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlendD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAdditiveClipBlend14additiveFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAdditiveClipBlend8baseClipEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAdditiveClipBlend12additiveClipEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend17setAdditiveFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend11setBaseClipEPNS_22QAbstractClipBlendNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend15setAdditiveClipEPNS_22QAbstractClipBlendNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend21additiveFactorChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend15baseClipChangedEPNS_22QAbstractClipBlendNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend19additiveClipChangedEPNS_22QAbstractClipBlendNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAdditiveClipBlendC1ERNS_25QAdditiveClipBlendPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation18QAdditiveClipBlend6d_funcEv": [
       "address", "address"

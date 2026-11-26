@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN25QGeoProjectionWebMercator5PlaneC1Ev": ["address"],
+    "ritual_ZN25QGeoProjectionWebMercator5PlaneC1ERK15QDoubleVector3DS3_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK25QGeoProjectionWebMercator5Plane16lineIntersectionERK15QDoubleVector3DS3_": [
       "address", "address", "address", "address"
     ],

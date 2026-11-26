@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickSplitView10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickSplitView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickSplitView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickSplitView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,14 @@
     "ritual_ZN15QQuickSplitView12restoreStateERK8QVariant": [
       "bool", "address", "address"
     ],
+    "ritual_ZN15QQuickSplitView18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickSplitView15resizingChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickSplitView13handleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickSplitViewC1ER22QQuickSplitViewPrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN15QQuickSplitView17componentCompleteEv": [
       "nothing", "address"
     ],
@@ -58,6 +72,8 @@
       "nothing", "address", "int", "address"
     ],
     "ritual_ZNK15QQuickSplitView14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN15QQuickSplitView6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickSplitView6d_funcEv": ["address", "address"],
     "ritual_take_QQuickSplitView": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QQuickSplitView9isContentEP10QQuickItem": [
       "bool", "address", "address"

@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK7QGeoMap10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QGeoMap11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QGeoMap11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QGeoMap2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QGeoMap6d_funcEv": ["address", "address"],
     "ritual_ZNK7QGeoMap6d_funcEv": ["address", "address"],
@@ -32,6 +36,7 @@
     ],
     "ritual_ZNK7QGeoMap8mapWidthEv": ["double", "address"],
     "ritual_ZNK7QGeoMap9mapHeightEv": ["double", "address"],
+    "ritual_ZNK7QGeoMap13geoProjectionEv": ["address", "address"],
     "ritual_ZN7QGeoMap12prefetchDataEv": ["nothing", "address"],
     "ritual_ZN7QGeoMap9clearDataEv": ["nothing", "address"],
     "ritual_ZNK7QGeoMap21supportedMapItemTypesEv": ["int", "address"],
@@ -69,6 +74,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK7QGeoMap11visibleAreaEv": ["address", "address"],
+    "ritual_ZN7QGeoMapC1ER14QGeoMapPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN7QGeoMap13setCameraDataERK14QGeoCameraData": [
       "nothing", "address", "address"
     ],
@@ -78,6 +86,24 @@
     "ritual_ZN7QGeoMap16updateSceneGraphEP7QSGNodeP12QQuickWindow": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN7QGeoMap17cameraDataChangedERK14QGeoCameraData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap13sgNodeChangedEv": ["nothing", "address"],
+    "ritual_ZN7QGeoMap20activeMapTypeChangedEv": ["nothing", "address"],
+    "ritual_ZN7QGeoMap25cameraCapabilitiesChangedERK22QGeoCameraCapabilities": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap22copyrightsImageChangedERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap17copyrightsChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN7QGeoMap27copyrightsStyleSheetChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN7QGeoMap18visibleAreaChangedEv": ["nothing", "address"],
     "ritual_take_QGeoMap": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK7QGeoMap12capabilitiesEv": ["int", "address"],
     "ritual_own_ZN7QGeoMap12prefetchDataEv": ["nothing", "address"],

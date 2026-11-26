@@ -4,6 +4,8 @@
     "QtCore/qcoreevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QChildEventC1ERKS_": ["address", "address"],
+    "ritual_ZN11QChildEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK11QChildEvent5cloneEv": ["address", "address"],
     "ritual_ZN11QChildEventD1Ev": ["nothing", "address"],
     "ritual_ZN11QChildEventC1EN6QEvent4TypeEP7QObject": [

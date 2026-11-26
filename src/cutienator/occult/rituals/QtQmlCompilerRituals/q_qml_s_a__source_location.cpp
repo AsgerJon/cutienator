@@ -23,6 +23,36 @@ QQmlSA::SourceLocation *ritual_ZN6QQmlSA14SourceLocationC1ERKS0_(
   return new QQmlSA::SourceLocation(*a0);
 }
 
+//  QQmlSA::SourceLocation::SourceLocation(SourceLocation &&other)
+extern "C" Q_DECL_EXPORT
+QQmlSA::SourceLocation *ritual_ZN6QQmlSA14SourceLocationC1EOS0_(
+    QQmlSA::SourceLocation *other) {
+  return new QQmlSA::SourceLocation(std::move(*other));
+}
+
+//  SourceLocation &QQmlSA::SourceLocation::operator=(const SourceLocation
+//      &a0)
+extern "C" Q_DECL_EXPORT
+QQmlSA::SourceLocation *ritual_ZN6QQmlSA14SourceLocationaSERKS0_(
+    QQmlSA::SourceLocation *self,
+    const QQmlSA::SourceLocation *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  SourceLocation &QQmlSA::SourceLocation::operator=(SourceLocation &&other)
+extern "C" Q_DECL_EXPORT
+QQmlSA::SourceLocation *ritual_ZN6QQmlSA14SourceLocationaSEOS0_(
+    QQmlSA::SourceLocation *self,
+    QQmlSA::SourceLocation *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QQmlSA::SourceLocation::~SourceLocation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlSA14SourceLocationD1Ev(QQmlSA::SourceLocation *self) {
+  delete self;
+}
+
 //  bool QQmlSA::SourceLocation::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QQmlSA14SourceLocation7isValidEv(
@@ -104,6 +134,13 @@ bool ritual_ZN6QQmlSAneERKNS_14SourceLocationES2_(
     const QQmlSA::SourceLocation *lhs,
     const QQmlSA::SourceLocation *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  SourceLocation QQmlSA::SourceLocation::documentOrigin()
+extern "C" Q_DECL_EXPORT
+QQmlSA::SourceLocation *ritual_ZN6QQmlSA14SourceLocation14documentOriginEv() {
+  return new QQmlSA::SourceLocation(
+      QQmlSA::SourceLocation::documentOrigin());
 }
 
 //  qsizetype QQmlSA::SourceLocation::qHashImpl(const SourceLocation

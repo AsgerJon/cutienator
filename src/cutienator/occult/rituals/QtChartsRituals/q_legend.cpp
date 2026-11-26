@@ -1424,6 +1424,22 @@ const QMetaObject *ritual_ZNK7QLegend10metaObjectEv(const QLegend *self) {
   return self->metaObject();
 }
 
+//  void *QLegend::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QLegend11qt_metacastEPKc(QLegend *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLegend::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QLegend11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLegend *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLegend::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QLegend2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1663,6 +1679,86 @@ void ritual_ZN7QLegend9showEventEP10QShowEvent(
     QLegend *self,
     QShowEvent *event) {
   self->showEvent(event);
+}
+
+//  void QLegend::backgroundVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend24backgroundVisibleChangedEb(
+    QLegend *self,
+    bool visible) {
+  self->backgroundVisibleChanged(visible);
+}
+
+//  void QLegend::colorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend12colorChangedE6QColor(
+    QLegend *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QLegend::borderColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend18borderColorChangedE6QColor(
+    QLegend *self,
+    const QColor *color) {
+  self->borderColorChanged(*color);
+}
+
+//  void QLegend::fontChanged(QFont font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend11fontChangedE5QFont(
+    QLegend *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+
+//  void QLegend::labelColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend17labelColorChangedE6QColor(
+    QLegend *self,
+    const QColor *color) {
+  self->labelColorChanged(*color);
+}
+
+//  void QLegend::reverseMarkersChanged(bool reverseMarkers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend21reverseMarkersChangedEb(
+    QLegend *self,
+    bool reverseMarkers) {
+  self->reverseMarkersChanged(reverseMarkers);
+}
+
+//  void QLegend::showToolTipsChanged(bool showToolTips)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend19showToolTipsChangedEb(
+    QLegend *self,
+    bool showToolTips) {
+  self->showToolTipsChanged(showToolTips);
+}
+
+//  void QLegend::markerShapeChanged(MarkerShape shape)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend18markerShapeChangedENS_11MarkerShapeE(
+    QLegend *self,
+    QLegend::MarkerShape shape) {
+  self->markerShapeChanged(shape);
+}
+
+//  void QLegend::attachedToChartChanged(bool attachedToChart)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend22attachedToChartChangedEb(
+    QLegend *self,
+    bool attachedToChart) {
+  self->attachedToChartChanged(attachedToChart);
+}
+
+//  void QLegend::interactiveChanged(bool interactive)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLegend18interactiveChangedEb(
+    QLegend *self,
+    bool interactive) {
+  self->interactiveChanged(interactive);
 }
 
 //  a Python function taken by a CuteQLegend, for the function named by the

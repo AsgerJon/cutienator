@@ -1,9 +1,49 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DCore/6.12.0/Qt3DCore/private/qservicelocator_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore15QServiceLocatorC1EPNS_13QAspectEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocatorD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore15QServiceLocator23registerServiceProviderEiPNS_24QAbstractServiceProviderE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator25unregisterServiceProviderEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8Qt3DCore15QServiceLocator12serviceCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator17systemInformationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator17openGLInformationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator19frameAdvanceServiceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator18eventFilterServiceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator21downloadHelperServiceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator19_q_getServiceHelperEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore15QServiceLocator6d_funcEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore15QServiceLocator7serviceINS_24QAbstractServiceProviderEEEPT_i": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator7serviceINS_25QSystemInformationServiceEEEPT_i": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore15QServiceLocator7serviceINS_28QAbstractFrameAdvanceServiceEEEPT_i": [
+      "address", "address", "int"
+    ]
   }
 }

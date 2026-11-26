@@ -11,8 +11,12 @@
 #include <QtLocation/6.12.0/QtLocation/private/qgeotilespec_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
+#include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QString>
+#include <QtGui/QImage>
 
 //  Only a class built on QGeoFileTileCache may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -622,6 +626,25 @@ const QMetaObject *ritual_ZNK17QGeoFileTileCache10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoFileTileCache::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QGeoFileTileCache11qt_metacastEPKc(
+    QGeoFileTileCache *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoFileTileCache::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QGeoFileTileCache11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoFileTileCache *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoFileTileCache::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QGeoFileTileCache2trEPKcS1_i(
@@ -786,11 +809,27 @@ QAbstractGeoTileCache::CostStrategy ritual_ZNK17QGeoFileTileCache19costStrategyT
   return self->costStrategyTexture();
 }
 
+//  QSharedPointer<QGeoTileTexture> QGeoFileTileCache::get(const QGeoTileSpec
+//      &spec)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QGeoTileTexture> *ritual_ZN17QGeoFileTileCache3getERK12QGeoTileSpec(
+    QGeoFileTileCache *self,
+    const QGeoTileSpec *spec) {
+  return new QSharedPointer<QGeoTileTexture>(self->get(*spec));
+}
+
 //  void QGeoFileTileCache::evictFromDiskCache(QGeoCachedTileDisk *td)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QGeoFileTileCache18evictFromDiskCacheEP18QGeoCachedTileDisk(
     QGeoCachedTileDisk *td) {
   QGeoFileTileCache::evictFromDiskCache(td);
+}
+
+//  void QGeoFileTileCache::evictFromMemoryCache(QGeoCachedTileMemory *tm)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGeoFileTileCache20evictFromMemoryCacheEP20QGeoCachedTileMemory(
+    QGeoCachedTileMemory *tm) {
+  QGeoFileTileCache::evictFromMemoryCache(tm);
 }
 
 //  void QGeoFileTileCache::insert(const QGeoTileSpec &spec, const QByteArray
@@ -859,6 +898,20 @@ QString *ritual_ZNK17QGeoFileTileCache9directoryEv(
   return new QString(self->directory());
 }
 
+//  QSharedPointer<QGeoCachedTileDisk>
+//      QGeoFileTileCache::addToDiskCache(const QGeoTileSpec &spec, const
+//      QString &filename)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QGeoCachedTileDisk> *ritual_ZN17QGeoFileTileCache14addToDiskCacheERK12QGeoTileSpecRK7QString(
+    QGeoFileTileCache *self,
+    const QGeoTileSpec *spec,
+    const QString *filename) {
+  return new QSharedPointer<QGeoCachedTileDisk>(
+      self->addToDiskCache(
+          *spec,
+          *filename));
+}
+
 //  bool QGeoFileTileCache::addToDiskCache(const QGeoTileSpec &spec, const
 //      QString &filename, const QByteArray &bytes)
 extern "C" Q_DECL_EXPORT
@@ -879,6 +932,38 @@ void ritual_ZN17QGeoFileTileCache16addToMemoryCacheERK12QGeoTileSpecRK10QByteArr
     const QByteArray *bytes,
     const QString *format) {
   self->addToMemoryCache(*spec, *bytes, *format);
+}
+
+//  QSharedPointer<QGeoTileTexture>
+//      QGeoFileTileCache::addToTextureCache(const QGeoTileSpec &spec, const
+//      QImage &image)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QGeoTileTexture> *ritual_ZN17QGeoFileTileCache17addToTextureCacheERK12QGeoTileSpecRK6QImage(
+    QGeoFileTileCache *self,
+    const QGeoTileSpec *spec,
+    const QImage *image) {
+  return new QSharedPointer<QGeoTileTexture>(
+      self->addToTextureCache(
+          *spec,
+          *image));
+}
+
+//  QSharedPointer<QGeoTileTexture> QGeoFileTileCache::getFromMemory(const
+//      QGeoTileSpec &spec)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QGeoTileTexture> *ritual_ZN17QGeoFileTileCache13getFromMemoryERK12QGeoTileSpec(
+    QGeoFileTileCache *self,
+    const QGeoTileSpec *spec) {
+  return new QSharedPointer<QGeoTileTexture>(self->getFromMemory(*spec));
+}
+
+//  QSharedPointer<QGeoTileTexture> QGeoFileTileCache::getFromDisk(const
+//      QGeoTileSpec &spec)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QGeoTileTexture> *ritual_ZN17QGeoFileTileCache11getFromDiskERK12QGeoTileSpec(
+    QGeoFileTileCache *self,
+    const QGeoTileSpec *spec) {
+  return new QSharedPointer<QGeoTileTexture>(self->getFromDisk(*spec));
 }
 
 //  bool QGeoFileTileCache::isTileBogus(const QByteArray &bytes) const
@@ -1114,4 +1199,18 @@ QGeoTileSpec *ritual_own_ZNK17QGeoFileTileCache18filenameToTileSpecERK7QString(
   return new QGeoTileSpec(
       static_cast<const OwnQGeoFileTileCache *>(self)->OwnQGeoFileTileCache::filenameToTileSpec(
           *filename));
+}
+
+//  a QSharedPointer<QGeoTileTexture> a ritual of QGeoFileTileCache gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoFileTileCache__QSharedPointer_QGeoTileTexture(
+    QSharedPointer<QGeoTileTexture> *self) {
+  delete self;
+}
+
+//  a QSharedPointer<QGeoCachedTileDisk> a ritual of QGeoFileTileCache gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoFileTileCache__QSharedPointer_QGeoCachedTileDisk(
+    QSharedPointer<QGeoCachedTileDisk> *self) {
+  delete self;
 }

@@ -1,18 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: added by hand, instances of templates of the class: 4.
+//  Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmltypeloaderqmldircontent_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qurl.h>
+#include <QtCore/qbytearray.h>
 #include <QtQml/qqmlabstracturlinterceptor.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmldatablob_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
+#include <QtCore/QUrl>
+#include <QtQml/6.12.0/QtQml/private/qqmltypedata_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmlscriptblob_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmldirdata_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmlengine_p.h>
 
 //  QString QQmlTypeLoader::tr(const char *sourceText, const char
 //      *disambiguation, int n)
@@ -41,6 +51,20 @@ void ritual_ZN14QQmlTypeLoaderD1Ev(QQmlTypeLoader *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQmlTypeLoader15sanitizeUNCPathEP7QString(QString *path) {
   QQmlTypeLoader::sanitizeUNCPath(path);
+}
+
+//  QQmlRefPointer<QV4::CompiledData::CompilationUnit>
+//      QQmlTypeLoader::injectModule(const QUrl &relativeUrl, const
+//      QV4::CompiledData::Unit *unit)
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QV4::CompiledData::CompilationUnit> *ritual_ZN14QQmlTypeLoader12injectModuleERK4QUrlPKN3QV412CompiledData4UnitE(
+    QQmlTypeLoader *self,
+    const QUrl *relativeUrl,
+    const QV4::CompiledData::Unit *unit) {
+  return new QQmlRefPointer<QV4::CompiledData::CompilationUnit>(
+      self->injectModule(
+          *relativeUrl,
+          unit));
 }
 
 //  QString QQmlTypeLoader::cleanFilePath(const QString &path) const
@@ -130,6 +154,25 @@ bool ritual_ZNK14QQmlTypeLoader14isScriptLoadedERK4QUrl(
     const QQmlTypeLoader *self,
     const QUrl *url) {
   return self->isScriptLoaded(*url);
+}
+
+//  void QQmlTypeLoader::loadWithStaticData(const QQmlDataBlob::Ptr &blob,
+//      const QByteArray &data, Mode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader18loadWithStaticDataERK14QQmlRefPointerI12QQmlDataBlobERK10QByteArrayNS_4ModeE(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *blob,
+    const QByteArray *data,
+    QQmlTypeLoader::Mode mode) {
+  self->loadWithStaticData(*blob, *data, mode);
+}
+
+//  void QQmlTypeLoader::drop(const QQmlDataBlob::Ptr &blob)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader4dropERK14QQmlRefPointerI12QQmlDataBlobE(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *blob) {
+  self->drop(*blob);
 }
 
 //  void QQmlTypeLoader::initializeEngine(QQmlEngineExtensionInterface *a0,
@@ -269,6 +312,17 @@ void ritual_ZN14QQmlTypeLoader13addPluginPathERK7QStringNS_11AddPathModeE(
 }
 
 #if QT_CONFIG(qml_network)
+//  QQmlNetworkAccessManagerFactoryPtrConst
+//      QQmlTypeLoader::networkAccessManagerFactory() const
+extern "C" Q_DECL_EXPORT
+QQmlNetworkAccessManagerFactoryPtrConst *ritual_ZNK14QQmlTypeLoader27networkAccessManagerFactoryEv(
+    const QQmlTypeLoader *self) {
+  return new QQmlNetworkAccessManagerFactoryPtrConst(
+      self->networkAccessManagerFactory());
+}
+#endif  // QT_CONFIG(qml_network)
+
+#if QT_CONFIG(qml_network)
 //  void QQmlTypeLoader::setNetworkAccessManagerFactory(QQmlNetworkAccessMana
 //      gerFactory *factory)
 extern "C" Q_DECL_EXPORT
@@ -355,6 +409,42 @@ QQmlTypeLoaderThread *ritual_ZN14QQmlTypeLoader12ensureThreadEv(
   return self->ensureThread();
 }
 
+//  void QQmlTypeLoader::trimCache(const QQmlTypeLoaderSharedDataPtr &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader9trimCacheERK31QQmlTypeLoaderSharedDataPtrBaseI24QQmlTypeLoaderSharedData24QQmlTypeLoaderLockedDataE(
+    QQmlTypeLoader *self,
+    const QQmlTypeLoaderSharedDataPtr *data) {
+  self->trimCache(*data);
+}
+
+//  void QQmlTypeLoader::loadThread(const QQmlDataBlob::Ptr &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader10loadThreadERK14QQmlRefPointerI12QQmlDataBlobE(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *a0) {
+  self->loadThread(*a0);
+}
+
+//  void QQmlTypeLoader::loadWithStaticDataThread(const QQmlDataBlob::Ptr
+//      &a0, const QByteArray &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader24loadWithStaticDataThreadERK14QQmlRefPointerI12QQmlDataBlobERK10QByteArray(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *a0,
+    const QByteArray *a1) {
+  self->loadWithStaticDataThread(*a0, *a1);
+}
+
+//  void QQmlTypeLoader::loadWithCachedUnitThread(const QQmlDataBlob::Ptr
+//      &blob, const QQmlPrivate::CachedQmlUnit *unit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader24loadWithCachedUnitThreadERK14QQmlRefPointerI12QQmlDataBlobEPKN11QQmlPrivate13CachedQmlUnitE(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *blob,
+    const QQmlPrivate::CachedQmlUnit *unit) {
+  self->loadWithCachedUnitThread(*blob, unit);
+}
+
 #if QT_CONFIG(qml_network)
 //  void QQmlTypeLoader::networkReplyFinished(QNetworkReply *a0)
 extern "C" Q_DECL_EXPORT
@@ -378,6 +468,48 @@ void ritual_ZN14QQmlTypeLoader20networkReplyProgressEP13QNetworkReplyxx(
 }
 #endif  // QT_CONFIG(qml_network)
 
+//  void QQmlTypeLoader::setData(const QQmlDataBlob::Ptr &a0, const
+//      QByteArray &a1, DataOrigin a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader7setDataERK14QQmlRefPointerI12QQmlDataBlobERK10QByteArrayNS_10DataOriginE(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *a0,
+    const QByteArray *a1,
+    QQmlTypeLoader::DataOrigin a2) {
+  self->setData(*a0, *a1, a2);
+}
+
+//  void QQmlTypeLoader::setData(const QQmlDataBlob::Ptr &a0, const QString
+//      &fileName, bool exists)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader7setDataERK14QQmlRefPointerI12QQmlDataBlobERK7QStringb(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *a0,
+    const QString *fileName,
+    bool exists) {
+  self->setData(*a0, *fileName, exists);
+}
+
+//  void QQmlTypeLoader::setData(const QQmlDataBlob::Ptr &a0, const
+//      QQmlDataBlob::SourceCodeData &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader7setDataERK14QQmlRefPointerI12QQmlDataBlobERKNS1_14SourceCodeDataE(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *a0,
+    const QQmlDataBlob::SourceCodeData *a1) {
+  self->setData(*a0, *a1);
+}
+
+//  void QQmlTypeLoader::setCachedUnit(const QQmlDataBlob::Ptr &blob, const
+//      QQmlPrivate::CachedQmlUnit *unit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader13setCachedUnitERK14QQmlRefPointerI12QQmlDataBlobEPKN11QQmlPrivate13CachedQmlUnitE(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *blob,
+    const QQmlPrivate::CachedQmlUnit *unit) {
+  self->setCachedUnit(*blob, unit);
+}
+
 //  QStringList QQmlTypeLoader::importPathList(PathType type) const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK14QQmlTypeLoader14importPathListENS_8PathTypeE(
@@ -392,9 +524,112 @@ void ritual_ZN14QQmlTypeLoader15clearQmldirInfoEv(QQmlTypeLoader *self) {
   self->clearQmldirInfo();
 }
 
+//  LocalQmldirResult QQmlTypeLoader::locateLocalQmldir(QQmlTypeLoader::Blob
+//      *blob, const QQmlTypeLoader::Blob::PendingImportPtr &import,
+//      QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+QQmlTypeLoader::LocalQmldirResult ritual_ZN14QQmlTypeLoader17locateLocalQmldirEPNS_4BlobERKSt10shared_ptrINS0_13PendingImportEEP5QListI9QQmlErrorE(
+    QQmlTypeLoader *self,
+    QQmlTypeLoader::Blob *blob,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import,
+    QList<QQmlError> *errors) {
+  return self->locateLocalQmldir(blob, *import, errors);
+}
+
+//  void QQmlTypeLoader::load(const QQmlDataBlob::Ptr &blob, Mode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader4loadERK14QQmlRefPointerI12QQmlDataBlobENS_4ModeE(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *blob,
+    QQmlTypeLoader::Mode mode) {
+  self->load(*blob, mode);
+}
+
+//  void QQmlTypeLoader::loadWithCachedUnit(const QQmlDataBlob::Ptr &blob,
+//      const QQmlPrivate::CachedQmlUnit *unit, Mode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader18loadWithCachedUnitERK14QQmlRefPointerI12QQmlDataBlobEPKN11QQmlPrivate13CachedQmlUnitENS_4ModeE(
+    QQmlTypeLoader *self,
+    const QQmlDataBlob::Ptr *blob,
+    const QQmlPrivate::CachedQmlUnit *unit,
+    QQmlTypeLoader::Mode mode) {
+  self->loadWithCachedUnit(*blob, unit, mode);
+}
+
+//  void QQmlTypeLoader::updateTypeCacheTrimThreshold(const
+//      QQmlTypeLoaderSharedDataPtr &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader28updateTypeCacheTrimThresholdERK31QQmlTypeLoaderSharedDataPtrBaseI24QQmlTypeLoaderSharedData24QQmlTypeLoaderLockedDataE(
+    QQmlTypeLoader *self,
+    const QQmlTypeLoaderSharedDataPtr *data) {
+  self->updateTypeCacheTrimThreshold(*data);
+}
+
 //  QQmlMetaType::CacheMode QQmlTypeLoader::aotCacheMode()
 extern "C" Q_DECL_EXPORT
 QQmlMetaType::CacheMode ritual_ZN14QQmlTypeLoader12aotCacheModeEv(
     QQmlTypeLoader *self) {
   return self->aotCacheMode();
+}
+
+//  a QQmlRefPointer<QV4::CompiledData::CompilationUnit> a ritual of
+//      QQmlTypeLoader gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTypeLoader__QQmlRefPointer_QV4_CompiledData_CompilationUnit(
+    QQmlRefPointer<QV4::CompiledData::CompilationUnit> *self) {
+  delete self;
+}
+
+//  a QQmlNetworkAccessManagerFactoryPtrConst a ritual of QQmlTypeLoader gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTypeLoader__QQmlNetworkAccessManagerFactoryPtrConst(
+    QQmlNetworkAccessManagerFactoryPtrConst *self) {
+  delete self;
+}
+
+//  static QQmlTypeLoader *QQmlTypeLoader::get<QQmlEngine,
+//      QQmlEnginePrivate, void>(QQmlEngine *engine)
+extern "C" Q_DECL_EXPORT
+QQmlTypeLoader *ritual_ZN14QQmlTypeLoader3getI10QQmlEngine17QQmlEnginePrivatevEEPS_PT_(
+    QQmlEngine *engine) {
+  return QQmlTypeLoader::get<QQmlEngine>(engine);
+}
+
+//  QQmlRefPointer<QQmlTypeData>
+//      QQmlTypeLoader::finalizeBlob<QQmlTypeData>(
+//      QQmlRefPointer<QQmlTypeData> &&blob, QQmlTypeLoader::Mode mode)
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlTypeData> *ritual_ZN14QQmlTypeLoader12finalizeBlobI12QQmlTypeDataEE14QQmlRefPointerIT_EOS4_NS_4ModeE(
+    QQmlTypeLoader *self,
+    QQmlRefPointer<QQmlTypeData> *blob,
+    int mode) {
+  return new QQmlRefPointer<QQmlTypeData>(
+      self->finalizeBlob<QQmlTypeData>(
+          std::move(*blob), static_cast<QQmlTypeLoader::Mode>(mode)));
+}
+
+//  QQmlRefPointer<QQmlScriptBlob>
+//      QQmlTypeLoader::finalizeBlob<QQmlScriptBlob>(
+//      QQmlRefPointer<QQmlScriptBlob> &&blob, QQmlTypeLoader::Mode mode)
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlScriptBlob> *ritual_ZN14QQmlTypeLoader12finalizeBlobI14QQmlScriptBlobEE14QQmlRefPointerIT_EOS4_NS_4ModeE(
+    QQmlTypeLoader *self,
+    QQmlRefPointer<QQmlScriptBlob> *blob,
+    int mode) {
+  return new QQmlRefPointer<QQmlScriptBlob>(
+      self->finalizeBlob<QQmlScriptBlob>(
+          std::move(*blob), static_cast<QQmlTypeLoader::Mode>(mode)));
+}
+
+//  QQmlRefPointer<QQmlQmldirData>
+//      QQmlTypeLoader::finalizeBlob<QQmlQmldirData>(
+//      QQmlRefPointer<QQmlQmldirData> &&blob, QQmlTypeLoader::Mode mode)
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlQmldirData> *ritual_ZN14QQmlTypeLoader12finalizeBlobI14QQmlQmldirDataEE14QQmlRefPointerIT_EOS4_NS_4ModeE(
+    QQmlTypeLoader *self,
+    QQmlRefPointer<QQmlQmldirData> *blob,
+    int mode) {
+  return new QQmlRefPointer<QQmlQmldirData>(
+      self->finalizeBlob<QQmlQmldirData>(
+          std::move(*blob), static_cast<QQmlTypeLoader::Mode>(mode)));
 }

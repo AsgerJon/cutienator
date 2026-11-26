@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qsequentialanimationgroup_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: completed by hand: indexForCurrentTime
+//  (Qt's code taken from its source) and animationRemoved (a virtual
+//  function, called through the object). Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(animation)
@@ -227,6 +230,52 @@ inline void QSequentialAnimationGroupPrivate::_q_uncontrolledAnimationFinished()
         setCurrentAnimation(currentAnimationIndex - 1);
     }
 }
+//  from src/corelib/animation/qsequentialanimationgroup.cpp, line 53, as the helper of indexForCurrentTime
+namespace {
+int addSaturating(int a, int b)
+{
+    int r;
+    if (qAddOverflow(a, b, &r))
+        return std::numeric_limits<int>::max();
+    return r;
+}
+} // namespace
+
+//  from src/corelib/animation/qsequentialanimationgroup.cpp, line 89, as _ZNK32QSequentialAnimationGroupPrivate19indexForCurrentTimeEv
+inline QSequentialAnimationGroupPrivate::AnimationIndex QSequentialAnimationGroupPrivate::indexForCurrentTime() const
+{
+    Q_ASSERT(!animations.isEmpty());
+
+    AnimationIndex ret;
+    int duration = 0;
+
+    for (int i = 0; i < animations.size(); ++i) {
+        duration = animationActualTotalDuration(i);
+
+        // 'animation' is the current animation if one of these reasons is true:
+        // 1. it's duration is undefined
+        // 2. it ends after msecs
+        // 3. it is the last animation (this can happen in case there is at least 1 uncontrolled animation)
+        // 4. it ends exactly in msecs and the direction is backwards
+        const int offsetPlusDuration = addSaturating(ret.timeOffset, duration);
+        if (duration == -1 || currentTime < offsetPlusDuration
+            || (currentTime == offsetPlusDuration && direction == QAbstractAnimation::Backward)) {
+            ret.index = i;
+            return ret;
+        }
+
+        // 'animation' has a non-null defined duration and is not the one at time 'msecs'.
+        ret.timeOffset = offsetPlusDuration;
+    }
+
+    // this can only happen when one of those conditions is true:
+    // 1. the duration of the group is undefined and we passed its actual duration
+    // 2. there are only 0-duration animations in the group
+    ret.timeOffset -= duration;
+    ret.index = animations.size() - 1;
+    return ret;
+}
+
 //  -----------------------------------------------------------------------
 
 //  A QSequentialAnimationGroupPrivate that Python can take functions over in. Every QSequentialAnimationGroupPrivate
@@ -396,6 +445,24 @@ void ritual_own_ZN32QSequentialAnimationGroupPrivate19animationInsertedAtEx(
     QSequentialAnimationGroupPrivate *self,
     qsizetype index) {
   self->QSequentialAnimationGroupPrivate::animationInsertedAt(index);
+}
+
+//  QSequentialAnimationGroupPrivate::AnimationIndex
+//      QSequentialAnimationGroupPrivate::indexForCurrentTime() const
+extern "C" Q_DECL_EXPORT
+QSequentialAnimationGroupPrivate::AnimationIndex * ritual_ZNK32QSequentialAnimationGroupPrivate19indexForCurrentTimeEv(
+    const QSequentialAnimationGroupPrivate *self) {
+  return new QSequentialAnimationGroupPrivate::AnimationIndex(self->indexForCurrentTime());
+}
+
+//  void QSequentialAnimationGroupPrivate::animationRemoved(qsizet
+//      ype index, QAbstractAnimation *anim)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QSequentialAnimationGroupPrivate16animationRemovedExP18QAbstractAnimation(
+    QSequentialAnimationGroupPrivate *self,
+    qsizetype index,
+    QAbstractAnimation *anim) {
+  self->animationRemoved(index, anim);
 }
 
 #endif  // QT_CONFIG(animation)

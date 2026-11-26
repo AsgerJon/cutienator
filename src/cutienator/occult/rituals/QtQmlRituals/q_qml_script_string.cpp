@@ -23,6 +23,14 @@ void ritual_ZN16QQmlScriptStringD1Ev(QQmlScriptString *self) {
   delete self;
 }
 
+//  QQmlScriptString &QQmlScriptString::operator=(const QQmlScriptString &a0)
+extern "C" Q_DECL_EXPORT
+QQmlScriptString *ritual_ZN16QQmlScriptStringaSERKS_(
+    QQmlScriptString *self,
+    const QQmlScriptString *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QQmlScriptString::operator==(const QQmlScriptString &a0) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QQmlScriptStringeqERKS_(

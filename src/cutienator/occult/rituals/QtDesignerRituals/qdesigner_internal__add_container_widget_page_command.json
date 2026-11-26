@@ -5,6 +5,21 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommandD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommand4initEP7QWidgetNS_13ContainerTypeENS0_13InsertionModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommand4undoEv": [
+      "nothing", "address"
+    ],
     "ritual_take_qdesigner_internal_AddContainerWidgetPageCommand": [
       "bool", "address", "chars", "address"
     ],

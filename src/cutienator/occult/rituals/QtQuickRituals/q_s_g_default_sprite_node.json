@@ -5,12 +5,54 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QSGDefaultSpriteNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGDefaultSpriteNode7setTimeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QSGDefaultSpriteNode10setSourceAERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGDefaultSpriteNode10setSourceBERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGDefaultSpriteNode13setSpriteSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGDefaultSpriteNode12setSheetSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QSGDefaultSpriteNode7setSizeERK6QSizeF": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QSGDefaultSpriteNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN20QSGDefaultSpriteNode6updateEv": ["nothing", "address"],
+    "ritual_own_ZN20QSGDefaultSpriteNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QSGDefaultSpriteNode7setTimeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN20QSGDefaultSpriteNode10setSourceAERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QSGDefaultSpriteNode10setSourceBERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QSGDefaultSpriteNode13setSpriteSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QSGDefaultSpriteNode12setSheetSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZN20QSGDefaultSpriteNode7setSizeERK6QSizeF": [
       "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QSGDefaultSpriteNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
     ]
   }
 }

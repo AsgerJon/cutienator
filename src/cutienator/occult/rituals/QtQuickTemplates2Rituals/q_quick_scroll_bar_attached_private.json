@@ -29,6 +29,9 @@
     "ritual_ZN30QQuickScrollBarAttachedPrivate16activateVerticalEv": [
       "nothing", "address"
     ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate16scrollHorizontalEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN30QQuickScrollBarAttachedPrivate14mirrorVerticalEv": [
       "nothing", "address"
     ],

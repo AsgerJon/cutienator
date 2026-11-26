@@ -8,6 +8,12 @@
     "ritual_ZNK27QDeclarativeSatelliteSource10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QDeclarativeSatelliteSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QDeclarativeSatelliteSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,9 @@
       "int", "address"
     ],
     "ritual_ZNK27QDeclarativeSatelliteSource4nameEv": ["text", "address"],
+    "ritual_ZN27QDeclarativeSatelliteSource10parametersEv": [
+      "address", "address"
+    ],
     "ritual_ZNK27QDeclarativeSatelliteSource15satellitesInUseEv": [
       "address", "address"
     ],
@@ -56,6 +65,30 @@
     ],
     "ritual_ZN27QDeclarativeSatelliteSource5startEv": ["nothing", "address"],
     "ritual_ZN27QDeclarativeSatelliteSource4stopEv": ["nothing", "address"],
+    "ritual_ZN27QDeclarativeSatelliteSource13activeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource15validityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource21updateIntervalChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource18sourceErrorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource11nameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource22satellitesInUseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource23satellitesInViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource19sourceErrorReceivedEN23QGeoSatelliteInfoSource5ErrorE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN27QDeclarativeSatelliteSource22onParameterInitializedEv": [
       "nothing", "address"
     ],
@@ -80,6 +113,18 @@
     "ritual_ZN27QDeclarativeSatelliteSource19executeSingleUpdateEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN27QDeclarativeSatelliteSource16parameter_appendEP16QQmlListPropertyI27QDeclarativePluginParameterEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource15parameter_countEP16QQmlListPropertyI27QDeclarativePluginParameterE": [
+      "long long", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource12parameter_atEP16QQmlListPropertyI27QDeclarativePluginParameterEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource15parameter_clearEP16QQmlListPropertyI27QDeclarativePluginParameterE": [
+      "nothing", "address"
+    ],
     "ritual_cast_QDeclarativeSatelliteSource_QQmlParserStatus": [
       "address", "address"
     ],
@@ -90,6 +135,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN27QDeclarativeSatelliteSource17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativeSatelliteSource__QQmlListProperty_QDeclarativePluginParameter": [
       "nothing", "address"
     ]
   }

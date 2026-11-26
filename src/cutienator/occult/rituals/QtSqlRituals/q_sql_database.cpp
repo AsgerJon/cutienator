@@ -26,6 +26,14 @@ void ritual_ZN12QSqlDatabaseD1Ev(QSqlDatabase *self) {
   delete self;
 }
 
+//  QSqlDatabase &QSqlDatabase::operator=(const QSqlDatabase &other)
+extern "C" Q_DECL_EXPORT
+QSqlDatabase *ritual_ZN12QSqlDatabaseaSERKS_(
+    QSqlDatabase *self,
+    const QSqlDatabase *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QSqlDatabase::open()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN12QSqlDatabase4openEv(QSqlDatabase *self) {

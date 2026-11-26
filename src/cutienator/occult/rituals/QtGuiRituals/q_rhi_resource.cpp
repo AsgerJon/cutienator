@@ -104,6 +104,13 @@ QRhi *ritual_ZNK12QRhiResource3rhiEv(const QRhiResource *self) {
   return self->rhi();
 }
 
+//  QRhiResource::QRhiResource(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QRhiResource *ritual_ZN12QRhiResourceC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQRhiResource(rhi);
+}
+
 //  a Python function taken by a CuteQRhiResource, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

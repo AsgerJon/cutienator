@@ -5,6 +5,9 @@
     "terialadapter_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN31QSSGShaderCustomMaterialAdapterC1ERK24QSSGRenderCustomMaterial": [
+      "address", "address"
+    ],
     "ritual_ZN31QSSGShaderCustomMaterialAdapter12isPrincipledEv": [
       "bool", "address"
     ],
@@ -171,8 +174,24 @@
     "ritual_ZN31QSSGShaderCustomMaterialAdapter22hasCustomShaderSnippetEN15QSSGShaderCache10ShaderTypeE": [
       "bool", "address", "int"
     ],
+    "ritual_ZN31QSSGShaderCustomMaterialAdapter19customShaderSnippetEN15QSSGShaderCache10ShaderTypeER24QSSGShaderLibraryManagerb": [
+      "address", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN31QSSGShaderCustomMaterialAdapter23hasCustomShaderFunctionEN15QSSGShaderCache10ShaderTypeERK10QByteArrayR24QSSGShaderLibraryManager": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZN31QSSGShaderCustomMaterialAdapter25setCustomPropertyUniformsEPcR21QSSGRhiShaderPipelineRK26QSSGRenderContextInterface": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN31QSSGShaderCustomMaterialAdapter19usesSharedVariablesEv": [
       "bool", "address"
+    ],
+    "ritual_ZN31QSSGShaderCustomMaterialAdapter24beginPrepareCustomShaderEPNS_24CustomShaderPrepWorkDataEPSt4pairI10QByteArray24QSSGCustomShaderMetaDataERKS3_N15QSSGShaderCache10ShaderTypeEb": [
+      "nothing", "address", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN31QSSGShaderCustomMaterialAdapter25finishPrepareCustomShaderEP10QByteArrayRKNS_24CustomShaderPrepWorkDataERKSt4pairIS0_24QSSGCustomShaderMetaDataEN15QSSGShaderCache10ShaderTypeEbRK15QVarLengthArrayIS5_IS0_S0_ELx16EESG_SG_SG_SG_": [
+      "nothing", "address", "address", "address", "int", "bool", "address",
+      "address", "address", "address", "address"
     ],
     "ritual_ZN31QSSGShaderCustomMaterialAdapterD1Ev": ["nothing", "address"]
   }

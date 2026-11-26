@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QGrpcOperation10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QGrpcOperation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QGrpcOperation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QGrpcOperation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -12,10 +18,31 @@
     "ritual_ZNK14QGrpcOperation4readEP16QProtobufMessage": [
       "bool", "address", "address"
     ],
+    "ritual_ZNKR14QGrpcOperation8metadataEv": ["address", "address"],
+    "ritual_ZNKR14QGrpcOperation21serverInitialMetadataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNKR14QGrpcOperation22serverTrailingMetadataEv": [
+      "address", "address"
+    ],
     "ritual_ZNK14QGrpcOperation6methodEv": ["address", "address"],
     "ritual_ZNK14QGrpcOperation10isFinishedEv": ["bool", "address"],
     "ritual_ZNK14QGrpcOperation16responseMetaTypeEv": ["address", "address"],
+    "ritual_ZN14QGrpcOperation8finishedERK11QGrpcStatus": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGrpcOperation29serverInitialMetadataReceivedERK10QMultiHashI10QByteArrayS1_E": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QGrpcOperation6cancelEv": ["nothing", "address"],
+    "ritual_ZN14QGrpcOperationC1EN6QtGrpc13RpcDescriptorERK16QGrpcCallOptionsOSt8weak_ptrI20QAbstractGrpcChannelE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNKR14QGrpcOperation7contextEv": ["address", "address"],
+    "ritual_ZNR14QGrpcOperation7contextEv": ["address", "address"],
+    "ritual_ZN14QGrpcOperation12writeMessageERK16QProtobufMessage": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QGrpcOperation10writesDoneEv": ["nothing", "address"],
     "ritual_ZN14QGrpcOperation6d_funcEv": ["address", "address"],
     "ritual_ZNK14QGrpcOperation6d_funcEv": ["address", "address"],

@@ -36,6 +36,7 @@
     ],
     "ritual_ZNK11QFontEngine21preferTypoLineMetricsEv": ["bool", "address"],
     "ritual_ZNK11QFontEngine11isColorFontEv": ["bool", "address"],
+    "ritual_ZN11QFontEngine15isIgnorableCharEDi": ["bool", "unsigned int"],
     "ritual_ZN11QFontEngine18maxCachedGlyphSizeEv": ["int"],
     "ritual_ZNK11QFontEngine12emSquareSizeEv": ["address", "address"],
     "ritual_ZNK11QFontEngine10glyphIndexEj": [
@@ -52,6 +53,9 @@
     ],
     "ritual_ZN11QFontEngine15addGlyphsToPathEPjP11QFixedPointiP12QPainterPath6QFlagsIN9QTextItem10RenderFlagEE": [
       "nothing", "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN11QFontEngine17getGlyphPositionsERK12QGlyphLayoutRK10QTransform6QFlagsIN9QTextItem10RenderFlagEER15QVarLengthArrayIjLx256EERSA_I11QFixedPointLx256EE": [
+      "nothing", "address", "address", "address", "int", "address", "address"
     ],
     "ritual_ZN11QFontEngine16addOutlineToPathEddRK12QGlyphLayoutP12QPainterPath6QFlagsIN9QTextItem10RenderFlagEE": [
       "nothing", "address", "double", "double", "address", "address", "int"
@@ -142,6 +146,7 @@
     "ritual_ZNK11QFontEngine13cloneWithSizeEd": [
       "address", "address", "double"
     ],
+    "ritual_ZNK11QFontEngine6handleEv": ["address", "address"],
     "ritual_ZNK11QFontEngine12variableAxesEv": ["address", "address"],
     "ritual_ZNK11QFontEngine9glyphNameEj": [
       "text", "address", "unsigned int"
@@ -149,6 +154,8 @@
     "ritual_ZNK11QFontEngine9findGlyphE13QLatin1String": [
       "unsigned int", "address", "address"
     ],
+    "ritual_ZNK11QFontEngine12harfbuzzFontEv": ["address", "address"],
+    "ritual_ZNK11QFontEngine12harfbuzzFaceEv": ["address", "address"],
     "ritual_ZNK11QFontEngine14supportsScriptEN5QChar6ScriptE": [
       "bool", "address", "int"
     ],
@@ -158,6 +165,21 @@
     "ritual_ZN11QFontEngine17getPointInOutlineEjijP6QFixedS1_Pj": [
       "int", "address", "unsigned int", "int", "unsigned int", "address",
       "address", "address"
+    ],
+    "ritual_ZN11QFontEngine15clearGlyphCacheEPKv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QFontEngine13setGlyphCacheEPKvP21QFontEngineGlyphCache": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK11QFontEngine10glyphCacheEPKvNS_11GlyphFormatERK10QTransformRK6QColor": [
+      "address", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN11QFontEngine7getCMapEPKhjPbPi": [
+      "address", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZN11QFontEngine21getTrueTypeGlyphIndexEPKhij": [
+      "unsigned int", "address", "int", "unsigned int"
     ],
     "ritual_ZN11QFontEngine33convertToPostscriptFontFamilyNameERK10QByteArray": [
       "address", "address"
@@ -273,6 +295,7 @@
     "ritual_own_ZNK11QFontEngine13cloneWithSizeEd": [
       "address", "address", "double"
     ],
+    "ritual_own_ZNK11QFontEngine6handleEv": ["address", "address"],
     "ritual_own_ZNK11QFontEngine9glyphNameEj": [
       "text", "address", "unsigned int"
     ],

@@ -8,11 +8,47 @@
     "ritual_ZNK18qdesigner_internal16SignalSlotDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal16SignalSlotDialog2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialogC1EP27QDesignerDialogGuiInterfaceP7QWidgetNS0_9FocusModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialogD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog10showDialogERNS_20SignalSlotDialogDataES2_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog16editMetaDataBaseEP28QDesignerFormWindowInterfaceP7QObjectP7QWidgetNS0_9FocusModeE": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog17editPromotedClassEP28QDesignerFormEditorInterfaceRK7QStringP7QWidgetNS0_9FocusModeE": [
+      "bool", "address", "text", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog17editPromotedClassEP28QDesignerFormEditorInterfaceP7QObjectP7QWidgetNS0_9FocusModeE": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog27fakeMethodsFromMetaDataBaseEP28QDesignerFormEditorInterfaceP7QObjectR5QListI7QStringES8_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal16SignalSlotDialog25fakeMethodsToMetaDataBaseEP28QDesignerFormEditorInterfaceP7QObjectRK5QListI7QStringES9_": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog30existingMethodsFromMemberSheetEP28QDesignerFormEditorInterfaceP7QObjectR5QListI7QStringES8_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog18slotCheckSignatureERK7QStringPb": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16SignalSlotDialog17editPromotedClassEP28QDesignerFormEditorInterfaceRK7QStringP7QObjectP7QWidgetNS0_9FocusModeE": [
+      "bool", "address", "text", "address", "address", "int"
     ],
     "ritual_take_qdesigner_internal_SignalSlotDialog": [
       "bool", "address", "chars", "address"

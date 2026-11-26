@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QCommonStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QCommonStyle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QCommonStyle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QCommonStyle2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QCommonStyleC1Ev": ["address"],
     "ritual_ZN12QCommonStyleD1Ev": ["nothing", "address"],
@@ -47,6 +53,9 @@
     "ritual_ZNK12QCommonStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget": [
       "int", "address", "int", "int", "int", "address", "address"
     ],
+    "ritual_ZN12QCommonStyle6polishER8QPalette": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QCommonStyle6polishEP12QApplication": [
       "nothing", "address", "address"
     ],
@@ -58,6 +67,9 @@
     ],
     "ritual_ZN12QCommonStyle8unpolishEP12QApplication": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCommonStyleC1ER19QCommonStylePrivate": [
+      "address", "address"
     ],
     "ritual_ZN12QCommonStyle6d_funcEv": ["address", "address"],
     "ritual_ZNK12QCommonStyle6d_funcEv": ["address", "address"],

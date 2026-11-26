@@ -4,6 +4,13 @@
 #include <QtGui/qeventpoint.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QPointer>
+#include <QtCore/QObject>
+#include <QtGui/QEventPoint>
+#include <QtCore/QEvent>
+#include <QtCore/QFlags>
+#include <QtCore/Qt>
 
 //  A QPointerEvent that Python can take functions over in. Every QPointerEvent
 //  Python makes is one. Each function below asks the Python
@@ -17,6 +24,7 @@ typedef void (*CuteQPointerEventCall5)(const void *, bool, int *);
 class CuteQPointerEvent : public QPointerEvent {
 public:
   using QPointerEvent::QPointerEvent;
+  CuteQPointerEvent(const QPointerEvent & other) : QPointerEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -114,6 +122,20 @@ public:
   }
 };
 
+//  QPointerEvent::QPointerEvent(const QPointerEvent &a0)
+extern "C" Q_DECL_EXPORT
+QPointerEvent *ritual_ZN13QPointerEventC1ERKS_(const QPointerEvent *a0) {
+  return new CuteQPointerEvent(*a0);
+}
+
+//  QPointerEvent &QPointerEvent::operator=(const QPointerEvent &other)
+extern "C" Q_DECL_EXPORT
+QPointerEvent *ritual_ZN13QPointerEventaSERKS_(
+    QPointerEvent *self,
+    const QPointerEvent *other) {
+  return &(self->operator=(*other));
+}
+
 //  QPointerEvent *QPointerEvent::clone() const
 extern "C" Q_DECL_EXPORT
 QPointerEvent *ritual_ZNK13QPointerEvent5cloneEv(const QPointerEvent *self) {
@@ -168,6 +190,14 @@ extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK13QPointerEvent10pointCountEv(
     const QPointerEvent *self) {
   return self->pointCount();
+}
+
+//  QEventPoint &QPointerEvent::point(qsizetype i)
+extern "C" Q_DECL_EXPORT
+QEventPoint *ritual_ZN13QPointerEvent5pointEx(
+    QPointerEvent *self,
+    qsizetype i) {
+  return &(self->point(i));
 }
 
 //  const QList<QEventPoint> &QPointerEvent::points() const
@@ -243,6 +273,15 @@ void ritual_ZN13QPointerEvent19setExclusiveGrabberERK11QEventPointP7QObject(
   self->setExclusiveGrabber(*point, exclusiveGrabber);
 }
 
+//  QList<QPointer<QObject>> QPointerEvent::passiveGrabbers(const QEventPoint
+//      &point) const
+extern "C" Q_DECL_EXPORT
+QList<QPointer<QObject>> *ritual_ZNK13QPointerEvent15passiveGrabbersERK11QEventPoint(
+    const QPointerEvent *self,
+    const QEventPoint *point) {
+  return new QList<QPointer<QObject>>(self->passiveGrabbers(*point));
+}
+
 //  void QPointerEvent::clearPassiveGrabbers(const QEventPoint &point)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QPointerEvent20clearPassiveGrabbersERK11QEventPoint(
@@ -269,6 +308,21 @@ bool ritual_ZN13QPointerEvent20removePassiveGrabberERK11QEventPointP7QObject(
     const QEventPoint *point,
     QObject *grabber) {
   return self->removePassiveGrabber(*point, grabber);
+}
+
+//  QPointerEvent::QPointerEvent(Type type, SinglePointEventTag a1, const
+//      QInputDevice *dev, Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+QPointerEvent *ritual_ZN13QPointerEventC1EN6QEvent4TypeENS0_19SinglePointEventTagEPK12QInputDevice6QFlagsIN2Qt16KeyboardModifierEE(
+    QEvent::Type type,
+    const QEvent::SinglePointEventTag *a1,
+    const QInputDevice *dev,
+    int modifiers) {
+  return new CuteQPointerEvent(
+      type,
+      *a1,
+      dev,
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
 }
 
 //  a Python function taken by a CuteQPointerEvent, for the function named by
@@ -322,4 +376,11 @@ void ritual_own_ZN13QPointerEvent11setAcceptedEb(
     QPointerEvent *self,
     bool accepted) {
   self->QPointerEvent::setAccepted(accepted);
+}
+
+//  a QList<QPointer<QObject>> a ritual of QPointerEvent gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPointerEvent__QList_QPointer_QObject(
+    QList<QPointer<QObject>> *self) {
+  delete self;
 }

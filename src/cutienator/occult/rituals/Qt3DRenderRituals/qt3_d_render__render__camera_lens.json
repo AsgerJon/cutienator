@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render10CameraLens10projectionEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render10CameraLens8exposureEv": [
+      "float",
+      "address"
+    ],
+    "ritual_take_Qt3DRender_Render_CameraLens": [
+      "bool",
+      "address",
+      "chars",
+      "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render10CameraLens16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing",
+      "address",
+      "address",
+      "bool"
+    ]
+  }
+}

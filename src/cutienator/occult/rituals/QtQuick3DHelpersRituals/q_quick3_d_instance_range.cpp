@@ -294,6 +294,25 @@ const QMetaObject *ritual_ZNK21QQuick3DInstanceRange10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DInstanceRange::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DInstanceRange11qt_metacastEPKc(
+    QQuick3DInstanceRange *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DInstanceRange::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DInstanceRange11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DInstanceRange *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DInstanceRange::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuick3DInstanceRange2trEPKcS1_i(
@@ -359,6 +378,34 @@ void ritual_ZN21QQuick3DInstanceRange15setProportionalEb(
     QQuick3DInstanceRange *self,
     bool proportional) {
   self->setProportional(proportional);
+}
+
+//  void QQuick3DInstanceRange::fromChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DInstanceRange11fromChangedEv(
+    QQuick3DInstanceRange *self) {
+  self->fromChanged();
+}
+
+//  void QQuick3DInstanceRange::toChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DInstanceRange9toChangedEv(
+    QQuick3DInstanceRange *self) {
+  self->toChanged();
+}
+
+//  void QQuick3DInstanceRange::proportionalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DInstanceRange19proportionalChangedEv(
+    QQuick3DInstanceRange *self) {
+  self->proportionalChanged();
+}
+
+//  void QQuick3DInstanceRange::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DInstanceRange7changedEv(
+    QQuick3DInstanceRange *self) {
+  self->changed();
 }
 
 //  QSSGRenderGraphObject

@@ -8,8 +8,17 @@
     "ritual_ZNK24QQuickShapeCurveRunnable10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickShapeCurveRunnable11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickShapeCurveRunnable11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickShapeCurveRunnableD1Ev": ["nothing", "address"],
     "ritual_ZN24QQuickShapeCurveRunnable3runEv": ["nothing", "address"],
+    "ritual_ZN24QQuickShapeCurveRunnable4doneEPS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_QQuickShapeCurveRunnable_QRunnable": ["address", "address"],
     "ritual_take_QQuickShapeCurveRunnable": [
       "bool", "address", "chars", "address"

@@ -72,6 +72,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/dialogs/qfiledialog.cpp, line 4183, as _ZN19QFileDialogLineEdit13keyPressEventEP9QKeyEvent
 inline void QFileDialogLineEdit::keyPressEvent(QKeyEvent *e)
 {

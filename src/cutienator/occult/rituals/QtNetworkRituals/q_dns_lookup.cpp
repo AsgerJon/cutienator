@@ -10,6 +10,10 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QString>
+#include <QtNetwork/QDnsLookup>
+#include <QtNetwork/QHostAddress>
 
 //  A QDnsLookup that Python can take functions over in. Every QDnsLookup
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +189,24 @@ const QMetaObject *ritual_ZNK10QDnsLookup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDnsLookup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QDnsLookup11qt_metacastEPKc(
+    QDnsLookup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDnsLookup::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QDnsLookup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDnsLookup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDnsLookup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QDnsLookup2trEPKcS1_i(
@@ -295,6 +317,12 @@ void ritual_ZN10QDnsLookup7setNameERK7QString(
   self->setName(*name);
 }
 
+//  QBindable<QString> QDnsLookup::bindableName()
+extern "C" Q_DECL_EXPORT
+QBindable<QString> *ritual_ZN10QDnsLookup12bindableNameEv(QDnsLookup *self) {
+  return new QBindable<QString>(self->bindableName());
+}
+
 //  Type QDnsLookup::type() const
 extern "C" Q_DECL_EXPORT
 QDnsLookup::Type ritual_ZNK10QDnsLookup4typeEv(const QDnsLookup *self) {
@@ -307,6 +335,13 @@ void ritual_ZN10QDnsLookup7setTypeENS_4TypeE(
     QDnsLookup *self,
     QDnsLookup::Type a0) {
   self->setType(a0);
+}
+
+//  QBindable<Type> QDnsLookup::bindableType()
+extern "C" Q_DECL_EXPORT
+QBindable<QDnsLookup::Type> *ritual_ZN10QDnsLookup12bindableTypeEv(
+    QDnsLookup *self) {
+  return new QBindable<QDnsLookup::Type>(self->bindableType());
 }
 
 //  QHostAddress QDnsLookup::nameserver() const
@@ -323,6 +358,13 @@ void ritual_ZN10QDnsLookup13setNameserverERK12QHostAddress(
   self->setNameserver(*nameserver);
 }
 
+//  QBindable<QHostAddress> QDnsLookup::bindableNameserver()
+extern "C" Q_DECL_EXPORT
+QBindable<QHostAddress> *ritual_ZN10QDnsLookup18bindableNameserverEv(
+    QDnsLookup *self) {
+  return new QBindable<QHostAddress>(self->bindableNameserver());
+}
+
 //  quint16 QDnsLookup::nameserverPort() const
 extern "C" Q_DECL_EXPORT
 quint16 ritual_ZNK10QDnsLookup14nameserverPortEv(const QDnsLookup *self) {
@@ -335,6 +377,13 @@ void ritual_ZN10QDnsLookup17setNameserverPortEt(
     QDnsLookup *self,
     quint16 port) {
   self->setNameserverPort(port);
+}
+
+//  QBindable<quint16> QDnsLookup::bindableNameserverPort()
+extern "C" Q_DECL_EXPORT
+QBindable<quint16> *ritual_ZN10QDnsLookup22bindableNameserverPortEv(
+    QDnsLookup *self) {
+  return new QBindable<quint16>(self->bindableNameserverPort());
 }
 
 //  Protocol QDnsLookup::nameserverProtocol() const
@@ -350,6 +399,14 @@ void ritual_ZN10QDnsLookup21setNameserverProtocolENS_8ProtocolE(
     QDnsLookup *self,
     QDnsLookup::Protocol protocol) {
   self->setNameserverProtocol(protocol);
+}
+
+//  QBindable<Protocol> QDnsLookup::bindableNameserverProtocol()
+extern "C" Q_DECL_EXPORT
+QBindable<QDnsLookup::Protocol> *ritual_ZN10QDnsLookup26bindableNameserverProtocolEv(
+    QDnsLookup *self) {
+  return new QBindable<QDnsLookup::Protocol>(
+      self->bindableNameserverProtocol());
 }
 
 //  void QDnsLookup::setNameserver(Protocol protocol, const QHostAddress
@@ -475,6 +532,52 @@ void ritual_ZN10QDnsLookup6lookupEv(QDnsLookup *self) {
   self->lookup();
 }
 
+//  void QDnsLookup::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QDnsLookup8finishedEv(QDnsLookup *self) {
+  self->finished();
+}
+
+//  void QDnsLookup::nameChanged(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QDnsLookup11nameChangedERK7QString(
+    QDnsLookup *self,
+    const QString *name) {
+  self->nameChanged(*name);
+}
+
+//  void QDnsLookup::typeChanged(QDnsLookup::Type type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QDnsLookup11typeChangedENS_4TypeE(
+    QDnsLookup *self,
+    QDnsLookup::Type type) {
+  self->typeChanged(type);
+}
+
+//  void QDnsLookup::nameserverChanged(const QHostAddress &nameserver)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QDnsLookup17nameserverChangedERK12QHostAddress(
+    QDnsLookup *self,
+    const QHostAddress *nameserver) {
+  self->nameserverChanged(*nameserver);
+}
+
+//  void QDnsLookup::nameserverPortChanged(quint16 port)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QDnsLookup21nameserverPortChangedEt(
+    QDnsLookup *self,
+    quint16 port) {
+  self->nameserverPortChanged(port);
+}
+
+//  void QDnsLookup::nameserverProtocolChanged(QDnsLookup::Protocol protocol)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QDnsLookup25nameserverProtocolChangedENS_8ProtocolE(
+    QDnsLookup *self,
+    QDnsLookup::Protocol protocol) {
+  self->nameserverProtocolChanged(protocol);
+}
+
 //  QDnsLookupPrivate *QDnsLookup::d_func()
 extern "C" Q_DECL_EXPORT
 QDnsLookupPrivate *ritual_ZN10QDnsLookup6d_funcEv(QDnsLookup *self) {
@@ -493,6 +596,39 @@ const QDnsLookupPrivate *ritual_ZNK10QDnsLookup6d_funcEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QDnsLookup(QDnsLookup *self, const char *key, void *call) {
   return static_cast<CuteQDnsLookup *>(self)->take(key, call);
+}
+
+//  a QBindable<QString> a ritual of QDnsLookup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDnsLookup__QBindable_QString(QBindable<QString> *self) {
+  delete self;
+}
+
+//  a QBindable<QDnsLookup::Type> a ritual of QDnsLookup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDnsLookup__QBindable_QDnsLookup_Type(
+    QBindable<QDnsLookup::Type> *self) {
+  delete self;
+}
+
+//  a QBindable<QHostAddress> a ritual of QDnsLookup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDnsLookup__QBindable_QHostAddress(
+    QBindable<QHostAddress> *self) {
+  delete self;
+}
+
+//  a QBindable<quint16> a ritual of QDnsLookup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDnsLookup__QBindable_quint16(QBindable<quint16> *self) {
+  delete self;
+}
+
+//  a QBindable<QDnsLookup::Protocol> a ritual of QDnsLookup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDnsLookup__QBindable_QDnsLookup_Protocol(
+    QBindable<QDnsLookup::Protocol> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(dnslookup)

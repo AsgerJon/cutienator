@@ -34,10 +34,30 @@ QSslError *ritual_ZN9QSslErrorC1ERKS_(const QSslError *other) {
   return new QSslError(*other);
 }
 
+//  void QSslError::swap(QSslError &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSslError4swapERS_(QSslError *self, QSslError *other) {
+  self->swap(*other);
+}
+
 //  QSslError::~QSslError()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QSslErrorD1Ev(QSslError *self) {
   delete self;
+}
+
+//  QSslError &QSslError::operator=(QSslError &&other)
+extern "C" Q_DECL_EXPORT
+QSslError *ritual_ZN9QSslErroraSEOS_(QSslError *self, QSslError *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QSslError &QSslError::operator=(const QSslError &other)
+extern "C" Q_DECL_EXPORT
+QSslError *ritual_ZN9QSslErroraSERKS_(
+    QSslError *self,
+    const QSslError *other) {
+  return &(self->operator=(*other));
 }
 
 //  bool QSslError::operator==(const QSslError &other) const

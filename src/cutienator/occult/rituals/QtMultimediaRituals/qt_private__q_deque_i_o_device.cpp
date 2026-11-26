@@ -21,6 +21,15 @@ qint64 ritual_ZNK9QtPrivate14QDequeIODevice14bytesAvailableEv(
   return self->bytesAvailable();
 }
 
+//  qint64 QtPrivate::QDequeIODevice::readData(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN9QtPrivate14QDequeIODevice8readDataEPcx(
+    QtPrivate::QDequeIODevice *self,
+    char *data,
+    qint64 maxlen) {
+  return self->readData(data, maxlen);
+}
+
 //  qint64 QtPrivate::QDequeIODevice::writeData(const char *data, qint64 len)
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZN9QtPrivate14QDequeIODevice9writeDataEPKcx(

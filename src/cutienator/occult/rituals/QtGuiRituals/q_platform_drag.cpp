@@ -117,6 +117,26 @@ public:
 #endif  // QT_CONFIG(draganddrop)
 };
 
+//  QPlatformDragPrivate *QPlatformDrag::d_func()
+extern "C" Q_DECL_EXPORT
+QPlatformDragPrivate *ritual_ZN13QPlatformDrag6d_funcEv(
+    QPlatformDrag *self) {
+  return self->d_func();
+}
+
+//  const QPlatformDragPrivate *QPlatformDrag::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPlatformDragPrivate *ritual_ZNK13QPlatformDrag6d_funcEv(
+    const QPlatformDrag *self) {
+  return self->d_func();
+}
+
+//  QPlatformDrag::QPlatformDrag()
+extern "C" Q_DECL_EXPORT
+QPlatformDrag *ritual_ZN13QPlatformDragC1Ev() {
+  return new CuteQPlatformDrag();
+}
+
 //  QPlatformDrag::~QPlatformDrag()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QPlatformDragD1Ev(QPlatformDrag *self) {

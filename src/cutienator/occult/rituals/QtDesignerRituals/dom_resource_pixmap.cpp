@@ -20,6 +20,24 @@ void ritual_ZN17DomResourcePixmapD1Ev(DomResourcePixmap *self) {
   delete self;
 }
 
+//  void DomResourcePixmap::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DomResourcePixmap4readER16QXmlStreamReader(
+    DomResourcePixmap *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomResourcePixmap::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17DomResourcePixmap5writeER16QXmlStreamWriterRK7QString(
+    const DomResourcePixmap *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  QString DomResourcePixmap::text() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK17DomResourcePixmap4textEv(

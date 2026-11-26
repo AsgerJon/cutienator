@@ -20,21 +20,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 95, as _ZN13LocalServerIoC1EP12QLocalSocketP7QObject
-inline LocalServerIo::LocalServerIo(QLocalSocket *conn, QObject *parent)
-    : QtROServerIoDevice(parent), m_connection(conn)
-{
-    m_connection->setParent(this);
-    connect(conn, &QIODevice::readyRead, this, &QtROServerIoDevice::readyRead);
-    connect(conn, &QLocalSocket::disconnected, this, &QtROServerIoDevice::disconnected);
-}
-
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 119, as _ZN15LocalServerImplD1Ev
-inline LocalServerImpl::~LocalServerImpl()
-{
-    m_server.close();
-}
-
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 132, as _ZNK15LocalServerImpl21hasPendingConnectionsEv
 inline bool LocalServerImpl::hasPendingConnections() const
 {
@@ -91,6 +76,15 @@ inline QAbstractSocket::SocketError LocalServerImpl::serverError() const
 inline void LocalServerImpl::close()
 {
     m_server.close();
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 95, as _ZN13LocalServerIoC1EP12QLocalSocketP7QObject
+inline LocalServerIo::LocalServerIo(QLocalSocket *conn, QObject *parent)
+    : QtROServerIoDevice(parent), m_connection(conn)
+{
+    m_connection->setParent(this);
+    connect(conn, &QIODevice::readyRead, this, &QtROServerIoDevice::readyRead);
+    connect(conn, &QLocalSocket::disconnected, this, &QtROServerIoDevice::disconnected);
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 174, as _ZN15LocalServerImpl16setSocketOptionsE6QFlagsIN12QLocalServer12SocketOptionEE
@@ -368,6 +362,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK15LocalServerImpl10metaObjectEv(
     const LocalServerImpl *self) {
   return self->metaObject();
+}
+
+//  void *LocalServerImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15LocalServerImpl11qt_metacastEPKc(
+    LocalServerImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int LocalServerImpl::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15LocalServerImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    LocalServerImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  LocalServerImpl::~LocalServerImpl()

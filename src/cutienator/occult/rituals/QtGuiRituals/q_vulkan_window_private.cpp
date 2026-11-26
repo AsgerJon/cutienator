@@ -6,8 +6,10 @@
 #if QT_CONFIG(vulkan)
 #if (QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)) || defined(Q_QDOC)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(vulkan)
 #include <QtGui/QtGui>
 #include <QtGui/qvulkanwindow.h>
+#endif
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qvulkanwindow_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -238,6 +240,39 @@ void ritual_ZN20QVulkanWindowPrivate17recreateSwapChainEv(
   self->recreateSwapChain();
 }
 
+//  uint32_t QVulkanWindowPrivate::chooseTransientImageMemType(VkImage img,
+//      uint32_t startIndex)
+extern "C" Q_DECL_EXPORT
+uint32_t ritual_ZN20QVulkanWindowPrivate27chooseTransientImageMemTypeEP9VkImage_Tj(
+    QVulkanWindowPrivate *self,
+    VkImage img,
+    uint32_t startIndex) {
+  return self->chooseTransientImageMemType(img, startIndex);
+}
+
+//  bool QVulkanWindowPrivate::createTransientImage(VkFormat format,
+//      VkImageUsageFlags usage, VkImageAspectFlags aspectMask, VkImage
+//      *images, VkDeviceMemory *mem, VkImageView *views, int count)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QVulkanWindowPrivate20createTransientImageE8VkFormatjjPP9VkImage_TPP16VkDeviceMemory_TPP13VkImageView_Ti(
+    QVulkanWindowPrivate *self,
+    const VkFormat *format,
+    VkImageUsageFlags usage,
+    VkImageAspectFlags aspectMask,
+    VkImage *images,
+    VkDeviceMemory *mem,
+    VkImageView *views,
+    int count) {
+  return self->createTransientImage(
+      *format,
+      usage,
+      aspectMask,
+      images,
+      mem,
+      views,
+      count);
+}
+
 //  bool QVulkanWindowPrivate::createSwapChainResources()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QVulkanWindowPrivate24createSwapChainResourcesEv(
@@ -270,6 +305,14 @@ void ritual_ZN20QVulkanWindowPrivate10beginFrameEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QVulkanWindowPrivate8endFrameEv(QVulkanWindowPrivate *self) {
   self->endFrame();
+}
+
+//  bool QVulkanWindowPrivate::checkDeviceLost(VkResult err)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QVulkanWindowPrivate15checkDeviceLostE8VkResult(
+    QVulkanWindowPrivate *self,
+    const VkResult *err) {
+  return self->checkDeviceLost(*err);
 }
 
 //  bool QVulkanWindowPrivate::addReadback()

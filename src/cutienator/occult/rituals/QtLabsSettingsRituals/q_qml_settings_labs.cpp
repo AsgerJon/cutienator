@@ -225,6 +225,25 @@ const QMetaObject *ritual_ZNK16QQmlSettingsLabs10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlSettingsLabs::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQmlSettingsLabs11qt_metacastEPKc(
+    QQmlSettingsLabs *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlSettingsLabs::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQmlSettingsLabs11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlSettingsLabs *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlSettingsLabs::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQmlSettingsLabs2trEPKcS1_i(
@@ -321,6 +340,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQmlSettingsLabs17componentCompleteEv(
     QQmlSettingsLabs *self) {
   self->componentComplete();
+}
+
+//  QQmlSettingsLabsPrivate *QQmlSettingsLabs::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlSettingsLabsPrivate *ritual_ZN16QQmlSettingsLabs6d_funcEv(
+    QQmlSettingsLabs *self) {
+  return self->d_func();
+}
+
+//  const QQmlSettingsLabsPrivate *QQmlSettingsLabs::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlSettingsLabsPrivate *ritual_ZNK16QQmlSettingsLabs6d_funcEv(
+    const QQmlSettingsLabs *self) {
+  return self->d_func();
 }
 
 //  QQmlSettingsLabs as the QQmlParserStatus it is built on

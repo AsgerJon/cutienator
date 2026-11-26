@@ -7,7 +7,16 @@
   "rows": {
     "ritual_ZN17QGeoSatelliteInfoC1Ev": ["address"],
     "ritual_ZN17QGeoSatelliteInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN17QGeoSatelliteInfoC1ER24QGeoSatelliteInfoPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN17QGeoSatelliteInfoC1EOS_": ["address", "address"],
     "ritual_ZN17QGeoSatelliteInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN17QGeoSatelliteInfoaSERKS_": ["address", "address", "address"],
+    "ritual_ZN17QGeoSatelliteInfoaSEOS_": ["address", "address", "address"],
+    "ritual_ZN17QGeoSatelliteInfo4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK17QGeoSatelliteInfoS1_": ["bool", "address", "address"],
     "ritual_ZneRK17QGeoSatelliteInfoS1_": ["bool", "address", "address"],
     "ritual_ZN17QGeoSatelliteInfo18setSatelliteSystemENS_15SatelliteSystemE": [
@@ -44,6 +53,18 @@
       "address", "address", "address"
     ],
     "ritual_ZN17QGeoSatelliteInfo14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK17QGeoSatelliteInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR17QGeoSatelliteInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QGeoSatelliteInfo13dataStreamOutER11QDataStreamRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QGeoSatelliteInfo12dataStreamInER11QDataStreamRS_": [
       "address", "address", "address"
     ],
     "ritual_list_make_QGeoSatelliteInfo": ["address"],

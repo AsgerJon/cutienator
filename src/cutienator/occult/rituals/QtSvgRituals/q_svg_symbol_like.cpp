@@ -78,10 +78,49 @@ public:
   }
 };
 
+//  QSvgSymbolLike::QSvgSymbolLike(QSvgNode *parent, QRectF bounds, QRectF
+//      viewBox, QPointF refP, QSvgSymbolLike::PreserveAspectRatios
+//      pAspectRatios, QSvgSymbolLike::Overflow overflow)
+extern "C" Q_DECL_EXPORT
+QSvgSymbolLike *ritual_ZN14QSvgSymbolLikeC1EP8QSvgNode6QRectFS2_7QPointF6QFlagsINS_19PreserveAspectRatioEENS_8OverflowE(
+    QSvgNode *parent,
+    const QRectF *bounds,
+    const QRectF *viewBox,
+    const QPointF *refP,
+    int pAspectRatios,
+    QSvgSymbolLike::Overflow overflow) {
+  return new CuteQSvgSymbolLike(
+      parent,
+      *bounds,
+      *viewBox,
+      *refP,
+      QFlags<QSvgSymbolLike::PreserveAspectRatio>::fromInt(pAspectRatios),
+      overflow);
+}
+
 //  QSvgSymbolLike::~QSvgSymbolLike()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSvgSymbolLikeD1Ev(QSvgSymbolLike *self) {
   delete self;
+}
+
+//  void QSvgSymbolLike::drawCommand(QPainter *a0, QSvgExtraStates &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSvgSymbolLike11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgSymbolLike *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  self->drawCommand(a0, *a1);
+}
+
+//  QRectF QSvgSymbolLike::decoratedInternalBounds(QPainter *p,
+//      QSvgExtraStates &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK14QSvgSymbolLike23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgSymbolLike *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedInternalBounds(p, *states));
 }
 
 //  bool QSvgSymbolLike::requiresGroupRendering() const

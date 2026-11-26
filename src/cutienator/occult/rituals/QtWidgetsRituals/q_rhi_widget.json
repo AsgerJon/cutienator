@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QRhiWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QRhiWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QRhiWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QRhiWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QRhiWidget6d_funcEv": ["address", "address"],
     "ritual_ZNK10QRhiWidget6d_funcEv": ["address", "address"],
@@ -38,6 +44,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK10QRhiWidget15grabFramebufferEv": ["address", "address"],
+    "ritual_ZN10QRhiWidgetC1ER17QRhiWidgetPrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK10QRhiWidget25isAutoRenderTargetEnabledEv": [
       "bool", "address"
     ],
@@ -64,6 +73,20 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN10QRhiWidget5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN10QRhiWidget14frameSubmittedEv": ["nothing", "address"],
+    "ritual_ZN10QRhiWidget12renderFailedEv": ["nothing", "address"],
+    "ritual_ZN10QRhiWidget18sampleCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QRhiWidget24colorBufferFormatChangedENS_13TextureFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QRhiWidget27fixedColorBufferSizeChangedERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QRhiWidget23mirrorVerticallyChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_QRhiWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZN10QRhiWidget10initializeEP17QRhiCommandBuffer": [
       "nothing", "address", "address"

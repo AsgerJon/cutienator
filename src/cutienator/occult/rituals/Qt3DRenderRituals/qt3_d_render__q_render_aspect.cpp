@@ -2,8 +2,12 @@
 //  Qt3DRender/qrenderaspect.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qrenderaspect.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <vector>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DRender::QRenderAspect that Python can take functions over in. Every Qt3DRender::QRenderAspect
 //  Python makes is one. Each function below asks the Python
@@ -275,6 +279,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender13QRenderAspect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QRenderAspect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender13QRenderAspect11qt_metacastEPKc(
+    Qt3DRender::QRenderAspect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QRenderAspect::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender13QRenderAspect11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QRenderAspect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QRenderAspect::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -283,6 +306,38 @@ QString *ritual_ZN10Qt3DRender13QRenderAspect2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QRenderAspect::tr(s, c, n));
+}
+
+//  Qt3DRender::QRenderAspect::QRenderAspect(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderAspect *ritual_ZN10Qt3DRender13QRenderAspectC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_QRenderAspect(parent);
+}
+
+//  Qt3DRender::QRenderAspect::QRenderAspect(SubmissionType submissionType,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderAspect *ritual_ZN10Qt3DRender13QRenderAspectC1ENS0_14SubmissionTypeEP7QObject(
+    Qt3DRender::QRenderAspect::SubmissionType submissionType,
+    QObject *parent) {
+  return new CuteQt3DRender_QRenderAspect(submissionType, parent);
+}
+
+//  Qt3DRender::QRenderAspect::~QRenderAspect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QRenderAspectD1Ev(
+    Qt3DRender::QRenderAspect *self) {
+  delete self;
+}
+
+//  Qt3DRender::QRenderAspect::QRenderAspect(QRenderAspectPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderAspect *ritual_ZN10Qt3DRender13QRenderAspectC1ERNS_20QRenderAspectPrivateEP7QObject(
+    Qt3DRender::QRenderAspectPrivate *dd,
+    QObject *parent) {
+  return new CuteQt3DRender_QRenderAspect(*dd, parent);
 }
 
 //  QRenderAspectPrivate *Qt3DRender::QRenderAspect::d_func()
@@ -297,6 +352,52 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QRenderAspectPrivate *ritual_ZNK10Qt3DRender13QRenderAspect6d_funcEv(
     const Qt3DRender::QRenderAspect *self) {
   return self->d_func();
+}
+
+//  std::vector<Qt3DCore::QAspectJobPtr>
+//      Qt3DRender::QRenderAspect::jobsToExecute(qint64 time)
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZN10Qt3DRender13QRenderAspect13jobsToExecuteEx(
+    Qt3DRender::QRenderAspect *self,
+    qint64 time) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(self->jobsToExecute(time));
+}
+
+//  QVariant Qt3DRender::QRenderAspect::executeCommand(const QStringList
+//      &args)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN10Qt3DRender13QRenderAspect14executeCommandERK5QListI7QStringE(
+    Qt3DRender::QRenderAspect *self,
+    const QList<QString> *args) {
+  return new QVariant(self->executeCommand(*args));
+}
+
+//  void Qt3DRender::QRenderAspect::onRegistered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QRenderAspect12onRegisteredEv(
+    Qt3DRender::QRenderAspect *self) {
+  self->onRegistered();
+}
+
+//  void Qt3DRender::QRenderAspect::onUnregistered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QRenderAspect14onUnregisteredEv(
+    Qt3DRender::QRenderAspect *self) {
+  self->onUnregistered();
+}
+
+//  void Qt3DRender::QRenderAspect::onEngineStartup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QRenderAspect15onEngineStartupEv(
+    Qt3DRender::QRenderAspect *self) {
+  self->onEngineStartup();
+}
+
+//  QStringList Qt3DRender::QRenderAspect::dependencies() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10Qt3DRender13QRenderAspect12dependenciesEv(
+    const Qt3DRender::QRenderAspect *self) {
+  return new QList<QString>(self->dependencies());
 }
 
 //  a Python function taken by a CuteQt3DRender_QRenderAspect, for the
@@ -328,4 +429,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN10Qt3DRender13QRenderAspect15onEngineStartupEv(
     Qt3DRender::QRenderAspect *self) {
   self->Qt3DRender::QRenderAspect::onEngineStartup();
+}
+
+//  a std::vector<Qt3DCore::QAspectJobPtr> a ritual of
+//      Qt3DRender::QRenderAspect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QRenderAspect__std_vector_Qt3DCore_QAspectJobPtr(
+    std::vector<Qt3DCore::QAspectJobPtr> *self) {
+  delete self;
 }

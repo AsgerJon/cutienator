@@ -201,6 +201,16 @@ public:
   }
 };
 
+//  QQmlJS::AST::ClassElementList::ClassElementList(PatternProperty
+//      *property, bool isStatic)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ClassElementList *ritual_ZN6QQmlJS3AST16ClassElementListC1EPNS0_15PatternPropertyEb(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::PatternProperty *property,
+    bool isStatic) {
+  return new (pool) CuteQQmlJS_AST_ClassElementList(property, isStatic);
+}
+
 //  ClassElementList *QQmlJS::AST::ClassElementList::append(ClassElementList
 //      *n)
 extern "C" Q_DECL_EXPORT
@@ -208,6 +218,14 @@ QQmlJS::AST::ClassElementList *ritual_ZN6QQmlJS3AST16ClassElementList6appendEPS1
     QQmlJS::AST::ClassElementList *self,
     QQmlJS::AST::ClassElementList *n) {
   return self->append(n);
+}
+
+//  void QQmlJS::AST::ClassElementList::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST16ClassElementList7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ClassElementList *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  SourceLocation QQmlJS::AST::ClassElementList::firstSourceLocation() const
@@ -222,6 +240,13 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST16ClassElementList18lastSourceLocationEv(
     const QQmlJS::AST::ClassElementList *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  ClassElementList *QQmlJS::AST::ClassElementList::finish()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ClassElementList *ritual_ZN6QQmlJS3AST16ClassElementList6finishEv(
+    QQmlJS::AST::ClassElementList *self) {
+  return self->finish();
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_ClassElementList, for the

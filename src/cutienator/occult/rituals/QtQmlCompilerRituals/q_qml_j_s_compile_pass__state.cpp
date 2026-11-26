@@ -72,6 +72,22 @@ void ritual_ZN17QQmlJSCompilePass5State18addReadAccumulatorE21QQmlJSRegisterCont
   self->addReadAccumulator(*reg);
 }
 
+//  VirtualRegisters QQmlJSCompilePass::State::takeReadRegisters() const
+extern "C" Q_DECL_EXPORT
+QQmlJSCompilePass::VirtualRegisters *ritual_ZNK17QQmlJSCompilePass5State17takeReadRegistersEv(
+    const QQmlJSCompilePass::State *self) {
+  return new QQmlJSCompilePass::VirtualRegisters(self->takeReadRegisters());
+}
+
+//  void QQmlJSCompilePass::State::setReadRegisters(VirtualRegisters
+//      readReagisters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlJSCompilePass5State16setReadRegistersE8QFlatMapIiNS_15VirtualRegisterESt4lessIiE5QListIiES5_IS2_EE(
+    QQmlJSCompilePass::State *self,
+    const QQmlJSCompilePass::VirtualRegisters *readReagisters) {
+  self->setReadRegisters(*readReagisters);
+}
+
 //  QQmlJSRegisterContent QQmlJSCompilePass::State::readRegister(int
 //      registerIndex) const
 extern "C" Q_DECL_EXPORT
@@ -207,5 +223,13 @@ void ritual_ZN17QQmlJSCompilePass5State15applyAnnotationERKNS_21InstructionAnnot
 //  QQmlJSCompilePass::State::~State()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQmlJSCompilePass5StateD1Ev(QQmlJSCompilePass::State *self) {
+  delete self;
+}
+
+//  a QQmlJSCompilePass::VirtualRegisters a ritual of
+//      QQmlJSCompilePass::State gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSCompilePass_State__QQmlJSCompilePass_VirtualRegisters(
+    QQmlJSCompilePass::VirtualRegisters *self) {
   delete self;
 }

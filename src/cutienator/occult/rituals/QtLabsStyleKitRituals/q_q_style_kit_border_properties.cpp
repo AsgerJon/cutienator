@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK26QQStyleKitBorderProperties10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitBorderProperties::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQStyleKitBorderProperties11qt_metacastEPKc(
+    QQStyleKitBorderProperties *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitBorderProperties::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQStyleKitBorderProperties11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitBorderProperties *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQStyleKitBorderProperties::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -239,6 +258,20 @@ void ritual_ZN26QQStyleKitBorderProperties8setColorERK6QColor(
     QQStyleKitBorderProperties *self,
     const QColor *color) {
   self->setColor(*color);
+}
+
+//  void QQStyleKitBorderProperties::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitBorderProperties12widthChangedEv(
+    QQStyleKitBorderProperties *self) {
+  self->widthChanged();
+}
+
+//  void QQStyleKitBorderProperties::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitBorderProperties12colorChangedEv(
+    QQStyleKitBorderProperties *self) {
+  self->colorChanged();
 }
 
 //  a Python function taken by a CuteQQStyleKitBorderProperties, for the

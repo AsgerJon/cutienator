@@ -4,6 +4,17 @@
 #include <QtCore/qjsonobject.h>
 #include <QtCore/qlist.h>
 
+//  QStaticPlugin::QStaticPlugin(QtPluginInstanceFunction i,
+//      QtPluginMetaDataFunction m)
+extern "C" Q_DECL_EXPORT
+QStaticPlugin *ritual_ZN13QStaticPluginC1EPFP7QObjectvEPF15QPluginMetaDatavE(
+    void *i,
+    void *m) {
+  return new QStaticPlugin(
+      reinterpret_cast<QtPluginInstanceFunction>(i),
+      reinterpret_cast<QtPluginMetaDataFunction>(m));
+}
+
 //  QJsonObject QStaticPlugin::metaData() const
 extern "C" Q_DECL_EXPORT
 QJsonObject *ritual_ZNK13QStaticPlugin8metaDataEv(

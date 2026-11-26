@@ -16,7 +16,9 @@
 #include <QtGui/qpen.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qlocale.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -194,6 +196,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK14ChartPresenter10metaObjectEv(
     const ChartPresenter *self) {
   return self->metaObject();
+}
+
+//  void *ChartPresenter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14ChartPresenter11qt_metacastEPKc(
+    ChartPresenter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ChartPresenter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14ChartPresenter11qt_metacallEN11QMetaObject4CallEiPPv(
+    ChartPresenter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString ChartPresenter::tr(const char *s, const char *c, int n)
@@ -610,6 +630,27 @@ QRectF *ritual_ZN14ChartPresenter16textBoundingRectERK5QFontRK7QStringd(
   return new QRectF(ChartPresenter::textBoundingRect(*font, *text, angle));
 }
 
+//  QString ChartPresenter::truncatedText(const QFont &font, const QString
+//      &text, qreal angle, qreal maxWidth, qreal maxHeight, QRectF
+//      &boundingRect)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN14ChartPresenter13truncatedTextERK5QFontRK7QStringdddR6QRectF(
+    const QFont *font,
+    const QString *text,
+    qreal angle,
+    qreal maxWidth,
+    qreal maxHeight,
+    QRectF *boundingRect) {
+  return new QString(
+      ChartPresenter::truncatedText(
+          *font,
+          *text,
+          angle,
+          maxWidth,
+          maxHeight,
+          *boundingRect));
+}
+
 //  qreal ChartPresenter::textMargin()
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZN14ChartPresenter10textMarginEv() {
@@ -698,6 +739,14 @@ void ritual_ZN14ChartPresenter17handleAxisRemovedEP13QAbstractAxis(
     ChartPresenter *self,
     QAbstractAxis *axis) {
   self->handleAxisRemoved(axis);
+}
+
+//  void ChartPresenter::plotAreaChanged(const QRectF &plotArea)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ChartPresenter15plotAreaChangedERK6QRectF(
+    ChartPresenter *self,
+    const QRectF *plotArea) {
+  self->plotAreaChanged(*plotArea);
 }
 
 //  a Python function taken by a CuteChartPresenter, for the function named

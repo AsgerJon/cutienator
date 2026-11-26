@@ -22,6 +22,12 @@
       "unsigned long long", "address"
     ],
     "ritual_ZNK13QSSGFrameData16contextInterfaceEv": ["address", "address"],
+    "ritual_ZNK13QSSGFrameData13getLayerNodesEjj": [
+      "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK13QSSGFrameData13getLayerNodesE12QSSGCameraIdj": [
+      "address", "address", "unsigned long long", "unsigned int"
+    ],
     "ritual_ZN13QSSGFrameData5clearEv": ["nothing", "address"],
     "ritual_ZNK13QSSGFrameData10getCurrentEv": ["address", "address"],
     "ritual_ZNK13QSSGFrameData21scheduleRenderResultsE14QSSGResourceId": [
@@ -31,6 +37,7 @@
     "ritual_ZN13QSSGFrameDataC1EP26QSSGRenderContextInterface": [
       "address", "address"
     ],
-    "ritual_ZN13QSSGFrameDataD1Ev": ["nothing", "address"]
+    "ritual_ZN13QSSGFrameDataD1Ev": ["nothing", "address"],
+    "ritual_drop_QSSGFrameData__QSSGNodeIdList": ["nothing", "address"]
   }
 }

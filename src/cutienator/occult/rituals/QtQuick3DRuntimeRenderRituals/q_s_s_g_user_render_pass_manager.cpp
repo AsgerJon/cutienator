@@ -8,6 +8,7 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderuserpass_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
+#include <memory>
 
 //  QSSGUserRenderPassManager::QSSGUserRenderPassManager(Private a0)
 extern "C" Q_DECL_EXPORT
@@ -21,6 +22,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN25QSSGUserRenderPassManagerD1Ev(
     QSSGUserRenderPassManager *self) {
   delete self;
+}
+
+//  std::shared_ptr<QSSGUserRenderPassManager>
+//      QSSGUserRenderPassManager::create()
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QSSGUserRenderPassManager> *ritual_ZN25QSSGUserRenderPassManager6createEv() {
+  return new std::shared_ptr<QSSGUserRenderPassManager>(
+      QSSGUserRenderPassManager::create());
 }
 
 //  void QSSGUserRenderPassManager::scheduleUserPass(QSSGRenderUserPass
@@ -39,6 +48,30 @@ void ritual_ZN25QSSGUserRenderPassManager18unscheduleUserPassEPK18QSSGRenderUser
     QSSGUserRenderPassManager *self,
     const QSSGRenderUserPass *userPasses) {
   self->unscheduleUserPass(userPasses);
+}
+
+//  QSSGRhiRenderableTextureV2Ptr
+//      QSSGUserRenderPassManager::getOrCreateRenderableTexture(const
+//      QSSGRenderUserPass &userPass)
+extern "C" Q_DECL_EXPORT
+QSSGRhiRenderableTextureV2Ptr *ritual_ZN25QSSGUserRenderPassManager28getOrCreateRenderableTextureERK18QSSGRenderUserPass(
+    QSSGUserRenderPassManager *self,
+    const QSSGRenderUserPass *userPass) {
+  return new QSSGRhiRenderableTextureV2Ptr(
+      self->getOrCreateRenderableTexture(
+          *userPass));
+}
+
+//  QSSGRhiRenderableTextureV2Ptr
+//      QSSGUserRenderPassManager::getUserPassTexureResult(const
+//      QSSGRenderUserPass &userPass) const
+extern "C" Q_DECL_EXPORT
+QSSGRhiRenderableTextureV2Ptr *ritual_ZNK25QSSGUserRenderPassManager23getUserPassTexureResultERK18QSSGRenderUserPass(
+    const QSSGUserRenderPassManager *self,
+    const QSSGRenderUserPass *userPass) {
+  return new QSSGRhiRenderableTextureV2Ptr(
+      self->getUserPassTexureResult(
+          *userPass));
 }
 
 //  void QSSGUserRenderPassManager::updateUserPassOrder(bool forceUpdate)
@@ -83,6 +116,12 @@ void ritual_ZN25QSSGUserRenderPassManager22registerManagedTextureEP21QSSGManaged
   self->registerManagedTexture(textureWrapper);
 }
 
+//  size_t QSSGUserRenderPassManager::maxUserPassSlots()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN25QSSGUserRenderPassManager16maxUserPassSlotsEv() {
+  return QSSGUserRenderPassManager::maxUserPassSlots();
+}
+
 //  qsizetype QSSGUserRenderPassManager::acquireUserPassSlot()
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZN25QSSGUserRenderPassManager19acquireUserPassSlotEv(
@@ -111,4 +150,38 @@ void ritual_ZN25QSSGUserRenderPassManager10refTextureEP11QRhiTexture(
     QSSGUserRenderPassManager *self,
     QRhiTexture *texture) {
   self->refTexture(texture);
+}
+
+//  bool QSSGUserRenderPassManager::derefTexture(const
+//      std::unique_ptr<QRhiTexture> &texture)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QSSGUserRenderPassManager12derefTextureERKSt10unique_ptrI11QRhiTextureSt14default_deleteIS1_EE(
+    QSSGUserRenderPassManager *self,
+    const std::unique_ptr<QRhiTexture> *texture) {
+  return self->derefTexture(*texture);
+}
+
+//  void QSSGUserRenderPassManager::refTexture(const
+//      std::unique_ptr<QRhiTexture> &texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSSGUserRenderPassManager10refTextureERKSt10unique_ptrI11QRhiTextureSt14default_deleteIS1_EE(
+    QSSGUserRenderPassManager *self,
+    const std::unique_ptr<QRhiTexture> *texture) {
+  self->refTexture(*texture);
+}
+
+//  a std::shared_ptr<QSSGUserRenderPassManager> a ritual of
+//      QSSGUserRenderPassManager gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGUserRenderPassManager__std_shared_ptr_QSSGUserRenderPassManager(
+    std::shared_ptr<QSSGUserRenderPassManager> *self) {
+  delete self;
+}
+
+//  a QSSGRhiRenderableTextureV2Ptr a ritual of QSSGUserRenderPassManager
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGUserRenderPassManager__QSSGRhiRenderableTextureV2Ptr(
+    QSSGRhiRenderableTextureV2Ptr *self) {
+  delete self;
 }

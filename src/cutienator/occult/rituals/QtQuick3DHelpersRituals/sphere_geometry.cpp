@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/spheregeometry_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/qtquick3dhelpersglobal_p.h>
 #include <QtQuick3DHelpers/QtQuick3DHelpers>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -286,6 +287,24 @@ const QMetaObject *ritual_ZNK14SphereGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *SphereGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14SphereGeometry11qt_metacastEPKc(
+    SphereGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int SphereGeometry::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14SphereGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    SphereGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString SphereGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14SphereGeometry2trEPKcS1_i(
@@ -383,12 +402,81 @@ void ritual_ZN14SphereGeometry15requestFinishedEv(SphereGeometry *self) {
   self->requestFinished();
 }
 
+//  void SphereGeometry::radiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14SphereGeometry13radiusChangedEv(SphereGeometry *self) {
+  self->radiusChanged();
+}
+
+//  void SphereGeometry::ringsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14SphereGeometry12ringsChangedEv(SphereGeometry *self) {
+  self->ringsChanged();
+}
+
+//  void SphereGeometry::segmentsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14SphereGeometry15segmentsChangedEv(SphereGeometry *self) {
+  self->segmentsChanged();
+}
+
+//  void SphereGeometry::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14SphereGeometry19asynchronousChangedEv(SphereGeometry *self) {
+  self->asynchronousChanged();
+}
+
+//  void SphereGeometry::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14SphereGeometry13statusChangedEv(SphereGeometry *self) {
+  self->statusChanged();
+}
+
 //  void SphereGeometry::scheduleGeometryUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14SphereGeometry22scheduleGeometryUpdateEv(
     SphereGeometry *self) {
   self->scheduleGeometryUpdate();
 }
+
+//  void SphereGeometry::updateGeometry(const GeometryData &geometryData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14SphereGeometry14updateGeometryERKNS_12GeometryDataE(
+    SphereGeometry *self,
+    const SphereGeometry::GeometryData *geometryData) {
+  self->updateGeometry(*geometryData);
+}
+
+//  SphereGeometry::GeometryData SphereGeometry::generateSphereGeometry(float
+//      radius, int rings, int segments)
+extern "C" Q_DECL_EXPORT
+SphereGeometry::GeometryData *ritual_ZN14SphereGeometry22generateSphereGeometryEfii(
+    float radius,
+    int rings,
+    int segments) {
+  return new SphereGeometry::GeometryData(
+      SphereGeometry::generateSphereGeometry(
+          radius,
+          rings,
+          segments));
+}
+
+#if QT_CONFIG(concurrent)
+//  void SphereGeometry::generateSphereGeometryAsync(QPromise<SphereGeometry:
+//      :GeometryData> &promise, float radius, int rings, int segments)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14SphereGeometry27generateSphereGeometryAsyncER8QPromiseINS_12GeometryDataEEfii(
+    QPromise<SphereGeometry::GeometryData> *promise,
+    float radius,
+    int rings,
+    int segments) {
+  SphereGeometry::generateSphereGeometryAsync(
+      *promise,
+      radius,
+      rings,
+      segments);
+}
+#endif  // QT_CONFIG(concurrent)
 
 //  a Python function taken by a CuteSphereGeometry, for the function named
 //      by the key
@@ -398,4 +486,11 @@ bool ritual_take_SphereGeometry(
     const char *key,
     void *call) {
   return static_cast<CuteSphereGeometry *>(self)->take(key, call);
+}
+
+//  a SphereGeometry::GeometryData a ritual of SphereGeometry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_SphereGeometry__SphereGeometry_GeometryData(
+    SphereGeometry::GeometryData *self) {
+  delete self;
 }

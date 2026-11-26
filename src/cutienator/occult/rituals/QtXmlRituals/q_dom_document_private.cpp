@@ -37,6 +37,16 @@
 #include <limits>
 #include <memory>
 #endif
+#include <QtXml/qtxmlglobal.h>
+#if QT_CONFIG(dom)
+#include <QtXml/private/qdomhelpers_p.h>
+#include <QtXml/private/qdom_p.h>
+#include <QtCore/qshareddata.h>
+#include <QtCore/qxmlstream.h>
+#include <QtCore/private/qxmlstream_p.h>
+#include <memory>
+#include <stack>
+#endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -45,6 +55,219 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/xml/dom/qdom.cpp, line 74, as local:qdom.cpp:qt_split_namespace
+#if QT_CONFIG(dom)
+static void qt_split_namespace(QString& prefix, QString& name, const QString& qName, bool hasURI)
+{
+    qsizetype i = qName.indexOf(u':');
+    if (i == -1) {
+        if (hasURI)
+            prefix = u""_s;
+        else
+            prefix.clear();
+        name = qName;
+    } else {
+        prefix = qName.left(i);
+        name = qName.mid(i + 1);
+    }
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 99, as local:qdom.cpp:fixedXmlName
+#if QT_CONFIG(dom)
+static QString fixedXmlName(const QString &_name, bool *ok, bool namespaces = false)
+{
+    QString name, prefix;
+    if (namespaces)
+        qt_split_namespace(prefix, name, _name, true);
+    else
+        name = _name;
+
+    if (name.isEmpty()) {
+        *ok = false;
+        return QString();
+    }
+
+    if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::AcceptInvalidChars) {
+        *ok = true;
+        return _name;
+    }
+
+    QString result;
+    bool firstChar = true;
+    for (int i = 0; i < name.size(); ++i) {
+        QChar c = name.at(i);
+        if (firstChar) {
+            if (QXmlUtils::isLetter(c) || c.unicode() == '_' || c.unicode() == ':') {
+                result.append(c);
+                firstChar = false;
+            } else if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::ReturnNullNode) {
+                *ok = false;
+                return QString();
+            }
+        } else {
+            if (QXmlUtils::isNameChar(c))
+                result.append(c);
+            else if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::ReturnNullNode) {
+                *ok = false;
+                return QString();
+            }
+        }
+    }
+
+    if (result.isEmpty()) {
+        *ok = false;
+        return QString();
+    }
+
+    *ok = true;
+    if (namespaces && !prefix.isEmpty())
+        return prefix + u':' + result;
+    return result;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 153, as local:qdom.cpp:fixedCharData
+#if QT_CONFIG(dom)
+static QString fixedCharData(const QString &data, bool *ok)
+{
+    if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::AcceptInvalidChars) {
+        *ok = true;
+        return data;
+    }
+
+    QString result;
+    QStringIterator it(data);
+    while (it.hasNext()) {
+        const char32_t c = it.next(QChar::Null);
+        if (QXmlUtils::isChar(c)) {
+            result.append(QChar::fromUcs4(c));
+        } else if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::ReturnNullNode) {
+            *ok = false;
+            return QString();
+        }
+    }
+
+    *ok = true;
+    return result;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 179, as local:qdom.cpp:fixedComment
+#if QT_CONFIG(dom)
+static QString fixedComment(const QString &data, bool *ok)
+{
+    if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::AcceptInvalidChars) {
+        *ok = true;
+        return data;
+    }
+
+    QString fixedData = fixedCharData(data, ok);
+    if (!*ok)
+        return QString();
+
+    for (;;) {
+        qsizetype idx = fixedData.indexOf("--"_L1);
+        if (idx == -1)
+            break;
+        if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::ReturnNullNode) {
+            *ok = false;
+            return QString();
+        }
+        fixedData.remove(idx, 2);
+    }
+
+    *ok = true;
+    return fixedData;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 208, as local:qdom.cpp:fixedCDataSection
+#if QT_CONFIG(dom)
+static QString fixedCDataSection(const QString &data, bool *ok)
+{
+    if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::AcceptInvalidChars) {
+        *ok = true;
+        return data;
+    }
+
+    QString fixedData = fixedCharData(data, ok);
+    if (!*ok)
+        return QString();
+
+    for (;;) {
+        qsizetype idx = fixedData.indexOf("]]>"_L1);
+        if (idx == -1)
+            break;
+        if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::ReturnNullNode) {
+            *ok = false;
+            return QString();
+        }
+        fixedData.remove(idx, 3);
+    }
+
+    *ok = true;
+    return fixedData;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 236, as local:qdom.cpp:fixedPIData
+#if QT_CONFIG(dom)
+static QString fixedPIData(const QString &data, bool *ok)
+{
+    if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::AcceptInvalidChars) {
+        *ok = true;
+        return data;
+    }
+
+    QString fixedData = fixedCharData(data, ok);
+    if (!*ok)
+        return QString();
+
+    for (;;) {
+        qsizetype idx = fixedData.indexOf("?>"_L1);
+        if (idx == -1)
+            break;
+        if (QDomImplementationPrivate::invalidDataPolicy == QDomImplementation::ReturnNullNode) {
+            *ok = false;
+            return QString();
+        }
+        fixedData.remove(idx, 2);
+    }
+
+    *ok = true;
+    return fixedData;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1480, as local:qdom.cpp:qNormalizeNode
+#if QT_CONFIG(dom)
+static void qNormalizeNode(QDomNodePrivate* n)
+{
+    QDomNodePrivate* p = n->first;
+    QDomTextPrivate* t = nullptr;
+
+    while (p) {
+        if (p->isText()) {
+            if (t) {
+                QDomNodePrivate* tmp = p->next;
+                t->appendData(p->nodeValue());
+                n->removeChild(p);
+                p = tmp;
+            } else {
+                t = static_cast<QDomTextPrivate *>(p);
+                p = p->next;
+            }
+        } else {
+            p = p->next;
+            t = nullptr;
+        }
+    }
+}
+#endif  // QT_CONFIG(dom)
 
 //  from src/xml/dom/qdom.cpp, line 1454, as _ZN15QDomNodePrivate11appendChildEPS_
 #if QT_CONFIG(dom)
@@ -386,21 +609,74 @@ inline QDomNodePrivate* QDomNodePrivate::replaceChild(QDomNodePrivate* newChild,
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 1108, as _ZN15QDomNodePrivate5clearEv
+//  from src/xml/dom/qdom.cpp, line 1502, as _ZN15QDomNodePrivate9normalizeEv
 #if QT_CONFIG(dom)
-inline void QDomNodePrivate::clear()
+inline void QDomNodePrivate::normalize()
 {
-    QDomNodePrivate* p = first;
-    QDomNodePrivate* n;
+    // ### This one has moved from QDomElementPrivate to this position. It is
+    // not tested.
+    qNormalizeNode(this);
+}
+#endif  // QT_CONFIG(dom)
 
-    while (p) {
-        n = p->next;
-        if (!p->ref.deref())
-            delete p;
-        p = n;
-    }
-    first = nullptr;
-    last = nullptr;
+//  from src/xml/dom/qdomhelpers.cpp, line 253, as _ZN10QDomParser5parseEv
+#if QT_CONFIG(dom)
+inline bool QDomParser::parse()
+{
+    return parseProlog() && parseBody();
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdomhelpers.cpp, line 247, as _ZN10QDomParserC1EP19QDomDocumentPrivateP16QXmlStreamReader6QFlagsIN12QDomDocument11ParseOptionEE
+#if QT_CONFIG(dom)
+inline QDomParser::QDomParser(QDomDocumentPrivate *d, QXmlStreamReader *r,
+                       QDomDocument::ParseOptions options)
+    : reader(r), domBuilder(d, r, options)
+{
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdomhelpers.cpp, line 48, as _ZN11QDomBuilderD1Ev
+#if QT_CONFIG(dom)
+inline QDomBuilder::~QDomBuilder() {}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 4019, as _ZN18QDomElementPrivateC1EP19QDomDocumentPrivateP15QDomNodePrivateRK7QString
+#if QT_CONFIG(dom)
+inline QDomElementPrivate::QDomElementPrivate(QDomDocumentPrivate* d, QDomNodePrivate* p,
+                                          const QString& tagname)
+    : QDomNodePrivate(d, p)
+{
+    name = tagname;
+    m_attr = new QDomNamedNodeMapPrivate(this);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 4855, as _ZN15QDomTextPrivateC1EP19QDomDocumentPrivateP15QDomNodePrivateRK7QString
+#if QT_CONFIG(dom)
+inline QDomTextPrivate::QDomTextPrivate(QDomDocumentPrivate* d, QDomNodePrivate* parent, const QString& val)
+    : QDomCharacterDataPrivate(d, parent, val)
+{
+    name = u"#text"_s;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 4992, as _ZN18QDomCommentPrivateC1EP19QDomDocumentPrivateP15QDomNodePrivateRK7QString
+#if QT_CONFIG(dom)
+inline QDomCommentPrivate::QDomCommentPrivate(QDomDocumentPrivate* d, QDomNodePrivate* parent, const QString& val)
+    : QDomCharacterDataPrivate(d, parent, val)
+{
+    name = u"#comment"_s;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 5101, as _ZN23QDomCDATASectionPrivateC1EP19QDomDocumentPrivateP15QDomNodePrivateRK7QString
+#if QT_CONFIG(dom)
+inline QDomCDATASectionPrivate::QDomCDATASectionPrivate(QDomDocumentPrivate* d, QDomNodePrivate* parent,
+                                                    const QString& val)
+    : QDomTextPrivate(d, parent, val)
+{
+    name = u"#cdata-section"_s;
 }
 #endif  // QT_CONFIG(dom)
 
@@ -486,22 +762,42 @@ inline QDomEntityReferencePrivate::QDomEntityReferencePrivate(QDomNodePrivate* n
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 5875, as _ZN19QDomDocumentPrivateD1Ev
+//  from src/xml/dom/qdom.cpp, line 1509, as _ZNK15QDomNodePrivate11saveSubTreeEPKS_R11QTextStreamii
 #if QT_CONFIG(dom)
-inline QDomDocumentPrivate::~QDomDocumentPrivate()
+inline void QDomNodePrivate::saveSubTree(const QDomNodePrivate *n, QTextStream &s,
+                                  int depth, int indent) const
 {
-}
-#endif  // QT_CONFIG(dom)
+    if (!n)
+        return;
 
-//  from src/xml/dom/qdom.cpp, line 5915, as _ZN19QDomDocumentPrivate15documentElementEv
-#if QT_CONFIG(dom)
-inline QDomElementPrivate* QDomDocumentPrivate::documentElement()
-{
-    QDomNodePrivate *p = first;
-    while (p && !p->isElement())
-        p = p->next;
-
-    return static_cast<QDomElementPrivate *>(p);
+    const QDomNodePrivate *root = n->first;
+    n->save(s, depth, indent);
+    if (root) {
+        const int branchDepth = depth + 1;
+        int layerDepth = 0;
+        while (root) {
+            root->save(s, layerDepth + branchDepth, indent);
+            // A flattened (non-recursive) depth-first walk through the node tree.
+            if (root->first) {
+                layerDepth ++;
+                root = root->first;
+                continue;
+            }
+            root->afterSave(s, layerDepth + branchDepth, indent);
+            const QDomNodePrivate *prev = root;
+            root = root->next;
+            // Close QDomElementPrivate groups
+            while (!root && (layerDepth > 0)) {
+                root = prev->parent();
+                layerDepth --;
+                root->afterSave(s, layerDepth + branchDepth, indent);
+                prev = root;
+                root = root->next;
+            }
+        }
+        Q_ASSERT(layerDepth == 0);
+    }
+    n->afterSave(s, depth, indent);
 }
 #endif  // QT_CONFIG(dom)
 
@@ -523,6 +819,140 @@ inline void QDomDocumentPrivate::clear()
     impl.reset();
     type.reset();
     QDomNodePrivate::clear();
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 5866, as _ZN19QDomDocumentPrivateC1EPS_b
+#if QT_CONFIG(dom)
+inline QDomDocumentPrivate::QDomDocumentPrivate(QDomDocumentPrivate* n, bool deep)
+    : QDomNodePrivate(n, deep),
+      impl(n->impl->clone()),
+      nodeListTime(1)
+{
+    type = static_cast<QDomDocumentTypePrivate*>(n->type->cloneNode());
+    type->setParent(this);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1108, as _ZN15QDomNodePrivate5clearEv
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::clear()
+{
+    QDomNodePrivate* p = first;
+    QDomNodePrivate* n;
+
+    while (p) {
+        n = p->next;
+        if (!p->ref.deref())
+            delete p;
+        p = n;
+    }
+    first = nullptr;
+    last = nullptr;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1460, as _ZN15QDomNodePrivate13ownerDocumentEv
+#if QT_CONFIG(dom)
+inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()
+{
+    QDomNodePrivate* p = this;
+    while (p && !p->isDocument()) {
+        if (!p->hasParent)
+            return static_cast<QDomDocumentPrivate *>(p->ownerNode);
+        p = p->parent();
+    }
+
+    return static_cast<QDomDocumentPrivate *>(p);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 5875, as _ZN19QDomDocumentPrivateD1Ev
+#if QT_CONFIG(dom)
+inline QDomDocumentPrivate::~QDomDocumentPrivate()
+{
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 5915, as _ZN19QDomDocumentPrivate15documentElementEv
+#if QT_CONFIG(dom)
+inline QDomElementPrivate* QDomDocumentPrivate::documentElement()
+{
+    QDomNodePrivate *p = first;
+    while (p && !p->isElement())
+        p = p->next;
+
+    return static_cast<QDomElementPrivate *>(p);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 6093, as _ZNK19QDomDocumentPrivate12saveDocumentER11QTextStreamiN8QDomNode14EncodingPolicyE
+#if QT_CONFIG(dom)
+inline void QDomDocumentPrivate::saveDocument(QTextStream& s, const int indent, QDomNode::EncodingPolicy encUsed) const
+{
+    const QDomNodePrivate* n = first;
+
+    if (encUsed == QDomNode::EncodingFromDocument) {
+#if QT_CONFIG(regularexpression)
+        const QDomNodePrivate* n = first;
+
+        if (n && n->isProcessingInstruction() && n->nodeName() == "xml"_L1) {
+            // we have an XML declaration
+            QString data = n->nodeValue();
+            QRegularExpression encoding(QString::fromLatin1("encoding\\s*=\\s*((\"([^\"]*)\")|('([^']*)'))"));
+            auto match = encoding.match(data);
+            QString enc = match.captured(3);
+            if (enc.isEmpty())
+                enc = match.captured(5);
+            if (!enc.isEmpty()) {
+                auto encoding = QStringConverter::encodingForName(enc.toUtf8().constData());
+                if (!encoding)
+                    qWarning() << "QDomDocument::save(): Unsupported encoding" << enc << "specified.";
+                else
+                    s.setEncoding(encoding.value());
+            }
+        }
+#endif
+        bool doc = false;
+
+        while (n) {
+            if (!doc && !(n->isProcessingInstruction() && n->nodeName() == "xml"_L1)) {
+                // save doctype after XML declaration
+                type->save(s, 0, indent);
+                doc = true;
+            }
+            n->saveSubTree(n, s, 0, indent);
+            n = n->next;
+        }
+    }
+    else {
+
+        // Write out the XML declaration.
+        const QByteArray codecName = QStringConverter::nameForEncoding(s.encoding());
+
+        s << "<?xml version=\"1.0\" encoding=\""
+          << codecName
+          << "\"?>\n";
+
+        //  Skip the first processing instruction by name "xml", if any such exists.
+        const QDomNodePrivate* startNode = n;
+
+        // First, we try to find the PI and sets the startNode to the one appearing after it.
+        while (n) {
+            if (n->isProcessingInstruction() && n->nodeName() == "xml"_L1) {
+                startNode = n->next;
+                break;
+            }
+            else
+                n = n->next;
+        }
+
+        // Now we serialize all the nodes after the faked XML declaration(the PI).
+        while (startNode) {
+            startNode->saveSubTree(startNode, s, 0, indent);
+            startNode = startNode->next;
+        }
+    }
 }
 #endif  // QT_CONFIG(dom)
 //  -----------------------------------------------------------------------
@@ -563,7 +993,7 @@ typedef void (*CuteQDomDocumentPrivateCall9)(const void *, int *);
 class CuteQDomDocumentPrivate : public QDomDocumentPrivate {
 public:
   using QDomDocumentPrivate::QDomDocumentPrivate;
-  CuteQDomDocumentPrivate(const QDomDocumentPrivate &other) : QDomDocumentPrivate(other) {}
+  CuteQDomDocumentPrivate(const QDomDocumentPrivate & other) : QDomDocumentPrivate(other) {}
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {
@@ -821,6 +1251,19 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QDomDocumentPrivate5clearEv(QDomDocumentPrivate *self) {
   self->clear();
 }
+
+#if QT_CONFIG(dom)
+//  void QDomDocumentPrivate::saveDocument(QTextStream &stream, const int
+//      indent, QDomNode::EncodingPolicy encUsed) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK19QDomDocumentPrivate12saveDocumentER11QTextStreamiN8QDomNode14EncodingPolicyE(
+    const QDomDocumentPrivate *self,
+    QTextStream *stream,
+    int indent,
+    QDomNode::EncodingPolicy encUsed) {
+  self->saveDocument(*stream, indent, encUsed);
+}
+#endif  // QT_CONFIG(dom)
 
 //  a Python function taken by a CuteQDomDocumentPrivate, for the function
 //      named by the key

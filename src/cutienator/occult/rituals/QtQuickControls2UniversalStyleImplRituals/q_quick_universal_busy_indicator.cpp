@@ -25,6 +25,39 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrols/universal/impl/qquickuniversalbusyindicator.cpp, line 15, as local:qquickuniversalbusyindicator.cpp:PhaseCount
+static const int PhaseCount = 6;
+
+//  from ../qtdeclarative/src/quickcontrols/universal/impl/qquickuniversalbusyindicator.cpp, line 19, as local:qquickuniversalbusyindicator.cpp:QQuickUniversalBusyIndicatorNode
+class QQuickUniversalBusyIndicatorNode : public QQuickAnimatedNode
+{
+public:
+    QQuickUniversalBusyIndicatorNode(QQuickUniversalBusyIndicator *item);
+
+    void updateCurrentTime(int time) override;
+    void sync(QQuickItem *item) override;
+
+private:
+    struct Phase {
+        Phase() = default;
+        Phase(int d, qreal f, qreal t, QEasingCurve::Type c) : duration(d), from(f), to(t), curve(c) { }
+        int duration = 0;
+        qreal from = 0;
+        qreal to = 0;
+        QEasingCurve curve = QEasingCurve::Linear;
+    };
+
+    Phase m_phases[PhaseCount];
+};
+
+//  from ../qtdeclarative/src/quickcontrols/universal/impl/qquickuniversalbusyindicator.cpp, line 195, as _ZN28QQuickUniversalBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickUniversalBusyIndicator::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
+{
+    QQuickItem::itemChange(change, data);
+    if (change == ItemVisibleHasChanged)
+        update();
+}
+
 //  from ../qtdeclarative/src/quickcontrols/universal/impl/qquickuniversalbusyindicator.cpp, line 162, as _ZNK28QQuickUniversalBusyIndicator5countEv
 inline int QQuickUniversalBusyIndicator::count() const
 {
@@ -62,14 +95,6 @@ inline int QQuickUniversalBusyIndicator::elapsed() const
 {
     return m_elapsed;
 }
-
-//  from ../qtdeclarative/src/quickcontrols/universal/impl/qquickuniversalbusyindicator.cpp, line 195, as _ZN28QQuickUniversalBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
-inline void QQuickUniversalBusyIndicator::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
-{
-    QQuickItem::itemChange(change, data);
-    if (change == ItemVisibleHasChanged)
-        update();
-}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickUniversalBusyIndicator may call these functions of it.
@@ -83,6 +108,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK28QQuickUniversalBusyIndicator10metaObjectEv(
     const QQuickUniversalBusyIndicator *self) {
   return self->metaObject();
+}
+
+//  void *QQuickUniversalBusyIndicator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuickUniversalBusyIndicator11qt_metacastEPKc(
+    QQuickUniversalBusyIndicator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickUniversalBusyIndicator::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuickUniversalBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickUniversalBusyIndicator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  int QQuickUniversalBusyIndicator::count() const
@@ -130,6 +174,16 @@ void ritual_ZN28QQuickUniversalBusyIndicator10itemChangeEN10QQuickItem10ItemChan
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->itemChange(change, *data);
+}
+
+//  QSGNode *QQuickUniversalBusyIndicator::updatePaintNode(QSGNode *oldNode,
+//      UpdatePaintNodeData *a1)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN28QQuickUniversalBusyIndicator15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE(
+    QQuickUniversalBusyIndicator *self,
+    QSGNode *oldNode,
+    QQuickItem::UpdatePaintNodeData *a1) {
+  return self->updatePaintNode(oldNode, a1);
 }
 
 //  void QQuickUniversalBusyIndicator::itemChange(ItemChange change, const

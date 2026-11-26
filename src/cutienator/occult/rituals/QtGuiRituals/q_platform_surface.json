@@ -9,6 +9,7 @@
     "ritual_ZNK16QPlatformSurface6formatEv": ["address", "address"],
     "ritual_ZNK16QPlatformSurface7surfaceEv": ["address", "address"],
     "ritual_ZNK16QPlatformSurface6screenEv": ["address", "address"],
+    "ritual_ZN16QPlatformSurfaceC1EP8QSurface": ["address", "address"],
     "ritual_take_QPlatformSurface": ["bool", "address", "chars", "address"]
   }
 }

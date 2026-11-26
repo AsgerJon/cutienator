@@ -13,7 +13,25 @@
 #include <QtNetwork/qsslconfiguration.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtWebSockets/QWebSocketProtocol>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWebSockets/qwebsocketserver.h>
+#include <QtWebSockets/private/qwebsocketserver_p.h>
+#include <QtWebSockets/qwebsocketprotocol.h>
+#include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
+#include <QtWebSockets/private/qwebsockethandshakeresponse_p.h>
+#include <QtWebSockets/qwebsocket.h>
+#include <QtWebSockets/private/qwebsocket_p.h>
+#include <QtWebSockets/qwebsocketcorsauthenticator.h>
+#include <limits>
+#ifndef QT_NO_SSL
+#include "QtNetwork/QSslServer"
+#endif
+#include <QtCore/QTimer>
+#include <QtNetwork/QTcpServer>
+#include <QtNetwork/QTcpSocket>
+#include <QtNetwork/QNetworkProxy>
 #include <QtWebSockets/qwebsocket.h>
 #include <QtWebSockets/private/qwebsocket_p.h>
 #include <QtWebSockets/private/qwebsocketprotocol_p.h>
@@ -71,22 +89,6 @@
 #include <algorithm>
 #include <functional>   //for std::greater
 #include <iterator>
-#include <QtWebSockets/qwebsocketserver.h>
-#include <QtWebSockets/private/qwebsocketserver_p.h>
-#include <QtWebSockets/qwebsocketprotocol.h>
-#include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
-#include <QtWebSockets/private/qwebsockethandshakeresponse_p.h>
-#include <QtWebSockets/qwebsocket.h>
-#include <QtWebSockets/private/qwebsocket_p.h>
-#include <QtWebSockets/qwebsocketcorsauthenticator.h>
-#include <limits>
-#ifndef QT_NO_SSL
-#include "QtNetwork/QSslServer"
-#endif
-#include <QtCore/QTimer>
-#include <QtNetwork/QTcpServer>
-#include <QtNetwork/QTcpSocket>
-#include <QtNetwork/QNetworkProxy>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -95,6 +97,45 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 171, as local:qwebsockethandshakerequest.cpp:readLine
+static QByteArrayView readLine(QByteArrayView &header, int maxHeaderLineLength)
+{
+    qsizetype length = qMin(maxHeaderLineLength, header.size());
+    QByteArrayView line = header.first(length);
+    qsizetype end = line.indexOf('\n');
+    if (end != -1) {
+        line = line.first(end);
+        if (line.endsWith('\r'))
+            line.chop(1);
+        header = header.sliced(end + 1);
+        return line;
+    }
+    return QByteArrayView();
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 189, as local:qwebsockethandshakerequest.cpp:appendCommmaSeparatedLineToList
+static void appendCommmaSeparatedLineToList(QStringList &list, QByteArrayView line)
+{
+    for (auto &c : QLatin1String(line).tokenize(QLatin1String(","), Qt::SkipEmptyParts))
+        list << c.trimmed().toString();
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 205, as _ZN23QWebSocketServerPrivate21nextPendingConnectionEv
+inline QWebSocket *QWebSocketServerPrivate::nextPendingConnection()
+{
+    QWebSocket *pWebSocket = nullptr;
+    if (Q_LIKELY(!m_pendingConnections.isEmpty()))
+        pWebSocket = m_pendingConnections.dequeue();
+    return pWebSocket;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 113, as _ZN23QWebSocketServerPrivateD2Ev
+inline QWebSocketServerPrivate::~QWebSocketServerPrivate()
+{
+}
 
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 357, as _ZN17QWebSocketPrivate11upgradeFromEP10QTcpSocketRK26QWebSocketHandshakeRequestRK27QWebSocketHandshakeResponseP7QObject
 inline QWebSocket *QWebSocketPrivate::upgradeFrom(QTcpSocket *pTcpSocket,
@@ -173,14 +214,6 @@ inline QWebSocketHandshakeResponse::~QWebSocketHandshakeResponse()
 {
 }
 
-//  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 317, as _ZNK23QWebSocketServerPrivate17supportedVersionsEv
-inline QList<QWebSocketProtocol::Version> QWebSocketServerPrivate::supportedVersions() const
-{
-    QList<QWebSocketProtocol::Version> supportedVersions;
-    supportedVersions << QWebSocketProtocol::currentVersion();	//we only support V13
-    return supportedVersions;
-}
-
 //  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 135, as _ZNK26QWebSocketHandshakeRequest6originEv
 inline QString QWebSocketHandshakeRequest::origin() const
 {
@@ -215,20 +248,6 @@ inline QWebSocketProtocol::CloseCode QWebSocketHandshakeResponse::error() const
 inline bool QWebSocketHandshakeResponse::isValid() const
 {
     return m_isValid;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 205, as _ZN23QWebSocketServerPrivate21nextPendingConnectionEv
-inline QWebSocket *QWebSocketServerPrivate::nextPendingConnection()
-{
-    QWebSocket *pWebSocket = nullptr;
-    if (Q_LIKELY(!m_pendingConnections.isEmpty()))
-        pWebSocket = m_pendingConnections.dequeue();
-    return pWebSocket;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 113, as _ZN23QWebSocketServerPrivateD1Ev
-inline QWebSocketServerPrivate::~QWebSocketServerPrivate()
-{
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 120, as _ZN23QWebSocketServerPrivate5closeEb
@@ -365,6 +384,14 @@ inline bool QWebSocketServerPrivate::setSocketDescriptor(qintptr socketDescripto
 inline qintptr QWebSocketServerPrivate::socketDescriptor() const
 {
     return m_pTcpServer->socketDescriptor();
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 317, as _ZNK23QWebSocketServerPrivate17supportedVersionsEv
+inline QList<QWebSocketProtocol::Version> QWebSocketServerPrivate::supportedVersions() const
+{
+    QList<QWebSocketProtocol::Version> supportedVersions;
+    supportedVersions << QWebSocketProtocol::currentVersion();	//we only support V13
+    return supportedVersions;
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 327, as _ZN23QWebSocketServerPrivate24setSupportedSubprotocolsERK5QListI7QStringE
@@ -686,6 +713,14 @@ qintptr ritual_ZNK23QWebSocketServerPrivate16socketDescriptorEv(
   return self->socketDescriptor();
 }
 
+//  QList<QWebSocketProtocol::Version>
+//      QWebSocketServerPrivate::supportedVersions() const
+extern "C" Q_DECL_EXPORT
+QList<QWebSocketProtocol::Version> *ritual_ZNK23QWebSocketServerPrivate17supportedVersionsEv(
+    const QWebSocketServerPrivate *self) {
+  return new QList<QWebSocketProtocol::Version>(self->supportedVersions());
+}
+
 //  void QWebSocketServerPrivate::setSupportedSubprotocols(const QStringList
 //      &protocols)
 extern "C" Q_DECL_EXPORT
@@ -820,4 +855,12 @@ extern "C" Q_DECL_EXPORT
 QWebSocket *ritual_own_ZN23QWebSocketServerPrivate21nextPendingConnectionEv(
     QWebSocketServerPrivate *self) {
   return self->QWebSocketServerPrivate::nextPendingConnection();
+}
+
+//  a QList<QWebSocketProtocol::Version> a ritual of QWebSocketServerPrivate
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWebSocketServerPrivate__QList_QWebSocketProtocol_Version(
+    QList<QWebSocketProtocol::Version> *self) {
+  delete self;
 }

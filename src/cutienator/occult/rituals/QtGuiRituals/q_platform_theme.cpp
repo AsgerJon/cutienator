@@ -13,7 +13,9 @@
 #include <QtCore/qfileinfo.h>
 #include <QtGui/qicon.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <QtCore/qlist.h>
 #include <cstring>
 

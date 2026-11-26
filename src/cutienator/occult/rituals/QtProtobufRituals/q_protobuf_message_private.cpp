@@ -9,6 +9,10 @@
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearrayview.h>
+#include <QtProtobuf/qprotobufpropertyordering.h>
+#include <optional>
+#include <QtCore/QMetaProperty>
+#include <QtCore/QAnyStringView>
 
 //  QProtobufMessagePrivate::QProtobufMessagePrivate()
 extern "C" Q_DECL_EXPORT
@@ -59,6 +63,26 @@ void ritual_ZN23QProtobufMessagePrivate17storeUnknownEntryEP16QProtobufMessage14
   QProtobufMessagePrivate::storeUnknownEntry(message, *entry, fieldNumber);
 }
 
+//  std::optional<QMetaProperty>
+//      QProtobufMessagePrivate::metaProperty(QAnyStringView name) const
+extern "C" Q_DECL_EXPORT
+std::optional<QMetaProperty> *ritual_ZNK23QProtobufMessagePrivate12metaPropertyE14QAnyStringView(
+    const QProtobufMessagePrivate *self,
+    const QString *name) {
+  return new std::optional<QMetaProperty>(
+      self->metaProperty(
+          QAnyStringView(*name)));
+}
+
+//  std::optional<QMetaProperty> QProtobufMessagePrivate::metaProperty(QtProt
+//      obufPrivate::QProtobufFieldInfo ord) const
+extern "C" Q_DECL_EXPORT
+std::optional<QMetaProperty> *ritual_ZNK23QProtobufMessagePrivate12metaPropertyEN17QtProtobufPrivate18QProtobufFieldInfoE(
+    const QProtobufMessagePrivate *self,
+    const QtProtobufPrivate::QProtobufFieldInfo *ord) {
+  return new std::optional<QMetaProperty>(self->metaProperty(*ord));
+}
+
 //  QProtobufMessagePrivate *QProtobufMessagePrivate::get(QProtobufMessage
 //      *message)
 extern "C" Q_DECL_EXPORT
@@ -73,4 +97,11 @@ extern "C" Q_DECL_EXPORT
 const QProtobufMessagePrivate *ritual_ZN23QProtobufMessagePrivate3getEPK16QProtobufMessage(
     const QProtobufMessage *message) {
   return QProtobufMessagePrivate::get(message);
+}
+
+//  a std::optional<QMetaProperty> a ritual of QProtobufMessagePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QProtobufMessagePrivate__std_optional_QMetaProperty(
+    std::optional<QMetaProperty> *self) {
+  delete self;
 }

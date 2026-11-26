@@ -5,11 +5,183 @@
   ],
   "rows": {
     "ritual_ZNK10Qt3DRender7QCamera10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender7QCamera11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender7QCamera2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN10Qt3DRender7QCameraC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCameraD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera4lensEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera9transformEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera12tiltRotationEf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DRender7QCamera11panRotationEf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DRender7QCamera12rollRotationEf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DRender7QCamera8rotationEfRK9QVector3D": [
+      "address", "address", "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera9translateERK9QVector3DNS0_23CameraTranslationOptionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera14translateWorldERK9QVector3DNS0_23CameraTranslationOptionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera4tiltEf": ["nothing", "address", "float"],
+    "ritual_ZN10Qt3DRender7QCamera3panEf": ["nothing", "address", "float"],
+    "ritual_ZN10Qt3DRender7QCamera3panEfRK9QVector3D": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera4rollEf": ["nothing", "address", "float"],
+    "ritual_ZN10Qt3DRender7QCamera19tiltAboutViewCenterEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera18panAboutViewCenterEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera18panAboutViewCenterEfRK9QVector3D": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera19rollAboutViewCenterEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera6rotateERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera21rotateAboutViewCenterERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender7QCamera14projectionTypeEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera9nearPlaneEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera8farPlaneEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera11fieldOfViewEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera11aspectRatioEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera4leftEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera5rightEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera6bottomEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera3topEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera16projectionMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender7QCamera8exposureEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera8positionEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera8upVectorEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera10viewCenterEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera10viewVectorEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender7QCamera10viewMatrixEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender7QCamera17setProjectionTypeENS_11QCameraLens14ProjectionTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera12setNearPlaneEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera11setFarPlaneEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera14setFieldOfViewEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera14setAspectRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera7setLeftEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera8setRightEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera9setBottomEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera6setTopEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera19setProjectionMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera11setExposureEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera11setPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera11setUpVectorERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera13setViewCenterERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera7viewAllEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender7QCamera10viewSphereERK9QVector3Df": [
+      "nothing", "address", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera10viewEntityEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera21projectionTypeChangedENS_11QCameraLens14ProjectionTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera16nearPlaneChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera15farPlaneChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera18fieldOfViewChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera18aspectRatioChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera11leftChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera12rightChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera13bottomChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera10topChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera23projectionMatrixChangedERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera15exposureChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera15positionChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera15upVectorChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera17viewCenterChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera17viewVectorChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QCamera17viewMatrixChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender7QCamera6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender7QCamera6d_funcEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender7QCameraC1ERNS_14QCameraPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
     "ritual_take_Qt3DRender_QCamera": ["bool", "address", "chars", "address"]
   }
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickCheckBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickCheckBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickCheckBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickCheckBox2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,11 +30,18 @@
     "ritual_ZN14QQuickCheckBox17setNextCheckStateERK8QJSValue": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QQuickCheckBox15tristateChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickCheckBox17checkStateChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickCheckBox21nextCheckStateChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK14QQuickCheckBox11defaultFontEv": ["address", "address"],
     "ritual_ZN14QQuickCheckBox12buttonChangeEN20QQuickAbstractButton12ButtonChangeE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN14QQuickCheckBox14nextCheckStateEv": ["nothing", "address"],
+    "ritual_ZN14QQuickCheckBox6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickCheckBox6d_funcEv": ["address", "address"],
     "ritual_own_ZNK14QQuickCheckBox11defaultFontEv": ["address", "address"],
     "ritual_own_ZN14QQuickCheckBox14nextCheckStateEv": ["nothing", "address"]
   }

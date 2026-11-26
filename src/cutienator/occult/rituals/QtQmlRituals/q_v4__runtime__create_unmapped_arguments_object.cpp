@@ -7,6 +7,15 @@
 #include <QtQml/6.12.0/QtQml/private/qv4runtimeapi_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  ReturnedValue
+//      QV4::Runtime::CreateUnmappedArgumentsObject::call(ExecutionEngine
+//      *a0)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV47Runtime29CreateUnmappedArgumentsObject4callEPNS_15ExecutionEngineE(
+    QV4::ExecutionEngine *a0) {
+  return QV4::Runtime::CreateUnmappedArgumentsObject::call(a0);
+}
+
 //  QV4::Runtime::CreateUnmappedArgumentsObject::~CreateUnmappedArgumentsObje
 //      ct()
 extern "C" Q_DECL_EXPORT

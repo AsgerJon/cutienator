@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN17QSvgStylePropertyD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSvgStyleProperty5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QSvgStyleProperty6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK17QSvgStyleProperty4typeEv": ["unsigned char", "address"],
     "ritual_ZNK17QSvgStyleProperty9isDefaultEv": ["bool", "address"],
     "ritual_take_QSvgStyleProperty": ["bool", "address", "chars", "address"],

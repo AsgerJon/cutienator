@@ -2,9 +2,36 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DRender/6.12.0/Qt3DRender/private/statevariant_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
-    "ritual_ZN10Qt3DRender6Render12StateVariantD1Ev": ["nothing", "address"]
+    "ritual_ZN10Qt3DRender6Render12StateVariant5stateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12StateVariant10constStateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12StateVarianteqERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12StateVariantneERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12StateVariantD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render12StateVariant9fromValueINS0_9DepthTestEEES1_RKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12StateVariant9fromValueINS0_8CullFaceEEES1_RKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12StateVariant9fromValueINS0_13BlendEquationEEES1_RKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12StateVariant9fromValueINS0_9DitheringEEES1_RKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12StateVariant9fromValueINS0_9LineWidthEEES1_RKT_": [
+      "address", "address"
+    ]
   }
 }

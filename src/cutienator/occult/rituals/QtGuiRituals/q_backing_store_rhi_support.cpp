@@ -73,6 +73,16 @@ QSurface::SurfaceType ritual_ZN23QBackingStoreRhiSupport20surfaceTypeForConfigER
   return QBackingStoreRhiSupport::surfaceTypeForConfig(*config);
 }
 
+//  bool
+//      QBackingStoreRhiSupport::checkForceRhi(QPlatformBackingStoreRhiConfig
+//      *outConfig, QSurface::SurfaceType *outType)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN23QBackingStoreRhiSupport13checkForceRhiEP30QPlatformBackingStoreRhiConfigPN8QSurface11SurfaceTypeE(
+    QPlatformBackingStoreRhiConfig *outConfig,
+    QSurface::SurfaceType *outType) {
+  return QBackingStoreRhiSupport::checkForceRhi(outConfig, outType);
+}
+
 //  QRhi::Implementation QBackingStoreRhiSupport::apiToRhiBackend(QPlatformBa
 //      ckingStoreRhiConfig::Api api)
 extern "C" Q_DECL_EXPORT

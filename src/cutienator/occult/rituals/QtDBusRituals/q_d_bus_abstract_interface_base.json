@@ -5,6 +5,12 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN26QDBusAbstractInterfaceBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QDBusAbstractInterfaceBaseC1ER29QDBusAbstractInterfacePrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN26QDBusAbstractInterfaceBase6d_funcEv": ["address", "address"],
     "ritual_ZNK26QDBusAbstractInterfaceBase6d_funcEv": ["address", "address"]
   }

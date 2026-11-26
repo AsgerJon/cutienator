@@ -11,7 +11,9 @@
 #include <QtGui/qcolor.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qtextformat.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/qurl.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qpoint.h>
@@ -19,6 +21,8 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtWidgets/QTextEdit>
 
 //  Only a class built on QTextEdit may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1275,6 +1279,22 @@ const QMetaObject *ritual_ZNK9QTextEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTextEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QTextEdit11qt_metacastEPKc(QTextEdit *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextEdit::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QTextEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTextEdit::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QTextEdit2trEPKcS1_i(
@@ -1726,6 +1746,22 @@ void ritual_ZN9QTextEdit17setAcceptRichTextEb(QTextEdit *self, bool accept) {
   self->setAcceptRichText(accept);
 }
 
+//  void QTextEdit::setExtraSelections(const QList<ExtraSelection>
+//      &selections)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit18setExtraSelectionsERK5QListINS_14ExtraSelectionEE(
+    QTextEdit *self,
+    const QList<QTextEdit::ExtraSelection> *selections) {
+  self->setExtraSelections(*selections);
+}
+
+//  QList<ExtraSelection> QTextEdit::extraSelections() const
+extern "C" Q_DECL_EXPORT
+QList<QTextEdit::ExtraSelection> *ritual_ZNK9QTextEdit15extraSelectionsEv(
+    const QTextEdit *self) {
+  return new QList<QTextEdit::ExtraSelection>(self->extraSelections());
+}
+
 //  void QTextEdit::moveCursor(QTextCursor::MoveOperation operation,
 //      QTextCursor::MoveMode mode)
 extern "C" Q_DECL_EXPORT
@@ -1962,6 +1998,50 @@ void ritual_ZN9QTextEdit7zoomOutEi(QTextEdit *self, int range) {
   self->zoomOut(range);
 }
 
+//  void QTextEdit::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit11textChangedEv(QTextEdit *self) {
+  self->textChanged();
+}
+
+//  void QTextEdit::undoAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit13undoAvailableEb(QTextEdit *self, bool b) {
+  self->undoAvailable(b);
+}
+
+//  void QTextEdit::redoAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit13redoAvailableEb(QTextEdit *self, bool b) {
+  self->redoAvailable(b);
+}
+
+//  void QTextEdit::currentCharFormatChanged(const QTextCharFormat &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit24currentCharFormatChangedERK15QTextCharFormat(
+    QTextEdit *self,
+    const QTextCharFormat *format) {
+  self->currentCharFormatChanged(*format);
+}
+
+//  void QTextEdit::copyAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit13copyAvailableEb(QTextEdit *self, bool b) {
+  self->copyAvailable(b);
+}
+
+//  void QTextEdit::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit16selectionChangedEv(QTextEdit *self) {
+  self->selectionChanged();
+}
+
+//  void QTextEdit::cursorPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit21cursorPositionChangedEv(QTextEdit *self) {
+  self->cursorPositionChanged();
+}
+
 //  bool QTextEdit::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QTextEdit5eventEP6QEvent(QTextEdit *self, QEvent *e) {
@@ -2165,6 +2245,14 @@ void ritual_ZN9QTextEdit16inputMethodEventEP17QInputMethodEvent(
     QTextEdit *self,
     QInputMethodEvent *a0) {
   self->inputMethodEvent(a0);
+}
+
+//  QTextEdit::QTextEdit(QTextEditPrivate &dd, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QTextEdit *ritual_ZN9QTextEditC1ER16QTextEditPrivateP7QWidget(
+    QTextEditPrivate *dd,
+    QWidget *parent) {
+  return new CuteQTextEdit(*dd, parent);
 }
 
 //  void QTextEdit::scrollContentsBy(int dx, int dy)
@@ -2441,6 +2529,13 @@ void ritual_own_ZN9QTextEdit15doSetTextCursorERK11QTextCursor(
     QTextEdit *self,
     const QTextCursor *cursor) {
   static_cast<OwnQTextEdit *>(self)->OwnQTextEdit::doSetTextCursor(*cursor);
+}
+
+//  a QList<QTextEdit::ExtraSelection> a ritual of QTextEdit gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextEdit__QList_QTextEdit_ExtraSelection(
+    QList<QTextEdit::ExtraSelection> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(textedit)

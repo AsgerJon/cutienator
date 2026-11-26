@@ -6,6 +6,19 @@
   ],
   "rows": {
     "ritual_ZN16QNativeInterface11QEGLContextD1Ev": ["nothing", "address"],
+    "ritual_ZN16QNativeInterface11QEGLContextC1Ev": ["address"],
+    "ritual_ZN16QNativeInterface11QEGLContext10fromNativeEPvS1_P14QOpenGLContext": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface11QEGLContext13nativeContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface11QEGLContext6configEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface11QEGLContext7displayEv": [
+      "address", "address"
+    ],
     "ritual_ZN16QNativeInterface11QEGLContext17invalidateContextEv": [
       "nothing", "address"
     ],

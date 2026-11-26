@@ -5,7 +5,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -22,6 +22,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtGraphs/private/axisticker_p.h>
 #include <QtGraphs/private/axisgrid_p.h>
 #include <QtGraphs/private/axisline_p.h>
@@ -46,6 +47,13 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/qgraphsview.cpp, line 108, as _Z10lcGraphs2Dv
+inline const QLoggingCategory &lcGraphs2D()
+{
+    static const QLoggingCategory category("qt.graphs2d.general");
+    return category;
+}
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 31, as _ZN10AxisTicker12setupShadersEv
 inline void AxisTicker::setupShaders()
@@ -580,16 +588,45 @@ inline qreal AxisGrid::smoothing() const
     return m_smoothing;
 }
 
-//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 782, as _ZNK12AxisRenderer12hasAxisTitleERKNS_14AxisPropertiesE
-inline bool AxisRenderer::hasAxisTitle(const AxisProperties &ax) const
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 86, as _ZN12AxisRenderer10initializeEv
+inline void AxisRenderer::initialize()
 {
-    return ax.axis && ax.axis->isTitleVisible() && !ax.axis->titleText().isEmpty();
-}
+    if (m_initialized) {
+        return;
+    }
+    if (!window()) {
+        qCDebug(lcGraphs2D, "window doesn't exist.");
+        return;
+    }
 
-//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 787, as _ZNK12AxisRenderer19isAxisBottomOrRightERKNS_14AxisPropertiesE
-inline bool AxisRenderer::isAxisBottomOrRight(const AxisProperties &ax) const
-{
-    return ax.axis->alignment() == Qt::AlignBottom || ax.axis->alignment() == Qt::AlignRight;
+    if (m_axisGrid)
+        m_axisGrid->componentComplete();
+    if (m_axisGridShadow)
+        m_axisGridShadow->componentComplete();
+
+    for (auto&& ax : *m_horzAxes) {
+        if (ax.line)
+            ax.line->componentComplete();
+        if (ax.ticker)
+            ax.ticker->componentComplete();
+        if (ax.lineShadow)
+            ax.lineShadow->componentComplete();
+        if (ax.tickerShadow)
+            ax.tickerShadow->componentComplete();
+    }
+
+    for (auto&& ax : *m_vertAxes) {
+        if (ax.line)
+            ax.line->componentComplete();
+        if (ax.ticker)
+            ax.ticker->componentComplete();
+        if (ax.lineShadow)
+            ax.lineShadow->componentComplete();
+        if (ax.tickerShadow)
+            ax.tickerShadow->componentComplete();
+    }
+
+    m_initialized = true;
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 211, as _ZN12AxisRenderer11handleWheelEP11QWheelEvent
@@ -669,6 +706,18 @@ inline void AxisRenderer::updateAxisTitles()
             ax.title->setVisible(false);
         }
     }
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 782, as _ZNK12AxisRenderer12hasAxisTitleERKNS_14AxisPropertiesE
+inline bool AxisRenderer::hasAxisTitle(const AxisProperties &ax) const
+{
+    return ax.axis && ax.axis->isTitleVisible() && !ax.axis->titleText().isEmpty();
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 787, as _ZNK12AxisRenderer19isAxisBottomOrRightERKNS_14AxisPropertiesE
+inline bool AxisRenderer::isAxisBottomOrRight(const AxisProperties &ax) const
+{
+    return ax.axis->alignment() == Qt::AlignBottom || ax.axis->alignment() == Qt::AlignRight;
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 2069, as _ZNK12AxisRenderer16formatValueLabelEdiRK7QStringc
@@ -986,6 +1035,26 @@ inline bool AxisRenderer::zoom(qreal delta)
     bool hzoomed = calculateZoom((*m_horzAxes)[0].axis, delta);
     bool vzoomed = calculateZoom((*m_vertAxes)[0].axis, delta);
     return hzoomed && vzoomed;
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 193, as _ZNK12AxisRenderer8getAxisXEP15QAbstractSeries
+inline const AxisRenderer::AxisProperties &AxisRenderer::getAxisX(QAbstractSeries *series) const
+{
+    for (auto &&ax : *m_horzAxes) {
+        if (ax.axis && (ax.axis == series->axisX() || ax.axis == series->axisY()))
+            return ax;
+    }
+    return (*m_horzAxes)[0];
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 202, as _ZNK12AxisRenderer8getAxisYEP15QAbstractSeries
+inline const AxisRenderer::AxisProperties &AxisRenderer::getAxisY(QAbstractSeries *series) const
+{
+    for (auto &&ax : *m_vertAxes) {
+        if (ax.axis && (ax.axis == series->axisX() || ax.axis == series->axisY()))
+            return ax;
+    }
+    return (*m_vertAxes)[0];
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 81, as _ZNK12AxisRenderer5themeEv
@@ -1764,6 +1833,36 @@ const QMetaObject *ritual_ZNK12AxisRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *AxisRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12AxisRenderer11qt_metacastEPKc(
+    AxisRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int AxisRenderer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12AxisRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    AxisRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  AxisRenderer::~AxisRenderer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AxisRendererD1Ev(AxisRenderer *self) {
+  delete self;
+}
+
+//  void AxisRenderer::initialize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AxisRenderer10initializeEv(AxisRenderer *self) {
+  self->initialize();
+}
+
 //  bool AxisRenderer::handleWheel(QWheelEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN12AxisRenderer11handleWheelEP11QWheelEvent(
@@ -1794,6 +1893,22 @@ void ritual_ZN12AxisRenderer15handlePinchGrabEN15QPointingDevice14GrabTransition
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12AxisRenderer16updateAxisTitlesEv(AxisRenderer *self) {
   self->updateAxisTitles();
+}
+
+//  bool AxisRenderer::hasAxisTitle(const AxisProperties &ax) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK12AxisRenderer12hasAxisTitleERKNS_14AxisPropertiesE(
+    const AxisRenderer *self,
+    const AxisRenderer::AxisProperties *ax) {
+  return self->hasAxisTitle(*ax);
+}
+
+//  bool AxisRenderer::isAxisBottomOrRight(const AxisProperties &ax) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK12AxisRenderer19isAxisBottomOrRightERKNS_14AxisPropertiesE(
+    const AxisRenderer *self,
+    const AxisRenderer::AxisProperties *ax) {
+  return self->isAxisBottomOrRight(*ax);
 }
 
 //  QString AxisRenderer::formatValueLabel(double number, int decimals, const
@@ -1891,6 +2006,24 @@ bool ritual_ZN12AxisRenderer4zoomEd(AxisRenderer *self, qreal delta) {
   return self->zoom(delta);
 }
 
+//  const AxisProperties &AxisRenderer::getAxisX(QAbstractSeries *series)
+//      const
+extern "C" Q_DECL_EXPORT
+const AxisRenderer::AxisProperties *ritual_ZNK12AxisRenderer8getAxisXEP15QAbstractSeries(
+    const AxisRenderer *self,
+    QAbstractSeries *series) {
+  return &(self->getAxisX(series));
+}
+
+//  const AxisProperties &AxisRenderer::getAxisY(QAbstractSeries *series)
+//      const
+extern "C" Q_DECL_EXPORT
+const AxisRenderer::AxisProperties *ritual_ZNK12AxisRenderer8getAxisYEP15QAbstractSeries(
+    const AxisRenderer *self,
+    QAbstractSeries *series) {
+  return &(self->getAxisY(series));
+}
+
 //  QGraphsTheme *AxisRenderer::theme() const
 extern "C" Q_DECL_EXPORT
 QGraphsTheme *ritual_ZNK12AxisRenderer5themeEv(const AxisRenderer *self) {
@@ -1907,4 +2040,4 @@ bool ritual_take_AxisRenderer(
   return static_cast<CuteAxisRenderer *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

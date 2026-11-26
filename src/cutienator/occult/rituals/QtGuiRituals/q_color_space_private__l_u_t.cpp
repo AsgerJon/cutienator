@@ -25,3 +25,20 @@ QColorSpacePrivate::LUT *ritual_ZN18QColorSpacePrivate3LUTC1ERKS0_(
     const QColorSpacePrivate::LUT *other) {
   return new QColorSpacePrivate::LUT(*other);
 }
+
+//  std::shared_ptr<QColorTrcLut> &QColorSpacePrivate::LUT::operator[](int i)
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QColorTrcLut> *ritual_ZN18QColorSpacePrivate3LUTixEi(
+    QColorSpacePrivate::LUT *self,
+    int i) {
+  return &(self->operator[](i));
+}
+
+//  const std::shared_ptr<QColorTrcLut>
+//      &QColorSpacePrivate::LUT::operator[](int i) const
+extern "C" Q_DECL_EXPORT
+const std::shared_ptr<QColorTrcLut> *ritual_ZNK18QColorSpacePrivate3LUTixEi(
+    const QColorSpacePrivate::LUT *self,
+    int i) {
+  return &(self->operator[](i));
+}

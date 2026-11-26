@@ -25,10 +25,36 @@ QDBusUnixFileDescriptor *ritual_ZN23QDBusUnixFileDescriptorC1ERKS_(
   return new QDBusUnixFileDescriptor(*other);
 }
 
+//  QDBusUnixFileDescriptor
+//      &QDBusUnixFileDescriptor::operator=(QDBusUnixFileDescriptor &&other)
+extern "C" Q_DECL_EXPORT
+QDBusUnixFileDescriptor *ritual_ZN23QDBusUnixFileDescriptoraSEOS_(
+    QDBusUnixFileDescriptor *self,
+    QDBusUnixFileDescriptor *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDBusUnixFileDescriptor &QDBusUnixFileDescriptor::operator=(const
+//      QDBusUnixFileDescriptor &other)
+extern "C" Q_DECL_EXPORT
+QDBusUnixFileDescriptor *ritual_ZN23QDBusUnixFileDescriptoraSERKS_(
+    QDBusUnixFileDescriptor *self,
+    const QDBusUnixFileDescriptor *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDBusUnixFileDescriptor::~QDBusUnixFileDescriptor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QDBusUnixFileDescriptorD1Ev(QDBusUnixFileDescriptor *self) {
   delete self;
+}
+
+//  void QDBusUnixFileDescriptor::swap(QDBusUnixFileDescriptor &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QDBusUnixFileDescriptor4swapERS_(
+    QDBusUnixFileDescriptor *self,
+    QDBusUnixFileDescriptor *other) {
+  self->swap(*other);
 }
 
 //  bool QDBusUnixFileDescriptor::isValid() const

@@ -7,8 +7,14 @@
   "rows": {
     "ritual_ZN19QCoapMessagePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK19QCoapMessagePrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK19QCoapMessagePrivate10findOptionEN11QCoapOption10OptionNameE": [
+      "address", "address", "int"
+    ],
     "ritual_take_QCoapMessagePrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QCoapMessagePrivate__QList_QCoapOption_const_iterator": [
+      "nothing", "address"
     ]
   }
 }

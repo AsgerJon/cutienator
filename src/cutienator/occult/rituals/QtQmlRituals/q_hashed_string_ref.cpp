@@ -62,6 +62,14 @@ QHashedStringRef *ritual_ZN16QHashedStringRefC1ERKS_(
   return new QHashedStringRef(*a0);
 }
 
+//  QHashedStringRef &QHashedStringRef::operator=(const QHashedStringRef &a0)
+extern "C" Q_DECL_EXPORT
+QHashedStringRef *ritual_ZN16QHashedStringRefaSERKS_(
+    QHashedStringRef *self,
+    const QHashedStringRef *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QHashedStringRef::operator==(const QString &string) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QHashedStringRefeqERK7QString(

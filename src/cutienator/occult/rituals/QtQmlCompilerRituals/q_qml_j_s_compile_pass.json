@@ -20,6 +20,9 @@
     "ritual_ZN17QQmlJSCompilePass12initialStateEPKNS_8FunctionE": [
       "address", "address", "address"
     ],
+    "ritual_ZN17QQmlJSCompilePass24nextStateFromAnnotationsERKNS_5StateERK8QFlatMapIiNS_21InstructionAnnotationESt4lessIiE5QListIiES7_IS4_EE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK17QQmlJSCompilePass14sourceLocationEi": [
       "address", "address", "int"
     ],

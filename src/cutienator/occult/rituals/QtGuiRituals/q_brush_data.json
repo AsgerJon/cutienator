@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZN10QBrushDataC1Ev": ["address"],
-    "ritual_ZN10QBrushDataD1Ev": ["nothing", "address"]
+    "ritual_ZN10QBrushDataD1Ev": ["nothing", "address"],
+    "ritual_ZN10QBrushDataC1ERKS_": ["address", "address"],
+    "ritual_ZN10QBrushDataC1EOS_": ["address", "address"],
+    "ritual_ZN10QBrushDataaSERKS_": ["address", "address", "address"],
+    "ritual_ZN10QBrushDataaSEOS_": ["address", "address", "address"]
   }
 }

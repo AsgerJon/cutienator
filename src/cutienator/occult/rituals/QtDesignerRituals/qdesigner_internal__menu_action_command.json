@@ -5,5 +5,17 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal17MenuActionCommand4initEP7QActionS2_P7QWidgetS4_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17MenuActionCommandC1ERK7QStringP28QDesignerFormWindowInterface": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17MenuActionCommand10insertMenuEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17MenuActionCommand10removeMenuEv": [
+      "nothing", "address"
+    ]
   }
 }

@@ -29,6 +29,9 @@
     "ritual_ZN17QCborStreamWriter6appendE11QStringView": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN17QCborStreamWriter6appendE20QBasicUtf8StringViewILb0EE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QCborStreamWriter6appendE8QCborTag": [
       "nothing", "address", "unsigned long long"
     ],
@@ -38,6 +41,7 @@
     "ritual_ZN17QCborStreamWriter6appendE15QCborSimpleType": [
       "nothing", "address", "unsigned char"
     ],
+    "ritual_ZN17QCborStreamWriter6appendEDn": ["nothing", "address"],
     "ritual_ZN17QCborStreamWriter6appendE8qfloat16": [
       "nothing", "address", "address"
     ],

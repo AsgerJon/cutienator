@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation6QClock10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QClock::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation6QClock11qt_metacastEPKc(
+    Qt3DAnimation::QClock *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QClock::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation6QClock11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QClock *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QClock::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13Qt3DAnimation6QClock2trEPKcS2_i(
@@ -186,6 +205,50 @@ QString *ritual_ZN13Qt3DAnimation6QClock2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QClock::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QClock::QClock(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QClock *ritual_ZN13Qt3DAnimation6QClockC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QClock(parent);
+}
+
+//  Qt3DAnimation::QClock::~QClock()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation6QClockD1Ev(Qt3DAnimation::QClock *self) {
+  delete self;
+}
+
+//  double Qt3DAnimation::QClock::playbackRate() const
+extern "C" Q_DECL_EXPORT
+double ritual_ZNK13Qt3DAnimation6QClock12playbackRateEv(
+    const Qt3DAnimation::QClock *self) {
+  return self->playbackRate();
+}
+
+//  void Qt3DAnimation::QClock::setPlaybackRate(double playbackRate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation6QClock15setPlaybackRateEd(
+    Qt3DAnimation::QClock *self,
+    double playbackRate) {
+  self->setPlaybackRate(playbackRate);
+}
+
+//  void Qt3DAnimation::QClock::playbackRateChanged(double playbackRate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation6QClock19playbackRateChangedEd(
+    Qt3DAnimation::QClock *self,
+    double playbackRate) {
+  self->playbackRateChanged(playbackRate);
+}
+
+//  Qt3DAnimation::QClock::QClock(QClockPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QClock *ritual_ZN13Qt3DAnimation6QClockC1ERNS_13QClockPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QClockPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QClock(*dd, parent);
 }
 
 //  QClockPrivate *Qt3DAnimation::QClock::d_func()

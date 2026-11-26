@@ -33,6 +33,7 @@
     ],
     "ritual_own_ZNK15QAccessibleTree10focusChildEv": ["address", "address"],
     "ritual_own_ZNK15QAccessibleTree10childCountEv": ["int", "address"],
+    "ritual_own_ZNK15QAccessibleTree5childEi": ["address", "address", "int"],
     "ritual_own_ZNK15QAccessibleTree12indexOfChildEPK20QAccessibleInterface": [
       "int", "address", "address"
     ],

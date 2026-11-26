@@ -147,6 +147,18 @@
     "ritual_ZNK17QQuickMenuPrivate20firstEnabledMenuItemEv": [
       "address", "address"
     ],
+    "ritual_ZN17QQuickMenuPrivate18contentData_appendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickMenuPrivate17contentData_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QQuickMenuPrivate14contentData_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN17QQuickMenuPrivate17contentData_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
     "ritual_ZNK17QQuickMenuPrivate14defaultPaletteEv": [
       "address", "address"
     ],

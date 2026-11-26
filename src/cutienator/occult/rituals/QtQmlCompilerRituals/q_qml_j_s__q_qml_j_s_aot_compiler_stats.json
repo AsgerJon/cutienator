@@ -14,6 +14,9 @@
     "ritual_ZN6QQmlJS22QQmlJSAotCompilerStats11setModuleIdERK7QString": [
       "nothing", "text"
     ],
+    "ritual_ZN6QQmlJS22QQmlJSAotCompilerStats12registerFileERK7QString": [
+      "nothing", "text"
+    ],
     "ritual_ZN6QQmlJS22QQmlJSAotCompilerStats8addEntryERK7QStringRKNS_13AotStatsEntryE": [
       "nothing", "text", "address"
     ],

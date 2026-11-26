@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore5Compat/qxml.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, rituals for functions the generator leaves out: 1. Kept as it is
+//  when the generator runs again.
 #include <QtCore5Compat/qxml.h>
 #include <QtCore/qstring.h>
 #include <cstring>
@@ -58,4 +60,15 @@ bool ritual_take_QXmlEntityResolver(
     const char *key,
     void *call) {
   return static_cast<CuteQXmlEntityResolver *>(self)->take(key, call);
+}
+
+//  bool QXmlEntityResolver::resolveEntity(const QString &publicId, const
+//      QString &systemId, QXmlInputSource *&ret)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QXmlEntityResolver13resolveEntityERK7QStringS2_RP15QXmlInputSource(
+    QXmlEntityResolver *self,
+    const QString *publicId,
+    const QString *systemId,
+    QXmlInputSource **ret) {
+  return self->resolveEntity(*publicId, *systemId, *ret);
 }

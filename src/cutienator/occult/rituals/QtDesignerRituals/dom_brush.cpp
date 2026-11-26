@@ -20,6 +20,24 @@ void ritual_ZN8DomBrushD1Ev(DomBrush *self) {
   delete self;
 }
 
+//  void DomBrush::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8DomBrush4readER16QXmlStreamReader(
+    DomBrush *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomBrush::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8DomBrush5writeER16QXmlStreamWriterRK7QString(
+    const DomBrush *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomBrush::hasAttributeBrushStyle() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8DomBrush22hasAttributeBrushStyleEv(const DomBrush *self) {

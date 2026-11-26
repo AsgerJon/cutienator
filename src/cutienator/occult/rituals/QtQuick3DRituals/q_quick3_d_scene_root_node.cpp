@@ -32,11 +32,6 @@ inline QSSGRenderGraphObject *QQuick3DSceneRootNode::updateSpatialNode(QSSGRende
     return QQuick3DNode::updateSpatialNode(node);
 }
 
-//  from ../qtquick3d/src/quick3d/qquick3dscenerootnode.cpp, line 19, as _ZN21QQuick3DSceneRootNodeD1Ev
-inline QQuick3DSceneRootNode::~QQuick3DSceneRootNode()
-{
-}
-
 //  from ../qtquick3d/src/quick3d/qquick3dscenerootnode.cpp, line 24, as _ZN21QQuick3DSceneRootNode6view3DEv
 inline QQuick3DViewport *QQuick3DSceneRootNode::view3D()
 {
@@ -299,6 +294,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK21QQuick3DSceneRootNode10metaObjectEv(
     const QQuick3DSceneRootNode *self) {
   return self->metaObject();
+}
+
+//  void *QQuick3DSceneRootNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DSceneRootNode11qt_metacastEPKc(
+    QQuick3DSceneRootNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DSceneRootNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DSceneRootNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DSceneRootNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QQuick3DSceneRootNode::~QQuick3DSceneRootNode()

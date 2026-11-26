@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QHBoxPlotModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QHBoxPlotModelMapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QHBoxPlotModelMapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QHBoxPlotModelMapper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,24 @@
     "ritual_ZNK20QHBoxPlotModelMapper11columnCountEv": ["int", "address"],
     "ritual_ZN20QHBoxPlotModelMapper14setColumnCountEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN20QHBoxPlotModelMapper14seriesReplacedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QHBoxPlotModelMapper13modelReplacedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QHBoxPlotModelMapper21firstBoxSetRowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QHBoxPlotModelMapper20lastBoxSetRowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QHBoxPlotModelMapper18firstColumnChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QHBoxPlotModelMapper18columnCountChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QHBoxPlotModelMapper": [
       "bool", "address", "chars", "address"

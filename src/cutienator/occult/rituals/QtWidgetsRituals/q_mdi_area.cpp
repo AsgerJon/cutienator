@@ -7,7 +7,9 @@
 #include <QtWidgets/qmdiarea.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
+#if QT_CONFIG(mdiarea)
 #include <QtWidgets/qmdisubwindow.h>
+#endif
 #include <QtGui/qbrush.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -1116,6 +1118,22 @@ const QMetaObject *ritual_ZNK8QMdiArea10metaObjectEv(const QMdiArea *self) {
   return self->metaObject();
 }
 
+//  void *QMdiArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QMdiArea11qt_metacastEPKc(QMdiArea *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMdiArea::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QMdiArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMdiArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMdiArea::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QMdiArea2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1329,6 +1347,14 @@ QTabWidget::TabPosition ritual_ZNK8QMdiArea11tabPositionEv(
   return self->tabPosition();
 }
 #endif  // QT_CONFIG(tabwidget)
+
+//  void QMdiArea::subWindowActivated(QMdiSubWindow *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMdiArea18subWindowActivatedEP13QMdiSubWindow(
+    QMdiArea *self,
+    QMdiSubWindow *a0) {
+  self->subWindowActivated(a0);
+}
 
 //  void QMdiArea::setActiveSubWindow(QMdiSubWindow *window)
 extern "C" Q_DECL_EXPORT

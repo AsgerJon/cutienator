@@ -43,6 +43,9 @@
     ],
     "ritual_ZNK12QAudioFormat13bytesPerFrameEv": ["int", "address"],
     "ritual_ZNK12QAudioFormat14bytesPerSampleEv": ["int", "address"],
+    "ritual_ZNK12QAudioFormat21normalizedSampleValueEPKv": [
+      "float", "address", "address"
+    ],
     "ritual_ZeqRK12QAudioFormatS1_": ["bool", "address", "address"],
     "ritual_ZneRK12QAudioFormatS1_": ["bool", "address", "address"],
     "ritual_ZN12QAudioFormat35defaultChannelConfigForChannelCountEi": [

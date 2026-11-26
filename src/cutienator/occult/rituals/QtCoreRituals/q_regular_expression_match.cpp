@@ -29,6 +29,40 @@ QRegularExpressionMatch *ritual_ZN23QRegularExpressionMatchC1ERKS_(
   return new QRegularExpressionMatch(*match);
 }
 
+//  QRegularExpressionMatch::QRegularExpressionMatch(QRegularExpressionMatch
+//      &&match)
+extern "C" Q_DECL_EXPORT
+QRegularExpressionMatch *ritual_ZN23QRegularExpressionMatchC1EOS_(
+    QRegularExpressionMatch *match) {
+  return new QRegularExpressionMatch(std::move(*match));
+}
+
+//  QRegularExpressionMatch &QRegularExpressionMatch::operator=(const
+//      QRegularExpressionMatch &match)
+extern "C" Q_DECL_EXPORT
+QRegularExpressionMatch *ritual_ZN23QRegularExpressionMatchaSERKS_(
+    QRegularExpressionMatch *self,
+    const QRegularExpressionMatch *match) {
+  return &(self->operator=(*match));
+}
+
+//  QRegularExpressionMatch
+//      &QRegularExpressionMatch::operator=(QRegularExpressionMatch &&match)
+extern "C" Q_DECL_EXPORT
+QRegularExpressionMatch *ritual_ZN23QRegularExpressionMatchaSEOS_(
+    QRegularExpressionMatch *self,
+    QRegularExpressionMatch *match) {
+  return &(self->operator=(std::move(*match)));
+}
+
+//  void QRegularExpressionMatch::swap(QRegularExpressionMatch &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QRegularExpressionMatch4swapERS_(
+    QRegularExpressionMatch *self,
+    QRegularExpressionMatch *other) {
+  self->swap(*other);
+}
+
 //  QRegularExpression QRegularExpressionMatch::regularExpression() const
 extern "C" Q_DECL_EXPORT
 QRegularExpression *ritual_ZNK23QRegularExpressionMatch17regularExpressionEv(
@@ -183,6 +217,14 @@ qsizetype ritual_ZNK23QRegularExpressionMatch11capturedEndE14QAnyStringView(
     const QRegularExpressionMatch *self,
     const QString *name) {
   return self->capturedEnd(QAnyStringView(*name));
+}
+
+//  QRegularExpressionMatch::QRegularExpressionMatch(QRegularExpressionMatchP
+//      rivate &dd)
+extern "C" Q_DECL_EXPORT
+QRegularExpressionMatch *ritual_ZN23QRegularExpressionMatchC1ER30QRegularExpressionMatchPrivate(
+    QRegularExpressionMatchPrivate *dd) {
+  return new QRegularExpressionMatch(*dd);
 }
 
 #endif  // QT_CONFIG(regularexpression)

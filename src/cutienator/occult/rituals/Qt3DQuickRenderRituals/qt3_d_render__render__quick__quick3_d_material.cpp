@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::Render::Quick::Quick3DMaterial that Python can take functions over in. Every Qt3DRender::Render::Quick::Quick3DMaterial
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,27 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick15Quick3DMaterial10metaObj
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::Quick::Quick3DMaterial::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick15Quick3DMaterial11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::Quick3DMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      Qt3DRender::Render::Quick::Quick3DMaterial::qt_metacall(QMetaObject::
+//      Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick15Quick3DMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::Quick3DMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::Quick3DMaterial::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -199,12 +222,28 @@ QString *ritual_ZN10Qt3DRender6Render5Quick15Quick3DMaterial2trEPKcS4_i(
           n));
 }
 
+//  Qt3DRender::Render::Quick::Quick3DMaterial::Quick3DMaterial(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DMaterial *ritual_ZN10Qt3DRender6Render5Quick15Quick3DMaterialC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DMaterial(parent);
+}
+
 //  QMaterial *Qt3DRender::Render::Quick::Quick3DMaterial::parentMaterial()
 //      const
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QMaterial *ritual_ZNK10Qt3DRender6Render5Quick15Quick3DMaterial14parentMaterialEv(
     const Qt3DRender::Render::Quick::Quick3DMaterial *self) {
   return self->parentMaterial();
+}
+
+//  QQmlListProperty<QParameter>
+//      Qt3DRender::Render::Quick::Quick3DMaterial::qmlParameters()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DRender::QParameter> *ritual_ZN10Qt3DRender6Render5Quick15Quick3DMaterial13qmlParametersEv(
+    Qt3DRender::Render::Quick::Quick3DMaterial *self) {
+  return new QQmlListProperty<Qt3DRender::QParameter>(self->qmlParameters());
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_Quick_Quick3DMaterial,
@@ -215,4 +254,12 @@ bool ritual_take_Qt3DRender_Render_Quick_Quick3DMaterial(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Render_Quick_Quick3DMaterial *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DRender::QParameter> a ritual of
+//      Qt3DRender::Render::Quick::Quick3DMaterial gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Quick_Quick3DMaterial__QQmlListProperty_Qt3DRender_QParameter(
+    QQmlListProperty<Qt3DRender::QParameter> *self) {
+  delete self;
 }

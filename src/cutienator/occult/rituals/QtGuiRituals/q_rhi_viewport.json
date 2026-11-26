@@ -9,6 +9,7 @@
     "ritual_ZN12QRhiViewportC1Effffff": [
       "address", "float", "float", "float", "float", "float", "float"
     ],
+    "ritual_ZNK12QRhiViewport8viewportEv": ["address", "address"],
     "ritual_ZN12QRhiViewport11setViewportEffff": [
       "nothing", "address", "float", "float", "float", "float"
     ],
@@ -22,6 +23,7 @@
     ],
     "ritual_ZeqRK12QRhiViewportS1_": ["bool", "address", "address"],
     "ritual_ZneRK12QRhiViewportS1_": ["bool", "address", "address"],
-    "ritual_ZN12QRhiViewportD1Ev": ["nothing", "address"]
+    "ritual_ZN12QRhiViewportD1Ev": ["nothing", "address"],
+    "ritual_drop_QRhiViewport__std_array_float_4": ["nothing", "address"]
   }
 }

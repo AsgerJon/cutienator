@@ -8,6 +8,12 @@
     "ritual_ZNK22QGraphicsOpacityEffect10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QGraphicsOpacityEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QGraphicsOpacityEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QGraphicsOpacityEffect2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,12 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN22QGraphicsOpacityEffect14setOpacityMaskERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsOpacityEffect14opacityChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QGraphicsOpacityEffect18opacityMaskChangedERK6QBrush": [
       "nothing", "address", "address"
     ],
     "ritual_ZN22QGraphicsOpacityEffect4drawEP8QPainter": [

@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktimeline_p_p.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickTimeLine10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickTimeLine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickTimeLine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickTimeLineC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQuickTimeLineD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuickTimeLine8syncModeEv": ["int", "address"],
+    "ritual_ZN14QQuickTimeLine11setSyncModeENS_8SyncModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickTimeLine5pauseER20QQuickTimeLineObjecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QQuickTimeLine8callbackERK22QQuickTimeLineCallback": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTimeLine3setER19QQuickTimeLineValued": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN14QQuickTimeLine5accelER19QQuickTimeLineValuedd": [
+      "int", "address", "address", "double", "double"
+    ],
+    "ritual_ZN14QQuickTimeLine5accelER19QQuickTimeLineValueddd": [
+      "int", "address", "address", "double", "double", "double"
+    ],
+    "ritual_ZN14QQuickTimeLine13accelDistanceER19QQuickTimeLineValuedd": [
+      "int", "address", "address", "double", "double"
+    ],
+    "ritual_ZN14QQuickTimeLine4moveER19QQuickTimeLineValuedi": [
+      "nothing", "address", "address", "double", "int"
+    ],
+    "ritual_ZN14QQuickTimeLine4moveER19QQuickTimeLineValuedRK12QEasingCurvei": [
+      "nothing", "address", "address", "double", "address", "int"
+    ],
+    "ritual_ZN14QQuickTimeLine6moveByER19QQuickTimeLineValuedi": [
+      "nothing", "address", "address", "double", "int"
+    ],
+    "ritual_ZN14QQuickTimeLine6moveByER19QQuickTimeLineValuedRK12QEasingCurvei": [
+      "nothing", "address", "address", "double", "address", "int"
+    ],
+    "ritual_ZN14QQuickTimeLine12setSyncPointEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTimeLine9syncPointEv": ["int", "address"],
+    "ritual_ZN14QQuickTimeLine4syncER19QQuickTimeLineValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTimeLine4syncER19QQuickTimeLineValueS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickTimeLine5resetER19QQuickTimeLineValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTimeLine8completeEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTimeLine5clearEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTimeLine8isActiveEv": ["bool", "address"],
+    "ritual_ZNK14QQuickTimeLine4timeEv": ["int", "address"],
+    "ritual_ZNK14QQuickTimeLine8durationEv": ["int", "address"],
+    "ritual_ZN14QQuickTimeLine7updatedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTimeLine17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTimeLine14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTimeLine6removeEP20QQuickTimeLineObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQuickTimeLine_QAbstractAnimationJob": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickTimeLine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QQuickTimeLine8durationEv": ["int", "address"],
+    "ritual_own_ZN14QQuickTimeLine17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK14QQuickTimeLine14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ]
+  }
+}

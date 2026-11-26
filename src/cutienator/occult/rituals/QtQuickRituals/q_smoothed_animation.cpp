@@ -28,6 +28,58 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 20, as local:qquicksmoothedanimation.cpp:DELAY_STOP_TIMER_INTERVAL
+#define DELAY_STOP_TIMER_INTERVAL 32
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 94, as _ZN18QSmoothedAnimation11updateStateEN21QAbstractAnimationJob5StateES1_
+inline void QSmoothedAnimation::updateState(QAbstractAnimationJob::State newState, QAbstractAnimationJob::State /*oldState*/)
+{
+    if (newState == QAbstractAnimationJob::Running)
+        init();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 205, as _ZN18QSmoothedAnimation17updateCurrentTimeEi
+inline void QSmoothedAnimation::updateCurrentTime(int t)
+{
+    if (skipUpdate) {
+        skipUpdate = false;
+        return;
+    }
+
+    if (!isRunning() && !isPaused()) // This can happen if init() stops the animation in some cases
+        return;
+
+    qreal time_seconds = qreal(t - lastTime) / 1000.;
+
+    qreal value = easeFollow(time_seconds);
+    value *= (invert? -1.0: 1.0);
+    QQmlPropertyPrivate::write(target, initialValue + value,
+                                       QQmlPropertyData::BypassInterceptor
+                                       | QQmlPropertyData::DontRemoveBinding);
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 25, as _ZN23QSmoothedAnimationTimerC1EP18QSmoothedAnimationP7QObject
+inline QSmoothedAnimationTimer::QSmoothedAnimationTimer(QSmoothedAnimation *animation, QObject *parent)
+    : QTimer(parent)
+    , m_animation(animation)
+{
+    connect(this, SIGNAL(timeout()), this, SLOT(stopAnimation()));
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 277, as _ZNK18QSmoothedAnimation14debugAnimationE6QDebug
+inline void QSmoothedAnimation::debugAnimation(QDebug d) const
+{
+    d << "SmoothedAnimationJob(" << Qt::hex << (const void *) this << Qt::dec << ")" << "duration:" << userDuration
+      << "velocity:" << velocity << "target:" << target.object() << "property:" << target.name()
+      << "to:" << to << "current velocity:" << trackVelocity;
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 106, as _ZNK18QSmoothedAnimation8durationEv
+inline int QSmoothedAnimation::duration() const
+{
+    return -1;
+}
+
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 51, as _ZN18QSmoothedAnimationD1Ev
 inline QSmoothedAnimation::~QSmoothedAnimation()
 {
@@ -47,12 +99,6 @@ inline QSmoothedAnimation::~QSmoothedAnimation()
             }
         }
     }
-}
-
-//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 106, as _ZNK18QSmoothedAnimation8durationEv
-inline int QSmoothedAnimation::duration() const
-{
-    return -1;
 }
 
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 71, as _ZN18QSmoothedAnimation7restartEv
@@ -132,41 +178,6 @@ inline void QSmoothedAnimation::prepareForRestart()
         skipUpdate = false;
         //we'll be started when the group starts, which will force an init()
     }
-}
-
-//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 205, as _ZN18QSmoothedAnimation17updateCurrentTimeEi
-inline void QSmoothedAnimation::updateCurrentTime(int t)
-{
-    if (skipUpdate) {
-        skipUpdate = false;
-        return;
-    }
-
-    if (!isRunning() && !isPaused()) // This can happen if init() stops the animation in some cases
-        return;
-
-    qreal time_seconds = qreal(t - lastTime) / 1000.;
-
-    qreal value = easeFollow(time_seconds);
-    value *= (invert? -1.0: 1.0);
-    QQmlPropertyPrivate::write(target, initialValue + value,
-                                       QQmlPropertyData::BypassInterceptor
-                                       | QQmlPropertyData::DontRemoveBinding);
-}
-
-//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 94, as _ZN18QSmoothedAnimation11updateStateEN21QAbstractAnimationJob5StateES1_
-inline void QSmoothedAnimation::updateState(QAbstractAnimationJob::State newState, QAbstractAnimationJob::State /*oldState*/)
-{
-    if (newState == QAbstractAnimationJob::Running)
-        init();
-}
-
-//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 277, as _ZNK18QSmoothedAnimation14debugAnimationE6QDebug
-inline void QSmoothedAnimation::debugAnimation(QDebug d) const
-{
-    d << "SmoothedAnimationJob(" << Qt::hex << (const void *) this << Qt::dec << ")" << "duration:" << userDuration
-      << "velocity:" << velocity << "target:" << target.object() << "property:" << target.name()
-      << "to:" << to << "current velocity:" << trackVelocity;
 }
 
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 181, as _ZN18QSmoothedAnimation10easeFollowEd

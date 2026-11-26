@@ -9,6 +9,12 @@
     "ritual_ZNK37QQuickSaturationLightnessPickerCanvas10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN37QQuickSaturationLightnessPickerCanvas11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN37QQuickSaturationLightnessPickerCanvas11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN37QQuickSaturationLightnessPickerCanvas2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,6 +26,9 @@
     ],
     "ritual_ZN37QQuickSaturationLightnessPickerCanvas6setHueEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN37QQuickSaturationLightnessPickerCanvas10hueChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN37QQuickSaturationLightnessPickerCanvas15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
       "address", "address", "address", "address"

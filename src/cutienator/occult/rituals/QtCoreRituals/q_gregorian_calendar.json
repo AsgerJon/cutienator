@@ -28,6 +28,9 @@
     "ritual_ZN18QGregorianCalendar15partsFromJulianEx": [
       "address", "long long"
     ],
+    "ritual_ZN18QGregorianCalendar15julianFromPartsEiii": [
+      "address", "int", "int", "int"
+    ],
     "ritual_ZN18QGregorianCalendar16yearStartWeekDayEi": ["int", "int"],
     "ritual_ZN18QGregorianCalendar19yearSharingWeekDaysE5QDate": [
       "int", "address"
@@ -44,6 +47,9 @@
     ],
     "ritual_own_ZNK18QGregorianCalendar21matchCenturyToWeekdayERKN9QCalendar12YearMonthDayEi": [
       "long long", "address", "address", "int"
+    ],
+    "ritual_drop_QGregorianCalendar__std_optional_qint64": [
+      "nothing", "address"
     ]
   }
 }

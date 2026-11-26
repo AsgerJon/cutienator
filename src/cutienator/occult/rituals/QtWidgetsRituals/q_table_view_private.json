@@ -52,6 +52,9 @@
     "ritual_ZNK17QTableViewPrivate17widthHintForIndexERK11QModelIndexiRK20QStyleOptionViewItem": [
       "int", "address", "address", "int", "address"
     ],
+    "ritual_ZNK17QTableViewPrivate18heightHintForIndexERK11QModelIndexiR20QStyleOptionViewItem": [
+      "int", "address", "address", "int", "address"
+    ],
     "ritual_ZN17QTableViewPrivate7setSpanEiiii": [
       "nothing", "address", "int", "int", "int", "int"
     ],

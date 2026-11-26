@@ -8,11 +8,29 @@
     "ritual_ZNK8Qt3DCore24QAbstractServiceProvider10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore24QAbstractServiceProvider11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore24QAbstractServiceProvider11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore24QAbstractServiceProvider2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN8Qt3DCore24QAbstractServiceProviderD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZNK8Qt3DCore24QAbstractServiceProvider4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK8Qt3DCore24QAbstractServiceProvider11descriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZN8Qt3DCore24QAbstractServiceProviderC1EiRK7QStringP7QObject": [
+      "address", "int", "text", "address"
+    ],
+    "ritual_ZN8Qt3DCore24QAbstractServiceProviderC1ERNS_31QAbstractServiceProviderPrivateEP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN8Qt3DCore24QAbstractServiceProvider6d_funcEv": [
       "address", "address"

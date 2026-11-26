@@ -717,12 +717,28 @@ void ritual_ZN20QPlatformMediaPlayer14setActiveTrackENS_9TrackTypeEi(
   self->setActiveTrack(a0, a1);
 }
 
+//  void QPlatformMediaPlayer::durationChanged(std::chrono::milliseconds ms)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformMediaPlayer15durationChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QPlatformMediaPlayer *self,
+    long long ms) {
+  self->durationChanged(std::chrono::milliseconds(ms));
+}
+
 //  void QPlatformMediaPlayer::durationChanged(qint64 duration)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QPlatformMediaPlayer15durationChangedEx(
     QPlatformMediaPlayer *self,
     qint64 duration) {
   self->durationChanged(duration);
+}
+
+//  void QPlatformMediaPlayer::positionChanged(std::chrono::milliseconds ms)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformMediaPlayer15positionChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QPlatformMediaPlayer *self,
+    long long ms) {
+  self->positionChanged(std::chrono::milliseconds(ms));
 }
 
 //  void QPlatformMediaPlayer::positionChanged(qint64 position)
@@ -896,6 +912,13 @@ extern "C" Q_DECL_EXPORT
 QPlaybackOptions *ritual_ZNK20QPlatformMediaPlayer15playbackOptionsEv(
     const QPlatformMediaPlayer *self) {
   return new QPlaybackOptions(self->playbackOptions());
+}
+
+//  QPlatformMediaPlayer::QPlatformMediaPlayer(QMediaPlayer *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformMediaPlayer *ritual_ZN20QPlatformMediaPlayerC1EP12QMediaPlayer(
+    QMediaPlayer *parent) {
+  return new CuteQPlatformMediaPlayer(parent);
 }
 
 //  a Python function taken by a CuteQPlatformMediaPlayer, for the function

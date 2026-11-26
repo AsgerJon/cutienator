@@ -5,9 +5,16 @@
   ],
   "rows": {
     "ritual_ZNK12QLocalServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QLocalServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QLocalServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QLocalServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QLocalServer6d_funcEv": ["address", "address"],
     "ritual_ZNK12QLocalServer6d_funcEv": ["address", "address"],
+    "ritual_ZN12QLocalServer13newConnectionEv": ["nothing", "address"],
     "ritual_ZN12QLocalServerC1EP7QObject": ["address", "address"],
     "ritual_ZN12QLocalServerD1Ev": ["nothing", "address"],
     "ritual_ZN12QLocalServer5closeEv": ["nothing", "address"],
@@ -38,6 +45,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK12QLocalServer13socketOptionsEv": ["int", "address"],
+    "ritual_ZN12QLocalServer21bindableSocketOptionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK12QLocalServer16socketDescriptorEv": ["long long", "address"],
     "ritual_ZN12QLocalServer18incomingConnectionEy": [
       "nothing", "address", "unsigned long long"
@@ -59,6 +69,9 @@
     "ritual_list_add_QLocalServer_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QLocalServer_ptr": ["long long", "address"],
     "ritual_list_at_QLocalServer_ptr": ["address", "address", "long long"],
-    "ritual_list_drop_QLocalServer_ptr": ["nothing", "address"]
+    "ritual_list_drop_QLocalServer_ptr": ["nothing", "address"],
+    "ritual_drop_QLocalServer__QBindable_QLocalServer_SocketOptions": [
+      "nothing", "address"
+    ]
   }
 }

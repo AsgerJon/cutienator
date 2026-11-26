@@ -7,6 +7,16 @@
   "rows": {
     "ritual_ZNK22QtResourceEditorDialog10metaObjectEv": [
       "address", "address"
-    ]
+    ],
+    "ritual_ZN22QtResourceEditorDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QtResourceEditorDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN22QtResourceEditorDialog6acceptEv": ["nothing", "address"],
+    "ritual_ZN22QtResourceEditorDialogD1Ev": ["nothing", "address"],
+    "ritual_ZN22QtResourceEditorDialog6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QtResourceEditorDialog6d_funcEv": ["address", "address"]
   }
 }

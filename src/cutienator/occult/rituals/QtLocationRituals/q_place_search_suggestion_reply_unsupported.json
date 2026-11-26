@@ -8,6 +8,12 @@
     "ritual_ZNK38QPlaceSearchSuggestionReplyUnsupported10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN38QPlaceSearchSuggestionReplyUnsupported11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN38QPlaceSearchSuggestionReplyUnsupported11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN38QPlaceSearchSuggestionReplyUnsupported2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

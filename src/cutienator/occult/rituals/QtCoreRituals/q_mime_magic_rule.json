@@ -1,10 +1,12 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/6.12.0/QtCore/private/qmimemagicrule_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "QtCore/6.12.0/QtCore/private/qmimemagicrule_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN14QMimeMagicRule4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZNK14QMimeMagicRuleeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK14QMimeMagicRule4typeEv": ["int", "address"],
     "ritual_ZNK14QMimeMagicRule5valueEv": ["address", "address"],
     "ritual_ZNK14QMimeMagicRule8startPosEv": ["int", "address"],
@@ -14,6 +16,7 @@
     "ritual_ZNK14QMimeMagicRule7matchesERK10QByteArray": [
       "bool", "address", "address"
     ],
+    "ritual_ZN14QMimeMagicRule4typeERK10QByteArray": ["int", "address"],
     "ritual_ZN14QMimeMagicRule14matchSubstringEPKcxyyyS1_S1_": [
       "bool", "chars", "long long", "unsigned long long",
       "unsigned long long", "unsigned long long", "chars", "chars"
@@ -26,6 +29,15 @@
     "ritual_list_add_QMimeMagicRule": ["nothing", "address", "address"],
     "ritual_list_size_QMimeMagicRule": ["long long", "address"],
     "ritual_list_at_QMimeMagicRule": ["address", "address", "long long"],
-    "ritual_list_drop_QMimeMagicRule": ["nothing", "address"]
+    "ritual_list_drop_QMimeMagicRule": ["nothing", "address"],
+    "ritual_ZNK14QMimeMagicRule11matchNumberIhEEbRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QMimeMagicRule11matchNumberItEEbRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QMimeMagicRule11matchNumberIjEEbRK10QByteArray": [
+      "bool", "address", "address"
+    ]
   }
 }

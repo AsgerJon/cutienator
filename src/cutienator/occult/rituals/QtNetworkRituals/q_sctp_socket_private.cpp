@@ -35,21 +35,90 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/network/socket/qsctpsocket.cpp, line 103, as _ZN18QSctpSocketPrivateD2Ev
-inline QSctpSocketPrivate::~QSctpSocketPrivate()
+//  from src/network/socket/qsctpsocket.cpp, line 207, as _ZN18QSctpSocketPrivate13writeToSocketEv
+inline bool QSctpSocketPrivate::writeToSocket()
 {
-}
+    Q_Q(QSctpSocket);
+#if defined (QSCTPSOCKET_DEBUG)
+    qDebug("QSctpSocketPrivate::writeToSocket()");
+#endif
 
-//  from src/network/socket/qabstractsocketengine.cpp, line 103, as _ZNK21QAbstractSocketEngine11errorStringEv
-inline QString QAbstractSocketEngine::errorString() const
-{
-    return d_func()->socketErrorString;
-}
+    // Handle TCP emulation mode in the base implementation.
+    if (!q->isInDatagramMode())
+        return QTcpSocketPrivate::writeToSocket();
 
-//  from src/network/socket/qabstractsocketengine.cpp, line 98, as _ZNK21QAbstractSocketEngine5errorEv
-inline QAbstractSocket::SocketError QAbstractSocketEngine::error() const
-{
-    return d_func()->socketError;
+    if (!socketEngine)
+        return false;
+
+    QIpPacketHeader defaultHeader;
+    const int savedCurrentChannel = currentWriteChannel;
+    bool currentChannelWritten = false;
+    bool transmitting;
+    do {
+        transmitting = false;
+
+        for (int channel = 0; channel < writeBuffers.size(); ++channel) {
+            QRingBuffer &channelBuffer = writeBuffers[channel];
+
+            if (channelBuffer.isEmpty())
+                continue;
+
+            const bool hasHeader = (channel < writeHeaders.size())
+                                   && !writeHeaders[channel].empty();
+            QIpPacketHeader &header = hasHeader ? writeHeaders[channel].front() : defaultHeader;
+            header.streamNumber = channel;
+            qint64 sent = socketEngine->writeDatagram(channelBuffer.readPointer(),
+                                                      channelBuffer.nextDataBlockSize(),
+                                                      header);
+            if (sent < 0) {
+                if (sent == -2) // temporary error in writeDatagram
+                    return currentChannelWritten;
+
+                socketEngine->close();
+#if defined (QSCTPSOCKET_DEBUG)
+                qDebug("QSctpSocketPrivate::writeToSocket() write error, aborting. %s",
+                       socketEngine->errorString().toLatin1().constData());
+#endif
+                setErrorAndEmit(socketEngine->error(), socketEngine->errorString());
+                // An unexpected error so close the socket.
+                q->disconnectFromHost();
+                return currentChannelWritten;
+            }
+            Q_ASSERT(sent == channelBuffer.nextDataBlockSize());
+#if defined (QSCTPSOCKET_DEBUG)
+            qDebug("QSctpSocketPrivate::writeToSocket() sent datagram of size %lli to channel %i",
+                   sent, channel);
+#endif
+            transmitting = true;
+
+            // Remove datagram from the buffer
+            channelBuffer.read();
+            if (hasHeader)
+                writeHeaders[channel].pop_front();
+
+            // Emit notifications.
+            if (channel == savedCurrentChannel)
+                currentChannelWritten = true;
+            emitBytesWritten(sent, channel);
+
+            // If we were closed as a result of the bytesWritten() signal, return.
+            if (state == QAbstractSocket::UnconnectedState) {
+#if defined (QSCTPSOCKET_DEBUG)
+                qDebug("QSctpSocketPrivate::writeToSocket() socket is closing - returning");
+#endif
+                return currentChannelWritten;
+            }
+        }
+    } while (transmitting);
+
+    // At this point socket is either in Connected or Closing state,
+    // write buffers are empty.
+    if (state == QAbstractSocket::ClosingState)
+        q->disconnectFromHost();
+    else
+        socketEngine->setWriteNotificationEnabled(false);
+
+    return currentChannelWritten;
 }
 
 //  from src/network/socket/qsctpsocket.cpp, line 109, as _ZN18QSctpSocketPrivate19canReadNotificationEv
@@ -149,98 +218,29 @@ inline bool QSctpSocketPrivate::canReadNotification()
     return currentChannelRead;
 }
 
-//  from src/network/socket/qsctpsocket.cpp, line 207, as _ZN18QSctpSocketPrivate13writeToSocketEv
-inline bool QSctpSocketPrivate::writeToSocket()
-{
-    Q_Q(QSctpSocket);
-#if defined (QSCTPSOCKET_DEBUG)
-    qDebug("QSctpSocketPrivate::writeToSocket()");
-#endif
-
-    // Handle TCP emulation mode in the base implementation.
-    if (!q->isInDatagramMode())
-        return QTcpSocketPrivate::writeToSocket();
-
-    if (!socketEngine)
-        return false;
-
-    QIpPacketHeader defaultHeader;
-    const int savedCurrentChannel = currentWriteChannel;
-    bool currentChannelWritten = false;
-    bool transmitting;
-    do {
-        transmitting = false;
-
-        for (int channel = 0; channel < writeBuffers.size(); ++channel) {
-            QRingBuffer &channelBuffer = writeBuffers[channel];
-
-            if (channelBuffer.isEmpty())
-                continue;
-
-            const bool hasHeader = (channel < writeHeaders.size())
-                                   && !writeHeaders[channel].empty();
-            QIpPacketHeader &header = hasHeader ? writeHeaders[channel].front() : defaultHeader;
-            header.streamNumber = channel;
-            qint64 sent = socketEngine->writeDatagram(channelBuffer.readPointer(),
-                                                      channelBuffer.nextDataBlockSize(),
-                                                      header);
-            if (sent < 0) {
-                if (sent == -2) // temporary error in writeDatagram
-                    return currentChannelWritten;
-
-                socketEngine->close();
-#if defined (QSCTPSOCKET_DEBUG)
-                qDebug("QSctpSocketPrivate::writeToSocket() write error, aborting. %s",
-                       socketEngine->errorString().toLatin1().constData());
-#endif
-                setErrorAndEmit(socketEngine->error(), socketEngine->errorString());
-                // An unexpected error so close the socket.
-                q->disconnectFromHost();
-                return currentChannelWritten;
-            }
-            Q_ASSERT(sent == channelBuffer.nextDataBlockSize());
-#if defined (QSCTPSOCKET_DEBUG)
-            qDebug("QSctpSocketPrivate::writeToSocket() sent datagram of size %lli to channel %i",
-                   sent, channel);
-#endif
-            transmitting = true;
-
-            // Remove datagram from the buffer
-            channelBuffer.read();
-            if (hasHeader)
-                writeHeaders[channel].pop_front();
-
-            // Emit notifications.
-            if (channel == savedCurrentChannel)
-                currentChannelWritten = true;
-            emitBytesWritten(sent, channel);
-
-            // If we were closed as a result of the bytesWritten() signal, return.
-            if (state == QAbstractSocket::UnconnectedState) {
-#if defined (QSCTPSOCKET_DEBUG)
-                qDebug("QSctpSocketPrivate::writeToSocket() socket is closing - returning");
-#endif
-                return currentChannelWritten;
-            }
-        }
-    } while (transmitting);
-
-    // At this point socket is either in Connected or Closing state,
-    // write buffers are empty.
-    if (state == QAbstractSocket::ClosingState)
-        q->disconnectFromHost();
-    else
-        socketEngine->setWriteNotificationEnabled(false);
-
-    return currentChannelWritten;
-}
-
 //  from src/network/socket/qsctpsocket.cpp, line 294, as _ZN18QSctpSocketPrivate22configureCreatedSocketEv
 inline void QSctpSocketPrivate::configureCreatedSocket()
 {
     if (socketEngine)
         socketEngine->setOption(QAbstractSocketEngine::MaxStreamsSocketOption,
                                 maximumChannelCount < 0 ? 1 : maximumChannelCount);
+}
+
+//  from src/network/socket/qsctpsocket.cpp, line 103, as _ZN18QSctpSocketPrivateD2Ev
+inline QSctpSocketPrivate::~QSctpSocketPrivate()
+{
+}
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 103, as _ZNK21QAbstractSocketEngine11errorStringEv
+inline QString QAbstractSocketEngine::errorString() const
+{
+    return d_func()->socketErrorString;
+}
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 98, as _ZNK21QAbstractSocketEngine5errorEv
+inline QAbstractSocket::SocketError QAbstractSocketEngine::error() const
+{
+    return d_func()->socketError;
 }
 //  -----------------------------------------------------------------------
 
@@ -267,11 +267,12 @@ typedef void (*CuteQSctpSocketPrivateCall8)(const void *, const QNetworkProxy *,
 typedef bool (*CuteQSctpSocketPrivateCall9)(const void *, const QHostAddress *, quint16, int, const QNetworkInterface *, int *);
 typedef bool (*CuteQSctpSocketPrivateCall10)(const void *, int *);
 typedef bool (*CuteQSctpSocketPrivateCall11)(const void *, char, int *);
-typedef const QByteArray * (*CuteQSctpSocketPrivateCall12)(const void *, qint64, int *);
+typedef qint64 (*CuteQSctpSocketPrivateCall12)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQSctpSocketPrivateCall13)(const void *, qint64, int *);
 class CuteQSctpSocketPrivate : public QSctpSocketPrivate {
 public:
   using QSctpSocketPrivate::QSctpSocketPrivate;
-  void *taken[13] = {};
+  void *taken[14] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_SCTP)
@@ -330,8 +331,12 @@ public:
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[13] = call;
       return true;
     }
     return false;
@@ -486,11 +491,22 @@ public:
     return QIODevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[12]) {
       int handled = 0;
       CuteQSctpSocketPrivateCall12 call = reinterpret_cast<CuteQSctpSocketPrivateCall12>(taken[12]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQSctpSocketPrivateCall13 call = reinterpret_cast<CuteQSctpSocketPrivateCall13>(taken[13]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }

@@ -911,7 +911,8 @@ class Summon:
     its object file, compiled by the given standard, as 'c++17'."""
     system = System.getHere()
     qtFolder = self.getQtSharedObjectFolder()
-    if standard == 'c++17':
+    if standard == 'c++17' and not ritualFile.endswith('.mm'):
+      #  A file of Objective-C++ cannot use a header precompiled as C++.
       precompiled = ('-include-pch', self.getPrecompiledHeaderFile())
     else:
       precompiled = ()

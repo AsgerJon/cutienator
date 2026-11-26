@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK18QOrientationSensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOrientationSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QOrientationSensor11qt_metacastEPKc(
+    QOrientationSensor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOrientationSensor::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QOrientationSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOrientationSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOrientationSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QOrientationSensor2trEPKcS1_i(

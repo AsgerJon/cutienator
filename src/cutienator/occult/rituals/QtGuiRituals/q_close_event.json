@@ -4,6 +4,8 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QCloseEventC1ERKS_": ["address", "address"],
+    "ritual_ZN11QCloseEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK11QCloseEvent5cloneEv": ["address", "address"],
     "ritual_ZN11QCloseEventD1Ev": ["nothing", "address"],
     "ritual_ZN11QCloseEventC1Ev": ["address"],

@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN26QSSGDepthStencilAttachmentC1Ev": ["address"],
+    "ritual_ZNK26QSSGDepthStencilAttachment8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QSSGDepthStencilAttachmentD1Ev": ["nothing", "address"]
   }
 }

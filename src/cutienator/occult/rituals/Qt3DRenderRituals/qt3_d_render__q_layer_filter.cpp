@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QLayerFilter that Python can take functions over in. Every Qt3DRender::QLayerFilter
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender12QLayerFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QLayerFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender12QLayerFilter11qt_metacastEPKc(
+    Qt3DRender::QLayerFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QLayerFilter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender12QLayerFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QLayerFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QLayerFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender12QLayerFilter2trEPKcS2_i(
@@ -186,6 +207,75 @@ QString *ritual_ZN10Qt3DRender12QLayerFilter2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QLayerFilter::tr(s, c, n));
+}
+
+//  Qt3DRender::QLayerFilter::QLayerFilter(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLayerFilter *ritual_ZN10Qt3DRender12QLayerFilterC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QLayerFilter(parent);
+}
+
+//  Qt3DRender::QLayerFilter::~QLayerFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QLayerFilterD1Ev(
+    Qt3DRender::QLayerFilter *self) {
+  delete self;
+}
+
+//  void Qt3DRender::QLayerFilter::addLayer(QLayer *layer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QLayerFilter8addLayerEPNS_6QLayerE(
+    Qt3DRender::QLayerFilter *self,
+    Qt3DRender::QLayer *layer) {
+  self->addLayer(layer);
+}
+
+//  void Qt3DRender::QLayerFilter::removeLayer(QLayer *layer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QLayerFilter11removeLayerEPNS_6QLayerE(
+    Qt3DRender::QLayerFilter *self,
+    Qt3DRender::QLayer *layer) {
+  self->removeLayer(layer);
+}
+
+//  QList<QLayer *> Qt3DRender::QLayerFilter::layers() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QLayer *> *ritual_ZNK10Qt3DRender12QLayerFilter6layersEv(
+    const Qt3DRender::QLayerFilter *self) {
+  return new QList<Qt3DRender::QLayer *>(self->layers());
+}
+
+//  FilterMode Qt3DRender::QLayerFilter::filterMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLayerFilter::FilterMode ritual_ZNK10Qt3DRender12QLayerFilter10filterModeEv(
+    const Qt3DRender::QLayerFilter *self) {
+  return self->filterMode();
+}
+
+//  void Qt3DRender::QLayerFilter::setFilterMode(FilterMode filterMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QLayerFilter13setFilterModeENS0_10FilterModeE(
+    Qt3DRender::QLayerFilter *self,
+    Qt3DRender::QLayerFilter::FilterMode filterMode) {
+  self->setFilterMode(filterMode);
+}
+
+//  void Qt3DRender::QLayerFilter::filterModeChanged(FilterMode filterMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QLayerFilter17filterModeChangedENS0_10FilterModeE(
+    Qt3DRender::QLayerFilter *self,
+    Qt3DRender::QLayerFilter::FilterMode filterMode) {
+  self->filterModeChanged(filterMode);
+}
+
+//  Qt3DRender::QLayerFilter::QLayerFilter(QLayerFilterPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLayerFilter *ritual_ZN10Qt3DRender12QLayerFilterC1ERNS_19QLayerFilterPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QLayerFilterPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QLayerFilter(*dd, parent);
 }
 
 //  QLayerFilterPrivate *Qt3DRender::QLayerFilter::d_func()
@@ -210,4 +300,11 @@ bool ritual_take_Qt3DRender_QLayerFilter(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QLayerFilter *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DRender::QLayer *> a ritual of Qt3DRender::QLayerFilter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QLayerFilter__QList_Qt3DRender_QLayer(
+    QList<Qt3DRender::QLayer *> *self) {
+  delete self;
 }

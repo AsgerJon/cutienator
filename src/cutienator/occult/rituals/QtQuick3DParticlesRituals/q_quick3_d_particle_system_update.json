@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuick3DParticleSystemUpdate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuick3DParticleSystemUpdate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuick3DParticleSystemUpdate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuick3DParticleSystemUpdate8setDirtyEb": [
       "nothing", "address", "bool"
     ],

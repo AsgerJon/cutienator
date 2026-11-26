@@ -7,6 +7,21 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/lightsource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  Qt3DRender::Render::LightSource::LightSource()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::LightSource *ritual_ZN10Qt3DRender6Render11LightSourceC1Ev() {
+  return new Qt3DRender::Render::LightSource();
+}
+
+//  Qt3DRender::Render::LightSource::LightSource(const Entity *entity, const
+//      std::vector<Light *> &lights)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::LightSource *ritual_ZN10Qt3DRender6Render11LightSourceC1EPKNS0_6EntityERKSt6vectorIPNS0_5LightESaIS7_EE(
+    const Qt3DRender::Render::Entity *entity,
+    const std::vector<Qt3DRender::Render::Light *> *lights) {
+  return new Qt3DRender::Render::LightSource(entity, *lights);
+}
+
 //  Qt3DRender::Render::LightSource::~LightSource()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender6Render11LightSourceD1Ev(

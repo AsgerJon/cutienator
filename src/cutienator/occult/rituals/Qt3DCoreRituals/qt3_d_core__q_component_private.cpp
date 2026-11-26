@@ -53,6 +53,35 @@ public:
   }
 };
 
+//  Qt3DCore::QComponentPrivate::QComponentPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QComponentPrivate *ritual_ZN8Qt3DCore17QComponentPrivateC1Ev() {
+  return new CuteQt3DCore_QComponentPrivate();
+}
+
+//  Qt3DCore::QComponentPrivate::~QComponentPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QComponentPrivateD1Ev(
+    Qt3DCore::QComponentPrivate *self) {
+  delete self;
+}
+
+//  void Qt3DCore::QComponentPrivate::addEntity(QEntity *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QComponentPrivate9addEntityEPNS_7QEntityE(
+    Qt3DCore::QComponentPrivate *self,
+    Qt3DCore::QEntity *entity) {
+  self->addEntity(entity);
+}
+
+//  void Qt3DCore::QComponentPrivate::removeEntity(QEntity *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QComponentPrivate12removeEntityEPNS_7QEntityE(
+    Qt3DCore::QComponentPrivate *self,
+    Qt3DCore::QEntity *entity) {
+  self->removeEntity(entity);
+}
+
 //  QComponent *Qt3DCore::QComponentPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QComponent *ritual_ZN8Qt3DCore17QComponentPrivate6q_funcEv(

@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN16QSSGRenderEffectC1Ev": ["address"],
     "ritual_ZN16QSSGRenderEffectD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSSGRenderEffect15finalizeShadersERK15QSSGRenderLayerP26QSSGRenderContextInterface": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN16QSSGRenderEffect9markDirtyEv": ["nothing", "address"],
     "ritual_ZN16QSSGRenderEffect10clearDirtyEv": ["nothing", "address"],
     "ritual_ZNK16QSSGRenderEffect7isDirtyEv": ["bool", "address"],

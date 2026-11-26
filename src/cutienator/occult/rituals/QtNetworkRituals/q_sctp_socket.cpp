@@ -11,6 +11,13 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
+//  Only a class built on QSctpSocket may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQSctpSocket : QSctpSocket {
+  using QSctpSocket::readData;
+  using QSctpSocket::readLineData;
+};
+
 //  A QSctpSocket that Python can take functions over in. Every QSctpSocket
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
@@ -20,54 +27,60 @@ typedef void (*CuteQSctpSocketCall0)(const void *, int *);
 #if !defined(QT_NO_SCTP) || defined(Q_QDOC)
 typedef void (*CuteQSctpSocketCall1)(const void *, int *);
 #endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
-typedef void (*CuteQSctpSocketCall2)(const void *, int *);
-typedef bool (*CuteQSctpSocketCall3)(const void *, const QHostAddress *, quint16, int, int *);
-typedef void (*CuteQSctpSocketCall4)(const void *, const QString *, quint16, int, int, int *);
-typedef qint64 (*CuteQSctpSocketCall5)(const void *, int *);
-typedef qint64 (*CuteQSctpSocketCall6)(const void *, int *);
-typedef void (*CuteQSctpSocketCall7)(const void *, qint64, int *);
-typedef qintptr (*CuteQSctpSocketCall8)(const void *, int *);
-typedef bool (*CuteQSctpSocketCall9)(const void *, qintptr, int, int, int *);
-typedef void (*CuteQSctpSocketCall10)(const void *, int, const QVariant *, int *);
-typedef const QVariant * (*CuteQSctpSocketCall11)(const void *, int, int *);
-typedef bool (*CuteQSctpSocketCall12)(const void *, int *);
-typedef bool (*CuteQSctpSocketCall13)(const void *, int, int *);
-typedef bool (*CuteQSctpSocketCall14)(const void *, int, int *);
+#if !defined(QT_NO_SCTP) || defined(Q_QDOC)
+typedef qint64 (*CuteQSctpSocketCall2)(const void *, char *, qint64, int *);
+#endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
+#if !defined(QT_NO_SCTP) || defined(Q_QDOC)
+typedef qint64 (*CuteQSctpSocketCall3)(const void *, char *, qint64, int *);
+#endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
+typedef void (*CuteQSctpSocketCall4)(const void *, int *);
+typedef bool (*CuteQSctpSocketCall5)(const void *, const QHostAddress *, quint16, int, int *);
+typedef void (*CuteQSctpSocketCall6)(const void *, const QString *, quint16, int, int, int *);
+typedef qint64 (*CuteQSctpSocketCall7)(const void *, int *);
+typedef qint64 (*CuteQSctpSocketCall8)(const void *, int *);
+typedef void (*CuteQSctpSocketCall9)(const void *, qint64, int *);
+typedef qintptr (*CuteQSctpSocketCall10)(const void *, int *);
+typedef bool (*CuteQSctpSocketCall11)(const void *, qintptr, int, int, int *);
+typedef void (*CuteQSctpSocketCall12)(const void *, int, const QVariant *, int *);
+typedef const QVariant * (*CuteQSctpSocketCall13)(const void *, int, int *);
+typedef bool (*CuteQSctpSocketCall14)(const void *, int *);
 typedef bool (*CuteQSctpSocketCall15)(const void *, int, int *);
 typedef bool (*CuteQSctpSocketCall16)(const void *, int, int *);
-typedef qint64 (*CuteQSctpSocketCall17)(const void *, qint64, int *);
+typedef bool (*CuteQSctpSocketCall17)(const void *, int, int *);
 typedef bool (*CuteQSctpSocketCall18)(const void *, int, int *);
-typedef qint64 (*CuteQSctpSocketCall19)(const void *, int *);
-typedef qint64 (*CuteQSctpSocketCall20)(const void *, int *);
-typedef bool (*CuteQSctpSocketCall21)(const void *, qint64, int *);
-typedef bool (*CuteQSctpSocketCall22)(const void *, int *);
-typedef bool (*CuteQSctpSocketCall23)(const void *, int *);
+typedef qint64 (*CuteQSctpSocketCall19)(const void *, qint64, int *);
+typedef bool (*CuteQSctpSocketCall20)(const void *, int, int *);
+typedef qint64 (*CuteQSctpSocketCall21)(const void *, int *);
+typedef qint64 (*CuteQSctpSocketCall22)(const void *, int *);
+typedef bool (*CuteQSctpSocketCall23)(const void *, qint64, int *);
 typedef bool (*CuteQSctpSocketCall24)(const void *, int *);
+typedef bool (*CuteQSctpSocketCall25)(const void *, int *);
+typedef bool (*CuteQSctpSocketCall26)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSctpSocketCall25)(const void *, QEvent *, int *);
+typedef bool (*CuteQSctpSocketCall27)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSctpSocketCall26)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQSctpSocketCall28)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSctpSocketCall27)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQSctpSocketCall29)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSctpSocketCall28)(const void *, QChildEvent *, int *);
+typedef void (*CuteQSctpSocketCall30)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSctpSocketCall29)(const void *, QEvent *, int *);
+typedef void (*CuteQSctpSocketCall31)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSctpSocketCall30)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSctpSocketCall32)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSctpSocketCall31)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSctpSocketCall33)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQSctpSocket : public QSctpSocket {
 public:
   using QSctpSocket::QSctpSocket;
-  void *taken[32] = {};
+  void *taken[34] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_SCTP) || defined(Q_QDOC)
@@ -82,137 +95,149 @@ public:
       return true;
     }
 #endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
-    if (!std::strcmp(key, "_ZN15QAbstractSocket6resumeEv")) {
+#if !defined(QT_NO_SCTP) || defined(Q_QDOC)
+    if (!std::strcmp(key, "_ZN9QIODevice8readDataEPcx")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QAbstractSocket4bindERK12QHostAddresst6QFlagsINS_8BindFlagEE")) {
+#endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
+#if !defined(QT_NO_SCTP) || defined(Q_QDOC)
+    if (!std::strcmp(key, "_ZN9QIODevice12readLineDataEPcx")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QAbstractSocket13connectToHostERK7QStringt6QFlagsIN13QIODeviceBase12OpenModeFlagEENS_20NetworkLayerProtocolE")) {
+#endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
+    if (!std::strcmp(key, "_ZN15QAbstractSocket6resumeEv")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
+    if (!std::strcmp(key, "_ZN15QAbstractSocket4bindERK12QHostAddresst6QFlagsINS_8BindFlagEE")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
+    if (!std::strcmp(key, "_ZN15QAbstractSocket13connectToHostERK7QStringt6QFlagsIN13QIODeviceBase12OpenModeFlagEENS_20NetworkLayerProtocolE")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QAbstractSocket17setReadBufferSizeEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK15QAbstractSocket16socketDescriptorEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QAbstractSocket19setSocketDescriptorExNS_11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
+    if (!std::strcmp(key, "_ZN15QAbstractSocket17setReadBufferSizeEx")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QAbstractSocket15setSocketOptionENS_12SocketOptionERK8QVariant")) {
+    if (!std::strcmp(key, "_ZNK15QAbstractSocket16socketDescriptorEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QAbstractSocket12socketOptionENS_12SocketOptionE")) {
+    if (!std::strcmp(key, "_ZN15QAbstractSocket19setSocketDescriptorExNS_11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
+    if (!std::strcmp(key, "_ZN15QAbstractSocket15setSocketOptionENS_12SocketOptionERK8QVariant")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QAbstractSocket16waitForConnectedEi")) {
+    if (!std::strcmp(key, "_ZN15QAbstractSocket12socketOptionENS_12SocketOptionE")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+    if (!std::strcmp(key, "_ZN15QAbstractSocket16waitForConnectedEi")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QAbstractSocket19waitForDisconnectedEi")) {
+    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
+    if (!std::strcmp(key, "_ZN15QAbstractSocket19waitForDisconnectedEi")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
       taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
+      taken[26] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[25] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[26] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[27] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[28] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[29] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[30] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[31] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[32] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[33] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -245,11 +270,37 @@ public:
   }
 #endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
 
-  //  void QAbstractSocket::resume()
-  void resume() override {
+#if !defined(QT_NO_SCTP) || defined(Q_QDOC)
+  //  qint64 QSctpSocket::readData(char *data, qint64 maxlen)
+  qint64 readData(char *data, qint64 maxlen) override {
     if (taken[2]) {
       int handled = 0;
       CuteQSctpSocketCall2 call = reinterpret_cast<CuteQSctpSocketCall2>(taken[2]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QSctpSocket::readData(data, maxlen);
+  }
+#endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
+
+#if !defined(QT_NO_SCTP) || defined(Q_QDOC)
+  //  qint64 QSctpSocket::readLineData(char *data, qint64 maxlen)
+  qint64 readLineData(char *data, qint64 maxlen) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQSctpSocketCall3 call = reinterpret_cast<CuteQSctpSocketCall3>(taken[3]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QSctpSocket::readLineData(data, maxlen);
+  }
+#endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
+
+  //  void QAbstractSocket::resume()
+  void resume() override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQSctpSocketCall4 call = reinterpret_cast<CuteQSctpSocketCall4>(taken[4]);
       call(this, &handled);
       if (handled) return;
     }
@@ -262,9 +313,9 @@ public:
       const QHostAddress &address,
       quint16 port,
       QAbstractSocket::BindMode mode) override {
-    if (taken[3]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQSctpSocketCall3 call = reinterpret_cast<CuteQSctpSocketCall3>(taken[3]);
+      CuteQSctpSocketCall5 call = reinterpret_cast<CuteQSctpSocketCall5>(taken[5]);
       bool given = call(this, &address, port, static_cast<int>(mode.toInt()), &handled);
       if (handled) return given;
     }
@@ -278,9 +329,9 @@ public:
       quint16 port,
       QIODeviceBase::OpenMode mode,
       QAbstractSocket::NetworkLayerProtocol protocol) override {
-    if (taken[4]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQSctpSocketCall4 call = reinterpret_cast<CuteQSctpSocketCall4>(taken[4]);
+      CuteQSctpSocketCall6 call = reinterpret_cast<CuteQSctpSocketCall6>(taken[6]);
       call(this, &hostName, port, static_cast<int>(mode.toInt()), static_cast<int>(protocol), &handled);
       if (handled) return;
     }
@@ -289,9 +340,9 @@ public:
 
   //  qint64 QAbstractSocket::bytesAvailable() const
   qint64 bytesAvailable() const override {
-    if (taken[5]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQSctpSocketCall5 call = reinterpret_cast<CuteQSctpSocketCall5>(taken[5]);
+      CuteQSctpSocketCall7 call = reinterpret_cast<CuteQSctpSocketCall7>(taken[7]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -300,9 +351,9 @@ public:
 
   //  qint64 QAbstractSocket::bytesToWrite() const
   qint64 bytesToWrite() const override {
-    if (taken[6]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQSctpSocketCall6 call = reinterpret_cast<CuteQSctpSocketCall6>(taken[6]);
+      CuteQSctpSocketCall8 call = reinterpret_cast<CuteQSctpSocketCall8>(taken[8]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -311,9 +362,9 @@ public:
 
   //  void QAbstractSocket::setReadBufferSize(qint64 size)
   void setReadBufferSize(qint64 size) override {
-    if (taken[7]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQSctpSocketCall7 call = reinterpret_cast<CuteQSctpSocketCall7>(taken[7]);
+      CuteQSctpSocketCall9 call = reinterpret_cast<CuteQSctpSocketCall9>(taken[9]);
       call(this, size, &handled);
       if (handled) return;
     }
@@ -322,9 +373,9 @@ public:
 
   //  qintptr QAbstractSocket::socketDescriptor() const
   qintptr socketDescriptor() const override {
-    if (taken[8]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQSctpSocketCall8 call = reinterpret_cast<CuteQSctpSocketCall8>(taken[8]);
+      CuteQSctpSocketCall10 call = reinterpret_cast<CuteQSctpSocketCall10>(taken[10]);
       qintptr given = call(this, &handled);
       if (handled) return given;
     }
@@ -337,9 +388,9 @@ public:
       qintptr socketDescriptor,
       QAbstractSocket::SocketState state,
       QIODeviceBase::OpenMode openMode) override {
-    if (taken[9]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQSctpSocketCall9 call = reinterpret_cast<CuteQSctpSocketCall9>(taken[9]);
+      CuteQSctpSocketCall11 call = reinterpret_cast<CuteQSctpSocketCall11>(taken[11]);
       bool given = call(this, socketDescriptor, static_cast<int>(state), static_cast<int>(openMode.toInt()), &handled);
       if (handled) return given;
     }
@@ -351,9 +402,9 @@ public:
   void setSocketOption(
       QAbstractSocket::SocketOption option,
       const QVariant &value) override {
-    if (taken[10]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQSctpSocketCall10 call = reinterpret_cast<CuteQSctpSocketCall10>(taken[10]);
+      CuteQSctpSocketCall12 call = reinterpret_cast<CuteQSctpSocketCall12>(taken[12]);
       call(this, static_cast<int>(option), &value, &handled);
       if (handled) return;
     }
@@ -363,9 +414,9 @@ public:
   //  QVariant QAbstractSocket::socketOption(QAbstractSocket::SocketOption
   //      option)
   QVariant socketOption(QAbstractSocket::SocketOption option) override {
-    if (taken[11]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQSctpSocketCall11 call = reinterpret_cast<CuteQSctpSocketCall11>(taken[11]);
+      CuteQSctpSocketCall13 call = reinterpret_cast<CuteQSctpSocketCall13>(taken[13]);
       const QVariant * given = call(this, static_cast<int>(option), &handled);
       if (handled && given) return *given;
     }
@@ -374,9 +425,9 @@ public:
 
   //  bool QAbstractSocket::isSequential() const
   bool isSequential() const override {
-    if (taken[12]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQSctpSocketCall12 call = reinterpret_cast<CuteQSctpSocketCall12>(taken[12]);
+      CuteQSctpSocketCall14 call = reinterpret_cast<CuteQSctpSocketCall14>(taken[14]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -385,9 +436,9 @@ public:
 
   //  bool QAbstractSocket::waitForConnected(int msecs)
   bool waitForConnected(int msecs) override {
-    if (taken[13]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQSctpSocketCall13 call = reinterpret_cast<CuteQSctpSocketCall13>(taken[13]);
+      CuteQSctpSocketCall15 call = reinterpret_cast<CuteQSctpSocketCall15>(taken[15]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -396,9 +447,9 @@ public:
 
   //  bool QAbstractSocket::waitForReadyRead(int msecs)
   bool waitForReadyRead(int msecs) override {
-    if (taken[14]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQSctpSocketCall14 call = reinterpret_cast<CuteQSctpSocketCall14>(taken[14]);
+      CuteQSctpSocketCall16 call = reinterpret_cast<CuteQSctpSocketCall16>(taken[16]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -407,9 +458,9 @@ public:
 
   //  bool QAbstractSocket::waitForBytesWritten(int msecs)
   bool waitForBytesWritten(int msecs) override {
-    if (taken[15]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQSctpSocketCall15 call = reinterpret_cast<CuteQSctpSocketCall15>(taken[15]);
+      CuteQSctpSocketCall17 call = reinterpret_cast<CuteQSctpSocketCall17>(taken[17]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -418,9 +469,9 @@ public:
 
   //  bool QAbstractSocket::waitForDisconnected(int msecs)
   bool waitForDisconnected(int msecs) override {
-    if (taken[16]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQSctpSocketCall16 call = reinterpret_cast<CuteQSctpSocketCall16>(taken[16]);
+      CuteQSctpSocketCall18 call = reinterpret_cast<CuteQSctpSocketCall18>(taken[18]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -429,9 +480,9 @@ public:
 
   //  qint64 QAbstractSocket::skipData(qint64 maxSize)
   qint64 skipData(qint64 maxSize) override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQSctpSocketCall17 call = reinterpret_cast<CuteQSctpSocketCall17>(taken[17]);
+      CuteQSctpSocketCall19 call = reinterpret_cast<CuteQSctpSocketCall19>(taken[19]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -440,9 +491,9 @@ public:
 
   //  bool QIODevice::open(QIODeviceBase::OpenMode mode)
   bool open(QIODeviceBase::OpenMode mode) override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQSctpSocketCall18 call = reinterpret_cast<CuteQSctpSocketCall18>(taken[18]);
+      CuteQSctpSocketCall20 call = reinterpret_cast<CuteQSctpSocketCall20>(taken[20]);
       bool given = call(this, static_cast<int>(mode.toInt()), &handled);
       if (handled) return given;
     }
@@ -451,9 +502,9 @@ public:
 
   //  qint64 QIODevice::pos() const
   qint64 pos() const override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQSctpSocketCall19 call = reinterpret_cast<CuteQSctpSocketCall19>(taken[19]);
+      CuteQSctpSocketCall21 call = reinterpret_cast<CuteQSctpSocketCall21>(taken[21]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -462,9 +513,9 @@ public:
 
   //  qint64 QIODevice::size() const
   qint64 size() const override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQSctpSocketCall20 call = reinterpret_cast<CuteQSctpSocketCall20>(taken[20]);
+      CuteQSctpSocketCall22 call = reinterpret_cast<CuteQSctpSocketCall22>(taken[22]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -473,9 +524,9 @@ public:
 
   //  bool QIODevice::seek(qint64 pos)
   bool seek(qint64 pos) override {
-    if (taken[21]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQSctpSocketCall21 call = reinterpret_cast<CuteQSctpSocketCall21>(taken[21]);
+      CuteQSctpSocketCall23 call = reinterpret_cast<CuteQSctpSocketCall23>(taken[23]);
       bool given = call(this, pos, &handled);
       if (handled) return given;
     }
@@ -484,9 +535,9 @@ public:
 
   //  bool QIODevice::atEnd() const
   bool atEnd() const override {
-    if (taken[22]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQSctpSocketCall22 call = reinterpret_cast<CuteQSctpSocketCall22>(taken[22]);
+      CuteQSctpSocketCall24 call = reinterpret_cast<CuteQSctpSocketCall24>(taken[24]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -495,9 +546,9 @@ public:
 
   //  bool QIODevice::reset()
   bool reset() override {
-    if (taken[23]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQSctpSocketCall23 call = reinterpret_cast<CuteQSctpSocketCall23>(taken[23]);
+      CuteQSctpSocketCall25 call = reinterpret_cast<CuteQSctpSocketCall25>(taken[25]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -506,9 +557,9 @@ public:
 
   //  bool QIODevice::canReadLine() const
   bool canReadLine() const override {
-    if (taken[24]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQSctpSocketCall24 call = reinterpret_cast<CuteQSctpSocketCall24>(taken[24]);
+      CuteQSctpSocketCall26 call = reinterpret_cast<CuteQSctpSocketCall26>(taken[26]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -518,9 +569,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[25]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQSctpSocketCall25 call = reinterpret_cast<CuteQSctpSocketCall25>(taken[25]);
+      CuteQSctpSocketCall27 call = reinterpret_cast<CuteQSctpSocketCall27>(taken[27]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -531,9 +582,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[26]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQSctpSocketCall26 call = reinterpret_cast<CuteQSctpSocketCall26>(taken[26]);
+      CuteQSctpSocketCall28 call = reinterpret_cast<CuteQSctpSocketCall28>(taken[28]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -544,9 +595,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[27]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQSctpSocketCall27 call = reinterpret_cast<CuteQSctpSocketCall27>(taken[27]);
+      CuteQSctpSocketCall29 call = reinterpret_cast<CuteQSctpSocketCall29>(taken[29]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -557,9 +608,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[28]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQSctpSocketCall28 call = reinterpret_cast<CuteQSctpSocketCall28>(taken[28]);
+      CuteQSctpSocketCall30 call = reinterpret_cast<CuteQSctpSocketCall30>(taken[30]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -570,9 +621,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[29]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQSctpSocketCall29 call = reinterpret_cast<CuteQSctpSocketCall29>(taken[29]);
+      CuteQSctpSocketCall31 call = reinterpret_cast<CuteQSctpSocketCall31>(taken[31]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -583,9 +634,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[30]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQSctpSocketCall30 call = reinterpret_cast<CuteQSctpSocketCall30>(taken[30]);
+      CuteQSctpSocketCall32 call = reinterpret_cast<CuteQSctpSocketCall32>(taken[32]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -596,9 +647,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[31]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQSctpSocketCall31 call = reinterpret_cast<CuteQSctpSocketCall31>(taken[31]);
+      CuteQSctpSocketCall33 call = reinterpret_cast<CuteQSctpSocketCall33>(taken[33]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -612,6 +663,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK11QSctpSocket10metaObjectEv(
     const QSctpSocket *self) {
   return self->metaObject();
+}
+
+//  void *QSctpSocket::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QSctpSocket11qt_metacastEPKc(
+    QSctpSocket *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSctpSocket::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QSctpSocket11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSctpSocket *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QSctpSocket::tr(const char *s, const char *c, int n)
@@ -681,6 +750,24 @@ bool ritual_ZN11QSctpSocket13writeDatagramERK16QNetworkDatagram(
   return self->writeDatagram(*datagram);
 }
 
+//  qint64 QSctpSocket::readData(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN11QSctpSocket8readDataEPcx(
+    QSctpSocket *self,
+    char *data,
+    qint64 maxlen) {
+  return self->readData(data, maxlen);
+}
+
+//  qint64 QSctpSocket::readLineData(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN11QSctpSocket12readLineDataEPcx(
+    QSctpSocket *self,
+    char *data,
+    qint64 maxlen) {
+  return self->readLineData(data, maxlen);
+}
+
 //  QSctpSocketPrivate *QSctpSocket::d_func()
 extern "C" Q_DECL_EXPORT
 QSctpSocketPrivate *ritual_ZN11QSctpSocket6d_funcEv(QSctpSocket *self) {
@@ -714,6 +801,28 @@ void ritual_own_ZN11QSctpSocket5closeEv(QSctpSocket *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN11QSctpSocket18disconnectFromHostEv(QSctpSocket *self) {
   self->QSctpSocket::disconnectFromHost();
+}
+
+//  qint64 QSctpSocket::readData(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN11QSctpSocket8readDataEPcx(
+    QSctpSocket *self,
+    char *data,
+    qint64 maxlen) {
+  return static_cast<OwnQSctpSocket *>(self)->OwnQSctpSocket::readData(
+      data,
+      maxlen);
+}
+
+//  qint64 QSctpSocket::readLineData(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN11QSctpSocket12readLineDataEPcx(
+    QSctpSocket *self,
+    char *data,
+    qint64 maxlen) {
+  return static_cast<OwnQSctpSocket *>(self)->OwnQSctpSocket::readLineData(
+      data,
+      maxlen);
 }
 
 #endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)

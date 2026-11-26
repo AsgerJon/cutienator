@@ -114,6 +114,12 @@ public:
   }
 };
 
+//  QDesignerDnDItemInterface::QDesignerDnDItemInterface()
+extern "C" Q_DECL_EXPORT
+QDesignerDnDItemInterface *ritual_ZN25QDesignerDnDItemInterfaceC1Ev() {
+  return new CuteQDesignerDnDItemInterface();
+}
+
 //  QDesignerDnDItemInterface::~QDesignerDnDItemInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QDesignerDnDItemInterfaceD1Ev(

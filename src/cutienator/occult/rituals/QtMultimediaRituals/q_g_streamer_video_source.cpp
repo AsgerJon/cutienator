@@ -187,6 +187,25 @@ const QMetaObject *ritual_ZNK21QGStreamerVideoSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGStreamerVideoSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QGStreamerVideoSource11qt_metacastEPKc(
+    QGStreamerVideoSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGStreamerVideoSource::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QGStreamerVideoSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGStreamerVideoSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGStreamerVideoSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QGStreamerVideoSource2trEPKcS1_i(
@@ -203,6 +222,15 @@ QGStreamerVideoSource *ritual_ZN21QGStreamerVideoSourceC1ERK7QStringP7QObject(
     const QString *gstBinDescription,
     QObject *parent) {
   return new CuteQGStreamerVideoSource(*gstBinDescription, parent);
+}
+
+//  QGStreamerVideoSource::QGStreamerVideoSource(GstElement *gstElement,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGStreamerVideoSource *ritual_ZN21QGStreamerVideoSourceC1EP11_GstElementP7QObject(
+    GstElement *gstElement,
+    QObject *parent) {
+  return new CuteQGStreamerVideoSource(gstElement, parent);
 }
 
 //  QGStreamerVideoSource::~QGStreamerVideoSource()
@@ -223,6 +251,13 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK21QGStreamerVideoSource17gstBinDescriptionEv(
     const QGStreamerVideoSource *self) {
   return new QString(self->gstBinDescription());
+}
+
+//  GstElement *QGStreamerVideoSource::gstElement() const
+extern "C" Q_DECL_EXPORT
+GstElement *ritual_ZNK21QGStreamerVideoSource10gstElementEv(
+    const QGStreamerVideoSource *self) {
+  return self->gstElement();
 }
 
 //  QMediaCaptureSession *QGStreamerVideoSource::captureSession() const
@@ -252,11 +287,26 @@ void ritual_ZN21QGStreamerVideoSource4stopEv(QGStreamerVideoSource *self) {
   self->stop();
 }
 
+//  void QGStreamerVideoSource::activeChanged(bool active)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGStreamerVideoSource13activeChangedEb(
+    QGStreamerVideoSource *self,
+    bool active) {
+  self->activeChanged(active);
+}
+
 //  QGStreamerVideoSource::QGStreamerVideoSource(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QGStreamerVideoSource *ritual_ZN21QGStreamerVideoSourceC1EP7QObject(
     QObject *parent) {
   return new CuteQGStreamerVideoSource(parent);
+}
+
+//  QPlatformCamera *QGStreamerVideoSource::platformVideoSource() const
+extern "C" Q_DECL_EXPORT
+QPlatformCamera *ritual_ZNK21QGStreamerVideoSource19platformVideoSourceEv(
+    const QGStreamerVideoSource *self) {
+  return self->platformVideoSource();
 }
 
 //  void QGStreamerVideoSource::setCaptureSession(QMediaCaptureSession

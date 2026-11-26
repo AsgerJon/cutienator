@@ -6,6 +6,85 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4functionobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/private/qv4object_p.h>
+#include <QtQml/private/qv4function_p.h>
+#include <QtQml/private/qv4symbol_p.h>
+#include <QtQml/private/qv4mm_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
+#include <QtQml/private/qv4argumentsobject_p.h>
+#include <QtQml/private/qqmljsengine_p.h>
+#include <QtQml/private/qqmljsast_p.h>
+#include <QtQml/private/qqmljavascriptexpression_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qv4runtimecodegen_p.h>
+#include <QtCore/private/qlocale_tools_p.h>
+#include <QtQml/private/qqmlbuiltinfunctions_p.h>
+#include <QtQml/private/qv4jscall_p.h>
+#include <QtQml/private/qv4vme_moth_p.h>
+#include <QtQml/private/qv4alloca_p.h>
+#include <QtCore/QDebug>
+#include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4functionobject.cpp, line 565, as _ZN3QV44Heap13ArrowFunction4initEPNS_16ExecutionContextEPNS_8FunctionEPNS_6StringE
+namespace QV4 {
+inline void Heap::ArrowFunction::init(QV4::ExecutionContext *scope, Function *function, QV4::String *n)
+{
+    Q_ASSERT(function);
+    JavaScriptFunctionObject::init(scope, function, n);
+
+    Scope s(scope);
+    Q_ASSERT(internalClass && internalClass->verifyIndex(s.engine->id_length()->propertyKey(), Index_Length));
+    setProperty(s.engine, Index_Length, Value::fromInt32(int(function->compiledFunction->length)));
+}
+}  // namespace QV4
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4functionobject.cpp, line 55, as _ZN3QV44Heap24JavaScriptFunctionObject4initEPNS_16ExecutionContextEPNS_8FunctionEPNS_6StringE
+namespace QV4 {
+inline void Heap::JavaScriptFunctionObject::init(
+        QV4::ExecutionContext *scope, Function *function, QV4::String *n)
+{
+    Q_ASSERT(n || function);
+    Scope s(scope->engine());
+    ScopedString name(s, n ? n->d() : function->name());
+    FunctionObject::init(s.engine, name);
+    this->scope.set(s.engine, scope->d());
+    setFunction(function);
+}
+}  // namespace QV4
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4functionobject.cpp, line 66, as _ZN3QV44Heap24JavaScriptFunctionObject11setFunctionEPNS_8FunctionE
+namespace QV4 {
+inline void Heap::JavaScriptFunctionObject::setFunction(Function *f)
+{
+    if (f) {
+        function = f;
+        function->executableCompilationUnit()->addref();
+    }
+}
+}  // namespace QV4
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4functionobject.cpp, line 575, as _ZN3QV44Heap14ScriptFunction4initEPNS_16ExecutionContextEPNS_8FunctionE
+namespace QV4 {
+inline void Heap::ScriptFunction::init(QV4::ExecutionContext *scope, Function *function)
+{
+    ArrowFunction::init(scope, function);
+    Q_ASSERT(!function->isArrowFunction());
+
+    Scope s(scope);
+    ScopedFunctionObject f(s, this);
+    f->createDefaultPrototypeProperty(Heap::FunctionObject::Index_ProtoConstructor);
+}
+}  // namespace QV4
+//  -----------------------------------------------------------------------
 
 //  void QV4::Heap::ScriptFunction::markObjects(Heap::Base *b, MarkStack
 //      *stack)
@@ -14,6 +93,16 @@ void ritual_ZN3QV44Heap14ScriptFunction11markObjectsEPNS0_4BaseEPNS_9MarkStackE(
     QV4::Heap::Base *b,
     QV4::MarkStack *stack) {
   QV4::Heap::ScriptFunction::markObjects(b, stack);
+}
+
+//  void QV4::Heap::ScriptFunction::init(QV4::ExecutionContext *scope,
+//      Function *function)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV44Heap14ScriptFunction4initEPNS_16ExecutionContextEPNS_8FunctionE(
+    QV4::Heap::ScriptFunction *self,
+    QV4::ExecutionContext *scope,
+    QV4::Function *function) {
+  self->init(scope, function);
 }
 
 //  QV4::Heap::ScriptFunction as the QV4::Heap::ScriptFunctionData it is

@@ -24,6 +24,12 @@
     "ritual_ZN16QIODevicePrivate14QRingBufferRef4freeEx": [
       "nothing", "address", "long long"
     ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef7reserveEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef12reserveFrontEx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN16QIODevicePrivate14QRingBufferRef8truncateEx": [
       "nothing", "address", "long long"
     ],
@@ -54,8 +60,14 @@
     "ritual_ZNK16QIODevicePrivate14QRingBufferRef7indexOfEcxx": [
       "long long", "address", "char", "long long", "long long"
     ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN16QIODevicePrivate14QRingBufferRef4readEv": [
       "address", "address"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef4peekEPcxx": [
+      "long long", "address", "address", "long long", "long long"
     ],
     "ritual_ZN16QIODevicePrivate14QRingBufferRef6appendEPKcx": [
       "nothing", "address", "chars", "long long"
@@ -65,6 +77,9 @@
     ],
     "ritual_ZN16QIODevicePrivate14QRingBufferRef4skipEx": [
       "long long", "address", "long long"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef8readLineEPcx6QFlagsINS_14ReadLineOptionEE": [
+      "long long", "address", "address", "long long", "int"
     ],
     "ritual_ZNK16QIODevicePrivate14QRingBufferRef11canReadLineEv": [
       "bool", "address"

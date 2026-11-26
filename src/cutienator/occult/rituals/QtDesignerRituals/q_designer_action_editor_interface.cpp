@@ -917,6 +917,25 @@ const QMetaObject *ritual_ZNK30QDesignerActionEditorInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerActionEditorInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QDesignerActionEditorInterface11qt_metacastEPKc(
+    QDesignerActionEditorInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerActionEditorInterface::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QDesignerActionEditorInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerActionEditorInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerActionEditorInterface::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -925,6 +944,17 @@ QString *ritual_ZN30QDesignerActionEditorInterface2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QDesignerActionEditorInterface::tr(s, c, n));
+}
+
+//  QDesignerActionEditorInterface::QDesignerActionEditorInterface(QWidget
+//      *parent, Qt::WindowFlags flags)
+extern "C" Q_DECL_EXPORT
+QDesignerActionEditorInterface *ritual_ZN30QDesignerActionEditorInterfaceC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE(
+    QWidget *parent,
+    int flags) {
+  return new CuteQDesignerActionEditorInterface(
+      parent,
+      QFlags<Qt::WindowType>::fromInt(flags));
 }
 
 //  QDesignerActionEditorInterface::~QDesignerActionEditorInterface()

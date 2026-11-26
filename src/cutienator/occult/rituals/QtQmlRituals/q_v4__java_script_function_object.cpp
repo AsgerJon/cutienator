@@ -5,6 +5,7 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4functionobject_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmlglobal_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  const QV4::VTable *QV4::JavaScriptFunctionObject::staticVTable()
@@ -76,4 +77,11 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK3QV424JavaScriptFunctionObject10strictModeEv(
     const QV4::JavaScriptFunctionObject *self) {
   return self->strictMode();
+}
+
+//  QQmlSourceLocation QV4::JavaScriptFunctionObject::sourceLocation() const
+extern "C" Q_DECL_EXPORT
+QQmlSourceLocation *ritual_ZNK3QV424JavaScriptFunctionObject14sourceLocationEv(
+    const QV4::JavaScriptFunctionObject *self) {
+  return new QQmlSourceLocation(self->sourceLocation());
 }

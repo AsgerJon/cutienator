@@ -34,6 +34,14 @@ QHashedString *ritual_ZN13QHashedStringC1ERKS_(const QHashedString *string) {
   return new QHashedString(*string);
 }
 
+//  QHashedString &QHashedString::operator=(const QHashedString &string)
+extern "C" Q_DECL_EXPORT
+QHashedString *ritual_ZN13QHashedStringaSERKS_(
+    QHashedString *self,
+    const QHashedString *string) {
+  return &(self->operator=(*string));
+}
+
 //  bool QHashedString::operator==(const QHashedString &string) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QHashedStringeqERKS_(

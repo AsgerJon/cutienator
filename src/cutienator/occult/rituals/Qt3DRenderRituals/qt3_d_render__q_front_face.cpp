@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QFrontFace10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QFrontFace::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QFrontFace11qt_metacastEPKc(
+    Qt3DRender::QFrontFace *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QFrontFace::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QFrontFace11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QFrontFace *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QFrontFace::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QFrontFace2trEPKcS2_i(
@@ -186,6 +205,42 @@ QString *ritual_ZN10Qt3DRender10QFrontFace2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QFrontFace::tr(s, c, n));
+}
+
+//  Qt3DRender::QFrontFace::QFrontFace(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFrontFace *ritual_ZN10Qt3DRender10QFrontFaceC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QFrontFace(parent);
+}
+
+//  Qt3DRender::QFrontFace::~QFrontFace()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QFrontFaceD1Ev(Qt3DRender::QFrontFace *self) {
+  delete self;
+}
+
+//  WindingDirection Qt3DRender::QFrontFace::direction() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFrontFace::WindingDirection ritual_ZNK10Qt3DRender10QFrontFace9directionEv(
+    const Qt3DRender::QFrontFace *self) {
+  return self->direction();
+}
+
+//  void Qt3DRender::QFrontFace::setDirection(WindingDirection direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QFrontFace12setDirectionENS0_16WindingDirectionE(
+    Qt3DRender::QFrontFace *self,
+    Qt3DRender::QFrontFace::WindingDirection direction) {
+  self->setDirection(direction);
+}
+
+//  void Qt3DRender::QFrontFace::directionChanged(WindingDirection direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QFrontFace16directionChangedENS0_16WindingDirectionE(
+    Qt3DRender::QFrontFace *self,
+    Qt3DRender::QFrontFace::WindingDirection direction) {
+  self->directionChanged(direction);
 }
 
 //  QFrontFacePrivate *Qt3DRender::QFrontFace::d_func()

@@ -35,6 +35,46 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qml/qml/qqmlvmemetaobject.cpp, line 33, as _ZN19QQmlVMEResolvedListC1EP16QQmlListPropertyI7QObjectE
+inline QQmlVMEResolvedList::QQmlVMEResolvedList(QQmlListProperty<QObject> *prop)
+{
+    // see QQmlVMEMetaObject::metaCall for how this was constructed
+    auto encodedIndex = quintptr(prop->data);
+    constexpr quintptr usableBits = sizeof(quintptr) * CHAR_BIT;
+    quintptr inheritanceDepth = encodedIndex >> (usableBits / 2);
+    m_id = encodedIndex & ((quintptr(1) << (usableBits / 2)) - 1);
+
+    // walk up to the correct meta object if necessary
+    auto mo = static_cast<QQmlVMEMetaObject *>(QObjectPrivate::get(prop->object)->metaObject);
+    while (inheritanceDepth--)
+        mo = mo->parentVMEMetaObject();
+    m_metaObject = mo;
+    Q_ASSERT(m_metaObject);
+    Q_ASSERT(::strstr(m_metaObject->toDynamicMetaObject(prop->object)
+                              ->property(m_metaObject->propOffset() + m_id)
+                              .typeName(),
+                      "QQmlListProperty"));
+    Q_ASSERT(m_metaObject->object.data() == prop->object);
+
+    // readPropertyAsList() with checks transformed into Q_ASSERT
+    // and without allocation.
+    if (m_metaObject->m_propertyAndMethodStorage.isUndefined()
+        && m_metaObject->m_propertyAndMethodStorage.valueRef()) {
+        return;
+    }
+
+    if (auto *md = static_cast<QV4::MemberData *>(
+                m_metaObject->m_propertyAndMethodStorage.asManaged())) {
+        const QV4::Value *v = md->data() + m_id;
+        Q_ASSERT(v->as<QV4::Object>());
+        m_list = static_cast<QV4::Heap::Object *>(v->heapObject());
+        Q_ASSERT(m_list);
+    }
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmlvmemetaobject.cpp, line 108, as _ZN19QQmlVMEResolvedListD1Ev
+inline QQmlVMEResolvedList::~QQmlVMEResolvedList() = default;
+
 //  from ../qtdeclarative/src/qml/qml/qqmlvmemetaobject.cpp, line 69, as _ZNK19QQmlVMEResolvedList6appendEP7QObject
 inline void QQmlVMEResolvedList::append(QObject *o) const
 {
@@ -83,6 +123,19 @@ inline void QQmlVMEResolvedList::activateSignal() const
     m_metaObject->activate(m_metaObject->object.data(), int(m_id), nullptr);
 }
 //  -----------------------------------------------------------------------
+
+//  QQmlVMEResolvedList::QQmlVMEResolvedList(QQmlListProperty<QObject> *prop)
+extern "C" Q_DECL_EXPORT
+QQmlVMEResolvedList *ritual_ZN19QQmlVMEResolvedListC1EP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  return new QQmlVMEResolvedList(prop);
+}
+
+//  QQmlVMEResolvedList::~QQmlVMEResolvedList()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlVMEResolvedListD1Ev(QQmlVMEResolvedList *self) {
+  delete self;
+}
 
 //  QQmlVMEMetaObject *QQmlVMEResolvedList::metaObject() const
 extern "C" Q_DECL_EXPORT

@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN3QV415ExecutionEngine18ScarceResourceDataC1Ev": ["address"],
+    "ritual_ZN3QV415ExecutionEngine18ScarceResourceDataC1E9QMetaTypePKv": [
+      "address", "address", "address"
+    ],
     "ritual_ZN3QV415ExecutionEngine18ScarceResourceDataD1Ev": [
       "nothing", "address"
     ]

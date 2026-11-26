@@ -30,6 +30,24 @@ const QMetaObject *ritual_ZNK10QQuickDial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickDial11qt_metacastEPKc(
+    QQuickDial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDial::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQuickDial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDial::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQuickDial2trEPKcS1_i(
@@ -223,6 +241,104 @@ void ritual_ZN10QQuickDial8decreaseEv(QQuickDial *self) {
   self->decrease();
 }
 
+//  void QQuickDial::fromChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial11fromChangedEv(QQuickDial *self) {
+  self->fromChanged();
+}
+
+//  void QQuickDial::toChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial9toChangedEv(QQuickDial *self) {
+  self->toChanged();
+}
+
+//  void QQuickDial::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial12valueChangedEv(QQuickDial *self) {
+  self->valueChanged();
+}
+
+//  void QQuickDial::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial15positionChangedEv(QQuickDial *self) {
+  self->positionChanged();
+}
+
+//  void QQuickDial::angleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial12angleChangedEv(QQuickDial *self) {
+  self->angleChanged();
+}
+
+//  void QQuickDial::stepSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial15stepSizeChangedEv(QQuickDial *self) {
+  self->stepSizeChanged();
+}
+
+//  void QQuickDial::snapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial15snapModeChangedEv(QQuickDial *self) {
+  self->snapModeChanged();
+}
+
+//  void QQuickDial::wrapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial11wrapChangedEv(QQuickDial *self) {
+  self->wrapChanged();
+}
+
+//  void QQuickDial::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial14pressedChangedEv(QQuickDial *self) {
+  self->pressedChanged();
+}
+
+//  void QQuickDial::handleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial13handleChangedEv(QQuickDial *self) {
+  self->handleChanged();
+}
+
+//  void QQuickDial::moved()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial5movedEv(QQuickDial *self) {
+  self->moved();
+}
+
+//  void QQuickDial::liveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial11liveChangedEv(QQuickDial *self) {
+  self->liveChanged();
+}
+
+//  void QQuickDial::inputModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial16inputModeChangedEv(QQuickDial *self) {
+  self->inputModeChanged();
+}
+
+//  void QQuickDial::startAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial17startAngleChangedEv(QQuickDial *self) {
+  self->startAngleChanged();
+}
+
+//  void QQuickDial::endAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial15endAngleChangedEv(QQuickDial *self) {
+  self->endAngleChanged();
+}
+
+//  void QQuickDial::wrapped(WrapDirection a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDial7wrappedENS_13WrapDirectionE(
+    QQuickDial *self,
+    QQuickDial::WrapDirection a0) {
+  self->wrapped(a0);
+}
+
 //  void QQuickDial::keyPressEvent(QKeyEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickDial13keyPressEventEP9QKeyEvent(
@@ -297,6 +413,19 @@ QAccessible::Role ritual_ZNK10QQuickDial14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickDialPrivate *QQuickDial::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickDialPrivate *ritual_ZN10QQuickDial6d_funcEv(QQuickDial *self) {
+  return self->d_func();
+}
+
+//  const QQuickDialPrivate *QQuickDial::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickDialPrivate *ritual_ZNK10QQuickDial6d_funcEv(
+    const QQuickDial *self) {
+  return self->d_func();
+}
 
 //  void QQuickDial::keyPressEvent(QKeyEvent *event)
 extern "C" Q_DECL_EXPORT

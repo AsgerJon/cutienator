@@ -20,6 +20,24 @@ void ritual_ZN7DomFontD1Ev(DomFont *self) {
   delete self;
 }
 
+//  void DomFont::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7DomFont4readER16QXmlStreamReader(
+    DomFont *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomFont::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK7DomFont5writeER16QXmlStreamWriterRK7QString(
+    const DomFont *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  QString DomFont::elementFamily() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7DomFont13elementFamilyEv(const DomFont *self) {

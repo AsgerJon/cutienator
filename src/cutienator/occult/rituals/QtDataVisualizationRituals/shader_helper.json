@@ -16,6 +16,7 @@
       "nothing", "address", "text", "text"
     ],
     "ritual_ZN12ShaderHelper10initializeEv": ["nothing", "address"],
+    "ritual_ZN12ShaderHelper11testCompileEv": ["bool", "address"],
     "ritual_ZN12ShaderHelper4bindEv": ["nothing", "address"],
     "ritual_ZN12ShaderHelper7releaseEv": ["nothing", "address"],
     "ritual_ZN12ShaderHelper15setUniformValueEiRK9QVector2D": [
@@ -38,6 +39,37 @@
     ],
     "ritual_ZN12ShaderHelper20setUniformValueArrayEiPK9QVector4Di": [
       "nothing", "address", "int", "address", "int"
-    ]
+    ],
+    "ritual_ZN12ShaderHelper3MVPEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper4viewEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper5modelEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper6nModelEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper5depthEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper6lightPEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper6lightSEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper8ambientSEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper7shadowQEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper5colorEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper7textureEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper6shadowEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper11gradientMinEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper14gradientHeightEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper10lightColorEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper18volumeSliceIndicesEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper10colorIndexEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper29cameraPositionRelativeToModelEv": [
+      "int", "address"
+    ],
+    "ritual_ZN12ShaderHelper9color8BitEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper17textureDimensionsEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper11sampleCountEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper15alphaMultiplierEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper15preserveOpacityEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper9maxBoundsEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper9minBoundsEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper15sliceFrameWidthEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper6posAttEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper5uvAttEv": ["int", "address"],
+    "ritual_ZN12ShaderHelper9normalAttEv": ["int", "address"]
   }
 }

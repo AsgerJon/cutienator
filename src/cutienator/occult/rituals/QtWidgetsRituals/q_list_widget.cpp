@@ -8,8 +8,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtGui/qregion.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
@@ -2144,6 +2148,24 @@ const QMetaObject *ritual_ZNK11QListWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QListWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QListWidget11qt_metacastEPKc(
+    QListWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QListWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QListWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QListWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QListWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QListWidget2trEPKcS1_i(
@@ -2497,6 +2519,86 @@ void ritual_ZN11QListWidget12scrollToItemEPK15QListWidgetItemN17QAbstractItemVie
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QListWidget5clearEv(QListWidget *self) {
   self->clear();
+}
+
+//  void QListWidget::itemPressed(QListWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget11itemPressedEP15QListWidgetItem(
+    QListWidget *self,
+    QListWidgetItem *item) {
+  self->itemPressed(item);
+}
+
+//  void QListWidget::itemClicked(QListWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget11itemClickedEP15QListWidgetItem(
+    QListWidget *self,
+    QListWidgetItem *item) {
+  self->itemClicked(item);
+}
+
+//  void QListWidget::itemDoubleClicked(QListWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget17itemDoubleClickedEP15QListWidgetItem(
+    QListWidget *self,
+    QListWidgetItem *item) {
+  self->itemDoubleClicked(item);
+}
+
+//  void QListWidget::itemActivated(QListWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget13itemActivatedEP15QListWidgetItem(
+    QListWidget *self,
+    QListWidgetItem *item) {
+  self->itemActivated(item);
+}
+
+//  void QListWidget::itemEntered(QListWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget11itemEnteredEP15QListWidgetItem(
+    QListWidget *self,
+    QListWidgetItem *item) {
+  self->itemEntered(item);
+}
+
+//  void QListWidget::itemChanged(QListWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget11itemChangedEP15QListWidgetItem(
+    QListWidget *self,
+    QListWidgetItem *item) {
+  self->itemChanged(item);
+}
+
+//  void QListWidget::currentItemChanged(QListWidgetItem *current,
+//      QListWidgetItem *previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget18currentItemChangedEP15QListWidgetItemS1_(
+    QListWidget *self,
+    QListWidgetItem *current,
+    QListWidgetItem *previous) {
+  self->currentItemChanged(current, previous);
+}
+
+//  void QListWidget::currentTextChanged(const QString &currentText)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget18currentTextChangedERK7QString(
+    QListWidget *self,
+    const QString *currentText) {
+  self->currentTextChanged(*currentText);
+}
+
+//  void QListWidget::currentRowChanged(int currentRow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget17currentRowChangedEi(
+    QListWidget *self,
+    int currentRow) {
+  self->currentRowChanged(currentRow);
+}
+
+//  void QListWidget::itemSelectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget20itemSelectionChangedEv(QListWidget *self) {
+  self->itemSelectionChanged();
 }
 
 //  bool QListWidget::event(QEvent *e)

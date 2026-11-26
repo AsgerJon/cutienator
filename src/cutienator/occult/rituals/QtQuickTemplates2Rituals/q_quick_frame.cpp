@@ -22,6 +22,24 @@ const QMetaObject *ritual_ZNK11QQuickFrame10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFrame::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickFrame11qt_metacastEPKc(
+    QQuickFrame *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFrame::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickFrame11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFrame *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFrame::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickFrame2trEPKcS1_i(
@@ -35,6 +53,14 @@ QString *ritual_ZN11QQuickFrame2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 QQuickFrame *ritual_ZN11QQuickFrameC1EP10QQuickItem(QQuickItem *parent) {
   return new QQuickFrame(parent);
+}
+
+//  QQuickFrame::QQuickFrame(QQuickFramePrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickFrame *ritual_ZN11QQuickFrameC1ER18QQuickFramePrivateP10QQuickItem(
+    QQuickFramePrivate *dd,
+    QQuickItem *parent) {
+  return new QQuickFrame(*dd, parent);
 }
 
 #if QT_CONFIG(accessibility)

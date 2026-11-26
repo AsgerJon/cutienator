@@ -5,6 +5,45 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal9DialogGuiC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal9DialogGuiD1Ev": ["nothing", "address"],
+    "ritual_ZN18qdesigner_internal9DialogGui7messageEP7QWidgetN27QDesignerDialogGuiInterface7MessageEN11QMessageBox4IconERK7QStringS9_6QFlagsINS5_14StandardButtonEESB_": [
+      "int", "address", "address", "int", "int", "text", "text", "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui7messageEP7QWidgetN27QDesignerDialogGuiInterface7MessageEN11QMessageBox4IconERK7QStringS9_S9_6QFlagsINS5_14StandardButtonEESB_": [
+      "int", "address", "address", "int", "int", "text", "text", "text",
+      "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui7messageEP7QWidgetN27QDesignerDialogGuiInterface7MessageEN11QMessageBox4IconERK7QStringS9_S9_S9_6QFlagsINS5_14StandardButtonEESB_": [
+      "int", "address", "address", "int", "int", "text", "text", "text",
+      "text", "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui20getExistingDirectoryEP7QWidgetRK7QStringS5_6QFlagsIN11QFileDialog6OptionEE": [
+      "text", "address", "address", "text", "text", "int"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui15getOpenFileNameEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE": [
+      "text", "address", "address", "text", "text", "text", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui16getOpenFileNamesEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE": [
+      "address", "address", "address", "text", "text", "text", "address",
+      "int"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui15getSaveFileNameEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE": [
+      "text", "address", "address", "text", "text", "text", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui20getOpenImageFileNameEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE": [
+      "text", "address", "address", "text", "text", "text", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui21getOpenImageFileNamesEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE": [
+      "address", "address", "address", "text", "text", "text", "address",
+      "int"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui18ensureIconProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal9DialogGui25initializeImageFileDialogER11QFileDialog6QFlagsINS1_6OptionEENS1_8FileModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_take_qdesigner_internal_DialogGui": [
       "bool", "address", "chars", "address"
     ],

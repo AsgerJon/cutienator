@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickSmoothedAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickSmoothedAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickSmoothedAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickSmoothedAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,18 @@
     ],
     "ritual_ZN23QQuickSmoothedAnimation20setMaximumEasingTimeEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuickSmoothedAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN23QQuickSmoothedAnimation15velocityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSmoothedAnimation20reversingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSmoothedAnimation24maximumEasingTimeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQuickSmoothedAnimation": [
       "bool", "address", "chars", "address"

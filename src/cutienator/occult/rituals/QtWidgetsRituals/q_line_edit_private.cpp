@@ -57,6 +57,63 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/widgets/qlineedit_p.cpp, line 447, as local:qlineedit_p.cpp:displayWidgets
+#if QT_CONFIG(animation) && QT_CONFIG(toolbutton)
+static void displayWidgets(const QLineEditPrivate::SideWidgetEntryList &widgets, bool display)
+{
+    for (const auto &e : widgets) {
+        if (e.flags & QLineEditPrivate::SideWidgetFadeInWithText)
+            static_cast<QLineEditIconButton *>(e.widget)->animateShow(display);
+    }
+}
+#endif  // QT_CONFIG(animation) && QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 667, as local:qlineedit_p.cpp:effectiveTextMargin
+static int effectiveTextMargin(int defaultMargin, const QLineEditPrivate::SideWidgetEntryList &widgets,
+                               const QLineEditPrivate::SideWidgetParameters &parameters)
+{
+    if (widgets.empty())
+        return defaultMargin;
+
+    const auto visibleSideWidgetCount = std::count_if(widgets.begin(), widgets.end(),
+                             [](const QLineEditPrivate::SideWidgetEntry &e) {
+#if QT_CONFIG(toolbutton) && QT_CONFIG(animation)
+        // a button that's fading out doesn't get any space
+        if (auto* iconButton = qobject_cast<QLineEditIconButton*>(e.widget))
+            return iconButton->needsSpace();
+
+#endif
+        return e.widget->isVisibleTo(e.widget->parentWidget());
+    });
+
+    return defaultMargin + (parameters.margin + parameters.widgetWidth) * visibleSideWidgetCount;
+}
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 687, as _ZNK16QLineEditPrivate20effectiveTextMarginsEv
+inline QMargins QLineEditPrivate::effectiveTextMargins() const
+{
+    return {effectiveTextMargin(textMargins.left(), leftSideWidgetList(), sideWidgetParameters()),
+            textMargins.top(),
+            effectiveTextMargin(textMargins.right(), rightSideWidgetList(), sideWidgetParameters()),
+            textMargins.bottom()};
+}
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 456, as _ZN16QLineEditPrivate11textChangedERK7QString
+inline void QLineEditPrivate::textChanged(const QString &text)
+{
+    if (hasSideWidgets()) {
+        const int newTextSize = text.size();
+        if (!newTextSize || !lastTextSize) {
+            lastTextSize = newTextSize;
+#if QT_CONFIG(animation) && QT_CONFIG(toolbutton)
+            const bool display = newTextSize > 0;
+            displayWidgets(leadingSideWidgets, display);
+            displayWidgets(trailingSideWidgets, display);
+#endif
+        }
+    }
+}
+
 //  from src/widgets/widgets/qlineedit_p.cpp, line 380, as _ZN19QLineEditIconButton10setOpacityEd
 #if QT_CONFIG(toolbutton)
 inline void QLineEditIconButton::setOpacity(qreal value)
@@ -89,25 +146,69 @@ inline QLineEditIconButton::QLineEditIconButton(QWidget *parent)
 }
 #endif  // QT_CONFIG(toolbutton)
 
-//  from src/widgets/widgets/qlineedit_p.cpp, line 551, as _ZNK16QLineEditPrivate14findSideWidgetEPK7QAction
-#if QT_CONFIG(action)
-inline QLineEditPrivate::SideWidgetLocation QLineEditPrivate::findSideWidget(const QAction *a) const
+//  from src/widgets/widgets/qlineedit_p.cpp, line 412, as _ZN19QLineEditIconButton11animateShowEb
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+inline void QLineEditIconButton::animateShow(bool visible)
 {
-    int i = 0;
-    for (const auto &e : leadingSideWidgets) {
-        if (a == e.action)
-            return {QLineEdit::LeadingPosition, i};
-        ++i;
+    m_fadingOut = !visible;
+
+    if (shouldHideWithText() && !isVisible()) {
+        show();
+
+        // Invalidate previous geometry to take into account new size of side widgets
+        if (auto le = lineEditPrivate())
+            le->updateGeometry_helper(true);
     }
-    i = 0;
-    for (const auto &e : trailingSideWidgets) {
-        if (a == e.action)
-            return {QLineEdit::TrailingPosition, i};
-        ++i;
-    }
-    return {QLineEdit::LeadingPosition, -1};
+
+    startOpacityAnimation(visible ? 1.0 : 0.0);
 }
-#endif  // QT_CONFIG(action)
+#endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 438, as _ZN19QLineEditIconButton12updateCursorEv
+#if QT_CONFIG(toolbutton)
+inline void QLineEditIconButton::updateCursor()
+{
+#ifndef QT_NO_CURSOR
+    setCursor(qFuzzyCompare(m_opacity, qreal(1.0)) || !parentWidget() ? QCursor(Qt::ArrowCursor) : parentWidget()->cursor());
+#endif
+}
+#endif  // QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 427, as _ZN19QLineEditIconButton21startOpacityAnimationEd
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+inline void QLineEditIconButton::startOpacityAnimation(qreal endValue)
+{
+    QPropertyAnimation *animation = new QPropertyAnimation(this, QByteArrayLiteral("opacity"), this);
+    connect(animation, &QPropertyAnimation::finished, this, &QLineEditIconButton::onAnimationFinished);
+
+    animation->setDuration(160);
+    animation->setEndValue(endValue);
+    animation->start(QAbstractAnimation::DeleteWhenStopped);
+}
+#endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 341, as _ZNK19QLineEditIconButton15lineEditPrivateEv
+#if QT_CONFIG(toolbutton)
+inline QLineEditPrivate *QLineEditIconButton::lineEditPrivate() const
+{
+    QLineEdit *le = qobject_cast<QLineEdit *>(parentWidget());
+    return le ? static_cast<QLineEditPrivate *>(qt_widget_private(le)) : nullptr;
+}
+#endif  // QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 390, as _ZNK19QLineEditIconButton18shouldHideWithTextEv
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+inline bool QLineEditIconButton::shouldHideWithText() const
+{
+    return m_hideWithText;
+}
+#endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(toolbutton)
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 235, as _ZN16QLineEditPrivate19initMouseYThresholdEv
 inline void QLineEditPrivate::initMouseYThreshold()
@@ -181,6 +282,54 @@ inline void QLineEditPrivate::cursorPositionChanged(int from, int to)
     q->update();
     emit q->cursorPositionChanged(from, to);
 }
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 78, as _ZN16QLineEditPrivate16connectCompleterEv
+#if QT_CONFIG(completer)
+inline void QLineEditPrivate::connectCompleter()
+{
+    Q_Q(const QLineEdit);
+    QObject::connect(control->completer(), qOverload<const QString &>(&QCompleter::activated),
+                     q, &QLineEdit::setText);
+    QObjectPrivate::connect(control->completer(), qOverload<const QString &>(&QCompleter::highlighted),
+                            this, &QLineEditPrivate::completionHighlighted);
+}
+#endif  // QT_CONFIG(completer)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 87, as _ZN16QLineEditPrivate19disconnectCompleterEv
+#if QT_CONFIG(completer)
+inline void QLineEditPrivate::disconnectCompleter()
+{
+    Q_Q(const QLineEdit);
+    QObject::disconnect(control->completer(), qOverload<const QString &>(&QCompleter::activated),
+                        q, &QLineEdit::setText);
+    QObjectPrivate::disconnect(control->completer(), qOverload<const QString &>(&QCompleter::highlighted),
+                               this, &QLineEditPrivate::completionHighlighted);
+}
+#endif  // QT_CONFIG(completer)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 96, as _ZN16QLineEditPrivate21completionHighlightedERK7QString
+#if QT_CONFIG(completer)
+#if defined(Q_OS_LINUX)
+inline void QLineEditPrivate::completionHighlighted(const QString &newText)
+{
+    Q_Q(QLineEdit);
+    if (control->completer()->completionMode() != QCompleter::InlineCompletion) {
+        q->setText(newText);
+    } else {
+        int c = control->cursor();
+        QString text = control->text();
+        q->setText(QStringView{text}.left(c) + QStringView{newText}.mid(c));
+        control->moveCursor(control->end(), false);
+#ifndef Q_OS_ANDROID
+        const bool mark = true;
+#else
+        const bool mark = (imHints & Qt::ImhNoPredictiveText);
+#endif
+        control->moveCursor(c, mark);
+    }
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(completer)
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 318, as _ZN16QLineEditPrivate4dragEv
 #if QT_CONFIG(draganddrop)
@@ -282,6 +431,26 @@ inline void QLineEditPrivate::positionSideWidgets()
         }
     }
 }
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 551, as _ZNK16QLineEditPrivate14findSideWidgetEPK7QAction
+#if QT_CONFIG(action)
+inline QLineEditPrivate::SideWidgetLocation QLineEditPrivate::findSideWidget(const QAction *a) const
+{
+    int i = 0;
+    for (const auto &e : leadingSideWidgets) {
+        if (a == e.action)
+            return {QLineEdit::LeadingPosition, i};
+        ++i;
+    }
+    i = 0;
+    for (const auto &e : trailingSideWidgets) {
+        if (a == e.action)
+            return {QLineEdit::TrailingPosition, i};
+        ++i;
+    }
+    return {QLineEdit::LeadingPosition, -1};
+}
+#endif  // QT_CONFIG(action)
 //  -----------------------------------------------------------------------
 
 //  A QLineEditPrivate that Python can take functions over in. Every QLineEditPrivate
@@ -701,6 +870,40 @@ void ritual_ZN16QLineEditPrivate21cursorPositionChangedEii(
   self->cursorPositionChanged(a0, a1);
 }
 
+#if QT_CONFIG(completer)
+#if defined(Q_OS_LINUX)
+//  void QLineEditPrivate::connectCompleter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLineEditPrivate16connectCompleterEv(
+    QLineEditPrivate *self) {
+  self->connectCompleter();
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(completer)
+
+#if QT_CONFIG(completer)
+#if defined(Q_OS_LINUX)
+//  void QLineEditPrivate::disconnectCompleter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLineEditPrivate19disconnectCompleterEv(
+    QLineEditPrivate *self) {
+  self->disconnectCompleter();
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(completer)
+
+#if QT_CONFIG(completer)
+#if defined(Q_OS_LINUX)
+//  void QLineEditPrivate::completionHighlighted(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLineEditPrivate21completionHighlightedERK7QString(
+    QLineEditPrivate *self,
+    const QString *a0) {
+  self->completionHighlighted(*a0);
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(completer)
+
 #if QT_CONFIG(draganddrop)
 //  void QLineEditPrivate::drag()
 extern "C" Q_DECL_EXPORT
@@ -760,6 +963,31 @@ bool ritual_ZNK16QLineEditPrivate14hasSideWidgetsEv(
   return self->hasSideWidgets();
 }
 
+//  const SideWidgetEntryList &QLineEditPrivate::leftSideWidgetList() const
+extern "C" Q_DECL_EXPORT
+const QLineEditPrivate::SideWidgetEntryList *ritual_ZNK16QLineEditPrivate18leftSideWidgetListEv(
+    const QLineEditPrivate *self) {
+  return &(self->leftSideWidgetList());
+}
+
+//  const SideWidgetEntryList &QLineEditPrivate::rightSideWidgetList() const
+extern "C" Q_DECL_EXPORT
+const QLineEditPrivate::SideWidgetEntryList *ritual_ZNK16QLineEditPrivate19rightSideWidgetListEv(
+    const QLineEditPrivate *self) {
+  return &(self->rightSideWidgetList());
+}
+
+#if QT_CONFIG(action)
+//  SideWidgetLocation QLineEditPrivate::findSideWidget(const QAction *a)
+//      const
+extern "C" Q_DECL_EXPORT
+QLineEditPrivate::SideWidgetLocation *ritual_ZNK16QLineEditPrivate14findSideWidgetEPK7QAction(
+    const QLineEditPrivate *self,
+    const QAction *a) {
+  return new QLineEditPrivate::SideWidgetLocation(self->findSideWidget(a));
+}
+#endif  // QT_CONFIG(action)
+
 //  a Python function taken by a CuteQLineEditPrivate, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -768,6 +996,13 @@ bool ritual_take_QLineEditPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQLineEditPrivate *>(self)->take(key, call);
+}
+
+//  a QLineEditPrivate::SideWidgetLocation a ritual of QLineEditPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLineEditPrivate__QLineEditPrivate_SideWidgetLocation(
+    QLineEditPrivate::SideWidgetLocation *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(lineedit)

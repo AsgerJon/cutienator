@@ -122,6 +122,9 @@
     "ritual_ZeqRK5QRectS1_": ["bool", "address", "address"],
     "ritual_ZneRK5QRectS1_": ["bool", "address", "address"],
     "ritual_ZNK5QRect7toRectFEv": ["address", "address"],
+    "ritual_ZN5QRectC1EN9QtPrivate16QCheckedIntegers11QCheckedIntIiNS1_13SafeCheckImplIiEENS1_18AssertReportPolicyEEES6_S6_S6_": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN5QRectD1Ev": ["nothing", "address"],
     "ritual_list_make_QRect": ["address"],
     "ritual_list_add_QRect": ["nothing", "address", "address"],

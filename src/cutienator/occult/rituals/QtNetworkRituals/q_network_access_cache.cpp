@@ -209,6 +209,25 @@ const QMetaObject *ritual_ZNK19QNetworkAccessCache10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNetworkAccessCache::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QNetworkAccessCache11qt_metacastEPKc(
+    QNetworkAccessCache *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNetworkAccessCache::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QNetworkAccessCache11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNetworkAccessCache *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QNetworkAccessCache::~QNetworkAccessCache()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QNetworkAccessCacheD1Ev(QNetworkAccessCache *self) {
@@ -221,6 +240,14 @@ bool ritual_ZNK19QNetworkAccessCache8hasEntryERK10QByteArray(
     const QNetworkAccessCache *self,
     const QByteArray *key) {
   return self->hasEntry(*key);
+}
+
+//  void QNetworkAccessCache::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QNetworkAccessCache10timerEventEP11QTimerEvent(
+    QNetworkAccessCache *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
 }
 
 //  a Python function taken by a CuteQNetworkAccessCache, for the function

@@ -3,6 +3,7 @@
 #include <Qt3DQuick/Qt3DQuick>
 #include <Qt3DQuick/qqmlaspectengine.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -180,6 +181,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore5Quick16QQmlAspectEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::Quick::QQmlAspectEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine11qt_metacastEPKc(
+    Qt3DCore::Quick::QQmlAspectEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::Quick::QQmlAspectEngine::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::Quick::QQmlAspectEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::Quick::QQmlAspectEngine::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -188,6 +208,65 @@ QString *ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine2trEPKcS3_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::Quick::QQmlAspectEngine::tr(s, c, n));
+}
+
+//  Qt3DCore::Quick::QQmlAspectEngine::QQmlAspectEngine(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::Quick::QQmlAspectEngine *ritual_ZN8Qt3DCore5Quick16QQmlAspectEngineC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DCore_Quick_QQmlAspectEngine(parent);
+}
+
+//  Qt3DCore::Quick::QQmlAspectEngine::~QQmlAspectEngine()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore5Quick16QQmlAspectEngineD1Ev(
+    Qt3DCore::Quick::QQmlAspectEngine *self) {
+  delete self;
+}
+
+//  Status Qt3DCore::Quick::QQmlAspectEngine::status() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::Quick::QQmlAspectEngine::Status ritual_ZNK8Qt3DCore5Quick16QQmlAspectEngine6statusEv(
+    const Qt3DCore::Quick::QQmlAspectEngine *self) {
+  return self->status();
+}
+
+//  void Qt3DCore::Quick::QQmlAspectEngine::setSource(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine9setSourceERK4QUrl(
+    Qt3DCore::Quick::QQmlAspectEngine *self,
+    const QUrl *source) {
+  self->setSource(*source);
+}
+
+//  QQmlEngine *Qt3DCore::Quick::QQmlAspectEngine::qmlEngine() const
+extern "C" Q_DECL_EXPORT
+QQmlEngine *ritual_ZNK8Qt3DCore5Quick16QQmlAspectEngine9qmlEngineEv(
+    const Qt3DCore::Quick::QQmlAspectEngine *self) {
+  return self->qmlEngine();
+}
+
+//  QAspectEngine *Qt3DCore::Quick::QQmlAspectEngine::aspectEngine() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAspectEngine *ritual_ZNK8Qt3DCore5Quick16QQmlAspectEngine12aspectEngineEv(
+    const Qt3DCore::Quick::QQmlAspectEngine *self) {
+  return self->aspectEngine();
+}
+
+//  void Qt3DCore::Quick::QQmlAspectEngine::statusChanged(Status a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine13statusChangedENS1_6StatusE(
+    Qt3DCore::Quick::QQmlAspectEngine *self,
+    Qt3DCore::Quick::QQmlAspectEngine::Status a0) {
+  self->statusChanged(a0);
+}
+
+//  void Qt3DCore::Quick::QQmlAspectEngine::sceneCreated(QObject *rootObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine12sceneCreatedEP7QObject(
+    Qt3DCore::Quick::QQmlAspectEngine *self,
+    QObject *rootObject) {
+  self->sceneCreated(rootObject);
 }
 
 //  QQmlAspectEnginePrivate *Qt3DCore::Quick::QQmlAspectEngine::d_func()

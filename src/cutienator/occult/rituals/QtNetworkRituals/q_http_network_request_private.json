@@ -10,6 +10,9 @@
     ],
     "ritual_ZN26QHttpNetworkRequestPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN26QHttpNetworkRequestPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QHttpNetworkRequestPrivateeqERKS_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN26QHttpNetworkRequestPrivate6headerERK19QHttpNetworkRequestb": [
       "address", "address", "bool"
     ]

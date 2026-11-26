@@ -6,6 +6,7 @@
 #include <QtPositioning/qgeoareamonitorinfo.h>
 #include <QtPositioning/qgeoshape.h>
 #include <QtCore/qvariant.h>
+#include <QtPositioning/qgeopositioninfo.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -322,6 +323,25 @@ const QMetaObject *ritual_ZNK21QGeoAreaMonitorSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoAreaMonitorSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QGeoAreaMonitorSource11qt_metacastEPKc(
+    QGeoAreaMonitorSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoAreaMonitorSource::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QGeoAreaMonitorSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoAreaMonitorSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoAreaMonitorSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QGeoAreaMonitorSource2trEPKcS1_i(
@@ -459,6 +479,58 @@ QVariant *ritual_ZNK21QGeoAreaMonitorSource15backendPropertyERK7QString(
     const QGeoAreaMonitorSource *self,
     const QString *name) {
   return new QVariant(self->backendProperty(*name));
+}
+
+//  void QGeoAreaMonitorSource::areaEntered(const QGeoAreaMonitorInfo
+//      &monitor, const QGeoPositionInfo &update)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGeoAreaMonitorSource11areaEnteredERK19QGeoAreaMonitorInfoRK16QGeoPositionInfo(
+    QGeoAreaMonitorSource *self,
+    const QGeoAreaMonitorInfo *monitor,
+    const QGeoPositionInfo *update) {
+  self->areaEntered(*monitor, *update);
+}
+
+//  void QGeoAreaMonitorSource::areaExited(const QGeoAreaMonitorInfo
+//      &monitor, const QGeoPositionInfo &update)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGeoAreaMonitorSource10areaExitedERK19QGeoAreaMonitorInfoRK16QGeoPositionInfo(
+    QGeoAreaMonitorSource *self,
+    const QGeoAreaMonitorInfo *monitor,
+    const QGeoPositionInfo *update) {
+  self->areaExited(*monitor, *update);
+}
+
+//  void QGeoAreaMonitorSource::monitorExpired(const QGeoAreaMonitorInfo
+//      &monitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGeoAreaMonitorSource14monitorExpiredERK19QGeoAreaMonitorInfo(
+    QGeoAreaMonitorSource *self,
+    const QGeoAreaMonitorInfo *monitor) {
+  self->monitorExpired(*monitor);
+}
+
+//  void QGeoAreaMonitorSource::errorOccurred(QGeoAreaMonitorSource::Error
+//      error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGeoAreaMonitorSource13errorOccurredENS_5ErrorE(
+    QGeoAreaMonitorSource *self,
+    QGeoAreaMonitorSource::Error error) {
+  self->errorOccurred(error);
+}
+
+//  QGeoAreaMonitorSourcePrivate *QGeoAreaMonitorSource::d_func()
+extern "C" Q_DECL_EXPORT
+QGeoAreaMonitorSourcePrivate *ritual_ZN21QGeoAreaMonitorSource6d_funcEv(
+    QGeoAreaMonitorSource *self) {
+  return self->d_func();
+}
+
+//  const QGeoAreaMonitorSourcePrivate *QGeoAreaMonitorSource::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGeoAreaMonitorSourcePrivate *ritual_ZNK21QGeoAreaMonitorSource6d_funcEv(
+    const QGeoAreaMonitorSource *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQGeoAreaMonitorSource, for the function

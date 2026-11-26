@@ -7,11 +7,33 @@
     "ritual_ZNK9Qt3DInput14QInputSettings10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput14QInputSettings11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSettings11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput14QInputSettings2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9Qt3DInput14QInputSettingsC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSettingsD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput14QInputSettings11eventSourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSettings14setEventSourceEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSettings18eventSourceChangedEP7QObject": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9Qt3DInput14QInputSettings6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput14QInputSettings6d_funcEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput14QInputSettings20eventSourceDestroyedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DInput_QInputSettings": [
       "bool", "address", "chars", "address"
     ]

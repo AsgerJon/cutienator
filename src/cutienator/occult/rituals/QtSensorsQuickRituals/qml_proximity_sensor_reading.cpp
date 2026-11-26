@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlProximitySensorReading that Python can take functions over in. Every QmlProximitySensorReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK25QmlProximitySensorReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlProximitySensorReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QmlProximitySensorReading11qt_metacastEPKc(
+    QmlProximitySensorReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlProximitySensorReading::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QmlProximitySensorReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlProximitySensorReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlProximitySensorReading::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -255,6 +275,20 @@ bool ritual_ZNK25QmlProximitySensorReading4nearEv(
   return self->near();
 }
 
+//  QBindable<bool> QmlProximitySensorReading::bindableNear() const
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZNK25QmlProximitySensorReading12bindableNearEv(
+    const QmlProximitySensorReading *self) {
+  return new QBindable<bool>(self->bindableNear());
+}
+
+//  void QmlProximitySensorReading::nearChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QmlProximitySensorReading11nearChangedEv(
+    QmlProximitySensorReading *self) {
+  self->nearChanged();
+}
+
 //  QSensorReading *QmlProximitySensorReading::reading() const
 extern "C" Q_DECL_EXPORT
 QSensorReading *ritual_ZNK25QmlProximitySensorReading7readingEv(
@@ -267,6 +301,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN25QmlProximitySensorReading13readingUpdateEv(
     QmlProximitySensorReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlProximitySensorReading::_qt_property_m_near_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN25QmlProximitySensorReading26_qt_property_m_near_offsetEv() {
+  return QmlProximitySensorReading::_qt_property_m_near_offset();
 }
 
 //  a Python function taken by a CuteQmlProximitySensorReading, for the
@@ -291,4 +331,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN25QmlProximitySensorReading13readingUpdateEv(
     QmlProximitySensorReading *self) {
   self->QmlProximitySensorReading::readingUpdate();
+}
+
+//  a QBindable<bool> a ritual of QmlProximitySensorReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlProximitySensorReading__QBindable_bool(
+    QBindable<bool> *self) {
+  delete self;
 }

@@ -266,6 +266,25 @@ const QMetaObject *ritual_ZNK19QSGShaderEffectNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGShaderEffectNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QSGShaderEffectNode11qt_metacastEPKc(
+    QSGShaderEffectNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGShaderEffectNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QSGShaderEffectNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGShaderEffectNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGShaderEffectNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QSGShaderEffectNode2trEPKcS1_i(
@@ -306,6 +325,13 @@ void ritual_ZN19QSGShaderEffectNode6acceptEP16QSGNodeVisitorEx(
     QSGShaderEffectNode *self,
     QSGNodeVisitorEx *visitor) {
   self->accept(visitor);
+}
+
+//  void QSGShaderEffectNode::textureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSGShaderEffectNode14textureChangedEv(
+    QSGShaderEffectNode *self) {
+  self->textureChanged();
 }
 
 //  QSGShaderEffectNode as the QSGVisitableNode it is built on

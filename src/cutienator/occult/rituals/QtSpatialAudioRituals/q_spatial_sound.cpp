@@ -182,6 +182,24 @@ const QMetaObject *ritual_ZNK13QSpatialSound10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSpatialSound::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QSpatialSound11qt_metacastEPKc(
+    QSpatialSound *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSpatialSound::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QSpatialSound11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSpatialSound *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSpatialSound::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QSpatialSound2trEPKcS1_i(
@@ -408,6 +426,93 @@ QAudioEngine *ritual_ZNK13QSpatialSound6engineEv(const QSpatialSound *self) {
   return self->engine();
 }
 
+//  void QSpatialSound::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound13sourceChangedEv(QSpatialSound *self) {
+  self->sourceChanged();
+}
+
+//  void QSpatialSound::loopsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound12loopsChangedEv(QSpatialSound *self) {
+  self->loopsChanged();
+}
+
+//  void QSpatialSound::autoPlayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound15autoPlayChangedEv(QSpatialSound *self) {
+  self->autoPlayChanged();
+}
+
+//  void QSpatialSound::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound15positionChangedEv(QSpatialSound *self) {
+  self->positionChanged();
+}
+
+//  void QSpatialSound::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound15rotationChangedEv(QSpatialSound *self) {
+  self->rotationChanged();
+}
+
+//  void QSpatialSound::volumeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound13volumeChangedEv(QSpatialSound *self) {
+  self->volumeChanged();
+}
+
+//  void QSpatialSound::distanceModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound20distanceModelChangedEv(QSpatialSound *self) {
+  self->distanceModelChanged();
+}
+
+//  void QSpatialSound::sizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound11sizeChangedEv(QSpatialSound *self) {
+  self->sizeChanged();
+}
+
+//  void QSpatialSound::distanceCutoffChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound21distanceCutoffChangedEv(QSpatialSound *self) {
+  self->distanceCutoffChanged();
+}
+
+//  void QSpatialSound::manualAttenuationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound24manualAttenuationChangedEv(
+    QSpatialSound *self) {
+  self->manualAttenuationChanged();
+}
+
+//  void QSpatialSound::occlusionIntensityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound25occlusionIntensityChangedEv(
+    QSpatialSound *self) {
+  self->occlusionIntensityChanged();
+}
+
+//  void QSpatialSound::directivityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound18directivityChangedEv(QSpatialSound *self) {
+  self->directivityChanged();
+}
+
+//  void QSpatialSound::directivityOrderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound23directivityOrderChangedEv(
+    QSpatialSound *self) {
+  self->directivityOrderChanged();
+}
+
+//  void QSpatialSound::nearFieldGainChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpatialSound20nearFieldGainChangedEv(QSpatialSound *self) {
+  self->nearFieldGainChanged();
+}
+
 //  void QSpatialSound::play()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSpatialSound4playEv(QSpatialSound *self) {
@@ -424,6 +529,20 @@ void ritual_ZN13QSpatialSound5pauseEv(QSpatialSound *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSpatialSound4stopEv(QSpatialSound *self) {
   self->stop();
+}
+
+//  QSpatialSoundPrivate *QSpatialSound::d_func()
+extern "C" Q_DECL_EXPORT
+QSpatialSoundPrivate *ritual_ZN13QSpatialSound6d_funcEv(
+    QSpatialSound *self) {
+  return self->d_func();
+}
+
+//  const QSpatialSoundPrivate *QSpatialSound::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSpatialSoundPrivate *ritual_ZNK13QSpatialSound6d_funcEv(
+    const QSpatialSound *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQSpatialSound, for the function named by

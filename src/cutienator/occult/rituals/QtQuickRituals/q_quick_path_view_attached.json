@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickPathViewAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickPathViewAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickPathViewAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickPathViewAttachedD1Ev": ["nothing", "address"],
     "ritual_ZNK22QQuickPathViewAttached4viewEv": ["address", "address"],
     "ritual_ZNK22QQuickPathViewAttached13isCurrentItemEv": [
@@ -20,6 +26,12 @@
       "nothing", "address", "address", "address"
     ],
     "ritual_ZNK22QQuickPathViewAttached8isOnPathEv": ["bool", "address"],
+    "ritual_ZN22QQuickPathViewAttached18currentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickPathViewAttached11pathChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuickPathViewAttached": [
       "bool", "address", "chars", "address"
     ]

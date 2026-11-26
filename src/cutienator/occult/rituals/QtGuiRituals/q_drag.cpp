@@ -183,6 +183,22 @@ const QMetaObject *ritual_ZNK5QDrag10metaObjectEv(const QDrag *self) {
   return self->metaObject();
 }
 
+//  void *QDrag::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN5QDrag11qt_metacastEPKc(QDrag *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDrag::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN5QDrag11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDrag *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDrag::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN5QDrag2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -316,6 +332,22 @@ Qt::DropAction ritual_ZNK5QDrag13defaultActionEv(const QDrag *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QDrag6cancelEv() {
   QDrag::cancel();
+}
+
+//  void QDrag::actionChanged(Qt::DropAction action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDrag13actionChangedEN2Qt10DropActionE(
+    QDrag *self,
+    Qt::DropAction action) {
+  self->actionChanged(action);
+}
+
+//  void QDrag::targetChanged(QObject *newTarget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDrag13targetChangedEP7QObject(
+    QDrag *self,
+    QObject *newTarget) {
+  self->targetChanged(newTarget);
 }
 
 //  a Python function taken by a CuteQDrag, for the function named by the key

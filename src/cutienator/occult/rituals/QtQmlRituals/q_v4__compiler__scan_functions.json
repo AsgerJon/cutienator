@@ -8,6 +8,264 @@
     "ritual_ZN3QV48Compiler13ScanFunctions29handleTopLevelFunctionFormalsEPN6QQmlJS3AST18FunctionExpressionE": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN3QV48Compiler13ScanFunctionsD1Ev": ["nothing", "address"]
+    "ritual_ZN3QV48Compiler13ScanFunctions22enterGlobalEnvironmentENS0_11ContextTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions16enterEnvironmentEPN6QQmlJS3AST4NodeENS0_11ContextTypeERK7QString": [
+      "nothing", "address", "address", "int", "text"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions16leaveEnvironmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions16enterQmlFunctionEPN6QQmlJS3AST18FunctionExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions22checkDirectivePrologueEPN6QQmlJS3AST13StatementListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions9checkNameE11QStringViewRKN6QQmlJS14SourceLocationE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST7ProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST7ProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST8ESModuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST8ESModuleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST17ExportDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST17ImportDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST14CallExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST14PatternElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST20IdentifierExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST19ExpressionStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST15TemplateLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST12SuperLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST21FieldMemberExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST12ArrayPatternE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions13enterFunctionEPN6QQmlJS3AST18FunctionExpressionENS1_19FunctionNameContextE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST13ObjectPatternE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST15PatternPropertyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST15PatternPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST15ClassExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST15ClassExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST16ClassDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST16ClassDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST16DoWhileStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST12ForStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST12ForStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST16ForEachStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST16ForEachStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST14ThisExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST5BlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST5BlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST9CaseBlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST9CaseBlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST5CatchE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST5CatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST13WithStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST13WithStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions24throwRecursionDepthErrorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctions13enterFunctionEPN6QQmlJS3AST4NodeERK7QStringPNS3_19FormalParameterListEPNS3_13StatementListENS1_19FunctionNameContextE": [
+      "bool", "address", "address", "text", "address", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler13ScanFunctionsD1Ev": ["nothing", "address"],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST7ProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST7ProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST8ESModuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST8ESModuleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST14CallExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST14PatternElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST20IdentifierExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST19ExpressionStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST15TemplateLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST12SuperLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST21FieldMemberExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST12ArrayPatternE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST13ObjectPatternE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST15PatternPropertyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST15PatternPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST15ClassExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST15ClassExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST16ClassDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST16ClassDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST16DoWhileStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST12ForStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST12ForStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST16ForEachStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST16ForEachStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST14ThisExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST5BlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST5BlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST9CaseBlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST9CaseBlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST5CatchE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST5CatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions5visitEPN6QQmlJS3AST13WithStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions8endVisitEPN6QQmlJS3AST13WithStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler13ScanFunctions24throwRecursionDepthErrorEv": [
+      "nothing", "address"
+    ]
   }
 }

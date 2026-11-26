@@ -44,6 +44,9 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/engine/selectionpointer.cpp, line 13, as local:selectionpointer.cpp:spSliceUnits
+const GLfloat spSliceUnits = 2.5;
+
 //  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 81, as _ZN12ShaderHelper10initializeEv
 inline void ShaderHelper::initialize()
 {
@@ -151,6 +154,14 @@ inline TextureHelper::~TextureHelper()
 #if !QT_CONFIG(opengles2)
     delete m_openGlFunctions_2_1;
 #endif
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 292, as _ZN12ShaderHelper10lightColorEv
+inline GLint ShaderHelper::lightColor()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_lightColorUniform;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 407, as _ZN6Drawer17generateLabelItemER9LabelItemRK7QStringi
@@ -466,6 +477,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16SelectionPointer10metaObjectEv(
     const SelectionPointer *self) {
   return self->metaObject();
+}
+
+//  void *SelectionPointer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16SelectionPointer11qt_metacastEPKc(
+    SelectionPointer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int SelectionPointer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16SelectionPointer11qt_metacallEN11QMetaObject4CallEiPPv(
+    SelectionPointer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  SelectionPointer::~SelectionPointer()

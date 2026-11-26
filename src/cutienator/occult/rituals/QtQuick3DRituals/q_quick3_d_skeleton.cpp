@@ -286,6 +286,25 @@ const QMetaObject *ritual_ZNK16QQuick3DSkeleton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DSkeleton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuick3DSkeleton11qt_metacastEPKc(
+    QQuick3DSkeleton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DSkeleton::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuick3DSkeleton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DSkeleton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DSkeleton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuick3DSkeleton2trEPKcS1_i(
@@ -306,6 +325,13 @@ QQuick3DSkeleton *ritual_ZN16QQuick3DSkeletonC1EP12QQuick3DNode(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuick3DSkeletonD1Ev(QQuick3DSkeleton *self) {
   delete self;
+}
+
+//  void QQuick3DSkeleton::skeletonNodeDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DSkeleton17skeletonNodeDirtyEv(
+    QQuick3DSkeleton *self) {
+  self->skeletonNodeDirty();
 }
 
 //  QSSGRenderGraphObject

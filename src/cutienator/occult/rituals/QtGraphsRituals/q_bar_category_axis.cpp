@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qbarcategoryaxis.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbarcategoryaxis.h>
 #include <QtCore/qstring.h>
@@ -199,6 +199,25 @@ const QMetaObject *ritual_ZNK16QBarCategoryAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBarCategoryAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QBarCategoryAxis11qt_metacastEPKc(
+    QBarCategoryAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarCategoryAxis::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QBarCategoryAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarCategoryAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBarCategoryAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QBarCategoryAxis2trEPKcS1_i(
@@ -218,6 +237,15 @@ QBarCategoryAxis *ritual_ZN16QBarCategoryAxisC1EP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QBarCategoryAxisD1Ev(QBarCategoryAxis *self) {
   delete self;
+}
+
+//  QBarCategoryAxis::QBarCategoryAxis(QBarCategoryAxisPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QBarCategoryAxis *ritual_ZN16QBarCategoryAxisC1ER23QBarCategoryAxisPrivateP7QObject(
+    QBarCategoryAxisPrivate *dd,
+    QObject *parent) {
+  return new CuteQBarCategoryAxis(*dd, parent);
 }
 
 //  AxisType QBarCategoryAxis::type() const
@@ -367,6 +395,53 @@ void ritual_ZN16QBarCategoryAxis8setRangeERK7QStringS2_(
   self->setRange(*minCategory, *maxCategory);
 }
 
+//  void QBarCategoryAxis::categoriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBarCategoryAxis17categoriesChangedEv(
+    QBarCategoryAxis *self) {
+  self->categoriesChanged();
+}
+
+//  void QBarCategoryAxis::minChanged(const QString &min)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBarCategoryAxis10minChangedERK7QString(
+    QBarCategoryAxis *self,
+    const QString *min) {
+  self->minChanged(*min);
+}
+
+//  void QBarCategoryAxis::maxChanged(const QString &max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBarCategoryAxis10maxChangedERK7QString(
+    QBarCategoryAxis *self,
+    const QString *max) {
+  self->maxChanged(*max);
+}
+
+//  void QBarCategoryAxis::categoryRangeChanged(const QString &min, const
+//      QString &max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBarCategoryAxis20categoryRangeChangedERK7QStringS2_(
+    QBarCategoryAxis *self,
+    const QString *min,
+    const QString *max) {
+  self->categoryRangeChanged(*min, *max);
+}
+
+//  void QBarCategoryAxis::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBarCategoryAxis12countChangedEv(QBarCategoryAxis *self) {
+  self->countChanged();
+}
+
+//  void QBarCategoryAxis::labelPositionChanged(LabelPosition position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBarCategoryAxis20labelPositionChangedENS_13LabelPositionE(
+    QBarCategoryAxis *self,
+    QBarCategoryAxis::LabelPosition position) {
+  self->labelPositionChanged(position);
+}
+
 //  QBarCategoryAxisPrivate *QBarCategoryAxis::d_func()
 extern "C" Q_DECL_EXPORT
 QBarCategoryAxisPrivate *ritual_ZN16QBarCategoryAxis6d_funcEv(
@@ -398,4 +473,4 @@ QAbstractAxis::AxisType ritual_own_ZNK16QBarCategoryAxis4typeEv(
   return self->QBarCategoryAxis::type();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))

@@ -32,6 +32,12 @@ inline QHttpNetworkHeaderPrivate::QHttpNetworkHeaderPrivate(const QUrl &newUrl)
 {
 }
 
+//  from src/network/access/qhttpnetworkheader.cpp, line 68, as _ZNK25QHttpNetworkHeaderPrivateeqERKS_
+inline bool QHttpNetworkHeaderPrivate::operator==(const QHttpNetworkHeaderPrivate &other) const
+{
+   return (url == other.url);
+}
+
 //  from src/network/access/qhttpnetworkrequest.cpp, line 72, as _ZNK19QHttpNetworkRequest10methodNameEv
 inline QByteArray QHttpNetworkRequest::methodName() const
 {
@@ -118,6 +124,30 @@ inline QHttpNetworkRequestPrivate::~QHttpNetworkRequestPrivate()
 {
 }
 
+//  from src/network/access/qhttpnetworkrequest.cpp, line 49, as _ZNK26QHttpNetworkRequestPrivateeqERKS_
+inline bool QHttpNetworkRequestPrivate::operator==(const QHttpNetworkRequestPrivate &other) const
+{
+    return QHttpNetworkHeaderPrivate::operator==(other)
+        && (operation == other.operation)
+        && (fullLocalServerName == other.fullLocalServerName)
+        && (priority == other.priority)
+        && (uploadByteDevice == other.uploadByteDevice)
+        && (autoDecompress == other.autoDecompress)
+        && (pipeliningAllowed == other.pipeliningAllowed)
+        && (http2Allowed == other.http2Allowed)
+        && (http2Direct == other.http2Direct)
+        && (h2cAllowed == other.h2cAllowed)
+        // we do not clear the customVerb in setOperation
+        && (operation != QHttpNetworkRequest::Custom || (customVerb == other.customVerb))
+        && (withCredentials == other.withCredentials)
+        && (ssl == other.ssl)
+        && (preConnect == other.preConnect)
+        && (redirectPolicy == other.redirectPolicy)
+        && (peerVerifyName == other.peerVerifyName)
+        && (needResendWithCredentials == other.needResendWithCredentials)
+        ;
+}
+
 //  from src/network/access/qhttpnetworkrequest.cpp, line 118, as _ZN26QHttpNetworkRequestPrivate6headerERK19QHttpNetworkRequestb
 inline QByteArray QHttpNetworkRequestPrivate::header(const QHttpNetworkRequest &request, bool throughProxy)
 {
@@ -201,6 +231,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QHttpNetworkRequestPrivateD1Ev(
     QHttpNetworkRequestPrivate *self) {
   delete self;
+}
+
+//  bool QHttpNetworkRequestPrivate::operator==(const
+//      QHttpNetworkRequestPrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK26QHttpNetworkRequestPrivateeqERKS_(
+    const QHttpNetworkRequestPrivate *self,
+    const QHttpNetworkRequestPrivate *other) {
+  return self->operator==(*other);
 }
 
 //  QByteArray QHttpNetworkRequestPrivate::header(const QHttpNetworkRequest

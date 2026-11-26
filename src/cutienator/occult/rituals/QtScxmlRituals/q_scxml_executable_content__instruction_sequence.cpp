@@ -13,6 +13,14 @@ QScxmlExecutableContent::Instruction::InstructionType ritual_ZN23QScxmlExecutabl
   return QScxmlExecutableContent::InstructionSequence::kind();
 }
 
+//  const InstructionId
+//      *QScxmlExecutableContent::InstructionSequence::instructions() const
+extern "C" Q_DECL_EXPORT
+const QScxmlExecutableContent::InstructionId *ritual_ZNK23QScxmlExecutableContent19InstructionSequence12instructionsEv(
+    const QScxmlExecutableContent::InstructionSequence *self) {
+  return self->instructions();
+}
+
 //  int QScxmlExecutableContent::InstructionSequence::size() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK23QScxmlExecutableContent19InstructionSequence4sizeEv(

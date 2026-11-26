@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN4QCss13StyleSelectorD1Ev": ["nothing", "address"],
+    "ritual_ZN4QCss13StyleSelector17styleRulesForNodeENS0_7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN4QCss13StyleSelector19declarationsForNodeENS0_7NodePtrEPKc": [
+      "address", "address", "address", "chars"
+    ],
     "ritual_ZNK4QCss13StyleSelector14nodeNameEqualsENS0_7NodePtrERK7QString": [
       "bool", "address", "address", "text"
     ],
@@ -36,11 +42,26 @@
     "ritual_ZNK4QCss13StyleSelector8freeNodeENS0_7NodePtrE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK4QCss13StyleSelector9matchRuleENS0_7NodePtrERKNS_9StyleRuleENS_16StyleSheetOriginEiPSt8multimapImS2_St4lessImESaISt4pairIKmS2_EEE": [
+      "nothing", "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector15selectorMatchesERKNS_8SelectorENS0_7NodePtrE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector20basicSelectorMatchesERKNS_13BasicSelectorENS0_7NodePtrE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_take_QCss_StyleSelector": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZNK4QCss13StyleSelector14nodeNameEqualsENS0_7NodePtrERK7QString": [
       "bool", "address", "address", "text"
+    ],
+    "ritual_drop_QCss_StyleSelector__QList_QCss_StyleRule": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QCss_StyleSelector__QList_QCss_Declaration": [
+      "nothing", "address"
     ]
   }
 }

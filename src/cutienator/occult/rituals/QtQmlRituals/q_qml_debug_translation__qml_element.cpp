@@ -16,6 +16,23 @@ QQmlDebugTranslation::QmlElement *ritual_ZN20QQmlDebugTranslation10QmlElementC1E
   return new QQmlDebugTranslation::QmlElement();
 }
 
+//  QDataStream &operator>>(QDataStream &stream, QmlElement &qmlElement)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN20QQmlDebugTranslationrsER11QDataStreamRNS_10QmlElementE(
+    QDataStream *stream,
+    QQmlDebugTranslation::QmlElement *qmlElement) {
+  return &(operator>>(*stream, *qmlElement));
+}
+
+//  QDataStream &operator<<(QDataStream &stream, const QmlElement
+//      &qmlElement)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN20QQmlDebugTranslationlsER11QDataStreamRKNS_10QmlElementE(
+    QDataStream *stream,
+    const QQmlDebugTranslation::QmlElement *qmlElement) {
+  return &(operator<<(*stream, *qmlElement));
+}
+
 //  QQmlDebugTranslation::QmlElement::~QmlElement()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlDebugTranslation10QmlElementD1Ev(

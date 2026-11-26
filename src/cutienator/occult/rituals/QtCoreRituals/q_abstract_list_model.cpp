@@ -932,6 +932,25 @@ const QMetaObject *ritual_ZNK18QAbstractListModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractListModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QAbstractListModel11qt_metacastEPKc(
+    QAbstractListModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractListModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QAbstractListModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractListModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractListModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QAbstractListModel2trEPKcS1_i(
@@ -939,6 +958,13 @@ QString *ritual_ZN18QAbstractListModel2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractListModel::tr(s, c, n));
+}
+
+//  QAbstractListModel::QAbstractListModel(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractListModel *ritual_ZN18QAbstractListModelC1EP7QObject(
+    QObject *parent) {
+  return new CuteQAbstractListModel(parent);
 }
 
 //  QAbstractListModel::~QAbstractListModel()
@@ -989,6 +1015,15 @@ int ritual_ZNK18QAbstractListModel5flagsERK11QModelIndex(
     const QAbstractListModel *self,
     const QModelIndex *index) {
   return static_cast<int>(self->flags(*index).toInt());
+}
+
+//  QAbstractListModel::QAbstractListModel(QAbstractItemModelPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractListModel *ritual_ZN18QAbstractListModelC1ER25QAbstractItemModelPrivateP7QObject(
+    QAbstractItemModelPrivate *dd,
+    QObject *parent) {
+  return new CuteQAbstractListModel(*dd, parent);
 }
 
 //  QAbstractItemModelPrivate *QAbstractListModel::d_func()

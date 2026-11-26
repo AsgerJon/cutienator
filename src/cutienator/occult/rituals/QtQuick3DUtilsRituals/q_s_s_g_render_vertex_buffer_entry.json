@@ -10,6 +10,9 @@
     ],
     "ritual_ZN27QSSGRenderVertexBufferEntryC1Ev": ["address"],
     "ritual_ZN27QSSGRenderVertexBufferEntryC1ERKS_": ["address", "address"],
+    "ritual_ZN27QSSGRenderVertexBufferEntryaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN27QSSGRenderVertexBufferEntryD1Ev": ["nothing", "address"]
   }
 }

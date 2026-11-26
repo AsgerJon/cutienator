@@ -8,6 +8,12 @@
     "ritual_ZNK26QQStyleKitShadowProperties10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQStyleKitShadowProperties11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQStyleKitShadowProperties2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -56,6 +62,30 @@
     ],
     "ritual_ZN26QQStyleKitShadowProperties11setDelegateEP13QQmlComponent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties12colorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties12scaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties21verticalOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties23horizontalOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties11blurChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties15delegateChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQStyleKitShadowProperties": [
       "bool", "address", "chars", "address"

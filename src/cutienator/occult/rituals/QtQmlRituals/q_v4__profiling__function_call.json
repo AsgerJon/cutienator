@@ -10,8 +10,24 @@
       "address", "address", "long long", "long long"
     ],
     "ritual_ZN3QV49Profiling12FunctionCallC1ERKS1_": ["address", "address"],
+    "ritual_ZN3QV49Profiling12FunctionCallC1EOS1_": ["address", "address"],
     "ritual_ZN3QV49Profiling12FunctionCallD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV49Profiling12FunctionCallaSERKS1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV49Profiling12FunctionCallaSEOS1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV49Profiling12FunctionCall4swapERS1_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK3QV49Profiling12FunctionCall8functionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV49Profiling12FunctionCall15resolveLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV49Profiling12FunctionCall10propertiesEv": [
       "address", "address"
     ]
   }

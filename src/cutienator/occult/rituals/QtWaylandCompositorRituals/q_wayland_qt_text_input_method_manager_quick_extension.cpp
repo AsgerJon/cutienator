@@ -10,6 +10,8 @@
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwaylandcompositorquickextensions_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  const QMetaObject
 //      *QWaylandQtTextInputMethodManagerQuickExtension::metaObject() const
@@ -17,6 +19,26 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK46QWaylandQtTextInputMethodManagerQuickExtension10metaObjectEv(
     const QWaylandQtTextInputMethodManagerQuickExtension *self) {
   return self->metaObject();
+}
+
+//  void *QWaylandQtTextInputMethodManagerQuickExtension::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN46QWaylandQtTextInputMethodManagerQuickExtension11qt_metacastEPKc(
+    QWaylandQtTextInputMethodManagerQuickExtension *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQtTextInputMethodManagerQuickExtension::qt_metacall(QMetaObje
+//      ct::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN46QWaylandQtTextInputMethodManagerQuickExtension11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQtTextInputMethodManagerQuickExtension *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QWaylandQtTextInputMethodManagerQuickExtension::tr(const char *s,
@@ -31,6 +53,14 @@ QString *ritual_ZN46QWaylandQtTextInputMethodManagerQuickExtension2trEPKcS1_i(
           s,
           c,
           n));
+}
+
+//  QQmlListProperty<QObject>
+//      QWaylandQtTextInputMethodManagerQuickExtension::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN46QWaylandQtTextInputMethodManagerQuickExtension4dataEv(
+    QWaylandQtTextInputMethodManagerQuickExtension *self) {
+  return new QQmlListProperty<QObject>(self->data());
 }
 
 //  void QWaylandQtTextInputMethodManagerQuickExtension::classBegin()
@@ -67,6 +97,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN46QWaylandQtTextInputMethodManagerQuickExtension17componentCompleteEv(
     QWaylandQtTextInputMethodManagerQuickExtension *self) {
   self->QWaylandQtTextInputMethodManagerQuickExtension::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of
+//      QWaylandQtTextInputMethodManagerQuickExtension gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWaylandQtTextInputMethodManagerQuickExtension__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(wayland_compositor_quick)

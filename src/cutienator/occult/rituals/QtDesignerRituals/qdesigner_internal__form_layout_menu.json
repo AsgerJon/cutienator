@@ -8,8 +8,26 @@
     "ritual_ZNK18qdesigner_internal14FormLayoutMenu10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal14FormLayoutMenu11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal14FormLayoutMenu11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal14FormLayoutMenu2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14FormLayoutMenuC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormLayoutMenu8populateEP7QWidgetP28QDesignerFormWindowInterfaceR5QListIP7QActionE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormLayoutMenu19preferredEditActionEP7QWidgetP28QDesignerFormWindowInterface": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormLayoutMenu10slotAddRowEv": [
+      "nothing", "address"
     ]
   }
 }

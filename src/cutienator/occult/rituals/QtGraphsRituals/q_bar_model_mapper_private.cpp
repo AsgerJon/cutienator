@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbarmodelmapper.h>
@@ -25,6 +25,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/barchart/qbarmodelmapper.cpp, line 467, as _ZN22QBarModelMapperPrivateD1Ev
+inline QBarModelMapperPrivate::~QBarModelMapperPrivate() {}
+
+//  from ../qtgraphs/src/graphs2d/barchart/qbarmodelmapper.cpp, line 465, as _ZN22QBarModelMapperPrivateC1Ev
+inline QBarModelMapperPrivate::QBarModelMapperPrivate() {}
 
 //  from ../qtgraphs/src/graphs2d/barchart/qbarmodelmapper.cpp, line 469, as _ZN22QBarModelMapperPrivate13barModelIndexExx
 inline QModelIndex QBarModelMapperPrivate::barModelIndex(qsizetype barSection, qsizetype posInBar)
@@ -147,6 +153,18 @@ const QBarModelMapper *ritual_ZNK22QBarModelMapperPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QBarModelMapperPrivate::QBarModelMapperPrivate()
+extern "C" Q_DECL_EXPORT
+QBarModelMapperPrivate *ritual_ZN22QBarModelMapperPrivateC1Ev() {
+  return new QBarModelMapperPrivate();
+}
+
+//  QBarModelMapperPrivate::~QBarModelMapperPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QBarModelMapperPrivateD1Ev(QBarModelMapperPrivate *self) {
+  delete self;
+}
+
 //  QModelIndex QBarModelMapperPrivate::barModelIndex(qsizetype barSection,
 //      qsizetype posInBar)
 extern "C" Q_DECL_EXPORT
@@ -216,4 +234,4 @@ void ritual_ZN22QBarModelMapperPrivate21handleSeriesDestroyedEv(
   self->handleSeriesDestroyed();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))

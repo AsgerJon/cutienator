@@ -22,9 +22,16 @@
 #include <QtOpcUa/qopcuareferencedescription.h>
 #include <QtOpcUa/qopcuabrowsepathtarget.h>
 #include <QtOpcUa/qopcuarelativepathelement.h>
+#include <QtOpcUa/qopcuaapplicationdescription.h>
+#include <QtOpcUa/qopcuawriteresult.h>
+#include <QtOpcUa/qopcuaexpandednodeid.h>
+#include <QtOpcUa/qopcuaconnectionsettings.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QPointer>
+#include <QtCore/QList>
+#include <QtOpcUa/QOpcUaUserTokenPolicy>
 
 //  A QOpcUaClientImpl that Python can take functions over in. Every QOpcUaClientImpl
 //  Python makes is one. Each function below asks the Python
@@ -390,6 +397,25 @@ const QMetaObject *ritual_ZNK16QOpcUaClientImpl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpcUaClientImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QOpcUaClientImpl11qt_metacastEPKc(
+    QOpcUaClientImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpcUaClientImpl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QOpcUaClientImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpcUaClientImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpcUaClientImpl::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QOpcUaClientImpl2trEPKcS1_i(
@@ -491,6 +517,22 @@ QOpcUaHistoryReadResponse *ritual_ZN16QOpcUaClientImpl17readHistoryEventsERK29QO
   return self->readHistoryEvents(*request);
 }
 
+//  bool QOpcUaClientImpl::registerNode(QPointer<QOpcUaNodeImpl> obj)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QOpcUaClientImpl12registerNodeE8QPointerI14QOpcUaNodeImplE(
+    QOpcUaClientImpl *self,
+    const QPointer<QOpcUaNodeImpl> *obj) {
+  return self->registerNode(*obj);
+}
+
+//  void QOpcUaClientImpl::unregisterNode(QPointer<QOpcUaNodeImpl> obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl14unregisterNodeE8QPointerI14QOpcUaNodeImplE(
+    QOpcUaClientImpl *self,
+    const QPointer<QOpcUaNodeImpl> *obj) {
+  self->unregisterNode(*obj);
+}
+
 //  bool QOpcUaClientImpl::addNode(const QOpcUaAddNodeItem &nodeToAdd)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN16QOpcUaClientImpl7addNodeERK17QOpcUaAddNodeItem(
@@ -540,6 +582,15 @@ extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK16QOpcUaClientImpl25supportedSecurityPoliciesEv(
     const QOpcUaClientImpl *self) {
   return new QList<QString>(self->supportedSecurityPolicies());
+}
+
+//  QList<QOpcUaUserTokenPolicy::TokenType>
+//      QOpcUaClientImpl::supportedUserTokenTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QOpcUaUserTokenPolicy::TokenType> *ritual_ZNK16QOpcUaClientImpl23supportedUserTokenTypesEv(
+    const QOpcUaClientImpl *self) {
+  return new QList<QOpcUaUserTokenPolicy::TokenType>(
+      self->supportedUserTokenTypes());
 }
 
 //  bool QOpcUaClientImpl::registerNodes(const QStringList &nodesToRegister)
@@ -670,6 +721,187 @@ void ritual_ZN16QOpcUaClientImpl14handleNewEventEy5QListI8QVariantE(
   self->handleNewEvent(handle, *eventFields);
 }
 
+//  void QOpcUaClientImpl::connected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl9connectedEv(QOpcUaClientImpl *self) {
+  self->connected();
+}
+
+//  void QOpcUaClientImpl::disconnected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl12disconnectedEv(QOpcUaClientImpl *self) {
+  self->disconnected();
+}
+
+//  void QOpcUaClientImpl::stateAndOrErrorChanged(QOpcUaClient::ClientState
+//      state, QOpcUaClient::ClientError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl22stateAndOrErrorChangedEN12QOpcUaClient11ClientStateENS0_11ClientErrorE(
+    QOpcUaClientImpl *self,
+    QOpcUaClient::ClientState state,
+    QOpcUaClient::ClientError error) {
+  self->stateAndOrErrorChanged(state, error);
+}
+
+//  void QOpcUaClientImpl::endpointsRequestFinished(QList<QOpcUaEndpointDescr
+//      iption> endpoints, QOpcUa::UaStatusCode statusCode, QUrl requestUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl24endpointsRequestFinishedE5QListI25QOpcUaEndpointDescriptionEN6QOpcUa12UaStatusCodeE4QUrl(
+    QOpcUaClientImpl *self,
+    const QList<QOpcUaEndpointDescription> *endpoints,
+    QOpcUa::UaStatusCode statusCode,
+    const QUrl *requestUrl) {
+  self->endpointsRequestFinished(*endpoints, statusCode, *requestUrl);
+}
+
+//  void
+//      QOpcUaClientImpl::findServersFinished(QList<QOpcUaApplicationDescript
+//      ion> servers, QOpcUa::UaStatusCode statusCode, QUrl requestUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl19findServersFinishedE5QListI28QOpcUaApplicationDescriptionEN6QOpcUa12UaStatusCodeE4QUrl(
+    QOpcUaClientImpl *self,
+    const QList<QOpcUaApplicationDescription> *servers,
+    QOpcUa::UaStatusCode statusCode,
+    const QUrl *requestUrl) {
+  self->findServersFinished(*servers, statusCode, *requestUrl);
+}
+
+//  void QOpcUaClientImpl::readNodeAttributesFinished(QList<QOpcUaReadResult>
+//      results, QOpcUa::UaStatusCode serviceResult)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl26readNodeAttributesFinishedE5QListI16QOpcUaReadResultEN6QOpcUa12UaStatusCodeE(
+    QOpcUaClientImpl *self,
+    const QList<QOpcUaReadResult> *results,
+    QOpcUa::UaStatusCode serviceResult) {
+  self->readNodeAttributesFinished(*results, serviceResult);
+}
+
+//  void
+//      QOpcUaClientImpl::writeNodeAttributesFinished(QList<QOpcUaWriteResult
+//      > results, QOpcUa::UaStatusCode serviceResult)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl27writeNodeAttributesFinishedE5QListI17QOpcUaWriteResultEN6QOpcUa12UaStatusCodeE(
+    QOpcUaClientImpl *self,
+    const QList<QOpcUaWriteResult> *results,
+    QOpcUa::UaStatusCode serviceResult) {
+  self->writeNodeAttributesFinished(*results, serviceResult);
+}
+
+//  void QOpcUaClientImpl::addNodeFinished(QOpcUaExpandedNodeId
+//      requestedNodeId, QString assignedNodeId, QOpcUa::UaStatusCode
+//      statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl15addNodeFinishedE20QOpcUaExpandedNodeId7QStringN6QOpcUa12UaStatusCodeE(
+    QOpcUaClientImpl *self,
+    const QOpcUaExpandedNodeId *requestedNodeId,
+    const QString *assignedNodeId,
+    QOpcUa::UaStatusCode statusCode) {
+  self->addNodeFinished(*requestedNodeId, *assignedNodeId, statusCode);
+}
+
+//  void QOpcUaClientImpl::deleteNodeFinished(QString nodeId,
+//      QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl18deleteNodeFinishedE7QStringN6QOpcUa12UaStatusCodeE(
+    QOpcUaClientImpl *self,
+    const QString *nodeId,
+    QOpcUa::UaStatusCode statusCode) {
+  self->deleteNodeFinished(*nodeId, statusCode);
+}
+
+//  void QOpcUaClientImpl::addReferenceFinished(QString sourceNodeId, QString
+//      referenceTypeId, QOpcUaExpandedNodeId targetNodeId, bool
+//      isForwardReference, QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl20addReferenceFinishedE7QStringS0_20QOpcUaExpandedNodeIdbN6QOpcUa12UaStatusCodeE(
+    QOpcUaClientImpl *self,
+    const QString *sourceNodeId,
+    const QString *referenceTypeId,
+    const QOpcUaExpandedNodeId *targetNodeId,
+    bool isForwardReference,
+    QOpcUa::UaStatusCode statusCode) {
+  self->addReferenceFinished(
+      *sourceNodeId,
+      *referenceTypeId,
+      *targetNodeId,
+      isForwardReference,
+      statusCode);
+}
+
+//  void QOpcUaClientImpl::deleteReferenceFinished(QString sourceNodeId,
+//      QString referenceTypeId, QOpcUaExpandedNodeId targetNodeId, bool
+//      isForwardReference, QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl23deleteReferenceFinishedE7QStringS0_20QOpcUaExpandedNodeIdbN6QOpcUa12UaStatusCodeE(
+    QOpcUaClientImpl *self,
+    const QString *sourceNodeId,
+    const QString *referenceTypeId,
+    const QOpcUaExpandedNodeId *targetNodeId,
+    bool isForwardReference,
+    QOpcUa::UaStatusCode statusCode) {
+  self->deleteReferenceFinished(
+      *sourceNodeId,
+      *referenceTypeId,
+      *targetNodeId,
+      isForwardReference,
+      statusCode);
+}
+
+//  void QOpcUaClientImpl::connectError(QOpcUaErrorState *errorState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl12connectErrorEP16QOpcUaErrorState(
+    QOpcUaClientImpl *self,
+    QOpcUaErrorState *errorState) {
+  self->connectError(errorState);
+}
+
+//  void QOpcUaClientImpl::passwordForPrivateKeyRequired(const QString
+//      keyFilePath, QString *password, bool previousTryWasInvalid)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl29passwordForPrivateKeyRequiredE7QStringPS0_b(
+    QOpcUaClientImpl *self,
+    const QString *keyFilePath,
+    QString *password,
+    bool previousTryWasInvalid) {
+  self->passwordForPrivateKeyRequired(
+      *keyFilePath,
+      password,
+      previousTryWasInvalid);
+}
+
+//  void QOpcUaClientImpl::registerNodesFinished(QStringList nodesToRegister,
+//      QStringList registeredNodeIds, QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl21registerNodesFinishedE5QListI7QStringES2_N6QOpcUa12UaStatusCodeE(
+    QOpcUaClientImpl *self,
+    const QList<QString> *nodesToRegister,
+    const QList<QString> *registeredNodeIds,
+    QOpcUa::UaStatusCode statusCode) {
+  self->registerNodesFinished(
+      *nodesToRegister,
+      *registeredNodeIds,
+      statusCode);
+}
+
+//  void QOpcUaClientImpl::unregisterNodesFinished(QStringList
+//      nodesToUnregister, QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl23unregisterNodesFinishedE5QListI7QStringEN6QOpcUa12UaStatusCodeE(
+    QOpcUaClientImpl *self,
+    const QList<QString> *nodesToUnregister,
+    QOpcUa::UaStatusCode statusCode) {
+  self->unregisterNodesFinished(*nodesToUnregister, statusCode);
+}
+
+//  void QOpcUaClientImpl::connectionSettingsChanged(QOpcUaConnectionSettings
+//      settings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOpcUaClientImpl25connectionSettingsChangedE24QOpcUaConnectionSettings(
+    QOpcUaClientImpl *self,
+    const QOpcUaConnectionSettings *settings) {
+  self->connectionSettingsChanged(*settings);
+}
+
 //  a Python function taken by a CuteQOpcUaClientImpl, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -678,4 +910,12 @@ bool ritual_take_QOpcUaClientImpl(
     const char *key,
     void *call) {
   return static_cast<CuteQOpcUaClientImpl *>(self)->take(key, call);
+}
+
+//  a QList<QOpcUaUserTokenPolicy::TokenType> a ritual of QOpcUaClientImpl
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpcUaClientImpl__QList_QOpcUaUserTokenPolicy_TokenType(
+    QList<QOpcUaUserTokenPolicy::TokenType> *self) {
+  delete self;
 }

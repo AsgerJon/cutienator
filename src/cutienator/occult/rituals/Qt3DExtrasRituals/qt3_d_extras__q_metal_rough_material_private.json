@@ -5,6 +5,19 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras26QMetalRoughMaterialPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DExtras26QMetalRoughMaterialPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras26QMetalRoughMaterialPrivate25handleTextureScaleChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras26QMetalRoughMaterialPrivate23updateLayersOnTechniqueERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras26QMetalRoughMaterialPrivate31updateVertexShaderBasedOnLayersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DExtras26QMetalRoughMaterialPrivate6q_funcEv": [
       "address", "address"
     ],

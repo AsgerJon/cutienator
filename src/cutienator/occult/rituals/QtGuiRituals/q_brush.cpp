@@ -81,6 +81,46 @@ void ritual_ZN6QBrushD1Ev(QBrush *self) {
   delete self;
 }
 
+//  QBrush &QBrush::operator=(const QBrush &brush)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN6QBrushaSERKS_(QBrush *self, const QBrush *brush) {
+  return &(self->operator=(*brush));
+}
+
+//  QBrush &QBrush::operator=(QBrush &&other)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN6QBrushaSEOS_(QBrush *self, QBrush *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QBrush::swap(QBrush &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QBrush4swapERS_(QBrush *self, QBrush *other) {
+  self->swap(*other);
+}
+
+//  QBrush &QBrush::operator=(Qt::BrushStyle style)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN6QBrushaSEN2Qt10BrushStyleE(
+    QBrush *self,
+    Qt::BrushStyle style) {
+  return &(self->operator=(style));
+}
+
+//  QBrush &QBrush::operator=(QColor color)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN6QBrushaSE6QColor(QBrush *self, const QColor *color) {
+  return &(self->operator=(*color));
+}
+
+//  QBrush &QBrush::operator=(Qt::GlobalColor color)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN6QBrushaSEN2Qt11GlobalColorE(
+    QBrush *self,
+    Qt::GlobalColor color) {
+  return &(self->operator=(color));
+}
+
 //  QVariant QBrush::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK6QBrushcv8QVariantEv(const QBrush *self) {
@@ -219,12 +259,76 @@ bool ritual_ZneRK6QColorRK6QBrush(const QColor *lhs, const QBrush *rhs) {
   return operator!=(*lhs, *rhs);
 }
 
+//  bool operator==(const QBrush &lhs, const Qt::GlobalColor &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QBrushRKN2Qt11GlobalColorE(
+    const QBrush *lhs,
+    const Qt::GlobalColor *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QBrush &lhs, const Qt::GlobalColor &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QBrushRKN2Qt11GlobalColorE(
+    const QBrush *lhs,
+    const Qt::GlobalColor *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const Qt::GlobalColor &lhs, const QBrush &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN2Qt11GlobalColorERK6QBrush(
+    const Qt::GlobalColor *lhs,
+    const QBrush *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const Qt::GlobalColor &lhs, const QBrush &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN2Qt11GlobalColorERK6QBrush(
+    const Qt::GlobalColor *lhs,
+    const QBrush *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  bool QBrush::doCompareEqualStyle(Qt::BrushStyle rhs) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QBrush19doCompareEqualStyleEN2Qt10BrushStyleE(
     const QBrush *self,
     Qt::BrushStyle rhs) {
   return self->doCompareEqualStyle(rhs);
+}
+
+//  bool operator==(const QBrush &lhs, const Qt::BrushStyle &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QBrushRKN2Qt10BrushStyleE(
+    const QBrush *lhs,
+    const Qt::BrushStyle *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QBrush &lhs, const Qt::BrushStyle &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QBrushRKN2Qt10BrushStyleE(
+    const QBrush *lhs,
+    const Qt::BrushStyle *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const Qt::BrushStyle &lhs, const QBrush &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN2Qt10BrushStyleERK6QBrush(
+    const Qt::BrushStyle *lhs,
+    const QBrush *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const Qt::BrushStyle &lhs, const QBrush &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN2Qt10BrushStyleERK6QBrush(
+    const Qt::BrushStyle *lhs,
+    const QBrush *rhs) {
+  return operator!=(*lhs, *rhs);
 }
 
 //  void QBrush::detach(Qt::BrushStyle newStyle)
@@ -248,4 +352,10 @@ void ritual_ZN6QBrush4initERK6QColorN2Qt10BrushStyleE(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QBrush10isDetachedEv(const QBrush *self) {
   return self->isDetached();
+}
+
+//  DataPtr &QBrush::data_ptr()
+extern "C" Q_DECL_EXPORT
+QBrush::DataPtr *ritual_ZN6QBrush8data_ptrEv(QBrush *self) {
+  return &(self->data_ptr());
 }

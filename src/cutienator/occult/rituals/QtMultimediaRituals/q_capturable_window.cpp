@@ -31,6 +31,39 @@ QCapturableWindow *ritual_ZN17QCapturableWindowC1ERKS_(
   return new QCapturableWindow(*other);
 }
 
+//  QCapturableWindow::QCapturableWindow(QCapturableWindow &&other)
+extern "C" Q_DECL_EXPORT
+QCapturableWindow *ritual_ZN17QCapturableWindowC1EOS_(
+    QCapturableWindow *other) {
+  return new QCapturableWindow(std::move(*other));
+}
+
+//  QCapturableWindow &QCapturableWindow::operator=(const QCapturableWindow
+//      &other)
+extern "C" Q_DECL_EXPORT
+QCapturableWindow *ritual_ZN17QCapturableWindowaSERKS_(
+    QCapturableWindow *self,
+    const QCapturableWindow *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCapturableWindow &QCapturableWindow::operator=(QCapturableWindow
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCapturableWindow *ritual_ZN17QCapturableWindowaSEOS_(
+    QCapturableWindow *self,
+    QCapturableWindow *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCapturableWindow::swap(QCapturableWindow &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QCapturableWindow4swapERS_(
+    QCapturableWindow *self,
+    QCapturableWindow *other) {
+  self->swap(*other);
+}
+
 //  bool operator==(const QCapturableWindow &lhs, const QCapturableWindow
 //      &rhs)
 extern "C" Q_DECL_EXPORT

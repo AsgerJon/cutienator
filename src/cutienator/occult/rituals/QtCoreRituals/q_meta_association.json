@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qmetacontainer.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qmetacontainer.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN16QMetaAssociationC1Ev": ["address"],
@@ -11,35 +12,86 @@
     "ritual_ZNK16QMetaAssociation11keyMetaTypeEv": ["address", "address"],
     "ritual_ZNK16QMetaAssociation14mappedMetaTypeEv": ["address", "address"],
     "ritual_ZNK16QMetaAssociation12canInsertKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation9insertKeyEPvPKv": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK16QMetaAssociation12canRemoveKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation9removeKeyEPvPKv": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK16QMetaAssociation14canContainsKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation11containsKeyEPKvS1_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK16QMetaAssociation17canGetMappedAtKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation11mappedAtKeyEPKvS1_Pv": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK16QMetaAssociation17canSetMappedAtKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation14setMappedAtKeyEPvPKvS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK16QMetaAssociation19canGetKeyAtIteratorEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation13keyAtIteratorEPKvPv": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK16QMetaAssociation24canGetKeyAtConstIteratorEv": [
       "bool", "address"
     ],
+    "ritual_ZNK16QMetaAssociation18keyAtConstIteratorEPKvPv": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK16QMetaAssociation22canGetMappedAtIteratorEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation16mappedAtIteratorEPKvPv": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK16QMetaAssociation27canGetMappedAtConstIteratorEv": [
       "bool", "address"
     ],
+    "ritual_ZNK16QMetaAssociation21mappedAtConstIteratorEPKvPv": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK16QMetaAssociation22canSetMappedAtIteratorEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation19setMappedAtIteratorEPKvS1_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK16QMetaAssociation22canCreateIteratorAtKeyEv": [
       "bool", "address"
     ],
+    "ritual_ZNK16QMetaAssociation19createIteratorAtKeyEPvPKv": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK16QMetaAssociation27canCreateConstIteratorAtKeyEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation24createConstIteratorAtKeyEPKvS1_": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZNK16QMetaAssociation5ifaceEv": ["address", "address"],
     "ritual_ZeqRK16QMetaAssociationS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QMetaAssociationS1_": ["bool", "address", "address"],
     "ritual_ZNK16QMetaAssociation1dEv": ["address", "address"],
-    "ritual_ZN16QMetaAssociationD1Ev": ["nothing", "address"]
+    "ritual_ZN16QMetaAssociationD1Ev": ["nothing", "address"],
+    "ritual_ZN16QMetaAssociation13fromContainerI4QMapI7QString8QVariantEEES_v": [
+      "address"
+    ],
+    "ritual_ZN16QMetaAssociation13fromContainerI5QHashI7QString8QVariantEEES_v": [
+      "address"
+    ],
+    "ritual_ZN16QMetaAssociation13fromContainerI4QMapI7QStringS2_EEES_v": [
+      "address"
+    ],
+    "ritual_ZN16QMetaAssociation13fromContainerI5QHashI7QStringS2_EEES_v": [
+      "address"
+    ],
+    "ritual_ZN16QMetaAssociation13fromContainerI4QMapI7QStringiEEES_v": [
+      "address"
+    ]
   }
 }

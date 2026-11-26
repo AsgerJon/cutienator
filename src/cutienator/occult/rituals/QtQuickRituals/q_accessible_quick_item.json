@@ -34,6 +34,9 @@
       "nothing", "address", "int", "text"
     ],
     "ritual_ZNK20QAccessibleQuickItem12isAccessibleEv": ["bool", "address"],
+    "ritual_ZNK20QAccessibleQuickItem9relationsE6QFlagsIN11QAccessible12RelationFlagEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK20QAccessibleQuickItem11actionNamesEv": [
       "address", "address"
     ],
@@ -103,10 +106,16 @@
     "ritual_ZNK20QAccessibleQuickItem12textDocumentEv": [
       "address", "address"
     ],
+    "ritual_ZNK20QAccessibleQuickItem13attributeKeysEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QAccessibleQuickItem14attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
     ],
     "ritual_ZNK20QAccessibleQuickItem4itemEv": ["address", "address"],
+    "ritual_ZN20QAccessibleQuickItem14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_cast_QAccessibleQuickItem_QAccessibleActionInterface": [
       "address", "address"
     ],
@@ -194,6 +203,15 @@
     ],
     "ritual_own_ZNK20QAccessibleQuickItem14attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
+    ],
+    "ritual_own_ZN20QAccessibleQuickItem14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_drop_QAccessibleQuickItem__QList_std_pair_QAccessibleInterface_QAccessible_Relation": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAccessibleQuickItem__QList_QAccessible_Attribute": [
+      "nothing", "address"
     ]
   }
 }

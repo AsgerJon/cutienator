@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QWebSocketServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QWebSocketServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QWebSocketServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QWebSocketServer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,6 +31,12 @@
     ],
     "ritual_ZNK16QWebSocketServer21maxPendingConnectionsEv": [
       "int", "address"
+    ],
+    "ritual_ZN16QWebSocketServer19setHandshakeTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK16QWebSocketServer16handshakeTimeoutEv": [
+      "long long", "address"
     ],
     "ritual_ZN16QWebSocketServer19setHandshakeTimeoutEi": [
       "nothing", "address", "int"
@@ -78,12 +90,50 @@
     "ritual_ZNK16QWebSocketServer16sslConfigurationEv": [
       "address", "address"
     ],
+    "ritual_ZNK16QWebSocketServer17supportedVersionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK16QWebSocketServer16handleConnectionEP10QTcpSocket": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN16QWebSocketServer11acceptErrorEN15QAbstractSocket11SocketErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QWebSocketServer11serverErrorEN18QWebSocketProtocol9CloseCodeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QWebSocketServer28originAuthenticationRequiredEP27QWebSocketCorsAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QWebSocketServer13newConnectionEv": ["nothing", "address"],
+    "ritual_ZN16QWebSocketServer15peerVerifyErrorERK9QSslError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QWebSocketServer9sslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QWebSocketServer17sslErrorsOccurredEP10QSslSocketRK5QListI9QSslErrorE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QWebSocketServer34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QWebSocketServer9alertSentEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ],
+    "ritual_ZN16QWebSocketServer13alertReceivedEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ],
+    "ritual_ZN16QWebSocketServer27handshakeInterruptedOnErrorERK9QSslError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QWebSocketServer6closedEv": ["nothing", "address"],
     "ritual_take_QWebSocketServer": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QWebSocketServer21nextPendingConnectionEv": [
       "address", "address"
+    ],
+    "ritual_drop_QWebSocketServer__QList_QWebSocketProtocol_Version": [
+      "nothing", "address"
     ]
   }
 }

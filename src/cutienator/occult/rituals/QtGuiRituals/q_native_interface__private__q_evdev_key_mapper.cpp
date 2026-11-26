@@ -75,6 +75,12 @@ void ritual_ZN16QNativeInterface7Private15QEvdevKeyMapperD1Ev(
   delete self;
 }
 
+//  QNativeInterface::Private::QEvdevKeyMapper::QEvdevKeyMapper()
+extern "C" Q_DECL_EXPORT
+QNativeInterface::Private::QEvdevKeyMapper *ritual_ZN16QNativeInterface7Private15QEvdevKeyMapperC1Ev() {
+  return new CuteQNativeInterface_Private_QEvdevKeyMapper();
+}
+
 //  void QNativeInterface::Private::QEvdevKeyMapper::loadKeymap(const QString
 //      &filename)
 extern "C" Q_DECL_EXPORT

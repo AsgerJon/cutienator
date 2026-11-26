@@ -8,6 +8,24 @@
     "ritual_ZNK24QFileSystemWatcherEngine10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QFileSystemWatcherEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QFileSystemWatcherEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN24QFileSystemWatcherEngine8addPathsERK5QListI7QStringEPS2_S5_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QFileSystemWatcherEngine11removePathsERK5QListI7QStringEPS2_S5_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QFileSystemWatcherEngine11fileChangedERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN24QFileSystemWatcherEngine16directoryChangedERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
     "ritual_take_QFileSystemWatcherEngine": [
       "bool", "address", "chars", "address"
     ]

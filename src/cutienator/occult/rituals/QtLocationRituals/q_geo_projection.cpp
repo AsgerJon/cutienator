@@ -370,6 +370,12 @@ public:
   }
 };
 
+//  QGeoProjection::QGeoProjection()
+extern "C" Q_DECL_EXPORT
+QGeoProjection *ritual_ZN14QGeoProjectionC1Ev() {
+  return new CuteQGeoProjection();
+}
+
 //  QGeoProjection::~QGeoProjection()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QGeoProjectionD1Ev(QGeoProjection *self) {

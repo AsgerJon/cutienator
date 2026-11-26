@@ -18,6 +18,9 @@
     "ritual_ZNK16QHttpPartPrivate14bytesAvailableEv": [
       "long long", "address"
     ],
+    "ritual_ZN16QHttpPartPrivate8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZNK16QHttpPartPrivate4sizeEv": ["long long", "address"],
     "ritual_ZN16QHttpPartPrivate5resetEv": ["bool", "address"],
     "ritual_ZNK16QHttpPartPrivate18checkHeaderCreatedEv": [

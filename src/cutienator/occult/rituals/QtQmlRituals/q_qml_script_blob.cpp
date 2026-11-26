@@ -8,6 +8,9 @@
 #include <QtQml/6.12.0/QtQml/private/qqmldatablob_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qv4compileddata_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/private/qqmlengine_p.h>
@@ -26,59 +29,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtdeclarative/src/qml/qml/qqmlscriptblob.cpp, line 209, as _ZN14QQmlScriptBlob29initializeFromCompilationUnitEO14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE
-inline void QQmlScriptBlob::initializeFromCompilationUnit(
-        QQmlRefPointer<QV4::CompiledData::CompilationUnit> &&unit)
-{
-    assertTypeLoaderThread();
-    Q_ASSERT(!m_scriptData);
-    Q_ASSERT(unit);
-
-    m_scriptData.adopt(new QQmlScriptData());
-    m_scriptData->url = finalUrl();
-    m_scriptData->urlString = finalUrlString();
-    m_scriptData->m_precompiledScript = unit;
-
-    m_importCache->setBaseUrl(finalUrl(), finalUrlString());
-
-    if (!m_isModule) {
-        QList<QQmlError> errors;
-        for (quint32 i = 0, count = unit->importCount(); i < count; ++i) {
-            const QV4::CompiledData::Import *import = unit->importAt(i);
-            if (!addImport(import, {}, &errors)) {
-                Q_ASSERT(errors.size());
-                QQmlError error(errors.takeFirst());
-                error.setUrl(m_importCache->baseUrl());
-                error.setLine(import->location.line());
-                error.setColumn(import->location.column());
-                errors.prepend(error); // put it back on the list after filling out information.
-                setError(errors);
-                return;
-            }
-        }
-    }
-
-    const QStringList moduleRequests = unit->moduleRequests();
-    for (const QString &request: moduleRequests) {
-        const QUrl relativeRequest(request);
-        QUrl absoluteRequest = unit->finalUrl().resolved(relativeRequest);
-        if (!request.endsWith(QLatin1String(".mjs")))
-            absoluteRequest.setFragment(QLatin1String("module"));
-        QQmlRefPointer<QQmlScriptBlob> absoluteBlob
-                = typeLoader()->getScript(absoluteRequest, relativeRequest);
-        if (!absoluteBlob->m_scriptData || !absoluteBlob->m_scriptData->m_precompiledScript)
-            addDependency(absoluteBlob.data());
-        scriptImported(
-                absoluteBlob, /* ### */QV4::CompiledData::Location(), /*qualifier*/QString(),
-                /*namespace*/QString());
-    }
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmlscriptblob.cpp, line 25, as _ZN14QQmlScriptBlobD1Ev
-inline QQmlScriptBlob::~QQmlScriptBlob()
-{
-}
 
 //  from ../qtdeclarative/src/qml/qml/qqmlscriptblob.cpp, line 29, as _ZN14QQmlScriptBlob12dataReceivedERKN12QQmlDataBlob14SourceCodeDataE
 inline void QQmlScriptBlob::dataReceived(const SourceCodeData &data)
@@ -176,6 +126,20 @@ inline void QQmlScriptBlob::dataReceived(const SourceCodeData &data)
     initializeFromCompilationUnit(std::move(unit));
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmlscriptblob.cpp, line 196, as _ZN14QQmlScriptBlob14scriptImportedERK14QQmlRefPointerIS_ERKN3QV412CompiledData8LocationERK7QStringSB_
+inline void QQmlScriptBlob::scriptImported(const QQmlRefPointer<QQmlScriptBlob> &blob, const QV4::CompiledData::Location &location, const QString &qualifier, const QString &nameSpace)
+{
+    assertTypeLoaderThread();
+
+    ScriptReference ref;
+    ref.script = blob;
+    ref.location = location;
+    ref.qualifier = qualifier;
+    ref.nameSpace = nameSpace;
+
+    m_scripts << ref;
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmlscriptblob.cpp, line 124, as _ZN14QQmlScriptBlob24initializeFromCachedUnitEPKN11QQmlPrivate13CachedQmlUnitE
 inline void QQmlScriptBlob::initializeFromCachedUnit(const QQmlPrivate::CachedQmlUnit *cachedUnit)
 {
@@ -245,10 +209,70 @@ inline void QQmlScriptBlob::done()
     m_scripts.clear();
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmlscriptblob.cpp, line 25, as _ZN14QQmlScriptBlobD2Ev
+inline QQmlScriptBlob::~QQmlScriptBlob()
+{
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmlscriptblob.cpp, line 191, as _ZNK14QQmlScriptBlob8stringAtEi
 inline QString QQmlScriptBlob::stringAt(int index) const
 {
     return m_scriptData->m_precompiledScript->stringAt(index);
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmlscriptblob.cpp, line 17, as _Z14DBG_DISK_CACHEv
+inline const QLoggingCategory &DBG_DISK_CACHE()
+{
+    static const QLoggingCategory category("qt.qml.diskcache");
+    return category;
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmlscriptblob.cpp, line 209, as _ZN14QQmlScriptBlob29initializeFromCompilationUnitEO14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE
+inline void QQmlScriptBlob::initializeFromCompilationUnit(
+        QQmlRefPointer<QV4::CompiledData::CompilationUnit> &&unit)
+{
+    assertTypeLoaderThread();
+    Q_ASSERT(!m_scriptData);
+    Q_ASSERT(unit);
+
+    m_scriptData.adopt(new QQmlScriptData());
+    m_scriptData->url = finalUrl();
+    m_scriptData->urlString = finalUrlString();
+    m_scriptData->m_precompiledScript = unit;
+
+    m_importCache->setBaseUrl(finalUrl(), finalUrlString());
+
+    if (!m_isModule) {
+        QList<QQmlError> errors;
+        for (quint32 i = 0, count = unit->importCount(); i < count; ++i) {
+            const QV4::CompiledData::Import *import = unit->importAt(i);
+            if (!addImport(import, {}, &errors)) {
+                Q_ASSERT(errors.size());
+                QQmlError error(errors.takeFirst());
+                error.setUrl(m_importCache->baseUrl());
+                error.setLine(import->location.line());
+                error.setColumn(import->location.column());
+                errors.prepend(error); // put it back on the list after filling out information.
+                setError(errors);
+                return;
+            }
+        }
+    }
+
+    const QStringList moduleRequests = unit->moduleRequests();
+    for (const QString &request: moduleRequests) {
+        const QUrl relativeRequest(request);
+        QUrl absoluteRequest = unit->finalUrl().resolved(relativeRequest);
+        if (!request.endsWith(QLatin1String(".mjs")))
+            absoluteRequest.setFragment(QLatin1String("module"));
+        QQmlRefPointer<QQmlScriptBlob> absoluteBlob
+                = typeLoader()->getScript(absoluteRequest, relativeRequest);
+        if (!absoluteBlob->m_scriptData || !absoluteBlob->m_scriptData->m_precompiledScript)
+            addDependency(absoluteBlob.data());
+        scriptImported(
+                absoluteBlob, /* ### */QV4::CompiledData::Location(), /*qualifier*/QString(),
+                /*namespace*/QString());
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -417,6 +441,13 @@ void ritual_ZN14QQmlScriptBlobD1Ev(QQmlScriptBlob *self) {
   delete self;
 }
 
+//  QQmlRefPointer<QQmlScriptData> QQmlScriptBlob::scriptData() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlScriptData> *ritual_ZNK14QQmlScriptBlob10scriptDataEv(
+    const QQmlScriptBlob *self) {
+  return new QQmlRefPointer<QQmlScriptData>(self->scriptData());
+}
+
 //  void QQmlScriptBlob::dataReceived(const SourceCodeData &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQmlScriptBlob12dataReceivedERKN12QQmlDataBlob14SourceCodeDataE(
@@ -448,6 +479,19 @@ QString *ritual_ZNK14QQmlScriptBlob8stringAtEi(
   return new QString(self->stringAt(index));
 }
 
+//  void QQmlScriptBlob::scriptImported(const QQmlRefPointer<QQmlScriptBlob>
+//      &blob, const QV4::CompiledData::Location &location, const QString
+//      &qualifier, const QString &nameSpace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlScriptBlob14scriptImportedERK14QQmlRefPointerIS_ERKN3QV412CompiledData8LocationERK7QStringSB_(
+    QQmlScriptBlob *self,
+    const QQmlRefPointer<QQmlScriptBlob> *blob,
+    const QV4::CompiledData::Location *location,
+    const QString *qualifier,
+    const QString *nameSpace) {
+  self->scriptImported(*blob, *location, *qualifier, *nameSpace);
+}
+
 //  a Python function taken by a CuteQQmlScriptBlob, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -466,4 +510,11 @@ QString *ritual_own_ZNK14QQmlScriptBlob8stringAtEi(
   return new QString(
       static_cast<const OwnQQmlScriptBlob *>(self)->OwnQQmlScriptBlob::stringAt(
           index));
+}
+
+//  a QQmlRefPointer<QQmlScriptData> a ritual of QQmlScriptBlob gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlScriptBlob__QQmlRefPointer_QQmlScriptData(
+    QQmlRefPointer<QQmlScriptData> *self) {
+  delete self;
 }

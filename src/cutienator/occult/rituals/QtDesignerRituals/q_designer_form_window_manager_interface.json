@@ -8,6 +8,12 @@
     "ritual_ZNK35QDesignerFormWindowManagerInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN35QDesignerFormWindowManagerInterface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -94,6 +100,18 @@
     ],
     "ritual_ZNK35QDesignerFormWindowManagerInterface19createPreviewPixmapEv": [
       "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface15formWindowAddedEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface17formWindowRemovedEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface23activeFormWindowChangedEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface25formWindowSettingsChangedEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN35QDesignerFormWindowManagerInterface13addFormWindowEP28QDesignerFormWindowInterface": [
       "nothing", "address", "address"

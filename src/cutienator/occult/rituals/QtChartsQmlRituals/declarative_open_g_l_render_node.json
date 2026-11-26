@@ -8,12 +8,24 @@
     "ritual_ZNK27DeclarativeOpenGLRenderNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27DeclarativeOpenGLRenderNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN27DeclarativeOpenGLRenderNode6initGLEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK27DeclarativeOpenGLRenderNode11textureSizeEv": [
       "address", "address"
     ],
     "ritual_ZN27DeclarativeOpenGLRenderNode14setTextureSizeERK5QSize": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode13setSeriesDataEbRK5QHashIPK9QXYSeriesP14GLXYSeriesDataE": [
+      "nothing", "address", "bool", "address"
     ],
     "ritual_ZN27DeclarativeOpenGLRenderNode7setRectERK6QRectF": [
       "nothing", "address", "address"
@@ -23,6 +35,12 @@
     ],
     "ritual_ZN27DeclarativeOpenGLRenderNode14addMouseEventsERK5QListIP11QMouseEventE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode23takeMouseEventResponsesER5QListI18MouseEventResponseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode6renderEv": [
+      "nothing", "address"
     ],
     "ritual_ZN27DeclarativeOpenGLRenderNode8renderGLEb": [
       "nothing", "address", "bool"

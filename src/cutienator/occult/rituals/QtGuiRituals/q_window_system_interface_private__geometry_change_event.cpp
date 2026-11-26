@@ -32,6 +32,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/gui/kernel/qwindowsysteminterface.cpp, line 286, as _ZN29QWindowSystemInterfacePrivate19GeometryChangeEventC1EP7QWindow5QRectS3_
 inline QWindowSystemInterfacePrivate::GeometryChangeEvent::GeometryChangeEvent(QWindow *window,
                                                                         QRect requestedGeometry,

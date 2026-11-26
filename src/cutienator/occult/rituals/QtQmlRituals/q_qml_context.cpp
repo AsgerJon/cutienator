@@ -185,6 +185,24 @@ const QMetaObject *ritual_ZNK11QQmlContext10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlContext::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQmlContext11qt_metacastEPKc(
+    QQmlContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlContext::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQmlContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlContext::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQmlContext2trEPKcS1_i(
@@ -296,6 +314,15 @@ void ritual_ZN11QQmlContext18setContextPropertyERK7QStringRK8QVariant(
   self->setContextProperty(*a0, *a1);
 }
 
+//  void QQmlContext::setContextProperties(const QList<PropertyPair>
+//      &properties)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQmlContext20setContextPropertiesERK5QListINS_12PropertyPairEE(
+    QQmlContext *self,
+    const QList<QQmlContext::PropertyPair> *properties) {
+  self->setContextProperties(*properties);
+}
+
 //  QString QQmlContext::nameForObject(const QObject *a0) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK11QQmlContext13nameForObjectEPK7QObject(
@@ -357,6 +384,14 @@ QJSValue *ritual_ZNK11QQmlContext14importedScriptERK7QString(
     const QQmlContext *self,
     const QString *name) {
   return new QJSValue(self->importedScript(*name));
+}
+
+//  QQmlContext::QQmlContext(QQmlContextPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQmlContext *ritual_ZN11QQmlContextC1ER18QQmlContextPrivateP7QObject(
+    QQmlContextPrivate *dd,
+    QObject *parent) {
+  return new CuteQQmlContext(*dd, parent);
 }
 
 //  QQmlContext::QQmlContext(QQmlEngine *a0, bool a1)

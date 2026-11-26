@@ -42,6 +42,25 @@ const QMetaObject *ritual_ZNK27QQStyleKitVariationAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitVariationAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQStyleKitVariationAttached11qt_metacastEPKc(
+    QQStyleKitVariationAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitVariationAttached::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQStyleKitVariationAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitVariationAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QStringList QQStyleKitVariationAttached::variations() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK27QQStyleKitVariationAttached10variationsEv(
@@ -55,4 +74,54 @@ extern "C" Q_DECL_EXPORT
 QQStyleKitExtendableControlType ritual_ZNK27QQStyleKitVariationAttached11controlTypeEv(
     const QQStyleKitVariationAttached *self) {
   return self->controlType();
+}
+
+//  void QQStyleKitVariationAttached::variationsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitVariationAttached17variationsChangedEv(
+    QQStyleKitVariationAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitVariationAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "variationsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "variationsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitVariationAttached::controlTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitVariationAttached18controlTypeChangedEv(
+    QQStyleKitVariationAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitVariationAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controlTypeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controlTypeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }

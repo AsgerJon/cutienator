@@ -1,0 +1,1134 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickGraphsItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickGraphsItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItemD1Ev": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem13markDataDirtyEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem22markSeriesVisualsDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem25markSeriesItemLabelsDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem14emitNeedRenderEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem23setQueriedGraphPositionE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem30handleAxisTitleChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem31handleAxisLabelsChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem37handleAxisSegmentCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem40handleAxisSubSegmentCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem36handleAxisLabelFormatChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem33handleAxisReversedChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem32handleAxisFormatterDirtyBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem42handleAxisLabelAutoRotationChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem43handleAxisScaleLabelsByCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem34handleAxisLabelSizeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem40handleAxisTitleVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem40handleAxisLabelVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem35handleAxisTitleFixedChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem36handleAxisTitleOffsetChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem25handleLightingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem22handleMultiAxisChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem20handleMultiAxisDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem25graphPositionQueryPendingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem28setGraphPositionQueryPendingERKb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem17addSeriesInternalEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem12insertSeriesExP17QAbstract3DSeries": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem20removeSeriesInternalEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem10seriesListEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem8setAxisXEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem5axisXEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem8setAxisYEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem5axisYEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem8setAxisZEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem5axisZEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem7addAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem11releaseAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem4axesEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem16setRenderingModeEN10QtGraphs3D13RenderingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem13renderingModeEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsItem24setTransparencyTechniqueEN10QtGraphs3D21TransparencyTechniqueE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem21transparencyTechniqueEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem13selectionModeEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsItem18doSetShadowQualityEN10QtGraphs3D13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem16setShadowQualityEN10QtGraphs3D13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem13shadowQualityEv": ["int", "address"],
+    "ritual_ZNK16QQuickGraphsItem15selectedElementEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsItem14setMsaaSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem11msaaSamplesEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsItem8addThemeEP12QGraphsTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem12releaseThemeEP12QGraphsTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem8setThemeEP12QGraphsTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem5themeEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem6themesEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem15isSlicingActiveEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem16setSlicingActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem17isCustomDataDirtyEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem18setCustomDataDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem17isCustomItemDirtyEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem18setCustomItemDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem17isCustomLabelItemEP13QCustom3DItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18isCustomVolumeItemEP13QCustom3DItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem18customTextureImageEP13QCustom3DItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem5sceneEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem9hasSeriesEP17QAbstract3DSeries": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem14clearSelectionEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem17deleteCustomItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16deleteCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16deleteCustomItemE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem11customItemsEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem13addCustomItemEP13QCustom3DItem": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem17removeCustomItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16removeCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem18removeCustomItemAtE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem17releaseCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18selectedLabelIndexEv": ["int", "address"],
+    "ritual_ZNK16QQuickGraphsItem12selectedAxisEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem23selectedCustomItemIndexEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18selectedCustomItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem20appendCustomItemFuncEP16QQmlListPropertyI13QCustom3DItemEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem19countCustomItemFuncEP16QQmlListPropertyI13QCustom3DItemE": [
+      "long long", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16atCustomItemFuncEP16QQmlListPropertyI13QCustom3DItemEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsItem19clearCustomItemFuncEP16QQmlListPropertyI13QCustom3DItemE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem15resizeViewportsE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem15checkWindowListEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem13setMeasureFpsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem10measureFpsEv": ["bool", "address"],
+    "ritual_ZNK16QQuickGraphsItem10currentFpsEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsItem18setOrthoProjectionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem17isOrthoProjectionEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem14setAspectRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickGraphsItem11aspectRatioEv": ["double", "address"],
+    "ritual_ZN16QQuickGraphsItem19setOptimizationHintEN10QtGraphs3D16OptimizationHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem16optimizationHintEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsItem8setPolarEb": ["nothing", "address", "bool"],
+    "ritual_ZNK16QQuickGraphsItem7isPolarEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem14setLabelMarginEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem11labelMarginEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsItem20setRadialLabelOffsetEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem17radialLabelOffsetEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem24setHorizontalAspectRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickGraphsItem21horizontalAspectRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem6localeEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem20queriedGraphPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem9setMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickGraphsItem6marginEv": ["double", "address"],
+    "ritual_ZN16QQuickGraphsItem15setCutoffMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickGraphsItem12cutoffMarginEv": ["double", "address"],
+    "ritual_ZN16QQuickGraphsItem7isReadyEv": ["bool", "address"],
+    "ritual_ZNK16QQuickGraphsItem8rootNodeEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem12cameraTargetEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem15setCameraTargetEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem10backgroundEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem13setBackgroundEP13QQuick3DModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem12backgroundBBEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem5lightEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem23createQmlCustomMaterialERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN16QQuickGraphsItem24createPrincipledMaterialEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem9itemLabelEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem14sliceItemLabelEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem9repeaterXEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem9repeaterYEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem9repeaterZEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem11titleLabelXEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem11titleLabelYEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem11titleLabelZEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsItem10isXFlippedEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem11setXFlippedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem10isYFlippedEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem11setYFlippedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem10isZFlippedEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem11setZFlippedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem19scaleWithBackgroundEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem21backgroundScaleMarginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem22setScaleWithBackgroundE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem24setBackgroundScaleMarginE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem8rotationEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem11setRotationE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem5scaleEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem8setScaleE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem9translateEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem12setTranslateE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem21lineLengthScaleFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem24setLineLengthScaleFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem20lineWidthScaleFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem23setLineWidthScaleFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem10gridOffsetEv": ["float", "address"],
+    "ritual_ZNK16QQuickGraphsItem12cameraPresetEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsItem15setCameraPresetEN10QtGraphs3D12CameraPresetE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem15cameraXRotationEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsItem18setCameraXRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem15cameraYRotationEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsItem18setCameraYRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18minCameraXRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem21setMinCameraXRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18maxCameraXRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem21setMaxCameraXRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18minCameraYRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem21setMinCameraYRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18maxCameraYRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem21setMaxCameraYRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QQuickGraphsItem22setZoomAtTargetEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem19zoomAtTargetEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem14setZoomEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem11zoomEnabledEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem19setSelectionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem16selectionEnabledEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem18setRotationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem15rotationEnabledEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem13setPanEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem10panEnabledEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem11setDragModeEN10QtGraphs3D8DragModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem8dragModeEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsItem22setDefaultInputHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem24unsetDefaultInputHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem22unsetDefaultTapHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem23unsetDefaultDragHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem24unsetDefaultWheelHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem24unsetDefaultPinchHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem13setDragButtonE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem12setPanButtonE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem15cameraZoomLevelEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsItem18setCameraZoomLevelEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18minCameraZoomLevelEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem21setMinCameraZoomLevelEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18maxCameraZoomLevelEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem21setMaxCameraZoomLevelEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QQuickGraphsItem23setCameraTargetPositionE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem20cameraTargetPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem19wrapCameraXRotationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem22setWrapCameraXRotationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem19wrapCameraYRotationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem22setWrapCameraYRotationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem15graphPositionAtE6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem17setCameraPositionEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN16QQuickGraphsItem26changeLabelBackgroundColorEP16QQuick3DRepeater6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem28changeLabelBackgroundVisibleEP16QQuick3DRepeaterRKb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem24changeLabelBorderVisibleEP16QQuick3DRepeaterRKb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem20changeLabelTextColorEP16QQuick3DRepeater6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem15changeLabelFontEP16QQuick3DRepeaterRK5QFont": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem19changeLabelsVisibleEP16QQuick3DRepeaterRKb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem19changeGridLineColorEP16QQuick3DRepeater6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem17updateTitleLabelsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem19updateSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem24setSliceActivatedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem12doRayPickingE9QVector3DS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem17minimizeMainGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem20horizontalFlipFactorEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem23setHorizontalFlipFactorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsItem20ambientLightStrengthEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem23setAmbientLightStrengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem13lightStrengthEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsItem16setLightStrengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem14shadowStrengthEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsItem17setShadowStrengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsItem10lightColorEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem13setLightColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem12gridLineTypeEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsItem15setGridLineTypeERKN10QtGraphs3D12GridLineTypeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem18handleAxisXChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem18handleAxisYChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem18handleAxisZChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16handleFpsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem15windowDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem22handleAxisTitleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QQuickGraphsItem23handleAxisLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem22handleAxisRangeChangedEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN16QQuickGraphsItem29handleAxisSegmentCountChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsItem32handleAxisSubSegmentCountChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsItem32handleAxisAutoAdjustRangeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem35handleAxisScaleLabelsByCountChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem26handleAxisLabelSizeChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QQuickGraphsItem28handleAxisLabelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QQuickGraphsItem25handleAxisReversedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem24handleAxisFormatterDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem34handleAxisLabelAutoRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QQuickGraphsItem32handleAxisTitleVisibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem32handleAxisLabelVisibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem27handleAxisTitleFixedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem28handleAxisTitleOffsetChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QQuickGraphsItem26handleInputPositionChangedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem29handleSeriesVisibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem29handleItemLabelVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem37handleItemLabelVisibleChangedBySenderEbP7QObject": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem28handleThemeColorStyleChangedEN12QGraphsTheme10ColorStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem28handleThemeBaseColorsChangedERK5QListI6QColorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem31handleThemeBaseGradientsChangedERK5QListI15QLinearGradientE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem38handleThemeSingleHighlightColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem41handleThemeSingleHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem37handleThemeMultiHighlightColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem40handleThemeMultiHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem22handleThemeTypeChangedEN12QGraphsTheme5ThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem26handleRequestShadowQualityEN10QtGraphs3D13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem16updateCustomItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem13setParentNodeEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem19handleWindowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem22updateWindowParametersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem25handleSelectionModeChangeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem25handleShadowQualityChangeEN10QtGraphs3D13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem27handleSelectedElementChangeEN10QtGraphs3D11ElementTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem28handleOptimizationHintChangeEN10QtGraphs3D16OptimizationHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem21handleThemeTypeChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem23handleParentWidthChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem24handleParentHeightChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem17checkSliceEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem25isUserCameraRotationRangeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem26setUserCameraRotationRangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem15createSliceViewEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem24createOffscreenSliceViewEN10QtGraphs3D16SliceCaptureTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem31handleGraphQueryPositionChangedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem35handleSelectionQueryPositionChangedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem31handlePrimarySubViewportChangedE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem33handleSecondarySubViewportChangedE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem9graphNodeEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem9sliceViewEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsItem31createRepeaterDelegateComponentERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN16QQuickGraphsItem14createRepeaterEP12QQuick3DNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16createTitleLabelEP12QQuick3DNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem15createItemLabelEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem12updateXTitleE9QVector3DS0_RK11QQuaternionfS0_P15QAbstract3DAxisP12QQuick3DNode": [
+      "nothing", "address", "address", "address", "address", "float",
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem12updateYTitleE9QVector3DS0_S0_S0_RK11QQuaternionS3_fS0_P15QAbstract3DAxisP12QQuick3DNode": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address", "float", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem12updateZTitleE9QVector3DS0_RK11QQuaternionfS0_P15QAbstract3DAxisP12QQuick3DNode": [
+      "nothing", "address", "address", "address", "address", "float",
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem28calculateSceneScalingFactorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem20positionAndScaleLineEP12QQuick3DNode9QVector3DS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem18findLabelsMaxWidthERK5QListI7QStringE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem30calculateCategoryLabelPositionEP15QAbstract3DAxis9QVector3Di": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem33calculateCategoryGridLinePositionEP15QAbstract3DAxisi": [
+      "float", "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem30calculatePolarBackgroundMarginEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem19setFloorGridInRangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem22setVerticalSegmentLineEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem10updateGridEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem18updateGridLineTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem12updateLabelsEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem22calculateLabelRotationEfffN2Qt4AxisE": [
+      "address", "address", "float", "float", "float", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem15updateSliceGridEP13QQuick3DModelN10QtGraphs3D16SliceCaptureTypeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem17updateSliceLabelsEP16QQuick3DRepeaterS1_P12QQuick3DNodeS3_S3_N10QtGraphs3D16SliceCaptureTypeE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem21updateBackgroundColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem15setItemSelectedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem19updateShadowQualityEN10QtGraphs3D13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem15updateItemLabelE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem20updateSliceItemLabelERK7QString9QVector3D": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem9synchDataEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem11updateGraphEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickGraphsItem14isSliceEnabledEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem15setSliceEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem23isSliceActivatedChangedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16toggleSliceGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem17createSliceCameraEP16QQuick3DViewport": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsItem22isSliceOrthoProjectionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem23setSliceOrthoProjectionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem15updateAxisRangeEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN16QQuickGraphsItem18updateAxisReversedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsItem26updateSingleHighlightColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem19updateLightStrengthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem23handleLabelCountChangedEP16QQuick3DRepeater6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem15updateMultiAxisEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem21updateMultiAxisLabelsExP15QAbstract3DAxis": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem19updateMultiAxisGridExP15QAbstract3DAxis": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16releaseMultiAxisEN15QAbstract3DAxis15AxisOrientationEx": [
+      "nothing", "address", "int", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsItem16connectMultiAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem18getSeriesMultiAxisEP17QAbstract3DSeriesN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem13isGridUpdatedEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsItem14setGridUpdatedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsItem18graphsInputHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem17createDefaultAxisEN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsItem22createDefaultValueAxisEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem25createDefaultCategoryAxisEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem31startRecordingRemovesAndInsertsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem11setUpCameraEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem10setUpLightEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem12updateCameraEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem23updateRadialLabelOffsetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16updateCustomDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem26updateCustomLabelsRotationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem15fontScaleFactorEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZN16QQuickGraphsItem15labelAdjustmentEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZN16QQuickGraphsItem19gridLineCountHelperEP15QAbstract3DAxisRxS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem18graphPosToAbsoluteE9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem20createVolumeMaterialEP15QCustom3DVolumeRNS_6VolumeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem16createSliceFrameERNS_6VolumeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem25updateSliceFrameMaterialsEP15QCustom3DVolumeRNS_6VolumeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsItem14updateSubViewsEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsItem19updateCustomVolumesEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickGraphsItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQuickGraphsItem30handleAxisTitleChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem31handleAxisLabelsChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem37handleAxisSegmentCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem40handleAxisSubSegmentCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem36handleAxisLabelFormatChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem33handleAxisReversedChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem32handleAxisFormatterDirtyBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem42handleAxisLabelAutoRotationChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem43handleAxisScaleLabelsByCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem34handleAxisLabelSizeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem40handleAxisTitleVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem40handleAxisLabelVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem35handleAxisTitleFixedChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem36handleAxisTitleOffsetChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem22handleMultiAxisChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem17addSeriesInternalEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem20removeSeriesInternalEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem7addAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem11releaseAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem16setRenderingModeEN10QtGraphs3D13RenderingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK16QQuickGraphsItem13renderingModeEv": ["int", "address"],
+    "ritual_own_ZN16QQuickGraphsItem24setTransparencyTechniqueEN10QtGraphs3D21TransparencyTechniqueE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK16QQuickGraphsItem21transparencyTechniqueEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK16QQuickGraphsItem13selectionModeEv": ["int", "address"],
+    "ritual_own_ZN16QQuickGraphsItem16setShadowQualityEN10QtGraphs3D13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK16QQuickGraphsItem13shadowQualityEv": ["int", "address"],
+    "ritual_own_ZNK16QQuickGraphsItem15selectedElementEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem14setMsaaSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK16QQuickGraphsItem11msaaSamplesEv": ["int", "address"],
+    "ritual_own_ZN16QQuickGraphsItem9hasSeriesEP17QAbstract3DSeries": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem13addCustomItemEP13QCustom3DItem": [
+      "long long", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem17removeCustomItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem16removeCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem18removeCustomItemAtE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem17releaseCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK16QQuickGraphsItem18selectedLabelIndexEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK16QQuickGraphsItem12selectedAxisEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK16QQuickGraphsItem23selectedCustomItemIndexEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK16QQuickGraphsItem18selectedCustomItemEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem19updateSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem12doRayPickingE9QVector3DS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem19handleWindowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem22updateWindowParametersEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem25handleSelectionModeChangeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem25handleShadowQualityChangeEN10QtGraphs3D13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem27handleSelectedElementChangeEN10QtGraphs3D11ElementTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem28handleOptimizationHintChangeEN10QtGraphs3D16OptimizationHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem21handleThemeTypeChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem23handleParentWidthChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem24handleParentHeightChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem15createSliceViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem30calculateCategoryLabelPositionEP15QAbstract3DAxis9QVector3Di": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem33calculateCategoryGridLinePositionEP15QAbstract3DAxisi": [
+      "float", "address", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem19updateShadowQualityEN10QtGraphs3D13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem20updateSliceItemLabelERK7QString9QVector3D": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem9synchDataEv": ["nothing", "address"],
+    "ritual_own_ZN16QQuickGraphsItem11updateGraphEv": ["nothing", "address"],
+    "ritual_own_ZN16QQuickGraphsItem16toggleSliceGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem15updateAxisRangeEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem18updateAxisReversedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem26updateSingleHighlightColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem19updateLightStrengthEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem23handleLabelCountChangedEP16QQuick3DRepeater6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem17createDefaultAxisEN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsItem31startRecordingRemovesAndInsertsEv": [
+      "nothing", "address"
+    ]
+  }
+}

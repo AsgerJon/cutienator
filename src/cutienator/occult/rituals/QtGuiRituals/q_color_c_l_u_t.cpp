@@ -18,6 +18,16 @@ QColorVector *ritual_ZN10QColorCLUT11interpolateERK12QColorVectorS2_f(
   return new QColorVector(QColorCLUT::interpolate(*a, *b, t));
 }
 
+//  void QColorCLUT::interpolateIn(QColorVector &a, const QColorVector &b,
+//      float t)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QColorCLUT13interpolateInER12QColorVectorRKS0_f(
+    QColorVector *a,
+    const QColorVector *b,
+    float t) {
+  QColorCLUT::interpolateIn(*a, *b, t);
+}
+
 //  bool QColorCLUT::isEmpty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10QColorCLUT7isEmptyEv(const QColorCLUT *self) {

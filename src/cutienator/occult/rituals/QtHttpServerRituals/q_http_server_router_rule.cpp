@@ -5,6 +5,7 @@
 #include <QtCore/qstring.h>
 #include <QtHttpServer/qhttpserverrequest.h>
 #include <cstring>
+#include <QtCore/QMetaType>
 
 //  Only a class built on QHttpServerRouterRule may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -87,11 +88,32 @@ void ritual_ZN21QHttpServerRouterRuleD1Ev(QHttpServerRouterRule *self) {
   delete self;
 }
 
+//  bool QHttpServerRouterRule::exec(const QHttpServerRequest &request,
+//      QHttpServerResponder &responder) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QHttpServerRouterRule4execERK18QHttpServerRequestR20QHttpServerResponder(
+    const QHttpServerRouterRule *self,
+    const QHttpServerRequest *request,
+    QHttpServerResponder *responder) {
+  return self->exec(*request, *responder);
+}
+
 //  bool QHttpServerRouterRule::hasValidMethods() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QHttpServerRouterRule15hasValidMethodsEv(
     const QHttpServerRouterRule *self) {
   return self->hasValidMethods();
+}
+
+//  bool
+//      QHttpServerRouterRule::createPathRegexp(std::initializer_list<QMetaTy
+//      pe> metaTypes, const QHash<QMetaType, QString> &converters)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QHttpServerRouterRule16createPathRegexpESt16initializer_listI9QMetaTypeERK5QHashIS1_7QStringE(
+    QHttpServerRouterRule *self,
+    const std::initializer_list<QMetaType> *metaTypes,
+    const QHash<QMetaType, QString> *converters) {
+  return self->createPathRegexp(*metaTypes, *converters);
 }
 
 //  bool QHttpServerRouterRule::matches(const QHttpServerRequest &request,

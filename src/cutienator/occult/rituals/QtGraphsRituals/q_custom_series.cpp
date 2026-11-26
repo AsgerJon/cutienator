@@ -1,13 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qcustomseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_custom))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qcustomseries.h>
 #include <QtCore/qstring.h>
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_custom))
+#include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qcustomseriesdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -262,6 +265,24 @@ const QMetaObject *ritual_ZNK13QCustomSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCustomSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QCustomSeries11qt_metacastEPKc(
+    QCustomSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCustomSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QCustomSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCustomSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCustomSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QCustomSeries2trEPKcS1_i(
@@ -380,6 +401,20 @@ void ritual_ZN13QCustomSeries5clearEv(QCustomSeries *self) {
   self->clear();
 }
 
+//  void QCustomSeries::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustomSeries15delegateChangedEv(QCustomSeries *self) {
+  self->delegateChanged();
+}
+
+//  QCustomSeries::QCustomSeries(QCustomSeriesPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCustomSeries *ritual_ZN13QCustomSeriesC1ER20QCustomSeriesPrivateP7QObject(
+    QCustomSeriesPrivate *dd,
+    QObject *parent) {
+  return new CuteQCustomSeries(*dd, parent);
+}
+
 //  void QCustomSeries::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QCustomSeries17componentCompleteEv(QCustomSeries *self) {
@@ -401,6 +436,20 @@ bool ritual_ZN13QCustomSeries5eventEP6QEvent(
     QCustomSeries *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  QCustomSeriesPrivate *QCustomSeries::d_func()
+extern "C" Q_DECL_EXPORT
+QCustomSeriesPrivate *ritual_ZN13QCustomSeries6d_funcEv(
+    QCustomSeries *self) {
+  return self->d_func();
+}
+
+//  const QCustomSeriesPrivate *QCustomSeries::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCustomSeriesPrivate *ritual_ZNK13QCustomSeries6d_funcEv(
+    const QCustomSeries *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQCustomSeries, for the function named by
@@ -446,4 +495,4 @@ bool ritual_own_ZN13QCustomSeries5eventEP6QEvent(
       event);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_custom))

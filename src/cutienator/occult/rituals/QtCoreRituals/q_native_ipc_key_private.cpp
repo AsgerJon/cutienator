@@ -19,6 +19,33 @@ QString *ritual_ZN20QNativeIpcKeyPrivate9legacyKeyERK13QNativeIpcKey(
   return new QString(QNativeIpcKeyPrivate::legacyKey(*key));
 }
 
+//  void QNativeIpcKeyPrivate::setLegacyKey(QNativeIpcKey &key, const QString
+//      &legacyKey)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QNativeIpcKeyPrivate12setLegacyKeyER13QNativeIpcKeyRK7QString(
+    QNativeIpcKey *key,
+    const QString *legacyKey) {
+  QNativeIpcKeyPrivate::setLegacyKey(*key, *legacyKey);
+}
+
+//  void QNativeIpcKeyPrivate::setNativeAndLegacyKeys(QNativeIpcKey &key,
+//      const QString &nativeKey, const QString &legacyKey)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QNativeIpcKeyPrivate22setNativeAndLegacyKeysER13QNativeIpcKeyRK7QStringS4_(
+    QNativeIpcKey *key,
+    const QString *nativeKey,
+    const QString *legacyKey) {
+  QNativeIpcKeyPrivate::setNativeAndLegacyKeys(*key, *nativeKey, *legacyKey);
+}
+
+//  QNativeIpcKeyPrivate *QNativeIpcKeyPrivate::makeExtended(QNativeIpcKey
+//      &key)
+extern "C" Q_DECL_EXPORT
+QNativeIpcKeyPrivate *ritual_ZN20QNativeIpcKeyPrivate12makeExtendedER13QNativeIpcKey(
+    QNativeIpcKey *key) {
+  return QNativeIpcKeyPrivate::makeExtended(*key);
+}
+
 //  QNativeIpcKeyPrivate::~QNativeIpcKeyPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QNativeIpcKeyPrivateD1Ev(QNativeIpcKeyPrivate *self) {

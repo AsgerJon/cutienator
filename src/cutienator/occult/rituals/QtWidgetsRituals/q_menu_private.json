@@ -8,9 +8,17 @@
     "ritual_ZN12QMenuPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK12QMenuPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN12QMenuPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN12QMenuPrivate4initEv": ["nothing", "address"],
     "ritual_ZN12QMenuPrivate18createPlatformMenuEv": ["address", "address"],
     "ritual_ZN12QMenuPrivate15setPlatformMenuEP13QPlatformMenu": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN12QMenuPrivate16syncPlatformMenuEv": ["nothing", "address"],
+    "ritual_ZN12QMenuPrivate24copyActionToPlatformItemEPK7QActionP17QPlatformMenuItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QMenuPrivate26insertActionInPlatformMenuEPK7QActionP17QPlatformMenuItem": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZN12QMenuPrivate3getEP5QMenu": ["address", "address"],
     "ritual_ZNK12QMenuPrivate14scrollerHeightEv": ["int", "address"],
@@ -27,11 +35,18 @@
     ],
     "ritual_ZNK12QMenuPrivate21useFullScreenForPopupEv": ["bool", "address"],
     "ritual_ZNK12QMenuPrivate20getLastVisibleActionEv": ["int", "address"],
+    "ritual_ZN12QMenuPrivate5popupERK6QPointP7QActionSt8functionIFS0_RK5QSizeEE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QMenuPrivate4execERK6QPointP7QActionSt8functionIFS0_RK5QSizeEE": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK12QMenuPrivate15topCausedWidgetEv": ["address", "address"],
     "ritual_ZNK12QMenuPrivate8actionAtE6QPoint": [
       "address", "address", "address"
     ],
     "ritual_ZN12QMenuPrivate13setSyncActionEv": ["nothing", "address"],
+    "ritual_ZNK12QMenuPrivate15calcCausedStackEv": ["address", "address"],
     "ritual_ZN12QMenuPrivate8hideMenuEP5QMenu": [
       "nothing", "address", "address"
     ],
@@ -47,6 +62,9 @@
     ],
     "ritual_ZN12QMenuPrivate30_q_overrideMenuActionDestroyedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN12QMenuPrivate19activateCausedStackERK5QListI8QPointerI7QWidgetEEP7QActionNS7_11ActionEventEb": [
+      "nothing", "address", "address", "address", "int", "bool"
     ],
     "ritual_ZN12QMenuPrivate16_q_actionHoveredEv": ["nothing", "address"],
     "ritual_ZN12QMenuPrivate26_q_platformMenuAboutToShowEv": [
@@ -68,6 +86,9 @@
     "ritual_ZNK12QMenuPrivate14considerActionEPK7QAction": [
       "bool", "address", "address"
     ],
-    "ritual_take_QMenuPrivate": ["bool", "address", "chars", "address"]
+    "ritual_take_QMenuPrivate": ["bool", "address", "chars", "address"],
+    "ritual_drop_QMenuPrivate__QList_QPointer_QWidget": [
+      "nothing", "address"
+    ]
   }
 }

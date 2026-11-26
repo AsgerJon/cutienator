@@ -5,5 +5,14 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV414ErrorPrototype4initEPNS_15ExecutionEngineEPNS_6ObjectE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV414ErrorPrototype4initEPNS_15ExecutionEngineEPNS_6ObjectES4_NS_4Heap11ErrorObject9ErrorTypeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV414ErrorPrototype15method_toStringEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

@@ -5,14 +5,49 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render10RenderPassC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render10RenderPassD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render10RenderPass7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render10RenderPass16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render10RenderPass13shaderProgramEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render10RenderPass10filterKeysEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render10RenderPass10parametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render10RenderPass12renderStatesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render10RenderPass15hasRenderStatesEv": [
       "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render10RenderPass15appendFilterKeyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render10RenderPass15removeFilterKeyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render10RenderPass14addRenderStateEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render10RenderPass17removeRenderStateEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_Qt3DRender_Render_RenderPass": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render10RenderPass16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_RenderPass__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

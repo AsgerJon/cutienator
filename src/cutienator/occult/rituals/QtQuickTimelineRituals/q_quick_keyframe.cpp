@@ -7,7 +7,9 @@
 #include <QtQuickTimeline/6.12.0/QtQuickTimeline/private/qquickkeyframe_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -206,6 +208,24 @@ const QMetaObject *ritual_ZNK14QQuickKeyframe10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickKeyframe::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickKeyframe11qt_metacastEPKc(
+    QQuickKeyframe *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickKeyframe::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickKeyframe11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickKeyframe *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickKeyframe::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickKeyframe2trEPKcS1_i(
@@ -213,6 +233,20 @@ QString *ritual_ZN14QQuickKeyframe2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickKeyframe::tr(s, c, n));
+}
+
+//  QQuickKeyframePrivate *QQuickKeyframe::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickKeyframePrivate *ritual_ZN14QQuickKeyframe6d_funcEv(
+    QQuickKeyframe *self) {
+  return self->d_func();
+}
+
+//  const QQuickKeyframePrivate *QQuickKeyframe::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickKeyframePrivate *ritual_ZNK14QQuickKeyframe6d_funcEv(
+    const QQuickKeyframe *self) {
+  return self->d_func();
 }
 
 //  QQuickKeyframe::QQuickKeyframe(QObject *parent)
@@ -277,6 +311,33 @@ QVariant *ritual_ZNK14QQuickKeyframe8evaluateEPS_di(
     qreal frame,
     int userType) {
   return new QVariant(self->evaluate(pre, frame, userType));
+}
+
+//  QQuickKeyframe::QQuickKeyframe(QQuickKeyframePrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickKeyframe *ritual_ZN14QQuickKeyframeC1ER21QQuickKeyframePrivateP7QObject(
+    QQuickKeyframePrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickKeyframe(*dd, parent);
+}
+
+//  void QQuickKeyframe::frameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickKeyframe12frameChangedEv(QQuickKeyframe *self) {
+  self->frameChanged();
+}
+
+//  void QQuickKeyframe::easingCurveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickKeyframe18easingCurveChangedEv(QQuickKeyframe *self) {
+  self->easingCurveChanged();
+}
+
+//  void QQuickKeyframe::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickKeyframe12valueChangedEv(QQuickKeyframe *self) {
+  self->valueChanged();
 }
 
 //  a Python function taken by a CuteQQuickKeyframe, for the function named

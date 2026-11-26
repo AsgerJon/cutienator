@@ -6,6 +6,28 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/stringtoint_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qlatin1stringview.h>
+
+//  int Qt3DRender::Render::StringToInt::lookupId(const QString &str)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render11StringToInt8lookupIdERK7QString(
+    const QString *str) {
+  return Qt3DRender::Render::StringToInt::lookupId(*str);
+}
+
+//  int Qt3DRender::Render::StringToInt::lookupId(QLatin1String str)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render11StringToInt8lookupIdE13QLatin1String(
+    const QLatin1String *str) {
+  return Qt3DRender::Render::StringToInt::lookupId(*str);
+}
+
+//  QString Qt3DRender::Render::StringToInt::lookupString(int idx)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN10Qt3DRender6Render11StringToInt12lookupStringEi(int idx) {
+  return new QString(Qt3DRender::Render::StringToInt::lookupString(idx));
+}
 
 //  Qt3DRender::Render::StringToInt::~StringToInt()
 extern "C" Q_DECL_EXPORT

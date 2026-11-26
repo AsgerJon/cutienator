@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13TorusGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN13TorusGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13TorusGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13TorusGeometry2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13TorusGeometryC1EP14QQuick3DObject": ["address", "address"],
     "ritual_ZN13TorusGeometryD1Ev": ["nothing", "address"],
@@ -26,9 +32,29 @@
     "ritual_ZNK13TorusGeometry6statusEv": ["int", "address"],
     "ritual_ZN13TorusGeometry16doUpdateGeometryEv": ["nothing", "address"],
     "ritual_ZN13TorusGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN13TorusGeometry12ringsChangedEv": ["nothing", "address"],
+    "ritual_ZN13TorusGeometry15segmentsChangedEv": ["nothing", "address"],
+    "ritual_ZN13TorusGeometry13radiusChangedEv": ["nothing", "address"],
+    "ritual_ZN13TorusGeometry17tubeRadiusChangedEv": ["nothing", "address"],
+    "ritual_ZN13TorusGeometry19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13TorusGeometry13statusChangedEv": ["nothing", "address"],
     "ritual_ZN13TorusGeometry22scheduleGeometryUpdateEv": [
       "nothing", "address"
     ],
-    "ritual_take_TorusGeometry": ["bool", "address", "chars", "address"]
+    "ritual_ZN13TorusGeometry14updateGeometryERKNS_12GeometryDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13TorusGeometry21generateTorusGeometryEiiff": [
+      "address", "int", "int", "float", "float"
+    ],
+    "ritual_ZN13TorusGeometry26generateTorusGeometryAsyncER8QPromiseINS_12GeometryDataEEiiff": [
+      "nothing", "address", "int", "int", "float", "float"
+    ],
+    "ritual_take_TorusGeometry": ["bool", "address", "chars", "address"],
+    "ritual_drop_TorusGeometry__TorusGeometry_GeometryData": [
+      "nothing", "address"
+    ]
   }
 }

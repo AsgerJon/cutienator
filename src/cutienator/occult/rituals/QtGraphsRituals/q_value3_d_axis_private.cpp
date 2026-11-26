@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qvalue3daxis.h>
@@ -12,11 +12,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGraphs/private/qvalue3daxis_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #include <QtCore/qdebug.h>
 #include <QtGraphs/private/qabstract3daxis_p.h>
 #include <QtGraphs/private/qgraphs3dlogging_p.h>
-#include <QtGraphs/private/qvalue3daxis_p.h>
-#include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -25,6 +26,57 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 358, as _ZN19QValue3DAxisPrivate8setRangeEffb
+inline void QValue3DAxisPrivate::setRange(float min, float max, bool suppressWarnings)
+{
+    bool dirty = (min != m_min || max != m_max);
+
+    QAbstract3DAxisPrivate::setRange(min, max, suppressWarnings);
+
+    if (dirty)
+        emitLabelsChanged();
+}
+
+//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 368, as _ZN19QValue3DAxisPrivate6setMinEf
+inline void QValue3DAxisPrivate::setMin(float min)
+{
+    bool dirty = (min != m_min);
+
+    QAbstract3DAxisPrivate::setMin(min);
+
+    if (dirty)
+        emitLabelsChanged();
+}
+
+//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 378, as _ZN19QValue3DAxisPrivate6setMaxEf
+inline void QValue3DAxisPrivate::setMax(float max)
+{
+    bool dirty = (max != m_max);
+
+    QAbstract3DAxisPrivate::setMax(max);
+
+    if (dirty)
+        emitLabelsChanged();
+}
+
+//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 414, as _ZN19QValue3DAxisPrivate9allowZeroEv
+inline bool QValue3DAxisPrivate::allowZero()
+{
+    return m_formatter->allowZero();
+}
+
+//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 419, as _ZN19QValue3DAxisPrivate14allowNegativesEv
+inline bool QValue3DAxisPrivate::allowNegatives()
+{
+    return m_formatter->allowNegatives();
+}
+
+//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 424, as _ZN19QValue3DAxisPrivate15allowMinMaxSameEv
+inline bool QValue3DAxisPrivate::allowMinMaxSame()
+{
+    return false;
+}
 
 //  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 692, as _ZN22QAbstract3DAxisPrivate8setRangeEffb
 inline void QAbstract3DAxisPrivate::setRange(float min, float max, bool suppressWarnings)
@@ -194,37 +246,11 @@ inline void QAbstract3DAxisPrivate::setMax(float max)
     }
 }
 
-//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 358, as _ZN19QValue3DAxisPrivate8setRangeEffb
-inline void QValue3DAxisPrivate::setRange(float min, float max, bool suppressWarnings)
+//  from ../qtgraphs/src/graphs3d/utils/qgraphs3dlogging.cpp, line 18, as _Z15lcAProperties3Dv
+inline const QLoggingCategory &lcAProperties3D()
 {
-    bool dirty = (min != m_min || max != m_max);
-
-    QAbstract3DAxisPrivate::setRange(min, max, suppressWarnings);
-
-    if (dirty)
-        emitLabelsChanged();
-}
-
-//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 368, as _ZN19QValue3DAxisPrivate6setMinEf
-inline void QValue3DAxisPrivate::setMin(float min)
-{
-    bool dirty = (min != m_min);
-
-    QAbstract3DAxisPrivate::setMin(min);
-
-    if (dirty)
-        emitLabelsChanged();
-}
-
-//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 378, as _ZN19QValue3DAxisPrivate6setMaxEf
-inline void QValue3DAxisPrivate::setMax(float max)
-{
-    bool dirty = (max != m_max);
-
-    QAbstract3DAxisPrivate::setMax(max);
-
-    if (dirty)
-        emitLabelsChanged();
+    static const QLoggingCategory category("qt.graphs3d.axis.properties");
+    return category;
 }
 
 //  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 388, as _ZN19QValue3DAxisPrivate17emitLabelsChangedEv
@@ -241,24 +267,6 @@ inline void QValue3DAxisPrivate::emitFormatterDirty()
     Q_Q(QValue3DAxis);
     m_labelsDirty = true;
     emit q->formatterDirty();
-}
-
-//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 414, as _ZN19QValue3DAxisPrivate9allowZeroEv
-inline bool QValue3DAxisPrivate::allowZero()
-{
-    return m_formatter->allowZero();
-}
-
-//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 419, as _ZN19QValue3DAxisPrivate14allowNegativesEv
-inline bool QValue3DAxisPrivate::allowNegatives()
-{
-    return m_formatter->allowNegatives();
-}
-
-//  from ../qtgraphs/src/graphs3d/axis/qvalue3daxis.cpp, line 424, as _ZN19QValue3DAxisPrivate15allowMinMaxSameEv
-inline bool QValue3DAxisPrivate::allowMinMaxSame()
-{
-    return false;
 }
 //  -----------------------------------------------------------------------
 
@@ -410,6 +418,12 @@ const QValue3DAxis *ritual_ZNK19QValue3DAxisPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QValue3DAxisPrivate::~QValue3DAxisPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QValue3DAxisPrivateD1Ev(QValue3DAxisPrivate *self) {
+  delete self;
+}
+
 //  void QValue3DAxisPrivate::setRange(float min, float max, bool
 //      suppressWarnings)
 extern "C" Q_DECL_EXPORT
@@ -451,6 +465,13 @@ void ritual_ZN19QValue3DAxisPrivate18emitFormatterDirtyEv(
   self->emitFormatterDirty();
 }
 
+//  void QValue3DAxisPrivate::updateLabels()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QValue3DAxisPrivate12updateLabelsEv(
+    QValue3DAxisPrivate *self) {
+  self->updateLabels();
+}
+
 //  bool QValue3DAxisPrivate::allowZero()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN19QValue3DAxisPrivate9allowZeroEv(QValue3DAxisPrivate *self) {
@@ -481,6 +502,33 @@ bool ritual_take_QValue3DAxisPrivate(
   return static_cast<CuteQValue3DAxisPrivate *>(self)->take(key, call);
 }
 
+//  void QValue3DAxisPrivate::setRange(float min, float max, bool
+//      suppressWarnings)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QValue3DAxisPrivate8setRangeEffb(
+    QValue3DAxisPrivate *self,
+    float min,
+    float max,
+    bool suppressWarnings) {
+  self->QValue3DAxisPrivate::setRange(min, max, suppressWarnings);
+}
+
+//  void QValue3DAxisPrivate::setMin(float min)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QValue3DAxisPrivate6setMinEf(
+    QValue3DAxisPrivate *self,
+    float min) {
+  self->QValue3DAxisPrivate::setMin(min);
+}
+
+//  void QValue3DAxisPrivate::setMax(float max)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QValue3DAxisPrivate6setMaxEf(
+    QValue3DAxisPrivate *self,
+    float max) {
+  self->QValue3DAxisPrivate::setMax(max);
+}
+
 //  bool QValue3DAxisPrivate::allowZero()
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN19QValue3DAxisPrivate9allowZeroEv(
@@ -502,4 +550,4 @@ bool ritual_own_ZN19QValue3DAxisPrivate15allowMinMaxSameEv(
   return static_cast<OwnQValue3DAxisPrivate *>(self)->OwnQValue3DAxisPrivate::allowMinMaxSame();
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

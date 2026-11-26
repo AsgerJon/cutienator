@@ -2,11 +2,15 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DAnimation/6.12.0/Qt3DAnimation/private/fcurve_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation6FCurveC1Ev": ["address"],
     "ritual_ZNK13Qt3DAnimation9Animation6FCurve13keyframeCountEv": [
       "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation6FCurve14appendKeyframeEfRKNS0_8KeyframeE": [
+      "nothing", "address", "float", "address"
     ],
     "ritual_ZN13Qt3DAnimation9Animation6FCurve14clearKeyframesEv": [
       "nothing", "address"
@@ -17,6 +21,27 @@
     "ritual_ZNK13Qt3DAnimation9Animation6FCurve8keyframeEi": [
       "address", "address", "int"
     ],
-    "ritual_ZN13Qt3DAnimation9Animation6FCurveD1Ev": ["nothing", "address"]
+    "ritual_ZN13Qt3DAnimation9Animation6FCurve8keyframeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation6FCurve9startTimeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation6FCurve7endTimeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation6FCurve18lowerKeyframeBoundEf": [
+      "int", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation6FCurve4readERK11QJsonObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation6FCurve24setFromQChannelComponentERKNS_17QChannelComponentE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation6FCurveD1Ev": ["nothing", "address"],
+    "ritual_ZN13Qt3DAnimation9Animation6FCurve9localTimeEi": [
+      "address", "address", "int"
+    ]
   }
 }

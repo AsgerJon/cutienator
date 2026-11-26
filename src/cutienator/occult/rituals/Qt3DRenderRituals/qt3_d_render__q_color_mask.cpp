@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QColorMask10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QColorMask::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QColorMask11qt_metacastEPKc(
+    Qt3DRender::QColorMask *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QColorMask::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QColorMask11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QColorMask *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QColorMask::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QColorMask2trEPKcS2_i(
@@ -186,6 +205,111 @@ QString *ritual_ZN10Qt3DRender10QColorMask2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QColorMask::tr(s, c, n));
+}
+
+//  Qt3DRender::QColorMask::QColorMask(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QColorMask *ritual_ZN10Qt3DRender10QColorMaskC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QColorMask(parent);
+}
+
+//  Qt3DRender::QColorMask::~QColorMask()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QColorMaskD1Ev(Qt3DRender::QColorMask *self) {
+  delete self;
+}
+
+//  bool Qt3DRender::QColorMask::isRedMasked() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender10QColorMask11isRedMaskedEv(
+    const Qt3DRender::QColorMask *self) {
+  return self->isRedMasked();
+}
+
+//  bool Qt3DRender::QColorMask::isGreenMasked() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender10QColorMask13isGreenMaskedEv(
+    const Qt3DRender::QColorMask *self) {
+  return self->isGreenMasked();
+}
+
+//  bool Qt3DRender::QColorMask::isBlueMasked() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender10QColorMask12isBlueMaskedEv(
+    const Qt3DRender::QColorMask *self) {
+  return self->isBlueMasked();
+}
+
+//  bool Qt3DRender::QColorMask::isAlphaMasked() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender10QColorMask13isAlphaMaskedEv(
+    const Qt3DRender::QColorMask *self) {
+  return self->isAlphaMasked();
+}
+
+//  void Qt3DRender::QColorMask::setRedMasked(bool redMasked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QColorMask12setRedMaskedEb(
+    Qt3DRender::QColorMask *self,
+    bool redMasked) {
+  self->setRedMasked(redMasked);
+}
+
+//  void Qt3DRender::QColorMask::setGreenMasked(bool greenMasked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QColorMask14setGreenMaskedEb(
+    Qt3DRender::QColorMask *self,
+    bool greenMasked) {
+  self->setGreenMasked(greenMasked);
+}
+
+//  void Qt3DRender::QColorMask::setBlueMasked(bool blueMasked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QColorMask13setBlueMaskedEb(
+    Qt3DRender::QColorMask *self,
+    bool blueMasked) {
+  self->setBlueMasked(blueMasked);
+}
+
+//  void Qt3DRender::QColorMask::setAlphaMasked(bool alphaMasked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QColorMask14setAlphaMaskedEb(
+    Qt3DRender::QColorMask *self,
+    bool alphaMasked) {
+  self->setAlphaMasked(alphaMasked);
+}
+
+//  void Qt3DRender::QColorMask::redMaskedChanged(bool redMasked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QColorMask16redMaskedChangedEb(
+    Qt3DRender::QColorMask *self,
+    bool redMasked) {
+  self->redMaskedChanged(redMasked);
+}
+
+//  void Qt3DRender::QColorMask::greenMaskedChanged(bool greenMasked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QColorMask18greenMaskedChangedEb(
+    Qt3DRender::QColorMask *self,
+    bool greenMasked) {
+  self->greenMaskedChanged(greenMasked);
+}
+
+//  void Qt3DRender::QColorMask::blueMaskedChanged(bool blueMasked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QColorMask17blueMaskedChangedEb(
+    Qt3DRender::QColorMask *self,
+    bool blueMasked) {
+  self->blueMaskedChanged(blueMasked);
+}
+
+//  void Qt3DRender::QColorMask::alphaMaskedChanged(bool alphaMasked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QColorMask18alphaMaskedChangedEb(
+    Qt3DRender::QColorMask *self,
+    bool alphaMasked) {
+  self->alphaMaskedChanged(alphaMasked);
 }
 
 //  QColorMaskPrivate *Qt3DRender::QColorMask::d_func()

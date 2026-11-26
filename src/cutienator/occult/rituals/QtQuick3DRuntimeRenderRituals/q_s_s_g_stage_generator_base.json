@@ -36,12 +36,18 @@
     "ritual_ZN22QSSGStageGeneratorBase22addConstantBufferParamERK10QByteArrayS2_S2_": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_ZN22QSSGStageGeneratorBaselsERK10QByteArray": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QSSGStageGeneratorBase6appendERK10QByteArray": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK22QSSGStageGeneratorBase5stageEv": ["int", "address"],
     "ritual_ZN22QSSGStageGeneratorBase20addShaderPass2MarkerENS_14ShaderItemTypeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase16addShaderItemMapENS_14ShaderItemTypeERK4QMapI10QByteArrayS2_E6QFlagsINS_17ShaderItemMapFlagEE": [
+      "nothing", "address", "int", "address", "int"
     ],
     "ritual_ZN22QSSGStageGeneratorBase20addShaderIncomingMapEv": [
       "nothing", "address"
@@ -51,6 +57,9 @@
     ],
     "ritual_ZN22QSSGStageGeneratorBase20addShaderOutgoingMapEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase30addShaderConstantBufferItemMapERK10QByteArrayRK4QMapIS0_S0_E5QListISt4pairIS0_S8_IS0_S0_EEE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN22QSSGStageGeneratorBase16appendShaderCodeEv": [
       "nothing", "address"

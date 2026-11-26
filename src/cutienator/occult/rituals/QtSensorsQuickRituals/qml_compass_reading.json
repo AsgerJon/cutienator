@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QmlCompassReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QmlCompassReading11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QmlCompassReading11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QmlCompassReading2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,15 +21,32 @@
     "ritual_ZN17QmlCompassReadingC1EP8QCompass": ["address", "address"],
     "ritual_ZN17QmlCompassReadingD1Ev": ["nothing", "address"],
     "ritual_ZNK17QmlCompassReading7azimuthEv": ["double", "address"],
+    "ritual_ZNK17QmlCompassReading15bindableAzimuthEv": [
+      "address", "address"
+    ],
     "ritual_ZNK17QmlCompassReading16calibrationLevelEv": [
       "double", "address"
     ],
+    "ritual_ZNK17QmlCompassReading24bindableCalibrationLevelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QmlCompassReading14azimuthChangedEv": ["nothing", "address"],
+    "ritual_ZN17QmlCompassReading23calibrationLevelChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK17QmlCompassReading7readingEv": ["address", "address"],
     "ritual_ZN17QmlCompassReading13readingUpdateEv": ["nothing", "address"],
+    "ritual_ZN17QmlCompassReading29_qt_property_m_azimuth_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN17QmlCompassReading38_qt_property_m_calibrationLevel_offsetEv": [
+      "size_t"
+    ],
     "ritual_take_QmlCompassReading": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QmlCompassReading7readingEv": ["address", "address"],
     "ritual_own_ZN17QmlCompassReading13readingUpdateEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_drop_QmlCompassReading__QBindable_qreal": ["nothing", "address"]
   }
 }

@@ -10,6 +10,14 @@
 //  LeftHandSideExpression
 //      *QQmlJS::AST::LeftHandSideExpression::leftHandSideExpressionCast()
 extern "C" Q_DECL_EXPORT
+QQmlJS::AST::LeftHandSideExpression *ritual_ZN6QQmlJS3AST22LeftHandSideExpression26leftHandSideExpressionCastEv(
+    QQmlJS::AST::LeftHandSideExpression *self) {
+  return self->leftHandSideExpressionCast();
+}
+
+//  LeftHandSideExpression
+//      *QQmlJS::AST::LeftHandSideExpression::leftHandSideExpressionCast()
+extern "C" Q_DECL_EXPORT
 QQmlJS::AST::LeftHandSideExpression *ritual_own_ZN6QQmlJS3AST22LeftHandSideExpression26leftHandSideExpressionCastEv(
     QQmlJS::AST::LeftHandSideExpression *self) {
   return self->QQmlJS::AST::LeftHandSideExpression::leftHandSideExpressionCast();

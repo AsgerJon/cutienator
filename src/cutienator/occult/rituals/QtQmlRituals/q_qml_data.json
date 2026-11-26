@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmldata_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtQml/6.12.0/QtQml/private/qqmldata_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN8QQmlDataC1ENS_9OwnershipE": ["address", "int"],
@@ -10,6 +10,9 @@
     "ritual_ZN8QQmlData4initEv": ["nothing"],
     "ritual_ZN8QQmlData9destroyedEP24QAbstractDeclarativeDataP7QObject": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN8QQmlData13signalEmittedEP24QAbstractDeclarativeDataP7QObjectiPPv": [
+      "nothing", "address", "address", "int", "address"
     ],
     "ritual_ZN8QQmlData9receiversEP24QAbstractDeclarativeDataPK7QObjecti": [
       "int", "address", "address", "int"
@@ -47,6 +50,9 @@
     "ritual_ZN8QQmlData22clearPendingBindingBitEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN8QQmlData9deferDataEiRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERKS0_I15QQmlContextDataERK7QString": [
+      "nothing", "address", "int", "address", "address", "text"
+    ],
     "ritual_ZN8QQmlData19releaseDeferredDataEv": ["nothing", "address"],
     "ritual_ZN8QQmlData3getEP14QObjectPrivateb": [
       "address", "address", "bool"
@@ -58,6 +64,7 @@
       "bool", "address"
     ],
     "ritual_ZNK8QQmlData15hasExtendedDataEv": ["bool", "address"],
+    "ritual_ZNK8QQmlData18attachedPropertiesEv": ["address", "address"],
     "ritual_ZN8QQmlData10wasDeletedEPK7QObject": ["bool", "address"],
     "ritual_ZN8QQmlData10wasDeletedEPK14QObjectPrivate": ["bool", "address"],
     "ritual_ZN8QQmlData13markAsDeletedEP7QObject": ["nothing", "address"],
@@ -89,6 +96,9 @@
     "ritual_ZN8QQmlData8clearBitEi": ["nothing", "address", "int"],
     "ritual_ZN8QQmlData6setBitEP7QObjecti": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN8QQmlData8growBitsEP7QObjecti": [
+      "address", "address", "address", "int"
     ]
   }
 }

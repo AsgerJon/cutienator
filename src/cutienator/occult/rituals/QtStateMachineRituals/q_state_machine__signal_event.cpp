@@ -13,7 +13,7 @@ typedef void * (*CuteQStateMachine_SignalEventCall1)(const void *, int *);
 class CuteQStateMachine_SignalEvent : public QStateMachine::SignalEvent {
 public:
   using QStateMachine::SignalEvent::SignalEvent;
-  CuteQStateMachine_SignalEvent(const QStateMachine::SignalEvent &other) : QStateMachine::SignalEvent(other) {}
+  CuteQStateMachine_SignalEvent(const QStateMachine::SignalEvent & other) : QStateMachine::SignalEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

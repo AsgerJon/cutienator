@@ -14,6 +14,18 @@
     "ritual_ZN21QTextMarkdownImporter6importERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN21QTextMarkdownImporter12cbEnterBlockEiPv": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN21QTextMarkdownImporter12cbLeaveBlockEiPv": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN21QTextMarkdownImporter11cbEnterSpanEiPv": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN21QTextMarkdownImporter11cbLeaveSpanEiPv": [
+      "int", "address", "int", "address"
+    ],
     "ritual_ZN21QTextMarkdownImporter6cbTextEiPKcj": [
       "int", "address", "int", "chars", "unsigned int"
     ],

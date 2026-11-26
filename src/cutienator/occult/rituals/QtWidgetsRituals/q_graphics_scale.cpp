@@ -205,6 +205,24 @@ const QMetaObject *ritual_ZNK14QGraphicsScale10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsScale::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QGraphicsScale11qt_metacastEPKc(
+    QGraphicsScale *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsScale::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QGraphicsScale11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsScale *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsScale::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QGraphicsScale2trEPKcS1_i(
@@ -282,6 +300,50 @@ void ritual_ZNK14QGraphicsScale7applyToEP10QMatrix4x4(
     const QGraphicsScale *self,
     QMatrix4x4 *matrix) {
   self->applyTo(matrix);
+}
+
+//  void QGraphicsScale::originChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScale13originChangedEv(QGraphicsScale *self) {
+  self->originChanged();
+}
+
+//  void QGraphicsScale::xScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScale13xScaleChangedEv(QGraphicsScale *self) {
+  self->xScaleChanged();
+}
+
+//  void QGraphicsScale::yScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScale13yScaleChangedEv(QGraphicsScale *self) {
+  self->yScaleChanged();
+}
+
+//  void QGraphicsScale::zScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScale13zScaleChangedEv(QGraphicsScale *self) {
+  self->zScaleChanged();
+}
+
+//  void QGraphicsScale::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScale12scaleChangedEv(QGraphicsScale *self) {
+  self->scaleChanged();
+}
+
+//  QGraphicsScalePrivate *QGraphicsScale::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsScalePrivate *ritual_ZN14QGraphicsScale6d_funcEv(
+    QGraphicsScale *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsScalePrivate *QGraphicsScale::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsScalePrivate *ritual_ZNK14QGraphicsScale6d_funcEv(
+    const QGraphicsScale *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQGraphicsScale, for the function named

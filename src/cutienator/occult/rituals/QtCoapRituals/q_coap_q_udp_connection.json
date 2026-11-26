@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QCoapQUdpConnection10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QCoapQUdpConnection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QCoapQUdpConnection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QCoapQUdpConnectionD1Ev": ["nothing", "address"],
     "ritual_ZNK19QCoapQUdpConnection6socketEv": ["address", "address"],
     "ritual_ZN19QCoapQUdpConnection15setSocketOptionEN15QAbstractSocket12SocketOptionERK8QVariant": [
@@ -13,6 +19,9 @@
     ],
     "ritual_ZN19QCoapQUdpConnection11pskRequiredEP29QSslPreSharedKeyAuthenticator": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QCoapQUdpConnection16handshakeTimeoutEv": [
+      "nothing", "address"
     ],
     "ritual_ZN19QCoapQUdpConnection4bindERK7QStringt": [
       "nothing", "address", "text", "unsigned short"
@@ -25,6 +34,9 @@
     "ritual_ZNK19QCoapQUdpConnection6d_funcEv": ["address", "address"],
     "ritual_take_QCoapQUdpConnection": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QCoapQUdpConnection9writeDataERK10QByteArrayRK7QStringt": [
+      "nothing", "address", "address", "text", "unsigned short"
     ],
     "ritual_own_ZN19QCoapQUdpConnection5closeEv": ["nothing", "address"]
   }

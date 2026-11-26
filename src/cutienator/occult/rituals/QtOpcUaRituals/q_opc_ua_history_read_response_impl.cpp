@@ -190,6 +190,25 @@ const QMetaObject *ritual_ZNK29QOpcUaHistoryReadResponseImpl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpcUaHistoryReadResponseImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QOpcUaHistoryReadResponseImpl11qt_metacastEPKc(
+    QOpcUaHistoryReadResponseImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpcUaHistoryReadResponseImpl::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QOpcUaHistoryReadResponseImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpcUaHistoryReadResponseImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpcUaHistoryReadResponseImpl::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -323,6 +342,69 @@ extern "C" Q_DECL_EXPORT
 quint64 ritual_ZNK29QOpcUaHistoryReadResponseImpl6handleEv(
     const QOpcUaHistoryReadResponseImpl *self) {
   return self->handle();
+}
+
+//  void QOpcUaHistoryReadResponseImpl::historyReadRawRequested(QOpcUaHistory
+//      ReadRawRequest request, QList<QByteArray> continuationPoints, bool
+//      releaseContinuationPoints, quint64 handle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QOpcUaHistoryReadResponseImpl23historyReadRawRequestedE27QOpcUaHistoryReadRawRequest5QListI10QByteArrayEby(
+    QOpcUaHistoryReadResponseImpl *self,
+    const QOpcUaHistoryReadRawRequest *request,
+    const QList<QByteArray> *continuationPoints,
+    bool releaseContinuationPoints,
+    quint64 handle) {
+  self->historyReadRawRequested(
+      *request,
+      *continuationPoints,
+      releaseContinuationPoints,
+      handle);
+}
+
+//  void QOpcUaHistoryReadResponseImpl::historyReadEventsRequested(QOpcUaHist
+//      oryReadEventRequest request, QList<QByteArray> continuationPoints,
+//      bool releaseContinuationPoints, quint64 handle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QOpcUaHistoryReadResponseImpl26historyReadEventsRequestedE29QOpcUaHistoryReadEventRequest5QListI10QByteArrayEby(
+    QOpcUaHistoryReadResponseImpl *self,
+    const QOpcUaHistoryReadEventRequest *request,
+    const QList<QByteArray> *continuationPoints,
+    bool releaseContinuationPoints,
+    quint64 handle) {
+  self->historyReadEventsRequested(
+      *request,
+      *continuationPoints,
+      releaseContinuationPoints,
+      handle);
+}
+
+//  void QOpcUaHistoryReadResponseImpl::readHistoryDataFinished(QList<QOpcUaH
+//      istoryData> results, QOpcUa::UaStatusCode serviceResult)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QOpcUaHistoryReadResponseImpl23readHistoryDataFinishedE5QListI17QOpcUaHistoryDataEN6QOpcUa12UaStatusCodeE(
+    QOpcUaHistoryReadResponseImpl *self,
+    const QList<QOpcUaHistoryData> *results,
+    QOpcUa::UaStatusCode serviceResult) {
+  self->readHistoryDataFinished(*results, serviceResult);
+}
+
+//  void QOpcUaHistoryReadResponseImpl::readHistoryEventsFinished(QList<QOpcU
+//      aHistoryEvent> results, QOpcUa::UaStatusCode serviceResult)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QOpcUaHistoryReadResponseImpl25readHistoryEventsFinishedE5QListI18QOpcUaHistoryEventEN6QOpcUa12UaStatusCodeE(
+    QOpcUaHistoryReadResponseImpl *self,
+    const QList<QOpcUaHistoryEvent> *results,
+    QOpcUa::UaStatusCode serviceResult) {
+  self->readHistoryEventsFinished(*results, serviceResult);
+}
+
+//  void QOpcUaHistoryReadResponseImpl::stateChanged(QOpcUaHistoryReadRespons
+//      e::State state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QOpcUaHistoryReadResponseImpl12stateChangedEN25QOpcUaHistoryReadResponse5StateE(
+    QOpcUaHistoryReadResponseImpl *self,
+    QOpcUaHistoryReadResponse::State state) {
+  self->stateChanged(state);
 }
 
 //  void

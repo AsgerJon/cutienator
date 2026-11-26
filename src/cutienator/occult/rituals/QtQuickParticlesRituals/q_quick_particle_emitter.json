@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickParticleEmitter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickParticleEmitter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickParticleEmitter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickParticleEmitter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -39,6 +45,57 @@
     ],
     "ritual_ZN21QQuickParticleEmitter17componentCompleteEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter13emitParticlesERK5QListI20QQuickV4ParticleDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter25particlesPerSecondChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter23particleDurationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitter14enabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickParticleEmitter13systemChangedEP20QQuickParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter12groupChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQuickParticleEmitter32particleDurationVariationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitter15extruderChangedEP22QQuickParticleExtruder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter19particleSizeChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter22particleEndSizeChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter28particleSizeVariationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter15velocityChangedEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter19accelerationChangedEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter21maximumEmittedChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitter20particleCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter27velocityFromMovementChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter16startTimeChangedEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN21QQuickParticleEmitter5pulseEi": [
       "nothing", "address", "int"

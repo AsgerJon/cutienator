@@ -6,6 +6,31 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4stringiterator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/private/qv4iterator_p.h>
+#include <QtQml/private/qv4symbol_p.h>
+#include <QtQml/private/qv4engine_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4iterator.cpp, line 21, as _ZN3QV417IteratorPrototype22createIterResultObjectEPNS_15ExecutionEngineERKNS_5ValueEb
+namespace QV4 {
+inline ReturnedValue IteratorPrototype::createIterResultObject(ExecutionEngine *engine, const Value &value, bool done)
+{
+    Scope scope(engine);
+    ScopedObject obj(scope, engine->newObject());
+    obj->set(ScopedString(scope, engine->newString(QStringLiteral("value"))), value, Object::DoNotThrow);
+    obj->set(ScopedString(scope, engine->newString(QStringLiteral("done"))), Value::fromBoolean(done), Object::DoNotThrow);
+    return obj->asReturnedValue();
+}
+}  // namespace QV4
+//  -----------------------------------------------------------------------
 
 //  QV4::Object
 //      *QV4::StringIteratorPrototype::defaultPrototype(QV4::ExecutionEngine

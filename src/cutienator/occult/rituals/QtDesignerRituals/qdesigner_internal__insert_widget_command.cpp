@@ -110,6 +110,54 @@ public:
 #endif  // QT_CONFIG(undocommand)
 };
 
+//  qdesigner_internal::InsertWidgetCommand::InsertWidgetCommand(QDesignerFor
+//      mWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::InsertWidgetCommand *ritual_ZN18qdesigner_internal19InsertWidgetCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_InsertWidgetCommand(formWindow);
+}
+
+//  qdesigner_internal::InsertWidgetCommand::~InsertWidgetCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19InsertWidgetCommandD1Ev(
+    qdesigner_internal::InsertWidgetCommand *self) {
+  delete self;
+}
+
+//  void qdesigner_internal::InsertWidgetCommand::init(QWidget *widget, bool
+//      already_in_form, int layoutRow, int layoutColumn)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19InsertWidgetCommand4initEP7QWidgetbii(
+    qdesigner_internal::InsertWidgetCommand *self,
+    QWidget *widget,
+    bool already_in_form,
+    int layoutRow,
+    int layoutColumn) {
+  self->init(widget, already_in_form, layoutRow, layoutColumn);
+}
+
+//  void qdesigner_internal::InsertWidgetCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19InsertWidgetCommand4redoEv(
+    qdesigner_internal::InsertWidgetCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::InsertWidgetCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19InsertWidgetCommand4undoEv(
+    qdesigner_internal::InsertWidgetCommand *self) {
+  self->undo();
+}
+
+//  void qdesigner_internal::InsertWidgetCommand::refreshBuddyLabels()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19InsertWidgetCommand18refreshBuddyLabelsEv(
+    qdesigner_internal::InsertWidgetCommand *self) {
+  self->refreshBuddyLabels();
+}
+
 //  a Python function taken by a Cuteqdesigner_internal_InsertWidgetCommand,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT

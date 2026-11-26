@@ -8,11 +8,38 @@
     "ritual_ZN20QModbusServerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QModbusServerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN20QModbusServerPrivateC1Ev": ["address"],
+    "ritual_ZN20QModbusServerPrivate6setMapERK4QMapIN15QModbusDataUnit12RegisterTypeES1_E": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN20QModbusServerPrivate26resetCommunicationCountersEv": [
       "nothing", "address"
     ],
     "ritual_ZN20QModbusServerPrivate16incrementCounterENS_7CounterE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN20QModbusServerPrivate23processReadCoilsRequestERK14QModbusRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QModbusServerPrivate32processReadDiscreteInputsRequestERK14QModbusRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QModbusServerPrivate8readBitsERK10QModbusPduN15QModbusDataUnit12RegisterTypeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QModbusServerPrivate34processReadHoldingRegistersRequestERK14QModbusRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QModbusServerPrivate32processReadInputRegistersRequestERK14QModbusRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QModbusServerPrivate29processWriteSingleCoilRequestERK14QModbusRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QModbusServerPrivate33processWriteSingleRegisterRequestERK14QModbusRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QModbusServerPrivate32processWriteMultipleCoilsRequestERK14QModbusRequest": [
+      "address", "address", "address"
     ],
     "ritual_ZN20QModbusServerPrivate20storeModbusCommEventERK16QModbusCommEvent": [
       "nothing", "address", "address"

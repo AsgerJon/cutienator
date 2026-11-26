@@ -5,12 +5,17 @@
 #include <QtGui/qrawfont.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qpoint.h>
 #include <QtGui/qtransform.h>
 #include <QtGui/qimage.h>
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qchar.h>
 #include <QtGui/qfont.h>
+#include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtCore/QString>
+#include <QtGui/QFontDatabase>
 
 //  QRawFont::QRawFont()
 extern "C" Q_DECL_EXPORT
@@ -44,10 +49,28 @@ QRawFont *ritual_ZN8QRawFontC1ERKS_(const QRawFont *other) {
   return new QRawFont(*other);
 }
 
+//  QRawFont &QRawFont::operator=(QRawFont &&other)
+extern "C" Q_DECL_EXPORT
+QRawFont *ritual_ZN8QRawFontaSEOS_(QRawFont *self, QRawFont *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QRawFont &QRawFont::operator=(const QRawFont &other)
+extern "C" Q_DECL_EXPORT
+QRawFont *ritual_ZN8QRawFontaSERKS_(QRawFont *self, const QRawFont *other) {
+  return &(self->operator=(*other));
+}
+
 //  QRawFont::~QRawFont()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QRawFontD1Ev(QRawFont *self) {
   delete self;
+}
+
+//  void QRawFont::swap(QRawFont &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QRawFont4swapERS_(QRawFont *self, QRawFont *other) {
+  self->swap(*other);
 }
 
 //  bool QRawFont::isValid() const
@@ -102,6 +125,36 @@ int ritual_ZNK8QRawFont6weightEv(const QRawFont *self) {
   return self->weight();
 }
 
+//  QList<quint32> QRawFont::glyphIndexesForString(const QString &text) const
+extern "C" Q_DECL_EXPORT
+QList<quint32> *ritual_ZNK8QRawFont21glyphIndexesForStringERK7QString(
+    const QRawFont *self,
+    const QString *text) {
+  return new QList<quint32>(self->glyphIndexesForString(*text));
+}
+
+//  QList<QPointF> QRawFont::advancesForGlyphIndexes(const QList<quint32>
+//      &glyphIndexes) const
+extern "C" Q_DECL_EXPORT
+QList<QPointF> *ritual_ZNK8QRawFont23advancesForGlyphIndexesERK5QListIjE(
+    const QRawFont *self,
+    const QList<quint32> *glyphIndexes) {
+  return new QList<QPointF>(self->advancesForGlyphIndexes(*glyphIndexes));
+}
+
+//  QList<QPointF> QRawFont::advancesForGlyphIndexes(const QList<quint32>
+//      &glyphIndexes, LayoutFlags layoutFlags) const
+extern "C" Q_DECL_EXPORT
+QList<QPointF> *ritual_ZNK8QRawFont23advancesForGlyphIndexesERK5QListIjE6QFlagsINS_10LayoutFlagEE(
+    const QRawFont *self,
+    const QList<quint32> *glyphIndexes,
+    int layoutFlags) {
+  return new QList<QPointF>(
+      self->advancesForGlyphIndexes(
+          *glyphIndexes,
+          QFlags<QRawFont::LayoutFlag>::fromInt(layoutFlags)));
+}
+
 //  bool QRawFont::glyphIndexesForChars(const QChar *chars, int numChars,
 //      quint32 *glyphIndexes, int *numGlyphs) const
 extern "C" Q_DECL_EXPORT
@@ -116,6 +169,33 @@ bool ritual_ZNK8QRawFont20glyphIndexesForCharsEPK5QChariPjPi(
       numChars,
       glyphIndexes,
       numGlyphs);
+}
+
+//  bool QRawFont::advancesForGlyphIndexes(const quint32 *glyphIndexes,
+//      QPointF *advances, int numGlyphs) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QRawFont23advancesForGlyphIndexesEPKjP7QPointFi(
+    const QRawFont *self,
+    const quint32 *glyphIndexes,
+    QPointF *advances,
+    int numGlyphs) {
+  return self->advancesForGlyphIndexes(glyphIndexes, advances, numGlyphs);
+}
+
+//  bool QRawFont::advancesForGlyphIndexes(const quint32 *glyphIndexes,
+//      QPointF *advances, int numGlyphs, LayoutFlags layoutFlags) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QRawFont23advancesForGlyphIndexesEPKjP7QPointFi6QFlagsINS_10LayoutFlagEE(
+    const QRawFont *self,
+    const quint32 *glyphIndexes,
+    QPointF *advances,
+    int numGlyphs,
+    int layoutFlags) {
+  return self->advancesForGlyphIndexes(
+      glyphIndexes,
+      advances,
+      numGlyphs,
+      QFlags<QRawFont::LayoutFlag>::fromInt(layoutFlags));
 }
 
 //  QImage QRawFont::alphaMapForGlyph(quint32 glyphIndex, AntialiasingType
@@ -274,6 +354,15 @@ bool ritual_ZNK8QRawFont17supportsCharacterE5QChar(
   return self->supportsCharacter(*character);
 }
 
+//  QList<QFontDatabase::WritingSystem> QRawFont::supportedWritingSystems()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QFontDatabase::WritingSystem> *ritual_ZNK8QRawFont23supportedWritingSystemsEv(
+    const QRawFont *self) {
+  return new QList<QFontDatabase::WritingSystem>(
+      self->supportedWritingSystems());
+}
+
 //  QByteArray QRawFont::fontTable(const char *tagName) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK8QRawFont9fontTableEPKc(
@@ -297,6 +386,19 @@ QRawFont *ritual_ZN8QRawFont8fromFontERK5QFontN13QFontDatabase13WritingSystemE(
     const QFont *font,
     QFontDatabase::WritingSystem writingSystem) {
   return new QRawFont(QRawFont::fromFont(*font, writingSystem));
+}
+
+//  a QList<quint32> a ritual of QRawFont gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QRawFont__QList_quint32(QList<quint32> *self) {
+  delete self;
+}
+
+//  a QList<QFontDatabase::WritingSystem> a ritual of QRawFont gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QRawFont__QList_QFontDatabase_WritingSystem(
+    QList<QFontDatabase::WritingSystem> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_RAWFONT)

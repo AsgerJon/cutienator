@@ -5,6 +5,16 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render14ComputeCommandC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render14ComputeCommandD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14ComputeCommand7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14ComputeCommand16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render14ComputeCommand1xEv": ["int", "address"],
     "ritual_ZNK10Qt3DRender6Render14ComputeCommand1yEv": ["int", "address"],
     "ritual_ZNK10Qt3DRender6Render14ComputeCommand1zEv": ["int", "address"],
@@ -13,6 +23,15 @@
     ],
     "ritual_ZNK10Qt3DRender6Render14ComputeCommand7runTypeEv": [
       "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14ComputeCommand16updateFrameCountEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14ComputeCommand20hasReachedFrameCountEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14ComputeCommand25resetHasReachedFrameCountEv": [
+      "nothing", "address"
     ],
     "ritual_take_Qt3DRender_Render_ComputeCommand": [
       "bool", "address", "chars", "address"

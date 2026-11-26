@@ -22,6 +22,7 @@
 #include <QtCore/qmargins.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
+#include <QtGui/qimage.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/6.12.0/QtLocation/private/qgeocameracapabilities_p.h>
 #include <QtLocation/6.12.0/QtLocation/private/qgeocameradata_p.h>
@@ -808,6 +809,25 @@ const QMetaObject *ritual_ZNK18QDeclarativeGeoMap10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoMap::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QDeclarativeGeoMap11qt_metacastEPKc(
+    QDeclarativeGeoMap *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoMap::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QDeclarativeGeoMap11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoMap *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoMap::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QDeclarativeGeoMap2trEPKcS1_i(
@@ -1303,6 +1323,196 @@ void ritual_ZN18QDeclarativeGeoMap10itemChangeEN10QQuickItem10ItemChangeERKNS0_1
   self->itemChange(a0, *a1);
 }
 
+//  void QDeclarativeGeoMap::pluginChanged(QDeclarativeGeoServiceProvider
+//      *plugin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap13pluginChangedEP30QDeclarativeGeoServiceProvider(
+    QDeclarativeGeoMap *self,
+    QDeclarativeGeoServiceProvider *plugin) {
+  self->pluginChanged(plugin);
+}
+
+//  void QDeclarativeGeoMap::zoomLevelChanged(qreal zoomLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap16zoomLevelChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal zoomLevel) {
+  self->zoomLevelChanged(zoomLevel);
+}
+
+//  void QDeclarativeGeoMap::centerChanged(const QGeoCoordinate &coordinate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap13centerChangedERK14QGeoCoordinate(
+    QDeclarativeGeoMap *self,
+    const QGeoCoordinate *coordinate) {
+  self->centerChanged(*coordinate);
+}
+
+//  void QDeclarativeGeoMap::activeMapTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap20activeMapTypeChangedEv(
+    QDeclarativeGeoMap *self) {
+  self->activeMapTypeChanged();
+}
+
+//  void QDeclarativeGeoMap::supportedMapTypesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap24supportedMapTypesChangedEv(
+    QDeclarativeGeoMap *self) {
+  self->supportedMapTypesChanged();
+}
+
+//  void QDeclarativeGeoMap::minimumZoomLevelChanged(qreal minimumZoomLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap23minimumZoomLevelChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal minimumZoomLevel) {
+  self->minimumZoomLevelChanged(minimumZoomLevel);
+}
+
+//  void QDeclarativeGeoMap::maximumZoomLevelChanged(qreal maximumZoomLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap23maximumZoomLevelChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal maximumZoomLevel) {
+  self->maximumZoomLevelChanged(maximumZoomLevel);
+}
+
+//  void QDeclarativeGeoMap::mapItemsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap15mapItemsChangedEv(
+    QDeclarativeGeoMap *self) {
+  self->mapItemsChanged();
+}
+
+//  void QDeclarativeGeoMap::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap12errorChangedEv(
+    QDeclarativeGeoMap *self) {
+  self->errorChanged();
+}
+
+//  void QDeclarativeGeoMap::copyrightLinkActivated(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap22copyrightLinkActivatedERK7QString(
+    QDeclarativeGeoMap *self,
+    const QString *link) {
+  self->copyrightLinkActivated(*link);
+}
+
+//  void QDeclarativeGeoMap::copyrightsVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap24copyrightsVisibleChangedEb(
+    QDeclarativeGeoMap *self,
+    bool visible) {
+  self->copyrightsVisibleChanged(visible);
+}
+
+//  void QDeclarativeGeoMap::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap12colorChangedERK6QColor(
+    QDeclarativeGeoMap *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QDeclarativeGeoMap::bearingChanged(qreal bearing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap14bearingChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal bearing) {
+  self->bearingChanged(bearing);
+}
+
+//  void QDeclarativeGeoMap::tiltChanged(qreal tilt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap11tiltChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal tilt) {
+  self->tiltChanged(tilt);
+}
+
+//  void QDeclarativeGeoMap::fieldOfViewChanged(qreal fieldOfView)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap18fieldOfViewChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal fieldOfView) {
+  self->fieldOfViewChanged(fieldOfView);
+}
+
+//  void QDeclarativeGeoMap::minimumTiltChanged(qreal minimumTilt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap18minimumTiltChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal minimumTilt) {
+  self->minimumTiltChanged(minimumTilt);
+}
+
+//  void QDeclarativeGeoMap::maximumTiltChanged(qreal maximumTilt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap18maximumTiltChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal maximumTilt) {
+  self->maximumTiltChanged(maximumTilt);
+}
+
+//  void QDeclarativeGeoMap::minimumFieldOfViewChanged(qreal
+//      minimumFieldOfView)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap25minimumFieldOfViewChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal minimumFieldOfView) {
+  self->minimumFieldOfViewChanged(minimumFieldOfView);
+}
+
+//  void QDeclarativeGeoMap::maximumFieldOfViewChanged(qreal
+//      maximumFieldOfView)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap25maximumFieldOfViewChangedEd(
+    QDeclarativeGeoMap *self,
+    qreal maximumFieldOfView) {
+  self->maximumFieldOfViewChanged(maximumFieldOfView);
+}
+
+//  void QDeclarativeGeoMap::copyrightsImageChanged(const QImage
+//      &copyrightsImage)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap22copyrightsImageChangedERK6QImage(
+    QDeclarativeGeoMap *self,
+    const QImage *copyrightsImage) {
+  self->copyrightsImageChanged(*copyrightsImage);
+}
+
+//  void QDeclarativeGeoMap::copyrightsChanged(const QString &copyrightsHtml)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap17copyrightsChangedERK7QString(
+    QDeclarativeGeoMap *self,
+    const QString *copyrightsHtml) {
+  self->copyrightsChanged(*copyrightsHtml);
+}
+
+//  void QDeclarativeGeoMap::mapReadyChanged(bool ready)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap15mapReadyChangedEb(
+    QDeclarativeGeoMap *self,
+    bool ready) {
+  self->mapReadyChanged(ready);
+}
+
+//  void QDeclarativeGeoMap::visibleAreaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap18visibleAreaChangedEv(
+    QDeclarativeGeoMap *self) {
+  self->visibleAreaChanged();
+}
+
+//  void QDeclarativeGeoMap::visibleRegionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap20visibleRegionChangedEv(
+    QDeclarativeGeoMap *self) {
+  self->visibleRegionChanged();
+}
+
 //  void QDeclarativeGeoMap::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QDeclarativeGeoMap17componentCompleteEv(
@@ -1507,6 +1717,18 @@ void ritual_ZN18QDeclarativeGeoMap12setupMapViewEP26QDeclarativeGeoMapItemView(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QDeclarativeGeoMap11populateMapEv(QDeclarativeGeoMap *self) {
   self->populateMap();
+}
+
+//  void QDeclarativeGeoMap::fitViewportToMapItemsRefine(const
+//      QList<QPointer<QDeclarativeGeoMapItemBase>> &mapItems, bool refine,
+//      bool onlyVisible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDeclarativeGeoMap27fitViewportToMapItemsRefineERK5QListI8QPointerI26QDeclarativeGeoMapItemBaseEEbb(
+    QDeclarativeGeoMap *self,
+    const QList<QPointer<QDeclarativeGeoMapItemBase>> *mapItems,
+    bool refine,
+    bool onlyVisible) {
+  self->fitViewportToMapItemsRefine(*mapItems, refine, onlyVisible);
 }
 
 //  void QDeclarativeGeoMap::attachCopyrightNotice(bool initialVisibility)

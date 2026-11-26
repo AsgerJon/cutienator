@@ -8,6 +8,12 @@
     "ritual_ZNK26QAbstractObjectRegistryRef10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QAbstractObjectRegistryRef11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QAbstractObjectRegistryRef11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QAbstractObjectRegistryRef2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -23,14 +29,27 @@
     "ritual_ZN26QAbstractObjectRegistryRef6setKeyERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN26QAbstractObjectRegistryRef4dataEv": ["address", "address"],
+    "ritual_ZN26QAbstractObjectRegistryRefC1ER33QAbstractObjectRegistryRefPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN26QAbstractObjectRegistryRef5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN26QAbstractObjectRegistryRef10keyChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QAbstractObjectRegistryRef11dataChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QAbstractObjectRegistryRef": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN26QAbstractObjectRegistryRef5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QAbstractObjectRegistryRef__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

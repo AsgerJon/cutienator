@@ -28,3 +28,12 @@ QObject *ritual_ZNK3QV44Heap14QObjectWrapper6objectEv(
     const QV4::Heap::QObjectWrapper *self) {
   return self->object();
 }
+
+//  void QV4::Heap::QObjectWrapper::markObjects(Heap::Base *that, MarkStack
+//      *markStack)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV44Heap14QObjectWrapper11markObjectsEPNS0_4BaseEPNS_9MarkStackE(
+    QV4::Heap::Base *that,
+    QV4::MarkStack *markStack) {
+  QV4::Heap::QObjectWrapper::markObjects(that, markStack);
+}

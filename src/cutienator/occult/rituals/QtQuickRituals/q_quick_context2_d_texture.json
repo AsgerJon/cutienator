@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickContext2DTexture10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickContext2DTexture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickContext2DTexture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickContext2DTextureD1Ev": ["nothing", "address"],
     "ritual_ZNK22QQuickContext2DTexture12renderTargetEv": ["int", "address"],
     "ritual_ZN22QQuickContext2DTexture9tiledRectERK6QRectFRK5QSize": [
@@ -42,6 +48,22 @@
     ],
     "ritual_ZN22QQuickContext2DTexture5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture14textureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture13canvasChangedERK5QSizeS2_RK5QRectS5_bb": [
+      "nothing", "address", "address", "address", "address", "address",
+      "bool", "bool"
+    ],
+    "ritual_ZN22QQuickContext2DTexture5paintEP28QQuickContext2DCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture16markDirtyTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture7setItemEP16QQuickCanvasItem": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN22QQuickContext2DTexture9grabImageERK6QRectF": [
       "nothing", "address", "address"

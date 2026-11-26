@@ -5,6 +5,52 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN10Qt3DRender11QShaderNodeD1Ev": ["nothing", "address"]
+    "ritual_ZNK10Qt3DRender11QShaderNode4typeEv": ["char", "address"],
+    "ritual_ZNK10Qt3DRender11QShaderNode4uuidEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender11QShaderNode7setUuidERK5QUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QShaderNode6layersEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender11QShaderNode9setLayersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QShaderNode5portsEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender11QShaderNode7addPortERKNS_15QShaderNodePortE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QShaderNode10removePortERKNS_15QShaderNodePortE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QShaderNode14parameterNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QShaderNode9parameterERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender11QShaderNode12setParameterERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QShaderNode14clearParameterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender11QShaderNode7addRuleERKNS_13QShaderFormatERKNS0_4RuleE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QShaderNode10removeRuleERKNS_13QShaderFormatE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QShaderNode16availableFormatsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QShaderNode4ruleERKNS_13QShaderFormatE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QShaderNodeD1Ev": ["nothing", "address"],
+    "ritual_drop_Qt3DRender_QShaderNode__QList_Qt3DRender_QShaderNodePort": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_QShaderNode__QList_Qt3DRender_QShaderFormat": [
+      "nothing", "address"
+    ]
   }
 }

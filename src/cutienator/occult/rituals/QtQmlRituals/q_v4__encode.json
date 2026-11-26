@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4staticvalue_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4staticvalue_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV46Encode9undefinedEv": ["unsigned long long"],
@@ -18,6 +18,9 @@
       "unsigned long long", "double"
     ],
     "ritual_ZNK3QV46EncodecvyEv": ["unsigned long long", "address"],
-    "ritual_ZN3QV46EncodeD1Ev": ["nothing", "address"]
+    "ritual_ZN3QV46EncodeD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV46EncodeC2INS_4Heap4BaseEEEPT_": ["address", "address"],
+    "ritual_ZN3QV46EncodeC2INS_4Heap6ObjectEEEPT_": ["address", "address"],
+    "ritual_ZN3QV46EncodeC2INS_4Heap6StringEEEPT_": ["address", "address"]
   }
 }

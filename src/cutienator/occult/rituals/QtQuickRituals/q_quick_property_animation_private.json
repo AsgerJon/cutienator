@@ -15,6 +15,9 @@
     "ritual_ZN30QQuickPropertyAnimationPrivate27animationCurrentLoopChangedEP21QAbstractAnimationJob": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN30QQuickPropertyAnimationPrivate14convertVariantER8QVariant9QMetaType": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QQuickPropertyAnimationPrivate": [
       "bool", "address", "chars", "address"
     ],

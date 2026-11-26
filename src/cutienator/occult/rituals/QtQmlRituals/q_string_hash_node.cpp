@@ -76,6 +76,13 @@ const char *ritual_ZNK15QStringHashNode8cStrDataEv(
   return self->cStrData();
 }
 
+//  const char16_t *QStringHashNode::utf16Data() const
+extern "C" Q_DECL_EXPORT
+const char16_t *ritual_ZNK15QStringHashNode9utf16DataEv(
+    const QStringHashNode *self) {
+  return self->utf16Data();
+}
+
 //  bool QStringHashNode::equals(const QV4::Value &string) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QStringHashNode6equalsERKN3QV45ValueE(

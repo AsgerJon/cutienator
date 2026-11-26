@@ -9,6 +9,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qqmldesignermetaobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <cstring>
@@ -28,27 +29,61 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/designer/qqmldesignermetaobject.cpp, line 73, as _ZNK22QQmlDesignerMetaObject5cacheEv
-inline QQmlPropertyCache::Ptr QQmlDesignerMetaObject::cache() const
-{
-    return type()->cache();
-}
-
-//  from ../qtdeclarative/src/quick/designer/qqmldesignermetaobject.cpp, line 105, as _ZN22QQmlDesignerMetaObject14createPropertyEPKcS1_
-inline int QQmlDesignerMetaObject::createProperty(const char *name, const char *passAlong)
-{
-    int ret = QQmlOpenMetaObject::createProperty(name, passAlong);
-    if (ret != -1) {
-        // compare createNewDynamicProperty
-        cache()->invalidate(this);
+//  from ../qtdeclarative/src/quick/designer/qqmldesignermetaobject.cpp, line 19, as local:qqmldesignermetaobject.cpp:MetaPropertyData
+struct MetaPropertyData {
+    inline std::pair<QVariant, bool> &getDataRef(int idx) {
+        while (m_data.size() <= idx)
+            m_data << std::pair<QVariant, bool>(QVariant(), false);
+        return m_data[idx];
     }
-    return ret;
+
+    inline QVariant &getData(int idx) {
+        std::pair<QVariant, bool> &prop = getDataRef(idx);
+        if (!prop.second) {
+            prop.first = QVariant();
+            prop.second = true;
+        }
+        return prop.first;
+    }
+
+    inline bool hasData(int idx) const {
+        if (idx >= m_data.size())
+            return false;
+        return m_data[idx].second;
+    }
+
+    inline int count() { return m_data.size(); }
+
+    QList<std::pair<QVariant, bool> > m_data;
+};
+
+//  from ../qtdeclarative/src/quick/designer/qqmldesignermetaobject.cpp, line 115, as _ZN22QQmlDesignerMetaObject8setValueEiRK8QVariant
+inline void QQmlDesignerMetaObject::setValue(int id, const QVariant &value)
+{
+    std::pair<QVariant, bool> &prop = m_data->getDataRef(id);
+    prop.first = propertyWriteValue(id, value);
+    prop.second = true;
+    QMetaObject::activate(myObject(), id + type()->signalOffset(), nullptr);
 }
 
 //  from ../qtdeclarative/src/quick/designer/qqmldesignermetaobject.cpp, line 123, as _ZN22QQmlDesignerMetaObject18propertyWriteValueEiRK8QVariant
 inline QVariant QQmlDesignerMetaObject::propertyWriteValue(int, const QVariant &value)
 {
     return value;
+}
+
+//  from ../qtdeclarative/src/quick/designer/qqmldesignermetaobject.cpp, line 92, as _ZN22QQmlDesignerMetaObject24createNewDynamicPropertyERK7QString
+inline void QQmlDesignerMetaObject::createNewDynamicProperty(const QString &name)
+{
+    int id = type()->createProperty(name.toUtf8());
+    setValue(id, QVariant());
+    Q_ASSERT(id >= 0);
+
+    //Updating cache
+    cache()->invalidate(this);
+
+    QQmlProperty property(myObject(), name, m_context);
+    Q_ASSERT(property.isValid());
 }
 
 //  from ../qtdeclarative/src/quick/designer/qqmldesignermetaobject.cpp, line 128, as _ZNK22QQmlDesignerMetaObject23dynamicMetaObjectParentEv
@@ -73,6 +108,12 @@ inline int QQmlDesignerMetaObject::count() const
 inline QByteArray QQmlDesignerMetaObject::name(int idx) const
 {
     return type()->propertyName(idx);
+}
+
+//  from ../qtdeclarative/src/quick/designer/qqmldesignermetaobject.cpp, line 73, as _ZNK22QQmlDesignerMetaObject5cacheEv
+inline QQmlPropertyCache::Ptr QQmlDesignerMetaObject::cache() const
+{
+    return type()->cache();
 }
 //  -----------------------------------------------------------------------
 
@@ -215,6 +256,15 @@ public:
   }
 };
 
+//  void QQmlDesignerMetaObject::createNewDynamicProperty(const QString
+//      &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlDesignerMetaObject24createNewDynamicPropertyERK7QString(
+    QQmlDesignerMetaObject *self,
+    const QString *name) {
+  self->createNewDynamicProperty(*name);
+}
+
 //  int QQmlDesignerMetaObject::createProperty(const char *name, const char
 //      *passAlong)
 extern "C" Q_DECL_EXPORT
@@ -223,6 +273,18 @@ int ritual_ZN22QQmlDesignerMetaObject14createPropertyEPKcS1_(
     const char *name,
     const char *passAlong) {
   return self->createProperty(name, passAlong);
+}
+
+//  int QQmlDesignerMetaObject::metaCall(QObject *o, QMetaObject::Call _c,
+//      int _id, void **_a)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQmlDesignerMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv(
+    QQmlDesignerMetaObject *self,
+    QObject *o,
+    QMetaObject::Call _c,
+    int _id,
+    void **_a) {
+  return self->metaCall(o, _c, _id, _a);
 }
 
 //  QVariant QQmlDesignerMetaObject::propertyWriteValue(int a0, const
@@ -272,6 +334,13 @@ QByteArray *ritual_ZNK22QQmlDesignerMetaObject4nameEi(
   return new QByteArray(self->name(a0));
 }
 
+//  QQmlPropertyCache::Ptr QQmlDesignerMetaObject::cache() const
+extern "C" Q_DECL_EXPORT
+QQmlPropertyCache::Ptr *ritual_ZNK22QQmlDesignerMetaObject5cacheEv(
+    const QQmlDesignerMetaObject *self) {
+  return new QQmlPropertyCache::Ptr(self->cache());
+}
+
 //  a Python function taken by a CuteQQmlDesignerMetaObject, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -293,6 +362,13 @@ QVariant *ritual_own_ZN22QQmlDesignerMetaObject18propertyWriteValueEiRK8QVariant
       static_cast<OwnQQmlDesignerMetaObject *>(self)->OwnQQmlDesignerMetaObject::propertyWriteValue(
           a0,
           *a1));
+}
+
+//  a QQmlPropertyCache::Ptr a ritual of QQmlDesignerMetaObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlDesignerMetaObject__QQmlPropertyCache_Ptr(
+    QQmlPropertyCache::Ptr *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_designer)

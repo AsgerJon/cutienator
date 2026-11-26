@@ -11,6 +11,9 @@
     "ritual_ZN14QLottieGStroke16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK14QLottieGStroke6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QLottieGStroke5parseERK11QJsonObject": [
       "int", "address", "address"
     ],

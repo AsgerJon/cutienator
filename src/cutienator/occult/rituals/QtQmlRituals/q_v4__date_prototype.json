@@ -7,6 +7,15 @@
   "rows": {
     "ritual_ZN3QV413DatePrototype16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV413DatePrototype10method_nowEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413DatePrototype13method_toJSONEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413DatePrototype24method_symbolToPrimitiveEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
     ]
   }
 }

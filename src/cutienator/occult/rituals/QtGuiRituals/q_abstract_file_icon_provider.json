@@ -20,6 +20,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK25QAbstractFileIconProvider7optionsEv": ["int", "address"],
+    "ritual_ZN25QAbstractFileIconProviderC1ER32QAbstractFileIconProviderPrivate": [
+      "address", "address"
+    ],
     "ritual_ZN25QAbstractFileIconProvider6d_funcEv": ["address", "address"],
     "ritual_ZNK25QAbstractFileIconProvider6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractFileIconProvider": [

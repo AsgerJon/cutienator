@@ -53,100 +53,101 @@ typedef bool (*CuteQDesignerFormWindowInterfaceCall33)(const void *, int *);
 typedef void * (*CuteQDesignerFormWindowInterfaceCall34)(const void *, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall35)(const void *, const QString *, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall36)(const void *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall37)(const void *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall38)(const void *, const QString *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall37)(const void *, QList<QWidget *> *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall38)(const void *, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall39)(const void *, const QString *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall40)(const void *, QObject *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall41)(const void *, QWidget *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall40)(const void *, const QString *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall41)(const void *, QObject *, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall42)(const void *, QWidget *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall43)(const void *, int, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall44)(const void *, bool, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall43)(const void *, QWidget *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall44)(const void *, int, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall45)(const void *, bool, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall46)(const void *, QWidget *, bool, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall47)(const void *, const QPoint *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall48)(const void *, const QString *, int *);
-typedef bool (*CuteQDesignerFormWindowInterfaceCall49)(const void *, const QString *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall50)(const void *, int *);
-typedef int (*CuteQDesignerFormWindowInterfaceCall51)(const void *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall52)(const void *, bool, int *);
-typedef const QSize * (*CuteQDesignerFormWindowInterfaceCall53)(const void *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall46)(const void *, bool, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall47)(const void *, QWidget *, bool, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall48)(const void *, const QPoint *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall49)(const void *, const QString *, int *);
+typedef bool (*CuteQDesignerFormWindowInterfaceCall50)(const void *, const QString *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall51)(const void *, int *);
+typedef int (*CuteQDesignerFormWindowInterfaceCall52)(const void *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall53)(const void *, bool, int *);
 typedef const QSize * (*CuteQDesignerFormWindowInterfaceCall54)(const void *, int *);
-typedef int (*CuteQDesignerFormWindowInterfaceCall55)(const void *, int, int *);
-typedef bool (*CuteQDesignerFormWindowInterfaceCall56)(const void *, int *);
-typedef void * (*CuteQDesignerFormWindowInterfaceCall57)(const void *, int *);
+typedef const QSize * (*CuteQDesignerFormWindowInterfaceCall55)(const void *, int *);
+typedef int (*CuteQDesignerFormWindowInterfaceCall56)(const void *, int, int *);
+typedef bool (*CuteQDesignerFormWindowInterfaceCall57)(const void *, int *);
+typedef void * (*CuteQDesignerFormWindowInterfaceCall58)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQDesignerFormWindowInterfaceCall58)(const void *, QEvent *, int *);
+typedef bool (*CuteQDesignerFormWindowInterfaceCall59)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
-typedef void (*CuteQDesignerFormWindowInterfaceCall59)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall60)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall61)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall62)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall63)(const void *, QMouseEvent *, int *);
 #if QT_CONFIG(wheelevent)
-typedef void (*CuteQDesignerFormWindowInterfaceCall63)(const void *, QWheelEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall64)(const void *, QWheelEvent *, int *);
 #endif  // QT_CONFIG(wheelevent)
-typedef void (*CuteQDesignerFormWindowInterfaceCall64)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall65)(const void *, QKeyEvent *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall66)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall66)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQDesignerFormWindowInterfaceCall67)(const void *, QFocusEvent *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall68)(const void *, QEnterEvent *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall69)(const void *, QEvent *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall70)(const void *, QPaintEvent *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall71)(const void *, QMoveEvent *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall72)(const void *, QResizeEvent *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall73)(const void *, QCloseEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall68)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall69)(const void *, QEnterEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall70)(const void *, QEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall71)(const void *, QPaintEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall72)(const void *, QMoveEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall73)(const void *, QResizeEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall74)(const void *, QCloseEvent *, int *);
 #if !defined(QT_NO_CONTEXTMENU)
-typedef void (*CuteQDesignerFormWindowInterfaceCall74)(const void *, QContextMenuEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall75)(const void *, QContextMenuEvent *, int *);
 #endif  // !defined(QT_NO_CONTEXTMENU)
 #if QT_CONFIG(tabletevent)
-typedef void (*CuteQDesignerFormWindowInterfaceCall75)(const void *, QTabletEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall76)(const void *, QTabletEvent *, int *);
 #endif  // QT_CONFIG(tabletevent)
 #if !defined(QT_NO_ACTION)
-typedef void (*CuteQDesignerFormWindowInterfaceCall76)(const void *, QActionEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall77)(const void *, QActionEvent *, int *);
 #endif  // !defined(QT_NO_ACTION)
 #if QT_CONFIG(draganddrop)
-typedef void (*CuteQDesignerFormWindowInterfaceCall77)(const void *, QDragEnterEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall78)(const void *, QDragEnterEvent *, int *);
 #endif  // QT_CONFIG(draganddrop)
 #if QT_CONFIG(draganddrop)
-typedef void (*CuteQDesignerFormWindowInterfaceCall78)(const void *, QDragMoveEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall79)(const void *, QDragMoveEvent *, int *);
 #endif  // QT_CONFIG(draganddrop)
 #if QT_CONFIG(draganddrop)
-typedef void (*CuteQDesignerFormWindowInterfaceCall79)(const void *, QDragLeaveEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall80)(const void *, QDragLeaveEvent *, int *);
 #endif  // QT_CONFIG(draganddrop)
 #if QT_CONFIG(draganddrop)
-typedef void (*CuteQDesignerFormWindowInterfaceCall80)(const void *, QDropEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall81)(const void *, QDropEvent *, int *);
 #endif  // QT_CONFIG(draganddrop)
-typedef void (*CuteQDesignerFormWindowInterfaceCall81)(const void *, QShowEvent *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall82)(const void *, QHideEvent *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall83)(const void *, QEvent *, int *);
-typedef int (*CuteQDesignerFormWindowInterfaceCall84)(const void *, int, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall85)(const void *, QPainter *, int *);
-typedef void * (*CuteQDesignerFormWindowInterfaceCall86)(const void *, QPoint *, int *);
-typedef void * (*CuteQDesignerFormWindowInterfaceCall87)(const void *, int *);
-typedef void (*CuteQDesignerFormWindowInterfaceCall88)(const void *, QInputMethodEvent *, int *);
-typedef const QVariant * (*CuteQDesignerFormWindowInterfaceCall89)(const void *, int, int *);
-typedef bool (*CuteQDesignerFormWindowInterfaceCall90)(const void *, bool, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall82)(const void *, QShowEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall83)(const void *, QHideEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall84)(const void *, QEvent *, int *);
+typedef int (*CuteQDesignerFormWindowInterfaceCall85)(const void *, int, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall86)(const void *, QPainter *, int *);
+typedef void * (*CuteQDesignerFormWindowInterfaceCall87)(const void *, QPoint *, int *);
+typedef void * (*CuteQDesignerFormWindowInterfaceCall88)(const void *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall89)(const void *, QInputMethodEvent *, int *);
+typedef const QVariant * (*CuteQDesignerFormWindowInterfaceCall90)(const void *, int, int *);
+typedef bool (*CuteQDesignerFormWindowInterfaceCall91)(const void *, bool, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQDesignerFormWindowInterfaceCall91)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQDesignerFormWindowInterfaceCall92)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQDesignerFormWindowInterfaceCall92)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall93)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQDesignerFormWindowInterfaceCall93)(const void *, QChildEvent *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall94)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQDesignerFormWindowInterfaceCall94)(const void *, QEvent *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQDesignerFormWindowInterfaceCall95)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQDesignerFormWindowInterfaceCall95)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQDesignerFormWindowInterfaceCall96)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDesignerFormWindowInterfaceCall97)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQDesignerFormWindowInterface : public QDesignerFormWindowInterface {
 public:
   using QDesignerFormWindowInterface::QDesignerFormWindowInterface;
-  void *taken[97] = {};
+  void *taken[98] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK28QDesignerFormWindowInterface8fileNameEv")) {
@@ -299,273 +300,277 @@ public:
       taken[36] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface20emitSelectionChangedEv")) {
+    if (!std::strcmp(key, "_ZNK28QDesignerFormWindowInterface17simplifySelectionEP5QListIP7QWidgetE")) {
       taken[37] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface15addResourceFileERK7QString")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface20emitSelectionChangedEv")) {
       taken[38] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface18removeResourceFileERK7QString")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface15addResourceFileERK7QString")) {
       taken[39] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface22ensureUniqueObjectNameEP7QObject")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface18removeResourceFileERK7QString")) {
       taken[40] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface12manageWidgetEP7QWidget")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface22ensureUniqueObjectNameEP7QObject")) {
       taken[41] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface14unmanageWidgetEP7QWidget")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface12manageWidgetEP7QWidget")) {
       taken[42] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface11setFeaturesE6QFlagsINS_11FeatureFlagEE")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface14unmanageWidgetEP7QWidget")) {
       taken[43] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface8setDirtyEb")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface11setFeaturesE6QFlagsINS_11FeatureFlagEE")) {
       taken[44] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface14clearSelectionEb")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface8setDirtyEb")) {
       taken[45] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface12selectWidgetEP7QWidgetb")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface14clearSelectionEb")) {
       taken[46] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface7setGridERK6QPoint")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface12selectWidgetEP7QWidgetb")) {
       taken[47] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface11setFileNameERK7QString")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface7setGridERK6QPoint")) {
       taken[48] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface11setContentsERK7QString")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface11setFileNameERK7QString")) {
       taken[49] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface11editWidgetsEv")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface11setContentsERK7QString")) {
       taken[50] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+    if (!std::strcmp(key, "_ZN28QDesignerFormWindowInterface11editWidgetsEv")) {
       taken[51] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[52] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
+    if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
       taken[53] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
+    if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[54] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget14heightForWidthEi")) {
+    if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[55] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget17hasHeightForWidthEv")) {
+    if (!std::strcmp(key, "_ZNK7QWidget14heightForWidthEi")) {
       taken[56] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
+    if (!std::strcmp(key, "_ZNK7QWidget17hasHeightForWidthEv")) {
       taken[57] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
+      taken[58] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[58] = call;
+      taken[59] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
-      taken[59] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[60] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[61] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
       taken[62] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
+      taken[63] = call;
       return true;
     }
 #if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
-      taken[63] = call;
+      taken[64] = call;
       return true;
     }
 #endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
-      taken[64] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[65] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[66] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[67] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[68] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
       taken[69] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
       taken[70] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[71] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
       taken[72] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[73] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
+      taken[74] = call;
       return true;
     }
 #if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
-      taken[74] = call;
+      taken[75] = call;
       return true;
     }
 #endif  // !defined(QT_NO_CONTEXTMENU)
 #if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
-      taken[75] = call;
+      taken[76] = call;
       return true;
     }
 #endif  // QT_CONFIG(tabletevent)
 #if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
-      taken[76] = call;
+      taken[77] = call;
       return true;
     }
 #endif  // !defined(QT_NO_ACTION)
 #if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
-      taken[77] = call;
-      return true;
-    }
-#endif  // QT_CONFIG(draganddrop)
-#if QT_CONFIG(draganddrop)
-    if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[78] = call;
       return true;
     }
 #endif  // QT_CONFIG(draganddrop)
 #if QT_CONFIG(draganddrop)
-    if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[79] = call;
       return true;
     }
 #endif  // QT_CONFIG(draganddrop)
 #if QT_CONFIG(draganddrop)
-    if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[80] = call;
       return true;
     }
 #endif  // QT_CONFIG(draganddrop)
-    if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
+#if QT_CONFIG(draganddrop)
+    if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[81] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
+#endif  // QT_CONFIG(draganddrop)
+    if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[82] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[83] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
+    if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[84] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[85] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
       taken[86] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
       taken[87] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
       taken[88] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
+    if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
       taken[89] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
+    if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
       taken[90] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
+      taken[91] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[91] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[92] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[93] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[94] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[95] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[96] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[97] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -1009,11 +1014,22 @@ public:
     }
   }
 
-  //  void QDesignerFormWindowInterface::emitSelectionChanged()
-  void emitSelectionChanged() override {
+  //  void QDesignerFormWindowInterface::simplifySelection(QList<QWidget *>
+  //      *widgets) const
+  void simplifySelection(QList<QWidget *> *widgets) const override {
     if (taken[37]) {
       int handled = 0;
       CuteQDesignerFormWindowInterfaceCall37 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall37>(taken[37]);
+      call(this, widgets, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QDesignerFormWindowInterface::emitSelectionChanged()
+  void emitSelectionChanged() override {
+    if (taken[38]) {
+      int handled = 0;
+      CuteQDesignerFormWindowInterfaceCall38 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall38>(taken[38]);
       call(this, &handled);
       if (handled) return;
     }
@@ -1022,17 +1038,6 @@ public:
   //  void QDesignerFormWindowInterface::addResourceFile(const QString
   //      &path)
   void addResourceFile(const QString &path) override {
-    if (taken[38]) {
-      int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall38 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall38>(taken[38]);
-      call(this, &path, &handled);
-      if (handled) return;
-    }
-  }
-
-  //  void QDesignerFormWindowInterface::removeResourceFile(const QString
-  //      &path)
-  void removeResourceFile(const QString &path) override {
     if (taken[39]) {
       int handled = 0;
       CuteQDesignerFormWindowInterfaceCall39 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall39>(taken[39]);
@@ -1041,12 +1046,23 @@ public:
     }
   }
 
-  //  void QDesignerFormWindowInterface::ensureUniqueObjectName(QObject
-  //      *object)
-  void ensureUniqueObjectName(QObject *object) override {
+  //  void QDesignerFormWindowInterface::removeResourceFile(const QString
+  //      &path)
+  void removeResourceFile(const QString &path) override {
     if (taken[40]) {
       int handled = 0;
       CuteQDesignerFormWindowInterfaceCall40 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall40>(taken[40]);
+      call(this, &path, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QDesignerFormWindowInterface::ensureUniqueObjectName(QObject
+  //      *object)
+  void ensureUniqueObjectName(QObject *object) override {
+    if (taken[41]) {
+      int handled = 0;
+      CuteQDesignerFormWindowInterfaceCall41 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall41>(taken[41]);
       call(this, object, &handled);
       if (handled) return;
     }
@@ -1054,16 +1070,6 @@ public:
 
   //  void QDesignerFormWindowInterface::manageWidget(QWidget *widget)
   void manageWidget(QWidget *widget) override {
-    if (taken[41]) {
-      int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall41 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall41>(taken[41]);
-      call(this, widget, &handled);
-      if (handled) return;
-    }
-  }
-
-  //  void QDesignerFormWindowInterface::unmanageWidget(QWidget *widget)
-  void unmanageWidget(QWidget *widget) override {
     if (taken[42]) {
       int handled = 0;
       CuteQDesignerFormWindowInterfaceCall42 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall42>(taken[42]);
@@ -1072,11 +1078,21 @@ public:
     }
   }
 
-  //  void QDesignerFormWindowInterface::setFeatures(Feature f)
-  void setFeatures(QDesignerFormWindowInterface::Feature f) override {
+  //  void QDesignerFormWindowInterface::unmanageWidget(QWidget *widget)
+  void unmanageWidget(QWidget *widget) override {
     if (taken[43]) {
       int handled = 0;
       CuteQDesignerFormWindowInterfaceCall43 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall43>(taken[43]);
+      call(this, widget, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QDesignerFormWindowInterface::setFeatures(Feature f)
+  void setFeatures(QDesignerFormWindowInterface::Feature f) override {
+    if (taken[44]) {
+      int handled = 0;
+      CuteQDesignerFormWindowInterfaceCall44 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall44>(taken[44]);
       call(this, static_cast<int>(f.toInt()), &handled);
       if (handled) return;
     }
@@ -1084,9 +1100,9 @@ public:
 
   //  void QDesignerFormWindowInterface::setDirty(bool dirty)
   void setDirty(bool dirty) override {
-    if (taken[44]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall44 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall44>(taken[44]);
+      CuteQDesignerFormWindowInterfaceCall45 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall45>(taken[45]);
       call(this, dirty, &handled);
       if (handled) return;
     }
@@ -1095,9 +1111,9 @@ public:
   //  void QDesignerFormWindowInterface::clearSelection(bool
   //      changePropertyDisplay)
   void clearSelection(bool changePropertyDisplay) override {
-    if (taken[45]) {
+    if (taken[46]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall45 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall45>(taken[45]);
+      CuteQDesignerFormWindowInterfaceCall46 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall46>(taken[46]);
       call(this, changePropertyDisplay, &handled);
       if (handled) return;
     }
@@ -1106,9 +1122,9 @@ public:
   //  void QDesignerFormWindowInterface::selectWidget(QWidget *w, bool
   //      select)
   void selectWidget(QWidget *w, bool select) override {
-    if (taken[46]) {
+    if (taken[47]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall46 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall46>(taken[46]);
+      CuteQDesignerFormWindowInterfaceCall47 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall47>(taken[47]);
       call(this, w, select, &handled);
       if (handled) return;
     }
@@ -1116,9 +1132,9 @@ public:
 
   //  void QDesignerFormWindowInterface::setGrid(const QPoint &grid)
   void setGrid(const QPoint &grid) override {
-    if (taken[47]) {
+    if (taken[48]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall47 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall47>(taken[47]);
+      CuteQDesignerFormWindowInterfaceCall48 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall48>(taken[48]);
       call(this, &grid, &handled);
       if (handled) return;
     }
@@ -1127,9 +1143,9 @@ public:
   //  void QDesignerFormWindowInterface::setFileName(const QString
   //      &fileName)
   void setFileName(const QString &fileName) override {
-    if (taken[48]) {
+    if (taken[49]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall48 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall48>(taken[48]);
+      CuteQDesignerFormWindowInterfaceCall49 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall49>(taken[49]);
       call(this, &fileName, &handled);
       if (handled) return;
     }
@@ -1138,9 +1154,9 @@ public:
   //  bool QDesignerFormWindowInterface::setContents(const QString
   //      &contents)
   bool setContents(const QString &contents) override {
-    if (taken[49]) {
+    if (taken[50]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall49 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall49>(taken[49]);
+      CuteQDesignerFormWindowInterfaceCall50 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall50>(taken[50]);
       bool given = call(this, &contents, &handled);
       if (handled) return given;
     }
@@ -1149,9 +1165,9 @@ public:
 
   //  void QDesignerFormWindowInterface::editWidgets()
   void editWidgets() override {
-    if (taken[50]) {
+    if (taken[51]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall50 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall50>(taken[50]);
+      CuteQDesignerFormWindowInterfaceCall51 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall51>(taken[51]);
       call(this, &handled);
       if (handled) return;
     }
@@ -1159,9 +1175,9 @@ public:
 
   //  int QWidget::devType() const
   int devType() const override {
-    if (taken[51]) {
+    if (taken[52]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall51 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall51>(taken[51]);
+      CuteQDesignerFormWindowInterfaceCall52 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall52>(taken[52]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -1170,9 +1186,9 @@ public:
 
   //  void QWidget::setVisible(bool visible)
   void setVisible(bool visible) override {
-    if (taken[52]) {
+    if (taken[53]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall52 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall52>(taken[52]);
+      CuteQDesignerFormWindowInterfaceCall53 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall53>(taken[53]);
       call(this, visible, &handled);
       if (handled) return;
     }
@@ -1181,9 +1197,9 @@ public:
 
   //  QSize QWidget::sizeHint() const
   QSize sizeHint() const override {
-    if (taken[53]) {
+    if (taken[54]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall53 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall53>(taken[53]);
+      CuteQDesignerFormWindowInterfaceCall54 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall54>(taken[54]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1192,9 +1208,9 @@ public:
 
   //  QSize QWidget::minimumSizeHint() const
   QSize minimumSizeHint() const override {
-    if (taken[54]) {
+    if (taken[55]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall54 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall54>(taken[54]);
+      CuteQDesignerFormWindowInterfaceCall55 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall55>(taken[55]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1203,9 +1219,9 @@ public:
 
   //  int QWidget::heightForWidth(int a0) const
   int heightForWidth(int a0) const override {
-    if (taken[55]) {
+    if (taken[56]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall55 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall55>(taken[55]);
+      CuteQDesignerFormWindowInterfaceCall56 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall56>(taken[56]);
       int given = call(this, a0, &handled);
       if (handled) return given;
     }
@@ -1214,9 +1230,9 @@ public:
 
   //  bool QWidget::hasHeightForWidth() const
   bool hasHeightForWidth() const override {
-    if (taken[56]) {
+    if (taken[57]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall56 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall56>(taken[56]);
+      CuteQDesignerFormWindowInterfaceCall57 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall57>(taken[57]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1225,9 +1241,9 @@ public:
 
   //  QPaintEngine *QWidget::paintEngine() const
   QPaintEngine *paintEngine() const override {
-    if (taken[57]) {
+    if (taken[58]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall57 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall57>(taken[57]);
+      CuteQDesignerFormWindowInterfaceCall58 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall58>(taken[58]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPaintEngine *>(given);
     }
@@ -1237,9 +1253,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QWidget::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[58]) {
+    if (taken[59]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall58 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall58>(taken[58]);
+      CuteQDesignerFormWindowInterfaceCall59 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall59>(taken[59]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -1249,9 +1265,9 @@ public:
 
   //  void QWidget::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
-    if (taken[59]) {
+    if (taken[60]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall59 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall59>(taken[59]);
+      CuteQDesignerFormWindowInterfaceCall60 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall60>(taken[60]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1260,9 +1276,9 @@ public:
 
   //  void QWidget::mouseReleaseEvent(QMouseEvent *event)
   void mouseReleaseEvent(QMouseEvent *event) override {
-    if (taken[60]) {
+    if (taken[61]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall60 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall60>(taken[60]);
+      CuteQDesignerFormWindowInterfaceCall61 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall61>(taken[61]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1271,9 +1287,9 @@ public:
 
   //  void QWidget::mouseDoubleClickEvent(QMouseEvent *event)
   void mouseDoubleClickEvent(QMouseEvent *event) override {
-    if (taken[61]) {
+    if (taken[62]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall61 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall61>(taken[61]);
+      CuteQDesignerFormWindowInterfaceCall62 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall62>(taken[62]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1282,9 +1298,9 @@ public:
 
   //  void QWidget::mouseMoveEvent(QMouseEvent *event)
   void mouseMoveEvent(QMouseEvent *event) override {
-    if (taken[62]) {
+    if (taken[63]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall62 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall62>(taken[62]);
+      CuteQDesignerFormWindowInterfaceCall63 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall63>(taken[63]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1294,9 +1310,9 @@ public:
 #if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
-    if (taken[63]) {
+    if (taken[64]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall63 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall63>(taken[63]);
+      CuteQDesignerFormWindowInterfaceCall64 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall64>(taken[64]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1306,9 +1322,9 @@ public:
 
   //  void QWidget::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
-    if (taken[64]) {
+    if (taken[65]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall64 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall64>(taken[64]);
+      CuteQDesignerFormWindowInterfaceCall65 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall65>(taken[65]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1317,9 +1333,9 @@ public:
 
   //  void QWidget::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
-    if (taken[65]) {
+    if (taken[66]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall65 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall65>(taken[65]);
+      CuteQDesignerFormWindowInterfaceCall66 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall66>(taken[66]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1328,9 +1344,9 @@ public:
 
   //  void QWidget::focusInEvent(QFocusEvent *event)
   void focusInEvent(QFocusEvent *event) override {
-    if (taken[66]) {
+    if (taken[67]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall66 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall66>(taken[66]);
+      CuteQDesignerFormWindowInterfaceCall67 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall67>(taken[67]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1339,9 +1355,9 @@ public:
 
   //  void QWidget::focusOutEvent(QFocusEvent *event)
   void focusOutEvent(QFocusEvent *event) override {
-    if (taken[67]) {
+    if (taken[68]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall67 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall67>(taken[67]);
+      CuteQDesignerFormWindowInterfaceCall68 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall68>(taken[68]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1350,9 +1366,9 @@ public:
 
   //  void QWidget::enterEvent(QEnterEvent *event)
   void enterEvent(QEnterEvent *event) override {
-    if (taken[68]) {
+    if (taken[69]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall68 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall68>(taken[68]);
+      CuteQDesignerFormWindowInterfaceCall69 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall69>(taken[69]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1361,9 +1377,9 @@ public:
 
   //  void QWidget::leaveEvent(QEvent *event)
   void leaveEvent(QEvent *event) override {
-    if (taken[69]) {
+    if (taken[70]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall69 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall69>(taken[69]);
+      CuteQDesignerFormWindowInterfaceCall70 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall70>(taken[70]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1372,9 +1388,9 @@ public:
 
   //  void QWidget::paintEvent(QPaintEvent *event)
   void paintEvent(QPaintEvent *event) override {
-    if (taken[70]) {
+    if (taken[71]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall70 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall70>(taken[70]);
+      CuteQDesignerFormWindowInterfaceCall71 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall71>(taken[71]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1383,9 +1399,9 @@ public:
 
   //  void QWidget::moveEvent(QMoveEvent *event)
   void moveEvent(QMoveEvent *event) override {
-    if (taken[71]) {
+    if (taken[72]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall71 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall71>(taken[71]);
+      CuteQDesignerFormWindowInterfaceCall72 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall72>(taken[72]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1394,9 +1410,9 @@ public:
 
   //  void QWidget::resizeEvent(QResizeEvent *event)
   void resizeEvent(QResizeEvent *event) override {
-    if (taken[72]) {
+    if (taken[73]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall72 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall72>(taken[72]);
+      CuteQDesignerFormWindowInterfaceCall73 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall73>(taken[73]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1405,9 +1421,9 @@ public:
 
   //  void QWidget::closeEvent(QCloseEvent *event)
   void closeEvent(QCloseEvent *event) override {
-    if (taken[73]) {
+    if (taken[74]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall73 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall73>(taken[73]);
+      CuteQDesignerFormWindowInterfaceCall74 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall74>(taken[74]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1417,9 +1433,9 @@ public:
 #if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
-    if (taken[74]) {
+    if (taken[75]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall74 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall74>(taken[74]);
+      CuteQDesignerFormWindowInterfaceCall75 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall75>(taken[75]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1430,9 +1446,9 @@ public:
 #if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
-    if (taken[75]) {
+    if (taken[76]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall75 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall75>(taken[75]);
+      CuteQDesignerFormWindowInterfaceCall76 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall76>(taken[76]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1443,9 +1459,9 @@ public:
 #if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
-    if (taken[76]) {
+    if (taken[77]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall76 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall76>(taken[76]);
+      CuteQDesignerFormWindowInterfaceCall77 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall77>(taken[77]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1456,9 +1472,9 @@ public:
 #if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
-    if (taken[77]) {
+    if (taken[78]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall77 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall77>(taken[77]);
+      CuteQDesignerFormWindowInterfaceCall78 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall78>(taken[78]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1469,9 +1485,9 @@ public:
 #if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
-    if (taken[78]) {
+    if (taken[79]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall78 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall78>(taken[78]);
+      CuteQDesignerFormWindowInterfaceCall79 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall79>(taken[79]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1482,9 +1498,9 @@ public:
 #if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
-    if (taken[79]) {
+    if (taken[80]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall79 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall79>(taken[79]);
+      CuteQDesignerFormWindowInterfaceCall80 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall80>(taken[80]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1495,9 +1511,9 @@ public:
 #if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
-    if (taken[80]) {
+    if (taken[81]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall80 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall80>(taken[80]);
+      CuteQDesignerFormWindowInterfaceCall81 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall81>(taken[81]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1507,9 +1523,9 @@ public:
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
-    if (taken[81]) {
+    if (taken[82]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall81 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall81>(taken[81]);
+      CuteQDesignerFormWindowInterfaceCall82 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall82>(taken[82]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1518,9 +1534,9 @@ public:
 
   //  void QWidget::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
-    if (taken[82]) {
+    if (taken[83]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall82 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall82>(taken[82]);
+      CuteQDesignerFormWindowInterfaceCall83 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall83>(taken[83]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1529,9 +1545,9 @@ public:
 
   //  void QWidget::changeEvent(QEvent *a0)
   void changeEvent(QEvent *a0) override {
-    if (taken[83]) {
+    if (taken[84]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall83 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall83>(taken[83]);
+      CuteQDesignerFormWindowInterfaceCall84 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall84>(taken[84]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -1540,9 +1556,9 @@ public:
 
   //  int QWidget::metric(PaintDeviceMetric a0) const
   int metric(QPaintDevice::PaintDeviceMetric a0) const override {
-    if (taken[84]) {
+    if (taken[85]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall84 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall84>(taken[84]);
+      CuteQDesignerFormWindowInterfaceCall85 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall85>(taken[85]);
       int given = call(this, static_cast<int>(a0), &handled);
       if (handled) return given;
     }
@@ -1551,9 +1567,9 @@ public:
 
   //  void QWidget::initPainter(QPainter *painter) const
   void initPainter(QPainter *painter) const override {
-    if (taken[85]) {
+    if (taken[86]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall85 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall85>(taken[85]);
+      CuteQDesignerFormWindowInterfaceCall86 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall86>(taken[86]);
       call(this, painter, &handled);
       if (handled) return;
     }
@@ -1562,9 +1578,9 @@ public:
 
   //  QPaintDevice *QWidget::redirected(QPoint *offset) const
   QPaintDevice *redirected(QPoint *offset) const override {
-    if (taken[86]) {
+    if (taken[87]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall86 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall86>(taken[86]);
+      CuteQDesignerFormWindowInterfaceCall87 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall87>(taken[87]);
       void * given = call(this, offset, &handled);
       if (handled) return static_cast<QPaintDevice *>(given);
     }
@@ -1573,9 +1589,9 @@ public:
 
   //  QPainter *QWidget::sharedPainter() const
   QPainter *sharedPainter() const override {
-    if (taken[87]) {
+    if (taken[88]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall87 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall87>(taken[87]);
+      CuteQDesignerFormWindowInterfaceCall88 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall88>(taken[88]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPainter *>(given);
     }
@@ -1584,9 +1600,9 @@ public:
 
   //  void QWidget::inputMethodEvent(QInputMethodEvent *a0)
   void inputMethodEvent(QInputMethodEvent *a0) override {
-    if (taken[88]) {
+    if (taken[89]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall88 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall88>(taken[88]);
+      CuteQDesignerFormWindowInterfaceCall89 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall89>(taken[89]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -1595,9 +1611,9 @@ public:
 
   //  QVariant QWidget::inputMethodQuery(Qt::InputMethodQuery a0) const
   QVariant inputMethodQuery(Qt::InputMethodQuery a0) const override {
-    if (taken[89]) {
+    if (taken[90]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall89 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall89>(taken[89]);
+      CuteQDesignerFormWindowInterfaceCall90 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall90>(taken[90]);
       const QVariant * given = call(this, static_cast<int>(a0), &handled);
       if (handled && given) return *given;
     }
@@ -1606,9 +1622,9 @@ public:
 
   //  bool QWidget::focusNextPrevChild(bool next)
   bool focusNextPrevChild(bool next) override {
-    if (taken[90]) {
+    if (taken[91]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall90 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall90>(taken[90]);
+      CuteQDesignerFormWindowInterfaceCall91 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall91>(taken[91]);
       bool given = call(this, next, &handled);
       if (handled) return given;
     }
@@ -1618,9 +1634,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[91]) {
+    if (taken[92]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall91 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall91>(taken[91]);
+      CuteQDesignerFormWindowInterfaceCall92 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall92>(taken[92]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -1631,9 +1647,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[92]) {
+    if (taken[93]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall92 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall92>(taken[92]);
+      CuteQDesignerFormWindowInterfaceCall93 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall93>(taken[93]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1644,9 +1660,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[93]) {
+    if (taken[94]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall93 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall93>(taken[93]);
+      CuteQDesignerFormWindowInterfaceCall94 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall94>(taken[94]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1657,9 +1673,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[94]) {
+    if (taken[95]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall94 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall94>(taken[94]);
+      CuteQDesignerFormWindowInterfaceCall95 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall95>(taken[95]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1670,9 +1686,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[95]) {
+    if (taken[96]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall95 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall95>(taken[95]);
+      CuteQDesignerFormWindowInterfaceCall96 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall96>(taken[96]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1683,9 +1699,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[96]) {
+    if (taken[97]) {
       int handled = 0;
-      CuteQDesignerFormWindowInterfaceCall96 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall96>(taken[96]);
+      CuteQDesignerFormWindowInterfaceCall97 call = reinterpret_cast<CuteQDesignerFormWindowInterfaceCall97>(taken[97]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1699,6 +1715,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK28QDesignerFormWindowInterface10metaObjectEv(
     const QDesignerFormWindowInterface *self) {
   return self->metaObject();
+}
+
+//  void *QDesignerFormWindowInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QDesignerFormWindowInterface11qt_metacastEPKc(
+    QDesignerFormWindowInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerFormWindowInterface::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QDesignerFormWindowInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerFormWindowInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QDesignerFormWindowInterface::tr(const char *s, const char *c,
@@ -2069,6 +2104,15 @@ void ritual_ZN28QDesignerFormWindowInterface10endCommandEv(
   self->endCommand();
 }
 
+//  void QDesignerFormWindowInterface::simplifySelection(QList<QWidget *>
+//      *widgets) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK28QDesignerFormWindowInterface17simplifySelectionEP5QListIP7QWidgetE(
+    const QDesignerFormWindowInterface *self,
+    QList<QWidget *> *widgets) {
+  self->simplifySelection(widgets);
+}
+
 //  void QDesignerFormWindowInterface::emitSelectionChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QDesignerFormWindowInterface20emitSelectionChangedEv(
@@ -2200,6 +2244,117 @@ void ritual_ZN28QDesignerFormWindowInterface25activateResourceFilePathsERK5QList
     int *errorCount,
     QString *errorMessages) {
   self->activateResourceFilePaths(*paths, errorCount, errorMessages);
+}
+
+//  void QDesignerFormWindowInterface::mainContainerChanged(QWidget
+//      *mainContainer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface20mainContainerChangedEP7QWidget(
+    QDesignerFormWindowInterface *self,
+    QWidget *mainContainer) {
+  self->mainContainerChanged(mainContainer);
+}
+
+//  void QDesignerFormWindowInterface::toolChanged(int toolIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface11toolChangedEi(
+    QDesignerFormWindowInterface *self,
+    int toolIndex) {
+  self->toolChanged(toolIndex);
+}
+
+//  void QDesignerFormWindowInterface::fileNameChanged(const QString
+//      &fileName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface15fileNameChangedERK7QString(
+    QDesignerFormWindowInterface *self,
+    const QString *fileName) {
+  self->fileNameChanged(*fileName);
+}
+
+//  void QDesignerFormWindowInterface::featureChanged(Feature f)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface14featureChangedE6QFlagsINS_11FeatureFlagEE(
+    QDesignerFormWindowInterface *self,
+    int f) {
+  self->featureChanged(
+      QFlags<QDesignerFormWindowInterface::FeatureFlag>::fromInt(f));
+}
+
+//  void QDesignerFormWindowInterface::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface16selectionChangedEv(
+    QDesignerFormWindowInterface *self) {
+  self->selectionChanged();
+}
+
+//  void QDesignerFormWindowInterface::geometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface15geometryChangedEv(
+    QDesignerFormWindowInterface *self) {
+  self->geometryChanged();
+}
+
+//  void QDesignerFormWindowInterface::resourceFilesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface20resourceFilesChangedEv(
+    QDesignerFormWindowInterface *self) {
+  self->resourceFilesChanged();
+}
+
+//  void QDesignerFormWindowInterface::widgetManaged(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface13widgetManagedEP7QWidget(
+    QDesignerFormWindowInterface *self,
+    QWidget *widget) {
+  self->widgetManaged(widget);
+}
+
+//  void QDesignerFormWindowInterface::widgetUnmanaged(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface15widgetUnmanagedEP7QWidget(
+    QDesignerFormWindowInterface *self,
+    QWidget *widget) {
+  self->widgetUnmanaged(widget);
+}
+
+//  void QDesignerFormWindowInterface::aboutToUnmanageWidget(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface21aboutToUnmanageWidgetEP7QWidget(
+    QDesignerFormWindowInterface *self,
+    QWidget *widget) {
+  self->aboutToUnmanageWidget(widget);
+}
+
+//  void QDesignerFormWindowInterface::activated(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface9activatedEP7QWidget(
+    QDesignerFormWindowInterface *self,
+    QWidget *widget) {
+  self->activated(widget);
+}
+
+//  void QDesignerFormWindowInterface::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface7changedEv(
+    QDesignerFormWindowInterface *self) {
+  self->changed();
+}
+
+//  void QDesignerFormWindowInterface::widgetRemoved(QWidget *w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface13widgetRemovedEP7QWidget(
+    QDesignerFormWindowInterface *self,
+    QWidget *w) {
+  self->widgetRemoved(w);
+}
+
+//  void QDesignerFormWindowInterface::objectRemoved(QObject *o)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormWindowInterface13objectRemovedEP7QObject(
+    QDesignerFormWindowInterface *self,
+    QObject *o) {
+  self->objectRemoved(o);
 }
 
 //  a Python function taken by a CuteQDesignerFormWindowInterface, for the

@@ -46,6 +46,34 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/xml/dom/qdom.cpp, line 1480, as local:qdom.cpp:qNormalizeNode
+#if QT_CONFIG(dom)
+static void qNormalizeNode(QDomNodePrivate* n)
+{
+    QDomNodePrivate* p = n->first;
+    QDomTextPrivate* t = nullptr;
+
+    while (p) {
+        if (p->isText()) {
+            if (t) {
+                QDomNodePrivate* tmp = p->next;
+                t->appendData(p->nodeValue());
+                n->removeChild(p);
+                p = tmp;
+            } else {
+                t = static_cast<QDomTextPrivate *>(p);
+                p = p->next;
+            }
+        } else {
+            p = p->next;
+            t = nullptr;
+        }
+    }
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1454, as _ZN15QDomNodePrivate11appendChildEPS_
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomNodePrivate::appendChild(QDomNodePrivate* newChild)
@@ -415,6 +443,16 @@ inline QDomNodePrivate* QDomNodePrivate::cloneNode(bool deep)
 }
 #endif  // QT_CONFIG(dom)
 
+//  from src/xml/dom/qdom.cpp, line 1502, as _ZN15QDomNodePrivate9normalizeEv
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::normalize()
+{
+    // ### This one has moved from QDomElementPrivate to this position. It is
+    // not tested.
+    qNormalizeNode(this);
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1088, as _ZN15QDomNodePrivateD2Ev
 #if QT_CONFIG(dom)
 inline QDomNodePrivate::~QDomNodePrivate()
@@ -435,6 +473,14 @@ inline QDomNodePrivate::~QDomNodePrivate()
             delete std::exchange(p, p->parent());  // deletes and ascends
         }
     }
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3556, as _ZN24QDomCharacterDataPrivate10appendDataERK7QString
+#if QT_CONFIG(dom)
+inline void QDomCharacterDataPrivate::appendData(const QString& arg)
+{
+    value += arg;
 }
 #endif  // QT_CONFIG(dom)
 
@@ -473,6 +519,45 @@ inline QDomNodePrivate* QDomNodePrivate::namedItem(const QString &n)
         p = p->next;
     }
     return nullptr;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1509, as _ZNK15QDomNodePrivate11saveSubTreeEPKS_R11QTextStreamii
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::saveSubTree(const QDomNodePrivate *n, QTextStream &s,
+                                  int depth, int indent) const
+{
+    if (!n)
+        return;
+
+    const QDomNodePrivate *root = n->first;
+    n->save(s, depth, indent);
+    if (root) {
+        const int branchDepth = depth + 1;
+        int layerDepth = 0;
+        while (root) {
+            root->save(s, layerDepth + branchDepth, indent);
+            // A flattened (non-recursive) depth-first walk through the node tree.
+            if (root->first) {
+                layerDepth ++;
+                root = root->first;
+                continue;
+            }
+            root->afterSave(s, layerDepth + branchDepth, indent);
+            const QDomNodePrivate *prev = root;
+            root = root->next;
+            // Close QDomElementPrivate groups
+            while (!root && (layerDepth > 0)) {
+                root = prev->parent();
+                layerDepth --;
+                root->afterSave(s, layerDepth + branchDepth, indent);
+                prev = root;
+                root = root->next;
+            }
+        }
+        Q_ASSERT(layerDepth == 0);
+    }
+    n->afterSave(s, depth, indent);
 }
 #endif  // QT_CONFIG(dom)
 
@@ -522,7 +607,7 @@ typedef int (*CuteQDomNodePrivateCall9)(const void *, int *);
 class CuteQDomNodePrivate : public QDomNodePrivate {
 public:
   using QDomNodePrivate::QDomNodePrivate;
-  CuteQDomNodePrivate(const QDomNodePrivate &other) : QDomNodePrivate(other) {}
+  CuteQDomNodePrivate(const QDomNodePrivate & other) : QDomNodePrivate(other) {}
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {
@@ -969,6 +1054,40 @@ QDomNode::NodeType ritual_ZNK15QDomNodePrivate8nodeTypeEv(
 }
 
 #if QT_CONFIG(dom)
+//  void QDomNodePrivate::saveSubTree(const QDomNodePrivate *n, QTextStream
+//      &s, int depth, int indent) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QDomNodePrivate11saveSubTreeEPKS_R11QTextStreamii(
+    const QDomNodePrivate *self,
+    const QDomNodePrivate *n,
+    QTextStream *s,
+    int depth,
+    int indent) {
+  self->saveSubTree(n, *s, depth, indent);
+}
+#endif  // QT_CONFIG(dom)
+
+//  void QDomNodePrivate::save(QTextStream &a0, int a1, int a2) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QDomNodePrivate4saveER11QTextStreamii(
+    const QDomNodePrivate *self,
+    QTextStream *a0,
+    int a1,
+    int a2) {
+  self->save(*a0, a1, a2);
+}
+
+//  void QDomNodePrivate::afterSave(QTextStream &a0, int a1, int a2) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QDomNodePrivate9afterSaveER11QTextStreamii(
+    const QDomNodePrivate *self,
+    QTextStream *a0,
+    int a1,
+    int a2) {
+  self->afterSave(*a0, a1, a2);
+}
+
+#if QT_CONFIG(dom)
 //  void QDomNodePrivate::setLocation(int lineNumber, int columnNumber)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QDomNodePrivate11setLocationEii(
@@ -1050,6 +1169,14 @@ QDomNodePrivate *ritual_own_ZN15QDomNodePrivate11appendChildEPS_(
     QDomNodePrivate *self,
     QDomNodePrivate *newChild) {
   return self->QDomNodePrivate::appendChild(newChild);
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+//  void QDomNodePrivate::normalize()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN15QDomNodePrivate9normalizeEv(QDomNodePrivate *self) {
+  self->QDomNodePrivate::normalize();
 }
 #endif  // QT_CONFIG(dom)
 

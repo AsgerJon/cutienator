@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK16QSurface3DSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSurface3DSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QSurface3DSeries11qt_metacastEPKc(
+    QSurface3DSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSurface3DSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QSurface3DSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSurface3DSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSurface3DSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QSurface3DSeries2trEPKcS1_i(
@@ -329,6 +348,70 @@ extern "C" Q_DECL_EXPORT
 QColor *ritual_ZNK16QSurface3DSeries14wireframeColorEv(
     const QSurface3DSeries *self) {
   return new QColor(self->wireframeColor());
+}
+
+//  void QSurface3DSeries::dataProxyChanged(QSurfaceDataProxy *proxy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries16dataProxyChangedEP17QSurfaceDataProxy(
+    QSurface3DSeries *self,
+    QSurfaceDataProxy *proxy) {
+  self->dataProxyChanged(proxy);
+}
+
+//  void QSurface3DSeries::selectedPointChanged(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries20selectedPointChangedERK6QPoint(
+    QSurface3DSeries *self,
+    const QPoint *position) {
+  self->selectedPointChanged(*position);
+}
+
+//  void QSurface3DSeries::flatShadingEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries25flatShadingEnabledChangedEb(
+    QSurface3DSeries *self,
+    bool enable) {
+  self->flatShadingEnabledChanged(enable);
+}
+
+//  void QSurface3DSeries::flatShadingSupportedChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries27flatShadingSupportedChangedEb(
+    QSurface3DSeries *self,
+    bool enable) {
+  self->flatShadingSupportedChanged(enable);
+}
+
+//  void QSurface3DSeries::drawModeChanged(QSurface3DSeries::DrawFlags mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries15drawModeChangedE6QFlagsINS_8DrawFlagEE(
+    QSurface3DSeries *self,
+    int mode) {
+  self->drawModeChanged(QFlags<QSurface3DSeries::DrawFlag>::fromInt(mode));
+}
+
+//  void QSurface3DSeries::textureChanged(const QImage &image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries14textureChangedERK6QImage(
+    QSurface3DSeries *self,
+    const QImage *image) {
+  self->textureChanged(*image);
+}
+
+//  void QSurface3DSeries::textureFileChanged(const QString &filename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries18textureFileChangedERK7QString(
+    QSurface3DSeries *self,
+    const QString *filename) {
+  self->textureFileChanged(*filename);
+}
+
+//  void QSurface3DSeries::wireframeColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries21wireframeColorChangedERK6QColor(
+    QSurface3DSeries *self,
+    const QColor *color) {
+  self->wireframeColorChanged(*color);
 }
 
 //  QSurface3DSeries::QSurface3DSeries(QSurface3DSeriesPrivate *d, QObject

@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender12QShaderImage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QShaderImage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender12QShaderImage11qt_metacastEPKc(
+    Qt3DRender::QShaderImage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QShaderImage::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender12QShaderImage11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QShaderImage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QShaderImage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender12QShaderImage2trEPKcS2_i(
@@ -186,6 +205,161 @@ QString *ritual_ZN10Qt3DRender12QShaderImage2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QShaderImage::tr(s, c, n));
+}
+
+//  Qt3DRender::QShaderImage::QShaderImage(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderImage *ritual_ZN10Qt3DRender12QShaderImageC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QShaderImage(parent);
+}
+
+//  Qt3DRender::QShaderImage::~QShaderImage()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImageD1Ev(
+    Qt3DRender::QShaderImage *self) {
+  delete self;
+}
+
+//  Qt3DRender::QAbstractTexture *Qt3DRender::QShaderImage::texture() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTexture *ritual_ZNK10Qt3DRender12QShaderImage7textureEv(
+    const Qt3DRender::QShaderImage *self) {
+  return self->texture();
+}
+
+//  bool Qt3DRender::QShaderImage::layered() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender12QShaderImage7layeredEv(
+    const Qt3DRender::QShaderImage *self) {
+  return self->layered();
+}
+
+//  int Qt3DRender::QShaderImage::mipLevel() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender12QShaderImage8mipLevelEv(
+    const Qt3DRender::QShaderImage *self) {
+  return self->mipLevel();
+}
+
+//  int Qt3DRender::QShaderImage::layer() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender12QShaderImage5layerEv(
+    const Qt3DRender::QShaderImage *self) {
+  return self->layer();
+}
+
+//  Access Qt3DRender::QShaderImage::access() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderImage::Access ritual_ZNK10Qt3DRender12QShaderImage6accessEv(
+    const Qt3DRender::QShaderImage *self) {
+  return self->access();
+}
+
+//  ImageFormat Qt3DRender::QShaderImage::format() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderImage::ImageFormat ritual_ZNK10Qt3DRender12QShaderImage6formatEv(
+    const Qt3DRender::QShaderImage *self) {
+  return self->format();
+}
+
+//  void Qt3DRender::QShaderImage::setTexture(Qt3DRender::QAbstractTexture
+//      *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage10setTextureEPNS_16QAbstractTextureE(
+    Qt3DRender::QShaderImage *self,
+    Qt3DRender::QAbstractTexture *texture) {
+  self->setTexture(texture);
+}
+
+//  void Qt3DRender::QShaderImage::setLayered(bool layered)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage10setLayeredEb(
+    Qt3DRender::QShaderImage *self,
+    bool layered) {
+  self->setLayered(layered);
+}
+
+//  void Qt3DRender::QShaderImage::setMipLevel(int mipLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage11setMipLevelEi(
+    Qt3DRender::QShaderImage *self,
+    int mipLevel) {
+  self->setMipLevel(mipLevel);
+}
+
+//  void Qt3DRender::QShaderImage::setLayer(int layer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage8setLayerEi(
+    Qt3DRender::QShaderImage *self,
+    int layer) {
+  self->setLayer(layer);
+}
+
+//  void Qt3DRender::QShaderImage::setAccess(Access access)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage9setAccessENS0_6AccessE(
+    Qt3DRender::QShaderImage *self,
+    Qt3DRender::QShaderImage::Access access) {
+  self->setAccess(access);
+}
+
+//  void Qt3DRender::QShaderImage::setFormat(ImageFormat format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage9setFormatENS0_11ImageFormatE(
+    Qt3DRender::QShaderImage *self,
+    Qt3DRender::QShaderImage::ImageFormat format) {
+  self->setFormat(format);
+}
+
+//  void
+//      Qt3DRender::QShaderImage::textureChanged(Qt3DRender::QAbstractTexture
+//      *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage14textureChangedEPNS_16QAbstractTextureE(
+    Qt3DRender::QShaderImage *self,
+    Qt3DRender::QAbstractTexture *texture) {
+  self->textureChanged(texture);
+}
+
+//  void Qt3DRender::QShaderImage::layeredChanged(bool layered)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage14layeredChangedEb(
+    Qt3DRender::QShaderImage *self,
+    bool layered) {
+  self->layeredChanged(layered);
+}
+
+//  void Qt3DRender::QShaderImage::mipLevelChanged(int mipLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage15mipLevelChangedEi(
+    Qt3DRender::QShaderImage *self,
+    int mipLevel) {
+  self->mipLevelChanged(mipLevel);
+}
+
+//  void Qt3DRender::QShaderImage::layerChanged(int layer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage12layerChangedEi(
+    Qt3DRender::QShaderImage *self,
+    int layer) {
+  self->layerChanged(layer);
+}
+
+//  void Qt3DRender::QShaderImage::accessChanged(Access access)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage13accessChangedENS0_6AccessE(
+    Qt3DRender::QShaderImage *self,
+    Qt3DRender::QShaderImage::Access access) {
+  self->accessChanged(access);
+}
+
+//  void Qt3DRender::QShaderImage::formatChanged(ImageFormat format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QShaderImage13formatChangedENS0_11ImageFormatE(
+    Qt3DRender::QShaderImage *self,
+    Qt3DRender::QShaderImage::ImageFormat format) {
+  self->formatChanged(format);
 }
 
 //  QShaderImagePrivate *Qt3DRender::QShaderImage::d_func()

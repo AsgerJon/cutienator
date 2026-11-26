@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK23QQuickFramebufferObject10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFramebufferObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickFramebufferObject11qt_metacastEPKc(
+    QQuickFramebufferObject *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFramebufferObject::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickFramebufferObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFramebufferObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFramebufferObject::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickFramebufferObject2trEPKcS1_i(
@@ -28,6 +47,21 @@ QString *ritual_ZN23QQuickFramebufferObject2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickFramebufferObject::tr(s, c, n));
+}
+
+//  QQuickFramebufferObjectPrivate *QQuickFramebufferObject::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickFramebufferObjectPrivate *ritual_ZN23QQuickFramebufferObject6d_funcEv(
+    QQuickFramebufferObject *self) {
+  return self->d_func();
+}
+
+//  const QQuickFramebufferObjectPrivate *QQuickFramebufferObject::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QQuickFramebufferObjectPrivate *ritual_ZNK23QQuickFramebufferObject6d_funcEv(
+    const QQuickFramebufferObject *self) {
+  return self->d_func();
 }
 
 //  bool QQuickFramebufferObject::textureFollowsItemSize() const
@@ -106,6 +140,22 @@ QSGNode *ritual_ZN23QQuickFramebufferObject15updatePaintNodeEP7QSGNodePN10QQuick
     QSGNode *a0,
     QQuickItem::UpdatePaintNodeData *a1) {
   return self->updatePaintNode(a0, a1);
+}
+
+//  void QQuickFramebufferObject::textureFollowsItemSizeChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickFramebufferObject29textureFollowsItemSizeChangedEb(
+    QQuickFramebufferObject *self,
+    bool a0) {
+  self->textureFollowsItemSizeChanged(a0);
+}
+
+//  void QQuickFramebufferObject::mirrorVerticallyChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickFramebufferObject23mirrorVerticallyChangedEb(
+    QQuickFramebufferObject *self,
+    bool a0) {
+  self->mirrorVerticallyChanged(a0);
 }
 
 //  void QQuickFramebufferObject::invalidateSceneGraph()

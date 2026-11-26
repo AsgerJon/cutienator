@@ -8,6 +8,9 @@
     "ritual_ZN3QV428ObjectOwnPropertyKeyIteratorD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN3QV428ObjectOwnPropertyKeyIterator4nextEPKNS_6ObjectEPNS_8PropertyEPNS_18PropertyAttributesE": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_take_QV4_ObjectOwnPropertyKeyIterator": [
       "bool", "address", "chars", "address"
     ],

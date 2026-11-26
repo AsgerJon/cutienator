@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QQmlTranslationC1ERKSt7variantIJDnNS_8QsTrDataENS_10QsTrIdDataEEE": [
+      "address", "address"
+    ],
     "ritual_ZN15QQmlTranslationC1Ev": ["address"],
     "ritual_ZNK15QQmlTranslation9translateEv": ["text", "address"],
     "ritual_ZN15QQmlTranslation22contextFromQmlFilenameERK7QString": [

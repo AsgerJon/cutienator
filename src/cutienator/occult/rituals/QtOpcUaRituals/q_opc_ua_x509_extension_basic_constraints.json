@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN35QOpcUaX509ExtensionBasicConstraintsC1Ev": ["address"],
+    "ritual_ZN35QOpcUaX509ExtensionBasicConstraintsC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN35QOpcUaX509ExtensionBasicConstraintsaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK35QOpcUaX509ExtensionBasicConstraintseqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN35QOpcUaX509ExtensionBasicConstraintsD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QOpcUaX509ExtensionBasicConstraints5setCaEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK35QOpcUaX509ExtensionBasicConstraints2caEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN35QOpcUaX509ExtensionBasicConstraints13setPathLengthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK35QOpcUaX509ExtensionBasicConstraints10pathLengthEv": [
+      "int", "address"
+    ]
+  }
+}

@@ -4,7 +4,9 @@
 #if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/qpieseries.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/qpieslice.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -199,6 +201,24 @@ const QMetaObject *ritual_ZNK10QPieSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPieSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QPieSeries11qt_metacastEPKc(
+    QPieSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPieSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QPieSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPieSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPieSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QPieSeries2trEPKcS1_i(
@@ -241,6 +261,14 @@ bool ritual_ZN10QPieSeries6appendERK5QListIP9QPieSliceE(
     QPieSeries *self,
     const QList<QPieSlice *> *slices) {
   return self->append(*slices);
+}
+
+//  QPieSeries &QPieSeries::operator<<(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+QPieSeries *ritual_ZN10QPieSerieslsEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  return &(self->operator<<(slice));
 }
 
 //  QPieSlice *QPieSeries::append(const QString &label, qreal value)
@@ -403,6 +431,75 @@ void ritual_ZN10QPieSeries17setLabelsPositionEN9QPieSlice13LabelPositionE(
     QPieSeries *self,
     QPieSlice::LabelPosition position) {
   self->setLabelsPosition(position);
+}
+
+//  void QPieSeries::added(const QList<QPieSlice *> &slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries5addedERK5QListIP9QPieSliceE(
+    QPieSeries *self,
+    const QList<QPieSlice *> *slices) {
+  self->added(*slices);
+}
+
+//  void QPieSeries::removed(const QList<QPieSlice *> &slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries7removedERK5QListIP9QPieSliceE(
+    QPieSeries *self,
+    const QList<QPieSlice *> *slices) {
+  self->removed(*slices);
+}
+
+//  void QPieSeries::clicked(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries7clickedEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  self->clicked(slice);
+}
+
+//  void QPieSeries::hovered(QPieSlice *slice, bool state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries7hoveredEP9QPieSliceb(
+    QPieSeries *self,
+    QPieSlice *slice,
+    bool state) {
+  self->hovered(slice, state);
+}
+
+//  void QPieSeries::pressed(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries7pressedEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  self->pressed(slice);
+}
+
+//  void QPieSeries::released(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries8releasedEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  self->released(slice);
+}
+
+//  void QPieSeries::doubleClicked(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries13doubleClickedEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  self->doubleClicked(slice);
+}
+
+//  void QPieSeries::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries12countChangedEv(QPieSeries *self) {
+  self->countChanged();
+}
+
+//  void QPieSeries::sumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries10sumChangedEv(QPieSeries *self) {
+  self->sumChanged();
 }
 
 //  QPieSeriesPrivate *QPieSeries::d_func()

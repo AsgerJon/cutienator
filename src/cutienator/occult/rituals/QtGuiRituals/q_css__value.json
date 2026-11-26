@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN4QCss5ValueC1Ev": ["address"],
+    "ritual_ZNK4QCss5Value8toStringEv": ["text", "address"],
     "ritual_ZN4QCss5ValueD1Ev": ["nothing", "address"]
   }
 }

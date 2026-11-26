@@ -8,6 +8,8 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A QWaylandXdgOutputV1 that Python can take functions over in. Every QWaylandXdgOutputV1
 //  Python makes is one. Each function below asks the Python
@@ -183,6 +185,25 @@ const QMetaObject *ritual_ZNK19QWaylandXdgOutputV110metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandXdgOutputV1::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QWaylandXdgOutputV111qt_metacastEPKc(
+    QWaylandXdgOutputV1 *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandXdgOutputV1::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QWaylandXdgOutputV111qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandXdgOutputV1 *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandXdgOutputV1::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QWaylandXdgOutputV12trEPKcS1_i(
@@ -191,6 +212,70 @@ QString *ritual_ZN19QWaylandXdgOutputV12trEPKcS1_i(
     int n) {
   return new QString(QWaylandXdgOutputV1::tr(s, c, n));
 }
+
+//  QWaylandXdgOutputV1Private *QWaylandXdgOutputV1::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandXdgOutputV1Private *ritual_ZN19QWaylandXdgOutputV16d_funcEv(
+    QWaylandXdgOutputV1 *self) {
+  return self->d_func();
+}
+
+//  const QWaylandXdgOutputV1Private *QWaylandXdgOutputV1::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandXdgOutputV1Private *ritual_ZNK19QWaylandXdgOutputV16d_funcEv(
+    const QWaylandXdgOutputV1 *self) {
+  return self->d_func();
+}
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  QQmlListProperty<QObject> QWaylandXdgOutputV1::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN19QWaylandXdgOutputV14dataEv(
+    QWaylandXdgOutputV1 *self) {
+  return new QQmlListProperty<QObject>(self->data());
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  void QWaylandXdgOutputV1::appendFunction(QQmlListProperty<QObject> *list,
+//      QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgOutputV114appendFunctionEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *object) {
+  QWaylandXdgOutputV1::appendFunction(list, object);
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  qsizetype QWaylandXdgOutputV1::countFunction(QQmlListProperty<QObject>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN19QWaylandXdgOutputV113countFunctionEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  return QWaylandXdgOutputV1::countFunction(list);
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  QObject *QWaylandXdgOutputV1::atFunction(QQmlListProperty<QObject> *list,
+//      qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN19QWaylandXdgOutputV110atFunctionEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *list,
+    qsizetype index) {
+  return QWaylandXdgOutputV1::atFunction(list, index);
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  void QWaylandXdgOutputV1::clearFunction(QQmlListProperty<QObject> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgOutputV113clearFunctionEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  QWaylandXdgOutputV1::clearFunction(list);
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
 
 //  QWaylandXdgOutputV1::QWaylandXdgOutputV1()
 extern "C" Q_DECL_EXPORT
@@ -294,6 +379,55 @@ QRect *ritual_ZNK19QWaylandXdgOutputV115logicalGeometryEv(
   return new QRect(self->logicalGeometry());
 }
 
+//  void QWaylandXdgOutputV1::managerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgOutputV114managerChangedEv(
+    QWaylandXdgOutputV1 *self) {
+  self->managerChanged();
+}
+
+//  void QWaylandXdgOutputV1::outputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgOutputV113outputChangedEv(
+    QWaylandXdgOutputV1 *self) {
+  self->outputChanged();
+}
+
+//  void QWaylandXdgOutputV1::logicalPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgOutputV122logicalPositionChangedEv(
+    QWaylandXdgOutputV1 *self) {
+  self->logicalPositionChanged();
+}
+
+//  void QWaylandXdgOutputV1::logicalSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgOutputV118logicalSizeChangedEv(
+    QWaylandXdgOutputV1 *self) {
+  self->logicalSizeChanged();
+}
+
+//  void QWaylandXdgOutputV1::logicalGeometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgOutputV122logicalGeometryChangedEv(
+    QWaylandXdgOutputV1 *self) {
+  self->logicalGeometryChanged();
+}
+
+//  void QWaylandXdgOutputV1::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgOutputV111nameChangedEv(
+    QWaylandXdgOutputV1 *self) {
+  self->nameChanged();
+}
+
+//  void QWaylandXdgOutputV1::descriptionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgOutputV118descriptionChangedEv(
+    QWaylandXdgOutputV1 *self) {
+  self->descriptionChanged();
+}
+
 //  a Python function taken by a CuteQWaylandXdgOutputV1, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -302,4 +436,11 @@ bool ritual_take_QWaylandXdgOutputV1(
     const char *key,
     void *call) {
   return static_cast<CuteQWaylandXdgOutputV1 *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QWaylandXdgOutputV1 gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWaylandXdgOutputV1__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

@@ -3,11 +3,15 @@
 //  lost.
 #include <QtLocation/qgeoroutingmanagerengine.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtLocation/qgeorouterequest.h>
 #include <QtLocation/qgeoroute.h>
 #include <QtPositioning/qgeocoordinate.h>
 #include <QtCore/qlocale.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A QGeoRoutingManagerEngine that Python can take functions over in. Every QGeoRoutingManagerEngine
@@ -220,6 +224,25 @@ const QMetaObject *ritual_ZNK24QGeoRoutingManagerEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoRoutingManagerEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QGeoRoutingManagerEngine11qt_metacastEPKc(
+    QGeoRoutingManagerEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoRoutingManagerEngine::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QGeoRoutingManagerEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoRoutingManagerEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoRoutingManagerEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QGeoRoutingManagerEngine2trEPKcS1_i(
@@ -227,6 +250,15 @@ QString *ritual_ZN24QGeoRoutingManagerEngine2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QGeoRoutingManagerEngine::tr(s, c, n));
+}
+
+//  QGeoRoutingManagerEngine::QGeoRoutingManagerEngine(const QVariantMap
+//      &parameters, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGeoRoutingManagerEngine *ritual_ZN24QGeoRoutingManagerEngineC1ERK4QMapI7QString8QVariantEP7QObject(
+    const QMap<QString, QVariant> *parameters,
+    QObject *parent) {
+  return new CuteQGeoRoutingManagerEngine(*parameters, parent);
 }
 
 //  QGeoRoutingManagerEngine::~QGeoRoutingManagerEngine()
@@ -348,6 +380,25 @@ extern "C" Q_DECL_EXPORT
 QLocale::MeasurementSystem ritual_ZNK24QGeoRoutingManagerEngine17measurementSystemEv(
     const QGeoRoutingManagerEngine *self) {
   return self->measurementSystem();
+}
+
+//  void QGeoRoutingManagerEngine::finished(QGeoRouteReply *reply)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoRoutingManagerEngine8finishedEP14QGeoRouteReply(
+    QGeoRoutingManagerEngine *self,
+    QGeoRouteReply *reply) {
+  self->finished(reply);
+}
+
+//  void QGeoRoutingManagerEngine::errorOccurred(QGeoRouteReply *reply,
+//      QGeoRouteReply::Error error, const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoRoutingManagerEngine13errorOccurredEP14QGeoRouteReplyNS0_5ErrorERK7QString(
+    QGeoRoutingManagerEngine *self,
+    QGeoRouteReply *reply,
+    QGeoRouteReply::Error error,
+    const QString *errorString) {
+  self->errorOccurred(reply, error, *errorString);
 }
 
 //  void QGeoRoutingManagerEngine::setSupportedTravelModes(QGeoRouteRequest::

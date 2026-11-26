@@ -8,6 +8,12 @@
     "ritual_ZNK24DeclarativeBoxPlotSeries10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24DeclarativeBoxPlotSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24DeclarativeBoxPlotSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,9 @@
     ],
     "ritual_ZN24DeclarativeBoxPlotSeries13setAxisYRightEP13QAbstractAxis": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries14seriesChildrenEv": [
+      "address", "address"
     ],
     "ritual_ZNK24DeclarativeBoxPlotSeries13brushFilenameEv": [
       "text", "address"
@@ -60,6 +69,36 @@
     "ritual_ZN24DeclarativeBoxPlotSeries17componentCompleteEv": [
       "nothing", "address"
     ],
+    "ritual_ZN24DeclarativeBoxPlotSeries12axisXChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries12axisYChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries15axisXTopChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries17axisYRightChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries7clickedEP17DeclarativeBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries7hoveredEbP17DeclarativeBoxSet": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries7pressedEP17DeclarativeBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries8releasedEP17DeclarativeBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries13doubleClickedEP17DeclarativeBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries20brushFilenameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN24DeclarativeBoxPlotSeries9onHoveredEbP7QBoxSet": [
       "nothing", "address", "bool", "address"
     ],
@@ -78,6 +117,9 @@
     "ritual_ZN24DeclarativeBoxPlotSeries18handleBrushChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN24DeclarativeBoxPlotSeries20appendSeriesChildrenEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_DeclarativeBoxPlotSeries_QQmlParserStatus": [
       "address", "address"
     ],
@@ -85,6 +127,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN24DeclarativeBoxPlotSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_DeclarativeBoxPlotSeries__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

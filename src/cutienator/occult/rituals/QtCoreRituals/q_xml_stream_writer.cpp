@@ -320,6 +320,16 @@ void ritual_ZN16QXmlStreamWriter17writeStartElementE14QAnyStringViewS0_(
       QAnyStringView(*name));
 }
 
+#if QT_CONFIG(xmlstreamreader)
+//  void QXmlStreamWriter::writeCurrentToken(const QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QXmlStreamWriter17writeCurrentTokenERK16QXmlStreamReader(
+    QXmlStreamWriter *self,
+    const QXmlStreamReader *reader) {
+  self->writeCurrentToken(*reader);
+}
+#endif  // QT_CONFIG(xmlstreamreader)
+
 //  void QXmlStreamWriter::raiseError(QAnyStringView message)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QXmlStreamWriter10raiseErrorE14QAnyStringView(
@@ -346,6 +356,20 @@ QXmlStreamWriter::Error ritual_ZNK16QXmlStreamWriter5errorEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QXmlStreamWriter8hasErrorEv(const QXmlStreamWriter *self) {
   return self->hasError();
+}
+
+//  QXmlStreamWriterPrivate *QXmlStreamWriter::d_func()
+extern "C" Q_DECL_EXPORT
+QXmlStreamWriterPrivate *ritual_ZN16QXmlStreamWriter6d_funcEv(
+    QXmlStreamWriter *self) {
+  return self->d_func();
+}
+
+//  const QXmlStreamWriterPrivate *QXmlStreamWriter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QXmlStreamWriterPrivate *ritual_ZNK16QXmlStreamWriter6d_funcEv(
+    const QXmlStreamWriter *self) {
+  return self->d_func();
 }
 
 #endif  // QT_CONFIG(xmlstreamwriter)

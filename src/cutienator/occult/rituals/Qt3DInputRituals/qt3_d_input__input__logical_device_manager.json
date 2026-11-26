@@ -5,6 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN9Qt3DInput5Input20LogicalDeviceManagerC1Ev": ["address"]
+    "ritual_ZN9Qt3DInput5Input20LogicalDeviceManagerC1Ev": ["address"],
+    "ritual_ZNK9Qt3DInput5Input20LogicalDeviceManager13activeDevicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input20LogicalDeviceManager15addActiveDeviceEN8Qt3DCore7QHandleINS0_13LogicalDeviceEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input20LogicalDeviceManager18removeActiveDeviceEN8Qt3DCore7QHandleINS0_13LogicalDeviceEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_Qt3DInput_Input_LogicalDeviceManager__QList_Qt3DInput_Input_HLogicalDevice": [
+      "nothing", "address"
+    ]
   }
 }

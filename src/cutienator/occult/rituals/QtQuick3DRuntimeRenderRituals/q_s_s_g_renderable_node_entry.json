@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZNK23QSSGRenderableNodeEntry6isNullEv": ["bool", "address"],
     "ritual_ZN23QSSGRenderableNodeEntryC1Ev": ["address"],
+    "ritual_ZN23QSSGRenderableNodeEntryC1ER14QSSGRenderNode": [
+      "address", "address"
+    ],
     "ritual_ZN23QSSGRenderableNodeEntryC1EP14QSSGRenderNode": [
       "address", "address"
     ],

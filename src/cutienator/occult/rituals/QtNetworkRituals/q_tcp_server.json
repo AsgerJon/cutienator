@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QTcpServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTcpServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QTcpServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QTcpServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QTcpServerC1EP7QObject": ["address", "address"],
     "ritual_ZN10QTcpServerD1Ev": ["nothing", "address"],
@@ -45,6 +51,16 @@
     ],
     "ritual_ZN10QTcpServer20addPendingConnectionEP10QTcpSocket": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTcpServerC1EN15QAbstractSocket10SocketTypeER17QTcpServerPrivateP7QObject": [
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZN10QTcpServer13newConnectionEv": ["nothing", "address"],
+    "ritual_ZN10QTcpServer26pendingConnectionAvailableENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QTcpServer11acceptErrorEN15QAbstractSocket11SocketErrorE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN10QTcpServer6d_funcEv": ["address", "address"],
     "ritual_ZNK10QTcpServer6d_funcEv": ["address", "address"],

@@ -198,6 +198,25 @@ const QMetaObject *ritual_ZNK23QCandlestickModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCandlestickModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QCandlestickModelMapper11qt_metacastEPKc(
+    QCandlestickModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCandlestickModelMapper::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QCandlestickModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCandlestickModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCandlestickModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QCandlestickModelMapper2trEPKcS1_i(
@@ -205,6 +224,13 @@ QString *ritual_ZN23QCandlestickModelMapper2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QCandlestickModelMapper::tr(s, c, n));
+}
+
+//  QCandlestickModelMapper::QCandlestickModelMapper(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCandlestickModelMapper *ritual_ZN23QCandlestickModelMapperC1EP7QObject(
+    QObject *parent) {
+  return new CuteQCandlestickModelMapper(parent);
 }
 
 //  void QCandlestickModelMapper::setModel(QAbstractItemModel *model)
@@ -242,6 +268,20 @@ extern "C" Q_DECL_EXPORT
 Qt::Orientation ritual_ZNK23QCandlestickModelMapper11orientationEv(
     const QCandlestickModelMapper *self) {
   return self->orientation();
+}
+
+//  void QCandlestickModelMapper::modelReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QCandlestickModelMapper13modelReplacedEv(
+    QCandlestickModelMapper *self) {
+  self->modelReplaced();
+}
+
+//  void QCandlestickModelMapper::seriesReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QCandlestickModelMapper14seriesReplacedEv(
+    QCandlestickModelMapper *self) {
+  self->seriesReplaced();
 }
 
 //  void QCandlestickModelMapper::setTimestamp(int timestamp)

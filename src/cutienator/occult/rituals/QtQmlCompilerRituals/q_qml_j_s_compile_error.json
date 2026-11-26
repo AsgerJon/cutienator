@@ -9,6 +9,9 @@
     "ritual_ZNK18QQmlJSCompileError7augmentERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZN18QQmlJSCompileError17appendDiagnosticsERK7QStringRK5QListIN6QQmlJS17DiagnosticMessageEE": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZN18QQmlJSCompileError16appendDiagnosticERK7QStringRKN6QQmlJS17DiagnosticMessageE": [
       "nothing", "address", "text", "address"
     ],

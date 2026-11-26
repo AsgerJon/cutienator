@@ -8,14 +8,32 @@
     "ritual_ZNK18QtBluetoothPrivate25OrgBluezProfile1Interface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezProfile1Interface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezProfile1Interface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QtBluetoothPrivate25OrgBluezProfile1Interface19staticInterfaceNameEv": [
       "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezProfile1InterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezProfile1Interface13NewConnectionERK15QDBusObjectPathRK23QDBusUnixFileDescriptorRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZN18QtBluetoothPrivate25OrgBluezProfile1Interface7ReleaseEv": [
       "nothing", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezProfile1Interface20RequestDisconnectionERK15QDBusObjectPath": [
+      "address", "address", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgBluezProfile1Interface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QtBluetoothPrivate_OrgBluezProfile1Interface__QDBusPendingReply": [
+      "nothing", "address"
     ]
   }
 }

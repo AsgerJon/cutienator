@@ -8,7 +8,9 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qplatformmediarecorder_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/qmediaformat.h>
+#if QT_CONFIG(mimetype)
 #include <QtCore/qmimetype.h>
+#endif
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 

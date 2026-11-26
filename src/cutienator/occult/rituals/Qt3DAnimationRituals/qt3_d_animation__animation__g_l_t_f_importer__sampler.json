@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter7SamplerC1Ev": [
+      "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter7SamplerC1ERK11QJsonObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12GLTFImporter7Sampler23interpolationModeStringEv": [
+      "text", "address"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter7SamplerD1Ev": [
       "nothing", "address"
     ]

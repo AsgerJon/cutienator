@@ -17,7 +17,7 @@ typedef int (*CuteQPlatformKeyMapperCall0)(const void *, int *);
 class CuteQPlatformKeyMapper : public QPlatformKeyMapper {
 public:
   using QPlatformKeyMapper::QPlatformKeyMapper;
-  CuteQPlatformKeyMapper(const QPlatformKeyMapper &other) : QPlatformKeyMapper(other) {}
+  CuteQPlatformKeyMapper(const QPlatformKeyMapper & other) : QPlatformKeyMapper(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {

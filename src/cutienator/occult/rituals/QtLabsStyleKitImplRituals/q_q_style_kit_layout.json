@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQStyleKitLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQStyleKitLayout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQStyleKitLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK16QQStyleKitLayout9containerEv": ["address", "address"],
     "ritual_ZNK16QQStyleKitLayout7paddingEv": ["address", "address"],
     "ritual_ZNK16QQStyleKitLayout14contentMarginsEv": ["address", "address"],
@@ -13,6 +19,30 @@
     "ritual_ZNK16QQStyleKitLayout10isMirroredEv": ["bool", "address"],
     "ritual_ZNK16QQStyleKitLayout13implicitWidthEv": ["double", "address"],
     "ritual_ZNK16QQStyleKitLayout14implicitHeightEv": ["double", "address"],
-    "ritual_ZNK16QQStyleKitLayout9isEnabledEv": ["bool", "address"]
+    "ritual_ZNK16QQStyleKitLayout9isEnabledEv": ["bool", "address"],
+    "ritual_ZN16QQStyleKitLayout16containerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQStyleKitLayout18layoutItemsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQStyleKitLayout13layoutChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQStyleKitLayout14paddingChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQStyleKitLayout21contentMarginsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQStyleKitLayout14spacingChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQStyleKitLayout15mirroredChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQStyleKitLayout20implicitWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQStyleKitLayout21implicitHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQStyleKitLayout14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQStyleKitLayout12updatePolishEv": ["nothing", "address"],
+    "ritual_drop_QQStyleKitLayout__QQmlListProperty_QQStyleKitLayoutItem": [
+      "nothing", "address"
+    ]
   }
 }

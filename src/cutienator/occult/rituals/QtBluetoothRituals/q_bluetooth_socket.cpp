@@ -8,6 +8,12 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
+//  Only a class built on QBluetoothSocket may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQBluetoothSocket : QBluetoothSocket {
+  using QBluetoothSocket::readData;
+};
+
 //  A QBluetoothSocket that Python can take functions over in. Every QBluetoothSocket
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
@@ -16,40 +22,42 @@ typedef bool (*CuteQBluetoothSocketCall1)(const void *, int *);
 typedef qint64 (*CuteQBluetoothSocketCall2)(const void *, int *);
 typedef qint64 (*CuteQBluetoothSocketCall3)(const void *, int *);
 typedef bool (*CuteQBluetoothSocketCall4)(const void *, int *);
-typedef bool (*CuteQBluetoothSocketCall5)(const void *, int, int *);
-typedef qint64 (*CuteQBluetoothSocketCall6)(const void *, int *);
+typedef qint64 (*CuteQBluetoothSocketCall5)(const void *, char *, qint64, int *);
+typedef bool (*CuteQBluetoothSocketCall6)(const void *, int, int *);
 typedef qint64 (*CuteQBluetoothSocketCall7)(const void *, int *);
-typedef bool (*CuteQBluetoothSocketCall8)(const void *, qint64, int *);
-typedef bool (*CuteQBluetoothSocketCall9)(const void *, int *);
+typedef qint64 (*CuteQBluetoothSocketCall8)(const void *, int *);
+typedef bool (*CuteQBluetoothSocketCall9)(const void *, qint64, int *);
 typedef bool (*CuteQBluetoothSocketCall10)(const void *, int *);
-typedef bool (*CuteQBluetoothSocketCall11)(const void *, int, int *);
+typedef bool (*CuteQBluetoothSocketCall11)(const void *, int *);
 typedef bool (*CuteQBluetoothSocketCall12)(const void *, int, int *);
-typedef qint64 (*CuteQBluetoothSocketCall13)(const void *, qint64, int *);
+typedef bool (*CuteQBluetoothSocketCall13)(const void *, int, int *);
+typedef qint64 (*CuteQBluetoothSocketCall14)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQBluetoothSocketCall15)(const void *, qint64, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQBluetoothSocketCall14)(const void *, QEvent *, int *);
+typedef bool (*CuteQBluetoothSocketCall16)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQBluetoothSocketCall15)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQBluetoothSocketCall17)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQBluetoothSocketCall16)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQBluetoothSocketCall18)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQBluetoothSocketCall17)(const void *, QChildEvent *, int *);
+typedef void (*CuteQBluetoothSocketCall19)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQBluetoothSocketCall18)(const void *, QEvent *, int *);
+typedef void (*CuteQBluetoothSocketCall20)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQBluetoothSocketCall19)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQBluetoothSocketCall21)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQBluetoothSocketCall20)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQBluetoothSocketCall22)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQBluetoothSocket : public QBluetoothSocket {
 public:
   using QBluetoothSocket::QBluetoothSocket;
-  void *taken[21] = {};
+  void *taken[23] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
@@ -72,81 +80,89 @@ public:
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
+    if (!std::strcmp(key, "_ZN9QIODevice8readDataEPcx")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
       taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice12readLineDataEPcx")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+      taken[15] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[14] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[15] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[16] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[17] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[18] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[19] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[20] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[21] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[22] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -208,11 +224,22 @@ public:
     return QBluetoothSocket::canReadLine();
   }
 
-  //  bool QIODevice::open(QIODeviceBase::OpenMode mode)
-  bool open(QIODeviceBase::OpenMode mode) override {
+  //  qint64 QBluetoothSocket::readData(char *data, qint64 maxSize)
+  qint64 readData(char *data, qint64 maxSize) override {
     if (taken[5]) {
       int handled = 0;
       CuteQBluetoothSocketCall5 call = reinterpret_cast<CuteQBluetoothSocketCall5>(taken[5]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QBluetoothSocket::readData(data, maxSize);
+  }
+
+  //  bool QIODevice::open(QIODeviceBase::OpenMode mode)
+  bool open(QIODeviceBase::OpenMode mode) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQBluetoothSocketCall6 call = reinterpret_cast<CuteQBluetoothSocketCall6>(taken[6]);
       bool given = call(this, static_cast<int>(mode.toInt()), &handled);
       if (handled) return given;
     }
@@ -221,9 +248,9 @@ public:
 
   //  qint64 QIODevice::pos() const
   qint64 pos() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQBluetoothSocketCall6 call = reinterpret_cast<CuteQBluetoothSocketCall6>(taken[6]);
+      CuteQBluetoothSocketCall7 call = reinterpret_cast<CuteQBluetoothSocketCall7>(taken[7]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -232,9 +259,9 @@ public:
 
   //  qint64 QIODevice::size() const
   qint64 size() const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQBluetoothSocketCall7 call = reinterpret_cast<CuteQBluetoothSocketCall7>(taken[7]);
+      CuteQBluetoothSocketCall8 call = reinterpret_cast<CuteQBluetoothSocketCall8>(taken[8]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -243,9 +270,9 @@ public:
 
   //  bool QIODevice::seek(qint64 pos)
   bool seek(qint64 pos) override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQBluetoothSocketCall8 call = reinterpret_cast<CuteQBluetoothSocketCall8>(taken[8]);
+      CuteQBluetoothSocketCall9 call = reinterpret_cast<CuteQBluetoothSocketCall9>(taken[9]);
       bool given = call(this, pos, &handled);
       if (handled) return given;
     }
@@ -254,9 +281,9 @@ public:
 
   //  bool QIODevice::atEnd() const
   bool atEnd() const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQBluetoothSocketCall9 call = reinterpret_cast<CuteQBluetoothSocketCall9>(taken[9]);
+      CuteQBluetoothSocketCall10 call = reinterpret_cast<CuteQBluetoothSocketCall10>(taken[10]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -265,9 +292,9 @@ public:
 
   //  bool QIODevice::reset()
   bool reset() override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQBluetoothSocketCall10 call = reinterpret_cast<CuteQBluetoothSocketCall10>(taken[10]);
+      CuteQBluetoothSocketCall11 call = reinterpret_cast<CuteQBluetoothSocketCall11>(taken[11]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -276,9 +303,9 @@ public:
 
   //  bool QIODevice::waitForReadyRead(int msecs)
   bool waitForReadyRead(int msecs) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQBluetoothSocketCall11 call = reinterpret_cast<CuteQBluetoothSocketCall11>(taken[11]);
+      CuteQBluetoothSocketCall12 call = reinterpret_cast<CuteQBluetoothSocketCall12>(taken[12]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -287,20 +314,31 @@ public:
 
   //  bool QIODevice::waitForBytesWritten(int msecs)
   bool waitForBytesWritten(int msecs) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQBluetoothSocketCall12 call = reinterpret_cast<CuteQBluetoothSocketCall12>(taken[12]);
+      CuteQBluetoothSocketCall13 call = reinterpret_cast<CuteQBluetoothSocketCall13>(taken[13]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
     return QIODevice::waitForBytesWritten(msecs);
   }
 
+  //  qint64 QIODevice::readLineData(char *data, qint64 maxlen)
+  qint64 readLineData(char *data, qint64 maxlen) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQBluetoothSocketCall14 call = reinterpret_cast<CuteQBluetoothSocketCall14>(taken[14]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::readLineData(data, maxlen);
+  }
+
   //  qint64 QIODevice::skipData(qint64 maxSize)
   qint64 skipData(qint64 maxSize) override {
-    if (taken[13]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQBluetoothSocketCall13 call = reinterpret_cast<CuteQBluetoothSocketCall13>(taken[13]);
+      CuteQBluetoothSocketCall15 call = reinterpret_cast<CuteQBluetoothSocketCall15>(taken[15]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -310,9 +348,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[14]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQBluetoothSocketCall14 call = reinterpret_cast<CuteQBluetoothSocketCall14>(taken[14]);
+      CuteQBluetoothSocketCall16 call = reinterpret_cast<CuteQBluetoothSocketCall16>(taken[16]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -323,9 +361,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[15]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQBluetoothSocketCall15 call = reinterpret_cast<CuteQBluetoothSocketCall15>(taken[15]);
+      CuteQBluetoothSocketCall17 call = reinterpret_cast<CuteQBluetoothSocketCall17>(taken[17]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -336,9 +374,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[16]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQBluetoothSocketCall16 call = reinterpret_cast<CuteQBluetoothSocketCall16>(taken[16]);
+      CuteQBluetoothSocketCall18 call = reinterpret_cast<CuteQBluetoothSocketCall18>(taken[18]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -349,9 +387,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQBluetoothSocketCall17 call = reinterpret_cast<CuteQBluetoothSocketCall17>(taken[17]);
+      CuteQBluetoothSocketCall19 call = reinterpret_cast<CuteQBluetoothSocketCall19>(taken[19]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -362,9 +400,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQBluetoothSocketCall18 call = reinterpret_cast<CuteQBluetoothSocketCall18>(taken[18]);
+      CuteQBluetoothSocketCall20 call = reinterpret_cast<CuteQBluetoothSocketCall20>(taken[20]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -375,9 +413,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQBluetoothSocketCall19 call = reinterpret_cast<CuteQBluetoothSocketCall19>(taken[19]);
+      CuteQBluetoothSocketCall21 call = reinterpret_cast<CuteQBluetoothSocketCall21>(taken[21]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -388,9 +426,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQBluetoothSocketCall20 call = reinterpret_cast<CuteQBluetoothSocketCall20>(taken[20]);
+      CuteQBluetoothSocketCall22 call = reinterpret_cast<CuteQBluetoothSocketCall22>(taken[22]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -404,6 +442,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QBluetoothSocket10metaObjectEv(
     const QBluetoothSocket *self) {
   return self->metaObject();
+}
+
+//  void *QBluetoothSocket::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QBluetoothSocket11qt_metacastEPKc(
+    QBluetoothSocket *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBluetoothSocket::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QBluetoothSocket11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBluetoothSocket *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QBluetoothSocket::tr(const char *s, const char *c, int n)
@@ -664,6 +721,43 @@ int ritual_ZNK16QBluetoothSocket22preferredSecurityFlagsEv(
   return static_cast<int>(self->preferredSecurityFlags().toInt());
 }
 
+//  void QBluetoothSocket::connected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBluetoothSocket9connectedEv(QBluetoothSocket *self) {
+  self->connected();
+}
+
+//  void QBluetoothSocket::disconnected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBluetoothSocket12disconnectedEv(QBluetoothSocket *self) {
+  self->disconnected();
+}
+
+//  void QBluetoothSocket::errorOccurred(QBluetoothSocket::SocketError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBluetoothSocket13errorOccurredENS_11SocketErrorE(
+    QBluetoothSocket *self,
+    QBluetoothSocket::SocketError error) {
+  self->errorOccurred(error);
+}
+
+//  void QBluetoothSocket::stateChanged(QBluetoothSocket::SocketState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBluetoothSocket12stateChangedENS_11SocketStateE(
+    QBluetoothSocket *self,
+    QBluetoothSocket::SocketState state) {
+  self->stateChanged(state);
+}
+
+//  qint64 QBluetoothSocket::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN16QBluetoothSocket8readDataEPcx(
+    QBluetoothSocket *self,
+    char *data,
+    qint64 maxSize) {
+  return self->readData(data, maxSize);
+}
+
 //  qint64 QBluetoothSocket::writeData(const char *data, qint64 maxSize)
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZN16QBluetoothSocket9writeDataEPKcx(
@@ -771,4 +865,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK16QBluetoothSocket11canReadLineEv(
     const QBluetoothSocket *self) {
   return self->QBluetoothSocket::canReadLine();
+}
+
+//  qint64 QBluetoothSocket::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN16QBluetoothSocket8readDataEPcx(
+    QBluetoothSocket *self,
+    char *data,
+    qint64 maxSize) {
+  return static_cast<OwnQBluetoothSocket *>(self)->OwnQBluetoothSocket::readData(
+      data,
+      maxSize);
 }

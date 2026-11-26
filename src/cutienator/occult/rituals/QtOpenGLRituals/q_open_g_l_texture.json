@@ -13,6 +13,7 @@
     "ritual_ZN14QOpenGLTexture6createEv": ["bool", "address"],
     "ritual_ZN14QOpenGLTexture7destroyEv": ["nothing", "address"],
     "ritual_ZNK14QOpenGLTexture9isCreatedEv": ["bool", "address"],
+    "ritual_ZNK14QOpenGLTexture9textureIdEv": ["unsigned int", "address"],
     "ritual_ZN14QOpenGLTexture4bindEv": ["nothing", "address"],
     "ritual_ZN14QOpenGLTexture4bindEjNS_16TextureUnitResetE": [
       "nothing", "address", "unsigned int", "int"
@@ -24,6 +25,12 @@
     "ritual_ZNK14QOpenGLTexture7isBoundEv": ["bool", "address"],
     "ritual_ZN14QOpenGLTexture7isBoundEj": [
       "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN14QOpenGLTexture14boundTextureIdENS_13BindingTargetE": [
+      "unsigned int", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture14boundTextureIdEjNS_13BindingTargetE": [
+      "unsigned int", "unsigned int", "int"
     ],
     "ritual_ZN14QOpenGLTexture9setFormatENS_13TextureFormatE": [
       "nothing", "address", "int"
@@ -60,6 +67,59 @@
       "address", "address", "int", "int", "int", "int", "int", "int"
     ],
     "ritual_ZNK14QOpenGLTexture13isTextureViewEv": ["bool", "address"],
+    "ritual_ZN14QOpenGLTexture7setDataEiiNS_11CubeMapFaceENS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "address",
+      "address"
+    ],
+    "ritual_ZN14QOpenGLTexture7setDataEiiiNS_11CubeMapFaceENS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "int",
+      "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture7setDataEiiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture7setDataEiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture7setDataENS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture7setDataEiiiiiiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "int", "int",
+      "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture7setDataEiiiiiiiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "int", "int",
+      "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture7setDataEiiiiiiiiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "int", "int",
+      "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture7setDataEiiiiiiiiNS_11CubeMapFaceENS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "int", "int",
+      "int", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture7setDataEiiiiiiiiNS_11CubeMapFaceEiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "int", "int",
+      "int", "int", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture17setCompressedDataEiiNS_11CubeMapFaceEiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture17setCompressedDataEiiiNS_11CubeMapFaceEiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "address",
+      "address"
+    ],
+    "ritual_ZN14QOpenGLTexture17setCompressedDataEiiiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture17setCompressedDataEiiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture17setCompressedDataEiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "address", "address"
+    ],
     "ritual_ZN14QOpenGLTexture7setDataERK6QImageNS_16MipMapGenerationE": [
       "nothing", "address", "address", "int"
     ],
@@ -75,6 +135,7 @@
     "ritual_ZN14QOpenGLTexture16setMipLevelRangeEii": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZNK14QOpenGLTexture13mipLevelRangeEv": ["address", "address"],
     "ritual_ZN14QOpenGLTexture30setAutoMipMapGenerationEnabledEb": [
       "nothing", "address", "bool"
     ],
@@ -117,6 +178,7 @@
     "ritual_ZN14QOpenGLTexture16setMinMagFiltersENS_6FilterES0_": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZNK14QOpenGLTexture13minMagFiltersEv": ["address", "address"],
     "ritual_ZN14QOpenGLTexture20setMaximumAnisotropyEf": [
       "nothing", "address", "float"
     ],
@@ -168,12 +230,22 @@
     "ritual_ZN14QOpenGLTexture21setLevelOfDetailRangeEff": [
       "nothing", "address", "float", "float"
     ],
+    "ritual_ZNK14QOpenGLTexture18levelOfDetailRangeEv": [
+      "address", "address"
+    ],
     "ritual_ZN14QOpenGLTexture20setLevelofDetailBiasEf": [
       "nothing", "address", "float"
     ],
     "ritual_ZNK14QOpenGLTexture17levelofDetailBiasEv": ["float", "address"],
     "ritual_Zls6QDebugPK14QOpenGLTexture": ["address", "address", "address"],
     "ritual_ZN14QOpenGLTexture6d_funcEv": ["address", "address"],
-    "ritual_ZNK14QOpenGLTexture6d_funcEv": ["address", "address"]
+    "ritual_ZNK14QOpenGLTexture6d_funcEv": ["address", "address"],
+    "ritual_drop_QOpenGLTexture__std_pair_int_int": ["nothing", "address"],
+    "ritual_drop_QOpenGLTexture__std_pair_QOpenGLTexture_Filter_QOpenGLTexture_Filter": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QOpenGLTexture__std_pair_float_float": [
+      "nothing", "address"
+    ]
   }
 }

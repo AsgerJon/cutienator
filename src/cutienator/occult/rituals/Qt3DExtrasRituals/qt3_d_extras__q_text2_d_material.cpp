@@ -6,8 +6,69 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DExtras/6.12.0/Qt3DExtras/private/qtext2dmaterial_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DExtras/private/qtext2dmaterial_p.h>
+#include <Qt3DExtras/private/qtext2dmaterial_p_p.h>
+#include <Qt3DRender/qfilterkey.h>
+#include <Qt3DRender/qmaterial.h>
+#include <Qt3DRender/qeffect.h>
+#include <Qt3DRender/qtechnique.h>
+#include <Qt3DRender/qshaderprogram.h>
+#include <Qt3DRender/qparameter.h>
+#include <Qt3DRender/qrenderpass.h>
+#include <Qt3DRender/qgraphicsapifilter.h>
+#include <Qt3DRender/qblendequation.h>
+#include <Qt3DRender/qblendequationarguments.h>
+#include <Qt3DRender/qdepthtest.h>
+#include <Qt3DRender/qabstracttexture.h>
+#include <QtCore/QUrl>
+#include <QtGui/QVector3D>
+#include <QtGui/QVector4D>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/extras/text/qtext2dmaterial.cpp, line 135, as _ZN10Qt3DExtras15QText2DMaterialD1Ev
+namespace Qt3DExtras {
+inline QText2DMaterial::~QText2DMaterial()
+{
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/qtext2dmaterial.cpp, line 139, as _ZN10Qt3DExtras15QText2DMaterial8setColorERK6QColor
+namespace Qt3DExtras {
+inline void QText2DMaterial::setColor(const QColor &color)
+{
+    Q_D(QText2DMaterial);
+    d->m_colorParameter->setValue(QVariant::fromValue(color));
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/qtext2dmaterial.cpp, line 145, as _ZN10Qt3DExtras15QText2DMaterial23setDistanceFieldTextureEPN10Qt3DRender16QAbstractTextureE
+namespace Qt3DExtras {
+inline void QText2DMaterial::setDistanceFieldTexture(Qt3DRender::QAbstractTexture *tex)
+{
+    Q_D(QText2DMaterial);
+    d->m_distanceFieldTexture = tex;
+
+    if (tex) {
+        d->m_textureParameter->setValue(QVariant::fromValue(tex));
+        d->m_textureSizeParameter->setValue(QVariant::fromValue(static_cast<float>(tex->width())));
+    } else {
+        d->m_textureParameter->setValue(0);
+        d->m_textureSizeParameter->setValue(QVariant::fromValue(1.f));
+    }
+}
+}  // namespace Qt3DExtras
+//  -----------------------------------------------------------------------
 
 //  A Qt3DExtras::QText2DMaterial that Python can take functions over in. Every Qt3DExtras::QText2DMaterial
 //  Python makes is one. Each function below asks the Python
@@ -181,6 +242,49 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK10Qt3DExtras15QText2DMaterial10metaObjectEv(
     const Qt3DExtras::QText2DMaterial *self) {
   return self->metaObject();
+}
+
+//  void *Qt3DExtras::QText2DMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras15QText2DMaterial11qt_metacastEPKc(
+    Qt3DExtras::QText2DMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QText2DMaterial::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras15QText2DMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QText2DMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  Qt3DExtras::QText2DMaterial::~QText2DMaterial()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QText2DMaterialD1Ev(
+    Qt3DExtras::QText2DMaterial *self) {
+  delete self;
+}
+
+//  void Qt3DExtras::QText2DMaterial::setColor(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QText2DMaterial8setColorERK6QColor(
+    Qt3DExtras::QText2DMaterial *self,
+    const QColor *color) {
+  self->setColor(*color);
+}
+
+//  void Qt3DExtras::QText2DMaterial::setDistanceFieldTexture(Qt3DRender::QAb
+//      stractTexture *tex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QText2DMaterial23setDistanceFieldTextureEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QText2DMaterial *self,
+    Qt3DRender::QAbstractTexture *tex) {
+  self->setDistanceFieldTexture(tex);
 }
 
 //  QText2DMaterialPrivate *Qt3DExtras::QText2DMaterial::d_func()

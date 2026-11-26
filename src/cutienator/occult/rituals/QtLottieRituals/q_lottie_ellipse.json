@@ -11,6 +11,9 @@
     "ritual_ZN14QLottieEllipse16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK14QLottieEllipse6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QLottieEllipse5parseERK11QJsonObject": [
       "int", "address", "address"
     ],
@@ -19,6 +22,7 @@
     "ritual_ZNK14QLottieEllipse4sizeEv": ["address", "address"],
     "ritual_ZNK14QLottieEllipse10isAnimatedEv": ["bool", "address"],
     "ritual_ZNK14QLottieEllipse12fallbackPathEv": ["address", "address"],
+    "ritual_ZNK14QLottieEllipse12sizePropertyEv": ["address", "address"],
     "ritual_ZNK14QLottieEllipse16positionPropertyEv": ["address", "address"],
     "ritual_ZN14QLottieEllipseD1Ev": ["nothing", "address"],
     "ritual_take_QLottieEllipse": ["bool", "address", "chars", "address"],

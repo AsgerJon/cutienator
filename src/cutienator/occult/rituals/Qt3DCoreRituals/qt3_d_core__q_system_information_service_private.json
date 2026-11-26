@@ -5,6 +5,27 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore32QSystemInformationServicePrivateC1EPNS_13QAspectEngineERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore32QSystemInformationServicePrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore32QSystemInformationServicePrivate3getEPNS_25QSystemInformationServiceE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore32QSystemInformationServicePrivate19addJobLogStatsEntryERNS0_11JobRunStatsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore32QSystemInformationServicePrivate26addSubmissionLogStatsEntryERNS0_11JobRunStatsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore32QSystemInformationServicePrivate21writeFrameJobLogStatsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore32QSystemInformationServicePrivate13updateTracingEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN8Qt3DCore32QSystemInformationServicePrivate6q_funcEv": [
       "address", "address"
     ],

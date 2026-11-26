@@ -11,6 +11,12 @@
     "ritual_ZNK35QOAuth2AuthorizationCodeFlowPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN35QOAuth2AuthorizationCodeFlowPrivateC1ERK4QUrlS2_RK7QStringP21QNetworkAccessManager": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN35QOAuth2AuthorizationCodeFlowPrivate17_q_handleCallbackERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN35QOAuth2AuthorizationCodeFlowPrivate15_q_authenticateEP13QNetworkReplyP14QAuthenticator": [
       "nothing", "address", "address", "address"
     ],

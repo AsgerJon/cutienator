@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuick3DParticlePointRotator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuick3DParticlePointRotator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuick3DParticlePointRotator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,15 @@
     ],
     "ritual_ZN28QQuick3DParticlePointRotator13setPivotPointERK9QVector3D": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator16magnitudeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator16directionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator17pivotPointChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN28QQuick3DParticlePointRotator15prepareToAffectEv": [
       "nothing", "address"

@@ -34,12 +34,17 @@
     "ritual_ZN19QPainterPathStroker14setDashPatternEN2Qt8PenStyleE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN19QPainterPathStroker14setDashPatternERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QPainterPathStroker11dashPatternEv": ["address", "address"],
     "ritual_ZN19QPainterPathStroker13setDashOffsetEd": [
       "nothing", "address", "double"
     ],
     "ritual_ZNK19QPainterPathStroker10dashOffsetEv": ["double", "address"],
     "ritual_ZNK19QPainterPathStroker12createStrokeERK12QPainterPath": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_drop_QPainterPathStroker__QList_qreal": ["nothing", "address"]
   }
 }

@@ -6,7 +6,14 @@
   ],
   "rows": {
     "ritual_ZNK17QMainWindowLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QMainWindowLayout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QMainWindowLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QMainWindowLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QMainWindowLayout9statusBarEv": ["address", "address"],
     "ritual_ZN17QMainWindowLayout12setStatusBarEP10QStatusBar": [
       "nothing", "address", "address"
     ],
@@ -44,13 +51,22 @@
     "ritual_ZNK17QMainWindowLayout6cornerEN2Qt6CornerE": [
       "int", "address", "int"
     ],
+    "ritual_ZNK17QMainWindowLayout14dockWidgetAreaEPK7QWidget": [
+      "int", "address", "address"
+    ],
     "ritual_ZNK17QMainWindowLayout12documentModeEv": ["bool", "address"],
     "ritual_ZN17QMainWindowLayout15setDocumentModeEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN17QMainWindowLayout18getSeparatorWidgetEv": [
+      "address", "address"
+    ],
     "ritual_ZNK17QMainWindowLayout8tabShapeEv": ["int", "address"],
     "ritual_ZN17QMainWindowLayout18dockAreaLayoutInfoEv": [
       "address", "address"
+    ],
+    "ritual_ZN17QMainWindowLayout7addItemEP11QLayoutItem": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17QMainWindowLayout11setGeometryERK5QRect": [
       "nothing", "address", "address"
@@ -64,11 +80,28 @@
     "ritual_ZN17QMainWindowLayout18applyRestoredStateEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QMainWindowLayout17needsPlatformDragEv": ["bool"],
+    "ritual_ZN17QMainWindowLayout25performPlatformWidgetDragEP11QLayoutItemRK6QPoint": [
+      "int", "address", "address", "address"
+    ],
     "ritual_ZN17QMainWindowLayout10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QMainWindowLayout18updateGapIndicatorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QMainWindowLayout10tabChangedEv": ["nothing", "address"],
+    "ritual_ZN17QMainWindowLayout8tabMovedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QMainWindowLayout19tabifyWhileFloatingEP11QDockWidgetS1_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN17QMainWindowLayout11showTabBarsEv": ["nothing", "address"],
     "ritual_take_QMainWindowLayout": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QMainWindowLayout7addItemEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZNK17QMainWindowLayout6itemAtEi": [
       "address", "address", "int"
     ],

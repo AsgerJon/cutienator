@@ -8,17 +8,52 @@
     "ritual_ZNK10Qt3DRender15Scene3DRenderer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender15Scene3DRendererD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender15Scene3DRenderer6sgNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer11allowRenderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer18setCompositingModeENS_11Scene3DItem15CompositingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer12setSkipFrameEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer14setMultisampleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer15setBoundingSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender15Scene3DRenderer11multisampleEv": [
       "bool", "address"
     ],
     "ritual_ZNK10Qt3DRender15Scene3DRenderer12boundingSizeEv": [
       "address", "address"
     ],
+    "ritual_ZNK10Qt3DRender15Scene3DRenderer5isYUpEv": ["bool", "address"],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer17beforeSynchronizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer9setWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender15Scene3DRenderer11hasShutdownEv": [
       "bool", "address"
     ],
     "ritual_ZNK10Qt3DRender15Scene3DRenderer12renderAspectEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender15Scene3DRenderer8shutdownEv": [
+      "nothing", "address"
     ],
     "ritual_take_Qt3DRender_Scene3DRenderer": [
       "bool", "address", "chars", "address"

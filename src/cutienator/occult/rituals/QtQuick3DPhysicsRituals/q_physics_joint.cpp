@@ -201,6 +201,24 @@ const QMetaObject *ritual_ZNK13QPhysicsJoint10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPhysicsJoint::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QPhysicsJoint11qt_metacastEPKc(
+    QPhysicsJoint *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPhysicsJoint::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QPhysicsJoint11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPhysicsJoint *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPhysicsJoint::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QPhysicsJoint2trEPKcS1_i(
@@ -315,6 +333,62 @@ void ritual_ZN13QPhysicsJoint15setOrientationBERK11QQuaternion(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QPhysicsJoint18updatePhysXBackendEv(QPhysicsJoint *self) {
   self->updatePhysXBackend();
+}
+
+//  physx::PxJoint *QPhysicsJoint::getPhysXBackend() const
+extern "C" Q_DECL_EXPORT
+physx::PxJoint *ritual_ZNK13QPhysicsJoint15getPhysXBackendEv(
+    const QPhysicsJoint *self) {
+  return self->getPhysXBackend();
+}
+
+//  void QPhysicsJoint::bodyAChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsJoint12bodyAChangedEv(QPhysicsJoint *self) {
+  self->bodyAChanged();
+}
+
+//  void QPhysicsJoint::bodyBChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsJoint12bodyBChangedEv(QPhysicsJoint *self) {
+  self->bodyBChanged();
+}
+
+//  void QPhysicsJoint::positionAChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsJoint16positionAChangedEv(QPhysicsJoint *self) {
+  self->positionAChanged();
+}
+
+//  void QPhysicsJoint::positionBChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsJoint16positionBChangedEv(QPhysicsJoint *self) {
+  self->positionBChanged();
+}
+
+//  void QPhysicsJoint::orientationAChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsJoint19orientationAChangedEv(QPhysicsJoint *self) {
+  self->orientationAChanged();
+}
+
+//  void QPhysicsJoint::orientationBChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsJoint19orientationBChangedEv(QPhysicsJoint *self) {
+  self->orientationBChanged();
+}
+
+//  physx::PxJoint *QPhysicsJoint::createPhysxJoint(physx::PxRigidActor
+//      *actorA, physx::PxRigidActor *actorB, const physx::PxTransform &trfA,
+//      const physx::PxTransform &trfB)
+extern "C" Q_DECL_EXPORT
+physx::PxJoint *ritual_ZN13QPhysicsJoint16createPhysxJointEPN5physx12PxRigidActorES2_RKNS0_11PxTransformES5_(
+    QPhysicsJoint *self,
+    physx::PxRigidActor *actorA,
+    physx::PxRigidActor *actorB,
+    const physx::PxTransform *trfA,
+    const physx::PxTransform *trfB) {
+  return self->createPhysxJoint(actorA, actorB, *trfA, *trfB);
 }
 
 //  void QPhysicsJoint::setJointProperties()

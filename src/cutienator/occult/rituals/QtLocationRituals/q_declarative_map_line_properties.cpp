@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK29QDeclarativeMapLineProperties10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeMapLineProperties::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QDeclarativeMapLineProperties11qt_metacastEPKc(
+    QDeclarativeMapLineProperties *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeMapLineProperties::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QDeclarativeMapLineProperties11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeMapLineProperties *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeMapLineProperties::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -69,4 +88,20 @@ void ritual_ZN29QDeclarativeMapLineProperties8setWidthEd(
     QDeclarativeMapLineProperties *self,
     qreal width) {
   self->setWidth(width);
+}
+
+//  void QDeclarativeMapLineProperties::widthChanged(qreal width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeMapLineProperties12widthChangedEd(
+    QDeclarativeMapLineProperties *self,
+    qreal width) {
+  self->widthChanged(width);
+}
+
+//  void QDeclarativeMapLineProperties::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeMapLineProperties12colorChangedERK6QColor(
+    QDeclarativeMapLineProperties *self,
+    const QColor *color) {
+  self->colorChanged(*color);
 }

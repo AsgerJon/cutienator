@@ -16,6 +16,9 @@
     "ritual_ZNK20QExtendedInformation15isCaseSensitiveEv": [
       "bool", "address"
     ],
+    "ritual_ZNK20QExtendedInformation11permissionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QExtendedInformation4typeEv": ["int", "address"],
     "ritual_ZNK20QExtendedInformation9isSymLinkEb": [
       "bool", "address", "bool"
@@ -26,6 +29,9 @@
       "address", "address", "address"
     ],
     "ritual_ZNK20QExtendedInformation4sizeEv": ["long long", "address"],
-    "ritual_ZN20QExtendedInformationD1Ev": ["nothing", "address"]
+    "ritual_ZN20QExtendedInformationD1Ev": ["nothing", "address"],
+    "ritual_drop_QExtendedInformation__QFile_Permissions": [
+      "nothing", "address"
+    ]
   }
 }

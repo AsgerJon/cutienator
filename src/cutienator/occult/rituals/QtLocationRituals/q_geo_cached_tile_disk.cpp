@@ -25,6 +25,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtlocation/src/location/maps/qgeofiletilecache.cpp, line 51, as _ZN18QGeoCachedTileDiskD1Ev
 inline QGeoCachedTileDisk::~QGeoCachedTileDisk()
 {

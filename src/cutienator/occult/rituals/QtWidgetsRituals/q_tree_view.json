@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QTreeView10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QTreeView11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QTreeView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QTreeView2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QTreeViewC1EP7QWidget": ["address", "address"],
     "ritual_ZN9QTreeViewD1Ev": ["nothing", "address"],
@@ -113,7 +117,16 @@
     ],
     "ritual_ZN9QTreeView13doItemsLayoutEv": ["nothing", "address"],
     "ritual_ZN9QTreeView5resetEv": ["nothing", "address"],
+    "ritual_ZN9QTreeView11dataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN9QTreeView9selectAllEv": ["nothing", "address"],
+    "ritual_ZN9QTreeView8expandedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView9collapsedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QTreeView10hideColumnEi": ["nothing", "address", "int"],
     "ritual_ZN9QTreeView10showColumnEi": ["nothing", "address", "int"],
     "ritual_ZN9QTreeView6expandERK11QModelIndex": [
@@ -147,6 +160,9 @@
     ],
     "ritual_ZN9QTreeView29verticalScrollbarValueChangedEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN9QTreeViewC1ER16QTreeViewPrivateP7QWidget": [
+      "address", "address", "address"
     ],
     "ritual_ZN9QTreeView16scrollContentsByEii": [
       "nothing", "address", "int", "int"

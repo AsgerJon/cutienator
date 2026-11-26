@@ -17,6 +17,11 @@
     "ritual_ZN19QGraphicsSceneEvent12setTimestampEy": [
       "nothing", "address", "unsigned long long"
     ],
+    "ritual_ZN19QGraphicsSceneEventC1ER26QGraphicsSceneEventPrivateN6QEvent4TypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsSceneEvent6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QGraphicsSceneEvent6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsSceneEvent": [
       "bool", "address", "chars", "address"
     ]

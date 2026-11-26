@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN15QDoubleVector3DC1Ev": ["address"],
+    "ritual_ZN15QDoubleVector3DC1Eddd": [
+      "address", "double", "double", "double"
+    ],
+    "ritual_ZN15QDoubleVector3DC1ERK15QDoubleVector2D": [
+      "address", "address"
+    ],
+    "ritual_ZN15QDoubleVector3DC1ERK15QDoubleVector2Dd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK15QDoubleVector3D6isNullEv": ["bool", "address"],
+    "ritual_ZNK15QDoubleVector3D1xEv": ["double", "address"],
+    "ritual_ZNK15QDoubleVector3D1yEv": ["double", "address"],
+    "ritual_ZNK15QDoubleVector3D1zEv": ["double", "address"],
+    "ritual_ZN15QDoubleVector3D4setXEd": ["nothing", "address", "double"],
+    "ritual_ZN15QDoubleVector3D4setYEd": ["nothing", "address", "double"],
+    "ritual_ZN15QDoubleVector3D4setZEd": ["nothing", "address", "double"],
+    "ritual_ZNK15QDoubleVector3D3getEi": ["double", "address", "int"],
+    "ritual_ZN15QDoubleVector3D3setEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK15QDoubleVector3D6lengthEv": ["double", "address"],
+    "ritual_ZNK15QDoubleVector3D13lengthSquaredEv": ["double", "address"],
+    "ritual_ZNK15QDoubleVector3D10normalizedEv": ["address", "address"],
+    "ritual_ZN15QDoubleVector3D9normalizeEv": ["nothing", "address"],
+    "ritual_ZN15QDoubleVector3DpLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN15QDoubleVector3DmIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN15QDoubleVector3DmLEd": ["nothing", "address", "double"],
+    "ritual_ZN15QDoubleVector3DmLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN15QDoubleVector3DdVEd": ["nothing", "address", "double"],
+    "ritual_ZN15QDoubleVector3D10dotProductERKS_S1_": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN15QDoubleVector3D12crossProductERKS_S1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QDoubleVector3D6normalERKS_S1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QDoubleVector3D6normalERKS_S1_S1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK15QDoubleVector3D15distanceToPlaneERKS_S1_S1_": [
+      "double", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK15QDoubleVector3D14distanceToLineERKS_S1_": [
+      "double", "address", "address", "address"
+    ],
+    "ritual_ZeqRK15QDoubleVector3DS1_": ["bool", "address", "address"],
+    "ritual_ZneRK15QDoubleVector3DS1_": ["bool", "address", "address"],
+    "ritual_ZplRK15QDoubleVector3DS1_": ["address", "address", "address"],
+    "ritual_ZmiRK15QDoubleVector3DS1_": ["address", "address", "address"],
+    "ritual_ZmldRK15QDoubleVector3D": ["address", "double", "address"],
+    "ritual_ZmlRK15QDoubleVector3Dd": ["address", "address", "double"],
+    "ritual_ZmlRK15QDoubleVector3DS1_": ["address", "address", "address"],
+    "ritual_ZngRK15QDoubleVector3D": ["address", "address"],
+    "ritual_ZdvRK15QDoubleVector3Dd": ["address", "address", "double"],
+    "ritual_ZNK15QDoubleVector3D10toVector2DEv": ["address", "address"],
+    "ritual_ZN15QDoubleVector3DD1Ev": ["nothing", "address"],
+    "ritual_list_make_QDoubleVector3D": ["address"],
+    "ritual_list_add_QDoubleVector3D": ["nothing", "address", "address"],
+    "ritual_list_size_QDoubleVector3D": ["long long", "address"],
+    "ritual_list_at_QDoubleVector3D": ["address", "address", "long long"],
+    "ritual_list_drop_QDoubleVector3D": ["nothing", "address"]
+  }
+}

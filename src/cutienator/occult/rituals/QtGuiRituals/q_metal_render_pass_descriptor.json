@@ -5,8 +5,23 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN26QMetalRenderPassDescriptor7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QMetalRenderPassDescriptor12isCompatibleEPK24QRhiRenderPassDescriptor": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QMetalRenderPassDescriptor33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QMetalRenderPassDescriptor16serializedFormatEv": [
+      "address", "address"
+    ],
     "ritual_take_QMetalRenderPassDescriptor": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QMetalRenderPassDescriptor__QVector_quint32": [
+      "nothing", "address"
     ]
   }
 }

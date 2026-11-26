@@ -11,6 +11,9 @@
     "ritual_ZNK10Qt3DRender6Render15RenderStateImpl4maskEv": [
       "int", "address"
     ],
+    "ritual_ZNK10Qt3DRender6Render15RenderStateImpl7equalToERKS1_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render15RenderStateImpl16updatePropertiesEPKNS_12QRenderStateE": [
       "nothing", "address", "address"
     ],

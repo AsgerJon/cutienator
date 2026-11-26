@@ -17,6 +17,7 @@ typedef void (*CuteQDragMoveEventCall1)(const void *, bool, int *);
 class CuteQDragMoveEvent : public QDragMoveEvent {
 public:
   using QDragMoveEvent::QDragMoveEvent;
+  CuteQDragMoveEvent(const QDragMoveEvent & other) : QDragMoveEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -57,6 +58,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QDragMoveEvent::QDragMoveEvent(const QDragMoveEvent &a0)
+extern "C" Q_DECL_EXPORT
+QDragMoveEvent *ritual_ZN14QDragMoveEventC1ERKS_(const QDragMoveEvent *a0) {
+  return new CuteQDragMoveEvent(*a0);
+}
+
+//  QDragMoveEvent &QDragMoveEvent::operator=(const QDragMoveEvent &other)
+extern "C" Q_DECL_EXPORT
+QDragMoveEvent *ritual_ZN14QDragMoveEventaSERKS_(
+    QDragMoveEvent *self,
+    const QDragMoveEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QDragMoveEvent *QDragMoveEvent::clone() const
 extern "C" Q_DECL_EXPORT

@@ -12,11 +12,17 @@
     "ritual_ZN26QQuickShapeGenericRenderer7setPathEiRK12QPainterPath6QFlagsIN15QQuickShapePath8PathHintEE": [
       "nothing", "address", "int", "address", "int"
     ],
+    "ritual_ZN26QQuickShapeGenericRenderer14setStrokeColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN26QQuickShapeGenericRenderer14setStrokeWidthEid": [
       "nothing", "address", "int", "double"
     ],
     "ritual_ZN26QQuickShapeGenericRenderer17setCosmeticStrokeEib": [
       "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN26QQuickShapeGenericRenderer12setFillColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_ZN26QQuickShapeGenericRenderer11setFillRuleEiN15QQuickShapePath8FillRuleE": [
       "nothing", "address", "int", "int"
@@ -27,6 +33,15 @@
     "ritual_ZN26QQuickShapeGenericRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN26QQuickShapeGenericRenderer14setStrokeStyleEiN15QQuickShapePath11StrokeStyleEdRK5QListIdE": [
+      "nothing", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZN26QQuickShapeGenericRenderer15setFillGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickShapeGenericRenderer17setStrokeGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN26QQuickShapeGenericRenderer22setFillTextureProviderEiP10QQuickItem": [
       "nothing", "address", "int", "address"
     ],
@@ -35,6 +50,12 @@
     ],
     "ritual_ZN26QQuickShapeGenericRenderer21setTriangulationScaleEid": [
       "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN26QQuickShapeGenericRenderer7endSyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QQuickShapeGenericRenderer16setAsyncCallbackEPFvPvES0_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK26QQuickShapeGenericRenderer5flagsEv": ["int", "address"],
     "ritual_ZN26QQuickShapeGenericRenderer17handleSceneChangeEP12QQuickWindow": [
@@ -45,6 +66,10 @@
     ],
     "ritual_ZN26QQuickShapeGenericRenderer11setRootNodeEP22QQuickShapeGenericNode": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickShapeGenericRenderer15triangulateFillERK12QPainterPathRKNS_8Color4ubEP5QListIN11QSGGeometry14ColoredPoint2DEEPS6_IjEPNS7_4TypeEbd": [
+      "nothing", "address", "address", "address", "address", "address",
+      "bool", "double"
     ],
     "ritual_ZN26QQuickShapeGenericRenderer20maybeUpdateAsyncItemEv": [
       "nothing", "address"
@@ -61,6 +86,9 @@
     "ritual_own_ZN26QQuickShapeGenericRenderer17setCosmeticStrokeEib": [
       "nothing", "address", "int", "bool"
     ],
+    "ritual_own_ZN26QQuickShapeGenericRenderer12setFillColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_own_ZN26QQuickShapeGenericRenderer11setFillRuleEiN15QQuickShapePath8FillRuleE": [
       "nothing", "address", "int", "int"
     ],
@@ -69,6 +97,9 @@
     ],
     "ritual_own_ZN26QQuickShapeGenericRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN26QQuickShapeGenericRenderer15setFillGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_own_ZN26QQuickShapeGenericRenderer22setFillTextureProviderEiP10QQuickItem": [
       "nothing", "address", "int", "address"

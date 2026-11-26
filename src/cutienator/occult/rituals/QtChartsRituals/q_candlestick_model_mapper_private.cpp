@@ -5,14 +5,20 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/qcandlestickmodelmapper.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qcandlestickmodelmapper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/qcandlestickset.h>
+#endif
 #include <QtCore/qlist.h>
 
 //  const QMetaObject *QCandlestickModelMapperPrivate::metaObject() const
@@ -20,6 +26,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK30QCandlestickModelMapperPrivate10metaObjectEv(
     const QCandlestickModelMapperPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QCandlestickModelMapperPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QCandlestickModelMapperPrivate11qt_metacastEPKc(
+    QCandlestickModelMapperPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCandlestickModelMapperPrivate::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QCandlestickModelMapperPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCandlestickModelMapperPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QCandlestickModelMapperPrivate::tr(const char *s, const char *c,
@@ -38,6 +63,55 @@ extern "C" Q_DECL_EXPORT
 QCandlestickModelMapperPrivate *ritual_ZN30QCandlestickModelMapperPrivateC1EP23QCandlestickModelMapper(
     QCandlestickModelMapper *q) {
   return new QCandlestickModelMapperPrivate(q);
+}
+
+//  void QCandlestickModelMapperPrivate::timestampChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QCandlestickModelMapperPrivate16timestampChangedEv(
+    QCandlestickModelMapperPrivate *self) {
+  self->timestampChanged();
+}
+
+//  void QCandlestickModelMapperPrivate::openChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QCandlestickModelMapperPrivate11openChangedEv(
+    QCandlestickModelMapperPrivate *self) {
+  self->openChanged();
+}
+
+//  void QCandlestickModelMapperPrivate::highChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QCandlestickModelMapperPrivate11highChangedEv(
+    QCandlestickModelMapperPrivate *self) {
+  self->highChanged();
+}
+
+//  void QCandlestickModelMapperPrivate::lowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QCandlestickModelMapperPrivate10lowChangedEv(
+    QCandlestickModelMapperPrivate *self) {
+  self->lowChanged();
+}
+
+//  void QCandlestickModelMapperPrivate::closeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QCandlestickModelMapperPrivate12closeChangedEv(
+    QCandlestickModelMapperPrivate *self) {
+  self->closeChanged();
+}
+
+//  void QCandlestickModelMapperPrivate::firstSetSectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QCandlestickModelMapperPrivate22firstSetSectionChangedEv(
+    QCandlestickModelMapperPrivate *self) {
+  self->firstSetSectionChanged();
+}
+
+//  void QCandlestickModelMapperPrivate::lastSetSectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QCandlestickModelMapperPrivate21lastSetSectionChangedEv(
+    QCandlestickModelMapperPrivate *self) {
+  self->lastSetSectionChanged();
 }
 
 //  void QCandlestickModelMapperPrivate::initializeCandlestickFromModel()

@@ -11,6 +11,12 @@
     "ritual_ZNK22QItemModelBarDataProxy10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QItemModelBarDataProxy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QItemModelBarDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -153,6 +159,63 @@
     ],
     "ritual_ZNK22QItemModelBarDataProxy18multiMatchBehaviorEv": [
       "int", "address"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy16itemModelChangedEPK18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy14rowRoleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy17columnRoleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy16valueRoleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy19rotationRoleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy20rowCategoriesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy23columnCategoriesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy25useModelCategoriesChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy24autoRowCategoriesChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy27autoColumnCategoriesChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy21rowRolePatternChangedERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy24columnRolePatternChangedERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy23valueRolePatternChangedERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy26rotationRolePatternChangedERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy21rowRoleReplaceChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy24columnRoleReplaceChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy23valueRoleReplaceChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy26rotationRoleReplaceChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QItemModelBarDataProxy25multiMatchBehaviorChangedENS_18MultiMatchBehaviorE": [
+      "nothing", "address", "int"
     ],
     "ritual_take_QItemModelBarDataProxy": [
       "bool", "address", "chars", "address"

@@ -216,6 +216,25 @@ const QMetaObject *ritual_ZNK18QPlaceContentReply10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlaceContentReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QPlaceContentReply11qt_metacastEPKc(
+    QPlaceContentReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlaceContentReply::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QPlaceContentReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlaceContentReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlaceContentReply::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QPlaceContentReply2trEPKcS1_i(
@@ -321,6 +340,20 @@ void ritual_ZN18QPlaceContentReply18setNextPageRequestERK20QPlaceContentRequest(
     QPlaceContentReply *self,
     const QPlaceContentRequest *next) {
   self->setNextPageRequest(*next);
+}
+
+//  QPlaceContentReplyPrivate *QPlaceContentReply::d_func()
+extern "C" Q_DECL_EXPORT
+QPlaceContentReplyPrivate *ritual_ZN18QPlaceContentReply6d_funcEv(
+    QPlaceContentReply *self) {
+  return self->d_func();
+}
+
+//  const QPlaceContentReplyPrivate *QPlaceContentReply::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPlaceContentReplyPrivate *ritual_ZNK18QPlaceContentReply6d_funcEv(
+    const QPlaceContentReply *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQPlaceContentReply, for the function

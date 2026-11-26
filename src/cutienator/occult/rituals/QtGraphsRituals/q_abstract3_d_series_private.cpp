@@ -3,7 +3,7 @@
 //  Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qabstract3dseries.h>
@@ -54,6 +54,9 @@ inline void QAbstract3DSeriesPrivate::setGraph(QQuickGraphsItem *graph)
     connectGraphAndProxy(graph);
     markItemLabelDirty();
 }
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 895, as _ZN24QAbstract3DSeriesPrivateD2Ev
+inline QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate() {}
 
 //  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 897, as _ZNK24QAbstract3DSeriesPrivate9dataProxyEv
 inline QAbstractDataProxy *QAbstract3DSeriesPrivate::dataProxy() const
@@ -169,6 +172,45 @@ inline void QAbstract3DSeriesPrivate::setName(const QString &name)
     m_name = name;
     markItemLabelDirty();
     m_changeTracker.nameChanged = true;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 1061, as _ZN24QAbstract3DSeriesPrivate12resetToThemeERK12QGraphsThemexb
+inline void QAbstract3DSeriesPrivate::resetToTheme(const QGraphsTheme &theme, qsizetype seriesIndex, bool force)
+{
+    Q_Q(QAbstract3DSeries);
+    qsizetype themeIndex = seriesIndex;
+    if (force || !m_themeTracker.colorStyleOverride) {
+        q->setColorStyle(theme.colorStyle());
+        m_themeTracker.colorStyleOverride = false;
+    }
+    if (theme.seriesColors().size() && (force || !m_themeTracker.baseColorOverride)) {
+        if (theme.seriesColors().size() <= seriesIndex)
+            themeIndex = seriesIndex % theme.seriesColors().size();
+        q->setBaseColor(theme.seriesColors().at(themeIndex));
+        m_themeTracker.baseColorOverride = false;
+    }
+    if (theme.seriesGradients().size() && (force || !m_themeTracker.baseGradientOverride)) {
+        if (theme.seriesGradients().size() <= seriesIndex)
+            themeIndex = seriesIndex % theme.seriesGradients().size();
+        q->setBaseGradient(theme.seriesGradients().at(themeIndex));
+        m_themeTracker.baseGradientOverride = false;
+    }
+    if (force || !m_themeTracker.singleHighlightColorOverride) {
+        q->setSingleHighlightColor(theme.singleHighlightColor());
+        m_themeTracker.singleHighlightColorOverride = false;
+    }
+    if (force || !m_themeTracker.singleHighlightGradientOverride) {
+        q->setSingleHighlightGradient(theme.singleHighlightGradient());
+        m_themeTracker.singleHighlightGradientOverride = false;
+    }
+    if (force || !m_themeTracker.multiHighlightColorOverride) {
+        q->setMultiHighlightColor(theme.multiHighlightColor());
+        m_themeTracker.multiHighlightColorOverride = false;
+    }
+    if (force || !m_themeTracker.multiHighlightGradientOverride) {
+        q->setMultiHighlightGradient(theme.multiHighlightGradient());
+        m_themeTracker.multiHighlightGradientOverride = false;
+    }
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 1099, as _ZN24QAbstract3DSeriesPrivate9itemLabelEv
@@ -312,6 +354,13 @@ const QAbstract3DSeries *ritual_ZNK24QAbstract3DSeriesPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QAbstract3DSeriesPrivateD1Ev(
+    QAbstract3DSeriesPrivate *self) {
+  delete self;
+}
+
 //  QAbstractDataProxy *QAbstract3DSeriesPrivate::dataProxy() const
 extern "C" Q_DECL_EXPORT
 QAbstractDataProxy *ritual_ZNK24QAbstract3DSeriesPrivate9dataProxyEv(
@@ -442,6 +491,17 @@ void ritual_ZN24QAbstract3DSeriesPrivate7setNameERK7QString(
   self->setName(*name);
 }
 
+//  void QAbstract3DSeriesPrivate::resetToTheme(const QGraphsTheme &theme,
+//      qsizetype seriesIndex, bool force)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QAbstract3DSeriesPrivate12resetToThemeERK12QGraphsThemexb(
+    QAbstract3DSeriesPrivate *self,
+    const QGraphsTheme *theme,
+    qsizetype seriesIndex,
+    bool force) {
+  self->resetToTheme(*theme, seriesIndex, force);
+}
+
 //  QString QAbstract3DSeriesPrivate::itemLabel()
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QAbstract3DSeriesPrivate9itemLabelEv(
@@ -514,4 +574,4 @@ void ritual_own_ZN24QAbstract3DSeriesPrivate8setGraphEP16QQuickGraphsItem(
   self->QAbstract3DSeriesPrivate::setGraph(graph);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

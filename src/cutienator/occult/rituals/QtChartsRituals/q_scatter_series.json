@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QScatterSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QScatterSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QScatterSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QScatterSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,6 +38,18 @@
     ],
     "ritual_ZNK14QScatterSeries10markerSizeEv": ["double", "address"],
     "ritual_ZN14QScatterSeries13setMarkerSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QScatterSeries12colorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QScatterSeries18borderColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QScatterSeries18markerShapeChangedENS_11MarkerShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QScatterSeries17markerSizeChangedEd": [
       "nothing", "address", "double"
     ],
     "ritual_ZN14QScatterSeries6d_funcEv": ["address", "address"],

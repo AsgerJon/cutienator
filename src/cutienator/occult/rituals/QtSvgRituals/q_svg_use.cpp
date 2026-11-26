@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvggraphics_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -66,6 +67,36 @@ inline void QSvgUse::drawCommand(QPainter *p, QSvgExtraStates &states)
     if (!m_start.isNull()) {
         p->translate(-m_start);
     }
+}
+
+//  from ../qtsvg/src/svg/qsvggraphics.cpp, line 598, as _ZN7QSvgUseD2Ev
+inline QSvgUse::~QSvgUse()
+    = default;
+
+//  from ../qtsvg/src/svg/qsvggraphics.cpp, line 699, as _ZNK7QSvgUse14internalBoundsEP8QPainterR15QSvgExtraStates
+inline QRectF QSvgUse::internalBounds(QPainter *p, QSvgExtraStates &states) const
+{
+    QRectF bounds;
+    if (Q_LIKELY(m_link && !isDescendantOf(m_link) && !m_recursing)) {
+        QScopedValueRollback<bool> guard(m_recursing, true);
+        p->translate(m_start);
+        bounds = m_link->bounds(p, states);
+        p->translate(-m_start);
+    }
+    return bounds;
+}
+
+//  from ../qtsvg/src/svg/qsvggraphics.cpp, line 711, as _ZNK7QSvgUse23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates
+inline QRectF QSvgUse::decoratedInternalBounds(QPainter *p, QSvgExtraStates &states) const
+{
+    QRectF bounds;
+    if (Q_LIKELY(m_link && !isDescendantOf(m_link) && !m_recursing)) {
+        QScopedValueRollback<bool> guard(m_recursing, true);
+        p->translate(m_start);
+        bounds = m_link->decoratedBounds(p, states);
+        p->translate(-m_start);
+    }
+    return bounds;
 }
 
 //  from ../qtsvg/src/svg/qsvggraphics.cpp, line 686, as _ZNK7QSvgUse4typeEv
@@ -139,10 +170,45 @@ public:
   }
 };
 
+//  QSvgUse::~QSvgUse()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSvgUseD1Ev(QSvgUse *self) {
+  delete self;
+}
+
+//  void QSvgUse::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSvgUse11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgUse *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
 //  Type QSvgUse::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK7QSvgUse4typeEv(const QSvgUse *self) {
   return self->type();
+}
+
+//  QRectF QSvgUse::internalBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK7QSvgUse14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgUse *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
+}
+
+//  QRectF QSvgUse::decoratedInternalBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK7QSvgUse23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgUse *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedInternalBounds(p, *states));
 }
 
 //  bool QSvgUse::isResolved() const

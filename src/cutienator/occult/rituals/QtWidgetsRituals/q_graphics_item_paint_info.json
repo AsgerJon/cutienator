@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QGraphicsItemPaintInfoC1EPK10QTransformS2_S2_P7QRegionP7QWidgetP24QStyleOptionGraphicsItemP8QPainterdbb": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "double", "bool", "bool"
+    ],
     "ritual_ZN22QGraphicsItemPaintInfoD1Ev": ["nothing", "address"]
   }
 }

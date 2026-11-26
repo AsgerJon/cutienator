@@ -1,10 +1,16 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtNetwork/qformdatabuilder.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "QtNetwork/qformdatabuilder.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
+    "ritual_ZN20QFormDataPartBuilderC1EP23QFormDataBuilderPrivatex": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN20QFormDataPartBuilder4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QFormDataPartBuilderC1Ev": ["address"],
     "ritual_ZN20QFormDataPartBuilder7setBodyE14QByteArrayView14QAnyStringViewS1_": [
       "address", "address", "address", "text", "text"
@@ -18,6 +24,9 @@
     "ritual_ZN20QFormDataPartBuilder13setBodyHelperERK10QByteArray14QAnyStringViewS3_": [
       "address", "address", "address", "text", "text"
     ],
-    "ritual_ZN20QFormDataPartBuilderD1Ev": ["nothing", "address"]
+    "ritual_ZN20QFormDataPartBuilderD1Ev": ["nothing", "address"],
+    "ritual_ZN20QFormDataPartBuilder7setBodyIvEES_RK10QByteArray14QAnyStringViewS4_": [
+      "address", "address", "address", "text", "text"
+    ]
   }
 }

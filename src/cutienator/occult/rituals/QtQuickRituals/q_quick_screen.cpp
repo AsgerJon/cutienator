@@ -184,6 +184,24 @@ const QMetaObject *ritual_ZNK12QQuickScreen10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScreen::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickScreen11qt_metacastEPKc(
+    QQuickScreen *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScreen::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickScreen11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScreen *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScreen::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickScreen2trEPKcS1_i(

@@ -21,6 +21,9 @@
     "ritual_ZN17QSSGLoadedTexture19loadCompressedImageERK7QString": [
       "address", "text"
     ],
+    "ritual_ZN17QSSGLoadedTexture12loadHdrImageERK14QSharedPointerI9QIODeviceERK23QSSGRenderTextureFormat": [
+      "address", "address", "address"
+    ],
     "ritual_ZN17QSSGLoadedTexture15loadTextureDataEP21QSSGRenderTextureData": [
       "address", "address"
     ],

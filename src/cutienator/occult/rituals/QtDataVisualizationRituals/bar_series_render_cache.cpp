@@ -27,17 +27,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 172, as _ZN17SeriesRenderCache7cleanupEP13TextureHelper
-inline void SeriesRenderCache::cleanup(TextureHelper *texHelper)
-{
-    ObjectHelper::releaseObjectHelper(m_renderer, m_object);
-    if (QOpenGLContext::currentContext()) {
-        texHelper->deleteTexture(&m_baseUniformTexture);
-        texHelper->deleteTexture(&m_baseGradientTexture);
-        texHelper->deleteTexture(&m_singleHighlightGradientTexture);
-        texHelper->deleteTexture(&m_multiHighlightGradientTexture);
-    }
-}
+//  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 16, as local:objecthelper.cpp:ObjectHelperRef
+struct ObjectHelperRef {
+    int refCount;
+    ObjectHelper *obj;
+};
 
 //  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 13, as _ZN17SeriesRenderCacheC2EP17QAbstract3DSeriesP18Abstract3DRenderer
 inline SeriesRenderCache::SeriesRenderCache(QAbstract3DSeries *series, Abstract3DRenderer *renderer)
@@ -57,9 +51,30 @@ inline SeriesRenderCache::SeriesRenderCache(QAbstract3DSeries *series, Abstract3
 {
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/barseriesrendercache.cpp, line 19, as _ZN20BarSeriesRenderCache7cleanupEP13TextureHelper
+inline void BarSeriesRenderCache::cleanup(TextureHelper *texHelper)
+{
+    m_renderArray.clear();
+    m_sliceArray.clear();
+
+    SeriesRenderCache::cleanup(texHelper);
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/barseriesrendercache.cpp, line 15, as _ZN20BarSeriesRenderCacheD2Ev
 inline BarSeriesRenderCache::~BarSeriesRenderCache()
 {
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 172, as _ZN17SeriesRenderCache7cleanupEP13TextureHelper
+inline void SeriesRenderCache::cleanup(TextureHelper *texHelper)
+{
+    ObjectHelper::releaseObjectHelper(m_renderer, m_object);
+    if (QOpenGLContext::currentContext()) {
+        texHelper->deleteTexture(&m_baseUniformTexture);
+        texHelper->deleteTexture(&m_baseGradientTexture);
+        texHelper->deleteTexture(&m_singleHighlightGradientTexture);
+        texHelper->deleteTexture(&m_multiHighlightGradientTexture);
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 325, as _ZN13TextureHelper13deleteTextureEPj
@@ -71,15 +86,6 @@ inline void TextureHelper::deleteTexture(GLuint *texture)
         *texture = 0;
     }
 }
-
-//  from ../qtdatavis3d/src/datavisualization/engine/barseriesrendercache.cpp, line 19, as _ZN20BarSeriesRenderCache7cleanupEP13TextureHelper
-inline void BarSeriesRenderCache::cleanup(TextureHelper *texHelper)
-{
-    m_renderArray.clear();
-    m_sliceArray.clear();
-
-    SeriesRenderCache::cleanup(texHelper);
-}
 //  -----------------------------------------------------------------------
 
 //  A BarSeriesRenderCache that Python can take functions over in. Every BarSeriesRenderCache
@@ -90,7 +96,7 @@ typedef void (*CuteBarSeriesRenderCacheCall1)(const void *, bool, int *);
 class CuteBarSeriesRenderCache : public BarSeriesRenderCache {
 public:
   using BarSeriesRenderCache::BarSeriesRenderCache;
-  CuteBarSeriesRenderCache(const BarSeriesRenderCache &other) : BarSeriesRenderCache(other) {}
+  CuteBarSeriesRenderCache(const BarSeriesRenderCache & other) : BarSeriesRenderCache(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -142,11 +148,25 @@ void ritual_ZN20BarSeriesRenderCache7cleanupEP13TextureHelper(
   self->cleanup(texHelper);
 }
 
+//  BarRenderItemArray &BarSeriesRenderCache::renderArray()
+extern "C" Q_DECL_EXPORT
+BarRenderItemArray *ritual_ZN20BarSeriesRenderCache11renderArrayEv(
+    BarSeriesRenderCache *self) {
+  return &(self->renderArray());
+}
+
 //  QBar3DSeries *BarSeriesRenderCache::series() const
 extern "C" Q_DECL_EXPORT
 QBar3DSeries *ritual_ZNK20BarSeriesRenderCache6seriesEv(
     const BarSeriesRenderCache *self) {
   return self->series();
+}
+
+//  QList<BarRenderSliceItem> &BarSeriesRenderCache::sliceArray()
+extern "C" Q_DECL_EXPORT
+QList<BarRenderSliceItem> *ritual_ZN20BarSeriesRenderCache10sliceArrayEv(
+    BarSeriesRenderCache *self) {
+  return &(self->sliceArray());
 }
 
 //  void BarSeriesRenderCache::setVisualIndex(int index)

@@ -21,6 +21,9 @@
     "ritual_ZN20QSGBasicGeometryNodeC1EN7QSGNode8NodeTypeE": [
       "address", "int"
     ],
+    "ritual_ZN20QSGBasicGeometryNodeC1ER27QSGBasicGeometryNodePrivateN7QSGNode8NodeTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_take_QSGBasicGeometryNode": [
       "bool", "address", "chars", "address"
     ]

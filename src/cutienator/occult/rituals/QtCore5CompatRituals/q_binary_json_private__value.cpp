@@ -7,6 +7,144 @@
 #include <QtCore5Compat/6.12.0/QtCore5Compat/private/qbinaryjson_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qjsonvalue.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore5Compat/private/qbinaryjson_p.h>
+#include <QtCore/qjsonobject.h>
+#include <QtCore/qjsonarray.h>
+#include <QtCore/qscopeguard.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore5Compat/private/qbinaryjsonarray_p.h>
+#include <QtCore5Compat/private/qbinaryjsonobject_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt5compat/src/core5/serialization/qbinaryjson.cpp, line 527, as local:qbinaryjson.cpp:isValidValueOffset
+namespace QBinaryJsonPrivate {
+inline bool isValidValueOffset(uint offset, uint tableOffset)
+{
+    return offset >= sizeof(Base)
+        && isAlignedOffset(offset)
+        && offset + sizeof(uint) <= tableOffset;
+}
+}  // namespace QBinaryJsonPrivate
+
+//  from ../qt5compat/src/core5/serialization/qbinaryjson.cpp, line 477, as _ZNK18QBinaryJsonPrivate5Value11usedStorageEPKNS_4BaseE
+namespace QBinaryJsonPrivate {
+inline uint Value::usedStorage(const Base *b) const
+{
+    uint s = 0;
+    switch (type()) {
+    case QJsonValue::Double:
+        if (!isLatinOrIntValue())
+            s = sizeof(double);
+        break;
+    case QJsonValue::String: {
+        const char *d = data(b);
+        s = isLatinOrIntValue()
+                ? (sizeof(ushort)
+                   + qFromLittleEndian(*reinterpret_cast<const ushort *>(d)))
+                : (sizeof(int)
+                   + sizeof(ushort) * qFromLittleEndian(*reinterpret_cast<const int *>(d)));
+        break;
+    }
+    case QJsonValue::Array:
+    case QJsonValue::Object:
+        s = base(b)->size;
+        break;
+    case QJsonValue::Null:
+    case QJsonValue::Bool:
+    default:
+        break;
+    }
+    return alignedSize(s);
+}
+}  // namespace QBinaryJsonPrivate
+
+//  from ../qt5compat/src/core5/serialization/qbinaryjson.cpp, line 506, as _ZNK18QBinaryJsonPrivate5Value17toScalarJsonValueEPKNS_4BaseE
+namespace QBinaryJsonPrivate {
+inline QJsonValue Value::toScalarJsonValue(const Base *b) const
+{
+    Q_ASSERT(type() != QJsonValue::Array && type() != QJsonValue::Object);
+
+    switch (type()) {
+    case QJsonValue::Null:
+        return QJsonValue(QJsonValue::Null);
+    case QJsonValue::Bool:
+        return QJsonValue(toBoolean());
+    case QJsonValue::Double:
+        return QJsonValue(toDouble(b));
+    case QJsonValue::String:
+        return QJsonValue(toString(b));
+    default:
+        // This handled Undefined, and the out-of-range type codes 6 and 7,
+        // which fit the three bit type field.
+        // We should handle them gracefully, rather than trigger Q_UNREACHABLE()
+        return QJsonValue(QJsonValue::Undefined);
+    }
+}
+}  // namespace QBinaryJsonPrivate
+
+//  from ../qt5compat/src/core5/serialization/qbinaryjson.cpp, line 563, as _ZN18QBinaryJsonPrivate5Value15requiredStorageERK16QBinaryJsonValuePb
+namespace QBinaryJsonPrivate {
+inline uint Value::requiredStorage(const QBinaryJsonValue &v, bool *compressed)
+{
+    *compressed = false;
+    switch (v.type()) {
+    case QJsonValue::Double:
+        if (QBinaryJsonPrivate::compressedNumber(v.toDouble()) != INT_MAX) {
+            *compressed = true;
+            return 0;
+        }
+        return sizeof(double);
+    case QJsonValue::String: {
+        QString s = v.toString();
+        *compressed = QBinaryJsonPrivate::useCompressed(s);
+        return QBinaryJsonPrivate::qStringSize(s, *compressed);
+    }
+    case QJsonValue::Array:
+    case QJsonValue::Object:
+        return v.base ? uint(v.base->size) : sizeof(QBinaryJsonPrivate::Base);
+    case QJsonValue::Undefined:
+    case QJsonValue::Null:
+    case QJsonValue::Bool:
+        break;
+    }
+    return 0;
+}
+}  // namespace QBinaryJsonPrivate
+
+//  from ../qt5compat/src/core5/serialization/qbinaryjson.cpp, line 589, as _ZN18QBinaryJsonPrivate5Value12valueToStoreERK16QBinaryJsonValuej
+namespace QBinaryJsonPrivate {
+inline uint Value::valueToStore(const QBinaryJsonValue &v, uint offset)
+{
+    switch (v.type()) {
+    case QJsonValue::Undefined:
+    case QJsonValue::Null:
+        break;
+    case QJsonValue::Bool:
+        return v.toBool();
+    case QJsonValue::Double: {
+        int c = QBinaryJsonPrivate::compressedNumber(v.toDouble());
+        if (c != INT_MAX)
+            return c;
+    }
+        Q_FALLTHROUGH();
+    case QJsonValue::String:
+    case QJsonValue::Array:
+    case QJsonValue::Object:
+        return offset;
+    }
+    return 0;
+}
+}  // namespace QBinaryJsonPrivate
+//  -----------------------------------------------------------------------
 
 //  int QBinaryJsonPrivate::Value::intValue() const
 extern "C" Q_DECL_EXPORT
@@ -21,6 +159,14 @@ const char *ritual_ZNK18QBinaryJsonPrivate5Value4dataEPKNS_4BaseE(
     const QBinaryJsonPrivate::Value *self,
     const QBinaryJsonPrivate::Base *b) {
   return self->data(b);
+}
+
+//  uint QBinaryJsonPrivate::Value::usedStorage(const Base *b) const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK18QBinaryJsonPrivate5Value11usedStorageEPKNS_4BaseE(
+    const QBinaryJsonPrivate::Value *self,
+    const QBinaryJsonPrivate::Base *b) {
+  return self->usedStorage(b);
 }
 
 //  bool QBinaryJsonPrivate::Value::toBoolean() const
@@ -69,6 +215,33 @@ const QBinaryJsonPrivate::Base *ritual_ZNK18QBinaryJsonPrivate5Value4baseEPKNS_4
     const QBinaryJsonPrivate::Value *self,
     const QBinaryJsonPrivate::Base *b) {
   return self->base(b);
+}
+
+//  QJsonValue QBinaryJsonPrivate::Value::toScalarJsonValue(const Base *b)
+//      const
+extern "C" Q_DECL_EXPORT
+QJsonValue *ritual_ZNK18QBinaryJsonPrivate5Value17toScalarJsonValueEPKNS_4BaseE(
+    const QBinaryJsonPrivate::Value *self,
+    const QBinaryJsonPrivate::Base *b) {
+  return new QJsonValue(self->toScalarJsonValue(b));
+}
+
+//  uint QBinaryJsonPrivate::Value::requiredStorage(const QBinaryJsonValue
+//      &v, bool *compressed)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN18QBinaryJsonPrivate5Value15requiredStorageERK16QBinaryJsonValuePb(
+    const QBinaryJsonValue *v,
+    bool *compressed) {
+  return QBinaryJsonPrivate::Value::requiredStorage(*v, compressed);
+}
+
+//  uint QBinaryJsonPrivate::Value::valueToStore(const QBinaryJsonValue &v,
+//      uint offset)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN18QBinaryJsonPrivate5Value12valueToStoreERK16QBinaryJsonValuej(
+    const QBinaryJsonValue *v,
+    uint offset) {
+  return QBinaryJsonPrivate::Value::valueToStore(*v, offset);
 }
 
 //  void QBinaryJsonPrivate::Value::setIsLatinKey(bool isLatinKey)

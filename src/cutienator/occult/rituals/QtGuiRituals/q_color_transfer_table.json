@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN19QColorTransferTableC1Ev": ["address"],
+    "ritual_ZN19QColorTransferTableC1EjRK5QListIhENS_4TypeE": [
+      "address", "unsigned int", "address", "unsigned char"
+    ],
+    "ritual_ZN19QColorTransferTableC1EjRK5QListItENS_4TypeE": [
+      "address", "unsigned int", "address", "unsigned char"
+    ],
     "ritual_ZNK19QColorTransferTable7isEmptyEv": ["bool", "address"],
     "ritual_ZNK19QColorTransferTable10isIdentityEv": ["bool", "address"],
     "ritual_ZNK19QColorTransferTable13checkValidityEv": ["bool", "address"],

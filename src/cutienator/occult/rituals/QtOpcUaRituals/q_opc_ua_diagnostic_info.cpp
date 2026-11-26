@@ -24,6 +24,39 @@ QOpcUaDiagnosticInfo *ritual_ZN20QOpcUaDiagnosticInfoC1ERKS_(
   return new QOpcUaDiagnosticInfo(*other);
 }
 
+//  QOpcUaDiagnosticInfo::QOpcUaDiagnosticInfo(QOpcUaDiagnosticInfo &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaDiagnosticInfo *ritual_ZN20QOpcUaDiagnosticInfoC1EOS_(
+    QOpcUaDiagnosticInfo *other) {
+  return new QOpcUaDiagnosticInfo(std::move(*other));
+}
+
+//  QOpcUaDiagnosticInfo &QOpcUaDiagnosticInfo::operator=(const
+//      QOpcUaDiagnosticInfo &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaDiagnosticInfo *ritual_ZN20QOpcUaDiagnosticInfoaSERKS_(
+    QOpcUaDiagnosticInfo *self,
+    const QOpcUaDiagnosticInfo *rhs) {
+  return &(self->operator=(*rhs));
+}
+
+//  void QOpcUaDiagnosticInfo::swap(QOpcUaDiagnosticInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpcUaDiagnosticInfo4swapERS_(
+    QOpcUaDiagnosticInfo *self,
+    QOpcUaDiagnosticInfo *other) {
+  self->swap(*other);
+}
+
+//  QOpcUaDiagnosticInfo
+//      &QOpcUaDiagnosticInfo::operator=(QOpcUaDiagnosticInfo &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaDiagnosticInfo *ritual_ZN20QOpcUaDiagnosticInfoaSEOS_(
+    QOpcUaDiagnosticInfo *self,
+    QOpcUaDiagnosticInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QVariant QOpcUaDiagnosticInfo::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK20QOpcUaDiagnosticInfocv8QVariantEv(
@@ -220,6 +253,13 @@ extern "C" Q_DECL_EXPORT
 QOpcUaDiagnosticInfo *ritual_ZNK20QOpcUaDiagnosticInfo19innerDiagnosticInfoEv(
     const QOpcUaDiagnosticInfo *self) {
   return new QOpcUaDiagnosticInfo(self->innerDiagnosticInfo());
+}
+
+//  QOpcUaDiagnosticInfo &QOpcUaDiagnosticInfo::innerDiagnosticInfoRef()
+extern "C" Q_DECL_EXPORT
+QOpcUaDiagnosticInfo *ritual_ZN20QOpcUaDiagnosticInfo22innerDiagnosticInfoRefEv(
+    QOpcUaDiagnosticInfo *self) {
+  return &(self->innerDiagnosticInfoRef());
 }
 
 //  void QOpcUaDiagnosticInfo::setInnerDiagnosticInfo(const

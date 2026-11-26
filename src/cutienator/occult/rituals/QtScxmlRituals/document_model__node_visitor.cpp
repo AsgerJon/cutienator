@@ -39,7 +39,7 @@ typedef void (*CuteDocumentModel_NodeVisitorCall24)(const void *, DocumentModel:
 class CuteDocumentModel_NodeVisitor : public DocumentModel::NodeVisitor {
 public:
   using DocumentModel::NodeVisitor::NodeVisitor;
-  CuteDocumentModel_NodeVisitor(const DocumentModel::NodeVisitor &other) : DocumentModel::NodeVisitor(other) {}
+  CuteDocumentModel_NodeVisitor(const DocumentModel::NodeVisitor & other) : DocumentModel::NodeVisitor(other) {}
   void *taken[25] = {};
 
   bool take(const char *key, void *call) {
@@ -627,6 +627,49 @@ void ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_5ScxmlE(
     DocumentModel::NodeVisitor *self,
     DocumentModel::Scxml *a0) {
   self->endVisit(a0);
+}
+
+//  void DocumentModel::NodeVisitor::visit(InstructionSequence *sequence)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13DocumentModel11NodeVisitor5visitEP5QListIPNS_11InstructionEE(
+    DocumentModel::NodeVisitor *self,
+    DocumentModel::InstructionSequence *sequence) {
+  self->visit(sequence);
+}
+
+//  void DocumentModel::NodeVisitor::visit(const QList<DataElement *>
+//      &dataElements)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13DocumentModel11NodeVisitor5visitERK5QListIPNS_11DataElementEE(
+    DocumentModel::NodeVisitor *self,
+    const QList<DocumentModel::DataElement *> *dataElements) {
+  self->visit(*dataElements);
+}
+
+//  void DocumentModel::NodeVisitor::visit(const QList<StateOrTransition *>
+//      &children)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13DocumentModel11NodeVisitor5visitERK5QListIPNS_17StateOrTransitionEE(
+    DocumentModel::NodeVisitor *self,
+    const QList<DocumentModel::StateOrTransition *> *children) {
+  self->visit(*children);
+}
+
+//  void DocumentModel::NodeVisitor::visit(const InstructionSequences
+//      &sequences)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13DocumentModel11NodeVisitor5visitERK5QListIPS1_IPNS_11InstructionEEE(
+    DocumentModel::NodeVisitor *self,
+    const DocumentModel::InstructionSequences *sequences) {
+  self->visit(*sequences);
+}
+
+//  void DocumentModel::NodeVisitor::visit(const QList<Param *> &params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13DocumentModel11NodeVisitor5visitERK5QListIPNS_5ParamEE(
+    DocumentModel::NodeVisitor *self,
+    const QList<DocumentModel::Param *> *params) {
+  self->visit(*params);
 }
 
 //  a Python function taken by a CuteDocumentModel_NodeVisitor, for the

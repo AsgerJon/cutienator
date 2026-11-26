@@ -10,6 +10,15 @@
     ],
     "ritual_ZNK9Qt3DLogic19QLogicAspectPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN9Qt3DLogic19QLogicAspectPrivate23onEngineAboutToShutdownEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9Qt3DLogic19QLogicAspectPrivate20registerBackendTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN9Qt3DLogic19QLogicAspectPrivate23onEngineAboutToShutdownEv": [
+      "nothing", "address"
     ]
   }
 }

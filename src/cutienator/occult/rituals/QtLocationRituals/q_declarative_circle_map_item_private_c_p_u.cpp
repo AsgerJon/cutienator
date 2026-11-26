@@ -171,6 +171,14 @@ public:
   }
 };
 
+//  QDeclarativeCircleMapItemPrivateCPU::QDeclarativeCircleMapItemPrivateCPU(
+//      QDeclarativeCircleMapItem &circle)
+extern "C" Q_DECL_EXPORT
+QDeclarativeCircleMapItemPrivateCPU *ritual_ZN35QDeclarativeCircleMapItemPrivateCPUC1ER25QDeclarativeCircleMapItem(
+    QDeclarativeCircleMapItem *circle) {
+  return new CuteQDeclarativeCircleMapItemPrivateCPU(*circle);
+}
+
 //  QDeclarativeCircleMapItemPrivateCPU::~QDeclarativeCircleMapItemPrivateCPU
 //      ()
 extern "C" Q_DECL_EXPORT

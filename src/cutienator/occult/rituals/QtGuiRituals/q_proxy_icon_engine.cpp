@@ -70,6 +70,18 @@ inline QIconEngine *QProxyIconEngine::clone() const
     return proxiedEngine()->clone();
 }
 
+//  from src/gui/image/qiconengine.cpp, line 346, as _ZN16QProxyIconEngine4readER11QDataStream
+inline bool QProxyIconEngine::read(QDataStream &in)
+{
+    return proxiedEngine()->read(in);
+}
+
+//  from src/gui/image/qiconengine.cpp, line 351, as _ZNK16QProxyIconEngine5writeER11QDataStream
+inline bool QProxyIconEngine::write(QDataStream &out) const
+{
+    return proxiedEngine()->write(out);
+}
+
 //  from src/gui/image/qiconengine.cpp, line 356, as _ZN16QProxyIconEngine14availableSizesEN5QIcon4ModeENS0_5StateE
 inline QList<QSize> QProxyIconEngine::availableSizes(QIcon::Mode mode, QIcon::State state)
 {
@@ -92,6 +104,12 @@ inline bool QProxyIconEngine::isNull()
 inline QPixmap QProxyIconEngine::scaledPixmap(const QSize &size, QIcon::Mode mode, QIcon::State state, qreal scale)
 {
     return proxiedEngine()->scaledPixmap(size, mode, state, scale);
+}
+
+//  from src/gui/image/qiconengine.cpp, line 376, as _ZN16QProxyIconEngine12virtual_hookEiPv
+inline void QProxyIconEngine::virtual_hook(int id, void *data)
+{
+    proxiedEngine()->virtual_hook(id, data);
 }
 //  -----------------------------------------------------------------------
 
@@ -129,12 +147,15 @@ typedef bool (*CuteQProxyIconEngineCall8)(const void *, int *);
 typedef const QPixmap * (*CuteQProxyIconEngineCall9)(const void *, const QSize *, int, int, qreal, int *);
 #endif  // !defined(QT_NO_ICON)
 #if !defined(QT_NO_ICON)
-typedef void * (*CuteQProxyIconEngineCall10)(const void *, int *);
+typedef void (*CuteQProxyIconEngineCall10)(const void *, int, void *, int *);
+#endif  // !defined(QT_NO_ICON)
+#if !defined(QT_NO_ICON)
+typedef void * (*CuteQProxyIconEngineCall11)(const void *, int *);
 #endif  // !defined(QT_NO_ICON)
 class CuteQProxyIconEngine : public QProxyIconEngine {
 public:
   using QProxyIconEngine::QProxyIconEngine;
-  void *taken[11] = {};
+  void *taken[12] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_ICON)
@@ -198,8 +219,14 @@ public:
     }
 #endif  // !defined(QT_NO_ICON)
 #if !defined(QT_NO_ICON)
-    if (!std::strcmp(key, "_ZNK16QProxyIconEngine13proxiedEngineEv")) {
+    if (!std::strcmp(key, "_ZN11QIconEngine12virtual_hookEiPv")) {
       taken[10] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_ICON)
+#if !defined(QT_NO_ICON)
+    if (!std::strcmp(key, "_ZNK16QProxyIconEngine13proxiedEngineEv")) {
+      taken[11] = call;
       return true;
     }
 #endif  // !defined(QT_NO_ICON)
@@ -372,11 +399,24 @@ public:
 #endif  // !defined(QT_NO_ICON)
 
 #if !defined(QT_NO_ICON)
-  //  QIconEngine *QProxyIconEngine::proxiedEngine() const
-  QIconEngine *proxiedEngine() const override {
+  //  void QProxyIconEngine::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
     if (taken[10]) {
       int handled = 0;
       CuteQProxyIconEngineCall10 call = reinterpret_cast<CuteQProxyIconEngineCall10>(taken[10]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QProxyIconEngine::virtual_hook(id, data);
+  }
+#endif  // !defined(QT_NO_ICON)
+
+#if !defined(QT_NO_ICON)
+  //  QIconEngine *QProxyIconEngine::proxiedEngine() const
+  QIconEngine *proxiedEngine() const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQProxyIconEngineCall11 call = reinterpret_cast<CuteQProxyIconEngineCall11>(taken[11]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QIconEngine *>(given);
     }
@@ -455,6 +495,22 @@ QIconEngine *ritual_ZNK16QProxyIconEngine5cloneEv(
   return self->clone();
 }
 
+//  bool QProxyIconEngine::read(QDataStream &in)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QProxyIconEngine4readER11QDataStream(
+    QProxyIconEngine *self,
+    QDataStream *in) {
+  return self->read(*in);
+}
+
+//  bool QProxyIconEngine::write(QDataStream &out) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QProxyIconEngine5writeER11QDataStream(
+    const QProxyIconEngine *self,
+    QDataStream *out) {
+  return self->write(*out);
+}
+
 //  QList<QSize> QProxyIconEngine::availableSizes(QIcon::Mode mode,
 //      QIcon::State state)
 extern "C" Q_DECL_EXPORT
@@ -487,6 +543,15 @@ QPixmap *ritual_ZN16QProxyIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5Sta
     QIcon::State state,
     qreal scale) {
   return new QPixmap(self->scaledPixmap(*size, mode, state, scale));
+}
+
+//  void QProxyIconEngine::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QProxyIconEngine12virtual_hookEiPv(
+    QProxyIconEngine *self,
+    int id,
+    void *data) {
+  self->virtual_hook(id, data);
 }
 
 //  QIconEngine *QProxyIconEngine::proxiedEngine() const
@@ -604,6 +669,15 @@ QPixmap *ritual_own_ZN16QProxyIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_
           mode,
           state,
           scale));
+}
+
+//  void QProxyIconEngine::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN16QProxyIconEngine12virtual_hookEiPv(
+    QProxyIconEngine *self,
+    int id,
+    void *data) {
+  self->QProxyIconEngine::virtual_hook(id, data);
 }
 
 #endif  // !defined(QT_NO_ICON)

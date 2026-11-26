@@ -375,6 +375,25 @@ const QMetaObject *ritual_ZNK25QQuickTableViewTapHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTableViewTapHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickTableViewTapHandler11qt_metacastEPKc(
+    QQuickTableViewTapHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTableViewTapHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickTableViewTapHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTableViewTapHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  bool QQuickTableViewTapHandler::wantsEventPoint(const QPointerEvent
 //      *event, const QEventPoint &point)
 extern "C" Q_DECL_EXPORT

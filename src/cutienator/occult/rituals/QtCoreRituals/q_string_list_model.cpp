@@ -5,7 +5,9 @@
 #if QT_CONFIG(stringlistmodel)
 #include <QtCore/qstringlistmodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
@@ -17,6 +19,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QStringListModel10metaObjectEv(
     const QStringListModel *self) {
   return self->metaObject();
+}
+
+//  void *QStringListModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QStringListModel11qt_metacastEPKc(
+    QStringListModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStringListModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QStringListModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStringListModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QStringListModel::tr(const char *s, const char *c, int n)

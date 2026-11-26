@@ -30,7 +30,7 @@ typedef void (*CuteQAnimationJobChangeListenerCall3)(const void *, QAbstractAnim
 class CuteQAnimationJobChangeListener : public QAnimationJobChangeListener {
 public:
   using QAnimationJobChangeListener::QAnimationJobChangeListener;
-  CuteQAnimationJobChangeListener(const QAnimationJobChangeListener &other) : QAnimationJobChangeListener(other) {}
+  CuteQAnimationJobChangeListener(const QAnimationJobChangeListener & other) : QAnimationJobChangeListener(other) {}
   void *taken[4] = {};
 
   bool take(const char *key, void *call) {

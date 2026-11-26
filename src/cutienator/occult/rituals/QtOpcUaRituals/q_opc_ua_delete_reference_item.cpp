@@ -19,6 +19,15 @@ QOpcUaDeleteReferenceItem *ritual_ZN25QOpcUaDeleteReferenceItemC1ERKS_(
   return new QOpcUaDeleteReferenceItem(*other);
 }
 
+//  QOpcUaDeleteReferenceItem &QOpcUaDeleteReferenceItem::operator=(const
+//      QOpcUaDeleteReferenceItem &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaDeleteReferenceItem *ritual_ZN25QOpcUaDeleteReferenceItemaSERKS_(
+    QOpcUaDeleteReferenceItem *self,
+    const QOpcUaDeleteReferenceItem *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QOpcUaDeleteReferenceItem::~QOpcUaDeleteReferenceItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QOpcUaDeleteReferenceItemD1Ev(

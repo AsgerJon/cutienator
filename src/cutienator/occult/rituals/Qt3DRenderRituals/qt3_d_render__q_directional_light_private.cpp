@@ -53,6 +53,12 @@ public:
   }
 };
 
+//  Qt3DRender::QDirectionalLightPrivate::QDirectionalLightPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QDirectionalLightPrivate *ritual_ZN10Qt3DRender24QDirectionalLightPrivateC1Ev() {
+  return new CuteQt3DRender_QDirectionalLightPrivate();
+}
+
 //  QDirectionalLight *Qt3DRender::QDirectionalLightPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QDirectionalLight *ritual_ZN10Qt3DRender24QDirectionalLightPrivate6q_funcEv(

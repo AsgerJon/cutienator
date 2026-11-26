@@ -8,8 +8,17 @@
     "ritual_ZNK29QDesignerIntegrationInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QDesignerIntegrationInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QDesignerIntegrationInterface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterfaceC1EP28QDesignerFormEditorInterfaceP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN29QDesignerIntegrationInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK29QDesignerIntegrationInterface4coreEv": [
@@ -65,6 +74,21 @@
     ],
     "ritual_ZN29QDesignerIntegrationInterface17emitHelpRequestedERK7QStringS2_": [
       "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface15propertyChangedEP28QDesignerFormWindowInterfaceRK7QStringRK8QVariant": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface17objectNameChangedEP28QDesignerFormWindowInterfaceP7QObjectRK7QStringS6_": [
+      "nothing", "address", "address", "address", "text", "text"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface13helpRequestedERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface14navigateToSlotERK7QStringS2_RK5QListIS0_E": [
+      "nothing", "address", "text", "text", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface14navigateToSlotERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_ZN29QDesignerIntegrationInterface11setFeaturesE6QFlagsINS_11FeatureFlagEE": [
       "nothing", "address", "int"

@@ -18,10 +18,34 @@ QQmlError *ritual_ZN9QQmlErrorC1ERKS_(const QQmlError *a0) {
   return new QQmlError(*a0);
 }
 
+//  QQmlError::QQmlError(QQmlError &&other)
+extern "C" Q_DECL_EXPORT
+QQmlError *ritual_ZN9QQmlErrorC1EOS_(QQmlError *other) {
+  return new QQmlError(std::move(*other));
+}
+
+//  QQmlError &QQmlError::operator=(const QQmlError &a0)
+extern "C" Q_DECL_EXPORT
+QQmlError *ritual_ZN9QQmlErroraSERKS_(QQmlError *self, const QQmlError *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QQmlError &QQmlError::operator=(QQmlError &&other)
+extern "C" Q_DECL_EXPORT
+QQmlError *ritual_ZN9QQmlErroraSEOS_(QQmlError *self, QQmlError *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QQmlError::~QQmlError()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QQmlErrorD1Ev(QQmlError *self) {
   delete self;
+}
+
+//  void QQmlError::swap(QQmlError &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QQmlError4swapERS_(QQmlError *self, QQmlError *other) {
+  self->swap(*other);
 }
 
 //  bool QQmlError::isValid() const

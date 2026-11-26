@@ -8,11 +8,20 @@
     "ritual_ZNK27QQuickContext2DImageTexture10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuickContext2DImageTexture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuickContext2DImageTexture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QQuickContext2DImageTextureD1Ev": ["nothing", "address"],
     "ritual_ZNK27QQuickContext2DImageTexture12renderTargetEv": [
       "int", "address"
     ],
     "ritual_ZNK27QQuickContext2DImageTexture10createTileEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickContext2DImageTexture13beginPaintingEv": [
       "address", "address"
     ],
     "ritual_ZN27QQuickContext2DImageTexture11endPaintingEv": [

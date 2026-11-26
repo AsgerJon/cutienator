@@ -66,19 +66,20 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/dialogs/qcolordialog.cpp, line 274, as _ZN10QWellArray15mousePressEventEP11QMouseEvent
-inline void QWellArray::mousePressEvent(QMouseEvent *e)
-{
-    // The current cell marker is set to the cell the mouse is pressed in
-    QPoint pos = e->position().toPoint();
-    setCurrent(rowAt(pos.y()), columnAt(pos.x()));
-}
+using namespace Qt::StringLiterals;
 
-//  from src/widgets/dialogs/qcolordialog.cpp, line 281, as _ZN10QWellArray17mouseReleaseEventEP11QMouseEvent
-inline void QWellArray::mouseReleaseEvent(QMouseEvent * /* event */)
+//  from src/widgets/dialogs/qcolordialog.cpp, line 213, as _ZN10QWellArrayC2EiiP7QWidget
+inline QWellArray::QWellArray(int rows, int cols, QWidget *parent)
+    : QWidget(parent)
+        ,nrows(rows), ncols(cols)
 {
-    // The current cell marker is set to the cell the mouse is clicked in
-    setSelected(curRow, curCol);
+    setFocusPolicy(Qt::StrongFocus);
+    cellw = 28;
+    cellh = 24;
+    curCol = 0;
+    curRow = 0;
+    selCol = -1;
+    selRow = -1;
 }
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 522, as _ZN10QColorWell17paintCellContentsEP8QPainteriiRK5QRect
@@ -180,6 +181,21 @@ inline void QColorWell::dropEvent(QDropEvent *e)
     }
 }
 #endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/dialogs/qcolordialog.cpp, line 274, as _ZN10QWellArray15mousePressEventEP11QMouseEvent
+inline void QWellArray::mousePressEvent(QMouseEvent *e)
+{
+    // The current cell marker is set to the cell the mouse is pressed in
+    QPoint pos = e->position().toPoint();
+    setCurrent(rowAt(pos.y()), columnAt(pos.x()));
+}
+
+//  from src/widgets/dialogs/qcolordialog.cpp, line 281, as _ZN10QWellArray17mouseReleaseEventEP11QMouseEvent
+inline void QWellArray::mouseReleaseEvent(QMouseEvent * /* event */)
+{
+    // The current cell marker is set to the cell the mouse is clicked in
+    setSelected(curRow, curCol);
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QColorWell may call these functions of it.
@@ -199,6 +215,30 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK10QColorWell10metaObjectEv(
     const QColorWell *self) {
   return self->metaObject();
+}
+
+//  void *QColorWell::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QColorWell11qt_metacastEPKc(
+    QColorWell *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QColorWell::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QColorWell11qt_metacallEN11QMetaObject4CallEiPPv(
+    QColorWell *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  const QRgb *QColorWell::rgbValues()
+extern "C" Q_DECL_EXPORT
+const QRgb *ritual_ZN10QColorWell9rgbValuesEv(QColorWell *self) {
+  return self->rgbValues();
 }
 
 //  void QColorWell::paintCellContents(QPainter *a0, int row, int col, const

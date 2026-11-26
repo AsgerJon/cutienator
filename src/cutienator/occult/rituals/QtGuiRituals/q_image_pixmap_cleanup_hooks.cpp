@@ -51,6 +51,63 @@ bool ritual_ZN24QImagePixmapCleanupHooks14isPixmapCachedERK7QPixmap(
   return QImagePixmapCleanupHooks::isPixmapCached(*pixmap);
 }
 
+//  void QImagePixmapCleanupHooks::addPlatformPixmapModificationHook(_qt_pixm
+//      ap_cleanup_hook_pmd a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QImagePixmapCleanupHooks33addPlatformPixmapModificationHookEPFvP15QPlatformPixmapE(
+    QImagePixmapCleanupHooks *self,
+    void *a0) {
+  self->addPlatformPixmapModificationHook(
+      reinterpret_cast<_qt_pixmap_cleanup_hook_pmd>(a0));
+}
+
+//  void QImagePixmapCleanupHooks::addPlatformPixmapDestructionHook(_qt_pixma
+//      p_cleanup_hook_pmd a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QImagePixmapCleanupHooks32addPlatformPixmapDestructionHookEPFvP15QPlatformPixmapE(
+    QImagePixmapCleanupHooks *self,
+    void *a0) {
+  self->addPlatformPixmapDestructionHook(
+      reinterpret_cast<_qt_pixmap_cleanup_hook_pmd>(a0));
+}
+
+//  void QImagePixmapCleanupHooks::addImageHook(_qt_image_cleanup_hook_64 a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QImagePixmapCleanupHooks12addImageHookEPFvxE(
+    QImagePixmapCleanupHooks *self,
+    void *a0) {
+  self->addImageHook(reinterpret_cast<_qt_image_cleanup_hook_64>(a0));
+}
+
+//  void QImagePixmapCleanupHooks::removePlatformPixmapModificationHook(_qt_p
+//      ixmap_cleanup_hook_pmd a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QImagePixmapCleanupHooks36removePlatformPixmapModificationHookEPFvP15QPlatformPixmapE(
+    QImagePixmapCleanupHooks *self,
+    void *a0) {
+  self->removePlatformPixmapModificationHook(
+      reinterpret_cast<_qt_pixmap_cleanup_hook_pmd>(a0));
+}
+
+//  void QImagePixmapCleanupHooks::removePlatformPixmapDestructionHook(_qt_pi
+//      xmap_cleanup_hook_pmd a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QImagePixmapCleanupHooks35removePlatformPixmapDestructionHookEPFvP15QPlatformPixmapE(
+    QImagePixmapCleanupHooks *self,
+    void *a0) {
+  self->removePlatformPixmapDestructionHook(
+      reinterpret_cast<_qt_pixmap_cleanup_hook_pmd>(a0));
+}
+
+//  void QImagePixmapCleanupHooks::removeImageHook(_qt_image_cleanup_hook_64
+//      a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QImagePixmapCleanupHooks15removeImageHookEPFvxE(
+    QImagePixmapCleanupHooks *self,
+    void *a0) {
+  self->removeImageHook(reinterpret_cast<_qt_image_cleanup_hook_64>(a0));
+}
+
 //  void QImagePixmapCleanupHooks::executePlatformPixmapModificationHooks(QPl
 //      atformPixmap *a0)
 extern "C" Q_DECL_EXPORT

@@ -8,6 +8,12 @@
     "ritual_ZNK27QDeclarativeGeoMapQuickItem10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QDeclarativeGeoMapQuickItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -50,6 +56,18 @@
     ],
     "ritual_ZNK27QDeclarativeGeoMapQuickItem8containsERK7QPointF": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem17coordinateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem17sourceItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem18anchorPointChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem16zoomLevelChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN27QDeclarativeGeoMapQuickItem14geometryChangeERK6QRectFS2_": [
       "nothing", "address", "address", "address"

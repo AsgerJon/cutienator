@@ -74,6 +74,12 @@ public:
   }
 };
 
+//  QQmlPropertyValueInterceptor::QQmlPropertyValueInterceptor()
+extern "C" Q_DECL_EXPORT
+QQmlPropertyValueInterceptor *ritual_ZN28QQmlPropertyValueInterceptorC1Ev() {
+  return new CuteQQmlPropertyValueInterceptor();
+}
+
 //  QQmlPropertyValueInterceptor::~QQmlPropertyValueInterceptor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QQmlPropertyValueInterceptorD1Ev(

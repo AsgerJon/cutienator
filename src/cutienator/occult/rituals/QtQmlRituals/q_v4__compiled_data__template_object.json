@@ -8,6 +8,12 @@
     "ritual_ZN3QV412CompiledData14TemplateObject13calculateSizeEi": [
       "int", "int"
     ],
+    "ritual_ZN3QV412CompiledData14TemplateObject5alignEm": [
+      "size_t", "size_t"
+    ],
+    "ritual_ZNK3QV412CompiledData14TemplateObject11stringTableEv": [
+      "address", "address"
+    ],
     "ritual_ZNK3QV412CompiledData14TemplateObject13stringIndexAtEj": [
       "unsigned int", "address", "unsigned int"
     ],

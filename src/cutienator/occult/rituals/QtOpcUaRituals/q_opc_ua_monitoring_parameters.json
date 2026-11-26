@@ -11,6 +11,9 @@
       "address", "double", "int", "unsigned int"
     ],
     "ritual_ZN26QOpcUaMonitoringParametersC1ERKS_": ["address", "address"],
+    "ritual_ZN26QOpcUaMonitoringParametersaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK26QOpcUaMonitoringParameters16samplingIntervalEv": [
       "double", "address"
     ],
@@ -121,6 +124,24 @@
     ],
     "ritual_ZN26QOpcUaMonitoringParameters13setIndexRangeERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters16triggeredItemIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters19setTriggeredItemIdsERK4QSetIjE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters26failedTriggeredItemsStatusEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters29setFailedTriggeredItemsStatusERK5QHashIjN6QOpcUa12UaStatusCodeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_QOpcUaMonitoringParameters__QSet_quint32": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QOpcUaMonitoringParameters__QHash_quint32_QOpcUa_UaStatusCode": [
+      "nothing", "address"
     ]
   }
 }

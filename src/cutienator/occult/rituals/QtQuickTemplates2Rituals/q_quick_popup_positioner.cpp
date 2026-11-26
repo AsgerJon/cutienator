@@ -49,7 +49,7 @@ typedef void (*CuteQQuickPopupPositionerCall20)(const void *, QQuickItem *, int 
 class CuteQQuickPopupPositioner : public QQuickPopupPositioner {
 public:
   using QQuickPopupPositioner::QQuickPopupPositioner;
-  CuteQQuickPopupPositioner(const QQuickPopupPositioner &other) : QQuickPopupPositioner(other) {}
+  CuteQQuickPopupPositioner(const QQuickPopupPositioner & other) : QQuickPopupPositioner(other) {}
   void *taken[21] = {};
 
   bool take(const char *key, void *call) {

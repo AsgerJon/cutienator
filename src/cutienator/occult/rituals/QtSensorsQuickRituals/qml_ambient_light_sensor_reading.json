@@ -8,6 +8,12 @@
     "ritual_ZNK28QmlAmbientLightSensorReading10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QmlAmbientLightSensorReading11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QmlAmbientLightSensorReading11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QmlAmbientLightSensorReading2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,11 +27,20 @@
     "ritual_ZNK28QmlAmbientLightSensorReading10lightLevelEv": [
       "int", "address"
     ],
+    "ritual_ZNK28QmlAmbientLightSensorReading18bindableLightLevelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QmlAmbientLightSensorReading17lightLevelChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK28QmlAmbientLightSensorReading7readingEv": [
       "address", "address"
     ],
     "ritual_ZN28QmlAmbientLightSensorReading13readingUpdateEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN28QmlAmbientLightSensorReading32_qt_property_m_lightLevel_offsetEv": [
+      "size_t"
     ],
     "ritual_take_QmlAmbientLightSensorReading": [
       "bool", "address", "chars", "address"
@@ -34,6 +49,9 @@
       "address", "address"
     ],
     "ritual_own_ZN28QmlAmbientLightSensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QmlAmbientLightSensorReading__QBindable_QAmbientLightReading_LightLevel": [
       "nothing", "address"
     ]
   }

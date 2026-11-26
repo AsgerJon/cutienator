@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN26QGeoServiceProviderPrivateC1Ev": ["address"],
     "ritual_ZN26QGeoServiceProviderPrivateD1Ev": ["nothing", "address"],
-    "ritual_ZN26QGeoServiceProviderPrivate6unloadEv": ["nothing", "address"]
+    "ritual_ZN26QGeoServiceProviderPrivate6unloadEv": ["nothing", "address"],
+    "ritual_drop_QGeoServiceProviderPrivate__QMultiHash_QString_QCborMap": [
+      "nothing", "address"
+    ]
   }
 }

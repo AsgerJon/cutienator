@@ -62,6 +62,7 @@
     "ritual_ZNK19QQmlLocaleValueType19createSeparatedListERK5QListI7QStringE": [
       "text", "address", "address"
     ],
+    "ritual_ZNK19QQmlLocaleValueType14firstDayOfWeekEv": ["int", "address"],
     "ritual_ZNK19QQmlLocaleValueType17measurementSystemEv": [
       "int", "address"
     ],
@@ -87,6 +88,12 @@
     "ritual_ZNK19QQmlLocaleValueType6amTextEv": ["text", "address"],
     "ritual_ZNK19QQmlLocaleValueType6pmTextEv": ["text", "address"],
     "ritual_ZNK19QQmlLocaleValueType13numberOptionsEv": ["int", "address"],
-    "ritual_ZN19QQmlLocaleValueTypeD1Ev": ["nothing", "address"]
+    "ritual_ZN19QQmlLocaleValueType16setNumberOptionsERK6QFlagsIN7QLocale12NumberOptionEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlLocaleValueTypeD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlLocaleValueType__QList_QQmlLocale_DayOfWeek": [
+      "nothing", "address"
+    ]
   }
 }

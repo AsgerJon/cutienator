@@ -5,12 +5,19 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickTransform10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickTransform11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickTransform11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickTransform2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN15QQuickTransform22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
+    "ritual_ZN15QQuickTransformC1EP7QObject": ["address", "address"],
     "ritual_ZN15QQuickTransformD1Ev": ["nothing", "address"],
     "ritual_ZN15QQuickTransform12appendToItemEP10QQuickItem": [
       "nothing", "address", "address"
@@ -22,6 +29,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN15QQuickTransform6updateEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTransformC1ER22QQuickTransformPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN15QQuickTransform6d_funcEv": ["address", "address"],
     "ritual_ZNK15QQuickTransform6d_funcEv": ["address", "address"],
     "ritual_take_QQuickTransform": ["bool", "address", "chars", "address"]

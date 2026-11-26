@@ -33,6 +33,7 @@
     "ritual_ZN19QPaintEnginePrivate15aggregateEngineEv": [
       "address", "address"
     ],
+    "ritual_ZN19QPaintEnginePrivate12nativeHandleEv": ["address", "address"],
     "ritual_take_QPaintEnginePrivate": [
       "bool", "address", "chars", "address"
     ],
@@ -40,6 +41,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN19QPaintEnginePrivate15aggregateEngineEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QPaintEnginePrivate12nativeHandleEv": [
       "address", "address"
     ]
   }

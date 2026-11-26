@@ -6,7 +6,9 @@
   "rows": {
     "ritual_ZN15QOpcUaDataValueC1Ev": ["address"],
     "ritual_ZN15QOpcUaDataValueC1ERKS_": ["address", "address"],
+    "ritual_ZN15QOpcUaDataValueaSERKS_": ["address", "address", "address"],
     "ritual_ZN15QOpcUaDataValueD1Ev": ["nothing", "address"],
+    "ritual_ZN15QOpcUaDataValue4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK15QOpcUaDataValue15serverTimestampEv": ["address", "address"],
     "ritual_ZN15QOpcUaDataValue18setServerTimestampERK9QDateTime": [
       "nothing", "address", "address"

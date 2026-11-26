@@ -59,6 +59,16 @@ QSSGLoadedTexture *ritual_ZN17QSSGLoadedTexture19loadCompressedImageERK7QString(
   return QSSGLoadedTexture::loadCompressedImage(*inPath);
 }
 
+//  QSSGLoadedTexture *QSSGLoadedTexture::loadHdrImage(const
+//      QSharedPointer<QIODevice> &source, const QSSGRenderTextureFormat
+//      &inFormat)
+extern "C" Q_DECL_EXPORT
+QSSGLoadedTexture *ritual_ZN17QSSGLoadedTexture12loadHdrImageERK14QSharedPointerI9QIODeviceERK23QSSGRenderTextureFormat(
+    const QSharedPointer<QIODevice> *source,
+    const QSSGRenderTextureFormat *inFormat) {
+  return QSSGLoadedTexture::loadHdrImage(*source, *inFormat);
+}
+
 //  QSSGLoadedTexture
 //      *QSSGLoadedTexture::loadTextureData(QSSGRenderTextureData
 //      *textureData)

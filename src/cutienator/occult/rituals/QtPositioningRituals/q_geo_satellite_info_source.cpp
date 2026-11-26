@@ -4,12 +4,14 @@
 #include <QtPositioning/qgeosatelliteinfosource.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#include <QtPositioning/qgeosatelliteinfo.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QGeoSatelliteInfoSource that Python can take functions over in. Every QGeoSatelliteInfoSource
 //  Python makes is one. Each function below asks the Python
@@ -314,6 +316,25 @@ const QMetaObject *ritual_ZNK23QGeoSatelliteInfoSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoSatelliteInfoSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QGeoSatelliteInfoSource11qt_metacastEPKc(
+    QGeoSatelliteInfoSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoSatelliteInfoSource::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QGeoSatelliteInfoSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoSatelliteInfoSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoSatelliteInfoSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QGeoSatelliteInfoSource2trEPKcS1_i(
@@ -321,6 +342,13 @@ QString *ritual_ZN23QGeoSatelliteInfoSource2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QGeoSatelliteInfoSource::tr(s, c, n));
+}
+
+//  QGeoSatelliteInfoSource::QGeoSatelliteInfoSource(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfoSource *ritual_ZN23QGeoSatelliteInfoSourceC1EP7QObject(
+    QObject *parent) {
+  return new CuteQGeoSatelliteInfoSource(parent);
 }
 
 //  QGeoSatelliteInfoSource::~QGeoSatelliteInfoSource()
@@ -397,6 +425,13 @@ int ritual_ZNK23QGeoSatelliteInfoSource14updateIntervalEv(
   return self->updateInterval();
 }
 
+//  QBindable<int> QGeoSatelliteInfoSource::bindableUpdateInterval()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN23QGeoSatelliteInfoSource22bindableUpdateIntervalEv(
+    QGeoSatelliteInfoSource *self) {
+  return new QBindable<int>(self->bindableUpdateInterval());
+}
+
 //  int QGeoSatelliteInfoSource::minimumUpdateInterval() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK23QGeoSatelliteInfoSource21minimumUpdateIntervalEv(
@@ -452,6 +487,43 @@ void ritual_ZN23QGeoSatelliteInfoSource13requestUpdateEi(
   self->requestUpdate(timeout);
 }
 
+//  void QGeoSatelliteInfoSource::satellitesInViewUpdated(const
+//      QList<QGeoSatelliteInfo> &satellites)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QGeoSatelliteInfoSource23satellitesInViewUpdatedERK5QListI17QGeoSatelliteInfoE(
+    QGeoSatelliteInfoSource *self,
+    const QList<QGeoSatelliteInfo> *satellites) {
+  self->satellitesInViewUpdated(*satellites);
+}
+
+//  void QGeoSatelliteInfoSource::satellitesInUseUpdated(const
+//      QList<QGeoSatelliteInfo> &satellites)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QGeoSatelliteInfoSource22satellitesInUseUpdatedERK5QListI17QGeoSatelliteInfoE(
+    QGeoSatelliteInfoSource *self,
+    const QList<QGeoSatelliteInfo> *satellites) {
+  self->satellitesInUseUpdated(*satellites);
+}
+
+//  void
+//      QGeoSatelliteInfoSource::errorOccurred(QGeoSatelliteInfoSource::Error
+//      a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QGeoSatelliteInfoSource13errorOccurredENS_5ErrorE(
+    QGeoSatelliteInfoSource *self,
+    QGeoSatelliteInfoSource::Error a0) {
+  self->errorOccurred(a0);
+}
+
+//  QGeoSatelliteInfoSource::QGeoSatelliteInfoSource(QGeoSatelliteInfoSourceP
+//      rivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfoSource *ritual_ZN23QGeoSatelliteInfoSourceC1ER30QGeoSatelliteInfoSourcePrivateP7QObject(
+    QGeoSatelliteInfoSourcePrivate *dd,
+    QObject *parent) {
+  return new CuteQGeoSatelliteInfoSource(*dd, parent);
+}
+
 //  QGeoSatelliteInfoSourcePrivate *QGeoSatelliteInfoSource::d_func()
 extern "C" Q_DECL_EXPORT
 QGeoSatelliteInfoSourcePrivate *ritual_ZN23QGeoSatelliteInfoSource6d_funcEv(
@@ -502,4 +574,11 @@ QVariant *ritual_own_ZNK23QGeoSatelliteInfoSource15backendPropertyERK7QString(
     const QGeoSatelliteInfoSource *self,
     const QString *name) {
   return new QVariant(self->QGeoSatelliteInfoSource::backendProperty(*name));
+}
+
+//  a QBindable<int> a ritual of QGeoSatelliteInfoSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoSatelliteInfoSource__QBindable_int(
+    QBindable<int> *self) {
+  delete self;
 }

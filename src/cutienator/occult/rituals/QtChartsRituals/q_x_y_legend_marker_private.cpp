@@ -233,6 +233,25 @@ const QMetaObject *ritual_ZNK22QXYLegendMarkerPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QXYLegendMarkerPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QXYLegendMarkerPrivate11qt_metacastEPKc(
+    QXYLegendMarkerPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QXYLegendMarkerPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QXYLegendMarkerPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QXYLegendMarkerPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QXYLegendMarkerPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QXYLegendMarkerPrivate2trEPKcS1_i(

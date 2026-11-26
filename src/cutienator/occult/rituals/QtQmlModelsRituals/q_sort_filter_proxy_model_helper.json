@@ -5,9 +5,13 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QSortFilterProxyModelHelperC1Ev": ["address"],
     "ritual_ZN27QSortFilterProxyModelHelperD1Ev": ["nothing", "address"],
     "ritual_ZN27QSortFilterProxyModelHelper13setPropertiesEP8QVariantPK24QQmlSortFilterProxyModelRK11QModelIndex": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QSortFilterProxyModelHelper10qListToSetERK5QListIiE": [
+      "address", "address"
     ],
     "ritual_ZNK27QSortFilterProxyModelHelper18can_create_mappingERK11QModelIndex": [
       "bool", "address", "address"
@@ -21,6 +25,9 @@
     "ritual_ZNK27QSortFilterProxyModelHelper15source_to_proxyERK11QModelIndex": [
       "address", "address", "address"
     ],
+    "ritual_ZNK27QSortFilterProxyModelHelper29build_source_to_proxy_mappingER5QListIiES2_i": [
+      "nothing", "address", "address", "address", "int"
+    ],
     "ritual_ZNK27QSortFilterProxyModelHelper15proxy_to_sourceERK11QModelIndex": [
       "address", "address", "address"
     ],
@@ -28,8 +35,24 @@
       "nothing", "address", "address", "address", "int", "int", "int", "int",
       "bool"
     ],
+    "ritual_ZNK27QSortFilterProxyModelHelper16proxy_item_rangeERK5QListIiES3_RiS4_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK27QSortFilterProxyModelHelper24store_persistent_indexesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QSortFilterProxyModelHelper25update_persistent_indexesERK5QListISt4pairI11QModelIndex21QPersistentModelIndexEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN27QSortFilterProxyModelHelper14filter_changedENS_9DirectionERK11QModelIndex": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QSortFilterProxyModelHelper21handle_filter_changedER5QListIiES2_RK11QModelIndexNS_9DirectionE": [
+      "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN27QSortFilterProxyModelHelper19insert_source_itemsER5QListIiES2_RKS1_RK11QModelIndexNS_9DirectionEb": [
+      "nothing", "address", "address", "address", "address", "address",
+      "int", "bool"
     ],
     "ritual_ZN27QSortFilterProxyModelHelper21source_items_insertedERK11QModelIndexiiNS_9DirectionE": [
       "nothing", "address", "address", "int", "int", "int"
@@ -39,6 +62,20 @@
     ],
     "ritual_ZN27QSortFilterProxyModelHelper20source_items_removedERK11QModelIndexiiNS_9DirectionE": [
       "nothing", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN27QSortFilterProxyModelHelper19remove_source_itemsER5QListIiES2_RKS1_RK11QModelIndexNS_9DirectionEb": [
+      "nothing", "address", "address", "address", "address", "address",
+      "int", "bool"
+    ],
+    "ritual_ZN27QSortFilterProxyModelHelper21remove_proxy_intervalER5QListIiES2_iiRK11QModelIndexNS_9DirectionEb": [
+      "nothing", "address", "address", "address", "int", "int", "address",
+      "int", "bool"
+    ],
+    "ritual_ZNK27QSortFilterProxyModelHelper32proxy_intervals_for_source_itemsERK5QListIiES3_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK27QSortFilterProxyModelHelper39proxy_intervals_for_source_items_to_addERK5QListIiES3_RK11QModelIndexNS_9DirectionE": [
+      "address", "address", "address", "address", "address", "int"
     ],
     "ritual_ZN27QSortFilterProxyModelHelper4sortEv": ["nothing", "address"],
     "ritual_ZNK27QSortFilterProxyModelHelper10proxyModelEv": [
@@ -88,6 +125,9 @@
     ],
     "ritual_ZNK27QSortFilterProxyModelHelper19filterAcceptsColumnEiRK11QModelIndex": [
       "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK27QSortFilterProxyModelHelper16sort_source_rowsER5QListIiERK11QModelIndex": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK27QSortFilterProxyModelHelper8lessThanERK11QModelIndexS2_": [
       "bool", "address", "address", "address"
@@ -154,6 +194,18 @@
     ],
     "ritual_own_ZNK27QSortFilterProxyModelHelper8lessThanERK11QModelIndexS2_": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_drop_QSortFilterProxyModelHelper__QSet_int": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSortFilterProxyModelHelper__QModelIndexPairList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSortFilterProxyModelHelper__QList_std_pair_int_int": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSortFilterProxyModelHelper__QList_std_pair_int_QList_int": [
+      "nothing", "address"
     ]
   }
 }

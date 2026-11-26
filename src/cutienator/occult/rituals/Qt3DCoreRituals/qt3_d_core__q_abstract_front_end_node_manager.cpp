@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/qnodeid.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A Qt3DCore::QAbstractFrontEndNodeManager that Python can take functions over in. Every Qt3DCore::QAbstractFrontEndNodeManager
 //  Python makes is one. Each function below asks the Python
@@ -55,6 +56,15 @@ Qt3DCore::QNode *ritual_ZNK8Qt3DCore28QAbstractFrontEndNodeManager10lookupNodeEN
   return self->lookupNode(*id);
 }
 
+//  QList<QNode *> Qt3DCore::QAbstractFrontEndNodeManager::lookupNodes(const
+//      QList<QNodeId> &ids) const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QNode *> *ritual_ZNK8Qt3DCore28QAbstractFrontEndNodeManager11lookupNodesERK5QListINS_7QNodeIdEE(
+    const Qt3DCore::QAbstractFrontEndNodeManager *self,
+    const QList<Qt3DCore::QNodeId> *ids) {
+  return new QList<Qt3DCore::QNode *>(self->lookupNodes(*ids));
+}
+
 //  a Python function taken by a CuteQt3DCore_QAbstractFrontEndNodeManager,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT
@@ -63,4 +73,12 @@ bool ritual_take_Qt3DCore_QAbstractFrontEndNodeManager(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DCore_QAbstractFrontEndNodeManager *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DCore::QNode *> a ritual of
+//      Qt3DCore::QAbstractFrontEndNodeManager gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QAbstractFrontEndNodeManager__QList_Qt3DCore_QNode(
+    QList<Qt3DCore::QNode *> *self) {
+  delete self;
 }

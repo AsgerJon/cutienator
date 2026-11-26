@@ -32,6 +32,12 @@ public:
   }
 };
 
+//  Qt3DCore::QAbstractFunctor::QAbstractFunctor()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractFunctor *ritual_ZN8Qt3DCore16QAbstractFunctorC1Ev() {
+  return new CuteQt3DCore_QAbstractFunctor();
+}
+
 //  Qt3DCore::QAbstractFunctor::~QAbstractFunctor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore16QAbstractFunctorD1Ev(

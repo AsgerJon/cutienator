@@ -293,6 +293,25 @@ const QMetaObject *ritual_ZNK16QQuick3DMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuick3DMaterial11qt_metacastEPKc(
+    QQuick3DMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DMaterial::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuick3DMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DMaterial::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuick3DMaterial2trEPKcS1_i(
@@ -359,6 +378,42 @@ void ritual_ZN16QQuick3DMaterial16setDepthDrawModeENS_13DepthDrawModeE(
     QQuick3DMaterial *self,
     QQuick3DMaterial::DepthDrawMode depthDrawMode) {
   self->setDepthDrawMode(depthDrawMode);
+}
+
+//  void QQuick3DMaterial::lightProbeChanged(QQuick3DTexture *lightProbe)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DMaterial17lightProbeChangedEP15QQuick3DTexture(
+    QQuick3DMaterial *self,
+    QQuick3DTexture *lightProbe) {
+  self->lightProbeChanged(lightProbe);
+}
+
+//  void QQuick3DMaterial::cullModeChanged(QQuick3DMaterial::CullMode
+//      cullMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DMaterial15cullModeChangedENS_8CullModeE(
+    QQuick3DMaterial *self,
+    QQuick3DMaterial::CullMode cullMode) {
+  self->cullModeChanged(cullMode);
+}
+
+//  void
+//      QQuick3DMaterial::depthDrawModeChanged(QQuick3DMaterial::DepthDrawMod
+//      e depthDrawMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DMaterial20depthDrawModeChangedENS_13DepthDrawModeE(
+    QQuick3DMaterial *self,
+    QQuick3DMaterial::DepthDrawMode depthDrawMode) {
+  self->depthDrawModeChanged(depthDrawMode);
+}
+
+//  QQuick3DMaterial::QQuick3DMaterial(QQuick3DObjectPrivate &dd,
+//      QQuick3DObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DMaterial *ritual_ZN16QQuick3DMaterialC1ER21QQuick3DObjectPrivateP14QQuick3DObject(
+    QQuick3DObjectPrivate *dd,
+    QQuick3DObject *parent) {
+  return new CuteQQuick3DMaterial(*dd, parent);
 }
 
 //  QSSGRenderGraphObject

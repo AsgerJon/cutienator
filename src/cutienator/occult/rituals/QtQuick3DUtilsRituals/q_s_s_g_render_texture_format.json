@@ -24,6 +24,12 @@
     "ritual_ZNK23QSSGRenderTextureFormat20getNumberOfComponentEv": [
       "int", "address"
     ],
+    "ritual_ZNK23QSSGRenderTextureFormat13decodeToFloatEPviPf": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK23QSSGRenderTextureFormat13encodeToPixelEPfPvi": [
+      "nothing", "address", "address", "address", "int"
+    ],
     "ritual_ZNK23QSSGRenderTextureFormateqERKS_": [
       "bool", "address", "address"
     ],

@@ -6,9 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK16QSGRenderContext10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSGRenderContext11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QSGRenderContext11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QSGRenderContext2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QSGRenderContextC1EP10QSGContext": ["address", "address"],
     "ritual_ZN16QSGRenderContextD1Ev": ["nothing", "address"],
     "ritual_ZNK16QSGRenderContext17sceneGraphContextEv": [
       "address", "address"
@@ -20,6 +27,10 @@
     "ritual_ZN16QSGRenderContext10invalidateEv": ["nothing", "address"],
     "ritual_ZN16QSGRenderContext11prepareSyncEdP17QRhiCommandBufferRK27QQuickGraphicsConfiguration": [
       "nothing", "address", "double", "address", "address"
+    ],
+    "ritual_ZN16QSGRenderContext14beginNextFrameEP11QSGRendererRK15QSGRenderTargetPFvPvES7_S5_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
     ],
     "ritual_ZN16QSGRenderContext15renderNextFrameEP11QSGRenderer": [
       "nothing", "address", "address"
@@ -61,8 +72,16 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK16QSGRenderContext3rhiEv": ["address", "address"],
+    "ritual_ZN16QSGRenderContext11initializedEv": ["nothing", "address"],
+    "ritual_ZN16QSGRenderContext11invalidatedEv": ["nothing", "address"],
+    "ritual_ZN16QSGRenderContext31releaseCachedResourcesRequestedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN16QSGRenderContext23textureFactoryDestroyedEP7QObject": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZeqRKN16QSGRenderContext7FontKeyES2_": [
+      "bool", "address", "address"
     ],
     "ritual_take_QSGRenderContext": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK16QSGRenderContext7isValidEv": ["bool", "address"],

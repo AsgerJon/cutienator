@@ -47,6 +47,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/util/qcompleter.cpp, line 136, as _ZN16QCompletionModelC1EP17QCompleterPrivateP7QObject
 inline QCompletionModel::QCompletionModel(QCompleterPrivate *c, QObject *parent)
     : QAbstractProxyModel(*new QCompletionModelPrivate, parent),

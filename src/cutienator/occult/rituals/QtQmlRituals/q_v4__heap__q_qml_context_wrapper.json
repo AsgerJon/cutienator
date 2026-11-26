@@ -8,6 +8,12 @@
     "ritual_ZN3QV44Heap18QQmlContextWrapper11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap18QQmlContextWrapper4initE14QQmlRefPointerI15QQmlContextDataEP7QObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap18QQmlContextWrapper7destroyEv": [
+      "nothing", "address"
+    ],
     "ritual_cast_QV4_Heap_QQmlContextWrapper_QV4_Heap_QQmlContextWrapperData": [
       "address", "address"
     ]

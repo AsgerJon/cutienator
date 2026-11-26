@@ -18,6 +18,15 @@ QStyleOptionComplex *ritual_ZN19QStyleOptionComplexC1ERKS_(
   return new QStyleOptionComplex(*other);
 }
 
+//  QStyleOptionComplex &QStyleOptionComplex::operator=(const
+//      QStyleOptionComplex &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionComplex *ritual_ZN19QStyleOptionComplexaSERKS_(
+    QStyleOptionComplex *self,
+    const QStyleOptionComplex *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionComplex::~QStyleOptionComplex()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QStyleOptionComplexD1Ev(QStyleOptionComplex *self) {

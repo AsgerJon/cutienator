@@ -28,6 +28,32 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 22, as local:qnmeasatelliteinfosource.cpp:QGeoSatelliteInfoPrivateNmea
+#if USE_SATELLITE_NMEA_PIMPL
+class QGeoSatelliteInfoPrivateNmea : public QGeoSatelliteInfoPrivate
+{
+public:
+    QGeoSatelliteInfoPrivateNmea(const QGeoSatelliteInfoPrivate &other);
+    QGeoSatelliteInfoPrivateNmea(const QGeoSatelliteInfoPrivateNmea &other);
+    virtual ~QGeoSatelliteInfoPrivateNmea();
+
+    QList<QByteArray> nmeaSentences;
+};
+#endif  // USE_SATELLITE_NMEA_PIMPL
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 32, as local:qnmeasatelliteinfosource.cpp:QGeoSatelliteInfoPrivateNmea::QGeoSatelliteInfoPrivateNmea
+#if USE_SATELLITE_NMEA_PIMPL
+inline QGeoSatelliteInfoPrivateNmea::QGeoSatelliteInfoPrivateNmea(const QGeoSatelliteInfoPrivate &other)
+    : QGeoSatelliteInfoPrivate(other)
+{
+}
+#endif  // USE_SATELLITE_NMEA_PIMPL
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 43, as local:qnmeasatelliteinfosource.cpp:QGeoSatelliteInfoPrivateNmea::~QGeoSatelliteInfoPrivateNmea
+#if USE_SATELLITE_NMEA_PIMPL
+inline QGeoSatelliteInfoPrivateNmea::~QGeoSatelliteInfoPrivateNmea() {}
+#endif  // USE_SATELLITE_NMEA_PIMPL
+
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 829, as _ZN20QNmeaSatelliteReaderC2EP31QNmeaSatelliteInfoSourcePrivate
 inline QNmeaSatelliteReader::QNmeaSatelliteReader(QNmeaSatelliteInfoSourcePrivate *sourcePrivate)
     : m_proxy(sourcePrivate)
@@ -37,6 +63,49 @@ inline QNmeaSatelliteReader::QNmeaSatelliteReader(QNmeaSatelliteInfoSourcePrivat
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 834, as _ZN20QNmeaSatelliteReaderD2Ev
 inline QNmeaSatelliteReader::~QNmeaSatelliteReader()
 {
+}
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 861, as _ZN30QNmeaSatelliteSimulationReader17readAvailableDataEv
+inline void QNmeaSatelliteSimulationReader::readAvailableData()
+{
+    if (!m_timer->isActive()) {
+        // At the very first start we just start a timer to simulate a short
+        // delay for overlapping requestUpdate() calls.
+        // See TestQGeoSatelliteInfoSource::requestUpdate_overlappingCalls and
+        // TestQGeoSatelliteInfoSource::requestUpdate_overlappingCallsWithTimeout
+        m_timer->start(m_updateInterval);
+    } else {
+        // Here we try to get both satellites in view and satellites in use.
+        // We behave like that because according to the QGeoSatelliteInfoSource
+        // tests each call to requestUpdate() should return both satellites in
+        // view and satellites in use. Same is expected on each interval for
+        // startUpdates().
+        // However user-provided NMEA logs might not contain some of the
+        // messages, so we will try not to get stuck here infinitely.
+        int numSatInUseMsgs = 0;
+        int numSatInViewMsgs = 0;
+        while (!m_proxy->m_device->atEnd() && (!numSatInUseMsgs || !numSatInViewMsgs)) {
+            m_proxy->processNmeaData(m_proxy->m_pendingUpdate);
+            if (m_proxy->m_pendingUpdate.m_validInUse)
+                numSatInUseMsgs++;
+            if (m_proxy->m_pendingUpdate.m_validInView)
+                numSatInViewMsgs++;
+            // if we got the second message for one of them, but still didn't
+            // receive any for the other - break.
+            // We use 2 in the comparison, because, as soon as the m_validIn*
+            // flag is set, it will stay true until we receive invalid message.
+            if (numSatInUseMsgs > 2 || numSatInViewMsgs > 2) {
+                const QString msgType = (numSatInUseMsgs > numSatInViewMsgs)
+                        ? QStringLiteral("GSA")
+                        : QStringLiteral("GSV");
+                qWarning() << "nmea simulation reader: possibly incorrect message order. Got too "
+                              "many consecutive"
+                           << msgType << "messages";
+                break;
+            }
+        }
+        m_proxy->notifyNewUpdate();
+    }
 }
 
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 54, as _ZN31QNmeaSatelliteInfoSourcePrivate15notifyNewUpdateEv
@@ -98,49 +167,6 @@ inline bool QNmeaSatelliteInfoSourcePrivate::emitUpdated(QNmeaSatelliteInfoUpdat
         emitted = true;
     }
     return emitted;
-}
-
-//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 861, as _ZN30QNmeaSatelliteSimulationReader17readAvailableDataEv
-inline void QNmeaSatelliteSimulationReader::readAvailableData()
-{
-    if (!m_timer->isActive()) {
-        // At the very first start we just start a timer to simulate a short
-        // delay for overlapping requestUpdate() calls.
-        // See TestQGeoSatelliteInfoSource::requestUpdate_overlappingCalls and
-        // TestQGeoSatelliteInfoSource::requestUpdate_overlappingCallsWithTimeout
-        m_timer->start(m_updateInterval);
-    } else {
-        // Here we try to get both satellites in view and satellites in use.
-        // We behave like that because according to the QGeoSatelliteInfoSource
-        // tests each call to requestUpdate() should return both satellites in
-        // view and satellites in use. Same is expected on each interval for
-        // startUpdates().
-        // However user-provided NMEA logs might not contain some of the
-        // messages, so we will try not to get stuck here infinitely.
-        int numSatInUseMsgs = 0;
-        int numSatInViewMsgs = 0;
-        while (!m_proxy->m_device->atEnd() && (!numSatInUseMsgs || !numSatInViewMsgs)) {
-            m_proxy->processNmeaData(m_proxy->m_pendingUpdate);
-            if (m_proxy->m_pendingUpdate.m_validInUse)
-                numSatInUseMsgs++;
-            if (m_proxy->m_pendingUpdate.m_validInView)
-                numSatInViewMsgs++;
-            // if we got the second message for one of them, but still didn't
-            // receive any for the other - break.
-            // We use 2 in the comparison, because, as soon as the m_validIn*
-            // flag is set, it will stay true until we receive invalid message.
-            if (numSatInUseMsgs > 2 || numSatInViewMsgs > 2) {
-                const QString msgType = (numSatInUseMsgs > numSatInViewMsgs)
-                        ? QStringLiteral("GSA")
-                        : QStringLiteral("GSV");
-                qWarning() << "nmea simulation reader: possibly incorrect message order. Got too "
-                              "many consecutive"
-                           << msgType << "messages";
-                break;
-            }
-        }
-        m_proxy->notifyNewUpdate();
-    }
 }
 
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 903, as _ZN30QNmeaSatelliteSimulationReader17setUpdateIntervalEi

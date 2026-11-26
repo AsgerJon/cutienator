@@ -5,5 +5,14 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QSpinBoxValidatorC1EP16QAbstractSpinBoxP23QAbstractSpinBoxPrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSpinBoxValidator8validateER7QStringRi": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK17QSpinBoxValidator5fixupER7QString": [
+      "nothing", "address", "address"
+    ]
   }
 }

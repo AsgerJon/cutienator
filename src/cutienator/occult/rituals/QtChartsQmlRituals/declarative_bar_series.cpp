@@ -15,6 +15,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A DeclarativeBarSeries that Python can take functions over in. Every DeclarativeBarSeries
 //  Python makes is one. Each function below asks the Python
@@ -238,6 +240,25 @@ const QMetaObject *ritual_ZNK20DeclarativeBarSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeBarSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20DeclarativeBarSeries11qt_metacastEPKc(
+    DeclarativeBarSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeBarSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20DeclarativeBarSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeBarSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeBarSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20DeclarativeBarSeries2trEPKcS1_i(
@@ -314,6 +335,13 @@ void ritual_ZN20DeclarativeBarSeries13setAxisYRightEP13QAbstractAxis(
   self->setAxisYRight(axis);
 }
 
+//  QQmlListProperty<QObject> DeclarativeBarSeries::seriesChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN20DeclarativeBarSeries14seriesChildrenEv(
+    DeclarativeBarSeries *self) {
+  return new QQmlListProperty<QObject>(self->seriesChildren());
+}
+
 //  DeclarativeBarSet *DeclarativeBarSeries::at(int index)
 extern "C" Q_DECL_EXPORT
 DeclarativeBarSet *ritual_ZN20DeclarativeBarSeries2atEi(
@@ -371,6 +399,47 @@ void ritual_ZN20DeclarativeBarSeries17componentCompleteEv(
   self->componentComplete();
 }
 
+//  void DeclarativeBarSeries::axisXChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20DeclarativeBarSeries12axisXChangedEP13QAbstractAxis(
+    DeclarativeBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeBarSeries::axisYChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20DeclarativeBarSeries12axisYChangedEP13QAbstractAxis(
+    DeclarativeBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeBarSeries::axisXTopChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20DeclarativeBarSeries15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void DeclarativeBarSeries::axisYRightChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20DeclarativeBarSeries17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
+}
+
+//  void DeclarativeBarSeries::appendSeriesChildren(QQmlListProperty<QObject>
+//      *list, QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20DeclarativeBarSeries20appendSeriesChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  DeclarativeBarSeries::appendSeriesChildren(list, element);
+}
+
 //  DeclarativeBarSeries as the QQmlParserStatus it is built on
 extern "C" Q_DECL_EXPORT
 QQmlParserStatus *ritual_cast_DeclarativeBarSeries_QQmlParserStatus(
@@ -400,6 +469,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN20DeclarativeBarSeries17componentCompleteEv(
     DeclarativeBarSeries *self) {
   self->DeclarativeBarSeries::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of DeclarativeBarSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeBarSeries__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_bar_chart)

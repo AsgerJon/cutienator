@@ -8,7 +8,49 @@
     "ritual_ZNK24QQStyleKitTextProperties10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQStyleKitTextProperties11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQStyleKitTextProperties24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties12colorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties16alignmentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties11boldChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties13italicChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties16pointSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties14paddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties18leftPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties19rightPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties17topPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties20bottomPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties12firstChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQStyleKitTextProperties13secondChangedEv": [
       "nothing", "address"
     ]
   }

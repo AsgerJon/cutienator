@@ -8,11 +8,32 @@
     "ritual_ZNK18qdesigner_internal24ActionRepositoryMimeData10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal24ActionRepositoryMimeData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal24ActionRepositoryMimeData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal24ActionRepositoryMimeData2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18qdesigner_internal24ActionRepositoryMimeDataC1ERK5QListIP7QActionEN2Qt10DropActionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal24ActionRepositoryMimeDataC1EP7QActionN2Qt10DropActionE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK18qdesigner_internal24ActionRepositoryMimeData10actionListEv": [
       "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal24ActionRepositoryMimeData7formatsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24ActionRepositoryMimeData16actionDragPixmapEPK7QAction": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal24ActionRepositoryMimeData6acceptEP14QDragMoveEvent": [
+      "nothing", "address", "address"
     ]
   }
 }

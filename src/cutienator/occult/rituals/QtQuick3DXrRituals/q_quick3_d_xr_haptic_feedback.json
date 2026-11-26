@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuick3DXrHapticFeedback10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuick3DXrHapticFeedback11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuick3DXrHapticFeedback11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuick3DXrHapticFeedbackD1Ev": ["nothing", "address"],
     "ritual_ZN24QQuick3DXrHapticFeedback10classBeginEv": [
       "nothing", "address"
@@ -20,8 +26,23 @@
     ],
     "ritual_ZNK24QQuick3DXrHapticFeedback10controllerEv": ["int", "address"],
     "ritual_ZN24QQuick3DXrHapticFeedback7triggerEv": ["bool", "address"],
+    "ritual_ZNK24QQuick3DXrHapticFeedback9conditionEv": [
+      "address", "address"
+    ],
     "ritual_ZN24QQuick3DXrHapticFeedback12testAndClearEv": [
       "bool", "address"
+    ],
+    "ritual_ZN24QQuick3DXrHapticFeedback17controllerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DXrHapticFeedback19hapticEffectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DXrHapticFeedback14triggerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DXrHapticFeedback16conditionChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN24QQuick3DXrHapticFeedback5startEv": ["nothing", "address"],
     "ritual_ZN24QQuick3DXrHapticFeedback4stopEv": ["nothing", "address"],
@@ -32,6 +53,9 @@
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN24QQuick3DXrHapticFeedback10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DXrHapticFeedback__enum_QQuick3DXrHapticFeedback_Condition": [
       "nothing", "address"
     ]
   }

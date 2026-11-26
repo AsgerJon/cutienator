@@ -26,10 +26,10 @@ typedef const QSurfaceFormat * (*CuteQPlatformOpenGLContextCall1)(const void *, 
 typedef void (*CuteQPlatformOpenGLContextCall2)(const void *, QPlatformSurface *, int *);
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
-typedef bool (*CuteQPlatformOpenGLContextCall3)(const void *, QPlatformSurface *, int *);
+typedef GLuint (*CuteQPlatformOpenGLContextCall3)(const void *, QPlatformSurface *, int *);
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
-typedef void (*CuteQPlatformOpenGLContextCall4)(const void *, int *);
+typedef bool (*CuteQPlatformOpenGLContextCall4)(const void *, QPlatformSurface *, int *);
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
 typedef void (*CuteQPlatformOpenGLContextCall5)(const void *, int *);
@@ -38,15 +38,18 @@ typedef void (*CuteQPlatformOpenGLContextCall5)(const void *, int *);
 typedef void (*CuteQPlatformOpenGLContextCall6)(const void *, int *);
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
-typedef bool (*CuteQPlatformOpenGLContextCall7)(const void *, int *);
+typedef void (*CuteQPlatformOpenGLContextCall7)(const void *, int *);
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
 typedef bool (*CuteQPlatformOpenGLContextCall8)(const void *, int *);
 #endif  // !defined(QT_NO_OPENGL)
+#if !defined(QT_NO_OPENGL)
+typedef bool (*CuteQPlatformOpenGLContextCall9)(const void *, int *);
+#endif  // !defined(QT_NO_OPENGL)
 class CuteQPlatformOpenGLContext : public QPlatformOpenGLContext {
 public:
   using QPlatformOpenGLContext::QPlatformOpenGLContext;
-  void *taken[9] = {};
+  void *taken[10] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_OPENGL)
@@ -68,38 +71,44 @@ public:
     }
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
-    if (!std::strcmp(key, "_ZN22QPlatformOpenGLContext11makeCurrentEP16QPlatformSurface")) {
+    if (!std::strcmp(key, "_ZNK22QPlatformOpenGLContext24defaultFramebufferObjectEP16QPlatformSurface")) {
       taken[3] = call;
       return true;
     }
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
-    if (!std::strcmp(key, "_ZN22QPlatformOpenGLContext11doneCurrentEv")) {
+    if (!std::strcmp(key, "_ZN22QPlatformOpenGLContext11makeCurrentEP16QPlatformSurface")) {
       taken[4] = call;
       return true;
     }
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
-    if (!std::strcmp(key, "_ZN22QPlatformOpenGLContext10beginFrameEv")) {
+    if (!std::strcmp(key, "_ZN22QPlatformOpenGLContext11doneCurrentEv")) {
       taken[5] = call;
       return true;
     }
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
-    if (!std::strcmp(key, "_ZN22QPlatformOpenGLContext8endFrameEv")) {
+    if (!std::strcmp(key, "_ZN22QPlatformOpenGLContext10beginFrameEv")) {
       taken[6] = call;
       return true;
     }
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
-    if (!std::strcmp(key, "_ZNK22QPlatformOpenGLContext9isSharingEv")) {
+    if (!std::strcmp(key, "_ZN22QPlatformOpenGLContext8endFrameEv")) {
       taken[7] = call;
       return true;
     }
 #endif  // !defined(QT_NO_OPENGL)
 #if !defined(QT_NO_OPENGL)
-    if (!std::strcmp(key, "_ZNK22QPlatformOpenGLContext7isValidEv")) {
+    if (!std::strcmp(key, "_ZNK22QPlatformOpenGLContext9isSharingEv")) {
       taken[8] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_OPENGL)
+#if !defined(QT_NO_OPENGL)
+    if (!std::strcmp(key, "_ZNK22QPlatformOpenGLContext7isValidEv")) {
+      taken[9] = call;
       return true;
     }
 #endif  // !defined(QT_NO_OPENGL)
@@ -145,11 +154,26 @@ public:
 #endif  // !defined(QT_NO_OPENGL)
 
 #if !defined(QT_NO_OPENGL)
-  //  bool QPlatformOpenGLContext::makeCurrent(QPlatformSurface *surface)
-  bool makeCurrent(QPlatformSurface *surface) override {
+  //  GLuint
+  //      QPlatformOpenGLContext::defaultFramebufferObject(QPlatformSurface
+  //      *surface) const
+  GLuint defaultFramebufferObject(QPlatformSurface *surface) const override {
     if (taken[3]) {
       int handled = 0;
       CuteQPlatformOpenGLContextCall3 call = reinterpret_cast<CuteQPlatformOpenGLContextCall3>(taken[3]);
+      GLuint given = call(this, surface, &handled);
+      if (handled) return given;
+    }
+    return QPlatformOpenGLContext::defaultFramebufferObject(surface);
+  }
+#endif  // !defined(QT_NO_OPENGL)
+
+#if !defined(QT_NO_OPENGL)
+  //  bool QPlatformOpenGLContext::makeCurrent(QPlatformSurface *surface)
+  bool makeCurrent(QPlatformSurface *surface) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQPlatformOpenGLContextCall4 call = reinterpret_cast<CuteQPlatformOpenGLContextCall4>(taken[4]);
       bool given = call(this, surface, &handled);
       if (handled) return given;
     }
@@ -160,9 +184,9 @@ public:
 #if !defined(QT_NO_OPENGL)
   //  void QPlatformOpenGLContext::doneCurrent()
   void doneCurrent() override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQPlatformOpenGLContextCall4 call = reinterpret_cast<CuteQPlatformOpenGLContextCall4>(taken[4]);
+      CuteQPlatformOpenGLContextCall5 call = reinterpret_cast<CuteQPlatformOpenGLContextCall5>(taken[5]);
       call(this, &handled);
       if (handled) return;
     }
@@ -172,9 +196,9 @@ public:
 #if !defined(QT_NO_OPENGL)
   //  void QPlatformOpenGLContext::beginFrame()
   void beginFrame() override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQPlatformOpenGLContextCall5 call = reinterpret_cast<CuteQPlatformOpenGLContextCall5>(taken[5]);
+      CuteQPlatformOpenGLContextCall6 call = reinterpret_cast<CuteQPlatformOpenGLContextCall6>(taken[6]);
       call(this, &handled);
       if (handled) return;
     }
@@ -185,9 +209,9 @@ public:
 #if !defined(QT_NO_OPENGL)
   //  void QPlatformOpenGLContext::endFrame()
   void endFrame() override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQPlatformOpenGLContextCall6 call = reinterpret_cast<CuteQPlatformOpenGLContextCall6>(taken[6]);
+      CuteQPlatformOpenGLContextCall7 call = reinterpret_cast<CuteQPlatformOpenGLContextCall7>(taken[7]);
       call(this, &handled);
       if (handled) return;
     }
@@ -198,9 +222,9 @@ public:
 #if !defined(QT_NO_OPENGL)
   //  bool QPlatformOpenGLContext::isSharing() const
   bool isSharing() const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQPlatformOpenGLContextCall7 call = reinterpret_cast<CuteQPlatformOpenGLContextCall7>(taken[7]);
+      CuteQPlatformOpenGLContextCall8 call = reinterpret_cast<CuteQPlatformOpenGLContextCall8>(taken[8]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -211,9 +235,9 @@ public:
 #if !defined(QT_NO_OPENGL)
   //  bool QPlatformOpenGLContext::isValid() const
   bool isValid() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQPlatformOpenGLContextCall8 call = reinterpret_cast<CuteQPlatformOpenGLContextCall8>(taken[8]);
+      CuteQPlatformOpenGLContextCall9 call = reinterpret_cast<CuteQPlatformOpenGLContextCall9>(taken[9]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -221,6 +245,21 @@ public:
   }
 #endif  // !defined(QT_NO_OPENGL)
 };
+
+//  QPlatformOpenGLContextPrivate *QPlatformOpenGLContext::d_func()
+extern "C" Q_DECL_EXPORT
+QPlatformOpenGLContextPrivate *ritual_ZN22QPlatformOpenGLContext6d_funcEv(
+    QPlatformOpenGLContext *self) {
+  return self->d_func();
+}
+
+//  const QPlatformOpenGLContextPrivate *QPlatformOpenGLContext::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QPlatformOpenGLContextPrivate *ritual_ZNK22QPlatformOpenGLContext6d_funcEv(
+    const QPlatformOpenGLContext *self) {
+  return self->d_func();
+}
 
 //  QPlatformOpenGLContext::~QPlatformOpenGLContext()
 extern "C" Q_DECL_EXPORT
@@ -248,6 +287,15 @@ void ritual_ZN22QPlatformOpenGLContext11swapBuffersEP16QPlatformSurface(
     QPlatformOpenGLContext *self,
     QPlatformSurface *surface) {
   self->swapBuffers(surface);
+}
+
+//  GLuint QPlatformOpenGLContext::defaultFramebufferObject(QPlatformSurface
+//      *surface) const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK22QPlatformOpenGLContext24defaultFramebufferObjectEP16QPlatformSurface(
+    const QPlatformOpenGLContext *self,
+    QPlatformSurface *surface) {
+  return self->defaultFramebufferObject(surface);
 }
 
 //  bool QPlatformOpenGLContext::makeCurrent(QPlatformSurface *surface)
@@ -293,6 +341,15 @@ bool ritual_ZNK22QPlatformOpenGLContext7isValidEv(
   return self->isValid();
 }
 
+//  QFunctionPointer QPlatformOpenGLContext::getProcAddress(const char
+//      *procName)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QPlatformOpenGLContext14getProcAddressEPKc(
+    QPlatformOpenGLContext *self,
+    const char *procName) {
+  return reinterpret_cast<void *>(self->getProcAddress(procName));
+}
+
 //  QOpenGLContext *QPlatformOpenGLContext::context() const
 extern "C" Q_DECL_EXPORT
 QOpenGLContext *ritual_ZNK22QPlatformOpenGLContext7contextEv(
@@ -336,6 +393,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN22QPlatformOpenGLContext10initializeEv(
     QPlatformOpenGLContext *self) {
   self->QPlatformOpenGLContext::initialize();
+}
+
+//  GLuint QPlatformOpenGLContext::defaultFramebufferObject(QPlatformSurface
+//      *surface) const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_own_ZNK22QPlatformOpenGLContext24defaultFramebufferObjectEP16QPlatformSurface(
+    const QPlatformOpenGLContext *self,
+    QPlatformSurface *surface) {
+  return self->QPlatformOpenGLContext::defaultFramebufferObject(surface);
 }
 
 //  void QPlatformOpenGLContext::beginFrame()

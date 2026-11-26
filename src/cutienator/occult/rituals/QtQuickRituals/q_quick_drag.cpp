@@ -188,6 +188,24 @@ const QMetaObject *ritual_ZNK10QQuickDrag10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDrag::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickDrag11qt_metacastEPKc(
+    QQuickDrag *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDrag::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQuickDrag11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDrag *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDrag::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQuickDrag2trEPKcS1_i(
@@ -362,6 +380,66 @@ extern "C" Q_DECL_EXPORT
 QQuickDragAttached *ritual_ZN10QQuickDrag21qmlAttachedPropertiesEP7QObject(
     QObject *obj) {
   return QQuickDrag::qmlAttachedProperties(obj);
+}
+
+//  void QQuickDrag::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag13targetChangedEv(QQuickDrag *self) {
+  self->targetChanged();
+}
+
+//  void QQuickDrag::axisChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag11axisChangedEv(QQuickDrag *self) {
+  self->axisChanged();
+}
+
+//  void QQuickDrag::minimumXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag15minimumXChangedEv(QQuickDrag *self) {
+  self->minimumXChanged();
+}
+
+//  void QQuickDrag::maximumXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag15maximumXChangedEv(QQuickDrag *self) {
+  self->maximumXChanged();
+}
+
+//  void QQuickDrag::minimumYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag15minimumYChangedEv(QQuickDrag *self) {
+  self->minimumYChanged();
+}
+
+//  void QQuickDrag::maximumYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag15maximumYChangedEv(QQuickDrag *self) {
+  self->maximumYChanged();
+}
+
+//  void QQuickDrag::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag13activeChangedEv(QQuickDrag *self) {
+  self->activeChanged();
+}
+
+//  void QQuickDrag::filterChildrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag21filterChildrenChangedEv(QQuickDrag *self) {
+  self->filterChildrenChanged();
+}
+
+//  void QQuickDrag::smoothedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag15smoothedChangedEv(QQuickDrag *self) {
+  self->smoothedChanged();
+}
+
+//  void QQuickDrag::thresholdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickDrag16thresholdChangedEv(QQuickDrag *self) {
+  self->thresholdChanged();
 }
 
 //  a Python function taken by a CuteQQuickDrag, for the function named by

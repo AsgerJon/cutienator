@@ -10,13 +10,22 @@
     "ritual_ZN11QDirListingC1ERK7QStringRK5QListIS0_E6QFlagsINS_12IteratorFlagEE": [
       "address", "text", "address", "int"
     ],
+    "ritual_ZN11QDirListingC1EOS_": ["address", "address"],
+    "ritual_ZN11QDirListingaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QDirListing4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN11QDirListingD1Ev": ["nothing", "address"],
     "ritual_ZNK11QDirListing12iteratorPathEv": ["text", "address"],
     "ritual_ZNK11QDirListing13iteratorFlagsEv": ["int", "address"],
     "ritual_ZNK11QDirListing11nameFiltersEv": ["address", "address"],
+    "ritual_ZNK11QDirListing5beginEv": ["address", "address"],
+    "ritual_ZNK11QDirListing6cbeginEv": ["address", "address"],
     "ritual_ZNK11QDirListing3endEv": ["address", "address"],
     "ritual_ZNK11QDirListing4cendEv": ["address", "address"],
+    "ritual_ZNK11QDirListing10constBeginEv": ["address", "address"],
     "ritual_ZNK11QDirListing8constEndEv": ["address", "address"],
-    "ritual_ZN11QDirListing4nextENS_8DirEntryE": ["address", "address"]
+    "ritual_ZN11QDirListing4nextENS_8DirEntryE": ["address", "address"],
+    "ritual_drop_QDirListing__QDirListing_const_iterator": [
+      "nothing", "address"
+    ]
   }
 }

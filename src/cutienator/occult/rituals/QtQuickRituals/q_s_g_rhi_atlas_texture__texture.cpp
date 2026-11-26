@@ -11,6 +11,109 @@
 #include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgrhiatlastexture_p.h>
+#include <QtCore/QVarLengthArray>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QtMath>
+#include <QtGui/QWindow>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtQuick/private/qsgtexture_p.h>
+#include <QtQuick/private/qsgcompressedtexture_p.h>
+#include <QtQuick/private/qsgcompressedatlastexture_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 354, as _ZN18QSGRhiAtlasTexture11TextureBase23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch
+namespace QSGRhiAtlasTexture {
+inline void TextureBase::commitTextureOperations(QRhi *rhi, QRhiResourceUpdateBatch *resourceUpdates)
+{
+#ifdef QT_NO_DEBUG
+    Q_UNUSED(rhi);
+#endif
+    Q_ASSERT(rhi == m_atlas->m_rhi);
+    m_atlas->commitTextureOperations(resourceUpdates);
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 324, as _ZN18QSGRhiAtlasTexture11TextureBaseC2EPNS_9AtlasBaseERK5QRect
+namespace QSGRhiAtlasTexture {
+inline TextureBase::TextureBase(AtlasBase *atlas, const QRect &textureRect)
+    : QSGTexture(*(new QSGTexturePrivate(this)))
+    , m_allocated_rect(textureRect)
+    , m_atlas(atlas)
+{
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 331, as _ZN18QSGRhiAtlasTexture11TextureBaseD2Ev
+namespace QSGRhiAtlasTexture {
+inline TextureBase::~TextureBase()
+{
+    m_atlas->remove(this);
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 383, as _ZNK18QSGRhiAtlasTexture7Texture16removedFromAtlasEP23QRhiResourceUpdateBatch
+namespace QSGRhiAtlasTexture {
+inline QSGTexture *Texture::removedFromAtlas(QRhiResourceUpdateBatch *resourceUpdates) const
+{
+    if (!m_nonatlas_texture) {
+        m_nonatlas_texture = new QSGPlainTexture;
+        if (!m_image.isNull()) {
+            m_nonatlas_texture->setImage(m_image);
+            m_nonatlas_texture->setFiltering(filtering());
+        } else {
+            QSGDefaultRenderContext *rc = m_atlas->renderContext();
+            QRhi *rhi = m_atlas->rhi();
+            Q_ASSERT(rhi->isRecordingFrame());
+            const QRect r = atlasSubRectWithoutPadding();
+
+            QRhiTexture *extractTex = rhi->newTexture(m_atlas->texture()->format(), r.size());
+            if (extractTex->create()) {
+                bool ownResUpd = false;
+                QRhiResourceUpdateBatch *resUpd = resourceUpdates;
+                if (!resUpd) {
+                    ownResUpd = true;
+                    resUpd = rhi->nextResourceUpdateBatch();
+                }
+                QRhiTextureCopyDescription desc;
+                desc.setSourceTopLeft(r.topLeft());
+                desc.setPixelSize(r.size());
+                resUpd->copyTexture(extractTex, m_atlas->texture(), desc);
+                if (ownResUpd)
+                    rc->currentFrameCommandBuffer()->resourceUpdate(resUpd);
+            }
+
+            m_nonatlas_texture->setTexture(extractTex);
+            m_nonatlas_texture->setOwnsTexture(true);
+            m_nonatlas_texture->setHasAlphaChannel(m_has_alpha);
+            m_nonatlas_texture->setTextureSize(r.size());
+        }
+    }
+
+    m_nonatlas_texture->setMipmapFiltering(mipmapFiltering());
+    m_nonatlas_texture->setFiltering(filtering());
+    return m_nonatlas_texture;
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 377, as _ZN18QSGRhiAtlasTexture7TextureD1Ev
+namespace QSGRhiAtlasTexture {
+inline Texture::~Texture()
+{
+    if (m_nonatlas_texture)
+        delete m_nonatlas_texture;
+}
+}  // namespace QSGRhiAtlasTexture
+//  -----------------------------------------------------------------------
 
 //  A QSGRhiAtlasTexture::Texture that Python can take functions over in. Every QSGRhiAtlasTexture::Texture
 //  Python makes is one. Each function below asks the Python
@@ -335,6 +438,32 @@ const QMetaObject *ritual_ZNK18QSGRhiAtlasTexture7Texture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGRhiAtlasTexture::Texture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QSGRhiAtlasTexture7Texture11qt_metacastEPKc(
+    QSGRhiAtlasTexture::Texture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGRhiAtlasTexture::Texture::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QSGRhiAtlasTexture7Texture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGRhiAtlasTexture::Texture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QSGRhiAtlasTexture::Texture::~Texture()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSGRhiAtlasTexture7TextureD1Ev(
+    QSGRhiAtlasTexture::Texture *self) {
+  delete self;
+}
+
 //  QSize QSGRhiAtlasTexture::Texture::textureSize() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK18QSGRhiAtlasTexture7Texture11textureSizeEv(
@@ -383,6 +512,16 @@ extern "C" Q_DECL_EXPORT
 QRect *ritual_ZNK18QSGRhiAtlasTexture7Texture26atlasSubRectWithoutPaddingEv(
     const QSGRhiAtlasTexture::Texture *self) {
   return new QRect(self->atlasSubRectWithoutPadding());
+}
+
+//  QSGTexture
+//      *QSGRhiAtlasTexture::Texture::removedFromAtlas(QRhiResourceUpdateBatc
+//      h *resourceUpdates) const
+extern "C" Q_DECL_EXPORT
+QSGTexture *ritual_ZNK18QSGRhiAtlasTexture7Texture16removedFromAtlasEP23QRhiResourceUpdateBatch(
+    const QSGRhiAtlasTexture::Texture *self,
+    QRhiResourceUpdateBatch *resourceUpdates) {
+  return self->removedFromAtlas(resourceUpdates);
 }
 
 //  void QSGRhiAtlasTexture::Texture::releaseImage()
@@ -436,4 +575,15 @@ QRectF *ritual_own_ZNK18QSGRhiAtlasTexture7Texture24normalizedTextureSubRectEv(
     const QSGRhiAtlasTexture::Texture *self) {
   return new QRectF(
       self->QSGRhiAtlasTexture::Texture::normalizedTextureSubRect());
+}
+
+//  QSGTexture
+//      *QSGRhiAtlasTexture::Texture::removedFromAtlas(QRhiResourceUpdateBatc
+//      h *resourceUpdates) const
+extern "C" Q_DECL_EXPORT
+QSGTexture *ritual_own_ZNK18QSGRhiAtlasTexture7Texture16removedFromAtlasEP23QRhiResourceUpdateBatch(
+    const QSGRhiAtlasTexture::Texture *self,
+    QRhiResourceUpdateBatch *resourceUpdates) {
+  return self->QSGRhiAtlasTexture::Texture::removedFromAtlas(
+      resourceUpdates);
 }

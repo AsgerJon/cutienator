@@ -203,6 +203,12 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  QMaskGenerator::QMaskGenerator(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QMaskGenerator *ritual_ZN14QMaskGeneratorC1EP7QObject(QObject *parent) {
+  return new CuteQMaskGenerator(parent);
+}
+
 //  QMaskGenerator::~QMaskGenerator()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QMaskGeneratorD1Ev(QMaskGenerator *self) {

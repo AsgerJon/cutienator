@@ -23,6 +23,9 @@
     "ritual_ZNK13QSGRenderNode11RenderState10clipRegionEv": [
       "address", "address"
     ],
+    "ritual_ZNK13QSGRenderNode11RenderState3getEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_take_QSGRenderNode_RenderState": [
       "bool", "address", "chars", "address"
     ]

@@ -13,6 +13,30 @@ QBindingObserverPtr *ritual_ZN19QBindingObserverPtrC1Ev() {
   return new QBindingObserverPtr();
 }
 
+//  void QBindingObserverPtr::swap(QBindingObserverPtr &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBindingObserverPtr4swapERS_(
+    QBindingObserverPtr *self,
+    QBindingObserverPtr *other) {
+  self->swap(*other);
+}
+
+//  QBindingObserverPtr::QBindingObserverPtr(QBindingObserverPtr &&other)
+extern "C" Q_DECL_EXPORT
+QBindingObserverPtr *ritual_ZN19QBindingObserverPtrC1EOS_(
+    QBindingObserverPtr *other) {
+  return new QBindingObserverPtr(std::move(*other));
+}
+
+//  QBindingObserverPtr &QBindingObserverPtr::operator=(QBindingObserverPtr
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QBindingObserverPtr *ritual_ZN19QBindingObserverPtraSEOS_(
+    QBindingObserverPtr *self,
+    QBindingObserverPtr *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QBindingObserverPtr::QBindingObserverPtr(QPropertyObserver *observer)
 extern "C" Q_DECL_EXPORT
 QBindingObserverPtr *ritual_ZN19QBindingObserverPtrC1EP17QPropertyObserver(

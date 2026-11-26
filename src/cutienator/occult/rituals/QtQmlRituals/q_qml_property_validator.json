@@ -8,6 +8,9 @@
     "ritual_ZN21QQmlPropertyValidator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN21QQmlPropertyValidatorC1EP14QQmlTypeLoaderPK11QQmlImportsRK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK21QQmlPropertyValidator17rootPropertyCacheEv": [
       "address", "address"
     ],
@@ -16,6 +19,9 @@
     ],
     "ritual_ZNK21QQmlPropertyValidator10typeLoaderEv": [
       "address", "address"
+    ],
+    "ritual_ZNK21QQmlPropertyValidator21validateObjectBindingEPK16QQmlPropertyDataRK7QStringPKN3QV412CompiledData7BindingE": [
+      "address", "address", "address", "text", "address"
     ],
     "ritual_ZNK21QQmlPropertyValidator9canCoerceE9QMetaTypeN17QQmlPropertyCache8ConstPtrE": [
       "bool", "address", "address", "address"

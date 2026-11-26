@@ -19,6 +19,9 @@
 #include <QtGui/qpalette.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
+#include <QtQuick/QQuickItem>
 
 //  A QQuickPanePrivate that Python can take functions over in. Every QQuickPanePrivate
 //  Python makes is one. Each function below asks the Python
@@ -748,6 +751,20 @@ void ritual_ZN17QQuickPanePrivate4initEv(QQuickPanePrivate *self) {
   self->init();
 }
 
+//  QQmlListProperty<QObject> QQuickPanePrivate::contentData()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN17QQuickPanePrivate11contentDataEv(
+    QQuickPanePrivate *self) {
+  return new QQmlListProperty<QObject>(self->contentData());
+}
+
+//  QQmlListProperty<QQuickItem> QQuickPanePrivate::contentChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickItem> *ritual_ZN17QQuickPanePrivate15contentChildrenEv(
+    QQuickPanePrivate *self) {
+  return new QQmlListProperty<QQuickItem>(self->contentChildren());
+}
+
 //  QList<QQuickItem *> QQuickPanePrivate::contentChildItems() const
 extern "C" Q_DECL_EXPORT
 QList<QQuickItem *> *ritual_ZNK17QQuickPanePrivate17contentChildItemsEv(
@@ -908,4 +925,18 @@ bool ritual_own_ZN17QQuickPanePrivate11handlePressERK7QPointFm(
     const QPointF *point,
     ulong timestamp) {
   return self->QQuickPanePrivate::handlePress(*point, timestamp);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickPanePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPanePrivate__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickItem> a ritual of QQuickPanePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPanePrivate__QQmlListProperty_QQuickItem(
+    QQmlListProperty<QQuickItem> *self) {
+  delete self;
 }

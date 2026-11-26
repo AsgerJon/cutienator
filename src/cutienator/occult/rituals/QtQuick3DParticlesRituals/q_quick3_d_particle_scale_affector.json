@@ -8,6 +8,12 @@
     "ritual_ZNK29QQuick3DParticleScaleAffector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQuick3DParticleScaleAffector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQuick3DParticleScaleAffector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QQuick3DParticleScaleAffector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -41,6 +47,21 @@
     ],
     "ritual_ZN29QQuick3DParticleScaleAffector14setEasingCurveERK12QEasingCurve": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleScaleAffector14minSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleScaleAffector14maxSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleScaleAffector15durationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleScaleAffector11typeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleScaleAffector18easingCurveChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN29QQuick3DParticleScaleAffector15prepareToAffectEv": [
       "nothing", "address"

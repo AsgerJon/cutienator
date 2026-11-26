@@ -284,6 +284,28 @@ void ritual_ZN11QRhiTexture15setNativeLayoutEi(
   self->setNativeLayout(layout);
 }
 
+//  QRhiTexture::QRhiTexture(QRhiImplementation *rhi, Format format_, const
+//      QSize &pixelSize_, int depth_, int arraySize_, int sampleCount_,
+//      Flags flags_)
+extern "C" Q_DECL_EXPORT
+QRhiTexture *ritual_ZN11QRhiTextureC1EP18QRhiImplementationNS_6FormatERK5QSizeiii6QFlagsINS_4FlagEE(
+    QRhiImplementation *rhi,
+    QRhiTexture::Format format_,
+    const QSize *pixelSize_,
+    int depth_,
+    int arraySize_,
+    int sampleCount_,
+    int flags_) {
+  return new CuteQRhiTexture(
+      rhi,
+      format_,
+      *pixelSize_,
+      depth_,
+      arraySize_,
+      sampleCount_,
+      QFlags<QRhiTexture::Flag>::fromInt(flags_));
+}
+
 //  a Python function taken by a CuteQRhiTexture, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

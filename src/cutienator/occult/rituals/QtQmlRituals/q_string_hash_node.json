@@ -19,6 +19,7 @@
     ],
     "ritual_ZNK15QStringHashNode4sizeEv": ["long long", "address"],
     "ritual_ZNK15QStringHashNode8cStrDataEv": ["chars", "address"],
+    "ritual_ZNK15QStringHashNode9utf16DataEv": ["address", "address"],
     "ritual_ZNK15QStringHashNode6equalsERKN3QV45ValueE": [
       "bool", "address", "address"
     ],

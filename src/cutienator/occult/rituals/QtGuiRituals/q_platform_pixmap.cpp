@@ -324,6 +324,14 @@ public:
   }
 };
 
+//  QPlatformPixmap::QPlatformPixmap(PixelType pixelType, int classId)
+extern "C" Q_DECL_EXPORT
+QPlatformPixmap *ritual_ZN15QPlatformPixmapC1ENS_9PixelTypeEi(
+    QPlatformPixmap::PixelType pixelType,
+    int classId) {
+  return new CuteQPlatformPixmap(pixelType, classId);
+}
+
 //  QPlatformPixmap::~QPlatformPixmap()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QPlatformPixmapD1Ev(QPlatformPixmap *self) {
@@ -356,6 +364,18 @@ void ritual_ZN15QPlatformPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversion
   self->fromImage(*image, QFlags<Qt::ImageConversionFlag>::fromInt(flags));
 }
 
+//  void QPlatformPixmap::fromImageInPlace(QImage &image,
+//      Qt::ImageConversionFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPlatformPixmap16fromImageInPlaceER6QImage6QFlagsIN2Qt19ImageConversionFlagEE(
+    QPlatformPixmap *self,
+    QImage *image,
+    int flags) {
+  self->fromImageInPlace(
+      *image,
+      QFlags<Qt::ImageConversionFlag>::fromInt(flags));
+}
+
 //  void QPlatformPixmap::fromImageReader(QImageReader *imageReader,
 //      Qt::ImageConversionFlags flags)
 extern "C" Q_DECL_EXPORT
@@ -378,6 +398,22 @@ bool ritual_ZN15QPlatformPixmap8fromFileERK7QStringPKc6QFlagsIN2Qt19ImageConvers
     int flags) {
   return self->fromFile(
       *filename,
+      format,
+      QFlags<Qt::ImageConversionFlag>::fromInt(flags));
+}
+
+//  bool QPlatformPixmap::fromData(const uchar *buffer, uint len, const char
+//      *format, Qt::ImageConversionFlags flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QPlatformPixmap8fromDataEPKhjPKc6QFlagsIN2Qt19ImageConversionFlagEE(
+    QPlatformPixmap *self,
+    const uchar *buffer,
+    uint len,
+    const char *format,
+    int flags) {
+  return self->fromData(
+      buffer,
+      len,
       format,
       QFlags<Qt::ImageConversionFlag>::fromInt(flags));
 }

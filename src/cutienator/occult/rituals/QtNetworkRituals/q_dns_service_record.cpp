@@ -20,10 +20,36 @@ QDnsServiceRecord *ritual_ZN17QDnsServiceRecordC1ERKS_(
   return new QDnsServiceRecord(*other);
 }
 
+//  QDnsServiceRecord &QDnsServiceRecord::operator=(QDnsServiceRecord
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QDnsServiceRecord *ritual_ZN17QDnsServiceRecordaSEOS_(
+    QDnsServiceRecord *self,
+    QDnsServiceRecord *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDnsServiceRecord &QDnsServiceRecord::operator=(const QDnsServiceRecord
+//      &other)
+extern "C" Q_DECL_EXPORT
+QDnsServiceRecord *ritual_ZN17QDnsServiceRecordaSERKS_(
+    QDnsServiceRecord *self,
+    const QDnsServiceRecord *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDnsServiceRecord::~QDnsServiceRecord()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QDnsServiceRecordD1Ev(QDnsServiceRecord *self) {
   delete self;
+}
+
+//  void QDnsServiceRecord::swap(QDnsServiceRecord &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDnsServiceRecord4swapERS_(
+    QDnsServiceRecord *self,
+    QDnsServiceRecord *other) {
+  self->swap(*other);
 }
 
 //  QString QDnsServiceRecord::name() const

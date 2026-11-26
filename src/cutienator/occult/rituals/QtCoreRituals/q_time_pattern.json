@@ -5,12 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QTimePatternC1ERK5QListIN17QtTemporalPattern13TemporalFieldEE": [
+      "address", "address"
+    ],
     "ritual_ZNK12QTimePattern11timeSupportEv": ["int", "address"],
     "ritual_ZNK12QTimePattern7isValidEv": ["bool", "address"],
     "ritual_ZN12QTimePattern9setLocaleERK7QLocale": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK12QTimePattern6localeEv": ["address", "address"],
+    "ritual_ZNK12QTimePattern5parseE11QStringView5QTime": [
+      "address", "address", "text", "address"
+    ],
     "ritual_ZNK12QTimePattern9serializeERK5QTime": [
       "text", "address", "address"
     ],
@@ -20,6 +26,9 @@
     "ritual_ZN12QTimePattern9forLocaleERK7QLocaleNS0_10FormatTypeE": [
       "address", "address", "int"
     ],
-    "ritual_ZN12QTimePatternD1Ev": ["nothing", "address"]
+    "ritual_ZN12QTimePatternD1Ev": ["nothing", "address"],
+    "ritual_drop_QTimePattern__QtTemporalPattern_ParseResult_QTime": [
+      "nothing", "address"
+    ]
   }
 }

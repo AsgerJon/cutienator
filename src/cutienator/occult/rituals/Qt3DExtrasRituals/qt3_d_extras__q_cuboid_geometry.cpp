@@ -2,6 +2,7 @@
 //  Qt3DExtras/qcuboidgeometry.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qcuboidgeometry.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras15QCuboidGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QCuboidGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras15QCuboidGeometry11qt_metacastEPKc(
+    Qt3DExtras::QCuboidGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QCuboidGeometry::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras15QCuboidGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QCuboidGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QCuboidGeometry::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,226 @@ QString *ritual_ZN10Qt3DExtras15QCuboidGeometry2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QCuboidGeometry::tr(s, c, n));
+}
+
+//  Qt3DExtras::QCuboidGeometry::QCuboidGeometry(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QCuboidGeometry *ritual_ZN10Qt3DExtras15QCuboidGeometryC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QCuboidGeometry(parent);
+}
+
+//  Qt3DExtras::QCuboidGeometry::~QCuboidGeometry()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometryD1Ev(
+    Qt3DExtras::QCuboidGeometry *self) {
+  delete self;
+}
+
+//  void Qt3DExtras::QCuboidGeometry::updateIndices()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry13updateIndicesEv(
+    Qt3DExtras::QCuboidGeometry *self) {
+  self->updateIndices();
+}
+
+//  void Qt3DExtras::QCuboidGeometry::updateVertices()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry14updateVerticesEv(
+    Qt3DExtras::QCuboidGeometry *self) {
+  self->updateVertices();
+}
+
+//  float Qt3DExtras::QCuboidGeometry::xExtent() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras15QCuboidGeometry7xExtentEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return self->xExtent();
+}
+
+//  float Qt3DExtras::QCuboidGeometry::yExtent() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras15QCuboidGeometry7yExtentEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return self->yExtent();
+}
+
+//  float Qt3DExtras::QCuboidGeometry::zExtent() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras15QCuboidGeometry7zExtentEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return self->zExtent();
+}
+
+//  QSize Qt3DExtras::QCuboidGeometry::yzMeshResolution() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DExtras15QCuboidGeometry16yzMeshResolutionEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return new QSize(self->yzMeshResolution());
+}
+
+//  QSize Qt3DExtras::QCuboidGeometry::xyMeshResolution() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DExtras15QCuboidGeometry16xyMeshResolutionEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return new QSize(self->xyMeshResolution());
+}
+
+//  QSize Qt3DExtras::QCuboidGeometry::xzMeshResolution() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DExtras15QCuboidGeometry16xzMeshResolutionEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return new QSize(self->xzMeshResolution());
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QCuboidGeometry::positionAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras15QCuboidGeometry17positionAttributeEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return self->positionAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QCuboidGeometry::normalAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras15QCuboidGeometry15normalAttributeEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return self->normalAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QCuboidGeometry::texCoordAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras15QCuboidGeometry17texCoordAttributeEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return self->texCoordAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QCuboidGeometry::tangentAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras15QCuboidGeometry16tangentAttributeEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return self->tangentAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QCuboidGeometry::indexAttribute() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras15QCuboidGeometry14indexAttributeEv(
+    const Qt3DExtras::QCuboidGeometry *self) {
+  return self->indexAttribute();
+}
+
+//  void Qt3DExtras::QCuboidGeometry::setXExtent(float xExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry10setXExtentEf(
+    Qt3DExtras::QCuboidGeometry *self,
+    float xExtent) {
+  self->setXExtent(xExtent);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::setYExtent(float yExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry10setYExtentEf(
+    Qt3DExtras::QCuboidGeometry *self,
+    float yExtent) {
+  self->setYExtent(yExtent);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::setZExtent(float zExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry10setZExtentEf(
+    Qt3DExtras::QCuboidGeometry *self,
+    float zExtent) {
+  self->setZExtent(zExtent);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::setYZMeshResolution(const QSize
+//      &resolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry19setYZMeshResolutionERK5QSize(
+    Qt3DExtras::QCuboidGeometry *self,
+    const QSize *resolution) {
+  self->setYZMeshResolution(*resolution);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::setXZMeshResolution(const QSize
+//      &resolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry19setXZMeshResolutionERK5QSize(
+    Qt3DExtras::QCuboidGeometry *self,
+    const QSize *resolution) {
+  self->setXZMeshResolution(*resolution);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::setXYMeshResolution(const QSize
+//      &resolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry19setXYMeshResolutionERK5QSize(
+    Qt3DExtras::QCuboidGeometry *self,
+    const QSize *resolution) {
+  self->setXYMeshResolution(*resolution);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::xExtentChanged(float xExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry14xExtentChangedEf(
+    Qt3DExtras::QCuboidGeometry *self,
+    float xExtent) {
+  self->xExtentChanged(xExtent);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::yExtentChanged(float yExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry14yExtentChangedEf(
+    Qt3DExtras::QCuboidGeometry *self,
+    float yExtent) {
+  self->yExtentChanged(yExtent);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::zExtentChanged(float zExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry14zExtentChangedEf(
+    Qt3DExtras::QCuboidGeometry *self,
+    float zExtent) {
+  self->zExtentChanged(zExtent);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::yzMeshResolutionChanged(const QSize
+//      &yzMeshResolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry23yzMeshResolutionChangedERK5QSize(
+    Qt3DExtras::QCuboidGeometry *self,
+    const QSize *yzMeshResolution) {
+  self->yzMeshResolutionChanged(*yzMeshResolution);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::xzMeshResolutionChanged(const QSize
+//      &xzMeshResolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry23xzMeshResolutionChangedERK5QSize(
+    Qt3DExtras::QCuboidGeometry *self,
+    const QSize *xzMeshResolution) {
+  self->xzMeshResolutionChanged(*xzMeshResolution);
+}
+
+//  void Qt3DExtras::QCuboidGeometry::xyMeshResolutionChanged(const QSize
+//      &xyMeshResolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras15QCuboidGeometry23xyMeshResolutionChangedERK5QSize(
+    Qt3DExtras::QCuboidGeometry *self,
+    const QSize *xyMeshResolution) {
+  self->xyMeshResolutionChanged(*xyMeshResolution);
+}
+
+//  Qt3DExtras::QCuboidGeometry::QCuboidGeometry(QCuboidGeometryPrivate &dd,
+//      QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QCuboidGeometry *ritual_ZN10Qt3DExtras15QCuboidGeometryC1ERNS_22QCuboidGeometryPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QCuboidGeometryPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QCuboidGeometry(*dd, parent);
 }
 
 //  QCuboidGeometryPrivate *Qt3DExtras::QCuboidGeometry::d_func()

@@ -5,6 +5,15 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QSvgDocument4loadERK7QString6QFlagsIN5QtSvg6OptionEENS4_12AnimatorTypeE": [
+      "address", "text", "int", "unsigned int"
+    ],
+    "ritual_ZN12QSvgDocument4loadERK10QByteArray6QFlagsIN5QtSvg6OptionEENS4_12AnimatorTypeE": [
+      "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN12QSvgDocument4loadEP16QXmlStreamReader6QFlagsIN5QtSvg6OptionEENS3_12AnimatorTypeE": [
+      "address", "address", "int", "unsigned int"
+    ],
     "ritual_ZN12QSvgDocument11isLikelySvgEP9QIODevicePb": [
       "bool", "address", "address"
     ],
@@ -36,6 +45,9 @@
       "bool", "address"
     ],
     "ritual_ZNK12QSvgDocument7optionsEv": ["int", "address"],
+    "ritual_ZN12QSvgDocument11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN12QSvgDocument4drawEP8QPainter": [
       "nothing", "address", "address"
     ],
@@ -63,6 +75,12 @@
     "ritual_ZNK12QSvgDocument9namedNodeERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZN12QSvgDocument14addPaintServerESt10shared_ptrI15QSvgPaintServerERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK12QSvgDocument11paintServerE11QStringView": [
+      "address", "address", "text"
+    ],
     "ritual_ZN12QSvgDocument16restartAnimationEv": ["nothing", "address"],
     "ritual_ZNK12QSvgDocument14currentElapsedEv": ["long long", "address"],
     "ritual_ZNK12QSvgDocument8animatedEv": ["bool", "address"],
@@ -75,10 +93,20 @@
     "ritual_ZN12QSvgDocument18setFramesPerSecondEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK12QSvgDocument8animatorEv": ["address", "address"],
     "ritual_ZN12QSvgDocument17mapSourceToTargetEP8QPainterRK6QRectFS4_": [
       "nothing", "address", "address", "address", "address"
     ],
     "ritual_take_QSvgDocument": ["bool", "address", "chars", "address"],
-    "ritual_own_ZNK12QSvgDocument4typeEv": ["int", "address"]
+    "ritual_own_ZNK12QSvgDocument4typeEv": ["int", "address"],
+    "ritual_drop_QSvgDocument__std_unique_ptr_QSvgDocument": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSvgDocument__QSvgPaintServerSharedPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSvgDocument__QSharedPointer_QSvgAbstractAnimator": [
+      "nothing", "address"
+    ]
   }
 }

@@ -9,12 +9,32 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtQml/QQmlListProperty>
 
 //  const QMetaObject *ProceduralMesh::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK14ProceduralMesh10metaObjectEv(
     const ProceduralMesh *self) {
   return self->metaObject();
+}
+
+//  void *ProceduralMesh::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14ProceduralMesh11qt_metacastEPKc(
+    ProceduralMesh *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ProceduralMesh::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14ProceduralMesh11qt_metacallEN11QMetaObject4CallEiPPv(
+    ProceduralMesh *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString ProceduralMesh::tr(const char *s, const char *c, int n)
@@ -60,6 +80,21 @@ void ritual_ZN14ProceduralMesh16setPrimitiveModeENS_13PrimitiveModeE(
     ProceduralMesh *self,
     ProceduralMesh::PrimitiveMode newPrimitiveMode) {
   self->setPrimitiveMode(newPrimitiveMode);
+}
+
+//  QList<unsigned int> ProceduralMesh::indexes() const
+extern "C" Q_DECL_EXPORT
+QList<unsigned int> *ritual_ZNK14ProceduralMesh7indexesEv(
+    const ProceduralMesh *self) {
+  return new QList<unsigned int>(self->indexes());
+}
+
+//  void ProceduralMesh::setIndexes(const QList<unsigned int> &newIndexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh10setIndexesERK5QListIjE(
+    ProceduralMesh *self,
+    const QList<unsigned int> *newIndexes) {
+  self->setIndexes(*newIndexes);
 }
 
 //  QList<QVector3D> ProceduralMesh::normals() const
@@ -182,6 +217,80 @@ void ritual_ZN14ProceduralMesh10setWeightsERK5QListI9QVector4DE(
   self->setWeights(*newWeights);
 }
 
+//  QQmlListProperty<ProceduralMeshSubset> ProceduralMesh::subsets()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<ProceduralMeshSubset> *ritual_ZN14ProceduralMesh7subsetsEv(
+    ProceduralMesh *self) {
+  return new QQmlListProperty<ProceduralMeshSubset>(self->subsets());
+}
+
+//  void ProceduralMesh::positionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh16positionsChangedEv(ProceduralMesh *self) {
+  self->positionsChanged();
+}
+
+//  void ProceduralMesh::primitiveModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh20primitiveModeChangedEv(
+    ProceduralMesh *self) {
+  self->primitiveModeChanged();
+}
+
+//  void ProceduralMesh::indexesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh14indexesChangedEv(ProceduralMesh *self) {
+  self->indexesChanged();
+}
+
+//  void ProceduralMesh::normalsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh14normalsChangedEv(ProceduralMesh *self) {
+  self->normalsChanged();
+}
+
+//  void ProceduralMesh::tangentsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh15tangentsChangedEv(ProceduralMesh *self) {
+  self->tangentsChanged();
+}
+
+//  void ProceduralMesh::binormalsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh16binormalsChangedEv(ProceduralMesh *self) {
+  self->binormalsChanged();
+}
+
+//  void ProceduralMesh::uv0sChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh11uv0sChangedEv(ProceduralMesh *self) {
+  self->uv0sChanged();
+}
+
+//  void ProceduralMesh::uv1sChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh11uv1sChangedEv(ProceduralMesh *self) {
+  self->uv1sChanged();
+}
+
+//  void ProceduralMesh::colorsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh13colorsChangedEv(ProceduralMesh *self) {
+  self->colorsChanged();
+}
+
+//  void ProceduralMesh::jointsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh13jointsChangedEv(ProceduralMesh *self) {
+  self->jointsChanged();
+}
+
+//  void ProceduralMesh::weightsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh14weightsChangedEv(ProceduralMesh *self) {
+  self->weightsChanged();
+}
+
 //  void ProceduralMesh::requestUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14ProceduralMesh13requestUpdateEv(ProceduralMesh *self) {
@@ -207,4 +316,52 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14ProceduralMesh28supportsTriangleFanPrimitiveEv(
     const ProceduralMesh *self) {
   return self->supportsTriangleFanPrimitive();
+}
+
+//  void ProceduralMesh::qmlAppendProceduralMeshSubset(QQmlListProperty<Proce
+//      duralMeshSubset> *list, ProceduralMeshSubset *subset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh29qmlAppendProceduralMeshSubsetEP16QQmlListPropertyI20ProceduralMeshSubsetEPS1_(
+    QQmlListProperty<ProceduralMeshSubset> *list,
+    ProceduralMeshSubset *subset) {
+  ProceduralMesh::qmlAppendProceduralMeshSubset(list, subset);
+}
+
+//  ProceduralMeshSubset *ProceduralMesh::qmlProceduralMeshSubsetAt(QQmlListP
+//      roperty<ProceduralMeshSubset> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+ProceduralMeshSubset *ritual_ZN14ProceduralMesh25qmlProceduralMeshSubsetAtEP16QQmlListPropertyI20ProceduralMeshSubsetEx(
+    QQmlListProperty<ProceduralMeshSubset> *list,
+    qsizetype index) {
+  return ProceduralMesh::qmlProceduralMeshSubsetAt(list, index);
+}
+
+//  qsizetype ProceduralMesh::qmlProceduralMeshSubsetCount(QQmlListProperty<P
+//      roceduralMeshSubset> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN14ProceduralMesh28qmlProceduralMeshSubsetCountEP16QQmlListPropertyI20ProceduralMeshSubsetE(
+    QQmlListProperty<ProceduralMeshSubset> *list) {
+  return ProceduralMesh::qmlProceduralMeshSubsetCount(list);
+}
+
+//  void ProceduralMesh::qmlClearProceduralMeshSubset(QQmlListProperty<Proced
+//      uralMeshSubset> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ProceduralMesh28qmlClearProceduralMeshSubsetEP16QQmlListPropertyI20ProceduralMeshSubsetE(
+    QQmlListProperty<ProceduralMeshSubset> *list) {
+  ProceduralMesh::qmlClearProceduralMeshSubset(list);
+}
+
+//  a QList<unsigned int> a ritual of ProceduralMesh gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_ProceduralMesh__QList_unsigned_int(
+    QList<unsigned int> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<ProceduralMeshSubset> a ritual of ProceduralMesh gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_ProceduralMesh__QQmlListProperty_ProceduralMeshSubset(
+    QQmlListProperty<ProceduralMeshSubset> *self) {
+  delete self;
 }

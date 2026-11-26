@@ -8,12 +8,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #include <QtCoap/qcoapoption.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCoap/private/qcoapinternalmessage_p.h>
 #include <QtCoap/private/qcoaprequest_p.h>
-#include <QtCoap/qcoaprequest.h>
+#include <QtCore/qmath.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/QDebug>
 #include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -23,6 +26,33 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 18, as local:qcoaprequest.cpp:CoapScheme
+namespace {
+const auto CoapScheme = QLatin1String("coap");
+}  // namespace
+
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 19, as local:qcoaprequest.cpp:CoapSecureScheme
+namespace {
+const auto CoapSecureScheme = QLatin1String("coaps");
+}  // namespace
+
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 236, as _ZN19QCoapRequestPrivate10isUrlValidERK4QUrl
+inline bool QCoapRequestPrivate::isUrlValid(const QUrl &url)
+{
+    return (url.isValid() && !url.isLocalFile() && !url.isRelative()
+            && (url.scheme() == CoapScheme || url.scheme() == CoapSecureScheme)
+            && !url.hasFragment());
+}
+
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 14, as _Z14lcCoapExchangev
+inline const QLoggingCategory &lcCoapExchange()
+{
+    static const QLoggingCategory category("qt.coap.exchange");
+    return category;
+}
 
 //  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 141, as _ZN20QCoapInternalMessage9addOptionERK11QCoapOption
 inline void QCoapInternalMessage::addOption(const QCoapOption &option)
@@ -91,6 +121,38 @@ inline uint QCoapInternalMessage::blockSize() const
 {
     Q_D(const QCoapInternalMessage);
     return d->blockSize;
+}
+
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 232, as _ZN20QCoapInternalMessage10isUrlValidERK4QUrl
+inline bool QCoapInternalMessage::isUrlValid(const QUrl &url)
+{
+    return QCoapRequestPrivate::isUrlValid(url);
+}
+
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 87, as _ZN20QCoapInternalMessage29setFromDescriptiveBlockOptionERK11QCoapOption
+inline void QCoapInternalMessage::setFromDescriptiveBlockOption(const QCoapOption &option)
+{
+    Q_D(QCoapInternalMessage);
+
+    const auto value = option.opaqueValue();
+    const quint8 *optionData = reinterpret_cast<const quint8 *>(value.data());
+
+    // A zero-length block option is valid and encodes NUM=0, M=0, SZX=0
+    // (RFC 7959 §2.2). Treat the absent last byte as 0 instead of reading
+    // optionData[-1]; the loop below is then skipped and every field resolves to 0.
+    const quint8 lastByte = option.length() > 0 ? optionData[option.length() - 1] : 0;
+    quint32 blockNumber = 0;
+
+    for (int i = 0; i < option.length() - 1; ++i)
+        blockNumber = (blockNumber << 8) | optionData[i];
+
+    blockNumber = (blockNumber << 4) | (lastByte >> 4);
+    d->currentBlockNumber = blockNumber;
+    d->hasNextBlock = ((lastByte & 0x8) == 0x8);
+    d->blockSize = static_cast<uint>(1u << ((lastByte & 0x7) + 4));
+
+    if (d->blockSize > 1024)
+        qCWarning(lcCoapExchange, "Received a block size larger than 1024, something may be wrong.");
 }
 //  -----------------------------------------------------------------------
 
@@ -300,6 +362,25 @@ const QMetaObject *ritual_ZNK20QCoapInternalMessage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCoapInternalMessage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QCoapInternalMessage11qt_metacastEPKc(
+    QCoapInternalMessage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCoapInternalMessage::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QCoapInternalMessage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCoapInternalMessage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QCoapInternalMessage::~QCoapInternalMessage()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QCoapInternalMessageD1Ev(QCoapInternalMessage *self) {
@@ -382,6 +463,21 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QCoapInternalMessage7isValidEv(
     const QCoapInternalMessage *self) {
   return self->isValid();
+}
+
+//  bool QCoapInternalMessage::isUrlValid(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QCoapInternalMessage10isUrlValidERK4QUrl(const QUrl *url) {
+  return QCoapInternalMessage::isUrlValid(*url);
+}
+
+//  void QCoapInternalMessage::setFromDescriptiveBlockOption(const
+//      QCoapOption &option)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QCoapInternalMessage29setFromDescriptiveBlockOptionERK11QCoapOption(
+    QCoapInternalMessage *self,
+    const QCoapOption *option) {
+  self->setFromDescriptiveBlockOption(*option);
 }
 
 //  QCoapInternalMessagePrivate *QCoapInternalMessage::d_func()

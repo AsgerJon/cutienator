@@ -6,8 +6,31 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4function_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmlglobal_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qlist.h>
+
+//  QV4::Function::Function(ExecutionEngine *engine,
+//      ExecutableCompilationUnit *unit, const CompiledData::Function
+//      *function, const QQmlPrivate::AOTCompiledFunction *aotFunction)
+extern "C" Q_DECL_EXPORT
+QV4::Function *ritual_ZN3QV48FunctionC1EPNS_15ExecutionEngineEPNS_25ExecutableCompilationUnitEPKNS_12CompiledData8FunctionEPKN11QQmlPrivate19AOTCompiledFunctionE(
+    QV4::ExecutionEngine *engine,
+    QV4::ExecutableCompilationUnit *unit,
+    const QV4::CompiledData::Function *function,
+    const QQmlPrivate::AOTCompiledFunction *aotFunction) {
+  return new QV4::Function(engine, unit, function, aotFunction);
+}
+
+//  QV4::Function::~Function()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV48FunctionD1Ev(QV4::Function *self) {
+  delete self;
+}
 
 //  QV4::ExecutableCompilationUnit
 //      *QV4::Function::executableCompilationUnit() const
@@ -25,6 +48,31 @@ QV4::Heap::String *ritual_ZNK3QV48Function13runtimeStringEj(
   return self->runtimeString(i);
 }
 
+//  bool QV4::Function::call(QObject *thisObject, void **a, const QMetaType
+//      *types, int argc, ExecutionContext *context)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN3QV48Function4callEP7QObjectPPvPK9QMetaTypeiPNS_16ExecutionContextE(
+    QV4::Function *self,
+    QObject *thisObject,
+    void **a,
+    const QMetaType *types,
+    int argc,
+    QV4::ExecutionContext *context) {
+  return self->call(thisObject, a, types, argc, context);
+}
+
+//  ReturnedValue QV4::Function::call(const Value *thisObject, const Value
+//      *argv, int argc, ExecutionContext *context)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV48Function4callEPKNS_5ValueES3_iPNS_16ExecutionContextE(
+    QV4::Function *self,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc,
+    QV4::ExecutionContext *context) {
+  return self->call(thisObject, argv, argc, context);
+}
+
 //  Function *QV4::Function::create(ExecutionEngine *engine,
 //      ExecutableCompilationUnit *unit, const CompiledData::Function
 //      *function, const QQmlPrivate::AOTCompiledFunction *aotFunction)
@@ -37,11 +85,44 @@ QV4::Function *ritual_ZN3QV48Function6createEPNS_15ExecutionEngineEPNS_25Executa
   return QV4::Function::create(engine, unit, function, aotFunction);
 }
 
+//  void QV4::Function::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV48Function7destroyEv(QV4::Function *self) {
+  self->destroy();
+}
+
+//  void QV4::Function::mark(QV4::MarkStack *ms)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV48Function4markEPNS_9MarkStackE(
+    QV4::Function *self,
+    QV4::MarkStack *ms) {
+  self->mark(ms);
+}
+
+//  void QV4::Function::updateInternalClass(ExecutionEngine *engine, const
+//      QList<QByteArray> &parameters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV48Function19updateInternalClassEPNS_15ExecutionEngineERK5QListI10QByteArrayE(
+    QV4::Function *self,
+    QV4::ExecutionEngine *engine,
+    const QList<QByteArray> *parameters) {
+  self->updateInternalClass(engine, *parameters);
+}
+
 //  Heap::String *QV4::Function::name() const
 extern "C" Q_DECL_EXPORT
 QV4::Heap::String *ritual_ZNK3QV48Function4nameEv(
     const QV4::Function *self) {
   return self->name();
+}
+
+//  QString QV4::Function::prettyName(const Function *function, const void
+//      *address)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN3QV48Function10prettyNameEPKS0_PKv(
+    const QV4::Function *function,
+    const void *address) {
+  return new QString(QV4::Function::prettyName(function, address));
 }
 
 //  QString QV4::Function::sourceFile() const
@@ -78,6 +159,13 @@ bool ritual_ZNK3QV48Function11isGeneratorEv(const QV4::Function *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK3QV48Function16isClosureWrapperEv(const QV4::Function *self) {
   return self->isClosureWrapper();
+}
+
+//  QQmlSourceLocation QV4::Function::sourceLocation() const
+extern "C" Q_DECL_EXPORT
+QQmlSourceLocation *ritual_ZNK3QV48Function14sourceLocationEv(
+    const QV4::Function *self) {
+  return new QQmlSourceLocation(self->sourceLocation());
 }
 
 //  Function *QV4::Function::nestedFunction() const

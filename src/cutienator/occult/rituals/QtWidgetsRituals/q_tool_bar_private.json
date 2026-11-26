@@ -17,6 +17,15 @@
     "ritual_ZN15QToolBarPrivate24_q_updateToolButtonStyleEN2Qt15ToolButtonStyleE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN15QToolBarPrivate17updateWindowFlagsEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN15QToolBarPrivate14setWindowStateEbbRK5QRect": [
+      "nothing", "address", "bool", "bool", "address"
+    ],
+    "ritual_ZN15QToolBarPrivate4plugERK5QRect": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QToolBarPrivate": ["bool", "address", "chars", "address"]
   }
 }

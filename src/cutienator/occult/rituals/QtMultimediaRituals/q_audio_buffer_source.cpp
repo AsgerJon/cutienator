@@ -7,6 +7,7 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qplatformaudiobufferinput_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtMultimedia/qaudiobuffer.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -184,6 +185,25 @@ const QMetaObject *ritual_ZNK18QAudioBufferSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAudioBufferSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QAudioBufferSource11qt_metacastEPKc(
+    QAudioBufferSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAudioBufferSource::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QAudioBufferSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAudioBufferSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAudioBufferSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QAudioBufferSource2trEPKcS1_i(
@@ -191,6 +211,14 @@ QString *ritual_ZN18QAudioBufferSource2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAudioBufferSource::tr(s, c, n));
+}
+
+//  void QAudioBufferSource::newAudioBuffer(const QAudioBuffer &buffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAudioBufferSource14newAudioBufferERK12QAudioBuffer(
+    QAudioBufferSource *self,
+    const QAudioBuffer *buffer) {
+  self->newAudioBuffer(*buffer);
 }
 
 //  a Python function taken by a CuteQAudioBufferSource, for the function

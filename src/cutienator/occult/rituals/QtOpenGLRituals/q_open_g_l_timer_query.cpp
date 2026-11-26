@@ -182,6 +182,25 @@ const QMetaObject *ritual_ZNK17QOpenGLTimerQuery10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLTimerQuery::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QOpenGLTimerQuery11qt_metacastEPKc(
+    QOpenGLTimerQuery *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLTimerQuery::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QOpenGLTimerQuery11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLTimerQuery *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLTimerQuery::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QOpenGLTimerQuery2trEPKcS1_i(
@@ -223,6 +242,13 @@ bool ritual_ZNK17QOpenGLTimerQuery9isCreatedEv(
   return self->isCreated();
 }
 
+//  GLuint QOpenGLTimerQuery::objectId() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK17QOpenGLTimerQuery8objectIdEv(
+    const QOpenGLTimerQuery *self) {
+  return self->objectId();
+}
+
 //  void QOpenGLTimerQuery::begin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QOpenGLTimerQuery5beginEv(QOpenGLTimerQuery *self) {
@@ -233,6 +259,13 @@ void ritual_ZN17QOpenGLTimerQuery5beginEv(QOpenGLTimerQuery *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QOpenGLTimerQuery3endEv(QOpenGLTimerQuery *self) {
   self->end();
+}
+
+//  GLuint64 QOpenGLTimerQuery::waitForTimestamp() const
+extern "C" Q_DECL_EXPORT
+GLuint64 ritual_ZNK17QOpenGLTimerQuery16waitForTimestampEv(
+    const QOpenGLTimerQuery *self) {
+  return self->waitForTimestamp();
 }
 
 //  void QOpenGLTimerQuery::recordTimestamp()
@@ -247,6 +280,27 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QOpenGLTimerQuery17isResultAvailableEv(
     const QOpenGLTimerQuery *self) {
   return self->isResultAvailable();
+}
+
+//  GLuint64 QOpenGLTimerQuery::waitForResult() const
+extern "C" Q_DECL_EXPORT
+GLuint64 ritual_ZNK17QOpenGLTimerQuery13waitForResultEv(
+    const QOpenGLTimerQuery *self) {
+  return self->waitForResult();
+}
+
+//  QOpenGLTimerQueryPrivate *QOpenGLTimerQuery::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLTimerQueryPrivate *ritual_ZN17QOpenGLTimerQuery6d_funcEv(
+    QOpenGLTimerQuery *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLTimerQueryPrivate *QOpenGLTimerQuery::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOpenGLTimerQueryPrivate *ritual_ZNK17QOpenGLTimerQuery6d_funcEv(
+    const QOpenGLTimerQuery *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQOpenGLTimerQuery, for the function

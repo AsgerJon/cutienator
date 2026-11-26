@@ -9,6 +9,7 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/stylesheeteditor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -1027,6 +1028,27 @@ const QMetaObject *ritual_ZNK18qdesigner_internal22StyleSheetEditorDialog10metaO
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::StyleSheetEditorDialog::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal22StyleSheetEditorDialog11qt_metacastEPKc(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      qdesigner_internal::StyleSheetEditorDialog::qt_metacall(QMetaObject::
+//      Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal22StyleSheetEditorDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::StyleSheetEditorDialog::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -1041,6 +1063,42 @@ QString *ritual_ZN18qdesigner_internal22StyleSheetEditorDialog2trEPKcS2_i(
           n));
 }
 
+//  qdesigner_internal::StyleSheetEditorDialog::StyleSheetEditorDialog(QDesig
+//      nerFormEditorInterface *core, QWidget *parent, Mode mode)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::StyleSheetEditorDialog *ritual_ZN18qdesigner_internal22StyleSheetEditorDialogC1EP28QDesignerFormEditorInterfaceP7QWidgetNS0_4ModeE(
+    QDesignerFormEditorInterface *core,
+    QWidget *parent,
+    qdesigner_internal::StyleSheetEditorDialog::Mode mode) {
+  return new Cuteqdesigner_internal_StyleSheetEditorDialog(
+      core,
+      parent,
+      mode);
+}
+
+//  qdesigner_internal::StyleSheetEditorDialog::~StyleSheetEditorDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialogD1Ev(
+    qdesigner_internal::StyleSheetEditorDialog *self) {
+  delete self;
+}
+
+//  QString qdesigner_internal::StyleSheetEditorDialog::text() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal22StyleSheetEditorDialog4textEv(
+    const qdesigner_internal::StyleSheetEditorDialog *self) {
+  return new QString(self->text());
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::setText(const QString
+//      &t)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog7setTextERK7QString(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    const QString *t) {
+  self->setText(*t);
+}
+
 //  bool qdesigner_internal::StyleSheetEditorDialog::isStyleSheetValid(const
 //      QString &styleSheet)
 extern "C" Q_DECL_EXPORT
@@ -1048,6 +1106,99 @@ bool ritual_ZN18qdesigner_internal22StyleSheetEditorDialog17isStyleSheetValidERK
     const QString *styleSheet) {
   return qdesigner_internal::StyleSheetEditorDialog::isStyleSheetValid(
       *styleSheet);
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::validateStyleSheet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog18validateStyleSheetEv(
+    qdesigner_internal::StyleSheetEditorDialog *self) {
+  self->validateStyleSheet();
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::slotContextMenuRequested
+//      (const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog24slotContextMenuRequestedERK6QPoint(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    const QPoint *pos) {
+  self->slotContextMenuRequested(*pos);
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::slotAddResource(const
+//      QString &property)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog15slotAddResourceERK7QString(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    const QString *property) {
+  self->slotAddResource(*property);
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::slotAddGradient(const
+//      QString &property)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog15slotAddGradientERK7QString(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    const QString *property) {
+  self->slotAddGradient(*property);
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::slotAddColor(const
+//      QString &property)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog12slotAddColorERK7QString(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    const QString *property) {
+  self->slotAddColor(*property);
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::slotAddFont()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog11slotAddFontEv(
+    qdesigner_internal::StyleSheetEditorDialog *self) {
+  self->slotAddFont();
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::slotRequestHelp()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog15slotRequestHelpEv(
+    qdesigner_internal::StyleSheetEditorDialog *self) {
+  self->slotRequestHelp();
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::keyPressEvent(QKeyEvent
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog13keyPressEventEP9QKeyEvent(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  QDialogButtonBox *qdesigner_internal::StyleSheetEditorDialog::buttonBox()
+//      const
+extern "C" Q_DECL_EXPORT
+QDialogButtonBox *ritual_ZNK18qdesigner_internal22StyleSheetEditorDialog9buttonBoxEv(
+    const qdesigner_internal::StyleSheetEditorDialog *self) {
+  return self->buttonBox();
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::setOkButtonEnabled(bool
+//      v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog18setOkButtonEnabledEb(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    bool v) {
+  self->setOkButtonEnabled(v);
+}
+
+//  void qdesigner_internal::StyleSheetEditorDialog::insertCssProperty(const
+//      QString &name, const QString &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22StyleSheetEditorDialog17insertCssPropertyERK7QStringS3_(
+    qdesigner_internal::StyleSheetEditorDialog *self,
+    const QString *name,
+    const QString *value) {
+  self->insertCssProperty(*name, *value);
 }
 
 //  a Python function taken by a

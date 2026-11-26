@@ -7,7 +7,10 @@
     "ritual_ZN11QStaticTextC1Ev": ["address"],
     "ritual_ZN11QStaticTextC1ERK7QString": ["address", "text"],
     "ritual_ZN11QStaticTextC1ERKS_": ["address", "address"],
+    "ritual_ZN11QStaticTextaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QStaticTextaSERKS_": ["address", "address", "address"],
     "ritual_ZN11QStaticTextD1Ev": ["nothing", "address"],
+    "ritual_ZN11QStaticText4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN11QStaticText7setTextERK7QString": [
       "nothing", "address", "text"
     ],

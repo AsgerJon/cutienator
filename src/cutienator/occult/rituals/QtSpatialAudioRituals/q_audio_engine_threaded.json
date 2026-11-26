@@ -18,6 +18,9 @@
     "ritual_ZN20QAudioEngineThreaded11removeSoundEP25QSpatialAudioSoundPrivate": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QAudioEngineThreaded20setSoundPlaybackDataEP25QSpatialAudioSoundPrivateSt10shared_ptrIN20QSpatialAudioPrivate26QSpatialAudioPlaybackStateEE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN20QAudioEngineThreaded17updateRoomEffectsEv": [
       "nothing", "address"
     ]

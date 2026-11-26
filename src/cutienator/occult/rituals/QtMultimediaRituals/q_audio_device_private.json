@@ -9,8 +9,55 @@
       "address", "address", "int", "text", "bool", "address"
     ],
     "ritual_ZN19QAudioDevicePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QAudioDevicePrivate6formatEv": ["address", "address"],
+    "ritual_ZNK19QAudioDevicePrivate15preferredFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAudioDevicePrivate17minimumSampleRateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAudioDevicePrivate17maximumSampleRateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAudioDevicePrivate19minimumChannelCountEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAudioDevicePrivate19maximumChannelCountEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAudioDevicePrivate22supportedSampleFormatsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAudioDevicePrivate20channelConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAudioDevicePrivate17isFormatSupportedERK12QAudioFormat": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QAudioDevicePrivate6handleERK12QAudioDevice": [
       "address", "address"
+    ],
+    "ritual_ZN19QAudioDevicePrivate6handleER12QAudioDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN19QAudioDevicePrivateC1ERKS_": ["address", "address"],
+    "ritual_drop_QAudioDevicePrivate__QAudioDeviceExpected_QAudioDevicePrivate_AudioDeviceFormat": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAudioDevicePrivate__QAudioDeviceExpected_QAudioFormat": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAudioDevicePrivate__QAudioDeviceExpected_int": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAudioDevicePrivate__QAudioDeviceExpected_QList_QAudioFormat_SampleFormat": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAudioDevicePrivate__QAudioDeviceExpected_QAudioFormat_ChannelConfig": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAudioDevicePrivate__QAudioDeviceExpected_bool": [
+      "nothing", "address"
     ]
   }
 }

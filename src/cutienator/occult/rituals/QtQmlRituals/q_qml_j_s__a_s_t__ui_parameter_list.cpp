@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -200,6 +204,37 @@ public:
     return QQmlJS::AST::Node::asClassDefinition();
   }
 };
+
+//  QQmlJS::AST::UiParameterList::UiParameterList(Type *t, QStringView n)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiParameterList *ritual_ZN6QQmlJS3AST15UiParameterListC1EPNS0_4TypeE11QStringView(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::Type *t,
+    const QString *n) {
+  return new (pool) CuteQQmlJS_AST_UiParameterList(t, QStringView(*n));
+}
+
+//  QQmlJS::AST::UiParameterList::UiParameterList(UiParameterList *previous,
+//      Type *t, QStringView n)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiParameterList *ritual_ZN6QQmlJS3AST15UiParameterListC1EPS1_PNS0_4TypeE11QStringView(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiParameterList *previous,
+    QQmlJS::AST::Type *t,
+    const QString *n) {
+  return new (pool) CuteQQmlJS_AST_UiParameterList(
+      previous,
+      t,
+      QStringView(*n));
+}
+
+//  void QQmlJS::AST::UiParameterList::accept0(BaseVisitor *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST15UiParameterList7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiParameterList *self,
+    QQmlJS::AST::BaseVisitor *a0) {
+  self->accept0(a0);
+}
 
 //  SourceLocation QQmlJS::AST::UiParameterList::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT

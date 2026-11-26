@@ -8,6 +8,33 @@
     "ritual_ZNK22QQStyleKitControlState10metaObjectEv": [
       "address", "address"
     ],
-    "ritual_ZNK22QQStyleKitControlState11nestedStateEv": ["int", "address"]
+    "ritual_ZN22QQStyleKitControlState11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQStyleKitControlState11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK22QQStyleKitControlState11nestedStateEv": ["int", "address"],
+    "ritual_ZN22QQStyleKitControlState14pressedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQStyleKitControlState14hoveredChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQStyleKitControlState14focusedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQStyleKitControlState14checkedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQStyleKitControlState15disabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQStyleKitControlState18highlightedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQStyleKitControlState15verticalChangedEv": [
+      "nothing", "address"
+    ]
   }
 }

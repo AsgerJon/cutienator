@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -292,6 +292,24 @@ const QMetaObject *ritual_ZNK13BarInstancing10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *BarInstancing::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13BarInstancing11qt_metacastEPKc(
+    BarInstancing *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int BarInstancing::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13BarInstancing11qt_metacallEN11QMetaObject4CallEiPPv(
+    BarInstancing *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString BarInstancing::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13BarInstancing2trEPKcS1_i(
@@ -373,4 +391,4 @@ bool ritual_take_BarInstancing(
   return static_cast<CuteBarInstancing *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))

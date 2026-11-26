@@ -7,6 +7,63 @@
 #include <Qt3DCore/6.12.0/Qt3DCore/private/task_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DCore/private/task_p.h>
+#include <QtCore/QDebug>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QMutexLocker>
+#include <Qt3DCore/private/qthreadpooler_p.h>
+#include <Qt3DCore/private/qsysteminformationservice_p_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/core/jobs/task.cpp, line 77, as _ZN8Qt3DCore16SyncTaskRunnable3runEv
+namespace Qt3DCore {
+inline void SyncTaskRunnable::run()
+{
+    // Call the function
+    m_func(m_arg);
+
+    // Decrement the atomic counter to let others know we've done our bit
+    m_atomicCount->deref();
+
+    // Wait for the other worker threads to be done
+    while (m_atomicCount->loadRelaxed() > 0)
+        QThread::currentThread()->yieldCurrentThread();
+
+    if (m_pooler)
+        m_pooler->taskFinished(this);
+}
+}  // namespace Qt3DCore
+
+//  from ../qt3d/src/core/jobs/task.cpp, line 17, as _ZN8Qt3DCore17RunnableInterfaceD2Ev
+namespace Qt3DCore {
+inline RunnableInterface::~RunnableInterface()
+{
+}
+}  // namespace Qt3DCore
+
+//  from ../qt3d/src/core/jobs/task.cpp, line 72, as _ZNK8Qt3DCore16SyncTaskRunnable10isRequiredEv
+namespace Qt3DCore {
+inline bool SyncTaskRunnable::isRequired() const
+{
+    return true;
+}
+}  // namespace Qt3DCore
+
+//  from ../qt3d/src/core/jobs/task.cpp, line 68, as _ZN8Qt3DCore16SyncTaskRunnableD1Ev
+namespace Qt3DCore {
+inline SyncTaskRunnable::~SyncTaskRunnable()
+{
+}
+}  // namespace Qt3DCore
+//  -----------------------------------------------------------------------
 
 //  A Qt3DCore::SyncTaskRunnable that Python can take functions over in. Every Qt3DCore::SyncTaskRunnable
 //  Python makes is one. Each function below asks the Python
@@ -149,6 +206,27 @@ public:
   }
 };
 
+//  Qt3DCore::SyncTaskRunnable::~SyncTaskRunnable()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore16SyncTaskRunnableD1Ev(
+    Qt3DCore::SyncTaskRunnable *self) {
+  delete self;
+}
+
+//  bool Qt3DCore::SyncTaskRunnable::isRequired() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore16SyncTaskRunnable10isRequiredEv(
+    const Qt3DCore::SyncTaskRunnable *self) {
+  return self->isRequired();
+}
+
+//  void Qt3DCore::SyncTaskRunnable::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore16SyncTaskRunnable3runEv(
+    Qt3DCore::SyncTaskRunnable *self) {
+  self->run();
+}
+
 //  void Qt3DCore::SyncTaskRunnable::setPooler(QThreadPooler *pooler)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore16SyncTaskRunnable9setPoolerEPNS_13QThreadPoolerE(
@@ -202,6 +280,20 @@ bool ritual_take_Qt3DCore_SyncTaskRunnable(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DCore_SyncTaskRunnable *>(self)->take(key, call);
+}
+
+//  bool Qt3DCore::SyncTaskRunnable::isRequired() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK8Qt3DCore16SyncTaskRunnable10isRequiredEv(
+    const Qt3DCore::SyncTaskRunnable *self) {
+  return self->Qt3DCore::SyncTaskRunnable::isRequired();
+}
+
+//  void Qt3DCore::SyncTaskRunnable::run()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN8Qt3DCore16SyncTaskRunnable3runEv(
+    Qt3DCore::SyncTaskRunnable *self) {
+  self->Qt3DCore::SyncTaskRunnable::run();
 }
 
 //  void Qt3DCore::SyncTaskRunnable::setPooler(QThreadPooler *pooler)

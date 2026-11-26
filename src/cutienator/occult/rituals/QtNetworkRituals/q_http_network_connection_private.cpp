@@ -10,8 +10,12 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkconnection_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtNetwork/qnetworkproxy.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtNetwork/private/qhttpnetworkrequest_p.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
+#include <QtCore/private/qtools_p.h>
 #include <QtNetwork/private/qhttpnetworkconnectionchannel_p.h>
 #include <QtNetwork/private/qhttpnetworkconnection_p.h>
 #include <QtCore/private/qnoncontiguousbytedevice_p.h>
@@ -28,9 +32,17 @@
 #include <QtNetwork/private/qtnetworkglobal_p.h>
 #include <memory>
 #include <utility>
-#include <QtNetwork/private/qhttpnetworkrequest_p.h>
-#include <QtCore/private/qnoncontiguousbytedevice_p.h>
-#include <QtCore/private/qtools_p.h>
+#include <QtNetwork/private/qabstractprotocolhandler_p.h>
+#include <QtNetwork/private/qhttpnetworkconnectionchannel_p.h>
+#include <QtNetwork/private/qhttpnetworkreply_p.h>
+#include <QtNetwork/private/qhttpnetworkconnection_p.h>
+#ifndef QT_NO_SSL
+#    include <QtNetwork/qsslkey.h>
+#    include <QtNetwork/qsslcipher.h>
+#    include <QtNetwork/qsslconfiguration.h>
+#endif
+#include <QtNetwork/private/qdecompresshelper_p.h>
+#include <QtNetwork/private/qhttpnetworkheader_p.h>
 #include <QtNetwork/private/qhttpnetworkconnection_p.h>
 #include <QtNetwork/private/qabstractsocket_p.h>
 #include <QtNetwork/private/qhttpnetworkconnectionchannel_p.h>
@@ -56,7 +68,6 @@
 #    include <QtNetwork/qsslconfiguration.h>
 #    include <QtNetwork/qsslerror.h>
 #endif
-#include <QtNetwork/private/qhttpnetworkheader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -66,12 +77,90 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/network/access/qhttpnetworkconnection.cpp, line 45, as local:qhttpnetworkconnection.cpp:getPreferredActiveChannelCount
+static int getPreferredActiveChannelCount(QHttpNetworkConnection::ConnectionType type,
+                                          int defaultValue)
+{
+    return (type == QHttpNetworkConnection::ConnectionTypeHTTP2
+            || type == QHttpNetworkConnection::ConnectionTypeHTTP2Direct)
+            ? 1
+            : defaultValue;
+}
+
+//  from src/network/access/qhttpnetworkconnection.cpp, line 228, as local:qhttpnetworkconnection.cpp:makeAcceptLanguage
+static QByteArray makeAcceptLanguage()
+{
+    QString systemLocale = QLocale::system().name();
+    if (systemLocale == "C"_L1)
+        return "en,*"_ba;
+    systemLocale.replace('_'_L1, '-'_L1);
+    if (systemLocale.startsWith("en-"_L1))
+        return (systemLocale + ",*"_L1).toLatin1();
+    return (systemLocale + ",en,*"_L1).toLatin1();
+}
+
+//  from src/network/access/qhttpnetworkconnection.cpp, line 239, as local:qhttpnetworkconnection.cpp:removeZoneId
+static QStringView removeZoneId(QStringView ipv6HostAddress)
+{
+    const auto zoneIdentfierIndex = ipv6HostAddress.indexOf(u'%');
+    // Only perform a minimal sanity check, as at this point the
+    // ipv6HostAddress was already used successfully to establish the connection.
+    if (zoneIdentfierIndex == -1) {
+        return ipv6HostAddress;
+    }
+
+    return ipv6HostAddress.left(zoneIdentfierIndex);
+}
+
+//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 35, as local:qhttpnetworkconnectionchannel.cpp:reconnectAttemptsDefault
+static const int reconnectAttemptsDefault = 3;
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 188, as _ZN19QHttpNetworkRequestD1Ev
+inline QHttpNetworkRequest::~QHttpNetworkRequest()
+{
+}
+
+//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 43, as _ZN29QHttpNetworkConnectionChannelC1Ev
+inline QHttpNetworkConnectionChannel::QHttpNetworkConnectionChannel()
+    : socket(nullptr)
+    , ssl(false)
+    , isInitialized(false)
+    , state(IdleState)
+    , reply(nullptr)
+    , written(0)
+    , bytesTotal(0)
+    , resendCurrent(false)
+    , lastStatus(0)
+    , pendingEncrypt(false)
+    , reconnectAttempts(reconnectAttemptsDefault)
+    , authenticationCredentialsSent(false)
+    , proxyCredentialsSent(false)
+    , protocolHandler(nullptr)
+#ifndef QT_NO_SSL
+    , ignoreAllSslErrors(false)
+#endif
+    , pipeliningSupported(PipeliningSupportUnknown)
+    , networkLayerPreference(QAbstractSocket::AnyIPProtocol)
+    , connection(nullptr)
+{
+    // Inlining this function in the header leads to compiler error on
+    // release-armv5, on at least timebox 9.2 and 10.1.
+}
+
 //  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 1494, as _ZN29QHttpNetworkConnectionChannel13setConnectionEP22QHttpNetworkConnection
 inline void QHttpNetworkConnectionChannel::setConnection(QHttpNetworkConnection *c)
 {
     // Inlining this function in the header leads to compiler error on
     // release-armv5, on at least timebox 9.2 and 10.1.
     connection = c;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 269, as _ZN19QHttpNetworkRequest18prependHeaderFieldERK10QByteArrayS2_
+inline void QHttpNetworkRequest::prependHeaderField(const QByteArray &name, const QByteArray &data)
+{
+    d->prependHeaderField(name, data);
 }
 
 //  from src/network/access/qhttpnetworkrequest.cpp, line 178, as _ZN19QHttpNetworkRequestC1ERK4QUrlNS_9OperationENS_8PriorityE
@@ -86,25 +175,90 @@ inline QHttpNetworkRequest::QHttpNetworkRequest(const QHttpNetworkRequest &other
 {
 }
 
-//  from src/network/access/qhttpnetworkrequest.cpp, line 188, as _ZN19QHttpNetworkRequestD1Ev
-inline QHttpNetworkRequest::~QHttpNetworkRequest()
+//  from src/network/access/qhttpnetworkrequest.cpp, line 279, as _ZN19QHttpNetworkRequestaSERKS_
+inline QHttpNetworkRequest &QHttpNetworkRequest::operator=(const QHttpNetworkRequest &other)
+{
+    QHttpNetworkHeader::operator=(other);
+    d = other.d;
+    return *this;
+}
+
+//  from src/network/access/qabstractprotocolhandler.cpp, line 22, as _ZN24QAbstractProtocolHandler8setReplyEP17QHttpNetworkReply
+inline void QAbstractProtocolHandler::setReply(QHttpNetworkReply *reply)
+{
+    m_reply = reply;
+}
+
+//  from src/network/access/qhttpnetworkreply.cpp, line 759, as _ZN24QHttpNetworkReplyPrivate9eraseDataEv
+inline void QHttpNetworkReplyPrivate::eraseData()
+{
+    responseData.clear();
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 23, as _ZN26QHttpNetworkRequestPrivateC1ERKS_
+inline QHttpNetworkRequestPrivate::QHttpNetworkRequestPrivate(const QHttpNetworkRequestPrivate &other) // = default
+    : QHttpNetworkHeaderPrivate(other),
+      operation(other.operation),
+      customVerb(other.customVerb),
+      fullLocalServerName(other.fullLocalServerName),
+      priority(other.priority),
+      uploadByteDevice(other.uploadByteDevice),
+      autoDecompress(other.autoDecompress),
+      pipeliningAllowed(other.pipeliningAllowed),
+      http2Allowed(other.http2Allowed),
+      http2Direct(other.http2Direct),
+      h2cAllowed(other.h2cAllowed),
+      withCredentials(other.withCredentials),
+      ssl(other.ssl),
+      preConnect(other.preConnect),
+      needResendWithCredentials(other.needResendWithCredentials),
+      redirectCount(other.redirectCount),
+      redirectPolicy(other.redirectPolicy),
+      peerVerifyName(other.peerVerifyName)
 {
 }
 
-//  from src/network/access/qhttpnetworkrequest.cpp, line 311, as _ZNK19QHttpNetworkRequest8priorityEv
-inline QHttpNetworkRequest::Priority QHttpNetworkRequest::priority() const
+//  from src/network/access/qhttpnetworkrequest.cpp, line 45, as _ZN26QHttpNetworkRequestPrivateD1Ev
+inline QHttpNetworkRequestPrivate::~QHttpNetworkRequestPrivate()
 {
-    return d->priority;
 }
 
-//  from src/network/access/qhttpnetworkconnection.cpp, line 752, as _ZN29QHttpNetworkConnectionPrivate13updateChannelEiRKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE
-inline void QHttpNetworkConnectionPrivate::updateChannel(int i, const HttpMessagePair &messagePair)
+//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 232, as _ZN29QHttpNetworkConnectionChannel11sendRequestEv
+inline void QHttpNetworkConnectionChannel::sendRequest()
 {
-    channels[i].request = messagePair.first;
-    channels[i].reply = messagePair.second;
-    // Now that reply is assigned a channel, correct reply to channel association
-    // previously set in queueRequest.
-    channels[i].reply->d_func()->connectionChannel = &channels[i];
+    if (waitingForPotentialAbort) {
+        needInvokeSendRequest = true;
+        return;
+    }
+    if (isPendingReconnect())
+        return;
+    Q_ASSERT(protocolHandler);
+    protocolHandler->sendRequest();
+}
+
+//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 765, as _ZN29QHttpNetworkConnectionChannel12pipelineIntoERSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE
+inline void QHttpNetworkConnectionChannel::pipelineInto(HttpMessagePair &pair)
+{
+    // this is only called for simple GET
+
+    QHttpNetworkRequest &request = pair.first;
+    QHttpNetworkReply *reply = pair.second;
+    reply->d_func()->clear();
+    reply->d_func()->connection = connection;
+    reply->d_func()->connectionChannel = this;
+    reply->d_func()->autoDecompress = request.d->autoDecompress;
+    reply->d_func()->pipeliningUsed = true;
+
+#ifndef QT_NO_NETWORKPROXY
+    pipeline.append(QHttpNetworkRequestPrivate::header(request,
+                                                           (connection->d_func()->networkProxy.type() != QNetworkProxy::NoProxy)));
+#else
+    pipeline.append(QHttpNetworkRequestPrivate::header(request, false));
+#endif
+
+    alreadyPipelinedRequests.append(pair);
+
+    // pipelineFlush() needs to be called at some point afterwards
 }
 
 //  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 789, as _ZN29QHttpNetworkConnectionChannel13pipelineFlushEv
@@ -122,42 +276,25 @@ inline void QHttpNetworkConnectionChannel::pipelineFlush()
     pipeline.clear();
 }
 
-//  from src/network/access/qhttpnetworkconnection.cpp, line 863, as _ZN29QHttpNetworkConnectionPrivate12fillPipelineER5QListISt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyEER29QHttpNetworkConnectionChannel
-inline bool QHttpNetworkConnectionPrivate::fillPipeline(QList<HttpMessagePair> &queue, QHttpNetworkConnectionChannel &channel)
+//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 696, as _ZN29QHttpNetworkConnectionChannel15resetUploadDataEv
+inline bool QHttpNetworkConnectionChannel::resetUploadData()
 {
-    if (queue.isEmpty())
-        return true;
-
-    for (int i = queue.size() - 1; i >= 0; --i) {
-        HttpMessagePair messagePair = queue.at(i);
-        const QHttpNetworkRequest &request = messagePair.first;
-
-        // we currently do not support pipelining if HTTP authentication is used
-        if (!request.url().userInfo().isEmpty())
-            continue;
-
-        // take only GET requests
-        if (request.operation() != QHttpNetworkRequest::Get)
-            continue;
-
-        if (!request.isPipeliningAllowed())
-            continue;
-
-        // remove it from the queue
-        queue.takeAt(i);
-        // we modify the queue we iterate over here, but since we return from the function
-        // afterwards this is fine.
-
-        // actually send it
-        if (!messagePair.second->d_func()->requestIsPrepared)
-            prepareRequest(messagePair);
-        channel.pipelineInto(messagePair);
-
-        // return false because we processed something and need to process again
+    if (!reply) {
+        //this happens if server closes connection while QHttpNetworkConnectionPrivate::_q_startNextRequest is pending
         return false;
     }
-
-    // return true, the queue has been processed and not changed
+    if (connection->connectionType() == QHttpNetworkConnection::ConnectionTypeHTTP2Direct
+        || switchedToHttp2) {
+        // The else branch doesn't make any sense for HTTP/2, since 1 channel is multiplexed into
+        // many streams. And having one stream fail to reset upload data should not completely close
+        // the channel. Handled in the http2 protocol handler.
+    } else if (QNonContiguousByteDevice *uploadByteDevice = request.uploadByteDevice()) {
+        if (!uploadByteDevice->reset()) {
+            connection->d_func()->emitReplyError(socket, reply, QNetworkReply::ContentReSendError);
+            return false;
+        }
+        written = 0;
+    }
     return true;
 }
 
@@ -332,10 +469,18 @@ inline bool QHttpNetworkConnectionChannel::ensureConnection()
     return true;
 }
 
-//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 823, as _ZNK29QHttpNetworkConnectionChannel12isSocketBusyEv
-inline bool QHttpNetworkConnectionChannel::isSocketBusy() const
+//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 615, as _ZN29QHttpNetworkConnectionChannel33requeueCurrentlyPipelinedRequestsEv
+inline void QHttpNetworkConnectionChannel::requeueCurrentlyPipelinedRequests()
 {
-    return (state & QHttpNetworkConnectionChannel::BusyState);
+    for (int i = 0; i < alreadyPipelinedRequests.size(); i++)
+        connection->d_func()->requeueRequest(alreadyPipelinedRequests.at(i));
+    alreadyPipelinedRequests.clear();
+
+    // only run when the QHttpNetworkConnection is not currently being destructed, e.g.
+    // this function is called from _q_disconnected which is called because
+    // of ~QHttpNetworkConnectionPrivate
+    if (qobject_cast<QHttpNetworkConnection*>(connection))
+        QMetaObject::invokeMethod(connection, "_q_startNextRequest", Qt::QueuedConnection);
 }
 
 //  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 186, as _ZN29QHttpNetworkConnectionChannel5closeEv
@@ -361,39 +506,111 @@ inline void QHttpNetworkConnectionChannel::close()
     }
 }
 
-//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 232, as _ZN29QHttpNetworkConnectionChannel11sendRequestEv
-inline void QHttpNetworkConnectionChannel::sendRequest()
+//  from src/network/access/qhttpnetworkrequest.cpp, line 311, as _ZNK19QHttpNetworkRequest8priorityEv
+inline QHttpNetworkRequest::Priority QHttpNetworkRequest::priority() const
 {
-    if (waitingForPotentialAbort) {
-        needInvokeSendRequest = true;
-        return;
-    }
-    if (isPendingReconnect())
-        return;
-    Q_ASSERT(protocolHandler);
-    protocolHandler->sendRequest();
+    return d->priority;
 }
 
-//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 696, as _ZN29QHttpNetworkConnectionChannel15resetUploadDataEv
-inline bool QHttpNetworkConnectionChannel::resetUploadData()
+//  from src/network/access/qhttpnetworkrequest.cpp, line 376, as _ZNK19QHttpNetworkRequest16uploadByteDeviceEv
+inline QNonContiguousByteDevice* QHttpNetworkRequest::uploadByteDevice() const
 {
-    if (!reply) {
-        //this happens if server closes connection while QHttpNetworkConnectionPrivate::_q_startNextRequest is pending
-        return false;
+    return d->uploadByteDevice;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 321, as _ZNK19QHttpNetworkRequest19isPipeliningAllowedEv
+inline bool QHttpNetworkRequest::isPipeliningAllowed() const
+{
+    return d->pipeliningAllowed;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 291, as _ZNK19QHttpNetworkRequest9operationEv
+inline QHttpNetworkRequest::Operation QHttpNetworkRequest::operation() const
+{
+    return d->operation;
+}
+
+//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 823, as _ZNK29QHttpNetworkConnectionChannel12isSocketBusyEv
+inline bool QHttpNetworkConnectionChannel::isSocketBusy() const
+{
+    return (state & QHttpNetworkConnectionChannel::BusyState);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 72, as _ZNK19QHttpNetworkRequest10methodNameEv
+inline QByteArray QHttpNetworkRequest::methodName() const
+{
+    switch (d->operation) {
+    case QHttpNetworkRequest::Get:
+        return "GET";
+    case QHttpNetworkRequest::Head:
+        return "HEAD";
+    case QHttpNetworkRequest::Post:
+        return "POST";
+    case QHttpNetworkRequest::Options:
+        return "OPTIONS";
+    case QHttpNetworkRequest::Put:
+        return "PUT";
+    case QHttpNetworkRequest::Delete:
+        return "DELETE";
+    case QHttpNetworkRequest::Trace:
+        return "TRACE";
+    case QHttpNetworkRequest::Connect:
+        return "CONNECT";
+    case QHttpNetworkRequest::Custom:
+        return d->customVerb;
+    default:
+        break;
     }
-    if (connection->connectionType() == QHttpNetworkConnection::ConnectionTypeHTTP2Direct
-        || switchedToHttp2) {
-        // The else branch doesn't make any sense for HTTP/2, since 1 channel is multiplexed into
-        // many streams. And having one stream fail to reset upload data should not completely close
-        // the channel. Handled in the http2 protocol handler.
-    } else if (QNonContiguousByteDevice *uploadByteDevice = request.uploadByteDevice()) {
-        if (!uploadByteDevice->reset()) {
-            connection->d_func()->emitReplyError(socket, reply, QNetworkReply::ContentReSendError);
-            return false;
-        }
-        written = 0;
+    return QByteArray();
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 99, as _ZNK19QHttpNetworkRequest3uriEb
+inline QByteArray QHttpNetworkRequest::uri(bool throughProxy) const
+{
+    QUrl::FormattingOptions format(QUrl::RemoveFragment | QUrl::RemoveUserInfo | QUrl::FullyEncoded);
+
+    // for POST, query data is sent as content
+    if (d->operation == QHttpNetworkRequest::Post && !d->uploadByteDevice)
+        format |= QUrl::RemoveQuery;
+    // for requests through proxy, the Request-URI contains full url
+    if (!throughProxy)
+        format |= QUrl::RemoveScheme | QUrl::RemoveAuthority;
+    QUrl copy = d->url;
+    if (copy.path().isEmpty())
+        copy.setPath(QStringLiteral("/"));
+    else
+        format |= QUrl::NormalizePathSegments;
+    QByteArray uri = copy.toEncoded(format);
+    return uri;
+}
+
+//  from src/network/access/qhttpnetworkreply.cpp, line 513, as _ZN24QHttpNetworkReplyPrivate24isConnectionCloseEnabledEv
+inline bool QHttpNetworkReplyPrivate::isConnectionCloseEnabled()
+{
+    return connectionCloseEnabled || forceConnectionCloseEnabled;
+}
+
+//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 209, as _ZN29QHttpNetworkConnectionChannel5abortEv
+inline void QHttpNetworkConnectionChannel::abort()
+{
+    if (!socket)
+        state = QHttpNetworkConnectionChannel::IdleState;
+    else if (QSocketAbstraction::socketState(socket) == QAbstractSocket::UnconnectedState)
+        state = QHttpNetworkConnectionChannel::IdleState;
+    else
+        state = QHttpNetworkConnectionChannel::ClosingState;
+
+    // pendingEncrypt must only be true in between connected and encrypted states
+    pendingEncrypt = false;
+
+    if (socket) {
+        // socket can be 0 since the host lookup is done from qhttpnetworkconnection.cpp while
+        // there is no socket yet.
+        auto callAbort = [](auto *s) {
+            s->abort();
+        };
+        QSocketAbstraction::visit(callAbort, socket);
     }
-    return true;
 }
 
 //  from src/network/access/qhttpnetworkrequest.cpp, line 361, as _ZNK19QHttpNetworkRequest15withCredentialsEv
@@ -406,6 +623,282 @@ inline bool QHttpNetworkRequest::withCredentials() const
 inline QList<QByteArray> QHttpNetworkHeaderPrivate::headerFieldValues(QByteArrayView name) const
 {
     return parser.headerFieldValues(name);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 234, as _ZNK19QHttpNetworkRequest13redirectCountEv
+inline int QHttpNetworkRequest::redirectCount() const
+{
+    return d->redirectCount;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 229, as _ZNK19QHttpNetworkRequest14redirectPolicyEv
+inline QNetworkRequest::RedirectPolicy QHttpNetworkRequest::redirectPolicy() const
+{
+    return d->redirectPolicy;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 219, as _ZNK19QHttpNetworkRequest17isFollowRedirectsEv
+inline bool QHttpNetworkRequest::isFollowRedirects() const
+{
+    return d->redirectPolicy != QNetworkRequest::ManualRedirectPolicy;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 192, as _ZNK19QHttpNetworkRequest3urlEv
+inline QUrl QHttpNetworkRequest::url() const
+{
+    return d->url;
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 9, as _ZN18QHttpNetworkHeaderD2Ev
+inline QHttpNetworkHeader::~QHttpNetworkHeader()
+    = default;
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 264, as _ZN19QHttpNetworkRequest14setHeaderFieldERK10QByteArrayS2_
+inline void QHttpNetworkRequest::setHeaderField(const QByteArray &name, const QByteArray &data)
+{
+    d->setHeaderField(name, data);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 249, as _ZN19QHttpNetworkRequest16setContentLengthEx
+inline void QHttpNetworkRequest::setContentLength(qint64 length)
+{
+    d->setContentLength(length);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 196, as _ZN19QHttpNetworkRequest6setUrlERK4QUrl
+inline void QHttpNetworkRequest::setUrl(const QUrl &url)
+{
+    d->url = url;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 14, as _ZN26QHttpNetworkRequestPrivateC1EN19QHttpNetworkRequest9OperationENS0_8PriorityERK4QUrl
+inline QHttpNetworkRequestPrivate::QHttpNetworkRequestPrivate(QHttpNetworkRequest::Operation op,
+        QHttpNetworkRequest::Priority pri, const QUrl &newUrl)
+    : QHttpNetworkHeaderPrivate(newUrl), operation(op), priority(pri), uploadByteDevice(nullptr),
+      autoDecompress(false), pipeliningAllowed(false), http2Allowed(true),
+      http2Direct(false), withCredentials(true), preConnect(false), redirectCount(0),
+      redirectPolicy(QNetworkRequest::ManualRedirectPolicy)
+{
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 259, as _ZNK19QHttpNetworkRequest11headerFieldE14QByteArrayViewRK10QByteArray
+inline QByteArray QHttpNetworkRequest::headerField(QByteArrayView name, const QByteArray &defaultValue) const
+{
+    return d->headerField(name, defaultValue);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 381, as _ZNK19QHttpNetworkRequest12majorVersionEv
+inline int QHttpNetworkRequest::majorVersion() const
+{
+    return 1;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 386, as _ZNK19QHttpNetworkRequest12minorVersionEv
+inline int QHttpNetworkRequest::minorVersion() const
+{
+    return 1;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 244, as _ZNK19QHttpNetworkRequest13contentLengthEv
+inline qint64 QHttpNetworkRequest::contentLength() const
+{
+    return d->contentLength();
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 254, as _ZNK19QHttpNetworkRequest6headerEv
+inline QHttpHeaders QHttpNetworkRequest::header() const
+{
+    return d->parser.headers();
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 53, as _ZN25QHttpNetworkHeaderPrivate18prependHeaderFieldERK10QByteArrayS2_
+inline void QHttpNetworkHeaderPrivate::prependHeaderField(const QByteArray &name, const QByteArray &data)
+{
+    parser.prependHeaderField(name, data);
+}
+
+//  from src/network/access/qhttpnetworkreply.cpp, line 343, as _ZN24QHttpNetworkReplyPrivate5clearEv
+inline void QHttpNetworkReplyPrivate::clear()
+{
+    connection = nullptr;
+    connectionChannel = nullptr;
+    autoDecompress = false;
+    clearHttpLayerInformation();
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 118, as _ZN26QHttpNetworkRequestPrivate6headerERK19QHttpNetworkRequestb
+inline QByteArray QHttpNetworkRequestPrivate::header(const QHttpNetworkRequest &request, bool throughProxy)
+{
+    const QHttpHeaders headers = request.header();
+    QByteArray ba;
+    ba.reserve(40 + headers.size() * 25); // very rough lower bound estimation
+
+    ba += request.methodName();
+    ba += ' ';
+    ba += request.uri(throughProxy);
+
+    ba += " HTTP/";
+    ba += QByteArray::number(request.majorVersion());
+    ba += '.';
+    ba += QByteArray::number(request.minorVersion());
+    ba += "\r\n";
+
+    constexpr auto titlecase = [](QByteArrayView name) {
+        std::string n;
+        n.reserve(size_t(name.size()));
+        bool toUpperNext = true;
+        for (char c : name) {
+            n += toUpperNext ? QtMiscUtils::toAsciiUpper(c) : c;
+            toUpperNext = c == '-';
+        }
+        return n;
+    };
+
+    for (qsizetype i = 0; i < headers.size(); ++i) {
+        ba += titlecase(headers.nameAt(i));
+        ba += ": ";
+        ba += headers.valueAt(i);
+        ba += "\r\n";
+    }
+    if (request.d->operation == QHttpNetworkRequest::Post) {
+        // add content type, if not set in the request
+        if (request.headerField("content-type").isEmpty() && ((request.d->uploadByteDevice && request.d->uploadByteDevice->size() > 0) || request.d->url.hasQuery())) {
+            //Content-Type is mandatory. We can't say anything about the encoding, but x-www-form-urlencoded is the most likely to work.
+            //This warning indicates a bug in application code not setting a required header.
+            //Note that if using QHttpMultipart, the content-type is set in QNetworkAccessManagerPrivate::prepareMultipart already
+            qWarning("content-type missing in HTTP POST, defaulting to application/x-www-form-urlencoded. Use QNetworkRequest::setHeader() to fix this problem.");
+            ba += "Content-Type: application/x-www-form-urlencoded\r\n";
+        }
+        if (!request.d->uploadByteDevice && request.d->url.hasQuery()) {
+            QByteArray query = request.d->url.query(QUrl::FullyEncoded).toLatin1();
+            ba += "Content-Length: ";
+            ba += QByteArray::number(query.size());
+            ba += "\r\n\r\n";
+            ba += query;
+        } else {
+            ba += "\r\n";
+        }
+    } else {
+        ba += "\r\n";
+    }
+     return ba;
+}
+
+//  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 69, as _ZN29QHttpNetworkConnectionChannel4initEv
+inline void QHttpNetworkConnectionChannel::init()
+{
+#ifndef QT_NO_SSL
+    if (connection->d_func()->encrypt)
+        socket = new QSslSocket;
+#if QT_CONFIG(localserver)
+    else if (connection->d_func()->isLocalSocket)
+        socket = new QLocalSocket;
+#endif
+    else
+        socket = new QTcpSocket;
+#else
+    socket = new QTcpSocket;
+#endif
+#ifndef QT_NO_NETWORKPROXY
+    // Set by QNAM anyway, but let's be safe here
+    if (auto s = qobject_cast<QAbstractSocket *>(socket))
+        s->setProxy(QNetworkProxy::NoProxy);
+#endif
+
+    // After some back and forth in all the last years, this is now a DirectConnection because otherwise
+    // the state inside the *Socket classes gets messed up, also in conjunction with the socket notifiers
+    // which behave slightly differently on Windows vs Linux
+    QObject::connect(socket, &QIODevice::bytesWritten,
+                     this, &QHttpNetworkConnectionChannel::_q_bytesWritten,
+                     Qt::DirectConnection);
+    QObject::connect(socket, &QIODevice::readyRead,
+                     this, &QHttpNetworkConnectionChannel::_q_readyRead,
+                     Qt::DirectConnection);
+
+
+    QSocketAbstraction::visit([this](auto *socket){
+        using SocketType = std::remove_pointer_t<decltype(socket)>;
+        QObject::connect(socket, &SocketType::connected,
+                        this, &QHttpNetworkConnectionChannel::_q_connected,
+                        Qt::DirectConnection);
+
+        // The disconnected() and error() signals may already come
+        // while calling connectToHost().
+        // In case of a cached hostname or an IP this
+        // will then emit a signal to the user of QNetworkReply
+        // but cannot be caught because the user did not have a chance yet
+        // to connect to QNetworkReply's signals.
+        QObject::connect(socket, &SocketType::disconnected,
+                        this, &QHttpNetworkConnectionChannel::_q_disconnected,
+                        Qt::DirectConnection);
+        if constexpr (std::is_same_v<SocketType, QAbstractSocket>) {
+            QObject::connect(socket, &QAbstractSocket::errorOccurred,
+                            this, &QHttpNetworkConnectionChannel::_q_error,
+                            Qt::DirectConnection);
+#if QT_CONFIG(localserver)
+        } else if constexpr (std::is_same_v<SocketType, QLocalSocket>) {
+            auto convertAndForward = [this](QLocalSocket::LocalSocketError error) {
+                _q_error(static_cast<QAbstractSocket::SocketError>(error));
+            };
+            QObject::connect(socket, &SocketType::errorOccurred,
+                            this, std::move(convertAndForward),
+                            Qt::DirectConnection);
+#endif
+        }
+    }, socket);
+
+
+
+#ifndef QT_NO_NETWORKPROXY
+    if (auto *s = qobject_cast<QAbstractSocket *>(socket)) {
+        QObject::connect(s, &QAbstractSocket::proxyAuthenticationRequired,
+                        this, &QHttpNetworkConnectionChannel::_q_proxyAuthenticationRequired,
+                        Qt::DirectConnection);
+    }
+#endif
+
+#ifndef QT_NO_SSL
+    QSslSocket *sslSocket = qobject_cast<QSslSocket*>(socket);
+    if (sslSocket) {
+        // won't be a sslSocket if encrypt is false
+        QObject::connect(sslSocket, &QSslSocket::encrypted,
+                         this, &QHttpNetworkConnectionChannel::_q_encrypted,
+                         Qt::DirectConnection);
+        QObject::connect(sslSocket, &QSslSocket::sslErrors,
+                         this, &QHttpNetworkConnectionChannel::_q_sslErrors,
+                         Qt::DirectConnection);
+        QObject::connect(sslSocket, &QSslSocket::preSharedKeyAuthenticationRequired,
+                         this, &QHttpNetworkConnectionChannel::_q_preSharedKeyAuthenticationRequired,
+                         Qt::DirectConnection);
+        QObject::connect(sslSocket, &QSslSocket::encryptedBytesWritten,
+                         this, &QHttpNetworkConnectionChannel::_q_encryptedBytesWritten,
+                         Qt::DirectConnection);
+
+        // AXIVION DISABLE Qt-Security-QSslSocketIgnoreSslErrors: intentional behavior
+        if (ignoreAllSslErrors)
+            sslSocket->ignoreSslErrors();
+
+        if (!ignoreSslErrorsList.isEmpty())
+            sslSocket->ignoreSslErrors(ignoreSslErrorsList);
+        // AXIVION ENABLE Qt-Security-QSslSocketIgnoreSslErrors
+
+        if (sslConfiguration && !sslConfiguration->isNull())
+           sslSocket->setSslConfiguration(*sslConfiguration);
+    } else {
+#endif // !QT_NO_SSL
+        if (connection->connectionType() != QHttpNetworkConnection::ConnectionTypeHTTP2)
+            protocolHandler.reset(new QHttpProtocolHandler(this));
+#ifndef QT_NO_SSL
+    }
+#endif
+
+#ifndef QT_NO_NETWORKPROXY
+    if (auto *s = qobject_cast<QAbstractSocket *>(socket);
+        s && proxy.type() != QNetworkProxy::NoProxy) {
+        s->setProxy(proxy);
+    }
+#endif
+    isInitialized = true;
 }
 
 //  from src/network/access/qhttpnetworkconnection.cpp, line 79, as _ZN29QHttpNetworkConnectionPrivateD1Ev
@@ -500,6 +993,122 @@ inline int QHttpNetworkConnectionPrivate::indexOf(QIODevice *socket) const
     return 0;
 }
 
+//  from src/network/access/qhttpnetworkconnection.cpp, line 251, as _ZN29QHttpNetworkConnectionPrivate14prepareRequestERSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE
+#if defined(Q_OS_LINUX)
+inline void QHttpNetworkConnectionPrivate::prepareRequest(HttpMessagePair &messagePair)
+{
+    QHttpNetworkRequest &request = messagePair.first;
+    QHttpNetworkReply *reply = messagePair.second;
+
+    // add missing fields for the request
+    QByteArray value;
+#ifndef Q_OS_WASM
+    // check if Content-Length is provided
+    QNonContiguousByteDevice* uploadByteDevice = request.uploadByteDevice();
+    if (uploadByteDevice) {
+        const qint64 contentLength = request.contentLength();
+        const qint64 uploadDeviceSize = uploadByteDevice->size();
+        if (contentLength != -1 && uploadDeviceSize != -1) {
+            // Both values known: use the smaller one.
+            if (uploadDeviceSize < contentLength)
+                request.setContentLength(uploadDeviceSize);
+        } else if (contentLength == -1 && uploadDeviceSize != -1) {
+            // content length not supplied by user, but the upload device knows it
+            request.setContentLength(uploadDeviceSize);
+        } else if (contentLength != -1 && uploadDeviceSize == -1) {
+            // everything OK, the user supplied us the contentLength
+        } else if (Q_UNLIKELY(contentLength == -1 && uploadDeviceSize == -1)) {
+            qFatal("QHttpNetworkConnectionPrivate: Neither content-length nor upload device size were given");
+        }
+    }
+#endif
+    // set the Connection/Proxy-Connection: Keep-Alive headers
+#ifndef QT_NO_NETWORKPROXY
+    if (networkProxy.type() == QNetworkProxy::HttpCachingProxy)  {
+        value = request.headerField("proxy-connection");
+        if (value.isEmpty())
+            request.setHeaderField("Proxy-Connection", "Keep-Alive");
+    } else {
+#endif
+        value = request.headerField("connection");
+        if (value.isEmpty())
+            request.setHeaderField("Connection", "Keep-Alive");
+#ifndef QT_NO_NETWORKPROXY
+    }
+#endif
+
+    // If the request had a accept-encoding set, we better not mess
+    // with it. If it was not set, we announce that we understand gzip
+    // and remember this fact in request.d->autoDecompress so that
+    // we can later decompress the HTTP reply if it has such an
+    // encoding.
+    value = request.headerField("accept-encoding");
+    if (value.isEmpty()) {
+#ifndef QT_NO_COMPRESS
+        const static QByteArray acceptedEncoding = QDecompressHelper::acceptedEncoding().join(", ");
+        request.setHeaderField("Accept-Encoding", acceptedEncoding);
+        request.d->autoDecompress = true;
+#else
+        // if zlib is not available set this to false always
+        request.d->autoDecompress = false;
+#endif
+    }
+
+    // some websites mandate an accept-language header and fail
+    // if it is not sent. This is a problem with the website and
+    // not with us, but we work around this by setting
+    // one always.
+    value = request.headerField("accept-language");
+    if (value.isEmpty())
+        request.setHeaderField("Accept-Language", makeAcceptLanguage());
+
+    // set the User Agent
+    value = request.headerField("user-agent");
+    if (value.isEmpty())
+        request.setHeaderField("User-Agent", "Mozilla/5.0");
+    // set the host
+    value = request.headerField("host");
+    if (isLocalSocket && value.isEmpty()) {
+        // The local socket connections might have a full file path, and that
+        // may not be suitable for the Host header. But we can use whatever the
+        // user has set in the URL.
+        request.prependHeaderField("Host", request.url().host().toLocal8Bit());
+    } else if (value.isEmpty()) {
+        QHostAddress add;
+        QByteArray host;
+        if (add.setAddress(hostName)) {
+            if (add.protocol() == QAbstractSocket::IPv6Protocol)
+                host = (u'[' + removeZoneId(hostName) + u']').toLatin1(); //format the ipv6 in the standard way
+            else
+                host = hostName.toLatin1();
+
+        } else {
+            host = QUrl::toAce(hostName);
+        }
+
+        int port = request.url().port();
+        if (port != -1) {
+            host += ':';
+            host += QByteArray::number(port);
+        }
+
+        request.prependHeaderField("Host", host);
+    }
+
+    reply->d_func()->requestIsPrepared = true;
+}
+#endif  // defined(Q_OS_LINUX)
+
+//  from src/network/access/qhttpnetworkconnection.cpp, line 752, as _ZN29QHttpNetworkConnectionPrivate13updateChannelEiRKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE
+inline void QHttpNetworkConnectionPrivate::updateChannel(int i, const HttpMessagePair &messagePair)
+{
+    channels[i].request = messagePair.first;
+    channels[i].reply = messagePair.second;
+    // Now that reply is assigned a channel, correct reply to channel association
+    // previously set in queueRequest.
+    channels[i].reply->d_func()->connectionChannel = &channels[i];
+}
+
 //  from src/network/access/qhttpnetworkconnection.cpp, line 770, as _ZNK29QHttpNetworkConnectionPrivate24predictNextRequestsReplyEv
 inline QHttpNetworkReply* QHttpNetworkConnectionPrivate::predictNextRequestsReply() const
 {
@@ -563,6 +1172,116 @@ inline void QHttpNetworkConnectionPrivate::networkLayerDetected(QAbstractSocket:
             channels[i].close();
         }
     }
+}
+
+//  from src/network/access/qhttpnetworkconnection.cpp, line 590, as _ZN29QHttpNetworkConnectionPrivate19createAuthorizationEP9QIODeviceR19QHttpNetworkRequest
+inline void QHttpNetworkConnectionPrivate::createAuthorization(QIODevice *socket, QHttpNetworkRequest &request)
+{
+    Q_ASSERT(socket);
+
+    QHttpNetworkConnectionChannel &channel = channels[indexOf(socket)];
+
+    QAuthenticator *authenticator = &channel.authenticator;
+    QAuthenticatorPrivate *priv = QAuthenticatorPrivate::getPrivate(*authenticator);
+    // Send "Authorization" header, but not if it's NTLM and the socket is already authenticated.
+    if (priv && priv->method != QAuthenticatorPrivate::None) {
+        const bool ntlmNego = priv->method == QAuthenticatorPrivate::Ntlm
+                || priv->method == QAuthenticatorPrivate::Negotiate;
+        const bool authNeeded = channel.lastStatus == 401;
+        const bool ntlmNegoOk = ntlmNego && authNeeded
+                && (priv->phase != QAuthenticatorPrivate::Done
+                    || !channel.authenticationCredentialsSent);
+        const bool otherOk =
+                !ntlmNego && (authNeeded || request.headerField("Authorization").isEmpty());
+        if (ntlmNegoOk || otherOk) {
+            QByteArray response = priv->calculateResponse(request.methodName(), request.uri(false),
+                                                          request.url().host());
+            request.setHeaderField("Authorization", response);
+            channel.authenticationCredentialsSent = true;
+        }
+    }
+
+#if QT_CONFIG(networkproxy)
+    authenticator = &channel.proxyAuthenticator;
+    priv = QAuthenticatorPrivate::getPrivate(*authenticator);
+    // Send "Proxy-Authorization" header, but not if it's NTLM and the socket is already authenticated.
+    if (priv && priv->method != QAuthenticatorPrivate::None) {
+        const bool ntlmNego = priv->method == QAuthenticatorPrivate::Ntlm
+                || priv->method == QAuthenticatorPrivate::Negotiate;
+        const bool proxyAuthNeeded = channel.lastStatus == 407;
+        const bool ntlmNegoOk = ntlmNego && proxyAuthNeeded
+                && (priv->phase != QAuthenticatorPrivate::Done || !channel.proxyCredentialsSent);
+        const bool otherOk = !ntlmNego;
+        if (ntlmNegoOk || otherOk) {
+            QByteArray response = priv->calculateResponse(request.methodName(), request.uri(false),
+                                                          networkProxy.hostName());
+            request.setHeaderField("Proxy-Authorization", response);
+            channel.proxyCredentialsSent = true;
+        }
+    }
+#endif // QT_CONFIG(networkproxy)
+}
+
+//  from src/network/access/qhttpnetworkconnection.cpp, line 902, as _ZN29QHttpNetworkConnectionPrivate11errorDetailEN13QNetworkReply12NetworkErrorEP9QIODeviceRK7QString
+inline QString QHttpNetworkConnectionPrivate::errorDetail(QNetworkReply::NetworkError errorCode, QIODevice *socket, const QString &extraDetail)
+{
+    QString errorString;
+    switch (errorCode) {
+    case QNetworkReply::HostNotFoundError: {
+        const QString peerName = socket ? QSocketAbstraction::socketPeerName(socket) : hostName;
+        errorString = QCoreApplication::translate("QHttp", "Host %1 not found").arg(peerName);
+        break;
+    }
+    case QNetworkReply::ConnectionRefusedError:
+        errorString = QCoreApplication::translate("QHttp", "Connection refused");
+        break;
+    case QNetworkReply::RemoteHostClosedError:
+        errorString = QCoreApplication::translate("QHttp", "Connection closed");
+        break;
+    case QNetworkReply::TimeoutError:
+        errorString = QCoreApplication::translate("QAbstractSocket", "Socket operation timed out");
+        break;
+    case QNetworkReply::ProxyAuthenticationRequiredError:
+        errorString = QCoreApplication::translate("QHttp", "Proxy requires authentication");
+        break;
+    case QNetworkReply::AuthenticationRequiredError:
+        errorString = QCoreApplication::translate("QHttp", "Host requires authentication");
+        break;
+    case QNetworkReply::ProtocolFailure:
+        errorString = QCoreApplication::translate("QHttp", "Data corrupted");
+        break;
+    case QNetworkReply::ProtocolUnknownError:
+        errorString = QCoreApplication::translate("QHttp", "Unknown protocol specified");
+        break;
+    case QNetworkReply::SslHandshakeFailedError:
+        errorString = QCoreApplication::translate("QHttp", "SSL handshake failed");
+        if (socket)
+            errorString += ": "_L1 + socket->errorString();
+        break;
+    case QNetworkReply::TooManyRedirectsError:
+        errorString = QCoreApplication::translate("QHttp", "Too many redirects");
+        break;
+    case QNetworkReply::InsecureRedirectError:
+        errorString = QCoreApplication::translate("QHttp", "Insecure redirect");
+        break;
+    default:
+        // all other errors are treated as QNetworkReply::UnknownNetworkError
+        errorString = extraDetail;
+        break;
+    }
+    return errorString;
+}
+
+//  from src/network/access/qhttpnetworkconnection.cpp, line 218, as _ZNK29QHttpNetworkConnectionPrivate26uncompressedBytesAvailableERK17QHttpNetworkReply
+inline qint64 QHttpNetworkConnectionPrivate::uncompressedBytesAvailable(const QHttpNetworkReply &reply) const
+{
+    return reply.d_func()->responseData.byteAmount();
+}
+
+//  from src/network/access/qhttpnetworkconnection.cpp, line 223, as _ZNK29QHttpNetworkConnectionPrivate35uncompressedBytesAvailableNextBlockERK17QHttpNetworkReply
+inline qint64 QHttpNetworkConnectionPrivate::uncompressedBytesAvailableNextBlock(const QHttpNetworkReply &reply) const
+{
+    return reply.d_func()->responseData.sizeNextBlock();
 }
 
 //  from src/network/access/qhttpnetworkconnection.cpp, line 1608, as _ZN29QHttpNetworkConnectionPrivate31emitProxyAuthenticationRequiredEPK29QHttpNetworkConnectionChannelRK13QNetworkProxyP14QAuthenticator
@@ -645,6 +1364,27 @@ int ritual_ZNK29QHttpNetworkConnectionPrivate7indexOfEP9QIODevice(
   return self->indexOf(socket);
 }
 
+#if defined(Q_OS_LINUX)
+//  void QHttpNetworkConnectionPrivate::prepareRequest(HttpMessagePair
+//      &request)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QHttpNetworkConnectionPrivate14prepareRequestERSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE(
+    QHttpNetworkConnectionPrivate *self,
+    HttpMessagePair *request) {
+  self->prepareRequest(*request);
+}
+#endif  // defined(Q_OS_LINUX)
+
+//  void QHttpNetworkConnectionPrivate::updateChannel(int i, const
+//      HttpMessagePair &messagePair)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QHttpNetworkConnectionPrivate13updateChannelEiRKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE(
+    QHttpNetworkConnectionPrivate *self,
+    int i,
+    const HttpMessagePair *messagePair) {
+  self->updateChannel(i, *messagePair);
+}
+
 //  QHttpNetworkReply
 //      *QHttpNetworkConnectionPrivate::predictNextRequestsReply() const
 extern "C" Q_DECL_EXPORT
@@ -680,6 +1420,47 @@ void ritual_ZN29QHttpNetworkConnectionPrivate20networkLayerDetectedEN15QAbstract
     QHttpNetworkConnectionPrivate *self,
     QAbstractSocket::NetworkLayerProtocol protocol) {
   self->networkLayerDetected(protocol);
+}
+
+//  void QHttpNetworkConnectionPrivate::createAuthorization(QIODevice
+//      *socket, QHttpNetworkRequest &request)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QHttpNetworkConnectionPrivate19createAuthorizationEP9QIODeviceR19QHttpNetworkRequest(
+    QHttpNetworkConnectionPrivate *self,
+    QIODevice *socket,
+    QHttpNetworkRequest *request) {
+  self->createAuthorization(socket, *request);
+}
+
+//  QString
+//      QHttpNetworkConnectionPrivate::errorDetail(QNetworkReply::NetworkErro
+//      r errorCode, QIODevice *socket, const QString &extraDetail)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN29QHttpNetworkConnectionPrivate11errorDetailEN13QNetworkReply12NetworkErrorEP9QIODeviceRK7QString(
+    QHttpNetworkConnectionPrivate *self,
+    QNetworkReply::NetworkError errorCode,
+    QIODevice *socket,
+    const QString *extraDetail) {
+  return new QString(self->errorDetail(errorCode, socket, *extraDetail));
+}
+
+//  qint64 QHttpNetworkConnectionPrivate::uncompressedBytesAvailable(const
+//      QHttpNetworkReply &reply) const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZNK29QHttpNetworkConnectionPrivate26uncompressedBytesAvailableERK17QHttpNetworkReply(
+    const QHttpNetworkConnectionPrivate *self,
+    const QHttpNetworkReply *reply) {
+  return self->uncompressedBytesAvailable(*reply);
+}
+
+//  qint64
+//      QHttpNetworkConnectionPrivate::uncompressedBytesAvailableNextBlock(co
+//      nst QHttpNetworkReply &reply) const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZNK29QHttpNetworkConnectionPrivate35uncompressedBytesAvailableNextBlockERK17QHttpNetworkReply(
+    const QHttpNetworkConnectionPrivate *self,
+    const QHttpNetworkReply *reply) {
+  return self->uncompressedBytesAvailableNextBlock(*reply);
 }
 
 #if !defined(QT_NO_NETWORKPROXY)

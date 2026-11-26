@@ -326,6 +326,25 @@ const QMetaObject *ritual_ZNK20QAbstractAxisPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractAxisPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QAbstractAxisPrivate11qt_metacastEPKc(
+    QAbstractAxisPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractAxisPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QAbstractAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractAxisPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractAxisPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QAbstractAxisPrivate2trEPKcS1_i(
@@ -333,6 +352,13 @@ QString *ritual_ZN20QAbstractAxisPrivate2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractAxisPrivate::tr(s, c, n));
+}
+
+//  QAbstractAxisPrivate::QAbstractAxisPrivate(QAbstractAxis *q)
+extern "C" Q_DECL_EXPORT
+QAbstractAxisPrivate *ritual_ZN20QAbstractAxisPrivateC1EP13QAbstractAxis(
+    QAbstractAxis *q) {
+  return new CuteQAbstractAxisPrivate(q);
 }
 
 //  QAbstractAxisPrivate::~QAbstractAxisPrivate()
@@ -397,6 +423,20 @@ void ritual_ZN20QAbstractAxisPrivate15initializeThemeEP10ChartThemeb(
   self->initializeTheme(theme, forced);
 }
 
+//  void QAbstractAxisPrivate::initializeAnimations(QChart::AnimationOptions
+//      options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QAbstractAxisPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QAbstractAxisPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
+}
+
 //  void QAbstractAxisPrivate::setMin(const QVariant &min)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QAbstractAxisPrivate6setMinERK8QVariant(
@@ -458,6 +498,15 @@ void ritual_ZN20QAbstractAxisPrivate18handleRangeChangedEdd(
     qreal min,
     qreal max) {
   self->handleRangeChanged(min, max);
+}
+
+//  void QAbstractAxisPrivate::rangeChanged(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QAbstractAxisPrivate12rangeChangedEdd(
+    QAbstractAxisPrivate *self,
+    qreal min,
+    qreal max) {
+  self->rangeChanged(min, max);
 }
 
 //  QAbstractAxis *QAbstractAxisPrivate::q_func()

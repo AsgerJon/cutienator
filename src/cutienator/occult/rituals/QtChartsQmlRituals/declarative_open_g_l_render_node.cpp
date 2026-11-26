@@ -37,19 +37,48 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 55, as _ZN27DeclarativeOpenGLRenderNodeD1Ev
-inline DeclarativeOpenGLRenderNode::~DeclarativeOpenGLRenderNode()
-{
-    cleanXYSeriesResources(0);
+//  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 68, as local:declarativeopenglrendernode.cpp:vertexSourceCore
+static const char *vertexSourceCore =
+        "#version 150\n"
+        "in vec2 points;\n"
+        "uniform vec2 min;\n"
+        "uniform vec2 delta;\n"
+        "uniform float pointSize;\n"
+        "uniform mat4 matrix;\n"
+        "void main() {\n"
+        "  vec2 normalPoint = vec2(-1, -1) + ((points - min) / delta);\n"
+        "  gl_Position = matrix * vec4(normalPoint, 0, 1);\n"
+        "  gl_PointSize = pointSize;\n"
+        "}";
 
-    delete m_texture;
-    delete m_fbo;
-    delete m_resolvedFbo;
-    delete m_selectionFbo;
-    delete m_program;
+//  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 80, as local:declarativeopenglrendernode.cpp:fragmentSourceCore
+static const char *fragmentSourceCore =
+        "#version 150\n"
+        "uniform vec3 color;\n"
+        "out vec4 fragColor;\n"
+        "void main() {\n"
+        "  fragColor = vec4(color,1);\n"
+        "}\n";
 
-    qDeleteAll(m_mouseEvents);
-}
+//  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 88, as local:declarativeopenglrendernode.cpp:vertexSource
+static const char *vertexSource =
+        "attribute highp vec2 points;\n"
+        "uniform highp vec2 min;\n"
+        "uniform highp vec2 delta;\n"
+        "uniform highp float pointSize;\n"
+        "uniform highp mat4 matrix;\n"
+        "void main() {\n"
+        "  vec2 normalPoint = vec2(-1, -1) + ((points - min) / delta);\n"
+        "  gl_Position = matrix * vec4(normalPoint, 0, 1);\n"
+        "  gl_PointSize = pointSize;\n"
+        "}";
+
+//  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 99, as local:declarativeopenglrendernode.cpp:fragmentSource
+static const char *fragmentSource =
+        "uniform highp vec3 color;\n"
+        "void main() {\n"
+        "  gl_FragColor = vec4(color,1);\n"
+        "}\n";
 
 //  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 189, as _ZN27DeclarativeOpenGLRenderNode14setTextureSizeERK5QSize
 inline void DeclarativeOpenGLRenderNode::setTextureSize(const QSize &size)
@@ -79,13 +108,61 @@ inline void DeclarativeOpenGLRenderNode::setAntialiasing(bool enable)
     }
 }
 
-//  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 258, as _ZN27DeclarativeOpenGLRenderNode14addMouseEventsERK5QListIP11QMouseEventE
-inline void DeclarativeOpenGLRenderNode::addMouseEvents(const QList<QMouseEvent *> &events)
+//  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 55, as _ZN27DeclarativeOpenGLRenderNodeD1Ev
+inline DeclarativeOpenGLRenderNode::~DeclarativeOpenGLRenderNode()
 {
-    if (events.size()) {
-        m_mouseEvents.append(events);
-        markDirty(DirtyMaterial);
+    cleanXYSeriesResources(0);
+
+    delete m_texture;
+    delete m_fbo;
+    delete m_resolvedFbo;
+    delete m_selectionFbo;
+    delete m_program;
+
+    qDeleteAll(m_mouseEvents);
+}
+
+//  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 106, as _ZN27DeclarativeOpenGLRenderNode6initGLEv
+inline void DeclarativeOpenGLRenderNode::initGL()
+{
+    recreateFBO();
+
+    m_program = new QOpenGLShaderProgram;
+    if (QOpenGLContext::currentContext()->format().profile() == QSurfaceFormat::CoreProfile) {
+        m_program->addShaderFromSourceCode(QOpenGLShader::Vertex, vertexSourceCore);
+        m_program->addShaderFromSourceCode(QOpenGLShader::Fragment, fragmentSourceCore);
+    } else {
+        m_program->addShaderFromSourceCode(QOpenGLShader::Vertex, vertexSource);
+        m_program->addShaderFromSourceCode(QOpenGLShader::Fragment, fragmentSource);
     }
+    m_program->bindAttributeLocation("points", 0);
+    m_program->link();
+
+    m_program->bind();
+    m_colorUniformLoc = m_program->uniformLocation("color");
+    m_minUniformLoc = m_program->uniformLocation("min");
+    m_deltaUniformLoc = m_program->uniformLocation("delta");
+    m_pointSizeUniformLoc = m_program->uniformLocation("pointSize");
+    m_matrixUniformLoc = m_program->uniformLocation("matrix");
+
+    // Create a vertex array object. In OpenGL ES 2.0 and OpenGL 2.x
+    // implementations this is optional and support may not be present
+    // at all. Nonetheless the below code works in all cases and makes
+    // sure there is a VAO when one is needed.
+    m_vao.create();
+    QOpenGLVertexArrayObject::Binder vaoBinder(&m_vao);
+
+#if !QT_CONFIG(opengles2)
+    if (!QOpenGLContext::currentContext()->isOpenGLES()) {
+        // Make it possible to change point primitive size and use textures with them in
+        // the shaders. These are implicitly enabled in ES2.
+        // Qt Quick doesn't change these flags, so it should be safe to just enable them
+        // at initialization.
+        glEnable(GL_PROGRAM_POINT_SIZE);
+    }
+#endif
+
+    m_program->release();
 }
 
 //  from ../qtcharts/src/chartsqml2/declarativeopenglrendernode.cpp, line 272, as _ZN27DeclarativeOpenGLRenderNode8renderGLEb
@@ -616,11 +693,37 @@ const QMetaObject *ritual_ZNK27DeclarativeOpenGLRenderNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeOpenGLRenderNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27DeclarativeOpenGLRenderNode11qt_metacastEPKc(
+    DeclarativeOpenGLRenderNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeOpenGLRenderNode::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27DeclarativeOpenGLRenderNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeOpenGLRenderNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  DeclarativeOpenGLRenderNode::~DeclarativeOpenGLRenderNode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27DeclarativeOpenGLRenderNodeD1Ev(
     DeclarativeOpenGLRenderNode *self) {
   delete self;
+}
+
+//  void DeclarativeOpenGLRenderNode::initGL()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27DeclarativeOpenGLRenderNode6initGLEv(
+    DeclarativeOpenGLRenderNode *self) {
+  self->initGL();
 }
 
 //  QSize DeclarativeOpenGLRenderNode::textureSize() const
@@ -636,6 +739,16 @@ void ritual_ZN27DeclarativeOpenGLRenderNode14setTextureSizeERK5QSize(
     DeclarativeOpenGLRenderNode *self,
     const QSize *size) {
   self->setTextureSize(*size);
+}
+
+//  void DeclarativeOpenGLRenderNode::setSeriesData(bool mapDirty, const
+//      GLXYDataMap &dataMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27DeclarativeOpenGLRenderNode13setSeriesDataEbRK5QHashIPK9QXYSeriesP14GLXYSeriesDataE(
+    DeclarativeOpenGLRenderNode *self,
+    bool mapDirty,
+    const GLXYDataMap *dataMap) {
+  self->setSeriesData(mapDirty, *dataMap);
 }
 
 //  void DeclarativeOpenGLRenderNode::setRect(const QRectF &rect)
@@ -661,6 +774,40 @@ void ritual_ZN27DeclarativeOpenGLRenderNode14addMouseEventsERK5QListIP11QMouseEv
     DeclarativeOpenGLRenderNode *self,
     const QList<QMouseEvent *> *events) {
   self->addMouseEvents(*events);
+}
+
+//  void DeclarativeOpenGLRenderNode::takeMouseEventResponses(QList<MouseEven
+//      tResponse> &responses)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27DeclarativeOpenGLRenderNode23takeMouseEventResponsesER5QListI18MouseEventResponseE(
+    DeclarativeOpenGLRenderNode *self,
+    QList<MouseEventResponse> *responses) {
+  self->takeMouseEventResponses(*responses);
+}
+
+//  void DeclarativeOpenGLRenderNode::render()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27DeclarativeOpenGLRenderNode6renderEv(
+    DeclarativeOpenGLRenderNode *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "DeclarativeOpenGLRenderNode")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "render()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "render()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void DeclarativeOpenGLRenderNode::renderGL(bool selection)

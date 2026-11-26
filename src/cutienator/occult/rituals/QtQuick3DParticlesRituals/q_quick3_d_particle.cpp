@@ -381,6 +381,25 @@ const QMetaObject *ritual_ZNK16QQuick3DParticle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuick3DParticle11qt_metacastEPKc(
+    QQuick3DParticle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuick3DParticle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuick3DParticle2trEPKcS1_i(
@@ -619,11 +638,108 @@ void ritual_ZN16QQuick3DParticle11setSortModeENS_8SortModeE(
   self->setSortMode(sortMode);
 }
 
+//  void QQuick3DParticle::systemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle13systemChangedEv(QQuick3DParticle *self) {
+  self->systemChanged();
+}
+
+//  void QQuick3DParticle::maxAmountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle16maxAmountChangedEv(
+    QQuick3DParticle *self) {
+  self->maxAmountChanged();
+}
+
+//  void QQuick3DParticle::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle12colorChangedEv(QQuick3DParticle *self) {
+  self->colorChanged();
+}
+
+//  void QQuick3DParticle::colorVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle21colorVariationChangedEv(
+    QQuick3DParticle *self) {
+  self->colorVariationChanged();
+}
+
+//  void QQuick3DParticle::unifiedColorVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle28unifiedColorVariationChangedEv(
+    QQuick3DParticle *self) {
+  self->unifiedColorVariationChanged();
+}
+
+//  void QQuick3DParticle::fadeInEffectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle19fadeInEffectChangedEv(
+    QQuick3DParticle *self) {
+  self->fadeInEffectChanged();
+}
+
+//  void QQuick3DParticle::fadeOutEffectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle20fadeOutEffectChangedEv(
+    QQuick3DParticle *self) {
+  self->fadeOutEffectChanged();
+}
+
+//  void QQuick3DParticle::fadeInDurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle21fadeInDurationChangedEv(
+    QQuick3DParticle *self) {
+  self->fadeInDurationChanged();
+}
+
+//  void QQuick3DParticle::fadeOutDurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle22fadeOutDurationChangedEv(
+    QQuick3DParticle *self) {
+  self->fadeOutDurationChanged();
+}
+
+//  void QQuick3DParticle::alignModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle16alignModeChangedEv(
+    QQuick3DParticle *self) {
+  self->alignModeChanged();
+}
+
+//  void QQuick3DParticle::alignTargetPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle26alignTargetPositionChangedEv(
+    QQuick3DParticle *self) {
+  self->alignTargetPositionChanged();
+}
+
+//  void QQuick3DParticle::hasTransparencyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle22hasTransparencyChangedEv(
+    QQuick3DParticle *self) {
+  self->hasTransparencyChanged();
+}
+
+//  void QQuick3DParticle::sortModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DParticle15sortModeChangedEv(QQuick3DParticle *self) {
+  self->sortModeChanged();
+}
+
 //  void QQuick3DParticle::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuick3DParticle17componentCompleteEv(
     QQuick3DParticle *self) {
   self->componentComplete();
+}
+
+//  QQuick3DParticle::QQuick3DParticle(QQuick3DObjectPrivate &dd,
+//      QQuick3DNode *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DParticle *ritual_ZN16QQuick3DParticleC1ER21QQuick3DObjectPrivateP12QQuick3DNode(
+    QQuick3DObjectPrivate *dd,
+    QQuick3DNode *parent) {
+  return new CuteQQuick3DParticle(*dd, parent);
 }
 
 //  void QQuick3DParticle::reset()

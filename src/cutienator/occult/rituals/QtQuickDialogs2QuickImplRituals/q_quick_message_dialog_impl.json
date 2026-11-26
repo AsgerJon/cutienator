@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickMessageDialogImpl10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickMessageDialogImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickMessageDialogImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickMessageDialogImpl2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,10 @@
     "ritual_ZN23QQuickMessageDialogImplC1EP7QObject": ["address", "address"],
     "ritual_ZN23QQuickMessageDialogImpl21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
+    ],
+    "ritual_ZNK23QQuickMessageDialogImpl7optionsEv": ["address", "address"],
+    "ritual_ZN23QQuickMessageDialogImpl10setOptionsERK14QSharedPointerI21QMessageDialogOptionsE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK23QQuickMessageDialogImpl16showDetailedTextEv": [
       "bool", "address"
@@ -28,6 +38,15 @@
     "ritual_ZNK23QQuickMessageDialogImpl12detailedTextEv": [
       "text", "address"
     ],
+    "ritual_ZN23QQuickMessageDialogImpl13buttonClickedEN21QPlatformDialogHelper14StandardButtonENS0_10ButtonRoleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN23QQuickMessageDialogImpl23showDetailedTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickMessageDialogImpl14optionsChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN23QQuickMessageDialogImpl22toggleShowDetailedTextEv": [
       "nothing", "address"
     ],
@@ -38,6 +57,9 @@
     "ritual_ZNK23QQuickMessageDialogImpl6d_funcEv": ["address", "address"],
     "ritual_own_ZN23QQuickMessageDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QQuickMessageDialogImpl__QSharedPointer_QMessageDialogOptions": [
+      "nothing", "address"
     ]
   }
 }

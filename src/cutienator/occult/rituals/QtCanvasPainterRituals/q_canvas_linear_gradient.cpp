@@ -38,10 +38,43 @@ QCanvasLinearGradient *ritual_ZN21QCanvasLinearGradientC1ERKS_(
   return new QCanvasLinearGradient(*a0);
 }
 
+//  QCanvasLinearGradient &QCanvasLinearGradient::operator=(const
+//      QCanvasLinearGradient &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasLinearGradient *ritual_ZN21QCanvasLinearGradientaSERKS_(
+    QCanvasLinearGradient *self,
+    const QCanvasLinearGradient *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QCanvasLinearGradient::QCanvasLinearGradient(QCanvasLinearGradient &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasLinearGradient *ritual_ZN21QCanvasLinearGradientC1EOS_(
+    QCanvasLinearGradient *a0) {
+  return new QCanvasLinearGradient(std::move(*a0));
+}
+
+//  QCanvasLinearGradient
+//      &QCanvasLinearGradient::operator=(QCanvasLinearGradient &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasLinearGradient *ritual_ZN21QCanvasLinearGradientaSEOS_(
+    QCanvasLinearGradient *self,
+    QCanvasLinearGradient *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QCanvasLinearGradient::~QCanvasLinearGradient()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QCanvasLinearGradientD1Ev(QCanvasLinearGradient *self) {
   delete self;
+}
+
+//  void QCanvasLinearGradient::swap(QCanvasLinearGradient &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCanvasLinearGradient4swapERS_(
+    QCanvasLinearGradient *self,
+    QCanvasLinearGradient *other) {
+  self->swap(*other);
 }
 
 //  QPointF QCanvasLinearGradient::startPosition() const

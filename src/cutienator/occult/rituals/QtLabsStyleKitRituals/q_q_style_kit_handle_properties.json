@@ -8,7 +8,19 @@
     "ritual_ZNK26QQStyleKitHandleProperties10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQStyleKitHandleProperties11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQStyleKitHandleProperties11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQStyleKitHandleProperties24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitHandleProperties12firstChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitHandleProperties13secondChangedEv": [
       "nothing", "address"
     ]
   }

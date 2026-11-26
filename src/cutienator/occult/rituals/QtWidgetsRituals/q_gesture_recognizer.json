@@ -5,6 +5,7 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN18QGestureRecognizerC1Ev": ["address"],
     "ritual_ZN18QGestureRecognizerD1Ev": ["nothing", "address"],
     "ritual_ZN18QGestureRecognizer6createEP7QObject": [
       "address", "address", "address"

@@ -14,10 +14,16 @@
     "ritual_ZN29DeclarativeAbstractRenderNode7setRectERK6QRectF": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN29DeclarativeAbstractRenderNode13setSeriesDataEbRK5QHashIPK9QXYSeriesP14GLXYSeriesDataE": [
+      "nothing", "address", "bool", "address"
+    ],
     "ritual_ZN29DeclarativeAbstractRenderNode15setAntialiasingEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZN29DeclarativeAbstractRenderNode14addMouseEventsERK5QListIP11QMouseEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29DeclarativeAbstractRenderNode23takeMouseEventResponsesER5QListI18MouseEventResponseE": [
       "nothing", "address", "address"
     ],
     "ritual_take_DeclarativeAbstractRenderNode": [

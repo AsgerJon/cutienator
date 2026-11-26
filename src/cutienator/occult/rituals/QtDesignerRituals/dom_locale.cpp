@@ -20,6 +20,24 @@ void ritual_ZN9DomLocaleD1Ev(DomLocale *self) {
   delete self;
 }
 
+//  void DomLocale::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9DomLocale4readER16QXmlStreamReader(
+    DomLocale *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomLocale::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9DomLocale5writeER16QXmlStreamWriterRK7QString(
+    const DomLocale *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomLocale::hasAttributeLanguage() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9DomLocale20hasAttributeLanguageEv(const DomLocale *self) {

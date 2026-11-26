@@ -35,30 +35,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtlottie/src/lottie/renderer/qbatchrenderer.cpp, line 44, as _ZN14QBatchRendererD1Ev
-inline QBatchRenderer::~QBatchRenderer()
-{
-    QMutexLocker mlocker(&m_mutex);
-
-    for (Entry *entry : std::as_const(m_animData)) {
-        qDeleteAll(entry->frameCache);
-        delete entry->lottieTreeBlueprint;
-        delete entry;
-    }
-}
-
-//  from ../qtlottie/src/lottie/renderer/qbatchrenderer.cpp, line 165, as _ZN14QBatchRenderer8getFrameEP16QLottieAnimationi
-inline QLottieRoot *QBatchRenderer::getFrame(QLottieAnimation *animator, int frameNumber)
-{
-    QMutexLocker mlocker(&m_mutex);
-
-    Entry *entry = m_animData.value(animator, nullptr);
-    if (entry)
-        return entry->frameCache.value(frameNumber, nullptr);
-    else
-        return nullptr;
-}
-
 //  from ../qtlottie/src/lottie/renderer/qbatchrenderer.cpp, line 226, as _ZN14QBatchRenderer3runEv
 inline void QBatchRenderer::run()
 {
@@ -72,6 +48,18 @@ inline void QBatchRenderer::run()
 
         m_waitCondition.wait(&m_mutex);
     }
+}
+
+//  from ../qtlottie/src/lottie/renderer/qbatchrenderer.cpp, line 165, as _ZN14QBatchRenderer8getFrameEP16QLottieAnimationi
+inline QLottieRoot *QBatchRenderer::getFrame(QLottieAnimation *animator, int frameNumber)
+{
+    QMutexLocker mlocker(&m_mutex);
+
+    Entry *entry = m_animData.value(animator, nullptr);
+    if (entry)
+        return entry->frameCache.value(frameNumber, nullptr);
+    else
+        return nullptr;
 }
 //  -----------------------------------------------------------------------
 
@@ -265,6 +253,24 @@ const QMetaObject *ritual_ZNK14QBatchRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBatchRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QBatchRenderer11qt_metacastEPKc(
+    QBatchRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBatchRenderer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QBatchRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBatchRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QBatchRenderer::~QBatchRenderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QBatchRendererD1Ev(QBatchRenderer *self) {
@@ -279,6 +285,120 @@ QLottieRoot *ritual_ZN14QBatchRenderer8getFrameEP16QLottieAnimationi(
     QLottieAnimation *animator,
     int frameNumber) {
   return self->getFrame(animator, frameNumber);
+}
+
+//  void QBatchRenderer::frameReady(QLottieAnimation *animator, int
+//      frameNumber)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBatchRenderer10frameReadyEP16QLottieAnimationi(
+    QBatchRenderer *self,
+    QLottieAnimation *animator,
+    int frameNumber) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QBatchRenderer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "frameReady(QLottieAnimation *,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "frameReady(QLottieAnimation *,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&animator)),
+      const_cast<void *>(static_cast<const void *>(&frameNumber)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QBatchRenderer::registerAnimator(QLottieAnimation *animator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBatchRenderer16registerAnimatorEP16QLottieAnimation(
+    QBatchRenderer *self,
+    QLottieAnimation *animator) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QBatchRenderer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "registerAnimator(QLottieAnimation *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "registerAnimator(QLottieAnimation *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&animator)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QBatchRenderer::deregisterAnimator(QLottieAnimation *animator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBatchRenderer18deregisterAnimatorEP16QLottieAnimation(
+    QBatchRenderer *self,
+    QLottieAnimation *animator) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QBatchRenderer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "deregisterAnimator(QLottieAnimation *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "deregisterAnimator(QLottieAnimation *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&animator)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QBatchRenderer::frameRendered(QLottieAnimation *animator, int
+//      frameNumber)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBatchRenderer13frameRenderedEP16QLottieAnimationi(
+    QBatchRenderer *self,
+    QLottieAnimation *animator,
+    int frameNumber) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QBatchRenderer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "frameRendered(QLottieAnimation *,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "frameRendered(QLottieAnimation *,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&animator)),
+      const_cast<void *>(static_cast<const void *>(&frameNumber)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QBatchRenderer::run()

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QAudioSource10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QAudioSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QAudioSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QAudioSource2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QAudioSourceC1ERK12QAudioFormatP7QObject": [
       "address", "address", "address"
@@ -46,6 +52,12 @@
     "ritual_ZNK12QAudioSource12elapsedUSecsEv": ["long long", "address"],
     "ritual_ZNK12QAudioSource5errorEv": ["int", "address"],
     "ritual_ZNK12QAudioSource5stateEv": ["int", "address"],
+    "ritual_ZN12QAudioSource12stateChangedEN6QAudio5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QAudioSource12startABIImplEOSt7variantIJSt8functionIFv5QSpanIKfLm18446744073709551615EEEES1_IFvS2_IKhLm18446744073709551615EEEES1_IFvS2_IKsLm18446744073709551615EEEES1_IFvS2_IKiLm18446744073709551615EEEEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QAudioSource": ["bool", "address", "chars", "address"]
   }
 }

@@ -10,11 +10,23 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qxmlstream_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
+#include <QtCore/QByteArray>
+#include <QtCore/QStringDecoder>
 
 //  QXmlStreamReaderPrivate::BufferAndEncoding::BufferAndEncoding()
 extern "C" Q_DECL_EXPORT
 QXmlStreamReaderPrivate::BufferAndEncoding *ritual_ZN23QXmlStreamReaderPrivate17BufferAndEncodingC1Ev() {
   return new QXmlStreamReaderPrivate::BufferAndEncoding();
+}
+
+//  QXmlStreamReaderPrivate::BufferAndEncoding::BufferAndEncoding(const
+//      QByteArray &b, QStringDecoder::Encoding e)
+extern "C" Q_DECL_EXPORT
+QXmlStreamReaderPrivate::BufferAndEncoding *ritual_ZN23QXmlStreamReaderPrivate17BufferAndEncodingC1ERK10QByteArrayN16QStringConverter8EncodingE(
+    const QByteArray *b,
+    const QStringDecoder::Encoding *e) {
+  return new QXmlStreamReaderPrivate::BufferAndEncoding(*b, *e);
 }
 
 //  QXmlStreamReaderPrivate::BufferAndEncoding::~BufferAndEncoding()

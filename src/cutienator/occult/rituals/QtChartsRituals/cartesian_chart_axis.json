@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18CartesianChartAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN18CartesianChartAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18CartesianChartAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18CartesianChartAxis2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -22,6 +28,12 @@
       "nothing", "address", "text"
     ],
     "ritual_ZN18CartesianChartAxis11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18CartesianChartAxis14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18CartesianChartAxis12updateLayoutERK5QListIdE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN18CartesianChartAxis21handleArrowPenChangedERK4QPen": [

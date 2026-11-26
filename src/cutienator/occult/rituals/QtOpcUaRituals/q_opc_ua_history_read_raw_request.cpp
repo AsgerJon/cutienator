@@ -63,6 +63,15 @@ void ritual_ZN27QOpcUaHistoryReadRawRequestD1Ev(
   delete self;
 }
 
+//  void QOpcUaHistoryReadRawRequest::swap(QOpcUaHistoryReadRawRequest
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QOpcUaHistoryReadRawRequest4swapERS_(
+    QOpcUaHistoryReadRawRequest *self,
+    QOpcUaHistoryReadRawRequest *other) {
+  self->swap(*other);
+}
+
 //  QDateTime QOpcUaHistoryReadRawRequest::startTimestamp() const
 extern "C" Q_DECL_EXPORT
 QDateTime *ritual_ZNK27QOpcUaHistoryReadRawRequest14startTimestampEv(
@@ -166,6 +175,15 @@ void ritual_ZN27QOpcUaHistoryReadRawRequest13addNodeToReadERK14QOpcUaReadItem(
     QOpcUaHistoryReadRawRequest *self,
     const QOpcUaReadItem *nodeToRead) {
   self->addNodeToRead(*nodeToRead);
+}
+
+//  QOpcUaHistoryReadRawRequest &QOpcUaHistoryReadRawRequest::operator=(const
+//      QOpcUaHistoryReadRawRequest &other)
+extern "C" Q_DECL_EXPORT
+QOpcUaHistoryReadRawRequest *ritual_ZN27QOpcUaHistoryReadRawRequestaSERKS_(
+    QOpcUaHistoryReadRawRequest *self,
+    const QOpcUaHistoryReadRawRequest *other) {
+  return &(self->operator=(*other));
 }
 
 //  bool operator==(const QOpcUaHistoryReadRawRequest &lhs, const

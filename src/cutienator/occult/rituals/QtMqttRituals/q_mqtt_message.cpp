@@ -1,9 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMqtt/qmqttmessage.h, Qt 6.12.0. Changes made here are lost.
+#include <QtMqtt/6.12.0/QtMqtt/private/qmqttglobal_p.h>
 #include <QtMqtt/qmqttmessage.h>
 #include <QtCore/qbytearray.h>
 #include <QtMqtt/qmqtttopicname.h>
 #include <QtMqtt/qmqttpublishproperties.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtMqtt/qmqttmessage.h>
+#include <QtMqtt/private/qmqttmessage_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtmqtt/src/mqtt/qmqttmessage.cpp, line 105, as _ZNK12QMqttMessageneERKS_
+inline bool QMqttMessage::operator!=(const QMqttMessage &other) const
+{
+    return !(*this == other);
+}
+//  -----------------------------------------------------------------------
 
 //  QMqttMessage::QMqttMessage()
 extern "C" Q_DECL_EXPORT
@@ -23,12 +42,28 @@ void ritual_ZN12QMqttMessageD1Ev(QMqttMessage *self) {
   delete self;
 }
 
+//  QMqttMessage &QMqttMessage::operator=(const QMqttMessage &other)
+extern "C" Q_DECL_EXPORT
+QMqttMessage *ritual_ZN12QMqttMessageaSERKS_(
+    QMqttMessage *self,
+    const QMqttMessage *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QMqttMessage::operator==(const QMqttMessage &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QMqttMessageeqERKS_(
     const QMqttMessage *self,
     const QMqttMessage *other) {
   return self->operator==(*other);
+}
+
+//  bool QMqttMessage::operator!=(const QMqttMessage &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK12QMqttMessageneERKS_(
+    const QMqttMessage *self,
+    const QMqttMessage *other) {
+  return self->operator!=(*other);
 }
 
 //  const QByteArray &QMqttMessage::payload() const

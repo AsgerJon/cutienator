@@ -8,6 +8,16 @@
     "ritual_ZN22QCanvasOffscreenCanvasC1Ev": ["address"],
     "ritual_ZN22QCanvasOffscreenCanvasC1ERKS_": ["address", "address"],
     "ritual_ZN22QCanvasOffscreenCanvasD1Ev": ["nothing", "address"],
+    "ritual_ZN22QCanvasOffscreenCanvasaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QCanvasOffscreenCanvasC1EOS_": ["address", "address"],
+    "ritual_ZN22QCanvasOffscreenCanvasaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QCanvasOffscreenCanvas4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK22QCanvasOffscreenCanvas6isNullEv": ["bool", "address"],
     "ritual_ZNK22QCanvasOffscreenCanvas5widthEv": ["int", "address"],
     "ritual_ZNK22QCanvasOffscreenCanvas6heightEv": ["int", "address"],

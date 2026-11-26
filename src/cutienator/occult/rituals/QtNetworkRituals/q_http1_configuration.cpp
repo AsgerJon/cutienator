@@ -19,6 +19,31 @@ QHttp1Configuration *ritual_ZN19QHttp1ConfigurationC1ERKS_(
   return new QHttp1Configuration(*other);
 }
 
+//  QHttp1Configuration::QHttp1Configuration(QHttp1Configuration &&other)
+extern "C" Q_DECL_EXPORT
+QHttp1Configuration *ritual_ZN19QHttp1ConfigurationC1EOS_(
+    QHttp1Configuration *other) {
+  return new QHttp1Configuration(std::move(*other));
+}
+
+//  QHttp1Configuration &QHttp1Configuration::operator=(const
+//      QHttp1Configuration &other)
+extern "C" Q_DECL_EXPORT
+QHttp1Configuration *ritual_ZN19QHttp1ConfigurationaSERKS_(
+    QHttp1Configuration *self,
+    const QHttp1Configuration *other) {
+  return &(self->operator=(*other));
+}
+
+//  QHttp1Configuration &QHttp1Configuration::operator=(QHttp1Configuration
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QHttp1Configuration *ritual_ZN19QHttp1ConfigurationaSEOS_(
+    QHttp1Configuration *self,
+    QHttp1Configuration *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QHttp1Configuration::~QHttp1Configuration()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QHttp1ConfigurationD1Ev(QHttp1Configuration *self) {
@@ -40,12 +65,28 @@ qsizetype ritual_ZNK19QHttp1Configuration26numberOfConnectionsPerHostEv(
   return self->numberOfConnectionsPerHost();
 }
 
+//  void QHttp1Configuration::swap(QHttp1Configuration &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QHttp1Configuration4swapERS_(
+    QHttp1Configuration *self,
+    QHttp1Configuration *other) {
+  self->swap(*other);
+}
+
 //  bool QHttp1Configuration::equals(const QHttp1Configuration &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QHttp1Configuration6equalsERKS_(
     const QHttp1Configuration *self,
     const QHttp1Configuration *other) {
   return self->equals(*other);
+}
+
+//  size_t QHttp1Configuration::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK19QHttp1Configuration4hashEm(
+    const QHttp1Configuration *self,
+    size_t seed) {
+  return self->hash(seed);
 }
 
 //  bool operator==(const QHttp1Configuration &lhs, const QHttp1Configuration

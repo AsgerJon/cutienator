@@ -8,6 +8,12 @@
     "ritual_ZNK32QQuick3DXrSpatialAnchorListModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK32QQuick3DXrSpatialAnchorListModel8rowCountERK11QModelIndex": [
       "int", "address", "address"
     ],
@@ -16,6 +22,12 @@
     ],
     "ritual_ZNK32QQuick3DXrSpatialAnchorListModel9roleNamesEv": [
       "address", "address"
+    ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel19requestSceneCaptureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel12queryAnchorsEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK32QQuick3DXrSpatialAnchorListModel10filterModeEv": [
       "int", "address"
@@ -29,8 +41,29 @@
     "ritual_ZNK32QQuick3DXrSpatialAnchorListModel26classificationStringFilterEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel17filterModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel23identifierFilterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel27classificationFilterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel33classificationStringFilterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel17handleAnchorAddedEP23QQuick3DXrSpatialAnchor": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN32QQuick3DXrSpatialAnchorListModel19handleAnchorRemovedE5QUuid": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel19handleAnchorUpdatedEP23QQuick3DXrSpatialAnchor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK32QQuick3DXrSpatialAnchorListModel19matchesAnchorFilterEP23QQuick3DXrSpatialAnchor": [
+      "bool", "address", "address"
     ]
   }
 }

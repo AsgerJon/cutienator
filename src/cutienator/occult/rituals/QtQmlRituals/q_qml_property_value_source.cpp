@@ -33,6 +33,12 @@ public:
   }
 };
 
+//  QQmlPropertyValueSource::QQmlPropertyValueSource()
+extern "C" Q_DECL_EXPORT
+QQmlPropertyValueSource *ritual_ZN23QQmlPropertyValueSourceC1Ev() {
+  return new CuteQQmlPropertyValueSource();
+}
+
 //  QQmlPropertyValueSource::~QQmlPropertyValueSource()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQmlPropertyValueSourceD1Ev(QQmlPropertyValueSource *self) {

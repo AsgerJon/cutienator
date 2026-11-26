@@ -8,6 +8,12 @@
     "ritual_ZNK31QQuick3DShaderUtilsTextureInput10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuick3DShaderUtilsTextureInput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuick3DShaderUtilsTextureInput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QQuick3DShaderUtilsTextureInput2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,6 +26,12 @@
     ],
     "ritual_ZN31QQuick3DShaderUtilsTextureInput10setTextureEP15QQuick3DTexture": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuick3DShaderUtilsTextureInput14textureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuick3DShaderUtilsTextureInput14enabledChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQuick3DShaderUtilsTextureInput": [
       "bool", "address", "chars", "address"

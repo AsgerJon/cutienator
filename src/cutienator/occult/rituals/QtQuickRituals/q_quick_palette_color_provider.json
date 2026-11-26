@@ -30,6 +30,9 @@
     "ritual_ZN26QQuickPaletteColorProvider18setPaletteProviderEPK29QQuickAbstractPaletteProvider": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN26QQuickPaletteColorProvider14copyColorGroupEN8QPalette10ColorGroupERKS_": [
+      "bool", "address", "int", "address"
+    ],
     "ritual_ZN26QQuickPaletteColorProvider5resetEv": ["bool", "address"],
     "ritual_ZN26QQuickPaletteColorProvider14inheritPaletteERK8QPalette": [
       "bool", "address", "address"

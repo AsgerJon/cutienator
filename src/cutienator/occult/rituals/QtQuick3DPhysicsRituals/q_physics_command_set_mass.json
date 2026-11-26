@@ -5,5 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QPhysicsCommandSetMassD1Ev": ["nothing", "address"],
+    "ritual_ZN22QPhysicsCommandSetMass7executeERK17QDynamicRigidBodyRN5physx11PxRigidBodyE": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

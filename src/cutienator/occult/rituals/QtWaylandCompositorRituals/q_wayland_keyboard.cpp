@@ -11,6 +11,25 @@ const QMetaObject *ritual_ZNK16QWaylandKeyboard10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandKeyboard::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QWaylandKeyboard11qt_metacastEPKc(
+    QWaylandKeyboard *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandKeyboard::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QWaylandKeyboard11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandKeyboard *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandKeyboard::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QWaylandKeyboard2trEPKcS1_i(
@@ -18,6 +37,20 @@ QString *ritual_ZN16QWaylandKeyboard2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandKeyboard::tr(s, c, n));
+}
+
+//  QWaylandKeyboardPrivate *QWaylandKeyboard::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandKeyboardPrivate *ritual_ZN16QWaylandKeyboard6d_funcEv(
+    QWaylandKeyboard *self) {
+  return self->d_func();
+}
+
+//  const QWaylandKeyboardPrivate *QWaylandKeyboard::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandKeyboardPrivate *ritual_ZNK16QWaylandKeyboard6d_funcEv(
+    const QWaylandKeyboard *self) {
+  return self->d_func();
 }
 
 //  QWaylandKeyboard::QWaylandKeyboard(QWaylandSeat *seat, QObject *parent)
@@ -137,6 +170,38 @@ uint ritual_ZNK16QWaylandKeyboard13keyToScanCodeEi(
     const QWaylandKeyboard *self,
     int qtKey) {
   return self->keyToScanCode(qtKey);
+}
+
+//  void QWaylandKeyboard::focusChanged(QWaylandSurface *surface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWaylandKeyboard12focusChangedEP15QWaylandSurface(
+    QWaylandKeyboard *self,
+    QWaylandSurface *surface) {
+  self->focusChanged(surface);
+}
+
+//  void QWaylandKeyboard::repeatRateChanged(quint32 repeatRate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWaylandKeyboard17repeatRateChangedEj(
+    QWaylandKeyboard *self,
+    quint32 repeatRate) {
+  self->repeatRateChanged(repeatRate);
+}
+
+//  void QWaylandKeyboard::repeatDelayChanged(quint32 repeatDelay)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWaylandKeyboard18repeatDelayChangedEj(
+    QWaylandKeyboard *self,
+    quint32 repeatDelay) {
+  self->repeatDelayChanged(repeatDelay);
+}
+
+//  void QWaylandKeyboard::focusDestroyed(void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWaylandKeyboard14focusDestroyedEPv(
+    QWaylandKeyboard *self,
+    void *data) {
+  self->focusDestroyed(data);
 }
 
 //  void QWaylandKeyboard::updateKeymap()

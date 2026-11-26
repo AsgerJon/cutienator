@@ -5,7 +5,16 @@
   ],
   "rows": {
     "ritual_ZNK13QAbstractAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QAbstractAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QAbstractAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QAbstractAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QAbstractAxisC1ER20QAbstractAxisPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QAbstractAxisD1Ev": ["nothing", "address"],
     "ritual_ZNK13QAbstractAxis4typeEv": ["int", "address"],
     "ritual_ZNK13QAbstractAxis9isVisibleEv": ["bool", "address"],
@@ -128,6 +137,90 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK13QAbstractAxis14truncateLabelsEv": ["bool", "address"],
+    "ritual_ZN13QAbstractAxis14visibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis14linePenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis18lineVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis20labelsVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis18labelsBrushChangedERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis17labelsFontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis18labelsAngleChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QAbstractAxis18gridLinePenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis18gridVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis23minorGridVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis23minorGridLinePenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis20gridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis25minorGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis12colorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis18labelsColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis16titleTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QAbstractAxis17titleBrushChangedERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis19titleVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis16titleFontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis20shadesVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis18shadesColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis24shadesBorderColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis16shadesPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis18shadesBrushChangedERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis14reverseChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis21labelsEditableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis22labelsTruncatedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis21truncateLabelsChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_QAbstractAxis": ["bool", "address", "chars", "address"],
     "ritual_list_make_QAbstractAxis_ptr": ["address"],
     "ritual_list_add_QAbstractAxis_ptr": ["nothing", "address", "address"],

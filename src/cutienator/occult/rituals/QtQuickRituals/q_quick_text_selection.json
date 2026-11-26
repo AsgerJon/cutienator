@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickTextSelection10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickTextSelection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickTextSelection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickTextSelection2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -51,6 +57,21 @@
     "ritual_ZN19QQuickTextSelection9duplicateEv": ["nothing", "address"],
     "ritual_ZN19QQuickTextSelection6linkToERK4QUrl": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickTextSelection15documentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickTextSelection21selectionStartChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickTextSelection19selectionEndChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickTextSelection11textChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickTextSelection11fontChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickTextSelection12colorChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickTextSelection16alignmentChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK19QQuickTextSelection6cursorEv": ["address", "address"],
     "ritual_ZN19QQuickTextSelection20updateFromCharFormatERK15QTextCharFormat": [

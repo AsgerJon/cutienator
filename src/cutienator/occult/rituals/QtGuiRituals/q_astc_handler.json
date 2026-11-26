@@ -5,9 +5,11 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QAstcHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN12QAstcHandler7canReadERK10QByteArrayS2_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN12QAstcHandler4readEv": ["address", "address"],
     "ritual_ZNK12QAstcHandler12astcGLFormatEhh": [
       "unsigned int", "address", "unsigned char", "unsigned char"
     ],

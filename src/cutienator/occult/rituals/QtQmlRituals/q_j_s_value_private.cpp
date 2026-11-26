@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qjsvalue_p.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtQml/6.12.0/QtQml/private/qjsvalue_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 1. Kept
+//  as it is when the generator runs again. Also added by hand on 2026-11-25,
+//  rituals for functions the generator leaves out: 1.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,12 +12,31 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlatin1stringview.h>
 #include <QtQml/qjsvalue.h>
+#include <QtQml/6.12.0/QtQml/private/qv4managed_p.h>
 
 //  Kind QJSValuePrivate::tag(quint64 raw)
 extern "C" Q_DECL_EXPORT
 QJSValuePrivate::Kind ritual_ZN15QJSValuePrivate3tagEy(quint64 raw) {
   return QJSValuePrivate::tag(raw);
 }
+
+#if !(QT_POINTER_SIZE == 4)
+//  void *QJSValuePrivate::pointer(quint64 raw)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QJSValuePrivate7pointerEy(quint64 raw) {
+  return QJSValuePrivate::pointer(raw);
+}
+#endif  // !(QT_POINTER_SIZE == 4)
+
+#if !(QT_POINTER_SIZE == 4)
+//  quint64 QJSValuePrivate::encodePointer(void *pointer, Kind tag)
+extern "C" Q_DECL_EXPORT
+quint64 ritual_ZN15QJSValuePrivate13encodePointerEPvNS_4KindE(
+    void *pointer,
+    QJSValuePrivate::Kind tag) {
+  return QJSValuePrivate::encodePointer(pointer, tag);
+}
+#endif  // !(QT_POINTER_SIZE == 4)
 
 //  quint64 QJSValuePrivate::encodeUndefined()
 extern "C" Q_DECL_EXPORT
@@ -205,4 +226,19 @@ void ritual_ZN15QJSValuePrivate4freeEP8QJSValue(QJSValue *jsval) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QJSValuePrivateD1Ev(QJSValuePrivate *self) {
   delete self;
+}
+
+//  static const QV4::Managed
+//      *QJSValuePrivate::asManagedType<QV4::Managed>(const QJSValue *jsval)
+extern "C" Q_DECL_EXPORT
+const QV4::Managed * ritual_ZN15QJSValuePrivate13asManagedTypeIN3QV47ManagedEEEPKT_PK8QJSValue(
+    const QJSValue *jsval) {
+  return QJSValuePrivate::asManagedType<QV4::Managed>(jsval);
+}
+
+//  static double *QJSValuePrivate::doublePtr(quint64 v)
+extern "C" Q_DECL_EXPORT
+double *ritual_ZN15QJSValuePrivate9doublePtrEy(
+    quint64 v) {
+  return QJSValuePrivate::doublePtr(v);
 }

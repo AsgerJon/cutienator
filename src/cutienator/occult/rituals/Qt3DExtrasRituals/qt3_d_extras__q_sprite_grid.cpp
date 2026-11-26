@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras11QSpriteGrid10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QSpriteGrid::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras11QSpriteGrid11qt_metacastEPKc(
+    Qt3DExtras::QSpriteGrid *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QSpriteGrid::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras11QSpriteGrid11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QSpriteGrid *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QSpriteGrid::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DExtras11QSpriteGrid2trEPKcS2_i(
@@ -186,6 +205,65 @@ QString *ritual_ZN10Qt3DExtras11QSpriteGrid2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QSpriteGrid::tr(s, c, n));
+}
+
+//  Qt3DExtras::QSpriteGrid::QSpriteGrid(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QSpriteGrid *ritual_ZN10Qt3DExtras11QSpriteGridC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QSpriteGrid(parent);
+}
+
+//  Qt3DExtras::QSpriteGrid::~QSpriteGrid()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSpriteGridD1Ev(Qt3DExtras::QSpriteGrid *self) {
+  delete self;
+}
+
+//  int Qt3DExtras::QSpriteGrid::rows() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras11QSpriteGrid4rowsEv(
+    const Qt3DExtras::QSpriteGrid *self) {
+  return self->rows();
+}
+
+//  int Qt3DExtras::QSpriteGrid::columns() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras11QSpriteGrid7columnsEv(
+    const Qt3DExtras::QSpriteGrid *self) {
+  return self->columns();
+}
+
+//  void Qt3DExtras::QSpriteGrid::setRows(int rows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSpriteGrid7setRowsEi(
+    Qt3DExtras::QSpriteGrid *self,
+    int rows) {
+  self->setRows(rows);
+}
+
+//  void Qt3DExtras::QSpriteGrid::setColumns(int columns)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSpriteGrid10setColumnsEi(
+    Qt3DExtras::QSpriteGrid *self,
+    int columns) {
+  self->setColumns(columns);
+}
+
+//  void Qt3DExtras::QSpriteGrid::rowsChanged(int rows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSpriteGrid11rowsChangedEi(
+    Qt3DExtras::QSpriteGrid *self,
+    int rows) {
+  self->rowsChanged(rows);
+}
+
+//  void Qt3DExtras::QSpriteGrid::columnsChanged(int columns)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSpriteGrid14columnsChangedEi(
+    Qt3DExtras::QSpriteGrid *self,
+    int columns) {
+  self->columnsChanged(columns);
 }
 
 //  QSpriteGridPrivate *Qt3DExtras::QSpriteGrid::d_func()

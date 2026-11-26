@@ -44,6 +44,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/xml/dom/qdom.cpp, line 325, as _ZN25QDomImplementationPrivate5cloneEv
 #if QT_CONFIG(dom)
 inline QDomImplementationPrivate* QDomImplementationPrivate::clone()

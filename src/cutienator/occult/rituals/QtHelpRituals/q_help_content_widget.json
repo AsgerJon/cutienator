@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK18QHelpContentWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QHelpContentWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QHelpContentWidget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QHelpContentWidget7indexOfERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QHelpContentWidget13linkActivatedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QHelpContentWidget8showLinkERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QHelpContentWidget17searchContentItemEP17QHelpContentModelRK11QModelIndexRK7QString": [
+      "bool", "address", "address", "address", "text"
+    ],
+    "ritual_ZN18QHelpContentWidgetC1Ev": ["address"]
+  }
+}

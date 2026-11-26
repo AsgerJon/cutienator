@@ -6,6 +6,16 @@
   "rows": {
     "ritual_ZN21QMicrophonePermissionC1Ev": ["address"],
     "ritual_ZN21QMicrophonePermissionC1ERKS_": ["address", "address"],
-    "ritual_ZN21QMicrophonePermissionD1Ev": ["nothing", "address"]
+    "ritual_ZN21QMicrophonePermissionC1EOS_": ["address", "address"],
+    "ritual_ZN21QMicrophonePermissionD1Ev": ["nothing", "address"],
+    "ritual_ZN21QMicrophonePermissionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QMicrophonePermissionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QMicrophonePermission4swapERS_": [
+      "nothing", "address", "address"
+    ]
   }
 }

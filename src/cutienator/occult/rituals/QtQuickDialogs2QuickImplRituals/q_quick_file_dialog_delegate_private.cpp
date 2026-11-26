@@ -47,6 +47,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::Literals::StringLiterals;
+
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 190, as _ZN26QQuickFileDialogTapHandlerC1EP10QQuickItem
 inline QQuickFileDialogTapHandler::QQuickFileDialogTapHandler(QQuickItem *parent)
     : QQuickTapHandler(parent)
@@ -59,6 +61,12 @@ inline QQuickFileDialogTapHandler::QQuickFileDialogTapHandler(QQuickItem *parent
     // This will guarantee that QQuickTapHandler::wantsEventPoint always returns
     // true.
     setDragThreshold(1000);
+}
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 75, as _ZNK31QQuickFileDialogDelegatePrivate14acceptKeyClickEN2Qt3KeyE
+inline bool QQuickFileDialogDelegatePrivate::acceptKeyClick(Qt::Key key) const
+{
+    return key == Qt::Key_Return || key == Qt::Key_Enter;
 }
 
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 25, as _ZN31QQuickFileDialogDelegatePrivate13highlightFileEv
@@ -128,12 +136,6 @@ inline void QQuickFileDialogDelegatePrivate::handleLongPress()
 
     tapHandler->m_state = QQuickFileDialogTapHandler::Tracking;
     tapHandler->m_longPressed = true;
-}
-
-//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 75, as _ZNK31QQuickFileDialogDelegatePrivate14acceptKeyClickEN2Qt3KeyE
-inline bool QQuickFileDialogDelegatePrivate::acceptKeyClick(Qt::Key key) const
-{
-    return key == Qt::Key_Return || key == Qt::Key_Enter;
 }
 //  -----------------------------------------------------------------------
 

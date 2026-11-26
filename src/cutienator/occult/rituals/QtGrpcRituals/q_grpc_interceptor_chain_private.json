@@ -8,6 +8,9 @@
     "ritual_ZN28QGrpcInterceptorChainPrivate5clearEv": [
       "nothing", "address"
     ],
+    "ritual_ZN28QGrpcInterceptorChainPrivate3addEPvPFvS0_E5QSpanIKN13QtGrpcPrivate28InterceptorCapabilityBindingELm18446744073709551615EE": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZNK28QGrpcInterceptorChainPrivate13hasHandlerForEN6QtGrpc21InterceptorCapabilityE": [
       "bool", "address", "unsigned long long"
     ],

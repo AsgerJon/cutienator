@@ -27,6 +27,16 @@ QQmlJSCompileError *ritual_ZNK18QQmlJSCompileError7augmentERK7QString(
   return new QQmlJSCompileError(self->augment(*contextErrorMessage));
 }
 
+//  void QQmlJSCompileError::appendDiagnostics(const QString &inputFileName,
+//      const QList<QQmlJS::DiagnosticMessage> &diagnostics)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlJSCompileError17appendDiagnosticsERK7QStringRK5QListIN6QQmlJS17DiagnosticMessageEE(
+    QQmlJSCompileError *self,
+    const QString *inputFileName,
+    const QList<QQmlJS::DiagnosticMessage> *diagnostics) {
+  self->appendDiagnostics(*inputFileName, *diagnostics);
+}
+
 //  void QQmlJSCompileError::appendDiagnostic(const QString &inputFileName,
 //      const QQmlJS::DiagnosticMessage &diagnostic)
 extern "C" Q_DECL_EXPORT

@@ -5,6 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render15SkeletonFunctorC1EPNS0_16AbstractRendererEPNS0_15SkeletonManagerEPNS0_12JointManagerE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render15SkeletonFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render15SkeletonFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render15SkeletonFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render15SkeletonFunctorD1Ev": [
       "nothing", "address"
     ]

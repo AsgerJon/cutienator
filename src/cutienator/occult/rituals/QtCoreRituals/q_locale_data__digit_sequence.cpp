@@ -16,6 +16,30 @@ QLocaleData::DigitSequence *ritual_ZN11QLocaleData13DigitSequenceC1ERKS0_(
   return new QLocaleData::DigitSequence(*a0);
 }
 
+//  QLocaleData::DigitSequence::DigitSequence(DigitSequence &&a0)
+extern "C" Q_DECL_EXPORT
+QLocaleData::DigitSequence *ritual_ZN11QLocaleData13DigitSequenceC1EOS0_(
+    QLocaleData::DigitSequence *a0) {
+  return new QLocaleData::DigitSequence(std::move(*a0));
+}
+
+//  DigitSequence &QLocaleData::DigitSequence::operator=(const DigitSequence
+//      &a0)
+extern "C" Q_DECL_EXPORT
+QLocaleData::DigitSequence *ritual_ZN11QLocaleData13DigitSequenceaSERKS0_(
+    QLocaleData::DigitSequence *self,
+    const QLocaleData::DigitSequence *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  DigitSequence &QLocaleData::DigitSequence::operator=(DigitSequence &&a0)
+extern "C" Q_DECL_EXPORT
+QLocaleData::DigitSequence *ritual_ZN11QLocaleData13DigitSequenceaSEOS0_(
+    QLocaleData::DigitSequence *self,
+    QLocaleData::DigitSequence *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QLocaleData::DigitSequence::~DigitSequence()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QLocaleData13DigitSequenceD1Ev(
@@ -49,6 +73,14 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QLocaleData13DigitSequence7hasSignEv(
     const QLocaleData::DigitSequence *self) {
   return self->hasSign();
+}
+
+//  void QLocaleData::DigitSequence::transcribeTo(CharBuff *buff) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QLocaleData13DigitSequence12transcribeToEP15QVarLengthArrayIcLx256EE(
+    const QLocaleData::DigitSequence *self,
+    QLocaleData::CharBuff *buff) {
+  self->transcribeTo(buff);
 }
 
 //  DigitSequence QLocaleData::DigitSequence::first(qsizetype count) const
@@ -102,4 +134,17 @@ QString *ritual_ZNK11QLocaleData13DigitSequence4usedE11QStringView(
     const QLocaleData::DigitSequence *self,
     const QString *text) {
   return new QString(self->used(QStringView(*text)).toString());
+}
+
+//  QLocaleData::DigitSequence::DigitSequence(QByteArray &&digs,
+//      QList<qsizetype> &&bounds, char sgn)
+extern "C" Q_DECL_EXPORT
+QLocaleData::DigitSequence *ritual_ZN11QLocaleData13DigitSequenceC1EO10QByteArrayO5QListIxEc(
+    QByteArray *digs,
+    QList<qsizetype> *bounds,
+    char sgn) {
+  return new QLocaleData::DigitSequence(
+      std::move(*digs),
+      std::move(*bounds),
+      sgn);
 }

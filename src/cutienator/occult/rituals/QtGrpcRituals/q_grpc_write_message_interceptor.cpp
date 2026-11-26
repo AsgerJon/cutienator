@@ -8,3 +8,14 @@ void ritual_ZN28QGrpcWriteMessageInterceptorD1Ev(
     QGrpcWriteMessageInterceptor *self) {
   delete self;
 }
+
+//  void
+//      QGrpcWriteMessageInterceptor::onWriteMessage(QGrpcInterceptionContext
+//      &context, QProtobufMessage &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QGrpcWriteMessageInterceptor14onWriteMessageER24QGrpcInterceptionContextR16QProtobufMessage(
+    QGrpcWriteMessageInterceptor *self,
+    QGrpcInterceptionContext *context,
+    QProtobufMessage *message) {
+  self->onWriteMessage(*context, *message);
+}

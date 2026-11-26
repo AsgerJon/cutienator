@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickGridView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickGridView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickGridView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickGridView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QQuickGridView6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickGridView6d_funcEv": ["address", "address"],
     "ritual_ZN14QQuickGridView21qt_qmlMarker_attachedEv": [
       "nothing", "address"
     ],
@@ -50,6 +58,13 @@
     "ritual_ZN14QQuickGridView21moveCurrentIndexRightEv": [
       "nothing", "address"
     ],
+    "ritual_ZN14QQuickGridView16cellWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickGridView17cellHeightChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickGridView28highlightMoveDurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickGridView11flowChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickGridView15snapModeChangedEv": ["nothing", "address"],
     "ritual_ZN14QQuickGridView13viewportMovedE6QFlagsIN2Qt11OrientationEE": [
       "nothing", "address", "int"
     ],

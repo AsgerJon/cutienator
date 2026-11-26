@@ -23,6 +23,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/corelib/thread/qthread.cpp, line 23, as _ZN14QPostEventList8addEventERK10QPostEvent
 inline void QPostEventList::addEvent(const QPostEvent &ev)
 {

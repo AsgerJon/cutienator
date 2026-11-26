@@ -412,14 +412,98 @@ inline QAccessibleTable::~QAccessibleTable()
 }
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/itemviews.cpp, line 1047, as _ZN20QAccessibleTableCellC1EP17QAbstractItemViewRK11QModelIndexN11QAccessible4RoleE
+//  from src/widgets/accessible/itemviews.cpp, line 1026, as _ZNK15QAccessibleList13selectedCellsEv
 #if QT_CONFIG(accessibility)
-inline QAccessibleTableCell::QAccessibleTableCell(QAbstractItemView *view_, const QModelIndex &index_, QAccessible::Role role_)
-    : /* QAccessibleSimpleEditableTextInterface(this), */ view(view_), m_index(index_), m_role(role_)
+#if QT_CONFIG(listview)
+inline QList<QAccessibleInterface *> QAccessibleList::selectedCells() const
 {
-    if (Q_UNLIKELY(!index_.isValid()))
-        qWarning() << "QAccessibleTableCell::QAccessibleTableCell with invalid index: " << index_;
+    QAbstractItemView *theView = view();
+    QList<QAccessibleInterface*> cells;
+    if (!view()->selectionModel() || columnCount() == 0)
+        return cells;
+    const QListView *listView = qobject_cast<const QListView*>(theView);
+    const int modelColumn = listView->modelColumn();
+    const QModelIndexList selectedIndexes = theView->selectionModel()->selectedIndexes();
+    cells.reserve(qMin(selectedIndexes.size(), rowCount()));
+    for (const QModelIndex &index : selectedIndexes)
+        if (index.column() == modelColumn) {
+            cells.append(child(index.row()));
+        }
+    return cells;
 }
+#endif  // QT_CONFIG(listview)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1012, as _ZNK15QAccessibleList17selectedCellCountEv
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(listview)
+inline int QAccessibleList::selectedCellCount() const
+{
+    QAbstractItemView *theView = view();
+    if (!theView->selectionModel())
+        return 0;
+    const QListView *listView = qobject_cast<const QListView*>(theView);
+    const int modelColumn = listView->modelColumn();
+    const QModelIndexList selectedIndexes = theView->selectionModel()->selectedIndexes();
+    return std::count_if(selectedIndexes.cbegin(), selectedIndexes.cend(),
+                         [modelColumn](const auto &index) {
+                             return index.column() == modelColumn;
+                         });
+}
+#endif  // QT_CONFIG(listview)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 969, as _ZNK15QAccessibleList5childEi
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(listview)
+inline QAccessibleInterface *QAccessibleList::child(int logicalIndex) const
+{
+    QAbstractItemView *theView = view();
+    if (!theView)
+        return nullptr;
+    const QAbstractItemModel *theModel = theView->model();
+    if (!theModel)
+        return nullptr;
+
+    if (columnCount() == 0) {
+        return nullptr;
+    }
+
+    const auto id = childToId.constFind(logicalIndex);
+    if (id != childToId.constEnd())
+        return QAccessible::accessibleInterface(id.value());
+
+    const QListView *listView = qobject_cast<const QListView*>(theView);
+    Q_ASSERT(listView);
+    int row = logicalIndex;
+    int column = listView->modelColumn();
+
+    const QModelIndex rootIndex = theView->rootIndex();
+    const QModelIndex index = theModel->index(row, column, rootIndex);
+    if (Q_UNLIKELY(!index.isValid())) {
+        qWarning("QAccessibleList::child: Invalid index at: %d %d", row, column);
+        return nullptr;
+    }
+    const auto iface = new QAccessibleTableCell(theView, index, cellRole());
+
+    QAccessible::registerAccessibleInterface(iface);
+    childToId.insert(logicalIndex, QAccessible::uniqueId(iface));
+    return iface;
+}
+#endif  // QT_CONFIG(listview)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1004, as _ZNK15QAccessibleList6cellAtEii
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(listview)
+inline QAccessibleInterface *QAccessibleList::cellAt(int row, int column) const
+{
+    if (column != 0)
+        return nullptr;
+
+    return child(row);
+}
+#endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(accessibility)
 
 //  from src/widgets/accessible/itemviews.cpp, line 522, as _ZNK16QAccessibleTable10childCountEv
@@ -629,14 +713,6 @@ inline int QAccessibleTable::selectedColumnCount() const
 }
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/itemviews.cpp, line 36, as _ZNK16QAccessibleTable4viewEv
-#if QT_CONFIG(accessibility)
-inline QAbstractItemView *QAccessibleTable::view() const
-{
-    return qobject_cast<QAbstractItemView*>(object());
-}
-#endif  // QT_CONFIG(accessibility)
-
 //  from src/widgets/accessible/itemviews.cpp, line 569, as _ZNK16QAccessibleTable6parentEv
 #if QT_CONFIG(accessibility)
 inline QAccessibleInterface *QAccessibleTable::parent() const
@@ -694,98 +770,546 @@ inline int QAccessibleTable::rowCount() const
 }
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/itemviews.cpp, line 969, as _ZNK15QAccessibleList5childEi
+//  from src/widgets/accessible/itemviews.cpp, line 1047, as _ZN20QAccessibleTableCellC1EP17QAbstractItemViewRK11QModelIndexN11QAccessible4RoleE
 #if QT_CONFIG(accessibility)
-#if QT_CONFIG(listview)
-inline QAccessibleInterface *QAccessibleList::child(int logicalIndex) const
+inline QAccessibleTableCell::QAccessibleTableCell(QAbstractItemView *view_, const QModelIndex &index_, QAccessible::Role role_)
+    : /* QAccessibleSimpleEditableTextInterface(this), */ view(view_), m_index(index_), m_role(role_)
 {
-    QAbstractItemView *theView = view();
-    if (!theView)
-        return nullptr;
-    const QAbstractItemModel *theModel = theView->model();
-    if (!theModel)
-        return nullptr;
-
-    if (columnCount() == 0) {
-        return nullptr;
-    }
-
-    const auto id = childToId.constFind(logicalIndex);
-    if (id != childToId.constEnd())
-        return QAccessible::accessibleInterface(id.value());
-
-    const QListView *listView = qobject_cast<const QListView*>(theView);
-    Q_ASSERT(listView);
-    int row = logicalIndex;
-    int column = listView->modelColumn();
-
-    const QModelIndex rootIndex = theView->rootIndex();
-    const QModelIndex index = theModel->index(row, column, rootIndex);
-    if (Q_UNLIKELY(!index.isValid())) {
-        qWarning("QAccessibleList::child: Invalid index at: %d %d", row, column);
-        return nullptr;
-    }
-    const auto iface = new QAccessibleTableCell(theView, index, cellRole());
-
-    QAccessible::registerAccessibleInterface(iface);
-    childToId.insert(logicalIndex, QAccessible::uniqueId(iface));
-    return iface;
+    if (Q_UNLIKELY(!index_.isValid()))
+        qWarning() << "QAccessibleTableCell::QAccessibleTableCell with invalid index: " << index_;
 }
-#endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/itemviews.cpp, line 1004, as _ZNK15QAccessibleList6cellAtEii
+//  from src/widgets/accessible/itemviews.cpp, line 36, as _ZNK16QAccessibleTable4viewEv
 #if QT_CONFIG(accessibility)
-#if QT_CONFIG(listview)
-inline QAccessibleInterface *QAccessibleList::cellAt(int row, int column) const
+inline QAbstractItemView *QAccessibleTable::view() const
 {
-    if (column != 0)
-        return nullptr;
-
-    return child(row);
+    return qobject_cast<QAbstractItemView*>(object());
 }
-#endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/itemviews.cpp, line 1012, as _ZNK15QAccessibleList17selectedCellCountEv
+//  from src/widgets/accessible/itemviews.cpp, line 1054, as _ZN20QAccessibleTableCell14interface_castEN11QAccessible13InterfaceTypeE
 #if QT_CONFIG(accessibility)
-#if QT_CONFIG(listview)
-inline int QAccessibleList::selectedCellCount() const
+inline void *QAccessibleTableCell::interface_cast(QAccessible::InterfaceType t)
 {
-    QAbstractItemView *theView = view();
-    if (!theView->selectionModel())
+    if (t == QAccessible::TableCellInterface)
+        return static_cast<QAccessibleTableCellInterface*>(this);
+    if (t == QAccessible::ActionInterface)
+        return static_cast<QAccessibleActionInterface*>(this);
+    return nullptr;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1252, as _ZNK20QAccessibleTableCell4roleEv
+#if QT_CONFIG(accessibility)
+inline QAccessible::Role QAccessibleTableCell::role() const
+{
+    return m_role;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1257, as _ZNK20QAccessibleTableCell5stateEv
+#if QT_CONFIG(accessibility)
+inline QAccessible::State QAccessibleTableCell::state() const
+{
+    QAccessible::State st;
+    if (!isValid())
+        return st;
+
+    QRect globalRect = view->rect();
+    globalRect.translate(view->mapToGlobal(QPoint(0,0)));
+    if (!globalRect.intersects(rect()))
+        st.invisible = true;
+
+    if (view->selectionModel()->isSelected(m_index))
+        st.selected = true;
+    if (view->selectionModel()->currentIndex() == m_index)
+        st.focused = true;
+
+    const QVariant checkState = m_index.data(Qt::CheckStateRole);
+    if (checkState.toInt() == Qt::Checked)
+        st.checked = true;
+
+    Qt::ItemFlags flags = m_index.flags();
+    if ((flags & Qt::ItemIsUserCheckable) && checkState.isValid())
+        st.checkable = true;
+    if (flags & Qt::ItemIsSelectable) {
+        st.selectable = true;
+        st.focusable = true;
+        if (view->selectionMode() == QAbstractItemView::MultiSelection)
+            st.multiSelectable = true;
+        if (view->selectionMode() == QAbstractItemView::ExtendedSelection)
+            st.extSelectable = true;
+    }
+#if QT_CONFIG(treeview)
+    if (m_role == QAccessible::TreeItem) {
+        const QTreeView *treeView = qobject_cast<const QTreeView*>(view);
+        if (treeView->model()->hasChildren(m_index))
+            st.expandable = true;
+        if (treeView->isExpanded(m_index))
+            st.expanded = true;
+    }
+#endif
+    return st;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1301, as _ZNK20QAccessibleTableCell4rectEv
+#if QT_CONFIG(accessibility)
+inline QRect QAccessibleTableCell::rect() const
+{
+    QRect r;
+    if (!isValid())
+        return r;
+    r = view->visualRect(m_index);
+
+    if (!r.isNull()) {
+        r.translate(view->viewport()->mapTo(view, QPoint(0,0)));
+        r.translate(view->mapToGlobal(QPoint(0, 0)));
+    }
+    return r;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1343, as _ZNK20QAccessibleTableCell7isValidEv
+#if QT_CONFIG(accessibility)
+inline bool QAccessibleTableCell::isValid() const
+{
+    return view && !qt_widget_private(view)->data.in_destructor
+            && view->model() && m_index.isValid();
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1315, as _ZNK20QAccessibleTableCell4textEN11QAccessible4TextE
+#if QT_CONFIG(accessibility)
+inline QString QAccessibleTableCell::text(QAccessible::Text t) const
+{
+    QString value;
+    if (!isValid())
+        return value;
+    QAbstractItemModel *model = view->model();
+    switch (t) {
+    case QAccessible::Name:
+        value = model->data(m_index, Qt::AccessibleTextRole).toString();
+        if (value.isEmpty())
+            value = model->data(m_index, Qt::DisplayRole).toString();
+        break;
+    case QAccessible::Description:
+        value = model->data(m_index, Qt::AccessibleDescriptionRole).toString();
+        break;
+    default:
+        break;
+    }
+    return value;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1336, as _ZN20QAccessibleTableCell7setTextEN11QAccessible4TextERK7QString
+#if QT_CONFIG(accessibility)
+inline void QAccessibleTableCell::setText(QAccessible::Text /*t*/, const QString &text)
+{
+    if (!isValid() || !(m_index.flags() & Qt::ItemIsEditable))
+        return;
+    view->model()->setData(m_index, text);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1349, as _ZNK20QAccessibleTableCell6parentEv
+#if QT_CONFIG(accessibility)
+inline QAccessibleInterface *QAccessibleTableCell::parent() const
+{
+    return QAccessible::queryAccessibleInterface(view);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1354, as _ZNK20QAccessibleTableCell5childEi
+#if QT_CONFIG(accessibility)
+inline QAccessibleInterface *QAccessibleTableCell::child(int) const
+{
+    return nullptr;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1063, as _ZNK20QAccessibleTableCell12columnExtentEv
+#if QT_CONFIG(accessibility)
+inline int QAccessibleTableCell::columnExtent() const { return 1; }
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1076, as _ZNK20QAccessibleTableCell17columnHeaderCellsEv
+#if QT_CONFIG(accessibility)
+inline QList<QAccessibleInterface*> QAccessibleTableCell::columnHeaderCells() const
+{
+    QList<QAccessibleInterface*> headerCell;
+    if (horizontalHeader()) {
+        // FIXME
+        headerCell.append(new QAccessibleTableHeaderCell(view, m_index.column(), Qt::Horizontal));
+    }
+    return headerCell;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1114, as _ZNK20QAccessibleTableCell11columnIndexEv
+#if QT_CONFIG(accessibility)
+inline int QAccessibleTableCell::columnIndex() const
+{
+    if (!isValid())
+        return -1;
+#if QT_CONFIG(listview)
+    if (role() == QAccessible::ListItem) {
         return 0;
-    const QListView *listView = qobject_cast<const QListView*>(theView);
-    const int modelColumn = listView->modelColumn();
-    const QModelIndexList selectedIndexes = theView->selectionModel()->selectedIndexes();
-    return std::count_if(selectedIndexes.cbegin(), selectedIndexes.cend(),
-                         [modelColumn](const auto &index) {
-                             return index.column() == modelColumn;
-                         });
+    }
+#endif
+    return m_index.column();
 }
-#endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/itemviews.cpp, line 1026, as _ZNK15QAccessibleList13selectedCellsEv
+//  from src/widgets/accessible/itemviews.cpp, line 1064, as _ZNK20QAccessibleTableCell9rowExtentEv
 #if QT_CONFIG(accessibility)
-#if QT_CONFIG(listview)
-inline QList<QAccessibleInterface *> QAccessibleList::selectedCells() const
+inline int QAccessibleTableCell::rowExtent() const { return 1; }
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1066, as _ZNK20QAccessibleTableCell14rowHeaderCellsEv
+#if QT_CONFIG(accessibility)
+inline QList<QAccessibleInterface*> QAccessibleTableCell::rowHeaderCells() const
 {
-    QAbstractItemView *theView = view();
-    QList<QAccessibleInterface*> cells;
-    if (!view()->selectionModel() || columnCount() == 0)
-        return cells;
-    const QListView *listView = qobject_cast<const QListView*>(theView);
-    const int modelColumn = listView->modelColumn();
-    const QModelIndexList selectedIndexes = theView->selectionModel()->selectedIndexes();
-    cells.reserve(qMin(selectedIndexes.size(), rowCount()));
-    for (const QModelIndex &index : selectedIndexes)
-        if (index.column() == modelColumn) {
-            cells.append(child(index.row()));
-        }
-    return cells;
+    QList<QAccessibleInterface*> headerCell;
+    if (verticalHeader()) {
+        // FIXME
+        headerCell.append(new QAccessibleTableHeaderCell(view, m_index.row(), Qt::Vertical));
+    }
+    return headerCell;
 }
-#endif  // QT_CONFIG(listview)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1126, as _ZNK20QAccessibleTableCell8rowIndexEv
+#if QT_CONFIG(accessibility)
+inline int QAccessibleTableCell::rowIndex() const
+{
+    if (!isValid())
+        return -1;
+#if QT_CONFIG(treeview)
+    if (role() == QAccessible::TreeItem) {
+       const QTreeView *treeView = qobject_cast<const QTreeView*>(view);
+       Q_ASSERT(treeView);
+       int row = treeView->d_func()->viewIndex(m_index);
+       return row;
+    }
+#endif
+    return m_index.row();
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1141, as _ZNK20QAccessibleTableCell10isSelectedEv
+#if QT_CONFIG(accessibility)
+inline bool QAccessibleTableCell::isSelected() const
+{
+    if (!isValid())
+        return false;
+    return view->selectionModel()->isSelected(m_index);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1247, as _ZNK20QAccessibleTableCell5tableEv
+#if QT_CONFIG(accessibility)
+inline QAccessibleInterface *QAccessibleTableCell::table() const
+{
+    return QAccessible::queryAccessibleInterface(view);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1148, as _ZNK20QAccessibleTableCell11actionNamesEv
+#if QT_CONFIG(accessibility)
+inline QStringList QAccessibleTableCell::actionNames() const
+{
+    QStringList names;
+    names << toggleAction();
+    return names;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1155, as _ZN20QAccessibleTableCell8doActionERK7QString
+#if QT_CONFIG(accessibility)
+#if defined(Q_OS_LINUX)
+inline void QAccessibleTableCell::doAction(const QString& actionName)
+{
+    if (actionName == toggleAction()) {
+#if defined(Q_OS_ANDROID)
+        QAccessibleInterface *parentInterface = parent();
+        while (parentInterface){
+            if (parentInterface->role() == QAccessible::ComboBox) {
+                selectCell();
+                parentInterface->actionInterface()->doAction(pressAction());
+                return;
+            } else {
+                parentInterface = parentInterface->parent();
+            }
+        }
+#endif
+        if (isSelected()) {
+            unselectCell();
+        } else {
+            selectCell();
+        }
+    }
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1178, as _ZNK20QAccessibleTableCell20keyBindingsForActionERK7QString
+#if QT_CONFIG(accessibility)
+inline QStringList QAccessibleTableCell::keyBindingsForAction(const QString &) const
+{
+    return QStringList();
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1184, as _ZN20QAccessibleTableCell10selectCellEv
+#if QT_CONFIG(accessibility)
+inline void QAccessibleTableCell::selectCell()
+{
+    if (!isValid())
+        return;
+    QAbstractItemView::SelectionMode selectionMode = view->selectionMode();
+    if (selectionMode == QAbstractItemView::NoSelection)
+        return;
+    Q_ASSERT(table());
+    QAccessibleTableInterface *cellTable = table()->tableInterface();
+
+    switch (view->selectionBehavior()) {
+    case QAbstractItemView::SelectItems:
+        break;
+    case QAbstractItemView::SelectColumns:
+        if (cellTable)
+            cellTable->selectColumn(m_index.column());
+        return;
+    case QAbstractItemView::SelectRows:
+        if (cellTable)
+            cellTable->selectRow(m_index.row());
+        return;
+    }
+
+    if (selectionMode == QAbstractItemView::SingleSelection) {
+        view->clearSelection();
+    }
+
+    view->selectionModel()->select(m_index, QItemSelectionModel::Select);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1214, as _ZN20QAccessibleTableCell12unselectCellEv
+#if QT_CONFIG(accessibility)
+inline void QAccessibleTableCell::unselectCell()
+{
+    if (!isValid())
+        return;
+    QAbstractItemView::SelectionMode selectionMode = view->selectionMode();
+    if (selectionMode == QAbstractItemView::NoSelection)
+        return;
+
+    QAccessibleTableInterface *cellTable = table()->tableInterface();
+
+    switch (view->selectionBehavior()) {
+    case QAbstractItemView::SelectItems:
+        break;
+    case QAbstractItemView::SelectColumns:
+        if (cellTable)
+            cellTable->unselectColumn(m_index.column());
+        return;
+    case QAbstractItemView::SelectRows:
+        if (cellTable)
+            cellTable->unselectRow(m_index.row());
+        return;
+    }
+
+    //If the mode is not MultiSelection or ExtendedSelection and only
+    //one cell is selected it cannot be unselected by the user
+    if ((selectionMode != QAbstractItemView::MultiSelection)
+        && (selectionMode != QAbstractItemView::ExtendedSelection)
+        && (view->selectionModel()->selectedIndexes().size() <= 1))
+        return;
+
+    view->selectionModel()->select(m_index, QItemSelectionModel::Deselect);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1359, as _ZN26QAccessibleTableHeaderCellC1EP17QAbstractItemViewiN2Qt11OrientationE
+#if QT_CONFIG(accessibility)
+inline QAccessibleTableHeaderCell::QAccessibleTableHeaderCell(QAbstractItemView *view_, int index_, Qt::Orientation orientation_)
+    : view(view_), index(index_), orientation(orientation_)
+{
+    Q_ASSERT(index_ >= 0);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1104, as _ZNK20QAccessibleTableCell14verticalHeaderEv
+#if QT_CONFIG(accessibility)
+inline QHeaderView *QAccessibleTableCell::verticalHeader() const
+{
+    QHeaderView *header = nullptr;
+#if QT_CONFIG(tableview)
+    if (const QTableView *tv = qobject_cast<const QTableView*>(view))
+        header = tv->verticalHeader();
+#endif
+    return header;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1086, as _ZNK20QAccessibleTableCell16horizontalHeaderEv
+#if QT_CONFIG(accessibility)
+inline QHeaderView *QAccessibleTableCell::horizontalHeader() const
+{
+    QHeaderView *header = nullptr;
+
+    if (false) {
+#if QT_CONFIG(tableview)
+    } else if (const QTableView *tv = qobject_cast<const QTableView*>(view)) {
+        header = tv->horizontalHeader();
+#endif
+#if QT_CONFIG(treeview)
+    } else if (const QTreeView *tv = qobject_cast<const QTreeView*>(view)) {
+        header = tv->header();
+#endif
+    }
+
+    return header;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1365, as _ZNK26QAccessibleTableHeaderCell4roleEv
+#if QT_CONFIG(accessibility)
+inline QAccessible::Role QAccessibleTableHeaderCell::role() const
+{
+    if (orientation == Qt::Horizontal)
+        return QAccessible::ColumnHeader;
+    return QAccessible::RowHeader;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1372, as _ZNK26QAccessibleTableHeaderCell5stateEv
+#if QT_CONFIG(accessibility)
+inline QAccessible::State QAccessibleTableHeaderCell::state() const
+{
+    QAccessible::State s;
+    if (QHeaderView *h = headerView()) {
+        s.invisible = !h->testAttribute(Qt::WA_WState_Visible);
+        s.disabled = !h->isEnabled();
+    }
+    return s;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1382, as _ZNK26QAccessibleTableHeaderCell4rectEv
+#if QT_CONFIG(accessibility)
+inline QRect QAccessibleTableHeaderCell::rect() const
+{
+    QHeaderView *header = nullptr;
+    if (false) {
+#if QT_CONFIG(tableview)
+    } else if (const QTableView *tv = qobject_cast<const QTableView*>(view)) {
+        if (orientation == Qt::Horizontal) {
+            header = tv->horizontalHeader();
+        } else {
+            header = tv->verticalHeader();
+        }
+#endif
+#if QT_CONFIG(treeview)
+    } else if (const QTreeView *tv = qobject_cast<const QTreeView*>(view)) {
+        header = tv->header();
+#endif
+    }
+    if (!header)
+        return QRect();
+    QPoint zero = header->mapToGlobal(QPoint(0, 0));
+    int sectionSize = header->sectionSize(index);
+    int sectionPos = header->sectionPosition(index);
+    return orientation == Qt::Horizontal
+            ? QRect(zero.x() + sectionPos, zero.y(), sectionSize, header->height())
+            : QRect(zero.x(), zero.y() + sectionPos, header->width(), sectionSize);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1433, as _ZNK26QAccessibleTableHeaderCell7isValidEv
+#if QT_CONFIG(accessibility)
+inline bool QAccessibleTableHeaderCell::isValid() const
+{
+    const QAbstractItemModel *theModel = view && !qt_widget_private(view)->data.in_destructor
+                                       ? view->model() : nullptr;
+    if (!theModel)
+        return false;
+    const QModelIndex rootIndex = view->rootIndex();
+    return (index >= 0) && ((orientation == Qt::Horizontal)
+                        ? (index < theModel->columnCount(rootIndex))
+                        : (index < theModel->rowCount(rootIndex)));
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1409, as _ZNK26QAccessibleTableHeaderCell4textEN11QAccessible4TextE
+#if QT_CONFIG(accessibility)
+inline QString QAccessibleTableHeaderCell::text(QAccessible::Text t) const
+{
+    QAbstractItemModel *model = view->model();
+    QString value;
+    switch (t) {
+    case QAccessible::Name:
+        value = model->headerData(index, orientation, Qt::AccessibleTextRole).toString();
+        if (value.isEmpty())
+            value = model->headerData(index, orientation, Qt::DisplayRole).toString();
+        break;
+    case QAccessible::Description:
+        value = model->headerData(index, orientation, Qt::AccessibleDescriptionRole).toString();
+        break;
+    default:
+        break;
+    }
+    return value;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1428, as _ZN26QAccessibleTableHeaderCell7setTextEN11QAccessible4TextERK7QString
+#if QT_CONFIG(accessibility)
+inline void QAccessibleTableHeaderCell::setText(QAccessible::Text, const QString &)
+{
+    return;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1445, as _ZNK26QAccessibleTableHeaderCell6parentEv
+#if QT_CONFIG(accessibility)
+inline QAccessibleInterface *QAccessibleTableHeaderCell::parent() const
+{
+    return QAccessible::queryAccessibleInterface(view);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1450, as _ZNK26QAccessibleTableHeaderCell5childEi
+#if QT_CONFIG(accessibility)
+inline QAccessibleInterface *QAccessibleTableHeaderCell::child(int) const
+{
+    return nullptr;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1455, as _ZNK26QAccessibleTableHeaderCell10headerViewEv
+#if QT_CONFIG(accessibility)
+inline QHeaderView *QAccessibleTableHeaderCell::headerView() const
+{
+    QHeaderView *header = nullptr;
+    if (false) {
+#if QT_CONFIG(tableview)
+    } else if (const QTableView *tv = qobject_cast<const QTableView*>(view)) {
+        if (orientation == Qt::Horizontal) {
+            header = tv->horizontalHeader();
+        } else {
+            header = tv->verticalHeader();
+        }
+#endif
+#if QT_CONFIG(treeview)
+    } else if (const QTreeView *tv = qobject_cast<const QTreeView*>(view)) {
+        header = tv->header();
+#endif
+    }
+    return header;
+}
 #endif  // QT_CONFIG(accessibility)
 //  -----------------------------------------------------------------------
 
@@ -840,7 +1364,7 @@ typedef void * (*CuteQAccessibleListCall7)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-typedef void * (*CuteQAccessibleListCall8)(const void *, int *);
+typedef void * (*CuteQAccessibleListCall8)(const void *, int, int *);
 #endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
@@ -850,7 +1374,7 @@ typedef void * (*CuteQAccessibleListCall9)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-typedef QString * (*CuteQAccessibleListCall10)(const void *, int, int *);
+typedef void * (*CuteQAccessibleListCall10)(const void *, int *);
 #endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
@@ -860,7 +1384,7 @@ typedef QString * (*CuteQAccessibleListCall11)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-typedef int (*CuteQAccessibleListCall12)(const void *, int *);
+typedef QString * (*CuteQAccessibleListCall12)(const void *, int, int *);
 #endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
@@ -880,7 +1404,7 @@ typedef int (*CuteQAccessibleListCall15)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-typedef bool (*CuteQAccessibleListCall16)(const void *, int, int *);
+typedef int (*CuteQAccessibleListCall16)(const void *, int *);
 #endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
@@ -910,12 +1434,12 @@ typedef bool (*CuteQAccessibleListCall21)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-typedef int (*CuteQAccessibleListCall22)(const void *, int *);
+typedef bool (*CuteQAccessibleListCall22)(const void *, int, int *);
 #endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-typedef bool (*CuteQAccessibleListCall23)(const void *, QAccessibleInterface *, int *);
+typedef int (*CuteQAccessibleListCall23)(const void *, int *);
 #endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
@@ -930,7 +1454,7 @@ typedef bool (*CuteQAccessibleListCall25)(const void *, QAccessibleInterface *, 
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-typedef bool (*CuteQAccessibleListCall26)(const void *, int *);
+typedef bool (*CuteQAccessibleListCall26)(const void *, QAccessibleInterface *, int *);
 #endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
@@ -940,58 +1464,66 @@ typedef bool (*CuteQAccessibleListCall27)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-typedef void (*CuteQAccessibleListCall28)(const void *, QAccessibleTableModelChangeEvent *, int *);
+typedef bool (*CuteQAccessibleListCall28)(const void *, int *);
 #endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QVariant * (*CuteQAccessibleListCall29)(const void *, int, int *);
+#if QT_CONFIG(itemviews)
+typedef void (*CuteQAccessibleListCall29)(const void *, QAccessibleTableModelChangeEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef bool (*CuteQAccessibleListCall30)(const void *, int *);
+typedef const QVariant * (*CuteQAccessibleListCall30)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleListCall31)(const void *, int *);
+typedef bool (*CuteQAccessibleListCall31)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QRect * (*CuteQAccessibleListCall32)(const void *, int *);
+typedef void * (*CuteQAccessibleListCall32)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleListCall33)(const void *, int, int *);
+typedef const QRect * (*CuteQAccessibleListCall33)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleListCall34)(const void *, int *);
+typedef QString * (*CuteQAccessibleListCall34)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QAccessible::State * (*CuteQAccessibleListCall35)(const void *, int *);
+typedef int (*CuteQAccessibleListCall35)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QColor * (*CuteQAccessibleListCall36)(const void *, int *);
+typedef const QAccessible::State * (*CuteQAccessibleListCall36)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleListCall37)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleListCall38)(const void *, const QString *, int *);
+typedef const QColor * (*CuteQAccessibleListCall38)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleListCall39)(const void *, int *);
+typedef void (*CuteQAccessibleListCall39)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleListCall40)(const void *, int, const QString *, int *);
+typedef void * (*CuteQAccessibleListCall40)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleListCall41)(const void *, int, int *);
+typedef void (*CuteQAccessibleListCall41)(const void *, int, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleListCall42)(const void *, const QString *, int *);
+typedef void * (*CuteQAccessibleListCall42)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleListCall43)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleListCall43)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleListCall44)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleListCall45)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleList : public QAccessibleList {
 public:
   using QAccessibleList::QAccessibleList;
-  void *taken[44] = {};
+  void *taken[46] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -1066,7 +1598,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface7captionEv")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
       taken[8] = call;
       return true;
     }
@@ -1074,7 +1606,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface7summaryEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface7captionEv")) {
       taken[9] = call;
       return true;
     }
@@ -1082,7 +1614,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface17columnDescriptionEi")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface7summaryEv")) {
       taken[10] = call;
       return true;
     }
@@ -1090,7 +1622,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface14rowDescriptionEi")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface17columnDescriptionEi")) {
       taken[11] = call;
       return true;
     }
@@ -1098,7 +1630,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface11columnCountEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface14rowDescriptionEi")) {
       taken[12] = call;
       return true;
     }
@@ -1106,7 +1638,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface8rowCountEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface11columnCountEv")) {
       taken[13] = call;
       return true;
     }
@@ -1114,7 +1646,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface19selectedColumnCountEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface8rowCountEv")) {
       taken[14] = call;
       return true;
     }
@@ -1122,7 +1654,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface16selectedRowCountEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface19selectedColumnCountEv")) {
       taken[15] = call;
       return true;
     }
@@ -1130,7 +1662,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface16isColumnSelectedEi")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface16selectedRowCountEv")) {
       taken[16] = call;
       return true;
     }
@@ -1138,7 +1670,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface13isRowSelectedEi")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface16isColumnSelectedEi")) {
       taken[17] = call;
       return true;
     }
@@ -1146,7 +1678,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface9selectRowEi")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface13isRowSelectedEi")) {
       taken[18] = call;
       return true;
     }
@@ -1154,7 +1686,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface12selectColumnEi")) {
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface9selectRowEi")) {
       taken[19] = call;
       return true;
     }
@@ -1162,7 +1694,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface11unselectRowEi")) {
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface12selectColumnEi")) {
       taken[20] = call;
       return true;
     }
@@ -1170,7 +1702,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface14unselectColumnEi")) {
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface11unselectRowEi")) {
       taken[21] = call;
       return true;
     }
@@ -1178,7 +1710,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK29QAccessibleSelectionInterface17selectedItemCountEv")) {
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface14unselectColumnEi")) {
       taken[22] = call;
       return true;
     }
@@ -1186,7 +1718,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZNK29QAccessibleSelectionInterface10isSelectedEP20QAccessibleInterface")) {
+    if (!std::strcmp(key, "_ZNK29QAccessibleSelectionInterface17selectedItemCountEv")) {
       taken[23] = call;
       return true;
     }
@@ -1194,7 +1726,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface6selectEP20QAccessibleInterface")) {
+    if (!std::strcmp(key, "_ZNK29QAccessibleSelectionInterface10isSelectedEP20QAccessibleInterface")) {
       taken[24] = call;
       return true;
     }
@@ -1202,7 +1734,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface8unselectEP20QAccessibleInterface")) {
+    if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface6selectEP20QAccessibleInterface")) {
       taken[25] = call;
       return true;
     }
@@ -1210,7 +1742,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface9selectAllEv")) {
+    if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface8unselectEP20QAccessibleInterface")) {
       taken[26] = call;
       return true;
     }
@@ -1218,7 +1750,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface5clearEv")) {
+    if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface9selectAllEv")) {
       taken[27] = call;
       return true;
     }
@@ -1226,99 +1758,113 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface11modelChangeEP32QAccessibleTableModelChangeEvent")) {
+    if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface5clearEv")) {
       taken[28] = call;
       return true;
     }
 #endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
+#if QT_CONFIG(itemviews)
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface11modelChangeEP32QAccessibleTableModelChangeEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
+    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
       taken[30] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
       taken[31] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
       taken[32] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
       taken[33] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
       taken[34] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
       taken[35] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
       taken[36] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
       taken[37] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[38] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
       taken[39] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
       taken[40] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK29QAccessibleSelectionInterface12selectedItemEi")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
       taken[41] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+    if (!std::strcmp(key, "_ZNK29QAccessibleSelectionInterface12selectedItemEi")) {
       taken[42] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
       taken[43] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[44] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+      taken[45] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -1455,11 +2001,26 @@ public:
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(itemviews)
-  //  QAccessibleInterface *QAccessibleTable::caption() const
-  QAccessibleInterface *caption() const override {
+  //  void *QAccessibleTable::interface_cast(QAccessible::InterfaceType t)
+  void *interface_cast(QAccessible::InterfaceType t) override {
     if (taken[8]) {
       int handled = 0;
       CuteQAccessibleListCall8 call = reinterpret_cast<CuteQAccessibleListCall8>(taken[8]);
+      void * given = call(this, static_cast<int>(t), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleTable::interface_cast(t);
+  }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(itemviews)
+  //  QAccessibleInterface *QAccessibleTable::caption() const
+  QAccessibleInterface *caption() const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQAccessibleListCall9 call = reinterpret_cast<CuteQAccessibleListCall9>(taken[9]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -1472,9 +2033,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  QAccessibleInterface *QAccessibleTable::summary() const
   QAccessibleInterface *summary() const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAccessibleListCall9 call = reinterpret_cast<CuteQAccessibleListCall9>(taken[9]);
+      CuteQAccessibleListCall10 call = reinterpret_cast<CuteQAccessibleListCall10>(taken[10]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -1487,9 +2048,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  QString QAccessibleTable::columnDescription(int column) const
   QString columnDescription(int column) const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAccessibleListCall10 call = reinterpret_cast<CuteQAccessibleListCall10>(taken[10]);
+      CuteQAccessibleListCall11 call = reinterpret_cast<CuteQAccessibleListCall11>(taken[11]);
       QString * given = call(this, column, &handled);
       if (handled && given) {
         QString back(*given);
@@ -1506,9 +2067,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  QString QAccessibleTable::rowDescription(int row) const
   QString rowDescription(int row) const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAccessibleListCall11 call = reinterpret_cast<CuteQAccessibleListCall11>(taken[11]);
+      CuteQAccessibleListCall12 call = reinterpret_cast<CuteQAccessibleListCall12>(taken[12]);
       QString * given = call(this, row, &handled);
       if (handled && given) {
         QString back(*given);
@@ -1525,9 +2086,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  int QAccessibleTable::columnCount() const
   int columnCount() const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAccessibleListCall12 call = reinterpret_cast<CuteQAccessibleListCall12>(taken[12]);
+      CuteQAccessibleListCall13 call = reinterpret_cast<CuteQAccessibleListCall13>(taken[13]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -1540,9 +2101,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  int QAccessibleTable::rowCount() const
   int rowCount() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAccessibleListCall13 call = reinterpret_cast<CuteQAccessibleListCall13>(taken[13]);
+      CuteQAccessibleListCall14 call = reinterpret_cast<CuteQAccessibleListCall14>(taken[14]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -1555,9 +2116,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  int QAccessibleTable::selectedColumnCount() const
   int selectedColumnCount() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQAccessibleListCall14 call = reinterpret_cast<CuteQAccessibleListCall14>(taken[14]);
+      CuteQAccessibleListCall15 call = reinterpret_cast<CuteQAccessibleListCall15>(taken[15]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -1570,9 +2131,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  int QAccessibleTable::selectedRowCount() const
   int selectedRowCount() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAccessibleListCall15 call = reinterpret_cast<CuteQAccessibleListCall15>(taken[15]);
+      CuteQAccessibleListCall16 call = reinterpret_cast<CuteQAccessibleListCall16>(taken[16]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -1585,9 +2146,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::isColumnSelected(int column) const
   bool isColumnSelected(int column) const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQAccessibleListCall16 call = reinterpret_cast<CuteQAccessibleListCall16>(taken[16]);
+      CuteQAccessibleListCall17 call = reinterpret_cast<CuteQAccessibleListCall17>(taken[17]);
       bool given = call(this, column, &handled);
       if (handled) return given;
     }
@@ -1600,9 +2161,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::isRowSelected(int row) const
   bool isRowSelected(int row) const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQAccessibleListCall17 call = reinterpret_cast<CuteQAccessibleListCall17>(taken[17]);
+      CuteQAccessibleListCall18 call = reinterpret_cast<CuteQAccessibleListCall18>(taken[18]);
       bool given = call(this, row, &handled);
       if (handled) return given;
     }
@@ -1615,9 +2176,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::selectRow(int row)
   bool selectRow(int row) override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQAccessibleListCall18 call = reinterpret_cast<CuteQAccessibleListCall18>(taken[18]);
+      CuteQAccessibleListCall19 call = reinterpret_cast<CuteQAccessibleListCall19>(taken[19]);
       bool given = call(this, row, &handled);
       if (handled) return given;
     }
@@ -1630,9 +2191,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::selectColumn(int column)
   bool selectColumn(int column) override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQAccessibleListCall19 call = reinterpret_cast<CuteQAccessibleListCall19>(taken[19]);
+      CuteQAccessibleListCall20 call = reinterpret_cast<CuteQAccessibleListCall20>(taken[20]);
       bool given = call(this, column, &handled);
       if (handled) return given;
     }
@@ -1645,9 +2206,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::unselectRow(int row)
   bool unselectRow(int row) override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQAccessibleListCall20 call = reinterpret_cast<CuteQAccessibleListCall20>(taken[20]);
+      CuteQAccessibleListCall21 call = reinterpret_cast<CuteQAccessibleListCall21>(taken[21]);
       bool given = call(this, row, &handled);
       if (handled) return given;
     }
@@ -1660,9 +2221,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::unselectColumn(int column)
   bool unselectColumn(int column) override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQAccessibleListCall21 call = reinterpret_cast<CuteQAccessibleListCall21>(taken[21]);
+      CuteQAccessibleListCall22 call = reinterpret_cast<CuteQAccessibleListCall22>(taken[22]);
       bool given = call(this, column, &handled);
       if (handled) return given;
     }
@@ -1675,9 +2236,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  int QAccessibleTable::selectedItemCount() const
   int selectedItemCount() const override {
-    if (taken[22]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQAccessibleListCall22 call = reinterpret_cast<CuteQAccessibleListCall22>(taken[22]);
+      CuteQAccessibleListCall23 call = reinterpret_cast<CuteQAccessibleListCall23>(taken[23]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -1691,9 +2252,9 @@ public:
   //  bool QAccessibleTable::isSelected(QAccessibleInterface *childCell)
   //      const
   bool isSelected(QAccessibleInterface *childCell) const override {
-    if (taken[23]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQAccessibleListCall23 call = reinterpret_cast<CuteQAccessibleListCall23>(taken[23]);
+      CuteQAccessibleListCall24 call = reinterpret_cast<CuteQAccessibleListCall24>(taken[24]);
       bool given = call(this, childCell, &handled);
       if (handled) return given;
     }
@@ -1706,9 +2267,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::select(QAccessibleInterface *childCell)
   bool select(QAccessibleInterface *childCell) override {
-    if (taken[24]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQAccessibleListCall24 call = reinterpret_cast<CuteQAccessibleListCall24>(taken[24]);
+      CuteQAccessibleListCall25 call = reinterpret_cast<CuteQAccessibleListCall25>(taken[25]);
       bool given = call(this, childCell, &handled);
       if (handled) return given;
     }
@@ -1721,9 +2282,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::unselect(QAccessibleInterface *childCell)
   bool unselect(QAccessibleInterface *childCell) override {
-    if (taken[25]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQAccessibleListCall25 call = reinterpret_cast<CuteQAccessibleListCall25>(taken[25]);
+      CuteQAccessibleListCall26 call = reinterpret_cast<CuteQAccessibleListCall26>(taken[26]);
       bool given = call(this, childCell, &handled);
       if (handled) return given;
     }
@@ -1736,9 +2297,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::selectAll()
   bool selectAll() override {
-    if (taken[26]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQAccessibleListCall26 call = reinterpret_cast<CuteQAccessibleListCall26>(taken[26]);
+      CuteQAccessibleListCall27 call = reinterpret_cast<CuteQAccessibleListCall27>(taken[27]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1751,9 +2312,9 @@ public:
 #if QT_CONFIG(itemviews)
   //  bool QAccessibleTable::clear()
   bool clear() override {
-    if (taken[27]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQAccessibleListCall27 call = reinterpret_cast<CuteQAccessibleListCall27>(taken[27]);
+      CuteQAccessibleListCall28 call = reinterpret_cast<CuteQAccessibleListCall28>(taken[28]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1767,9 +2328,9 @@ public:
   //  void QAccessibleTable::modelChange(QAccessibleTableModelChangeEvent
   //      *event)
   void modelChange(QAccessibleTableModelChangeEvent *event) override {
-    if (taken[28]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQAccessibleListCall28 call = reinterpret_cast<CuteQAccessibleListCall28>(taken[28]);
+      CuteQAccessibleListCall29 call = reinterpret_cast<CuteQAccessibleListCall29>(taken[29]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1782,9 +2343,9 @@ public:
   //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
   //      key) const
   QVariant attributeValue(QAccessible::Attribute key) const override {
-    if (taken[29]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQAccessibleListCall29 call = reinterpret_cast<CuteQAccessibleListCall29>(taken[29]);
+      CuteQAccessibleListCall30 call = reinterpret_cast<CuteQAccessibleListCall30>(taken[30]);
       const QVariant * given = call(this, static_cast<int>(key), &handled);
       if (handled && given) return *given;
     }
@@ -1795,9 +2356,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  bool QAccessibleWidget::isValid() const
   bool isValid() const override {
-    if (taken[30]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQAccessibleListCall30 call = reinterpret_cast<CuteQAccessibleListCall30>(taken[30]);
+      CuteQAccessibleListCall31 call = reinterpret_cast<CuteQAccessibleListCall31>(taken[31]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1808,9 +2369,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QWindow *QAccessibleWidget::window() const
   QWindow *window() const override {
-    if (taken[31]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQAccessibleListCall31 call = reinterpret_cast<CuteQAccessibleListCall31>(taken[31]);
+      CuteQAccessibleListCall32 call = reinterpret_cast<CuteQAccessibleListCall32>(taken[32]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWindow *>(given);
     }
@@ -1821,9 +2382,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QRect QAccessibleWidget::rect() const
   QRect rect() const override {
-    if (taken[32]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQAccessibleListCall32 call = reinterpret_cast<CuteQAccessibleListCall32>(taken[32]);
+      CuteQAccessibleListCall33 call = reinterpret_cast<CuteQAccessibleListCall33>(taken[33]);
       const QRect * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1834,9 +2395,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QString QAccessibleWidget::text(QAccessible::Text t) const
   QString text(QAccessible::Text t) const override {
-    if (taken[33]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQAccessibleListCall33 call = reinterpret_cast<CuteQAccessibleListCall33>(taken[33]);
+      CuteQAccessibleListCall34 call = reinterpret_cast<CuteQAccessibleListCall34>(taken[34]);
       QString * given = call(this, static_cast<int>(t), &handled);
       if (handled && given) {
         QString back(*given);
@@ -1851,9 +2412,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::Role QAccessibleWidget::role() const
   QAccessible::Role role() const override {
-    if (taken[34]) {
+    if (taken[35]) {
       int handled = 0;
-      CuteQAccessibleListCall34 call = reinterpret_cast<CuteQAccessibleListCall34>(taken[34]);
+      CuteQAccessibleListCall35 call = reinterpret_cast<CuteQAccessibleListCall35>(taken[35]);
       int given = call(this, &handled);
       if (handled) return static_cast<QAccessible::Role>(given);
     }
@@ -1864,9 +2425,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::State QAccessibleWidget::state() const
   QAccessible::State state() const override {
-    if (taken[35]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQAccessibleListCall35 call = reinterpret_cast<CuteQAccessibleListCall35>(taken[35]);
+      CuteQAccessibleListCall36 call = reinterpret_cast<CuteQAccessibleListCall36>(taken[36]);
       const QAccessible::State * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1877,9 +2438,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[36]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQAccessibleListCall36 call = reinterpret_cast<CuteQAccessibleListCall36>(taken[36]);
+      CuteQAccessibleListCall37 call = reinterpret_cast<CuteQAccessibleListCall37>(taken[37]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1890,9 +2451,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[37]) {
+    if (taken[38]) {
       int handled = 0;
-      CuteQAccessibleListCall37 call = reinterpret_cast<CuteQAccessibleListCall37>(taken[37]);
+      CuteQAccessibleListCall38 call = reinterpret_cast<CuteQAccessibleListCall38>(taken[38]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1903,9 +2464,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  void QAccessibleWidget::doAction(const QString &actionName)
   void doAction(const QString &actionName) override {
-    if (taken[38]) {
+    if (taken[39]) {
       int handled = 0;
-      CuteQAccessibleListCall38 call = reinterpret_cast<CuteQAccessibleListCall38>(taken[38]);
+      CuteQAccessibleListCall39 call = reinterpret_cast<CuteQAccessibleListCall39>(taken[39]);
       call(this, &actionName, &handled);
       if (handled) return;
     }
@@ -1916,9 +2477,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QObject *QAccessibleObject::object() const
   QObject *object() const override {
-    if (taken[39]) {
+    if (taken[40]) {
       int handled = 0;
-      CuteQAccessibleListCall39 call = reinterpret_cast<CuteQAccessibleListCall39>(taken[39]);
+      CuteQAccessibleListCall40 call = reinterpret_cast<CuteQAccessibleListCall40>(taken[40]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QObject *>(given);
     }
@@ -1930,9 +2491,9 @@ public:
   //  void QAccessibleObject::setText(QAccessible::Text t, const QString
   //      &text)
   void setText(QAccessible::Text t, const QString &text) override {
-    if (taken[40]) {
+    if (taken[41]) {
       int handled = 0;
-      CuteQAccessibleListCall40 call = reinterpret_cast<CuteQAccessibleListCall40>(taken[40]);
+      CuteQAccessibleListCall41 call = reinterpret_cast<CuteQAccessibleListCall41>(taken[41]);
       call(this, static_cast<int>(t), &text, &handled);
       if (handled) return;
     }
@@ -1944,9 +2505,9 @@ public:
   //  QAccessibleInterface *QAccessibleSelectionInterface::selectedItem(int
   //      selectionIndex) const
   QAccessibleInterface *selectedItem(int selectionIndex) const override {
-    if (taken[41]) {
+    if (taken[42]) {
       int handled = 0;
-      CuteQAccessibleListCall41 call = reinterpret_cast<CuteQAccessibleListCall41>(taken[41]);
+      CuteQAccessibleListCall42 call = reinterpret_cast<CuteQAccessibleListCall42>(taken[42]);
       void * given = call(this, selectionIndex, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -1955,12 +2516,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[43]) {
+      int handled = 0;
+      CuteQAccessibleListCall43 call = reinterpret_cast<CuteQAccessibleListCall43>(taken[43]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionName(const QString
   //      &name) const
   QString localizedActionName(const QString &name) const override {
-    if (taken[42]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQAccessibleListCall42 call = reinterpret_cast<CuteQAccessibleListCall42>(taken[42]);
+      CuteQAccessibleListCall44 call = reinterpret_cast<CuteQAccessibleListCall44>(taken[44]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -1976,9 +2550,9 @@ public:
   //  QString QAccessibleActionInterface::localizedActionDescription(const
   //      QString &name) const
   QString localizedActionDescription(const QString &name) const override {
-    if (taken[43]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQAccessibleListCall43 call = reinterpret_cast<CuteQAccessibleListCall43>(taken[43]);
+      CuteQAccessibleListCall45 call = reinterpret_cast<CuteQAccessibleListCall45>(taken[45]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -2031,6 +2605,20 @@ bool ritual_take_QAccessibleList(
     void *call) {
   return static_cast<CuteQAccessibleList *>(self)->take(key, call);
 }
+
+#if QT_CONFIG(accessibility)
+#if defined(Q_OS_LINUX)
+#if QT_CONFIG(listview)
+//  QAccessibleInterface *QAccessibleList::child(int index) const
+extern "C" Q_DECL_EXPORT
+QAccessibleInterface *ritual_own_ZNK15QAccessibleList5childEi(
+    const QAccessibleList *self,
+    int index) {
+  return self->QAccessibleList::child(index);
+}
+#endif  // QT_CONFIG(listview)
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(listview)

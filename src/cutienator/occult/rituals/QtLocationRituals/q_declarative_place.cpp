@@ -15,6 +15,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QDeclarativePlace that Python can take functions over in. Every QDeclarativePlace
 //  Python makes is one. Each function below asks the Python
@@ -222,6 +223,25 @@ const QMetaObject *ritual_ZNK17QDeclarativePlace10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativePlace::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QDeclarativePlace11qt_metacastEPKc(
+    QDeclarativePlace *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativePlace::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QDeclarativePlace11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativePlace *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativePlace::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QDeclarativePlace2trEPKcS1_i(
@@ -316,6 +336,51 @@ void ritual_ZN17QDeclarativePlace8setPlaceERK6QPlace(
     QDeclarativePlace *self,
     const QPlace *src) {
   self->setPlace(*src);
+}
+
+//  QQmlListProperty<QDeclarativeCategory> QDeclarativePlace::categories()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QDeclarativeCategory> *ritual_ZN17QDeclarativePlace10categoriesEv(
+    QDeclarativePlace *self) {
+  return new QQmlListProperty<QDeclarativeCategory>(self->categories());
+}
+
+//  void
+//      QDeclarativePlace::category_append(QQmlListProperty<QDeclarativeCateg
+//      ory> *prop, QDeclarativeCategory *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace15category_appendEP16QQmlListPropertyI20QDeclarativeCategoryEPS1_(
+    QQmlListProperty<QDeclarativeCategory> *prop,
+    QDeclarativeCategory *value) {
+  QDeclarativePlace::category_append(prop, value);
+}
+
+//  qsizetype
+//      QDeclarativePlace::category_count(QQmlListProperty<QDeclarativeCatego
+//      ry> *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN17QDeclarativePlace14category_countEP16QQmlListPropertyI20QDeclarativeCategoryE(
+    QQmlListProperty<QDeclarativeCategory> *prop) {
+  return QDeclarativePlace::category_count(prop);
+}
+
+//  QDeclarativeCategory
+//      *QDeclarativePlace::category_at(QQmlListProperty<QDeclarativeCategory
+//      > *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QDeclarativeCategory *ritual_ZN17QDeclarativePlace11category_atEP16QQmlListPropertyI20QDeclarativeCategoryEx(
+    QQmlListProperty<QDeclarativeCategory> *prop,
+    qsizetype index) {
+  return QDeclarativePlace::category_at(prop, index);
+}
+
+//  void
+//      QDeclarativePlace::category_clear(QQmlListProperty<QDeclarativeCatego
+//      ry> *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace14category_clearEP16QQmlListPropertyI20QDeclarativeCategoryE(
+    QQmlListProperty<QDeclarativeCategory> *prop) {
+  QDeclarativePlace::category_clear(prop);
 }
 
 //  QDeclarativeGeoLocation *QDeclarativePlace::location() const
@@ -561,6 +626,156 @@ void ritual_ZN17QDeclarativePlace18initializeFavoriteEP30QDeclarativeGeoServiceP
   self->initializeFavorite(plugin);
 }
 
+//  void QDeclarativePlace::pluginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace13pluginChangedEv(QDeclarativePlace *self) {
+  self->pluginChanged();
+}
+
+//  void QDeclarativePlace::categoriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace17categoriesChangedEv(
+    QDeclarativePlace *self) {
+  self->categoriesChanged();
+}
+
+//  void QDeclarativePlace::locationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace15locationChangedEv(
+    QDeclarativePlace *self) {
+  self->locationChanged();
+}
+
+//  void QDeclarativePlace::ratingsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace14ratingsChangedEv(
+    QDeclarativePlace *self) {
+  self->ratingsChanged();
+}
+
+//  void QDeclarativePlace::supplierChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace15supplierChangedEv(
+    QDeclarativePlace *self) {
+  self->supplierChanged();
+}
+
+//  void QDeclarativePlace::iconChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace11iconChangedEv(QDeclarativePlace *self) {
+  self->iconChanged();
+}
+
+//  void QDeclarativePlace::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace11nameChangedEv(QDeclarativePlace *self) {
+  self->nameChanged();
+}
+
+//  void QDeclarativePlace::placeIdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace14placeIdChangedEv(
+    QDeclarativePlace *self) {
+  self->placeIdChanged();
+}
+
+//  void QDeclarativePlace::attributionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace18attributionChangedEv(
+    QDeclarativePlace *self) {
+  self->attributionChanged();
+}
+
+//  void QDeclarativePlace::detailsFetchedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace21detailsFetchedChangedEv(
+    QDeclarativePlace *self) {
+  self->detailsFetchedChanged();
+}
+
+//  void QDeclarativePlace::reviewModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace18reviewModelChangedEv(
+    QDeclarativePlace *self) {
+  self->reviewModelChanged();
+}
+
+//  void QDeclarativePlace::imageModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace17imageModelChangedEv(
+    QDeclarativePlace *self) {
+  self->imageModelChanged();
+}
+
+//  void QDeclarativePlace::editorialModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace21editorialModelChangedEv(
+    QDeclarativePlace *self) {
+  self->editorialModelChanged();
+}
+
+//  void QDeclarativePlace::primaryPhoneChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace19primaryPhoneChangedEv(
+    QDeclarativePlace *self) {
+  self->primaryPhoneChanged();
+}
+
+//  void QDeclarativePlace::primaryFaxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace17primaryFaxChangedEv(
+    QDeclarativePlace *self) {
+  self->primaryFaxChanged();
+}
+
+//  void QDeclarativePlace::primaryEmailChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace19primaryEmailChangedEv(
+    QDeclarativePlace *self) {
+  self->primaryEmailChanged();
+}
+
+//  void QDeclarativePlace::primaryWebsiteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace21primaryWebsiteChangedEv(
+    QDeclarativePlace *self) {
+  self->primaryWebsiteChanged();
+}
+
+//  void QDeclarativePlace::extendedAttributesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace25extendedAttributesChangedEv(
+    QDeclarativePlace *self) {
+  self->extendedAttributesChanged();
+}
+
+//  void QDeclarativePlace::contactDetailsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace21contactDetailsChangedEv(
+    QDeclarativePlace *self) {
+  self->contactDetailsChanged();
+}
+
+//  void QDeclarativePlace::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace13statusChangedEv(QDeclarativePlace *self) {
+  self->statusChanged();
+}
+
+//  void QDeclarativePlace::visibilityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace17visibilityChangedEv(
+    QDeclarativePlace *self) {
+  self->visibilityChanged();
+}
+
+//  void QDeclarativePlace::favoriteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDeclarativePlace15favoriteChangedEv(
+    QDeclarativePlace *self) {
+  self->favoriteChanged();
+}
+
 //  void QDeclarativePlace::finished()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QDeclarativePlace8finishedEv(QDeclarativePlace *self) {
@@ -663,4 +878,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QDeclarativePlace17componentCompleteEv(
     QDeclarativePlace *self) {
   self->QDeclarativePlace::componentComplete();
+}
+
+//  a QQmlListProperty<QDeclarativeCategory> a ritual of QDeclarativePlace
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativePlace__QQmlListProperty_QDeclarativeCategory(
+    QQmlListProperty<QDeclarativeCategory> *self) {
+  delete self;
 }

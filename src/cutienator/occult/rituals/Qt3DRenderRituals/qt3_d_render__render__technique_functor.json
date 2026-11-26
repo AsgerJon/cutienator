@@ -5,8 +5,29 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render16TechniqueFunctorC1EPNS0_16AbstractRendererEPNS0_12NodeManagersE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16TechniqueFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16TechniqueFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16TechniqueFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render16TechniqueFunctorD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render16TechniqueFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render16TechniqueFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render16TechniqueFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
     ]
   }
 }

@@ -1,12 +1,15 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qbarseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbarseries.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qcolor.h>
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbarset.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -237,6 +240,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK10QBarSeries10metaObjectEv(
     const QBarSeries *self) {
   return self->metaObject();
+}
+
+//  void *QBarSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QBarSeries11qt_metacastEPKc(
+    QBarSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QBarSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QBarSeries::tr(const char *s, const char *c, int n)
@@ -542,10 +563,208 @@ void ritual_ZN10QBarSeries11deselectAllEv(QBarSeries *self) {
   self->deselectAll();
 }
 
+//  QBarSeries::QBarSeries(QBarSeriesPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QBarSeries *ritual_ZN10QBarSeriesC1ER17QBarSeriesPrivateP7QObject(
+    QBarSeriesPrivate *dd,
+    QObject *parent) {
+  return new CuteQBarSeries(*dd, parent);
+}
+
 //  void QBarSeries::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QBarSeries17componentCompleteEv(QBarSeries *self) {
   self->componentComplete();
+}
+
+//  void QBarSeries::updatedBars()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries11updatedBarsEv(QBarSeries *self) {
+  self->updatedBars();
+}
+
+//  void QBarSeries::seriesColorsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries19seriesColorsChangedEv(QBarSeries *self) {
+  self->seriesColorsChanged();
+}
+
+//  void QBarSeries::borderColorsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries19borderColorsChangedEv(QBarSeries *self) {
+  self->borderColorsChanged();
+}
+
+//  void QBarSeries::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries12countChangedEv(QBarSeries *self) {
+  self->countChanged();
+}
+
+//  void QBarSeries::barWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries15barWidthChangedEv(QBarSeries *self) {
+  self->barWidthChanged();
+}
+
+//  void QBarSeries::labelsVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries20labelsVisibleChangedEb(
+    QBarSeries *self,
+    bool visible) {
+  self->labelsVisibleChanged(visible);
+}
+
+//  void QBarSeries::labelsFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries19labelsFormatChangedERK7QString(
+    QBarSeries *self,
+    const QString *format) {
+  self->labelsFormatChanged(*format);
+}
+
+//  void QBarSeries::labelsPositionChanged(QBarSeries::LabelsPosition
+//      position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries21labelsPositionChangedENS_14LabelsPositionE(
+    QBarSeries *self,
+    QBarSeries::LabelsPosition position) {
+  self->labelsPositionChanged(position);
+}
+
+//  void QBarSeries::barsTypeChanged(QBarSeries::BarsType type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries15barsTypeChangedENS_8BarsTypeE(
+    QBarSeries *self,
+    QBarSeries::BarsType type) {
+  self->barsTypeChanged(type);
+}
+
+//  void QBarSeries::labelsMarginChanged(qreal margin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries19labelsMarginChangedEd(
+    QBarSeries *self,
+    qreal margin) {
+  self->labelsMarginChanged(margin);
+}
+
+//  void QBarSeries::labelsAngleChanged(qreal angle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries18labelsAngleChangedEd(
+    QBarSeries *self,
+    qreal angle) {
+  self->labelsAngleChanged(angle);
+}
+
+//  void QBarSeries::labelsPrecisionChanged(int precision)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries22labelsPrecisionChangedEi(
+    QBarSeries *self,
+    int precision) {
+  self->labelsPrecisionChanged(precision);
+}
+
+//  void QBarSeries::barDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries18barDelegateChangedEv(QBarSeries *self) {
+  self->barDelegateChanged();
+}
+
+//  void QBarSeries::barsetsAdded(const QList<QBarSet *> &sets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries12barsetsAddedERK5QListIP7QBarSetE(
+    QBarSeries *self,
+    const QList<QBarSet *> *sets) {
+  self->barsetsAdded(*sets);
+}
+
+//  void QBarSeries::barsetsReplaced(const QList<QBarSet *> &sets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries15barsetsReplacedERK5QListIP7QBarSetE(
+    QBarSeries *self,
+    const QList<QBarSet *> *sets) {
+  self->barsetsReplaced(*sets);
+}
+
+//  void QBarSeries::barsetsRemoved(const QList<QBarSet *> &sets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries14barsetsRemovedERK5QListIP7QBarSetE(
+    QBarSeries *self,
+    const QList<QBarSet *> *sets) {
+  self->barsetsRemoved(*sets);
+}
+
+//  void QBarSeries::setValueChanged(qsizetype index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries15setValueChangedExP7QBarSet(
+    QBarSeries *self,
+    qsizetype index,
+    QBarSet *barset) {
+  self->setValueChanged(index, barset);
+}
+
+//  void QBarSeries::setValueAdded(qsizetype index, qsizetype count, QBarSet
+//      *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries13setValueAddedExxP7QBarSet(
+    QBarSeries *self,
+    qsizetype index,
+    qsizetype count,
+    QBarSet *barset) {
+  self->setValueAdded(index, count, barset);
+}
+
+//  void QBarSeries::setValueRemoved(qsizetype index, qsizetype count,
+//      QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries15setValueRemovedExxP7QBarSet(
+    QBarSeries *self,
+    qsizetype index,
+    qsizetype count,
+    QBarSet *barset) {
+  self->setValueRemoved(index, count, barset);
+}
+
+//  void QBarSeries::barSetsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries14barSetsChangedEv(QBarSeries *self) {
+  self->barSetsChanged();
+}
+
+//  void QBarSeries::clicked(qsizetype index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries7clickedExP7QBarSet(
+    QBarSeries *self,
+    qsizetype index,
+    QBarSet *barset) {
+  self->clicked(index, barset);
+}
+
+//  void QBarSeries::doubleClicked(qsizetype index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries13doubleClickedExP7QBarSet(
+    QBarSeries *self,
+    qsizetype index,
+    QBarSet *barset) {
+  self->doubleClicked(index, barset);
+}
+
+//  void QBarSeries::pressed(qsizetype index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries7pressedExP7QBarSet(
+    QBarSeries *self,
+    qsizetype index,
+    QBarSet *barset) {
+  self->pressed(index, barset);
+}
+
+//  void QBarSeries::released(qsizetype index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QBarSeries8releasedExP7QBarSet(
+    QBarSeries *self,
+    qsizetype index,
+    QBarSet *barset) {
+  self->released(index, barset);
 }
 
 //  void QBarSeries::handleSetValueChange(qsizetype index)
@@ -621,4 +840,4 @@ void ritual_own_ZN10QBarSeries17componentCompleteEv(QBarSeries *self) {
   static_cast<OwnQBarSeries *>(self)->OwnQBarSeries::componentComplete();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))

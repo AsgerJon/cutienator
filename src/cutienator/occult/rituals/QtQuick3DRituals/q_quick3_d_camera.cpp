@@ -23,6 +23,24 @@ const QMetaObject *ritual_ZNK14QQuick3DCamera10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DCamera::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuick3DCamera11qt_metacastEPKc(
+    QQuick3DCamera *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DCamera::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuick3DCamera11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DCamera *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DCamera::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuick3DCamera2trEPKcS1_i(
@@ -145,6 +163,35 @@ void ritual_ZN14QQuick3DCamera20setLevelOfDetailBiasEf(
     QQuick3DCamera *self,
     float newLevelOFDetailBias) {
   self->setLevelOfDetailBias(newLevelOFDetailBias);
+}
+
+//  void QQuick3DCamera::frustumCullingEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DCamera28frustumCullingEnabledChangedEv(
+    QQuick3DCamera *self) {
+  self->frustumCullingEnabledChanged();
+}
+
+//  void QQuick3DCamera::lookAtNodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DCamera17lookAtNodeChangedEv(QQuick3DCamera *self) {
+  self->lookAtNodeChanged();
+}
+
+//  void QQuick3DCamera::levelOfDetailBiasChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DCamera24levelOfDetailBiasChangedEv(
+    QQuick3DCamera *self) {
+  self->levelOfDetailBiasChanged();
+}
+
+//  QQuick3DCamera::QQuick3DCamera(QQuick3DNodePrivate &dd, QQuick3DNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DCamera *ritual_ZN14QQuick3DCameraC1ER19QQuick3DNodePrivateP12QQuick3DNode(
+    QQuick3DNodePrivate *dd,
+    QQuick3DNode *parent) {
+  return new QQuick3DCamera(*dd, parent);
 }
 
 //  QSSGRenderGraphObject

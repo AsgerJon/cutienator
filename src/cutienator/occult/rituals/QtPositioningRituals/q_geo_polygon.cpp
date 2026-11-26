@@ -74,6 +74,14 @@ void ritual_ZN11QGeoPolygonD1Ev(QGeoPolygon *self) {
   delete self;
 }
 
+//  QGeoPolygon &QGeoPolygon::operator=(const QGeoPolygon &other)
+extern "C" Q_DECL_EXPORT
+QGeoPolygon *ritual_ZN11QGeoPolygonaSERKS_(
+    QGeoPolygon *self,
+    const QGeoPolygon *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QGeoPolygon::setPerimeter(const QList<QGeoCoordinate> &path)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QGeoPolygon12setPerimeterERK5QListI14QGeoCoordinateE(
@@ -252,3 +260,23 @@ const QGeoPolygonPrivate *ritual_ZNK11QGeoPolygon6d_funcEv(
     const QGeoPolygon *self) {
   return self->d_func();
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &stream, const QGeoPolygon &polygon)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK11QGeoPolygon(
+    QDataStream *stream,
+    const QGeoPolygon *polygon) {
+  return &(operator<<(*stream, *polygon));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &stream, QGeoPolygon &polygon)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR11QGeoPolygon(
+    QDataStream *stream,
+    QGeoPolygon *polygon) {
+  return &(operator>>(*stream, *polygon));
+}
+#endif  // !defined(QT_NO_DATASTREAM)

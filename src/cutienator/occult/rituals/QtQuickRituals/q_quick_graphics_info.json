@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickGraphicsInfo10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickGraphicsInfo11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickGraphicsInfo24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -21,6 +27,32 @@
     "ritual_ZNK18QQuickGraphicsInfo12majorVersionEv": ["int", "address"],
     "ritual_ZNK18QQuickGraphicsInfo12minorVersionEv": ["int", "address"],
     "ritual_ZNK18QQuickGraphicsInfo7profileEv": ["int", "address"],
-    "ritual_ZNK18QQuickGraphicsInfo14renderableTypeEv": ["int", "address"]
+    "ritual_ZNK18QQuickGraphicsInfo14renderableTypeEv": ["int", "address"],
+    "ritual_ZN18QQuickGraphicsInfo10apiChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickGraphicsInfo17shaderTypeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo28shaderCompilationTypeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo23shaderSourceTypeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo19majorVersionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo19minorVersionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo14profileChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo21renderableTypeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo10updateInfoEv": ["nothing", "address"],
+    "ritual_ZN18QQuickGraphicsInfo9setWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ]
   }
 }

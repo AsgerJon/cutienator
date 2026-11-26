@@ -8,12 +8,24 @@
     "ritual_ZNK28QValue3DAxisFormatterPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QValue3DAxisFormatterPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QValue3DAxisFormatterPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QValue3DAxisFormatterPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN28QValue3DAxisFormatterPrivate11recalculateEv": [
       "nothing", "address"
     ],
     "ritual_ZN28QValue3DAxisFormatterPrivate13doRecalculateEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN28QValue3DAxisFormatterPrivate12populateCopyER21QValue3DAxisFormatter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QValue3DAxisFormatterPrivate14doPopulateCopyERS_": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN28QValue3DAxisFormatterPrivate14stringForValueEdRK7QString": [
       "text", "address", "double", "text"
@@ -23,6 +35,9 @@
     ],
     "ritual_ZNK28QValue3DAxisFormatterPrivate7valueAtEf": [
       "float", "address", "float"
+    ],
+    "ritual_ZN28QValue3DAxisFormatterPrivate22markDirtyNoLabelChangeEv": [
+      "nothing", "address"
     ],
     "ritual_take_QValue3DAxisFormatterPrivate": [
       "bool", "address", "chars", "address"

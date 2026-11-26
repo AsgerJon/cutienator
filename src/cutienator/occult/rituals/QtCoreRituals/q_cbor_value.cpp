@@ -9,7 +9,9 @@
 #include <QtCore/qcbormap.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qurl.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/quuid.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qvariant.h>
@@ -26,6 +28,12 @@ QCborValue *ritual_ZN10QCborValueC1Ev() {
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1ENS_4TypeE(QCborValue::Type t_) {
   return new QCborValue(t_);
+}
+
+//  QCborValue::QCborValue(std::nullptr_t a0)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN10QCborValueC1EDn() {
+  return new QCborValue(nullptr);
 }
 
 //  QCborValue::QCborValue(bool b_)
@@ -106,10 +114,22 @@ QCborValue *ritual_ZN10QCborValueC1ERK10QCborArray(const QCborArray *a) {
   return new QCborValue(*a);
 }
 
+//  QCborValue::QCborValue(QCborArray &&a)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN10QCborValueC1EO10QCborArray(QCborArray *a) {
+  return new QCborValue(std::move(*a));
+}
+
 //  QCborValue::QCborValue(const QCborMap &m)
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1ERK8QCborMap(const QCborMap *m) {
   return new QCborValue(*m);
+}
+
+//  QCborValue::QCborValue(QCborMap &&m)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN10QCborValueC1EO8QCborMap(QCborMap *m) {
+  return new QCborValue(std::move(*m));
 }
 
 //  QCborValue::QCborValue(QCborTag tag, const QCborValue &taggedValue)
@@ -173,6 +193,34 @@ void ritual_ZN10QCborValueD1Ev(QCborValue *self) {
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1ERKS_(const QCborValue *other) {
   return new QCborValue(*other);
+}
+
+//  QCborValue::QCborValue(QCborValue &&other)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN10QCborValueC1EOS_(QCborValue *other) {
+  return new QCborValue(std::move(*other));
+}
+
+//  QCborValue &QCborValue::operator=(const QCborValue &other)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN10QCborValueaSERKS_(
+    QCborValue *self,
+    const QCborValue *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCborValue &QCborValue::operator=(QCborValue &&other)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN10QCborValueaSEOS_(
+    QCborValue *self,
+    QCborValue *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCborValue::swap(QCborValue &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCborValue4swapERS_(QCborValue *self, QCborValue *other) {
+  self->swap(*other);
 }
 
 //  Type QCborValue::type() const
@@ -529,6 +577,15 @@ QJsonValue *ritual_ZNK10QCborValue11toJsonValueEv(const QCborValue *self) {
 }
 
 #if QT_CONFIG(cborstreamreader)
+//  QCborValue QCborValue::fromCbor(QCborStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN10QCborValue8fromCborER17QCborStreamReader(
+    QCborStreamReader *reader) {
+  return new QCborValue(QCborValue::fromCbor(*reader));
+}
+#endif  // QT_CONFIG(cborstreamreader)
+
+#if QT_CONFIG(cborstreamreader)
 //  QCborValue QCborValue::fromCbor(const QByteArray &ba, QCborParserError
 //      *error)
 extern "C" Q_DECL_EXPORT
@@ -551,6 +608,18 @@ QCborValue *ritual_ZN10QCborValue8fromCborEPKcxP16QCborParserError(
 }
 #endif  // QT_CONFIG(cborstreamreader)
 
+#if QT_CONFIG(cborstreamreader)
+//  QCborValue QCborValue::fromCbor(const quint8 *data, qsizetype len,
+//      QCborParserError *error)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN10QCborValue8fromCborEPKhxP16QCborParserError(
+    const quint8 *data,
+    qsizetype len,
+    QCborParserError *error) {
+  return new QCborValue(QCborValue::fromCbor(data, len, error));
+}
+#endif  // QT_CONFIG(cborstreamreader)
+
 #if QT_CONFIG(cborstreamwriter)
 //  QByteArray QCborValue::toCbor(EncodingOptions opt) const
 extern "C" Q_DECL_EXPORT
@@ -560,6 +629,18 @@ QByteArray *ritual_ZNK10QCborValue6toCborE6QFlagsINS_14EncodingOptionEE(
   return new QByteArray(
       self->toCbor(
           QFlags<QCborValue::EncodingOption>::fromInt(opt)));
+}
+#endif  // QT_CONFIG(cborstreamwriter)
+
+#if QT_CONFIG(cborstreamwriter)
+//  void QCborValue::toCbor(QCborStreamWriter &writer, EncodingOptions opt)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QCborValue6toCborER17QCborStreamWriter6QFlagsINS_14EncodingOptionEE(
+    const QCborValue *self,
+    QCborStreamWriter *writer,
+    int opt) {
+  self->toCbor(*writer, QFlags<QCborValue::EncodingOption>::fromInt(opt));
 }
 #endif  // QT_CONFIG(cborstreamwriter)
 

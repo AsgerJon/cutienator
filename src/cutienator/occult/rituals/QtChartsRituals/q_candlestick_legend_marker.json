@@ -8,6 +8,12 @@
     "ritual_ZNK24QCandlestickLegendMarker10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QCandlestickLegendMarker11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QCandlestickLegendMarker11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QCandlestickLegendMarker2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

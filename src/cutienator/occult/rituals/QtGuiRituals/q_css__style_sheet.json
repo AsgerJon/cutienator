@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN4QCss10StyleSheetC1Ev": ["address"],
+    "ritual_ZN4QCss10StyleSheet12buildIndexesEN2Qt15CaseSensitivityE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN4QCss10StyleSheetD1Ev": ["nothing", "address"]
   }
 }

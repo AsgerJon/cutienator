@@ -8,6 +8,12 @@
     "ritual_ZNK25QQuickActionGroupAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickActionGroupAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickActionGroupAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuickActionGroupAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,11 @@
     "ritual_ZNK25QQuickActionGroupAttached5groupEv": ["address", "address"],
     "ritual_ZN25QQuickActionGroupAttached8setGroupEP17QQuickActionGroup": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_ZN25QQuickActionGroupAttached12groupChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickActionGroupAttached6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickActionGroupAttached6d_funcEv": ["address", "address"]
   }
 }

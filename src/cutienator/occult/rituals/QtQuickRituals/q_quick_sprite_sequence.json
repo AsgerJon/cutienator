@@ -6,16 +6,35 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickSpriteSequence10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickSpriteSequence11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickSpriteSequence11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickSpriteSequence2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN20QQuickSpriteSequenceC1EP10QQuickItem": [
       "address", "address"
     ],
+    "ritual_ZN20QQuickSpriteSequence7spritesEv": ["address", "address"],
     "ritual_ZNK20QQuickSpriteSequence7runningEv": ["bool", "address"],
     "ritual_ZNK20QQuickSpriteSequence11interpolateEv": ["bool", "address"],
     "ritual_ZNK20QQuickSpriteSequence10goalSpriteEv": ["text", "address"],
     "ritual_ZNK20QQuickSpriteSequence13currentSpriteEv": ["text", "address"],
+    "ritual_ZN20QQuickSpriteSequence14runningChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickSpriteSequence18interpolateChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickSpriteSequence17goalSpriteChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickSpriteSequence20currentSpriteChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN20QQuickSpriteSequence6jumpToERK7QString": [
       "nothing", "address", "text"
     ],
@@ -43,6 +62,9 @@
     "ritual_ZNK20QQuickSpriteSequence6d_funcEv": ["address", "address"],
     "ritual_own_ZN20QQuickSpriteSequence15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
       "address", "address", "address", "address"
+    ],
+    "ritual_drop_QQuickSpriteSequence__QQmlListProperty_QQuickSprite": [
+      "nothing", "address"
     ]
   }
 }

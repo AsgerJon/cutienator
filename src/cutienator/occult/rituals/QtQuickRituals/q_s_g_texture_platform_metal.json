@@ -7,6 +7,15 @@
   "rows": {
     "ritual_ZN23QSGTexturePlatformMetalC1EP10QSGTexture": [
       "address", "address"
+    ],
+    "ritual_ZNK23QSGTexturePlatformMetal13nativeTextureEv": [
+      "address", "address"
+    ],
+    "ritual_take_QSGTexturePlatformMetal": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QSGTexturePlatformMetal13nativeTextureEv": [
+      "address", "address"
     ]
   }
 }

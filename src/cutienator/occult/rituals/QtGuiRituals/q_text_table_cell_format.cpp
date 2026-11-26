@@ -308,6 +308,22 @@ QTextTableCellFormat *ritual_ZN20QTextTableCellFormatC1ERK11QTextFormat(
   return new QTextTableCellFormat(*fmt);
 }
 
+//  QDataStream &operator<<(QDataStream &a0, const QTextTableCellFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK20QTextTableCellFormat(
+    QDataStream *a0,
+    const QTextTableCellFormat *a1) {
+  return &(operator<<(*a0, *a1));
+}
+
+//  QDataStream &operator>>(QDataStream &a0, QTextTableCellFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR20QTextTableCellFormat(
+    QDataStream *a0,
+    QTextTableCellFormat *a1) {
+  return &(operator>>(*a0, *a1));
+}
+
 //  QTextTableCellFormat::~QTextTableCellFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QTextTableCellFormatD1Ev(QTextTableCellFormat *self) {

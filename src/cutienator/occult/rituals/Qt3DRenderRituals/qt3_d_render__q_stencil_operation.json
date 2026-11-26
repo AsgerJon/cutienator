@@ -8,8 +8,24 @@
     "ritual_ZNK10Qt3DRender17QStencilOperation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender17QStencilOperation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender17QStencilOperation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender17QStencilOperation2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QStencilOperationC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QStencilOperationD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender17QStencilOperation5frontEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QStencilOperation4backEv": [
+      "address", "address"
     ],
     "ritual_ZN10Qt3DRender17QStencilOperation6d_funcEv": [
       "address", "address"

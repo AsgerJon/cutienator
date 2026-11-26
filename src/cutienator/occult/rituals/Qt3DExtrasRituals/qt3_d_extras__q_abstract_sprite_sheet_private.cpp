@@ -7,6 +7,64 @@
 #include <Qt3DExtras/6.12.0/Qt3DExtras/private/qabstractspritesheet_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DExtras/qabstractspritesheet.h>
+#include <Qt3DExtras/private/qabstractspritesheet_p.h>
+#include <Qt3DRender/qabstracttexture.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/extras/defaults/qabstractspritesheet.cpp, line 23, as _ZN10Qt3DExtras27QAbstractSpriteSheetPrivate4initEv
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline void QAbstractSpriteSheetPrivate::init()
+{
+    m_textureTransform.setToIdentity();
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/defaults/qabstractspritesheet.cpp, line 28, as _ZN10Qt3DExtras27QAbstractSpriteSheetPrivate13updateTextureEPN10Qt3DRender16QAbstractTextureE
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline void QAbstractSpriteSheetPrivate::updateTexture(Qt3DRender::QAbstractTexture *texture)
+{
+    if (m_texture) {
+        disconnect(m_texture, &Qt3DRender::QAbstractTexture::widthChanged,
+                   this, &QAbstractSpriteSheetPrivate::updateSizes);
+        disconnect(m_texture, &Qt3DRender::QAbstractTexture::heightChanged,
+                   this, &QAbstractSpriteSheetPrivate::updateSizes);
+    }
+    m_texture = texture;
+    if (m_texture) {
+        connect(m_texture, &Qt3DRender::QAbstractTexture::widthChanged,
+                this, &QAbstractSpriteSheetPrivate::updateSizes);
+        connect(m_texture, &Qt3DRender::QAbstractTexture::heightChanged,
+                this, &QAbstractSpriteSheetPrivate::updateSizes);
+    }
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/defaults/qabstractspritesheet.cpp, line 45, as _ZN10Qt3DExtras27QAbstractSpriteSheetPrivate11updateIndexEi
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline void QAbstractSpriteSheetPrivate::updateIndex(int newIndex)
+{
+    Q_Q(QAbstractSpriteSheet);
+    if (newIndex > maxIndex())
+        newIndex = 0;
+
+    m_currentIndex = newIndex;
+    emit q->currentIndexChanged(newIndex);
+    updateTransform();
+}
+}  // namespace Qt3DExtras
+//  -----------------------------------------------------------------------
 
 //  A Qt3DExtras::QAbstractSpriteSheetPrivate that Python can take functions over in. Every Qt3DExtras::QAbstractSpriteSheetPrivate
 //  Python makes is one. Each function below asks the Python
@@ -122,6 +180,23 @@ void ritual_ZN10Qt3DExtras27QAbstractSpriteSheetPrivate4initEv(
   self->init();
 }
 
+//  void Qt3DExtras::QAbstractSpriteSheetPrivate::updateTexture(Qt3DRender::Q
+//      AbstractTexture *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras27QAbstractSpriteSheetPrivate13updateTextureEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QAbstractSpriteSheetPrivate *self,
+    Qt3DRender::QAbstractTexture *texture) {
+  self->updateTexture(texture);
+}
+
+//  void Qt3DExtras::QAbstractSpriteSheetPrivate::updateIndex(int newIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras27QAbstractSpriteSheetPrivate11updateIndexEi(
+    Qt3DExtras::QAbstractSpriteSheetPrivate *self,
+    int newIndex) {
+  self->updateIndex(newIndex);
+}
+
 //  int Qt3DExtras::QAbstractSpriteSheetPrivate::maxIndex() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK10Qt3DExtras27QAbstractSpriteSheetPrivate8maxIndexEv(
@@ -166,4 +241,11 @@ bool ritual_take_Qt3DExtras_QAbstractSpriteSheetPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DExtras_QAbstractSpriteSheetPrivate *>(self)->take(key, call);
+}
+
+//  void Qt3DExtras::QAbstractSpriteSheetPrivate::init()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN10Qt3DExtras27QAbstractSpriteSheetPrivate4initEv(
+    Qt3DExtras::QAbstractSpriteSheetPrivate *self) {
+  self->Qt3DExtras::QAbstractSpriteSheetPrivate::init();
 }

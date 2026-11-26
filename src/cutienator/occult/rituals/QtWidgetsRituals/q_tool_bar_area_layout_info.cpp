@@ -12,6 +12,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/qrect.h>
+#include <QtCore/QList>
+#include <QtCore/QPoint>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/QWidgetItem>
 #include <QtWidgets/QToolBar>
@@ -336,11 +339,125 @@ inline void QToolBarAreaLayoutInfo::removeToolBarBreak(QToolBar *before)
     }
 }
 
+//  from src/widgets/widgets/qtoolbararealayout.cpp, line 447, as _ZNK22QToolBarAreaLayoutInfo8gapIndexERK6QPointPi
+inline QList<int> QToolBarAreaLayoutInfo::gapIndex(const QPoint &pos, int *minDistance) const
+{
+    if (rect.contains(pos)) {
+        // <pos> is in QToolBarAreaLayout coordinates.
+        // <item.pos> is in local dockarea coordinates (see ~20 lines below)
+        // Since we're comparing p with item.pos, we put them in the same coordinate system.
+        const int p = pick(o, pos - rect.topLeft());
+
+        for (int j = 0; j < lines.size(); ++j) {
+            const QToolBarAreaLayoutLine &line = lines.at(j);
+            if (line.skip())
+                continue;
+            if (!line.rect.contains(pos))
+                continue;
+
+            int k = 0;
+            for (; k < line.toolBarItems.size(); ++k) {
+                const QToolBarAreaLayoutItem &item = line.toolBarItems.at(k);
+                if (item.skip())
+                    continue;
+
+                int size = qMin(item.size, pick(o, item.sizeHint()));
+
+                if (p > item.pos + size)
+                    continue;
+                if (p > item.pos + size/2)
+                    ++k;
+                break;
+            }
+
+            QList<int> result;
+            result << j << k;
+            *minDistance = 0; //we found a perfect match
+            return result;
+        }
+    } else {
+        const int dist = distance(pos);
+        //it will only return a path if the minDistance is higher than the current distance
+        if (dist >= 0 && *minDistance > dist) {
+            *minDistance = dist;
+
+            QList<int> result;
+            result << lines.size() << 0;
+            return result;
+        }
+    }
+
+    return QList<int>();
+}
+
+//  from src/widgets/widgets/qtoolbararealayout.cpp, line 497, as _ZN22QToolBarAreaLayoutInfo9insertGapERK5QListIiEP11QLayoutItem
+inline bool QToolBarAreaLayoutInfo::insertGap(const QList<int> &path, QLayoutItem *item)
+{
+    Q_ASSERT(path.size() == 2);
+    int j = path.first();
+    if (j == lines.size())
+        lines.append(QToolBarAreaLayoutLine(o));
+
+    QToolBarAreaLayoutLine &line = lines[j];
+    const int k = path.at(1);
+
+    QToolBarAreaLayoutItem gap_item;
+    gap_item.gap = true;
+    gap_item.widgetItem = item;
+
+    //update the previous item's preferred size
+    for(int p = k - 1 ; p >= 0; --p) {
+        QToolBarAreaLayoutItem &previous = line.toolBarItems[p];
+        if (!previous.skip()) {
+            //we found the previous one
+            int previousSizeHint = pick(line.o, previous.sizeHint());
+            int previousExtraSpace = previous.size - previousSizeHint;
+
+            if (previousExtraSpace > 0) {
+                //in this case we reset the space
+                previous.preferredSize = -1;
+                previous.size = previousSizeHint;
+
+                gap_item.resize(o, previousExtraSpace);
+            }
+
+            break;
+        }
+    }
+
+    line.toolBarItems.insert(k, gap_item);
+    return true;
+
+}
+
 //  from src/widgets/widgets/qtoolbararealayout.cpp, line 536, as _ZN22QToolBarAreaLayoutInfo5clearEv
 inline void QToolBarAreaLayoutInfo::clear()
 {
     lines.clear();
     rect = QRect();
+}
+
+//  from src/widgets/widgets/qtoolbararealayout.cpp, line 542, as _ZNK22QToolBarAreaLayoutInfo8itemRectERK5QListIiE
+inline QRect QToolBarAreaLayoutInfo::itemRect(const QList<int> &path) const
+{
+    Q_ASSERT(path.size() == 2);
+    int j = path.at(0);
+    int k = path.at(1);
+
+    const QToolBarAreaLayoutLine &line = lines.at(j);
+    const QToolBarAreaLayoutItem &item = line.toolBarItems.at(k);
+
+    QRect result = line.rect;
+
+    if (o == Qt::Horizontal) {
+        result.setLeft(item.pos + line.rect.left());
+        result.setWidth(item.size);
+    } else {
+        result.setTop(item.pos + line.rect.top());
+        result.setHeight(item.size);
+    }
+
+    return result;
 }
 
 //  from src/widgets/widgets/qtoolbararealayout.cpp, line 564, as _ZNK22QToolBarAreaLayoutInfo8distanceERK6QPoint
@@ -437,11 +554,39 @@ void ritual_ZN22QToolBarAreaLayoutInfo18removeToolBarBreakEP8QToolBar(
   self->removeToolBarBreak(before);
 }
 
+//  QList<int> QToolBarAreaLayoutInfo::gapIndex(const QPoint &pos, int
+//      *maxDistance) const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK22QToolBarAreaLayoutInfo8gapIndexERK6QPointPi(
+    const QToolBarAreaLayoutInfo *self,
+    const QPoint *pos,
+    int *maxDistance) {
+  return new QList<int>(self->gapIndex(*pos, maxDistance));
+}
+
+//  bool QToolBarAreaLayoutInfo::insertGap(const QList<int> &path,
+//      QLayoutItem *item)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QToolBarAreaLayoutInfo9insertGapERK5QListIiEP11QLayoutItem(
+    QToolBarAreaLayoutInfo *self,
+    const QList<int> *path,
+    QLayoutItem *item) {
+  return self->insertGap(*path, item);
+}
+
 //  void QToolBarAreaLayoutInfo::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QToolBarAreaLayoutInfo5clearEv(
     QToolBarAreaLayoutInfo *self) {
   self->clear();
+}
+
+//  QRect QToolBarAreaLayoutInfo::itemRect(const QList<int> &path) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK22QToolBarAreaLayoutInfo8itemRectERK5QListIiE(
+    const QToolBarAreaLayoutInfo *self,
+    const QList<int> *path) {
+  return new QRect(self->itemRect(*path));
 }
 
 //  int QToolBarAreaLayoutInfo::distance(const QPoint &pos) const
@@ -455,6 +600,12 @@ int ritual_ZNK22QToolBarAreaLayoutInfo8distanceERK6QPoint(
 //  QToolBarAreaLayoutInfo::~QToolBarAreaLayoutInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QToolBarAreaLayoutInfoD1Ev(QToolBarAreaLayoutInfo *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of QToolBarAreaLayoutInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QToolBarAreaLayoutInfo__QList_int(QList<int> *self) {
   delete self;
 }
 

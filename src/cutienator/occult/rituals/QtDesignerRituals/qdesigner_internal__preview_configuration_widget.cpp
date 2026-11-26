@@ -943,6 +943,15 @@ const QMetaObject *ritual_ZNK18qdesigner_internal26PreviewConfigurationWidget10m
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::PreviewConfigurationWidget::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal26PreviewConfigurationWidget11qt_metacastEPKc(
+    qdesigner_internal::PreviewConfigurationWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString qdesigner_internal::PreviewConfigurationWidget::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT

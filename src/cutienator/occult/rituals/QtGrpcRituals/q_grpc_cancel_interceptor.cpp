@@ -7,3 +7,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QGrpcCancelInterceptorD1Ev(QGrpcCancelInterceptor *self) {
   delete self;
 }
+
+//  void QGrpcCancelInterceptor::onCancel(QGrpcInterceptionContext &context)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGrpcCancelInterceptor8onCancelER24QGrpcInterceptionContext(
+    QGrpcCancelInterceptor *self,
+    QGrpcInterceptionContext *context) {
+  self->onCancel(*context);
+}

@@ -21,6 +21,15 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 10, as local:shaderhelper.cpp:discardDebugMsgs
+inline void discardDebugMsgs(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    Q_UNUSED(type);
+    Q_UNUSED(context);
+    Q_UNUSED(msg);
+    // Used to discard warnings generated during shader test compilation
+}
+
 //  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 18, as _ZN12ShaderHelperC1EP7QObjectRK7QStringS4_S4_S4_
 inline ShaderHelper::ShaderHelper(QObject *parent,
                            const QString &vertexShader,
@@ -138,6 +147,26 @@ inline void ShaderHelper::initialize()
     m_initialized = true;
 }
 
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 130, as _ZN12ShaderHelper11testCompileEv
+inline bool ShaderHelper::testCompile()
+{
+    bool result = true;
+
+    // Discard warnings, we only need the result
+    QtMessageHandler handler = qInstallMessageHandler(discardDebugMsgs);
+    if (m_program)
+        delete m_program;
+    m_program = new QOpenGLShaderProgram();
+    if (!m_program->addShaderFromSourceFile(QOpenGLShader::Vertex, m_vertexShaderFile))
+        result = false;
+    if (!m_program->addShaderFromSourceFile(QOpenGLShader::Fragment, m_fragmentShaderFile))
+        result = false;
+
+    // Restore actual message handler
+    qInstallMessageHandler(handler);
+    return result;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 149, as _ZN12ShaderHelper4bindEv
 inline void ShaderHelper::bind()
 {
@@ -191,6 +220,239 @@ inline void ShaderHelper::setUniformValueArray(GLint uniform, const QVector4D *v
 {
     m_program->setUniformValueArray(uniform, values, count);
 }
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 194, as _ZN12ShaderHelper3MVPEv
+inline GLint ShaderHelper::MVP()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_mvpMatrixUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 201, as _ZN12ShaderHelper4viewEv
+inline GLint ShaderHelper::view()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_viewMatrixUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 208, as _ZN12ShaderHelper5modelEv
+inline GLint ShaderHelper::model()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_modelMatrixUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 215, as _ZN12ShaderHelper6nModelEv
+inline GLint ShaderHelper::nModel()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_invTransModelMatrixUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 222, as _ZN12ShaderHelper5depthEv
+inline GLint ShaderHelper::depth()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_depthMatrixUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 229, as _ZN12ShaderHelper6lightPEv
+inline GLint ShaderHelper::lightP()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_lightPositionUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 236, as _ZN12ShaderHelper6lightSEv
+inline GLint ShaderHelper::lightS()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_lightStrengthUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 243, as _ZN12ShaderHelper8ambientSEv
+inline GLint ShaderHelper::ambientS()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_ambientStrengthUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 250, as _ZN12ShaderHelper7shadowQEv
+inline GLint ShaderHelper::shadowQ()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_shadowQualityUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 257, as _ZN12ShaderHelper5colorEv
+inline GLint ShaderHelper::color()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_colorUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 264, as _ZN12ShaderHelper7textureEv
+inline GLint ShaderHelper::texture()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_textureUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 271, as _ZN12ShaderHelper6shadowEv
+inline GLint ShaderHelper::shadow()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_shadowUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 278, as _ZN12ShaderHelper11gradientMinEv
+inline GLint ShaderHelper::gradientMin()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_gradientMinUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 285, as _ZN12ShaderHelper14gradientHeightEv
+inline GLint ShaderHelper::gradientHeight()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_gradientHeightUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 292, as _ZN12ShaderHelper10lightColorEv
+inline GLint ShaderHelper::lightColor()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_lightColorUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 299, as _ZN12ShaderHelper18volumeSliceIndicesEv
+inline GLint ShaderHelper::volumeSliceIndices()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_volumeSliceIndicesUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 306, as _ZN12ShaderHelper10colorIndexEv
+inline GLint ShaderHelper::colorIndex()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_colorIndexUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 313, as _ZN12ShaderHelper29cameraPositionRelativeToModelEv
+inline GLint ShaderHelper::cameraPositionRelativeToModel()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_cameraPositionRelativeToModelUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 320, as _ZN12ShaderHelper9color8BitEv
+inline GLint ShaderHelper::color8Bit()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_color8BitUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 327, as _ZN12ShaderHelper17textureDimensionsEv
+inline GLint ShaderHelper::textureDimensions()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_textureDimensionsUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 334, as _ZN12ShaderHelper11sampleCountEv
+inline GLint ShaderHelper::sampleCount()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_sampleCountUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 341, as _ZN12ShaderHelper15alphaMultiplierEv
+inline GLint ShaderHelper::alphaMultiplier()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_alphaMultiplierUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 348, as _ZN12ShaderHelper15preserveOpacityEv
+inline GLint ShaderHelper::preserveOpacity()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_preserveOpacityUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 355, as _ZN12ShaderHelper9maxBoundsEv
+inline GLint ShaderHelper::maxBounds()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_maxBoundsUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 362, as _ZN12ShaderHelper9minBoundsEv
+inline GLint ShaderHelper::minBounds()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_minBoundsUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 369, as _ZN12ShaderHelper15sliceFrameWidthEv
+inline GLint ShaderHelper::sliceFrameWidth()
+{
+
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_sliceFrameWidthUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 377, as _ZN12ShaderHelper6posAttEv
+inline GLint ShaderHelper::posAtt()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_positionAttr;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 384, as _ZN12ShaderHelper5uvAttEv
+inline GLint ShaderHelper::uvAtt()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_uvAttr;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 391, as _ZN12ShaderHelper9normalAttEv
+inline GLint ShaderHelper::normalAtt()
+{
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_normalAttr;
+}
 //  -----------------------------------------------------------------------
 
 //  ShaderHelper::ShaderHelper(QObject *parent, const QString &vertexShader,
@@ -241,6 +503,12 @@ void ritual_ZN12ShaderHelper11setTexturesERK7QStringS2_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12ShaderHelper10initializeEv(ShaderHelper *self) {
   self->initialize();
+}
+
+//  bool ShaderHelper::testCompile()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12ShaderHelper11testCompileEv(ShaderHelper *self) {
+  return self->testCompile();
 }
 
 //  void ShaderHelper::bind()
@@ -319,4 +587,179 @@ void ritual_ZN12ShaderHelper20setUniformValueArrayEiPK9QVector4Di(
     const QVector4D *values,
     int count) {
   self->setUniformValueArray(uniform, values, count);
+}
+
+//  GLint ShaderHelper::MVP()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper3MVPEv(ShaderHelper *self) {
+  return self->MVP();
+}
+
+//  GLint ShaderHelper::view()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper4viewEv(ShaderHelper *self) {
+  return self->view();
+}
+
+//  GLint ShaderHelper::model()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper5modelEv(ShaderHelper *self) {
+  return self->model();
+}
+
+//  GLint ShaderHelper::nModel()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper6nModelEv(ShaderHelper *self) {
+  return self->nModel();
+}
+
+//  GLint ShaderHelper::depth()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper5depthEv(ShaderHelper *self) {
+  return self->depth();
+}
+
+//  GLint ShaderHelper::lightP()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper6lightPEv(ShaderHelper *self) {
+  return self->lightP();
+}
+
+//  GLint ShaderHelper::lightS()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper6lightSEv(ShaderHelper *self) {
+  return self->lightS();
+}
+
+//  GLint ShaderHelper::ambientS()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper8ambientSEv(ShaderHelper *self) {
+  return self->ambientS();
+}
+
+//  GLint ShaderHelper::shadowQ()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper7shadowQEv(ShaderHelper *self) {
+  return self->shadowQ();
+}
+
+//  GLint ShaderHelper::color()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper5colorEv(ShaderHelper *self) {
+  return self->color();
+}
+
+//  GLint ShaderHelper::texture()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper7textureEv(ShaderHelper *self) {
+  return self->texture();
+}
+
+//  GLint ShaderHelper::shadow()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper6shadowEv(ShaderHelper *self) {
+  return self->shadow();
+}
+
+//  GLint ShaderHelper::gradientMin()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper11gradientMinEv(ShaderHelper *self) {
+  return self->gradientMin();
+}
+
+//  GLint ShaderHelper::gradientHeight()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper14gradientHeightEv(ShaderHelper *self) {
+  return self->gradientHeight();
+}
+
+//  GLint ShaderHelper::lightColor()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper10lightColorEv(ShaderHelper *self) {
+  return self->lightColor();
+}
+
+//  GLint ShaderHelper::volumeSliceIndices()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper18volumeSliceIndicesEv(ShaderHelper *self) {
+  return self->volumeSliceIndices();
+}
+
+//  GLint ShaderHelper::colorIndex()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper10colorIndexEv(ShaderHelper *self) {
+  return self->colorIndex();
+}
+
+//  GLint ShaderHelper::cameraPositionRelativeToModel()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper29cameraPositionRelativeToModelEv(
+    ShaderHelper *self) {
+  return self->cameraPositionRelativeToModel();
+}
+
+//  GLint ShaderHelper::color8Bit()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper9color8BitEv(ShaderHelper *self) {
+  return self->color8Bit();
+}
+
+//  GLint ShaderHelper::textureDimensions()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper17textureDimensionsEv(ShaderHelper *self) {
+  return self->textureDimensions();
+}
+
+//  GLint ShaderHelper::sampleCount()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper11sampleCountEv(ShaderHelper *self) {
+  return self->sampleCount();
+}
+
+//  GLint ShaderHelper::alphaMultiplier()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper15alphaMultiplierEv(ShaderHelper *self) {
+  return self->alphaMultiplier();
+}
+
+//  GLint ShaderHelper::preserveOpacity()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper15preserveOpacityEv(ShaderHelper *self) {
+  return self->preserveOpacity();
+}
+
+//  GLint ShaderHelper::maxBounds()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper9maxBoundsEv(ShaderHelper *self) {
+  return self->maxBounds();
+}
+
+//  GLint ShaderHelper::minBounds()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper9minBoundsEv(ShaderHelper *self) {
+  return self->minBounds();
+}
+
+//  GLint ShaderHelper::sliceFrameWidth()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper15sliceFrameWidthEv(ShaderHelper *self) {
+  return self->sliceFrameWidth();
+}
+
+//  GLint ShaderHelper::posAtt()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper6posAttEv(ShaderHelper *self) {
+  return self->posAtt();
+}
+
+//  GLint ShaderHelper::uvAtt()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper5uvAttEv(ShaderHelper *self) {
+  return self->uvAtt();
+}
+
+//  GLint ShaderHelper::normalAtt()
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN12ShaderHelper9normalAttEv(ShaderHelper *self) {
+  return self->normalAtt();
 }

@@ -38,10 +38,44 @@ QCanvasConicalGradient *ritual_ZN22QCanvasConicalGradientC1ERKS_(
   return new QCanvasConicalGradient(*a0);
 }
 
+//  QCanvasConicalGradient &QCanvasConicalGradient::operator=(const
+//      QCanvasConicalGradient &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasConicalGradient *ritual_ZN22QCanvasConicalGradientaSERKS_(
+    QCanvasConicalGradient *self,
+    const QCanvasConicalGradient *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QCanvasConicalGradient::QCanvasConicalGradient(QCanvasConicalGradient
+//      &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasConicalGradient *ritual_ZN22QCanvasConicalGradientC1EOS_(
+    QCanvasConicalGradient *a0) {
+  return new QCanvasConicalGradient(std::move(*a0));
+}
+
+//  QCanvasConicalGradient
+//      &QCanvasConicalGradient::operator=(QCanvasConicalGradient &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasConicalGradient *ritual_ZN22QCanvasConicalGradientaSEOS_(
+    QCanvasConicalGradient *self,
+    QCanvasConicalGradient *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QCanvasConicalGradient::~QCanvasConicalGradient()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QCanvasConicalGradientD1Ev(QCanvasConicalGradient *self) {
   delete self;
+}
+
+//  void QCanvasConicalGradient::swap(QCanvasConicalGradient &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QCanvasConicalGradient4swapERS_(
+    QCanvasConicalGradient *self,
+    QCanvasConicalGradient *other) {
+  self->swap(*other);
 }
 
 //  QPointF QCanvasConicalGradient::centerPosition() const

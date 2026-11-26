@@ -13,6 +13,7 @@
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qtimezone.h>
 #include <QtCore/qdatetime.h>
+#include <QtCore/QFile>
 
 //  QExtendedInformation::QExtendedInformation()
 extern "C" Q_DECL_EXPORT
@@ -63,6 +64,13 @@ bool ritual_ZNK20QExtendedInformation15isCaseSensitiveEv(
 }
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
+//  QFile::Permissions QExtendedInformation::permissions() const
+extern "C" Q_DECL_EXPORT
+QFile::Permissions *ritual_ZNK20QExtendedInformation11permissionsEv(
+    const QExtendedInformation *self) {
+  return new QFile::Permissions(self->permissions());
+}
+
 //  Type QExtendedInformation::type() const
 extern "C" Q_DECL_EXPORT
 QExtendedInformation::Type ritual_ZNK20QExtendedInformation4typeEv(
@@ -110,6 +118,13 @@ qint64 ritual_ZNK20QExtendedInformation4sizeEv(
 //  QExtendedInformation::~QExtendedInformation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QExtendedInformationD1Ev(QExtendedInformation *self) {
+  delete self;
+}
+
+//  a QFile::Permissions a ritual of QExtendedInformation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QExtendedInformation__QFile_Permissions(
+    QFile::Permissions *self) {
   delete self;
 }
 

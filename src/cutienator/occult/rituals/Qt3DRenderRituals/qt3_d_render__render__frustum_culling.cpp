@@ -40,6 +40,19 @@ public:
   }
 };
 
+//  Qt3DRender::Render::FrustumCulling::FrustumCulling()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::FrustumCulling *ritual_ZN10Qt3DRender6Render14FrustumCullingC1Ev() {
+  return new CuteQt3DRender_Render_FrustumCulling();
+}
+
+//  Qt3DRender::Render::FrustumCulling::~FrustumCulling()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render14FrustumCullingD1Ev(
+    Qt3DRender::Render::FrustumCulling *self) {
+  delete self;
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_FrustumCulling, for
 //      the function named by the key
 extern "C" Q_DECL_EXPORT

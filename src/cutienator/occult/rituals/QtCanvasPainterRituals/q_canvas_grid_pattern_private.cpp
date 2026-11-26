@@ -5,12 +5,10 @@
 #include <QtCanvasPainter/QtCanvasPainter>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvasgridpattern_p.h>
+#include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcpaint_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasgridpattern.h>
 #include <QtCanvasPainter/qcanvasbrush.h>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcpaint_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasgridpattern.h>
@@ -25,6 +23,27 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasgridpattern.cpp, line 427, as local:qcanvasgridpattern.cpp:DECONST
+#define DECONST(d) const_cast<QCanvasGridPatternPrivate *>(d)
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasgridpattern.cpp, line 465, as _ZN25QCanvasGridPatternPrivate5cloneEv
+inline QCanvasBrushPrivate *QCanvasGridPatternPrivate::clone()
+{
+    return new QCanvasGridPatternPrivate(*this);
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasgridpattern.cpp, line 429, as _ZNK25QCanvasGridPatternPrivate11createPaintEP14QCanvasPainter
+inline QCPaint QCanvasGridPatternPrivate::createPaint(QCanvasPainter *painter) const
+{
+    auto *d = this;
+    Q_UNUSED(painter);
+    if (d->changed) {
+        createGridPattern();
+        DECONST(d)->changed = false;
+    }
+    return d->paint;
+}
 
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvasgridpattern.cpp, line 157, as _ZNK25QCanvasGridPatternPrivate6equalsERK19QCanvasBrushPrivate
 inline bool QCanvasGridPatternPrivate::equals(const QCanvasBrushPrivate &other) const noexcept
@@ -46,10 +65,30 @@ inline bool QCanvasGridPatternPrivate::equals(const QCanvasBrushPrivate &other) 
     return true;
 }
 
-//  from ../qtcanvaspainter/src/canvaspainter/qcanvasgridpattern.cpp, line 465, as _ZN25QCanvasGridPatternPrivate5cloneEv
-inline QCanvasBrushPrivate *QCanvasGridPatternPrivate::clone()
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasgridpattern.cpp, line 440, as _ZNK25QCanvasGridPatternPrivate17createGridPatternEv
+inline void QCanvasGridPatternPrivate::createGridPattern() const
 {
-    return new QCanvasGridPatternPrivate(*this);
+    auto *d = this;
+    QCPaint &p = DECONST(d)->paint;
+    p.brushType = BrushGrid;
+    p.transform = QTransform::fromTranslate(d->x, d->y);
+    if (!qFuzzyIsNull(d->angle))
+        p.transform = p.transform.rotateRadians(d->angle);
+
+    p.extent[0] = float(d->width);
+    p.extent[1] = float(d->height);
+
+    p.feather = float(d->feather);
+    p.radius = float(d->lineWidth);
+
+    p.innerColor = { d->lineColor.redF(),
+                     d->lineColor.greenF(),
+                     d->lineColor.blueF(),
+                     d->lineColor.alphaF() };
+    p.outerColor = { d->backgroundColor.redF(),
+                     d->backgroundColor.greenF(),
+                     d->backgroundColor.blueF(),
+                     d->backgroundColor.alphaF() };
 }
 //  -----------------------------------------------------------------------
 
@@ -61,7 +100,7 @@ typedef const QCPaint * (*CuteQCanvasGridPatternPrivateCall1)(const void *, QCan
 class CuteQCanvasGridPatternPrivate : public QCanvasGridPatternPrivate {
 public:
   using QCanvasGridPatternPrivate::QCanvasGridPatternPrivate;
-  CuteQCanvasGridPatternPrivate(const QCanvasGridPatternPrivate &other) : QCanvasGridPatternPrivate(other) {}
+  CuteQCanvasGridPatternPrivate(const QCanvasGridPatternPrivate & other) : QCanvasGridPatternPrivate(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -107,6 +146,24 @@ QCanvasBrushPrivate *ritual_ZN25QCanvasGridPatternPrivate5cloneEv(
   return self->clone();
 }
 
+//  bool QCanvasGridPatternPrivate::equals(const QCanvasBrushPrivate &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK25QCanvasGridPatternPrivate6equalsERK19QCanvasBrushPrivate(
+    const QCanvasGridPatternPrivate *self,
+    const QCanvasBrushPrivate *other) {
+  return self->equals(*other);
+}
+
+//  QCPaint QCanvasGridPatternPrivate::createPaint(QCanvasPainter *painter)
+//      const
+extern "C" Q_DECL_EXPORT
+QCPaint *ritual_ZNK25QCanvasGridPatternPrivate11createPaintEP14QCanvasPainter(
+    const QCanvasGridPatternPrivate *self,
+    QCanvasPainter *painter) {
+  return new QCPaint(self->createPaint(painter));
+}
+
 //  QCanvasGridPatternPrivate
 //      *QCanvasGridPatternPrivate::get(QCanvasGridPattern *brush)
 extern "C" Q_DECL_EXPORT
@@ -141,6 +198,13 @@ QCanvasGridPattern *ritual_ZN25QCanvasGridPatternPrivate18getFromCanvasBrushERK1
           *brush));
 }
 
+//  void QCanvasGridPatternPrivate::createGridPattern() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK25QCanvasGridPatternPrivate17createGridPatternEv(
+    const QCanvasGridPatternPrivate *self) {
+  self->createGridPattern();
+}
+
 //  QCanvasGridPatternPrivate::~QCanvasGridPatternPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QCanvasGridPatternPrivateD1Ev(
@@ -156,4 +220,20 @@ bool ritual_take_QCanvasGridPatternPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQCanvasGridPatternPrivate *>(self)->take(key, call);
+}
+
+//  QCanvasBrushPrivate *QCanvasGridPatternPrivate::clone()
+extern "C" Q_DECL_EXPORT
+QCanvasBrushPrivate *ritual_own_ZN25QCanvasGridPatternPrivate5cloneEv(
+    QCanvasGridPatternPrivate *self) {
+  return self->QCanvasGridPatternPrivate::clone();
+}
+
+//  QCPaint QCanvasGridPatternPrivate::createPaint(QCanvasPainter *painter)
+//      const
+extern "C" Q_DECL_EXPORT
+QCPaint *ritual_own_ZNK25QCanvasGridPatternPrivate11createPaintEP14QCanvasPainter(
+    const QCanvasGridPatternPrivate *self,
+    QCanvasPainter *painter) {
+  return new QCPaint(self->QCanvasGridPatternPrivate::createPaint(painter));
 }

@@ -10,6 +10,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QMap>
+#include <QtCore/QString>
 
 //  A QtResourceModel that Python can take functions over in. Every QtResourceModel
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,24 @@ const QMetaObject *ritual_ZNK15QtResourceModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtResourceModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QtResourceModel11qt_metacastEPKc(
+    QtResourceModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtResourceModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QtResourceModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtResourceModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtResourceModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QtResourceModel2trEPKcS1_i(
@@ -290,6 +310,13 @@ void ritual_ZN15QtResourceModel6reloadEPiP7QString(
   self->reload(errorCount, errorMessages);
 }
 
+//  QMap<QString, QString> QtResourceModel::contents() const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QString> *ritual_ZNK15QtResourceModel8contentsEv(
+    const QtResourceModel *self) {
+  return new QMap<QString, QString>(self->contents());
+}
+
 //  QString QtResourceModel::qrcPath(const QString &file) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QtResourceModel7qrcPathERK7QString(
@@ -330,6 +357,38 @@ bool ritual_ZN15QtResourceModel16isWatcherEnabledERK7QString(
   return self->isWatcherEnabled(*path);
 }
 
+//  void QtResourceModel::resourceSetActivated(QtResourceSet *resourceSet,
+//      bool resourceSetChanged)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QtResourceModel20resourceSetActivatedEP13QtResourceSetb(
+    QtResourceModel *self,
+    QtResourceSet *resourceSet,
+    bool resourceSetChanged) {
+  self->resourceSetActivated(resourceSet, resourceSetChanged);
+}
+
+//  void QtResourceModel::qrcFileModifiedExternally(const QString &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QtResourceModel25qrcFileModifiedExternallyERK7QString(
+    QtResourceModel *self,
+    const QString *path) {
+  self->qrcFileModifiedExternally(*path);
+}
+
+//  QtResourceModelPrivate *QtResourceModel::d_func()
+extern "C" Q_DECL_EXPORT
+QtResourceModelPrivate *ritual_ZN15QtResourceModel6d_funcEv(
+    QtResourceModel *self) {
+  return self->d_func();
+}
+
+//  const QtResourceModelPrivate *QtResourceModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QtResourceModelPrivate *ritual_ZNK15QtResourceModel6d_funcEv(
+    const QtResourceModel *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQtResourceModel, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -338,4 +397,11 @@ bool ritual_take_QtResourceModel(
     const char *key,
     void *call) {
   return static_cast<CuteQtResourceModel *>(self)->take(key, call);
+}
+
+//  a QMap<QString, QString> a ritual of QtResourceModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtResourceModel__QMap_QString_QString(
+    QMap<QString, QString> *self) {
+  delete self;
 }

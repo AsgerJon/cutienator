@@ -17,6 +17,15 @@ QOpcUaBrowseRequest *ritual_ZN19QOpcUaBrowseRequestC1ERKS_(
   return new QOpcUaBrowseRequest(*other);
 }
 
+//  QOpcUaBrowseRequest &QOpcUaBrowseRequest::operator=(const
+//      QOpcUaBrowseRequest &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaBrowseRequest *ritual_ZN19QOpcUaBrowseRequestaSERKS_(
+    QOpcUaBrowseRequest *self,
+    const QOpcUaBrowseRequest *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QOpcUaBrowseRequest::~QOpcUaBrowseRequest()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QOpcUaBrowseRequestD1Ev(QOpcUaBrowseRequest *self) {
@@ -29,6 +38,15 @@ extern "C" Q_DECL_EXPORT
 QOpcUaBrowseRequest::BrowseDirection ritual_ZNK19QOpcUaBrowseRequest15browseDirectionEv(
     const QOpcUaBrowseRequest *self) {
   return self->browseDirection();
+}
+
+//  void QOpcUaBrowseRequest::setBrowseDirection(const
+//      QOpcUaBrowseRequest::BrowseDirection &browseDirection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QOpcUaBrowseRequest18setBrowseDirectionERKNS_15BrowseDirectionE(
+    QOpcUaBrowseRequest *self,
+    const QOpcUaBrowseRequest::BrowseDirection *browseDirection) {
+  self->setBrowseDirection(*browseDirection);
 }
 
 //  QString QOpcUaBrowseRequest::referenceTypeId() const
@@ -76,4 +94,13 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK19QOpcUaBrowseRequest13nodeClassMaskEv(
     const QOpcUaBrowseRequest *self) {
   return static_cast<int>(self->nodeClassMask().toInt());
+}
+
+//  void QOpcUaBrowseRequest::setNodeClassMask(const QOpcUa::NodeClasses
+//      &nodeClassMask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QOpcUaBrowseRequest16setNodeClassMaskERK6QFlagsIN6QOpcUa9NodeClassEE(
+    QOpcUaBrowseRequest *self,
+    const QOpcUa::NodeClasses *nodeClassMask) {
+  self->setNodeClassMask(*nodeClassMask);
 }

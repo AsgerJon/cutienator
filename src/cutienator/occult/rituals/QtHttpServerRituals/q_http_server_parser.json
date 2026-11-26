@@ -9,6 +9,9 @@
       "address", "address", "unsigned short", "address", "unsigned short",
       "address"
     ],
+    "ritual_ZN17QHttpServerParser16parseRequestLineE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN17QHttpServerParser12sendContinueEP9QIODevice": [
       "long long", "address", "address"
     ],
@@ -20,6 +23,9 @@
     ],
     "ritual_ZN17QHttpServerParser12getChunkSizeEP9QIODevicePx": [
       "long long", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpServerParser9sendErrorEP9QIODeviceN20QHttpServerResponder10StatusCodeE": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_ZN17QHttpServerParser16isUrlSizeAllowedE14QByteArrayView": [
       "bool", "address", "address"

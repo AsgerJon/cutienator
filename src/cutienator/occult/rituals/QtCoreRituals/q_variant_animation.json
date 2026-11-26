@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK17QVariantAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QVariantAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QVariantAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QVariantAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,14 +30,30 @@
     "ritual_ZN17QVariantAnimation13setKeyValueAtEdRK8QVariant": [
       "nothing", "address", "double", "address"
     ],
+    "ritual_ZNK17QVariantAnimation9keyValuesEv": ["address", "address"],
+    "ritual_ZN17QVariantAnimation12setKeyValuesERK5QListISt4pairId8QVariantEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QVariantAnimation12currentValueEv": ["address", "address"],
     "ritual_ZNK17QVariantAnimation8durationEv": ["int", "address"],
     "ritual_ZN17QVariantAnimation11setDurationEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN17QVariantAnimation16bindableDurationEv": [
+      "address", "address"
+    ],
     "ritual_ZNK17QVariantAnimation11easingCurveEv": ["address", "address"],
     "ritual_ZN17QVariantAnimation14setEasingCurveERK12QEasingCurve": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN17QVariantAnimation19bindableEasingCurveEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QVariantAnimation12valueChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QVariantAnimationC1ER24QVariantAnimationPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN17QVariantAnimation5eventEP6QEvent": [
       "bool", "address", "address"
@@ -47,6 +69,9 @@
     ],
     "ritual_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d": [
       "address", "address", "address", "address", "double"
+    ],
+    "ritual_ZN17QVariantAnimation20registerInterpolatorEPF8QVariantPKvS2_dEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN17QVariantAnimation6d_funcEv": ["address", "address"],
     "ritual_ZNK17QVariantAnimation6d_funcEv": ["address", "address"],
@@ -66,6 +91,13 @@
     ],
     "ritual_own_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d": [
       "address", "address", "address", "address", "double"
+    ],
+    "ritual_drop_QVariantAnimation__QVariantAnimation_KeyValues": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QVariantAnimation__QBindable_int": ["nothing", "address"],
+    "ritual_drop_QVariantAnimation__QBindable_QEasingCurve": [
+      "nothing", "address"
     ]
   }
 }

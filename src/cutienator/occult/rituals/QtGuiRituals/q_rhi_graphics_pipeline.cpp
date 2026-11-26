@@ -134,6 +134,16 @@ void ritual_ZN20QRhiGraphicsPipeline12setFrontFaceENS_9FrontFaceE(
   self->setFrontFace(f);
 }
 
+//  void
+//      QRhiGraphicsPipeline::setTargetBlends(std::initializer_list<TargetBle
+//      nd> list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRhiGraphicsPipeline15setTargetBlendsESt16initializer_listINS_11TargetBlendEE(
+    QRhiGraphicsPipeline *self,
+    const std::initializer_list<QRhiGraphicsPipeline::TargetBlend> *list) {
+  self->setTargetBlends(*list);
+}
+
 //  const TargetBlend *QRhiGraphicsPipeline::cbeginTargetBlends() const
 extern "C" Q_DECL_EXPORT
 const QRhiGraphicsPipeline::TargetBlend *ritual_ZNK20QRhiGraphicsPipeline18cbeginTargetBlendsEv(
@@ -359,6 +369,15 @@ void ritual_ZN20QRhiGraphicsPipeline23setSlopeScaledDepthBiasEf(
   self->setSlopeScaledDepthBias(bias);
 }
 
+//  void QRhiGraphicsPipeline::setShaderStages(std::initializer_list<QRhiShad
+//      erStage> list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRhiGraphicsPipeline15setShaderStagesESt16initializer_listI15QRhiShaderStageE(
+    QRhiGraphicsPipeline *self,
+    const std::initializer_list<QRhiShaderStage> *list) {
+  self->setShaderStages(*list);
+}
+
 //  const QRhiShaderStage *QRhiGraphicsPipeline::cbeginShaderStages() const
 extern "C" Q_DECL_EXPORT
 const QRhiShaderStage *ritual_ZNK20QRhiGraphicsPipeline18cbeginShaderStagesEv(
@@ -489,6 +508,13 @@ void ritual_ZN20QRhiGraphicsPipeline17setMultiViewCountEi(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QRhiGraphicsPipeline6createEv(QRhiGraphicsPipeline *self) {
   return self->create();
+}
+
+//  QRhiGraphicsPipeline::QRhiGraphicsPipeline(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QRhiGraphicsPipeline *ritual_ZN20QRhiGraphicsPipelineC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQRhiGraphicsPipeline(rhi);
 }
 
 //  a Python function taken by a CuteQRhiGraphicsPipeline, for the function

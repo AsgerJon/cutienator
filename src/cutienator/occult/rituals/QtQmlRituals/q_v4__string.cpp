@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4string_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qv4string_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 4. Kept
+//  as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -91,6 +92,19 @@ unsigned int ritual_ZNK3QV46String9hashValueEv(const QV4::String *self) {
   return self->hashValue();
 }
 
+//  uint QV4::String::toUInt(bool *ok) const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK3QV46String6toUIntEPb(const QV4::String *self, bool *ok) {
+  return self->toUInt(ok);
+}
+
+//  void QV4::String::createPropertyKeyImpl() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK3QV46String21createPropertyKeyImplEv(
+    const QV4::String *self) {
+  self->createPropertyKeyImpl();
+}
+
 //  uint QV4::String::createHashValue(const QChar *ch, int length, uint
 //      *subtype)
 extern "C" Q_DECL_EXPORT
@@ -128,4 +142,65 @@ uint ritual_ZN3QV46String15createHashValueEPKciPj(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK3QV46String15startsWithUpperEv(const QV4::String *self) {
   return self->startsWithUpper();
+}
+
+//  bool QV4::String::virtualIsEqualTo(Managed *that, Managed *o)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN3QV46String16virtualIsEqualToEPNS_7ManagedES2_(
+    QV4::Managed *that,
+    QV4::Managed *o) {
+  return QV4::String::virtualIsEqualTo(that, o);
+}
+
+//  qint64 QV4::String::virtualGetLength(const Managed *m)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN3QV46String16virtualGetLengthEPKNS_7ManagedE(
+    const QV4::Managed *m) {
+  return QV4::String::virtualGetLength(m);
+}
+
+//  static uint QV4::String::calculateHashValue<QV4::String::Default,
+//      QChar>(const QChar *ch, const QChar *end, uint *subtype)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN3QV46String18calculateHashValueILNS0_15IndicesBehaviorE0E5QCharEEjPKT0_S6_Pj(
+    const QChar *ch,
+    const QChar *end,
+    uint *subtype) {
+  return QV4::String::calculateHashValue<QV4::String::Default, QChar>(
+      ch, end, subtype);
+}
+
+//  static uint QV4::String::calculateHashValue<QV4::String::Default,
+//      char>(const char *ch, const char *end, uint *subtype)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN3QV46String18calculateHashValueILNS0_15IndicesBehaviorE0EcEEjPKT0_S5_Pj(
+    const char *ch,
+    const char *end,
+    uint *subtype) {
+  return QV4::String::calculateHashValue<QV4::String::Default, char>(
+      ch, end, subtype);
+}
+
+//  static uint
+//      QV4::String::calculateHashValue<QV4::String::DisallowArrayIndex,
+//      QChar>(const QChar *ch, const QChar *end, uint *subtype)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN3QV46String18calculateHashValueILNS0_15IndicesBehaviorE1E5QCharEEjPKT0_S6_Pj(
+    const QChar *ch,
+    const QChar *end,
+    uint *subtype) {
+  return QV4::String::calculateHashValue<QV4::String::DisallowArrayIndex, QChar>(
+      ch, end, subtype);
+}
+
+//  static uint
+//      QV4::String::calculateHashValue<QV4::String::DisallowArrayIndex,
+//      char>(const char *ch, const char *end, uint *subtype)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN3QV46String18calculateHashValueILNS0_15IndicesBehaviorE1EcEEjPKT0_S5_Pj(
+    const char *ch,
+    const char *end,
+    uint *subtype) {
+  return QV4::String::calculateHashValue<QV4::String::DisallowArrayIndex, char>(
+      ch, end, subtype);
 }

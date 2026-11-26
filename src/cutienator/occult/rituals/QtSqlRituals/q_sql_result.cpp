@@ -26,6 +26,7 @@ struct OwnQSqlResult : QSqlResult {
   using QSqlResult::fetchPrevious;
   using QSqlResult::record;
   using QSqlResult::lastInsertId;
+  using QSqlResult::virtual_hook;
   using QSqlResult::execBatch;
   using QSqlResult::detachFromResultSet;
   using QSqlResult::setNumericalPrecisionPolicy;
@@ -59,14 +60,15 @@ typedef int (*CuteQSqlResultCall20)(const void *, int *);
 typedef int (*CuteQSqlResultCall21)(const void *, int *);
 typedef const QSqlRecord * (*CuteQSqlResultCall22)(const void *, int *);
 typedef const QVariant * (*CuteQSqlResultCall23)(const void *, int *);
-typedef bool (*CuteQSqlResultCall24)(const void *, bool, int *);
-typedef void (*CuteQSqlResultCall25)(const void *, int *);
-typedef void (*CuteQSqlResultCall26)(const void *, int, int *);
-typedef bool (*CuteQSqlResultCall27)(const void *, int *);
+typedef void (*CuteQSqlResultCall24)(const void *, int, void *, int *);
+typedef bool (*CuteQSqlResultCall25)(const void *, bool, int *);
+typedef void (*CuteQSqlResultCall26)(const void *, int *);
+typedef void (*CuteQSqlResultCall27)(const void *, int, int *);
+typedef bool (*CuteQSqlResultCall28)(const void *, int *);
 class CuteQSqlResult : public QSqlResult {
 public:
   using QSqlResult::QSqlResult;
-  void *taken[28] = {};
+  void *taken[29] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK10QSqlResult6handleEv")) {
@@ -165,20 +167,24 @@ public:
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSqlResult9execBatchEb")) {
+    if (!std::strcmp(key, "_ZN10QSqlResult12virtual_hookEiPv")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSqlResult19detachFromResultSetEv")) {
+    if (!std::strcmp(key, "_ZN10QSqlResult9execBatchEb")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSqlResult27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE")) {
+    if (!std::strcmp(key, "_ZN10QSqlResult19detachFromResultSetEv")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSqlResult10nextResultEv")) {
+    if (!std::strcmp(key, "_ZN10QSqlResult27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE")) {
       taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN10QSqlResult10nextResultEv")) {
+      taken[28] = call;
       return true;
     }
     return false;
@@ -456,11 +462,22 @@ public:
     return QSqlResult::lastInsertId();
   }
 
-  //  bool QSqlResult::execBatch(bool arrayBind)
-  bool execBatch(bool arrayBind) override {
+  //  void QSqlResult::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
     if (taken[24]) {
       int handled = 0;
       CuteQSqlResultCall24 call = reinterpret_cast<CuteQSqlResultCall24>(taken[24]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QSqlResult::virtual_hook(id, data);
+  }
+
+  //  bool QSqlResult::execBatch(bool arrayBind)
+  bool execBatch(bool arrayBind) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQSqlResultCall25 call = reinterpret_cast<CuteQSqlResultCall25>(taken[25]);
       bool given = call(this, arrayBind, &handled);
       if (handled) return given;
     }
@@ -469,9 +486,9 @@ public:
 
   //  void QSqlResult::detachFromResultSet()
   void detachFromResultSet() override {
-    if (taken[25]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQSqlResultCall25 call = reinterpret_cast<CuteQSqlResultCall25>(taken[25]);
+      CuteQSqlResultCall26 call = reinterpret_cast<CuteQSqlResultCall26>(taken[26]);
       call(this, &handled);
       if (handled) return;
     }
@@ -482,9 +499,9 @@ public:
   //      Policy policy)
   void setNumericalPrecisionPolicy(
       QSql::NumericalPrecisionPolicy policy) override {
-    if (taken[26]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQSqlResultCall26 call = reinterpret_cast<CuteQSqlResultCall26>(taken[26]);
+      CuteQSqlResultCall27 call = reinterpret_cast<CuteQSqlResultCall27>(taken[27]);
       call(this, static_cast<int>(policy), &handled);
       if (handled) return;
     }
@@ -493,9 +510,9 @@ public:
 
   //  bool QSqlResult::nextResult()
   bool nextResult() override {
-    if (taken[27]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQSqlResultCall27 call = reinterpret_cast<CuteQSqlResultCall27>(taken[27]);
+      CuteQSqlResultCall28 call = reinterpret_cast<CuteQSqlResultCall28>(taken[28]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -526,6 +543,19 @@ void ritual_ZN10QSqlResultD1Ev(QSqlResult *self) {
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK10QSqlResult6handleEv(const QSqlResult *self) {
   return new QVariant(self->handle());
+}
+
+//  QSqlResult::QSqlResult(const QSqlDriver *db)
+extern "C" Q_DECL_EXPORT
+QSqlResult *ritual_ZN10QSqlResultC1EPK10QSqlDriver(const QSqlDriver *db) {
+  return new CuteQSqlResult(db);
+}
+
+//  QSqlResult::QSqlResult(QSqlResultPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QSqlResult *ritual_ZN10QSqlResultC1ER17QSqlResultPrivate(
+    QSqlResultPrivate *dd) {
+  return new CuteQSqlResult(*dd);
 }
 
 //  int QSqlResult::at() const
@@ -713,6 +743,14 @@ int ritual_ZNK10QSqlResult15boundValueCountEv(const QSqlResult *self) {
   return self->boundValueCount();
 }
 
+//  QVariantList &QSqlResult::boundValues(Qt::Disambiguated_t a0)
+extern "C" Q_DECL_EXPORT
+QVariantList *ritual_ZN10QSqlResult11boundValuesEN2Qt15Disambiguated_tE(
+    QSqlResult *self,
+    const Qt::Disambiguated_t *a0) {
+  return &(self->boundValues(*a0));
+}
+
 //  QVariantList QSqlResult::boundValues(Qt::Disambiguated_t a0) const
 extern "C" Q_DECL_EXPORT
 QList<QVariant> *ritual_ZNK10QSqlResult11boundValuesEN2Qt15Disambiguated_tE(
@@ -833,6 +871,15 @@ QSqlRecord *ritual_ZNK10QSqlResult6recordEv(const QSqlResult *self) {
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK10QSqlResult12lastInsertIdEv(const QSqlResult *self) {
   return new QVariant(self->lastInsertId());
+}
+
+//  void QSqlResult::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSqlResult12virtual_hookEiPv(
+    QSqlResult *self,
+    int id,
+    void *data) {
+  self->virtual_hook(id, data);
 }
 
 //  bool QSqlResult::execBatch(bool arrayBind)
@@ -1023,6 +1070,15 @@ QVariant *ritual_own_ZNK10QSqlResult12lastInsertIdEv(
     const QSqlResult *self) {
   return new QVariant(
       static_cast<const OwnQSqlResult *>(self)->OwnQSqlResult::lastInsertId());
+}
+
+//  void QSqlResult::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN10QSqlResult12virtual_hookEiPv(
+    QSqlResult *self,
+    int id,
+    void *data) {
+  static_cast<OwnQSqlResult *>(self)->OwnQSqlResult::virtual_hook(id, data);
 }
 
 //  bool QSqlResult::execBatch(bool arrayBind)

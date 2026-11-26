@@ -7,7 +7,11 @@
 #include <Qt3DInput/6.12.0/Qt3DInput/private/qgenericinputdevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A Qt3DInput::QGenericInputDevice that Python can take functions over in. Every Qt3DInput::QGenericInputDevice
@@ -250,6 +254,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput19QGenericInputDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QGenericInputDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput19QGenericInputDevice11qt_metacastEPKc(
+    Qt3DInput::QGenericInputDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QGenericInputDevice::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput19QGenericInputDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QGenericInputDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QGenericInputDevice::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -258,6 +281,60 @@ QString *ritual_ZN9Qt3DInput19QGenericInputDevice2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QGenericInputDevice::tr(s, c, n));
+}
+
+//  Qt3DInput::QGenericInputDevice::QGenericInputDevice(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QGenericInputDevice *ritual_ZN9Qt3DInput19QGenericInputDeviceC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QGenericInputDevice(parent);
+}
+
+//  QVariantMap Qt3DInput::QGenericInputDevice::axesMap() const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVariant> *ritual_ZNK9Qt3DInput19QGenericInputDevice7axesMapEv(
+    const Qt3DInput::QGenericInputDevice *self) {
+  return new QMap<QString, QVariant>(self->axesMap());
+}
+
+//  void Qt3DInput::QGenericInputDevice::setAxesMap(const QVariantMap
+//      &axesMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput19QGenericInputDevice10setAxesMapERK4QMapI7QString8QVariantE(
+    Qt3DInput::QGenericInputDevice *self,
+    const QMap<QString, QVariant> *axesMap) {
+  self->setAxesMap(*axesMap);
+}
+
+//  QVariantMap Qt3DInput::QGenericInputDevice::buttonsMap() const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVariant> *ritual_ZNK9Qt3DInput19QGenericInputDevice10buttonsMapEv(
+    const Qt3DInput::QGenericInputDevice *self) {
+  return new QMap<QString, QVariant>(self->buttonsMap());
+}
+
+//  void Qt3DInput::QGenericInputDevice::setButtonsMap(const QVariantMap
+//      &buttonsMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput19QGenericInputDevice13setButtonsMapERK4QMapI7QString8QVariantE(
+    Qt3DInput::QGenericInputDevice *self,
+    const QMap<QString, QVariant> *buttonsMap) {
+  self->setButtonsMap(*buttonsMap);
+}
+
+//  void Qt3DInput::QGenericInputDevice::axesMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput19QGenericInputDevice14axesMapChangedEv(
+    Qt3DInput::QGenericInputDevice *self) {
+  self->axesMapChanged();
+}
+
+//  void Qt3DInput::QGenericInputDevice::buttonsMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput19QGenericInputDevice17buttonsMapChangedEv(
+    Qt3DInput::QGenericInputDevice *self) {
+  self->buttonsMapChanged();
 }
 
 //  a Python function taken by a CuteQt3DInput_QGenericInputDevice, for the

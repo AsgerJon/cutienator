@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGrpc/6.12.0/QtGrpc/private/qgrpcinterceptorchain_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QSpan>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGrpc/private/qgrpcinterceptorchain_p.h>
 #include <QtGrpc/private/qtgrpclogging_p.h>
@@ -24,6 +25,27 @@ inline void QGrpcInterceptorChainPrivate::clear()
     m_combinedCapabilities = {};
     m_interceptors.clear();
 }
+
+//  from ../qtgrpc/src/grpc/qgrpcinterceptorchain.cpp, line 16, as _ZN28QGrpcInterceptorChainPrivate3addEPvPFvS0_E5QSpanIKN13QtGrpcPrivate28InterceptorCapabilityBindingELm18446744073709551615EE
+inline bool QGrpcInterceptorChainPrivate::add(void *interceptor, DeleterFn deleter,
+                                       QSpan<const QtGrpcPrivate::InterceptorCapabilityBinding>
+                                           bindings)
+{
+    Q_ASSERT(interceptor);
+    Q_ASSERT(!bindings.empty());
+
+    // Entry takes ownership with RAII semantics.
+    Entry e{
+        interceptor,
+        deleter,
+        { bindings.cbegin(), bindings.cend() }
+    };
+
+    m_combinedCapabilities |= e.capabilities;
+    m_interceptors.push_back(std::move(e));
+
+    return true;
+}
 //  -----------------------------------------------------------------------
 
 //  void QGrpcInterceptorChainPrivate::clear()
@@ -31,6 +53,21 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN28QGrpcInterceptorChainPrivate5clearEv(
     QGrpcInterceptorChainPrivate *self) {
   self->clear();
+}
+
+//  bool QGrpcInterceptorChainPrivate::add(void *interceptor, DeleterFn
+//      deleter, QSpan<const QtGrpcPrivate::InterceptorCapabilityBinding>
+//      bindings)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN28QGrpcInterceptorChainPrivate3addEPvPFvS0_E5QSpanIKN13QtGrpcPrivate28InterceptorCapabilityBindingELm18446744073709551615EE(
+    QGrpcInterceptorChainPrivate *self,
+    void *interceptor,
+    void *deleter,
+    const QSpan<const QtGrpcPrivate::InterceptorCapabilityBinding> *bindings) {
+  return self->add(
+      interceptor,
+      reinterpret_cast<QGrpcInterceptorChainPrivate::DeleterFn>(deleter),
+      *bindings);
 }
 
 //  bool

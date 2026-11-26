@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qpdf_p.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtGui/6.12.0/QtGui/private/qpdf_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand: 'ritual_ZN17QPdfEnginePrivate7xprintfEPKcz'.
+//  Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if !defined(QT_NO_PDF)
@@ -29,10 +30,11 @@
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQPdfEnginePrivateCall0)(const void *, int *);
 typedef void * (*CuteQPdfEnginePrivateCall1)(const void *, int *);
+typedef void * (*CuteQPdfEnginePrivateCall2)(const void *, int *);
 class CuteQPdfEnginePrivate : public QPdfEnginePrivate {
 public:
   using QPdfEnginePrivate::QPdfEnginePrivate;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN19QPaintEnginePrivate18systemStateChangedEv")) {
@@ -41,6 +43,10 @@ public:
     }
     if (!std::strcmp(key, "_ZN19QPaintEnginePrivate15aggregateEngineEv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN19QPaintEnginePrivate12nativeHandleEv")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -66,6 +72,17 @@ public:
       if (handled) return static_cast<QPaintEngine *>(given);
     }
     return QPaintEnginePrivate::aggregateEngine();
+  }
+
+  //  Qt::HANDLE QPaintEnginePrivate::nativeHandle()
+  Qt::HANDLE nativeHandle() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQPdfEnginePrivateCall2 call = reinterpret_cast<CuteQPdfEnginePrivateCall2>(taken[2]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<Qt::HANDLE>(given);
+    }
+    return QPaintEnginePrivate::nativeHandle();
   }
 };
 
@@ -210,6 +227,25 @@ int ritual_ZN17QPdfEnginePrivate28generateRadialGradientShaderEPK15QRadialGradie
     const QTransform *matrix,
     bool alpha) {
   return self->generateRadialGradientShader(gradient, *matrix, alpha);
+}
+
+//  ShadingFunctionResult QPdfEnginePrivate::createShadingFunction(const
+//      QGradient *gradient, int from, int to, bool reflect, bool alpha)
+extern "C" Q_DECL_EXPORT
+QPdfEnginePrivate::ShadingFunctionResult *ritual_ZN17QPdfEnginePrivate21createShadingFunctionEPK9QGradientiibb(
+    QPdfEnginePrivate *self,
+    const QGradient *gradient,
+    int from,
+    int to,
+    bool reflect,
+    bool alpha) {
+  return new QPdfEnginePrivate::ShadingFunctionResult(
+      self->createShadingFunction(
+          gradient,
+          from,
+          to,
+          reflect,
+          alpha));
 }
 
 //  QPdfEngine::ColorModel QPdfEnginePrivate::colorModelForColor(const QColor
@@ -391,6 +427,22 @@ bool ritual_take_QPdfEnginePrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQPdfEnginePrivate *>(self)->take(key, call);
+}
+
+//  a QPdfEnginePrivate::ShadingFunctionResult a ritual of QPdfEnginePrivate
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPdfEnginePrivate__QPdfEnginePrivate_ShadingFunctionResult(
+    QPdfEnginePrivate::ShadingFunctionResult *self) {
+  delete self;
+}
+
+//  void QPdfEnginePrivate::xprintf(const char *fmt, ...)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QPdfEnginePrivate7xprintfEPKcz(
+    QPdfEnginePrivate *self,
+    const char *text) {
+  self->xprintf("%s", text);
 }
 
 #endif  // !defined(QT_NO_PDF)

@@ -22,6 +22,24 @@ void ritual_ZN13QChartPrivateD1Ev(QChartPrivate *self) {
   delete self;
 }
 
+//  QPen &QChartPrivate::defaultPen()
+extern "C" Q_DECL_EXPORT
+QPen *ritual_ZN13QChartPrivate10defaultPenEv() {
+  return &(QChartPrivate::defaultPen());
+}
+
+//  QBrush &QChartPrivate::defaultBrush()
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN13QChartPrivate12defaultBrushEv() {
+  return &(QChartPrivate::defaultBrush());
+}
+
+//  QFont &QChartPrivate::defaultFont()
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZN13QChartPrivate11defaultFontEv() {
+  return &(QChartPrivate::defaultFont());
+}
+
 //  void QChartPrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QChartPrivate4initEv(QChartPrivate *self) {

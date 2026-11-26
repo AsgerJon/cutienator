@@ -67,6 +67,26 @@ const Qt3DCore::QAttribute *ritual_ZNK8Qt3DCore17QAttributePrivate6q_funcEv(
   return self->q_func();
 }
 
+//  Qt3DCore::QAttributePrivate::QAttributePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttributePrivate *ritual_ZN8Qt3DCore17QAttributePrivateC1Ev() {
+  return new CuteQt3DCore_QAttributePrivate();
+}
+
+//  void Qt3DCore::QAttributePrivate::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QAttributePrivate6updateEv(
+    Qt3DCore::QAttributePrivate *self) {
+  self->update();
+}
+
+//  QAttributePrivate *Qt3DCore::QAttributePrivate::get(QAttribute *q)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttributePrivate *ritual_ZN8Qt3DCore17QAttributePrivate3getEPNS_10QAttributeE(
+    Qt3DCore::QAttribute *q) {
+  return Qt3DCore::QAttributePrivate::get(q);
+}
+
 //  a Python function taken by a CuteQt3DCore_QAttributePrivate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

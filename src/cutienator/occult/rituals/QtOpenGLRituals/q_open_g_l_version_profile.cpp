@@ -2,6 +2,7 @@
 //  QtOpenGL/qopenglversionprofile.h, Qt 6.12.0. Changes made here are lost.
 #include <QtOpenGL/qopenglversionprofile.h>
 #include <QtGui/qsurfaceformat.h>
+#include <utility>
 
 //  QOpenGLVersionProfile::QOpenGLVersionProfile()
 extern "C" Q_DECL_EXPORT
@@ -29,6 +30,22 @@ QOpenGLVersionProfile *ritual_ZN21QOpenGLVersionProfileC1ERKS_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QOpenGLVersionProfileD1Ev(QOpenGLVersionProfile *self) {
   delete self;
+}
+
+//  QOpenGLVersionProfile &QOpenGLVersionProfile::operator=(const
+//      QOpenGLVersionProfile &rhs)
+extern "C" Q_DECL_EXPORT
+QOpenGLVersionProfile *ritual_ZN21QOpenGLVersionProfileaSERKS_(
+    QOpenGLVersionProfile *self,
+    const QOpenGLVersionProfile *rhs) {
+  return &(self->operator=(*rhs));
+}
+
+//  std::pair<int, int> QOpenGLVersionProfile::version() const
+extern "C" Q_DECL_EXPORT
+std::pair<int, int> *ritual_ZNK21QOpenGLVersionProfile7versionEv(
+    const QOpenGLVersionProfile *self) {
+  return new std::pair<int, int>(self->version());
 }
 
 //  void QOpenGLVersionProfile::setVersion(int majorVersion, int
@@ -96,4 +113,11 @@ bool ritual_ZneRK21QOpenGLVersionProfileS1_(
     const QOpenGLVersionProfile *lhs,
     const QOpenGLVersionProfile *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  a std::pair<int, int> a ritual of QOpenGLVersionProfile gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLVersionProfile__std_pair_int_int(
+    std::pair<int, int> *self) {
+  delete self;
 }

@@ -286,6 +286,24 @@ const QMetaObject *ritual_ZNK10LookAtNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *LookAtNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10LookAtNode11qt_metacastEPKc(
+    LookAtNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int LookAtNode::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10LookAtNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    LookAtNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString LookAtNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10LookAtNode2trEPKcS1_i(
@@ -319,6 +337,12 @@ void ritual_ZN10LookAtNode9setTargetEP12QQuick3DNode(
     LookAtNode *self,
     QQuick3DNode *node) {
   self->setTarget(node);
+}
+
+//  void LookAtNode::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10LookAtNode13targetChangedEv(LookAtNode *self) {
+  self->targetChanged();
 }
 
 //  void LookAtNode::updateLookAt()

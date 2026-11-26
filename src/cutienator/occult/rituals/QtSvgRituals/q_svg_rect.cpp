@@ -110,6 +110,45 @@ bool ritual_ZNK8QSvgRect18separateFillStrokeEPK8QPainterRK15QSvgExtraStates(
   return self->separateFillStroke(a0, *a1);
 }
 
+//  void QSvgRect::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSvgRect11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgRect *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
+//  QRectF QSvgRect::internalFastBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgRect18internalFastBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgRect *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalFastBounds(p, *states));
+}
+
+//  QRectF QSvgRect::internalBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgRect14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgRect *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
+}
+
+//  QRectF QSvgRect::decoratedInternalBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgRect23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgRect *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedInternalBounds(p, *states));
+}
+
 //  QRectF QSvgRect::rect() const
 extern "C" Q_DECL_EXPORT
 QRectF *ritual_ZNK8QSvgRect4rectEv(const QSvgRect *self) {
@@ -120,6 +159,17 @@ QRectF *ritual_ZNK8QSvgRect4rectEv(const QSvgRect *self) {
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK8QSvgRect6radiusEv(const QSvgRect *self) {
   return new QPointF(self->radius());
+}
+
+//  QRectF QSvgRect::internalBounds(QPainter *p, QSvgExtraStates &states,
+//      BoundsMode mode) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgRect14internalBoundsEP8QPainterR15QSvgExtraStatesN8QSvgNode10BoundsModeE(
+    const QSvgRect *self,
+    QPainter *p,
+    QSvgExtraStates *states,
+    QSvgNode::BoundsMode mode) {
+  return new QRectF(self->internalBounds(p, *states, mode));
 }
 
 //  a Python function taken by a CuteQSvgRect, for the function named by the

@@ -9,6 +9,7 @@
     "ritual_ZN16QSurfaceDataItemC1ERK9QVector3D": ["address", "address"],
     "ritual_ZN16QSurfaceDataItemC1ERKS_": ["address", "address"],
     "ritual_ZN16QSurfaceDataItemD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSurfaceDataItemaSERKS_": ["address", "address", "address"],
     "ritual_ZN16QSurfaceDataItem11setPositionERK9QVector3D": [
       "nothing", "address", "address"
     ],

@@ -9,6 +9,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtScxml/QScxmlStateMachine>
 
 //  A QScxmlDataModel that Python can take functions over in. Every QScxmlDataModel
 //  Python makes is one. Each function below asks the Python
@@ -251,6 +253,24 @@ const QMetaObject *ritual_ZNK15QScxmlDataModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScxmlDataModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QScxmlDataModel11qt_metacastEPKc(
+    QScxmlDataModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScxmlDataModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QScxmlDataModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScxmlDataModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScxmlDataModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QScxmlDataModel2trEPKcS1_i(
@@ -295,6 +315,13 @@ extern "C" Q_DECL_EXPORT
 QScxmlStateMachine *ritual_ZNK15QScxmlDataModel12stateMachineEv(
     const QScxmlDataModel *self) {
   return self->stateMachine();
+}
+
+//  QBindable<QScxmlStateMachine *> QScxmlDataModel::bindableStateMachine()
+extern "C" Q_DECL_EXPORT
+QBindable<QScxmlStateMachine *> *ritual_ZN15QScxmlDataModel20bindableStateMachineEv(
+    QScxmlDataModel *self) {
+  return new QBindable<QScxmlStateMachine *>(self->bindableStateMachine());
 }
 
 //  bool QScxmlDataModel::setup(const QVariantMap &initialDataValues)
@@ -415,6 +442,15 @@ bool ritual_ZN15QScxmlDataModel16setScxmlPropertyERK7QStringRK8QVariantS2_(
   return self->setScxmlProperty(*name, *value, *context);
 }
 
+//  void QScxmlDataModel::stateMachineChanged(QScxmlStateMachine
+//      *stateMachine)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QScxmlDataModel19stateMachineChangedEP18QScxmlStateMachine(
+    QScxmlDataModel *self,
+    QScxmlStateMachine *stateMachine) {
+  self->stateMachineChanged(stateMachine);
+}
+
 //  a Python function taken by a CuteQScxmlDataModel, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -423,4 +459,11 @@ bool ritual_take_QScxmlDataModel(
     const char *key,
     void *call) {
   return static_cast<CuteQScxmlDataModel *>(self)->take(key, call);
+}
+
+//  a QBindable<QScxmlStateMachine *> a ritual of QScxmlDataModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QScxmlDataModel__QBindable_QScxmlStateMachine(
+    QBindable<QScxmlStateMachine *> *self) {
+  delete self;
 }

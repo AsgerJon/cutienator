@@ -13,6 +13,7 @@ typedef void (*CuteQFileOpenEventCall1)(const void *, bool, int *);
 class CuteQFileOpenEvent : public QFileOpenEvent {
 public:
   using QFileOpenEvent::QFileOpenEvent;
+  CuteQFileOpenEvent(const QFileOpenEvent & other) : QFileOpenEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -50,6 +51,20 @@ public:
   }
 };
 
+//  QFileOpenEvent::QFileOpenEvent(const QFileOpenEvent &a0)
+extern "C" Q_DECL_EXPORT
+QFileOpenEvent *ritual_ZN14QFileOpenEventC1ERKS_(const QFileOpenEvent *a0) {
+  return new CuteQFileOpenEvent(*a0);
+}
+
+//  QFileOpenEvent &QFileOpenEvent::operator=(const QFileOpenEvent &other)
+extern "C" Q_DECL_EXPORT
+QFileOpenEvent *ritual_ZN14QFileOpenEventaSERKS_(
+    QFileOpenEvent *self,
+    const QFileOpenEvent *other) {
+  return &(self->operator=(*other));
+}
+
 //  QFileOpenEvent *QFileOpenEvent::clone() const
 extern "C" Q_DECL_EXPORT
 QFileOpenEvent *ritual_ZNK14QFileOpenEvent5cloneEv(
@@ -86,6 +101,20 @@ extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK14QFileOpenEvent3urlEv(const QFileOpenEvent *self) {
   return new QUrl(self->url());
 }
+
+#if QT_DEPRECATED_SINCE(6, 6)
+//  bool QFileOpenEvent::openFile(QFile &file, QIODevice::OpenMode flags)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK14QFileOpenEvent8openFileER5QFile6QFlagsIN13QIODeviceBase12OpenModeFlagEE(
+    const QFileOpenEvent *self,
+    QFile *file,
+    int flags) {
+  return self->openFile(
+      *file,
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(flags));
+}
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
 //  a Python function taken by a CuteQFileOpenEvent, for the function named
 //      by the key

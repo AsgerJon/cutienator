@@ -26,3 +26,11 @@ QV4::Heap::FunctionCtor *ritual_ZNK3QV412FunctionCtor1dEv(
     const QV4::FunctionCtor *self) {
   return self->d();
 }
+
+//  a QQmlRefPointer<QV4::ExecutableCompilationUnit> a ritual of
+//      QV4::FunctionCtor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_FunctionCtor__QQmlRefPointer_QV4_ExecutableCompilationUnit(
+    QQmlRefPointer<QV4::ExecutableCompilationUnit> *self) {
+  delete self;
+}

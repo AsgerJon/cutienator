@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN22QGles2GraphicsPipelineD1Ev": ["nothing", "address"],
     "ritual_ZN22QGles2GraphicsPipeline7destroyEv": ["nothing", "address"],
+    "ritual_ZN22QGles2GraphicsPipeline6createEv": ["bool", "address"],
     "ritual_take_QGles2GraphicsPipeline": [
       "bool", "address", "chars", "address"
     ],

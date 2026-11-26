@@ -1,7 +1,7 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qmutex.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qmutex.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN15QRecursiveMutexC1Ev": ["address"],
@@ -12,6 +12,9 @@
       "bool", "address", "address"
     ],
     "ritual_ZN15QRecursiveMutex6unlockEv": ["nothing", "address"],
-    "ritual_ZN15QRecursiveMutex8try_lockEv": ["bool", "address"]
+    "ritual_ZN15QRecursiveMutex8try_lockEv": ["bool", "address"],
+    "ritual_ZN15QRecursiveMutex12try_lock_forIlSt5ratioILl1ELl1000EEEEbNSt6chrono8durationIT_T0_EE": [
+      "bool", "address", "long long"
+    ]
   }
 }

@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtSensors/QAmbientLightReading>
 
 //  A QmlAmbientLightSensorReading that Python can take functions over in. Every QmlAmbientLightSensorReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +218,25 @@ const QMetaObject *ritual_ZNK28QmlAmbientLightSensorReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlAmbientLightSensorReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QmlAmbientLightSensorReading11qt_metacastEPKc(
+    QmlAmbientLightSensorReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlAmbientLightSensorReading::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QmlAmbientLightSensorReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlAmbientLightSensorReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlAmbientLightSensorReading::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -256,6 +277,22 @@ QAmbientLightReading::LightLevel ritual_ZNK28QmlAmbientLightSensorReading10light
   return self->lightLevel();
 }
 
+//  QBindable<QAmbientLightReading::LightLevel>
+//      QmlAmbientLightSensorReading::bindableLightLevel() const
+extern "C" Q_DECL_EXPORT
+QBindable<QAmbientLightReading::LightLevel> *ritual_ZNK28QmlAmbientLightSensorReading18bindableLightLevelEv(
+    const QmlAmbientLightSensorReading *self) {
+  return new QBindable<QAmbientLightReading::LightLevel>(
+      self->bindableLightLevel());
+}
+
+//  void QmlAmbientLightSensorReading::lightLevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QmlAmbientLightSensorReading17lightLevelChangedEv(
+    QmlAmbientLightSensorReading *self) {
+  self->lightLevelChanged();
+}
+
 //  QSensorReading *QmlAmbientLightSensorReading::reading() const
 extern "C" Q_DECL_EXPORT
 QSensorReading *ritual_ZNK28QmlAmbientLightSensorReading7readingEv(
@@ -268,6 +305,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN28QmlAmbientLightSensorReading13readingUpdateEv(
     QmlAmbientLightSensorReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlAmbientLightSensorReading::_qt_property_m_lightLevel_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN28QmlAmbientLightSensorReading32_qt_property_m_lightLevel_offsetEv() {
+  return QmlAmbientLightSensorReading::_qt_property_m_lightLevel_offset();
 }
 
 //  a Python function taken by a CuteQmlAmbientLightSensorReading, for the
@@ -292,4 +335,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN28QmlAmbientLightSensorReading13readingUpdateEv(
     QmlAmbientLightSensorReading *self) {
   self->QmlAmbientLightSensorReading::readingUpdate();
+}
+
+//  a QBindable<QAmbientLightReading::LightLevel> a ritual of
+//      QmlAmbientLightSensorReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlAmbientLightSensorReading__QBindable_QAmbientLightReading_LightLevel(
+    QBindable<QAmbientLightReading::LightLevel> *self) {
+  delete self;
 }

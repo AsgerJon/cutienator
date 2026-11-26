@@ -8,6 +8,12 @@
     "ritual_ZN10Qt3DExtras27QAbstractSpriteSheetPrivate4initEv": [
       "nothing", "address"
     ],
+    "ritual_ZN10Qt3DExtras27QAbstractSpriteSheetPrivate13updateTextureEPN10Qt3DRender16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras27QAbstractSpriteSheetPrivate11updateIndexEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK10Qt3DExtras27QAbstractSpriteSheetPrivate8maxIndexEv": [
       "int", "address"
     ],
@@ -25,6 +31,9 @@
     ],
     "ritual_take_Qt3DExtras_QAbstractSpriteSheetPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DExtras27QAbstractSpriteSheetPrivate4initEv": [
+      "nothing", "address"
     ]
   }
 }

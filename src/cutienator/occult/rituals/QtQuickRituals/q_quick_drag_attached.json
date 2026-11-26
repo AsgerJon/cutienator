@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickDragAttached10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickDragAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickDragAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickDragAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -71,6 +77,35 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN18QQuickDragAttached6cancelEv": ["nothing", "address"],
+    "ritual_ZN18QQuickDragAttached11dragStartedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickDragAttached12dragFinishedEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickDragAttached13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickDragAttached13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickDragAttached13targetChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickDragAttached14hotSpotChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached18imageSourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached22imageSourceSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached11keysChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickDragAttached15mimeDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached23supportedActionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached21proposedActionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached15dragTypeChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuickDragAttached": [
       "bool", "address", "chars", "address"
     ],

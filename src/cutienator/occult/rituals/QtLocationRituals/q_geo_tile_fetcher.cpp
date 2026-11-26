@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/6.12.0/QtLocation/private/qgeotilespec_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -263,6 +264,24 @@ const QMetaObject *ritual_ZNK15QGeoTileFetcher10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoTileFetcher::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QGeoTileFetcher11qt_metacastEPKc(
+    QGeoTileFetcher *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoTileFetcher::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QGeoTileFetcher11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoTileFetcher *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoTileFetcher::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QGeoTileFetcher2trEPKcS1_i(
@@ -286,10 +305,35 @@ const QGeoTileFetcherPrivate *ritual_ZNK15QGeoTileFetcher6d_funcEv(
   return self->d_func();
 }
 
+//  QGeoTileFetcher::QGeoTileFetcher(QGeoMappingManagerEngine *parent)
+extern "C" Q_DECL_EXPORT
+QGeoTileFetcher *ritual_ZN15QGeoTileFetcherC1EP24QGeoMappingManagerEngine(
+    QGeoMappingManagerEngine *parent) {
+  return new CuteQGeoTileFetcher(parent);
+}
+
 //  QGeoTileFetcher::~QGeoTileFetcher()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGeoTileFetcherD1Ev(QGeoTileFetcher *self) {
   delete self;
+}
+
+//  void QGeoTileFetcher::updateTileRequests(const QSet<QGeoTileSpec>
+//      &tilesAdded, const QSet<QGeoTileSpec> &tilesRemoved)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGeoTileFetcher18updateTileRequestsERK4QSetI12QGeoTileSpecES4_(
+    QGeoTileFetcher *self,
+    const QSet<QGeoTileSpec> *tilesAdded,
+    const QSet<QGeoTileSpec> *tilesRemoved) {
+  self->updateTileRequests(*tilesAdded, *tilesRemoved);
+}
+
+//  void QGeoTileFetcher::cancelTileRequests(const QSet<QGeoTileSpec> &tiles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGeoTileFetcher18cancelTileRequestsERK4QSetI12QGeoTileSpecE(
+    QGeoTileFetcher *self,
+    const QSet<QGeoTileSpec> *tiles) {
+  self->cancelTileRequests(*tiles);
 }
 
 //  void QGeoTileFetcher::requestNextTile()
@@ -302,6 +346,36 @@ void ritual_ZN15QGeoTileFetcher15requestNextTileEv(QGeoTileFetcher *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGeoTileFetcher8finishedEv(QGeoTileFetcher *self) {
   self->finished();
+}
+
+//  void QGeoTileFetcher::tileFinished(const QGeoTileSpec &spec, const
+//      QByteArray &bytes, const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGeoTileFetcher12tileFinishedERK12QGeoTileSpecRK10QByteArrayRK7QString(
+    QGeoTileFetcher *self,
+    const QGeoTileSpec *spec,
+    const QByteArray *bytes,
+    const QString *format) {
+  self->tileFinished(*spec, *bytes, *format);
+}
+
+//  void QGeoTileFetcher::tileError(const QGeoTileSpec &spec, const QString
+//      &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGeoTileFetcher9tileErrorERK12QGeoTileSpecRK7QString(
+    QGeoTileFetcher *self,
+    const QGeoTileSpec *spec,
+    const QString *errorString) {
+  self->tileError(*spec, *errorString);
+}
+
+//  QGeoTileFetcher::QGeoTileFetcher(QGeoTileFetcherPrivate &dd,
+//      QGeoMappingManagerEngine *parent)
+extern "C" Q_DECL_EXPORT
+QGeoTileFetcher *ritual_ZN15QGeoTileFetcherC1ER22QGeoTileFetcherPrivateP24QGeoMappingManagerEngine(
+    QGeoTileFetcherPrivate *dd,
+    QGeoMappingManagerEngine *parent) {
+  return new CuteQGeoTileFetcher(*dd, parent);
 }
 
 //  void QGeoTileFetcher::timerEvent(QTimerEvent *event)

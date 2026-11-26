@@ -129,6 +129,12 @@ public:
 #endif  // QT_CONFIG(accessibility)
 };
 
+//  QAccessibleValueInterface::QAccessibleValueInterface()
+extern "C" Q_DECL_EXPORT
+QAccessibleValueInterface *ritual_ZN25QAccessibleValueInterfaceC1Ev() {
+  return new CuteQAccessibleValueInterface();
+}
+
 //  QAccessibleValueInterface::~QAccessibleValueInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QAccessibleValueInterfaceD1Ev(

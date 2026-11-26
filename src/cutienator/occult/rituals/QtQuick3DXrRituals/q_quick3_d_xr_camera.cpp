@@ -292,6 +292,25 @@ const QMetaObject *ritual_ZNK16QQuick3DXrCamera10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrCamera::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuick3DXrCamera11qt_metacastEPKc(
+    QQuick3DXrCamera *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrCamera::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuick3DXrCamera11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrCamera *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DXrCamera::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuick3DXrCamera2trEPKcS1_i(
@@ -340,6 +359,22 @@ void ritual_ZN16QQuick3DXrCamera10setClipFarEf(
     QQuick3DXrCamera *self,
     float clipFar) {
   self->setClipFar(clipFar);
+}
+
+//  void QQuick3DXrCamera::clipNearChanged(float clipNear)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DXrCamera15clipNearChangedEf(
+    QQuick3DXrCamera *self,
+    float clipNear) {
+  self->clipNearChanged(clipNear);
+}
+
+//  void QQuick3DXrCamera::clipFarChanged(float clipFar)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DXrCamera14clipFarChangedEf(
+    QQuick3DXrCamera *self,
+    float clipFar) {
+  self->clipFarChanged(clipFar);
 }
 
 //  void QQuick3DXrCamera::itemChange(ItemChange change, const ItemChangeData

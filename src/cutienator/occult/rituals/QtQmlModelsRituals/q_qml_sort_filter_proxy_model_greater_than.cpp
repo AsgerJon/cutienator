@@ -10,7 +10,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qsortfilterproxymodelhelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 
 //  QQmlSortFilterProxyModelGreaterThan::QQmlSortFilterProxyModelGreaterThan(
 //      int column, const QModelIndex &parent, const QAbstractItemModel

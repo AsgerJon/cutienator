@@ -14,6 +14,24 @@ const QMetaObject *ritual_ZNK10QClipboard10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QClipboard::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QClipboard11qt_metacastEPKc(
+    QClipboard *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QClipboard::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QClipboard11qt_metacallEN11QMetaObject4CallEiPPv(
+    QClipboard *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QClipboard::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QClipboard2trEPKcS1_i(
@@ -81,6 +99,15 @@ QString *ritual_ZNK10QClipboard4textENS_4ModeE(
   return new QString(self->text(mode));
 }
 
+//  QString QClipboard::text(QString &subtype, Mode mode) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10QClipboard4textER7QStringNS_4ModeE(
+    const QClipboard *self,
+    QString *subtype,
+    QClipboard::Mode mode) {
+  return new QString(self->text(*subtype, mode));
+}
+
 //  void QClipboard::setText(const QString &a0, Mode mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QClipboard7setTextERK7QStringNS_4ModeE(
@@ -139,6 +166,32 @@ void ritual_ZN10QClipboard9setPixmapERK7QPixmapNS_4ModeE(
     const QPixmap *a0,
     QClipboard::Mode mode) {
   self->setPixmap(*a0, mode);
+}
+
+//  void QClipboard::changed(QClipboard::Mode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QClipboard7changedENS_4ModeE(
+    QClipboard *self,
+    QClipboard::Mode mode) {
+  self->changed(mode);
+}
+
+//  void QClipboard::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QClipboard16selectionChangedEv(QClipboard *self) {
+  self->selectionChanged();
+}
+
+//  void QClipboard::findBufferChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QClipboard17findBufferChangedEv(QClipboard *self) {
+  self->findBufferChanged();
+}
+
+//  void QClipboard::dataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QClipboard11dataChangedEv(QClipboard *self) {
+  self->dataChanged();
 }
 
 //  bool QClipboard::supportsMode(Mode mode) const

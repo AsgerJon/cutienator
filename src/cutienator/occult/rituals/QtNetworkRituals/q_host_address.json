@@ -6,15 +6,30 @@
   "rows": {
     "ritual_ZN12QHostAddressC1Ev": ["address"],
     "ritual_ZN12QHostAddressC1Ej": ["address", "unsigned int"],
+    "ritual_ZN12QHostAddressC1EPKh": ["address", "address"],
     "ritual_ZN12QHostAddressC1ERK12QIPv6Address": ["address", "address"],
+    "ritual_ZN12QHostAddressC1EPK8sockaddr": ["address", "address"],
     "ritual_ZN12QHostAddressC1ERK7QString": ["address", "text"],
     "ritual_ZN12QHostAddressC1ERKS_": ["address", "address"],
+    "ritual_ZN12QHostAddressC1EOS_": ["address", "address"],
     "ritual_ZN12QHostAddressC1ENS_14SpecialAddressE": ["address", "int"],
     "ritual_ZN12QHostAddressD1Ev": ["nothing", "address"],
+    "ritual_ZN12QHostAddressaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QHostAddressaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QHostAddressaSENS_14SpecialAddressE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QHostAddress4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN12QHostAddress10setAddressEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZN12QHostAddress10setAddressEPKh": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QHostAddress10setAddressERK12QIPv6Address": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QHostAddress10setAddressEPK8sockaddr": [
       "nothing", "address", "address"
     ],
     "ritual_ZN12QHostAddress10setAddressERK7QString": [
@@ -49,6 +64,9 @@
     "ritual_ZNK12QHostAddress10isInSubnetERKS_i": [
       "bool", "address", "address", "int"
     ],
+    "ritual_ZNK12QHostAddress10isInSubnetERKSt4pairIS_iE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK12QHostAddress10isLoopbackEv": ["bool", "address"],
     "ritual_ZNK12QHostAddress8isGlobalEv": ["bool", "address"],
     "ritual_ZNK12QHostAddress11isLinkLocalEv": ["bool", "address"],
@@ -57,6 +75,7 @@
     "ritual_ZNK12QHostAddress11isMulticastEv": ["bool", "address"],
     "ritual_ZNK12QHostAddress11isBroadcastEv": ["bool", "address"],
     "ritual_ZNK12QHostAddress12isPrivateUseEv": ["bool", "address"],
+    "ritual_ZN12QHostAddress11parseSubnetERK7QString": ["address", "text"],
     "ritual_ZeqN12QHostAddress14SpecialAddressERKS_": [
       "bool", "int", "address"
     ],
@@ -67,6 +86,9 @@
     "ritual_list_add_QHostAddress": ["nothing", "address", "address"],
     "ritual_list_size_QHostAddress": ["long long", "address"],
     "ritual_list_at_QHostAddress": ["address", "address", "long long"],
-    "ritual_list_drop_QHostAddress": ["nothing", "address"]
+    "ritual_list_drop_QHostAddress": ["nothing", "address"],
+    "ritual_drop_QHostAddress__std_pair_QHostAddress_int": [
+      "nothing", "address"
+    ]
   }
 }

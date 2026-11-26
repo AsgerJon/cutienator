@@ -40,6 +40,16 @@ void ritual_ZN25QAccessibleQuickTextInput12setSelectionEiii(
   self->setSelection(selectionIndex, startOffset, endOffset);
 }
 
+//  void
+//      *QAccessibleQuickTextInput::interface_cast(QAccessible::InterfaceType
+//      a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QAccessibleQuickTextInput14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleQuickTextInput *self,
+    QAccessible::InterfaceType a0) {
+  return self->interface_cast(a0);
+}
+
 //  void QAccessibleQuickTextInput::deleteText(int startOffset, int
 //      endOffset)
 extern "C" Q_DECL_EXPORT
@@ -106,6 +116,16 @@ void ritual_own_ZN25QAccessibleQuickTextInput12setSelectionEiii(
       selectionIndex,
       startOffset,
       endOffset);
+}
+
+//  void
+//      *QAccessibleQuickTextInput::interface_cast(QAccessible::InterfaceType
+//      a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_own_ZN25QAccessibleQuickTextInput14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleQuickTextInput *self,
+    QAccessible::InterfaceType a0) {
+  return self->QAccessibleQuickTextInput::interface_cast(a0);
 }
 
 //  void QAccessibleQuickTextInput::deleteText(int startOffset, int

@@ -922,6 +922,25 @@ const QMetaObject *ritual_ZNK26QDeclarativePolygonMapItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativePolygonMapItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QDeclarativePolygonMapItem11qt_metacastEPKc(
+    QDeclarativePolygonMapItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativePolygonMapItem::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QDeclarativePolygonMapItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativePolygonMapItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativePolygonMapItem::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -1044,6 +1063,21 @@ void ritual_ZN26QDeclarativePolygonMapItem11setGeoShapeERK9QGeoShape(
     QDeclarativePolygonMapItem *self,
     const QGeoShape *shape) {
   self->setGeoShape(*shape);
+}
+
+//  void QDeclarativePolygonMapItem::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePolygonMapItem11pathChangedEv(
+    QDeclarativePolygonMapItem *self) {
+  self->pathChanged();
+}
+
+//  void QDeclarativePolygonMapItem::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePolygonMapItem12colorChangedERK6QColor(
+    QDeclarativePolygonMapItem *self,
+    const QColor *color) {
+  self->colorChanged(*color);
 }
 
 //  void QDeclarativePolygonMapItem::markSourceDirtyAndUpdate()

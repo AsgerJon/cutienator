@@ -5,11 +5,23 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap17SharedArrayBuffer4initEm": [
+      "nothing", "address", "size_t"
+    ],
+    "ritual_ZN3QV44Heap17SharedArrayBuffer4initERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap17SharedArrayBuffer7destroyEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN3QV44Heap17SharedArrayBuffer20setSharedArrayBufferEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZNK3QV44Heap17SharedArrayBuffer19isSharedArrayBufferEv": [
       "bool", "address"
+    ],
+    "ritual_ZN3QV44Heap17SharedArrayBuffer9arrayDataEv": [
+      "address", "address"
     ],
     "ritual_ZNK3QV44Heap17SharedArrayBuffer14constArrayDataEv": [
       "chars", "address"
@@ -28,6 +40,12 @@
     ],
     "ritual_ZNK3QV44Heap17SharedArrayBuffer20arrayDataNeedsDetachEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK3QV44Heap17SharedArrayBuffer21constArrayDataPointerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV44Heap17SharedArrayBuffer16arrayDataPointerEv": [
+      "address", "address"
     ]
   }
 }

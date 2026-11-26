@@ -1,10 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qfile.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qfile.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK5QFile10metaObjectEv": ["address", "address"],
+    "ritual_ZN5QFile11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN5QFile11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN5QFile2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN5QFile6d_funcEv": ["address", "address"],
     "ritual_ZNK5QFile6d_funcEv": ["address", "address"],
@@ -14,6 +18,7 @@
     "ritual_ZN5QFileC1ERK7QStringP7QObject": ["address", "text", "address"],
     "ritual_ZN5QFileD1Ev": ["nothing", "address"],
     "ritual_ZNK5QFile8fileNameEv": ["text", "address"],
+    "ritual_ZNK5QFile18filesystemFileNameB5cxx11Ev": ["address", "address"],
     "ritual_ZN5QFile11setFileNameERK7QString": [
       "nothing", "address", "text"
     ],
@@ -24,6 +29,9 @@
     "ritual_ZN5QFile6existsERK7QString": ["bool", "text"],
     "ritual_ZNK5QFile13symLinkTargetEv": ["text", "address"],
     "ritual_ZN5QFile13symLinkTargetERK7QString": ["text", "text"],
+    "ritual_ZNK5QFile23filesystemSymLinkTargetB5cxx11Ev": [
+      "address", "address"
+    ],
     "ritual_ZN5QFile6removeEv": ["bool", "address"],
     "ritual_ZN5QFile6removeERK7QString": ["bool", "text"],
     "ritual_ZN5QFile19supportsMoveToTrashEv": ["bool"],
@@ -35,11 +43,20 @@
     "ritual_ZN5QFile6renameERK7QStringS2_": ["bool", "text", "text"],
     "ritual_ZN5QFile4linkERK7QString": ["bool", "address", "text"],
     "ritual_ZN5QFile4linkERK7QStringS2_": ["bool", "text", "text"],
+    "ritual_ZN5QFile4copyERK7QStringSt8optionalI6QFlagsIN11QFileDevice10PermissionEEE": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN5QFile4copyERK7QStringS2_St8optionalI6QFlagsIN11QFileDevice10PermissionEEE": [
+      "bool", "text", "text", "address"
+    ],
     "ritual_ZN5QFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int"
     ],
     "ritual_ZN5QFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEES0_IN11QFileDevice10PermissionEE": [
       "bool", "address", "int", "int"
+    ],
+    "ritual_ZN5QFile4openEP8_IO_FILE6QFlagsIN13QIODeviceBase12OpenModeFlagEES2_IN11QFileDevice14FileHandleFlagEE": [
+      "bool", "address", "address", "int", "int"
     ],
     "ritual_ZN5QFile4openEi6QFlagsIN13QIODeviceBase12OpenModeFlagEES0_IN11QFileDevice14FileHandleFlagEE": [
       "bool", "address", "int", "int", "int"
@@ -55,6 +72,9 @@
     "ritual_ZN5QFile14setPermissionsERK7QString6QFlagsIN11QFileDevice10PermissionEE": [
       "bool", "text", "int"
     ],
+    "ritual_ZN5QFileC1ER12QFilePrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QFile": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK5QFile8fileNameEv": ["text", "address"],
     "ritual_own_ZN5QFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
@@ -64,6 +84,52 @@
     "ritual_own_ZN5QFile6resizeEx": ["bool", "address", "long long"],
     "ritual_own_ZNK5QFile11permissionsEv": ["int", "address"],
     "ritual_own_ZN5QFile14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_drop_QFile__std_filesystem_path": ["nothing", "address"],
+    "ritual_ZN5QFileC1INSt10filesystem7__cxx114pathELi0EEERKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN5QFileC1INSt10filesystem7__cxx114pathELi0EEERKT_P7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN5QFile11setFileNameINSt10filesystem7__cxx114pathELi0EEEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QFile6existsINSt10filesystem7__cxx114pathELi0EEEbRKT_": [
+      "bool", "address"
+    ],
+    "ritual_ZN5QFile23filesystemSymLinkTargetB5cxx11INSt10filesystem7__cxx114pathELi0EEES3_RKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN5QFile6removeINSt10filesystem7__cxx114pathELi0EEEbRKT_": [
+      "bool", "address"
+    ],
+    "ritual_ZN5QFile11moveToTrashINSt10filesystem7__cxx114pathELi0EEEbRKT_P7QString": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QFile6renameINSt10filesystem7__cxx114pathELi0EEEbRKT_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QFile6renameINSt10filesystem7__cxx114pathELi0EEEbRKT_S6_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QFile4linkINSt10filesystem7__cxx114pathELi0EEEbRKT_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QFile4linkINSt10filesystem7__cxx114pathELi0EEEbRKT_S6_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QFile4copyINSt10filesystem7__cxx114pathELi0EEEbRKT_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QFile4copyINSt10filesystem7__cxx114pathELi0EEEbRKT_S6_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QFile11permissionsINSt10filesystem7__cxx114pathELi0EEE6QFlagsIN11QFileDevice10PermissionEERKT_": [
+      "int", "address"
+    ],
+    "ritual_ZN5QFile14setPermissionsINSt10filesystem7__cxx114pathELi0EEEbRKT_6QFlagsIN11QFileDevice10PermissionEE": [
       "bool", "address", "int"
     ]
   }

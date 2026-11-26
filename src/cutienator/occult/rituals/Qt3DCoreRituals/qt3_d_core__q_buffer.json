@@ -5,9 +5,42 @@
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore7QBuffer10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore7QBuffer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore7QBuffer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore7QBuffer2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore7QBufferC1EPNS_5QNodeE": ["address", "address"],
+    "ritual_ZN8Qt3DCore7QBufferD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore7QBuffer5usageEv": ["int", "address"],
+    "ritual_ZNK8Qt3DCore7QBuffer10accessTypeEv": ["int", "address"],
+    "ritual_ZN8Qt3DCore7QBuffer7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore7QBuffer4dataEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore7QBuffer10updateDataEiRK10QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore7QBuffer8setUsageENS0_9UsageTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore7QBuffer13setAccessTypeENS0_10AccessTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore7QBuffer11dataChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore7QBuffer12usageChangedENS0_9UsageTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore7QBuffer17accessTypeChangedENS0_10AccessTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore7QBuffer13dataAvailableEv": ["nothing", "address"],
     "ritual_ZN8Qt3DCore7QBuffer6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore7QBuffer6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DCore_QBuffer": ["bool", "address", "chars", "address"]

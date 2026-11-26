@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QAbstractLayoutStyleInfoC1Ev": ["address"],
     "ritual_ZN24QAbstractLayoutStyleInfoD1Ev": ["nothing", "address"],
     "ritual_ZNK24QAbstractLayoutStyleInfo21combinedLayoutSpacingE6QFlagsIN13QLayoutPolicy11ControlTypeEES3_N2Qt11OrientationE": [
       "double", "address", "int", "int", "int"

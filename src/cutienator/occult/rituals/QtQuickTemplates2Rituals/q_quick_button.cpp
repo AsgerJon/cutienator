@@ -22,6 +22,24 @@ const QMetaObject *ritual_ZNK12QQuickButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickButton11qt_metacastEPKc(
+    QQuickButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickButton::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickButton2trEPKcS1_i(
@@ -61,6 +79,26 @@ bool ritual_ZNK12QQuickButton6isFlatEv(const QQuickButton *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQuickButton7setFlatEb(QQuickButton *self, bool flat) {
   self->setFlat(flat);
+}
+
+//  void QQuickButton::highlightedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickButton18highlightedChangedEv(QQuickButton *self) {
+  self->highlightedChanged();
+}
+
+//  void QQuickButton::flatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickButton11flatChangedEv(QQuickButton *self) {
+  self->flatChanged();
+}
+
+//  QQuickButton::QQuickButton(QQuickButtonPrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickButton *ritual_ZN12QQuickButtonC1ER19QQuickButtonPrivateP10QQuickItem(
+    QQuickButtonPrivate *dd,
+    QQuickItem *parent) {
+  return new QQuickButton(*dd, parent);
 }
 
 //  QFont QQuickButton::defaultFont() const

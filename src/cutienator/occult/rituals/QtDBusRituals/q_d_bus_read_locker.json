@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN15QDBusReadLockerC1E12ThreadActionP22QDBusConnectionPrivate": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN15QDBusReadLockerD1Ev": ["nothing", "address"]
+  }
+}

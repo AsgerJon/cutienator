@@ -7,8 +7,67 @@
     "ritual_ZNK8Qt3DCore15QBoundingVolume10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore15QBoundingVolume2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolumeC1EPNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolumeD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore15QBoundingVolume4viewEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore15QBoundingVolume16implicitMinPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore15QBoundingVolume16implicitMaxPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore15QBoundingVolume22areImplicitPointsValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK8Qt3DCore15QBoundingVolume8minPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore15QBoundingVolume8maxPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume7setViewEPNS_13QGeometryViewE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume11setMinPointERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume11setMaxPointERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume20updateImplicitBoundsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume11viewChangedEPNS_13QGeometryViewE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume23implicitMinPointChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume23implicitMaxPointChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume26implicitPointsValidChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume15minPointChangedE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume15maxPointChangedE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolumeC1ERNS_22QBoundingVolumePrivateEPNS_5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN8Qt3DCore15QBoundingVolume6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore15QBoundingVolume6d_funcEv": ["address", "address"],

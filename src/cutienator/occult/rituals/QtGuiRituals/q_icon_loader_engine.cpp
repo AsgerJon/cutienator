@@ -9,10 +9,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qiconloader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
 #include <QtGui/qpixmap.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -46,24 +46,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/image/qiconloader.cpp, line 803, as _ZN17QIconLoaderEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE
-#if !defined(QT_NO_ICON)
-inline void QIconLoaderEngine::paint(QPainter *painter, const QRect &rect,
-                             QIcon::Mode mode, QIcon::State state)
-{
-    const auto dpr = painter->device()->devicePixelRatio();
-    painter->drawPixmap(rect, scaledPixmap(rect.size(), mode, state, dpr));
-}
-#endif  // !defined(QT_NO_ICON)
-
-//  from src/gui/image/qiconloader.cpp, line 978, as _ZN17QIconLoaderEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE
-#if !defined(QT_NO_ICON)
-inline QPixmap QIconLoaderEngine::pixmap(const QSize &size, QIcon::Mode mode,
-                                 QIcon::State state)
-{
-    return scaledPixmap(size, mode, state, 1.0);
-}
-#endif  // !defined(QT_NO_ICON)
+using namespace Qt::StringLiterals;
 
 //  from src/gui/image/qiconloader.cpp, line 912, as _ZN17QIconLoaderEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE
 #if !defined(QT_NO_ICON)
@@ -86,31 +69,6 @@ inline QSize QIconLoaderEngine::actualSize(const QSize &size, QIcon::Mode mode,
         }
     }
     return QSize(0, 0);
-}
-#endif  // !defined(QT_NO_ICON)
-
-//  from src/gui/image/qiconloader.cpp, line 792, as _ZNK17QIconLoaderEngine5cloneEv
-#if !defined(QT_NO_ICON)
-inline QIconEngine *QIconLoaderEngine::clone() const
-{
-    Q_UNREACHABLE();
-    return nullptr; // Cannot be cloned
-}
-#endif  // !defined(QT_NO_ICON)
-
-//  from src/gui/image/qiconloader.cpp, line 989, as _ZN17QIconLoaderEngine8iconNameEv
-#if !defined(QT_NO_ICON)
-inline QString QIconLoaderEngine::iconName()
-{
-    return m_info.iconName;
-}
-#endif  // !defined(QT_NO_ICON)
-
-//  from src/gui/image/qiconloader.cpp, line 994, as _ZN17QIconLoaderEngine6isNullEv
-#if !defined(QT_NO_ICON)
-inline bool QIconLoaderEngine::isNull()
-{
-    return m_info.entries.empty();
 }
 #endif  // !defined(QT_NO_ICON)
 
@@ -146,6 +104,72 @@ inline QList<QSize> QIconLoaderEngine::availableSizes(QIcon::Mode mode, QIcon::S
     }
     return sizes;
 }
+#endif  // !defined(QT_NO_ICON)
+
+//  from src/gui/image/qiconloader.cpp, line 803, as _ZN17QIconLoaderEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE
+#if !defined(QT_NO_ICON)
+inline void QIconLoaderEngine::paint(QPainter *painter, const QRect &rect,
+                             QIcon::Mode mode, QIcon::State state)
+{
+    const auto dpr = painter->device()->devicePixelRatio();
+    painter->drawPixmap(rect, scaledPixmap(rect.size(), mode, state, dpr));
+}
+#endif  // !defined(QT_NO_ICON)
+
+//  from src/gui/image/qiconloader.cpp, line 994, as _ZN17QIconLoaderEngine6isNullEv
+#if !defined(QT_NO_ICON)
+inline bool QIconLoaderEngine::isNull()
+{
+    return m_info.entries.empty();
+}
+#endif  // !defined(QT_NO_ICON)
+
+//  from src/gui/image/qiconloader.cpp, line 978, as _ZN17QIconLoaderEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE
+#if !defined(QT_NO_ICON)
+inline QPixmap QIconLoaderEngine::pixmap(const QSize &size, QIcon::Mode mode,
+                                 QIcon::State state)
+{
+    return scaledPixmap(size, mode, state, 1.0);
+}
+#endif  // !defined(QT_NO_ICON)
+
+//  from src/gui/image/qiconloader.cpp, line 989, as _ZN17QIconLoaderEngine8iconNameEv
+#if !defined(QT_NO_ICON)
+inline QString QIconLoaderEngine::iconName()
+{
+    return m_info.iconName;
+}
+#endif  // !defined(QT_NO_ICON)
+
+//  from src/gui/image/qiconloader.cpp, line 984, as _ZNK17QIconLoaderEngine3keyEv
+#if !defined(QT_NO_ICON)
+inline QString QIconLoaderEngine::key() const
+{
+    return u"QIconLoaderEngine"_s;
+}
+#endif  // !defined(QT_NO_ICON)
+
+//  from src/gui/image/qiconloader.cpp, line 792, as _ZNK17QIconLoaderEngine5cloneEv
+#if !defined(QT_NO_ICON)
+inline QIconEngine *QIconLoaderEngine::clone() const
+{
+    Q_UNREACHABLE();
+    return nullptr; // Cannot be cloned
+}
+#endif  // !defined(QT_NO_ICON)
+
+//  from src/gui/image/qiconloader.cpp, line 784, as _ZN17QIconLoaderEngineC1ERK7QString
+#if !defined(QT_NO_ICON)
+inline QIconLoaderEngine::QIconLoaderEngine(const QString& iconName)
+    : m_iconName(iconName)
+    , m_info(QIconLoader::instance()->loadIcon(m_iconName))
+{
+}
+#endif  // !defined(QT_NO_ICON)
+
+//  from src/gui/image/qiconloader.cpp, line 790, as _ZN17QIconLoaderEngineD1Ev
+#if !defined(QT_NO_ICON)
+inline QIconLoaderEngine::~QIconLoaderEngine() = default;
 #endif  // !defined(QT_NO_ICON)
 
 //  from src/gui/image/qiconloader.cpp, line 798, as _ZNK17QIconLoaderEngine7hasIconEv
@@ -186,10 +210,11 @@ typedef QString * (*CuteQIconLoaderEngineCall7)(const void *, int *);
 #endif  // !defined(QT_NO_ICON)
 typedef void (*CuteQIconLoaderEngineCall8)(const void *, const QPixmap *, int, int, int *);
 typedef void (*CuteQIconLoaderEngineCall9)(const void *, const QString *, const QSize *, int, int, int *);
+typedef void (*CuteQIconLoaderEngineCall10)(const void *, int, void *, int *);
 class CuteQIconLoaderEngine : public QIconLoaderEngine {
 public:
   using QIconLoaderEngine::QIconLoaderEngine;
-  void *taken[10] = {};
+  void *taken[11] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_ICON)
@@ -246,6 +271,10 @@ public:
     }
     if (!std::strcmp(key, "_ZN11QIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_5StateE")) {
       taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QIconEngine12virtual_hookEiPv")) {
+      taken[10] = call;
       return true;
     }
     return false;
@@ -411,7 +440,33 @@ public:
     }
     QIconEngine::addFile(fileName, size, mode, state);
   }
+
+  //  void QIconEngine::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQIconLoaderEngineCall10 call = reinterpret_cast<CuteQIconLoaderEngineCall10>(taken[10]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QIconEngine::virtual_hook(id, data);
+  }
 };
+
+#if !defined(QT_NO_ICON)
+//  QIconLoaderEngine::QIconLoaderEngine(const QString &iconName)
+extern "C" Q_DECL_EXPORT
+QIconLoaderEngine *ritual_ZN17QIconLoaderEngineC1ERK7QString(
+    const QString *iconName) {
+  return new CuteQIconLoaderEngine(*iconName);
+}
+#endif  // !defined(QT_NO_ICON)
+
+//  QIconLoaderEngine::~QIconLoaderEngine()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QIconLoaderEngineD1Ev(QIconLoaderEngine *self) {
+  delete self;
+}
 
 //  void QIconLoaderEngine::paint(QPainter *painter, const QRect &rect,
 //      QIcon::Mode mode, QIcon::State state)
@@ -496,6 +551,12 @@ QIconLoaderEngineEntry *ritual_ZN17QIconLoaderEngine12entryForSizeERK14QThemeIco
     const QSize *size,
     int scale) {
   return QIconLoaderEngine::entryForSize(*info, *size, scale);
+}
+
+//  QString QIconLoaderEngine::key() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK17QIconLoaderEngine3keyEv(const QIconLoaderEngine *self) {
+  return new QString(self->key());
 }
 
 #if !defined(QT_NO_ICON)
@@ -598,6 +659,15 @@ QPixmap *ritual_own_ZN17QIconLoaderEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3
           mode,
           state,
           scale));
+}
+#endif  // !defined(QT_NO_ICON)
+
+#if !defined(QT_NO_ICON)
+//  QString QIconLoaderEngine::key() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK17QIconLoaderEngine3keyEv(
+    const QIconLoaderEngine *self) {
+  return new QString(self->QIconLoaderEngine::key());
 }
 #endif  // !defined(QT_NO_ICON)
 

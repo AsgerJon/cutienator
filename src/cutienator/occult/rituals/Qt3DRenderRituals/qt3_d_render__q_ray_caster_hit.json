@@ -4,6 +4,43 @@
     "Qt3DRender/qraycasterhit.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZNK10Qt3DRender13QRayCasterHit4typeEv": ["int", "address"]
+    "ritual_ZN10Qt3DRender13QRayCasterHitC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender13QRayCasterHitC1ENS0_7HitTypeEN8Qt3DCore7QNodeIdEfRK9QVector3DS6_jjjj": [
+      "address", "int", "address", "float", "address", "address",
+      "unsigned int", "unsigned int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN10Qt3DRender13QRayCasterHitC1ERKS0_": ["address", "address"],
+    "ritual_ZN10Qt3DRender13QRayCasterHitD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender13QRayCasterHitaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit4typeEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit8entityIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit6entityEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit8distanceEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit17localIntersectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit17worldIntersectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit14primitiveIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit12vertex1IndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit12vertex2IndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit12vertex3IndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QRayCasterHit8toStringEv": ["text", "address"],
+    "ritual_ZNK10Qt3DRender13QRayCasterHit9setEntityEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ]
   }
 }

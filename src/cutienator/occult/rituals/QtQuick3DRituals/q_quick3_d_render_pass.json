@@ -6,12 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK18QQuick3DRenderPass10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuick3DRenderPass11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuick3DRenderPass11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuick3DRenderPass2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN18QQuick3DRenderPassC1EP14QQuick3DObject": [
       "address", "address"
     ],
+    "ritual_ZN18QQuick3DRenderPass8commandsEv": ["address", "address"],
     "ritual_ZNK18QQuick3DRenderPass10clearColorEv": ["address", "address"],
     "ritual_ZN18QQuick3DRenderPass13setClearColorERK6QColor": [
       "nothing", "address", "address"
@@ -55,6 +62,31 @@
     "ritual_ZN18QQuick3DRenderPass20setRenderTargetFlagsE6QFlagsINS_16RenderTargetFlagEE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN18QQuick3DRenderPass13outputChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuick3DRenderPass19materialModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass17clearColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass23overrideMaterialChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass20augmentShaderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass15passModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass22depthClearValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass24stencilClearValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass24renderTargetFlagsChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN18QQuick3DRenderPass17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
     ],
@@ -68,6 +100,18 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN18QQuick3DRenderPass16onCommandChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass16qmlAppendCommandEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass12qmlCommandAtEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QQuick3DRenderPass15qmlCommandCountEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandE": [
+      "long long", "address"
+    ],
+    "ritual_ZN18QQuick3DRenderPass15qmlCommandClearEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandE": [
       "nothing", "address"
     ],
     "ritual_ZN18QQuick3DRenderPass18updateSceneManagerEP20QQuick3DSceneManager": [
@@ -93,6 +137,9 @@
     ],
     "ritual_own_ZN18QQuick3DRenderPass24markTrackedPropertyDirtyE13QMetaPropertyN30QQuick3DPropertyChangedTracker17DirtyPropertyHintE": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_drop_QQuick3DRenderPass__QQmlListProperty_QQuick3DShaderUtilsRenderCommand": [
+      "nothing", "address"
     ]
   }
 }

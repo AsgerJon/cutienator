@@ -7,10 +7,14 @@
 #include <QtWidgets/qundoview.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtGui/qregion.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
@@ -2063,6 +2067,22 @@ const QMetaObject *ritual_ZNK9QUndoView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QUndoView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QUndoView11qt_metacastEPKc(QUndoView *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QUndoView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QUndoView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QUndoView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QUndoView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QUndoView2trEPKcS1_i(
@@ -2070,6 +2090,19 @@ QString *ritual_ZN9QUndoView2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QUndoView::tr(s, c, n));
+}
+
+//  QUndoViewPrivate *QUndoView::d_func()
+extern "C" Q_DECL_EXPORT
+QUndoViewPrivate *ritual_ZN9QUndoView6d_funcEv(QUndoView *self) {
+  return self->d_func();
+}
+
+//  const QUndoViewPrivate *QUndoView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QUndoViewPrivate *ritual_ZNK9QUndoView6d_funcEv(
+    const QUndoView *self) {
+  return self->d_func();
 }
 
 //  QUndoView::QUndoView(QWidget *parent)

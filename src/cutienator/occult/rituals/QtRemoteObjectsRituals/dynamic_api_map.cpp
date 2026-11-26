@@ -10,6 +10,21 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/private/qmetaobjectbuilder_p.h>
+#include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
+#include <QtRemoteObjects/qremoteobjectnode.h>
+#include <QtRemoteObjects/private/qremoteobjectnode_p.h>
+#include <QtRemoteObjects/qremoteobjectregistry.h>
+#include <QtRemoteObjects/qremoteobjectdynamicreplica.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
+#include <QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodelreplica_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodeladapter_p.h>
+#include <QtCore/qabstractitemmodel.h>
+#include <memory>
+#include <algorithm>
 #include <QtRemoteObjects/qremoteobjectsource.h>
 #include <QtRemoteObjects/private/qremoteobjectsource_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -30,6 +45,26 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace QRemoteObjectStringLiterals;
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 247, as _ZN15QtRemoteObjects37getTypeNameAndMetaobjectFromClassInfoERPK11QMetaObject
+inline QString QtRemoteObjects::getTypeNameAndMetaobjectFromClassInfo(const QMetaObject *& meta) {
+    QString typeName;
+    const int ind = meta->indexOfClassInfo(QCLASSINFO_REMOTEOBJECT_TYPE);
+    if (ind != -1) { //We have an object created from repc or at least with QCLASSINFO defined
+        typeName = QString::fromLatin1(meta->classInfo(ind).value());
+        while (true) {
+            Q_ASSERT(meta->superClass());//This recurses to QObject, which doesn't have QCLASSINFO_REMOTEOBJECT_TYPE
+            //At the point superclass doesn't have the same QCLASSINFO_REMOTEOBJECT_TYPE,
+            //we have the metaobject we should work from
+            if (ind != meta->superClass()->indexOfClassInfo(QCLASSINFO_REMOTEOBJECT_TYPE))
+                break;
+            meta = meta->superClass();
+        }
+    }
+    return typeName;
+}
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 609, as _ZNK13DynamicApiMap20signalParameterNamesEi
 inline QByteArrayList DynamicApiMap::signalParameterNames(int index) const

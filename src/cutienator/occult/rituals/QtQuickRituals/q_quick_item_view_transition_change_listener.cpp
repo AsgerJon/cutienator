@@ -48,6 +48,13 @@ public:
 #endif  // QT_CONFIG(quick_viewtransitions)
 };
 
+//  QQuickItemViewTransitionChangeListener::QQuickItemViewTransitionChangeLis
+//      tener()
+extern "C" Q_DECL_EXPORT
+QQuickItemViewTransitionChangeListener *ritual_ZN38QQuickItemViewTransitionChangeListenerC1Ev() {
+  return new CuteQQuickItemViewTransitionChangeListener();
+}
+
 //  QQuickItemViewTransitionChangeListener::~QQuickItemViewTransitionChangeLi
 //      stener()
 extern "C" Q_DECL_EXPORT

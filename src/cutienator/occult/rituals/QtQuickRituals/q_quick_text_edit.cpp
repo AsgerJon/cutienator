@@ -827,6 +827,24 @@ const QMetaObject *ritual_ZNK14QQuickTextEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTextEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickTextEdit11qt_metacastEPKc(
+    QQuickTextEdit *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTextEdit::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickTextEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTextEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTextEdit::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickTextEdit2trEPKcS1_i(
@@ -1546,6 +1564,329 @@ void ritual_ZN14QQuickTextEdit10invalidateEv(QQuickTextEdit *self) {
   self->invalidate();
 }
 
+//  void QQuickTextEdit::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit11textChangedEv(QQuickTextEdit *self) {
+  self->textChanged();
+}
+
+//  void QQuickTextEdit::preeditTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit18preeditTextChangedEv(QQuickTextEdit *self) {
+  self->preeditTextChanged();
+}
+
+//  void QQuickTextEdit::contentSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit18contentSizeChangedEv(QQuickTextEdit *self) {
+  self->contentSizeChanged();
+}
+
+//  void QQuickTextEdit::cursorPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit21cursorPositionChangedEv(
+    QQuickTextEdit *self) {
+  self->cursorPositionChanged();
+}
+
+//  void QQuickTextEdit::cursorRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit22cursorRectangleChangedEv(
+    QQuickTextEdit *self) {
+  self->cursorRectangleChanged();
+}
+
+//  void QQuickTextEdit::selectionStartChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit21selectionStartChangedEv(
+    QQuickTextEdit *self) {
+  self->selectionStartChanged();
+}
+
+//  void QQuickTextEdit::selectionEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit19selectionEndChangedEv(QQuickTextEdit *self) {
+  self->selectionEndChanged();
+}
+
+//  void QQuickTextEdit::selectedTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit19selectedTextChangedEv(QQuickTextEdit *self) {
+  self->selectedTextChanged();
+}
+
+//  void QQuickTextEdit::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit12colorChangedERK6QColor(
+    QQuickTextEdit *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QQuickTextEdit::selectionColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit21selectionColorChangedERK6QColor(
+    QQuickTextEdit *self,
+    const QColor *color) {
+  self->selectionColorChanged(*color);
+}
+
+//  void QQuickTextEdit::selectedTextColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit24selectedTextColorChangedERK6QColor(
+    QQuickTextEdit *self,
+    const QColor *color) {
+  self->selectedTextColorChanged(*color);
+}
+
+//  void QQuickTextEdit::fontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit11fontChangedERK5QFont(
+    QQuickTextEdit *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+
+//  void
+//      QQuickTextEdit::horizontalAlignmentChanged(QQuickTextEdit::HAlignment
+//      alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit26horizontalAlignmentChangedENS_10HAlignmentE(
+    QQuickTextEdit *self,
+    QQuickTextEdit::HAlignment alignment) {
+  self->horizontalAlignmentChanged(alignment);
+}
+
+//  void QQuickTextEdit::verticalAlignmentChanged(QQuickTextEdit::VAlignment
+//      alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit24verticalAlignmentChangedENS_10VAlignmentE(
+    QQuickTextEdit *self,
+    QQuickTextEdit::VAlignment alignment) {
+  self->verticalAlignmentChanged(alignment);
+}
+
+//  void QQuickTextEdit::wrapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit15wrapModeChangedEv(QQuickTextEdit *self) {
+  self->wrapModeChanged();
+}
+
+//  void QQuickTextEdit::lineCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit16lineCountChangedEv(QQuickTextEdit *self) {
+  self->lineCountChanged();
+}
+
+//  void QQuickTextEdit::textFormatChanged(QQuickTextEdit::TextFormat
+//      textFormat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit17textFormatChangedENS_10TextFormatE(
+    QQuickTextEdit *self,
+    QQuickTextEdit::TextFormat textFormat) {
+  self->textFormatChanged(textFormat);
+}
+
+//  void QQuickTextEdit::readOnlyChanged(bool isReadOnly)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit15readOnlyChangedEb(
+    QQuickTextEdit *self,
+    bool isReadOnly) {
+  self->readOnlyChanged(isReadOnly);
+}
+
+//  void QQuickTextEdit::cursorVisibleChanged(bool isCursorVisible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit20cursorVisibleChangedEb(
+    QQuickTextEdit *self,
+    bool isCursorVisible) {
+  self->cursorVisibleChanged(isCursorVisible);
+}
+
+//  void QQuickTextEdit::cursorDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit21cursorDelegateChangedEv(
+    QQuickTextEdit *self) {
+  self->cursorDelegateChanged();
+}
+
+//  void QQuickTextEdit::overwriteModeChanged(bool overwriteMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit20overwriteModeChangedEb(
+    QQuickTextEdit *self,
+    bool overwriteMode) {
+  self->overwriteModeChanged(overwriteMode);
+}
+
+//  void QQuickTextEdit::activeFocusOnPressChanged(bool activeFocusOnPressed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit25activeFocusOnPressChangedEb(
+    QQuickTextEdit *self,
+    bool activeFocusOnPressed) {
+  self->activeFocusOnPressChanged(activeFocusOnPressed);
+}
+
+//  void QQuickTextEdit::persistentSelectionChanged(bool
+//      isPersistentSelection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit26persistentSelectionChangedEb(
+    QQuickTextEdit *self,
+    bool isPersistentSelection) {
+  self->persistentSelectionChanged(isPersistentSelection);
+}
+
+//  void QQuickTextEdit::textMarginChanged(qreal textMargin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit17textMarginChangedEd(
+    QQuickTextEdit *self,
+    qreal textMargin) {
+  self->textMarginChanged(textMargin);
+}
+
+//  void QQuickTextEdit::selectByKeyboardChanged(bool selectByKeyboard)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit23selectByKeyboardChangedEb(
+    QQuickTextEdit *self,
+    bool selectByKeyboard) {
+  self->selectByKeyboardChanged(selectByKeyboard);
+}
+
+//  void QQuickTextEdit::selectByMouseChanged(bool selectByMouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit20selectByMouseChangedEb(
+    QQuickTextEdit *self,
+    bool selectByMouse) {
+  self->selectByMouseChanged(selectByMouse);
+}
+
+//  void
+//      QQuickTextEdit::mouseSelectionModeChanged(QQuickTextEdit::SelectionMo
+//      de mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit25mouseSelectionModeChangedENS_13SelectionModeE(
+    QQuickTextEdit *self,
+    QQuickTextEdit::SelectionMode mode) {
+  self->mouseSelectionModeChanged(mode);
+}
+
+//  void QQuickTextEdit::linkActivated(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit13linkActivatedERK7QString(
+    QQuickTextEdit *self,
+    const QString *link) {
+  self->linkActivated(*link);
+}
+
+//  void QQuickTextEdit::linkHovered(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit11linkHoveredERK7QString(
+    QQuickTextEdit *self,
+    const QString *link) {
+  self->linkHovered(*link);
+}
+
+//  void QQuickTextEdit::canPasteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit15canPasteChangedEv(QQuickTextEdit *self) {
+  self->canPasteChanged();
+}
+
+//  void QQuickTextEdit::canUndoChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit14canUndoChangedEv(QQuickTextEdit *self) {
+  self->canUndoChanged();
+}
+
+//  void QQuickTextEdit::canRedoChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit14canRedoChangedEv(QQuickTextEdit *self) {
+  self->canRedoChanged();
+}
+
+//  void QQuickTextEdit::inputMethodComposingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit27inputMethodComposingChangedEv(
+    QQuickTextEdit *self) {
+  self->inputMethodComposingChanged();
+}
+
+//  void QQuickTextEdit::effectiveHorizontalAlignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit35effectiveHorizontalAlignmentChangedEv(
+    QQuickTextEdit *self) {
+  self->effectiveHorizontalAlignmentChanged();
+}
+
+//  void QQuickTextEdit::baseUrlChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit14baseUrlChangedEv(QQuickTextEdit *self) {
+  self->baseUrlChanged();
+}
+
+//  void QQuickTextEdit::inputMethodHintsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit23inputMethodHintsChangedEv(
+    QQuickTextEdit *self) {
+  self->inputMethodHintsChanged();
+}
+
+//  void QQuickTextEdit::renderTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit17renderTypeChangedEv(QQuickTextEdit *self) {
+  self->renderTypeChanged();
+}
+
+//  void QQuickTextEdit::editingFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit15editingFinishedEv(QQuickTextEdit *self) {
+  self->editingFinished();
+}
+
+//  void QQuickTextEdit::paddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit14paddingChangedEv(QQuickTextEdit *self) {
+  self->paddingChanged();
+}
+
+//  void QQuickTextEdit::topPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit17topPaddingChangedEv(QQuickTextEdit *self) {
+  self->topPaddingChanged();
+}
+
+//  void QQuickTextEdit::leftPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit18leftPaddingChangedEv(QQuickTextEdit *self) {
+  self->leftPaddingChanged();
+}
+
+//  void QQuickTextEdit::rightPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit19rightPaddingChangedEv(QQuickTextEdit *self) {
+  self->rightPaddingChanged();
+}
+
+//  void QQuickTextEdit::bottomPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit20bottomPaddingChangedEv(
+    QQuickTextEdit *self) {
+  self->bottomPaddingChanged();
+}
+
+//  void QQuickTextEdit::tabStopDistanceChanged(qreal distance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit22tabStopDistanceChangedEd(
+    QQuickTextEdit *self,
+    qreal distance) {
+  self->tabStopDistanceChanged(distance);
+}
+
+//  void QQuickTextEdit::textEdited()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextEdit10textEditedEv(QQuickTextEdit *self) {
+  self->textEdited();
+}
+
 //  void QQuickTextEdit::selectAll()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickTextEdit9selectAllEv(QQuickTextEdit *self) {
@@ -1803,6 +2144,15 @@ void ritual_ZN14QQuickTextEdit11setDocumentEP13QTextDocument(
     QQuickTextEdit *self,
     QTextDocument *doc) {
   self->setDocument(doc);
+}
+
+//  QQuickTextEdit::QQuickTextEdit(QQuickTextEditPrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickTextEdit *ritual_ZN14QQuickTextEditC1ER21QQuickTextEditPrivateP10QQuickItem(
+    QQuickTextEditPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickTextEdit(*dd, parent);
 }
 
 #if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)

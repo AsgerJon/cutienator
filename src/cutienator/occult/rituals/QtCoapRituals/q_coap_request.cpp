@@ -18,6 +18,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtcoap/src/coap/qcoaprequest.cpp, line 287, as _ZN12QCoapRequest6d_funcEv
 inline QCoapRequestPrivate* QCoapRequest::d_func()
 {
@@ -53,6 +55,14 @@ QCoapRequest *ritual_ZN12QCoapRequestC1ERKS_(const QCoapRequest *other) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QCoapRequestD1Ev(QCoapRequest *self) {
   delete self;
+}
+
+//  QCoapRequest &QCoapRequest::operator=(const QCoapRequest &other)
+extern "C" Q_DECL_EXPORT
+QCoapRequest *ritual_ZN12QCoapRequestaSERKS_(
+    QCoapRequest *self,
+    const QCoapRequest *other) {
+  return &(self->operator=(*other));
 }
 
 //  QUrl QCoapRequest::url() const

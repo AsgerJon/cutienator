@@ -36,6 +36,9 @@
     "ritual_ZN12QQuickPixmap8setImageERK6QImage": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN12QQuickPixmap9setPixmapERKS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK12QQuickPixmap10colorSpaceEv": ["address", "address"],
     "ritual_ZNK12QQuickPixmap14textureFactoryEv": ["address", "address"],
     "ritual_ZNK12QQuickPixmap4rectEv": ["address", "address"],

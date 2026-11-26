@@ -292,6 +292,25 @@ const QMetaObject *ritual_ZNK22QQuick3DParticleSystem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleSystem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuick3DParticleSystem11qt_metacastEPKc(
+    QQuick3DParticleSystem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleSystem::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuick3DParticleSystem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleSystem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleSystem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuick3DParticleSystem2trEPKcS1_i(
@@ -536,6 +555,62 @@ void ritual_ZN22QQuick3DParticleSystem13setEditorTimeEi(
   self->setEditorTime(time);
 }
 
+//  void QQuick3DParticleSystem::runningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem14runningChangedEv(
+    QQuick3DParticleSystem *self) {
+  self->runningChanged();
+}
+
+//  void QQuick3DParticleSystem::pausedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem13pausedChangedEv(
+    QQuick3DParticleSystem *self) {
+  self->pausedChanged();
+}
+
+//  void QQuick3DParticleSystem::timeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem11timeChangedEv(
+    QQuick3DParticleSystem *self) {
+  self->timeChanged();
+}
+
+//  void QQuick3DParticleSystem::startTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem16startTimeChangedEv(
+    QQuick3DParticleSystem *self) {
+  self->startTimeChanged();
+}
+
+//  void QQuick3DParticleSystem::useRandomSeedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem20useRandomSeedChangedEv(
+    QQuick3DParticleSystem *self) {
+  self->useRandomSeedChanged();
+}
+
+//  void QQuick3DParticleSystem::seedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem11seedChangedEv(
+    QQuick3DParticleSystem *self) {
+  self->seedChanged();
+}
+
+//  void QQuick3DParticleSystem::loggingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem14loggingChangedEv(
+    QQuick3DParticleSystem *self) {
+  self->loggingChanged();
+}
+
+//  void QQuick3DParticleSystem::loggingDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem18loggingDataChangedEv(
+    QQuick3DParticleSystem *self) {
+  self->loggingDataChanged();
+}
+
 //  void QQuick3DParticleSystem::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuick3DParticleSystem17componentCompleteEv(
@@ -576,6 +651,84 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuick3DParticleSystem9markDirtyEv(
     QQuick3DParticleSystem *self) {
   self->markDirty();
+}
+
+//  void QQuick3DParticleSystem::processModelParticle(QQuick3DParticleModelPa
+//      rticle *modelParticle, const QVector<TrailEmits> &trailEmits, float
+//      timeS)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem20processModelParticleEP29QQuick3DParticleModelParticleRK5QListINS_10TrailEmitsEEf(
+    QQuick3DParticleSystem *self,
+    QQuick3DParticleModelParticle *modelParticle,
+    const QVector<QQuick3DParticleSystem::TrailEmits> *trailEmits,
+    float timeS) {
+  self->processModelParticle(modelParticle, *trailEmits, timeS);
+}
+
+//  void QQuick3DParticleSystem::processSpriteParticle(QQuick3DParticleSprite
+//      Particle *spriteParticle, const QVector<TrailEmits> &trailEmits,
+//      float timeS)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem21processSpriteParticleEP30QQuick3DParticleSpriteParticleRK5QListINS_10TrailEmitsEEf(
+    QQuick3DParticleSystem *self,
+    QQuick3DParticleSpriteParticle *spriteParticle,
+    const QVector<QQuick3DParticleSystem::TrailEmits> *trailEmits,
+    float timeS) {
+  self->processSpriteParticle(spriteParticle, *trailEmits, timeS);
+}
+
+//  void QQuick3DParticleSystem::processModelBlendParticle(QQuick3DParticleMo
+//      delBlendParticle *particle, const QVector<TrailEmits> &trailEmits,
+//      float timeS)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem25processModelBlendParticleEP34QQuick3DParticleModelBlendParticleRK5QListINS_10TrailEmitsEEf(
+    QQuick3DParticleSystem *self,
+    QQuick3DParticleModelBlendParticle *particle,
+    const QVector<QQuick3DParticleSystem::TrailEmits> *trailEmits,
+    float timeS) {
+  self->processModelBlendParticle(particle, *trailEmits, timeS);
+}
+
+//  void
+//      QQuick3DParticleSystem::processParticleCommon(QQuick3DParticleDataCur
+//      rent &currentData, const QQuick3DParticleData *d, float
+//      particleTimeS)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem21processParticleCommonER27QQuick3DParticleDataCurrentPK20QQuick3DParticleDataf(
+    QQuick3DParticleSystem *self,
+    QQuick3DParticleDataCurrent *currentData,
+    const QQuick3DParticleData *d,
+    float particleTimeS) {
+  self->processParticleCommon(*currentData, d, particleTimeS);
+}
+
+//  void QQuick3DParticleSystem::processParticleFadeInOut(QQuick3DParticleDat
+//      aCurrent &currentData, const QQuick3DParticle *particle, float
+//      particleTimeS, float particleTimeLeftS)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem24processParticleFadeInOutER27QQuick3DParticleDataCurrentPK16QQuick3DParticleff(
+    QQuick3DParticleSystem *self,
+    QQuick3DParticleDataCurrent *currentData,
+    const QQuick3DParticle *particle,
+    float particleTimeS,
+    float particleTimeLeftS) {
+  self->processParticleFadeInOut(
+      *currentData,
+      particle,
+      particleTimeS,
+      particleTimeLeftS);
+}
+
+//  void QQuick3DParticleSystem::processParticleAlignment(QQuick3DParticleDat
+//      aCurrent &currentData, const QQuick3DParticle *particle, const
+//      QQuick3DParticleData *d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleSystem24processParticleAlignmentER27QQuick3DParticleDataCurrentPK16QQuick3DParticlePK20QQuick3DParticleData(
+    QQuick3DParticleSystem *self,
+    QQuick3DParticleDataCurrent *currentData,
+    const QQuick3DParticle *particle,
+    const QQuick3DParticleData *d) {
+  self->processParticleAlignment(*currentData, particle, d);
 }
 
 //  bool QQuick3DParticleSystem::isGloballyDisabled()

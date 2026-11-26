@@ -915,6 +915,21 @@ QVariant *ritual_ZNK23QGraphicsSimpleTextItem9extensionERK8QVariant(
   return new QVariant(self->extension(*variant));
 }
 
+//  QGraphicsSimpleTextItemPrivate *QGraphicsSimpleTextItem::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSimpleTextItemPrivate *ritual_ZN23QGraphicsSimpleTextItem6d_funcEv(
+    QGraphicsSimpleTextItem *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSimpleTextItemPrivate *QGraphicsSimpleTextItem::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSimpleTextItemPrivate *ritual_ZNK23QGraphicsSimpleTextItem6d_funcEv(
+    const QGraphicsSimpleTextItem *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSimpleTextItem, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

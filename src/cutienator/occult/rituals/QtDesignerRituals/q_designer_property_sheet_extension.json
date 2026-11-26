@@ -4,6 +4,7 @@
     "QtDesigner/propertysheet.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN31QDesignerPropertySheetExtensionC1Ev": ["address"],
     "ritual_ZN31QDesignerPropertySheetExtensionD1Ev": ["nothing", "address"],
     "ritual_ZNK31QDesignerPropertySheetExtension5countEv": [
       "int", "address"

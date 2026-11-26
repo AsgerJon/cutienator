@@ -55,6 +55,32 @@ inline int QQmlListCompositor::count(Group group) const
     return m_end.index[group];
 }
 
+//  from ../qtdeclarative/src/qmlmodels/qqmllistcompositor.cpp, line 1305, as _ZN18QQmlListCompositor10transitionENS_5GroupES0_P5QListIN13QQmlChangeSet6ChangeEES5_
+inline void QQmlListCompositor::transition(
+        Group from,
+        Group to,
+        QList<QQmlChangeSet::Change> *removes,
+        QList<QQmlChangeSet::Change> *inserts)
+{
+    int removeCount = 0;
+    for (iterator it(m_ranges.next, 0, Default, m_groupCount); *it != &m_ranges; *it = it->next) {
+        if (it == from && it != to) {
+            removes->append(QQmlChangeSet::Change(it.index[from]- removeCount, it->count));
+            removeCount += it->count;
+        } else if (it != from && it == to) {
+            inserts->append(QQmlChangeSet::Change(it.index[to], it->count));
+        }
+        it.incrementIndexes(it->count);
+    }
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistcompositor.cpp, line 279, as _ZN18QQmlListCompositor6insertEPNS_5RangeEPviij
+inline QQmlListCompositor::Range *QQmlListCompositor::insert(
+        Range *before, void *list, int index, int count, uint flags)
+{
+    return new Range(before, list, index, count, flags);
+}
+
 //  from ../qtdeclarative/src/qmlmodels/qqmllistcompositor.cpp, line 291, as _ZN18QQmlListCompositor5eraseEPNS_5RangeE
 inline QQmlListCompositor::Range *QQmlListCompositor::erase(
         Range *range)
@@ -139,6 +165,32 @@ extern "C" Q_DECL_EXPORT
 QQmlListCompositor::iterator *ritual_ZN18QQmlListCompositor3endEv(
     QQmlListCompositor *self) {
   return new QQmlListCompositor::iterator(self->end());
+}
+
+//  void QQmlListCompositor::transition(Group from, Group to,
+//      QList<QQmlChangeSet::Change> *removes, QList<QQmlChangeSet::Change>
+//      *inserts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlListCompositor10transitionENS_5GroupES0_P5QListIN13QQmlChangeSet6ChangeEES5_(
+    QQmlListCompositor *self,
+    QQmlListCompositor::Group from,
+    QQmlListCompositor::Group to,
+    QList<QQmlChangeSet::Change> *removes,
+    QList<QQmlChangeSet::Change> *inserts) {
+  self->transition(from, to, removes, inserts);
+}
+
+//  Range *QQmlListCompositor::insert(Range *before, void *list, int index,
+//      int count, uint flags)
+extern "C" Q_DECL_EXPORT
+QQmlListCompositor::Range *ritual_ZN18QQmlListCompositor6insertEPNS_5RangeEPviij(
+    QQmlListCompositor *self,
+    QQmlListCompositor::Range *before,
+    void *list,
+    int index,
+    int count,
+    uint flags) {
+  return self->insert(before, list, index, count, flags);
 }
 
 //  Range *QQmlListCompositor::erase(Range *range)

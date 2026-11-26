@@ -8,6 +8,12 @@
     "ritual_ZN12RotationDataC1Ev": ["address"],
     "ritual_ZN12RotationDataC1ERK9QVector3D": ["address", "address"],
     "ritual_ZN12RotationDataC1ERK11QQuaternion": ["address", "address"],
+    "ritual_ZN12RotationDataaSERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12RotationDataaSERK11QQuaternion": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK12RotationDataS1_": ["bool", "address", "address"],
     "ritual_ZneRK12RotationDataS1_": ["bool", "address", "address"],
     "ritual_ZeqRK12RotationDataRK9QVector3D": ["bool", "address", "address"],
@@ -28,12 +34,14 @@
     ],
     "ritual_ZNK12RotationData13toEulerAnglesEv": ["address", "address"],
     "ritual_ZNK12RotationData12toQuaternionEv": ["address", "address"],
+    "ritual_ZNK12RotationData16toRotationMatrixEv": ["address", "address"],
     "ritual_ZN12RotationData10dotProductERK11QQuaternionS2_": [
       "double", "address", "address"
     ],
     "ritual_ZN12RotationData22fuzzyQuaternionCompareERK11QQuaternionS2_": [
       "bool", "address", "address"
     ],
-    "ritual_ZN12RotationDataD1Ev": ["nothing", "address"]
+    "ritual_ZN12RotationDataD1Ev": ["nothing", "address"],
+    "ritual_drop_RotationData__QMatrix3x3": ["nothing", "address"]
   }
 }

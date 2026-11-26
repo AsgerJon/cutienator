@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QQuickSprite10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickSprite11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuickSprite11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuickSprite2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuickSpriteC1EP7QObject": ["address", "address"],
     "ritual_ZN12QQuickSpriteD1Ev": ["nothing", "address"],
@@ -29,6 +35,42 @@
       "nothing", "address", "double"
     ],
     "ritual_ZNK12QQuickSprite16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZN12QQuickSprite13sourceChangedE4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickSprite18frameHeightChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite17frameWidthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite14reverseChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QQuickSprite17frameCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite13frameXChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite13frameYChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite16frameRateChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QQuickSprite25frameRateVariationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QQuickSprite20frameDurationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite29frameDurationVariationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite16frameSyncChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN12QQuickSprite9setSourceE4QUrl": [
       "nothing", "address", "address"
     ],

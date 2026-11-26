@@ -10,6 +10,9 @@
       "address", "address"
     ],
     "ritual_ZN30QLowEnergyConnectionParametersD1Ev": ["nothing", "address"],
+    "ritual_ZN30QLowEnergyConnectionParametersaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK30QLowEnergyConnectionParametersS1_": [
       "bool", "address", "address"
     ],
@@ -36,6 +39,9 @@
     ],
     "ritual_ZNK30QLowEnergyConnectionParameters18supervisionTimeoutEv": [
       "int", "address"
+    ],
+    "ritual_ZN30QLowEnergyConnectionParameters4swapERS_": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN30QLowEnergyConnectionParameters6equalsERKS_S1_": [
       "bool", "address", "address"

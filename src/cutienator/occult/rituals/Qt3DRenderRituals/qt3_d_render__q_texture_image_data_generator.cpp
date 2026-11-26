@@ -3,6 +3,7 @@
 //  lost.
 #include <Qt3DRender/qtextureimagedatagenerator.h>
 #include <cstring>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QTextureImageDataGenerator that Python can take functions over in. Every Qt3DRender::QTextureImageDataGenerator
 //  Python makes is one. Each function below asks the Python
@@ -40,6 +41,22 @@ void ritual_ZN10Qt3DRender26QTextureImageDataGeneratorD1Ev(
   delete self;
 }
 
+//  QTextureImageDataPtr Qt3DRender::QTextureImageDataGenerator::operator()()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureImageDataPtr *ritual_ZN10Qt3DRender26QTextureImageDataGeneratorclEv(
+    Qt3DRender::QTextureImageDataGenerator *self) {
+  return new Qt3DRender::QTextureImageDataPtr(self->operator()());
+}
+
+//  bool Qt3DRender::QTextureImageDataGenerator::operator==(const
+//      QTextureImageDataGenerator &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender26QTextureImageDataGeneratoreqERKS0_(
+    const Qt3DRender::QTextureImageDataGenerator *self,
+    const Qt3DRender::QTextureImageDataGenerator *other) {
+  return self->operator==(*other);
+}
+
 //  a Python function taken by a CuteQt3DRender_QTextureImageDataGenerator,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT
@@ -48,4 +65,12 @@ bool ritual_take_Qt3DRender_QTextureImageDataGenerator(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QTextureImageDataGenerator *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QTextureImageDataPtr a ritual of
+//      Qt3DRender::QTextureImageDataGenerator gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QTextureImageDataGenerator__Qt3DRender_QTextureImageDataPtr(
+    Qt3DRender::QTextureImageDataPtr *self) {
+  delete self;
 }

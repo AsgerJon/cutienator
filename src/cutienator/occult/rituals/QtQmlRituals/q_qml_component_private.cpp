@@ -54,6 +54,16 @@ QQmlType *ritual_ZNK20QQmlComponentPrivate10loadedTypeEv(
   return new QQmlType(self->loadedType());
 }
 
+//  QObject
+//      *QQmlComponentPrivate::beginCreate(QQmlRefPointer<QQmlContextData>
+//      a0)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN20QQmlComponentPrivate11beginCreateE14QQmlRefPointerI15QQmlContextDataE(
+    QQmlComponentPrivate *self,
+    const QQmlRefPointer<QQmlContextData> *a0) {
+  return self->beginCreate(*a0);
+}
+
 //  void QQmlComponentPrivate::completeCreate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlComponentPrivate14completeCreateEv(
@@ -111,6 +121,26 @@ QQmlError *ritual_ZN20QQmlComponentPrivate32unsetRequiredPropertyToQQmlErrorERK2
           *unsetRequiredProperty));
 }
 
+//  void QQmlComponentPrivate::incubateObject(QQmlIncubator *incubationTask,
+//      QQmlComponent *component, QQmlEngine *engine, const
+//      QQmlRefPointer<QQmlContextData> &context, const
+//      QQmlRefPointer<QQmlContextData> &forContext)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlComponentPrivate14incubateObjectEP13QQmlIncubatorP13QQmlComponentP10QQmlEngineRK14QQmlRefPointerI15QQmlContextDataESA_(
+    QQmlComponentPrivate *self,
+    QQmlIncubator *incubationTask,
+    QQmlComponent *component,
+    QQmlEngine *engine,
+    const QQmlRefPointer<QQmlContextData> *context,
+    const QQmlRefPointer<QQmlContextData> *forContext) {
+  self->incubateObject(
+      incubationTask,
+      component,
+      engine,
+      *context,
+      *forContext);
+}
+
 //  void QQmlComponentPrivate::ready(QQmlNotifyingBlob *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlComponentPrivate5readyEP17QQmlNotifyingBlob(
@@ -128,11 +158,39 @@ void ritual_ZN20QQmlComponentPrivate8progressEP17QQmlNotifyingBlobd(
   self->progress(a0, a1);
 }
 
+//  void QQmlComponentPrivate::fromTypeData(const
+//      QQmlRefPointer<QQmlTypeData> &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlComponentPrivate12fromTypeDataERK14QQmlRefPointerI12QQmlTypeDataE(
+    QQmlComponentPrivate *self,
+    const QQmlRefPointer<QQmlTypeData> *data) {
+  self->fromTypeData(*data);
+}
+
 //  bool QQmlComponentPrivate::hadTopLevelRequiredProperties() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QQmlComponentPrivate29hadTopLevelRequiredPropertiesEv(
     const QQmlComponentPrivate *self) {
   return self->hadTopLevelRequiredProperties();
+}
+
+//  void QQmlComponentPrivate::beginDeferred(QQmlEnginePrivate *enginePriv,
+//      QObject *object, DeferredState *deferredState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlComponentPrivate13beginDeferredEP17QQmlEnginePrivateP7QObjectPSt6vectorINS_17ConstructionStateESaIS5_EE(
+    QQmlEnginePrivate *enginePriv,
+    QObject *object,
+    QQmlComponentPrivate::DeferredState *deferredState) {
+  QQmlComponentPrivate::beginDeferred(enginePriv, object, deferredState);
+}
+
+//  void QQmlComponentPrivate::completeDeferred(QQmlEnginePrivate
+//      *enginePriv, DeferredState *deferredState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlComponentPrivate16completeDeferredEP17QQmlEnginePrivatePSt6vectorINS_17ConstructionStateESaIS3_EE(
+    QQmlEnginePrivate *enginePriv,
+    QQmlComponentPrivate::DeferredState *deferredState) {
+  QQmlComponentPrivate::completeDeferred(enginePriv, deferredState);
 }
 
 //  void QQmlComponentPrivate::complete(QQmlEnginePrivate *enginePriv,
@@ -261,6 +319,16 @@ void ritual_ZN20QQmlComponentPrivate11setProgressEd(
   self->setProgress(progress);
 }
 
+//  void
+//      QQmlComponentPrivate::setCreationContext(QQmlRefPointer<QQmlContextDa
+//      ta> creationContext)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlComponentPrivate18setCreationContextE14QQmlRefPointerI15QQmlContextDataE(
+    QQmlComponentPrivate *self,
+    const QQmlRefPointer<QQmlContextData> *creationContext) {
+  self->setCreationContext(*creationContext);
+}
+
 //  QQmlType QQmlComponentPrivate::loadHelperType() const
 extern "C" Q_DECL_EXPORT
 QQmlType *ritual_ZNK20QQmlComponentPrivate14loadHelperTypeEv(
@@ -296,6 +364,24 @@ QQmlEngine *ritual_ZNK20QQmlComponentPrivate6engineEv(
   return self->engine();
 }
 
+//  QQmlRefPointer<QV4::ExecutableCompilationUnit>
+//      QQmlComponentPrivate::compilationUnit() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QV4::ExecutableCompilationUnit> *ritual_ZNK20QQmlComponentPrivate15compilationUnitEv(
+    const QQmlComponentPrivate *self) {
+  return new QQmlRefPointer<QV4::ExecutableCompilationUnit>(
+      self->compilationUnit());
+}
+
+//  void QQmlComponentPrivate::setCompilationUnit(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &unit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlComponentPrivate18setCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEE(
+    QQmlComponentPrivate *self,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *unit) {
+  self->setCompilationUnit(*unit);
+}
+
 //  void QQmlComponentPrivate::setData(const QByteArray &data, const QUrl
 //      &url, QQmlComponent::CompilationMode compilationMode)
 extern "C" Q_DECL_EXPORT
@@ -312,4 +398,12 @@ extern "C" Q_DECL_EXPORT
 QQmlNotifyingBlob::Callback *ritual_cast_QQmlComponentPrivate_QQmlNotifyingBlob_Callback(
     QQmlComponentPrivate *self) {
   return static_cast<QQmlNotifyingBlob::Callback *>(self);
+}
+
+//  a QQmlRefPointer<QV4::ExecutableCompilationUnit> a ritual of
+//      QQmlComponentPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlComponentPrivate__QQmlRefPointer_QV4_ExecutableCompilationUnit(
+    QQmlRefPointer<QV4::ExecutableCompilationUnit> *self) {
+  delete self;
 }

@@ -5,6 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZNK9Qt3DInput5Input15AnalogAxisInput4axisEv": ["int", "address"]
+    "ritual_ZN9Qt3DInput5Input15AnalogAxisInput7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input15AnalogAxisInput4axisEv": ["int", "address"],
+    "ritual_ZN9Qt3DInput5Input15AnalogAxisInput16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN9Qt3DInput5Input15AnalogAxisInput7processEPNS0_12InputHandlerEx": [
+      "float", "address", "address", "long long"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input15AnalogAxisInput7processEPNS0_12InputHandlerEx": [
+      "float", "address", "address", "long long"
+    ]
   }
 }

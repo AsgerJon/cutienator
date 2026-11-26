@@ -71,6 +71,26 @@ void ritual_ZN11QBasicMutex14unlockInternalEv(QBasicMutex *self) {
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+//  void QBasicMutex::unlockInternalFutex(void *d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QBasicMutex19unlockInternalFutexEPv(
+    QBasicMutex *self,
+    void *d) {
+  self->unlockInternalFutex(d);
+}
+
+//  void QBasicMutex::unlockInternal(void *d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QBasicMutex14unlockInternalEPv(QBasicMutex *self, void *d) {
+  self->unlockInternal(d);
+}
+
+//  void QBasicMutex::destroyInternal(void *d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QBasicMutex15destroyInternalEPv(QBasicMutex *self, void *d) {
+  self->destroyInternal(d);
+}
+
 //  QMutexPrivate *QBasicMutex::dummyLocked()
 extern "C" Q_DECL_EXPORT
 QMutexPrivate *ritual_ZN11QBasicMutex11dummyLockedEv() {

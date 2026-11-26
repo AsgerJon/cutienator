@@ -11,6 +11,23 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 
+//  QDataStream &operator>>(QDataStream &stream, TranslationIssue &issue)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN20QQmlDebugTranslationrsER11QDataStreamRNS_16TranslationIssueE(
+    QDataStream *stream,
+    QQmlDebugTranslation::TranslationIssue *issue) {
+  return &(operator>>(*stream, *issue));
+}
+
+//  QDataStream &operator<<(QDataStream &stream, const TranslationIssue
+//      &issue)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN20QQmlDebugTranslationlsER11QDataStreamRKNS_16TranslationIssueE(
+    QDataStream *stream,
+    const QQmlDebugTranslation::TranslationIssue *issue) {
+  return &(operator<<(*stream, *issue));
+}
+
 //  bool operator==(const TranslationIssue &first, const TranslationIssue
 //      &second)
 extern "C" Q_DECL_EXPORT

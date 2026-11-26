@@ -27,6 +27,9 @@
     "ritual_ZNK24QOpenGLTextureGlyphCache16maxTextureHeightEv": [
       "int", "address"
     ],
+    "ritual_ZNK24QOpenGLTextureGlyphCache7textureEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZNK24QOpenGLTextureGlyphCache5widthEv": ["int", "address"],
     "ritual_ZNK24QOpenGLTextureGlyphCache6heightEv": ["int", "address"],
     "ritual_ZN24QOpenGLTextureGlyphCache21setPaintEnginePrivateEP28QOpenGL2PaintEngineExPrivate": [

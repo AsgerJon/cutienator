@@ -7,6 +7,36 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_command_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  qdesigner_internal::RemoveActionCommand::RemoveActionCommand(QDesignerFor
+//      mWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::RemoveActionCommand *ritual_ZN18qdesigner_internal19RemoveActionCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new qdesigner_internal::RemoveActionCommand(formWindow);
+}
+
+//  void qdesigner_internal::RemoveActionCommand::init(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19RemoveActionCommand4initEP7QAction(
+    qdesigner_internal::RemoveActionCommand *self,
+    QAction *action) {
+  self->init(action);
+}
+
+//  void qdesigner_internal::RemoveActionCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19RemoveActionCommand4redoEv(
+    qdesigner_internal::RemoveActionCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::RemoveActionCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19RemoveActionCommand4undoEv(
+    qdesigner_internal::RemoveActionCommand *self) {
+  self->undo();
+}
+
 //  void qdesigner_internal::RemoveActionCommand::redo()
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN18qdesigner_internal19RemoveActionCommand4redoEv(

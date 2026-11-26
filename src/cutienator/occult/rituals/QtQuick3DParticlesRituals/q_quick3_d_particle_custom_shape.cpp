@@ -17,6 +17,25 @@ const QMetaObject *ritual_ZNK27QQuick3DParticleCustomShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleCustomShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuick3DParticleCustomShape11qt_metacastEPKc(
+    QQuick3DParticleCustomShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleCustomShape::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuick3DParticleCustomShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleCustomShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleCustomShape::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -79,6 +98,20 @@ void ritual_ZN27QQuick3DParticleCustomShape16setRandomizeDataEb(
     QQuick3DParticleCustomShape *self,
     bool random) {
   self->setRandomizeData(random);
+}
+
+//  void QQuick3DParticleCustomShape::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DParticleCustomShape13sourceChangedEv(
+    QQuick3DParticleCustomShape *self) {
+  self->sourceChanged();
+}
+
+//  void QQuick3DParticleCustomShape::randomizeDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DParticleCustomShape20randomizeDataChangedEv(
+    QQuick3DParticleCustomShape *self) {
+  self->randomizeDataChanged();
 }
 
 //  void QQuick3DParticleCustomShape::loadFromSource()

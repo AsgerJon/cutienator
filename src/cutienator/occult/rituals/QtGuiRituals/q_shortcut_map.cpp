@@ -11,8 +11,24 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qshortcutmap_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+
+//  QShortcutMapPrivate *QShortcutMap::d_func()
+extern "C" Q_DECL_EXPORT
+QShortcutMapPrivate *ritual_ZN12QShortcutMap6d_funcEv(QShortcutMap *self) {
+  return self->d_func();
+}
+
+//  const QShortcutMapPrivate *QShortcutMap::d_func() const
+extern "C" Q_DECL_EXPORT
+const QShortcutMapPrivate *ritual_ZNK12QShortcutMap6d_funcEv(
+    const QShortcutMap *self) {
+  return self->d_func();
+}
 
 //  QShortcutMap::QShortcutMap()
 extern "C" Q_DECL_EXPORT
@@ -24,6 +40,22 @@ QShortcutMap *ritual_ZN12QShortcutMapC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QShortcutMapD1Ev(QShortcutMap *self) {
   delete self;
+}
+
+//  int QShortcutMap::addShortcut(QObject *owner, const QKeySequence &key,
+//      Qt::ShortcutContext context, ContextMatcher matcher)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QShortcutMap11addShortcutEP7QObjectRK12QKeySequenceN2Qt15ShortcutContextEPFbS1_S6_E(
+    QShortcutMap *self,
+    QObject *owner,
+    const QKeySequence *key,
+    Qt::ShortcutContext context,
+    void *matcher) {
+  return self->addShortcut(
+      owner,
+      *key,
+      context,
+      reinterpret_cast<QShortcutMap::ContextMatcher>(matcher));
 }
 
 //  int QShortcutMap::removeShortcut(int id, QObject *owner, const
@@ -125,6 +157,32 @@ QKeySequence::SequenceMatch ritual_ZN12QShortcutMap4findEP9QKeyEventi(
   return self->find(e, ignoredModifiers);
 }
 
+//  QList<const QShortcutEntry *> QShortcutMap::matches() const
+extern "C" Q_DECL_EXPORT
+QList<const QShortcutEntry *> *ritual_ZNK12QShortcutMap7matchesEv(
+    const QShortcutMap *self) {
+  return new QList<const QShortcutEntry *>(self->matches());
+}
+
+//  void QShortcutMap::createNewSequences(QKeyEvent *e, QList<QKeySequence>
+//      &ksl, int ignoredModifiers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QShortcutMap18createNewSequencesEP9QKeyEventR5QListI12QKeySequenceEi(
+    QShortcutMap *self,
+    QKeyEvent *e,
+    QList<QKeySequence> *ksl,
+    int ignoredModifiers) {
+  self->createNewSequences(e, *ksl, ignoredModifiers);
+}
+
+//  void QShortcutMap::clearSequence(QList<QKeySequence> &ksl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QShortcutMap13clearSequenceER5QListI12QKeySequenceE(
+    QShortcutMap *self,
+    QList<QKeySequence> *ksl) {
+  self->clearSequence(*ksl);
+}
+
 //  int QShortcutMap::translateModifiers(Qt::KeyboardModifiers modifiers)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN12QShortcutMap18translateModifiersE6QFlagsIN2Qt16KeyboardModifierEE(
@@ -132,6 +190,13 @@ int ritual_ZN12QShortcutMap18translateModifiersE6QFlagsIN2Qt16KeyboardModifierEE
     int modifiers) {
   return self->translateModifiers(
       QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
+}
+
+//  a QList<const QShortcutEntry *> a ritual of QShortcutMap gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QShortcutMap__QList_const_QShortcutEntry(
+    QList<const QShortcutEntry *> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(shortcut)

@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3D/6.12.0/QtQuick3D/private/qquick3dlightmapbaker_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: added by hand: 'ritual_callback_ZN21QQuick3
+//  DLightmapBaker4bakeESt8functionIFvRK4QMapI7QString8QVariantEPNS_13BakingC
+//  ontrolEEE', 'ritual_callback_ZN21QQuick3DLightmapBaker7denoiseESt8functio
+//  nIFvRK4QMapI7QString8QVariantEPNS_13BakingControlEEE'. Kept as it is when
+//  the generator runs again.
 #include <QtQuick3D/6.12.0/QtQuick3D/private/qtquick3dglobal_p.h>
 #include <QtQuick3D/QtQuick3D>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -184,6 +188,25 @@ const QMetaObject *ritual_ZNK21QQuick3DLightmapBaker10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DLightmapBaker::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DLightmapBaker11qt_metacastEPKc(
+    QQuick3DLightmapBaker *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DLightmapBaker::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DLightmapBaker11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DLightmapBaker *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DLightmapBaker::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuick3DLightmapBaker2trEPKcS1_i(
@@ -206,10 +229,26 @@ void ritual_ZN21QQuick3DLightmapBakerD1Ev(QQuick3DLightmapBaker *self) {
   delete self;
 }
 
+//  void QQuick3DLightmapBaker::bake(Callback callback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DLightmapBaker4bakeESt8functionIFvRK4QMapI7QString8QVariantEPNS_13BakingControlEEE(
+    QQuick3DLightmapBaker *self,
+    const QQuick3DLightmapBaker::Callback *callback) {
+  self->bake(*callback);
+}
+
 //  void QQuick3DLightmapBaker::bake()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuick3DLightmapBaker4bakeEv(QQuick3DLightmapBaker *self) {
   self->bake();
+}
+
+//  void QQuick3DLightmapBaker::denoise(Callback callback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DLightmapBaker7denoiseESt8functionIFvRK4QMapI7QString8QVariantEPNS_13BakingControlEEE(
+    QQuick3DLightmapBaker *self,
+    const QQuick3DLightmapBaker::Callback *callback) {
+  self->denoise(*callback);
 }
 
 //  void QQuick3DLightmapBaker::denoise()
@@ -249,4 +288,38 @@ bool ritual_take_QQuick3DLightmapBaker(
     const char *key,
     void *call) {
   return static_cast<CuteQQuick3DLightmapBaker *>(self)->take(key, call);
+}
+
+//  void QQuick3DLightmapBaker::bake(Callback callback)
+extern "C" Q_DECL_EXPORT
+void ritual_callback_ZN21QQuick3DLightmapBaker4bakeESt8functionIFvRK4QMapI7QString8QVariantEPNS_13BakingControlEEE(
+    QQuick3DLightmapBaker *self,
+    void *call,
+    void *context) {
+  auto function = reinterpret_cast<void (*)(
+      void *, const QVariantMap *, QQuick3DLightmapBaker::BakingControl *)>(
+          call);
+  auto callback = [function, context](
+      const QVariantMap &map,
+      QQuick3DLightmapBaker::BakingControl *control) {
+    function(context, &map, control);
+  };
+  self->bake(callback);
+}
+
+//  void QQuick3DLightmapBaker::denoise(Callback callback)
+extern "C" Q_DECL_EXPORT
+void ritual_callback_ZN21QQuick3DLightmapBaker7denoiseESt8functionIFvRK4QMapI7QString8QVariantEPNS_13BakingControlEEE(
+    QQuick3DLightmapBaker *self,
+    void *call,
+    void *context) {
+  auto function = reinterpret_cast<void (*)(
+      void *, const QVariantMap *, QQuick3DLightmapBaker::BakingControl *)>(
+          call);
+  auto callback = [function, context](
+      const QVariantMap &map,
+      QQuick3DLightmapBaker::BakingControl *control) {
+    function(context, &map, control);
+  };
+  self->denoise(callback);
 }

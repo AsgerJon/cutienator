@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN16QOpcUaReadResultC1Ev": ["address"],
     "ritual_ZN16QOpcUaReadResultC1ERKS_": ["address", "address"],
+    "ritual_ZN16QOpcUaReadResultaSERKS_": ["address", "address", "address"],
     "ritual_ZN16QOpcUaReadResultD1Ev": ["nothing", "address"],
     "ritual_ZNK16QOpcUaReadResult15serverTimestampEv": [
       "address", "address"

@@ -223,6 +223,20 @@ QAudioEngine *ritual_ZNK14QAudioListener6engineEv(
   return self->engine();
 }
 
+//  QAudioListenerPrivate *QAudioListener::d_func()
+extern "C" Q_DECL_EXPORT
+QAudioListenerPrivate *ritual_ZN14QAudioListener6d_funcEv(
+    QAudioListener *self) {
+  return self->d_func();
+}
+
+//  const QAudioListenerPrivate *QAudioListener::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAudioListenerPrivate *ritual_ZNK14QAudioListener6d_funcEv(
+    const QAudioListener *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQAudioListener, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

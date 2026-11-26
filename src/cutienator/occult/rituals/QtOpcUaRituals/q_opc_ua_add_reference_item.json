@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN22QOpcUaAddReferenceItemC1Ev": ["address"],
     "ritual_ZN22QOpcUaAddReferenceItemC1ERKS_": ["address", "address"],
+    "ritual_ZN22QOpcUaAddReferenceItemaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QOpcUaAddReferenceItemD1Ev": ["nothing", "address"],
     "ritual_ZNK22QOpcUaAddReferenceItem12sourceNodeIdEv": [
       "text", "address"

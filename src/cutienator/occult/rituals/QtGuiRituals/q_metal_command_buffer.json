@@ -5,6 +5,7 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN19QMetalCommandBuffer7destroyEv": ["nothing", "address"],
     "ritual_take_QMetalCommandBuffer": [
       "bool", "address", "chars", "address"
     ]

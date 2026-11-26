@@ -219,6 +219,24 @@ const QMetaObject *ritual_ZNK11QFinalState10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFinalState::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QFinalState11qt_metacastEPKc(
+    QFinalState *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFinalState::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QFinalState11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFinalState *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFinalState::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QFinalState2trEPKcS1_i(
@@ -260,6 +278,27 @@ void ritual_ZN11QFinalState6onExitEP6QEvent(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QFinalState5eventEP6QEvent(QFinalState *self, QEvent *e) {
   return self->event(e);
+}
+
+//  QFinalState::QFinalState(QFinalStatePrivate &dd, QState *parent)
+extern "C" Q_DECL_EXPORT
+QFinalState *ritual_ZN11QFinalStateC1ER18QFinalStatePrivateP6QState(
+    QFinalStatePrivate *dd,
+    QState *parent) {
+  return new CuteQFinalState(*dd, parent);
+}
+
+//  QFinalStatePrivate *QFinalState::d_func()
+extern "C" Q_DECL_EXPORT
+QFinalStatePrivate *ritual_ZN11QFinalState6d_funcEv(QFinalState *self) {
+  return self->d_func();
+}
+
+//  const QFinalStatePrivate *QFinalState::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFinalStatePrivate *ritual_ZNK11QFinalState6d_funcEv(
+    const QFinalState *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQFinalState, for the function named by

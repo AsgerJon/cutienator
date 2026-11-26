@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK14QWaylandClient10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandClient::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QWaylandClient11qt_metacastEPKc(
+    QWaylandClient *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandClient::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QWaylandClient11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandClient *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandClient::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QWaylandClient2trEPKcS1_i(
@@ -188,6 +206,20 @@ QString *ritual_ZN14QWaylandClient2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandClient::tr(s, c, n));
+}
+
+//  QWaylandClientPrivate *QWaylandClient::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandClientPrivate *ritual_ZN14QWaylandClient6d_funcEv(
+    QWaylandClient *self) {
+  return self->d_func();
+}
+
+//  const QWaylandClientPrivate *QWaylandClient::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandClientPrivate *ritual_ZNK14QWaylandClient6d_funcEv(
+    const QWaylandClient *self) {
+  return self->d_func();
 }
 
 //  void QWaylandClient::qt_qmlMarker_uncreatable()
@@ -219,11 +251,26 @@ void ritual_ZN14QWaylandClient21setTextInputProtocolsE6QFlagsINS_17TextInputProt
       QFlags<QWaylandClient::TextInputProtocol>::fromInt(p));
 }
 
+//  QWaylandClient *QWaylandClient::fromWlClient(QWaylandCompositor
+//      *compositor, wl_client *wlClient)
+extern "C" Q_DECL_EXPORT
+QWaylandClient *ritual_ZN14QWaylandClient12fromWlClientEP18QWaylandCompositorP9wl_client(
+    QWaylandCompositor *compositor,
+    wl_client *wlClient) {
+  return QWaylandClient::fromWlClient(compositor, wlClient);
+}
+
 //  QWaylandCompositor *QWaylandClient::compositor() const
 extern "C" Q_DECL_EXPORT
 QWaylandCompositor *ritual_ZNK14QWaylandClient10compositorEv(
     const QWaylandClient *self) {
   return self->compositor();
+}
+
+//  wl_client *QWaylandClient::client() const
+extern "C" Q_DECL_EXPORT
+wl_client *ritual_ZNK14QWaylandClient6clientEv(const QWaylandClient *self) {
+  return self->client();
 }
 
 //  qint64 QWaylandClient::userId() const
@@ -254,6 +301,15 @@ void ritual_ZN14QWaylandClient4killEi(QWaylandClient *self, int signal) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QWaylandClient5closeEv(QWaylandClient *self) {
   self->close();
+}
+
+//  QWaylandClient::QWaylandClient(QWaylandCompositor *compositor, wl_client
+//      *client)
+extern "C" Q_DECL_EXPORT
+QWaylandClient *ritual_ZN14QWaylandClientC1EP18QWaylandCompositorP9wl_client(
+    QWaylandCompositor *compositor,
+    wl_client *client) {
+  return new CuteQWaylandClient(compositor, client);
 }
 
 //  a Python function taken by a CuteQWaylandClient, for the function named

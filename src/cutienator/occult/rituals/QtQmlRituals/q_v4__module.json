@@ -8,6 +8,43 @@
     "ritual_ZN3QV46Module12staticVTableEv": ["address"],
     "ritual_ZN3QV46Module10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV46Module11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV46Module1dEv": ["address", "address"]
+    "ritual_ZNK3QV46Module1dEv": ["address", "address"],
+    "ritual_ZN3QV46Module8evaluateEv": ["nothing", "address"],
+    "ritual_ZNK3QV46Module13resolveExportENS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Module10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Module21virtualGetOwnPropertyEPKNS_7ManagedENS_11PropertyKeyEPNS_8PropertyE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Module18virtualHasPropertyEPKNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV46Module24virtualPreventExtensionsEPNS_7ManagedE": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV46Module24virtualDefineOwnPropertyEPNS_7ManagedENS_11PropertyKeyEPKNS_8PropertyENS_18PropertyAttributesE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Module10virtualPutEPNS_7ManagedENS_11PropertyKeyERKNS_5ValueEPS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Module21virtualDeletePropertyEPNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV46Module22virtualOwnPropertyKeysEPKNS_6ObjectEPNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Module21virtualGetPrototypeOfEPKNS_7ManagedE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV46Module21virtualSetPrototypeOfEPNS_7ManagedEPKNS_6ObjectE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV46Module19virtualIsExtensibleEPKNS_7ManagedE": [
+      "bool", "address"
+    ]
   }
 }

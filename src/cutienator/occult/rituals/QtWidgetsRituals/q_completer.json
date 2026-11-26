@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QCompleter10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QCompleter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QCompleter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QCompleter2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QCompleterC1EP7QObject": ["address", "address"],
     "ritual_ZN10QCompleterC1EP18QAbstractItemModelP7QObject": [
@@ -79,6 +85,18 @@
       "bool", "address", "address", "address"
     ],
     "ritual_ZN10QCompleter5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN10QCompleter9activatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QCompleter9activatedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QCompleter11highlightedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QCompleter11highlightedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QCompleter6d_funcEv": ["address", "address"],
     "ritual_ZNK10QCompleter6d_funcEv": ["address", "address"],
     "ritual_take_QCompleter": ["bool", "address", "chars", "address"],

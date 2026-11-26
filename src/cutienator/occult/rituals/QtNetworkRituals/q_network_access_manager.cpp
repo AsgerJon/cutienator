@@ -7,6 +7,7 @@
 #include <QtNetwork/qnetworkrequest.h>
 #include <QtCore/qbytearray.h>
 #include <QtNetwork/qsslconfiguration.h>
+#include <QtNetwork/qsslerror.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -209,6 +210,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK21QNetworkAccessManager10metaObjectEv(
     const QNetworkAccessManager *self) {
   return self->metaObject();
+}
+
+//  void *QNetworkAccessManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QNetworkAccessManager11qt_metacastEPKc(
+    QNetworkAccessManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNetworkAccessManager::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QNetworkAccessManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNetworkAccessManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QNetworkAccessManager::tr(const char *s, const char *c, int n)
@@ -430,6 +450,15 @@ QNetworkReply *ritual_ZN21QNetworkAccessManager4postERK15QNetworkRequestRK10QByt
   return self->post(*request, *data);
 }
 
+//  QNetworkReply *QNetworkAccessManager::post(const QNetworkRequest
+//      &request, std::nullptr_t a1)
+extern "C" Q_DECL_EXPORT
+QNetworkReply *ritual_ZN21QNetworkAccessManager4postERK15QNetworkRequestDn(
+    QNetworkAccessManager *self,
+    const QNetworkRequest *request) {
+  return self->post(*request, nullptr);
+}
+
 //  QNetworkReply *QNetworkAccessManager::put(const QNetworkRequest &request,
 //      QIODevice *data)
 extern "C" Q_DECL_EXPORT
@@ -448,6 +477,15 @@ QNetworkReply *ritual_ZN21QNetworkAccessManager3putERK15QNetworkRequestRK10QByte
     const QNetworkRequest *request,
     const QByteArray *data) {
   return self->put(*request, *data);
+}
+
+//  QNetworkReply *QNetworkAccessManager::put(const QNetworkRequest &request,
+//      std::nullptr_t a1)
+extern "C" Q_DECL_EXPORT
+QNetworkReply *ritual_ZN21QNetworkAccessManager3putERK15QNetworkRequestDn(
+    QNetworkAccessManager *self,
+    const QNetworkRequest *request) {
+  return self->put(*request, nullptr);
 }
 
 //  QNetworkReply *QNetworkAccessManager::deleteResource(const
@@ -609,6 +647,88 @@ void ritual_ZN21QNetworkAccessManager18setTransferTimeoutEi(
     int timeout) {
   self->setTransferTimeout(timeout);
 }
+
+//  std::chrono::milliseconds
+//      QNetworkAccessManager::transferTimeoutAsDuration() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK21QNetworkAccessManager25transferTimeoutAsDurationEv(
+    const QNetworkAccessManager *self) {
+  return static_cast<long long>(self->transferTimeoutAsDuration().count());
+}
+
+//  void QNetworkAccessManager::setTransferTimeout(std::chrono::milliseconds
+//      duration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QNetworkAccessManager18setTransferTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QNetworkAccessManager *self,
+    long long duration) {
+  self->setTransferTimeout(std::chrono::milliseconds(duration));
+}
+
+#if !defined(QT_NO_NETWORKPROXY)
+//  void QNetworkAccessManager::proxyAuthenticationRequired(const
+//      QNetworkProxy &proxy, QAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QNetworkAccessManager27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator(
+    QNetworkAccessManager *self,
+    const QNetworkProxy *proxy,
+    QAuthenticator *authenticator) {
+  self->proxyAuthenticationRequired(*proxy, authenticator);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  void QNetworkAccessManager::authenticationRequired(QNetworkReply *reply,
+//      QAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QNetworkAccessManager22authenticationRequiredEP13QNetworkReplyP14QAuthenticator(
+    QNetworkAccessManager *self,
+    QNetworkReply *reply,
+    QAuthenticator *authenticator) {
+  self->authenticationRequired(reply, authenticator);
+}
+
+//  void QNetworkAccessManager::finished(QNetworkReply *reply)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QNetworkAccessManager8finishedEP13QNetworkReply(
+    QNetworkAccessManager *self,
+    QNetworkReply *reply) {
+  self->finished(reply);
+}
+
+#if !defined(QT_NO_SSL)
+//  void QNetworkAccessManager::encrypted(QNetworkReply *reply)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QNetworkAccessManager9encryptedEP13QNetworkReply(
+    QNetworkAccessManager *self,
+    QNetworkReply *reply) {
+  self->encrypted(reply);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QNetworkAccessManager::sslErrors(QNetworkReply *reply, const
+//      QList<QSslError> &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QNetworkAccessManager9sslErrorsEP13QNetworkReplyRK5QListI9QSslErrorE(
+    QNetworkAccessManager *self,
+    QNetworkReply *reply,
+    const QList<QSslError> *errors) {
+  self->sslErrors(reply, *errors);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void
+//      QNetworkAccessManager::preSharedKeyAuthenticationRequired(QNetworkRep
+//      ly *reply, QSslPreSharedKeyAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QNetworkAccessManager34preSharedKeyAuthenticationRequiredEP13QNetworkReplyP29QSslPreSharedKeyAuthenticator(
+    QNetworkAccessManager *self,
+    QNetworkReply *reply,
+    QSslPreSharedKeyAuthenticator *authenticator) {
+  self->preSharedKeyAuthenticationRequired(reply, authenticator);
+}
+#endif  // !defined(QT_NO_SSL)
 
 //  QNetworkReply *QNetworkAccessManager::createRequest(Operation op, const
 //      QNetworkRequest &request, QIODevice *outgoingData)

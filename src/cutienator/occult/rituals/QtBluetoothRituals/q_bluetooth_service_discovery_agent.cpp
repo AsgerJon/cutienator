@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK31QBluetoothServiceDiscoveryAgent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBluetoothServiceDiscoveryAgent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QBluetoothServiceDiscoveryAgent11qt_metacastEPKc(
+    QBluetoothServiceDiscoveryAgent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBluetoothServiceDiscoveryAgent::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QBluetoothServiceDiscoveryAgent11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBluetoothServiceDiscoveryAgent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBluetoothServiceDiscoveryAgent::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -324,6 +343,38 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN31QBluetoothServiceDiscoveryAgent5clearEv(
     QBluetoothServiceDiscoveryAgent *self) {
   self->clear();
+}
+
+//  void QBluetoothServiceDiscoveryAgent::serviceDiscovered(const
+//      QBluetoothServiceInfo &info)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QBluetoothServiceDiscoveryAgent17serviceDiscoveredERK21QBluetoothServiceInfo(
+    QBluetoothServiceDiscoveryAgent *self,
+    const QBluetoothServiceInfo *info) {
+  self->serviceDiscovered(*info);
+}
+
+//  void QBluetoothServiceDiscoveryAgent::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QBluetoothServiceDiscoveryAgent8finishedEv(
+    QBluetoothServiceDiscoveryAgent *self) {
+  self->finished();
+}
+
+//  void QBluetoothServiceDiscoveryAgent::canceled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QBluetoothServiceDiscoveryAgent8canceledEv(
+    QBluetoothServiceDiscoveryAgent *self) {
+  self->canceled();
+}
+
+//  void QBluetoothServiceDiscoveryAgent::errorOccurred(QBluetoothServiceDisc
+//      overyAgent::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QBluetoothServiceDiscoveryAgent13errorOccurredENS_5ErrorE(
+    QBluetoothServiceDiscoveryAgent *self,
+    QBluetoothServiceDiscoveryAgent::Error error) {
+  self->errorOccurred(error);
 }
 
 //  a Python function taken by a CuteQBluetoothServiceDiscoveryAgent, for the

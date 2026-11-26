@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/quuid.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/quuid.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  instances of templates of the class: 2. Kept as it is when the generator
+//  runs again.
 #include <QtCore/quuid.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
@@ -86,6 +88,14 @@ QUuid::Id128Bytes *ritual_ZNK5QUuid7toBytesEN8QSysInfo6EndianE(
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK5QUuid9toRfc4122Ev(const QUuid *self) {
   return new QByteArray(self->toRfc4122());
+}
+
+//  QUuid QUuid::fromBytes(const void *bytes, QSysInfo::Endian order)
+extern "C" Q_DECL_EXPORT
+QUuid *ritual_ZN5QUuid9fromBytesEPKvN8QSysInfo6EndianE(
+    const void *bytes,
+    QSysInfo::Endian order) {
+  return new QUuid(QUuid::fromBytes(bytes, order));
 }
 
 //  QUuid QUuid::fromRfc4122(QByteArrayView a0)
@@ -217,3 +227,25 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN5QUuidD1Ev(QUuid *self) {
   delete self;
 }
+
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+#if !defined(QT_BOOTSTRAPPED)
+//  static QUuid QUuid::createUuidV3<void>(const QUuid &ns,
+//      const QString &baseData)
+extern "C" Q_DECL_EXPORT
+QUuid *ritual_ZN5QUuid12createUuidV3IvEES_RKS_RK7QString(
+    const QUuid *ns,
+    const QString *baseData) {
+  return new QUuid(QUuid::createUuidV3<void>(*ns, *baseData));
+}
+#endif  // !defined(QT_BOOTSTRAPPED)
+
+//  static QUuid QUuid::createUuidV5<void>(const QUuid &ns,
+//      const QString &baseData)
+extern "C" Q_DECL_EXPORT
+QUuid *ritual_ZN5QUuid12createUuidV5IvEES_RKS_RK7QString(
+    const QUuid *ns,
+    const QString *baseData) {
+  return new QUuid(QUuid::createUuidV5<void>(*ns, *baseData));
+}
+#endif

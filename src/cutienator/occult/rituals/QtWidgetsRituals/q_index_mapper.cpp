@@ -23,6 +23,12 @@ QIndexMapper *ritual_ZN12QIndexMapperC1Eii(int f, int t) {
   return new QIndexMapper(f, t);
 }
 
+//  QIndexMapper::QIndexMapper(const QList<int> &vec)
+extern "C" Q_DECL_EXPORT
+QIndexMapper *ritual_ZN12QIndexMapperC1ERK5QListIiE(const QList<int> *vec) {
+  return new QIndexMapper(*vec);
+}
+
 //  int QIndexMapper::count() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK12QIndexMapper5countEv(const QIndexMapper *self) {

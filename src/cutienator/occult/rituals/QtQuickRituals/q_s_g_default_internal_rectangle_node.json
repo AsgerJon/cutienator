@@ -9,8 +9,14 @@
     "ritual_ZN31QSGDefaultInternalRectangleNode26updateMaterialAntialiasingEv": [
       "nothing", "address"
     ],
+    "ritual_ZN31QSGDefaultInternalRectangleNode22updateMaterialBlendingEP6QFlagsIN7QSGNode13DirtyStateBitEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZN31QSGDefaultInternalRectangleNode26updateMaterialAntialiasingEv": [
       "nothing", "address"
+    ],
+    "ritual_own_ZN31QSGDefaultInternalRectangleNode22updateMaterialBlendingEP6QFlagsIN7QSGNode13DirtyStateBitEE": [
+      "nothing", "address", "address"
     ]
   }
 }

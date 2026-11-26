@@ -17,6 +17,16 @@
     ],
     "ritual_ZNK3QV414QObjectWrapper10metaObjectEv": ["address", "address"],
     "ritual_ZNK3QV414QObjectWrapper6objectEv": ["address", "address"],
+    "ritual_ZNK3QV414QObjectWrapper14getQmlPropertyERK14QQmlRefPointerI15QQmlContextDataEPNS_6StringE6QFlagsINS0_4FlagEEPb": [
+      "unsigned long long", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper14getQmlPropertyEPNS_15ExecutionEngineERK14QQmlRefPointerI15QQmlContextDataEPNS_4Heap6ObjectEP7QObjectPNS_6StringE6QFlagsINS0_4FlagEEPbPPK16QQmlPropertyData": [
+      "unsigned long long", "address", "address", "address", "address",
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper14setQmlPropertyEPNS_15ExecutionEngineERK14QQmlRefPointerI15QQmlContextDataEP7QObjectPNS_6StringE6QFlagsINS0_4FlagEERKNS_5ValueE": [
+      "bool", "address", "address", "address", "address", "int", "address"
+    ],
     "ritual_ZN3QV414QObjectWrapper4wrapEPNS_15ExecutionEngineEP7QObject": [
       "unsigned long long", "address", "address"
     ],
@@ -38,11 +48,59 @@
     "ritual_ZN3QV414QObjectWrapper11setPropertyEPNS_15ExecutionEngineEP7QObjectPK16QQmlPropertyDataRKNS_5ValueE": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_ZN3QV414QObjectWrapper13destroyObjectEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN3QV414QObjectWrapper11getPropertyEPNS_15ExecutionEngineEPNS_4Heap6ObjectEP7QObjectPK16QQmlPropertyData6QFlagsINS0_4FlagEE": [
+      "unsigned long long", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV414QObjectWrapper26virtualResolveLookupGetterEPKNS_6ObjectEPNS_15ExecutionEngineEPNS_6LookupE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper26virtualResolveLookupSetterEPNS_6ObjectEPNS_15ExecutionEngineEPNS_6LookupERKNS_5ValueE": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN3QV414QObjectWrapper22virtualOwnPropertyKeysEPKNS_6ObjectEPNS_5ValueE": [
       "address", "address", "address"
     ],
+    "ritual_ZN3QV414QObjectWrapper15virtualMetacallEPNS_6ObjectEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN3QV414QObjectWrapper14objectToStringEPNS_15ExecutionEngineEPK11QMetaObjectP7QObject": [
       "text", "address", "address", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper16virtualIsEqualToEPNS_7ManagedES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper6createEPNS_15ExecutionEngineEP7QObject": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper12findPropertyEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS_6StringE6QFlagsINS0_4FlagEEP16QQmlPropertyData": [
+      "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK3QV414QObjectWrapper12findPropertyERK14QQmlRefPointerI15QQmlContextDataEPNS_6StringE6QFlagsINS0_4FlagEEP16QQmlPropertyData": [
+      "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper10virtualPutEPNS_7ManagedENS_11PropertyKeyERKNS_5ValueEPS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper21virtualGetOwnPropertyEPKNS_7ManagedENS_11PropertyKeyEPNS_8PropertyE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper14method_connectEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV414QObjectWrapper17method_disconnectEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV414QObjectWrapper13wrap_slowPathEPNS_15ExecutionEngineEP7QObject": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV414QObjectWrapper18wrapConst_slowPathEPNS_15ExecutionEngineEP7QObject": [
+      "unsigned long long", "address", "address"
     ]
   }
 }

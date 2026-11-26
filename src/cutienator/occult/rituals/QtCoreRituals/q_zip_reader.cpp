@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/QList>
 
 //  QZipReader::QZipReader(const QString &fileName, QIODevice::OpenMode mode)
 extern "C" Q_DECL_EXPORT
@@ -47,6 +48,13 @@ bool ritual_ZNK10QZipReader10isReadableEv(const QZipReader *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10QZipReader6existsEv(const QZipReader *self) {
   return self->exists();
+}
+
+//  QList<FileInfo> QZipReader::fileInfoList() const
+extern "C" Q_DECL_EXPORT
+QList<QZipReader::FileInfo> *ritual_ZNK10QZipReader12fileInfoListEv(
+    const QZipReader *self) {
+  return new QList<QZipReader::FileInfo>(self->fileInfoList());
 }
 
 //  int QZipReader::count() const
@@ -89,4 +97,11 @@ QZipReader::Status ritual_ZNK10QZipReader6statusEv(const QZipReader *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QZipReader5closeEv(QZipReader *self) {
   self->close();
+}
+
+//  a QList<QZipReader::FileInfo> a ritual of QZipReader gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QZipReader__QList_QZipReader_FileInfo(
+    QList<QZipReader::FileInfo> *self) {
+  delete self;
 }

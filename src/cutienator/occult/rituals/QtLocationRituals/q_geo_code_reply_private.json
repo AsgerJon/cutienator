@@ -8,6 +8,12 @@
     "ritual_ZN20QGeoCodeReplyPrivateC1Ev": ["address"],
     "ritual_ZN20QGeoCodeReplyPrivateC1EN13QGeoCodeReply5ErrorERK7QString": [
       "address", "int", "text"
+    ],
+    "ritual_ZN20QGeoCodeReplyPrivate3getERK13QGeoCodeReply": [
+      "address", "address"
+    ],
+    "ritual_ZN20QGeoCodeReplyPrivate3getER13QGeoCodeReply": [
+      "address", "address"
     ]
   }
 }

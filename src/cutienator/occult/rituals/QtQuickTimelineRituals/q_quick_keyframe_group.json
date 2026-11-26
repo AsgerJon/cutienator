@@ -6,10 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickKeyframeGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickKeyframeGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickKeyframeGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickKeyframeGroup2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN19QQuickKeyframeGroup6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickKeyframeGroup6d_funcEv": ["address", "address"],
     "ritual_ZN19QQuickKeyframeGroupC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QQuickKeyframeGroup9keyframesEv": ["address", "address"],
     "ritual_ZNK19QQuickKeyframeGroup6targetEv": ["address", "address"],
     "ritual_ZN19QQuickKeyframeGroup15setTargetObjectEP7QObject": [
       "nothing", "address", "address"
@@ -48,6 +57,15 @@
     "ritual_ZN19QQuickKeyframeGroup17componentCompleteEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QQuickKeyframeGroup13targetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickKeyframeGroup15propertyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickKeyframeGroup21keyframeSourceChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_cast_QQuickKeyframeGroup_QQmlParserStatus": [
       "address", "address"
     ],
@@ -58,6 +76,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN19QQuickKeyframeGroup17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickKeyframeGroup__QQmlListProperty_QQuickKeyframe": [
       "nothing", "address"
     ]
   }

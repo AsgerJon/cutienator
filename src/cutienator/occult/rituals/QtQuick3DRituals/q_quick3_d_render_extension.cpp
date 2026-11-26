@@ -283,6 +283,25 @@ const QMetaObject *ritual_ZNK23QQuick3DRenderExtension10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DRenderExtension::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuick3DRenderExtension11qt_metacastEPKc(
+    QQuick3DRenderExtension *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DRenderExtension::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuick3DRenderExtension11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DRenderExtension *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DRenderExtension::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuick3DRenderExtension2trEPKcS1_i(
@@ -320,6 +339,15 @@ QSSGRenderGraphObject *ritual_ZN23QQuick3DRenderExtension17updateSpatialNodeEP21
     QQuick3DRenderExtension *self,
     QSSGRenderGraphObject *node) {
   return self->updateSpatialNode(node);
+}
+
+//  QQuick3DRenderExtension::QQuick3DRenderExtension(QQuick3DObjectPrivate
+//      &dd, QQuick3DObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DRenderExtension *ritual_ZN23QQuick3DRenderExtensionC1ER21QQuick3DObjectPrivateP14QQuick3DObject(
+    QQuick3DObjectPrivate *dd,
+    QQuick3DObject *parent) {
+  return new CuteQQuick3DRenderExtension(*dd, parent);
 }
 
 //  a Python function taken by a CuteQQuick3DRenderExtension, for the

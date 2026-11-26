@@ -21,10 +21,36 @@ QDnsMailExchangeRecord *ritual_ZN22QDnsMailExchangeRecordC1ERKS_(
   return new QDnsMailExchangeRecord(*other);
 }
 
+//  QDnsMailExchangeRecord
+//      &QDnsMailExchangeRecord::operator=(QDnsMailExchangeRecord &&other)
+extern "C" Q_DECL_EXPORT
+QDnsMailExchangeRecord *ritual_ZN22QDnsMailExchangeRecordaSEOS_(
+    QDnsMailExchangeRecord *self,
+    QDnsMailExchangeRecord *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDnsMailExchangeRecord &QDnsMailExchangeRecord::operator=(const
+//      QDnsMailExchangeRecord &other)
+extern "C" Q_DECL_EXPORT
+QDnsMailExchangeRecord *ritual_ZN22QDnsMailExchangeRecordaSERKS_(
+    QDnsMailExchangeRecord *self,
+    const QDnsMailExchangeRecord *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDnsMailExchangeRecord::~QDnsMailExchangeRecord()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QDnsMailExchangeRecordD1Ev(QDnsMailExchangeRecord *self) {
   delete self;
+}
+
+//  void QDnsMailExchangeRecord::swap(QDnsMailExchangeRecord &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDnsMailExchangeRecord4swapERS_(
+    QDnsMailExchangeRecord *self,
+    QDnsMailExchangeRecord *other) {
+  self->swap(*other);
 }
 
 //  QString QDnsMailExchangeRecord::exchange() const

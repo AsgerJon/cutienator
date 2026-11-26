@@ -6,6 +6,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/6.12.0/QtLocation/private/qgeoserviceprovider_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QMultiHash>
+#include <QtCore/QString>
+#include <QtCore/QCborMap>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/qgeoserviceprovider.h>
 #include <QtLocation/private/qgeoserviceprovider_p.h>
@@ -38,22 +41,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtlocation/src/location/maps/qgeoserviceprovider.cpp, line 797, as _ZN26QGeoServiceProviderPrivate7pluginsEb
-inline QMultiHash<QString, QCborMap> QGeoServiceProviderPrivate::plugins(bool reload)
-{
-    static QMultiHash<QString, QCborMap> plugins;
-    static bool alreadyDiscovered = false;
-
-    if (reload == true)
-        alreadyDiscovered = false;
-
-    if (!alreadyDiscovered) {
-        loadPluginMetadata(plugins);
-        alreadyDiscovered = true;
-    }
-    return plugins;
-}
 
 //  from ../qtlocation/src/location/maps/qgeoserviceprovider.cpp, line 691, as _ZN26QGeoServiceProviderPrivateC1Ev
 inline QGeoServiceProviderPrivate::QGeoServiceProviderPrivate()
@@ -100,4 +87,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QGeoServiceProviderPrivate6unloadEv(
     QGeoServiceProviderPrivate *self) {
   self->unload();
+}
+
+//  a QMultiHash<QString, QCborMap> a ritual of QGeoServiceProviderPrivate
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoServiceProviderPrivate__QMultiHash_QString_QCborMap(
+    QMultiHash<QString, QCborMap> *self) {
+  delete self;
 }

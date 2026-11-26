@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK15QCandlestickSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QCandlestickSet11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QCandlestickSet11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QCandlestickSet2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -37,6 +43,18 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK15QCandlestickSet3penEv": ["address", "address"],
+    "ritual_ZN15QCandlestickSet7clickedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet7hoveredEb": ["nothing", "address", "bool"],
+    "ritual_ZN15QCandlestickSet7pressedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet8releasedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet13doubleClickedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet16timestampChangedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet11openChangedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet11highChangedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet10lowChangedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet12closeChangedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet12brushChangedEv": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet10penChangedEv": ["nothing", "address"],
     "ritual_ZN15QCandlestickSet6d_funcEv": ["address", "address"],
     "ritual_ZNK15QCandlestickSet6d_funcEv": ["address", "address"],
     "ritual_take_QCandlestickSet": ["bool", "address", "chars", "address"],

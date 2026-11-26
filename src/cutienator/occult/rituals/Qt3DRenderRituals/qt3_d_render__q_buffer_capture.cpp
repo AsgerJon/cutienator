@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QBufferCapture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QBufferCapture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QBufferCapture11qt_metacastEPKc(
+    Qt3DRender::QBufferCapture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QBufferCapture::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QBufferCapture11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QBufferCapture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QBufferCapture::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,20 @@ QString *ritual_ZN10Qt3DRender14QBufferCapture2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QBufferCapture::tr(s, c, n));
+}
+
+//  Qt3DRender::QBufferCapture::QBufferCapture(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QBufferCapture *ritual_ZN10Qt3DRender14QBufferCaptureC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QBufferCapture(parent);
+}
+
+//  Qt3DRender::QBufferCapture::~QBufferCapture()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QBufferCaptureD1Ev(
+    Qt3DRender::QBufferCapture *self) {
+  delete self;
 }
 
 //  QBufferCapturePrivate *Qt3DRender::QBufferCapture::d_func()

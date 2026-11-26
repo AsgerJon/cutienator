@@ -19,6 +19,15 @@ QDomDocumentFragment *ritual_ZN20QDomDocumentFragmentC1ERKS_(
   return new QDomDocumentFragment(*documentFragment);
 }
 
+//  QDomDocumentFragment &QDomDocumentFragment::operator=(const
+//      QDomDocumentFragment &other)
+extern "C" Q_DECL_EXPORT
+QDomDocumentFragment *ritual_ZN20QDomDocumentFragmentaSERKS_(
+    QDomDocumentFragment *self,
+    const QDomDocumentFragment *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDomNode::NodeType QDomDocumentFragment::nodeType() const
 extern "C" Q_DECL_EXPORT
 QDomNode::NodeType ritual_ZNK20QDomDocumentFragment8nodeTypeEv(

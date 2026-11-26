@@ -82,3 +82,11 @@ void ritual_ZN3QV44Moth17BytecodeGenerator8setErrorEb(
     bool b) {
   self->setError(b);
 }
+
+//  a QV4::Moth::BytecodeGenerator::Jump a ritual of
+//      QV4::Moth::BytecodeGenerator gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_Moth_BytecodeGenerator__QV4_Moth_BytecodeGenerator_Jump(
+    QV4::Moth::BytecodeGenerator::Jump *self) {
+  delete self;
+}

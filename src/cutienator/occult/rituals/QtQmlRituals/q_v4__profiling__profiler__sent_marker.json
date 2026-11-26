@@ -12,6 +12,9 @@
     "ritual_ZN3QV49Profiling8Profiler10SentMarkerD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN3QV49Profiling8Profiler10SentMarkeraSERKS2_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN3QV49Profiling8Profiler10SentMarker11setFunctionEPNS_8FunctionE": [
       "nothing", "address", "address"
     ],

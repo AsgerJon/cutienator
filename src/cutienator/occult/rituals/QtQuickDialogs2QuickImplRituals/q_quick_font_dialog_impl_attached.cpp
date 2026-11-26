@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK28QQuickFontDialogImplAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFontDialogImplAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuickFontDialogImplAttached11qt_metacastEPKc(
+    QQuickFontDialogImplAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFontDialogImplAttached::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuickFontDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFontDialogImplAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFontDialogImplAttached::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -214,6 +233,83 @@ void ritual_ZN28QQuickFontDialogImplAttached11setSizeEditEP15QQuickTextField(
     QQuickFontDialogImplAttached *self,
     QQuickTextField *sizeEdit) {
   self->setSizeEdit(sizeEdit);
+}
+
+//  void QQuickFontDialogImplAttached::buttonBoxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached16buttonBoxChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->buttonBoxChanged();
+}
+
+//  void QQuickFontDialogImplAttached::familyListViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached21familyListViewChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->familyListViewChanged();
+}
+
+//  void QQuickFontDialogImplAttached::styleListViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached20styleListViewChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->styleListViewChanged();
+}
+
+//  void QQuickFontDialogImplAttached::sizeListViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached19sizeListViewChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->sizeListViewChanged();
+}
+
+//  void QQuickFontDialogImplAttached::sampleEditChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached17sampleEditChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->sampleEditChanged();
+}
+
+//  void QQuickFontDialogImplAttached::writingSystemComboBoxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached28writingSystemComboBoxChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->writingSystemComboBoxChanged();
+}
+
+//  void QQuickFontDialogImplAttached::underlineCheckBoxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached24underlineCheckBoxChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->underlineCheckBoxChanged();
+}
+
+//  void QQuickFontDialogImplAttached::strikeoutCheckBoxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached24strikeoutCheckBoxChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->strikeoutCheckBoxChanged();
+}
+
+//  void QQuickFontDialogImplAttached::familyEditChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached17familyEditChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->familyEditChanged();
+}
+
+//  void QQuickFontDialogImplAttached::styleEditChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached16styleEditChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->styleEditChanged();
+}
+
+//  void QQuickFontDialogImplAttached::sizeEditChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFontDialogImplAttached15sizeEditChangedEv(
+    QQuickFontDialogImplAttached *self) {
+  self->sizeEditChanged();
 }
 
 //  void QQuickFontDialogImplAttached::searchFamily(const QString &s)

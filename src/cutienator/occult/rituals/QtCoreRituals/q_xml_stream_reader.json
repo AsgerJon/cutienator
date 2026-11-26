@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qxmlstream.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN16QXmlStreamReaderC1Ev": ["address"],
@@ -108,10 +109,19 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK16QXmlStreamReader14entityResolverEv": ["address", "address"],
+    "ritual_ZN16QXmlStreamReaderC1ERK10QByteArrayNS_21PrivateConstructorTagE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN16QXmlStreamReader11addDataImplERK10QByteArray": [
       "nothing", "address", "address"
     ],
     "ritual_ZN16QXmlStreamReader6d_funcEv": ["address", "address"],
-    "ritual_ZNK16QXmlStreamReader6d_funcEv": ["address", "address"]
+    "ritual_ZNK16QXmlStreamReader6d_funcEv": ["address", "address"],
+    "ritual_ZN16QXmlStreamReaderC2IvEERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN16QXmlStreamReader7addDataIvEEvRK10QByteArray": [
+      "nothing", "address", "address"
+    ]
   }
 }

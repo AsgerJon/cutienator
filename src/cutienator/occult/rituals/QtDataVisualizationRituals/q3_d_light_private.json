@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN15Q3DLightPrivateC1EP8Q3DLight": ["address", "address"],
-    "ritual_ZN15Q3DLightPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN15Q3DLightPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN15Q3DLightPrivate4syncER8Q3DLight": [
+      "nothing", "address", "address"
+    ]
   }
 }

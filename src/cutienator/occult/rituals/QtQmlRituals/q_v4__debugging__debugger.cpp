@@ -294,6 +294,25 @@ const QMetaObject *ritual_ZNK3QV49Debugging8Debugger10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QV4::Debugging::Debugger::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN3QV49Debugging8Debugger11qt_metacastEPKc(
+    QV4::Debugging::Debugger *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QV4::Debugging::Debugger::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN3QV49Debugging8Debugger11qt_metacallEN11QMetaObject4CallEiPPv(
+    QV4::Debugging::Debugger *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QV4::Debugging::Debugger::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN3QV49Debugging8Debugger2trEPKcS3_i(

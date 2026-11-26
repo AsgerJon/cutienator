@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QDialogButtonBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QDialogButtonBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QDialogButtonBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QDialogButtonBox2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -61,6 +67,12 @@
     "ritual_ZN16QDialogButtonBox22standardButtonShortcutENS_14StandardButtonE": [
       "address", "int"
     ],
+    "ritual_ZN16QDialogButtonBox7clickedEP15QAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDialogButtonBox8acceptedEv": ["nothing", "address"],
+    "ritual_ZN16QDialogButtonBox13helpRequestedEv": ["nothing", "address"],
+    "ritual_ZN16QDialogButtonBox8rejectedEv": ["nothing", "address"],
     "ritual_ZN16QDialogButtonBox11changeEventEP6QEvent": [
       "nothing", "address", "address"
     ],

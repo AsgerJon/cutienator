@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN15QTextHtmlParserD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QTextHtmlParser2atEi": ["address", "address", "int"],
+    "ritual_ZN15QTextHtmlParserixEi": ["address", "address", "int"],
+    "ritual_ZNK15QTextHtmlParser5countEv": ["int", "address"],
+    "ritual_ZNK15QTextHtmlParser4lastEv": ["int", "address"],
+    "ritual_ZNK15QTextHtmlParser5depthEi": ["int", "address", "int"],
+    "ritual_ZNK15QTextHtmlParser9topMarginEi": ["int", "address", "int"],
+    "ritual_ZNK15QTextHtmlParser12bottomMarginEi": ["int", "address", "int"],
+    "ritual_ZNK15QTextHtmlParser10topPaddingEi": ["int", "address", "int"],
+    "ritual_ZNK15QTextHtmlParser13bottomPaddingEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QTextHtmlParser11leftPaddingEi": ["int", "address", "int"],
+    "ritual_ZNK15QTextHtmlParser12rightPaddingEi": ["int", "address", "int"],
+    "ritual_ZNK15QTextHtmlParser15tableCellBorderEii": [
+      "double", "address", "int", "int"
+    ],
+    "ritual_ZNK15QTextHtmlParser20tableCellBorderStyleEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK15QTextHtmlParser20tableCellBorderBrushEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN15QTextHtmlParser13lookupElementE14QAnyStringView": [
+      "int", "text"
+    ],
+    "ritual_ZN15QTextHtmlParser11parseEntityE11QStringView": [
+      "text", "text"
+    ],
+    "ritual_ZN15QTextHtmlParser7newNodeEi": ["address", "address", "int"],
+    "ritual_ZN15QTextHtmlParser8eatSpaceEv": ["nothing", "address"],
+    "ritual_ZNK15QTextHtmlParser9hasPrefixE5QChari": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK15QTextHtmlParser13nodeIsChildOfEi17QTextHTMLElements": [
+      "bool", "address", "int", "int"
+    ]
+  }
+}

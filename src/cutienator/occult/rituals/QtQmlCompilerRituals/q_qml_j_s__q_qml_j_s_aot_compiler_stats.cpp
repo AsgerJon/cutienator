@@ -41,6 +41,14 @@ void ritual_ZN6QQmlJS22QQmlJSAotCompilerStats11setModuleIdERK7QString(
   QQmlJS::QQmlJSAotCompilerStats::setModuleId(*moduleId);
 }
 
+//  void QQmlJS::QQmlJSAotCompilerStats::registerFile(const QString
+//      &filepath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS22QQmlJSAotCompilerStats12registerFileERK7QString(
+    const QString *filepath) {
+  QQmlJS::QQmlJSAotCompilerStats::registerFile(*filepath);
+}
+
 //  void QQmlJS::QQmlJSAotCompilerStats::addEntry(const QString &filepath,
 //      const QQmlJS::AotStatsEntry &entry)
 extern "C" Q_DECL_EXPORT

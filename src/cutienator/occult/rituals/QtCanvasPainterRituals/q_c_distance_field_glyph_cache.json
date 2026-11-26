@@ -24,6 +24,12 @@
     "ritual_ZN25QCDistanceFieldGlyphCache27optimizeCacheAfterRenderingEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK25QCDistanceFieldGlyphCache13colorVerticesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QCDistanceFieldGlyphCache12colorIndicesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK25QCDistanceFieldGlyphCache17colorGlyphTextureEv": [
       "address", "address"
     ],

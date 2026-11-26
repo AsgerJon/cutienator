@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender17QWaitFencePrivateC1Ev": ["address"],
     "ritual_take_Qt3DRender_QWaitFencePrivate": [
       "bool", "address", "chars", "address"
     ]

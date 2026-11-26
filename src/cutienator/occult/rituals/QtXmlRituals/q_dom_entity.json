@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN10QDomEntityC1Ev": ["address"],
     "ritual_ZN10QDomEntityC1ERKS_": ["address", "address"],
+    "ritual_ZN10QDomEntityaSERKS_": ["address", "address", "address"],
     "ritual_ZNK10QDomEntity8publicIdEv": ["text", "address"],
     "ritual_ZNK10QDomEntity8systemIdEv": ["text", "address"],
     "ritual_ZNK10QDomEntity12notationNameEv": ["text", "address"],

@@ -26,6 +26,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/opengl/qopenglframebufferobject.cpp, line 454, as local:qopenglframebufferobject.cpp:freeRenderbufferFunc
+namespace {
+inline void freeRenderbufferFunc(QOpenGLFunctions *funcs, GLuint id)
+    {
+        funcs->glDeleteRenderbuffers(1, &id);
+    }
+}  // namespace
+
+//  from src/opengl/qopenglframebufferobject.cpp, line 459, as local:qopenglframebufferobject.cpp:freeTextureFunc
+namespace {
+inline void freeTextureFunc(QOpenGLFunctions *funcs, GLuint id)
+    {
+        funcs->glDeleteTextures(1, &id);
+    }
+}  // namespace
+
 //  from src/opengl/qopenglframebufferobject.cpp, line 392, as _ZNK31QOpenGLFramebufferObjectPrivate22checkFramebufferStatusEP14QOpenGLContext
 inline bool QOpenGLFramebufferObjectPrivate::checkFramebufferStatus(QOpenGLContext *ctx) const
 {
@@ -104,4 +120,11 @@ bool ritual_ZNK31QOpenGLFramebufferObjectPrivate22checkFramebufferStatusEP14QOpe
     const QOpenGLFramebufferObjectPrivate *self,
     QOpenGLContext *ctx) {
   return self->checkFramebufferStatus(ctx);
+}
+
+//  GLuint QOpenGLFramebufferObjectPrivate::fbo() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK31QOpenGLFramebufferObjectPrivate3fboEv(
+    const QOpenGLFramebufferObjectPrivate *self) {
+  return self->fbo();
 }

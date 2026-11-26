@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QPhysicsWorld10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QPhysicsWorld11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QPhysicsWorld11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QPhysicsWorld2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QPhysicsWorldC1EP7QObject": ["address", "address"],
     "ritual_ZN13QPhysicsWorldD1Ev": ["nothing", "address"],
@@ -41,10 +47,15 @@
     "ritual_ZN13QPhysicsWorld15deregisterJointEP13QPhysicsJoint": [
       "nothing", "address"
     ],
+    "ritual_ZN13QPhysicsWorld15registerContactEP20QAbstractPhysicsNodeS1_RK5QListI9QVector3DES6_S6_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
+    ],
     "ritual_ZNK13QPhysicsWorld8viewportEv": ["address", "address"],
     "ritual_ZN13QPhysicsWorld25setHasIndividualDebugDrawEv": [
       "nothing", "address"
     ],
+    "ritual_ZN13QPhysicsWorld17controllerManagerEv": ["address", "address"],
     "ritual_ZNK13QPhysicsWorld5sceneEv": ["address", "address"],
     "ritual_ZNK13QPhysicsWorld10numThreadsEv": ["int", "address"],
     "ritual_ZNK13QPhysicsWorld34reportKinematicKinematicCollisionsEv": [
@@ -96,6 +107,45 @@
     "ritual_ZN13QPhysicsWorld13setNumThreadsEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN13QPhysicsWorld14gravityChangedE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld14runningChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QPhysicsWorld16enableCCDChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QPhysicsWorld21forceDebugDrawChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QPhysicsWorld20typicalLengthChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld19typicalSpeedChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld21defaultDensityChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld15viewportChangedEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld22minimumTimestepChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld22maximumTimestepChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld9frameDoneEf": ["nothing", "address", "float"],
+    "ritual_ZN13QPhysicsWorld12sceneChangedEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld17numThreadsChangedEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld41reportKinematicKinematicCollisionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld38reportStaticKinematicCollisionsChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN13QPhysicsWorld13simulateFrameEv": ["nothing", "address"],
     "ritual_ZN13QPhysicsWorld13frameFinishedEf": [
       "nothing", "address", "float"
@@ -121,6 +171,8 @@
     "ritual_ZN13QPhysicsWorld20emitContactCallbacksEv": [
       "nothing", "address"
     ],
+    "ritual_ZN13QPhysicsWorld10getPhysicsEv": ["address"],
+    "ritual_ZN13QPhysicsWorld10getCookingEv": ["address"],
     "ritual_cast_QPhysicsWorld_QQmlParserStatus": ["address", "address"],
     "ritual_take_QPhysicsWorld": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QPhysicsWorld10classBeginEv": ["nothing", "address"],

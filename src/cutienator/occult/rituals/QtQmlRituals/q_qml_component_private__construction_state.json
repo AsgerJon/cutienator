@@ -6,8 +6,17 @@
   ],
   "rows": {
     "ritual_ZN20QQmlComponentPrivate17ConstructionStateC1Ev": ["address"],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionStateC1EOS0_": [
+      "address", "address"
+    ],
     "ritual_ZN20QQmlComponentPrivate17ConstructionStateD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionStateaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState4swapERS0_": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN20QQmlComponentPrivate17ConstructionState29ensureRequiredPropertyStorageEP7QObject": [
       "nothing", "address", "address"
@@ -41,6 +50,9 @@
     ],
     "ritual_ZNK20QQmlComponentPrivate17ConstructionState10hasCreatorEv": [
       "bool", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState11initCreatorERK14QQmlRefPointerI15QQmlContextDataERKS1_IN3QV425ExecutableCompilationUnitEES5_RK7QString": [
+      "address", "address", "address", "address", "address", "text"
     ],
     "ritual_ZNK20QQmlComponentPrivate17ConstructionState17isCompletePendingEv": [
       "bool", "address"

@@ -6,11 +6,15 @@
 #if QT_CONFIG(graphicsview)
 #if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicssceneindex_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtGui/qpainterpath.h>
+#include <QtCore/qrect.h>
+#include <QtGui/qtransform.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdebug.h>
 #include <QtWidgets/qgraphicsscene.h>
@@ -72,6 +76,90 @@ inline bool QGraphicsSceneIndexPrivate::itemCollidesWithPath(const QGraphicsItem
     }
     return false;
 }
+
+//  from src/widgets/graphicsview/qgraphicssceneindex.cpp, line 223, as _ZNK26QGraphicsSceneIndexPrivate22recursive_items_helperEP13QGraphicsItem6QRectFPFbPKS0_RKS2_N2Qt17ItemSelectionModeERK10QTransformPKvEP5QListIS1_ESB_S8_dSD_
+inline void QGraphicsSceneIndexPrivate::recursive_items_helper(QGraphicsItem *item, QRectF exposeRect,
+                                                        QGraphicsSceneIndexIntersector intersect,
+                                                        QList<QGraphicsItem *> *items,
+                                                        const QTransform &viewTransform,
+                                                        Qt::ItemSelectionMode mode,
+                                                        qreal parentOpacity, const void *intersectData) const
+{
+    Q_ASSERT(item);
+    if (!item->d_ptr->visible)
+        return;
+
+    const qreal opacity = item->d_ptr->combineOpacityFromParent(parentOpacity);
+    const bool itemIsFullyTransparent = QGraphicsItemPrivate::isOpacityNull(opacity);
+    const bool itemHasChildren = !item->d_ptr->children.isEmpty();
+    if (itemIsFullyTransparent && (!itemHasChildren || item->d_ptr->childrenCombineOpacity()))
+        return;
+
+    // Update the item's scene transform if dirty.
+    const bool itemIsUntransformable = item->d_ptr->itemIsUntransformable();
+    const bool wasDirtyParentSceneTransform = item->d_ptr->dirtySceneTransform && !itemIsUntransformable;
+    if (wasDirtyParentSceneTransform) {
+        item->d_ptr->updateSceneTransformFromParent();
+        Q_ASSERT(!item->d_ptr->dirtySceneTransform);
+    }
+
+    const bool itemClipsChildrenToShape = (item->d_ptr->flags & QGraphicsItem::ItemClipsChildrenToShape
+                                           || item->d_ptr->flags & QGraphicsItem::ItemContainsChildrenInShape);
+    bool processItem = !itemIsFullyTransparent;
+    if (processItem) {
+        processItem = intersect(item, exposeRect, mode, viewTransform, intersectData);
+        if (!processItem && (!itemHasChildren || itemClipsChildrenToShape)) {
+            if (wasDirtyParentSceneTransform)
+                item->d_ptr->invalidateChildrenSceneTransform();
+            return;
+        }
+    } // else we know for sure this item has children we must process.
+
+    int i = 0;
+    if (itemHasChildren) {
+        // Sort children.
+        item->d_ptr->ensureSortedChildren();
+
+        // Clip to shape.
+        if (itemClipsChildrenToShape && !itemIsUntransformable) {
+            QPainterPath mappedShape = item->d_ptr->sceneTransformTranslateOnly
+                                     ? item->shape().translated(item->d_ptr->sceneTransform.dx(),
+                                                                item->d_ptr->sceneTransform.dy())
+                                     : item->d_ptr->sceneTransform.map(item->shape());
+            exposeRect &= mappedShape.controlPointRect();
+        }
+
+        // Process children behind
+        for (i = 0; i < item->d_ptr->children.size(); ++i) {
+            QGraphicsItem *child = item->d_ptr->children.at(i);
+            if (wasDirtyParentSceneTransform)
+                child->d_ptr->dirtySceneTransform = 1;
+            if (!(child->d_ptr->flags & QGraphicsItem::ItemStacksBehindParent))
+                break;
+            if (itemIsFullyTransparent && !(child->d_ptr->flags & QGraphicsItem::ItemIgnoresParentOpacity))
+                continue;
+            recursive_items_helper(child, exposeRect, intersect, items, viewTransform,
+                                   mode, opacity, intersectData);
+        }
+    }
+
+    // Process item
+    if (processItem)
+        items->append(item);
+
+    // Process children in front
+    if (itemHasChildren) {
+        for (; i < item->d_ptr->children.size(); ++i) {
+            QGraphicsItem *child = item->d_ptr->children.at(i);
+            if (wasDirtyParentSceneTransform)
+                child->d_ptr->dirtySceneTransform = 1;
+            if (itemIsFullyTransparent && !(child->d_ptr->flags & QGraphicsItem::ItemIgnoresParentOpacity))
+                continue;
+            recursive_items_helper(child, exposeRect, intersect, items, viewTransform,
+                                   mode, opacity, intersectData);
+        }
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  QGraphicsSceneIndex *QGraphicsSceneIndexPrivate::q_func()
@@ -118,6 +206,57 @@ bool ritual_ZN26QGraphicsSceneIndexPrivate20itemCollidesWithPathEPK13QGraphicsIt
     const QPainterPath *path,
     Qt::ItemSelectionMode mode) {
   return QGraphicsSceneIndexPrivate::itemCollidesWithPath(item, *path, mode);
+}
+
+//  void QGraphicsSceneIndexPrivate::recursive_items_helper(QGraphicsItem
+//      *item, QRectF exposeRect, QGraphicsSceneIndexIntersector intersect,
+//      QList<QGraphicsItem *> *items, const QTransform &viewTransform,
+//      Qt::ItemSelectionMode mode, qreal parentOpacity, const void
+//      *intersectData) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK26QGraphicsSceneIndexPrivate22recursive_items_helperEP13QGraphicsItem6QRectFPFbPKS0_RKS2_N2Qt17ItemSelectionModeERK10QTransformPKvEP5QListIS1_ESB_S8_dSD_(
+    const QGraphicsSceneIndexPrivate *self,
+    QGraphicsItem *item,
+    const QRectF *exposeRect,
+    void *intersect,
+    QList<QGraphicsItem *> *items,
+    const QTransform *viewTransform,
+    Qt::ItemSelectionMode mode,
+    qreal parentOpacity,
+    const void *intersectData) {
+  self->recursive_items_helper(
+      item,
+      *exposeRect,
+      reinterpret_cast<QGraphicsSceneIndexIntersector>(intersect),
+      items,
+      *viewTransform,
+      mode,
+      parentOpacity,
+      intersectData);
+}
+
+//  void QGraphicsSceneIndexPrivate::items_helper(const QRectF &rect,
+//      QGraphicsSceneIndexIntersector intersect, QList<QGraphicsItem *>
+//      *items, const QTransform &viewTransform, Qt::ItemSelectionMode mode,
+//      Qt::SortOrder order, const void *intersectData) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK26QGraphicsSceneIndexPrivate12items_helperERK6QRectFPFbPK13QGraphicsItemS2_N2Qt17ItemSelectionModeERK10QTransformPKvEP5QListIPS3_ESA_S7_NS6_9SortOrderESC_(
+    const QGraphicsSceneIndexPrivate *self,
+    const QRectF *rect,
+    void *intersect,
+    QList<QGraphicsItem *> *items,
+    const QTransform *viewTransform,
+    Qt::ItemSelectionMode mode,
+    Qt::SortOrder order,
+    const void *intersectData) {
+  self->items_helper(
+      *rect,
+      reinterpret_cast<QGraphicsSceneIndexIntersector>(intersect),
+      items,
+      *viewTransform,
+      mode,
+      order,
+      intersectData);
 }
 
 #endif  // QT_CONFIG(graphicsview)

@@ -5,5 +5,15 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN5QmlIR9JSCodeGenC1EPNS_8DocumentEPN3QV48Compiler23CodegenWarningInterfaceEb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN5QmlIR9JSCodeGen37generateJSCodeForFunctionsAndBindingsERK5QListINS_28CompiledFunctionOrExpressionEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN5QmlIR9JSCodeGen24generateRuntimeFunctionsEPNS_6ObjectE": [
+      "bool", "address", "address"
+    ],
+    "ritual_drop_QmlIR_JSCodeGen__QList_int": ["nothing", "address"]
   }
 }

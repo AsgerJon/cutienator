@@ -5,7 +5,12 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QMessageDialogOptionsC1EP28QMessageDialogOptionsPrivate": [
+      "address", "address"
+    ],
     "ritual_ZN21QMessageDialogOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN21QMessageDialogOptions6createEv": ["address"],
+    "ritual_ZNK21QMessageDialogOptions5cloneEv": ["address", "address"],
     "ritual_ZNK21QMessageDialogOptions11windowTitleEv": ["text", "address"],
     "ritual_ZN21QMessageDialogOptions14setWindowTitleERK7QString": [
       "nothing", "address", "text"
@@ -50,8 +55,14 @@
     "ritual_ZNK21QMessageDialogOptions15standardButtonsEv": [
       "int", "address"
     ],
+    "ritual_ZN21QMessageDialogOptions9addButtonERK7QStringN21QPlatformDialogHelper10ButtonRoleEPvi": [
+      "int", "address", "text", "int", "address", "int"
+    ],
     "ritual_ZN21QMessageDialogOptions12removeButtonEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN21QMessageDialogOptions13customButtonsEv": [
+      "address", "address"
     ],
     "ritual_ZN21QMessageDialogOptions12customButtonEi": [
       "address", "address", "int"
@@ -73,6 +84,9 @@
     "ritual_ZN21QMessageDialogOptions16setDefaultButtonEi": [
       "nothing", "address", "int"
     ],
-    "ritual_ZNK21QMessageDialogOptions13defaultButtonEv": ["int", "address"]
+    "ritual_ZNK21QMessageDialogOptions13defaultButtonEv": ["int", "address"],
+    "ritual_drop_QMessageDialogOptions__QSharedPointer_QMessageDialogOptions": [
+      "nothing", "address"
+    ]
   }
 }

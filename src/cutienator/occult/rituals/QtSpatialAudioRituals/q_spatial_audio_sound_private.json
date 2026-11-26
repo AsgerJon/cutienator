@@ -6,11 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK25QSpatialAudioSoundPrivate3urlEv": ["address", "address"],
+    "ritual_ZN25QSpatialAudioSoundPrivate7loadUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN25QSpatialAudioSoundPrivate9setVolumeEf": [
       "nothing", "address", "float"
     ],
     "ritual_ZNK25QSpatialAudioSoundPrivate6volumeEv": ["float", "address"],
     "ritual_ZNK25QSpatialAudioSoundPrivate5loopsEv": ["int", "address"],
+    "ritual_ZN25QSpatialAudioSoundPrivate8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK25QSpatialAudioSoundPrivate8autoPlayEv": ["bool", "address"],
     "ritual_ZN25QSpatialAudioSoundPrivate11setAutoPlayEb": [
       "nothing", "address", "bool"
@@ -18,12 +24,17 @@
     "ritual_ZN25QSpatialAudioSoundPrivate17updateRoomEffectsEv": [
       "nothing", "address"
     ],
+    "ritual_ZN25QSpatialAudioSoundPrivate4playEv": ["nothing", "address"],
+    "ritual_ZN25QSpatialAudioSoundPrivate5pauseEv": ["nothing", "address"],
     "ritual_ZN25QSpatialAudioSoundPrivate4stopEv": ["nothing", "address"],
     "ritual_ZNK25QSpatialAudioSoundPrivate5stateEv": [
       "unsigned char", "address"
     ],
     "ritual_ZN25QSpatialAudioSoundPrivate11applyVolumeEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QSpatialAudioSoundPrivate8setStateESt10shared_ptrIN20QSpatialAudioPrivate26QSpatialAudioPlaybackStateEE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QSpatialAudioSoundPrivate": [
       "bool", "address", "chars", "address"

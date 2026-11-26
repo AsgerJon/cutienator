@@ -15,12 +15,21 @@
     "ritual_ZN3QV46Object16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
     ],
+    "ritual_ZN3QV46Object16setInternalClassEPNS_4Heap13InternalClassE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK3QV46Object12propertyDataEj": [
       "address", "address", "unsigned int"
     ],
     "ritual_ZNK3QV46Object9arrayDataEv": ["address", "address"],
     "ritual_ZN3QV46Object12setArrayDataEPNS_9ArrayDataE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object11getPropertyERKNS_18InternalClassEntryEPNS_8PropertyE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object11setPropertyERKNS_18InternalClassEntryEPKNS_8PropertyE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK3QV46Object11setPropertyEjNS_5ValueE": [
       "nothing", "address", "unsigned int", "address"
@@ -38,6 +47,9 @@
     "ritual_ZNK3QV46Object14getOwnPropertyENS_11PropertyKeyEPNS_8PropertyE": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN3QV46Object16getValueOrSetterENS_11PropertyKeyEPNS_18PropertyAttributesE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK3QV46Object11hasPropertyENS_11PropertyKeyE": [
       "bool", "address", "address"
     ],
@@ -53,10 +65,47 @@
     "ritual_ZNK3QV46Object15getValueByIndexEj": [
       "unsigned long long", "address", "unsigned int"
     ],
+    "ritual_ZN3QV46Object16getValueAccessorEPKNS_5ValueERS2_NS_18PropertyAttributesE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object8putValueEjNS_18PropertyAttributesERKNS_5ValueE": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
     "ritual_ZN3QV46Object21defineDefaultPropertyEPNS_14StringOrSymbolERKNS_5ValueENS_18PropertyAttributesE": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_ZN3QV46Object21defineDefaultPropertyERK7QStringRKNS_5ValueENS_18PropertyAttributesE": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN3QV46Object21defineDefaultPropertyERK7QStringPFyPKNS_14FunctionObjectEPKNS_5ValueES9_iEiNS_18PropertyAttributesE": [
+      "nothing", "address", "text", "address", "int", "address"
+    ],
+    "ritual_ZN3QV46Object21defineDefaultPropertyEPNS_14StringOrSymbolEPFyPKNS_14FunctionObjectEPKNS_5ValueES8_iEiNS_18PropertyAttributesE": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV46Object22defineAccessorPropertyERK7QStringPFyPKNS_14FunctionObjectEPKNS_5ValueES9_iESB_": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN3QV46Object22defineAccessorPropertyEPNS_14StringOrSymbolEPFyPKNS_14FunctionObjectEPKNS_5ValueES8_iESA_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object22defineReadonlyPropertyERK7QStringRKNS_5ValueE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN3QV46Object22defineReadonlyPropertyEPNS_6StringERKNS_5ValueE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object34defineReadonlyConfigurablePropertyERK7QStringRKNS_5ValueE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN3QV46Object34defineReadonlyConfigurablePropertyEPNS_14StringOrSymbolERKNS_5ValueE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object16addSymbolSpeciesEv": ["nothing", "address"],
     "ritual_ZN3QV46Object12insertMemberEPNS_14StringOrSymbolERKNS_5ValueENS_18PropertyAttributesE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object12insertMemberEPNS_14StringOrSymbolEPKNS_8PropertyENS_18PropertyAttributesE": [
       "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZNK3QV46Object12isExtensibleEv": ["bool", "address"],
@@ -64,6 +113,15 @@
     "ritual_ZNK3QV46Object14getPrototypeOfEv": ["address", "address"],
     "ritual_ZN3QV46Object14setPrototypeOfEPKS0_": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN3QV46Object21setPrototypeUncheckedEPKS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV46Object13copyArrayDataEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV46Object14setArrayLengthEj": [
+      "bool", "address", "unsigned int"
     ],
     "ritual_ZN3QV46Object23setArrayLengthUncheckedEj": [
       "nothing", "address", "unsigned int"
@@ -86,6 +144,7 @@
     "ritual_ZN3QV46Object9push_backERKNS_5ValueE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK3QV46Object9arrayTypeEv": ["address", "address"],
     "ritual_ZN3QV46Object12setArrayTypeENS_4Heap9ArrayData4TypeE": [
       "nothing", "address", "int"
     ],
@@ -93,6 +152,7 @@
       "nothing", "address", "unsigned int"
     ],
     "ritual_ZN3QV46Object11arrayCreateEv": ["nothing", "address"],
+    "ritual_ZN3QV46Object15initSparseArrayEv": ["nothing", "address"],
     "ritual_ZNK3QV46Object11sparseBeginEv": ["address", "address"],
     "ritual_ZNK3QV46Object9sparseEndEv": ["address", "address"],
     "ritual_ZN3QV46Object13protoHasArrayEv": ["bool", "address"],
@@ -136,17 +196,87 @@
     "ritual_ZNK3QV46Object10instanceOfERKNS_5ValueE": [
       "unsigned long long", "address", "address"
     ],
+    "ritual_ZNK3QV46Object18isConcatSpreadableEv": ["bool", "address"],
+    "ritual_ZNK3QV46Object7isArrayEv": ["bool", "address"],
+    "ritual_ZNK3QV46Object18speciesConstructorERNS_5ScopeEPKNS_14FunctionObjectE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object21setProtoFromNewTargetEPKNS_5ValueE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK3QV46Object19resolveLookupGetterEPNS_15ExecutionEngineEPNS_6LookupE": [
       "unsigned long long", "address", "address", "address"
     ],
     "ritual_ZN3QV46Object19resolveLookupSetterEPNS_15ExecutionEngineEPNS_6LookupERKNS_5ValueE": [
       "bool", "address", "address", "address", "address"
     ],
+    "ritual_ZN3QV46Object8metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN3QV46Object10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object10virtualPutEPNS_7ManagedENS_11PropertyKeyERKNS_5ValueEPS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object21virtualDeletePropertyEPNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV46Object18virtualHasPropertyEPKNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN3QV46Object21virtualGetOwnPropertyEPKNS_7ManagedENS_11PropertyKeyEPNS_8PropertyE": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN3QV46Object24virtualDefineOwnPropertyEPNS_7ManagedENS_11PropertyKeyEPKNS_8PropertyENS_18PropertyAttributesE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object19virtualIsExtensibleEPKNS_7ManagedE": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV46Object24virtualPreventExtensionsEPNS_7ManagedE": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV46Object21virtualGetPrototypeOfEPKNS_7ManagedE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV46Object21virtualSetPrototypeOfEPNS_7ManagedEPKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV46Object22virtualOwnPropertyKeysEPKS0_PNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object16virtualGetLengthEPKNS_7ManagedE": [
+      "long long", "address"
+    ],
+    "ritual_ZN3QV46Object17virtualInstanceOfEPKS0_RKNS_5ValueE": [
+      "unsigned long long", "address", "address"
+    ],
     "ritual_ZN3QV46Object26virtualResolveLookupGetterEPKS0_PNS_15ExecutionEngineEPNS_6LookupE": [
       "unsigned long long", "address", "address", "address"
-    ]
+    ],
+    "ritual_ZN3QV46Object26virtualResolveLookupSetterEPS0_PNS_15ExecutionEngineEPNS_6LookupERKNS_5ValueE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object15virtualMetacallEPS0_N11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN3QV46Object17checkedInstanceOfEPNS_15ExecutionEngineEPKNS_14FunctionObjectERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object25internalDefineOwnPropertyEPNS_15ExecutionEngineEjPKNS_18InternalClassEntryEPKNS_8PropertyENS_18PropertyAttributesE": [
+      "bool", "address", "address", "unsigned int", "address", "address",
+      "address"
+    ],
+    "ritual_ZNK3QV46Object11internalGetENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object11internalPutENS_11PropertyKeyERKNS_5ValueEPS2_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object22internalDeletePropertyENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_drop_QV4_Object__QV4_ArrayData_Type": ["nothing", "address"]
   }
 }

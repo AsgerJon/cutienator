@@ -101,6 +101,22 @@ QTextImageFormat *ritual_ZN16QTextImageFormatC1ERK11QTextFormat(
   return new QTextImageFormat(*format);
 }
 
+//  QDataStream &operator<<(QDataStream &a0, const QTextListFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK15QTextListFormat(
+    QDataStream *a0,
+    const QTextListFormat *a1) {
+  return &(operator<<(*a0, *a1));
+}
+
+//  QDataStream &operator>>(QDataStream &a0, QTextListFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR15QTextListFormat(
+    QDataStream *a0,
+    QTextListFormat *a1) {
+  return &(operator>>(*a0, *a1));
+}
+
 //  QTextImageFormat::~QTextImageFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextImageFormatD1Ev(QTextImageFormat *self) {

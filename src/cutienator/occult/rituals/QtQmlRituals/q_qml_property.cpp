@@ -76,6 +76,36 @@ QQmlProperty *ritual_ZN12QQmlPropertyC1ERKS_(const QQmlProperty *a0) {
   return new QQmlProperty(*a0);
 }
 
+//  QQmlProperty &QQmlProperty::operator=(const QQmlProperty &a0)
+extern "C" Q_DECL_EXPORT
+QQmlProperty *ritual_ZN12QQmlPropertyaSERKS_(
+    QQmlProperty *self,
+    const QQmlProperty *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QQmlProperty::QQmlProperty(QQmlProperty &&other)
+extern "C" Q_DECL_EXPORT
+QQmlProperty *ritual_ZN12QQmlPropertyC1EOS_(QQmlProperty *other) {
+  return new QQmlProperty(std::move(*other));
+}
+
+//  QQmlProperty &QQmlProperty::operator=(QQmlProperty &&other)
+extern "C" Q_DECL_EXPORT
+QQmlProperty *ritual_ZN12QQmlPropertyaSEOS_(
+    QQmlProperty *self,
+    QQmlProperty *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QQmlProperty::swap(QQmlProperty &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlProperty4swapERS_(
+    QQmlProperty *self,
+    QQmlProperty *other) {
+  self->swap(*other);
+}
+
 //  bool QQmlProperty::operator==(const QQmlProperty &a0) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QQmlPropertyeqERKS_(

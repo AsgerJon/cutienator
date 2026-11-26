@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK20QHBoxPlotModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHBoxPlotModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QHBoxPlotModelMapper11qt_metacastEPKc(
+    QHBoxPlotModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHBoxPlotModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QHBoxPlotModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHBoxPlotModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHBoxPlotModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QHBoxPlotModelMapper2trEPKcS1_i(
@@ -285,6 +304,48 @@ void ritual_ZN20QHBoxPlotModelMapper14setColumnCountEi(
     QHBoxPlotModelMapper *self,
     int rowCount) {
   self->setColumnCount(rowCount);
+}
+
+//  void QHBoxPlotModelMapper::seriesReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QHBoxPlotModelMapper14seriesReplacedEv(
+    QHBoxPlotModelMapper *self) {
+  self->seriesReplaced();
+}
+
+//  void QHBoxPlotModelMapper::modelReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QHBoxPlotModelMapper13modelReplacedEv(
+    QHBoxPlotModelMapper *self) {
+  self->modelReplaced();
+}
+
+//  void QHBoxPlotModelMapper::firstBoxSetRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QHBoxPlotModelMapper21firstBoxSetRowChangedEv(
+    QHBoxPlotModelMapper *self) {
+  self->firstBoxSetRowChanged();
+}
+
+//  void QHBoxPlotModelMapper::lastBoxSetRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QHBoxPlotModelMapper20lastBoxSetRowChangedEv(
+    QHBoxPlotModelMapper *self) {
+  self->lastBoxSetRowChanged();
+}
+
+//  void QHBoxPlotModelMapper::firstColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QHBoxPlotModelMapper18firstColumnChangedEv(
+    QHBoxPlotModelMapper *self) {
+  self->firstColumnChanged();
+}
+
+//  void QHBoxPlotModelMapper::columnCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QHBoxPlotModelMapper18columnCountChangedEv(
+    QHBoxPlotModelMapper *self) {
+  self->columnCountChanged();
 }
 
 //  a Python function taken by a CuteQHBoxPlotModelMapper, for the function

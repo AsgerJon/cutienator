@@ -6,8 +6,109 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DExtras/6.12.0/Qt3DExtras/private/distancefieldtextrenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DExtras/private/qtext2dmaterial_p.h>
+#include <Qt3DExtras/private/qtext2dmaterial_p_p.h>
+#include <Qt3DRender/qfilterkey.h>
+#include <Qt3DRender/qmaterial.h>
+#include <Qt3DRender/qeffect.h>
+#include <Qt3DRender/qtechnique.h>
+#include <Qt3DRender/qshaderprogram.h>
+#include <Qt3DRender/qparameter.h>
+#include <Qt3DRender/qrenderpass.h>
+#include <Qt3DRender/qgraphicsapifilter.h>
+#include <Qt3DRender/qblendequation.h>
+#include <Qt3DRender/qblendequationarguments.h>
+#include <Qt3DRender/qdepthtest.h>
+#include <Qt3DRender/qabstracttexture.h>
+#include <QtCore/QUrl>
+#include <QtGui/QVector3D>
+#include <QtGui/QVector4D>
+#include <Qt3DCore/qbuffer.h>
+#include <Qt3DCore/qattribute.h>
+#include <Qt3DCore/qgeometry.h>
+#include <Qt3DRender/qmaterial.h>
+#include <Qt3DRender/qgeometryrenderer.h>
+#include <Qt3DExtras/private/qtext2dmaterial_p.h>
+#include <Qt3DExtras/private/distancefieldtextrenderer_p.h>
+#include <Qt3DExtras/private/distancefieldtextrenderer_p_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/extras/text/qtext2dmaterial.cpp, line 145, as _ZN10Qt3DExtras15QText2DMaterial23setDistanceFieldTextureEPN10Qt3DRender16QAbstractTextureE
+namespace Qt3DExtras {
+inline void QText2DMaterial::setDistanceFieldTexture(Qt3DRender::QAbstractTexture *tex)
+{
+    Q_D(QText2DMaterial);
+    d->m_distanceFieldTexture = tex;
+
+    if (tex) {
+        d->m_textureParameter->setValue(QVariant::fromValue(tex));
+        d->m_textureSizeParameter->setValue(QVariant::fromValue(static_cast<float>(tex->width())));
+    } else {
+        d->m_textureParameter->setValue(0);
+        d->m_textureSizeParameter->setValue(QVariant::fromValue(1.f));
+    }
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/qtext2dmaterial.cpp, line 139, as _ZN10Qt3DExtras15QText2DMaterial8setColorERK6QColor
+namespace Qt3DExtras {
+inline void QText2DMaterial::setColor(const QColor &color)
+{
+    Q_D(QText2DMaterial);
+    d->m_colorParameter->setValue(QVariant::fromValue(color));
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/distancefieldtextrenderer.cpp, line 91, as _ZN10Qt3DExtras25DistanceFieldTextRendererD1Ev
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline DistanceFieldTextRenderer::~DistanceFieldTextRenderer()
+{
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/distancefieldtextrenderer.cpp, line 95, as _ZN10Qt3DExtras25DistanceFieldTextRenderer12setGlyphDataEPN10Qt3DRender16QAbstractTextureERKSt6vectorIfSaIfEERKS4_ItSaItEE
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline void DistanceFieldTextRenderer::setGlyphData(Qt3DRender::QAbstractTexture *glyphTexture,
+                                             const std::vector<float> &vertexData,
+                                             const std::vector<quint16> &indexData)
+{
+    Q_D(DistanceFieldTextRenderer);
+
+    const size_t vertexCount = vertexData.size() / 5;
+
+    d->m_vertexBuffer->setData(QByteArray((char*) vertexData.data(), vertexData.size() * sizeof(float)));
+    d->m_indexBuffer->setData(QByteArray((char*) indexData.data(), indexData.size() * sizeof(quint16)));
+    d->m_positionAttr->setCount(uint(vertexCount));
+    d->m_texCoordAttr->setCount(uint(vertexCount));
+    d->m_indexAttr->setCount(uint(indexData.size()));
+
+    d->m_material->setDistanceFieldTexture(glyphTexture);
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/distancefieldtextrenderer.cpp, line 112, as _ZN10Qt3DExtras25DistanceFieldTextRenderer8setColorERK6QColor
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline void DistanceFieldTextRenderer::setColor(const QColor &color)
+{
+    Q_D(DistanceFieldTextRenderer);
+    d->m_material->setColor(color);
+}
+}  // namespace Qt3DExtras
+//  -----------------------------------------------------------------------
 
 //  A Qt3DExtras::DistanceFieldTextRenderer that Python can take functions over in. Every Qt3DExtras::DistanceFieldTextRenderer
 //  Python makes is one. Each function below asks the Python
@@ -182,6 +283,52 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK10Qt3DExtras25DistanceFieldTextRenderer10metaObjectEv(
     const Qt3DExtras::DistanceFieldTextRenderer *self) {
   return self->metaObject();
+}
+
+//  void *Qt3DExtras::DistanceFieldTextRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras25DistanceFieldTextRenderer11qt_metacastEPKc(
+    Qt3DExtras::DistanceFieldTextRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::DistanceFieldTextRenderer::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras25DistanceFieldTextRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::DistanceFieldTextRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  Qt3DExtras::DistanceFieldTextRenderer::~DistanceFieldTextRenderer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25DistanceFieldTextRendererD1Ev(
+    Qt3DExtras::DistanceFieldTextRenderer *self) {
+  delete self;
+}
+
+//  void Qt3DExtras::DistanceFieldTextRenderer::setGlyphData(Qt3DRender::QAbs
+//      tractTexture *glyphTexture, const std::vector<float> &vertexData,
+//      const std::vector<quint16> &indexData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25DistanceFieldTextRenderer12setGlyphDataEPN10Qt3DRender16QAbstractTextureERKSt6vectorIfSaIfEERKS4_ItSaItEE(
+    Qt3DExtras::DistanceFieldTextRenderer *self,
+    Qt3DRender::QAbstractTexture *glyphTexture,
+    const std::vector<float> *vertexData,
+    const std::vector<quint16> *indexData) {
+  self->setGlyphData(glyphTexture, *vertexData, *indexData);
+}
+
+//  void Qt3DExtras::DistanceFieldTextRenderer::setColor(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25DistanceFieldTextRenderer8setColorERK6QColor(
+    Qt3DExtras::DistanceFieldTextRenderer *self,
+    const QColor *color) {
+  self->setColor(*color);
 }
 
 //  DistanceFieldTextRendererPrivate

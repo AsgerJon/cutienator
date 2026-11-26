@@ -20,6 +20,7 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickcontext2d_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qpen.h>
+#include <QtCore/QRectF>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/private/qsgadaptationlayer_p.h>
 #include <QtQuick/private/qquickcanvasitem_p.h>
@@ -57,6 +58,9 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dcommandbuffer.cpp, line 12, as local:qquickcontext2dcommandbuffer.cpp:HAS_SHADOW
+#define HAS_SHADOW(offsetX, offsetY, blur, color) (color.isValid() && color.alpha() && (blur || offsetX || offsetY))
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 53, as _ZN18QQuickCanvasPixmapD1Ev
 inline QQuickCanvasPixmap::~QQuickCanvasPixmap()
@@ -318,6 +322,17 @@ void ritual_ZN28QQuickContext2DCommandBuffer9drawImageERK6QImageRK6QRectFS5_(
   self->drawImage(*image, *sr, *dr);
 }
 
+//  void QQuickContext2DCommandBuffer::drawPixmap(QQmlRefPointer<QQuickCanvas
+//      Pixmap> pixmap, const QRectF &sr, const QRectF &dr)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickContext2DCommandBuffer10drawPixmapE14QQmlRefPointerI18QQuickCanvasPixmapERK6QRectFS5_(
+    QQuickContext2DCommandBuffer *self,
+    const QQmlRefPointer<QQuickCanvasPixmap> *pixmap,
+    const QRectF *sr,
+    const QRectF *dr) {
+  self->drawPixmap(*pixmap, *sr, *dr);
+}
+
 //  qreal QQuickContext2DCommandBuffer::takeShadowOffsetX()
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZN28QQuickContext2DCommandBuffer17takeShadowOffsetXEv(
@@ -439,6 +454,15 @@ void ritual_ZN28QQuickContext2DCommandBuffer11setLineJoinEN2Qt12PenJoinStyleE(
   self->setLineJoin(join);
 }
 
+//  void QQuickContext2DCommandBuffer::setLineDash(const QList<qreal>
+//      &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickContext2DCommandBuffer11setLineDashERK5QListIdE(
+    QQuickContext2DCommandBuffer *self,
+    const QList<qreal> *pattern) {
+  self->setLineDash(*pattern);
+}
+
 //  void QQuickContext2DCommandBuffer::setLineDashOffset(qreal offset)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QQuickContext2DCommandBuffer17setLineDashOffsetEd(
@@ -515,6 +539,14 @@ QImage *ritual_ZN28QQuickContext2DCommandBuffer9takeImageEv(
   return new QImage(self->takeImage());
 }
 
+//  QQmlRefPointer<QQuickCanvasPixmap>
+//      QQuickContext2DCommandBuffer::takePixmap()
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQuickCanvasPixmap> *ritual_ZN28QQuickContext2DCommandBuffer10takePixmapEv(
+    QQuickContext2DCommandBuffer *self) {
+  return new QQmlRefPointer<QQuickCanvasPixmap>(self->takePixmap());
+}
+
 //  int QQuickContext2DCommandBuffer::takeInt()
 extern "C" Q_DECL_EXPORT
 int ritual_ZN28QQuickContext2DCommandBuffer7takeIntEv(
@@ -567,6 +599,14 @@ void ritual_ZN28QQuickContext2DCommandBuffer15setPainterStateEP8QPainterRKN15QQu
     const QQuickContext2D::State *state,
     const QPen *pen) {
   self->setPainterState(painter, *state, *pen);
+}
+
+//  a QQmlRefPointer<QQuickCanvasPixmap> a ritual of
+//      QQuickContext2DCommandBuffer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickContext2DCommandBuffer__QQmlRefPointer_QQuickCanvasPixmap(
+    QQmlRefPointer<QQuickCanvasPixmap> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_canvas)

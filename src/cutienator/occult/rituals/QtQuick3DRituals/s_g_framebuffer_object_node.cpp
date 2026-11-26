@@ -51,6 +51,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 68, as local:qquick3dscenerenderer.cpp:dumpRenderTimes
+static bool dumpRenderTimes()
+{
+    static bool val = (qEnvironmentVariableIntValue("QT_QUICK3D_DUMP_RENDERTIMES") > 0);
+    return val;
+}
+
+//  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 143, as local:qquick3dscenerenderer.cpp:requestFullUpdate
+static void requestFullUpdate(QQuickWindow *window)
+{
+    if (QThread::currentThread() == QCoreApplication::instance()->thread())
+        window->update();
+    else
+        QCoreApplication::postEvent(window, new QEvent(QEvent::Type(QQuickWindowPrivate::FullUpdateRequest)));
+}
+
 //  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 206, as _ZN21QQuick3DSceneRendererD1Ev
 inline QQuick3DSceneRenderer::~QQuick3DSceneRenderer()
 {
@@ -86,11 +102,46 @@ inline QQuick3DSceneRenderer::~QQuick3DSceneRenderer()
     delete m_effectSystem;
 }
 
-//  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 1273, as _ZN21QQuick3DSceneRenderer27invalidateFramebufferObjectEv
-inline void QQuick3DSceneRenderer::invalidateFramebufferObject()
+//  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 151, as _ZN23SGFramebufferObjectNode6renderEv
+inline void SGFramebufferObjectNode::render()
 {
-    if (fboNode)
-        fboNode->invalidatePending = true;
+    if (renderPending) {
+        if (renderer->renderStats())
+            renderer->renderStats()->startRender();
+
+        renderPending = false;
+
+        if (renderer->m_sgContext->rhiContext()->isValid()) {
+            QRhiTexture *rhiTexture = renderer->renderToRhiTexture(window);
+            bool needsNewWrapper = false;
+            if (!texture() || (texture()->textureSize() != renderer->surfaceSize()
+                               || texture()->rhiTexture() != rhiTexture))
+            {
+                needsNewWrapper = true;
+            }
+            if (needsNewWrapper) {
+                delete texture();
+                QSGPlainTexture *t = new QSGPlainTexture;
+                t->setOwnsTexture(false);
+                t->setHasAlphaChannel(true);
+                t->setTexture(rhiTexture);
+                t->setTextureSize(renderer->surfaceSize());
+                setTexture(t);
+            }
+        }
+
+        markDirty(QSGNode::DirtyMaterial);
+        emit textureChanged();
+
+        if (renderer->renderStats())
+            renderer->renderStats()->endRender(dumpRenderTimes());
+
+        if (renderer->m_requestedFramesCount > 0) {
+            scheduleRender();
+            requestFullUpdate(window);
+            renderer->m_requestedFramesCount--;
+        }
+    }
 }
 
 //  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 1577, as _ZN21QQuick3DSceneRenderer19removeNodeFromLayerEP14QSSGRenderNode
@@ -150,6 +201,12 @@ inline void QQuick3DSceneRenderer::releaseAaDependentRhiResources()
     m_prevTempAATexture = nullptr;
 }
 
+//  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 1383, as _ZN21QQuick3DSceneRenderer11renderStatsEv
+inline QQuick3DRenderStats *QQuick3DSceneRenderer::renderStats()
+{
+    return m_renderStats;
+}
+
 //  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 118, as _ZN23SGFramebufferObjectNodeD1Ev
 inline SGFramebufferObjectNode::~SGFramebufferObjectNode()
 {
@@ -168,15 +225,6 @@ inline void SGFramebufferObjectNode::scheduleRender()
 inline QSGTexture *SGFramebufferObjectNode::texture() const
 {
     return QSGSimpleTextureNode::texture();
-}
-
-//  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 192, as _ZN23SGFramebufferObjectNode18handleScreenChangeEv
-inline void SGFramebufferObjectNode::handleScreenChange()
-{
-    if (!qFuzzyCompare(window->effectiveDevicePixelRatio(), devicePixelRatio)) {
-        renderer->invalidateFramebufferObject();
-        quickFbo->update();
-    }
 }
 //  -----------------------------------------------------------------------
 
@@ -198,13 +246,6 @@ extern "C" Q_DECL_EXPORT
 QSGTexture *ritual_ZNK23SGFramebufferObjectNode7textureEv(
     const SGFramebufferObjectNode *self) {
   return self->texture();
-}
-
-//  void SGFramebufferObjectNode::handleScreenChange()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN23SGFramebufferObjectNode18handleScreenChangeEv(
-    SGFramebufferObjectNode *self) {
-  self->handleScreenChange();
 }
 
 //  SGFramebufferObjectNode as the QSGSimpleTextureNode it is built on

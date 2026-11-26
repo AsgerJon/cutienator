@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QProxyStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QProxyStyle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QProxyStyle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QProxyStyle2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QProxyStyleC1EP6QStyle": ["address", "address"],
     "ritual_ZN11QProxyStyleC1ERK7QString": ["address", "text"],
@@ -67,6 +73,9 @@
     ],
     "ritual_ZNK11QProxyStyle15standardPaletteEv": ["address", "address"],
     "ritual_ZN11QProxyStyle6polishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QProxyStyle6polishER8QPalette": [
       "nothing", "address", "address"
     ],
     "ritual_ZN11QProxyStyle6polishEP12QApplication": [

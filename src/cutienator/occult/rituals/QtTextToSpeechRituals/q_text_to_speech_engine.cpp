@@ -6,6 +6,8 @@
 #include <QtCore/qlocale.h>
 #include <QtTextToSpeech/qvoice.h>
 #include <QtCore/qvariant.h>
+#include <QtMultimedia/qaudioformat.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -489,6 +491,25 @@ const QMetaObject *ritual_ZNK19QTextToSpeechEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTextToSpeechEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QTextToSpeechEngine11qt_metacastEPKc(
+    QTextToSpeechEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextToSpeechEngine::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QTextToSpeechEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextToSpeechEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTextToSpeechEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QTextToSpeechEngine2trEPKcS1_i(
@@ -683,6 +704,45 @@ extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN19QTextToSpeechEngine9voiceDataERK6QVoice(
     const QVoice *voice) {
   return new QVariant(QTextToSpeechEngine::voiceData(*voice));
+}
+
+//  void QTextToSpeechEngine::stateChanged(QTextToSpeech::State state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTextToSpeechEngine12stateChangedEN13QTextToSpeech5StateE(
+    QTextToSpeechEngine *self,
+    QTextToSpeech::State state) {
+  self->stateChanged(state);
+}
+
+//  void QTextToSpeechEngine::errorOccurred(QTextToSpeech::ErrorReason error,
+//      const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTextToSpeechEngine13errorOccurredEN13QTextToSpeech11ErrorReasonERK7QString(
+    QTextToSpeechEngine *self,
+    QTextToSpeech::ErrorReason error,
+    const QString *errorString) {
+  self->errorOccurred(error, *errorString);
+}
+
+//  void QTextToSpeechEngine::sayingWord(const QString &word, qsizetype
+//      start, qsizetype length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTextToSpeechEngine10sayingWordERK7QStringxx(
+    QTextToSpeechEngine *self,
+    const QString *word,
+    qsizetype start,
+    qsizetype length) {
+  self->sayingWord(*word, start, length);
+}
+
+//  void QTextToSpeechEngine::synthesized(const QAudioFormat &format, const
+//      QByteArray &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTextToSpeechEngine11synthesizedERK12QAudioFormatRK10QByteArray(
+    QTextToSpeechEngine *self,
+    const QAudioFormat *format,
+    const QByteArray *data) {
+  self->synthesized(*format, *data);
 }
 
 //  a Python function taken by a CuteQTextToSpeechEngine, for the function

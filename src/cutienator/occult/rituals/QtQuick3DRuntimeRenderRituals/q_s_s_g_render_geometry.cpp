@@ -33,11 +33,25 @@ QByteArray *ritual_ZNK18QSSGRenderGeometry12vertexBufferEv(
   return new QByteArray(self->vertexBuffer());
 }
 
+//  QByteArray &QSSGRenderGeometry::vertexBuffer()
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN18QSSGRenderGeometry12vertexBufferEv(
+    QSSGRenderGeometry *self) {
+  return &(self->vertexBuffer());
+}
+
 //  const QByteArray &QSSGRenderGeometry::indexBuffer() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK18QSSGRenderGeometry11indexBufferEv(
     const QSSGRenderGeometry *self) {
   return new QByteArray(self->indexBuffer());
+}
+
+//  QByteArray &QSSGRenderGeometry::indexBuffer()
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN18QSSGRenderGeometry11indexBufferEv(
+    QSSGRenderGeometry *self) {
+  return &(self->indexBuffer());
 }
 
 //  int QSSGRenderGeometry::attributeCount() const
@@ -169,6 +183,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QSSGRenderGeometry15clearAttributesEv(
     QSSGRenderGeometry *self) {
   self->clearAttributes();
+}
+
+//  uint32_t QSSGRenderGeometry::generationId() const
+extern "C" Q_DECL_EXPORT
+uint32_t ritual_ZNK18QSSGRenderGeometry12generationIdEv(
+    const QSSGRenderGeometry *self) {
+  return self->generationId();
 }
 
 //  const QSSGMesh::RuntimeMeshData &QSSGRenderGeometry::meshData() const

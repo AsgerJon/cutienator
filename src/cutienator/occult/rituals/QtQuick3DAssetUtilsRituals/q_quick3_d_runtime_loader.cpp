@@ -9,7 +9,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
+#if QT_CONFIG(mimetype)
 #include <QtCore/qmimetype.h>
+#endif
 #include <QtQuick3D/QtQuick3D>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3D/6.12.0/QtQuick3D/private/qquick3dmodel_p.h>
@@ -28,6 +30,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK21QQuick3DRuntimeLoader10metaObjectEv(
     const QQuick3DRuntimeLoader *self) {
   return self->metaObject();
+}
+
+//  void *QQuick3DRuntimeLoader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DRuntimeLoader11qt_metacastEPKc(
+    QQuick3DRuntimeLoader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DRuntimeLoader::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DRuntimeLoader11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DRuntimeLoader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuick3DRuntimeLoader::tr(const char *s, const char *c, int n)
@@ -134,6 +155,41 @@ QList<QQuick3DObject *> *ritual_ZNK21QQuick3DRuntimeLoader8queryAllENS_11QueryFi
     const QQuick3DRuntimeLoader *self,
     QQuick3DRuntimeLoader::QueryFilter filter) {
   return new QList<QQuick3DObject *>(self->queryAll(filter));
+}
+
+//  void QQuick3DRuntimeLoader::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DRuntimeLoader13sourceChangedEv(
+    QQuick3DRuntimeLoader *self) {
+  self->sourceChanged();
+}
+
+//  void QQuick3DRuntimeLoader::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DRuntimeLoader13statusChangedEv(
+    QQuick3DRuntimeLoader *self) {
+  self->statusChanged();
+}
+
+//  void QQuick3DRuntimeLoader::errorStringChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DRuntimeLoader18errorStringChangedEv(
+    QQuick3DRuntimeLoader *self) {
+  self->errorStringChanged();
+}
+
+//  void QQuick3DRuntimeLoader::boundsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DRuntimeLoader13boundsChangedEv(
+    QQuick3DRuntimeLoader *self) {
+  self->boundsChanged();
+}
+
+//  void QQuick3DRuntimeLoader::instancingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DRuntimeLoader17instancingChangedEv(
+    QQuick3DRuntimeLoader *self) {
+  self->instancingChanged();
 }
 
 //  QSSGRenderGraphObject

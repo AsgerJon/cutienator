@@ -9,6 +9,8 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QList>
+#include <QtLocation/QPlaceContent>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/qplacecontent.h>
 #include <QtLocation/private/qplacecontent_p.h>
@@ -53,6 +55,36 @@ QPlaceContent *ritual_ZN13QPlaceContentC1ERKS_(const QPlaceContent *other) {
   return new QPlaceContent(*other);
 }
 
+//  QPlaceContent &QPlaceContent::operator=(const QPlaceContent &other)
+extern "C" Q_DECL_EXPORT
+QPlaceContent *ritual_ZN13QPlaceContentaSERKS_(
+    QPlaceContent *self,
+    const QPlaceContent *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlaceContent::QPlaceContent(QPlaceContent &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceContent *ritual_ZN13QPlaceContentC1EOS_(QPlaceContent *other) {
+  return new QPlaceContent(std::move(*other));
+}
+
+//  QPlaceContent &QPlaceContent::operator=(QPlaceContent &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceContent *ritual_ZN13QPlaceContentaSEOS_(
+    QPlaceContent *self,
+    QPlaceContent *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlaceContent::swap(QPlaceContent &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPlaceContent4swapERS_(
+    QPlaceContent *self,
+    QPlaceContent *other) {
+  self->swap(*other);
+}
+
 //  void QPlaceContent::detach()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QPlaceContent6detachEv(QPlaceContent *self) {
@@ -80,6 +112,13 @@ extern "C" Q_DECL_EXPORT
 QPlaceContent::Type ritual_ZNK13QPlaceContent4typeEv(
     const QPlaceContent *self) {
   return self->type();
+}
+
+//  QList<DataTag> QPlaceContent::dataTags() const
+extern "C" Q_DECL_EXPORT
+QList<QPlaceContent::DataTag> *ritual_ZNK13QPlaceContent8dataTagsEv(
+    const QPlaceContent *self) {
+  return new QList<QPlaceContent::DataTag>(self->dataTags());
 }
 
 //  QVariant QPlaceContent::value(DataTag tag) const
@@ -226,5 +265,12 @@ QPlaceContent *ritual_map_get_QMap_int_QPlaceContent(
 //  QMap<int, QPlaceContent>: ~QMap()
 extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QMap_int_QPlaceContent(QMap<int, QPlaceContent> *self) {
+  delete self;
+}
+
+//  a QList<QPlaceContent::DataTag> a ritual of QPlaceContent gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlaceContent__QList_QPlaceContent_DataTag(
+    QList<QPlaceContent::DataTag> *self) {
   delete self;
 }

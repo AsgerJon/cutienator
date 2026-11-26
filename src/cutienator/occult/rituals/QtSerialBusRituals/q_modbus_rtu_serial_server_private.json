@@ -11,6 +11,9 @@
     "ritual_ZNK29QModbusRtuSerialServerPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN29QModbusRtuSerialServerPrivate15setupSerialPortEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN29QModbusRtuSerialServerPrivate16setupEnvironmentEv": [
       "nothing", "address"
     ],

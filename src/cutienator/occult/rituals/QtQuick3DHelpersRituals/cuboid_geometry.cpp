@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/cuboidgeometry_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/qtquick3dhelpersglobal_p.h>
 #include <QtQuick3DHelpers/QtQuick3DHelpers>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,6 +12,7 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSize>
 
 //  A CuboidGeometry that Python can take functions over in. Every CuboidGeometry
 //  Python makes is one. Each function below asks the Python
@@ -287,6 +289,24 @@ const QMetaObject *ritual_ZNK14CuboidGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *CuboidGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14CuboidGeometry11qt_metacastEPKc(
+    CuboidGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int CuboidGeometry::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14CuboidGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    CuboidGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString CuboidGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14CuboidGeometry2trEPKcS1_i(
@@ -432,12 +452,117 @@ void ritual_ZN14CuboidGeometry15requestFinishedEv(CuboidGeometry *self) {
   self->requestFinished();
 }
 
+//  void CuboidGeometry::xExtentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry14xExtentChangedEv(CuboidGeometry *self) {
+  self->xExtentChanged();
+}
+
+//  void CuboidGeometry::yExtentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry14yExtentChangedEv(CuboidGeometry *self) {
+  self->yExtentChanged();
+}
+
+//  void CuboidGeometry::zExtentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry14zExtentChangedEv(CuboidGeometry *self) {
+  self->zExtentChanged();
+}
+
+//  void CuboidGeometry::yzMeshResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry23yzMeshResolutionChangedEv(
+    CuboidGeometry *self) {
+  self->yzMeshResolutionChanged();
+}
+
+//  void CuboidGeometry::xzMeshResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry23xzMeshResolutionChangedEv(
+    CuboidGeometry *self) {
+  self->xzMeshResolutionChanged();
+}
+
+//  void CuboidGeometry::xyMeshResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry23xyMeshResolutionChangedEv(
+    CuboidGeometry *self) {
+  self->xyMeshResolutionChanged();
+}
+
+//  void CuboidGeometry::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry19asynchronousChangedEv(CuboidGeometry *self) {
+  self->asynchronousChanged();
+}
+
+//  void CuboidGeometry::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry13statusChangedEv(CuboidGeometry *self) {
+  self->statusChanged();
+}
+
 //  void CuboidGeometry::scheduleGeometryUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14CuboidGeometry22scheduleGeometryUpdateEv(
     CuboidGeometry *self) {
   self->scheduleGeometryUpdate();
 }
+
+//  void CuboidGeometry::updateGeometry(const GeometryData &geometryData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry14updateGeometryERKNS_12GeometryDataE(
+    CuboidGeometry *self,
+    const CuboidGeometry::GeometryData *geometryData) {
+  self->updateGeometry(*geometryData);
+}
+
+//  CuboidGeometry::GeometryData CuboidGeometry::generateCuboidGeometry(float
+//      xExtent, float yExtent, float zExtent, QSize yzMeshResolution, QSize
+//      xzMeshResolution, QSize xyMeshResolution)
+extern "C" Q_DECL_EXPORT
+CuboidGeometry::GeometryData *ritual_ZN14CuboidGeometry22generateCuboidGeometryEfff5QSizeS0_S0_(
+    float xExtent,
+    float yExtent,
+    float zExtent,
+    const QSize *yzMeshResolution,
+    const QSize *xzMeshResolution,
+    const QSize *xyMeshResolution) {
+  return new CuboidGeometry::GeometryData(
+      CuboidGeometry::generateCuboidGeometry(
+          xExtent,
+          yExtent,
+          zExtent,
+          *yzMeshResolution,
+          *xzMeshResolution,
+          *xyMeshResolution));
+}
+
+#if QT_CONFIG(concurrent)
+//  void CuboidGeometry::generateCuboidGeometryAsync(QPromise<CuboidGeometry:
+//      :GeometryData> &promise, float xExtent, float yExtent, float zExtent,
+//      QSize yzMeshResolution, QSize xzMeshResolution, QSize
+//      xyMeshResolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14CuboidGeometry27generateCuboidGeometryAsyncER8QPromiseINS_12GeometryDataEEfff5QSizeS4_S4_(
+    QPromise<CuboidGeometry::GeometryData> *promise,
+    float xExtent,
+    float yExtent,
+    float zExtent,
+    const QSize *yzMeshResolution,
+    const QSize *xzMeshResolution,
+    const QSize *xyMeshResolution) {
+  CuboidGeometry::generateCuboidGeometryAsync(
+      *promise,
+      xExtent,
+      yExtent,
+      zExtent,
+      *yzMeshResolution,
+      *xzMeshResolution,
+      *xyMeshResolution);
+}
+#endif  // QT_CONFIG(concurrent)
 
 //  a Python function taken by a CuteCuboidGeometry, for the function named
 //      by the key
@@ -447,4 +572,11 @@ bool ritual_take_CuboidGeometry(
     const char *key,
     void *call) {
   return static_cast<CuteCuboidGeometry *>(self)->take(key, call);
+}
+
+//  a CuboidGeometry::GeometryData a ritual of CuboidGeometry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_CuboidGeometry__CuboidGeometry_GeometryData(
+    CuboidGeometry::GeometryData *self) {
+  delete self;
 }

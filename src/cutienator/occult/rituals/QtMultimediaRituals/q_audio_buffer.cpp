@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtMultimedia/qaudiobuffer.h, Qt 6.12.0. Changes made here are lost.
+//  QtMultimedia/qaudiobuffer.h, Qt 6.12.0. Edited by hand on 2026-11-25:
+//  added by hand, instances of templates of the class: 8. Kept as it is when
+//  the generator runs again.
 #include <QtMultimedia/qaudiobuffer.h>
 #include <QtCore/qbytearray.h>
 #include <QtMultimedia/qaudioformat.h>
@@ -40,6 +42,36 @@ QAudioBuffer *ritual_ZN12QAudioBufferC1EiRK12QAudioFormatx(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QAudioBufferD1Ev(QAudioBuffer *self) {
   delete self;
+}
+
+//  QAudioBuffer &QAudioBuffer::operator=(const QAudioBuffer &other)
+extern "C" Q_DECL_EXPORT
+QAudioBuffer *ritual_ZN12QAudioBufferaSERKS_(
+    QAudioBuffer *self,
+    const QAudioBuffer *other) {
+  return &(self->operator=(*other));
+}
+
+//  QAudioBuffer::QAudioBuffer(QAudioBuffer &&other)
+extern "C" Q_DECL_EXPORT
+QAudioBuffer *ritual_ZN12QAudioBufferC1EOS_(QAudioBuffer *other) {
+  return new QAudioBuffer(std::move(*other));
+}
+
+//  QAudioBuffer &QAudioBuffer::operator=(QAudioBuffer &&other)
+extern "C" Q_DECL_EXPORT
+QAudioBuffer *ritual_ZN12QAudioBufferaSEOS_(
+    QAudioBuffer *self,
+    QAudioBuffer *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QAudioBuffer::swap(QAudioBuffer &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QAudioBuffer4swapERS_(
+    QAudioBuffer *self,
+    QAudioBuffer *other) {
+  self->swap(*other);
 }
 
 //  bool QAudioBuffer::isValid() const
@@ -88,4 +120,70 @@ qint64 ritual_ZNK12QAudioBuffer8durationEv(const QAudioBuffer *self) {
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK12QAudioBuffer9startTimeEv(const QAudioBuffer *self) {
   return self->startTime();
+}
+
+//  const void *QAudioBuffer::constData() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK12QAudioBuffer9constDataEv(const QAudioBuffer *self) {
+  return self->constData();
+}
+
+//  const void *QAudioBuffer::data() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK12QAudioBuffer4dataEv(const QAudioBuffer *self) {
+  return self->data();
+}
+
+//  void *QAudioBuffer::data()
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QAudioBuffer4dataEv(QAudioBuffer *self) {
+  return self->data();
+}
+
+//  const T *QAudioBuffer::constData<unsigned char>() const
+extern "C" Q_DECL_EXPORT
+const unsigned char * ritual_ZNK12QAudioBuffer9constDataIhEEPKT_v(const QAudioBuffer *self) {
+  return self->constData<unsigned char>();
+}
+
+//  const T *QAudioBuffer::constData<short>() const
+extern "C" Q_DECL_EXPORT
+const short * ritual_ZNK12QAudioBuffer9constDataIsEEPKT_v(const QAudioBuffer *self) {
+  return self->constData<short>();
+}
+
+//  const T *QAudioBuffer::constData<int>() const
+extern "C" Q_DECL_EXPORT
+const int * ritual_ZNK12QAudioBuffer9constDataIiEEPKT_v(const QAudioBuffer *self) {
+  return self->constData<int>();
+}
+
+//  const T *QAudioBuffer::constData<float>() const
+extern "C" Q_DECL_EXPORT
+const float * ritual_ZNK12QAudioBuffer9constDataIfEEPKT_v(const QAudioBuffer *self) {
+  return self->constData<float>();
+}
+
+//  T *QAudioBuffer::data<unsigned char>()
+extern "C" Q_DECL_EXPORT
+unsigned char * ritual_ZN12QAudioBuffer4dataIhEEPT_v(QAudioBuffer *self) {
+  return self->data<unsigned char>();
+}
+
+//  T *QAudioBuffer::data<short>()
+extern "C" Q_DECL_EXPORT
+short * ritual_ZN12QAudioBuffer4dataIsEEPT_v(QAudioBuffer *self) {
+  return self->data<short>();
+}
+
+//  T *QAudioBuffer::data<int>()
+extern "C" Q_DECL_EXPORT
+int * ritual_ZN12QAudioBuffer4dataIiEEPT_v(QAudioBuffer *self) {
+  return self->data<int>();
+}
+
+//  T *QAudioBuffer::data<float>()
+extern "C" Q_DECL_EXPORT
+float * ritual_ZN12QAudioBuffer4dataIfEEPT_v(QAudioBuffer *self) {
+  return self->data<float>();
 }

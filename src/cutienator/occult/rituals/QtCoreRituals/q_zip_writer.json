@@ -21,6 +21,7 @@
     "ritual_ZN10QZipWriter22setCreationPermissionsE6QFlagsIN11QFileDevice10PermissionEE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK10QZipWriter19creationPermissionsEv": ["address", "address"],
     "ritual_ZN10QZipWriter7addFileERK7QStringRK10QByteArray": [
       "nothing", "address", "text", "address"
     ],
@@ -33,6 +34,7 @@
     "ritual_ZN10QZipWriter10addSymLinkERK7QStringS2_": [
       "nothing", "address", "text", "text"
     ],
-    "ritual_ZN10QZipWriter5closeEv": ["nothing", "address"]
+    "ritual_ZN10QZipWriter5closeEv": ["nothing", "address"],
+    "ritual_drop_QZipWriter__QFile_Permissions": ["nothing", "address"]
   }
 }

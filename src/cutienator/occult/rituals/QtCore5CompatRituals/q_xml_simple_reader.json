@@ -15,6 +15,12 @@
     "ritual_ZNK16QXmlSimpleReader10hasFeatureERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZNK16QXmlSimpleReader8propertyERK7QStringPb": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN16QXmlSimpleReader11setPropertyERK7QStringPv": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZNK16QXmlSimpleReader11hasPropertyERK7QString": [
       "bool", "address", "text"
     ],
@@ -60,6 +66,9 @@
     ],
     "ritual_own_ZNK16QXmlSimpleReader10hasFeatureERK7QString": [
       "bool", "address", "text"
+    ],
+    "ritual_own_ZN16QXmlSimpleReader11setPropertyERK7QStringPv": [
+      "nothing", "address", "text", "address"
     ],
     "ritual_own_ZNK16QXmlSimpleReader11hasPropertyERK7QString": [
       "bool", "address", "text"

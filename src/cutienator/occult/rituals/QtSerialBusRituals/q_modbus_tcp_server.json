@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QModbusTcpServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QModbusTcpServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QModbusTcpServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QModbusTcpServer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,8 +22,17 @@
     "ritual_ZN16QModbusTcpServer25installConnectionObserverEP28QModbusTcpConnectionObserver": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN16QModbusTcpServer24modbusClientDisconnectedEP10QTcpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QModbusTcpServerC1ER23QModbusTcpServerPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN16QModbusTcpServer4openEv": ["bool", "address"],
     "ritual_ZN16QModbusTcpServer5closeEv": ["nothing", "address"],
+    "ritual_ZN16QModbusTcpServer14processRequestERK10QModbusPdu": [
+      "address", "address", "address"
+    ],
     "ritual_take_QModbusTcpServer": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QModbusTcpServer4openEv": ["bool", "address"],
     "ritual_own_ZN16QModbusTcpServer5closeEv": ["nothing", "address"]

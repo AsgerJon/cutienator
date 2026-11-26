@@ -5,8 +5,31 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV411SparseArrayC1Ev": ["address"],
     "ritual_ZN3QV411SparseArrayD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV411SparseArrayC1ERKS0_": ["address", "address"],
+    "ritual_ZN3QV411SparseArray10rotateLeftEPNS_15SparseArrayNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV411SparseArray11rotateRightEPNS_15SparseArrayNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV411SparseArray9rebalanceEPNS_15SparseArrayNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV411SparseArray18recalcMostLeftNodeEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK3QV411SparseArray4rootEv": ["address", "address"],
+    "ritual_ZN3QV411SparseArray10deleteNodeEPNS_15SparseArrayNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV411SparseArray10createNodeEjPNS_15SparseArrayNodeEb": [
+      "address", "address", "unsigned int", "address", "bool"
+    ],
+    "ritual_ZN3QV411SparseArray8freeTreeEPNS_15SparseArrayNodeEi": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZNK3QV411SparseArray8findNodeEj": [
       "address", "address", "unsigned int"
     ],
@@ -21,10 +44,14 @@
     "ritual_ZN3QV411SparseArray9push_backEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
     ],
+    "ritual_ZNK3QV411SparseArray4keysEv": ["address", "address"],
     "ritual_ZNK3QV411SparseArray3endEv": ["address", "address"],
     "ritual_ZN3QV411SparseArray3endEv": ["address", "address"],
     "ritual_ZNK3QV411SparseArray5beginEv": ["address", "address"],
     "ritual_ZN3QV411SparseArray5beginEv": ["address", "address"],
+    "ritual_ZN3QV411SparseArray5eraseEPNS_15SparseArrayNodeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN3QV411SparseArray10lowerBoundEj": [
       "address", "address", "unsigned int"
     ],
@@ -36,6 +63,10 @@
     ],
     "ritual_ZNK3QV411SparseArray10upperBoundEj": [
       "address", "address", "unsigned int"
-    ]
+    ],
+    "ritual_ZN3QV411SparseArray6insertEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_drop_QV4_SparseArray__QList_int": ["nothing", "address"]
   }
 }

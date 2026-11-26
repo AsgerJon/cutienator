@@ -8,8 +8,23 @@
     "ritual_ZNK13Qt3DAnimation22QAbstractClipBlendNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation22QAbstractClipBlendNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation22QAbstractClipBlendNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation22QAbstractClipBlendNode2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation22QAbstractClipBlendNodeD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation22QAbstractClipBlendNodeC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation22QAbstractClipBlendNodeC1ERNS_29QAbstractClipBlendNodePrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation22QAbstractClipBlendNode6d_funcEv": [
       "address", "address"

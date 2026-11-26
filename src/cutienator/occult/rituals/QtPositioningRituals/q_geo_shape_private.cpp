@@ -9,6 +9,39 @@
 #include <QtPositioning/qgeocoordinate.h>
 #include <QtPositioning/qgeorectangle.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtPositioning/qgeoshape.h>
+#include <QtPositioning/private/qgeoshape_p.h>
+#include <QtPositioning/qgeorectangle.h>
+#include <QtPositioning/qgeocircle.h>
+#include <QtPositioning/qgeopath.h>
+#include <QtPositioning/qgeopolygon.h>
+#ifndef QT_NO_DEBUG_STREAM
+#include <QtCore/QDebug>
+#endif
+#ifndef QT_NO_DATASTREAM
+#include <QtCore/QDataStream>
+#endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtpositioning/src/positioning/qgeoshape.cpp, line 30, as _ZN16QGeoShapePrivateD2Ev
+inline QGeoShapePrivate::~QGeoShapePrivate()
+{
+}
+
+//  from ../qtpositioning/src/positioning/qgeoshape.cpp, line 34, as _ZNK16QGeoShapePrivateeqERKS_
+inline bool QGeoShapePrivate::operator==(const QGeoShapePrivate &other) const
+{
+    return type == other.type;
+}
+//  -----------------------------------------------------------------------
 
 //  A QGeoShapePrivate that Python can take functions over in. Every QGeoShapePrivate
 //  Python makes is one. Each function below asks the Python
@@ -19,10 +52,11 @@ typedef bool (*CuteQGeoShapePrivateCall2)(const void *, const QGeoCoordinate *, 
 typedef const QGeoCoordinate * (*CuteQGeoShapePrivateCall3)(const void *, int *);
 typedef const QGeoRectangle * (*CuteQGeoShapePrivateCall4)(const void *, int *);
 typedef void * (*CuteQGeoShapePrivateCall5)(const void *, int *);
+typedef size_t (*CuteQGeoShapePrivateCall6)(const void *, size_t, int *);
 class CuteQGeoShapePrivate : public QGeoShapePrivate {
 public:
   using QGeoShapePrivate::QGeoShapePrivate;
-  void *taken[6] = {};
+  void *taken[7] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK16QGeoShapePrivate7isValidEv")) {
@@ -47,6 +81,10 @@ public:
     }
     if (!std::strcmp(key, "_ZNK16QGeoShapePrivate5cloneEv")) {
       taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate4hashEm")) {
+      taken[6] = call;
       return true;
     }
     return false;
@@ -118,6 +156,17 @@ public:
     }
     return {};
   }
+
+  //  size_t QGeoShapePrivate::hash(size_t seed) const
+  size_t hash(size_t seed) const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQGeoShapePrivateCall6 call = reinterpret_cast<CuteQGeoShapePrivateCall6>(taken[6]);
+      size_t given = call(this, seed, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
 };
 
 //  QGeoShapePrivate::~QGeoShapePrivate()
@@ -165,6 +214,22 @@ extern "C" Q_DECL_EXPORT
 QGeoShapePrivate *ritual_ZNK16QGeoShapePrivate5cloneEv(
     const QGeoShapePrivate *self) {
   return self->clone();
+}
+
+//  bool QGeoShapePrivate::operator==(const QGeoShapePrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QGeoShapePrivateeqERKS_(
+    const QGeoShapePrivate *self,
+    const QGeoShapePrivate *other) {
+  return self->operator==(*other);
+}
+
+//  size_t QGeoShapePrivate::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK16QGeoShapePrivate4hashEm(
+    const QGeoShapePrivate *self,
+    size_t seed) {
+  return self->hash(seed);
 }
 
 //  a Python function taken by a CuteQGeoShapePrivate, for the function named

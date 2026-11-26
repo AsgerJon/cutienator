@@ -28,8 +28,20 @@
     "ritual_ZN16QQmlMetaTypeData13propertyCacheERK8QQmlType13QTypeRevision": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZNK16QQmlMetaTypeData33findPropertyCacheInCompositeTypesE9QMetaType": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQmlMetaTypeData44propertyCacheForPotentialInlineComponentTypeE9QMetaTypeRKN10QMultiHashIPKN9QtPrivate18QMetaTypeInterfaceE14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEEE14const_iteratorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQmlMetaTypeData27setTypeRegistrationFailuresEP5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QQmlMetaTypeData20recordTypeRegFailureERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN16QQmlMetaTypeData18clearCompositeTypeERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE": [
+      "nothing", "address"
     ],
     "ritual_ZN16QQmlMetaTypeData19clearCompositeTypesEv": [
       "nothing", "address"

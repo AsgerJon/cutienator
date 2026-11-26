@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14CuboidGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN14CuboidGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14CuboidGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14CuboidGeometry2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -42,9 +48,38 @@
     "ritual_ZNK14CuboidGeometry6statusEv": ["int", "address"],
     "ritual_ZN14CuboidGeometry16doUpdateGeometryEv": ["nothing", "address"],
     "ritual_ZN14CuboidGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN14CuboidGeometry14xExtentChangedEv": ["nothing", "address"],
+    "ritual_ZN14CuboidGeometry14yExtentChangedEv": ["nothing", "address"],
+    "ritual_ZN14CuboidGeometry14zExtentChangedEv": ["nothing", "address"],
+    "ritual_ZN14CuboidGeometry23yzMeshResolutionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14CuboidGeometry23xzMeshResolutionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14CuboidGeometry23xyMeshResolutionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14CuboidGeometry19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14CuboidGeometry13statusChangedEv": ["nothing", "address"],
     "ritual_ZN14CuboidGeometry22scheduleGeometryUpdateEv": [
       "nothing", "address"
     ],
-    "ritual_take_CuboidGeometry": ["bool", "address", "chars", "address"]
+    "ritual_ZN14CuboidGeometry14updateGeometryERKNS_12GeometryDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14CuboidGeometry22generateCuboidGeometryEfff5QSizeS0_S0_": [
+      "address", "float", "float", "float", "address", "address", "address"
+    ],
+    "ritual_ZN14CuboidGeometry27generateCuboidGeometryAsyncER8QPromiseINS_12GeometryDataEEfff5QSizeS4_S4_": [
+      "nothing", "address", "float", "float", "float", "address", "address",
+      "address"
+    ],
+    "ritual_take_CuboidGeometry": ["bool", "address", "chars", "address"],
+    "ritual_drop_CuboidGeometry__CuboidGeometry_GeometryData": [
+      "nothing", "address"
+    ]
   }
 }

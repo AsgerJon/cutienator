@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -236,6 +240,36 @@ public:
   }
 };
 
+//  QQmlJS::AST::PatternProperty::PatternProperty(PropertyName *name,
+//      QStringView n, ExpressionNode *i)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::PatternProperty *ritual_ZN6QQmlJS3AST15PatternPropertyC1EPNS0_12PropertyNameE11QStringViewPNS0_14ExpressionNodeE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::PropertyName *name,
+    const QString *n,
+    QQmlJS::AST::ExpressionNode *i) {
+  return new (pool) CuteQQmlJS_AST_PatternProperty(name, QStringView(*n), i);
+}
+
+//  QQmlJS::AST::PatternProperty::PatternProperty(PropertyName *name, Pattern
+//      *pattern, ExpressionNode *i)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::PatternProperty *ritual_ZN6QQmlJS3AST15PatternPropertyC1EPNS0_12PropertyNameEPNS0_7PatternEPNS0_14ExpressionNodeE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::PropertyName *name,
+    QQmlJS::AST::Pattern *pattern,
+    QQmlJS::AST::ExpressionNode *i) {
+  return new (pool) CuteQQmlJS_AST_PatternProperty(name, pattern, i);
+}
+
+//  void QQmlJS::AST::PatternProperty::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST15PatternProperty7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::PatternProperty *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::PatternProperty::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST15PatternProperty19firstSourceLocationEv(
@@ -248,6 +282,26 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST15PatternProperty18lastSourceLocationEv(
     const QQmlJS::AST::PatternProperty *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  void QQmlJS::AST::PatternProperty::boundNames(BoundNames *names)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST15PatternProperty10boundNamesEPNS0_10BoundNamesE(
+    QQmlJS::AST::PatternProperty *self,
+    QQmlJS::AST::BoundNames *names) {
+  self->boundNames(names);
+}
+
+//  bool QQmlJS::AST::PatternProperty::convertLiteralToAssignmentPattern(Sour
+//      ceLocation *errorLocation, QString *errorMessage)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QQmlJS3AST15PatternProperty33convertLiteralToAssignmentPatternEPNS_14SourceLocationEP7QString(
+    QQmlJS::AST::PatternProperty *self,
+    QQmlJS::SourceLocation *errorLocation,
+    QString *errorMessage) {
+  return self->convertLiteralToAssignmentPattern(
+      errorLocation,
+      errorMessage);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_PatternProperty, for the

@@ -5,7 +5,9 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/qpieseries.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qpieseries_p.h>
@@ -324,6 +326,25 @@ const QMetaObject *ritual_ZNK17QPieSeriesPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPieSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QPieSeriesPrivate11qt_metacastEPKc(
+    QPieSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPieSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QPieSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPieSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPieSeriesPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QPieSeriesPrivate2trEPKcS1_i(
@@ -366,6 +387,20 @@ void ritual_ZN17QPieSeriesPrivate18initializeGraphicsEP13QGraphicsItem(
     QPieSeriesPrivate *self,
     QGraphicsItem *parent) {
   self->initializeGraphics(parent);
+}
+
+//  void QPieSeriesPrivate::initializeAnimations(QChart::AnimationOptions
+//      options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QPieSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QPieSeriesPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
 }
 
 //  void QPieSeriesPrivate::initializeTheme(int index, ChartTheme *theme,
@@ -427,6 +462,48 @@ extern "C" Q_DECL_EXPORT
 QPieSeriesPrivate *ritual_ZN17QPieSeriesPrivate10fromSeriesEP10QPieSeries(
     QPieSeries *series) {
   return QPieSeriesPrivate::fromSeries(series);
+}
+
+//  void QPieSeriesPrivate::calculatedDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QPieSeriesPrivate21calculatedDataChangedEv(
+    QPieSeriesPrivate *self) {
+  self->calculatedDataChanged();
+}
+
+//  void QPieSeriesPrivate::pieSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QPieSeriesPrivate14pieSizeChangedEv(
+    QPieSeriesPrivate *self) {
+  self->pieSizeChanged();
+}
+
+//  void QPieSeriesPrivate::pieStartAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QPieSeriesPrivate20pieStartAngleChangedEv(
+    QPieSeriesPrivate *self) {
+  self->pieStartAngleChanged();
+}
+
+//  void QPieSeriesPrivate::pieEndAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QPieSeriesPrivate18pieEndAngleChangedEv(
+    QPieSeriesPrivate *self) {
+  self->pieEndAngleChanged();
+}
+
+//  void QPieSeriesPrivate::horizontalPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QPieSeriesPrivate25horizontalPositionChangedEv(
+    QPieSeriesPrivate *self) {
+  self->horizontalPositionChanged();
+}
+
+//  void QPieSeriesPrivate::verticalPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QPieSeriesPrivate23verticalPositionChangedEv(
+    QPieSeriesPrivate *self) {
+  self->verticalPositionChanged();
 }
 
 //  void QPieSeriesPrivate::sliceValueChanged()

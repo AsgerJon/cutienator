@@ -80,6 +80,25 @@ const QMetaObject *ritual_ZNK20QQStyleKitLayoutItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitLayoutItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQStyleKitLayoutItem11qt_metacastEPKc(
+    QQStyleKitLayoutItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitLayoutItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQStyleKitLayoutItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitLayoutItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickItem *QQStyleKitLayoutItem::item() const
 extern "C" Q_DECL_EXPORT
 QQuickItem *ritual_ZNK20QQStyleKitLayoutItem4itemEv(
@@ -141,4 +160,227 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QQStyleKitLayoutItem10fillHeightEv(
     const QQStyleKitLayoutItem *self) {
   return self->fillHeight();
+}
+
+//  void QQStyleKitLayoutItem::itemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQStyleKitLayoutItem11itemChangedEv(
+    QQStyleKitLayoutItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitLayoutItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "itemChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "itemChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitLayoutItem::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQStyleKitLayoutItem8xChangedEv(QQStyleKitLayoutItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitLayoutItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "xChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "xChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitLayoutItem::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQStyleKitLayoutItem8yChangedEv(QQStyleKitLayoutItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitLayoutItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "yChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "yChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitLayoutItem::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQStyleKitLayoutItem12widthChangedEv(
+    QQStyleKitLayoutItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitLayoutItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "widthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "widthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitLayoutItem::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQStyleKitLayoutItem13heightChangedEv(
+    QQStyleKitLayoutItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitLayoutItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "heightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "heightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitLayoutItem::alignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQStyleKitLayoutItem16alignmentChangedEv(
+    QQStyleKitLayoutItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitLayoutItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "alignmentChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "alignmentChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitLayoutItem::marginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQStyleKitLayoutItem14marginsChangedEv(
+    QQStyleKitLayoutItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitLayoutItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "marginsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "marginsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitLayoutItem::fillWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQStyleKitLayoutItem16fillWidthChangedEv(
+    QQStyleKitLayoutItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitLayoutItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fillWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fillWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitLayoutItem::fillHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQStyleKitLayoutItem17fillHeightChangedEv(
+    QQStyleKitLayoutItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitLayoutItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fillHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fillHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }

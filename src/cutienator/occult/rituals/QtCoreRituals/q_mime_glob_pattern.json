@@ -5,10 +5,22 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN16QMimeGlobPatternC1ERK7QStringS2_jN2Qt15CaseSensitivityE": [
+      "address", "text", "text", "unsigned int", "int"
+    ],
+    "ritual_ZN16QMimeGlobPattern4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QMimeGlobPattern13matchFileNameERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK16QMimeGlobPattern7patternEv": ["text", "address"],
     "ritual_ZNK16QMimeGlobPattern6weightEv": ["unsigned int", "address"],
     "ritual_ZNK16QMimeGlobPattern8mimeTypeEv": ["text", "address"],
     "ritual_ZNK16QMimeGlobPattern15isCaseSensitiveEv": ["bool", "address"],
+    "ritual_ZNK16QMimeGlobPattern17detectPatternTypeE11QStringView": [
+      "int", "address", "text"
+    ],
     "ritual_ZN16QMimeGlobPatternD1Ev": ["nothing", "address"]
   }
 }

@@ -18,6 +18,15 @@ QStyleOptionSpinBox *ritual_ZN19QStyleOptionSpinBoxC1ERKS_(
   return new QStyleOptionSpinBox(*other);
 }
 
+//  QStyleOptionSpinBox &QStyleOptionSpinBox::operator=(const
+//      QStyleOptionSpinBox &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionSpinBox *ritual_ZN19QStyleOptionSpinBoxaSERKS_(
+    QStyleOptionSpinBox *self,
+    const QStyleOptionSpinBox *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionSpinBox::QStyleOptionSpinBox(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionSpinBox *ritual_ZN19QStyleOptionSpinBoxC1Ei(int version) {

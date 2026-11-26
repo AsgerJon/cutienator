@@ -22,6 +22,15 @@ QOpcUaReferenceDescription *ritual_ZN26QOpcUaReferenceDescriptionC1ERKS_(
   return new QOpcUaReferenceDescription(*other);
 }
 
+//  QOpcUaReferenceDescription &QOpcUaReferenceDescription::operator=(const
+//      QOpcUaReferenceDescription &other)
+extern "C" Q_DECL_EXPORT
+QOpcUaReferenceDescription *ritual_ZN26QOpcUaReferenceDescriptionaSERKS_(
+    QOpcUaReferenceDescription *self,
+    const QOpcUaReferenceDescription *other) {
+  return &(self->operator=(*other));
+}
+
 //  QOpcUaReferenceDescription::~QOpcUaReferenceDescription()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QOpcUaReferenceDescriptionD1Ev(

@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  Only a class built on QQuickAbstractDialog may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -356,6 +358,25 @@ const QMetaObject *ritual_ZNK20QQuickAbstractDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAbstractDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickAbstractDialog11qt_metacastEPKc(
+    QQuickAbstractDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAbstractDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickAbstractDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAbstractDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAbstractDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickAbstractDialog2trEPKcS1_i(
@@ -392,6 +413,13 @@ extern "C" Q_DECL_EXPORT
 QPlatformDialogHelper *ritual_ZNK20QQuickAbstractDialog6handleEv(
     const QQuickAbstractDialog *self) {
   return self->handle();
+}
+
+//  QQmlListProperty<QObject> QQuickAbstractDialog::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN20QQuickAbstractDialog4dataEv(
+    QQuickAbstractDialog *self) {
+  return new QQmlListProperty<QObject>(self->data());
 }
 
 //  QWindow *QQuickAbstractDialog::parentWindow() const
@@ -543,6 +571,67 @@ void ritual_ZN20QQuickAbstractDialog4doneEi(
     QQuickAbstractDialog *self,
     int result) {
   self->done(result);
+}
+
+//  void QQuickAbstractDialog::accepted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractDialog8acceptedEv(QQuickAbstractDialog *self) {
+  self->accepted();
+}
+
+//  void QQuickAbstractDialog::rejected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractDialog8rejectedEv(QQuickAbstractDialog *self) {
+  self->rejected();
+}
+
+//  void QQuickAbstractDialog::parentWindowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractDialog19parentWindowChangedEv(
+    QQuickAbstractDialog *self) {
+  self->parentWindowChanged();
+}
+
+//  void QQuickAbstractDialog::titleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractDialog12titleChangedEv(
+    QQuickAbstractDialog *self) {
+  self->titleChanged();
+}
+
+//  void QQuickAbstractDialog::flagsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractDialog12flagsChangedEv(
+    QQuickAbstractDialog *self) {
+  self->flagsChanged();
+}
+
+//  void QQuickAbstractDialog::modalityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractDialog15modalityChangedEv(
+    QQuickAbstractDialog *self) {
+  self->modalityChanged();
+}
+
+//  void QQuickAbstractDialog::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractDialog14visibleChangedEv(
+    QQuickAbstractDialog *self) {
+  self->visibleChanged();
+}
+
+//  void QQuickAbstractDialog::resultChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractDialog13resultChangedEv(
+    QQuickAbstractDialog *self) {
+  self->resultChanged();
+}
+
+//  void QQuickAbstractDialog::popupTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractDialog16popupTypeChangedEv(
+    QQuickAbstractDialog *self) {
+  self->popupTypeChanged();
 }
 
 //  void QQuickAbstractDialog::classBegin()
@@ -725,4 +814,11 @@ extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK20QQuickAbstractDialog10dialogCodeEv(
     const QQuickAbstractDialog *self) {
   return static_cast<const OwnQQuickAbstractDialog *>(self)->OwnQQuickAbstractDialog::dialogCode();
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickAbstractDialog gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickAbstractDialog__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

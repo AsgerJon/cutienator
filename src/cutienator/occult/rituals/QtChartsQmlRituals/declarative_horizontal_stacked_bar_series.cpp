@@ -15,6 +15,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A DeclarativeHorizontalStackedBarSeries that Python can take functions over in. Every DeclarativeHorizontalStackedBarSeries
 //  Python makes is one. Each function below asks the Python
@@ -239,6 +241,25 @@ const QMetaObject *ritual_ZNK37DeclarativeHorizontalStackedBarSeries10metaObject
   return self->metaObject();
 }
 
+//  void *DeclarativeHorizontalStackedBarSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN37DeclarativeHorizontalStackedBarSeries11qt_metacastEPKc(
+    DeclarativeHorizontalStackedBarSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeHorizontalStackedBarSeries::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN37DeclarativeHorizontalStackedBarSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeHorizontalStackedBarSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeHorizontalStackedBarSeries::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -319,6 +340,14 @@ void ritual_ZN37DeclarativeHorizontalStackedBarSeries13setAxisYRightEP13QAbstrac
   self->setAxisYRight(axis);
 }
 
+//  QQmlListProperty<QObject>
+//      DeclarativeHorizontalStackedBarSeries::seriesChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN37DeclarativeHorizontalStackedBarSeries14seriesChildrenEv(
+    DeclarativeHorizontalStackedBarSeries *self) {
+  return new QQmlListProperty<QObject>(self->seriesChildren());
+}
+
 //  DeclarativeBarSet *DeclarativeHorizontalStackedBarSeries::at(int index)
 extern "C" Q_DECL_EXPORT
 DeclarativeBarSet *ritual_ZN37DeclarativeHorizontalStackedBarSeries2atEi(
@@ -377,6 +406,52 @@ void ritual_ZN37DeclarativeHorizontalStackedBarSeries17componentCompleteEv(
   self->componentComplete();
 }
 
+//  void DeclarativeHorizontalStackedBarSeries::axisXChanged(QAbstractAxis
+//      *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN37DeclarativeHorizontalStackedBarSeries12axisXChangedEP13QAbstractAxis(
+    DeclarativeHorizontalStackedBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeHorizontalStackedBarSeries::axisYChanged(QAbstractAxis
+//      *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN37DeclarativeHorizontalStackedBarSeries12axisYChangedEP13QAbstractAxis(
+    DeclarativeHorizontalStackedBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeHorizontalStackedBarSeries::axisXTopChanged(QAbstractAxis
+//      *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN37DeclarativeHorizontalStackedBarSeries15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeHorizontalStackedBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void
+//      DeclarativeHorizontalStackedBarSeries::axisYRightChanged(QAbstractAxi
+//      s *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN37DeclarativeHorizontalStackedBarSeries17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeHorizontalStackedBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
+}
+
+//  void DeclarativeHorizontalStackedBarSeries::appendSeriesChildren(QQmlList
+//      Property<QObject> *list, QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN37DeclarativeHorizontalStackedBarSeries20appendSeriesChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  DeclarativeHorizontalStackedBarSeries::appendSeriesChildren(list, element);
+}
+
 //  DeclarativeHorizontalStackedBarSeries as the QQmlParserStatus it is built
 //      on
 extern "C" Q_DECL_EXPORT
@@ -407,6 +482,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN37DeclarativeHorizontalStackedBarSeries17componentCompleteEv(
     DeclarativeHorizontalStackedBarSeries *self) {
   self->DeclarativeHorizontalStackedBarSeries::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of
+//      DeclarativeHorizontalStackedBarSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeHorizontalStackedBarSeries__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_bar_chart)

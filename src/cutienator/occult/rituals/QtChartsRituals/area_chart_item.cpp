@@ -13,8 +13,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qpainterpath.h>
-#include <QtCore/qmetaobject.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/qmetaobject.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
 
@@ -1050,6 +1050,24 @@ const QMetaObject *ritual_ZNK13AreaChartItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *AreaChartItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13AreaChartItem11qt_metacastEPKc(
+    AreaChartItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int AreaChartItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13AreaChartItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    AreaChartItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString AreaChartItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13AreaChartItem2trEPKcS1_i(
@@ -1187,6 +1205,47 @@ void ritual_ZN13AreaChartItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent
     AreaChartItem *self,
     QGraphicsSceneMouseEvent *event) {
   self->mouseDoubleClickEvent(event);
+}
+
+//  void AreaChartItem::clicked(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13AreaChartItem7clickedERK7QPointF(
+    AreaChartItem *self,
+    const QPointF *point) {
+  self->clicked(*point);
+}
+
+//  void AreaChartItem::hovered(const QPointF &point, bool state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13AreaChartItem7hoveredERK7QPointFb(
+    AreaChartItem *self,
+    const QPointF *point,
+    bool state) {
+  self->hovered(*point, state);
+}
+
+//  void AreaChartItem::pressed(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13AreaChartItem7pressedERK7QPointF(
+    AreaChartItem *self,
+    const QPointF *point) {
+  self->pressed(*point);
+}
+
+//  void AreaChartItem::released(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13AreaChartItem8releasedERK7QPointF(
+    AreaChartItem *self,
+    const QPointF *point) {
+  self->released(*point);
+}
+
+//  void AreaChartItem::doubleClicked(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13AreaChartItem13doubleClickedERK7QPointF(
+    AreaChartItem *self,
+    const QPointF *point) {
+  self->doubleClicked(*point);
 }
 
 //  void AreaChartItem::handleUpdated()

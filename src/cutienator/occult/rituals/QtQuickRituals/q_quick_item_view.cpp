@@ -1082,6 +1082,24 @@ const QMetaObject *ritual_ZNK14QQuickItemView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickItemView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickItemView11qt_metacastEPKc(
+    QQuickItemView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickItemView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickItemView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickItemView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickItemView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickItemView2trEPKcS1_i(
@@ -1096,6 +1114,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickItemView24qt_qmlMarker_uncreatableEv(
     QQuickItemView *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QQuickItemView::QQuickItemView(QQuickFlickablePrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickItemView *ritual_ZN14QQuickItemViewC1ER22QQuickFlickablePrivateP10QQuickItem(
+    QQuickFlickablePrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickItemView(*dd, parent);
 }
 
 //  QQuickItemView::~QQuickItemView()
@@ -1693,6 +1720,248 @@ void ritual_ZN14QQuickItemView22setDelegateModelAccessEN17QQmlDelegateModel19Del
     QQuickItemView *self,
     QQmlDelegateModel::DelegateModelAccess delegateModelAccess) {
   self->setDelegateModelAccess(delegateModelAccess);
+}
+
+//  void QQuickItemView::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView12modelChangedEv(QQuickItemView *self) {
+  self->modelChanged();
+}
+
+//  void QQuickItemView::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView15delegateChangedEv(QQuickItemView *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickItemView::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView12countChangedEv(QQuickItemView *self) {
+  self->countChanged();
+}
+
+//  void QQuickItemView::currentIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView19currentIndexChangedEv(QQuickItemView *self) {
+  self->currentIndexChanged();
+}
+
+//  void QQuickItemView::currentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView18currentItemChangedEv(QQuickItemView *self) {
+  self->currentItemChanged();
+}
+
+//  void QQuickItemView::keyNavigationWrapsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView25keyNavigationWrapsChangedEv(
+    QQuickItemView *self) {
+  self->keyNavigationWrapsChanged();
+}
+
+//  void QQuickItemView::keyNavigationEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView27keyNavigationEnabledChangedEv(
+    QQuickItemView *self) {
+  self->keyNavigationEnabledChanged();
+}
+
+//  void QQuickItemView::cacheBufferChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView18cacheBufferChangedEv(QQuickItemView *self) {
+  self->cacheBufferChanged();
+}
+
+//  void QQuickItemView::displayMarginBeginningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView29displayMarginBeginningChangedEv(
+    QQuickItemView *self) {
+  self->displayMarginBeginningChanged();
+}
+
+//  void QQuickItemView::displayMarginEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView23displayMarginEndChangedEv(
+    QQuickItemView *self) {
+  self->displayMarginEndChanged();
+}
+
+//  void QQuickItemView::layoutDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView22layoutDirectionChangedEv(
+    QQuickItemView *self) {
+  self->layoutDirectionChanged();
+}
+
+//  void QQuickItemView::effectiveLayoutDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView31effectiveLayoutDirectionChangedEv(
+    QQuickItemView *self) {
+  self->effectiveLayoutDirectionChanged();
+}
+
+//  void QQuickItemView::verticalLayoutDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView30verticalLayoutDirectionChangedEv(
+    QQuickItemView *self) {
+  self->verticalLayoutDirectionChanged();
+}
+
+//  void QQuickItemView::headerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView13headerChangedEv(QQuickItemView *self) {
+  self->headerChanged();
+}
+
+//  void QQuickItemView::footerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView13footerChangedEv(QQuickItemView *self) {
+  self->footerChanged();
+}
+
+//  void QQuickItemView::headerItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView17headerItemChangedEv(QQuickItemView *self) {
+  self->headerItemChanged();
+}
+
+//  void QQuickItemView::footerItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView17footerItemChangedEv(QQuickItemView *self) {
+  self->footerItemChanged();
+}
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickItemView::populateTransitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView25populateTransitionChangedEv(
+    QQuickItemView *self) {
+  self->populateTransitionChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickItemView::addTransitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView20addTransitionChangedEv(
+    QQuickItemView *self) {
+  self->addTransitionChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickItemView::addDisplacedTransitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView29addDisplacedTransitionChangedEv(
+    QQuickItemView *self) {
+  self->addDisplacedTransitionChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickItemView::moveTransitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView21moveTransitionChangedEv(
+    QQuickItemView *self) {
+  self->moveTransitionChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickItemView::moveDisplacedTransitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView30moveDisplacedTransitionChangedEv(
+    QQuickItemView *self) {
+  self->moveDisplacedTransitionChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickItemView::removeTransitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView23removeTransitionChangedEv(
+    QQuickItemView *self) {
+  self->removeTransitionChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickItemView::removeDisplacedTransitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView32removeDisplacedTransitionChangedEv(
+    QQuickItemView *self) {
+  self->removeDisplacedTransitionChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickItemView::displacedTransitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView26displacedTransitionChangedEv(
+    QQuickItemView *self) {
+  self->displacedTransitionChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+//  void QQuickItemView::highlightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView16highlightChangedEv(QQuickItemView *self) {
+  self->highlightChanged();
+}
+
+//  void QQuickItemView::highlightItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView20highlightItemChangedEv(
+    QQuickItemView *self) {
+  self->highlightItemChanged();
+}
+
+//  void QQuickItemView::highlightFollowsCurrentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView34highlightFollowsCurrentItemChangedEv(
+    QQuickItemView *self) {
+  self->highlightFollowsCurrentItemChanged();
+}
+
+//  void QQuickItemView::highlightRangeModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView25highlightRangeModeChangedEv(
+    QQuickItemView *self) {
+  self->highlightRangeModeChanged();
+}
+
+//  void QQuickItemView::preferredHighlightBeginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView30preferredHighlightBeginChangedEv(
+    QQuickItemView *self) {
+  self->preferredHighlightBeginChanged();
+}
+
+//  void QQuickItemView::preferredHighlightEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView28preferredHighlightEndChangedEv(
+    QQuickItemView *self) {
+  self->preferredHighlightEndChanged();
+}
+
+//  void QQuickItemView::highlightMoveDurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView28highlightMoveDurationChangedEv(
+    QQuickItemView *self) {
+  self->highlightMoveDurationChanged();
+}
+
+//  void QQuickItemView::reuseItemsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView17reuseItemsChangedEv(QQuickItemView *self) {
+  self->reuseItemsChanged();
+}
+
+//  void QQuickItemView::delegateModelAccessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickItemView26delegateModelAccessChangedEv(
+    QQuickItemView *self) {
+  self->delegateModelAccessChanged();
 }
 
 //  void QQuickItemView::updatePolish()

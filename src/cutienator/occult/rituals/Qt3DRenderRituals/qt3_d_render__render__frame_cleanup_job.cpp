@@ -53,6 +53,53 @@ public:
   }
 };
 
+//  Qt3DRender::Render::FrameCleanupJob::FrameCleanupJob()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::FrameCleanupJob *ritual_ZN10Qt3DRender6Render15FrameCleanupJobC1Ev() {
+  return new CuteQt3DRender_Render_FrameCleanupJob();
+}
+
+//  Qt3DRender::Render::FrameCleanupJob::~FrameCleanupJob()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15FrameCleanupJobD1Ev(
+    Qt3DRender::Render::FrameCleanupJob *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::FrameCleanupJob::setRoot(Entity *root)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15FrameCleanupJob7setRootEPNS0_6EntityE(
+    Qt3DRender::Render::FrameCleanupJob *self,
+    Qt3DRender::Render::Entity *root) {
+  self->setRoot(root);
+}
+
+//  void Qt3DRender::Render::FrameCleanupJob::setManagers(NodeManagers
+//      *managers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15FrameCleanupJob11setManagersEPNS0_12NodeManagersE(
+    Qt3DRender::Render::FrameCleanupJob *self,
+    Qt3DRender::Render::NodeManagers *managers) {
+  self->setManagers(managers);
+}
+
+//  void Qt3DRender::Render::FrameCleanupJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15FrameCleanupJob3runEv(
+    Qt3DRender::Render::FrameCleanupJob *self) {
+  self->run();
+}
+
+//  void
+//      Qt3DRender::Render::FrameCleanupJob::updateBoundingVolumesDebug(Entit
+//      y *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15FrameCleanupJob26updateBoundingVolumesDebugEPNS0_6EntityE(
+    Qt3DRender::Render::FrameCleanupJob *self,
+    Qt3DRender::Render::Entity *node) {
+  self->updateBoundingVolumesDebug(node);
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_FrameCleanupJob, for
 //      the function named by the key
 extern "C" Q_DECL_EXPORT

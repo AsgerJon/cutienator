@@ -5,17 +5,68 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilderC1EP28QDesignerFormEditorInterfaceRKNS_13DeviceProfileE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal20QDesignerFormBuilder12createWidgetEP9DomWidgetP7QWidget": [
       "address", "address", "address", "address"
     ],
     "ritual_ZNK18qdesigner_internal20QDesignerFormBuilder4coreEv": [
       "address", "address"
     ],
+    "ritual_ZNK18qdesigner_internal20QDesignerFormBuilder11systemStyleEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder13createPreviewEPK28QDesignerFormWindowInterfaceRK7QStringS6_RKNS_13DeviceProfileEPS4_": [
+      "address", "address", "text", "text", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder13createPreviewEPK28QDesignerFormWindowInterfaceRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder13createPreviewEPK28QDesignerFormWindowInterfaceRK7QStringS6_PS4_": [
+      "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder13createPreviewEPK28QDesignerFormWindowInterfaceRK7QStringS6_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder19createPreviewPixmapEPK28QDesignerFormWindowInterfaceRK7QStringS6_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder6createEP5DomUIP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder9createDomEP7QWidgetP9DomWidgetb": [
+      "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder6createEP9DomWidgetP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder6createEP9DomLayoutP7QLayoutP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder15createResourcesEP12DomResources": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder12createWidgetERK7QStringP7QWidgetS3_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder7addItemEP9DomWidgetP7QWidgetS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder7addItemEP13DomLayoutItemP11QLayoutItemP7QLayout": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal20QDesignerFormBuilder10nameToIconERK7QStringS3_": [
       "address", "address", "text", "text"
     ],
     "ritual_ZN18qdesigner_internal20QDesignerFormBuilder12nameToPixmapERK7QStringS3_": [
       "address", "address", "text", "text"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder15applyPropertiesEP7QObjectRK5QListIP11DomPropertyE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20QDesignerFormBuilder13loadExtraInfoEP9DomWidgetP7QWidgetS4_": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZNK18qdesigner_internal20QDesignerFormBuilder19internalResourceSetEv": [
       "address", "address"

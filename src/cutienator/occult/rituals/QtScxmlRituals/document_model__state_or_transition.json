@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13DocumentModel17StateOrTransitionC1ERKNS_11XmlLocationE": [
+      "address", "address"
+    ],
     "ritual_take_DocumentModel_StateOrTransition": [
       "bool", "address", "chars", "address"
     ]

@@ -5,9 +5,15 @@
     "adowmap_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QSSGRenderShadowMapC1ERK26QSSGRenderContextInterface": [
+      "address", "address"
+    ],
     "ritual_ZN19QSSGRenderShadowMapD1Ev": ["nothing", "address"],
     "ritual_ZN19QSSGRenderShadowMap22releaseCachedResourcesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QSSGRenderShadowMap13addShadowMapsERK15QVarLengthArrayI15QSSGShaderLightLx16EE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN19QSSGRenderShadowMap14shadowMapEntryEi": [
       "address", "address", "int"
@@ -29,6 +35,10 @@
     ],
     "ritual_ZNK19QSSGRenderShadowMap14shadowClearSrbEv": [
       "address", "address"
+    ],
+    "ritual_ZN19QSSGRenderShadowMap12addShadowMapEj5QSize5QListIN18QSSGShadowMapEntry10AtlasEntryEEjN11QRhiTexture6FormatEbRK7QString": [
+      "address", "address", "unsigned int", "address", "address",
+      "unsigned int", "int", "bool", "text"
     ]
   }
 }

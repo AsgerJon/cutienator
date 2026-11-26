@@ -82,6 +82,42 @@ void ritual_ZN15QStringIterator16advanceUncheckedEv(QStringIterator *self) {
   self->advanceUnchecked();
 }
 
+//  char32_t QStringIterator::peekNextUnchecked() const
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZNK15QStringIterator17peekNextUncheckedEv(
+    const QStringIterator *self) {
+  return self->peekNextUnchecked();
+}
+
+//  char32_t QStringIterator::peekNext(char32_t invalidAs) const
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZNK15QStringIterator8peekNextEDi(
+    const QStringIterator *self,
+    char32_t invalidAs) {
+  return self->peekNext(invalidAs);
+}
+
+//  char32_t QStringIterator::nextUnchecked()
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN15QStringIterator13nextUncheckedEv(QStringIterator *self) {
+  return self->nextUnchecked();
+}
+
+//  char32_t QStringIterator::next(char32_t invalidAs)
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN15QStringIterator4nextEDi(
+    QStringIterator *self,
+    char32_t invalidAs) {
+  return self->next(invalidAs);
+}
+
+//  char32_t QStringIterator::nextOrRawCodeUnit()
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN15QStringIterator17nextOrRawCodeUnitEv(
+    QStringIterator *self) {
+  return self->nextOrRawCodeUnit();
+}
+
 //  bool QStringIterator::hasPrevious() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QStringIterator11hasPreviousEv(
@@ -99,6 +135,43 @@ void ritual_ZN15QStringIterator6recedeEv(QStringIterator *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QStringIterator15recedeUncheckedEv(QStringIterator *self) {
   self->recedeUnchecked();
+}
+
+//  char32_t QStringIterator::peekPreviousUnchecked() const
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZNK15QStringIterator21peekPreviousUncheckedEv(
+    const QStringIterator *self) {
+  return self->peekPreviousUnchecked();
+}
+
+//  char32_t QStringIterator::peekPrevious(char32_t invalidAs) const
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZNK15QStringIterator12peekPreviousEDi(
+    const QStringIterator *self,
+    char32_t invalidAs) {
+  return self->peekPrevious(invalidAs);
+}
+
+//  char32_t QStringIterator::previousUnchecked()
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN15QStringIterator17previousUncheckedEv(
+    QStringIterator *self) {
+  return self->previousUnchecked();
+}
+
+//  char32_t QStringIterator::previous(char32_t invalidAs)
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN15QStringIterator8previousEDi(
+    QStringIterator *self,
+    char32_t invalidAs) {
+  return self->previous(invalidAs);
+}
+
+//  char32_t QStringIterator::previousOrRawCodeUnit()
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN15QStringIterator21previousOrRawCodeUnitEv(
+    QStringIterator *self) {
+  return self->previousOrRawCodeUnit();
 }
 
 //  QStringIterator::~QStringIterator()

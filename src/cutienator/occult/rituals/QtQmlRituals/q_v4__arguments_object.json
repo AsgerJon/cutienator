@@ -10,6 +10,28 @@
     "ritual_ZNK3QV415ArgumentsObject1dEv": ["address", "address"],
     "ritual_ZNK3QV415ArgumentsObject7contextEv": ["address", "address"],
     "ritual_ZNK3QV415ArgumentsObject12fullyCreatedEv": ["bool", "address"],
+    "ritual_ZN3QV415ArgumentsObject24virtualDefineOwnPropertyEPNS_7ManagedENS_11PropertyKeyEPKNS_8PropertyENS_18PropertyAttributesE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ArgumentsObject10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ArgumentsObject10virtualPutEPNS_7ManagedENS_11PropertyKeyERKNS_5ValueEPS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ArgumentsObject21virtualDeletePropertyEPNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV415ArgumentsObject21virtualGetOwnPropertyEPKNS_7ManagedENS_11PropertyKeyEPNS_8PropertyE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ArgumentsObject16virtualGetLengthEPKNS_7ManagedE": [
+      "long long", "address"
+    ],
+    "ritual_ZN3QV415ArgumentsObject22virtualOwnPropertyKeysEPKNS_6ObjectEPNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ArgumentsObject11fullyCreateEv": ["nothing", "address"],
     "ritual_ZNK3QV415ArgumentsObject8isMappedEj": [
       "bool", "address", "unsigned int"
     ],

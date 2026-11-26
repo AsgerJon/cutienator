@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickFusionDial10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickFusionDial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickFusionDial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK16QQuickFusionDial9highlightEv": ["bool", "address"],
     "ritual_ZN16QQuickFusionDial12setHighlightEb": [
       "nothing", "address", "bool"

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QAudioSink10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QAudioSink11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QAudioSink11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QAudioSink2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QAudioSinkC1ERK12QAudioFormatP7QObject": [
       "address", "address", "address"
@@ -45,6 +51,12 @@
     "ritual_ZNK10QAudioSink5stateEv": ["int", "address"],
     "ritual_ZN10QAudioSink9setVolumeEd": ["nothing", "address", "double"],
     "ritual_ZNK10QAudioSink6volumeEv": ["double", "address"],
+    "ritual_ZN10QAudioSink12stateChangedEN6QAudio5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QAudioSink12startABIImplEOSt7variantIJSt8functionIFv5QSpanIfLm18446744073709551615EEEES1_IFvS2_IhLm18446744073709551615EEEES1_IFvS2_IsLm18446744073709551615EEEES1_IFvS2_IiLm18446744073709551615EEEEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QAudioSink": ["bool", "address", "chars", "address"]
   }
 }

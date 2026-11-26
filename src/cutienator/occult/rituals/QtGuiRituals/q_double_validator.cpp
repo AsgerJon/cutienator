@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK16QDoubleValidator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDoubleValidator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QDoubleValidator11qt_metacastEPKc(
+    QDoubleValidator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDoubleValidator::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QDoubleValidator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDoubleValidator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDoubleValidator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QDoubleValidator2trEPKcS1_i(
@@ -211,6 +230,23 @@ QDoubleValidator *ritual_ZN16QDoubleValidatorC1EddiP7QObject(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QDoubleValidatorD1Ev(QDoubleValidator *self) {
   delete self;
+}
+
+//  QValidator::State QDoubleValidator::validate(QString &a0, int &a1) const
+extern "C" Q_DECL_EXPORT
+QValidator::State ritual_ZNK16QDoubleValidator8validateER7QStringRi(
+    const QDoubleValidator *self,
+    QString *a0,
+    int *a1) {
+  return self->validate(*a0, *a1);
+}
+
+//  void QDoubleValidator::fixup(QString &input) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QDoubleValidator5fixupER7QString(
+    const QDoubleValidator *self,
+    QString *input) {
+  self->fixup(*input);
 }
 
 //  void QDoubleValidator::setRange(double bottom, double top, int decimals)
@@ -287,6 +323,53 @@ extern "C" Q_DECL_EXPORT
 QDoubleValidator::Notation ritual_ZNK16QDoubleValidator8notationEv(
     const QDoubleValidator *self) {
   return self->notation();
+}
+
+//  void QDoubleValidator::bottomChanged(double bottom)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QDoubleValidator13bottomChangedEd(
+    QDoubleValidator *self,
+    double bottom) {
+  self->bottomChanged(bottom);
+}
+
+//  void QDoubleValidator::topChanged(double top)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QDoubleValidator10topChangedEd(
+    QDoubleValidator *self,
+    double top) {
+  self->topChanged(top);
+}
+
+//  void QDoubleValidator::decimalsChanged(int decimals)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QDoubleValidator15decimalsChangedEi(
+    QDoubleValidator *self,
+    int decimals) {
+  self->decimalsChanged(decimals);
+}
+
+//  void QDoubleValidator::notationChanged(QDoubleValidator::Notation
+//      notation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QDoubleValidator15notationChangedENS_8NotationE(
+    QDoubleValidator *self,
+    QDoubleValidator::Notation notation) {
+  self->notationChanged(notation);
+}
+
+//  QDoubleValidatorPrivate *QDoubleValidator::d_func()
+extern "C" Q_DECL_EXPORT
+QDoubleValidatorPrivate *ritual_ZN16QDoubleValidator6d_funcEv(
+    QDoubleValidator *self) {
+  return self->d_func();
+}
+
+//  const QDoubleValidatorPrivate *QDoubleValidator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QDoubleValidatorPrivate *ritual_ZNK16QDoubleValidator6d_funcEv(
+    const QDoubleValidator *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQDoubleValidator, for the function named

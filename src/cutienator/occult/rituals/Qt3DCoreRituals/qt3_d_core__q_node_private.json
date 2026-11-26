@@ -5,13 +5,85 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore12QNodePrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore12QNodePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore12QNodePrivate4initEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore12QNodePrivate8setSceneEPNS_6QSceneE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK8Qt3DCore12QNodePrivate5sceneEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore12QNodePrivate10setArbiterEPNS_14QChangeArbiterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate20notifyPropertyChangeEPKcRK8QVariant": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate27notifyDynamicPropertyChangeERK10QByteArrayRK8QVariant": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate10insertTreeEPNS_5QNodeEi": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN8Qt3DCore12QNodePrivate6updateEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore12QNodePrivate9markDirtyE6QFlagsINS_6QScene13DirtyNodeFlagEE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN8Qt3DCore12QNodePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore12QNodePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore12QNodePrivate3getEPNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate3getEPKNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate14nodePtrDeleterEPNS_5QNodeE": [
+      "nothing", "address"
+    ],
     "ritual_ZN8Qt3DCore12QNodePrivate27unregisterDestructionHelperEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate20findStaticMetaObjectEPK11QMetaObject": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate22_q_postConstructorInitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate27_q_ensureBackendNodeCreatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate17createBackendNodeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate42notifyDestructionChangesAndRemoveFromSceneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate11_q_addChildEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate14_q_removeChildEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate18_q_setParentHelperEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate26registerNotifiedPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate28unregisterNotifiedPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate15propertyChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate14setSceneHelperEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate16unsetSceneHelperEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodePrivate25addEntityComponentToSceneEPNS_5QNodeE": [
       "nothing", "address", "address"
     ],
     "ritual_take_Qt3DCore_QNodePrivate": [

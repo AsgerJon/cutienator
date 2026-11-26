@@ -8,6 +8,13 @@
     "ritual_ZN19QOrderedMutexLockerC1EP11QBasicMutexS1_": [
       "address", "address", "address"
     ],
+    "ritual_ZN19QOrderedMutexLocker4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QOrderedMutexLockeraSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QOrderedMutexLockerC1EOS_": ["address", "address"],
     "ritual_ZN19QOrderedMutexLockerD1Ev": ["nothing", "address"],
     "ritual_ZN19QOrderedMutexLocker6relockEv": ["nothing", "address"],
     "ritual_ZN19QOrderedMutexLocker7dismissEv": ["nothing", "address"],

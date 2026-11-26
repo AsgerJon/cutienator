@@ -8,6 +8,12 @@
     "ritual_ZNK23QDefaultAnimationDriver10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QDefaultAnimationDriver11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QDefaultAnimationDriver11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QDefaultAnimationDriverD1Ev": ["nothing", "address"],
     "ritual_ZN23QDefaultAnimationDriver10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"

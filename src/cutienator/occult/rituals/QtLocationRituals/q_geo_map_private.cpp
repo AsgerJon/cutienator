@@ -284,6 +284,15 @@ const QGeoMap *ritual_ZNK14QGeoMapPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QGeoMapPrivate::QGeoMapPrivate(QGeoMappingManagerEngine *engine,
+//      QGeoProjection *geoProjection)
+extern "C" Q_DECL_EXPORT
+QGeoMapPrivate *ritual_ZN14QGeoMapPrivateC1EP24QGeoMappingManagerEngineP14QGeoProjection(
+    QGeoMappingManagerEngine *engine,
+    QGeoProjection *geoProjection) {
+  return new CuteQGeoMapPrivate(engine, geoProjection);
+}
+
 //  QGeoMapPrivate::~QGeoMapPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QGeoMapPrivateD1Ev(QGeoMapPrivate *self) {
@@ -304,6 +313,13 @@ extern "C" Q_DECL_EXPORT
 QGeoCameraCapabilities *ritual_ZNK14QGeoMapPrivate18cameraCapabilitiesEv(
     const QGeoMapPrivate *self) {
   return new QGeoCameraCapabilities(self->cameraCapabilities());
+}
+
+//  const QGeoMapPrivate *QGeoMapPrivate::get(const QGeoMap &map)
+extern "C" Q_DECL_EXPORT
+const QGeoMapPrivate *ritual_ZN14QGeoMapPrivate3getERK7QGeoMap(
+    const QGeoMap *map) {
+  return QGeoMapPrivate::get(*map);
 }
 
 //  QGeoMap::ItemTypes QGeoMapPrivate::supportedMapItemTypes() const

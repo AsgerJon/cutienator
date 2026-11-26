@@ -12,6 +12,124 @@
 #include <QtGui/qeventpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qquicktableview_p.h>
+#include <QtQuick/private/qquicktableview_p_p.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qmimedata.h>
+#include <QtCore/qtimer.h>
+#include <QtQml/private/qqmlincubator_p.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtQmlModels/private/qqmlchangeset_p.h>
+#include <QtQmlModels/private/qqmldelegatecomponent_p.h>
+#include <QtQmlModels/private/qqmldelegatemodel_p.h>
+#include <QtQmlModels/private/qqmldelegatemodel_p_p.h>
+#include <QtQuick/qquickitemgrabresult.h>
+#include <QtQuick/private/qquickflickable_p_p.h>
+#include <QtQuick/private/qquickitemviewfxitem_p_p.h>
+#include <QtQuick/private/qquicktaphandler_p.h>
+#include <QtCore/qtyperevision.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7297, as _ZN28QQuickTableViewResizeHandler11updateStateER11QEventPoint
+inline void QQuickTableViewResizeHandler::updateState(QEventPoint &point)
+{
+    auto tableView = static_cast<QQuickTableView *>(parentItem()->parent());
+    auto tableViewPrivate = QQuickTableViewPrivate::get(tableView);
+
+    if (m_state == DraggingFinished)
+        m_state = Listening;
+
+    if (point.state() == QEventPoint::Pressed) {
+        m_row = tableViewPrivate->resizableRows ? tableViewPrivate->hoverHandler->m_row : -1;
+        m_column = tableViewPrivate->resizableColumns ? tableViewPrivate->hoverHandler->m_column : -1;
+        if (m_row != -1 || m_column != -1)
+            m_state = Tracking;
+    } else if (point.state() == QEventPoint::Released) {
+        if (m_state == DraggingStarted || m_state == Dragging)
+            m_state = DraggingFinished;
+        else
+            m_state = Listening;
+    } else if (point.state() == QEventPoint::Updated) {
+        switch (m_state) {
+        case Listening:
+            break;
+        case Tracking: {
+            const qreal distX = m_column != -1 ? point.position().x() - point.pressPosition().x() : 0;
+            const qreal distY = m_row != -1 ? point.position().y() - point.pressPosition().y() : 0;
+            const qreal dragDist = qSqrt(distX * distX + distY * distY);
+            if (dragDist > qApp->styleHints()->startDragDistance())
+                m_state = DraggingStarted;
+            break;}
+        case DraggingStarted:
+            m_state = Dragging;
+            break;
+        case Dragging:
+            break;
+        case DraggingFinished:
+            // Handled at the top of the function
+            Q_UNREACHABLE();
+            break;
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7339, as _ZN28QQuickTableViewResizeHandler10updateDragEP13QPointerEventR11QEventPoint
+inline void QQuickTableViewResizeHandler::updateDrag(QPointerEvent *event, QEventPoint &point)
+{
+    auto tableView = static_cast<QQuickTableView *>(parentItem()->parent());
+#if QT_CONFIG(cursor)
+    auto tableViewPrivate = QQuickTableViewPrivate::get(tableView);
+#endif
+
+    switch (m_state) {
+    case Listening:
+        break;
+    case Tracking:
+        setPassiveGrab(event, point, true);
+        // Disable flicking while dragging. TableView uses filtering instead of
+        // pointer handlers to do flicking, so setting an exclusive grab (together
+        // with grab permissions) doens't work ATM.
+        tableView->setFiltersChildMouseEvents(false);
+#if QT_CONFIG(cursor)
+        tableViewPrivate->setActivePointerHandler(this);
+#endif
+        break;
+    case DraggingStarted:
+        setExclusiveGrab(event, point, true);
+        m_columnStartX = point.position().x();
+        m_columnStartWidth = tableView->columnWidth(m_column);
+        m_rowStartY = point.position().y();
+        m_rowStartHeight = tableView->rowHeight(m_row);
+#if QT_CONFIG(cursor)
+        tableViewPrivate->updateCursor();
+#endif
+        Q_FALLTHROUGH();
+    case Dragging: {
+        const qreal distX = point.position().x() - m_columnStartX;
+        const qreal distY = point.position().y() - m_rowStartY;
+        if (m_column != -1)
+            tableView->setColumnWidth(m_column, qMax(0.001, m_columnStartWidth + distX));
+        if (m_row != -1)
+            tableView->setRowHeight(m_row, qMax(0.001, m_rowStartHeight + distY));
+        break; }
+    case DraggingFinished: {
+        tableView->setFiltersChildMouseEvents(true);
+#if QT_CONFIG(cursor)
+        tableViewPrivate->setActivePointerHandler(nullptr);
+        tableViewPrivate->updateCursor();
+#endif
+        break; }
+    }
+}
+//  -----------------------------------------------------------------------
 
 //  A QQuickTableViewResizeHandler that Python can take functions over in. Every QQuickTableViewResizeHandler
 //  Python makes is one. Each function below asks the Python
@@ -339,6 +457,66 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK28QQuickTableViewResizeHandler10metaObjectEv(
     const QQuickTableViewResizeHandler *self) {
   return self->metaObject();
+}
+
+//  void *QQuickTableViewResizeHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuickTableViewResizeHandler11qt_metacastEPKc(
+    QQuickTableViewResizeHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTableViewResizeHandler::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuickTableViewResizeHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTableViewResizeHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QQuickTableViewResizeHandler::updateState(QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickTableViewResizeHandler11updateStateER11QEventPoint(
+    QQuickTableViewResizeHandler *self,
+    QEventPoint *point) {
+  self->updateState(*point);
+}
+
+//  void QQuickTableViewResizeHandler::updateDrag(QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickTableViewResizeHandler10updateDragEP13QPointerEventR11QEventPoint(
+    QQuickTableViewResizeHandler *self,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->updateDrag(event, *point);
+}
+
+//  void QQuickTableViewResizeHandler::handleEventPoint(QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickTableViewResizeHandler16handleEventPointEP13QPointerEventR11QEventPoint(
+    QQuickTableViewResizeHandler *self,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->handleEventPoint(event, *point);
+}
+
+//  void QQuickTableViewResizeHandler::onGrabChanged(QQuickPointerHandler
+//      *grabber, QPointingDevice::GrabTransition transition, QPointerEvent
+//      *ev, QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickTableViewResizeHandler13onGrabChangedEP20QQuickPointerHandlerN15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint(
+    QQuickTableViewResizeHandler *self,
+    QQuickPointerHandler *grabber,
+    QPointingDevice::GrabTransition transition,
+    QPointerEvent *ev,
+    QEventPoint *point) {
+  self->onGrabChanged(grabber, transition, ev, *point);
 }
 
 //  a Python function taken by a CuteQQuickTableViewResizeHandler, for the

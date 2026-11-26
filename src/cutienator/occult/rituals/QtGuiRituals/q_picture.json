@@ -25,12 +25,22 @@
     "ritual_ZN8QPicture15setBoundingRectERK5QRect": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8QPictureaSERKS_": ["address", "address", "address"],
+    "ritual_ZN8QPictureaSEOS_": ["address", "address", "address"],
+    "ritual_ZN8QPicture4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN8QPicture6detachEv": ["nothing", "address"],
     "ritual_ZNK8QPicture10isDetachedEv": ["bool", "address"],
+    "ritual_ZlsR11QDataStreamRK8QPicture": ["address", "address", "address"],
+    "ritual_ZrsR11QDataStreamR8QPicture": ["address", "address", "address"],
     "ritual_ZNK8QPicture11paintEngineEv": ["address", "address"],
+    "ritual_ZN8QPictureC1ER15QPicturePrivate": ["address", "address"],
     "ritual_ZNK8QPicture6metricEN12QPaintDevice17PaintDeviceMetricE": [
       "int", "address", "int"
     ],
+    "ritual_ZN8QPicture4execEP8QPainterR11QDataStreami": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN8QPicture8data_ptrEv": ["address", "address"],
     "ritual_take_QPicture": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8QPicture7devTypeEv": ["int", "address"],
     "ritual_own_ZNK8QPicture11paintEngineEv": ["address", "address"],

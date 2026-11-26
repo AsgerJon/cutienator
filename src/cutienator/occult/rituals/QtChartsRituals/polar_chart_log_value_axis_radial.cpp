@@ -18,6 +18,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A PolarChartLogValueAxisRadial that Python can take functions over in. Every PolarChartLogValueAxisRadial
 //  Python makes is one. Each function below asks the Python
@@ -1329,6 +1330,25 @@ const QMetaObject *ritual_ZNK28PolarChartLogValueAxisRadial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PolarChartLogValueAxisRadial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28PolarChartLogValueAxisRadial11qt_metacastEPKc(
+    PolarChartLogValueAxisRadial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PolarChartLogValueAxisRadial::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28PolarChartLogValueAxisRadial11qt_metacallEN11QMetaObject4CallEiPPv(
+    PolarChartLogValueAxisRadial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString PolarChartLogValueAxisRadial::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1353,6 +1373,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN28PolarChartLogValueAxisRadialD1Ev(
     PolarChartLogValueAxisRadial *self) {
   delete self;
+}
+
+//  QList<qreal> PolarChartLogValueAxisRadial::calculateLayout() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK28PolarChartLogValueAxisRadial15calculateLayoutEv(
+    const PolarChartLogValueAxisRadial *self) {
+  return new QList<qreal>(self->calculateLayout());
+}
+
+//  void PolarChartLogValueAxisRadial::createAxisLabels(const QList<qreal>
+//      &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28PolarChartLogValueAxisRadial16createAxisLabelsERK5QListIdE(
+    PolarChartLogValueAxisRadial *self,
+    const QList<qreal> *layout) {
+  self->createAxisLabels(*layout);
 }
 
 //  void PolarChartLogValueAxisRadial::handleBaseChanged(qreal base)
@@ -1380,4 +1416,11 @@ bool ritual_take_PolarChartLogValueAxisRadial(
     const char *key,
     void *call) {
   return static_cast<CutePolarChartLogValueAxisRadial *>(self)->take(key, call);
+}
+
+//  a QList<qreal> a ritual of PolarChartLogValueAxisRadial gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_PolarChartLogValueAxisRadial__QList_qreal(
+    QList<qreal> *self) {
+  delete self;
 }

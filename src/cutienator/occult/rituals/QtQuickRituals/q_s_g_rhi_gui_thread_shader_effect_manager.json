@@ -14,6 +14,9 @@
     "ritual_ZNK34QSGRhiGuiThreadShaderEffectManager6statusEv": [
       "int", "address"
     ],
+    "ritual_ZN34QSGRhiGuiThreadShaderEffectManager17prepareShaderCodeEN31QSGGuiThreadShaderEffectManager10ShaderInfo4TypeERK4QUrlPS1_": [
+      "nothing", "address", "int", "address", "address"
+    ],
     "ritual_ZN34QSGRhiGuiThreadShaderEffectManager7reflectEPN31QSGGuiThreadShaderEffectManager10ShaderInfoE": [
       "bool", "address", "address"
     ],
@@ -25,6 +28,9 @@
     ],
     "ritual_own_ZNK34QSGRhiGuiThreadShaderEffectManager6statusEv": [
       "int", "address"
+    ],
+    "ritual_own_ZN34QSGRhiGuiThreadShaderEffectManager17prepareShaderCodeEN31QSGGuiThreadShaderEffectManager10ShaderInfo4TypeERK4QUrlPS1_": [
+      "nothing", "address", "int", "address", "address"
     ]
   }
 }

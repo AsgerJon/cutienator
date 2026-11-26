@@ -1,12 +1,57 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DRender/6.12.0/Qt3DRender/private/entity_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Qt3DRender/6.12.0/Qt3DRender/private/entity_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render6EntityC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render6EntityD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render6Entity7cleanupEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render6Entity15setParentHandleEN8Qt3DCore7QHandleIS1_EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity15setNodeManagersEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity4dumpEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render6Entity9setHandleEN8Qt3DCore7QHandleIS1_EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity6handleEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender6Render6Entity6parentEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender6Render6Entity12parentHandleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity28removeFromParentChildHandlesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity17removeChildHandleEN8Qt3DCore7QHandleIS1_EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity15childrenHandlesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity8childrenEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render6Entity11hasChildrenEv": [
       "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity8traverseERKSt8functionIFvPS1_EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity8traverseERKSt8functionIFvPKS1_EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity14worldTransformEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity14worldTransformEv": [
+      "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render6Entity21isParentLessTransformEv": [
       "bool", "address"
@@ -23,11 +68,32 @@
     "ritual_ZNK10Qt3DRender6Render6Entity31worldBoundingVolumeWithChildrenEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render6Entity12addComponentEN8Qt3DCore15QNodeIdTypePairE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity15removeComponentEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity21isBoundingVolumeDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity24unsetBoundingVolumeDirtyEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render6Entity14setTreeEnabledEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZNK10Qt3DRender6Render6Entity13isTreeEnabledEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity8layerIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity19addRecursiveLayerIdEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity22removeRecursiveLayerIdEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN10Qt3DRender6Render6Entity22clearRecursiveLayerIdsEv": [
       "nothing", "address"
@@ -39,6 +105,69 @@
     ],
     "ritual_own_ZN10Qt3DRender6Render6Entity16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_Entity__Qt3DRender_Render_HEntity": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Entity__QList_Qt3DRender_Render_Entity": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Entity__Qt3DCore_QNodeIdVector": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity15componentHandleINS0_8MaterialEEEN8Qt3DCore7QHandleIT_EEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity15renderComponentINS0_8MaterialEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity13componentUuidINS0_8MaterialEEEN8Qt3DCore7QNodeIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity24containsComponentsOfTypeINS0_8MaterialEEEbv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity15componentHandleINS0_9TransformEEEN8Qt3DCore7QHandleIT_EEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity15renderComponentINS0_9TransformEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity13componentUuidINS0_9TransformEEEN8Qt3DCore7QNodeIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity24containsComponentsOfTypeINS0_9TransformEEEbv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity15componentHandleINS0_10CameraLensEEEN8Qt3DCore7QHandleIT_EEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity15renderComponentINS0_10CameraLensEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity13componentUuidINS0_10CameraLensEEEN8Qt3DCore7QNodeIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity24containsComponentsOfTypeINS0_10CameraLensEEEbv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity16componentsHandleINS0_5LayerEEE5QListIN8Qt3DCore7QHandleIT_EEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity14componentsUuidINS0_5LayerEEE5QListIN8Qt3DCore7QNodeIdEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity16componentsHandleINS0_10ShaderDataEEE5QListIN8Qt3DCore7QHandleIT_EEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity14componentsUuidINS0_10ShaderDataEEE5QListIN8Qt3DCore7QNodeIdEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity16componentsHandleINS0_5LightEEE5QListIN8Qt3DCore7QHandleIT_EEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity14componentsUuidINS0_5LightEEE5QListIN8Qt3DCore7QNodeIdEEv": [
+      "address", "address"
     ]
   }
 }

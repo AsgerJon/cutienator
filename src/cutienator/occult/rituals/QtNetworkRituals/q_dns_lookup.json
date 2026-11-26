@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QDnsLookup10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QDnsLookup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QDnsLookup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QDnsLookup2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QDnsLookupC1EP7QObject": ["address", "address"],
     "ritual_ZN10QDnsLookupC1ENS_4TypeERK7QStringP7QObject": [
@@ -29,23 +35,32 @@
     "ritual_ZN10QDnsLookup7setNameERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN10QDnsLookup12bindableNameEv": ["address", "address"],
     "ritual_ZNK10QDnsLookup4typeEv": ["int", "address"],
     "ritual_ZN10QDnsLookup7setTypeENS_4TypeE": ["nothing", "address", "int"],
+    "ritual_ZN10QDnsLookup12bindableTypeEv": ["address", "address"],
     "ritual_ZNK10QDnsLookup10nameserverEv": ["address", "address"],
     "ritual_ZN10QDnsLookup13setNameserverERK12QHostAddress": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QDnsLookup18bindableNameserverEv": ["address", "address"],
     "ritual_ZNK10QDnsLookup14nameserverPortEv": [
       "unsigned short", "address"
     ],
     "ritual_ZN10QDnsLookup17setNameserverPortEt": [
       "nothing", "address", "unsigned short"
     ],
+    "ritual_ZN10QDnsLookup22bindableNameserverPortEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10QDnsLookup18nameserverProtocolEv": [
       "unsigned char", "address"
     ],
     "ritual_ZN10QDnsLookup21setNameserverProtocolENS_8ProtocolE": [
       "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN10QDnsLookup26bindableNameserverProtocolEv": [
+      "address", "address"
     ],
     "ritual_ZN10QDnsLookup13setNameserverENS_8ProtocolERK12QHostAddresst": [
       "nothing", "address", "unsigned char", "address", "unsigned short"
@@ -75,8 +90,33 @@
     ],
     "ritual_ZN10QDnsLookup5abortEv": ["nothing", "address"],
     "ritual_ZN10QDnsLookup6lookupEv": ["nothing", "address"],
+    "ritual_ZN10QDnsLookup8finishedEv": ["nothing", "address"],
+    "ritual_ZN10QDnsLookup11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QDnsLookup11typeChangedENS_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QDnsLookup17nameserverChangedERK12QHostAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QDnsLookup21nameserverPortChangedEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN10QDnsLookup25nameserverProtocolChangedENS_8ProtocolE": [
+      "nothing", "address", "unsigned char"
+    ],
     "ritual_ZN10QDnsLookup6d_funcEv": ["address", "address"],
     "ritual_ZNK10QDnsLookup6d_funcEv": ["address", "address"],
-    "ritual_take_QDnsLookup": ["bool", "address", "chars", "address"]
+    "ritual_take_QDnsLookup": ["bool", "address", "chars", "address"],
+    "ritual_drop_QDnsLookup__QBindable_QString": ["nothing", "address"],
+    "ritual_drop_QDnsLookup__QBindable_QDnsLookup_Type": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDnsLookup__QBindable_QHostAddress": ["nothing", "address"],
+    "ritual_drop_QDnsLookup__QBindable_quint16": ["nothing", "address"],
+    "ritual_drop_QDnsLookup__QBindable_QDnsLookup_Protocol": [
+      "nothing", "address"
+    ]
   }
 }

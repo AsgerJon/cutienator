@@ -183,6 +183,22 @@ const QMetaObject *ritual_ZNK7QBoxSet10metaObjectEv(const QBoxSet *self) {
   return self->metaObject();
 }
 
+//  void *QBoxSet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QBoxSet11qt_metacastEPKc(QBoxSet *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBoxSet::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QBoxSet11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBoxSet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBoxSet::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QBoxSet2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -223,6 +239,14 @@ void ritual_ZN7QBoxSet6appendEd(QBoxSet *self, qreal value) {
   self->append(value);
 }
 
+//  void QBoxSet::append(const QList<qreal> &values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet6appendERK5QListIdE(
+    QBoxSet *self,
+    const QList<qreal> *values) {
+  self->append(*values);
+}
+
 //  void QBoxSet::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QBoxSet5clearEv(QBoxSet *self) {
@@ -241,6 +265,12 @@ void ritual_ZN7QBoxSet8setLabelE7QString(
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QBoxSet5labelEv(const QBoxSet *self) {
   return new QString(self->label());
+}
+
+//  QBoxSet &QBoxSet::operator<<(const qreal &value)
+extern "C" Q_DECL_EXPORT
+QBoxSet *ritual_ZN7QBoxSetlsERKd(QBoxSet *self, qreal value) {
+  return &(self->operator<<(value));
 }
 
 //  void QBoxSet::setValue(const int index, const qreal value)
@@ -291,6 +321,66 @@ void ritual_ZN7QBoxSet8setBrushERK6QBrush(
 extern "C" Q_DECL_EXPORT
 QBrush *ritual_ZNK7QBoxSet5brushEv(const QBoxSet *self) {
   return new QBrush(self->brush());
+}
+
+//  void QBoxSet::clicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet7clickedEv(QBoxSet *self) {
+  self->clicked();
+}
+
+//  void QBoxSet::hovered(bool status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet7hoveredEb(QBoxSet *self, bool status) {
+  self->hovered(status);
+}
+
+//  void QBoxSet::pressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet7pressedEv(QBoxSet *self) {
+  self->pressed();
+}
+
+//  void QBoxSet::released()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet8releasedEv(QBoxSet *self) {
+  self->released();
+}
+
+//  void QBoxSet::doubleClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet13doubleClickedEv(QBoxSet *self) {
+  self->doubleClicked();
+}
+
+//  void QBoxSet::penChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet10penChangedEv(QBoxSet *self) {
+  self->penChanged();
+}
+
+//  void QBoxSet::brushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet12brushChangedEv(QBoxSet *self) {
+  self->brushChanged();
+}
+
+//  void QBoxSet::valuesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet13valuesChangedEv(QBoxSet *self) {
+  self->valuesChanged();
+}
+
+//  void QBoxSet::valueChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet12valueChangedEi(QBoxSet *self, int index) {
+  self->valueChanged(index);
+}
+
+//  void QBoxSet::cleared()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBoxSet7clearedEv(QBoxSet *self) {
+  self->cleared();
 }
 
 //  a Python function taken by a CuteQBoxSet, for the function named by the

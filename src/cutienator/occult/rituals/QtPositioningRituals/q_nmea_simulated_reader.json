@@ -6,12 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK20QNmeaSimulatedReader10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QNmeaSimulatedReader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QNmeaSimulatedReader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QNmeaSimulatedReaderD1Ev": ["nothing", "address"],
     "ritual_ZN20QNmeaSimulatedReader17readAvailableDataEv": [
       "nothing", "address"
     ],
     "ritual_ZN20QNmeaSimulatedReader10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN20QNmeaSimulatedReader21simulatePendingUpdateEv": [
+      "nothing", "address"
     ],
     "ritual_cast_QNmeaSimulatedReader_QNmeaReader": ["address", "address"],
     "ritual_take_QNmeaSimulatedReader": [

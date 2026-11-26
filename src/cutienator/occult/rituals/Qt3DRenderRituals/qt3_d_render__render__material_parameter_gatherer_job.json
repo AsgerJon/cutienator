@@ -1,24 +1,19 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of Qt3DRen",
-    "der/6.12.0/Qt3DRender/private/materialparametergathererjob_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "Qt3DRender/6.12.0/Qt3DRender/private/materialparametergathererjob_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator",
+    "runs again."
   ],
   "rows": {
-    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob15setNodeManagersEPNS0_12NodeManagersE": [
-      "nothing", "address", "address"
-    ],
-    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob18setTechniqueFilterEPNS0_15TechniqueFilterE": [
-      "nothing", "address", "address"
-    ],
-    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob19setRenderPassFilterEPNS0_16RenderPassFilterE": [
-      "nothing", "address", "address"
-    ],
-    "ritual_ZNK10Qt3DRender6Render28MaterialParameterGathererJob15techniqueFilterEv": [
-      "address", "address"
-    ],
-    "ritual_ZNK10Qt3DRender6Render28MaterialParameterGathererJob16renderPassFilterEv": [
-      "address", "address"
-    ]
+    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJobC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJobD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob15setNodeManagersEPNS0_12NodeManagersE": ["nothing", "address", "address"],
+    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob18setTechniqueFilterEPNS0_15TechniqueFilterE": ["nothing", "address", "address"],
+    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob19setRenderPassFilterEPNS0_16RenderPassFilterE": ["nothing", "address", "address"],
+    "ritual_ZNK10Qt3DRender6Render28MaterialParameterGathererJob15techniqueFilterEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender6Render28MaterialParameterGathererJob16renderPassFilterEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob3runEv": ["nothing", "address"],
+    "ritual_take_Qt3DRender_Render_MaterialParameterGathererJob": ["bool", "address", "chars", "address"]
   }
 }

@@ -21,6 +21,15 @@ const QMetaObject *ritual_ZNK10Qt3DRender10RayCasting30QAbstractCollisionQuerySe
   return self->metaObject();
 }
 
+//  void *Qt3DRender::RayCasting::QAbstractCollisionQueryService::qt_metacast
+//      (const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10RayCasting30QAbstractCollisionQueryService11qt_metacastEPKc(
+    Qt3DRender::RayCasting::QAbstractCollisionQueryService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString Qt3DRender::RayCasting::QAbstractCollisionQueryService::tr(const
 //      char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT

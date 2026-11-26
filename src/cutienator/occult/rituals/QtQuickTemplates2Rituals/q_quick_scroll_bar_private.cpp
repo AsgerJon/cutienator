@@ -17,6 +17,8 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qpalette.h>
 #include <cstring>
+#include <QtCore/QPointF>
+#include <optional>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/private/qquickscrollbar_p.h>
 #include <QtQuickTemplates2/private/qquickscrollbar_p_p.h>
@@ -293,6 +295,24 @@ inline void QQuickScrollBarPrivate::visualAreaChange(const VisualArea &newVisual
         emit q->visualSizeChanged();
     if (!qFuzzyCompare(newVisualArea.position, oldVisualArea.position))
         emit q->visualPositionChanged();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 353, as _ZN22QQuickScrollBarPrivate11updateHoverERK7QPointFSt8optionalIbE
+inline void QQuickScrollBarPrivate::updateHover(const QPointF &pos, std::optional<bool> newHoverState)
+{
+    Q_Q(QQuickScrollBar);
+    auto updateHoverOnButton = [&](QQuickIndicatorButton *sbButton) {
+        if (sbButton) {
+            bool hovered = newHoverState.value_or(false);
+            if (!newHoverState.has_value()) {
+                if (QQuickItem *indicator = sbButton->indicator())
+                    hovered = indicator->contains(q->mapToItem(indicator, pos));
+            }
+            sbButton->setHovered(hovered);
+        }
+    };
+    updateHoverOnButton(q->decreaseVisual());
+    updateHoverOnButton(q->increaseVisual());
 }
 //  -----------------------------------------------------------------------
 
@@ -1136,6 +1156,16 @@ void ritual_ZN22QQuickScrollBarPrivate16visualAreaChangeERKNS_10VisualAreaES2_(
     const QQuickScrollBarPrivate::VisualArea *newVisualArea,
     const QQuickScrollBarPrivate::VisualArea *oldVisualArea) {
   self->visualAreaChange(*newVisualArea, *oldVisualArea);
+}
+
+//  void QQuickScrollBarPrivate::updateHover(const QPointF &pos,
+//      std::optional<bool> newHoverState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickScrollBarPrivate11updateHoverERK7QPointFSt8optionalIbE(
+    QQuickScrollBarPrivate *self,
+    const QPointF *pos,
+    const std::optional<bool> *newHoverState) {
+  self->updateHover(*pos, *newHoverState);
 }
 
 //  a Python function taken by a CuteQQuickScrollBarPrivate, for the function

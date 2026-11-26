@@ -5,6 +5,11 @@
     "lost."
   ],
   "rows": {
-    "ritual_ZN21QProtobufMapEntryBaseD1Ev": ["nothing", "address"]
+    "ritual_ZN21QProtobufMapEntryBaseC1E9QMetaTypeS0_PFvP7QObjectN11QMetaObject4CallEiPPvE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QProtobufMapEntryBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN21QProtobufMapEntryBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QProtobufMapEntryBase6d_funcEv": ["address", "address"]
   }
 }

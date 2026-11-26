@@ -204,6 +204,25 @@ const QMetaObject *ritual_ZNK18QGraphicsTransform10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsTransform::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QGraphicsTransform11qt_metacastEPKc(
+    QGraphicsTransform *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsTransform::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QGraphicsTransform11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsTransform *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsTransform::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QGraphicsTransform2trEPKcS1_i(
@@ -211,6 +230,13 @@ QString *ritual_ZN18QGraphicsTransform2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QGraphicsTransform::tr(s, c, n));
+}
+
+//  QGraphicsTransform::QGraphicsTransform(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsTransform *ritual_ZN18QGraphicsTransformC1EP7QObject(
+    QObject *parent) {
+  return new CuteQGraphicsTransform(parent);
 }
 
 //  QGraphicsTransform::~QGraphicsTransform()
@@ -231,6 +257,15 @@ void ritual_ZNK18QGraphicsTransform7applyToEP10QMatrix4x4(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QGraphicsTransform6updateEv(QGraphicsTransform *self) {
   self->update();
+}
+
+//  QGraphicsTransform::QGraphicsTransform(QGraphicsTransformPrivate &p,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsTransform *ritual_ZN18QGraphicsTransformC1ER25QGraphicsTransformPrivateP7QObject(
+    QGraphicsTransformPrivate *p,
+    QObject *parent) {
+  return new CuteQGraphicsTransform(*p, parent);
 }
 
 //  QGraphicsTransformPrivate *QGraphicsTransform::d_func()

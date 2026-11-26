@@ -42,7 +42,7 @@ typedef void (*CuteQQuickShapeCurveRendererCall17)(const void *, int, qreal, int
 class CuteQQuickShapeCurveRenderer : public QQuickShapeCurveRenderer {
 public:
   using QQuickShapeCurveRenderer::QQuickShapeCurveRenderer;
-  CuteQQuickShapeCurveRenderer(const QQuickShapeCurveRenderer &other) : QQuickShapeCurveRenderer(other) {}
+  CuteQQuickShapeCurveRenderer(const QQuickShapeCurveRenderer & other) : QQuickShapeCurveRenderer(other) {}
   void *taken[18] = {};
 
   bool take(const char *key, void *call) {
@@ -448,6 +448,19 @@ void ritual_ZN24QQuickShapeCurveRenderer11setCapStyleEiN15QQuickShapePath8CapSty
   self->setCapStyle(index, capStyle);
 }
 
+//  void QQuickShapeCurveRenderer::setStrokeStyle(int index,
+//      QQuickShapePath::StrokeStyle strokeStyle, qreal dashOffset, const
+//      QList<qreal> &dashPattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShapeCurveRenderer14setStrokeStyleEiN15QQuickShapePath11StrokeStyleEdRK5QListIdE(
+    QQuickShapeCurveRenderer *self,
+    int index,
+    QQuickShapePath::StrokeStyle strokeStyle,
+    qreal dashOffset,
+    const QList<qreal> *dashPattern) {
+  self->setStrokeStyle(index, strokeStyle, dashOffset, *dashPattern);
+}
+
 //  void QQuickShapeCurveRenderer::setFillGradient(int index,
 //      QQuickShapeGradient *gradient)
 extern "C" Q_DECL_EXPORT
@@ -494,6 +507,16 @@ void ritual_ZN24QQuickShapeCurveRenderer7endSyncEb(
     QQuickShapeCurveRenderer *self,
     bool async) {
   self->endSync(async);
+}
+
+//  void QQuickShapeCurveRenderer::setAsyncCallback(void (*)(void *) a0, void
+//      *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShapeCurveRenderer16setAsyncCallbackEPFvPvES0_(
+    QQuickShapeCurveRenderer *self,
+    void *a0,
+    void *a1) {
+  self->setAsyncCallback(reinterpret_cast<void (*)(void *)>(a0), a1);
 }
 
 //  Flags QQuickShapeCurveRenderer::flags() const
@@ -546,11 +569,26 @@ void ritual_ZN24QQuickShapeCurveRenderer21setDebugVisualizationEi(
   QQuickShapeCurveRenderer::setDebugVisualization(options);
 }
 
+//  void QQuickShapeCurveRenderer::setUpRunner(PathData *pathData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShapeCurveRenderer11setUpRunnerEPNS_8PathDataE(
+    QQuickShapeCurveRenderer *self,
+    QQuickShapeCurveRenderer::PathData *pathData) {
+  self->setUpRunner(pathData);
+}
+
 //  void QQuickShapeCurveRenderer::maybeUpdateAsyncItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickShapeCurveRenderer20maybeUpdateAsyncItemEv(
     QQuickShapeCurveRenderer *self) {
   self->maybeUpdateAsyncItem();
+}
+
+//  void QQuickShapeCurveRenderer::processPath(PathData *pathData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShapeCurveRenderer11processPathEPNS_8PathDataE(
+    QQuickShapeCurveRenderer::PathData *pathData) {
+  QQuickShapeCurveRenderer::processPath(pathData);
 }
 
 //  NodeList QQuickShapeCurveRenderer::addFillNodes(const QQuadPath &path)

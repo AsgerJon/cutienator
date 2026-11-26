@@ -7,6 +7,25 @@
   "rows": {
     "ritual_ZN6QQmlSA14MethodsPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK6QQmlSA14MethodsPrivate6q_funcEv": ["address", "address"],
-    "ritual_ZN6QQmlSA14MethodsPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN6QQmlSA14MethodsPrivateC1EPNS_6Method7MethodsE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14MethodsPrivateC1EPNS_6Method7MethodsERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14MethodsPrivateC1EPNS_6Method7MethodsEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14MethodsPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA14MethodsPrivate10constBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA14MethodsPrivate8constEndEv": ["address", "address"],
+    "ritual_ZN6QQmlSA14MethodsPrivate13createMethodsERK10QMultiHashI7QString16QQmlJSMetaMethodE": [
+      "address", "address"
+    ],
+    "ritual_drop_QQmlSA_MethodsPrivate__QMultiHash_QString_QQmlSA_Method_const_iterator": [
+      "nothing", "address"
+    ]
   }
 }

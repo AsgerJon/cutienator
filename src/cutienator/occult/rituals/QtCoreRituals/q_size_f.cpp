@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qsize.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qsize.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  rituals for functions the generator leaves out: 2. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qsize.h>
 #include <QtCore/qmargins.h>
 
@@ -245,4 +247,18 @@ QSize *ritual_ZNK6QSizeF6toSizeEv(const QSizeF *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QSizeFD1Ev(QSizeF *self) {
   delete self;
+}
+
+//  qreal &QSizeF::rwidth()
+extern "C" Q_DECL_EXPORT
+qreal *ritual_ZN6QSizeF6rwidthEv(
+    QSizeF *self) {
+  return &(self->rwidth());
+}
+
+//  qreal &QSizeF::rheight()
+extern "C" Q_DECL_EXPORT
+qreal *ritual_ZN6QSizeF7rheightEv(
+    QSizeF *self) {
+  return &(self->rheight());
 }

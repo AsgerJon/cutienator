@@ -5,6 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render23RenderShaderDataFunctorC1EPNS0_16AbstractRendererEPNS0_12NodeManagersE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render23RenderShaderDataFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render23RenderShaderDataFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render23RenderShaderDataFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render23RenderShaderDataFunctorD1Ev": [
       "nothing", "address"
     ]

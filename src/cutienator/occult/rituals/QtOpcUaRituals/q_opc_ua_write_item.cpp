@@ -32,6 +32,14 @@ QOpcUaWriteItem *ritual_ZN15QOpcUaWriteItemC1ERK7QStringN6QOpcUa13NodeAttributeE
   return new QOpcUaWriteItem(*nodeId, attribute, *value, type, *indexRange);
 }
 
+//  QOpcUaWriteItem &QOpcUaWriteItem::operator=(const QOpcUaWriteItem &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaWriteItem *ritual_ZN15QOpcUaWriteItemaSERKS_(
+    QOpcUaWriteItem *self,
+    const QOpcUaWriteItem *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QOpcUaWriteItem::~QOpcUaWriteItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QOpcUaWriteItemD1Ev(QOpcUaWriteItem *self) {

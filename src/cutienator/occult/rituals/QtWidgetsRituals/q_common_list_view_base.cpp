@@ -18,6 +18,8 @@
 #include <QtWidgets/qstyleoption.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtWidgets/QListView>
+#include <QtCore/QRect>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qlistview.h>
 #include <QtWidgets/qabstractitemdelegate.h>
@@ -755,6 +757,48 @@ void ritual_ZN19QCommonListViewBase11dataChangedERK11QModelIndexS2_(
   self->dataChanged(*a0, *a1);
 }
 
+//  int QCommonListViewBase::horizontalScrollToValue(int index,
+//      QListView::ScrollHint hint, bool leftOf, bool rightOf, const QRect
+//      &area, const QRect &rect) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK19QCommonListViewBase23horizontalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_(
+    const QCommonListViewBase *self,
+    int index,
+    const QListView::ScrollHint *hint,
+    bool leftOf,
+    bool rightOf,
+    const QRect *area,
+    const QRect *rect) {
+  return self->horizontalScrollToValue(
+      index,
+      *hint,
+      leftOf,
+      rightOf,
+      *area,
+      *rect);
+}
+
+//  int QCommonListViewBase::verticalScrollToValue(int index,
+//      QListView::ScrollHint hint, bool above, bool below, const QRect
+//      &area, const QRect &rect) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK19QCommonListViewBase21verticalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_(
+    const QCommonListViewBase *self,
+    int index,
+    const QListView::ScrollHint *hint,
+    bool above,
+    bool below,
+    const QRect *area,
+    const QRect *rect) {
+  return self->verticalScrollToValue(
+      index,
+      *hint,
+      above,
+      below,
+      *area,
+      *rect);
+}
+
 //  void QCommonListViewBase::scrollContentsBy(int dx, int dy, bool
 //      scrollElasticBand)
 extern "C" Q_DECL_EXPORT
@@ -955,6 +999,20 @@ extern "C" Q_DECL_EXPORT
 QScrollBar *ritual_ZNK19QCommonListViewBase19horizontalScrollBarEv(
     const QCommonListViewBase *self) {
   return self->horizontalScrollBar();
+}
+
+//  QListView::ScrollMode QCommonListViewBase::verticalScrollMode() const
+extern "C" Q_DECL_EXPORT
+QListView::ScrollMode *ritual_ZNK19QCommonListViewBase18verticalScrollModeEv(
+    const QCommonListViewBase *self) {
+  return new QListView::ScrollMode(self->verticalScrollMode());
+}
+
+//  QListView::ScrollMode QCommonListViewBase::horizontalScrollMode() const
+extern "C" Q_DECL_EXPORT
+QListView::ScrollMode *ritual_ZNK19QCommonListViewBase20horizontalScrollModeEv(
+    const QCommonListViewBase *self) {
+  return new QListView::ScrollMode(self->horizontalScrollMode());
 }
 
 //  QModelIndex QCommonListViewBase::modelIndex(int row) const
@@ -1186,6 +1244,13 @@ bool ritual_own_ZN19QCommonListViewBase15filterStartDragE6QFlagsIN2Qt10DropActio
       QFlags<Qt::DropAction>::fromInt(a0));
 }
 #endif  // QT_CONFIG(draganddrop)
+
+//  a QListView::ScrollMode a ritual of QCommonListViewBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCommonListViewBase__QListView_ScrollMode(
+    QListView::ScrollMode *self) {
+  delete self;
+}
 
 #endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(listview)

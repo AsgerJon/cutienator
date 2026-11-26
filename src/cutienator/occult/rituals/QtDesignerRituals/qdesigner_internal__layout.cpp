@@ -287,6 +287,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal6Layout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::Layout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal6Layout11qt_metacastEPKc(
+    qdesigner_internal::Layout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::Layout::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal6Layout11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::Layout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::Layout::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -295,6 +314,44 @@ QString *ritual_ZN18qdesigner_internal6Layout2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::Layout::tr(s, c, n));
+}
+
+//  qdesigner_internal::Layout::Layout(const QWidgetList &wl, QWidget *p,
+//      QDesignerFormWindowInterface *fw, QWidget *lb, LayoutInfo::Type
+//      layoutType)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::Layout *ritual_ZN18qdesigner_internal6LayoutC1ERK5QListIP7QWidgetES3_P28QDesignerFormWindowInterfaceS3_NS_10LayoutInfo4TypeE(
+    const QList<QWidget *> *wl,
+    QWidget *p,
+    QDesignerFormWindowInterface *fw,
+    QWidget *lb,
+    qdesigner_internal::LayoutInfo::Type layoutType) {
+  return new Cuteqdesigner_internal_Layout(*wl, p, fw, lb, layoutType);
+}
+
+//  Layout *qdesigner_internal::Layout::createLayout(const QWidgetList
+//      &widgets, QWidget *parentWidget, QDesignerFormWindowInterface *fw,
+//      QWidget *layoutBase, LayoutInfo::Type layoutType)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::Layout *ritual_ZN18qdesigner_internal6Layout12createLayoutERK5QListIP7QWidgetES3_P28QDesignerFormWindowInterfaceS3_NS_10LayoutInfo4TypeE(
+    const QList<QWidget *> *widgets,
+    QWidget *parentWidget,
+    QDesignerFormWindowInterface *fw,
+    QWidget *layoutBase,
+    qdesigner_internal::LayoutInfo::Type layoutType) {
+  return qdesigner_internal::Layout::createLayout(
+      *widgets,
+      parentWidget,
+      fw,
+      layoutBase,
+      layoutType);
+}
+
+//  qdesigner_internal::Layout::~Layout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal6LayoutD1Ev(
+    qdesigner_internal::Layout *self) {
+  delete self;
 }
 
 //  void qdesigner_internal::Layout::sort()
@@ -394,6 +451,29 @@ void ritual_ZN18qdesigner_internal6Layout10setWidgetsERK5QListIP7QWidgetE(
     qdesigner_internal::Layout *self,
     const QList<QWidget *> *widgets) {
   self->setWidgets(*widgets);
+}
+
+//  QLayout *qdesigner_internal::Layout::createLayout(int type)
+extern "C" Q_DECL_EXPORT
+QLayout *ritual_ZN18qdesigner_internal6Layout12createLayoutEi(
+    qdesigner_internal::Layout *self,
+    int type) {
+  return self->createLayout(type);
+}
+
+//  void qdesigner_internal::Layout::reparentToLayoutBase(QWidget *w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal6Layout20reparentToLayoutBaseEP7QWidget(
+    qdesigner_internal::Layout *self,
+    QWidget *w) {
+  self->reparentToLayoutBase(w);
+}
+
+//  void qdesigner_internal::Layout::widgetDestroyed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal6Layout15widgetDestroyedEv(
+    qdesigner_internal::Layout *self) {
+  self->widgetDestroyed();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_Layout, for the

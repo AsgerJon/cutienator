@@ -13,6 +13,12 @@ QObjectPrivate::TaggedSignalVector *ritual_ZN14QObjectPrivate18TaggedSignalVecto
   return new QObjectPrivate::TaggedSignalVector();
 }
 
+//  QObjectPrivate::TaggedSignalVector::TaggedSignalVector(std::nullptr_t a0)
+extern "C" Q_DECL_EXPORT
+QObjectPrivate::TaggedSignalVector *ritual_ZN14QObjectPrivate18TaggedSignalVectorC1EDn() {
+  return new QObjectPrivate::TaggedSignalVector(nullptr);
+}
+
 //  QObjectPrivate::TaggedSignalVector::TaggedSignalVector(Connection *v)
 extern "C" Q_DECL_EXPORT
 QObjectPrivate::TaggedSignalVector *ritual_ZN14QObjectPrivate18TaggedSignalVectorC1EPNS_10ConnectionE(
@@ -41,6 +47,14 @@ extern "C" Q_DECL_EXPORT
 QObjectPrivate::Connection *ritual_ZNK14QObjectPrivate18TaggedSignalVectorcvPNS_10ConnectionEEv(
     const QObjectPrivate::TaggedSignalVector *self) {
   return self->operator QObjectPrivate::Connection *();
+}
+
+//  uintptr_t QObjectPrivate::TaggedSignalVector::operator unsigned long()
+//      const
+extern "C" Q_DECL_EXPORT
+unsigned long long ritual_ZNK14QObjectPrivate18TaggedSignalVectorcvmEv(
+    const QObjectPrivate::TaggedSignalVector *self) {
+  return self->operator uintptr_t();
 }
 
 //  QObjectPrivate::TaggedSignalVector::~TaggedSignalVector()

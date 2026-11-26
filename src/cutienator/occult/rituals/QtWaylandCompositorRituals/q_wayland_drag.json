@@ -6,7 +6,15 @@
   ],
   "rows": {
     "ritual_ZNK12QWaylandDrag10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QWaylandDrag11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QWaylandDrag11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QWaylandDrag2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QWaylandDrag6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QWaylandDrag6d_funcEv": ["address", "address"],
     "ritual_ZN12QWaylandDrag24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -20,6 +28,8 @@
     ],
     "ritual_ZN12QWaylandDrag4dropEv": ["nothing", "address"],
     "ritual_ZN12QWaylandDrag10cancelDragEv": ["nothing", "address"],
+    "ritual_ZN12QWaylandDrag11iconChangedEv": ["nothing", "address"],
+    "ritual_ZN12QWaylandDrag11dragStartedEv": ["nothing", "address"],
     "ritual_take_QWaylandDrag": ["bool", "address", "chars", "address"]
   }
 }

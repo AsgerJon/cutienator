@@ -373,6 +373,25 @@ const QMetaObject *ritual_ZNK27QQmlDebugTranslationService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDebugTranslationService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQmlDebugTranslationService11qt_metacastEPKc(
+    QQmlDebugTranslationService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDebugTranslationService::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQmlDebugTranslationService11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDebugTranslationService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlDebugTranslationService::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -397,6 +416,15 @@ void ritual_ZN27QQmlDebugTranslationService23foundTranslationBindingERK29Transla
     QQmlDebugTranslationService *self,
     const TranslationBindingInformation *translationBindingInformation) {
   self->foundTranslationBinding(*translationBindingInformation);
+}
+
+//  QQmlDebugTranslationService::QQmlDebugTranslationService(float version,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQmlDebugTranslationService *ritual_ZN27QQmlDebugTranslationServiceC1EfP7QObject(
+    float version,
+    QObject *parent) {
+  return new CuteQQmlDebugTranslationService(version, parent);
 }
 
 //  a Python function taken by a CuteQQmlDebugTranslationService, for the

@@ -25,6 +25,30 @@ QVoice *ritual_ZN6QVoiceC1ERKS_(const QVoice *other) {
   return new QVoice(*other);
 }
 
+//  QVoice &QVoice::operator=(const QVoice &other)
+extern "C" Q_DECL_EXPORT
+QVoice *ritual_ZN6QVoiceaSERKS_(QVoice *self, const QVoice *other) {
+  return &(self->operator=(*other));
+}
+
+//  QVoice::QVoice(QVoice &&other)
+extern "C" Q_DECL_EXPORT
+QVoice *ritual_ZN6QVoiceC1EOS_(QVoice *other) {
+  return new QVoice(std::move(*other));
+}
+
+//  QVoice &QVoice::operator=(QVoice &&other)
+extern "C" Q_DECL_EXPORT
+QVoice *ritual_ZN6QVoiceaSEOS_(QVoice *self, QVoice *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QVoice::swap(QVoice &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QVoice4swapERS_(QVoice *self, QVoice *other) {
+  self->swap(*other);
+}
+
 //  bool operator==(const QVoice &lhs, const QVoice &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK6QVoiceS1_(const QVoice *lhs, const QVoice *rhs) {
@@ -36,6 +60,26 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK6QVoiceS1_(const QVoice *lhs, const QVoice *rhs) {
   return operator!=(*lhs, *rhs);
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &str, const QVoice &voice)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK6QVoice(
+    QDataStream *str,
+    const QVoice *voice) {
+  return &(operator<<(*str, *voice));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &str, QVoice &voice)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR6QVoice(
+    QDataStream *str,
+    QVoice *voice) {
+  return &(operator>>(*str, *voice));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 //  QString QVoice::name() const
 extern "C" Q_DECL_EXPORT
@@ -98,6 +142,26 @@ bool ritual_ZNK6QVoice7isEqualERKS_(
     const QVoice *other) {
   return self->isEqual(*other);
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QVoice::writeTo(QDataStream &a0) const
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZNK6QVoice7writeToER11QDataStream(
+    const QVoice *self,
+    QDataStream *a0) {
+  return &(self->writeTo(*a0));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QVoice::readFrom(QDataStream &a0)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN6QVoice8readFromER11QDataStream(
+    QVoice *self,
+    QDataStream *a0) {
+  return &(self->readFrom(*a0));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 //  QVariant QVoice::data() const
 extern "C" Q_DECL_EXPORT

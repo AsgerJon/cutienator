@@ -62,6 +62,12 @@ public:
   }
 };
 
+//  QQuickRhiItemRenderer::QQuickRhiItemRenderer()
+extern "C" Q_DECL_EXPORT
+QQuickRhiItemRenderer *ritual_ZN21QQuickRhiItemRendererC1Ev() {
+  return new CuteQQuickRhiItemRenderer();
+}
+
 //  QQuickRhiItemRenderer::~QQuickRhiItemRenderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickRhiItemRendererD1Ev(QQuickRhiItemRenderer *self) {

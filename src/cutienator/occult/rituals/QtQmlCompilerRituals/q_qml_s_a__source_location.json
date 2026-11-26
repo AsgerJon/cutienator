@@ -10,6 +10,14 @@
       "unsigned int"
     ],
     "ritual_ZN6QQmlSA14SourceLocationC1ERKS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA14SourceLocationC1EOS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA14SourceLocationaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14SourceLocationaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14SourceLocationD1Ev": ["nothing", "address"],
     "ritual_ZNK6QQmlSA14SourceLocation7isValidEv": ["bool", "address"],
     "ritual_ZNK6QQmlSA14SourceLocation5beginEv": ["unsigned int", "address"],
     "ritual_ZNK6QQmlSA14SourceLocation3endEv": ["unsigned int", "address"],
@@ -37,6 +45,7 @@
     "ritual_ZN6QQmlSAneERKNS_14SourceLocationES2_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN6QQmlSA14SourceLocation14documentOriginEv": ["address"],
     "ritual_ZN6QQmlSA14SourceLocation9qHashImplERKS0_x": [
       "long long", "address", "long long"
     ],

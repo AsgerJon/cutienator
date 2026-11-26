@@ -195,6 +195,24 @@ const QMetaObject *ritual_ZNK12QStylePlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStylePlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QStylePlugin11qt_metacastEPKc(
+    QStylePlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStylePlugin::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QStylePlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStylePlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStylePlugin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QStylePlugin2trEPKcS1_i(
@@ -202,6 +220,12 @@ QString *ritual_ZN12QStylePlugin2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QStylePlugin::tr(s, c, n));
+}
+
+//  QStylePlugin::QStylePlugin(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QStylePlugin *ritual_ZN12QStylePluginC1EP7QObject(QObject *parent) {
+  return new CuteQStylePlugin(parent);
 }
 
 //  QStylePlugin::~QStylePlugin()

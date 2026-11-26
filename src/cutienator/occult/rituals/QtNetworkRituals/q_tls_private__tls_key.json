@@ -15,6 +15,16 @@
     "ritual_ZNK11QTlsPrivate6TlsKey5toPemERK10QByteArray": [
       "address", "address", "address"
     ],
+    "ritual_ZNK11QTlsPrivate6TlsKey10derFromPemERK10QByteArrayP4QMapIS1_S1_E": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate6TlsKey10pemFromDerERK10QByteArrayRK4QMapIS1_S1_E": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QTlsPrivate6TlsKey10fromHandleEPvN4QSsl7KeyTypeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QTlsPrivate6TlsKey6handleEv": ["address", "address"],
     "ritual_ZNK11QTlsPrivate6TlsKey6isNullEv": ["bool", "address"],
     "ritual_ZNK11QTlsPrivate6TlsKey4typeEv": ["int", "address"],
     "ritual_ZNK11QTlsPrivate6TlsKey9algorithmEv": ["int", "address"],
@@ -27,6 +37,8 @@
     "ritual_ZNK11QTlsPrivate6TlsKey7encryptENS_6CipherERK10QByteArrayS4_S4_": [
       "address", "address", "int", "address", "address", "address"
     ],
+    "ritual_ZNK11QTlsPrivate6TlsKey9pemHeaderEv": ["address", "address"],
+    "ritual_ZNK11QTlsPrivate6TlsKey9pemFooterEv": ["address", "address"],
     "ritual_take_QTlsPrivate_TlsKey": ["bool", "address", "chars", "address"]
   }
 }

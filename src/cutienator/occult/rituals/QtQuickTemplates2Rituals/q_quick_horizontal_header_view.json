@@ -2,11 +2,14 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQuick",
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK26QQuickHorizontalHeaderView10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN26QQuickHorizontalHeaderView11qt_metacastEPKc": [
+      "address", "address", "chars"
     ],
     "ritual_ZN26QQuickHorizontalHeaderView2trEPKcS1_i": [
       "text", "chars", "chars", "int"

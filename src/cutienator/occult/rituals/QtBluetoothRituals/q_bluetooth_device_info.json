@@ -19,6 +19,9 @@
     "ritual_ZN20QBluetoothDeviceInfo9setCachedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN20QBluetoothDeviceInfoaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK20QBluetoothDeviceInfoS1_": ["bool", "address", "address"],
     "ritual_ZneRK20QBluetoothDeviceInfoS1_": ["bool", "address", "address"],
     "ritual_ZNK20QBluetoothDeviceInfo7addressEv": ["address", "address"],
@@ -43,11 +46,17 @@
     "ritual_ZN20QBluetoothDeviceInfo15setServiceUuidsERK5QListI14QBluetoothUuidE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK20QBluetoothDeviceInfo15manufacturerIdsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QBluetoothDeviceInfo16manufacturerDataEt": [
       "address", "address", "unsigned short"
     ],
     "ritual_ZN20QBluetoothDeviceInfo19setManufacturerDataEtRK10QByteArray": [
       "bool", "address", "unsigned short", "address"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo16manufacturerDataEv": [
+      "address", "address"
     ],
     "ritual_ZNK20QBluetoothDeviceInfo10serviceIdsEv": ["address", "address"],
     "ritual_ZNK20QBluetoothDeviceInfo11serviceDataERK14QBluetoothUuid": [
@@ -55,6 +64,9 @@
     ],
     "ritual_ZN20QBluetoothDeviceInfo14setServiceDataERK14QBluetoothUuidRK10QByteArray": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo11serviceDataEv": [
+      "address", "address"
     ],
     "ritual_ZN20QBluetoothDeviceInfo21setCoreConfigurationsE6QFlagsINS_17CoreConfigurationEE": [
       "nothing", "address", "int"
@@ -79,6 +91,15 @@
     "ritual_list_at_QBluetoothDeviceInfo": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QBluetoothDeviceInfo": ["nothing", "address"]
+    "ritual_list_drop_QBluetoothDeviceInfo": ["nothing", "address"],
+    "ritual_drop_QBluetoothDeviceInfo__QList_quint16": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QBluetoothDeviceInfo__QMultiHash_quint16_QByteArray": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QBluetoothDeviceInfo__QMultiHash_QBluetoothUuid_QByteArray": [
+      "nothing", "address"
+    ]
   }
 }

@@ -16,6 +16,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <cstring>
+#include <QtGui/QVector4D>
 
 //  A QLottieFill that Python can take functions over in. Every QLottieFill
 //  Python makes is one. Each function below asks the Python
@@ -35,7 +36,7 @@ typedef const QSize * (*CuteQLottieFillCall11)(const void *, int *);
 class CuteQLottieFill : public QLottieFill {
 public:
   using QLottieFill::QLottieFill;
-  CuteQLottieFill(const QLottieFill &other) : QLottieFill(other) {}
+  CuteQLottieFill(const QLottieFill & other) : QLottieFill(other) {}
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {
@@ -252,6 +253,14 @@ void ritual_ZN11QLottieFill16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieFill::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QLottieFill6renderER15QLottieRenderer(
+    const QLottieFill *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  int QLottieFill::parse(const QJsonObject &definition)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN11QLottieFill5parseERK11QJsonObject(
@@ -276,6 +285,20 @@ qreal ritual_ZNK11QLottieFill7opacityEv(const QLottieFill *self) {
 extern "C" Q_DECL_EXPORT
 Qt::FillRule ritual_ZNK11QLottieFill8fillRuleEv(const QLottieFill *self) {
   return self->fillRule();
+}
+
+//  QLottieProperty4D<QVector4D> QLottieFill::colorProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty4D<QVector4D> *ritual_ZNK11QLottieFill13colorPropertyEv(
+    const QLottieFill *self) {
+  return new QLottieProperty4D<QVector4D>(self->colorProperty());
+}
+
+//  QLottieProperty<qreal> QLottieFill::opacityProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK11QLottieFill15opacityPropertyEv(
+    const QLottieFill *self) {
+  return new QLottieProperty<qreal>(self->opacityProperty());
 }
 
 //  QLottieFill::~QLottieFill()
@@ -314,4 +337,18 @@ int ritual_own_ZN11QLottieFill5parseERK11QJsonObject(
     QLottieFill *self,
     const QJsonObject *definition) {
   return self->QLottieFill::parse(*definition);
+}
+
+//  a QLottieProperty4D<QVector4D> a ritual of QLottieFill gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieFill__QLottieProperty4D_QVector4D(
+    QLottieProperty4D<QVector4D> *self) {
+  delete self;
+}
+
+//  a QLottieProperty<qreal> a ritual of QLottieFill gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieFill__QLottieProperty_qreal(
+    QLottieProperty<qreal> *self) {
+  delete self;
 }

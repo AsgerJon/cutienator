@@ -6,7 +6,15 @@
   ],
   "rows": {
     "ritual_ZNK12QQmlSettings10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQmlSettings11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQmlSettings11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQmlSettings2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQmlSettings6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQmlSettings6d_funcEv": ["address", "address"],
     "ritual_ZN12QQmlSettingsC1EP7QObject": ["address", "address"],
     "ritual_ZN12QQmlSettingsD1Ev": ["nothing", "address"],
     "ritual_ZNK12QQmlSettings8categoryEv": ["text", "address"],
@@ -24,6 +32,12 @@
       "nothing", "address", "text", "address"
     ],
     "ritual_ZN12QQmlSettings4syncEv": ["nothing", "address"],
+    "ritual_ZN12QQmlSettings15categoryChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QQmlSettings15locationChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QQmlSettings10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],

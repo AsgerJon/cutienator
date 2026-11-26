@@ -39,6 +39,12 @@ void ritual_ZN18QSSGParticleBuffer9setBoundsERK11QSSGBounds3(
   self->setBounds(*bounds);
 }
 
+//  char *QSSGParticleBuffer::pointer()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN18QSSGParticleBuffer7pointerEv(QSSGParticleBuffer *self) {
+  return self->pointer();
+}
+
 //  const char *QSSGParticleBuffer::pointer() const
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZNK18QSSGParticleBuffer7pointerEv(

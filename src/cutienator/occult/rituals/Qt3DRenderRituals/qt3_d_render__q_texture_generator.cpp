@@ -44,6 +44,22 @@ void ritual_ZN10Qt3DRender17QTextureGeneratorD1Ev(
   delete self;
 }
 
+//  QTextureDataPtr Qt3DRender::QTextureGenerator::operator()()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureDataPtr *ritual_ZN10Qt3DRender17QTextureGeneratorclEv(
+    Qt3DRender::QTextureGenerator *self) {
+  return new Qt3DRender::QTextureDataPtr(self->operator()());
+}
+
+//  bool Qt3DRender::QTextureGenerator::operator==(const QTextureGenerator
+//      &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender17QTextureGeneratoreqERKS0_(
+    const Qt3DRender::QTextureGenerator *self,
+    const Qt3DRender::QTextureGenerator *other) {
+  return self->operator==(*other);
+}
+
 //  a Python function taken by a CuteQt3DRender_QTextureGenerator, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -52,4 +68,12 @@ bool ritual_take_Qt3DRender_QTextureGenerator(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QTextureGenerator *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QTextureDataPtr a ritual of Qt3DRender::QTextureGenerator
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QTextureGenerator__Qt3DRender_QTextureDataPtr(
+    Qt3DRender::QTextureDataPtr *self) {
+  delete self;
 }

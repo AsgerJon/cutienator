@@ -232,6 +232,26 @@ public:
   }
 };
 
+//  QImageIOHandlerPrivate *QImageIOHandler::d_func()
+extern "C" Q_DECL_EXPORT
+QImageIOHandlerPrivate *ritual_ZN15QImageIOHandler6d_funcEv(
+    QImageIOHandler *self) {
+  return self->d_func();
+}
+
+//  const QImageIOHandlerPrivate *QImageIOHandler::d_func() const
+extern "C" Q_DECL_EXPORT
+const QImageIOHandlerPrivate *ritual_ZNK15QImageIOHandler6d_funcEv(
+    const QImageIOHandler *self) {
+  return self->d_func();
+}
+
+//  QImageIOHandler::QImageIOHandler()
+extern "C" Q_DECL_EXPORT
+QImageIOHandler *ritual_ZN15QImageIOHandlerC1Ev() {
+  return new CuteQImageIOHandler();
+}
+
 //  QImageIOHandler::~QImageIOHandler()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QImageIOHandlerD1Ev(QImageIOHandler *self) {
@@ -379,6 +399,13 @@ bool ritual_ZN15QImageIOHandler13allocateImageE5QSizeN6QImage6FormatEPS1_(
     QImage::Format format,
     QImage *image) {
   return QImageIOHandler::allocateImage(*size, format, image);
+}
+
+//  QImageIOHandler::QImageIOHandler(QImageIOHandlerPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QImageIOHandler *ritual_ZN15QImageIOHandlerC1ER22QImageIOHandlerPrivate(
+    QImageIOHandlerPrivate *dd) {
+  return new CuteQImageIOHandler(*dd);
 }
 
 //  a Python function taken by a CuteQImageIOHandler, for the function named

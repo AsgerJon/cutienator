@@ -46,10 +46,30 @@ QPageSize *ritual_ZN9QPageSizeC1ERKS_(const QPageSize *other) {
   return new QPageSize(*other);
 }
 
+//  QPageSize &QPageSize::operator=(QPageSize &&other)
+extern "C" Q_DECL_EXPORT
+QPageSize *ritual_ZN9QPageSizeaSEOS_(QPageSize *self, QPageSize *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QPageSize &QPageSize::operator=(const QPageSize &other)
+extern "C" Q_DECL_EXPORT
+QPageSize *ritual_ZN9QPageSizeaSERKS_(
+    QPageSize *self,
+    const QPageSize *other) {
+  return &(self->operator=(*other));
+}
+
 //  QPageSize::~QPageSize()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QPageSizeD1Ev(QPageSize *self) {
   delete self;
+}
+
+//  void QPageSize::swap(QPageSize &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPageSize4swapERS_(QPageSize *self, QPageSize *other) {
+  self->swap(*other);
 }
 
 //  bool QPageSize::isEquivalentTo(const QPageSize &other) const
@@ -268,6 +288,12 @@ QPageSize *ritual_ZN9QPageSizeC1EiRK5QSizeRK7QString(
     const QSize *pointSize,
     const QString *name) {
   return new QPageSize(windowsId, *pointSize, *name);
+}
+
+//  QPageSize::QPageSize(QPageSizePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QPageSize *ritual_ZN9QPageSizeC1ER16QPageSizePrivate(QPageSizePrivate *dd) {
+  return new QPageSize(*dd);
 }
 
 //  QList<QPageSize>::QList()

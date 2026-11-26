@@ -1,11 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/6.12.0/QtGui/private/qkeymapper_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtGui/6.12.0/QtGui/private/qkeymapper_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK10QKeyMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QKeyMapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QKeyMapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QKeyMapper2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QKeyMapperC1Ev": ["address"],
     "ritual_ZN10QKeyMapperD1Ev": ["nothing", "address"],
@@ -13,6 +19,12 @@
     "ritual_ZN10QKeyMapper12possibleKeysEPK9QKeyEvent": [
       "address", "address"
     ],
-    "ritual_take_QKeyMapper": ["bool", "address", "chars", "address"]
+    "ritual_ZNK10QKeyMapper16resolveInterfaceEPKci": [
+      "address", "address", "chars", "int"
+    ],
+    "ritual_take_QKeyMapper": ["bool", "address", "chars", "address"],
+    "ritual_ZNK10QKeyMapper15nativeInterfaceIN16QNativeInterface7Private15QEvdevKeyMapperENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ]
   }
 }

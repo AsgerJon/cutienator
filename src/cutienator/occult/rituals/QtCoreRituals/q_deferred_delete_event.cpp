@@ -1,12 +1,38 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qcoreevent_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qcoreevent_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, rituals for functions the generator leaves
+//  out: 1. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qcoreevent_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qcoreevent.h>
+#include <QtCore/private/qcoreevent_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtCore/qbasicatomic.h>
+#include <limits>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/corelib/kernel/qcoreevent.cpp, line 681, as _ZN20QDeferredDeleteEventD2Ev
+inline QDeferredDeleteEvent::~QDeferredDeleteEvent() = default;
+
+//  from src/corelib/kernel/qcoreevent.cpp, line 681, as _ZNK20QDeferredDeleteEvent5cloneEv
+inline QDeferredDeleteEvent* QDeferredDeleteEvent::clone() const { auto c = new QDeferredDeleteEvent(*this); [[maybe_unused]] QEvent *e = c; Q_ASSERT(reinterpret_cast<quintptr>(c) == reinterpret_cast<quintptr>(e)); return c; }
+
+//  from src/corelib/kernel/qcoreevent.cpp, line 681, as _ZN20QDeferredDeleteEventC1ERKS_
+inline QDeferredDeleteEvent::QDeferredDeleteEvent(const QDeferredDeleteEvent &) = default;
+//  -----------------------------------------------------------------------
 
 //  A QDeferredDeleteEvent that Python can take functions over in. Every QDeferredDeleteEvent
 //  Python makes is one. Each function below asks the Python
@@ -53,6 +79,28 @@ public:
   }
 };
 
+//  QDeferredDeleteEvent &QDeferredDeleteEvent::operator=(const
+//      QDeferredDeleteEvent &other)
+extern "C" Q_DECL_EXPORT
+QDeferredDeleteEvent *ritual_ZN20QDeferredDeleteEventaSERKS_(
+    QDeferredDeleteEvent *self,
+    const QDeferredDeleteEvent *other) {
+  return &(self->operator=(*other));
+}
+
+//  QDeferredDeleteEvent *QDeferredDeleteEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QDeferredDeleteEvent *ritual_ZNK20QDeferredDeleteEvent5cloneEv(
+    const QDeferredDeleteEvent *self) {
+  return self->clone();
+}
+
+//  QDeferredDeleteEvent::~QDeferredDeleteEvent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDeferredDeleteEventD1Ev(QDeferredDeleteEvent *self) {
+  delete self;
+}
+
 //  int QDeferredDeleteEvent::loopLevel() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK20QDeferredDeleteEvent9loopLevelEv(
@@ -75,4 +123,19 @@ bool ritual_take_QDeferredDeleteEvent(
     const char *key,
     void *call) {
   return static_cast<CuteQDeferredDeleteEvent *>(self)->take(key, call);
+}
+
+//  QDeferredDeleteEvent *QDeferredDeleteEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QDeferredDeleteEvent *ritual_own_ZNK20QDeferredDeleteEvent5cloneEv(
+    const QDeferredDeleteEvent *self) {
+  return self->QDeferredDeleteEvent::clone();
+}
+
+//  QDeferredDeleteEvent::QDeferredDeleteEvent(const QDeferredDeleteEvent
+//      &a0)
+extern "C" Q_DECL_EXPORT
+QDeferredDeleteEvent *ritual_ZN20QDeferredDeleteEventC2ERKS_(
+    const QDeferredDeleteEvent *a0) {
+  return new QDeferredDeleteEvent(*a0);
 }

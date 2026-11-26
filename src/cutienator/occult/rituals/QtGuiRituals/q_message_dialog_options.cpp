@@ -8,11 +8,35 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtGui/qpixmap.h>
+#include <QtCore/QSharedPointer>
+
+//  QMessageDialogOptions::QMessageDialogOptions(QMessageDialogOptionsPrivate
+//      *dd)
+extern "C" Q_DECL_EXPORT
+QMessageDialogOptions *ritual_ZN21QMessageDialogOptionsC1EP28QMessageDialogOptionsPrivate(
+    QMessageDialogOptionsPrivate *dd) {
+  return new QMessageDialogOptions(dd);
+}
 
 //  QMessageDialogOptions::~QMessageDialogOptions()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QMessageDialogOptionsD1Ev(QMessageDialogOptions *self) {
   delete self;
+}
+
+//  QSharedPointer<QMessageDialogOptions> QMessageDialogOptions::create()
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QMessageDialogOptions> *ritual_ZN21QMessageDialogOptions6createEv() {
+  return new QSharedPointer<QMessageDialogOptions>(
+      QMessageDialogOptions::create());
+}
+
+//  QSharedPointer<QMessageDialogOptions> QMessageDialogOptions::clone()
+//      const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QMessageDialogOptions> *ritual_ZNK21QMessageDialogOptions5cloneEv(
+    const QMessageDialogOptions *self) {
+  return new QSharedPointer<QMessageDialogOptions>(self->clone());
 }
 
 //  QString QMessageDialogOptions::windowTitle() const
@@ -155,12 +179,32 @@ int ritual_ZNK21QMessageDialogOptions15standardButtonsEv(
   return static_cast<int>(self->standardButtons().toInt());
 }
 
+//  int QMessageDialogOptions::addButton(const QString &label,
+//      QPlatformDialogHelper::ButtonRole role, void *buttonImpl, int
+//      buttonId)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QMessageDialogOptions9addButtonERK7QStringN21QPlatformDialogHelper10ButtonRoleEPvi(
+    QMessageDialogOptions *self,
+    const QString *label,
+    QPlatformDialogHelper::ButtonRole role,
+    void *buttonImpl,
+    int buttonId) {
+  return self->addButton(*label, role, buttonImpl, buttonId);
+}
+
 //  void QMessageDialogOptions::removeButton(int id)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QMessageDialogOptions12removeButtonEi(
     QMessageDialogOptions *self,
     int id) {
   self->removeButton(id);
+}
+
+//  const QList<CustomButton> &QMessageDialogOptions::customButtons()
+extern "C" Q_DECL_EXPORT
+const QList<QMessageDialogOptions::CustomButton> *ritual_ZN21QMessageDialogOptions13customButtonsEv(
+    QMessageDialogOptions *self) {
+  return &(self->customButtons());
 }
 
 //  const CustomButton *QMessageDialogOptions::customButton(int id)
@@ -230,4 +274,12 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QMessageDialogOptions13defaultButtonEv(
     const QMessageDialogOptions *self) {
   return self->defaultButton();
+}
+
+//  a QSharedPointer<QMessageDialogOptions> a ritual of QMessageDialogOptions
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMessageDialogOptions__QSharedPointer_QMessageDialogOptions(
+    QSharedPointer<QMessageDialogOptions> *self) {
+  delete self;
 }

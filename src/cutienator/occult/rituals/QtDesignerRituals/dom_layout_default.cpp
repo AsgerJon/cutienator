@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 
 //  DomLayoutDefault::DomLayoutDefault()
 extern "C" Q_DECL_EXPORT
@@ -17,6 +18,24 @@ DomLayoutDefault *ritual_ZN16DomLayoutDefaultC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16DomLayoutDefaultD1Ev(DomLayoutDefault *self) {
   delete self;
+}
+
+//  void DomLayoutDefault::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DomLayoutDefault4readER16QXmlStreamReader(
+    DomLayoutDefault *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomLayoutDefault::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16DomLayoutDefault5writeER16QXmlStreamWriterRK7QString(
+    const DomLayoutDefault *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  bool DomLayoutDefault::hasAttributeSpacing() const

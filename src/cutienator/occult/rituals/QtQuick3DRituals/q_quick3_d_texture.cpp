@@ -638,6 +638,24 @@ const QMetaObject *ritual_ZNK15QQuick3DTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuick3DTexture11qt_metacastEPKc(
+    QQuick3DTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DTexture::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuick3DTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DTexture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuick3DTexture2trEPKcS1_i(
@@ -1014,6 +1032,161 @@ void ritual_ZN15QQuick3DTexture18setAutoOrientationEb(
   self->setAutoOrientation(autoOrientation);
 }
 
+//  void QQuick3DTexture::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture13sourceChangedEv(QQuick3DTexture *self) {
+  self->sourceChanged();
+}
+
+//  void QQuick3DTexture::sourceItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture17sourceItemChangedEv(QQuick3DTexture *self) {
+  self->sourceItemChanged();
+}
+
+//  void QQuick3DTexture::scaleUChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture13scaleUChangedEv(QQuick3DTexture *self) {
+  self->scaleUChanged();
+}
+
+//  void QQuick3DTexture::scaleVChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture13scaleVChangedEv(QQuick3DTexture *self) {
+  self->scaleVChanged();
+}
+
+//  void QQuick3DTexture::mappingModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture18mappingModeChangedEv(
+    QQuick3DTexture *self) {
+  self->mappingModeChanged();
+}
+
+//  void QQuick3DTexture::horizontalTilingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture23horizontalTilingChangedEv(
+    QQuick3DTexture *self) {
+  self->horizontalTilingChanged();
+}
+
+//  void QQuick3DTexture::verticalTilingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture21verticalTilingChangedEv(
+    QQuick3DTexture *self) {
+  self->verticalTilingChanged();
+}
+
+//  void QQuick3DTexture::depthTilingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture18depthTilingChangedEv(
+    QQuick3DTexture *self) {
+  self->depthTilingChanged();
+}
+
+//  void QQuick3DTexture::rotationUVChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture17rotationUVChangedEv(QQuick3DTexture *self) {
+  self->rotationUVChanged();
+}
+
+//  void QQuick3DTexture::positionUChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture16positionUChangedEv(QQuick3DTexture *self) {
+  self->positionUChanged();
+}
+
+//  void QQuick3DTexture::positionVChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture16positionVChangedEv(QQuick3DTexture *self) {
+  self->positionVChanged();
+}
+
+//  void QQuick3DTexture::pivotUChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture13pivotUChangedEv(QQuick3DTexture *self) {
+  self->pivotUChanged();
+}
+
+//  void QQuick3DTexture::pivotVChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture13pivotVChangedEv(QQuick3DTexture *self) {
+  self->pivotVChanged();
+}
+
+//  void QQuick3DTexture::flipUChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture12flipUChangedEv(QQuick3DTexture *self) {
+  self->flipUChanged();
+}
+
+//  void QQuick3DTexture::flipVChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture12flipVChangedEv(QQuick3DTexture *self) {
+  self->flipVChanged();
+}
+
+//  void QQuick3DTexture::indexUVChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture14indexUVChangedEv(QQuick3DTexture *self) {
+  self->indexUVChanged();
+}
+
+//  void QQuick3DTexture::magFilterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture16magFilterChangedEv(QQuick3DTexture *self) {
+  self->magFilterChanged();
+}
+
+//  void QQuick3DTexture::minFilterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture16minFilterChangedEv(QQuick3DTexture *self) {
+  self->minFilterChanged();
+}
+
+//  void QQuick3DTexture::mipFilterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture16mipFilterChangedEv(QQuick3DTexture *self) {
+  self->mipFilterChanged();
+}
+
+//  void QQuick3DTexture::textureDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture18textureDataChangedEv(
+    QQuick3DTexture *self) {
+  self->textureDataChanged();
+}
+
+//  void QQuick3DTexture::generateMipmapsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture22generateMipmapsChangedEv(
+    QQuick3DTexture *self) {
+  self->generateMipmapsChanged();
+}
+
+//  void QQuick3DTexture::autoOrientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture22autoOrientationChangedEv(
+    QQuick3DTexture *self) {
+  self->autoOrientationChanged();
+}
+
+//  void QQuick3DTexture::textureProviderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture22textureProviderChangedEv(
+    QQuick3DTexture *self) {
+  self->textureProviderChanged();
+}
+
+//  void QQuick3DTexture::textureInternalChange(QQuick3DTextureInternalChange
+//      a0, QPrivateSignal a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuick3DTexture21textureInternalChangeE29QQuick3DTextureInternalChangeNS_14QPrivateSignalE(
+    QQuick3DTexture *self,
+    const QQuick3DTextureInternalChange *a0) {
+  self->textureInternalChange(*a0, QQuick3DTexture::QPrivateSignal());
+}
+
 //  QSSGRenderGraphObject
 //      *QQuick3DTexture::updateSpatialNode(QSSGRenderGraphObject *node)
 extern "C" Q_DECL_EXPORT
@@ -1050,6 +1223,15 @@ void ritual_ZN15QQuick3DTexture19itemGeometryChangedEP10QQuickItem20QQuickGeomet
   self->itemGeometryChanged(item, *change, *geometry);
 }
 
+//  QQuick3DTexture::QQuick3DTexture(QQuick3DObjectPrivate &dd,
+//      QQuick3DObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DTexture *ritual_ZN15QQuick3DTextureC1ER21QQuick3DObjectPrivateP14QQuick3DObject(
+    QQuick3DObjectPrivate *dd,
+    QQuick3DObject *parent) {
+  return new CuteQQuick3DTexture(*dd, parent);
+}
+
 //  void QQuick3DTexture::sourceItemDestroyed(QObject *item)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuick3DTexture19sourceItemDestroyedEP7QObject(
@@ -1081,6 +1263,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuick3DTexture18trySetSourceParentEv(
     QQuick3DTexture *self) {
   self->trySetSourceParent();
+}
+
+//  bool QQuick3DTexture::effectiveFlipV(const QSSGRenderImage &imageNode)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QQuick3DTexture14effectiveFlipVERK15QSSGRenderImage(
+    const QQuick3DTexture *self,
+    const QSSGRenderImage *imageNode) {
+  return self->effectiveFlipV(*imageNode);
 }
 
 //  QQuick3DTexture as the QQuickItemChangeListener it is built on

@@ -283,6 +283,25 @@ const QMetaObject *ritual_ZNK27QQuick3DQuaternionAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DQuaternionAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuick3DQuaternionAnimation11qt_metacastEPKc(
+    QQuick3DQuaternionAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DQuaternionAnimation::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuick3DQuaternionAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DQuaternionAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DQuaternionAnimation::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -291,6 +310,21 @@ QString *ritual_ZN27QQuick3DQuaternionAnimation2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuick3DQuaternionAnimation::tr(s, c, n));
+}
+
+//  QQuick3DQuaternionAnimationPrivate *QQuick3DQuaternionAnimation::d_func()
+extern "C" Q_DECL_EXPORT
+QQuick3DQuaternionAnimationPrivate *ritual_ZN27QQuick3DQuaternionAnimation6d_funcEv(
+    QQuick3DQuaternionAnimation *self) {
+  return self->d_func();
+}
+
+//  const QQuick3DQuaternionAnimationPrivate
+//      *QQuick3DQuaternionAnimation::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuick3DQuaternionAnimationPrivate *ritual_ZNK27QQuick3DQuaternionAnimation6d_funcEv(
+    const QQuick3DQuaternionAnimation *self) {
+  return self->d_func();
 }
 
 //  QQuick3DQuaternionAnimation::QQuick3DQuaternionAnimation(QObject *parent)
@@ -433,6 +467,63 @@ void ritual_ZN27QQuick3DQuaternionAnimation14setToZRotationEf(
     QQuick3DQuaternionAnimation *self,
     float f) {
   self->setToZRotation(f);
+}
+
+//  void QQuick3DQuaternionAnimation::typeChanged(QQuick3DQuaternionAnimation
+//      ::Type type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuaternionAnimation11typeChangedENS_4TypeE(
+    QQuick3DQuaternionAnimation *self,
+    QQuick3DQuaternionAnimation::Type type) {
+  self->typeChanged(type);
+}
+
+//  void QQuick3DQuaternionAnimation::fromXRotationChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuaternionAnimation20fromXRotationChangedEf(
+    QQuick3DQuaternionAnimation *self,
+    float value) {
+  self->fromXRotationChanged(value);
+}
+
+//  void QQuick3DQuaternionAnimation::fromYRotationChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuaternionAnimation20fromYRotationChangedEf(
+    QQuick3DQuaternionAnimation *self,
+    float value) {
+  self->fromYRotationChanged(value);
+}
+
+//  void QQuick3DQuaternionAnimation::fromZRotationChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuaternionAnimation20fromZRotationChangedEf(
+    QQuick3DQuaternionAnimation *self,
+    float value) {
+  self->fromZRotationChanged(value);
+}
+
+//  void QQuick3DQuaternionAnimation::toXRotationChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuaternionAnimation18toXRotationChangedEf(
+    QQuick3DQuaternionAnimation *self,
+    float value) {
+  self->toXRotationChanged(value);
+}
+
+//  void QQuick3DQuaternionAnimation::toYRotationChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuaternionAnimation18toYRotationChangedEf(
+    QQuick3DQuaternionAnimation *self,
+    float value) {
+  self->toYRotationChanged(value);
+}
+
+//  void QQuick3DQuaternionAnimation::toZRotationChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuaternionAnimation18toZRotationChangedEf(
+    QQuick3DQuaternionAnimation *self,
+    float value) {
+  self->toZRotationChanged(value);
 }
 
 //  a Python function taken by a CuteQQuick3DQuaternionAnimation, for the

@@ -241,6 +241,25 @@ const QMetaObject *ritual_ZNK24QPixmapConvolutionFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPixmapConvolutionFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QPixmapConvolutionFilter11qt_metacastEPKc(
+    QPixmapConvolutionFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPixmapConvolutionFilter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QPixmapConvolutionFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPixmapConvolutionFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPixmapConvolutionFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QPixmapConvolutionFilter2trEPKcS1_i(
@@ -248,6 +267,21 @@ QString *ritual_ZN24QPixmapConvolutionFilter2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPixmapConvolutionFilter::tr(s, c, n));
+}
+
+//  QPixmapConvolutionFilterPrivate *QPixmapConvolutionFilter::d_func()
+extern "C" Q_DECL_EXPORT
+QPixmapConvolutionFilterPrivate *ritual_ZN24QPixmapConvolutionFilter6d_funcEv(
+    QPixmapConvolutionFilter *self) {
+  return self->d_func();
+}
+
+//  const QPixmapConvolutionFilterPrivate *QPixmapConvolutionFilter::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QPixmapConvolutionFilterPrivate *ritual_ZNK24QPixmapConvolutionFilter6d_funcEv(
+    const QPixmapConvolutionFilter *self) {
+  return self->d_func();
 }
 
 //  QPixmapConvolutionFilter::QPixmapConvolutionFilter(QObject *parent)
@@ -262,6 +296,17 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QPixmapConvolutionFilterD1Ev(
     QPixmapConvolutionFilter *self) {
   delete self;
+}
+
+//  void QPixmapConvolutionFilter::setConvolutionKernel(const qreal *matrix,
+//      int rows, int columns)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QPixmapConvolutionFilter20setConvolutionKernelEPKdii(
+    QPixmapConvolutionFilter *self,
+    const qreal *matrix,
+    int rows,
+    int columns) {
+  self->setConvolutionKernel(matrix, rows, columns);
 }
 
 //  QRectF QPixmapConvolutionFilter::boundingRectFor(const QRectF &rect)
@@ -283,6 +328,13 @@ void ritual_ZNK24QPixmapConvolutionFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6
     const QPixmap *src,
     const QRectF *srcRect) {
   self->draw(painter, *dest, *src, *srcRect);
+}
+
+//  const qreal *QPixmapConvolutionFilter::convolutionKernel() const
+extern "C" Q_DECL_EXPORT
+const qreal *ritual_ZNK24QPixmapConvolutionFilter17convolutionKernelEv(
+    const QPixmapConvolutionFilter *self) {
+  return self->convolutionKernel();
 }
 
 //  int QPixmapConvolutionFilter::rows() const

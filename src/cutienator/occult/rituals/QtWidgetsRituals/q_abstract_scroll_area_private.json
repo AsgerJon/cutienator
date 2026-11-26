@@ -9,6 +9,7 @@
     "ritual_ZNK26QAbstractScrollAreaPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN26QAbstractScrollAreaPrivateC1Ev": ["address"],
     "ritual_ZN26QAbstractScrollAreaPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN26QAbstractScrollAreaPrivate16replaceScrollBarEP10QScrollBarN2Qt11OrientationE": [
       "nothing", "address", "address", "int"

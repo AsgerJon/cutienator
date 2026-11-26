@@ -9,6 +9,7 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/richtexteditor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtGui/qfont.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -1025,6 +1026,27 @@ const QMetaObject *ritual_ZNK18qdesigner_internal20RichTextEditorDialog10metaObj
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::RichTextEditorDialog::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal20RichTextEditorDialog11qt_metacastEPKc(
+    qdesigner_internal::RichTextEditorDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      qdesigner_internal::RichTextEditorDialog::qt_metacall(QMetaObject::Ca
+//      ll a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal20RichTextEditorDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::RichTextEditorDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::RichTextEditorDialog::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -1033,6 +1055,79 @@ QString *ritual_ZN18qdesigner_internal20RichTextEditorDialog2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::RichTextEditorDialog::tr(s, c, n));
+}
+
+//  qdesigner_internal::RichTextEditorDialog::RichTextEditorDialog(QDesignerF
+//      ormEditorInterface *core, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::RichTextEditorDialog *ritual_ZN18qdesigner_internal20RichTextEditorDialogC1EP28QDesignerFormEditorInterfaceP7QWidget(
+    QDesignerFormEditorInterface *core,
+    QWidget *parent) {
+  return new Cuteqdesigner_internal_RichTextEditorDialog(core, parent);
+}
+
+//  qdesigner_internal::RichTextEditorDialog::~RichTextEditorDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal20RichTextEditorDialogD1Ev(
+    qdesigner_internal::RichTextEditorDialog *self) {
+  delete self;
+}
+
+//  int qdesigner_internal::RichTextEditorDialog::showDialog()
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal20RichTextEditorDialog10showDialogEv(
+    qdesigner_internal::RichTextEditorDialog *self) {
+  return self->showDialog();
+}
+
+//  void qdesigner_internal::RichTextEditorDialog::setDefaultFont(const QFont
+//      &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal20RichTextEditorDialog14setDefaultFontERK5QFont(
+    qdesigner_internal::RichTextEditorDialog *self,
+    const QFont *font) {
+  self->setDefaultFont(*font);
+}
+
+//  void qdesigner_internal::RichTextEditorDialog::setText(const QString
+//      &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal20RichTextEditorDialog7setTextERK7QString(
+    qdesigner_internal::RichTextEditorDialog *self,
+    const QString *text) {
+  self->setText(*text);
+}
+
+//  QString qdesigner_internal::RichTextEditorDialog::text(Qt::TextFormat
+//      format) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal20RichTextEditorDialog4textEN2Qt10TextFormatE(
+    const qdesigner_internal::RichTextEditorDialog *self,
+    Qt::TextFormat format) {
+  return new QString(self->text(format));
+}
+
+//  void qdesigner_internal::RichTextEditorDialog::tabIndexChanged(int
+//      newIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal20RichTextEditorDialog15tabIndexChangedEi(
+    qdesigner_internal::RichTextEditorDialog *self,
+    int newIndex) {
+  self->tabIndexChanged(newIndex);
+}
+
+//  void qdesigner_internal::RichTextEditorDialog::richTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal20RichTextEditorDialog15richTextChangedEv(
+    qdesigner_internal::RichTextEditorDialog *self) {
+  self->richTextChanged();
+}
+
+//  void qdesigner_internal::RichTextEditorDialog::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal20RichTextEditorDialog13sourceChangedEv(
+    qdesigner_internal::RichTextEditorDialog *self) {
+  self->sourceChanged();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_RichTextEditorDialog,

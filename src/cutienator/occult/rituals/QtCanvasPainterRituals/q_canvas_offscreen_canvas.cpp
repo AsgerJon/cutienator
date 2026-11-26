@@ -25,6 +25,40 @@ void ritual_ZN22QCanvasOffscreenCanvasD1Ev(QCanvasOffscreenCanvas *self) {
   delete self;
 }
 
+//  QCanvasOffscreenCanvas &QCanvasOffscreenCanvas::operator=(const
+//      QCanvasOffscreenCanvas &canvas)
+extern "C" Q_DECL_EXPORT
+QCanvasOffscreenCanvas *ritual_ZN22QCanvasOffscreenCanvasaSERKS_(
+    QCanvasOffscreenCanvas *self,
+    const QCanvasOffscreenCanvas *canvas) {
+  return &(self->operator=(*canvas));
+}
+
+//  QCanvasOffscreenCanvas::QCanvasOffscreenCanvas(QCanvasOffscreenCanvas
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasOffscreenCanvas *ritual_ZN22QCanvasOffscreenCanvasC1EOS_(
+    QCanvasOffscreenCanvas *other) {
+  return new QCanvasOffscreenCanvas(std::move(*other));
+}
+
+//  QCanvasOffscreenCanvas
+//      &QCanvasOffscreenCanvas::operator=(QCanvasOffscreenCanvas &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasOffscreenCanvas *ritual_ZN22QCanvasOffscreenCanvasaSEOS_(
+    QCanvasOffscreenCanvas *self,
+    QCanvasOffscreenCanvas *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCanvasOffscreenCanvas::swap(QCanvasOffscreenCanvas &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QCanvasOffscreenCanvas4swapERS_(
+    QCanvasOffscreenCanvas *self,
+    QCanvasOffscreenCanvas *other) {
+  self->swap(*other);
+}
+
 //  bool QCanvasOffscreenCanvas::isNull() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK22QCanvasOffscreenCanvas6isNullEv(

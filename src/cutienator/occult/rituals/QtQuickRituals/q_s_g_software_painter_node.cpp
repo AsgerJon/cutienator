@@ -12,11 +12,11 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQuick/private/qsgsoftwarepixmaptexture_p.h>
-#include <QtQuick/private/qsgcontext_p.h>
 #include <QtQuick/private/qsgsoftwarepainternode_p.h>
 #include <QtQuick/private/qsgsoftwarepixmaptexture_p.h>
 #include <QtCore/qmath.h>
+#include <QtQuick/private/qsgsoftwarepixmaptexture_p.h>
+#include <QtQuick/private/qsgcontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -26,16 +26,76 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepixmaptexture.cpp, line 23, as _ZN24QSGSoftwarePixmapTextureC1ERK7QPixmap
-inline QSGSoftwarePixmapTexture::QSGSoftwarePixmapTexture(const QPixmap &pixmap)
-    : m_pixmap(pixmap)
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 92, as _ZN22QSGSoftwarePainterNode12setFillColorERK6QColor
+inline void QSGSoftwarePainterNode::setFillColor(const QColor &c)
 {
+    if (c == m_fillColor)
+        return;
+
+    m_fillColor = c;
+    markDirty(DirtyMaterial);
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 30, as _ZN22QSGSoftwarePainterNodeD1Ev
-inline QSGSoftwarePainterNode::~QSGSoftwarePainterNode()
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 76, as _ZN22QSGSoftwarePainterNode13setMipmappingEb
+inline void QSGSoftwarePainterNode::setMipmapping(bool mipmapping)
 {
-    delete m_texture;
+    if (mipmapping == m_mipmapping)
+        return;
+
+    m_mipmapping = mipmapping;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 190, as _ZN22QSGSoftwarePainterNode14setTextureSizeERK5QSize
+inline void QSGSoftwarePainterNode::setTextureSize(const QSize &size)
+{
+    if (size == m_textureSize)
+        return;
+
+    m_textureSize = size;
+    m_dirtyGeometry = true;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 101, as _ZN22QSGSoftwarePainterNode16setContentsScaleEd
+inline void QSGSoftwarePainterNode::setContentsScale(qreal s)
+{
+    if (s == m_contentsScale)
+        return;
+
+    m_contentsScale = s;
+    markDirty(DirtyMaterial);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 60, as _ZN22QSGSoftwarePainterNode17setOpaquePaintingEb
+inline void QSGSoftwarePainterNode::setOpaquePainting(bool opaque)
+{
+    if (opaque == m_opaquePainting)
+        return;
+
+    m_opaquePainting = opaque;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 84, as _ZN22QSGSoftwarePainterNode17setSmoothPaintingEb
+inline void QSGSoftwarePainterNode::setSmoothPainting(bool s)
+{
+    if (s == m_smoothPainting)
+        return;
+
+    m_smoothPainting = s;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 110, as _ZN22QSGSoftwarePainterNode18setFastFBOResizingEb
+inline void QSGSoftwarePainterNode::setFastFBOResizing(bool dynamic)
+{
+    m_fastFBOResizing = dynamic;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 68, as _ZN22QSGSoftwarePainterNode18setLinearFilteringEb
+inline void QSGSoftwarePainterNode::setLinearFiltering(bool linearFiltering)
+{
+    if (linearFiltering == m_linear_filtering)
+        return;
+
+    m_linear_filtering = linearFiltering;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 35, as _ZN22QSGSoftwarePainterNode24setPreferredRenderTargetEN17QQuickPaintedItem12RenderTargetE
@@ -45,6 +105,26 @@ inline void QSGSoftwarePainterNode::setPreferredRenderTarget(QQuickPaintedItem::
         return;
 
     m_preferredRenderTarget = target;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 120, as _ZN22QSGSoftwarePainterNode6updateEv
+inline void QSGSoftwarePainterNode::update()
+{
+    if (m_dirtyGeometry) {
+        m_pixmap = QPixmap(m_textureSize);
+        if (!m_opaquePainting)
+            m_pixmap.fill(Qt::transparent);
+
+        if (m_texture)
+            delete m_texture;
+        m_texture = new QSGSoftwarePixmapTexture(m_pixmap);
+    }
+
+    if (m_dirtyContents)
+        paint();
+
+    m_dirtyGeometry = false;
+    m_dirtyContents = false;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 43, as _ZN22QSGSoftwarePainterNode7setSizeERK5QSize
@@ -66,92 +146,22 @@ inline void QSGSoftwarePainterNode::setDirty(const QRect &dirtyRect)
     markDirty(DirtyMaterial);
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 60, as _ZN22QSGSoftwarePainterNode17setOpaquePaintingEb
-inline void QSGSoftwarePainterNode::setOpaquePainting(bool opaque)
-{
-    if (opaque == m_opaquePainting)
-        return;
-
-    m_opaquePainting = opaque;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 68, as _ZN22QSGSoftwarePainterNode18setLinearFilteringEb
-inline void QSGSoftwarePainterNode::setLinearFiltering(bool linearFiltering)
-{
-    if (linearFiltering == m_linear_filtering)
-        return;
-
-    m_linear_filtering = linearFiltering;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 76, as _ZN22QSGSoftwarePainterNode13setMipmappingEb
-inline void QSGSoftwarePainterNode::setMipmapping(bool mipmapping)
-{
-    if (mipmapping == m_mipmapping)
-        return;
-
-    m_mipmapping = mipmapping;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 84, as _ZN22QSGSoftwarePainterNode17setSmoothPaintingEb
-inline void QSGSoftwarePainterNode::setSmoothPainting(bool s)
-{
-    if (s == m_smoothPainting)
-        return;
-
-    m_smoothPainting = s;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 92, as _ZN22QSGSoftwarePainterNode12setFillColorERK6QColor
-inline void QSGSoftwarePainterNode::setFillColor(const QColor &c)
-{
-    if (c == m_fillColor)
-        return;
-
-    m_fillColor = c;
-    markDirty(DirtyMaterial);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 101, as _ZN22QSGSoftwarePainterNode16setContentsScaleEd
-inline void QSGSoftwarePainterNode::setContentsScale(qreal s)
-{
-    if (s == m_contentsScale)
-        return;
-
-    m_contentsScale = s;
-    markDirty(DirtyMaterial);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 110, as _ZN22QSGSoftwarePainterNode18setFastFBOResizingEb
-inline void QSGSoftwarePainterNode::setFastFBOResizing(bool dynamic)
-{
-    m_fastFBOResizing = dynamic;
-}
-
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 115, as _ZNK22QSGSoftwarePainterNode7toImageEv
 inline QImage QSGSoftwarePainterNode::toImage() const
 {
     return m_pixmap.toImage();
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 120, as _ZN22QSGSoftwarePainterNode6updateEv
-inline void QSGSoftwarePainterNode::update()
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepixmaptexture.cpp, line 23, as _ZN24QSGSoftwarePixmapTextureC1ERK7QPixmap
+inline QSGSoftwarePixmapTexture::QSGSoftwarePixmapTexture(const QPixmap &pixmap)
+    : m_pixmap(pixmap)
 {
-    if (m_dirtyGeometry) {
-        m_pixmap = QPixmap(m_textureSize);
-        if (!m_opaquePainting)
-            m_pixmap.fill(Qt::transparent);
+}
 
-        if (m_texture)
-            delete m_texture;
-        m_texture = new QSGSoftwarePixmapTexture(m_pixmap);
-    }
-
-    if (m_dirtyContents)
-        paint();
-
-    m_dirtyGeometry = false;
-    m_dirtyContents = false;
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 30, as _ZN22QSGSoftwarePainterNodeD1Ev
+inline QSGSoftwarePainterNode::~QSGSoftwarePainterNode()
+{
+    delete m_texture;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 139, as _ZN22QSGSoftwarePainterNode5paintEP8QPainter
@@ -204,16 +214,6 @@ inline void QSGSoftwarePainterNode::paint()
     painter.end();
 
     m_dirtyRect = QRect();
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 190, as _ZN22QSGSoftwarePainterNode14setTextureSizeERK5QSize
-inline void QSGSoftwarePainterNode::setTextureSize(const QSize &size)
-{
-    if (size == m_textureSize)
-        return;
-
-    m_textureSize = size;
-    m_dirtyGeometry = true;
 }
 //  -----------------------------------------------------------------------
 

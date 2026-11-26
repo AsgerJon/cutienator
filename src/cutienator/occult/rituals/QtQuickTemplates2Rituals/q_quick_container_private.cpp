@@ -6,9 +6,13 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
 #if QT_CONFIG(quicktemplates2_container)
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
+#if QT_CONFIG(quicktemplates2_container)
 #include <QtQuickTemplates2/QtQuickTemplates2>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickcontainer_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickcontainer_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qeventpoint.h>
@@ -900,6 +904,76 @@ void ritual_ZN22QQuickContainerPrivate13itemDestroyedEP10QQuickItem(
     QQuickContainerPrivate *self,
     QQuickItem *item) {
   self->itemDestroyed(item);
+}
+
+//  void QQuickContainerPrivate::contentData_append(QQmlListProperty<QObject>
+//      *prop, QObject *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickContainerPrivate18contentData_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *prop,
+    QObject *obj) {
+  QQuickContainerPrivate::contentData_append(prop, obj);
+}
+
+//  qsizetype
+//      QQuickContainerPrivate::contentData_count(QQmlListProperty<QObject>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN22QQuickContainerPrivate17contentData_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  return QQuickContainerPrivate::contentData_count(prop);
+}
+
+//  QObject *QQuickContainerPrivate::contentData_at(QQmlListProperty<QObject>
+//      *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN22QQuickContainerPrivate14contentData_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *prop,
+    qsizetype index) {
+  return QQuickContainerPrivate::contentData_at(prop, index);
+}
+
+//  void QQuickContainerPrivate::contentData_clear(QQmlListProperty<QObject>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickContainerPrivate17contentData_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  QQuickContainerPrivate::contentData_clear(prop);
+}
+
+//  void QQuickContainerPrivate::contentChildren_append(QQmlListProperty<QQui
+//      ckItem> *prop, QQuickItem *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickContainerPrivate22contentChildren_appendEP16QQmlListPropertyI10QQuickItemEPS1_(
+    QQmlListProperty<QQuickItem> *prop,
+    QQuickItem *obj) {
+  QQuickContainerPrivate::contentChildren_append(prop, obj);
+}
+
+//  qsizetype QQuickContainerPrivate::contentChildren_count(QQmlListProperty<
+//      QQuickItem> *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN22QQuickContainerPrivate21contentChildren_countEP16QQmlListPropertyI10QQuickItemE(
+    QQmlListProperty<QQuickItem> *prop) {
+  return QQuickContainerPrivate::contentChildren_count(prop);
+}
+
+//  QQuickItem
+//      *QQuickContainerPrivate::contentChildren_at(QQmlListProperty<QQuickIt
+//      em> *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickItem *ritual_ZN22QQuickContainerPrivate18contentChildren_atEP16QQmlListPropertyI10QQuickItemEx(
+    QQmlListProperty<QQuickItem> *prop,
+    qsizetype index) {
+  return QQuickContainerPrivate::contentChildren_at(prop, index);
+}
+
+//  void QQuickContainerPrivate::contentChildren_clear(QQmlListProperty<QQuic
+//      kItem> *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickContainerPrivate21contentChildren_clearEP16QQmlListPropertyI10QQuickItemE(
+    QQmlListProperty<QQuickItem> *prop) {
+  QQuickContainerPrivate::contentChildren_clear(prop);
 }
 
 //  void QQuickContainerPrivate::updateContentWidth()

@@ -193,6 +193,44 @@ inline void QAbstract3DSeriesPrivate::setName(const QString &name)
     m_changeTracker.nameChanged = true;
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 811, as _ZN24QAbstract3DSeriesPrivate12resetToThemeERK8Q3DThemeib
+inline void QAbstract3DSeriesPrivate::resetToTheme(const Q3DTheme &theme, int seriesIndex, bool force)
+{
+    int themeIndex = seriesIndex;
+    if (force || !m_themeTracker.colorStyleOverride) {
+        q_ptr->setColorStyle(theme.colorStyle());
+        m_themeTracker.colorStyleOverride = false;
+    }
+    if (force || !m_themeTracker.baseColorOverride) {
+        if (theme.baseColors().size() <= seriesIndex)
+            themeIndex = seriesIndex % theme.baseColors().size();
+        q_ptr->setBaseColor(theme.baseColors().at(themeIndex));
+        m_themeTracker.baseColorOverride = false;
+    }
+    if (force || !m_themeTracker.baseGradientOverride) {
+        if (theme.baseGradients().size() <= seriesIndex)
+            themeIndex = seriesIndex % theme.baseGradients().size();
+        q_ptr->setBaseGradient(theme.baseGradients().at(themeIndex));
+        m_themeTracker.baseGradientOverride = false;
+    }
+    if (force || !m_themeTracker.singleHighlightColorOverride) {
+        q_ptr->setSingleHighlightColor(theme.singleHighlightColor());
+        m_themeTracker.singleHighlightColorOverride = false;
+    }
+    if (force || !m_themeTracker.singleHighlightGradientOverride) {
+        q_ptr->setSingleHighlightGradient(theme.singleHighlightGradient());
+        m_themeTracker.singleHighlightGradientOverride = false;
+    }
+    if (force || !m_themeTracker.multiHighlightColorOverride) {
+        q_ptr->setMultiHighlightColor(theme.multiHighlightColor());
+        m_themeTracker.multiHighlightColorOverride = false;
+    }
+    if (force || !m_themeTracker.multiHighlightGradientOverride) {
+        q_ptr->setMultiHighlightGradient(theme.multiHighlightGradient());
+        m_themeTracker.multiHighlightGradientOverride = false;
+    }
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 848, as _ZN24QAbstract3DSeriesPrivate9itemLabelEv
 inline QString QAbstract3DSeriesPrivate::itemLabel()
 {
@@ -469,6 +507,25 @@ const QMetaObject *ritual_ZNK24QAbstract3DSeriesPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstract3DSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QAbstract3DSeriesPrivate11qt_metacastEPKc(
+    QAbstract3DSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstract3DSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QAbstract3DSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstract3DSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QAbstract3DSeriesPrivateD1Ev(
@@ -634,6 +691,17 @@ void ritual_ZN24QAbstract3DSeriesPrivate7setNameERK7QString(
     QAbstract3DSeriesPrivate *self,
     const QString *name) {
   self->setName(*name);
+}
+
+//  void QAbstract3DSeriesPrivate::resetToTheme(const Q3DTheme &theme, int
+//      seriesIndex, bool force)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QAbstract3DSeriesPrivate12resetToThemeERK8Q3DThemeib(
+    QAbstract3DSeriesPrivate *self,
+    const Q3DTheme *theme,
+    int seriesIndex,
+    bool force) {
+  self->resetToTheme(*theme, seriesIndex, force);
 }
 
 //  QString QAbstract3DSeriesPrivate::itemLabel()

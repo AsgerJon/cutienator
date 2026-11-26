@@ -196,6 +196,24 @@ const QMetaObject *ritual_ZNK13QCategoryAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCategoryAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QCategoryAxis11qt_metacastEPKc(
+    QCategoryAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCategoryAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QCategoryAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCategoryAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCategoryAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QCategoryAxis2trEPKcS1_i(
@@ -215,6 +233,14 @@ QCategoryAxis *ritual_ZN13QCategoryAxisC1EP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QCategoryAxisD1Ev(QCategoryAxis *self) {
   delete self;
+}
+
+//  QCategoryAxis::QCategoryAxis(QCategoryAxisPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCategoryAxis *ritual_ZN13QCategoryAxisC1ER20QCategoryAxisPrivateP7QObject(
+    QCategoryAxisPrivate *d,
+    QObject *parent) {
+  return new CuteQCategoryAxis(*d, parent);
 }
 
 //  AxisType QCategoryAxis::type() const
@@ -302,6 +328,22 @@ void ritual_ZN13QCategoryAxis17setLabelsPositionENS_18AxisLabelsPositionE(
     QCategoryAxis *self,
     QCategoryAxis::AxisLabelsPosition position) {
   self->setLabelsPosition(position);
+}
+
+//  void QCategoryAxis::categoriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCategoryAxis17categoriesChangedEv(QCategoryAxis *self) {
+  self->categoriesChanged();
+}
+
+//  void
+//      QCategoryAxis::labelsPositionChanged(QCategoryAxis::AxisLabelsPositio
+//      n position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCategoryAxis21labelsPositionChangedENS_18AxisLabelsPositionE(
+    QCategoryAxis *self,
+    QCategoryAxis::AxisLabelsPosition position) {
+  self->labelsPositionChanged(position);
 }
 
 //  QCategoryAxisPrivate *QCategoryAxis::d_func()

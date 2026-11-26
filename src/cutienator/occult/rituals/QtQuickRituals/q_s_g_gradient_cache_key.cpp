@@ -7,6 +7,15 @@
 #include <QtQuick/6.12.0/QtQuick/private/qsggradientcache_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QSGGradientCacheKey::QSGGradientCacheKey(const QGradientStops &stops,
+//      QGradient::Spread spread)
+extern "C" Q_DECL_EXPORT
+QSGGradientCacheKey *ritual_ZN19QSGGradientCacheKeyC1ERK5QListISt4pairId6QColorEEN9QGradient6SpreadE(
+    const QGradientStops *stops,
+    QGradient::Spread spread) {
+  return new QSGGradientCacheKey(*stops, spread);
+}
+
 //  bool QSGGradientCacheKey::operator==(const QSGGradientCacheKey &other)
 //      const
 extern "C" Q_DECL_EXPORT

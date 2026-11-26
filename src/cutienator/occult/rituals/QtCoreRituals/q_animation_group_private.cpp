@@ -4,18 +4,20 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qanimationgroup.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/6.12.0/QtCore/private/qabstractanimation_p.h>
 #include <QtCore/6.12.0/QtCore/private/qanimationgroup_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qanimationgroup.h"
+#include <QtCore/qanimationgroup.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qcoreevent.h>
-#include "qanimationgroup_p.h"
+#include <QtCore/private/qanimationgroup_p.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -175,16 +177,6 @@ void ritual_ZN22QAnimationGroupPrivate28connectUncontrolledAnimationEP18QAbstrac
   self->connectUncontrolledAnimation(anim);
 }
 
-//  a Python function taken by a CuteQAnimationGroupPrivate, for the function
-//      named by the key
-extern "C" Q_DECL_EXPORT
-bool ritual_take_QAnimationGroupPrivate(
-    QAnimationGroupPrivate *self,
-    const char *key,
-    void *call) {
-  return static_cast<CuteQAnimationGroupPrivate *>(self)->take(key, call);
-}
-
 //  void QAnimationGroupPrivate::animationInsertedAt(qsizetype a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN22QAnimationGroupPrivate19animationInsertedAtEx(
@@ -203,4 +195,5 @@ void ritual_own_ZN22QAnimationGroupPrivate16animationRemovedExP18QAbstractAnimat
   self->QAnimationGroupPrivate::animationRemoved(a0, a1);
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

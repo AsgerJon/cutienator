@@ -26,6 +26,44 @@ QSSGMeshBVHNode::Handle *ritual_ZN11QSSGMeshBVH9newHandleEv(
   return new QSSGMeshBVHNode::Handle(self->newHandle());
 }
 
+//  const QSSGMeshBVHTriangles &QSSGMeshBVH::triangles() const
+extern "C" Q_DECL_EXPORT
+const QSSGMeshBVHTriangles *ritual_ZNK11QSSGMeshBVH9trianglesEv(
+    const QSSGMeshBVH *self) {
+  return &(self->triangles());
+}
+
+//  const QSSGMeshBVHRoots &QSSGMeshBVH::roots() const
+extern "C" Q_DECL_EXPORT
+const QSSGMeshBVHRoots *ritual_ZNK11QSSGMeshBVH5rootsEv(
+    const QSSGMeshBVH *self) {
+  return &(self->roots());
+}
+
+//  const QSSGMeshBVHNodes &QSSGMeshBVH::nodes() const
+extern "C" Q_DECL_EXPORT
+const QSSGMeshBVHNodes *ritual_ZNK11QSSGMeshBVH5nodesEv(
+    const QSSGMeshBVH *self) {
+  return &(self->nodes());
+}
+
+//  size_t QSSGMeshBVH::getNodeIndex(size_t idx, FallbackIndex op) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK11QSSGMeshBVH12getNodeIndexEmN15QSSGMeshBVHNode13FallbackIndexE(
+    const QSSGMeshBVH *self,
+    size_t idx,
+    QSSGMeshBVH::FallbackIndex op) {
+  return self->getNodeIndex(idx, op);
+}
+
+//  QSSGMeshBVHNode &QSSGMeshBVH::mutableValue(qsizetype idx)
+extern "C" Q_DECL_EXPORT
+QSSGMeshBVHNode *ritual_ZN11QSSGMeshBVH12mutableValueEx(
+    QSSGMeshBVH *self,
+    qsizetype idx) {
+  return &(self->mutableValue(idx));
+}
+
 //  const QSSGMeshBVHNode &QSSGMeshBVH::value(qsizetype idx) const
 extern "C" Q_DECL_EXPORT
 QSSGMeshBVHNode *ritual_ZNK11QSSGMeshBVH5valueEx(

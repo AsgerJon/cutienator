@@ -36,6 +36,25 @@ inline QGles2CommandBuffer::QGles2CommandBuffer(QRhiImplementation *rhi)
 {
     resetState();
 }
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7201, as _ZN19QGles2CommandBufferD1Ev
+inline QGles2CommandBuffer::~QGles2CommandBuffer()
+{
+    destroy();
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7206, as _ZN19QGles2CommandBuffer7destroyEv
+inline void QGles2CommandBuffer::destroy()
+{
+    // nothing to do here
+}
 //  -----------------------------------------------------------------------
+
+//  QRhiGles2::OffscreenFrame::OffscreenFrame(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QRhiGles2::OffscreenFrame *ritual_ZN9QRhiGles214OffscreenFrameC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new QRhiGles2::OffscreenFrame(rhi);
+}
 
 #endif  // QT_CONFIG(opengl)

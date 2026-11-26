@@ -8,6 +8,12 @@
     "ritual_ZNK26QQuick3DOrthographicCamera10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuick3DOrthographicCamera11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQuick3DOrthographicCamera2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -35,6 +41,18 @@
     ],
     "ritual_ZN26QQuick3DOrthographicCamera24setVerticalMagnificationEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera15clipNearChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera14clipFarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera30horizontalMagnificationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera28verticalMagnificationChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN26QQuick3DOrthographicCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

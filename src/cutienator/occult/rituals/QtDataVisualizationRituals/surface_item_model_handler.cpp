@@ -651,10 +651,40 @@ const QMetaObject *ritual_ZNK23SurfaceItemModelHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *SurfaceItemModelHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23SurfaceItemModelHandler11qt_metacastEPKc(
+    SurfaceItemModelHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int SurfaceItemModelHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23SurfaceItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    SurfaceItemModelHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  SurfaceItemModelHandler::~SurfaceItemModelHandler()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23SurfaceItemModelHandlerD1Ev(SurfaceItemModelHandler *self) {
   delete self;
+}
+
+//  void SurfaceItemModelHandler::handleDataChanged(const QModelIndex
+//      &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23SurfaceItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE(
+    SurfaceItemModelHandler *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->handleDataChanged(*topLeft, *bottomRight, *roles);
 }
 
 //  void SurfaceItemModelHandler::resolveModel()

@@ -3,6 +3,7 @@
 #include <QtCore/qglobal.h>
 #if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED) && !defined(Q_QDOC)
 #include <QtCore/qoperatingsystemversion.h>
+#include <QtCore/QOperatingSystemVersion>
 
 //  QOperatingSystemVersion::QOperatingSystemVersion(const
 //      QOperatingSystemVersionBase &osversion)
@@ -40,6 +41,15 @@ extern "C" Q_DECL_EXPORT
 QOperatingSystemVersion::OSType ritual_ZNK23QOperatingSystemVersion4typeEv(
     const QOperatingSystemVersion *self) {
   return self->type();
+}
+
+//  bool QOperatingSystemVersion::isAnyOfType(std::initializer_list<OSType>
+//      types) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK23QOperatingSystemVersion11isAnyOfTypeESt16initializer_listINS_6OSTypeEE(
+    const QOperatingSystemVersion *self,
+    const std::initializer_list<QOperatingSystemVersion::OSType> *types) {
+  return self->isAnyOfType(*types);
 }
 
 //  QOperatingSystemVersion::QOperatingSystemVersion()

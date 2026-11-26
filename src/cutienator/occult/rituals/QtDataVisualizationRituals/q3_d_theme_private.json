@@ -6,12 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK15Q3DThemePrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN15Q3DThemePrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15Q3DThemePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15Q3DThemePrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN15Q3DThemePrivateC1EP8Q3DTheme": ["address", "address"],
     "ritual_ZN15Q3DThemePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN15Q3DThemePrivate14resetDirtyBitsEv": ["nothing", "address"],
+    "ritual_ZN15Q3DThemePrivate4syncERS_": ["bool", "address", "address"],
     "ritual_ZN15Q3DThemePrivate14isDefaultThemeEv": ["bool", "address"],
     "ritual_ZN15Q3DThemePrivate15setDefaultThemeEb": [
       "nothing", "address", "bool"
@@ -22,6 +29,7 @@
     "ritual_ZN15Q3DThemePrivate22setForcePredefinedTypeEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN15Q3DThemePrivate10needRenderEv": ["nothing", "address"],
     "ritual_take_Q3DThemePrivate": ["bool", "address", "chars", "address"]
   }
 }

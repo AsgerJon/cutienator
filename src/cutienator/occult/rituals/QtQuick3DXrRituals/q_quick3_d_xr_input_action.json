@@ -8,10 +8,17 @@
     "ritual_ZNK21QQuick3DXrInputAction10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuick3DXrInputAction11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuick3DXrInputAction11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuick3DXrInputActionD1Ev": ["nothing", "address"],
     "ritual_ZNK21QQuick3DXrInputAction5valueEv": ["float", "address"],
     "ritual_ZNK21QQuick3DXrInputAction7pressedEv": ["bool", "address"],
     "ritual_ZNK21QQuick3DXrInputAction10actionNameEv": ["text", "address"],
+    "ritual_ZNK21QQuick3DXrInputAction8actionIdEv": ["address", "address"],
     "ritual_ZN21QQuick3DXrInputAction10classBeginEv": ["nothing", "address"],
     "ritual_ZN21QQuick3DXrInputAction17componentCompleteEv": [
       "nothing", "address"
@@ -19,6 +26,28 @@
     "ritual_ZNK21QQuick3DXrInputAction4handEv": ["int", "address"],
     "ritual_ZNK21QQuick3DXrInputAction7enabledEv": ["bool", "address"],
     "ritual_ZNK21QQuick3DXrInputAction10controllerEv": ["int", "address"],
+    "ritual_ZN21QQuick3DXrInputAction12valueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DXrInputAction14pressedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DXrInputAction9triggeredEv": ["nothing", "address"],
+    "ritual_ZN21QQuick3DXrInputAction17actionNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DXrInputAction15actionIdChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DXrInputAction11handChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DXrInputAction14enabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DXrInputAction17controllerChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_cast_QQuick3DXrInputAction_QQmlParserStatus": [
       "address", "address"
     ],
@@ -26,6 +55,9 @@
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN21QQuick3DXrInputAction10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DXrInputAction__QList_QQuick3DXrInputAction_Action": [
       "nothing", "address"
     ]
   }

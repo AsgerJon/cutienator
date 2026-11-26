@@ -29,7 +29,7 @@ typedef void (*CuteQTreeWidgetItemCall2)(const void *, int, int, const QVariant 
 class CuteQTreeWidgetItem : public QTreeWidgetItem {
 public:
   using QTreeWidgetItem::QTreeWidgetItem;
-  CuteQTreeWidgetItem(const QTreeWidgetItem &other) : QTreeWidgetItem(other) {}
+  CuteQTreeWidgetItem(const QTreeWidgetItem & other) : QTreeWidgetItem(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -543,6 +543,34 @@ bool ritual_ZNK15QTreeWidgetItemltERKS_(
     const QTreeWidgetItem *self,
     const QTreeWidgetItem *other) {
   return self->operator<(*other);
+}
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QTreeWidgetItem::read(QDataStream &in)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem4readER11QDataStream(
+    QTreeWidgetItem *self,
+    QDataStream *in) {
+  self->read(*in);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QTreeWidgetItem::write(QDataStream &out) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QTreeWidgetItem5writeER11QDataStream(
+    const QTreeWidgetItem *self,
+    QDataStream *out) {
+  self->write(*out);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+//  QTreeWidgetItem &QTreeWidgetItem::operator=(const QTreeWidgetItem &other)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemaSERKS_(
+    QTreeWidgetItem *self,
+    const QTreeWidgetItem *other) {
+  return &(self->operator=(*other));
 }
 
 //  QTreeWidgetItem *QTreeWidgetItem::parent() const

@@ -30,7 +30,8 @@ typedef void * (*CuteQPixmapCall5)(const void *, int *);
 class CuteQPixmap : public QPixmap {
 public:
   using QPixmap::QPixmap;
-  CuteQPixmap(const QPixmap &other) : QPixmap(other) {}
+  CuteQPixmap(const QPixmap & other) : QPixmap(other) {}
+  CuteQPixmap(QPixmap && other) : QPixmap(std::move(other)) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -165,16 +166,48 @@ QPixmap *ritual_ZN7QPixmapC1ERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE(
       QFlags<Qt::ImageConversionFlag>::fromInt(flags));
 }
 
+#if !defined(QT_NO_IMAGEFORMAT_XPM)
+//  QPixmap::QPixmap(const char *const *xpm)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN7QPixmapC1EPKPKc(const char *const *xpm) {
+  return new CuteQPixmap(xpm);
+}
+#endif  // !defined(QT_NO_IMAGEFORMAT_XPM)
+
 //  QPixmap::QPixmap(const QPixmap &a0)
 extern "C" Q_DECL_EXPORT
 QPixmap *ritual_ZN7QPixmapC1ERKS_(const QPixmap *a0) {
   return new CuteQPixmap(*a0);
 }
 
+//  QPixmap::QPixmap(QPixmap &&other)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN7QPixmapC1EOS_(QPixmap *other) {
+  return new CuteQPixmap(std::move(*other));
+}
+
 //  QPixmap::~QPixmap()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QPixmapD1Ev(QPixmap *self) {
   delete self;
+}
+
+//  QPixmap &QPixmap::operator=(const QPixmap &a0)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN7QPixmapaSERKS_(QPixmap *self, const QPixmap *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QPixmap &QPixmap::operator=(QPixmap &&other)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN7QPixmapaSEOS_(QPixmap *self, QPixmap *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPixmap::swap(QPixmap &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QPixmap4swapERS_(QPixmap *self, QPixmap *other) {
+  self->swap(*other);
 }
 
 //  QVariant QPixmap::operator QVariant() const
@@ -393,6 +426,18 @@ QPixmap *ritual_ZN7QPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19ImageCo
           QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
 }
 
+//  QPixmap QPixmap::fromImage(QImage &&image, Qt::ImageConversionFlags
+//      flags)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN7QPixmap9fromImageEO6QImage6QFlagsIN2Qt19ImageConversionFlagEE(
+    QImage *image,
+    int flags) {
+  return new QPixmap(
+      QPixmap::fromImage(
+          std::move(*image),
+          QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
+}
+
 //  bool QPixmap::load(const QString &fileName, const char *format,
 //      Qt::ImageConversionFlags flags)
 extern "C" Q_DECL_EXPORT
@@ -403,6 +448,22 @@ bool ritual_ZN7QPixmap4loadERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE(
     int flags) {
   return self->load(
       *fileName,
+      format,
+      QFlags<Qt::ImageConversionFlag>::fromInt(flags));
+}
+
+//  bool QPixmap::loadFromData(const uchar *buf, uint len, const char
+//      *format, Qt::ImageConversionFlags flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QPixmap12loadFromDataEPKhjPKc6QFlagsIN2Qt19ImageConversionFlagEE(
+    QPixmap *self,
+    const uchar *buf,
+    uint len,
+    const char *format,
+    int flags) {
+  return self->loadFromData(
+      buf,
+      len,
       format,
       QFlags<Qt::ImageConversionFlag>::fromInt(flags));
 }
@@ -544,6 +605,18 @@ int ritual_ZNK7QPixmap6metricEN12QPaintDevice17PaintDeviceMetricE(
   return self->metric(a0);
 }
 
+//  QPixmap QPixmap::fromImageInPlace(QImage &image, Qt::ImageConversionFlags
+//      flags)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN7QPixmap16fromImageInPlaceER6QImage6QFlagsIN2Qt19ImageConversionFlagEE(
+    QImage *image,
+    int flags) {
+  return new QPixmap(
+      QPixmap::fromImageInPlace(
+          *image,
+          QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
+}
+
 //  bool QPixmap::doImageIO(QImageWriter *io, int quality) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK7QPixmap9doImageIOEP12QImageWriteri(
@@ -565,10 +638,26 @@ void ritual_ZN7QPixmap6doInitEiii(QPixmap *self, int a0, int a1, int a2) {
   self->doInit(a0, a1, a2);
 }
 
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QPixmap &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR7QPixmap(
+    QDataStream *a0,
+    QPixmap *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 //  QPlatformPixmap *QPixmap::handle() const
 extern "C" Q_DECL_EXPORT
 QPlatformPixmap *ritual_ZNK7QPixmap6handleEv(const QPixmap *self) {
   return self->handle();
+}
+
+//  DataPtr &QPixmap::data_ptr()
+extern "C" Q_DECL_EXPORT
+QPixmap::DataPtr *ritual_ZN7QPixmap8data_ptrEv(QPixmap *self) {
+  return &(self->data_ptr());
 }
 
 //  a Python function taken by a CuteQPixmap, for the function named by the

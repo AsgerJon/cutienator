@@ -10,6 +10,7 @@
     ],
     "ritual_ZNK29QPAEventDispatcherGlibPrivate6q_funcEv": [
       "address", "address"
-    ]
+    ],
+    "ritual_ZN29QPAEventDispatcherGlibPrivateD1Ev": ["nothing", "address"]
   }
 }

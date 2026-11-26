@@ -7,9 +7,13 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
 #if QT_CONFIG(quick_tableview)
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
+#if QT_CONFIG(quick_tableview)
 #include <QtQuickTemplates2/QtQuickTemplates2>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickselectionrectangle_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickselectionrectangle_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qpoint.h>

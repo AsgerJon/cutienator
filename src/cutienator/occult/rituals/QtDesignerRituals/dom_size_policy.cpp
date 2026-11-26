@@ -20,6 +20,24 @@ void ritual_ZN13DomSizePolicyD1Ev(DomSizePolicy *self) {
   delete self;
 }
 
+//  void DomSizePolicy::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13DomSizePolicy4readER16QXmlStreamReader(
+    DomSizePolicy *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomSizePolicy::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13DomSizePolicy5writeER16QXmlStreamWriterRK7QString(
+    const DomSizePolicy *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomSizePolicy::hasAttributeHSizeType() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13DomSizePolicy21hasAttributeHSizeTypeEv(

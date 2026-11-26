@@ -7,6 +7,7 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/connectionedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qpoint.h>
+#include <QtCore/qrect.h>
 #include <QtGui/qregion.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qpixmap.h>
@@ -23,7 +24,7 @@ typedef void (*Cuteqdesigner_internal_ConnectionCall4)(const void *, int *);
 class Cuteqdesigner_internal_Connection : public qdesigner_internal::Connection {
 public:
   using qdesigner_internal::Connection::Connection;
-  Cuteqdesigner_internal_Connection(const qdesigner_internal::Connection &other) : qdesigner_internal::Connection(other) {}
+  Cuteqdesigner_internal_Connection(const qdesigner_internal::Connection & other) : qdesigner_internal::Connection(other) {}
   void *taken[5] = {};
 
   bool take(const char *key, void *call) {
@@ -106,6 +107,23 @@ public:
   }
 };
 
+//  qdesigner_internal::Connection::Connection(ConnectionEdit *edit)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::Connection *ritual_ZN18qdesigner_internal10ConnectionC1EPNS_14ConnectionEditE(
+    qdesigner_internal::ConnectionEdit *edit) {
+  return new Cuteqdesigner_internal_Connection(edit);
+}
+
+//  qdesigner_internal::Connection::Connection(ConnectionEdit *edit, QObject
+//      *source, QObject *target)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::Connection *ritual_ZN18qdesigner_internal10ConnectionC1EPNS_14ConnectionEditEP7QObjectS4_(
+    qdesigner_internal::ConnectionEdit *edit,
+    QObject *source,
+    QObject *target) {
+  return new Cuteqdesigner_internal_Connection(edit, source, target);
+}
+
 //  qdesigner_internal::Connection::~Connection()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18qdesigner_internal10ConnectionD1Ev(
@@ -131,6 +149,24 @@ QWidget *ritual_ZNK18qdesigner_internal10Connection6widgetENS_7CETypes8EndPoint4
   return self->widget(type);
 }
 
+//  QPoint qdesigner_internal::Connection::endPointPos(EndPoint::Type type)
+//      const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZNK18qdesigner_internal10Connection11endPointPosENS_7CETypes8EndPoint4TypeE(
+    const qdesigner_internal::Connection *self,
+    qdesigner_internal::CETypes::EndPoint::Type type) {
+  return new QPoint(self->endPointPos(type));
+}
+
+//  QRect qdesigner_internal::Connection::endPointRect(EndPoint::Type a0)
+//      const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK18qdesigner_internal10Connection12endPointRectENS_7CETypes8EndPoint4TypeE(
+    const qdesigner_internal::Connection *self,
+    qdesigner_internal::CETypes::EndPoint::Type a0) {
+  return new QRect(self->endPointRect(a0));
+}
+
 //  void qdesigner_internal::Connection::setEndPoint(EndPoint::Type type,
 //      QObject *w, const QPoint &pos)
 extern "C" Q_DECL_EXPORT
@@ -142,6 +178,13 @@ void ritual_ZN18qdesigner_internal10Connection11setEndPointENS_7CETypes8EndPoint
   self->setEndPoint(type, w, *pos);
 }
 
+//  bool qdesigner_internal::Connection::isVisible() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal10Connection9isVisibleEv(
+    const qdesigner_internal::Connection *self) {
+  return self->isVisible();
+}
+
 //  void qdesigner_internal::Connection::updateVisibility()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18qdesigner_internal10Connection16updateVisibilityEv(
@@ -149,11 +192,27 @@ void ritual_ZN18qdesigner_internal10Connection16updateVisibilityEv(
   self->updateVisibility();
 }
 
+//  void qdesigner_internal::Connection::setVisible(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10Connection10setVisibleEb(
+    qdesigner_internal::Connection *self,
+    bool b) {
+  self->setVisible(b);
+}
+
 //  QRegion qdesigner_internal::Connection::region() const
 extern "C" Q_DECL_EXPORT
 QRegion *ritual_ZNK18qdesigner_internal10Connection6regionEv(
     const qdesigner_internal::Connection *self) {
   return new QRegion(self->region());
+}
+
+//  bool qdesigner_internal::Connection::contains(const QPoint &pos) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal10Connection8containsERK6QPoint(
+    const qdesigner_internal::Connection *self,
+    const QPoint *pos) {
+  return self->contains(*pos);
 }
 
 //  void qdesigner_internal::Connection::paint(QPainter *p) const
@@ -164,12 +223,46 @@ void ritual_ZNK18qdesigner_internal10Connection5paintEP8QPainter(
   self->paint(p);
 }
 
+//  void qdesigner_internal::Connection::update(bool update_widgets) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal10Connection6updateEb(
+    const qdesigner_internal::Connection *self,
+    bool update_widgets) {
+  self->update(update_widgets);
+}
+
+//  void qdesigner_internal::Connection::checkWidgets()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10Connection12checkWidgetsEv(
+    qdesigner_internal::Connection *self) {
+  self->checkWidgets();
+}
+
 //  QString qdesigner_internal::Connection::label(EndPoint::Type type) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK18qdesigner_internal10Connection5labelENS_7CETypes8EndPoint4TypeE(
     const qdesigner_internal::Connection *self,
     qdesigner_internal::CETypes::EndPoint::Type type) {
   return new QString(self->label(type));
+}
+
+//  void qdesigner_internal::Connection::setLabel(EndPoint::Type type, const
+//      QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10Connection8setLabelENS_7CETypes8EndPoint4TypeERK7QString(
+    qdesigner_internal::Connection *self,
+    qdesigner_internal::CETypes::EndPoint::Type type,
+    const QString *text) {
+  self->setLabel(type, *text);
+}
+
+//  QRect qdesigner_internal::Connection::labelRect(EndPoint::Type type)
+//      const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK18qdesigner_internal10Connection9labelRectENS_7CETypes8EndPoint4TypeE(
+    const qdesigner_internal::Connection *self,
+    qdesigner_internal::CETypes::EndPoint::Type type) {
+  return new QRect(self->labelRect(type));
 }
 
 //  QPixmap qdesigner_internal::Connection::labelPixmap(EndPoint::Type type)
@@ -200,6 +293,71 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18qdesigner_internal10Connection7removedEv(
     qdesigner_internal::Connection *self) {
   self->removed();
+}
+
+//  void qdesigner_internal::Connection::setSource(QObject *source, const
+//      QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10Connection9setSourceEP7QObjectRK6QPoint(
+    qdesigner_internal::Connection *self,
+    QObject *source,
+    const QPoint *pos) {
+  self->setSource(source, *pos);
+}
+
+//  void qdesigner_internal::Connection::setTarget(QObject *target, const
+//      QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10Connection9setTargetEP7QObjectRK6QPoint(
+    qdesigner_internal::Connection *self,
+    QObject *target,
+    const QPoint *pos) {
+  self->setTarget(target, *pos);
+}
+
+//  void qdesigner_internal::Connection::updateKneeList()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10Connection14updateKneeListEv(
+    qdesigner_internal::Connection *self) {
+  self->updateKneeList();
+}
+
+//  void qdesigner_internal::Connection::trimLine()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10Connection8trimLineEv(
+    qdesigner_internal::Connection *self) {
+  self->trimLine();
+}
+
+//  void qdesigner_internal::Connection::updatePixmap(EndPoint::Type type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10Connection12updatePixmapENS_7CETypes8EndPoint4TypeE(
+    qdesigner_internal::Connection *self,
+    qdesigner_internal::CETypes::EndPoint::Type type) {
+  self->updatePixmap(type);
+}
+
+//  LineDir qdesigner_internal::Connection::labelDir(EndPoint::Type type)
+//      const
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::CETypes::LineDir ritual_ZNK18qdesigner_internal10Connection8labelDirENS_7CETypes8EndPoint4TypeE(
+    const qdesigner_internal::Connection *self,
+    qdesigner_internal::CETypes::EndPoint::Type type) {
+  return self->labelDir(type);
+}
+
+//  bool qdesigner_internal::Connection::ground() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal10Connection6groundEv(
+    const qdesigner_internal::Connection *self) {
+  return self->ground();
+}
+
+//  QRect qdesigner_internal::Connection::groundRect() const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK18qdesigner_internal10Connection10groundRectEv(
+    const qdesigner_internal::Connection *self) {
+  return new QRect(self->groundRect());
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_Connection, for the

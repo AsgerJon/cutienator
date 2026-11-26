@@ -54,6 +54,25 @@ void ritual_ZN30QMultiObjectRegistryRefPrivate20handleInitialObjectsEv(
   self->handleInitialObjects();
 }
 
+//  qsizetype
+//      QMultiObjectRegistryRefPrivate::objectsCount(QQmlListProperty<QObject
+//      > *l)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN30QMultiObjectRegistryRefPrivate12objectsCountEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *l) {
+  return QMultiObjectRegistryRefPrivate::objectsCount(l);
+}
+
+//  QObject
+//      *QMultiObjectRegistryRefPrivate::objectsAt(QQmlListProperty<QObject>
+//      *l, qsizetype i)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN30QMultiObjectRegistryRefPrivate9objectsAtEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *l,
+    qsizetype i) {
+  return QMultiObjectRegistryRefPrivate::objectsAt(l, i);
+}
+
 //  void QMultiObjectRegistryRefPrivate::handleObjectAdded(QObject *obj)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN30QMultiObjectRegistryRefPrivate17handleObjectAddedEP7QObject(

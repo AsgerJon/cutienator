@@ -183,6 +183,24 @@ const QMetaObject *ritual_ZNK12QBar3DSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBar3DSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QBar3DSeries11qt_metacastEPKc(
+    QBar3DSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBar3DSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QBar3DSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBar3DSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBar3DSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QBar3DSeries2trEPKcS1_i(
@@ -274,6 +292,38 @@ void ritual_ZN12QBar3DSeries12setRowColorsERK5QListI6QColorE(
     QBar3DSeries *self,
     const QList<QColor> *colors) {
   self->setRowColors(*colors);
+}
+
+//  void QBar3DSeries::dataProxyChanged(QBarDataProxy *proxy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries16dataProxyChangedEP13QBarDataProxy(
+    QBar3DSeries *self,
+    QBarDataProxy *proxy) {
+  self->dataProxyChanged(proxy);
+}
+
+//  void QBar3DSeries::selectedBarChanged(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries18selectedBarChangedERK6QPoint(
+    QBar3DSeries *self,
+    const QPoint *position) {
+  self->selectedBarChanged(*position);
+}
+
+//  void QBar3DSeries::meshAngleChanged(float angle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries16meshAngleChangedEf(
+    QBar3DSeries *self,
+    float angle) {
+  self->meshAngleChanged(angle);
+}
+
+//  void QBar3DSeries::rowColorsChanged(const QList<QColor> &rowcolors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries16rowColorsChangedERK5QListI6QColorE(
+    QBar3DSeries *self,
+    const QList<QColor> *rowcolors) {
+  self->rowColorsChanged(*rowcolors);
 }
 
 //  QBar3DSeriesPrivate *QBar3DSeries::dptr()

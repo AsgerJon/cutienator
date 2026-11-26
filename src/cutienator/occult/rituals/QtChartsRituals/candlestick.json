@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11Candlestick10metaObjectEv": ["address", "address"],
+    "ritual_ZN11Candlestick11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11Candlestick11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11Candlestick2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11CandlestickC1EP15QCandlestickSetP14AbstractDomainP15QGraphicsObject": [
       "address", "address", "address", "address"
@@ -65,6 +71,21 @@
     "ritual_ZNK11Candlestick12boundingRectEv": ["address", "address"],
     "ritual_ZN11Candlestick5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11Candlestick7clickedEP15QCandlestickSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick7hoveredEbP15QCandlestickSet": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN11Candlestick7pressedEP15QCandlestickSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick8releasedEP15QCandlestickSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick13doubleClickedEP15QCandlestickSet": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN11Candlestick14updateGeometryEP14AbstractDomain": [
       "nothing", "address", "address"

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QCoapClient10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QCoapClient11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QCoapClient11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QCoapClient2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QCoapClientC1EN6QtCoap12SecurityModeEP7QObject": [
       "address", "unsigned char", "address"
@@ -85,6 +91,18 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK11QCoapClient13bindInterfaceEv": ["address", "address"],
+    "ritual_ZN11QCoapClient8finishedEP10QCoapReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient27responseToMulticastReceivedEP10QCoapReplyRK12QCoapMessageRK12QHostAddress": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient5errorEP10QCoapReplyN6QtCoap5ErrorE": [
+      "nothing", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN11QCoapClient20bindInterfaceChangedERK17QNetworkInterface": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QCoapClient6d_funcEv": ["address", "address"],
     "ritual_ZNK11QCoapClient6d_funcEv": ["address", "address"],
     "ritual_take_QCoapClient": ["bool", "address", "chars", "address"]

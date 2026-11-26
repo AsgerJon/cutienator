@@ -7,7 +7,15 @@
   "rows": {
     "ritual_ZN18QPlaceMatchRequestC1Ev": ["address"],
     "ritual_ZN18QPlaceMatchRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN18QPlaceMatchRequestC1EOS_": ["address", "address"],
     "ritual_ZN18QPlaceMatchRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN18QPlaceMatchRequestaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QPlaceMatchRequestaSEOS_": ["address", "address", "address"],
+    "ritual_ZN18QPlaceMatchRequest4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK18QPlaceMatchRequestS1_": ["bool", "address", "address"],
     "ritual_ZneRK18QPlaceMatchRequestS1_": ["bool", "address", "address"],
     "ritual_ZNK18QPlaceMatchRequest6placesEv": ["address", "address"],
@@ -24,6 +32,8 @@
     "ritual_ZN18QPlaceMatchRequest5clearEv": ["nothing", "address"],
     "ritual_ZNK18QPlaceMatchRequest7isEqualERKS_": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_ZN18QPlaceMatchRequest6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QPlaceMatchRequest6d_funcEv": ["address", "address"]
   }
 }

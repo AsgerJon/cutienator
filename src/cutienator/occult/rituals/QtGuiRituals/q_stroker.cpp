@@ -19,19 +19,24 @@ struct OwnQStroker : QStroker {
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQStrokerCall0)(const void *, int *);
-typedef void (*CuteQStrokerCall1)(const void *, int *);
+typedef void (*CuteQStrokerCall1)(const void *, void *, int *);
+typedef void (*CuteQStrokerCall2)(const void *, int *);
 class CuteQStroker : public QStroker {
 public:
   using QStroker::QStroker;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN11QStrokerOps21processCurrentSubpathEv")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QStrokerOps3endEv")) {
+    if (!std::strcmp(key, "_ZN11QStrokerOps5beginEPv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QStrokerOps3endEv")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -48,11 +53,22 @@ public:
     QStroker::processCurrentSubpath();
   }
 
-  //  void QStrokerOps::end()
-  void end() override {
+  //  void QStrokerOps::begin(void *customData)
+  void begin(void *customData) override {
     if (taken[1]) {
       int handled = 0;
       CuteQStrokerCall1 call = reinterpret_cast<CuteQStrokerCall1>(taken[1]);
+      call(this, customData, &handled);
+      if (handled) return;
+    }
+    QStrokerOps::begin(customData);
+  }
+
+  //  void QStrokerOps::end()
+  void end() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQStrokerCall2 call = reinterpret_cast<CuteQStrokerCall2>(taken[2]);
       call(this, &handled);
       if (handled) return;
     }

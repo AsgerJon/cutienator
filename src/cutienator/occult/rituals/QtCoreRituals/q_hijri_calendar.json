@@ -16,6 +16,7 @@
     "ritual_ZNK14QHijriCalendar20localeMonthIndexDataEv": [
       "address", "address"
     ],
+    "ritual_ZNK14QHijriCalendar15localeMonthDataEv": ["address", "address"],
     "ritual_take_QHijriCalendar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QHijriCalendar11daysInMonthEii": [
       "int", "address", "int", "int"
@@ -30,6 +31,9 @@
     "ritual_own_ZNK14QHijriCalendar11isLuniSolarEv": ["bool", "address"],
     "ritual_own_ZNK14QHijriCalendar7isSolarEv": ["bool", "address"],
     "ritual_own_ZNK14QHijriCalendar20localeMonthIndexDataEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK14QHijriCalendar15localeMonthDataEv": [
       "address", "address"
     ]
   }

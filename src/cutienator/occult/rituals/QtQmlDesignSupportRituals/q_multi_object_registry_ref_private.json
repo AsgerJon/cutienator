@@ -23,6 +23,12 @@
     "ritual_ZN30QMultiObjectRegistryRefPrivate20handleInitialObjectsEv": [
       "nothing", "address"
     ],
+    "ritual_ZN30QMultiObjectRegistryRefPrivate12objectsCountEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN30QMultiObjectRegistryRefPrivate9objectsAtEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
     "ritual_own_ZN30QMultiObjectRegistryRefPrivate17handleObjectAddedEP7QObject": [
       "nothing", "address", "address"
     ],

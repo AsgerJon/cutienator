@@ -8,6 +8,30 @@
     "ritual_ZNK18QtBluetoothPrivate30OrgBluezGattDescriptor1Adaptor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate30OrgBluezGattDescriptor1Adaptor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate30OrgBluezGattDescriptor1Adaptor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate30OrgBluezGattDescriptor1AdaptorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate30OrgBluezGattDescriptor1Adaptor14characteristicEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate30OrgBluezGattDescriptor1Adaptor4uUIDEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate30OrgBluezGattDescriptor1Adaptor5valueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate30OrgBluezGattDescriptor1Adaptor9ReadValueERK4QMapI7QString8QVariantERK12QDBusMessage": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate30OrgBluezGattDescriptor1Adaptor10WriteValueERK10QByteArrayRK4QMapI7QString8QVariantERK12QDBusMessage": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgBluezGattDescriptor1Adaptor": [
       "bool", "address", "chars", "address"
     ]

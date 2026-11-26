@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuick3DTextureData10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DTextureData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuick3DTextureData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuick3DTextureData2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -39,6 +45,9 @@
     ],
     "ritual_ZN19QQuick3DTextureData18setHasTransparencyEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuick3DTextureData20textureDataNodeDirtyEv": [
+      "nothing", "address"
     ],
     "ritual_ZN19QQuick3DTextureData17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

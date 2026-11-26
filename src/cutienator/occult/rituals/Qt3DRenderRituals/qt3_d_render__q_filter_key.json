@@ -7,8 +7,32 @@
     "ritual_ZNK10Qt3DRender10QFilterKey10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QFilterKey11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QFilterKey11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QFilterKey2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QFilterKeyC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QFilterKeyD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender10QFilterKey5valueEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender10QFilterKey4nameEv": ["text", "address"],
+    "ritual_ZN10Qt3DRender10QFilterKey8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QFilterKey7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender10QFilterKey11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender10QFilterKey12valueChangedERK8QVariant": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN10Qt3DRender10QFilterKey6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender10QFilterKey6d_funcEv": ["address", "address"],

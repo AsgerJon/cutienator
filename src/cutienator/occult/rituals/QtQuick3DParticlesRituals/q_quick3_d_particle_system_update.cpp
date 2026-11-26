@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK28QQuick3DParticleSystemUpdate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleSystemUpdate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuick3DParticleSystemUpdate11qt_metacastEPKc(
+    QQuick3DParticleSystemUpdate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleSystemUpdate::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuick3DParticleSystemUpdate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleSystemUpdate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuick3DParticleSystemUpdate::setDirty(bool dirty)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QQuick3DParticleSystemUpdate8setDirtyEb(

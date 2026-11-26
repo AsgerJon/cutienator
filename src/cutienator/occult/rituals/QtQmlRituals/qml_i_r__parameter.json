@@ -5,6 +5,12 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN5QmlIR9Parameter19stringToBuiltinTypeERK7QString": [
+      "unsigned int", "text"
+    ],
+    "ritual_ZN5QmlIR9Parameter8initTypeEPN3QV412CompiledData13ParameterTypeERK7QStringiNS3_4FlagE": [
+      "bool", "address", "text", "int", "int"
+    ],
     "ritual_ZN5QmlIR9ParameterD1Ev": ["nothing", "address"]
   }
 }

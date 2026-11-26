@@ -15,6 +15,7 @@
     ],
     "ritual_ZN26QPlaceProposedSearchResult16setSearchRequestERK19QPlaceSearchRequest": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_ZNK26QPlaceProposedSearchResult6d_funcEv": ["address", "address"]
   }
 }

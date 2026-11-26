@@ -21,6 +21,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtWidgets/QTreeWidgetItem>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qtreewidget.h>
 #include <QtWidgets/qheaderview.h>
@@ -45,18 +47,72 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/itemviews/qtreewidget.cpp, line 668, as _ZN10QTreeModel12itemLessThanERKSt4pairIP15QTreeWidgetItemiES5_
-inline bool QTreeModel::itemLessThan(const std::pair<QTreeWidgetItem*,int> &left,
-                              const std::pair<QTreeWidgetItem*,int> &right)
+//  from src/widgets/itemviews/qtreewidget.cpp, line 21, as local:qtreewidget.cpp:QTreeModelLessThan
+class QTreeModelLessThan
 {
-    return *(left.first) < *(right.first);
+public:
+    inline bool operator()(QTreeWidgetItem *i1, QTreeWidgetItem *i2) const
+        { return *i1 < *i2; }
+};
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 28, as local:qtreewidget.cpp:QTreeModelGreaterThan
+class QTreeModelGreaterThan
+{
+public:
+    inline bool operator()(QTreeWidgetItem *i1, QTreeWidgetItem *i2) const
+        { return *i2 < *i1; }
+};
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 404, as _ZN10QTreeModel10insertRowsEiiRK11QModelIndex
+inline bool QTreeModel::insertRows(int row, int count, const QModelIndex &parent)
+{
+    SkipSorting skipSorting(this);
+    if (count < 1 || row < 0 || row > rowCount(parent) || parent.column() > 0)
+        return false;
+
+    beginInsertRows(parent, row, row + count - 1);
+    QTreeWidgetItem *par = item(parent);
+    while (count > 0) {
+        QTreeWidgetItem *item = new QTreeWidgetItem();
+        item->view = view();
+        item->par = par;
+        if (par)
+            par->children.insert(row++, item);
+        else
+            rootItem->children.insert(row++, item);
+        --count;
+    }
+    endInsertRows();
+    return true;
 }
 
-//  from src/widgets/itemviews/qtreewidget.cpp, line 683, as _ZN10QTreeModel15itemGreaterThanERKSt4pairIP15QTreeWidgetItemiES5_
-inline bool QTreeModel::itemGreaterThan(const std::pair<QTreeWidgetItem*,int> &left,
-                                 const std::pair<QTreeWidgetItem*,int> &right)
+//  from src/widgets/itemviews/qtreewidget.cpp, line 467, as _ZN10QTreeModel10removeRowsEiiRK11QModelIndex
+inline bool QTreeModel::removeRows(int row, int count, const QModelIndex &parent) {
+    if (count < 1 || row < 0 || (row + count) > rowCount(parent))
+        return false;
+    QTreeWidgetItem *parentItem = item(parent);
+    // if parentItem is valid, begin/end RemoveRows is handled by takeChild below
+    if (!parentItem)
+        beginRemoveRows(parent, row, row + count - 1);
+    for (int i = row + count - 1; i >= row; --i) {
+        QTreeWidgetItem *child = parentItem ? parentItem->takeChild(i) : rootItem->children.takeAt(i);
+        Q_ASSERT(child);
+        child->view = nullptr;
+        delete child;
+    }
+    if (!parentItem)
+        endRemoveRows();
+    return true;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 875, as _ZN10QTreeModel10timerEventEP11QTimerEvent
+inline void QTreeModel::timerEvent(QTimerEvent *ev)
 {
-    return *(right.first) < *(left.first);
+    if (ev->timerId() == sortPendingTimer.timerId()) {
+        executePendingSort();
+    } else {
+        QAbstractItemModel::timerEvent(ev);
+    }
 }
 
 //  from src/widgets/itemviews/qtreewidgetitemiterator.cpp, line 297, as _ZN30QTreeWidgetItemIteratorPrivate19ensureValidIteratorEPK15QTreeWidgetItem
@@ -110,120 +166,6 @@ inline void QTreeWidgetItemIteratorPrivate::ensureValidIterator(const QTreeWidge
             m_currentIndex--;
         }
     }
-}
-
-//  from src/widgets/itemviews/qtreewidgetitemiterator.cpp, line 231, as _ZNK30QTreeWidgetItemIteratorPrivate11nextSiblingEPK15QTreeWidgetItem
-inline QTreeWidgetItem* QTreeWidgetItemIteratorPrivate::nextSibling(const QTreeWidgetItem* item) const
-{
-    Q_ASSERT(item);
-    QTreeWidgetItem *next = nullptr;
-    if (QTreeWidgetItem *par = item->parent()) {
-        int i = par->indexOfChild(const_cast<QTreeWidgetItem*>(item));
-        next = par->child(i + 1);
-    } else {
-        QTreeWidget *tw = item->treeWidget();
-        int i = tw->indexOfTopLevelItem(const_cast<QTreeWidgetItem*>(item));
-        next = tw->topLevelItem(i + 1);
-    }
-    return next;
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 105, as _ZN10QTreeModelD1Ev
-inline QTreeModel::~QTreeModel()
-{
-    clear();
-    headerItem->view = nullptr;
-    delete headerItem;
-    rootItem->view = nullptr;
-    delete rootItem;
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 120, as _ZN10QTreeModel5clearEv
-inline void QTreeModel::clear()
-{
-    SkipSorting skipSorting(this);
-    beginResetModel();
-    for (int i = 0; i < rootItem->childCount(); ++i) {
-        QTreeWidgetItem *item = rootItem->children.at(i);
-        item->par = nullptr;
-        item->view = nullptr;
-        delete item;
-    }
-    rootItem->children.clear();
-    sortPendingTimer.stop();
-    endResetModel();
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 141, as _ZN10QTreeModel14setColumnCountEi
-inline void QTreeModel::setColumnCount(int columns)
-{
-    SkipSorting skipSorting(this);
-    if (columns < 0)
-        return;
-    if (!headerItem) {
-        headerItem = new QTreeWidgetItem();
-        headerItem->view = view();
-    }
-    int count = columnCount();
-    if (count == columns)
-        return;
-
-    if (columns < count) {
-        beginRemoveColumns(QModelIndex(), columns, count - 1);
-        headerItem->values.resize(columns);
-        endRemoveColumns();
-    } else {
-        beginInsertColumns(QModelIndex(), count, columns - 1);
-        headerItem->values.resize(columns);
-        for (int i = count; i < columns; ++i) {// insert data without emitting the dataChanged signal
-            headerItem->values[i].append(QWidgetItemData(Qt::DisplayRole, QString::number(i + 1)));
-            headerItem->d->display.append(QString::number(i + 1));
-        }
-        endInsertColumns();
-    }
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 177, as _ZNK10QTreeModel4itemERK11QModelIndex
-inline QTreeWidgetItem *QTreeModel::item(const QModelIndex &index) const
-{
-    if (!index.isValid())
-        return nullptr;
-    return static_cast<QTreeWidgetItem*>(index.internalPointer());
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 756, as _ZN10QTreeModel11itemChangedEP15QTreeWidgetItem
-inline void QTreeModel::itemChanged(QTreeWidgetItem *item)
-{
-    if (item->columnCount() <= 0)
-        return;
-    SkipSorting skipSorting(this); //this is kind of wrong, but not doing this would kill performance
-    QModelIndex left = index(item, 0);
-    QModelIndex right = index(item, item->columnCount() - 1);
-    emit dataChanged(left, right);
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 191, as _ZNK10QTreeModel5indexEPK15QTreeWidgetItemi
-inline QModelIndex QTreeModel::index(const QTreeWidgetItem *item, int column) const
-{
-    executePendingSort();
-
-    if (!item || (item == rootItem))
-        return QModelIndex();
-    const QTreeWidgetItem *par = item->parent();
-    QTreeWidgetItem *itm = const_cast<QTreeWidgetItem*>(item);
-    if (!par)
-        par = rootItem;
-    int row;
-    int guess = item->d->rowGuess;
-    if (guess >= 0
-        && par->children.size() > guess
-        && par->children.at(guess) == itm) {
-        row = guess;
-    } else {
-        row = par->children.lastIndexOf(itm);
-        itm->d->rowGuess = row;
-    }
-    return createIndex(row, column, itm);
 }
 
 //  from src/widgets/itemviews/qtreewidget.cpp, line 222, as _ZNK10QTreeModel5indexEiiRK11QModelIndex
@@ -346,32 +288,6 @@ inline bool QTreeModel::clearItemData(const QModelIndex &index)
     return true;
 }
 
-//  from src/widgets/itemviews/qtreewidget.cpp, line 375, as _ZNK10QTreeModel8itemDataERK11QModelIndex
-inline QMap<int, QVariant> QTreeModel::itemData(const QModelIndex &index) const
-{
-    QMap<int, QVariant> roles;
-    QTreeWidgetItem *itm = item(index);
-    if (itm) {
-        int column = index.column();
-        if (column < itm->values.size()) {
-            for (int i = 0; i < itm->values.at(column).size(); ++i) {
-                roles.insert(itm->values.at(column).at(i).role,
-                             itm->values.at(column).at(i).value);
-            }
-        }
-
-        // the two special cases
-        QVariant displayValue = itm->data(column, Qt::DisplayRole);
-        if (displayValue.isValid())
-            roles.insert(Qt::DisplayRole, displayValue);
-
-        QVariant checkValue = itm->data(column, Qt::CheckStateRole);
-        if (checkValue.isValid())
-            roles.insert(Qt::CheckStateRole, checkValue);
-    }
-    return roles;
-}
-
 //  from src/widgets/itemviews/qtreewidget.cpp, line 493, as _ZNK10QTreeModel10headerDataEiN2Qt11OrientationEi
 inline QVariant QTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
@@ -419,29 +335,6 @@ inline void QTreeModel::sort(int column, Qt::SortOrder order)
     rootItem->sortChildren(column, order, true);
 }
 
-//  from src/widgets/itemviews/qtreewidget.cpp, line 404, as _ZN10QTreeModel10insertRowsEiiRK11QModelIndex
-inline bool QTreeModel::insertRows(int row, int count, const QModelIndex &parent)
-{
-    SkipSorting skipSorting(this);
-    if (count < 1 || row < 0 || row > rowCount(parent) || parent.column() > 0)
-        return false;
-
-    beginInsertRows(parent, row, row + count - 1);
-    QTreeWidgetItem *par = item(parent);
-    while (count > 0) {
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->view = view();
-        item->par = par;
-        if (par)
-            par->children.insert(row++, item);
-        else
-            rootItem->children.insert(row++, item);
-        --count;
-    }
-    endInsertRows();
-    return true;
-}
-
 //  from src/widgets/itemviews/qtreewidget.cpp, line 430, as _ZN10QTreeModel13insertColumnsEiiRK11QModelIndex
 inline bool QTreeModel::insertColumns(int column, int count, const QModelIndex &parent)
 {
@@ -476,35 +369,6 @@ inline bool QTreeModel::insertColumns(int column, int count, const QModelIndex &
     return true;
 }
 
-//  from src/widgets/itemviews/qtreewidget.cpp, line 702, as _ZNK10QTreeModel9mimeTypesEv
-inline QStringList QTreeModel::mimeTypes() const
-{
-    auto v = view();
-    if (v)
-        return v->mimeTypes();
-    return {};
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 715, as _ZNK10QTreeModel8mimeDataERK5QListI11QModelIndexE
-inline QMimeData *QTreeModel::mimeData(const QModelIndexList &indexes) const
-{
-    QList<QTreeWidgetItem *> items;
-    std::transform(indexes.begin(), indexes.end(), std::back_inserter(items),
-                   [this](const QModelIndex &idx) -> QTreeWidgetItem * { return item(idx); });
-
-    // Ensure we only have one item as an item may have more than
-    // one index selected if there is more than one column
-    std::sort(items.begin(), items.end());
-    items.erase(std::unique(items.begin(), items.end()), items.end());
-
-    // cachedIndexes is a little hack to avoid copying from QModelIndexList to
-    // QList<QTreeWidgetItem*> and back again in the view
-    cachedIndexes = indexes;
-    QMimeData *mimeData = view()->mimeData(items);
-    cachedIndexes.clear();
-    return mimeData;
-}
-
 //  from src/widgets/itemviews/qtreewidget.cpp, line 734, as _ZN10QTreeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
 inline bool QTreeModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
                               int row, int column, const QModelIndex &parent)
@@ -530,10 +394,267 @@ inline Qt::DropActions QTreeModel::supportedDragActions() const
 #endif
 }
 
+//  from src/widgets/itemviews/qtreewidgetitemiterator.cpp, line 231, as _ZNK30QTreeWidgetItemIteratorPrivate11nextSiblingEPK15QTreeWidgetItem
+inline QTreeWidgetItem* QTreeWidgetItemIteratorPrivate::nextSibling(const QTreeWidgetItem* item) const
+{
+    Q_ASSERT(item);
+    QTreeWidgetItem *next = nullptr;
+    if (QTreeWidgetItem *par = item->parent()) {
+        int i = par->indexOfChild(const_cast<QTreeWidgetItem*>(item));
+        next = par->child(i + 1);
+    } else {
+        QTreeWidget *tw = item->treeWidget();
+        int i = tw->indexOfTopLevelItem(const_cast<QTreeWidgetItem*>(item));
+        next = tw->topLevelItem(i + 1);
+    }
+    return next;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 105, as _ZN10QTreeModelD1Ev
+inline QTreeModel::~QTreeModel()
+{
+    clear();
+    headerItem->view = nullptr;
+    delete headerItem;
+    rootItem->view = nullptr;
+    delete rootItem;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 120, as _ZN10QTreeModel5clearEv
+inline void QTreeModel::clear()
+{
+    SkipSorting skipSorting(this);
+    beginResetModel();
+    for (int i = 0; i < rootItem->childCount(); ++i) {
+        QTreeWidgetItem *item = rootItem->children.at(i);
+        item->par = nullptr;
+        item->view = nullptr;
+        delete item;
+    }
+    rootItem->children.clear();
+    sortPendingTimer.stop();
+    endResetModel();
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 141, as _ZN10QTreeModel14setColumnCountEi
+inline void QTreeModel::setColumnCount(int columns)
+{
+    SkipSorting skipSorting(this);
+    if (columns < 0)
+        return;
+    if (!headerItem) {
+        headerItem = new QTreeWidgetItem();
+        headerItem->view = view();
+    }
+    int count = columnCount();
+    if (count == columns)
+        return;
+
+    if (columns < count) {
+        beginRemoveColumns(QModelIndex(), columns, count - 1);
+        headerItem->values.resize(columns);
+        endRemoveColumns();
+    } else {
+        beginInsertColumns(QModelIndex(), count, columns - 1);
+        headerItem->values.resize(columns);
+        for (int i = count; i < columns; ++i) {// insert data without emitting the dataChanged signal
+            headerItem->values[i].append(QWidgetItemData(Qt::DisplayRole, QString::number(i + 1)));
+            headerItem->d->display.append(QString::number(i + 1));
+        }
+        endInsertColumns();
+    }
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 177, as _ZNK10QTreeModel4itemERK11QModelIndex
+inline QTreeWidgetItem *QTreeModel::item(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return nullptr;
+    return static_cast<QTreeWidgetItem*>(index.internalPointer());
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 756, as _ZN10QTreeModel11itemChangedEP15QTreeWidgetItem
+inline void QTreeModel::itemChanged(QTreeWidgetItem *item)
+{
+    if (item->columnCount() <= 0)
+        return;
+    SkipSorting skipSorting(this); //this is kind of wrong, but not doing this would kill performance
+    QModelIndex left = index(item, 0);
+    QModelIndex right = index(item, item->columnCount() - 1);
+    emit dataChanged(left, right);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 191, as _ZNK10QTreeModel5indexEPK15QTreeWidgetItemi
+inline QModelIndex QTreeModel::index(const QTreeWidgetItem *item, int column) const
+{
+    executePendingSort();
+
+    if (!item || (item == rootItem))
+        return QModelIndex();
+    const QTreeWidgetItem *par = item->parent();
+    QTreeWidgetItem *itm = const_cast<QTreeWidgetItem*>(item);
+    if (!par)
+        par = rootItem;
+    int row;
+    int guess = item->d->rowGuess;
+    if (guess >= 0
+        && par->children.size() > guess
+        && par->children.at(guess) == itm) {
+        row = guess;
+    } else {
+        row = par->children.lastIndexOf(itm);
+        itm->d->rowGuess = row;
+    }
+    return createIndex(row, column, itm);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 569, as _ZN10QTreeModel12ensureSortedEiN2Qt9SortOrderEiiRK11QModelIndex
+inline void QTreeModel::ensureSorted(int column, Qt::SortOrder order,
+                              int start, int end, const QModelIndex &parent)
+{
+    if (isChanging())
+        return;
+
+    sortPendingTimer.stop();
+
+    if (column < 0 || column >= columnCount())
+        return;
+
+    SkipSorting skipSorting(this);
+
+    QTreeWidgetItem *itm = item(parent);
+    if (!itm)
+        itm = rootItem;
+    QList<QTreeWidgetItem*> lst = itm->children;
+
+    int count = end - start + 1;
+    QList<std::pair<QTreeWidgetItem *, int>> sorting(count);
+    for (int i = 0; i < count; ++i) {
+        sorting[i].first = lst.at(start + i);
+        sorting[i].second = start + i;
+    }
+
+    const auto compare = (order == Qt::AscendingOrder ? &itemLessThan : &itemGreaterThan);
+    std::stable_sort(sorting.begin(), sorting.end(), compare);
+
+    QModelIndexList oldPersistentIndexes;
+    QModelIndexList newPersistentIndexes;
+    QList<QTreeWidgetItem*>::iterator lit = lst.begin();
+    bool changed = false;
+
+    for (int i = 0; i < count; ++i) {
+        int oldRow = sorting.at(i).second;
+
+        int tmpitepos = lit - lst.begin();
+        QTreeWidgetItem *item = lst.takeAt(oldRow);
+        if (tmpitepos > lst.size())
+            --tmpitepos;
+        lit = lst.begin() + tmpitepos;
+
+        lit = sortedInsertionIterator(lit, lst.end(), order, item);
+        int newRow = qMax<qsizetype>(lit - lst.begin(), 0);
+
+        if ((newRow < oldRow) && !(*item < *lst.at(oldRow - 1)) && !(*lst.at(oldRow - 1) < *item ))
+            newRow = oldRow;
+
+        lit = lst.insert(lit, item);
+        if (newRow != oldRow) {
+            // we are going to change the persistent indexes, so we need to prepare
+            if (!changed) { // this will only happen once
+                changed = true;
+                emit layoutAboutToBeChanged({parent}, QAbstractItemModel::VerticalSortHint); // the selection model needs to know
+                oldPersistentIndexes = persistentIndexList();
+                newPersistentIndexes = oldPersistentIndexes;
+            }
+            for (int j = i + 1; j < count; ++j) {
+                int otherRow = sorting.at(j).second;
+                if (oldRow < otherRow && newRow >= otherRow)
+                    --sorting[j].second;
+                else if (oldRow > otherRow && newRow <= otherRow)
+                    ++sorting[j].second;
+            }
+            for (int k = 0; k < newPersistentIndexes.size(); ++k) {
+                QModelIndex pi = newPersistentIndexes.at(k);
+                if (pi.parent() != parent)
+                    continue;
+                int oldPersistentRow = pi.row();
+                int newPersistentRow = oldPersistentRow;
+                if (oldPersistentRow == oldRow)
+                    newPersistentRow = newRow;
+                else if (oldRow < oldPersistentRow && newRow >= oldPersistentRow)
+                    newPersistentRow = oldPersistentRow - 1;
+                else if (oldRow > oldPersistentRow && newRow <= oldPersistentRow)
+                    newPersistentRow = oldPersistentRow + 1;
+                if (newPersistentRow != oldPersistentRow)
+                    newPersistentIndexes[k] = createIndex(newPersistentRow,
+                                                          pi.column(), pi.internalPointer());
+            }
+        }
+    }
+
+    if (changed) {
+        itm->children = lst;
+        changePersistentIndexList(oldPersistentIndexes, newPersistentIndexes);
+        emit layoutChanged({parent}, QAbstractItemModel::VerticalSortHint);
+    }
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 668, as _ZN10QTreeModel12itemLessThanERKSt4pairIP15QTreeWidgetItemiES5_
+inline bool QTreeModel::itemLessThan(const std::pair<QTreeWidgetItem*,int> &left,
+                              const std::pair<QTreeWidgetItem*,int> &right)
+{
+    return *(left.first) < *(right.first);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 683, as _ZN10QTreeModel15itemGreaterThanERKSt4pairIP15QTreeWidgetItemiES5_
+inline bool QTreeModel::itemGreaterThan(const std::pair<QTreeWidgetItem*,int> &left,
+                                 const std::pair<QTreeWidgetItem*,int> &right)
+{
+    return *(right.first) < *(left.first);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 692, as _ZN10QTreeModel23sortedInsertionIteratorERKN5QListIP15QTreeWidgetItemE8iteratorES6_N2Qt9SortOrderES2_
+inline QList<QTreeWidgetItem*>::iterator QTreeModel::sortedInsertionIterator(
+    const QList<QTreeWidgetItem*>::iterator &begin,
+    const QList<QTreeWidgetItem*>::iterator &end,
+    Qt::SortOrder order, QTreeWidgetItem *item)
+{
+    if (order == Qt::AscendingOrder)
+        return std::lower_bound(begin, end, item, QTreeModelLessThan());
+    return std::lower_bound(begin, end, item, QTreeModelGreaterThan());
+}
+
 //  from src/widgets/itemviews/qtreewidget.cpp, line 710, as _ZNK10QTreeModel16internalMimeDataEv
 inline QMimeData *QTreeModel::internalMimeData()  const
 {
     return QAbstractItemModel::mimeData(cachedIndexes);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 778, as _ZN10QTreeModel15emitDataChangedEP15QTreeWidgetItemiRK5QListIiE
+inline void QTreeModel::emitDataChanged(QTreeWidgetItem *item, int column, const QList<int> &roles)
+{
+    if (signalsBlocked())
+        return;
+
+    if (headerItem == item && column < item->columnCount()) {
+        if (column == -1)
+            emit headerDataChanged(Qt::Horizontal, 0, columnCount() - 1);
+        else
+            emit headerDataChanged(Qt::Horizontal, column, column);
+        return;
+    }
+
+    SkipSorting skipSorting(this); //This is a little bit wrong, but not doing it would kill performance
+
+    QModelIndex bottomRight, topLeft;
+    if (column == -1) {
+        topLeft = index(item, 0);
+        bottomRight = createIndex(topLeft.row(), columnCount() - 1, item);
+    } else {
+        topLeft = index(item, column);
+        bottomRight = topLeft;
+    }
+    emit dataChanged(topLeft, bottomRight, roles);
 }
 
 //  from src/widgets/itemviews/qtreewidget.cpp, line 804, as _ZN10QTreeModel16beginInsertItemsEP15QTreeWidgetItemii
@@ -572,14 +693,44 @@ inline void QTreeModel::endRemoveItems()
     endRemoveRows();
 }
 
-//  from src/widgets/itemviews/qtreewidget.cpp, line 875, as _ZN10QTreeModel10timerEventEP11QTimerEvent
-inline void QTreeModel::timerEvent(QTimerEvent *ev)
+//  from src/widgets/itemviews/qtreewidget.cpp, line 836, as _ZN10QTreeModel9sortItemsEP5QListIP15QTreeWidgetItemEiN2Qt9SortOrderE
+inline void QTreeModel::sortItems(QList<QTreeWidgetItem*> *items, int column, Qt::SortOrder order)
 {
-    if (ev->timerId() == sortPendingTimer.timerId()) {
-        executePendingSort();
-    } else {
-        QAbstractItemModel::timerEvent(ev);
+    // see QTreeViewItem::operator<
+    Q_UNUSED(column);
+    if (isChanging())
+        return;
+
+    // store the original order of indexes
+    QList<std::pair<QTreeWidgetItem *, int>> sorting(items->size());
+    for (int i = 0; i < sorting.size(); ++i) {
+        sorting[i].first = items->at(i);
+        sorting[i].second = i;
     }
+
+    // do the sorting
+    const auto compare = (order == Qt::AscendingOrder ? &itemLessThan : &itemGreaterThan);
+    std::stable_sort(sorting.begin(), sorting.end(), compare);
+
+    QModelIndexList fromList;
+    QModelIndexList toList;
+    int colCount = columnCount();
+    for (int r = 0; r < sorting.size(); ++r) {
+        int oldRow = sorting.at(r).second;
+        if (oldRow == r)
+            continue;
+        QTreeWidgetItem *item = sorting.at(r).first;
+        items->replace(r, item);
+        for (int c = 0; c < colCount; ++c) {
+            QModelIndex from = createIndex(oldRow, c, item);
+            if (static_cast<QAbstractItemModelPrivate *>(d_ptr.data())->persistent.indexes.contains(from)) {
+                QModelIndex to = createIndex(r, c, item);
+                fromList << from;
+                toList << to;
+            }
+        }
+    }
+    changePersistentIndexList(fromList, toList);
 }
 
 //  from src/widgets/itemviews/qtreewidget.cpp, line 766, as _ZNK10QTreeModel10isChangingEv
@@ -1625,6 +1776,24 @@ const QMetaObject *ritual_ZNK10QTreeModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTreeModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QTreeModel11qt_metacastEPKc(
+    QTreeModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTreeModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QTreeModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTreeModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QTreeModel::~QTreeModel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QTreeModelD1Ev(QTreeModel *self) {
@@ -1794,6 +1963,55 @@ void ritual_ZN10QTreeModel4sortEiN2Qt9SortOrderE(
   self->sort(column, order);
 }
 
+//  void QTreeModel::ensureSorted(int column, Qt::SortOrder order, int start,
+//      int end, const QModelIndex &parent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTreeModel12ensureSortedEiN2Qt9SortOrderEiiRK11QModelIndex(
+    QTreeModel *self,
+    int column,
+    Qt::SortOrder order,
+    int start,
+    int end,
+    const QModelIndex *parent) {
+  self->ensureSorted(column, order, start, end, *parent);
+}
+
+//  bool QTreeModel::itemLessThan(const std::pair<QTreeWidgetItem *, int>
+//      &left, const std::pair<QTreeWidgetItem *, int> &right)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QTreeModel12itemLessThanERKSt4pairIP15QTreeWidgetItemiES5_(
+    const std::pair<QTreeWidgetItem *, int> *left,
+    const std::pair<QTreeWidgetItem *, int> *right) {
+  return QTreeModel::itemLessThan(*left, *right);
+}
+
+//  bool QTreeModel::itemGreaterThan(const std::pair<QTreeWidgetItem *, int>
+//      &left, const std::pair<QTreeWidgetItem *, int> &right)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QTreeModel15itemGreaterThanERKSt4pairIP15QTreeWidgetItemiES5_(
+    const std::pair<QTreeWidgetItem *, int> *left,
+    const std::pair<QTreeWidgetItem *, int> *right) {
+  return QTreeModel::itemGreaterThan(*left, *right);
+}
+
+//  QList<QTreeWidgetItem *>::iterator
+//      QTreeModel::sortedInsertionIterator(const QList<QTreeWidgetItem
+//      *>::iterator &begin, const QList<QTreeWidgetItem *>::iterator &end,
+//      Qt::SortOrder order, QTreeWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+QList<QTreeWidgetItem *>::iterator *ritual_ZN10QTreeModel23sortedInsertionIteratorERKN5QListIP15QTreeWidgetItemE8iteratorES6_N2Qt9SortOrderES2_(
+    const QList<QTreeWidgetItem *>::iterator *begin,
+    const QList<QTreeWidgetItem *>::iterator *end,
+    Qt::SortOrder order,
+    QTreeWidgetItem *item) {
+  return new QList<QTreeWidgetItem *>::iterator(
+      QTreeModel::sortedInsertionIterator(
+          *begin,
+          *end,
+          order,
+          item));
+}
+
 //  bool QTreeModel::insertRows(int row, int count, const QModelIndex &a2)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN10QTreeModel10insertRowsEiiRK11QModelIndex(
@@ -1813,6 +2031,17 @@ bool ritual_ZN10QTreeModel13insertColumnsEiiRK11QModelIndex(
     int count,
     const QModelIndex *a2) {
   return self->insertColumns(column, count, *a2);
+}
+
+//  bool QTreeModel::removeRows(int row, int count, const QModelIndex
+//      &parent)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QTreeModel10removeRowsEiiRK11QModelIndex(
+    QTreeModel *self,
+    int row,
+    int count,
+    const QModelIndex *parent) {
+  return self->removeRows(row, count, *parent);
 }
 
 //  QStringList QTreeModel::mimeTypes() const
@@ -1872,6 +2101,17 @@ QModelIndex *ritual_ZNK10QTreeModel19createIndexFromItemEiiP15QTreeWidgetItem(
   return new QModelIndex(self->createIndexFromItem(row, col, item));
 }
 
+//  void QTreeModel::emitDataChanged(QTreeWidgetItem *item, int column, const
+//      QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTreeModel15emitDataChangedEP15QTreeWidgetItemiRK5QListIiE(
+    QTreeModel *self,
+    QTreeWidgetItem *item,
+    int column,
+    const QList<int> *roles) {
+  self->emitDataChanged(item, column, *roles);
+}
+
 //  void QTreeModel::beginInsertItems(QTreeWidgetItem *parent, int row, int
 //      count)
 extern "C" Q_DECL_EXPORT
@@ -1904,6 +2144,17 @@ void ritual_ZN10QTreeModel16beginRemoveItemsEP15QTreeWidgetItemii(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QTreeModel14endRemoveItemsEv(QTreeModel *self) {
   self->endRemoveItems();
+}
+
+//  void QTreeModel::sortItems(QList<QTreeWidgetItem *> *items, int column,
+//      Qt::SortOrder order)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTreeModel9sortItemsEP5QListIP15QTreeWidgetItemEiN2Qt9SortOrderE(
+    QTreeModel *self,
+    QList<QTreeWidgetItem *> *items,
+    int column,
+    Qt::SortOrder order) {
+  self->sortItems(items, column, order);
 }
 
 //  void QTreeModel::timerEvent(QTimerEvent *a0)
@@ -2082,6 +2333,17 @@ bool ritual_own_ZN10QTreeModel13insertColumnsEiiRK11QModelIndex(
   return self->QTreeModel::insertColumns(column, count, *a2);
 }
 
+//  bool QTreeModel::removeRows(int row, int count, const QModelIndex
+//      &parent)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN10QTreeModel10removeRowsEiiRK11QModelIndex(
+    QTreeModel *self,
+    int row,
+    int count,
+    const QModelIndex *parent) {
+  return self->QTreeModel::removeRows(row, count, *parent);
+}
+
 //  bool QTreeModel::dropMimeData(const QMimeData *data, Qt::DropAction
 //      action, int row, int column, const QModelIndex &parent)
 extern "C" Q_DECL_EXPORT
@@ -2115,6 +2377,13 @@ void ritual_own_ZN10QTreeModel10timerEventEP11QTimerEvent(
     QTreeModel *self,
     QTimerEvent *a0) {
   static_cast<OwnQTreeModel *>(self)->OwnQTreeModel::timerEvent(a0);
+}
+
+//  a QList<QTreeWidgetItem *>::iterator a ritual of QTreeModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTreeModel__QList_QTreeWidgetItem_iterator(
+    QList<QTreeWidgetItem *>::iterator *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(treewidget)

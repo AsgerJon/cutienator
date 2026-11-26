@@ -1,9 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qbytearrayview.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qbytearrayview.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, instances of templates of the class: 4. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qchar.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QByteArrayView>
+#include <string_view>
 
 //  qsizetype QByteArrayView::lengthHelperCharArray(const char *data, size_t
 //      size)
@@ -14,10 +18,23 @@ qsizetype ritual_ZN14QByteArrayView21lengthHelperCharArrayEPKcm(
   return QByteArrayView::lengthHelperCharArray(data, size);
 }
 
+//  const storage_type *QByteArrayView::castHelper(const storage_type *data)
+extern "C" Q_DECL_EXPORT
+const QByteArrayView::storage_type *ritual_ZN14QByteArrayView10castHelperEPKc(
+    const QByteArrayView::storage_type *data) {
+  return QByteArrayView::castHelper(data);
+}
+
 //  QByteArrayView::QByteArrayView()
 extern "C" Q_DECL_EXPORT
 QByteArrayView *ritual_ZN14QByteArrayViewC1Ev() {
   return new QByteArrayView();
+}
+
+//  QByteArrayView::QByteArrayView(std::nullptr_t a0)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN14QByteArrayViewC1EDn() {
+  return new QByteArrayView(nullptr);
 }
 
 //  QByteArray QByteArrayView::toByteArray() const
@@ -37,6 +54,20 @@ qsizetype ritual_ZN14QByteArrayView7maxSizeEv() {
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK14QByteArrayView4sizeEv(const QByteArrayView *self) {
   return self->size();
+}
+
+//  const_pointer QByteArrayView::data() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_pointer ritual_ZNK14QByteArrayView4dataEv(
+    const QByteArrayView *self) {
+  return self->data();
+}
+
+//  const_pointer QByteArrayView::constData() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_pointer ritual_ZNK14QByteArrayView9constDataEv(
+    const QByteArrayView *self) {
+  return self->constData();
 }
 
 //  char QByteArrayView::operator[](qsizetype n) const
@@ -86,6 +117,23 @@ QByteArrayView *ritual_ZNK14QByteArrayView6slicedExx(
     qsizetype pos,
     qsizetype n) {
   return new QByteArrayView(self->sliced(pos, n));
+}
+
+//  QByteArrayView &QByteArrayView::slice(qsizetype pos)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN14QByteArrayView5sliceEx(
+    QByteArrayView *self,
+    qsizetype pos) {
+  return &(self->slice(pos));
+}
+
+//  QByteArrayView &QByteArrayView::slice(qsizetype pos, qsizetype n)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN14QByteArrayView5sliceExx(
+    QByteArrayView *self,
+    qsizetype pos,
+    qsizetype n) {
+  return &(self->slice(pos, n));
 }
 
 //  QByteArrayView QByteArrayView::chopped(qsizetype len) const
@@ -363,6 +411,62 @@ bool ritual_ZNK14QByteArrayView11isValidUtf8Ev(const QByteArrayView *self) {
   return self->isValidUtf8();
 }
 
+//  const_iterator QByteArrayView::begin() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_iterator ritual_ZNK14QByteArrayView5beginEv(
+    const QByteArrayView *self) {
+  return self->begin();
+}
+
+//  const_iterator QByteArrayView::end() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_iterator ritual_ZNK14QByteArrayView3endEv(
+    const QByteArrayView *self) {
+  return self->end();
+}
+
+//  const_iterator QByteArrayView::cbegin() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_iterator ritual_ZNK14QByteArrayView6cbeginEv(
+    const QByteArrayView *self) {
+  return self->cbegin();
+}
+
+//  const_iterator QByteArrayView::cend() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_iterator ritual_ZNK14QByteArrayView4cendEv(
+    const QByteArrayView *self) {
+  return self->cend();
+}
+
+//  const_reverse_iterator QByteArrayView::rbegin() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_reverse_iterator *ritual_ZNK14QByteArrayView6rbeginEv(
+    const QByteArrayView *self) {
+  return new QByteArrayView::const_reverse_iterator(self->rbegin());
+}
+
+//  const_reverse_iterator QByteArrayView::rend() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_reverse_iterator *ritual_ZNK14QByteArrayView4rendEv(
+    const QByteArrayView *self) {
+  return new QByteArrayView::const_reverse_iterator(self->rend());
+}
+
+//  const_reverse_iterator QByteArrayView::crbegin() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_reverse_iterator *ritual_ZNK14QByteArrayView7crbeginEv(
+    const QByteArrayView *self) {
+  return new QByteArrayView::const_reverse_iterator(self->crbegin());
+}
+
+//  const_reverse_iterator QByteArrayView::crend() const
+extern "C" Q_DECL_EXPORT
+QByteArrayView::const_reverse_iterator *ritual_ZNK14QByteArrayView5crendEv(
+    const QByteArrayView *self) {
+  return new QByteArrayView::const_reverse_iterator(self->crend());
+}
+
 //  bool QByteArrayView::empty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14QByteArrayView5emptyEv(const QByteArrayView *self) {
@@ -379,6 +483,13 @@ char ritual_ZNK14QByteArrayView5frontEv(const QByteArrayView *self) {
 extern "C" Q_DECL_EXPORT
 char ritual_ZNK14QByteArrayView4backEv(const QByteArrayView *self) {
   return self->back();
+}
+
+//  std::string_view QByteArrayView::operator basic_string_view() const
+extern "C" Q_DECL_EXPORT
+std::string_view *ritual_ZNK14QByteArrayViewcvSt17basic_string_viewIcSt11char_traitsIcEEEv(
+    const QByteArrayView *self) {
+  return new std::string_view(self->operator std::string_view());
 }
 
 //  qsizetype QByteArrayView::max_size() const
@@ -678,6 +789,138 @@ bool ritual_ZgeRK5QCharRK14QByteArrayView(
 }
 #endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator==(const QByteArrayView &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK14QByteArrayViewRKDs(
+    const QByteArrayView *lhs,
+    char16_t rhs) {
+  return operator==(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator!=(const QByteArrayView &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK14QByteArrayViewRKDs(
+    const QByteArrayView *lhs,
+    char16_t rhs) {
+  return operator!=(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<(const QByteArrayView &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK14QByteArrayViewRKDs(
+    const QByteArrayView *lhs,
+    char16_t rhs) {
+  return operator<(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>(const QByteArrayView &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK14QByteArrayViewRKDs(
+    const QByteArrayView *lhs,
+    char16_t rhs) {
+  return operator>(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<=(const QByteArrayView &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK14QByteArrayViewRKDs(
+    const QByteArrayView *lhs,
+    char16_t rhs) {
+  return operator<=(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>=(const QByteArrayView &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK14QByteArrayViewRKDs(
+    const QByteArrayView *lhs,
+    char16_t rhs) {
+  return operator>=(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator==(const char16_t &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKDsRK14QByteArrayView(
+    char16_t lhs,
+    const QByteArrayView *rhs) {
+  return operator==(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator!=(const char16_t &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKDsRK14QByteArrayView(
+    char16_t lhs,
+    const QByteArrayView *rhs) {
+  return operator!=(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<(const char16_t &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKDsRK14QByteArrayView(
+    char16_t lhs,
+    const QByteArrayView *rhs) {
+  return operator<(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>(const char16_t &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKDsRK14QByteArrayView(
+    char16_t lhs,
+    const QByteArrayView *rhs) {
+  return operator>(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<=(const char16_t &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKDsRK14QByteArrayView(
+    char16_t lhs,
+    const QByteArrayView *rhs) {
+  return operator<=(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>=(const char16_t &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKDsRK14QByteArrayView(
+    char16_t lhs,
+    const QByteArrayView *rhs) {
+  return operator>=(lhs, *rhs);
+}
+#endif
+
 //  QByteArrayView::~QByteArrayView()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QByteArrayViewD1Ev(QByteArrayView *self) {
@@ -717,4 +960,55 @@ QByteArrayView *ritual_list_at_QByteArrayView(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QByteArrayView(QList<QByteArrayView> *self) {
   delete self;
+}
+
+//  a QByteArrayView::const_reverse_iterator a ritual of QByteArrayView gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QByteArrayView__QByteArrayView_const_reverse_iterator(
+    QByteArrayView::const_reverse_iterator *self) {
+  delete self;
+}
+
+//  a std::string_view a ritual of QByteArrayView gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QByteArrayView__std_string_view(std::string_view *self) {
+  delete self;
+}
+
+//  template <typename Byte, if_compatible_byte<Byte> = true>
+//  constexpr QByteArrayView::QByteArrayView<char, true>(const char *data,
+//      qsizetype len)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN14QByteArrayViewC1IcLb1EEEPKT_x(
+    const char *data,
+    qsizetype len) {
+  return new QByteArrayView(data, len);
+}
+
+//  template <typename Byte, if_compatible_byte<Byte> = true>
+//  constexpr QByteArrayView::QByteArrayView<char, true>(const char *first,
+//      const char *last)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN14QByteArrayViewC1IcLb1EEEPKT_S3_(
+    const char *first,
+    const char *last) {
+  return new QByteArrayView(first, last);
+}
+
+//  template <typename Pointer, if_compatible_pointer<Pointer> = true>
+//  constexpr QByteArrayView::QByteArrayView<const char *, true>(
+//      const char *const &data)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN14QByteArrayViewC1IPKcLb1EEERKT_(
+    const char *data) {
+  return new QByteArrayView(data);
+}
+
+//  template <typename ByteArray, if_compatible_qbytearray_like<ByteArray>
+//  = true> QByteArrayView::QByteArrayView<QByteArray, true>(
+//      const QByteArray &ba)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN14QByteArrayViewC1I10QByteArrayLb1EEERKT_(
+    const QByteArray *ba) {
+  return new QByteArrayView(*ba);
 }

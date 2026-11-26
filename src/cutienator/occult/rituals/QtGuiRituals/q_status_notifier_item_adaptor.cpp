@@ -323,6 +323,25 @@ const QMetaObject *ritual_ZNK26QStatusNotifierItemAdaptor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStatusNotifierItemAdaptor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QStatusNotifierItemAdaptor11qt_metacastEPKc(
+    QStatusNotifierItemAdaptor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStatusNotifierItemAdaptor::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QStatusNotifierItemAdaptor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStatusNotifierItemAdaptor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QStatusNotifierItemAdaptor::~QStatusNotifierItemAdaptor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QStatusNotifierItemAdaptorD1Ev(
@@ -437,6 +456,328 @@ QXdgDBusToolTipStruct *ritual_ZNK26QStatusNotifierItemAdaptor7toolTipEv(
   return new QXdgDBusToolTipStruct(self->toolTip());
 }
 #endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  void QStatusNotifierItemAdaptor::Activate(int x, int y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor8ActivateEii(
+    QStatusNotifierItemAdaptor *self,
+    int x,
+    int y) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "Activate(int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "Activate(int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&x)),
+      const_cast<void *>(static_cast<const void *>(&y)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::ContextMenu(int x, int y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor11ContextMenuEii(
+    QStatusNotifierItemAdaptor *self,
+    int x,
+    int y) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "ContextMenu(int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "ContextMenu(int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&x)),
+      const_cast<void *>(static_cast<const void *>(&y)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::ProvideXdgActivationToken(const QString
+//      &token)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor25ProvideXdgActivationTokenERK7QString(
+    QStatusNotifierItemAdaptor *self,
+    const QString *token) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "ProvideXdgActivationToken(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "ProvideXdgActivationToken(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(token)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::Scroll(int delta, const QString
+//      &orientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor6ScrollEiRK7QString(
+    QStatusNotifierItemAdaptor *self,
+    int delta,
+    const QString *orientation) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "Scroll(int,const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "Scroll(int,const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&delta)),
+      const_cast<void *>(static_cast<const void *>(orientation)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::SecondaryActivate(int x, int y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor17SecondaryActivateEii(
+    QStatusNotifierItemAdaptor *self,
+    int x,
+    int y) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "SecondaryActivate(int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "SecondaryActivate(int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&x)),
+      const_cast<void *>(static_cast<const void *>(&y)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::NewAttentionIcon()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor16NewAttentionIconEv(
+    QStatusNotifierItemAdaptor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "NewAttentionIcon()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "NewAttentionIcon()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::NewIcon()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor7NewIconEv(
+    QStatusNotifierItemAdaptor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "NewIcon()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "NewIcon()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::NewOverlayIcon()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor14NewOverlayIconEv(
+    QStatusNotifierItemAdaptor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "NewOverlayIcon()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "NewOverlayIcon()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::NewMenu()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor7NewMenuEv(
+    QStatusNotifierItemAdaptor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "NewMenu()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "NewMenu()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::NewStatus(const QString &status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor9NewStatusERK7QString(
+    QStatusNotifierItemAdaptor *self,
+    const QString *status) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "NewStatus(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "NewStatus(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(status)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::NewTitle()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor8NewTitleEv(
+    QStatusNotifierItemAdaptor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "NewTitle()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "NewTitle()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QStatusNotifierItemAdaptor::NewToolTip()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStatusNotifierItemAdaptor10NewToolTipEv(
+    QStatusNotifierItemAdaptor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStatusNotifierItemAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "NewToolTip()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "NewToolTip()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
 
 //  a Python function taken by a CuteQStatusNotifierItemAdaptor, for the
 //      function named by the key

@@ -3,6 +3,7 @@
 #include <Qt3DRender/qgraphicsapifilter.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A Qt3DRender::QGraphicsApiFilter that Python can take functions over in. Every Qt3DRender::QGraphicsApiFilter
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender18QGraphicsApiFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QGraphicsApiFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender18QGraphicsApiFilter11qt_metacastEPKc(
+    Qt3DRender::QGraphicsApiFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QGraphicsApiFilter::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender18QGraphicsApiFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QGraphicsApiFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QGraphicsApiFilter::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -194,6 +214,164 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QGraphicsApiFilter *ritual_ZN10Qt3DRender18QGraphicsApiFilterC1EP7QObject(
     QObject *parent) {
   return new CuteQt3DRender_QGraphicsApiFilter(parent);
+}
+
+//  Qt3DRender::QGraphicsApiFilter::~QGraphicsApiFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilterD1Ev(
+    Qt3DRender::QGraphicsApiFilter *self) {
+  delete self;
+}
+
+//  Api Qt3DRender::QGraphicsApiFilter::api() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QGraphicsApiFilter::Api ritual_ZNK10Qt3DRender18QGraphicsApiFilter3apiEv(
+    const Qt3DRender::QGraphicsApiFilter *self) {
+  return self->api();
+}
+
+//  OpenGLProfile Qt3DRender::QGraphicsApiFilter::profile() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QGraphicsApiFilter::OpenGLProfile ritual_ZNK10Qt3DRender18QGraphicsApiFilter7profileEv(
+    const Qt3DRender::QGraphicsApiFilter *self) {
+  return self->profile();
+}
+
+//  int Qt3DRender::QGraphicsApiFilter::minorVersion() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender18QGraphicsApiFilter12minorVersionEv(
+    const Qt3DRender::QGraphicsApiFilter *self) {
+  return self->minorVersion();
+}
+
+//  int Qt3DRender::QGraphicsApiFilter::majorVersion() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender18QGraphicsApiFilter12majorVersionEv(
+    const Qt3DRender::QGraphicsApiFilter *self) {
+  return self->majorVersion();
+}
+
+//  QStringList Qt3DRender::QGraphicsApiFilter::extensions() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10Qt3DRender18QGraphicsApiFilter10extensionsEv(
+    const Qt3DRender::QGraphicsApiFilter *self) {
+  return new QList<QString>(self->extensions());
+}
+
+//  QString Qt3DRender::QGraphicsApiFilter::vendor() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DRender18QGraphicsApiFilter6vendorEv(
+    const Qt3DRender::QGraphicsApiFilter *self) {
+  return new QString(self->vendor());
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::setApi(Api api)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter6setApiENS0_3ApiE(
+    Qt3DRender::QGraphicsApiFilter *self,
+    Qt3DRender::QGraphicsApiFilter::Api api) {
+  self->setApi(api);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::setProfile(OpenGLProfile profile)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter10setProfileENS0_13OpenGLProfileE(
+    Qt3DRender::QGraphicsApiFilter *self,
+    Qt3DRender::QGraphicsApiFilter::OpenGLProfile profile) {
+  self->setProfile(profile);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::setMinorVersion(int minorVersion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter15setMinorVersionEi(
+    Qt3DRender::QGraphicsApiFilter *self,
+    int minorVersion) {
+  self->setMinorVersion(minorVersion);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::setMajorVersion(int majorVersion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter15setMajorVersionEi(
+    Qt3DRender::QGraphicsApiFilter *self,
+    int majorVersion) {
+  self->setMajorVersion(majorVersion);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::setExtensions(const QStringList
+//      &extensions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter13setExtensionsERK5QListI7QStringE(
+    Qt3DRender::QGraphicsApiFilter *self,
+    const QList<QString> *extensions) {
+  self->setExtensions(*extensions);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::setVendor(const QString &vendor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter9setVendorERK7QString(
+    Qt3DRender::QGraphicsApiFilter *self,
+    const QString *vendor) {
+  self->setVendor(*vendor);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::apiChanged(Qt3DRender::QGraphicsApiF
+//      ilter::Api api)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter10apiChangedENS0_3ApiE(
+    Qt3DRender::QGraphicsApiFilter *self,
+    Qt3DRender::QGraphicsApiFilter::Api api) {
+  self->apiChanged(api);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::profileChanged(Qt3DRender::QGraphics
+//      ApiFilter::OpenGLProfile profile)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter14profileChangedENS0_13OpenGLProfileE(
+    Qt3DRender::QGraphicsApiFilter *self,
+    Qt3DRender::QGraphicsApiFilter::OpenGLProfile profile) {
+  self->profileChanged(profile);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::minorVersionChanged(int
+//      minorVersion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter19minorVersionChangedEi(
+    Qt3DRender::QGraphicsApiFilter *self,
+    int minorVersion) {
+  self->minorVersionChanged(minorVersion);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::majorVersionChanged(int
+//      majorVersion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter19majorVersionChangedEi(
+    Qt3DRender::QGraphicsApiFilter *self,
+    int majorVersion) {
+  self->majorVersionChanged(majorVersion);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::extensionsChanged(const QStringList
+//      &extensions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter17extensionsChangedERK5QListI7QStringE(
+    Qt3DRender::QGraphicsApiFilter *self,
+    const QList<QString> *extensions) {
+  self->extensionsChanged(*extensions);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::vendorChanged(const QString &vendor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter13vendorChangedERK7QString(
+    Qt3DRender::QGraphicsApiFilter *self,
+    const QString *vendor) {
+  self->vendorChanged(*vendor);
+}
+
+//  void Qt3DRender::QGraphicsApiFilter::graphicsApiFilterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QGraphicsApiFilter24graphicsApiFilterChangedEv(
+    Qt3DRender::QGraphicsApiFilter *self) {
+  self->graphicsApiFilterChanged();
 }
 
 //  QGraphicsApiFilterPrivate *Qt3DRender::QGraphicsApiFilter::d_func()

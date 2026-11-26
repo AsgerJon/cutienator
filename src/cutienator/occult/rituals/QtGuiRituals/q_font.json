@@ -15,7 +15,9 @@
       "address", "address", "address"
     ],
     "ritual_ZN5QFontC1ERKS_": ["address", "address"],
+    "ritual_ZN5QFontC1EOS_": ["address", "address"],
     "ritual_ZN5QFontD1Ev": ["nothing", "address"],
+    "ritual_ZN5QFont4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK5QFont6familyEv": ["text", "address"],
     "ritual_ZN5QFont9setFamilyERK7QString": ["nothing", "address", "text"],
     "ritual_ZNK5QFont8familiesEv": ["address", "address"],
@@ -87,6 +89,7 @@
     "ritual_ZNK5QFont12isFeatureSetENS_3TagE": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK5QFont11featureTagsEv": ["address", "address"],
     "ritual_ZN5QFont13clearFeaturesEv": ["nothing", "address"],
     "ritual_ZN5QFont15setVariableAxisENS_3TagEf": [
       "nothing", "address", "address", "float"
@@ -101,12 +104,15 @@
       "float", "address", "address"
     ],
     "ritual_ZN5QFont17clearVariableAxesEv": ["nothing", "address"],
+    "ritual_ZNK5QFont16variableAxisTagsEv": ["address", "address"],
     "ritual_ZNK5QFont10exactMatchEv": ["bool", "address"],
+    "ritual_ZN5QFontaSERKS_": ["address", "address", "address"],
     "ritual_ZNK5QFonteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK5QFontneERKS_": ["bool", "address", "address"],
     "ritual_ZNK5QFontltERKS_": ["bool", "address", "address"],
     "ritual_ZNK5QFontcv8QVariantEv": ["address", "address"],
     "ritual_ZNK5QFont8isCopyOfERKS_": ["bool", "address", "address"],
+    "ritual_ZN5QFontaSEOS_": ["address", "address", "address"],
     "ritual_ZNK5QFont3keyEv": ["text", "address"],
     "ritual_ZNK5QFont8toStringEv": ["text", "address"],
     "ritual_ZN5QFont10fromStringERK7QString": ["bool", "address", "text"],
@@ -133,6 +139,9 @@
     "ritual_ZNK5QFont12legacyWeightEv": ["int", "address"],
     "ritual_ZN5QFontC1EP12QFontPrivate": ["address", "address"],
     "ritual_ZN5QFont6detachEv": ["nothing", "address"],
-    "ritual_Zls6QDebugRK5QFont": ["address", "address", "address"]
+    "ritual_ZlsR11QDataStreamRK5QFont": ["address", "address", "address"],
+    "ritual_ZrsR11QDataStreamR5QFont": ["address", "address", "address"],
+    "ritual_Zls6QDebugRK5QFont": ["address", "address", "address"],
+    "ritual_drop_QFont__QList_QFont_Tag": ["nothing", "address"]
   }
 }

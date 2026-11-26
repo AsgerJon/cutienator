@@ -1,6 +1,15 @@
+//  Edited by hand on 2026-11-25: the includes of QtQml's and QtQuick's
+//  global headers, as the ritual files of QtQuick have them, put first.
+//  Without them the compiler stops in QtQuick's private
+//  'qquickanimation_p.h' (line 28, QtQml's 'qabstractanimationjob_p.h'),
+//  which the header of this class pulls in, as QtQml's feature
+//  'qml_animation' is not yet defined there. Kept as it is when the
+//  generator runs again.
 //  Written by dev_tooling.RitualGenerator from the records of QtQuickVectorI
 //  mage/6.12.0/QtQuickVectorImage/private/qquickvectorimage_p_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtQuickVectorImage/QtQuickVectorImage>

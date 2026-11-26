@@ -110,6 +110,56 @@ public:
 #endif  // QT_CONFIG(undocommand)
 };
 
+//  qdesigner_internal::SimplifyLayoutCommand::SimplifyLayoutCommand(QDesigne
+//      rFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::SimplifyLayoutCommand *ritual_ZN18qdesigner_internal21SimplifyLayoutCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_SimplifyLayoutCommand(formWindow);
+}
+
+//  qdesigner_internal::SimplifyLayoutCommand::~SimplifyLayoutCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal21SimplifyLayoutCommandD1Ev(
+    qdesigner_internal::SimplifyLayoutCommand *self) {
+  delete self;
+}
+
+//  bool qdesigner_internal::SimplifyLayoutCommand::init(QWidget *layoutBase)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal21SimplifyLayoutCommand4initEP7QWidget(
+    qdesigner_internal::SimplifyLayoutCommand *self,
+    QWidget *layoutBase) {
+  return self->init(layoutBase);
+}
+
+//  bool qdesigner_internal::SimplifyLayoutCommand::canSimplify(QDesignerForm
+//      EditorInterface *core, const QWidget *w, int *layoutType)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal21SimplifyLayoutCommand11canSimplifyEP28QDesignerFormEditorInterfacePK7QWidgetPi(
+    QDesignerFormEditorInterface *core,
+    const QWidget *w,
+    int *layoutType) {
+  return qdesigner_internal::SimplifyLayoutCommand::canSimplify(
+      core,
+      w,
+      layoutType);
+}
+
+//  void qdesigner_internal::SimplifyLayoutCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal21SimplifyLayoutCommand4redoEv(
+    qdesigner_internal::SimplifyLayoutCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::SimplifyLayoutCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal21SimplifyLayoutCommand4undoEv(
+    qdesigner_internal::SimplifyLayoutCommand *self) {
+  self->undo();
+}
+
 //  a Python function taken by a
 //      Cuteqdesigner_internal_SimplifyLayoutCommand, for the function named
 //      by the key

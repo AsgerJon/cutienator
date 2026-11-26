@@ -19,7 +19,7 @@ typedef const QByteArray * (*CuteQItemEditorFactoryCall1)(const void *, int, int
 class CuteQItemEditorFactory : public QItemEditorFactory {
 public:
   using QItemEditorFactory::QItemEditorFactory;
-  CuteQItemEditorFactory(const QItemEditorFactory &other) : QItemEditorFactory(other) {}
+  CuteQItemEditorFactory(const QItemEditorFactory & other) : QItemEditorFactory(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qbardataitem.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbardataitem.h>
 #include <QtCore/qlist.h>
@@ -90,4 +90,4 @@ void ritual_list_drop_QBarDataItem(QList<QBarDataItem> *self) {
   delete self;
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))

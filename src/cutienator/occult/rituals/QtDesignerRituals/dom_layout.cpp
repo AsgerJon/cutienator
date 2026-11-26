@@ -21,6 +21,24 @@ void ritual_ZN9DomLayoutD1Ev(DomLayout *self) {
   delete self;
 }
 
+//  void DomLayout::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9DomLayout4readER16QXmlStreamReader(
+    DomLayout *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomLayout::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9DomLayout5writeER16QXmlStreamWriterRK7QString(
+    const DomLayout *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomLayout::hasAttributeClass() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9DomLayout17hasAttributeClassEv(const DomLayout *self) {

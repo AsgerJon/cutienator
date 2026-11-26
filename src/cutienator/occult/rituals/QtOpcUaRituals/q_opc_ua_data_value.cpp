@@ -18,10 +18,26 @@ QOpcUaDataValue *ritual_ZN15QOpcUaDataValueC1ERKS_(
   return new QOpcUaDataValue(*other);
 }
 
+//  QOpcUaDataValue &QOpcUaDataValue::operator=(const QOpcUaDataValue &other)
+extern "C" Q_DECL_EXPORT
+QOpcUaDataValue *ritual_ZN15QOpcUaDataValueaSERKS_(
+    QOpcUaDataValue *self,
+    const QOpcUaDataValue *other) {
+  return &(self->operator=(*other));
+}
+
 //  QOpcUaDataValue::~QOpcUaDataValue()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QOpcUaDataValueD1Ev(QOpcUaDataValue *self) {
   delete self;
+}
+
+//  void QOpcUaDataValue::swap(QOpcUaDataValue &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QOpcUaDataValue4swapERS_(
+    QOpcUaDataValue *self,
+    QOpcUaDataValue *other) {
+  self->swap(*other);
 }
 
 //  QDateTime QOpcUaDataValue::serverTimestamp() const

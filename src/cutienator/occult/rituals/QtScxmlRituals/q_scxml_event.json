@@ -6,12 +6,16 @@
   "rows": {
     "ritual_ZN11QScxmlEventC1Ev": ["address"],
     "ritual_ZN11QScxmlEventD1Ev": ["nothing", "address"],
+    "ritual_ZN11QScxmlEventaSERKS_": ["address", "address", "address"],
     "ritual_ZN11QScxmlEventC1ERKS_": ["address", "address"],
     "ritual_ZNK11QScxmlEvent4nameEv": ["text", "address"],
     "ritual_ZN11QScxmlEvent7setNameERK7QString": [
       "nothing", "address", "text"
     ],
     "ritual_ZNK11QScxmlEvent9eventTypeEv": ["int", "address"],
+    "ritual_ZN11QScxmlEvent12setEventTypeERKNS_9EventTypeE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK11QScxmlEvent9scxmlTypeEv": ["text", "address"],
     "ritual_ZNK11QScxmlEvent6sendIdEv": ["text", "address"],
     "ritual_ZN11QScxmlEvent9setSendIdERK7QString": [

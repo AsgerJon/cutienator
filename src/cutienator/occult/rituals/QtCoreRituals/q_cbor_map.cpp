@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qcbormap.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qcbormap.h>
 #include <QtCore/qcborvalue.h>
 #include <QtCore/qlatin1stringview.h>
@@ -11,6 +12,45 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QCborMap>
+#include <QtCore/QLatin1String>
+#include <QtCore/QString>
+#include <QtCore/QCborValue>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qcborvalue.h>
+#include <QtCore/private/qcborvalue_p.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qcborarray.h>
+#include <QtCore/qcbormap.h>
+#if QT_CONFIG(cborstreamreader)
+#include <QtCore/qcborstreamreader.h>
+#endif
+#if QT_CONFIG(cborstreamwriter)
+#include <QtCore/qcborstreamwriter.h>
+#endif
+#include <QtCore/qdebug.h>
+#include <QtCore/qendian.h>
+#include <QtCore/qlocale.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qtimezone.h>
+#include <QtCore/private/qnumeric_p.h>
+#include <QtCore/private/qsimd_p.h>
+#include <new>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/corelib/serialization/qcborvalue.cpp, line 3228, as _ZN8QCborMapC1ER21QCborContainerPrivate
+inline QCborMap::QCborMap(QCborContainerPrivate &dd) noexcept
+    : d(&dd)
+{
+}
+//  -----------------------------------------------------------------------
 
 //  QCborMap::QCborMap()
 extern "C" Q_DECL_EXPORT
@@ -24,10 +64,41 @@ QCborMap *ritual_ZN8QCborMapC1ERKS_(const QCborMap *other) {
   return new QCborMap(*other);
 }
 
+//  QCborMap::QCborMap(QCborMap &&other)
+extern "C" Q_DECL_EXPORT
+QCborMap *ritual_ZN8QCborMapC1EOS_(QCborMap *other) {
+  return new QCborMap(std::move(*other));
+}
+
+//  QCborMap &QCborMap::operator=(const QCborMap &other)
+extern "C" Q_DECL_EXPORT
+QCborMap *ritual_ZN8QCborMapaSERKS_(QCborMap *self, const QCborMap *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCborMap &QCborMap::operator=(QCborMap &&other)
+extern "C" Q_DECL_EXPORT
+QCborMap *ritual_ZN8QCborMapaSEOS_(QCborMap *self, QCborMap *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QCborMap::QCborMap(std::initializer_list<value_type> args)
+extern "C" Q_DECL_EXPORT
+QCborMap *ritual_ZN8QCborMapC1ESt16initializer_listISt4pairI10QCborValueS2_EE(
+    const std::initializer_list<QCborMap::value_type> *args) {
+  return new QCborMap(*args);
+}
+
 //  QCborMap::~QCborMap()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QCborMapD1Ev(QCborMap *self) {
   delete self;
+}
+
+//  void QCborMap::swap(QCborMap &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QCborMap4swapERS_(QCborMap *self, QCborMap *other) {
+  self->swap(*other);
 }
 
 //  QCborValue QCborMap::toCborValue() const
@@ -248,6 +319,73 @@ int ritual_ZNK8QCborMap7compareERKS_(
   return self->compare(*other);
 }
 
+//  iterator QCborMap::begin()
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap5beginEv(QCborMap *self) {
+  return new QCborMap::iterator(self->begin());
+}
+
+//  const_iterator QCborMap::constBegin() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap10constBeginEv(
+    const QCborMap *self) {
+  return new QCborMap::const_iterator(self->constBegin());
+}
+
+//  const_iterator QCborMap::begin() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap5beginEv(const QCborMap *self) {
+  return new QCborMap::const_iterator(self->begin());
+}
+
+//  const_iterator QCborMap::cbegin() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap6cbeginEv(
+    const QCborMap *self) {
+  return new QCborMap::const_iterator(self->cbegin());
+}
+
+//  iterator QCborMap::end()
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap3endEv(QCborMap *self) {
+  return new QCborMap::iterator(self->end());
+}
+
+//  const_iterator QCborMap::constEnd() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap8constEndEv(
+    const QCborMap *self) {
+  return new QCborMap::const_iterator(self->constEnd());
+}
+
+//  const_iterator QCborMap::end() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap3endEv(const QCborMap *self) {
+  return new QCborMap::const_iterator(self->end());
+}
+
+//  const_iterator QCborMap::cend() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap4cendEv(const QCborMap *self) {
+  return new QCborMap::const_iterator(self->cend());
+}
+
+//  iterator QCborMap::erase(iterator it)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap5eraseENS_8IteratorE(
+    QCborMap *self,
+    const QCborMap::Iterator *it) {
+  return new QCborMap::iterator(self->erase(*it));
+}
+
+//  iterator QCborMap::erase(const_iterator it)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap5eraseENS_13ConstIteratorE(
+    QCborMap *self,
+    const QCborMap::ConstIterator *it) {
+  return new QCborMap::iterator(self->erase(*it));
+}
+
 //  QCborValue QCborMap::extract(iterator it)
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN8QCborMap7extractENS_8IteratorE(
@@ -270,6 +408,204 @@ bool ritual_ZNK8QCborMap5emptyEv(const QCborMap *self) {
   return self->empty();
 }
 
+//  key_value_iterator QCborMap::keyValueBegin()
+extern "C" Q_DECL_EXPORT
+QCborMap::key_value_iterator *ritual_ZN8QCborMap13keyValueBeginEv(
+    QCborMap *self) {
+  return new QCborMap::key_value_iterator(self->keyValueBegin());
+}
+
+//  key_value_iterator QCborMap::keyValueEnd()
+extern "C" Q_DECL_EXPORT
+QCborMap::key_value_iterator *ritual_ZN8QCborMap11keyValueEndEv(
+    QCborMap *self) {
+  return new QCborMap::key_value_iterator(self->keyValueEnd());
+}
+
+//  const_key_value_iterator QCborMap::keyValueBegin() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_key_value_iterator *ritual_ZNK8QCborMap13keyValueBeginEv(
+    const QCborMap *self) {
+  return new QCborMap::const_key_value_iterator(self->keyValueBegin());
+}
+
+//  const_key_value_iterator QCborMap::constKeyValueBegin() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_key_value_iterator *ritual_ZNK8QCborMap18constKeyValueBeginEv(
+    const QCborMap *self) {
+  return new QCborMap::const_key_value_iterator(self->constKeyValueBegin());
+}
+
+//  const_key_value_iterator QCborMap::keyValueEnd() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_key_value_iterator *ritual_ZNK8QCborMap11keyValueEndEv(
+    const QCborMap *self) {
+  return new QCborMap::const_key_value_iterator(self->keyValueEnd());
+}
+
+//  const_key_value_iterator QCborMap::constKeyValueEnd() const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_key_value_iterator *ritual_ZNK8QCborMap16constKeyValueEndEv(
+    const QCborMap *self) {
+  return new QCborMap::const_key_value_iterator(self->constKeyValueEnd());
+}
+
+//  QtPrivate::QKeyValueRange<QCborMap &> QCborMap::asKeyValueRange()
+extern "C" Q_DECL_EXPORT
+QtPrivate::QKeyValueRange<QCborMap &> *ritual_ZNR8QCborMap15asKeyValueRangeEv(
+    QCborMap *self) {
+  return new QtPrivate::QKeyValueRange<QCborMap &>(self->asKeyValueRange());
+}
+
+//  QtPrivate::QKeyValueRange<const QCborMap &> QCborMap::asKeyValueRange()
+//      const
+extern "C" Q_DECL_EXPORT
+QtPrivate::QKeyValueRange<const QCborMap &> *ritual_ZNKR8QCborMap15asKeyValueRangeEv(
+    const QCborMap *self) {
+  return new QtPrivate::QKeyValueRange<const QCborMap &>(
+      self->asKeyValueRange());
+}
+
+//  iterator QCborMap::find(qint64 key)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap4findEx(QCborMap *self, qint64 key) {
+  return new QCborMap::iterator(self->find(key));
+}
+
+//  iterator QCborMap::find(QLatin1StringView key)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap4findE13QLatin1String(
+    QCborMap *self,
+    const QLatin1String *key) {
+  return new QCborMap::iterator(self->find(*key));
+}
+
+//  iterator QCborMap::find(const QString &key)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap4findERK7QString(
+    QCborMap *self,
+    const QString *key) {
+  return new QCborMap::iterator(self->find(*key));
+}
+
+//  iterator QCborMap::find(const QCborValue &key)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap4findERK10QCborValue(
+    QCborMap *self,
+    const QCborValue *key) {
+  return new QCborMap::iterator(self->find(*key));
+}
+
+//  const_iterator QCborMap::constFind(qint64 key) const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap9constFindEx(
+    const QCborMap *self,
+    qint64 key) {
+  return new QCborMap::const_iterator(self->constFind(key));
+}
+
+//  const_iterator QCborMap::constFind(QLatin1StringView key) const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap9constFindE13QLatin1String(
+    const QCborMap *self,
+    const QLatin1String *key) {
+  return new QCborMap::const_iterator(self->constFind(*key));
+}
+
+//  const_iterator QCborMap::constFind(const QString &key) const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap9constFindERK7QString(
+    const QCborMap *self,
+    const QString *key) {
+  return new QCborMap::const_iterator(self->constFind(*key));
+}
+
+//  const_iterator QCborMap::constFind(const QCborValue &key) const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap9constFindERK10QCborValue(
+    const QCborMap *self,
+    const QCborValue *key) {
+  return new QCborMap::const_iterator(self->constFind(*key));
+}
+
+//  const_iterator QCborMap::find(qint64 key) const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap4findEx(
+    const QCborMap *self,
+    qint64 key) {
+  return new QCborMap::const_iterator(self->find(key));
+}
+
+//  const_iterator QCborMap::find(QLatin1StringView key) const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap4findE13QLatin1String(
+    const QCborMap *self,
+    const QLatin1String *key) {
+  return new QCborMap::const_iterator(self->find(*key));
+}
+
+//  const_iterator QCborMap::find(const QString &key) const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap4findERK7QString(
+    const QCborMap *self,
+    const QString *key) {
+  return new QCborMap::const_iterator(self->find(*key));
+}
+
+//  const_iterator QCborMap::find(const QCborValue &key) const
+extern "C" Q_DECL_EXPORT
+QCborMap::const_iterator *ritual_ZNK8QCborMap4findERK10QCborValue(
+    const QCborMap *self,
+    const QCborValue *key) {
+  return new QCborMap::const_iterator(self->find(*key));
+}
+
+//  iterator QCborMap::insert(qint64 key, const QCborValue &value_)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap6insertExRK10QCborValue(
+    QCborMap *self,
+    qint64 key,
+    const QCborValue *value_) {
+  return new QCborMap::iterator(self->insert(key, *value_));
+}
+
+//  iterator QCborMap::insert(QLatin1StringView key, const QCborValue
+//      &value_)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap6insertE13QLatin1StringRK10QCborValue(
+    QCborMap *self,
+    const QLatin1String *key,
+    const QCborValue *value_) {
+  return new QCborMap::iterator(self->insert(*key, *value_));
+}
+
+//  iterator QCborMap::insert(const QString &key, const QCborValue &value_)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap6insertERK7QStringRK10QCborValue(
+    QCborMap *self,
+    const QString *key,
+    const QCborValue *value_) {
+  return new QCborMap::iterator(self->insert(*key, *value_));
+}
+
+//  iterator QCborMap::insert(const QCborValue &key, const QCborValue
+//      &value_)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap6insertERK10QCborValueS2_(
+    QCborMap *self,
+    const QCborValue *key,
+    const QCborValue *value_) {
+  return new QCborMap::iterator(self->insert(*key, *value_));
+}
+
+//  iterator QCborMap::insert(value_type v)
+extern "C" Q_DECL_EXPORT
+QCborMap::iterator *ritual_ZN8QCborMap6insertESt4pairI10QCborValueS1_E(
+    QCborMap *self,
+    const QCborMap::value_type *v) {
+  return new QCborMap::iterator(self->insert(*v));
+}
+
 //  QCborMap QCborMap::fromVariantMap(const QVariantMap &map)
 extern "C" Q_DECL_EXPORT
 QCborMap *ritual_ZN8QCborMap14fromVariantMapERK4QMapI7QString8QVariantE(
@@ -289,6 +625,12 @@ extern "C" Q_DECL_EXPORT
 QCborMap *ritual_ZN8QCborMap14fromJsonObjectERK11QJsonObject(
     const QJsonObject *o) {
   return new QCborMap(QCborMap::fromJsonObject(*o));
+}
+
+//  QCborMap QCborMap::fromJsonObject(QJsonObject &&o)
+extern "C" Q_DECL_EXPORT
+QCborMap *ritual_ZN8QCborMap14fromJsonObjectEO11QJsonObject(QJsonObject *o) {
+  return new QCborMap(QCborMap::fromJsonObject(std::move(*o)));
 }
 
 //  QVariantMap QCborMap::toVariantMap() const
@@ -587,6 +929,13 @@ bool ritual_ZgeRK18QCborValueConstRefRK8QCborMap(
   return operator>=(*lhs, *rhs);
 }
 
+//  QCborMap::QCborMap(QCborContainerPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QCborMap *ritual_ZN8QCborMapC1ER21QCborContainerPrivate(
+    QCborContainerPrivate *dd) {
+  return new QCborMap(*dd);
+}
+
 //  QList<QCborMap>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QCborMap> *ritual_list_make_QCborMap() {
@@ -618,5 +967,46 @@ QCborMap *ritual_list_at_QCborMap(
 //  QList<QCborMap>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QCborMap(QList<QCborMap> *self) {
+  delete self;
+}
+
+//  a QCborMap::iterator a ritual of QCborMap gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborMap__QCborMap_iterator(QCborMap::iterator *self) {
+  delete self;
+}
+
+//  a QCborMap::const_iterator a ritual of QCborMap gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborMap__QCborMap_const_iterator(
+    QCborMap::const_iterator *self) {
+  delete self;
+}
+
+//  a QCborMap::key_value_iterator a ritual of QCborMap gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborMap__QCborMap_key_value_iterator(
+    QCborMap::key_value_iterator *self) {
+  delete self;
+}
+
+//  a QCborMap::const_key_value_iterator a ritual of QCborMap gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborMap__QCborMap_const_key_value_iterator(
+    QCborMap::const_key_value_iterator *self) {
+  delete self;
+}
+
+//  a QtPrivate::QKeyValueRange<QCborMap &> a ritual of QCborMap gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborMap__QtPrivate_QKeyValueRange_QCborMap(
+    QtPrivate::QKeyValueRange<QCborMap &> *self) {
+  delete self;
+}
+
+//  a QtPrivate::QKeyValueRange<const QCborMap &> a ritual of QCborMap gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborMap__QtPrivate_QKeyValueRange_const_QCborMap(
+    QtPrivate::QKeyValueRange<const QCborMap &> *self) {
   delete self;
 }

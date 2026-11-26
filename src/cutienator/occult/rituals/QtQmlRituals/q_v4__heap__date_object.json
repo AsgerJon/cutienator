@@ -16,6 +16,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK3QV44Heap10DateObject4dateEv": ["double", "address"],
+    "ritual_ZNK3QV44Heap10DateObject9toVariantEv": ["address", "address"],
+    "ritual_ZNK3QV44Heap10DateObject11toQDateTimeEv": ["address", "address"],
+    "ritual_ZN3QV44Heap10DateObject9writeBackEi": ["bool", "address", "int"],
     "ritual_cast_QV4_Heap_DateObject_QV4_Heap_DateObjectData": [
       "address", "address"
     ]

@@ -27,10 +27,43 @@ QHttpServerRequest *ritual_ZN18QHttpServerRequestC1ERKS_(
   return new QHttpServerRequest(*other);
 }
 
+//  QHttpServerRequest &QHttpServerRequest::operator=(const
+//      QHttpServerRequest &other)
+extern "C" Q_DECL_EXPORT
+QHttpServerRequest *ritual_ZN18QHttpServerRequestaSERKS_(
+    QHttpServerRequest *self,
+    const QHttpServerRequest *other) {
+  return &(self->operator=(*other));
+}
+
+//  QHttpServerRequest::QHttpServerRequest(QHttpServerRequest &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerRequest *ritual_ZN18QHttpServerRequestC1EOS_(
+    QHttpServerRequest *other) {
+  return new QHttpServerRequest(std::move(*other));
+}
+
+//  QHttpServerRequest &QHttpServerRequest::operator=(QHttpServerRequest
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerRequest *ritual_ZN18QHttpServerRequestaSEOS_(
+    QHttpServerRequest *self,
+    QHttpServerRequest *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QHttpServerRequest::~QHttpServerRequest()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QHttpServerRequestD1Ev(QHttpServerRequest *self) {
   delete self;
+}
+
+//  void QHttpServerRequest::swap(QHttpServerRequest &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QHttpServerRequest4swapERS_(
+    QHttpServerRequest *self,
+    QHttpServerRequest *other) {
+  self->swap(*other);
 }
 
 //  QByteArray QHttpServerRequest::value(const QByteArray &key) const

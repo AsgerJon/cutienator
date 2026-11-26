@@ -10,7 +10,9 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickitemanimation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtQml/QtQml>
 #include <QtQml/qqmlproperty.h>
@@ -255,6 +257,25 @@ const QMetaObject *ritual_ZNK19QQuickPathAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickPathAnimation11qt_metacastEPKc(
+    QQuickPathAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickPathAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickPathAnimation2trEPKcS1_i(
@@ -424,6 +445,91 @@ void ritual_ZN19QQuickPathAnimation14setEndRotationEd(
     QQuickPathAnimation *self,
     qreal a0) {
   self->setEndRotation(a0);
+}
+
+//  QAbstractAnimationJob *QQuickPathAnimation::transition(QQuickStateActions
+//      &actions, QQmlProperties &modified, TransitionDirection direction,
+//      QObject *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN19QQuickPathAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickPathAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
+}
+
+//  void QQuickPathAnimation::durationChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathAnimation15durationChangedEi(
+    QQuickPathAnimation *self,
+    int a0) {
+  self->durationChanged(a0);
+}
+
+//  void QQuickPathAnimation::easingChanged(const QEasingCurve &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathAnimation13easingChangedERK12QEasingCurve(
+    QQuickPathAnimation *self,
+    const QEasingCurve *a0) {
+  self->easingChanged(*a0);
+}
+
+//  void QQuickPathAnimation::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathAnimation11pathChangedEv(
+    QQuickPathAnimation *self) {
+  self->pathChanged();
+}
+
+//  void QQuickPathAnimation::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathAnimation13targetChangedEv(
+    QQuickPathAnimation *self) {
+  self->targetChanged();
+}
+
+//  void
+//      QQuickPathAnimation::orientationChanged(QQuickPathAnimation::Orientat
+//      ion a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathAnimation18orientationChangedENS_11OrientationE(
+    QQuickPathAnimation *self,
+    QQuickPathAnimation::Orientation a0) {
+  self->orientationChanged(a0);
+}
+
+//  void QQuickPathAnimation::anchorPointChanged(const QPointF &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathAnimation18anchorPointChangedERK7QPointF(
+    QQuickPathAnimation *self,
+    const QPointF *a0) {
+  self->anchorPointChanged(*a0);
+}
+
+//  void QQuickPathAnimation::orientationEntryDurationChanged(qreal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathAnimation31orientationEntryDurationChangedEd(
+    QQuickPathAnimation *self,
+    qreal a0) {
+  self->orientationEntryDurationChanged(a0);
+}
+
+//  void QQuickPathAnimation::orientationExitDurationChanged(qreal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathAnimation30orientationExitDurationChangedEd(
+    QQuickPathAnimation *self,
+    qreal a0) {
+  self->orientationExitDurationChanged(a0);
+}
+
+//  void QQuickPathAnimation::endRotationChanged(qreal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathAnimation18endRotationChangedEd(
+    QQuickPathAnimation *self,
+    qreal a0) {
+  self->endRotationChanged(a0);
 }
 
 //  a Python function taken by a CuteQQuickPathAnimation, for the function

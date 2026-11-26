@@ -297,6 +297,25 @@ const QMetaObject *ritual_ZNK26QQuick3DPrincipledMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DPrincipledMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuick3DPrincipledMaterial11qt_metacastEPKc(
+    QQuick3DPrincipledMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DPrincipledMaterial::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuick3DPrincipledMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DPrincipledMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DPrincipledMaterial::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -700,6 +719,14 @@ extern "C" Q_DECL_EXPORT
 QQuick3DTexture *ritual_ZNK26QQuick3DPrincipledMaterial12thicknessMapEv(
     const QQuick3DPrincipledMaterial *self) {
   return self->thicknessMap();
+}
+
+//  const TextureChannelMapping
+//      &QQuick3DPrincipledMaterial::thicknessChannel() const
+extern "C" Q_DECL_EXPORT
+const QQuick3DMaterial::TextureChannelMapping *ritual_ZNK26QQuick3DPrincipledMaterial16thicknessChannelEv(
+    const QQuick3DPrincipledMaterial *self) {
+  return &(self->thicknessChannel());
 }
 
 //  float QQuick3DPrincipledMaterial::attenuationDistance() const
@@ -1287,6 +1314,15 @@ void ritual_ZN26QQuick3DPrincipledMaterial15setThicknessMapEP15QQuick3DTexture(
   self->setThicknessMap(newThicknessMap);
 }
 
+//  void QQuick3DPrincipledMaterial::setThicknessChannel(const
+//      QQuick3DMaterial::TextureChannelMapping &newThicknessChannel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19setThicknessChannelERKN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    const QQuick3DMaterial::TextureChannelMapping *newThicknessChannel) {
+  self->setThicknessChannel(*newThicknessChannel);
+}
+
 //  void QQuick3DPrincipledMaterial::setAttenuationDistance(float
 //      newAttenuationDistance)
 extern "C" Q_DECL_EXPORT
@@ -1443,6 +1479,623 @@ void ritual_ZN26QQuick3DPrincipledMaterial23setVertexColorAlphaMaskE6QFlagsINS_1
     int vertexColorAlphaMask) {
   self->setVertexColorAlphaMask(
       QFlags<QQuick3DPrincipledMaterial::VertexColorMask>::fromInt(vertexColorAlphaMask));
+}
+
+//  void QQuick3DPrincipledMaterial::lightingChanged(QQuick3DPrincipledMateri
+//      al::Lighting lighting)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial15lightingChangedENS_8LightingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DPrincipledMaterial::Lighting lighting) {
+  self->lightingChanged(lighting);
+}
+
+//  void QQuick3DPrincipledMaterial::blendModeChanged(QQuick3DPrincipledMater
+//      ial::BlendMode blendMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial16blendModeChangedENS_9BlendModeE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DPrincipledMaterial::BlendMode blendMode) {
+  self->blendModeChanged(blendMode);
+}
+
+//  void QQuick3DPrincipledMaterial::baseColorChanged(QColor baseColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial16baseColorChangedE6QColor(
+    QQuick3DPrincipledMaterial *self,
+    const QColor *baseColor) {
+  self->baseColorChanged(*baseColor);
+}
+
+//  void QQuick3DPrincipledMaterial::baseColorMapChanged(QQuick3DTexture
+//      *baseColorMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19baseColorMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *baseColorMap) {
+  self->baseColorMapChanged(baseColorMap);
+}
+
+//  void
+//      QQuick3DPrincipledMaterial::baseColorSingleChannelEnabledChanged(bool
+//      baseColorSingleChannelEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial36baseColorSingleChannelEnabledChangedEb(
+    QQuick3DPrincipledMaterial *self,
+    bool baseColorSingleChannelEnabled) {
+  self->baseColorSingleChannelEnabledChanged(baseColorSingleChannelEnabled);
+}
+
+//  void QQuick3DPrincipledMaterial::baseColorChannelChanged(QQuick3DMaterial
+//      ::TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial23baseColorChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->baseColorChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::specularSingleChannelEnabledChanged(bool
+//      specularColorSingleChannelEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial35specularSingleChannelEnabledChangedEb(
+    QQuick3DPrincipledMaterial *self,
+    bool specularColorSingleChannelEnabled) {
+  self->specularSingleChannelEnabledChanged(
+      specularColorSingleChannelEnabled);
+}
+
+//  void QQuick3DPrincipledMaterial::specularChannelChanged(QQuick3DMaterial:
+//      :TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial22specularChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->specularChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::emissiveSingleChannelEnabledChanged(bool
+//      emissiveColorSingleChannelEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial35emissiveSingleChannelEnabledChangedEb(
+    QQuick3DPrincipledMaterial *self,
+    bool emissiveColorSingleChannelEnabled) {
+  self->emissiveSingleChannelEnabledChanged(
+      emissiveColorSingleChannelEnabled);
+}
+
+//  void QQuick3DPrincipledMaterial::emissiveChannelChanged(QQuick3DMaterial:
+//      :TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial22emissiveChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->emissiveChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::emissiveMapChanged(QQuick3DTexture
+//      *emissiveMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial18emissiveMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *emissiveMap) {
+  self->emissiveMapChanged(emissiveMap);
+}
+
+//  void QQuick3DPrincipledMaterial::emissiveFactorChanged(QVector3D
+//      emissiveFactor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial21emissiveFactorChangedE9QVector3D(
+    QQuick3DPrincipledMaterial *self,
+    const QVector3D *emissiveFactor) {
+  self->emissiveFactorChanged(*emissiveFactor);
+}
+
+//  void
+//      QQuick3DPrincipledMaterial::specularReflectionMapChanged(QQuick3DText
+//      ure *specularReflectionMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial28specularReflectionMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *specularReflectionMap) {
+  self->specularReflectionMapChanged(specularReflectionMap);
+}
+
+//  void QQuick3DPrincipledMaterial::specularMapChanged(QQuick3DTexture
+//      *specularMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial18specularMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *specularMap) {
+  self->specularMapChanged(specularMap);
+}
+
+//  void QQuick3DPrincipledMaterial::specularTintChanged(float specularTint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19specularTintChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float specularTint) {
+  self->specularTintChanged(specularTint);
+}
+
+//  void QQuick3DPrincipledMaterial::specularAmountChanged(float
+//      specularAmount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial21specularAmountChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float specularAmount) {
+  self->specularAmountChanged(specularAmount);
+}
+
+//  void QQuick3DPrincipledMaterial::roughnessChanged(float roughness)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial16roughnessChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float roughness) {
+  self->roughnessChanged(roughness);
+}
+
+//  void QQuick3DPrincipledMaterial::roughnessMapChanged(QQuick3DTexture
+//      *roughnessMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19roughnessMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *roughnessMap) {
+  self->roughnessMapChanged(roughnessMap);
+}
+
+//  void QQuick3DPrincipledMaterial::invertOpacityMapValueChanged(bool
+//      invertOpacityMapValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial28invertOpacityMapValueChangedEb(
+    QQuick3DPrincipledMaterial *self,
+    bool invertOpacityMapValue) {
+  self->invertOpacityMapValueChanged(invertOpacityMapValue);
+}
+
+//  void QQuick3DPrincipledMaterial::opacityChanged(float opacity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial14opacityChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float opacity) {
+  self->opacityChanged(opacity);
+}
+
+//  void QQuick3DPrincipledMaterial::opacityMapChanged(QQuick3DTexture
+//      *opacityMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial17opacityMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *opacityMap) {
+  self->opacityMapChanged(opacityMap);
+}
+
+//  void QQuick3DPrincipledMaterial::normalMapChanged(QQuick3DTexture
+//      *normalMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial16normalMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *normalMap) {
+  self->normalMapChanged(normalMap);
+}
+
+//  void QQuick3DPrincipledMaterial::metalnessChanged(float metalness)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial16metalnessChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float metalness) {
+  self->metalnessChanged(metalness);
+}
+
+//  void QQuick3DPrincipledMaterial::metalnessMapChanged(QQuick3DTexture
+//      *metalnessMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19metalnessMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *metalnessMap) {
+  self->metalnessMapChanged(metalnessMap);
+}
+
+//  void QQuick3DPrincipledMaterial::normalStrengthChanged(float
+//      normalStrength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial21normalStrengthChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float normalStrength) {
+  self->normalStrengthChanged(normalStrength);
+}
+
+//  void QQuick3DPrincipledMaterial::occlusionMapChanged(QQuick3DTexture
+//      *occlusionMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19occlusionMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *occlusionMap) {
+  self->occlusionMapChanged(occlusionMap);
+}
+
+//  void QQuick3DPrincipledMaterial::occlusionAmountChanged(float
+//      occlusionAmount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial22occlusionAmountChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float occlusionAmount) {
+  self->occlusionAmountChanged(occlusionAmount);
+}
+
+//  void QQuick3DPrincipledMaterial::alphaModeChanged(QQuick3DPrincipledMater
+//      ial::AlphaMode alphaMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial16alphaModeChangedENS_9AlphaModeE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DPrincipledMaterial::AlphaMode alphaMode) {
+  self->alphaModeChanged(alphaMode);
+}
+
+//  void QQuick3DPrincipledMaterial::alphaCutoffChanged(float alphaCutoff)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial18alphaCutoffChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float alphaCutoff) {
+  self->alphaCutoffChanged(alphaCutoff);
+}
+
+//  void QQuick3DPrincipledMaterial::metalnessChannelChanged(QQuick3DMaterial
+//      ::TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial23metalnessChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->metalnessChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::roughnessChannelChanged(QQuick3DMaterial
+//      ::TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial23roughnessChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->roughnessChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::opacityChannelChanged(QQuick3DMaterial::
+//      TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial21opacityChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->opacityChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::occlusionChannelChanged(QQuick3DMaterial
+//      ::TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial23occlusionChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->occlusionChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::pointSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial16pointSizeChangedEv(
+    QQuick3DPrincipledMaterial *self) {
+  self->pointSizeChanged();
+}
+
+//  void QQuick3DPrincipledMaterial::lineWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial16lineWidthChangedEv(
+    QQuick3DPrincipledMaterial *self) {
+  self->lineWidthChanged();
+}
+
+//  void QQuick3DPrincipledMaterial::heightMapChanged(QQuick3DTexture
+//      *heightMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial16heightMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *heightMap) {
+  self->heightMapChanged(heightMap);
+}
+
+//  void QQuick3DPrincipledMaterial::heightChannelChanged(QQuick3DMaterial::T
+//      extureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial20heightChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->heightChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::heightAmountChanged(float heightAmount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19heightAmountChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float heightAmount) {
+  self->heightAmountChanged(heightAmount);
+}
+
+//  void QQuick3DPrincipledMaterial::minHeightMapSamplesChanged(int samples)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial26minHeightMapSamplesChangedEi(
+    QQuick3DPrincipledMaterial *self,
+    int samples) {
+  self->minHeightMapSamplesChanged(samples);
+}
+
+//  void QQuick3DPrincipledMaterial::maxHeightMapSamplesChanged(int samples)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial26maxHeightMapSamplesChangedEi(
+    QQuick3DPrincipledMaterial *self,
+    int samples) {
+  self->maxHeightMapSamplesChanged(samples);
+}
+
+//  void QQuick3DPrincipledMaterial::clearcoatAmountChanged(float amount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial22clearcoatAmountChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float amount) {
+  self->clearcoatAmountChanged(amount);
+}
+
+//  void QQuick3DPrincipledMaterial::clearcoatMapChanged(QQuick3DTexture
+//      *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19clearcoatMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *texture) {
+  self->clearcoatMapChanged(texture);
+}
+
+//  void QQuick3DPrincipledMaterial::clearcoatChannelChanged(QQuick3DMaterial
+//      ::TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial23clearcoatChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->clearcoatChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::clearcoatRoughnessAmountChanged(float
+//      amount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial31clearcoatRoughnessAmountChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float amount) {
+  self->clearcoatRoughnessAmountChanged(amount);
+}
+
+//  void QQuick3DPrincipledMaterial::clearcoatRoughnessChannelChanged(QQuick3
+//      DMaterial::TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial32clearcoatRoughnessChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->clearcoatRoughnessChannelChanged(channel);
+}
+
+//  void
+//      QQuick3DPrincipledMaterial::clearcoatRoughnessMapChanged(QQuick3DText
+//      ure *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial28clearcoatRoughnessMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *texture) {
+  self->clearcoatRoughnessMapChanged(texture);
+}
+
+//  void
+//      QQuick3DPrincipledMaterial::clearcoatNormalMapChanged(QQuick3DTexture
+//      *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial25clearcoatNormalMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *texture) {
+  self->clearcoatNormalMapChanged(texture);
+}
+
+//  void QQuick3DPrincipledMaterial::clearcoatNormalStrengthChanged(float
+//      clearcoatNormalStrength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial30clearcoatNormalStrengthChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float clearcoatNormalStrength) {
+  self->clearcoatNormalStrengthChanged(clearcoatNormalStrength);
+}
+
+//  void QQuick3DPrincipledMaterial::transmissionFactorChanged(float amount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial25transmissionFactorChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float amount) {
+  self->transmissionFactorChanged(amount);
+}
+
+//  void QQuick3DPrincipledMaterial::transmissionMapChanged(QQuick3DTexture
+//      *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial22transmissionMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *texture) {
+  self->transmissionMapChanged(texture);
+}
+
+//  void QQuick3DPrincipledMaterial::transmissionChannelChanged(QQuick3DMater
+//      ial::TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial26transmissionChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->transmissionChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::thicknessFactorChanged(float amount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial22thicknessFactorChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float amount) {
+  self->thicknessFactorChanged(amount);
+}
+
+//  void QQuick3DPrincipledMaterial::thicknessMapChanged(QQuick3DTexture
+//      *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19thicknessMapChangedEP15QQuick3DTexture(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DTexture *texture) {
+  self->thicknessMapChanged(texture);
+}
+
+//  void QQuick3DPrincipledMaterial::thicknessChannelChanged(QQuick3DMaterial
+//      ::TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial23thicknessChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DPrincipledMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->thicknessChannelChanged(channel);
+}
+
+//  void QQuick3DPrincipledMaterial::attenuationDistanceChanged(float
+//      distance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial26attenuationDistanceChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float distance) {
+  self->attenuationDistanceChanged(distance);
+}
+
+//  void QQuick3DPrincipledMaterial::attenuationColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial23attenuationColorChangedE6QColor(
+    QQuick3DPrincipledMaterial *self,
+    const QColor *color) {
+  self->attenuationColorChanged(*color);
+}
+
+//  void QQuick3DPrincipledMaterial::indexOfRefractionChanged(float
+//      indexOfRefraction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial24indexOfRefractionChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float indexOfRefraction) {
+  self->indexOfRefractionChanged(indexOfRefraction);
+}
+
+//  void QQuick3DPrincipledMaterial::fresnelScaleBiasEnabledChanged(bool
+//      fresnelScaleBiasEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial30fresnelScaleBiasEnabledChangedEb(
+    QQuick3DPrincipledMaterial *self,
+    bool fresnelScaleBiasEnabled) {
+  self->fresnelScaleBiasEnabledChanged(fresnelScaleBiasEnabled);
+}
+
+//  void QQuick3DPrincipledMaterial::fresnelScaleChanged(float fresnelScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19fresnelScaleChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float fresnelScale) {
+  self->fresnelScaleChanged(fresnelScale);
+}
+
+//  void QQuick3DPrincipledMaterial::fresnelBiasChanged(float fresnelBias)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial18fresnelBiasChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float fresnelBias) {
+  self->fresnelBiasChanged(fresnelBias);
+}
+
+//  void QQuick3DPrincipledMaterial::fresnelPowerChanged(float fresnelPower)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial19fresnelPowerChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float fresnelPower) {
+  self->fresnelPowerChanged(fresnelPower);
+}
+
+//  void
+//      QQuick3DPrincipledMaterial::clearcoatFresnelScaleBiasEnabledChanged(b
+//      ool clearcoatFresnelScaleBiasEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial39clearcoatFresnelScaleBiasEnabledChangedEb(
+    QQuick3DPrincipledMaterial *self,
+    bool clearcoatFresnelScaleBiasEnabled) {
+  self->clearcoatFresnelScaleBiasEnabledChanged(
+      clearcoatFresnelScaleBiasEnabled);
+}
+
+//  void QQuick3DPrincipledMaterial::clearcoatFresnelScaleChanged(float
+//      clearcoatFresnelScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial28clearcoatFresnelScaleChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float clearcoatFresnelScale) {
+  self->clearcoatFresnelScaleChanged(clearcoatFresnelScale);
+}
+
+//  void QQuick3DPrincipledMaterial::clearcoatFresnelBiasChanged(float
+//      clearcoatFresnelBias)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial27clearcoatFresnelBiasChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float clearcoatFresnelBias) {
+  self->clearcoatFresnelBiasChanged(clearcoatFresnelBias);
+}
+
+//  void QQuick3DPrincipledMaterial::clearcoatFresnelPowerChanged(float
+//      clearcoatFresnelPower)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial28clearcoatFresnelPowerChangedEf(
+    QQuick3DPrincipledMaterial *self,
+    float clearcoatFresnelPower) {
+  self->clearcoatFresnelPowerChanged(clearcoatFresnelPower);
+}
+
+//  void QQuick3DPrincipledMaterial::vertexColorsEnabledChanged(bool
+//      vertexColorsEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial26vertexColorsEnabledChangedEb(
+    QQuick3DPrincipledMaterial *self,
+    bool vertexColorsEnabled) {
+  self->vertexColorsEnabledChanged(vertexColorsEnabled);
+}
+
+//  void QQuick3DPrincipledMaterial::vertexColorsMaskEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial30vertexColorsMaskEnabledChangedEv(
+    QQuick3DPrincipledMaterial *self) {
+  self->vertexColorsMaskEnabledChanged();
+}
+
+//  void QQuick3DPrincipledMaterial::vertexColorRedMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial25vertexColorRedMaskChangedEv(
+    QQuick3DPrincipledMaterial *self) {
+  self->vertexColorRedMaskChanged();
+}
+
+//  void QQuick3DPrincipledMaterial::vertexColorGreenMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial27vertexColorGreenMaskChangedEv(
+    QQuick3DPrincipledMaterial *self) {
+  self->vertexColorGreenMaskChanged();
+}
+
+//  void QQuick3DPrincipledMaterial::vertexColorBlueMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial26vertexColorBlueMaskChangedEv(
+    QQuick3DPrincipledMaterial *self) {
+  self->vertexColorBlueMaskChanged();
+}
+
+//  void QQuick3DPrincipledMaterial::vertexColorAlphaMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DPrincipledMaterial27vertexColorAlphaMaskChangedEv(
+    QQuick3DPrincipledMaterial *self) {
+  self->vertexColorAlphaMaskChanged();
 }
 
 //  QSSGRenderGraphObject

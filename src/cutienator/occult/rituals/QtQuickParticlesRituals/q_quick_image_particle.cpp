@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuickParticles/6.12.0/QtQuickParticles/private/qquickimageparticle_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0. Edited by hand on 2026-11-25: added by hand, instances of
+//  templates of the class: 3. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuickParticles/6.12.0/QtQuickParticles/private/qtquickparticlesglobal_p.h>
@@ -18,6 +19,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuickImageParticle may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -863,6 +865,25 @@ const QMetaObject *ritual_ZNK19QQuickImageParticle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickImageParticle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickImageParticle11qt_metacastEPKc(
+    QQuickImageParticle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickImageParticle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickImageParticle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickImageParticle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickImageParticle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickImageParticle2trEPKcS1_i(
@@ -883,6 +904,13 @@ QQuickImageParticle *ritual_ZN19QQuickImageParticleC1EP10QQuickItem(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickImageParticleD1Ev(QQuickImageParticle *self) {
   delete self;
+}
+
+//  QQmlListProperty<QQuickSprite> QQuickImageParticle::sprites()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickSprite> *ritual_ZN19QQuickImageParticle7spritesEv(
+    QQuickImageParticle *self) {
+  return new QQmlListProperty<QQuickSprite>(self->sprites());
 }
 
 //  QQuickStochasticEngine *QQuickImageParticle::spriteEngine()
@@ -1115,6 +1143,176 @@ void ritual_ZN19QQuickImageParticle16resetDeformationEv(
   self->resetDeformation();
 }
 
+//  void QQuickImageParticle::imageChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle12imageChangedEv(
+    QQuickImageParticle *self) {
+  self->imageChanged();
+}
+
+//  void QQuickImageParticle::colortableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle17colortableChangedEv(
+    QQuickImageParticle *self) {
+  self->colortableChanged();
+}
+
+//  void QQuickImageParticle::sizetableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle16sizetableChangedEv(
+    QQuickImageParticle *self) {
+  self->sizetableChanged();
+}
+
+//  void QQuickImageParticle::opacitytableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle19opacitytableChangedEv(
+    QQuickImageParticle *self) {
+  self->opacitytableChanged();
+}
+
+//  void QQuickImageParticle::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle12colorChangedEv(
+    QQuickImageParticle *self) {
+  self->colorChanged();
+}
+
+//  void QQuickImageParticle::colorVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle21colorVariationChangedEv(
+    QQuickImageParticle *self) {
+  self->colorVariationChanged();
+}
+
+//  void QQuickImageParticle::alphaVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle21alphaVariationChangedEd(
+    QQuickImageParticle *self,
+    qreal arg) {
+  self->alphaVariationChanged(arg);
+}
+
+//  void QQuickImageParticle::alphaChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle12alphaChangedEd(
+    QQuickImageParticle *self,
+    qreal arg) {
+  self->alphaChanged(arg);
+}
+
+//  void QQuickImageParticle::redVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle19redVariationChangedEd(
+    QQuickImageParticle *self,
+    qreal arg) {
+  self->redVariationChanged(arg);
+}
+
+//  void QQuickImageParticle::greenVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle21greenVariationChangedEd(
+    QQuickImageParticle *self,
+    qreal arg) {
+  self->greenVariationChanged(arg);
+}
+
+//  void QQuickImageParticle::blueVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle20blueVariationChangedEd(
+    QQuickImageParticle *self,
+    qreal arg) {
+  self->blueVariationChanged(arg);
+}
+
+//  void QQuickImageParticle::rotationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle15rotationChangedEd(
+    QQuickImageParticle *self,
+    qreal arg) {
+  self->rotationChanged(arg);
+}
+
+//  void QQuickImageParticle::rotationVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle24rotationVariationChangedEd(
+    QQuickImageParticle *self,
+    qreal arg) {
+  self->rotationVariationChanged(arg);
+}
+
+//  void QQuickImageParticle::rotationVelocityChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle23rotationVelocityChangedEd(
+    QQuickImageParticle *self,
+    qreal arg) {
+  self->rotationVelocityChanged(arg);
+}
+
+//  void QQuickImageParticle::rotationVelocityVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle32rotationVelocityVariationChangedEd(
+    QQuickImageParticle *self,
+    qreal arg) {
+  self->rotationVelocityVariationChanged(arg);
+}
+
+//  void QQuickImageParticle::autoRotationChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle19autoRotationChangedEb(
+    QQuickImageParticle *self,
+    bool arg) {
+  self->autoRotationChanged(arg);
+}
+
+//  void QQuickImageParticle::xVectorChanged(QQuickDirection *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle14xVectorChangedEP15QQuickDirection(
+    QQuickImageParticle *self,
+    QQuickDirection *arg) {
+  self->xVectorChanged(arg);
+}
+
+//  void QQuickImageParticle::yVectorChanged(QQuickDirection *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle14yVectorChangedEP15QQuickDirection(
+    QQuickImageParticle *self,
+    QQuickDirection *arg) {
+  self->yVectorChanged(arg);
+}
+
+//  void QQuickImageParticle::spritesInterpolateChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle25spritesInterpolateChangedEb(
+    QQuickImageParticle *self,
+    bool arg) {
+  self->spritesInterpolateChanged(arg);
+}
+
+//  void QQuickImageParticle::bypassOptimizationsChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle26bypassOptimizationsChangedEb(
+    QQuickImageParticle *self,
+    bool arg) {
+  self->bypassOptimizationsChanged(arg);
+}
+
+//  void QQuickImageParticle::entryEffectChanged(EntryEffect arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle18entryEffectChangedENS_11EntryEffectE(
+    QQuickImageParticle *self,
+    QQuickImageParticle::EntryEffect arg) {
+  self->entryEffectChanged(arg);
+}
+
+//  void QQuickImageParticle::statusChanged(Status arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle13statusChangedENS_6StatusE(
+    QQuickImageParticle *self,
+    QQuickImageParticle::Status arg) {
+  self->statusChanged(arg);
+}
+
 //  void QQuickImageParticle::setAlphaVariation(qreal arg)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickImageParticle17setAlphaVariationEd(
@@ -1269,6 +1467,22 @@ QSGNode *ritual_ZN19QQuickImageParticle15updatePaintNodeEP7QSGNodePN10QQuickItem
   return self->updatePaintNode(a0, a1);
 }
 
+//  bool QQuickImageParticle::prepareNextFrame(QSGNode **a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQuickImageParticle16prepareNextFrameEPP7QSGNode(
+    QQuickImageParticle *self,
+    QSGNode **a0) {
+  return self->prepareNextFrame(a0);
+}
+
+//  void QQuickImageParticle::buildParticleNodes(QSGNode **a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle18buildParticleNodesEPP7QSGNode(
+    QQuickImageParticle *self,
+    QSGNode **a0) {
+  self->buildParticleNodes(a0);
+}
+
 //  void QQuickImageParticle::sceneGraphInvalidated()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickImageParticle21sceneGraphInvalidatedEv(
@@ -1320,6 +1534,14 @@ bool ritual_ZN19QQuickImageParticle16loadingSomethingEv(
   return self->loadingSomething();
 }
 
+//  void QQuickImageParticle::finishBuildParticleNodes(QSGNode **n)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle24finishBuildParticleNodesEPP7QSGNode(
+    QQuickImageParticle *self,
+    QSGNode **n) {
+  self->finishBuildParticleNodes(n);
+}
+
 //  void QQuickImageParticle::clearShadows()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickImageParticle12clearShadowsEv(
@@ -1342,6 +1564,14 @@ void ritual_ZN19QQuickImageParticle14checkPerfLevelENS_16PerformanceLevelE(
     QQuickImageParticle *self,
     QQuickImageParticle::PerformanceLevel level) {
   self->checkPerfLevel(level);
+}
+
+//  ImageMaterialData *QQuickImageParticle::getState(QSGMaterial *m)
+extern "C" Q_DECL_EXPORT
+ImageMaterialData *ritual_ZN19QQuickImageParticle8getStateEP11QSGMaterial(
+    QQuickImageParticle *self,
+    QSGMaterial *m) {
+  return self->getState(m);
 }
 
 //  a Python function taken by a CuteQQuickImageParticle, for the function
@@ -1399,4 +1629,33 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QQuickImageParticle21sceneGraphInvalidatedEv(
     QQuickImageParticle *self) {
   static_cast<OwnQQuickImageParticle *>(self)->OwnQQuickImageParticle::sceneGraphInvalidated();
+}
+
+//  a QQmlListProperty<QQuickSprite> a ritual of QQuickImageParticle gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickImageParticle__QQmlListProperty_QQuickSprite(
+    QQmlListProperty<QQuickSprite> *self) {
+  delete self;
+}
+
+//  void QQuickImageParticle::initTexCoords<SpriteVertex>(SpriteVertex *v,
+//      int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle13initTexCoordsI12SpriteVertexEEvPT_i(QQuickImageParticle *self, SpriteVertex *v, int count) {
+  self->initTexCoords<SpriteVertex>(v, count);
+}
+
+//  void
+//      QQuickImageParticle::initTexCoords<DeformableVertex>(DeformableVertex
+//      *v, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle13initTexCoordsI16DeformableVertexEEvPT_i(QQuickImageParticle *self, DeformableVertex *v, int count) {
+  self->initTexCoords<DeformableVertex>(v, count);
+}
+
+//  void QQuickImageParticle::initTexCoords<ColoredVertex>(ColoredVertex *v,
+//      int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageParticle13initTexCoordsI13ColoredVertexEEvPT_i(QQuickImageParticle *self, ColoredVertex *v, int count) {
+  self->initTexCoords<ColoredVertex>(v, count);
 }

@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN8QDomTextC1Ev": ["address"],
     "ritual_ZN8QDomTextC1ERKS_": ["address", "address"],
+    "ritual_ZN8QDomTextaSERKS_": ["address", "address", "address"],
     "ritual_ZN8QDomText9splitTextEi": ["address", "address", "int"],
     "ritual_ZNK8QDomText8nodeTypeEv": ["int", "address"],
     "ritual_ZN8QDomTextC1EP15QDomTextPrivate": ["address", "address"],

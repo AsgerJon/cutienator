@@ -8,6 +8,12 @@
     "ritual_ZNK25QQuick3DParticleAttractor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuick3DParticleAttractor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuick3DParticleAttractor2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -49,6 +55,27 @@
     ],
     "ritual_ZN25QQuick3DParticleAttractor18setPositionsAmountEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor24positionVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor12shapeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor15durationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor24durationVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor16hideAtEndChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor25useCachedPositionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor22positionsAmountChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN25QQuick3DParticleAttractor15prepareToAffectEv": [
       "nothing", "address"

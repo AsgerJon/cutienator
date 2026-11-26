@@ -24,6 +24,15 @@ void ritual_ZN18QBluetoothHostInfoD1Ev(QBluetoothHostInfo *self) {
   delete self;
 }
 
+//  QBluetoothHostInfo &QBluetoothHostInfo::operator=(const
+//      QBluetoothHostInfo &other)
+extern "C" Q_DECL_EXPORT
+QBluetoothHostInfo *ritual_ZN18QBluetoothHostInfoaSERKS_(
+    QBluetoothHostInfo *self,
+    const QBluetoothHostInfo *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool operator==(const QBluetoothHostInfo &a, const QBluetoothHostInfo &b)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK18QBluetoothHostInfoS1_(

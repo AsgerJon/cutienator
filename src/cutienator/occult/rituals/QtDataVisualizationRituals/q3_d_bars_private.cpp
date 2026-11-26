@@ -19,11 +19,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdatavis3d/src/datavisualization/engine/q3dbars.cpp, line 453, as _ZN14Q3DBarsPrivateD1Ev
-inline Q3DBarsPrivate::~Q3DBarsPrivate()
-{
-}
-
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dbars.cpp, line 457, as _ZN14Q3DBarsPrivate18handleAxisXChangedEP15QAbstract3DAxis
 inline void Q3DBarsPrivate::handleAxisXChanged(QAbstract3DAxis *axis)
 {
@@ -40,6 +35,11 @@ inline void Q3DBarsPrivate::handleAxisYChanged(QAbstract3DAxis *axis)
 inline void Q3DBarsPrivate::handleAxisZChanged(QAbstract3DAxis *axis)
 {
     emit qptr()->rowAxisChanged(static_cast<QCategory3DAxis *>(axis));
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dbars.cpp, line 453, as _ZN14Q3DBarsPrivateD1Ev
+inline Q3DBarsPrivate::~Q3DBarsPrivate()
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dbars.cpp, line 472, as _ZN14Q3DBarsPrivate4qptrEv
@@ -269,6 +269,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK14Q3DBarsPrivate10metaObjectEv(
     const Q3DBarsPrivate *self) {
   return self->metaObject();
+}
+
+//  void *Q3DBarsPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14Q3DBarsPrivate11qt_metacastEPKc(
+    Q3DBarsPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DBarsPrivate::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14Q3DBarsPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DBarsPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  Q3DBarsPrivate::~Q3DBarsPrivate()

@@ -11,6 +11,24 @@ const QMetaObject *ritual_ZNK11QStyleHints10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStyleHints::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QStyleHints11qt_metacastEPKc(
+    QStyleHints *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStyleHints::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QStyleHints11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStyleHints *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStyleHints::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QStyleHints2trEPKcS1_i(
@@ -335,11 +353,153 @@ const QAccessibilityHints *ritual_ZNK11QStyleHints13accessibilityEv(
   return self->accessibility();
 }
 
+//  std::chrono::milliseconds QStyleHints::toolTipWakeUpDelay() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK11QStyleHints18toolTipWakeUpDelayEv(
+    const QStyleHints *self) {
+  return static_cast<long long>(self->toolTipWakeUpDelay().count());
+}
+
+//  void QStyleHints::setToolTipWakeUpDelay(std::chrono::milliseconds
+//      toolTipWakeUpDelay)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints21setToolTipWakeUpDelayENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QStyleHints *self,
+    long long toolTipWakeUpDelay) {
+  self->setToolTipWakeUpDelay(std::chrono::milliseconds(toolTipWakeUpDelay));
+}
+
 //  int QStyleHints::toolTipWakeUpDelayAsMSec() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QStyleHints24toolTipWakeUpDelayAsMSecEv(
     const QStyleHints *self) {
   return self->toolTipWakeUpDelayAsMSec();
+}
+
+//  void QStyleHints::cursorFlashTimeChanged(int cursorFlashTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints22cursorFlashTimeChangedEi(
+    QStyleHints *self,
+    int cursorFlashTime) {
+  self->cursorFlashTimeChanged(cursorFlashTime);
+}
+
+//  void QStyleHints::keyboardInputIntervalChanged(int keyboardInputInterval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints28keyboardInputIntervalChangedEi(
+    QStyleHints *self,
+    int keyboardInputInterval) {
+  self->keyboardInputIntervalChanged(keyboardInputInterval);
+}
+
+//  void QStyleHints::mouseDoubleClickIntervalChanged(int
+//      mouseDoubleClickInterval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints31mouseDoubleClickIntervalChangedEi(
+    QStyleHints *self,
+    int mouseDoubleClickInterval) {
+  self->mouseDoubleClickIntervalChanged(mouseDoubleClickInterval);
+}
+
+//  void QStyleHints::mousePressAndHoldIntervalChanged(int
+//      mousePressAndHoldInterval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints32mousePressAndHoldIntervalChangedEi(
+    QStyleHints *self,
+    int mousePressAndHoldInterval) {
+  self->mousePressAndHoldIntervalChanged(mousePressAndHoldInterval);
+}
+
+//  void QStyleHints::startDragDistanceChanged(int startDragDistance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints24startDragDistanceChangedEi(
+    QStyleHints *self,
+    int startDragDistance) {
+  self->startDragDistanceChanged(startDragDistance);
+}
+
+//  void QStyleHints::startDragTimeChanged(int startDragTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints20startDragTimeChangedEi(
+    QStyleHints *self,
+    int startDragTime) {
+  self->startDragTimeChanged(startDragTime);
+}
+
+//  void QStyleHints::tabFocusBehaviorChanged(Qt::TabFocusBehavior
+//      tabFocusBehavior)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints23tabFocusBehaviorChangedEN2Qt16TabFocusBehaviorE(
+    QStyleHints *self,
+    Qt::TabFocusBehavior tabFocusBehavior) {
+  self->tabFocusBehaviorChanged(tabFocusBehavior);
+}
+
+//  void QStyleHints::useHoverEffectsChanged(bool useHoverEffects)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints22useHoverEffectsChangedEb(
+    QStyleHints *self,
+    bool useHoverEffects) {
+  self->useHoverEffectsChanged(useHoverEffects);
+}
+
+//  void QStyleHints::showShortcutsInContextMenusChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints34showShortcutsInContextMenusChangedEb(
+    QStyleHints *self,
+    bool a0) {
+  self->showShortcutsInContextMenusChanged(a0);
+}
+
+//  void QStyleHints::contextMenuTriggerChanged(Qt::ContextMenuTrigger
+//      contextMenuTrigger)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints25contextMenuTriggerChangedEN2Qt18ContextMenuTriggerE(
+    QStyleHints *self,
+    Qt::ContextMenuTrigger contextMenuTrigger) {
+  self->contextMenuTriggerChanged(contextMenuTrigger);
+}
+
+//  void QStyleHints::wheelScrollLinesChanged(int scrollLines)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints23wheelScrollLinesChangedEi(
+    QStyleHints *self,
+    int scrollLines) {
+  self->wheelScrollLinesChanged(scrollLines);
+}
+
+//  void QStyleHints::mouseQuickSelectionThresholdChanged(int threshold)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints35mouseQuickSelectionThresholdChangedEi(
+    QStyleHints *self,
+    int threshold) {
+  self->mouseQuickSelectionThresholdChanged(threshold);
+}
+
+//  void QStyleHints::colorSchemeChanged(Qt::ColorScheme colorScheme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints18colorSchemeChangedEN2Qt11ColorSchemeE(
+    QStyleHints *self,
+    Qt::ColorScheme colorScheme) {
+  self->colorSchemeChanged(colorScheme);
+}
+
+//  void QStyleHints::toolTipWakeUpDelayChanged(std::chrono::milliseconds
+//      toolTipWakeUpDelay)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints25toolTipWakeUpDelayChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QStyleHints *self,
+    long long toolTipWakeUpDelay) {
+  self->toolTipWakeUpDelayChanged(
+      std::chrono::milliseconds(toolTipWakeUpDelay));
+}
+
+//  void QStyleHints::toolTipWakeUpDelayAsMSecChanged(int toolTipWakeUpDelay)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStyleHints31toolTipWakeUpDelayAsMSecChangedEi(
+    QStyleHints *self,
+    int toolTipWakeUpDelay) {
+  self->toolTipWakeUpDelayAsMSecChanged(toolTipWakeUpDelay);
 }
 
 //  QStyleHints::QStyleHints()

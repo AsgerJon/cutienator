@@ -41,11 +41,27 @@ public:
   }
 };
 
+//  Qt3DRender::Render::RenderStateNode::RenderStateNode()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::RenderStateNode *ritual_ZN10Qt3DRender6Render15RenderStateNodeC1Ev() {
+  return new CuteQt3DRender_Render_RenderStateNode();
+}
+
 //  Qt3DRender::Render::RenderStateNode::~RenderStateNode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender6Render15RenderStateNodeD1Ev(
     Qt3DRender::Render::RenderStateNode *self) {
   delete self;
+}
+
+//  void Qt3DRender::Render::RenderStateNode::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15RenderStateNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::RenderStateNode *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
 }
 
 //  StateMask Qt3DRender::Render::RenderStateNode::type() const
@@ -60,6 +76,13 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::Render::StateVariant *ritual_ZNK10Qt3DRender6Render15RenderStateNode4implEv(
     const Qt3DRender::Render::RenderStateNode *self) {
   return new Qt3DRender::Render::StateVariant(self->impl());
+}
+
+//  void Qt3DRender::Render::RenderStateNode::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15RenderStateNode7cleanupEv(
+    Qt3DRender::Render::RenderStateNode *self) {
+  self->cleanup();
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_RenderStateNode, for

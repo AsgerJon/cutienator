@@ -5,6 +5,8 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN21QMetalComputePipeline7destroyEv": ["nothing", "address"],
+    "ritual_ZN21QMetalComputePipeline6createEv": ["bool", "address"],
     "ritual_take_QMetalComputePipeline": [
       "bool", "address", "chars", "address"
     ]

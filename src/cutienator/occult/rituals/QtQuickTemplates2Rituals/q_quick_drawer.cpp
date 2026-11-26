@@ -26,6 +26,24 @@ const QMetaObject *ritual_ZNK12QQuickDrawer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDrawer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickDrawer11qt_metacastEPKc(
+    QQuickDrawer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDrawer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickDrawer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDrawer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDrawer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickDrawer2trEPKcS1_i(
@@ -101,6 +119,30 @@ void ritual_ZN12QQuickDrawer14setInteractiveEb(
     QQuickDrawer *self,
     bool interactive) {
   self->setInteractive(interactive);
+}
+
+//  void QQuickDrawer::edgeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDrawer11edgeChangedEv(QQuickDrawer *self) {
+  self->edgeChanged();
+}
+
+//  void QQuickDrawer::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDrawer15positionChangedEv(QQuickDrawer *self) {
+  self->positionChanged();
+}
+
+//  void QQuickDrawer::dragMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDrawer17dragMarginChangedEv(QQuickDrawer *self) {
+  self->dragMarginChanged();
+}
+
+//  void QQuickDrawer::interactiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDrawer18interactiveChangedEv(QQuickDrawer *self) {
+  self->interactiveChanged();
 }
 
 //  bool QQuickDrawer::childMouseEventFilter(QQuickItem *child, QEvent

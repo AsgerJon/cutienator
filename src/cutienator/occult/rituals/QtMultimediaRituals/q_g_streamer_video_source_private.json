@@ -13,6 +13,9 @@
     ],
     "ritual_ZN28QGStreamerVideoSourcePrivate3getEP21QGStreamerVideoSource": [
       "address", "address"
+    ],
+    "ritual_ZN28QGStreamerVideoSourcePrivate20createPlatformCameraEP21QGStreamerVideoSourceSt7variantIJ7QStringP11_GstElementEEb": [
+      "nothing", "address", "address", "address", "bool"
     ]
   }
 }

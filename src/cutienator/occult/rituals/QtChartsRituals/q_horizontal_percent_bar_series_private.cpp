@@ -5,7 +5,9 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/qhorizontalpercentbarseries.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qhorizontalpercentbarseries_p.h>

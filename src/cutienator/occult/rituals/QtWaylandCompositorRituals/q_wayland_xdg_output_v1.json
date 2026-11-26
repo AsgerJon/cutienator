@@ -6,8 +6,29 @@
   ],
   "rows": {
     "ritual_ZNK19QWaylandXdgOutputV110metaObjectEv": ["address", "address"],
+    "ritual_ZN19QWaylandXdgOutputV111qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV111qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QWaylandXdgOutputV12trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV16d_funcEv": ["address", "address"],
+    "ritual_ZNK19QWaylandXdgOutputV16d_funcEv": ["address", "address"],
+    "ritual_ZN19QWaylandXdgOutputV14dataEv": ["address", "address"],
+    "ritual_ZN19QWaylandXdgOutputV114appendFunctionEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV113countFunctionEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV110atFunctionEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV113clearFunctionEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
     ],
     "ritual_ZN19QWaylandXdgOutputV1C1Ev": ["address"],
     "ritual_ZN19QWaylandXdgOutputV1C1EP14QWaylandOutputP26QWaylandXdgOutputManagerV1": [
@@ -37,8 +58,30 @@
     "ritual_ZNK19QWaylandXdgOutputV115logicalGeometryEv": [
       "address", "address"
     ],
+    "ritual_ZN19QWaylandXdgOutputV114managerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV113outputChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV122logicalPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV118logicalSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV122logicalGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgOutputV111nameChangedEv": ["nothing", "address"],
+    "ritual_ZN19QWaylandXdgOutputV118descriptionChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QWaylandXdgOutputV1": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QWaylandXdgOutputV1__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

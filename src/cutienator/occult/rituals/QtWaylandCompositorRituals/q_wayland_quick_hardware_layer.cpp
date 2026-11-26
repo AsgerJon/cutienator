@@ -220,6 +220,25 @@ const QMetaObject *ritual_ZNK26QWaylandQuickHardwareLayer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandQuickHardwareLayer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QWaylandQuickHardwareLayer11qt_metacastEPKc(
+    QWaylandQuickHardwareLayer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQuickHardwareLayer::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QWaylandQuickHardwareLayer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQuickHardwareLayer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandQuickHardwareLayer::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -228,6 +247,21 @@ QString *ritual_ZN26QWaylandQuickHardwareLayer2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandQuickHardwareLayer::tr(s, c, n));
+}
+
+//  QWaylandQuickHardwareLayerPrivate *QWaylandQuickHardwareLayer::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandQuickHardwareLayerPrivate *ritual_ZN26QWaylandQuickHardwareLayer6d_funcEv(
+    QWaylandQuickHardwareLayer *self) {
+  return self->d_func();
+}
+
+//  const QWaylandQuickHardwareLayerPrivate
+//      *QWaylandQuickHardwareLayer::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandQuickHardwareLayerPrivate *ritual_ZNK26QWaylandQuickHardwareLayer6d_funcEv(
+    const QWaylandQuickHardwareLayer *self) {
+  return self->d_func();
 }
 
 //  QWaylandQuickHardwareLayer::QWaylandQuickHardwareLayer(QObject *parent)
@@ -293,6 +327,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QWaylandQuickHardwareLayer10initializeEv(
     QWaylandQuickHardwareLayer *self) {
   self->initialize();
+}
+
+//  void QWaylandQuickHardwareLayer::stackingLevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QWaylandQuickHardwareLayer20stackingLevelChangedEv(
+    QWaylandQuickHardwareLayer *self) {
+  self->stackingLevelChanged();
 }
 
 //  QWaylandQuickHardwareLayer as the QQmlParserStatus it is built on

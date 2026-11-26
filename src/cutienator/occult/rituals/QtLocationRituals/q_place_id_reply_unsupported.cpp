@@ -216,6 +216,25 @@ const QMetaObject *ritual_ZNK24QPlaceIdReplyUnsupported10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlaceIdReplyUnsupported::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QPlaceIdReplyUnsupported11qt_metacastEPKc(
+    QPlaceIdReplyUnsupported *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlaceIdReplyUnsupported::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QPlaceIdReplyUnsupported11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlaceIdReplyUnsupported *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlaceIdReplyUnsupported::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QPlaceIdReplyUnsupported2trEPKcS1_i(

@@ -33,6 +33,35 @@ void ritual_ZN13QQmlChangeSetD1Ev(QQmlChangeSet *self) {
   delete self;
 }
 
+//  QQmlChangeSet &QQmlChangeSet::operator=(const QQmlChangeSet &changeSet)
+extern "C" Q_DECL_EXPORT
+QQmlChangeSet *ritual_ZN13QQmlChangeSetaSERKS_(
+    QQmlChangeSet *self,
+    const QQmlChangeSet *changeSet) {
+  return &(self->operator=(*changeSet));
+}
+
+//  const QList<Change> &QQmlChangeSet::removes() const
+extern "C" Q_DECL_EXPORT
+const QList<QQmlChangeSet::Change> *ritual_ZNK13QQmlChangeSet7removesEv(
+    const QQmlChangeSet *self) {
+  return &(self->removes());
+}
+
+//  const QList<Change> &QQmlChangeSet::inserts() const
+extern "C" Q_DECL_EXPORT
+const QList<QQmlChangeSet::Change> *ritual_ZNK13QQmlChangeSet7insertsEv(
+    const QQmlChangeSet *self) {
+  return &(self->inserts());
+}
+
+//  const QList<Change> &QQmlChangeSet::changes() const
+extern "C" Q_DECL_EXPORT
+const QList<QQmlChangeSet::Change> *ritual_ZNK13QQmlChangeSet7changesEv(
+    const QQmlChangeSet *self) {
+  return &(self->changes());
+}
+
 //  void QQmlChangeSet::insert(int index, int count)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQmlChangeSet6insertEii(
@@ -71,6 +100,42 @@ void ritual_ZN13QQmlChangeSet6changeEii(
   self->change(index, count);
 }
 
+//  void QQmlChangeSet::insert(const QList<Change> &inserts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlChangeSet6insertERK5QListINS_6ChangeEE(
+    QQmlChangeSet *self,
+    const QList<QQmlChangeSet::Change> *inserts) {
+  self->insert(*inserts);
+}
+
+//  void QQmlChangeSet::remove(const QList<Change> &removes, QList<Change>
+//      *inserts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlChangeSet6removeERK5QListINS_6ChangeEEPS2_(
+    QQmlChangeSet *self,
+    const QList<QQmlChangeSet::Change> *removes,
+    QList<QQmlChangeSet::Change> *inserts) {
+  self->remove(*removes, inserts);
+}
+
+//  void QQmlChangeSet::move(const QList<Change> &removes, const
+//      QList<Change> &inserts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlChangeSet4moveERK5QListINS_6ChangeEES4_(
+    QQmlChangeSet *self,
+    const QList<QQmlChangeSet::Change> *removes,
+    const QList<QQmlChangeSet::Change> *inserts) {
+  self->move(*removes, *inserts);
+}
+
+//  void QQmlChangeSet::change(const QList<Change> &changes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlChangeSet6changeERK5QListINS_6ChangeEE(
+    QQmlChangeSet *self,
+    const QList<QQmlChangeSet::Change> *changes) {
+  self->change(*changes);
+}
+
 //  void QQmlChangeSet::apply(const QQmlChangeSet &changeSet)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQmlChangeSet5applyERKS_(
@@ -95,4 +160,22 @@ void ritual_ZN13QQmlChangeSet5clearEv(QQmlChangeSet *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK13QQmlChangeSet10differenceEv(const QQmlChangeSet *self) {
   return self->difference();
+}
+
+//  void QQmlChangeSet::remove(QList<Change> *removes, QList<Change>
+//      *inserts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlChangeSet6removeEP5QListINS_6ChangeEES3_(
+    QQmlChangeSet *self,
+    QList<QQmlChangeSet::Change> *removes,
+    QList<QQmlChangeSet::Change> *inserts) {
+  self->remove(removes, inserts);
+}
+
+//  void QQmlChangeSet::change(QList<Change> *changes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlChangeSet6changeEP5QListINS_6ChangeEE(
+    QQmlChangeSet *self,
+    QList<QQmlChangeSet::Change> *changes) {
+  self->change(changes);
 }

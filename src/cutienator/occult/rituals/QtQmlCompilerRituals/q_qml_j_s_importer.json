@@ -21,10 +21,24 @@
     "ritual_ZN14QQmlJSImporter23importHardCodedBuiltinsEv": [
       "address", "address"
     ],
+    "ritual_ZN14QQmlJSImporter13importQmldirsERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter10importFileERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZN14QQmlJSImporter15importDirectoryERK7QStringhS2_": [
       "address", "address", "text", "unsigned char", "text"
     ],
+    "ritual_ZNK14QQmlJSImporter13importedFilesEv": ["address", "address"],
+    "ritual_ZN14QQmlJSImporter12importModuleERK7QStringhS2_13QTypeRevisionP5QListIS0_E": [
+      "address", "address", "text", "unsigned char", "text", "address",
+      "address"
+    ],
     "ritual_ZN14QQmlJSImporter20builtinInternalNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter18takeGlobalWarningsEv": [
       "address", "address"
     ],
     "ritual_ZNK14QQmlJSImporter11importPathsEv": ["address", "address"],
@@ -32,17 +46,94 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN14QQmlJSImporter10clearCacheEv": ["nothing", "address"],
+    "ritual_ZN14QQmlJSImporter14jsGlobalObjectEv": ["address", "address"],
     "ritual_ZNK14QQmlJSImporter12pathOfModuleERK7QString13QTypeRevision": [
       "text", "address", "text", "address"
     ],
     "ritual_ZN14QQmlJSImporter16runImportVisitorEPN6QQmlJS3AST4NodeERKNS_26ImportVisitorPrerequisitesE": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN14QQmlJSImporter16setImportVisitorESt8functionIFvPN6QQmlJS3AST4NodeEPS_RKNS_26ImportVisitorPrerequisitesEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter8setFlagsERK6QFlagsI18QQmlJSImporterFlagE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQmlJSImporter5flagsEv": ["int", "address"],
+    "ritual_ZN14QQmlJSImporter19builtinImportHelperEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter12importHelperERK7QStringPNS_14AvailableTypesEhS2_13QTypeRevisionbb": [
+      "bool", "address", "text", "address", "unsigned char", "text",
+      "address", "bool", "bool"
+    ],
+    "ritual_ZN14QQmlJSImporter13processImportERKN6QQmlJS6ImportERKNS_6ImportEhPNS_14AvailableTypesE": [
+      "nothing", "address", "address", "address", "unsigned char", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter13insertAliasesERKN6QQmlJS14ContextualTypeEPNS_14AvailableTypesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQmlJSImporter12insertExportERKN6QQmlJS14ContextualTypeERKNS0_6ExportERK7QStringP5QHashIS7_5QListIS4_EEPNS_14AvailableTypesE": [
+      "nothing", "address", "address", "address", "text", "address",
+      "address"
+    ],
+    "ritual_ZN14QQmlJSImporter25resolveConflictingExportsERKN6QQmlJS6ImportERKNS0_13ExportedScopeI22QDeferredSharedPointerI11QQmlJSScopeEEEhP5QHashI7QString5QListINS0_6ExportEEEPNS_14AvailableTypesE": [
+      "address", "address", "address", "address", "unsigned char", "address",
+      "address"
+    ],
+    "ritual_ZNK14QQmlJSImporter34insertExportWithConflictingVersionERKN6QQmlJS13ExportedScopeI22QDeferredSharedPointerI11QQmlJSScopeEEEhRK7QStringRKNS0_6ExportERKS2_IKS3_EP5QHashIS8_5QListISB_EEPNS_14AvailableTypesENS_11SeenVersionE": [
+      "nothing", "address", "address", "unsigned char", "text", "address",
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QQmlJSImporter18computeSeenVersionERKN6QQmlJS6ImportERK5QListINS0_6ExportEE13QTypeRevision": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter13insertExportsERKN6QQmlJS6ImportERKNS0_13ExportedScopeI22QDeferredSharedPointerI11QQmlJSScopeEEERK7QStringhP5QHashISB_5QListINS0_6ExportEEEPNS_14AvailableTypesE": [
+      "nothing", "address", "address", "address", "text", "unsigned char",
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter18importDependenciesERKNS_6ImportEhPNS_14AvailableTypesERK7QString13QTypeRevisionb": [
+      "nothing", "address", "address", "unsigned char", "address", "text",
+      "address", "bool"
+    ],
+    "ritual_ZN14QQmlJSImporter25createQmldirParserForFileERK7QStringPNS_6ImportE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter12readQmltypesERK7QStringPNS_6ImportE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter10readQmldirERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QQmlJSImporter13readDirectoryERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QQmlJSImporter21localFile2QQmlJSScopeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QQmlJSImporter19setQualifiedNamesOnERKNS_6ImportE": [
+      "nothing", "address"
+    ],
     "ritual_ZNK14QQmlJSImporter18useOptionalImportsEv": ["bool", "address"],
     "ritual_ZNK14QQmlJSImporter30preferQmlFilesFromSourceFolderEv": [
       "bool", "address"
     ],
-    "ritual_ZN14QQmlJSImporterD1Ev": ["nothing", "address"]
+    "ritual_ZN14QQmlJSImporterD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlJSImporter__QList_QQmlJS_DiagnosticMessage": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSImporter__QQmlJSScope_Ptr": ["nothing", "address"],
+    "ritual_drop_QQmlJSImporter__QHash_QString_QQmlJSScope_Ptr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSImporter__QQmlJSScope_ConstPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSImporter__QQmlJSImporter_AvailableTypes": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSImporter__QQmlJSImporter_Import": [
+      "nothing", "address"
+    ]
   }
 }

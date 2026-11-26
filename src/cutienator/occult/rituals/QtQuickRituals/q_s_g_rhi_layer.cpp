@@ -592,6 +592,24 @@ const QMetaObject *ritual_ZNK11QSGRhiLayer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGRhiLayer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QSGRhiLayer11qt_metacastEPKc(
+    QSGRhiLayer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGRhiLayer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QSGRhiLayer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGRhiLayer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGRhiLayer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QSGRhiLayer2trEPKcS1_i(

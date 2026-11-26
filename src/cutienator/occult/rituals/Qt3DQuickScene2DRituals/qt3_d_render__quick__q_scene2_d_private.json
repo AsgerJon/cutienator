@@ -16,6 +16,9 @@
     "ritual_ZNK10Qt3DRender5Quick15QScene2DPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender5Quick15QScene2DPrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DRender_Quick_QScene2DPrivate": [
       "bool", "address", "chars", "address"
     ]

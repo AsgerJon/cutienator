@@ -7,7 +7,17 @@
   "rows": {
     "ritual_ZN19QWebViewLoadingInfoC1Ev": ["address"],
     "ritual_ZN19QWebViewLoadingInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN19QWebViewLoadingInfoaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QWebViewLoadingInfoC1EOS_": ["address", "address"],
+    "ritual_ZN19QWebViewLoadingInfoaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QWebViewLoadingInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN19QWebViewLoadingInfo4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QWebViewLoadingInfo3urlEv": ["address", "address"],
     "ritual_ZNK19QWebViewLoadingInfo6statusEv": ["int", "address"],
     "ritual_ZNK19QWebViewLoadingInfo11errorStringEv": ["text", "address"],

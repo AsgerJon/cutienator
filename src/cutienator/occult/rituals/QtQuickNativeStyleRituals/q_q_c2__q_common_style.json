@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qqc2qcommonstyle_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it (Qt"
+  ],
+  "rows": {
+    "ritual_ZNK4QQC212QCommonStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN4QQC212QCommonStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN4QQC212QCommonStyle6d_funcEv": ["address", "address"],
+    "ritual_ZNK4QQC212QCommonStyle6d_funcEv": ["address", "address"],
+    "ritual_ZNK4QQC212QCommonStyle13drawPrimitiveENS_6QStyle16PrimitiveElementEPKNS_12QStyleOptionEP8QPainter": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle11drawControlENS_6QStyle14ControlElementEPKNS_12QStyleOptionEP8QPainter": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle18drawComplexControlENS_6QStyle14ComplexControlEPKNS_19QStyleOptionComplexEP8QPainter": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle14subElementRectENS_6QStyle10SubElementEPKNS_12QStyleOptionE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle14subControlRectENS_6QStyle14ComplexControlEPKNS_19QStyleOptionComplexENS1_10SubControlE": [
+      "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle21hitTestComplexControlENS_6QStyle14ComplexControlEPKNS_19QStyleOptionComplexERK6QPoint": [
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle16sizeFromContentsENS_6QStyle12ContentsTypeEPKNS_12QStyleOptionERK5QSize": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle4fontENS_6QStyle14ControlElementE6QFlagsINS1_9StateFlagEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle16ninePatchMarginsENS_6QStyle14ComplexControlEPKNS_19QStyleOptionComplexERK5QSize": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle16ninePatchMarginsENS_6QStyle14ControlElementEPKNS_12QStyleOptionERK5QSize": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle11pixelMetricENS_6QStyle11PixelMetricEPKNS_12QStyleOptionE": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle9styleHintENS_6QStyle9StyleHintEPKNS_12QStyleOptionEPNS_16QStyleHintReturnE": [
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle14standardPixmapENS_6QStyle14StandardPixmapEPKNS_12QStyleOptionE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPKNS_12QStyleOptionE": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC212QCommonStyle12standardIconENS_6QStyle14StandardPixmapEPKNS_12QStyleOptionE": [
+      "address", "address", "int", "address"
+    ]
+  }
+}

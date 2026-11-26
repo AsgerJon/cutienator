@@ -4,6 +4,9 @@
     "QtGui/qimageiohandler.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QImageIOHandler6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QImageIOHandler6d_funcEv": ["address", "address"],
+    "ritual_ZN15QImageIOHandlerC1Ev": ["address"],
     "ritual_ZN15QImageIOHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN15QImageIOHandler9setDeviceEP9QIODevice": [
       "nothing", "address", "address"
@@ -43,6 +46,9 @@
     ],
     "ritual_ZN15QImageIOHandler13allocateImageE5QSizeN6QImage6FormatEPS1_": [
       "bool", "address", "int", "address"
+    ],
+    "ritual_ZN15QImageIOHandlerC1ER22QImageIOHandlerPrivate": [
+      "address", "address"
     ],
     "ritual_take_QImageIOHandler": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QImageIOHandler5writeERK6QImage": [

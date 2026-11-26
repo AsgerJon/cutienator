@@ -18,6 +18,8 @@
     ],
     "ritual_ZNK16QQuickNativeIcon6isMaskEv": ["bool", "address"],
     "ritual_ZN16QQuickNativeIcon7setMaskEb": ["nothing", "address", "bool"],
+    "ritual_ZNK16QQuickNativeIconeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK16QQuickNativeIconneERKS_": ["bool", "address", "address"],
     "ritual_ZN16QQuickNativeIconD1Ev": ["nothing", "address"]
   }
 }

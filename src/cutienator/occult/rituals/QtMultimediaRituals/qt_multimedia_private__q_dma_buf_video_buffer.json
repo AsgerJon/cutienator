@@ -5,14 +5,32 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QtMultimediaPrivate18QDmaBufVideoBufferC1EN17QVideoFrameFormat11PixelFormatE5QSize5QSpanIKNS_11DmaBufPlaneELm18446744073709551615EESt10shared_ptrIvE": [
+      "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate18QDmaBufVideoBufferD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZNK19QtMultimediaPrivate18QDmaBufVideoBuffer8isDmaBufEv": [
       "bool", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate18QDmaBufVideoBuffer11mapTexturesER4QRhiRSt10unique_ptrI19QVideoFrameTexturesSt14default_deleteIS4_EE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate18QDmaBufVideoBuffer3mapEN11QVideoFrame7MapModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QtMultimediaPrivate18QDmaBufVideoBuffer5unmapEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK19QtMultimediaPrivate18QDmaBufVideoBuffer11pixelFormatEv": [
       "int", "address"
     ],
     "ritual_ZNK19QtMultimediaPrivate18QDmaBufVideoBuffer4sizeEv": [
       "address", "address"
+    ],
+    "ritual_drop_QtMultimediaPrivate_QDmaBufVideoBuffer__QVideoFrameTexturesUPtr": [
+      "nothing", "address"
     ]
   }
 }

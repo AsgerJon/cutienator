@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10LookAtNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN10LookAtNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10LookAtNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10LookAtNode2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10LookAtNodeC1Ev": ["address"],
     "ritual_ZN10LookAtNodeD1Ev": ["nothing", "address"],
@@ -13,6 +19,7 @@
     "ritual_ZN10LookAtNode9setTargetEP12QQuick3DNode": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10LookAtNode13targetChangedEv": ["nothing", "address"],
     "ritual_ZN10LookAtNode12updateLookAtEv": ["nothing", "address"],
     "ritual_take_LookAtNode": ["bool", "address", "chars", "address"]
   }

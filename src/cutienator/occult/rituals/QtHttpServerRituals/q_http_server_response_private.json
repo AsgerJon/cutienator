@@ -5,6 +5,12 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QHttpServerResponsePrivateC1EO10QByteArrayN20QHttpServerResponder10StatusCodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QHttpServerResponsePrivateC1EN20QHttpServerResponder10StatusCodeE": [
+      "address", "address"
+    ],
     "ritual_ZN26QHttpServerResponsePrivateD1Ev": ["nothing", "address"]
   }
 }

@@ -915,6 +915,25 @@ const QMetaObject *ritual_ZNK24QDeclarativeRouteMapItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeRouteMapItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QDeclarativeRouteMapItem11qt_metacastEPKc(
+    QDeclarativeRouteMapItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeRouteMapItem::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QDeclarativeRouteMapItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeRouteMapItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeRouteMapItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QDeclarativeRouteMapItem2trEPKcS1_i(
@@ -951,6 +970,14 @@ void ritual_ZN24QDeclarativeRouteMapItem8setRouteERK9QGeoRoute(
     QDeclarativeRouteMapItem *self,
     const QGeoRoute *route) {
   self->setRoute(*route);
+}
+
+//  void QDeclarativeRouteMapItem::routeChanged(const QGeoRoute &route)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeRouteMapItem12routeChangedERK9QGeoRoute(
+    QDeclarativeRouteMapItem *self,
+    const QGeoRoute *route) {
+  self->routeChanged(*route);
 }
 
 //  void QDeclarativeRouteMapItem::updateRoutePath()

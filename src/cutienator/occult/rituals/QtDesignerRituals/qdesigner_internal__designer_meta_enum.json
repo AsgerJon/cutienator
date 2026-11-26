@@ -5,7 +5,16 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal16DesignerMetaEnumC1ERK7QStringS3_S3_": [
+      "address", "text", "text", "text"
+    ],
     "ritual_ZN18qdesigner_internal16DesignerMetaEnumC1Ev": ["address"],
+    "ritual_ZNK18qdesigner_internal16DesignerMetaEnum21messageToStringFailedEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal16DesignerMetaEnum18messageParseFailedERK7QString": [
+      "text", "address", "text"
+    ],
     "ritual_ZNK18qdesigner_internal16DesignerMetaEnum9parseEnumERK7QStringPb": [
       "int", "address", "text", "address"
     ],

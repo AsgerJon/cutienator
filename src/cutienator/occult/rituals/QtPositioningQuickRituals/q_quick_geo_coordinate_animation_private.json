@@ -17,6 +17,9 @@
     "ritual_ZN35QQuickGeoCoordinateAnimationPrivate16directionChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN35QQuickGeoCoordinateAnimationPrivate31_qt_property_m_direction_offsetEv": [
+      "size_t"
+    ],
     "ritual_take_QQuickGeoCoordinateAnimationPrivate": [
       "bool", "address", "chars", "address"
     ]

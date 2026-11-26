@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DRender::Render::Quick::QQuick3DScene2D that Python can take functions over in. Every Qt3DRender::Render::Quick::QQuick3DScene2D
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,27 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick15QQuick3DScene2D10metaObj
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::Quick::QQuick3DScene2D::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2D11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::QQuick3DScene2D *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      Qt3DRender::Render::Quick::QQuick3DScene2D::qt_metacall(QMetaObject::
+//      Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2D11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::QQuick3DScene2D *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::QQuick3DScene2D::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -199,12 +222,28 @@ QString *ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2D2trEPKcS4_i(
           n));
 }
 
+//  Qt3DRender::Render::Quick::QQuick3DScene2D::QQuick3DScene2D(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::QQuick3DScene2D *ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2DC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_Quick_QQuick3DScene2D(parent);
+}
+
 //  Qt3DRender::Quick::QScene2D
 //      *Qt3DRender::Render::Quick::QQuick3DScene2D::parentScene2D() const
 extern "C" Q_DECL_EXPORT
 Qt3DRender::Quick::QScene2D *ritual_ZNK10Qt3DRender6Render5Quick15QQuick3DScene2D13parentScene2DEv(
     const Qt3DRender::Render::Quick::QQuick3DScene2D *self) {
   return self->parentScene2D();
+}
+
+//  QQmlListProperty<Qt3DCore::QEntity>
+//      Qt3DRender::Render::Quick::QQuick3DScene2D::entities()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DCore::QEntity> *ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2D8entitiesEv(
+    Qt3DRender::Render::Quick::QQuick3DScene2D *self) {
+  return new QQmlListProperty<Qt3DCore::QEntity>(self->entities());
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_Quick_QQuick3DScene2D,
@@ -215,4 +254,12 @@ bool ritual_take_Qt3DRender_Render_Quick_QQuick3DScene2D(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Render_Quick_QQuick3DScene2D *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DCore::QEntity> a ritual of
+//      Qt3DRender::Render::Quick::QQuick3DScene2D gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Quick_QQuick3DScene2D__QQmlListProperty_Qt3DCore_QEntity(
+    QQmlListProperty<Qt3DCore::QEntity> *self) {
+  delete self;
 }

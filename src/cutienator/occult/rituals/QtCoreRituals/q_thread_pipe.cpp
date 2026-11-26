@@ -49,9 +49,36 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/corelib/kernel/qeventdispatcher_unix.cpp, line 26, as local:qeventdispatcher_unix.cpp:UsingEventfd
+#if __has_include(<sys/eventfd.h>)
+static constexpr bool UsingEventfd = true;
+#endif  // __has_include(<sys/eventfd.h>)
+
 //  from src/corelib/kernel/qeventdispatcher_unix.cpp, line 64, as _ZN11QThreadPipeC1Ev
 inline QThreadPipe::QThreadPipe()
 {
+}
+
+//  from src/corelib/kernel/qeventdispatcher_unix.cpp, line 68, as _ZN11QThreadPipeD1Ev
+#if defined(Q_OS_LINUX)
+inline QThreadPipe::~QThreadPipe()
+{
+    if (fds[0] >= 0)
+        close(fds[0]);
+
+    if (!UsingEventfd && fds[1] >= 0)
+        close(fds[1]);
+
+#if defined(Q_OS_VXWORKS) && QT_CONFIG(vxpipedrv)
+    pipeDevDelete(name, true);
+#endif
+}
+#endif  // defined(Q_OS_LINUX)
+
+//  from src/corelib/kernel/qeventdispatcher_unix.cpp, line 149, as _ZNK11QThreadPipe7prepareEv
+inline pollfd QThreadPipe::prepare() const
+{
+    return qt_make_pollfd(fds[0], POLLIN);
 }
 
 //  from src/corelib/kernel/qeventdispatcher_unix.cpp, line 154, as _ZN11QThreadPipe6wakeUpEv
@@ -74,10 +101,28 @@ QThreadPipe *ritual_ZN11QThreadPipeC1Ev() {
   return new QThreadPipe();
 }
 
+//  QThreadPipe::~QThreadPipe()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QThreadPipeD1Ev(QThreadPipe *self) {
+  delete self;
+}
+
+//  pollfd QThreadPipe::prepare() const
+extern "C" Q_DECL_EXPORT
+pollfd *ritual_ZNK11QThreadPipe7prepareEv(const QThreadPipe *self) {
+  return new pollfd(self->prepare());
+}
+
 //  void QThreadPipe::wakeUp()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QThreadPipe6wakeUpEv(QThreadPipe *self) {
   self->wakeUp();
+}
+
+//  a pollfd a ritual of QThreadPipe gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QThreadPipe__pollfd(pollfd *self) {
+  delete self;
 }
 
 #endif  // defined(Q_OS_UNIX) && !defined(Q_OS_WASM)

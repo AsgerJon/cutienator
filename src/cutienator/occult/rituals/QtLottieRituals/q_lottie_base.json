@@ -46,12 +46,21 @@
     "ritual_ZN11QLottieBase16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK11QLottieBase6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QLottieBase14renderChildrenER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK11QLottieBase9layerSizeEv": ["address", "address"],
     "ritual_ZNK11QLottieBase18isStructureDumpingEv": ["bool", "address"],
     "ritual_ZN11QLottieBase14resolveTopRootEv": ["nothing", "address"],
     "ritual_ZNK11QLottieBase7topRootEv": ["address", "address"],
     "ritual_ZN11QLottieBase17resolveExpressionERK11QJsonObject": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK11QLottieBase17checkRequiredKeysERK11QJsonObject13QLatin1StringRK5QListIS3_ERK7QString": [
+      "bool", "address", "address", "address", "address", "text"
     ],
     "ritual_take_QLottieBase": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QLottieBase5cloneEv": ["address", "address"],

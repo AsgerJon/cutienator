@@ -41,6 +41,45 @@ public:
   }
 };
 
+//  Qt3DRender::Render::PickingProxy::PickingProxy()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::PickingProxy *ritual_ZN10Qt3DRender6Render12PickingProxyC1Ev() {
+  return new CuteQt3DRender_Render_PickingProxy();
+}
+
+//  Qt3DRender::Render::PickingProxy::~PickingProxy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12PickingProxyD1Ev(
+    Qt3DRender::Render::PickingProxy *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::PickingProxy::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12PickingProxy7cleanupEv(
+    Qt3DRender::Render::PickingProxy *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::PickingProxy::setManager(PickingProxyManager
+//      *manager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12PickingProxy10setManagerEPNS0_19PickingProxyManagerE(
+    Qt3DRender::Render::PickingProxy *self,
+    Qt3DRender::Render::PickingProxyManager *manager) {
+  self->setManager(manager);
+}
+
+//  void Qt3DRender::Render::PickingProxy::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12PickingProxy16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::PickingProxy *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  Qt3DCore::QNodeId Qt3DRender::Render::PickingProxy::geometryId() const
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QNodeId *ritual_ZNK10Qt3DRender6Render12PickingProxy10geometryIdEv(
@@ -131,6 +170,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10Qt3DRender6Render12PickingProxy7isDirtyEv(
     const Qt3DRender::Render::PickingProxy *self) {
   return self->isDirty();
+}
+
+//  void Qt3DRender::Render::PickingProxy::unsetDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12PickingProxy10unsetDirtyEv(
+    Qt3DRender::Render::PickingProxy *self) {
+  self->unsetDirty();
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_PickingProxy, for the

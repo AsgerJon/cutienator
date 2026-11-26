@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickAbstractButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickAbstractButton11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickAbstractButton11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickAbstractButton2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -87,6 +93,65 @@
     "ritual_ZN20QQuickAbstractButton5clickEv": ["nothing", "address"],
     "ritual_ZN20QQuickAbstractButton12animateClickEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton7pressedEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton8releasedEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton8canceledEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton7clickedEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton12pressAndHoldEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton13doubleClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton11textChangedEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton11downChangedEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton14pressedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton14checkedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton16checkableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton20autoExclusiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton17autoRepeatChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton16indicatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton7toggledEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton11iconChangedEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton14displayChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton13actionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton22autoRepeatDelayChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton25autoRepeatIntervalChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton13pressXChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton13pressYChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton29implicitIndicatorWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton30implicitIndicatorHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButtonC1ER27QQuickAbstractButtonPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN20QQuickAbstractButton17componentCompleteEv": [
       "nothing", "address"

@@ -13,7 +13,10 @@
 #include <QtBluetooth/qlowenergyadvertisingparameters.h>
 #include <QtBluetooth/qlowenergyadvertisingdata.h>
 #include <QtBluetooth/qlowenergyconnectionparameters.h>
+#include <QtCore/qbytearray.h>
 #include <QtBluetooth/qlowenergyservicedata.h>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QByteArray>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #include <QtCore/QLoggingCategory>
@@ -137,6 +140,40 @@ inline void QLowEnergyControllerPrivateCommon::requestConnectionUpdate(const QLo
 {
 }
 
+//  from ../qtconnectivity/src/bluetooth/qlowenergycontroller_dummy.cpp, line 53, as _ZN33QLowEnergyControllerPrivateCommon18readCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEt
+inline void QLowEnergyControllerPrivateCommon::readCharacteristic(const QSharedPointer<QLowEnergyServicePrivate> /*service*/,
+                        const QLowEnergyHandle /*charHandle*/)
+{
+
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergycontroller_dummy.cpp, line 59, as _ZN33QLowEnergyControllerPrivateCommon14readDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEtt
+inline void QLowEnergyControllerPrivateCommon::readDescriptor(const QSharedPointer<QLowEnergyServicePrivate> /*service*/,
+                    const QLowEnergyHandle /*charHandle*/,
+                    const QLowEnergyHandle /*descriptorHandle*/)
+{
+
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergycontroller_dummy.cpp, line 66, as _ZN33QLowEnergyControllerPrivateCommon19writeCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEtRK10QByteArrayN17QLowEnergyService9WriteModeE
+inline void QLowEnergyControllerPrivateCommon::writeCharacteristic(const QSharedPointer<QLowEnergyServicePrivate> /*service*/,
+        const QLowEnergyHandle /*charHandle*/,
+        const QByteArray &/*newValue*/,
+        QLowEnergyService::WriteMode /*writeMode*/)
+{
+
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergycontroller_dummy.cpp, line 74, as _ZN33QLowEnergyControllerPrivateCommon15writeDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEttRK10QByteArray
+inline void QLowEnergyControllerPrivateCommon::writeDescriptor(
+        const QSharedPointer<QLowEnergyServicePrivate> /*service*/,
+        const QLowEnergyHandle /*charHandle*/,
+        const QLowEnergyHandle /*descriptorHandle*/,
+        const QByteArray &/*newValue*/)
+{
+
+}
+
 //  from ../qtconnectivity/src/bluetooth/qlowenergycontroller_dummy.cpp, line 97, as _ZN33QLowEnergyControllerPrivateCommon25addToGenericAttributeListERK21QLowEnergyServiceDatat
 inline void QLowEnergyControllerPrivateCommon::addToGenericAttributeList(const QLowEnergyServiceData &/* service */,
                                                             QLowEnergyHandle /* startHandle */)
@@ -216,6 +253,57 @@ void ritual_ZN33QLowEnergyControllerPrivateCommon23requestConnectionUpdateERK30Q
     QLowEnergyControllerPrivateCommon *self,
     const QLowEnergyConnectionParameters *params) {
   self->requestConnectionUpdate(*params);
+}
+
+//  void QLowEnergyControllerPrivateCommon::readCharacteristic(const
+//      QSharedPointer<QLowEnergyServicePrivate> service, const
+//      QLowEnergyHandle charHandle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QLowEnergyControllerPrivateCommon18readCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEt(
+    QLowEnergyControllerPrivateCommon *self,
+    const QSharedPointer<QLowEnergyServicePrivate> *service,
+    QLowEnergyHandle charHandle) {
+  self->readCharacteristic(*service, charHandle);
+}
+
+//  void QLowEnergyControllerPrivateCommon::readDescriptor(const
+//      QSharedPointer<QLowEnergyServicePrivate> service, const
+//      QLowEnergyHandle charHandle, const QLowEnergyHandle descriptorHandle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QLowEnergyControllerPrivateCommon14readDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEtt(
+    QLowEnergyControllerPrivateCommon *self,
+    const QSharedPointer<QLowEnergyServicePrivate> *service,
+    QLowEnergyHandle charHandle,
+    QLowEnergyHandle descriptorHandle) {
+  self->readDescriptor(*service, charHandle, descriptorHandle);
+}
+
+//  void QLowEnergyControllerPrivateCommon::writeCharacteristic(const
+//      QSharedPointer<QLowEnergyServicePrivate> service, const
+//      QLowEnergyHandle charHandle, const QByteArray &newValue,
+//      QLowEnergyService::WriteMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QLowEnergyControllerPrivateCommon19writeCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEtRK10QByteArrayN17QLowEnergyService9WriteModeE(
+    QLowEnergyControllerPrivateCommon *self,
+    const QSharedPointer<QLowEnergyServicePrivate> *service,
+    QLowEnergyHandle charHandle,
+    const QByteArray *newValue,
+    QLowEnergyService::WriteMode mode) {
+  self->writeCharacteristic(*service, charHandle, *newValue, mode);
+}
+
+//  void QLowEnergyControllerPrivateCommon::writeDescriptor(const
+//      QSharedPointer<QLowEnergyServicePrivate> service, const
+//      QLowEnergyHandle charHandle, const QLowEnergyHandle descriptorHandle,
+//      const QByteArray &newValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QLowEnergyControllerPrivateCommon15writeDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEttRK10QByteArray(
+    QLowEnergyControllerPrivateCommon *self,
+    const QSharedPointer<QLowEnergyServicePrivate> *service,
+    QLowEnergyHandle charHandle,
+    QLowEnergyHandle descriptorHandle,
+    const QByteArray *newValue) {
+  self->writeDescriptor(*service, charHandle, descriptorHandle, *newValue);
 }
 
 //  void QLowEnergyControllerPrivateCommon::addToGenericAttributeList(const

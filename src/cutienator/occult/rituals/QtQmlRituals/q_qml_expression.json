@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQmlExpression10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlExpression11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQmlExpression11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQmlExpression2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -39,6 +45,10 @@
     "ritual_ZN14QQmlExpression10clearErrorEv": ["nothing", "address"],
     "ritual_ZNK14QQmlExpression5errorEv": ["address", "address"],
     "ritual_ZN14QQmlExpression8evaluateEPb": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlExpression12valueChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQmlExpressionC1ER21QQmlExpressionPrivateP7QObject": [
       "address", "address", "address"
     ],
     "ritual_ZN14QQmlExpression6d_funcEv": ["address", "address"],

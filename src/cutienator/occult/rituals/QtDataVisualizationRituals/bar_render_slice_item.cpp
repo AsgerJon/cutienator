@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/private/barrenderitem_p.h>
 #include <QtDataVisualization/private/labelitem_p.h>
+#include <QtDataVisualization/private/abstractrenderitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -27,6 +28,12 @@ inline BarRenderItem::BarRenderItem()
 {
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 40, as _ZN18BarRenderSliceItemD1Ev
+inline BarRenderSliceItem::~BarRenderSliceItem()
+{
+    delete m_sliceLabelItem;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 15, as _ZN13BarRenderItemC2ERKS_
 inline BarRenderItem::BarRenderItem(const BarRenderItem &other)
     : AbstractRenderItem(other)
@@ -42,6 +49,13 @@ inline LabelItem::~LabelItem()
     clear();
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 8, as _ZN9LabelItemC1Ev
+inline LabelItem::LabelItem()
+    : m_size(QSize(0, 0)),
+      m_textureId(0)
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 40, as _ZN9LabelItem5clearEv
 inline void LabelItem::clear()
 {
@@ -49,6 +63,16 @@ inline void LabelItem::clear()
         QOpenGLContext::currentContext()->functions()->glDeleteTextures(1, &m_textureId);
     m_textureId = 0;
     m_size = QSize(0, 0);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 23, as _ZN13BarRenderItemD2Ev
+inline BarRenderItem::~BarRenderItem()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 8, as _ZN18AbstractRenderItemC2Ev
+inline AbstractRenderItem::AbstractRenderItem()
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 45, as _ZN18BarRenderSliceItem7setItemERK13BarRenderItem
@@ -62,6 +86,14 @@ inline void BarRenderSliceItem::setItem(const BarRenderItem &renderItem)
     m_sliceLabel = QString();
     delete m_sliceLabelItem;
     m_sliceLabelItem = 0;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 57, as _ZN18BarRenderSliceItem14sliceLabelItemEv
+inline LabelItem &BarRenderSliceItem::sliceLabelItem()
+{
+    if (!m_sliceLabelItem)
+        m_sliceLabelItem = new LabelItem;
+    return *m_sliceLabelItem;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 64, as _ZN18BarRenderSliceItem13setSliceLabelERK7QString
@@ -79,6 +111,15 @@ inline const QString &BarRenderSliceItem::sliceLabel() const
 }
 //  -----------------------------------------------------------------------
 
+//  BarRenderSliceItem &BarRenderSliceItem::operator=(const
+//      BarRenderSliceItem &other)
+extern "C" Q_DECL_EXPORT
+BarRenderSliceItem *ritual_ZN18BarRenderSliceItemaSERKS_(
+    BarRenderSliceItem *self,
+    const BarRenderSliceItem *other) {
+  return &(self->operator=(*other));
+}
+
 //  BarRenderSliceItem::~BarRenderSliceItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18BarRenderSliceItemD1Ev(BarRenderSliceItem *self) {
@@ -91,6 +132,13 @@ void ritual_ZN18BarRenderSliceItem7setItemERK13BarRenderItem(
     BarRenderSliceItem *self,
     const BarRenderItem *renderItem) {
   self->setItem(*renderItem);
+}
+
+//  LabelItem &BarRenderSliceItem::sliceLabelItem()
+extern "C" Q_DECL_EXPORT
+LabelItem *ritual_ZN18BarRenderSliceItem14sliceLabelItemEv(
+    BarRenderSliceItem *self) {
+  return &(self->sliceLabelItem());
 }
 
 //  void BarRenderSliceItem::setSliceLabel(const QString &label)

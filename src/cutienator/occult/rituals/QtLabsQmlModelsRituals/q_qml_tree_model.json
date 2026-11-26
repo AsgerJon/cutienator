@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQmlTreeModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQmlTreeModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQmlTreeModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQmlTreeModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQmlTreeModelC1EP7QObject": ["address", "address"],
     "ritual_ZN13QQmlTreeModelD1Ev": ["nothing", "address"],
@@ -38,6 +44,9 @@
     "ritual_ZN13QQmlTreeModel6setRowE11QModelIndexRK8QVariant": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN13QQmlTreeModel5indexERKSt6vectorIiSaIiEEi": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK13QQmlTreeModel5indexEiiRK11QModelIndex": [
       "address", "address", "int", "int", "address"
     ],
@@ -52,6 +61,9 @@
     ],
     "ritual_ZNK13QQmlTreeModel8firstRowEv": ["address", "address"],
     "ritual_ZN13QQmlTreeModel14setInitialRowsEv": ["nothing", "address"],
+    "ritual_ZNK13QQmlTreeModel19getPointerToTreeRowER11QModelIndexRKSt6vectorIiSaIiEE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK13QQmlTreeModel8treeSizeEv": ["int", "address"],
     "ritual_ZN13QQmlTreeModel14setRowsPrivateERK5QListI8QVariantE": [
       "nothing", "address", "address"

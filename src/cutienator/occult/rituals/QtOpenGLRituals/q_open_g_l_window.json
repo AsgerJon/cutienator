@@ -5,7 +5,15 @@
   ],
   "rows": {
     "ritual_ZNK13QOpenGLWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QOpenGLWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QOpenGLWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QOpenGLWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QOpenGLWindow6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QOpenGLWindow6d_funcEv": ["address", "address"],
     "ritual_ZN13QOpenGLWindowC1ENS_14UpdateBehaviorEP7QWindow": [
       "address", "int", "address"
     ],
@@ -19,7 +27,11 @@
     "ritual_ZN13QOpenGLWindow11doneCurrentEv": ["nothing", "address"],
     "ritual_ZNK13QOpenGLWindow7contextEv": ["address", "address"],
     "ritual_ZNK13QOpenGLWindow12shareContextEv": ["address", "address"],
+    "ritual_ZNK13QOpenGLWindow24defaultFramebufferObjectEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZN13QOpenGLWindow15grabFramebufferEv": ["address", "address"],
+    "ritual_ZN13QOpenGLWindow12frameSwappedEv": ["nothing", "address"],
     "ritual_ZN13QOpenGLWindow12initializeGLEv": ["nothing", "address"],
     "ritual_ZN13QOpenGLWindow8resizeGLEii": [
       "nothing", "address", "int", "int"

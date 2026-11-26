@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QBarSetPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QBarSetPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QBarSetPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QBarSetPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN14QBarSetPrivate6appendERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBarSetPrivate6appendERK5QListIdE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN14QBarSetPrivate6insertEid": [
@@ -44,6 +53,16 @@
     ],
     "ritual_ZNK14QBarSetPrivate13isBarSelectedEi": [
       "bool", "address", "int"
+    ],
+    "ritual_ZN14QBarSetPrivate11updatedBarsEv": ["nothing", "address"],
+    "ritual_ZN14QBarSetPrivate12valueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QBarSetPrivate10valueAddedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QBarSetPrivate12valueRemovedEii": [
+      "nothing", "address", "int", "int"
     ],
     "ritual_take_QBarSetPrivate": ["bool", "address", "chars", "address"]
   }

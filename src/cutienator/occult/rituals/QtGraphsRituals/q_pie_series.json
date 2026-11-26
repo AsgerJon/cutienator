@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK10QPieSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QPieSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QPieSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QPieSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QPieSeriesC1EP7QObject": ["address", "address"],
     "ritual_ZN10QPieSeriesD1Ev": ["nothing", "address"],
@@ -44,6 +50,7 @@
       "bool", "address", "address"
     ],
     "ritual_ZN10QPieSeries4takeEP9QPieSlice": ["bool", "address", "address"],
+    "ritual_ZN10QPieSerieslsEP9QPieSlice": ["address", "address", "address"],
     "ritual_ZNK10QPieSeries6slicesEv": ["address", "address"],
     "ritual_ZNK10QPieSeries5countEv": ["long long", "address"],
     "ritual_ZNK10QPieSeries7isEmptyEv": ["bool", "address"],
@@ -80,16 +87,69 @@
     "ritual_ZN10QPieSeries27setAngleSpanLabelVisibilityENS_15LabelVisibilityE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK10QPieSeries9sliceDataEv": ["address", "address"],
+    "ritual_ZN10QPieSeries12setSliceDataERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNKR10QPieSeries11sliceLabelsEv": ["address", "address"],
     "ritual_ZN10QPieSeries14setSliceLabelsE5QListI7QStringE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN10QPieSeries17handleSliceChangeEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeriesC1ER17QPieSeriesPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10QPieSeries17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries5addedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries7removedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries8replacedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries12countChangedEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries10sumChangedEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries14pieSizeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries17startAngleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries15endAngleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries25horizontalPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QPieSeries23verticalPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QPieSeries15holeSizeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries7clickedEP9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries13doubleClickedEP9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries7pressedEP9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries8releasedEP9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries28angleSpanVisibleLimitChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QPieSeries31angleSpanLabelVisibilityChangedENS_15LabelVisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QPieSeries16sliceDataChangedERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries18sliceLabelsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QPieSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK10QPieSeries6d_funcEv": ["address", "address"],
     "ritual_take_QPieSeries": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QPieSeries4typeEv": ["int", "address"],
-    "ritual_own_ZN10QPieSeries17componentCompleteEv": ["nothing", "address"]
+    "ritual_own_ZN10QPieSeries17componentCompleteEv": ["nothing", "address"],
+    "ritual_drop_QPieSeries__QList_qreal": ["nothing", "address"]
   }
 }

@@ -12,6 +12,27 @@
     "ritual_ZNK10Qt3DRender20QObjectPickerPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender20QObjectPickerPrivate14propagateEventEPNS_10QPickEventENS0_9EventTypeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender20QObjectPickerPrivate12pressedEventEPNS_10QPickEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QObjectPickerPrivate12clickedEventEPNS_10QPickEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QObjectPickerPrivate10movedEventEPNS_10QPickEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QObjectPickerPrivate13releasedEventEPNS_10QPickEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QObjectPickerPrivate10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender20QObjectPickerPrivate16setContainsMouseEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_Qt3DRender_QObjectPickerPrivate": [
       "bool", "address", "chars", "address"
     ]

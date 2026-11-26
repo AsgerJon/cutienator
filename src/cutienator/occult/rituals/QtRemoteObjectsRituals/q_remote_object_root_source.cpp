@@ -10,6 +10,14 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtRemoteObjects/private/qremoteobjectsourceio_p.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectnode_p.h>
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
+#include <QtRemoteObjects/qtremoteobjectglobal.h>
+#include <QtRemoteObjects/private/qconnection_local_backend_p.h>
+#include <QtCore/qstringlist.h>
 #include <QtRemoteObjects/qremoteobjectsource.h>
 #include <QtRemoteObjects/private/qremoteobjectsource_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -31,7 +39,27 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 354, as _ZN23QRemoteObjectRootSourceD1Ev
+using namespace QRemoteObjectStringLiterals;
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsourceio.cpp, line 104, as _ZN21QRemoteObjectSourceIo14registerSourceEP23QRemoteObjectSourceBase
+inline void QRemoteObjectSourceIo::registerSource(QRemoteObjectSourceBase *source)
+{
+    Q_ASSERT(source);
+    const QString &name = source->name();
+    m_sourceObjects[name] = source;
+    if (source->isRoot()) {
+        QRemoteObjectRootSource *root = static_cast<QRemoteObjectRootSource *>(source);
+        qRODebug(this) << "Registering" << name;
+        m_sourceRoots[name] = root;
+        m_objectToSourceMap[source->m_object] = root;
+        if (serverAddress().isValid()) {
+            const auto &type = source->m_api->typeName();
+            emit remoteObjectAdded(qMakePair(name, QRemoteObjectSourceLocationInfo(type, serverAddress())));
+        }
+    }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 354, as _ZN23QRemoteObjectRootSourceD2Ev
 inline QRemoteObjectRootSource::~QRemoteObjectRootSource()
 {
     for (const auto &it : std::as_const(m_children)) {
@@ -49,6 +77,98 @@ inline QRemoteObjectRootSource::~QRemoteObjectRootSource()
         removeListener(io, true);
     }
     delete d;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 514, as _ZN23QRemoteObjectSourceBase11qt_metacallEN11QMetaObject4CallEiPPv
+inline int QRemoteObjectSourceBase::qt_metacall(QMetaObject::Call call, int methodId, void **a)
+{
+    methodId = QObject::qt_metacall(call, methodId, a);
+    if (methodId < 0)
+        return methodId;
+
+    if (call == QMetaObject::InvokeMetaMethod)
+        handleMetaCall(methodId, call, a);
+
+    return -1;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 655, as _ZN23QRemoteObjectSourceBase7PrivateC1EP21QRemoteObjectSourceIoP23QRemoteObjectRootSource
+inline QRemoteObjectSourceBase::Private::Private(QRemoteObjectSourceIo *io, QRemoteObjectRootSource *root)
+    : m_sourceIo(io), codec(io->m_codec.data()), isDynamic(false), root(root)
+{
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 165, as _ZN23QRemoteObjectSourceBaseC2EP7QObjectPNS_7PrivateEPK12SourceApiMapS1_
+inline QRemoteObjectSourceBase::QRemoteObjectSourceBase(QObject *obj, Private *d, const SourceApiMap *api,
+                                                 QObject *adapter)
+    : QObject(obj),
+      m_object(obj),
+      m_adapter(adapter),
+      m_api(api),
+      d(d)
+{
+    if (!obj) {
+        qCWarning(QT_REMOTEOBJECT) << "QRemoteObjectSourceBase: Cannot replicate a NULL object" << m_api->name();
+        return;
+    }
+
+    setConnections();
+
+    const auto nChildren = api->m_models.size() + api->m_subclasses.size();
+    if (nChildren > 0) {
+        QList<int> roles;
+        const int numProperties = api->propertyCount();
+        int modelIndex = 0, subclassIndex = 0;
+        for (int i = 0; i < numProperties; ++i) {
+            if (api->isAdapterProperty(i))
+                continue;
+            const int index = api->sourcePropertyIndex(i);
+            const auto property = m_object->metaObject()->property(index);
+            const auto metaType = property.metaType();
+            if (metaType.flags().testFlag(QMetaType::PointerToQObject)) {
+                auto propertyMeta = metaType.metaObject();
+                QObject *child = property.read(m_object).value<QObject *>();
+                const QMetaObject *meta = child ? child->metaObject() : propertyMeta;
+                if (!meta)
+                    continue;
+                if (meta->inherits(&QAbstractItemModel::staticMetaObject)) {
+                    const auto modelInfo = api->m_models.at(modelIndex++);
+                    QAbstractItemModel *model = qobject_cast<QAbstractItemModel *>(child);
+                    QAbstractItemAdapterSourceAPI<QAbstractItemModel, QAbstractItemModelSourceAdapter> *modelApi =
+                        new QAbstractItemAdapterSourceAPI<QAbstractItemModel, QAbstractItemModelSourceAdapter>(modelInfo.name);
+                    if (!model)
+                        m_children.insert(i, new QRemoteObjectSource(nullptr, d, modelApi, nullptr, api->name()));
+                    else {
+                        roles.clear();
+                        const auto knownRoles = model->roleNames();
+                        const auto modelInfoRoles = modelInfo.roles.split('|');
+                        for (const auto &role : modelInfoRoles) {
+                            if (role.isEmpty())
+                                continue;
+                            const int roleIndex = knownRoles.key(role, -1);
+                            if (roleIndex == -1) {
+                                qCWarning(QT_REMOTEOBJECT) << "Invalid role" << role << "for model" << model->metaObject()->className();
+                                qCWarning(QT_REMOTEOBJECT) << "  known roles:" << knownRoles;
+                            } else
+                                roles << roleIndex;
+                        }
+                        auto adapter = new QAbstractItemModelSourceAdapter(model, nullptr,
+                                                                           roles.isEmpty() ? knownRoles.keys().toVector() : roles);
+                        m_children.insert(i, new QRemoteObjectSource(model, d, modelApi, adapter, api->name()));
+                    }
+                } else {
+                    const auto classApi = api->m_subclasses.at(subclassIndex++);
+                    m_children.insert(i, new QRemoteObjectSource(child, d, classApi, nullptr, api->name()));
+                }
+            }
+        }
+    }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 248, as _ZN23QRemoteObjectSourceBaseD2Ev
+inline QRemoteObjectSourceBase::~QRemoteObjectSourceBase()
+{
+    delete m_api;
 }
 //  -----------------------------------------------------------------------
 

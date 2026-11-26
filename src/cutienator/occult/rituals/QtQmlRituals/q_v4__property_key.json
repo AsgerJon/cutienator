@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4propertykey_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4propertykey_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK3QV411PropertyKey9isManagedEv": ["bool", "address"],
@@ -28,9 +28,30 @@
     ],
     "ritual_ZNK3QV411PropertyKey2idEv": ["unsigned long long", "address"],
     "ritual_ZN3QV411PropertyKey6fromIdEy": ["address", "unsigned long long"],
+    "ritual_ZNK3QV411PropertyKey14asFunctionNameEPNS_15ExecutionEngineENS0_18FunctionNamePrefixE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK3QV411PropertyKeyeqERKS0_": ["bool", "address", "address"],
     "ritual_ZNK3QV411PropertyKeyneERKS0_": ["bool", "address", "address"],
     "ritual_ZNK3QV411PropertyKeyltERKS0_": ["bool", "address", "address"],
-    "ritual_ZN3QV411PropertyKeyD1Ev": ["nothing", "address"]
+    "ritual_ZN3QV411PropertyKeyD1Ev": ["nothing", "address"],
+    "ritual_ZNK3QV411PropertyKey16asStringOrSymbolINS_4Heap14StringOrSymbolEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV411PropertyKey16asStringOrSymbolINS_4Heap6StringEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV411PropertyKey16asStringOrSymbolINS_4Heap6SymbolEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV411PropertyKey18fromStringOrSymbolINS_4Heap14StringOrSymbolENS_10EngineBaseEEES0_PT0_PT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV411PropertyKey18fromStringOrSymbolINS_4Heap6StringENS_10EngineBaseEEES0_PT0_PT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV411PropertyKey18fromStringOrSymbolINS_4Heap6SymbolENS_10EngineBaseEEES0_PT0_PT_": [
+      "address", "address", "address"
+    ]
   }
 }

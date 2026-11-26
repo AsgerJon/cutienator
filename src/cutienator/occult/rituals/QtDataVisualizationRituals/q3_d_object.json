@@ -6,12 +6,22 @@
   ],
   "rows": {
     "ritual_ZNK9Q3DObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN9Q3DObject11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9Q3DObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Q3DObject2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9Q3DObjectC1EP7QObject": ["address", "address"],
     "ritual_ZN9Q3DObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN9Q3DObject14copyValuesFromERKS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9Q3DObject11parentSceneEv": ["address", "address"],
     "ritual_ZNK9Q3DObject8positionEv": ["address", "address"],
     "ritual_ZN9Q3DObject11setPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Q3DObject15positionChangedERK9QVector3D": [
       "nothing", "address", "address"
     ],
     "ritual_ZN9Q3DObject8setDirtyEb": ["nothing", "address", "bool"],

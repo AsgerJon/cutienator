@@ -23,7 +23,14 @@
     "ritual_ZN16QQmlJSMetaMethod17setReturnTypeNameERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZNK16QQmlJSMetaMethod10returnTypeEv": ["address", "address"],
+    "ritual_ZN16QQmlJSMetaMethod13setReturnTypeE12QWeakPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK16QQmlJSMetaMethod10parametersEv": ["address", "address"],
+    "ritual_ZN16QQmlJSMetaMethod22mutableParametersRangeEv": [
+      "address", "address"
+    ],
     "ritual_ZNK16QQmlJSMetaMethod14parameterNamesEv": ["address", "address"],
     "ritual_ZN16QQmlJSMetaMethod13setParametersERK5QListI19QQmlJSMetaParameterE": [
       "nothing", "address", "address"
@@ -110,6 +117,12 @@
     "ritual_map_get_QHash_QString_QQmlJSMetaMethod": [
       "address", "address", "text"
     ],
-    "ritual_map_drop_QHash_QString_QQmlJSMetaMethod": ["nothing", "address"]
+    "ritual_map_drop_QHash_QString_QQmlJSMetaMethod": ["nothing", "address"],
+    "ritual_drop_QQmlJSMetaMethod__QSharedPointer_const_QQmlJSScope": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSMetaMethod__std_pair_QList_QQmlJSMetaParameter_iterator_QList_QQmlJSMetaParameter_iterator": [
+      "nothing", "address"
+    ]
   }
 }

@@ -290,6 +290,9 @@
     "ritual_ZN14QCanvasPainter12createCanvasE5QSizei6QFlagsIN22QCanvasOffscreenCanvas4FlagEE": [
       "address", "address", "address", "int", "int"
     ],
+    "ritual_ZN14QCanvasPainter13destroyCanvasER22QCanvasOffscreenCanvas": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QCanvasPainter6d_funcEv": ["address", "address"],
     "ritual_ZNK14QCanvasPainter6d_funcEv": ["address", "address"]
   }

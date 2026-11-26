@@ -72,6 +72,18 @@ public:
   }
 };
 
+//  void QMetalSampler::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMetalSampler7destroyEv(QMetalSampler *self) {
+  self->destroy();
+}
+
+//  bool QMetalSampler::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QMetalSampler6createEv(QMetalSampler *self) {
+  return self->create();
+}
+
 //  a Python function taken by a CuteQMetalSampler, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

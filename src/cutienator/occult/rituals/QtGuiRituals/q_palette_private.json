@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN15QPalettePrivateC1ERK28QExplicitlySharedDataPointerINS_4DataEE": [
+      "address", "address"
+    ],
     "ritual_ZN15QPalettePrivateC1Ev": ["address"],
     "ritual_ZN15QPalettePrivate15colorRoleOffsetEN8QPalette10ColorGroupE": [
       "unsigned long long", "int"

@@ -32,15 +32,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/kernel/qstandardgestures.cpp, line 121, as _ZN23QPinchGestureRecognizer6createEP7QObject
+//  from src/widgets/kernel/qstandardgestures.cpp, line 26, as local:qstandardgestures.cpp:kSingleStepScaleMax
 #if !defined(QT_NO_GESTURES)
-inline QGesture *QPinchGestureRecognizer::create(QObject *target)
-{
-    if (target && target->isWidgetType()) {
-        static_cast<QWidget *>(target)->setAttribute(Qt::WA_AcceptTouchEvents);
-    }
-    return new QPinchGesture;
-}
+static const qreal kSingleStepScaleMax = 2.0;
+#endif  // !defined(QT_NO_GESTURES)
+
+//  from src/widgets/kernel/qstandardgestures.cpp, line 27, as local:qstandardgestures.cpp:kSingleStepScaleMin
+#if !defined(QT_NO_GESTURES)
+static const qreal kSingleStepScaleMin = 0.1;
 #endif  // !defined(QT_NO_GESTURES)
 
 //  from src/widgets/kernel/qstandardgestures.cpp, line 221, as _ZN23QPinchGestureRecognizer5resetEP8QGesture
@@ -62,6 +61,112 @@ inline void QPinchGestureRecognizer::reset(QGesture *state)
     QGestureRecognizer::reset(state);
 }
 #endif  // !defined(QT_NO_GESTURES)
+
+//  from src/widgets/kernel/qstandardgestures.cpp, line 121, as _ZN23QPinchGestureRecognizer6createEP7QObject
+#if !defined(QT_NO_GESTURES)
+inline QGesture *QPinchGestureRecognizer::create(QObject *target)
+{
+    if (target && target->isWidgetType()) {
+        static_cast<QWidget *>(target)->setAttribute(Qt::WA_AcceptTouchEvents);
+    }
+    return new QPinchGesture;
+}
+#endif  // !defined(QT_NO_GESTURES)
+
+//  from src/widgets/kernel/qstandardgestures.cpp, line 129, as _ZN23QPinchGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent
+#if !defined(QT_NO_GESTURES)
+inline QGestureRecognizer::Result QPinchGestureRecognizer::recognize(QGesture *state,
+                                                              QObject *,
+                                                              QEvent *event)
+{
+    QPinchGesture *q = static_cast<QPinchGesture *>(state);
+    QPinchGesturePrivate *d = q->d_func();
+
+    QGestureRecognizer::Result result = QGestureRecognizer::Ignore;
+
+    switch (event->type()) {
+    case QEvent::TouchBegin: {
+        result = QGestureRecognizer::MayBeGesture;
+        break;
+    }
+    case QEvent::TouchEnd: {
+        if (q->state() != Qt::NoGesture) {
+            result = QGestureRecognizer::FinishGesture;
+        } else {
+            result = QGestureRecognizer::CancelGesture;
+        }
+        break;
+    }
+    case QEvent::TouchUpdate: {
+        const QTouchEvent *ev = static_cast<const QTouchEvent *>(event);
+        d->changeFlags = { };
+        if (ev->points().size() == 2) {
+            const QEventPoint &p1 = ev->points().at(0);
+            const QEventPoint &p2 = ev->points().at(1);
+
+            d->hotSpot = p1.globalPosition();
+            d->isHotSpotSet = true;
+
+            QPointF centerPoint = (p1.globalPosition() + p2.globalPosition()) / 2.0;
+            if (d->isNewSequence) {
+                d->startPosition[0] = p1.globalPosition();
+                d->startPosition[1] = p2.globalPosition();
+                d->lastCenterPoint = centerPoint;
+            } else {
+                d->lastCenterPoint = d->centerPoint;
+            }
+            d->centerPoint = centerPoint;
+
+            d->changeFlags |= QPinchGesture::CenterPointChanged;
+
+            if (d->isNewSequence) {
+                d->scaleFactor = 1.0;
+                d->lastScaleFactor = 1.0;
+            } else {
+                d->lastScaleFactor = d->scaleFactor;
+                QLineF line(p1.globalPosition(), p2.globalPosition());
+                QLineF lastLine(p1.globalLastPosition(),  p2.globalLastPosition());
+                qreal newScaleFactor = line.length() / lastLine.length();
+                if (newScaleFactor > kSingleStepScaleMax || newScaleFactor < kSingleStepScaleMin)
+                    return QGestureRecognizer::Ignore;
+                d->scaleFactor = newScaleFactor;
+            }
+            d->totalScaleFactor = d->totalScaleFactor * d->scaleFactor;
+            d->changeFlags |= QPinchGesture::ScaleFactorChanged;
+
+            qreal angle = QLineF(p1.globalPosition(), p2.globalPosition()).angle();
+            if (angle > 180)
+                angle -= 360;
+            qreal startAngle = QLineF(p1.globalPressPosition(), p2.globalPressPosition()).angle();
+            if (startAngle > 180)
+                startAngle -= 360;
+            const qreal rotationAngle = startAngle - angle;
+            if (d->isNewSequence)
+                d->lastRotationAngle = 0.0;
+            else
+                d->lastRotationAngle = d->rotationAngle;
+            d->rotationAngle = rotationAngle;
+            d->totalRotationAngle += d->rotationAngle - d->lastRotationAngle;
+            d->changeFlags |= QPinchGesture::RotationAngleChanged;
+
+            d->totalChangeFlags |= d->changeFlags;
+            d->isNewSequence = false;
+            result = QGestureRecognizer::TriggerGesture;
+        } else {
+            d->isNewSequence = true;
+            if (q->state() == Qt::NoGesture)
+                result = QGestureRecognizer::Ignore;
+            else
+                result = QGestureRecognizer::FinishGesture;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+    return result;
+}
+#endif  // !defined(QT_NO_GESTURES)
 //  -----------------------------------------------------------------------
 
 //  A QPinchGestureRecognizer that Python can take functions over in. Every QPinchGestureRecognizer
@@ -79,7 +184,7 @@ typedef void (*CuteQPinchGestureRecognizerCall2)(const void *, QGesture *, int *
 class CuteQPinchGestureRecognizer : public QPinchGestureRecognizer {
 public:
   using QPinchGestureRecognizer::QPinchGestureRecognizer;
-  CuteQPinchGestureRecognizer(const QPinchGestureRecognizer &other) : QPinchGestureRecognizer(other) {}
+  CuteQPinchGestureRecognizer(const QPinchGestureRecognizer & other) : QPinchGestureRecognizer(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -157,6 +262,17 @@ QGesture *ritual_ZN23QPinchGestureRecognizer6createEP7QObject(
   return self->create(target);
 }
 
+//  QGestureRecognizer::Result QPinchGestureRecognizer::recognize(QGesture
+//      *state, QObject *watched, QEvent *event)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QPinchGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent(
+    QPinchGestureRecognizer *self,
+    QGesture *state,
+    QObject *watched,
+    QEvent *event) {
+  return static_cast<int>(self->recognize(state, watched, event).toInt());
+}
+
 //  void QPinchGestureRecognizer::reset(QGesture *state)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QPinchGestureRecognizer5resetEP8QGesture(
@@ -188,6 +304,23 @@ QGesture *ritual_own_ZN23QPinchGestureRecognizer6createEP7QObject(
     QPinchGestureRecognizer *self,
     QObject *target) {
   return self->QPinchGestureRecognizer::create(target);
+}
+#endif  // !defined(QT_NO_GESTURES)
+
+#if !defined(QT_NO_GESTURES)
+//  QGestureRecognizer::Result QPinchGestureRecognizer::recognize(QGesture
+//      *state, QObject *watched, QEvent *event)
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZN23QPinchGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent(
+    QPinchGestureRecognizer *self,
+    QGesture *state,
+    QObject *watched,
+    QEvent *event) {
+  return static_cast<int>(
+      self->QPinchGestureRecognizer::recognize(
+          state,
+          watched,
+          event).toInt());
 }
 #endif  // !defined(QT_NO_GESTURES)
 

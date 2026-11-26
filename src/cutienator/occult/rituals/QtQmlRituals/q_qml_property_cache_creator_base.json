@@ -8,12 +8,24 @@
     "ritual_ZN28QQmlPropertyCacheCreatorBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN28QQmlPropertyCacheCreatorBase23metaTypeForPropertyTypeEN3QV412CompiledData10CommonTypeE": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN28QQmlPropertyCacheCreatorBase23listTypeForPropertyTypeEN3QV412CompiledData10CommonTypeE": [
+      "address", "unsigned int"
+    ],
     "ritual_ZN28QQmlPropertyCacheCreatorBase23propertyTypeForMetaTypeE9QMetaType": [
       "unsigned int", "address"
+    ],
+    "ritual_ZN28QQmlPropertyCacheCreatorBase27canCreateClassNameTypeByUrlERK4QUrl": [
+      "bool", "address"
     ],
     "ritual_ZN28QQmlPropertyCacheCreatorBase7explainEN17OverrideSemantics6StatusE": [
       "text", "unsigned char"
     ],
-    "ritual_ZN28QQmlPropertyCacheCreatorBaseD1Ev": ["nothing", "address"]
+    "ritual_ZN28QQmlPropertyCacheCreatorBaseD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlPropertyCacheCreatorBase__std_optional_QMetaType": [
+      "nothing", "address"
+    ]
   }
 }

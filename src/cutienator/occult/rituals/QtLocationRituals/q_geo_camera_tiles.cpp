@@ -109,3 +109,10 @@ void ritual_ZN15QGeoCameraTiles13setMapVersionEi(
     int mapVersion) {
   self->setMapVersion(mapVersion);
 }
+
+//  const QSet<QGeoTileSpec> &QGeoCameraTiles::createTiles()
+extern "C" Q_DECL_EXPORT
+const QSet<QGeoTileSpec> *ritual_ZN15QGeoCameraTiles11createTilesEv(
+    QGeoCameraTiles *self) {
+  return &(self->createTiles());
+}

@@ -7,7 +7,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickanimatorjob_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtCore/qdebug.h>
 #include <cstring>
 
@@ -434,6 +436,12 @@ extern "C" Q_DECL_EXPORT
 QQuickAnimatorController *ritual_ZNK17QQuickAnimatorJob10controllerEv(
     const QQuickAnimatorJob *self) {
   return self->controller();
+}
+
+//  QQuickAnimatorJob::QQuickAnimatorJob()
+extern "C" Q_DECL_EXPORT
+QQuickAnimatorJob *ritual_ZN17QQuickAnimatorJobC1Ev() {
+  return new CuteQQuickAnimatorJob();
 }
 
 //  void QQuickAnimatorJob::debugAnimation(QDebug d) const

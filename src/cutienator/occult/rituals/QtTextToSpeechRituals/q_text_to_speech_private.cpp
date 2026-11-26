@@ -7,6 +7,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtTextToSpeech/6.12.0/QtTextToSpeech/private/qtexttospeech_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QMultiHash>
+#include <QtCore/QString>
+#include <QtCore/QCborMap>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtTextToSpeech/qtexttospeech.h>
 #include <QtTextToSpeech/private/qtexttospeech_p.h>
@@ -23,22 +26,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtspeech/src/tts/qtexttospeech.cpp, line 128, as _ZN20QTextToSpeechPrivate7pluginsEb
-inline QMultiHash<QString, QCborMap> QTextToSpeechPrivate::plugins(bool reload)
-{
-    static QMultiHash<QString, QCborMap> plugins;
-    static bool alreadyDiscovered = false;
-    QMutexLocker lock(&m_mutex);
-
-    if (reload == true)
-        alreadyDiscovered = false;
-
-    if (!alreadyDiscovered) {
-        loadPluginMetadata(plugins);
-        alreadyDiscovered = true;
-    }
-    return plugins;
-}
+using namespace Qt::StringLiterals;
 
 //  from ../qtspeech/src/tts/qtexttospeech.cpp, line 24, as _ZN20QTextToSpeechPrivateC1EP13QTextToSpeech
 inline QTextToSpeechPrivate::QTextToSpeechPrivate(QTextToSpeech *speech)
@@ -164,4 +152,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QTextToSpeechPrivate27disconnectSynthesizeFunctorEv(
     QTextToSpeechPrivate *self) {
   self->disconnectSynthesizeFunctor();
+}
+
+//  a QMultiHash<QString, QCborMap> a ritual of QTextToSpeechPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextToSpeechPrivate__QMultiHash_QString_QCborMap(
+    QMultiHash<QString, QCborMap> *self) {
+  delete self;
 }

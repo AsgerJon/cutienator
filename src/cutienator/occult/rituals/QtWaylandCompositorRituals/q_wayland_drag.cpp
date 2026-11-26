@@ -185,6 +185,24 @@ const QMetaObject *ritual_ZNK12QWaylandDrag10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandDrag::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QWaylandDrag11qt_metacastEPKc(
+    QWaylandDrag *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandDrag::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QWaylandDrag11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandDrag *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandDrag::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QWaylandDrag2trEPKcS1_i(
@@ -192,6 +210,19 @@ QString *ritual_ZN12QWaylandDrag2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandDrag::tr(s, c, n));
+}
+
+//  QWaylandDragPrivate *QWaylandDrag::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandDragPrivate *ritual_ZN12QWaylandDrag6d_funcEv(QWaylandDrag *self) {
+  return self->d_func();
+}
+
+//  const QWaylandDragPrivate *QWaylandDrag::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandDragPrivate *ritual_ZNK12QWaylandDrag6d_funcEv(
+    const QWaylandDrag *self) {
+  return self->d_func();
 }
 
 //  void QWaylandDrag::qt_qmlMarker_uncreatable()
@@ -251,6 +282,18 @@ void ritual_ZN12QWaylandDrag4dropEv(QWaylandDrag *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QWaylandDrag10cancelDragEv(QWaylandDrag *self) {
   self->cancelDrag();
+}
+
+//  void QWaylandDrag::iconChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandDrag11iconChangedEv(QWaylandDrag *self) {
+  self->iconChanged();
+}
+
+//  void QWaylandDrag::dragStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandDrag11dragStartedEv(QWaylandDrag *self) {
+  self->dragStarted();
 }
 
 //  a Python function taken by a CuteQWaylandDrag, for the function named by

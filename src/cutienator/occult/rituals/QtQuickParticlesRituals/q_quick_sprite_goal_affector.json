@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuickSpriteGoalAffector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickSpriteGoalAffector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickSpriteGoalAffector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickSpriteGoalAffector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,15 @@
     ],
     "ritual_ZN24QQuickSpriteGoalAffector14affectParticleEP18QQuickParticleDatad": [
       "bool", "address", "address", "double"
+    ],
+    "ritual_ZN24QQuickSpriteGoalAffector16goalStateChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QQuickSpriteGoalAffector11jumpChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QQuickSpriteGoalAffector19systemStatesChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN24QQuickSpriteGoalAffector12setGoalStateERK7QString": [
       "nothing", "address", "text"

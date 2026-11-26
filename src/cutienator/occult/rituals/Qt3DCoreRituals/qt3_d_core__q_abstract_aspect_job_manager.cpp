@@ -217,6 +217,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore25QAbstractAspectJobManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QAbstractAspectJobManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore25QAbstractAspectJobManager11qt_metacastEPKc(
+    Qt3DCore::QAbstractAspectJobManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QAbstractAspectJobManager::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore25QAbstractAspectJobManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QAbstractAspectJobManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QAbstractAspectJobManager::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -234,11 +253,33 @@ void ritual_ZN8Qt3DCore25QAbstractAspectJobManager10initializeEv(
   self->initialize();
 }
 
+//  void Qt3DCore::QAbstractAspectJobManager::enqueueJobs(const
+//      std::vector<QAspectJobPtr> &jobQueue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25QAbstractAspectJobManager11enqueueJobsERKSt6vectorI14QSharedPointerINS_10QAspectJobEESaIS4_EE(
+    Qt3DCore::QAbstractAspectJobManager *self,
+    const std::vector<Qt3DCore::QAspectJobPtr> *jobQueue) {
+  self->enqueueJobs(*jobQueue);
+}
+
 //  int Qt3DCore::QAbstractAspectJobManager::waitForAllJobs()
 extern "C" Q_DECL_EXPORT
 int ritual_ZN8Qt3DCore25QAbstractAspectJobManager14waitForAllJobsEv(
     Qt3DCore::QAbstractAspectJobManager *self) {
   return self->waitForAllJobs();
+}
+
+//  void
+//      Qt3DCore::QAbstractAspectJobManager::waitForPerThreadFunction(JobFunc
+//      tion func, void *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25QAbstractAspectJobManager24waitForPerThreadFunctionEPFvPvES1_(
+    Qt3DCore::QAbstractAspectJobManager *self,
+    void *func,
+    void *arg) {
+  self->waitForPerThreadFunction(
+      reinterpret_cast<Qt3DCore::QAbstractAspectJobManager::JobFunction>(func),
+      arg);
 }
 
 //  a Python function taken by a CuteQt3DCore_QAbstractAspectJobManager, for

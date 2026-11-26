@@ -5,12 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QQuickTimeLineValueC1Ed": ["address", "double"],
     "ritual_ZNK19QQuickTimeLineValue5valueEv": ["double", "address"],
     "ritual_ZN19QQuickTimeLineValue8setValueEd": [
       "nothing", "address", "double"
     ],
     "ritual_ZNK19QQuickTimeLineValue8timeLineEv": ["address", "address"],
     "ritual_ZNK19QQuickTimeLineValuecvdEv": ["double", "address"],
+    "ritual_ZN19QQuickTimeLineValueaSEd": ["address", "address", "double"],
     "ritual_ZN19QQuickTimeLineValueD1Ev": ["nothing", "address"],
     "ritual_own_ZNK19QQuickTimeLineValue5valueEv": ["double", "address"],
     "ritual_own_ZN19QQuickTimeLineValue8setValueEd": [

@@ -10,6 +10,9 @@
     "ritual_ZN22QtWidgetsActionPrivateC1Ev": ["address"],
     "ritual_ZN22QtWidgetsActionPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QtWidgetsActionPrivate7destroyEv": ["nothing", "address"],
+    "ritual_ZNK22QtWidgetsActionPrivate14contextMatcherEv": [
+      "address", "address"
+    ],
     "ritual_ZNK22QtWidgetsActionPrivate4menuEv": ["address", "address"],
     "ritual_ZN22QtWidgetsActionPrivate7setMenuEP7QObject": [
       "nothing", "address", "address"

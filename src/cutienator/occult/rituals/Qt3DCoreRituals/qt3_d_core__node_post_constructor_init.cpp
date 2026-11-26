@@ -8,6 +8,65 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DCore/qnode.h>
+#include <Qt3DCore/private/qnode_p.h>
+#include <Qt3DCore/private/qscene_p.h>
+#include <Qt3DCore/QComponent>
+#include <Qt3DCore/qaspectengine.h>
+#include <Qt3DCore/qentity.h>
+#include <QtCore/QChildEvent>
+#include <QtCore/QEvent>
+#include <QtCore/QMetaObject>
+#include <QtCore/QMetaProperty>
+#include <QtCore/QThread>
+#include <Qt3DCore/private/corelogging_p.h>
+#include <Qt3DCore/private/qdestructionidandtypecollector_p.h>
+#include <Qt3DCore/private/qnodevisitor_p.h>
+#include <Qt3DCore/private/qscene_p.h>
+#include <Qt3DCore/private/qaspectengine_p.h>
+#include <Qt3DCore/private/qaspectmanager_p.h>
+#include <QtCore/private/qmetaobject_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/core/nodes/qnode.cpp, line 875, as _ZN8Qt3DCore23NodePostConstructorInit10removeNodeEPNS_5QNodeE
+namespace Qt3DCore {
+inline void NodePostConstructorInit::removeNode(QNode *node)
+{
+    Q_ASSERT(node);
+    m_nodesToConstruct.removeAll(QNodePrivate::get(node));
+}
+}  // namespace Qt3DCore
+
+//  from ../qt3d/src/core/nodes/qnode.cpp, line 850, as _ZN8Qt3DCore23NodePostConstructorInit7addNodeEPNS_5QNodeE
+namespace Qt3DCore {
+inline void NodePostConstructorInit::addNode(QNode *node)
+{
+    Q_ASSERT(node);
+    QNode *nextNode = node;
+    while (nextNode != nullptr && !m_nodesToConstruct.contains(QNodePrivate::get(nextNode)))
+        nextNode = nextNode->parentNode();
+
+    // An ancestor in the m_nodesToConstruct may already have been created (m_hasBackendNode)
+    // at this point (e.g. when a QComponent calls _q_ensureBackendNodeCreated()),
+    // that's why we also queue a creation request in this case.
+    if (!nextNode || QNodePrivate::get(nextNode)->m_hasBackendNode) {
+        m_nodesToConstruct.append(QNodePrivate::get(node));
+        if (!m_requestedProcessing){
+            QMetaObject::invokeMethod(this, "processNodes", Qt::QueuedConnection);
+            m_requestedProcessing = true;
+        }
+    }
+}
+}  // namespace Qt3DCore
+//  -----------------------------------------------------------------------
 
 //  A Qt3DCore::NodePostConstructorInit that Python can take functions over in. Every Qt3DCore::NodePostConstructorInit
 //  Python makes is one. Each function below asks the Python
@@ -183,11 +242,71 @@ const QMetaObject *ritual_ZNK8Qt3DCore23NodePostConstructorInit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::NodePostConstructorInit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore23NodePostConstructorInit11qt_metacastEPKc(
+    Qt3DCore::NodePostConstructorInit *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::NodePostConstructorInit::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore23NodePostConstructorInit11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::NodePostConstructorInit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  Qt3DCore::NodePostConstructorInit::~NodePostConstructorInit()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore23NodePostConstructorInitD1Ev(
     Qt3DCore::NodePostConstructorInit *self) {
   delete self;
+}
+
+//  void Qt3DCore::NodePostConstructorInit::removeNode(QNode *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore23NodePostConstructorInit10removeNodeEPNS_5QNodeE(
+    Qt3DCore::NodePostConstructorInit *self,
+    Qt3DCore::QNode *node) {
+  self->removeNode(node);
+}
+
+//  void Qt3DCore::NodePostConstructorInit::addNode(QNode *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore23NodePostConstructorInit7addNodeEPNS_5QNodeE(
+    Qt3DCore::NodePostConstructorInit *self,
+    Qt3DCore::QNode *node) {
+  self->addNode(node);
+}
+
+//  void Qt3DCore::NodePostConstructorInit::processNodes()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore23NodePostConstructorInit12processNodesEv(
+    Qt3DCore::NodePostConstructorInit *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DCore::NodePostConstructorInit")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "processNodes()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "processNodes()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQt3DCore_NodePostConstructorInit, for

@@ -5,8 +5,21 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QCoreAudioDevicesD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCoreAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QCoreAudioDevices15createAudioSinkERK12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK17QCoreAudioDevices11backendNameEv": ["address", "address"],
     "ritual_ZNK17QCoreAudioDevices14hasCallbackApiEv": ["bool", "address"],
+    "ritual_ZNK17QCoreAudioDevices15findAudioInputsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QCoreAudioDevices16findAudioOutputsEv": [
+      "address", "address"
+    ],
     "ritual_take_QCoreAudioDevices": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QCoreAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject": [
       "address", "address", "address", "address", "address"

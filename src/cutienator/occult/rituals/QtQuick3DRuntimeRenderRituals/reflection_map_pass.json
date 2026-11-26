@@ -5,6 +5,9 @@
     "ss_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17ReflectionMapPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK17ReflectionMapPass8passTypeEv": ["int", "address"],
     "ritual_ZN17ReflectionMapPass13resetForFrameEv": ["nothing", "address"],
     "ritual_ZN17ReflectionMapPassD1Ev": ["nothing", "address"]

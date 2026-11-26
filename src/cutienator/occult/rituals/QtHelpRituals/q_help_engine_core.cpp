@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtHelp/qhelpenginecore.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtHelp/qhelpenginecore.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
@@ -9,6 +10,12 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QStringList>
+#include <QtCore/QString>
+#include <QtCore/QFuture>
+#include <memory>
+#include <QtHelp/QHelpContentItem>
 
 //  A QHelpEngineCore that Python can take functions over in. Every QHelpEngineCore
 //  Python makes is one. Each function below asks the Python
@@ -182,6 +189,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK15QHelpEngineCore10metaObjectEv(
     const QHelpEngineCore *self) {
   return self->metaObject();
+}
+
+//  void *QHelpEngineCore::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QHelpEngineCore11qt_metacastEPKc(
+    QHelpEngineCore *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHelpEngineCore::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QHelpEngineCore11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHelpEngineCore *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QHelpEngineCore::tr(const char *s, const char *c, int n)
@@ -364,6 +389,15 @@ void ritual_ZN15QHelpEngineCore16setCurrentFilterERK7QString(
   self->setCurrentFilter(*filterName);
 }
 
+//  QList<QStringList> QHelpEngineCore::filterAttributeSets(const QString
+//      &namespaceName) const
+extern "C" Q_DECL_EXPORT
+QList<QStringList> *ritual_ZNK15QHelpEngineCore19filterAttributeSetsERK7QString(
+    const QHelpEngineCore *self,
+    const QString *namespaceName) {
+  return new QList<QStringList>(self->filterAttributeSets(*namespaceName));
+}
+
 //  QList<QUrl> QHelpEngineCore::files(const QString namespaceName, const
 //      QStringList &filterAttributes, const QString &extensionFilter)
 extern "C" Q_DECL_EXPORT
@@ -522,6 +556,97 @@ bool ritual_ZNK15QHelpEngineCore16usesFilterEngineEv(
   return self->usesFilterEngine();
 }
 
+#if QT_CONFIG(future)
+//  QFuture<std::shared_ptr<QHelpContentItem>>
+//      QHelpEngineCore::requestContentForCurrentFilter() const
+extern "C" Q_DECL_EXPORT
+QFuture<std::shared_ptr<QHelpContentItem>> *ritual_ZNK15QHelpEngineCore30requestContentForCurrentFilterEv(
+    const QHelpEngineCore *self) {
+  return new QFuture<std::shared_ptr<QHelpContentItem>>(
+      self->requestContentForCurrentFilter());
+}
+#endif  // QT_CONFIG(future)
+
+#if QT_CONFIG(future)
+//  QFuture<std::shared_ptr<QHelpContentItem>>
+//      QHelpEngineCore::requestContent(const QString &filter) const
+extern "C" Q_DECL_EXPORT
+QFuture<std::shared_ptr<QHelpContentItem>> *ritual_ZNK15QHelpEngineCore14requestContentERK7QString(
+    const QHelpEngineCore *self,
+    const QString *filter) {
+  return new QFuture<std::shared_ptr<QHelpContentItem>>(
+      self->requestContent(
+          *filter));
+}
+#endif  // QT_CONFIG(future)
+
+#if QT_CONFIG(future)
+//  QFuture<QStringList> QHelpEngineCore::requestIndexForCurrentFilter()
+//      const
+extern "C" Q_DECL_EXPORT
+QFuture<QStringList> *ritual_ZNK15QHelpEngineCore28requestIndexForCurrentFilterEv(
+    const QHelpEngineCore *self) {
+  return new QFuture<QStringList>(self->requestIndexForCurrentFilter());
+}
+#endif  // QT_CONFIG(future)
+
+#if QT_CONFIG(future)
+//  QFuture<QStringList> QHelpEngineCore::requestIndex(const QString &filter)
+//      const
+extern "C" Q_DECL_EXPORT
+QFuture<QStringList> *ritual_ZNK15QHelpEngineCore12requestIndexERK7QString(
+    const QHelpEngineCore *self,
+    const QString *filter) {
+  return new QFuture<QStringList>(self->requestIndex(*filter));
+}
+#endif  // QT_CONFIG(future)
+
+//  void QHelpEngineCore::setupStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHelpEngineCore12setupStartedEv(QHelpEngineCore *self) {
+  self->setupStarted();
+}
+
+//  void QHelpEngineCore::setupFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHelpEngineCore13setupFinishedEv(QHelpEngineCore *self) {
+  self->setupFinished();
+}
+
+//  void QHelpEngineCore::warning(const QString &msg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHelpEngineCore7warningERK7QString(
+    QHelpEngineCore *self,
+    const QString *msg) {
+  self->warning(*msg);
+}
+
+//  void QHelpEngineCore::currentFilterChanged(const QString &newFilter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHelpEngineCore20currentFilterChangedERK7QString(
+    QHelpEngineCore *self,
+    const QString *newFilter) {
+  self->currentFilterChanged(*newFilter);
+}
+
+//  void QHelpEngineCore::readersAboutToBeInvalidated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHelpEngineCore27readersAboutToBeInvalidatedEv(
+    QHelpEngineCore *self) {
+  self->readersAboutToBeInvalidated();
+}
+
+#if QT_DEPRECATED_SINCE(6, 8)
+//  QHelpEngineCore::QHelpEngineCore(QHelpEngineCorePrivate
+//      *helpEngineCorePrivate, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QHelpEngineCore *ritual_ZN15QHelpEngineCoreC1EP22QHelpEngineCorePrivateP7QObject(
+    QHelpEngineCorePrivate *helpEngineCorePrivate,
+    QObject *parent) {
+  return new CuteQHelpEngineCore(helpEngineCorePrivate, parent);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 8)
+
 //  a Python function taken by a CuteQHelpEngineCore, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -530,4 +655,26 @@ bool ritual_take_QHelpEngineCore(
     const char *key,
     void *call) {
   return static_cast<CuteQHelpEngineCore *>(self)->take(key, call);
+}
+
+//  a QList<QStringList> a ritual of QHelpEngineCore gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHelpEngineCore__QList_QStringList(
+    QList<QStringList> *self) {
+  delete self;
+}
+
+//  a QFuture<std::shared_ptr<QHelpContentItem>> a ritual of QHelpEngineCore
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHelpEngineCore__QFuture_std_shared_ptr_QHelpContentItem(
+    QFuture<std::shared_ptr<QHelpContentItem>> *self) {
+  delete self;
+}
+
+//  a QFuture<QStringList> a ritual of QHelpEngineCore gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHelpEngineCore__QFuture_QStringList(
+    QFuture<QStringList> *self) {
+  delete self;
 }

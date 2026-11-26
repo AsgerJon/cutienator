@@ -8,6 +8,12 @@
     "ritual_ZNK27QBluetoothSocketBasePrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QBluetoothSocketBasePrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QBluetoothSocketBasePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN27QBluetoothSocketBasePrivate18ensureNativeSocketEN21QBluetoothServiceInfo8ProtocolE": [
       "bool", "address", "int"
@@ -34,6 +40,9 @@
     "ritual_ZN27QBluetoothSocketBasePrivate5closeEv": ["nothing", "address"],
     "ritual_ZN27QBluetoothSocketBasePrivate9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate8readDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_ZNK27QBluetoothSocketBasePrivate14bytesAvailableEv": [
       "long long", "address"

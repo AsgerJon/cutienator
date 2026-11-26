@@ -18,10 +18,32 @@ QHelpFilterData *ritual_ZN15QHelpFilterDataC1ERKS_(
   return new QHelpFilterData(*other);
 }
 
+//  QHelpFilterData::QHelpFilterData(QHelpFilterData &&other)
+extern "C" Q_DECL_EXPORT
+QHelpFilterData *ritual_ZN15QHelpFilterDataC1EOS_(QHelpFilterData *other) {
+  return new QHelpFilterData(std::move(*other));
+}
+
 //  QHelpFilterData::~QHelpFilterData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QHelpFilterDataD1Ev(QHelpFilterData *self) {
   delete self;
+}
+
+//  QHelpFilterData &QHelpFilterData::operator=(const QHelpFilterData &other)
+extern "C" Q_DECL_EXPORT
+QHelpFilterData *ritual_ZN15QHelpFilterDataaSERKS_(
+    QHelpFilterData *self,
+    const QHelpFilterData *other) {
+  return &(self->operator=(*other));
+}
+
+//  QHelpFilterData &QHelpFilterData::operator=(QHelpFilterData &&other)
+extern "C" Q_DECL_EXPORT
+QHelpFilterData *ritual_ZN15QHelpFilterDataaSEOS_(
+    QHelpFilterData *self,
+    QHelpFilterData *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  bool QHelpFilterData::operator==(const QHelpFilterData &other) const
@@ -30,6 +52,14 @@ bool ritual_ZNK15QHelpFilterDataeqERKS_(
     const QHelpFilterData *self,
     const QHelpFilterData *other) {
   return self->operator==(*other);
+}
+
+//  void QHelpFilterData::swap(QHelpFilterData &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHelpFilterData4swapERS_(
+    QHelpFilterData *self,
+    QHelpFilterData *other) {
+  self->swap(*other);
 }
 
 //  void QHelpFilterData::setComponents(const QStringList &components)

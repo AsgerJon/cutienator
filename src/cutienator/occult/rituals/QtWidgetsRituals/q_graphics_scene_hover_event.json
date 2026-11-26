@@ -45,6 +45,8 @@
     "ritual_ZN24QGraphicsSceneHoverEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN24QGraphicsSceneHoverEvent6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QGraphicsSceneHoverEvent6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsSceneHoverEvent": [
       "bool", "address", "chars", "address"
     ]

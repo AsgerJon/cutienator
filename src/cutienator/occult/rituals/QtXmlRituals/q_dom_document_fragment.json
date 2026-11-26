@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN20QDomDocumentFragmentC1Ev": ["address"],
     "ritual_ZN20QDomDocumentFragmentC1ERKS_": ["address", "address"],
+    "ritual_ZN20QDomDocumentFragmentaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK20QDomDocumentFragment8nodeTypeEv": ["int", "address"],
     "ritual_ZN20QDomDocumentFragmentC1EP27QDomDocumentFragmentPrivate": [
       "address", "address"

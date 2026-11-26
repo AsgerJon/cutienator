@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QmlTapSensorReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QmlTapSensorReading11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QmlTapSensorReading11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QmlTapSensorReading2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,10 +21,28 @@
     "ritual_ZN19QmlTapSensorReadingC1EP10QTapSensor": ["address", "address"],
     "ritual_ZN19QmlTapSensorReadingD1Ev": ["nothing", "address"],
     "ritual_ZNK19QmlTapSensorReading12tapDirectionEv": ["int", "address"],
+    "ritual_ZNK19QmlTapSensorReading20bindableTapDirectionEv": [
+      "address", "address"
+    ],
     "ritual_ZNK19QmlTapSensorReading11isDoubleTapEv": ["bool", "address"],
+    "ritual_ZNK19QmlTapSensorReading17bindableDoubleTapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QmlTapSensorReading19tapDirectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QmlTapSensorReading18isDoubleTapChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK19QmlTapSensorReading7readingEv": ["address", "address"],
     "ritual_ZN19QmlTapSensorReading13readingUpdateEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QmlTapSensorReading34_qt_property_m_tapDirection_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN19QmlTapSensorReading33_qt_property_m_isDoubleTap_offsetEv": [
+      "size_t"
     ],
     "ritual_take_QmlTapSensorReading": [
       "bool", "address", "chars", "address"
@@ -26,6 +50,10 @@
     "ritual_own_ZNK19QmlTapSensorReading7readingEv": ["address", "address"],
     "ritual_own_ZN19QmlTapSensorReading13readingUpdateEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_drop_QmlTapSensorReading__QBindable_QTapReading_TapDirection": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QmlTapSensorReading__QBindable_bool": ["nothing", "address"]
   }
 }

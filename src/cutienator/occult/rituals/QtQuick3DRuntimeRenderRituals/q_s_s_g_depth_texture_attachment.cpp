@@ -16,6 +16,14 @@ QSSGDepthTextureAttachment *ritual_ZN26QSSGDepthTextureAttachmentC1ERK10QByteArr
   return new QSSGDepthTextureAttachment(*name);
 }
 
+//  void QSSGDepthTextureAttachment::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK26QSSGDepthTextureAttachment8addDebugER6QDebug(
+    const QSSGDepthTextureAttachment *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGDepthTextureAttachment::~QSSGDepthTextureAttachment()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QSSGDepthTextureAttachmentD1Ev(

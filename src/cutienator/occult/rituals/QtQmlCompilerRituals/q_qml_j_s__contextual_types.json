@@ -5,12 +5,25 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS15ContextualTypesC1ENS0_14CompileContextERK5QHashI7QStringNS_14ContextualTypeEERK10QMultiHashI22QDeferredSharedPointerIK11QQmlJSScopeES3_ERKSC_": [
+      "address", "int", "address", "address", "address"
+    ],
     "ritual_ZNK6QQmlJS15ContextualTypes7contextEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS15ContextualTypes9arrayTypeEv": ["address", "address"],
     "ritual_ZNK6QQmlJS15ContextualTypes7hasTypeERK7QString": [
       "bool", "address", "text"
     ],
     "ritual_ZNK6QQmlJS15ContextualTypes4typeERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_ZNK6QQmlJS15ContextualTypes4nameERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS15ContextualTypes7setTypeERK7QStringRKNS_14ContextualTypeE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN6QQmlJS15ContextualTypes19setFileSelectedTypeERK7QStringS3_RKNS_14ContextualTypeE": [
+      "nothing", "address", "text", "text", "address"
     ],
     "ritual_ZN6QQmlJS15ContextualTypes9clearTypeERK7QString": [
       "nothing", "address", "text"
@@ -18,18 +31,35 @@
     "ritual_ZNK6QQmlJS15ContextualTypes10isNullTypeERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN6QQmlJS15ContextualTypes8addTypesERKS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS15ContextualTypes5typesEv": ["address", "address"],
     "ritual_ZNK6QQmlJS15ContextualTypes16hasFileSelectorsEv": [
       "bool", "address"
     ],
+    "ritual_ZNK6QQmlJS15ContextualTypes19fileSelectorInfoForERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS15ContextualTypes5namesEv": ["address", "address"],
     "ritual_ZNK6QQmlJS15ContextualTypes19currentFileSelectorEv": [
       "text", "address"
     ],
     "ritual_ZN6QQmlJS15ContextualTypes22setCurrentFileSelectorERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZNK6QQmlJS15ContextualTypes19fileSelectedTypeForERK7QStringS3_": [
+      "address", "address", "text", "text"
+    ],
     "ritual_ZN6QQmlJS15ContextualTypes10clearTypesEv": [
       "nothing", "address"
     ],
-    "ritual_ZN6QQmlJS15ContextualTypesD1Ev": ["nothing", "address"]
+    "ritual_ZN6QQmlJS15ContextualTypesD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlJS_ContextualTypes__QQmlJSScope_ConstPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJS_ContextualTypes__std_optional_QQmlJS_ContextualType": [
+      "nothing", "address"
+    ]
   }
 }

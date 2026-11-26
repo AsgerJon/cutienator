@@ -58,6 +58,15 @@ QQmlProfiler::RefLocation *ritual_ZN12QQmlProfiler11RefLocationC1ERKS0_(
   return new QQmlProfiler::RefLocation(*other);
 }
 
+//  RefLocation &QQmlProfiler::RefLocation::operator=(const RefLocation
+//      &other)
+extern "C" Q_DECL_EXPORT
+QQmlProfiler::RefLocation *ritual_ZN12QQmlProfiler11RefLocationaSERKS0_(
+    QQmlProfiler::RefLocation *self,
+    const QQmlProfiler::RefLocation *other) {
+  return &(self->operator=(*other));
+}
+
 //  QQmlProfiler::RefLocation::~RefLocation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQmlProfiler11RefLocationD1Ev(

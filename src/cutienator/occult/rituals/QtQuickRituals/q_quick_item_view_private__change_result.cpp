@@ -17,6 +17,14 @@ QQuickItemViewPrivate::ChangeResult *ritual_ZN21QQuickItemViewPrivate12ChangeRes
   return new QQuickItemViewPrivate::ChangeResult();
 }
 
+//  QQuickItemViewPrivate::ChangeResult::ChangeResult(const
+//      QQmlNullableValue<qreal> &p)
+extern "C" Q_DECL_EXPORT
+QQuickItemViewPrivate::ChangeResult *ritual_ZN21QQuickItemViewPrivate12ChangeResultC1ERK17QQmlNullableValueIdE(
+    const QQmlNullableValue<qreal> *p) {
+  return new QQuickItemViewPrivate::ChangeResult(*p);
+}
+
 //  ChangeResult &QQuickItemViewPrivate::ChangeResult::operator+=(const
 //      ChangeResult &other)
 extern "C" Q_DECL_EXPORT

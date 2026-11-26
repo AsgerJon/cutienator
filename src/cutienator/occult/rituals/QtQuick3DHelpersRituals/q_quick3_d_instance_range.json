@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuick3DInstanceRange10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuick3DInstanceRange11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuick3DInstanceRange11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuick3DInstanceRange2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -27,6 +33,14 @@
     "ritual_ZN21QQuick3DInstanceRange15setProportionalEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN21QQuick3DInstanceRange11fromChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DInstanceRange9toChangedEv": ["nothing", "address"],
+    "ritual_ZN21QQuick3DInstanceRange19proportionalChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DInstanceRange7changedEv": ["nothing", "address"],
     "ritual_ZN21QQuick3DInstanceRange17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
     ],

@@ -29,10 +29,42 @@ QNetworkDatagram *ritual_ZN16QNetworkDatagramC1ERKS_(
   return new QNetworkDatagram(*other);
 }
 
+//  QNetworkDatagram &QNetworkDatagram::operator=(const QNetworkDatagram
+//      &other)
+extern "C" Q_DECL_EXPORT
+QNetworkDatagram *ritual_ZN16QNetworkDatagramaSERKS_(
+    QNetworkDatagram *self,
+    const QNetworkDatagram *other) {
+  return &(self->operator=(*other));
+}
+
 //  QNetworkDatagram::~QNetworkDatagram()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QNetworkDatagramD1Ev(QNetworkDatagram *self) {
   delete self;
+}
+
+//  QNetworkDatagram::QNetworkDatagram(QNetworkDatagram &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkDatagram *ritual_ZN16QNetworkDatagramC1EOS_(
+    QNetworkDatagram *other) {
+  return new QNetworkDatagram(std::move(*other));
+}
+
+//  QNetworkDatagram &QNetworkDatagram::operator=(QNetworkDatagram &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkDatagram *ritual_ZN16QNetworkDatagramaSEOS_(
+    QNetworkDatagram *self,
+    QNetworkDatagram *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QNetworkDatagram::swap(QNetworkDatagram &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QNetworkDatagram4swapERS_(
+    QNetworkDatagram *self,
+    QNetworkDatagram *other) {
+  self->swap(*other);
 }
 
 //  void QNetworkDatagram::clear()
@@ -155,6 +187,13 @@ QNetworkDatagram *ritual_ZNKR16QNetworkDatagram9makeReplyERK10QByteArray(
   return new QNetworkDatagram(self->makeReply(*payload));
 }
 #endif  // defined(Q_COMPILER_REF_QUALIFIERS) || defined(Q_QDOC)
+
+//  QNetworkDatagram::QNetworkDatagram(QNetworkDatagramPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QNetworkDatagram *ritual_ZN16QNetworkDatagramC1ER23QNetworkDatagramPrivate(
+    QNetworkDatagramPrivate *dd) {
+  return new QNetworkDatagram(*dd);
+}
 
 //  QNetworkDatagram QNetworkDatagram::makeReply_helper(const QByteArray
 //      &data) const

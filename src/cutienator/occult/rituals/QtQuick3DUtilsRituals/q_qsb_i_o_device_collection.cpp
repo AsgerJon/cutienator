@@ -49,6 +49,13 @@ QQsbIODeviceCollection *ritual_ZN22QQsbIODeviceCollectionC1ERK7QString(
   return new CuteQQsbIODeviceCollection(*filePath);
 }
 
+//  QQsbIODeviceCollection::QQsbIODeviceCollection(QIODevice &dev)
+extern "C" Q_DECL_EXPORT
+QQsbIODeviceCollection *ritual_ZN22QQsbIODeviceCollectionC1ER9QIODevice(
+    QIODevice *dev) {
+  return new CuteQQsbIODeviceCollection(*dev);
+}
+
 //  QQsbIODeviceCollection::~QQsbIODeviceCollection()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQsbIODeviceCollectionD1Ev(QQsbIODeviceCollection *self) {
@@ -70,6 +77,13 @@ void ritual_ZN22QQsbIODeviceCollection5unmapEv(
   self->unmap();
 }
 
+//  EntryMap QQsbIODeviceCollection::availableEntries() const
+extern "C" Q_DECL_EXPORT
+QQsbCollection::EntryMap *ritual_ZNK22QQsbIODeviceCollection16availableEntriesEv(
+    const QQsbIODeviceCollection *self) {
+  return new QQsbCollection::EntryMap(self->availableEntries());
+}
+
 //  Entry QQsbIODeviceCollection::addEntry(const QByteArray &key, const
 //      EntryDesc &entryDesc)
 extern "C" Q_DECL_EXPORT
@@ -78,6 +92,16 @@ QQsbCollection::Entry *ritual_ZN22QQsbIODeviceCollection8addEntryERK10QByteArray
     const QByteArray *key,
     const QQsbCollection::EntryDesc *entryDesc) {
   return new QQsbCollection::Entry(self->addEntry(*key, *entryDesc));
+}
+
+//  bool QQsbIODeviceCollection::extractEntry(Entry entry, EntryDesc
+//      &entryDesc)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQsbIODeviceCollection12extractEntryEN14QQsbCollection5EntryERNS0_9EntryDescE(
+    QQsbIODeviceCollection *self,
+    const QQsbCollection::Entry *entry,
+    QQsbCollection::EntryDesc *entryDesc) {
+  return self->extractEntry(*entry, *entryDesc);
 }
 
 //  void QQsbIODeviceCollection::dumpInfo()
@@ -91,6 +115,13 @@ void ritual_ZN22QQsbIODeviceCollection8dumpInfoEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQsbIODeviceCollection8dumpInfoERK7QString(
     const QString *device) {
+  QQsbIODeviceCollection::dumpInfo(*device);
+}
+
+//  void QQsbIODeviceCollection::dumpInfo(QIODevice &device)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQsbIODeviceCollection8dumpInfoER9QIODevice(
+    QIODevice *device) {
   QQsbIODeviceCollection::dumpInfo(*device);
 }
 
@@ -115,4 +146,11 @@ QQsbCollection::Entry *ritual_own_ZN22QQsbIODeviceCollection8addEntryERK10QByteA
       self->QQsbIODeviceCollection::addEntry(
           *key,
           *entryDesc));
+}
+
+//  a QQsbCollection::EntryMap a ritual of QQsbIODeviceCollection gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQsbIODeviceCollection__QQsbCollection_EntryMap(
+    QQsbCollection::EntryMap *self) {
+  delete self;
 }

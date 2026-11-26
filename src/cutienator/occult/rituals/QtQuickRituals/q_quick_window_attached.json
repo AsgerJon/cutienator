@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickWindowAttached10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickWindowAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickWindowAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickWindowAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,27 @@
     "ritual_ZNK20QQuickWindowAttached5widthEv": ["int", "address"],
     "ritual_ZNK20QQuickWindowAttached6heightEv": ["int", "address"],
     "ritual_ZNK20QQuickWindowAttached6windowEv": ["address", "address"],
+    "ritual_ZN20QQuickWindowAttached17visibilityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickWindowAttached13activeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickWindowAttached22activeFocusItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickWindowAttached18contentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickWindowAttached12widthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickWindowAttached13heightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickWindowAttached13windowChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN20QQuickWindowAttached12windowChangeEP12QQuickWindow": [
       "nothing", "address", "address"
     ]

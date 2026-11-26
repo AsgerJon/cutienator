@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN16QCollatorPrivateC1ERK7QLocale": ["address", "address"],
-    "ritual_ZNK16QCollatorPrivate3isCEv": ["bool", "address"]
+    "ritual_ZNK16QCollatorPrivate3isCEv": ["bool", "address"],
+    "ritual_ZN16QCollatorPrivate15sortKeyFromDataEO10QByteArray": [
+      "address", "address"
+    ]
   }
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK29QQuickLabsPlatformColorDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQuickLabsPlatformColorDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQuickLabsPlatformColorDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QQuickLabsPlatformColorDialog20qmlExtendedNamespaceEv": [
       "address"
     ],
@@ -25,6 +31,15 @@
     ],
     "ritual_ZNK29QQuickLabsPlatformColorDialog7optionsEv": [
       "int", "address"
+    ],
+    "ritual_ZN29QQuickLabsPlatformColorDialog12colorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickLabsPlatformColorDialog19currentColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickLabsPlatformColorDialog14optionsChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK29QQuickLabsPlatformColorDialog15useNativeDialogEv": [
       "bool", "address"

@@ -8,6 +8,13 @@
     "ritual_ZNK24QComboBoxPrivateScroller10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QComboBoxPrivateScroller11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QComboBoxPrivateScroller11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN24QComboBoxPrivateScrollerD1Ev": ["nothing", "address"],
     "ritual_ZNK24QComboBoxPrivateScroller8sizeHintEv": [
       "address", "address"
     ],
@@ -31,6 +38,9 @@
     ],
     "ritual_ZN24QComboBoxPrivateScroller10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN24QComboBoxPrivateScroller8doScrollEi": [
+      "nothing", "address", "int"
     ],
     "ritual_take_QComboBoxPrivateScroller": [
       "bool", "address", "chars", "address"

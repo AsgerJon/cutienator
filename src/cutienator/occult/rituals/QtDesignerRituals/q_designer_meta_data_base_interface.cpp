@@ -245,6 +245,25 @@ const QMetaObject *ritual_ZNK30QDesignerMetaDataBaseInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerMetaDataBaseInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QDesignerMetaDataBaseInterface11qt_metacastEPKc(
+    QDesignerMetaDataBaseInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerMetaDataBaseInterface::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QDesignerMetaDataBaseInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerMetaDataBaseInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerMetaDataBaseInterface::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -300,6 +319,13 @@ extern "C" Q_DECL_EXPORT
 QDesignerFormEditorInterface *ritual_ZNK30QDesignerMetaDataBaseInterface4coreEv(
     const QDesignerMetaDataBaseInterface *self) {
   return self->core();
+}
+
+//  void QDesignerMetaDataBaseInterface::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QDesignerMetaDataBaseInterface7changedEv(
+    QDesignerMetaDataBaseInterface *self) {
+  self->changed();
 }
 
 //  a Python function taken by a CuteQDesignerMetaDataBaseInterface, for the

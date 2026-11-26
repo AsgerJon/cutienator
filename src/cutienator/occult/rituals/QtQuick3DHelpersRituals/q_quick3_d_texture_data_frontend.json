@@ -8,11 +8,20 @@
     "ritual_ZNK27QQuick3DTextureDataFrontend10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuick3DTextureDataFrontend11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuick3DTextureDataFrontend11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QQuick3DTextureDataFrontend2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN27QQuick3DTextureDataFrontendC1Ev": ["address"],
     "ritual_ZNK27QQuick3DTextureDataFrontend6formatEv": ["int", "address"],
+    "ritual_ZN27QQuick3DTextureDataFrontend9setFormatERKN19QQuick3DTextureData6FormatE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK27QQuick3DTextureDataFrontend5depthEv": ["int", "address"],
     "ritual_ZN27QQuick3DTextureDataFrontend8setDepthEi": [
       "nothing", "address", "int"
@@ -36,6 +45,24 @@
     "ritual_ZNK27QQuick3DTextureDataFrontend6heightEv": ["int", "address"],
     "ritual_ZN27QQuick3DTextureDataFrontend9setHeightEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN27QQuick3DTextureDataFrontend13formatChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DTextureDataFrontend12depthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DTextureDataFrontend22hasTransparencyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DTextureDataFrontend18textureDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DTextureDataFrontend12widthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DTextureDataFrontend13heightChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQuick3DTextureDataFrontend": [
       "bool", "address", "chars", "address"

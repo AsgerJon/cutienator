@@ -6,7 +6,15 @@
   ],
   "rows": {
     "ritual_ZNK12QIOQnxSource10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QIOQnxSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QIOQnxSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QIOQnxSource2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QIOQnxSource6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QIOQnxSource6d_funcEv": ["address", "address"],
     "ritual_ZN12QIOQnxSourceC1EiP7QObject": ["address", "int", "address"],
     "ritual_ZN12QIOQnxSourceD1Ev": ["nothing", "address"],
     "ritual_ZNK12QIOQnxSource12isSequentialEv": ["bool", "address"],
@@ -19,6 +27,16 @@
     ],
     "ritual_ZN12QIOQnxSource16waitForReadyReadEi": [
       "bool", "address", "int"
+    ],
+    "ritual_ZN12QIOQnxSource12disconnectedEv": ["nothing", "address"],
+    "ritual_ZN12QIOQnxSource5errorEN15QAbstractSocket11SocketErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QIOQnxSource12stateChangedEN15QAbstractSocket11SocketStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QIOQnxSource8readDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_ZN12QIOQnxSource9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
@@ -39,6 +57,9 @@
     ],
     "ritual_own_ZN12QIOQnxSource16waitForReadyReadEi": [
       "bool", "address", "int"
+    ],
+    "ritual_own_ZN12QIOQnxSource8readDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_own_ZN12QIOQnxSource4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int"

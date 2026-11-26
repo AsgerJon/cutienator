@@ -6,7 +6,9 @@
 #if QT_CONFIG(concatenatetablesproxymodel)
 #include <QtCore/qconcatenatetablesproxymodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qbytearray.h>
@@ -1008,6 +1010,25 @@ const QMetaObject *ritual_ZNK28QConcatenateTablesProxyModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QConcatenateTablesProxyModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QConcatenateTablesProxyModel11qt_metacastEPKc(
+    QConcatenateTablesProxyModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QConcatenateTablesProxyModel::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QConcatenateTablesProxyModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QConcatenateTablesProxyModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QConcatenateTablesProxyModel::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1232,6 +1253,22 @@ extern "C" Q_DECL_EXPORT
 QHash<int, QByteArray> *ritual_ZNK28QConcatenateTablesProxyModel9roleNamesEv(
     const QConcatenateTablesProxyModel *self) {
   return new QHash<int, QByteArray>(self->roleNames());
+}
+
+//  QConcatenateTablesProxyModelPrivate
+//      *QConcatenateTablesProxyModel::d_func()
+extern "C" Q_DECL_EXPORT
+QConcatenateTablesProxyModelPrivate *ritual_ZN28QConcatenateTablesProxyModel6d_funcEv(
+    QConcatenateTablesProxyModel *self) {
+  return self->d_func();
+}
+
+//  const QConcatenateTablesProxyModelPrivate
+//      *QConcatenateTablesProxyModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QConcatenateTablesProxyModelPrivate *ritual_ZNK28QConcatenateTablesProxyModel6d_funcEv(
+    const QConcatenateTablesProxyModel *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQConcatenateTablesProxyModel, for the

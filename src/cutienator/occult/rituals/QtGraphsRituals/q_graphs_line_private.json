@@ -8,6 +8,9 @@
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
   "rows": {
+    "ritual_ZN18QGraphsLinePrivateC1Ev": ["address"],
+    "ritual_ZN18QGraphsLinePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QGraphsLinePrivateC1ERKS_": ["address", "address"],
     "ritual_ZN18QGraphsLinePrivate15resetCustomBitsEv": [
       "nothing", "address"
     ]

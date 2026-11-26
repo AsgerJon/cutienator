@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/qnodeid.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A Qt3DCore::QAspectEnginePrivate that Python can take functions over in. Every Qt3DCore::QAspectEnginePrivate
 //  Python makes is one. Each function below asks the Python
@@ -38,6 +39,19 @@ public:
   }
 };
 
+//  Qt3DCore::QAspectEnginePrivate::QAspectEnginePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAspectEnginePrivate *ritual_ZN8Qt3DCore20QAspectEnginePrivateC1Ev() {
+  return new CuteQt3DCore_QAspectEnginePrivate();
+}
+
+//  Qt3DCore::QAspectEnginePrivate::~QAspectEnginePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QAspectEnginePrivateD1Ev(
+    Qt3DCore::QAspectEnginePrivate *self) {
+  delete self;
+}
+
 //  QAspectEngine *Qt3DCore::QAspectEnginePrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QAspectEngine *ritual_ZN8Qt3DCore20QAspectEnginePrivate6q_funcEv(
@@ -50,6 +64,84 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QAspectEngine *ritual_ZNK8Qt3DCore20QAspectEnginePrivate6q_funcEv(
     const Qt3DCore::QAspectEnginePrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DCore::QAspectEnginePrivate::initialize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QAspectEnginePrivate10initializeEv(
+    Qt3DCore::QAspectEnginePrivate *self) {
+  self->initialize();
+}
+
+//  void Qt3DCore::QAspectEnginePrivate::shutdown()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QAspectEnginePrivate8shutdownEv(
+    Qt3DCore::QAspectEnginePrivate *self) {
+  self->shutdown();
+}
+
+//  void Qt3DCore::QAspectEnginePrivate::exitSimulationLoop()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QAspectEnginePrivate18exitSimulationLoopEv(
+    Qt3DCore::QAspectEnginePrivate *self) {
+  self->exitSimulationLoop();
+}
+
+//  void Qt3DCore::QAspectEnginePrivate::initNodeTree(QNode *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QAspectEnginePrivate12initNodeTreeEPNS_5QNodeE(
+    Qt3DCore::QAspectEnginePrivate *self,
+    Qt3DCore::QNode *node) {
+  self->initNodeTree(node);
+}
+
+//  void Qt3DCore::QAspectEnginePrivate::initNode(QNode *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QAspectEnginePrivate8initNodeEPNS_5QNodeE(
+    Qt3DCore::QAspectEnginePrivate *self,
+    Qt3DCore::QNode *node) {
+  self->initNode(node);
+}
+
+//  void Qt3DCore::QAspectEnginePrivate::initEntity(QEntity *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QAspectEnginePrivate10initEntityEPNS_7QEntityE(
+    Qt3DCore::QAspectEnginePrivate *self,
+    Qt3DCore::QEntity *entity) {
+  self->initEntity(entity);
+}
+
+//  void Qt3DCore::QAspectEnginePrivate::addNode(QNode *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QAspectEnginePrivate7addNodeEPNS_5QNodeE(
+    Qt3DCore::QAspectEnginePrivate *self,
+    Qt3DCore::QNode *node) {
+  self->addNode(node);
+}
+
+//  void Qt3DCore::QAspectEnginePrivate::removeNode(QNode *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QAspectEnginePrivate10removeNodeEPNS_5QNodeE(
+    Qt3DCore::QAspectEnginePrivate *self,
+    Qt3DCore::QNode *node) {
+  self->removeNode(node);
+}
+
+//  QNode *Qt3DCore::QAspectEnginePrivate::lookupNode(QNodeId id) const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QNode *ritual_ZNK8Qt3DCore20QAspectEnginePrivate10lookupNodeENS_7QNodeIdE(
+    const Qt3DCore::QAspectEnginePrivate *self,
+    const Qt3DCore::QNodeId *id) {
+  return self->lookupNode(*id);
+}
+
+//  QList<QNode *> Qt3DCore::QAspectEnginePrivate::lookupNodes(const
+//      QList<QNodeId> &ids) const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QNode *> *ritual_ZNK8Qt3DCore20QAspectEnginePrivate11lookupNodesERK5QListINS_7QNodeIdEE(
+    const Qt3DCore::QAspectEnginePrivate *self,
+    const QList<Qt3DCore::QNodeId> *ids) {
+  return new QList<Qt3DCore::QNode *>(self->lookupNodes(*ids));
 }
 
 //  QAspectEnginePrivate *Qt3DCore::QAspectEnginePrivate::get(QAspectEngine
@@ -84,4 +176,12 @@ Qt3DCore::QNode *ritual_own_ZNK8Qt3DCore20QAspectEnginePrivate10lookupNodeENS_7Q
     const Qt3DCore::QAspectEnginePrivate *self,
     const Qt3DCore::QNodeId *id) {
   return self->Qt3DCore::QAspectEnginePrivate::lookupNode(*id);
+}
+
+//  a QList<Qt3DCore::QNode *> a ritual of Qt3DCore::QAspectEnginePrivate
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QAspectEnginePrivate__QList_Qt3DCore_QNode(
+    QList<Qt3DCore::QNode *> *self) {
+  delete self;
 }

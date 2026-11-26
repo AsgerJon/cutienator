@@ -201,11 +201,60 @@ public:
   }
 };
 
+//  QQmlJS::AST::ExportDeclaration::ExportDeclaration(FromClause *fromClause)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ExportDeclaration *ritual_ZN6QQmlJS3AST17ExportDeclarationC1EPNS0_10FromClauseE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::FromClause *fromClause) {
+  return new (pool) CuteQQmlJS_AST_ExportDeclaration(fromClause);
+}
+
+//  QQmlJS::AST::ExportDeclaration::ExportDeclaration(ExportClause
+//      *exportClause, FromClause *fromClause)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ExportDeclaration *ritual_ZN6QQmlJS3AST17ExportDeclarationC1EPNS0_12ExportClauseEPNS0_10FromClauseE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::ExportClause *exportClause,
+    QQmlJS::AST::FromClause *fromClause) {
+  return new (pool) CuteQQmlJS_AST_ExportDeclaration(
+      exportClause,
+      fromClause);
+}
+
+//  QQmlJS::AST::ExportDeclaration::ExportDeclaration(ExportClause
+//      *exportClause)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ExportDeclaration *ritual_ZN6QQmlJS3AST17ExportDeclarationC1EPNS0_12ExportClauseE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::ExportClause *exportClause) {
+  return new (pool) CuteQQmlJS_AST_ExportDeclaration(exportClause);
+}
+
+//  QQmlJS::AST::ExportDeclaration::ExportDeclaration(bool exportDefault,
+//      Node *variableStatementOrDeclaration)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ExportDeclaration *ritual_ZN6QQmlJS3AST17ExportDeclarationC1EbPNS0_4NodeE(
+    QQmlJS::MemoryPool *pool,
+    bool exportDefault,
+    QQmlJS::AST::Node *variableStatementOrDeclaration) {
+  return new (pool) CuteQQmlJS_AST_ExportDeclaration(
+      exportDefault,
+      variableStatementOrDeclaration);
+}
+
 //  bool QQmlJS::AST::ExportDeclaration::exportsAll() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QQmlJS3AST17ExportDeclaration10exportsAllEv(
     const QQmlJS::AST::ExportDeclaration *self) {
   return self->exportsAll();
+}
+
+//  void QQmlJS::AST::ExportDeclaration::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST17ExportDeclaration7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ExportDeclaration *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  SourceLocation QQmlJS::AST::ExportDeclaration::firstSourceLocation()

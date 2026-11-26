@@ -109,6 +109,16 @@ QFontDatabasePrivate *ritual_ZN20QFontDatabasePrivate8instanceEv() {
   return QFontDatabasePrivate::instance();
 }
 
+//  void QFontDatabasePrivate::parseFontName(const QString &name, QString
+//      &foundry, QString &family)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFontDatabasePrivate13parseFontNameERK7QStringRS0_S3_(
+    const QString *name,
+    QString *foundry,
+    QString *family) {
+  QFontDatabasePrivate::parseFontName(*name, *foundry, *family);
+}
+
 //  QString QFontDatabasePrivate::resolveFontFamilyAlias(const QString
 //      &family)
 extern "C" Q_DECL_EXPORT
@@ -149,6 +159,58 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QFontDatabasePrivate10invalidateEv(
     QFontDatabasePrivate *self) {
   self->invalidate();
+}
+
+//  int QFontDatabasePrivate::match(int script, const QFontDef &request,
+//      const QString &family_name, const QString &foundry_name, QtFontDesc
+//      *desc, const QList<int> &blacklistedFamilies, unsigned int
+//      *resultingScore)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QFontDatabasePrivate5matchEiRK8QFontDefRK7QStringS5_P10QtFontDescRK5QListIiEPj(
+    int script,
+    const QFontDef *request,
+    const QString *family_name,
+    const QString *foundry_name,
+    QtFontDesc *desc,
+    const QList<int> *blacklistedFamilies,
+    unsigned int *resultingScore) {
+  return QFontDatabasePrivate::match(
+      script,
+      *request,
+      *family_name,
+      *foundry_name,
+      desc,
+      *blacklistedFamilies,
+      resultingScore);
+}
+
+//  unsigned int QFontDatabasePrivate::bestFoundry(int script, unsigned int
+//      score, int styleStrategy, const QtFontFamily *family, const QString
+//      &foundry_name, QtFontStyle::Key styleKey, int pixelSize, char pitch,
+//      QtFontDesc *desc, const QString &styleName)
+extern "C" Q_DECL_EXPORT
+unsigned int ritual_ZN20QFontDatabasePrivate11bestFoundryEijiPK12QtFontFamilyRK7QStringN11QtFontStyle3KeyEicP10QtFontDescS5_(
+    int script,
+    unsigned int score,
+    int styleStrategy,
+    const QtFontFamily *family,
+    const QString *foundry_name,
+    const QtFontStyle::Key *styleKey,
+    int pixelSize,
+    char pitch,
+    QtFontDesc *desc,
+    const QString *styleName) {
+  return QFontDatabasePrivate::bestFoundry(
+      script,
+      score,
+      styleStrategy,
+      family,
+      *foundry_name,
+      *styleKey,
+      pixelSize,
+      pitch,
+      desc,
+      *styleName);
 }
 
 //  QFontEngine *QFontDatabasePrivate::loadSingleEngine(int script, const

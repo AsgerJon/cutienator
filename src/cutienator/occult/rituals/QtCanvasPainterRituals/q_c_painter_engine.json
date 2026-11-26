@@ -10,6 +10,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN15QCPainterEngine8endPaintEv": ["nothing", "address"],
+    "ritual_ZN15QCPainterEngine4saveEv": ["nothing", "address"],
     "ritual_ZN15QCPainterEngine7restoreEv": ["nothing", "address"],
     "ritual_ZN15QCPainterEngine14setStrokeColorE6QColor": [
       "nothing", "address", "address"
@@ -153,6 +154,9 @@
       "nothing", "address"
     ],
     "ritual_ZNK15QCPainterEngine13debugCountersEv": ["address", "address"],
+    "ritual_ZN15QCPainterEngine12setAntialiasEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZN15QCPainterEngine13setMiterLimitEf": [
       "nothing", "address", "float"
     ],
@@ -163,6 +167,12 @@
     "ritual_ZN15QCPainterEngine13appendCommandE9QCCommand": [
       "nothing", "address", "unsigned char"
     ],
+    "ritual_ZN15QCPainterEngine14appendCommandsEPK9QCCommandi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QCPainterEngine18appendCommandsDataEPKfib": [
+      "nothing", "address", "address", "int", "bool"
+    ],
     "ritual_ZN15QCPainterEngine20handleSetPathWindingEN14QCanvasPainter11PathWindingE": [
       "nothing", "address", "unsigned char"
     ],
@@ -170,6 +180,13 @@
     "ritual_ZN15QCPainterEngine12handleMoveToEv": ["nothing", "address"],
     "ritual_ZN15QCPainterEngine14handleAddPointEffNS_12QCPointFlagsE": [
       "nothing", "address", "float", "float", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine15tesselateBezierEffffffffiNS_12QCPointFlagsE": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "float", "float", "float", "int", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine14enforceWindingEiiN14QCanvasPainter11PathWindingE": [
+      "nothing", "address", "int", "int", "unsigned char"
     ],
     "ritual_ZN15QCPainterEngine14calculateJoinsEfN14QCanvasPainter8LineJoinEf": [
       "nothing", "address", "float", "unsigned char", "float"
@@ -201,6 +218,9 @@
     ],
     "ritual_ZN15QCPainterEngine12getFillPaintEb": [
       "address", "address", "bool"
+    ],
+    "ritual_ZN15QCPainterEngine19updateStateFontVarsEv": [
+      "nothing", "address"
     ],
     "ritual_ZN15QCPainterEngineD1Ev": ["nothing", "address"]
   }

@@ -308,6 +308,25 @@ const QMetaObject *ritual_ZNK31QQuickLabsPlatformMenuSeparator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLabsPlatformMenuSeparator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QQuickLabsPlatformMenuSeparator11qt_metacastEPKc(
+    QQuickLabsPlatformMenuSeparator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformMenuSeparator::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QQuickLabsPlatformMenuSeparator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformMenuSeparator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  a Python function taken by a CuteQQuickLabsPlatformMenuSeparator, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

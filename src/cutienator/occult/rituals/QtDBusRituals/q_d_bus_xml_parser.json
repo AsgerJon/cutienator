@@ -5,8 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK14QDBusXmlParser10interfacesEv": ["address", "address"],
+    "ritual_ZNK14QDBusXmlParser6objectEv": ["address", "address"],
     "ritual_ZN14QDBusXmlParser20readNextStartElementEv": ["bool", "address"],
     "ritual_ZN14QDBusXmlParser21updateCurrentLocationEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusXmlParser__QDBusIntrospection_Interfaces": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusXmlParser__QSharedDataPointer_QDBusIntrospection_Object": [
       "nothing", "address"
     ]
   }

@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK9Q3DCamera10metaObjectEv": ["address", "address"],
+    "ritual_ZN9Q3DCamera11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9Q3DCamera11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Q3DCamera2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9Q3DCameraC1EP7QObject": ["address", "address"],
     "ritual_ZN9Q3DCameraD1Ev": ["nothing", "address"],
@@ -20,6 +24,9 @@
     "ritual_ZNK9Q3DCamera13wrapYRotationEv": ["bool", "address"],
     "ritual_ZN9Q3DCamera16setWrapYRotationEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN9Q3DCamera14copyValuesFromERK9Q3DObject": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK9Q3DCamera12cameraPresetEv": ["int", "address"],
     "ritual_ZN9Q3DCamera15setCameraPresetENS_12CameraPresetE": [
@@ -41,6 +48,33 @@
     "ritual_ZNK9Q3DCamera6targetEv": ["address", "address"],
     "ritual_ZN9Q3DCamera9setTargetERK9QVector3D": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN9Q3DCamera16xRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Q3DCamera16yRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Q3DCamera16zoomLevelChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Q3DCamera19cameraPresetChangedENS_12CameraPresetE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9Q3DCamera20wrapXRotationChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9Q3DCamera20wrapYRotationChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9Q3DCamera13targetChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Q3DCamera19minZoomLevelChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Q3DCamera19maxZoomLevelChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_take_Q3DCamera": ["bool", "address", "chars", "address"]
   }

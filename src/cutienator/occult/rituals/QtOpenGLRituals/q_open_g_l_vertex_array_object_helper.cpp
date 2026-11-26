@@ -40,6 +40,26 @@ bool ritual_ZNK30QOpenGLVertexArrayObjectHelper7isValidEv(
   return self->isValid();
 }
 
+//  void QOpenGLVertexArrayObjectHelper::glGenVertexArrays(GLsizei n, GLuint
+//      *arrays) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK30QOpenGLVertexArrayObjectHelper17glGenVertexArraysEiPj(
+    const QOpenGLVertexArrayObjectHelper *self,
+    GLsizei n,
+    GLuint *arrays) {
+  self->glGenVertexArrays(n, arrays);
+}
+
+//  void QOpenGLVertexArrayObjectHelper::glDeleteVertexArrays(GLsizei n,
+//      const GLuint *arrays) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK30QOpenGLVertexArrayObjectHelper20glDeleteVertexArraysEiPKj(
+    const QOpenGLVertexArrayObjectHelper *self,
+    GLsizei n,
+    const GLuint *arrays) {
+  self->glDeleteVertexArrays(n, arrays);
+}
+
 //  void QOpenGLVertexArrayObjectHelper::glBindVertexArray(GLuint array)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -47,4 +67,13 @@ void ritual_ZNK30QOpenGLVertexArrayObjectHelper17glBindVertexArrayEj(
     const QOpenGLVertexArrayObjectHelper *self,
     GLuint array) {
   self->glBindVertexArray(array);
+}
+
+//  GLboolean QOpenGLVertexArrayObjectHelper::glIsVertexArray(GLuint array)
+//      const
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZNK30QOpenGLVertexArrayObjectHelper15glIsVertexArrayEj(
+    const QOpenGLVertexArrayObjectHelper *self,
+    GLuint array) {
+  return self->glIsVertexArray(array);
 }

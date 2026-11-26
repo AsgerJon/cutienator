@@ -22,3 +22,18 @@ QGeoCodeReplyPrivate *ritual_ZN20QGeoCodeReplyPrivateC1EN13QGeoCodeReply5ErrorER
     const QString *errorString) {
   return new QGeoCodeReplyPrivate(error, *errorString);
 }
+
+//  const QGeoCodeReplyPrivate *QGeoCodeReplyPrivate::get(const QGeoCodeReply
+//      &reply)
+extern "C" Q_DECL_EXPORT
+const QGeoCodeReplyPrivate *ritual_ZN20QGeoCodeReplyPrivate3getERK13QGeoCodeReply(
+    const QGeoCodeReply *reply) {
+  return QGeoCodeReplyPrivate::get(*reply);
+}
+
+//  QGeoCodeReplyPrivate *QGeoCodeReplyPrivate::get(QGeoCodeReply &reply)
+extern "C" Q_DECL_EXPORT
+QGeoCodeReplyPrivate *ritual_ZN20QGeoCodeReplyPrivate3getER13QGeoCodeReply(
+    QGeoCodeReply *reply) {
+  return QGeoCodeReplyPrivate::get(*reply);
+}

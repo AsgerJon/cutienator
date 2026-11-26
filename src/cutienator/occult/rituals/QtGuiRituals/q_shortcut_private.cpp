@@ -6,7 +6,9 @@
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(shortcut)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(shortcut)
 #include <QtGui/qshortcut.h>
+#endif
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qshortcut_p.h>
@@ -61,6 +63,13 @@ QShortcutPrivate *ritual_ZN16QShortcutPrivateC1Ev() {
   return new CuteQShortcutPrivate();
 }
 
+//  QShortcutMap::ContextMatcher QShortcutPrivate::contextMatcher() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK16QShortcutPrivate14contextMatcherEv(
+    const QShortcutPrivate *self) {
+  return reinterpret_cast<void *>(self->contextMatcher());
+}
+
 //  bool QShortcutPrivate::handleWhatsThis()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN16QShortcutPrivate15handleWhatsThisEv(QShortcutPrivate *self) {
@@ -74,6 +83,14 @@ bool ritual_ZN16QShortcutPrivate20simpleContextMatcherEP7QObjectN2Qt15ShortcutCo
     QObject *object,
     Qt::ShortcutContext context) {
   return QShortcutPrivate::simpleContextMatcher(object, context);
+}
+
+//  void QShortcutPrivate::redoGrab(QShortcutMap &map)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QShortcutPrivate8redoGrabER12QShortcutMap(
+    QShortcutPrivate *self,
+    QShortcutMap *map) {
+  self->redoGrab(*map);
 }
 
 //  a Python function taken by a CuteQShortcutPrivate, for the function named

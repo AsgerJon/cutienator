@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DInput/Qt3DInput>
 
 //  A Qt3DInput::Input::Quick::Quick3DLogicalDevice that Python can take functions over in. Every Qt3DInput::Input::Quick::Quick3DLogicalDevice
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,26 @@ const QMetaObject *ritual_ZNK9Qt3DInput5Input5Quick20Quick3DLogicalDevice10metaO
   return self->metaObject();
 }
 
+//  void *Qt3DInput::Input::Quick::Quick3DLogicalDevice::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput5Input5Quick20Quick3DLogicalDevice11qt_metacastEPKc(
+    Qt3DInput::Input::Quick::Quick3DLogicalDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::Input::Quick::Quick3DLogicalDevice::qt_metacall(QMetaObjec
+//      t::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput5Input5Quick20Quick3DLogicalDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::Input::Quick::Quick3DLogicalDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::Input::Quick::Quick3DLogicalDevice::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -199,6 +221,14 @@ QString *ritual_ZN9Qt3DInput5Input5Quick20Quick3DLogicalDevice2trEPKcS4_i(
           n));
 }
 
+//  Qt3DInput::Input::Quick::Quick3DLogicalDevice::Quick3DLogicalDevice(QObje
+//      ct *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::Quick::Quick3DLogicalDevice *ritual_ZN9Qt3DInput5Input5Quick20Quick3DLogicalDeviceC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DInput_Input_Quick_Quick3DLogicalDevice(parent);
+}
+
 //  QLogicalDevice
 //      *Qt3DInput::Input::Quick::Quick3DLogicalDevice::parentLogicalDevice()
 //      const
@@ -206,6 +236,22 @@ extern "C" Q_DECL_EXPORT
 Qt3DInput::QLogicalDevice *ritual_ZNK9Qt3DInput5Input5Quick20Quick3DLogicalDevice19parentLogicalDeviceEv(
     const Qt3DInput::Input::Quick::Quick3DLogicalDevice *self) {
   return self->parentLogicalDevice();
+}
+
+//  QQmlListProperty<QAxis>
+//      Qt3DInput::Input::Quick::Quick3DLogicalDevice::qmlAxes()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DInput::QAxis> *ritual_ZN9Qt3DInput5Input5Quick20Quick3DLogicalDevice7qmlAxesEv(
+    Qt3DInput::Input::Quick::Quick3DLogicalDevice *self) {
+  return new QQmlListProperty<Qt3DInput::QAxis>(self->qmlAxes());
+}
+
+//  QQmlListProperty<QAction>
+//      Qt3DInput::Input::Quick::Quick3DLogicalDevice::qmlActions()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DInput::QAction> *ritual_ZN9Qt3DInput5Input5Quick20Quick3DLogicalDevice10qmlActionsEv(
+    Qt3DInput::Input::Quick::Quick3DLogicalDevice *self) {
+  return new QQmlListProperty<Qt3DInput::QAction>(self->qmlActions());
 }
 
 //  a Python function taken by a
@@ -217,4 +263,20 @@ bool ritual_take_Qt3DInput_Input_Quick_Quick3DLogicalDevice(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_Input_Quick_Quick3DLogicalDevice *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DInput::QAxis> a ritual of
+//      Qt3DInput::Input::Quick::Quick3DLogicalDevice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_Input_Quick_Quick3DLogicalDevice__QQmlListProperty_Qt3DInput_QAxis(
+    QQmlListProperty<Qt3DInput::QAxis> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<Qt3DInput::QAction> a ritual of
+//      Qt3DInput::Input::Quick::Quick3DLogicalDevice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_Input_Quick_Quick3DLogicalDevice__QQmlListProperty_Qt3DInput_QAction(
+    QQmlListProperty<Qt3DInput::QAction> *self) {
+  delete self;
 }

@@ -39,6 +39,17 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 2992, as local:qqmldelegatemodel.cpp:GroupEmitterListIt
+typedef QQmlDelegateModelGroupEmitterList::iterator GroupEmitterListIt;
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 2959, as _ZN29QQmlDelegateModelGroupPrivate8setModelEP17QQmlDelegateModelN18QQmlListCompositor5GroupE
+inline void QQmlDelegateModelGroupPrivate::setModel(QQmlDelegateModel *m, Compositor::Group g)
+{
+    Q_ASSERT(!model);
+    model = m;
+    group = g;
+}
+
 //  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 2966, as _ZN29QQmlDelegateModelGroupPrivate18isChangedConnectedEv
 inline bool QQmlDelegateModelGroupPrivate::isChangedConnected()
 {
@@ -52,6 +63,13 @@ inline void QQmlDelegateModelGroupPrivate::emitModelUpdated(bool reset)
     for (QQmlDelegateModelGroupEmitterList::iterator it = emitters.begin(); it != emitters.end(); ++it)
         it->emitModelUpdated(changeSet, reset);
     changeSet.clear();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 2994, as _ZN29QQmlDelegateModelGroupPrivate14createdPackageEiP13QQuickPackage
+inline void QQmlDelegateModelGroupPrivate::createdPackage(int index, QQuickPackage *package)
+{
+    for (GroupEmitterListIt it = emitters.begin(), end = emitters.end(); it != end; ++it)
+        it->createdPackage(index, package);
 }
 //  -----------------------------------------------------------------------
 
@@ -84,6 +102,16 @@ QQmlDelegateModelGroupPrivate *ritual_ZN29QQmlDelegateModelGroupPrivate3getEP22Q
   return QQmlDelegateModelGroupPrivate::get(group);
 }
 
+//  void QQmlDelegateModelGroupPrivate::setModel(QQmlDelegateModel *model,
+//      Compositor::Group group)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQmlDelegateModelGroupPrivate8setModelEP17QQmlDelegateModelN18QQmlListCompositor5GroupE(
+    QQmlDelegateModelGroupPrivate *self,
+    QQmlDelegateModel *model,
+    const Compositor::Group *group) {
+  self->setModel(model, *group);
+}
+
 //  bool QQmlDelegateModelGroupPrivate::isChangedConnected()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN29QQmlDelegateModelGroupPrivate18isChangedConnectedEv(
@@ -97,6 +125,16 @@ void ritual_ZN29QQmlDelegateModelGroupPrivate16emitModelUpdatedEb(
     QQmlDelegateModelGroupPrivate *self,
     bool reset) {
   self->emitModelUpdated(reset);
+}
+
+//  void QQmlDelegateModelGroupPrivate::createdPackage(int index,
+//      QQuickPackage *package)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQmlDelegateModelGroupPrivate14createdPackageEiP13QQuickPackage(
+    QQmlDelegateModelGroupPrivate *self,
+    int index,
+    QQuickPackage *package) {
+  self->createdPackage(index, package);
 }
 
 #endif  // QT_CONFIG(qml_delegate_model)

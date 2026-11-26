@@ -11,12 +11,17 @@
 #include <QtQmlNetwork/6.12.0/QtQmlNetwork/private/qqmlsslconfiguration_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(qml_ssl)
+#include <QtQmlNetwork/QtQmlNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlNetwork/6.12.0/QtQmlNetwork/private/qqmlsslkey_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qbytearray.h>
 #include <QtNetwork/qsslconfiguration.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtNetwork/QSsl>
 
 //  void QQmlSslConfiguration::setCertificateFiles(const QStringList
 //      &certificateFiles)
@@ -41,6 +46,15 @@ QString *ritual_ZNK20QQmlSslConfiguration7ciphersEv(
     const QQmlSslConfiguration *self) {
   return new QString(self->ciphers());
 }
+
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 11)
+//  QList<QSsl::SslOption> QQmlSslConfiguration::sslOptions() const
+extern "C" Q_DECL_EXPORT
+QList<QSsl::SslOption> *ritual_ZNK20QQmlSslConfiguration10sslOptionsEv(
+    const QQmlSslConfiguration *self) {
+  return new QList<QSsl::SslOption>(self->sslOptions());
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 11)
 
 //  QSsl::SslProtocol QQmlSslConfiguration::protocol() const
 extern "C" Q_DECL_EXPORT
@@ -117,6 +131,17 @@ void ritual_ZN20QQmlSslConfiguration10setCiphersERK7QString(
   self->setCiphers(*ciphers);
 }
 
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 11)
+//  void QQmlSslConfiguration::setSslOptions(const QList<QSsl::SslOption>
+//      &options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlSslConfiguration13setSslOptionsERK5QListIN4QSsl9SslOptionEE(
+    QQmlSslConfiguration *self,
+    const QList<QSsl::SslOption> *options) {
+  self->setSslOptions(*options);
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 11)
+
 //  void QQmlSslConfiguration::setSessionTicket(const QByteArray
 //      &sessionTicket)
 extern "C" Q_DECL_EXPORT
@@ -175,6 +200,13 @@ void ritual_ZN20QQmlSslConfiguration14setCiphersListERK17QSslConfiguration(
 //  QQmlSslConfiguration::~QQmlSslConfiguration()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlSslConfigurationD1Ev(QQmlSslConfiguration *self) {
+  delete self;
+}
+
+//  a QList<QSsl::SslOption> a ritual of QQmlSslConfiguration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlSslConfiguration__QList_QSsl_SslOption(
+    QList<QSsl::SslOption> *self) {
   delete self;
 }
 

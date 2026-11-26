@@ -31,15 +31,18 @@ typedef void (*CuteQBlittableCall2)(const void *, const QRectF *, const QColor *
 typedef void (*CuteQBlittableCall3)(const void *, const QRectF *, const QPixmap *, const QRectF *, int, qreal, int *);
 #endif  // !defined(QT_NO_BLITTABLE)
 #if !defined(QT_NO_BLITTABLE)
-typedef void * (*CuteQBlittableCall4)(const void *, int *);
+typedef bool (*CuteQBlittableCall4)(const void *, const QPaintEngineState *, int, int, const glyph_t *, const QFixedPoint *, QFontEngine *, int *);
 #endif  // !defined(QT_NO_BLITTABLE)
 #if !defined(QT_NO_BLITTABLE)
-typedef void (*CuteQBlittableCall5)(const void *, int *);
+typedef void * (*CuteQBlittableCall5)(const void *, int *);
+#endif  // !defined(QT_NO_BLITTABLE)
+#if !defined(QT_NO_BLITTABLE)
+typedef void (*CuteQBlittableCall6)(const void *, int *);
 #endif  // !defined(QT_NO_BLITTABLE)
 class CuteQBlittable : public QBlittable {
 public:
   using QBlittable::QBlittable;
-  void *taken[6] = {};
+  void *taken[7] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_BLITTABLE)
@@ -67,14 +70,20 @@ public:
     }
 #endif  // !defined(QT_NO_BLITTABLE)
 #if !defined(QT_NO_BLITTABLE)
-    if (!std::strcmp(key, "_ZN10QBlittable6doLockEv")) {
+    if (!std::strcmp(key, "_ZN10QBlittable16drawCachedGlyphsEPK17QPaintEngineStateN11QFontEngine11GlyphFormatEiPKjPK11QFixedPointPS3_")) {
       taken[4] = call;
       return true;
     }
 #endif  // !defined(QT_NO_BLITTABLE)
 #if !defined(QT_NO_BLITTABLE)
-    if (!std::strcmp(key, "_ZN10QBlittable8doUnlockEv")) {
+    if (!std::strcmp(key, "_ZN10QBlittable6doLockEv")) {
       taken[5] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_BLITTABLE)
+#if !defined(QT_NO_BLITTABLE)
+    if (!std::strcmp(key, "_ZN10QBlittable8doUnlockEv")) {
+      taken[6] = call;
       return true;
     }
 #endif  // !defined(QT_NO_BLITTABLE)
@@ -147,11 +156,33 @@ public:
 #endif  // !defined(QT_NO_BLITTABLE)
 
 #if !defined(QT_NO_BLITTABLE)
-  //  QImage *QBlittable::doLock()
-  QImage *doLock() override {
+  //  bool QBlittable::drawCachedGlyphs(const QPaintEngineState *state,
+  //      QFontEngine::GlyphFormat glyphFormat, int numGlyphs, const
+  //      glyph_t *glyphs, const QFixedPoint *positions, QFontEngine
+  //      *fontEngine)
+  bool drawCachedGlyphs(
+      const QPaintEngineState *state,
+      QFontEngine::GlyphFormat glyphFormat,
+      int numGlyphs,
+      const glyph_t *glyphs,
+      const QFixedPoint *positions,
+      QFontEngine *fontEngine) override {
     if (taken[4]) {
       int handled = 0;
       CuteQBlittableCall4 call = reinterpret_cast<CuteQBlittableCall4>(taken[4]);
+      bool given = call(this, state, static_cast<int>(glyphFormat), numGlyphs, glyphs, positions, fontEngine, &handled);
+      if (handled) return given;
+    }
+    return QBlittable::drawCachedGlyphs(state, glyphFormat, numGlyphs, glyphs, positions, fontEngine);
+  }
+#endif  // !defined(QT_NO_BLITTABLE)
+
+#if !defined(QT_NO_BLITTABLE)
+  //  QImage *QBlittable::doLock()
+  QImage *doLock() override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQBlittableCall5 call = reinterpret_cast<CuteQBlittableCall5>(taken[5]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QImage *>(given);
     }
@@ -162,15 +193,38 @@ public:
 #if !defined(QT_NO_BLITTABLE)
   //  void QBlittable::doUnlock()
   void doUnlock() override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQBlittableCall5 call = reinterpret_cast<CuteQBlittableCall5>(taken[5]);
+      CuteQBlittableCall6 call = reinterpret_cast<CuteQBlittableCall6>(taken[6]);
       call(this, &handled);
       if (handled) return;
     }
   }
 #endif  // !defined(QT_NO_BLITTABLE)
 };
+
+//  QBlittablePrivate *QBlittable::d_func()
+extern "C" Q_DECL_EXPORT
+QBlittablePrivate *ritual_ZN10QBlittable6d_funcEv(QBlittable *self) {
+  return self->d_func();
+}
+
+//  const QBlittablePrivate *QBlittable::d_func() const
+extern "C" Q_DECL_EXPORT
+const QBlittablePrivate *ritual_ZNK10QBlittable6d_funcEv(
+    const QBlittable *self) {
+  return self->d_func();
+}
+
+//  QBlittable::QBlittable(const QSize &size, Capabilities caps)
+extern "C" Q_DECL_EXPORT
+QBlittable *ritual_ZN10QBlittableC1ERK5QSize6QFlagsINS_10CapabilityEE(
+    const QSize *size,
+    int caps) {
+  return new CuteQBlittable(
+      *size,
+      QFlags<QBlittable::Capability>::fromInt(caps));
+}
 
 //  QBlittable::~QBlittable()
 extern "C" Q_DECL_EXPORT
@@ -233,6 +287,27 @@ void ritual_ZN10QBlittable17drawPixmapOpacityERK6QRectFRK7QPixmapS2_N8QPainter15
     QPainter::CompositionMode cmode,
     qreal opacity) {
   self->drawPixmapOpacity(*rect, *pixmap, *subrect, cmode, opacity);
+}
+
+//  bool QBlittable::drawCachedGlyphs(const QPaintEngineState *state,
+//      QFontEngine::GlyphFormat glyphFormat, int numGlyphs, const glyph_t
+//      *glyphs, const QFixedPoint *positions, QFontEngine *fontEngine)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QBlittable16drawCachedGlyphsEPK17QPaintEngineStateN11QFontEngine11GlyphFormatEiPKjPK11QFixedPointPS3_(
+    QBlittable *self,
+    const QPaintEngineState *state,
+    QFontEngine::GlyphFormat glyphFormat,
+    int numGlyphs,
+    const glyph_t *glyphs,
+    const QFixedPoint *positions,
+    QFontEngine *fontEngine) {
+  return self->drawCachedGlyphs(
+      state,
+      glyphFormat,
+      numGlyphs,
+      glyphs,
+      positions,
+      fontEngine);
 }
 
 //  QImage *QBlittable::lock()
@@ -300,6 +375,27 @@ void ritual_own_ZN10QBlittable17drawPixmapOpacityERK6QRectFRK7QPixmapS2_N8QPaint
       *subrect,
       cmode,
       opacity);
+}
+
+//  bool QBlittable::drawCachedGlyphs(const QPaintEngineState *state,
+//      QFontEngine::GlyphFormat glyphFormat, int numGlyphs, const glyph_t
+//      *glyphs, const QFixedPoint *positions, QFontEngine *fontEngine)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN10QBlittable16drawCachedGlyphsEPK17QPaintEngineStateN11QFontEngine11GlyphFormatEiPKjPK11QFixedPointPS3_(
+    QBlittable *self,
+    const QPaintEngineState *state,
+    QFontEngine::GlyphFormat glyphFormat,
+    int numGlyphs,
+    const glyph_t *glyphs,
+    const QFixedPoint *positions,
+    QFontEngine *fontEngine) {
+  return self->QBlittable::drawCachedGlyphs(
+      state,
+      glyphFormat,
+      numGlyphs,
+      glyphs,
+      positions,
+      fontEngine);
 }
 
 #endif  // !defined(QT_NO_BLITTABLE)

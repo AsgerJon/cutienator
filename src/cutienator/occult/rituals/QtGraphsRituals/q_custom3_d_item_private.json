@@ -10,6 +10,8 @@
   "rows": {
     "ritual_ZN20QCustom3DItemPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QCustom3DItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QCustom3DItemPrivateC1Ev": ["address"],
+    "ritual_ZN20QCustom3DItemPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QCustom3DItemPrivate12textureImageEv": [
       "address", "address"
     ],

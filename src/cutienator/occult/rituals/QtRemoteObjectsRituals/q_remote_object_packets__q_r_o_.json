@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN20QRemoteObjectPackets4QRO_C1Ev": ["address"],
+    "ritual_ZN20QRemoteObjectPackets4QRO_C1EP23QRemoteObjectSourceBase": [
+      "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets4QRO_C1ERK8QVariant": [
+      "address", "address"
+    ],
     "ritual_ZN20QRemoteObjectPackets4QRO_D1Ev": ["nothing", "address"]
   }
 }

@@ -17,6 +17,10 @@
     ],
     "ritual_ZNK25QOpenGLProgramBinaryCache12verifyHeaderERK10QByteArray": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN25QOpenGLProgramBinaryCache16setProgramBinaryEjjPKvj": [
+      "bool", "address", "unsigned int", "unsigned int", "address",
+      "unsigned int"
     ]
   }
 }

@@ -7,6 +7,21 @@
   "rows": {
     "ritual_ZN12QSSGRendererC1Ev": ["address"],
     "ritual_ZN12QSSGRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN12QSSGRenderer21prepareLayerForRenderER15QSSGRenderLayer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer10rhiPrepareER15QSSGRenderLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer9rhiRenderER15QSSGRenderLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer10beginFrameER15QSSGRenderLayerb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN12QSSGRenderer8endFrameER15QSSGRenderLayerb": [
+      "bool", "address", "address", "bool"
+    ],
     "ritual_ZNK12QSSGRenderer10frameCountEv": ["unsigned int", "address"],
     "ritual_ZN12QSSGRenderer11setViewportE5QRect": [
       "nothing", "address", "address"
@@ -19,7 +34,30 @@
     ],
     "ritual_ZNK12QSSGRenderer11scissorRectEv": ["address", "address"],
     "ritual_ZNK12QSSGRenderer10frameDepthEv": ["unsigned int", "address"],
+    "ritual_ZNK12QSSGRenderer15rhiQuadRendererEv": ["address", "address"],
+    "ritual_ZNK12QSSGRenderer15rhiCubeRendererEv": ["address", "address"],
     "ritual_ZNK12QSSGRenderer16contextInterfaceEv": ["address", "address"],
+    "ritual_ZN12QSSGRenderer19beginSubLayerRenderER19QSSGLayerRenderData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer17endSubLayerRenderER19QSSGLayerRenderData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer17releaseItem2DDataERK16QSSGRenderItem2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer16cleanupResourcesER5QListIP21QSSGRenderGraphObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer16cleanupResourcesER4QSetIP21QSSGRenderGraphObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer26getOrCreateLayerRenderDataER15QSSGRenderLayer": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer16beginLayerRenderER19QSSGLayerRenderData": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QSSGRenderer14endLayerRenderEv": ["nothing", "address"],
     "ritual_ZN12QSSGRenderer21addMaterialDirtyClearEP21QSSGRenderGraphObject": [
       "nothing", "address", "address"
@@ -32,6 +70,12 @@
     ],
     "ritual_ZN12QSSGRenderer22releaseCachedResourcesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN12QSSGRenderer18registerItem2DDataER20QSSGRenderItem2DData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer20unregisterItem2DDataER20QSSGRenderItem2DData": [
+      "nothing", "address", "address"
     ]
   }
 }

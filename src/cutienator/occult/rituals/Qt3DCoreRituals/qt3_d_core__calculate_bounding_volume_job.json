@@ -1,12 +1,34 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DCore/6.12.0/Qt3DCore/private/calcboundingvolumejob_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore26CalculateBoundingVolumeJobC1EPNS_11QCoreAspectE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore26CalculateBoundingVolumeJobD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN8Qt3DCore26CalculateBoundingVolumeJob7setRootEPNS_7QEntityE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore26CalculateBoundingVolumeJob10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore26CalculateBoundingVolumeJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore26CalculateBoundingVolumeJob9postFrameEPNS_13QAspectEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore26CalculateBoundingVolumeJob6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore26CalculateBoundingVolumeJob6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DCore_CalculateBoundingVolumeJob": [
+      "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN8Qt3DCore26CalculateBoundingVolumeJob10isRequiredEv": [
       "bool", "address"

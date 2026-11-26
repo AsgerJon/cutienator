@@ -1,10 +1,49 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DCore/6.12.0/Qt3DCore/private/qscene_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore6QSceneC1EPNS_13QAspectEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QSceneD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore6QScene6engineEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore6QScene13addObservableEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QScene16removeObservableEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore6QScene10lookupNodeENS_7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore6QScene8rootNodeEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore6QScene10setArbiterEPNS_14QChangeArbiterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore6QScene7arbiterEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore6QScene21addEntityForComponentENS_7QNodeIdES1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QScene24removeEntityForComponentENS_7QNodeIdES1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QScene21hasEntityForComponentENS_7QNodeIdES1_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore6QScene19postConstructorInitEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QScene9markDirtyE6QFlagsINS0_13DirtyNodeFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore6QScene9dirtyBitsEv": ["int", "address"],
+    "ritual_ZN8Qt3DCore6QScene14clearDirtyBitsEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore6QScene11setRootNodeEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QScene6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore6QScene6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DCore_QScene": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8Qt3DCore6QScene10lookupNodeENS_7QNodeIdE": [
       "address", "address", "address"

@@ -8,7 +8,25 @@
     "ritual_ZNK31QInotifyFileSystemWatcherEngine10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QInotifyFileSystemWatcherEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QInotifyFileSystemWatcherEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QInotifyFileSystemWatcherEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN31QInotifyFileSystemWatcherEngine8addPathsERK5QListI7QStringEPS2_S5_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN31QInotifyFileSystemWatcherEngine11removePathsERK5QListI7QStringEPS2_S5_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN31QInotifyFileSystemWatcherEngine15readFromInotifyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK31QInotifyFileSystemWatcherEngine13getPathFromIDEi": [
+      "text", "address", "int"
+    ],
     "ritual_take_QInotifyFileSystemWatcherEngine": [
       "bool", "address", "chars", "address"
     ]

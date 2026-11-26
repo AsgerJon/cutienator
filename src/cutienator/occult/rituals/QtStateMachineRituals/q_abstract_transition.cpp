@@ -5,10 +5,14 @@
 #include <QtStateMachine/qabstracttransition.h>
 #include <QtCore/qstring.h>
 #include <QtStateMachine/qabstractstate.h>
+#if QT_CONFIG(animation)
 #include <QtCore/qabstractanimation.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtStateMachine/QAbstractTransition>
 
 //  Only a class built on QAbstractTransition may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -221,6 +225,25 @@ const QMetaObject *ritual_ZNK19QAbstractTransition10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractTransition::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QAbstractTransition11qt_metacastEPKc(
+    QAbstractTransition *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractTransition::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QAbstractTransition11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractTransition *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractTransition::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QAbstractTransition2trEPKcS1_i(
@@ -228,6 +251,13 @@ QString *ritual_ZN19QAbstractTransition2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractTransition::tr(s, c, n));
+}
+
+//  QAbstractTransition::QAbstractTransition(QState *sourceState)
+extern "C" Q_DECL_EXPORT
+QAbstractTransition *ritual_ZN19QAbstractTransitionC1EP6QState(
+    QState *sourceState) {
+  return new CuteQAbstractTransition(sourceState);
 }
 
 //  QAbstractTransition::~QAbstractTransition()
@@ -289,6 +319,15 @@ void ritual_ZN19QAbstractTransition17setTransitionTypeENS_14TransitionTypeE(
   self->setTransitionType(type);
 }
 
+//  QBindable<QAbstractTransition::TransitionType>
+//      QAbstractTransition::bindableTransitionType()
+extern "C" Q_DECL_EXPORT
+QBindable<QAbstractTransition::TransitionType> *ritual_ZN19QAbstractTransition22bindableTransitionTypeEv(
+    QAbstractTransition *self) {
+  return new QBindable<QAbstractTransition::TransitionType>(
+      self->bindableTransitionType());
+}
+
 //  QStateMachine *QAbstractTransition::machine() const
 extern "C" Q_DECL_EXPORT
 QStateMachine *ritual_ZNK19QAbstractTransition7machineEv(
@@ -325,6 +364,27 @@ QList<QAbstractAnimation *> *ritual_ZNK19QAbstractTransition10animationsEv(
 }
 #endif  // QT_CONFIG(animation)
 
+//  void QAbstractTransition::triggered(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractTransition9triggeredENS_14QPrivateSignalE(
+    QAbstractTransition *self) {
+  self->triggered(QAbstractTransition::QPrivateSignal());
+}
+
+//  void QAbstractTransition::targetStateChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractTransition18targetStateChangedENS_14QPrivateSignalE(
+    QAbstractTransition *self) {
+  self->targetStateChanged(QAbstractTransition::QPrivateSignal());
+}
+
+//  void QAbstractTransition::targetStatesChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractTransition19targetStatesChangedENS_14QPrivateSignalE(
+    QAbstractTransition *self) {
+  self->targetStatesChanged(QAbstractTransition::QPrivateSignal());
+}
+
 //  bool QAbstractTransition::eventTest(QEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN19QAbstractTransition9eventTestEP6QEvent(
@@ -347,6 +407,29 @@ bool ritual_ZN19QAbstractTransition5eventEP6QEvent(
     QAbstractTransition *self,
     QEvent *e) {
   return self->event(e);
+}
+
+//  QAbstractTransition::QAbstractTransition(QAbstractTransitionPrivate &dd,
+//      QState *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractTransition *ritual_ZN19QAbstractTransitionC1ER26QAbstractTransitionPrivateP6QState(
+    QAbstractTransitionPrivate *dd,
+    QState *parent) {
+  return new CuteQAbstractTransition(*dd, parent);
+}
+
+//  QAbstractTransitionPrivate *QAbstractTransition::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractTransitionPrivate *ritual_ZN19QAbstractTransition6d_funcEv(
+    QAbstractTransition *self) {
+  return self->d_func();
+}
+
+//  const QAbstractTransitionPrivate *QAbstractTransition::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractTransitionPrivate *ritual_ZNK19QAbstractTransition6d_funcEv(
+    const QAbstractTransition *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQAbstractTransition, for the function
@@ -403,5 +486,13 @@ QAbstractTransition *ritual_list_at_QAbstractTransition_ptr(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QAbstractTransition_ptr(
     QList<QAbstractTransition *> *self) {
+  delete self;
+}
+
+//  a QBindable<QAbstractTransition::TransitionType> a ritual of
+//      QAbstractTransition gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractTransition__QBindable_QAbstractTransition_TransitionType(
+    QBindable<QAbstractTransition::TransitionType> *self) {
   delete self;
 }

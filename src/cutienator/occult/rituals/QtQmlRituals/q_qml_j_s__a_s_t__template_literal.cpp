@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -202,6 +206,20 @@ public:
   }
 };
 
+//  QQmlJS::AST::TemplateLiteral::TemplateLiteral(QStringView str,
+//      QStringView raw, ExpressionNode *e)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::TemplateLiteral *ritual_ZN6QQmlJS3AST15TemplateLiteralC1E11QStringViewS2_PNS0_14ExpressionNodeE(
+    QQmlJS::MemoryPool *pool,
+    const QString *str,
+    const QString *raw,
+    QQmlJS::AST::ExpressionNode *e) {
+  return new (pool) CuteQQmlJS_AST_TemplateLiteral(
+      QStringView(*str),
+      QStringView(*raw),
+      e);
+}
+
 //  SourceLocation QQmlJS::AST::TemplateLiteral::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST15TemplateLiteral19firstSourceLocationEv(
@@ -214,6 +232,14 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST15TemplateLiteral18lastSourceLocationEv(
     const QQmlJS::AST::TemplateLiteral *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  void QQmlJS::AST::TemplateLiteral::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST15TemplateLiteral7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::TemplateLiteral *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_TemplateLiteral, for the

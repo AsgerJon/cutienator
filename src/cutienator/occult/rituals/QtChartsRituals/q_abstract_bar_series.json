@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QAbstractBarSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QAbstractBarSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QAbstractBarSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QAbstractBarSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -52,6 +58,46 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK18QAbstractBarSeries15labelsPrecisionEv": ["int", "address"],
+    "ritual_ZN18QAbstractBarSeriesC1ER25QAbstractBarSeriesPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries7clickedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries7hoveredEbiP7QBarSet": [
+      "nothing", "address", "bool", "int", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries7pressedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries8releasedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries13doubleClickedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries12countChangedEv": ["nothing", "address"],
+    "ritual_ZN18QAbstractBarSeries20labelsVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries19labelsFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QAbstractBarSeries21labelsPositionChangedENS_14LabelsPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QAbstractBarSeries18labelsAngleChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QAbstractBarSeries22labelsPrecisionChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QAbstractBarSeries12barsetsAddedERK5QListIP7QBarSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries14barsetsRemovedERK5QListIP7QBarSetE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QAbstractBarSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK18QAbstractBarSeries6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractBarSeries": ["bool", "address", "chars", "address"]

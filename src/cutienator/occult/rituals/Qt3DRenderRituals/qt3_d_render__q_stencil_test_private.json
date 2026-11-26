@@ -12,6 +12,9 @@
     "ritual_ZNK10Qt3DRender19QStencilTestPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZNK10Qt3DRender19QStencilTestPrivate8fillDataERNS_16QStencilTestDataE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_Qt3DRender_QStencilTestPrivate": [
       "bool", "address", "chars", "address"
     ]

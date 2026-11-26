@@ -7,11 +7,24 @@
   "rows": {
     "ritual_ZN21QPlainTextEditPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QPlainTextEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QPlainTextEditPrivateC1Ev": ["address"],
+    "ritual_ZN21QPlainTextEditPrivate15repaintContentsERK6QRectF": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QPlainTextEditPrivate27updatePlaceholderVisibilityEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK21QPlainTextEditPrivate13mapToContentsERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate32verticalScrollbarActionTriggeredEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN21QPlainTextEditPrivate22ensureViewportLayoutedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate10pageUpDownEN11QTextCursor13MoveOperationENS0_8MoveModeEb": [
+      "nothing", "address", "int", "int", "bool"
     ],
     "ritual_ZNK21QPlainTextEditPrivate16horizontalOffsetEv": [
       "int", "address"
@@ -19,8 +32,26 @@
     "ritual_ZNK21QPlainTextEditPrivate14verticalOffsetEii": [
       "double", "address", "int", "int"
     ],
+    "ritual_ZNK21QPlainTextEditPrivate14verticalOffsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate16sendControlEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QPlainTextEditPrivate23updateDefaultTextOptionEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate10setTopLineEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate11setTopBlockEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate13ensureVisibleEibb": [
+      "nothing", "address", "int", "bool", "bool"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate19ensureCursorVisibleEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN21QPlainTextEditPrivate14updateViewportEv": [
       "nothing", "address"

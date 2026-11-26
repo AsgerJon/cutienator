@@ -190,6 +190,25 @@ const QMetaObject *ritual_ZNK21QGraphicsEffectSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsEffectSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QGraphicsEffectSource11qt_metacastEPKc(
+    QGraphicsEffectSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsEffectSource::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QGraphicsEffectSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsEffectSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsEffectSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QGraphicsEffectSource2trEPKcS1_i(
@@ -265,6 +284,15 @@ QPixmap *ritual_ZNK21QGraphicsEffectSource6pixmapEN2Qt16CoordinateSystemEP6QPoin
     QPoint *offset,
     QGraphicsEffect::PixmapPadMode mode) {
   return new QPixmap(self->pixmap(system, offset, mode));
+}
+
+//  QGraphicsEffectSource::QGraphicsEffectSource(QGraphicsEffectSourcePrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsEffectSource *ritual_ZN21QGraphicsEffectSourceC1ER28QGraphicsEffectSourcePrivateP7QObject(
+    QGraphicsEffectSourcePrivate *dd,
+    QObject *parent) {
+  return new CuteQGraphicsEffectSource(*dd, parent);
 }
 
 //  QGraphicsEffectSourcePrivate *QGraphicsEffectSource::d_func()

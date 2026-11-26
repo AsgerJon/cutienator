@@ -7,6 +7,7 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/updateskinningpalettejob_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on Qt3DRender::Render::UpdateSkinningPaletteJob may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -75,6 +76,19 @@ public:
   }
 };
 
+//  Qt3DRender::Render::UpdateSkinningPaletteJob::UpdateSkinningPaletteJob()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::UpdateSkinningPaletteJob *ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJobC1Ev() {
+  return new CuteQt3DRender_Render_UpdateSkinningPaletteJob();
+}
+
+//  Qt3DRender::Render::UpdateSkinningPaletteJob::~UpdateSkinningPaletteJob()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJobD1Ev(
+    Qt3DRender::Render::UpdateSkinningPaletteJob *self) {
+  delete self;
+}
+
 //  void Qt3DRender::Render::UpdateSkinningPaletteJob::setRoot(Entity *root)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob7setRootEPNS0_6EntityE(
@@ -93,11 +107,27 @@ void ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob11setManagersEPNS0_12
   self->setManagers(nodeManagers);
 }
 
+//  void Qt3DRender::Render::UpdateSkinningPaletteJob::setDirtyJoints(const
+//      QList<HJoint> dirtyJoints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob14setDirtyJointsE5QListIN8Qt3DCore7QHandleINS0_5JointEEEE(
+    Qt3DRender::Render::UpdateSkinningPaletteJob *self,
+    const QList<Qt3DRender::Render::HJoint> *dirtyJoints) {
+  self->setDirtyJoints(*dirtyJoints);
+}
+
 //  void Qt3DRender::Render::UpdateSkinningPaletteJob::clearDirtyJoints()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob16clearDirtyJointsEv(
     Qt3DRender::Render::UpdateSkinningPaletteJob *self) {
   self->clearDirtyJoints();
+}
+
+//  void Qt3DRender::Render::UpdateSkinningPaletteJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob3runEv(
+    Qt3DRender::Render::UpdateSkinningPaletteJob *self) {
+  self->run();
 }
 
 //  a Python function taken by a

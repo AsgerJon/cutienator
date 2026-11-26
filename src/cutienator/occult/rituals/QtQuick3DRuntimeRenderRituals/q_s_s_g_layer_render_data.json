@@ -2,10 +2,23 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQuick",
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssglayerren",
-    "derdata_p.h, Qt 6.12.0. Changes made here are lost."
+    "derdata_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN19QSSGLayerRenderDataC1ER15QSSGRenderLayerR12QSSGRenderer": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QSSGLayerRenderDataD1Ev": ["nothing", "address"],
+    "ritual_ZN19QSSGLayerRenderData22setVertexInputPresenceERK25QSSGRenderableObjectFlagsR25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData22prepareModelsForRenderER26QSSGRenderContextInterfaceRK5QListI23QSSGRenderableNodeEntryER37QSSGLayerRenderPreparationResultFlagsRK15QVarLengthArrayIP16QSSGRenderCameraLx2EERKS9_I20QSSGRenderCameraDataLx2EERS2_IP16QSSGModelContextERS2_I26QSSGRenderableObjectHandleESP_SP_f": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "float"
+    ],
+    "ritual_ZN19QSSGLayerRenderData25prepareParticlesForRenderERK5QListI23QSSGRenderableNodeEntryERK20QSSGRenderCameraDataR37QSSGLayerRenderPreparationResultFlags": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN19QSSGLayerRenderData22prepareResourceLoadersEv": [
       "nothing", "address"
     ],
@@ -15,17 +28,48 @@
     "ritual_ZN19QSSGLayerRenderData32prepareReflectionProbesForRenderEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QSSGLayerRenderData20frustumCullingInlineERK19QSSGClippingFrustumR5QListI26QSSGRenderableObjectHandleE": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData21filterLayerMaskInlineEjR5QListI26QSSGRenderableObjectHandleE": [
+      "long long", "unsigned int", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData32getSortedOpaqueRenderableObjectsERK16QSSGRenderCameramj": [
+      "address", "address", "address", "size_t", "unsigned int"
+    ],
+    "ritual_ZN19QSSGLayerRenderData37getSortedTransparentRenderableObjectsERK16QSSGRenderCameramj": [
+      "address", "address", "address", "size_t", "unsigned int"
+    ],
+    "ritual_ZN19QSSGLayerRenderData39getSortedScreenTextureRenderableObjectsERK16QSSGRenderCameram": [
+      "address", "address", "address", "size_t"
+    ],
+    "ritual_ZN19QSSGLayerRenderData28getSortedBakedLightingModelsEv": [
+      "address", "address"
+    ],
     "ritual_ZN19QSSGLayerRenderData20getRenderableItem2DsEv": [
       "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData34getSortedRenderedDepthWriteObjectsERK16QSSGRenderCameram": [
+      "address", "address", "address", "size_t"
+    ],
+    "ritual_ZN19QSSGLayerRenderData42getSortedrenderedOpaqueDepthPrepassObjectsERK16QSSGRenderCameram": [
+      "address", "address", "address", "size_t"
+    ],
+    "ritual_ZN19QSSGLayerRenderData23getShadowCastingObjectsERK16QSSGRenderCameraR5QListI26QSSGRenderableObjectHandleER11QSSGBounds3S8_": [
+      "nothing", "address", "address", "address", "address", "address"
     ],
     "ritual_ZN19QSSGLayerRenderData13resetForFrameEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QSSGLayerRenderData12getFrameDataEv": ["address", "address"],
     "ritual_ZNK19QSSGLayerRenderData17getShaderFeaturesEv": [
       "address", "address"
     ],
     "ritual_ZNK19QSSGLayerRenderData16getPipelineStateEv": [
       "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData24initializeLightmapBakingERN17QSSGLightmapBaker7ContextE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN19QSSGLayerRenderData26maybeProcessLightmapBakingEv": [
       "nothing", "address"
@@ -40,6 +84,18 @@
       "address", "address", "address"
     ],
     "ritual_ZNK19QSSGLayerRenderData19getCameraRenderDataEPK16QSSGRenderCamera": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData18setLightmapTextureERK16QSSGModelContextP11QRhiTexture": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData18getLightmapTextureERK16QSSGModelContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData17setBonemapTextureERK16QSSGModelContextP11QRhiTexture": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData17getBonemapTextureERK16QSSGModelContext": [
       "address", "address", "address"
     ],
     "ritual_ZNK19QSSGLayerRenderData16contextInterfaceEv": [
@@ -57,6 +113,42 @@
     "ritual_ZNK19QSSGLayerRenderData32getParticleMaterialPropertyTableEv": [
       "address", "address"
     ],
+    "ritual_ZN19QSSGLayerRenderData22globalRenderPropertiesERK26QSSGRenderContextInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData23requestShadowMapManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData27requestReflectionMapManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData25requestSkyMaterialManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData28requestUserRenderPassManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData29requestMotionVectorMapManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData19getShadowMapManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData23getReflectionMapManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData21getSkyMaterialManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData24getUserRenderPassManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData25getMotionvectorMapManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData19getOitRenderContextEv": [
+      "address", "address"
+    ],
     "ritual_ZNK19QSSGLayerRenderData24getOitRenderContextConstEv": [
       "address", "address"
     ],
@@ -72,17 +164,131 @@
     "ritual_ZN19QSSGLayerRenderData22resolveLayerIblTextureEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QSSGLayerRenderData17perFrameAllocatorER26QSSGRenderContextInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData10getCurrentERK12QSSGRenderer": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData15saveRenderStateERK12QSSGRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData18restoreRenderStateER12QSSGRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData18setTonemapFeaturesER18QSSGShaderFeaturesN15QSSGRenderLayer11TonemapModeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN19QSSGLayerRenderData27getOrCreateExtensionContextERK19QSSGRenderExtensionP16QSSGRenderCameraj": [
+      "unsigned long long", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN19QSSGLayerRenderData17createRenderablesE17QSSGPrepContextIdRK5QListI10QSSGNodeIdE6QFlagsIN17QSSGRenderHelpers10CreateFlagEE": [
+      "unsigned long long", "address", "unsigned long long", "address", "int"
+    ],
+    "ritual_ZN19QSSGLayerRenderData18setGlobalTransformE17QSSGRenderablesIdRK15QSSGRenderModelRK10QMatrix4x4": [
+      "nothing", "address", "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData18getGlobalTransformE17QSSGPrepContextIdRK15QSSGRenderModel": [
+      "address", "address", "unsigned long long", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData16setGlobalOpacityE17QSSGRenderablesIdRK15QSSGRenderModelf": [
+      "nothing", "address", "unsigned long long", "address", "float"
+    ],
+    "ritual_ZN19QSSGLayerRenderData16getGlobalOpacityE17QSSGPrepContextIdRK15QSSGRenderModel": [
+      "float", "address", "unsigned long long", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData17setModelMaterialsE17QSSGRenderablesIdRK15QSSGRenderModelRK5QListI14QSSGResourceIdE": [
+      "nothing", "address", "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData17setModelMaterialsE17QSSGRenderablesIdRK5QListI14QSSGResourceIdE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData22prepareModelsForRenderER26QSSGRenderContextInterface17QSSGPrepContextId17QSSGRenderablesIdf": [
+      "unsigned long long", "address", "address", "unsigned long long",
+      "unsigned long long", "float"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData18getGlobalTransformE23QSSGRenderStorageHandleIL10HandleType1EERK10QMatrix4x4": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData18getGlobalTransformE23QSSGRenderStorageHandleIL10HandleType1EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData18getGlobalTransformERK14QSSGRenderNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData15getNormalMatrixE23QSSGRenderStorageHandleIL10HandleType1EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData15getNormalMatrixERK15QSSGRenderModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData21getInstanceTransformsE23QSSGRenderStorageHandleIL10HandleType1EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData21getInstanceTransformsERK14QSSGRenderNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData16getGlobalOpacityE23QSSGRenderStorageHandleIL10HandleType1EEf": [
+      "float", "address", "address", "float"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData16getGlobalOpacityERK14QSSGRenderNode": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData17getItem2DRendererERK16QSSGRenderItem2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData18prepareRenderablesER26QSSGRenderContextInterface16QSSGPrepResultIdP24QRhiRenderPassDescriptorRK28QSSGRhiGraphicsPipelineState6QFlagsI21QSSGRenderablesFilterE": [
+      "nothing", "address", "address", "unsigned long long", "address",
+      "address", "int"
+    ],
+    "ritual_ZN19QSSGLayerRenderData17renderRenderablesER26QSSGRenderContextInterface16QSSGPrepResultId": [
+      "nothing", "address", "address", "unsigned long long"
+    ],
     "ritual_ZNK19QSSGLayerRenderData17getCameraDataImplEPK16QSSGRenderCamera": [
       "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData6filterERK12QSSGDataViewIP14QSSGRenderNodeEjj": [
+      "address", "address", "unsigned int", "unsigned int"
     ],
     "ritual_ZN19QSSGLayerRenderData10getCurrentERK13QSSGFrameData": [
       "address", "address"
     ],
+    "ritual_ZN19QSSGLayerRenderData31prepareDefaultMaterialForRenderER25QSSGRenderDefaultMaterialR25QSSGRenderableObjectFlagsfbbR37QSSGLayerRenderPreparationResultFlags": [
+      "address", "address", "address", "address", "float", "bool", "bool",
+      "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData30prepareCustomMaterialForRenderER24QSSGRenderCustomMaterialR25QSSGRenderableObjectFlagsfbbbR37QSSGLayerRenderPreparationResultFlags": [
+      "address", "address", "address", "address", "float", "bool", "bool",
+      "bool", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData24categorizeAndFilterNodesERK12QSSGDataViewIP14QSSGRenderNodeERNS_14NodeCollectionEj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
     "ritual_ZN19QSSGLayerRenderData24updateFilteredLayerNodesEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZN19QSSGLayerRenderData20getCachedCameraDatasEv": [
+      "address", "address"
+    ],
     "ritual_ZN19QSSGLayerRenderData23ensureCachedCameraDatasEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData31updateSortedDepthObjectsListImpERK16QSSGRenderCameram": [
+      "nothing", "address", "address", "size_t"
+    ],
+    "ritual_drop_QSSGLayerRenderData__QMatrix3x3": ["nothing", "address"],
+    "ritual_drop_QSSGLayerRenderData__QSSGLayerRenderData_ModelViewProjections": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGLayerRenderData__QSSGRenderItem2DData_Item2DRenderer": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGLayerRenderData__QSSGNodeIdList": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData21prepareImageForRenderER15QSSGRenderImageN19QSSGRenderableImage4TypeERPS2_S5_R25QSSGRenderableObjectFlagsR25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EEjP25QSSGRenderDefaultMaterial": [
+      "nothing", "address", "address", "int", "address", "address",
+      "address", "address", "unsigned int", "address"
     ]
   }
 }

@@ -18,12 +18,27 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtlocation/src/location/places/qplaceratings.cpp, line 12, as _ZNK20QPlaceRatingsPrivateeqERKS_
+inline bool QPlaceRatingsPrivate::operator==(const QPlaceRatingsPrivate &other) const
+{
+    return average == other.average && maximum == other.maximum && count == other.count;
+}
+
 //  from ../qtlocation/src/location/places/qplaceratings.cpp, line 17, as _ZNK20QPlaceRatingsPrivate7isEmptyEv
 inline bool QPlaceRatingsPrivate::isEmpty() const
 {
     return count == 0 && average == 0 && maximum == 0;
 }
 //  -----------------------------------------------------------------------
+
+//  bool QPlaceRatingsPrivate::operator==(const QPlaceRatingsPrivate &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QPlaceRatingsPrivateeqERKS_(
+    const QPlaceRatingsPrivate *self,
+    const QPlaceRatingsPrivate *other) {
+  return self->operator==(*other);
+}
 
 //  bool QPlaceRatingsPrivate::isEmpty() const
 extern "C" Q_DECL_EXPORT

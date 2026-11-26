@@ -48,6 +48,9 @@
     ],
     "ritual_ZN7QSGNode10preprocessEv": ["nothing", "address"],
     "ritual_ZN7QSGNodeC1ENS_8NodeTypeE": ["address", "int"],
+    "ritual_ZN7QSGNodeC1ER14QSGNodePrivateNS_8NodeTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN7QSGNode4initEv": ["nothing", "address"],
     "ritual_ZN7QSGNode7destroyEv": ["nothing", "address"],
     "ritual_take_QSGNode": ["bool", "address", "chars", "address"],

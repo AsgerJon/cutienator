@@ -5,9 +5,19 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QSGRhiAtlasTexture5AtlasD1Ev": ["nothing", "address"],
+    "ritual_ZN18QSGRhiAtlasTexture5Atlas15generateTextureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QSGRhiAtlasTexture5Atlas20enqueueTextureUploadEPNS_11TextureBaseEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK18QSGRhiAtlasTexture5Atlas6formatEv": ["int", "address"],
     "ritual_take_QSGRhiAtlasTexture_Atlas": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QSGRhiAtlasTexture5Atlas15generateTextureEv": [
+      "bool", "address"
     ]
   }
 }

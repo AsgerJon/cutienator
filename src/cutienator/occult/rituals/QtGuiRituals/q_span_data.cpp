@@ -47,6 +47,107 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/painting/qpaintengine_raster.cpp, line 1758, as local:qpaintengine_raster.cpp:qPremultiplyWithExtraAlpha
+static QColor qPremultiplyWithExtraAlpha(const QColor &c, int alpha)
+{
+    if (alpha == 0)
+        return Qt::transparent;
+    if (c.spec() == QColor::ExtendedRgb) {
+        float r, g, b, a;
+        c.getRgbF(&r, &g, &b, &a);
+        a = a * alpha * (1.f / 256.f);
+        return QColor::fromRgbF(r * a, g * a, b * a, a);
+    }
+    return qPremultiply(combineAlpha256(c.rgba64(), alpha));
+}
+
+//  from src/gui/painting/qpaintengine_raster.cpp, line 4024, as local:qpaintengine_raster.cpp:qt_intersect_spans
+static const QT_FT_Span *qt_intersect_spans(const QClipData *clip, int *currentClip,
+                                            const QT_FT_Span *spans, const QT_FT_Span *end,
+                                            QT_FT_Span **outSpans, int available)
+{
+    const_cast<QClipData *>(clip)->initialize();
+
+    QT_FT_Span *out = *outSpans;
+
+    const QT_FT_Span *clipSpans = clip->m_spans + *currentClip;
+    const QT_FT_Span *clipEnd = clip->m_spans + clip->count;
+
+    while (available && spans < end ) {
+        if (clipSpans >= clipEnd) {
+            spans = end;
+            break;
+        }
+        if (clipSpans->y > spans->y) {
+            ++spans;
+            continue;
+        }
+        if (spans->y != clipSpans->y) {
+            if (spans->y < clip->count && clip->m_clipLines[spans->y].spans)
+                clipSpans = clip->m_clipLines[spans->y].spans;
+            else
+                ++clipSpans;
+            continue;
+        }
+        Q_ASSERT(spans->y == clipSpans->y);
+
+        int sx1 = spans->x;
+        int sx2 = sx1 + spans->len;
+        int cx1 = clipSpans->x;
+        int cx2 = cx1 + clipSpans->len;
+
+        if (cx1 < sx1 && cx2 < sx1) {
+            ++clipSpans;
+            continue;
+        } else if (sx1 < cx1 && sx2 < cx1) {
+            ++spans;
+            continue;
+        }
+        int x = qMax(sx1, cx1);
+        int len = qMin(sx2, cx2) - x;
+        if (len) {
+            out->x = qMax(sx1, cx1);
+            out->len = qMin(sx2, cx2) - out->x;
+            out->y = spans->y;
+            out->coverage = qt_div_255(spans->coverage * clipSpans->coverage);
+            ++out;
+            --available;
+        }
+        if (sx2 < cx2) {
+            ++spans;
+        } else {
+            ++clipSpans;
+        }
+    }
+
+    *outSpans = out;
+    *currentClip = clipSpans - clip->m_spans;
+    return spans;
+}
+
+//  from src/gui/painting/qpaintengine_raster.cpp, line 4087, as local:qpaintengine_raster.cpp:qt_span_fill_clipped
+static void qt_span_fill_clipped(int spanCount, const QT_FT_Span *spans, void *userData)
+{
+//     qDebug() << "qt_span_fill_clipped" << spanCount;
+    QSpanData *fillData = reinterpret_cast<QSpanData *>(userData);
+
+    Q_ASSERT(fillData->blend && fillData->unclipped_blend);
+
+    const int NSPANS = 512;
+    Q_DECL_UNINITIALIZED QT_FT_Span cspans[NSPANS];
+    int currentClip = 0;
+    const QT_FT_Span *end = spans + spanCount;
+    while (spans < end) {
+        QT_FT_Span *clipped = cspans;
+        spans = qt_intersect_spans(fillData->clip, &currentClip, spans, end, &clipped, NSPANS);
+//         qDebug() << "processed " << spanCount - (end - spans) << "clipped" << clipped-cspans
+//                  << "span:" << cspans->x << cspans->y << cspans->len << spans->coverage;
+
+        if (clipped - cspans)
+            fillData->unclipped_blend(clipped - cspans, cspans, fillData);
+    }
+}
+
 //  from src/gui/painting/qpaintengine_raster.cpp, line 4465, as _ZN9QSpanData4initEP13QRasterBufferPK18QRasterPaintEngine
 inline void QSpanData::init(QRasterBuffer *rb, const QRasterPaintEngine *pe)
 {

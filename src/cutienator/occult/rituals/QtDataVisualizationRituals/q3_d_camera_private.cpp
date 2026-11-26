@@ -28,6 +28,16 @@ inline Q3DCameraPrivate::~Q3DCameraPrivate()
 {
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 636, as _ZN16Q3DCameraPrivate4syncER9Q3DCamera
+inline void Q3DCameraPrivate::sync(Q3DCamera &other)
+{
+    if (q_ptr->isDirty()) {
+        other.copyValuesFrom(*q_ptr);
+        q_ptr->setDirty(false);
+        other.setDirty(false);
+    }
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 645, as _ZN16Q3DCameraPrivate12setXRotationEf
 inline void Q3DCameraPrivate::setXRotation(const float rotation)
 {
@@ -310,10 +320,37 @@ const QMetaObject *ritual_ZNK16Q3DCameraPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DCameraPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16Q3DCameraPrivate11qt_metacastEPKc(
+    Q3DCameraPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DCameraPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16Q3DCameraPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DCameraPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  Q3DCameraPrivate::~Q3DCameraPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16Q3DCameraPrivateD1Ev(Q3DCameraPrivate *self) {
   delete self;
+}
+
+//  void Q3DCameraPrivate::sync(Q3DCamera &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate4syncER9Q3DCamera(
+    Q3DCameraPrivate *self,
+    Q3DCamera *other) {
+  self->sync(*other);
 }
 
 //  void Q3DCameraPrivate::setXRotation(float rotation)
@@ -400,6 +437,168 @@ QVector3D *ritual_ZNK16Q3DCameraPrivate33calculatePositionRelativeToCameraERK9QV
           *relativePosition,
           fixedRotation,
           distanceModifier));
+}
+
+//  void Q3DCameraPrivate::minXRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate19minXRotationChangedEf(
+    Q3DCameraPrivate *self,
+    float rotation) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Q3DCameraPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "minXRotationChanged(float)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "minXRotationChanged(float)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&rotation)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Q3DCameraPrivate::minYRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate19minYRotationChangedEf(
+    Q3DCameraPrivate *self,
+    float rotation) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Q3DCameraPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "minYRotationChanged(float)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "minYRotationChanged(float)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&rotation)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Q3DCameraPrivate::maxXRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate19maxXRotationChangedEf(
+    Q3DCameraPrivate *self,
+    float rotation) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Q3DCameraPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "maxXRotationChanged(float)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "maxXRotationChanged(float)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&rotation)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Q3DCameraPrivate::maxYRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate19maxYRotationChangedEf(
+    Q3DCameraPrivate *self,
+    float rotation) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Q3DCameraPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "maxYRotationChanged(float)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "maxYRotationChanged(float)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&rotation)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Q3DCameraPrivate::viewMatrixChanged(const QMatrix4x4 &viewMatrix)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate17viewMatrixChangedERK10QMatrix4x4(
+    Q3DCameraPrivate *self,
+    const QMatrix4x4 *viewMatrix) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Q3DCameraPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "viewMatrixChanged(const QMatrix4x4 &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "viewMatrixChanged(const QMatrix4x4 &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(viewMatrix)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Q3DCameraPrivate::viewMatrixAutoUpdateChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate27viewMatrixAutoUpdateChangedEb(
+    Q3DCameraPrivate *self,
+    bool enabled) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Q3DCameraPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "viewMatrixAutoUpdateChanged(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "viewMatrixAutoUpdateChanged(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&enabled)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQ3DCameraPrivate, for the function named

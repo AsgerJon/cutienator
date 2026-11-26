@@ -10,6 +10,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A QQmlWebChannel that Python can take functions over in. Every QQmlWebChannel
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,24 @@ const QMetaObject *ritual_ZNK14QQmlWebChannel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlWebChannel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQmlWebChannel11qt_metacastEPKc(
+    QQmlWebChannel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlWebChannel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQmlWebChannel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlWebChannel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlWebChannel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQmlWebChannel2trEPKcS1_i(
@@ -221,6 +241,20 @@ void ritual_ZN14QQmlWebChannel15registerObjectsERK4QMapI7QString8QVariantE(
   self->registerObjects(*objects);
 }
 
+//  QQmlListProperty<QObject> QQmlWebChannel::registeredObjects()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN14QQmlWebChannel17registeredObjectsEv(
+    QQmlWebChannel *self) {
+  return new QQmlListProperty<QObject>(self->registeredObjects());
+}
+
+//  QQmlListProperty<QObject> QQmlWebChannel::transports()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN14QQmlWebChannel10transportsEv(
+    QQmlWebChannel *self) {
+  return new QQmlListProperty<QObject>(self->transports());
+}
+
 //  QQmlWebChannelAttached *QQmlWebChannel::qmlAttachedProperties(QObject
 //      *obj)
 extern "C" Q_DECL_EXPORT
@@ -245,6 +279,88 @@ void ritual_ZN14QQmlWebChannel14disconnectFromEP7QObject(
   self->disconnectFrom(transport);
 }
 
+//  QQmlWebChannelPrivate *QQmlWebChannel::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlWebChannelPrivate *ritual_ZN14QQmlWebChannel6d_funcEv(
+    QQmlWebChannel *self) {
+  return self->d_func();
+}
+
+//  const QQmlWebChannelPrivate *QQmlWebChannel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlWebChannelPrivate *ritual_ZNK14QQmlWebChannel6d_funcEv(
+    const QQmlWebChannel *self) {
+  return self->d_func();
+}
+
+//  void QQmlWebChannel::registeredObjects_append(QQmlListProperty<QObject>
+//      *prop, QObject *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlWebChannel24registeredObjects_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *prop,
+    QObject *item) {
+  QQmlWebChannel::registeredObjects_append(prop, item);
+}
+
+//  qsizetype
+//      QQmlWebChannel::registeredObjects_count(QQmlListProperty<QObject>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN14QQmlWebChannel23registeredObjects_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  return QQmlWebChannel::registeredObjects_count(prop);
+}
+
+//  QObject *QQmlWebChannel::registeredObjects_at(QQmlListProperty<QObject>
+//      *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN14QQmlWebChannel20registeredObjects_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *prop,
+    qsizetype index) {
+  return QQmlWebChannel::registeredObjects_at(prop, index);
+}
+
+//  void QQmlWebChannel::registeredObjects_clear(QQmlListProperty<QObject>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlWebChannel23registeredObjects_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  QQmlWebChannel::registeredObjects_clear(prop);
+}
+
+//  void QQmlWebChannel::transports_append(QQmlListProperty<QObject> *prop,
+//      QObject *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlWebChannel17transports_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *prop,
+    QObject *item) {
+  QQmlWebChannel::transports_append(prop, item);
+}
+
+//  qsizetype QQmlWebChannel::transports_count(QQmlListProperty<QObject>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN14QQmlWebChannel16transports_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  return QQmlWebChannel::transports_count(prop);
+}
+
+//  QObject *QQmlWebChannel::transports_at(QQmlListProperty<QObject> *prop,
+//      qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN14QQmlWebChannel13transports_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *prop,
+    qsizetype index) {
+  return QQmlWebChannel::transports_at(prop, index);
+}
+
+//  void QQmlWebChannel::transports_clear(QQmlListProperty<QObject> *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlWebChannel16transports_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  QQmlWebChannel::transports_clear(prop);
+}
+
 //  a Python function taken by a CuteQQmlWebChannel, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -253,4 +369,11 @@ bool ritual_take_QQmlWebChannel(
     const char *key,
     void *call) {
   return static_cast<CuteQQmlWebChannel *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQmlWebChannel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlWebChannel__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

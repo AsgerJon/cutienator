@@ -278,6 +278,25 @@ const QMetaObject *ritual_ZNK20QSpiAccessibleBridge10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSpiAccessibleBridge::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QSpiAccessibleBridge11qt_metacastEPKc(
+    QSpiAccessibleBridge *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSpiAccessibleBridge::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QSpiAccessibleBridge11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSpiAccessibleBridge *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSpiAccessibleBridge::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QSpiAccessibleBridge2trEPKcS1_i(
@@ -313,6 +332,13 @@ extern "C" Q_DECL_EXPORT
 QDBusConnection *ritual_ZNK20QSpiAccessibleBridge14dBusConnectionEv(
     const QSpiAccessibleBridge *self) {
   return new QDBusConnection(self->dBusConnection());
+}
+
+//  const SpiRoleMapping &QSpiAccessibleBridge::spiRoleNames() const
+extern "C" Q_DECL_EXPORT
+const QSpiAccessibleBridge::SpiRoleMapping *ritual_ZNK20QSpiAccessibleBridge12spiRoleNamesEv(
+    const QSpiAccessibleBridge *self) {
+  return &(self->spiRoleNames());
 }
 
 //  QSpiAccessibleBridge *QSpiAccessibleBridge::instance()

@@ -32,6 +32,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qthttpserver/src/httpserver/qhttpserverrequest.cpp, line 53, as _ZN25QHttpServerRequestPrivateC1ERK12QHostAddresstS2_t
 inline QHttpServerRequestPrivate::QHttpServerRequestPrivate(const QHostAddress &remoteAddress,
                                                      quint16 remotePort,

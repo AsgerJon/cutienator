@@ -6,7 +6,50 @@
   ],
   "rows": {
     "ritual_ZNK14QQStyleKitFont10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQStyleKitFont11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK14QQStyleKitFont6systemEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont6buttonEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont8checkBoxEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont8comboBoxEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont8groupBoxEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont12itemDelegateEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont5labelEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont11radioButtonEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont7spinBoxEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont13switchControlEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont6tabBarEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont8textAreaEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont9textFieldEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont7toolBarEv": ["address", "address"],
     "ritual_ZNK14QQStyleKitFont12fallbackFontEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont13systemChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont13buttonChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont15checkBoxChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont15comboBoxChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont15groupBoxChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont19itemDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQStyleKitFont12labelChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont18radioButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQStyleKitFont14spinBoxChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont20switchControlChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQStyleKitFont13tabBarChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont15textAreaChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont16textFieldChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont14toolBarChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQStyleKitFont19fallbackFontChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont12fontForScopeEN11QQuickTheme5ScopeE": [
       "address", "address", "int"
     ],

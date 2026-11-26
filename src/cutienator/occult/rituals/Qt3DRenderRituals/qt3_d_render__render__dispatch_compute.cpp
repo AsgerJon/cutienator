@@ -40,6 +40,26 @@ public:
   }
 };
 
+//  Qt3DRender::Render::DispatchCompute::DispatchCompute()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::DispatchCompute *ritual_ZN10Qt3DRender6Render15DispatchComputeC1Ev() {
+  return new CuteQt3DRender_Render_DispatchCompute();
+}
+
+//  Qt3DRender::Render::DispatchCompute::~DispatchCompute()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15DispatchComputeD1Ev(
+    Qt3DRender::Render::DispatchCompute *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::DispatchCompute::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15DispatchCompute7cleanupEv(
+    Qt3DRender::Render::DispatchCompute *self) {
+  self->cleanup();
+}
+
 //  int Qt3DRender::Render::DispatchCompute::x() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK10Qt3DRender6Render15DispatchCompute1xEv(
@@ -59,6 +79,16 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK10Qt3DRender6Render15DispatchCompute1zEv(
     const Qt3DRender::Render::DispatchCompute *self) {
   return self->z();
+}
+
+//  void Qt3DRender::Render::DispatchCompute::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15DispatchCompute16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::DispatchCompute *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_DispatchCompute, for

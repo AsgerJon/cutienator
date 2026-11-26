@@ -7,6 +7,15 @@
 #include <QtQuickShapesDesignHelpers/6.12.0/QtQuickShapesDesignHelpers/private/qquickellipseshape_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  RoundedCorner &QQuickEllipseShapePrivate::RoundedCornerArray::operator[](
+//      RoundedCornerIndex index)
+extern "C" Q_DECL_EXPORT
+QQuickEllipseShapePrivate::RoundedCorner *ritual_ZN25QQuickEllipseShapePrivate18RoundedCornerArrayixENS_18RoundedCornerIndexE(
+    QQuickEllipseShapePrivate::RoundedCornerArray *self,
+    QQuickEllipseShapePrivate::RoundedCornerIndex index) {
+  return &(self->operator[](index));
+}
+
 //  void QQuickEllipseShapePrivate::RoundedCornerArray::reset()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QQuickEllipseShapePrivate18RoundedCornerArray5resetEv(

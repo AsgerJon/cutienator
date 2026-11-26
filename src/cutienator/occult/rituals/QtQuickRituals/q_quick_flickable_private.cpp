@@ -65,6 +65,29 @@ bool ritual_ZN22QQuickFlickablePrivate6flickYEN6QEvent4TypeEd(
   return self->flickY(eventType, velocity);
 }
 
+//  bool QQuickFlickablePrivate::flick(AxisData &data, qreal minExtent, qreal
+//      maxExtent, qreal vSize, QQuickTimeLineCallback::Callback
+//      fixupCallback, QEvent::Type eventType, qreal velocity)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQuickFlickablePrivate5flickERNS_8AxisDataEdddPFvPvEN6QEvent4TypeEd(
+    QQuickFlickablePrivate *self,
+    QQuickFlickablePrivate::AxisData *data,
+    qreal minExtent,
+    qreal maxExtent,
+    qreal vSize,
+    void *fixupCallback,
+    QEvent::Type eventType,
+    qreal velocity) {
+  return self->flick(
+      *data,
+      minExtent,
+      maxExtent,
+      vSize,
+      reinterpret_cast<QQuickTimeLineCallback::Callback>(fixupCallback),
+      eventType,
+      velocity);
+}
+
 //  void QQuickFlickablePrivate::flickingStarted(bool flickingH, bool
 //      flickingV)
 extern "C" Q_DECL_EXPORT
@@ -87,6 +110,35 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickFlickablePrivate6fixupYEv(
     QQuickFlickablePrivate *self) {
   self->fixupY();
+}
+
+//  void QQuickFlickablePrivate::fixup(AxisData &data, qreal minExtent, qreal
+//      maxExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFlickablePrivate5fixupERNS_8AxisDataEdd(
+    QQuickFlickablePrivate *self,
+    QQuickFlickablePrivate::AxisData *data,
+    qreal minExtent,
+    qreal maxExtent) {
+  self->fixup(*data, minExtent, maxExtent);
+}
+
+//  void QQuickFlickablePrivate::adjustContentPos(AxisData &data, qreal
+//      toPos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFlickablePrivate16adjustContentPosERNS_8AxisDataEd(
+    QQuickFlickablePrivate *self,
+    QQuickFlickablePrivate::AxisData *data,
+    qreal toPos) {
+  self->adjustContentPos(*data, toPos);
+}
+
+//  void QQuickFlickablePrivate::resetTimeline(AxisData &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFlickablePrivate13resetTimelineERNS_8AxisDataE(
+    QQuickFlickablePrivate *self,
+    QQuickFlickablePrivate::AxisData *data) {
+  self->resetTimeline(*data);
 }
 
 //  void QQuickFlickablePrivate::clearTimeline()
@@ -215,11 +267,40 @@ bool ritual_ZN22QQuickFlickablePrivate17wantsPointerEventEPK13QPointerEvent(
   return self->wantsPointerEvent(a0);
 }
 
+//  void QQuickFlickablePrivate::fixupY_callback(void *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFlickablePrivate15fixupY_callbackEPv(void *a0) {
+  QQuickFlickablePrivate::fixupY_callback(a0);
+}
+
+//  void QQuickFlickablePrivate::fixupX_callback(void *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFlickablePrivate15fixupX_callbackEPv(void *a0) {
+  QQuickFlickablePrivate::fixupX_callback(a0);
+}
+
 //  void QQuickFlickablePrivate::updateVelocity()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickFlickablePrivate14updateVelocityEv(
     QQuickFlickablePrivate *self) {
   self->updateVelocity();
+}
+
+//  void QQuickFlickablePrivate::viewportAxisMoved(AxisData &data, qreal
+//      minExtent, qreal maxExtent, QQuickTimeLineCallback::Callback
+//      fixupCallback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFlickablePrivate17viewportAxisMovedERNS_8AxisDataEddPFvPvE(
+    QQuickFlickablePrivate *self,
+    QQuickFlickablePrivate::AxisData *data,
+    qreal minExtent,
+    qreal maxExtent,
+    void *fixupCallback) {
+  self->viewportAxisMoved(
+      *data,
+      minExtent,
+      maxExtent,
+      reinterpret_cast<QQuickTimeLineCallback::Callback>(fixupCallback));
 }
 
 //  void QQuickFlickablePrivate::handlePressEvent(QPointerEvent *a0)
@@ -311,6 +392,39 @@ qint64 ritual_ZNK22QQuickFlickablePrivate18computeCurrentTimeEP11QInputEvent(
     const QQuickFlickablePrivate *self,
     QInputEvent *event) {
   return self->computeCurrentTime(event);
+}
+
+//  void QQuickFlickablePrivate::data_append(QQmlListProperty<QObject> *a0,
+//      QObject *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFlickablePrivate11data_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *a0,
+    QObject *a1) {
+  QQuickFlickablePrivate::data_append(a0, a1);
+}
+
+//  qsizetype QQuickFlickablePrivate::data_count(QQmlListProperty<QObject>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN22QQuickFlickablePrivate10data_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  return QQuickFlickablePrivate::data_count(a0);
+}
+
+//  QObject *QQuickFlickablePrivate::data_at(QQmlListProperty<QObject> *a0,
+//      qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN22QQuickFlickablePrivate7data_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *a0,
+    qsizetype a1) {
+  return QQuickFlickablePrivate::data_at(a0, a1);
+}
+
+//  void QQuickFlickablePrivate::data_clear(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFlickablePrivate10data_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QQuickFlickablePrivate::data_clear(a0);
 }
 
 //  void QQuickFlickablePrivate::itemGeometryChanged(QQuickItem *a0,

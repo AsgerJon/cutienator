@@ -36,6 +36,14 @@ void ritual_ZN9QColormapD1Ev(QColormap *self) {
   delete self;
 }
 
+//  QColormap &QColormap::operator=(const QColormap &colormap)
+extern "C" Q_DECL_EXPORT
+QColormap *ritual_ZN9QColormapaSERKS_(
+    QColormap *self,
+    const QColormap *colormap) {
+  return &(self->operator=(*colormap));
+}
+
 //  Mode QColormap::mode() const
 extern "C" Q_DECL_EXPORT
 QColormap::Mode ritual_ZNK9QColormap4modeEv(const QColormap *self) {

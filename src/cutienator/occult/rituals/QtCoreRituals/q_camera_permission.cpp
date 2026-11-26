@@ -18,10 +18,43 @@ QCameraPermission *ritual_ZN17QCameraPermissionC1ERKS_(
   return new QCameraPermission(*other);
 }
 
+//  QCameraPermission::QCameraPermission(QCameraPermission &&other)
+extern "C" Q_DECL_EXPORT
+QCameraPermission *ritual_ZN17QCameraPermissionC1EOS_(
+    QCameraPermission *other) {
+  return new QCameraPermission(std::move(*other));
+}
+
 //  QCameraPermission::~QCameraPermission()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCameraPermissionD1Ev(QCameraPermission *self) {
   delete self;
+}
+
+//  QCameraPermission &QCameraPermission::operator=(const QCameraPermission
+//      &other)
+extern "C" Q_DECL_EXPORT
+QCameraPermission *ritual_ZN17QCameraPermissionaSERKS_(
+    QCameraPermission *self,
+    const QCameraPermission *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCameraPermission &QCameraPermission::operator=(QCameraPermission
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCameraPermission *ritual_ZN17QCameraPermissionaSEOS_(
+    QCameraPermission *self,
+    QCameraPermission *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCameraPermission::swap(QCameraPermission &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QCameraPermission4swapERS_(
+    QCameraPermission *self,
+    QCameraPermission *other) {
+  self->swap(*other);
 }
 
 #endif  // QT_CONFIG(permissions)

@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qabstract3daxis.h>
@@ -15,6 +15,7 @@
 #include <QtCore/qdebug.h>
 #include <QtGraphs/private/qabstract3daxis_p.h>
 #include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -23,6 +24,116 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 687, as _ZN22QAbstract3DAxisPrivate12updateLabelsEv
+inline void QAbstract3DAxisPrivate::updateLabels()
+{
+    // Default implementation does nothing
+}
+
+//  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 800, as _ZN22QAbstract3DAxisPrivate6setMaxEf
+inline void QAbstract3DAxisPrivate::setMax(float max)
+{
+    Q_Q(QAbstract3DAxis);
+    if (!allowNegatives()) {
+        if (allowZero()) {
+            if (max < 0.0f) {
+                max = 0.0f;
+                qCWarning(lcAProperties3D, "%s tried to set negative maximum for an axis that only"
+                         " supports positive values and zero: %f",
+                         qUtf8Printable(QLatin1String(__FUNCTION__)),
+                         max);
+            }
+        } else {
+            if (max <= 0.0f) {
+                max = 1.0f;
+                qCWarning(lcAProperties3D, "%s tried to set negative or zero maximum for an "
+                         "axis that only"
+                         " supports positive values: %f",
+                         qUtf8Printable(QLatin1String(__FUNCTION__)),
+                         max);
+            }
+        }
+    }
+
+    if (m_max != max) {
+        bool minChanged = false;
+        if (m_min > max || (!allowMinMaxSame() && m_min == max)) {
+            float oldMin = m_min;
+            m_min = max - 1.0f;
+            if (!allowNegatives() && m_min < 0.0f) {
+                if (allowZero())
+                    m_min = 0.0f;
+                else
+                    m_min = max / 2.0f; // Need some positive value smaller than max
+
+                if (!allowMinMaxSame() && max == 0.0f) {
+                    m_min = oldMin;
+                    qCWarning(lcAProperties3D, "%s unable to set maximum value to zero.",
+                              qUtf8Printable(QLatin1String(__FUNCTION__)));
+                    return;
+                }
+            }
+            qCWarning(lcAProperties3D, "%s tried to set maximum to equal or smaller than minimum "
+                     "for value axis. Minimum automatically adjusted to a valid one: %f --> %f",
+                     qUtf8Printable(QLatin1String(__FUNCTION__)),
+                     oldMin,
+                     m_min);
+            minChanged = true;
+        }
+        m_max = max;
+        emit q->rangeChanged(m_min, m_max);
+        emit q->maxChanged(m_max);
+        if (minChanged)
+            emit q->minChanged(m_min);
+    }
+}
+
+//  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 755, as _ZN22QAbstract3DAxisPrivate6setMinEf
+inline void QAbstract3DAxisPrivate::setMin(float min)
+{
+    Q_Q(QAbstract3DAxis);
+    if (!allowNegatives()) {
+        if (allowZero()) {
+            if (min < 0.0f) {
+                min = 0.0f;
+                qCWarning(lcAProperties3D, "%s tried to set negative minimum for an axis that only"
+                         "supports positive values and zero: %f",
+                         qUtf8Printable(QLatin1String(__FUNCTION__)),
+                         min);
+            }
+        } else {
+            if (min <= 0.0f) {
+                min = 1.0f;
+                qCWarning(lcAProperties3D, "%s tried to set negative or zero minimum for an "
+                         "axis that only"
+                         "supports positive values: %f",
+                         qUtf8Printable(QLatin1String(__FUNCTION__)),
+                         min);
+            }
+        }
+    }
+
+    if (m_min != min) {
+        bool maxChanged = false;
+        if (min > m_max || (!allowMinMaxSame() && min == m_max)) {
+            float oldMax = m_max;
+            m_max = min + 1.0f;
+            qCWarning(lcAProperties3D, "%s tried to set minimum to equal or larger than maximum for"
+                     " value axis. Maximum automatically adjusted to a valid one: %f --> %f",
+                     qUtf8Printable(QLatin1String(__FUNCTION__)),
+                     oldMax,
+                     m_max);
+            maxChanged = true;
+        }
+        m_min = min;
+
+        emit q->rangeChanged(m_min, m_max);
+        emit q->minChanged(m_min);
+        if (maxChanged)
+            emit q->maxChanged(m_max);
+    }
+}
 
 //  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 692, as _ZN22QAbstract3DAxisPrivate8setRangeEffb
 inline void QAbstract3DAxisPrivate::setRange(float min, float max, bool suppressWarnings)
@@ -88,114 +199,14 @@ inline void QAbstract3DAxisPrivate::setRange(float min, float max, bool suppress
         emit q->maxChanged(m_max);
 }
 
-//  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 755, as _ZN22QAbstract3DAxisPrivate6setMinEf
-inline void QAbstract3DAxisPrivate::setMin(float min)
+//  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 674, as _ZN22QAbstract3DAxisPrivateD2Ev
+inline QAbstract3DAxisPrivate::~QAbstract3DAxisPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/utils/qgraphs3dlogging.cpp, line 18, as _Z15lcAProperties3Dv
+inline const QLoggingCategory &lcAProperties3D()
 {
-    Q_Q(QAbstract3DAxis);
-    if (!allowNegatives()) {
-        if (allowZero()) {
-            if (min < 0.0f) {
-                min = 0.0f;
-                qCWarning(lcAProperties3D, "%s tried to set negative minimum for an axis that only"
-                         "supports positive values and zero: %f",
-                         qUtf8Printable(QLatin1String(__FUNCTION__)),
-                         min);
-            }
-        } else {
-            if (min <= 0.0f) {
-                min = 1.0f;
-                qCWarning(lcAProperties3D, "%s tried to set negative or zero minimum for an "
-                         "axis that only"
-                         "supports positive values: %f",
-                         qUtf8Printable(QLatin1String(__FUNCTION__)),
-                         min);
-            }
-        }
-    }
-
-    if (m_min != min) {
-        bool maxChanged = false;
-        if (min > m_max || (!allowMinMaxSame() && min == m_max)) {
-            float oldMax = m_max;
-            m_max = min + 1.0f;
-            qCWarning(lcAProperties3D, "%s tried to set minimum to equal or larger than maximum for"
-                     " value axis. Maximum automatically adjusted to a valid one: %f --> %f",
-                     qUtf8Printable(QLatin1String(__FUNCTION__)),
-                     oldMax,
-                     m_max);
-            maxChanged = true;
-        }
-        m_min = min;
-
-        emit q->rangeChanged(m_min, m_max);
-        emit q->minChanged(m_min);
-        if (maxChanged)
-            emit q->maxChanged(m_max);
-    }
-}
-
-//  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 800, as _ZN22QAbstract3DAxisPrivate6setMaxEf
-inline void QAbstract3DAxisPrivate::setMax(float max)
-{
-    Q_Q(QAbstract3DAxis);
-    if (!allowNegatives()) {
-        if (allowZero()) {
-            if (max < 0.0f) {
-                max = 0.0f;
-                qCWarning(lcAProperties3D, "%s tried to set negative maximum for an axis that only"
-                         " supports positive values and zero: %f",
-                         qUtf8Printable(QLatin1String(__FUNCTION__)),
-                         max);
-            }
-        } else {
-            if (max <= 0.0f) {
-                max = 1.0f;
-                qCWarning(lcAProperties3D, "%s tried to set negative or zero maximum for an "
-                         "axis that only"
-                         " supports positive values: %f",
-                         qUtf8Printable(QLatin1String(__FUNCTION__)),
-                         max);
-            }
-        }
-    }
-
-    if (m_max != max) {
-        bool minChanged = false;
-        if (m_min > max || (!allowMinMaxSame() && m_min == max)) {
-            float oldMin = m_min;
-            m_min = max - 1.0f;
-            if (!allowNegatives() && m_min < 0.0f) {
-                if (allowZero())
-                    m_min = 0.0f;
-                else
-                    m_min = max / 2.0f; // Need some positive value smaller than max
-
-                if (!allowMinMaxSame() && max == 0.0f) {
-                    m_min = oldMin;
-                    qCWarning(lcAProperties3D, "%s unable to set maximum value to zero.",
-                              qUtf8Printable(QLatin1String(__FUNCTION__)));
-                    return;
-                }
-            }
-            qCWarning(lcAProperties3D, "%s tried to set maximum to equal or smaller than minimum "
-                     "for value axis. Minimum automatically adjusted to a valid one: %f --> %f",
-                     qUtf8Printable(QLatin1String(__FUNCTION__)),
-                     oldMin,
-                     m_min);
-            minChanged = true;
-        }
-        m_max = max;
-        emit q->rangeChanged(m_min, m_max);
-        emit q->maxChanged(m_max);
-        if (minChanged)
-            emit q->minChanged(m_min);
-    }
-}
-
-//  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 687, as _ZN22QAbstract3DAxisPrivate12updateLabelsEv
-inline void QAbstract3DAxisPrivate::updateLabels()
-{
-    // Default implementation does nothing
+    static const QLoggingCategory category("qt.graphs3d.axis.properties");
+    return category;
 }
 
 //  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 676, as _ZN22QAbstract3DAxisPrivate14setOrientationEN15QAbstract3DAxis15AxisOrientationE
@@ -357,6 +368,12 @@ const QAbstract3DAxis *ritual_ZNK22QAbstract3DAxisPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QAbstract3DAxisPrivate::~QAbstract3DAxisPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QAbstract3DAxisPrivateD1Ev(QAbstract3DAxisPrivate *self) {
+  delete self;
+}
+
 //  void
 //      QAbstract3DAxisPrivate::setOrientation(QAbstract3DAxis::AxisOrientati
 //      on orientation)
@@ -447,6 +464,33 @@ bool ritual_take_QAbstract3DAxisPrivate(
   return static_cast<CuteQAbstract3DAxisPrivate *>(self)->take(key, call);
 }
 
+//  void QAbstract3DAxisPrivate::setRange(float min, float max, bool
+//      suppressWarnings)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN22QAbstract3DAxisPrivate8setRangeEffb(
+    QAbstract3DAxisPrivate *self,
+    float min,
+    float max,
+    bool suppressWarnings) {
+  self->QAbstract3DAxisPrivate::setRange(min, max, suppressWarnings);
+}
+
+//  void QAbstract3DAxisPrivate::setMin(float min)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN22QAbstract3DAxisPrivate6setMinEf(
+    QAbstract3DAxisPrivate *self,
+    float min) {
+  self->QAbstract3DAxisPrivate::setMin(min);
+}
+
+//  void QAbstract3DAxisPrivate::setMax(float max)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN22QAbstract3DAxisPrivate6setMaxEf(
+    QAbstract3DAxisPrivate *self,
+    float max) {
+  self->QAbstract3DAxisPrivate::setMax(max);
+}
+
 //  void QAbstract3DAxisPrivate::updateLabels()
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN22QAbstract3DAxisPrivate12updateLabelsEv(
@@ -454,4 +498,4 @@ void ritual_own_ZN22QAbstract3DAxisPrivate12updateLabelsEv(
   static_cast<OwnQAbstract3DAxisPrivate *>(self)->OwnQAbstract3DAxisPrivate::updateLabels();
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

@@ -841,6 +841,25 @@ const QMetaObject *ritual_ZNK20QQuickWanderAffector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWanderAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickWanderAffector11qt_metacastEPKc(
+    QQuickWanderAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWanderAffector::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickWanderAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWanderAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWanderAffector::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickWanderAffector2trEPKcS1_i(
@@ -899,6 +918,39 @@ bool ritual_ZN20QQuickWanderAffector14affectParticleEP18QQuickParticleDatad(
     QQuickParticleData *d,
     qreal dt) {
   return self->affectParticle(d, dt);
+}
+
+//  void QQuickWanderAffector::xVarianceChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWanderAffector16xVarianceChangedEd(
+    QQuickWanderAffector *self,
+    qreal arg) {
+  self->xVarianceChanged(arg);
+}
+
+//  void QQuickWanderAffector::yVarianceChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWanderAffector16yVarianceChangedEd(
+    QQuickWanderAffector *self,
+    qreal arg) {
+  self->yVarianceChanged(arg);
+}
+
+//  void QQuickWanderAffector::paceChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWanderAffector11paceChangedEd(
+    QQuickWanderAffector *self,
+    qreal arg) {
+  self->paceChanged(arg);
+}
+
+//  void QQuickWanderAffector::affectedParameterChanged(AffectableParameters
+//      arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWanderAffector24affectedParameterChangedENS_20AffectableParametersE(
+    QQuickWanderAffector *self,
+    QQuickWanderAffector::AffectableParameters arg) {
+  self->affectedParameterChanged(arg);
 }
 
 //  void QQuickWanderAffector::setXVariance(qreal arg)

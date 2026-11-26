@@ -14,6 +14,9 @@
     ],
     "ritual_ZN3QV44Heap9UrlObject7destroyEv": ["nothing", "address"],
     "ritual_ZNK3QV44Heap9UrlObject3urlEv": ["address", "address"],
+    "ritual_ZN3QV44Heap9UrlObject6setUrlEO4QUrl": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_UrlObject_QV4_Heap_UrlObjectData": [
       "address", "address"
     ]

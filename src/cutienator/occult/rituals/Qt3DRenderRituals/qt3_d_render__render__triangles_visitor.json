@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render16TrianglesVisitorD1Ev": [
+      "nothing",
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16TrianglesVisitor5visitEjRK9QVector3DjS4_jS4_": [
+      "nothing",
+      "address",
+      "unsigned int",
+      "address",
+      "unsigned int",
+      "address",
+      "unsigned int",
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16TrianglesVisitor5visitEjRKN8Qt3DCore12Vector3D_SSEEjS5_jS5_": [
+      "nothing",
+      "address",
+      "unsigned int",
+      "address",
+      "unsigned int",
+      "address",
+      "unsigned int",
+      "address"
+    ],
+    "ritual_take_Qt3DRender_Render_TrianglesVisitor": [
+      "bool",
+      "address",
+      "chars",
+      "address"
+    ]
+  }
+}

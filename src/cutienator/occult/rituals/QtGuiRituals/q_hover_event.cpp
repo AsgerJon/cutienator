@@ -16,6 +16,7 @@ typedef void (*CuteQHoverEventCall5)(const void *, bool, int *);
 class CuteQHoverEvent : public QHoverEvent {
 public:
   using QHoverEvent::QHoverEvent;
+  CuteQHoverEvent(const QHoverEvent & other) : QHoverEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -112,6 +113,20 @@ public:
     QPointerEvent::setAccepted(accepted);
   }
 };
+
+//  QHoverEvent::QHoverEvent(const QHoverEvent &a0)
+extern "C" Q_DECL_EXPORT
+QHoverEvent *ritual_ZN11QHoverEventC1ERKS_(const QHoverEvent *a0) {
+  return new CuteQHoverEvent(*a0);
+}
+
+//  QHoverEvent &QHoverEvent::operator=(const QHoverEvent &other)
+extern "C" Q_DECL_EXPORT
+QHoverEvent *ritual_ZN11QHoverEventaSERKS_(
+    QHoverEvent *self,
+    const QHoverEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QHoverEvent *QHoverEvent::clone() const
 extern "C" Q_DECL_EXPORT

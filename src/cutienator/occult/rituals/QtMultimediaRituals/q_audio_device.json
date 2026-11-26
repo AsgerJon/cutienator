@@ -8,6 +8,10 @@
     "ritual_ZN12QAudioDeviceC1Ev": ["address"],
     "ritual_ZN12QAudioDeviceC1ERKS_": ["address", "address"],
     "ritual_ZN12QAudioDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZN12QAudioDeviceC1EOS_": ["address", "address"],
+    "ritual_ZN12QAudioDeviceaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QAudioDevice4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN12QAudioDeviceaSERKS_": ["address", "address", "address"],
     "ritual_ZNK12QAudioDeviceeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QAudioDeviceneERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QAudioDevice6isNullEv": ["bool", "address"],
@@ -23,6 +27,9 @@
     "ritual_ZNK12QAudioDevice17maximumSampleRateEv": ["int", "address"],
     "ritual_ZNK12QAudioDevice19minimumChannelCountEv": ["int", "address"],
     "ritual_ZNK12QAudioDevice19maximumChannelCountEv": ["int", "address"],
+    "ritual_ZNK12QAudioDevice22supportedSampleFormatsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK12QAudioDevice20channelConfigurationEv": [
       "unsigned int", "address"
     ],
@@ -34,6 +41,9 @@
     "ritual_list_add_QAudioDevice": ["nothing", "address", "address"],
     "ritual_list_size_QAudioDevice": ["long long", "address"],
     "ritual_list_at_QAudioDevice": ["address", "address", "long long"],
-    "ritual_list_drop_QAudioDevice": ["nothing", "address"]
+    "ritual_list_drop_QAudioDevice": ["nothing", "address"],
+    "ritual_drop_QAudioDevice__QList_QAudioFormat_SampleFormat": [
+      "nothing", "address"
+    ]
   }
 }

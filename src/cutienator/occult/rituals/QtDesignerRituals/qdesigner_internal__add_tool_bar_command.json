@@ -5,5 +5,23 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal17AddToolBarCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17AddToolBarCommand4initEP11QMainWindowN2Qt11ToolBarAreaE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal17AddToolBarCommand4undoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17AddToolBarCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal17AddToolBarCommand4undoEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal17AddToolBarCommand4redoEv": [
+      "nothing", "address"
+    ]
   }
 }

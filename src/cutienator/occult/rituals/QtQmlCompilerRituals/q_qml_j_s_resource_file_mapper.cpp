@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
 
 //  Filter QQmlJSResourceFileMapper::allQmlJSFilter()
 extern "C" Q_DECL_EXPORT
@@ -68,6 +69,14 @@ bool ritual_ZNK24QQmlJSResourceFileMapper6isFileE11QStringView(
   return self->isFile(QStringView(*resourcePath));
 }
 
+//  QList<Entry> QQmlJSResourceFileMapper::filter(const Filter &filter) const
+extern "C" Q_DECL_EXPORT
+QList<QQmlJSResourceFileMapper::Entry> *ritual_ZNK24QQmlJSResourceFileMapper6filterERKNS_6FilterE(
+    const QQmlJSResourceFileMapper *self,
+    const QQmlJSResourceFileMapper::Filter *filter) {
+  return new QList<QQmlJSResourceFileMapper::Entry>(self->filter(*filter));
+}
+
 //  QStringList QQmlJSResourceFileMapper::filePaths(const Filter &filter)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -94,9 +103,25 @@ QQmlJSResourceFileMapper::Entry *ritual_ZNK24QQmlJSResourceFileMapper5entryERKNS
   return new QQmlJSResourceFileMapper::Entry(self->entry(*filter));
 }
 
+//  void QQmlJSResourceFileMapper::populateFromQrcFile(QFile &file)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlJSResourceFileMapper19populateFromQrcFileER5QFile(
+    QQmlJSResourceFileMapper *self,
+    QFile *file) {
+  self->populateFromQrcFile(*file);
+}
+
 //  QQmlJSResourceFileMapper::~QQmlJSResourceFileMapper()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlJSResourceFileMapperD1Ev(
     QQmlJSResourceFileMapper *self) {
+  delete self;
+}
+
+//  a QList<QQmlJSResourceFileMapper::Entry> a ritual of
+//      QQmlJSResourceFileMapper gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSResourceFileMapper__QList_QQmlJSResourceFileMapper_Entry(
+    QList<QQmlJSResourceFileMapper::Entry> *self) {
   delete self;
 }

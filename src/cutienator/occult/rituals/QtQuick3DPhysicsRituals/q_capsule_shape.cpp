@@ -14,118 +14,134 @@
 //  A QCapsuleShape that Python can take functions over in. Every QCapsuleShape
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef bool (*CuteQCapsuleShapeCall0)(const void *, int *);
-typedef void (*CuteQCapsuleShapeCall1)(const void *, int *);
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCapsuleShapeCall2)(const void *, const QMetaMethod *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
+typedef void * (*CuteQCapsuleShapeCall0)(const void *, int *);
+typedef bool (*CuteQCapsuleShapeCall1)(const void *, int *);
+typedef void (*CuteQCapsuleShapeCall2)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQCapsuleShapeCall3)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCapsuleShapeCall4)(const void *, int *);
-typedef void * (*CuteQCapsuleShapeCall5)(const void *, QSSGRenderGraphObject *, int *);
-typedef void (*CuteQCapsuleShapeCall6)(const void *, int, const QQuick3DObject::ItemChangeData *, int *);
-typedef void (*CuteQCapsuleShapeCall7)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQCapsuleShapeCall4)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+typedef void (*CuteQCapsuleShapeCall5)(const void *, int *);
+typedef void * (*CuteQCapsuleShapeCall6)(const void *, QSSGRenderGraphObject *, int *);
+typedef void (*CuteQCapsuleShapeCall7)(const void *, int, const QQuick3DObject::ItemChangeData *, int *);
 typedef void (*CuteQCapsuleShapeCall8)(const void *, int *);
+typedef void (*CuteQCapsuleShapeCall9)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQCapsuleShapeCall9)(const void *, QEvent *, int *);
+typedef bool (*CuteQCapsuleShapeCall10)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQCapsuleShapeCall10)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQCapsuleShapeCall11)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCapsuleShapeCall11)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQCapsuleShapeCall12)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCapsuleShapeCall12)(const void *, QChildEvent *, int *);
+typedef void (*CuteQCapsuleShapeCall13)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCapsuleShapeCall13)(const void *, QEvent *, int *);
+typedef void (*CuteQCapsuleShapeCall14)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQCapsuleShape : public QCapsuleShape {
 public:
   using QCapsuleShape::QCapsuleShape;
-  void *taken[14] = {};
+  void *taken[15] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZNK23QAbstractCollisionShape13isStaticShapeEv")) {
+    if (!std::strcmp(key, "_ZN23QAbstractCollisionShape16getPhysXGeometryEv")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QQuick3DObject12markAllDirtyEv")) {
+    if (!std::strcmp(key, "_ZNK23QAbstractCollisionShape13isStaticShapeEv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QQuick3DObject12markAllDirtyEv")) {
+      taken[2] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
-      taken[2] = call;
+      taken[3] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
-      taken[3] = call;
+      taken[4] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN16QQmlParserStatus17componentCompleteEv")) {
-      taken[4] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZN14QQuick3DObject17updateSpatialNodeEP21QSSGRenderGraphObject")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QQuick3DObject10itemChangeENS_10ItemChangeERKNS_14ItemChangeDataE")) {
+    if (!std::strcmp(key, "_ZN14QQuick3DObject17updateSpatialNodeEP21QSSGRenderGraphObject")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QQmlParserStatus10classBeginEv")) {
+    if (!std::strcmp(key, "_ZN14QQuick3DObject10itemChangeENS_10ItemChangeERKNS_14ItemChangeDataE")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QQuick3DObject7preSyncEv")) {
+    if (!std::strcmp(key, "_ZN16QQmlParserStatus10classBeginEv")) {
       taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QQuick3DObject7preSyncEv")) {
+      taken[9] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[9] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[10] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[11] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[12] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[13] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[14] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
-  //  bool QCapsuleShape::isStaticShape() const
-  bool isStaticShape() const override {
+  //  physx::PxGeometry *QCapsuleShape::getPhysXGeometry()
+  physx::PxGeometry *getPhysXGeometry() override {
     if (taken[0]) {
       int handled = 0;
       CuteQCapsuleShapeCall0 call = reinterpret_cast<CuteQCapsuleShapeCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<physx::PxGeometry *>(given);
+    }
+    return QCapsuleShape::getPhysXGeometry();
+  }
+
+  //  bool QCapsuleShape::isStaticShape() const
+  bool isStaticShape() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQCapsuleShapeCall1 call = reinterpret_cast<CuteQCapsuleShapeCall1>(taken[1]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -134,9 +150,9 @@ public:
 
   //  void QQuick3DNode::markAllDirty()
   void markAllDirty() override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQCapsuleShapeCall1 call = reinterpret_cast<CuteQCapsuleShapeCall1>(taken[1]);
+      CuteQCapsuleShapeCall2 call = reinterpret_cast<CuteQCapsuleShapeCall2>(taken[2]);
       call(this, &handled);
       if (handled) return;
     }
@@ -146,9 +162,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QQuick3DNode::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQCapsuleShapeCall2 call = reinterpret_cast<CuteQCapsuleShapeCall2>(taken[2]);
+      CuteQCapsuleShapeCall3 call = reinterpret_cast<CuteQCapsuleShapeCall3>(taken[3]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -159,9 +175,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QQuick3DNode::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQCapsuleShapeCall3 call = reinterpret_cast<CuteQCapsuleShapeCall3>(taken[3]);
+      CuteQCapsuleShapeCall4 call = reinterpret_cast<CuteQCapsuleShapeCall4>(taken[4]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -171,9 +187,9 @@ public:
 
   //  void QQuick3DNode::componentComplete()
   void componentComplete() override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQCapsuleShapeCall4 call = reinterpret_cast<CuteQCapsuleShapeCall4>(taken[4]);
+      CuteQCapsuleShapeCall5 call = reinterpret_cast<CuteQCapsuleShapeCall5>(taken[5]);
       call(this, &handled);
       if (handled) return;
     }
@@ -184,9 +200,9 @@ public:
   //      *QQuick3DNode::updateSpatialNode(QSSGRenderGraphObject *node)
   QSSGRenderGraphObject *updateSpatialNode(
       QSSGRenderGraphObject *node) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQCapsuleShapeCall5 call = reinterpret_cast<CuteQCapsuleShapeCall5>(taken[5]);
+      CuteQCapsuleShapeCall6 call = reinterpret_cast<CuteQCapsuleShapeCall6>(taken[6]);
       void * given = call(this, node, &handled);
       if (handled) return static_cast<QSSGRenderGraphObject *>(given);
     }
@@ -198,9 +214,9 @@ public:
   void itemChange(
       QQuick3DObject::ItemChange a0,
       const QQuick3DObject::ItemChangeData &a1) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQCapsuleShapeCall6 call = reinterpret_cast<CuteQCapsuleShapeCall6>(taken[6]);
+      CuteQCapsuleShapeCall7 call = reinterpret_cast<CuteQCapsuleShapeCall7>(taken[7]);
       call(this, static_cast<int>(a0), &a1, &handled);
       if (handled) return;
     }
@@ -209,9 +225,9 @@ public:
 
   //  void QQuick3DObject::classBegin()
   void classBegin() override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQCapsuleShapeCall7 call = reinterpret_cast<CuteQCapsuleShapeCall7>(taken[7]);
+      CuteQCapsuleShapeCall8 call = reinterpret_cast<CuteQCapsuleShapeCall8>(taken[8]);
       call(this, &handled);
       if (handled) return;
     }
@@ -220,9 +236,9 @@ public:
 
   //  void QQuick3DObject::preSync()
   void preSync() override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQCapsuleShapeCall8 call = reinterpret_cast<CuteQCapsuleShapeCall8>(taken[8]);
+      CuteQCapsuleShapeCall9 call = reinterpret_cast<CuteQCapsuleShapeCall9>(taken[9]);
       call(this, &handled);
       if (handled) return;
     }
@@ -232,9 +248,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQCapsuleShapeCall9 call = reinterpret_cast<CuteQCapsuleShapeCall9>(taken[9]);
+      CuteQCapsuleShapeCall10 call = reinterpret_cast<CuteQCapsuleShapeCall10>(taken[10]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -245,9 +261,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQCapsuleShapeCall10 call = reinterpret_cast<CuteQCapsuleShapeCall10>(taken[10]);
+      CuteQCapsuleShapeCall11 call = reinterpret_cast<CuteQCapsuleShapeCall11>(taken[11]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -258,9 +274,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQCapsuleShapeCall11 call = reinterpret_cast<CuteQCapsuleShapeCall11>(taken[11]);
+      CuteQCapsuleShapeCall12 call = reinterpret_cast<CuteQCapsuleShapeCall12>(taken[12]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -271,9 +287,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQCapsuleShapeCall12 call = reinterpret_cast<CuteQCapsuleShapeCall12>(taken[12]);
+      CuteQCapsuleShapeCall13 call = reinterpret_cast<CuteQCapsuleShapeCall13>(taken[13]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -284,9 +300,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQCapsuleShapeCall13 call = reinterpret_cast<CuteQCapsuleShapeCall13>(taken[13]);
+      CuteQCapsuleShapeCall14 call = reinterpret_cast<CuteQCapsuleShapeCall14>(taken[14]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -300,6 +316,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK13QCapsuleShape10metaObjectEv(
     const QCapsuleShape *self) {
   return self->metaObject();
+}
+
+//  void *QCapsuleShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QCapsuleShape11qt_metacastEPKc(
+    QCapsuleShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCapsuleShape::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QCapsuleShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCapsuleShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QCapsuleShape::tr(const char *s, const char *c, int n)
@@ -351,10 +385,29 @@ void ritual_ZN13QCapsuleShape9setHeightEf(
   self->setHeight(newHeight);
 }
 
+//  physx::PxGeometry *QCapsuleShape::getPhysXGeometry()
+extern "C" Q_DECL_EXPORT
+physx::PxGeometry *ritual_ZN13QCapsuleShape16getPhysXGeometryEv(
+    QCapsuleShape *self) {
+  return self->getPhysXGeometry();
+}
+
 //  bool QCapsuleShape::isStaticShape() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QCapsuleShape13isStaticShapeEv(const QCapsuleShape *self) {
   return self->isStaticShape();
+}
+
+//  void QCapsuleShape::diameterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCapsuleShape15diameterChangedEv(QCapsuleShape *self) {
+  self->diameterChanged();
+}
+
+//  void QCapsuleShape::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCapsuleShape13heightChangedEv(QCapsuleShape *self) {
+  self->heightChanged();
 }
 
 //  void QCapsuleShape::updatePhysXGeometry()
@@ -371,6 +424,13 @@ bool ritual_take_QCapsuleShape(
     const char *key,
     void *call) {
   return static_cast<CuteQCapsuleShape *>(self)->take(key, call);
+}
+
+//  physx::PxGeometry *QCapsuleShape::getPhysXGeometry()
+extern "C" Q_DECL_EXPORT
+physx::PxGeometry *ritual_own_ZN13QCapsuleShape16getPhysXGeometryEv(
+    QCapsuleShape *self) {
+  return self->QCapsuleShape::getPhysXGeometry();
 }
 
 //  bool QCapsuleShape::isStaticShape() const

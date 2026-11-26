@@ -109,6 +109,12 @@ public:
   }
 };
 
+//  QQmlJavaScriptExpression::QQmlJavaScriptExpression()
+extern "C" Q_DECL_EXPORT
+QQmlJavaScriptExpression *ritual_ZN24QQmlJavaScriptExpressionC1Ev() {
+  return new CuteQQmlJavaScriptExpression();
+}
+
 //  QQmlJavaScriptExpression::~QQmlJavaScriptExpression()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlJavaScriptExpressionD1Ev(
@@ -146,6 +152,17 @@ QV4::ReturnedValue ritual_ZN24QQmlJavaScriptExpression8evaluateEPN3QV48CallDataE
     QV4::CallData *callData,
     bool *isUndefined) {
   return self->evaluate(callData, isUndefined);
+}
+
+//  bool QQmlJavaScriptExpression::evaluate(void **a, const QMetaType *types,
+//      int argc)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN24QQmlJavaScriptExpression8evaluateEPPvPK9QMetaTypei(
+    QQmlJavaScriptExpression *self,
+    void **a,
+    const QMetaType *types,
+    int argc) {
+  return self->evaluate(a, types, argc);
 }
 
 //  bool QQmlJavaScriptExpression::notifyOnValueChanged() const
@@ -211,6 +228,31 @@ extern "C" Q_DECL_EXPORT
 QQmlContext *ritual_ZNK24QQmlJavaScriptExpression13publicContextEv(
     const QQmlJavaScriptExpression *self) {
   return self->publicContext();
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlJavaScriptExpression::context() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZNK24QQmlJavaScriptExpression7contextEv(
+    const QQmlJavaScriptExpression *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->context());
+}
+
+//  void QQmlJavaScriptExpression::setContext(const
+//      QQmlRefPointer<QQmlContextData> &context)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlJavaScriptExpression10setContextERK14QQmlRefPointerI15QQmlContextDataE(
+    QQmlJavaScriptExpression *self,
+    const QQmlRefPointer<QQmlContextData> *context) {
+  self->setContext(*context);
+}
+
+//  void QQmlJavaScriptExpression::insertIntoList(QQmlJavaScriptExpression
+//      **listHead)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlJavaScriptExpression14insertIntoListEPPS_(
+    QQmlJavaScriptExpression *self,
+    QQmlJavaScriptExpression **listHead) {
+  self->insertIntoList(listHead);
 }
 
 //  QV4::Function *QQmlJavaScriptExpression::function() const
@@ -301,6 +343,24 @@ bool ritual_ZNK24QQmlJavaScriptExpression27mustCaptureBindablePropertyEv(
   return self->mustCaptureBindableProperty();
 }
 
+//  QV4::ReturnedValue QQmlJavaScriptExpression::evalFunction(const
+//      QQmlRefPointer<QQmlContextData> &ctxt, QObject *scope, const QString
+//      &code, const QString &filename, quint16 line)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN24QQmlJavaScriptExpression12evalFunctionERK14QQmlRefPointerI15QQmlContextDataEP7QObjectRK7QStringS9_t(
+    const QQmlRefPointer<QQmlContextData> *ctxt,
+    QObject *scope,
+    const QString *code,
+    const QString *filename,
+    quint16 line) {
+  return QQmlJavaScriptExpression::evalFunction(
+      *ctxt,
+      scope,
+      *code,
+      *filename,
+      line);
+}
+
 //  QQmlEngine *QQmlJavaScriptExpression::engine() const
 extern "C" Q_DECL_EXPORT
 QQmlEngine *ritual_ZNK24QQmlJavaScriptExpression6engineEv(
@@ -336,6 +396,20 @@ QPropertyChangeTrigger *ritual_ZN24QQmlJavaScriptExpression29allocatePropertyCha
   return self->allocatePropertyChangeTrigger(target, propertyIndex);
 }
 
+//  void QQmlJavaScriptExpression::createQmlBinding(const
+//      QQmlRefPointer<QQmlContextData> &ctxt, QObject *scope, const QString
+//      &code, const QString &filename, quint16 line)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlJavaScriptExpression16createQmlBindingERK14QQmlRefPointerI15QQmlContextDataEP7QObjectRK7QStringS9_t(
+    QQmlJavaScriptExpression *self,
+    const QQmlRefPointer<QQmlContextData> *ctxt,
+    QObject *scope,
+    const QString *code,
+    const QString *filename,
+    quint16 line) {
+  self->createQmlBinding(*ctxt, scope, *code, *filename, line);
+}
+
 //  void QQmlJavaScriptExpression::setupFunction(QV4::ExecutionContext
 //      *qmlContext, QV4::Function *f)
 extern "C" Q_DECL_EXPORT
@@ -344,6 +418,15 @@ void ritual_ZN24QQmlJavaScriptExpression13setupFunctionEPN3QV416ExecutionContext
     QV4::ExecutionContext *qmlContext,
     QV4::Function *f) {
   self->setupFunction(qmlContext, f);
+}
+
+//  void QQmlJavaScriptExpression::setCompilationUnit(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &compilationUnit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlJavaScriptExpression18setCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEE(
+    QQmlJavaScriptExpression *self,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *compilationUnit) {
+  self->setCompilationUnit(*compilationUnit);
 }
 
 //  a Python function taken by a CuteQQmlJavaScriptExpression, for the
@@ -383,4 +466,12 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK24QQmlJavaScriptExpression27mustCaptureBindablePropertyEv(
     const QQmlJavaScriptExpression *self) {
   return self->QQmlJavaScriptExpression::mustCaptureBindableProperty();
+}
+
+//  a QQmlRefPointer<QQmlContextData> a ritual of QQmlJavaScriptExpression
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJavaScriptExpression__QQmlRefPointer_QQmlContextData(
+    QQmlRefPointer<QQmlContextData> *self) {
+  delete self;
 }

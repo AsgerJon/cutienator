@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK23QQuickTimelineAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTimelineAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickTimelineAnimation11qt_metacastEPKc(
+    QQuickTimelineAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTimelineAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickTimelineAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTimelineAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTimelineAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickTimelineAnimation2trEPKcS1_i(
@@ -45,6 +64,20 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK23QQuickTimelineAnimation8pingPongEv(
     const QQuickTimelineAnimation *self) {
   return self->pingPong();
+}
+
+//  void QQuickTimelineAnimation::pingPongChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTimelineAnimation15pingPongChangedEv(
+    QQuickTimelineAnimation *self) {
+  self->pingPongChanged();
+}
+
+//  void QQuickTimelineAnimation::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTimelineAnimation8finishedEv(
+    QQuickTimelineAnimation *self) {
+  self->finished();
 }
 
 //  void QQuickTimelineAnimation::handleStarted()

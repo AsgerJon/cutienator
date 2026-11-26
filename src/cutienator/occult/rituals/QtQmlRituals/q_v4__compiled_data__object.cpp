@@ -96,6 +96,13 @@ int ritual_ZN3QV412CompiledData6Object37calculateSizeExcludingSignalsAndEnumsEii
       nRequiredPropertyExtraData);
 }
 
+//  const quint32_le *QV4::CompiledData::Object::functionOffsetTable() const
+extern "C" Q_DECL_EXPORT
+const quint32_le *ritual_ZNK3QV412CompiledData6Object19functionOffsetTableEv(
+    const QV4::CompiledData::Object *self) {
+  return self->functionOffsetTable();
+}
+
 //  const Property *QV4::CompiledData::Object::propertyTable() const
 extern "C" Q_DECL_EXPORT
 const QV4::CompiledData::Property *ritual_ZNK3QV412CompiledData6Object13propertyTableEv(
@@ -140,6 +147,14 @@ const QV4::CompiledData::InlineComponent *ritual_ZNK3QV412CompiledData6Object17i
     const QV4::CompiledData::Object *self,
     int idx) {
   return self->inlineComponentAt(idx);
+}
+
+//  const quint32_le
+//      *QV4::CompiledData::Object::namedObjectsInComponentTable() const
+extern "C" Q_DECL_EXPORT
+const quint32_le *ritual_ZNK3QV412CompiledData6Object28namedObjectsInComponentTableEv(
+    const QV4::CompiledData::Object *self) {
+  return self->namedObjectsInComponentTable();
 }
 
 //  const InlineComponent *QV4::CompiledData::Object::inlineComponentTable()
@@ -259,6 +274,70 @@ const QV4::CompiledData::Alias *ritual_ZNK3QV412CompiledData6Object10aliasesEndE
   return self->aliasesEnd();
 }
 
+//  EnumIterator QV4::CompiledData::Object::enumsBegin() const
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::Object::EnumIterator *ritual_ZNK3QV412CompiledData6Object10enumsBeginEv(
+    const QV4::CompiledData::Object *self) {
+  return new QV4::CompiledData::Object::EnumIterator(self->enumsBegin());
+}
+
+//  EnumIterator QV4::CompiledData::Object::enumsEnd() const
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::Object::EnumIterator *ritual_ZNK3QV412CompiledData6Object8enumsEndEv(
+    const QV4::CompiledData::Object *self) {
+  return new QV4::CompiledData::Object::EnumIterator(self->enumsEnd());
+}
+
+//  SignalIterator QV4::CompiledData::Object::signalsBegin() const
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::Object::SignalIterator *ritual_ZNK3QV412CompiledData6Object12signalsBeginEv(
+    const QV4::CompiledData::Object *self) {
+  return new QV4::CompiledData::Object::SignalIterator(self->signalsBegin());
+}
+
+//  SignalIterator QV4::CompiledData::Object::signalsEnd() const
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::Object::SignalIterator *ritual_ZNK3QV412CompiledData6Object10signalsEndEv(
+    const QV4::CompiledData::Object *self) {
+  return new QV4::CompiledData::Object::SignalIterator(self->signalsEnd());
+}
+
+//  InlineComponentIterator
+//      QV4::CompiledData::Object::inlineComponentsBegin() const
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::Object::InlineComponentIterator *ritual_ZNK3QV412CompiledData6Object21inlineComponentsBeginEv(
+    const QV4::CompiledData::Object *self) {
+  return new QV4::CompiledData::Object::InlineComponentIterator(
+      self->inlineComponentsBegin());
+}
+
+//  InlineComponentIterator QV4::CompiledData::Object::inlineComponentsEnd()
+//      const
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::Object::InlineComponentIterator *ritual_ZNK3QV412CompiledData6Object19inlineComponentsEndEv(
+    const QV4::CompiledData::Object *self) {
+  return new QV4::CompiledData::Object::InlineComponentIterator(
+      self->inlineComponentsEnd());
+}
+
+//  RequiredPropertyExtraDataIterator
+//      QV4::CompiledData::Object::requiredPropertyExtraDataBegin() const
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::Object::RequiredPropertyExtraDataIterator *ritual_ZNK3QV412CompiledData6Object30requiredPropertyExtraDataBeginEv(
+    const QV4::CompiledData::Object *self) {
+  return new QV4::CompiledData::Object::RequiredPropertyExtraDataIterator(
+      self->requiredPropertyExtraDataBegin());
+}
+
+//  RequiredPropertyExtraDataIterator
+//      QV4::CompiledData::Object::requiredPropertyExtraDataEnd() const
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::Object::RequiredPropertyExtraDataIterator *ritual_ZNK3QV412CompiledData6Object28requiredPropertyExtraDataEndEv(
+    const QV4::CompiledData::Object *self) {
+  return new QV4::CompiledData::Object::RequiredPropertyExtraDataIterator(
+      self->requiredPropertyExtraDataEnd());
+}
+
 //  int QV4::CompiledData::Object::namedObjectsInComponentCount() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK3QV412CompiledData6Object28namedObjectsInComponentCountEv(
@@ -270,5 +349,37 @@ int ritual_ZNK3QV412CompiledData6Object28namedObjectsInComponentCountEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV412CompiledData6ObjectD1Ev(
     QV4::CompiledData::Object *self) {
+  delete self;
+}
+
+//  a QV4::CompiledData::Object::EnumIterator a ritual of
+//      QV4::CompiledData::Object gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_CompiledData_Object__QV4_CompiledData_Object_EnumIterator(
+    QV4::CompiledData::Object::EnumIterator *self) {
+  delete self;
+}
+
+//  a QV4::CompiledData::Object::SignalIterator a ritual of
+//      QV4::CompiledData::Object gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_CompiledData_Object__QV4_CompiledData_Object_SignalIterator(
+    QV4::CompiledData::Object::SignalIterator *self) {
+  delete self;
+}
+
+//  a QV4::CompiledData::Object::InlineComponentIterator a ritual of
+//      QV4::CompiledData::Object gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_CompiledData_Object__QV4_CompiledData_Object_InlineComponentIterator(
+    QV4::CompiledData::Object::InlineComponentIterator *self) {
+  delete self;
+}
+
+//  a QV4::CompiledData::Object::RequiredPropertyExtraDataIterator a ritual
+//      of QV4::CompiledData::Object gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_CompiledData_Object__QV4_CompiledData_Object_RequiredPropertyExtraDataIterator(
+    QV4::CompiledData::Object::RequiredPropertyExtraDataIterator *self) {
   delete self;
 }

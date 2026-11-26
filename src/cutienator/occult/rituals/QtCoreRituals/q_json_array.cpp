@@ -6,11 +6,19 @@
 #include <QtCore/qjsonvalue.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QJsonValue>
 
 //  QJsonArray::QJsonArray()
 extern "C" Q_DECL_EXPORT
 QJsonArray *ritual_ZN10QJsonArrayC1Ev() {
   return new QJsonArray();
+}
+
+//  QJsonArray::QJsonArray(std::initializer_list<QJsonValue> args)
+extern "C" Q_DECL_EXPORT
+QJsonArray *ritual_ZN10QJsonArrayC1ESt16initializer_listI10QJsonValueE(
+    const std::initializer_list<QJsonValue> *args) {
+  return new QJsonArray(*args);
 }
 
 //  QJsonArray::~QJsonArray()
@@ -23,6 +31,28 @@ void ritual_ZN10QJsonArrayD1Ev(QJsonArray *self) {
 extern "C" Q_DECL_EXPORT
 QJsonArray *ritual_ZN10QJsonArrayC1ERKS_(const QJsonArray *other) {
   return new QJsonArray(*other);
+}
+
+//  QJsonArray &QJsonArray::operator=(const QJsonArray &other)
+extern "C" Q_DECL_EXPORT
+QJsonArray *ritual_ZN10QJsonArrayaSERKS_(
+    QJsonArray *self,
+    const QJsonArray *other) {
+  return &(self->operator=(*other));
+}
+
+//  QJsonArray::QJsonArray(QJsonArray &&other)
+extern "C" Q_DECL_EXPORT
+QJsonArray *ritual_ZN10QJsonArrayC1EOS_(QJsonArray *other) {
+  return new QJsonArray(std::move(*other));
+}
+
+//  QJsonArray &QJsonArray::operator=(QJsonArray &&other)
+extern "C" Q_DECL_EXPORT
+QJsonArray *ritual_ZN10QJsonArrayaSEOS_(
+    QJsonArray *self,
+    QJsonArray *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  QJsonArray QJsonArray::fromStringList(const QStringList &list)
@@ -162,6 +192,12 @@ QJsonValue *ritual_ZNK10QJsonArrayixEx(const QJsonArray *self, qsizetype i) {
   return new QJsonValue(self->operator[](i));
 }
 
+//  void QJsonArray::swap(QJsonArray &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QJsonArray4swapERS_(QJsonArray *self, QJsonArray *other) {
+  self->swap(*other);
+}
+
 //  iterator QJsonArray::begin()
 extern "C" Q_DECL_EXPORT
 QJsonArray::iterator *ritual_ZN10QJsonArray5beginEv(QJsonArray *self) {
@@ -247,6 +283,14 @@ void ritual_ZN10QJsonArraypLERK10QJsonValue(
     QJsonArray *self,
     const QJsonValue *v) {
   self->operator+=(*v);
+}
+
+//  QJsonArray &QJsonArray::operator<<(const QJsonValue &v)
+extern "C" Q_DECL_EXPORT
+QJsonArray *ritual_ZN10QJsonArraylsERK10QJsonValue(
+    QJsonArray *self,
+    const QJsonValue *v) {
+  return &(self->operator<<(*v));
 }
 
 //  void QJsonArray::push_back(const QJsonValue &t)

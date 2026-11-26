@@ -6,6 +6,15 @@
   ],
   "rows": {
     "ritual_ZN3QV419ExecutableAllocator10AllocationC1Ev": ["address"],
+    "ritual_ZNK3QV419ExecutableAllocator10Allocation11memoryStartEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV419ExecutableAllocator10Allocation10memorySizeEv": [
+      "size_t", "address"
+    ],
+    "ritual_ZNK3QV419ExecutableAllocator10Allocation21exceptionHandlerStartEv": [
+      "address", "address"
+    ],
     "ritual_ZN3QV419ExecutableAllocator10Allocation10invalidateEv": [
       "nothing", "address"
     ],
@@ -14,6 +23,15 @@
     ],
     "ritual_ZN3QV419ExecutableAllocator10AllocationD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN3QV419ExecutableAllocator10Allocation5splitEm": [
+      "address", "address", "size_t"
+    ],
+    "ritual_ZN3QV419ExecutableAllocator10Allocation9mergeNextEPS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV419ExecutableAllocator10Allocation13mergePreviousEPS0_": [
+      "bool", "address", "address"
     ]
   }
 }

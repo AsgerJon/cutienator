@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQmlRangeFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlRangeFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQmlRangeFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQmlRangeFilter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -27,6 +33,8 @@
     "ritual_ZNK15QQmlRangeFilter24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
       "bool", "address", "int", "address", "address"
     ],
+    "ritual_ZN15QQmlRangeFilter14minimumChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQmlRangeFilter14maximumChangedEv": ["nothing", "address"],
     "ritual_ZN15QQmlRangeFilter6d_funcEv": ["address", "address"],
     "ritual_ZNK15QQmlRangeFilter6d_funcEv": ["address", "address"],
     "ritual_take_QQmlRangeFilter": ["bool", "address", "chars", "address"],

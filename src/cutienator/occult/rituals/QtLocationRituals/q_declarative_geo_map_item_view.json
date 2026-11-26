@@ -8,6 +8,12 @@
     "ritual_ZNK26QDeclarativeGeoMapItemView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QDeclarativeGeoMapItemView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QDeclarativeGeoMapItemView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -59,6 +65,21 @@
       "nothing", "address"
     ],
     "ritual_ZN26QDeclarativeGeoMapItemView10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView12modelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView15delegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView22autoFitViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView24incubateDelegatesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView26delegateModelAccessChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN26QDeclarativeGeoMapItemView14destroyingItemEP7QObject": [

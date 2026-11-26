@@ -35,6 +35,111 @@ inline QSvgStyleSelector::~QSvgStyleSelector()
 {
 }
 
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 90, as _ZNK17QSvgStyleSelector10isNullNodeEN4QCss13StyleSelector7NodePtrE
+inline bool QSvgStyleSelector::isNullNode(NodePtr node) const
+{
+    return !node.ptr;
+}
+
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 95, as _ZNK17QSvgStyleSelector10parentNodeEN4QCss13StyleSelector7NodePtrE
+inline QCss::StyleSelector::NodePtr QSvgStyleSelector::parentNode(NodePtr node) const
+{
+    QSvgNode *n = svgNode(node);
+    NodePtr newNode;
+    newNode.ptr = 0;
+    newNode.id = 0;
+    if (n) {
+        QSvgNode *svgParent = n->parent();
+        if (svgParent) {
+            newNode.ptr = svgParent;
+        }
+    }
+    return newNode;
+}
+
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 127, as _ZNK17QSvgStyleSelector13duplicateNodeEN4QCss13StyleSelector7NodePtrE
+inline QCss::StyleSelector::NodePtr QSvgStyleSelector::duplicateNode(NodePtr node) const
+{
+    NodePtr n;
+    n.ptr = node.ptr;
+    n.id  = node.id;
+    return n;
+}
+
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 65, as _ZNK17QSvgStyleSelector13hasAttributesEN4QCss13StyleSelector7NodePtrE
+inline bool QSvgStyleSelector::hasAttributes(NodePtr node) const
+{
+    QSvgNode *n = svgNode(node);
+    return (n &&
+            (!n->nodeId().isEmpty() || !n->xmlClass().isEmpty()));
+}
+
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 53, as _ZNK17QSvgStyleSelector14attributeValueEN4QCss13StyleSelector7NodePtrERKNS0_17AttributeSelectorE
+inline QString QSvgStyleSelector::attributeValue(NodePtr node, const QCss::AttributeSelector &asel) const
+{
+    const QString &name = asel.name;
+    QSvgNode *n = svgNode(node);
+    if ((!n->nodeId().isEmpty() && (name == QLatin1String("id") ||
+                                    name == QLatin1String("xml:id"))))
+        return n->nodeId();
+    if (!n->xmlClass().isEmpty() && name == QLatin1String("class"))
+        return n->xmlClass();
+    return QString();
+}
+
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 45, as _ZNK17QSvgStyleSelector14nodeNameEqualsEN4QCss13StyleSelector7NodePtrERK7QString
+inline bool QSvgStyleSelector::nodeNameEquals(NodePtr node, const QString &nodeName) const
+{
+    QSvgNode *n = svgNode(node);
+    if (!n)
+        return false;
+    return QString::compare(n->typeName(), nodeName, Qt::CaseInsensitive) == 0;
+}
+
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 110, as _ZNK17QSvgStyleSelector19previousSiblingNodeEN4QCss13StyleSelector7NodePtrE
+inline QCss::StyleSelector::NodePtr QSvgStyleSelector::previousSiblingNode(NodePtr node) const
+{
+    NodePtr newNode;
+    newNode.ptr = 0;
+    newNode.id = 0;
+
+    QSvgNode *n = svgNode(node);
+    if (!n)
+        return newNode;
+    QSvgStructureNode *svgParent = nodeToStructure(n->parent());
+
+    if (svgParent) {
+        newNode.ptr = svgParent->previousSiblingNode(n);
+    }
+    return newNode;
+}
+
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 72, as _ZNK17QSvgStyleSelector7nodeIdsEN4QCss13StyleSelector7NodePtrE
+inline QStringList QSvgStyleSelector::nodeIds(NodePtr node) const
+{
+    QSvgNode *n = svgNode(node);
+    QString nid;
+    if (n)
+        nid = n->nodeId();
+    QStringList lst; lst.append(nid);
+    return lst;
+}
+
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 135, as _ZNK17QSvgStyleSelector8freeNodeEN4QCss13StyleSelector7NodePtrE
+inline void QSvgStyleSelector::freeNode(NodePtr node) const
+{
+    Q_UNUSED(node);
+}
+
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 82, as _ZNK17QSvgStyleSelector9nodeNamesEN4QCss13StyleSelector7NodePtrE
+inline QStringList QSvgStyleSelector::nodeNames(NodePtr node) const
+{
+    QSvgNode *n = svgNode(node);
+    if (n)
+        return QStringList(n->typeName());
+    return QStringList();
+}
+
 //  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 21, as _ZNK17QSvgStyleSelector7svgNodeEN4QCss13StyleSelector7NodePtrE
 inline QSvgNode *QSvgStyleSelector::svgNode(NodePtr node) const
 {
@@ -60,111 +165,6 @@ inline QSvgStructureNode *QSvgStyleSelector::svgStructure(NodePtr node) const
     QSvgNode *n = svgNode(node);
     QSvgStructureNode *st = nodeToStructure(n);
     return st;
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 45, as _ZNK17QSvgStyleSelector14nodeNameEqualsEN4QCss13StyleSelector7NodePtrERK7QString
-inline bool QSvgStyleSelector::nodeNameEquals(NodePtr node, const QString &nodeName) const
-{
-    QSvgNode *n = svgNode(node);
-    if (!n)
-        return false;
-    return QString::compare(n->typeName(), nodeName, Qt::CaseInsensitive) == 0;
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 53, as _ZNK17QSvgStyleSelector14attributeValueEN4QCss13StyleSelector7NodePtrERKNS0_17AttributeSelectorE
-inline QString QSvgStyleSelector::attributeValue(NodePtr node, const QCss::AttributeSelector &asel) const
-{
-    const QString &name = asel.name;
-    QSvgNode *n = svgNode(node);
-    if ((!n->nodeId().isEmpty() && (name == QLatin1String("id") ||
-                                    name == QLatin1String("xml:id"))))
-        return n->nodeId();
-    if (!n->xmlClass().isEmpty() && name == QLatin1String("class"))
-        return n->xmlClass();
-    return QString();
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 65, as _ZNK17QSvgStyleSelector13hasAttributesEN4QCss13StyleSelector7NodePtrE
-inline bool QSvgStyleSelector::hasAttributes(NodePtr node) const
-{
-    QSvgNode *n = svgNode(node);
-    return (n &&
-            (!n->nodeId().isEmpty() || !n->xmlClass().isEmpty()));
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 72, as _ZNK17QSvgStyleSelector7nodeIdsEN4QCss13StyleSelector7NodePtrE
-inline QStringList QSvgStyleSelector::nodeIds(NodePtr node) const
-{
-    QSvgNode *n = svgNode(node);
-    QString nid;
-    if (n)
-        nid = n->nodeId();
-    QStringList lst; lst.append(nid);
-    return lst;
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 82, as _ZNK17QSvgStyleSelector9nodeNamesEN4QCss13StyleSelector7NodePtrE
-inline QStringList QSvgStyleSelector::nodeNames(NodePtr node) const
-{
-    QSvgNode *n = svgNode(node);
-    if (n)
-        return QStringList(n->typeName());
-    return QStringList();
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 90, as _ZNK17QSvgStyleSelector10isNullNodeEN4QCss13StyleSelector7NodePtrE
-inline bool QSvgStyleSelector::isNullNode(NodePtr node) const
-{
-    return !node.ptr;
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 95, as _ZNK17QSvgStyleSelector10parentNodeEN4QCss13StyleSelector7NodePtrE
-inline QCss::StyleSelector::NodePtr QSvgStyleSelector::parentNode(NodePtr node) const
-{
-    QSvgNode *n = svgNode(node);
-    NodePtr newNode;
-    newNode.ptr = 0;
-    newNode.id = 0;
-    if (n) {
-        QSvgNode *svgParent = n->parent();
-        if (svgParent) {
-            newNode.ptr = svgParent;
-        }
-    }
-    return newNode;
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 110, as _ZNK17QSvgStyleSelector19previousSiblingNodeEN4QCss13StyleSelector7NodePtrE
-inline QCss::StyleSelector::NodePtr QSvgStyleSelector::previousSiblingNode(NodePtr node) const
-{
-    NodePtr newNode;
-    newNode.ptr = 0;
-    newNode.id = 0;
-
-    QSvgNode *n = svgNode(node);
-    if (!n)
-        return newNode;
-    QSvgStructureNode *svgParent = nodeToStructure(n->parent());
-
-    if (svgParent) {
-        newNode.ptr = svgParent->previousSiblingNode(n);
-    }
-    return newNode;
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 127, as _ZNK17QSvgStyleSelector13duplicateNodeEN4QCss13StyleSelector7NodePtrE
-inline QCss::StyleSelector::NodePtr QSvgStyleSelector::duplicateNode(NodePtr node) const
-{
-    NodePtr n;
-    n.ptr = node.ptr;
-    n.id  = node.id;
-    return n;
-}
-
-//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 135, as _ZNK17QSvgStyleSelector8freeNodeEN4QCss13StyleSelector7NodePtrE
-inline void QSvgStyleSelector::freeNode(NodePtr node) const
-{
-    Q_UNUSED(node);
 }
 //  -----------------------------------------------------------------------
 
@@ -198,7 +198,7 @@ typedef void (*CuteQSvgStyleSelectorCall7)(const void *, const QCss::StyleSelect
 class CuteQSvgStyleSelector : public QSvgStyleSelector {
 public:
   using QSvgStyleSelector::QSvgStyleSelector;
-  CuteQSvgStyleSelector(const QSvgStyleSelector &other) : QSvgStyleSelector(other) {}
+  CuteQSvgStyleSelector(const QSvgStyleSelector & other) : QSvgStyleSelector(other) {}
   void *taken[8] = {};
 
   bool take(const char *key, void *call) {

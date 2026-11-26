@@ -16,6 +16,15 @@ QStyleOptionMenuItem *ritual_ZN20QStyleOptionMenuItemC1ERKS_(
   return new QStyleOptionMenuItem(*other);
 }
 
+//  QStyleOptionMenuItem &QStyleOptionMenuItem::operator=(const
+//      QStyleOptionMenuItem &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionMenuItem *ritual_ZN20QStyleOptionMenuItemaSERKS_(
+    QStyleOptionMenuItem *self,
+    const QStyleOptionMenuItem *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionMenuItem::QStyleOptionMenuItem(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionMenuItem *ritual_ZN20QStyleOptionMenuItemC1Ei(int version) {

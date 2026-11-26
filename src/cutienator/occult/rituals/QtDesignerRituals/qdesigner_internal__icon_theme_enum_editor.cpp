@@ -860,6 +860,27 @@ const QMetaObject *ritual_ZNK18qdesigner_internal19IconThemeEnumEditor10metaObje
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::IconThemeEnumEditor::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal19IconThemeEnumEditor11qt_metacastEPKc(
+    qdesigner_internal::IconThemeEnumEditor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      qdesigner_internal::IconThemeEnumEditor::qt_metacall(QMetaObject::Cal
+//      l a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal19IconThemeEnumEditor11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::IconThemeEnumEditor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::IconThemeEnumEditor::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -868,6 +889,70 @@ QString *ritual_ZN18qdesigner_internal19IconThemeEnumEditor2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::IconThemeEnumEditor::tr(s, c, n));
+}
+
+//  qdesigner_internal::IconThemeEnumEditor::IconThemeEnumEditor(QWidget
+//      *parent, bool wantResetButton)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::IconThemeEnumEditor *ritual_ZN18qdesigner_internal19IconThemeEnumEditorC1EP7QWidgetb(
+    QWidget *parent,
+    bool wantResetButton) {
+  return new Cuteqdesigner_internal_IconThemeEnumEditor(
+      parent,
+      wantResetButton);
+}
+
+//  qdesigner_internal::IconThemeEnumEditor::~IconThemeEnumEditor()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19IconThemeEnumEditorD1Ev(
+    qdesigner_internal::IconThemeEnumEditor *self) {
+  delete self;
+}
+
+//  int qdesigner_internal::IconThemeEnumEditor::themeEnum() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18qdesigner_internal19IconThemeEnumEditor9themeEnumEv(
+    const qdesigner_internal::IconThemeEnumEditor *self) {
+  return self->themeEnum();
+}
+
+//  void qdesigner_internal::IconThemeEnumEditor::setThemeEnum(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19IconThemeEnumEditor12setThemeEnumEi(
+    qdesigner_internal::IconThemeEnumEditor *self,
+    int a0) {
+  self->setThemeEnum(a0);
+}
+
+//  QString qdesigner_internal::IconThemeEnumEditor::iconName(int e)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal19IconThemeEnumEditor8iconNameEi(
+    int e) {
+  return new QString(qdesigner_internal::IconThemeEnumEditor::iconName(e));
+}
+
+//  QComboBox
+//      *qdesigner_internal::IconThemeEnumEditor::createComboBox(QWidget
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QComboBox *ritual_ZN18qdesigner_internal19IconThemeEnumEditor14createComboBoxEP7QWidget(
+    QWidget *parent) {
+  return qdesigner_internal::IconThemeEnumEditor::createComboBox(parent);
+}
+
+//  void qdesigner_internal::IconThemeEnumEditor::edited(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19IconThemeEnumEditor6editedEi(
+    qdesigner_internal::IconThemeEnumEditor *self,
+    int a0) {
+  self->edited(a0);
+}
+
+//  void qdesigner_internal::IconThemeEnumEditor::reset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19IconThemeEnumEditor5resetEv(
+    qdesigner_internal::IconThemeEnumEditor *self) {
+  self->reset();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_IconThemeEnumEditor,

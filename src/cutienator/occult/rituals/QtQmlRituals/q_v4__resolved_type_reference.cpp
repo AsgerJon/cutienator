@@ -5,15 +5,121 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4resolvedtypereference_p.h>
-#include <QtQml/6.12.0/QtQml/private/qqmltype_p.h>
 #include <QtQml/6.12.0/QtQml/private/qqmlpropertycache_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmltype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qtyperevision.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/private/qv4resolvedtypereference_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/qqmlpropertymap.h>
+#include <QtCore/qcryptographichash.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4resolvedtypereference.cpp, line 15, as local:qv4resolvedtypereference.cpp:qtTypeInherits
+namespace QV4 {
+inline template <typename T>
+bool qtTypeInherits(const QMetaObject *mo) {
+    while (mo) {
+        if (mo == &T::staticMetaObject)
+            return true;
+        mo = mo->superClass();
+    }
+    return false;
+}
+}  // namespace QV4
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4resolvedtypereference.cpp, line 40, as _ZN3QV421ResolvedTypeReference19createPropertyCacheEv
+namespace QV4 {
+inline QQmlPropertyCache::ConstPtr ResolvedTypeReference::createPropertyCache()
+{
+    if (!m_typePropertyCache && m_type.isValid()) {
+        const QMetaObject *metaObject = m_type.metaObject();
+        if (!metaObject) // value type of non-Q_GADGET base with extension
+            metaObject = m_type.extensionMetaObject();
+        if (metaObject)
+            m_typePropertyCache = QQmlMetaType::propertyCache(metaObject, m_version);
+    }
+
+    return m_typePropertyCache;
+}
+}  // namespace QV4
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4resolvedtypereference.cpp, line 53, as _ZN3QV421ResolvedTypeReference9addToHashEP18QCryptographicHashP5QHashIy10QByteArrayE
+namespace QV4 {
+inline bool ResolvedTypeReference::addToHash(
+        QCryptographicHash *hash, QHash<quintptr, QByteArray> *checksums)
+{
+    // No need to add types from the same document to the hash.
+    if (m_isSelfReference)
+        return true;
+
+    if (m_compilationUnit) {
+        hash->addData({m_compilationUnit->unitData()->md5Checksum,
+                        sizeof(m_compilationUnit->unitData()->md5Checksum)});
+        return true;
+    }
+
+    if (QQmlPropertyCache::ConstPtr propertyCache = createPropertyCache()) {
+        bool ok = false;
+        hash->addData(propertyCache->checksum(checksums, &ok));
+        return ok;
+    }
+
+    return false;
+}
+}  // namespace QV4
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4resolvedtypereference.cpp, line 25, as _ZN3QV421ResolvedTypeReference18doDynamicTypeCheckEv
+namespace QV4 {
+inline void ResolvedTypeReference::doDynamicTypeCheck()
+{
+    const QMetaObject *mo = nullptr;
+    if (m_typePropertyCache)
+        mo = m_typePropertyCache->firstCppMetaObject();
+    else if (m_type.isValid())
+        mo = m_type.metaObject();
+    m_isFullyDynamicType = qtTypeInherits<QQmlPropertyMap>(mo);
+}
+}  // namespace QV4
+//  -----------------------------------------------------------------------
 
 //  QV4::ResolvedTypeReference::ResolvedTypeReference()
 extern "C" Q_DECL_EXPORT
 QV4::ResolvedTypeReference *ritual_ZN3QV421ResolvedTypeReferenceC1Ev() {
   return new QV4::ResolvedTypeReference();
+}
+
+//  QQmlPropertyCache::ConstPtr
+//      QV4::ResolvedTypeReference::createPropertyCache()
+extern "C" Q_DECL_EXPORT
+QQmlPropertyCache::ConstPtr *ritual_ZN3QV421ResolvedTypeReference19createPropertyCacheEv(
+    QV4::ResolvedTypeReference *self) {
+  return new QQmlPropertyCache::ConstPtr(self->createPropertyCache());
+}
+
+//  bool QV4::ResolvedTypeReference::addToHash(QCryptographicHash *hash,
+//      QHash<quintptr, QByteArray> *checksums)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN3QV421ResolvedTypeReference9addToHashEP18QCryptographicHashP5QHashIy10QByteArrayE(
+    QV4::ResolvedTypeReference *self,
+    QCryptographicHash *hash,
+    QHash<quintptr, QByteArray> *checksums) {
+  return self->addToHash(hash, checksums);
+}
+
+//  void QV4::ResolvedTypeReference::doDynamicTypeCheck()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV421ResolvedTypeReference18doDynamicTypeCheckEv(
+    QV4::ResolvedTypeReference *self) {
+  self->doDynamicTypeCheck();
 }
 
 //  QQmlType QV4::ResolvedTypeReference::type() const
@@ -29,6 +135,24 @@ void ritual_ZN3QV421ResolvedTypeReference7setTypeE8QQmlType(
     QV4::ResolvedTypeReference *self,
     const QQmlType *type) {
   self->setType(*type);
+}
+
+//  QQmlRefPointer<QV4::CompiledData::CompilationUnit>
+//      QV4::ResolvedTypeReference::compilationUnit() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QV4::CompiledData::CompilationUnit> *ritual_ZNK3QV421ResolvedTypeReference15compilationUnitEv(
+    const QV4::ResolvedTypeReference *self) {
+  return new QQmlRefPointer<QV4::CompiledData::CompilationUnit>(
+      self->compilationUnit());
+}
+
+//  void QV4::ResolvedTypeReference::setCompilationUnit(const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &unit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV421ResolvedTypeReference18setCompilationUnitERK14QQmlRefPointerINS_12CompiledData15CompilationUnitEE(
+    QV4::ResolvedTypeReference *self,
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *unit) {
+  self->setCompilationUnit(*unit);
 }
 
 //  QQmlPropertyCache::ConstPtr
@@ -91,4 +215,12 @@ void ritual_ZN3QV421ResolvedTypeReference18setIsSelfReferenceEb(
     QV4::ResolvedTypeReference *self,
     bool selfReference) {
   self->setIsSelfReference(selfReference);
+}
+
+//  a QQmlRefPointer<QV4::CompiledData::CompilationUnit> a ritual of
+//      QV4::ResolvedTypeReference gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_ResolvedTypeReference__QQmlRefPointer_QV4_CompiledData_CompilationUnit(
+    QQmlRefPointer<QV4::CompiledData::CompilationUnit> *self) {
+  delete self;
 }

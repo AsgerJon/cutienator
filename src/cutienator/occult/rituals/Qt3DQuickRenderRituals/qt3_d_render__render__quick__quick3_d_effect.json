@@ -8,14 +8,35 @@
     "ritual_ZNK10Qt3DRender6Render5Quick13Quick3DEffect10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render5Quick13Quick3DEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick13Quick3DEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render5Quick13Quick3DEffect2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick13Quick3DEffectC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render5Quick13Quick3DEffect12parentEffectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render5Quick13Quick3DEffect13techniqueListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick13Quick3DEffect13parameterListEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DRender_Render_Quick_Quick3DEffect": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Quick_Quick3DEffect__QQmlListProperty_Qt3DRender_QTechnique": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Quick_Quick3DEffect__QQmlListProperty_Qt3DRender_QParameter": [
+      "nothing", "address"
     ]
   }
 }

@@ -8,6 +8,9 @@
     "ritual_ZNK14fulltextsearch22QHelpSearchIndexWriter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN14fulltextsearch22QHelpSearchIndexWriter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_take_fulltextsearch_QHelpSearchIndexWriter": [
       "bool", "address", "chars", "address"
     ]

@@ -8,11 +8,45 @@
     "ritual_ZN3QV44Heap20QQmlValueTypeWrapper11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper4initEPKv9QMetaTypePK11QMetaObjectPNS0_6ObjectEi6QFlagsINS0_15ReferenceObject4FlagEE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "int", "int"
+    ],
+    "ritual_ZNK3QV44Heap20QQmlValueTypeWrapper8detachedEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper7destroyEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK3QV44Heap20QQmlValueTypeWrapper8metaTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper12setGadgetPtrEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap20QQmlValueTypeWrapper9gadgetPtrEv": [
       "address", "address"
     ],
     "ritual_ZNK3QV44Heap20QQmlValueTypeWrapper10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper7setDataEPKv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap20QQmlValueTypeWrapper9toVariantEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper14storagePointerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper10setVariantERK8QVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper13readReferenceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper9writeBackEi": [
+      "bool", "address", "int"
     ],
     "ritual_ZN3QV44Heap20QQmlValueTypeWrapper13setMetaObjectEPK11QMetaObject": [
       "nothing", "address", "address"

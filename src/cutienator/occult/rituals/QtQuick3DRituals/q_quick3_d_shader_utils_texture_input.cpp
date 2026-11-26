@@ -286,6 +286,25 @@ const QMetaObject *ritual_ZNK31QQuick3DShaderUtilsTextureInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsTextureInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QQuick3DShaderUtilsTextureInput11qt_metacastEPKc(
+    QQuick3DShaderUtilsTextureInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsTextureInput::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QQuick3DShaderUtilsTextureInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsTextureInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsTextureInput::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -325,6 +344,20 @@ void ritual_ZN31QQuick3DShaderUtilsTextureInput10setTextureEP15QQuick3DTexture(
     QQuick3DShaderUtilsTextureInput *self,
     QQuick3DTexture *texture) {
   self->setTexture(texture);
+}
+
+//  void QQuick3DShaderUtilsTextureInput::textureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DShaderUtilsTextureInput14textureChangedEv(
+    QQuick3DShaderUtilsTextureInput *self) {
+  self->textureChanged();
+}
+
+//  void QQuick3DShaderUtilsTextureInput::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DShaderUtilsTextureInput14enabledChangedEv(
+    QQuick3DShaderUtilsTextureInput *self) {
+  self->enabledChanged();
 }
 
 //  a Python function taken by a CuteQQuick3DShaderUtilsTextureInput, for the

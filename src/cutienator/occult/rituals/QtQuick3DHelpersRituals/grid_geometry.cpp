@@ -286,6 +286,24 @@ const QMetaObject *ritual_ZNK12GridGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *GridGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12GridGeometry11qt_metacastEPKc(
+    GridGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int GridGeometry::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12GridGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    GridGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString GridGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12GridGeometry2trEPKcS1_i(
@@ -361,6 +379,30 @@ void ritual_ZN12GridGeometry15setVerticalStepEf(
     GridGeometry *self,
     float step) {
   self->setVerticalStep(step);
+}
+
+//  void GridGeometry::horizontalLinesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12GridGeometry22horizontalLinesChangedEv(GridGeometry *self) {
+  self->horizontalLinesChanged();
+}
+
+//  void GridGeometry::verticalLinesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12GridGeometry20verticalLinesChangedEv(GridGeometry *self) {
+  self->verticalLinesChanged();
+}
+
+//  void GridGeometry::horizontalStepChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12GridGeometry21horizontalStepChangedEv(GridGeometry *self) {
+  self->horizontalStepChanged();
+}
+
+//  void GridGeometry::verticalStepChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12GridGeometry19verticalStepChangedEv(GridGeometry *self) {
+  self->verticalStepChanged();
 }
 
 //  void GridGeometry::updateData()

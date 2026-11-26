@@ -8,6 +8,12 @@
     "ritual_ZNK27QDeclarativePolylineMapItem10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QDeclarativePolylineMapItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QDeclarativePolylineMapItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -62,6 +68,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN27QDeclarativePolylineMapItem4lineEv": ["address", "address"],
+    "ritual_ZN27QDeclarativePolylineMapItem11pathChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN27QDeclarativePolylineMapItem32updateAfterLinePropertiesChangedEv": [
       "nothing", "address"
     ],

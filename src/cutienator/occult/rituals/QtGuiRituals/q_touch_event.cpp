@@ -17,6 +17,7 @@ typedef void (*CuteQTouchEventCall5)(const void *, bool, int *);
 class CuteQTouchEvent : public QTouchEvent {
 public:
   using QTouchEvent::QTouchEvent;
+  CuteQTouchEvent(const QTouchEvent & other) : QTouchEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -113,6 +114,20 @@ public:
     QPointerEvent::setAccepted(accepted);
   }
 };
+
+//  QTouchEvent::QTouchEvent(const QTouchEvent &a0)
+extern "C" Q_DECL_EXPORT
+QTouchEvent *ritual_ZN11QTouchEventC1ERKS_(const QTouchEvent *a0) {
+  return new CuteQTouchEvent(*a0);
+}
+
+//  QTouchEvent &QTouchEvent::operator=(const QTouchEvent &other)
+extern "C" Q_DECL_EXPORT
+QTouchEvent *ritual_ZN11QTouchEventaSERKS_(
+    QTouchEvent *self,
+    const QTouchEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QTouchEvent *QTouchEvent::clone() const
 extern "C" Q_DECL_EXPORT

@@ -5,5 +5,16 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore11QTaskLoggerC1EPNS_25QSystemInformationServiceERKNS_5JobIdENS0_4TypeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore11QTaskLoggerC1EPNS_25QSystemInformationServiceEjjNS0_4TypeE": [
+      "address", "address", "unsigned int", "unsigned int", "int"
+    ],
+    "ritual_ZN8Qt3DCore11QTaskLoggerD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore11QTaskLogger3endEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN8Qt3DCore11QTaskLogger7restartEv": ["long long", "address"]
   }
 }

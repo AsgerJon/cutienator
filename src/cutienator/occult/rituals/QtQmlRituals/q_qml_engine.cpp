@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/qqmlengine.h, Qt 6.12.0. Changes made here are lost.
+//  QtQml/qqmlengine.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 4. Kept as it is when the
+//  generator runs again.
+#include <QtCore/qglobal.h>
 #include <QtQml/QtQml>
 #include <QtQml/qqmlengine.h>
 #include <QtCore/qstring.h>
@@ -7,8 +10,10 @@
 #include <QtCore/qurl.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qmetaobject.h>
+#include <QtQml/qqmlerror.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/qjsvalue.h>
 
 //  Only a class built on QQmlEngine may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -190,6 +195,24 @@ const QMetaObject *ritual_ZNK10QQmlEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQmlEngine11qt_metacastEPKc(
+    QQmlEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlEngine::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQmlEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQmlEngine2trEPKcS1_i(
@@ -291,6 +314,21 @@ bool ritual_ZN10QQmlEngine14addNamedBundleERK7QStringS2_(
   return self->addNamedBundle(*a0, *a1);
 }
 #endif  // QT_DEPRECATED_SINCE(6, 0)
+
+#if QT_CONFIG(library)
+#if QT_DEPRECATED_SINCE(6, 4)
+//  bool QQmlEngine::importPlugin(const QString &filePath, const QString
+//      &uri, QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QQmlEngine12importPluginERK7QStringS2_P5QListI9QQmlErrorE(
+    QQmlEngine *self,
+    const QString *filePath,
+    const QString *uri,
+    QList<QQmlError> *errors) {
+  return self->importPlugin(*filePath, *uri, errors);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 4)
+#endif  // QT_CONFIG(library)
 
 #if QT_CONFIG(qml_network)
 //  void QQmlEngine::setNetworkAccessManagerFactory(QQmlNetworkAccessManagerF
@@ -508,6 +546,12 @@ void ritual_ZN10QQmlEngine11retranslateEv(QQmlEngine *self) {
   self->retranslate();
 }
 
+//  void QQmlEngine::offlineStoragePathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQmlEngine25offlineStoragePathChangedEv(QQmlEngine *self) {
+  self->offlineStoragePathChanged();
+}
+
 //  QQmlContext *QQmlEngine::contextForObject(const QObject *a0)
 extern "C" Q_DECL_EXPORT
 QQmlContext *ritual_ZN10QQmlEngine16contextForObjectEPK7QObject(
@@ -523,10 +567,38 @@ void ritual_ZN10QQmlEngine19setContextForObjectEP7QObjectP11QQmlContext(
   QQmlEngine::setContextForObject(a0, a1);
 }
 
+//  QQmlEngine::QQmlEngine(QQmlEnginePrivate &dd, QObject *p)
+extern "C" Q_DECL_EXPORT
+QQmlEngine *ritual_ZN10QQmlEngineC1ER17QQmlEnginePrivateP7QObject(
+    QQmlEnginePrivate *dd,
+    QObject *p) {
+  return new CuteQQmlEngine(*dd, p);
+}
+
 //  bool QQmlEngine::event(QEvent *a0)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN10QQmlEngine5eventEP6QEvent(QQmlEngine *self, QEvent *a0) {
   return self->event(a0);
+}
+
+//  void QQmlEngine::quit()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQmlEngine4quitEv(QQmlEngine *self) {
+  self->quit();
+}
+
+//  void QQmlEngine::exit(int retCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQmlEngine4exitEi(QQmlEngine *self, int retCode) {
+  self->exit(retCode);
+}
+
+//  void QQmlEngine::warnings(const QList<QQmlError> &warnings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQmlEngine8warningsERK5QListI9QQmlErrorE(
+    QQmlEngine *self,
+    const QList<QQmlError> *warnings) {
+  self->warnings(*warnings);
 }
 
 //  QQmlEnginePrivate *QQmlEngine::d_func()
@@ -553,4 +625,44 @@ bool ritual_take_QQmlEngine(QQmlEngine *self, const char *key, void *call) {
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN10QQmlEngine5eventEP6QEvent(QQmlEngine *self, QEvent *a0) {
   return static_cast<OwnQQmlEngine *>(self)->OwnQQmlEngine::event(a0);
+}
+
+//  QJSValue QQmlEngine::singletonInstance<QJSValue>(int qmlTypeId)
+extern "C" Q_DECL_EXPORT
+QJSValue * ritual_ZN10QQmlEngine17singletonInstanceI8QJSValueEET_i(
+    QQmlEngine *self,
+    int qmlTypeId) {
+  return new QJSValue(self->singletonInstance<QJSValue>(qmlTypeId));
+}
+
+//  QJSValue QQmlEngine::singletonInstance<QJSValue>(QAnyStringView
+//      moduleName, QAnyStringView typeName)
+extern "C" Q_DECL_EXPORT
+QJSValue * ritual_ZN10QQmlEngine17singletonInstanceI8QJSValueEET_14QAnyStringViewS3_(
+    QQmlEngine *self,
+    const QString *moduleName,
+    const QString *typeName) {
+  return new QJSValue(self->singletonInstance<QJSValue>(
+      QAnyStringView(*moduleName),
+      QAnyStringView(*typeName)));
+}
+
+//  QObject *QQmlEngine::singletonInstance<QObject *>(int qmlTypeId)
+extern "C" Q_DECL_EXPORT
+QObject * ritual_ZN10QQmlEngine17singletonInstanceIP7QObjectEET_i(
+    QQmlEngine *self,
+    int qmlTypeId) {
+  return self->singletonInstance<QObject *>(qmlTypeId);
+}
+
+//  QObject *QQmlEngine::singletonInstance<QObject *>(QAnyStringView
+//      moduleName, QAnyStringView typeName)
+extern "C" Q_DECL_EXPORT
+QObject * ritual_ZN10QQmlEngine17singletonInstanceIP7QObjectEET_14QAnyStringViewS4_(
+    QQmlEngine *self,
+    const QString *moduleName,
+    const QString *typeName) {
+  return self->singletonInstance<QObject *>(
+      QAnyStringView(*moduleName),
+      QAnyStringView(*typeName));
 }

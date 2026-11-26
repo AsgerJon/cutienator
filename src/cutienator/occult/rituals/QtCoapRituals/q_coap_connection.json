@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QCoapConnection10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QCoapConnection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QCoapConnection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QCoapConnectionD1Ev": ["nothing", "address"],
     "ritual_ZNK15QCoapConnection8isSecureEv": ["bool", "address"],
     "ritual_ZNK15QCoapConnection12securityModeEv": [
@@ -15,12 +21,25 @@
     "ritual_ZNK15QCoapConnection21securityConfigurationEv": [
       "address", "address"
     ],
+    "ritual_ZN15QCoapConnection24setSecurityConfigurationERK26QCoapSecurityConfiguration": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QCoapConnection10disconnectEv": ["nothing", "address"],
     "ritual_ZN15QCoapConnection22setUdpNetworkInterfaceERK17QNetworkInterface": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK15QCoapConnection19udpNetworkInterfaceEv": [
       "address", "address"
+    ],
+    "ritual_ZN15QCoapConnection5errorEN15QAbstractSocket11SocketErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QCoapConnection9readyReadERK10QByteArrayRK12QHostAddress": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QCoapConnection5boundEv": ["nothing", "address"],
+    "ritual_ZN15QCoapConnection28securityConfigurationChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN15QCoapConnection18startToSendRequestEv": [
       "nothing", "address"

@@ -2,8 +2,11 @@
 //  Qt3DCore/qgeometry.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DCore/qgeometry.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DCore::QGeometry that Python can take functions over in. Every Qt3DCore::QGeometry
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +182,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore9QGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore9QGeometry11qt_metacastEPKc(
+    Qt3DCore::QGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QGeometry::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore9QGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore9QGeometry2trEPKcS2_i(
@@ -186,6 +208,26 @@ QString *ritual_ZN8Qt3DCore9QGeometry2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QGeometry::tr(s, c, n));
+}
+
+//  Qt3DCore::QGeometry::QGeometry(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QGeometry *ritual_ZN8Qt3DCore9QGeometryC1EPNS_5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QGeometry(parent);
+}
+
+//  Qt3DCore::QGeometry::~QGeometry()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore9QGeometryD1Ev(Qt3DCore::QGeometry *self) {
+  delete self;
+}
+
+//  QList<QAttribute *> Qt3DCore::QGeometry::attributes() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QAttribute *> *ritual_ZNK8Qt3DCore9QGeometry10attributesEv(
+    const Qt3DCore::QGeometry *self) {
+  return new QList<Qt3DCore::QAttribute *>(self->attributes());
 }
 
 //  void Qt3DCore::QGeometry::addAttribute(Qt3DCore::QAttribute *attribute)
@@ -203,6 +245,72 @@ void ritual_ZN8Qt3DCore9QGeometry15removeAttributeEPNS_10QAttributeE(
     Qt3DCore::QGeometry *self,
     Qt3DCore::QAttribute *attribute) {
   self->removeAttribute(attribute);
+}
+
+//  QAttribute *Qt3DCore::QGeometry::boundingVolumePositionAttribute() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK8Qt3DCore9QGeometry31boundingVolumePositionAttributeEv(
+    const Qt3DCore::QGeometry *self) {
+  return self->boundingVolumePositionAttribute();
+}
+
+//  QVector3D Qt3DCore::QGeometry::minExtent() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK8Qt3DCore9QGeometry9minExtentEv(
+    const Qt3DCore::QGeometry *self) {
+  return new QVector3D(self->minExtent());
+}
+
+//  QVector3D Qt3DCore::QGeometry::maxExtent() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK8Qt3DCore9QGeometry9maxExtentEv(
+    const Qt3DCore::QGeometry *self) {
+  return new QVector3D(self->maxExtent());
+}
+
+//  void Qt3DCore::QGeometry::setBoundingVolumePositionAttribute(QAttribute
+//      *boundingVolumePositionAttribute)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore9QGeometry34setBoundingVolumePositionAttributeEPNS_10QAttributeE(
+    Qt3DCore::QGeometry *self,
+    Qt3DCore::QAttribute *boundingVolumePositionAttribute) {
+  self->setBoundingVolumePositionAttribute(boundingVolumePositionAttribute);
+}
+
+//  void
+//      Qt3DCore::QGeometry::boundingVolumePositionAttributeChanged(QAttribut
+//      e *boundingVolumePositionAttribute)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore9QGeometry38boundingVolumePositionAttributeChangedEPNS_10QAttributeE(
+    Qt3DCore::QGeometry *self,
+    Qt3DCore::QAttribute *boundingVolumePositionAttribute) {
+  self->boundingVolumePositionAttributeChanged(
+      boundingVolumePositionAttribute);
+}
+
+//  void Qt3DCore::QGeometry::minExtentChanged(const QVector3D &minExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore9QGeometry16minExtentChangedERK9QVector3D(
+    Qt3DCore::QGeometry *self,
+    const QVector3D *minExtent) {
+  self->minExtentChanged(*minExtent);
+}
+
+//  void Qt3DCore::QGeometry::maxExtentChanged(const QVector3D &maxExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore9QGeometry16maxExtentChangedERK9QVector3D(
+    Qt3DCore::QGeometry *self,
+    const QVector3D *maxExtent) {
+  self->maxExtentChanged(*maxExtent);
+}
+
+//  Qt3DCore::QGeometry::QGeometry(QGeometryPrivate &dd, Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QGeometry *ritual_ZN8Qt3DCore9QGeometryC1ERNS_16QGeometryPrivateEPNS_5QNodeE(
+    Qt3DCore::QGeometryPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QGeometry(*dd, parent);
 }
 
 //  QGeometryPrivate *Qt3DCore::QGeometry::d_func()
@@ -227,4 +335,11 @@ bool ritual_take_Qt3DCore_QGeometry(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DCore_QGeometry *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DCore::QAttribute *> a ritual of Qt3DCore::QGeometry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QGeometry__QList_Qt3DCore_QAttribute(
+    QList<Qt3DCore::QAttribute *> *self) {
+  delete self;
 }

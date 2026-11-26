@@ -7,7 +7,9 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qbrush.h>
@@ -35,6 +37,7 @@ typedef int (*CuteQStandardItemCall4)(const void *, int *);
 class CuteQStandardItem : public QStandardItem {
 public:
   using QStandardItem::QStandardItem;
+  CuteQStandardItem(const QStandardItem & other) : QStandardItem(other) {}
   void *taken[5] = {};
 
   bool take(const char *key, void *call) {
@@ -785,6 +788,55 @@ QStandardItem *ritual_ZNK13QStandardItem5cloneEv(const QStandardItem *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK13QStandardItem4typeEv(const QStandardItem *self) {
   return self->type();
+}
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QStandardItem::read(QDataStream &in)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStandardItem4readER11QDataStream(
+    QStandardItem *self,
+    QDataStream *in) {
+  self->read(*in);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QStandardItem::write(QDataStream &out) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QStandardItem5writeER11QDataStream(
+    const QStandardItem *self,
+    QDataStream *out) {
+  self->write(*out);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+//  bool QStandardItem::operator<(const QStandardItem &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QStandardItemltERKS_(
+    const QStandardItem *self,
+    const QStandardItem *other) {
+  return self->operator<(*other);
+}
+
+//  QStandardItem::QStandardItem(const QStandardItem &other)
+extern "C" Q_DECL_EXPORT
+QStandardItem *ritual_ZN13QStandardItemC1ERKS_(const QStandardItem *other) {
+  return new CuteQStandardItem(*other);
+}
+
+//  QStandardItem::QStandardItem(QStandardItemPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QStandardItem *ritual_ZN13QStandardItemC1ER20QStandardItemPrivate(
+    QStandardItemPrivate *dd) {
+  return new CuteQStandardItem(*dd);
+}
+
+//  QStandardItem &QStandardItem::operator=(const QStandardItem &other)
+extern "C" Q_DECL_EXPORT
+QStandardItem *ritual_ZN13QStandardItemaSERKS_(
+    QStandardItem *self,
+    const QStandardItem *other) {
+  return &(self->operator=(*other));
 }
 
 //  void QStandardItem::emitDataChanged()

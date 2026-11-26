@@ -67,6 +67,35 @@ inline void QQueuedMetaCallEvent::allocArgs()
     d.args_ = static_cast<void **>(memory);
 }
 
+//  from src/corelib/kernel/qobject.cpp, line 659, as _ZN20QQueuedMetaCallEvent13copyArgValuesEiPKPKN9QtPrivate18QMetaTypeInterfaceEPKPKv
+inline void QQueuedMetaCallEvent::copyArgValues(int argCount, const QtPrivate::QMetaTypeInterface * const *argTypes,
+                                                const void * const *argValues)
+{
+    allocArgs();
+    void **args = d.args_;
+    QMetaType *types = reinterpret_cast<QMetaType *>(d.args_ + d.nargs_);
+    int inplaceIndex = 0;
+
+    if (argCount) {
+        types[0] = QMetaType(); // return type
+        args[0] = nullptr; // return value pointer
+    }
+    // no return value
+
+    for (int n = 1; n < argCount; ++n) {
+        types[n] = QMetaType(argTypes[n]);
+        if (typeFitsInPlace(types[n]) && inplaceIndex < InplaceValuesCapacity) {
+            // Copy-construct in place
+            void *where = &valuesPrealloc_[inplaceIndex++].storage;
+            types[n].construct(where, argValues[n]);
+            args[n] = where;
+        } else {
+            // Allocate and copy-construct
+            args[n] = types[n].create(argValues[n]);
+        }
+    }
+}
+
 //  from src/corelib/kernel/qobject.cpp, line 690, as _ZN20QQueuedMetaCallEvent15typeFitsInPlaceE9QMetaType
 inline bool QQueuedMetaCallEvent::typeFitsInPlace(const QMetaType type)
 {
@@ -136,6 +165,53 @@ public:
   }
 };
 
+//  QQueuedMetaCallEvent::QQueuedMetaCallEvent(ushort method_offset, ushort
+//      method_relative, QObjectPrivate::StaticMetaCallFunction callFunction,
+//      const QObject *sender, int signalId, int argCount, const
+//      QtPrivate::QMetaTypeInterface *const *argTypes, const void *const
+//      *argValues)
+extern "C" Q_DECL_EXPORT
+QQueuedMetaCallEvent *ritual_ZN20QQueuedMetaCallEventC1EttPFvP7QObjectN11QMetaObject4CallEiPPvEPKS0_iiPKPKN9QtPrivate18QMetaTypeInterfaceEPKPKv(
+    ushort method_offset,
+    ushort method_relative,
+    void *callFunction,
+    const QObject *sender,
+    int signalId,
+    int argCount,
+    const QtPrivate::QMetaTypeInterface *const *argTypes,
+    const void *const *argValues) {
+  return new CuteQQueuedMetaCallEvent(
+      method_offset,
+      method_relative,
+      reinterpret_cast<QObjectPrivate::StaticMetaCallFunction>(callFunction),
+      sender,
+      signalId,
+      argCount,
+      argTypes,
+      argValues);
+}
+
+//  QQueuedMetaCallEvent::QQueuedMetaCallEvent(QtPrivate::QSlotObjectBase
+//      *slotObj, const QObject *sender, int signalId, int argCount, const
+//      QtPrivate::QMetaTypeInterface *const *argTypes, const void *const
+//      *argValues)
+extern "C" Q_DECL_EXPORT
+QQueuedMetaCallEvent *ritual_ZN20QQueuedMetaCallEventC1EPN9QtPrivate15QSlotObjectBaseEPK7QObjectiiPKPKNS0_18QMetaTypeInterfaceEPKPKv(
+    QtPrivate::QSlotObjectBase *slotObj,
+    const QObject *sender,
+    int signalId,
+    int argCount,
+    const QtPrivate::QMetaTypeInterface *const *argTypes,
+    const void *const *argValues) {
+  return new CuteQQueuedMetaCallEvent(
+      slotObj,
+      sender,
+      signalId,
+      argCount,
+      argTypes,
+      argValues);
+}
+
 //  QQueuedMetaCallEvent::~QQueuedMetaCallEvent()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQueuedMetaCallEventD1Ev(QQueuedMetaCallEvent *self) {
@@ -147,6 +223,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQueuedMetaCallEvent9allocArgsEv(
     QQueuedMetaCallEvent *self) {
   self->allocArgs();
+}
+
+//  void QQueuedMetaCallEvent::copyArgValues(int argCount, const
+//      QtPrivate::QMetaTypeInterface *const *argTypes, const void *const
+//      *argValues)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQueuedMetaCallEvent13copyArgValuesEiPKPKN9QtPrivate18QMetaTypeInterfaceEPKPKv(
+    QQueuedMetaCallEvent *self,
+    int argCount,
+    const QtPrivate::QMetaTypeInterface *const *argTypes,
+    const void *const *argValues) {
+  self->copyArgValues(argCount, argTypes, argValues);
 }
 
 //  bool QQueuedMetaCallEvent::typeFitsInPlace(const QMetaType type)

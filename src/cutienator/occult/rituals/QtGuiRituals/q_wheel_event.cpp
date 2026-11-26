@@ -26,6 +26,7 @@ typedef void (*CuteQWheelEventCall5)(const void *, bool, int *);
 class CuteQWheelEvent : public QWheelEvent {
 public:
   using QWheelEvent::QWheelEvent;
+  CuteQWheelEvent(const QWheelEvent & other) : QWheelEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -138,6 +139,20 @@ public:
     QPointerEvent::setAccepted(accepted);
   }
 };
+
+//  QWheelEvent::QWheelEvent(const QWheelEvent &a0)
+extern "C" Q_DECL_EXPORT
+QWheelEvent *ritual_ZN11QWheelEventC1ERKS_(const QWheelEvent *a0) {
+  return new CuteQWheelEvent(*a0);
+}
+
+//  QWheelEvent &QWheelEvent::operator=(const QWheelEvent &other)
+extern "C" Q_DECL_EXPORT
+QWheelEvent *ritual_ZN11QWheelEventaSERKS_(
+    QWheelEvent *self,
+    const QWheelEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QWheelEvent *QWheelEvent::clone() const
 extern "C" Q_DECL_EXPORT

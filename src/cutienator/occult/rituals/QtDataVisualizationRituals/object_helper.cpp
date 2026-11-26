@@ -9,7 +9,11 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qlist.h>
+#include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDataVisualization/private/meshloader_p.h>
+#include <QtDataVisualization/private/vertexindexer_p.h>
+#include <QtDataVisualization/private/objecthelper_p.h>
 #include <QtDataVisualization/private/abstractobjecthelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -19,6 +23,25 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 16, as local:objecthelper.cpp:ObjectHelperRef
+struct ObjectHelperRef {
+    int refCount;
+    ObjectHelper *obj;
+};
+
+//  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 24, as _ZN12ObjectHelperD2Ev
+inline ObjectHelper::~ObjectHelper()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 43, as _ZN20AbstractObjectHelper5uvBufEv
+inline GLuint AbstractObjectHelper::uvBuf()
+{
+    if (!m_meshDataLoaded)
+        qFatal("No loaded object");
+    return m_uvbuffer;
+}
 
 //  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 8, as _ZN20AbstractObjectHelperC2Ev
 inline AbstractObjectHelper::AbstractObjectHelper()
@@ -44,6 +67,36 @@ inline AbstractObjectHelper::~AbstractObjectHelper()
 }
 //  -----------------------------------------------------------------------
 
+//  A ObjectHelper that Python can take functions over in. Every ObjectHelper
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef GLuint (*CuteObjectHelperCall0)(const void *, int *);
+class CuteObjectHelper : public ObjectHelper {
+public:
+  using ObjectHelper::ObjectHelper;
+  CuteObjectHelper(const ObjectHelper & other) : ObjectHelper(other) {}
+  void *taken[1] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN20AbstractObjectHelper5uvBufEv")) {
+      taken[0] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  GLuint AbstractObjectHelper::uvBuf()
+  GLuint uvBuf() override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteObjectHelperCall0 call = reinterpret_cast<CuteObjectHelperCall0>(taken[0]);
+      GLuint given = call(this, &handled);
+      if (handled) return given;
+    }
+    return AbstractObjectHelper::uvBuf();
+  }
+};
+
 //  ObjectHelper::~ObjectHelper()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12ObjectHelperD1Ev(ObjectHelper *self) {
@@ -54,6 +107,13 @@ void ritual_ZN12ObjectHelperD1Ev(ObjectHelper *self) {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12ObjectHelper10objectFileEv(ObjectHelper *self) {
   return new QString(self->objectFile());
+}
+
+//  const QList<GLuint> &ObjectHelper::indices() const
+extern "C" Q_DECL_EXPORT
+const QList<GLuint> *ritual_ZNK12ObjectHelper7indicesEv(
+    const ObjectHelper *self) {
+  return &(self->indices());
 }
 
 //  const QList<QVector3D> &ObjectHelper::indexedvertices() const
@@ -75,4 +135,14 @@ extern "C" Q_DECL_EXPORT
 QList<QVector3D> *ritual_ZNK12ObjectHelper14indexedNormalsEv(
     const ObjectHelper *self) {
   return new QList<QVector3D>(self->indexedNormals());
+}
+
+//  a Python function taken by a CuteObjectHelper, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_ObjectHelper(
+    ObjectHelper *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteObjectHelper *>(self)->take(key, call);
 }

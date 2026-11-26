@@ -229,6 +229,22 @@ const QMetaObject *ritual_ZNK9QTextList10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTextList::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QTextList11qt_metacastEPKc(QTextList *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextList::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QTextList11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextList *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTextList::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QTextList2trEPKcS1_i(
@@ -312,6 +328,19 @@ void ritual_ZN9QTextList9setFormatERK15QTextListFormat(
 extern "C" Q_DECL_EXPORT
 QTextListFormat *ritual_ZNK9QTextList6formatEv(const QTextList *self) {
   return new QTextListFormat(self->format());
+}
+
+//  QTextListPrivate *QTextList::d_func()
+extern "C" Q_DECL_EXPORT
+QTextListPrivate *ritual_ZN9QTextList6d_funcEv(QTextList *self) {
+  return self->d_func();
+}
+
+//  const QTextListPrivate *QTextList::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTextListPrivate *ritual_ZNK9QTextList6d_funcEv(
+    const QTextList *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQTextList, for the function named by the

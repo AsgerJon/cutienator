@@ -6,9 +6,13 @@
 #if QT_CONFIG(qml_delegate_model)
 #if QT_CONFIG(qml_object_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_delegate_model)
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlinstantiator_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlinstantiator_p_p.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlchangeset_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

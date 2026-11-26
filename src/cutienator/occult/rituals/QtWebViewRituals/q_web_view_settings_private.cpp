@@ -58,6 +58,12 @@ void ritual_ZN23QWebViewSettingsPrivateD1Ev(QWebViewSettingsPrivate *self) {
   delete self;
 }
 
+//  QWebViewSettingsPrivate::QWebViewSettingsPrivate()
+extern "C" Q_DECL_EXPORT
+QWebViewSettingsPrivate *ritual_ZN23QWebViewSettingsPrivateC1Ev() {
+  return new CuteQWebViewSettingsPrivate();
+}
+
 //  a Python function taken by a CuteQWebViewSettingsPrivate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

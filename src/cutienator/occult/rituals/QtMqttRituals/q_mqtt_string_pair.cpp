@@ -74,3 +74,11 @@ bool ritual_ZNK15QMqttStringPairneERKS_(
     const QMqttStringPair *other) {
   return self->operator!=(*other);
 }
+
+//  QMqttStringPair &QMqttStringPair::operator=(const QMqttStringPair &a0)
+extern "C" Q_DECL_EXPORT
+QMqttStringPair *ritual_ZN15QMqttStringPairaSERKS_(
+    QMqttStringPair *self,
+    const QMqttStringPair *a0) {
+  return &(self->operator=(*a0));
+}

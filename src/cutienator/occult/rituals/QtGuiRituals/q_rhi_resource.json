@@ -17,6 +17,9 @@
       "unsigned long long", "address"
     ],
     "ritual_ZNK12QRhiResource3rhiEv": ["address", "address"],
+    "ritual_ZN12QRhiResourceC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
     "ritual_take_QRhiResource": ["bool", "address", "chars", "address"]
   }
 }

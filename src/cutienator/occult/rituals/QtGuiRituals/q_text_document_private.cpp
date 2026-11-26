@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qtextdocument_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtGui/6.12.0/QtGui/private/qtextdocument_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the ritual of the copy constructor
+//  is taken out, as Qt's library does not offer it (undefined
+//  reference). Kept as it is when the generator runs again.
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/qtextdocument.h>
 #include <QtGui/QtGui>
@@ -401,6 +403,34 @@ int ritual_ZNK20QTextDocumentPrivate9numBlocksEv(
   return self->numBlocks();
 }
 
+//  const BlockMap &QTextDocumentPrivate::blockMap() const
+extern "C" Q_DECL_EXPORT
+const QTextDocumentPrivate::BlockMap *ritual_ZNK20QTextDocumentPrivate8blockMapEv(
+    const QTextDocumentPrivate *self) {
+  return &(self->blockMap());
+}
+
+//  const FragmentMap &QTextDocumentPrivate::fragmentMap() const
+extern "C" Q_DECL_EXPORT
+const QTextDocumentPrivate::FragmentMap *ritual_ZNK20QTextDocumentPrivate11fragmentMapEv(
+    const QTextDocumentPrivate *self) {
+  return &(self->fragmentMap());
+}
+
+//  BlockMap &QTextDocumentPrivate::blockMap()
+extern "C" Q_DECL_EXPORT
+QTextDocumentPrivate::BlockMap *ritual_ZN20QTextDocumentPrivate8blockMapEv(
+    QTextDocumentPrivate *self) {
+  return &(self->blockMap());
+}
+
+//  FragmentMap &QTextDocumentPrivate::fragmentMap()
+extern "C" Q_DECL_EXPORT
+QTextDocumentPrivate::FragmentMap *ritual_ZN20QTextDocumentPrivate11fragmentMapEv(
+    QTextDocumentPrivate *self) {
+  return &(self->fragmentMap());
+}
+
 //  const QTextBlockData *QTextDocumentPrivate::block(const QTextBlock &it)
 extern "C" Q_DECL_EXPORT
 const QTextBlockData *ritual_ZN20QTextDocumentPrivate5blockERK10QTextBlock(
@@ -714,6 +744,13 @@ extern "C" Q_DECL_EXPORT
 QTextDocumentPrivate *ritual_ZN20QTextDocumentPrivate3getEP13QTextDocument(
     QTextDocument *document) {
   return QTextDocumentPrivate::get(document);
+}
+
+//  QTextDocumentPrivate *QTextDocumentPrivate::get(QTextBlock &block)
+extern "C" Q_DECL_EXPORT
+QTextDocumentPrivate *ritual_ZN20QTextDocumentPrivate3getER10QTextBlock(
+    QTextBlock *block) {
+  return QTextDocumentPrivate::get(*block);
 }
 
 //  const QTextDocumentPrivate *QTextDocumentPrivate::get(const QTextBlock

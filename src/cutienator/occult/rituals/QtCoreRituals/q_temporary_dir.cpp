@@ -18,10 +18,32 @@ QTemporaryDir *ritual_ZN13QTemporaryDirC1ERK7QString(
   return new QTemporaryDir(*templateName);
 }
 
+//  QTemporaryDir::QTemporaryDir(QTemporaryDir &&other)
+extern "C" Q_DECL_EXPORT
+QTemporaryDir *ritual_ZN13QTemporaryDirC1EOS_(QTemporaryDir *other) {
+  return new QTemporaryDir(std::move(*other));
+}
+
+//  QTemporaryDir &QTemporaryDir::operator=(QTemporaryDir &&other)
+extern "C" Q_DECL_EXPORT
+QTemporaryDir *ritual_ZN13QTemporaryDiraSEOS_(
+    QTemporaryDir *self,
+    QTemporaryDir *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QTemporaryDir::~QTemporaryDir()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QTemporaryDirD1Ev(QTemporaryDir *self) {
   delete self;
+}
+
+//  void QTemporaryDir::swap(QTemporaryDir &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTemporaryDir4swapERS_(
+    QTemporaryDir *self,
+    QTemporaryDir *other) {
+  self->swap(*other);
 }
 
 //  bool QTemporaryDir::isValid() const

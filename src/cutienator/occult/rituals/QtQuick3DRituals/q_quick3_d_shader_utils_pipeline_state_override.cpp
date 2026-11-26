@@ -337,6 +337,27 @@ const QMetaObject *ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride10metaObj
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsPipelineStateOverride::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride11qt_metacastEPKc(
+    QQuick3DShaderUtilsPipelineStateOverride *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      QQuick3DShaderUtilsPipelineStateOverride::qt_metacall(QMetaObject::Ca
+//      ll a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsPipelineStateOverride *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsPipelineStateOverride::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -836,6 +857,148 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend7Ev(
     QQuick3DShaderUtilsPipelineStateOverride *self) {
   self->resetTargetBlend7();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::depthTestEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride23depthTestEnabledChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->depthTestEnabledChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::depthWriteEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride24depthWriteEnabledChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->depthWriteEnabledChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::blendEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19blendEnabledChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->blendEnabledChanged();
+}
+
+//  void
+//      QQuick3DShaderUtilsPipelineStateOverride::usesStencilReferenceChanged
+//      ()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride27usesStencilReferenceChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->usesStencilReferenceChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::usesScissorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride18usesScissorChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->usesScissorChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::depthFunctionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride20depthFunctionChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->depthFunctionChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::cullModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15cullModeChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->cullModeChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::polygonModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride18polygonModeChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->polygonModeChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::stencilWriteMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride23stencilWriteMaskChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->stencilWriteMaskChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::stencilReferenceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride23stencilReferenceChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->stencilReferenceChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::viewportChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15viewportChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->viewportChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::scissorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride14scissorChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->scissorChanged();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::targetBlend0Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend0ChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->targetBlend0Changed();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::targetBlend1Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend1ChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->targetBlend1Changed();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::targetBlend2Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend2ChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->targetBlend2Changed();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::targetBlend3Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend3ChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->targetBlend3Changed();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::targetBlend4Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend4ChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->targetBlend4Changed();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::targetBlend5Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend5ChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->targetBlend5Changed();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::targetBlend6Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend6ChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->targetBlend6Changed();
+}
+
+//  void QQuick3DShaderUtilsPipelineStateOverride::targetBlend7Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend7ChangedEv(
+    QQuick3DShaderUtilsPipelineStateOverride *self) {
+  self->targetBlend7Changed();
 }
 
 //  QSSGCommand *QQuick3DShaderUtilsPipelineStateOverride::cloneCommand()

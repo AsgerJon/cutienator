@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20ExtrudedTextGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN20ExtrudedTextGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20ExtrudedTextGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20ExtrudedTextGeometry2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -40,11 +46,37 @@
     "ritual_ZN20ExtrudedTextGeometry15requestFinishedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20ExtrudedTextGeometry11textChangedEv": ["nothing", "address"],
+    "ritual_ZN20ExtrudedTextGeometry11fontChangedEv": ["nothing", "address"],
+    "ritual_ZN20ExtrudedTextGeometry12depthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20ExtrudedTextGeometry12scaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20ExtrudedTextGeometry19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20ExtrudedTextGeometry13statusChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN20ExtrudedTextGeometry22scheduleGeometryUpdateEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20ExtrudedTextGeometry14updateGeometryERKNS_12GeometryDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20ExtrudedTextGeometry28generateExtrudedTextGeometryERK7QStringRK5QFontff": [
+      "address", "text", "address", "float", "float"
+    ],
+    "ritual_ZN20ExtrudedTextGeometry33generateExtrudedTextGeometryAsyncER8QPromiseINS_12GeometryDataEERK7QStringRK5QFontff": [
+      "nothing", "address", "text", "address", "float", "float"
+    ],
     "ritual_take_ExtrudedTextGeometry": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_ExtrudedTextGeometry__ExtrudedTextGeometry_GeometryData": [
+      "nothing", "address"
     ]
   }
 }

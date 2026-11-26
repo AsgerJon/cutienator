@@ -18,6 +18,7 @@ struct OwnQSqlCachedResult : QSqlCachedResult {
   using QSqlCachedResult::fetchPrevious;
   using QSqlCachedResult::fetchFirst;
   using QSqlCachedResult::fetchLast;
+  using QSqlCachedResult::virtual_hook;
   using QSqlCachedResult::detachFromResultSet;
   using QSqlCachedResult::setNumericalPrecisionPolicy;
 };
@@ -54,6 +55,15 @@ void ritual_ZN16QSqlCachedResult7cleanupEv(QSqlCachedResult *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSqlCachedResult11clearValuesEv(QSqlCachedResult *self) {
   self->clearValues();
+}
+
+//  bool QSqlCachedResult::gotoNext(ValueCache &values, int index)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSqlCachedResult8gotoNextER5QListI8QVariantEi(
+    QSqlCachedResult *self,
+    QSqlCachedResult::ValueCache *values,
+    int index) {
+  return self->gotoNext(*values, index);
 }
 
 //  QVariant QSqlCachedResult::data(int i)
@@ -102,6 +112,22 @@ bool ritual_ZN16QSqlCachedResult9fetchLastEv(QSqlCachedResult *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK16QSqlCachedResult8colCountEv(const QSqlCachedResult *self) {
   return self->colCount();
+}
+
+//  ValueCache &QSqlCachedResult::cache()
+extern "C" Q_DECL_EXPORT
+QSqlCachedResult::ValueCache *ritual_ZN16QSqlCachedResult5cacheEv(
+    QSqlCachedResult *self) {
+  return &(self->cache());
+}
+
+//  void QSqlCachedResult::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSqlCachedResult12virtual_hookEiPv(
+    QSqlCachedResult *self,
+    int id,
+    void *data) {
+  self->virtual_hook(id, data);
 }
 
 //  void QSqlCachedResult::detachFromResultSet()
@@ -175,6 +201,17 @@ bool ritual_own_ZN16QSqlCachedResult10fetchFirstEv(QSqlCachedResult *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN16QSqlCachedResult9fetchLastEv(QSqlCachedResult *self) {
   return static_cast<OwnQSqlCachedResult *>(self)->OwnQSqlCachedResult::fetchLast();
+}
+
+//  void QSqlCachedResult::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN16QSqlCachedResult12virtual_hookEiPv(
+    QSqlCachedResult *self,
+    int id,
+    void *data) {
+  static_cast<OwnQSqlCachedResult *>(self)->OwnQSqlCachedResult::virtual_hook(
+      id,
+      data);
 }
 
 //  void QSqlCachedResult::detachFromResultSet()

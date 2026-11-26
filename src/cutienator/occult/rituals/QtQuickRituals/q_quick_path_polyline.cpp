@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK18QQuickPathPolyline10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathPolyline::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickPathPolyline11qt_metacastEPKc(
+    QQuickPathPolyline *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathPolyline::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickPathPolyline11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathPolyline *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathPolyline::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickPathPolyline2trEPKcS1_i(
@@ -66,6 +85,29 @@ extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK18QQuickPathPolyline5startEv(
     const QQuickPathPolyline *self) {
   return new QPointF(self->start());
+}
+
+//  void QQuickPathPolyline::addToPath(QPainterPath &path, const
+//      QQuickPathData &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathPolyline9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickPathPolyline *self,
+    QPainterPath *path,
+    const QQuickPathData *data) {
+  self->addToPath(*path, *data);
+}
+
+//  void QQuickPathPolyline::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathPolyline11pathChangedEv(QQuickPathPolyline *self) {
+  self->pathChanged();
+}
+
+//  void QQuickPathPolyline::startChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathPolyline12startChangedEv(
+    QQuickPathPolyline *self) {
+  self->startChanged();
 }
 
 #endif  // QT_CONFIG(quick_path)

@@ -48,6 +48,55 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/widgets/qlineedit_p.cpp, line 438, as _ZN19QLineEditIconButton12updateCursorEv
+#if QT_CONFIG(toolbutton)
+inline void QLineEditIconButton::updateCursor()
+{
+#ifndef QT_NO_CURSOR
+    setCursor(qFuzzyCompare(m_opacity, qreal(1.0)) || !parentWidget() ? QCursor(Qt::ArrowCursor) : parentWidget()->cursor());
+#endif
+}
+#endif  // QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 362, as _ZN19QLineEditIconButton11actionEventEP12QActionEvent
+#if QT_CONFIG(toolbutton)
+inline void QLineEditIconButton::actionEvent(QActionEvent *e)
+{
+    switch (e->type()) {
+    case QEvent::ActionChanged: {
+        const auto *action = e->action();
+        if (isVisibleTo(parentWidget()) != action->isVisible()) {
+            setVisible(action->isVisible());
+            if (QLineEditPrivate *lep = lineEditPrivate())
+                lep->positionSideWidgets();
+        }
+    }
+        break;
+    default:
+        break;
+    }
+    QToolButton::actionEvent(e);
+}
+#endif  // QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 347, as _ZN19QLineEditIconButton10paintEventEP11QPaintEvent
+#if QT_CONFIG(toolbutton)
+inline void QLineEditIconButton::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    QIcon::Mode mode = QIcon::Disabled;
+    if (isEnabled())
+        mode = isDown() ? QIcon::Active : QIcon::Normal;
+    const QLineEditPrivate *lep = lineEditPrivate();
+    const int iconWidth = lep ? lep->sideWidgetParameters().iconSize : 16;
+    const QSize iconSize(iconWidth, iconWidth);
+    QRect pixmapRect = QRect(QPoint(0, 0), iconSize);
+    pixmapRect.moveCenter(rect().center());
+    painter.setOpacity(m_opacity);
+    icon().paint(&painter, pixmapRect, Qt::AlignCenter, mode, QIcon::Off);
+}
+#endif  // QT_CONFIG(toolbutton)
+
 //  from src/widgets/widgets/qlineedit_p.cpp, line 521, as _ZN16QLineEditPrivate19positionSideWidgetsEv
 inline void QLineEditPrivate::positionSideWidgets()
 {
@@ -122,72 +171,6 @@ inline void QLineEditIconButton::setHideWithText(bool hide)
 #endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(toolbutton)
 
-//  from src/widgets/widgets/qlineedit_p.cpp, line 362, as _ZN19QLineEditIconButton11actionEventEP12QActionEvent
-#if QT_CONFIG(toolbutton)
-inline void QLineEditIconButton::actionEvent(QActionEvent *e)
-{
-    switch (e->type()) {
-    case QEvent::ActionChanged: {
-        const auto *action = e->action();
-        if (isVisibleTo(parentWidget()) != action->isVisible()) {
-            setVisible(action->isVisible());
-            if (QLineEditPrivate *lep = lineEditPrivate())
-                lep->positionSideWidgets();
-        }
-    }
-        break;
-    default:
-        break;
-    }
-    QToolButton::actionEvent(e);
-}
-#endif  // QT_CONFIG(toolbutton)
-
-//  from src/widgets/widgets/qlineedit_p.cpp, line 347, as _ZN19QLineEditIconButton10paintEventEP11QPaintEvent
-#if QT_CONFIG(toolbutton)
-inline void QLineEditIconButton::paintEvent(QPaintEvent *)
-{
-    QPainter painter(this);
-    QIcon::Mode mode = QIcon::Disabled;
-    if (isEnabled())
-        mode = isDown() ? QIcon::Active : QIcon::Normal;
-    const QLineEditPrivate *lep = lineEditPrivate();
-    const int iconWidth = lep ? lep->sideWidgetParameters().iconSize : 16;
-    const QSize iconSize(iconWidth, iconWidth);
-    QRect pixmapRect = QRect(QPoint(0, 0), iconSize);
-    pixmapRect.moveCenter(rect().center());
-    painter.setOpacity(m_opacity);
-    icon().paint(&painter, pixmapRect, Qt::AlignCenter, mode, QIcon::Off);
-}
-#endif  // QT_CONFIG(toolbutton)
-
-//  from src/widgets/widgets/qlineedit_p.cpp, line 438, as _ZN19QLineEditIconButton12updateCursorEv
-#if QT_CONFIG(toolbutton)
-inline void QLineEditIconButton::updateCursor()
-{
-#ifndef QT_NO_CURSOR
-    setCursor(qFuzzyCompare(m_opacity, qreal(1.0)) || !parentWidget() ? QCursor(Qt::ArrowCursor) : parentWidget()->cursor());
-#endif
-}
-#endif  // QT_CONFIG(toolbutton)
-
-//  from src/widgets/widgets/qlineedit_p.cpp, line 400, as _ZN19QLineEditIconButton19onAnimationFinishedEv
-#if QT_CONFIG(toolbutton)
-#if QT_CONFIG(animation)
-inline void QLineEditIconButton::onAnimationFinished()
-{
-    if (shouldHideWithText() && isVisible() && m_fadingOut) {
-        hide();
-        m_fadingOut = false;
-
-        // Invalidate previous geometry to take into account new size of side widgets
-        if (auto le = lineEditPrivate())
-            le->updateGeometry_helper(true);
-    }
-}
-#endif  // QT_CONFIG(animation)
-#endif  // QT_CONFIG(toolbutton)
-
 //  from src/widgets/widgets/qlineedit_p.cpp, line 341, as _ZNK19QLineEditIconButton15lineEditPrivateEv
 #if QT_CONFIG(toolbutton)
 inline QLineEditPrivate *QLineEditIconButton::lineEditPrivate() const
@@ -210,6 +193,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK19QLineEditIconButton10metaObjectEv(
     const QLineEditIconButton *self) {
   return self->metaObject();
+}
+
+//  void *QLineEditIconButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QLineEditIconButton11qt_metacastEPKc(
+    QLineEditIconButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLineEditIconButton::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QLineEditIconButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLineEditIconButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  qreal QLineEditIconButton::opacity() const
@@ -277,24 +279,56 @@ void ritual_ZN19QLineEditIconButton10paintEventEP11QPaintEvent(
   self->paintEvent(event);
 }
 
-#if QT_CONFIG(toolbutton)
 //  void QLineEditIconButton::updateCursor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QLineEditIconButton12updateCursorEv(
     QLineEditIconButton *self) {
-  self->updateCursor();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLineEditIconButton")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateCursor()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateCursor()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // QT_CONFIG(toolbutton)
 
 #if QT_CONFIG(animation)
-#if QT_CONFIG(toolbutton)
 //  void QLineEditIconButton::onAnimationFinished()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QLineEditIconButton19onAnimationFinishedEv(
     QLineEditIconButton *self) {
-  self->onAnimationFinished();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLineEditIconButton")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onAnimationFinished()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onAnimationFinished()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // QT_CONFIG(toolbutton)
 #endif  // QT_CONFIG(animation)
 
 #if QT_CONFIG(toolbutton)

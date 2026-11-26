@@ -32,6 +32,14 @@ const QPlaceSearchRequestPrivate *ritual_ZN26QPlaceSearchRequestPrivate3getERK19
   return QPlaceSearchRequestPrivate::get(*request);
 }
 
+//  QPlaceSearchRequestPrivate
+//      *QPlaceSearchRequestPrivate::get(QPlaceSearchRequest &request)
+extern "C" Q_DECL_EXPORT
+QPlaceSearchRequestPrivate *ritual_ZN26QPlaceSearchRequestPrivate3getER19QPlaceSearchRequest(
+    QPlaceSearchRequest *request) {
+  return QPlaceSearchRequestPrivate::get(*request);
+}
+
 //  QPlaceSearchRequestPrivate::~QPlaceSearchRequestPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QPlaceSearchRequestPrivateD1Ev(

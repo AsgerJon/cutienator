@@ -68,6 +68,15 @@ Qt3DRender::Render::StateMask ritual_ZNK10Qt3DRender6Render15RenderStateImpl4mas
   return self->mask();
 }
 
+//  bool Qt3DRender::Render::RenderStateImpl::equalTo(const RenderStateImpl
+//      &renderState) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender6Render15RenderStateImpl7equalToERKS1_(
+    const Qt3DRender::Render::RenderStateImpl *self,
+    const Qt3DRender::Render::RenderStateImpl *renderState) {
+  return self->equalTo(*renderState);
+}
+
 //  void Qt3DRender::Render::RenderStateImpl::updateProperties(const
 //      QRenderState *a0)
 extern "C" Q_DECL_EXPORT

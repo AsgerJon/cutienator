@@ -31,10 +31,51 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/rhi/qrhigles2.cpp, line 6434, as _ZN13QGles2SamplerD1Ev
-inline QGles2Sampler::~QGles2Sampler()
+//  from src/gui/rhi/qrhigles2.cpp, line 3179, as local:qrhigles2.cpp:toGlMinFilter
+static inline GLenum toGlMinFilter(QRhiSampler::Filter f, QRhiSampler::Filter m)
 {
-    destroy();
+    switch (f) {
+    case QRhiSampler::Nearest:
+        if (m == QRhiSampler::None)
+            return GL_NEAREST;
+        else
+            return m == QRhiSampler::Nearest ? GL_NEAREST_MIPMAP_NEAREST : GL_NEAREST_MIPMAP_LINEAR;
+    case QRhiSampler::Linear:
+        if (m == QRhiSampler::None)
+            return GL_LINEAR;
+        else
+            return m == QRhiSampler::Nearest ? GL_LINEAR_MIPMAP_NEAREST : GL_LINEAR_MIPMAP_LINEAR;
+    default:
+        Q_UNREACHABLE_RETURN(GL_LINEAR);
+    }
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 3197, as local:qrhigles2.cpp:toGlMagFilter
+static inline GLenum toGlMagFilter(QRhiSampler::Filter f)
+{
+    switch (f) {
+    case QRhiSampler::Nearest:
+        return GL_NEAREST;
+    case QRhiSampler::Linear:
+        return GL_LINEAR;
+    default:
+        Q_UNREACHABLE_RETURN(GL_LINEAR);
+    }
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 3209, as local:qrhigles2.cpp:toGlWrapMode
+static inline GLenum toGlWrapMode(QRhiSampler::AddressMode m)
+{
+    switch (m) {
+    case QRhiSampler::Repeat:
+        return GL_REPEAT;
+    case QRhiSampler::ClampToEdge:
+        return GL_CLAMP_TO_EDGE;
+    case QRhiSampler::Mirror:
+        return GL_MIRRORED_REPEAT;
+    default:
+        Q_UNREACHABLE_RETURN(GL_CLAMP_TO_EDGE);
+    }
 }
 
 //  from src/gui/rhi/qrhigles2.cpp, line 6439, as _ZN13QGles2Sampler7destroyEv
@@ -43,6 +84,12 @@ inline void QGles2Sampler::destroy()
     QRHI_RES_RHI(QRhiGles2);
     if (rhiD)
         rhiD->unregisterResource(this);
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6434, as _ZN13QGles2SamplerD1Ev
+inline QGles2Sampler::~QGles2Sampler()
+{
+    destroy();
 }
 //  -----------------------------------------------------------------------
 
@@ -117,6 +164,12 @@ void ritual_ZN13QGles2SamplerD1Ev(QGles2Sampler *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QGles2Sampler7destroyEv(QGles2Sampler *self) {
   self->destroy();
+}
+
+//  bool QGles2Sampler::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QGles2Sampler6createEv(QGles2Sampler *self) {
+  return self->create();
 }
 
 //  a Python function taken by a CuteQGles2Sampler, for the function named by

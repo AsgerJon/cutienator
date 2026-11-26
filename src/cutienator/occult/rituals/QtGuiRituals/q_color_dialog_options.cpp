@@ -1,17 +1,40 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: added by hand, rituals for functions the generator leaves
+//  out: 2. Kept as it is when the generator runs again.
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/QSharedPointer>
+
+//  QColorDialogOptions::QColorDialogOptions(QColorDialogOptionsPrivate *dd)
+extern "C" Q_DECL_EXPORT
+QColorDialogOptions *ritual_ZN19QColorDialogOptionsC1EP26QColorDialogOptionsPrivate(
+    QColorDialogOptionsPrivate *dd) {
+  return new QColorDialogOptions(dd);
+}
 
 //  QColorDialogOptions::~QColorDialogOptions()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QColorDialogOptionsD1Ev(QColorDialogOptions *self) {
   delete self;
+}
+
+//  QSharedPointer<QColorDialogOptions> QColorDialogOptions::create()
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QColorDialogOptions> *ritual_ZN19QColorDialogOptions6createEv() {
+  return new QSharedPointer<QColorDialogOptions>(
+      QColorDialogOptions::create());
+}
+
+//  QSharedPointer<QColorDialogOptions> QColorDialogOptions::clone() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QColorDialogOptions> *ritual_ZNK19QColorDialogOptions5cloneEv(
+    const QColorDialogOptions *self) {
+  return new QSharedPointer<QColorDialogOptions>(self->clone());
 }
 
 //  QString QColorDialogOptions::windowTitle() const
@@ -94,4 +117,24 @@ void ritual_ZN19QColorDialogOptions16setStandardColorEij(
     int index,
     QRgb color) {
   QColorDialogOptions::setStandardColor(index, color);
+}
+
+//  a QSharedPointer<QColorDialogOptions> a ritual of QColorDialogOptions
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QColorDialogOptions__QSharedPointer_QColorDialogOptions(
+    QSharedPointer<QColorDialogOptions> *self) {
+  delete self;
+}
+
+//  static QRgb *QColorDialogOptions::customColors()
+extern "C" Q_DECL_EXPORT
+QRgb *ritual_ZN19QColorDialogOptions12customColorsEv() {
+  return QColorDialogOptions::customColors();
+}
+
+//  static QRgb *QColorDialogOptions::standardColors()
+extern "C" Q_DECL_EXPORT
+QRgb *ritual_ZN19QColorDialogOptions14standardColorsEv() {
+  return QColorDialogOptions::standardColors();
 }

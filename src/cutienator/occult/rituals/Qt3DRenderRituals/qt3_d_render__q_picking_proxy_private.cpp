@@ -71,6 +71,19 @@ public:
   }
 };
 
+//  Qt3DRender::QPickingProxyPrivate::QPickingProxyPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingProxyPrivate *ritual_ZN10Qt3DRender20QPickingProxyPrivateC1Ev() {
+  return new CuteQt3DRender_QPickingProxyPrivate();
+}
+
+//  Qt3DRender::QPickingProxyPrivate::~QPickingProxyPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPickingProxyPrivateD1Ev(
+    Qt3DRender::QPickingProxyPrivate *self) {
+  delete self;
+}
+
 //  QPickingProxy *Qt3DRender::QPickingProxyPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QPickingProxy *ritual_ZN10Qt3DRender20QPickingProxyPrivate6q_funcEv(
@@ -83,6 +96,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QPickingProxy *ritual_ZNK10Qt3DRender20QPickingProxyPrivate6q_funcEv(
     const Qt3DRender::QPickingProxyPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DRender::QPickingProxyPrivate::setView(Qt3DCore::QGeometryView
+//      *view)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPickingProxyPrivate7setViewEPN8Qt3DCore13QGeometryViewE(
+    Qt3DRender::QPickingProxyPrivate *self,
+    Qt3DCore::QGeometryView *view) {
+  self->setView(view);
 }
 
 //  a Python function taken by a CuteQt3DRender_QPickingProxyPrivate, for the

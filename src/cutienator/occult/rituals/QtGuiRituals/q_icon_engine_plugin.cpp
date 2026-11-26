@@ -195,6 +195,25 @@ const QMetaObject *ritual_ZNK17QIconEnginePlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QIconEnginePlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QIconEnginePlugin11qt_metacastEPKc(
+    QIconEnginePlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QIconEnginePlugin::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QIconEnginePlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QIconEnginePlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QIconEnginePlugin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QIconEnginePlugin2trEPKcS1_i(
@@ -202,6 +221,13 @@ QString *ritual_ZN17QIconEnginePlugin2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QIconEnginePlugin::tr(s, c, n));
+}
+
+//  QIconEnginePlugin::QIconEnginePlugin(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QIconEnginePlugin *ritual_ZN17QIconEnginePluginC1EP7QObject(
+    QObject *parent) {
+  return new CuteQIconEnginePlugin(parent);
 }
 
 //  QIconEnginePlugin::~QIconEnginePlugin()

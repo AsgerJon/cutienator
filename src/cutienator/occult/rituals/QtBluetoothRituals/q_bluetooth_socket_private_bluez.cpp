@@ -121,6 +121,23 @@ inline qint64 QBluetoothSocketPrivateBluez::writeData(const char *data, qint64 m
     }
 }
 
+//  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_bluez.cpp, line 572, as _ZN28QBluetoothSocketPrivateBluez8readDataEPcx
+inline qint64 QBluetoothSocketPrivateBluez::readData(char *data, qint64 maxSize)
+{
+    Q_Q(QBluetoothSocket);
+
+    if (state != QBluetoothSocket::SocketState::ConnectedState) {
+        errorString = QBluetoothSocket::tr("Cannot read while not connected");
+        q->setSocketError(QBluetoothSocket::SocketError::OperationError);
+        return -1;
+    }
+
+    if (!rxBuffer.isEmpty())
+        return rxBuffer.read(data, maxSize);
+
+    return 0;
+}
+
 //  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_bluez.cpp, line 598, as _ZN28QBluetoothSocketPrivateBluez19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE
 inline bool QBluetoothSocketPrivateBluez::setSocketDescriptor(int socketDescriptor, QBluetoothServiceInfo::Protocol socketType_,
                                            QBluetoothSocket::SocketState socketState, QBluetoothSocket::OpenMode openMode)
@@ -170,66 +187,6 @@ inline qint64 QBluetoothSocketPrivateBluez::bytesToWrite() const
 {
     return txBuffer.size();
 }
-
-//  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_bluez.cpp, line 281, as _ZN28QBluetoothSocketPrivateBluez14_q_writeNotifyEv
-inline void QBluetoothSocketPrivateBluez::_q_writeNotify()
-{
-    Q_Q(QBluetoothSocket);
-    if (connecting && state == QBluetoothSocket::SocketState::ConnectingState){
-        int errorno, len;
-        len = sizeof(errorno);
-        ::getsockopt(socket, SOL_SOCKET, SO_ERROR, &errorno, (socklen_t*)&len);
-        if(errorno) {
-            errorString = qt_error_string(errorno);
-            q->setSocketError(QBluetoothSocket::SocketError::UnknownSocketError);
-            return;
-        }
-
-        q->setSocketState(QBluetoothSocket::SocketState::ConnectedState);
-
-        connectWriteNotifier->setEnabled(false);
-        connecting = false;
-    }
-    else {
-        if (txBuffer.size() == 0) {
-            connectWriteNotifier->setEnabled(false);
-            return;
-        }
-
-        char buf[1024];
-
-        const auto size = txBuffer.read(buf, 1024);
-        const auto writtenBytes = qt_safe_write(socket, buf, size);
-        if (writtenBytes < 0) {
-            switch (errno) {
-            case EAGAIN:
-                txBuffer.ungetBlock(buf, size);
-                break;
-            default:
-                // every other case returns error
-                errorString = QBluetoothSocket::tr("Network Error: %1").arg(qt_error_string(errno)) ;
-                q->setSocketError(QBluetoothSocket::SocketError::NetworkError);
-                break;
-            }
-        } else {
-            if (writtenBytes < size) {
-                // add remainder back to buffer
-                char* remainder = buf + writtenBytes;
-                txBuffer.ungetBlock(remainder, size - writtenBytes);
-            }
-            if (writtenBytes > 0)
-                emit q->bytesWritten(writtenBytes);
-        }
-
-        if (txBuffer.size()) {
-            connectWriteNotifier->setEnabled(true);
-        }
-        else if (state == QBluetoothSocket::SocketState::ClosingState) {
-            connectWriteNotifier->setEnabled(false);
-            this->close();
-        }
-    }
-}
 //  -----------------------------------------------------------------------
 
 //  void QBluetoothSocketPrivateBluez::abort()
@@ -254,6 +211,15 @@ qint64 ritual_ZN28QBluetoothSocketPrivateBluez9writeDataEPKcx(
     const char *data,
     qint64 maxSize) {
   return self->writeData(data, maxSize);
+}
+
+//  qint64 QBluetoothSocketPrivateBluez::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN28QBluetoothSocketPrivateBluez8readDataEPcx(
+    QBluetoothSocketPrivateBluez *self,
+    char *data,
+    qint64 maxSize) {
+  return self->readData(data, maxSize);
 }
 
 //  bool QBluetoothSocketPrivateBluez::setSocketDescriptor(int
@@ -293,13 +259,6 @@ extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK28QBluetoothSocketPrivateBluez12bytesToWriteEv(
     const QBluetoothSocketPrivateBluez *self) {
   return self->bytesToWrite();
-}
-
-//  void QBluetoothSocketPrivateBluez::_q_writeNotify()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN28QBluetoothSocketPrivateBluez14_q_writeNotifyEv(
-    QBluetoothSocketPrivateBluez *self) {
-  self->_q_writeNotify();
 }
 
 #endif  // QT_CONFIG(bluez)

@@ -13,6 +13,8 @@
 #include <QtCore/qdeadlinetimer.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QAbstractEventDispatcher>
 
 //  A QEventDispatcherGlib that Python can take functions over in. Every QEventDispatcherGlib
 //  Python makes is one. Each function below asks the Python
@@ -263,6 +265,25 @@ const QMetaObject *ritual_ZNK20QEventDispatcherGlib10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QEventDispatcherGlib::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QEventDispatcherGlib11qt_metacastEPKc(
+    QEventDispatcherGlib *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QEventDispatcherGlib::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QEventDispatcherGlib11qt_metacallEN11QMetaObject4CallEiPPv(
+    QEventDispatcherGlib *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QEventDispatcherGlib::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QEventDispatcherGlib2trEPKcS1_i(
@@ -291,6 +312,15 @@ extern "C" Q_DECL_EXPORT
 QEventDispatcherGlib *ritual_ZN20QEventDispatcherGlibC1EP7QObject(
     QObject *parent) {
   return new CuteQEventDispatcherGlib(parent);
+}
+
+//  QEventDispatcherGlib::QEventDispatcherGlib(GMainContext *context, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QEventDispatcherGlib *ritual_ZN20QEventDispatcherGlibC1EP13_GMainContextP7QObject(
+    GMainContext *context,
+    QObject *parent) {
+  return new CuteQEventDispatcherGlib(context, parent);
 }
 
 //  QEventDispatcherGlib::~QEventDispatcherGlib()
@@ -327,6 +357,22 @@ void ritual_ZN20QEventDispatcherGlib24unregisterSocketNotifierEP15QSocketNotifie
   self->unregisterSocketNotifier(socketNotifier);
 }
 
+//  void QEventDispatcherGlib::registerTimer(Qt::TimerId timerId, Duration
+//      interval, Qt::TimerType timerType, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QEventDispatcherGlib13registerTimerEN2Qt7TimerIdENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS0_9TimerTypeEP7QObject(
+    QEventDispatcherGlib *self,
+    Qt::TimerId timerId,
+    long long interval,
+    Qt::TimerType timerType,
+    QObject *object) {
+  self->registerTimer(
+      timerId,
+      QAbstractEventDispatcher::Duration(interval),
+      timerType,
+      object);
+}
+
 //  bool QEventDispatcherGlib::unregisterTimer(Qt::TimerId timerId)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QEventDispatcherGlib15unregisterTimerEN2Qt7TimerIdE(
@@ -341,6 +387,25 @@ bool ritual_ZN20QEventDispatcherGlib16unregisterTimersEP7QObject(
     QEventDispatcherGlib *self,
     QObject *object) {
   return self->unregisterTimers(object);
+}
+
+//  QList<TimerInfoV2> QEventDispatcherGlib::timersForObject(QObject *object)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractEventDispatcher::TimerInfoV2> *ritual_ZNK20QEventDispatcherGlib15timersForObjectEP7QObject(
+    const QEventDispatcherGlib *self,
+    QObject *object) {
+  return new QList<QAbstractEventDispatcher::TimerInfoV2>(
+      self->timersForObject(
+          object));
+}
+
+//  Duration QEventDispatcherGlib::remainingTime(Qt::TimerId timerId) const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK20QEventDispatcherGlib13remainingTimeEN2Qt7TimerIdE(
+    const QEventDispatcherGlib *self,
+    Qt::TimerId timerId) {
+  return static_cast<long long>(self->remainingTime(timerId).count());
 }
 
 //  void QEventDispatcherGlib::wakeUp()
@@ -362,6 +427,15 @@ bool ritual_ZN20QEventDispatcherGlib16versionSupportedEv() {
   return QEventDispatcherGlib::versionSupported();
 }
 
+//  QEventDispatcherGlib::QEventDispatcherGlib(QEventDispatcherGlibPrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QEventDispatcherGlib *ritual_ZN20QEventDispatcherGlibC1ER27QEventDispatcherGlibPrivateP7QObject(
+    QEventDispatcherGlibPrivate *dd,
+    QObject *parent) {
+  return new CuteQEventDispatcherGlib(*dd, parent);
+}
+
 //  a Python function taken by a CuteQEventDispatcherGlib, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -380,6 +454,14 @@ bool ritual_own_ZN20QEventDispatcherGlib13processEventsE6QFlagsIN10QEventLoop17P
     int flags) {
   return self->QEventDispatcherGlib::processEvents(
       QFlags<QEventLoop::ProcessEventsFlag>::fromInt(flags));
+}
+
+//  a QList<QAbstractEventDispatcher::TimerInfoV2> a ritual of
+//      QEventDispatcherGlib gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QEventDispatcherGlib__QList_QAbstractEventDispatcher_TimerInfoV2(
+    QList<QAbstractEventDispatcher::TimerInfoV2> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(glib) && defined(Q_OS_UNIX)

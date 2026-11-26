@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QGraphicsBlurEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QGraphicsBlurEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QGraphicsBlurEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QGraphicsBlurEffect2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,6 +26,12 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN19QGraphicsBlurEffect12setBlurHintsE6QFlagsINS_8BlurHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsBlurEffect17blurRadiusChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QGraphicsBlurEffect16blurHintsChangedE6QFlagsINS_8BlurHintEE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN19QGraphicsBlurEffect4drawEP8QPainter": [

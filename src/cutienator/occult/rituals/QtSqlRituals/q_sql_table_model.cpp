@@ -7,7 +7,9 @@
 #include <QtSql/qsqltablemodel.h>
 #include <QtCore/qstring.h>
 #include <QtSql/qsqldatabase.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtSql/qsqlrecord.h>
 #include <QtCore/qvariant.h>
 #include <QtSql/qsqlindex.h>
@@ -1388,6 +1390,24 @@ const QMetaObject *ritual_ZNK14QSqlTableModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSqlTableModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QSqlTableModel11qt_metacastEPKc(
+    QSqlTableModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSqlTableModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QSqlTableModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSqlTableModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSqlTableModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QSqlTableModel2trEPKcS1_i(
@@ -1688,6 +1708,50 @@ bool ritual_ZN14QSqlTableModel9submitAllEv(QSqlTableModel *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSqlTableModel9revertAllEv(QSqlTableModel *self) {
   self->revertAll();
+}
+
+//  void QSqlTableModel::primeInsert(int row, QSqlRecord &record)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSqlTableModel11primeInsertEiR10QSqlRecord(
+    QSqlTableModel *self,
+    int row,
+    QSqlRecord *record) {
+  self->primeInsert(row, *record);
+}
+
+//  void QSqlTableModel::beforeInsert(QSqlRecord &record)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSqlTableModel12beforeInsertER10QSqlRecord(
+    QSqlTableModel *self,
+    QSqlRecord *record) {
+  self->beforeInsert(*record);
+}
+
+//  void QSqlTableModel::beforeUpdate(int row, QSqlRecord &record)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSqlTableModel12beforeUpdateEiR10QSqlRecord(
+    QSqlTableModel *self,
+    int row,
+    QSqlRecord *record) {
+  self->beforeUpdate(row, *record);
+}
+
+//  void QSqlTableModel::beforeDelete(int row)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSqlTableModel12beforeDeleteEi(
+    QSqlTableModel *self,
+    int row) {
+  self->beforeDelete(row);
+}
+
+//  QSqlTableModel::QSqlTableModel(QSqlTableModelPrivate &dd, QObject
+//      *parent, const QSqlDatabase &db)
+extern "C" Q_DECL_EXPORT
+QSqlTableModel *ritual_ZN14QSqlTableModelC1ER21QSqlTableModelPrivateP7QObjectRK12QSqlDatabase(
+    QSqlTableModelPrivate *dd,
+    QObject *parent,
+    const QSqlDatabase *db) {
+  return new CuteQSqlTableModel(*dd, parent, *db);
 }
 
 //  bool QSqlTableModel::updateRowInTable(int row, const QSqlRecord &values)

@@ -23,5 +23,34 @@ void ritual_ZN16QSimplexVariableD1Ev(QSimplexVariable *self) {
   delete self;
 }
 
+//  QSimplexVariable::QSimplexVariable(const QSimplexVariable &a0)
+extern "C" Q_DECL_EXPORT
+QSimplexVariable *ritual_ZN16QSimplexVariableC1ERKS_(
+    const QSimplexVariable *a0) {
+  return new QSimplexVariable(*a0);
+}
+
+//  QSimplexVariable::QSimplexVariable(QSimplexVariable &&a0)
+extern "C" Q_DECL_EXPORT
+QSimplexVariable *ritual_ZN16QSimplexVariableC1EOS_(QSimplexVariable *a0) {
+  return new QSimplexVariable(std::move(*a0));
+}
+
+//  QSimplexVariable &QSimplexVariable::operator=(const QSimplexVariable &a0)
+extern "C" Q_DECL_EXPORT
+QSimplexVariable *ritual_ZN16QSimplexVariableaSERKS_(
+    QSimplexVariable *self,
+    const QSimplexVariable *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QSimplexVariable &QSimplexVariable::operator=(QSimplexVariable &&a0)
+extern "C" Q_DECL_EXPORT
+QSimplexVariable *ritual_ZN16QSimplexVariableaSEOS_(
+    QSimplexVariable *self,
+    QSimplexVariable *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 #endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

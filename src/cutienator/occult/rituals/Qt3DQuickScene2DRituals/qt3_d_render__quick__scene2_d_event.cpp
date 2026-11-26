@@ -16,7 +16,7 @@ typedef void * (*CuteQt3DRender_Quick_Scene2DEventCall1)(const void *, int *);
 class CuteQt3DRender_Quick_Scene2DEvent : public Qt3DRender::Quick::Scene2DEvent {
 public:
   using Qt3DRender::Quick::Scene2DEvent::Scene2DEvent;
-  CuteQt3DRender_Quick_Scene2DEvent(const Qt3DRender::Quick::Scene2DEvent &other) : Qt3DRender::Quick::Scene2DEvent(other) {}
+  CuteQt3DRender_Quick_Scene2DEvent(const Qt3DRender::Quick::Scene2DEvent & other) : Qt3DRender::Quick::Scene2DEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

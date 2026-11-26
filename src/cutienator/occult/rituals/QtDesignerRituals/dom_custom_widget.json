@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN15DomCustomWidgetC1Ev": ["address"],
     "ritual_ZN15DomCustomWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZN15DomCustomWidget4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK15DomCustomWidget12elementClassEv": ["text", "address"],
     "ritual_ZN15DomCustomWidget15setElementClassERK7QString": [
       "nothing", "address", "text"

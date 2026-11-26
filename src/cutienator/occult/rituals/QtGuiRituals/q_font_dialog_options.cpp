@@ -7,11 +7,33 @@
 #include <QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/QSharedPointer>
+
+//  QFontDialogOptions::QFontDialogOptions(QFontDialogOptionsPrivate *dd)
+extern "C" Q_DECL_EXPORT
+QFontDialogOptions *ritual_ZN18QFontDialogOptionsC1EP25QFontDialogOptionsPrivate(
+    QFontDialogOptionsPrivate *dd) {
+  return new QFontDialogOptions(dd);
+}
 
 //  QFontDialogOptions::~QFontDialogOptions()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFontDialogOptionsD1Ev(QFontDialogOptions *self) {
   delete self;
+}
+
+//  QSharedPointer<QFontDialogOptions> QFontDialogOptions::create()
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QFontDialogOptions> *ritual_ZN18QFontDialogOptions6createEv() {
+  return new QSharedPointer<QFontDialogOptions>(
+      QFontDialogOptions::create());
+}
+
+//  QSharedPointer<QFontDialogOptions> QFontDialogOptions::clone() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QFontDialogOptions> *ritual_ZNK18QFontDialogOptions5cloneEv(
+    const QFontDialogOptions *self) {
+  return new QSharedPointer<QFontDialogOptions>(self->clone());
 }
 
 //  QString QFontDialogOptions::windowTitle() const
@@ -60,4 +82,11 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QFontDialogOptions7optionsEv(
     const QFontDialogOptions *self) {
   return static_cast<int>(self->options().toInt());
+}
+
+//  a QSharedPointer<QFontDialogOptions> a ritual of QFontDialogOptions gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFontDialogOptions__QSharedPointer_QFontDialogOptions(
+    QSharedPointer<QFontDialogOptions> *self) {
+  delete self;
 }

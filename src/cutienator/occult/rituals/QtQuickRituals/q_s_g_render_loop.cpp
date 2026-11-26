@@ -10,6 +10,8 @@
 #include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSet>
+#include <QtQuick/QQuickWindow>
 
 //  A QSGRenderLoop that Python can take functions over in. Every QSGRenderLoop
 //  Python makes is one. Each function below asks the Python
@@ -451,6 +453,24 @@ const QMetaObject *ritual_ZNK13QSGRenderLoop10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGRenderLoop::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QSGRenderLoop11qt_metacastEPKc(
+    QSGRenderLoop *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGRenderLoop::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QSGRenderLoop11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGRenderLoop *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGRenderLoop::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QSGRenderLoop2trEPKcS1_i(
@@ -594,6 +614,13 @@ void ritual_ZN13QSGRenderLoop12removeWindowEP12QQuickWindow(
   self->removeWindow(win);
 }
 
+//  QSet<QQuickWindow *> QSGRenderLoop::windows() const
+extern "C" Q_DECL_EXPORT
+QSet<QQuickWindow *> *ritual_ZNK13QSGRenderLoop7windowsEv(
+    const QSGRenderLoop *self) {
+  return new QSet<QQuickWindow *>(self->windows());
+}
+
 //  QSurface::SurfaceType QSGRenderLoop::windowSurfaceType() const
 extern "C" Q_DECL_EXPORT
 QSurface::SurfaceType ritual_ZNK13QSGRenderLoop17windowSurfaceTypeEv(
@@ -638,6 +665,12 @@ void ritual_ZN13QSGRenderLoop28handleContextCreationFailureEP12QQuickWindow(
     QSGRenderLoop *self,
     QQuickWindow *window) {
   self->handleContextCreationFailure(window);
+}
+
+//  void QSGRenderLoop::timeToIncubate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSGRenderLoop14timeToIncubateEv(QSGRenderLoop *self) {
+  self->timeToIncubate();
 }
 
 //  a Python function taken by a CuteQSGRenderLoop, for the function named by
@@ -693,4 +726,11 @@ bool ritual_own_ZNK13QSGRenderLoop20interleaveIncubationEv(
 extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK13QSGRenderLoop5flagsEv(const QSGRenderLoop *self) {
   return self->QSGRenderLoop::flags();
+}
+
+//  a QSet<QQuickWindow *> a ritual of QSGRenderLoop gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSGRenderLoop__QSet_QQuickWindow(
+    QSet<QQuickWindow *> *self) {
+  delete self;
 }

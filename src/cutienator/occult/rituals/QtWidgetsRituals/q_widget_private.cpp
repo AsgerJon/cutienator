@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qwidget_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qwidget_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: added by hand, instances of templates of the class: 3.
+//  Kept as it is when the generator runs again.
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qwidget.h>
 #include <QtWidgets/QtWidgets>
@@ -26,6 +27,7 @@
 #include <QtGui/qimage.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <string>
 
 //  A QWidgetPrivate that Python can take functions over in. Every QWidgetPrivate
 //  Python makes is one. Each function below asks the Python
@@ -889,6 +891,38 @@ void ritual_ZN14QWidgetPrivate13setSystemClipEP12QPaintEnginedRK7QRegion(
   self->setSystemClip(paintEngine, devicePixelRatio, *region);
 }
 
+//  void QWidgetPrivate::subtractOpaqueChildren(QRegion &rgn, const QRect
+//      &clipRect) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QWidgetPrivate22subtractOpaqueChildrenER7QRegionRK5QRect(
+    const QWidgetPrivate *self,
+    QRegion *rgn,
+    const QRect *clipRect) {
+  self->subtractOpaqueChildren(*rgn, *clipRect);
+}
+
+//  void QWidgetPrivate::subtractOpaqueSiblings(QRegion &source, bool
+//      *hasDirtySiblingsAbove, bool alsoNonOpaque) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QWidgetPrivate22subtractOpaqueSiblingsER7QRegionPbb(
+    const QWidgetPrivate *self,
+    QRegion *source,
+    bool *hasDirtySiblingsAbove,
+    bool alsoNonOpaque) {
+  self->subtractOpaqueSiblings(
+      *source,
+      hasDirtySiblingsAbove,
+      alsoNonOpaque);
+}
+
+//  void QWidgetPrivate::clipToEffectiveMask(QRegion &region) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QWidgetPrivate19clipToEffectiveMaskER7QRegion(
+    const QWidgetPrivate *self,
+    QRegion *region) {
+  self->clipToEffectiveMask(*region);
+}
+
 //  void QWidgetPrivate::updateIsOpaque()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QWidgetPrivate14updateIsOpaqueEv(QWidgetPrivate *self) {
@@ -1237,6 +1271,14 @@ void ritual_ZN14QWidgetPrivate17setEnabled_helperEb(
     QWidgetPrivate *self,
     bool a0) {
   self->setEnabled_helper(a0);
+}
+
+//  void QWidgetPrivate::adjustFlags(Qt::WindowFlags &flags, QWidget *w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWidgetPrivate11adjustFlagsER6QFlagsIN2Qt10WindowTypeEEP7QWidget(
+    Qt::WindowFlags *flags,
+    QWidget *w) {
+  QWidgetPrivate::adjustFlags(*flags, w);
 }
 
 //  void QWidgetPrivate::updateFrameStrut()
@@ -1759,6 +1801,13 @@ void ritual_ZN14QWidgetPrivate21setWidgetParentHelperEP7QObjectS1_(
   QWidgetPrivate::setWidgetParentHelper(widgetAsObject, newParent);
 }
 
+//  std::string QWidgetPrivate::flagsForDumping() const
+extern "C" Q_DECL_EXPORT
+std::string *ritual_ZNK14QWidgetPrivate15flagsForDumpingB5cxx11Ev(
+    const QWidgetPrivate *self) {
+  return new std::string(self->flagsForDumping());
+}
+
 //  QWidget *QWidgetPrivate::closestParentWidgetWithWindowHandle() const
 extern "C" Q_DECL_EXPORT
 QWidget *ritual_ZNK14QWidgetPrivate35closestParentWidgetWithWindowHandleEv(
@@ -2040,4 +2089,34 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN14QWidgetPrivate24toggleStereoTargetBufferEv(
     QWidgetPrivate *self) {
   return self->QWidgetPrivate::toggleStereoTargetBuffer();
+}
+
+//  a std::string a ritual of QWidgetPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWidgetPrivate__std_string(std::string *self) {
+  delete self;
+}
+
+//  void QWidgetPrivate::update<QRect>(QRect t)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWidgetPrivate6updateI5QRectEEvT_(
+    QWidgetPrivate *self,
+    const QRect *t) {
+  self->update<QRect>(*t);
+}
+
+//  void QWidgetPrivate::update<QRegion>(QRegion t)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWidgetPrivate6updateI7QRegionEEvT_(
+    QWidgetPrivate *self,
+    const QRegion *t) {
+  self->update<QRegion>(*t);
+}
+
+//  void QWidgetPrivate::invalidateBackingStore<QRect>(const QRect &)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWidgetPrivate22invalidateBackingStoreI5QRectEEvRKT_(
+    QWidgetPrivate *self,
+    const QRect *t) {
+  self->invalidateBackingStore<QRect>(*t);
 }

@@ -24,6 +24,308 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/painting/qpathclipper.cpp, line 33, as local:qpathclipper.cpp:fuzzyIsNull
+static inline bool fuzzyIsNull(qreal d)
+{
+    if (sizeof(qreal) == sizeof(double))
+        return qAbs(d) <= 1e-12;
+    else
+        return qAbs(d) <= 1e-5f;
+}
+
+//  from src/gui/painting/qpathclipper.cpp, line 48, as local:qpathclipper.cpp:dot
+static qreal dot(const QPointF &a, const QPointF &b)
+{
+    return a.x() * b.x() + a.y() * b.y();
+}
+
+//  from src/gui/painting/qpathclipper.cpp, line 53, as local:qpathclipper.cpp:normalize
+static void normalize(double &x, double &y)
+{
+    double reciprocal = 1 / qSqrt(x * x + y * y);
+    x *= reciprocal;
+    y *= reciprocal;
+}
+
+//  from src/gui/painting/qpathclipper.cpp, line 60, as local:qpathclipper.cpp:QIntersection
+struct QIntersection
+{
+    qreal alphaA;
+    qreal alphaB;
+
+    QPointF pos;
+};
+
+//  from src/gui/painting/qpathclipper.cpp, line 69, as local:qpathclipper.cpp:QIntersectionFinder
+class QIntersectionFinder
+{
+public:
+    void produceIntersections(QPathSegments &segments);
+    bool hasIntersections(const QPathSegments &a, const QPathSegments &b) const;
+
+private:
+    bool linesIntersect(const QLineF &a, const QLineF &b) const;
+};
+
+//  from src/gui/painting/qpathclipper.cpp, line 146, as local:qpathclipper.cpp:QIntersectionFinder::hasIntersections
+inline bool QIntersectionFinder::hasIntersections(const QPathSegments &a, const QPathSegments &b) const
+{
+    if (a.segments() == 0 || b.segments() == 0)
+        return false;
+
+    const QRectF &rb0 = b.elementBounds(0);
+
+    qreal minX = rb0.left();
+    qreal minY = rb0.top();
+    qreal maxX = rb0.right();
+    qreal maxY = rb0.bottom();
+
+    for (int i = 1; i < b.segments(); ++i) {
+        const QRectF &r = b.elementBounds(i);
+        minX = qMin(minX, r.left());
+        minY = qMin(minY, r.top());
+        maxX = qMax(maxX, r.right());
+        maxY = qMax(maxY, r.bottom());
+    }
+
+    QRectF rb(minX, minY, maxX - minX, maxY - minY);
+
+    for (int i = 0; i < a.segments(); ++i) {
+        const QRectF &r1 = a.elementBounds(i);
+
+        if (r1.left() > rb.right() || rb.left() > r1.right())
+            continue;
+        if (r1.top() > rb.bottom() || rb.top() > r1.bottom())
+            continue;
+
+        for (int j = 0; j < b.segments(); ++j) {
+            const QRectF &r2 = b.elementBounds(j);
+
+            if (r1.left() > r2.right() || r2.left() > r1.right())
+                continue;
+            if (r1.top() > r2.bottom() || r2.top() > r1.bottom())
+                continue;
+
+            if (linesIntersect(a.lineAt(i), b.lineAt(j)))
+                return true;
+        }
+    }
+
+    return false;
+}
+
+//  from src/gui/painting/qpathclipper.cpp, line 193, as local:qpathclipper.cpp:TreeNode
+namespace {
+struct TreeNode
+{
+    qreal splitLeft;
+    qreal splitRight;
+    bool leaf;
+
+    int lowestLeftIndex;
+    int lowestRightIndex;
+
+    union {
+        struct {
+            int first;
+            int last;
+        } interval;
+        struct {
+            int left;
+            int right;
+        } children;
+    } index;
+};
+}  // namespace
+
+//  from src/gui/painting/qpathclipper.cpp, line 214, as local:qpathclipper.cpp:RectF
+namespace {
+struct RectF
+{
+    qreal x1;
+    qreal y1;
+    qreal x2;
+    qreal y2;
+};
+}  // namespace
+
+//  from src/gui/painting/qpathclipper.cpp, line 559, as local:qpathclipper.cpp:QKdPointTree
+class QKdPointTree
+{
+public:
+    enum Traversal {
+        TraverseBoth,
+        TraverseLeft,
+        TraverseRight,
+        TraverseNone
+    };
+
+    struct Node {
+        int point;
+        int id;
+
+        Node *left;
+        Node *right;
+    };
+
+    QKdPointTree(const QPathSegments &segments)
+        : m_segments(&segments)
+        , m_nodes(m_segments->points())
+        , m_id(0)
+    {
+        m_nodes.resize(m_segments->points());
+
+        for (int i = 0; i < m_nodes.size(); ++i) {
+            m_nodes.at(i).point = i;
+            m_nodes.at(i).id = -1;
+        }
+
+        m_rootNode = build(0, m_nodes.size());
+    }
+
+    int build(int begin, int end, int depth = 0);
+
+    Node *rootNode()
+    {
+        return &m_nodes.at(m_rootNode);
+    }
+
+    inline int nextId()
+    {
+        return m_id++;
+    }
+
+private:
+    const QPathSegments *m_segments;
+    QDataBuffer<Node> m_nodes;
+
+    int m_rootNode;
+    int m_id;
+};
+
+//  from src/gui/painting/qpathclipper.cpp, line 627, as local:qpathclipper.cpp:component
+static inline qreal component(const QPointF &point, unsigned int i)
+{
+    Q_ASSERT(i < 2);
+    const qreal components[] = { point.x(), point.y() };
+    return components[i];
+}
+
+//  from src/gui/painting/qpathclipper.cpp, line 670, as local:qpathclipper.cpp:QKdPointFinder
+class QKdPointFinder
+{
+public:
+    QKdPointFinder(int point, const QPathSegments &segments, QKdPointTree &tree)
+        : m_result(-1)
+        , m_segments(&segments)
+        , m_tree(&tree)
+    {
+        pointComponents[0] = segments.pointAt(point).x();
+        pointComponents[1] = segments.pointAt(point).y();
+    }
+
+    inline QKdPointTree::Traversal operator()(QKdPointTree::Node &node, int depth)
+    {
+        if (m_result != -1)
+            return QKdPointTree::TraverseNone;
+
+        const QPointF &nodePoint = m_segments->pointAt(node.point);
+
+        const qreal pivotComponents[] = { nodePoint.x(), nodePoint.y() };
+
+        const qreal pivot = pivotComponents[depth & 1];
+        const qreal value = pointComponents[depth & 1];
+
+        if (fuzzyIsNull(pivot - value)) {
+            const qreal pivot2 = pivotComponents[(depth + 1) & 1];
+            const qreal value2 = pointComponents[(depth + 1) & 1];
+
+            if (fuzzyIsNull(pivot2 - value2)) {
+                if (node.id < 0)
+                    node.id = m_tree->nextId();
+
+                m_result = node.id;
+                return QKdPointTree::TraverseNone;
+            } else
+                return QKdPointTree::TraverseBoth;
+        } else if (value < pivot) {
+            return QKdPointTree::TraverseLeft;
+        } else {
+            return QKdPointTree::TraverseRight;
+        }
+    }
+
+    int result() const
+    {
+        return m_result;
+    }
+
+private:
+    qreal pointComponents[2];
+    int m_result;
+    const QPathSegments *m_segments;
+    QKdPointTree *m_tree;
+};
+
+//  from src/gui/painting/qpathclipper.cpp, line 1092, as local:qpathclipper.cpp:commonEdge
+static int commonEdge(const QWingedEdge &list, int a, int b)
+{
+    const QPathVertex *ap = list.vertex(a);
+    Q_ASSERT(ap);
+
+    const QPathVertex *bp = list.vertex(b);
+    Q_ASSERT(bp);
+
+    if (ap->edge < 0 || bp->edge < 0)
+        return -1;
+
+    QWingedEdge::TraversalStatus status;
+    status.edge = ap->edge;
+    status.direction = list.edge(status.edge)->directionTo(a);
+    status.traversal = QPathEdge::RightTraversal;
+
+    do {
+        const QPathEdge *ep = list.edge(status.edge);
+
+        if ((ep->first == a && ep->second == b)
+            || (ep->first == b && ep->second == a))
+            return status.edge;
+
+        status = list.next(status);
+        status.flip();
+    } while (status.edge != ap->edge);
+
+    return -1;
+}
+
+//  from src/gui/painting/qpathclipper.cpp, line 1122, as local:qpathclipper.cpp:computeAngle
+static double computeAngle(const QPointF &v)
+{
+#if 1
+    if (v.x() == 0) {
+        return v.y() <= 0 ? 0 : 64.;
+    } else if (v.y() == 0) {
+        return v.x() <= 0 ? 32. : 96.;
+    }
+
+    double vx = v.x();
+    double vy = v.y();
+    normalize(vx, vy);
+    if (vy < 0) {
+        if (vx < 0) { // 0 - 32
+            return -32. * vx;
+        } else { // 96 - 128
+            return 128. - 32. * vx;
+        }
+    } else { // 32 - 96
+        return 64. + 32. * vx;
+    }
+#else
+    // doesn't seem to be robust enough
+    return qAtan2(v.x(), v.y()) + Q_PI;
+#endif
+}
+
 //  from src/gui/painting/qpathclipper.cpp, line 872, as _ZN13QPathSegments7setPathERK12QPainterPath
 inline void QPathSegments::setPath(const QPainterPath &path)
 {
@@ -78,6 +380,93 @@ inline QWingedEdge::TraversalStatus QWingedEdge::next(const QWingedEdge::Travers
         result.flip();
 
     return result;
+}
+
+//  from src/gui/painting/qpathclipper.cpp, line 1149, as _ZN11QWingedEdge7addEdgeERK7QPointFS2_
+inline int QWingedEdge::addEdge(const QPointF &a, const QPointF &b)
+{
+    int fi = insert(a);
+    int si = insert(b);
+
+    return addEdge(fi, si);
+}
+
+//  from src/gui/painting/qpathclipper.cpp, line 1157, as _ZN11QWingedEdge7addEdgeEii
+inline int QWingedEdge::addEdge(int fi, int si)
+{
+    if (fi == si)
+        return -1;
+
+    int common = commonEdge(*this, fi, si);
+    if (common >= 0)
+        return common;
+
+    m_edges << QPathEdge(fi, si);
+
+    int ei = m_edges.size() - 1;
+
+    QPathVertex *fp = vertex(fi);
+    QPathVertex *sp = vertex(si);
+
+    QPathEdge *ep = edge(ei);
+
+    const QPointF tangent = QPointF(*sp) - QPointF(*fp);
+    ep->angle = computeAngle(tangent);
+    ep->invAngle = ep->angle + 64;
+    if (ep->invAngle >= 128)
+        ep->invAngle -= 128;
+
+    QPathVertex *vertices[2] = { fp, sp };
+    QPathEdge::Direction dirs[2] = { QPathEdge::Backward, QPathEdge::Forward };
+
+#ifdef QDEBUG_CLIPPER
+    printf("** Adding edge %d / vertices: %.07f %.07f, %.07f %.07f\n", ei, fp->x, fp->y, sp->x, sp->y);
+#endif
+
+    for (int i = 0; i < 2; ++i) {
+        QPathVertex *vp = vertices[i];
+        if (vp->edge < 0) {
+            vp->edge = ei;
+            ep->setNext(dirs[i], ei);
+        } else {
+            int vi = ep->vertex(dirs[i]);
+            Q_ASSERT(vertex(vi) == vertices[i]);
+
+            TraversalStatus os = findInsertStatus(vi, ei);
+            QPathEdge *op = edge(os.edge);
+
+            Q_ASSERT(vertex(op->vertex(os.direction)) == vertices[i]);
+
+            TraversalStatus ns = next(os);
+            ns.flipDirection();
+            QPathEdge *np = edge(ns.edge);
+
+            op->setNext(os.traversal, os.direction, ei);
+            np->setNext(ns.traversal, ns.direction, ei);
+
+            int oe = os.edge;
+            int ne = ns.edge;
+
+            os = next(os);
+            ns = next(ns);
+
+            os.flipDirection();
+            ns.flipDirection();
+
+            Q_ASSERT(os.edge == ei);
+            Q_ASSERT(ns.edge == ei);
+
+            ep->setNext(os.traversal, os.direction, oe);
+            ep->setNext(ns.traversal, ns.direction, ne);
+        }
+    }
+
+    Q_ASSERT(ep->next(QPathEdge::RightTraversal, QPathEdge::Forward) >= 0);
+    Q_ASSERT(ep->next(QPathEdge::RightTraversal, QPathEdge::Backward) >= 0);
+    Q_ASSERT(ep->next(QPathEdge::LeftTraversal, QPathEdge::Forward) >= 0);
+    Q_ASSERT(ep->next(QPathEdge::LeftTraversal, QPathEdge::Backward) >= 0);
+
+    return ei;
 }
 
 //  from src/gui/painting/qpathclipper.cpp, line 1722, as _ZNK11QWingedEdge8isInsideEdd
@@ -316,6 +705,24 @@ QWingedEdge::TraversalStatus *ritual_ZNK11QWingedEdge4nextERKNS_15TraversalStatu
     const QWingedEdge *self,
     const QWingedEdge::TraversalStatus *status) {
   return new QWingedEdge::TraversalStatus(self->next(*status));
+}
+
+//  int QWingedEdge::addEdge(const QPointF &a, const QPointF &b)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QWingedEdge7addEdgeERK7QPointFS2_(
+    QWingedEdge *self,
+    const QPointF *a,
+    const QPointF *b) {
+  return self->addEdge(*a, *b);
+}
+
+//  int QWingedEdge::addEdge(int vertexA, int vertexB)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QWingedEdge7addEdgeEii(
+    QWingedEdge *self,
+    int vertexA,
+    int vertexB) {
+  return self->addEdge(vertexA, vertexB);
 }
 
 //  bool QWingedEdge::isInside(qreal x, qreal y) const

@@ -23,6 +23,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/corelib/thread/qthread.cpp, line 46, as _ZN11QThreadDataD1Ev
 inline QThreadData::~QThreadData()
 {
@@ -65,6 +67,15 @@ inline void QThreadData::clearEvents()
     postEventList.clear();
 }
 //  -----------------------------------------------------------------------
+
+//  ConnectionList &QObjectPrivate::ConnectionData::connectionsForSignal(int
+//      signal)
+extern "C" Q_DECL_EXPORT
+QObjectPrivate::ConnectionList *ritual_ZN14QObjectPrivate14ConnectionData20connectionsForSignalEi(
+    QObjectPrivate::ConnectionData *self,
+    int signal) {
+  return &(self->connectionsForSignal(signal));
+}
 
 //  void QObjectPrivate::ConnectionData::resizeSignalVector(size_t size)
 extern "C" Q_DECL_EXPORT

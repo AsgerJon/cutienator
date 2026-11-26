@@ -96,11 +96,16 @@
     "ritual_ZN16QXmlStreamWriter17writeStartElementE14QAnyStringViewS0_": [
       "nothing", "address", "text", "text"
     ],
+    "ritual_ZN16QXmlStreamWriter17writeCurrentTokenERK16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QXmlStreamWriter10raiseErrorE14QAnyStringView": [
       "nothing", "address", "text"
     ],
     "ritual_ZNK16QXmlStreamWriter11errorStringEv": ["text", "address"],
     "ritual_ZNK16QXmlStreamWriter5errorEv": ["int", "address"],
-    "ritual_ZNK16QXmlStreamWriter8hasErrorEv": ["bool", "address"]
+    "ritual_ZNK16QXmlStreamWriter8hasErrorEv": ["bool", "address"],
+    "ritual_ZN16QXmlStreamWriter6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QXmlStreamWriter6d_funcEv": ["address", "address"]
   }
 }

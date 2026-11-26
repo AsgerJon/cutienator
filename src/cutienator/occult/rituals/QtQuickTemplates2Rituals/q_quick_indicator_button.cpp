@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK21QQuickIndicatorButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickIndicatorButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickIndicatorButton11qt_metacastEPKc(
+    QQuickIndicatorButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickIndicatorButton::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickIndicatorButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickIndicatorButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickIndicatorButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickIndicatorButton2trEPKcS1_i(
@@ -270,6 +289,41 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK21QQuickIndicatorButton23implicitIndicatorHeightEv(
     const QQuickIndicatorButton *self) {
   return self->implicitIndicatorHeight();
+}
+
+//  void QQuickIndicatorButton::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickIndicatorButton14pressedChangedEv(
+    QQuickIndicatorButton *self) {
+  self->pressedChanged();
+}
+
+//  void QQuickIndicatorButton::indicatorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickIndicatorButton16indicatorChangedEv(
+    QQuickIndicatorButton *self) {
+  self->indicatorChanged();
+}
+
+//  void QQuickIndicatorButton::hoveredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickIndicatorButton14hoveredChangedEv(
+    QQuickIndicatorButton *self) {
+  self->hoveredChanged();
+}
+
+//  void QQuickIndicatorButton::implicitIndicatorWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickIndicatorButton29implicitIndicatorWidthChangedEv(
+    QQuickIndicatorButton *self) {
+  self->implicitIndicatorWidthChanged();
+}
+
+//  void QQuickIndicatorButton::implicitIndicatorHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickIndicatorButton30implicitIndicatorHeightChangedEv(
+    QQuickIndicatorButton *self) {
+  self->implicitIndicatorHeightChanged();
 }
 
 //  QQuickIndicatorButtonPrivate *QQuickIndicatorButton::d_func()

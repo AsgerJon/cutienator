@@ -8,6 +8,43 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/QJSValue>
+#include <QtQml/QJSValueIterator>
+#include <Qt3DQuickRender/private/quick3dparameter_p_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/quick3d/quick3drender/items/quick3dparameter.cpp, line 15, as _ZN10Qt3DRender6Render5Quick23Quick3DParameterPrivateC1Ev
+namespace Qt3DRender::Render::Quick {
+inline Quick3DParameterPrivate::Quick3DParameterPrivate()
+    : QParameterPrivate()
+{
+}
+}  // namespace Qt3DRender::Render::Quick
+
+//  from ../qt3d/src/quick3d/quick3drender/items/quick3dparameter.cpp, line 20, as _ZN10Qt3DRender6Render5Quick23Quick3DParameterPrivate8setValueERK8QVariant
+namespace Qt3DRender::Render::Quick {
+inline void Quick3DParameterPrivate::setValue(const QVariant &value)
+{
+    static const int qjsValueTypeId = qMetaTypeId<QJSValue>();
+
+    if (value.userType() == qjsValueTypeId) {
+        QJSValue v = value.value<QJSValue>();
+        if (v.isArray())
+            QParameterPrivate::setValue(value.value<QVariantList>());
+    } else {
+        QParameterPrivate::setValue(value);
+    }
+}
+}  // namespace Qt3DRender::Render::Quick
+//  -----------------------------------------------------------------------
 
 //  A Qt3DRender::Render::Quick::Quick3DParameterPrivate that Python can take functions over in. Every Qt3DRender::Render::Quick::Quick3DParameterPrivate
 //  Python makes is one. Each function below asks the Python
@@ -72,6 +109,13 @@ public:
   }
 };
 
+//  Qt3DRender::Render::Quick::Quick3DParameterPrivate::Quick3DParameterPriva
+//      te()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DParameterPrivate *ritual_ZN10Qt3DRender6Render5Quick23Quick3DParameterPrivateC1Ev() {
+  return new CuteQt3DRender_Render_Quick_Quick3DParameterPrivate();
+}
+
 //  Quick3DParameter
 //      *Qt3DRender::Render::Quick::Quick3DParameterPrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -88,6 +132,15 @@ const Qt3DRender::Render::Quick::Quick3DParameter *ritual_ZNK10Qt3DRender6Render
   return self->q_func();
 }
 
+//  void Qt3DRender::Render::Quick::Quick3DParameterPrivate::setValue(const
+//      QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render5Quick23Quick3DParameterPrivate8setValueERK8QVariant(
+    Qt3DRender::Render::Quick::Quick3DParameterPrivate *self,
+    const QVariant *value) {
+  self->setValue(*value);
+}
+
 //  a Python function taken by a
 //      CuteQt3DRender_Render_Quick_Quick3DParameterPrivate, for the function
 //      named by the key
@@ -97,4 +150,13 @@ bool ritual_take_Qt3DRender_Render_Quick_Quick3DParameterPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Render_Quick_Quick3DParameterPrivate *>(self)->take(key, call);
+}
+
+//  void Qt3DRender::Render::Quick::Quick3DParameterPrivate::setValue(const
+//      QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN10Qt3DRender6Render5Quick23Quick3DParameterPrivate8setValueERK8QVariant(
+    Qt3DRender::Render::Quick::Quick3DParameterPrivate *self,
+    const QVariant *value) {
+  self->Qt3DRender::Render::Quick::Quick3DParameterPrivate::setValue(*value);
 }

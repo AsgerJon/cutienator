@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN17QDomCharacterDataC1Ev": ["address"],
     "ritual_ZN17QDomCharacterDataC1ERKS_": ["address", "address"],
+    "ritual_ZN17QDomCharacterDataaSERKS_": ["address", "address", "address"],
     "ritual_ZN17QDomCharacterData13substringDataEmm": [
       "text", "address", "unsigned long", "unsigned long"
     ],

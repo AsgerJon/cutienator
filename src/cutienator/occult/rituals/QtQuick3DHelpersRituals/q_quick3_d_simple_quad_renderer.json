@@ -8,8 +8,17 @@
     "ritual_ZNK26QQuick3DSimpleQuadRenderer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuick3DSimpleQuadRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuick3DSimpleQuadRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK26QQuick3DSimpleQuadRenderer7textureEv": [
       "address", "address"
+    ],
+    "ritual_ZN26QQuick3DSimpleQuadRenderer14textureChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN26QQuick3DSimpleQuadRenderer10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"

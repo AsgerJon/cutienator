@@ -40,10 +40,11 @@ typedef QString * (*CuteQCalendarBackendCall18)(const void *, const QLocale *, i
 typedef QString * (*CuteQCalendarBackendCall19)(const void *, const QLocale *, int, int, int *);
 typedef QString * (*CuteQCalendarBackendCall20)(const void *, const QLocale *, int, int, int *);
 typedef void * (*CuteQCalendarBackendCall21)(const void *, int *);
+typedef void * (*CuteQCalendarBackendCall22)(const void *, int *);
 class CuteQCalendarBackend : public QCalendarBackend {
 public:
   using QCalendarBackend::QCalendarBackend;
-  void *taken[22] = {};
+  void *taken[23] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK16QCalendarBackend4nameEv")) {
@@ -132,6 +133,10 @@ public:
     }
     if (!std::strcmp(key, "_ZNK16QCalendarBackend20localeMonthIndexDataEv")) {
       taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend15localeMonthDataEv")) {
+      taken[22] = call;
       return true;
     }
     return false;
@@ -421,6 +426,17 @@ public:
     }
     return {};
   }
+
+  //  const char16_t *QCalendarBackend::localeMonthData() const
+  const char16_t *localeMonthData() const override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQCalendarBackendCall22 call = reinterpret_cast<CuteQCalendarBackendCall22>(taken[22]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<const char16_t *>(given);
+    }
+    return {};
+  }
 };
 
 //  QCalendarBackend::~QCalendarBackend()
@@ -690,6 +706,13 @@ extern "C" Q_DECL_EXPORT
 const QCalendarLocale *ritual_ZNK16QCalendarBackend20localeMonthIndexDataEv(
     const QCalendarBackend *self) {
   return self->localeMonthIndexData();
+}
+
+//  const char16_t *QCalendarBackend::localeMonthData() const
+extern "C" Q_DECL_EXPORT
+const char16_t *ritual_ZNK16QCalendarBackend15localeMonthDataEv(
+    const QCalendarBackend *self) {
+  return self->localeMonthData();
 }
 
 //  void QCalendarBackend::setIndex(size_t index)

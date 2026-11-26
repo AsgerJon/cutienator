@@ -14,6 +14,15 @@
     ],
     "ritual_ZNK10Qt3DRender6Render13ShaderManager20hasShaderIdToCleanupEN8Qt3DCore7QNodeIdE": [
       "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ShaderManager18shaderIdsToCleanupEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderManager22takeShaderIdsToCleanupEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_ShaderManager__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

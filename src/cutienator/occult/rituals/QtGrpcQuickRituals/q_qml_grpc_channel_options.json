@@ -8,6 +8,12 @@
     "ritual_ZNK22QQmlGrpcChannelOptions10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQmlGrpcChannelOptions11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQmlGrpcChannelOptions11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQmlGrpcChannelOptions2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -36,6 +42,20 @@
     "ritual_ZN22QQmlGrpcChannelOptions19setSslConfigurationERK20QQmlSslConfiguration": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QQmlGrpcChannelOptions22deadlineTimeoutChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQmlGrpcChannelOptions15metadataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQmlGrpcChannelOptions26serializationFormatChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQmlGrpcChannelOptions23sslConfigurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQmlGrpcChannelOptions6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QQmlGrpcChannelOptions6d_funcEv": ["address", "address"],
     "ritual_take_QQmlGrpcChannelOptions": [
       "bool", "address", "chars", "address"
     ]

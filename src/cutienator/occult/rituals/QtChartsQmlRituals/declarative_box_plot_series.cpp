@@ -13,12 +13,33 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  const QMetaObject *DeclarativeBoxPlotSeries::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK24DeclarativeBoxPlotSeries10metaObjectEv(
     const DeclarativeBoxPlotSeries *self) {
   return self->metaObject();
+}
+
+//  void *DeclarativeBoxPlotSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24DeclarativeBoxPlotSeries11qt_metacastEPKc(
+    DeclarativeBoxPlotSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeBoxPlotSeries::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24DeclarativeBoxPlotSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeBoxPlotSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString DeclarativeBoxPlotSeries::tr(const char *s, const char *c, int n)
@@ -95,6 +116,13 @@ void ritual_ZN24DeclarativeBoxPlotSeries13setAxisYRightEP13QAbstractAxis(
     DeclarativeBoxPlotSeries *self,
     QAbstractAxis *axis) {
   self->setAxisYRight(axis);
+}
+
+//  QQmlListProperty<QObject> DeclarativeBoxPlotSeries::seriesChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN24DeclarativeBoxPlotSeries14seriesChildrenEv(
+    DeclarativeBoxPlotSeries *self) {
+  return new QQmlListProperty<QObject>(self->seriesChildren());
 }
 
 //  QString DeclarativeBoxPlotSeries::brushFilename() const
@@ -179,6 +207,89 @@ void ritual_ZN24DeclarativeBoxPlotSeries17componentCompleteEv(
   self->componentComplete();
 }
 
+//  void DeclarativeBoxPlotSeries::axisXChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries12axisXChangedEP13QAbstractAxis(
+    DeclarativeBoxPlotSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeBoxPlotSeries::axisYChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries12axisYChangedEP13QAbstractAxis(
+    DeclarativeBoxPlotSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeBoxPlotSeries::axisXTopChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeBoxPlotSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void DeclarativeBoxPlotSeries::axisYRightChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeBoxPlotSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
+}
+
+//  void DeclarativeBoxPlotSeries::clicked(DeclarativeBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries7clickedEP17DeclarativeBoxSet(
+    DeclarativeBoxPlotSeries *self,
+    DeclarativeBoxSet *boxset) {
+  self->clicked(boxset);
+}
+
+//  void DeclarativeBoxPlotSeries::hovered(bool status, DeclarativeBoxSet
+//      *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries7hoveredEbP17DeclarativeBoxSet(
+    DeclarativeBoxPlotSeries *self,
+    bool status,
+    DeclarativeBoxSet *boxset) {
+  self->hovered(status, boxset);
+}
+
+//  void DeclarativeBoxPlotSeries::pressed(DeclarativeBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries7pressedEP17DeclarativeBoxSet(
+    DeclarativeBoxPlotSeries *self,
+    DeclarativeBoxSet *boxset) {
+  self->pressed(boxset);
+}
+
+//  void DeclarativeBoxPlotSeries::released(DeclarativeBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries8releasedEP17DeclarativeBoxSet(
+    DeclarativeBoxPlotSeries *self,
+    DeclarativeBoxSet *boxset) {
+  self->released(boxset);
+}
+
+//  void DeclarativeBoxPlotSeries::doubleClicked(DeclarativeBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries13doubleClickedEP17DeclarativeBoxSet(
+    DeclarativeBoxPlotSeries *self,
+    DeclarativeBoxSet *boxset) {
+  self->doubleClicked(boxset);
+}
+
+//  void DeclarativeBoxPlotSeries::brushFilenameChanged(const QString
+//      &brushFilename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries20brushFilenameChangedERK7QString(
+    DeclarativeBoxPlotSeries *self,
+    const QString *brushFilename) {
+  self->brushFilenameChanged(*brushFilename);
+}
+
 //  void DeclarativeBoxPlotSeries::onHovered(bool status, QBoxSet *boxset)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24DeclarativeBoxPlotSeries9onHoveredEbP7QBoxSet(
@@ -227,6 +338,16 @@ void ritual_ZN24DeclarativeBoxPlotSeries18handleBrushChangedEv(
   self->handleBrushChanged();
 }
 
+//  void
+//      DeclarativeBoxPlotSeries::appendSeriesChildren(QQmlListProperty<QObje
+//      ct> *list, QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeBoxPlotSeries20appendSeriesChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  DeclarativeBoxPlotSeries::appendSeriesChildren(list, element);
+}
+
 //  DeclarativeBoxPlotSeries as the QQmlParserStatus it is built on
 extern "C" Q_DECL_EXPORT
 QQmlParserStatus *ritual_cast_DeclarativeBoxPlotSeries_QQmlParserStatus(
@@ -246,6 +367,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN24DeclarativeBoxPlotSeries17componentCompleteEv(
     DeclarativeBoxPlotSeries *self) {
   self->DeclarativeBoxPlotSeries::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of DeclarativeBoxPlotSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeBoxPlotSeries__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_boxplot_chart)

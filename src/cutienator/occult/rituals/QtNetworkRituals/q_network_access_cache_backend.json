@@ -5,18 +5,35 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QNetworkAccessCacheBackendC1Ev": ["address"],
     "ritual_ZN26QNetworkAccessCacheBackendD1Ev": ["nothing", "address"],
     "ritual_ZN26QNetworkAccessCacheBackend4openEv": ["nothing", "address"],
+    "ritual_ZN26QNetworkAccessCacheBackend5closeEv": ["nothing", "address"],
     "ritual_ZN26QNetworkAccessCacheBackend5startEv": ["bool", "address"],
     "ritual_ZNK26QNetworkAccessCacheBackend14bytesAvailableEv": [
       "long long", "address"
     ],
+    "ritual_ZN26QNetworkAccessCacheBackend4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN26QNetworkAccessCacheBackend17sendCacheContentsEv": [
+      "bool", "address"
+    ],
     "ritual_take_QNetworkAccessCacheBackend": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QNetworkAccessCacheBackend4openEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN26QNetworkAccessCacheBackend5closeEv": [
+      "nothing", "address"
     ],
     "ritual_own_ZN26QNetworkAccessCacheBackend5startEv": ["bool", "address"],
     "ritual_own_ZNK26QNetworkAccessCacheBackend14bytesAvailableEv": [
       "long long", "address"
+    ],
+    "ritual_own_ZN26QNetworkAccessCacheBackend4readEPcx": [
+      "long long", "address", "address", "long long"
     ]
   }
 }

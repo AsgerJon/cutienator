@@ -8,6 +8,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QAbstractAnimation>
 
 //  Only a class built on QAbstractAnimation may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -289,6 +291,25 @@ const QMetaObject *ritual_ZNK18QAbstractAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QAbstractAnimation11qt_metacastEPKc(
+    QAbstractAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QAbstractAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QAbstractAnimation2trEPKcS1_i(
@@ -296,6 +317,13 @@ QString *ritual_ZN18QAbstractAnimation2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractAnimation::tr(s, c, n));
+}
+
+//  QAbstractAnimation::QAbstractAnimation(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimation *ritual_ZN18QAbstractAnimationC1EP7QObject(
+    QObject *parent) {
+  return new CuteQAbstractAnimation(parent);
 }
 
 //  QAbstractAnimation::~QAbstractAnimation()
@@ -309,6 +337,14 @@ extern "C" Q_DECL_EXPORT
 QAbstractAnimation::State ritual_ZNK18QAbstractAnimation5stateEv(
     const QAbstractAnimation *self) {
   return self->state();
+}
+
+//  QBindable<QAbstractAnimation::State> QAbstractAnimation::bindableState()
+//      const
+extern "C" Q_DECL_EXPORT
+QBindable<QAbstractAnimation::State> *ritual_ZNK18QAbstractAnimation13bindableStateEv(
+    const QAbstractAnimation *self) {
+  return new QBindable<QAbstractAnimation::State>(self->bindableState());
 }
 
 //  QAnimationGroup *QAbstractAnimation::group() const
@@ -333,11 +369,26 @@ void ritual_ZN18QAbstractAnimation12setDirectionENS_9DirectionE(
   self->setDirection(direction);
 }
 
+//  QBindable<Direction> QAbstractAnimation::bindableDirection()
+extern "C" Q_DECL_EXPORT
+QBindable<QAbstractAnimation::Direction> *ritual_ZN18QAbstractAnimation17bindableDirectionEv(
+    QAbstractAnimation *self) {
+  return new QBindable<QAbstractAnimation::Direction>(
+      self->bindableDirection());
+}
+
 //  int QAbstractAnimation::currentTime() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QAbstractAnimation11currentTimeEv(
     const QAbstractAnimation *self) {
   return self->currentTime();
+}
+
+//  QBindable<int> QAbstractAnimation::bindableCurrentTime()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN18QAbstractAnimation19bindableCurrentTimeEv(
+    QAbstractAnimation *self) {
+  return new QBindable<int>(self->bindableCurrentTime());
 }
 
 //  int QAbstractAnimation::currentLoopTime() const
@@ -362,11 +413,25 @@ void ritual_ZN18QAbstractAnimation12setLoopCountEi(
   self->setLoopCount(loopCount);
 }
 
+//  QBindable<int> QAbstractAnimation::bindableLoopCount()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN18QAbstractAnimation17bindableLoopCountEv(
+    QAbstractAnimation *self) {
+  return new QBindable<int>(self->bindableLoopCount());
+}
+
 //  int QAbstractAnimation::currentLoop() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QAbstractAnimation11currentLoopEv(
     const QAbstractAnimation *self) {
   return self->currentLoop();
+}
+
+//  QBindable<int> QAbstractAnimation::bindableCurrentLoop() const
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZNK18QAbstractAnimation19bindableCurrentLoopEv(
+    const QAbstractAnimation *self) {
+  return new QBindable<int>(self->bindableCurrentLoop());
 }
 
 //  int QAbstractAnimation::duration() const
@@ -381,6 +446,39 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QAbstractAnimation13totalDurationEv(
     const QAbstractAnimation *self) {
   return self->totalDuration();
+}
+
+//  void QAbstractAnimation::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractAnimation8finishedEv(QAbstractAnimation *self) {
+  self->finished();
+}
+
+//  void QAbstractAnimation::stateChanged(QAbstractAnimation::State newState,
+//      QAbstractAnimation::State oldState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractAnimation12stateChangedENS_5StateES0_(
+    QAbstractAnimation *self,
+    QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState) {
+  self->stateChanged(newState, oldState);
+}
+
+//  void QAbstractAnimation::currentLoopChanged(int currentLoop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractAnimation18currentLoopChangedEi(
+    QAbstractAnimation *self,
+    int currentLoop) {
+  self->currentLoopChanged(currentLoop);
+}
+
+//  void QAbstractAnimation::directionChanged(QAbstractAnimation::Direction
+//      a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractAnimation16directionChangedENS_9DirectionE(
+    QAbstractAnimation *self,
+    QAbstractAnimation::Direction a0) {
+  self->directionChanged(a0);
 }
 
 //  void QAbstractAnimation::start(QAbstractAnimation::DeletionPolicy policy)
@@ -423,6 +521,15 @@ void ritual_ZN18QAbstractAnimation14setCurrentTimeEi(
     QAbstractAnimation *self,
     int msecs) {
   self->setCurrentTime(msecs);
+}
+
+//  QAbstractAnimation::QAbstractAnimation(QAbstractAnimationPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimation *ritual_ZN18QAbstractAnimationC1ER25QAbstractAnimationPrivateP7QObject(
+    QAbstractAnimationPrivate *dd,
+    QObject *parent) {
+  return new CuteQAbstractAnimation(*dd, parent);
 }
 
 //  bool QAbstractAnimation::event(QEvent *event)
@@ -550,6 +657,28 @@ QAbstractAnimation *ritual_list_at_QAbstractAnimation_ptr(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QAbstractAnimation_ptr(
     QList<QAbstractAnimation *> *self) {
+  delete self;
+}
+
+//  a QBindable<QAbstractAnimation::State> a ritual of QAbstractAnimation
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractAnimation__QBindable_QAbstractAnimation_State(
+    QBindable<QAbstractAnimation::State> *self) {
+  delete self;
+}
+
+//  a QBindable<QAbstractAnimation::Direction> a ritual of QAbstractAnimation
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractAnimation__QBindable_QAbstractAnimation_Direction(
+    QBindable<QAbstractAnimation::Direction> *self) {
+  delete self;
+}
+
+//  a QBindable<int> a ritual of QAbstractAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractAnimation__QBindable_int(QBindable<int> *self) {
   delete self;
 }
 

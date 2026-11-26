@@ -204,6 +204,16 @@ public:
   }
 };
 
+//  QQmlJS::AST::FormalParameterList::FormalParameterList(FormalParameterList
+//      *previous, PatternElement *e)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::FormalParameterList *ritual_ZN6QQmlJS3AST19FormalParameterListC1EPS1_PNS0_14PatternElementE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::FormalParameterList *previous,
+    QQmlJS::AST::PatternElement *e) {
+  return new (pool) CuteQQmlJS_AST_FormalParameterList(previous, e);
+}
+
 //  FormalParameterList
 //      *QQmlJS::AST::FormalParameterList::append(FormalParameterList *n)
 extern "C" Q_DECL_EXPORT
@@ -236,6 +246,28 @@ bool ritual_ZNK6QQmlJS3AST19FormalParameterList12containsNameERK7QString(
   return self->containsName(*name);
 }
 
+//  BoundNames QQmlJS::AST::FormalParameterList::formals() const
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::BoundNames *ritual_ZNK6QQmlJS3AST19FormalParameterList7formalsEv(
+    const QQmlJS::AST::FormalParameterList *self) {
+  return new QQmlJS::AST::BoundNames(self->formals());
+}
+
+//  BoundNames QQmlJS::AST::FormalParameterList::boundNames() const
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::BoundNames *ritual_ZNK6QQmlJS3AST19FormalParameterList10boundNamesEv(
+    const QQmlJS::AST::FormalParameterList *self) {
+  return new QQmlJS::AST::BoundNames(self->boundNames());
+}
+
+//  void QQmlJS::AST::FormalParameterList::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST19FormalParameterList7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::FormalParameterList *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::FormalParameterList::firstSourceLocation()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -250,6 +282,15 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST19FormalParameterList18lastSourceLocationEv(
     const QQmlJS::AST::FormalParameterList *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  FormalParameterList *QQmlJS::AST::FormalParameterList::finish(MemoryPool
+//      *pool)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::FormalParameterList *ritual_ZN6QQmlJS3AST19FormalParameterList6finishEPNS_10MemoryPoolE(
+    QQmlJS::AST::FormalParameterList *self,
+    QQmlJS::MemoryPool *pool) {
+  return self->finish(pool);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_FormalParameterList, for the

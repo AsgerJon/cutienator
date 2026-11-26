@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickSplitViewAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickSplitViewAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickSplitViewAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -74,6 +80,35 @@
     "ritual_ZNK23QQuickSplitViewAttached10fillHeightEv": ["bool", "address"],
     "ritual_ZN23QQuickSplitViewAttached13setFillHeightEb": [
       "nothing", "address", "bool"
-    ]
+    ],
+    "ritual_ZN23QQuickSplitViewAttached11viewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached19minimumWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached20minimumHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached21preferredWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached22preferredHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached19maximumWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached20maximumHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached16fillWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached17fillHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickSplitViewAttached6d_funcEv": ["address", "address"]
   }
 }

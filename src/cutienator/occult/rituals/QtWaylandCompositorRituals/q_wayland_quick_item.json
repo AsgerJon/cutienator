@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QWaylandQuickItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QWaylandQuickItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QWaylandQuickItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QWaylandQuickItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -167,8 +173,45 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN17QWaylandQuickItem11updateFocusEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem14surfaceChangedEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem17compositorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem19paintEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem25touchEventsEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem13originChangedEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem16surfaceDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem25inputEventsEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem19focusOnClickChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem9mouseMoveERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem12mouseReleaseEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem24subsurfaceHandlerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem13outputChangedEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem19bufferLockedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem30allowDiscardFrontBufferChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QWaylandQuickItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
       "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItemC1ER24QWaylandQuickItemPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_take_QWaylandQuickItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QWaylandQuickItem17isTextureProviderEv": [

@@ -7,7 +7,19 @@
   "rows": {
     "ritual_ZN16QPlaybackOptionsC1Ev": ["address"],
     "ritual_ZN16QPlaybackOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZN16QPlaybackOptionsaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QPlaybackOptionsC1EOS_": ["address", "address"],
+    "ritual_ZN16QPlaybackOptionsaSEOS_": ["address", "address", "address"],
     "ritual_ZN16QPlaybackOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN16QPlaybackOptions4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QPlaybackOptions14networkTimeoutEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN16QPlaybackOptions17setNetworkTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZN16QPlaybackOptions19resetNetworkTimeoutEv": [
       "nothing", "address"
     ],

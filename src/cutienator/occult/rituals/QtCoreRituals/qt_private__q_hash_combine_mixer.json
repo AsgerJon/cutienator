@@ -4,6 +4,10 @@
     "QtCore/qhashfunctions.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK9QtPrivate17QHashCombineMixerclEmm": [
+      "unsigned long long", "address", "unsigned long long",
+      "unsigned long long"
+    ],
     "ritual_ZN9QtPrivate17QHashCombineMixerD1Ev": ["nothing", "address"]
   }
 }

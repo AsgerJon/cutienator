@@ -364,6 +364,25 @@ const QMetaObject *ritual_ZNK22QQmlEngineDebugService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlEngineDebugService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQmlEngineDebugService11qt_metacastEPKc(
+    QQmlEngineDebugService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlEngineDebugService::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQmlEngineDebugService11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlEngineDebugService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlEngineDebugService::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQmlEngineDebugService2trEPKcS1_i(
@@ -389,10 +408,29 @@ void ritual_ZN22QQmlEngineDebugService13objectCreatedEP9QJSEngineP7QObject(
   self->objectCreated(engine, object);
 }
 
+//  void
+//      QQmlEngineDebugService::setStatesDelegateFactory(QQmlDebugStatesDeleg
+//      ate *(*)() factory)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlEngineDebugService24setStatesDelegateFactoryEPFP23QQmlDebugStatesDelegatevE(
+    void *factory) {
+  QQmlEngineDebugService::setStatesDelegateFactory(
+      reinterpret_cast<QQmlDebugStatesDelegate *(*)()>(factory));
+}
+
 //  QQmlDebugStatesDelegate *QQmlEngineDebugService::createStatesDelegate()
 extern "C" Q_DECL_EXPORT
 QQmlDebugStatesDelegate *ritual_ZN22QQmlEngineDebugService20createStatesDelegateEv() {
   return QQmlEngineDebugService::createStatesDelegate();
+}
+
+//  QQmlEngineDebugService::QQmlEngineDebugService(float version, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQmlEngineDebugService *ritual_ZN22QQmlEngineDebugServiceC1EfP7QObject(
+    float version,
+    QObject *parent) {
+  return new CuteQQmlEngineDebugService(version, parent);
 }
 
 //  QQmlBoundSignal *QQmlEngineDebugService::nextSignal(QQmlBoundSignal

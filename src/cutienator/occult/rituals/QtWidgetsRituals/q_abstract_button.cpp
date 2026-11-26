@@ -8,7 +8,9 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
 #include <QtCore/qsize.h>
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -1010,6 +1012,24 @@ const QMetaObject *ritual_ZNK15QAbstractButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QAbstractButton11qt_metacastEPKc(
+    QAbstractButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractButton::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QAbstractButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QAbstractButton2trEPKcS1_i(
@@ -1017,6 +1037,12 @@ QString *ritual_ZN15QAbstractButton2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractButton::tr(s, c, n));
+}
+
+//  QAbstractButton::QAbstractButton(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractButton *ritual_ZN15QAbstractButtonC1EP7QWidget(QWidget *parent) {
+  return new CuteQAbstractButton(parent);
 }
 
 //  QAbstractButton::~QAbstractButton()
@@ -1213,6 +1239,34 @@ void ritual_ZN15QAbstractButton10setCheckedEb(
   self->setChecked(a0);
 }
 
+//  void QAbstractButton::pressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton7pressedEv(QAbstractButton *self) {
+  self->pressed();
+}
+
+//  void QAbstractButton::released()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton8releasedEv(QAbstractButton *self) {
+  self->released();
+}
+
+//  void QAbstractButton::clicked(bool checked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton7clickedEb(
+    QAbstractButton *self,
+    bool checked) {
+  self->clicked(checked);
+}
+
+//  void QAbstractButton::toggled(bool checked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton7toggledEb(
+    QAbstractButton *self,
+    bool checked) {
+  self->toggled(checked);
+}
+
 //  void QAbstractButton::paintEvent(QPaintEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAbstractButton10paintEventEP11QPaintEvent(
@@ -1319,6 +1373,15 @@ void ritual_ZN15QAbstractButton10timerEventEP11QTimerEvent(
     QAbstractButton *self,
     QTimerEvent *e) {
   self->timerEvent(e);
+}
+
+//  QAbstractButton::QAbstractButton(QAbstractButtonPrivate &dd, QWidget
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractButton *ritual_ZN15QAbstractButtonC1ER22QAbstractButtonPrivateP7QWidget(
+    QAbstractButtonPrivate *dd,
+    QWidget *parent) {
+  return new CuteQAbstractButton(*dd, parent);
 }
 
 //  QAbstractButtonPrivate *QAbstractButton::d_func()

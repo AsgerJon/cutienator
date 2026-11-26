@@ -32,6 +32,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/gui/kernel/qwindowsysteminterface.cpp, line 315, as _ZN29QWindowSystemInterfacePrivate11ExposeEventC1EP7QWindowRK7QRegion
 inline QWindowSystemInterfacePrivate::ExposeEvent::ExposeEvent(QWindow *window, const QRegion &region)
     : WindowSystemEvent(Expose)

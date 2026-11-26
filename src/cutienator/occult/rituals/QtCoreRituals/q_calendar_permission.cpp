@@ -34,10 +34,43 @@ QCalendarPermission *ritual_ZN19QCalendarPermissionC1ERKS_(
   return new QCalendarPermission(*other);
 }
 
+//  QCalendarPermission::QCalendarPermission(QCalendarPermission &&other)
+extern "C" Q_DECL_EXPORT
+QCalendarPermission *ritual_ZN19QCalendarPermissionC1EOS_(
+    QCalendarPermission *other) {
+  return new QCalendarPermission(std::move(*other));
+}
+
 //  QCalendarPermission::~QCalendarPermission()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QCalendarPermissionD1Ev(QCalendarPermission *self) {
   delete self;
+}
+
+//  QCalendarPermission &QCalendarPermission::operator=(const
+//      QCalendarPermission &other)
+extern "C" Q_DECL_EXPORT
+QCalendarPermission *ritual_ZN19QCalendarPermissionaSERKS_(
+    QCalendarPermission *self,
+    const QCalendarPermission *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCalendarPermission &QCalendarPermission::operator=(QCalendarPermission
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCalendarPermission *ritual_ZN19QCalendarPermissionaSEOS_(
+    QCalendarPermission *self,
+    QCalendarPermission *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCalendarPermission::swap(QCalendarPermission &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QCalendarPermission4swapERS_(
+    QCalendarPermission *self,
+    QCalendarPermission *other) {
+  self->swap(*other);
 }
 
 #endif  // QT_CONFIG(permissions)

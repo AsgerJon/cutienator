@@ -8,8 +8,17 @@
     "ritual_ZNK3QV49Profiling8Profiler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN3QV49Profiling8Profiler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN3QV49Profiling8Profiler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN3QV49Profiling8Profiler2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN3QV49Profiling8ProfilerC1EPNS_15ExecutionEngineE": [
+      "address", "address"
     ],
     "ritual_ZN3QV49Profiling8Profiler10trackAllocEmNS0_10MemoryTypeE": [
       "bool", "address", "size_t", "int"
@@ -17,8 +26,18 @@
     "ritual_ZN3QV49Profiling8Profiler12trackDeallocEmNS0_10MemoryTypeE": [
       "bool", "address", "size_t", "int"
     ],
+    "ritual_ZN3QV49Profiling8Profiler13stopProfilingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV49Profiling8Profiler14startProfilingEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV49Profiling8Profiler10reportDataEv": ["nothing", "address"],
     "ritual_ZN3QV49Profiling8Profiler8setTimerERK13QElapsedTimer": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV49Profiling8Profiler9dataReadyERK5QHashIyNS0_16FunctionLocationEERK5QListINS0_22FunctionCallPropertiesEERKS7_INS0_26MemoryAllocationPropertiesEE": [
+      "nothing", "address", "address", "address", "address"
     ]
   }
 }

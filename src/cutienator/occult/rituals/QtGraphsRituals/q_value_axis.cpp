@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qvalueaxis.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qvalueaxis.h>
 #include <QtCore/qstring.h>
@@ -198,6 +198,24 @@ const QMetaObject *ritual_ZNK10QValueAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QValueAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QValueAxis11qt_metacastEPKc(
+    QValueAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QValueAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QValueAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QValueAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QValueAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QValueAxis2trEPKcS1_i(
@@ -217,6 +235,14 @@ QValueAxis *ritual_ZN10QValueAxisC1EP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QValueAxisD1Ev(QValueAxis *self) {
   delete self;
+}
+
+//  QValueAxis::QValueAxis(QValueAxisPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QValueAxis *ritual_ZN10QValueAxisC1ER17QValueAxisPrivateP7QObject(
+    QValueAxisPrivate *d,
+    QObject *parent) {
+  return new CuteQValueAxis(*d, parent);
 }
 
 //  AxisType QValueAxis::type() const
@@ -377,6 +403,103 @@ qreal ritual_ZNK10QValueAxis9visualMaxEv(const QValueAxis *self) {
   return self->visualMax();
 }
 
+//  void QValueAxis::minChanged(qreal min)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis10minChangedEd(QValueAxis *self, qreal min) {
+  self->minChanged(min);
+}
+
+//  void QValueAxis::maxChanged(qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis10maxChangedEd(QValueAxis *self, qreal max) {
+  self->maxChanged(max);
+}
+
+//  void QValueAxis::rangeChanged(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis12rangeChangedEdd(
+    QValueAxis *self,
+    qreal min,
+    qreal max) {
+  self->rangeChanged(min, max);
+}
+
+//  void QValueAxis::subTickCountChanged(qsizetype subTickCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis19subTickCountChangedEx(
+    QValueAxis *self,
+    qsizetype subTickCount) {
+  self->subTickCountChanged(subTickCount);
+}
+
+//  void QValueAxis::labelFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis18labelFormatChangedERK7QString(
+    QValueAxis *self,
+    const QString *format) {
+  self->labelFormatChanged(*format);
+}
+
+//  void QValueAxis::labelPostFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis22labelPostFormatChangedERK7QString(
+    QValueAxis *self,
+    const QString *format) {
+  self->labelPostFormatChanged(*format);
+}
+
+//  void QValueAxis::labelDecimalsChanged(int decimals)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis20labelDecimalsChangedEi(
+    QValueAxis *self,
+    int decimals) {
+  self->labelDecimalsChanged(decimals);
+}
+
+//  void QValueAxis::tickAnchorChanged(qreal tickAnchor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis17tickAnchorChangedEd(
+    QValueAxis *self,
+    qreal tickAnchor) {
+  self->tickAnchorChanged(tickAnchor);
+}
+
+//  void QValueAxis::tickIntervalChanged(qreal tickInterval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis19tickIntervalChangedEd(
+    QValueAxis *self,
+    qreal tickInterval) {
+  self->tickIntervalChanged(tickInterval);
+}
+
+//  void QValueAxis::zoomChanged(qreal zoom)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis11zoomChangedEd(QValueAxis *self, qreal zoom) {
+  self->zoomChanged(zoom);
+}
+
+//  void QValueAxis::panChanged(qreal pan)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis10panChangedEd(QValueAxis *self, qreal pan) {
+  self->panChanged(pan);
+}
+
+//  void QValueAxis::visualMinChanged(qreal newVisualMin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis16visualMinChangedEd(
+    QValueAxis *self,
+    qreal newVisualMin) {
+  self->visualMinChanged(newVisualMin);
+}
+
+//  void QValueAxis::visualMaxChanged(qreal newVisualMax)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis16visualMaxChangedEd(
+    QValueAxis *self,
+    qreal newVisualMax) {
+  self->visualMaxChanged(newVisualMax);
+}
+
 //  QValueAxisPrivate *QValueAxis::d_func()
 extern "C" Q_DECL_EXPORT
 QValueAxisPrivate *ritual_ZN10QValueAxis6d_funcEv(QValueAxis *self) {
@@ -404,4 +527,4 @@ QAbstractAxis::AxisType ritual_own_ZNK10QValueAxis4typeEv(
   return self->QValueAxis::type();
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

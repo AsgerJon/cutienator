@@ -9,9 +9,24 @@
       "address", "address", "address"
     ],
     "ritual_ZN8QSvgLineD1Ev": ["nothing", "address"],
+    "ritual_ZN8QSvgLine11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgLine4typeEv": ["int", "address"],
+    "ritual_ZNK8QSvgLine18internalFastBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgLine14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgLine23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgLine22requiresGroupRenderingEv": ["bool", "address"],
     "ritual_ZNK8QSvgLine4lineEv": ["address", "address"],
+    "ritual_ZNK8QSvgLine14internalBoundsEP8QPainterR15QSvgExtraStatesN8QSvgNode10BoundsModeE": [
+      "address", "address", "address", "address", "int"
+    ],
     "ritual_take_QSvgLine": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8QSvgLine4typeEv": ["int", "address"],
     "ritual_own_ZNK8QSvgLine22requiresGroupRenderingEv": ["bool", "address"]

@@ -230,6 +230,24 @@ const QMetaObject *ritual_ZNK14QQuickShortcut10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShortcut::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickShortcut11qt_metacastEPKc(
+    QQuickShortcut *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShortcut::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickShortcut11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShortcut *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShortcut::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickShortcut2trEPKcS1_i(
@@ -337,6 +355,61 @@ void ritual_ZN14QQuickShortcut10setContextEN2Qt15ShortcutContextE(
   self->setContext(context);
 }
 
+//  void QQuickShortcut::sequenceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut15sequenceChangedEv(QQuickShortcut *self) {
+  self->sequenceChanged();
+}
+
+//  void QQuickShortcut::sequencesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut16sequencesChangedEv(QQuickShortcut *self) {
+  self->sequencesChanged();
+}
+
+//  void QQuickShortcut::nativeTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut17nativeTextChangedEv(QQuickShortcut *self) {
+  self->nativeTextChanged();
+}
+
+//  void QQuickShortcut::portableTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut19portableTextChangedEv(QQuickShortcut *self) {
+  self->portableTextChanged();
+}
+
+//  void QQuickShortcut::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut14enabledChangedEv(QQuickShortcut *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickShortcut::autoRepeatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut17autoRepeatChangedEv(QQuickShortcut *self) {
+  self->autoRepeatChanged();
+}
+
+//  void QQuickShortcut::contextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut14contextChangedEv(QQuickShortcut *self) {
+  self->contextChanged();
+}
+
+//  void QQuickShortcut::activated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut9activatedEv(QQuickShortcut *self) {
+  self->activated();
+}
+
+//  void QQuickShortcut::activatedAmbiguously()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut20activatedAmbiguouslyEv(
+    QQuickShortcut *self) {
+  self->activatedAmbiguously();
+}
+
 //  void QQuickShortcut::classBegin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickShortcut10classBeginEv(QQuickShortcut *self) {
@@ -355,6 +428,42 @@ bool ritual_ZN14QQuickShortcut5eventEP6QEvent(
     QQuickShortcut *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  void QQuickShortcut::setEnabled(Shortcut &shortcut, bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut10setEnabledERNS_8ShortcutEb(
+    QQuickShortcut *self,
+    QQuickShortcut::Shortcut *shortcut,
+    bool enabled) {
+  self->setEnabled(*shortcut, enabled);
+}
+
+//  void QQuickShortcut::setAutoRepeat(Shortcut &shortcut, bool repeat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut13setAutoRepeatERNS_8ShortcutEb(
+    QQuickShortcut *self,
+    QQuickShortcut::Shortcut *shortcut,
+    bool repeat) {
+  self->setAutoRepeat(*shortcut, repeat);
+}
+
+//  void QQuickShortcut::grabShortcut(Shortcut &shortcut, Qt::ShortcutContext
+//      context)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut12grabShortcutERNS_8ShortcutEN2Qt15ShortcutContextE(
+    QQuickShortcut *self,
+    QQuickShortcut::Shortcut *shortcut,
+    Qt::ShortcutContext context) {
+  self->grabShortcut(*shortcut, context);
+}
+
+//  void QQuickShortcut::ungrabShortcut(Shortcut &shortcut)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickShortcut14ungrabShortcutERNS_8ShortcutE(
+    QQuickShortcut *self,
+    QQuickShortcut::Shortcut *shortcut) {
+  self->ungrabShortcut(*shortcut);
 }
 
 //  QQuickShortcut as the QQmlParserStatus it is built on

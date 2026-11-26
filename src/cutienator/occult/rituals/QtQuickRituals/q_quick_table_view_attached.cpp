@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK23QQuickTableViewAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTableViewAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickTableViewAttached11qt_metacastEPKc(
+    QQuickTableViewAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTableViewAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickTableViewAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTableViewAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTableViewAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickTableViewAttached2trEPKcS1_i(
@@ -64,6 +83,41 @@ void ritual_ZN23QQuickTableViewAttached15setEditDelegateEP13QQmlComponent(
     QQuickTableViewAttached *self,
     QQmlComponent *newEditDelegate) {
   self->setEditDelegate(newEditDelegate);
+}
+
+//  void QQuickTableViewAttached::viewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTableViewAttached11viewChangedEv(
+    QQuickTableViewAttached *self) {
+  self->viewChanged();
+}
+
+//  void QQuickTableViewAttached::pooled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTableViewAttached6pooledEv(
+    QQuickTableViewAttached *self) {
+  self->pooled();
+}
+
+//  void QQuickTableViewAttached::reused()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTableViewAttached6reusedEv(
+    QQuickTableViewAttached *self) {
+  self->reused();
+}
+
+//  void QQuickTableViewAttached::editDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTableViewAttached19editDelegateChangedEv(
+    QQuickTableViewAttached *self) {
+  self->editDelegateChanged();
+}
+
+//  void QQuickTableViewAttached::commit()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTableViewAttached6commitEv(
+    QQuickTableViewAttached *self) {
+  self->commit();
 }
 
 #endif  // QT_CONFIG(quick_tableview)

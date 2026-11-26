@@ -19,10 +19,43 @@ QWebViewLoadingInfo *ritual_ZN19QWebViewLoadingInfoC1ERKS_(
   return new QWebViewLoadingInfo(*other);
 }
 
+//  QWebViewLoadingInfo &QWebViewLoadingInfo::operator=(const
+//      QWebViewLoadingInfo &other)
+extern "C" Q_DECL_EXPORT
+QWebViewLoadingInfo *ritual_ZN19QWebViewLoadingInfoaSERKS_(
+    QWebViewLoadingInfo *self,
+    const QWebViewLoadingInfo *other) {
+  return &(self->operator=(*other));
+}
+
+//  QWebViewLoadingInfo::QWebViewLoadingInfo(QWebViewLoadingInfo &&other)
+extern "C" Q_DECL_EXPORT
+QWebViewLoadingInfo *ritual_ZN19QWebViewLoadingInfoC1EOS_(
+    QWebViewLoadingInfo *other) {
+  return new QWebViewLoadingInfo(std::move(*other));
+}
+
+//  QWebViewLoadingInfo &QWebViewLoadingInfo::operator=(QWebViewLoadingInfo
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QWebViewLoadingInfo *ritual_ZN19QWebViewLoadingInfoaSEOS_(
+    QWebViewLoadingInfo *self,
+    QWebViewLoadingInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QWebViewLoadingInfo::~QWebViewLoadingInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QWebViewLoadingInfoD1Ev(QWebViewLoadingInfo *self) {
   delete self;
+}
+
+//  void QWebViewLoadingInfo::swap(QWebViewLoadingInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWebViewLoadingInfo4swapERS_(
+    QWebViewLoadingInfo *self,
+    QWebViewLoadingInfo *other) {
+  self->swap(*other);
 }
 
 //  QUrl QWebViewLoadingInfo::url() const

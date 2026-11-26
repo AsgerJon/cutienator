@@ -5,10 +5,14 @@
 #if QT_CONFIG(transposeproxymodel)
 #include <QtCore/qtransposeproxymodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
@@ -1249,6 +1253,25 @@ const QMetaObject *ritual_ZNK20QTransposeProxyModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTransposeProxyModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QTransposeProxyModel11qt_metacastEPKc(
+    QTransposeProxyModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTransposeProxyModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QTransposeProxyModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTransposeProxyModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTransposeProxyModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QTransposeProxyModel2trEPKcS1_i(
@@ -1486,6 +1509,15 @@ void ritual_ZN20QTransposeProxyModel4sortEiN2Qt9SortOrderE(
     int column,
     Qt::SortOrder order) {
   self->sort(column, order);
+}
+
+//  QTransposeProxyModel::QTransposeProxyModel(QTransposeProxyModelPrivate
+//      &a0, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QTransposeProxyModel *ritual_ZN20QTransposeProxyModelC1ER27QTransposeProxyModelPrivateP7QObject(
+    QTransposeProxyModelPrivate *a0,
+    QObject *parent) {
+  return new CuteQTransposeProxyModel(*a0, parent);
 }
 
 //  a Python function taken by a CuteQTransposeProxyModel, for the function

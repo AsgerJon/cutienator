@@ -35,6 +35,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/mimetypes/qmimemagicrule.cpp, line 49, as _ZNK14QMimeMagicRuleeqERKS_
+inline bool QMimeMagicRule::operator==(const QMimeMagicRule &other) const
+{
+    return m_type == other.m_type &&
+           m_value == other.m_value &&
+           m_startPos == other.m_startPos &&
+           m_endPos == other.m_endPos &&
+           m_mask == other.m_mask &&
+           m_pattern == other.m_pattern &&
+           m_number == other.m_number &&
+           m_numberMask == other.m_numberMask &&
+           m_matchFunction == other.m_matchFunction;
+}
+
 //  from src/corelib/mimetypes/qmimemagicrule.cpp, line 325, as _ZNK14QMimeMagicRule7matchesERK10QByteArray
 inline bool QMimeMagicRule::matches(const QByteArray &data) const
 {
@@ -66,6 +82,13 @@ inline QMimeMagicRuleMatcher::QMimeMagicRuleMatcher(const QString &mime, unsigne
     m_priority(thePriority),
     m_mimetype(mime)
 {
+}
+
+//  from src/corelib/mimetypes/qmimemagicrulematcher.cpp, line 33, as _ZNK21QMimeMagicRuleMatchereqERKS_
+inline bool QMimeMagicRuleMatcher::operator==(const QMimeMagicRuleMatcher &other) const
+{
+    return m_list == other.m_list &&
+           m_priority == other.m_priority;
 }
 
 //  from src/corelib/mimetypes/qmimemagicrulematcher.cpp, line 39, as _ZN21QMimeMagicRuleMatcher7addRuleERK14QMimeMagicRule
@@ -111,6 +134,23 @@ QMimeMagicRuleMatcher *ritual_ZN21QMimeMagicRuleMatcherC1ERK7QStringj(
     const QString *mime,
     unsigned int priority) {
   return new QMimeMagicRuleMatcher(*mime, priority);
+}
+
+//  void QMimeMagicRuleMatcher::swap(QMimeMagicRuleMatcher &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QMimeMagicRuleMatcher4swapERS_(
+    QMimeMagicRuleMatcher *self,
+    QMimeMagicRuleMatcher *other) {
+  self->swap(*other);
+}
+
+//  bool QMimeMagicRuleMatcher::operator==(const QMimeMagicRuleMatcher
+//      &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QMimeMagicRuleMatchereqERKS_(
+    const QMimeMagicRuleMatcher *self,
+    const QMimeMagicRuleMatcher *other) {
+  return self->operator==(*other);
 }
 
 //  void QMimeMagicRuleMatcher::addRule(const QMimeMagicRule &rule)

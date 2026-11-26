@@ -8,10 +8,14 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#include <Qt3DCore/qnodeid.h>
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <vector>
+#include <Qt3DCore/Qt3DCore>
+#include <QtCore/QSharedPointer>
 
 //  A Qt3DRender::Render::AbstractRenderer that Python can take functions over in. Every Qt3DRender::Render::AbstractRenderer
 //  Python makes is one. Each function below asks the Python
@@ -948,6 +952,22 @@ bool ritual_ZN10Qt3DRender6Render16AbstractRenderer15processKeyEventEP7QObjectP9
   return self->processKeyEvent(object, event);
 }
 
+//  std::vector<Qt3DCore::QAspectJobPtr>
+//      Qt3DRender::Render::AbstractRenderer::preRenderingJobs()
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZN10Qt3DRender6Render16AbstractRenderer16preRenderingJobsEv(
+    Qt3DRender::Render::AbstractRenderer *self) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(self->preRenderingJobs());
+}
+
+//  std::vector<Qt3DCore::QAspectJobPtr>
+//      Qt3DRender::Render::AbstractRenderer::renderBinJobs()
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZN10Qt3DRender6Render16AbstractRenderer13renderBinJobsEv(
+    Qt3DRender::Render::AbstractRenderer *self) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(self->renderBinJobs());
+}
+
 //  void Qt3DRender::Render::AbstractRenderer::setSceneRoot(Entity *root)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender6Render16AbstractRenderer12setSceneRootEPNS0_6EntityE(
@@ -1055,6 +1075,28 @@ QScreen *ritual_ZNK10Qt3DRender6Render16AbstractRenderer6screenEv(
   return self->screen();
 }
 
+//  bool Qt3DRender::Render::AbstractRenderer::accessOpenGLTexture(Qt3DCore::
+//      QNodeId nodeId, QOpenGLTexture **texture, QMutex **lock, bool
+//      readonly)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender6Render16AbstractRenderer19accessOpenGLTextureEN8Qt3DCore7QNodeIdEPP14QOpenGLTexturePP6QMutexb(
+    Qt3DRender::Render::AbstractRenderer *self,
+    const Qt3DCore::QNodeId *nodeId,
+    QOpenGLTexture **texture,
+    QMutex **lock,
+    bool readonly) {
+  return self->accessOpenGLTexture(*nodeId, texture, lock, readonly);
+}
+
+//  QSharedPointer<RenderBackendResourceAccessor>
+//      Qt3DRender::Render::AbstractRenderer::resourceAccessor() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<Qt3DRender::Render::RenderBackendResourceAccessor> *ritual_ZNK10Qt3DRender6Render16AbstractRenderer16resourceAccessorEv(
+    const Qt3DRender::Render::AbstractRenderer *self) {
+  return new QSharedPointer<Qt3DRender::Render::RenderBackendResourceAccessor>(
+      self->resourceAccessor());
+}
+
 //  void Qt3DRender::Render::AbstractRenderer::setOffscreenSurfaceHelper(Offs
 //      creenSurfaceHelper *helper)
 extern "C" Q_DECL_EXPORT
@@ -1151,4 +1193,20 @@ extern "C" Q_DECL_EXPORT
 QScreen *ritual_own_ZNK10Qt3DRender6Render16AbstractRenderer6screenEv(
     const Qt3DRender::Render::AbstractRenderer *self) {
   return self->Qt3DRender::Render::AbstractRenderer::screen();
+}
+
+//  a std::vector<Qt3DCore::QAspectJobPtr> a ritual of
+//      Qt3DRender::Render::AbstractRenderer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_AbstractRenderer__std_vector_Qt3DCore_QAspectJobPtr(
+    std::vector<Qt3DCore::QAspectJobPtr> *self) {
+  delete self;
+}
+
+//  a QSharedPointer<Qt3DRender::Render::RenderBackendResourceAccessor> a
+//      ritual of Qt3DRender::Render::AbstractRenderer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_AbstractRenderer__QSharedPointer_Qt3DRender_Render_RenderBackendResourceAccessor(
+    QSharedPointer<Qt3DRender::Render::RenderBackendResourceAccessor> *self) {
+  delete self;
 }

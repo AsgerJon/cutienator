@@ -5,7 +5,9 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/qpieslice.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qpieslice_p.h>
@@ -191,6 +193,25 @@ const QMetaObject *ritual_ZNK16QPieSlicePrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPieSlicePrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QPieSlicePrivate11qt_metacastEPKc(
+    QPieSlicePrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPieSlicePrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QPieSlicePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPieSlicePrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPieSlicePrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QPieSlicePrivate2trEPKcS1_i(
@@ -278,6 +299,33 @@ void ritual_ZN16QPieSlicePrivate12setAngleSpanEd(
     QPieSlicePrivate *self,
     qreal span) {
   self->setAngleSpan(span);
+}
+
+//  void QPieSlicePrivate::labelPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPieSlicePrivate20labelPositionChangedEv(
+    QPieSlicePrivate *self) {
+  self->labelPositionChanged();
+}
+
+//  void QPieSlicePrivate::explodedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPieSlicePrivate15explodedChangedEv(QPieSlicePrivate *self) {
+  self->explodedChanged();
+}
+
+//  void QPieSlicePrivate::labelArmLengthFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPieSlicePrivate27labelArmLengthFactorChangedEv(
+    QPieSlicePrivate *self) {
+  self->labelArmLengthFactorChanged();
+}
+
+//  void QPieSlicePrivate::explodeDistanceFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPieSlicePrivate28explodeDistanceFactorChangedEv(
+    QPieSlicePrivate *self) {
+  self->explodeDistanceFactorChanged();
 }
 
 //  QPieSlice *QPieSlicePrivate::q_func()

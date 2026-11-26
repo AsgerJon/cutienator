@@ -21,6 +21,39 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/gui/util/qgridlayoutengine.cpp, line 17, as local:qgridlayoutengine.cpp:LAYOUTITEMSIZE_MAX
+#define LAYOUTITEMSIZE_MAX (1 << 24)
+
+//  from src/gui/util/qgridlayoutengine.cpp, line 32, as local:qgridlayoutengine.cpp:growthFactorBelowPreferredSize
+static qreal growthFactorBelowPreferredSize(qreal desired, qreal sumAvailable, qreal sumDesired)
+{
+    Q_ASSERT(sumDesired != 0.0);
+    return desired * qPow(sumAvailable / sumDesired, desired / sumDesired);
+}
+
+//  from src/gui/util/qgridlayoutengine.cpp, line 51, as local:qgridlayoutengine.cpp:compare
+static qreal compare(const QGridLayoutBox &box1, const QGridLayoutBox &box2, int which)
+{
+    qreal size1 = box1.q_sizes(which);
+    qreal size2 = box2.q_sizes(which);
+
+    if (which == MaximumSize) {
+        return size2 - size1;
+    } else {
+        return size1 - size2;
+    }
+}
+
+//  from src/gui/util/qgridlayoutengine.cpp, line 167, as local:qgridlayoutengine.cpp:qround
+namespace {
+static inline qreal qround(qreal f)
+{
+    return std::floor(f + qreal(0.5));
+}
+}  // namespace
+
 //  from src/gui/util/qgridlayoutengine.cpp, line 120, as _ZN18QGridLayoutRowData5resetEi
 inline void QGridLayoutRowData::reset(int count)
 {

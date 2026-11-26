@@ -182,6 +182,24 @@ const QMetaObject *ritual_ZNK10QTextFrame10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTextFrame::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QTextFrame11qt_metacastEPKc(
+    QTextFrame *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextFrame::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QTextFrame11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextFrame *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTextFrame::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QTextFrame2trEPKcS1_i(
@@ -283,6 +301,14 @@ QTextFrame::iterator *ritual_ZNK10QTextFrame5beginEv(
 extern "C" Q_DECL_EXPORT
 QTextFrame::iterator *ritual_ZNK10QTextFrame3endEv(const QTextFrame *self) {
   return new QTextFrame::iterator(self->end());
+}
+
+//  QTextFrame::QTextFrame(QTextFramePrivate &p, QTextDocument *doc)
+extern "C" Q_DECL_EXPORT
+QTextFrame *ritual_ZN10QTextFrameC1ER17QTextFramePrivateP13QTextDocument(
+    QTextFramePrivate *p,
+    QTextDocument *doc) {
+  return new CuteQTextFrame(*p, doc);
 }
 
 //  QTextFramePrivate *QTextFrame::d_func()

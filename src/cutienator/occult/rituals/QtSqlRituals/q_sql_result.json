@@ -8,6 +8,8 @@
     "ritual_ZNK10QSqlResult6d_funcEv": ["address", "address"],
     "ritual_ZN10QSqlResultD1Ev": ["nothing", "address"],
     "ritual_ZNK10QSqlResult6handleEv": ["address", "address"],
+    "ritual_ZN10QSqlResultC1EPK10QSqlDriver": ["address", "address"],
+    "ritual_ZN10QSqlResultC1ER17QSqlResultPrivate": ["address", "address"],
     "ritual_ZNK10QSqlResult2atEv": ["int", "address"],
     "ritual_ZNK10QSqlResult9lastQueryEv": ["text", "address"],
     "ritual_ZNK10QSqlResult9lastErrorEv": ["address", "address"],
@@ -51,6 +53,9 @@
     ],
     "ritual_ZNK10QSqlResult13bindValueTypeEi": ["int", "address", "int"],
     "ritual_ZNK10QSqlResult15boundValueCountEv": ["int", "address"],
+    "ritual_ZN10QSqlResult11boundValuesEN2Qt15Disambiguated_tE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK10QSqlResult11boundValuesEN2Qt15Disambiguated_tE": [
       "address", "address", "address"
     ],
@@ -72,6 +77,9 @@
     "ritual_ZN10QSqlResult15numRowsAffectedEv": ["int", "address"],
     "ritual_ZNK10QSqlResult6recordEv": ["address", "address"],
     "ritual_ZNK10QSqlResult12lastInsertIdEv": ["address", "address"],
+    "ritual_ZN10QSqlResult12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN10QSqlResult9execBatchEb": ["bool", "address", "bool"],
     "ritual_ZN10QSqlResult19detachFromResultSetEv": ["nothing", "address"],
     "ritual_ZN10QSqlResult27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE": [
@@ -117,6 +125,9 @@
     "ritual_own_ZN10QSqlResult13fetchPreviousEv": ["bool", "address"],
     "ritual_own_ZNK10QSqlResult6recordEv": ["address", "address"],
     "ritual_own_ZNK10QSqlResult12lastInsertIdEv": ["address", "address"],
+    "ritual_own_ZN10QSqlResult12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_own_ZN10QSqlResult9execBatchEb": ["bool", "address", "bool"],
     "ritual_own_ZN10QSqlResult19detachFromResultSetEv": [
       "nothing", "address"

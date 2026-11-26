@@ -8,6 +8,12 @@
     "ritual_ZN21QMimeMagicRuleMatcherC1ERK7QStringj": [
       "address", "text", "unsigned int"
     ],
+    "ritual_ZN21QMimeMagicRuleMatcher4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QMimeMagicRuleMatchereqERKS_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN21QMimeMagicRuleMatcher7addRuleERK14QMimeMagicRule": [
       "nothing", "address", "address"
     ],

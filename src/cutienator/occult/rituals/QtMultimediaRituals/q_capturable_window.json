@@ -9,6 +9,12 @@
     "ritual_ZN17QCapturableWindowC1EP7QWindow": ["address", "address"],
     "ritual_ZN17QCapturableWindowD1Ev": ["nothing", "address"],
     "ritual_ZN17QCapturableWindowC1ERKS_": ["address", "address"],
+    "ritual_ZN17QCapturableWindowC1EOS_": ["address", "address"],
+    "ritual_ZN17QCapturableWindowaSERKS_": ["address", "address", "address"],
+    "ritual_ZN17QCapturableWindowaSEOS_": ["address", "address", "address"],
+    "ritual_ZN17QCapturableWindow4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK17QCapturableWindowS1_": ["bool", "address", "address"],
     "ritual_ZneRK17QCapturableWindowS1_": ["bool", "address", "address"],
     "ritual_ZNK17QCapturableWindow7isValidEv": ["bool", "address"],

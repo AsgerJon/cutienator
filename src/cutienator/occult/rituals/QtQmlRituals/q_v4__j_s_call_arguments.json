@@ -5,6 +5,12 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV415JSCallArgumentsC1ERKNS_5ScopeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV415JSCallArguments8callDataERKNS_5ScopeEPKNS_14FunctionObjectE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN3QV415JSCallArgumentsD1Ev": ["nothing", "address"]
   }
 }

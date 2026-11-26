@@ -13,6 +13,17 @@
 #include <QtGui/qtextobject.h>
 #include <QtCore/qstring.h>
 
+//  QTextMarkdownWriter::QTextMarkdownWriter(QTextStream &stream,
+//      QTextDocument::MarkdownFeatures features)
+extern "C" Q_DECL_EXPORT
+QTextMarkdownWriter *ritual_ZN19QTextMarkdownWriterC1ER11QTextStream6QFlagsIN13QTextDocument15MarkdownFeatureEE(
+    QTextStream *stream,
+    int features) {
+  return new QTextMarkdownWriter(
+      *stream,
+      QFlags<QTextDocument::MarkdownFeature>::fromInt(features));
+}
+
 //  bool QTextMarkdownWriter::writeAll(const QTextDocument *document)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN19QTextMarkdownWriter8writeAllEPK13QTextDocument(
@@ -59,6 +70,14 @@ void ritual_ZN19QTextMarkdownWriter16writeFrontMatterERK7QString(
   self->writeFrontMatter(*fm);
 }
 
+//  ListInfo QTextMarkdownWriter::listInfo(QTextList *list)
+extern "C" Q_DECL_EXPORT
+QTextMarkdownWriter::ListInfo *ritual_ZN19QTextMarkdownWriter8listInfoEP9QTextList(
+    QTextMarkdownWriter *self,
+    QTextList *list) {
+  return new QTextMarkdownWriter::ListInfo(self->listInfo(list));
+}
+
 //  void QTextMarkdownWriter::setLinePrefixForBlockQuote(int level)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QTextMarkdownWriter26setLinePrefixForBlockQuoteEi(
@@ -70,6 +89,13 @@ void ritual_ZN19QTextMarkdownWriter26setLinePrefixForBlockQuoteEi(
 //  QTextMarkdownWriter::~QTextMarkdownWriter()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QTextMarkdownWriterD1Ev(QTextMarkdownWriter *self) {
+  delete self;
+}
+
+//  a QTextMarkdownWriter::ListInfo a ritual of QTextMarkdownWriter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextMarkdownWriter__QTextMarkdownWriter_ListInfo(
+    QTextMarkdownWriter::ListInfo *self) {
   delete self;
 }
 

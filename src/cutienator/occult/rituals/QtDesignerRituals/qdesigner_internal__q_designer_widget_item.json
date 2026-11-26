@@ -8,11 +8,17 @@
     "ritual_ZNK18qdesigner_internal19QDesignerWidgetItem10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal19QDesignerWidgetItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_ZN18qdesigner_internal19QDesignerWidgetItem2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZNK18qdesigner_internal19QDesignerWidgetItem11constWidgetEv": [
       "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19QDesignerWidgetItem5checkEPK7QLayoutP7QWidgetP6QFlagsIN2Qt11OrientationEE": [
+      "bool", "address", "address", "address"
     ],
     "ritual_cast_qdesigner_internal_QDesignerWidgetItem_QWidgetItemV2": [
       "address", "address"

@@ -6,6 +6,24 @@
   ],
   "rows": {
     "ritual_ZN18qdesigner_internal8ItemDataC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal8ItemDataC1EPK15QListWidgetItemb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal8ItemDataC1EPK16QTableWidgetItemb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal8ItemDataC1EPK15QTreeWidgetItemi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal8ItemData14createListItemEPNS_17DesignerIconCacheEb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal8ItemData15createTableItemEPNS_17DesignerIconCacheEb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal8ItemData18fillTreeItemColumnEP15QTreeWidgetItemiPNS_17DesignerIconCacheE": [
+      "nothing", "address", "address", "int", "address"
+    ],
     "ritual_ZNK18qdesigner_internal8ItemData7isValidEv": ["bool", "address"],
     "ritual_ZN18qdesigner_internaleqERKNS_8ItemDataES2_": [
       "bool", "address", "address"

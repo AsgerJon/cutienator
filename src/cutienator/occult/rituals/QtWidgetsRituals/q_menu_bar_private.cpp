@@ -11,6 +11,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qmenubar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qrect.h>
+#include <QtCore/qpoint.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/qpa/qplatformbackingstore.h>
@@ -19,6 +21,33 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/qmenubar.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qapplication.h>
+#if QT_CONFIG(accessibility)
+# include <QtGui/qaccessible.h>
+#endif
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtGui/qevent.h>
+#if QT_CONFIG(mainwindow)
+#include <QtWidgets/qmainwindow.h>
+#endif
+#if QT_CONFIG(toolbutton)
+#include <QtWidgets/qtoolbutton.h>
+#endif
+#if QT_CONFIG(whatsthis)
+#include <QtWidgets/qwhatsthis.h>
+#endif
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtWidgets/private/qmenu_p.h>
+#include <QtWidgets/private/qmenubar_p.h>
+#include <QtGui/private/qscreen_p.h>
+#include <QtWidgets/private/qstyle_p.h>
+#include <QtCore/qdebug.h>
 #include <QtWidgets/qmenu.h>
 #include <QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/private/qwidgetwindow_p.h>
@@ -75,33 +104,6 @@
 #include <QtCore/q20utility.h>
 #include <limits.h>
 #include <algorithm>
-#include <QtWidgets/qmenubar.h>
-#include <QtWidgets/qstyle.h>
-#include <QtWidgets/qlayout.h>
-#include <QtWidgets/qapplication.h>
-#if QT_CONFIG(accessibility)
-# include <QtGui/qaccessible.h>
-#endif
-#include <QtGui/qpainter.h>
-#include <QtWidgets/qstylepainter.h>
-#include <QtGui/qevent.h>
-#if QT_CONFIG(mainwindow)
-#include <QtWidgets/qmainwindow.h>
-#endif
-#if QT_CONFIG(toolbutton)
-#include <QtWidgets/qtoolbutton.h>
-#endif
-#if QT_CONFIG(whatsthis)
-#include <QtWidgets/qwhatsthis.h>
-#endif
-#include <QtGui/qpa/qplatformtheme.h>
-#include <QtGui/private/qguiapplication_p.h>
-#include <QtGui/qpa/qplatformintegration.h>
-#include <QtWidgets/private/qmenu_p.h>
-#include <QtWidgets/private/qmenubar_p.h>
-#include <QtGui/private/qscreen_p.h>
-#include <QtWidgets/private/qstyle_p.h>
-#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -110,6 +112,145 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qmenubar.cpp, line 39, as local:qmenubar.cpp:QMenuBarExtension
+class QMenuBarExtension : public QToolButton
+{
+public:
+    explicit QMenuBarExtension(QWidget *parent);
+
+    QSize sizeHint() const override;
+    void paintEvent(QPaintEvent *) override;
+};
+
+//  from src/widgets/widgets/qmenubar.cpp, line 48, as local:qmenubar.cpp:QMenuBarExtension::QMenuBarExtension
+inline QMenuBarExtension::QMenuBarExtension(QWidget *parent)
+    : QToolButton(parent)
+{
+    setObjectName("qt_menubar_ext_button"_L1);
+    setAutoRaise(true);
+#if QT_CONFIG(menu)
+    setPopupMode(QToolButton::InstantPopup);
+#endif
+    setIcon(style()->standardIcon(QStyle::SP_ToolBarHorizontalExtensionButton, nullptr, parentWidget()));
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 59, as local:qmenubar.cpp:QMenuBarExtension::paintEvent
+inline void QMenuBarExtension::paintEvent(QPaintEvent *)
+{
+    QStylePainter p(this);
+    QStyleOptionToolButton opt;
+    initStyleOption(&opt);
+    // We do not need to draw both extension arrows
+    opt.features &= ~QStyleOptionToolButton::HasMenu;
+    p.drawComplexControl(QStyle::CC_ToolButton, opt);
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 70, as local:qmenubar.cpp:QMenuBarExtension::sizeHint
+inline QSize QMenuBarExtension::sizeHint() const
+{
+    int ext = style()->pixelMetric(QStyle::PM_ToolBarExtensionExtent, nullptr, parentWidget());
+    return QSize(ext, ext);
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 128, as _ZN15QMenuBarPrivate16updateGeometriesEv
+#if defined(Q_OS_LINUX)
+inline void QMenuBarPrivate::updateGeometries()
+{
+    Q_Q(QMenuBar);
+    if (!itemsDirty)
+        return;
+    int q_width = q->width()-(q->style()->pixelMetric(QStyle::PM_MenuBarPanelWidth, nullptr, q)*2);
+    int q_start = -1;
+    if (leftWidget || rightWidget) {
+        int vmargin = q->style()->pixelMetric(QStyle::PM_MenuBarVMargin, nullptr, q)
+                      + q->style()->pixelMetric(QStyle::PM_MenuBarPanelWidth, nullptr, q);
+        int hmargin = q->style()->pixelMetric(QStyle::PM_MenuBarHMargin, nullptr, q)
+                      + q->style()->pixelMetric(QStyle::PM_MenuBarPanelWidth, nullptr, q);
+        if (leftWidget && leftWidget->isVisible()) {
+            QSize sz = leftWidget->sizeHint();
+            q_width -= sz.width();
+            q_start = sz.width();
+            QPoint pos(hmargin, (q->height() - leftWidget->height()) / 2);
+            QRect vRect = QStyle::visualRect(q->layoutDirection(), q->rect(), QRect(pos, sz));
+            leftWidget->setGeometry(vRect);
+        }
+        if (rightWidget && rightWidget->isVisible()) {
+            QSize sz = rightWidget->sizeHint();
+            q_width -= sz.width();
+            QPoint pos(q->width() - sz.width() - hmargin, vmargin);
+            QRect vRect = QStyle::visualRect(q->layoutDirection(), q->rect(), QRect(pos, sz));
+            rightWidget->setGeometry(vRect);
+        }
+    }
+
+#ifdef Q_OS_MACOS
+    if (q->isNativeMenuBar()) {//nothing to see here folks, move along..
+        itemsDirty = false;
+        return;
+    }
+#endif
+    calcActionRects(q_width, q_start);
+    currentAction = nullptr;
+#ifndef QT_NO_SHORTCUT
+    if (itemsDirty) {
+        for (const auto shortcutId : std::as_const(shortcutIndexMap))
+            q->releaseShortcut(shortcutId);
+        shortcutIndexMap.clear();
+        shortcutIndexMap.reserve(actions.size());
+        for (const auto *action : std::as_const(actions))
+            shortcutIndexMap.append(q->grabShortcut(QKeySequence::mnemonic(action->text())));
+    }
+#endif
+    itemsDirty = false;
+
+    hiddenActions.clear();
+    //this is the menu rectangle without any extension
+    QRect menuRect = this->menuRect(false);
+
+    //we try to see if the actions will fit there
+    bool hasHiddenActions = false;
+    for (const auto &rect : std::as_const(actionRects)) {
+        if (rect.isValid() && !menuRect.contains(rect)) {
+            hasHiddenActions = true;
+            break;
+        }
+    }
+
+    //...and if not, determine the ones that fit on the menu with the extension visible
+    if (hasHiddenActions) {
+        menuRect = this->menuRect(true);
+        for (qsizetype i = 0; i < actions.size(); ++i) {
+            const QRect &rect = actionRects.at(i);
+            if (rect.isValid() && !menuRect.contains(rect)) {
+                hiddenActions.append(actions.at(i));
+            }
+        }
+    }
+
+    if (hiddenActions.size() > 0) {
+        QMenu *pop = extension->menu();
+        if (!pop) {
+            pop = new QMenu(q);
+            extension->setMenu(pop);
+        }
+        pop->clear();
+        pop->addActions(hiddenActions);
+
+        int vmargin = q->style()->pixelMetric(QStyle::PM_MenuBarVMargin, nullptr, q);
+        int x = q->isRightToLeft()
+                ? menuRect.left() - extension->sizeHint().width() + 1
+                : menuRect.right();
+        extension->setGeometry(x, vmargin, extension->sizeHint().width(), menuRect.height() - vmargin*2);
+        extension->show();
+    } else {
+        extension->hide();
+    }
+    q->updateGeometry();
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qmenu.cpp, line 685, as _ZN12QMenuPrivate20setFirstActionActiveEv
 inline void QMenuPrivate::setFirstActionActive()
@@ -137,6 +278,41 @@ inline bool QStylePrivate::useFullScreenForPopup()
 {
     auto theme = QGuiApplicationPrivate::platformTheme();
     return theme && theme->themeHint(QPlatformTheme::UseFullScreenForPopupMenu).toBool();
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 89, as _ZNK15QMenuBarPrivate8menuRectEb
+inline QRect QMenuBarPrivate::menuRect(bool extVisible) const
+{
+    Q_Q(const QMenuBar);
+
+    int hmargin = q->style()->pixelMetric(QStyle::PM_MenuBarPanelWidth, nullptr, q);
+    QRect result = q->rect();
+    result.adjust(hmargin, 0, -hmargin, 0);
+
+    if (extVisible) {
+        if (q->isRightToLeft())
+            result.setLeft(result.left() + extension->sizeHint().width());
+        else
+            result.setWidth(result.width() - extension->sizeHint().width());
+    }
+
+    if (leftWidget && leftWidget->isVisible()) {
+        QSize sz = leftWidget->sizeHint();
+        if (q->isRightToLeft())
+            result.setRight(result.right() - sz.width());
+        else
+            result.setLeft(result.left() + sz.width());
+    }
+
+    if (rightWidget && rightWidget->isVisible()) {
+        QSize sz = rightWidget->sizeHint();
+        if (q->isRightToLeft())
+            result.setLeft(result.left() + sz.width());
+        else
+            result.setRight(result.right() - sz.width());
+    }
+
+    return result;
 }
 
 //  from src/widgets/widgets/qmenu.cpp, line 706, as _ZN12QMenuPrivate16setCurrentActionEP7QActioniNS_15SelectionReasonENS_18SelectionDirectionEb
@@ -212,6 +388,507 @@ inline void QMenuPrivate::setCurrentAction(QAction *action, int popup, Selection
                 sloppyState.startTimerIfNotRunning();
         }
     }
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 279, as _ZNK12QMenuPrivate14scrollerHeightEv
+inline int QMenuPrivate::scrollerHeight() const
+{
+    Q_Q(const QMenu);
+    return q->style()->pixelMetric(QStyle::PM_MenuScrollerHeight, nullptr, q);
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 333, as _ZNK12QMenuPrivate17updateActionRectsEv
+inline void QMenuPrivate::updateActionRects() const
+{
+    updateActionRects(popupGeometry());
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 648, as _ZN12QMenuPrivate11popupActionEP7QActionib
+inline void QMenuPrivate::popupAction(QAction *action, int delay, bool activateFirst)
+{
+    Q_Q(QMenu);
+    if (action) {
+        if (action->isEnabled()) {
+            if (!delay)
+                q->internalDelayedPopup();
+            else if (action->menu() && !action->menu()->isVisible())
+                delayState.start(delay, action);
+            else if (!action->menu())
+                delayState.stop();
+            if (activateFirst && action->menu())
+                action->menu()->d_func()->setFirstActionActive();
+        }
+    } else if (QMenu *menu = activeMenu) {  //hide the current item
+        hideMenu(menu);
+    }
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 1445, as _ZN12QMenuPrivate14activateActionEP7QActionNS0_11ActionEventEb
+inline void QMenuPrivate::activateAction(QAction *action, QAction::ActionEvent action_e, bool self)
+{
+    Q_Q(QMenu);
+#if QT_CONFIG(whatsthis)
+    bool inWhatsThisMode = QWhatsThis::inWhatsThisMode();
+#endif
+    if (!action || !q->isEnabled()
+        || (action_e == QAction::Trigger
+#if QT_CONFIG(whatsthis)
+            && !inWhatsThisMode
+#endif
+            && (action->isSeparator() ||!action->isEnabled())))
+        return;
+
+    /* I have to save the caused stack here because it will be undone after popup execution (ie in the hide).
+       Then I iterate over the list to actually send the events. --Sam
+    */
+    const QList<QPointer<QWidget>> causedStack = calcCausedStack();
+    if (action_e == QAction::Trigger) {
+#if QT_CONFIG(whatsthis)
+        if (!inWhatsThisMode)
+            actionAboutToTrigger = action;
+#endif
+
+        if (q->testAttribute(Qt::WA_DontShowOnScreen)) {
+            hideUpToMenuBar();
+        } else {
+            for(QWidget *widget = QApplication::activePopupWidget(); widget; ) {
+                if (QMenu *qmenu = qobject_cast<QMenu*>(widget)) {
+                    if (qmenu == q)
+                        hideUpToMenuBar();
+                    widget = qmenu->d_func()->causedPopup.widget;
+                } else {
+                    break;
+                }
+            }
+        }
+
+#if QT_CONFIG(whatsthis)
+        if (inWhatsThisMode) {
+            QString s = action->whatsThis();
+            if (s.isEmpty())
+                s = whatsThis;
+            QWhatsThis::showText(q->mapToGlobal(actionRect(action).center()), s, q);
+            return;
+        }
+#endif
+    }
+
+    QPointer<QMenu> thisGuard(q);
+    activateCausedStack(causedStack, action, action_e, self);
+    if (!thisGuard)
+        return;
+
+    if (action_e == QAction::Hover) {
+#if QT_CONFIG(accessibility)
+        if (QAccessible::isActive()) {
+            int actionIndex = indexOf(action);
+            QAccessibleEvent focusEvent(q, QAccessible::Focus);
+            focusEvent.setChild(actionIndex);
+            QAccessible::updateAccessibility(&focusEvent);
+        }
+#endif
+        action->showStatusText(topCausedWidget());
+    } else {
+        actionAboutToTrigger = nullptr;
+    }
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 546, as _ZN12QMenuPrivate8hideMenuEP5QMenu
+inline void QMenuPrivate::hideMenu(QMenu *menu)
+{
+    if (!menu)
+        return;
+
+    // See two execs below. They may trigger an akward situation
+    // when 'menu' (also known as 'q' or 'this' in the many functions
+    // around) to become a dangling pointer if the loop manages
+    // to execute 'deferred delete' ... posted while executing
+    // this same loop. Not good!
+    struct Reposter : QObject
+    {
+        Reposter(QMenu *menu) : q(menu)
+        {
+            Q_ASSERT(q);
+            q->installEventFilter(this);
+        }
+        ~Reposter()
+        {
+            if (deleteLater)
+                q->deleteLater();
+        }
+        bool eventFilter(QObject *obj, QEvent *event) override
+        {
+            if (obj == q && event->type() == QEvent::DeferredDelete)
+                return deleteLater = true;
+
+            return QObject::eventFilter(obj, event);
+        }
+        QMenu *q = nullptr;
+        bool deleteLater = false;
+    };
+
+#if QT_CONFIG(effects)
+    // If deleteLater has been called and the event loop spins, while waiting
+    // for visual effects to happen, menu might become stale.
+    // To prevent a QSignalBlocker from restoring a stale object, block and restore signals manually.
+    QPointer<QMenu> stillAlive(menu);
+    const bool signalsBlocked = menu->signalsBlocked();
+    menu->blockSignals(true);
+
+    aboutToHide = true;
+    // Flash item which is about to trigger (if any).
+    if (menu && menu->style()->styleHint(QStyle::SH_Menu_FlashTriggeredItem, nullptr, stillAlive)
+        && currentAction && currentAction == actionAboutToTrigger
+        && menu->actions().contains(currentAction)) {
+        QEventLoop eventLoop;
+        QAction *activeAction = currentAction;
+
+        menu->setActiveAction(nullptr);
+        const Reposter deleteDeleteLate(menu);
+        QTimer::singleShot(60, &eventLoop, SLOT(quit()));
+        eventLoop.exec();
+
+        if (!stillAlive)
+            return;
+
+        // Select and wait 20 ms.
+        menu->setActiveAction(activeAction);
+        QTimer::singleShot(20, &eventLoop, SLOT(quit()));
+        eventLoop.exec();
+    }
+
+    aboutToHide = false;
+
+    if (stillAlive)
+        menu->blockSignals(signalsBlocked);
+    else
+        return;
+
+#endif // QT_CONFIG(effects)
+    if (activeMenu == menu)
+        activeMenu = nullptr;
+
+    menu->d_func()->causedPopup.action = nullptr;
+    menu->close();
+    menu->d_func()->causedPopup.widget = nullptr;
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 506, as _ZNK12QMenuPrivate10actionRectEP7QAction
+inline QRect QMenuPrivate::actionRect(QAction *act) const
+{
+    int index = actions.indexOf(act);
+    if (index == -1)
+        return QRect();
+
+    updateActionRects();
+
+    //we found the action
+    return actionRects.at(index);
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 292, as _ZNK12QMenuPrivate13popupGeometryEP7QScreen
+inline QRect QMenuPrivate::popupGeometry(QScreen *screen) const
+{
+    Q_Q(const QMenu);
+    if (screen == nullptr
+#if QT_CONFIG(graphicsview)
+        && q->graphicsProxyWidget() == nullptr
+#endif
+        ) {
+        screen = q->isVisible() ? q->screen() : popupScreen.data();
+    }
+    if (useFullScreenForPopup())
+        return screen ? screen->geometry()
+                      : QWidgetPrivate::screenGeometry(q);
+    return screen ? screen->availableGeometry()
+                  : QWidgetPrivate::availableScreenGeometry(q);
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 910, as _ZNK12QMenuPrivate15topCausedWidgetEv
+inline QWidget *QMenuPrivate::topCausedWidget() const
+{
+    QWidget* top = causedPopup.widget;
+    while (QMenu* m = qobject_cast<QMenu *>(top))
+        top = m->d_func()->causedPopup.widget;
+    return top;
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 338, as _ZNK12QMenuPrivate17updateActionRectsERK5QRect
+inline void QMenuPrivate::updateActionRects(const QRect &screen) const
+{
+    Q_Q(const QMenu);
+    if (!itemsDirty)
+        return;
+
+    q->ensurePolished();
+
+    //let's reinitialize the buffer
+    actionRects.resize(actions.size());
+    actionRects.fill(QRect());
+
+    int lastVisibleAction = getLastVisibleAction();
+
+    QStyle *style = q->style();
+    QStyleOption opt;
+    opt.initFrom(q);
+    const int hmargin = style->pixelMetric(QStyle::PM_MenuHMargin, &opt, q),
+              vmargin = style->pixelMetric(QStyle::PM_MenuVMargin, &opt, q),
+              icone = style->pixelMetric(QStyle::PM_SmallIconSize, &opt, q);
+    const int fw = style->pixelMetric(QStyle::PM_MenuPanelWidth, &opt, q);
+    const int deskFw = style->pixelMetric(QStyle::PM_MenuDesktopFrameWidth, &opt, q);
+    const int tearoffHeight = tearoff ? style->pixelMetric(QStyle::PM_MenuTearoffHeight, &opt, q) : 0;
+    const int base_y = vmargin + fw + topmargin + (scroll ? scroll->scrollOffset : 0) + tearoffHeight;
+    const int column_max_y = screen.height() - 2 * deskFw - (vmargin + bottommargin + fw);
+    int max_column_width = 0;
+    int y = base_y;
+
+    //for compatibility now - will have to refactor this away
+    tabWidth = 0;
+    maxIconWidth = 0;
+    hasCheckableItems = false;
+    ncols = 1;
+
+    for (int i = 0; i < actions.size(); ++i) {
+        QAction *action = actions.at(i);
+        if (action->isSeparator() || !action->isVisible() || widgetItems.contains(action))
+            continue;
+        //..and some members
+        hasCheckableItems |= action->isCheckable();
+        QIcon is = action->icon();
+        if (!is.isNull()) {
+            maxIconWidth = qMax<uint>(maxIconWidth, icone + 4);
+        }
+    }
+
+    //calculate size
+    QFontMetrics qfm = q->fontMetrics();
+    bool previousWasSeparator = true; // this is true to allow removing the leading separators
+#if QT_CONFIG(shortcut)
+    const bool contextMenu = isContextMenu();
+#endif
+    const bool menuSupportsSections = q->style()->styleHint(QStyle::SH_Menu_SupportsSections, nullptr, q);
+    for(int i = 0; i <= lastVisibleAction; i++) {
+        QAction *action = actions.at(i);
+        const bool isSection = action->isSeparator() && (!action->text().isEmpty() || !action->icon().isNull());
+        const bool isPlainSeparator = (isSection && !menuSupportsSections)
+                                   || (action->isSeparator() && !isSection);
+
+        if (!action->isVisible() ||
+            (collapsibleSeparators && previousWasSeparator && isPlainSeparator))
+            continue; // we continue, this action will get an empty QRect
+
+        previousWasSeparator = isPlainSeparator;
+
+        //let the style modify the above size..
+        QStyleOptionMenuItem opt;
+        q->initStyleOption(&opt, action);
+        const QFontMetrics &fm = opt.fontMetrics;
+
+        QSize sz;
+        if (QWidget *w = widgetItems.value(action)) {
+          sz = w->sizeHint().expandedTo(w->minimumSize()).expandedTo(w->minimumSizeHint()).boundedTo(w->maximumSize());
+        } else {
+            //calc what I think the size is..
+            if (action->isSeparator() && action->text().isEmpty()) {
+                sz = QSize(2, 2);
+            } else {
+                QString s = action->text();
+                qsizetype t = s.indexOf(u'\t');
+                if (t != -1) {
+                    tabWidth = qMax(int(tabWidth), qfm.horizontalAdvance(s.mid(t+1)));
+                    s = s.left(t);
+#if QT_CONFIG(shortcut)
+                } else if (action->isShortcutVisibleInContextMenu() || !contextMenu) {
+                    QKeySequence seq = action->shortcut();
+                    if (!seq.isEmpty())
+                        tabWidth = qMax(int(tabWidth), qfm.horizontalAdvance(seq.toString(QKeySequence::NativeText)));
+#endif
+                }
+                sz.setWidth(fm.boundingRect(QRect(), Qt::TextSingleLine | Qt::TextShowMnemonic, s).width());
+                sz.setHeight(qMax(fm.height(), qfm.height()));
+
+                QIcon is = action->icon();
+                if (!is.isNull()) {
+                    QSize is_sz = QSize(icone, icone);
+                    if (is_sz.height() > sz.height())
+                        sz.setHeight(is_sz.height());
+                }
+            }
+            sz = style->sizeFromContents(QStyle::CT_MenuItem, &opt, sz, q);
+        }
+
+
+        if (!sz.isEmpty()) {
+            max_column_width = qMax(max_column_width, sz.width());
+            //wrapping
+            if (!scroll && y + sz.height() > column_max_y) {
+                ncols++;
+                y = base_y;
+            } else {
+                y += sz.height();
+            }
+            //update the item
+            actionRects[i] = QRect(0, 0, sz.width(), sz.height());
+        }
+    }
+
+    max_column_width += tabWidth; //finally add in the tab width
+    if (!tornoff || scroll) { // exclude non-scrollable tear-off menu since the tear-off menu has a fixed size
+        const int sfcMargin = style->sizeFromContents(QStyle::CT_Menu, &opt, QSize(0, 0), q).width();
+        const int min_column_width = q->minimumWidth() - (sfcMargin + leftmargin + rightmargin + 2 * (fw + hmargin));
+        max_column_width = qMax(min_column_width, max_column_width);
+    }
+
+    //calculate position
+    int x = hmargin + fw + leftmargin;
+    y = base_y;
+
+    for(int i = 0; i < actions.size(); i++) {
+        QRect &rect = actionRects[i];
+        if (rect.isNull())
+            continue;
+        if (!scroll && y + rect.height() > column_max_y) {
+            x += max_column_width + hmargin;
+            y = base_y;
+        }
+        rect.translate(x, y);                        //move
+        rect.setWidth(max_column_width); //uniform width
+
+        //we need to update the widgets geometry
+        if (QWidget *widget = widgetItems.value(actions.at(i))) {
+            widget->setGeometry(rect);
+            widget->setVisible(actions.at(i)->isVisible());
+        }
+
+        y += rect.height();
+    }
+    itemsDirty = 0;
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 518, as _ZN12QMenuPrivate15hideUpToMenuBarEv
+inline void QMenuPrivate::hideUpToMenuBar()
+{
+    Q_Q(QMenu);
+    bool fadeMenus = q->style()->styleHint(QStyle::SH_Menu_FadeOutOnHide, nullptr, q);
+    if (!tornoff) {
+        QWidget *caused = causedPopup.widget;
+        hideMenu(q); //hide after getting causedPopup
+        while(caused) {
+#if QT_CONFIG(menubar)
+            if (QMenuBar *mb = qobject_cast<QMenuBar*>(caused)) {
+                mb->d_func()->setCurrentAction(nullptr);
+                mb->d_func()->setKeyboardMode(false);
+                caused = nullptr;
+            } else
+#endif
+            if (QMenu *m = qobject_cast<QMenu*>(caused)) {
+                caused = m->d_func()->causedPopup.widget;
+                if (!m->d_func()->tornoff)
+                    hideMenu(m);
+                if (!fadeMenus) // Mac doesn't clear the action until after hidden.
+                    m->d_func()->setCurrentAction(nullptr);
+            } else {                caused = nullptr;
+            }
+        }
+    }
+    setCurrentAction(nullptr);
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 1404, as _ZN12QMenuPrivate19activateCausedStackERK5QListI8QPointerI7QWidgetEEP7QActionNS7_11ActionEventEb
+inline void QMenuPrivate::activateCausedStack(const QList<QPointer<QWidget>> &causedStack, QAction *action,
+                                       QAction::ActionEvent action_e, bool self)
+{
+    Q_Q(QMenu);
+    // can't use QScopedValueRollback here
+    const bool activationRecursionGuardReset = activationRecursionGuard;
+    activationRecursionGuard = true;
+    QPointer<QMenu> guard(q);
+    if (self)
+        action->activate(action_e);
+    if (!guard)
+        return;
+    auto boolBlocker = qScopeGuard([this, activationRecursionGuardReset]{
+        activationRecursionGuard = activationRecursionGuardReset;
+    });
+
+    for(int i = 0; i < causedStack.size(); ++i) {
+        QPointer<QWidget> widget = causedStack.at(i);
+        if (!widget)
+            continue;
+        //fire
+        if (QMenu *qmenu = qobject_cast<QMenu*>(widget)) {
+            widget = qmenu->d_func()->causedPopup.widget;
+            if (action_e == QAction::Trigger) {
+                emit qmenu->triggered(action);
+           } else if (action_e == QAction::Hover) {
+                emit qmenu->hovered(action);
+            }
+#if QT_CONFIG(menubar)
+        } else if (QMenuBar *qmenubar = qobject_cast<QMenuBar*>(widget)) {
+            if (action_e == QAction::Trigger) {
+                emit qmenubar->triggered(action);
+            } else if (action_e == QAction::Hover) {
+                emit qmenubar->hovered(action);
+            }
+            break; //nothing more..
+#endif
+        }
+    }
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 324, as _ZNK12QMenuPrivate13isContextMenuEv
+inline bool QMenuPrivate::isContextMenu() const
+{
+#if QT_CONFIG(menubar)
+    return qobject_cast<const QMenuBar *>(topCausedWidget()) == nullptr;
+#else
+    return true;
+#endif
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 489, as _ZNK12QMenuPrivate20getLastVisibleActionEv
+inline int QMenuPrivate::getLastVisibleAction() const
+{
+    //let's try to get the last visible action
+    int lastVisibleAction = actions.size() - 1;
+    for (;lastVisibleAction >= 0; --lastVisibleAction) {
+        const QAction *action = actions.at(lastVisibleAction);
+        if (action->isVisible()) {
+            //removing trailing separators
+            if (action->isSeparator() && collapsibleSeparators)
+                continue;
+            break;
+        }
+    }
+    return lastVisibleAction;
+}
+
+//  from src/widgets/widgets/qmenu.cpp, line 287, as _ZNK12QMenuPrivate21useFullScreenForPopupEv
+inline bool QMenuPrivate::useFullScreenForPopup() const
+{
+    return !tornoff && QStylePrivate::useFullScreenForPopup();
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 696, as _ZNK15QMenuBarPrivate13getNextActionExx
+inline QAction *QMenuBarPrivate::getNextAction(const qsizetype _start, const qsizetype increment) const
+{
+    Q_Q(const QMenuBar);
+    const_cast<QMenuBarPrivate*>(this)->updateGeometries();
+    bool allowActiveAndDisabled = q->style()->styleHint(QStyle::SH_Menu_AllowActiveAndDisabled, nullptr, q);
+    const qsizetype start = (_start == -1 && increment == -1) ? actions.size() : _start;
+    const qsizetype end =  increment == -1 ? 0 : actions.size() - 1;
+
+    for (qsizetype i = start; i != end;) {
+        i += increment;
+        QAction *current = actions.at(i);
+        if (!actionRects.at(i).isNull() && (allowActiveAndDisabled || current->isEnabled()))
+            return current;
+    }
+
+    if (_start != -1) //let's try from the beginning or the end
+        return getNextAction(-1, increment);
+
+    return nullptr;
 }
 
 //  from src/widgets/widgets/qmenubar.cpp, line 384, as _ZNK15QMenuBarPrivate15calcActionRectsEii
@@ -311,6 +988,183 @@ inline void QMenuBarPrivate::calcActionRects(int max_width, int start) const
     }
 }
 
+//  from src/widgets/widgets/qmenubar.cpp, line 222, as _ZNK15QMenuBarPrivate10actionRectEP7QAction
+inline QRect QMenuBarPrivate::actionRect(QAction *act) const
+{
+    const qsizetype index = actions.indexOf(act);
+
+    //makes sure the geometries are up-to-date
+    const_cast<QMenuBarPrivate*>(this)->updateGeometries();
+
+    if (index < 0 || index >= actionRects.size())
+        return QRect(); // that can happen in case of native menubar
+
+    return actionRects.at(index);
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 80, as _ZNK15QMenuBarPrivate8actionAtE6QPoint
+inline QAction *QMenuBarPrivate::actionAt(QPoint p) const
+{
+    for (auto *action : actions) {
+        if (actionRect(action).contains(p))
+            return action;
+    }
+    return nullptr;
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 340, as _ZN15QMenuBarPrivate16setCurrentActionEP7QActionbb
+inline void QMenuBarPrivate::setCurrentAction(QAction *action, bool popup, bool activateFirst)
+{
+    if (currentAction == action && popup == popupState)
+        return;
+
+    autoReleaseTimer.stop();
+
+    doChildEffects = (popup && !activeMenu);
+    Q_Q(QMenuBar);
+    QWidget *fw = nullptr;
+    if (QMenu *menu = activeMenu) {
+        activeMenu = nullptr;
+        hoverAction = nullptr;
+        if (popup) {
+            fw = q->window()->focusWidget();
+            q->setFocus(Qt::NoFocusReason);
+        }
+        menu->hide();
+    }
+
+    if (currentAction)
+        q->update(actionRect(currentAction));
+
+    popupState = popup;
+#if QT_CONFIG(statustip)
+    QAction *previousAction = currentAction;
+#endif
+    currentAction = action;
+    if (action && action->isEnabled()) {
+        activateAction(action, QAction::Hover);
+        if (popup)
+            popupAction(action, activateFirst);
+        q->update(actionRect(action));
+#if QT_CONFIG(statustip)
+    }  else if (previousAction) {
+        QString empty;
+        QStatusTipEvent tip(empty);
+        QCoreApplication::sendEvent(q, &tip);
+#endif
+    }
+    if (fw)
+        fw->setFocus(Qt::NoFocusReason);
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 272, as _ZN15QMenuBarPrivate11popupActionEP7QActionb
+inline void QMenuBarPrivate::popupAction(QAction *action, bool activateFirst)
+{
+    Q_Q(QMenuBar);
+    if (!action || !action->menu() || closePopupMode)
+        return;
+    popupState = true;
+    if (action->isEnabled() && action->menu()->isEnabled()) {
+        closePopupMode = 0;
+        activeMenu = action->menu();
+        auto *activeMenuPriv = activeMenu->d_func();
+        activeMenuPriv->causedPopup.widget = q;
+        activeMenuPriv->causedPopup.action = action;
+
+        QRect adjustedActionRect = actionRect(action);
+        QPoint popupPos = adjustedActionRect.bottomLeft() + QPoint(0, 1);
+
+        //we put the popup menu on the screen containing the bottom-center of the action rect
+        QScreen *menubarScreen = q->window()->windowHandle()->screen();
+        QPoint screenTestPos = q->mapToGlobal(popupPos + QPoint(adjustedActionRect.width() / 2, 0));
+        QPointer<QScreen> popupScreen = menubarScreen->virtualSiblingAt(screenTestPos);
+        if (!popupScreen)
+            popupScreen = menubarScreen;
+        std::swap(popupScreen, activeMenuPriv->popupScreen);
+        const QSize popup_size = activeMenu->sizeHint();
+        std::swap(popupScreen, activeMenuPriv->popupScreen);
+
+        // Use screenTestPos.y() for the popup y position. This is the correct global y
+        // consistent with the selected screen in cases where the action rect spans
+        // multiple screens with different scale factors.
+        QPoint pos(q->mapToGlobal(popupPos).x(), screenTestPos.y());
+
+        QRect screenRect = QStylePrivate::useFullScreenForPopup()
+            ? popupScreen->geometry()
+            : popupScreen->availableGeometry();
+        pos = QPoint(qMax(pos.x(), screenRect.x()), qMax(pos.y(), screenRect.y()));
+        const bool fitUp = (pos.y() - popup_size.height() >= screenRect.top());
+        const bool fitDown = (pos.y() + popup_size.height() <= screenRect.bottom());
+        const bool rtl = q->isRightToLeft();
+        const int actionWidth = adjustedActionRect.width();
+
+        if (!fitUp && !fitDown) { //we should shift the menu
+            bool shouldShiftToRight = !rtl;
+            if (rtl && popup_size.width() > pos.x())
+                shouldShiftToRight = true;
+            else if (actionWidth + popup_size.width() + pos.x() > screenRect.right())
+                shouldShiftToRight = false;
+
+            if (shouldShiftToRight) {
+                pos.rx() += actionWidth + (rtl ? popup_size.width() : 0);
+            } else {
+                //shift to left
+                if (!rtl)
+                    pos.rx() -= popup_size.width();
+            }
+        } else if (rtl) {
+            pos.rx() += actionWidth;
+        }
+
+        if (!defaultPopDown || (fitUp && !fitDown))
+            pos.setY(qMax(screenRect.y(), q->mapToGlobal(QPoint(0, adjustedActionRect.top()-popup_size.height())).y()));
+        QMenuPrivate::get(activeMenu)->topData()->initialScreen = popupScreen;
+        activeMenu->popup(pos);
+        if (activateFirst)
+            activeMenu->d_func()->setFirstActionActive();
+    }
+    q->update(actionRect(action));
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 235, as _ZN15QMenuBarPrivate16focusFirstActionEv
+inline void QMenuBarPrivate::focusFirstAction()
+{
+    if (!currentAction) {
+        updateGeometries();
+        qsizetype index = 0;
+        while (index < actions.size() && actionRects.at(index).isNull()) ++index;
+        if (index < actions.size())
+            setCurrentAction(actions.at(index));
+    }
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 246, as _ZN15QMenuBarPrivate15setKeyboardModeEb
+inline void QMenuBarPrivate::setKeyboardMode(bool b)
+{
+    Q_Q(QMenuBar);
+    if (b && !q->style()->styleHint(QStyle::SH_MenuBar_AltKeyNavigation, nullptr, q)) {
+        setCurrentAction(nullptr);
+        return;
+    }
+    keyboardState = b;
+    if (b) {
+        QWidget *fw = QApplication::focusWidget();
+        if (fw && fw != q && fw->window() != QApplication::activePopupWidget())
+            keyboardFocusWidget = fw;
+        focusFirstAction();
+        q->setFocus(Qt::MenuBarFocusReason);
+    } else {
+        if (!popupState)
+            setCurrentAction(nullptr);
+        if (keyboardFocusWidget) {
+            if (QApplication::focusWidget() == q)
+                keyboardFocusWidget->setFocus(Qt::MenuBarFocusReason);
+            keyboardFocusWidget = nullptr;
+        }
+    }
+    q->update();
+}
+
 //  from src/widgets/widgets/qmenubar.cpp, line 480, as _ZN15QMenuBarPrivate14activateActionEP7QActionNS0_11ActionEventE
 inline void QMenuBarPrivate::activateAction(QAction *action, QAction::ActionEvent action_e)
 {
@@ -350,6 +1204,41 @@ inline void QMenuBarPrivate::_q_actionHovered()
             QAccessible::updateAccessibility(&focusEvent);
         }
 #endif // QT_CONFIG(accessibility)
+    }
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 1686, as _ZN15QMenuBarPrivate28_q_internalShortcutActivatedEi
+inline void QMenuBarPrivate::_q_internalShortcutActivated(int id)
+{
+    Q_Q(QMenuBar);
+    QAction *act = actions.at(id);
+    if (act && act->menu()) {
+        if (QPlatformMenu *platformMenu = act->menu()->platformMenu()) {
+            platformMenu->showPopup(q->windowHandle(), actionRects.at(id), nullptr);
+            return;
+        }
+    }
+
+    keyboardFocusWidget = QApplication::focusWidget();
+    setCurrentAction(act, true, true);
+    if (act && !act->menu()) {
+        activateAction(act, QAction::Trigger);
+        //100 is the same as the default value in QPushButton::animateClick
+        autoReleaseTimer.start(100, q);
+    } else if (act && q->style()->styleHint(QStyle::SH_MenuBar_AltKeyNavigation, nullptr, q)) {
+        // When we open a menu using a shortcut, we should end up in keyboard state
+        setKeyboardMode(true);
+    }
+}
+
+//  from src/widgets/widgets/qmenubar.cpp, line 1709, as _ZN15QMenuBarPrivate15_q_updateLayoutEv
+inline void QMenuBarPrivate::_q_updateLayout()
+{
+    Q_Q(QMenuBar);
+    itemsDirty = true;
+    if (q->isVisible()) {
+        updateGeometries();
+        q->update();
     }
 }
 
@@ -786,6 +1675,18 @@ void ritual_ZN15QMenuBarPrivateD1Ev(QMenuBarPrivate *self) {
   delete self;
 }
 
+#if defined(Q_OS_LINUX)
+//  QAction *QMenuBarPrivate::getNextAction(const qsizetype start, const
+//      qsizetype increment) const
+extern "C" Q_DECL_EXPORT
+QAction *ritual_ZNK15QMenuBarPrivate13getNextActionExx(
+    const QMenuBarPrivate *self,
+    qsizetype start,
+    qsizetype increment) {
+  return self->getNextAction(start, increment);
+}
+#endif  // defined(Q_OS_LINUX)
+
 //  void QMenuBarPrivate::calcActionRects(int max_width, int start) const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK15QMenuBarPrivate15calcActionRectsEii(
@@ -794,6 +1695,76 @@ void ritual_ZNK15QMenuBarPrivate15calcActionRectsEii(
     int start) {
   self->calcActionRects(max_width, start);
 }
+
+#if defined(Q_OS_LINUX)
+//  QRect QMenuBarPrivate::actionRect(QAction *a0) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK15QMenuBarPrivate10actionRectEP7QAction(
+    const QMenuBarPrivate *self,
+    QAction *a0) {
+  return new QRect(self->actionRect(a0));
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  void QMenuBarPrivate::mouseRelaseEventFromQMenu()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMenuBarPrivate25mouseRelaseEventFromQMenuEv(
+    QMenuBarPrivate *self) {
+  self->mouseRelaseEventFromQMenu();
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  QAction *QMenuBarPrivate::actionAt(QPoint p) const
+extern "C" Q_DECL_EXPORT
+QAction *ritual_ZNK15QMenuBarPrivate8actionAtE6QPoint(
+    const QMenuBarPrivate *self,
+    const QPoint *p) {
+  return self->actionAt(*p);
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  void QMenuBarPrivate::setCurrentAction(QAction *a0, bool a1, bool a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMenuBarPrivate16setCurrentActionEP7QActionbb(
+    QMenuBarPrivate *self,
+    QAction *a0,
+    bool a1,
+    bool a2) {
+  self->setCurrentAction(a0, a1, a2);
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  void QMenuBarPrivate::popupAction(QAction *a0, bool a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMenuBarPrivate11popupActionEP7QActionb(
+    QMenuBarPrivate *self,
+    QAction *a0,
+    bool a1) {
+  self->popupAction(a0, a1);
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  void QMenuBarPrivate::focusFirstAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMenuBarPrivate16focusFirstActionEv(QMenuBarPrivate *self) {
+  self->focusFirstAction();
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  void QMenuBarPrivate::setKeyboardMode(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMenuBarPrivate15setKeyboardModeEb(
+    QMenuBarPrivate *self,
+    bool a0) {
+  self->setKeyboardMode(a0);
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  void QMenuBarPrivate::activateAction(QAction *a0, QAction::ActionEvent
 //      a1)
@@ -817,6 +1788,24 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMenuBarPrivate16_q_actionHoveredEv(QMenuBarPrivate *self) {
   self->_q_actionHovered();
 }
+
+#if defined(Q_OS_LINUX)
+//  void QMenuBarPrivate::_q_internalShortcutActivated(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMenuBarPrivate28_q_internalShortcutActivatedEi(
+    QMenuBarPrivate *self,
+    int a0) {
+  self->_q_internalShortcutActivated(a0);
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  void QMenuBarPrivate::_q_updateLayout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMenuBarPrivate15_q_updateLayoutEv(QMenuBarPrivate *self) {
+  self->_q_updateLayout();
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  bool QMenuBarPrivate::isVisible(QAction *action)
 extern "C" Q_DECL_EXPORT

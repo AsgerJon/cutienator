@@ -11,6 +11,10 @@
     ],
     "ritual_ZN21QOpenGLVersionProfileC1ERKS_": ["address", "address"],
     "ritual_ZN21QOpenGLVersionProfileD1Ev": ["nothing", "address"],
+    "ritual_ZN21QOpenGLVersionProfileaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QOpenGLVersionProfile7versionEv": ["address", "address"],
     "ritual_ZN21QOpenGLVersionProfile10setVersionEii": [
       "nothing", "address", "int", "int"
     ],
@@ -24,6 +28,9 @@
     ],
     "ritual_ZNK21QOpenGLVersionProfile7isValidEv": ["bool", "address"],
     "ritual_ZeqRK21QOpenGLVersionProfileS1_": ["bool", "address", "address"],
-    "ritual_ZneRK21QOpenGLVersionProfileS1_": ["bool", "address", "address"]
+    "ritual_ZneRK21QOpenGLVersionProfileS1_": ["bool", "address", "address"],
+    "ritual_drop_QOpenGLVersionProfile__std_pair_int_int": [
+      "nothing", "address"
+    ]
   }
 }

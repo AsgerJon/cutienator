@@ -8,6 +8,12 @@
     "ritual_ZNK25QCandlestickSeriesPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QCandlestickSeriesPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QCandlestickSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QCandlestickSeriesPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -27,6 +33,9 @@
     "ritual_ZN25QCandlestickSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN25QCandlestickSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve": [
+      "nothing", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QCandlestickSeriesPrivate19createLegendMarkersEP7QLegend": [
       "address", "address", "address"
     ],
@@ -44,6 +53,25 @@
     ],
     "ritual_ZN25QCandlestickSeriesPrivate6insertEiP15QCandlestickSet": [
       "bool", "address", "int", "address"
+    ],
+    "ritual_ZN25QCandlestickSeriesPrivate7clickedEiP15QCandlestickSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QCandlestickSeriesPrivate7pressedEiP15QCandlestickSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QCandlestickSeriesPrivate8releasedEiP15QCandlestickSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QCandlestickSeriesPrivate13doubleClickedEiP15QCandlestickSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QCandlestickSeriesPrivate7updatedEv": ["nothing", "address"],
+    "ritual_ZN25QCandlestickSeriesPrivate13updatedLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QCandlestickSeriesPrivate19updatedCandlesticksEv": [
+      "nothing", "address"
     ],
     "ritual_ZN25QCandlestickSeriesPrivate18handleSeriesChangeEP15QAbstractSeries": [
       "nothing", "address", "address"

@@ -8,6 +8,9 @@
     "ritual_ZN26QQuickImageProviderOptionsC1Ev": ["address"],
     "ritual_ZN26QQuickImageProviderOptionsD1Ev": ["nothing", "address"],
     "ritual_ZN26QQuickImageProviderOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZN26QQuickImageProviderOptionsaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK26QQuickImageProviderOptionseqERKS_": [
       "bool", "address", "address"
     ],

@@ -1,7 +1,7 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qdir.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qdir.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN4QDirC1ERKS_": ["address", "address"],
@@ -10,10 +10,20 @@
       "address", "text", "text", "int", "int"
     ],
     "ritual_ZN4QDirD1Ev": ["nothing", "address"],
+    "ritual_ZN4QDiraSERKS_": ["address", "address", "address"],
+    "ritual_ZN4QDiraSEOS_": ["address", "address", "address"],
+    "ritual_ZN4QDir4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN4QDir7setPathERK7QString": ["nothing", "address", "text"],
     "ritual_ZNK4QDir4pathEv": ["text", "address"],
     "ritual_ZNK4QDir12absolutePathEv": ["text", "address"],
     "ritual_ZNK4QDir13canonicalPathEv": ["text", "address"],
+    "ritual_ZNK4QDir14filesystemPathB5cxx11Ev": ["address", "address"],
+    "ritual_ZNK4QDir22filesystemAbsolutePathB5cxx11Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK4QDir23filesystemCanonicalPathB5cxx11Ev": [
+      "address", "address"
+    ],
     "ritual_ZN4QDir14setSearchPathsERK7QStringRK5QListIS0_E": [
       "nothing", "text", "address"
     ],
@@ -65,7 +75,13 @@
     "ritual_ZNK4QDir13entryInfoListERK5QListI7QStringE6QFlagsINS_6FilterEES5_INS_8SortFlagEE": [
       "address", "address", "address", "int", "int"
     ],
+    "ritual_ZNK4QDir5mkdirERK7QStringSt8optionalI6QFlagsIN11QFileDevice10PermissionEEE": [
+      "bool", "address", "text", "address"
+    ],
     "ritual_ZNK4QDir5rmdirERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK4QDir6mkpathERK7QStringSt8optionalI6QFlagsIN11QFileDevice10PermissionEEE": [
+      "bool", "address", "text", "address"
+    ],
     "ritual_ZNK4QDir6rmpathERK7QString": ["bool", "address", "text"],
     "ritual_ZN4QDir17removeRecursivelyEv": ["bool", "address"],
     "ritual_ZNK4QDir10isReadableEv": ["bool", "address"],
@@ -99,9 +115,23 @@
     "ritual_ZN4QDir5matchERK7QStringS2_": ["bool", "text", "text"],
     "ritual_ZN4QDir9cleanPathERK7QString": ["text", "text"],
     "ritual_ZNK4QDir7refreshEv": ["nothing", "address"],
+    "ritual_ZN4QDirC1ER11QDirPrivate": ["address", "address"],
     "ritual_ZeqRK4QDirS1_": ["bool", "address", "address"],
     "ritual_ZneRK4QDirS1_": ["bool", "address", "address"],
     "ritual_ZN4QDir6d_funcEv": ["address", "address"],
-    "ritual_ZNK4QDir6d_funcEv": ["address", "address"]
+    "ritual_ZNK4QDir6d_funcEv": ["address", "address"],
+    "ritual_drop_QDir__std_filesystem_path": ["nothing", "address"],
+    "ritual_ZN4QDirC1INSt10filesystem7__cxx114pathELi0EEERKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN4QDirC1INSt10filesystem7__cxx114pathELi0EEERKT_RK7QString6QFlagsINS_8SortFlagEES9_INS_6FilterEE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN4QDir7setPathINSt10filesystem7__cxx114pathELi0EEEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN4QDir13addSearchPathINSt10filesystem7__cxx114pathELi0EEEvRK7QStringRKT_": [
+      "nothing", "address", "address"
+    ]
   }
 }

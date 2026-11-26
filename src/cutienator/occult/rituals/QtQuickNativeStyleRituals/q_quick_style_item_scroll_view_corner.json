@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "NativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemscrol",
+    "lviewcorner_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK31QQuickStyleItemScrollViewCorner10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickStyleItemScrollViewCornerD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QQuickStyleItemScrollViewCorner10paintEventEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickStyleItemScrollViewCorner17calculateGeometryEv": [
+      "address", "address"
+    ]
+  }
+}

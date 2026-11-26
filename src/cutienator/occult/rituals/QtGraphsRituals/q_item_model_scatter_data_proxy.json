@@ -11,6 +11,12 @@
     "ritual_ZNK26QItemModelScatterDataProxy10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QItemModelScatterDataProxy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QItemModelScatterDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -126,6 +132,54 @@
     ],
     "ritual_ZNK26QItemModelScatterDataProxy16scaleRoleReplaceEv": [
       "text", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy16itemModelChangedEPK18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy15xPosRoleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy15yPosRoleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy15zPosRoleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy19rotationRoleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy16scaleRoleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy22xPosRolePatternChangedERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy22yPosRolePatternChangedERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy22zPosRolePatternChangedERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy26rotationRolePatternChangedERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy23scaleRolePatternChangedERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy26rotationRoleReplaceChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy22xPosRoleReplaceChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy22yPosRoleReplaceChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy22zPosRoleReplaceChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy23scaleRoleReplaceChangedERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_take_QItemModelScatterDataProxy": [
       "bool", "address", "chars", "address"

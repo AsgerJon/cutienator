@@ -8,16 +8,26 @@
     "ritual_ZNK21QHttp2ProtocolHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QHttp2ProtocolHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QHttp2ProtocolHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QHttp2ProtocolHandler23handleConnectionClosureEv": [
       "nothing", "address"
     ],
     "ritual_ZNK21QHttp2ProtocolHandler11isGoingAwayEv": ["bool", "address"],
+    "ritual_ZN21QHttp2ProtocolHandler22_q_uploadDataDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QHttp2ProtocolHandler12_q_readyReadEv": [
       "nothing", "address"
     ],
     "ritual_ZN21QHttp2ProtocolHandler15_q_receiveReplyEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QHttp2ProtocolHandler11sendRequestEv": ["bool", "address"],
     "ritual_ZN21QHttp2ProtocolHandler14tryRemoveReplyEP17QHttpNetworkReply": [
       "bool", "address", "address"
     ],

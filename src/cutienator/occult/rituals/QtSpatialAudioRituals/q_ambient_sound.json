@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QAmbientSound10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QAmbientSound11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QAmbientSound11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QAmbientSound2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QAmbientSoundC1EP12QAudioEngine": ["address", "address"],
     "ritual_ZN13QAmbientSoundD1Ev": ["nothing", "address"],
@@ -22,9 +28,15 @@
     "ritual_ZN13QAmbientSound9setVolumeEf": ["nothing", "address", "float"],
     "ritual_ZNK13QAmbientSound6volumeEv": ["float", "address"],
     "ritual_ZNK13QAmbientSound6engineEv": ["address", "address"],
+    "ritual_ZN13QAmbientSound13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN13QAmbientSound12loopsChangedEv": ["nothing", "address"],
+    "ritual_ZN13QAmbientSound15autoPlayChangedEv": ["nothing", "address"],
+    "ritual_ZN13QAmbientSound13volumeChangedEv": ["nothing", "address"],
     "ritual_ZN13QAmbientSound4playEv": ["nothing", "address"],
     "ritual_ZN13QAmbientSound5pauseEv": ["nothing", "address"],
     "ritual_ZN13QAmbientSound4stopEv": ["nothing", "address"],
+    "ritual_ZN13QAmbientSound6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QAmbientSound6d_funcEv": ["address", "address"],
     "ritual_take_QAmbientSound": ["bool", "address", "chars", "address"]
   }
 }

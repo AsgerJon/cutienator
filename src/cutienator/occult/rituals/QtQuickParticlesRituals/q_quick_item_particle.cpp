@@ -859,6 +859,25 @@ const QMetaObject *ritual_ZNK18QQuickItemParticle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickItemParticle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickItemParticle11qt_metacastEPKc(
+    QQuickItemParticle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickItemParticle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickItemParticle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickItemParticle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickItemParticle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickItemParticle2trEPKcS1_i(
@@ -917,6 +936,20 @@ extern "C" Q_DECL_EXPORT
 QQmlComponent *ritual_ZNK18QQuickItemParticle8delegateEv(
     const QQuickItemParticle *self) {
   return self->delegate();
+}
+
+//  void QQuickItemParticle::fadeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickItemParticle11fadeChangedEv(QQuickItemParticle *self) {
+  self->fadeChanged();
+}
+
+//  void QQuickItemParticle::delegateChanged(QQmlComponent *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickItemParticle15delegateChangedEP13QQmlComponent(
+    QQuickItemParticle *self,
+    QQmlComponent *arg) {
+  self->delegateChanged(arg);
 }
 
 //  void QQuickItemParticle::freeze(QQuickItem *item)

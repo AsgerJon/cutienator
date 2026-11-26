@@ -9,6 +9,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSet>
+#include <QtCore/QObject>
+#include <QtCore/QString>
 
 //  A QObjectRegistrySingleton that Python can take functions over in. Every QObjectRegistrySingleton
 //  Python makes is one. Each function below asks the Python
@@ -184,6 +187,25 @@ const QMetaObject *ritual_ZNK24QObjectRegistrySingleton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QObjectRegistrySingleton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QObjectRegistrySingleton11qt_metacastEPKc(
+    QObjectRegistrySingleton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QObjectRegistrySingleton::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QObjectRegistrySingleton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QObjectRegistrySingleton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QObjectRegistrySingleton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QObjectRegistrySingleton2trEPKcS1_i(
@@ -252,6 +274,15 @@ void ritual_ZN24QObjectRegistrySingleton6removeERK7QStringP7QObject(
   self->remove(*key, obj);
 }
 
+//  QSet<QObject *> QObjectRegistrySingleton::objects(const QString &key)
+//      const
+extern "C" Q_DECL_EXPORT
+QSet<QObject *> *ritual_ZNK24QObjectRegistrySingleton7objectsERK7QString(
+    const QObjectRegistrySingleton *self,
+    const QString *key) {
+  return new QSet<QObject *>(self->objects(*key));
+}
+
 //  QObjectRegistrySingleton
 //      *QObjectRegistrySingleton::registryForObject(QObject *obj)
 extern "C" Q_DECL_EXPORT
@@ -287,4 +318,11 @@ bool ritual_take_QObjectRegistrySingleton(
     const char *key,
     void *call) {
   return static_cast<CuteQObjectRegistrySingleton *>(self)->take(key, call);
+}
+
+//  a QSet<QObject *> a ritual of QObjectRegistrySingleton gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QObjectRegistrySingleton__QSet_QObject(
+    QSet<QObject *> *self) {
+  delete self;
 }

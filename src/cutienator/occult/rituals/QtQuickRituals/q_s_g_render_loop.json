@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QSGRenderLoop10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QSGRenderLoop11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QSGRenderLoop11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QSGRenderLoop2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QSGRenderLoopD1Ev": ["nothing", "address"],
     "ritual_ZN13QSGRenderLoop4showEP12QQuickWindow": [
@@ -52,6 +58,7 @@
     "ritual_ZN13QSGRenderLoop12removeWindowEP12QQuickWindow": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK13QSGRenderLoop7windowsEv": ["address", "address"],
     "ritual_ZNK13QSGRenderLoop17windowSurfaceTypeEv": ["int", "address"],
     "ritual_ZN13QSGRenderLoop8instanceEv": ["address"],
     "ritual_ZN13QSGRenderLoop11setInstanceEPS_": ["nothing", "address"],
@@ -61,6 +68,7 @@
     "ritual_ZN13QSGRenderLoop28handleContextCreationFailureEP12QQuickWindow": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QSGRenderLoop14timeToIncubateEv": ["nothing", "address"],
     "ritual_take_QSGRenderLoop": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QSGRenderLoop6resizeEP12QQuickWindow": [
       "nothing", "address", "address"
@@ -75,6 +83,7 @@
     "ritual_own_ZNK13QSGRenderLoop20interleaveIncubationEv": [
       "bool", "address"
     ],
-    "ritual_own_ZNK13QSGRenderLoop5flagsEv": ["int", "address"]
+    "ritual_own_ZNK13QSGRenderLoop5flagsEv": ["int", "address"],
+    "ritual_drop_QSGRenderLoop__QSet_QQuickWindow": ["nothing", "address"]
   }
 }

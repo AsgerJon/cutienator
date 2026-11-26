@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZN12QDBusVariantC1Ev": ["address"],
     "ritual_ZN12QDBusVariantC1ERK8QVariant": ["address", "address"],
+    "ritual_ZN12QDBusVariantC1EO8QVariant": ["address", "address"],
+    "ritual_ZN12QDBusVariant4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN12QDBusVariant10setVariantERK8QVariant": [
       "nothing", "address", "address"
     ],

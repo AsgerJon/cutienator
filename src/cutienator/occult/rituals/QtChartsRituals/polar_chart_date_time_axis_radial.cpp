@@ -21,6 +21,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A PolarChartDateTimeAxisRadial that Python can take functions over in. Every PolarChartDateTimeAxisRadial
 //  Python makes is one. Each function below asks the Python
@@ -1332,6 +1333,25 @@ const QMetaObject *ritual_ZNK28PolarChartDateTimeAxisRadial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PolarChartDateTimeAxisRadial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28PolarChartDateTimeAxisRadial11qt_metacastEPKc(
+    PolarChartDateTimeAxisRadial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PolarChartDateTimeAxisRadial::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28PolarChartDateTimeAxisRadial11qt_metacallEN11QMetaObject4CallEiPPv(
+    PolarChartDateTimeAxisRadial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString PolarChartDateTimeAxisRadial::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1356,6 +1376,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN28PolarChartDateTimeAxisRadialD1Ev(
     PolarChartDateTimeAxisRadial *self) {
   delete self;
+}
+
+//  QList<qreal> PolarChartDateTimeAxisRadial::calculateLayout() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK28PolarChartDateTimeAxisRadial15calculateLayoutEv(
+    const PolarChartDateTimeAxisRadial *self) {
+  return new QList<qreal>(self->calculateLayout());
+}
+
+//  void PolarChartDateTimeAxisRadial::createAxisLabels(const QList<qreal>
+//      &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28PolarChartDateTimeAxisRadial16createAxisLabelsERK5QListIdE(
+    PolarChartDateTimeAxisRadial *self,
+    const QList<qreal> *layout) {
+  self->createAxisLabels(*layout);
 }
 
 //  void PolarChartDateTimeAxisRadial::handleTickCountChanged(int tick)
@@ -1383,6 +1419,13 @@ bool ritual_take_PolarChartDateTimeAxisRadial(
     const char *key,
     void *call) {
   return static_cast<CutePolarChartDateTimeAxisRadial *>(self)->take(key, call);
+}
+
+//  a QList<qreal> a ritual of PolarChartDateTimeAxisRadial gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_PolarChartDateTimeAxisRadial__QList_qreal(
+    QList<qreal> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_datetime_axis)

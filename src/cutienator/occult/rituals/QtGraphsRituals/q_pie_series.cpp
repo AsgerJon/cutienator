@@ -1,14 +1,18 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qpieseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qpieseries.h>
 #include <QtCore/qstring.h>
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qpieslice.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QPieSeries may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -238,6 +242,24 @@ const QMetaObject *ritual_ZNK10QPieSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPieSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QPieSeries11qt_metacastEPKc(
+    QPieSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPieSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QPieSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPieSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPieSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QPieSeries2trEPKcS1_i(
@@ -375,6 +397,14 @@ bool ritual_ZN10QPieSeries4takeEP9QPieSlice(
     QPieSeries *self,
     QPieSlice *slice) {
   return self->take(slice);
+}
+
+//  QPieSeries &QPieSeries::operator<<(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+QPieSeries *ritual_ZN10QPieSerieslsEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  return &(self->operator<<(slice));
 }
 
 //  QList<QPieSlice *> QPieSeries::slices() const
@@ -528,6 +558,20 @@ void ritual_ZN10QPieSeries27setAngleSpanLabelVisibilityENS_15LabelVisibilityE(
   self->setAngleSpanLabelVisibility(newAngleSpanVisibleMode);
 }
 
+//  QList<qreal> QPieSeries::sliceData() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK10QPieSeries9sliceDataEv(const QPieSeries *self) {
+  return new QList<qreal>(self->sliceData());
+}
+
+//  void QPieSeries::setSliceData(const QList<qreal> &newSliceData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries12setSliceDataERK5QListIdE(
+    QPieSeries *self,
+    const QList<qreal> *newSliceData) {
+  self->setSliceData(*newSliceData);
+}
+
 //  const QStringList &QPieSeries::sliceLabels() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNKR10QPieSeries11sliceLabelsEv(
@@ -549,10 +593,155 @@ void ritual_ZN10QPieSeries17handleSliceChangeEv(QPieSeries *self) {
   self->handleSliceChange();
 }
 
+//  QPieSeries::QPieSeries(QPieSeriesPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPieSeries *ritual_ZN10QPieSeriesC1ER17QPieSeriesPrivateP7QObject(
+    QPieSeriesPrivate *dd,
+    QObject *parent) {
+  return new CuteQPieSeries(*dd, parent);
+}
+
 //  void QPieSeries::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QPieSeries17componentCompleteEv(QPieSeries *self) {
   self->componentComplete();
+}
+
+//  void QPieSeries::added(const QList<QPieSlice *> &slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries5addedERK5QListIP9QPieSliceE(
+    QPieSeries *self,
+    const QList<QPieSlice *> *slices) {
+  self->added(*slices);
+}
+
+//  void QPieSeries::removed(const QList<QPieSlice *> &slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries7removedERK5QListIP9QPieSliceE(
+    QPieSeries *self,
+    const QList<QPieSlice *> *slices) {
+  self->removed(*slices);
+}
+
+//  void QPieSeries::replaced(const QList<QPieSlice *> &slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries8replacedERK5QListIP9QPieSliceE(
+    QPieSeries *self,
+    const QList<QPieSlice *> *slices) {
+  self->replaced(*slices);
+}
+
+//  void QPieSeries::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries12countChangedEv(QPieSeries *self) {
+  self->countChanged();
+}
+
+//  void QPieSeries::sumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries10sumChangedEv(QPieSeries *self) {
+  self->sumChanged();
+}
+
+//  void QPieSeries::pieSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries14pieSizeChangedEv(QPieSeries *self) {
+  self->pieSizeChanged();
+}
+
+//  void QPieSeries::startAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries17startAngleChangedEv(QPieSeries *self) {
+  self->startAngleChanged();
+}
+
+//  void QPieSeries::endAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries15endAngleChangedEv(QPieSeries *self) {
+  self->endAngleChanged();
+}
+
+//  void QPieSeries::horizontalPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries25horizontalPositionChangedEv(QPieSeries *self) {
+  self->horizontalPositionChanged();
+}
+
+//  void QPieSeries::verticalPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries23verticalPositionChangedEv(QPieSeries *self) {
+  self->verticalPositionChanged();
+}
+
+//  void QPieSeries::holeSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries15holeSizeChangedEv(QPieSeries *self) {
+  self->holeSizeChanged();
+}
+
+//  void QPieSeries::clicked(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries7clickedEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  self->clicked(slice);
+}
+
+//  void QPieSeries::doubleClicked(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries13doubleClickedEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  self->doubleClicked(slice);
+}
+
+//  void QPieSeries::pressed(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries7pressedEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  self->pressed(slice);
+}
+
+//  void QPieSeries::released(QPieSlice *slice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries8releasedEP9QPieSlice(
+    QPieSeries *self,
+    QPieSlice *slice) {
+  self->released(slice);
+}
+
+//  void QPieSeries::angleSpanVisibleLimitChanged(qreal limit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries28angleSpanVisibleLimitChangedEd(
+    QPieSeries *self,
+    qreal limit) {
+  self->angleSpanVisibleLimitChanged(limit);
+}
+
+//  void QPieSeries::angleSpanLabelVisibilityChanged(LabelVisibility
+//      visibility)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries31angleSpanLabelVisibilityChangedENS_15LabelVisibilityE(
+    QPieSeries *self,
+    QPieSeries::LabelVisibility visibility) {
+  self->angleSpanLabelVisibilityChanged(visibility);
+}
+
+//  void QPieSeries::sliceDataChanged(const QList<qreal> &sliceData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries16sliceDataChangedERK5QListIdE(
+    QPieSeries *self,
+    const QList<qreal> *sliceData) {
+  self->sliceDataChanged(*sliceData);
+}
+
+//  void QPieSeries::sliceLabelsChanged(const QStringList &sliceLabels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPieSeries18sliceLabelsChangedERK5QListI7QStringE(
+    QPieSeries *self,
+    const QList<QString> *sliceLabels) {
+  self->sliceLabelsChanged(*sliceLabels);
 }
 
 //  QPieSeriesPrivate *QPieSeries::d_func()
@@ -588,4 +777,10 @@ void ritual_own_ZN10QPieSeries17componentCompleteEv(QPieSeries *self) {
   static_cast<OwnQPieSeries *>(self)->OwnQPieSeries::componentComplete();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
+//  a QList<qreal> a ritual of QPieSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPieSeries__QList_qreal(QList<qreal> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))

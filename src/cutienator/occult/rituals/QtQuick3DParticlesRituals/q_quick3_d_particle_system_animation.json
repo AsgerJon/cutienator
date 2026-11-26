@@ -8,6 +8,12 @@
     "ritual_ZNK31QQuick3DParticleSystemAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuick3DParticleSystemAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuick3DParticleSystemAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QQuick3DParticleSystemAnimation17updateCurrentTimeEi": [
       "nothing", "address", "int"
     ],

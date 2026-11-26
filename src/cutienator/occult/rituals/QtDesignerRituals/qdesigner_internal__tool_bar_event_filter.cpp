@@ -16,6 +16,14 @@ const QMetaObject *ritual_ZNK18qdesigner_internal18ToolBarEventFilter10metaObjec
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::ToolBarEventFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal18ToolBarEventFilter11qt_metacastEPKc(
+    qdesigner_internal::ToolBarEventFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString qdesigner_internal::ToolBarEventFilter::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT

@@ -8,6 +8,18 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 
+//  QRhiTexture::Format
+//      QVideoTextureHelper::TextureDescription::rhiTextureFormat(int plane,
+//      QRhi *rhi, FallbackPolicy policy) const
+extern "C" Q_DECL_EXPORT
+QRhiTexture::Format ritual_ZNK19QVideoTextureHelper18TextureDescription16rhiTextureFormatEiP4QRhiNS0_14FallbackPolicyE(
+    const QVideoTextureHelper::TextureDescription *self,
+    int plane,
+    QRhi *rhi,
+    QVideoTextureHelper::TextureDescription::FallbackPolicy policy) {
+  return self->rhiTextureFormat(plane, rhi, policy);
+}
+
 //  int QVideoTextureHelper::TextureDescription::strideForWidth(int width)
 //      const
 extern "C" Q_DECL_EXPORT

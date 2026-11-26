@@ -5,8 +5,29 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input19MouseHandlerFunctorC1EPNS0_12InputHandlerE": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input19MouseHandlerFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input19MouseHandlerFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input19MouseHandlerFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9Qt3DInput5Input19MouseHandlerFunctorD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_own_ZNK9Qt3DInput5Input19MouseHandlerFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK9Qt3DInput5Input19MouseHandlerFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK9Qt3DInput5Input19MouseHandlerFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
     ]
   }
 }

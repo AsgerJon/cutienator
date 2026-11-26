@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZNK12QTextureData8scanLineEi": ["address", "address", "int"],
     "ritual_ZN12QTextureDataD1Ev": ["nothing", "address"]
   }
 }

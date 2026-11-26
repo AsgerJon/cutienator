@@ -8,8 +8,72 @@
     "ritual_ZNK10Qt3DExtras15QSphereGeometry10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras15QSphereGeometry2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometryC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry14updateVerticesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry13updateIndicesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras15QSphereGeometry16generateTangentsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras15QSphereGeometry5ringsEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras15QSphereGeometry6slicesEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras15QSphereGeometry6radiusEv": ["float", "address"],
+    "ritual_ZNK10Qt3DExtras15QSphereGeometry17positionAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras15QSphereGeometry15normalAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras15QSphereGeometry17texCoordAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras15QSphereGeometry16tangentAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras15QSphereGeometry14indexAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry8setRingsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry9setSlicesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry9setRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry19setGenerateTangentsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry13radiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry12ringsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry13slicesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometry23generateTangentsChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras15QSphereGeometryC1ERNS_22QSphereGeometryPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DExtras15QSphereGeometry6d_funcEv": [
       "address", "address"

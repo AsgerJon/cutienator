@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QGroupBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QGroupBox11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QGroupBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QGroupBox2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QGroupBoxC1EP7QWidget": ["address", "address"],
     "ritual_ZN9QGroupBoxC1ERK7QStringP7QWidget": [
@@ -24,6 +28,8 @@
     "ritual_ZN9QGroupBox12setCheckableEb": ["nothing", "address", "bool"],
     "ritual_ZNK9QGroupBox9isCheckedEv": ["bool", "address"],
     "ritual_ZN9QGroupBox10setCheckedEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QGroupBox7clickedEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QGroupBox7toggledEb": ["nothing", "address", "bool"],
     "ritual_ZN9QGroupBox5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN9QGroupBox10childEventEP11QChildEvent": [
       "nothing", "address", "address"
@@ -52,6 +58,8 @@
     "ritual_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN9QGroupBox6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QGroupBox6d_funcEv": ["address", "address"],
     "ritual_take_QGroupBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QGroupBox15minimumSizeHintEv": ["address", "address"],
     "ritual_own_ZN9QGroupBox5eventEP6QEvent": ["bool", "address", "address"],

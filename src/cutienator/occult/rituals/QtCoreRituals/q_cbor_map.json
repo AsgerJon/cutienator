@@ -6,7 +6,14 @@
   "rows": {
     "ritual_ZN8QCborMapC1Ev": ["address"],
     "ritual_ZN8QCborMapC1ERKS_": ["address", "address"],
+    "ritual_ZN8QCborMapC1EOS_": ["address", "address"],
+    "ritual_ZN8QCborMapaSERKS_": ["address", "address", "address"],
+    "ritual_ZN8QCborMapaSEOS_": ["address", "address", "address"],
+    "ritual_ZN8QCborMapC1ESt16initializer_listISt4pairI10QCborValueS2_EE": [
+      "address", "address"
+    ],
     "ritual_ZN8QCborMapD1Ev": ["nothing", "address"],
+    "ritual_ZN8QCborMap4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK8QCborMap11toCborValueEv": ["address", "address"],
     "ritual_ZNK8QCborMap4sizeEv": ["long long", "address"],
     "ritual_ZNK8QCborMap7isEmptyEv": ["bool", "address"],
@@ -59,6 +66,20 @@
       "bool", "address", "address"
     ],
     "ritual_ZNK8QCborMap7compareERKS_": ["int", "address", "address"],
+    "ritual_ZN8QCborMap5beginEv": ["address", "address"],
+    "ritual_ZNK8QCborMap10constBeginEv": ["address", "address"],
+    "ritual_ZNK8QCborMap5beginEv": ["address", "address"],
+    "ritual_ZNK8QCborMap6cbeginEv": ["address", "address"],
+    "ritual_ZN8QCborMap3endEv": ["address", "address"],
+    "ritual_ZNK8QCborMap8constEndEv": ["address", "address"],
+    "ritual_ZNK8QCborMap3endEv": ["address", "address"],
+    "ritual_ZNK8QCborMap4cendEv": ["address", "address"],
+    "ritual_ZN8QCborMap5eraseENS_8IteratorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QCborMap5eraseENS_13ConstIteratorE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN8QCborMap7extractENS_8IteratorE": [
       "address", "address", "address"
     ],
@@ -66,6 +87,55 @@
       "address", "address", "address"
     ],
     "ritual_ZNK8QCborMap5emptyEv": ["bool", "address"],
+    "ritual_ZN8QCborMap13keyValueBeginEv": ["address", "address"],
+    "ritual_ZN8QCborMap11keyValueEndEv": ["address", "address"],
+    "ritual_ZNK8QCborMap13keyValueBeginEv": ["address", "address"],
+    "ritual_ZNK8QCborMap18constKeyValueBeginEv": ["address", "address"],
+    "ritual_ZNK8QCborMap11keyValueEndEv": ["address", "address"],
+    "ritual_ZNK8QCborMap16constKeyValueEndEv": ["address", "address"],
+    "ritual_ZNR8QCborMap15asKeyValueRangeEv": ["address", "address"],
+    "ritual_ZNKR8QCborMap15asKeyValueRangeEv": ["address", "address"],
+    "ritual_ZN8QCborMap4findEx": ["address", "address", "long long"],
+    "ritual_ZN8QCborMap4findE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QCborMap4findERK7QString": ["address", "address", "text"],
+    "ritual_ZN8QCborMap4findERK10QCborValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QCborMap9constFindEx": ["address", "address", "long long"],
+    "ritual_ZNK8QCborMap9constFindE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QCborMap9constFindERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK8QCborMap9constFindERK10QCborValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QCborMap4findEx": ["address", "address", "long long"],
+    "ritual_ZNK8QCborMap4findE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QCborMap4findERK7QString": ["address", "address", "text"],
+    "ritual_ZNK8QCborMap4findERK10QCborValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QCborMap6insertExRK10QCborValue": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN8QCborMap6insertE13QLatin1StringRK10QCborValue": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8QCborMap6insertERK7QStringRK10QCborValue": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN8QCborMap6insertERK10QCborValueS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8QCborMap6insertESt4pairI10QCborValueS1_E": [
+      "address", "address", "address"
+    ],
     "ritual_ZN8QCborMap14fromVariantMapERK4QMapI7QString8QVariantE": [
       "address", "address"
     ],
@@ -73,6 +143,9 @@
       "address", "address"
     ],
     "ritual_ZN8QCborMap14fromJsonObjectERK11QJsonObject": [
+      "address", "address"
+    ],
+    "ritual_ZN8QCborMap14fromJsonObjectEO11QJsonObject": [
       "address", "address"
     ],
     "ritual_ZNK8QCborMap12toVariantMapEv": ["address", "address"],
@@ -145,10 +218,25 @@
     "ritual_ZgeRK18QCborValueConstRefRK8QCborMap": [
       "bool", "address", "address"
     ],
+    "ritual_ZN8QCborMapC1ER21QCborContainerPrivate": ["address", "address"],
     "ritual_list_make_QCborMap": ["address"],
     "ritual_list_add_QCborMap": ["nothing", "address", "address"],
     "ritual_list_size_QCborMap": ["long long", "address"],
     "ritual_list_at_QCborMap": ["address", "address", "long long"],
-    "ritual_list_drop_QCborMap": ["nothing", "address"]
+    "ritual_list_drop_QCborMap": ["nothing", "address"],
+    "ritual_drop_QCborMap__QCborMap_iterator": ["nothing", "address"],
+    "ritual_drop_QCborMap__QCborMap_const_iterator": ["nothing", "address"],
+    "ritual_drop_QCborMap__QCborMap_key_value_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QCborMap__QCborMap_const_key_value_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QCborMap__QtPrivate_QKeyValueRange_QCborMap": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QCborMap__QtPrivate_QKeyValueRange_const_QCborMap": [
+      "nothing", "address"
+    ]
   }
 }

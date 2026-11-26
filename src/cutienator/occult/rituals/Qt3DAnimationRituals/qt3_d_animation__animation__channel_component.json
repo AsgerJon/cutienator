@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation16ChannelComponent4readERK11QJsonObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation16ChannelComponent24setFromQChannelComponentERKNS_17QChannelComponentE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation16ChannelComponentD1Ev": [
       "nothing", "address"
     ]

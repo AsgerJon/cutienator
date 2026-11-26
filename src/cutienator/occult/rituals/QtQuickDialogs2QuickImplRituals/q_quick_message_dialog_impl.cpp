@@ -9,12 +9,32 @@
 #include <QtCore/qstring.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
+#include <QtCore/QSharedPointer>
 
 //  const QMetaObject *QQuickMessageDialogImpl::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK23QQuickMessageDialogImpl10metaObjectEv(
     const QQuickMessageDialogImpl *self) {
   return self->metaObject();
+}
+
+//  void *QQuickMessageDialogImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickMessageDialogImpl11qt_metacastEPKc(
+    QQuickMessageDialogImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMessageDialogImpl::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickMessageDialogImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMessageDialogImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickMessageDialogImpl::tr(const char *s, const char *c, int n)
@@ -48,6 +68,23 @@ QQuickMessageDialogImplAttached *ritual_ZN23QQuickMessageDialogImpl21qmlAttached
   return QQuickMessageDialogImpl::qmlAttachedProperties(object);
 }
 
+//  QSharedPointer<QMessageDialogOptions> QQuickMessageDialogImpl::options()
+//      const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QMessageDialogOptions> *ritual_ZNK23QQuickMessageDialogImpl7optionsEv(
+    const QQuickMessageDialogImpl *self) {
+  return new QSharedPointer<QMessageDialogOptions>(self->options());
+}
+
+//  void QQuickMessageDialogImpl::setOptions(const
+//      QSharedPointer<QMessageDialogOptions> &options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickMessageDialogImpl10setOptionsERK14QSharedPointerI21QMessageDialogOptionsE(
+    QQuickMessageDialogImpl *self,
+    const QSharedPointer<QMessageDialogOptions> *options) {
+  self->setOptions(*options);
+}
+
 //  bool QQuickMessageDialogImpl::showDetailedText() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK23QQuickMessageDialogImpl16showDetailedTextEv(
@@ -74,6 +111,30 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK23QQuickMessageDialogImpl12detailedTextEv(
     const QQuickMessageDialogImpl *self) {
   return new QString(self->detailedText());
+}
+
+//  void QQuickMessageDialogImpl::buttonClicked(QPlatformDialogHelper::Standa
+//      rdButton button, QPlatformDialogHelper::ButtonRole role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickMessageDialogImpl13buttonClickedEN21QPlatformDialogHelper14StandardButtonENS0_10ButtonRoleE(
+    QQuickMessageDialogImpl *self,
+    QPlatformDialogHelper::StandardButton button,
+    QPlatformDialogHelper::ButtonRole role) {
+  self->buttonClicked(button, role);
+}
+
+//  void QQuickMessageDialogImpl::showDetailedTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickMessageDialogImpl23showDetailedTextChangedEv(
+    QQuickMessageDialogImpl *self) {
+  self->showDetailedTextChanged();
+}
+
+//  void QQuickMessageDialogImpl::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickMessageDialogImpl14optionsChangedEv(
+    QQuickMessageDialogImpl *self) {
+  self->optionsChanged();
 }
 
 //  void QQuickMessageDialogImpl::toggleShowDetailedText()
@@ -116,4 +177,12 @@ void ritual_own_ZN23QQuickMessageDialogImpl10itemChangeEN10QQuickItem10ItemChang
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->QQuickMessageDialogImpl::itemChange(change, *data);
+}
+
+//  a QSharedPointer<QMessageDialogOptions> a ritual of
+//      QQuickMessageDialogImpl gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickMessageDialogImpl__QSharedPointer_QMessageDialogOptions(
+    QSharedPointer<QMessageDialogOptions> *self) {
+  delete self;
 }

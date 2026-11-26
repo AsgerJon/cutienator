@@ -8,6 +8,9 @@
     "ritual_ZN8Qt3DCore27QAspectJobProviderInterfaceD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN8Qt3DCore27QAspectJobProviderInterface13jobsToExecuteEx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN8Qt3DCore27QAspectJobProviderInterface8jobsDoneEv": [
       "nothing", "address"
     ],
@@ -16,6 +19,9 @@
     ],
     "ritual_take_Qt3DCore_QAspectJobProviderInterface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DCore_QAspectJobProviderInterface__std_vector_Qt3DCore_QAspectJobPtr": [
+      "nothing", "address"
     ]
   }
 }

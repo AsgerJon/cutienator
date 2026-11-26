@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV47Runtime9ToBoolean4callERKNS_5ValueE": [
+      "unsigned int", "address"
+    ],
     "ritual_ZN3QV47Runtime9ToBooleanD1Ev": ["nothing", "address"]
   }
 }

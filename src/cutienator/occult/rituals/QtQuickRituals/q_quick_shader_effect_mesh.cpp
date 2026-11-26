@@ -246,6 +246,25 @@ const QMetaObject *ritual_ZNK22QQuickShaderEffectMesh10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShaderEffectMesh::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickShaderEffectMesh11qt_metacastEPKc(
+    QQuickShaderEffectMesh *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShaderEffectMesh::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickShaderEffectMesh11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShaderEffectMesh *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShaderEffectMesh::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickShaderEffectMesh2trEPKcS1_i(
@@ -296,6 +315,13 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK22QQuickShaderEffectMesh3logEv(
     const QQuickShaderEffectMesh *self) {
   return new QString(self->log());
+}
+
+//  void QQuickShaderEffectMesh::geometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickShaderEffectMesh15geometryChangedEv(
+    QQuickShaderEffectMesh *self) {
+  self->geometryChanged();
 }
 
 //  a Python function taken by a CuteQQuickShaderEffectMesh, for the function

@@ -14,8 +14,6 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
-#include <QtCore/qdatastream.h>
 #include <QtCore/private/qmetaobjectbuilder_p.h>
 #include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -31,6 +29,8 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <memory>
 #include <algorithm>
+#include <QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
+#include <QtCore/qdatastream.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -39,6 +39,52 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace QRemoteObjectStringLiterals;
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 264, as local:qremoteobjectnode.cpp:map_contains
+inline template <typename K, typename V, typename Query>
+bool map_contains(const QMap<K,V> &map, const Query &key, typename QMap<K,V>::const_iterator &result)
+{
+    const typename QMap<K,V>::const_iterator it = map.find(key);
+    if (it == map.end())
+        return false;
+    result = it;
+    return true;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1527, as _ZN28QRemoteObjectHostBasePrivate16handleNewAcquireEPK11QMetaObjectP20QRemoteObjectReplicaRK7QString
+inline QReplicaImplementationInterface *QRemoteObjectHostBasePrivate::handleNewAcquire(const QMetaObject *meta, QRemoteObjectReplica *instance, const QString &name)
+{
+    QMap<QString, QRemoteObjectSourceBase*>::const_iterator mapIt;
+    if (remoteObjectIo && map_contains(remoteObjectIo->m_sourceObjects, name, mapIt)) {
+        Q_Q(QRemoteObjectHostBase);
+        QInProcessReplicaImplementation *rp = new QInProcessReplicaImplementation(name, meta, q);
+        rp->configurePrivate(instance);
+        connectReplica(mapIt.value()->m_object, instance);
+        rp->connectionToSource = mapIt.value();
+        return rp;
+    }
+    return QRemoteObjectNodePrivate::handleNewAcquire(meta, instance, name);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2818, as _ZN28QRemoteObjectHostBasePrivateC2Ev
+inline QRemoteObjectHostBasePrivate::QRemoteObjectHostBasePrivate()
+    : QRemoteObjectNodePrivate()
+    , remoteObjectIo(nullptr)
+{ }
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2838, as _ZN32QRemoteObjectRegistryHostPrivateD2Ev
+inline QRemoteObjectRegistryHostPrivate::~QRemoteObjectRegistryHostPrivate()
+{ }
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 312, as _ZNK32QRemoteObjectRegistryHostPrivate21remoteObjectAddressesEv
+inline QRemoteObjectSourceLocations QRemoteObjectRegistryHostPrivate::remoteObjectAddresses() const
+{
+    if (registrySource)
+        return registrySource->sourceLocations();
+    return QRemoteObjectSourceLocations();
+}
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 25, as _ZN15QRegistrySource12removeServerERK4QUrl
 inline void QRegistrySource::removeServer(const QUrl &url)
@@ -58,14 +104,6 @@ inline void QRegistrySource::removeSource(const QRemoteObjectSourceLocation &ent
         m_sourceLocations.remove(entry.first);
         emit remoteObjectRemoved(entry);
     }
-}
-
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 312, as _ZNK32QRemoteObjectRegistryHostPrivate21remoteObjectAddressesEv
-inline QRemoteObjectSourceLocations QRemoteObjectRegistryHostPrivate::remoteObjectAddresses() const
-{
-    if (registrySource)
-        return registrySource->sourceLocations();
-    return QRemoteObjectSourceLocations();
 }
 //  -----------------------------------------------------------------------
 
@@ -102,6 +140,13 @@ public:
     return QRemoteObjectHostBasePrivate::handleNewAcquire(meta, instance, name);
   }
 };
+
+//  QRemoteObjectRegistryHostPrivate::~QRemoteObjectRegistryHostPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QRemoteObjectRegistryHostPrivateD1Ev(
+    QRemoteObjectRegistryHostPrivate *self) {
+  delete self;
+}
 
 //  QRemoteObjectSourceLocations
 //      QRemoteObjectRegistryHostPrivate::remoteObjectAddresses() const

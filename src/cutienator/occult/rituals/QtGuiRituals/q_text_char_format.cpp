@@ -7,6 +7,8 @@
 #include <QtGui/qcolor.h>
 #include <QtGui/qpen.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QMap>
+#include <QtGui/QFont>
 
 //  QTextCharFormat::QTextCharFormat()
 extern "C" Q_DECL_EXPORT
@@ -331,6 +333,38 @@ QFont::HintingPreference ritual_ZNK15QTextCharFormat21fontHintingPreferenceEv(
   return self->fontHintingPreference();
 }
 
+//  void QTextCharFormat::setFontFeatures(const QMap<QFont::Tag, quint32>
+//      &fontFeatures)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTextCharFormat15setFontFeaturesERK4QMapIN5QFont3TagEjE(
+    QTextCharFormat *self,
+    const QMap<QFont::Tag, quint32> *fontFeatures) {
+  self->setFontFeatures(*fontFeatures);
+}
+
+//  QMap<QFont::Tag, quint32> QTextCharFormat::fontFeatures() const
+extern "C" Q_DECL_EXPORT
+QMap<QFont::Tag, quint32> *ritual_ZNK15QTextCharFormat12fontFeaturesEv(
+    const QTextCharFormat *self) {
+  return new QMap<QFont::Tag, quint32>(self->fontFeatures());
+}
+
+//  void QTextCharFormat::setFontVariableAxes(const QMap<QFont::Tag, float>
+//      &fontVariableAxes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTextCharFormat19setFontVariableAxesERK4QMapIN5QFont3TagEfE(
+    QTextCharFormat *self,
+    const QMap<QFont::Tag, float> *fontVariableAxes) {
+  self->setFontVariableAxes(*fontVariableAxes);
+}
+
+//  QMap<QFont::Tag, float> QTextCharFormat::fontVariableAxes() const
+extern "C" Q_DECL_EXPORT
+QMap<QFont::Tag, float> *ritual_ZNK15QTextCharFormat16fontVariableAxesEv(
+    const QTextCharFormat *self) {
+  return new QMap<QFont::Tag, float>(self->fontVariableAxes());
+}
+
 //  void QTextCharFormat::setFontKerning(bool enable)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QTextCharFormat14setFontKerningEb(
@@ -531,8 +565,38 @@ QTextCharFormat *ritual_ZN15QTextCharFormatC1ERK11QTextFormat(
   return new QTextCharFormat(*fmt);
 }
 
+//  QDataStream &operator<<(QDataStream &a0, const QTextCharFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK15QTextCharFormat(
+    QDataStream *a0,
+    const QTextCharFormat *a1) {
+  return &(operator<<(*a0, *a1));
+}
+
+//  QDataStream &operator>>(QDataStream &a0, QTextCharFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR15QTextCharFormat(
+    QDataStream *a0,
+    QTextCharFormat *a1) {
+  return &(operator>>(*a0, *a1));
+}
+
 //  QTextCharFormat::~QTextCharFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QTextCharFormatD1Ev(QTextCharFormat *self) {
+  delete self;
+}
+
+//  a QMap<QFont::Tag, quint32> a ritual of QTextCharFormat gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextCharFormat__QMap_QFont_Tag_quint32(
+    QMap<QFont::Tag, quint32> *self) {
+  delete self;
+}
+
+//  a QMap<QFont::Tag, float> a ritual of QTextCharFormat gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextCharFormat__QMap_QFont_Tag_float(
+    QMap<QFont::Tag, float> *self) {
   delete self;
 }

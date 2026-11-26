@@ -26,23 +26,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 147, as _ZN20QQmlDelayedCallQueue17storeAnyArgumentsERNS_19DelayedFunctionCallEP14QQmlV4FunctioniPN3QV415ExecutionEngineE
-inline void QQmlDelayedCallQueue::storeAnyArguments(DelayedFunctionCall &dfc, QQmlV4FunctionPtr args, int offset, QV4::ExecutionEngine *engine)
-{
-    const int length = args->length() - offset;
-    if (length == 0) {
-        dfc.m_args.clear();
-        return;
-    }
-    QV4::Scope scope(engine);
-    QV4::ScopedArrayObject array(scope, engine->newArrayObject(length));
-    uint i = 0;
-    for (int j = offset, ej = args->length(); j < ej; ++i, ++j)
-        // fromReturnedValue is safe, args should already ensure marking
-        array->put(i, QV4::Value::fromReturnedValue((*args)[j]));
-    dfc.m_args.set(engine, array);
-}
-
 //  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 21, as _ZNK20QQmlDelayedCallQueue19DelayedFunctionCall7executeEPN3QV415ExecutionEngineE
 inline void QQmlDelayedCallQueue::DelayedFunctionCall::execute(QV4::ExecutionEngine *engine) const
 {
@@ -73,11 +56,6 @@ inline void QQmlDelayedCallQueue::DelayedFunctionCall::execute(QV4::ExecutionEng
             QQmlEnginePrivate::warning(QQmlEnginePrivate::get(scope.engine->qmlEngine()), error);
         }
     }
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 61, as _ZN20QQmlDelayedCallQueueD1Ev
-inline QQmlDelayedCallQueue::~QQmlDelayedCallQueue()
-{
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 74, as _ZN20QQmlDelayedCallQueue26addUniquelyAndExecuteLaterEPN3QV415ExecutionEngineEP14QQmlV4Function
@@ -154,11 +132,21 @@ inline QV4::ReturnedValue QQmlDelayedCallQueue::addUniquelyAndExecuteLater(QV4::
     return QV4::Encode::undefined();
 }
 
-//  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 178, as _ZN20QQmlDelayedCallQueue6tickedEv
-inline void QQmlDelayedCallQueue::ticked()
+//  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 147, as _ZN20QQmlDelayedCallQueue17storeAnyArgumentsERNS_19DelayedFunctionCallEP14QQmlV4FunctioniPN3QV415ExecutionEngineE
+inline void QQmlDelayedCallQueue::storeAnyArguments(DelayedFunctionCall &dfc, QQmlV4FunctionPtr args, int offset, QV4::ExecutionEngine *engine)
 {
-    m_callbackOutstanding = false;
-    executeAllExpired_Later();
+    const int length = args->length() - offset;
+    if (length == 0) {
+        dfc.m_args.clear();
+        return;
+    }
+    QV4::Scope scope(engine);
+    QV4::ScopedArrayObject array(scope, engine->newArrayObject(length));
+    uint i = 0;
+    for (int j = offset, ej = args->length(); j < ej; ++i, ++j)
+        // fromReturnedValue is safe, args should already ensure marking
+        array->put(i, QV4::Value::fromReturnedValue((*args)[j]));
+    dfc.m_args.set(engine, array);
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 163, as _ZN20QQmlDelayedCallQueue23executeAllExpired_LaterEv
@@ -352,6 +340,25 @@ const QMetaObject *ritual_ZNK20QQmlDelayedCallQueue10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDelayedCallQueue::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQmlDelayedCallQueue11qt_metacastEPKc(
+    QQmlDelayedCallQueue *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDelayedCallQueue::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQmlDelayedCallQueue11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDelayedCallQueue *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQmlDelayedCallQueue::~QQmlDelayedCallQueue()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlDelayedCallQueueD1Ev(QQmlDelayedCallQueue *self) {
@@ -371,7 +378,37 @@ QV4::ReturnedValue ritual_ZN20QQmlDelayedCallQueue26addUniquelyAndExecuteLaterEP
 //  void QQmlDelayedCallQueue::ticked()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlDelayedCallQueue6tickedEv(QQmlDelayedCallQueue *self) {
-  self->ticked();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlDelayedCallQueue")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "ticked()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "ticked()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQmlDelayedCallQueue::storeAnyArguments(DelayedFunctionCall &dfc,
+//      QQmlV4FunctionPtr args, int offset, QV4::ExecutionEngine *engine)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlDelayedCallQueue17storeAnyArgumentsERNS_19DelayedFunctionCallEP14QQmlV4FunctioniPN3QV415ExecutionEngineE(
+    QQmlDelayedCallQueue *self,
+    QQmlDelayedCallQueue::DelayedFunctionCall *dfc,
+    QQmlV4FunctionPtr args,
+    int offset,
+    QV4::ExecutionEngine *engine) {
+  self->storeAnyArguments(*dfc, args, offset, engine);
 }
 
 //  void QQmlDelayedCallQueue::executeAllExpired_Later()

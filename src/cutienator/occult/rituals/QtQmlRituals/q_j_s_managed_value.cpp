@@ -6,10 +6,15 @@
 #include <QtQml/qjsprimitivevalue.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/qurl.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlist.h>
+#include <QtQml/QJSManagedValue>
+#include <QtCore/QList>
+#include <QtQml/QJSValue>
 
 //  QJSManagedValue::QJSManagedValue()
 extern "C" Q_DECL_EXPORT
@@ -58,11 +63,56 @@ void ritual_ZN15QJSManagedValueD1Ev(QJSManagedValue *self) {
   delete self;
 }
 
+//  QJSManagedValue::QJSManagedValue(QJSManagedValue &&other)
+extern "C" Q_DECL_EXPORT
+QJSManagedValue *ritual_ZN15QJSManagedValueC1EOS_(QJSManagedValue *other) {
+  return new QJSManagedValue(std::move(*other));
+}
+
+//  QJSManagedValue &QJSManagedValue::operator=(QJSManagedValue &&other)
+extern "C" Q_DECL_EXPORT
+QJSManagedValue *ritual_ZN15QJSManagedValueaSEOS_(
+    QJSManagedValue *self,
+    QJSManagedValue *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  bool QJSManagedValue::equals(const QJSManagedValue &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QJSManagedValue6equalsERKS_(
+    const QJSManagedValue *self,
+    const QJSManagedValue *other) {
+  return self->equals(*other);
+}
+
+//  bool QJSManagedValue::strictlyEquals(const QJSManagedValue &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QJSManagedValue14strictlyEqualsERKS_(
+    const QJSManagedValue *self,
+    const QJSManagedValue *other) {
+  return self->strictlyEquals(*other);
+}
+
 //  QJSEngine *QJSManagedValue::engine() const
 extern "C" Q_DECL_EXPORT
 QJSEngine *ritual_ZNK15QJSManagedValue6engineEv(
     const QJSManagedValue *self) {
   return self->engine();
+}
+
+//  QJSManagedValue QJSManagedValue::prototype() const
+extern "C" Q_DECL_EXPORT
+QJSManagedValue *ritual_ZNK15QJSManagedValue9prototypeEv(
+    const QJSManagedValue *self) {
+  return new QJSManagedValue(self->prototype());
+}
+
+//  void QJSManagedValue::setPrototype(const QJSManagedValue &prototype)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QJSManagedValue12setPrototypeERKS_(
+    QJSManagedValue *self,
+    const QJSManagedValue *prototype) {
+  self->setPrototype(*prototype);
 }
 
 //  Type QJSManagedValue::type() const
@@ -375,6 +425,13 @@ QJSValue *ritual_ZNK15QJSManagedValue17callAsConstructorERK5QListI8QJSValueE(
   return new QJSValue(self->callAsConstructor(*arguments));
 }
 
+//  QJSManagedValue QJSManagedValue::jsMetaType() const
+extern "C" Q_DECL_EXPORT
+QJSManagedValue *ritual_ZNK15QJSManagedValue10jsMetaTypeEv(
+    const QJSManagedValue *self) {
+  return new QJSManagedValue(self->jsMetaType());
+}
+
 //  QStringList QJSManagedValue::jsMetaMembers() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK15QJSManagedValue13jsMetaMembersEv(
@@ -382,9 +439,24 @@ QList<QString> *ritual_ZNK15QJSManagedValue13jsMetaMembersEv(
   return new QList<QString>(self->jsMetaMembers());
 }
 
+//  QJSManagedValue QJSManagedValue::jsMetaInstantiate(const QJSValueList
+//      &values) const
+extern "C" Q_DECL_EXPORT
+QJSManagedValue *ritual_ZNK15QJSManagedValue17jsMetaInstantiateERK5QListI8QJSValueE(
+    const QJSManagedValue *self,
+    const QList<QJSValue> *values) {
+  return new QJSManagedValue(self->jsMetaInstantiate(*values));
+}
+
 //  QJSManagedValue::QJSManagedValue(QV4::ExecutionEngine *engine)
 extern "C" Q_DECL_EXPORT
 QJSManagedValue *ritual_ZN15QJSManagedValueC1EPN3QV415ExecutionEngineE(
     QV4::ExecutionEngine *engine) {
   return new QJSManagedValue(engine);
+}
+
+//  a QJSManagedValue a ritual of QJSManagedValue gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QJSManagedValue__QJSManagedValue(QJSManagedValue *self) {
+  delete self;
 }

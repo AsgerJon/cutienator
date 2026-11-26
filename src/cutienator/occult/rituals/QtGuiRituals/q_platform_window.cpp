@@ -1164,6 +1164,25 @@ void ritual_ZN15QPlatformWindow17invalidateSurfaceEv(QPlatformWindow *self) {
   self->invalidateSurface();
 }
 
+//  QRect QPlatformWindow::initialGeometry(const QWindow *w, const QRect
+//      &initialGeometry, int defaultWidth, int defaultHeight, const QScreen
+//      **resultingScreenReturn)
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZN15QPlatformWindow15initialGeometryEPK7QWindowRK5QRectiiPPK7QScreen(
+    const QWindow *w,
+    const QRect *initialGeometry,
+    int defaultWidth,
+    int defaultHeight,
+    const QScreen **resultingScreenReturn) {
+  return new QRect(
+      QPlatformWindow::initialGeometry(
+          w,
+          *initialGeometry,
+          defaultWidth,
+          defaultHeight,
+          resultingScreenReturn));
+}
+
 //  void QPlatformWindow::requestUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QPlatformWindow13requestUpdateEv(QPlatformWindow *self) {

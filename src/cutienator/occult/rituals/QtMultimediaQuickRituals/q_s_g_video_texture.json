@@ -5,6 +5,8 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QSGVideoTexture6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QSGVideoTexture6d_funcEv": ["address", "address"],
     "ritual_ZN15QSGVideoTextureC1Ev": ["address"],
     "ritual_ZN15QSGVideoTextureD1Ev": ["nothing", "address"],
     "ritual_ZNK15QSGVideoTexture13comparisonKeyEv": ["long long", "address"],
@@ -14,6 +16,9 @@
     "ritual_ZNK15QSGVideoTexture10hasMipmapsEv": ["bool", "address"],
     "ritual_ZN15QSGVideoTexture13setRhiTextureEP11QRhiTexture": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN15QSGVideoTexture7setDataEN11QRhiTexture6FormatERK5QSizePKhi": [
+      "nothing", "address", "int", "address", "address", "int"
     ],
     "ritual_take_QSGVideoTexture": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QSGVideoTexture13comparisonKeyEv": [

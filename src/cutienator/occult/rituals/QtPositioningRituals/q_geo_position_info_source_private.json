@@ -14,6 +14,15 @@
     "ritual_ZN29QGeoPositionInfoSourcePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN29QGeoPositionInfoSourcePrivate21setPositioningMethodsE6QFlagsIN22QGeoPositionInfoSource17PositioningMethodEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN29QGeoPositionInfoSourcePrivate28_qt_property_interval_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN29QGeoPositionInfoSourcePrivate27_qt_property_methods_offsetEv": [
+      "size_t"
+    ],
+    "ritual_drop_QGeoPositionInfoSourcePrivate__QMultiHash_QString_QCborMap": [
+      "nothing", "address"
     ]
   }
 }

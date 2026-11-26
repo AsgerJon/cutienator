@@ -13,7 +13,9 @@
 #include <QtNetwork/qhostaddress.h>
 #include <QtCore/qstring.h>
 #include <QtNetwork/qsslconfiguration.h>
+#if QT_CONFIG(dtls) && QT_CONFIG(ssl)
 #include <QtNetwork/qdtls.h>
+#endif
 #include <cstring>
 
 //  A QTlsPrivate::DtlsCookieVerifier that Python can take functions over in. Every QTlsPrivate::DtlsCookieVerifier

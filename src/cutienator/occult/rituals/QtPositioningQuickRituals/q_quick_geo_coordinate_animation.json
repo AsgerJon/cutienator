@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuickGeoCoordinateAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickGeoCoordinateAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuickGeoCoordinateAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuickGeoCoordinateAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -37,8 +43,17 @@
     "ritual_ZN28QQuickGeoCoordinateAnimation12setDirectionENS_9DirectionE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN28QQuickGeoCoordinateAnimation17bindableDirectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickGeoCoordinateAnimation16directionChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuickGeoCoordinateAnimation": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQuickGeoCoordinateAnimation__QBindable_QQuickGeoCoordinateAnimation_Direction": [
+      "nothing", "address"
     ]
   }
 }

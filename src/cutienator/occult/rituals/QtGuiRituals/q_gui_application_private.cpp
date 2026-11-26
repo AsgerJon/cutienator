@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qguiapplication_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/qguiapplication.h>
 #include <QtGui/QtGui>
@@ -11,6 +12,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/qpa/qplatformdrag.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #include <QtGui/qpixmap.h>
 #include <QtGui/qpalette.h>
 #include <cstring>
@@ -34,34 +36,37 @@ typedef void (*CuteQGuiApplicationPrivateCall1)(const void *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGuiApplicationPrivateCall2)(const void *, int *);
 typedef void (*CuteQGuiApplicationPrivateCall3)(const void *, QWindow *, int *);
+#if QT_CONFIG(commandlineparser)
+typedef void (*CuteQGuiApplicationPrivateCall4)(const void *, QList<QCommandLineOption> *, int *);
+#endif  // QT_CONFIG(commandlineparser)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQGuiApplicationPrivateCall4)(const void *, int *);
+typedef bool (*CuteQGuiApplicationPrivateCall5)(const void *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQGuiApplicationPrivateCall5)(const void *, int *);
+typedef void (*CuteQGuiApplicationPrivateCall6)(const void *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
-typedef int (*CuteQGuiApplicationPrivateCall6)(const void *, int *);
-typedef bool (*CuteQGuiApplicationPrivateCall7)(const void *, QWindow *, int *);
-typedef const QPixmap * (*CuteQGuiApplicationPrivateCall8)(const void *, int, const QPixmap *, int *);
-typedef void (*CuteQGuiApplicationPrivateCall9)(const void *, int *);
+typedef int (*CuteQGuiApplicationPrivateCall7)(const void *, int *);
+typedef bool (*CuteQGuiApplicationPrivateCall8)(const void *, QWindow *, int *);
+typedef const QPixmap * (*CuteQGuiApplicationPrivateCall9)(const void *, int, const QPixmap *, int *);
+typedef void (*CuteQGuiApplicationPrivateCall10)(const void *, int *);
 #if !defined(QT_NO_ACTION)
-typedef void * (*CuteQGuiApplicationPrivateCall10)(const void *, int *);
+typedef void * (*CuteQGuiApplicationPrivateCall11)(const void *, int *);
 #endif  // !defined(QT_NO_ACTION)
 #if !defined(QT_NO_SHORTCUT)
-typedef void * (*CuteQGuiApplicationPrivateCall11)(const void *, int *);
+typedef void * (*CuteQGuiApplicationPrivateCall12)(const void *, int *);
 #endif  // !defined(QT_NO_SHORTCUT)
-typedef void (*CuteQGuiApplicationPrivateCall12)(const void *, int *);
-typedef const QPalette * (*CuteQGuiApplicationPrivateCall13)(const void *, int *);
+typedef void (*CuteQGuiApplicationPrivateCall13)(const void *, int *);
+typedef const QPalette * (*CuteQGuiApplicationPrivateCall14)(const void *, int *);
 #if QT_CONFIG(draganddrop)
-typedef void (*CuteQGuiApplicationPrivateCall14)(const void *, const QDrag *, int *);
+typedef void (*CuteQGuiApplicationPrivateCall15)(const void *, const QDrag *, int *);
 #endif  // QT_CONFIG(draganddrop)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQGuiApplicationPrivateCall15)(const void *, QEvent *, QObject *, QPostEventList *, int *);
+typedef bool (*CuteQGuiApplicationPrivateCall16)(const void *, QEvent *, QObject *, QPostEventList *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQGuiApplicationPrivate : public QGuiApplicationPrivate {
 public:
   using QGuiApplicationPrivate::QGuiApplicationPrivate;
-  void *taken[16] = {};
+  void *taken[17] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_QOBJECT)
@@ -84,63 +89,69 @@ public:
       taken[3] = call;
       return true;
     }
+#if QT_CONFIG(commandlineparser)
+    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE")) {
+      taken[4] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(commandlineparser)
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate20canQuitAutomaticallyEv")) {
-      taken[4] = call;
+      taken[5] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate4quitEv")) {
-      taken[5] = call;
+      taken[6] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK22QGuiApplicationPrivate15defaultModalityEv")) {
-      taken[6] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZNK22QGuiApplicationPrivate18windowNeverBlockedEP7QWindow")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK22QGuiApplicationPrivate21applyQIconStyleHelperEN5QIcon4ModeERK7QPixmap")) {
+    if (!std::strcmp(key, "_ZNK22QGuiApplicationPrivate18windowNeverBlockedEP7QWindow")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN22QGuiApplicationPrivate23notifyWindowIconChangedEv")) {
+    if (!std::strcmp(key, "_ZNK22QGuiApplicationPrivate21applyQIconStyleHelperEN5QIcon4ModeERK7QPixmap")) {
       taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QGuiApplicationPrivate23notifyWindowIconChangedEv")) {
+      taken[10] = call;
       return true;
     }
 #if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZNK22QGuiApplicationPrivate19createActionPrivateEv")) {
-      taken[10] = call;
+      taken[11] = call;
       return true;
     }
 #endif  // !defined(QT_NO_ACTION)
 #if !defined(QT_NO_SHORTCUT)
     if (!std::strcmp(key, "_ZNK22QGuiApplicationPrivate21createShortcutPrivateEv")) {
-      taken[11] = call;
+      taken[12] = call;
       return true;
     }
 #endif  // !defined(QT_NO_SHORTCUT)
     if (!std::strcmp(key, "_ZN22QGuiApplicationPrivate18handleThemeChangedEv")) {
-      taken[12] = call;
+      taken[13] = call;
       return true;
     }
     if (!std::strcmp(key, "_ZNK22QGuiApplicationPrivate11basePaletteEv")) {
-      taken[13] = call;
+      taken[14] = call;
       return true;
     }
 #if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN22QGuiApplicationPrivate17notifyDragStartedEPK5QDrag")) {
-      taken[14] = call;
+      taken[15] = call;
       return true;
     }
 #endif  // QT_CONFIG(draganddrop)
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate13compressEventEP6QEventP7QObjectP14QPostEventList")) {
-      taken[15] = call;
+      taken[16] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -196,12 +207,26 @@ public:
     QGuiApplicationPrivate::notifyActiveWindowChange(previous);
   }
 
-#if !defined(QT_NO_QOBJECT)
-  //  bool QGuiApplicationPrivate::canQuitAutomatically()
-  bool canQuitAutomatically() override {
+#if QT_CONFIG(commandlineparser)
+  //  void QGuiApplicationPrivate::addQtOptions(QList<QCommandLineOption>
+  //      *options)
+  void addQtOptions(QList<QCommandLineOption> *options) override {
     if (taken[4]) {
       int handled = 0;
       CuteQGuiApplicationPrivateCall4 call = reinterpret_cast<CuteQGuiApplicationPrivateCall4>(taken[4]);
+      call(this, options, &handled);
+      if (handled) return;
+    }
+    QGuiApplicationPrivate::addQtOptions(options);
+  }
+#endif  // QT_CONFIG(commandlineparser)
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QGuiApplicationPrivate::canQuitAutomatically()
+  bool canQuitAutomatically() override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQGuiApplicationPrivateCall5 call = reinterpret_cast<CuteQGuiApplicationPrivateCall5>(taken[5]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -212,9 +237,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QGuiApplicationPrivate::quit()
   void quit() override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall5 call = reinterpret_cast<CuteQGuiApplicationPrivateCall5>(taken[5]);
+      CuteQGuiApplicationPrivateCall6 call = reinterpret_cast<CuteQGuiApplicationPrivateCall6>(taken[6]);
       call(this, &handled);
       if (handled) return;
     }
@@ -224,9 +249,9 @@ public:
 
   //  Qt::WindowModality QGuiApplicationPrivate::defaultModality() const
   Qt::WindowModality defaultModality() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall6 call = reinterpret_cast<CuteQGuiApplicationPrivateCall6>(taken[6]);
+      CuteQGuiApplicationPrivateCall7 call = reinterpret_cast<CuteQGuiApplicationPrivateCall7>(taken[7]);
       int given = call(this, &handled);
       if (handled) return static_cast<Qt::WindowModality>(given);
     }
@@ -236,9 +261,9 @@ public:
   //  bool QGuiApplicationPrivate::windowNeverBlocked(QWindow *window)
   //      const
   bool windowNeverBlocked(QWindow *window) const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall7 call = reinterpret_cast<CuteQGuiApplicationPrivateCall7>(taken[7]);
+      CuteQGuiApplicationPrivateCall8 call = reinterpret_cast<CuteQGuiApplicationPrivateCall8>(taken[8]);
       bool given = call(this, window, &handled);
       if (handled) return given;
     }
@@ -250,9 +275,9 @@ public:
   QPixmap applyQIconStyleHelper(
       QIcon::Mode a0,
       const QPixmap &basePixmap) const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall8 call = reinterpret_cast<CuteQGuiApplicationPrivateCall8>(taken[8]);
+      CuteQGuiApplicationPrivateCall9 call = reinterpret_cast<CuteQGuiApplicationPrivateCall9>(taken[9]);
       const QPixmap * given = call(this, static_cast<int>(a0), &basePixmap, &handled);
       if (handled && given) return *given;
     }
@@ -261,9 +286,9 @@ public:
 
   //  void QGuiApplicationPrivate::notifyWindowIconChanged()
   void notifyWindowIconChanged() override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall9 call = reinterpret_cast<CuteQGuiApplicationPrivateCall9>(taken[9]);
+      CuteQGuiApplicationPrivateCall10 call = reinterpret_cast<CuteQGuiApplicationPrivateCall10>(taken[10]);
       call(this, &handled);
       if (handled) return;
     }
@@ -273,9 +298,9 @@ public:
 #if !defined(QT_NO_ACTION)
   //  QActionPrivate *QGuiApplicationPrivate::createActionPrivate() const
   QActionPrivate *createActionPrivate() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall10 call = reinterpret_cast<CuteQGuiApplicationPrivateCall10>(taken[10]);
+      CuteQGuiApplicationPrivateCall11 call = reinterpret_cast<CuteQGuiApplicationPrivateCall11>(taken[11]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QActionPrivate *>(given);
     }
@@ -287,9 +312,9 @@ public:
   //  QShortcutPrivate *QGuiApplicationPrivate::createShortcutPrivate()
   //      const
   QShortcutPrivate *createShortcutPrivate() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall11 call = reinterpret_cast<CuteQGuiApplicationPrivateCall11>(taken[11]);
+      CuteQGuiApplicationPrivateCall12 call = reinterpret_cast<CuteQGuiApplicationPrivateCall12>(taken[12]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QShortcutPrivate *>(given);
     }
@@ -299,9 +324,9 @@ public:
 
   //  void QGuiApplicationPrivate::handleThemeChanged()
   void handleThemeChanged() override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall12 call = reinterpret_cast<CuteQGuiApplicationPrivateCall12>(taken[12]);
+      CuteQGuiApplicationPrivateCall13 call = reinterpret_cast<CuteQGuiApplicationPrivateCall13>(taken[13]);
       call(this, &handled);
       if (handled) return;
     }
@@ -310,9 +335,9 @@ public:
 
   //  QPalette QGuiApplicationPrivate::basePalette() const
   QPalette basePalette() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall13 call = reinterpret_cast<CuteQGuiApplicationPrivateCall13>(taken[13]);
+      CuteQGuiApplicationPrivateCall14 call = reinterpret_cast<CuteQGuiApplicationPrivateCall14>(taken[14]);
       const QPalette * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -322,9 +347,9 @@ public:
 #if QT_CONFIG(draganddrop)
   //  void QGuiApplicationPrivate::notifyDragStarted(const QDrag *a0)
   void notifyDragStarted(const QDrag *a0) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall14 call = reinterpret_cast<CuteQGuiApplicationPrivateCall14>(taken[14]);
+      CuteQGuiApplicationPrivateCall15 call = reinterpret_cast<CuteQGuiApplicationPrivateCall15>(taken[15]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -339,9 +364,9 @@ public:
       QEvent *event,
       QObject *receiver,
       QPostEventList *postedEvents) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQGuiApplicationPrivateCall15 call = reinterpret_cast<CuteQGuiApplicationPrivateCall15>(taken[15]);
+      CuteQGuiApplicationPrivateCall16 call = reinterpret_cast<CuteQGuiApplicationPrivateCall16>(taken[16]);
       bool given = call(this, event, receiver, postedEvents, &handled);
       if (handled) return given;
     }
@@ -419,6 +444,17 @@ void ritual_ZN22QGuiApplicationPrivate24notifyActiveWindowChangeEP7QWindow(
     QWindow *previous) {
   self->notifyActiveWindowChange(previous);
 }
+
+#if QT_CONFIG(commandlineparser)
+//  void QGuiApplicationPrivate::addQtOptions(QList<QCommandLineOption>
+//      *options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGuiApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE(
+    QGuiApplicationPrivate *self,
+    QList<QCommandLineOption> *options) {
+  self->addQtOptions(options);
+}
+#endif  // QT_CONFIG(commandlineparser)
 
 //  bool QGuiApplicationPrivate::canQuitAutomatically()
 extern "C" Q_DECL_EXPORT
@@ -757,6 +793,21 @@ QPlatformDropQtResponse *ritual_ZN22QGuiApplicationPrivate11processDropEP7QWindo
 }
 #endif  // QT_CONFIG(draganddrop)
 
+//  bool QGuiApplicationPrivate::processNativeEvent(QWindow *window, const
+//      QByteArray &eventType, void *message, qintptr *result)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QGuiApplicationPrivate18processNativeEventEP7QWindowRK10QByteArrayPvPx(
+    QWindow *window,
+    const QByteArray *eventType,
+    void *message,
+    qintptr *result) {
+  return QGuiApplicationPrivate::processNativeEvent(
+      window,
+      *eventType,
+      message,
+      result);
+}
+
 //  bool QGuiApplicationPrivate::sendQWindowEventToQPlatformWindow(QWindow
 //      *window, QEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -852,6 +903,16 @@ bool ritual_ZNK22QGuiApplicationPrivate18windowNeverBlockedEP7QWindow(
   return self->windowNeverBlocked(window);
 }
 
+//  bool QGuiApplicationPrivate::isWindowBlocked(QWindow *window, QWindow
+//      **blockingWindow) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK22QGuiApplicationPrivate15isWindowBlockedEP7QWindowPS1_(
+    const QGuiApplicationPrivate *self,
+    QWindow *window,
+    QWindow **blockingWindow) {
+  return self->isWindowBlocked(window, blockingWindow);
+}
+
 //  qsizetype QGuiApplicationPrivate::popupCount()
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZN22QGuiApplicationPrivate10popupCountEv() {
@@ -882,6 +943,14 @@ bool ritual_ZN22QGuiApplicationPrivate10closePopupEP7QWindow(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN22QGuiApplicationPrivate14closeAllPopupsEv() {
   return QGuiApplicationPrivate::closeAllPopups();
+}
+
+//  TabletPointData &QGuiApplicationPrivate::tabletDevicePoint(qint64
+//      deviceId)
+extern "C" Q_DECL_EXPORT
+QGuiApplicationPrivate::TabletPointData *ritual_ZN22QGuiApplicationPrivate17tabletDevicePointEx(
+    qint64 deviceId) {
+  return &(QGuiApplicationPrivate::tabletDevicePoint(deviceId));
 }
 
 #if !defined(QT_NO_SESSIONMANAGER)
@@ -1088,6 +1157,17 @@ void ritual_own_ZN22QGuiApplicationPrivate24notifyActiveWindowChangeEP7QWindow(
     QWindow *previous) {
   self->QGuiApplicationPrivate::notifyActiveWindowChange(previous);
 }
+
+#if QT_CONFIG(commandlineparser)
+//  void QGuiApplicationPrivate::addQtOptions(QList<QCommandLineOption>
+//      *options)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN22QGuiApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE(
+    QGuiApplicationPrivate *self,
+    QList<QCommandLineOption> *options) {
+  self->QGuiApplicationPrivate::addQtOptions(options);
+}
+#endif  // QT_CONFIG(commandlineparser)
 
 //  bool QGuiApplicationPrivate::canQuitAutomatically()
 extern "C" Q_DECL_EXPORT

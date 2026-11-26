@@ -5,22 +5,43 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV48FunctionC1EPNS_15ExecutionEngineEPNS_25ExecutableCompilationUnitEPKNS_12CompiledData8FunctionEPKN11QQmlPrivate19AOTCompiledFunctionE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV48FunctionD1Ev": ["nothing", "address"],
     "ritual_ZNK3QV48Function25executableCompilationUnitEv": [
       "address", "address"
     ],
     "ritual_ZNK3QV48Function13runtimeStringEj": [
       "address", "address", "unsigned int"
     ],
+    "ritual_ZN3QV48Function4callEP7QObjectPPvPK9QMetaTypeiPNS_16ExecutionContextE": [
+      "bool", "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV48Function4callEPKNS_5ValueES3_iPNS_16ExecutionContextE": [
+      "unsigned long long", "address", "address", "address", "int", "address"
+    ],
     "ritual_ZN3QV48Function6createEPNS_15ExecutionEngineEPNS_25ExecutableCompilationUnitEPKNS_12CompiledData8FunctionEPKN11QQmlPrivate19AOTCompiledFunctionE": [
       "address", "address", "address", "address", "address"
     ],
+    "ritual_ZN3QV48Function7destroyEv": ["nothing", "address"],
+    "ritual_ZN3QV48Function4markEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Function19updateInternalClassEPNS_15ExecutionEngineERK5QListI10QByteArrayE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK3QV48Function4nameEv": ["address", "address"],
+    "ritual_ZN3QV48Function10prettyNameEPKS0_PKv": [
+      "text", "address", "address"
+    ],
     "ritual_ZNK3QV48Function10sourceFileEv": ["text", "address"],
     "ritual_ZNK3QV48Function8finalUrlEv": ["address", "address"],
     "ritual_ZNK3QV48Function8isStrictEv": ["bool", "address"],
     "ritual_ZNK3QV48Function15isArrowFunctionEv": ["bool", "address"],
     "ritual_ZNK3QV48Function11isGeneratorEv": ["bool", "address"],
     "ritual_ZNK3QV48Function16isClosureWrapperEv": ["bool", "address"],
+    "ritual_ZNK3QV48Function14sourceLocationEv": ["address", "address"],
     "ritual_ZNK3QV48Function14nestedFunctionEv": ["address", "address"],
     "ritual_ZNK3QV48Function10isJittableEv": ["bool", "address"]
   }

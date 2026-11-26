@@ -9,7 +9,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qxmlstream_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(xmlstream)
 #include <QtCore/qxmlstream.h>
+#endif
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
 
@@ -96,6 +98,13 @@ QtPrivate::XmlStringRef *ritual_ZNK9QtPrivate12XmlStringRef6slicedExx(
   return new QtPrivate::XmlStringRef(self->sliced(pos, n));
 }
 
+//  const_pointer QtPrivate::XmlStringRef::data() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::XmlStringRef::const_pointer ritual_ZNK9QtPrivate12XmlStringRef4dataEv(
+    const QtPrivate::XmlStringRef *self) {
+  return self->data();
+}
+
 //  qsizetype QtPrivate::XmlStringRef::size() const
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK9QtPrivate12XmlStringRef4sizeEv(
@@ -108,6 +117,63 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QtPrivate12XmlStringRef5emptyEv(
     const QtPrivate::XmlStringRef *self) {
   return self->empty();
+}
+
+//  const_iterator QtPrivate::XmlStringRef::begin() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::XmlStringRef::const_iterator ritual_ZNK9QtPrivate12XmlStringRef5beginEv(
+    const QtPrivate::XmlStringRef *self) {
+  return self->begin();
+}
+
+//  const_iterator QtPrivate::XmlStringRef::end() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::XmlStringRef::const_iterator ritual_ZNK9QtPrivate12XmlStringRef3endEv(
+    const QtPrivate::XmlStringRef *self) {
+  return self->end();
+}
+
+//  const_iterator QtPrivate::XmlStringRef::cbegin() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::XmlStringRef::const_iterator ritual_ZNK9QtPrivate12XmlStringRef6cbeginEv(
+    const QtPrivate::XmlStringRef *self) {
+  return self->cbegin();
+}
+
+//  const_iterator QtPrivate::XmlStringRef::cend() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::XmlStringRef::const_iterator ritual_ZNK9QtPrivate12XmlStringRef4cendEv(
+    const QtPrivate::XmlStringRef *self) {
+  return self->cend();
+}
+
+//  const_reverse_iterator QtPrivate::XmlStringRef::rbegin() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::XmlStringRef::const_reverse_iterator *ritual_ZNK9QtPrivate12XmlStringRef6rbeginEv(
+    const QtPrivate::XmlStringRef *self) {
+  return new QtPrivate::XmlStringRef::const_reverse_iterator(self->rbegin());
+}
+
+//  const_reverse_iterator QtPrivate::XmlStringRef::rend() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::XmlStringRef::const_reverse_iterator *ritual_ZNK9QtPrivate12XmlStringRef4rendEv(
+    const QtPrivate::XmlStringRef *self) {
+  return new QtPrivate::XmlStringRef::const_reverse_iterator(self->rend());
+}
+
+//  const_reverse_iterator QtPrivate::XmlStringRef::crbegin() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::XmlStringRef::const_reverse_iterator *ritual_ZNK9QtPrivate12XmlStringRef7crbeginEv(
+    const QtPrivate::XmlStringRef *self) {
+  return new QtPrivate::XmlStringRef::const_reverse_iterator(
+      self->crbegin());
+}
+
+//  const_reverse_iterator QtPrivate::XmlStringRef::crend() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::XmlStringRef::const_reverse_iterator *ritual_ZNK9QtPrivate12XmlStringRef5crendEv(
+    const QtPrivate::XmlStringRef *self) {
+  return new QtPrivate::XmlStringRef::const_reverse_iterator(self->crend());
 }
 
 //  bool operator==(const XmlStringRef &lhs, const XmlStringRef &rhs)
@@ -266,6 +332,14 @@ void ritual_ZNK9QtPrivate12XmlStringRef6verifyExx(
 //  QtPrivate::XmlStringRef::~XmlStringRef()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QtPrivate12XmlStringRefD1Ev(QtPrivate::XmlStringRef *self) {
+  delete self;
+}
+
+//  a QtPrivate::XmlStringRef::const_reverse_iterator a ritual of
+//      QtPrivate::XmlStringRef gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtPrivate_XmlStringRef__QtPrivate_XmlStringRef_const_reverse_iterator(
+    QtPrivate::XmlStringRef::const_reverse_iterator *self) {
   delete self;
 }
 

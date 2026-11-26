@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qfloat16.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qfloat16.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 4. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qmetatype.h>
+#include <QtCore/qfloat16.h>
 
 //  qfloat16::qfloat16(Qt::Initialization a0)
 extern "C" Q_DECL_EXPORT
@@ -142,10 +145,28 @@ qfloat16 *ritual_ZN8qfloat16ppEi(qfloat16 *self, int a0) {
   return new qfloat16(self->operator++(a0));
 }
 
+//  qfloat16 &qfloat16::operator++()
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZN8qfloat16ppEv(qfloat16 *self) {
+  return &(self->operator++());
+}
+
 //  qfloat16 qfloat16::operator--(int a0)
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat16mmEi(qfloat16 *self, int a0) {
   return new qfloat16(self->operator--(a0));
+}
+
+//  qfloat16 &qfloat16::operator--()
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZN8qfloat16mmEv(qfloat16 *self) {
+  return &(self->operator--());
+}
+
+//  qfloat16::qfloat16(Wrap nibble)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZN8qfloat16C1ENS_4WrapE(const qfloat16::Wrap *nibble) {
+  return new qfloat16(*nibble);
 }
 
 //  qfloat16 operator+(qfloat16 a)
@@ -182,6 +203,94 @@ qfloat16 *ritual_Zml8qfloat16S_(const qfloat16 *a, const qfloat16 *b) {
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_Zdv8qfloat16S_(const qfloat16 *a, const qfloat16 *b) {
   return new qfloat16(operator/(*a, *b));
+}
+
+//  long double operator+(qfloat16 lhs, long double rhs)
+extern "C" Q_DECL_EXPORT
+long double *ritual_Zpl8qfloat16e(
+    const qfloat16 *lhs,
+    const long double *rhs) {
+  return new long double(operator+(*lhs, *rhs));
+}
+
+//  long double operator+(long double lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+long double *ritual_Zple8qfloat16(
+    const long double *lhs,
+    const qfloat16 *rhs) {
+  return new long double(operator+(*lhs, *rhs));
+}
+
+//  long double operator-(qfloat16 lhs, long double rhs)
+extern "C" Q_DECL_EXPORT
+long double *ritual_Zmi8qfloat16e(
+    const qfloat16 *lhs,
+    const long double *rhs) {
+  return new long double(operator-(*lhs, *rhs));
+}
+
+//  long double operator-(long double lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+long double *ritual_Zmie8qfloat16(
+    const long double *lhs,
+    const qfloat16 *rhs) {
+  return new long double(operator-(*lhs, *rhs));
+}
+
+//  long double operator*(qfloat16 lhs, long double rhs)
+extern "C" Q_DECL_EXPORT
+long double *ritual_Zml8qfloat16e(
+    const qfloat16 *lhs,
+    const long double *rhs) {
+  return new long double(operator*(*lhs, *rhs));
+}
+
+//  long double operator*(long double lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+long double *ritual_Zmle8qfloat16(
+    const long double *lhs,
+    const qfloat16 *rhs) {
+  return new long double(operator*(*lhs, *rhs));
+}
+
+//  long double operator/(qfloat16 lhs, long double rhs)
+extern "C" Q_DECL_EXPORT
+long double *ritual_Zdv8qfloat16e(
+    const qfloat16 *lhs,
+    const long double *rhs) {
+  return new long double(operator/(*lhs, *rhs));
+}
+
+//  long double operator/(long double lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+long double *ritual_Zdve8qfloat16(
+    const long double *lhs,
+    const qfloat16 *rhs) {
+  return new long double(operator/(*lhs, *rhs));
+}
+
+//  qfloat16 &operator+=(qfloat16 &lhs, long double rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZpLR8qfloat16e(qfloat16 *lhs, const long double *rhs) {
+  return &(operator+=(*lhs, *rhs));
+}
+
+//  qfloat16 &operator-=(qfloat16 &lhs, long double rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZmIR8qfloat16e(qfloat16 *lhs, const long double *rhs) {
+  return &(operator-=(*lhs, *rhs));
+}
+
+//  qfloat16 &operator*=(qfloat16 &lhs, long double rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZmLR8qfloat16e(qfloat16 *lhs, const long double *rhs) {
+  return &(operator*=(*lhs, *rhs));
+}
+
+//  qfloat16 &operator/=(qfloat16 &lhs, long double rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZdVR8qfloat16e(qfloat16 *lhs, const long double *rhs) {
+  return &(operator/=(*lhs, *rhs));
 }
 
 //  double operator+(qfloat16 lhs, double rhs)
@@ -232,6 +341,30 @@ double ritual_Zdvd8qfloat16(double lhs, const qfloat16 *rhs) {
   return operator/(lhs, *rhs);
 }
 
+//  qfloat16 &operator+=(qfloat16 &lhs, double rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZpLR8qfloat16d(qfloat16 *lhs, double rhs) {
+  return &(operator+=(*lhs, rhs));
+}
+
+//  qfloat16 &operator-=(qfloat16 &lhs, double rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZmIR8qfloat16d(qfloat16 *lhs, double rhs) {
+  return &(operator-=(*lhs, rhs));
+}
+
+//  qfloat16 &operator*=(qfloat16 &lhs, double rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZmLR8qfloat16d(qfloat16 *lhs, double rhs) {
+  return &(operator*=(*lhs, rhs));
+}
+
+//  qfloat16 &operator/=(qfloat16 &lhs, double rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZdVR8qfloat16d(qfloat16 *lhs, double rhs) {
+  return &(operator/=(*lhs, rhs));
+}
+
 //  float operator+(qfloat16 lhs, float rhs)
 extern "C" Q_DECL_EXPORT
 float ritual_Zpl8qfloat16f(const qfloat16 *lhs, float rhs) {
@@ -278,6 +411,30 @@ float ritual_Zdv8qfloat16f(const qfloat16 *lhs, float rhs) {
 extern "C" Q_DECL_EXPORT
 float ritual_Zdvf8qfloat16(float lhs, const qfloat16 *rhs) {
   return operator/(lhs, *rhs);
+}
+
+//  qfloat16 &operator+=(qfloat16 &lhs, float rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZpLR8qfloat16f(qfloat16 *lhs, float rhs) {
+  return &(operator+=(*lhs, rhs));
+}
+
+//  qfloat16 &operator-=(qfloat16 &lhs, float rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZmIR8qfloat16f(qfloat16 *lhs, float rhs) {
+  return &(operator-=(*lhs, rhs));
+}
+
+//  qfloat16 &operator*=(qfloat16 &lhs, float rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZmLR8qfloat16f(qfloat16 *lhs, float rhs) {
+  return &(operator*=(*lhs, rhs));
+}
+
+//  qfloat16 &operator/=(qfloat16 &lhs, float rhs)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_ZdVR8qfloat16f(qfloat16 *lhs, float rhs) {
+  return &(operator/=(*lhs, rhs));
 }
 
 //  double operator+(qfloat16 lhs, int rhs)
@@ -361,6 +518,78 @@ bool ritual_ZleRK8qfloat16S1_(const qfloat16 *lhs, const qfloat16 *rhs) {
 //  bool operator>=(const qfloat16 &lhs, const qfloat16 &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK8qfloat16S1_(const qfloat16 *lhs, const qfloat16 *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const long double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKe(const qfloat16 *lhs, const long double *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const long double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKe(const qfloat16 *lhs, const long double *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const long double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKe(const qfloat16 *lhs, const long double *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const long double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKe(const qfloat16 *lhs, const long double *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const long double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKe(const qfloat16 *lhs, const long double *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const long double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKe(const qfloat16 *lhs, const long double *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const long double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKeRK8qfloat16(const long double *lhs, const qfloat16 *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const long double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKeRK8qfloat16(const long double *lhs, const qfloat16 *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const long double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKeRK8qfloat16(const long double *lhs, const qfloat16 *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const long double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKeRK8qfloat16(const long double *lhs, const qfloat16 *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const long double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKeRK8qfloat16(const long double *lhs, const qfloat16 *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const long double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKeRK8qfloat16(const long double *lhs, const qfloat16 *rhs) {
   return operator>=(*lhs, *rhs);
 }
 
@@ -1228,8 +1457,78 @@ bool ritual_ZgeRKyRK8qfloat16(quint64 lhs, const qfloat16 *rhs) {
   return operator>=(lhs, *rhs);
 }
 
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &ds, qfloat16 f)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStream8qfloat16(
+    QDataStream *ds,
+    const qfloat16 *f) {
+  return &(operator<<(*ds, *f));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &ds, qfloat16 &f)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR8qfloat16(
+    QDataStream *ds,
+    qfloat16 *f) {
+  return &(operator>>(*ds, *f));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+//  QTextStream &operator<<(QTextStream &ts, qfloat16 f)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZlsR11QTextStream8qfloat16(
+    QTextStream *ts,
+    const qfloat16 *f) {
+  return &(operator<<(*ts, *f));
+}
+
+//  QTextStream &operator>>(QTextStream &ts, qfloat16 &f)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZrsR11QTextStreamR8qfloat16(
+    QTextStream *ts,
+    qfloat16 *f) {
+  return &(operator>>(*ts, *f));
+}
+
 //  qfloat16::~qfloat16()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8qfloat16D1Ev(qfloat16 *self) {
   delete self;
+}
+
+//  a long double a ritual of qfloat16 gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_qfloat16__long_double(long double *self) {
+  delete self;
+}
+
+//  qfloat16::qfloat16<int, void>(int value)
+extern "C" Q_DECL_EXPORT
+qfloat16 * ritual_ZN8qfloat16C2IivEET_(
+    int value) {
+  return new qfloat16(value);
+}
+
+//  qfloat16::qfloat16<double, void>(double value)
+extern "C" Q_DECL_EXPORT
+qfloat16 * ritual_ZN8qfloat16C2IdvEET_(
+    double value) {
+  return new qfloat16(value);
+}
+
+//  qfloat16::qfloat16<bool, void>(bool value)
+extern "C" Q_DECL_EXPORT
+qfloat16 * ritual_ZN8qfloat16C2IbvEET_(
+    bool value) {
+  return new qfloat16(value);
+}
+
+//  qfloat16::qfloat16<long long, void>(long long value)
+extern "C" Q_DECL_EXPORT
+qfloat16 * ritual_ZN8qfloat16C2IxvEET_(
+    long long value) {
+  return new qfloat16(value);
 }

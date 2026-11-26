@@ -14,6 +14,9 @@
     "ritual_ZNK33QPlaceProposedSearchResultPrivate4typeEv": [
       "int", "address"
     ],
+    "ritual_ZN33QPlaceProposedSearchResultPrivate14copyIfPossibleER18QSharedDataPointerI25QPlaceSearchResultPrivateERK18QPlaceSearchResult": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN33QPlaceProposedSearchResultPrivateD1Ev": [
       "nothing", "address"
     ],

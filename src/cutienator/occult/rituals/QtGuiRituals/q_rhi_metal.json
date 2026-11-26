@@ -5,6 +5,163 @@
     "here are lost."
   ],
   "rows": {
-    "ritual_take_QRhiMetal": ["bool", "address", "chars", "address"]
+    "ritual_ZN9QRhiMetal6createE6QFlagsIN4QRhi4FlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal7destroyEv": ["nothing", "address"],
+    "ritual_ZN9QRhiMetal22createGraphicsPipelineEv": ["address", "address"],
+    "ritual_ZN9QRhiMetal21createComputePipelineEv": ["address", "address"],
+    "ritual_ZN9QRhiMetal28createShaderResourceBindingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal12createBufferEN10QRhiBuffer4TypeE6QFlagsINS0_9UsageFlagEEj": [
+      "address", "address", "int", "int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiMetal18createRenderBufferEN16QRhiRenderBuffer4TypeERK5QSizei6QFlagsINS0_4FlagEEN11QRhiTexture6FormatE": [
+      "address", "address", "int", "address", "int", "int", "int"
+    ],
+    "ritual_ZN9QRhiMetal13createTextureEN11QRhiTexture6FormatERK5QSizeiii6QFlagsINS0_4FlagEE": [
+      "address", "address", "int", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN9QRhiMetal13createSamplerEN11QRhiSampler6FilterES1_S1_NS0_11AddressModeES2_S2_": [
+      "address", "address", "int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN9QRhiMetal25createTextureRenderTargetERK34QRhiTextureRenderTargetDescription6QFlagsIN23QRhiTextureRenderTarget4FlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal20createShadingRateMapEv": ["address", "address"],
+    "ritual_ZN9QRhiMetal15createSwapChainEv": ["address", "address"],
+    "ritual_ZN9QRhiMetal10beginFrameEP13QRhiSwapChain6QFlagsIN4QRhi14BeginFrameFlagEE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal8endFrameEP13QRhiSwapChain6QFlagsIN4QRhi12EndFrameFlagEE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal19beginOffscreenFrameEPP17QRhiCommandBuffer6QFlagsIN4QRhi14BeginFrameFlagEE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal17endOffscreenFrameE6QFlagsIN4QRhi12EndFrameFlagEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal6finishEv": ["int", "address"],
+    "ritual_ZN9QRhiMetal14resourceUpdateEP17QRhiCommandBufferP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal9beginPassEP17QRhiCommandBufferP16QRhiRenderTargetRK6QColorRK26QRhiDepthStencilClearValueP23QRhiResourceUpdateBatch6QFlagsINS0_13BeginPassFlagEE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal7endPassEP17QRhiCommandBufferP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal19setGraphicsPipelineEP17QRhiCommandBufferP20QRhiGraphicsPipeline": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal18setShaderResourcesEP17QRhiCommandBufferP26QRhiShaderResourceBindingsiPKSt4pairIijE": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN9QRhiMetal14setVertexInputEP17QRhiCommandBufferiiPKSt4pairIP10QRhiBufferjES4_jNS0_11IndexFormatE": [
+      "nothing", "address", "address", "int", "int", "address", "address",
+      "unsigned int", "int"
+    ],
+    "ritual_ZN9QRhiMetal11setViewportEP17QRhiCommandBufferRK12QRhiViewport": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal10setScissorEP17QRhiCommandBufferRK11QRhiScissor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal17setBlendConstantsEP17QRhiCommandBufferRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal13setStencilRefEP17QRhiCommandBufferj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN9QRhiMetal14setShadingRateEP17QRhiCommandBufferRK5QSize": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal4drawEP17QRhiCommandBufferjjjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiMetal11drawIndexedEP17QRhiCommandBufferjjjij": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "unsigned int", "int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiMetal12drawIndirectEP17QRhiCommandBufferP10QRhiBufferjjj": [
+      "nothing", "address", "address", "address", "unsigned int",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiMetal19drawIndexedIndirectEP17QRhiCommandBufferP10QRhiBufferjjj": [
+      "nothing", "address", "address", "address", "unsigned int",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiMetal14debugMarkBeginEP17QRhiCommandBufferRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal12debugMarkEndEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal12debugMarkMsgEP17QRhiCommandBufferRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal16beginComputePassEP17QRhiCommandBufferP23QRhiResourceUpdateBatch6QFlagsINS0_13BeginPassFlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal14endComputePassEP17QRhiCommandBufferP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal18setComputePipelineEP17QRhiCommandBufferP19QRhiComputePipeline": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal8dispatchEP17QRhiCommandBufferiii": [
+      "nothing", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN9QRhiMetal13nativeHandlesEP17QRhiCommandBuffer": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal13beginExternalEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal11endExternalEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal20lastCompletedGpuTimeEP17QRhiCommandBuffer": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK9QRhiMetal21supportedSampleCountsEv": ["address", "address"],
+    "ritual_ZNK9QRhiMetal21supportedShadingRatesEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9QRhiMetal13ubufAlignmentEv": ["int", "address"],
+    "ritual_ZNK9QRhiMetal18isYUpInFramebufferEv": ["bool", "address"],
+    "ritual_ZNK9QRhiMetal10isYUpInNDCEv": ["bool", "address"],
+    "ritual_ZNK9QRhiMetal20isClipDepthZeroToOneEv": ["bool", "address"],
+    "ritual_ZNK9QRhiMetal19clipSpaceCorrMatrixEv": ["address", "address"],
+    "ritual_ZNK9QRhiMetal24isTextureFormatSupportedEN11QRhiTexture6FormatE6QFlagsINS0_4FlagEE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK9QRhiMetal18isFeatureSupportedEN4QRhi7FeatureE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK9QRhiMetal13resourceLimitEN4QRhi13ResourceLimitE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal13nativeHandlesEv": ["address", "address"],
+    "ritual_ZNK9QRhiMetal10driverInfoEv": ["address", "address"],
+    "ritual_ZN9QRhiMetal10statisticsEv": ["address", "address"],
+    "ritual_ZN9QRhiMetal35makeThreadLocalNativeContextCurrentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QRhiMetal20setQueueSubmitParamsEP17QRhiNativeHandles": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal22releaseCachedResourcesEv": ["nothing", "address"],
+    "ritual_ZNK9QRhiMetal12isDeviceLostEv": ["bool", "address"],
+    "ritual_ZN9QRhiMetal17pipelineCacheDataEv": ["address", "address"],
+    "ritual_ZN9QRhiMetal20setPipelineCacheDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QRhiMetal": ["bool", "address", "chars", "address"],
+    "ritual_drop_QRhiMetal__QList_int": ["nothing", "address"]
   }
 }

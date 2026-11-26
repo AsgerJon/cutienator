@@ -18,6 +18,15 @@ QStyleOptionTabBarBase *ritual_ZN22QStyleOptionTabBarBaseC1ERKS_(
   return new QStyleOptionTabBarBase(*other);
 }
 
+//  QStyleOptionTabBarBase &QStyleOptionTabBarBase::operator=(const
+//      QStyleOptionTabBarBase &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionTabBarBase *ritual_ZN22QStyleOptionTabBarBaseaSERKS_(
+    QStyleOptionTabBarBase *self,
+    const QStyleOptionTabBarBase *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionTabBarBase::QStyleOptionTabBarBase(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionTabBarBase *ritual_ZN22QStyleOptionTabBarBaseC1Ei(int version) {

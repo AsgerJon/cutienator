@@ -15,6 +15,9 @@
     "ritual_ZN17QQmlJSBasicBlocks21basicBlocksValidationEv": [
       "address", "address"
     ],
+    "ritual_ZNK17QQmlJSBasicBlocks25objectAndArrayDefinitionsEv": [
+      "address", "address"
+    ],
     "ritual_ZN17QQmlJSBasicBlocks16startInstructionEN3QV44Moth5Instr4TypeE": [
       "int", "address", "int"
     ],
@@ -101,6 +104,9 @@
     ],
     "ritual_own_ZN17QQmlJSBasicBlocks18generate_ConstructEiii": [
       "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_drop_QQmlJSBasicBlocks__QList_QQmlJSCompilePass_ObjectOrArrayDefinition": [
+      "nothing", "address"
     ]
   }
 }

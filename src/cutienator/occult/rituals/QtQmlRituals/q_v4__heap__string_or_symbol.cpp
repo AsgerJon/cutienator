@@ -15,6 +15,13 @@ void ritual_ZN3QV44Heap14StringOrSymbol4initEv(
   self->init();
 }
 
+//  QStringPrivate &QV4::Heap::StringOrSymbol::text() const
+extern "C" Q_DECL_EXPORT
+QStringPrivate *ritual_ZNK3QV44Heap14StringOrSymbol4textEv(
+    const QV4::Heap::StringOrSymbol *self) {
+  return &(self->text());
+}
+
 //  QString QV4::Heap::StringOrSymbol::toQString() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK3QV44Heap14StringOrSymbol9toQStringEv(

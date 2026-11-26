@@ -200,6 +200,24 @@ const QMetaObject *ritual_ZNK13QUnifiedTimer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QUnifiedTimer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QUnifiedTimer11qt_metacastEPKc(
+    QUnifiedTimer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QUnifiedTimer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QUnifiedTimer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QUnifiedTimer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QUnifiedTimer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QUnifiedTimer2trEPKcS1_i(
@@ -342,6 +360,14 @@ extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK13QUnifiedTimer21runningAnimationCountEv(
     const QUnifiedTimer *self) {
   return self->runningAnimationCount();
+}
+
+//  void QUnifiedTimer::registerProfilerCallback(void (*)(qint64) cb)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QUnifiedTimer24registerProfilerCallbackEPFvxE(
+    QUnifiedTimer *self,
+    void *cb) {
+  self->registerProfilerCallback(reinterpret_cast<void (*)(qint64)>(cb));
 }
 
 //  void QUnifiedTimer::startAnimationDriver()

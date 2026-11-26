@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickAnimatedNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickAnimatedNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickAnimatedNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickAnimatedNode2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,8 @@
     "ritual_ZN18QQuickAnimatedNode5startEi": ["nothing", "address", "int"],
     "ritual_ZN18QQuickAnimatedNode7restartEv": ["nothing", "address"],
     "ritual_ZN18QQuickAnimatedNode4stopEv": ["nothing", "address"],
+    "ritual_ZN18QQuickAnimatedNode7startedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickAnimatedNode7stoppedEv": ["nothing", "address"],
     "ritual_ZN18QQuickAnimatedNode17updateCurrentTimeEi": [
       "nothing", "address", "int"
     ],

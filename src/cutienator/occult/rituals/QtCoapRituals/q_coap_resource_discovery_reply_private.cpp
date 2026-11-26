@@ -14,6 +14,11 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCoap/private/qcoapreply_p.h>
+#include <QtCoap/private/qcoapinternalreply_p.h>
+#include <QtCoap/private/qcoapnamespace_p.h>
+#include <QtCore/qmath.h>
+#include <QtCore/qloggingcategory.h>
 #include <QtCoap/private/qcoapresourcediscoveryreply_p.h>
 #include <QtCoap/private/qcoapinternalreply_p.h>
 #include <QtCoap/private/qcoapnamespace_p.h>
@@ -25,6 +30,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtcoap/src/coap/qcoapreply.cpp, line 19, as _ZN17QCoapReplyPrivateC2ERK12QCoapRequest
+inline QCoapReplyPrivate::QCoapReplyPrivate(const QCoapRequest &req) :
+    request(req)
+{
+}
 
 //  from ../qtcoap/src/coap/qcoapresourcediscoveryreply.cpp, line 23, as _ZN34QCoapResourceDiscoveryReplyPrivate13_q_setContentERK12QHostAddressRK12QCoapMessageN6QtCoap12ResponseCodeE
 inline void QCoapResourceDiscoveryReplyPrivate::_q_setContent(const QHostAddress &sender,
@@ -95,11 +106,12 @@ QCoapResourceDiscoveryReplyPrivate::resourcesFromCoreLinkList(const QHostAddress
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQCoapResourceDiscoveryReplyPrivateCall0)(const void *, const QHostAddress *, const QCoapMessage *, int, int *);
 typedef bool (*CuteQCoapResourceDiscoveryReplyPrivateCall1)(const void *, char, int *);
-typedef const QByteArray * (*CuteQCoapResourceDiscoveryReplyPrivateCall2)(const void *, qint64, int *);
+typedef qint64 (*CuteQCoapResourceDiscoveryReplyPrivateCall2)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQCoapResourceDiscoveryReplyPrivateCall3)(const void *, qint64, int *);
 class CuteQCoapResourceDiscoveryReplyPrivate : public QCoapResourceDiscoveryReplyPrivate {
 public:
   using QCoapResourceDiscoveryReplyPrivate::QCoapResourceDiscoveryReplyPrivate;
-  void *taken[3] = {};
+  void *taken[4] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN17QCoapReplyPrivate13_q_setContentERK12QHostAddressRK12QCoapMessageN6QtCoap12ResponseCodeE")) {
@@ -110,8 +122,12 @@ public:
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[3] = call;
       return true;
     }
     return false;
@@ -144,11 +160,22 @@ public:
     return QIODevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[2]) {
       int handled = 0;
       CuteQCoapResourceDiscoveryReplyPrivateCall2 call = reinterpret_cast<CuteQCoapResourceDiscoveryReplyPrivateCall2>(taken[2]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQCoapResourceDiscoveryReplyPrivateCall3 call = reinterpret_cast<CuteQCoapResourceDiscoveryReplyPrivateCall3>(taken[3]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }

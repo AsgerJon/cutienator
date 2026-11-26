@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QSGSoftwareContext10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QSGSoftwareContext11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QSGSoftwareContext11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QSGSoftwareContext19createRenderContextEv": [
       "address", "address"
     ],
@@ -51,11 +57,17 @@
       "int", "address"
     ],
     "ritual_ZNK18QSGSoftwareContext16shaderSourceTypeEv": ["int", "address"],
+    "ritual_ZNK18QSGSoftwareContext11getResourceEP12QQuickWindowN20QSGRendererInterface8ResourceE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_cast_QSGSoftwareContext_QSGRendererInterface": [
       "address", "address"
     ],
     "ritual_take_QSGSoftwareContext": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QSGSoftwareContext15createGlyphNodeEP16QSGRenderContextN11QSGTextNode10RenderTypeE": [
+      "address", "address", "address", "unsigned char"
     ],
     "ritual_own_ZNK18QSGSoftwareContext20defaultSurfaceFormatEv": [
       "address", "address"
@@ -64,6 +76,9 @@
       "address", "address", "address"
     ],
     "ritual_own_ZN18QSGSoftwareContext19createRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QSGSoftwareContext15createImageNodeEv": [
       "address", "address"
     ],
     "ritual_own_ZN18QSGSoftwareContext21processTextRenderTypeEN11QSGTextNode10RenderTypeE": [
@@ -76,6 +91,9 @@
     ],
     "ritual_own_ZNK18QSGSoftwareContext16shaderSourceTypeEv": [
       "int", "address"
+    ],
+    "ritual_own_ZNK18QSGSoftwareContext11getResourceEP12QQuickWindowN20QSGRendererInterface8ResourceE": [
+      "address", "address", "address", "int"
     ]
   }
 }

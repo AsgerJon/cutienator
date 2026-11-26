@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN21QOpcUaAxisInformationC1Ev": ["address"],
     "ritual_ZN21QOpcUaAxisInformationC1ERKS_": ["address", "address"],
+    "ritual_ZN21QOpcUaAxisInformationC1ERK19QOpcUaEUInformationRK11QOpcUaRangeRK19QOpcUaLocalizedTextRKN6QOpcUa9AxisScaleERK5QListIdE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QOpcUaAxisInformationaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK21QOpcUaAxisInformationeqERKS_": [
       "bool", "address", "address"
     ],
@@ -31,6 +37,14 @@
     ],
     "ritual_ZN21QOpcUaAxisInformation16setAxisScaleTypeEN6QOpcUa9AxisScaleE": [
       "nothing", "address", "unsigned int"
-    ]
+    ],
+    "ritual_ZNK21QOpcUaAxisInformation9axisStepsEv": ["address", "address"],
+    "ritual_ZN21QOpcUaAxisInformation12setAxisStepsERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QOpcUaAxisInformation12axisStepsRefEv": [
+      "address", "address"
+    ],
+    "ritual_drop_QOpcUaAxisInformation__QList_double": ["nothing", "address"]
   }
 }

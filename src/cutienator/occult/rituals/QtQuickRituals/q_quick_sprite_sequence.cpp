@@ -11,6 +11,7 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickspritesequence_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuickSpriteSequence may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -23,6 +24,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QQuickSpriteSequence10metaObjectEv(
     const QQuickSpriteSequence *self) {
   return self->metaObject();
+}
+
+//  void *QQuickSpriteSequence::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickSpriteSequence11qt_metacastEPKc(
+    QQuickSpriteSequence *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSpriteSequence::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickSpriteSequence11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSpriteSequence *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickSpriteSequence::tr(const char *s, const char *c, int n)
@@ -39,6 +59,13 @@ extern "C" Q_DECL_EXPORT
 QQuickSpriteSequence *ritual_ZN20QQuickSpriteSequenceC1EP10QQuickItem(
     QQuickItem *parent) {
   return new QQuickSpriteSequence(parent);
+}
+
+//  QQmlListProperty<QQuickSprite> QQuickSpriteSequence::sprites()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickSprite> *ritual_ZN20QQuickSpriteSequence7spritesEv(
+    QQuickSpriteSequence *self) {
+  return new QQmlListProperty<QQuickSprite>(self->sprites());
 }
 
 //  bool QQuickSpriteSequence::running() const
@@ -67,6 +94,38 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK20QQuickSpriteSequence13currentSpriteEv(
     const QQuickSpriteSequence *self) {
   return new QString(self->currentSprite());
+}
+
+//  void QQuickSpriteSequence::runningChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickSpriteSequence14runningChangedEb(
+    QQuickSpriteSequence *self,
+    bool arg) {
+  self->runningChanged(arg);
+}
+
+//  void QQuickSpriteSequence::interpolateChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickSpriteSequence18interpolateChangedEb(
+    QQuickSpriteSequence *self,
+    bool arg) {
+  self->interpolateChanged(arg);
+}
+
+//  void QQuickSpriteSequence::goalSpriteChanged(const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickSpriteSequence17goalSpriteChangedERK7QString(
+    QQuickSpriteSequence *self,
+    const QString *arg) {
+  self->goalSpriteChanged(*arg);
+}
+
+//  void QQuickSpriteSequence::currentSpriteChanged(const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickSpriteSequence20currentSpriteChangedERK7QString(
+    QQuickSpriteSequence *self,
+    const QString *arg) {
+  self->currentSpriteChanged(*arg);
 }
 
 //  void QQuickSpriteSequence::jumpTo(const QString &sprite)
@@ -163,6 +222,13 @@ QSGNode *ritual_own_ZN20QQuickSpriteSequence15updatePaintNodeEP7QSGNodePN10QQuic
   return static_cast<OwnQQuickSpriteSequence *>(self)->OwnQQuickSpriteSequence::updatePaintNode(
       a0,
       a1);
+}
+
+//  a QQmlListProperty<QQuickSprite> a ritual of QQuickSpriteSequence gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickSpriteSequence__QQmlListProperty_QQuickSprite(
+    QQmlListProperty<QQuickSprite> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_sprite)

@@ -8,14 +8,63 @@
     "ritual_ZNK10Qt3DRender16QPickingSettings10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender16QPickingSettings11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettings11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender16QPickingSettings2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettingsC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettingsD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender16QPickingSettings10pickMethodEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QPickingSettings14pickResultModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QPickingSettings26faceOrientationPickingModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QPickingSettings19worldSpaceToleranceEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettings13setPickMethodENS0_10PickMethodE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettings17setPickResultModeENS0_14PickResultModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettings29setFaceOrientationPickingModeENS0_26FaceOrientationPickingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettings22setWorldSpaceToleranceEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettings17pickMethodChangedENS0_10PickMethodE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettings21pickResultModeChangedENS0_14PickResultModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettings33faceOrientationPickingModeChangedENS0_26FaceOrientationPickingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettings26worldSpaceToleranceChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN10Qt3DRender16QPickingSettings6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender16QPickingSettings6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QPickingSettingsC1ERNS_23QPickingSettingsPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_take_Qt3DRender_QPickingSettings": [
       "bool", "address", "chars", "address"

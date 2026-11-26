@@ -8,6 +8,20 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 
+//  qdesigner_internal::PropertySheetTranslatableData::PropertySheetTranslata
+//      bleData(bool translatable, const QString &disambiguation, const
+//      QString &comment)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::PropertySheetTranslatableData *ritual_ZN18qdesigner_internal29PropertySheetTranslatableDataC1EbRK7QStringS3_(
+    bool translatable,
+    const QString *disambiguation,
+    const QString *comment) {
+  return new qdesigner_internal::PropertySheetTranslatableData(
+      translatable,
+      *disambiguation,
+      *comment);
+}
+
 //  bool qdesigner_internal::PropertySheetTranslatableData::translatable()
 //      const
 extern "C" Q_DECL_EXPORT

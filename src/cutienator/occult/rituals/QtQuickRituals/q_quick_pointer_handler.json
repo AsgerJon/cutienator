@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickPointerHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickPointerHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickPointerHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickPointerHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -59,6 +65,39 @@
     "ritual_ZNK20QQuickPointerHandler26isCursorShapeExplicitlySetEv": [
       "bool", "address"
     ],
+    "ritual_ZN20QQuickPointerHandler14enabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler13activeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler13targetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler13marginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler20dragThresholdChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler11grabChangedEN15QPointingDevice14GrabTransitionE11QEventPoint": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler21grabPermissionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler8canceledE11QEventPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler18cursorShapeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler13parentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandlerC1ER27QQuickPointerHandlerPrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QQuickPointerHandler10classBeginEv": ["nothing", "address"],
     "ritual_ZN20QQuickPointerHandler17componentCompleteEv": [
       "nothing", "address"
@@ -87,6 +126,9 @@
     "ritual_ZN20QQuickPointerHandler15onActiveChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QQuickPointerHandler13onGrabChangedEPS_N15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
     "ritual_ZN20QQuickPointerHandler7canGrabEP13QPointerEventRK11QEventPoint": [
       "bool", "address", "address", "address"
     ],
@@ -98,6 +140,9 @@
     ],
     "ritual_ZN20QQuickPointerHandler16setExclusiveGrabEP13QPointerEventRK11QEventPointb": [
       "bool", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN20QQuickPointerHandler14cancelAllGrabsEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK20QQuickPointerHandler8eventPosERK11QEventPoint": [
       "address", "address", "address"

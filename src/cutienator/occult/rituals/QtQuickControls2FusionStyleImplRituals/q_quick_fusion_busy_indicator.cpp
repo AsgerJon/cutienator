@@ -21,40 +21,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 16, as _ZNK25QQuickFusionBusyIndicator5colorEv
-inline QColor QQuickFusionBusyIndicator::color() const
-{
-    return m_color;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 21, as _ZN25QQuickFusionBusyIndicator8setColorERK6QColor
-inline void QQuickFusionBusyIndicator::setColor(const QColor &color)
-{
-    if (color == m_color)
-        return;
-
-    m_color = color;
-    update();
-}
-
-//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 30, as _ZNK25QQuickFusionBusyIndicator9isRunningEv
-inline bool QQuickFusionBusyIndicator::isRunning() const
-{
-    return isVisible();
-}
-
-//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 35, as _ZN25QQuickFusionBusyIndicator10setRunningEb
-inline void QQuickFusionBusyIndicator::setRunning(bool running)
-{
-    m_running = running;
-
-    if (m_running) {
-        setVisible(true);
-        update();
-    }
-    // Don't set visible to false if not running, because we use an opacity animation (in QML) to hide ourselves.
-}
-
 //  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 46, as _ZN25QQuickFusionBusyIndicator5paintEP8QPainter
 inline void QQuickFusionBusyIndicator::paint(QPainter *painter)
 {
@@ -106,6 +72,40 @@ inline void QQuickFusionBusyIndicator::itemChange(ItemChange change, const ItemC
         break;
     }
 }
+
+//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 16, as _ZNK25QQuickFusionBusyIndicator5colorEv
+inline QColor QQuickFusionBusyIndicator::color() const
+{
+    return m_color;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 21, as _ZN25QQuickFusionBusyIndicator8setColorERK6QColor
+inline void QQuickFusionBusyIndicator::setColor(const QColor &color)
+{
+    if (color == m_color)
+        return;
+
+    m_color = color;
+    update();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 30, as _ZNK25QQuickFusionBusyIndicator9isRunningEv
+inline bool QQuickFusionBusyIndicator::isRunning() const
+{
+    return isVisible();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 35, as _ZN25QQuickFusionBusyIndicator10setRunningEb
+inline void QQuickFusionBusyIndicator::setRunning(bool running)
+{
+    m_running = running;
+
+    if (m_running) {
+        setVisible(true);
+        update();
+    }
+    // Don't set visible to false if not running, because we use an opacity animation (in QML) to hide ourselves.
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickFusionBusyIndicator may call these functions of it.
@@ -119,6 +119,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK25QQuickFusionBusyIndicator10metaObjectEv(
     const QQuickFusionBusyIndicator *self) {
   return self->metaObject();
+}
+
+//  void *QQuickFusionBusyIndicator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickFusionBusyIndicator11qt_metacastEPKc(
+    QQuickFusionBusyIndicator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFusionBusyIndicator::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickFusionBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFusionBusyIndicator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QColor QQuickFusionBusyIndicator::color() const

@@ -18,25 +18,26 @@ typedef void * (*CuteQGeoPolygonPrivateCall0)(const void *, int *);
 typedef bool (*CuteQGeoPolygonPrivateCall1)(const void *, int *);
 typedef bool (*CuteQGeoPolygonPrivateCall2)(const void *, const QGeoCoordinate *, int *);
 typedef void (*CuteQGeoPolygonPrivateCall3)(const void *, double, double, int *);
-typedef void (*CuteQGeoPolygonPrivateCall4)(const void *, int *);
-typedef bool (*CuteQGeoPolygonPrivateCall5)(const void *, int *);
-typedef const QGeoCoordinate * (*CuteQGeoPolygonPrivateCall6)(const void *, int *);
-typedef const QGeoRectangle * (*CuteQGeoPolygonPrivateCall7)(const void *, int *);
-typedef double (*CuteQGeoPolygonPrivateCall8)(const void *, qsizetype, qsizetype, int *);
-typedef qsizetype (*CuteQGeoPolygonPrivateCall9)(const void *, int *);
-typedef const QGeoCoordinate * (*CuteQGeoPolygonPrivateCall10)(const void *, qsizetype, int *);
-typedef bool (*CuteQGeoPolygonPrivateCall11)(const void *, const QGeoCoordinate *, int *);
-typedef void (*CuteQGeoPolygonPrivateCall12)(const void *, int *);
-typedef void (*CuteQGeoPolygonPrivateCall13)(const void *, const QGeoCoordinate *, int *);
-typedef void (*CuteQGeoPolygonPrivateCall14)(const void *, qsizetype, const QGeoCoordinate *, int *);
+typedef size_t (*CuteQGeoPolygonPrivateCall4)(const void *, size_t, int *);
+typedef void (*CuteQGeoPolygonPrivateCall5)(const void *, int *);
+typedef bool (*CuteQGeoPolygonPrivateCall6)(const void *, int *);
+typedef const QGeoCoordinate * (*CuteQGeoPolygonPrivateCall7)(const void *, int *);
+typedef const QGeoRectangle * (*CuteQGeoPolygonPrivateCall8)(const void *, int *);
+typedef double (*CuteQGeoPolygonPrivateCall9)(const void *, qsizetype, qsizetype, int *);
+typedef qsizetype (*CuteQGeoPolygonPrivateCall10)(const void *, int *);
+typedef const QGeoCoordinate * (*CuteQGeoPolygonPrivateCall11)(const void *, qsizetype, int *);
+typedef bool (*CuteQGeoPolygonPrivateCall12)(const void *, const QGeoCoordinate *, int *);
+typedef void (*CuteQGeoPolygonPrivateCall13)(const void *, int *);
+typedef void (*CuteQGeoPolygonPrivateCall14)(const void *, const QGeoCoordinate *, int *);
 typedef void (*CuteQGeoPolygonPrivateCall15)(const void *, qsizetype, const QGeoCoordinate *, int *);
-typedef void (*CuteQGeoPolygonPrivateCall16)(const void *, const QGeoCoordinate *, int *);
-typedef void (*CuteQGeoPolygonPrivateCall17)(const void *, qsizetype, int *);
+typedef void (*CuteQGeoPolygonPrivateCall16)(const void *, qsizetype, const QGeoCoordinate *, int *);
+typedef void (*CuteQGeoPolygonPrivateCall17)(const void *, const QGeoCoordinate *, int *);
+typedef void (*CuteQGeoPolygonPrivateCall18)(const void *, qsizetype, int *);
 class CuteQGeoPolygonPrivate : public QGeoPolygonPrivate {
 public:
   using QGeoPolygonPrivate::QGeoPolygonPrivate;
-  CuteQGeoPolygonPrivate(const QGeoPolygonPrivate &other) : QGeoPolygonPrivate(other) {}
-  void *taken[18] = {};
+  CuteQGeoPolygonPrivate(const QGeoPolygonPrivate & other) : QGeoPolygonPrivate(other) {}
+  void *taken[19] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK16QGeoShapePrivate5cloneEv")) {
@@ -55,60 +56,64 @@ public:
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase9markDirtyEv")) {
+    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate4hashEm")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate7isEmptyEv")) {
+    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase9markDirtyEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate6centerEv")) {
+    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate7isEmptyEv")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate20boundingGeoRectangleEv")) {
+    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate6centerEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK19QGeoPathPrivateBase6lengthExx")) {
+    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate20boundingGeoRectangleEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK19QGeoPathPrivateBase4sizeEv")) {
+    if (!std::strcmp(key, "_ZNK19QGeoPathPrivateBase6lengthExx")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK19QGeoPathPrivateBase12coordinateAtEx")) {
+    if (!std::strcmp(key, "_ZNK19QGeoPathPrivateBase4sizeEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK19QGeoPathPrivateBase18containsCoordinateERK14QGeoCoordinate")) {
+    if (!std::strcmp(key, "_ZNK19QGeoPathPrivateBase12coordinateAtEx")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase9clearPathEv")) {
+    if (!std::strcmp(key, "_ZNK19QGeoPathPrivateBase18containsCoordinateERK14QGeoCoordinate")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase13addCoordinateERK14QGeoCoordinate")) {
+    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase9clearPathEv")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase16insertCoordinateExRK14QGeoCoordinate")) {
+    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase13addCoordinateERK14QGeoCoordinate")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase17replaceCoordinateExRK14QGeoCoordinate")) {
+    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase16insertCoordinateExRK14QGeoCoordinate")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase16removeCoordinateERK14QGeoCoordinate")) {
+    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase17replaceCoordinateExRK14QGeoCoordinate")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase16removeCoordinateEx")) {
+    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase16removeCoordinateERK14QGeoCoordinate")) {
       taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN19QGeoPathPrivateBase16removeCoordinateEx")) {
+      taken[18] = call;
       return true;
     }
     return false;
@@ -160,11 +165,22 @@ public:
     QGeoPolygonPrivate::translate(degreesLatitude, degreesLongitude);
   }
 
-  //  void QGeoPolygonPrivate::markDirty()
-  void markDirty() override {
+  //  size_t QGeoPolygonPrivate::hash(size_t seed) const
+  size_t hash(size_t seed) const override {
     if (taken[4]) {
       int handled = 0;
       CuteQGeoPolygonPrivateCall4 call = reinterpret_cast<CuteQGeoPolygonPrivateCall4>(taken[4]);
+      size_t given = call(this, seed, &handled);
+      if (handled) return given;
+    }
+    return QGeoPolygonPrivate::hash(seed);
+  }
+
+  //  void QGeoPolygonPrivate::markDirty()
+  void markDirty() override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQGeoPolygonPrivateCall5 call = reinterpret_cast<CuteQGeoPolygonPrivateCall5>(taken[5]);
       call(this, &handled);
       if (handled) return;
     }
@@ -173,9 +189,9 @@ public:
 
   //  bool QGeoPathPrivateBase::isEmpty() const
   bool isEmpty() const override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall5 call = reinterpret_cast<CuteQGeoPolygonPrivateCall5>(taken[5]);
+      CuteQGeoPolygonPrivateCall6 call = reinterpret_cast<CuteQGeoPolygonPrivateCall6>(taken[6]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -184,9 +200,9 @@ public:
 
   //  QGeoCoordinate QGeoPathPrivateBase::center() const
   QGeoCoordinate center() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall6 call = reinterpret_cast<CuteQGeoPolygonPrivateCall6>(taken[6]);
+      CuteQGeoPolygonPrivateCall7 call = reinterpret_cast<CuteQGeoPolygonPrivateCall7>(taken[7]);
       const QGeoCoordinate * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -195,9 +211,9 @@ public:
 
   //  QGeoRectangle QGeoPathPrivateBase::boundingGeoRectangle() const
   QGeoRectangle boundingGeoRectangle() const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall7 call = reinterpret_cast<CuteQGeoPolygonPrivateCall7>(taken[7]);
+      CuteQGeoPolygonPrivateCall8 call = reinterpret_cast<CuteQGeoPolygonPrivateCall8>(taken[8]);
       const QGeoRectangle * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -207,9 +223,9 @@ public:
   //  double QGeoPathPrivateBase::length(qsizetype indexFrom, qsizetype
   //      indexTo) const
   double length(qsizetype indexFrom, qsizetype indexTo) const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall8 call = reinterpret_cast<CuteQGeoPolygonPrivateCall8>(taken[8]);
+      CuteQGeoPolygonPrivateCall9 call = reinterpret_cast<CuteQGeoPolygonPrivateCall9>(taken[9]);
       double given = call(this, indexFrom, indexTo, &handled);
       if (handled) return given;
     }
@@ -218,9 +234,9 @@ public:
 
   //  qsizetype QGeoPathPrivateBase::size() const
   qsizetype size() const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall9 call = reinterpret_cast<CuteQGeoPolygonPrivateCall9>(taken[9]);
+      CuteQGeoPolygonPrivateCall10 call = reinterpret_cast<CuteQGeoPolygonPrivateCall10>(taken[10]);
       qsizetype given = call(this, &handled);
       if (handled) return given;
     }
@@ -230,9 +246,9 @@ public:
   //  QGeoCoordinate QGeoPathPrivateBase::coordinateAt(qsizetype index)
   //      const
   QGeoCoordinate coordinateAt(qsizetype index) const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall10 call = reinterpret_cast<CuteQGeoPolygonPrivateCall10>(taken[10]);
+      CuteQGeoPolygonPrivateCall11 call = reinterpret_cast<CuteQGeoPolygonPrivateCall11>(taken[11]);
       const QGeoCoordinate * given = call(this, index, &handled);
       if (handled && given) return *given;
     }
@@ -242,9 +258,9 @@ public:
   //  bool QGeoPathPrivateBase::containsCoordinate(const QGeoCoordinate
   //      &coordinate) const
   bool containsCoordinate(const QGeoCoordinate &coordinate) const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall11 call = reinterpret_cast<CuteQGeoPolygonPrivateCall11>(taken[11]);
+      CuteQGeoPolygonPrivateCall12 call = reinterpret_cast<CuteQGeoPolygonPrivateCall12>(taken[12]);
       bool given = call(this, &coordinate, &handled);
       if (handled) return given;
     }
@@ -253,9 +269,9 @@ public:
 
   //  void QGeoPathPrivateBase::clearPath()
   void clearPath() override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall12 call = reinterpret_cast<CuteQGeoPolygonPrivateCall12>(taken[12]);
+      CuteQGeoPolygonPrivateCall13 call = reinterpret_cast<CuteQGeoPolygonPrivateCall13>(taken[13]);
       call(this, &handled);
       if (handled) return;
     }
@@ -265,9 +281,9 @@ public:
   //  void QGeoPathPrivateBase::addCoordinate(const QGeoCoordinate
   //      &coordinate)
   void addCoordinate(const QGeoCoordinate &coordinate) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall13 call = reinterpret_cast<CuteQGeoPolygonPrivateCall13>(taken[13]);
+      CuteQGeoPolygonPrivateCall14 call = reinterpret_cast<CuteQGeoPolygonPrivateCall14>(taken[14]);
       call(this, &coordinate, &handled);
       if (handled) return;
     }
@@ -279,9 +295,9 @@ public:
   void insertCoordinate(
       qsizetype index,
       const QGeoCoordinate &coordinate) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall14 call = reinterpret_cast<CuteQGeoPolygonPrivateCall14>(taken[14]);
+      CuteQGeoPolygonPrivateCall15 call = reinterpret_cast<CuteQGeoPolygonPrivateCall15>(taken[15]);
       call(this, index, &coordinate, &handled);
       if (handled) return;
     }
@@ -293,9 +309,9 @@ public:
   void replaceCoordinate(
       qsizetype index,
       const QGeoCoordinate &coordinate) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall15 call = reinterpret_cast<CuteQGeoPolygonPrivateCall15>(taken[15]);
+      CuteQGeoPolygonPrivateCall16 call = reinterpret_cast<CuteQGeoPolygonPrivateCall16>(taken[16]);
       call(this, index, &coordinate, &handled);
       if (handled) return;
     }
@@ -305,9 +321,9 @@ public:
   //  void QGeoPathPrivateBase::removeCoordinate(const QGeoCoordinate
   //      &coordinate)
   void removeCoordinate(const QGeoCoordinate &coordinate) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall16 call = reinterpret_cast<CuteQGeoPolygonPrivateCall16>(taken[16]);
+      CuteQGeoPolygonPrivateCall17 call = reinterpret_cast<CuteQGeoPolygonPrivateCall17>(taken[17]);
       call(this, &coordinate, &handled);
       if (handled) return;
     }
@@ -316,9 +332,9 @@ public:
 
   //  void QGeoPathPrivateBase::removeCoordinate(qsizetype index)
   void removeCoordinate(qsizetype index) override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQGeoPolygonPrivateCall17 call = reinterpret_cast<CuteQGeoPolygonPrivateCall17>(taken[17]);
+      CuteQGeoPolygonPrivateCall18 call = reinterpret_cast<CuteQGeoPolygonPrivateCall18>(taken[18]);
       call(this, index, &handled);
       if (handled) return;
     }
@@ -382,6 +398,22 @@ void ritual_ZN18QGeoPolygonPrivate9translateEdd(
     double degreesLatitude,
     double degreesLongitude) {
   self->translate(degreesLatitude, degreesLongitude);
+}
+
+//  bool QGeoPolygonPrivate::operator==(const QGeoShapePrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18QGeoPolygonPrivateeqERK16QGeoShapePrivate(
+    const QGeoPolygonPrivate *self,
+    const QGeoShapePrivate *other) {
+  return self->operator==(*other);
+}
+
+//  size_t QGeoPolygonPrivate::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK18QGeoPolygonPrivate4hashEm(
+    const QGeoPolygonPrivate *self,
+    size_t seed) {
+  return self->hash(seed);
 }
 
 //  void QGeoPolygonPrivate::markDirty()
@@ -478,6 +510,14 @@ void ritual_own_ZN18QGeoPolygonPrivate9translateEdd(
     double degreesLatitude,
     double degreesLongitude) {
   self->QGeoPolygonPrivate::translate(degreesLatitude, degreesLongitude);
+}
+
+//  size_t QGeoPolygonPrivate::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_own_ZNK18QGeoPolygonPrivate4hashEm(
+    const QGeoPolygonPrivate *self,
+    size_t seed) {
+  return self->QGeoPolygonPrivate::hash(seed);
 }
 
 //  void QGeoPolygonPrivate::markDirty()

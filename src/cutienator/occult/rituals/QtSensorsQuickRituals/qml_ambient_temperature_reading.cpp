@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlAmbientTemperatureReading that Python can take functions over in. Every QmlAmbientTemperatureReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK28QmlAmbientTemperatureReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlAmbientTemperatureReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QmlAmbientTemperatureReading11qt_metacastEPKc(
+    QmlAmbientTemperatureReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlAmbientTemperatureReading::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QmlAmbientTemperatureReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlAmbientTemperatureReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlAmbientTemperatureReading::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -255,6 +275,21 @@ qreal ritual_ZNK28QmlAmbientTemperatureReading11temperatureEv(
   return self->temperature();
 }
 
+//  QBindable<qreal> QmlAmbientTemperatureReading::bindableTemperature()
+//      const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK28QmlAmbientTemperatureReading19bindableTemperatureEv(
+    const QmlAmbientTemperatureReading *self) {
+  return new QBindable<qreal>(self->bindableTemperature());
+}
+
+//  void QmlAmbientTemperatureReading::temperatureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QmlAmbientTemperatureReading18temperatureChangedEv(
+    QmlAmbientTemperatureReading *self) {
+  self->temperatureChanged();
+}
+
 //  QSensorReading *QmlAmbientTemperatureReading::reading() const
 extern "C" Q_DECL_EXPORT
 QSensorReading *ritual_ZNK28QmlAmbientTemperatureReading7readingEv(
@@ -267,6 +302,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN28QmlAmbientTemperatureReading13readingUpdateEv(
     QmlAmbientTemperatureReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlAmbientTemperatureReading::_qt_property_m_temperature_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN28QmlAmbientTemperatureReading33_qt_property_m_temperature_offsetEv() {
+  return QmlAmbientTemperatureReading::_qt_property_m_temperature_offset();
 }
 
 //  a Python function taken by a CuteQmlAmbientTemperatureReading, for the
@@ -291,4 +332,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN28QmlAmbientTemperatureReading13readingUpdateEv(
     QmlAmbientTemperatureReading *self) {
   self->QmlAmbientTemperatureReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlAmbientTemperatureReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlAmbientTemperatureReading__QBindable_qreal(
+    QBindable<qreal> *self) {
+  delete self;
 }

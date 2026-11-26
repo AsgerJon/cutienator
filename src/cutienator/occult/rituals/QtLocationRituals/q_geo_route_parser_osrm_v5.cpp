@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK21QGeoRouteParserOsrmV510metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoRouteParserOsrmV5::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QGeoRouteParserOsrmV511qt_metacastEPKc(
+    QGeoRouteParserOsrmV5 *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoRouteParserOsrmV5::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QGeoRouteParserOsrmV511qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoRouteParserOsrmV5 *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoRouteParserOsrmV5::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QGeoRouteParserOsrmV52trEPKcS1_i(
@@ -191,6 +210,20 @@ QString *ritual_ZN21QGeoRouteParserOsrmV52trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QGeoRouteParserOsrmV5::tr(s, c, n));
+}
+
+//  QGeoRouteParserOsrmV5Private *QGeoRouteParserOsrmV5::d_func()
+extern "C" Q_DECL_EXPORT
+QGeoRouteParserOsrmV5Private *ritual_ZN21QGeoRouteParserOsrmV56d_funcEv(
+    QGeoRouteParserOsrmV5 *self) {
+  return self->d_func();
+}
+
+//  const QGeoRouteParserOsrmV5Private *QGeoRouteParserOsrmV5::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGeoRouteParserOsrmV5Private *ritual_ZNK21QGeoRouteParserOsrmV56d_funcEv(
+    const QGeoRouteParserOsrmV5 *self) {
+  return self->d_func();
 }
 
 //  QGeoRouteParserOsrmV5::QGeoRouteParserOsrmV5(QObject *parent)

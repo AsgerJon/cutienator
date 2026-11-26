@@ -22,7 +22,7 @@ typedef void (*CuteQQuick3DObjectChangeListenerCall7)(const void *, QQuick3DObje
 class CuteQQuick3DObjectChangeListener : public QQuick3DObjectChangeListener {
 public:
   using QQuick3DObjectChangeListener::QQuick3DObjectChangeListener;
-  CuteQQuick3DObjectChangeListener(const QQuick3DObjectChangeListener &other) : QQuick3DObjectChangeListener(other) {}
+  CuteQQuick3DObjectChangeListener(const QQuick3DObjectChangeListener & other) : QQuick3DObjectChangeListener(other) {}
   void *taken[8] = {};
 
   bool take(const char *key, void *call) {

@@ -334,6 +334,16 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  ScatterAnimation::ScatterAnimation(ScatterChartItem *item, int duration,
+//      QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+ScatterAnimation *ritual_ZN16ScatterAnimationC1EP16ScatterChartItemiR12QEasingCurve(
+    ScatterChartItem *item,
+    int duration,
+    QEasingCurve *curve) {
+  return new CuteScatterAnimation(item, duration, *curve);
+}
+
 //  ScatterAnimation::~ScatterAnimation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16ScatterAnimationD1Ev(ScatterAnimation *self) {

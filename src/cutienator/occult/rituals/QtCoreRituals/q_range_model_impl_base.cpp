@@ -15,6 +15,7 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QScopedValueRollback>
 
 //  QHash<int, QByteArray> QRangeModelImplBase::roleNames() const
 extern "C" Q_DECL_EXPORT
@@ -46,6 +47,17 @@ QRangeModelImplBase *ritual_ZN19QRangeModelImplBaseC1EP11QRangeModel(
   return new QRangeModelImplBase(itemModel);
 }
 
+//  QModelIndex QRangeModelImplBase::createIndex(int row, int column, const
+//      void *ptr) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK19QRangeModelImplBase11createIndexEiiPKv(
+    const QRangeModelImplBase *self,
+    int row,
+    int column,
+    const void *ptr) {
+  return new QModelIndex(self->createIndex(row, column, ptr));
+}
+
 //  QModelIndexList QRangeModelImplBase::persistentIndexList() const
 extern "C" Q_DECL_EXPORT
 QList<QModelIndex> *ritual_ZNK19QRangeModelImplBase19persistentIndexListEv(
@@ -61,6 +73,17 @@ void ritual_ZN19QRangeModelImplBase21changePersistentIndexERK11QModelIndexS2_(
     const QModelIndex *from,
     const QModelIndex *to) {
   self->changePersistentIndex(*from, *to);
+}
+
+//  void QRangeModelImplBase::dataChanged(const QModelIndex &from, const
+//      QModelIndex &to, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QRangeModelImplBase11dataChangedERK11QModelIndexS2_RK5QListIiE(
+    QRangeModelImplBase *self,
+    const QModelIndex *from,
+    const QModelIndex *to,
+    const QList<int> *roles) {
+  self->dataChanged(*from, *to, *roles);
 }
 
 //  void QRangeModelImplBase::beginResetModel()
@@ -236,11 +259,57 @@ Qt::weak_ordering *ritual_ZN19QRangeModelImplBase11compareDataERK8QVariantS2_PK9
           collator));
 }
 
+//  QAbstractItemModel &QRangeModelImplBase::itemModel()
+extern "C" Q_DECL_EXPORT
+QAbstractItemModel *ritual_ZN19QRangeModelImplBase9itemModelEv(
+    QRangeModelImplBase *self) {
+  return &(self->itemModel());
+}
+
+//  const QAbstractItemModel &QRangeModelImplBase::itemModel() const
+extern "C" Q_DECL_EXPORT
+const QAbstractItemModel *ritual_ZNK19QRangeModelImplBase9itemModelEv(
+    const QRangeModelImplBase *self) {
+  return &(self->itemModel());
+}
+
+//  QHash<int, QByteArray> QRangeModelImplBase::roleNamesForMetaObject(const
+//      QAbstractItemModel &model, const QMetaObject &metaObject)
+extern "C" Q_DECL_EXPORT
+QHash<int, QByteArray> *ritual_ZN19QRangeModelImplBase22roleNamesForMetaObjectERK18QAbstractItemModelRK11QMetaObject(
+    const QAbstractItemModel *model,
+    const QMetaObject *metaObject) {
+  return new QHash<int, QByteArray>(
+      QRangeModelImplBase::roleNamesForMetaObject(
+          *model,
+          *metaObject));
+}
+
 //  QHash<int, QByteArray> QRangeModelImplBase::roleNamesForSimpleType()
 extern "C" Q_DECL_EXPORT
 QHash<int, QByteArray> *ritual_ZN19QRangeModelImplBase22roleNamesForSimpleTypeEv() {
   return new QHash<int, QByteArray>(
       QRangeModelImplBase::roleNamesForSimpleType());
+}
+
+//  QScopedValueRollback<bool>
+//      QRangeModelImplBase::blockDataChangedDispatch()
+extern "C" Q_DECL_EXPORT
+QScopedValueRollback<bool> *ritual_ZN19QRangeModelImplBase24blockDataChangedDispatchEv(
+    QRangeModelImplBase *self) {
+  return new QScopedValueRollback<bool>(self->blockDataChangedDispatch());
+}
+
+//  QHash<int, QMetaProperty> QRangeModelImplBase::roleProperties(const
+//      QAbstractItemModel &model, const QMetaObject &metaObject)
+extern "C" Q_DECL_EXPORT
+QHash<int, QMetaProperty> *ritual_ZN19QRangeModelImplBase14rolePropertiesERK18QAbstractItemModelRK11QMetaObject(
+    const QAbstractItemModel *model,
+    const QMetaObject *metaObject) {
+  return new QHash<int, QMetaProperty>(
+      QRangeModelImplBase::roleProperties(
+          *model,
+          *metaObject));
 }
 
 //  QHash<int, QMetaProperty> QRangeModelImplBase::columnProperties(const
@@ -381,6 +450,13 @@ bool ritual_ZN19QRangeModelImplBase14dropDataOnItemEPK9QMimeDataRK11QModelIndex(
     const QMimeData *data,
     const QModelIndex *index) {
   return self->dropDataOnItem(data, *index);
+}
+
+//  a QScopedValueRollback<bool> a ritual of QRangeModelImplBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QRangeModelImplBase__QScopedValueRollback_bool(
+    QScopedValueRollback<bool> *self) {
+  delete self;
 }
 
 #endif  // !defined(Q_QDOC)

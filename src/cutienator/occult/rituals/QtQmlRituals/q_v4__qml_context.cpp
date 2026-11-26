@@ -41,8 +41,32 @@ QV4::Heap::InternalClass *ritual_ZN3QV410QmlContext20defaultInternalClassEPNS_10
   return QV4::QmlContext::defaultInternalClass(e);
 }
 
+//  Heap::QmlContext *QV4::QmlContext::create(QV4::ExecutionContext *parent,
+//      QQmlRefPointer<QQmlContextData> context, QObject *scopeObject)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::QmlContext *ritual_ZN3QV410QmlContext6createEPNS_16ExecutionContextE14QQmlRefPointerI15QQmlContextDataEP7QObject(
+    QV4::ExecutionContext *parent,
+    const QQmlRefPointer<QQmlContextData> *context,
+    QObject *scopeObject) {
+  return QV4::QmlContext::create(parent, *context, scopeObject);
+}
+
 //  QObject *QV4::QmlContext::qmlScope() const
 extern "C" Q_DECL_EXPORT
 QObject *ritual_ZNK3QV410QmlContext8qmlScopeEv(const QV4::QmlContext *self) {
   return self->qmlScope();
+}
+
+//  QQmlRefPointer<QQmlContextData> QV4::QmlContext::qmlContext() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZNK3QV410QmlContext10qmlContextEv(
+    const QV4::QmlContext *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->qmlContext());
+}
+
+//  a QQmlRefPointer<QQmlContextData> a ritual of QV4::QmlContext gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_QmlContext__QQmlRefPointer_QQmlContextData(
+    QQmlRefPointer<QQmlContextData> *self) {
+  delete self;
 }

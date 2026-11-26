@@ -4,6 +4,9 @@
     "QtCore/qplugin.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QStaticPluginC1EPFP7QObjectvEPF15QPluginMetaDatavE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK13QStaticPlugin8metaDataEv": ["address", "address"],
     "ritual_ZN13QStaticPluginD1Ev": ["nothing", "address"],
     "ritual_list_make_QStaticPlugin": ["address"],

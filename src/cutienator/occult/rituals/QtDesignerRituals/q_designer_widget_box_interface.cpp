@@ -1058,6 +1058,25 @@ const QMetaObject *ritual_ZNK27QDesignerWidgetBoxInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerWidgetBoxInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QDesignerWidgetBoxInterface11qt_metacastEPKc(
+    QDesignerWidgetBoxInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerWidgetBoxInterface::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QDesignerWidgetBoxInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerWidgetBoxInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerWidgetBoxInterface::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT

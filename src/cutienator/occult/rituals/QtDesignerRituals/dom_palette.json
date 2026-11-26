@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN10DomPaletteC1Ev": ["address"],
     "ritual_ZN10DomPaletteD1Ev": ["nothing", "address"],
+    "ritual_ZN10DomPalette4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10DomPalette5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK10DomPalette13elementActiveEv": ["address", "address"],
     "ritual_ZN10DomPalette17takeElementActiveEv": ["address", "address"],
     "ritual_ZN10DomPalette16setElementActiveEP13DomColorGroup": [

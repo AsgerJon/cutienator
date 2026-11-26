@@ -28,7 +28,7 @@ typedef const QSize * (*CuteQLottiePrecompositionCall6)(const void *, int *);
 class CuteQLottiePrecomposition : public QLottiePrecomposition {
 public:
   using QLottiePrecomposition::QLottiePrecomposition;
-  CuteQLottiePrecomposition(const QLottiePrecomposition &other) : QLottiePrecomposition(other) {}
+  CuteQLottiePrecomposition(const QLottiePrecomposition & other) : QLottiePrecomposition(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
@@ -180,6 +180,14 @@ int ritual_ZN21QLottiePrecomposition5parseERK11QJsonObject(
     QLottiePrecomposition *self,
     const QJsonObject *definition) {
   return self->parse(*definition);
+}
+
+//  void QLottiePrecomposition::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK21QLottiePrecomposition6renderER15QLottieRenderer(
+    const QLottiePrecomposition *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
 }
 
 //  QString QLottiePrecomposition::refId() const

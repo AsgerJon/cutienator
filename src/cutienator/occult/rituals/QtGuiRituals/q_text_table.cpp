@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK10QTextTable10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTextTable::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QTextTable11qt_metacastEPKc(
+    QTextTable *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextTable::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QTextTable11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextTable *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTextTable::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QTextTable2trEPKcS1_i(

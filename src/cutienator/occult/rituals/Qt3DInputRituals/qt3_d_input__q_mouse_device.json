@@ -7,8 +7,48 @@
     "ritual_ZNK9Qt3DInput12QMouseDevice10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput12QMouseDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput12QMouseDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput12QMouseDevice2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput12QMouseDeviceC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput12QMouseDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput12QMouseDevice9axisCountEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput12QMouseDevice11buttonCountEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput12QMouseDevice9axisNamesEv": ["address", "address"],
+    "ritual_ZNK9Qt3DInput12QMouseDevice11buttonNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput12QMouseDevice14axisIdentifierERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK9Qt3DInput12QMouseDevice16buttonIdentifierERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK9Qt3DInput12QMouseDevice11sensitivityEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK9Qt3DInput12QMouseDevice22updateAxesContinuouslyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9Qt3DInput12QMouseDevice14setSensitivityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput12QMouseDevice25setUpdateAxesContinuouslyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9Qt3DInput12QMouseDevice18sensitivityChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput12QMouseDevice29updateAxesContinuouslyChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN9Qt3DInput12QMouseDevice6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput12QMouseDevice6d_funcEv": ["address", "address"],

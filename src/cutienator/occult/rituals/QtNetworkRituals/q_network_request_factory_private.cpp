@@ -28,6 +28,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/network/access/qnetworkrequestfactory.cpp, line 596, as _ZN29QNetworkRequestFactoryPrivateC1Ev
+inline QNetworkRequestFactoryPrivate::QNetworkRequestFactoryPrivate()
+    = default;
+
 //  from src/network/access/qnetworkrequestfactory.cpp, line 599, as _ZN29QNetworkRequestFactoryPrivateC1ERK4QUrl
 inline QNetworkRequestFactoryPrivate::QNetworkRequestFactoryPrivate(const QUrl &baseUrl)
     : baseUrl(baseUrl)
@@ -58,6 +64,12 @@ inline QNetworkRequest QNetworkRequestFactoryPrivate::newRequest(const QUrl &url
     return request;
 }
 //  -----------------------------------------------------------------------
+
+//  QNetworkRequestFactoryPrivate::QNetworkRequestFactoryPrivate()
+extern "C" Q_DECL_EXPORT
+QNetworkRequestFactoryPrivate *ritual_ZN29QNetworkRequestFactoryPrivateC1Ev() {
+  return new QNetworkRequestFactoryPrivate();
+}
 
 //  QNetworkRequestFactoryPrivate::QNetworkRequestFactoryPrivate(const QUrl
 //      &baseUrl)

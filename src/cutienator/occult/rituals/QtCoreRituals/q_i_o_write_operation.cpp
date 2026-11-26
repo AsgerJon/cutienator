@@ -193,6 +193,15 @@ QByteArray *ritual_ZNK17QIOWriteOperation4dataEv(
   return new QByteArray(self->data());
 }
 
+//  QIOWriteOperation::QIOWriteOperation(QIOOperationPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QIOWriteOperation *ritual_ZN17QIOWriteOperationC1ER19QIOOperationPrivateP7QObject(
+    QIOOperationPrivate *dd,
+    QObject *parent) {
+  return new CuteQIOWriteOperation(*dd, parent);
+}
+
 //  a Python function taken by a CuteQIOWriteOperation, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -6,7 +6,9 @@
 #include <QtWidgets/qgraphicsscene.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsitem.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtGui/qtransform.h>
 #include <QtGui/qpolygon.h>
@@ -17,7 +19,9 @@
 #include <QtGui/qpixmap.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsview.h>
+#endif
 #include <QtGui/qpalette.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -682,6 +686,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK14QGraphicsScene10metaObjectEv(
     const QGraphicsScene *self) {
   return self->metaObject();
+}
+
+//  void *QGraphicsScene::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QGraphicsScene11qt_metacastEPKc(
+    QGraphicsScene *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsScene::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QGraphicsScene11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsScene *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QGraphicsScene::tr(const char *s, const char *c, int n)
@@ -1601,12 +1623,59 @@ void ritual_ZN14QGraphicsScene14drawForegroundEP8QPainterRK6QRectF(
   self->drawForeground(painter, *rect);
 }
 
+//  void QGraphicsScene::drawItems(QPainter *painter, int numItems,
+//      QGraphicsItem **items, const QStyleOptionGraphicsItem *options,
+//      QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene9drawItemsEP8QPainteriPP13QGraphicsItemPK24QStyleOptionGraphicsItemP7QWidget(
+    QGraphicsScene *self,
+    QPainter *painter,
+    int numItems,
+    QGraphicsItem **items,
+    const QStyleOptionGraphicsItem *options,
+    QWidget *widget) {
+  self->drawItems(painter, numItems, items, options, widget);
+}
+
 //  bool QGraphicsScene::focusNextPrevChild(bool next)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN14QGraphicsScene18focusNextPrevChildEb(
     QGraphicsScene *self,
     bool next) {
   return self->focusNextPrevChild(next);
+}
+
+//  void QGraphicsScene::changed(const QList<QRectF> &region)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene7changedERK5QListI6QRectFE(
+    QGraphicsScene *self,
+    const QList<QRectF> *region) {
+  self->changed(*region);
+}
+
+//  void QGraphicsScene::sceneRectChanged(const QRectF &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene16sceneRectChangedERK6QRectF(
+    QGraphicsScene *self,
+    const QRectF *rect) {
+  self->sceneRectChanged(*rect);
+}
+
+//  void QGraphicsScene::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene16selectionChangedEv(QGraphicsScene *self) {
+  self->selectionChanged();
+}
+
+//  void QGraphicsScene::focusItemChanged(QGraphicsItem *newFocus,
+//      QGraphicsItem *oldFocus, Qt::FocusReason reason)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene16focusItemChangedEP13QGraphicsItemS1_N2Qt11FocusReasonE(
+    QGraphicsScene *self,
+    QGraphicsItem *newFocus,
+    QGraphicsItem *oldFocus,
+    Qt::FocusReason reason) {
+  self->focusItemChanged(newFocus, oldFocus, reason);
 }
 
 //  QGraphicsScenePrivate *QGraphicsScene::d_func()

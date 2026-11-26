@@ -14,7 +14,9 @@
 #include <QtCore/qtyperevision.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -510,6 +512,25 @@ const QMetaObject *ritual_ZNK22QQmlTableInstanceModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlTableInstanceModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQmlTableInstanceModel11qt_metacastEPKc(
+    QQmlTableInstanceModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlTableInstanceModel::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQmlTableInstanceModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlTableInstanceModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlTableInstanceModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQmlTableInstanceModel2trEPKcS1_i(
@@ -781,6 +802,13 @@ QQmlDelegateModelItem *ritual_ZN22QQmlTableInstanceModel12getModelItemEi(
   return self->getModelItem(index);
 }
 
+//  void QQmlTableInstanceModel::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlTableInstanceModel12modelChangedEv(
+    QQmlTableInstanceModel *self) {
+  self->modelChanged();
+}
+
 //  QQmlComponent *QQmlTableInstanceModel::resolveDelegate(int index)
 extern "C" Q_DECL_EXPORT
 QQmlComponent *ritual_ZN22QQmlTableInstanceModel15resolveDelegateEi(
@@ -843,6 +871,17 @@ void ritual_ZN22QQmlTableInstanceModel16destroyModelItemEP21QQmlDelegateModelIte
     QQmlDelegateModelItem *modelItem,
     QQmlTableInstanceModel::DestructionMode mode) {
   self->destroyModelItem(modelItem, mode);
+}
+
+//  void QQmlTableInstanceModel::dataChangedCallback(const QModelIndex
+//      &begin, const QModelIndex &end, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlTableInstanceModel19dataChangedCallbackERK11QModelIndexS2_RK5QListIiE(
+    QQmlTableInstanceModel *self,
+    const QModelIndex *begin,
+    const QModelIndex *end,
+    const QList<int> *roles) {
+  self->dataChangedCallback(*begin, *end, *roles);
 }
 
 //  void QQmlTableInstanceModel::modelAboutToBeResetCallback()

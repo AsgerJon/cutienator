@@ -8,14 +8,29 @@
     "ritual_ZNK9Qt3DInput5Input5Quick20Quick3DInputSequence10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput5Input5Quick20Quick3DInputSequence11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput5Input5Quick20Quick3DInputSequence11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput5Input5Quick20Quick3DInputSequence2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput5Input5Quick20Quick3DInputSequenceC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK9Qt3DInput5Input5Quick20Quick3DInputSequence14parentSequenceEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput5Input5Quick20Quick3DInputSequence15qmlActionInputsEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DInput_Input_Quick_Quick3DInputSequence": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DInput_Input_Quick_Quick3DInputSequence__QQmlListProperty_Qt3DInput_QAbstractActionInput": [
+      "nothing", "address"
     ]
   }
 }

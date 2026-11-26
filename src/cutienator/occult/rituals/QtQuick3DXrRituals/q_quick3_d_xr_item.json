@@ -6,6 +6,35 @@
   ],
   "rows": {
     "ritual_ZNK14QQuick3DXrItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DXrItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuick3DXrItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QQuick3DXrItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuick3DXrItem6d_funcEv": ["address", "address"],
+    "ritual_ZN14QQuick3DXrItemD1Ev": ["nothing", "address"],
+    "ritual_ZN14QQuick3DXrItem17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DXrItem18contentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DXrItem20pixelsPerUnitChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DXrItem12flagsChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DXrItem26manualPixelsPerUnitChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DXrItem12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DXrItem13heightChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DXrItem12colorChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DXrItem22automaticHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DXrItem21automaticWidthChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuick3DXrItem": ["bool", "address", "chars", "address"]
   }
 }

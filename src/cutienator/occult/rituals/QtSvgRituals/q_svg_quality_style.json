@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN16QSvgQualityStyleC1Ei": ["address", "int"],
     "ritual_ZN16QSvgQualityStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSvgQualityStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QSvgQualityStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK16QSvgQualityStyle4typeEv": ["unsigned char", "address"],
     "ritual_ZN16QSvgQualityStyle17setImageRenderingENS_14ImageRenderingE": [
       "nothing", "address", "signed char"

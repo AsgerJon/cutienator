@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK17QQuickSoundEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSoundEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickSoundEffect11qt_metacastEPKc(
+    QQuickSoundEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSoundEffect::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickSoundEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSoundEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSoundEffect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickSoundEffect2trEPKcS1_i(

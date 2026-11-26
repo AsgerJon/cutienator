@@ -9,6 +9,9 @@
     "ritual_ZN31QOpcUaAuthenticationInformationC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN31QOpcUaAuthenticationInformationaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK31QOpcUaAuthenticationInformationeqERKS_": [
       "bool", "address", "address"
     ],

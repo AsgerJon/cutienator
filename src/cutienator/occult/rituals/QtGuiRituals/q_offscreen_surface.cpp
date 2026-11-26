@@ -1,11 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qoffscreensurface.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qoffscreensurface.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, instances of templates of the class: 1. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qoffscreensurface.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtGui/qoffscreensurface_platform.h>
 
 //  A QOffscreenSurface that Python can take functions over in. Every QOffscreenSurface
 //  Python makes is one. Each function below asks the Python
@@ -245,6 +248,25 @@ const QMetaObject *ritual_ZNK17QOffscreenSurface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOffscreenSurface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QOffscreenSurface11qt_metacastEPKc(
+    QOffscreenSurface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOffscreenSurface::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QOffscreenSurface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOffscreenSurface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOffscreenSurface::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QOffscreenSurface2trEPKcS1_i(
@@ -357,6 +379,24 @@ QPlatformOffscreenSurface *ritual_ZNK17QOffscreenSurface6handleEv(
   return self->handle();
 }
 
+//  void *QOffscreenSurface::resolveInterface(const char *name, int revision)
+//      const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK17QOffscreenSurface16resolveInterfaceEPKci(
+    const QOffscreenSurface *self,
+    const char *name,
+    int revision) {
+  return self->resolveInterface(name, revision);
+}
+
+//  void QOffscreenSurface::screenChanged(QScreen *screen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QOffscreenSurface13screenChangedEP7QScreen(
+    QOffscreenSurface *self,
+    QScreen *screen) {
+  self->screenChanged(screen);
+}
+
 //  void QOffscreenSurface::screenDestroyed(QObject *screen)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QOffscreenSurface15screenDestroyedEP7QObject(
@@ -415,3 +455,14 @@ QPlatformSurface *ritual_own_ZNK17QOffscreenSurface13surfaceHandleEv(
     const QOffscreenSurface *self) {
   return self->QOffscreenSurface::surfaceHandle();
 }
+
+#if defined(Q_OS_ANDROID)
+//  QNativeInterface::QAndroidOffscreenSurface
+//      *QOffscreenSurface::nativeInterface<QNativeInterface::QAndroidOffscreenSurface>()
+//      const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QAndroidOffscreenSurface *ritual_ZNK17QOffscreenSurface15nativeInterfaceIN16QNativeInterface24QAndroidOffscreenSurfaceENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QOffscreenSurface *self) {
+  return self->nativeInterface<QNativeInterface::QAndroidOffscreenSurface>();
+}
+#endif  // defined(Q_OS_ANDROID)

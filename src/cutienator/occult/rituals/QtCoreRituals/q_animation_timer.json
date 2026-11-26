@@ -6,6 +6,13 @@
   ],
   "rows": {
     "ritual_ZNK15QAnimationTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAnimationTimer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QAnimationTimer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QAnimationTimerD1Ev": ["nothing", "address"],
     "ritual_ZN15QAnimationTimer21restartAnimationTimerEv": [
       "nothing", "address"
     ],
@@ -23,7 +30,13 @@
     "ritual_ZN15QAnimationTimer26unregisterRunningAnimationEP18QAbstractAnimation": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QAnimationTimer33closestPauseAnimationTimeToFinishEv": [
+      "int", "address"
+    ],
     "ritual_take_QAnimationTimer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QAnimationTimer21restartAnimationTimerEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN15QAnimationTimer20updateAnimationsTimeEx": [
       "nothing", "address", "long long"
     ],

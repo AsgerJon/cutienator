@@ -8,24 +8,6 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQuick3DSpatialAudio/private/qquick3daudioengine_p.h>
-#include <QtMultimedia/qaudiodevice.h>
-#include <QtCore/qcoreapplication.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-
-//  Qt's own code, from here to the line of dashes: taken from
-//  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it where Qt did not write it.
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3daudioengine.cpp, line 55, as _ZN19QQuick3DAudioEngineD1Ev
-inline QQuick3DAudioEngine::~QQuick3DAudioEngine()
-{
-}
-//  -----------------------------------------------------------------------
 
 //  A QQuick3DAudioEngine that Python can take functions over in. Every QQuick3DAudioEngine
 //  Python makes is one. Each function below asks the Python
@@ -201,10 +183,129 @@ const QMetaObject *ritual_ZNK19QQuick3DAudioEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DAudioEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuick3DAudioEngine11qt_metacastEPKc(
+    QQuick3DAudioEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DAudioEngine::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuick3DAudioEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DAudioEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuick3DAudioEngine::~QQuick3DAudioEngine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuick3DAudioEngineD1Ev(QQuick3DAudioEngine *self) {
   delete self;
+}
+
+//  void QQuick3DAudioEngine::outputModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DAudioEngine17outputModeChangedEv(
+    QQuick3DAudioEngine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "outputModeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "outputModeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioEngine::outputDeviceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DAudioEngine19outputDeviceChangedEv(
+    QQuick3DAudioEngine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "outputDeviceChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "outputDeviceChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioEngine::masterVolumeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DAudioEngine19masterVolumeChangedEv(
+    QQuick3DAudioEngine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "masterVolumeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "masterVolumeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioEngine::distanceScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DAudioEngine20distanceScaleChangedEv(
+    QQuick3DAudioEngine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "distanceScaleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "distanceScaleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuick3DAudioEngine, for the function

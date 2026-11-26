@@ -14,6 +14,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QMap>
+#include <QtCore/QDate>
+#include <QtGui/QTextCharFormat>
 
 //  Only a class built on QCalendarWidget may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -940,6 +943,24 @@ const QMetaObject *ritual_ZNK15QCalendarWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCalendarWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QCalendarWidget11qt_metacastEPKc(
+    QCalendarWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCalendarWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QCalendarWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCalendarWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCalendarWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QCalendarWidget2trEPKcS1_i(
@@ -1160,6 +1181,13 @@ void ritual_ZN15QCalendarWidget20setWeekdayTextFormatEN2Qt9DayOfWeekERK15QTextCh
   self->setWeekdayTextFormat(dayOfWeek, *format);
 }
 
+//  QMap<QDate, QTextCharFormat> QCalendarWidget::dateTextFormat() const
+extern "C" Q_DECL_EXPORT
+QMap<QDate, QTextCharFormat> *ritual_ZNK15QCalendarWidget14dateTextFormatEv(
+    const QCalendarWidget *self) {
+  return new QMap<QDate, QTextCharFormat>(self->dateTextFormat());
+}
+
 //  QTextCharFormat QCalendarWidget::dateTextFormat(QDate date) const
 extern "C" Q_DECL_EXPORT
 QTextCharFormat *ritual_ZNK15QCalendarWidget14dateTextFormatE5QDate(
@@ -1352,6 +1380,51 @@ void ritual_ZN15QCalendarWidget9showTodayEv(QCalendarWidget *self) {
   self->showToday();
 }
 
+//  void QCalendarWidget::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCalendarWidget16selectionChangedEv(QCalendarWidget *self) {
+  self->selectionChanged();
+}
+
+//  void QCalendarWidget::clicked(QDate date)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCalendarWidget7clickedE5QDate(
+    QCalendarWidget *self,
+    const QDate *date) {
+  self->clicked(*date);
+}
+
+//  void QCalendarWidget::activated(QDate date)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCalendarWidget9activatedE5QDate(
+    QCalendarWidget *self,
+    const QDate *date) {
+  self->activated(*date);
+}
+
+//  void QCalendarWidget::currentPageChanged(int year, int month)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCalendarWidget18currentPageChangedEii(
+    QCalendarWidget *self,
+    int year,
+    int month) {
+  self->currentPageChanged(year, month);
+}
+
+//  QCalendarWidgetPrivate *QCalendarWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QCalendarWidgetPrivate *ritual_ZN15QCalendarWidget6d_funcEv(
+    QCalendarWidget *self) {
+  return self->d_func();
+}
+
+//  const QCalendarWidgetPrivate *QCalendarWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCalendarWidgetPrivate *ritual_ZNK15QCalendarWidget6d_funcEv(
+    const QCalendarWidget *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQCalendarWidget, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -1435,6 +1508,13 @@ void ritual_own_ZNK15QCalendarWidget9paintCellEP8QPainterRK5QRect5QDate(
       painter,
       *rect,
       *date);
+}
+
+//  a QMap<QDate, QTextCharFormat> a ritual of QCalendarWidget gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCalendarWidget__QMap_QDate_QTextCharFormat(
+    QMap<QDate, QTextCharFormat> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(calendarwidget)

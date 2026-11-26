@@ -71,6 +71,19 @@ inline void QQmlTypeModule::addMinorVersion(quint8 version)
          oldVersion = m_maxMinorVersion.loadRelaxed()) {
     }
 }
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypemodule.cpp, line 66, as _ZNK14QQmlTypeModule23walkCompositeSingletonsERKSt8functionIFvRK8QQmlTypeEE
+inline void QQmlTypeModule::walkCompositeSingletons(const std::function<void(const QQmlType &)> &callback) const
+{
+    QMutexLocker lock(&m_mutex);
+    for (auto typeCandidates = m_typeHash.begin(), end = m_typeHash.end();
+         typeCandidates != end; ++typeCandidates) {
+        for (auto type: typeCandidates.value()) {
+            if (type->regType == QQmlType::CompositeSingletonType)
+                callback(QQmlType(type));
+        }
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  QQmlTypeModule::QQmlTypeModule()
@@ -171,4 +184,22 @@ QQmlType *ritual_ZNK14QQmlTypeModule4typeEPKN3QV46StringE13QTypeRevision(
     const QV4::String *name,
     const QTypeRevision *version) {
   return new QQmlType(self->type(name, *version));
+}
+
+//  void QQmlTypeModule::walkCompositeSingletons(const std::function<void
+//      (const QQmlType &)> &callback) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QQmlTypeModule23walkCompositeSingletonsERKSt8functionIFvRK8QQmlTypeEE(
+    const QQmlTypeModule *self,
+    const std::function<void (const QQmlType &)> *callback) {
+  self->walkCompositeSingletons(*callback);
+}
+
+//  QQmlType QQmlTypeModule::findType(const QList<QQmlTypePrivate *> *types,
+//      QTypeRevision version)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN14QQmlTypeModule8findTypeEPK5QListIP15QQmlTypePrivateE13QTypeRevision(
+    const QList<QQmlTypePrivate *> *types,
+    const QTypeRevision *version) {
+  return new QQmlType(QQmlTypeModule::findType(types, *version));
 }

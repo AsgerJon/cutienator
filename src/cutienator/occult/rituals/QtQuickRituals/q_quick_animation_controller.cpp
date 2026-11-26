@@ -200,6 +200,25 @@ const QMetaObject *ritual_ZNK25QQuickAnimationController10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnimationController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickAnimationController11qt_metacastEPKc(
+    QQuickAnimationController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnimationController::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickAnimationController11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnimationController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnimationController::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -208,6 +227,21 @@ QString *ritual_ZN25QQuickAnimationController2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickAnimationController::tr(s, c, n));
+}
+
+//  QQuickAnimationControllerPrivate *QQuickAnimationController::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickAnimationControllerPrivate *ritual_ZN25QQuickAnimationController6d_funcEv(
+    QQuickAnimationController *self) {
+  return self->d_func();
+}
+
+//  const QQuickAnimationControllerPrivate
+//      *QQuickAnimationController::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickAnimationControllerPrivate *ritual_ZNK25QQuickAnimationController6d_funcEv(
+    const QQuickAnimationController *self) {
+  return self->d_func();
 }
 
 //  QQuickAnimationController::QQuickAnimationController(QObject *parent)
@@ -260,6 +294,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN25QQuickAnimationController18componentFinalizedEv(
     QQuickAnimationController *self) {
   self->componentFinalized();
+}
+
+//  void QQuickAnimationController::progressChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickAnimationController15progressChangedEv(
+    QQuickAnimationController *self) {
+  self->progressChanged();
+}
+
+//  void QQuickAnimationController::animationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickAnimationController16animationChangedEv(
+    QQuickAnimationController *self) {
+  self->animationChanged();
 }
 
 //  void QQuickAnimationController::reload()

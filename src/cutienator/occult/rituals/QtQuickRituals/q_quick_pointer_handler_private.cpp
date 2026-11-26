@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickpointerhandler_p_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: added by hand, instances of templates of
+//  the class: 1. Kept as it is when the generator runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,6 +11,8 @@
 #include <QtGui/qvectornd.h>
 #include <QtGui/qeventpoint.h>
 #include <cstring>
+#include <QtGui/QGuiApplication>
+#include <QtGui/qstylehints.h>
 
 //  A QQuickPointerHandlerPrivate that Python can take functions over in. Every QQuickPointerHandlerPrivate
 //  Python makes is one. Each function below asks the Python
@@ -128,6 +131,15 @@ void ritual_ZN27QQuickPointerHandlerPrivate16onEnabledChangedEv(
   self->onEnabledChanged();
 }
 
+//  QList<QObject *>
+//      &QQuickPointerHandlerPrivate::deviceDeliveryTargets(const
+//      QInputDevice *device)
+extern "C" Q_DECL_EXPORT
+QList<QObject *> *ritual_ZN27QQuickPointerHandlerPrivate21deviceDeliveryTargetsEPK12QInputDevice(
+    const QInputDevice *device) {
+  return &(QQuickPointerHandlerPrivate::deviceDeliveryTargets(device));
+}
+
 //  a Python function taken by a CuteQQuickPointerHandlerPrivate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -153,4 +165,39 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN27QQuickPointerHandlerPrivate16onEnabledChangedEv(
     QQuickPointerHandlerPrivate *self) {
   self->QQuickPointerHandlerPrivate::onEnabledChanged();
+}
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because the template is defined in Qt's .cpp and
+//  Qt's library carries no instance of it under a name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here.
+//  from ../qtdeclarative/src/quick/handlers/qquickpointerhandler.cpp,
+//  line 937
+template <typename TEventPoint>
+bool QQuickPointerHandlerPrivate::dragOverThreshold(qreal d, Qt::Axis axis, const TEventPoint &p) const
+{
+    Q_Q(const QQuickPointerHandler);
+    QStyleHints *styleHints = qApp->styleHints();
+    bool overThreshold = qAbs(d) > q->dragThreshold();
+    const bool dragVelocityLimitAvailable = (styleHints->startDragVelocity() > 0);
+    if (!overThreshold && dragVelocityLimitAvailable) {
+        qreal velocity = qreal(axis == Qt::XAxis ? p.velocity().x() : p.velocity().y());
+        overThreshold |= qAbs(velocity) > styleHints->startDragVelocity();
+    }
+    return overThreshold;
+}
+//  -----------------------------------------------------------------------
+
+//  bool QQuickPointerHandlerPrivate::dragOverThreshold<QEventPoint>(qreal d,
+//      Qt::Axis axis, const QEventPoint &p) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK27QQuickPointerHandlerPrivate17dragOverThresholdI11QEventPointEEbdN2Qt4AxisERKT_(
+    const QQuickPointerHandlerPrivate *self,
+    double d,
+    int axis,
+    const QEventPoint *p) {
+  return self->dragOverThreshold<QEventPoint>(
+      d, static_cast<Qt::Axis>(axis), *p);
 }

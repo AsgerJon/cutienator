@@ -8,6 +8,12 @@
     "ritual_ZNK32QQuickSelectionRectangleAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuickSelectionRectangleAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuickSelectionRectangleAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN32QQuickSelectionRectangleAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,6 +31,12 @@
     ],
     "ritual_ZN32QQuickSelectionRectangleAttached11setDraggingEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN32QQuickSelectionRectangleAttached14controlChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickSelectionRectangleAttached15draggingChangedEv": [
+      "nothing", "address"
     ]
   }
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK36QQuick3DShaderUtilsRenderPassTexture10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderPassTexture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderPassTexture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN36QQuick3DShaderUtilsRenderPassTexture2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

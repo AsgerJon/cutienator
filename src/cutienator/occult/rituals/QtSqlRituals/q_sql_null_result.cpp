@@ -62,14 +62,15 @@ typedef bool (*CuteQSqlNullResultCall20)(const void *, int *);
 typedef bool (*CuteQSqlNullResultCall21)(const void *, int *);
 typedef const QSqlRecord * (*CuteQSqlNullResultCall22)(const void *, int *);
 typedef const QVariant * (*CuteQSqlNullResultCall23)(const void *, int *);
-typedef bool (*CuteQSqlNullResultCall24)(const void *, bool, int *);
-typedef void (*CuteQSqlNullResultCall25)(const void *, int *);
-typedef void (*CuteQSqlNullResultCall26)(const void *, int, int *);
-typedef bool (*CuteQSqlNullResultCall27)(const void *, int *);
+typedef void (*CuteQSqlNullResultCall24)(const void *, int, void *, int *);
+typedef bool (*CuteQSqlNullResultCall25)(const void *, bool, int *);
+typedef void (*CuteQSqlNullResultCall26)(const void *, int *);
+typedef void (*CuteQSqlNullResultCall27)(const void *, int, int *);
+typedef bool (*CuteQSqlNullResultCall28)(const void *, int *);
 class CuteQSqlNullResult : public QSqlNullResult {
 public:
   using QSqlNullResult::QSqlNullResult;
-  void *taken[28] = {};
+  void *taken[29] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN10QSqlResult4dataEi")) {
@@ -168,20 +169,24 @@ public:
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSqlResult9execBatchEb")) {
+    if (!std::strcmp(key, "_ZN10QSqlResult12virtual_hookEiPv")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSqlResult19detachFromResultSetEv")) {
+    if (!std::strcmp(key, "_ZN10QSqlResult9execBatchEb")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSqlResult27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE")) {
+    if (!std::strcmp(key, "_ZN10QSqlResult19detachFromResultSetEv")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSqlResult10nextResultEv")) {
+    if (!std::strcmp(key, "_ZN10QSqlResult27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE")) {
       taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN10QSqlResult10nextResultEv")) {
+      taken[28] = call;
       return true;
     }
     return false;
@@ -456,11 +461,22 @@ public:
     return QSqlResult::lastInsertId();
   }
 
-  //  bool QSqlResult::execBatch(bool arrayBind)
-  bool execBatch(bool arrayBind) override {
+  //  void QSqlResult::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
     if (taken[24]) {
       int handled = 0;
       CuteQSqlNullResultCall24 call = reinterpret_cast<CuteQSqlNullResultCall24>(taken[24]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QSqlResult::virtual_hook(id, data);
+  }
+
+  //  bool QSqlResult::execBatch(bool arrayBind)
+  bool execBatch(bool arrayBind) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQSqlNullResultCall25 call = reinterpret_cast<CuteQSqlNullResultCall25>(taken[25]);
       bool given = call(this, arrayBind, &handled);
       if (handled) return given;
     }
@@ -469,9 +485,9 @@ public:
 
   //  void QSqlResult::detachFromResultSet()
   void detachFromResultSet() override {
-    if (taken[25]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQSqlNullResultCall25 call = reinterpret_cast<CuteQSqlNullResultCall25>(taken[25]);
+      CuteQSqlNullResultCall26 call = reinterpret_cast<CuteQSqlNullResultCall26>(taken[26]);
       call(this, &handled);
       if (handled) return;
     }
@@ -482,9 +498,9 @@ public:
   //      Policy policy)
   void setNumericalPrecisionPolicy(
       QSql::NumericalPrecisionPolicy policy) override {
-    if (taken[26]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQSqlNullResultCall26 call = reinterpret_cast<CuteQSqlNullResultCall26>(taken[26]);
+      CuteQSqlNullResultCall27 call = reinterpret_cast<CuteQSqlNullResultCall27>(taken[27]);
       call(this, static_cast<int>(policy), &handled);
       if (handled) return;
     }
@@ -493,9 +509,9 @@ public:
 
   //  bool QSqlResult::nextResult()
   bool nextResult() override {
-    if (taken[27]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQSqlNullResultCall27 call = reinterpret_cast<CuteQSqlNullResultCall27>(taken[27]);
+      CuteQSqlNullResultCall28 call = reinterpret_cast<CuteQSqlNullResultCall28>(taken[28]);
       bool given = call(this, &handled);
       if (handled) return given;
     }

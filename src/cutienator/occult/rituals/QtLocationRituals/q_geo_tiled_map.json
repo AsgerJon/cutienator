@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QGeoTiledMap10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QGeoTiledMap11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QGeoTiledMap11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QGeoTiledMap2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QGeoTiledMap6d_funcEv": ["address", "address"],
     "ritual_ZNK12QGeoTiledMap6d_funcEv": ["address", "address"],
@@ -29,6 +35,12 @@
     ],
     "ritual_ZN12QGeoTiledMap10clearSceneEi": ["nothing", "address", "int"],
     "ritual_ZN12QGeoTiledMap16updateSceneGraphEP7QSGNodeP12QQuickWindow": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QGeoTiledMap18evaluateCopyrightsERK4QSetI12QGeoTileSpecE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QGeoTiledMapC1ER19QGeoTiledMapPrivateP29QGeoTiledMappingManagerEngineP7QObject": [
       "address", "address", "address", "address"
     ],
     "ritual_ZN12QGeoTiledMap24handleTileVersionChangedEv": [

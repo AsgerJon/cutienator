@@ -335,6 +335,16 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  XYAnimation::XYAnimation(XYChart *item, int duration, QEasingCurve
+//      &curve)
+extern "C" Q_DECL_EXPORT
+XYAnimation *ritual_ZN11XYAnimationC1EP7XYChartiR12QEasingCurve(
+    XYChart *item,
+    int duration,
+    QEasingCurve *curve) {
+  return new CuteXYAnimation(item, duration, *curve);
+}
+
 //  XYAnimation::~XYAnimation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11XYAnimationD1Ev(XYAnimation *self) {

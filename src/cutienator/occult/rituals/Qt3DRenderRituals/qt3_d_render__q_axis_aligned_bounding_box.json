@@ -6,11 +6,17 @@
   ],
   "rows": {
     "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBoxC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBoxC1ERKSt6vectorI9QVector3DSaIS2_EE": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBox5clearEv": [
       "nothing", "address"
     ],
     "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox6isNullEv": [
       "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBox6updateERKSt6vectorI9QVector3DSaIS2_EE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox6centerEv": [
       "address", "address"
@@ -49,6 +55,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox11transformByERK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBox9transformERK10QMatrix4x4": [
       "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBoxD1Ev": [

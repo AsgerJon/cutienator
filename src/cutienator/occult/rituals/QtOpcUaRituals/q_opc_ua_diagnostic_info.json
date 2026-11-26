@@ -8,6 +8,16 @@
     "ritual_ZN20QOpcUaDiagnosticInfoC1Ev": ["address"],
     "ritual_ZN20QOpcUaDiagnosticInfoD1Ev": ["nothing", "address"],
     "ritual_ZN20QOpcUaDiagnosticInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN20QOpcUaDiagnosticInfoC1EOS_": ["address", "address"],
+    "ritual_ZN20QOpcUaDiagnosticInfoaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfoaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK20QOpcUaDiagnosticInfocv8QVariantEv": ["address", "address"],
     "ritual_ZNK20QOpcUaDiagnosticInfo10symbolicIdEv": ["int", "address"],
     "ritual_ZN20QOpcUaDiagnosticInfo13setSymbolicIdEi": [
@@ -70,6 +80,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK20QOpcUaDiagnosticInfo19innerDiagnosticInfoEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo22innerDiagnosticInfoRefEv": [
       "address", "address"
     ],
     "ritual_ZN20QOpcUaDiagnosticInfo22setInnerDiagnosticInfoERKS_": [

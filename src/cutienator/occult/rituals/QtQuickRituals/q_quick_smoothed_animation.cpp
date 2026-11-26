@@ -282,6 +282,25 @@ const QMetaObject *ritual_ZNK23QQuickSmoothedAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSmoothedAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickSmoothedAnimation11qt_metacastEPKc(
+    QQuickSmoothedAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSmoothedAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickSmoothedAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSmoothedAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSmoothedAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickSmoothedAnimation2trEPKcS1_i(
@@ -371,6 +390,41 @@ void ritual_ZN23QQuickSmoothedAnimation20setMaximumEasingTimeEi(
     QQuickSmoothedAnimation *self,
     int a0) {
   self->setMaximumEasingTime(a0);
+}
+
+//  QAbstractAnimationJob
+//      *QQuickSmoothedAnimation::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN23QQuickSmoothedAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickSmoothedAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
+}
+
+//  void QQuickSmoothedAnimation::velocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickSmoothedAnimation15velocityChangedEv(
+    QQuickSmoothedAnimation *self) {
+  self->velocityChanged();
+}
+
+//  void QQuickSmoothedAnimation::reversingModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickSmoothedAnimation20reversingModeChangedEv(
+    QQuickSmoothedAnimation *self) {
+  self->reversingModeChanged();
+}
+
+//  void QQuickSmoothedAnimation::maximumEasingTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickSmoothedAnimation24maximumEasingTimeChangedEv(
+    QQuickSmoothedAnimation *self) {
+  self->maximumEasingTimeChanged();
 }
 
 //  a Python function taken by a CuteQQuickSmoothedAnimation, for the

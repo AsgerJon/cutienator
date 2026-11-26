@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/6.12.0/QtGui/private/qdistancefield_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtGui/6.12.0/QtGui/private/qdistancefield_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN14QDistanceFieldC1Ev": ["address"],
@@ -35,6 +35,12 @@
     "ritual_ZNK14QDistanceField4copyEiiii": [
       "address", "address", "int", "int", "int", "int"
     ],
+    "ritual_ZNK14QDistanceField4bitsEv": ["address", "address"],
+    "ritual_ZNK14QDistanceField9constBitsEv": ["address", "address"],
+    "ritual_ZNK14QDistanceField8scanLineEi": ["address", "address", "int"],
+    "ritual_ZNK14QDistanceField13constScanLineEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK14QDistanceField7toImageEN6QImage6FormatE": [
       "address", "address", "int"
     ],
@@ -46,6 +52,8 @@
     "ritual_list_add_QDistanceField": ["nothing", "address", "address"],
     "ritual_list_size_QDistanceField": ["long long", "address"],
     "ritual_list_at_QDistanceField": ["address", "address", "long long"],
-    "ritual_list_drop_QDistanceField": ["nothing", "address"]
+    "ritual_list_drop_QDistanceField": ["nothing", "address"],
+    "ritual_ZN14QDistanceField4bitsEv": ["address", "address"],
+    "ritual_ZN14QDistanceField8scanLineEi": ["address", "address", "int"]
   }
 }

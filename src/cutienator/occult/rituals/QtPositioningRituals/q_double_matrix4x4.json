@@ -2,17 +2,21 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtPositioning/6.12.0/QtPositioning/private/qdoublematrix4x4_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN16QDoubleMatrix4x4C1Ev": ["address"],
     "ritual_ZN16QDoubleMatrix4x4C1EN2Qt14InitializationE": [
       "address", "int"
     ],
+    "ritual_ZN16QDoubleMatrix4x4C1EPKd": ["address", "address"],
     "ritual_ZN16QDoubleMatrix4x4C1Edddddddddddddddd": [
       "address", "double", "double", "double", "double", "double", "double",
       "double", "double", "double", "double", "double", "double", "double",
       "double", "double", "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x4C1EPKdii": [
+      "address", "address", "int", "int"
     ],
     "ritual_ZNK16QDoubleMatrix4x4clEii": ["double", "address", "int", "int"],
     "ritual_ZNK16QDoubleMatrix4x48isAffineEv": ["bool", "address"],
@@ -130,6 +134,8 @@
     "ritual_ZNK16QDoubleMatrix4x47mapRectERK6QRectF": [
       "address", "address", "address"
     ],
+    "ritual_ZNK16QDoubleMatrix4x44dataEv": ["address", "address"],
+    "ritual_ZNK16QDoubleMatrix4x49constDataEv": ["address", "address"],
     "ritual_ZN16QDoubleMatrix4x48optimizeEv": ["nothing", "address"],
     "ritual_Zls6QDebugRK16QDoubleMatrix4x4": [
       "address", "address", "address"
@@ -141,6 +147,8 @@
     "ritual_ZN16QDoubleMatrix4x415projectedRotateEddddd": [
       "nothing", "address", "double", "double", "double", "double", "double"
     ],
-    "ritual_ZN16QDoubleMatrix4x4D1Ev": ["nothing", "address"]
+    "ritual_ZN16QDoubleMatrix4x4D1Ev": ["nothing", "address"],
+    "ritual_ZN16QDoubleMatrix4x4clEii": ["address", "address", "int", "int"],
+    "ritual_ZN16QDoubleMatrix4x44dataEv": ["address", "address"]
   }
 }

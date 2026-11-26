@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK20QQuickPointDirection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPointDirection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickPointDirection11qt_metacastEPKc(
+    QQuickPointDirection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPointDirection::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickPointDirection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPointDirection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPointDirection::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickPointDirection2trEPKcS1_i(
@@ -66,6 +85,38 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK20QQuickPointDirection10yVariationEv(
     const QQuickPointDirection *self) {
   return self->yVariation();
+}
+
+//  void QQuickPointDirection::xChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointDirection8xChangedEd(
+    QQuickPointDirection *self,
+    qreal arg) {
+  self->xChanged(arg);
+}
+
+//  void QQuickPointDirection::yChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointDirection8yChangedEd(
+    QQuickPointDirection *self,
+    qreal arg) {
+  self->yChanged(arg);
+}
+
+//  void QQuickPointDirection::xVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointDirection17xVariationChangedEd(
+    QQuickPointDirection *self,
+    qreal arg) {
+  self->xVariationChanged(arg);
+}
+
+//  void QQuickPointDirection::yVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointDirection17yVariationChangedEd(
+    QQuickPointDirection *self,
+    qreal arg) {
+  self->yVariationChanged(arg);
 }
 
 //  void QQuickPointDirection::setX(qreal arg)

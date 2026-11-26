@@ -5,11 +5,72 @@
     "are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation18QAnimationClipDataC1Ev": ["address"],
+    "ritual_ZN13Qt3DAnimation18QAnimationClipDataC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAnimationClipDataaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAnimationClipDataD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAnimationClipData7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData12channelCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAnimationClipData13appendChannelERKNS_8QChannelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAnimationClipData13insertChannelEiRKNS_8QChannelE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAnimationClipData13removeChannelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAnimationClipData13clearChannelsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData5beginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData6cbeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData3endEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData4cendEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData6rbeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData7crbeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData4rendEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAnimationClipData5crendEv": [
+      "address", "address"
+    ],
     "ritual_ZN13Qt3DAnimationeqERKNS_18QAnimationClipDataES2_": [
       "bool", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimationneERKNS_18QAnimationClipDataES2_": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QAnimationClipData__Qt3DAnimation_QAnimationClipData_const_reverse_iterator": [
+      "nothing", "address"
     ]
   }
 }

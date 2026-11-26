@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuick3DSceneEnvironment10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuick3DSceneEnvironment11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuick3DSceneEnvironment2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -78,6 +84,7 @@
     "ritual_ZNK24QQuick3DSceneEnvironment11tonemapModeEv": [
       "int", "address"
     ],
+    "ritual_ZN24QQuick3DSceneEnvironment7effectsEv": ["address", "address"],
     "ritual_ZNK24QQuick3DSceneEnvironment16skyboxBlurAmountEv": [
       "float", "address"
     ],
@@ -119,6 +126,9 @@
     ],
     "ritual_ZN24QQuick3DSceneEnvironment22setAntialiasingQualityENS_34QQuick3DEnvironmentAAQualityValuesE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment17setTemporalAAModeERKNS_33QQuick3DEnvironmentTemporalAAModeE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24QQuick3DSceneEnvironment20setTemporalAAEnabledEb": [
       "nothing", "address", "bool"
@@ -198,16 +208,121 @@
     "ritual_ZN24QQuick3DSceneEnvironment12setOitMethodENS_28QQuick3DEnvironmentOITMethodE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN24QQuick3DSceneEnvironment23antialiasingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment26antialiasingQualityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment21temporalAAModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment24temporalAAEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment25temporalAAStrengthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment21backgroundModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment17clearColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment17aoStrengthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment17aoDistanceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment17aoSoftnessChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment15aoDitherChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment19aoSampleRateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment13aoBiasChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment16aoEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment17lightProbeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment18skyMaterialChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment20probeExposureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment19probeHorizonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment23probeOrientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment23depthTestEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment26depthPrePassEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment18tonemapModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment23skyboxBlurAmountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment24specularAAEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment18lightmapperChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment20skyBoxCubeMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment20debugSettingsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment18scissorRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment10fogChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment16oitMethodChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN24QQuick3DSceneEnvironment17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
     ],
     "ritual_ZN24QQuick3DSceneEnvironment10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZNK24QQuick3DSceneEnvironment10effectListEv": [
+      "address", "address"
+    ],
     "ritual_ZNK24QQuick3DSceneEnvironment20useBuiltinTonemapperEv": [
       "bool", "address"
     ],
     "ritual_ZN24QQuick3DSceneEnvironment17defaultAoDistanceEv": ["float"],
+    "ritual_ZN24QQuick3DSceneEnvironment15qmlAppendEffectEP16QQmlListPropertyI14QQuick3DEffectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment11qmlEffectAtEP16QQmlListPropertyI14QQuick3DEffectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment15qmlEffectsCountEP16QQmlListPropertyI14QQuick3DEffectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QQuick3DSceneEnvironment15qmlClearEffectsEP16QQmlListPropertyI14QQuick3DEffectE": [
+      "nothing", "address"
+    ],
     "ritual_ZN24QQuick3DSceneEnvironment18updateSceneManagerEP20QQuick3DSceneManager": [
       "nothing", "address", "address"
     ],
@@ -222,6 +337,9 @@
     ],
     "ritual_own_ZNK24QQuick3DSceneEnvironment20useBuiltinTonemapperEv": [
       "bool", "address"
+    ],
+    "ritual_drop_QQuick3DSceneEnvironment__QQmlListProperty_QQuick3DEffect": [
+      "nothing", "address"
     ]
   }
 }

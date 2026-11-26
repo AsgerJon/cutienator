@@ -325,6 +325,20 @@ void ritual_ZN18QAnimationGroupJob15removeAnimationEP21QAbstractAnimationJob(
   self->removeAnimation(animation);
 }
 
+//  Children *QAnimationGroupJob::children()
+extern "C" Q_DECL_EXPORT
+QAnimationGroupJob::Children *ritual_ZN18QAnimationGroupJob8childrenEv(
+    QAnimationGroupJob *self) {
+  return self->children();
+}
+
+//  const Children *QAnimationGroupJob::children() const
+extern "C" Q_DECL_EXPORT
+const QAnimationGroupJob::Children *ritual_ZNK18QAnimationGroupJob8childrenEv(
+    const QAnimationGroupJob *self) {
+  return self->children();
+}
+
 //  void QAnimationGroupJob::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QAnimationGroupJob5clearEv(QAnimationGroupJob *self) {

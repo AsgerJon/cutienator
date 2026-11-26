@@ -6,6 +6,15 @@
   ],
   "rows": {
     "ritual_ZN16QSimpleTextCodecD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QSimpleTextCodec16convertToUnicodeEPKciPN20QStringConverterBase5StateE": [
+      "text", "address", "chars", "int", "address"
+    ],
+    "ritual_ZNK16QSimpleTextCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK16QSimpleTextCodec4nameEv": ["address", "address"],
+    "ritual_ZNK16QSimpleTextCodec7aliasesEv": ["address", "address"],
+    "ritual_ZNK16QSimpleTextCodec7mibEnumEv": ["int", "address"],
     "ritual_take_QSimpleTextCodec": ["bool", "address", "chars", "address"]
   }
 }

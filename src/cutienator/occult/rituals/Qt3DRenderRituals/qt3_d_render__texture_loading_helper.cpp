@@ -13,3 +13,11 @@ void ritual_ZN10Qt3DRender20TextureLoadingHelperD1Ev(
     Qt3DRender::TextureLoadingHelper *self) {
   delete self;
 }
+
+//  a Qt3DRender::QTextureImageDataPtr a ritual of
+//      Qt3DRender::TextureLoadingHelper gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_TextureLoadingHelper__Qt3DRender_QTextureImageDataPtr(
+    Qt3DRender::QTextureImageDataPtr *self) {
+  delete self;
+}

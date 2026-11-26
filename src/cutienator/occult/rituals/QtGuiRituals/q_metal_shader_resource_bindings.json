@@ -5,6 +5,13 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN28QMetalShaderResourceBindings7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QMetalShaderResourceBindings6createEv": ["bool", "address"],
+    "ritual_ZN28QMetalShaderResourceBindings15updateResourcesE6QFlagsIN26QRhiShaderResourceBindings10UpdateFlagEE": [
+      "nothing", "address", "int"
+    ],
     "ritual_take_QMetalShaderResourceBindings": [
       "bool", "address", "chars", "address"
     ]

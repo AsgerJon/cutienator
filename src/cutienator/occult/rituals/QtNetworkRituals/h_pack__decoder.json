@@ -5,5 +5,25 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN5HPack7DecoderC1Ej": ["address", "unsigned int"],
+    "ritual_ZNK5HPack7Decoder13decodedHeaderEv": ["address", "address"],
+    "ritual_ZNK5HPack7Decoder16dynamicTableSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK5HPack7Decoder20dynamicTableCapacityEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK5HPack7Decoder23maxDynamicTableCapacityEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN5HPack7Decoder22setMaxDynamicTableSizeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN5HPack7Decoder20setMaxHeaderListSizeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN5HPack7Decoder17handleStreamErrorERNS_10BitIStreamE": [
+      "nothing", "address", "address"
+    ]
   }
 }

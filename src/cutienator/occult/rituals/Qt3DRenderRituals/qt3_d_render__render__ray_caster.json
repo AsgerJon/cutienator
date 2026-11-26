@@ -5,11 +5,43 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render9RayCasterC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render9RayCasterD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender6Render9RayCaster4typeEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender6Render9RayCaster7runModeEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender6Render9RayCaster6originEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9RayCaster9directionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9RayCaster6lengthEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender6Render9RayCaster8positionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9RayCaster8layerIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9RayCaster10filterModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9RayCaster16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render9RayCaster7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9RayCaster9notifyJobEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DRender_Render_RayCaster": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render9RayCaster16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_RayCaster__Qt3DCore_QNodeIdVector": [
+      "nothing", "address"
     ]
   }
 }

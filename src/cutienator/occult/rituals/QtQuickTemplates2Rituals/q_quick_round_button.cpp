@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK17QQuickRoundButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRoundButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickRoundButton11qt_metacastEPKc(
+    QQuickRoundButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRoundButton::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickRoundButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRoundButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRoundButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickRoundButton2trEPKcS1_i(
@@ -58,6 +77,12 @@ void ritual_ZN17QQuickRoundButton11resetRadiusEv(QQuickRoundButton *self) {
   self->resetRadius();
 }
 
+//  void QQuickRoundButton::radiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRoundButton13radiusChangedEv(QQuickRoundButton *self) {
+  self->radiusChanged();
+}
+
 //  void QQuickRoundButton::geometryChange(const QRectF &newGeometry, const
 //      QRectF &oldGeometry)
 extern "C" Q_DECL_EXPORT
@@ -66,6 +91,20 @@ void ritual_ZN17QQuickRoundButton14geometryChangeERK6QRectFS2_(
     const QRectF *newGeometry,
     const QRectF *oldGeometry) {
   self->geometryChange(*newGeometry, *oldGeometry);
+}
+
+//  QQuickRoundButtonPrivate *QQuickRoundButton::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickRoundButtonPrivate *ritual_ZN17QQuickRoundButton6d_funcEv(
+    QQuickRoundButton *self) {
+  return self->d_func();
+}
+
+//  const QQuickRoundButtonPrivate *QQuickRoundButton::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickRoundButtonPrivate *ritual_ZNK17QQuickRoundButton6d_funcEv(
+    const QQuickRoundButton *self) {
+  return self->d_func();
 }
 
 //  void QQuickRoundButton::geometryChange(const QRectF &newGeometry, const

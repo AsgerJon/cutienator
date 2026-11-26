@@ -30,6 +30,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtdeclarative/src/quick/items/qquicktextdocument.cpp, line 594, as _ZN22QQuickTextImageHandler13intrinsicSizeEP13QTextDocumentiRK11QTextFormat
 inline QSizeF QQuickTextImageHandler::intrinsicSize(
         QTextDocument *doc, int, const QTextFormat &format)
@@ -307,6 +309,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QQuickTextImageHandler10metaObjectEv(
     const QQuickTextImageHandler *self) {
   return self->metaObject();
+}
+
+//  void *QQuickTextImageHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickTextImageHandler11qt_metacastEPKc(
+    QQuickTextImageHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTextImageHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickTextImageHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTextImageHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QQuickTextImageHandler::~QQuickTextImageHandler()

@@ -11,6 +11,12 @@
       "address", "address"
     ],
     "ritual_ZN18QQmlContextPrivate3getEPS_": ["address", "address"],
+    "ritual_ZN18QQmlContextPrivate13context_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN18QQmlContextPrivate10context_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZNK18QQmlContextPrivate11notifyIndexEv": ["int", "address"],
     "ritual_ZN18QQmlContextPrivate14setNotifyIndexEi": [
       "nothing", "address", "int"
@@ -27,6 +33,7 @@
     "ritual_ZNK18QQmlContextPrivate13propertyValueEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK18QQmlContextPrivate9instancesEv": ["address", "address"],
     "ritual_ZN18QQmlContextPrivate14appendInstanceEP7QObject": [
       "nothing", "address", "address"
     ],
@@ -38,6 +45,12 @@
     ],
     "ritual_ZN18QQmlContextPrivateC1EP15QQmlContextData": [
       "address", "address"
+    ],
+    "ritual_ZN18QQmlContextPrivateC1EP11QQmlContextRK14QQmlRefPointerI15QQmlContextDataEP10QQmlEngine": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_drop_QQmlContextPrivate__QList_QPointer_QObject": [
+      "nothing", "address"
     ]
   }
 }

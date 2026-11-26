@@ -195,6 +195,24 @@ const QMetaObject *ritual_ZNK10QValueAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QValueAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QValueAxis11qt_metacastEPKc(
+    QValueAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QValueAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QValueAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QValueAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QValueAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QValueAxis2trEPKcS1_i(
@@ -214,6 +232,14 @@ QValueAxis *ritual_ZN10QValueAxisC1EP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QValueAxisD1Ev(QValueAxis *self) {
   delete self;
+}
+
+//  QValueAxis::QValueAxis(QValueAxisPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QValueAxis *ritual_ZN10QValueAxisC1ER17QValueAxisPrivateP7QObject(
+    QValueAxisPrivate *d,
+    QObject *parent) {
+  return new CuteQValueAxis(*d, parent);
 }
 
 //  AxisType QValueAxis::type() const
@@ -341,6 +367,75 @@ QString *ritual_ZNK10QValueAxis11labelFormatEv(const QValueAxis *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QValueAxis16applyNiceNumbersEv(QValueAxis *self) {
   self->applyNiceNumbers();
+}
+
+//  void QValueAxis::minChanged(qreal min)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis10minChangedEd(QValueAxis *self, qreal min) {
+  self->minChanged(min);
+}
+
+//  void QValueAxis::maxChanged(qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis10maxChangedEd(QValueAxis *self, qreal max) {
+  self->maxChanged(max);
+}
+
+//  void QValueAxis::rangeChanged(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis12rangeChangedEdd(
+    QValueAxis *self,
+    qreal min,
+    qreal max) {
+  self->rangeChanged(min, max);
+}
+
+//  void QValueAxis::tickCountChanged(int tickCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis16tickCountChangedEi(
+    QValueAxis *self,
+    int tickCount) {
+  self->tickCountChanged(tickCount);
+}
+
+//  void QValueAxis::minorTickCountChanged(int tickCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis21minorTickCountChangedEi(
+    QValueAxis *self,
+    int tickCount) {
+  self->minorTickCountChanged(tickCount);
+}
+
+//  void QValueAxis::labelFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis18labelFormatChangedERK7QString(
+    QValueAxis *self,
+    const QString *format) {
+  self->labelFormatChanged(*format);
+}
+
+//  void QValueAxis::tickIntervalChanged(qreal interval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis19tickIntervalChangedEd(
+    QValueAxis *self,
+    qreal interval) {
+  self->tickIntervalChanged(interval);
+}
+
+//  void QValueAxis::tickAnchorChanged(qreal anchor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis17tickAnchorChangedEd(
+    QValueAxis *self,
+    qreal anchor) {
+  self->tickAnchorChanged(anchor);
+}
+
+//  void QValueAxis::tickTypeChanged(QValueAxis::TickType type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValueAxis15tickTypeChangedENS_8TickTypeE(
+    QValueAxis *self,
+    QValueAxis::TickType type) {
+  self->tickTypeChanged(type);
 }
 
 //  QValueAxisPrivate *QValueAxis::d_func()

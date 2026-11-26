@@ -25,6 +25,24 @@
     ],
     "ritual_ZNK33QAbstractObjectRegistryRefPrivate8registryEv": [
       "address", "address"
+    ],
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate10dataAppendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate9dataCountEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate6dataAtEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate9dataClearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate11dataReplaceEP16QQmlListPropertyI7QObjectExPS1_": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate14dataRemoveLastEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
     ]
   }
 }

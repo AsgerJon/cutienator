@@ -5,6 +5,12 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST17LabelledStatementC1E11QStringViewPNS0_9StatementE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST17LabelledStatement7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK6QQmlJS3AST17LabelledStatement19firstSourceLocationEv": [
       "address", "address"
     ],

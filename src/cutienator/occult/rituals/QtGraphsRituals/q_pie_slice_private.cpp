@@ -3,7 +3,7 @@
 //  here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qpieslice.h>
@@ -25,6 +25,41 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/piechart/qpieslice.cpp, line 1317, as _ZN16QPieSlicePrivateD1Ev
+inline QPieSlicePrivate::~QPieSlicePrivate() {}
+
+//  from ../qtgraphs/src/graphs2d/piechart/qpieslice.cpp, line 1286, as _ZN16QPieSlicePrivateC1Ev
+inline QPieSlicePrivate::QPieSlicePrivate()
+    : m_isLabelVisible(false)
+    , m_labelPosition(QPieSlice::LabelPosition::Outside)
+    , m_labelArmLengthFactor(.15)
+    , m_value(0.0)
+    , m_percentage(0.0)
+    , m_startAngle(0.0)
+    , m_angleSpan(0.0)
+    , m_hideLabel(false)
+    , m_isExploded(false)
+    , m_explodeDistanceFactor(.15)
+    , m_labelDirty(false)
+    , m_borderWidth(0.0)
+    , m_labelItem(new QQuickText)
+#if QT_CONFIG(graphs_2d_high_quality_backend)
+    , m_shapePath(new QQuickShapePath)
+    , m_labelShape(new QQuickShape)
+    , m_labelPath(new QQuickShapePath)
+#endif
+{
+    m_labelItem->setColor(Qt::transparent);
+    m_labelItem->setVisible(m_isLabelVisible);
+#if QT_CONFIG(graphs_2d_high_quality_backend)
+    m_labelShape->setVisible(m_isLabelVisible);
+    m_labelPath->setParent(m_labelShape);
+    auto data = m_labelShape->data();
+    data.append(&data, m_labelPath);
+    m_labelPath->setFillColor(Qt::transparent);
+#endif
+}
 
 //  from ../qtgraphs/src/graphs2d/piechart/qpieslice.cpp, line 1384, as _ZN16QPieSlicePrivate13setPercentageEd
 inline void QPieSlicePrivate::setPercentage(qreal percentage)
@@ -211,6 +246,18 @@ const QPieSlicePrivate *ritual_ZN16QPieSlicePrivate3getEPK9QPieSlice(
   return QPieSlicePrivate::get(item);
 }
 
+//  QPieSlicePrivate::QPieSlicePrivate()
+extern "C" Q_DECL_EXPORT
+QPieSlicePrivate *ritual_ZN16QPieSlicePrivateC1Ev() {
+  return new QPieSlicePrivate();
+}
+
+//  QPieSlicePrivate::~QPieSlicePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPieSlicePrivateD1Ev(QPieSlicePrivate *self) {
+  delete self;
+}
+
 //  void QPieSlicePrivate::setPercentage(qreal percentage)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QPieSlicePrivate13setPercentageEd(
@@ -289,4 +336,4 @@ const QPieSlice *ritual_ZNK16QPieSlicePrivate6q_funcEv(
   return self->q_func();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))

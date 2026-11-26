@@ -1,16 +1,67 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qfontvariableaxis.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/qfontvariableaxis.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qfontvariableaxis.h>
+#include <QtCore/qdebug.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/gui/text/qfontvariableaxis.cpp, line 10, as local:qfontvariableaxis.cpp:QFontVariableAxisPrivate
+class QFontVariableAxisPrivate : public QSharedData
+{
+public:
+    QFont::Tag tag;
+    QString name;
+    qreal minimumValue = 0.0;
+    qreal maximumValue = 0.0;
+    qreal defaultValue = 0.0;
+};
+
+//  from src/gui/text/qfontvariableaxis.cpp, line 266, as _ZN17QFontVariableAxis6detachEv
+inline void QFontVariableAxis::detach()
+{
+    d_ptr.detach();
+}
+//  -----------------------------------------------------------------------
+
+//  QFontVariableAxisPrivate *QFontVariableAxis::d_func()
+extern "C" Q_DECL_EXPORT
+QFontVariableAxisPrivate *ritual_ZN17QFontVariableAxis6d_funcEv(
+    QFontVariableAxis *self) {
+  return self->d_func();
+}
+
+//  const QFontVariableAxisPrivate *QFontVariableAxis::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFontVariableAxisPrivate *ritual_ZNK17QFontVariableAxis6d_funcEv(
+    const QFontVariableAxis *self) {
+  return self->d_func();
+}
 
 //  QFontVariableAxis::QFontVariableAxis()
 extern "C" Q_DECL_EXPORT
 QFontVariableAxis *ritual_ZN17QFontVariableAxisC1Ev() {
   return new QFontVariableAxis();
+}
+
+//  QFontVariableAxis::QFontVariableAxis(QFontVariableAxis &&other)
+extern "C" Q_DECL_EXPORT
+QFontVariableAxis *ritual_ZN17QFontVariableAxisC1EOS_(
+    QFontVariableAxis *other) {
+  return new QFontVariableAxis(std::move(*other));
 }
 
 //  QFontVariableAxis::QFontVariableAxis(const QFontVariableAxis &axis)
@@ -24,6 +75,32 @@ QFontVariableAxis *ritual_ZN17QFontVariableAxisC1ERKS_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QFontVariableAxisD1Ev(QFontVariableAxis *self) {
   delete self;
+}
+
+//  QFontVariableAxis &QFontVariableAxis::operator=(QFontVariableAxis
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QFontVariableAxis *ritual_ZN17QFontVariableAxisaSEOS_(
+    QFontVariableAxis *self,
+    QFontVariableAxis *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QFontVariableAxis::swap(QFontVariableAxis &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QFontVariableAxis4swapERS_(
+    QFontVariableAxis *self,
+    QFontVariableAxis *other) {
+  self->swap(*other);
+}
+
+//  QFontVariableAxis &QFontVariableAxis::operator=(const QFontVariableAxis
+//      &axis)
+extern "C" Q_DECL_EXPORT
+QFontVariableAxis *ritual_ZN17QFontVariableAxisaSERKS_(
+    QFontVariableAxis *self,
+    const QFontVariableAxis *axis) {
+  return &(self->operator=(*axis));
 }
 
 //  QFont::Tag QFontVariableAxis::tag() const
@@ -106,6 +183,12 @@ extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK17QFontVariableAxis9tagStringEv(
     const QFontVariableAxis *self) {
   return new QByteArray(self->tagString());
+}
+
+//  void QFontVariableAxis::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QFontVariableAxis6detachEv(QFontVariableAxis *self) {
+  self->detach();
 }
 
 #if !defined(QT_NO_DEBUG_STREAM)

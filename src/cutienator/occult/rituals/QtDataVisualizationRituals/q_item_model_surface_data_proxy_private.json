@@ -8,6 +8,12 @@
     "ritual_ZNK33QItemModelSurfaceDataProxyPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN33QItemModelSurfaceDataProxyPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN33QItemModelSurfaceDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN33QItemModelSurfaceDataProxyPrivateD1Ev": [
       "nothing", "address"
     ],

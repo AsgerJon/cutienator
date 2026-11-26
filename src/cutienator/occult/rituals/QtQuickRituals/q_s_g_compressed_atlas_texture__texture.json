@@ -8,14 +8,29 @@
     "ritual_ZNK25QSGCompressedAtlasTexture7Texture10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QSGCompressedAtlasTexture7Texture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QSGCompressedAtlasTexture7Texture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN25QSGCompressedAtlasTexture7TextureD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZNK25QSGCompressedAtlasTexture7Texture11textureSizeEv": [
       "address", "address"
+    ],
+    "ritual_ZNK25QSGCompressedAtlasTexture7Texture15hasAlphaChannelEv": [
+      "bool", "address"
     ],
     "ritual_ZNK25QSGCompressedAtlasTexture7Texture10hasMipmapsEv": [
       "bool", "address"
     ],
     "ritual_ZNK25QSGCompressedAtlasTexture7Texture24normalizedTextureSubRectEv": [
       "address", "address"
+    ],
+    "ritual_ZNK25QSGCompressedAtlasTexture7Texture16removedFromAtlasEP23QRhiResourceUpdateBatch": [
+      "address", "address", "address"
     ],
     "ritual_ZNK25QSGCompressedAtlasTexture7Texture4dataEv": [
       "address", "address"
@@ -29,11 +44,17 @@
     "ritual_own_ZNK25QSGCompressedAtlasTexture7Texture11textureSizeEv": [
       "address", "address"
     ],
+    "ritual_own_ZNK25QSGCompressedAtlasTexture7Texture15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
     "ritual_own_ZNK25QSGCompressedAtlasTexture7Texture10hasMipmapsEv": [
       "bool", "address"
     ],
     "ritual_own_ZNK25QSGCompressedAtlasTexture7Texture24normalizedTextureSubRectEv": [
       "address", "address"
+    ],
+    "ritual_own_ZNK25QSGCompressedAtlasTexture7Texture16removedFromAtlasEP23QRhiResourceUpdateBatch": [
+      "address", "address", "address"
     ]
   }
 }

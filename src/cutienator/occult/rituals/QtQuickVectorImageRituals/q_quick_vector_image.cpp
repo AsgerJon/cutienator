@@ -1,6 +1,11 @@
-//  Written by dev_tooling.RitualGenerator from the records of QtQuickVectorI
-//  mage/6.12.0/QtQuickVectorImage/private/qquickvectorimage_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtQuickVectorImage/6.12.0/QtQuickVectorImage/private/qquickvectorimage_p.h,
+//  Qt 6.12.0. Edited by hand on 2026-11-25: the ritual of 'qt_metacast'
+//  is taken out, with its row, as no ritual file has one (the older file
+//  of the package had none). The code compiles alone against Qt's Linux
+//  kit; the test build's message was cut off inside 'qquickanimation_p.h'
+//  (line 28), which this file cannot change. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>

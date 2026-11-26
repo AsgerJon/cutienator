@@ -6,7 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK19BarItemModelHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN19BarItemModelHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19BarItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19BarItemModelHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN19BarItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN19BarItemModelHandler12resolveModelEv": ["nothing", "address"],
     "ritual_take_BarItemModelHandler": [
       "bool", "address", "chars", "address"

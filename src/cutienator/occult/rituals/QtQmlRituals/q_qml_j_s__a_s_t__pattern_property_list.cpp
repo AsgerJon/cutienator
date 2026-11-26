@@ -201,6 +201,41 @@ public:
   }
 };
 
+//  QQmlJS::AST::PatternPropertyList::PatternPropertyList(PatternProperty
+//      *property)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::PatternPropertyList *ritual_ZN6QQmlJS3AST19PatternPropertyListC1EPNS0_15PatternPropertyE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::PatternProperty *property) {
+  return new (pool) CuteQQmlJS_AST_PatternPropertyList(property);
+}
+
+//  QQmlJS::AST::PatternPropertyList::PatternPropertyList(PatternPropertyList
+//      *previous, PatternProperty *property)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::PatternPropertyList *ritual_ZN6QQmlJS3AST19PatternPropertyListC1EPS1_PNS0_15PatternPropertyE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::PatternPropertyList *previous,
+    QQmlJS::AST::PatternProperty *property) {
+  return new (pool) CuteQQmlJS_AST_PatternPropertyList(previous, property);
+}
+
+//  void QQmlJS::AST::PatternPropertyList::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST19PatternPropertyList7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::PatternPropertyList *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
+//  void QQmlJS::AST::PatternPropertyList::boundNames(BoundNames *names)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST19PatternPropertyList10boundNamesEPNS0_10BoundNamesE(
+    QQmlJS::AST::PatternPropertyList *self,
+    QQmlJS::AST::BoundNames *names) {
+  self->boundNames(names);
+}
+
 //  PatternPropertyList *QQmlJS::AST::PatternPropertyList::finish()
 extern "C" Q_DECL_EXPORT
 QQmlJS::AST::PatternPropertyList *ritual_ZN6QQmlJS3AST19PatternPropertyList6finishEv(

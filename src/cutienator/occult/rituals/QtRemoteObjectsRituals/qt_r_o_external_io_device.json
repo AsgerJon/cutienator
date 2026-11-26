@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QtROExternalIoDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QtROExternalIoDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QtROExternalIoDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK20QtROExternalIoDevice10connectionEv": ["address", "address"],
     "ritual_ZNK20QtROExternalIoDevice6isOpenEv": ["bool", "address"],
     "ritual_ZN20QtROExternalIoDevice7doCloseEv": ["nothing", "address"],

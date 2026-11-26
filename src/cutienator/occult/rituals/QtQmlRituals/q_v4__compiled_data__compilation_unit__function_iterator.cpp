@@ -7,6 +7,29 @@
 #include <QtQml/6.12.0/QtQml/private/qv4compileddata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QV4::CompiledData::CompilationUnit::FunctionIterator::FunctionIterator(co
+//      nst CompiledData::Unit *unit, const CompiledObject *object, int
+//      index)
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::CompilationUnit::FunctionIterator *ritual_ZN3QV412CompiledData15CompilationUnit16FunctionIteratorC1EPKNS0_4UnitEPKNS0_6ObjectEi(
+    const QV4::CompiledData::Unit *unit,
+    const QV4::CompiledData::CompilationUnit::CompiledObject *object,
+    int index) {
+  return new QV4::CompiledData::CompilationUnit::FunctionIterator(
+      unit,
+      object,
+      index);
+}
+
+//  const CompiledFunction
+//      *QV4::CompiledData::CompilationUnit::FunctionIterator::operator->()
+//      const
+extern "C" Q_DECL_EXPORT
+const QV4::CompiledData::CompilationUnit::CompiledFunction *ritual_ZNK3QV412CompiledData15CompilationUnit16FunctionIteratorptEv(
+    const QV4::CompiledData::CompilationUnit::FunctionIterator *self) {
+  return self->operator->();
+}
+
 //  void QV4::CompiledData::CompilationUnit::FunctionIterator::operator++()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV412CompiledData15CompilationUnit16FunctionIteratorppEv(

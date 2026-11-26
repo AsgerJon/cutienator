@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from QtGui/6.12.0/QtGui/private/",
+    "qgraphicsframecapturemetal_p_p.h, Qt 6.12.0, from Qt's source:",
+    "Objective-C++, built on Apple's systems only. Kept as it is when",
+    "the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN26QGraphicsFrameCaptureMetalC1Ev": ["address"],
+    "ritual_ZN26QGraphicsFrameCaptureMetal21updateCaptureFileNameEv": [
+      "nothing", "address"
+    ]
+  }
+}

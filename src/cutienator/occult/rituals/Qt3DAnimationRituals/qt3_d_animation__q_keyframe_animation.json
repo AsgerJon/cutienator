@@ -8,14 +8,98 @@
     "ritual_ZNK13Qt3DAnimation18QKeyframeAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation18QKeyframeAnimation2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimationC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QKeyframeAnimation14framePositionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QKeyframeAnimation12keyframeListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QKeyframeAnimation6targetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QKeyframeAnimation6easingEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QKeyframeAnimation10targetNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QKeyframeAnimation9startModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QKeyframeAnimation7endModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation12setKeyframesERK5QListIPN8Qt3DCore10QTransformEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation11addKeyframeEPN8Qt3DCore10QTransformE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation14removeKeyframeEPN8Qt3DCore10QTransformE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation17setFramePositionsERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation9setTargetEPN8Qt3DCore10QTransformE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation9setEasingERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation13setTargetNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation12setStartModeENS0_10RepeatModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation10setEndModeENS0_10RepeatModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation21framePositionsChangedERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation13targetChangedEPN8Qt3DCore10QTransformE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation13easingChangedERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation17targetNameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation16startModeChangedENS0_10RepeatModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation14endModeChangedENS0_10RepeatModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QKeyframeAnimation15updateAnimationEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN13Qt3DAnimation18QKeyframeAnimation6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation18QKeyframeAnimation6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QKeyframeAnimation__QList_float": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QKeyframeAnimation__QList_Qt3DCore_QTransform": [
+      "nothing", "address"
     ]
   }
 }

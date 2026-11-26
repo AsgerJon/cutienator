@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QLineEdit10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QLineEdit11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QLineEdit11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QLineEdit2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QLineEditC1EP7QWidget": ["address", "address"],
     "ritual_ZN9QLineEditC1ERK7QStringP7QWidget": [
@@ -117,6 +121,19 @@
     "ritual_ZN9QLineEdit25createStandardContextMenuEv": [
       "address", "address"
     ],
+    "ritual_ZN9QLineEdit11textChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QLineEdit10textEditedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QLineEdit21cursorPositionChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9QLineEdit13returnPressedEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit15editingFinishedEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit16selectionChangedEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit13inputRejectedEv": ["nothing", "address"],
     "ritual_ZN9QLineEdit15mousePressEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],

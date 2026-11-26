@@ -238,6 +238,14 @@ QFontEngine *ritual_ZN10QFontCache10findEngineERKNS_3KeyE(
   return self->findEngine(*key);
 }
 
+//  void QFontCache::updateHitCountAndTimeStamp(Engine &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QFontCache26updateHitCountAndTimeStampERNS_6EngineE(
+    QFontCache *self,
+    QFontCache::Engine *value) {
+  self->updateHitCountAndTimeStamp(*value);
+}
+
 //  void QFontCache::insertEngine(const Key &key, QFontEngine *engine, bool
 //      insertMulti)
 extern "C" Q_DECL_EXPORT

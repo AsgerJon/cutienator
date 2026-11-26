@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickKeyEvent10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickKeyEvent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickKeyEvent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickKeyEvent2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,9 @@
     "ritual_ZN14QQuickKeyEvent5resetEN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt": [
       "nothing", "address", "int", "int", "int", "text", "bool",
       "unsigned short"
+    ],
+    "ritual_ZN14QQuickKeyEvent5resetERK9QKeyEvent": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK14QQuickKeyEvent3keyEv": ["int", "address"],
     "ritual_ZNK14QQuickKeyEvent4textEv": ["text", "address"],

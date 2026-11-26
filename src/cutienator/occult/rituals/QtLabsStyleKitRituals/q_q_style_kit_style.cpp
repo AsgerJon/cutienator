@@ -228,6 +228,24 @@ const QMetaObject *ritual_ZNK15QQStyleKitStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQStyleKitStyle11qt_metacastEPKc(
+    QQStyleKitStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitStyle::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQStyleKitStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQStyleKitStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQStyleKitStyle2trEPKcS1_i(
@@ -379,6 +397,57 @@ QFont *ritual_ZNK15QQStyleKitStyle18fontForControlTypeEj(
     const QQStyleKitStyle *self,
     QQStyleKitExtendableControlType type) {
   return new QFont(self->fontForControlType(type));
+}
+
+//  void QQStyleKitStyle::paletteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQStyleKitStyle14paletteChangedEv(QQStyleKitStyle *self) {
+  self->paletteChanged();
+}
+
+//  void QQStyleKitStyle::fallbackStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQStyleKitStyle20fallbackStyleChangedEv(
+    QQStyleKitStyle *self) {
+  self->fallbackStyleChanged();
+}
+
+//  void QQStyleKitStyle::lightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQStyleKitStyle12lightChangedEv(QQStyleKitStyle *self) {
+  self->lightChanged();
+}
+
+//  void QQStyleKitStyle::darkChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQStyleKitStyle11darkChangedEv(QQStyleKitStyle *self) {
+  self->darkChanged();
+}
+
+//  void QQStyleKitStyle::themeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQStyleKitStyle12themeChangedEv(QQStyleKitStyle *self) {
+  self->themeChanged();
+}
+
+//  void QQStyleKitStyle::themeNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQStyleKitStyle16themeNameChangedEv(QQStyleKitStyle *self) {
+  self->themeNameChanged();
+}
+
+//  void QQStyleKitStyle::availableThemeNamesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQStyleKitStyle26availableThemeNamesChangedEv(
+    QQStyleKitStyle *self) {
+  self->availableThemeNamesChanged();
+}
+
+//  void QQStyleKitStyle::customThemeNamesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQStyleKitStyle23customThemeNamesChangedEv(
+    QQStyleKitStyle *self) {
+  self->customThemeNamesChanged();
 }
 
 //  void QQStyleKitStyle::componentComplete()

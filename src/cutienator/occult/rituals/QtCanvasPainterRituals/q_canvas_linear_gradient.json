@@ -13,7 +13,17 @@
       "address", "address", "address"
     ],
     "ritual_ZN21QCanvasLinearGradientC1ERKS_": ["address", "address"],
+    "ritual_ZN21QCanvasLinearGradientaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QCanvasLinearGradientC1EOS_": ["address", "address"],
+    "ritual_ZN21QCanvasLinearGradientaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QCanvasLinearGradientD1Ev": ["nothing", "address"],
+    "ritual_ZN21QCanvasLinearGradient4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QCanvasLinearGradient13startPositionEv": [
       "address", "address"
     ],

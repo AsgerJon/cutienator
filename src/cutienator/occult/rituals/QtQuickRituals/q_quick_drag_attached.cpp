@@ -202,6 +202,25 @@ const QMetaObject *ritual_ZNK18QQuickDragAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDragAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickDragAttached11qt_metacastEPKc(
+    QQuickDragAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDragAttached::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickDragAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDragAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDragAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickDragAttached2trEPKcS1_i(
@@ -442,6 +461,96 @@ void ritual_ZN18QQuickDragAttached9startDragEP14QQmlV4Function(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickDragAttached6cancelEv(QQuickDragAttached *self) {
   self->cancel();
+}
+
+//  void QQuickDragAttached::dragStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached11dragStartedEv(QQuickDragAttached *self) {
+  self->dragStarted();
+}
+
+//  void QQuickDragAttached::dragFinished(Qt::DropAction dropAction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached12dragFinishedEN2Qt10DropActionE(
+    QQuickDragAttached *self,
+    Qt::DropAction dropAction) {
+  self->dragFinished(dropAction);
+}
+
+//  void QQuickDragAttached::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached13activeChangedEv(
+    QQuickDragAttached *self) {
+  self->activeChanged();
+}
+
+//  void QQuickDragAttached::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached13sourceChangedEv(
+    QQuickDragAttached *self) {
+  self->sourceChanged();
+}
+
+//  void QQuickDragAttached::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached13targetChangedEv(
+    QQuickDragAttached *self) {
+  self->targetChanged();
+}
+
+//  void QQuickDragAttached::hotSpotChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached14hotSpotChangedEv(
+    QQuickDragAttached *self) {
+  self->hotSpotChanged();
+}
+
+//  void QQuickDragAttached::imageSourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached18imageSourceChangedEv(
+    QQuickDragAttached *self) {
+  self->imageSourceChanged();
+}
+
+//  void QQuickDragAttached::imageSourceSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached22imageSourceSizeChangedEv(
+    QQuickDragAttached *self) {
+  self->imageSourceSizeChanged();
+}
+
+//  void QQuickDragAttached::keysChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached11keysChangedEv(QQuickDragAttached *self) {
+  self->keysChanged();
+}
+
+//  void QQuickDragAttached::mimeDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached15mimeDataChangedEv(
+    QQuickDragAttached *self) {
+  self->mimeDataChanged();
+}
+
+//  void QQuickDragAttached::supportedActionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached23supportedActionsChangedEv(
+    QQuickDragAttached *self) {
+  self->supportedActionsChanged();
+}
+
+//  void QQuickDragAttached::proposedActionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached21proposedActionChangedEv(
+    QQuickDragAttached *self) {
+  self->proposedActionChanged();
+}
+
+//  void QQuickDragAttached::dragTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDragAttached15dragTypeChangedEv(
+    QQuickDragAttached *self) {
+  self->dragTypeChanged();
 }
 
 //  a Python function taken by a CuteQQuickDragAttached, for the function

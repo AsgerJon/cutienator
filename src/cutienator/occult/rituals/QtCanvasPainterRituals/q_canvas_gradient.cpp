@@ -5,6 +5,7 @@
 #include <QtCanvasPainter/qcanvasimage.h>
 #include <QtCanvasPainter/qcanvasbrush.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
 
 //  QCanvasBrush::BrushType QCanvasGradient::type() const
@@ -113,8 +114,91 @@ QCanvasGradient *ritual_ZN15QCanvasGradientC1ERK12QCanvasBrush(
   return new QCanvasGradient(*brush);
 }
 
+//  QCanvasGradient::QCanvasGradient(const QCanvasGradient &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasGradient *ritual_ZN15QCanvasGradientC1ERKS_(
+    const QCanvasGradient *a0) {
+  return new QCanvasGradient(*a0);
+}
+
+//  QCanvasGradient &QCanvasGradient::operator=(const QCanvasGradient &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasGradient *ritual_ZN15QCanvasGradientaSERKS_(
+    QCanvasGradient *self,
+    const QCanvasGradient *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QCanvasGradient::QCanvasGradient(QCanvasGradient &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasGradient *ritual_ZN15QCanvasGradientC1EOS_(QCanvasGradient *a0) {
+  return new QCanvasGradient(std::move(*a0));
+}
+
+//  QCanvasGradient &QCanvasGradient::operator=(QCanvasGradient &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasGradient *ritual_ZN15QCanvasGradientaSEOS_(
+    QCanvasGradient *self,
+    QCanvasGradient *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QCanvasGradient::~QCanvasGradient()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QCanvasGradientD1Ev(QCanvasGradient *self) {
   delete self;
 }
+
+//  void QCanvasGradient::swap(QCanvasGradient &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCanvasGradient4swapERS_(
+    QCanvasGradient *self,
+    QCanvasGradient *other) {
+  self->swap(*other);
+}
+
+//  bool operator==(const QCanvasGradient &lhs, const QCanvasGradient &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK15QCanvasGradientS1_(
+    const QCanvasGradient *lhs,
+    const QCanvasGradient *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QCanvasGradient &lhs, const QCanvasGradient &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK15QCanvasGradientS1_(
+    const QCanvasGradient *lhs,
+    const QCanvasGradient *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+#if !defined(QT_NO_DEBUG_STREAM)
+//  QDebug operator<<(QDebug a0, const QCanvasGradient &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK15QCanvasGradient(
+    const QDebug *a0,
+    const QCanvasGradient *a1) {
+  return new QDebug(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DEBUG_STREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QCanvasGradient &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK15QCanvasGradient(
+    QDataStream *a0,
+    const QCanvasGradient *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QCanvasGradient &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR15QCanvasGradient(
+    QDataStream *a0,
+    QCanvasGradient *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)

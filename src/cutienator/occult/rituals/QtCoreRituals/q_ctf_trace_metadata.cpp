@@ -9,6 +9,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qctf_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+
+//  QCtfTraceMetadata::QCtfTraceMetadata(QCtfTracePointProvider &provider,
+//      const QString &name, const QString &metadata)
+extern "C" Q_DECL_EXPORT
+QCtfTraceMetadata *ritual_ZN17QCtfTraceMetadataC1ER22QCtfTracePointProviderRK7QStringS4_(
+    QCtfTracePointProvider *provider,
+    const QString *name,
+    const QString *metadata) {
+  return new QCtfTraceMetadata(*provider, *name, *metadata);
+}
 
 //  QCtfTraceMetadata::~QCtfTraceMetadata()
 extern "C" Q_DECL_EXPORT

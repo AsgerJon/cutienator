@@ -8,6 +8,9 @@
     "ritual_ZN20QOpcUaElementOperandC1Ev": ["address"],
     "ritual_ZN20QOpcUaElementOperandC1ERKS_": ["address", "address"],
     "ritual_ZN20QOpcUaElementOperandC1Ej": ["address", "unsigned int"],
+    "ritual_ZN20QOpcUaElementOperandaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK20QOpcUaElementOperandcv8QVariantEv": ["address", "address"],
     "ritual_ZN20QOpcUaElementOperandD1Ev": ["nothing", "address"],
     "ritual_ZNK20QOpcUaElementOperand5indexEv": ["unsigned int", "address"],

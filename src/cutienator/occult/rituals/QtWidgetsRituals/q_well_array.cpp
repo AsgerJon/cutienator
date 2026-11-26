@@ -70,6 +70,56 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/dialogs/qcolordialog.cpp, line 166, as _ZN10QWellArray10paintEventEP11QPaintEvent
+inline void QWellArray::paintEvent(QPaintEvent *e)
+{
+    QRect r = e->rect();
+    int cx = r.x();
+    int cy = r.y();
+    int ch = r.height();
+    int cw = r.width();
+    int colfirst = columnAt(cx);
+    int collast = columnAt(cx + cw);
+    int rowfirst = rowAt(cy);
+    int rowlast = rowAt(cy + ch);
+
+    if (isRightToLeft()) {
+        int t = colfirst;
+        colfirst = collast;
+        collast = t;
+    }
+
+    QPainter painter(this);
+    QPainter *p = &painter;
+    QRect rect(0, 0, cellWidth(), cellHeight());
+
+
+    if (collast < 0 || collast >= ncols)
+        collast = ncols-1;
+    if (rowlast < 0 || rowlast >= nrows)
+        rowlast = nrows-1;
+
+    // Go through the rows
+    for (int r = rowfirst; r <= rowlast; ++r) {
+        // get row position and height
+        int rowp = rowY(r);
+
+        // Go through the columns in the row r
+        // if we know from where to where, go through [colfirst, collast],
+        // else go through all of them
+        for (int c = colfirst; c <= collast; ++c) {
+            // get position and width of column c
+            int colp = columnX(c);
+            // Translate painter and draw the cell
+            rect.translate(colp, rowp);
+            paintCell(p, r, c, rect);
+            rect.translate(-colp, -rowp);
+        }
+    }
+}
+
 //  from src/widgets/dialogs/qcolordialog.cpp, line 293, as _ZN10QWellArray10setCurrentEii
 inline void QWellArray::setCurrent(int row, int col)
 {
@@ -115,6 +165,13 @@ inline void QWellArray::setSelected(int row, int col)
 #endif
 }
 
+//  from src/widgets/dialogs/qcolordialog.cpp, line 226, as _ZNK10QWellArray8sizeHintEv
+inline QSize QWellArray::sizeHint() const
+{
+    ensurePolished();
+    return gridSize().boundedTo(QSize(640, 480));
+}
+
 //  from src/widgets/dialogs/qcolordialog.cpp, line 233, as _ZN10QWellArray9paintCellEP8QPainteriiRK5QRect
 inline void QWellArray::paintCell(QPainter* p, int row, int col, const QRect &rect)
 {
@@ -153,13 +210,6 @@ inline void QWellArray::paintCellContents(QPainter *p, int row, int col, const Q
     p->setPen(Qt::black);
     p->drawLine(r.topLeft(), r.bottomRight());
     p->drawLine(r.topRight(), r.bottomLeft());
-}
-
-//  from src/widgets/dialogs/qcolordialog.cpp, line 226, as _ZNK10QWellArray8sizeHintEv
-inline QSize QWellArray::sizeHint() const
-{
-    ensurePolished();
-    return gridSize().boundedTo(QSize(640, 480));
 }
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 274, as _ZN10QWellArray15mousePressEventEP11QMouseEvent
@@ -218,54 +268,6 @@ inline void QWellArray::focusInEvent(QFocusEvent*)
 inline void QWellArray::focusOutEvent(QFocusEvent*)
 {
     updateCell(curRow, curCol);
-}
-
-//  from src/widgets/dialogs/qcolordialog.cpp, line 166, as _ZN10QWellArray10paintEventEP11QPaintEvent
-inline void QWellArray::paintEvent(QPaintEvent *e)
-{
-    QRect r = e->rect();
-    int cx = r.x();
-    int cy = r.y();
-    int ch = r.height();
-    int cw = r.width();
-    int colfirst = columnAt(cx);
-    int collast = columnAt(cx + cw);
-    int rowfirst = rowAt(cy);
-    int rowlast = rowAt(cy + ch);
-
-    if (isRightToLeft()) {
-        int t = colfirst;
-        colfirst = collast;
-        collast = t;
-    }
-
-    QPainter painter(this);
-    QPainter *p = &painter;
-    QRect rect(0, 0, cellWidth(), cellHeight());
-
-
-    if (collast < 0 || collast >= ncols)
-        collast = ncols-1;
-    if (rowlast < 0 || rowlast >= nrows)
-        rowlast = nrows-1;
-
-    // Go through the rows
-    for (int r = rowfirst; r <= rowlast; ++r) {
-        // get row position and height
-        int rowp = rowY(r);
-
-        // Go through the columns in the row r
-        // if we know from where to where, go through [colfirst, collast],
-        // else go through all of them
-        for (int c = colfirst; c <= collast; ++c) {
-            // get position and width of column c
-            int colp = columnX(c);
-            // Translate painter and draw the cell
-            rect.translate(colp, rowp);
-            paintCell(p, r, c, rect);
-            rect.translate(-colp, -rowp);
-        }
-    }
 }
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 383, as _ZN10QWellArray29sendAccessibleChildFocusEventEv
@@ -1279,6 +1281,24 @@ const QMetaObject *ritual_ZNK10QWellArray10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWellArray::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QWellArray11qt_metacastEPKc(
+    QWellArray *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWellArray::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QWellArray11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWellArray *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QWellArray::~QWellArray()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QWellArrayD1Ev(QWellArray *self) {
@@ -1415,6 +1435,61 @@ void ritual_ZN10QWellArray10updateCellEii(
     int row,
     int column) {
   self->updateCell(row, column);
+}
+
+//  void QWellArray::selected(int row, int col)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWellArray8selectedEii(QWellArray *self, int row, int col) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWellArray")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "selected(int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "selected(int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&row)),
+      const_cast<void *>(static_cast<const void *>(&col)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QWellArray::currentChanged(int row, int col)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWellArray14currentChangedEii(
+    QWellArray *self,
+    int row,
+    int col) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWellArray")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "currentChanged(int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "currentChanged(int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&row)),
+      const_cast<void *>(static_cast<const void *>(&col)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QWellArray::paintCell(QPainter *a0, int row, int col, const QRect

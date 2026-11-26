@@ -19,6 +19,15 @@ QOpcUaAddNodeItem *ritual_ZN17QOpcUaAddNodeItemC1ERKS_(
   return new QOpcUaAddNodeItem(*a0);
 }
 
+//  QOpcUaAddNodeItem &QOpcUaAddNodeItem::operator=(const QOpcUaAddNodeItem
+//      &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaAddNodeItem *ritual_ZN17QOpcUaAddNodeItemaSERKS_(
+    QOpcUaAddNodeItem *self,
+    const QOpcUaAddNodeItem *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QOpcUaAddNodeItem::~QOpcUaAddNodeItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QOpcUaAddNodeItemD1Ev(QOpcUaAddNodeItem *self) {
@@ -96,11 +105,26 @@ QOpcUa::NodeClass ritual_ZNK17QOpcUaAddNodeItem9nodeClassEv(
   return self->nodeClass();
 }
 
+//  void QOpcUaAddNodeItem::setNodeClass(const QOpcUa::NodeClass &nodeClass)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QOpcUaAddNodeItem12setNodeClassERKN6QOpcUa9NodeClassE(
+    QOpcUaAddNodeItem *self,
+    const QOpcUa::NodeClass *nodeClass) {
+  self->setNodeClass(*nodeClass);
+}
+
 //  QOpcUaNodeCreationAttributes QOpcUaAddNodeItem::nodeAttributes() const
 extern "C" Q_DECL_EXPORT
 QOpcUaNodeCreationAttributes *ritual_ZNK17QOpcUaAddNodeItem14nodeAttributesEv(
     const QOpcUaAddNodeItem *self) {
   return new QOpcUaNodeCreationAttributes(self->nodeAttributes());
+}
+
+//  QOpcUaNodeCreationAttributes &QOpcUaAddNodeItem::nodeAttributesRef()
+extern "C" Q_DECL_EXPORT
+QOpcUaNodeCreationAttributes *ritual_ZN17QOpcUaAddNodeItem17nodeAttributesRefEv(
+    QOpcUaAddNodeItem *self) {
+  return &(self->nodeAttributesRef());
 }
 
 //  void QOpcUaAddNodeItem::setNodeAttributes(const

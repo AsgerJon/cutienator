@@ -10,12 +10,18 @@
       "address", "address"
     ],
     "ritual_ZN26QProtobufSelfcheckIteratorC1ERKS_": ["address", "address"],
+    "ritual_ZN26QProtobufSelfcheckIteratoraSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QProtobufSelfcheckIteratorcvRPKcEv": ["address", "address"],
     "ritual_ZNK26QProtobufSelfcheckIteratorcvPKcEv": ["chars", "address"],
     "ritual_ZN26QProtobufSelfcheckIteratordeEv": ["char", "address"],
     "ritual_ZNK26QProtobufSelfcheckIterator7isValidEv": ["bool", "address"],
+    "ritual_ZN26QProtobufSelfcheckIteratorppEv": ["address", "address"],
     "ritual_ZN26QProtobufSelfcheckIteratorppEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN26QProtobufSelfcheckIteratormmEv": ["address", "address"],
     "ritual_ZN26QProtobufSelfcheckIteratormmEi": [
       "address", "address", "int"
     ],
@@ -36,6 +42,12 @@
       "bool", "address", "address"
     ],
     "ritual_ZneRK26QProtobufSelfcheckIteratorS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK26QProtobufSelfcheckIteratorRKPKc": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK26QProtobufSelfcheckIteratorRKPKc": [
       "bool", "address", "address"
     ],
     "ritual_ZmiRK26QProtobufSelfcheckIteratorS1_": [

@@ -292,6 +292,25 @@ const QMetaObject *ritual_ZNK18QQuick3DInstancing10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DInstancing::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuick3DInstancing11qt_metacastEPKc(
+    QQuick3DInstancing *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DInstancing::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuick3DInstancing11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DInstancing *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DInstancing::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuick3DInstancing2trEPKcS1_i(
@@ -452,6 +471,55 @@ void ritual_ZN18QQuick3DInstancing22setShadowBoundsMaximumERK9QVector3D(
     QQuick3DInstancing *self,
     const QVector3D *newShadowBoundsMinimum) {
   self->setShadowBoundsMaximum(*newShadowBoundsMinimum);
+}
+
+//  void QQuick3DInstancing::instanceTableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DInstancing20instanceTableChangedEv(
+    QQuick3DInstancing *self) {
+  self->instanceTableChanged();
+}
+
+//  void QQuick3DInstancing::instanceNodeDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DInstancing17instanceNodeDirtyEv(
+    QQuick3DInstancing *self) {
+  self->instanceNodeDirty();
+}
+
+//  void QQuick3DInstancing::instanceCountOverrideChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DInstancing28instanceCountOverrideChangedEv(
+    QQuick3DInstancing *self) {
+  self->instanceCountOverrideChanged();
+}
+
+//  void QQuick3DInstancing::hasTransparencyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DInstancing22hasTransparencyChangedEv(
+    QQuick3DInstancing *self) {
+  self->hasTransparencyChanged();
+}
+
+//  void QQuick3DInstancing::depthSortingEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DInstancing26depthSortingEnabledChangedEv(
+    QQuick3DInstancing *self) {
+  self->depthSortingEnabledChanged();
+}
+
+//  void QQuick3DInstancing::shadowBoundsMinimumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DInstancing26shadowBoundsMinimumChangedEv(
+    QQuick3DInstancing *self) {
+  self->shadowBoundsMinimumChanged();
+}
+
+//  void QQuick3DInstancing::shadowBoundsMaximumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DInstancing26shadowBoundsMaximumChangedEv(
+    QQuick3DInstancing *self) {
+  self->shadowBoundsMaximumChanged();
 }
 
 //  QByteArray QQuick3DInstancing::getInstanceBuffer(int *instanceCount)

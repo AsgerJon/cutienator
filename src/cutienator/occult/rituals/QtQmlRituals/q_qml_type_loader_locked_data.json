@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QQmlTypeLoaderLockedDataC1EPN3QV415ExecutionEngineE": [
+      "address", "address"
+    ],
     "ritual_ZNK24QQmlTypeLoaderLockedData6threadEv": ["address", "address"],
     "ritual_ZNK24QQmlTypeLoaderLockedData6engineEv": ["address", "address"],
     "ritual_ZNK24QQmlTypeLoaderLockedData23isCurrentJsEngineThreadEv": [

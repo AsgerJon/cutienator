@@ -15,6 +15,9 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtNetwork/QSsl>
+#include <QtCore/QString>
 
 //  A QTlsBackend that Python can take functions over in. Every QTlsBackend
 //  Python makes is one. Each function below asks the Python
@@ -29,42 +32,43 @@ typedef QString * (*CuteQTlsBackendCall6)(const void *, int *);
 typedef void * (*CuteQTlsBackendCall7)(const void *, int *);
 typedef void * (*CuteQTlsBackendCall8)(const void *, int *);
 typedef void * (*CuteQTlsBackendCall9)(const void *, int *);
-typedef void * (*CuteQTlsBackendCall10)(const void *, int *);
-typedef int (*CuteQTlsBackendCall11)(const void *, const QString *, int *);
+typedef void * (*CuteQTlsBackendCall10)(const void *, class QDtls *, int, int *);
+typedef void * (*CuteQTlsBackendCall11)(const void *, int *);
 typedef int (*CuteQTlsBackendCall12)(const void *, const QString *, int *);
-typedef QString * (*CuteQTlsBackendCall13)(const void *, int, int *);
+typedef int (*CuteQTlsBackendCall13)(const void *, const QString *, int *);
 typedef QString * (*CuteQTlsBackendCall14)(const void *, int, int *);
-typedef bool (*CuteQTlsBackendCall15)(const void *, int, int *);
-typedef int (*CuteQTlsBackendCall16)(const void *, const QByteArray *, QByteArray *, int *);
+typedef QString * (*CuteQTlsBackendCall15)(const void *, int, int *);
+typedef bool (*CuteQTlsBackendCall16)(const void *, int, int *);
 typedef int (*CuteQTlsBackendCall17)(const void *, const QByteArray *, QByteArray *, int *);
+typedef int (*CuteQTlsBackendCall18)(const void *, const QByteArray *, QByteArray *, int *);
 #if QT_CONFIG(ssl)
-typedef void (*CuteQTlsBackendCall18)(const void *, int *);
+typedef void (*CuteQTlsBackendCall19)(const void *, int *);
 #endif  // QT_CONFIG(ssl)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQTlsBackendCall19)(const void *, QEvent *, int *);
+typedef bool (*CuteQTlsBackendCall20)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQTlsBackendCall20)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQTlsBackendCall21)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQTlsBackendCall21)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQTlsBackendCall22)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQTlsBackendCall22)(const void *, QChildEvent *, int *);
+typedef void (*CuteQTlsBackendCall23)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQTlsBackendCall23)(const void *, QEvent *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQTlsBackendCall24)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQTlsBackendCall24)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTlsBackendCall25)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQTlsBackendCall26)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQTlsBackend : public QTlsBackend {
 public:
   using QTlsBackend::QTlsBackend;
-  void *taken[26] = {};
+  void *taken[27] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK11QTlsBackend7isValidEv")) {
@@ -107,83 +111,87 @@ public:
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsBackend24createDtlsCookieVerifierEv")) {
+    if (!std::strcmp(key, "_ZNK11QTlsBackend21createDtlsCryptographEP5QDtlsi")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsBackend20curveIdFromShortNameERK7QString")) {
+    if (!std::strcmp(key, "_ZNK11QTlsBackend24createDtlsCookieVerifierEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsBackend19curveIdFromLongNameERK7QString")) {
+    if (!std::strcmp(key, "_ZNK11QTlsBackend20curveIdFromShortNameERK7QString")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsBackend14shortNameForIdEi")) {
+    if (!std::strcmp(key, "_ZNK11QTlsBackend19curveIdFromLongNameERK7QString")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsBackend13longNameForIdEi")) {
+    if (!std::strcmp(key, "_ZNK11QTlsBackend14shortNameForIdEi")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsBackend15isTlsNamedCurveEi")) {
+    if (!std::strcmp(key, "_ZNK11QTlsBackend13longNameForIdEi")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsBackend19dhParametersFromDerERK10QByteArrayPS0_")) {
+    if (!std::strcmp(key, "_ZNK11QTlsBackend15isTlsNamedCurveEi")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsBackend19dhParametersFromPemERK10QByteArrayPS0_")) {
+    if (!std::strcmp(key, "_ZNK11QTlsBackend19dhParametersFromDerERK10QByteArrayPS0_")) {
       taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QTlsBackend19dhParametersFromPemERK10QByteArrayPS0_")) {
+      taken[18] = call;
       return true;
     }
 #if QT_CONFIG(ssl)
     if (!std::strcmp(key, "_ZN11QTlsBackend26forceAutotestSecurityLevelEv")) {
-      taken[18] = call;
+      taken[19] = call;
       return true;
     }
 #endif  // QT_CONFIG(ssl)
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[19] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[20] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[21] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[22] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[23] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[24] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[25] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[26] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -313,12 +321,27 @@ public:
     return QTlsBackend::createTlsCryptograph();
   }
 
-  //  QTlsPrivate::DtlsCookieVerifier
-  //      *QTlsBackend::createDtlsCookieVerifier() const
-  QTlsPrivate::DtlsCookieVerifier *createDtlsCookieVerifier() const override {
+  //  QTlsPrivate::DtlsCryptograph
+  //      *QTlsBackend::createDtlsCryptograph(class QDtls *qObject, int
+  //      mode) const
+  QTlsPrivate::DtlsCryptograph *createDtlsCryptograph(
+      class QDtls *qObject,
+      int mode) const override {
     if (taken[10]) {
       int handled = 0;
       CuteQTlsBackendCall10 call = reinterpret_cast<CuteQTlsBackendCall10>(taken[10]);
+      void * given = call(this, qObject, mode, &handled);
+      if (handled) return static_cast<QTlsPrivate::DtlsCryptograph *>(given);
+    }
+    return QTlsBackend::createDtlsCryptograph(qObject, mode);
+  }
+
+  //  QTlsPrivate::DtlsCookieVerifier
+  //      *QTlsBackend::createDtlsCookieVerifier() const
+  QTlsPrivate::DtlsCookieVerifier *createDtlsCookieVerifier() const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQTlsBackendCall11 call = reinterpret_cast<CuteQTlsBackendCall11>(taken[11]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QTlsPrivate::DtlsCookieVerifier *>(given);
     }
@@ -327,9 +350,9 @@ public:
 
   //  int QTlsBackend::curveIdFromShortName(const QString &name) const
   int curveIdFromShortName(const QString &name) const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQTlsBackendCall11 call = reinterpret_cast<CuteQTlsBackendCall11>(taken[11]);
+      CuteQTlsBackendCall12 call = reinterpret_cast<CuteQTlsBackendCall12>(taken[12]);
       int given = call(this, &name, &handled);
       if (handled) return given;
     }
@@ -338,9 +361,9 @@ public:
 
   //  int QTlsBackend::curveIdFromLongName(const QString &name) const
   int curveIdFromLongName(const QString &name) const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQTlsBackendCall12 call = reinterpret_cast<CuteQTlsBackendCall12>(taken[12]);
+      CuteQTlsBackendCall13 call = reinterpret_cast<CuteQTlsBackendCall13>(taken[13]);
       int given = call(this, &name, &handled);
       if (handled) return given;
     }
@@ -349,9 +372,9 @@ public:
 
   //  QString QTlsBackend::shortNameForId(int cid) const
   QString shortNameForId(int cid) const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQTlsBackendCall13 call = reinterpret_cast<CuteQTlsBackendCall13>(taken[13]);
+      CuteQTlsBackendCall14 call = reinterpret_cast<CuteQTlsBackendCall14>(taken[14]);
       QString * given = call(this, cid, &handled);
       if (handled && given) {
         QString back(*given);
@@ -364,9 +387,9 @@ public:
 
   //  QString QTlsBackend::longNameForId(int cid) const
   QString longNameForId(int cid) const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQTlsBackendCall14 call = reinterpret_cast<CuteQTlsBackendCall14>(taken[14]);
+      CuteQTlsBackendCall15 call = reinterpret_cast<CuteQTlsBackendCall15>(taken[15]);
       QString * given = call(this, cid, &handled);
       if (handled && given) {
         QString back(*given);
@@ -379,9 +402,9 @@ public:
 
   //  bool QTlsBackend::isTlsNamedCurve(int cid) const
   bool isTlsNamedCurve(int cid) const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQTlsBackendCall15 call = reinterpret_cast<CuteQTlsBackendCall15>(taken[15]);
+      CuteQTlsBackendCall16 call = reinterpret_cast<CuteQTlsBackendCall16>(taken[16]);
       bool given = call(this, cid, &handled);
       if (handled) return given;
     }
@@ -393,9 +416,9 @@ public:
   int dhParametersFromDer(
       const QByteArray &derData,
       QByteArray *data) const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQTlsBackendCall16 call = reinterpret_cast<CuteQTlsBackendCall16>(taken[16]);
+      CuteQTlsBackendCall17 call = reinterpret_cast<CuteQTlsBackendCall17>(taken[17]);
       int given = call(this, &derData, data, &handled);
       if (handled) return given;
     }
@@ -407,9 +430,9 @@ public:
   int dhParametersFromPem(
       const QByteArray &pemData,
       QByteArray *data) const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQTlsBackendCall17 call = reinterpret_cast<CuteQTlsBackendCall17>(taken[17]);
+      CuteQTlsBackendCall18 call = reinterpret_cast<CuteQTlsBackendCall18>(taken[18]);
       int given = call(this, &pemData, data, &handled);
       if (handled) return given;
     }
@@ -419,9 +442,9 @@ public:
 #if QT_CONFIG(ssl)
   //  void QTlsBackend::forceAutotestSecurityLevel()
   void forceAutotestSecurityLevel() override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQTlsBackendCall18 call = reinterpret_cast<CuteQTlsBackendCall18>(taken[18]);
+      CuteQTlsBackendCall19 call = reinterpret_cast<CuteQTlsBackendCall19>(taken[19]);
       call(this, &handled);
       if (handled) return;
     }
@@ -432,9 +455,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQTlsBackendCall19 call = reinterpret_cast<CuteQTlsBackendCall19>(taken[19]);
+      CuteQTlsBackendCall20 call = reinterpret_cast<CuteQTlsBackendCall20>(taken[20]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -445,9 +468,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQTlsBackendCall20 call = reinterpret_cast<CuteQTlsBackendCall20>(taken[20]);
+      CuteQTlsBackendCall21 call = reinterpret_cast<CuteQTlsBackendCall21>(taken[21]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -458,9 +481,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQTlsBackendCall21 call = reinterpret_cast<CuteQTlsBackendCall21>(taken[21]);
+      CuteQTlsBackendCall22 call = reinterpret_cast<CuteQTlsBackendCall22>(taken[22]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -471,9 +494,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[22]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQTlsBackendCall22 call = reinterpret_cast<CuteQTlsBackendCall22>(taken[22]);
+      CuteQTlsBackendCall23 call = reinterpret_cast<CuteQTlsBackendCall23>(taken[23]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -484,9 +507,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[23]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQTlsBackendCall23 call = reinterpret_cast<CuteQTlsBackendCall23>(taken[23]);
+      CuteQTlsBackendCall24 call = reinterpret_cast<CuteQTlsBackendCall24>(taken[24]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -497,9 +520,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[24]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQTlsBackendCall24 call = reinterpret_cast<CuteQTlsBackendCall24>(taken[24]);
+      CuteQTlsBackendCall25 call = reinterpret_cast<CuteQTlsBackendCall25>(taken[25]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -510,9 +533,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[25]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQTlsBackendCall25 call = reinterpret_cast<CuteQTlsBackendCall25>(taken[25]);
+      CuteQTlsBackendCall26 call = reinterpret_cast<CuteQTlsBackendCall26>(taken[26]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -526,6 +549,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK11QTlsBackend10metaObjectEv(
     const QTlsBackend *self) {
   return self->metaObject();
+}
+
+//  void *QTlsBackend::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QTlsBackend11qt_metacastEPKc(
+    QTlsBackend *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTlsBackend::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QTlsBackend11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTlsBackend *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QTlsBackend::tr(const char *s, const char *c, int n)
@@ -589,6 +630,27 @@ QString *ritual_ZNK11QTlsBackend11backendNameEv(const QTlsBackend *self) {
   return new QString(self->backendName());
 }
 
+//  QList<QSsl::SslProtocol> QTlsBackend::supportedProtocols() const
+extern "C" Q_DECL_EXPORT
+QList<QSsl::SslProtocol> *ritual_ZNK11QTlsBackend18supportedProtocolsEv(
+    const QTlsBackend *self) {
+  return new QList<QSsl::SslProtocol>(self->supportedProtocols());
+}
+
+//  QList<QSsl::SupportedFeature> QTlsBackend::supportedFeatures() const
+extern "C" Q_DECL_EXPORT
+QList<QSsl::SupportedFeature> *ritual_ZNK11QTlsBackend17supportedFeaturesEv(
+    const QTlsBackend *self) {
+  return new QList<QSsl::SupportedFeature>(self->supportedFeatures());
+}
+
+//  QList<QSsl::ImplementedClass> QTlsBackend::implementedClasses() const
+extern "C" Q_DECL_EXPORT
+QList<QSsl::ImplementedClass> *ritual_ZNK11QTlsBackend18implementedClassesEv(
+    const QTlsBackend *self) {
+  return new QList<QSsl::ImplementedClass>(self->implementedClasses());
+}
+
 //  QTlsPrivate::TlsKey *QTlsBackend::createKey() const
 extern "C" Q_DECL_EXPORT
 QTlsPrivate::TlsKey *ritual_ZNK11QTlsBackend9createKeyEv(
@@ -617,12 +679,53 @@ QTlsPrivate::TlsCryptograph *ritual_ZNK11QTlsBackend20createTlsCryptographEv(
   return self->createTlsCryptograph();
 }
 
+//  QTlsPrivate::DtlsCryptograph *QTlsBackend::createDtlsCryptograph(class
+//      QDtls *qObject, int mode) const
+extern "C" Q_DECL_EXPORT
+QTlsPrivate::DtlsCryptograph *ritual_ZNK11QTlsBackend21createDtlsCryptographEP5QDtlsi(
+    const QTlsBackend *self,
+    class QDtls *qObject,
+    int mode) {
+  return self->createDtlsCryptograph(qObject, mode);
+}
+
 //  QTlsPrivate::DtlsCookieVerifier *QTlsBackend::createDtlsCookieVerifier()
 //      const
 extern "C" Q_DECL_EXPORT
 QTlsPrivate::DtlsCookieVerifier *ritual_ZNK11QTlsBackend24createDtlsCookieVerifierEv(
     const QTlsBackend *self) {
   return self->createDtlsCookieVerifier();
+}
+
+//  QTlsPrivate::X509ChainVerifyPtr QTlsBackend::X509Verifier() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK11QTlsBackend12X509VerifierEv(const QTlsBackend *self) {
+  return reinterpret_cast<void *>(self->X509Verifier());
+}
+
+//  QTlsPrivate::X509PemReaderPtr QTlsBackend::X509PemReader() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK11QTlsBackend13X509PemReaderEv(const QTlsBackend *self) {
+  return reinterpret_cast<void *>(self->X509PemReader());
+}
+
+//  QTlsPrivate::X509DerReaderPtr QTlsBackend::X509DerReader() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK11QTlsBackend13X509DerReaderEv(const QTlsBackend *self) {
+  return reinterpret_cast<void *>(self->X509DerReader());
+}
+
+//  QTlsPrivate::X509Pkcs12ReaderPtr QTlsBackend::X509Pkcs12Reader() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK11QTlsBackend16X509Pkcs12ReaderEv(const QTlsBackend *self) {
+  return reinterpret_cast<void *>(self->X509Pkcs12Reader());
+}
+
+//  QList<int> QTlsBackend::ellipticCurvesIds() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK11QTlsBackend17ellipticCurvesIdsEv(
+    const QTlsBackend *self) {
+  return new QList<int>(self->ellipticCurvesIds());
 }
 
 //  int QTlsBackend::curveIdFromShortName(const QString &name) const
@@ -708,6 +811,45 @@ QTlsBackend *ritual_ZN11QTlsBackend11findBackendERK7QString(
 extern "C" Q_DECL_EXPORT
 QTlsBackend *ritual_ZN11QTlsBackend18activeOrAnyBackendEv() {
   return QTlsBackend::activeOrAnyBackend();
+}
+
+//  QList<QSsl::SslProtocol> QTlsBackend::supportedProtocols(const QString
+//      &backendName)
+extern "C" Q_DECL_EXPORT
+QList<QSsl::SslProtocol> *ritual_ZN11QTlsBackend18supportedProtocolsERK7QString(
+    const QString *backendName) {
+  return new QList<QSsl::SslProtocol>(
+      QTlsBackend::supportedProtocols(
+          *backendName));
+}
+
+//  QList<QSsl::SupportedFeature> QTlsBackend::supportedFeatures(const
+//      QString &backendName)
+extern "C" Q_DECL_EXPORT
+QList<QSsl::SupportedFeature> *ritual_ZN11QTlsBackend17supportedFeaturesERK7QString(
+    const QString *backendName) {
+  return new QList<QSsl::SupportedFeature>(
+      QTlsBackend::supportedFeatures(
+          *backendName));
+}
+
+//  QList<QSsl::ImplementedClass> QTlsBackend::implementedClasses(const
+//      QString &backendName)
+extern "C" Q_DECL_EXPORT
+QList<QSsl::ImplementedClass> *ritual_ZN11QTlsBackend18implementedClassesERK7QString(
+    const QString *backendName) {
+  return new QList<QSsl::ImplementedClass>(
+      QTlsBackend::implementedClasses(
+          *backendName));
+}
+
+//  void QTlsBackend::resetBackend(QSslKey &key, QTlsPrivate::TlsKey
+//      *keyBackend)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTlsBackend12resetBackendER7QSslKeyPN11QTlsPrivate6TlsKeyE(
+    QSslKey *key,
+    QTlsPrivate::TlsKey *keyBackend) {
+  QTlsBackend::resetBackend(*key, keyBackend);
 }
 
 //  void QTlsBackend::setupClientPskAuth(QSslPreSharedKeyAuthenticator *auth,
@@ -867,6 +1009,39 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QTlsBackend26rootLoadingOnDemandAllowedERK17QSslConfiguration(
     const QSslConfiguration *configuration) {
   return QTlsBackend::rootLoadingOnDemandAllowed(*configuration);
+}
+#endif  // QT_CONFIG(ssl)
+
+#if QT_CONFIG(ssl)
+//  void QTlsBackend::storePeerCertificate(QSslConfiguration &configuration,
+//      const QSslCertificate &peerCert)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTlsBackend20storePeerCertificateER17QSslConfigurationRK15QSslCertificate(
+    QSslConfiguration *configuration,
+    const QSslCertificate *peerCert) {
+  QTlsBackend::storePeerCertificate(*configuration, *peerCert);
+}
+#endif  // QT_CONFIG(ssl)
+
+#if QT_CONFIG(ssl)
+//  void QTlsBackend::storePeerCertificateChain(QSslConfiguration
+//      &configuration, const QList<QSslCertificate> &peerCertificateChain)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTlsBackend25storePeerCertificateChainER17QSslConfigurationRK5QListI15QSslCertificateE(
+    QSslConfiguration *configuration,
+    const QList<QSslCertificate> *peerCertificateChain) {
+  QTlsBackend::storePeerCertificateChain(
+      *configuration,
+      *peerCertificateChain);
+}
+#endif  // QT_CONFIG(ssl)
+
+#if QT_CONFIG(ssl)
+//  void QTlsBackend::clearPeerCertificates(QSslConfiguration &configuration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTlsBackend21clearPeerCertificatesER17QSslConfiguration(
+    QSslConfiguration *configuration) {
+  QTlsBackend::clearPeerCertificates(*configuration);
 }
 #endif  // QT_CONFIG(ssl)
 
@@ -1057,6 +1232,16 @@ QTlsPrivate::TlsCryptograph *ritual_own_ZNK11QTlsBackend20createTlsCryptographEv
   return self->QTlsBackend::createTlsCryptograph();
 }
 
+//  QTlsPrivate::DtlsCryptograph *QTlsBackend::createDtlsCryptograph(class
+//      QDtls *qObject, int mode) const
+extern "C" Q_DECL_EXPORT
+QTlsPrivate::DtlsCryptograph *ritual_own_ZNK11QTlsBackend21createDtlsCryptographEP5QDtlsi(
+    const QTlsBackend *self,
+    class QDtls *qObject,
+    int mode) {
+  return self->QTlsBackend::createDtlsCryptograph(qObject, mode);
+}
+
 //  QTlsPrivate::DtlsCookieVerifier *QTlsBackend::createDtlsCookieVerifier()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -1133,3 +1318,30 @@ void ritual_own_ZN11QTlsBackend26forceAutotestSecurityLevelEv(
   self->QTlsBackend::forceAutotestSecurityLevel();
 }
 #endif  // QT_CONFIG(ssl)
+
+//  a QList<QSsl::SslProtocol> a ritual of QTlsBackend gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTlsBackend__QList_QSsl_SslProtocol(
+    QList<QSsl::SslProtocol> *self) {
+  delete self;
+}
+
+//  a QList<QSsl::SupportedFeature> a ritual of QTlsBackend gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTlsBackend__QList_QSsl_SupportedFeature(
+    QList<QSsl::SupportedFeature> *self) {
+  delete self;
+}
+
+//  a QList<QSsl::ImplementedClass> a ritual of QTlsBackend gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTlsBackend__QList_QSsl_ImplementedClass(
+    QList<QSsl::ImplementedClass> *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of QTlsBackend gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTlsBackend__QList_int(QList<int> *self) {
+  delete self;
+}

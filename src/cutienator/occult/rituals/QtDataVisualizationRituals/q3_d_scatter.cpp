@@ -597,6 +597,24 @@ const QMetaObject *ritual_ZNK10Q3DScatter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DScatter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Q3DScatter11qt_metacastEPKc(
+    Q3DScatter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DScatter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Q3DScatter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DScatter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DScatter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Q3DScatter2trEPKcS1_i(
@@ -713,6 +731,38 @@ extern "C" Q_DECL_EXPORT
 QScatter3DSeries *ritual_ZNK10Q3DScatter14selectedSeriesEv(
     const Q3DScatter *self) {
   return self->selectedSeries();
+}
+
+//  void Q3DScatter::axisXChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Q3DScatter12axisXChangedEP12QValue3DAxis(
+    Q3DScatter *self,
+    QValue3DAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void Q3DScatter::axisYChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Q3DScatter12axisYChangedEP12QValue3DAxis(
+    Q3DScatter *self,
+    QValue3DAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void Q3DScatter::axisZChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Q3DScatter12axisZChangedEP12QValue3DAxis(
+    Q3DScatter *self,
+    QValue3DAxis *axis) {
+  self->axisZChanged(axis);
+}
+
+//  void Q3DScatter::selectedSeriesChanged(QScatter3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Q3DScatter21selectedSeriesChangedEP16QScatter3DSeries(
+    Q3DScatter *self,
+    QScatter3DSeries *series) {
+  self->selectedSeriesChanged(series);
 }
 
 //  Q3DScatterPrivate *Q3DScatter::dptr()

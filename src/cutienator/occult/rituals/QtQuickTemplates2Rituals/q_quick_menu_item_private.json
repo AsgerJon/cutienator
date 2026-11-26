@@ -19,6 +19,9 @@
     "ritual_ZN21QQuickMenuItemPrivate13updateEnabledEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QQuickMenuItemPrivate11cancelArrowEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK21QQuickMenuItemPrivate14acceptKeyClickEN2Qt3KeyE": [
       "bool", "address", "int"
     ],

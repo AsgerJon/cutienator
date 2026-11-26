@@ -23,6 +23,15 @@ QOpcUaElementOperand *ritual_ZN20QOpcUaElementOperandC1Ej(quint32 index) {
   return new QOpcUaElementOperand(index);
 }
 
+//  QOpcUaElementOperand &QOpcUaElementOperand::operator=(const
+//      QOpcUaElementOperand &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaElementOperand *ritual_ZN20QOpcUaElementOperandaSERKS_(
+    QOpcUaElementOperand *self,
+    const QOpcUaElementOperand *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QVariant QOpcUaElementOperand::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK20QOpcUaElementOperandcv8QVariantEv(

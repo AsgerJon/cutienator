@@ -10,11 +10,18 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qcssparser_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 
 //  QCss::Symbol::Symbol()
 extern "C" Q_DECL_EXPORT
 QCss::Symbol *ritual_ZN4QCss6SymbolC1Ev() {
   return new QCss::Symbol();
+}
+
+//  QString QCss::Symbol::lexem() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK4QCss6Symbol5lexemEv(const QCss::Symbol *self) {
+  return new QString(self->lexem());
 }
 
 //  QCss::Symbol::~Symbol()

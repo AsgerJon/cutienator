@@ -137,6 +137,12 @@ public:
 #endif  // QT_CONFIG(accessibility)
 };
 
+//  QAccessibleHyperlinkInterface::QAccessibleHyperlinkInterface()
+extern "C" Q_DECL_EXPORT
+QAccessibleHyperlinkInterface *ritual_ZN29QAccessibleHyperlinkInterfaceC1Ev() {
+  return new CuteQAccessibleHyperlinkInterface();
+}
+
 //  QAccessibleHyperlinkInterface::~QAccessibleHyperlinkInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QAccessibleHyperlinkInterfaceD1Ev(

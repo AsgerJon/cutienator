@@ -184,6 +184,109 @@ const QMetaObject *ritual_ZNK14QScxmlInternal21StateMachineInfoProxy10metaObject
   return self->metaObject();
 }
 
+//  void *QScxmlInternal::StateMachineInfoProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QScxmlInternal21StateMachineInfoProxy11qt_metacastEPKc(
+    QScxmlInternal::StateMachineInfoProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScxmlInternal::StateMachineInfoProxy::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QScxmlInternal21StateMachineInfoProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScxmlInternal::StateMachineInfoProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QScxmlInternal::StateMachineInfoProxy::statesEntered(const
+//      QList<QScxmlStateMachineInfo::StateId> &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScxmlInternal21StateMachineInfoProxy13statesEnteredERK5QListIiE(
+    QScxmlInternal::StateMachineInfoProxy *self,
+    const QList<QScxmlStateMachineInfo::StateId> *states) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QScxmlInternal::StateMachineInfoProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "statesEntered(const QList<QScxmlStateMachineInfo::StateId> &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "statesEntered(const QList<QScxmlStateMachineInfo::StateId> &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(states)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QScxmlInternal::StateMachineInfoProxy::statesExited(const
+//      QList<QScxmlStateMachineInfo::StateId> &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScxmlInternal21StateMachineInfoProxy12statesExitedERK5QListIiE(
+    QScxmlInternal::StateMachineInfoProxy *self,
+    const QList<QScxmlStateMachineInfo::StateId> *states) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QScxmlInternal::StateMachineInfoProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "statesExited(const QList<QScxmlStateMachineInfo::StateId> &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "statesExited(const QList<QScxmlStateMachineInfo::StateId> &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(states)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QScxmlInternal::StateMachineInfoProxy::transitionsTriggered(const
+//      QList<QScxmlStateMachineInfo::TransitionId> &transitions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScxmlInternal21StateMachineInfoProxy20transitionsTriggeredERK5QListIiE(
+    QScxmlInternal::StateMachineInfoProxy *self,
+    const QList<QScxmlStateMachineInfo::TransitionId> *transitions) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QScxmlInternal::StateMachineInfoProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "transitionsTriggered(const QList<QScxmlStateMachineInfo::TransitionId> &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "transitionsTriggered(const QList<QScxmlStateMachineInfo::TransitionId> &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(transitions)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  a Python function taken by a CuteQScxmlInternal_StateMachineInfoProxy,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT

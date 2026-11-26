@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmlpropertydata_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "QtQml/6.12.0/QtQml/private/qqmlpropertydata_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK16QQmlPropertyDataeqERKS_": ["bool", "address", "address"],
@@ -110,6 +110,12 @@
     "ritual_ZN16QQmlPropertyData19setMetaObjectOffsetEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK16QQmlPropertyData22staticMetaCallFunctionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQmlPropertyData28trySetStaticMetaCallFunctionEPFvP7QObjectN11QMetaObject4CallEiPPvEj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
     "ritual_ZNK16QQmlPropertyData21relativePropertyIndexEv": [
       "unsigned short", "address"
     ],
@@ -131,6 +137,15 @@
     "ritual_ZN16QQmlPropertyData16markAsOverrideOfEPS_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK16QQmlPropertyData12readPropertyEP7QObjectPv": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData20readPropertyWithArgsEP7QObjectPPv": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData13writePropertyEP7QObjectPv6QFlagsINS_9WriteFlagEE": [
+      "bool", "address", "address", "address", "int"
+    ],
     "ritual_ZNK16QQmlPropertyData13resetPropertyEP7QObject6QFlagsINS_9WriteFlagEE": [
       "bool", "address", "address", "int"
     ],
@@ -139,6 +154,21 @@
     ],
     "ritual_ZN16QQmlPropertyData18defaultSignalFlagsEv": ["address"],
     "ritual_ZN16QQmlPropertyData16defaultSlotFlagsEv": ["address"],
-    "ritual_ZN16QQmlPropertyDataD1Ev": ["nothing", "address"]
+    "ritual_ZN16QQmlPropertyDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE0EEEvP7QObjectiPPv": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE1EEEvP7QObjectiPPv": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE2EEEvP7QObjectiPPv": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE3EEEvP7QObjectiPPv": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE8EEEvP7QObjectiPPv": [
+      "nothing", "address", "address", "int", "address"
+    ]
   }
 }

@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DInput/Qt3DInput>
 
 //  A Qt3DInput::Input::Quick::Quick3DInputChord that Python can take functions over in. Every Qt3DInput::Input::Quick::Quick3DInputChord
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,27 @@ const QMetaObject *ritual_ZNK9Qt3DInput5Input5Quick17Quick3DInputChord10metaObje
   return self->metaObject();
 }
 
+//  void *Qt3DInput::Input::Quick::Quick3DInputChord::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput5Input5Quick17Quick3DInputChord11qt_metacastEPKc(
+    Qt3DInput::Input::Quick::Quick3DInputChord *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      Qt3DInput::Input::Quick::Quick3DInputChord::qt_metacall(QMetaObject::
+//      Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput5Input5Quick17Quick3DInputChord11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::Input::Quick::Quick3DInputChord *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::Input::Quick::Quick3DInputChord::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -199,12 +222,29 @@ QString *ritual_ZN9Qt3DInput5Input5Quick17Quick3DInputChord2trEPKcS4_i(
           n));
 }
 
+//  Qt3DInput::Input::Quick::Quick3DInputChord::Quick3DInputChord(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::Quick::Quick3DInputChord *ritual_ZN9Qt3DInput5Input5Quick17Quick3DInputChordC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DInput_Input_Quick_Quick3DInputChord(parent);
+}
+
 //  QInputChord *Qt3DInput::Input::Quick::Quick3DInputChord::parentChord()
 //      const
 extern "C" Q_DECL_EXPORT
 Qt3DInput::QInputChord *ritual_ZNK9Qt3DInput5Input5Quick17Quick3DInputChord11parentChordEv(
     const Qt3DInput::Input::Quick::Quick3DInputChord *self) {
   return self->parentChord();
+}
+
+//  QQmlListProperty<QAbstractActionInput>
+//      Qt3DInput::Input::Quick::Quick3DInputChord::qmlActionInputs()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DInput::QAbstractActionInput> *ritual_ZN9Qt3DInput5Input5Quick17Quick3DInputChord15qmlActionInputsEv(
+    Qt3DInput::Input::Quick::Quick3DInputChord *self) {
+  return new QQmlListProperty<Qt3DInput::QAbstractActionInput>(
+      self->qmlActionInputs());
 }
 
 //  a Python function taken by a CuteQt3DInput_Input_Quick_Quick3DInputChord,
@@ -215,4 +255,12 @@ bool ritual_take_Qt3DInput_Input_Quick_Quick3DInputChord(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_Input_Quick_Quick3DInputChord *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DInput::QAbstractActionInput> a ritual of
+//      Qt3DInput::Input::Quick::Quick3DInputChord gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_Input_Quick_Quick3DInputChord__QQmlListProperty_Qt3DInput_QAbstractActionInput(
+    QQmlListProperty<Qt3DInput::QAbstractActionInput> *self) {
+  delete self;
 }

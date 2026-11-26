@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickWheelHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickWheelHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickWheelHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickWheelHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -50,8 +56,41 @@
     "ritual_ZN18QQuickWheelHandler11setBlockingEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN18QQuickWheelHandler5wheelEP16QQuickWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler17invertibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler20activeTimeoutChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler15rotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler20rotationScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler15propertyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler28targetScaleMultiplierChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler34targetTransformAroundCursorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler15blockingChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN18QQuickWheelHandler17wantsPointerEventEP13QPointerEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler16handleEventPointEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN18QQuickWheelHandler15onTargetChangedEP10QQuickItem": [
       "nothing", "address", "address"

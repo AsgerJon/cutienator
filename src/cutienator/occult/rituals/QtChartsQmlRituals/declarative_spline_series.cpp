@@ -12,12 +12,33 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  const QMetaObject *DeclarativeSplineSeries::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK23DeclarativeSplineSeries10metaObjectEv(
     const DeclarativeSplineSeries *self) {
   return self->metaObject();
+}
+
+//  void *DeclarativeSplineSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23DeclarativeSplineSeries11qt_metacastEPKc(
+    DeclarativeSplineSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeSplineSeries::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23DeclarativeSplineSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeSplineSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString DeclarativeSplineSeries::tr(const char *s, const char *c, int n)
@@ -178,6 +199,13 @@ void ritual_ZN23DeclarativeSplineSeries11setCapStyleEN2Qt11PenCapStyleE(
   self->setCapStyle(capStyle);
 }
 
+//  QQmlListProperty<QObject> DeclarativeSplineSeries::declarativeChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN23DeclarativeSplineSeries19declarativeChildrenEv(
+    DeclarativeSplineSeries *self) {
+  return new QQmlListProperty<QObject>(self->declarativeChildren());
+}
+
 //  void DeclarativeSplineSeries::classBegin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23DeclarativeSplineSeries10classBeginEv(
@@ -274,12 +302,101 @@ QPointF *ritual_ZN23DeclarativeSplineSeries2atEi(
   return new QPointF(self->at(index));
 }
 
+//  void DeclarativeSplineSeries::countChanged(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries12countChangedEi(
+    DeclarativeSplineSeries *self,
+    int count) {
+  self->countChanged(count);
+}
+
+//  void DeclarativeSplineSeries::axisXChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries12axisXChangedEP13QAbstractAxis(
+    DeclarativeSplineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeSplineSeries::axisYChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries12axisYChangedEP13QAbstractAxis(
+    DeclarativeSplineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeSplineSeries::axisXTopChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeSplineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void DeclarativeSplineSeries::axisYRightChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeSplineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
+}
+
+//  void DeclarativeSplineSeries::axisAngularChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries18axisAngularChangedEP13QAbstractAxis(
+    DeclarativeSplineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisAngularChanged(axis);
+}
+
+//  void DeclarativeSplineSeries::axisRadialChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries17axisRadialChangedEP13QAbstractAxis(
+    DeclarativeSplineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisRadialChanged(axis);
+}
+
+//  void DeclarativeSplineSeries::widthChanged(qreal width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries12widthChangedEd(
+    DeclarativeSplineSeries *self,
+    qreal width) {
+  self->widthChanged(width);
+}
+
+//  void DeclarativeSplineSeries::styleChanged(Qt::PenStyle style)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries12styleChangedEN2Qt8PenStyleE(
+    DeclarativeSplineSeries *self,
+    Qt::PenStyle style) {
+  self->styleChanged(style);
+}
+
+//  void DeclarativeSplineSeries::capStyleChanged(Qt::PenCapStyle capStyle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries15capStyleChangedEN2Qt11PenCapStyleE(
+    DeclarativeSplineSeries *self,
+    Qt::PenCapStyle capStyle) {
+  self->capStyleChanged(capStyle);
+}
+
 //  void DeclarativeSplineSeries::handleCountChanged(int index)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23DeclarativeSplineSeries18handleCountChangedEi(
     DeclarativeSplineSeries *self,
     int index) {
   self->handleCountChanged(index);
+}
+
+//  void DeclarativeSplineSeries::appendDeclarativeChildren(QQmlListProperty<
+//      QObject> *list, QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeSplineSeries25appendDeclarativeChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  DeclarativeSplineSeries::appendDeclarativeChildren(list, element);
 }
 
 //  DeclarativeSplineSeries as the DeclarativeXySeries it is built on
@@ -315,6 +432,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN23DeclarativeSplineSeries17componentCompleteEv(
     DeclarativeSplineSeries *self) {
   self->DeclarativeSplineSeries::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of DeclarativeSplineSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeSplineSeries__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_spline_chart)

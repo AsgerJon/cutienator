@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A TimeoutTransition that Python can take functions over in. Every TimeoutTransition
 //  Python makes is one. Each function below asks the Python
@@ -248,6 +249,25 @@ const QMetaObject *ritual_ZNK17TimeoutTransition10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *TimeoutTransition::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17TimeoutTransition11qt_metacastEPKc(
+    TimeoutTransition *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int TimeoutTransition::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17TimeoutTransition11qt_metacallEN11QMetaObject4CallEiPPv(
+    TimeoutTransition *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString TimeoutTransition::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17TimeoutTransition2trEPKcS1_i(
@@ -281,6 +301,13 @@ void ritual_ZN17TimeoutTransition10setTimeoutEi(
     TimeoutTransition *self,
     int timeout) {
   self->setTimeout(timeout);
+}
+
+//  QBindable<int> TimeoutTransition::bindableTimeout()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN17TimeoutTransition15bindableTimeoutEv(
+    TimeoutTransition *self) {
+  return new QBindable<int>(self->bindableTimeout());
 }
 
 //  void TimeoutTransition::classBegin()
@@ -325,4 +352,10 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17TimeoutTransition17componentCompleteEv(
     TimeoutTransition *self) {
   self->TimeoutTransition::componentComplete();
+}
+
+//  a QBindable<int> a ritual of TimeoutTransition gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_TimeoutTransition__QBindable_int(QBindable<int> *self) {
+  delete self;
 }

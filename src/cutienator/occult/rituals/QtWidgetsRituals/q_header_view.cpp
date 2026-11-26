@@ -9,9 +9,13 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qbytearray.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qrect.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtGui/qregion.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -2089,6 +2093,24 @@ const QMetaObject *ritual_ZNK11QHeaderView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHeaderView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QHeaderView11qt_metacastEPKc(
+    QHeaderView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHeaderView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QHeaderView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHeaderView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHeaderView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QHeaderView2trEPKcS1_i(
@@ -2632,6 +2654,101 @@ void ritual_ZN11QHeaderView17headerDataChangedEN2Qt11OrientationEii(
   self->headerDataChanged(orientation, logicalFirst, logicalLast);
 }
 
+//  void QHeaderView::sectionMoved(int logicalIndex, int oldVisualIndex, int
+//      newVisualIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView12sectionMovedEiii(
+    QHeaderView *self,
+    int logicalIndex,
+    int oldVisualIndex,
+    int newVisualIndex) {
+  self->sectionMoved(logicalIndex, oldVisualIndex, newVisualIndex);
+}
+
+//  void QHeaderView::sectionResized(int logicalIndex, int oldSize, int
+//      newSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView14sectionResizedEiii(
+    QHeaderView *self,
+    int logicalIndex,
+    int oldSize,
+    int newSize) {
+  self->sectionResized(logicalIndex, oldSize, newSize);
+}
+
+//  void QHeaderView::sectionPressed(int logicalIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView14sectionPressedEi(
+    QHeaderView *self,
+    int logicalIndex) {
+  self->sectionPressed(logicalIndex);
+}
+
+//  void QHeaderView::sectionClicked(int logicalIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView14sectionClickedEi(
+    QHeaderView *self,
+    int logicalIndex) {
+  self->sectionClicked(logicalIndex);
+}
+
+//  void QHeaderView::sectionEntered(int logicalIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView14sectionEnteredEi(
+    QHeaderView *self,
+    int logicalIndex) {
+  self->sectionEntered(logicalIndex);
+}
+
+//  void QHeaderView::sectionDoubleClicked(int logicalIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView20sectionDoubleClickedEi(
+    QHeaderView *self,
+    int logicalIndex) {
+  self->sectionDoubleClicked(logicalIndex);
+}
+
+//  void QHeaderView::sectionCountChanged(int oldCount, int newCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView19sectionCountChangedEii(
+    QHeaderView *self,
+    int oldCount,
+    int newCount) {
+  self->sectionCountChanged(oldCount, newCount);
+}
+
+//  void QHeaderView::sectionHandleDoubleClicked(int logicalIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView26sectionHandleDoubleClickedEi(
+    QHeaderView *self,
+    int logicalIndex) {
+  self->sectionHandleDoubleClicked(logicalIndex);
+}
+
+//  void QHeaderView::geometriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView17geometriesChangedEv(QHeaderView *self) {
+  self->geometriesChanged();
+}
+
+//  void QHeaderView::sortIndicatorChanged(int logicalIndex, Qt::SortOrder
+//      order)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView20sortIndicatorChangedEiN2Qt9SortOrderE(
+    QHeaderView *self,
+    int logicalIndex,
+    Qt::SortOrder order) {
+  self->sortIndicatorChanged(logicalIndex, order);
+}
+
+//  void QHeaderView::sortIndicatorClearableChanged(bool clearable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView29sortIndicatorClearableChangedEb(
+    QHeaderView *self,
+    bool clearable) {
+  self->sortIndicatorClearableChanged(clearable);
+}
+
 //  void QHeaderView::updateSection(int logicalIndex)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QHeaderView13updateSectionEi(
@@ -2666,6 +2783,16 @@ void ritual_ZN11QHeaderView24sectionsAboutToBeRemovedERK11QModelIndexii(
     int logicalFirst,
     int logicalLast) {
   self->sectionsAboutToBeRemoved(*parent, logicalFirst, logicalLast);
+}
+
+//  QHeaderView::QHeaderView(QHeaderViewPrivate &dd, Qt::Orientation
+//      orientation, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QHeaderView *ritual_ZN11QHeaderViewC1ER18QHeaderViewPrivateN2Qt11OrientationEP7QWidget(
+    QHeaderViewPrivate *dd,
+    Qt::Orientation orientation,
+    QWidget *parent) {
+  return new CuteQHeaderView(*dd, orientation, parent);
 }
 
 //  void QHeaderView::initialize()
@@ -2797,6 +2924,17 @@ void ritual_ZN11QHeaderView16scrollContentsByEii(
     int dx,
     int dy) {
   self->scrollContentsBy(dx, dy);
+}
+
+//  void QHeaderView::dataChanged(const QModelIndex &topLeft, const
+//      QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHeaderView11dataChangedERK11QModelIndexS2_RK5QListIiE(
+    QHeaderView *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->dataChanged(*topLeft, *bottomRight, *roles);
 }
 
 //  void QHeaderView::rowsInserted(const QModelIndex &parent, int start, int

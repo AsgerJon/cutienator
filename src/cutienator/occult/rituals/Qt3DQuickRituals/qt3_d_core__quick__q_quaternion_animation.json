@@ -1,8 +1,9 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DQuick/6.12.0/Qt3DQuick/private/qquaternionanimation_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "Qt3DQuick/6.12.0/Qt3DQuick/private/qquaternionanimation_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation10metaObjectEv": [
@@ -10,6 +11,90 @@
     ],
     "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimationC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation4fromEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation7setFromERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation2toEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation5setToERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation7setTypeENS1_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation13fromXRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation16setFromXRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation13fromYRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation16setFromYRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation13fromZRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation16setFromZRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation11toXRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation14setToXRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation11toYRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation14setToYRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation11toZRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation14setToZRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation11typeChangedENS1_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation20fromXRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation20fromYRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation20fromZRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation18toXRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation18toYRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore5Quick20QQuaternionAnimation18toZRotationChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_take_Qt3DCore_Quick_QQuaternionAnimation": [
       "bool", "address", "chars", "address"

@@ -13,6 +13,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuickTimeline may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -227,6 +228,24 @@ const QMetaObject *ritual_ZNK14QQuickTimeline10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTimeline::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickTimeline11qt_metacastEPKc(
+    QQuickTimeline *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTimeline::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickTimeline11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTimeline *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTimeline::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickTimeline2trEPKcS1_i(
@@ -236,10 +255,38 @@ QString *ritual_ZN14QQuickTimeline2trEPKcS1_i(
   return new QString(QQuickTimeline::tr(s, c, n));
 }
 
+//  QQuickTimelinePrivate *QQuickTimeline::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickTimelinePrivate *ritual_ZN14QQuickTimeline6d_funcEv(
+    QQuickTimeline *self) {
+  return self->d_func();
+}
+
+//  const QQuickTimelinePrivate *QQuickTimeline::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickTimelinePrivate *ritual_ZNK14QQuickTimeline6d_funcEv(
+    const QQuickTimeline *self) {
+  return self->d_func();
+}
+
 //  QQuickTimeline::QQuickTimeline(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QQuickTimeline *ritual_ZN14QQuickTimelineC1EP7QObject(QObject *parent) {
   return new CuteQQuickTimeline(parent);
+}
+
+//  QQmlListProperty<QQuickKeyframeGroup> QQuickTimeline::keyframeGroups()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickKeyframeGroup> *ritual_ZN14QQuickTimeline14keyframeGroupsEv(
+    QQuickTimeline *self) {
+  return new QQmlListProperty<QQuickKeyframeGroup>(self->keyframeGroups());
+}
+
+//  QQmlListProperty<QQuickTimelineAnimation> QQuickTimeline::animations()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickTimelineAnimation> *ritual_ZN14QQuickTimeline10animationsEv(
+    QQuickTimeline *self) {
+  return new QQmlListProperty<QQuickTimelineAnimation>(self->animations());
 }
 
 //  bool QQuickTimeline::enabled() const
@@ -336,6 +383,30 @@ void ritual_ZN14QQuickTimeline17componentCompleteEv(QQuickTimeline *self) {
   self->componentComplete();
 }
 
+//  void QQuickTimeline::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTimeline14enabledChangedEv(QQuickTimeline *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickTimeline::startFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTimeline17startFrameChangedEv(QQuickTimeline *self) {
+  self->startFrameChanged();
+}
+
+//  void QQuickTimeline::endFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTimeline15endFrameChangedEv(QQuickTimeline *self) {
+  self->endFrameChanged();
+}
+
+//  void QQuickTimeline::currentFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTimeline19currentFrameChangedEv(QQuickTimeline *self) {
+  self->currentFrameChanged();
+}
+
 //  QQuickTimeline as the QQmlParserStatus it is built on
 extern "C" Q_DECL_EXPORT
 QQmlParserStatus *ritual_cast_QQuickTimeline_QQmlParserStatus(
@@ -364,4 +435,19 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN14QQuickTimeline17componentCompleteEv(
     QQuickTimeline *self) {
   static_cast<OwnQQuickTimeline *>(self)->OwnQQuickTimeline::componentComplete();
+}
+
+//  a QQmlListProperty<QQuickKeyframeGroup> a ritual of QQuickTimeline gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickTimeline__QQmlListProperty_QQuickKeyframeGroup(
+    QQmlListProperty<QQuickKeyframeGroup> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickTimelineAnimation> a ritual of QQuickTimeline
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickTimeline__QQmlListProperty_QQuickTimelineAnimation(
+    QQmlListProperty<QQuickTimelineAnimation> *self) {
+  delete self;
 }

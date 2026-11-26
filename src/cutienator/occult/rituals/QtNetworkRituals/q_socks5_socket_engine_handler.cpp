@@ -25,7 +25,7 @@ typedef void * (*CuteQSocks5SocketEngineHandlerCall1)(const void *, qintptr, QOb
 class CuteQSocks5SocketEngineHandler : public QSocks5SocketEngineHandler {
 public:
   using QSocks5SocketEngineHandler::QSocks5SocketEngineHandler;
-  CuteQSocks5SocketEngineHandler(const QSocks5SocketEngineHandler &other) : QSocks5SocketEngineHandler(other) {}
+  CuteQSocks5SocketEngineHandler(const QSocks5SocketEngineHandler & other) : QSocks5SocketEngineHandler(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

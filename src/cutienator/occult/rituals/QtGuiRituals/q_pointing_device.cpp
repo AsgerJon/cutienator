@@ -2,6 +2,7 @@
 //  QtGui/qpointingdevice.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qpointingdevice.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qeventpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,24 @@ const QMetaObject *ritual_ZNK15QPointingDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPointingDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QPointingDevice11qt_metacastEPKc(
+    QPointingDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPointingDevice::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QPointingDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPointingDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPointingDevice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QPointingDevice2trEPKcS1_i(
@@ -306,6 +325,38 @@ extern "C" Q_DECL_EXPORT
 const QPointingDevice *ritual_ZN15QPointingDevice21primaryPointingDeviceERK7QString(
     const QString *seatName) {
   return QPointingDevice::primaryPointingDevice(*seatName);
+}
+
+//  bool QPointingDevice::operator==(const QPointingDevice &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QPointingDeviceeqERKS_(
+    const QPointingDevice *self,
+    const QPointingDevice *other) {
+  return self->operator==(*other);
+}
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  void QPointingDevice::grabChanged(QObject *grabber, GrabTransition
+//      transition, const QPointerEvent *event, const QEventPoint &point)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QPointingDevice11grabChangedEP7QObjectNS_14GrabTransitionEPK13QPointerEventRK11QEventPoint(
+    const QPointingDevice *self,
+    QObject *grabber,
+    QPointingDevice::GrabTransition transition,
+    const QPointerEvent *event,
+    const QEventPoint *point) {
+  self->grabChanged(grabber, transition, event, *point);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+//  QPointingDevice::QPointingDevice(QPointingDevicePrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QPointingDevice *ritual_ZN15QPointingDeviceC1ER22QPointingDevicePrivateP7QObject(
+    QPointingDevicePrivate *d,
+    QObject *parent) {
+  return new CuteQPointingDevice(*d, parent);
 }
 
 //  a Python function taken by a CuteQPointingDevice, for the function named

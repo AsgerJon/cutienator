@@ -36,10 +36,43 @@ QCanvasBoxGradient *ritual_ZN18QCanvasBoxGradientC1ERKS_(
   return new QCanvasBoxGradient(*a0);
 }
 
+//  QCanvasBoxGradient &QCanvasBoxGradient::operator=(const
+//      QCanvasBoxGradient &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasBoxGradient *ritual_ZN18QCanvasBoxGradientaSERKS_(
+    QCanvasBoxGradient *self,
+    const QCanvasBoxGradient *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QCanvasBoxGradient::QCanvasBoxGradient(QCanvasBoxGradient &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasBoxGradient *ritual_ZN18QCanvasBoxGradientC1EOS_(
+    QCanvasBoxGradient *a0) {
+  return new QCanvasBoxGradient(std::move(*a0));
+}
+
+//  QCanvasBoxGradient &QCanvasBoxGradient::operator=(QCanvasBoxGradient
+//      &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasBoxGradient *ritual_ZN18QCanvasBoxGradientaSEOS_(
+    QCanvasBoxGradient *self,
+    QCanvasBoxGradient *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QCanvasBoxGradient::~QCanvasBoxGradient()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QCanvasBoxGradientD1Ev(QCanvasBoxGradient *self) {
   delete self;
+}
+
+//  void QCanvasBoxGradient::swap(QCanvasBoxGradient &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QCanvasBoxGradient4swapERS_(
+    QCanvasBoxGradient *self,
+    QCanvasBoxGradient *other) {
+  self->swap(*other);
 }
 
 //  QRectF QCanvasBoxGradient::rect() const

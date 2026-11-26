@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -198,6 +202,30 @@ public:
     return QQmlJS::AST::Node::asClassDefinition();
   }
 };
+
+//  QQmlJS::AST::UiImport::UiImport(QStringView fileName)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiImport *ritual_ZN6QQmlJS3AST8UiImportC1E11QStringView(
+    QQmlJS::MemoryPool *pool,
+    const QString *fileName) {
+  return new (pool) CuteQQmlJS_AST_UiImport(QStringView(*fileName));
+}
+
+//  QQmlJS::AST::UiImport::UiImport(UiQualifiedId *uri)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiImport *ritual_ZN6QQmlJS3AST8UiImportC1EPNS0_13UiQualifiedIdE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiQualifiedId *uri) {
+  return new (pool) CuteQQmlJS_AST_UiImport(uri);
+}
+
+//  void QQmlJS::AST::UiImport::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST8UiImport7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiImport *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
 
 //  SourceLocation QQmlJS::AST::UiImport::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT

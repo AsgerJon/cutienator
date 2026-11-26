@@ -110,6 +110,48 @@ public:
 #endif  // QT_CONFIG(undocommand)
 };
 
+//  qdesigner_internal::AddContainerWidgetPageCommand::AddContainerWidgetPage
+//      Command(QDesignerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::AddContainerWidgetPageCommand *ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_AddContainerWidgetPageCommand(
+      formWindow);
+}
+
+//  qdesigner_internal::AddContainerWidgetPageCommand::~AddContainerWidgetPag
+//      eCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommandD1Ev(
+    qdesigner_internal::AddContainerWidgetPageCommand *self) {
+  delete self;
+}
+
+//  void qdesigner_internal::AddContainerWidgetPageCommand::init(QWidget
+//      *containerWidget, ContainerType ct, InsertionMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommand4initEP7QWidgetNS_13ContainerTypeENS0_13InsertionModeE(
+    qdesigner_internal::AddContainerWidgetPageCommand *self,
+    QWidget *containerWidget,
+    qdesigner_internal::ContainerType ct,
+    qdesigner_internal::AddContainerWidgetPageCommand::InsertionMode mode) {
+  self->init(containerWidget, ct, mode);
+}
+
+//  void qdesigner_internal::AddContainerWidgetPageCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommand4redoEv(
+    qdesigner_internal::AddContainerWidgetPageCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::AddContainerWidgetPageCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal29AddContainerWidgetPageCommand4undoEv(
+    qdesigner_internal::AddContainerWidgetPageCommand *self) {
+  self->undo();
+}
+
 //  a Python function taken by a
 //      Cuteqdesigner_internal_AddContainerWidgetPageCommand, for the
 //      function named by the key

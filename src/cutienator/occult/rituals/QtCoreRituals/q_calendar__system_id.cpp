@@ -28,6 +28,13 @@ QCalendar::SystemId *ritual_ZN9QCalendar8SystemIdC1Ev() {
   return new QCalendar::SystemId();
 }
 
+//  size_t QCalendar::SystemId::index() const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK9QCalendar8SystemId5indexEv(
+    const QCalendar::SystemId *self) {
+  return self->index();
+}
+
 //  bool QCalendar::SystemId::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QCalendar8SystemId7isValidEv(

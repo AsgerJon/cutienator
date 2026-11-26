@@ -7,6 +7,16 @@
   "rows": {
     "ritual_ZN20QOpcUaStructureFieldC1Ei": ["address", "int"],
     "ritual_ZN20QOpcUaStructureFieldC1ERKS_": ["address", "address"],
+    "ritual_ZN20QOpcUaStructureField4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QOpcUaStructureFieldaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QOpcUaStructureFieldC1EOS_": ["address", "address"],
+    "ritual_ZN20QOpcUaStructureFieldaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK20QOpcUaStructureFieldcv8QVariantEv": ["address", "address"],
     "ritual_ZN20QOpcUaStructureFieldD1Ev": ["nothing", "address"],
     "ritual_ZNK20QOpcUaStructureField4nameEv": ["text", "address"],
@@ -26,6 +36,12 @@
     "ritual_ZNK20QOpcUaStructureField9valueRankEv": ["int", "address"],
     "ritual_ZN20QOpcUaStructureField12setValueRankEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QOpcUaStructureField15arrayDimensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QOpcUaStructureField18setArrayDimensionsERK5QListIjE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK20QOpcUaStructureField15maxStringLengthEv": [
       "unsigned int", "address"
@@ -47,6 +63,7 @@
     "ritual_list_at_QOpcUaStructureField": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QOpcUaStructureField": ["nothing", "address"]
+    "ritual_list_drop_QOpcUaStructureField": ["nothing", "address"],
+    "ritual_drop_QOpcUaStructureField__QList_quint32": ["nothing", "address"]
   }
 }

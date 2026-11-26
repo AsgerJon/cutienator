@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuickTransition that Python can take functions over in. Every QQuickTransition
 //  Python makes is one. Each function below asks the Python
@@ -184,6 +185,25 @@ const QMetaObject *ritual_ZNK16QQuickTransition10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTransition::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickTransition11qt_metacastEPKc(
+    QQuickTransition *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTransition::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickTransition11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTransition *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTransition::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickTransition2trEPKcS1_i(
@@ -191,6 +211,20 @@ QString *ritual_ZN16QQuickTransition2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickTransition::tr(s, c, n));
+}
+
+//  QQuickTransitionPrivate *QQuickTransition::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickTransitionPrivate *ritual_ZN16QQuickTransition6d_funcEv(
+    QQuickTransition *self) {
+  return self->d_func();
+}
+
+//  const QQuickTransitionPrivate *QQuickTransition::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickTransitionPrivate *ritual_ZNK16QQuickTransition6d_funcEv(
+    const QQuickTransition *self) {
+  return self->d_func();
 }
 
 //  QQuickTransition::QQuickTransition(QObject *parent)
@@ -270,12 +304,64 @@ bool ritual_ZNK16QQuickTransition7runningEv(const QQuickTransition *self) {
   return self->running();
 }
 
+//  QQmlListProperty<QQuickAbstractAnimation> QQuickTransition::animations()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickAbstractAnimation> *ritual_ZN16QQuickTransition10animationsEv(
+    QQuickTransition *self) {
+  return new QQmlListProperty<QQuickAbstractAnimation>(self->animations());
+}
+
+//  QQuickTransitionInstance
+//      *QQuickTransition::prepare(QQuickStateOperation::ActionList &actions,
+//      QList<QQmlProperty> &after, QQuickTransitionManager *end, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QQuickTransitionInstance *ritual_ZN16QQuickTransition7prepareER5QListI17QQuickStateActionERS0_I12QQmlPropertyEP23QQuickTransitionManagerP7QObject(
+    QQuickTransition *self,
+    QQuickStateOperation::ActionList *actions,
+    QList<QQmlProperty> *after,
+    QQuickTransitionManager *end,
+    QObject *defaultTarget) {
+  return self->prepare(*actions, *after, end, defaultTarget);
+}
+
 //  void QQuickTransition::setReversed(bool r)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickTransition11setReversedEb(
     QQuickTransition *self,
     bool r) {
   self->setReversed(r);
+}
+
+//  void QQuickTransition::fromChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTransition11fromChangedEv(QQuickTransition *self) {
+  self->fromChanged();
+}
+
+//  void QQuickTransition::toChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTransition9toChangedEv(QQuickTransition *self) {
+  self->toChanged();
+}
+
+//  void QQuickTransition::reversibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTransition17reversibleChangedEv(
+    QQuickTransition *self) {
+  self->reversibleChanged();
+}
+
+//  void QQuickTransition::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTransition14enabledChangedEv(QQuickTransition *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickTransition::runningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTransition14runningChangedEv(QQuickTransition *self) {
+  self->runningChanged();
 }
 
 //  a Python function taken by a CuteQQuickTransition, for the function named
@@ -286,4 +372,12 @@ bool ritual_take_QQuickTransition(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickTransition *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QQuickAbstractAnimation> a ritual of QQuickTransition
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickTransition__QQmlListProperty_QQuickAbstractAnimation(
+    QQmlListProperty<QQuickAbstractAnimation> *self) {
+  delete self;
 }

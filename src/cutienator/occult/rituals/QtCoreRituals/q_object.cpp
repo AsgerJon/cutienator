@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qobject.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qobject.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  instances of templates of the class: 3. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #if !defined(QT_NO_QOBJECT)
 #include <QtCore/qobject.h>
@@ -15,6 +17,11 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QString>
+#if QT_CONFIG(regularexpression)
+#include <QtCore/qregularexpression.h>
+#endif  // QT_CONFIG(regularexpression)
 
 //  Only a class built on QObject may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -199,6 +206,22 @@ const QMetaObject *ritual_ZNK7QObject10metaObjectEv(const QObject *self) {
   return self->metaObject();
 }
 
+//  void *QObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QObject11qt_metacastEPKc(QObject *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QObject::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QObject::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QObject2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -256,6 +279,12 @@ void ritual_ZN7QObject13setObjectNameE14QAnyStringView(
     QObject *self,
     const QString *name) {
   self->setObjectName(QAnyStringView(*name));
+}
+
+//  QBindable<QString> QObject::bindableObjectName()
+extern "C" Q_DECL_EXPORT
+QBindable<QString> *ritual_ZN7QObject18bindableObjectNameEv(QObject *self) {
+  return new QBindable<QString>(self->bindableObjectName());
 }
 
 //  bool QObject::isWidgetType() const
@@ -316,6 +345,16 @@ int ritual_ZN7QObject10startTimerEiN2Qt9TimerTypeE(
     int interval,
     Qt::TimerType timerType) {
   return self->startTimer(interval, timerType);
+}
+
+//  int QObject::startTimer(std::chrono::nanoseconds time, Qt::TimerType
+//      timerType)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QObject10startTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeE(
+    QObject *self,
+    long long time,
+    Qt::TimerType timerType) {
+  return self->startTimer(std::chrono::nanoseconds(time), timerType);
 }
 
 //  void QObject::killTimer(int id)
@@ -465,6 +504,20 @@ bool ritual_ZN7QObject10disconnectERKN11QMetaObject10ConnectionE(
 }
 #endif  // !defined(QT_NO_DISCONNECT_CONST_CONNECTION)
 
+//  bool QObject::disconnect(QMetaObject::Connection &a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject10disconnectERN11QMetaObject10ConnectionE(
+    QMetaObject::Connection *a0) {
+  return QObject::disconnect(*a0);
+}
+
+//  bool QObject::disconnect(QMetaObject::Connection &&conn)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject10disconnectEON11QMetaObject10ConnectionE(
+    QMetaObject::Connection *conn) {
+  return QObject::disconnect(std::move(*conn));
+}
+
 //  void QObject::dumpObjectTree() const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK7QObject14dumpObjectTreeEv(const QObject *self) {
@@ -484,6 +537,15 @@ bool ritual_ZN7QObject11setPropertyEPKcRK8QVariant(
     const char *name,
     const QVariant *value) {
   return self->setProperty(name, *value);
+}
+
+//  bool QObject::setProperty(const char *name, QVariant &&value)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject11setPropertyEPKcO8QVariant(
+    QObject *self,
+    const char *name,
+    QVariant *value) {
+  return self->setProperty(name, std::move(*value));
 }
 
 //  QVariant QObject::property(const char *name) const
@@ -512,6 +574,21 @@ extern "C" Q_DECL_EXPORT
 const QBindingStorage *ritual_ZNK7QObject14bindingStorageEv(
     const QObject *self) {
   return self->bindingStorage();
+}
+
+//  void QObject::destroyed(QObject *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject9destroyedEPS_(QObject *self, QObject *a0) {
+  self->destroyed(a0);
+}
+
+//  void QObject::objectNameChanged(const QString &objectName, QPrivateSignal
+//      a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject17objectNameChangedERK7QStringNS_14QPrivateSignalE(
+    QObject *self,
+    const QString *objectName) {
+  self->objectNameChanged(*objectName, QObject::QPrivateSignal());
 }
 
 //  QObject *QObject::parent() const
@@ -600,6 +677,14 @@ void ritual_ZN7QObject16disconnectNotifyERK11QMetaMethod(
   self->disconnectNotify(*signal);
 }
 
+//  QObject::QObject(QObjectPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN7QObjectC1ER14QObjectPrivatePS_(
+    QObjectPrivate *dd,
+    QObject *parent) {
+  return new CuteQObject(*dd, parent);
+}
+
 //  void QObject::doSetObjectName(const QString &name)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QObject15doSetObjectNameERK7QString(
@@ -617,6 +702,49 @@ bool ritual_ZN7QObject13doSetPropertyEPKcRK8QVariantPS2_(
     const QVariant *value,
     QVariant *rvalue) {
   return self->doSetProperty(name, *value, rvalue);
+}
+
+//  QMetaObject::Connection QObject::connectImpl(const QObject *sender, void
+//      **signal, const QObject *receiver, void **slotPtr,
+//      QtPrivate::QSlotObjectBase *slot, Qt::ConnectionType type, const int
+//      *types, const QMetaObject *senderMetaObject)
+extern "C" Q_DECL_EXPORT
+QMetaObject::Connection *ritual_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(
+    const QObject *sender,
+    void **signal,
+    const QObject *receiver,
+    void **slotPtr,
+    QtPrivate::QSlotObjectBase *slot,
+    Qt::ConnectionType type,
+    const int *types,
+    const QMetaObject *senderMetaObject) {
+  return new QMetaObject::Connection(
+      QObject::connectImpl(
+          sender,
+          signal,
+          receiver,
+          slotPtr,
+          slot,
+          type,
+          types,
+          senderMetaObject));
+}
+
+//  bool QObject::disconnectImpl(const QObject *sender, void **signal, const
+//      QObject *receiver, void **slot, const QMetaObject *senderMetaObject)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject14disconnectImplEPKS_PPvS1_S3_PK11QMetaObject(
+    const QObject *sender,
+    void **signal,
+    const QObject *receiver,
+    void **slot,
+    const QMetaObject *senderMetaObject) {
+  return QObject::disconnectImpl(
+      sender,
+      signal,
+      receiver,
+      slot,
+      senderMetaObject);
 }
 
 //  a Python function taken by a CuteQObject, for the function named by the
@@ -833,5 +961,48 @@ void ritual_map_drop_QHash_QString_QObject_ptr(
     QHash<QString, QObject *> *self) {
   delete self;
 }
+
+//  a QBindable<QString> a ritual of QObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QObject__QBindable_QString(QBindable<QString> *self) {
+  delete self;
+}
+
+//  QObject *QObject::findChild<QObject *>(QAnyStringView aName,
+//      Qt::FindChildOptions options) const
+extern "C" Q_DECL_EXPORT
+QObject * ritual_ZNK7QObject9findChildIPS_EET_14QAnyStringView6QFlagsIN2Qt15FindChildOptionEE(
+    const QObject *self,
+    const QString *aName,
+    int options) {
+  return self->findChild<QObject *>(
+      QAnyStringView(*aName),
+      QFlags<Qt::FindChildOption>::fromInt(options));
+}
+
+//  QList<QObject *> QObject::findChildren<QObject *>(QAnyStringView aName,
+//      Qt::FindChildOptions options) const
+extern "C" Q_DECL_EXPORT
+QList<QObject *> * ritual_ZNK7QObject12findChildrenIPS_EE5QListIT_E14QAnyStringView6QFlagsIN2Qt15FindChildOptionEE(
+    const QObject *self,
+    const QString *aName,
+    int options) {
+  return new QList<QObject *>(self->findChildren<QObject *>(
+      QAnyStringView(*aName),
+      QFlags<Qt::FindChildOption>::fromInt(options)));
+}
+
+#if QT_CONFIG(regularexpression)
+//  QList<QObject *> QObject::findChildren<QObject *>(const
+//      QRegularExpression &re, Qt::FindChildOptions options) const
+extern "C" Q_DECL_EXPORT
+QList<QObject *> * ritual_ZNK7QObject12findChildrenIPS_EE5QListIT_ERK18QRegularExpression6QFlagsIN2Qt15FindChildOptionEE(
+    const QObject *self,
+    const QRegularExpression *re,
+    int options) {
+  return new QList<QObject *>(self->findChildren<QObject *>(
+      *re, QFlags<Qt::FindChildOption>::fromInt(options)));
+}
+#endif  // QT_CONFIG(regularexpression)
 
 #endif  // !defined(QT_NO_QOBJECT)

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QTabWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTabWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QTabWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QTabWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QTabWidgetC1EP7QWidget": ["address", "address"],
     "ritual_ZN10QTabWidgetD1Ev": ["nothing", "address"],
@@ -104,6 +110,14 @@
     "ritual_ZN10QTabWidget16setCurrentWidgetEP7QWidget": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QTabWidget14currentChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTabWidget17tabCloseRequestedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QTabWidget13tabBarClickedEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTabWidget19tabBarDoubleClickedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN10QTabWidget11tabInsertedEi": ["nothing", "address", "int"],
     "ritual_ZN10QTabWidget10tabRemovedEi": ["nothing", "address", "int"],
     "ritual_ZN10QTabWidget9showEventEP10QShowEvent": [
@@ -128,6 +142,8 @@
     "ritual_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWidgetFrame": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QTabWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QTabWidget6d_funcEv": ["address", "address"],
     "ritual_ZN10QTabWidget11setUpLayoutEb": ["nothing", "address", "bool"],
     "ritual_take_QTabWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QTabWidget8sizeHintEv": ["address", "address"],

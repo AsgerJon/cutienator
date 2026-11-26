@@ -35,6 +35,49 @@ void ritual_ZN21QPersistentModelIndexD1Ev(QPersistentModelIndex *self) {
   delete self;
 }
 
+//  QPersistentModelIndex &QPersistentModelIndex::operator=(const
+//      QPersistentModelIndex &other)
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_ZN21QPersistentModelIndexaSERKS_(
+    QPersistentModelIndex *self,
+    const QPersistentModelIndex *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPersistentModelIndex::QPersistentModelIndex(QPersistentModelIndex
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_ZN21QPersistentModelIndexC1EOS_(
+    QPersistentModelIndex *other) {
+  return new QPersistentModelIndex(std::move(*other));
+}
+
+//  QPersistentModelIndex
+//      &QPersistentModelIndex::operator=(QPersistentModelIndex &&other)
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_ZN21QPersistentModelIndexaSEOS_(
+    QPersistentModelIndex *self,
+    QPersistentModelIndex *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPersistentModelIndex::swap(QPersistentModelIndex &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPersistentModelIndex4swapERS_(
+    QPersistentModelIndex *self,
+    QPersistentModelIndex *other) {
+  self->swap(*other);
+}
+
+//  QPersistentModelIndex &QPersistentModelIndex::operator=(const QModelIndex
+//      &other)
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_ZN21QPersistentModelIndexaSERK11QModelIndex(
+    QPersistentModelIndex *self,
+    const QModelIndex *other) {
+  return &(self->operator=(*other));
+}
+
 //  QModelIndex QPersistentModelIndex::operator QModelIndex() const
 extern "C" Q_DECL_EXPORT
 QModelIndex *ritual_ZNK21QPersistentModelIndexcv11QModelIndexEv(
@@ -54,6 +97,20 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QPersistentModelIndex6columnEv(
     const QPersistentModelIndex *self) {
   return self->column();
+}
+
+//  void *QPersistentModelIndex::internalPointer() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK21QPersistentModelIndex15internalPointerEv(
+    const QPersistentModelIndex *self) {
+  return self->internalPointer();
+}
+
+//  const void *QPersistentModelIndex::constInternalPointer() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK21QPersistentModelIndex20constInternalPointerEv(
+    const QPersistentModelIndex *self) {
+  return self->constInternalPointer();
 }
 
 //  quintptr QPersistentModelIndex::internalId() const

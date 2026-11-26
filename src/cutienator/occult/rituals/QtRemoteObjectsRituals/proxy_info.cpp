@@ -9,6 +9,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtCore/private/qmetaobjectbuilder_p.h>
 #include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -32,6 +33,94 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace QRemoteObjectStringLiterals;
+
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
+{
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2912, as _ZN9ProxyInfo11proxyObjectERKSt4pairI7QString31QRemoteObjectSourceLocationInfoENS_14ProxyDirectionE
+inline void ProxyInfo::proxyObject(const QRemoteObjectSourceLocation &entry, ProxyDirection direction)
+{
+    const QString name = entry.first;
+    const QString typeName = entry.second.typeName;
+
+    if (direction == ProxyDirection::Forward) {
+        // If we are using the reverse proxy, this can be called when reverse proxy objects are added
+        // Don't try to proxy those back.  We can detect this because the hosting node will be our proxyNode.
+        auto host = qobject_cast<QRemoteObjectHost *>(proxyNode);
+        if (host && entry.second.hostUrl == host->hostUrl())
+            return;
+        if (!proxyFilter(name, typeName))
+            return;
+        Q_ASSERT(!proxiedReplicas.contains(name));
+
+        qCDebug(QT_REMOTEOBJECT) << "Starting proxy for" << name << "from" << entry.second.hostUrl;
+
+        if (entry.second.typeName == QAIMADAPTER()) {
+            QAbstractItemModelReplica *rep = proxyNode->acquireModel(name);
+            proxiedReplicas.insert(name, new ProxyReplicaInfo{rep, direction});
+            connect(rep, &QAbstractItemModelReplica::initialized, this,
+                    [rep, name, this]() { this->parentNode->enableRemoting(rep, name, QList<int>()); });
+        } else {
+            QRemoteObjectDynamicReplica *rep = proxyNode->acquireDynamic(name);
+            proxiedReplicas.insert(name, new ProxyReplicaInfo{rep, direction});
+            connect(rep, &QRemoteObjectDynamicReplica::initialized, this,
+                    [rep, name, this]() { this->parentNode->enableRemoting(rep, name); });
+        }
+    } else {
+        // If we are using the reverse proxy, this can be called when proxy objects are added
+        // Don't try to proxy those back.  We can detect this because the hosting node will be the parentNode.
+        // Since we know the parentNode has to be a RegistryNode for reverse proxy to work, we compare against
+        // the registryUrl().
+        if (entry.second.hostUrl == parentNode->registryUrl())
+            return;
+        if (!reverseFilter(name, typeName))
+            return;
+        Q_ASSERT(!proxiedReplicas.contains(name));
+
+        qCDebug(QT_REMOTEOBJECT) << "Starting reverse proxy for" << name << "from" << entry.second.hostUrl;
+
+        if (entry.second.typeName == QAIMADAPTER()) {
+            QAbstractItemModelReplica *rep = this->parentNode->acquireModel(name);
+            proxiedReplicas.insert(name, new ProxyReplicaInfo{rep, direction});
+            connect(rep, &QAbstractItemModelReplica::initialized, this,
+                    [rep, name, this]()
+            {
+                QRemoteObjectHostBase *host = qobject_cast<QRemoteObjectHostBase *>(this->proxyNode);
+                Q_ASSERT(host);
+                host->enableRemoting(rep, name, QList<int>());
+            });
+        } else {
+            QRemoteObjectDynamicReplica *rep = this->parentNode->acquireDynamic(name);
+            proxiedReplicas.insert(name, new ProxyReplicaInfo{rep, direction});
+            connect(rep, &QRemoteObjectDynamicReplica::initialized, this,
+                    [rep, name, this]()
+            {
+                QRemoteObjectHostBase *host = qobject_cast<QRemoteObjectHostBase *>(this->proxyNode);
+                Q_ASSERT(host);
+                host->enableRemoting(rep, name);
+            });
+        }
+    }
+
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2978, as _ZN9ProxyInfo13unproxyObjectERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE
+inline void ProxyInfo::unproxyObject(const QRemoteObjectSourceLocation &entry)
+{
+    const QString name = entry.first;
+
+    if (proxiedReplicas.contains(name)) {
+        qCDebug(QT_REMOTEOBJECT)  << "Stopping proxy for" << name;
+        auto const info = proxiedReplicas.take(name);
+        disableAndDeleteObject(info);
+    }
+}
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2989, as _ZN9ProxyInfo22disableAndDeleteObjectEP16ProxyReplicaInfo
 inline void ProxyInfo::disableAndDeleteObject(ProxyReplicaInfo* info)
@@ -219,6 +308,46 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK9ProxyInfo10metaObjectEv(
     const ProxyInfo *self) {
   return self->metaObject();
+}
+
+//  void *ProxyInfo::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9ProxyInfo11qt_metacastEPKc(ProxyInfo *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ProxyInfo::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9ProxyInfo11qt_metacallEN11QMetaObject4CallEiPPv(
+    ProxyInfo *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  ProxyInfo::~ProxyInfo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9ProxyInfoD1Ev(ProxyInfo *self) {
+  delete self;
+}
+
+//  void ProxyInfo::proxyObject(const QRemoteObjectSourceLocation &entry,
+//      ProxyDirection direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9ProxyInfo11proxyObjectERKSt4pairI7QString31QRemoteObjectSourceLocationInfoENS_14ProxyDirectionE(
+    ProxyInfo *self,
+    const QRemoteObjectSourceLocation *entry,
+    ProxyInfo::ProxyDirection direction) {
+  self->proxyObject(*entry, direction);
+}
+
+//  void ProxyInfo::unproxyObject(const QRemoteObjectSourceLocation &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9ProxyInfo13unproxyObjectERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    ProxyInfo *self,
+    const QRemoteObjectSourceLocation *entry) {
+  self->unproxyObject(*entry);
 }
 
 //  void ProxyInfo::disableAndDeleteObject(ProxyReplicaInfo *info)

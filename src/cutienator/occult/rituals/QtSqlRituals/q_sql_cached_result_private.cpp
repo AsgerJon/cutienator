@@ -37,7 +37,7 @@ typedef QString * (*CuteQSqlCachedResultPrivateCall0)(const void *, qsizetype, i
 class CuteQSqlCachedResultPrivate : public QSqlCachedResultPrivate {
 public:
   using QSqlCachedResultPrivate::QSqlCachedResultPrivate;
-  CuteQSqlCachedResultPrivate(const QSqlCachedResultPrivate &other) : QSqlCachedResultPrivate(other) {}
+  CuteQSqlCachedResultPrivate(const QSqlCachedResultPrivate & other) : QSqlCachedResultPrivate(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {

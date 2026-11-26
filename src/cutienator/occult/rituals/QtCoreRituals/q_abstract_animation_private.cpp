@@ -6,7 +6,9 @@
 #if QT_CONFIG(animation)
 #if QT_CONFIG(animation)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(animation)
 #include <QtCore/qabstractanimation.h>
+#endif
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qabstractanimation_p.h>
@@ -31,6 +33,12 @@ extern "C" Q_DECL_EXPORT
 QAbstractAnimationPrivate *ritual_ZN25QAbstractAnimationPrivate3getEP18QAbstractAnimation(
     QAbstractAnimation *q) {
   return QAbstractAnimationPrivate::get(q);
+}
+
+//  size_t QAbstractAnimationPrivate::_qt_property_state_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN25QAbstractAnimationPrivate25_qt_property_state_offsetEv() {
+  return QAbstractAnimationPrivate::_qt_property_state_offset();
 }
 
 //  void QAbstractAnimationPrivate::setState(QAbstractAnimation::State state)
@@ -58,6 +66,12 @@ void ritual_ZN25QAbstractAnimationPrivate20emitDirectionChangedEv(
   self->emitDirectionChanged();
 }
 
+//  size_t QAbstractAnimationPrivate::_qt_property_direction_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN25QAbstractAnimationPrivate29_qt_property_direction_offsetEv() {
+  return QAbstractAnimationPrivate::_qt_property_direction_offset();
+}
+
 //  void QAbstractAnimationPrivate::setCurrentTime(int msecs)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QAbstractAnimationPrivate14setCurrentTimeEi(
@@ -66,11 +80,29 @@ void ritual_ZN25QAbstractAnimationPrivate14setCurrentTimeEi(
   self->setCurrentTime(msecs);
 }
 
+//  size_t QAbstractAnimationPrivate::_qt_property_totalCurrentTime_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN25QAbstractAnimationPrivate36_qt_property_totalCurrentTime_offsetEv() {
+  return QAbstractAnimationPrivate::_qt_property_totalCurrentTime_offset();
+}
+
+//  size_t QAbstractAnimationPrivate::_qt_property_loopCount_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN25QAbstractAnimationPrivate29_qt_property_loopCount_offsetEv() {
+  return QAbstractAnimationPrivate::_qt_property_loopCount_offset();
+}
+
 //  void QAbstractAnimationPrivate::emitCurrentLoopChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QAbstractAnimationPrivate22emitCurrentLoopChangedEv(
     QAbstractAnimationPrivate *self) {
   self->emitCurrentLoopChanged();
+}
+
+//  size_t QAbstractAnimationPrivate::_qt_property_currentLoop_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN25QAbstractAnimationPrivate31_qt_property_currentLoop_offsetEv() {
+  return QAbstractAnimationPrivate::_qt_property_currentLoop_offset();
 }
 
 //  QAbstractAnimation *QAbstractAnimationPrivate::q_func()

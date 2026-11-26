@@ -9,6 +9,11 @@
     "ritual_ZNK8Qt3DCore17QAttributePrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore17QAttributePrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore17QAttributePrivate6updateEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore17QAttributePrivate3getEPNS_10QAttributeE": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DCore_QAttributePrivate": [
       "bool", "address", "chars", "address"
     ],

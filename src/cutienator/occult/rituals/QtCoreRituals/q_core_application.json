@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK16QCoreApplication10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QCoreApplication11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QCoreApplication11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QCoreApplication2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -97,6 +103,9 @@
     "ritual_ZN16QCoreApplication9translateEPKcS1_S1_i": [
       "text", "chars", "chars", "chars", "int"
     ],
+    "ritual_ZNK16QCoreApplication16resolveInterfaceEPKci": [
+      "address", "address", "chars", "int"
+    ],
     "ritual_ZN16QCoreApplication24installNativeEventFilterEP26QAbstractNativeEventFilter": [
       "nothing", "address", "address"
     ],
@@ -107,11 +116,29 @@
     "ritual_ZN16QCoreApplication18setQuitLockEnabledEb": ["nothing", "bool"],
     "ritual_ZN16QCoreApplication4quitEv": ["nothing"],
     "ritual_ZN16QCoreApplication4exitEi": ["nothing", "int"],
+    "ritual_ZN16QCoreApplication11aboutToQuitENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QCoreApplication23organizationNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QCoreApplication25organizationDomainChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QCoreApplication22applicationNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QCoreApplication25applicationVersionChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN16QCoreApplication5eventEP6QEvent": [
       "bool", "address", "address"
     ],
     "ritual_ZN16QCoreApplication13compressEventEP6QEventP7QObjectP14QPostEventList": [
       "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplicationC1ER23QCoreApplicationPrivate": [
+      "address", "address"
     ],
     "ritual_ZN16QCoreApplication20sendSpontaneousEventEP7QObjectP6QEvent": [
       "bool", "address", "address"

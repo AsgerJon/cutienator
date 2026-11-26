@@ -16,6 +16,8 @@
     "ritual_ZN18QAnimationGroupJob15removeAnimationEP21QAbstractAnimationJob": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QAnimationGroupJob8childrenEv": ["address", "address"],
+    "ritual_ZNK18QAnimationGroupJob8childrenEv": ["address", "address"],
     "ritual_ZN18QAnimationGroupJob5clearEv": ["nothing", "address"],
     "ritual_ZN18QAnimationGroupJob29uncontrolledAnimationFinishedEP21QAbstractAnimationJob": [
       "nothing", "address", "address"

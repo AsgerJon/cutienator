@@ -6,7 +6,9 @@
 #if QT_CONFIG(graphicsview)
 #if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicstransform.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicstransform_p.h>

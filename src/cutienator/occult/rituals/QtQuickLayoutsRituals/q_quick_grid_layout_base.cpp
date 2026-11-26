@@ -1285,6 +1285,25 @@ const QMetaObject *ritual_ZNK20QQuickGridLayoutBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGridLayoutBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickGridLayoutBase11qt_metacastEPKc(
+    QQuickGridLayoutBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGridLayoutBase::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickGridLayoutBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGridLayoutBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGridLayoutBase::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickGridLayoutBase2trEPKcS1_i(
@@ -1305,6 +1324,16 @@ void ritual_ZN20QQuickGridLayoutBase22qt_qmlMarker_anonymousEv(
 extern "C" Q_DECL_EXPORT
 QQuickGridLayoutBase *ritual_ZN20QQuickGridLayoutBaseC1Ev() {
   return new CuteQQuickGridLayoutBase();
+}
+
+//  QQuickGridLayoutBase::QQuickGridLayoutBase(QQuickGridLayoutBasePrivate
+//      &dd, Qt::Orientation orientation, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickGridLayoutBase *ritual_ZN20QQuickGridLayoutBaseC1ER27QQuickGridLayoutBasePrivateN2Qt11OrientationEP10QQuickItem(
+    QQuickGridLayoutBasePrivate *dd,
+    Qt::Orientation orientation,
+    QQuickItem *parent) {
+  return new CuteQQuickGridLayoutBase(*dd, orientation, parent);
 }
 
 //  QQuickGridLayoutBase::~QQuickGridLayoutBase()
@@ -1446,6 +1475,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickGridLayoutBase17insertLayoutItemsEv(
     QQuickGridLayoutBase *self) {
   self->insertLayoutItems();
+}
+
+//  void QQuickGridLayoutBase::layoutDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGridLayoutBase22layoutDirectionChangedEv(
+    QQuickGridLayoutBase *self) {
+  self->layoutDirectionChanged();
 }
 
 //  void QQuickGridLayoutBase::removeGridItem(QGridLayoutItem *gridItem)

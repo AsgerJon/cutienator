@@ -34,10 +34,25 @@ inline QQuickTimeLineCallback::QQuickTimeLineCallback()
 {
 }
 
+//  from ../qtdeclarative/src/quick/util/qquicktimeline.cpp, line 907, as _ZN22QQuickTimeLineCallbackC1EP20QQuickTimeLineObjectPFvPvES2_
+inline QQuickTimeLineCallback::QQuickTimeLineCallback(QQuickTimeLineObject *b, Callback f, void *d)
+: d0(f), d1(d), d2(b)
+{
+}
+
 //  from ../qtdeclarative/src/quick/util/qquicktimeline.cpp, line 912, as _ZN22QQuickTimeLineCallbackC1ERKS_
 inline QQuickTimeLineCallback::QQuickTimeLineCallback(const QQuickTimeLineCallback &o)
 : d0(o.d0), d1(o.d1), d2(o.d2)
 {
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicktimeline.cpp, line 917, as _ZN22QQuickTimeLineCallbackaSERKS_
+inline QQuickTimeLineCallback &QQuickTimeLineCallback::operator=(const QQuickTimeLineCallback &o)
+{
+    d0 = o.d0;
+    d1 = o.d1;
+    d2 = o.d2;
+    return *this;
 }
 
 //  from ../qtdeclarative/src/quick/util/qquicktimeline.cpp, line 925, as _ZNK22QQuickTimeLineCallback14callbackObjectEv
@@ -53,12 +68,34 @@ QQuickTimeLineCallback *ritual_ZN22QQuickTimeLineCallbackC1Ev() {
   return new QQuickTimeLineCallback();
 }
 
+//  QQuickTimeLineCallback::QQuickTimeLineCallback(QQuickTimeLineObject *b,
+//      Callback a1, void *a2)
+extern "C" Q_DECL_EXPORT
+QQuickTimeLineCallback *ritual_ZN22QQuickTimeLineCallbackC1EP20QQuickTimeLineObjectPFvPvES2_(
+    QQuickTimeLineObject *b,
+    void *a1,
+    void *a2) {
+  return new QQuickTimeLineCallback(
+      b,
+      reinterpret_cast<QQuickTimeLineCallback::Callback>(a1),
+      a2);
+}
+
 //  QQuickTimeLineCallback::QQuickTimeLineCallback(const
 //      QQuickTimeLineCallback &o)
 extern "C" Q_DECL_EXPORT
 QQuickTimeLineCallback *ritual_ZN22QQuickTimeLineCallbackC1ERKS_(
     const QQuickTimeLineCallback *o) {
   return new QQuickTimeLineCallback(*o);
+}
+
+//  QQuickTimeLineCallback &QQuickTimeLineCallback::operator=(const
+//      QQuickTimeLineCallback &o)
+extern "C" Q_DECL_EXPORT
+QQuickTimeLineCallback *ritual_ZN22QQuickTimeLineCallbackaSERKS_(
+    QQuickTimeLineCallback *self,
+    const QQuickTimeLineCallback *o) {
+  return &(self->operator=(*o));
 }
 
 //  QQuickTimeLineObject *QQuickTimeLineCallback::callbackObject() const

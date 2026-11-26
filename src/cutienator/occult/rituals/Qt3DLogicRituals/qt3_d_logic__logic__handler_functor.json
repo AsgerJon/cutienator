@@ -5,6 +5,24 @@
     "made here are lost."
   ],
   "rows": {
-    "ritual_ZN9Qt3DLogic5Logic14HandlerFunctorD1Ev": ["nothing", "address"]
+    "ritual_ZN9Qt3DLogic5Logic14HandlerFunctorC1EPNS0_7ManagerE": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DLogic5Logic14HandlerFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DLogic5Logic14HandlerFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DLogic5Logic14HandlerFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DLogic5Logic14HandlerFunctorD1Ev": ["nothing", "address"],
+    "ritual_own_ZNK9Qt3DLogic5Logic14HandlerFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK9Qt3DLogic5Logic14HandlerFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ]
   }
 }

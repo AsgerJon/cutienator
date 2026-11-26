@@ -98,6 +98,12 @@ public:
   }
 };
 
+//  QQmlAbstractBinding::QQmlAbstractBinding()
+extern "C" Q_DECL_EXPORT
+QQmlAbstractBinding *ritual_ZN19QQmlAbstractBindingC1Ev() {
+  return new CuteQQmlAbstractBinding();
+}
+
 //  QQmlAbstractBinding::~QQmlAbstractBinding()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQmlAbstractBindingD1Ev(QQmlAbstractBinding *self) {
@@ -253,6 +259,16 @@ void ritual_ZN19QQmlAbstractBinding14setNextBindingEPS_(
     QQmlAbstractBinding *self,
     QQmlAbstractBinding *a0) {
   self->setNextBinding(a0);
+}
+
+//  void QQmlAbstractBinding::getPropertyData(const QQmlPropertyData
+//      **propertyData, QQmlPropertyData *valueTypeData) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK19QQmlAbstractBinding15getPropertyDataEPPK16QQmlPropertyDataPS0_(
+    const QQmlAbstractBinding *self,
+    const QQmlPropertyData **propertyData,
+    QQmlPropertyData *valueTypeData) {
+  self->getPropertyData(propertyData, valueTypeData);
 }
 
 //  bool QQmlAbstractBinding::updatingFlag() const

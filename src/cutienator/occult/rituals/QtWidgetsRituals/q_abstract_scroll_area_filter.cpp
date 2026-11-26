@@ -17,6 +17,25 @@ const QMetaObject *ritual_ZNK25QAbstractScrollAreaFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractScrollAreaFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QAbstractScrollAreaFilter11qt_metacastEPKc(
+    QAbstractScrollAreaFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractScrollAreaFilter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QAbstractScrollAreaFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractScrollAreaFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  bool QAbstractScrollAreaFilter::eventFilter(QObject *o, QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN25QAbstractScrollAreaFilter11eventFilterEP7QObjectP6QEvent(

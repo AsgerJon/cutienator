@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK22QTimelineAnimationNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTimelineAnimationNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QTimelineAnimationNode11qt_metacastEPKc(
+    QTimelineAnimationNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTimelineAnimationNode::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QTimelineAnimationNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTimelineAnimationNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTimelineAnimationNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QTimelineAnimationNode2trEPKcS1_i(
@@ -75,6 +94,27 @@ void ritual_ZN22QTimelineAnimationNode15setCurrentFrameEd(
     QTimelineAnimationNode *self,
     qreal newCurrentFrame) {
   self->setCurrentFrame(newCurrentFrame);
+}
+
+//  void QTimelineAnimationNode::animationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QTimelineAnimationNode16animationChangedEv(
+    QTimelineAnimationNode *self) {
+  self->animationChanged();
+}
+
+//  void QTimelineAnimationNode::timelineChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QTimelineAnimationNode15timelineChangedEv(
+    QTimelineAnimationNode *self) {
+  self->timelineChanged();
+}
+
+//  void QTimelineAnimationNode::currentFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QTimelineAnimationNode19currentFrameChangedEv(
+    QTimelineAnimationNode *self) {
+  self->currentFrameChanged();
 }
 
 //  void QTimelineAnimationNode::updateFrameData()

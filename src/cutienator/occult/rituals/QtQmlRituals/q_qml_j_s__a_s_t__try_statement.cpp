@@ -199,6 +199,43 @@ public:
   }
 };
 
+//  QQmlJS::AST::TryStatement::TryStatement(Statement *stmt, Catch *c,
+//      Finally *f)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::TryStatement *ritual_ZN6QQmlJS3AST12TryStatementC1EPNS0_9StatementEPNS0_5CatchEPNS0_7FinallyE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::Statement *stmt,
+    QQmlJS::AST::Catch *c,
+    QQmlJS::AST::Finally *f) {
+  return new (pool) CuteQQmlJS_AST_TryStatement(stmt, c, f);
+}
+
+//  QQmlJS::AST::TryStatement::TryStatement(Statement *stmt, Finally *f)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::TryStatement *ritual_ZN6QQmlJS3AST12TryStatementC1EPNS0_9StatementEPNS0_7FinallyE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::Statement *stmt,
+    QQmlJS::AST::Finally *f) {
+  return new (pool) CuteQQmlJS_AST_TryStatement(stmt, f);
+}
+
+//  QQmlJS::AST::TryStatement::TryStatement(Statement *stmt, Catch *c)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::TryStatement *ritual_ZN6QQmlJS3AST12TryStatementC1EPNS0_9StatementEPNS0_5CatchE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::Statement *stmt,
+    QQmlJS::AST::Catch *c) {
+  return new (pool) CuteQQmlJS_AST_TryStatement(stmt, c);
+}
+
+//  void QQmlJS::AST::TryStatement::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST12TryStatement7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::TryStatement *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::TryStatement::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST12TryStatement19firstSourceLocationEv(

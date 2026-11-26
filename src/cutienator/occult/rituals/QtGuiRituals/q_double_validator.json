@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK16QDoubleValidator10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QDoubleValidator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QDoubleValidator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QDoubleValidator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -13,6 +19,12 @@
       "address", "double", "double", "int", "address"
     ],
     "ritual_ZN16QDoubleValidatorD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QDoubleValidator8validateER7QStringRi": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK16QDoubleValidator5fixupER7QString": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QDoubleValidator8setRangeEddi": [
       "nothing", "address", "double", "double", "int"
     ],
@@ -33,6 +45,20 @@
     "ritual_ZNK16QDoubleValidator3topEv": ["double", "address"],
     "ritual_ZNK16QDoubleValidator8decimalsEv": ["int", "address"],
     "ritual_ZNK16QDoubleValidator8notationEv": ["int", "address"],
+    "ritual_ZN16QDoubleValidator13bottomChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QDoubleValidator10topChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QDoubleValidator15decimalsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QDoubleValidator15notationChangedENS_8NotationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QDoubleValidator6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QDoubleValidator6d_funcEv": ["address", "address"],
     "ritual_take_QDoubleValidator": ["bool", "address", "chars", "address"]
   }
 }

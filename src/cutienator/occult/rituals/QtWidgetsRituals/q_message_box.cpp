@@ -6,7 +6,9 @@
 #if QT_CONFIG(messagebox)
 #include <QtWidgets/qmessagebox.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(abstractbutton)
 #include <QtWidgets/qabstractbutton.h>
+#endif
 #include <QtGui/qpixmap.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
@@ -1047,6 +1049,24 @@ const QMetaObject *ritual_ZNK11QMessageBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMessageBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QMessageBox11qt_metacastEPKc(
+    QMessageBox *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMessageBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QMessageBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMessageBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMessageBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QMessageBox2trEPKcS1_i(
@@ -1792,6 +1812,14 @@ QPixmap *ritual_ZN11QMessageBox12standardIconENS_4IconE(
 }
 #endif  // QT_DEPRECATED_SINCE(6,2)
 
+//  void QMessageBox::buttonClicked(QAbstractButton *button)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMessageBox13buttonClickedEP15QAbstractButton(
+    QMessageBox *self,
+    QAbstractButton *button) {
+  self->buttonClicked(button);
+}
+
 //  bool QMessageBox::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QMessageBox5eventEP6QEvent(QMessageBox *self, QEvent *e) {
@@ -1836,6 +1864,19 @@ void ritual_ZN11QMessageBox11changeEventEP6QEvent(
     QMessageBox *self,
     QEvent *event) {
   self->changeEvent(event);
+}
+
+//  QMessageBoxPrivate *QMessageBox::d_func()
+extern "C" Q_DECL_EXPORT
+QMessageBoxPrivate *ritual_ZN11QMessageBox6d_funcEv(QMessageBox *self) {
+  return self->d_func();
+}
+
+//  const QMessageBoxPrivate *QMessageBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QMessageBoxPrivate *ritual_ZNK11QMessageBox6d_funcEv(
+    const QMessageBox *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQMessageBox, for the function named by

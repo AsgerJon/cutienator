@@ -7,6 +7,8 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtWaylandCompositor/QWaylandXdgToplevel>
 
 //  A QWaylandXdgToplevel that Python can take functions over in. Every QWaylandXdgToplevel
 //  Python makes is one. Each function below asks the Python
@@ -182,6 +184,25 @@ const QMetaObject *ritual_ZNK19QWaylandXdgToplevel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandXdgToplevel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QWaylandXdgToplevel11qt_metacastEPKc(
+    QWaylandXdgToplevel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandXdgToplevel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QWaylandXdgToplevel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandXdgToplevel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandXdgToplevel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QWaylandXdgToplevel2trEPKcS1_i(
@@ -189,6 +210,29 @@ QString *ritual_ZN19QWaylandXdgToplevel2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandXdgToplevel::tr(s, c, n));
+}
+
+//  QWaylandXdgToplevelPrivate *QWaylandXdgToplevel::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandXdgToplevelPrivate *ritual_ZN19QWaylandXdgToplevel6d_funcEv(
+    QWaylandXdgToplevel *self) {
+  return self->d_func();
+}
+
+//  const QWaylandXdgToplevelPrivate *QWaylandXdgToplevel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandXdgToplevelPrivate *ritual_ZNK19QWaylandXdgToplevel6d_funcEv(
+    const QWaylandXdgToplevel *self) {
+  return self->d_func();
+}
+
+//  QWaylandXdgToplevel::QWaylandXdgToplevel(QWaylandXdgSurface *xdgSurface,
+//      QWaylandResource &resource)
+extern "C" Q_DECL_EXPORT
+QWaylandXdgToplevel *ritual_ZN19QWaylandXdgToplevelC1EP18QWaylandXdgSurfaceR16QWaylandResource(
+    QWaylandXdgSurface *xdgSurface,
+    QWaylandResource *resource) {
+  return new CuteQWaylandXdgToplevel(xdgSurface, *resource);
 }
 
 //  QWaylandXdgToplevel::~QWaylandXdgToplevel()
@@ -237,6 +281,13 @@ extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK19QWaylandXdgToplevel7minSizeEv(
     const QWaylandXdgToplevel *self) {
   return new QSize(self->minSize());
+}
+
+//  QList<QWaylandXdgToplevel::State> QWaylandXdgToplevel::states() const
+extern "C" Q_DECL_EXPORT
+QList<QWaylandXdgToplevel::State> *ritual_ZNK19QWaylandXdgToplevel6statesEv(
+    const QWaylandXdgToplevel *self) {
+  return new QList<QWaylandXdgToplevel::State>(self->states());
 }
 
 //  bool QWaylandXdgToplevel::maximized() const
@@ -289,6 +340,26 @@ QSize *ritual_ZNK19QWaylandXdgToplevel13sizeForResizeERK6QSizeFRK7QPointF6QFlags
           QFlags<Qt::Edge>::fromInt(edges)));
 }
 
+//  uint QWaylandXdgToplevel::sendConfigure(const QSize &size, const
+//      QList<State> &states)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN19QWaylandXdgToplevel13sendConfigureERK5QSizeRK5QListINS_5StateEE(
+    QWaylandXdgToplevel *self,
+    const QSize *size,
+    const QList<QWaylandXdgToplevel::State> *states) {
+  return self->sendConfigure(*size, *states);
+}
+
+//  uint QWaylandXdgToplevel::sendConfigure(const QSize &size, const
+//      QList<int> &states)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN19QWaylandXdgToplevel13sendConfigureERK5QSizeRK5QListIiE(
+    QWaylandXdgToplevel *self,
+    const QSize *size,
+    const QList<int> *states) {
+  return self->sendConfigure(*size, *states);
+}
+
 //  void QWaylandXdgToplevel::sendClose()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QWaylandXdgToplevel9sendCloseEv(QWaylandXdgToplevel *self) {
@@ -333,11 +404,174 @@ QWaylandSurfaceRole *ritual_ZN19QWaylandXdgToplevel4roleEv() {
   return QWaylandXdgToplevel::role();
 }
 
+//  QWaylandXdgToplevel *QWaylandXdgToplevel::fromResource(::wl_resource
+//      *resource)
+extern "C" Q_DECL_EXPORT
+QWaylandXdgToplevel *ritual_ZN19QWaylandXdgToplevel12fromResourceEP11wl_resource(
+    ::wl_resource *resource) {
+  return QWaylandXdgToplevel::fromResource(resource);
+}
+
 //  bool QWaylandXdgToplevel::isModal() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QWaylandXdgToplevel7isModalEv(
     const QWaylandXdgToplevel *self) {
   return self->isModal();
+}
+
+//  void QWaylandXdgToplevel::parentToplevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel21parentToplevelChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->parentToplevelChanged();
+}
+
+//  void QWaylandXdgToplevel::titleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel12titleChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->titleChanged();
+}
+
+//  void QWaylandXdgToplevel::appIdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel12appIdChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->appIdChanged();
+}
+
+//  void QWaylandXdgToplevel::maxSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel14maxSizeChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->maxSizeChanged();
+}
+
+//  void QWaylandXdgToplevel::minSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel14minSizeChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->minSizeChanged();
+}
+
+//  void QWaylandXdgToplevel::startMove(QWaylandSeat *seat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel9startMoveEP12QWaylandSeat(
+    QWaylandXdgToplevel *self,
+    QWaylandSeat *seat) {
+  self->startMove(seat);
+}
+
+//  void QWaylandXdgToplevel::startResize(QWaylandSeat *seat, Qt::Edges
+//      edges)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel11startResizeEP12QWaylandSeat6QFlagsIN2Qt4EdgeEE(
+    QWaylandXdgToplevel *self,
+    QWaylandSeat *seat,
+    int edges) {
+  self->startResize(seat, QFlags<Qt::Edge>::fromInt(edges));
+}
+
+//  void QWaylandXdgToplevel::statesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel13statesChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->statesChanged();
+}
+
+//  void QWaylandXdgToplevel::maximizedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel16maximizedChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->maximizedChanged();
+}
+
+//  void QWaylandXdgToplevel::fullscreenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel17fullscreenChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->fullscreenChanged();
+}
+
+//  void QWaylandXdgToplevel::resizingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel15resizingChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->resizingChanged();
+}
+
+//  void QWaylandXdgToplevel::activatedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel16activatedChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->activatedChanged();
+}
+
+//  void QWaylandXdgToplevel::showWindowMenu(QWaylandSeat *seat, const QPoint
+//      &localSurfacePosition)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel14showWindowMenuEP12QWaylandSeatRK6QPoint(
+    QWaylandXdgToplevel *self,
+    QWaylandSeat *seat,
+    const QPoint *localSurfacePosition) {
+  self->showWindowMenu(seat, *localSurfacePosition);
+}
+
+//  void QWaylandXdgToplevel::setMaximized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel12setMaximizedEv(
+    QWaylandXdgToplevel *self) {
+  self->setMaximized();
+}
+
+//  void QWaylandXdgToplevel::unsetMaximized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel14unsetMaximizedEv(
+    QWaylandXdgToplevel *self) {
+  self->unsetMaximized();
+}
+
+//  void QWaylandXdgToplevel::setFullscreen(QWaylandOutput *output)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel13setFullscreenEP14QWaylandOutput(
+    QWaylandXdgToplevel *self,
+    QWaylandOutput *output) {
+  self->setFullscreen(output);
+}
+
+//  void QWaylandXdgToplevel::unsetFullscreen()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel15unsetFullscreenEv(
+    QWaylandXdgToplevel *self) {
+  self->unsetFullscreen();
+}
+
+//  void QWaylandXdgToplevel::setMinimized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel12setMinimizedEv(
+    QWaylandXdgToplevel *self) {
+  self->setMinimized();
+}
+
+//  void QWaylandXdgToplevel::decorationModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel21decorationModeChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->decorationModeChanged();
+}
+
+//  void QWaylandXdgToplevel::modalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandXdgToplevel12modalChangedEv(
+    QWaylandXdgToplevel *self) {
+  self->modalChanged();
+}
+
+//  QList<int> QWaylandXdgToplevel::statesAsInts() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK19QWaylandXdgToplevel12statesAsIntsEv(
+    const QWaylandXdgToplevel *self) {
+  return new QList<int>(self->statesAsInts());
 }
 
 //  void QWaylandXdgToplevel::setModal(bool newModal)
@@ -356,4 +590,17 @@ bool ritual_take_QWaylandXdgToplevel(
     const char *key,
     void *call) {
   return static_cast<CuteQWaylandXdgToplevel *>(self)->take(key, call);
+}
+
+//  a QList<QWaylandXdgToplevel::State> a ritual of QWaylandXdgToplevel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWaylandXdgToplevel__QList_QWaylandXdgToplevel_State(
+    QList<QWaylandXdgToplevel::State> *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of QWaylandXdgToplevel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWaylandXdgToplevel__QList_int(QList<int> *self) {
+  delete self;
 }

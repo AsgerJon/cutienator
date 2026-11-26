@@ -14,6 +14,7 @@
     "ritual_ZN9LabelItem12setTextureIdEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZNK9LabelItem9textureIdEv": ["unsigned int", "address"],
     "ritual_ZN9LabelItem5clearEv": ["nothing", "address"]
   }
 }

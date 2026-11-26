@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemradiobutton_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when"
+  ],
+  "rows": {
+    "ritual_ZNK26QQuickStyleItemRadioButton10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickStyleItemRadioButtonD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QQuickStyleItemRadioButton9styleFontEP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK26QQuickStyleItemRadioButton16connectToControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QQuickStyleItemRadioButton10paintEventEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickStyleItemRadioButton17calculateGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickStyleItemRadioButton15initStyleOptionERN4QQC218QStyleOptionButtonE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

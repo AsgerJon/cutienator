@@ -8,8 +8,23 @@
     "ritual_ZNK17QtVirtualKeyboard18AbstractInputPanel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanelC1ER14QObjectPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanelD1Ev": [
+      "nothing", "address"
     ],
     "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel4showEv": [
       "nothing", "address"

@@ -14,6 +14,9 @@
     "ritual_ZN3QV48Compiler7Codegen6RValue9fromConstEPS1_y": [
       "address", "address", "unsigned long long"
     ],
+    "ritual_ZNK3QV48Compiler7Codegen6RValueeqERKS2_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK3QV48Compiler7Codegen6RValue7isValidEv": ["bool", "address"],
     "ritual_ZNK3QV48Compiler7Codegen6RValue13isAccumulatorEv": [
       "bool", "address"

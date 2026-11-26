@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
@@ -222,6 +223,25 @@ public:
     return QQmlJS::AST::Node::asClassDefinition();
   }
 };
+
+//  QQmlJS::AST::StringLiteralPropertyName::StringLiteralPropertyName(QString
+//      View n)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::StringLiteralPropertyName *ritual_ZN6QQmlJS3AST25StringLiteralPropertyNameC1E11QStringView(
+    QQmlJS::MemoryPool *pool,
+    const QString *n) {
+  return new (pool) CuteQQmlJS_AST_StringLiteralPropertyName(
+      QStringView(*n));
+}
+
+//  void QQmlJS::AST::StringLiteralPropertyName::accept0(BaseVisitor
+//      *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST25StringLiteralPropertyName7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::StringLiteralPropertyName *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
 
 //  QString QQmlJS::AST::StringLiteralPropertyName::asString() const
 extern "C" Q_DECL_EXPORT

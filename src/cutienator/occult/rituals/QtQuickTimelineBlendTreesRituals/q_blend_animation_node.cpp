@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK19QBlendAnimationNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBlendAnimationNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QBlendAnimationNode11qt_metacastEPKc(
+    QBlendAnimationNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBlendAnimationNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QBlendAnimationNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBlendAnimationNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBlendAnimationNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QBlendAnimationNode2trEPKcS1_i(
@@ -81,4 +100,25 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QBlendAnimationNode27handleInputFrameDataChangedEv(
     QBlendAnimationNode *self) {
   self->handleInputFrameDataChanged();
+}
+
+//  void QBlendAnimationNode::source1Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBlendAnimationNode14source1ChangedEv(
+    QBlendAnimationNode *self) {
+  self->source1Changed();
+}
+
+//  void QBlendAnimationNode::source2Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBlendAnimationNode14source2ChangedEv(
+    QBlendAnimationNode *self) {
+  self->source2Changed();
+}
+
+//  void QBlendAnimationNode::weightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBlendAnimationNode13weightChangedEv(
+    QBlendAnimationNode *self) {
+  self->weightChanged();
 }

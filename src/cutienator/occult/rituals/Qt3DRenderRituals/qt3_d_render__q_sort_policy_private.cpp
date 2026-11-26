@@ -7,6 +7,26 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qsortpolicy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DRender/private/qsortpolicy_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/render/framegraph/qsortpolicy.cpp, line 13, as _ZN10Qt3DRender18QSortPolicyPrivateC1Ev
+namespace Qt3DRender {
+using namespace Qt3DCore;
+inline QSortPolicyPrivate::QSortPolicyPrivate()
+    : QFrameGraphNodePrivate()
+{
+}
+}  // namespace Qt3DRender
+//  -----------------------------------------------------------------------
 
 //  A Qt3DRender::QSortPolicyPrivate that Python can take functions over in. Every Qt3DRender::QSortPolicyPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +72,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DRender::QSortPolicyPrivate::QSortPolicyPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSortPolicyPrivate *ritual_ZN10Qt3DRender18QSortPolicyPrivateC1Ev() {
+  return new CuteQt3DRender_QSortPolicyPrivate();
+}
 
 //  QSortPolicy *Qt3DRender::QSortPolicyPrivate::q_func()
 extern "C" Q_DECL_EXPORT

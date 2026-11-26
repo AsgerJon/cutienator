@@ -8,6 +8,12 @@
     "ritual_ZNK41QNonContiguousByteDeviceThreadForwardImpl10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN41QNonContiguousByteDeviceThreadForwardImplD1Ev": [
       "nothing", "address"
     ],
@@ -31,6 +37,15 @@
     ],
     "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl12haveDataSlotExRK10QByteArraybx": [
       "nothing", "address", "long long", "address", "bool", "long long"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl8wantDataEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl13processedDataExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl9resetDataEPb": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QNonContiguousByteDeviceThreadForwardImpl": [
       "bool", "address", "chars", "address"

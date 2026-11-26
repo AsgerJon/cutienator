@@ -5,6 +5,26 @@
   ],
   "rows": {
     "ritual_ZN6QQmlSA11PassManager6d_funcEv": ["address", "address"],
-    "ritual_ZNK6QQmlSA11PassManager6d_funcEv": ["address", "address"]
+    "ritual_ZNK6QQmlSA11PassManager6d_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA11PassManager20registerPropertyPassESt10shared_ptrINS_12PropertyPassEE14QAnyStringViewS4_S4_b": [
+      "bool", "address", "address", "text", "text", "text", "bool"
+    ],
+    "ritual_ZN6QQmlSA11PassManager7analyzeERKNS_7ElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA11PassManager17hasImportedModuleE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA11PassManager17isCategoryEnabledENS_15LoggerWarningIdE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA11PassManager18bindingsByLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA11PassManagerC1Ev": ["address"],
+    "ritual_ZN6QQmlSA11PassManagerD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlSA_PassManager__std_unordered_map_quint32_QQmlSA_Binding": [
+      "nothing", "address"
+    ]
   }
 }

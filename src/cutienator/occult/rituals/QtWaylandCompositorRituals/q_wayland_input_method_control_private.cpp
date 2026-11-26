@@ -7,7 +7,9 @@
 #if QT_CONFIG(im)
 #if QT_CONFIG(im)
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
+#if QT_CONFIG(im)
 #include <QtWaylandCompositor/qwaylandinputmethodcontrol.h>
+#endif
 #include <QtWaylandCompositor/QtWaylandCompositor>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwaylandinputmethodcontrol_p.h>

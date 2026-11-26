@@ -65,6 +65,12 @@
     ],
     "ritual_ZNK16QTextFrameFormat15pageBreakPolicyEv": ["int", "address"],
     "ritual_ZN16QTextFrameFormatC1ERK11QTextFormat": ["address", "address"],
+    "ritual_ZlsR11QDataStreamRK16QTextFrameFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR16QTextFrameFormat": [
+      "address", "address", "address"
+    ],
     "ritual_ZN16QTextFrameFormatD1Ev": ["nothing", "address"]
   }
 }

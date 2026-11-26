@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by hand on 2026-11-26 from",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qavfcamerabase_p.h, Qt",
+    "6.12.0, from Qt's source: Objective-C++, built on Apple's systems",
+    "only. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK14QAVFCameraBase8isActiveEv": ["bool", "address"],
+    "ritual_ZN14QAVFCameraBase9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QAVFCameraBase9setCameraERK13QCameraDevice": ["nothing", "address", "address"],
+    "ritual_ZN14QAVFCameraBase15setCameraFormatERK13QCameraFormat": ["bool", "address", "address"],
+    "ritual_ZN14QAVFCameraBase12setFocusModeEN7QCamera9FocusModeE": ["nothing", "address", "int"],
+    "ritual_ZNK14QAVFCameraBase20isFocusModeSupportedEN7QCamera9FocusModeE": ["bool", "address", "int"],
+    "ritual_ZN14QAVFCameraBase19setCustomFocusPointERK7QPointF": ["nothing", "address", "address"],
+    "ritual_ZN14QAVFCameraBase16setFocusDistanceEf": ["nothing", "address", "float"],
+    "ritual_ZN14QAVFCameraBase6zoomToEff": ["nothing", "address", "float", "float"],
+    "ritual_ZN14QAVFCameraBase12setFlashModeEN7QCamera9FlashModeE": ["nothing", "address", "int"],
+    "ritual_ZNK14QAVFCameraBase20isFlashModeSupportedEN7QCamera9FlashModeE": ["bool", "address", "int"],
+    "ritual_ZNK14QAVFCameraBase12isFlashReadyEv": ["bool", "address"],
+    "ritual_ZN14QAVFCameraBase12setTorchModeEN7QCamera9TorchModeE": ["nothing", "address", "int"],
+    "ritual_ZNK14QAVFCameraBase20isTorchModeSupportedEN7QCamera9TorchModeE": ["bool", "address", "int"],
+    "ritual_ZN14QAVFCameraBase15setExposureModeEN7QCamera12ExposureModeE": ["nothing", "address", "int"],
+    "ritual_ZNK14QAVFCameraBase23isExposureModeSupportedEN7QCamera12ExposureModeE": ["bool", "address", "int"],
+    "ritual_ZN14QAVFCameraBase23setExposureCompensationEf": ["nothing", "address", "float"],
+    "ritual_ZN14QAVFCameraBase23setManualIsoSensitivityEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QAVFCameraBase14isoSensitivityEv": ["int", "address"],
+    "ritual_ZN14QAVFCameraBase21setManualExposureTimeEf": ["nothing", "address", "float"],
+    "ritual_ZNK14QAVFCameraBase12exposureTimeEv": ["float", "address"],
+    "ritual_ZNK14QAVFCameraBase27isWhiteBalanceModeSupportedEN7QCamera16WhiteBalanceModeE": ["bool", "address", "int"],
+    "ritual_ZN14QAVFCameraBase19setWhiteBalanceModeEN7QCamera16WhiteBalanceModeE": ["nothing", "address", "int"],
+    "ritual_ZN14QAVFCameraBase19setColorTemperatureEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QAVFCameraBase6deviceEv": ["address", "address"],
+    "ritual_ZN14QAVFCameraBase21checkCameraPermissionEv": ["bool", "address"],
+    "ritual_ZN14QAVFCameraBaseD1Ev": ["nothing", "address"]
+  }
+}

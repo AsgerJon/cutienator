@@ -29,9 +29,52 @@
     "ritual_ZN21QQuick3DObjectPrivate4initEP14QQuick3DObject": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN21QQuick3DObjectPrivate4dataEv": ["address", "address"],
+    "ritual_ZN21QQuick3DObjectPrivate9resourcesEv": ["address", "address"],
+    "ritual_ZN21QQuick3DObjectPrivate8childrenEv": ["address", "address"],
+    "ritual_ZN21QQuick3DObjectPrivate6statesEv": ["address", "address"],
+    "ritual_ZN21QQuick3DObjectPrivate11transitionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK21QQuick3DObjectPrivate5stateEv": ["text", "address"],
     "ritual_ZN21QQuick3DObjectPrivate8setStateERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate11data_appendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate10data_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate7data_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate10data_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate12resources_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate16resources_appendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate15resources_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate15resources_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate15children_appendEP16QQmlListPropertyI14QQuick3DObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate14children_countEP16QQmlListPropertyI14QQuick3DObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate11children_atEP16QQmlListPropertyI14QQuick3DObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate14children_clearEP16QQmlListPropertyI14QQuick3DObjectE": [
+      "nothing", "address"
     ],
     "ritual_ZN21QQuick3DObjectPrivate24_q_resourceObjectDeletedEP7QObject": [
       "nothing", "address", "address"
@@ -79,8 +122,14 @@
     "ritual_ZN21QQuick3DObjectPrivate19siblingOrderChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QQuick3DObjectPrivate15refSceneManagerER20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QQuick3DObjectPrivate17derefSceneManagerEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate15refSceneManagerEP14QQuick3DObjectR20QQuick3DSceneManager": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN21QQuick3DObjectPrivate17derefSceneManagerEP14QQuick3DObject": [
       "nothing", "address"
@@ -101,6 +150,18 @@
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN21QQuick3DObjectPrivate12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DObjectPrivate__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DObjectPrivate__QQmlListProperty_QQuick3DObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DObjectPrivate__QQmlListProperty_QQuickState": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DObjectPrivate__QQmlListProperty_QQuickTransition": [
       "nothing", "address"
     ]
   }

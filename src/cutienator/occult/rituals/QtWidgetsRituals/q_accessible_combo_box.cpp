@@ -13,7 +13,9 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/complexwidgets_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qcolor.h>
@@ -64,6 +66,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/accessible/complexwidgets.cpp, line 341, as _ZN19QAccessibleComboBoxC1EP7QWidget
 #if QT_CONFIG(accessibility)
@@ -336,42 +340,48 @@ typedef void (*CuteQAccessibleComboBoxCall8)(const void *, const QString *, int 
 #endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QVariant * (*CuteQAccessibleComboBoxCall9)(const void *, int, int *);
+typedef void * (*CuteQAccessibleComboBoxCall9)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef bool (*CuteQAccessibleComboBoxCall10)(const void *, int *);
+typedef const QVariant * (*CuteQAccessibleComboBoxCall10)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleComboBoxCall11)(const void *, int *);
+typedef bool (*CuteQAccessibleComboBoxCall11)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QRect * (*CuteQAccessibleComboBoxCall12)(const void *, int *);
+typedef void * (*CuteQAccessibleComboBoxCall12)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleComboBoxCall13)(const void *, int *);
+typedef const QRect * (*CuteQAccessibleComboBoxCall13)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleComboBoxCall14)(const void *, int *);
+typedef void * (*CuteQAccessibleComboBoxCall14)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QColor * (*CuteQAccessibleComboBoxCall15)(const void *, int *);
+typedef int (*CuteQAccessibleComboBoxCall15)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleComboBoxCall16)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleComboBoxCall17)(const void *, int *);
+typedef const QColor * (*CuteQAccessibleComboBoxCall17)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleComboBoxCall18)(const void *, int, const QString *, int *);
+typedef void * (*CuteQAccessibleComboBoxCall18)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleComboBoxCall19)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleComboBoxCall19)(const void *, int, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef void (*CuteQAccessibleComboBoxCall20)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleComboBoxCall21)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleComboBox : public QAccessibleComboBox {
 public:
   using QAccessibleComboBox::QAccessibleComboBox;
-  void *taken[20] = {};
+  void *taken[22] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -447,68 +457,80 @@ public:
 #endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
       taken[9] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
+    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
       taken[10] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
       taken[11] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
       taken[12] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
       taken[13] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
       taken[14] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
       taken[15] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
       taken[16] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[17] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
       taken[18] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
       taken[19] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
+      taken[20] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[21] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -663,12 +685,26 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
-  //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
-  //      key) const
-  QVariant attributeValue(QAccessible::Attribute key) const override {
+  //  void *QAccessibleWidgetV2::interface_cast(QAccessible::InterfaceType
+  //      t)
+  void *interface_cast(QAccessible::InterfaceType t) override {
     if (taken[9]) {
       int handled = 0;
       CuteQAccessibleComboBoxCall9 call = reinterpret_cast<CuteQAccessibleComboBoxCall9>(taken[9]);
+      void * given = call(this, static_cast<int>(t), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleWidgetV2::interface_cast(t);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
+  //      key) const
+  QVariant attributeValue(QAccessible::Attribute key) const override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQAccessibleComboBoxCall10 call = reinterpret_cast<CuteQAccessibleComboBoxCall10>(taken[10]);
       const QVariant * given = call(this, static_cast<int>(key), &handled);
       if (handled && given) return *given;
     }
@@ -679,9 +715,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  bool QAccessibleWidget::isValid() const
   bool isValid() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall10 call = reinterpret_cast<CuteQAccessibleComboBoxCall10>(taken[10]);
+      CuteQAccessibleComboBoxCall11 call = reinterpret_cast<CuteQAccessibleComboBoxCall11>(taken[11]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -692,9 +728,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QWindow *QAccessibleWidget::window() const
   QWindow *window() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall11 call = reinterpret_cast<CuteQAccessibleComboBoxCall11>(taken[11]);
+      CuteQAccessibleComboBoxCall12 call = reinterpret_cast<CuteQAccessibleComboBoxCall12>(taken[12]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWindow *>(given);
     }
@@ -705,9 +741,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QRect QAccessibleWidget::rect() const
   QRect rect() const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall12 call = reinterpret_cast<CuteQAccessibleComboBoxCall12>(taken[12]);
+      CuteQAccessibleComboBoxCall13 call = reinterpret_cast<CuteQAccessibleComboBoxCall13>(taken[13]);
       const QRect * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -718,9 +754,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::parent() const
   QAccessibleInterface *parent() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall13 call = reinterpret_cast<CuteQAccessibleComboBoxCall13>(taken[13]);
+      CuteQAccessibleComboBoxCall14 call = reinterpret_cast<CuteQAccessibleComboBoxCall14>(taken[14]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -731,9 +767,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::Role QAccessibleWidget::role() const
   QAccessible::Role role() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall14 call = reinterpret_cast<CuteQAccessibleComboBoxCall14>(taken[14]);
+      CuteQAccessibleComboBoxCall15 call = reinterpret_cast<CuteQAccessibleComboBoxCall15>(taken[15]);
       int given = call(this, &handled);
       if (handled) return static_cast<QAccessible::Role>(given);
     }
@@ -744,9 +780,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall15 call = reinterpret_cast<CuteQAccessibleComboBoxCall15>(taken[15]);
+      CuteQAccessibleComboBoxCall16 call = reinterpret_cast<CuteQAccessibleComboBoxCall16>(taken[16]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -757,9 +793,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall16 call = reinterpret_cast<CuteQAccessibleComboBoxCall16>(taken[16]);
+      CuteQAccessibleComboBoxCall17 call = reinterpret_cast<CuteQAccessibleComboBoxCall17>(taken[17]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -770,9 +806,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QObject *QAccessibleObject::object() const
   QObject *object() const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall17 call = reinterpret_cast<CuteQAccessibleComboBoxCall17>(taken[17]);
+      CuteQAccessibleComboBoxCall18 call = reinterpret_cast<CuteQAccessibleComboBoxCall18>(taken[18]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QObject *>(given);
     }
@@ -784,9 +820,9 @@ public:
   //  void QAccessibleObject::setText(QAccessible::Text t, const QString
   //      &text)
   void setText(QAccessible::Text t, const QString &text) override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall18 call = reinterpret_cast<CuteQAccessibleComboBoxCall18>(taken[18]);
+      CuteQAccessibleComboBoxCall19 call = reinterpret_cast<CuteQAccessibleComboBoxCall19>(taken[19]);
       call(this, static_cast<int>(t), &text, &handled);
       if (handled) return;
     }
@@ -795,12 +831,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQAccessibleComboBoxCall20 call = reinterpret_cast<CuteQAccessibleComboBoxCall20>(taken[20]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionName(const QString
   //      &name) const
   QString localizedActionName(const QString &name) const override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQAccessibleComboBoxCall19 call = reinterpret_cast<CuteQAccessibleComboBoxCall19>(taken[19]);
+      CuteQAccessibleComboBoxCall21 call = reinterpret_cast<CuteQAccessibleComboBoxCall21>(taken[21]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);

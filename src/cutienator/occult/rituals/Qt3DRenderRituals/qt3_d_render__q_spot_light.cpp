@@ -2,6 +2,7 @@
 //  Qt3DRender/qspotlight.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qspotlight.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QSpotLight10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QSpotLight::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QSpotLight11qt_metacastEPKc(
+    Qt3DRender::QSpotLight *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QSpotLight::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QSpotLight11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QSpotLight *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QSpotLight::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QSpotLight2trEPKcS2_i(
@@ -193,6 +213,141 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QSpotLight *ritual_ZN10Qt3DRender10QSpotLightC1EPN8Qt3DCore5QNodeE(
     Qt3DCore::QNode *parent) {
   return new CuteQt3DRender_QSpotLight(parent);
+}
+
+//  Qt3DRender::QSpotLight::~QSpotLight()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLightD1Ev(Qt3DRender::QSpotLight *self) {
+  delete self;
+}
+
+//  QVector3D Qt3DRender::QSpotLight::localDirection() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK10Qt3DRender10QSpotLight14localDirectionEv(
+    const Qt3DRender::QSpotLight *self) {
+  return new QVector3D(self->localDirection());
+}
+
+//  float Qt3DRender::QSpotLight::cutOffAngle() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender10QSpotLight11cutOffAngleEv(
+    const Qt3DRender::QSpotLight *self) {
+  return self->cutOffAngle();
+}
+
+//  float Qt3DRender::QSpotLight::constantAttenuation() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender10QSpotLight19constantAttenuationEv(
+    const Qt3DRender::QSpotLight *self) {
+  return self->constantAttenuation();
+}
+
+//  float Qt3DRender::QSpotLight::linearAttenuation() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender10QSpotLight17linearAttenuationEv(
+    const Qt3DRender::QSpotLight *self) {
+  return self->linearAttenuation();
+}
+
+//  float Qt3DRender::QSpotLight::quadraticAttenuation() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender10QSpotLight20quadraticAttenuationEv(
+    const Qt3DRender::QSpotLight *self) {
+  return self->quadraticAttenuation();
+}
+
+//  void Qt3DRender::QSpotLight::setConstantAttenuation(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight22setConstantAttenuationEf(
+    Qt3DRender::QSpotLight *self,
+    float value) {
+  self->setConstantAttenuation(value);
+}
+
+//  void Qt3DRender::QSpotLight::setLinearAttenuation(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight20setLinearAttenuationEf(
+    Qt3DRender::QSpotLight *self,
+    float value) {
+  self->setLinearAttenuation(value);
+}
+
+//  void Qt3DRender::QSpotLight::setQuadraticAttenuation(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight23setQuadraticAttenuationEf(
+    Qt3DRender::QSpotLight *self,
+    float value) {
+  self->setQuadraticAttenuation(value);
+}
+
+//  void Qt3DRender::QSpotLight::setLocalDirection(const QVector3D
+//      &localDirection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight17setLocalDirectionERK9QVector3D(
+    Qt3DRender::QSpotLight *self,
+    const QVector3D *localDirection) {
+  self->setLocalDirection(*localDirection);
+}
+
+//  void Qt3DRender::QSpotLight::setCutOffAngle(float cutOffAngle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight14setCutOffAngleEf(
+    Qt3DRender::QSpotLight *self,
+    float cutOffAngle) {
+  self->setCutOffAngle(cutOffAngle);
+}
+
+//  void Qt3DRender::QSpotLight::constantAttenuationChanged(float
+//      constantAttenuation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight26constantAttenuationChangedEf(
+    Qt3DRender::QSpotLight *self,
+    float constantAttenuation) {
+  self->constantAttenuationChanged(constantAttenuation);
+}
+
+//  void Qt3DRender::QSpotLight::linearAttenuationChanged(float
+//      linearAttenuation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight24linearAttenuationChangedEf(
+    Qt3DRender::QSpotLight *self,
+    float linearAttenuation) {
+  self->linearAttenuationChanged(linearAttenuation);
+}
+
+//  void Qt3DRender::QSpotLight::quadraticAttenuationChanged(float
+//      quadraticAttenuation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight27quadraticAttenuationChangedEf(
+    Qt3DRender::QSpotLight *self,
+    float quadraticAttenuation) {
+  self->quadraticAttenuationChanged(quadraticAttenuation);
+}
+
+//  void Qt3DRender::QSpotLight::localDirectionChanged(const QVector3D
+//      &localDirection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight21localDirectionChangedERK9QVector3D(
+    Qt3DRender::QSpotLight *self,
+    const QVector3D *localDirection) {
+  self->localDirectionChanged(*localDirection);
+}
+
+//  void Qt3DRender::QSpotLight::cutOffAngleChanged(float cutOffAngle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QSpotLight18cutOffAngleChangedEf(
+    Qt3DRender::QSpotLight *self,
+    float cutOffAngle) {
+  self->cutOffAngleChanged(cutOffAngle);
+}
+
+//  Qt3DRender::QSpotLight::QSpotLight(QSpotLightPrivate &dd, Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSpotLight *ritual_ZN10Qt3DRender10QSpotLightC1ERNS_17QSpotLightPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QSpotLightPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QSpotLight(*dd, parent);
 }
 
 //  QSpotLightPrivate *Qt3DRender::QSpotLight::d_func()

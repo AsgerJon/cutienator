@@ -6,7 +6,9 @@
 #if QT_CONFIG(graphicsview)
 #if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsitem.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsitem_p.h>
@@ -150,7 +152,7 @@ typedef void (*CuteQGraphicsItemPrivateCall14)(const void *, int *);
 class CuteQGraphicsItemPrivate : public QGraphicsItemPrivate {
 public:
   using QGraphicsItemPrivate::QGraphicsItemPrivate;
-  CuteQGraphicsItemPrivate(const QGraphicsItemPrivate &other) : QGraphicsItemPrivate(other) {}
+  CuteQGraphicsItemPrivate(const QGraphicsItemPrivate & other) : QGraphicsItemPrivate(other) {}
   void *taken[15] = {};
 
   bool take(const char *key, void *call) {
@@ -861,6 +863,15 @@ void ritual_ZN20QGraphicsItemPrivate30updatePaintedViewBoundingRectsEb(
     QGraphicsItemPrivate *self,
     bool updateChildren) {
   self->updatePaintedViewBoundingRects(updateChildren);
+}
+
+//  void QGraphicsItemPrivate::ensureSceneTransformRecursive(QGraphicsItem
+//      **topMostDirtyItem)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsItemPrivate29ensureSceneTransformRecursiveEPP13QGraphicsItem(
+    QGraphicsItemPrivate *self,
+    QGraphicsItem **topMostDirtyItem) {
+  self->ensureSceneTransformRecursive(topMostDirtyItem);
 }
 
 //  void QGraphicsItemPrivate::ensureSceneTransform()

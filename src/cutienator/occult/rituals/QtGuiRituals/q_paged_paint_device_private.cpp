@@ -110,6 +110,12 @@ public:
   }
 };
 
+//  QPagedPaintDevicePrivate::QPagedPaintDevicePrivate()
+extern "C" Q_DECL_EXPORT
+QPagedPaintDevicePrivate *ritual_ZN24QPagedPaintDevicePrivateC1Ev() {
+  return new CuteQPagedPaintDevicePrivate();
+}
+
 //  QPagedPaintDevicePrivate::~QPagedPaintDevicePrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QPagedPaintDevicePrivateD1Ev(

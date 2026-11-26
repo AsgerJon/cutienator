@@ -5,5 +5,21 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN12QtConcurrent19ThreadEngineBarrierC1Ev": ["address"],
+    "ritual_ZN12QtConcurrent19ThreadEngineBarrier7acquireEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent19ThreadEngineBarrier7releaseEv": [
+      "int", "address"
+    ],
+    "ritual_ZN12QtConcurrent19ThreadEngineBarrier4waitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent19ThreadEngineBarrier12currentCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN12QtConcurrent19ThreadEngineBarrier17releaseUnlessLastEv": [
+      "bool", "address"
+    ]
   }
 }

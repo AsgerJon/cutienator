@@ -8,8 +8,52 @@
     "ritual_ZNK18qdesigner_internal8ZoomView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal8ZoomView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal8ZoomView2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomViewC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal8ZoomView4zoomEv": ["int", "address"],
+    "ritual_ZNK18qdesigner_internal8ZoomView10zoomFactorEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal8ZoomView24isZoomContextMenuEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomView25setZoomContextMenuEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomView5sceneEv": ["address", "address"],
+    "ritual_ZNK18qdesigner_internal8ZoomView5sceneEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomView8zoomMenuEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal8ZoomView14scrollPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomView17setScrollPositionERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomView14scrollToOriginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomView7setZoomEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomView15showContextMenuERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomView16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN18qdesigner_internal8ZoomView9applyZoomEv": [
       "nothing", "address"

@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A Qt3DInput::QButtonAxisInput that Python can take functions over in. Every Qt3DInput::QButtonAxisInput
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput16QButtonAxisInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QButtonAxisInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput16QButtonAxisInput11qt_metacastEPKc(
+    Qt3DInput::QButtonAxisInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QButtonAxisInput::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput16QButtonAxisInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QButtonAxisInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QButtonAxisInput::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,113 @@ QString *ritual_ZN9Qt3DInput16QButtonAxisInput2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QButtonAxisInput::tr(s, c, n));
+}
+
+//  Qt3DInput::QButtonAxisInput::QButtonAxisInput(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QButtonAxisInput *ritual_ZN9Qt3DInput16QButtonAxisInputC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QButtonAxisInput(parent);
+}
+
+//  Qt3DInput::QButtonAxisInput::~QButtonAxisInput()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QButtonAxisInputD1Ev(
+    Qt3DInput::QButtonAxisInput *self) {
+  delete self;
+}
+
+//  float Qt3DInput::QButtonAxisInput::scale() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK9Qt3DInput16QButtonAxisInput5scaleEv(
+    const Qt3DInput::QButtonAxisInput *self) {
+  return self->scale();
+}
+
+//  QList<int> Qt3DInput::QButtonAxisInput::buttons() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK9Qt3DInput16QButtonAxisInput7buttonsEv(
+    const Qt3DInput::QButtonAxisInput *self) {
+  return new QList<int>(self->buttons());
+}
+
+//  float Qt3DInput::QButtonAxisInput::acceleration() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK9Qt3DInput16QButtonAxisInput12accelerationEv(
+    const Qt3DInput::QButtonAxisInput *self) {
+  return self->acceleration();
+}
+
+//  float Qt3DInput::QButtonAxisInput::deceleration() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK9Qt3DInput16QButtonAxisInput12decelerationEv(
+    const Qt3DInput::QButtonAxisInput *self) {
+  return self->deceleration();
+}
+
+//  void Qt3DInput::QButtonAxisInput::setScale(float scale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QButtonAxisInput8setScaleEf(
+    Qt3DInput::QButtonAxisInput *self,
+    float scale) {
+  self->setScale(scale);
+}
+
+//  void Qt3DInput::QButtonAxisInput::setButtons(const QList<int> &buttons)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QButtonAxisInput10setButtonsERK5QListIiE(
+    Qt3DInput::QButtonAxisInput *self,
+    const QList<int> *buttons) {
+  self->setButtons(*buttons);
+}
+
+//  void Qt3DInput::QButtonAxisInput::setAcceleration(float acceleration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QButtonAxisInput15setAccelerationEf(
+    Qt3DInput::QButtonAxisInput *self,
+    float acceleration) {
+  self->setAcceleration(acceleration);
+}
+
+//  void Qt3DInput::QButtonAxisInput::setDeceleration(float deceleration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QButtonAxisInput15setDecelerationEf(
+    Qt3DInput::QButtonAxisInput *self,
+    float deceleration) {
+  self->setDeceleration(deceleration);
+}
+
+//  void Qt3DInput::QButtonAxisInput::scaleChanged(float scale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QButtonAxisInput12scaleChangedEf(
+    Qt3DInput::QButtonAxisInput *self,
+    float scale) {
+  self->scaleChanged(scale);
+}
+
+//  void Qt3DInput::QButtonAxisInput::buttonsChanged(const QList<int>
+//      &buttons)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QButtonAxisInput14buttonsChangedERK5QListIiE(
+    Qt3DInput::QButtonAxisInput *self,
+    const QList<int> *buttons) {
+  self->buttonsChanged(*buttons);
+}
+
+//  void Qt3DInput::QButtonAxisInput::accelerationChanged(float acceleration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QButtonAxisInput19accelerationChangedEf(
+    Qt3DInput::QButtonAxisInput *self,
+    float acceleration) {
+  self->accelerationChanged(acceleration);
+}
+
+//  void Qt3DInput::QButtonAxisInput::decelerationChanged(float deceleration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QButtonAxisInput19decelerationChangedEf(
+    Qt3DInput::QButtonAxisInput *self,
+    float deceleration) {
+  self->decelerationChanged(deceleration);
 }
 
 //  QButtonAxisInputPrivate *Qt3DInput::QButtonAxisInput::d_func()
@@ -212,4 +339,10 @@ bool ritual_take_Qt3DInput_QButtonAxisInput(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_QButtonAxisInput *>(self)->take(key, call);
+}
+
+//  a QList<int> a ritual of Qt3DInput::QButtonAxisInput gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QButtonAxisInput__QList_int(QList<int> *self) {
+  delete self;
 }

@@ -944,6 +944,26 @@ const QMetaObject *ritual_ZNK18qdesigner_internal24QDesignerObjectInspector10met
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::QDesignerObjectInspector::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal24QDesignerObjectInspector11qt_metacastEPKc(
+    qdesigner_internal::QDesignerObjectInspector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::QDesignerObjectInspector::qt_metacall(QMetaObject
+//      ::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal24QDesignerObjectInspector11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::QDesignerObjectInspector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::QDesignerObjectInspector::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -965,6 +985,15 @@ bool ritual_ZN18qdesigner_internal24QDesignerObjectInspector12selectObjectEP7QOb
     qdesigner_internal::QDesignerObjectInspector *self,
     QObject *o) {
   return self->selectObject(o);
+}
+
+//  void qdesigner_internal::QDesignerObjectInspector::getSelection(Selection
+//      &s) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal24QDesignerObjectInspector12getSelectionERNS_9SelectionE(
+    const qdesigner_internal::QDesignerObjectInspector *self,
+    qdesigner_internal::Selection *s) {
+  self->getSelection(*s);
 }
 
 //  void qdesigner_internal::QDesignerObjectInspector::clearSelection()

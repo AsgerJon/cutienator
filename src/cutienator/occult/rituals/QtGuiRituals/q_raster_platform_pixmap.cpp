@@ -44,7 +44,7 @@ typedef const QPixmap * (*CuteQRasterPlatformPixmapCall17)(const void *, const Q
 class CuteQRasterPlatformPixmap : public QRasterPlatformPixmap {
 public:
   using QRasterPlatformPixmap::QRasterPlatformPixmap;
-  CuteQRasterPlatformPixmap(const QRasterPlatformPixmap &other) : QRasterPlatformPixmap(other) {}
+  CuteQRasterPlatformPixmap(const QRasterPlatformPixmap & other) : QRasterPlatformPixmap(other) {}
   void *taken[18] = {};
 
   bool take(const char *key, void *call) {
@@ -364,6 +364,22 @@ void ritual_ZN21QRasterPlatformPixmap6resizeEii(
   self->resize(width, height);
 }
 
+//  bool QRasterPlatformPixmap::fromData(const uchar *buffer, uint len, const
+//      char *format, Qt::ImageConversionFlags flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QRasterPlatformPixmap8fromDataEPKhjPKc6QFlagsIN2Qt19ImageConversionFlagEE(
+    QRasterPlatformPixmap *self,
+    const uchar *buffer,
+    uint len,
+    const char *format,
+    int flags) {
+  return self->fromData(
+      buffer,
+      len,
+      format,
+      QFlags<Qt::ImageConversionFlag>::fromInt(flags));
+}
+
 //  void QRasterPlatformPixmap::fromImage(const QImage &image,
 //      Qt::ImageConversionFlags flags)
 extern "C" Q_DECL_EXPORT
@@ -372,6 +388,18 @@ void ritual_ZN21QRasterPlatformPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConv
     const QImage *image,
     int flags) {
   self->fromImage(*image, QFlags<Qt::ImageConversionFlag>::fromInt(flags));
+}
+
+//  void QRasterPlatformPixmap::fromImageInPlace(QImage &image,
+//      Qt::ImageConversionFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QRasterPlatformPixmap16fromImageInPlaceER6QImage6QFlagsIN2Qt19ImageConversionFlagEE(
+    QRasterPlatformPixmap *self,
+    QImage *image,
+    int flags) {
+  self->fromImageInPlace(
+      *image,
+      QFlags<Qt::ImageConversionFlag>::fromInt(flags));
 }
 
 //  void QRasterPlatformPixmap::fromImageReader(QImageReader *imageReader,

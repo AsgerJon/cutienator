@@ -18,6 +18,12 @@ QDomAttr *ritual_ZN8QDomAttrC1ERKS_(const QDomAttr *attr) {
   return new QDomAttr(*attr);
 }
 
+//  QDomAttr &QDomAttr::operator=(const QDomAttr &other)
+extern "C" Q_DECL_EXPORT
+QDomAttr *ritual_ZN8QDomAttraSERKS_(QDomAttr *self, const QDomAttr *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QDomAttr::name() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK8QDomAttr4nameEv(const QDomAttr *self) {

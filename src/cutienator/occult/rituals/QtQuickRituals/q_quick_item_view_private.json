@@ -26,6 +26,12 @@
     "ritual_ZNK21QQuickItemViewPrivate20findLastVisibleIndexEi": [
       "int", "address", "int"
     ],
+    "ritual_ZNK21QQuickItemViewPrivate11visibleItemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QQuickItemViewPrivate15firstItemInViewEv": [
+      "address", "address"
+    ],
     "ritual_ZNK21QQuickItemViewPrivate19findLastIndexInViewEv": [
       "int", "address"
     ],
@@ -44,6 +50,9 @@
     ],
     "ritual_ZN21QQuickItemViewPrivate12mirrorChangeEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QQuickItemViewPrivate10createItemEiN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int", "int"
     ],
     "ritual_ZN21QQuickItemViewPrivate18releaseCurrentItemEN17QQmlInstanceModel12ReusableFlagE": [
       "bool", "address", "int"
@@ -75,6 +84,12 @@
     "ritual_ZN21QQuickItemViewPrivate18updateVisibleIndexEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK21QQuickItemViewPrivate16minExtentForAxisERKN22QQuickFlickablePrivate8AxisDataEb": [
+      "double", "address", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickItemViewPrivate16maxExtentForAxisERKN22QQuickFlickablePrivate8AxisDataEb": [
+      "double", "address", "address", "bool"
+    ],
     "ritual_ZNK21QQuickItemViewPrivate19calculatedMinExtentEv": [
       "double", "address"
     ],
@@ -103,11 +118,17 @@
     "ritual_ZN21QQuickItemViewPrivate29prepareVisibleItemTransitionsEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QQuickItemViewPrivate24prepareRemoveTransitionsEP10QMultiHashIN13QQmlChangeSet7MoveKeyEP10FxViewItemE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QQuickItemViewPrivate31prepareNonVisibleItemTransitionEP10FxViewItemRK6QRectF": [
       "bool", "address", "address", "address"
     ],
     "ritual_ZN21QQuickItemViewPrivate26viewItemTransitionFinishedEP32QQuickItemViewTransitionableItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickItemViewPrivate16findMoveKeyIndexEN13QQmlChangeSet7MoveKeyERK5QListINS0_6ChangeEE": [
+      "int", "address", "address", "address"
     ],
     "ritual_ZNK21QQuickItemViewPrivate12checkVisibleEv": [
       "nothing", "address"
@@ -219,6 +240,9 @@
     "ritual_ZN21QQuickItemViewPrivate19changedVisibleIndexEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN21QQuickItemViewPrivate20applyInsertionChangeERKN13QQmlChangeSet6ChangeEPNS_12ChangeResultEP5QListIP10FxViewItemEPS6_INS_9MovedItemEE": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK21QQuickItemViewPrivate33needsRefillForAddedOrRemovedIndexEi": [
       "bool", "address", "int"
     ],
@@ -259,6 +283,12 @@
     "ritual_own_ZN21QQuickItemViewPrivate17animationFinishedEP21QAbstractAnimationJob": [
       "nothing", "address", "address"
     ],
+    "ritual_own_ZN21QQuickItemViewPrivate11releaseItemEP10FxViewItemN17QQmlInstanceModel12ReusableFlagE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_own_ZN21QQuickItemViewPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZNK21QQuickItemViewPrivate23initializeComponentItemEP10QQuickItem": [
       "nothing", "address", "address"
     ],
@@ -297,6 +327,9 @@
     ],
     "ritual_own_ZN21QQuickItemViewPrivate14updateSectionsEv": [
       "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickItemViewPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
     ]
   }
 }

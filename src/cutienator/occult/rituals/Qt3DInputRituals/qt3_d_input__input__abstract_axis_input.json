@@ -11,11 +11,20 @@
     "ritual_ZNK9Qt3DInput5Input17AbstractAxisInput12sourceDeviceEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput5Input17AbstractAxisInput16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZN9Qt3DInput5Input17AbstractAxisInput7processEPNS0_12InputHandlerEx": [
       "float", "address", "address", "long long"
     ],
     "ritual_take_Qt3DInput_Input_AbstractAxisInput": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input17AbstractAxisInput7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input17AbstractAxisInput16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ]
   }
 }

@@ -12,6 +12,24 @@
       "address", "address"
     ],
     "ritual_ZN27QQuickAnimationGroupPrivateC1Ev": ["address"],
+    "ritual_ZN27QQuickAnimationGroupPrivate16append_animationEP16QQmlListPropertyI23QQuickAbstractAnimationEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickAnimationGroupPrivate12at_animationEP16QQmlListPropertyI23QQuickAbstractAnimationEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN27QQuickAnimationGroupPrivate15count_animationEP16QQmlListPropertyI23QQuickAbstractAnimationE": [
+      "long long", "address"
+    ],
+    "ritual_ZN27QQuickAnimationGroupPrivate15clear_animationEP16QQmlListPropertyI23QQuickAbstractAnimationE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAnimationGroupPrivate17replace_animationEP16QQmlListPropertyI23QQuickAbstractAnimationExPS1_": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN27QQuickAnimationGroupPrivate20removeLast_animationEP16QQmlListPropertyI23QQuickAbstractAnimationE": [
+      "nothing", "address"
+    ],
     "ritual_ZN27QQuickAnimationGroupPrivate22restartFromCurrentLoopEv": [
       "nothing", "address"
     ],

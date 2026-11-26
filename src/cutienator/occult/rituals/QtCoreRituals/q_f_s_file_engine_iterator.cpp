@@ -25,12 +25,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/io/qfsfileengine_iterator.cpp, line 27, as _ZN21QFSFileEngineIteratorD1Ev
-#if !defined(QT_NO_FILESYSTEMITERATOR)
-inline QFSFileEngineIterator::~QFSFileEngineIterator()
+//  from src/corelib/io/qfilesystemengine.cpp, line 100, as local:qfilesystemengine.cpp:_q_checkEntry
+static inline bool _q_checkEntry(QFileSystemEntry &entry, QFileSystemMetaData &data, bool resolvingEntry)
 {
+    if (resolvingEntry) {
+        if (!QFileSystemEngine::fillMetaData(entry, data, QFileSystemMetaData::ExistsAttribute)
+                || !data.exists()) {
+            data.clear();
+            return false;
+        }
+    }
+
+    return true;
 }
-#endif  // !defined(QT_NO_FILESYSTEMITERATOR)
+
+//  from src/corelib/io/qfilesystementry.cpp, line 21, as local:qfilesystementry.cpp:Uninitialized
+constexpr int Uninitialized = -2;
 
 //  from src/corelib/io/qfsfileengine_iterator.cpp, line 31, as _ZN21QFSFileEngineIterator7advanceEv
 #if !defined(QT_NO_FILESYSTEMITERATOR)
@@ -62,6 +72,13 @@ inline QString QFSFileEngineIterator::currentFileName() const
 inline QFileInfo QFSFileEngineIterator::currentFileInfo() const
 {
     return m_fileInfo;
+}
+#endif  // !defined(QT_NO_FILESYSTEMITERATOR)
+
+//  from src/corelib/io/qfsfileengine_iterator.cpp, line 27, as _ZN21QFSFileEngineIteratorD1Ev
+#if !defined(QT_NO_FILESYSTEMITERATOR)
+inline QFSFileEngineIterator::~QFSFileEngineIterator()
+{
 }
 #endif  // !defined(QT_NO_FILESYSTEMITERATOR)
 //  -----------------------------------------------------------------------

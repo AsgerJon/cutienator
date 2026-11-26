@@ -21,13 +21,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/rhi/qrhinull.cpp, line 660, as _ZN11QNullBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv
-inline char *QNullBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
-{
-    Q_ASSERT(m_type == Dynamic);
-    return data;
-}
-
 //  from src/gui/rhi/qrhinull.cpp, line 626, as _ZN11QNullBufferC1EP18QRhiImplementationN10QRhiBuffer4TypeE6QFlagsINS2_9UsageFlagEEj
 inline QNullBuffer::QNullBuffer(QRhiImplementation *rhi, Type type, UsageFlags usage, quint32 size)
     : QRhiBuffer(rhi, type, usage, size)
@@ -65,6 +58,13 @@ inline bool QNullBuffer::create()
 
     return true;
 }
+
+//  from src/gui/rhi/qrhinull.cpp, line 660, as _ZN11QNullBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv
+inline char *QNullBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
+{
+    Q_ASSERT(m_type == Dynamic);
+    return data;
+}
 //  -----------------------------------------------------------------------
 
 //  A QNullBuffer that Python can take functions over in. Every QNullBuffer
@@ -72,13 +72,15 @@ inline bool QNullBuffer::create()
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQNullBufferCall0)(const void *, int *);
 typedef bool (*CuteQNullBufferCall1)(const void *, int *);
-typedef int (*CuteQNullBufferCall2)(const void *, int *);
-typedef const QRhiBuffer::NativeBuffer * (*CuteQNullBufferCall3)(const void *, int *);
-typedef void (*CuteQNullBufferCall4)(const void *, int *);
+typedef void * (*CuteQNullBufferCall2)(const void *, int *);
+typedef int (*CuteQNullBufferCall3)(const void *, int *);
+typedef const QRhiBuffer::NativeBuffer * (*CuteQNullBufferCall4)(const void *, int *);
+typedef void (*CuteQNullBufferCall5)(const void *, int *);
+typedef void (*CuteQNullBufferCall6)(const void *, const void *, quint32, int *);
 class CuteQNullBuffer : public QNullBuffer {
 public:
   using QNullBuffer::QNullBuffer;
-  void *taken[5] = {};
+  void *taken[7] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN12QRhiResource7destroyEv")) {
@@ -89,16 +91,24 @@ public:
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QRhiResource12resourceTypeEv")) {
+    if (!std::strcmp(key, "_ZN10QRhiBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QRhiBuffer12nativeBufferEv")) {
+    if (!std::strcmp(key, "_ZNK12QRhiResource12resourceTypeEv")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv")) {
+    if (!std::strcmp(key, "_ZN10QRhiBuffer12nativeBufferEv")) {
       taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN10QRhiBuffer38fullDynamicBufferUpdateForCurrentFrameEPKvj")) {
+      taken[6] = call;
       return true;
     }
     return false;
@@ -126,11 +136,22 @@ public:
     return QNullBuffer::create();
   }
 
-  //  QRhiResource::Type QRhiBuffer::resourceType() const
-  QRhiResource::Type resourceType() const override {
+  //  char *QNullBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
+  char *beginFullDynamicBufferUpdateForCurrentFrame() override {
     if (taken[2]) {
       int handled = 0;
       CuteQNullBufferCall2 call = reinterpret_cast<CuteQNullBufferCall2>(taken[2]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<char *>(given);
+    }
+    return QNullBuffer::beginFullDynamicBufferUpdateForCurrentFrame();
+  }
+
+  //  QRhiResource::Type QRhiBuffer::resourceType() const
+  QRhiResource::Type resourceType() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQNullBufferCall3 call = reinterpret_cast<CuteQNullBufferCall3>(taken[3]);
       int given = call(this, &handled);
       if (handled) return static_cast<QRhiResource::Type>(given);
     }
@@ -139,9 +160,9 @@ public:
 
   //  NativeBuffer QRhiBuffer::nativeBuffer()
   QRhiBuffer::NativeBuffer nativeBuffer() override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQNullBufferCall3 call = reinterpret_cast<CuteQNullBufferCall3>(taken[3]);
+      CuteQNullBufferCall4 call = reinterpret_cast<CuteQNullBufferCall4>(taken[4]);
       const QRhiBuffer::NativeBuffer * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -150,13 +171,27 @@ public:
 
   //  void QRhiBuffer::endFullDynamicBufferUpdateForCurrentFrame()
   void endFullDynamicBufferUpdateForCurrentFrame() override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQNullBufferCall4 call = reinterpret_cast<CuteQNullBufferCall4>(taken[4]);
+      CuteQNullBufferCall5 call = reinterpret_cast<CuteQNullBufferCall5>(taken[5]);
       call(this, &handled);
       if (handled) return;
     }
     QRhiBuffer::endFullDynamicBufferUpdateForCurrentFrame();
+  }
+
+  //  void QRhiBuffer::fullDynamicBufferUpdateForCurrentFrame(const void
+  //      *data, quint32 size)
+  void fullDynamicBufferUpdateForCurrentFrame(
+      const void *data,
+      quint32 size) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQNullBufferCall6 call = reinterpret_cast<CuteQNullBufferCall6>(taken[6]);
+      call(this, data, size, &handled);
+      if (handled) return;
+    }
+    QRhiBuffer::fullDynamicBufferUpdateForCurrentFrame(data, size);
   }
 };
 
@@ -193,6 +228,13 @@ bool ritual_ZN11QNullBuffer6createEv(QNullBuffer *self) {
   return self->create();
 }
 
+//  char *QNullBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN11QNullBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv(
+    QNullBuffer *self) {
+  return self->beginFullDynamicBufferUpdateForCurrentFrame();
+}
+
 //  a Python function taken by a CuteQNullBuffer, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -213,4 +255,11 @@ void ritual_own_ZN11QNullBuffer7destroyEv(QNullBuffer *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN11QNullBuffer6createEv(QNullBuffer *self) {
   return self->QNullBuffer::create();
+}
+
+//  char *QNullBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
+extern "C" Q_DECL_EXPORT
+char *ritual_own_ZN11QNullBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv(
+    QNullBuffer *self) {
+  return self->QNullBuffer::beginFullDynamicBufferUpdateForCurrentFrame();
 }

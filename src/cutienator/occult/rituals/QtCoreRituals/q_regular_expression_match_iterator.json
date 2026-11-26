@@ -10,6 +10,18 @@
     "ritual_ZN31QRegularExpressionMatchIteratorC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN31QRegularExpressionMatchIteratorC1EOS_": [
+      "address", "address"
+    ],
+    "ritual_ZN31QRegularExpressionMatchIteratoraSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN31QRegularExpressionMatchIteratoraSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN31QRegularExpressionMatchIterator4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK31QRegularExpressionMatchIterator7isValidEv": [
       "bool", "address"
     ],
@@ -30,6 +42,9 @@
     ],
     "ritual_ZNK31QRegularExpressionMatchIterator12matchOptionsEv": [
       "int", "address"
+    ],
+    "ritual_ZN31QRegularExpressionMatchIteratorC1ER38QRegularExpressionMatchIteratorPrivate": [
+      "address", "address"
     ]
   }
 }

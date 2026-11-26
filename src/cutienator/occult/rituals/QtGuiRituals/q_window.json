@@ -1,10 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qwindow.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qwindow.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK7QWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QWindow11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QWindow6d_funcEv": ["address", "address"],
     "ritual_ZNK7QWindow6d_funcEv": ["address", "address"],
@@ -159,6 +163,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK7QWindow14vulkanInstanceEv": ["address", "address"],
+    "ritual_ZNK7QWindow16resolveInterfaceEPKci": [
+      "address", "address", "chars", "int"
+    ],
     "ritual_ZN7QWindow15requestActivateEv": ["nothing", "address"],
     "ritual_ZN7QWindow10setVisibleEb": ["nothing", "address", "bool"],
     "ritual_ZN7QWindow4showEv": ["nothing", "address"],
@@ -191,6 +198,55 @@
     "ritual_ZN7QWindow16setMaximumHeightEi": ["nothing", "address", "int"],
     "ritual_ZN7QWindow5alertEi": ["nothing", "address", "int"],
     "ritual_ZN7QWindow13requestUpdateEv": ["nothing", "address"],
+    "ritual_ZN7QWindow13screenChangedEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow15modalityChangedEN2Qt14WindowModalityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow12flagsChangedE6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow18windowStateChangedEN2Qt11WindowStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow18windowTitleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN7QWindow8xChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow8yChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow12widthChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow13heightChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow19minimumWidthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow20minimumHeightChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow19maximumWidthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow20maximumHeightChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow22safeAreaMarginsChangedE8QMargins": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow14visibleChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QWindow17visibilityChangedENS_10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN7QWindow25contentOrientationChangedEN2Qt17ScreenOrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow18focusObjectChangedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow14opacityChangedEd": ["nothing", "address", "double"],
+    "ritual_ZN7QWindow22transientParentChangedEPS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN7QWindow11exposeEventEP12QExposeEvent": [
       "nothing", "address", "address"
     ],
@@ -245,6 +301,12 @@
     ],
     "ritual_ZN7QWindow11tabletEventEP12QTabletEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow11nativeEventERK10QByteArrayPvPx": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN7QWindowC1ER14QWindowPrivatePS_": [
+      "address", "address", "address"
     ],
     "ritual_ZNK7QWindow13surfaceHandleEv": ["address", "address"],
     "ritual_cast_QWindow_QSurface": ["address", "address"],
@@ -314,6 +376,21 @@
     "ritual_list_add_QWindow_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QWindow_ptr": ["long long", "address"],
     "ritual_list_at_QWindow_ptr": ["address", "address", "long long"],
-    "ritual_list_drop_QWindow_ptr": ["nothing", "address"]
+    "ritual_list_drop_QWindow_ptr": ["nothing", "address"],
+    "ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private10QXcbWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private14QWaylandWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private14QWindowsWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private12QCocoaWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private11QWasmWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ]
   }
 }

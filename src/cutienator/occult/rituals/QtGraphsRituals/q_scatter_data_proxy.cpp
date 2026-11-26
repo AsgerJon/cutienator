@@ -1,5 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/qscatterdataproxy.h, Qt 6.12.0. Changes made here are lost.
+//  QtGraphs/qscatterdataproxy.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: the calls of the two rvalue overloads addItem and addItems
+//  name the member by its pointer type, as a by-value overload of the
+//  same parameter makes a plain call ambiguous. Kept as it is when the
+//  generator runs again.
+//  'addItem(QScatterDataItem &&)' is left out: Qt's library does not offer
+//  it.
+//  'addItems(QList<QScatterDataItem> &&)' is left out: Qt's library does not
+//  offer it.
 #include <QtGraphs/qgraphsglobal.h>
 #if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
 #include <QtGraphs/QtGraphs>
@@ -185,6 +193,14 @@ const QMetaObject *ritual_ZNK17QScatterDataProxy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScatterDataProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QScatterDataProxy11qt_metacastEPKc(
+    QScatterDataProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString QScatterDataProxy::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QScatterDataProxy2trEPKcS1_i(
@@ -343,6 +359,60 @@ void ritual_ZN17QScatterDataProxy11removeItemsExx(
     qsizetype index,
     qsizetype removeCount) {
   self->removeItems(index, removeCount);
+}
+
+//  void QScatterDataProxy::arrayReset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy10arrayResetEv(QScatterDataProxy *self) {
+  self->arrayReset();
+}
+
+//  void QScatterDataProxy::itemsAdded(qsizetype startIndex, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy10itemsAddedExx(
+    QScatterDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->itemsAdded(startIndex, count);
+}
+
+//  void QScatterDataProxy::itemsChanged(qsizetype startIndex, qsizetype
+//      count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy12itemsChangedExx(
+    QScatterDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->itemsChanged(startIndex, count);
+}
+
+//  void QScatterDataProxy::itemsRemoved(qsizetype startIndex, qsizetype
+//      count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy12itemsRemovedExx(
+    QScatterDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->itemsRemoved(startIndex, count);
+}
+
+//  void QScatterDataProxy::itemsInserted(qsizetype startIndex, qsizetype
+//      count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy13itemsInsertedExx(
+    QScatterDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->itemsInserted(startIndex, count);
+}
+
+//  QScatterDataProxy::QScatterDataProxy(QScatterDataProxyPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QScatterDataProxy *ritual_ZN17QScatterDataProxyC1ER24QScatterDataProxyPrivateP7QObject(
+    QScatterDataProxyPrivate *d,
+    QObject *parent) {
+  return new CuteQScatterDataProxy(*d, parent);
 }
 
 //  a Python function taken by a CuteQScatterDataProxy, for the function

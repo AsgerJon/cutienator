@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QStyleHints10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QStyleHints11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QStyleHints11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QStyleHints2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QStyleHints6d_funcEv": ["address", "address"],
     "ritual_ZNK11QStyleHints6d_funcEv": ["address", "address"],
@@ -90,8 +96,59 @@
     ],
     "ritual_ZN11QStyleHints16unsetColorSchemeEv": ["nothing", "address"],
     "ritual_ZNK11QStyleHints13accessibilityEv": ["address", "address"],
+    "ritual_ZNK11QStyleHints18toolTipWakeUpDelayEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN11QStyleHints21setToolTipWakeUpDelayENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZNK11QStyleHints24toolTipWakeUpDelayAsMSecEv": [
       "int", "address"
+    ],
+    "ritual_ZN11QStyleHints22cursorFlashTimeChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints28keyboardInputIntervalChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints31mouseDoubleClickIntervalChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints32mousePressAndHoldIntervalChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints24startDragDistanceChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints20startDragTimeChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints23tabFocusBehaviorChangedEN2Qt16TabFocusBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints22useHoverEffectsChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QStyleHints34showShortcutsInContextMenusChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QStyleHints25contextMenuTriggerChangedEN2Qt18ContextMenuTriggerE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints23wheelScrollLinesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints35mouseQuickSelectionThresholdChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints18colorSchemeChangedEN2Qt11ColorSchemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints25toolTipWakeUpDelayChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN11QStyleHints31toolTipWakeUpDelayAsMSecChangedEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN11QStyleHintsC1Ev": ["address"]
   }

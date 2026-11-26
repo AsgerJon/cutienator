@@ -5,8 +5,26 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal22MoveToolBoxPageCommandD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22MoveToolBoxPageCommand4initEP8QToolBoxP7QWidgeti": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal22MoveToolBoxPageCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22MoveToolBoxPageCommand4undoEv": [
+      "nothing", "address"
+    ],
     "ritual_take_qdesigner_internal_MoveToolBoxPageCommand": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal22MoveToolBoxPageCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal22MoveToolBoxPageCommand4undoEv": [
+      "nothing", "address"
     ]
   }
 }

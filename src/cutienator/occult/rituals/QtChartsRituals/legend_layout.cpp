@@ -322,6 +322,15 @@ void ritual_ZN12LegendLayout20setDettachedGeometryERK6QRectF(
   self->setDettachedGeometry(*rect);
 }
 
+//  bool LegendLayout::widthLongerThan(const LegendWidthStruct *item1, const
+//      LegendWidthStruct *item2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12LegendLayout15widthLongerThanEPKNS_17LegendWidthStructES2_(
+    const LegendLayout::LegendWidthStruct *item1,
+    const LegendLayout::LegendWidthStruct *item2) {
+  return LegendLayout::widthLongerThan(item1, item2);
+}
+
 //  a Python function taken by a CuteLegendLayout, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

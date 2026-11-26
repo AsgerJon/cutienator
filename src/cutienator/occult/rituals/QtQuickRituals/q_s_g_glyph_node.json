@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QSGGlyphNodeC1EN11QSGTextNode10RenderTypeE": [
+      "address", "unsigned char"
+    ],
     "ritual_ZN12QSGGlyphNodeD1Ev": ["nothing", "address"],
     "ritual_ZN12QSGGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
       "nothing", "address", "address", "address"

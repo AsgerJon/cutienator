@@ -10,6 +10,7 @@
   "rows": {
     "ritual_ZN24QAbstract3DSeriesPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK24QAbstract3DSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QAbstract3DSeriesPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK24QAbstract3DSeriesPrivate9dataProxyEv": [
       "address", "address"
     ],
@@ -57,6 +58,9 @@
     ],
     "ritual_ZN24QAbstract3DSeriesPrivate7setNameERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate12resetToThemeERK12QGraphsThemexb": [
+      "nothing", "address", "address", "long long", "bool"
     ],
     "ritual_ZN24QAbstract3DSeriesPrivate9itemLabelEv": ["text", "address"],
     "ritual_ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv": [

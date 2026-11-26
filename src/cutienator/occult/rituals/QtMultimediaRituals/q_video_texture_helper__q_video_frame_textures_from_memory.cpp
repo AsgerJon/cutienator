@@ -6,7 +6,39 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qvideoframetexturefromsource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtMultimedia/qvideoframe.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtMultimedia/private/qvideoframetexturefromsource_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtmultimedia/src/multimedia/video/qvideoframetexturefromsource.cpp, line 37, as _ZN19QVideoTextureHelper29QVideoFrameTexturesFromMemory17onFrameEndInvokedEv
+namespace QVideoTextureHelper {
+inline void QVideoFrameTexturesFromMemory::onFrameEndInvoked()
+{
+    // After invoking QRhi::endFrame, the texture is loaded, and we don't need to
+    // to store the source mapped frame anymore
+    setMappedFrame({});
+    setSourceFrame({});
+}
+}  // namespace QVideoTextureHelper
+
+//  from ../qtmultimedia/src/multimedia/video/qvideoframetexturefromsource.cpp, line 23, as _ZN19QVideoTextureHelper29QVideoFrameTexturesFromMemory14setMappedFrameE11QVideoFrame
+namespace QVideoTextureHelper {
+inline void QVideoFrameTexturesFromMemory::setMappedFrame(QVideoFrame mappedFrame) {
+    Q_ASSERT(!mappedFrame.isValid() || mappedFrame.isReadable());
+    m_mappedFrame.unmap();
+    m_mappedFrame = std::move(mappedFrame);
+}
+}  // namespace QVideoTextureHelper
+//  -----------------------------------------------------------------------
 
 //  A QVideoTextureHelper::QVideoFrameTexturesFromMemory that Python can take functions over in. Every QVideoTextureHelper::QVideoFrameTexturesFromMemory
 //  Python makes is one. Each function below asks the Python
@@ -55,6 +87,32 @@ public:
   }
 };
 
+//  void QVideoTextureHelper::QVideoFrameTexturesFromMemory::setMappedFrame(Q
+//      VideoFrame mappedFrame)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QVideoTextureHelper29QVideoFrameTexturesFromMemory14setMappedFrameE11QVideoFrame(
+    QVideoTextureHelper::QVideoFrameTexturesFromMemory *self,
+    const QVideoFrame *mappedFrame) {
+  self->setMappedFrame(*mappedFrame);
+}
+
+//  QVideoTextureHelper::QVideoFrameTexturesFromMemory::~QVideoFrameTexturesF
+//      romMemory()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QVideoTextureHelper29QVideoFrameTexturesFromMemoryD1Ev(
+    QVideoTextureHelper::QVideoFrameTexturesFromMemory *self) {
+  delete self;
+}
+
+//  void
+//      QVideoTextureHelper::QVideoFrameTexturesFromMemory::onFrameEndInvoked
+//      ()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QVideoTextureHelper29QVideoFrameTexturesFromMemory17onFrameEndInvokedEv(
+    QVideoTextureHelper::QVideoFrameTexturesFromMemory *self) {
+  self->onFrameEndInvoked();
+}
+
 //  a Python function taken by a
 //      CuteQVideoTextureHelper_QVideoFrameTexturesFromMemory, for the
 //      function named by the key
@@ -64,4 +122,13 @@ bool ritual_take_QVideoTextureHelper_QVideoFrameTexturesFromMemory(
     const char *key,
     void *call) {
   return static_cast<CuteQVideoTextureHelper_QVideoFrameTexturesFromMemory *>(self)->take(key, call);
+}
+
+//  void
+//      QVideoTextureHelper::QVideoFrameTexturesFromMemory::onFrameEndInvoked
+//      ()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QVideoTextureHelper29QVideoFrameTexturesFromMemory17onFrameEndInvokedEv(
+    QVideoTextureHelper::QVideoFrameTexturesFromMemory *self) {
+  self->QVideoTextureHelper::QVideoFrameTexturesFromMemory::onFrameEndInvoked();
 }

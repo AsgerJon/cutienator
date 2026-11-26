@@ -17,76 +17,81 @@ struct OwnQWaylandCompositorExtension : QWaylandCompositorExtension {
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQWaylandCompositorExtensionCall0)(const void *, int *);
+typedef void * (*CuteQWaylandCompositorExtensionCall1)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQWaylandCompositorExtensionCall1)(const void *, QEvent *, int *);
+typedef bool (*CuteQWaylandCompositorExtensionCall2)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQWaylandCompositorExtensionCall2)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQWaylandCompositorExtensionCall3)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQWaylandCompositorExtensionCall3)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQWaylandCompositorExtensionCall4)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQWaylandCompositorExtensionCall4)(const void *, QChildEvent *, int *);
+typedef void (*CuteQWaylandCompositorExtensionCall5)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQWaylandCompositorExtensionCall5)(const void *, QEvent *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQWaylandCompositorExtensionCall6)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQWaylandCompositorExtensionCall6)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWaylandCompositorExtensionCall7)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWaylandCompositorExtensionCall8)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWaylandCompositorExtension : public QWaylandCompositorExtension {
 public:
   using QWaylandCompositorExtension::QWaylandCompositorExtension;
-  void *taken[8] = {};
+  void *taken[9] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN27QWaylandCompositorExtension10initializeEv")) {
       taken[0] = call;
       return true;
     }
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK27QWaylandCompositorExtension18extensionInterfaceEv")) {
       taken[1] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[2] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[3] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[4] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[5] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[7] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[8] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -104,12 +109,24 @@ public:
     QWaylandCompositorExtension::initialize();
   }
 
-#if !defined(QT_NO_QOBJECT)
-  //  bool QWaylandCompositorExtension::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  const struct wl_interface
+  //      *QWaylandCompositorExtension::extensionInterface() const
+  const struct wl_interface *extensionInterface() const override {
     if (taken[1]) {
       int handled = 0;
       CuteQWaylandCompositorExtensionCall1 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<const struct wl_interface *>(given);
+    }
+    return {};
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QWaylandCompositorExtension::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQWaylandCompositorExtensionCall2 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall2>(taken[2]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -120,9 +137,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQWaylandCompositorExtensionCall2 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall2>(taken[2]);
+      CuteQWaylandCompositorExtensionCall3 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall3>(taken[3]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -133,9 +150,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQWaylandCompositorExtensionCall3 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall3>(taken[3]);
+      CuteQWaylandCompositorExtensionCall4 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall4>(taken[4]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -146,9 +163,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQWaylandCompositorExtensionCall4 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall4>(taken[4]);
+      CuteQWaylandCompositorExtensionCall5 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall5>(taken[5]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -159,9 +176,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQWaylandCompositorExtensionCall5 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall5>(taken[5]);
+      CuteQWaylandCompositorExtensionCall6 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall6>(taken[6]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -172,9 +189,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQWaylandCompositorExtensionCall6 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall6>(taken[6]);
+      CuteQWaylandCompositorExtensionCall7 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall7>(taken[7]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -185,9 +202,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQWaylandCompositorExtensionCall7 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall7>(taken[7]);
+      CuteQWaylandCompositorExtensionCall8 call = reinterpret_cast<CuteQWaylandCompositorExtensionCall8>(taken[8]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -201,6 +218,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK27QWaylandCompositorExtension10metaObjectEv(
     const QWaylandCompositorExtension *self) {
   return self->metaObject();
+}
+
+//  void *QWaylandCompositorExtension::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QWaylandCompositorExtension11qt_metacastEPKc(
+    QWaylandCompositorExtension *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandCompositorExtension::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QWaylandCompositorExtension11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandCompositorExtension *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QWaylandCompositorExtension::tr(const char *s, const char *c, int
@@ -233,6 +269,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN27QWaylandCompositorExtension24qt_qmlMarker_uncreatableEv(
     QWaylandCompositorExtension *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QWaylandCompositorExtension::QWaylandCompositorExtension()
+extern "C" Q_DECL_EXPORT
+QWaylandCompositorExtension *ritual_ZN27QWaylandCompositorExtensionC1Ev() {
+  return new CuteQWaylandCompositorExtension();
+}
+
+//  QWaylandCompositorExtension::QWaylandCompositorExtension(QWaylandObject
+//      *container)
+extern "C" Q_DECL_EXPORT
+QWaylandCompositorExtension *ritual_ZN27QWaylandCompositorExtensionC1EP14QWaylandObject(
+    QWaylandObject *container) {
+  return new CuteQWaylandCompositorExtension(container);
 }
 
 //  QWaylandCompositorExtension::~QWaylandCompositorExtension()
@@ -270,6 +320,31 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK27QWaylandCompositorExtension13isInitializedEv(
     const QWaylandCompositorExtension *self) {
   return self->isInitialized();
+}
+
+//  const struct wl_interface
+//      *QWaylandCompositorExtension::extensionInterface() const
+extern "C" Q_DECL_EXPORT
+const struct wl_interface *ritual_ZNK27QWaylandCompositorExtension18extensionInterfaceEv(
+    const QWaylandCompositorExtension *self) {
+  return self->extensionInterface();
+}
+
+//  QWaylandCompositorExtension::QWaylandCompositorExtension(QWaylandComposit
+//      orExtensionPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QWaylandCompositorExtension *ritual_ZN27QWaylandCompositorExtensionC1ER34QWaylandCompositorExtensionPrivate(
+    QWaylandCompositorExtensionPrivate *dd) {
+  return new CuteQWaylandCompositorExtension(*dd);
+}
+
+//  QWaylandCompositorExtension::QWaylandCompositorExtension(QWaylandObject
+//      *container, QWaylandCompositorExtensionPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QWaylandCompositorExtension *ritual_ZN27QWaylandCompositorExtensionC1EP14QWaylandObjectR34QWaylandCompositorExtensionPrivate(
+    QWaylandObject *container,
+    QWaylandCompositorExtensionPrivate *dd) {
+  return new CuteQWaylandCompositorExtension(container, *dd);
 }
 
 //  bool QWaylandCompositorExtension::event(QEvent *event)

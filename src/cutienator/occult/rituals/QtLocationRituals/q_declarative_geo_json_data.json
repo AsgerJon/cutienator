@@ -8,6 +8,12 @@
     "ritual_ZNK23QDeclarativeGeoJsonData10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QDeclarativeGeoJsonData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QDeclarativeGeoJsonData2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,6 +40,12 @@
     ],
     "ritual_ZN23QDeclarativeGeoJsonData21setModelToMapContentsEP18QDeclarativeGeoMap": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData12modelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData16sourceUrlChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN23QDeclarativeGeoJsonData9toVariantEP18QDeclarativeGeoMap": [
       "address", "address"

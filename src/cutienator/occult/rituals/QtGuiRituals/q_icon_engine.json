@@ -4,6 +4,7 @@
     "QtGui/qiconengine.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QIconEngineC1Ev": ["address"],
     "ritual_ZN11QIconEngineD1Ev": ["nothing", "address"],
     "ritual_ZN11QIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
       "nothing", "address", "address", "address", "int", "int"
@@ -22,6 +23,12 @@
     ],
     "ritual_ZNK11QIconEngine3keyEv": ["text", "address"],
     "ritual_ZNK11QIconEngine5cloneEv": ["address", "address"],
+    "ritual_ZN11QIconEngine4readER11QDataStream": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QIconEngine5writeER11QDataStream": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN11QIconEngine14availableSizesEN5QIcon4ModeENS0_5StateE": [
       "address", "address", "int", "int"
     ],
@@ -30,6 +37,10 @@
     "ritual_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
       "address", "address", "address", "int", "int", "double"
     ],
+    "ritual_ZN11QIconEngine12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN11QIconEngineC1ERKS_": ["address", "address"],
     "ritual_take_QIconEngine": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
       "address", "address", "address", "int", "int"
@@ -48,6 +59,9 @@
     "ritual_own_ZN11QIconEngine6isNullEv": ["bool", "address"],
     "ritual_own_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
       "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_own_ZN11QIconEngine12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
     ]
   }
 }

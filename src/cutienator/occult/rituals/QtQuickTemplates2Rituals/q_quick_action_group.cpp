@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuickActionGroup that Python can take functions over in. Every QQuickActionGroup
 //  Python makes is one. Each function below asks the Python
@@ -184,6 +185,25 @@ const QMetaObject *ritual_ZNK17QQuickActionGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickActionGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickActionGroup11qt_metacastEPKc(
+    QQuickActionGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickActionGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickActionGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickActionGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickActionGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickActionGroup2trEPKcS1_i(
@@ -236,6 +256,13 @@ void ritual_ZN17QQuickActionGroup16setCheckedActionEP12QQuickAction(
   self->setCheckedAction(checkedAction);
 }
 
+//  QQmlListProperty<QQuickAction> QQuickActionGroup::actions()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickAction> *ritual_ZN17QQuickActionGroup7actionsEv(
+    QQuickActionGroup *self) {
+  return new QQmlListProperty<QQuickAction>(self->actions());
+}
+
 //  bool QQuickActionGroup::isExclusive() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QQuickActionGroup11isExclusiveEv(
@@ -282,6 +309,56 @@ void ritual_ZN17QQuickActionGroup12removeActionEP12QQuickAction(
   self->removeAction(action);
 }
 
+//  void QQuickActionGroup::checkedActionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickActionGroup20checkedActionChangedEv(
+    QQuickActionGroup *self) {
+  self->checkedActionChanged();
+}
+
+//  void QQuickActionGroup::actionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickActionGroup14actionsChangedEv(
+    QQuickActionGroup *self) {
+  self->actionsChanged();
+}
+
+//  void QQuickActionGroup::exclusiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickActionGroup16exclusiveChangedEv(
+    QQuickActionGroup *self) {
+  self->exclusiveChanged();
+}
+
+//  void QQuickActionGroup::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickActionGroup14enabledChangedEv(
+    QQuickActionGroup *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickActionGroup::triggered(QQuickAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickActionGroup9triggeredEP12QQuickAction(
+    QQuickActionGroup *self,
+    QQuickAction *action) {
+  self->triggered(action);
+}
+
+//  QQuickActionGroupPrivate *QQuickActionGroup::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickActionGroupPrivate *ritual_ZN17QQuickActionGroup6d_funcEv(
+    QQuickActionGroup *self) {
+  return self->d_func();
+}
+
+//  const QQuickActionGroupPrivate *QQuickActionGroup::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickActionGroupPrivate *ritual_ZNK17QQuickActionGroup6d_funcEv(
+    const QQuickActionGroup *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQQuickActionGroup, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -290,4 +367,11 @@ bool ritual_take_QQuickActionGroup(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickActionGroup *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QQuickAction> a ritual of QQuickActionGroup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickActionGroup__QQmlListProperty_QQuickAction(
+    QQmlListProperty<QQuickAction> *self) {
+  delete self;
 }

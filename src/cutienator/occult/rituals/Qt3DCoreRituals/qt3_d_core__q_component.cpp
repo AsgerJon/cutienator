@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DCore::QComponent that Python can take functions over in. Every Qt3DCore::QComponent
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore10QComponent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QComponent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore10QComponent11qt_metacastEPKc(
+    Qt3DCore::QComponent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QComponent::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore10QComponent11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QComponent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QComponent::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore10QComponent2trEPKcS2_i(
@@ -186,6 +207,73 @@ QString *ritual_ZN8Qt3DCore10QComponent2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QComponent::tr(s, c, n));
+}
+
+//  Qt3DCore::QComponent::QComponent(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QComponent *ritual_ZN8Qt3DCore10QComponentC1EPNS_5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QComponent(parent);
+}
+
+//  Qt3DCore::QComponent::~QComponent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore10QComponentD1Ev(Qt3DCore::QComponent *self) {
+  delete self;
+}
+
+//  bool Qt3DCore::QComponent::isShareable() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore10QComponent11isShareableEv(
+    const Qt3DCore::QComponent *self) {
+  return self->isShareable();
+}
+
+//  QList<QEntity *> Qt3DCore::QComponent::entities() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QEntity *> *ritual_ZNK8Qt3DCore10QComponent8entitiesEv(
+    const Qt3DCore::QComponent *self) {
+  return new QList<Qt3DCore::QEntity *>(self->entities());
+}
+
+//  void Qt3DCore::QComponent::setShareable(bool isShareable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore10QComponent12setShareableEb(
+    Qt3DCore::QComponent *self,
+    bool isShareable) {
+  self->setShareable(isShareable);
+}
+
+//  void Qt3DCore::QComponent::shareableChanged(bool isShareable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore10QComponent16shareableChangedEb(
+    Qt3DCore::QComponent *self,
+    bool isShareable) {
+  self->shareableChanged(isShareable);
+}
+
+//  void Qt3DCore::QComponent::addedToEntity(QEntity *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore10QComponent13addedToEntityEPNS_7QEntityE(
+    Qt3DCore::QComponent *self,
+    Qt3DCore::QEntity *entity) {
+  self->addedToEntity(entity);
+}
+
+//  void Qt3DCore::QComponent::removedFromEntity(QEntity *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore10QComponent17removedFromEntityEPNS_7QEntityE(
+    Qt3DCore::QComponent *self,
+    Qt3DCore::QEntity *entity) {
+  self->removedFromEntity(entity);
+}
+
+//  Qt3DCore::QComponent::QComponent(QComponentPrivate &dd, QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QComponent *ritual_ZN8Qt3DCore10QComponentC1ERNS_17QComponentPrivateEPNS_5QNodeE(
+    Qt3DCore::QComponentPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QComponent(*dd, parent);
 }
 
 //  QComponentPrivate *Qt3DCore::QComponent::d_func()
@@ -210,4 +298,11 @@ bool ritual_take_Qt3DCore_QComponent(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DCore_QComponent *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DCore::QEntity *> a ritual of Qt3DCore::QComponent gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QComponent__QList_Qt3DCore_QEntity(
+    QList<Qt3DCore::QEntity *> *self) {
+  delete self;
 }

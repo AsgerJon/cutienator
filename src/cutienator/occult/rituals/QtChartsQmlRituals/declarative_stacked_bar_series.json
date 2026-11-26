@@ -8,6 +8,12 @@
     "ritual_ZNK27DeclarativeStackedBarSeries10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27DeclarativeStackedBarSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27DeclarativeStackedBarSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27DeclarativeStackedBarSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,6 +40,9 @@
     "ritual_ZN27DeclarativeStackedBarSeries13setAxisYRightEP13QAbstractAxis": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN27DeclarativeStackedBarSeries14seriesChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZN27DeclarativeStackedBarSeries2atEi": [
       "address", "address", "int"
     ],
@@ -53,6 +62,21 @@
     "ritual_ZN27DeclarativeStackedBarSeries17componentCompleteEv": [
       "nothing", "address"
     ],
+    "ritual_ZN27DeclarativeStackedBarSeries12axisXChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeStackedBarSeries12axisYChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeStackedBarSeries15axisXTopChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeStackedBarSeries17axisYRightChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeStackedBarSeries20appendSeriesChildrenEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_DeclarativeStackedBarSeries_QQmlParserStatus": [
       "address", "address"
     ],
@@ -63,6 +87,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN27DeclarativeStackedBarSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_DeclarativeStackedBarSeries__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

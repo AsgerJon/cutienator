@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QInputControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QInputControl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QInputControl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QInputControl2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QInputControlC1ENS_4TypeEP7QObject": [
       "address", "int", "address"
@@ -21,6 +27,9 @@
     ],
     "ritual_ZN13QInputControl21mimeDataForInputEventEP17QInputMethodEvent": [
       "address", "address"
+    ],
+    "ritual_ZN13QInputControlC1ENS_4TypeER14QObjectPrivateP7QObject": [
+      "address", "int", "address", "address"
     ]
   }
 }

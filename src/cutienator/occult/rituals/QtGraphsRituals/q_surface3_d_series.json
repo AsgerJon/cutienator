@@ -9,6 +9,12 @@
   ],
   "rows": {
     "ritual_ZNK16QSurface3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSurface3DSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QSurface3DSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QSurface3DSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,9 @@
     ],
     "ritual_ZNK16QSurface3DSeries13selectedPointEv": ["address", "address"],
     "ritual_ZN16QSurface3DSeries24invalidSelectionPositionEv": ["address"],
+    "ritual_ZN16QSurface3DSeries10setShadingENS_7ShadingE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK16QSurface3DSeries7shadingEv": ["int", "address"],
     "ritual_ZN16QSurface3DSeries11setDrawModeE6QFlagsINS_8DrawFlagEE": [
       "nothing", "address", "int"
@@ -55,10 +64,14 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK16QSurface3DSeries13rowsSanitizedEv": ["bool", "address"],
+    "ritual_ZN16QSurface3DSeries12setDataArrayERK5QListIS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QSurface3DSeries8clearRowEx": [
       "nothing", "address", "long long"
     ],
     "ritual_ZN16QSurface3DSeries10clearArrayEv": ["nothing", "address"],
+    "ritual_ZNKR16QSurface3DSeries9dataArrayEv": ["address", "address"],
     "ritual_ZN16QSurface3DSeries8setAxisXEP12QValue3DAxis": [
       "nothing", "address", "address"
     ],
@@ -74,6 +87,48 @@
     "ritual_ZN16QSurface3DSeries10resetAxisXEv": ["nothing", "address"],
     "ritual_ZN16QSurface3DSeries10resetAxisYEv": ["nothing", "address"],
     "ritual_ZN16QSurface3DSeries10resetAxisZEv": ["nothing", "address"],
+    "ritual_ZN16QSurface3DSeries16dataProxyChangedEP17QSurfaceDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries20selectedPointChangedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries27flatShadingSupportedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QSurface3DSeries15drawModeChangedE6QFlagsINS_8DrawFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QSurface3DSeries14textureChangedERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries18textureFileChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QSurface3DSeries21wireframeColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries16dataArrayChangedERK5QListIS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries14shadingChangedENS_7ShadingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries20rowsSanitizedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QSurface3DSeries12axisXChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries12axisYChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries12axisZChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeriesC1ER23QSurface3DSeriesPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QSurface3DSeries": ["bool", "address", "chars", "address"],
     "ritual_list_make_QSurface3DSeries_ptr": ["address"],
     "ritual_list_add_QSurface3DSeries_ptr": [

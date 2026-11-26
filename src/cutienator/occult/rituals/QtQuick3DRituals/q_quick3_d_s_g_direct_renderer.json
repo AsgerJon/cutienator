@@ -8,14 +8,28 @@
     "ritual_ZNK24QQuick3DSGDirectRenderer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuick3DSGDirectRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuick3DSGDirectRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuick3DSGDirectRendererD1Ev": ["nothing", "address"],
     "ritual_ZN24QQuick3DSGDirectRenderer8rendererEv": ["address", "address"],
     "ritual_ZN24QQuick3DSGDirectRenderer11setViewportERK6QRectF": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN24QQuick3DSGDirectRenderer13requestRenderEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN24QQuick3DSGDirectRenderer13setVisibilityEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN24QQuick3DSGDirectRenderer14preSynchronizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DSGDirectRenderer7prepareEv": ["nothing", "address"],
+    "ritual_ZN24QQuick3DSGDirectRenderer6renderEv": ["nothing", "address"],
     "ritual_take_QQuick3DSGDirectRenderer": [
       "bool", "address", "chars", "address"
     ]

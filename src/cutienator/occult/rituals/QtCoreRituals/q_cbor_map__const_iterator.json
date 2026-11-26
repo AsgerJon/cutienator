@@ -13,11 +13,20 @@
     "ritual_ZN8QCborMap13ConstIteratorC1Ev": ["address"],
     "ritual_ZN8QCborMap13ConstIteratorC1ERKS0_": ["address", "address"],
     "ritual_ZN8QCborMap13ConstIteratorD1Ev": ["nothing", "address"],
+    "ritual_ZN8QCborMap13ConstIteratoraSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QCborMap13ConstIteratordeEv": ["address", "address"],
+    "ritual_ZNK8QCborMap13ConstIteratorixEx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZNK8QCborMap13ConstIteratorptEv": ["address", "address"],
     "ritual_ZNK8QCborMap13ConstIterator3keyEv": ["address", "address"],
     "ritual_ZNK8QCborMap13ConstIterator6keyRefEv": ["address", "address"],
     "ritual_ZNK8QCborMap13ConstIterator5valueEv": ["address", "address"],
+    "ritual_ZN8QCborMap13ConstIteratorppEv": ["address", "address"],
     "ritual_ZN8QCborMap13ConstIteratorppEi": ["address", "address", "int"],
+    "ritual_ZN8QCborMap13ConstIteratormmEv": ["address", "address"],
     "ritual_ZN8QCborMap13ConstIteratormmEi": ["address", "address", "int"],
     "ritual_ZN8QCborMap13ConstIteratorpLEx": [
       "nothing", "address", "long long"
@@ -57,6 +66,9 @@
     ],
     "ritual_ZgeRKN8QCborMap13ConstIteratorES2_": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QCborMap_ConstIterator__QCborMap_ConstIterator_value_type": [
+      "nothing", "address"
     ]
   }
 }

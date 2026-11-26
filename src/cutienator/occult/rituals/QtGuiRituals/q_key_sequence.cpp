@@ -147,6 +147,30 @@ QKeyCombination *ritual_ZNK12QKeySequenceixEj(
   return new QKeyCombination(self->operator[](i));
 }
 
+//  QKeySequence &QKeySequence::operator=(const QKeySequence &other)
+extern "C" Q_DECL_EXPORT
+QKeySequence *ritual_ZN12QKeySequenceaSERKS_(
+    QKeySequence *self,
+    const QKeySequence *other) {
+  return &(self->operator=(*other));
+}
+
+//  QKeySequence &QKeySequence::operator=(QKeySequence &&other)
+extern "C" Q_DECL_EXPORT
+QKeySequence *ritual_ZN12QKeySequenceaSEOS_(
+    QKeySequence *self,
+    QKeySequence *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QKeySequence::swap(QKeySequence &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QKeySequence4swapERS_(
+    QKeySequence *self,
+    QKeySequence *other) {
+  self->swap(*other);
+}
+
 //  bool QKeySequence::operator==(const QKeySequence &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QKeySequenceeqERKS_(
@@ -225,6 +249,29 @@ void ritual_ZN12QKeySequence6setKeyE15QKeyCombinationi(
     const QKeyCombination *key,
     int index) {
   self->setKey(*key, index);
+}
+
+//  QDataStream &operator<<(QDataStream &in, const QKeySequence &ks)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK12QKeySequence(
+    QDataStream *in,
+    const QKeySequence *ks) {
+  return &(operator<<(*in, *ks));
+}
+
+//  QDataStream &operator>>(QDataStream &in, QKeySequence &ks)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR12QKeySequence(
+    QDataStream *in,
+    QKeySequence *ks) {
+  return &(operator>>(*in, *ks));
+}
+
+//  DataPtr &QKeySequence::data_ptr()
+extern "C" Q_DECL_EXPORT
+QKeySequence::DataPtr *ritual_ZN12QKeySequence8data_ptrEv(
+    QKeySequence *self) {
+  return &(self->data_ptr());
 }
 
 //  QList<QKeySequence>::QList()

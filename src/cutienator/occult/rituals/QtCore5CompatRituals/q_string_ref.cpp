@@ -8,6 +8,8 @@
 #include <QtCore/qanystringview.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
+#include <QtCore5Compat/QStringRef>
+#include <QtCore/QList>
 
 //  QStringRef::QStringRef()
 extern "C" Q_DECL_EXPORT
@@ -428,6 +430,14 @@ QString *ritual_ZNK10QStringRefcv14QAnyStringViewEv(const QStringRef *self) {
 }
 #endif  // defined(QSTRINGVIEW_REFUSES_QSTRINGREF)
 
+//  QStringRef &QStringRef::operator=(const QString *string)
+extern "C" Q_DECL_EXPORT
+QStringRef *ritual_ZN10QStringRefaSEPK7QString(
+    QStringRef *self,
+    const QString *string) {
+  return &(self->operator=(string));
+}
+
 //  const QChar *QStringRef::unicode() const
 extern "C" Q_DECL_EXPORT
 const QChar *ritual_ZNK10QStringRef7unicodeEv(const QStringRef *self) {
@@ -488,6 +498,34 @@ QStringRef::const_iterator ritual_ZNK10QStringRef8constEndEv(
   return self->constEnd();
 }
 
+//  const_reverse_iterator QStringRef::rbegin() const
+extern "C" Q_DECL_EXPORT
+QStringRef::const_reverse_iterator *ritual_ZNK10QStringRef6rbeginEv(
+    const QStringRef *self) {
+  return new QStringRef::const_reverse_iterator(self->rbegin());
+}
+
+//  const_reverse_iterator QStringRef::crbegin() const
+extern "C" Q_DECL_EXPORT
+QStringRef::const_reverse_iterator *ritual_ZNK10QStringRef7crbeginEv(
+    const QStringRef *self) {
+  return new QStringRef::const_reverse_iterator(self->crbegin());
+}
+
+//  const_reverse_iterator QStringRef::rend() const
+extern "C" Q_DECL_EXPORT
+QStringRef::const_reverse_iterator *ritual_ZNK10QStringRef4rendEv(
+    const QStringRef *self) {
+  return new QStringRef::const_reverse_iterator(self->rend());
+}
+
+//  const_reverse_iterator QStringRef::crend() const
+extern "C" Q_DECL_EXPORT
+QStringRef::const_reverse_iterator *ritual_ZNK10QStringRef5crendEv(
+    const QStringRef *self) {
+  return new QStringRef::const_reverse_iterator(self->crend());
+}
+
 //  QByteArray QStringRef::toLatin1() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK10QStringRef8toLatin1Ev(const QStringRef *self) {
@@ -504,6 +542,12 @@ QByteArray *ritual_ZNK10QStringRef6toUtf8Ev(const QStringRef *self) {
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK10QStringRef11toLocal8BitEv(const QStringRef *self) {
   return new QByteArray(self->toLocal8Bit());
+}
+
+//  QList<uint> QStringRef::toUcs4() const
+extern "C" Q_DECL_EXPORT
+QList<uint> *ritual_ZNK10QStringRef6toUcs4Ev(const QStringRef *self) {
+  return new QList<uint>(self->toUcs4());
 }
 
 //  void QStringRef::clear()
@@ -964,5 +1008,18 @@ QStringRef *ritual_list_at_QStringRef(
 //  QList<QStringRef>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QStringRef(QList<QStringRef> *self) {
+  delete self;
+}
+
+//  a QStringRef::const_reverse_iterator a ritual of QStringRef gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStringRef__QStringRef_const_reverse_iterator(
+    QStringRef::const_reverse_iterator *self) {
+  delete self;
+}
+
+//  a QList<uint> a ritual of QStringRef gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStringRef__QList_uint(QList<uint> *self) {
   delete self;
 }

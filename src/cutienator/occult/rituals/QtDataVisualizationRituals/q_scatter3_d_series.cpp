@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK16QScatter3DSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScatter3DSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QScatter3DSeries11qt_metacastEPKc(
+    QScatter3DSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScatter3DSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QScatter3DSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScatter3DSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScatter3DSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QScatter3DSeries2trEPKcS1_i(
@@ -259,6 +278,30 @@ void ritual_ZN16QScatter3DSeries11setItemSizeEf(
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK16QScatter3DSeries8itemSizeEv(const QScatter3DSeries *self) {
   return self->itemSize();
+}
+
+//  void QScatter3DSeries::dataProxyChanged(QScatterDataProxy *proxy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries16dataProxyChangedEP17QScatterDataProxy(
+    QScatter3DSeries *self,
+    QScatterDataProxy *proxy) {
+  self->dataProxyChanged(proxy);
+}
+
+//  void QScatter3DSeries::selectedItemChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries19selectedItemChangedEi(
+    QScatter3DSeries *self,
+    int index) {
+  self->selectedItemChanged(index);
+}
+
+//  void QScatter3DSeries::itemSizeChanged(float size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries15itemSizeChangedEf(
+    QScatter3DSeries *self,
+    float size) {
+  self->itemSizeChanged(size);
 }
 
 //  QScatter3DSeries::QScatter3DSeries(QScatter3DSeriesPrivate *d, QObject

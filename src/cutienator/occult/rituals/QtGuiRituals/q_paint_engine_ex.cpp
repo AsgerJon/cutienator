@@ -6,10 +6,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qpaintengineex_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qbrush.h>
+#include <QtGui/qpen.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qregion.h>
 #include <QtGui/qpainterpath.h>
-#include <QtGui/qbrush.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qpixmap.h>
 #include <QtCore/qpoint.h>
@@ -859,6 +860,41 @@ QPainterState *ritual_ZNK14QPaintEngineEx11createStateEP13QPainterState(
     const QPaintEngineEx *self,
     QPainterState *orig) {
   return self->createState(orig);
+}
+
+//  void QPaintEngineEx::draw(const QVectorPath &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPaintEngineEx4drawERK11QVectorPath(
+    QPaintEngineEx *self,
+    const QVectorPath *path) {
+  self->draw(*path);
+}
+
+//  void QPaintEngineEx::fill(const QVectorPath &path, const QBrush &brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPaintEngineEx4fillERK11QVectorPathRK6QBrush(
+    QPaintEngineEx *self,
+    const QVectorPath *path,
+    const QBrush *brush) {
+  self->fill(*path, *brush);
+}
+
+//  void QPaintEngineEx::stroke(const QVectorPath &path, const QPen &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPaintEngineEx6strokeERK11QVectorPathRK4QPen(
+    QPaintEngineEx *self,
+    const QVectorPath *path,
+    const QPen *pen) {
+  self->stroke(*path, *pen);
+}
+
+//  void QPaintEngineEx::clip(const QVectorPath &path, Qt::ClipOperation op)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPaintEngineEx4clipERK11QVectorPathN2Qt13ClipOperationE(
+    QPaintEngineEx *self,
+    const QVectorPath *path,
+    Qt::ClipOperation op) {
+  self->clip(*path, op);
 }
 
 //  void QPaintEngineEx::clip(const QRect &rect, Qt::ClipOperation op)

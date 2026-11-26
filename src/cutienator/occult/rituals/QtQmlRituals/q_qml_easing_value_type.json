@@ -37,6 +37,11 @@
     "ritual_ZN19QQmlEasingValueType9setPeriodEd": [
       "nothing", "address", "double"
     ],
-    "ritual_ZN19QQmlEasingValueTypeD1Ev": ["nothing", "address"]
+    "ritual_ZN19QQmlEasingValueType14setBezierCurveERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQmlEasingValueType11bezierCurveEv": ["address", "address"],
+    "ritual_ZN19QQmlEasingValueTypeD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlEasingValueType__QList_qreal": ["nothing", "address"]
   }
 }

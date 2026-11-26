@@ -6,23 +6,38 @@
   ],
   "rows": {
     "ritual_ZN22QQsbIODeviceCollectionC1ERK7QString": ["address", "text"],
+    "ritual_ZN22QQsbIODeviceCollectionC1ER9QIODevice": [
+      "address", "address"
+    ],
     "ritual_ZN22QQsbIODeviceCollectionD1Ev": ["nothing", "address"],
     "ritual_ZN22QQsbIODeviceCollection3mapENS_7MapModeE": [
       "bool", "address", "int"
     ],
     "ritual_ZN22QQsbIODeviceCollection5unmapEv": ["nothing", "address"],
+    "ritual_ZNK22QQsbIODeviceCollection16availableEntriesEv": [
+      "address", "address"
+    ],
     "ritual_ZN22QQsbIODeviceCollection8addEntryERK10QByteArrayRKN14QQsbCollection9EntryDescE": [
       "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QQsbIODeviceCollection12extractEntryEN14QQsbCollection5EntryERNS0_9EntryDescE": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZN22QQsbIODeviceCollection8dumpInfoEv": ["nothing", "address"],
     "ritual_ZN22QQsbIODeviceCollection8dumpInfoERK7QString": [
       "nothing", "text"
+    ],
+    "ritual_ZN22QQsbIODeviceCollection8dumpInfoER9QIODevice": [
+      "nothing", "address"
     ],
     "ritual_take_QQsbIODeviceCollection": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN22QQsbIODeviceCollection8addEntryERK10QByteArrayRKN14QQsbCollection9EntryDescE": [
       "address", "address", "address", "address"
+    ],
+    "ritual_drop_QQsbIODeviceCollection__QQsbCollection_EntryMap": [
+      "nothing", "address"
     ]
   }
 }

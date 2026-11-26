@@ -275,6 +275,25 @@ const QMetaObject *ritual_ZNK19QQuickImageProvider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickImageProvider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickImageProvider11qt_metacastEPKc(
+    QQuickImageProvider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickImageProvider::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickImageProvider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickImageProvider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickImageProvider::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickImageProvider2trEPKcS1_i(

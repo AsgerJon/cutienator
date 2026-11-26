@@ -7,7 +7,17 @@
   "rows": {
     "ritual_ZN19QGeoAreaMonitorInfoC1ERK7QString": ["address", "text"],
     "ritual_ZN19QGeoAreaMonitorInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN19QGeoAreaMonitorInfoC1EOS_": ["address", "address"],
     "ritual_ZN19QGeoAreaMonitorInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN19QGeoAreaMonitorInfoaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGeoAreaMonitorInfoaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGeoAreaMonitorInfo4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK19QGeoAreaMonitorInfoS1_": ["bool", "address", "address"],
     "ritual_ZneRK19QGeoAreaMonitorInfoS1_": ["bool", "address", "address"],
     "ritual_ZNK19QGeoAreaMonitorInfo4nameEv": ["text", "address"],
@@ -37,6 +47,18 @@
     "ritual_ZN19QGeoAreaMonitorInfo6detachEv": ["nothing", "address"],
     "ritual_ZN19QGeoAreaMonitorInfo6equalsERKS_S1_": [
       "bool", "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK19QGeoAreaMonitorInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR19QGeoAreaMonitorInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGeoAreaMonitorInfo13dataStreamOutER11QDataStreamRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGeoAreaMonitorInfo12dataStreamInER11QDataStreamRS_": [
+      "address", "address", "address"
     ],
     "ritual_Zls6QDebugRK19QGeoAreaMonitorInfo": [
       "address", "address", "address"

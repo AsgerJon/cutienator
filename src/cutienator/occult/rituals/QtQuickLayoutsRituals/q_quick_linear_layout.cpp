@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK18QQuickLinearLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLinearLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickLinearLayout11qt_metacastEPKc(
+    QQuickLinearLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLinearLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickLinearLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLinearLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickLinearLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickLinearLayout2trEPKcS1_i(
@@ -75,6 +94,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickLinearLayout17insertLayoutItemsEv(
     QQuickLinearLayout *self) {
   self->insertLayoutItems();
+}
+
+//  void QQuickLinearLayout::spacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickLinearLayout14spacingChangedEv(
+    QQuickLinearLayout *self) {
+  self->spacingChanged();
+}
+
+//  void QQuickLinearLayout::uniformCellSizesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickLinearLayout23uniformCellSizesChangedEv(
+    QQuickLinearLayout *self) {
+  self->uniformCellSizesChanged();
 }
 
 //  QQuickLinearLayoutPrivate *QQuickLinearLayout::d_func()

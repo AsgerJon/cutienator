@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlCameraPermission10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlCameraPermission11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlCameraPermission11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK20QQmlCameraPermission6statusEv": ["int", "address"],
     "ritual_take_QQmlCameraPermission": [
       "bool", "address", "chars", "address"

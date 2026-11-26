@@ -6,8 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK8QSidebar10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QSidebar11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QSidebar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8QSidebar7goToUrlERK4QUrl": ["nothing", "address", "address"],
     "ritual_ZN8QSidebarD1Ev": ["nothing", "address"],
     "ritual_ZNK8QSidebar8sizeHintEv": ["address", "address"],
+    "ritual_ZN8QSidebar7setUrlsERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QSidebar7addUrlsERK5QListI4QUrlEi": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZNK8QSidebar4urlsEv": ["address", "address"],
     "ritual_ZN8QSidebar5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN8QSidebar12focusInEventEP11QFocusEvent": [
@@ -16,11 +27,17 @@
     "ritual_ZN8QSidebar14dragEnterEventEP15QDragEnterEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8QSidebar15showContextMenuERK6QPoint": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN8QSidebar11removeEntryEv": ["nothing", "address"],
     "ritual_take_QSidebar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8QSidebar8sizeHintEv": ["address", "address"],
     "ritual_own_ZN8QSidebar5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_own_ZN8QSidebar12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QSidebar14dragEnterEventEP15QDragEnterEvent": [
       "nothing", "address", "address"
     ]
   }

@@ -15,6 +15,24 @@ const QMetaObject *ritual_ZNK14QBlendTreeNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBlendTreeNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QBlendTreeNode11qt_metacastEPKc(
+    QBlendTreeNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBlendTreeNode::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QBlendTreeNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBlendTreeNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBlendTreeNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QBlendTreeNode2trEPKcS1_i(
@@ -37,6 +55,13 @@ QBlendTreeNode *ritual_ZN14QBlendTreeNodeC1EP7QObject(QObject *parent) {
   return new QBlendTreeNode(parent);
 }
 
+//  const QHash<QQmlProperty, QVariant> &QBlendTreeNode::frameData()
+extern "C" Q_DECL_EXPORT
+const QHash<QQmlProperty, QVariant> *ritual_ZN14QBlendTreeNode9frameDataEv(
+    QBlendTreeNode *self) {
+  return &(self->frameData());
+}
+
 //  bool QBlendTreeNode::outputEnabled() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14QBlendTreeNode13outputEnabledEv(
@@ -50,6 +75,19 @@ void ritual_ZN14QBlendTreeNode16setOutputEnabledEb(
     QBlendTreeNode *self,
     bool isOutputEnabled) {
   self->setOutputEnabled(isOutputEnabled);
+}
+
+//  void QBlendTreeNode::frameDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBlendTreeNode16frameDataChangedEv(QBlendTreeNode *self) {
+  self->frameDataChanged();
+}
+
+//  void QBlendTreeNode::outputEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBlendTreeNode20outputEnabledChangedEv(
+    QBlendTreeNode *self) {
+  self->outputEnabledChanged();
 }
 
 //  void QBlendTreeNode::handleFrameDataChanged()

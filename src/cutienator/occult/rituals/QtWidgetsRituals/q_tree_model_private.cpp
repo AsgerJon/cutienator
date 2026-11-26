@@ -6,10 +6,12 @@
 #if QT_CONFIG(treewidget)
 #if QT_CONFIG(treewidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(treewidget)
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qtreewidget.h>
 #include <QtWidgets/qheaderview.h>

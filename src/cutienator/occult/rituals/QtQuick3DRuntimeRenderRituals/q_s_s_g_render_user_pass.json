@@ -17,6 +17,9 @@
       "nothing", "address", "unsigned char"
     ],
     "ritual_ZNK18QSSGRenderUserPass7isReadyEv": ["bool", "address"],
+    "ritual_ZN18QSSGRenderUserPass15finalizeShadersERK26QSSGRenderContextInterface": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QSSGRenderUserPass18setDependencyIndexEj": [
       "nothing", "address", "unsigned int"
     ],

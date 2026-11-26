@@ -71,6 +71,19 @@ public:
   }
 };
 
+//  Qt3DRender::QGeometryRendererPrivate::QGeometryRendererPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QGeometryRendererPrivate *ritual_ZN10Qt3DRender24QGeometryRendererPrivateC1Ev() {
+  return new CuteQt3DRender_QGeometryRendererPrivate();
+}
+
+//  Qt3DRender::QGeometryRendererPrivate::~QGeometryRendererPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender24QGeometryRendererPrivateD1Ev(
+    Qt3DRender::QGeometryRendererPrivate *self) {
+  delete self;
+}
+
 //  QGeometryRenderer *Qt3DRender::QGeometryRendererPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QGeometryRenderer *ritual_ZN10Qt3DRender24QGeometryRendererPrivate6q_funcEv(
@@ -84,6 +97,16 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QGeometryRenderer *ritual_ZNK10Qt3DRender24QGeometryRendererPrivate6q_funcEv(
     const Qt3DRender::QGeometryRendererPrivate *self) {
   return self->q_func();
+}
+
+//  void
+//      Qt3DRender::QGeometryRendererPrivate::setView(Qt3DCore::QGeometryView
+//      *view)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender24QGeometryRendererPrivate7setViewEPN8Qt3DCore13QGeometryViewE(
+    Qt3DRender::QGeometryRendererPrivate *self,
+    Qt3DCore::QGeometryView *view) {
+  self->setView(view);
 }
 
 //  a Python function taken by a CuteQt3DRender_QGeometryRendererPrivate, for

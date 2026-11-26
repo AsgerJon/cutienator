@@ -6,9 +6,19 @@
   "rows": {
     "ritual_ZN9QGlyphRunC1Ev": ["address"],
     "ritual_ZN9QGlyphRunC1ERKS_": ["address", "address"],
+    "ritual_ZN9QGlyphRunaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QGlyphRunaSERKS_": ["address", "address", "address"],
     "ritual_ZN9QGlyphRunD1Ev": ["nothing", "address"],
+    "ritual_ZN9QGlyphRun4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QGlyphRun7rawFontEv": ["address", "address"],
     "ritual_ZN9QGlyphRun10setRawFontERK8QRawFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QGlyphRun10setRawDataEPKjPK7QPointFi": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK9QGlyphRun12glyphIndexesEv": ["address", "address"],
+    "ritual_ZN9QGlyphRun15setGlyphIndexesERK5QListIjE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK9QGlyphRun9positionsEv": ["address", "address"],
@@ -37,6 +47,10 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK9QGlyphRun12boundingRectEv": ["address", "address"],
+    "ritual_ZNK9QGlyphRun13stringIndexesEv": ["address", "address"],
+    "ritual_ZN9QGlyphRun16setStringIndexesERK5QListIxE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QGlyphRun15setSourceStringERK7QString": [
       "nothing", "address", "text"
     ],
@@ -47,6 +61,8 @@
     "ritual_list_add_QGlyphRun": ["nothing", "address", "address"],
     "ritual_list_size_QGlyphRun": ["long long", "address"],
     "ritual_list_at_QGlyphRun": ["address", "address", "long long"],
-    "ritual_list_drop_QGlyphRun": ["nothing", "address"]
+    "ritual_list_drop_QGlyphRun": ["nothing", "address"],
+    "ritual_drop_QGlyphRun__QList_quint32": ["nothing", "address"],
+    "ritual_drop_QGlyphRun__QList_qsizetype": ["nothing", "address"]
   }
 }

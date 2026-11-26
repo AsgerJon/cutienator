@@ -28,6 +28,150 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 18, as local:qquickmaterialprogressbar.cpp:PauseDuration
+static const int PauseDuration = 520;
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 19, as local:qquickmaterialprogressbar.cpp:SlideDuration
+static const int SlideDuration = 1240;
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 20, as local:qquickmaterialprogressbar.cpp:QmpbTotalDuration
+static const int QmpbTotalDuration = SlideDuration + PauseDuration;
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 22, as local:qquickmaterialprogressbar.cpp:QQuickMaterialProgressBarNode
+class QQuickMaterialProgressBarNode : public QQuickAnimatedNode
+{
+public:
+    QQuickMaterialProgressBarNode(QQuickMaterialProgressBar *item);
+
+    void updateCurrentTime(int time) override;
+    void sync(QQuickItem *item) override;
+
+private:
+    void moveNode(QSGTransformNode *node, const QRectF &geometry, qreal progress);
+
+    bool m_indeterminate = false;
+    QEasingCurve m_easing = QEasingCurve::OutCubic;
+};
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 37, as local:qquickmaterialprogressbar.cpp:QQuickMaterialProgressBarNode::QQuickMaterialProgressBarNode
+inline QQuickMaterialProgressBarNode::QQuickMaterialProgressBarNode(QQuickMaterialProgressBar *item)
+    : QQuickAnimatedNode(item)
+{
+    setLoopCount(Infinite);
+    setDuration(QmpbTotalDuration);
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 44, as local:qquickmaterialprogressbar.cpp:QQuickMaterialProgressBarNode::updateCurrentTime
+inline void QQuickMaterialProgressBarNode::updateCurrentTime(int time)
+{
+    QSGRectangleNode *geometryNode = static_cast<QSGRectangleNode *>(firstChild());
+    Q_ASSERT(geometryNode->type() == QSGNode::GeometryNodeType);
+    const QRectF geometry = geometryNode->rect();
+
+    QSGTransformNode *firstNode = static_cast<QSGTransformNode *>(geometryNode->firstChild());
+    if (firstNode) {
+        Q_ASSERT(firstNode->type() == QSGNode::TransformNodeType);
+
+        const qreal progress = qMin<qreal>(1.0, static_cast<qreal>(time) / SlideDuration);
+        moveNode(static_cast<QSGTransformNode *>(firstNode), geometry, progress);
+    }
+
+    QSGTransformNode *secondNode = static_cast<QSGTransformNode *>(geometryNode->lastChild());
+    if (secondNode) {
+        Q_ASSERT(secondNode->type() == QSGNode::TransformNodeType);
+
+        const qreal progress = qMax<qreal>(0.0, static_cast<qreal>(time - PauseDuration) / SlideDuration);
+        moveNode(static_cast<QSGTransformNode *>(secondNode), geometry, progress);
+    }
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 67, as local:qquickmaterialprogressbar.cpp:QQuickMaterialProgressBarNode::sync
+inline void QQuickMaterialProgressBarNode::sync(QQuickItem *item)
+{
+    QQuickMaterialProgressBar *bar = static_cast<QQuickMaterialProgressBar *>(item);
+    if (m_indeterminate != bar->isIndeterminate()) {
+        m_indeterminate = bar->isIndeterminate();
+        if (m_indeterminate)
+            start();
+        else
+            stop();
+    }
+
+    QQuickItemPrivate *d = QQuickItemPrivate::get(item);
+
+    QRectF bounds = item->boundingRect();
+    bounds.setHeight(item->implicitHeight());
+    bounds.moveTop((item->height() - bounds.height()) / 2.0);
+
+    QSGRectangleNode *geometryNode = static_cast<QSGRectangleNode *>(firstChild());
+    if (!geometryNode) {
+        geometryNode = item->window()->createRectangleNode();
+        geometryNode->setColor(Qt::transparent);
+        appendChildNode(geometryNode);
+    }
+    geometryNode->setRect(bounds);
+
+    const int count = m_indeterminate ? 2 : 1;
+    const qreal w = m_indeterminate ? 0 : bar->progress() * item->width();
+    const QRectF rect(0, bounds.y(), w, bounds.height());
+
+    QSGNode *transformNode = geometryNode->firstChild();
+    for (int i = 0; i < count; ++i) {
+        if (!transformNode) {
+            transformNode = new QSGTransformNode;
+            geometryNode->appendChildNode(transformNode);
+
+            QSGInternalRectangleNode *rectNode = d->sceneGraphContext()->createInternalRectangleNode();
+            rectNode->setAntialiasing(true);
+            transformNode->appendChildNode(rectNode);
+        }
+        Q_ASSERT(transformNode->type() == QSGNode::TransformNodeType);
+        static_cast<QSGTransformNode *>(transformNode)->setMatrix(QMatrix4x4());
+
+        QSGInternalRectangleNode *rectNode = static_cast<QSGInternalRectangleNode *>(transformNode->firstChild());
+        Q_ASSERT(rectNode->type() == QSGNode::GeometryNodeType);
+
+        rectNode->setRect(rect);
+        rectNode->setColor(bar->color());
+        rectNode->update();
+
+        transformNode = transformNode->nextSibling();
+    }
+
+    while (transformNode) {
+        QSGNode *nextSibling = transformNode->nextSibling();
+        delete transformNode;
+        transformNode = nextSibling;
+    }
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 126, as local:qquickmaterialprogressbar.cpp:QQuickMaterialProgressBarNode::moveNode
+inline void QQuickMaterialProgressBarNode::moveNode(QSGTransformNode *transformNode, const QRectF &geometry, qreal progress)
+{
+    const qreal value = m_easing.valueForProgress(progress);
+    const qreal x = value * geometry.width();
+
+    QMatrix4x4 matrix;
+    matrix.translate(x, 0);
+    transformNode->setMatrix(matrix);
+
+    QSGInternalRectangleNode *rectNode = static_cast<QSGInternalRectangleNode *>(transformNode->firstChild());
+    Q_ASSERT(rectNode->type() == QSGNode::GeometryNodeType);
+
+    QRectF r = geometry;
+    r.setWidth(value * (geometry.width() - x));
+    rectNode->setRect(r);
+    rectNode->update();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 192, as _ZN25QQuickMaterialProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickMaterialProgressBar::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
+{
+    QQuickItem::itemChange(change, data);
+    if (change == ItemVisibleHasChanged)
+        update();
+}
+
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 150, as _ZNK25QQuickMaterialProgressBar5colorEv
 inline QColor QQuickMaterialProgressBar::color() const
 {
@@ -75,14 +219,6 @@ inline void QQuickMaterialProgressBar::setIndeterminate(bool indeterminate)
     m_indeterminate = indeterminate;
     update();
 }
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialprogressbar.cpp, line 192, as _ZN25QQuickMaterialProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
-inline void QQuickMaterialProgressBar::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
-{
-    QQuickItem::itemChange(change, data);
-    if (change == ItemVisibleHasChanged)
-        update();
-}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickMaterialProgressBar may call these functions of it.
@@ -96,6 +232,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK25QQuickMaterialProgressBar10metaObjectEv(
     const QQuickMaterialProgressBar *self) {
   return self->metaObject();
+}
+
+//  void *QQuickMaterialProgressBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickMaterialProgressBar11qt_metacastEPKc(
+    QQuickMaterialProgressBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMaterialProgressBar::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickMaterialProgressBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMaterialProgressBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QColor QQuickMaterialProgressBar::color() const
@@ -151,6 +306,16 @@ void ritual_ZN25QQuickMaterialProgressBar10itemChangeEN10QQuickItem10ItemChangeE
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->itemChange(change, *data);
+}
+
+//  QSGNode *QQuickMaterialProgressBar::updatePaintNode(QSGNode *oldNode,
+//      UpdatePaintNodeData *a1)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN25QQuickMaterialProgressBar15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE(
+    QQuickMaterialProgressBar *self,
+    QSGNode *oldNode,
+    QQuickItem::UpdatePaintNodeData *a1) {
+  return self->updatePaintNode(oldNode, a1);
 }
 
 //  void QQuickMaterialProgressBar::itemChange(ItemChange change, const

@@ -13,6 +13,7 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuick3DSceneEnvironment may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -314,6 +315,25 @@ const QMetaObject *ritual_ZNK24QQuick3DSceneEnvironment10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DSceneEnvironment::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuick3DSceneEnvironment11qt_metacastEPKc(
+    QQuick3DSceneEnvironment *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DSceneEnvironment::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuick3DSceneEnvironment11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DSceneEnvironment *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DSceneEnvironment::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuick3DSceneEnvironment2trEPKcS1_i(
@@ -505,6 +525,13 @@ QQuick3DSceneEnvironment::QQuick3DEnvironmentTonemapModes ritual_ZNK24QQuick3DSc
   return self->tonemapMode();
 }
 
+//  QQmlListProperty<QQuick3DEffect> QQuick3DSceneEnvironment::effects()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DEffect> *ritual_ZN24QQuick3DSceneEnvironment7effectsEv(
+    QQuick3DSceneEnvironment *self) {
+  return new QQmlListProperty<QQuick3DEffect>(self->effects());
+}
+
 //  float QQuick3DSceneEnvironment::skyboxBlurAmount() const
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK24QQuick3DSceneEnvironment16skyboxBlurAmountEv(
@@ -622,6 +649,15 @@ void ritual_ZN24QQuick3DSceneEnvironment22setAntialiasingQualityENS_34QQuick3DEn
     QQuick3DSceneEnvironment *self,
     QQuick3DSceneEnvironment::QQuick3DEnvironmentAAQualityValues antialiasingQuality) {
   self->setAntialiasingQuality(antialiasingQuality);
+}
+
+//  void QQuick3DSceneEnvironment::setTemporalAAMode(const
+//      QQuick3DEnvironmentTemporalAAMode &newTemporalAAMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment17setTemporalAAModeERKNS_33QQuick3DEnvironmentTemporalAAModeE(
+    QQuick3DSceneEnvironment *self,
+    const QQuick3DSceneEnvironment::QQuick3DEnvironmentTemporalAAMode *newTemporalAAMode) {
+  self->setTemporalAAMode(*newTemporalAAMode);
 }
 
 //  void QQuick3DSceneEnvironment::setTemporalAAEnabled(bool
@@ -843,6 +879,216 @@ void ritual_ZN24QQuick3DSceneEnvironment12setOitMethodENS_28QQuick3DEnvironmentO
   self->setOitMethod(mode);
 }
 
+//  void QQuick3DSceneEnvironment::antialiasingModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment23antialiasingModeChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->antialiasingModeChanged();
+}
+
+//  void QQuick3DSceneEnvironment::antialiasingQualityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment26antialiasingQualityChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->antialiasingQualityChanged();
+}
+
+//  void QQuick3DSceneEnvironment::temporalAAModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment21temporalAAModeChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->temporalAAModeChanged();
+}
+
+//  void QQuick3DSceneEnvironment::temporalAAEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment24temporalAAEnabledChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->temporalAAEnabledChanged();
+}
+
+//  void QQuick3DSceneEnvironment::temporalAAStrengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment25temporalAAStrengthChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->temporalAAStrengthChanged();
+}
+
+//  void QQuick3DSceneEnvironment::backgroundModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment21backgroundModeChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->backgroundModeChanged();
+}
+
+//  void QQuick3DSceneEnvironment::clearColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment17clearColorChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->clearColorChanged();
+}
+
+//  void QQuick3DSceneEnvironment::aoStrengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment17aoStrengthChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->aoStrengthChanged();
+}
+
+//  void QQuick3DSceneEnvironment::aoDistanceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment17aoDistanceChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->aoDistanceChanged();
+}
+
+//  void QQuick3DSceneEnvironment::aoSoftnessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment17aoSoftnessChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->aoSoftnessChanged();
+}
+
+//  void QQuick3DSceneEnvironment::aoDitherChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment15aoDitherChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->aoDitherChanged();
+}
+
+//  void QQuick3DSceneEnvironment::aoSampleRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment19aoSampleRateChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->aoSampleRateChanged();
+}
+
+//  void QQuick3DSceneEnvironment::aoBiasChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment13aoBiasChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->aoBiasChanged();
+}
+
+//  void QQuick3DSceneEnvironment::aoEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment16aoEnabledChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->aoEnabledChanged();
+}
+
+//  void QQuick3DSceneEnvironment::lightProbeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment17lightProbeChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->lightProbeChanged();
+}
+
+//  void QQuick3DSceneEnvironment::skyMaterialChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment18skyMaterialChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->skyMaterialChanged();
+}
+
+//  void QQuick3DSceneEnvironment::probeExposureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment20probeExposureChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->probeExposureChanged();
+}
+
+//  void QQuick3DSceneEnvironment::probeHorizonChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment19probeHorizonChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->probeHorizonChanged();
+}
+
+//  void QQuick3DSceneEnvironment::probeOrientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment23probeOrientationChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->probeOrientationChanged();
+}
+
+//  void QQuick3DSceneEnvironment::depthTestEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment23depthTestEnabledChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->depthTestEnabledChanged();
+}
+
+//  void QQuick3DSceneEnvironment::depthPrePassEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment26depthPrePassEnabledChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->depthPrePassEnabledChanged();
+}
+
+//  void QQuick3DSceneEnvironment::tonemapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment18tonemapModeChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->tonemapModeChanged();
+}
+
+//  void QQuick3DSceneEnvironment::skyboxBlurAmountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment23skyboxBlurAmountChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->skyboxBlurAmountChanged();
+}
+
+//  void QQuick3DSceneEnvironment::specularAAEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment24specularAAEnabledChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->specularAAEnabledChanged();
+}
+
+//  void QQuick3DSceneEnvironment::lightmapperChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment18lightmapperChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->lightmapperChanged();
+}
+
+//  void QQuick3DSceneEnvironment::skyBoxCubeMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment20skyBoxCubeMapChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->skyBoxCubeMapChanged();
+}
+
+//  void QQuick3DSceneEnvironment::debugSettingsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment20debugSettingsChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->debugSettingsChanged();
+}
+
+//  void QQuick3DSceneEnvironment::scissorRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment18scissorRectChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->scissorRectChanged();
+}
+
+//  void QQuick3DSceneEnvironment::fogChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment10fogChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->fogChanged();
+}
+
+//  void QQuick3DSceneEnvironment::oitMethodChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment16oitMethodChangedEv(
+    QQuick3DSceneEnvironment *self) {
+  self->oitMethodChanged();
+}
+
 //  QSSGRenderGraphObject
 //      *QQuick3DSceneEnvironment::updateSpatialNode(QSSGRenderGraphObject
 //      *node)
@@ -863,6 +1109,14 @@ void ritual_ZN24QQuick3DSceneEnvironment10itemChangeEN14QQuick3DObject10ItemChan
   self->itemChange(a0, *a1);
 }
 
+//  const QVector<QQuick3DEffect *> &QQuick3DSceneEnvironment::effectList()
+//      const
+extern "C" Q_DECL_EXPORT
+const QVector<QQuick3DEffect *> *ritual_ZNK24QQuick3DSceneEnvironment10effectListEv(
+    const QQuick3DSceneEnvironment *self) {
+  return &(self->effectList());
+}
+
 //  bool QQuick3DSceneEnvironment::useBuiltinTonemapper() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK24QQuick3DSceneEnvironment20useBuiltinTonemapperEv(
@@ -874,6 +1128,41 @@ bool ritual_ZNK24QQuick3DSceneEnvironment20useBuiltinTonemapperEv(
 extern "C" Q_DECL_EXPORT
 float ritual_ZN24QQuick3DSceneEnvironment17defaultAoDistanceEv() {
   return QQuick3DSceneEnvironment::defaultAoDistance();
+}
+
+//  void QQuick3DSceneEnvironment::qmlAppendEffect(QQmlListProperty<QQuick3DE
+//      ffect> *list, QQuick3DEffect *effect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment15qmlAppendEffectEP16QQmlListPropertyI14QQuick3DEffectEPS1_(
+    QQmlListProperty<QQuick3DEffect> *list,
+    QQuick3DEffect *effect) {
+  QQuick3DSceneEnvironment::qmlAppendEffect(list, effect);
+}
+
+//  QQuick3DEffect
+//      *QQuick3DSceneEnvironment::qmlEffectAt(QQmlListProperty<QQuick3DEffec
+//      t> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DEffect *ritual_ZN24QQuick3DSceneEnvironment11qmlEffectAtEP16QQmlListPropertyI14QQuick3DEffectEx(
+    QQmlListProperty<QQuick3DEffect> *list,
+    qsizetype index) {
+  return QQuick3DSceneEnvironment::qmlEffectAt(list, index);
+}
+
+//  qsizetype QQuick3DSceneEnvironment::qmlEffectsCount(QQmlListProperty<QQui
+//      ck3DEffect> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN24QQuick3DSceneEnvironment15qmlEffectsCountEP16QQmlListPropertyI14QQuick3DEffectE(
+    QQmlListProperty<QQuick3DEffect> *list) {
+  return QQuick3DSceneEnvironment::qmlEffectsCount(list);
+}
+
+//  void QQuick3DSceneEnvironment::qmlClearEffects(QQmlListProperty<QQuick3DE
+//      ffect> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DSceneEnvironment15qmlClearEffectsEP16QQmlListPropertyI14QQuick3DEffectE(
+    QQmlListProperty<QQuick3DEffect> *list) {
+  QQuick3DSceneEnvironment::qmlClearEffects(list);
 }
 
 //  void QQuick3DSceneEnvironment::updateSceneManager(QQuick3DSceneManager
@@ -923,4 +1212,12 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK24QQuick3DSceneEnvironment20useBuiltinTonemapperEv(
     const QQuick3DSceneEnvironment *self) {
   return static_cast<const OwnQQuick3DSceneEnvironment *>(self)->OwnQQuick3DSceneEnvironment::useBuiltinTonemapper();
+}
+
+//  a QQmlListProperty<QQuick3DEffect> a ritual of QQuick3DSceneEnvironment
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DSceneEnvironment__QQmlListProperty_QQuick3DEffect(
+    QQmlListProperty<QQuick3DEffect> *self) {
+  delete self;
 }

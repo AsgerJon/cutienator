@@ -4,6 +4,7 @@
 #include <QtPositioning/qnmeasatelliteinfosource.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qbytearrayview.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -313,6 +314,25 @@ const QMetaObject *ritual_ZNK24QNmeaSatelliteInfoSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNmeaSatelliteInfoSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QNmeaSatelliteInfoSource11qt_metacastEPKc(
+    QNmeaSatelliteInfoSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNmeaSatelliteInfoSource::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QNmeaSatelliteInfoSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNmeaSatelliteInfoSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QNmeaSatelliteInfoSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QNmeaSatelliteInfoSource2trEPKcS1_i(
@@ -421,6 +441,60 @@ void ritual_ZN24QNmeaSatelliteInfoSource13requestUpdateEi(
     QNmeaSatelliteInfoSource *self,
     int timeout) {
   self->requestUpdate(timeout);
+}
+
+#if QT_DEPRECATED_SINCE(7, 0)
+//  QGeoSatelliteInfo::SatelliteSystem
+//      QNmeaSatelliteInfoSource::parseSatellitesInUseFromNmea(const char
+//      *data, int size, QList<int> &pnrsInUse)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfo::SatelliteSystem ritual_ZN24QNmeaSatelliteInfoSource28parseSatellitesInUseFromNmeaEPKciR5QListIiE(
+    QNmeaSatelliteInfoSource *self,
+    const char *data,
+    int size,
+    QList<int> *pnrsInUse) {
+  return self->parseSatellitesInUseFromNmea(data, size, *pnrsInUse);
+}
+#endif  // QT_DEPRECATED_SINCE(7, 0)
+
+//  QGeoSatelliteInfo::SatelliteSystem
+//      QNmeaSatelliteInfoSource::parseSatellitesInUseFromNmea(QByteArrayView
+//      data, QList<int> &pnrsInUse)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfo::SatelliteSystem ritual_ZN24QNmeaSatelliteInfoSource28parseSatellitesInUseFromNmeaE14QByteArrayViewR5QListIiE(
+    QNmeaSatelliteInfoSource *self,
+    const QByteArrayView *data,
+    QList<int> *pnrsInUse) {
+  return self->parseSatellitesInUseFromNmea(*data, *pnrsInUse);
+}
+
+#if QT_DEPRECATED_SINCE(7, 0)
+//  SatelliteInfoParseStatus
+//      QNmeaSatelliteInfoSource::parseSatelliteInfoFromNmea(const char
+//      *data, int size, QList<QGeoSatelliteInfo> &infos,
+//      QGeoSatelliteInfo::SatelliteSystem &system)
+extern "C" Q_DECL_EXPORT
+QNmeaSatelliteInfoSource::SatelliteInfoParseStatus ritual_ZN24QNmeaSatelliteInfoSource26parseSatelliteInfoFromNmeaEPKciR5QListI17QGeoSatelliteInfoERNS3_15SatelliteSystemE(
+    QNmeaSatelliteInfoSource *self,
+    const char *data,
+    int size,
+    QList<QGeoSatelliteInfo> *infos,
+    QGeoSatelliteInfo::SatelliteSystem *system) {
+  return self->parseSatelliteInfoFromNmea(data, size, *infos, *system);
+}
+#endif  // QT_DEPRECATED_SINCE(7, 0)
+
+//  SatelliteInfoParseStatus
+//      QNmeaSatelliteInfoSource::parseSatelliteInfoFromNmea(QByteArrayView
+//      data, QList<QGeoSatelliteInfo> &infos,
+//      QGeoSatelliteInfo::SatelliteSystem &system)
+extern "C" Q_DECL_EXPORT
+QNmeaSatelliteInfoSource::SatelliteInfoParseStatus ritual_ZN24QNmeaSatelliteInfoSource26parseSatelliteInfoFromNmeaE14QByteArrayViewR5QListI17QGeoSatelliteInfoERNS2_15SatelliteSystemE(
+    QNmeaSatelliteInfoSource *self,
+    const QByteArrayView *data,
+    QList<QGeoSatelliteInfo> *infos,
+    QGeoSatelliteInfo::SatelliteSystem *system) {
+  return self->parseSatelliteInfoFromNmea(*data, *infos, *system);
 }
 
 //  void QNmeaSatelliteInfoSource::setError(QGeoSatelliteInfoSource::Error

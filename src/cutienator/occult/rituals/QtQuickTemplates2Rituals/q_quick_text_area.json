@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickTextArea10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickTextArea11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickTextArea11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickTextArea2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -77,6 +83,48 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN14QQuickTextArea16resetBottomInsetEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextArea11fontChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextArea21implicitWidthChanged3Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextArea22implicitHeightChanged3Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextArea17backgroundChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextArea22placeholderTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextArea18focusReasonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextArea12pressAndHoldEP16QQuickMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextArea7pressedEP16QQuickMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextArea8releasedEP16QQuickMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextArea14hoveredChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextArea19hoverEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextArea27placeholderTextColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextArea30implicitBackgroundWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextArea31implicitBackgroundHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextArea15topInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextArea16leftInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextArea17rightInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextArea18bottomInsetChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QQuickTextArea10classBeginEv": ["nothing", "address"],
     "ritual_ZN14QQuickTextArea17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN14QQuickTextArea10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [

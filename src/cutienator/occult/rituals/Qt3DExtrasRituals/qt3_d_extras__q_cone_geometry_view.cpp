@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras17QConeGeometryView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QConeGeometryView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras17QConeGeometryView11qt_metacastEPKc(
+    Qt3DExtras::QConeGeometryView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QConeGeometryView::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras17QConeGeometryView11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QConeGeometryView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QConeGeometryView::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,185 @@ QString *ritual_ZN10Qt3DExtras17QConeGeometryView2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QConeGeometryView::tr(s, c, n));
+}
+
+//  Qt3DExtras::QConeGeometryView::QConeGeometryView(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QConeGeometryView *ritual_ZN10Qt3DExtras17QConeGeometryViewC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QConeGeometryView(parent);
+}
+
+//  Qt3DExtras::QConeGeometryView::~QConeGeometryView()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryViewD1Ev(
+    Qt3DExtras::QConeGeometryView *self) {
+  delete self;
+}
+
+//  int Qt3DExtras::QConeGeometryView::rings() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras17QConeGeometryView5ringsEv(
+    const Qt3DExtras::QConeGeometryView *self) {
+  return self->rings();
+}
+
+//  int Qt3DExtras::QConeGeometryView::slices() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras17QConeGeometryView6slicesEv(
+    const Qt3DExtras::QConeGeometryView *self) {
+  return self->slices();
+}
+
+//  bool Qt3DExtras::QConeGeometryView::hasTopEndcap() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras17QConeGeometryView12hasTopEndcapEv(
+    const Qt3DExtras::QConeGeometryView *self) {
+  return self->hasTopEndcap();
+}
+
+//  bool Qt3DExtras::QConeGeometryView::hasBottomEndcap() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras17QConeGeometryView15hasBottomEndcapEv(
+    const Qt3DExtras::QConeGeometryView *self) {
+  return self->hasBottomEndcap();
+}
+
+//  float Qt3DExtras::QConeGeometryView::topRadius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras17QConeGeometryView9topRadiusEv(
+    const Qt3DExtras::QConeGeometryView *self) {
+  return self->topRadius();
+}
+
+//  float Qt3DExtras::QConeGeometryView::bottomRadius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras17QConeGeometryView12bottomRadiusEv(
+    const Qt3DExtras::QConeGeometryView *self) {
+  return self->bottomRadius();
+}
+
+//  float Qt3DExtras::QConeGeometryView::length() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras17QConeGeometryView6lengthEv(
+    const Qt3DExtras::QConeGeometryView *self) {
+  return self->length();
+}
+
+//  void Qt3DExtras::QConeGeometryView::setHasTopEndcap(bool hasTopEndcap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView15setHasTopEndcapEb(
+    Qt3DExtras::QConeGeometryView *self,
+    bool hasTopEndcap) {
+  self->setHasTopEndcap(hasTopEndcap);
+}
+
+//  void Qt3DExtras::QConeGeometryView::setHasBottomEndcap(bool
+//      hasBottomEndcap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView18setHasBottomEndcapEb(
+    Qt3DExtras::QConeGeometryView *self,
+    bool hasBottomEndcap) {
+  self->setHasBottomEndcap(hasBottomEndcap);
+}
+
+//  void Qt3DExtras::QConeGeometryView::setTopRadius(float topRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView12setTopRadiusEf(
+    Qt3DExtras::QConeGeometryView *self,
+    float topRadius) {
+  self->setTopRadius(topRadius);
+}
+
+//  void Qt3DExtras::QConeGeometryView::setBottomRadius(float bottomRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView15setBottomRadiusEf(
+    Qt3DExtras::QConeGeometryView *self,
+    float bottomRadius) {
+  self->setBottomRadius(bottomRadius);
+}
+
+//  void Qt3DExtras::QConeGeometryView::setRings(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView8setRingsEi(
+    Qt3DExtras::QConeGeometryView *self,
+    int rings) {
+  self->setRings(rings);
+}
+
+//  void Qt3DExtras::QConeGeometryView::setSlices(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView9setSlicesEi(
+    Qt3DExtras::QConeGeometryView *self,
+    int slices) {
+  self->setSlices(slices);
+}
+
+//  void Qt3DExtras::QConeGeometryView::setLength(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView9setLengthEf(
+    Qt3DExtras::QConeGeometryView *self,
+    float length) {
+  self->setLength(length);
+}
+
+//  void Qt3DExtras::QConeGeometryView::hasTopEndcapChanged(bool
+//      hasTopEndcap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView19hasTopEndcapChangedEb(
+    Qt3DExtras::QConeGeometryView *self,
+    bool hasTopEndcap) {
+  self->hasTopEndcapChanged(hasTopEndcap);
+}
+
+//  void Qt3DExtras::QConeGeometryView::hasBottomEndcapChanged(bool
+//      hasBottomEndcap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView22hasBottomEndcapChangedEb(
+    Qt3DExtras::QConeGeometryView *self,
+    bool hasBottomEndcap) {
+  self->hasBottomEndcapChanged(hasBottomEndcap);
+}
+
+//  void Qt3DExtras::QConeGeometryView::topRadiusChanged(float topRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView16topRadiusChangedEf(
+    Qt3DExtras::QConeGeometryView *self,
+    float topRadius) {
+  self->topRadiusChanged(topRadius);
+}
+
+//  void Qt3DExtras::QConeGeometryView::bottomRadiusChanged(float
+//      bottomRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView19bottomRadiusChangedEf(
+    Qt3DExtras::QConeGeometryView *self,
+    float bottomRadius) {
+  self->bottomRadiusChanged(bottomRadius);
+}
+
+//  void Qt3DExtras::QConeGeometryView::ringsChanged(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView12ringsChangedEi(
+    Qt3DExtras::QConeGeometryView *self,
+    int rings) {
+  self->ringsChanged(rings);
+}
+
+//  void Qt3DExtras::QConeGeometryView::slicesChanged(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView13slicesChangedEi(
+    Qt3DExtras::QConeGeometryView *self,
+    int slices) {
+  self->slicesChanged(slices);
+}
+
+//  void Qt3DExtras::QConeGeometryView::lengthChanged(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QConeGeometryView13lengthChangedEf(
+    Qt3DExtras::QConeGeometryView *self,
+    float length) {
+  self->lengthChanged(length);
 }
 
 //  a Python function taken by a CuteQt3DExtras_QConeGeometryView, for the

@@ -16,6 +16,15 @@
     ],
     "ritual_ZN11QBasicMutex12lockInternalEi": ["bool", "address", "int"],
     "ritual_ZN11QBasicMutex14unlockInternalEv": ["nothing", "address"],
+    "ritual_ZN11QBasicMutex19unlockInternalFutexEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QBasicMutex14unlockInternalEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QBasicMutex15destroyInternalEPv": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QBasicMutex11dummyLockedEv": ["address"]
   }
 }

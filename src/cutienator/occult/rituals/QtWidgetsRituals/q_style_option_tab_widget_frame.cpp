@@ -18,6 +18,15 @@ QStyleOptionTabWidgetFrame *ritual_ZN26QStyleOptionTabWidgetFrameC1ERKS_(
   return new QStyleOptionTabWidgetFrame(*other);
 }
 
+//  QStyleOptionTabWidgetFrame &QStyleOptionTabWidgetFrame::operator=(const
+//      QStyleOptionTabWidgetFrame &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionTabWidgetFrame *ritual_ZN26QStyleOptionTabWidgetFrameaSERKS_(
+    QStyleOptionTabWidgetFrame *self,
+    const QStyleOptionTabWidgetFrame *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionTabWidgetFrame::QStyleOptionTabWidgetFrame(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionTabWidgetFrame *ritual_ZN26QStyleOptionTabWidgetFrameC1Ei(

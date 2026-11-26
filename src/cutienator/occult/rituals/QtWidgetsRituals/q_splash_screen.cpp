@@ -901,6 +901,24 @@ const QMetaObject *ritual_ZNK13QSplashScreen10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSplashScreen::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QSplashScreen11qt_metacastEPKc(
+    QSplashScreen *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSplashScreen::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QSplashScreen11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSplashScreen *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSplashScreen::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QSplashScreen2trEPKcS1_i(
@@ -988,6 +1006,14 @@ void ritual_ZN13QSplashScreen12clearMessageEv(QSplashScreen *self) {
   self->clearMessage();
 }
 
+//  void QSplashScreen::messageChanged(const QString &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSplashScreen14messageChangedERK7QString(
+    QSplashScreen *self,
+    const QString *message) {
+  self->messageChanged(*message);
+}
+
 //  bool QSplashScreen::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN13QSplashScreen5eventEP6QEvent(
@@ -1010,6 +1036,20 @@ void ritual_ZN13QSplashScreen15mousePressEventEP11QMouseEvent(
     QSplashScreen *self,
     QMouseEvent *a0) {
   self->mousePressEvent(a0);
+}
+
+//  QSplashScreenPrivate *QSplashScreen::d_func()
+extern "C" Q_DECL_EXPORT
+QSplashScreenPrivate *ritual_ZN13QSplashScreen6d_funcEv(
+    QSplashScreen *self) {
+  return self->d_func();
+}
+
+//  const QSplashScreenPrivate *QSplashScreen::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSplashScreenPrivate *ritual_ZNK13QSplashScreen6d_funcEv(
+    const QSplashScreen *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQSplashScreen, for the function named by

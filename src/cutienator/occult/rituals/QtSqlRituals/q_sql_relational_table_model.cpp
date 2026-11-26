@@ -7,7 +7,9 @@
 #include <QtSql/qsqlrelationaltablemodel.h>
 #include <QtCore/qstring.h>
 #include <QtSql/qsqldatabase.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtSql/qsqlrecord.h>
 #include <QtCore/qsize.h>
@@ -1433,6 +1435,25 @@ const QMetaObject *ritual_ZNK24QSqlRelationalTableModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSqlRelationalTableModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QSqlRelationalTableModel11qt_metacastEPKc(
+    QSqlRelationalTableModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSqlRelationalTableModel::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QSqlRelationalTableModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSqlRelationalTableModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSqlRelationalTableModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QSqlRelationalTableModel2trEPKcS1_i(
@@ -1587,6 +1608,21 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK24QSqlRelationalTableModel13orderByClauseEv(
     const QSqlRelationalTableModel *self) {
   return new QString(self->orderByClause());
+}
+
+//  QSqlRelationalTableModelPrivate *QSqlRelationalTableModel::d_func()
+extern "C" Q_DECL_EXPORT
+QSqlRelationalTableModelPrivate *ritual_ZN24QSqlRelationalTableModel6d_funcEv(
+    QSqlRelationalTableModel *self) {
+  return self->d_func();
+}
+
+//  const QSqlRelationalTableModelPrivate *QSqlRelationalTableModel::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QSqlRelationalTableModelPrivate *ritual_ZNK24QSqlRelationalTableModel6d_funcEv(
+    const QSqlRelationalTableModel *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQSqlRelationalTableModel, for the

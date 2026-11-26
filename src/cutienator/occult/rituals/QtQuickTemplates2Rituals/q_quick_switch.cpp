@@ -26,6 +26,24 @@ const QMetaObject *ritual_ZNK12QQuickSwitch10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSwitch::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickSwitch11qt_metacastEPKc(
+    QQuickSwitch *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSwitch::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickSwitch11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSwitch *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSwitch::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickSwitch2trEPKcS1_i(
@@ -59,6 +77,18 @@ void ritual_ZN12QQuickSwitch11setPositionEd(
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK12QQuickSwitch14visualPositionEv(const QQuickSwitch *self) {
   return self->visualPosition();
+}
+
+//  void QQuickSwitch::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSwitch15positionChangedEv(QQuickSwitch *self) {
+  self->positionChanged();
+}
+
+//  void QQuickSwitch::visualPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSwitch21visualPositionChangedEv(QQuickSwitch *self) {
+  self->visualPositionChanged();
 }
 
 //  void QQuickSwitch::mouseMoveEvent(QMouseEvent *event)
@@ -103,6 +133,19 @@ void ritual_ZN12QQuickSwitch12buttonChangeEN20QQuickAbstractButton12ButtonChange
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK12QQuickSwitch11defaultFontEv(const QQuickSwitch *self) {
   return new QFont(self->defaultFont());
+}
+
+//  QQuickSwitchPrivate *QQuickSwitch::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSwitchPrivate *ritual_ZN12QQuickSwitch6d_funcEv(QQuickSwitch *self) {
+  return self->d_func();
+}
+
+//  const QQuickSwitchPrivate *QQuickSwitch::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSwitchPrivate *ritual_ZNK12QQuickSwitch6d_funcEv(
+    const QQuickSwitch *self) {
+  return self->d_func();
 }
 
 //  void QQuickSwitch::mouseMoveEvent(QMouseEvent *event)

@@ -20,10 +20,36 @@ QNetworkInterface *ritual_ZN17QNetworkInterfaceC1ERKS_(
   return new QNetworkInterface(*other);
 }
 
+//  QNetworkInterface &QNetworkInterface::operator=(QNetworkInterface
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkInterface *ritual_ZN17QNetworkInterfaceaSEOS_(
+    QNetworkInterface *self,
+    QNetworkInterface *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QNetworkInterface &QNetworkInterface::operator=(const QNetworkInterface
+//      &other)
+extern "C" Q_DECL_EXPORT
+QNetworkInterface *ritual_ZN17QNetworkInterfaceaSERKS_(
+    QNetworkInterface *self,
+    const QNetworkInterface *other) {
+  return &(self->operator=(*other));
+}
+
 //  QNetworkInterface::~QNetworkInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QNetworkInterfaceD1Ev(QNetworkInterface *self) {
   delete self;
+}
+
+//  void QNetworkInterface::swap(QNetworkInterface &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QNetworkInterface4swapERS_(
+    QNetworkInterface *self,
+    QNetworkInterface *other) {
+  self->swap(*other);
 }
 
 //  bool QNetworkInterface::isValid() const

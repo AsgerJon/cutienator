@@ -6,8 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK19QWaylandXdgToplevel10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QWaylandXdgToplevel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QWaylandXdgToplevel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel6d_funcEv": ["address", "address"],
+    "ritual_ZN19QWaylandXdgToplevelC1EP18QWaylandXdgSurfaceR16QWaylandResource": [
+      "address", "address", "address"
     ],
     "ritual_ZN19QWaylandXdgToplevelD1Ev": ["nothing", "address"],
     "ritual_ZNK19QWaylandXdgToplevel10xdgSurfaceEv": ["address", "address"],
@@ -18,6 +29,7 @@
     "ritual_ZNK19QWaylandXdgToplevel5appIdEv": ["text", "address"],
     "ritual_ZNK19QWaylandXdgToplevel7maxSizeEv": ["address", "address"],
     "ritual_ZNK19QWaylandXdgToplevel7minSizeEv": ["address", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel6statesEv": ["address", "address"],
     "ritual_ZNK19QWaylandXdgToplevel9maximizedEv": ["bool", "address"],
     "ritual_ZNK19QWaylandXdgToplevel10fullscreenEv": ["bool", "address"],
     "ritual_ZNK19QWaylandXdgToplevel8resizingEv": ["bool", "address"],
@@ -25,6 +37,12 @@
     "ritual_ZNK19QWaylandXdgToplevel14decorationModeEv": ["int", "address"],
     "ritual_ZNK19QWaylandXdgToplevel13sizeForResizeERK6QSizeFRK7QPointF6QFlagsIN2Qt4EdgeEE": [
       "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel13sendConfigureERK5QSizeRK5QListINS_5StateEE": [
+      "unsigned int", "address", "address", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel13sendConfigureERK5QSizeRK5QListIiE": [
+      "unsigned int", "address", "address", "address"
     ],
     "ritual_ZN19QWaylandXdgToplevel9sendCloseEv": ["nothing", "address"],
     "ritual_ZN19QWaylandXdgToplevel13sendMaximizedERK5QSize": [
@@ -40,12 +58,72 @@
       "unsigned int", "address", "address"
     ],
     "ritual_ZN19QWaylandXdgToplevel4roleEv": ["address"],
+    "ritual_ZN19QWaylandXdgToplevel12fromResourceEP11wl_resource": [
+      "address", "address"
+    ],
     "ritual_ZNK19QWaylandXdgToplevel7isModalEv": ["bool", "address"],
+    "ritual_ZN19QWaylandXdgToplevel21parentToplevelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel12titleChangedEv": ["nothing", "address"],
+    "ritual_ZN19QWaylandXdgToplevel12appIdChangedEv": ["nothing", "address"],
+    "ritual_ZN19QWaylandXdgToplevel14maxSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel14minSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel9startMoveEP12QWaylandSeat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel11startResizeEP12QWaylandSeat6QFlagsIN2Qt4EdgeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel13statesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel16maximizedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel17fullscreenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel15resizingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel16activatedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel14showWindowMenuEP12QWaylandSeatRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel12setMaximizedEv": ["nothing", "address"],
+    "ritual_ZN19QWaylandXdgToplevel14unsetMaximizedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel13setFullscreenEP14QWaylandOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel15unsetFullscreenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel12setMinimizedEv": ["nothing", "address"],
+    "ritual_ZN19QWaylandXdgToplevel21decorationModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel12modalChangedEv": ["nothing", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel12statesAsIntsEv": [
+      "address", "address"
+    ],
     "ritual_ZN19QWaylandXdgToplevel8setModalEb": [
       "nothing", "address", "bool"
     ],
     "ritual_take_QWaylandXdgToplevel": [
       "bool", "address", "chars", "address"
-    ]
+    ],
+    "ritual_drop_QWaylandXdgToplevel__QList_QWaylandXdgToplevel_State": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QWaylandXdgToplevel__QList_int": ["nothing", "address"]
   }
 }

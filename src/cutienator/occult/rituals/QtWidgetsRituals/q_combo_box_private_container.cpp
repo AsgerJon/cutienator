@@ -13,6 +13,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtWidgets/qstyleoption.h>
+#if QT_CONFIG(itemmodel)
+#include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -948,6 +951,25 @@ const QMetaObject *ritual_ZNK25QComboBoxPrivateContainer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QComboBoxPrivateContainer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QComboBoxPrivateContainer11qt_metacastEPKc(
+    QComboBoxPrivateContainer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QComboBoxPrivateContainer::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QComboBoxPrivateContainer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QComboBoxPrivateContainer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QComboBoxPrivateContainer::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -1131,6 +1153,21 @@ extern "C" Q_DECL_EXPORT
 QStyleOptionComboBox *ritual_ZNK25QComboBoxPrivateContainer16comboStyleOptionEv(
     const QComboBoxPrivateContainer *self) {
   return new QStyleOptionComboBox(self->comboStyleOption());
+}
+
+//  void QComboBoxPrivateContainer::itemSelected(const QModelIndex &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QComboBoxPrivateContainer12itemSelectedERK11QModelIndex(
+    QComboBoxPrivateContainer *self,
+    const QModelIndex *a0) {
+  self->itemSelected(*a0);
+}
+
+//  void QComboBoxPrivateContainer::resetButton()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QComboBoxPrivateContainer11resetButtonEv(
+    QComboBoxPrivateContainer *self) {
+  self->resetButton();
 }
 
 //  a Python function taken by a CuteQComboBoxPrivateContainer, for the

@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4string_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4string_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV46String12staticVTableEv": ["address"],
@@ -21,6 +21,10 @@
     "ritual_ZN3QV46String8lessThanEPKS0_": ["bool", "address", "address"],
     "ritual_ZNK3QV46String9toQStringEv": ["text", "address"],
     "ritual_ZNK3QV46String9hashValueEv": ["unsigned int", "address"],
+    "ritual_ZNK3QV46String6toUIntEPb": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK3QV46String21createPropertyKeyImplEv": ["nothing", "address"],
     "ritual_ZN3QV46String15createHashValueEPK5QChariPj": [
       "unsigned int", "address", "int", "address"
     ],
@@ -30,6 +34,24 @@
     "ritual_ZN3QV46String15createHashValueEPKciPj": [
       "unsigned int", "chars", "int", "address"
     ],
-    "ritual_ZNK3QV46String15startsWithUpperEv": ["bool", "address"]
+    "ritual_ZNK3QV46String15startsWithUpperEv": ["bool", "address"],
+    "ritual_ZN3QV46String16virtualIsEqualToEPNS_7ManagedES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV46String16virtualGetLengthEPKNS_7ManagedE": [
+      "long long", "address"
+    ],
+    "ritual_ZN3QV46String18calculateHashValueILNS0_15IndicesBehaviorE0E5QCharEEjPKT0_S6_Pj": [
+      "unsigned int", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46String18calculateHashValueILNS0_15IndicesBehaviorE0EcEEjPKT0_S5_Pj": [
+      "unsigned int", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46String18calculateHashValueILNS0_15IndicesBehaviorE1E5QCharEEjPKT0_S6_Pj": [
+      "unsigned int", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46String18calculateHashValueILNS0_15IndicesBehaviorE1EcEEjPKT0_S5_Pj": [
+      "unsigned int", "address", "address", "address"
+    ]
   }
 }

@@ -36,6 +36,34 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/dbus/qdbusintegrator.cpp, line 57, as local:qdbusintegrator.cpp:qDBusDebug
+#if !defined(QT_NO_DBUS)
+#define qDBusDebug              if (::isDebugging.loadRelaxed() == 0); else qDebug
+#endif  // !defined(QT_NO_DBUS)
+
+//  from src/dbus/qdbusconnectionmanager.cpp, line 143, as _ZN22QDBusConnectionManager3runEv
+#if !defined(QT_NO_DBUS)
+inline void QDBusConnectionManager::run()
+{
+    exec();
+
+    // cleanup:
+    const auto locker = qt_scoped_lock(mutex);
+    for (QDBusConnectionPrivate *d : std::as_const(connectionHash)) {
+        if (!d->ref.deref()) {
+            delete d;
+        } else {
+            d->closeConnection();
+            d->moveToThread(nullptr);     // allow it to be deleted in another thread
+        }
+    }
+    connectionHash.clear();
+
+    // allow deletion from any thread without warning
+    moveToThread(nullptr);
+}
+#endif  // !defined(QT_NO_DBUS)
+
 //  from src/dbus/qdbusconnectionmanager.cpp, line 115, as _ZN22QDBusConnectionManagerD1Ev
 #if !defined(QT_NO_DBUS)
 inline QDBusConnectionManager::~QDBusConnectionManager()
@@ -88,29 +116,6 @@ inline void QDBusConnectionManager::addConnection(const QString &name, QDBusConn
 {
     const auto locker = qt_scoped_lock(mutex);
     setConnection(name, c);
-}
-#endif  // !defined(QT_NO_DBUS)
-
-//  from src/dbus/qdbusconnectionmanager.cpp, line 143, as _ZN22QDBusConnectionManager3runEv
-#if !defined(QT_NO_DBUS)
-inline void QDBusConnectionManager::run()
-{
-    exec();
-
-    // cleanup:
-    const auto locker = qt_scoped_lock(mutex);
-    for (QDBusConnectionPrivate *d : std::as_const(connectionHash)) {
-        if (!d->ref.deref()) {
-            delete d;
-        } else {
-            d->closeConnection();
-            d->moveToThread(nullptr);     // allow it to be deleted in another thread
-        }
-    }
-    connectionHash.clear();
-
-    // allow deletion from any thread without warning
-    moveToThread(nullptr);
 }
 #endif  // !defined(QT_NO_DBUS)
 
@@ -343,6 +348,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QDBusConnectionManager10metaObjectEv(
     const QDBusConnectionManager *self) {
   return self->metaObject();
+}
+
+//  void *QDBusConnectionManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QDBusConnectionManager11qt_metacastEPKc(
+    QDBusConnectionManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusConnectionManager::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QDBusConnectionManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusConnectionManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QDBusConnectionManager::~QDBusConnectionManager()

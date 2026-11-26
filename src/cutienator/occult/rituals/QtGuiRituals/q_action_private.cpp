@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qaction_p.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(action)
@@ -124,6 +125,15 @@ void ritual_ZN14QActionPrivate7destroyEv(QActionPrivate *self) {
   self->destroy();
 }
 
+#if QT_CONFIG(shortcut)
+//  QShortcutMap::ContextMatcher QActionPrivate::contextMatcher() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK14QActionPrivate14contextMatcherEv(
+    const QActionPrivate *self) {
+  return reinterpret_cast<void *>(self->contextMatcher());
+}
+#endif  // QT_CONFIG(shortcut)
+
 //  QActionPrivate *QActionPrivate::get(QAction *q)
 extern "C" Q_DECL_EXPORT
 QActionPrivate *ritual_ZN14QActionPrivate3getEP7QAction(QAction *q) {
@@ -158,6 +168,27 @@ void ritual_ZN14QActionPrivate7setMenuEP7QObject(
     QObject *menu) {
   self->setMenu(menu);
 }
+
+#if QT_CONFIG(shortcut)
+//  void QActionPrivate::redoGrab(QShortcutMap &map)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QActionPrivate8redoGrabER12QShortcutMap(
+    QActionPrivate *self,
+    QShortcutMap *map) {
+  self->redoGrab(*map);
+}
+#endif  // QT_CONFIG(shortcut)
+
+#if QT_CONFIG(shortcut)
+//  void QActionPrivate::setShortcutEnabled(bool enable, QShortcutMap &map)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QActionPrivate18setShortcutEnabledEbR12QShortcutMap(
+    QActionPrivate *self,
+    bool enable,
+    QShortcutMap *map) {
+  self->setShortcutEnabled(enable, *map);
+}
+#endif  // QT_CONFIG(shortcut)
 
 //  bool QActionPrivate::showStatusText(QObject *widget, const QString &str)
 extern "C" Q_DECL_EXPORT

@@ -5,6 +5,8 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QGeoCirclePrivateC1Ev": ["address"],
+    "ritual_ZN17QGeoCirclePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK17QGeoCirclePrivate7isValidEv": ["bool", "address"],
     "ritual_ZNK17QGeoCirclePrivate7isEmptyEv": ["bool", "address"],
     "ritual_ZNK17QGeoCirclePrivate8containsERK14QGeoCoordinate": [
@@ -29,6 +31,10 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK17QGeoCirclePrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK17QGeoCirclePrivateeqERK16QGeoShapePrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QGeoCirclePrivate4hashEm": ["size_t", "address", "size_t"],
     "ritual_take_QGeoCirclePrivate": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QGeoCirclePrivate7isValidEv": ["bool", "address"],
     "ritual_own_ZNK17QGeoCirclePrivate7isEmptyEv": ["bool", "address"],
@@ -38,6 +44,10 @@
     "ritual_own_ZNK17QGeoCirclePrivate6centerEv": ["address", "address"],
     "ritual_own_ZNK17QGeoCirclePrivate20boundingGeoRectangleEv": [
       "address", "address"
+    ],
+    "ritual_own_ZNK17QGeoCirclePrivate5cloneEv": ["address", "address"],
+    "ritual_own_ZNK17QGeoCirclePrivate4hashEm": [
+      "size_t", "address", "size_t"
     ]
   }
 }

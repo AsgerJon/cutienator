@@ -5,8 +5,20 @@
   ],
   "rows": {
     "ritual_ZNK18QSyntaxHighlighter10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QSyntaxHighlighter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QSyntaxHighlighter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QSyntaxHighlighter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QSyntaxHighlighter6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QSyntaxHighlighter6d_funcEv": ["address", "address"],
+    "ritual_ZN18QSyntaxHighlighterC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QSyntaxHighlighterC1EP13QTextDocument": [
+      "address", "address"
     ],
     "ritual_ZN18QSyntaxHighlighterD1Ev": ["nothing", "address"],
     "ritual_ZN18QSyntaxHighlighter11setDocumentEP13QTextDocument": [

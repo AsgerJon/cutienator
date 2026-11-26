@@ -7,8 +7,32 @@
     "ritual_ZNK10Qt3DRender10QLineWidth10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QLineWidth11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QLineWidth11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QLineWidth2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QLineWidthC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QLineWidthD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender10QLineWidth5valueEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender10QLineWidth6smoothEv": ["bool", "address"],
+    "ritual_ZN10Qt3DRender10QLineWidth8setValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QLineWidth9setSmoothEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QLineWidth12valueChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QLineWidth13smoothChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN10Qt3DRender10QLineWidth6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender10QLineWidth6d_funcEv": ["address", "address"],

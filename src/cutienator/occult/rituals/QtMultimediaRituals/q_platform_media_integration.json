@@ -8,6 +8,12 @@
     "ritual_ZNK25QPlatformMediaIntegration10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QPlatformMediaIntegration11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QPlatformMediaIntegration2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,10 +25,40 @@
     "ritual_ZN25QPlatformMediaIntegration10formatInfoEv": [
       "address", "address"
     ],
+    "ritual_ZN25QPlatformMediaIntegration12createCameraEP7QCamera": [
+      "address", "address", "address"
+    ],
     "ritual_ZN25QPlatformMediaIntegration19createScreenCaptureEP14QScreenCapture": [
       "address", "address", "address"
     ],
     "ritual_ZN25QPlatformMediaIntegration19createWindowCaptureEP14QWindowCapture": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration18createAudioDecoderEP13QAudioDecoder": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration20createAudioResamplerERK12QAudioFormatS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration20createCaptureSessionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration12createPlayerEP12QMediaPlayer": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration14createRecorderEP14QMediaRecorder": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration18createImageCaptureEP13QImageCapture": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration16createAudioInputEP11QAudioInput": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration17createAudioOutputEP12QAudioOutput": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration15createVideoSinkEP10QVideoSink": [
       "address", "address", "address"
     ],
     "ritual_ZN25QPlatformMediaIntegration21capturableWindowsListEv": [
@@ -30,6 +66,9 @@
     ],
     "ritual_ZN25QPlatformMediaIntegration23isCapturableWindowValidERK24QCapturableWindowPrivate": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration27capturableWindowFromQWindowEP7QWindow": [
+      "address", "address", "address"
     ],
     "ritual_ZN25QPlatformMediaIntegration12videoDevicesEv": [
       "address", "address"
@@ -46,9 +85,15 @@
       "nothing", "text"
     ],
     "ritual_ZN25QPlatformMediaIntegration4nameEv": ["address", "address"],
+    "ritual_ZN25QPlatformMediaIntegration17convertVideoFrameER11QVideoFrameRK17QVideoFrameFormat": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN25QPlatformMediaIntegration16audioBackendNameEv": ["address"],
     "ritual_ZNK25QPlatformMediaIntegration41isCameraSwitchingDuringRecordingSupportedEv": [
       "bool", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration26createGStreamerVideoSourceEP21QGStreamerVideoSourceRKSt7variantIJ7QStringP11_GstElementEE": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZN25QPlatformMediaIntegration18gstreamerInterfaceEv": [
       "address", "address"
@@ -88,6 +133,39 @@
     ],
     "ritual_own_ZN25QPlatformMediaIntegration23createCapturableWindowsEv": [
       "address", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformCamera_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformAudioDecoder_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_std_unique_ptr_QPlatformAudioResampler_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformMediaCaptureSession_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformMediaPlayer_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformMediaRecorder_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformImageCapture_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformAudioInput_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformAudioOutput_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformVideoSink_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaIntegration__q23_expected_QCapturableWindow_QString": [
+      "nothing", "address"
     ]
   }
 }

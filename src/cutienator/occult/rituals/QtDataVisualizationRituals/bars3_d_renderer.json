@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14Bars3DRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN14Bars3DRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14Bars3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14Bars3DRenderer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,12 @@
     ],
     "ritual_ZN14Bars3DRenderer14createNewCacheEP17QAbstract3DSeries": [
       "address", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer10updateRowsERK5QListIN16Bars3DController9ChangeRowEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer11updateItemsERK5QListIN16Bars3DController10ChangeItemEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN14Bars3DRenderer11updateSceneEP8Q3DScene": [
       "nothing", "address", "address"
@@ -37,6 +49,12 @@
     ],
     "ritual_ZN14Bars3DRenderer14contextCleanupEv": ["nothing", "address"],
     "ritual_ZN14Bars3DRenderer16initializeOpenGLEv": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer15fixCameraTargetER9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer20getVisibleItemBoundsER9QVector3DS1_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN14Bars3DRenderer24updateMultiSeriesScalingEb": [
       "nothing", "address", "bool"
     ],
@@ -72,12 +90,19 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN14Bars3DRenderer14updateTexturesEv": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer15fixMeshFileNameER7QStringN17QAbstract3DSeries4MeshE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN14Bars3DRenderer15drawSlicedSceneEv": ["nothing", "address"],
     "ritual_ZN14Bars3DRenderer9drawSceneEj": [
       "nothing", "address", "unsigned int"
     ],
     "ritual_ZN14Bars3DRenderer10drawLabelsEbPK9Q3DCameraRK10QMatrix4x4S5_": [
       "nothing", "address", "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer8drawBarsEPP13BarRenderItemRK10QMatrix4x4S5_S5_iiiiiif": [
+      "bool", "address", "address", "address", "address", "address", "int",
+      "int", "int", "int", "int", "int", "float"
     ],
     "ritual_ZN14Bars3DRenderer14drawBackgroundEfRK10QMatrix4x4S2_S2_bb": [
       "nothing", "address", "float", "address", "address", "address", "bool",
@@ -117,6 +142,9 @@
     ],
     "ritual_ZN14Bars3DRenderer22selectionColorToSeriesERK9QVector4D": [
       "address", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer16updateRenderItemERK12QBarDataItemR13BarRenderItem": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_Bars3DRenderer": ["bool", "address", "chars", "address"],
     "ritual_own_ZN14Bars3DRenderer10updateDataEv": ["nothing", "address"],

@@ -13,6 +13,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/private/qqmllocale_p.h>
 #include <QtQml/private/qqmlcontext_p.h>
@@ -32,6 +33,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/qml/qqmllocale.cpp, line 503, as local:qqmllocale.cpp:qtDayToQmlDay
+static QQmlLocale::DayOfWeek qtDayToQmlDay(Qt::DayOfWeek day)
+{
+    return day == Qt::Sunday ? QQmlLocale::DayOfWeek::Sunday : QQmlLocale::DayOfWeek(day);
+}
 
 //  from ../qtdeclarative/src/qml/qml/qqmllocale.cpp, line 437, as _ZNK19QQmlLocaleValueType17formattedDataSizeEP14QQmlV4Function
 inline void QQmlLocaleValueType::formattedDataSize(QQmlV4FunctionPtr args) const
@@ -98,6 +105,12 @@ inline void QQmlLocaleValueType::formattedDataSize(QQmlV4FunctionPtr args) const
 
     doThrow(QLatin1String(
             "Locale: formattedDataSize(): Invalid argument ('format' must be DataSizeFormat)"));
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmllocale.cpp, line 508, as _ZNK19QQmlLocaleValueType14firstDayOfWeekEv
+inline QQmlLocale::DayOfWeek QQmlLocaleValueType::firstDayOfWeek() const
+{
+    return qtDayToQmlDay(locale.firstDayOfWeek());
 }
 //  -----------------------------------------------------------------------
 
@@ -289,6 +302,13 @@ QString *ritual_ZNK19QQmlLocaleValueType19createSeparatedListERK5QListI7QStringE
   return new QString(self->createSeparatedList(*list));
 }
 
+//  QQmlLocale::DayOfWeek QQmlLocaleValueType::firstDayOfWeek() const
+extern "C" Q_DECL_EXPORT
+QQmlLocale::DayOfWeek ritual_ZNK19QQmlLocaleValueType14firstDayOfWeekEv(
+    const QQmlLocaleValueType *self) {
+  return self->firstDayOfWeek();
+}
+
 //  QLocale::MeasurementSystem QQmlLocaleValueType::measurementSystem() const
 extern "C" Q_DECL_EXPORT
 QLocale::MeasurementSystem ritual_ZNK19QQmlLocaleValueType17measurementSystemEv(
@@ -410,9 +430,25 @@ int ritual_ZNK19QQmlLocaleValueType13numberOptionsEv(
   return static_cast<int>(self->numberOptions().toInt());
 }
 
+//  void QQmlLocaleValueType::setNumberOptions(const QLocale::NumberOptions
+//      &numberOptions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlLocaleValueType16setNumberOptionsERK6QFlagsIN7QLocale12NumberOptionEE(
+    QQmlLocaleValueType *self,
+    const QLocale::NumberOptions *numberOptions) {
+  self->setNumberOptions(*numberOptions);
+}
+
 //  QQmlLocaleValueType::~QQmlLocaleValueType()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQmlLocaleValueTypeD1Ev(QQmlLocaleValueType *self) {
+  delete self;
+}
+
+//  a QList<QQmlLocale::DayOfWeek> a ritual of QQmlLocaleValueType gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlLocaleValueType__QList_QQmlLocale_DayOfWeek(
+    QList<QQmlLocale::DayOfWeek> *self) {
   delete self;
 }
 

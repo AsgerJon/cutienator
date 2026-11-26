@@ -204,7 +204,7 @@ typedef void (*CuteQSwipeGestureRecognizerCall2)(const void *, QGesture *, int *
 class CuteQSwipeGestureRecognizer : public QSwipeGestureRecognizer {
 public:
   using QSwipeGestureRecognizer::QSwipeGestureRecognizer;
-  CuteQSwipeGestureRecognizer(const QSwipeGestureRecognizer &other) : QSwipeGestureRecognizer(other) {}
+  CuteQSwipeGestureRecognizer(const QSwipeGestureRecognizer & other) : QSwipeGestureRecognizer(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

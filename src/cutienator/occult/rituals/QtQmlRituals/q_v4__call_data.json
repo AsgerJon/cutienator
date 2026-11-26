@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4calldata_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4calldata_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK3QV48CallData4argcEv": ["int", "address"],
@@ -11,6 +11,12 @@
       "unsigned long long", "address", "int"
     ],
     "ritual_ZN3QV48CallData10HeaderSizeEv": ["int"],
-    "ritual_ZN3QV48CallDataD1Ev": ["nothing", "address"]
+    "ritual_ZN3QV48CallDataD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV48CallData9argValuesINS_5ValueEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV48CallData9argValuesINS_5ValueEEEPKT_v": [
+      "address", "address"
+    ]
   }
 }

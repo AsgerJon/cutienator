@@ -10,7 +10,9 @@
 #include <QtCore/qpoint.h>
 #include <QtGui/qpalette.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qsize.h>
 #include <cstring>
+#include <QtCore/QSize>
 
 //  A QWindowPrivate that Python can take functions over in. Every QWindowPrivate
 //  Python makes is one. Each function below asks the Python
@@ -375,6 +377,23 @@ QRectF *ritual_ZNK14QWindowPrivate25closestAcceptableGeometryERK6QRectF(
     const QWindowPrivate *self,
     const QRectF *rect) {
   return new QRectF(self->closestAcceptableGeometry(*rect));
+}
+
+//  void QWindowPrivate::setMinOrMaxSize(QSize *oldSizeMember, const QSize
+//      &size, qxp::function_ref<void ()> funcWidthChanged,
+//      qxp::function_ref<void ()> funcHeightChanged)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWindowPrivate15setMinOrMaxSizeEP5QSizeRKS0_N3qxp12function_refIJFvvEEEES7_(
+    QWindowPrivate *self,
+    QSize *oldSizeMember,
+    const QSize *size,
+    const qxp::function_ref<void ()> *funcWidthChanged,
+    const qxp::function_ref<void ()> *funcHeightChanged) {
+  self->setMinOrMaxSize(
+      oldSizeMember,
+      *size,
+      *funcWidthChanged,
+      *funcHeightChanged);
 }
 
 //  bool QWindowPrivate::participatesInLastWindowClosed() const

@@ -30,6 +30,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/corelib/mimetypes/qmimetypeparser.cpp, line 324, as _ZN16QMimeTypeXMLData5clearEv
 inline void QMimeTypeXMLData::clear()
 {

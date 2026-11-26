@@ -11,6 +11,21 @@
     ],
     "ritual_ZN6QQmlSAneERKNS_12DocumentEditES2_": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_ZN6QQmlSA12DocumentEditC1ERK7QStringRKNS_14SourceLocationES3_": [
+      "address", "text", "address", "text"
+    ],
+    "ritual_ZN6QQmlSA12DocumentEditC1ERKS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA12DocumentEditC1EOS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA12DocumentEditaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA12DocumentEditaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA12DocumentEditD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA12DocumentEdit8filenameEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA12DocumentEdit8locationEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA12DocumentEdit11replacementEv": ["text", "address"]
   }
 }

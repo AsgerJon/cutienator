@@ -5,8 +5,29 @@
   ],
   "rows": {
     "ritual_ZNK10Qt3DRender9QSetFence10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender9QSetFence11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender9QSetFence11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender9QSetFence2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender9QSetFenceC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender9QSetFenceD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender9QSetFence10handleTypeEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender9QSetFence6handleEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender9QSetFence17handleTypeChangedENS0_10HandleTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender9QSetFence13handleChangedE8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender9QSetFenceC1ERNS_16QSetFencePrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender9QSetFence6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender9QSetFence6d_funcEv": ["address", "address"],

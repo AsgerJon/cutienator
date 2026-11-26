@@ -5,6 +5,13 @@
     "made here are lost."
   ],
   "rows": {
-    "ritual_ZN14QQmlScriptDataC1Ev": ["address"]
+    "ritual_ZN14QQmlScriptDataC1Ev": ["address"],
+    "ritual_ZN14QQmlScriptData21scriptValueForContextERK14QQmlRefPointerI15QQmlContextDataE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZNK14QQmlScriptData15compilationUnitEv": ["address", "address"],
+    "ritual_drop_QQmlScriptData__QQmlRefPointer_QV4_CompiledData_CompilationUnit": [
+      "nothing", "address"
+    ]
   }
 }

@@ -8,11 +8,29 @@
     "ritual_ZNK18QtBluetoothPrivate32OrgBluezProfileManager1Interface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate32OrgBluezProfileManager1Interface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate32OrgBluezProfileManager1Interface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QtBluetoothPrivate32OrgBluezProfileManager1Interface19staticInterfaceNameEv": [
       "chars"
     ],
+    "ritual_ZN18QtBluetoothPrivate32OrgBluezProfileManager1InterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate32OrgBluezProfileManager1Interface15RegisterProfileERK15QDBusObjectPathRK7QStringRK4QMapIS4_8QVariantE": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate32OrgBluezProfileManager1Interface17UnregisterProfileERK15QDBusObjectPath": [
+      "address", "address", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgBluezProfileManager1Interface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QtBluetoothPrivate_OrgBluezProfileManager1Interface__QDBusPendingReply": [
+      "nothing", "address"
     ]
   }
 }

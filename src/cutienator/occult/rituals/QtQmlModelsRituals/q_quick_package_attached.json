@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickPackageAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickPackageAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickPackageAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickPackageAttachedD1Ev": ["nothing", "address"],
     "ritual_ZNK21QQuickPackageAttached4nameEv": ["text", "address"],
     "ritual_ZN21QQuickPackageAttached7setNameERK7QString": [

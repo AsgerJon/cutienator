@@ -179,6 +179,24 @@ const QMetaObject *ritual_ZNK12QLightSensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLightSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QLightSensor11qt_metacastEPKc(
+    QLightSensor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLightSensor::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QLightSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLightSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLightSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QLightSensor2trEPKcS1_i(
@@ -218,6 +236,14 @@ void ritual_ZN12QLightSensor14setFieldOfViewEd(
     QLightSensor *self,
     qreal fieldOfView) {
   self->setFieldOfView(fieldOfView);
+}
+
+//  void QLightSensor::fieldOfViewChanged(qreal fieldOfView)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QLightSensor18fieldOfViewChangedEd(
+    QLightSensor *self,
+    qreal fieldOfView) {
+  self->fieldOfViewChanged(fieldOfView);
 }
 
 //  QLightSensorPrivate *QLightSensor::d_func()

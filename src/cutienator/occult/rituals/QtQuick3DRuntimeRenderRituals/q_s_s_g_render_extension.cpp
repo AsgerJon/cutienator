@@ -74,6 +74,30 @@ void ritual_ZN19QSSGRenderExtensionD1Ev(QSSGRenderExtension *self) {
   delete self;
 }
 
+//  bool QSSGRenderExtension::prepareData(QSSGFrameData &data)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QSSGRenderExtension11prepareDataER13QSSGFrameData(
+    QSSGRenderExtension *self,
+    QSSGFrameData *data) {
+  return self->prepareData(*data);
+}
+
+//  void QSSGRenderExtension::prepareRender(QSSGFrameData &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSSGRenderExtension13prepareRenderER13QSSGFrameData(
+    QSSGRenderExtension *self,
+    QSSGFrameData *data) {
+  self->prepareRender(*data);
+}
+
+//  void QSSGRenderExtension::render(QSSGFrameData &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSSGRenderExtension6renderER13QSSGFrameData(
+    QSSGRenderExtension *self,
+    QSSGFrameData *data) {
+  self->render(*data);
+}
+
 //  void QSSGRenderExtension::resetForFrame()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QSSGRenderExtension13resetForFrameEv(

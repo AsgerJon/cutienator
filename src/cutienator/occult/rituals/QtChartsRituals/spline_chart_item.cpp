@@ -14,6 +14,7 @@
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
 
 //  Only a class built on SplineChartItem may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -32,6 +33,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK15SplineChartItem10metaObjectEv(
     const SplineChartItem *self) {
   return self->metaObject();
+}
+
+//  void *SplineChartItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15SplineChartItem11qt_metacastEPKc(
+    SplineChartItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int SplineChartItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15SplineChartItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    SplineChartItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString SplineChartItem::tr(const char *s, const char *c, int n)
@@ -128,6 +147,15 @@ QList<QPointF> *ritual_ZN15SplineChartItem22calculateControlPointsERK5QListI7QPo
     SplineChartItem *self,
     const QList<QPointF> *points) {
   return new QList<QPointF>(self->calculateControlPoints(*points));
+}
+
+//  QList<qreal> SplineChartItem::firstControlPoints(const QList<qreal>
+//      &list)
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZN15SplineChartItem18firstControlPointsERK5QListIdE(
+    SplineChartItem *self,
+    const QList<qreal> *list) {
+  return new QList<qreal>(self->firstControlPoints(*list));
 }
 
 //  void SplineChartItem::updateChart(const QList<QPointF> &oldPoints, const
@@ -289,6 +317,12 @@ void ritual_own_ZN15SplineChartItem21mouseDoubleClickEventEP24QGraphicsSceneMous
     QGraphicsSceneMouseEvent *event) {
   static_cast<OwnSplineChartItem *>(self)->OwnSplineChartItem::mouseDoubleClickEvent(
       event);
+}
+
+//  a QList<qreal> a ritual of SplineChartItem gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_SplineChartItem__QList_qreal(QList<qreal> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_spline_chart)

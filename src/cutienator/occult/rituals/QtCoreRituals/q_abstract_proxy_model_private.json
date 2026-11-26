@@ -20,6 +20,9 @@
     "ritual_ZNK26QAbstractProxyModelPrivate17getModelForwarderEv": [
       "address", "address"
     ],
+    "ritual_ZN26QAbstractProxyModelPrivate25_qt_property_model_offsetEv": [
+      "size_t"
+    ],
     "ritual_ZN26QAbstractProxyModelPrivate23_q_sourceModelDestroyedEv": [
       "nothing", "address"
     ],

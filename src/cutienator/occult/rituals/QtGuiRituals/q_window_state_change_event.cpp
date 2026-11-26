@@ -11,6 +11,7 @@ typedef void (*CuteQWindowStateChangeEventCall1)(const void *, bool, int *);
 class CuteQWindowStateChangeEvent : public QWindowStateChangeEvent {
 public:
   using QWindowStateChangeEvent::QWindowStateChangeEvent;
+  CuteQWindowStateChangeEvent(const QWindowStateChangeEvent & other) : QWindowStateChangeEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -47,6 +48,23 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QWindowStateChangeEvent::QWindowStateChangeEvent(const
+//      QWindowStateChangeEvent &a0)
+extern "C" Q_DECL_EXPORT
+QWindowStateChangeEvent *ritual_ZN23QWindowStateChangeEventC1ERKS_(
+    const QWindowStateChangeEvent *a0) {
+  return new CuteQWindowStateChangeEvent(*a0);
+}
+
+//  QWindowStateChangeEvent &QWindowStateChangeEvent::operator=(const
+//      QWindowStateChangeEvent &other)
+extern "C" Q_DECL_EXPORT
+QWindowStateChangeEvent *ritual_ZN23QWindowStateChangeEventaSERKS_(
+    QWindowStateChangeEvent *self,
+    const QWindowStateChangeEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QWindowStateChangeEvent *QWindowStateChangeEvent::clone() const
 extern "C" Q_DECL_EXPORT

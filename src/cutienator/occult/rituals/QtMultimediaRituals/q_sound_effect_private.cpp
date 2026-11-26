@@ -32,6 +32,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtmultimedia/src/multimedia/audio/qsoundeffect.cpp, line 573, as _ZN19QSoundEffectPrivate19resolveAndSetSourceERK4QUrlR12QSampleCache
+inline void QSoundEffectPrivate::resolveAndSetSource(const QUrl &url, QSampleCache &cache)
+{
+    m_unresolvedUrl = url;
+    QUrl resolvedUrl = m_sourceResolver->resolve(url);
+    setSource(std::move(resolvedUrl), cache);
+}
+
 //  from ../qtmultimedia/src/multimedia/audio/qsoundeffect.cpp, line 580, as _ZNK19QSoundEffectPrivate3urlEv
 inline QUrl QSoundEffectPrivate::url() const
 {
@@ -52,6 +60,16 @@ extern "C" Q_DECL_EXPORT
 QAudioDevice *ritual_ZNK19QSoundEffectPrivate11audioDeviceEv(
     const QSoundEffectPrivate *self) {
   return new QAudioDevice(self->audioDevice());
+}
+
+//  void QSoundEffectPrivate::resolveAndSetSource(const QUrl &a0,
+//      QSampleCache &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSoundEffectPrivate19resolveAndSetSourceERK4QUrlR12QSampleCache(
+    QSoundEffectPrivate *self,
+    const QUrl *a0,
+    QSampleCache *a1) {
+  self->resolveAndSetSource(*a0, *a1);
 }
 
 //  QUrl QSoundEffectPrivate::url() const
@@ -144,4 +162,13 @@ extern "C" Q_DECL_EXPORT
 QSoundEffectPrivate *ritual_ZN19QSoundEffectPrivate3getEP12QSoundEffect(
     QSoundEffect *a0) {
   return QSoundEffectPrivate::get(a0);
+}
+
+//  void QSoundEffectPrivate::setSource(QUrl a0, QSampleCache &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSoundEffectPrivate9setSourceE4QUrlR12QSampleCache(
+    QSoundEffectPrivate *self,
+    const QUrl *a0,
+    QSampleCache *a1) {
+  self->setSource(*a0, *a1);
 }

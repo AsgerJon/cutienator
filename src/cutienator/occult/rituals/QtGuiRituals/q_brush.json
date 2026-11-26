@@ -23,6 +23,12 @@
     "ritual_ZN6QBrushC1ERKS_": ["address", "address"],
     "ritual_ZN6QBrushC1ERK9QGradient": ["address", "address"],
     "ritual_ZN6QBrushD1Ev": ["nothing", "address"],
+    "ritual_ZN6QBrushaSERKS_": ["address", "address", "address"],
+    "ritual_ZN6QBrushaSEOS_": ["address", "address", "address"],
+    "ritual_ZN6QBrush4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN6QBrushaSEN2Qt10BrushStyleE": ["address", "address", "int"],
+    "ritual_ZN6QBrushaSE6QColor": ["address", "address", "address"],
+    "ritual_ZN6QBrushaSEN2Qt11GlobalColorE": ["address", "address", "int"],
     "ritual_ZNK6QBrushcv8QVariantEv": ["address", "address"],
     "ritual_ZNK6QBrush5styleEv": ["int", "address"],
     "ritual_ZN6QBrush8setStyleEN2Qt10BrushStyleE": [
@@ -56,15 +62,32 @@
     "ritual_ZneRK6QBrushRK6QColor": ["bool", "address", "address"],
     "ritual_ZeqRK6QColorRK6QBrush": ["bool", "address", "address"],
     "ritual_ZneRK6QColorRK6QBrush": ["bool", "address", "address"],
+    "ritual_ZeqRK6QBrushRKN2Qt11GlobalColorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK6QBrushRKN2Qt11GlobalColorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRKN2Qt11GlobalColorERK6QBrush": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN2Qt11GlobalColorERK6QBrush": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK6QBrush19doCompareEqualStyleEN2Qt10BrushStyleE": [
       "bool", "address", "int"
     ],
+    "ritual_ZeqRK6QBrushRKN2Qt10BrushStyleE": ["bool", "address", "address"],
+    "ritual_ZneRK6QBrushRKN2Qt10BrushStyleE": ["bool", "address", "address"],
+    "ritual_ZeqRKN2Qt10BrushStyleERK6QBrush": ["bool", "address", "address"],
+    "ritual_ZneRKN2Qt10BrushStyleERK6QBrush": ["bool", "address", "address"],
     "ritual_ZN6QBrush6detachEN2Qt10BrushStyleE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN6QBrush4initERK6QColorN2Qt10BrushStyleE": [
       "nothing", "address", "address", "int"
     ],
-    "ritual_ZNK6QBrush10isDetachedEv": ["bool", "address"]
+    "ritual_ZNK6QBrush10isDetachedEv": ["bool", "address"],
+    "ritual_ZN6QBrush8data_ptrEv": ["address", "address"]
   }
 }

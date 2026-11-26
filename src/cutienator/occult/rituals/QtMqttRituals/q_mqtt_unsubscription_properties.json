@@ -9,6 +9,9 @@
     "ritual_ZN29QMqttUnsubscriptionPropertiesC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN29QMqttUnsubscriptionPropertiesaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN29QMqttUnsubscriptionPropertiesD1Ev": ["nothing", "address"],
     "ritual_ZNK29QMqttUnsubscriptionProperties14userPropertiesEv": [
       "address", "address"

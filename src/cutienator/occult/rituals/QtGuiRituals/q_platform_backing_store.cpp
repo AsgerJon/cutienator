@@ -19,15 +19,16 @@ typedef void * (*CuteQPlatformBackingStoreCall0)(const void *, int *);
 typedef void (*CuteQPlatformBackingStoreCall1)(const void *, QWindow *, const QRegion *, const QPoint *, int *);
 typedef int (*CuteQPlatformBackingStoreCall2)(const void *, QWindow *, qreal, const QRegion *, const QPoint *, QPlatformTextureList *, bool, qreal, int *);
 typedef const QImage * (*CuteQPlatformBackingStoreCall3)(const void *, int *);
-typedef void * (*CuteQPlatformBackingStoreCall4)(const void *, int *);
-typedef void (*CuteQPlatformBackingStoreCall5)(const void *, const QSize *, const QRegion *, int *);
-typedef bool (*CuteQPlatformBackingStoreCall6)(const void *, const QRegion *, int, int, int *);
-typedef void (*CuteQPlatformBackingStoreCall7)(const void *, const QRegion *, int *);
-typedef void (*CuteQPlatformBackingStoreCall8)(const void *, int *);
+typedef void * (*CuteQPlatformBackingStoreCall4)(const void *, QRhiResourceUpdateBatch *, const QRegion *, QPlatformBackingStore::TextureFlags *, int *);
+typedef void * (*CuteQPlatformBackingStoreCall5)(const void *, int *);
+typedef void (*CuteQPlatformBackingStoreCall6)(const void *, const QSize *, const QRegion *, int *);
+typedef bool (*CuteQPlatformBackingStoreCall7)(const void *, const QRegion *, int, int, int *);
+typedef void (*CuteQPlatformBackingStoreCall8)(const void *, const QRegion *, int *);
+typedef void (*CuteQPlatformBackingStoreCall9)(const void *, int *);
 class CuteQPlatformBackingStore : public QPlatformBackingStore {
 public:
   using QPlatformBackingStore::QPlatformBackingStore;
-  void *taken[9] = {};
+  void *taken[10] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN21QPlatformBackingStore11paintDeviceEv")) {
@@ -46,24 +47,28 @@ public:
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QPlatformBackingStore14graphicsBufferEv")) {
+    if (!std::strcmp(key, "_ZNK21QPlatformBackingStore9toTextureEP23QRhiResourceUpdateBatchRK7QRegionP6QFlagsINS_11TextureFlagEE")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QPlatformBackingStore6resizeERK5QSizeRK7QRegion")) {
+    if (!std::strcmp(key, "_ZNK21QPlatformBackingStore14graphicsBufferEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QPlatformBackingStore6scrollERK7QRegionii")) {
+    if (!std::strcmp(key, "_ZN21QPlatformBackingStore6resizeERK5QSizeRK7QRegion")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QPlatformBackingStore10beginPaintERK7QRegion")) {
+    if (!std::strcmp(key, "_ZN21QPlatformBackingStore6scrollERK7QRegionii")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QPlatformBackingStore8endPaintEv")) {
+    if (!std::strcmp(key, "_ZN21QPlatformBackingStore10beginPaintERK7QRegion")) {
       taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN21QPlatformBackingStore8endPaintEv")) {
+      taken[9] = call;
       return true;
     }
     return false;
@@ -127,12 +132,28 @@ public:
     return QPlatformBackingStore::toImage();
   }
 
-  //  QPlatformGraphicsBuffer *QPlatformBackingStore::graphicsBuffer()
-  //      const
-  QPlatformGraphicsBuffer *graphicsBuffer() const override {
+  //  QRhiTexture *QPlatformBackingStore::toTexture(QRhiResourceUpdateBatch
+  //      *resourceUpdates, const QRegion &dirtyRegion, TextureFlags
+  //      *flags) const
+  QRhiTexture *toTexture(
+      QRhiResourceUpdateBatch *resourceUpdates,
+      const QRegion &dirtyRegion,
+      QPlatformBackingStore::TextureFlags *flags) const override {
     if (taken[4]) {
       int handled = 0;
       CuteQPlatformBackingStoreCall4 call = reinterpret_cast<CuteQPlatformBackingStoreCall4>(taken[4]);
+      void * given = call(this, resourceUpdates, &dirtyRegion, flags, &handled);
+      if (handled) return static_cast<QRhiTexture *>(given);
+    }
+    return QPlatformBackingStore::toTexture(resourceUpdates, dirtyRegion, flags);
+  }
+
+  //  QPlatformGraphicsBuffer *QPlatformBackingStore::graphicsBuffer()
+  //      const
+  QPlatformGraphicsBuffer *graphicsBuffer() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQPlatformBackingStoreCall5 call = reinterpret_cast<CuteQPlatformBackingStoreCall5>(taken[5]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPlatformGraphicsBuffer *>(given);
     }
@@ -142,9 +163,9 @@ public:
   //  void QPlatformBackingStore::resize(const QSize &size, const QRegion
   //      &staticContents)
   void resize(const QSize &size, const QRegion &staticContents) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQPlatformBackingStoreCall5 call = reinterpret_cast<CuteQPlatformBackingStoreCall5>(taken[5]);
+      CuteQPlatformBackingStoreCall6 call = reinterpret_cast<CuteQPlatformBackingStoreCall6>(taken[6]);
       call(this, &size, &staticContents, &handled);
       if (handled) return;
     }
@@ -153,9 +174,9 @@ public:
   //  bool QPlatformBackingStore::scroll(const QRegion &area, int dx, int
   //      dy)
   bool scroll(const QRegion &area, int dx, int dy) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQPlatformBackingStoreCall6 call = reinterpret_cast<CuteQPlatformBackingStoreCall6>(taken[6]);
+      CuteQPlatformBackingStoreCall7 call = reinterpret_cast<CuteQPlatformBackingStoreCall7>(taken[7]);
       bool given = call(this, &area, dx, dy, &handled);
       if (handled) return given;
     }
@@ -164,9 +185,9 @@ public:
 
   //  void QPlatformBackingStore::beginPaint(const QRegion &a0)
   void beginPaint(const QRegion &a0) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQPlatformBackingStoreCall7 call = reinterpret_cast<CuteQPlatformBackingStoreCall7>(taken[7]);
+      CuteQPlatformBackingStoreCall8 call = reinterpret_cast<CuteQPlatformBackingStoreCall8>(taken[8]);
       call(this, &a0, &handled);
       if (handled) return;
     }
@@ -175,15 +196,22 @@ public:
 
   //  void QPlatformBackingStore::endPaint()
   void endPaint() override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQPlatformBackingStoreCall8 call = reinterpret_cast<CuteQPlatformBackingStoreCall8>(taken[8]);
+      CuteQPlatformBackingStoreCall9 call = reinterpret_cast<CuteQPlatformBackingStoreCall9>(taken[9]);
       call(this, &handled);
       if (handled) return;
     }
     QPlatformBackingStore::endPaint();
   }
 };
+
+//  QPlatformBackingStore::QPlatformBackingStore(QWindow *window)
+extern "C" Q_DECL_EXPORT
+QPlatformBackingStore *ritual_ZN21QPlatformBackingStoreC1EP7QWindow(
+    QWindow *window) {
+  return new CuteQPlatformBackingStore(window);
+}
 
 //  QPlatformBackingStore::~QPlatformBackingStore()
 extern "C" Q_DECL_EXPORT
@@ -252,6 +280,18 @@ extern "C" Q_DECL_EXPORT
 QImage *ritual_ZNK21QPlatformBackingStore7toImageEv(
     const QPlatformBackingStore *self) {
   return new QImage(self->toImage());
+}
+
+//  QRhiTexture *QPlatformBackingStore::toTexture(QRhiResourceUpdateBatch
+//      *resourceUpdates, const QRegion &dirtyRegion, TextureFlags *flags)
+//      const
+extern "C" Q_DECL_EXPORT
+QRhiTexture *ritual_ZNK21QPlatformBackingStore9toTextureEP23QRhiResourceUpdateBatchRK7QRegionP6QFlagsINS_11TextureFlagEE(
+    const QPlatformBackingStore *self,
+    QRhiResourceUpdateBatch *resourceUpdates,
+    const QRegion *dirtyRegion,
+    QPlatformBackingStore::TextureFlags *flags) {
+  return self->toTexture(resourceUpdates, *dirtyRegion, flags);
 }
 
 //  QPlatformGraphicsBuffer *QPlatformBackingStore::graphicsBuffer() const
@@ -380,6 +420,21 @@ extern "C" Q_DECL_EXPORT
 QImage *ritual_own_ZNK21QPlatformBackingStore7toImageEv(
     const QPlatformBackingStore *self) {
   return new QImage(self->QPlatformBackingStore::toImage());
+}
+
+//  QRhiTexture *QPlatformBackingStore::toTexture(QRhiResourceUpdateBatch
+//      *resourceUpdates, const QRegion &dirtyRegion, TextureFlags *flags)
+//      const
+extern "C" Q_DECL_EXPORT
+QRhiTexture *ritual_own_ZNK21QPlatformBackingStore9toTextureEP23QRhiResourceUpdateBatchRK7QRegionP6QFlagsINS_11TextureFlagEE(
+    const QPlatformBackingStore *self,
+    QRhiResourceUpdateBatch *resourceUpdates,
+    const QRegion *dirtyRegion,
+    QPlatformBackingStore::TextureFlags *flags) {
+  return self->QPlatformBackingStore::toTexture(
+      resourceUpdates,
+      *dirtyRegion,
+      flags);
 }
 
 //  QPlatformGraphicsBuffer *QPlatformBackingStore::graphicsBuffer() const

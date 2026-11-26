@@ -11,6 +11,30 @@
     "ritual_ZNK3QV48Sequence1dEv": ["address", "address"],
     "ritual_ZN3QV48Sequence16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV48Sequence14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV48Sequence10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV48Sequence16virtualGetLengthEPKNS_7ManagedE": [
+      "long long", "address"
+    ],
+    "ritual_ZN3QV48Sequence10virtualPutEPNS_7ManagedENS_11PropertyKeyERKNS_5ValueEPS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV48Sequence21virtualDeletePropertyEPNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Sequence16virtualIsEqualToEPNS_7ManagedES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Sequence22virtualOwnPropertyKeysEPKNS_6ObjectEPNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV48Sequence15virtualMetacallEPNS_6ObjectEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
     ]
   }
 }

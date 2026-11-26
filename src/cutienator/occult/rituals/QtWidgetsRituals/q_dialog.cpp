@@ -1031,6 +1031,22 @@ const QMetaObject *ritual_ZNK7QDialog10metaObjectEv(const QDialog *self) {
   return self->metaObject();
 }
 
+//  void *QDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QDialog11qt_metacastEPKc(QDialog *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDialog::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QDialog2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1099,6 +1115,24 @@ void ritual_ZN7QDialog9setResultEi(QDialog *self, int r) {
   self->setResult(r);
 }
 
+//  void QDialog::finished(int result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QDialog8finishedEi(QDialog *self, int result) {
+  self->finished(result);
+}
+
+//  void QDialog::accepted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QDialog8acceptedEv(QDialog *self) {
+  self->accepted();
+}
+
+//  void QDialog::rejected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QDialog8rejectedEv(QDialog *self) {
+  self->rejected();
+}
+
 //  void QDialog::open()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QDialog4openEv(QDialog *self) {
@@ -1127,6 +1161,15 @@ void ritual_ZN7QDialog6acceptEv(QDialog *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QDialog6rejectEv(QDialog *self) {
   self->reject();
+}
+
+//  QDialog::QDialog(QDialogPrivate &a0, QWidget *parent, Qt::WindowFlags f)
+extern "C" Q_DECL_EXPORT
+QDialog *ritual_ZN7QDialogC1ER14QDialogPrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE(
+    QDialogPrivate *a0,
+    QWidget *parent,
+    int f) {
+  return new CuteQDialog(*a0, parent, QFlags<Qt::WindowType>::fromInt(f));
 }
 
 //  void QDialog::keyPressEvent(QKeyEvent *a0)

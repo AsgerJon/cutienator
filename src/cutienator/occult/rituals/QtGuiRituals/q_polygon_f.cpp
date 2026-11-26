@@ -19,6 +19,12 @@ QPolygonF *ritual_ZN9QPolygonFC1ERK5QListI7QPointFE(
   return new QPolygonF(*v);
 }
 
+//  QPolygonF::QPolygonF(QList<QPointF> &&v)
+extern "C" Q_DECL_EXPORT
+QPolygonF *ritual_ZN9QPolygonFC1EO5QListI7QPointFE(QList<QPointF> *v) {
+  return new QPolygonF(std::move(*v));
+}
+
 //  QPolygonF::QPolygonF(const QRectF &r)
 extern "C" Q_DECL_EXPORT
 QPolygonF *ritual_ZN9QPolygonFC1ERK6QRectF(const QRectF *r) {
@@ -29,6 +35,12 @@ QPolygonF *ritual_ZN9QPolygonFC1ERK6QRectF(const QRectF *r) {
 extern "C" Q_DECL_EXPORT
 QPolygonF *ritual_ZN9QPolygonFC1ERK8QPolygon(const QPolygon *a) {
   return new QPolygonF(*a);
+}
+
+//  void QPolygonF::swap(QPolygonF &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPolygonF4swapERS_(QPolygonF *self, QPolygonF *other) {
+  self->swap(*other);
 }
 
 //  QVariant QPolygonF::operator QVariant() const

@@ -4,6 +4,7 @@
 #include <QtWaylandCompositor/qwaylandwlshell.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtWaylandCompositor/qwaylandresource.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 
@@ -43,6 +44,24 @@ const QMetaObject *ritual_ZNK15QWaylandWlShell10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandWlShell::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QWaylandWlShell11qt_metacastEPKc(
+    QWaylandWlShell *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandWlShell::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QWaylandWlShell11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandWlShell *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandWlShell::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QWaylandWlShell2trEPKcS1_i(
@@ -50,6 +69,20 @@ QString *ritual_ZN15QWaylandWlShell2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandWlShell::tr(s, c, n));
+}
+
+//  QWaylandWlShellPrivate *QWaylandWlShell::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandWlShellPrivate *ritual_ZN15QWaylandWlShell6d_funcEv(
+    QWaylandWlShell *self) {
+  return self->d_func();
+}
+
+//  const QWaylandWlShellPrivate *QWaylandWlShell::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandWlShellPrivate *ritual_ZNK15QWaylandWlShell6d_funcEv(
+    const QWaylandWlShell *self) {
+  return self->d_func();
 }
 
 //  QWaylandWlShell::QWaylandWlShell()
@@ -103,6 +136,12 @@ QWaylandClient *ritual_ZNK15QWaylandWlShell11popupClientEv(
   return self->popupClient();
 }
 
+//  const struct wl_interface *QWaylandWlShell::interface()
+extern "C" Q_DECL_EXPORT
+const struct wl_interface *ritual_ZN15QWaylandWlShell9interfaceEv() {
+  return QWaylandWlShell::interface();
+}
+
 //  QByteArray QWaylandWlShell::interfaceName()
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN15QWaylandWlShell13interfaceNameEv() {
@@ -113,6 +152,25 @@ QByteArray *ritual_ZN15QWaylandWlShell13interfaceNameEv() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QWaylandWlShell14closeAllPopupsEv(QWaylandWlShell *self) {
   self->closeAllPopups();
+}
+
+//  void QWaylandWlShell::wlShellSurfaceRequested(QWaylandSurface *surface,
+//      const QWaylandResource &resource)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandWlShell23wlShellSurfaceRequestedEP15QWaylandSurfaceRK16QWaylandResource(
+    QWaylandWlShell *self,
+    QWaylandSurface *surface,
+    const QWaylandResource *resource) {
+  self->wlShellSurfaceRequested(surface, *resource);
+}
+
+//  void QWaylandWlShell::wlShellSurfaceCreated(QWaylandWlShellSurface
+//      *shellSurface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandWlShell21wlShellSurfaceCreatedEP22QWaylandWlShellSurface(
+    QWaylandWlShell *self,
+    QWaylandWlShellSurface *shellSurface) {
+  self->wlShellSurfaceCreated(shellSurface);
 }
 
 //  a Python function taken by a CuteQWaylandWlShell, for the function named

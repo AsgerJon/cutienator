@@ -38,6 +38,21 @@ public:
   }
 };
 
+//  QOpenGLCustomShaderStagePrivate *QOpenGLCustomShaderStage::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLCustomShaderStagePrivate *ritual_ZN24QOpenGLCustomShaderStage6d_funcEv(
+    QOpenGLCustomShaderStage *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLCustomShaderStagePrivate *QOpenGLCustomShaderStage::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QOpenGLCustomShaderStagePrivate *ritual_ZNK24QOpenGLCustomShaderStage6d_funcEv(
+    const QOpenGLCustomShaderStage *self) {
+  return self->d_func();
+}
+
 //  QOpenGLCustomShaderStage::QOpenGLCustomShaderStage()
 extern "C" Q_DECL_EXPORT
 QOpenGLCustomShaderStage *ritual_ZN24QOpenGLCustomShaderStageC1Ev() {

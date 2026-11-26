@@ -8,6 +8,15 @@
     "ritual_ZNK23DeclarativeCategoryAxis10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23DeclarativeCategoryAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23DeclarativeCategoryAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23DeclarativeCategoryAxis12axisChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZN23DeclarativeCategoryAxis10classBeginEv": [
       "nothing", "address"
     ],
@@ -16,6 +25,9 @@
     ],
     "ritual_ZNK23DeclarativeCategoryAxis14labelsPositionEv": [
       "int", "address"
+    ],
+    "ritual_ZN23DeclarativeCategoryAxis21labelsPositionChangedENS_18AxisLabelsPositionE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN23DeclarativeCategoryAxis6appendERK7QStringd": [
       "nothing", "address", "text", "double"
@@ -26,6 +38,12 @@
     "ritual_ZN23DeclarativeCategoryAxis7replaceERK7QStringS2_": [
       "nothing", "address", "text", "text"
     ],
+    "ritual_ZN23DeclarativeCategoryAxis16endValueLessThanERKSt4pairI7QStringdES4_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeCategoryAxis18appendAxisChildrenEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_DeclarativeCategoryAxis_QQmlParserStatus": [
       "address", "address"
     ],
@@ -33,6 +51,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN23DeclarativeCategoryAxis17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_DeclarativeCategoryAxis__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

@@ -4,6 +4,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qmetatype.h>
+#include <QtGrpc/qgrpcstatus.h>
+#include <QtGrpc/qtgrpcnamespace.h>
+#include <QtGrpc/qgrpccalloptions.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -181,6 +184,24 @@ const QMetaObject *ritual_ZNK14QGrpcOperation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGrpcOperation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QGrpcOperation11qt_metacastEPKc(
+    QGrpcOperation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGrpcOperation::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QGrpcOperation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGrpcOperation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGrpcOperation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QGrpcOperation2trEPKcS1_i(
@@ -204,6 +225,31 @@ bool ritual_ZNK14QGrpcOperation4readEP16QProtobufMessage(
   return self->read(message);
 }
 
+#if QT_DEPRECATED_SINCE(6, 13)
+//  const QHash<QByteArray, QByteArray> &QGrpcOperation::metadata() const
+extern "C" Q_DECL_EXPORT
+const QHash<QByteArray, QByteArray> *ritual_ZNKR14QGrpcOperation8metadataEv(
+    const QGrpcOperation *self) {
+  return &(self->metadata());
+}
+#endif  // QT_DEPRECATED_SINCE(6, 13)
+
+//  const QMultiHash<QByteArray, QByteArray>
+//      &QGrpcOperation::serverInitialMetadata() const
+extern "C" Q_DECL_EXPORT
+const QMultiHash<QByteArray, QByteArray> *ritual_ZNKR14QGrpcOperation21serverInitialMetadataEv(
+    const QGrpcOperation *self) {
+  return &(self->serverInitialMetadata());
+}
+
+//  const QMultiHash<QByteArray, QByteArray>
+//      &QGrpcOperation::serverTrailingMetadata() const
+extern "C" Q_DECL_EXPORT
+const QMultiHash<QByteArray, QByteArray> *ritual_ZNKR14QGrpcOperation22serverTrailingMetadataEv(
+    const QGrpcOperation *self) {
+  return &(self->serverTrailingMetadata());
+}
+
 //  QLatin1StringView QGrpcOperation::method() const
 extern "C" Q_DECL_EXPORT
 QLatin1String *ritual_ZNK14QGrpcOperation6methodEv(
@@ -224,10 +270,60 @@ QMetaType *ritual_ZNK14QGrpcOperation16responseMetaTypeEv(
   return new QMetaType(self->responseMetaType());
 }
 
+//  void QGrpcOperation::finished(const QGrpcStatus &status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGrpcOperation8finishedERK11QGrpcStatus(
+    QGrpcOperation *self,
+    const QGrpcStatus *status) {
+  self->finished(*status);
+}
+
+//  void QGrpcOperation::serverInitialMetadataReceived(const
+//      QMultiHash<QByteArray, QByteArray> &metadata)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGrpcOperation29serverInitialMetadataReceivedERK10QMultiHashI10QByteArrayS1_E(
+    QGrpcOperation *self,
+    const QMultiHash<QByteArray, QByteArray> *metadata) {
+  self->serverInitialMetadataReceived(*metadata);
+}
+
 //  void QGrpcOperation::cancel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QGrpcOperation6cancelEv(QGrpcOperation *self) {
   self->cancel();
+}
+
+//  QGrpcOperation::QGrpcOperation(QtGrpc::RpcDescriptor descriptor, const
+//      QGrpcCallOptions &options, std::weak_ptr<QAbstractGrpcChannel>
+//      &&channel)
+extern "C" Q_DECL_EXPORT
+QGrpcOperation *ritual_ZN14QGrpcOperationC1EN6QtGrpc13RpcDescriptorERK16QGrpcCallOptionsOSt8weak_ptrI20QAbstractGrpcChannelE(
+    const QtGrpc::RpcDescriptor *descriptor,
+    const QGrpcCallOptions *options,
+    std::weak_ptr<QAbstractGrpcChannel> *channel) {
+  return new CuteQGrpcOperation(*descriptor, *options, std::move(*channel));
+}
+
+//  const QGrpcOperationContext &QGrpcOperation::context() const
+extern "C" Q_DECL_EXPORT
+const QGrpcOperationContext *ritual_ZNKR14QGrpcOperation7contextEv(
+    const QGrpcOperation *self) {
+  return &(self->context());
+}
+
+//  QGrpcOperationContext &QGrpcOperation::context()
+extern "C" Q_DECL_EXPORT
+QGrpcOperationContext *ritual_ZNR14QGrpcOperation7contextEv(
+    QGrpcOperation *self) {
+  return &(self->context());
+}
+
+//  void QGrpcOperation::writeMessage(const QProtobufMessage &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGrpcOperation12writeMessageERK16QProtobufMessage(
+    QGrpcOperation *self,
+    const QProtobufMessage *message) {
+  self->writeMessage(*message);
 }
 
 //  void QGrpcOperation::writesDone()

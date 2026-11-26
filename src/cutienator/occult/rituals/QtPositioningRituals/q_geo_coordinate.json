@@ -11,7 +11,11 @@
       "address", "double", "double", "double"
     ],
     "ritual_ZN14QGeoCoordinateC1ERKS_": ["address", "address"],
+    "ritual_ZN14QGeoCoordinateC1EOS_": ["address", "address"],
     "ritual_ZN14QGeoCoordinateD1Ev": ["nothing", "address"],
+    "ritual_ZN14QGeoCoordinateaSERKS_": ["address", "address", "address"],
+    "ritual_ZN14QGeoCoordinateaSEOS_": ["address", "address", "address"],
+    "ritual_ZN14QGeoCoordinate4swapERS_": ["nothing", "address", "address"],
     "ritual_ZeqRK14QGeoCoordinateS1_": ["bool", "address", "address"],
     "ritual_ZneRK14QGeoCoordinateS1_": ["bool", "address", "address"],
     "ritual_ZNK14QGeoCoordinate7isValidEv": ["bool", "address"],
@@ -43,8 +47,23 @@
     "ritual_ZN14QGeoCoordinate6equalsERKS_S1_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN14QGeoCoordinateC1ER21QGeoCoordinatePrivate": [
+      "address", "address"
+    ],
     "ritual_Zls6QDebugRK14QGeoCoordinate": ["address", "address", "address"],
     "ritual_ZN14QGeoCoordinate14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK14QGeoCoordinate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR14QGeoCoordinate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QGeoCoordinate13dataStreamOutER11QDataStreamRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QGeoCoordinate12dataStreamInER11QDataStreamRS_": [
       "address", "address", "address"
     ],
     "ritual_list_make_QGeoCoordinate": ["address"],

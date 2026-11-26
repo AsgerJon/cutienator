@@ -41,6 +41,9 @@
     "ritual_ZN18QCommandLineParser7processERK5QListI7QStringE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QCommandLineParser7processERK16QCoreApplication": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QCommandLineParser5parseERK5QListI7QStringE": [
       "bool", "address", "address"
     ],

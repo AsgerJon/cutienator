@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qbar3dseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbar3dseries.h>
 #include <QtCore/qstring.h>
@@ -186,6 +186,24 @@ const QMetaObject *ritual_ZNK12QBar3DSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBar3DSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QBar3DSeries11qt_metacastEPKc(
+    QBar3DSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBar3DSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QBar3DSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBar3DSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBar3DSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QBar3DSeries2trEPKcS1_i(
@@ -314,6 +332,14 @@ void ritual_ZN12QBar3DSeries23setValueColoringEnabledEb(
   self->setValueColoringEnabled(enabled);
 }
 
+//  void QBar3DSeries::setDataArray(const QBarDataArray &newDataArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries12setDataArrayERK5QListIS0_I12QBarDataItemEE(
+    QBar3DSeries *self,
+    const QBarDataArray *newDataArray) {
+  self->setDataArray(*newDataArray);
+}
+
 //  void QBar3DSeries::clearRow(qsizetype rowIndex)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QBar3DSeries8clearRowEx(
@@ -326,6 +352,13 @@ void ritual_ZN12QBar3DSeries8clearRowEx(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QBar3DSeries10clearArrayEv(QBar3DSeries *self) {
   self->clearArray();
+}
+
+//  const QBarDataArray &QBar3DSeries::dataArray() const
+extern "C" Q_DECL_EXPORT
+const QBarDataArray *ritual_ZNKR12QBar3DSeries9dataArrayEv(
+    const QBar3DSeries *self) {
+  return &(self->dataArray());
 }
 
 //  QStringList QBar3DSeries::rowLabels() const
@@ -451,6 +484,108 @@ void ritual_ZN12QBar3DSeries15resetColumnAxisEv(QBar3DSeries *self) {
   self->resetColumnAxis();
 }
 
+//  void QBar3DSeries::dataProxyChanged(QBarDataProxy *proxy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries16dataProxyChangedEP13QBarDataProxy(
+    QBar3DSeries *self,
+    QBarDataProxy *proxy) {
+  self->dataProxyChanged(proxy);
+}
+
+//  void QBar3DSeries::selectedBarChanged(QPoint position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries18selectedBarChangedE6QPoint(
+    QBar3DSeries *self,
+    const QPoint *position) {
+  self->selectedBarChanged(*position);
+}
+
+//  void QBar3DSeries::meshAngleChanged(float angle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries16meshAngleChangedEf(
+    QBar3DSeries *self,
+    float angle) {
+  self->meshAngleChanged(angle);
+}
+
+//  void QBar3DSeries::rowColorsChanged(const QList<QColor> &rowcolors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries16rowColorsChangedERK5QListI6QColorE(
+    QBar3DSeries *self,
+    const QList<QColor> *rowcolors) {
+  self->rowColorsChanged(*rowcolors);
+}
+
+//  void QBar3DSeries::rowLabelsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries16rowLabelsChangedEv(QBar3DSeries *self) {
+  self->rowLabelsChanged();
+}
+
+//  void QBar3DSeries::columnLabelsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries19columnLabelsChangedEv(QBar3DSeries *self) {
+  self->columnLabelsChanged();
+}
+
+//  void QBar3DSeries::dataArrayChanged(const QBarDataArray &array)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries16dataArrayChangedERK5QListIS0_I12QBarDataItemEE(
+    QBar3DSeries *self,
+    const QBarDataArray *array) {
+  self->dataArrayChanged(*array);
+}
+
+//  void QBar3DSeries::valueColoringEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries27valueColoringEnabledChangedEb(
+    QBar3DSeries *self,
+    bool enabled) {
+  self->valueColoringEnabledChanged(enabled);
+}
+
+//  void QBar3DSeries::customRowLabelsChanged(const QStringList
+//      &newCustomRowLabels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries22customRowLabelsChangedERK5QListI7QStringE(
+    QBar3DSeries *self,
+    const QList<QString> *newCustomRowLabels) {
+  self->customRowLabelsChanged(*newCustomRowLabels);
+}
+
+//  void QBar3DSeries::customColumnLabelsChanged(const QStringList
+//      &newCustomColumnLabels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries25customColumnLabelsChangedERK5QListI7QStringE(
+    QBar3DSeries *self,
+    const QList<QString> *newCustomColumnLabels) {
+  self->customColumnLabelsChanged(*newCustomColumnLabels);
+}
+
+//  void QBar3DSeries::rowAxisChanged(QCategory3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries14rowAxisChangedEP15QCategory3DAxis(
+    QBar3DSeries *self,
+    QCategory3DAxis *axis) {
+  self->rowAxisChanged(axis);
+}
+
+//  void QBar3DSeries::valueAxisChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries16valueAxisChangedEP12QValue3DAxis(
+    QBar3DSeries *self,
+    QValue3DAxis *axis) {
+  self->valueAxisChanged(axis);
+}
+
+//  void QBar3DSeries::columnAxisChanged(QCategory3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QBar3DSeries17columnAxisChangedEP15QCategory3DAxis(
+    QBar3DSeries *self,
+    QCategory3DAxis *axis) {
+  self->columnAxisChanged(axis);
+}
+
 //  void QBar3DSeries::connectSignals()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QBar3DSeries14connectSignalsEv(QBar3DSeries *self) {
@@ -510,4 +645,4 @@ void ritual_list_drop_QBar3DSeries_ptr(QList<QBar3DSeries *> *self) {
   delete self;
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))

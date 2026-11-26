@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickStackLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickStackLayout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickStackLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickStackLayout2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -53,6 +59,10 @@
     "ritual_ZN17QQuickStackLayout21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
     ],
+    "ritual_ZN17QQuickStackLayout19currentIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickStackLayout12countChangedEv": ["nothing", "address"],
     "ritual_ZN17QQuickStackLayout20collectItemSizeHintsEP10QQuickItemP6QSizeF": [
       "nothing", "address", "address"
     ],
@@ -64,6 +74,9 @@
     ],
     "ritual_ZN17QQuickStackLayout6d_funcEv": ["address", "address"],
     "ritual_ZNK17QQuickStackLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickStackLayout19cachedItemSizeHintsEi": [
+      "address", "address", "int"
+    ],
     "ritual_own_ZN17QQuickStackLayout17componentCompleteEv": [
       "nothing", "address"
     ],

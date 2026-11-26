@@ -340,6 +340,25 @@ const QMetaObject *ritual_ZNK17QValueAxisPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QValueAxisPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QValueAxisPrivate11qt_metacastEPKc(
+    QValueAxisPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QValueAxisPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QValueAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QValueAxisPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QValueAxisPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QValueAxisPrivate2trEPKcS1_i(

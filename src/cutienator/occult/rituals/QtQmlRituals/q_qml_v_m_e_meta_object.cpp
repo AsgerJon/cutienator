@@ -1,11 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmlvmemetaobject_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qqmlvmemetaobject_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25: added by hand, instances of templates of the class:
+//  5. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmlvmemetaobject_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmlpropertycache_p.h>
 #include <QtQml/6.12.0/QtQml/private/qv4value_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
@@ -70,10 +72,41 @@ public:
   }
 };
 
+//  QQmlVMEMetaObject::QQmlVMEMetaObject(QV4::ExecutionEngine *engine,
+//      QObject *obj, const QQmlPropertyCache::ConstPtr &cache, const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &qmlCompilationUnit,
+//      int qmlObjectId)
+extern "C" Q_DECL_EXPORT
+QQmlVMEMetaObject *ritual_ZN17QQmlVMEMetaObjectC1EPN3QV415ExecutionEngineEP7QObjectRKN17QQmlPropertyCache8ConstPtrERK14QQmlRefPointerINS0_25ExecutableCompilationUnitEEi(
+    QV4::ExecutionEngine *engine,
+    QObject *obj,
+    const QQmlPropertyCache::ConstPtr *cache,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *qmlCompilationUnit,
+    int qmlObjectId) {
+  return new CuteQQmlVMEMetaObject(
+      engine,
+      obj,
+      *cache,
+      *qmlCompilationUnit,
+      qmlObjectId);
+}
+
 //  QQmlVMEMetaObject::~QQmlVMEMetaObject()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQmlVMEMetaObjectD1Ev(QQmlVMEMetaObject *self) {
   delete self;
+}
+
+//  bool QQmlVMEMetaObject::aliasTarget(int index, QObject **target, int
+//      *coreIndex, int *valueTypeIndex) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QQmlVMEMetaObject11aliasTargetEiPP7QObjectPiS3_(
+    const QQmlVMEMetaObject *self,
+    int index,
+    QObject **target,
+    int *coreIndex,
+    int *valueTypeIndex) {
+  return self->aliasTarget(index, target, coreIndex, valueTypeIndex);
 }
 
 //  QV4::ReturnedValue QQmlVMEMetaObject::vmeMethod(int index) const
@@ -152,6 +185,39 @@ QQmlVMEMetaObject *ritual_ZN17QQmlVMEMetaObject12getForSignalEP7QObjecti(
     QObject *o,
     int coreIndex) {
   return QQmlVMEMetaObject::getForSignal(o, coreIndex);
+}
+
+//  void QQmlVMEMetaObject::list_append(QQmlListProperty<QObject> *prop,
+//      QObject *o)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject11list_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *prop,
+    QObject *o) {
+  QQmlVMEMetaObject::list_append(prop, o);
+}
+
+//  void QQmlVMEMetaObject::list_clear(QQmlListProperty<QObject> *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject10list_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  QQmlVMEMetaObject::list_clear(prop);
+}
+
+//  void QQmlVMEMetaObject::list_append_nosignal(QQmlListProperty<QObject>
+//      *prop, QObject *o)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject20list_append_nosignalEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *prop,
+    QObject *o) {
+  QQmlVMEMetaObject::list_append_nosignal(prop, o);
+}
+
+//  void QQmlVMEMetaObject::list_clear_nosignal(QQmlListProperty<QObject>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject19list_clear_nosignalEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  QQmlVMEMetaObject::list_clear_nosignal(prop);
 }
 
 //  int QQmlVMEMetaObject::propOffset() const
@@ -452,6 +518,16 @@ void ritual_ZN17QQmlVMEMetaObject22setParentVMEMetaObjectEPS_(
   self->setParentVMEMetaObject(newParent);
 }
 
+//  void QQmlVMEMetaObject::activate(QObject *a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject8activateEP7QObjectiPPv(
+    QQmlVMEMetaObject *self,
+    QObject *a0,
+    int a1,
+    void **a2) {
+  self->activate(a0, a1, a2);
+}
+
 //  QQmlVMEVariantQObjectPtr
 //      *QQmlVMEMetaObject::getQObjectGuardForProperty(int a0) const
 extern "C" Q_DECL_EXPORT
@@ -461,6 +537,13 @@ QQmlVMEVariantQObjectPtr *ritual_ZNK17QQmlVMEMetaObject26getQObjectGuardForPrope
   return self->getQObjectGuardForProperty(a0);
 }
 
+//  QQmlRefPointer<QQmlContextData> QQmlVMEMetaObject::contextData() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZNK17QQmlVMEMetaObject11contextDataEv(
+    const QQmlVMEMetaObject *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->contextData());
+}
+
 //  QV4::ExecutionEngine *QQmlVMEMetaObject::engine() const
 extern "C" Q_DECL_EXPORT
 QV4::ExecutionEngine *ritual_ZNK17QQmlVMEMetaObject6engineEv(
@@ -468,11 +551,51 @@ QV4::ExecutionEngine *ritual_ZNK17QQmlVMEMetaObject6engineEv(
   return self->engine();
 }
 
+//  QQmlRefPointer<QV4::ExecutableCompilationUnit>
+//      QQmlVMEMetaObject::compilationUnit() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QV4::ExecutableCompilationUnit> *ritual_ZNK17QQmlVMEMetaObject15compilationUnitEv(
+    const QQmlVMEMetaObject *self) {
+  return new QQmlRefPointer<QV4::ExecutableCompilationUnit>(
+      self->compilationUnit());
+}
+
+//  void QQmlVMEMetaObject::setCompilationUnit(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &compilationUnit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject18setCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEE(
+    QQmlVMEMetaObject *self,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *compilationUnit) {
+  self->setCompilationUnit(*compilationUnit);
+}
+
 //  int QQmlVMEMetaObject::qmlObjectId() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK17QQmlVMEMetaObject11qmlObjectIdEv(
     const QQmlVMEMetaObject *self) {
   return self->qmlObjectId();
+}
+
+//  int QQmlVMEMetaObject::metaCall(QObject *o, QMetaObject::Call _c, int
+//      _id, void **_a)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQmlVMEMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv(
+    QQmlVMEMetaObject *self,
+    QObject *o,
+    QMetaObject::Call _c,
+    int _id,
+    void **_a) {
+  return self->metaCall(o, _c, _id, _a);
+}
+
+//  bool QQmlVMEMetaObject::getListProperty(int id, QQmlListProperty<QObject>
+//      *target)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QQmlVMEMetaObject15getListPropertyEiP16QQmlListPropertyI7QObjectE(
+    QQmlVMEMetaObject *self,
+    int id,
+    QQmlListProperty<QObject> *target) {
+  return self->getListProperty(id, target);
 }
 
 //  const QV4::CompiledData::Object *QQmlVMEMetaObject::findCompiledObject()
@@ -501,4 +624,65 @@ bool ritual_take_QQmlVMEMetaObject(
     const char *key,
     void *call) {
   return static_cast<CuteQQmlVMEMetaObject *>(self)->take(key, call);
+}
+
+//  a QQmlRefPointer<QQmlContextData> a ritual of QQmlVMEMetaObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlVMEMetaObject__QQmlRefPointer_QQmlContextData(
+    QQmlRefPointer<QQmlContextData> *self) {
+  delete self;
+}
+
+//  a QQmlRefPointer<QV4::ExecutableCompilationUnit> a ritual of
+//      QQmlVMEMetaObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlVMEMetaObject__QQmlRefPointer_QV4_ExecutableCompilationUnit(
+    QQmlRefPointer<QV4::ExecutableCompilationUnit> *self) {
+  delete self;
+}
+
+//  void QQmlVMEMetaObject::writeProperty<QUrl>(int id, const QUrl &v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject13writePropertyI4QUrlEEviRKT_(
+    QQmlVMEMetaObject *self,
+    int id,
+    const QUrl *v) {
+  self->writeProperty<QUrl>(id, *v);
+}
+
+//  void QQmlVMEMetaObject::writeProperty<QDateTime>(int id,
+//      const QDateTime &v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject13writePropertyI9QDateTimeEEviRKT_(
+    QQmlVMEMetaObject *self,
+    int id,
+    const QDateTime *v) {
+  self->writeProperty<QDateTime>(id, *v);
+}
+
+//  void QQmlVMEMetaObject::writeProperty<QPoint>(int id, const QPoint &v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject13writePropertyI6QPointEEviRKT_(
+    QQmlVMEMetaObject *self,
+    int id,
+    const QPoint *v) {
+  self->writeProperty<QPoint>(id, *v);
+}
+
+//  void QQmlVMEMetaObject::writeProperty<QSize>(int id, const QSize &v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject13writePropertyI5QSizeEEviRKT_(
+    QQmlVMEMetaObject *self,
+    int id,
+    const QSize *v) {
+  self->writeProperty<QSize>(id, *v);
+}
+
+//  void QQmlVMEMetaObject::writeProperty<QRect>(int id, const QRect &v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlVMEMetaObject13writePropertyI5QRectEEviRKT_(
+    QQmlVMEMetaObject *self,
+    int id,
+    const QRect *v) {
+  self->writeProperty<QRect>(id, *v);
 }

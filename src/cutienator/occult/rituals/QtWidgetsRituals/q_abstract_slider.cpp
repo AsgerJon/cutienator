@@ -897,6 +897,24 @@ const QMetaObject *ritual_ZNK15QAbstractSlider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractSlider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QAbstractSlider11qt_metacastEPKc(
+    QAbstractSlider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractSlider::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QAbstractSlider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractSlider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractSlider::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QAbstractSlider2trEPKcS1_i(
@@ -1093,6 +1111,51 @@ void ritual_ZN15QAbstractSlider8setRangeEii(
   self->setRange(min, max);
 }
 
+//  void QAbstractSlider::valueChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider12valueChangedEi(
+    QAbstractSlider *self,
+    int value) {
+  self->valueChanged(value);
+}
+
+//  void QAbstractSlider::sliderPressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider13sliderPressedEv(QAbstractSlider *self) {
+  self->sliderPressed();
+}
+
+//  void QAbstractSlider::sliderMoved(int position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider11sliderMovedEi(
+    QAbstractSlider *self,
+    int position) {
+  self->sliderMoved(position);
+}
+
+//  void QAbstractSlider::sliderReleased()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider14sliderReleasedEv(QAbstractSlider *self) {
+  self->sliderReleased();
+}
+
+//  void QAbstractSlider::rangeChanged(int min, int max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider12rangeChangedEii(
+    QAbstractSlider *self,
+    int min,
+    int max) {
+  self->rangeChanged(min, max);
+}
+
+//  void QAbstractSlider::actionTriggered(int action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider15actionTriggeredEi(
+    QAbstractSlider *self,
+    int action) {
+  self->actionTriggered(action);
+}
+
 //  bool QAbstractSlider::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QAbstractSlider5eventEP6QEvent(
@@ -1159,6 +1222,15 @@ void ritual_ZN15QAbstractSlider11changeEventEP6QEvent(
     QAbstractSlider *self,
     QEvent *e) {
   self->changeEvent(e);
+}
+
+//  QAbstractSlider::QAbstractSlider(QAbstractSliderPrivate &dd, QWidget
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractSlider *ritual_ZN15QAbstractSliderC1ER22QAbstractSliderPrivateP7QWidget(
+    QAbstractSliderPrivate *dd,
+    QWidget *parent) {
+  return new CuteQAbstractSlider(*dd, parent);
 }
 
 //  QAbstractSliderPrivate *QAbstractSlider::d_func()

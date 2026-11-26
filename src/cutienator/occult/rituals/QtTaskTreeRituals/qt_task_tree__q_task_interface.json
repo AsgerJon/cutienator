@@ -7,9 +7,27 @@
     "ritual_ZNK10QtTaskTree14QTaskInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10QtTaskTree14QTaskInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QtTaskTree14QTaskInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QtTaskTree14QTaskInterface2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
-    "ritual_ZN10QtTaskTree14QTaskInterfaceC1Ev": ["address"]
+    "ritual_ZN10QtTaskTree14QTaskInterfaceC1Ev": ["address"],
+    "ritual_ZN10QtTaskTree14QTaskInterfaceC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree14QTaskInterface10reportDoneENS_10DoneResultE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QtTaskTree14QTaskInterface4doneENS_10DoneResultENS0_14QPrivateSignalE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QtTaskTree14QTaskInterface5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
   }
 }

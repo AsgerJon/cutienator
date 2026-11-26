@@ -7,6 +7,18 @@
   "rows": {
     "ritual_ZNK31QPollingFileSystemWatcherEngine10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN31QPollingFileSystemWatcherEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QPollingFileSystemWatcherEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN31QPollingFileSystemWatcherEngine8addPathsERK5QListI7QStringEPS2_S5_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN31QPollingFileSystemWatcherEngine11removePathsERK5QListI7QStringEPS2_S5_": [
+      "address", "address", "address", "address", "address"
     ]
   }
 }

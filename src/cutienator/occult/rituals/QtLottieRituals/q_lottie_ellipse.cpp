@@ -36,7 +36,7 @@ typedef const QSize * (*CuteQLottieEllipseCall11)(const void *, int *);
 class CuteQLottieEllipse : public QLottieEllipse {
 public:
   using QLottieEllipse::QLottieEllipse;
-  CuteQLottieEllipse(const QLottieEllipse &other) : QLottieEllipse(other) {}
+  CuteQLottieEllipse(const QLottieEllipse & other) : QLottieEllipse(other) {}
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {
@@ -255,6 +255,14 @@ void ritual_ZN14QLottieEllipse16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieEllipse::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QLottieEllipse6renderER15QLottieRenderer(
+    const QLottieEllipse *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  int QLottieEllipse::parse(const QJsonObject &definition)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN14QLottieEllipse5parseERK11QJsonObject(
@@ -292,6 +300,13 @@ extern "C" Q_DECL_EXPORT
 QPainterPath *ritual_ZNK14QLottieEllipse12fallbackPathEv(
     const QLottieEllipse *self) {
   return new QPainterPath(self->fallbackPath());
+}
+
+//  const QLottieProperty2D<QSizeF> &QLottieEllipse::sizeProperty() const
+extern "C" Q_DECL_EXPORT
+const QLottieProperty2D<QSizeF> *ritual_ZNK14QLottieEllipse12sizePropertyEv(
+    const QLottieEllipse *self) {
+  return &(self->sizeProperty());
 }
 
 //  const QLottieSpatialProperty &QLottieEllipse::positionProperty() const

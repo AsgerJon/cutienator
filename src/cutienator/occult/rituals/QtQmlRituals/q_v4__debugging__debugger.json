@@ -8,6 +8,12 @@
     "ritual_ZNK3QV49Debugging8Debugger10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN3QV49Debugging8Debugger11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN3QV49Debugging8Debugger11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN3QV49Debugging8Debugger2trEPKcS3_i": [
       "text", "chars", "chars", "int"
     ],

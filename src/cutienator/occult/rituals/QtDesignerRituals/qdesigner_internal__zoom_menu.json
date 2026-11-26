@@ -8,8 +8,37 @@
     "ritual_ZNK18qdesigner_internal8ZoomMenu10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal8ZoomMenu11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomMenu11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal8ZoomMenu2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomMenuC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomMenu10addActionsEP5QMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal8ZoomMenu4zoomEv": ["int", "address"],
+    "ritual_ZN18qdesigner_internal8ZoomMenu10zoomValuesEv": ["address"],
+    "ritual_ZN18qdesigner_internal8ZoomMenu7setZoomEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomMenu11zoomChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomMenu12slotZoomMenuEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal8ZoomMenu6zoomOfEPK7QAction": [
+      "int", "address"
+    ],
+    "ritual_drop_qdesigner_internal_ZoomMenu__QList_int": [
+      "nothing", "address"
     ]
   }
 }

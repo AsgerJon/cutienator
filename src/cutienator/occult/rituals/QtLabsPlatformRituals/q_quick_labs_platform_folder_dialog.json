@@ -8,6 +8,12 @@
     "ritual_ZNK30QQuickLabsPlatformFolderDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QQuickLabsPlatformFolderDialog20qmlExtendedNamespaceEv": [
       "address"
     ],
@@ -31,6 +37,21 @@
     ],
     "ritual_ZNK30QQuickLabsPlatformFolderDialog11rejectLabelEv": [
       "text", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog13folderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog20currentFolderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog14optionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog18acceptLabelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog18rejectLabelChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK30QQuickLabsPlatformFolderDialog15useNativeDialogEv": [
       "bool", "address"

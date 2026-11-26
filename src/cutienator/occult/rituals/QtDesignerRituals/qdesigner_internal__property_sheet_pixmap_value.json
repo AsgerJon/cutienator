@@ -5,8 +5,23 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal24PropertySheetPixmapValueC1ERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal24PropertySheetPixmapValueC1Ev": [
+      "address"
+    ],
+    "ritual_ZN18qdesigner_internal24PropertySheetPixmapValue15getPixmapSourceEP28QDesignerFormEditorInterfaceRK7QString": [
+      "int", "address", "text"
+    ],
     "ritual_ZNK18qdesigner_internal24PropertySheetPixmapValue12pixmapSourceEP28QDesignerFormEditorInterface": [
       "int", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal24PropertySheetPixmapValue4pathEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24PropertySheetPixmapValue7setPathERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_ZN18qdesigner_internaleqERKNS_24PropertySheetPixmapValueES2_": [
       "bool", "address", "address"

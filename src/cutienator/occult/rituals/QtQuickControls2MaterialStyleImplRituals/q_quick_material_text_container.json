@@ -9,6 +9,12 @@
     "ritual_ZNK27QQuickMaterialTextContainer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuickMaterialTextContainer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK27QQuickMaterialTextContainer8isFilledEv": [
       "bool", "address"
     ],
@@ -65,6 +71,21 @@
     ],
     "ritual_ZN27QQuickMaterialTextContainer24setPlaceholderTextHAlignENS_21PlaceHolderHAlignmentE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer14animateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer28controlHasActiveFocusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer21controlHasTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer25placeholderHasTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer24horizontalPaddingChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK27QQuickMaterialTextContainer20shouldAnimateOutlineEv": [
       "bool", "address"

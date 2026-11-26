@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtMqtt/private/qmqttcontrolpacket_p.h>
 #include <QtCore/QtEndian>
 #include <QtCore/QLoggingCategory>
@@ -19,6 +20,13 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtmqtt/src/mqtt/qmqttclient.cpp, line 19, as _Z12lcMqttClientv
+inline const QLoggingCategory &lcMqttClient()
+{
+    static const QLoggingCategory category("qt.mqtt.client");
+    return category;
+}
 
 //  from ../qtmqtt/src/mqtt/qmqttcontrolpacket.cpp, line 12, as _ZN18QMqttControlPacketC1Ev
 inline QMqttControlPacket::QMqttControlPacket()
@@ -90,6 +98,55 @@ inline void QMqttControlPacket::append(const QByteArray &data)
 inline void QMqttControlPacket::appendRaw(const QByteArray &data)
 {
     m_payload.append(data);
+}
+
+//  from ../qtmqtt/src/mqtt/qmqttcontrolpacket.cpp, line 74, as _ZN18QMqttControlPacket24appendRawVariableIntegerEj
+inline void QMqttControlPacket::appendRawVariableInteger(quint32 value)
+{
+    QByteArray data;
+    // Add length
+    if (value > 268435455)
+        qCDebug(lcMqttClient) << "Attempting to write variable integer overflow.";
+    do {
+        quint8 b = value % 128;
+        value /= 128;
+        if (value > 0)
+            b |= 0x80;
+        data.append(char(b));
+    } while (value > 0);
+    appendRaw(data);
+}
+
+//  from ../qtmqtt/src/mqtt/qmqttcontrolpacket.cpp, line 90, as _ZNK18QMqttControlPacket9serializeEv
+inline QByteArray QMqttControlPacket::serialize() const
+{
+    // Create ByteArray
+    QByteArray data;
+    // Add Header
+    data.append(char(m_header));
+    data.append(serializePayload());
+
+    return data;
+}
+
+//  from ../qtmqtt/src/mqtt/qmqttcontrolpacket.cpp, line 101, as _ZNK18QMqttControlPacket16serializePayloadEv
+inline QByteArray QMqttControlPacket::serializePayload() const
+{
+    QByteArray data;
+    // Add length
+    quint32 msgSize = quint32(m_payload.size());
+    if (msgSize > 268435455)
+        qCDebug(lcMqttClient) << "Publishing a message bigger than maximum size.";
+    do {
+        quint8 b = msgSize % 128;
+        msgSize /= 128;
+        if (msgSize > 0)
+            b |= 0x80;
+        data.append(char(b));
+    } while (msgSize > 0);
+    // Add payload
+    data.append(m_payload);
+    return data;
 }
 //  -----------------------------------------------------------------------
 
@@ -173,6 +230,28 @@ void ritual_ZN18QMqttControlPacket9appendRawERK10QByteArray(
     QMqttControlPacket *self,
     const QByteArray *data) {
   self->appendRaw(*data);
+}
+
+//  void QMqttControlPacket::appendRawVariableInteger(quint32 value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QMqttControlPacket24appendRawVariableIntegerEj(
+    QMqttControlPacket *self,
+    quint32 value) {
+  self->appendRawVariableInteger(value);
+}
+
+//  QByteArray QMqttControlPacket::serialize() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK18QMqttControlPacket9serializeEv(
+    const QMqttControlPacket *self) {
+  return new QByteArray(self->serialize());
+}
+
+//  QByteArray QMqttControlPacket::serializePayload() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK18QMqttControlPacket16serializePayloadEv(
+    const QMqttControlPacket *self) {
+  return new QByteArray(self->serializePayload());
 }
 
 //  QByteArray QMqttControlPacket::payload() const

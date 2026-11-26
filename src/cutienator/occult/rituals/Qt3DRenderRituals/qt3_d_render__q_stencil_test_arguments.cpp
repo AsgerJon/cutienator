@@ -180,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender21QStencilTestArguments10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QStencilTestArguments::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender21QStencilTestArguments11qt_metacastEPKc(
+    Qt3DRender::QStencilTestArguments *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QStencilTestArguments::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender21QStencilTestArguments11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QStencilTestArguments *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QStencilTestArguments::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -188,6 +207,116 @@ QString *ritual_ZN10Qt3DRender21QStencilTestArguments2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QStencilTestArguments::tr(s, c, n));
+}
+
+//  Qt3DRender::QStencilTestArguments::~QStencilTestArguments()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QStencilTestArgumentsD1Ev(
+    Qt3DRender::QStencilTestArguments *self) {
+  delete self;
+}
+
+//  uint Qt3DRender::QStencilTestArguments::comparisonMask() const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK10Qt3DRender21QStencilTestArguments14comparisonMaskEv(
+    const Qt3DRender::QStencilTestArguments *self) {
+  return self->comparisonMask();
+}
+
+//  int Qt3DRender::QStencilTestArguments::referenceValue() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender21QStencilTestArguments14referenceValueEv(
+    const Qt3DRender::QStencilTestArguments *self) {
+  return self->referenceValue();
+}
+
+//  StencilFunction Qt3DRender::QStencilTestArguments::stencilFunction()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilTestArguments::StencilFunction ritual_ZNK10Qt3DRender21QStencilTestArguments15stencilFunctionEv(
+    const Qt3DRender::QStencilTestArguments *self) {
+  return self->stencilFunction();
+}
+
+//  StencilFaceMode Qt3DRender::QStencilTestArguments::faceMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilTestArguments::StencilFaceMode ritual_ZNK10Qt3DRender21QStencilTestArguments8faceModeEv(
+    const Qt3DRender::QStencilTestArguments *self) {
+  return self->faceMode();
+}
+
+//  void Qt3DRender::QStencilTestArguments::setComparisonMask(uint
+//      comparisonMask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QStencilTestArguments17setComparisonMaskEj(
+    Qt3DRender::QStencilTestArguments *self,
+    uint comparisonMask) {
+  self->setComparisonMask(comparisonMask);
+}
+
+//  void Qt3DRender::QStencilTestArguments::setReferenceValue(int
+//      referenceValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QStencilTestArguments17setReferenceValueEi(
+    Qt3DRender::QStencilTestArguments *self,
+    int referenceValue) {
+  self->setReferenceValue(referenceValue);
+}
+
+//  void
+//      Qt3DRender::QStencilTestArguments::setStencilFunction(StencilFunction
+//      stencilFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QStencilTestArguments18setStencilFunctionENS0_15StencilFunctionE(
+    Qt3DRender::QStencilTestArguments *self,
+    Qt3DRender::QStencilTestArguments::StencilFunction stencilFunction) {
+  self->setStencilFunction(stencilFunction);
+}
+
+//  void Qt3DRender::QStencilTestArguments::comparisonMaskChanged(uint
+//      comparisonMask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QStencilTestArguments21comparisonMaskChangedEj(
+    Qt3DRender::QStencilTestArguments *self,
+    uint comparisonMask) {
+  self->comparisonMaskChanged(comparisonMask);
+}
+
+//  void
+//      Qt3DRender::QStencilTestArguments::stencilFunctionChanged(StencilFunc
+//      tion stencilFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QStencilTestArguments22stencilFunctionChangedENS0_15StencilFunctionE(
+    Qt3DRender::QStencilTestArguments *self,
+    Qt3DRender::QStencilTestArguments::StencilFunction stencilFunction) {
+  self->stencilFunctionChanged(stencilFunction);
+}
+
+//  void Qt3DRender::QStencilTestArguments::referenceValueChanged(int
+//      referenceValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QStencilTestArguments21referenceValueChangedEi(
+    Qt3DRender::QStencilTestArguments *self,
+    int referenceValue) {
+  self->referenceValueChanged(referenceValue);
+}
+
+//  void Qt3DRender::QStencilTestArguments::faceModeChanged(StencilFaceMode
+//      faceMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QStencilTestArguments15faceModeChangedENS0_15StencilFaceModeE(
+    Qt3DRender::QStencilTestArguments *self,
+    Qt3DRender::QStencilTestArguments::StencilFaceMode faceMode) {
+  self->faceModeChanged(faceMode);
+}
+
+//  Qt3DRender::QStencilTestArguments::QStencilTestArguments(StencilFaceMode
+//      face, QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilTestArguments *ritual_ZN10Qt3DRender21QStencilTestArgumentsC1ENS0_15StencilFaceModeEP7QObject(
+    Qt3DRender::QStencilTestArguments::StencilFaceMode face,
+    QObject *parent) {
+  return new CuteQt3DRender_QStencilTestArguments(face, parent);
 }
 
 //  QStencilTestArgumentsPrivate *Qt3DRender::QStencilTestArguments::d_func()

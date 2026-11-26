@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtNfc/qndeffilter.h, Qt 6.12.0. Changes made here are lost."
+    "QtNfc/qndeffilter.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN11QNdefFilterC1Ev": ["address"],
@@ -22,8 +23,18 @@
     "ritual_ZNK11QNdefFilter8recordAtEx": [
       "address", "address", "long long"
     ],
+    "ritual_ZN11QNdefFilteraSERKS_": ["address", "address", "address"],
     "ritual_ZNK11QNdefFilter5matchERK12QNdefMessage": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN11QNdefFilter12appendRecordI18QNdefNfcTextRecordEEbjj": [
+      "bool", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN11QNdefFilter12appendRecordI17QNdefNfcUriRecordEEbjj": [
+      "bool", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN11QNdefFilter12appendRecordI25QNdefNfcSmartPosterRecordEEbjj": [
+      "bool", "address", "unsigned int", "unsigned int"
     ]
   }
 }

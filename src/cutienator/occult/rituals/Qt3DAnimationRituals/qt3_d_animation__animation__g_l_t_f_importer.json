@@ -5,7 +5,56 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporterC1Ev": ["address"],
+    "ritual_ZNK13Qt3DAnimation9Animation12GLTFImporter10animationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12GLTFImporter19createAnimationDataExRK7QString": [
+      "address", "address", "long long", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter20accessorTypeFromJSONEi": [
+      "int", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter16accessorTypeSizeEN8Qt3DCore10QAttribute14VertexBaseTypeE": [
+      "unsigned int", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter24accessorDataSizeFromJsonERK7QString": [
+      "unsigned int", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter11setBasePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter7setJSONERK13QJsonDocument": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12GLTFImporter30createNodeIndexToJointIndexMapERKNS1_4SkinE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter17processJSONBufferERK11QJsonObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter20setupNodeParentLinksEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12GLTFImporter16resolveLocalDataERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12GLTFImporter12accessorDataEii": [
+      "address", "address", "int", "int"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation12GLTFImporterD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_GLTFImporter__QList_Qt3DAnimation_Animation_GLTFImporter_Animation": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_GLTFImporter__QHash_qsizetype_qsizetype": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_GLTFImporter__Qt3DAnimation_Animation_GLTFImporter_RawData": [
       "nothing", "address"
     ]
   }

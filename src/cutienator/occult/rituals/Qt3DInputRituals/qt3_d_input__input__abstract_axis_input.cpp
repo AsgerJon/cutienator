@@ -8,6 +8,44 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/qnodeid.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DInput/qabstractaxisinput.h>
+#include <Qt3DInput/private/qabstractaxisinput_p.h>
+#include <Qt3DInput/qabstractphysicaldevice.h>
+#include <Qt3DInput/private/abstractaxisinput_p.h>
+#include <Qt3DInput/private/inputhandler_p.h>
+#include <Qt3DInput/private/qinputdeviceintegration_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/input/backend/abstractaxisinput.cpp, line 30, as _ZN9Qt3DInput5Input17AbstractAxisInput16syncFromFrontEndEPKN8Qt3DCore5QNodeEb
+namespace Qt3DInput::Input {
+inline void AbstractAxisInput::syncFromFrontEnd(const Qt3DCore::QNode *frontEnd, bool firstTime)
+{
+    BackendNode::syncFromFrontEnd(frontEnd, firstTime);
+    const QAbstractAxisInput *node = qobject_cast<const QAbstractAxisInput *>(frontEnd);
+    if (!node)
+        return;
+
+    m_sourceDevice = Qt3DCore::qIdForNode(node->sourceDevice());
+}
+}  // namespace Qt3DInput::Input
+
+//  from ../qt3d/src/input/backend/abstractaxisinput.cpp, line 24, as _ZN9Qt3DInput5Input17AbstractAxisInput7cleanupEv
+namespace Qt3DInput::Input {
+inline void AbstractAxisInput::cleanup()
+{
+    QBackendNode::setEnabled(false);
+    m_sourceDevice = Qt3DCore::QNodeId();
+}
+}  // namespace Qt3DInput::Input
+//  -----------------------------------------------------------------------
 
 //  A Qt3DInput::Input::AbstractAxisInput that Python can take functions over in. Every Qt3DInput::Input::AbstractAxisInput
 //  Python makes is one. Each function below asks the Python
@@ -91,6 +129,16 @@ Qt3DCore::QNodeId *ritual_ZNK9Qt3DInput5Input17AbstractAxisInput12sourceDeviceEv
   return new Qt3DCore::QNodeId(self->sourceDevice());
 }
 
+//  void Qt3DInput::Input::AbstractAxisInput::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput5Input17AbstractAxisInput16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DInput::Input::AbstractAxisInput *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  float Qt3DInput::Input::AbstractAxisInput::process(InputHandler
 //      *inputHandler, qint64 currentTime)
 extern "C" Q_DECL_EXPORT
@@ -109,4 +157,23 @@ bool ritual_take_Qt3DInput_Input_AbstractAxisInput(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_Input_AbstractAxisInput *>(self)->take(key, call);
+}
+
+//  void Qt3DInput::Input::AbstractAxisInput::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN9Qt3DInput5Input17AbstractAxisInput7cleanupEv(
+    Qt3DInput::Input::AbstractAxisInput *self) {
+  self->Qt3DInput::Input::AbstractAxisInput::cleanup();
+}
+
+//  void Qt3DInput::Input::AbstractAxisInput::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN9Qt3DInput5Input17AbstractAxisInput16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DInput::Input::AbstractAxisInput *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->Qt3DInput::Input::AbstractAxisInput::syncFromFrontEnd(
+      frontEnd,
+      firstTime);
 }

@@ -39,6 +39,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/corelib/io/qfilesystemwatcher_win.cpp, line 293, as _ZN31QWindowsFileSystemWatcherEngine6HandleC1Ev
 inline QWindowsFileSystemWatcherEngine::Handle::Handle()
     : handle(INVALID_HANDLE_VALUE), flags(0u)

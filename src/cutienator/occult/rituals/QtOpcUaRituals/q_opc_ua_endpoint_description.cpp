@@ -22,6 +22,15 @@ QOpcUaEndpointDescription *ritual_ZN25QOpcUaEndpointDescriptionC1ERKS_(
   return new QOpcUaEndpointDescription(*a0);
 }
 
+//  QOpcUaEndpointDescription &QOpcUaEndpointDescription::operator=(const
+//      QOpcUaEndpointDescription &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaEndpointDescription *ritual_ZN25QOpcUaEndpointDescriptionaSERKS_(
+    QOpcUaEndpointDescription *self,
+    const QOpcUaEndpointDescription *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaEndpointDescription::operator==(const
 //      QOpcUaEndpointDescription &a0) const
 extern "C" Q_DECL_EXPORT
@@ -59,6 +68,13 @@ extern "C" Q_DECL_EXPORT
 QOpcUaApplicationDescription *ritual_ZNK25QOpcUaEndpointDescription6serverEv(
     const QOpcUaEndpointDescription *self) {
   return new QOpcUaApplicationDescription(self->server());
+}
+
+//  QOpcUaApplicationDescription &QOpcUaEndpointDescription::serverRef()
+extern "C" Q_DECL_EXPORT
+QOpcUaApplicationDescription *ritual_ZN25QOpcUaEndpointDescription9serverRefEv(
+    QOpcUaEndpointDescription *self) {
+  return &(self->serverRef());
 }
 
 //  void QOpcUaEndpointDescription::setServer(const
@@ -125,6 +141,14 @@ extern "C" Q_DECL_EXPORT
 QList<QOpcUaUserTokenPolicy> *ritual_ZNK25QOpcUaEndpointDescription18userIdentityTokensEv(
     const QOpcUaEndpointDescription *self) {
   return new QList<QOpcUaUserTokenPolicy>(self->userIdentityTokens());
+}
+
+//  QList<QOpcUaUserTokenPolicy>
+//      &QOpcUaEndpointDescription::userIdentityTokensRef()
+extern "C" Q_DECL_EXPORT
+QList<QOpcUaUserTokenPolicy> *ritual_ZN25QOpcUaEndpointDescription21userIdentityTokensRefEv(
+    QOpcUaEndpointDescription *self) {
+  return &(self->userIdentityTokensRef());
 }
 
 //  void QOpcUaEndpointDescription::setUserIdentityTokens(const

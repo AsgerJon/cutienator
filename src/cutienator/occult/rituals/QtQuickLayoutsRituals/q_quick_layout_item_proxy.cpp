@@ -27,25 +27,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 90, as _ZN21QQuickLayoutItemProxyD1Ev
-inline QQuickLayoutItemProxy::~QQuickLayoutItemProxy()
+//  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 146, as _ZN21QQuickLayoutItemProxy10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickLayoutItemProxy::itemChange(ItemChange c, const ItemChangeData &d)
 {
-    Q_D(QQuickLayoutItemProxy);
-
-    if (!d->target)
-        return;
-
-    QQuickLayoutItemProxyAttachedData * attachedData = d->target->property("QQuickLayoutItemProxyAttachedData").value<QQuickLayoutItemProxyAttachedData*>();
-    // De-register this proxy from the proxies controlling the target
-    if (attachedData) {
-        if (attachedData->getControllingProxy() == this) {
-            attachedData->releaseControl(this);
-            d->target->setParentItem(nullptr);
-        }
-        attachedData->releaseProxy(this);
+    if (c == QQuickItem::ItemVisibleHasChanged)
+    {
+        maybeTakeControl();
     }
-    // The target item still has a QObject parent that takes care of its destrctuion.
-    // No need to invoke destruction of the target tiem from here.
+    QQuickItem::itemChange(c, d);
 }
 
 //  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 114, as _ZN21QQuickLayoutItemProxy14geometryChangeERK6QRectFS2_
@@ -75,16 +64,6 @@ inline void QQuickLayoutItemProxy::geometryChange(const QRectF &newGeom, const Q
         t->setSize(sz);
         t->setPosition(pos);
     }
-}
-
-//  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 146, as _ZN21QQuickLayoutItemProxy10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
-inline void QQuickLayoutItemProxy::itemChange(ItemChange c, const ItemChangeData &d)
-{
-    if (c == QQuickItem::ItemVisibleHasChanged)
-    {
-        maybeTakeControl();
-    }
-    QQuickItem::itemChange(c, d);
 }
 
 //  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 213, as _ZNK21QQuickLayoutItemProxy6targetEv
@@ -865,6 +844,25 @@ const QMetaObject *ritual_ZNK21QQuickLayoutItemProxy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLayoutItemProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickLayoutItemProxy11qt_metacastEPKc(
+    QQuickLayoutItemProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLayoutItemProxy::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickLayoutItemProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLayoutItemProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickLayoutItemProxy::~QQuickLayoutItemProxy()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickLayoutItemProxyD1Ev(QQuickLayoutItemProxy *self) {
@@ -896,6 +894,881 @@ extern "C" Q_DECL_EXPORT
 QQuickItem *ritual_ZNK21QQuickLayoutItemProxy6targetEv(
     const QQuickLayoutItemProxy *self) {
   return self->target();
+}
+
+//  void QQuickLayoutItemProxy::clearTarget()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy11clearTargetEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "clearTarget()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "clearTarget()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::updatePos()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy9updatePosEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updatePos()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updatePos()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetMinimumWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy25targetMinimumWidthChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetMinimumWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetMinimumWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyMinimumWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy24proxyMinimumWidthChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyMinimumWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyMinimumWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetMinimumHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy26targetMinimumHeightChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetMinimumHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetMinimumHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyMinimumHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy25proxyMinimumHeightChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyMinimumHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyMinimumHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetPreferredWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy27targetPreferredWidthChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetPreferredWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetPreferredWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyPreferredWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy26proxyPreferredWidthChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyPreferredWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyPreferredWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetPreferredHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy28targetPreferredHeightChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetPreferredHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetPreferredHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyPreferredHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy27proxyPreferredHeightChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyPreferredHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyPreferredHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetMaximumWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy25targetMaximumWidthChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetMaximumWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetMaximumWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyMaximumWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy24proxyMaximumWidthChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyMaximumWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyMaximumWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetMaximumHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy26targetMaximumHeightChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetMaximumHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetMaximumHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyMaximumHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy25proxyMaximumHeightChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyMaximumHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyMaximumHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetFillWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy22targetFillWidthChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetFillWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetFillWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyFillWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy21proxyFillWidthChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyFillWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyFillWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetFillHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy23targetFillHeightChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetFillHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetFillHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyFillHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy22proxyFillHeightChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyFillHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyFillHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetAlignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy22targetAlignmentChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetAlignmentChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetAlignmentChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyAlignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy21proxyAlignmentChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyAlignmentChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyAlignmentChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetHorizontalStretchFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy36targetHorizontalStretchFactorChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetHorizontalStretchFactorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetHorizontalStretchFactorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyHorizontalStretchFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy35proxyHorizontalStretchFactorChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyHorizontalStretchFactorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyHorizontalStretchFactorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetVerticalStretchFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy34targetVerticalStretchFactorChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetVerticalStretchFactorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetVerticalStretchFactorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyVerticalStretchFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy33proxyVerticalStretchFactorChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyVerticalStretchFactorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyVerticalStretchFactorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetMarginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy20targetMarginsChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetMarginsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetMarginsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyMarginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy19proxyMarginsChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyMarginsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyMarginsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetLeftMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy23targetLeftMarginChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetLeftMarginChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetLeftMarginChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyLeftMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy22proxyLeftMarginChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyLeftMarginChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyLeftMarginChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetTopMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy22targetTopMarginChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetTopMarginChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetTopMarginChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyTopMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy21proxyTopMarginChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyTopMarginChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyTopMarginChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetRightMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy24targetRightMarginChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetRightMarginChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetRightMarginChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyRightMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy23proxyRightMarginChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyRightMarginChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyRightMarginChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetBottomMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy25targetBottomMarginChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetBottomMarginChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetBottomMarginChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::proxyBottomMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy24proxyBottomMarginChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyBottomMarginChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyBottomMarginChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxy::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickLayoutItemProxy13targetChangedEv(
+    QQuickLayoutItemProxy *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QQuickLayoutItemProxyPrivate *QQuickLayoutItemProxy::d_func()

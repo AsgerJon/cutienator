@@ -37,6 +37,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 312, as local:qquickiconlabel.cpp:itemChangeTypes
+static const QQuickItemPrivate::ChangeTypes itemChangeTypes =
+    QQuickItemPrivate::ImplicitWidth
+    | QQuickItemPrivate::ImplicitHeight
+    | QQuickItemPrivate::Destroyed;
+
 //  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 18, as _ZN22QQuickIconLabelPrivate10beginClassEP10QQuickItem
 inline void QQuickIconLabelPrivate::beginClass(QQuickItem *item)
 {
@@ -44,188 +50,18 @@ inline void QQuickIconLabelPrivate::beginClass(QQuickItem *item)
         parserStatus->classBegin();
 }
 
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 317, as _ZN22QQuickIconLabelPrivate12watchChangesEP10QQuickItem
+inline void QQuickIconLabelPrivate::watchChanges(QQuickItem *item)
+{
+    QQuickItemPrivate *itemPrivate = QQuickItemPrivate::get(item);
+    itemPrivate->addItemChangeListener(this, itemChangeTypes);
+}
+
 //  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 24, as _ZN22QQuickIconLabelPrivate17completeComponentEP10QQuickItem
 inline void QQuickIconLabelPrivate::completeComponent(QQuickItem *item)
 {
     if (QQmlParserStatus *parserStatus = qobject_cast<QQmlParserStatus *>(item))
         parserStatus->componentComplete();
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 32, as _ZNK22QQuickIconLabelPrivate7hasIconEv
-inline bool QQuickIconLabelPrivate::hasIcon() const
-{
-    return display != QQuickIconLabel::TextOnly && !icon.isEmpty();
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 37, as _ZNK22QQuickIconLabelPrivate7hasTextEv
-inline bool QQuickIconLabelPrivate::hasText() const
-{
-    return display != QQuickIconLabel::IconOnly && !text.isEmpty();
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 192, as _ZN22QQuickIconLabelPrivate11alignedRectEb6QFlagsIN2Qt13AlignmentFlagEERK6QSizeFRK6QRectF
-inline QRectF QQuickIconLabelPrivate::alignedRect(bool mirrored, Qt::Alignment alignment,
-    const QSizeF &size, const QRectF &rectangle)
-{
-    alignment = QGuiApplicationPrivate::visualAlignment(mirrored ? Qt::RightToLeft : Qt::LeftToRight, alignment);
-    qreal x = rectangle.x();
-    qreal y = rectangle.y();
-    const qreal w = size.width();
-    const qreal h = size.height();
-    if ((alignment & Qt::AlignVCenter) == Qt::AlignVCenter)
-        y += rectangle.height() / 2 - h / 2;
-    else if ((alignment & Qt::AlignBottom) == Qt::AlignBottom)
-        y += rectangle.height() - h;
-    if ((alignment & Qt::AlignRight) == Qt::AlignRight)
-        x += rectangle.width() - w;
-    else if ((alignment & Qt::AlignHCenter) == Qt::AlignHCenter)
-        x += rectangle.width() / 2 - w / 2;
-    return QRectF(x, y, w, h);
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 211, as _ZN22QQuickIconLabelPrivate6layoutEv
-inline void QQuickIconLabelPrivate::layout()
-{
-    Q_Q(QQuickIconLabel);
-    if (!componentComplete)
-        return;
-
-    const qreal availableWidth = width - leftPadding - rightPadding;
-    const qreal availableHeight = height - topPadding - bottomPadding;
-
-    switch (display) {
-    case QQuickIconLabel::IconOnly:
-        if (image) {
-            const QRectF iconRect = alignedRect(mirrored, alignment,
-                                                QSizeF(qMin(image->implicitWidth(), availableWidth),
-                                                       qMin(image->implicitHeight(), availableHeight)),
-                                                QRectF(leftPadding, topPadding, availableWidth, availableHeight));
-            image->setSize(iconRect.size());
-            image->snapPositionTo(iconRect.topLeft());
-        }
-        break;
-    case QQuickIconLabel::TextOnly:
-        if (label) {
-            const QRectF textRect = alignedRect(mirrored, alignment,
-                                                QSizeF(qMin(label->implicitWidth(), availableWidth),
-                                                       qMin(label->implicitHeight(), availableHeight)),
-                                                QRectF(leftPadding, topPadding, availableWidth, availableHeight));
-            label->setSize(textRect.size());
-            label->setPosition(textRect.topLeft());
-        }
-        break;
-
-    case QQuickIconLabel::TextUnderIcon: {
-        // Work out the sizes first, as the positions depend on them.
-        QSizeF iconSize;
-        QSizeF textSize;
-        if (image) {
-            iconSize.setWidth(qMin(image->implicitWidth(), availableWidth));
-            iconSize.setHeight(qMin(image->implicitHeight(), availableHeight));
-        }
-        qreal effectiveSpacing = 0;
-        if (label) {
-            if (!iconSize.isEmpty())
-                effectiveSpacing = spacing;
-            textSize.setWidth(qMin(label->implicitWidth(), availableWidth));
-            textSize.setHeight(qMin(label->implicitHeight(), availableHeight - iconSize.height() - effectiveSpacing));
-        }
-
-        QRectF combinedRect = alignedRect(mirrored, alignment,
-                                          QSizeF(qMax(iconSize.width(), textSize.width()),
-                                                 iconSize.height() + effectiveSpacing + textSize.height()),
-                                          QRectF(leftPadding, topPadding, availableWidth, availableHeight));
-        if (image) {
-            QRectF iconRect = alignedRect(mirrored, Qt::AlignHCenter | Qt::AlignTop, iconSize, combinedRect);
-            image->setSize(iconRect.size());
-            image->snapPositionTo(iconRect.topLeft());
-        }
-        if (label) {
-            QRectF textRect = alignedRect(mirrored, Qt::AlignHCenter | Qt::AlignBottom, textSize, combinedRect);
-            label->setSize(textRect.size());
-            label->setPosition(textRect.topLeft());
-        }
-        break;
-    }
-
-    case QQuickIconLabel::TextBesideIcon:
-    default:
-        // Work out the sizes first, as the positions depend on them.
-        QSizeF iconSize(0, 0);
-        QSizeF textSize(0, 0);
-        if (image) {
-            iconSize.setWidth(qMin(image->implicitWidth(), availableWidth));
-            iconSize.setHeight(qMin(image->implicitHeight(), availableHeight));
-        }
-        qreal effectiveSpacing = 0;
-        if (label) {
-            if (!iconSize.isEmpty())
-                effectiveSpacing = spacing;
-            textSize.setWidth(qMin(label->implicitWidth(), availableWidth - iconSize.width() - effectiveSpacing));
-            textSize.setHeight(qMin(label->implicitHeight(), availableHeight));
-        }
-
-        const QRectF combinedRect = alignedRect(mirrored, alignment,
-                                                QSizeF(iconSize.width() + effectiveSpacing + textSize.width(),
-                                                       qMax(iconSize.height(), textSize.height())),
-                                                QRectF(leftPadding, topPadding, availableWidth, availableHeight));
-        if (image) {
-            const QRectF iconRect = alignedRect(mirrored, Qt::AlignLeft | Qt::AlignVCenter, iconSize, combinedRect);
-            image->setSize(iconRect.size());
-            image->snapPositionTo(iconRect.topLeft());
-        }
-        if (label) {
-            const QRectF textRect = alignedRect(mirrored, Qt::AlignRight | Qt::AlignVCenter, textSize, combinedRect);
-            label->setSize(textRect.size());
-            label->setPosition(textRect.topLeft());
-        }
-        break;
-    }
-
-    q->setBaselineOffset(label ? label->y() + label->baselineOffset() : 0);
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 341, as _ZN22QQuickIconLabelPrivate13itemDestroyedEP10QQuickItem
-inline void QQuickIconLabelPrivate::itemDestroyed(QQuickItem *item)
-{
-    unwatchChanges(item);
-    if (item == image)
-        image = nullptr;
-    else if (item == label)
-        label = nullptr;
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 18, as _ZNK30QQuickMenuItemIconLabelPrivate11hasShortcutEv
-inline bool QQuickMenuItemIconLabelPrivate::hasShortcut() const
-{
-#if QT_CONFIG(shortcut)
-    // See comment in layout() for why we don't support TextUnderIcon for shortcuts.
-    return (display == QQuickIconLabel::TextOnly || display == QQuickIconLabel::TextBesideIcon)
-        // Don't store this statically because we want to be able to auto-test it.
-        && !QCoreApplication::testAttribute(Qt::AA_DontShowShortcutsInContextMenus)
-        && !shortcut().isEmpty();
-#else
-    return false;
-#endif
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 32, as _ZNK30QQuickMenuItemIconLabelPrivate8shortcutEv
-#if QT_CONFIG(shortcut)
-inline QKeySequence QQuickMenuItemIconLabelPrivate::shortcut() const
-{
-    return menuItem && menuItem->action() ? menuItem->action()->shortcut() : QKeySequence();
-}
-#endif  // QT_CONFIG(shortcut)
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 260, as _ZN30QQuickMenuItemIconLabelPrivate17syncShortcutLabelEv
-inline void QQuickMenuItemIconLabelPrivate::syncShortcutLabel()
-{
-    if (!shortcutLabel)
-        return;
-
-#if QT_CONFIG(shortcut)
-    shortcutLabel->setText(shortcut().toString(QKeySequence::NativeText));
-#endif
 }
 
 //  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 86, as _ZN30QQuickMenuItemIconLabelPrivate18updateImplicitSizeEv
@@ -398,6 +234,207 @@ inline void QQuickMenuItemIconLabelPrivate::textChange()
 inline void QQuickMenuItemIconLabelPrivate::displayChange()
 {
     updateOrSyncShortcutLabel();
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 32, as _ZNK22QQuickIconLabelPrivate7hasIconEv
+inline bool QQuickIconLabelPrivate::hasIcon() const
+{
+    return display != QQuickIconLabel::TextOnly && !icon.isEmpty();
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 37, as _ZNK22QQuickIconLabelPrivate7hasTextEv
+inline bool QQuickIconLabelPrivate::hasText() const
+{
+    return display != QQuickIconLabel::IconOnly && !text.isEmpty();
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 192, as _ZN22QQuickIconLabelPrivate11alignedRectEb6QFlagsIN2Qt13AlignmentFlagEERK6QSizeFRK6QRectF
+inline QRectF QQuickIconLabelPrivate::alignedRect(bool mirrored, Qt::Alignment alignment,
+    const QSizeF &size, const QRectF &rectangle)
+{
+    alignment = QGuiApplicationPrivate::visualAlignment(mirrored ? Qt::RightToLeft : Qt::LeftToRight, alignment);
+    qreal x = rectangle.x();
+    qreal y = rectangle.y();
+    const qreal w = size.width();
+    const qreal h = size.height();
+    if ((alignment & Qt::AlignVCenter) == Qt::AlignVCenter)
+        y += rectangle.height() / 2 - h / 2;
+    else if ((alignment & Qt::AlignBottom) == Qt::AlignBottom)
+        y += rectangle.height() - h;
+    if ((alignment & Qt::AlignRight) == Qt::AlignRight)
+        x += rectangle.width() - w;
+    else if ((alignment & Qt::AlignHCenter) == Qt::AlignHCenter)
+        x += rectangle.width() / 2 - w / 2;
+    return QRectF(x, y, w, h);
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 211, as _ZN22QQuickIconLabelPrivate6layoutEv
+inline void QQuickIconLabelPrivate::layout()
+{
+    Q_Q(QQuickIconLabel);
+    if (!componentComplete)
+        return;
+
+    const qreal availableWidth = width - leftPadding - rightPadding;
+    const qreal availableHeight = height - topPadding - bottomPadding;
+
+    switch (display) {
+    case QQuickIconLabel::IconOnly:
+        if (image) {
+            const QRectF iconRect = alignedRect(mirrored, alignment,
+                                                QSizeF(qMin(image->implicitWidth(), availableWidth),
+                                                       qMin(image->implicitHeight(), availableHeight)),
+                                                QRectF(leftPadding, topPadding, availableWidth, availableHeight));
+            image->setSize(iconRect.size());
+            image->snapPositionTo(iconRect.topLeft());
+        }
+        break;
+    case QQuickIconLabel::TextOnly:
+        if (label) {
+            const QRectF textRect = alignedRect(mirrored, alignment,
+                                                QSizeF(qMin(label->implicitWidth(), availableWidth),
+                                                       qMin(label->implicitHeight(), availableHeight)),
+                                                QRectF(leftPadding, topPadding, availableWidth, availableHeight));
+            label->setSize(textRect.size());
+            label->setPosition(textRect.topLeft());
+        }
+        break;
+
+    case QQuickIconLabel::TextUnderIcon: {
+        // Work out the sizes first, as the positions depend on them.
+        QSizeF iconSize;
+        QSizeF textSize;
+        if (image) {
+            iconSize.setWidth(qMin(image->implicitWidth(), availableWidth));
+            iconSize.setHeight(qMin(image->implicitHeight(), availableHeight));
+        }
+        qreal effectiveSpacing = 0;
+        if (label) {
+            if (!iconSize.isEmpty())
+                effectiveSpacing = spacing;
+            textSize.setWidth(qMin(label->implicitWidth(), availableWidth));
+            textSize.setHeight(qMin(label->implicitHeight(), availableHeight - iconSize.height() - effectiveSpacing));
+        }
+
+        QRectF combinedRect = alignedRect(mirrored, alignment,
+                                          QSizeF(qMax(iconSize.width(), textSize.width()),
+                                                 iconSize.height() + effectiveSpacing + textSize.height()),
+                                          QRectF(leftPadding, topPadding, availableWidth, availableHeight));
+        if (image) {
+            QRectF iconRect = alignedRect(mirrored, Qt::AlignHCenter | Qt::AlignTop, iconSize, combinedRect);
+            image->setSize(iconRect.size());
+            image->snapPositionTo(iconRect.topLeft());
+        }
+        if (label) {
+            QRectF textRect = alignedRect(mirrored, Qt::AlignHCenter | Qt::AlignBottom, textSize, combinedRect);
+            label->setSize(textRect.size());
+            label->setPosition(textRect.topLeft());
+        }
+        break;
+    }
+
+    case QQuickIconLabel::TextBesideIcon:
+    default:
+        // Work out the sizes first, as the positions depend on them.
+        QSizeF iconSize(0, 0);
+        QSizeF textSize(0, 0);
+        if (image) {
+            iconSize.setWidth(qMin(image->implicitWidth(), availableWidth));
+            iconSize.setHeight(qMin(image->implicitHeight(), availableHeight));
+        }
+        qreal effectiveSpacing = 0;
+        if (label) {
+            if (!iconSize.isEmpty())
+                effectiveSpacing = spacing;
+            textSize.setWidth(qMin(label->implicitWidth(), availableWidth - iconSize.width() - effectiveSpacing));
+            textSize.setHeight(qMin(label->implicitHeight(), availableHeight));
+        }
+
+        const QRectF combinedRect = alignedRect(mirrored, alignment,
+                                                QSizeF(iconSize.width() + effectiveSpacing + textSize.width(),
+                                                       qMax(iconSize.height(), textSize.height())),
+                                                QRectF(leftPadding, topPadding, availableWidth, availableHeight));
+        if (image) {
+            const QRectF iconRect = alignedRect(mirrored, Qt::AlignLeft | Qt::AlignVCenter, iconSize, combinedRect);
+            image->setSize(iconRect.size());
+            image->snapPositionTo(iconRect.topLeft());
+        }
+        if (label) {
+            const QRectF textRect = alignedRect(mirrored, Qt::AlignRight | Qt::AlignVCenter, textSize, combinedRect);
+            label->setSize(textRect.size());
+            label->setPosition(textRect.topLeft());
+        }
+        break;
+    }
+
+    q->setBaselineOffset(label ? label->y() + label->baselineOffset() : 0);
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 341, as _ZN22QQuickIconLabelPrivate13itemDestroyedEP10QQuickItem
+inline void QQuickIconLabelPrivate::itemDestroyed(QQuickItem *item)
+{
+    unwatchChanges(item);
+    if (item == image)
+        image = nullptr;
+    else if (item == label)
+        label = nullptr;
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 18, as _ZNK30QQuickMenuItemIconLabelPrivate11hasShortcutEv
+inline bool QQuickMenuItemIconLabelPrivate::hasShortcut() const
+{
+#if QT_CONFIG(shortcut)
+    // See comment in layout() for why we don't support TextUnderIcon for shortcuts.
+    return (display == QQuickIconLabel::TextOnly || display == QQuickIconLabel::TextBesideIcon)
+        // Don't store this statically because we want to be able to auto-test it.
+        && !QCoreApplication::testAttribute(Qt::AA_DontShowShortcutsInContextMenus)
+        && !shortcut().isEmpty();
+#else
+    return false;
+#endif
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 32, as _ZNK30QQuickMenuItemIconLabelPrivate8shortcutEv
+#if QT_CONFIG(shortcut)
+inline QKeySequence QQuickMenuItemIconLabelPrivate::shortcut() const
+{
+    return menuItem && menuItem->action() ? menuItem->action()->shortcut() : QKeySequence();
+}
+#endif  // QT_CONFIG(shortcut)
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 38, as _ZN30QQuickMenuItemIconLabelPrivate19createShortcutLabelEv
+inline bool QQuickMenuItemIconLabelPrivate::createShortcutLabel()
+{
+    Q_Q(QQuickIconLabel);
+    if (shortcutLabel)
+        return false;
+
+    shortcutLabel = new QQuickText(q);
+    watchChanges(shortcutLabel);
+    beginClass(shortcutLabel);
+    shortcutLabel->setObjectName(QStringLiteral("shortcutLabel"));
+    shortcutLabel->setFont(font);
+    shortcutLabel->setColor(color);
+    // We don't set elide because it shouldn't.
+    shortcutLabel->setVAlign(QQuickText::AlignVCenter);
+    shortcutLabel->setHAlign(QQuickText::AlignHCenter);
+#if QT_CONFIG(shortcut)
+    shortcutLabel->setText(shortcut().toString(QKeySequence::NativeText));
+#endif
+    if (componentComplete)
+        completeComponent(shortcutLabel);
+    return true;
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 260, as _ZN30QQuickMenuItemIconLabelPrivate17syncShortcutLabelEv
+inline void QQuickMenuItemIconLabelPrivate::syncShortcutLabel()
+{
+    if (!shortcutLabel)
+        return;
+
+#if QT_CONFIG(shortcut)
+    shortcutLabel->setText(shortcut().toString(QKeySequence::NativeText));
+#endif
 }
 //  -----------------------------------------------------------------------
 
@@ -849,6 +886,13 @@ const QQuickMenuItemIconLabel *ritual_ZNK30QQuickMenuItemIconLabelPrivate6q_func
   return self->q_func();
 }
 
+//  QQuickMenuItemIconLabelPrivate::~QQuickMenuItemIconLabelPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickMenuItemIconLabelPrivateD1Ev(
+    QQuickMenuItemIconLabelPrivate *self) {
+  delete self;
+}
+
 #if QT_CONFIG(shortcut)
 //  bool QQuickMenuItemIconLabelPrivate::hasShortcut() const
 extern "C" Q_DECL_EXPORT
@@ -864,6 +908,15 @@ extern "C" Q_DECL_EXPORT
 QKeySequence *ritual_ZNK30QQuickMenuItemIconLabelPrivate8shortcutEv(
     const QQuickMenuItemIconLabelPrivate *self) {
   return new QKeySequence(self->shortcut());
+}
+#endif  // QT_CONFIG(shortcut)
+
+#if QT_CONFIG(shortcut)
+//  bool QQuickMenuItemIconLabelPrivate::createShortcutLabel()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN30QQuickMenuItemIconLabelPrivate19createShortcutLabelEv(
+    QQuickMenuItemIconLabelPrivate *self) {
+  return self->createShortcutLabel();
 }
 #endif  // QT_CONFIG(shortcut)
 

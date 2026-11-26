@@ -5,7 +5,9 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_area_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_area_chart)
 #include <QtCharts/qarealegendmarker.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qarealegendmarker_p.h>
@@ -234,6 +236,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK24QAreaLegendMarkerPrivate10metaObjectEv(
     const QAreaLegendMarkerPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QAreaLegendMarkerPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QAreaLegendMarkerPrivate11qt_metacastEPKc(
+    QAreaLegendMarkerPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAreaLegendMarkerPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QAreaLegendMarkerPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAreaLegendMarkerPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QAreaLegendMarkerPrivate::tr(const char *s, const char *c, int n)

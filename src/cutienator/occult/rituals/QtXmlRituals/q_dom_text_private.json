@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN15QDomTextPrivate9cloneNodeEb": ["address", "address", "bool"],
     "ritual_ZNK15QDomTextPrivate8nodeTypeEv": ["int", "address"],
+    "ritual_ZNK15QDomTextPrivate4saveER11QTextStreamii": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZN15QDomTextPrivateD1Ev": ["nothing", "address"],
     "ritual_take_QDomTextPrivate": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QDomTextPrivate8nodeTypeEv": ["int", "address"]

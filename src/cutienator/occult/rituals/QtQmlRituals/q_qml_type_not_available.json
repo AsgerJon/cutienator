@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlTypeNotAvailable10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlTypeNotAvailable11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlTypeNotAvailable11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQmlTypeNotAvailable24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ]

@@ -10,8 +10,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtWidgets/qstyleoption.h>
 #include <QtCore/qabstractitemmodel.h>
+#include <QtWidgets/qstyleoption.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qlocale.h>
@@ -81,6 +81,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qcombobox.cpp, line 407, as _ZNK17QComboBoxDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex
 inline void QComboBoxDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
                               const QModelIndex &index) const
@@ -108,7 +110,31 @@ inline QSize QComboBoxDelegate::sizeHint(const QStyleOptionViewItem &option,
     }
     return QStyledItemDelegate::sizeHint(option, index);
 }
+
+//  from src/widgets/widgets/qcombobox.cpp, line 392, as _ZN17QComboBoxDelegate11isSeparatorERK11QModelIndex
+inline bool QComboBoxDelegate::isSeparator(const QModelIndex &index)
+{
+    return index.data(Qt::AccessibleDescriptionRole).toString() == "separator"_L1;
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 397, as _ZN17QComboBoxDelegate12setSeparatorEP18QAbstractItemModelRK11QModelIndex
+inline void QComboBoxDelegate::setSeparator(QAbstractItemModel *model, const QModelIndex &index)
+{
+    // don't use u""_s; model (QtCore) may outlive QtWidgets DLL, alloc dynamically:
+    static const QString sepString = "separator"_L1;
+    model->setData(index, sepString, Qt::AccessibleDescriptionRole);
+    if (QStandardItemModel *m = qobject_cast<QStandardItemModel*>(model))
+        if (QStandardItem *item = m->itemFromIndex(index))
+            item->setFlags(item->flags() & ~(Qt::ItemIsSelectable|Qt::ItemIsEnabled));
+}
 //  -----------------------------------------------------------------------
+
+//  Only a class built on QComboBoxDelegate may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQComboBoxDelegate : QComboBoxDelegate {
+  using QComboBoxDelegate::paint;
+  using QComboBoxDelegate::sizeHint;
+};
 
 //  A QComboBoxDelegate that Python can take functions over in. Every QComboBoxDelegate
 //  Python makes is one. Each function below asks the Python
@@ -591,6 +617,47 @@ const QMetaObject *ritual_ZNK17QComboBoxDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QComboBoxDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QComboBoxDelegate11qt_metacastEPKc(
+    QComboBoxDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QComboBoxDelegate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QComboBoxDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QComboBoxDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QComboBoxDelegate::~QComboBoxDelegate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QComboBoxDelegateD1Ev(QComboBoxDelegate *self) {
+  delete self;
+}
+
+//  bool QComboBoxDelegate::isSeparator(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QComboBoxDelegate11isSeparatorERK11QModelIndex(
+    const QModelIndex *index) {
+  return QComboBoxDelegate::isSeparator(*index);
+}
+
+//  void QComboBoxDelegate::setSeparator(QAbstractItemModel *model, const
+//      QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QComboBoxDelegate12setSeparatorEP18QAbstractItemModelRK11QModelIndex(
+    QAbstractItemModel *model,
+    const QModelIndex *index) {
+  QComboBoxDelegate::setSeparator(model, *index);
+}
+
 //  void QComboBoxDelegate::paint(QPainter *painter, const
 //      QStyleOptionViewItem &option, const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
@@ -620,6 +687,33 @@ bool ritual_take_QComboBoxDelegate(
     const char *key,
     void *call) {
   return static_cast<CuteQComboBoxDelegate *>(self)->take(key, call);
+}
+
+//  void QComboBoxDelegate::paint(QPainter *painter, const
+//      QStyleOptionViewItem &option, const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZNK17QComboBoxDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex(
+    const QComboBoxDelegate *self,
+    QPainter *painter,
+    const QStyleOptionViewItem *option,
+    const QModelIndex *index) {
+  static_cast<const OwnQComboBoxDelegate *>(self)->OwnQComboBoxDelegate::paint(
+      painter,
+      *option,
+      *index);
+}
+
+//  QSize QComboBoxDelegate::sizeHint(const QStyleOptionViewItem &option,
+//      const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK17QComboBoxDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex(
+    const QComboBoxDelegate *self,
+    const QStyleOptionViewItem *option,
+    const QModelIndex *index) {
+  return new QSize(
+      static_cast<const OwnQComboBoxDelegate *>(self)->OwnQComboBoxDelegate::sizeHint(
+          *option,
+          *index));
 }
 
 #endif  // QT_CONFIG(combobox)

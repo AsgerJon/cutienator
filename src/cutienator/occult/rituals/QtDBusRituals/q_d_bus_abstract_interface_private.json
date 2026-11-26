@@ -11,9 +11,15 @@
     "ritual_ZNK29QDBusAbstractInterfacePrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN29QDBusAbstractInterfacePrivateC1ERK7QStringS2_S2_RK15QDBusConnectionb": [
+      "address", "text", "text", "text", "address", "bool"
+    ],
     "ritual_ZN29QDBusAbstractInterfacePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK29QDBusAbstractInterfacePrivate12canMakeCallsEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK29QDBusAbstractInterfacePrivate8propertyERK13QMetaPropertyPv": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZN29QDBusAbstractInterfacePrivate11setPropertyERK13QMetaPropertyRK8QVariant": [
       "bool", "address", "address", "address"

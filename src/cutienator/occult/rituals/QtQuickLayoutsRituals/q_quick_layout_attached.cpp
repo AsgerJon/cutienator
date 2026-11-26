@@ -17,6 +17,25 @@ const QMetaObject *ritual_ZNK20QQuickLayoutAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLayoutAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickLayoutAttached11qt_metacastEPKc(
+    QQuickLayoutAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLayoutAttached::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickLayoutAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLayoutAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickLayoutAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickLayoutAttached2trEPKcS1_i(
@@ -570,6 +589,153 @@ QQuickItemPrivate *ritual_ZNK20QQuickLayoutAttached17itemForSizePolicyEb(
     const QQuickLayoutAttached *self,
     bool isFillSet) {
   return self->itemForSizePolicy(isFillSet);
+}
+
+//  void QQuickLayoutAttached::minimumWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached19minimumWidthChangedEv(
+    QQuickLayoutAttached *self) {
+  self->minimumWidthChanged();
+}
+
+//  void QQuickLayoutAttached::minimumHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached20minimumHeightChangedEv(
+    QQuickLayoutAttached *self) {
+  self->minimumHeightChanged();
+}
+
+//  void QQuickLayoutAttached::preferredWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached21preferredWidthChangedEv(
+    QQuickLayoutAttached *self) {
+  self->preferredWidthChanged();
+}
+
+//  void QQuickLayoutAttached::preferredHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached22preferredHeightChangedEv(
+    QQuickLayoutAttached *self) {
+  self->preferredHeightChanged();
+}
+
+//  void QQuickLayoutAttached::maximumWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached19maximumWidthChangedEv(
+    QQuickLayoutAttached *self) {
+  self->maximumWidthChanged();
+}
+
+//  void QQuickLayoutAttached::maximumHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached20maximumHeightChangedEv(
+    QQuickLayoutAttached *self) {
+  self->maximumHeightChanged();
+}
+
+//  void QQuickLayoutAttached::fillWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached16fillWidthChangedEv(
+    QQuickLayoutAttached *self) {
+  self->fillWidthChanged();
+}
+
+//  void QQuickLayoutAttached::fillHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached17fillHeightChangedEv(
+    QQuickLayoutAttached *self) {
+  self->fillHeightChanged();
+}
+
+//  void QQuickLayoutAttached::useDefaultSizePolicyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached27useDefaultSizePolicyChangedEv(
+    QQuickLayoutAttached *self) {
+  self->useDefaultSizePolicyChanged();
+}
+
+//  void QQuickLayoutAttached::leftMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached17leftMarginChangedEv(
+    QQuickLayoutAttached *self) {
+  self->leftMarginChanged();
+}
+
+//  void QQuickLayoutAttached::topMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached16topMarginChangedEv(
+    QQuickLayoutAttached *self) {
+  self->topMarginChanged();
+}
+
+//  void QQuickLayoutAttached::rightMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached18rightMarginChangedEv(
+    QQuickLayoutAttached *self) {
+  self->rightMarginChanged();
+}
+
+//  void QQuickLayoutAttached::bottomMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached19bottomMarginChangedEv(
+    QQuickLayoutAttached *self) {
+  self->bottomMarginChanged();
+}
+
+//  void QQuickLayoutAttached::marginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached14marginsChangedEv(
+    QQuickLayoutAttached *self) {
+  self->marginsChanged();
+}
+
+//  void QQuickLayoutAttached::rowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached10rowChangedEv(
+    QQuickLayoutAttached *self) {
+  self->rowChanged();
+}
+
+//  void QQuickLayoutAttached::columnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached13columnChangedEv(
+    QQuickLayoutAttached *self) {
+  self->columnChanged();
+}
+
+//  void QQuickLayoutAttached::rowSpanChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached14rowSpanChangedEv(
+    QQuickLayoutAttached *self) {
+  self->rowSpanChanged();
+}
+
+//  void QQuickLayoutAttached::columnSpanChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached17columnSpanChangedEv(
+    QQuickLayoutAttached *self) {
+  self->columnSpanChanged();
+}
+
+//  void QQuickLayoutAttached::alignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached16alignmentChangedEv(
+    QQuickLayoutAttached *self) {
+  self->alignmentChanged();
+}
+
+//  void QQuickLayoutAttached::horizontalStretchFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached30horizontalStretchFactorChangedEv(
+    QQuickLayoutAttached *self) {
+  self->horizontalStretchFactorChanged();
+}
+
+//  void QQuickLayoutAttached::verticalStretchFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickLayoutAttached28verticalStretchFactorChangedEv(
+    QQuickLayoutAttached *self) {
+  self->verticalStretchFactorChanged();
 }
 
 //  void QQuickLayoutAttached::invalidateItem()

@@ -8,6 +8,12 @@
     "ritual_ZNK21QNetworkReplyFileImpl10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QNetworkReplyFileImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QNetworkReplyFileImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QNetworkReplyFileImplD1Ev": ["nothing", "address"],
     "ritual_ZN21QNetworkReplyFileImpl5abortEv": ["nothing", "address"],
     "ritual_ZN21QNetworkReplyFileImpl5closeEv": ["nothing", "address"],
@@ -16,6 +22,9 @@
     ],
     "ritual_ZNK21QNetworkReplyFileImpl12isSequentialEv": ["bool", "address"],
     "ritual_ZNK21QNetworkReplyFileImpl4sizeEv": ["long long", "address"],
+    "ritual_ZN21QNetworkReplyFileImpl8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN21QNetworkReplyFileImpl16fileOpenFinishedEb": [
       "nothing", "address", "bool"
     ],
@@ -32,6 +41,9 @@
     "ritual_own_ZNK21QNetworkReplyFileImpl12isSequentialEv": [
       "bool", "address"
     ],
-    "ritual_own_ZNK21QNetworkReplyFileImpl4sizeEv": ["long long", "address"]
+    "ritual_own_ZNK21QNetworkReplyFileImpl4sizeEv": ["long long", "address"],
+    "ritual_own_ZN21QNetworkReplyFileImpl8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ]
   }
 }

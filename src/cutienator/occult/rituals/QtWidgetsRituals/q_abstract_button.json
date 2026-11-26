@@ -6,9 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK15QAbstractButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractButton11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QAbstractButton11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QAbstractButton2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QAbstractButtonC1EP7QWidget": ["address", "address"],
     "ritual_ZN15QAbstractButtonD1Ev": ["nothing", "address"],
     "ritual_ZN15QAbstractButton7setTextERK7QString": [
       "nothing", "address", "text"
@@ -56,6 +63,10 @@
     "ritual_ZN15QAbstractButton10setCheckedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN15QAbstractButton7pressedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractButton8releasedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractButton7clickedEb": ["nothing", "address", "bool"],
+    "ritual_ZN15QAbstractButton7toggledEb": ["nothing", "address", "bool"],
     "ritual_ZN15QAbstractButton10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"
     ],
@@ -93,6 +104,9 @@
     ],
     "ritual_ZN15QAbstractButton10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractButtonC1ER22QAbstractButtonPrivateP7QWidget": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QAbstractButton6d_funcEv": ["address", "address"],
     "ritual_ZNK15QAbstractButton6d_funcEv": ["address", "address"],

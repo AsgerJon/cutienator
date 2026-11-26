@@ -209,6 +209,25 @@ const QMetaObject *ritual_ZNK32QQuickAttachedPropertyPropagator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAttachedPropertyPropagator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QQuickAttachedPropertyPropagator11qt_metacastEPKc(
+    QQuickAttachedPropertyPropagator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAttachedPropertyPropagator::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QQuickAttachedPropertyPropagator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAttachedPropertyPropagator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAttachedPropertyPropagator::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -279,6 +298,22 @@ QDebug *ritual_Zls6QDebugPK32QQuickAttachedPropertyPropagator(
   return new QDebug(operator<<(*debug, propagator));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+//  QQuickAttachedPropertyPropagatorPrivate
+//      *QQuickAttachedPropertyPropagator::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickAttachedPropertyPropagatorPrivate *ritual_ZN32QQuickAttachedPropertyPropagator6d_funcEv(
+    QQuickAttachedPropertyPropagator *self) {
+  return self->d_func();
+}
+
+//  const QQuickAttachedPropertyPropagatorPrivate
+//      *QQuickAttachedPropertyPropagator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickAttachedPropertyPropagatorPrivate *ritual_ZNK32QQuickAttachedPropertyPropagator6d_funcEv(
+    const QQuickAttachedPropertyPropagator *self) {
+  return self->d_func();
+}
 
 //  a Python function taken by a CuteQQuickAttachedPropertyPropagator, for
 //      the function named by the key

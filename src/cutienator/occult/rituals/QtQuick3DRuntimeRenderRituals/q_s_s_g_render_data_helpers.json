@@ -5,8 +5,14 @@
     "ta_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QSSGRenderDataHelpers22calcInstanceTransformsEP14QSSGRenderNodetRSt6vectorI10QMatrix4x4SaIS3_EERS2_IN24QSSGGlobalRenderNodeData18InstanceTransformsESaIS8_EE": [
+      "bool", "address", "unsigned short", "address", "address"
+    ],
     "ritual_ZN21QSSGRenderDataHelpers21updateGlobalNodeStateEP14QSSGRenderNodet": [
       "unsigned char", "address", "unsigned short"
+    ],
+    "ritual_ZN21QSSGRenderDataHelpers27updateGlobalNodeDataIndexedEP14QSSGRenderNodetRSt6vectorI10QMatrix4x4SaIS3_EERS2_IfSaIfEE": [
+      "bool", "address", "unsigned short", "address", "address"
     ],
     "ritual_ZN21QSSGRenderDataHelpersD1Ev": ["nothing", "address"]
   }

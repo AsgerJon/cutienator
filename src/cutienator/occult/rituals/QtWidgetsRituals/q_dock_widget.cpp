@@ -916,6 +916,24 @@ const QMetaObject *ritual_ZNK11QDockWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDockWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QDockWidget11qt_metacastEPKc(
+    QDockWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDockWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QDockWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDockWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDockWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QDockWidget2trEPKcS1_i(
@@ -1064,6 +1082,49 @@ QAction *ritual_ZNK11QDockWidget16toggleViewActionEv(
   return self->toggleViewAction();
 }
 #endif  // !defined(QT_NO_ACTION)
+
+//  void QDockWidget::featuresChanged(QDockWidget::DockWidgetFeatures
+//      features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDockWidget15featuresChangedE6QFlagsINS_17DockWidgetFeatureEE(
+    QDockWidget *self,
+    int features) {
+  self->featuresChanged(
+      QFlags<QDockWidget::DockWidgetFeature>::fromInt(features));
+}
+
+//  void QDockWidget::topLevelChanged(bool topLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDockWidget15topLevelChangedEb(
+    QDockWidget *self,
+    bool topLevel) {
+  self->topLevelChanged(topLevel);
+}
+
+//  void QDockWidget::allowedAreasChanged(Qt::DockWidgetAreas allowedAreas)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDockWidget19allowedAreasChangedE6QFlagsIN2Qt14DockWidgetAreaEE(
+    QDockWidget *self,
+    int allowedAreas) {
+  self->allowedAreasChanged(
+      QFlags<Qt::DockWidgetArea>::fromInt(allowedAreas));
+}
+
+//  void QDockWidget::visibilityChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDockWidget17visibilityChangedEb(
+    QDockWidget *self,
+    bool visible) {
+  self->visibilityChanged(visible);
+}
+
+//  void QDockWidget::dockLocationChanged(Qt::DockWidgetArea area)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDockWidget19dockLocationChangedEN2Qt14DockWidgetAreaE(
+    QDockWidget *self,
+    Qt::DockWidgetArea area) {
+  self->dockLocationChanged(area);
+}
 
 //  void QDockWidget::changeEvent(QEvent *event)
 extern "C" Q_DECL_EXPORT

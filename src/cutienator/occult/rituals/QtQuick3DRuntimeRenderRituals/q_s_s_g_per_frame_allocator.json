@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN21QSSGPerFrameAllocatorC1Ev": ["address"],
+    "ritual_ZN21QSSGPerFrameAllocator8allocateEm": [
+      "address", "address", "size_t"
+    ],
     "ritual_ZN21QSSGPerFrameAllocator5resetEv": ["nothing", "address"],
     "ritual_ZN21QSSGPerFrameAllocatorD1Ev": ["nothing", "address"]
   }

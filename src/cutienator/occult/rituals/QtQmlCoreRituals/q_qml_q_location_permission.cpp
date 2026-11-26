@@ -188,6 +188,25 @@ const QMetaObject *ritual_ZNK23QQmlQLocationPermission10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlQLocationPermission::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQmlQLocationPermission11qt_metacastEPKc(
+    QQmlQLocationPermission *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlQLocationPermission::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQmlQLocationPermission11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlQLocationPermission *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  Qt::PermissionStatus QQmlQLocationPermission::status() const
 extern "C" Q_DECL_EXPORT
 Qt::PermissionStatus ritual_ZNK23QQmlQLocationPermission6statusEv(

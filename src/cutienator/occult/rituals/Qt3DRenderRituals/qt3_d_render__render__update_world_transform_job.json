@@ -1,12 +1,17 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
+    "Written by hand on 2026-11-25 from",
     "Qt3DRender/6.12.0/Qt3DRender/private/updateworldtransformjob_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator",
+    "runs again."
   ],
   "rows": {
-    "ritual_own_ZN10Qt3DRender6Render23UpdateWorldTransformJob3runEv": [
-      "nothing", "address"
-    ]
+    "ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJobC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJobD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJob7setRootEPNS0_6EntityE": ["nothing", "address", "address"],
+    "ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJob11setManagersEPNS0_12NodeManagersE": ["nothing", "address", "address"],
+    "ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJob3runEv": ["nothing", "address"],
+    "ritual_take_Qt3DRender_Render_UpdateWorldTransformJob": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10Qt3DRender6Render23UpdateWorldTransformJob3runEv": ["nothing", "address"]
   }
 }

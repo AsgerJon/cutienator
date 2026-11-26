@@ -2,7 +2,9 @@
 //  Qt3DRender/qsceneloader.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qsceneloader.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A Qt3DRender::QSceneLoader that Python can take functions over in. Every Qt3DRender::QSceneLoader
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender12QSceneLoader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QSceneLoader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender12QSceneLoader11qt_metacastEPKc(
+    Qt3DRender::QSceneLoader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QSceneLoader::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender12QSceneLoader11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QSceneLoader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QSceneLoader::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender12QSceneLoader2trEPKcS2_i(
@@ -186,6 +207,93 @@ QString *ritual_ZN10Qt3DRender12QSceneLoader2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QSceneLoader::tr(s, c, n));
+}
+
+//  Qt3DRender::QSceneLoader::QSceneLoader(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSceneLoader *ritual_ZN10Qt3DRender12QSceneLoaderC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QSceneLoader(parent);
+}
+
+//  Qt3DRender::QSceneLoader::~QSceneLoader()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QSceneLoaderD1Ev(
+    Qt3DRender::QSceneLoader *self) {
+  delete self;
+}
+
+//  QUrl Qt3DRender::QSceneLoader::source() const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK10Qt3DRender12QSceneLoader6sourceEv(
+    const Qt3DRender::QSceneLoader *self) {
+  return new QUrl(self->source());
+}
+
+//  Status Qt3DRender::QSceneLoader::status() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSceneLoader::Status ritual_ZNK10Qt3DRender12QSceneLoader6statusEv(
+    const Qt3DRender::QSceneLoader *self) {
+  return self->status();
+}
+
+//  Qt3DCore::QEntity *Qt3DRender::QSceneLoader::entity(const QString
+//      &entityName) const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEntity *ritual_ZNK10Qt3DRender12QSceneLoader6entityERK7QString(
+    const Qt3DRender::QSceneLoader *self,
+    const QString *entityName) {
+  return self->entity(*entityName);
+}
+
+//  QStringList Qt3DRender::QSceneLoader::entityNames() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10Qt3DRender12QSceneLoader11entityNamesEv(
+    const Qt3DRender::QSceneLoader *self) {
+  return new QList<QString>(self->entityNames());
+}
+
+//  Qt3DCore::QComponent *Qt3DRender::QSceneLoader::component(const QString
+//      &entityName, ComponentType componentType) const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QComponent *ritual_ZNK10Qt3DRender12QSceneLoader9componentERK7QStringNS0_13ComponentTypeE(
+    const Qt3DRender::QSceneLoader *self,
+    const QString *entityName,
+    Qt3DRender::QSceneLoader::ComponentType componentType) {
+  return self->component(*entityName, componentType);
+}
+
+//  void Qt3DRender::QSceneLoader::setSource(const QUrl &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QSceneLoader9setSourceERK4QUrl(
+    Qt3DRender::QSceneLoader *self,
+    const QUrl *arg) {
+  self->setSource(*arg);
+}
+
+//  void Qt3DRender::QSceneLoader::sourceChanged(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QSceneLoader13sourceChangedERK4QUrl(
+    Qt3DRender::QSceneLoader *self,
+    const QUrl *source) {
+  self->sourceChanged(*source);
+}
+
+//  void Qt3DRender::QSceneLoader::statusChanged(Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QSceneLoader13statusChangedENS0_6StatusE(
+    Qt3DRender::QSceneLoader *self,
+    Qt3DRender::QSceneLoader::Status status) {
+  self->statusChanged(status);
+}
+
+//  Qt3DRender::QSceneLoader::QSceneLoader(QSceneLoaderPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSceneLoader *ritual_ZN10Qt3DRender12QSceneLoaderC1ERNS_19QSceneLoaderPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QSceneLoaderPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QSceneLoader(*dd, parent);
 }
 
 //  QSceneLoaderPrivate *Qt3DRender::QSceneLoader::d_func()

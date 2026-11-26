@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qkeymapper_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qkeymapper_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 1. Kept
+//  as it is when the generator runs again.
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -186,6 +187,24 @@ const QMetaObject *ritual_ZNK10QKeyMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QKeyMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QKeyMapper11qt_metacastEPKc(
+    QKeyMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QKeyMapper::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QKeyMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QKeyMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QKeyMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QKeyMapper2trEPKcS1_i(
@@ -220,9 +239,29 @@ QList<QKeyCombination> *ritual_ZN10QKeyMapper12possibleKeysEPK9QKeyEvent(
   return new QList<QKeyCombination>(QKeyMapper::possibleKeys(e));
 }
 
+//  void *QKeyMapper::resolveInterface(const char *name, int revision) const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK10QKeyMapper16resolveInterfaceEPKci(
+    const QKeyMapper *self,
+    const char *name,
+    int revision) {
+  return self->resolveInterface(name, revision);
+}
+
 //  a Python function taken by a CuteQKeyMapper, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QKeyMapper(QKeyMapper *self, const char *key, void *call) {
   return static_cast<CuteQKeyMapper *>(self)->take(key, call);
 }
+
+#if QT_CONFIG(evdev)
+//  QNativeInterface::Private::QEvdevKeyMapper
+//      *QKeyMapper::nativeInterface<QNativeInterface::Private::
+//      QEvdevKeyMapper>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::Private::QEvdevKeyMapper *ritual_ZNK10QKeyMapper15nativeInterfaceIN16QNativeInterface7Private15QEvdevKeyMapperENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v(
+    const QKeyMapper *self) {
+  return self->nativeInterface<QNativeInterface::Private::QEvdevKeyMapper>();
+}
+#endif  // QT_CONFIG(evdev)

@@ -8,6 +8,12 @@
     "ritual_ZNK25QGraphicsSceneLinearIndex10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QGraphicsSceneLinearIndex11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QGraphicsSceneLinearIndex11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK25QGraphicsSceneLinearIndex5itemsEN2Qt9SortOrderE": [
       "address", "address", "int"
     ],

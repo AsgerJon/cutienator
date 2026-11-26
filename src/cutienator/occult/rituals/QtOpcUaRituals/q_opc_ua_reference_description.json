@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN26QOpcUaReferenceDescriptionC1Ev": ["address"],
     "ritual_ZN26QOpcUaReferenceDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN26QOpcUaReferenceDescriptionaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN26QOpcUaReferenceDescriptionD1Ev": ["nothing", "address"],
     "ritual_ZNK26QOpcUaReferenceDescription9refTypeIdEv": [
       "text", "address"

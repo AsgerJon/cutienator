@@ -329,6 +329,13 @@ QMetaPropertyBuilder *ritual_ZN20QMetaPropertyBuilderC1EPK18QMetaObjectBuilderi(
   return new QMetaPropertyBuilder(mobj, index);
 }
 
+//  QMetaPropertyBuilderPrivate *QMetaPropertyBuilder::d_func() const
+extern "C" Q_DECL_EXPORT
+QMetaPropertyBuilderPrivate *ritual_ZNK20QMetaPropertyBuilder6d_funcEv(
+    const QMetaPropertyBuilder *self) {
+  return self->d_func();
+}
+
 //  QMetaPropertyBuilder::~QMetaPropertyBuilder()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QMetaPropertyBuilderD1Ev(QMetaPropertyBuilder *self) {

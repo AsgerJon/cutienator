@@ -5,7 +5,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -30,6 +30,22 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 17, as _ZN10AxisTicker17componentCompleteEv
+inline void AxisTicker::componentComplete()
+{
+    QQuickShaderEffect::componentComplete();
+    setupShaders();
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 23, as _ZN10AxisTicker14geometryChangeERK6QRectFS2_
+inline void AxisTicker::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
+{
+    m_iResolution = QVector3D(newGeometry.width(), newGeometry.height(), 1.0);
+    emit iResolutionChanged();
+
+    QQuickShaderEffect::geometryChange(newGeometry, oldGeometry);
+}
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 31, as _ZN10AxisTicker12setupShadersEv
 inline void AxisTicker::setupShaders()
@@ -137,22 +153,6 @@ inline bool AxisTicker::isLogarithmic() const
 inline qreal AxisTicker::base() const
 {
     return m_base;
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 17, as _ZN10AxisTicker17componentCompleteEv
-inline void AxisTicker::componentComplete()
-{
-    QQuickShaderEffect::componentComplete();
-    setupShaders();
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 23, as _ZN10AxisTicker14geometryChangeERK6QRectFS2_
-inline void AxisTicker::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
-{
-    m_iResolution = QVector3D(newGeometry.width(), newGeometry.height(), 1.0);
-    emit iResolutionChanged();
-
-    QQuickShaderEffect::geometryChange(newGeometry, oldGeometry);
 }
 //  -----------------------------------------------------------------------
 
@@ -950,6 +950,30 @@ const QMetaObject *ritual_ZNK10AxisTicker10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *AxisTicker::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10AxisTicker11qt_metacastEPKc(
+    AxisTicker *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int AxisTicker::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10AxisTicker11qt_metacallEN11QMetaObject4CallEiPPv(
+    AxisTicker *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  AxisTicker::~AxisTicker()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTickerD1Ev(AxisTicker *self) {
+  delete self;
+}
+
 //  void AxisTicker::setupShaders()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10AxisTicker12setupShadersEv(AxisTicker *self) {
@@ -1068,6 +1092,390 @@ void ritual_ZN10AxisTicker14geometryChangeERK6QRectFS2_(
   self->geometryChange(*newGeometry, *oldGeometry);
 }
 
+//  void AxisTicker::iResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker18iResolutionChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "iResolutionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "iResolutionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::smoothingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker16smoothingChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "smoothingChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "smoothingChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::origoChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker12origoChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "origoChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "origoChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::subTicksVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker22subTicksVisibleChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "subTicksVisibleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "subTicksVisibleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::spacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker14spacingChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "spacingChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "spacingChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::displacementChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker19displacementChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "displacementChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "displacementChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::subTickColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker19subTickColorChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "subTickColorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "subTickColorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::tickColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker16tickColorChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "tickColorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "tickColorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::subTickLineWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker23subTickLineWidthChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "subTickLineWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "subTickLineWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::tickLineWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker20tickLineWidthChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "tickLineWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "tickLineWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::subTickScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker19subTickScaleChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "subTickScaleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "subTickScaleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::subTickLengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker20subTickLengthChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "subTickLengthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "subTickLengthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::isHorizontalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker19isHorizontalChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "isHorizontalChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "isHorizontalChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::flippedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker14flippedChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "flippedChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "flippedChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::logarithmicChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker18logarithmicChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "logarithmicChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "logarithmicChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisTicker::baseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker11baseChangedEv(AxisTicker *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisTicker")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "baseChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "baseChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  a Python function taken by a CuteAxisTicker, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -1081,4 +1489,4 @@ void ritual_own_ZN10AxisTicker17componentCompleteEv(AxisTicker *self) {
   static_cast<OwnAxisTicker *>(self)->OwnAxisTicker::componentComplete();
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

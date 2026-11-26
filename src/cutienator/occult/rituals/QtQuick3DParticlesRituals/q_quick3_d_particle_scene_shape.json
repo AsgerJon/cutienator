@@ -8,6 +8,12 @@
     "ritual_ZNK26QQuick3DParticleSceneShape10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuick3DParticleSceneShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQuick3DParticleSceneShape2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -51,6 +57,24 @@
     ],
     "ritual_ZN26QQuick3DParticleSceneShape16getSurfaceNormalEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape12sceneChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape18sceneCenterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape19sceneExtentsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape22shapeResolutionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape15geometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape20excludedNodesChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN26QQuick3DParticleSceneShape19randomPositionModelEi": [
       "address", "address", "int"

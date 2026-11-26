@@ -11,6 +11,9 @@
     "ritual_ZN18QMetaObjectPrivate13originalCloneEPK11QMetaObjecti": [
       "int", "address", "int"
     ],
+    "ritual_ZN18QMetaObjectPrivate17indexOfEnumeratorEPK11QMetaObject14QByteArrayView": [
+      "int", "address", "address"
+    ],
     "ritual_ZN18QMetaObjectPrivate6signalEPK11QMetaObjecti": [
       "address", "address", "int"
     ],
@@ -22,6 +25,15 @@
     ],
     "ritual_ZN18QMetaObjectPrivate11signalIndexERK11QMetaMethod": [
       "int", "address"
+    ],
+    "ritual_ZN18QMetaObjectPrivate16checkConnectArgsE5QSpanIK13QArgumentTypeLm18446744073709551615EES3_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectPrivate31parameterTypeNamesFromSignatureE14QByteArrayViewR15QVarLengthArrayIS0_Lx10EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectPrivate13memberIndexesEPK7QObjectRK11QMetaMethodPiS6_": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN18QMetaObjectPrivate11firstMethodEPK11QMetaObject14QByteArrayView": [
       "address", "address", "address"

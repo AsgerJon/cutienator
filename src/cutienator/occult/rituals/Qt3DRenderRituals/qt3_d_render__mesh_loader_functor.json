@@ -33,6 +33,10 @@
       "text", "address"
     ],
     "ritual_ZNK10Qt3DRender17MeshLoaderFunctor6statusEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender17MeshLoaderFunctorclEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender17MeshLoaderFunctor6equalsERKN8Qt3DCore16QGeometryFactoryE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender17MeshLoaderFunctor2idEv": [
       "long long", "address"
     ],

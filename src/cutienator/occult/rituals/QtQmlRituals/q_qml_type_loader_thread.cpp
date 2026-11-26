@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmltypeloaderthread_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/private/qqmltypeloadernetworkreplyproxy_p.h>
 #include <QtQml/private/qqmltypeloader_p.h>
@@ -44,6 +45,43 @@ inline QQmlTypeLoaderThread::~QQmlTypeLoaderThread()
     discardMessages();
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmltypeloaderthread.cpp, line 113, as _ZN20QQmlTypeLoaderThread10loadThreadERK14QQmlRefPointerI12QQmlDataBlobE
+inline void QQmlTypeLoaderThread::loadThread(const QQmlDataBlob::Ptr &b)
+{
+    m_loader->loadThread(b);
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypeloaderthread.cpp, line 118, as _ZN20QQmlTypeLoaderThread24loadWithStaticDataThreadERK14QQmlRefPointerI12QQmlDataBlobERK10QByteArray
+inline void QQmlTypeLoaderThread::loadWithStaticDataThread(const QQmlDataBlob::Ptr &b, const QByteArray &d)
+{
+    m_loader->loadWithStaticDataThread(b, d);
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypeloaderthread.cpp, line 123, as _ZN20QQmlTypeLoaderThread24loadWithCachedUnitThreadERK14QQmlRefPointerI12QQmlDataBlobEPKN11QQmlPrivate13CachedQmlUnitE
+inline void QQmlTypeLoaderThread::loadWithCachedUnitThread(const QQmlDataBlob::Ptr &b, const QQmlPrivate::CachedQmlUnit *unit)
+{
+    m_loader->loadWithCachedUnitThread(b, unit);
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypeloaderthread.cpp, line 128, as _ZN20QQmlTypeLoaderThread17callCompletedMainERK14QQmlRefPointerI12QQmlDataBlobE
+inline void QQmlTypeLoaderThread::callCompletedMain(const QQmlDataBlob::Ptr &b)
+{
+#ifdef DATABLOB_DEBUG
+    qWarning("QQmlTypeLoaderThread: %s completed() callback", qPrintable(b->urlString()));
+#endif
+    b->completed();
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypeloaderthread.cpp, line 136, as _ZN20QQmlTypeLoaderThread31callDownloadProgressChangedMainERK14QQmlRefPointerI12QQmlDataBlobEd
+inline void QQmlTypeLoaderThread::callDownloadProgressChangedMain(const QQmlDataBlob::Ptr &b, qreal p)
+{
+#ifdef DATABLOB_DEBUG
+    qWarning("QQmlTypeLoaderThread: %s downloadProgressChanged(%f) callback",
+             qPrintable(b->urlString()), p);
+#endif
+    b->downloadProgressChanged(p);
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmltypeloaderthread.cpp, line 145, as _ZN20QQmlTypeLoaderThread23initializeExtensionMainEP22QQmlExtensionInterfacePKc
 inline void QQmlTypeLoaderThread::initializeExtensionMain(QQmlExtensionInterface *iface,
                                                 const char *uri)
@@ -63,12 +101,65 @@ inline void QQmlTypeLoaderThread::initializeEngineExtensionMain(QQmlEngineExtens
     Q_ASSERT(engine && engine->thread() == QThread::currentThread());
     iface->initializeEngine(engine, uri);
 }
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypeloaderthread.cpp, line 163, as _ZN20QQmlTypeLoaderThread10dropThreadERK14QQmlRefPointerI12QQmlDataBlobE
+inline void QQmlTypeLoaderThread::dropThread(const QQmlDataBlob::Ptr &b)
+{
+    // Simply drop the reference to b
+    Q_UNUSED(b);
+}
 //  -----------------------------------------------------------------------
 
 //  QQmlTypeLoaderThread::~QQmlTypeLoaderThread()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlTypeLoaderThreadD1Ev(QQmlTypeLoaderThread *self) {
   delete self;
+}
+
+//  void QQmlTypeLoaderThread::loadThread(const QQmlDataBlob::Ptr &b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTypeLoaderThread10loadThreadERK14QQmlRefPointerI12QQmlDataBlobE(
+    QQmlTypeLoaderThread *self,
+    const QQmlDataBlob::Ptr *b) {
+  self->loadThread(*b);
+}
+
+//  void QQmlTypeLoaderThread::loadWithStaticDataThread(const
+//      QQmlDataBlob::Ptr &b, const QByteArray &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTypeLoaderThread24loadWithStaticDataThreadERK14QQmlRefPointerI12QQmlDataBlobERK10QByteArray(
+    QQmlTypeLoaderThread *self,
+    const QQmlDataBlob::Ptr *b,
+    const QByteArray *a1) {
+  self->loadWithStaticDataThread(*b, *a1);
+}
+
+//  void QQmlTypeLoaderThread::loadWithCachedUnitThread(const
+//      QQmlDataBlob::Ptr &b, const QQmlPrivate::CachedQmlUnit *unit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTypeLoaderThread24loadWithCachedUnitThreadERK14QQmlRefPointerI12QQmlDataBlobEPKN11QQmlPrivate13CachedQmlUnitE(
+    QQmlTypeLoaderThread *self,
+    const QQmlDataBlob::Ptr *b,
+    const QQmlPrivate::CachedQmlUnit *unit) {
+  self->loadWithCachedUnitThread(*b, unit);
+}
+
+//  void QQmlTypeLoaderThread::callCompletedMain(const QQmlDataBlob::Ptr &b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTypeLoaderThread17callCompletedMainERK14QQmlRefPointerI12QQmlDataBlobE(
+    QQmlTypeLoaderThread *self,
+    const QQmlDataBlob::Ptr *b) {
+  self->callCompletedMain(*b);
+}
+
+//  void QQmlTypeLoaderThread::callDownloadProgressChangedMain(const
+//      QQmlDataBlob::Ptr &b, qreal p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTypeLoaderThread31callDownloadProgressChangedMainERK14QQmlRefPointerI12QQmlDataBlobEd(
+    QQmlTypeLoaderThread *self,
+    const QQmlDataBlob::Ptr *b,
+    qreal p) {
+  self->callDownloadProgressChangedMain(*b, p);
 }
 
 //  void QQmlTypeLoaderThread::initializeExtensionMain(QQmlExtensionInterface
@@ -89,4 +180,12 @@ void ritual_ZN20QQmlTypeLoaderThread29initializeEngineExtensionMainEP28QQmlEngin
     QQmlEngineExtensionInterface *iface,
     const char *uri) {
   self->initializeEngineExtensionMain(iface, uri);
+}
+
+//  void QQmlTypeLoaderThread::dropThread(const QQmlDataBlob::Ptr &b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTypeLoaderThread10dropThreadERK14QQmlRefPointerI12QQmlDataBlobE(
+    QQmlTypeLoaderThread *self,
+    const QQmlDataBlob::Ptr *b) {
+  self->dropThread(*b);
 }

@@ -1,8 +1,6 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/6.12.0/QtGui/private/qtextdocument_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN20QTextDocumentPrivate6q_funcEv": ["address", "address"],
@@ -112,6 +110,12 @@
       "int", "address", "int"
     ],
     "ritual_ZNK20QTextDocumentPrivate9numBlocksEv": ["int", "address"],
+    "ritual_ZNK20QTextDocumentPrivate8blockMapEv": ["address", "address"],
+    "ritual_ZNK20QTextDocumentPrivate11fragmentMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate8blockMapEv": ["address", "address"],
+    "ritual_ZN20QTextDocumentPrivate11fragmentMapEv": ["address", "address"],
     "ritual_ZN20QTextDocumentPrivate5blockERK10QTextBlock": [
       "address", "address"
     ],
@@ -209,6 +213,9 @@
       "address", "address"
     ],
     "ritual_ZN20QTextDocumentPrivate3getEP13QTextDocument": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate3getER10QTextBlock": [
       "address", "address"
     ],
     "ritual_ZN20QTextDocumentPrivate3getERK10QTextBlock": [

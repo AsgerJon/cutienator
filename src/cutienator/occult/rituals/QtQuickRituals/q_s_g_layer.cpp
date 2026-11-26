@@ -577,6 +577,22 @@ const QMetaObject *ritual_ZNK8QSGLayer10metaObjectEv(const QSGLayer *self) {
   return self->metaObject();
 }
 
+//  void *QSGLayer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QSGLayer11qt_metacastEPKc(QSGLayer *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGLayer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QSGLayer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGLayer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGLayer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QSGLayer2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -683,6 +699,24 @@ void ritual_ZN8QSGLayer16markDirtyTextureEv(QSGLayer *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QSGLayer11invalidatedEv(QSGLayer *self) {
   self->invalidated();
+}
+
+//  void QSGLayer::updateRequested()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSGLayer15updateRequestedEv(QSGLayer *self) {
+  self->updateRequested();
+}
+
+//  void QSGLayer::scheduledUpdateCompleted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSGLayer24scheduledUpdateCompletedEv(QSGLayer *self) {
+  self->scheduledUpdateCompleted();
+}
+
+//  QSGLayer::QSGLayer(QSGTexturePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QSGLayer *ritual_ZN8QSGLayerC1ER17QSGTexturePrivate(QSGTexturePrivate *dd) {
+  return new CuteQSGLayer(*dd);
 }
 
 //  a Python function taken by a CuteQSGLayer, for the function named by the

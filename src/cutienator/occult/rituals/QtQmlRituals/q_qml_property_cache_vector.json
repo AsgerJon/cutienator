@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZN23QQmlPropertyCacheVectorC1Ev": ["address"],
+    "ritual_ZN23QQmlPropertyCacheVectorC1EOS_": ["address", "address"],
+    "ritual_ZN23QQmlPropertyCacheVectoraSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QQmlPropertyCacheVectorD1Ev": ["nothing", "address"],
     "ritual_ZN23QQmlPropertyCacheVector6resizeEi": [
       "nothing", "address", "int"
@@ -19,10 +23,19 @@
     "ritual_ZN23QQmlPropertyCacheVector6appendERKN17QQmlPropertyCache8ConstPtrE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN23QQmlPropertyCacheVector9appendOwnERK14QQmlRefPointerI17QQmlPropertyCacheE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK23QQmlPropertyCacheVector2atEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK23QQmlPropertyCacheVector5ownAtEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN23QQmlPropertyCacheVector3setEiRKN17QQmlPropertyCache8ConstPtrE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN23QQmlPropertyCacheVector6setOwnEiRK14QQmlRefPointerI17QQmlPropertyCacheE": [
       "nothing", "address", "int", "address"
     ],
     "ritual_ZN23QQmlPropertyCacheVector21setNeedsVMEMetaObjectEi": [
@@ -34,6 +47,9 @@
     "ritual_ZN23QQmlPropertyCacheVector4sealEv": ["nothing", "address"],
     "ritual_ZN23QQmlPropertyCacheVector14releaseElementEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_drop_QQmlPropertyCacheVector__QQmlPropertyCache_Ptr": [
+      "nothing", "address"
     ]
   }
 }

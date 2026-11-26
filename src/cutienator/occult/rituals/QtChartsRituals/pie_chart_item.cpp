@@ -12,10 +12,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/qpieslice.h>
+#endif
+#if QT_CONFIG(charts_pie_chart)
+#include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/pieslicedata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qpoint.h>
@@ -1052,6 +1057,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK12PieChartItem10metaObjectEv(
     const PieChartItem *self) {
   return self->metaObject();
+}
+
+//  void *PieChartItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12PieChartItem11qt_metacastEPKc(
+    PieChartItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PieChartItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12PieChartItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    PieChartItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString PieChartItem::tr(const char *s, const char *c, int n)

@@ -8,6 +8,45 @@
     "ritual_ZNK18qdesigner_internal15NewActionDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialogD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog9focusNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog9focusTextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog12focusTooltipEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog13focusShortcutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog14focusCheckableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog13focusMenuRoleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog26onEditActionTextTextEditedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog26onEditObjectNameTextEditedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog15slotEditToolTipEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15NewActionDialog20slotResetKeySequenceEv": [
+      "nothing", "address"
+    ],
     "ritual_take_qdesigner_internal_NewActionDialog": [
       "bool", "address", "chars", "address"
     ]

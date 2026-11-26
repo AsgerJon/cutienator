@@ -205,6 +205,25 @@ const QMetaObject *ritual_ZNK23QAccessibleBridgePlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAccessibleBridgePlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QAccessibleBridgePlugin11qt_metacastEPKc(
+    QAccessibleBridgePlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAccessibleBridgePlugin::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QAccessibleBridgePlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAccessibleBridgePlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAccessibleBridgePlugin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QAccessibleBridgePlugin2trEPKcS1_i(
@@ -212,6 +231,13 @@ QString *ritual_ZN23QAccessibleBridgePlugin2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAccessibleBridgePlugin::tr(s, c, n));
+}
+
+//  QAccessibleBridgePlugin::QAccessibleBridgePlugin(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAccessibleBridgePlugin *ritual_ZN23QAccessibleBridgePluginC1EP7QObject(
+    QObject *parent) {
+  return new CuteQAccessibleBridgePlugin(parent);
 }
 
 //  QAccessibleBridgePlugin::~QAccessibleBridgePlugin()

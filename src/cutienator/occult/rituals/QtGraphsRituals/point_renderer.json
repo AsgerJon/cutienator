@@ -9,6 +9,9 @@
   ],
   "rows": {
     "ritual_ZNK13PointRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN13PointRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_ZN13PointRendererD1Ev": ["nothing", "address"],
     "ritual_ZN13PointRenderer19resetShapePathCountEv": [
       "nothing", "address"
@@ -18,6 +21,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN13PointRenderer22seriesAboutToBeRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13PointRenderer11afterUpdateER5QListIP15QAbstractSeriesE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN13PointRenderer15handleHoverMoveEP11QHoverEvent": [
@@ -39,6 +45,9 @@
     ],
     "ritual_ZN13PointRenderer18hidePointDelegatesEP9QXYSeries": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN13PointRenderer19destroyGroupMarkersEPNS_10PointGroupEx": [
+      "nothing", "address", "address", "long long"
     ],
     "ritual_ZN13PointRenderer14onSingleTappedE11QEventPointN2Qt11MouseButtonE": [
       "nothing", "address", "address", "int"

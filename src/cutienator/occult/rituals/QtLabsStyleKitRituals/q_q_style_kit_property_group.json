@@ -8,6 +8,12 @@
     "ritual_ZNK23QQStyleKitPropertyGroup10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQStyleKitPropertyGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQStyleKitPropertyGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK23QQStyleKitPropertyGroup14propertyPathIdEN4QQSK8PropertyEN14PropertyPathId4FlagE": [
       "address", "address", "int", "int"
     ],

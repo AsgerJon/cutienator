@@ -5,6 +5,24 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV415GlobalFunctions17method_parseFloatEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415GlobalFunctions12method_isNaNEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415GlobalFunctions15method_isFiniteEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415GlobalFunctions16method_decodeURIEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415GlobalFunctions13method_escapeEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415GlobalFunctions15method_unescapeEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
     "ritual_ZN3QV415GlobalFunctionsD1Ev": ["nothing", "address"]
   }
 }

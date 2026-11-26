@@ -218,6 +218,21 @@ void ritual_ZN24QGraphicsSceneWheelEvent11setInvertedEb(
   self->setInverted(inverted);
 }
 
+//  QGraphicsSceneWheelEventPrivate *QGraphicsSceneWheelEvent::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneWheelEventPrivate *ritual_ZN24QGraphicsSceneWheelEvent6d_funcEv(
+    QGraphicsSceneWheelEvent *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneWheelEventPrivate *QGraphicsSceneWheelEvent::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneWheelEventPrivate *ritual_ZNK24QGraphicsSceneWheelEvent6d_funcEv(
+    const QGraphicsSceneWheelEvent *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSceneWheelEvent, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

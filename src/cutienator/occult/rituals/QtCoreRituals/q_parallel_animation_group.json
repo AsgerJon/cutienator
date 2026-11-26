@@ -8,12 +8,21 @@
     "ritual_ZNK23QParallelAnimationGroup10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QParallelAnimationGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QParallelAnimationGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QParallelAnimationGroup2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN23QParallelAnimationGroupC1EP7QObject": ["address", "address"],
     "ritual_ZN23QParallelAnimationGroupD1Ev": ["nothing", "address"],
     "ritual_ZNK23QParallelAnimationGroup8durationEv": ["int", "address"],
+    "ritual_ZN23QParallelAnimationGroupC1ER30QParallelAnimationGroupPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QParallelAnimationGroup5eventEP6QEvent": [
       "bool", "address", "address"
     ],

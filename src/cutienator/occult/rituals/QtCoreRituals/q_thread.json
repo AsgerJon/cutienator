@@ -5,7 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK7QThread10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QThread11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QThread11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QThread2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QThread15currentThreadIdEv": ["address"],
     "ritual_ZN7QThread13currentThreadEv": ["address"],
     "ritual_ZN7QThread12isMainThreadEv": ["bool"],
     "ritual_ZN7QThread16idealThreadCountEv": ["int"],
@@ -46,11 +51,25 @@
     "ritual_ZN7QThread5sleepEm": ["nothing", "unsigned long"],
     "ritual_ZN7QThread6msleepEm": ["nothing", "unsigned long"],
     "ritual_ZN7QThread6usleepEm": ["nothing", "unsigned long"],
+    "ritual_ZN7QThread5sleepENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE": [
+      "nothing", "long long"
+    ],
+    "ritual_ZN7QThread7startedENS_14QPrivateSignalE": ["nothing", "address"],
+    "ritual_ZN7QThread8finishedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
     "ritual_ZN7QThread3runEv": ["nothing", "address"],
     "ritual_ZN7QThread4execEv": ["int", "address"],
     "ritual_ZN7QThread21setTerminationEnabledEb": ["nothing", "bool"],
+    "ritual_ZN7QThreadC1ER14QThreadPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN7QThread6d_funcEv": ["address", "address"],
     "ritual_ZNK7QThread6d_funcEv": ["address", "address"],
+    "ritual_ZN7QThread16createThreadImplEOSt6futureIvE": [
+      "address", "address"
+    ],
+    "ritual_ZN7QThread19currentThreadIdImplEv": ["address"],
     "ritual_take_QThread": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QThread5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_own_ZN7QThread3runEv": ["nothing", "address"]

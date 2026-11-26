@@ -8,8 +8,17 @@
     "ritual_ZNK18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface19staticInterfaceNameEv": [
       "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceD1Ev": [
+      "nothing", "address"
     ],
     "ritual_ZNK18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface15activeInstancesEv": [
       "unsigned char", "address"
@@ -20,8 +29,17 @@
     "ritual_ZNK18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface18supportedInstancesEv": [
       "unsigned char", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface21RegisterAdvertisementERK15QDBusObjectPathRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface23UnregisterAdvertisementERK15QDBusObjectPath": [
+      "address", "address", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgBluezLEAdvertisingManager1Interface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QtBluetoothPrivate_OrgBluezLEAdvertisingManager1Interface__QDBusPendingReply": [
+      "nothing", "address"
     ]
   }
 }

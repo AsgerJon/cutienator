@@ -187,6 +187,19 @@ bool ritual_ZN23QRhiTextureRenderTarget6createEv(
   return self->create();
 }
 
+//  QRhiTextureRenderTarget::QRhiTextureRenderTarget(QRhiImplementation *rhi,
+//      const QRhiTextureRenderTargetDescription &desc_, Flags flags_)
+extern "C" Q_DECL_EXPORT
+QRhiTextureRenderTarget *ritual_ZN23QRhiTextureRenderTargetC1EP18QRhiImplementationRK34QRhiTextureRenderTargetDescription6QFlagsINS_4FlagEE(
+    QRhiImplementation *rhi,
+    const QRhiTextureRenderTargetDescription *desc_,
+    int flags_) {
+  return new CuteQRhiTextureRenderTarget(
+      rhi,
+      *desc_,
+      QFlags<QRhiTextureRenderTarget::Flag>::fromInt(flags_));
+}
+
 //  a Python function taken by a CuteQRhiTextureRenderTarget, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

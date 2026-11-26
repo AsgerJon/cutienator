@@ -8,9 +8,11 @@
 #include <QtNetwork/qlocalserver.h>
 #include <QtNetwork/qhttp2configuration.h>
 #include <QtHttpServer/qhttpserverconfiguration.h>
+#include <QtHttpServer/qhttpserverrequest.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QAbstractHttpServer that Python can take functions over in. Every QAbstractHttpServer
 //  Python makes is one. Each function below asks the Python
@@ -186,6 +188,25 @@ const QMetaObject *ritual_ZNK19QAbstractHttpServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractHttpServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QAbstractHttpServer11qt_metacastEPKc(
+    QAbstractHttpServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractHttpServer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QAbstractHttpServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractHttpServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractHttpServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QAbstractHttpServer2trEPKcS1_i(
@@ -199,6 +220,13 @@ QString *ritual_ZN19QAbstractHttpServer2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QAbstractHttpServerD1Ev(QAbstractHttpServer *self) {
   delete self;
+}
+
+//  QList<quint16> QAbstractHttpServer::serverPorts() const
+extern "C" Q_DECL_EXPORT
+QList<quint16> *ritual_ZNK19QAbstractHttpServer11serverPortsEv(
+    const QAbstractHttpServer *self) {
+  return new QList<quint16>(self->serverPorts());
 }
 
 //  bool QAbstractHttpServer::bind(QTcpServer *server)
@@ -271,6 +299,26 @@ QHttpServerConfiguration *ritual_ZNK19QAbstractHttpServer13configurationEv(
   return new QHttpServerConfiguration(self->configuration());
 }
 
+//  bool QAbstractHttpServer::handleRequest(const QHttpServerRequest
+//      &request, QHttpServerResponder &responder)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QAbstractHttpServer13handleRequestERK18QHttpServerRequestR20QHttpServerResponder(
+    QAbstractHttpServer *self,
+    const QHttpServerRequest *request,
+    QHttpServerResponder *responder) {
+  return self->handleRequest(*request, *responder);
+}
+
+//  void QAbstractHttpServer::missingHandler(const QHttpServerRequest
+//      &request, QHttpServerResponder &responder)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractHttpServer14missingHandlerERK18QHttpServerRequestR20QHttpServerResponder(
+    QAbstractHttpServer *self,
+    const QHttpServerRequest *request,
+    QHttpServerResponder *responder) {
+  self->missingHandler(*request, *responder);
+}
+
 //  QAbstractHttpServerPrivate *QAbstractHttpServer::d_func()
 extern "C" Q_DECL_EXPORT
 QAbstractHttpServerPrivate *ritual_ZN19QAbstractHttpServer6d_funcEv(
@@ -293,4 +341,10 @@ bool ritual_take_QAbstractHttpServer(
     const char *key,
     void *call) {
   return static_cast<CuteQAbstractHttpServer *>(self)->take(key, call);
+}
+
+//  a QList<quint16> a ritual of QAbstractHttpServer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractHttpServer__QList_quint16(QList<quint16> *self) {
+  delete self;
 }

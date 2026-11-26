@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN8DomColorC1Ev": ["address"],
     "ritual_ZN8DomColorD1Ev": ["nothing", "address"],
+    "ritual_ZN8DomColor4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8DomColor5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK8DomColor17hasAttributeAlphaEv": ["bool", "address"],
     "ritual_ZNK8DomColor14attributeAlphaEv": ["int", "address"],
     "ritual_ZN8DomColor17setAttributeAlphaEi": ["nothing", "address", "int"],

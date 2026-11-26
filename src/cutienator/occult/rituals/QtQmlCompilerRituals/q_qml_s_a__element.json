@@ -4,8 +4,71 @@
     "QtQmlCompiler/qqmlsa.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlSA7ElementC1Ev": ["address"],
+    "ritual_ZN6QQmlSA7ElementC1ERKS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA7ElementC1EOS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA7ElementaSERKS0_": ["address", "address", "address"],
+    "ritual_ZN6QQmlSA7ElementaSEOS0_": ["address", "address", "address"],
+    "ritual_ZN6QQmlSA7ElementD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA7Element9scopeTypeEv": ["int", "address"],
+    "ritual_ZNK6QQmlSA7Element8baseTypeEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Element12baseTypeNameEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA7Element11parentScopeEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Element8inheritsERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA7Element19isFileRootComponentEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA7Element6isNullEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA7Element10internalIdEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA7Element15accessSemanticsEv": ["int", "address"],
     "ritual_ZNK6QQmlSA7Element11isCompositeEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA7Element11hasPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA7Element14hasOwnPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA7Element8propertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA7Element18isPropertyRequiredERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA7Element19defaultPropertyNameEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA7Element9hasMethodERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA7Element10ownMethodsEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Element14sourceLocationEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Element16idSourceLocationEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Element8filePathEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA7Element19hasPropertyBindingsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA7Element22hasOwnPropertyBindingsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA7Element19ownPropertyBindingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA7Element19ownPropertyBindingsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA7Element16propertyBindingsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA7ElementcvbEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA7ElementntEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA7Element4nameEv": ["text", "address"],
     "ritual_ZN6QQmlSAeqERKNS_7ElementES2_": ["bool", "address", "address"],
-    "ritual_ZN6QQmlSAneERKNS_7ElementES2_": ["bool", "address", "address"]
+    "ritual_ZN6QQmlSAneERKNS_7ElementES2_": ["bool", "address", "address"],
+    "ritual_ZN6QQmlSA7Element18operatorEqualsImplERKS0_S2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA7Element4hashEm": ["size_t", "address", "size_t"],
+    "ritual_ZN6QQmlSA7Element4swapERS0_": ["nothing", "address", "address"],
+    "ritual_drop_QQmlSA_Element__QList_QQmlSA_Binding": [
+      "nothing", "address"
+    ]
   }
 }

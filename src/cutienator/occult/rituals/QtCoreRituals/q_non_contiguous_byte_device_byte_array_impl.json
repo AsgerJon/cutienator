@@ -8,6 +8,12 @@
     "ritual_ZNK37QNonContiguousByteDeviceByteArrayImpl10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN37QNonContiguousByteDeviceByteArrayImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN37QNonContiguousByteDeviceByteArrayImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN37QNonContiguousByteDeviceByteArrayImplD1Ev": [
       "nothing", "address"
     ],

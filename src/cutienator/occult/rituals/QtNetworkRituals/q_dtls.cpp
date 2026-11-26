@@ -187,6 +187,22 @@ const QMetaObject *ritual_ZNK5QDtls10metaObjectEv(const QDtls *self) {
   return self->metaObject();
 }
 
+//  void *QDtls::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN5QDtls11qt_metacastEPKc(QDtls *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDtls::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN5QDtls11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDtls *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDtls::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN5QDtls2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -404,6 +420,20 @@ void ritual_ZN5QDtls24ignoreVerificationErrorsERK5QListI9QSslErrorE(
     QDtls *self,
     const QList<QSslError> *errorsToIgnore) {
   self->ignoreVerificationErrors(*errorsToIgnore);
+}
+
+//  void QDtls::pskRequired(QSslPreSharedKeyAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDtls11pskRequiredEP29QSslPreSharedKeyAuthenticator(
+    QDtls *self,
+    QSslPreSharedKeyAuthenticator *authenticator) {
+  self->pskRequired(authenticator);
+}
+
+//  void QDtls::handshakeTimeout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDtls16handshakeTimeoutEv(QDtls *self) {
+  self->handshakeTimeout();
 }
 
 //  bool QDtls::startHandshake(QUdpSocket *socket, const QByteArray &dgram)

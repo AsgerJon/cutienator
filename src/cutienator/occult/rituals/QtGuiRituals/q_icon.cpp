@@ -26,6 +26,12 @@ QIcon *ritual_ZN5QIconC1ERKS_(const QIcon *other) {
   return new QIcon(*other);
 }
 
+//  QIcon::QIcon(QIcon &&other)
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_ZN5QIconC1EOS_(QIcon *other) {
+  return new QIcon(std::move(*other));
+}
+
 //  QIcon::QIcon(const QString &fileName)
 extern "C" Q_DECL_EXPORT
 QIcon *ritual_ZN5QIconC1ERK7QString(const QString *fileName) {
@@ -42,6 +48,24 @@ QIcon *ritual_ZN5QIconC1EP11QIconEngine(QIconEngine *engine) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QIconD1Ev(QIcon *self) {
   delete self;
+}
+
+//  QIcon &QIcon::operator=(const QIcon &other)
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_ZN5QIconaSERKS_(QIcon *self, const QIcon *other) {
+  return &(self->operator=(*other));
+}
+
+//  QIcon &QIcon::operator=(QIcon &&other)
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_ZN5QIconaSEOS_(QIcon *self, QIcon *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QIcon::swap(QIcon &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QIcon4swapERS_(QIcon *self, QIcon *other) {
+  self->swap(*other);
 }
 
 //  QVariant QIcon::operator QVariant() const
@@ -334,4 +358,28 @@ QString *ritual_ZN5QIcon17fallbackThemeNameEv() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QIcon20setFallbackThemeNameERK7QString(const QString *name) {
   QIcon::setFallbackThemeName(*name);
+}
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QIcon &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK5QIcon(
+    QDataStream *a0,
+    const QIcon *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QIcon &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR5QIcon(QDataStream *a0, QIcon *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+//  DataPtr &QIcon::data_ptr()
+extern "C" Q_DECL_EXPORT
+QIcon::DataPtr *ritual_ZN5QIcon8data_ptrEv(QIcon *self) {
+  return &(self->data_ptr());
 }

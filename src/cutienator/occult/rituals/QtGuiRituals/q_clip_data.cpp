@@ -312,6 +312,12 @@ QClipData::ClipLine *ritual_ZN9QClipData9clipLinesEv(QClipData *self) {
   return self->clipLines();
 }
 
+//  QT_FT_Span *QClipData::spans()
+extern "C" Q_DECL_EXPORT
+QT_FT_Span *ritual_ZN9QClipData5spansEv(QClipData *self) {
+  return self->spans();
+}
+
 //  void QClipData::appendSpan(int x, int length, int y, int coverage)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QClipData10appendSpanEiiii(
@@ -321,6 +327,15 @@ void ritual_ZN9QClipData10appendSpanEiiii(
     int y,
     int coverage) {
   self->appendSpan(x, length, y, coverage);
+}
+
+//  void QClipData::appendSpans(const QT_FT_Span *s, int num)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QClipData11appendSpansEPK11QT_FT_Span_i(
+    QClipData *self,
+    const QT_FT_Span *s,
+    int num) {
+  self->appendSpans(s, num);
 }
 
 //  void QClipData::setClipRect(const QRect &rect)

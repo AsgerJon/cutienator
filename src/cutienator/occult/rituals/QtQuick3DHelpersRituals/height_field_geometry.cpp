@@ -17,6 +17,25 @@ const QMetaObject *ritual_ZNK19HeightFieldGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *HeightFieldGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19HeightFieldGeometry11qt_metacastEPKc(
+    HeightFieldGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int HeightFieldGeometry::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19HeightFieldGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    HeightFieldGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString HeightFieldGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19HeightFieldGeometry2trEPKcS1_i(
@@ -75,6 +94,27 @@ void ritual_ZN19HeightFieldGeometry10setExtentsERK9QVector3D(
     HeightFieldGeometry *self,
     const QVector3D *newExtents) {
   self->setExtents(*newExtents);
+}
+
+//  void HeightFieldGeometry::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19HeightFieldGeometry13sourceChangedEv(
+    HeightFieldGeometry *self) {
+  self->sourceChanged();
+}
+
+//  void HeightFieldGeometry::smoothShadingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19HeightFieldGeometry20smoothShadingChangedEv(
+    HeightFieldGeometry *self) {
+  self->smoothShadingChanged();
+}
+
+//  void HeightFieldGeometry::extentsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19HeightFieldGeometry14extentsChangedEv(
+    HeightFieldGeometry *self) {
+  self->extentsChanged();
 }
 
 //  void HeightFieldGeometry::updateData()

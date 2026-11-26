@@ -9,7 +9,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/bluez5_helper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtDBus/qdbusextratypes.h>
+#include <QtCore/qvariant.h>
+#include <QtDBus/qdbusmessage.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A QtBluezDiscoveryManager that Python can take functions over in. Every QtBluezDiscoveryManager
@@ -184,6 +192,118 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK23QtBluezDiscoveryManager10metaObjectEv(
     const QtBluezDiscoveryManager *self) {
   return self->metaObject();
+}
+
+//  void *QtBluezDiscoveryManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QtBluezDiscoveryManager11qt_metacastEPKc(
+    QtBluezDiscoveryManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtBluezDiscoveryManager::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QtBluezDiscoveryManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtBluezDiscoveryManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QtBluezDiscoveryManager::discoveryInterrupted(const QString
+//      &adapterPath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QtBluezDiscoveryManager20discoveryInterruptedERK7QString(
+    QtBluezDiscoveryManager *self,
+    const QString *adapterPath) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QtBluezDiscoveryManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "discoveryInterrupted(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "discoveryInterrupted(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(adapterPath)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QtBluezDiscoveryManager::InterfacesRemoved(const QDBusObjectPath
+//      &object_path, const QStringList &interfaces)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QtBluezDiscoveryManager17InterfacesRemovedERK15QDBusObjectPathRK5QListI7QStringE(
+    QtBluezDiscoveryManager *self,
+    const QDBusObjectPath *object_path,
+    const QList<QString> *interfaces) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QtBluezDiscoveryManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "InterfacesRemoved(const QDBusObjectPath &,const QStringList &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "InterfacesRemoved(const QDBusObjectPath &,const QStringList &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(object_path)),
+      const_cast<void *>(static_cast<const void *>(interfaces)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QtBluezDiscoveryManager::PropertiesChanged(const QString &interface,
+//      const QVariantMap &changed_properties, const QStringList
+//      &invalidated_properties, const QDBusMessage &msg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QtBluezDiscoveryManager17PropertiesChangedERK7QStringRK4QMapIS0_8QVariantERK5QListIS0_ERK12QDBusMessage(
+    QtBluezDiscoveryManager *self,
+    const QString *interface,
+    const QMap<QString, QVariant> *changed_properties,
+    const QList<QString> *invalidated_properties,
+    const QDBusMessage *msg) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QtBluezDiscoveryManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "PropertiesChanged(const QString &,const QVariantMap &,const QStringList &,const QDBusMessage &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "PropertiesChanged(const QString &,const QVariantMap &,const QStringList &,const QDBusMessage &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(interface)),
+      const_cast<void *>(static_cast<const void *>(changed_properties)),
+      const_cast<void *>(static_cast<const void *>(invalidated_properties)),
+      const_cast<void *>(static_cast<const void *>(msg)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQtBluezDiscoveryManager, for the

@@ -32,10 +32,32 @@ QSslCipher *ritual_ZN10QSslCipherC1ERKS_(const QSslCipher *other) {
   return new QSslCipher(*other);
 }
 
+//  QSslCipher &QSslCipher::operator=(QSslCipher &&other)
+extern "C" Q_DECL_EXPORT
+QSslCipher *ritual_ZN10QSslCipheraSEOS_(
+    QSslCipher *self,
+    QSslCipher *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QSslCipher &QSslCipher::operator=(const QSslCipher &other)
+extern "C" Q_DECL_EXPORT
+QSslCipher *ritual_ZN10QSslCipheraSERKS_(
+    QSslCipher *self,
+    const QSslCipher *other) {
+  return &(self->operator=(*other));
+}
+
 //  QSslCipher::~QSslCipher()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QSslCipherD1Ev(QSslCipher *self) {
   delete self;
+}
+
+//  void QSslCipher::swap(QSslCipher &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslCipher4swapERS_(QSslCipher *self, QSslCipher *other) {
+  self->swap(*other);
 }
 
 //  bool QSslCipher::operator==(const QSslCipher &other) const

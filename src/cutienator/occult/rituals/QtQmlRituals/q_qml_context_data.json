@@ -5,10 +5,26 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QQmlContextData16createRefCountedERK14QQmlRefPointerIS_E": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQmlContextData11createChildERK14QQmlRefPointerIS_E": [
+      "address", "address"
+    ],
     "ritual_ZNK15QQmlContextData6addrefEv": ["nothing", "address"],
     "ritual_ZNK15QQmlContextData7releaseEv": ["nothing", "address"],
     "ritual_ZNK15QQmlContextData5countEv": ["int", "address"],
     "ritual_ZNK15QQmlContextData8refCountEv": ["int", "address"],
+    "ritual_ZNK15QQmlContextData19typeCompilationUnitEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQmlContextData22setTypeCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQmlContextData27initFromTypeCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QQmlContextData3getEP11QQmlContext": ["address", "address"],
     "ritual_ZN15QQmlContextData15emitDestructionEv": ["nothing", "address"],
     "ritual_ZN15QQmlContextData16clearExpressionsEv": ["nothing", "address"],
     "ritual_ZN15QQmlContextData23clearContextRecursivelyEv": [
@@ -43,6 +59,7 @@
     "ritual_ZN15QQmlContextData23setPragmaLibraryContextEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZNK15QQmlContextData6parentEv": ["address", "address"],
     "ritual_ZN15QQmlContextData11clearParentEv": ["nothing", "address"],
     "ritual_ZN15QQmlContextData18refreshExpressionsEv": [
       "nothing", "address"
@@ -84,6 +101,14 @@
     ],
     "ritual_ZNK15QQmlContextData11expressionsEv": ["address", "address"],
     "ritual_ZN15QQmlContextData15takeExpressionsEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData16setChildContextsERK14QQmlRefPointerIS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData13childContextsEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData17takeChildContextsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData9nextChildEv": ["address", "address"],
     "ritual_ZNK15QQmlContextData11numIdValuesEv": ["int", "address"],
     "ritual_ZN15QQmlContextData10setIdValueEiP7QObject": [
       "nothing", "address", "int", "address"
@@ -108,6 +133,10 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK15QQmlContextData7baseUrlEv": ["address", "address"],
+    "ritual_ZNK15QQmlContextData7importsEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData10setImportsERK14QQmlRefPointerI17QQmlTypeNameCacheE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QQmlContextData9incubatorEv": ["address", "address"],
     "ritual_ZN15QQmlContextData12setIncubatorEP20QQmlIncubatorPrivate": [
       "nothing", "address", "address"
@@ -131,6 +160,10 @@
     "ritual_ZN15QQmlContextData18setImportedScriptsEPN3QV415ExecutionEngineEy": [
       "nothing", "address", "address", "unsigned long long"
     ],
+    "ritual_ZNK15QQmlContextData13linkedContextEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData16setLinkedContextERK14QQmlRefPointerIS_E": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QQmlContextData18hasUnresolvedNamesEv": ["bool", "address"],
     "ritual_ZN15QQmlContextData18setUnresolvedNamesEb": [
       "nothing", "address", "bool"
@@ -150,6 +183,9 @@
     "ritual_ZNK15QQmlContextData23valueTypesAreAssertableEv": [
       "bool", "address"
     ],
+    "ritual_ZN15QQmlContextDataC1ENS_9OwnershipEP11QQmlContextRK14QQmlRefPointerIS_EP10QQmlEngine": [
+      "address", "int", "address", "address", "address"
+    ],
     "ritual_ZN15QQmlContextDataD1Ev": ["nothing", "address"],
     "ritual_ZNK15QQmlContextData19hasExpressionsToRunEb": [
       "bool", "address", "bool"
@@ -164,6 +200,15 @@
       "nothing", "address"
     ],
     "ritual_ZNK15QQmlContextData19ensurePropertyNamesEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlContextData__QQmlRefPointer_QQmlContextData": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlContextData__QQmlRefPointer_QV4_ExecutableCompilationUnit": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlContextData__QQmlRefPointer_QQmlTypeNameCache": [
       "nothing", "address"
     ]
   }

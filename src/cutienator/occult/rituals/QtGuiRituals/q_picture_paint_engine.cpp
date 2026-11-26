@@ -43,10 +43,84 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/image/qpaintengine_pic.cpp, line 52, as _ZN19QPicturePaintEngineD1Ev
+//  from src/gui/image/qpaintengine_pic.cpp, line 28, as local:qpaintengine_pic.cpp:QPicturePaintEnginePrivate
 #if !defined(QT_NO_PICTURE)
-inline QPicturePaintEngine::~QPicturePaintEngine()
+class QPicturePaintEnginePrivate : public QPaintEnginePrivate
 {
+    Q_DECLARE_PUBLIC(QPicturePaintEngine)
+public:
+    QDataStream s;
+    QPainter *pt;
+    QPicturePrivate *pic_d;
+    bool sizeLimitExceeded = false;
+};
+#endif  // !defined(QT_NO_PICTURE)
+
+//  from src/gui/image/qpaintengine_pic.cpp, line 56, as _ZN19QPicturePaintEngine5beginEP12QPaintDevice
+#if !defined(QT_NO_PICTURE)
+inline bool QPicturePaintEngine::begin(QPaintDevice *pd)
+{
+    Q_D(QPicturePaintEngine);
+#ifdef QT_PICTURE_DEBUG
+    qDebug("QPicturePaintEngine::begin()");
+#endif
+    Q_ASSERT(pd);
+    QPicture *pic = static_cast<QPicture *>(pd);
+
+    d->pdev = pd;
+    d->pic_d = pic->d_func();
+    Q_ASSERT(d->pic_d);
+
+    d->s.setDevice(&d->pic_d->pictb);
+    d->s.setVersion(d->pic_d->formatMajor);
+
+    d->pic_d->pictb.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    d->sizeLimitExceeded = false;
+    d->s.writeRawData(qt_mfhdr_tag, 4);
+    d->s << (quint16) 0 << (quint16) d->pic_d->formatMajor << (quint16) d->pic_d->formatMinor;
+    d->s << (quint8) QPicturePrivate::PdcBegin << (quint8) sizeof(qint32);
+    d->pic_d->brect = QRect();
+    if (d->pic_d->formatMajor >= 4) {
+        QRect r = pic->boundingRect();
+        d->s << (qint32) r.left() << (qint32) r.top() << (qint32) r.width()
+             << (qint32) r.height();
+    }
+    d->pic_d->trecs = 0;
+    d->s << (quint32)d->pic_d->trecs; // total number of records
+    d->pic_d->formatOk = false;
+    setActive(true);
+    return true;
+}
+#endif  // !defined(QT_NO_PICTURE)
+
+//  from src/gui/image/qpaintengine_pic.cpp, line 90, as _ZN19QPicturePaintEngine3endEv
+#if !defined(QT_NO_PICTURE)
+inline bool QPicturePaintEngine::end()
+{
+    Q_D(QPicturePaintEngine);
+#ifdef QT_PICTURE_DEBUG
+    qDebug("QPicturePaintEngine::end()");
+#endif
+    d->pic_d->trecs++;
+    d->s << (quint8) QPicturePrivate::PdcEnd << (quint8) 0;
+    int cs_start = sizeof(quint32);                // pos of checksum word
+    int data_start = cs_start + sizeof(quint16);
+    int brect_start = data_start + 2*sizeof(qint16) + 2*sizeof(quint8);
+    int pos = d->pic_d->pictb.pos();
+    d->pic_d->pictb.seek(brect_start);
+    if (d->pic_d->formatMajor >= 4) { // bounding rectangle
+        QRect r = static_cast<QPicture *>(d->pdev)->boundingRect();
+        d->s << (qint32) r.left() << (qint32) r.top() << (qint32) r.width()
+             << (qint32) r.height();
+    }
+    d->s << (quint32) d->pic_d->trecs;                        // write number of records
+    d->pic_d->pictb.seek(cs_start);
+    const QByteArray buf = d->pic_d->pictb.buffer();
+    quint16 cs = (quint16) qChecksum(QByteArrayView(buf.constData() + data_start, pos - data_start));
+    d->s << cs;                                // write checksum
+    d->pic_d->pictb.close();
+    setActive(false);
+    return !d->sizeLimitExceeded;
 }
 #endif  // !defined(QT_NO_PICTURE)
 
@@ -67,6 +141,13 @@ inline void QPicturePaintEngine::updateState(const QPaintEngineState &state)
     if (flags & DirtyHints) updateRenderHints(state.renderHints());
     if (flags & DirtyCompositionMode) updateCompositionMode(state.compositionMode());
     if (flags & DirtyOpacity) updateOpacity(state.opacity());
+}
+#endif  // !defined(QT_NO_PICTURE)
+
+//  from src/gui/image/qpaintengine_pic.cpp, line 52, as _ZN19QPicturePaintEngineD1Ev
+#if !defined(QT_NO_PICTURE)
+inline QPicturePaintEngine::~QPicturePaintEngine()
+{
 }
 #endif  // !defined(QT_NO_PICTURE)
 //  -----------------------------------------------------------------------
@@ -527,10 +608,38 @@ public:
   }
 };
 
+//  QPicturePaintEnginePrivate *QPicturePaintEngine::d_func()
+extern "C" Q_DECL_EXPORT
+QPicturePaintEnginePrivate *ritual_ZN19QPicturePaintEngine6d_funcEv(
+    QPicturePaintEngine *self) {
+  return self->d_func();
+}
+
+//  const QPicturePaintEnginePrivate *QPicturePaintEngine::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPicturePaintEnginePrivate *ritual_ZNK19QPicturePaintEngine6d_funcEv(
+    const QPicturePaintEngine *self) {
+  return self->d_func();
+}
+
 //  QPicturePaintEngine::~QPicturePaintEngine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QPicturePaintEngineD1Ev(QPicturePaintEngine *self) {
   delete self;
+}
+
+//  bool QPicturePaintEngine::begin(QPaintDevice *pdev)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QPicturePaintEngine5beginEP12QPaintDevice(
+    QPicturePaintEngine *self,
+    QPaintDevice *pdev) {
+  return self->begin(pdev);
+}
+
+//  bool QPicturePaintEngine::end()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QPicturePaintEngine3endEv(QPicturePaintEngine *self) {
+  return self->end();
 }
 
 //  void QPicturePaintEngine::updateState(const QPaintEngineState &state)
@@ -539,6 +648,81 @@ void ritual_ZN19QPicturePaintEngine11updateStateERK17QPaintEngineState(
     QPicturePaintEngine *self,
     const QPaintEngineState *state) {
   self->updateState(*state);
+}
+
+//  void QPicturePaintEngine::drawEllipse(const QRectF &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPicturePaintEngine11drawEllipseERK6QRectF(
+    QPicturePaintEngine *self,
+    const QRectF *rect) {
+  self->drawEllipse(*rect);
+}
+
+//  void QPicturePaintEngine::drawPath(const QPainterPath &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPicturePaintEngine8drawPathERK12QPainterPath(
+    QPicturePaintEngine *self,
+    const QPainterPath *path) {
+  self->drawPath(*path);
+}
+
+//  void QPicturePaintEngine::drawPolygon(const QPointF *points, int
+//      numPoints, PolygonDrawMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPicturePaintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE(
+    QPicturePaintEngine *self,
+    const QPointF *points,
+    int numPoints,
+    QPaintEngine::PolygonDrawMode mode) {
+  self->drawPolygon(points, numPoints, mode);
+}
+
+//  void QPicturePaintEngine::drawPixmap(const QRectF &r, const QPixmap &pm,
+//      const QRectF &sr)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPicturePaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_(
+    QPicturePaintEngine *self,
+    const QRectF *r,
+    const QPixmap *pm,
+    const QRectF *sr) {
+  self->drawPixmap(*r, *pm, *sr);
+}
+
+//  void QPicturePaintEngine::drawTiledPixmap(const QRectF &r, const QPixmap
+//      &pixmap, const QPointF &s)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPicturePaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF(
+    QPicturePaintEngine *self,
+    const QRectF *r,
+    const QPixmap *pixmap,
+    const QPointF *s) {
+  self->drawTiledPixmap(*r, *pixmap, *s);
+}
+
+//  void QPicturePaintEngine::drawImage(const QRectF &r, const QImage &image,
+//      const QRectF &sr, Qt::ImageConversionFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPicturePaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(
+    QPicturePaintEngine *self,
+    const QRectF *r,
+    const QImage *image,
+    const QRectF *sr,
+    int flags) {
+  self->drawImage(
+      *r,
+      *image,
+      *sr,
+      QFlags<Qt::ImageConversionFlag>::fromInt(flags));
+}
+
+//  void QPicturePaintEngine::drawTextItem(const QPointF &p, const QTextItem
+//      &ti)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPicturePaintEngine12drawTextItemERK7QPointFRK9QTextItem(
+    QPicturePaintEngine *self,
+    const QPointF *p,
+    const QTextItem *ti) {
+  self->drawTextItem(*p, *ti);
 }
 
 //  Type QPicturePaintEngine::type() const
@@ -557,6 +741,14 @@ bool ritual_take_QPicturePaintEngine(
     void *call) {
   return static_cast<CuteQPicturePaintEngine *>(self)->take(key, call);
 }
+
+#if !defined(QT_NO_PICTURE)
+//  bool QPicturePaintEngine::end()
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN19QPicturePaintEngine3endEv(QPicturePaintEngine *self) {
+  return self->QPicturePaintEngine::end();
+}
+#endif  // !defined(QT_NO_PICTURE)
 
 //  Type QPicturePaintEngine::type() const
 extern "C" Q_DECL_EXPORT

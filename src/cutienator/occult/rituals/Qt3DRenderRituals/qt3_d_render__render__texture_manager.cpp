@@ -7,6 +7,8 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/managers_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/qnodeid.h>
+#include <QtCore/QList>
+#include <Qt3DCore/Qt3DCore>
 
 //  Qt3DRender::Render::TextureManager::TextureManager()
 extern "C" Q_DECL_EXPORT
@@ -30,4 +32,20 @@ void ritual_ZN10Qt3DRender6Render14TextureManager24removeTextureIdToCleanupEN8Qt
     Qt3DRender::Render::TextureManager *self,
     const Qt3DCore::QNodeId *id) {
   self->removeTextureIdToCleanup(*id);
+}
+
+//  QList<Qt3DCore::QNodeId>
+//      Qt3DRender::Render::TextureManager::takeTexturesIdsToCleanup()
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QNodeId> *ritual_ZN10Qt3DRender6Render14TextureManager24takeTexturesIdsToCleanupEv(
+    Qt3DRender::Render::TextureManager *self) {
+  return new QList<Qt3DCore::QNodeId>(self->takeTexturesIdsToCleanup());
+}
+
+//  a QList<Qt3DCore::QNodeId> a ritual of Qt3DRender::Render::TextureManager
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_TextureManager__QList_Qt3DCore_QNodeId(
+    QList<Qt3DCore::QNodeId> *self) {
+  delete self;
 }

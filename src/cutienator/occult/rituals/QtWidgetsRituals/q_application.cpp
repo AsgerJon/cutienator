@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/qapplication.h, Qt 6.12.0. Changes made here are lost.
+//  QtWidgets/qapplication.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, instances of templates of the class: 2. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qapplication.h>
 #include <QtCore/qstring.h>
@@ -11,6 +13,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtGui/qguiapplication_platform.h>
 
 //  Only a class built on QApplication may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -245,6 +248,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK12QApplication10metaObjectEv(
     const QApplication *self) {
   return self->metaObject();
+}
+
+//  void *QApplication::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QApplication11qt_metacastEPKc(
+    QApplication *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QApplication::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QApplication11qt_metacallEN11QMetaObject4CallEiPPv(
+    QApplication *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QApplication::tr(const char *s, const char *c, int n)
@@ -533,6 +554,25 @@ bool ritual_ZN12QApplication6notifyEP7QObjectP6QEvent(
   return self->notify(a0, a1);
 }
 
+//  void *QApplication::resolveInterface(const char *name, int revision)
+//      const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK12QApplication16resolveInterfaceEPKci(
+    const QApplication *self,
+    const char *name,
+    int revision) {
+  return self->resolveInterface(name, revision);
+}
+
+//  void QApplication::focusChanged(QWidget *old, QWidget *now)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QApplication12focusChangedEP7QWidgetS1_(
+    QApplication *self,
+    QWidget *old,
+    QWidget *now) {
+  self->focusChanged(old, now);
+}
+
 //  QString QApplication::styleSheet() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK12QApplication10styleSheetEv(const QApplication *self) {
@@ -649,3 +689,25 @@ bool ritual_own_ZN12QApplication13compressEventEP6QEventP7QObjectP14QPostEventLi
       a2);
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_CONFIG(xcb)
+//  QNativeInterface::QX11Application
+//      *QApplication::nativeInterface<QNativeInterface::QX11Application>()
+//      const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QX11Application *ritual_ZNK12QApplication15nativeInterfaceIN16QNativeInterface15QX11ApplicationENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QApplication *self) {
+  return self->nativeInterface<QNativeInterface::QX11Application>();
+}
+#endif  // QT_CONFIG(xcb)
+
+#if QT_CONFIG(wayland)
+//  QNativeInterface::QWaylandApplication
+//      *QApplication::nativeInterface<QNativeInterface::QWaylandApplication>()
+//      const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QWaylandApplication *ritual_ZNK12QApplication15nativeInterfaceIN16QNativeInterface19QWaylandApplicationENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QApplication *self) {
+  return self->nativeInterface<QNativeInterface::QWaylandApplication>();
+}
+#endif  // QT_CONFIG(wayland)

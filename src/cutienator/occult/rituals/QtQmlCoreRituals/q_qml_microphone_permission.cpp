@@ -188,6 +188,25 @@ const QMetaObject *ritual_ZNK24QQmlMicrophonePermission10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlMicrophonePermission::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQmlMicrophonePermission11qt_metacastEPKc(
+    QQmlMicrophonePermission *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlMicrophonePermission::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQmlMicrophonePermission11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlMicrophonePermission *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  Qt::PermissionStatus QQmlMicrophonePermission::status() const
 extern "C" Q_DECL_EXPORT
 Qt::PermissionStatus ritual_ZNK24QQmlMicrophonePermission6statusEv(

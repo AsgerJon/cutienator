@@ -5,11 +5,21 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput30QAbstractPhysicalDevicePrivateC1Ev": ["address"],
+    "ritual_ZN9Qt3DInput30QAbstractPhysicalDevicePrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN9Qt3DInput30QAbstractPhysicalDevicePrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK9Qt3DInput30QAbstractPhysicalDevicePrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput30QAbstractPhysicalDevicePrivate13postAxisEventEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN9Qt3DInput30QAbstractPhysicalDevicePrivate15postButtonEventEid": [
+      "nothing", "address", "int", "double"
     ],
     "ritual_take_Qt3DInput_QAbstractPhysicalDevicePrivate": [
       "bool", "address", "chars", "address"

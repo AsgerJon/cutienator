@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlTableModelColumn10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlTableModelColumn11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQmlTableModelColumn2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -77,8 +83,53 @@
       "address", "address", "text"
     ],
     "ritual_ZNK20QQmlTableModelColumn7gettersEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn18supportedRoleNamesEv": ["address"],
+    "ritual_ZN20QQmlTableModelColumn12indexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn14displayChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn17decorationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn11editChangedEv": ["nothing", "address"],
+    "ritual_ZN20QQmlTableModelColumn14toolTipChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn16statusTipChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn16whatsThisChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn11fontChangedEv": ["nothing", "address"],
+    "ritual_ZN20QQmlTableModelColumn20textAlignmentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn17backgroundChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn17foregroundChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn17checkStateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn21accessibleTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn28accessibleDescriptionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn15sizeHintChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQmlTableModelColumn": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQmlTableModelColumn__QHash_int_QString": [
+      "nothing", "address"
     ]
   }
 }

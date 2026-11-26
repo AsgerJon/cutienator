@@ -8,6 +8,12 @@
     "ritual_ZN3QV412EvalFunction12staticVTableEv": ["address"],
     "ritual_ZN3QV412EvalFunction10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV412EvalFunction11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV412EvalFunction1dEv": ["address", "address"]
+    "ritual_ZNK3QV412EvalFunction1dEv": ["address", "address"],
+    "ritual_ZNK3QV412EvalFunction8evalCallEPKNS_5ValueES3_ib": [
+      "unsigned long long", "address", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN3QV412EvalFunction11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

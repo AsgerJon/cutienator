@@ -70,6 +70,12 @@ public:
   }
 };
 
+//  Qt3DRender::QLevelOfDetailSwitchPrivate::QLevelOfDetailSwitchPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLevelOfDetailSwitchPrivate *ritual_ZN10Qt3DRender27QLevelOfDetailSwitchPrivateC1Ev() {
+  return new CuteQt3DRender_QLevelOfDetailSwitchPrivate();
+}
+
 //  QLevelOfDetailSwitch *Qt3DRender::QLevelOfDetailSwitchPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QLevelOfDetailSwitch *ritual_ZN10Qt3DRender27QLevelOfDetailSwitchPrivate6q_funcEv(
@@ -83,6 +89,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QLevelOfDetailSwitch *ritual_ZNK10Qt3DRender27QLevelOfDetailSwitchPrivate6q_funcEv(
     const Qt3DRender::QLevelOfDetailSwitchPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DRender::QLevelOfDetailSwitchPrivate::setCurrentIndex(int
+//      currentIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender27QLevelOfDetailSwitchPrivate15setCurrentIndexEi(
+    Qt3DRender::QLevelOfDetailSwitchPrivate *self,
+    int currentIndex) {
+  self->setCurrentIndex(currentIndex);
 }
 
 //  a Python function taken by a CuteQt3DRender_QLevelOfDetailSwitchPrivate,

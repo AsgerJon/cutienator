@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN11QTlsPrivate15X509CertificateD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QTlsPrivate15X509Certificate7isEqualERKS0_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK11QTlsPrivate15X509Certificate6isNullEv": ["bool", "address"],
     "ritual_ZNK11QTlsPrivate15X509Certificate12isSelfSignedEv": [
       "bool", "address"
@@ -32,6 +35,9 @@
       "address", "address"
     ],
     "ritual_ZNK11QTlsPrivate15X509Certificate20issuerInfoAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate23subjectAlternativeNamesEv": [
       "address", "address"
     ],
     "ritual_ZNK11QTlsPrivate15X509Certificate13effectiveDateEv": [
@@ -68,11 +74,20 @@
       "address", "address"
     ],
     "ritual_ZNK11QTlsPrivate15X509Certificate6toTextEv": ["text", "address"],
+    "ritual_ZNK11QTlsPrivate15X509Certificate6handleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate4hashEm": [
+      "size_t", "address", "size_t"
+    ],
     "ritual_take_QTlsPrivate_X509Certificate": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZNK11QTlsPrivate15X509Certificate9publicKeyEv": [
       "address", "address"
+    ],
+    "ritual_drop_QTlsPrivate_X509Certificate__QMultiMap_QSsl_AlternativeNameEntryType_QString": [
+      "nothing", "address"
     ]
   }
 }

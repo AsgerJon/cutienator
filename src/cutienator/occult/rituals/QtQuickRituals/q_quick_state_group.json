@@ -6,16 +6,28 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickStateGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickStateGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickStateGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickStateGroup2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QQuickStateGroup6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQuickStateGroup6d_funcEv": ["address", "address"],
     "ritual_ZN16QQuickStateGroupC1EP7QObject": ["address", "address"],
     "ritual_ZN16QQuickStateGroupD1Ev": ["nothing", "address"],
     "ritual_ZNK16QQuickStateGroup5stateEv": ["text", "address"],
     "ritual_ZN16QQuickStateGroup8setStateERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN16QQuickStateGroup14statesPropertyEv": ["address", "address"],
     "ritual_ZNK16QQuickStateGroup6statesEv": ["address", "address"],
+    "ritual_ZN16QQuickStateGroup19transitionsPropertyEv": [
+      "address", "address"
+    ],
     "ritual_ZNK16QQuickStateGroup9findStateERK7QString": [
       "address", "address", "text"
     ],
@@ -26,6 +38,9 @@
     "ritual_ZN16QQuickStateGroup17componentCompleteEv": [
       "nothing", "address"
     ],
+    "ritual_ZN16QQuickStateGroup12stateChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN16QQuickStateGroup15updateAutoStateEv": ["bool", "address"],
     "ritual_ZN16QQuickStateGroup20stateAboutToCompleteEv": [
       "nothing", "address"
@@ -34,6 +49,12 @@
     "ritual_take_QQuickStateGroup": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QQuickStateGroup10classBeginEv": ["nothing", "address"],
     "ritual_own_ZN16QQuickStateGroup17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickStateGroup__QQmlListProperty_QQuickState": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickStateGroup__QQmlListProperty_QQuickTransition": [
       "nothing", "address"
     ]
   }

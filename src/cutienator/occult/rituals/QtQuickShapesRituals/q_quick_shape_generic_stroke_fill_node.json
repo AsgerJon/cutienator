@@ -8,6 +8,15 @@
     "ritual_ZNK32QQuickShapeGenericStrokeFillNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuickShapeGenericStrokeFillNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuickShapeGenericStrokeFillNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN32QQuickShapeGenericStrokeFillNode16activateMaterialEP12QQuickWindowNS_8MaterialE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN32QQuickShapeGenericStrokeFillNode10preprocessEv": [
       "nothing", "address"
     ],

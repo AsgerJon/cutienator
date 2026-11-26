@@ -41,6 +41,15 @@ void ritual_ZN16QScatterDataItemD1Ev(QScatterDataItem *self) {
   delete self;
 }
 
+//  QScatterDataItem &QScatterDataItem::operator=(const QScatterDataItem
+//      &other)
+extern "C" Q_DECL_EXPORT
+QScatterDataItem *ritual_ZN16QScatterDataItemaSERKS_(
+    QScatterDataItem *self,
+    const QScatterDataItem *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QScatterDataItem::setPosition(const QVector3D &pos)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QScatterDataItem11setPositionERK9QVector3D(

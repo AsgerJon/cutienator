@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QUnifiedTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QUnifiedTimer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QUnifiedTimer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QUnifiedTimer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QUnifiedTimerC1Ev": ["address"],
     "ritual_ZN13QUnifiedTimerD1Ev": ["nothing", "address"],
@@ -51,6 +57,9 @@
     ],
     "ritual_ZNK13QUnifiedTimer21runningAnimationCountEv": [
       "long long", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer24registerProfilerCallbackEPFvxE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN13QUnifiedTimer20startAnimationDriverEv": [
       "nothing", "address"

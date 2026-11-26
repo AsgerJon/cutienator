@@ -293,6 +293,25 @@ const QMetaObject *ritual_ZNK24QQuick3DDirectionalLight10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DDirectionalLight::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuick3DDirectionalLight11qt_metacastEPKc(
+    QQuick3DDirectionalLight *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DDirectionalLight::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuick3DDirectionalLight11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DDirectionalLight *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DDirectionalLight::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuick3DDirectionalLight2trEPKcS1_i(
@@ -405,6 +424,48 @@ void ritual_ZN24QQuick3DDirectionalLight22setLockShadowmapTexelsEb(
     QQuick3DDirectionalLight *self,
     bool newLockShadowmapTexels) {
   self->setLockShadowmapTexels(newLockShadowmapTexels);
+}
+
+//  void QQuick3DDirectionalLight::csmSplit1Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DDirectionalLight16csmSplit1ChangedEv(
+    QQuick3DDirectionalLight *self) {
+  self->csmSplit1Changed();
+}
+
+//  void QQuick3DDirectionalLight::csmSplit2Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DDirectionalLight16csmSplit2ChangedEv(
+    QQuick3DDirectionalLight *self) {
+  self->csmSplit2Changed();
+}
+
+//  void QQuick3DDirectionalLight::csmSplit3Changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DDirectionalLight16csmSplit3ChangedEv(
+    QQuick3DDirectionalLight *self) {
+  self->csmSplit3Changed();
+}
+
+//  void QQuick3DDirectionalLight::csmNumSplitsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DDirectionalLight19csmNumSplitsChangedEv(
+    QQuick3DDirectionalLight *self) {
+  self->csmNumSplitsChanged();
+}
+
+//  void QQuick3DDirectionalLight::csmBlendRatioChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DDirectionalLight20csmBlendRatioChangedEv(
+    QQuick3DDirectionalLight *self) {
+  self->csmBlendRatioChanged();
+}
+
+//  void QQuick3DDirectionalLight::lockShadowmapTexelsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DDirectionalLight26lockShadowmapTexelsChangedEv(
+    QQuick3DDirectionalLight *self) {
+  self->lockShadowmapTexelsChanged();
 }
 
 //  QSSGRenderGraphObject

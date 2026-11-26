@@ -1,8 +1,9 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
   ],
   "rows": {
     "ritual_ZN25QScxmlStateMachinePrivate6q_funcEv": ["address", "address"],
@@ -79,6 +80,9 @@
     "ritual_ZN25QScxmlStateMachinePrivate15returnDoneEventEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK25QScxmlStateMachinePrivate9nameMatchERKN23QScxmlExecutableContent10StateTable5ArrayEP11QScxmlEvent": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK25QScxmlStateMachinePrivate28removeConflictingTransitionsEPNS_10OrderedSetE": [
       "nothing", "address", "address"
     ],
@@ -87,6 +91,9 @@
     ],
     "ritual_ZN25QScxmlStateMachinePrivate10exitStatesERKNS_10OrderedSetE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate14computeExitSetERKNS_10OrderedSetERS0_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN25QScxmlStateMachinePrivate24executeTransitionContentERKNS_10OrderedSetE": [
       "nothing", "address", "address"
@@ -118,6 +125,9 @@
     "ritual_ZNK25QScxmlStateMachinePrivate19getTransitionDomainEi": [
       "int", "address", "int"
     ],
+    "ritual_ZNK25QScxmlStateMachinePrivate8findLCCAEONS_10OrderedSetE": [
+      "int", "address", "address"
+    ],
     "ritual_ZNK25QScxmlStateMachinePrivate24getEffectiveTargetStatesEPNS_10OrderedSetEi": [
       "nothing", "address", "address", "int"
     ],
@@ -136,15 +146,15 @@
     "ritual_ZN25QScxmlStateMachinePrivate12setTableDataEP15QScxmlTableData": [
       "nothing", "address", "address"
     ],
-    "ritual_ZNK25QScxmlStateMachinePrivate32invokedServicesActualCalculationEv": [
-      "address", "address"
-    ],
     "ritual_ZNK25QScxmlStateMachinePrivate10isRunnableEv": [
       "bool", "address"
     ],
     "ritual_ZNK25QScxmlStateMachinePrivate8isPausedEv": ["bool", "address"],
     "ritual_ZNK25QScxmlStateMachinePrivate10isFinishedEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate32invokedServicesActualCalculationEv": [
+      "address", "address"
     ]
   }
 }

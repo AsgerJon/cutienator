@@ -5,8 +5,14 @@
   ],
   "rows": {
     "ritual_ZN10QJsonArrayC1Ev": ["address"],
+    "ritual_ZN10QJsonArrayC1ESt16initializer_listI10QJsonValueE": [
+      "address", "address"
+    ],
     "ritual_ZN10QJsonArrayD1Ev": ["nothing", "address"],
     "ritual_ZN10QJsonArrayC1ERKS_": ["address", "address"],
+    "ritual_ZN10QJsonArrayaSERKS_": ["address", "address", "address"],
+    "ritual_ZN10QJsonArrayC1EOS_": ["address", "address"],
+    "ritual_ZN10QJsonArrayaSEOS_": ["address", "address", "address"],
     "ritual_ZN10QJsonArray14fromStringListERK5QListI7QStringE": [
       "address", "address"
     ],
@@ -41,6 +47,7 @@
     ],
     "ritual_ZN10QJsonArrayixEx": ["address", "address", "long long"],
     "ritual_ZNK10QJsonArrayixEx": ["address", "address", "long long"],
+    "ritual_ZN10QJsonArray4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN10QJsonArray5beginEv": ["address", "address"],
     "ritual_ZNK10QJsonArray5beginEv": ["address", "address"],
     "ritual_ZNK10QJsonArray10constBeginEv": ["address", "address"],
@@ -60,6 +67,9 @@
     ],
     "ritual_ZN10QJsonArraypLERK10QJsonValue": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN10QJsonArraylsERK10QJsonValue": [
+      "address", "address", "address"
     ],
     "ritual_ZN10QJsonArray9push_backERK10QJsonValue": [
       "nothing", "address", "address"

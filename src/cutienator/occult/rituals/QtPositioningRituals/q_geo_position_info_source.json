@@ -8,9 +8,16 @@
     "ritual_ZNK22QGeoPositionInfoSource10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QGeoPositionInfoSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QGeoPositionInfoSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QGeoPositionInfoSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN22QGeoPositionInfoSourceC1EP7QObject": ["address", "address"],
     "ritual_ZN22QGeoPositionInfoSourceD1Ev": ["nothing", "address"],
     "ritual_ZN22QGeoPositionInfoSource17setUpdateIntervalEi": [
       "nothing", "address", "int"
@@ -18,11 +25,17 @@
     "ritual_ZNK22QGeoPositionInfoSource14updateIntervalEv": [
       "int", "address"
     ],
+    "ritual_ZN22QGeoPositionInfoSource22bindableUpdateIntervalEv": [
+      "address", "address"
+    ],
     "ritual_ZN22QGeoPositionInfoSource30setPreferredPositioningMethodsE6QFlagsINS_17PositioningMethodEE": [
       "nothing", "address", "int"
     ],
     "ritual_ZNK22QGeoPositionInfoSource27preferredPositioningMethodsEv": [
       "int", "address"
+    ],
+    "ritual_ZN22QGeoPositionInfoSource35bindablePreferredPositioningMethodsEv": [
+      "address", "address"
     ],
     "ritual_ZNK22QGeoPositionInfoSource17lastKnownPositionEb": [
       "address", "address", "bool"
@@ -63,6 +76,18 @@
     "ritual_ZN22QGeoPositionInfoSource13requestUpdateEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN22QGeoPositionInfoSource15positionUpdatedERK16QGeoPositionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGeoPositionInfoSource13errorOccurredENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QGeoPositionInfoSource34supportedPositioningMethodsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QGeoPositionInfoSourceC1ER29QGeoPositionInfoSourcePrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QGeoPositionInfoSource6d_funcEv": ["address", "address"],
     "ritual_ZNK22QGeoPositionInfoSource6d_funcEv": ["address", "address"],
     "ritual_take_QGeoPositionInfoSource": [
@@ -79,6 +104,12 @@
     ],
     "ritual_own_ZNK22QGeoPositionInfoSource15backendPropertyERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_drop_QGeoPositionInfoSource__QBindable_int": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGeoPositionInfoSource__QBindable_QGeoPositionInfoSource_PositioningMethods": [
+      "nothing", "address"
     ]
   }
 }

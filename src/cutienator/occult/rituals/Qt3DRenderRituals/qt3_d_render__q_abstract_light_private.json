@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender21QAbstractLightPrivateC1ENS_14QAbstractLight4TypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QAbstractLightPrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender21QAbstractLightPrivate6q_funcEv": [
       "address", "address"
     ],

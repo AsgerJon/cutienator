@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK8QToolBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QToolBox11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QToolBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QToolBox2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QToolBoxC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
@@ -48,6 +52,7 @@
     "ritual_ZN8QToolBox16setCurrentWidgetEP7QWidget": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8QToolBox14currentChangedEi": ["nothing", "address", "int"],
     "ritual_ZN8QToolBox5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN8QToolBox12itemInsertedEi": ["nothing", "address", "int"],
     "ritual_ZN8QToolBox11itemRemovedEi": ["nothing", "address", "int"],
@@ -57,6 +62,8 @@
     "ritual_ZN8QToolBox11changeEventEP6QEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8QToolBox6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QToolBox6d_funcEv": ["address", "address"],
     "ritual_take_QToolBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZN8QToolBox5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_own_ZN8QToolBox12itemInsertedEi": ["nothing", "address", "int"],

@@ -4,11 +4,52 @@
     "Qt3DAnimation/qchannel.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation8QChannelC1Ev": ["address"],
+    "ritual_ZN13Qt3DAnimation8QChannelC1ERK7QString": ["address", "text"],
+    "ritual_ZN13Qt3DAnimation8QChannelC1ERKS0_": ["address", "address"],
+    "ritual_ZN13Qt3DAnimation8QChannelaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation8QChannelD1Ev": ["nothing", "address"],
+    "ritual_ZN13Qt3DAnimation8QChannel7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13Qt3DAnimation8QChannel4nameEv": ["text", "address"],
+    "ritual_ZN13Qt3DAnimation8QChannel13setJointIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation8QChannel10jointIndexEv": ["int", "address"],
+    "ritual_ZNK13Qt3DAnimation8QChannel21channelComponentCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation8QChannel22appendChannelComponentERKNS_17QChannelComponentE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation8QChannel22insertChannelComponentEiRKNS_17QChannelComponentE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation8QChannel22removeChannelComponentEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation8QChannel22clearChannelComponentsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation8QChannel5beginEv": ["address", "address"],
+    "ritual_ZNK13Qt3DAnimation8QChannel6cbeginEv": ["address", "address"],
+    "ritual_ZNK13Qt3DAnimation8QChannel3endEv": ["address", "address"],
+    "ritual_ZNK13Qt3DAnimation8QChannel4cendEv": ["address", "address"],
+    "ritual_ZNK13Qt3DAnimation8QChannel6rbeginEv": ["address", "address"],
+    "ritual_ZNK13Qt3DAnimation8QChannel7crbeginEv": ["address", "address"],
+    "ritual_ZNK13Qt3DAnimation8QChannel4rendEv": ["address", "address"],
+    "ritual_ZNK13Qt3DAnimation8QChannel5crendEv": ["address", "address"],
     "ritual_ZN13Qt3DAnimationeqERKNS_8QChannelES2_": [
       "bool", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimationneERKNS_8QChannelES2_": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QChannel__Qt3DAnimation_QChannel_const_reverse_iterator": [
+      "nothing", "address"
     ]
   }
 }

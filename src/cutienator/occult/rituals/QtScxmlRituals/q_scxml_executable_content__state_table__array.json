@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN23QScxmlExecutableContent10StateTable5ArrayC1EPKi": [
+      "address", "address"
+    ],
     "ritual_ZNK23QScxmlExecutableContent10StateTable5Array4sizeEv": [
       "int", "address"
     ],

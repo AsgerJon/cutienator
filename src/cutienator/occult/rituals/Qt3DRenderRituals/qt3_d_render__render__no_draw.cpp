@@ -40,6 +40,19 @@ public:
   }
 };
 
+//  Qt3DRender::Render::NoDraw::NoDraw()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::NoDraw *ritual_ZN10Qt3DRender6Render6NoDrawC1Ev() {
+  return new CuteQt3DRender_Render_NoDraw();
+}
+
+//  Qt3DRender::Render::NoDraw::~NoDraw()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6NoDrawD1Ev(
+    Qt3DRender::Render::NoDraw *self) {
+  delete self;
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_NoDraw, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

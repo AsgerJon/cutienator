@@ -5,6 +5,11 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore10QTickClockC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore10QTickClock16setTickFrequencyEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTickClock5resetEv": ["nothing", "address"],
     "ritual_ZN8Qt3DCore10QTickClockD1Ev": ["nothing", "address"]
   }
 }

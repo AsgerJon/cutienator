@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15CapsuleGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN15CapsuleGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15CapsuleGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15CapsuleGeometry2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -48,9 +54,38 @@
     "ritual_ZNK15CapsuleGeometry6statusEv": ["int", "address"],
     "ritual_ZN15CapsuleGeometry16doUpdateGeometryEv": ["nothing", "address"],
     "ritual_ZN15CapsuleGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN15CapsuleGeometry20enableNormalsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15CapsuleGeometry15enableUVChangedEv": ["nothing", "address"],
+    "ritual_ZN15CapsuleGeometry17longitudesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15CapsuleGeometry16latitudesChangedEv": ["nothing", "address"],
+    "ritual_ZN15CapsuleGeometry12ringsChangedEv": ["nothing", "address"],
+    "ritual_ZN15CapsuleGeometry13heightChangedEv": ["nothing", "address"],
+    "ritual_ZN15CapsuleGeometry15diameterChangedEv": ["nothing", "address"],
+    "ritual_ZN15CapsuleGeometry16uvProfileChangedEv": ["nothing", "address"],
+    "ritual_ZN15CapsuleGeometry19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15CapsuleGeometry13statusChangedEv": ["nothing", "address"],
     "ritual_ZN15CapsuleGeometry22scheduleGeometryUpdateEv": [
       "nothing", "address"
     ],
-    "ritual_take_CapsuleGeometry": ["bool", "address", "chars", "address"]
+    "ritual_ZN15CapsuleGeometry14updateGeometryERKNS_12GeometryDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15CapsuleGeometry23generateCapsuleGeometryEbbiiiffNS_9UVProfileE": [
+      "address", "bool", "bool", "int", "int", "int", "float", "float", "int"
+    ],
+    "ritual_ZN15CapsuleGeometry28generateCapsuleGeometryAsyncER8QPromiseINS_12GeometryDataEEbbiiiffNS_9UVProfileE": [
+      "nothing", "address", "bool", "bool", "int", "int", "int", "float",
+      "float", "int"
+    ],
+    "ritual_take_CapsuleGeometry": ["bool", "address", "chars", "address"],
+    "ritual_drop_CapsuleGeometry__CapsuleGeometry_GeometryData": [
+      "nothing", "address"
+    ]
   }
 }

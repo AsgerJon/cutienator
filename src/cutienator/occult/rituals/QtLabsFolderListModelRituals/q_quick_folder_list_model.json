@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickFolderListModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickFolderListModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickFolderListModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickFolderListModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -118,6 +124,62 @@
     "ritual_ZNK21QQuickFolderListModel14roleFromStringERK7QString": [
       "int", "address", "text"
     ],
+    "ritual_ZN21QQuickFolderListModel13folderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickFolderListModel15rowCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel17rootFolderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel17nameFilterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel16sortFieldChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel19sortReversedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel16showFilesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel15showDirsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel20showDirsFirstChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel23showDotAndDotDotChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel14showDotChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel17showDotDotChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel17showHiddenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel23showOnlyReadableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel20caseSensitiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel24sortCaseSensitiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickFolderListModel12countChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel13statusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickFolderListModel6d_funcEv": ["address", "address"],
     "ritual_cast_QQuickFolderListModel_QQmlParserStatus": [
       "address", "address"
     ],

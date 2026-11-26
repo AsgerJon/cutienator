@@ -14,7 +14,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
@@ -1106,6 +1108,24 @@ const QMetaObject *ritual_ZNK13QQmlTreeModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlTreeModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQmlTreeModel11qt_metacastEPKc(
+    QQmlTreeModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlTreeModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQmlTreeModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlTreeModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlTreeModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQmlTreeModel2trEPKcS1_i(
@@ -1227,6 +1247,16 @@ void ritual_ZN13QQmlTreeModel6setRowE11QModelIndexRK8QVariant(
   self->setRow(*index, *rowData);
 }
 
+//  QModelIndex QQmlTreeModel::index(const std::vector<int> &rowIndex, int
+//      column)
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZN13QQmlTreeModel5indexERKSt6vectorIiSaIiEEi(
+    QQmlTreeModel *self,
+    const std::vector<int> *rowIndex,
+    int column) {
+  return new QModelIndex(self->index(*rowIndex, column));
+}
+
 //  QModelIndex QQmlTreeModel::index(int row, int column, const QModelIndex
 //      &parent) const
 extern "C" Q_DECL_EXPORT
@@ -1272,6 +1302,16 @@ QVariant *ritual_ZNK13QQmlTreeModel8firstRowEv(const QQmlTreeModel *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQmlTreeModel14setInitialRowsEv(QQmlTreeModel *self) {
   self->setInitialRows();
+}
+
+//  QQmlTreeRow *QQmlTreeModel::getPointerToTreeRow(QModelIndex &index, const
+//      std::vector<int> &rowIndex) const
+extern "C" Q_DECL_EXPORT
+QQmlTreeRow *ritual_ZNK13QQmlTreeModel19getPointerToTreeRowER11QModelIndexRKSt6vectorIiSaIiEE(
+    const QQmlTreeModel *self,
+    QModelIndex *index,
+    const std::vector<int> *rowIndex) {
+  return self->getPointerToTreeRow(*index, *rowIndex);
 }
 
 //  int QQmlTreeModel::treeSize() const

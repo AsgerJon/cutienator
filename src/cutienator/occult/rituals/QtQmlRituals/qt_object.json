@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK8QtObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QtObject11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QtObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QtObject2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QtObject22qt_qmlMarker_singletonEv": ["nothing", "address"],
     "ritual_ZN8QtObject20qmlExtendedNamespaceEv": ["address"],
@@ -205,10 +209,21 @@
     "ritual_ZN8QtObject9callLaterEP14QQmlV4Function": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8QtObject17enumStringToValueERK15QJSManagedValueRK7QString": [
+      "double", "address", "address", "text"
+    ],
+    "ritual_ZN8QtObject17enumValueToStringERK15QJSManagedValued": [
+      "text", "address", "address", "double"
+    ],
+    "ritual_ZN8QtObject18enumValueToStringsERK15QJSManagedValued": [
+      "address", "address", "address", "double"
+    ],
     "ritual_ZNK8QtObject10uiLanguageEv": ["text", "address"],
     "ritual_ZN8QtObject13setUiLanguageERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN8QtObject18uiLanguageBindableEv": ["address", "address"],
+    "ritual_ZN8QtObject17uiLanguageChangedEv": ["nothing", "address"],
     "ritual_ZN8QtObject8platformEv": ["address", "address"],
     "ritual_ZN8QtObject11applicationEv": ["address", "address"],
     "ritual_ZNK8QtObject11inputMethodEv": ["address", "address"],
@@ -216,6 +231,9 @@
     "ritual_ZN8QtObjectC1EPN3QV415ExecutionEngineE": ["address", "address"],
     "ritual_ZNK8QtObject9qmlEngineEv": ["address", "address"],
     "ritual_ZNK8QtObject8jsEngineEv": ["address", "address"],
-    "ritual_ZNK8QtObject8v4EngineEv": ["address", "address"]
+    "ritual_ZNK8QtObject8v4EngineEv": ["address", "address"],
+    "ritual_ZNK8QtObject11getContextsEv": ["address", "address"],
+    "ritual_drop_QtObject__QBindable_QString": ["nothing", "address"],
+    "ritual_drop_QtObject__QtObject_Contexts": ["nothing", "address"]
   }
 }

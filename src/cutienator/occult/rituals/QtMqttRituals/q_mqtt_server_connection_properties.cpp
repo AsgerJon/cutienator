@@ -18,6 +18,16 @@ QMqttServerConnectionProperties *ritual_ZN31QMqttServerConnectionPropertiesC1ERK
   return new QMqttServerConnectionProperties(*a0);
 }
 
+//  QMqttServerConnectionProperties
+//      &QMqttServerConnectionProperties::operator=(const
+//      QMqttServerConnectionProperties &a0)
+extern "C" Q_DECL_EXPORT
+QMqttServerConnectionProperties *ritual_ZN31QMqttServerConnectionPropertiesaSERKS_(
+    QMqttServerConnectionProperties *self,
+    const QMqttServerConnectionProperties *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QMqttServerConnectionProperties::~QMqttServerConnectionProperties()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QMqttServerConnectionPropertiesD1Ev(

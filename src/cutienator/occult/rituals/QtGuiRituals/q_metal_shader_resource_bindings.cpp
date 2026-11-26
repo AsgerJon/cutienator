@@ -89,6 +89,29 @@ public:
   }
 };
 
+//  void QMetalShaderResourceBindings::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QMetalShaderResourceBindings7destroyEv(
+    QMetalShaderResourceBindings *self) {
+  self->destroy();
+}
+
+//  bool QMetalShaderResourceBindings::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN28QMetalShaderResourceBindings6createEv(
+    QMetalShaderResourceBindings *self) {
+  return self->create();
+}
+
+//  void QMetalShaderResourceBindings::updateResources(UpdateFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QMetalShaderResourceBindings15updateResourcesE6QFlagsIN26QRhiShaderResourceBindings10UpdateFlagEE(
+    QMetalShaderResourceBindings *self,
+    int flags) {
+  self->updateResources(
+      QFlags<QRhiShaderResourceBindings::UpdateFlag>::fromInt(flags));
+}
+
 //  a Python function taken by a CuteQMetalShaderResourceBindings, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

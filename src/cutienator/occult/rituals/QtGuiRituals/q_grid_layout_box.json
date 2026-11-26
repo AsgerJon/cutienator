@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/6.12.0/QtGui/private/qgridlayoutengine_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN14QGridLayoutBoxC1Ev": ["address"],
@@ -14,6 +14,7 @@
     ],
     "ritual_ZN14QGridLayoutBox9normalizeEv": ["nothing", "address"],
     "ritual_ZNK14QGridLayoutBox7q_sizesEi": ["double", "address", "int"],
-    "ritual_ZN14QGridLayoutBoxD1Ev": ["nothing", "address"]
+    "ritual_ZN14QGridLayoutBoxD1Ev": ["nothing", "address"],
+    "ritual_ZN14QGridLayoutBox7q_sizesEi": ["address", "address", "int"]
   }
 }

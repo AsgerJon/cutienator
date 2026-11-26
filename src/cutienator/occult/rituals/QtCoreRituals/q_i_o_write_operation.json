@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN17QIOWriteOperationD1Ev": ["nothing", "address"],
     "ritual_ZNK17QIOWriteOperation4dataEv": ["address", "address"],
+    "ritual_ZN17QIOWriteOperationC1ER19QIOOperationPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QIOWriteOperation": ["bool", "address", "chars", "address"]
   }
 }

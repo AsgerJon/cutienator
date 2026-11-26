@@ -8,8 +8,17 @@
     "ritual_ZN10Qt3DRender26QTextureImageDataGeneratorD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN10Qt3DRender26QTextureImageDataGeneratorclEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender26QTextureImageDataGeneratoreqERKS0_": [
+      "bool", "address", "address"
+    ],
     "ritual_take_Qt3DRender_QTextureImageDataGenerator": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QTextureImageDataGenerator__Qt3DRender_QTextureImageDataPtr": [
+      "nothing", "address"
     ]
   }
 }

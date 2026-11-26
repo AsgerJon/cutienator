@@ -333,6 +333,16 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  AxisAnimation::AxisAnimation(ChartAxisElement *axis, int duration,
+//      QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+AxisAnimation *ritual_ZN13AxisAnimationC1EP16ChartAxisElementiR12QEasingCurve(
+    ChartAxisElement *axis,
+    int duration,
+    QEasingCurve *curve) {
+  return new CuteAxisAnimation(axis, duration, *curve);
+}
+
 //  AxisAnimation::~AxisAnimation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13AxisAnimationD1Ev(AxisAnimation *self) {
@@ -353,6 +363,16 @@ void ritual_ZN13AxisAnimation17setAnimationPointERK7QPointF(
     AxisAnimation *self,
     const QPointF *point) {
   self->setAnimationPoint(*point);
+}
+
+//  void AxisAnimation::setValues(QList<qreal> &oldLayout, const QList<qreal>
+//      &newLayout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13AxisAnimation9setValuesER5QListIdERKS1_(
+    AxisAnimation *self,
+    QList<qreal> *oldLayout,
+    const QList<qreal> *newLayout) {
+  self->setValues(*oldLayout, *newLayout);
 }
 
 //  QVariant AxisAnimation::interpolated(const QVariant &from, const QVariant

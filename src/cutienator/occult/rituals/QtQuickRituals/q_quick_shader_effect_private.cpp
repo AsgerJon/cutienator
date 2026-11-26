@@ -16,7 +16,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
 #include <QtQuick/qquickitem.h>
+#include <QtCore/qbytearray.h>
 #include <cstring>
+#include <optional>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/private/qquickshadereffect_p_p.h>
 #include <QtQuick/private/qsgcontextplugin_p.h>
@@ -31,10 +33,72 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 868, as _ZN25QQuickShaderEffectPrivateD1Ev
-inline QQuickShaderEffectPrivate::~QQuickShaderEffectPrivate()
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 510, as local:qquickshadereffect.cpp:EffectSlotMapper
+namespace QtPrivate {
+class EffectSlotMapper: public QtPrivate::QSlotObjectBase
 {
-    Q_ASSERT(m_mgr == nullptr);
+public:
+    typedef std::function<void()> PropChangedFunc;
+
+    explicit EffectSlotMapper(PropChangedFunc func)
+    : QSlotObjectBase(&impl), _signalIndex(-1), func(func)
+    { ref(); }
+
+    void setSignalIndex(int idx) { _signalIndex = idx; }
+    int signalIndex() const { return _signalIndex; }
+
+private:
+    int _signalIndex;
+    PropChangedFunc func;
+
+    static void impl(int which, QSlotObjectBase *this_, QObject *, void **a, bool *ret)
+    {
+    auto thiz = static_cast<EffectSlotMapper*>(this_);
+    switch (which) {
+    case Destroy:
+        delete thiz;
+        break;
+    case Call:
+        thiz->func();
+        break;
+    case Compare:
+        *ret = thiz == reinterpret_cast<EffectSlotMapper *>(a[0]);
+        break;
+    case NumOperations: ;
+    }
+    }
+};
+}  // namespace QtPrivate
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 838, as local:qquickshadereffect.cpp:indexToMappedId
+inline constexpr int indexToMappedId(const int shaderType, const int idx)
+{
+    return idx | (shaderType << 16);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 843, as local:qquickshadereffect.cpp:mappedIdToIndex
+inline constexpr int mappedIdToIndex(const int mappedId)
+{
+    return mappedId & 0xFFFF;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 848, as local:qquickshadereffect.cpp:mappedIdToShaderType
+inline constexpr int mappedIdToShaderType(const int mappedId)
+{
+    return mappedId >> 16;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 1234, as local:qquickshadereffect.cpp:getValueFromProperty
+static inline QVariant getValueFromProperty(QObject *item, const QMetaObject *itemMetaObject,
+                                            const QByteArray &name, int propertyIndex)
+{
+    QVariant value;
+    if (propertyIndex == -1) {
+        value = item->property(name);
+    } else {
+        value = itemMetaObject->property(propertyIndex).read(item);
+    }
+    return value;
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 830, as _ZN25QQuickShaderEffectPrivate12updatePolishEv
@@ -44,6 +108,97 @@ inline void QQuickShaderEffectPrivate::updatePolish()
     if (!qmlEngine(q))
         return;
     maybeUpdateShaders();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 1497, as _ZN25QQuickShaderEffectPrivate15propertyChangedEi
+inline void QQuickShaderEffectPrivate::propertyChanged(int mappedId)
+{
+    Q_Q(QQuickShaderEffect);
+    const Shader type = Shader(mappedIdToShaderType(mappedId));
+    const int idx = mappedIdToIndex(mappedId);
+    const auto &v(m_shaders[type].shaderInfo.variables[idx]);
+    auto &vd(m_shaders[type].varData[idx]);
+
+    QVariant oldValue = vd.value;
+    vd.value = getValueFromProperty(q, m_itemMetaObject, v.name, vd.propertyIndex);
+
+    if (vd.specialType == QSGShaderEffectNode::VariableData::Source) {
+        QQuickItem *source = qobject_cast<QQuickItem *>(qvariant_cast<QObject *>(oldValue));
+        if (source) {
+            if (q->window())
+                QQuickItemPrivate::get(source)->derefWindow();
+            // If the same source has been attached to two separate
+            // textures/samplers, then changing one of them would trigger both
+            // to be disconnected. So check first.
+            if (sourceIsUnique(source, type, idx))
+                QObject::disconnect(m_destroyedConnections.take(source));
+        }
+
+        source = qobject_cast<QQuickItem *>(qvariant_cast<QObject *>(vd.value));
+        if (source) {
+            // 'source' needs a window to get a scene graph node. It usually gets one through its
+            // parent, but if the source item is "inline" rather than a reference -- i.e.
+            // "property variant source: Image { }" instead of "property variant source: foo" -- it
+            // will not get a parent. In those cases, 'source' should get the window from 'item'.
+            if (q->window())
+                QQuickItemPrivate::get(source)->refWindow(q->window());
+            if (!m_destroyedConnections.contains(source))
+                m_destroyedConnections.insert(source,
+                    connect(source, &QObject::destroyed,
+                            this, &QQuickShaderEffectPrivate::sourceDestroyed));
+        }
+
+        m_dirty |= QSGShaderEffectNode::DirtyShaderTexture;
+        m_dirtyTextures[type].insert(idx);
+
+     } else {
+        m_dirty |= QSGShaderEffectNode::DirtyShaderConstant;
+        m_dirtyConstants[type].insert(idx);
+    }
+
+    q->update();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 1472, as _ZNK25QQuickShaderEffectPrivate26findMappedShaderVariableIdERK10QByteArrayNS_6ShaderE
+inline std::optional<int> QQuickShaderEffectPrivate::findMappedShaderVariableId(const QByteArray &name, Shader shaderType) const
+{
+    const auto &vars = m_shaders[shaderType].shaderInfo.variables;
+    for (int idx = 0; idx < vars.size(); ++idx) {
+        if (vars[idx].name == name)
+            return indexToMappedId(shaderType, idx);
+    }
+
+    return {};
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 1459, as _ZNK25QQuickShaderEffectPrivate26findMappedShaderVariableIdERK10QByteArray
+inline std::optional<int> QQuickShaderEffectPrivate::findMappedShaderVariableId(const QByteArray &name) const
+{
+    for (int shaderType = 0; shaderType < NShader; ++shaderType) {
+        const auto &vars = m_shaders[shaderType].shaderInfo.variables;
+        for (int idx = 0; idx < vars.size(); ++idx) {
+            if (vars[idx].name == name)
+                return indexToMappedId(shaderType, idx);
+        }
+    }
+
+    return {};
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 1225, as _ZN25QQuickShaderEffectPrivate12clearMappersENS_6ShaderE
+inline void QQuickShaderEffectPrivate::clearMappers(QQuickShaderEffectPrivate::Shader shaderType)
+{
+    for (auto *mapper : std::as_const(m_mappers[shaderType])) {
+        if (mapper)
+            mapper->destroyIfLastRef();
+    }
+    m_mappers[shaderType].clear();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 868, as _ZN25QQuickShaderEffectPrivateD1Ev
+inline QQuickShaderEffectPrivate::~QQuickShaderEffectPrivate()
+{
+    Q_ASSERT(m_mgr == nullptr);
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 903, as _ZN25QQuickShaderEffectPrivate11setBlendingEb
@@ -131,6 +286,19 @@ inline void QQuickShaderEffectPrivate::setSupportsAtlasTextures(bool supports)
     emit q->supportsAtlasTexturesChanged();
 }
 
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 1007, as _ZN25QQuickShaderEffectPrivate11handleEventEP6QEvent
+inline void QQuickShaderEffectPrivate::handleEvent(QEvent *event)
+{
+    if (event->type() == QEvent::DynamicPropertyChange) {
+        const auto propertyName = static_cast<QDynamicPropertyChangeEvent *>(event)->propertyName();
+        for (int i = 0; i < NShader; ++i) {
+            const auto mappedId = findMappedShaderVariableId(propertyName, Shader(i));
+            if (mappedId)
+                propertyChanged(*mappedId);
+        }
+    }
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 1019, as _ZN25QQuickShaderEffectPrivate21handleGeometryChangedERK6QRectFS2_
 inline void QQuickShaderEffectPrivate::handleGeometryChanged(const QRectF &, const QRectF &)
 {
@@ -159,6 +327,44 @@ inline void QQuickShaderEffectPrivate::handleItemChange(QQuickItem::ItemChange c
             }
         }
     }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 1120, as _ZN25QQuickShaderEffectPrivate18updateUniformValueERK10QByteArrayRK8QVariantP19QSGShaderEffectNode
+inline bool QQuickShaderEffectPrivate::updateUniformValue(const QByteArray &name, const QVariant &value,
+                                                QSGShaderEffectNode *node)
+{
+    Q_Q(QQuickShaderEffect);
+    const auto mappedId = findMappedShaderVariableId(name);
+    if (!mappedId)
+        return false;
+
+    const Shader type = Shader(mappedIdToShaderType(*mappedId));
+    const int idx = mappedIdToIndex(*mappedId);
+
+    // Update value
+    m_shaders[type].varData[idx].value = value;
+
+    // Insert dirty uniform
+    QSet<int> dirtyConstants[NShader];
+    dirtyConstants[type].insert(idx);
+
+    // Sync material change
+    QSGShaderEffectNode::SyncData sd;
+    sd.dirty = QSGShaderEffectNode::DirtyShaderConstant;
+    sd.cullMode = QSGShaderEffectNode::CullMode(m_cullMode);
+    sd.blending = m_blending;
+    sd.vertex.shader = &m_shaders[Vertex];
+    sd.vertex.dirtyConstants = &dirtyConstants[Vertex];
+    sd.vertex.dirtyTextures = {};
+    sd.fragment.shader = &m_shaders[Fragment];
+    sd.fragment.dirtyConstants = &dirtyConstants[Fragment];
+    sd.fragment.dirtyTextures = {};
+    sd.materialTypeCacheKey = q->window();
+    sd.viewCount = QQuickWindowPrivate::get(q->window())->multiViewCount();
+
+    node->syncMaterial(&sd);
+
+    return true;
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickshadereffect.cpp, line 1545, as _ZN25QQuickShaderEffectPrivate15sourceDestroyedEP7QObject
@@ -634,6 +840,14 @@ void ritual_ZN25QQuickShaderEffectPrivate24setSupportsAtlasTexturesEb(
   self->setSupportsAtlasTextures(supports);
 }
 
+//  void QQuickShaderEffectPrivate::handleEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickShaderEffectPrivate11handleEventEP6QEvent(
+    QQuickShaderEffectPrivate *self,
+    QEvent *a0) {
+  self->handleEvent(a0);
+}
+
 //  void QQuickShaderEffectPrivate::handleGeometryChanged(const QRectF
 //      &newGeometry, const QRectF &oldGeometry)
 extern "C" Q_DECL_EXPORT
@@ -652,6 +866,17 @@ void ritual_ZN25QQuickShaderEffectPrivate16handleItemChangeEN10QQuickItem10ItemC
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *value) {
   self->handleItemChange(change, *value);
+}
+
+//  bool QQuickShaderEffectPrivate::updateUniformValue(const QByteArray
+//      &name, const QVariant &value, QSGShaderEffectNode *node)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QQuickShaderEffectPrivate18updateUniformValueERK10QByteArrayRK8QVariantP19QSGShaderEffectNode(
+    QQuickShaderEffectPrivate *self,
+    const QByteArray *name,
+    const QVariant *value,
+    QSGShaderEffectNode *node) {
+  return self->updateUniformValue(*name, *value, node);
 }
 
 //  void QQuickShaderEffectPrivate::sourceDestroyed(QObject *object)
@@ -697,6 +922,13 @@ bool ritual_take_QQuickShaderEffectPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickShaderEffectPrivate *>(self)->take(key, call);
+}
+
+//  a std::optional<int> a ritual of QQuickShaderEffectPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickShaderEffectPrivate__std_optional_int(
+    std::optional<int> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_shadereffect)

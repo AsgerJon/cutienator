@@ -8,7 +8,19 @@
     "ritual_ZNK22Q3DInputHandlerPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22Q3DInputHandlerPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22Q3DInputHandlerPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22Q3DInputHandlerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22Q3DInputHandlerPrivate17handleSceneChangeEP8Q3DScene": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22Q3DInputHandlerPrivate32handleQueriedGraphPositionChangeEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Q3DInputHandlerPrivate": [
       "bool", "address", "chars", "address"
     ]

@@ -8,9 +8,16 @@
     "ritual_ZNK23QPlatformSystemTrayIcon10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QPlatformSystemTrayIcon11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QPlatformSystemTrayIcon11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QPlatformSystemTrayIcon2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN23QPlatformSystemTrayIconC1Ev": ["address"],
     "ritual_ZN23QPlatformSystemTrayIconD1Ev": ["nothing", "address"],
     "ritual_ZN23QPlatformSystemTrayIcon4initEv": ["nothing", "address"],
     "ritual_ZN23QPlatformSystemTrayIcon7cleanupEv": ["nothing", "address"],
@@ -35,6 +42,15 @@
     ],
     "ritual_ZNK23QPlatformSystemTrayIcon10createMenuEv": [
       "address", "address"
+    ],
+    "ritual_ZN23QPlatformSystemTrayIcon9activatedENS_16ActivationReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QPlatformSystemTrayIcon20contextMenuRequestedE6QPointPK15QPlatformScreen": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QPlatformSystemTrayIcon14messageClickedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QPlatformSystemTrayIcon": [
       "bool", "address", "chars", "address"

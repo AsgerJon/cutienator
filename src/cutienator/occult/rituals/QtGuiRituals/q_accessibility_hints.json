@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QAccessibilityHints10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QAccessibilityHints11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QAccessibilityHints11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QAccessibilityHints2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,6 +24,12 @@
     ],
     "ritual_ZNK19QAccessibilityHints16motionPreferenceEv": [
       "int", "address"
+    ],
+    "ritual_ZN19QAccessibilityHints25contrastPreferenceChangedEN2Qt18ContrastPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QAccessibilityHints23motionPreferenceChangedEN2Qt16MotionPreferenceE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN19QAccessibilityHints5eventEP6QEvent": [
       "bool", "address", "address"

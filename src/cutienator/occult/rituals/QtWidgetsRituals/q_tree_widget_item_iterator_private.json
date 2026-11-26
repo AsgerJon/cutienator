@@ -17,6 +17,9 @@
     "ritual_ZN30QTreeWidgetItemIteratorPrivateC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN30QTreeWidgetItemIteratorPrivateaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN30QTreeWidgetItemIteratorPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK30QTreeWidgetItemIteratorPrivate11nextSiblingEPK15QTreeWidgetItem": [
       "address", "address", "address"

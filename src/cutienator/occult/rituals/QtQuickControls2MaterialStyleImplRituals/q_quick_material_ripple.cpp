@@ -27,6 +27,102 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 18, as local:qquickmaterialripple.cpp:RIPPLE_ENTER_DELAY
+static const int RIPPLE_ENTER_DELAY = 80;
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 19, as local:qquickmaterialripple.cpp:OPACITY_ENTER_DURATION_FAST
+static const int OPACITY_ENTER_DURATION_FAST = 120;
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 146, as local:qquickmaterialripple.cpp:QQuickMaterialRippleBackgroundNode
+class QQuickMaterialRippleBackgroundNode : public QQuickAnimatedNode
+{
+    Q_OBJECT
+
+public:
+    QQuickMaterialRippleBackgroundNode(QQuickMaterialRipple *ripple);
+
+    void updateCurrentTime(int time) override;
+    void sync(QQuickItem *item) override;
+
+private:
+    void updateBackgroundNode();
+
+    bool m_active = false;
+
+    qreal m_opacity = 0.0;
+    qreal m_newOpacity = 0.0;
+
+    QQuickWindow *m_window = nullptr;
+    QMetaObject::Connection m_animationConnection;
+};
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 168, as local:qquickmaterialripple.cpp:QQuickMaterialRippleBackgroundNode::QQuickMaterialRippleBackgroundNode
+inline QQuickMaterialRippleBackgroundNode::QQuickMaterialRippleBackgroundNode(QQuickMaterialRipple *ripple)
+    : QQuickAnimatedNode(ripple)
+{
+    setDuration(OPACITY_ENTER_DURATION_FAST);
+
+    QSGOpacityNode *opacityNode = new QSGOpacityNode;
+    opacityNode->setOpacity(0.0);
+    appendChildNode(opacityNode);
+
+    QQuickItemPrivate *d = QQuickItemPrivate::get(ripple);
+    QSGInternalRectangleNode *rectNode = d->sceneGraphContext()->createInternalRectangleNode();
+    rectNode->setAntialiasing(true);
+    opacityNode->appendChildNode(rectNode);
+
+    m_window = ripple->window();
+    connect(this, &QQuickAnimatedNode::started, this, [this]() {
+        this->m_animationConnection = connect(
+            this->m_window,
+            &QQuickWindow::beforeFrameBegin,
+            this,
+            &QQuickMaterialRippleBackgroundNode::updateBackgroundNode,
+            Qt::DirectConnection);
+    });
+    connect(this, &QQuickAnimatedNode::stopped,
+            this, [this]() { disconnect(this->m_animationConnection); });
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 195, as local:qquickmaterialripple.cpp:QQuickMaterialRippleBackgroundNode::updateCurrentTime
+inline void QQuickMaterialRippleBackgroundNode::updateCurrentTime(int time)
+{
+    qreal opacity = time / static_cast<qreal>(duration());
+    if (!m_active)
+        opacity = 1.0 - opacity;
+
+    QSGOpacityNode *opacityNode = static_cast<QSGOpacityNode *>(firstChild());
+    Q_ASSERT(opacityNode->type() == QSGNode::OpacityNodeType);
+    m_newOpacity = opacity;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 240, as local:qquickmaterialripple.cpp:QQuickMaterialRippleBackgroundNode::updateBackgroundNode
+inline void QQuickMaterialRippleBackgroundNode::updateBackgroundNode()
+{
+    if (m_opacity == m_newOpacity)
+        return;
+
+    m_opacity = m_newOpacity;
+    QSGOpacityNode *opacityNode = static_cast<QSGOpacityNode *>(firstChild());
+    Q_ASSERT(opacityNode->type() == QSGNode::OpacityNodeType);
+    opacityNode->setOpacity(m_opacity);
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 381, as _ZN20QQuickMaterialRipple10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickMaterialRipple::itemChange(ItemChange change, const ItemChangeData &data)
+{
+    QQuickItem::itemChange(change, data);
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 433, as _ZN20QQuickMaterialRipple10timerEventEP11QTimerEvent
+inline void QQuickMaterialRipple::timerEvent(QTimerEvent *event)
+{
+    QQuickItem::timerEvent(event);
+
+    if (event->timerId() == m_enterDelay)
+        enterWave();
+}
+
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 271, as _ZNK20QQuickMaterialRipple5colorEv
 inline QColor QQuickMaterialRipple::color() const
 {
@@ -79,6 +175,32 @@ inline void QQuickMaterialRipple::setActive(bool active)
 inline bool QQuickMaterialRipple::isPressed() const
 {
     return m_pressed;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 304, as _ZN20QQuickMaterialRipple10setPressedEb
+inline void QQuickMaterialRipple::setPressed(bool pressed)
+{
+    if (pressed == m_pressed)
+        return;
+
+    m_pressed = pressed;
+
+    if (!isEnabled()) {
+        exitWave();
+        return;
+    }
+
+    if (pressed) {
+        if (m_trigger == Press)
+            prepareWave();
+        else
+            exitWave();
+    } else {
+        if (m_trigger == Release)
+            enterWave();
+        else
+            exitWave();
+    }
 }
 
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 329, as _ZNK20QQuickMaterialRipple7triggerEv
@@ -139,19 +261,11 @@ inline qreal QQuickMaterialRipple::diameter() const
     return qSqrt(w * w + h * h);
 }
 
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 381, as _ZN20QQuickMaterialRipple10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
-inline void QQuickMaterialRipple::itemChange(ItemChange change, const ItemChangeData &data)
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 441, as _ZN20QQuickMaterialRipple11prepareWaveEv
+inline void QQuickMaterialRipple::prepareWave()
 {
-    QQuickItem::itemChange(change, data);
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 433, as _ZN20QQuickMaterialRipple10timerEventEP11QTimerEvent
-inline void QQuickMaterialRipple::timerEvent(QTimerEvent *event)
-{
-    QQuickItem::timerEvent(event);
-
-    if (event->timerId() == m_enterDelay)
-        enterWave();
+    if (m_enterDelay <= 0)
+        m_enterDelay = startTimer(RIPPLE_ENTER_DELAY);
 }
 
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialripple.cpp, line 447, as _ZN20QQuickMaterialRipple9enterWaveEv
@@ -193,6 +307,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QQuickMaterialRipple10metaObjectEv(
     const QQuickMaterialRipple *self) {
   return self->metaObject();
+}
+
+//  void *QQuickMaterialRipple::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickMaterialRipple11qt_metacastEPKc(
+    QQuickMaterialRipple *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMaterialRipple::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickMaterialRipple11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMaterialRipple *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QColor QQuickMaterialRipple::color() const
@@ -245,6 +378,14 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QQuickMaterialRipple9isPressedEv(
     const QQuickMaterialRipple *self) {
   return self->isPressed();
+}
+
+//  void QQuickMaterialRipple::setPressed(bool pressed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickMaterialRipple10setPressedEb(
+    QQuickMaterialRipple *self,
+    bool pressed) {
+  self->setPressed(pressed);
 }
 
 //  Trigger QQuickMaterialRipple::trigger() const
@@ -301,12 +442,29 @@ void ritual_ZN20QQuickMaterialRipple10itemChangeEN10QQuickItem10ItemChangeERKNS0
   self->itemChange(change, *data);
 }
 
+//  QSGNode *QQuickMaterialRipple::updatePaintNode(QSGNode *oldNode,
+//      UpdatePaintNodeData *a1)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN20QQuickMaterialRipple15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE(
+    QQuickMaterialRipple *self,
+    QSGNode *oldNode,
+    QQuickItem::UpdatePaintNodeData *a1) {
+  return self->updatePaintNode(oldNode, a1);
+}
+
 //  void QQuickMaterialRipple::timerEvent(QTimerEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickMaterialRipple10timerEventEP11QTimerEvent(
     QQuickMaterialRipple *self,
     QTimerEvent *event) {
   self->timerEvent(event);
+}
+
+//  void QQuickMaterialRipple::prepareWave()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickMaterialRipple11prepareWaveEv(
+    QQuickMaterialRipple *self) {
+  self->prepareWave();
 }
 
 //  void QQuickMaterialRipple::enterWave()

@@ -7,11 +7,17 @@
   "rows": {
     "ritual_ZN22QOpcUaBrowsePathTargetC1Ev": ["address"],
     "ritual_ZN22QOpcUaBrowsePathTargetC1ERKS_": ["address", "address"],
+    "ritual_ZN22QOpcUaBrowsePathTargetaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK22QOpcUaBrowsePathTargeteqERKS_": [
       "bool", "address", "address"
     ],
     "ritual_ZN22QOpcUaBrowsePathTargetD1Ev": ["nothing", "address"],
     "ritual_ZNK22QOpcUaBrowsePathTarget8targetIdEv": ["address", "address"],
+    "ritual_ZN22QOpcUaBrowsePathTarget11targetIdRefEv": [
+      "address", "address"
+    ],
     "ritual_ZN22QOpcUaBrowsePathTarget11setTargetIdERK20QOpcUaExpandedNodeId": [
       "nothing", "address", "address"
     ],

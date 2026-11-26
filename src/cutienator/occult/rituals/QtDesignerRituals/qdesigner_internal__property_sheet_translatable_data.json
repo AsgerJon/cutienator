@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal29PropertySheetTranslatableDataC1EbRK7QStringS3_": [
+      "address", "bool", "text", "text"
+    ],
     "ritual_ZNK18qdesigner_internal29PropertySheetTranslatableData12translatableEv": [
       "bool", "address"
     ],

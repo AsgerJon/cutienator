@@ -8,9 +8,17 @@
     "ritual_ZNK24QWaylandPresentationTime10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QWaylandPresentationTime11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QWaylandPresentationTime11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QWaylandPresentationTime2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN24QWaylandPresentationTime6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QWaylandPresentationTime6d_funcEv": ["address", "address"],
     "ritual_ZN24QWaylandPresentationTimeC1Ev": ["address"],
     "ritual_ZN24QWaylandPresentationTimeC1EP18QWaylandCompositor": [
       "address", "address"
@@ -25,7 +33,12 @@
       "nothing", "address", "address", "unsigned long long",
       "unsigned long long", "unsigned int"
     ],
+    "ritual_ZN24QWaylandPresentationTime9interfaceEv": ["address"],
     "ritual_ZN24QWaylandPresentationTime13interfaceNameEv": ["address"],
+    "ritual_ZN24QWaylandPresentationTime9presentedEyyjj": [
+      "nothing", "address", "unsigned long long", "unsigned long long",
+      "unsigned int", "unsigned int"
+    ],
     "ritual_take_QWaylandPresentationTime": [
       "bool", "address", "chars", "address"
     ],

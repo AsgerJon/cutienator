@@ -51,6 +51,26 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/io/qsettings.cpp, line 75, as local:qsettings.cpp:ConfFileHash
+typedef QHash<QString, QConfFile *> ConfFileHash;
+
+//  from src/corelib/io/qsettings.cpp, line 76, as local:qsettings.cpp:ConfFileCache
+typedef QCache<QString, QConfFile> ConfFileCache;
+
+//  from src/corelib/io/qsettings.cpp, line 112, as _ZNK9QConfFile12mergedKeyMapEv
+inline ParsedSettingsMap QConfFile::mergedKeyMap() const
+{
+    ParsedSettingsMap result = originalKeys;
+
+    for (auto i = removedKeys.begin(); i != removedKeys.end(); ++i)
+        result.remove(i.key());
+    for (auto i = addedKeys.begin(); i != addedKeys.end(); ++i)
+        result.insert(i.key(), i.value());
+    return result;
+}
+
 //  from src/corelib/io/qsettings.cpp, line 123, as _ZNK9QConfFile10isWritableEv
 inline bool QConfFile::isWritable() const
 {
@@ -77,6 +97,13 @@ inline bool QConfFile::isWritable() const
 #endif
 }
 //  -----------------------------------------------------------------------
+
+//  ParsedSettingsMap QConfFile::mergedKeyMap() const
+extern "C" Q_DECL_EXPORT
+ParsedSettingsMap *ritual_ZNK9QConfFile12mergedKeyMapEv(
+    const QConfFile *self) {
+  return new ParsedSettingsMap(self->mergedKeyMap());
+}
 
 //  bool QConfFile::isWritable() const
 extern "C" Q_DECL_EXPORT
@@ -115,6 +142,12 @@ QConfFile *ritual_list_at_QConfFile_ptr(
 //  QList<QConfFile *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QConfFile_ptr(QList<QConfFile *> *self) {
+  delete self;
+}
+
+//  a ParsedSettingsMap a ritual of QConfFile gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QConfFile__ParsedSettingsMap(ParsedSettingsMap *self) {
   delete self;
 }
 

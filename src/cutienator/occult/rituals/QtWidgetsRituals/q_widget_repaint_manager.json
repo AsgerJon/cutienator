@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qwidgetrepaintmanager_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN21QWidgetRepaintManagerC1EP7QWidget": ["address", "address"],
@@ -76,6 +76,12 @@
     ],
     "ritual_ZN21QWidgetRepaintManager24updateStaticContentsSizeEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager9markDirtyI5QRectEEvRKT_P7QWidgetNS_10UpdateTimeENS_11BufferStateE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN21QWidgetRepaintManager9markDirtyI7QRegionEEvRKT_P7QWidgetNS_10UpdateTimeENS_11BufferStateE": [
+      "nothing", "address", "address", "address", "int", "int"
     ]
   }
 }

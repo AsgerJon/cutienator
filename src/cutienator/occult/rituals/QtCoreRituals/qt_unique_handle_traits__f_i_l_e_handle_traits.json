@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QtUniqueHandleTraits16FILEHandleTraits12invalidValueEv": [
+      "address"
+    ],
+    "ritual_ZN20QtUniqueHandleTraits16FILEHandleTraits5closeEP8_IO_FILE": [
+      "bool", "address"
+    ],
     "ritual_ZN20QtUniqueHandleTraits16FILEHandleTraitsD1Ev": [
       "nothing", "address"
     ]

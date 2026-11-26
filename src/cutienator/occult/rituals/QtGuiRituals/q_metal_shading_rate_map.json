@@ -5,6 +5,10 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN20QMetalShadingRateMap7destroyEv": ["nothing", "address"],
+    "ritual_ZN20QMetalShadingRateMap10createFromEN18QRhiShadingRateMap20NativeShadingRateMapE": [
+      "bool", "address", "address"
+    ],
     "ritual_take_QMetalShadingRateMap": [
       "bool", "address", "chars", "address"
     ]

@@ -1,9 +1,13 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DRender/6.12.0/Qt3DRender/private/vsyncframeadvanceservice_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Written by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render24VSyncFrameAdvanceServiceC1Eb": ["address", "bool"],
+    "ritual_ZN10Qt3DRender6Render24VSyncFrameAdvanceServiceD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render24VSyncFrameAdvanceService16waitForNextFrameEv": ["long long", "address"],
+    "ritual_ZN10Qt3DRender6Render24VSyncFrameAdvanceService5startEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render24VSyncFrameAdvanceService4stopEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render24VSyncFrameAdvanceService18proceedToNextFrameEv": ["nothing", "address"]
   }
 }

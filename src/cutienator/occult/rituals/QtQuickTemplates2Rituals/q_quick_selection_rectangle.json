@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuickSelectionRectangle10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickSelectionRectangle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickSelectionRectangle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickSelectionRectangle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -43,6 +49,24 @@
     ],
     "ritual_ZN24QQuickSelectionRectangle21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
+    ],
+    "ritual_ZN24QQuickSelectionRectangle13targetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickSelectionRectangle13activeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickSelectionRectangle15draggingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickSelectionRectangle20topLeftHandleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickSelectionRectangle24bottomRightHandleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickSelectionRectangle20selectionModeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN24QQuickSelectionRectangle6d_funcEv": ["address", "address"],
     "ritual_ZNK24QQuickSelectionRectangle6d_funcEv": ["address", "address"]

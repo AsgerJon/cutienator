@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlInspectorService10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlInspectorService11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlInspectorService11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQmlInspectorService2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,6 +24,9 @@
     ],
     "ritual_ZN20QQmlInspectorService12removeWindowEP12QQuickWindow": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlInspectorServiceC1EfP7QObject": [
+      "address", "float", "address"
     ],
     "ritual_take_QQmlInspectorService": [
       "bool", "address", "chars", "address"

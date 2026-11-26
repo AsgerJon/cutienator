@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QFutureInterfaceBasePrivate4Data12setExceptionERKNSt15__exception_ptr13exception_ptrE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN27QFutureInterfaceBasePrivate4DataD1Ev": ["nothing", "address"]
   }
 }

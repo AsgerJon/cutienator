@@ -23,6 +23,25 @@ const QMetaObject *ritual_ZNK19QQuickMaterialStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMaterialStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickMaterialStyle11qt_metacastEPKc(
+    QQuickMaterialStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMaterialStyle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickMaterialStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMaterialStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMaterialStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickMaterialStyle2trEPKcS1_i(
@@ -849,6 +868,104 @@ void ritual_ZN19QQuickMaterialStyle11initGlobalsEv() {
 extern "C" Q_DECL_EXPORT
 QQuickMaterialStyle::Variant ritual_ZN19QQuickMaterialStyle7variantEv() {
   return QQuickMaterialStyle::variant();
+}
+
+//  void QQuickMaterialStyle::themeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle12themeChangedEv(
+    QQuickMaterialStyle *self) {
+  self->themeChanged();
+}
+
+//  void QQuickMaterialStyle::primaryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle14primaryChangedEv(
+    QQuickMaterialStyle *self) {
+  self->primaryChanged();
+}
+
+//  void QQuickMaterialStyle::accentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle13accentChangedEv(
+    QQuickMaterialStyle *self) {
+  self->accentChanged();
+}
+
+//  void QQuickMaterialStyle::foregroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle17foregroundChangedEv(
+    QQuickMaterialStyle *self) {
+  self->foregroundChanged();
+}
+
+//  void QQuickMaterialStyle::backgroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle17backgroundChangedEv(
+    QQuickMaterialStyle *self) {
+  self->backgroundChanged();
+}
+
+//  void QQuickMaterialStyle::elevationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle16elevationChangedEv(
+    QQuickMaterialStyle *self) {
+  self->elevationChanged();
+}
+
+//  void QQuickMaterialStyle::themeOrAccentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle20themeOrAccentChangedEv(
+    QQuickMaterialStyle *self) {
+  self->themeOrAccentChanged();
+}
+
+//  void QQuickMaterialStyle::primaryHighlightedTextColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle34primaryHighlightedTextColorChangedEv(
+    QQuickMaterialStyle *self) {
+  self->primaryHighlightedTextColorChanged();
+}
+
+//  void QQuickMaterialStyle::dialogColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle18dialogColorChangedEv(
+    QQuickMaterialStyle *self) {
+  self->dialogColorChanged();
+}
+
+//  void QQuickMaterialStyle::tooltipColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle19tooltipColorChangedEv(
+    QQuickMaterialStyle *self) {
+  self->tooltipColorChanged();
+}
+
+//  void QQuickMaterialStyle::toolBarColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle19toolBarColorChangedEv(
+    QQuickMaterialStyle *self) {
+  self->toolBarColorChanged();
+}
+
+//  void QQuickMaterialStyle::toolTextColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle20toolTextColorChangedEv(
+    QQuickMaterialStyle *self) {
+  self->toolTextColorChanged();
+}
+
+//  void QQuickMaterialStyle::roundedScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle19roundedScaleChangedEv(
+    QQuickMaterialStyle *self) {
+  self->roundedScaleChanged();
+}
+
+//  void QQuickMaterialStyle::containerStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMaterialStyle21containerStyleChangedEv(
+    QQuickMaterialStyle *self) {
+  self->containerStyleChanged();
 }
 
 //  void QQuickMaterialStyle::attachedParentChange(QQuickAttachedPropertyProp

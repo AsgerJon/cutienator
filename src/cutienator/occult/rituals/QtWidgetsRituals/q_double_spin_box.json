@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QDoubleSpinBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QDoubleSpinBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QDoubleSpinBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QDoubleSpinBox2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -43,13 +49,27 @@
     "ritual_ZN14QDoubleSpinBox11setDecimalsEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK14QDoubleSpinBox8validateER7QStringRi": [
+      "int", "address", "address", "address"
+    ],
     "ritual_ZNK14QDoubleSpinBox13valueFromTextERK7QString": [
       "double", "address", "text"
     ],
     "ritual_ZNK14QDoubleSpinBox13textFromValueEd": [
       "text", "address", "double"
     ],
+    "ritual_ZNK14QDoubleSpinBox5fixupER7QString": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QDoubleSpinBox8setValueEd": ["nothing", "address", "double"],
+    "ritual_ZN14QDoubleSpinBox12valueChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QDoubleSpinBox11textChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QDoubleSpinBox6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QDoubleSpinBox6d_funcEv": ["address", "address"],
     "ritual_take_QDoubleSpinBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QDoubleSpinBox13valueFromTextERK7QString": [
       "double", "address", "text"

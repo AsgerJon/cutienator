@@ -8,9 +8,13 @@
     "ritual_ZN16QShortcutPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK16QShortcutPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN16QShortcutPrivateC1Ev": ["address"],
+    "ritual_ZNK16QShortcutPrivate14contextMatcherEv": ["address", "address"],
     "ritual_ZN16QShortcutPrivate15handleWhatsThisEv": ["bool", "address"],
     "ritual_ZN16QShortcutPrivate20simpleContextMatcherEP7QObjectN2Qt15ShortcutContextE": [
       "bool", "address", "int"
+    ],
+    "ritual_ZN16QShortcutPrivate8redoGrabER12QShortcutMap": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QShortcutPrivate": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QShortcutPrivate15handleWhatsThisEv": ["bool", "address"]

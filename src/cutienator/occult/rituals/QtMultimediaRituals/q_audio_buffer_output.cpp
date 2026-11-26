@@ -3,6 +3,7 @@
 #include <QtMultimedia/qaudiobufferoutput.h>
 #include <QtCore/qstring.h>
 #include <QtMultimedia/qaudioformat.h>
+#include <QtMultimedia/qaudiobuffer.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -180,6 +181,25 @@ const QMetaObject *ritual_ZNK18QAudioBufferOutput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAudioBufferOutput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QAudioBufferOutput11qt_metacastEPKc(
+    QAudioBufferOutput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAudioBufferOutput::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QAudioBufferOutput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAudioBufferOutput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAudioBufferOutput::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QAudioBufferOutput2trEPKcS1_i(
@@ -216,6 +236,14 @@ extern "C" Q_DECL_EXPORT
 QAudioFormat *ritual_ZNK18QAudioBufferOutput6formatEv(
     const QAudioBufferOutput *self) {
   return new QAudioFormat(self->format());
+}
+
+//  void QAudioBufferOutput::audioBufferReceived(const QAudioBuffer &buffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAudioBufferOutput19audioBufferReceivedERK12QAudioBuffer(
+    QAudioBufferOutput *self,
+    const QAudioBuffer *buffer) {
+  self->audioBufferReceived(*buffer);
 }
 
 //  QAudioBufferOutputPrivate *QAudioBufferOutput::d_func()

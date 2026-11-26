@@ -7,6 +7,42 @@
 #include <Qt3DAnimation/6.12.0/Qt3DAnimation/private/qabstractanimationclip_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DAnimation/qabstractanimationclip.h>
+#include <Qt3DAnimation/private/qabstractanimationclip_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/animation/frontend/qabstractanimationclip.cpp, line 11, as _ZN13Qt3DAnimation29QAbstractAnimationClipPrivateC1Ev
+namespace Qt3DAnimation {
+inline QAbstractAnimationClipPrivate::QAbstractAnimationClipPrivate()
+    : Qt3DCore::QNodePrivate()
+    , m_duration(0.0f)
+{
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qabstractanimationclip.cpp, line 17, as _ZN13Qt3DAnimation29QAbstractAnimationClipPrivate11setDurationEf
+namespace Qt3DAnimation {
+inline void QAbstractAnimationClipPrivate::setDuration(float duration)
+{
+    if (qFuzzyCompare(duration, m_duration))
+        return;
+
+    Q_Q(QAbstractAnimationClip);
+    bool wasBlocked = q->blockNotifications(true);
+    m_duration = duration;
+    emit q->durationChanged(duration);
+    q->blockNotifications(wasBlocked);
+}
+}  // namespace Qt3DAnimation
+//  -----------------------------------------------------------------------
 
 //  A Qt3DAnimation::QAbstractAnimationClipPrivate that Python can take functions over in. Every Qt3DAnimation::QAbstractAnimationClipPrivate
 //  Python makes is one. Each function below asks the Python
@@ -53,6 +89,13 @@ public:
   }
 };
 
+//  Qt3DAnimation::QAbstractAnimationClipPrivate::QAbstractAnimationClipPriva
+//      te()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractAnimationClipPrivate *ritual_ZN13Qt3DAnimation29QAbstractAnimationClipPrivateC1Ev() {
+  return new CuteQt3DAnimation_QAbstractAnimationClipPrivate();
+}
+
 //  QAbstractAnimationClip
 //      *Qt3DAnimation::QAbstractAnimationClipPrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -67,6 +110,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DAnimation::QAbstractAnimationClip *ritual_ZNK13Qt3DAnimation29QAbstractAnimationClipPrivate6q_funcEv(
     const Qt3DAnimation::QAbstractAnimationClipPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DAnimation::QAbstractAnimationClipPrivate::setDuration(float
+//      duration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation29QAbstractAnimationClipPrivate11setDurationEf(
+    Qt3DAnimation::QAbstractAnimationClipPrivate *self,
+    float duration) {
+  self->setDuration(duration);
 }
 
 //  a Python function taken by a

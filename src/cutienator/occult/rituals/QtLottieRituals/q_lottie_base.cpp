@@ -10,6 +10,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qjsonobject.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qlatin1stringview.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 
@@ -26,7 +27,7 @@ typedef const QSize * (*CuteQLottieBaseCall6)(const void *, int *);
 class CuteQLottieBase : public QLottieBase {
 public:
   using QLottieBase::QLottieBase;
-  CuteQLottieBase(const QLottieBase &other) : QLottieBase(other) {}
+  CuteQLottieBase(const QLottieBase & other) : QLottieBase(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
@@ -301,6 +302,22 @@ void ritual_ZN11QLottieBase16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieBase::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QLottieBase6renderER15QLottieRenderer(
+    const QLottieBase *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
+//  void QLottieBase::renderChildren(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QLottieBase14renderChildrenER15QLottieRenderer(
+    const QLottieBase *self,
+    QLottieRenderer *renderer) {
+  self->renderChildren(*renderer);
+}
+
 //  QSize QLottieBase::layerSize() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK11QLottieBase9layerSizeEv(const QLottieBase *self) {
@@ -332,6 +349,19 @@ QJsonObject *ritual_ZN11QLottieBase17resolveExpressionERK11QJsonObject(
     QLottieBase *self,
     const QJsonObject *definition) {
   return new QJsonObject(self->resolveExpression(*definition));
+}
+
+//  bool QLottieBase::checkRequiredKeys(const QJsonObject &definition, const
+//      QLatin1StringView type, const QList<QLatin1StringView> &keys, const
+//      QString &name) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QLottieBase17checkRequiredKeysERK11QJsonObject13QLatin1StringRK5QListIS3_ERK7QString(
+    const QLottieBase *self,
+    const QJsonObject *definition,
+    const QLatin1String *type,
+    const QList<QLatin1StringView> *keys,
+    const QString *name) {
+  return self->checkRequiredKeys(*definition, *type, *keys, *name);
 }
 
 //  a Python function taken by a CuteQLottieBase, for the function named by

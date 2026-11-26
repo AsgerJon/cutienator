@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickPathAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickPathAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickPathAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickPathAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -51,6 +57,34 @@
     ],
     "ritual_ZNK19QQuickPathAnimation11endRotationEv": ["double", "address"],
     "ritual_ZN19QQuickPathAnimation14setEndRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickPathAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QQuickPathAnimation15durationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickPathAnimation13easingChangedERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickPathAnimation11pathChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickPathAnimation13targetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathAnimation18orientationChangedENS_11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickPathAnimation18anchorPointChangedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickPathAnimation31orientationEntryDurationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickPathAnimation30orientationExitDurationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickPathAnimation18endRotationChangedEd": [
       "nothing", "address", "double"
     ],
     "ritual_take_QQuickPathAnimation": [

@@ -6,8 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK15QQStyleKitDebug10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitDebug11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQStyleKitDebug11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QQStyleKitDebug14controlChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQStyleKitDebug13filterChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQStyleKitDebug19notifyPropertyWriteEPK23QQStyleKitPropertyGroupN4QQSK8PropertyEPK27QQStyleKitControlProperties6QFlagsINS3_9StateFlagEEjRK8QVariant": [
+      "nothing", "address", "address", "address", "int", "unsigned int",
+      "address"
+    ],
     "ritual_ZN15QQStyleKitDebug5traceE14PropertyPathIdPK27QQStyleKitControlProperties6QFlagsIN4QQSK9StateFlagEEj": [
       "nothing", "address", "address", "int", "unsigned int"
-    ]
+    ],
+    "ritual_ZN15QQStyleKitDebug10objectNameEPK7QObject": ["text", "address"]
   }
 }

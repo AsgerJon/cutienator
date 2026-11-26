@@ -34,7 +34,7 @@ typedef void (*CuteQQmlOpenMetaObjectCall6)(const void *, QObject *, int *);
 class CuteQQmlOpenMetaObject : public QQmlOpenMetaObject {
 public:
   using QQmlOpenMetaObject::QQmlOpenMetaObject;
-  CuteQQmlOpenMetaObject(const QQmlOpenMetaObject &other) : QQmlOpenMetaObject(other) {}
+  CuteQQmlOpenMetaObject(const QQmlOpenMetaObject & other) : QQmlOpenMetaObject(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
@@ -162,6 +162,15 @@ QQmlOpenMetaObject *ritual_ZN18QQmlOpenMetaObjectC1EP7QObjectPK11QMetaObject(
   return new CuteQQmlOpenMetaObject(a0, a1);
 }
 
+//  QQmlOpenMetaObject::QQmlOpenMetaObject(QObject *a0, const
+//      QQmlRefPointer<QQmlOpenMetaObjectType> &a1)
+extern "C" Q_DECL_EXPORT
+QQmlOpenMetaObject *ritual_ZN18QQmlOpenMetaObjectC1EP7QObjectRK14QQmlRefPointerI22QQmlOpenMetaObjectTypeE(
+    QObject *a0,
+    const QQmlRefPointer<QQmlOpenMetaObjectType> *a1) {
+  return new CuteQQmlOpenMetaObject(a0, *a1);
+}
+
 //  QQmlOpenMetaObject::~QQmlOpenMetaObject()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQmlOpenMetaObjectD1Ev(QQmlOpenMetaObject *self) {
@@ -187,6 +196,16 @@ bool ritual_ZN18QQmlOpenMetaObject8setValueERK10QByteArrayRK8QVariantb(
   return self->setValue(*a0, *a1, force);
 }
 
+//  void QQmlOpenMetaObject::setValues(const QHash<QByteArray, QVariant> &a0,
+//      bool force)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlOpenMetaObject9setValuesERK5QHashI10QByteArray8QVariantEb(
+    QQmlOpenMetaObject *self,
+    const QHash<QByteArray, QVariant> *a0,
+    bool force) {
+  self->setValues(*a0, force);
+}
+
 //  QVariant QQmlOpenMetaObject::value(int a0) const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK18QQmlOpenMetaObject5valueEi(
@@ -202,6 +221,14 @@ void ritual_ZN18QQmlOpenMetaObject8setValueEiRK8QVariant(
     int a0,
     const QVariant *a1) {
   self->setValue(a0, *a1);
+}
+
+//  QVariant &QQmlOpenMetaObject::valueRef(const QByteArray &a0)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN18QQmlOpenMetaObject8valueRefERK10QByteArray(
+    QQmlOpenMetaObject *self,
+    const QByteArray *a0) {
+  return &(self->valueRef(*a0));
 }
 
 //  bool QQmlOpenMetaObject::hasValue(int a0) const
@@ -293,6 +320,18 @@ void ritual_ZN18QQmlOpenMetaObject8unparentEv(QQmlOpenMetaObject *self) {
   self->unparent();
 }
 
+//  int QQmlOpenMetaObject::metaCall(QObject *o, QMetaObject::Call _c, int
+//      _id, void **_a)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQmlOpenMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv(
+    QQmlOpenMetaObject *self,
+    QObject *o,
+    QMetaObject::Call _c,
+    int _id,
+    void **_a) {
+  return self->metaCall(o, _c, _id, _a);
+}
+
 //  int QQmlOpenMetaObject::createProperty(const char *a0, const char *a1)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN18QQmlOpenMetaObject14createPropertyEPKcS1_(
@@ -334,6 +373,16 @@ void ritual_ZN18QQmlOpenMetaObject15propertyWrittenEi(
     QQmlOpenMetaObject *self,
     int a0) {
   self->propertyWritten(a0);
+}
+
+//  void QQmlOpenMetaObject::propertyCreated(int a0, QMetaPropertyBuilder
+//      &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlOpenMetaObject15propertyCreatedEiR20QMetaPropertyBuilder(
+    QQmlOpenMetaObject *self,
+    int a0,
+    QMetaPropertyBuilder *a1) {
+  self->propertyCreated(a0, *a1);
 }
 
 //  bool QQmlOpenMetaObject::checkedSetValue(int index, const QVariant

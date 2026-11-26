@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK9ChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN9ChartItem11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9ChartItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9ChartItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZNK9ChartItem6domainEv": ["address", "address"],
     "ritual_ZN9ChartItem7cleanupEv": ["nothing", "address"],

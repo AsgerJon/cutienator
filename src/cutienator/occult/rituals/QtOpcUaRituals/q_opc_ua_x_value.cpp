@@ -21,6 +21,14 @@ QOpcUaXValue *ritual_ZN12QOpcUaXValueC1Edf(double x, float value) {
   return new QOpcUaXValue(x, value);
 }
 
+//  QOpcUaXValue &QOpcUaXValue::operator=(const QOpcUaXValue &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaXValue *ritual_ZN12QOpcUaXValueaSERKS_(
+    QOpcUaXValue *self,
+    const QOpcUaXValue *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaXValue::operator==(const QOpcUaXValue &rhs) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QOpcUaXValueeqERKS_(

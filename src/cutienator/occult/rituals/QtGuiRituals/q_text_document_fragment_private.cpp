@@ -6,7 +6,6 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qtextdocumentfragment_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGui/qtextcursor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qtextdocumentfragment.h>
 #include <QtGui/private/qtextdocumentfragment_p.h>
@@ -31,6 +30,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/gui/text/qtextdocumentfragment.cpp, line 127, as _ZN15QTextCopyHelper4copyEv
 inline void QTextCopyHelper::copy()
@@ -97,142 +98,7 @@ inline void QTextCopyHelper::copy()
         appendFragments(cursor.selectionStart(), cursor.selectionEnd());
     }
 }
-
-//  from src/gui/text/qtextdocumentfragment.cpp, line 25, as _ZN15QTextCopyHelperC1ERK11QTextCursorS2_bRK15QTextCharFormat
-#if defined(Q_OS_LINUX)
-inline QTextCopyHelper::QTextCopyHelper(const QTextCursor &_source, const QTextCursor &_destination, bool forceCharFormat, const QTextCharFormat &fmt)
-#if defined(Q_CC_DIAB) // compiler bug
-    : formatCollection(*_destination.d->priv->formatCollection()), originalText((const QString)_source.d->priv->buffer())
-#else
-    : formatCollection(*_destination.d->priv->formatCollection()), originalText(_source.d->priv->buffer())
-#endif
-{
-    src = _source.d->priv;
-    dst = _destination.d->priv;
-    insertPos = _destination.position();
-    this->forceCharFormat = forceCharFormat;
-    primaryCharFormatIndex = convertFormatIndex(fmt);
-    cursor = _source;
-}
-#endif  // defined(Q_OS_LINUX)
-
-//  from src/gui/text/qtextdocumentfragment.cpp, line 60, as _ZN15QTextCopyHelper14appendFragmentEiii
-inline int QTextCopyHelper::appendFragment(int pos, int endPos, int objectIndex)
-{
-    QTextDocumentPrivate::FragmentIterator fragIt = src->find(pos);
-    const QTextFragmentData * const frag = fragIt.value();
-
-    Q_ASSERT(objectIndex == -1
-             || (frag->size_array[0] == 1 && src->formatCollection()->format(frag->format).objectIndex() != -1));
-
-    int charFormatIndex;
-    if (forceCharFormat)
-       charFormatIndex = primaryCharFormatIndex;
-    else
-       charFormatIndex = convertFormatIndex(frag->format, objectIndex);
-
-    const int inFragmentOffset = qMax(0, pos - fragIt.position());
-    int charsToCopy = qMin(int(frag->size_array[0] - inFragmentOffset), endPos - pos);
-
-    QTextBlock nextBlock = src->blocksFind(pos + 1);
-
-    int blockIdx = -2;
-    if (nextBlock.position() == pos + 1) {
-        blockIdx = convertFormatIndex(nextBlock.blockFormat());
-    } else if (pos == 0 && insertPos == 0) {
-        dst->setBlockFormat(dst->blocksBegin(), dst->blocksBegin(), convertFormat(src->blocksBegin().blockFormat()).toBlockFormat());
-        dst->setCharFormat(-1, 1, convertFormat(src->blocksBegin().charFormat()).toCharFormat());
-    }
-
-    QString txtToInsert(originalText.constData() + frag->stringPosition + inFragmentOffset, charsToCopy);
-    if (txtToInsert.size() == 1
-        && (txtToInsert.at(0) == QChar::ParagraphSeparator
-            || txtToInsert.at(0) == QTextBeginningOfFrame
-            || txtToInsert.at(0) == QTextEndOfFrame
-           )
-       ) {
-        dst->insertBlock(txtToInsert.at(0), insertPos, blockIdx, charFormatIndex);
-        ++insertPos;
-    } else {
-        if (nextBlock.textList()) {
-            QTextBlock dstBlock = dst->blocksFind(insertPos);
-            if (!dstBlock.textList()) {
-                // insert a new text block with the block and char format from the
-                // source block to make sure that the following text fragments
-                // end up in a list as they should
-                int listBlockFormatIndex = convertFormatIndex(nextBlock.blockFormat());
-                int listCharFormatIndex = convertFormatIndex(nextBlock.charFormat());
-                dst->insertBlock(insertPos, listBlockFormatIndex, listCharFormatIndex);
-                ++insertPos;
-            }
-        }
-        dst->insert(insertPos, txtToInsert, charFormatIndex);
-        const int userState = nextBlock.userState();
-        if (userState != -1)
-            dst->blocksFind(insertPos).setUserState(userState);
-        insertPos += txtToInsert.size();
-    }
-
-    return charsToCopy;
-}
-
-//  from src/gui/text/qtextdocumentfragment.cpp, line 119, as _ZN15QTextCopyHelper15appendFragmentsEii
-inline void QTextCopyHelper::appendFragments(int pos, int endPos)
-{
-    Q_ASSERT(pos < endPos);
-
-    while (pos < endPos)
-        pos += appendFragment(pos, endPos);
-}
-
-//  from src/gui/text/qtextdocumentfragment.cpp, line 40, as _ZN15QTextCopyHelper18convertFormatIndexERK11QTextFormati
-inline int QTextCopyHelper::convertFormatIndex(const QTextFormat &oldFormat, int objectIndexToSet)
-{
-    QTextFormat fmt = oldFormat;
-    if (objectIndexToSet != -1) {
-        fmt.setObjectIndex(objectIndexToSet);
-    } else if (fmt.objectIndex() != -1) {
-        int newObjectIndex = objectIndexMap.value(fmt.objectIndex(), -1);
-        if (newObjectIndex == -1) {
-            QTextFormat objFormat = src->formatCollection()->objectFormat(fmt.objectIndex());
-            Q_ASSERT(objFormat.objectIndex() == -1);
-            newObjectIndex = formatCollection.createObjectIndex(objFormat);
-            objectIndexMap.insert(fmt.objectIndex(), newObjectIndex);
-        }
-        fmt.setObjectIndex(newObjectIndex);
-    }
-    int idx = formatCollection.indexForFormat(fmt);
-    Q_ASSERT(formatCollection.format(idx).type() == oldFormat.type());
-    return idx;
-}
-
-//  from src/gui/text/qtextdocumentfragment.cpp, line 192, as _ZN28QTextDocumentFragmentPrivateC1ERK11QTextCursor
-inline QTextDocumentFragmentPrivate::QTextDocumentFragmentPrivate(const QTextCursor &_cursor)
-    : ref(1), doc(new QTextDocument), importedFromPlainText(false)
-{
-    doc->setUndoRedoEnabled(false);
-
-    if (!_cursor.hasSelection())
-        return;
-
-    QTextDocumentPrivate *p = QTextDocumentPrivate::get(doc);
-    p->beginEditBlock();
-    QTextCursor destCursor(doc);
-    QTextCopyHelper(_cursor, destCursor).copy();
-    p->endEditBlock();
-
-    if (_cursor.d)
-        p->mergeCachedResources(_cursor.d->priv);
-}
 //  -----------------------------------------------------------------------
-
-//  QTextDocumentFragmentPrivate::QTextDocumentFragmentPrivate(const
-//      QTextCursor &cursor)
-extern "C" Q_DECL_EXPORT
-QTextDocumentFragmentPrivate *ritual_ZN28QTextDocumentFragmentPrivateC1ERK11QTextCursor(
-    const QTextCursor *cursor) {
-  return new QTextDocumentFragmentPrivate(*cursor);
-}
 
 //  QTextDocumentFragmentPrivate::~QTextDocumentFragmentPrivate()
 extern "C" Q_DECL_EXPORT

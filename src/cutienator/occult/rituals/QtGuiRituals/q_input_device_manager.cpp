@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK19QInputDeviceManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QInputDeviceManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QInputDeviceManager11qt_metacastEPKc(
+    QInputDeviceManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QInputDeviceManager::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QInputDeviceManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QInputDeviceManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QInputDeviceManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QInputDeviceManager2trEPKcS1_i(
@@ -251,6 +270,25 @@ void ritual_ZN19QInputDeviceManager20setKeyboardModifiersE6QFlagsIN2Qt16Keyboard
     QInputDeviceManager *self,
     int mods) {
   self->setKeyboardModifiers(QFlags<Qt::KeyboardModifier>::fromInt(mods));
+}
+
+//  void
+//      QInputDeviceManager::deviceListChanged(QInputDeviceManager::DeviceTyp
+//      e type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QInputDeviceManager17deviceListChangedENS_10DeviceTypeE(
+    QInputDeviceManager *self,
+    QInputDeviceManager::DeviceType type) {
+  self->deviceListChanged(type);
+}
+
+//  void QInputDeviceManager::cursorPositionChangeRequested(const QPoint
+//      &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QInputDeviceManager29cursorPositionChangeRequestedERK6QPoint(
+    QInputDeviceManager *self,
+    const QPoint *pos) {
+  self->cursorPositionChangeRequested(*pos);
 }
 
 //  a Python function taken by a CuteQInputDeviceManager, for the function

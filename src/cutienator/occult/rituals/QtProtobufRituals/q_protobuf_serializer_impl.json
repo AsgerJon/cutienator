@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN23QProtobufSerializerImplD1Ev": ["nothing", "address"],
     "ritual_ZNK23QProtobufSerializerImpl6resultEv": ["address", "address"],
     "ritual_ZN23QProtobufSerializerImpl5resetEv": ["nothing", "address"],
     "ritual_ZN23QProtobufSerializerImpl22serializeUnknownFieldsEPK16QProtobufMessage": [

@@ -180,6 +180,25 @@ const QMetaObject *ritual_ZNK31QRemoteObjectPendingCallWatcher10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRemoteObjectPendingCallWatcher::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QRemoteObjectPendingCallWatcher11qt_metacastEPKc(
+    QRemoteObjectPendingCallWatcher *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRemoteObjectPendingCallWatcher::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QRemoteObjectPendingCallWatcher11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRemoteObjectPendingCallWatcher *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRemoteObjectPendingCallWatcher::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -218,6 +237,32 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN31QRemoteObjectPendingCallWatcher15waitForFinishedEv(
     QRemoteObjectPendingCallWatcher *self) {
   self->waitForFinished();
+}
+
+//  void
+//      QRemoteObjectPendingCallWatcher::finished(QRemoteObjectPendingCallWat
+//      cher *self_)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QRemoteObjectPendingCallWatcher8finishedEPS_(
+    QRemoteObjectPendingCallWatcher *self,
+    QRemoteObjectPendingCallWatcher *self_) {
+  self->finished(self_);
+}
+
+//  QRemoteObjectPendingCallWatcherPrivate
+//      *QRemoteObjectPendingCallWatcher::d_func()
+extern "C" Q_DECL_EXPORT
+QRemoteObjectPendingCallWatcherPrivate *ritual_ZN31QRemoteObjectPendingCallWatcher6d_funcEv(
+    QRemoteObjectPendingCallWatcher *self) {
+  return self->d_func();
+}
+
+//  const QRemoteObjectPendingCallWatcherPrivate
+//      *QRemoteObjectPendingCallWatcher::d_func() const
+extern "C" Q_DECL_EXPORT
+const QRemoteObjectPendingCallWatcherPrivate *ritual_ZNK31QRemoteObjectPendingCallWatcher6d_funcEv(
+    const QRemoteObjectPendingCallWatcher *self) {
+  return self->d_func();
 }
 
 //  QRemoteObjectPendingCallWatcher as the QRemoteObjectPendingCall it is

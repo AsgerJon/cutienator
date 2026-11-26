@@ -7,6 +7,10 @@
   "rows": {
     "ritual_ZN20QCRhiColorGlyphCacheC1EP4QRhi": ["address", "address"],
     "ritual_ZN20QCRhiColorGlyphCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN20QCRhiColorGlyphCache11addGlyphRunE7QPointFRK9QGlyphRun6QColorRK10QTransformfP15QVarLengthArrayIN28QCRhiDistanceFieldGlyphCache15TexturedPoint2DELx256EEPS8_IjLx384EE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "float", "address", "address"
+    ],
     "ritual_ZN20QCRhiColorGlyphCache20commitResourceUpdateEP23QRhiResourceUpdateBatch": [
       "nothing", "address", "address"
     ],
@@ -15,11 +19,21 @@
     ],
     "ritual_ZNK20QCRhiColorGlyphCache7textureEv": ["address", "address"],
     "ritual_ZNK20QCRhiColorGlyphCache7isEmptyEv": ["bool", "address"],
+    "ritual_ZN20QCRhiColorGlyphCache11ensureAtlasEv": ["nothing", "address"],
     "ritual_ZN20QCRhiColorGlyphCache9growAtlasEi": [
       "nothing", "address", "int"
     ],
     "ritual_ZNK20QCRhiColorGlyphCache26useTextureResizeWorkaroundEv": [
       "bool", "address"
+    ],
+    "ritual_ZN20QCRhiColorGlyphCache14referenceGlyphERKNS_8GlyphKeyERNS_9GlyphDataE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QCRhiColorGlyphCache19evictUntilAllocatedERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QCRhiColorGlyphCache13releaseGlyphsERK4QSetINS_8GlyphKeyEE": [
+      "nothing", "address", "address"
     ]
   }
 }

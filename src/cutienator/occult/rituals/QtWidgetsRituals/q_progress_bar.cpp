@@ -938,6 +938,24 @@ const QMetaObject *ritual_ZNK12QProgressBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QProgressBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QProgressBar11qt_metacastEPKc(
+    QProgressBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QProgressBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QProgressBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QProgressBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QProgressBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QProgressBar2trEPKcS1_i(
@@ -1123,6 +1141,12 @@ void ritual_ZN12QProgressBar14setOrientationEN2Qt11OrientationE(
   self->setOrientation(a0);
 }
 
+//  void QProgressBar::valueChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QProgressBar12valueChangedEi(QProgressBar *self, int value) {
+  self->valueChanged(value);
+}
+
 //  bool QProgressBar::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN12QProgressBar5eventEP6QEvent(QProgressBar *self, QEvent *e) {
@@ -1143,6 +1167,19 @@ void ritual_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgressBar(
     const QProgressBar *self,
     QStyleOptionProgressBar *option) {
   self->initStyleOption(option);
+}
+
+//  QProgressBarPrivate *QProgressBar::d_func()
+extern "C" Q_DECL_EXPORT
+QProgressBarPrivate *ritual_ZN12QProgressBar6d_funcEv(QProgressBar *self) {
+  return self->d_func();
+}
+
+//  const QProgressBarPrivate *QProgressBar::d_func() const
+extern "C" Q_DECL_EXPORT
+const QProgressBarPrivate *ritual_ZNK12QProgressBar6d_funcEv(
+    const QProgressBar *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQProgressBar, for the function named by

@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qreadwritelock.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qreadwritelock.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN19QBasicReadWriteLockC1Ev": ["address"],
@@ -29,11 +30,29 @@
     "ritual_ZN19QBasicReadWriteLock23tryLockForWriteInternalE14QDeadlineTimerj": [
       "bool", "address", "address", "unsigned int"
     ],
+    "ritual_ZN19QBasicReadWriteLock23contendedTryLockForReadE14QDeadlineTimerPv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QBasicReadWriteLock24contendedTryLockForWriteE14QDeadlineTimerPv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QBasicReadWriteLock15contendedUnlockEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBasicReadWriteLock20describeLockInternalEPv": [
+      "unsigned long long", "address"
+    ],
     "ritual_ZN19QBasicReadWriteLock19describeLockForTSanEP21QReadWriteLockPrivatej": [
       "unsigned int", "address", "unsigned int"
     ],
     "ritual_ZN19QBasicReadWriteLockC1EP21QReadWriteLockPrivate": [
       "address", "address"
+    ],
+    "ritual_ZN19QBasicReadWriteLock18fastTryLockForReadERP21QReadWriteLockPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QBasicReadWriteLock19fastTryLockForWriteERP21QReadWriteLockPrivate": [
+      "bool", "address", "address"
     ]
   }
 }

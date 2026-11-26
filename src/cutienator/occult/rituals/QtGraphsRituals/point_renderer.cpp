@@ -91,18 +91,6 @@ inline PointRenderer::SeriesStyle PointRenderer::getSeriesStyle(PointGroup *grou
     };
 }
 
-//  from ../qtgraphs/src/graphs2d/qsgrenderer/pointrenderer.cpp, line 331, as _ZN13PointRenderer19destroyGroupMarkersEPNS_10PointGroupEx
-inline void PointRenderer::destroyGroupMarkers(PointGroup *group, qsizetype keepCount)
-{
-    for (qsizetype i = keepCount; i < group->markers.size(); ++i)
-        group->markers.at(i)->deleteLater();
-    group->markers.resize(keepCount);
-    group->dragHandlers.resize(keepCount);
-
-    if (group == m_pressedGroup && m_pressedPointIndex >= keepCount)
-        forgetPressedPoint(group->series);
-}
-
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 193, as _ZNK12AxisRenderer8getAxisXEP15QAbstractSeries
 inline const AxisRenderer::AxisProperties &AxisRenderer::getAxisX(QAbstractSeries *series) const
 {
@@ -219,6 +207,12 @@ inline void PointRenderer::seriesAboutToBeRemoved(QAbstractSeries *series)
             m_groups.erase(iter);
         }
     }
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/pointrenderer.cpp, line 939, as _ZN13PointRenderer11afterUpdateER5QListIP15QAbstractSeriesE
+inline void PointRenderer::afterUpdate(QList<QAbstractSeries *> &cleanupSeries)
+{
+    Q_UNUSED(cleanupSeries);
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/pointrenderer.cpp, line 944, as _ZN13PointRenderer15handleHoverMoveEP11QHoverEvent
@@ -559,6 +553,18 @@ inline void PointRenderer::hidePointDelegates(QXYSeries *series)
         }
     }
     group->rects.clear();
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/pointrenderer.cpp, line 331, as _ZN13PointRenderer19destroyGroupMarkersEPNS_10PointGroupEx
+inline void PointRenderer::destroyGroupMarkers(PointGroup *group, qsizetype keepCount)
+{
+    for (qsizetype i = keepCount; i < group->markers.size(); ++i)
+        group->markers.at(i)->deleteLater();
+    group->markers.resize(keepCount);
+    group->dragHandlers.resize(keepCount);
+
+    if (group == m_pressedGroup && m_pressedPointIndex >= keepCount)
+        forgetPressedPoint(group->series);
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/pointrenderer.cpp, line 348, as _ZN13PointRenderer14onSingleTappedE11QEventPointN2Qt11MouseButtonE
@@ -1453,6 +1459,14 @@ const QMetaObject *ritual_ZNK13PointRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PointRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13PointRenderer11qt_metacastEPKc(
+    PointRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  PointRenderer::~PointRenderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13PointRendererD1Ev(PointRenderer *self) {
@@ -1487,6 +1501,14 @@ void ritual_ZN13PointRenderer22seriesAboutToBeRemovedEP15QAbstractSeries(
     PointRenderer *self,
     QAbstractSeries *series) {
   self->seriesAboutToBeRemoved(series);
+}
+
+//  void PointRenderer::afterUpdate(QList<QAbstractSeries *> &cleanupSeries)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PointRenderer11afterUpdateER5QListIP15QAbstractSeriesE(
+    PointRenderer *self,
+    QList<QAbstractSeries *> *cleanupSeries) {
+  self->afterUpdate(*cleanupSeries);
 }
 
 //  bool PointRenderer::handleHoverMove(QHoverEvent *event)
@@ -1564,6 +1586,16 @@ void ritual_ZN13PointRenderer18hidePointDelegatesEP9QXYSeries(
     PointRenderer *self,
     QXYSeries *series) {
   self->hidePointDelegates(series);
+}
+
+//  void PointRenderer::destroyGroupMarkers(PointGroup *group, qsizetype
+//      keepCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PointRenderer19destroyGroupMarkersEPNS_10PointGroupEx(
+    PointRenderer *self,
+    PointRenderer::PointGroup *group,
+    qsizetype keepCount) {
+  self->destroyGroupMarkers(group, keepCount);
 }
 
 //  void PointRenderer::onSingleTapped(QEventPoint eventPoint,

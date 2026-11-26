@@ -14,6 +14,62 @@
     "ritual_ZNK3QV421UrlSearchParamsObject1dEv": ["address", "address"],
     "ritual_ZN3QV421UrlSearchParamsObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV421UrlSearchParamsObject16initializeParamsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV421UrlSearchParamsObject16initializeParamsE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN3QV421UrlSearchParamsObject16initializeParamsERNS_6ScopedINS_11ArrayObjectEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV421UrlSearchParamsObject16initializeParamsERNS_6ScopedINS_6ObjectEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject6paramsEv": ["address", "address"],
+    "ritual_ZN3QV421UrlSearchParamsObject9setParamsERK5QListIS1_I7QStringEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject9urlObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV421UrlSearchParamsObject12setUrlObjectEPKNS_9UrlObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject12searchStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject6nameAtEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject9nameAtRawEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject7valueAtEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject10valueAtRawEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV421UrlSearchParamsObject6appendEPNS_4Heap6StringES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject7indexOfE7QStringi": [
+      "int", "address", "text", "int"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject6lengthEv": ["int", "address"],
+    "ritual_ZN3QV421UrlSearchParamsObject21virtualGetOwnPropertyEPKNS_7ManagedENS_11PropertyKeyEPNS_8PropertyE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject8stringAtEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK3QV421UrlSearchParamsObject11stringAtRawEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_drop_QV4_UrlSearchParamsObject__QList_QStringList": [
+      "nothing", "address"
     ]
   }
 }

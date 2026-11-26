@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPositioning/6.12.0/QtPositioning/private/qdoublematrix4x4_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0. Edited by hand on 2026-11-25: added by hand, rituals for
+//  functions the generator leaves out: 2. Kept as it is when the generator
+//  runs again.
 #include <QtPositioning/6.12.0/QtPositioning/private/qpositioningglobal_p.h>
 #include <QtPositioning/QtPositioning>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -22,6 +24,12 @@ extern "C" Q_DECL_EXPORT
 QDoubleMatrix4x4 *ritual_ZN16QDoubleMatrix4x4C1EN2Qt14InitializationE(
     Qt::Initialization a0) {
   return new QDoubleMatrix4x4(a0);
+}
+
+//  QDoubleMatrix4x4::QDoubleMatrix4x4(const double *values)
+extern "C" Q_DECL_EXPORT
+QDoubleMatrix4x4 *ritual_ZN16QDoubleMatrix4x4C1EPKd(const double *values) {
+  return new QDoubleMatrix4x4(values);
 }
 
 //  QDoubleMatrix4x4::QDoubleMatrix4x4(double m11, double m12, double m13,
@@ -63,6 +71,16 @@ QDoubleMatrix4x4 *ritual_ZN16QDoubleMatrix4x4C1Edddddddddddddddd(
       m42,
       m43,
       m44);
+}
+
+//  QDoubleMatrix4x4::QDoubleMatrix4x4(const double *values, int cols, int
+//      rows)
+extern "C" Q_DECL_EXPORT
+QDoubleMatrix4x4 *ritual_ZN16QDoubleMatrix4x4C1EPKdii(
+    const double *values,
+    int cols,
+    int rows) {
+  return new QDoubleMatrix4x4(values, cols, rows);
 }
 
 //  const double &QDoubleMatrix4x4::operator()(int row, int column) const
@@ -524,6 +542,20 @@ QRectF *ritual_ZNK16QDoubleMatrix4x47mapRectERK6QRectF(
   return new QRectF(self->mapRect(*rect));
 }
 
+//  const double *QDoubleMatrix4x4::data() const
+extern "C" Q_DECL_EXPORT
+const double *ritual_ZNK16QDoubleMatrix4x44dataEv(
+    const QDoubleMatrix4x4 *self) {
+  return self->data();
+}
+
+//  const double *QDoubleMatrix4x4::constData() const
+extern "C" Q_DECL_EXPORT
+const double *ritual_ZNK16QDoubleMatrix4x49constDataEv(
+    const QDoubleMatrix4x4 *self) {
+  return self->constData();
+}
+
 //  void QDoubleMatrix4x4::optimize()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QDoubleMatrix4x48optimizeEv(QDoubleMatrix4x4 *self) {
@@ -570,4 +602,20 @@ void ritual_ZN16QDoubleMatrix4x415projectedRotateEddddd(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QDoubleMatrix4x4D1Ev(QDoubleMatrix4x4 *self) {
   delete self;
+}
+
+//  double &QDoubleMatrix4x4::operator()(int row, int column)
+extern "C" Q_DECL_EXPORT
+double *ritual_ZN16QDoubleMatrix4x4clEii(
+    QDoubleMatrix4x4 *self,
+    int row,
+    int column) {
+  return &((*self)(row, column));
+}
+
+//  double *QDoubleMatrix4x4::data()
+extern "C" Q_DECL_EXPORT
+double *ritual_ZN16QDoubleMatrix4x44dataEv(
+    QDoubleMatrix4x4 *self) {
+  return self->data();
 }

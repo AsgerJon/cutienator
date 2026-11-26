@@ -9,14 +9,39 @@
     "ritual_ZN3QV414QmlListWrapper10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV414QmlListWrapper11d_uncheckedEv": ["address", "address"],
     "ritual_ZNK3QV414QmlListWrapper1dEv": ["address", "address"],
+    "ritual_ZN3QV414QmlListWrapper14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
     "ritual_ZN3QV414QmlListWrapper16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
     ],
     "ritual_ZN3QV414QmlListWrapper6createEPNS_15ExecutionEngineEP7QObjecti9QMetaType": [
       "unsigned long long", "address", "address", "int", "address"
     ],
+    "ritual_ZN3QV414QmlListWrapper6createEPNS_15ExecutionEngineERK16QQmlListPropertyI7QObjectE9QMetaType": [
+      "unsigned long long", "address", "address", "address"
+    ],
     "ritual_ZN3QV414QmlListWrapper6createEPNS_15ExecutionEngineE9QMetaType": [
       "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV414QmlListWrapper11createOwnedEPNS_15ExecutionEngineERK12QQmlProperty": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZNK3QV414QmlListWrapper9toVariantEv": ["address", "address"],
+    "ritual_ZNK3QV414QmlListWrapper15toListReferenceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV414QmlListWrapper10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV414QmlListWrapper16virtualGetLengthEPKNS_7ManagedE": [
+      "long long", "address"
+    ],
+    "ritual_ZN3QV414QmlListWrapper10virtualPutEPNS_7ManagedENS_11PropertyKeyERKNS_5ValueEPS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV414QmlListWrapper22virtualOwnPropertyKeysEPKNS_6ObjectEPNS_5ValueE": [
+      "address", "address", "address"
     ]
   }
 }

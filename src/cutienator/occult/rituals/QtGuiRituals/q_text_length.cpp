@@ -60,6 +60,22 @@ QVariant *ritual_ZNK11QTextLengthcv8QVariantEv(const QTextLength *self) {
   return new QVariant(self->operator QVariant());
 }
 
+//  QDataStream &operator<<(QDataStream &a0, const QTextLength &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK11QTextLength(
+    QDataStream *a0,
+    const QTextLength *a1) {
+  return &(operator<<(*a0, *a1));
+}
+
+//  QDataStream &operator>>(QDataStream &a0, QTextLength &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR11QTextLength(
+    QDataStream *a0,
+    QTextLength *a1) {
+  return &(operator>>(*a0, *a1));
+}
+
 //  QTextLength::~QTextLength()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextLengthD1Ev(QTextLength *self) {

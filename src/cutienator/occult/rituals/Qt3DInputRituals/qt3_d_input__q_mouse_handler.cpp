@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  Qt3DInput/qmousehandler.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <Qt3DInput/qmousehandler.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput13QMouseHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QMouseHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput13QMouseHandler11qt_metacastEPKc(
+    Qt3DInput::QMouseHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QMouseHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput13QMouseHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QMouseHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QMouseHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DInput13QMouseHandler2trEPKcS2_i(
@@ -186,6 +206,141 @@ QString *ritual_ZN9Qt3DInput13QMouseHandler2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QMouseHandler::tr(s, c, n));
+}
+
+//  Qt3DInput::QMouseHandler::QMouseHandler(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QMouseHandler *ritual_ZN9Qt3DInput13QMouseHandlerC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QMouseHandler(parent);
+}
+
+//  Qt3DInput::QMouseHandler::~QMouseHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandlerD1Ev(Qt3DInput::QMouseHandler *self) {
+  delete self;
+}
+
+//  QMouseDevice *Qt3DInput::QMouseHandler::sourceDevice() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QMouseDevice *ritual_ZNK9Qt3DInput13QMouseHandler12sourceDeviceEv(
+    const Qt3DInput::QMouseHandler *self) {
+  return self->sourceDevice();
+}
+
+//  bool Qt3DInput::QMouseHandler::containsMouse() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9Qt3DInput13QMouseHandler13containsMouseEv(
+    const Qt3DInput::QMouseHandler *self) {
+  return self->containsMouse();
+}
+
+//  void Qt3DInput::QMouseHandler::setSourceDevice(QMouseDevice *mouseDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler15setSourceDeviceEPNS_12QMouseDeviceE(
+    Qt3DInput::QMouseHandler *self,
+    Qt3DInput::QMouseDevice *mouseDevice) {
+  self->setSourceDevice(mouseDevice);
+}
+
+//  void Qt3DInput::QMouseHandler::sourceDeviceChanged(QMouseDevice
+//      *mouseDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler19sourceDeviceChangedEPNS_12QMouseDeviceE(
+    Qt3DInput::QMouseHandler *self,
+    Qt3DInput::QMouseDevice *mouseDevice) {
+  self->sourceDeviceChanged(mouseDevice);
+}
+
+//  void Qt3DInput::QMouseHandler::containsMouseChanged(bool containsMouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler20containsMouseChangedEb(
+    Qt3DInput::QMouseHandler *self,
+    bool containsMouse) {
+  self->containsMouseChanged(containsMouse);
+}
+
+//  void Qt3DInput::QMouseHandler::clicked(Qt3DInput::QMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler7clickedEPNS_11QMouseEventE(
+    Qt3DInput::QMouseHandler *self,
+    Qt3DInput::QMouseEvent *mouse) {
+  self->clicked(mouse);
+}
+
+//  void Qt3DInput::QMouseHandler::doubleClicked(Qt3DInput::QMouseEvent
+//      *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler13doubleClickedEPNS_11QMouseEventE(
+    Qt3DInput::QMouseHandler *self,
+    Qt3DInput::QMouseEvent *mouse) {
+  self->doubleClicked(mouse);
+}
+
+//  void Qt3DInput::QMouseHandler::entered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler7enteredEv(
+    Qt3DInput::QMouseHandler *self) {
+  self->entered();
+}
+
+//  void Qt3DInput::QMouseHandler::exited()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler6exitedEv(
+    Qt3DInput::QMouseHandler *self) {
+  self->exited();
+}
+
+//  void Qt3DInput::QMouseHandler::pressed(Qt3DInput::QMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler7pressedEPNS_11QMouseEventE(
+    Qt3DInput::QMouseHandler *self,
+    Qt3DInput::QMouseEvent *mouse) {
+  self->pressed(mouse);
+}
+
+//  void Qt3DInput::QMouseHandler::released(Qt3DInput::QMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler8releasedEPNS_11QMouseEventE(
+    Qt3DInput::QMouseHandler *self,
+    Qt3DInput::QMouseEvent *mouse) {
+  self->released(mouse);
+}
+
+//  void Qt3DInput::QMouseHandler::pressAndHold(Qt3DInput::QMouseEvent
+//      *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler12pressAndHoldEPNS_11QMouseEventE(
+    Qt3DInput::QMouseHandler *self,
+    Qt3DInput::QMouseEvent *mouse) {
+  self->pressAndHold(mouse);
+}
+
+//  void Qt3DInput::QMouseHandler::positionChanged(Qt3DInput::QMouseEvent
+//      *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler15positionChangedEPNS_11QMouseEventE(
+    Qt3DInput::QMouseHandler *self,
+    Qt3DInput::QMouseEvent *mouse) {
+  self->positionChanged(mouse);
+}
+
+#if QT_CONFIG(wheelevent)
+//  void Qt3DInput::QMouseHandler::wheel(Qt3DInput::QWheelEvent *wheel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler5wheelEPNS_11QWheelEventE(
+    Qt3DInput::QMouseHandler *self,
+    Qt3DInput::QWheelEvent *wheel) {
+  self->wheel(wheel);
+}
+#endif  // QT_CONFIG(wheelevent)
+
+//  void Qt3DInput::QMouseHandler::setContainsMouse(bool contains)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput13QMouseHandler16setContainsMouseEb(
+    Qt3DInput::QMouseHandler *self,
+    bool contains) {
+  self->setContainsMouse(contains);
 }
 
 //  QMouseHandlerPrivate *Qt3DInput::QMouseHandler::d_func()

@@ -6,6 +6,8 @@
 #include <QtGui/qimage.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qdebug.h>
+#include <utility>
+#include <QtOpenGL/QOpenGLTexture>
 
 //  QOpenGLTexture::QOpenGLTexture(Target target)
 extern "C" Q_DECL_EXPORT
@@ -54,6 +56,12 @@ bool ritual_ZNK14QOpenGLTexture9isCreatedEv(const QOpenGLTexture *self) {
   return self->isCreated();
 }
 
+//  GLuint QOpenGLTexture::textureId() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK14QOpenGLTexture9textureIdEv(const QOpenGLTexture *self) {
+  return self->textureId();
+}
+
 //  void QOpenGLTexture::bind()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QOpenGLTexture4bindEv(QOpenGLTexture *self) {
@@ -94,6 +102,21 @@ bool ritual_ZNK14QOpenGLTexture7isBoundEv(const QOpenGLTexture *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN14QOpenGLTexture7isBoundEj(QOpenGLTexture *self, uint unit) {
   return self->isBound(unit);
+}
+
+//  GLuint QOpenGLTexture::boundTextureId(BindingTarget target)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN14QOpenGLTexture14boundTextureIdENS_13BindingTargetE(
+    QOpenGLTexture::BindingTarget target) {
+  return QOpenGLTexture::boundTextureId(target);
+}
+
+//  GLuint QOpenGLTexture::boundTextureId(uint unit, BindingTarget target)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN14QOpenGLTexture14boundTextureIdEjNS_13BindingTargetE(
+    uint unit,
+    QOpenGLTexture::BindingTarget target) {
+  return QOpenGLTexture::boundTextureId(unit, target);
 }
 
 //  void QOpenGLTexture::setFormat(TextureFormat format)
@@ -260,6 +283,348 @@ bool ritual_ZNK14QOpenGLTexture13isTextureViewEv(
   return self->isTextureView();
 }
 
+//  void QOpenGLTexture::setData(int mipLevel, int layer, CubeMapFace
+//      cubeFace, PixelFormat sourceFormat, PixelType sourceType, const void
+//      *data, const QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataEiiNS_11CubeMapFaceENS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int mipLevel,
+    int layer,
+    QOpenGLTexture::CubeMapFace cubeFace,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(
+      mipLevel,
+      layer,
+      cubeFace,
+      sourceFormat,
+      sourceType,
+      data,
+      options);
+}
+
+//  void QOpenGLTexture::setData(int mipLevel, int layer, int layerCount,
+//      CubeMapFace cubeFace, PixelFormat sourceFormat, PixelType sourceType,
+//      const void *data, const QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataEiiiNS_11CubeMapFaceENS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int mipLevel,
+    int layer,
+    int layerCount,
+    QOpenGLTexture::CubeMapFace cubeFace,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(
+      mipLevel,
+      layer,
+      layerCount,
+      cubeFace,
+      sourceFormat,
+      sourceType,
+      data,
+      options);
+}
+
+//  void QOpenGLTexture::setData(int mipLevel, int layer, PixelFormat
+//      sourceFormat, PixelType sourceType, const void *data, const
+//      QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataEiiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int mipLevel,
+    int layer,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(mipLevel, layer, sourceFormat, sourceType, data, options);
+}
+
+//  void QOpenGLTexture::setData(int mipLevel, PixelFormat sourceFormat,
+//      PixelType sourceType, const void *data, const
+//      QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataEiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int mipLevel,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(mipLevel, sourceFormat, sourceType, data, options);
+}
+
+//  void QOpenGLTexture::setData(PixelFormat sourceFormat, PixelType
+//      sourceType, const void *data, const QOpenGLPixelTransferOptions
+//      *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataENS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(sourceFormat, sourceType, data, options);
+}
+
+//  void QOpenGLTexture::setData(int xOffset, int yOffset, int zOffset, int
+//      width, int height, int depth, PixelFormat sourceFormat, PixelType
+//      sourceType, const void *data, const QOpenGLPixelTransferOptions
+//      *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataEiiiiiiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int xOffset,
+    int yOffset,
+    int zOffset,
+    int width,
+    int height,
+    int depth,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(
+      xOffset,
+      yOffset,
+      zOffset,
+      width,
+      height,
+      depth,
+      sourceFormat,
+      sourceType,
+      data,
+      options);
+}
+
+//  void QOpenGLTexture::setData(int xOffset, int yOffset, int zOffset, int
+//      width, int height, int depth, int mipLevel, PixelFormat sourceFormat,
+//      PixelType sourceType, const void *data, const
+//      QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataEiiiiiiiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int xOffset,
+    int yOffset,
+    int zOffset,
+    int width,
+    int height,
+    int depth,
+    int mipLevel,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(
+      xOffset,
+      yOffset,
+      zOffset,
+      width,
+      height,
+      depth,
+      mipLevel,
+      sourceFormat,
+      sourceType,
+      data,
+      options);
+}
+
+//  void QOpenGLTexture::setData(int xOffset, int yOffset, int zOffset, int
+//      width, int height, int depth, int mipLevel, int layer, PixelFormat
+//      sourceFormat, PixelType sourceType, const void *data, const
+//      QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataEiiiiiiiiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int xOffset,
+    int yOffset,
+    int zOffset,
+    int width,
+    int height,
+    int depth,
+    int mipLevel,
+    int layer,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(
+      xOffset,
+      yOffset,
+      zOffset,
+      width,
+      height,
+      depth,
+      mipLevel,
+      layer,
+      sourceFormat,
+      sourceType,
+      data,
+      options);
+}
+
+//  void QOpenGLTexture::setData(int xOffset, int yOffset, int zOffset, int
+//      width, int height, int depth, int mipLevel, int layer, CubeMapFace
+//      cubeFace, PixelFormat sourceFormat, PixelType sourceType, const void
+//      *data, const QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataEiiiiiiiiNS_11CubeMapFaceENS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int xOffset,
+    int yOffset,
+    int zOffset,
+    int width,
+    int height,
+    int depth,
+    int mipLevel,
+    int layer,
+    QOpenGLTexture::CubeMapFace cubeFace,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(
+      xOffset,
+      yOffset,
+      zOffset,
+      width,
+      height,
+      depth,
+      mipLevel,
+      layer,
+      cubeFace,
+      sourceFormat,
+      sourceType,
+      data,
+      options);
+}
+
+//  void QOpenGLTexture::setData(int xOffset, int yOffset, int zOffset, int
+//      width, int height, int depth, int mipLevel, int layer, CubeMapFace
+//      cubeFace, int layerCount, PixelFormat sourceFormat, PixelType
+//      sourceType, const void *data, const QOpenGLPixelTransferOptions
+//      *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture7setDataEiiiiiiiiNS_11CubeMapFaceEiNS_11PixelFormatENS_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int xOffset,
+    int yOffset,
+    int zOffset,
+    int width,
+    int height,
+    int depth,
+    int mipLevel,
+    int layer,
+    QOpenGLTexture::CubeMapFace cubeFace,
+    int layerCount,
+    QOpenGLTexture::PixelFormat sourceFormat,
+    QOpenGLTexture::PixelType sourceType,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setData(
+      xOffset,
+      yOffset,
+      zOffset,
+      width,
+      height,
+      depth,
+      mipLevel,
+      layer,
+      cubeFace,
+      layerCount,
+      sourceFormat,
+      sourceType,
+      data,
+      options);
+}
+
+//  void QOpenGLTexture::setCompressedData(int mipLevel, int layer,
+//      CubeMapFace cubeFace, int dataSize, const void *data, const
+//      QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture17setCompressedDataEiiNS_11CubeMapFaceEiPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int mipLevel,
+    int layer,
+    QOpenGLTexture::CubeMapFace cubeFace,
+    int dataSize,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setCompressedData(
+      mipLevel,
+      layer,
+      cubeFace,
+      dataSize,
+      data,
+      options);
+}
+
+//  void QOpenGLTexture::setCompressedData(int mipLevel, int layer, int
+//      layerCount, CubeMapFace cubeFace, int dataSize, const void *data,
+//      const QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture17setCompressedDataEiiiNS_11CubeMapFaceEiPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int mipLevel,
+    int layer,
+    int layerCount,
+    QOpenGLTexture::CubeMapFace cubeFace,
+    int dataSize,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setCompressedData(
+      mipLevel,
+      layer,
+      layerCount,
+      cubeFace,
+      dataSize,
+      data,
+      options);
+}
+
+//  void QOpenGLTexture::setCompressedData(int mipLevel, int layer, int
+//      dataSize, const void *data, const QOpenGLPixelTransferOptions *const
+//      options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture17setCompressedDataEiiiPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int mipLevel,
+    int layer,
+    int dataSize,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setCompressedData(mipLevel, layer, dataSize, data, options);
+}
+
+//  void QOpenGLTexture::setCompressedData(int mipLevel, int dataSize, const
+//      void *data, const QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture17setCompressedDataEiiPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int mipLevel,
+    int dataSize,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setCompressedData(mipLevel, dataSize, data, options);
+}
+
+//  void QOpenGLTexture::setCompressedData(int dataSize, const void *data,
+//      const QOpenGLPixelTransferOptions *const options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLTexture17setCompressedDataEiPKvPK27QOpenGLPixelTransferOptions(
+    QOpenGLTexture *self,
+    int dataSize,
+    const void *data,
+    const QOpenGLPixelTransferOptions *const options) {
+  self->setCompressedData(dataSize, data, options);
+}
+
 //  void QOpenGLTexture::setData(const QImage &image, MipMapGeneration
 //      genMipMaps)
 extern "C" Q_DECL_EXPORT
@@ -312,6 +677,13 @@ void ritual_ZN14QOpenGLTexture16setMipLevelRangeEii(
     int baseLevel,
     int maxLevel) {
   self->setMipLevelRange(baseLevel, maxLevel);
+}
+
+//  std::pair<int, int> QOpenGLTexture::mipLevelRange() const
+extern "C" Q_DECL_EXPORT
+std::pair<int, int> *ritual_ZNK14QOpenGLTexture13mipLevelRangeEv(
+    const QOpenGLTexture *self) {
+  return new std::pair<int, int>(self->mipLevelRange());
 }
 
 //  void QOpenGLTexture::setAutoMipMapGenerationEnabled(bool enabled)
@@ -458,6 +830,14 @@ void ritual_ZN14QOpenGLTexture16setMinMagFiltersENS_6FilterES0_(
     QOpenGLTexture::Filter minificationFilter,
     QOpenGLTexture::Filter magnificationFilter) {
   self->setMinMagFilters(minificationFilter, magnificationFilter);
+}
+
+//  std::pair<Filter, Filter> QOpenGLTexture::minMagFilters() const
+extern "C" Q_DECL_EXPORT
+std::pair<QOpenGLTexture::Filter, QOpenGLTexture::Filter> *ritual_ZNK14QOpenGLTexture13minMagFiltersEv(
+    const QOpenGLTexture *self) {
+  return new std::pair<QOpenGLTexture::Filter, QOpenGLTexture::Filter>(
+      self->minMagFilters());
 }
 
 //  void QOpenGLTexture::setMaximumAnisotropy(float anisotropy)
@@ -612,6 +992,13 @@ void ritual_ZN14QOpenGLTexture21setLevelOfDetailRangeEff(
   self->setLevelOfDetailRange(min, max);
 }
 
+//  std::pair<float, float> QOpenGLTexture::levelOfDetailRange() const
+extern "C" Q_DECL_EXPORT
+std::pair<float, float> *ritual_ZNK14QOpenGLTexture18levelOfDetailRangeEv(
+    const QOpenGLTexture *self) {
+  return new std::pair<float, float>(self->levelOfDetailRange());
+}
+
 //  void QOpenGLTexture::setLevelofDetailBias(float bias)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QOpenGLTexture20setLevelofDetailBiasEf(
@@ -649,6 +1036,28 @@ extern "C" Q_DECL_EXPORT
 const QOpenGLTexturePrivate *ritual_ZNK14QOpenGLTexture6d_funcEv(
     const QOpenGLTexture *self) {
   return self->d_func();
+}
+
+//  a std::pair<int, int> a ritual of QOpenGLTexture gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLTexture__std_pair_int_int(
+    std::pair<int, int> *self) {
+  delete self;
+}
+
+//  a std::pair<QOpenGLTexture::Filter, QOpenGLTexture::Filter> a ritual of
+//      QOpenGLTexture gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLTexture__std_pair_QOpenGLTexture_Filter_QOpenGLTexture_Filter(
+    std::pair<QOpenGLTexture::Filter, QOpenGLTexture::Filter> *self) {
+  delete self;
+}
+
+//  a std::pair<float, float> a ritual of QOpenGLTexture gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLTexture__std_pair_float_float(
+    std::pair<float, float> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_OPENGL)

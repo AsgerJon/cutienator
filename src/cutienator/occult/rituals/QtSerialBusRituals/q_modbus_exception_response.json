@@ -5,6 +5,9 @@
   ],
   "rows": {
     "ritual_ZN24QModbusExceptionResponseC1Ev": ["address"],
+    "ritual_ZN24QModbusExceptionResponseC1ERK10QModbusPdu": [
+      "address", "address"
+    ],
     "ritual_ZN24QModbusExceptionResponseC1EN10QModbusPdu12FunctionCodeENS0_13ExceptionCodeE": [
       "address", "int", "int"
     ],

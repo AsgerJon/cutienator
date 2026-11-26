@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtextformat.h>
+#include <QtCore/QList>
+#include <QtGui/QTextOption>
 
 //  QTextBlockFormat::QTextBlockFormat()
 extern "C" Q_DECL_EXPORT
@@ -196,6 +198,22 @@ int ritual_ZNK16QTextBlockFormat15pageBreakPolicyEv(
   return static_cast<int>(self->pageBreakPolicy().toInt());
 }
 
+//  void QTextBlockFormat::setTabPositions(const QList<QTextOption::Tab>
+//      &tabs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QTextBlockFormat15setTabPositionsERK5QListIN11QTextOption3TabEE(
+    QTextBlockFormat *self,
+    const QList<QTextOption::Tab> *tabs) {
+  self->setTabPositions(*tabs);
+}
+
+//  QList<QTextOption::Tab> QTextBlockFormat::tabPositions() const
+extern "C" Q_DECL_EXPORT
+QList<QTextOption::Tab> *ritual_ZNK16QTextBlockFormat12tabPositionsEv(
+    const QTextBlockFormat *self) {
+  return new QList<QTextOption::Tab>(self->tabPositions());
+}
+
 //  void QTextBlockFormat::setMarker(MarkerType marker)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextBlockFormat9setMarkerENS_10MarkerTypeE(
@@ -218,8 +236,31 @@ QTextBlockFormat *ritual_ZN16QTextBlockFormatC1ERK11QTextFormat(
   return new QTextBlockFormat(*fmt);
 }
 
+//  QDataStream &operator<<(QDataStream &a0, const QTextBlockFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK16QTextBlockFormat(
+    QDataStream *a0,
+    const QTextBlockFormat *a1) {
+  return &(operator<<(*a0, *a1));
+}
+
+//  QDataStream &operator>>(QDataStream &a0, QTextBlockFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR16QTextBlockFormat(
+    QDataStream *a0,
+    QTextBlockFormat *a1) {
+  return &(operator>>(*a0, *a1));
+}
+
 //  QTextBlockFormat::~QTextBlockFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextBlockFormatD1Ev(QTextBlockFormat *self) {
+  delete self;
+}
+
+//  a QList<QTextOption::Tab> a ritual of QTextBlockFormat gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextBlockFormat__QList_QTextOption_Tab(
+    QList<QTextOption::Tab> *self) {
   delete self;
 }

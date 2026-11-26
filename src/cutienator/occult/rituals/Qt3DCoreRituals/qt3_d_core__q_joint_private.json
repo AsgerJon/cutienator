@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore13QJointPrivateC1Ev": ["address"],
     "ritual_ZN8Qt3DCore13QJointPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore13QJointPrivate6q_funcEv": ["address", "address"],
     "ritual_take_Qt3DCore_QJointPrivate": [

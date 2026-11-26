@@ -7,6 +7,30 @@
 #include <Qt3DInput/6.12.0/Qt3DInput/private/qmousedevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DInput/qmousedevice.h>
+#include <Qt3DInput/private/qmousedevice_p.h>
+#include <Qt3DInput/qmouseevent.h>
+#include <Qt3DCore/qentity.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/input/frontend/qmousedevice.cpp, line 15, as _ZN9Qt3DInput19QMouseDevicePrivateC1Ev
+namespace Qt3DInput {
+inline QMouseDevicePrivate::QMouseDevicePrivate()
+    : QAbstractPhysicalDevicePrivate()
+    , m_sensitivity(0.1f)
+    , m_updateContinuously(false)
+{
+}
+}  // namespace Qt3DInput
+//  -----------------------------------------------------------------------
 
 //  A Qt3DInput::QMouseDevicePrivate that Python can take functions over in. Every Qt3DInput::QMouseDevicePrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +76,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DInput::QMouseDevicePrivate::QMouseDevicePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QMouseDevicePrivate *ritual_ZN9Qt3DInput19QMouseDevicePrivateC1Ev() {
+  return new CuteQt3DInput_QMouseDevicePrivate();
+}
 
 //  QMouseDevice *Qt3DInput::QMouseDevicePrivate::q_func()
 extern "C" Q_DECL_EXPORT

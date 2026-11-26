@@ -8,6 +8,12 @@
     "ritual_ZNK25QQmlTreeModelToTableModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQmlTreeModelToTableModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQmlTreeModelToTableModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -75,6 +81,9 @@
     "ritual_ZN25QQmlTreeModelToTableModel22showModelTopLevelItemsEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN25QQmlTreeModelToTableModel19showModelChildItemsERKNS_8TreeItemEiibb": [
+      "nothing", "address", "address", "int", "int", "bool", "bool"
+    ],
     "ritual_ZNK25QQmlTreeModelToTableModel9itemIndexERK11QModelIndex": [
       "int", "address", "address"
     ],
@@ -90,6 +99,18 @@
     "ritual_ZNK25QQmlTreeModelToTableModel4dumpEv": ["nothing", "address"],
     "ritual_ZNK25QQmlTreeModelToTableModel15testConsistencyEb": [
       "bool", "address", "bool"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel12modelChangedEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel16rootIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel8expandedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel9collapsedERK11QModelIndex": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN25QQmlTreeModelToTableModel6expandERK11QModelIndex": [
       "nothing", "address", "address"
@@ -132,6 +153,9 @@
     ],
     "ritual_ZN25QQmlTreeModelToTableModel17modelHasBeenResetEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel16modelDataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN25QQmlTreeModelToTableModel27modelLayoutAboutToBeChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
       "nothing", "address", "address", "int"
@@ -177,6 +201,9 @@
     ],
     "ritual_ZNK25QQmlTreeModelToTableModel20isAggregatingSignalsEv": [
       "bool", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel16queueDataChangedEiiSt16initializer_listIiE": [
+      "nothing", "address", "int", "int", "address"
     ],
     "ritual_ZN25QQmlTreeModelToTableModel17emitQueuedSignalsEv": [
       "nothing", "address"

@@ -1,8 +1,6 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DCore/6.12.0/Qt3DCore/private/qdownloadhelperservice_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore22QDownloadHelperService10metaObjectEv": [
@@ -10,6 +8,28 @@
     ],
     "ritual_ZN8Qt3DCore22QDownloadHelperService2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadHelperServiceC1ERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadHelperServiceD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore22QDownloadHelperService17cancelAllRequestsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadHelperService19urlToLocalFileOrQrcERK4QUrl": [
+      "text", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadHelperService7isLocalERK4QUrl": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadHelperService10getServiceEPNS_13QAspectEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadHelperService6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore22QDownloadHelperService6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_Qt3DCore_QDownloadHelperService": [
       "bool", "address", "chars", "address"

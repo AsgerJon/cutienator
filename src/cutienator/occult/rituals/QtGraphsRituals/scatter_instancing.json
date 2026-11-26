@@ -9,6 +9,12 @@
   ],
   "rows": {
     "ritual_ZNK17ScatterInstancing10metaObjectEv": ["address", "address"],
+    "ritual_ZN17ScatterInstancing11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17ScatterInstancing11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17ScatterInstancing2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,10 @@
       "nothing", "address"
     ],
     "ritual_ZN17ScatterInstancing14resetVisibiltyEv": ["nothing", "address"],
+    "ritual_ZNK17ScatterInstancing10customDataEv": ["address", "address"],
+    "ritual_ZN17ScatterInstancing13setCustomDataERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17ScatterInstancing13markDataDirtyEv": ["nothing", "address"],
     "ritual_ZNK17ScatterInstancing13rangeGradientEv": ["bool", "address"],
     "ritual_ZN17ScatterInstancing16setRangeGradientEb": [

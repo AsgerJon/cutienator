@@ -8,8 +8,26 @@
     "ritual_ZNK17QtVirtualKeyboard20InputSelectionHandle10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard20InputSelectionHandle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20InputSelectionHandle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard20InputSelectionHandle2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20InputSelectionHandleC1EPNS_28DesktopInputSelectionControlEP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20InputSelectionHandle10applyImageERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20InputSelectionHandle10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20InputSelectionHandle5eventEP6QEvent": [
+      "bool", "address", "address"
     ],
     "ritual_own_ZN17QtVirtualKeyboard20InputSelectionHandle10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"

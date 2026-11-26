@@ -8,9 +8,16 @@
     "ritual_ZNK23QGeoSatelliteInfoSource10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QGeoSatelliteInfoSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QGeoSatelliteInfoSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN23QGeoSatelliteInfoSourceC1EP7QObject": ["address", "address"],
     "ritual_ZN23QGeoSatelliteInfoSourceD1Ev": ["nothing", "address"],
     "ritual_ZN23QGeoSatelliteInfoSource19createDefaultSourceEP7QObject": [
       "address", "address"
@@ -32,6 +39,9 @@
     "ritual_ZNK23QGeoSatelliteInfoSource14updateIntervalEv": [
       "int", "address"
     ],
+    "ritual_ZN23QGeoSatelliteInfoSource22bindableUpdateIntervalEv": [
+      "address", "address"
+    ],
     "ritual_ZNK23QGeoSatelliteInfoSource21minimumUpdateIntervalEv": [
       "int", "address"
     ],
@@ -51,6 +61,18 @@
     "ritual_ZN23QGeoSatelliteInfoSource13requestUpdateEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN23QGeoSatelliteInfoSource23satellitesInViewUpdatedERK5QListI17QGeoSatelliteInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource22satellitesInUseUpdatedERK5QListI17QGeoSatelliteInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource13errorOccurredENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSourceC1ER30QGeoSatelliteInfoSourcePrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QGeoSatelliteInfoSource6d_funcEv": ["address", "address"],
     "ritual_ZNK23QGeoSatelliteInfoSource6d_funcEv": ["address", "address"],
     "ritual_take_QGeoSatelliteInfoSource": [
@@ -64,6 +86,9 @@
     ],
     "ritual_own_ZNK23QGeoSatelliteInfoSource15backendPropertyERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_drop_QGeoSatelliteInfoSource__QBindable_int": [
+      "nothing", "address"
     ]
   }
 }

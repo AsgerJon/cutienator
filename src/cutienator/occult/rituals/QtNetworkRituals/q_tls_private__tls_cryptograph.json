@@ -9,6 +9,12 @@
     "ritual_ZN11QTlsPrivate14TlsCryptograph4initEP10QSslSocketP17QSslSocketPrivate": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph22checkSettingSslContextESt10shared_ptrI11QSslContextE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate14TlsCryptograph10sslContextEv": [
+      "address", "address"
+    ],
     "ritual_ZNK11QTlsPrivate14TlsCryptograph9tlsErrorsEv": [
       "address", "address"
     ],
@@ -48,6 +54,12 @@
     "ritual_ZNK11QTlsPrivate14TlsCryptograph5ocspsEv": [
       "address", "address"
     ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph18isMatchingHostnameERK15QSslCertificateRK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QTlsPrivate14TlsCryptograph15setErrorAndEmitEP17QSslSocketPrivateN15QAbstractSocket11SocketErrorERK7QString": [
+      "nothing", "address", "address", "int", "text"
+    ],
     "ritual_take_QTlsPrivate_TlsCryptograph": [
       "bool", "address", "chars", "address"
     ],
@@ -59,6 +71,9 @@
     ],
     "ritual_own_ZNK11QTlsPrivate14TlsCryptograph18hasUndecryptedDataEv": [
       "bool", "address"
+    ],
+    "ritual_drop_QTlsPrivate_TlsCryptograph__std_shared_ptr_QSslContext": [
+      "nothing", "address"
     ]
   }
 }

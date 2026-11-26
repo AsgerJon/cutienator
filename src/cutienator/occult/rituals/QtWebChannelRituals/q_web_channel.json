@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QWebChannel10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QWebChannel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QWebChannel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QWebChannel2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QWebChannelC1EP7QObject": ["address", "address"],
     "ritual_ZN11QWebChannelD1Ev": ["nothing", "address"],
@@ -22,9 +28,16 @@
     "ritual_ZN11QWebChannel15setBlockUpdatesEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN11QWebChannel20bindableBlockUpdatesEv": ["address", "address"],
     "ritual_ZNK11QWebChannel22propertyUpdateIntervalEv": ["int", "address"],
     "ritual_ZN11QWebChannel25setPropertyUpdateIntervalEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN11QWebChannel30bindablePropertyUpdateIntervalEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11QWebChannel19blockUpdatesChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN11QWebChannel9connectToEP28QWebChannelAbstractTransport": [
       "nothing", "address", "address"
@@ -34,6 +47,11 @@
     ],
     "ritual_ZN11QWebChannel6d_funcEv": ["address", "address"],
     "ritual_ZNK11QWebChannel6d_funcEv": ["address", "address"],
-    "ritual_take_QWebChannel": ["bool", "address", "chars", "address"]
+    "ritual_ZN11QWebChannelC1ER18QWebChannelPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QWebChannel": ["bool", "address", "chars", "address"],
+    "ritual_drop_QWebChannel__QBindable_bool": ["nothing", "address"],
+    "ritual_drop_QWebChannel__QBindable_int": ["nothing", "address"]
   }
 }

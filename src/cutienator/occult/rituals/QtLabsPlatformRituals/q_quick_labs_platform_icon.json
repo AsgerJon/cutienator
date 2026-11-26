@@ -20,6 +20,12 @@
     "ritual_ZN22QQuickLabsPlatformIcon7setMaskEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZNK22QQuickLabsPlatformIconeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK22QQuickLabsPlatformIconneERKS_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN22QQuickLabsPlatformIconD1Ev": ["nothing", "address"]
   }
 }

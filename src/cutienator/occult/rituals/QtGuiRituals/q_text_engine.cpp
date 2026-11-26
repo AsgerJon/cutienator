@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qtextengine_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qtextengine_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, rituals for functions the generator leaves
+//  out: 1. Kept as it is when the generator runs again.
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,6 +14,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qtextformat.h>
 #include <QtCore/qline.h>
+#include <QtCore/QList>
+#include <QtGui/QTextLayout>
+#include <vector>
+#include <QtCore/QSpan>
 
 //  QTextEngine::QTextEngine()
 extern "C" Q_DECL_EXPORT
@@ -62,6 +67,16 @@ void ritual_ZNK11QTextEngine7itemizeEv(const QTextEngine *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QTextEngine13isRightToLeftEv(const QTextEngine *self) {
   return self->isRightToLeft();
+}
+
+//  void QTextEngine::bidiReorder(int numRuns, const quint8 *levels, int
+//      *visualOrder)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextEngine11bidiReorderEiPKhPi(
+    int numRuns,
+    const quint8 *levels,
+    int *visualOrder) {
+  QTextEngine::bidiReorder(numRuns, levels, visualOrder);
 }
 
 //  const QCharAttributes *QTextEngine::attributes() const
@@ -273,6 +288,22 @@ bool ritual_ZNK11QTextEngine10hasFormatsEv(const QTextEngine *self) {
   return self->hasFormats();
 }
 
+//  QList<QTextLayout::FormatRange> QTextEngine::formats() const
+extern "C" Q_DECL_EXPORT
+QList<QTextLayout::FormatRange> *ritual_ZNK11QTextEngine7formatsEv(
+    const QTextEngine *self) {
+  return new QList<QTextLayout::FormatRange>(self->formats());
+}
+
+//  void QTextEngine::setFormats(const QList<QTextLayout::FormatRange>
+//      &formats)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextEngine10setFormatsERK5QListIN11QTextLayout11FormatRangeEE(
+    QTextEngine *self,
+    const QList<QTextLayout::FormatRange> *formats) {
+  self->setFormats(*formats);
+}
+
 //  void QTextEngine::init(QTextEngine *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextEngine4initEPS_(QTextEngine *e) {
@@ -394,6 +425,14 @@ int ritual_ZN11QTextEngine27positionAfterVisualMovementEiN11QTextCursor13MoveOpe
   return self->positionAfterVisualMovement(oldPos, op);
 }
 
+//  std::vector<int> QTextEngine::insertionPointsForLine(int lineNum)
+extern "C" Q_DECL_EXPORT
+std::vector<int> *ritual_ZN11QTextEngine22insertionPointsForLineEi(
+    QTextEngine *self,
+    int lineNum) {
+  return new std::vector<int>(self->insertionPointsForLine(lineNum));
+}
+
 //  void QTextEngine::resetFontEngineCache()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextEngine20resetFontEngineCacheEv(QTextEngine *self) {
@@ -455,6 +494,27 @@ void ritual_ZN11QTextEngine16adjustUnderlinesEv(QTextEngine *self) {
   self->adjustUnderlines();
 }
 
+//  void QTextEngine::addItemDecoration(QPainter *painter, const QLineF
+//      &line, ItemDecorationList *decorationList)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextEngine17addItemDecorationEP8QPainterRK6QLineFP5QListINS_14ItemDecorationEE(
+    QTextEngine *self,
+    QPainter *painter,
+    const QLineF *line,
+    QTextEngine::ItemDecorationList *decorationList) {
+  self->addItemDecoration(painter, *line, decorationList);
+}
+
+//  void QTextEngine::drawItemDecorationList(QPainter *painter, const
+//      ItemDecorationList &decorationList)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextEngine22drawItemDecorationListEP8QPainterRK5QListINS_14ItemDecorationEE(
+    QTextEngine *self,
+    QPainter *painter,
+    const QTextEngine::ItemDecorationList *decorationList) {
+  self->drawItemDecorationList(painter, *decorationList);
+}
+
 //  void QTextEngine::setBoundary(int strPos) const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK11QTextEngine11setBoundaryEi(
@@ -475,6 +535,39 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZNK11QTextEngine9shapeTextEi(const QTextEngine *self, int item) {
   self->shapeText(item);
 }
+
+#if QT_CONFIG(harfbuzz)
+//  int QTextEngine::shapeTextWithHarfbuzzNG(const QScriptItem &si, const
+//      ushort *string, int stringBaseIndex, int stringLength, int
+//      itemLength, QFontEngine *fontEngine, QSpan<uint> itemBoundaries, bool
+//      kerningEnabled, bool hasLetterSpacing, const QMap<QFont::Tag,
+//      quint32> &features) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK11QTextEngine23shapeTextWithHarfbuzzNGERK11QScriptItemPKtiiiP11QFontEngine5QSpanIjLm18446744073709551615EEbbRK4QMapIN5QFont3TagEjE(
+    const QTextEngine *self,
+    const QScriptItem *si,
+    const ushort *string,
+    int stringBaseIndex,
+    int stringLength,
+    int itemLength,
+    QFontEngine *fontEngine,
+    const QSpan<uint> *itemBoundaries,
+    bool kerningEnabled,
+    bool hasLetterSpacing,
+    const QMap<QFont::Tag, quint32> *features) {
+  return self->shapeTextWithHarfbuzzNG(
+      *si,
+      string,
+      stringBaseIndex,
+      stringLength,
+      itemLength,
+      fontEngine,
+      *itemBoundaries,
+      kerningEnabled,
+      hasLetterSpacing,
+      *features);
+}
+#endif  // QT_CONFIG(harfbuzz)
 
 //  int QTextEngine::endOfLine(int lineNum)
 extern "C" Q_DECL_EXPORT
@@ -509,4 +602,25 @@ int ritual_ZN11QTextEngine16getClusterLengthEPtPK15QCharAttributesiiiPi(
       to,
       glyph_pos,
       start);
+}
+
+//  a QList<QTextLayout::FormatRange> a ritual of QTextEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextEngine__QList_QTextLayout_FormatRange(
+    QList<QTextLayout::FormatRange> *self) {
+  delete self;
+}
+
+//  a std::vector<int> a ritual of QTextEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextEngine__std_vector_int(std::vector<int> *self) {
+  delete self;
+}
+
+//  unsigned short *QTextEngine::logClusters(const QScriptItem *si) const
+extern "C" Q_DECL_EXPORT
+unsigned short *ritual_ZNK11QTextEngine11logClustersEPK11QScriptItem(
+    const QTextEngine *self,
+    const QScriptItem *si) {
+  return self->logClusters(si);
 }

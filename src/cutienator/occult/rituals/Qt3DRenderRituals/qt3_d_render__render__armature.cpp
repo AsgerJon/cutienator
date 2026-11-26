@@ -11,11 +11,41 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/uniform_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  Qt3DRender::Render::Armature::Armature()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Armature *ritual_ZN10Qt3DRender6Render8ArmatureC1Ev() {
+  return new Qt3DRender::Render::Armature();
+}
+
+//  void Qt3DRender::Render::Armature::syncFromFrontEnd(const Qt3DCore::QNode
+//      *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render8Armature16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::Armature *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  void Qt3DRender::Render::Armature::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render8Armature7cleanupEv(
+    Qt3DRender::Render::Armature *self) {
+  self->cleanup();
+}
+
 //  Qt3DCore::QNodeId Qt3DRender::Render::Armature::skeletonId() const
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QNodeId *ritual_ZNK10Qt3DRender6Render8Armature10skeletonIdEv(
     const Qt3DRender::Render::Armature *self) {
   return new Qt3DCore::QNodeId(self->skeletonId());
+}
+
+//  UniformValue &Qt3DRender::Render::Armature::skinningPaletteUniform()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::UniformValue *ritual_ZN10Qt3DRender6Render8Armature22skinningPaletteUniformEv(
+    Qt3DRender::Render::Armature *self) {
+  return &(self->skinningPaletteUniform());
 }
 
 //  const UniformValue

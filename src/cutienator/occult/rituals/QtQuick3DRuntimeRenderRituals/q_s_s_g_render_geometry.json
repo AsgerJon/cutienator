@@ -8,7 +8,9 @@
     "ritual_ZN18QSSGRenderGeometryC1Ev": ["address"],
     "ritual_ZN18QSSGRenderGeometryD1Ev": ["nothing", "address"],
     "ritual_ZNK18QSSGRenderGeometry12vertexBufferEv": ["address", "address"],
+    "ritual_ZN18QSSGRenderGeometry12vertexBufferEv": ["address", "address"],
     "ritual_ZNK18QSSGRenderGeometry11indexBufferEv": ["address", "address"],
+    "ritual_ZN18QSSGRenderGeometry11indexBufferEv": ["address", "address"],
     "ritual_ZNK18QSSGRenderGeometry14attributeCountEv": ["int", "address"],
     "ritual_ZNK18QSSGRenderGeometry9attributeEi": [
       "address", "address", "int"
@@ -45,6 +47,9 @@
     "ritual_ZN18QSSGRenderGeometry5clearEv": ["nothing", "address"],
     "ritual_ZN18QSSGRenderGeometry15clearAttributesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK18QSSGRenderGeometry12generationIdEv": [
+      "unsigned int", "address"
     ],
     "ritual_ZNK18QSSGRenderGeometry8meshDataEv": ["address", "address"],
     "ritual_ZN18QSSGRenderGeometry19clearVertexAndIndexEv": [

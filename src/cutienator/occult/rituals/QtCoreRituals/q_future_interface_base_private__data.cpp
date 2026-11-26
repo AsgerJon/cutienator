@@ -11,6 +11,17 @@
 #include <QtCore/6.12.0/QtCore/private/qfutureinterface_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+#if !defined(QT_NO_EXCEPTIONS)
+//  void QFutureInterfaceBasePrivate::Data::setException(const
+//      std::exception_ptr &e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QFutureInterfaceBasePrivate4Data12setExceptionERKNSt15__exception_ptr13exception_ptrE(
+    QFutureInterfaceBasePrivate::Data *self,
+    const std::exception_ptr *e) {
+  self->setException(*e);
+}
+#endif  // !defined(QT_NO_EXCEPTIONS)
+
 //  QFutureInterfaceBasePrivate::Data::~Data()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QFutureInterfaceBasePrivate4DataD1Ev(

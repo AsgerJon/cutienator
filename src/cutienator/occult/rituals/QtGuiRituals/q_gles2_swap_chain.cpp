@@ -35,139 +35,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/rhi/qrhigles2.cpp, line 7195, as _ZN19QGles2CommandBufferC1EP18QRhiImplementation
-inline QGles2CommandBuffer::QGles2CommandBuffer(QRhiImplementation *rhi)
-    : QRhiCommandBuffer(rhi)
-{
-    resetState();
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7201, as _ZN19QGles2CommandBufferD1Ev
-inline QGles2CommandBuffer::~QGles2CommandBuffer()
-{
-    destroy();
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7326, as _ZN25QGles2SwapChainTimestamps7prepareEP9QRhiGles2
-inline void QGles2SwapChainTimestamps::prepare(QRhiGles2 *rhiD)
-{
-    if (!query[0])
-        rhiD->f->glGenQueries(TIMESTAMP_PAIRS * 2, query);
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 6462, as _ZN26QGles2RenderPassDescriptorC1EP18QRhiImplementation
-inline QGles2RenderPassDescriptor::QGles2RenderPassDescriptor(QRhiImplementation *rhi)
-    : QRhiRenderPassDescriptor(rhi)
-{
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 6498, as _ZN27QGles2SwapChainRenderTargetC1EP18QRhiImplementationP13QRhiSwapChain
-inline QGles2SwapChainRenderTarget::QGles2SwapChainRenderTarget(QRhiImplementation *rhi, QRhiSwapChain *swapchain)
-    : QRhiSwapChainRenderTarget(rhi, swapchain),
-      d(rhi)
-{
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 6504, as _ZN27QGles2SwapChainRenderTargetD1Ev
-inline QGles2SwapChainRenderTarget::~QGles2SwapChainRenderTarget()
-{
-    destroy();
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7206, as _ZN19QGles2CommandBuffer7destroyEv
-inline void QGles2CommandBuffer::destroy()
-{
-    // nothing to do here
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 6509, as _ZN27QGles2SwapChainRenderTarget7destroyEv
-inline void QGles2SwapChainRenderTarget::destroy()
-{
-    // nothing to do here
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 6524, as _ZNK27QGles2SwapChainRenderTarget11sampleCountEv
-inline int QGles2SwapChainRenderTarget::sampleCount() const
-{
-    return d.sampleCount;
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 6519, as _ZNK27QGles2SwapChainRenderTarget16devicePixelRatioEv
-inline float QGles2SwapChainRenderTarget::devicePixelRatio() const
-{
-    return d.dpr;
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 6514, as _ZNK27QGles2SwapChainRenderTarget9pixelSizeEv
-inline QSize QGles2SwapChainRenderTarget::pixelSize() const
-{
-    return d.pixelSize;
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7220, as _ZN15QGles2SwapChainD1Ev
-inline QGles2SwapChain::~QGles2SwapChain()
-{
-    destroy();
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7225, as _ZN15QGles2SwapChain7destroyEv
-inline void QGles2SwapChain::destroy()
-{
-    QRHI_RES_RHI(QRhiGles2);
-    if (rhiD)
-        rhiD->unregisterResource(this);
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7232, as _ZN15QGles2SwapChain25currentFrameCommandBufferEv
-inline QRhiCommandBuffer *QGles2SwapChain::currentFrameCommandBuffer()
-{
-    return &cb;
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7237, as _ZN15QGles2SwapChain24currentFrameRenderTargetEv
-inline QRhiRenderTarget *QGles2SwapChain::currentFrameRenderTarget()
-{
-    return &rt;
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7242, as _ZN15QGles2SwapChain24currentFrameRenderTargetEN13QRhiSwapChain18StereoTargetBufferE
-inline QRhiRenderTarget *QGles2SwapChain::currentFrameRenderTarget(StereoTargetBuffer targetBuffer)
-{
-    if (targetBuffer == LeftBuffer)
-        return rtLeft.d.isValid() ? &rtLeft : &rt;
-    else if (targetBuffer == RightBuffer)
-        return rtRight.d.isValid() ? &rtRight : &rt;
-    else
-        Q_UNREACHABLE_RETURN(nullptr);
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7252, as _ZN15QGles2SwapChain16surfacePixelSizeEv
-inline QSize QGles2SwapChain::surfacePixelSize()
-{
-    Q_ASSERT(m_window);
-    if (QPlatformWindow *platformWindow = m_window->handle())
-        // Prefer using QPlatformWindow geometry and DPR in order to avoid
-        // errors due to rounded QWindow geometry.
-        return platformWindow->geometry().size() * platformWindow->devicePixelRatio();
-    else
-        return m_window->size() * m_window->devicePixelRatio();
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7263, as _ZN15QGles2SwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE
-inline bool QGles2SwapChain::isFormatSupported(Format f)
-{
-    return f == SDR;
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7268, as _ZN15QGles2SwapChain33newCompatibleRenderPassDescriptorEv
-inline QRhiRenderPassDescriptor *QGles2SwapChain::newCompatibleRenderPassDescriptor()
-{
-    QGles2RenderPassDescriptor *rpD = new QGles2RenderPassDescriptor(m_rhi);
-    QRHI_RES_RHI(QRhiGles2);
-    rhiD->registerResource(rpD, false);
-    return rpD;
-}
-
 //  from src/gui/rhi/qrhigles2.cpp, line 7288, as _ZN15QGles2SwapChain14createOrResizeEv
 inline bool QGles2SwapChain::createOrResize()
 {
@@ -205,6 +72,185 @@ inline bool QGles2SwapChain::createOrResize()
     rhiD->registerResource(this, false);
 
     return true;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7252, as _ZN15QGles2SwapChain16surfacePixelSizeEv
+inline QSize QGles2SwapChain::surfacePixelSize()
+{
+    Q_ASSERT(m_window);
+    if (QPlatformWindow *platformWindow = m_window->handle())
+        // Prefer using QPlatformWindow geometry and DPR in order to avoid
+        // errors due to rounded QWindow geometry.
+        return platformWindow->geometry().size() * platformWindow->devicePixelRatio();
+    else
+        return m_window->size() * m_window->devicePixelRatio();
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7263, as _ZN15QGles2SwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE
+inline bool QGles2SwapChain::isFormatSupported(Format f)
+{
+    return f == SDR;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7242, as _ZN15QGles2SwapChain24currentFrameRenderTargetEN13QRhiSwapChain18StereoTargetBufferE
+inline QRhiRenderTarget *QGles2SwapChain::currentFrameRenderTarget(StereoTargetBuffer targetBuffer)
+{
+    if (targetBuffer == LeftBuffer)
+        return rtLeft.d.isValid() ? &rtLeft : &rt;
+    else if (targetBuffer == RightBuffer)
+        return rtRight.d.isValid() ? &rtRight : &rt;
+    else
+        Q_UNREACHABLE_RETURN(nullptr);
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7237, as _ZN15QGles2SwapChain24currentFrameRenderTargetEv
+inline QRhiRenderTarget *QGles2SwapChain::currentFrameRenderTarget()
+{
+    return &rt;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7232, as _ZN15QGles2SwapChain25currentFrameCommandBufferEv
+inline QRhiCommandBuffer *QGles2SwapChain::currentFrameCommandBuffer()
+{
+    return &cb;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7268, as _ZN15QGles2SwapChain33newCompatibleRenderPassDescriptorEv
+inline QRhiRenderPassDescriptor *QGles2SwapChain::newCompatibleRenderPassDescriptor()
+{
+    QGles2RenderPassDescriptor *rpD = new QGles2RenderPassDescriptor(m_rhi);
+    QRHI_RES_RHI(QRhiGles2);
+    rhiD->registerResource(rpD, false);
+    return rpD;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7225, as _ZN15QGles2SwapChain7destroyEv
+inline void QGles2SwapChain::destroy()
+{
+    QRHI_RES_RHI(QRhiGles2);
+    if (rhiD)
+        rhiD->unregisterResource(this);
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7195, as _ZN19QGles2CommandBufferC1EP18QRhiImplementation
+inline QGles2CommandBuffer::QGles2CommandBuffer(QRhiImplementation *rhi)
+    : QRhiCommandBuffer(rhi)
+{
+    resetState();
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7201, as _ZN19QGles2CommandBufferD1Ev
+inline QGles2CommandBuffer::~QGles2CommandBuffer()
+{
+    destroy();
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6498, as _ZN27QGles2SwapChainRenderTargetC1EP18QRhiImplementationP13QRhiSwapChain
+inline QGles2SwapChainRenderTarget::QGles2SwapChainRenderTarget(QRhiImplementation *rhi, QRhiSwapChain *swapchain)
+    : QRhiSwapChainRenderTarget(rhi, swapchain),
+      d(rhi)
+{
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6504, as _ZN27QGles2SwapChainRenderTargetD1Ev
+inline QGles2SwapChainRenderTarget::~QGles2SwapChainRenderTarget()
+{
+    destroy();
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7206, as _ZN19QGles2CommandBuffer7destroyEv
+inline void QGles2CommandBuffer::destroy()
+{
+    // nothing to do here
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7326, as _ZN25QGles2SwapChainTimestamps7prepareEP9QRhiGles2
+inline void QGles2SwapChainTimestamps::prepare(QRhiGles2 *rhiD)
+{
+    if (!query[0])
+        rhiD->f->glGenQueries(TIMESTAMP_PAIRS * 2, query);
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6462, as _ZN26QGles2RenderPassDescriptorC1EP18QRhiImplementation
+inline QGles2RenderPassDescriptor::QGles2RenderPassDescriptor(QRhiImplementation *rhi)
+    : QRhiRenderPassDescriptor(rhi)
+{
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6509, as _ZN27QGles2SwapChainRenderTarget7destroyEv
+inline void QGles2SwapChainRenderTarget::destroy()
+{
+    // nothing to do here
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6524, as _ZNK27QGles2SwapChainRenderTarget11sampleCountEv
+inline int QGles2SwapChainRenderTarget::sampleCount() const
+{
+    return d.sampleCount;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6519, as _ZNK27QGles2SwapChainRenderTarget16devicePixelRatioEv
+inline float QGles2SwapChainRenderTarget::devicePixelRatio() const
+{
+    return d.dpr;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6514, as _ZNK27QGles2SwapChainRenderTarget9pixelSizeEv
+inline QSize QGles2SwapChainRenderTarget::pixelSize() const
+{
+    return d.pixelSize;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6467, as _ZN26QGles2RenderPassDescriptorD1Ev
+inline QGles2RenderPassDescriptor::~QGles2RenderPassDescriptor()
+{
+    destroy();
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6472, as _ZN26QGles2RenderPassDescriptor7destroyEv
+inline void QGles2RenderPassDescriptor::destroy()
+{
+    QRHI_RES_RHI(QRhiGles2);
+    if (rhiD)
+        rhiD->unregisterResource(this);
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6479, as _ZNK26QGles2RenderPassDescriptor12isCompatibleEPK24QRhiRenderPassDescriptor
+inline bool QGles2RenderPassDescriptor::isCompatible(const QRhiRenderPassDescriptor *other) const
+{
+    Q_UNUSED(other);
+    return true;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6485, as _ZNK26QGles2RenderPassDescriptor33newCompatibleRenderPassDescriptorEv
+inline QRhiRenderPassDescriptor *QGles2RenderPassDescriptor::newCompatibleRenderPassDescriptor() const
+{
+    QGles2RenderPassDescriptor *rpD = new QGles2RenderPassDescriptor(m_rhi);
+    QRHI_RES_RHI(QRhiGles2);
+    rhiD->registerResource(rpD, false);
+    return rpD;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6493, as _ZNK26QGles2RenderPassDescriptor16serializedFormatEv
+inline QVector<quint32> QGles2RenderPassDescriptor::serializedFormat() const
+{
+    return {};
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7211, as _ZN15QGles2SwapChainC1EP18QRhiImplementation
+inline QGles2SwapChain::QGles2SwapChain(QRhiImplementation *rhi)
+    : QRhiSwapChain(rhi),
+      rt(rhi, this),
+      rtLeft(rhi, this),
+      rtRight(rhi, this),
+      cb(rhi)
+{
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7220, as _ZN15QGles2SwapChainD1Ev
+inline QGles2SwapChain::~QGles2SwapChain()
+{
+    destroy();
 }
 
 //  from src/gui/rhi/qrhigles2.cpp, line 7276, as _ZN15QGles2SwapChain25initSwapChainRenderTargetEP27QGles2SwapChainRenderTarget
@@ -397,6 +443,13 @@ public:
     return QRhiSwapChain::hdrInfo();
   }
 };
+
+//  QGles2SwapChain::QGles2SwapChain(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QGles2SwapChain *ritual_ZN15QGles2SwapChainC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQGles2SwapChain(rhi);
+}
 
 //  QGles2SwapChain::~QGles2SwapChain()
 extern "C" Q_DECL_EXPORT

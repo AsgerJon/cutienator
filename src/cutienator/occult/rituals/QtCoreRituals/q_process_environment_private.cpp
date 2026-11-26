@@ -12,7 +12,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#if (QT_CONFIG(processenvironment)) || (!QT_CONFIG(process))
 #include <QtCore/qprocess.h>
+#endif
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdebug.h>

@@ -23,7 +23,7 @@ typedef const QVariant * (*CuteQQmlColorProviderCall6)(const void *, const QVari
 class CuteQQmlColorProvider : public QQmlColorProvider {
 public:
   using QQmlColorProvider::QQmlColorProvider;
-  CuteQQmlColorProvider(const QQmlColorProvider &other) : QQmlColorProvider(other) {}
+  CuteQQmlColorProvider(const QQmlColorProvider & other) : QQmlColorProvider(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {

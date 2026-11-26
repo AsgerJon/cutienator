@@ -33,6 +33,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtmultimedia/src/multimedia/audio/qdrawavaudiodecoder.cpp, line 34, as local:qdrawavaudiodecoder.cpp:makeResourceError
+namespace QtMultimediaPrivate {
+static QDrWavDecodeResult makeResourceError(const QString &message)
+{
+    return q23::unexpected(std::pair(QAudioDecoder::ResourceError, message));
+}
+}  // namespace QtMultimediaPrivate
+
 //  from ../qtmultimedia/src/multimedia/audio/qdrawavaudiodecoder.cpp, line 197, as _ZN18QDrWavAudioDecoder14setAudioFormatERK12QAudioFormat
 inline void QDrWavAudioDecoder::setAudioFormat(const QAudioFormat &format)
 {
@@ -51,6 +59,31 @@ inline QAudioBuffer QDrWavAudioDecoder::read()
         return buffer;
     }
     return QAudioBuffer();
+}
+
+//  from ../qtmultimedia/src/multimedia/audio/qdrawavaudiodecoder.cpp, line 347, as _ZN18QDrWavAudioDecoder16onDecodeFinishedEN3q238expectedI12QAudioBufferSt4pairIN13QAudioDecoder5ErrorE7QStringEEERKSt6atomicIbE
+inline void QDrWavAudioDecoder::onDecodeFinished(QDrWavDecodeResult result,
+                                          const std::atomic_bool &decodingStopped)
+{
+    using namespace std::chrono;
+    if (!result.has_value()) {
+        auto [errorCode, errorString] = result.error();
+        error(errorCode, errorString);
+        setIsDecoding(false);
+        return;
+    }
+
+    m_buffer = std::move(*result);
+    // QAudioBuffer::duration() is in microseconds; convert to milliseconds
+    durationChanged(duration_cast<milliseconds>(microseconds{ m_buffer.duration() }));
+    positionChanged(0ms);
+
+    bufferAvailableChanged(true);
+    bufferReady();
+    if (decodingStopped)
+        return;
+
+    finished();
 }
 //  -----------------------------------------------------------------------
 
@@ -95,4 +128,22 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK18QDrWavAudioDecoder10canReadQrcEv(
     const QDrWavAudioDecoder *self) {
   return self->canReadQrc();
+}
+
+//  void QDrWavAudioDecoder::onDecodeFinished(QDrWavDecodeResult a0, const
+//      std::atomic_bool &decodingStopped)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QDrWavAudioDecoder16onDecodeFinishedEN3q238expectedI12QAudioBufferSt4pairIN13QAudioDecoder5ErrorE7QStringEEERKSt6atomicIbE(
+    QDrWavAudioDecoder *self,
+    const QDrWavAudioDecoder::QDrWavDecodeResult *a0,
+    const std::atomic_bool *decodingStopped) {
+  self->onDecodeFinished(*a0, *decodingStopped);
+}
+
+//  a QDrWavAudioDecoder::QDrWavDecodeResult a ritual of QDrWavAudioDecoder
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDrWavAudioDecoder__QDrWavAudioDecoder_QDrWavDecodeResult(
+    QDrWavAudioDecoder::QDrWavDecodeResult *self) {
+  delete self;
 }

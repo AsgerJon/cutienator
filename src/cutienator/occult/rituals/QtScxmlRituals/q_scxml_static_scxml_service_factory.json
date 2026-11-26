@@ -8,6 +8,12 @@
     "ritual_ZNK31QScxmlStaticScxmlServiceFactory10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QScxmlStaticScxmlServiceFactory11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QScxmlStaticScxmlServiceFactory11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QScxmlStaticScxmlServiceFactory2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,9 @@
     ],
     "ritual_ZNK31QScxmlStaticScxmlServiceFactory6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN31QScxmlStaticScxmlServiceFactoryC1EPK11QMetaObjectRKN23QScxmlExecutableContent10InvokeInfoERK5QListIiERKS7_INS3_13ParameterInfoEEP7QObject": [
+      "address", "address", "address", "address", "address", "address"
     ],
     "ritual_ZN31QScxmlStaticScxmlServiceFactory6invokeEP18QScxmlStateMachine": [
       "address", "address", "address"

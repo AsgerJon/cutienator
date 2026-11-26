@@ -55,6 +55,15 @@ QQmlListReference *ritual_ZN17QQmlListReferenceC1ERKS_(
   return new QQmlListReference(*a0);
 }
 
+//  QQmlListReference &QQmlListReference::operator=(const QQmlListReference
+//      &a0)
+extern "C" Q_DECL_EXPORT
+QQmlListReference *ritual_ZN17QQmlListReferenceaSERKS_(
+    QQmlListReference *self,
+    const QQmlListReference *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QQmlListReference::~QQmlListReference()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQmlListReferenceD1Ev(QQmlListReference *self) {

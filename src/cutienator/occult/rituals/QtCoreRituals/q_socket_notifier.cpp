@@ -185,6 +185,24 @@ const QMetaObject *ritual_ZNK15QSocketNotifier10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSocketNotifier::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QSocketNotifier11qt_metacastEPKc(
+    QSocketNotifier *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSocketNotifier::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QSocketNotifier11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSocketNotifier *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSocketNotifier::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QSocketNotifier2trEPKcS1_i(
@@ -192,6 +210,20 @@ QString *ritual_ZN15QSocketNotifier2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSocketNotifier::tr(s, c, n));
+}
+
+//  QSocketNotifierPrivate *QSocketNotifier::d_func()
+extern "C" Q_DECL_EXPORT
+QSocketNotifierPrivate *ritual_ZN15QSocketNotifier6d_funcEv(
+    QSocketNotifier *self) {
+  return self->d_func();
+}
+
+//  const QSocketNotifierPrivate *QSocketNotifier::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSocketNotifierPrivate *ritual_ZNK15QSocketNotifier6d_funcEv(
+    const QSocketNotifier *self) {
+  return self->d_func();
 }
 
 //  QSocketNotifier::QSocketNotifier(Type a0, QObject *parent)
@@ -258,6 +290,21 @@ void ritual_ZN15QSocketNotifier10setEnabledEb(
     bool a0) {
   self->setEnabled(a0);
 }
+
+#if !(defined(Q_MOC_RUN))
+//  void QSocketNotifier::activated(QSocketDescriptor socket,
+//      QSocketNotifier::Type activationEvent, QPrivateSignal a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSocketNotifier9activatedE17QSocketDescriptorNS_4TypeENS_14QPrivateSignalE(
+    QSocketNotifier *self,
+    const QSocketDescriptor *socket,
+    QSocketNotifier::Type activationEvent) {
+  self->activated(
+      *socket,
+      activationEvent,
+      QSocketNotifier::QPrivateSignal());
+}
+#endif  // !(defined(Q_MOC_RUN))
 
 //  bool QSocketNotifier::event(QEvent *a0)
 extern "C" Q_DECL_EXPORT

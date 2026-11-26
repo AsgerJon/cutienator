@@ -9,6 +9,13 @@
       "address", "address"
     ],
     "ritual_ZN27RequiredPropertiesAndTargetC1ERKS_": ["address", "address"],
+    "ritual_ZN27RequiredPropertiesAndTargetC1EOS_": ["address", "address"],
+    "ritual_ZN27RequiredPropertiesAndTargetaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27RequiredPropertiesAndTargetaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN27RequiredPropertiesAndTargetD1Ev": ["nothing", "address"]
   }
 }

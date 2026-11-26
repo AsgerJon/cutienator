@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK19QQuick3DXrEyeCamera10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrEyeCamera::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuick3DXrEyeCamera11qt_metacastEPKc(
+    QQuick3DXrEyeCamera *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrEyeCamera::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuick3DXrEyeCamera11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrEyeCamera *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DXrEyeCamera::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuick3DXrEyeCamera2trEPKcS1_i(
@@ -134,6 +153,54 @@ void ritual_ZN19QQuick3DXrEyeCamera13setProjectionERK10QMatrix4x4(
     QQuick3DXrEyeCamera *self,
     const QMatrix4x4 *projection) {
   self->setProjection(*projection);
+}
+
+//  void QQuick3DXrEyeCamera::leftTangentChanged(float leftTangent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrEyeCamera18leftTangentChangedEf(
+    QQuick3DXrEyeCamera *self,
+    float leftTangent) {
+  self->leftTangentChanged(leftTangent);
+}
+
+//  void QQuick3DXrEyeCamera::rightTangentChanged(float rightTangent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrEyeCamera19rightTangentChangedEf(
+    QQuick3DXrEyeCamera *self,
+    float rightTangent) {
+  self->rightTangentChanged(rightTangent);
+}
+
+//  void QQuick3DXrEyeCamera::upTangentChanged(float upTangent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrEyeCamera16upTangentChangedEf(
+    QQuick3DXrEyeCamera *self,
+    float upTangent) {
+  self->upTangentChanged(upTangent);
+}
+
+//  void QQuick3DXrEyeCamera::downTangentChanged(float downTangent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrEyeCamera18downTangentChangedEf(
+    QQuick3DXrEyeCamera *self,
+    float downTangent) {
+  self->downTangentChanged(downTangent);
+}
+
+//  void QQuick3DXrEyeCamera::clipNearChanged(float clipNear)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrEyeCamera15clipNearChangedEf(
+    QQuick3DXrEyeCamera *self,
+    float clipNear) {
+  self->clipNearChanged(clipNear);
+}
+
+//  void QQuick3DXrEyeCamera::clipFarChanged(float clipFar)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrEyeCamera14clipFarChangedEf(
+    QQuick3DXrEyeCamera *self,
+    float clipFar) {
+  self->clipFarChanged(clipFar);
 }
 
 //  QSSGRenderGraphObject

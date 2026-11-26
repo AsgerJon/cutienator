@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK12QValue3DAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QValue3DAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QValue3DAxis11qt_metacastEPKc(
+    QValue3DAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QValue3DAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QValue3DAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QValue3DAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QValue3DAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QValue3DAxis2trEPKcS1_i(
@@ -271,6 +289,46 @@ void ritual_ZN12QValue3DAxis11setReversedEb(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QValue3DAxis8reversedEv(const QValue3DAxis *self) {
   return self->reversed();
+}
+
+//  void QValue3DAxis::segmentCountChanged(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QValue3DAxis19segmentCountChangedEi(
+    QValue3DAxis *self,
+    int count) {
+  self->segmentCountChanged(count);
+}
+
+//  void QValue3DAxis::subSegmentCountChanged(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QValue3DAxis22subSegmentCountChangedEi(
+    QValue3DAxis *self,
+    int count) {
+  self->subSegmentCountChanged(count);
+}
+
+//  void QValue3DAxis::labelFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QValue3DAxis18labelFormatChangedERK7QString(
+    QValue3DAxis *self,
+    const QString *format) {
+  self->labelFormatChanged(*format);
+}
+
+//  void QValue3DAxis::formatterChanged(QValue3DAxisFormatter *formatter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QValue3DAxis16formatterChangedEP21QValue3DAxisFormatter(
+    QValue3DAxis *self,
+    QValue3DAxisFormatter *formatter) {
+  self->formatterChanged(formatter);
+}
+
+//  void QValue3DAxis::reversedChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QValue3DAxis15reversedChangedEb(
+    QValue3DAxis *self,
+    bool enable) {
+  self->reversedChanged(enable);
 }
 
 //  QValue3DAxisPrivate *QValue3DAxis::dptr()

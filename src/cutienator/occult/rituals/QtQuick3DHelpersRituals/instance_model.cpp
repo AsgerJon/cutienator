@@ -7,7 +7,9 @@
 #include <QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/instancerepeater_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmap.h>
@@ -19,6 +21,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK13InstanceModel10metaObjectEv(
     const InstanceModel *self) {
   return self->metaObject();
+}
+
+//  void *InstanceModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13InstanceModel11qt_metacastEPKc(
+    InstanceModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int InstanceModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13InstanceModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    InstanceModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString InstanceModel::tr(const char *s, const char *c, int n)
@@ -88,6 +108,12 @@ QHash<int, QByteArray> *ritual_ZNK13InstanceModel9roleNamesEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13InstanceModel5resetEv(InstanceModel *self) {
   self->reset();
+}
+
+//  void InstanceModel::instancingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13InstanceModel17instancingChangedEv(InstanceModel *self) {
+  self->instancingChanged();
 }
 
 //  void InstanceModel::ensureTable() const

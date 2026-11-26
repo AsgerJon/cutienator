@@ -17,6 +17,12 @@ QDomText *ritual_ZN8QDomTextC1ERKS_(const QDomText *text) {
   return new QDomText(*text);
 }
 
+//  QDomText &QDomText::operator=(const QDomText &other)
+extern "C" Q_DECL_EXPORT
+QDomText *ritual_ZN8QDomTextaSERKS_(QDomText *self, const QDomText *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDomText QDomText::splitText(int offset)
 extern "C" Q_DECL_EXPORT
 QDomText *ritual_ZN8QDomText9splitTextEi(QDomText *self, int offset) {

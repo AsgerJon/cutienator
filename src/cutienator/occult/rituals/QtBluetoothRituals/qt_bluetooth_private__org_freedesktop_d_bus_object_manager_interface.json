@@ -8,11 +8,29 @@
     "ritual_ZNK18QtBluetoothPrivate40OrgFreedesktopDBusObjectManagerInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate40OrgFreedesktopDBusObjectManagerInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate40OrgFreedesktopDBusObjectManagerInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QtBluetoothPrivate40OrgFreedesktopDBusObjectManagerInterface19staticInterfaceNameEv": [
       "chars"
     ],
+    "ritual_ZN18QtBluetoothPrivate40OrgFreedesktopDBusObjectManagerInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate40OrgFreedesktopDBusObjectManagerInterface15InterfacesAddedERK15QDBusObjectPath4QMapI7QStringS4_IS5_8QVariantEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate40OrgFreedesktopDBusObjectManagerInterface17InterfacesRemovedERK15QDBusObjectPathRK5QListI7QStringE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgFreedesktopDBusObjectManagerInterface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QtBluetoothPrivate_OrgFreedesktopDBusObjectManagerInterface__QDBusPendingReply_ManagedObjectList": [
+      "nothing", "address"
     ]
   }
 }

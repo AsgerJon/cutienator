@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qcustom3ditem.h>
@@ -23,6 +23,23 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 666, as _ZN20QCustom3DItemPrivateD1Ev
+inline QCustom3DItemPrivate::~QCustom3DItemPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 635, as _ZN20QCustom3DItemPrivateC1Ev
+inline QCustom3DItemPrivate::QCustom3DItemPrivate()
+    : m_textureImage(QImage(1, 1, QImage::Format_ARGB32))
+    , m_position(QVector3D(0.0f, 0.0f, 0.0f))
+    , m_positionAbsolute(false)
+    , m_scaling(QVector3D(0.1f, 0.1f, 0.1f))
+    , m_scalingAbsolute(true)
+    , m_rotation(QQuaternion())
+    , m_visible(true)
+    , m_shadowCasting(true)
+    , m_isLabelItem(false)
+    , m_isVolumeItem(false)
+{}
 
 //  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 668, as _ZN20QCustom3DItemPrivate12textureImageEv
 inline QImage QCustom3DItemPrivate::textureImage()
@@ -64,6 +81,18 @@ const QCustom3DItem *ritual_ZNK20QCustom3DItemPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QCustom3DItemPrivate::QCustom3DItemPrivate()
+extern "C" Q_DECL_EXPORT
+QCustom3DItemPrivate *ritual_ZN20QCustom3DItemPrivateC1Ev() {
+  return new QCustom3DItemPrivate();
+}
+
+//  QCustom3DItemPrivate::~QCustom3DItemPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QCustom3DItemPrivateD1Ev(QCustom3DItemPrivate *self) {
+  delete self;
+}
+
 //  QImage QCustom3DItemPrivate::textureImage()
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN20QCustom3DItemPrivate12textureImageEv(
@@ -85,4 +114,4 @@ void ritual_ZN20QCustom3DItemPrivate14resetDirtyBitsEv(
   self->resetDirtyBits();
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

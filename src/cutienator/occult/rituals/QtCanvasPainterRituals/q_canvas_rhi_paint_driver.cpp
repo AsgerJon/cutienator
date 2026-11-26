@@ -64,6 +64,20 @@ void ritual_ZN21QCanvasRhiPaintDriver10beginPaintEP17QRhiCommandBufferP16QRhiRen
       QFlags<QCanvasRhiPaintDriver::BeginPaintFlag>::fromInt(flags));
 }
 
+//  void QCanvasRhiPaintDriver::beginPaint(QCanvasOffscreenCanvas &canvas,
+//      QRhiCommandBuffer *cb, BeginPaintFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCanvasRhiPaintDriver10beginPaintER22QCanvasOffscreenCanvasP17QRhiCommandBuffer6QFlagsINS_14BeginPaintFlagEE(
+    QCanvasRhiPaintDriver *self,
+    QCanvasOffscreenCanvas *canvas,
+    QRhiCommandBuffer *cb,
+    int flags) {
+  self->beginPaint(
+      *canvas,
+      cb,
+      QFlags<QCanvasRhiPaintDriver::BeginPaintFlag>::fromInt(flags));
+}
+
 //  void QCanvasRhiPaintDriver::endPaint(EndPaintFlags flags)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QCanvasRhiPaintDriver8endPaintE6QFlagsINS_12EndPaintFlagEE(

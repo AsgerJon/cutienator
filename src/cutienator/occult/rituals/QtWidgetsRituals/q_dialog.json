@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK7QDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QDialog11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QDialogC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
@@ -20,11 +24,17 @@
     "ritual_ZNK7QDialog17isSizeGripEnabledEv": ["bool", "address"],
     "ritual_ZN7QDialog8setModalEb": ["nothing", "address", "bool"],
     "ritual_ZN7QDialog9setResultEi": ["nothing", "address", "int"],
+    "ritual_ZN7QDialog8finishedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QDialog8acceptedEv": ["nothing", "address"],
+    "ritual_ZN7QDialog8rejectedEv": ["nothing", "address"],
     "ritual_ZN7QDialog4openEv": ["nothing", "address"],
     "ritual_ZN7QDialog4execEv": ["int", "address"],
     "ritual_ZN7QDialog4doneEi": ["nothing", "address", "int"],
     "ritual_ZN7QDialog6acceptEv": ["nothing", "address"],
     "ritual_ZN7QDialog6rejectEv": ["nothing", "address"],
+    "ritual_ZN7QDialogC1ER14QDialogPrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZN7QDialog13keyPressEventEP9QKeyEvent": [
       "nothing", "address", "address"
     ],

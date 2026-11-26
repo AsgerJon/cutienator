@@ -6,13 +6,32 @@
   ],
   "rows": {
     "ritual_ZNK20QAbstractPhysicsNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QAbstractPhysicsNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QAbstractPhysicsNode2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN20QAbstractPhysicsNode24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QAbstractPhysicsNodeC1Ev": ["address"],
     "ritual_ZN20QAbstractPhysicsNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN20QAbstractPhysicsNode15collisionShapesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAbstractPhysicsNode22getCollisionShapesListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode26updateFromPhysicsTransformERKN5physx11PxTransformE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode15registerContactEPS_RK5QListI9QVector3DES5_S5_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK20QAbstractPhysicsNode18sendContactReportsEv": [
       "bool", "address"
     ],
@@ -40,6 +59,9 @@
     "ritual_ZNK20QAbstractPhysicsNode15hasStaticShapesEv": [
       "bool", "address"
     ],
+    "ritual_ZN20QAbstractPhysicsNode18createPhysXBackendEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QAbstractPhysicsNode11filterGroupEv": ["int", "address"],
     "ritual_ZN20QAbstractPhysicsNode14setfilterGroupEi": [
       "nothing", "address", "int"
@@ -56,8 +78,50 @@
     "ritual_ZN20QAbstractPhysicsNode19onShapeNeedsRebuildEP7QObject": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QAbstractPhysicsNode11bodyContactEPS_RK5QListI9QVector3DES5_S5_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode25sendContactReportsChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode28receiveContactReportsChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode25sendTriggerReportsChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode28receiveTriggerReportsChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode18enteredTriggerBodyEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode17exitedTriggerBodyEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode18filterGroupChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode25filterIgnoreGroupsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode14qmlAppendShapeEP16QQmlListPropertyI23QAbstractCollisionShapeEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode10qmlShapeAtEP16QQmlListPropertyI23QAbstractCollisionShapeEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode13qmlShapeCountEP16QQmlListPropertyI23QAbstractCollisionShapeE": [
+      "long long", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode14qmlClearShapesEP16QQmlListPropertyI23QAbstractCollisionShapeE": [
+      "nothing", "address"
+    ],
     "ritual_take_QAbstractPhysicsNode": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QAbstractPhysicsNode__QQmlListProperty_QAbstractCollisionShape": [
+      "nothing", "address"
     ]
   }
 }

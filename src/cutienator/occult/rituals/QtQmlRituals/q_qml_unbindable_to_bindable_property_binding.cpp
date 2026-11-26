@@ -24,6 +24,18 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qml/qml/qqmlpropertytopropertybinding.cpp, line 183, as local:qqmlpropertytopropertybinding.cpp:bindingFunctionVTableForQQmlPropertyToBindablePropertyBinding
+namespace QtPrivate {
+template<typename Binding>
+inline constexpr BindingFunctionVTable
+    bindingFunctionVTableForQQmlPropertyToBindablePropertyBinding = {
+        &QQmlPropertyToBindablePropertyBinding::update<Binding>,
+        [](void *qpropertyBinding) { delete reinterpret_cast<Binding *>(qpropertyBinding); },
+        [](void *, void *){},
+        0
+    };
+}  // namespace QtPrivate
+
 //  from ../qtdeclarative/src/qml/qml/qqmlpropertytopropertybinding.cpp, line 223, as _ZN39QQmlUnbindableToBindablePropertyBinding6updateEv
 inline void QQmlUnbindableToBindablePropertyBinding::update()
 {

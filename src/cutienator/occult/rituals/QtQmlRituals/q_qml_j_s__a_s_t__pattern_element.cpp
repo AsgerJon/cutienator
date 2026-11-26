@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -241,6 +245,50 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN6QQmlJS3AST14PatternElement17unwrapInitializerEv(
     QQmlJS::AST::PatternElement *self) {
   self->unwrapInitializer();
+}
+
+//  QQmlJS::AST::PatternElement::PatternElement(ExpressionNode *i, Type t)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::PatternElement *ritual_ZN6QQmlJS3AST14PatternElementC1EPNS0_14ExpressionNodeENS1_4TypeE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::ExpressionNode *i,
+    QQmlJS::AST::PatternElement::Type t) {
+  return new (pool) CuteQQmlJS_AST_PatternElement(i, t);
+}
+
+//  QQmlJS::AST::PatternElement::PatternElement(QStringView n, TypeAnnotation
+//      *typeAnnotation, ExpressionNode *i, Type t)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::PatternElement *ritual_ZN6QQmlJS3AST14PatternElementC1E11QStringViewPNS0_14TypeAnnotationEPNS0_14ExpressionNodeENS1_4TypeE(
+    QQmlJS::MemoryPool *pool,
+    const QString *n,
+    QQmlJS::AST::TypeAnnotation *typeAnnotation,
+    QQmlJS::AST::ExpressionNode *i,
+    QQmlJS::AST::PatternElement::Type t) {
+  return new (pool) CuteQQmlJS_AST_PatternElement(
+      QStringView(*n),
+      typeAnnotation,
+      i,
+      t);
+}
+
+//  QQmlJS::AST::PatternElement::PatternElement(Pattern *pattern,
+//      ExpressionNode *i, Type t)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::PatternElement *ritual_ZN6QQmlJS3AST14PatternElementC1EPNS0_7PatternEPNS0_14ExpressionNodeENS1_4TypeE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::Pattern *pattern,
+    QQmlJS::AST::ExpressionNode *i,
+    QQmlJS::AST::PatternElement::Type t) {
+  return new (pool) CuteQQmlJS_AST_PatternElement(pattern, i, t);
+}
+
+//  void QQmlJS::AST::PatternElement::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST14PatternElement7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::PatternElement *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  bool QQmlJS::AST::PatternElement::convertLiteralToAssignmentPattern(Sourc

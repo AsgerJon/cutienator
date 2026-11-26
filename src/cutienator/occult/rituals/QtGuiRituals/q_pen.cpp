@@ -4,6 +4,7 @@
 #include <QtGui/qcolor.h>
 #include <QtGui/qbrush.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/QList>
 
 //  QPen::QPen()
 extern "C" Q_DECL_EXPORT
@@ -47,6 +48,42 @@ void ritual_ZN4QPenD1Ev(QPen *self) {
   delete self;
 }
 
+//  QPen &QPen::operator=(const QPen &pen)
+extern "C" Q_DECL_EXPORT
+QPen *ritual_ZN4QPenaSERKS_(QPen *self, const QPen *pen) {
+  return &(self->operator=(*pen));
+}
+
+//  QPen::QPen(QPen &&other)
+extern "C" Q_DECL_EXPORT
+QPen *ritual_ZN4QPenC1EOS_(QPen *other) {
+  return new QPen(std::move(*other));
+}
+
+//  QPen &QPen::operator=(QPen &&other)
+extern "C" Q_DECL_EXPORT
+QPen *ritual_ZN4QPenaSEOS_(QPen *self, QPen *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPen::swap(QPen &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QPen4swapERS_(QPen *self, QPen *other) {
+  self->swap(*other);
+}
+
+//  QPen &QPen::operator=(QColor color)
+extern "C" Q_DECL_EXPORT
+QPen *ritual_ZN4QPenaSE6QColor(QPen *self, const QColor *color) {
+  return &(self->operator=(*color));
+}
+
+//  QPen &QPen::operator=(Qt::PenStyle style)
+extern "C" Q_DECL_EXPORT
+QPen *ritual_ZN4QPenaSEN2Qt8PenStyleE(QPen *self, Qt::PenStyle style) {
+  return &(self->operator=(style));
+}
+
 //  Qt::PenStyle QPen::style() const
 extern "C" Q_DECL_EXPORT
 Qt::PenStyle ritual_ZNK4QPen5styleEv(const QPen *self) {
@@ -57,6 +94,20 @@ Qt::PenStyle ritual_ZNK4QPen5styleEv(const QPen *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN4QPen8setStyleEN2Qt8PenStyleE(QPen *self, Qt::PenStyle a0) {
   self->setStyle(a0);
+}
+
+//  QList<qreal> QPen::dashPattern() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK4QPen11dashPatternEv(const QPen *self) {
+  return new QList<qreal>(self->dashPattern());
+}
+
+//  void QPen::setDashPattern(const QList<qreal> &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QPen14setDashPatternERK5QListIdE(
+    QPen *self,
+    const QList<qreal> *pattern) {
+  self->setDashPattern(*pattern);
 }
 
 //  qreal QPen::dashOffset() const
@@ -201,6 +252,20 @@ bool ritual_ZN4QPen10isDetachedEv(QPen *self) {
   return self->isDetached();
 }
 
+//  QDataStream &operator>>(QDataStream &a0, QPen &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR4QPen(QDataStream *a0, QPen *a1) {
+  return &(operator>>(*a0, *a1));
+}
+
+//  QDataStream &operator<<(QDataStream &a0, const QPen &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK4QPen(
+    QDataStream *a0,
+    const QPen *a1) {
+  return &(operator<<(*a0, *a1));
+}
+
 //  bool QPen::isSolidDefaultLine() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK4QPen18isSolidDefaultLineEv(const QPen *self) {
@@ -247,8 +312,52 @@ bool ritual_ZNK4QPen19doCompareEqualStyleEN2Qt8PenStyleE(
   return self->doCompareEqualStyle(rhs);
 }
 
+//  bool operator==(const QPen &lhs, const Qt::PenStyle &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK4QPenRKN2Qt8PenStyleE(
+    const QPen *lhs,
+    const Qt::PenStyle *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QPen &lhs, const Qt::PenStyle &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK4QPenRKN2Qt8PenStyleE(
+    const QPen *lhs,
+    const Qt::PenStyle *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const Qt::PenStyle &lhs, const QPen &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN2Qt8PenStyleERK4QPen(
+    const Qt::PenStyle *lhs,
+    const QPen *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const Qt::PenStyle &lhs, const QPen &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN2Qt8PenStyleERK4QPen(
+    const Qt::PenStyle *lhs,
+    const QPen *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  void QPen::detach()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN4QPen6detachEv(QPen *self) {
   self->detach();
+}
+
+//  DataPtr &QPen::data_ptr()
+extern "C" Q_DECL_EXPORT
+QPen::DataPtr *ritual_ZN4QPen8data_ptrEv(QPen *self) {
+  return &(self->data_ptr());
+}
+
+//  a QList<qreal> a ritual of QPen gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPen__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

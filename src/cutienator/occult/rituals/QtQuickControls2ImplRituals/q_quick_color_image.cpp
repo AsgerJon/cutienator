@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK16QQuickColorImage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickColorImage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickColorImage11qt_metacastEPKc(
+    QQuickColorImage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickColorImage::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickColorImage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickColorImage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickColorImage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickColorImage2trEPKcS1_i(
@@ -78,6 +97,19 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickColorImage17resetDefaultColorEv(
     QQuickColorImage *self) {
   self->resetDefaultColor();
+}
+
+//  void QQuickColorImage::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorImage12colorChangedEv(QQuickColorImage *self) {
+  self->colorChanged();
+}
+
+//  void QQuickColorImage::defaultColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorImage19defaultColorChangedEv(
+    QQuickColorImage *self) {
+  self->defaultColorChanged();
 }
 
 //  void QQuickColorImage::pixmapChange()

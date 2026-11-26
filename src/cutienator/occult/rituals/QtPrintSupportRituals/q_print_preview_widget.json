@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK19QPrintPreviewWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QPrintPreviewWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QPrintPreviewWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QPrintPreviewWidget2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN19QPrintPreviewWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QPrintPreviewWidget6d_funcEv": ["address", "address"],
     "ritual_ZN19QPrintPreviewWidgetC1EP8QPrinterP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "address", "int"
     ],
@@ -65,6 +73,12 @@
       "nothing", "address"
     ],
     "ritual_ZN19QPrintPreviewWidget13updatePreviewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QPrintPreviewWidget14paintRequestedEP8QPrinter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QPrintPreviewWidget14previewChangedEv": [
       "nothing", "address"
     ],
     "ritual_take_QPrintPreviewWidget": [

@@ -14,19 +14,24 @@
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef bool (*CuteQIODevicePrivateCall0)(const void *, char, int *);
-typedef const QByteArray * (*CuteQIODevicePrivateCall1)(const void *, qint64, int *);
+typedef qint64 (*CuteQIODevicePrivateCall1)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQIODevicePrivateCall2)(const void *, qint64, int *);
 class CuteQIODevicePrivate : public QIODevicePrivate {
 public:
   using QIODevicePrivate::QIODevicePrivate;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN16QIODevicePrivate13putCharHelperEc")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -43,11 +48,22 @@ public:
     return QIODevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[1]) {
       int handled = 0;
       CuteQIODevicePrivateCall1 call = reinterpret_cast<CuteQIODevicePrivateCall1>(taken[1]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQIODevicePrivateCall2 call = reinterpret_cast<CuteQIODevicePrivateCall2>(taken[2]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }
@@ -151,6 +167,36 @@ void ritual_ZN16QIODevicePrivate20setWriteChannelCountEi(
   self->setWriteChannelCount(count);
 }
 
+//  qint64 QIODevicePrivate::read(char *data, qint64 maxSize, bool peeking)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN16QIODevicePrivate4readEPcxb(
+    QIODevicePrivate *self,
+    char *data,
+    qint64 maxSize,
+    bool peeking) {
+  return self->read(data, maxSize, peeking);
+}
+
+//  qint64 QIODevicePrivate::readLine(char *data, qint64 maxSize,
+//      ReadLineOption option)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN16QIODevicePrivate8readLineEPcxNS_14ReadLineOptionE(
+    QIODevicePrivate *self,
+    char *data,
+    qint64 maxSize,
+    QIODevicePrivate::ReadLineOption option) {
+  return self->readLine(data, maxSize, option);
+}
+
+//  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN16QIODevicePrivate4peekEPcx(
+    QIODevicePrivate *self,
+    char *data,
+    qint64 maxSize) {
+  return self->peek(data, maxSize);
+}
+
 //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN16QIODevicePrivate4peekEx(
@@ -208,6 +254,15 @@ bool ritual_own_ZN16QIODevicePrivate13putCharHelperEc(
     QIODevicePrivate *self,
     char c) {
   return self->QIODevicePrivate::putCharHelper(c);
+}
+
+//  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN16QIODevicePrivate4peekEPcx(
+    QIODevicePrivate *self,
+    char *data,
+    qint64 maxSize) {
+  return self->QIODevicePrivate::peek(data, maxSize);
 }
 
 //  QByteArray QIODevicePrivate::peek(qint64 maxSize)

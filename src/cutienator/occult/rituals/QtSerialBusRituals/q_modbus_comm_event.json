@@ -8,6 +8,9 @@
     "ritual_ZN16QModbusCommEventC1ENS_9EventByteE": ["address", "int"],
     "ritual_ZNK16QModbusCommEventcvhEv": ["unsigned char", "address"],
     "ritual_ZNK16QModbusCommEventcvNS_9EventByteEEv": ["int", "address"],
+    "ritual_ZN16QModbusCommEventaSENS_9EventByteE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN16QModbusCommEventoRENS_8SendFlagE": [
       "nothing", "address", "unsigned char"
     ],

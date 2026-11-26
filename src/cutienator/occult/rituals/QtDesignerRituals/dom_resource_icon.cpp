@@ -20,6 +20,24 @@ void ritual_ZN15DomResourceIconD1Ev(DomResourceIcon *self) {
   delete self;
 }
 
+//  void DomResourceIcon::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15DomResourceIcon4readER16QXmlStreamReader(
+    DomResourceIcon *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomResourceIcon::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15DomResourceIcon5writeER16QXmlStreamWriterRK7QString(
+    const DomResourceIcon *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  QString DomResourceIcon::text() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15DomResourceIcon4textEv(const DomResourceIcon *self) {

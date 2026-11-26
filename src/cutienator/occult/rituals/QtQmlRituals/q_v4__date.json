@@ -7,7 +7,21 @@
   "rows": {
     "ritual_ZN3QV44Date4initEv": ["nothing", "address"],
     "ritual_ZN3QV44Date4initES0_": ["nothing", "address", "address"],
+    "ritual_ZN3QV44Date4initEd": ["nothing", "address", "double"],
+    "ritual_ZN3QV44Date4initERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Date4initE5QDate": ["nothing", "address", "address"],
+    "ritual_ZN3QV44DateaSEd": ["address", "address", "double"],
     "ritual_ZNK3QV44DatecvdEv": ["double", "address"],
+    "ritual_ZNK3QV44Date7toQDateEv": ["address", "address"],
+    "ritual_ZNK3QV44Date7toQTimeEv": ["address", "address"],
+    "ritual_ZNK3QV44Date11toQDateTimeEv": ["address", "address"],
+    "ritual_ZNK3QV44Date9toVariantEv": ["address", "address"],
+    "ritual_ZN3QV44Date6encodeEd": ["unsigned long long", "double"],
+    "ritual_ZN3QV44Date6encodeERK9QDateTime": [
+      "unsigned long long", "address"
+    ],
     "ritual_ZN3QV44DateD1Ev": ["nothing", "address"]
   }
 }

@@ -6,9 +6,18 @@
   ],
   "rows": {
     "ritual_ZNK19QShapedPixmapWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QShapedPixmapWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QShapedPixmapWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QShapedPixmapWindowD1Ev": ["nothing", "address"],
     "ritual_ZN19QShapedPixmapWindow17setUseCompositingEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QShapedPixmapWindow9setPixmapERK7QPixmap": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN19QShapedPixmapWindow10setHotspotERK6QPoint": [
       "nothing", "address", "address"

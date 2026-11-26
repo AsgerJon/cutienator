@@ -206,6 +206,25 @@ const QMetaObject *ritual_ZNK24QGeoMappingManagerEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoMappingManagerEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QGeoMappingManagerEngine11qt_metacastEPKc(
+    QGeoMappingManagerEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoMappingManagerEngine::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QGeoMappingManagerEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoMappingManagerEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoMappingManagerEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QGeoMappingManagerEngine2trEPKcS1_i(
@@ -213,6 +232,13 @@ QString *ritual_ZN24QGeoMappingManagerEngine2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QGeoMappingManagerEngine::tr(s, c, n));
+}
+
+//  QGeoMappingManagerEngine::QGeoMappingManagerEngine(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGeoMappingManagerEngine *ritual_ZN24QGeoMappingManagerEngineC1EP7QObject(
+    QObject *parent) {
+  return new CuteQGeoMappingManagerEngine(parent);
 }
 
 //  QGeoMappingManagerEngine::~QGeoMappingManagerEngine()
@@ -279,6 +305,20 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK24QGeoMappingManagerEngine13isInitializedEv(
     const QGeoMappingManagerEngine *self) {
   return self->isInitialized();
+}
+
+//  void QGeoMappingManagerEngine::initialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoMappingManagerEngine11initializedEv(
+    QGeoMappingManagerEngine *self) {
+  self->initialized();
+}
+
+//  void QGeoMappingManagerEngine::supportedMapTypesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoMappingManagerEngine24supportedMapTypesChangedEv(
+    QGeoMappingManagerEngine *self) {
+  self->supportedMapTypesChanged();
 }
 
 //  void QGeoMappingManagerEngine::setSupportedMapTypes(const

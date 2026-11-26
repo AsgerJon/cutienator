@@ -59,16 +59,17 @@ typedef const QFixed * (*CuteQTestFontEngineCall37)(const void *, int *);
 typedef bool (*CuteQTestFontEngineCall38)(const void *, const QTransform *, int *);
 typedef int (*CuteQTestFontEngineCall39)(const void *, int *);
 typedef int (*CuteQTestFontEngineCall40)(const void *, int, int *);
-typedef QString * (*CuteQTestFontEngineCall41)(const void *, glyph_t, int *);
-typedef glyph_t (*CuteQTestFontEngineCall42)(const void *, const QLatin1String *, int *);
-typedef bool (*CuteQTestFontEngineCall43)(const void *, int *);
-typedef bool (*CuteQTestFontEngineCall44)(const void *, int, int *);
-typedef void (*CuteQTestFontEngineCall45)(const void *, int, int *);
-typedef void (*CuteQTestFontEngineCall46)(const void *, int *);
+typedef void * (*CuteQTestFontEngineCall41)(const void *, int *);
+typedef QString * (*CuteQTestFontEngineCall42)(const void *, glyph_t, int *);
+typedef glyph_t (*CuteQTestFontEngineCall43)(const void *, const QLatin1String *, int *);
+typedef bool (*CuteQTestFontEngineCall44)(const void *, int *);
+typedef bool (*CuteQTestFontEngineCall45)(const void *, int, int *);
+typedef void (*CuteQTestFontEngineCall46)(const void *, int, int *);
+typedef void (*CuteQTestFontEngineCall47)(const void *, int *);
 class CuteQTestFontEngine : public QTestFontEngine {
 public:
   using QTestFontEngine::QTestFontEngine;
-  void *taken[47] = {};
+  void *taken[48] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK11QFontEngine10glyphIndexEj")) {
@@ -235,28 +236,32 @@ public:
       taken[40] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine9glyphNameEj")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine6handleEv")) {
       taken[41] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine9findGlyphE13QLatin1String")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine9glyphNameEj")) {
       taken[42] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine25hasUnreliableGlyphOutlineEv")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine9findGlyphE13QLatin1String")) {
       taken[43] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine29expectsGammaCorrectedBlendingENS_11GlyphFormatE")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine25hasUnreliableGlyphOutlineEv")) {
       taken[44] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QFontEngine19setDefaultHintStyleENS_9HintStyleE")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine29expectsGammaCorrectedBlendingENS_11GlyphFormatE")) {
       taken[45] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine23initializeHeightMetricsEv")) {
+    if (!std::strcmp(key, "_ZN11QFontEngine19setDefaultHintStyleENS_9HintStyleE")) {
       taken[46] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QFontEngine23initializeHeightMetricsEv")) {
+      taken[47] = call;
       return true;
     }
     return false;
@@ -762,11 +767,22 @@ public:
     return QFontEngine::glyphMargin(format);
   }
 
-  //  QString QFontEngine::glyphName(glyph_t index) const
-  QString glyphName(glyph_t index) const override {
+  //  Qt::HANDLE QFontEngine::handle() const
+  Qt::HANDLE handle() const override {
     if (taken[41]) {
       int handled = 0;
       CuteQTestFontEngineCall41 call = reinterpret_cast<CuteQTestFontEngineCall41>(taken[41]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<Qt::HANDLE>(given);
+    }
+    return QFontEngine::handle();
+  }
+
+  //  QString QFontEngine::glyphName(glyph_t index) const
+  QString glyphName(glyph_t index) const override {
+    if (taken[42]) {
+      int handled = 0;
+      CuteQTestFontEngineCall42 call = reinterpret_cast<CuteQTestFontEngineCall42>(taken[42]);
       QString * given = call(this, index, &handled);
       if (handled && given) {
         QString back(*given);
@@ -779,9 +795,9 @@ public:
 
   //  glyph_t QFontEngine::findGlyph(QLatin1StringView name) const
   glyph_t findGlyph(QLatin1StringView name) const override {
-    if (taken[42]) {
+    if (taken[43]) {
       int handled = 0;
-      CuteQTestFontEngineCall42 call = reinterpret_cast<CuteQTestFontEngineCall42>(taken[42]);
+      CuteQTestFontEngineCall43 call = reinterpret_cast<CuteQTestFontEngineCall43>(taken[43]);
       glyph_t given = call(this, &name, &handled);
       if (handled) return given;
     }
@@ -790,9 +806,9 @@ public:
 
   //  bool QFontEngine::hasUnreliableGlyphOutline() const
   bool hasUnreliableGlyphOutline() const override {
-    if (taken[43]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQTestFontEngineCall43 call = reinterpret_cast<CuteQTestFontEngineCall43>(taken[43]);
+      CuteQTestFontEngineCall44 call = reinterpret_cast<CuteQTestFontEngineCall44>(taken[44]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -804,9 +820,9 @@ public:
   //      at format) const
   bool expectsGammaCorrectedBlending(
       QFontEngine::GlyphFormat format) const override {
-    if (taken[44]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQTestFontEngineCall44 call = reinterpret_cast<CuteQTestFontEngineCall44>(taken[44]);
+      CuteQTestFontEngineCall45 call = reinterpret_cast<CuteQTestFontEngineCall45>(taken[45]);
       bool given = call(this, static_cast<int>(format), &handled);
       if (handled) return given;
     }
@@ -815,9 +831,9 @@ public:
 
   //  void QFontEngine::setDefaultHintStyle(HintStyle a0)
   void setDefaultHintStyle(QFontEngine::HintStyle a0) override {
-    if (taken[45]) {
+    if (taken[46]) {
       int handled = 0;
-      CuteQTestFontEngineCall45 call = reinterpret_cast<CuteQTestFontEngineCall45>(taken[45]);
+      CuteQTestFontEngineCall46 call = reinterpret_cast<CuteQTestFontEngineCall46>(taken[46]);
       call(this, static_cast<int>(a0), &handled);
       if (handled) return;
     }
@@ -826,9 +842,9 @@ public:
 
   //  void QFontEngine::initializeHeightMetrics() const
   void initializeHeightMetrics() const override {
-    if (taken[46]) {
+    if (taken[47]) {
       int handled = 0;
-      CuteQTestFontEngineCall46 call = reinterpret_cast<CuteQTestFontEngineCall46>(taken[46]);
+      CuteQTestFontEngineCall47 call = reinterpret_cast<CuteQTestFontEngineCall47>(taken[47]);
       call(this, &handled);
       if (handled) return;
     }

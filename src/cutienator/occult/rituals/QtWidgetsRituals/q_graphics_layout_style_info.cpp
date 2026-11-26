@@ -86,10 +86,22 @@ inline QGraphicsItem *QGraphicsLayoutItemPrivate::parentItem() const
     return parent ? parent->graphicsItem() : nullptr;
 }
 
+//  from src/widgets/graphicsview/qgraphicslayoutstyleinfo.cpp, line 15, as _ZN24QGraphicsLayoutStyleInfoC1EPK22QGraphicsLayoutPrivate
+inline QGraphicsLayoutStyleInfo::QGraphicsLayoutStyleInfo(const QGraphicsLayoutPrivate *layout)
+    : m_layout(layout), m_style(nullptr)
+{
+    m_widget.reset(new QWidget); // pixelMetric might need a widget ptr
+    m_styleOption.initFrom(m_widget.get());
+    m_isWindow = m_styleOption.state & QStyle::State_Window;
+}
+
 //  from src/widgets/graphicsview/qgraphicslayoutstyleinfo.cpp, line 23, as _ZN24QGraphicsLayoutStyleInfoD1Ev
 inline QGraphicsLayoutStyleInfo::~QGraphicsLayoutStyleInfo()
 {
 }
+
+//  from src/widgets/graphicsview/qgraphicslayoutstyleinfo.cpp, line 61, as _ZNK24QGraphicsLayoutStyleInfo6widgetEv
+inline QWidget *QGraphicsLayoutStyleInfo::widget() const { return m_widget.get(); }
 
 //  from src/widgets/graphicsview/qgraphicslayoutstyleinfo.cpp, line 63, as _ZNK24QGraphicsLayoutStyleInfo5styleEv
 inline QStyle *QGraphicsLayoutStyleInfo::style() const
@@ -255,6 +267,14 @@ public:
   }
 };
 
+//  QGraphicsLayoutStyleInfo::QGraphicsLayoutStyleInfo(const
+//      QGraphicsLayoutPrivate *layout)
+extern "C" Q_DECL_EXPORT
+QGraphicsLayoutStyleInfo *ritual_ZN24QGraphicsLayoutStyleInfoC1EPK22QGraphicsLayoutPrivate(
+    const QGraphicsLayoutPrivate *layout) {
+  return new CuteQGraphicsLayoutStyleInfo(layout);
+}
+
 //  QGraphicsLayoutStyleInfo::~QGraphicsLayoutStyleInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QGraphicsLayoutStyleInfoD1Ev(
@@ -314,6 +334,13 @@ void ritual_ZN24QGraphicsLayoutStyleInfo10invalidateEv(
   self->invalidate();
 }
 
+//  QWidget *QGraphicsLayoutStyleInfo::widget() const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK24QGraphicsLayoutStyleInfo6widgetEv(
+    const QGraphicsLayoutStyleInfo *self) {
+  return self->widget();
+}
+
 //  QStyle *QGraphicsLayoutStyleInfo::style() const
 extern "C" Q_DECL_EXPORT
 QStyle *ritual_ZNK24QGraphicsLayoutStyleInfo5styleEv(
@@ -329,6 +356,54 @@ bool ritual_take_QGraphicsLayoutStyleInfo(
     const char *key,
     void *call) {
   return static_cast<CuteQGraphicsLayoutStyleInfo *>(self)->take(key, call);
+}
+
+//  qreal QGraphicsLayoutStyleInfo::combinedLayoutSpacing(QLayoutPolicy::Cont
+//      rolTypes controls1, QLayoutPolicy::ControlTypes controls2,
+//      Qt::Orientation orientation) const
+extern "C" Q_DECL_EXPORT
+qreal ritual_own_ZNK24QGraphicsLayoutStyleInfo21combinedLayoutSpacingE6QFlagsIN13QLayoutPolicy11ControlTypeEES3_N2Qt11OrientationE(
+    const QGraphicsLayoutStyleInfo *self,
+    int controls1,
+    int controls2,
+    Qt::Orientation orientation) {
+  return self->QGraphicsLayoutStyleInfo::combinedLayoutSpacing(
+      QFlags<QLayoutPolicy::ControlType>::fromInt(controls1),
+      QFlags<QLayoutPolicy::ControlType>::fromInt(controls2),
+      orientation);
+}
+
+//  qreal QGraphicsLayoutStyleInfo::perItemSpacing(QLayoutPolicy::ControlType
+//      control1, QLayoutPolicy::ControlType control2, Qt::Orientation
+//      orientation) const
+extern "C" Q_DECL_EXPORT
+qreal ritual_own_ZNK24QGraphicsLayoutStyleInfo14perItemSpacingEN13QLayoutPolicy11ControlTypeES1_N2Qt11OrientationE(
+    const QGraphicsLayoutStyleInfo *self,
+    QLayoutPolicy::ControlType control1,
+    QLayoutPolicy::ControlType control2,
+    Qt::Orientation orientation) {
+  return self->QGraphicsLayoutStyleInfo::perItemSpacing(
+      control1,
+      control2,
+      orientation);
+}
+
+//  qreal QGraphicsLayoutStyleInfo::spacing(Qt::Orientation orientation)
+//      const
+extern "C" Q_DECL_EXPORT
+qreal ritual_own_ZNK24QGraphicsLayoutStyleInfo7spacingEN2Qt11OrientationE(
+    const QGraphicsLayoutStyleInfo *self,
+    Qt::Orientation orientation) {
+  return self->QGraphicsLayoutStyleInfo::spacing(orientation);
+}
+
+//  qreal QGraphicsLayoutStyleInfo::windowMargin(Qt::Orientation orientation)
+//      const
+extern "C" Q_DECL_EXPORT
+qreal ritual_own_ZNK24QGraphicsLayoutStyleInfo12windowMarginEN2Qt11OrientationE(
+    const QGraphicsLayoutStyleInfo *self,
+    Qt::Orientation orientation) {
+  return self->QGraphicsLayoutStyleInfo::windowMargin(orientation);
 }
 
 //  void QGraphicsLayoutStyleInfo::invalidate()

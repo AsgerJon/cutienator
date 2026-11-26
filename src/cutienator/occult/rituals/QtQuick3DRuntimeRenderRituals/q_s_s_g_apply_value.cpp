@@ -28,6 +28,14 @@ QSSGApplyValue *ritual_ZN14QSSGApplyValueC1Ev() {
   return new QSSGApplyValue();
 }
 
+//  void QSSGApplyValue::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QSSGApplyValue8addDebugER6QDebug(
+    const QSSGApplyValue *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGApplyValue::~QSSGApplyValue()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSSGApplyValueD1Ev(QSSGApplyValue *self) {

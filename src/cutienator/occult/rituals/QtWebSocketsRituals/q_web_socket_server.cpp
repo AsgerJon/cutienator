@@ -6,9 +6,12 @@
 #include <QtCore/qurl.h>
 #include <QtNetwork/qnetworkproxy.h>
 #include <QtNetwork/qsslconfiguration.h>
+#include <QtNetwork/qsslerror.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtWebSockets/QWebSocketProtocol>
 
 //  A QWebSocketServer that Python can take functions over in. Every QWebSocketServer
 //  Python makes is one. Each function below asks the Python
@@ -200,6 +203,25 @@ const QMetaObject *ritual_ZNK16QWebSocketServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWebSocketServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QWebSocketServer11qt_metacastEPKc(
+    QWebSocketServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWebSocketServer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QWebSocketServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWebSocketServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWebSocketServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QWebSocketServer2trEPKcS1_i(
@@ -275,6 +297,26 @@ int ritual_ZNK16QWebSocketServer21maxPendingConnectionsEv(
     const QWebSocketServer *self) {
   return self->maxPendingConnections();
 }
+
+#if __has_include(<chrono>) || defined(Q_QDOC)
+//  void QWebSocketServer::setHandshakeTimeout(std::chrono::milliseconds
+//      msec)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer19setHandshakeTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QWebSocketServer *self,
+    long long msec) {
+  self->setHandshakeTimeout(std::chrono::milliseconds(msec));
+}
+#endif  // __has_include(<chrono>) || defined(Q_QDOC)
+
+#if __has_include(<chrono>) || defined(Q_QDOC)
+//  std::chrono::milliseconds QWebSocketServer::handshakeTimeout() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK16QWebSocketServer16handshakeTimeoutEv(
+    const QWebSocketServer *self) {
+  return static_cast<long long>(self->handshakeTimeout().count());
+}
+#endif  // __has_include(<chrono>) || defined(Q_QDOC)
 
 //  void QWebSocketServer::setHandshakeTimeout(int msec)
 extern "C" Q_DECL_EXPORT
@@ -463,12 +505,139 @@ QSslConfiguration *ritual_ZNK16QWebSocketServer16sslConfigurationEv(
 }
 #endif  // !defined(QT_NO_SSL)
 
+//  QList<QWebSocketProtocol::Version> QWebSocketServer::supportedVersions()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QWebSocketProtocol::Version> *ritual_ZNK16QWebSocketServer17supportedVersionsEv(
+    const QWebSocketServer *self) {
+  return new QList<QWebSocketProtocol::Version>(self->supportedVersions());
+}
+
 //  void QWebSocketServer::handleConnection(QTcpSocket *socket) const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK16QWebSocketServer16handleConnectionEP10QTcpSocket(
     const QWebSocketServer *self,
     QTcpSocket *socket) {
   self->handleConnection(socket);
+}
+
+//  void QWebSocketServer::acceptError(QAbstractSocket::SocketError
+//      socketError)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer11acceptErrorEN15QAbstractSocket11SocketErrorE(
+    QWebSocketServer *self,
+    QAbstractSocket::SocketError socketError) {
+  self->acceptError(socketError);
+}
+
+//  void QWebSocketServer::serverError(QWebSocketProtocol::CloseCode
+//      closeCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer11serverErrorEN18QWebSocketProtocol9CloseCodeE(
+    QWebSocketServer *self,
+    QWebSocketProtocol::CloseCode closeCode) {
+  self->serverError(closeCode);
+}
+
+//  void QWebSocketServer::originAuthenticationRequired(QWebSocketCorsAuthent
+//      icator *pAuthenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer28originAuthenticationRequiredEP27QWebSocketCorsAuthenticator(
+    QWebSocketServer *self,
+    QWebSocketCorsAuthenticator *pAuthenticator) {
+  self->originAuthenticationRequired(pAuthenticator);
+}
+
+//  void QWebSocketServer::newConnection()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer13newConnectionEv(QWebSocketServer *self) {
+  self->newConnection();
+}
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocketServer::peerVerifyError(const QSslError &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer15peerVerifyErrorERK9QSslError(
+    QWebSocketServer *self,
+    const QSslError *error) {
+  self->peerVerifyError(*error);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocketServer::sslErrors(const QList<QSslError> &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer9sslErrorsERK5QListI9QSslErrorE(
+    QWebSocketServer *self,
+    const QList<QSslError> *errors) {
+  self->sslErrors(*errors);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocketServer::sslErrorsOccurred(QSslSocket *socket, const
+//      QList<QSslError> &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer17sslErrorsOccurredEP10QSslSocketRK5QListI9QSslErrorE(
+    QWebSocketServer *self,
+    QSslSocket *socket,
+    const QList<QSslError> *errors) {
+  self->sslErrorsOccurred(socket, *errors);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocketServer::preSharedKeyAuthenticationRequired(QSslPreSharedKe
+//      yAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator(
+    QWebSocketServer *self,
+    QSslPreSharedKeyAuthenticator *authenticator) {
+  self->preSharedKeyAuthenticationRequired(authenticator);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocketServer::alertSent(QSsl::AlertLevel level, QSsl::AlertType
+//      type, const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer9alertSentEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString(
+    QWebSocketServer *self,
+    QSsl::AlertLevel level,
+    QSsl::AlertType type,
+    const QString *description) {
+  self->alertSent(level, type, *description);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocketServer::alertReceived(QSsl::AlertLevel level,
+//      QSsl::AlertType type, const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer13alertReceivedEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString(
+    QWebSocketServer *self,
+    QSsl::AlertLevel level,
+    QSsl::AlertType type,
+    const QString *description) {
+  self->alertReceived(level, type, *description);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocketServer::handshakeInterruptedOnError(const QSslError
+//      &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer27handshakeInterruptedOnErrorERK9QSslError(
+    QWebSocketServer *self,
+    const QSslError *error) {
+  self->handshakeInterruptedOnError(*error);
+}
+#endif  // !defined(QT_NO_SSL)
+
+//  void QWebSocketServer::closed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QWebSocketServer6closedEv(QWebSocketServer *self) {
+  self->closed();
 }
 
 //  a Python function taken by a CuteQWebSocketServer, for the function named
@@ -486,4 +655,11 @@ extern "C" Q_DECL_EXPORT
 QWebSocket *ritual_own_ZN16QWebSocketServer21nextPendingConnectionEv(
     QWebSocketServer *self) {
   return self->QWebSocketServer::nextPendingConnection();
+}
+
+//  a QList<QWebSocketProtocol::Version> a ritual of QWebSocketServer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWebSocketServer__QList_QWebSocketProtocol_Version(
+    QList<QWebSocketProtocol::Version> *self) {
+  delete self;
 }

@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qsurface3dseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qsurface3dseries.h>
 #include <QtCore/qstring.h>
@@ -11,6 +11,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtGraphs/QSurface3DSeries>
 
 //  A QSurface3DSeries that Python can take functions over in. Every QSurface3DSeries
 //  Python makes is one. Each function below asks the Python
@@ -186,6 +187,25 @@ const QMetaObject *ritual_ZNK16QSurface3DSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSurface3DSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QSurface3DSeries11qt_metacastEPKc(
+    QSurface3DSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSurface3DSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QSurface3DSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSurface3DSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSurface3DSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QSurface3DSeries2trEPKcS1_i(
@@ -271,6 +291,15 @@ QPoint *ritual_ZNK16QSurface3DSeries13selectedPointEv(
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZN16QSurface3DSeries24invalidSelectionPositionEv() {
   return new QPoint(QSurface3DSeries::invalidSelectionPosition());
+}
+
+//  void QSurface3DSeries::setShading(const QSurface3DSeries::Shading
+//      shading)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries10setShadingENS_7ShadingE(
+    QSurface3DSeries *self,
+    const QSurface3DSeries::Shading *shading) {
+  self->setShading(*shading);
 }
 
 //  QSurface3DSeries::Shading QSurface3DSeries::shading() const
@@ -361,6 +390,15 @@ bool ritual_ZNK16QSurface3DSeries13rowsSanitizedEv(
   return self->rowsSanitized();
 }
 
+//  void QSurface3DSeries::setDataArray(const QSurfaceDataArray
+//      &newDataArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries12setDataArrayERK5QListIS0_I16QSurfaceDataItemEE(
+    QSurface3DSeries *self,
+    const QSurfaceDataArray *newDataArray) {
+  self->setDataArray(*newDataArray);
+}
+
 //  void QSurface3DSeries::clearRow(qsizetype rowIndex)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSurface3DSeries8clearRowEx(
@@ -373,6 +411,13 @@ void ritual_ZN16QSurface3DSeries8clearRowEx(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSurface3DSeries10clearArrayEv(QSurface3DSeries *self) {
   self->clearArray();
+}
+
+//  const QSurfaceDataArray &QSurface3DSeries::dataArray() const
+extern "C" Q_DECL_EXPORT
+const QSurfaceDataArray *ritual_ZNKR16QSurface3DSeries9dataArrayEv(
+    const QSurface3DSeries *self) {
+  return &(self->dataArray());
 }
 
 //  void QSurface3DSeries::setAxisX(QValue3DAxis *axis)
@@ -438,6 +483,119 @@ void ritual_ZN16QSurface3DSeries10resetAxisZEv(QSurface3DSeries *self) {
   self->resetAxisZ();
 }
 
+//  void QSurface3DSeries::dataProxyChanged(QSurfaceDataProxy *proxy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries16dataProxyChangedEP17QSurfaceDataProxy(
+    QSurface3DSeries *self,
+    QSurfaceDataProxy *proxy) {
+  self->dataProxyChanged(proxy);
+}
+
+//  void QSurface3DSeries::selectedPointChanged(QPoint position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries20selectedPointChangedE6QPoint(
+    QSurface3DSeries *self,
+    const QPoint *position) {
+  self->selectedPointChanged(*position);
+}
+
+//  void QSurface3DSeries::flatShadingSupportedChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries27flatShadingSupportedChangedEb(
+    QSurface3DSeries *self,
+    bool enabled) {
+  self->flatShadingSupportedChanged(enabled);
+}
+
+//  void QSurface3DSeries::drawModeChanged(QSurface3DSeries::DrawFlags mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries15drawModeChangedE6QFlagsINS_8DrawFlagEE(
+    QSurface3DSeries *self,
+    int mode) {
+  self->drawModeChanged(QFlags<QSurface3DSeries::DrawFlag>::fromInt(mode));
+}
+
+//  void QSurface3DSeries::textureChanged(const QImage &image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries14textureChangedERK6QImage(
+    QSurface3DSeries *self,
+    const QImage *image) {
+  self->textureChanged(*image);
+}
+
+//  void QSurface3DSeries::textureFileChanged(const QString &filename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries18textureFileChangedERK7QString(
+    QSurface3DSeries *self,
+    const QString *filename) {
+  self->textureFileChanged(*filename);
+}
+
+//  void QSurface3DSeries::wireframeColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries21wireframeColorChangedE6QColor(
+    QSurface3DSeries *self,
+    const QColor *color) {
+  self->wireframeColorChanged(*color);
+}
+
+//  void QSurface3DSeries::dataArrayChanged(const QSurfaceDataArray &array)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries16dataArrayChangedERK5QListIS0_I16QSurfaceDataItemEE(
+    QSurface3DSeries *self,
+    const QSurfaceDataArray *array) {
+  self->dataArrayChanged(*array);
+}
+
+//  void QSurface3DSeries::shadingChanged(const Shading shading)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries14shadingChangedENS_7ShadingE(
+    QSurface3DSeries *self,
+    const QSurface3DSeries::Shading *shading) {
+  self->shadingChanged(*shading);
+}
+
+//  void QSurface3DSeries::rowsSanitizedChanged(bool newRowsSanitized)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries20rowsSanitizedChangedEb(
+    QSurface3DSeries *self,
+    bool newRowsSanitized) {
+  self->rowsSanitizedChanged(newRowsSanitized);
+}
+
+//  void QSurface3DSeries::axisXChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries12axisXChangedEP12QValue3DAxis(
+    QSurface3DSeries *self,
+    QValue3DAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void QSurface3DSeries::axisYChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries12axisYChangedEP12QValue3DAxis(
+    QSurface3DSeries *self,
+    QValue3DAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void QSurface3DSeries::axisZChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSurface3DSeries12axisZChangedEP12QValue3DAxis(
+    QSurface3DSeries *self,
+    QValue3DAxis *axis) {
+  self->axisZChanged(axis);
+}
+
+//  QSurface3DSeries::QSurface3DSeries(QSurface3DSeriesPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QSurface3DSeries *ritual_ZN16QSurface3DSeriesC1ER23QSurface3DSeriesPrivateP7QObject(
+    QSurface3DSeriesPrivate *d,
+    QObject *parent) {
+  return new CuteQSurface3DSeries(*d, parent);
+}
+
 //  a Python function taken by a CuteQSurface3DSeries, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -484,4 +642,4 @@ void ritual_list_drop_QSurface3DSeries_ptr(QList<QSurface3DSeries *> *self) {
   delete self;
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))

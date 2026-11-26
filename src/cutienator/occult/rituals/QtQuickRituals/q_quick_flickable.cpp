@@ -14,6 +14,9 @@
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
+#include <QtQuick/QQuickItem>
 
 //  Only a class built on QQuickFlickable may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -949,6 +952,24 @@ const QMetaObject *ritual_ZNK15QQuickFlickable10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFlickable::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickFlickable11qt_metacastEPKc(
+    QQuickFlickable *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFlickable::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickFlickable11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFlickable *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFlickable::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickFlickable2trEPKcS1_i(
@@ -969,6 +990,20 @@ QQuickFlickable *ritual_ZN15QQuickFlickableC1EP10QQuickItem(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickFlickableD1Ev(QQuickFlickable *self) {
   delete self;
+}
+
+//  QQmlListProperty<QObject> QQuickFlickable::flickableData()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN15QQuickFlickable13flickableDataEv(
+    QQuickFlickable *self) {
+  return new QQmlListProperty<QObject>(self->flickableData());
+}
+
+//  QQmlListProperty<QQuickItem> QQuickFlickable::flickableChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickItem> *ritual_ZN15QQuickFlickable17flickableChildrenEv(
+    QQuickFlickable *self) {
+  return new QQmlListProperty<QQuickItem>(self->flickableChildren());
 }
 
 //  BoundsBehavior QQuickFlickable::boundsBehavior() const
@@ -1453,6 +1488,302 @@ void ritual_ZN15QQuickFlickable7flickToERK7QPointF(
   self->flickTo(*position);
 }
 
+//  void QQuickFlickable::contentWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable19contentWidthChangedEv(
+    QQuickFlickable *self) {
+  self->contentWidthChanged();
+}
+
+//  void QQuickFlickable::contentHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable20contentHeightChangedEv(
+    QQuickFlickable *self) {
+  self->contentHeightChanged();
+}
+
+//  void QQuickFlickable::contentXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable15contentXChangedEv(QQuickFlickable *self) {
+  self->contentXChanged();
+}
+
+//  void QQuickFlickable::contentYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable15contentYChangedEv(QQuickFlickable *self) {
+  self->contentYChanged();
+}
+
+//  void QQuickFlickable::topMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable16topMarginChangedEv(QQuickFlickable *self) {
+  self->topMarginChanged();
+}
+
+//  void QQuickFlickable::bottomMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable19bottomMarginChangedEv(
+    QQuickFlickable *self) {
+  self->bottomMarginChanged();
+}
+
+//  void QQuickFlickable::leftMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable17leftMarginChangedEv(QQuickFlickable *self) {
+  self->leftMarginChanged();
+}
+
+//  void QQuickFlickable::rightMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable18rightMarginChangedEv(
+    QQuickFlickable *self) {
+  self->rightMarginChanged();
+}
+
+//  void QQuickFlickable::originYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable14originYChangedEv(QQuickFlickable *self) {
+  self->originYChanged();
+}
+
+//  void QQuickFlickable::originXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable14originXChangedEv(QQuickFlickable *self) {
+  self->originXChanged();
+}
+
+//  void QQuickFlickable::movingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable13movingChangedEv(QQuickFlickable *self) {
+  self->movingChanged();
+}
+
+//  void QQuickFlickable::movingHorizontallyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable25movingHorizontallyChangedEv(
+    QQuickFlickable *self) {
+  self->movingHorizontallyChanged();
+}
+
+//  void QQuickFlickable::movingVerticallyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable23movingVerticallyChangedEv(
+    QQuickFlickable *self) {
+  self->movingVerticallyChanged();
+}
+
+//  void QQuickFlickable::flickingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable15flickingChangedEv(QQuickFlickable *self) {
+  self->flickingChanged();
+}
+
+//  void QQuickFlickable::flickingHorizontallyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable27flickingHorizontallyChangedEv(
+    QQuickFlickable *self) {
+  self->flickingHorizontallyChanged();
+}
+
+//  void QQuickFlickable::flickingVerticallyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable25flickingVerticallyChangedEv(
+    QQuickFlickable *self) {
+  self->flickingVerticallyChanged();
+}
+
+//  void QQuickFlickable::draggingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable15draggingChangedEv(QQuickFlickable *self) {
+  self->draggingChanged();
+}
+
+//  void QQuickFlickable::draggingHorizontallyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable27draggingHorizontallyChangedEv(
+    QQuickFlickable *self) {
+  self->draggingHorizontallyChanged();
+}
+
+//  void QQuickFlickable::draggingVerticallyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable25draggingVerticallyChangedEv(
+    QQuickFlickable *self) {
+  self->draggingVerticallyChanged();
+}
+
+//  void QQuickFlickable::horizontalVelocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable25horizontalVelocityChangedEv(
+    QQuickFlickable *self) {
+  self->horizontalVelocityChanged();
+}
+
+//  void QQuickFlickable::verticalVelocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable23verticalVelocityChangedEv(
+    QQuickFlickable *self) {
+  self->verticalVelocityChanged();
+}
+
+//  void QQuickFlickable::isAtBoundaryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable19isAtBoundaryChangedEv(
+    QQuickFlickable *self) {
+  self->isAtBoundaryChanged();
+}
+
+//  void QQuickFlickable::flickableDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable25flickableDirectionChangedEv(
+    QQuickFlickable *self) {
+  self->flickableDirectionChanged();
+}
+
+//  void QQuickFlickable::interactiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable18interactiveChangedEv(
+    QQuickFlickable *self) {
+  self->interactiveChanged();
+}
+
+//  void QQuickFlickable::boundsBehaviorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable21boundsBehaviorChangedEv(
+    QQuickFlickable *self) {
+  self->boundsBehaviorChanged();
+}
+
+//  void QQuickFlickable::boundsMovementChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable21boundsMovementChangedEv(
+    QQuickFlickable *self) {
+  self->boundsMovementChanged();
+}
+
+//  void QQuickFlickable::reboundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable14reboundChangedEv(QQuickFlickable *self) {
+  self->reboundChanged();
+}
+
+//  void QQuickFlickable::maximumFlickVelocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable27maximumFlickVelocityChangedEv(
+    QQuickFlickable *self) {
+  self->maximumFlickVelocityChanged();
+}
+
+//  void QQuickFlickable::flickDecelerationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable24flickDecelerationChangedEv(
+    QQuickFlickable *self) {
+  self->flickDecelerationChanged();
+}
+
+//  void QQuickFlickable::pressDelayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable17pressDelayChangedEv(QQuickFlickable *self) {
+  self->pressDelayChanged();
+}
+
+//  void QQuickFlickable::movementStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable15movementStartedEv(QQuickFlickable *self) {
+  self->movementStarted();
+}
+
+//  void QQuickFlickable::movementEnded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable13movementEndedEv(QQuickFlickable *self) {
+  self->movementEnded();
+}
+
+//  void QQuickFlickable::flickStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable12flickStartedEv(QQuickFlickable *self) {
+  self->flickStarted();
+}
+
+//  void QQuickFlickable::flickEnded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable10flickEndedEv(QQuickFlickable *self) {
+  self->flickEnded();
+}
+
+//  void QQuickFlickable::dragStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable11dragStartedEv(QQuickFlickable *self) {
+  self->dragStarted();
+}
+
+//  void QQuickFlickable::dragEnded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable9dragEndedEv(QQuickFlickable *self) {
+  self->dragEnded();
+}
+
+//  void QQuickFlickable::pixelAlignedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable19pixelAlignedChangedEv(
+    QQuickFlickable *self) {
+  self->pixelAlignedChanged();
+}
+
+//  void QQuickFlickable::synchronousDragChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable22synchronousDragChangedEv(
+    QQuickFlickable *self) {
+  self->synchronousDragChanged();
+}
+
+//  void QQuickFlickable::horizontalOvershootChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable26horizontalOvershootChangedEv(
+    QQuickFlickable *self) {
+  self->horizontalOvershootChanged();
+}
+
+//  void QQuickFlickable::verticalOvershootChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable24verticalOvershootChangedEv(
+    QQuickFlickable *self) {
+  self->verticalOvershootChanged();
+}
+
+//  void QQuickFlickable::atXEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable13atXEndChangedEv(QQuickFlickable *self) {
+  self->atXEndChanged();
+}
+
+//  void QQuickFlickable::atYEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable13atYEndChangedEv(QQuickFlickable *self) {
+  self->atYEndChanged();
+}
+
+//  void QQuickFlickable::atXBeginningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable19atXBeginningChangedEv(
+    QQuickFlickable *self) {
+  self->atXBeginningChanged();
+}
+
+//  void QQuickFlickable::atYBeginningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable19atYBeginningChangedEv(
+    QQuickFlickable *self) {
+  self->atYBeginningChanged();
+}
+
+//  void QQuickFlickable::acceptedButtonsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickFlickable22acceptedButtonsChangedEv(
+    QQuickFlickable *self) {
+  self->acceptedButtonsChanged();
+}
+
 //  bool QQuickFlickable::childMouseEventFilter(QQuickItem *a0, QEvent *a1)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QQuickFlickable21childMouseEventFilterEP10QQuickItemP6QEvent(
@@ -1663,6 +1994,15 @@ QPointF *ritual_ZNK15QQuickFlickable15computePositionE7QPointF6QRectF6QFlagsINS_
           *offset));
 }
 
+//  QQuickFlickable::QQuickFlickable(QQuickFlickablePrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickFlickable *ritual_ZN15QQuickFlickableC1ER22QQuickFlickablePrivateP10QQuickItem(
+    QQuickFlickablePrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickFlickable(*dd, parent);
+}
+
 //  QQuickFlickablePrivate *QQuickFlickable::d_func()
 extern "C" Q_DECL_EXPORT
 QQuickFlickablePrivate *ritual_ZN15QQuickFlickable6d_funcEv(
@@ -1845,4 +2185,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN15QQuickFlickable16mouseUngrabEventEv(
     QQuickFlickable *self) {
   static_cast<OwnQQuickFlickable *>(self)->OwnQQuickFlickable::mouseUngrabEvent();
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickFlickable gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickFlickable__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickItem> a ritual of QQuickFlickable gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickFlickable__QQmlListProperty_QQuickItem(
+    QQmlListProperty<QQuickItem> *self) {
+  delete self;
 }

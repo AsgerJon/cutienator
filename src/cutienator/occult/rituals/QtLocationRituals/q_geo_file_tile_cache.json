@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QGeoFileTileCache10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGeoFileTileCache11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QGeoFileTileCache11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QGeoFileTileCache2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -52,7 +58,13 @@
     "ritual_ZNK17QGeoFileTileCache19costStrategyTextureEv": [
       "int", "address"
     ],
+    "ritual_ZN17QGeoFileTileCache3getERK12QGeoTileSpec": [
+      "address", "address", "address"
+    ],
     "ritual_ZN17QGeoFileTileCache18evictFromDiskCacheEP18QGeoCachedTileDisk": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QGeoFileTileCache20evictFromMemoryCacheEP20QGeoCachedTileMemory": [
       "nothing", "address"
     ],
     "ritual_ZN17QGeoFileTileCache6insertERK12QGeoTileSpecRK10QByteArrayRK7QString6QFlagsIN21QAbstractGeoTileCache9CacheAreaEE": [
@@ -68,11 +80,23 @@
     "ritual_ZN17QGeoFileTileCache10printStatsEv": ["nothing", "address"],
     "ritual_ZN17QGeoFileTileCache9loadTilesEv": ["nothing", "address"],
     "ritual_ZNK17QGeoFileTileCache9directoryEv": ["text", "address"],
+    "ritual_ZN17QGeoFileTileCache14addToDiskCacheERK12QGeoTileSpecRK7QString": [
+      "address", "address", "address", "text"
+    ],
     "ritual_ZN17QGeoFileTileCache14addToDiskCacheERK12QGeoTileSpecRK7QStringRK10QByteArray": [
       "bool", "address", "address", "text", "address"
     ],
     "ritual_ZN17QGeoFileTileCache16addToMemoryCacheERK12QGeoTileSpecRK10QByteArrayRK7QString": [
       "nothing", "address", "address", "address", "text"
+    ],
+    "ritual_ZN17QGeoFileTileCache17addToTextureCacheERK12QGeoTileSpecRK6QImage": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QGeoFileTileCache13getFromMemoryERK12QGeoTileSpec": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QGeoFileTileCache11getFromDiskERK12QGeoTileSpec": [
+      "address", "address", "address"
     ],
     "ritual_ZNK17QGeoFileTileCache11isTileBogusERK10QByteArray": [
       "bool", "address", "address"
@@ -141,6 +165,12 @@
     ],
     "ritual_own_ZNK17QGeoFileTileCache18filenameToTileSpecERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_drop_QGeoFileTileCache__QSharedPointer_QGeoTileTexture": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGeoFileTileCache__QSharedPointer_QGeoCachedTileDisk": [
+      "nothing", "address"
     ]
   }
 }

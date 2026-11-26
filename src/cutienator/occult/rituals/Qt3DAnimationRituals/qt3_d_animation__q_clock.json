@@ -5,8 +5,30 @@
   ],
   "rows": {
     "ritual_ZNK13Qt3DAnimation6QClock10metaObjectEv": ["address", "address"],
+    "ritual_ZN13Qt3DAnimation6QClock11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation6QClock11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation6QClock2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation6QClockC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation6QClockD1Ev": ["nothing", "address"],
+    "ritual_ZNK13Qt3DAnimation6QClock12playbackRateEv": [
+      "double", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation6QClock15setPlaybackRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13Qt3DAnimation6QClock19playbackRateChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13Qt3DAnimation6QClockC1ERNS_13QClockPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation6QClock6d_funcEv": ["address", "address"],
     "ritual_ZNK13Qt3DAnimation6QClock6d_funcEv": ["address", "address"],

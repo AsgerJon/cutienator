@@ -31,6 +31,15 @@ QNdefNfcSmartPosterRecord *ritual_ZN25QNdefNfcSmartPosterRecordC1ERKS_(
   return new QNdefNfcSmartPosterRecord(*other);
 }
 
+//  QNdefNfcSmartPosterRecord &QNdefNfcSmartPosterRecord::operator=(const
+//      QNdefNfcSmartPosterRecord &other)
+extern "C" Q_DECL_EXPORT
+QNdefNfcSmartPosterRecord *ritual_ZN25QNdefNfcSmartPosterRecordaSERKS_(
+    QNdefNfcSmartPosterRecord *self,
+    const QNdefNfcSmartPosterRecord *other) {
+  return &(self->operator=(*other));
+}
+
 //  QNdefNfcSmartPosterRecord::~QNdefNfcSmartPosterRecord()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QNdefNfcSmartPosterRecordD1Ev(

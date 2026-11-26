@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QToolButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QToolButton11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QToolButton11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QToolButton2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QToolButtonC1EP7QWidget": ["address", "address"],
     "ritual_ZN11QToolButtonD1Ev": ["nothing", "address"],
@@ -31,6 +37,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN11QToolButton16setDefaultActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QToolButton9triggeredEP7QAction": [
       "nothing", "address", "address"
     ],
     "ritual_ZN11QToolButton5eventEP6QEvent": ["bool", "address", "address"],
@@ -66,6 +75,8 @@
     "ritual_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolButton": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN11QToolButton6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QToolButton6d_funcEv": ["address", "address"],
     "ritual_take_QToolButton": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QToolButton8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK11QToolButton15minimumSizeHintEv": ["address", "address"],

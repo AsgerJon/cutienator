@@ -2,13 +2,16 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGraphs/6.12.0/QtGraphs/private/qquickgraphssurface_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
   "rows": {
     "ritual_ZNK19QQuickGraphsSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickGraphsSurface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_ZN19QQuickGraphsSurface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +29,18 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK19QQuickGraphsSurface5axisZEv": ["address", "address"],
+    "ritual_ZN19QQuickGraphsSurface16appendSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface15countSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesE": [
+      "long long", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface12atSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN19QQuickGraphsSurface15clearSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesE": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QQuickGraphsSurface9addSeriesEP16QSurface3DSeries": [
       "nothing", "address", "address"
     ],
@@ -226,13 +241,50 @@
     "ritual_ZN19QQuickGraphsSurface19getNormalizedVertexERK16QSurfaceDataItembbP16QSurface3DSeries": [
       "address", "address", "address", "bool", "bool", "address"
     ],
+    "ritual_ZN19QQuickGraphsSurface20calculateSampleSpaceEPNS_12SurfaceModelERK5QListIS2_I16QSurfaceDataItemEE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface21mapCoordsToWorldSpaceEPNS_12SurfaceModelE7QPointF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface22mapCoordsToSampleSpaceEPNS_12SurfaceModelE7QPointF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface13createIndicesEPNS_12SurfaceModelExx": [
+      "nothing", "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN19QQuickGraphsSurface17createLineIndicesEPNS_12SurfaceModelEx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_ZN19QQuickGraphsSurface21createGridlineIndicesEPNS_12SurfaceModelExxxx": [
+      "nothing", "address", "address", "long long", "long long", "long long",
+      "long long"
+    ],
     "ritual_ZN19QQuickGraphsSurface19handleChangedSeriesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface11updateModelEPNS_12SurfaceModelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface10updateFillEPNS_12SurfaceModelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface14updateLineFillEPNS_12SurfaceModelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface14updateMaterialEPNS_12SurfaceModelE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN19QQuickGraphsSurface19updateSelectedPointEv": [
       "nothing", "address"
     ],
     "ritual_ZN19QQuickGraphsSurface8addModelEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface12addFillModelEPNS_12SurfaceModelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface13addSliceModelEPNS_12SurfaceModelE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN19QQuickGraphsSurface21handleMeshTypeChangedEN17QAbstract3DSeries4MeshE": [
@@ -255,6 +307,9 @@
     ],
     "ritual_ZNK19QQuickGraphsSurface15getMeshFileNameEN17QAbstract3DSeries4MeshEP16QSurface3DSeries": [
       "text", "address", "int", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface20triangleIntersectionE9QVector3DS0_RKSt5arrayIS0_Lm3EE": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZN19QQuickGraphsSurface17intersectWithAABBE9QVector3DS0_S0_S0_": [
       "bool", "address", "address", "address", "address", "address"
@@ -337,6 +392,9 @@
     ],
     "ritual_own_ZN19QQuickGraphsSurface18handleAxisZChangedEP15QAbstract3DAxis": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface12pickSurfacesE9QVector3DS0_RPNS_12SurfaceModelE": [
+      "address", "address", "address", "address", "address"
     ]
   }
 }

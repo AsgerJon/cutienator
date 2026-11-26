@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickBehavior10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickBehavior11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickBehavior11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickBehavior2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QQuickBehavior6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickBehavior6d_funcEv": ["address", "address"],
     "ritual_ZN14QQuickBehaviorC1EP7QObject": ["address", "address"],
     "ritual_ZN14QQuickBehaviorD1Ev": ["nothing", "address"],
     "ritual_ZN14QQuickBehavior9setTargetERK12QQmlProperty": [
@@ -31,6 +39,13 @@
     "ritual_ZNK14QQuickBehavior11targetValueEv": ["address", "address"],
     "ritual_ZNK14QQuickBehavior14targetPropertyEv": ["address", "address"],
     "ritual_ZN14QQuickBehavior18componentFinalizedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickBehavior14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickBehavior18targetValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickBehavior21targetPropertyChangedEv": [
       "nothing", "address"
     ],
     "ritual_cast_QQuickBehavior_QQmlPropertyValueInterceptor": [

@@ -32,6 +32,15 @@
     "ritual_ZN16QIODevicePrivate20setWriteChannelCountEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN16QIODevicePrivate4readEPcxb": [
+      "long long", "address", "address", "long long", "bool"
+    ],
+    "ritual_ZN16QIODevicePrivate8readLineEPcxNS_14ReadLineOptionE": [
+      "long long", "address", "address", "long long", "int"
+    ],
+    "ritual_ZN16QIODevicePrivate4peekEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN16QIODevicePrivate4peekEx": [
       "address", "address", "long long"
     ],
@@ -48,6 +57,9 @@
     "ritual_take_QIODevicePrivate": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QIODevicePrivate13putCharHelperEc": [
       "bool", "address", "char"
+    ],
+    "ritual_own_ZN16QIODevicePrivate4peekEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_own_ZN16QIODevicePrivate4peekEx": [
       "address", "address", "long long"

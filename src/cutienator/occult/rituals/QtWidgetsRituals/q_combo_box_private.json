@@ -55,6 +55,9 @@
       "int", "address", "address"
     ],
     "ritual_ZNK16QComboBoxPrivate16computeWidthHintEv": ["int", "address"],
+    "ritual_ZNK16QComboBoxPrivate17recomputeSizeHintER5QSize": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK16QComboBoxPrivate8itemTextERK11QModelIndex": [
       "text", "address", "address"
     ],

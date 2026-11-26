@@ -289,6 +289,25 @@ const QMetaObject *ritual_ZNK16QQuick3DXrOrigin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrOrigin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuick3DXrOrigin11qt_metacastEPKc(
+    QQuick3DXrOrigin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrOrigin::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuick3DXrOrigin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrOrigin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DXrOrigin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuick3DXrOrigin2trEPKcS1_i(
@@ -324,6 +343,12 @@ void ritual_ZN16QQuick3DXrOrigin9setCameraEP16QQuick3DXrCamera(
     QQuick3DXrOrigin *self,
     QQuick3DXrCamera *newCamera) {
   self->setCamera(newCamera);
+}
+
+//  void QQuick3DXrOrigin::cameraChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DXrOrigin13cameraChangedEv(QQuick3DXrOrigin *self) {
+  self->cameraChanged();
 }
 
 //  QQuick3DXrEyeCamera *QQuick3DXrOrigin::eyeCamera(int index) const

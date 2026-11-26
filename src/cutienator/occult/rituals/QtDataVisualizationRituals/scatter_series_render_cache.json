@@ -9,6 +9,9 @@
     "ritual_ZN24ScatterSeriesRenderCache7cleanupEP13TextureHelper": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN24ScatterSeriesRenderCache11renderArrayEv": [
+      "address", "address"
+    ],
     "ritual_ZNK24ScatterSeriesRenderCache6seriesEv": ["address", "address"],
     "ritual_ZN24ScatterSeriesRenderCache11setItemSizeEf": [
       "nothing", "address", "float"
@@ -48,6 +51,12 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK24ScatterSeriesRenderCache12bufferPointsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24ScatterSeriesRenderCache13updateIndicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24ScatterSeriesRenderCache13bufferIndicesEv": [
       "address", "address"
     ],
     "ritual_ZN24ScatterSeriesRenderCache20setVisibilityChangedEb": [

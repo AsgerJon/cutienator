@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmlprofiler_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qqmlprofiler_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 5. Kept
+//  as it is when the generator runs again.
 #include <QtQml/qtqmlglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #if !(!QT_CONFIG(qml_debug))
@@ -13,6 +14,7 @@
 #include <QtCore/qurl.h>
 #include <QtCore/qelapsedtimer.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QQmlProfiler that Python can take functions over in. Every QQmlProfiler
@@ -189,6 +191,24 @@ const QMetaObject *ritual_ZNK12QQmlProfiler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlProfiler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQmlProfiler11qt_metacastEPKc(
+    QQmlProfiler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlProfiler::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQmlProfiler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlProfiler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlProfiler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQmlProfiler2trEPKcS1_i(
@@ -278,6 +298,16 @@ void ritual_ZN12QQmlProfiler8setTimerERK13QElapsedTimer(
   self->setTimer(*timer);
 }
 
+//  void QQmlProfiler::dataReady(const QList<QQmlProfilerData> &a0, const
+//      QQmlProfiler::LocationHash &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlProfiler9dataReadyERK5QListI16QQmlProfilerDataERK5QHashIyNS_8LocationEE(
+    QQmlProfiler *self,
+    const QList<QQmlProfilerData> *a0,
+    const QQmlProfiler::LocationHash *a1) {
+  self->dataReady(*a0, *a1);
+}
+
 //  QQmlProfiler as the QQmlProfilerDefinitions it is built on
 extern "C" Q_DECL_EXPORT
 QQmlProfilerDefinitions *ritual_cast_QQmlProfiler_QQmlProfilerDefinitions(
@@ -293,6 +323,41 @@ bool ritual_take_QQmlProfiler(
     const char *key,
     void *call) {
   return static_cast<CuteQQmlProfiler *>(self)->take(key, call);
+}
+
+//  void QQmlProfiler::endRange<QQmlProfilerDefinitions::Compiling>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlProfiler8endRangeILN23QQmlProfilerDefinitions9RangeTypeE1EEEvv(
+    QQmlProfiler *self) {
+  self->endRange<QQmlProfilerDefinitions::Compiling>();
+}
+
+//  void QQmlProfiler::endRange<QQmlProfilerDefinitions::Creating>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlProfiler8endRangeILN23QQmlProfilerDefinitions9RangeTypeE2EEEvv(
+    QQmlProfiler *self) {
+  self->endRange<QQmlProfilerDefinitions::Creating>();
+}
+
+//  void QQmlProfiler::endRange<QQmlProfilerDefinitions::Binding>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlProfiler8endRangeILN23QQmlProfilerDefinitions9RangeTypeE3EEEvv(
+    QQmlProfiler *self) {
+  self->endRange<QQmlProfilerDefinitions::Binding>();
+}
+
+//  void QQmlProfiler::endRange<QQmlProfilerDefinitions::HandlingSignal>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlProfiler8endRangeILN23QQmlProfilerDefinitions9RangeTypeE4EEEvv(
+    QQmlProfiler *self) {
+  self->endRange<QQmlProfilerDefinitions::HandlingSignal>();
+}
+
+//  static quintptr QQmlProfiler::id<QObject>(const QObject *pointer)
+extern "C" Q_DECL_EXPORT
+long long ritual_ZN12QQmlProfiler2idI7QObjectEEyPKT_(
+    const QObject *pointer) {
+  return static_cast<long long>(QQmlProfiler::id<QObject>(pointer));
 }
 
 #endif  // !(!QT_CONFIG(qml_debug))

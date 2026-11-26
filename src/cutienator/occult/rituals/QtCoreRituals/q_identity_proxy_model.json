@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QIdentityProxyModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QIdentityProxyModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QIdentityProxyModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QIdentityProxyModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -73,6 +79,9 @@
     ],
     "ritual_ZNK19QIdentityProxyModel23handleSourceDataChangesEv": [
       "bool", "address"
+    ],
+    "ritual_ZN19QIdentityProxyModelC1ER26QIdentityProxyModelPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN19QIdentityProxyModel28setHandleSourceLayoutChangesEb": [
       "nothing", "address", "bool"

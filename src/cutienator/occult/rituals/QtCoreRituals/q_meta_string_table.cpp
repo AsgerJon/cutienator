@@ -34,3 +34,11 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK16QMetaStringTable8blobSizeEv(const QMetaStringTable *self) {
   return self->blobSize();
 }
+
+//  void QMetaStringTable::writeBlob(char *out) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QMetaStringTable9writeBlobEPc(
+    const QMetaStringTable *self,
+    char *out) {
+  self->writeBlob(out);
+}

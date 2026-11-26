@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11BoxWhiskers10metaObjectEv": ["address", "address"],
+    "ritual_ZN11BoxWhiskers11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11BoxWhiskers11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11BoxWhiskers2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11BoxWhiskersC1EP7QBoxSetP14AbstractDomainP15QGraphicsObject": [
       "address", "address", "address", "address"
@@ -52,6 +58,21 @@
       "address", "address", "int", "address"
     ],
     "ritual_ZN11BoxWhiskers11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers7clickedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers7hoveredEbP7QBoxSet": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN11BoxWhiskers7pressedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers8releasedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers13doubleClickedEP7QBoxSet": [
       "nothing", "address", "address"
     ],
     "ritual_take_BoxWhiskers": ["bool", "address", "chars", "address"],

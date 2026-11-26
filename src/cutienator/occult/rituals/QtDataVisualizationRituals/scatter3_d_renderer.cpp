@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/scatter3drenderer_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0. Edited by hand on 2026-11-25: added by hand, rituals for
+//  functions the generator leaves out: 1. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,6 +12,7 @@
 #include <QtDataVisualization/qabstract3dseries.h>
 #include <QtGui/qvectornd.h>
 #include <QtGui/qmatrix4x4.h>
+#include <QtDataVisualization/qscatterdataitem.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -37,6 +40,16 @@
 #include <QtDataVisualization/private/axisrendercache_p.h>
 #include <QtGui/QFontMetrics>
 #include <QtDataVisualization/private/customrenderitem_p.h>
+#include <QtDataVisualization/private/scatter3drenderer_p.h>
+#include <QtDataVisualization/private/q3dcamera_p.h>
+#include <QtDataVisualization/private/shaderhelper_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/scatterseriesrendercache_p.h>
+#include <QtDataVisualization/private/scatterobjectbufferhelper_p.h>
+#include <QtDataVisualization/private/scatterpointbufferhelper_p.h>
+#include <QtGui/qquaternion.h>
+#include <QtCore/qmath.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -949,6 +962,26 @@ inline CustomRenderItem::CustomRenderItem()
       m_drawSliceFrames(false)
 
 {
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/scatter3drenderer.cpp, line 2468, as _ZN17Scatter3DRenderer16updateRenderItemERK16QScatterDataItemR17ScatterRenderItem
+inline void Scatter3DRenderer::updateRenderItem(const QScatterDataItem &dataItem,
+                                         ScatterRenderItem &renderItem)
+{
+    QVector3D dotPos = dataItem.position();
+    if ((dotPos.x() >= m_axisCacheX.min() && dotPos.x() <= m_axisCacheX.max() )
+            && (dotPos.y() >= m_axisCacheY.min() && dotPos.y() <= m_axisCacheY.max())
+            && (dotPos.z() >= m_axisCacheZ.min() && dotPos.z() <= m_axisCacheZ.max())) {
+        renderItem.setPosition(dotPos);
+        renderItem.setVisible(true);
+        if (!dataItem.rotation().isIdentity())
+            renderItem.setRotation(dataItem.rotation().normalized());
+        else
+            renderItem.setRotation(identityQuaternion);
+        calculateTranslation(renderItem);
+    } else {
+        renderItem.setVisible(false);
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -1967,6 +2000,25 @@ const QMetaObject *ritual_ZNK17Scatter3DRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Scatter3DRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17Scatter3DRenderer11qt_metacastEPKc(
+    Scatter3DRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Scatter3DRenderer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17Scatter3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Scatter3DRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Scatter3DRenderer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17Scatter3DRenderer2trEPKcS1_i(
@@ -2004,6 +2056,15 @@ SeriesRenderCache *ritual_ZN17Scatter3DRenderer14createNewCacheEP17QAbstract3DSe
     Scatter3DRenderer *self,
     QAbstract3DSeries *series) {
   return self->createNewCache(series);
+}
+
+//  void Scatter3DRenderer::updateItems(const
+//      QList<Scatter3DController::ChangeItem> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Scatter3DRenderer11updateItemsERK5QListIN19Scatter3DController10ChangeItemEE(
+    Scatter3DRenderer *self,
+    const QList<Scatter3DController::ChangeItem> *items) {
+  self->updateItems(*items);
 }
 
 //  void Scatter3DRenderer::updateScene(Q3DScene *scene)
@@ -2111,6 +2172,24 @@ void ritual_ZN17Scatter3DRenderer16initializeOpenGLEv(
   self->initializeOpenGL();
 }
 
+//  void Scatter3DRenderer::fixCameraTarget(QVector3D &target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Scatter3DRenderer15fixCameraTargetER9QVector3D(
+    Scatter3DRenderer *self,
+    QVector3D *target) {
+  self->fixCameraTarget(*target);
+}
+
+//  void Scatter3DRenderer::getVisibleItemBounds(QVector3D &minBounds,
+//      QVector3D &maxBounds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Scatter3DRenderer20getVisibleItemBoundsER9QVector3DS1_(
+    Scatter3DRenderer *self,
+    QVector3D *minBounds,
+    QVector3D *maxBounds) {
+  self->getVisibleItemBounds(*minBounds, *maxBounds);
+}
+
 //  void Scatter3DRenderer::initShaders(const QString &vertexShader, const
 //      QString &fragmentShader)
 extern "C" Q_DECL_EXPORT
@@ -2163,6 +2242,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17Scatter3DRenderer14updateTexturesEv(
     Scatter3DRenderer *self) {
   self->updateTextures();
+}
+
+//  void Scatter3DRenderer::fixMeshFileName(QString &fileName,
+//      QAbstract3DSeries::Mesh mesh)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Scatter3DRenderer15fixMeshFileNameER7QStringN17QAbstract3DSeries4MeshE(
+    Scatter3DRenderer *self,
+    QString *fileName,
+    QAbstract3DSeries::Mesh mesh) {
+  self->fixMeshFileName(*fileName, mesh);
 }
 
 //  void Scatter3DRenderer::drawScene(GLuint defaultFboHandle)
@@ -2252,11 +2341,29 @@ void ritual_ZN17Scatter3DRenderer15initPointShaderEv(
   self->initPointShader();
 }
 
+//  void Scatter3DRenderer::calculateTranslation(ScatterRenderItem &item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Scatter3DRenderer20calculateTranslationER17ScatterRenderItem(
+    Scatter3DRenderer *self,
+    ScatterRenderItem *item) {
+  self->calculateTranslation(*item);
+}
+
 //  void Scatter3DRenderer::calculateSceneScalingFactors()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17Scatter3DRenderer28calculateSceneScalingFactorsEv(
     Scatter3DRenderer *self) {
   self->calculateSceneScalingFactors();
+}
+
+//  void Scatter3DRenderer::updateRenderItem(const QScatterDataItem
+//      &dataItem, ScatterRenderItem &renderItem)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Scatter3DRenderer16updateRenderItemERK16QScatterDataItemR17ScatterRenderItem(
+    Scatter3DRenderer *self,
+    const QScatterDataItem *dataItem,
+    ScatterRenderItem *renderItem) {
+  self->updateRenderItem(*dataItem, *renderItem);
 }
 
 //  a Python function taken by a CuteScatter3DRenderer, for the function
@@ -2436,4 +2543,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17Scatter3DRenderer17updateDepthBufferEv(
     Scatter3DRenderer *self) {
   self->Scatter3DRenderer::updateDepthBuffer();
+}
+
+//  void Scatter3DRenderer::selectionColorToSeriesAndIndex(const QVector4D
+//      &color, int &index, QAbstract3DSeries *&series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Scatter3DRenderer30selectionColorToSeriesAndIndexERK9QVector4DRiRP17QAbstract3DSeries(
+    Scatter3DRenderer *self,
+    const QVector4D *color,
+    int *index,
+    QAbstract3DSeries **series) {
+  self->selectionColorToSeriesAndIndex(*color, *index, *series);
 }

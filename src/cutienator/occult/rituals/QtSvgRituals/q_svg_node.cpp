@@ -7,9 +7,9 @@
 #include <QtSvg/6.12.0/QtSvg/private/qsvgnode_p.h>
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qrect.h>
 #include <QtGui/qimage.h>
 #include <QtCore/qlatin1stringview.h>
-#include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qlist.h>
@@ -85,6 +85,15 @@ void ritual_ZN8QSvgNodeD1Ev(QSvgNode *self) {
   delete self;
 }
 
+//  void QSvgNode::draw(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSvgNode4drawEP8QPainterR15QSvgExtraStates(
+    QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->draw(p, *states);
+}
+
 //  bool QSvgNode::separateFillStroke(const QPainter *a0, const
 //      QSvgExtraStates &a1) const
 extern "C" Q_DECL_EXPORT
@@ -95,6 +104,35 @@ bool ritual_ZNK8QSvgNode18separateFillStrokeEPK8QPainterRK15QSvgExtraStates(
   return self->separateFillStroke(a0, *a1);
 }
 
+//  void QSvgNode::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSvgNode11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
+//  void QSvgNode::fillThenStroke(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSvgNode14fillThenStrokeEP8QPainterR15QSvgExtraStates(
+    QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->fillThenStroke(p, *states);
+}
+
+//  QImage QSvgNode::drawIntoBuffer(QPainter *p, QSvgExtraStates &states,
+//      const QRect &boundsRect)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN8QSvgNode14drawIntoBufferEP8QPainterR15QSvgExtraStatesRK5QRect(
+    QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states,
+    const QRect *boundsRect) {
+  return new QImage(self->drawIntoBuffer(p, *states, *boundsRect));
+}
+
 //  void QSvgNode::applyMaskToBuffer(QImage *proxy, const QImage &mask) const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK8QSvgNode17applyMaskToBufferEP6QImageRKS0_(
@@ -102,6 +140,18 @@ void ritual_ZNK8QSvgNode17applyMaskToBufferEP6QImageRKS0_(
     QImage *proxy,
     const QImage *mask) {
   self->applyMaskToBuffer(proxy, *mask);
+}
+
+//  void QSvgNode::drawWithMask(QPainter *p, QSvgExtraStates &states, const
+//      QImage &mask, const QRect &boundsRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSvgNode12drawWithMaskEP8QPainterR15QSvgExtraStatesRK6QImageRK5QRect(
+    QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states,
+    const QImage *mask,
+    const QRect *boundsRect) {
+  self->drawWithMask(p, *states, *mask, *boundsRect);
 }
 
 //  void QSvgNode::applyBufferToCanvas(QPainter *p, const QImage &proxy)
@@ -126,6 +176,64 @@ bool ritual_ZNK8QSvgNode14isDescendantOfEPKS_(
     const QSvgNode *self,
     const QSvgNode *parent) {
   return self->isDescendantOf(parent);
+}
+
+//  void QSvgNode::applyStyle(QPainter *p, QSvgExtraStates &states) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QSvgNode10applyStyleEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->applyStyle(p, *states);
+}
+
+//  void QSvgNode::applyStyleRecursive(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QSvgNode19applyStyleRecursiveEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->applyStyleRecursive(p, *states);
+}
+
+//  void QSvgNode::revertStyle(QPainter *p, QSvgExtraStates &states) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QSvgNode11revertStyleEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revertStyle(p, *states);
+}
+
+//  void QSvgNode::revertStyleRecursive(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QSvgNode20revertStyleRecursiveEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revertStyleRecursive(p, *states);
+}
+
+//  void QSvgNode::applyAnimatedStyle(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QSvgNode18applyAnimatedStyleEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->applyAnimatedStyle(p, *states);
+}
+
+//  void QSvgNode::revertAnimatedStyle(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QSvgNode19revertAnimatedStyleEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revertAnimatedStyle(p, *states);
 }
 
 //  QSvgStyleProperty *QSvgNode::styleProperty(QSvgStyleProperty::Type type)
@@ -155,12 +263,61 @@ QLatin1String *ritual_ZNK8QSvgNode8typeNameEv(const QSvgNode *self) {
   return new QLatin1String(self->typeName());
 }
 
+//  QRectF QSvgNode::internalFastBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgNode18internalFastBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalFastBounds(p, *states));
+}
+
+//  QRectF QSvgNode::internalBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgNode14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
+}
+
+//  QRectF QSvgNode::bounds(QPainter *p, QSvgExtraStates &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgNode6boundsEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->bounds(p, *states));
+}
+
 //  QRectF QSvgNode::bounds(const QSvgDocument *doc) const
 extern "C" Q_DECL_EXPORT
 QRectF *ritual_ZNK8QSvgNode6boundsEPK12QSvgDocument(
     const QSvgNode *self,
     const QSvgDocument *doc) {
   return new QRectF(self->bounds(doc));
+}
+
+//  QRectF QSvgNode::decoratedInternalBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgNode23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedInternalBounds(p, *states));
+}
+
+//  QRectF QSvgNode::decoratedBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgNode15decoratedBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedBounds(p, *states));
 }
 
 //  void QSvgNode::setRequiredFeatures(const QStringList &lst)
@@ -402,6 +559,21 @@ bool ritual_ZNK8QSvgNode12hasAnyMarkerEv(const QSvgNode *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8QSvgNode22requiresGroupRenderingEv(const QSvgNode *self) {
   return self->requiresGroupRendering();
+}
+
+//  bool QSvgNode::shouldDrawNode(QPainter *p, QSvgExtraStates &states) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QSvgNode14shouldDrawNodeEP8QPainterR15QSvgExtraStates(
+    const QSvgNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return self->shouldDrawNode(p, *states);
+}
+
+//  const QSvgStaticStyle &QSvgNode::style() const
+extern "C" Q_DECL_EXPORT
+const QSvgStaticStyle *ritual_ZNK8QSvgNode5styleEv(const QSvgNode *self) {
+  return &(self->style());
 }
 
 //  QRectF QSvgNode::filterRegion(const QSvgDocument *doc, QRectF bounds)

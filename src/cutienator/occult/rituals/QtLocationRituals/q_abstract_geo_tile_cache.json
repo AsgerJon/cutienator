@@ -8,6 +8,12 @@
     "ritual_ZNK21QAbstractGeoTileCache10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QAbstractGeoTileCache11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QAbstractGeoTileCache11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QAbstractGeoTileCache2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -56,6 +62,9 @@
     "ritual_ZNK21QAbstractGeoTileCache19costStrategyTextureEv": [
       "int", "address"
     ],
+    "ritual_ZN21QAbstractGeoTileCache3getERK12QGeoTileSpec": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QAbstractGeoTileCache6insertERK12QGeoTileSpecRK10QByteArrayRK7QString6QFlagsINS_9CacheAreaEE": [
       "nothing", "address", "address", "address", "text", "int"
     ],
@@ -89,6 +98,9 @@
     ],
     "ritual_own_ZN21QAbstractGeoTileCache11handleErrorERK12QGeoTileSpecRK7QString": [
       "nothing", "address", "address", "text"
+    ],
+    "ritual_drop_QAbstractGeoTileCache__QSharedPointer_QGeoTileTexture": [
+      "nothing", "address"
     ]
   }
 }

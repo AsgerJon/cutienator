@@ -12,8 +12,19 @@
       "address", "address", "int", "int", "bool", "int", "bool", "address",
       "int"
     ],
+    "ritual_ZN18QSSGMeshBVHBuilder9buildTreeEv": ["address", "address"],
+    "ritual_ZNK18QSSGMeshBVHBuilder23calculateTriangleBoundsEjj": [
+      "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN18QSSGMeshBVHBuilder9splitNodeER11QSSGMeshBVHN15QSSGMeshBVHNode6HandleEjjj": [
+      "address", "address", "address", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
     "ritual_ZN18QSSGMeshBVHBuilder9getBoundsERK11QSSGMeshBVHjj": [
       "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN18QSSGMeshBVHBuilder15getOptimalSplitERK11QSSGMeshBVHRK11QSSGBounds3jj": [
+      "address", "address", "address", "unsigned int", "unsigned int"
     ],
     "ritual_ZN18QSSGMeshBVHBuilder19getLongestDimensionERK11QSSGBounds3": [
       "int", "address"
@@ -21,6 +32,18 @@
     "ritual_ZN18QSSGMeshBVHBuilder15getAverageValueERK11QSSGMeshBVHjjNS_4AxisE": [
       "float", "address", "unsigned int", "unsigned int", "int"
     ],
-    "ritual_ZN18QSSGMeshBVHBuilderD1Ev": ["nothing", "address"]
+    "ritual_ZN18QSSGMeshBVHBuilder9partitionER11QSSGMeshBVHjjRKNS_5SplitE": [
+      "unsigned int", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN18QSSGMeshBVHBuilderD1Ev": ["nothing", "address"],
+    "ritual_drop_QSSGMeshBVHBuilder__std_unique_ptr_QSSGMeshBVH": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGMeshBVHBuilder__QSSGMeshBVHTriangles": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGMeshBVHBuilder__QSSGMeshBVHBuilder_Split": [
+      "nothing", "address"
+    ]
   }
 }

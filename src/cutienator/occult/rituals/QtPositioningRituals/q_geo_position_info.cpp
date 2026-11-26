@@ -27,10 +27,49 @@ QGeoPositionInfo *ritual_ZN16QGeoPositionInfoC1ERKS_(
   return new QGeoPositionInfo(*other);
 }
 
+//  QGeoPositionInfo::QGeoPositionInfo(QGeoPositionInfo &&other)
+extern "C" Q_DECL_EXPORT
+QGeoPositionInfo *ritual_ZN16QGeoPositionInfoC1EOS_(
+    QGeoPositionInfo *other) {
+  return new QGeoPositionInfo(std::move(*other));
+}
+
+//  QGeoPositionInfo::QGeoPositionInfo(QGeoPositionInfoPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QGeoPositionInfo *ritual_ZN16QGeoPositionInfoC1ER23QGeoPositionInfoPrivate(
+    QGeoPositionInfoPrivate *dd) {
+  return new QGeoPositionInfo(*dd);
+}
+
 //  QGeoPositionInfo::~QGeoPositionInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QGeoPositionInfoD1Ev(QGeoPositionInfo *self) {
   delete self;
+}
+
+//  QGeoPositionInfo &QGeoPositionInfo::operator=(const QGeoPositionInfo
+//      &other)
+extern "C" Q_DECL_EXPORT
+QGeoPositionInfo *ritual_ZN16QGeoPositionInfoaSERKS_(
+    QGeoPositionInfo *self,
+    const QGeoPositionInfo *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoPositionInfo &QGeoPositionInfo::operator=(QGeoPositionInfo &&other)
+extern "C" Q_DECL_EXPORT
+QGeoPositionInfo *ritual_ZN16QGeoPositionInfoaSEOS_(
+    QGeoPositionInfo *self,
+    QGeoPositionInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoPositionInfo::swap(QGeoPositionInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QGeoPositionInfo4swapERS_(
+    QGeoPositionInfo *self,
+    QGeoPositionInfo *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoPositionInfo &lhs, const QGeoPositionInfo &rhs)
@@ -153,3 +192,90 @@ QDebug *ritual_ZN16QGeoPositionInfo14debugStreamingE6QDebugRKS_(
   return new QDebug(QGeoPositionInfo::debugStreaming(*dbg, *info));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &stream, const QGeoPositionInfo
+//      &info)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK16QGeoPositionInfo(
+    QDataStream *stream,
+    const QGeoPositionInfo *info) {
+  return &(operator<<(*stream, *info));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &stream, QGeoPositionInfo &info)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR16QGeoPositionInfo(
+    QDataStream *stream,
+    QGeoPositionInfo *info) {
+  return &(operator>>(*stream, *info));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoPositionInfo::dataStreamOut(QDataStream &stream, const
+//      QGeoPositionInfo &info)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN16QGeoPositionInfo13dataStreamOutER11QDataStreamRKS_(
+    QDataStream *stream,
+    const QGeoPositionInfo *info) {
+  return &(QGeoPositionInfo::dataStreamOut(*stream, *info));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoPositionInfo::dataStreamIn(QDataStream &stream,
+//      QGeoPositionInfo &info)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN16QGeoPositionInfo12dataStreamInER11QDataStreamRS_(
+    QDataStream *stream,
+    QGeoPositionInfo *info) {
+  return &(QGeoPositionInfo::dataStreamIn(*stream, *info));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &stream, QGeoPositionInfo::Attribute
+//      attr)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamN16QGeoPositionInfo9AttributeE(
+    QDataStream *stream,
+    QGeoPositionInfo::Attribute attr) {
+  return &(operator<<(*stream, attr));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &stream, QGeoPositionInfo::Attribute
+//      &attr)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamRN16QGeoPositionInfo9AttributeE(
+    QDataStream *stream,
+    QGeoPositionInfo::Attribute *attr) {
+  return &(operator>>(*stream, *attr));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoPositionInfo::dataStreamOut(QDataStream &stream,
+//      QGeoPositionInfo::Attribute attr)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN16QGeoPositionInfo13dataStreamOutER11QDataStreamNS_9AttributeE(
+    QDataStream *stream,
+    QGeoPositionInfo::Attribute attr) {
+  return &(QGeoPositionInfo::dataStreamOut(*stream, attr));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoPositionInfo::dataStreamIn(QDataStream &stream,
+//      QGeoPositionInfo::Attribute &attr)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN16QGeoPositionInfo12dataStreamInER11QDataStreamRNS_9AttributeE(
+    QDataStream *stream,
+    QGeoPositionInfo::Attribute *attr) {
+  return &(QGeoPositionInfo::dataStreamIn(*stream, *attr));
+}
+#endif  // !defined(QT_NO_DATASTREAM)

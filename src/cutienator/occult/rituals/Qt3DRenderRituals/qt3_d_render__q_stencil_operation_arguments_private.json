@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN10Qt3DRender33QStencilOperationArgumentsPrivateC1ENS_26QStencilOperationArguments8FaceModeE": [
       "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender33QStencilOperationArgumentsPrivateD1Ev": [
+      "nothing", "address"
     ]
   }
 }

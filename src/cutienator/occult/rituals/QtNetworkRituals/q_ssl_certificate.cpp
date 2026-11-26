@@ -8,6 +8,9 @@
 #include <QtNetwork/qsslcertificateextension.h>
 #include <QtNetwork/qsslerror.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QMultiMap>
+#include <QtNetwork/QSsl>
+#include <QtCore/QString>
 
 //  QSslCertificate::QSslCertificate(QIODevice *device, QSsl::EncodingFormat
 //      format)
@@ -34,10 +37,40 @@ QSslCertificate *ritual_ZN15QSslCertificateC1ERKS_(
   return new QSslCertificate(*other);
 }
 
+//  QSslCertificate::QSslCertificate(QSslCertificate &&other)
+extern "C" Q_DECL_EXPORT
+QSslCertificate *ritual_ZN15QSslCertificateC1EOS_(QSslCertificate *other) {
+  return new QSslCertificate(std::move(*other));
+}
+
 //  QSslCertificate::~QSslCertificate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QSslCertificateD1Ev(QSslCertificate *self) {
   delete self;
+}
+
+//  QSslCertificate &QSslCertificate::operator=(QSslCertificate &&other)
+extern "C" Q_DECL_EXPORT
+QSslCertificate *ritual_ZN15QSslCertificateaSEOS_(
+    QSslCertificate *self,
+    QSslCertificate *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QSslCertificate &QSslCertificate::operator=(const QSslCertificate &other)
+extern "C" Q_DECL_EXPORT
+QSslCertificate *ritual_ZN15QSslCertificateaSERKS_(
+    QSslCertificate *self,
+    const QSslCertificate *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QSslCertificate::swap(QSslCertificate &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSslCertificate4swapERS_(
+    QSslCertificate *self,
+    QSslCertificate *other) {
+  self->swap(*other);
 }
 
 //  bool QSslCertificate::operator==(const QSslCertificate &other) const
@@ -167,6 +200,15 @@ QList<QByteArray> *ritual_ZNK15QSslCertificate20issuerInfoAttributesEv(
   return new QList<QByteArray>(self->issuerInfoAttributes());
 }
 
+//  QMultiMap<QSsl::AlternativeNameEntryType, QString>
+//      QSslCertificate::subjectAlternativeNames() const
+extern "C" Q_DECL_EXPORT
+QMultiMap<QSsl::AlternativeNameEntryType, QString> *ritual_ZNK15QSslCertificate23subjectAlternativeNamesEv(
+    const QSslCertificate *self) {
+  return new QMultiMap<QSsl::AlternativeNameEntryType, QString>(
+      self->subjectAlternativeNames());
+}
+
 //  QDateTime QSslCertificate::effectiveDate() const
 extern "C" Q_DECL_EXPORT
 QDateTime *ritual_ZNK15QSslCertificate13effectiveDateEv(
@@ -281,6 +323,33 @@ QList<QSslError> *ritual_ZN15QSslCertificate6verifyERK5QListIS_ERK7QString(
 }
 #endif  // !defined(QT_NO_SSL)
 
+#if !defined(QT_NO_SSL)
+//  bool QSslCertificate::importPkcs12(QIODevice *device, QSslKey *key,
+//      QSslCertificate *cert, QList<QSslCertificate> *caCertificates, const
+//      QByteArray &passPhrase)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QSslCertificate12importPkcs12EP9QIODeviceP7QSslKeyPS_P5QListIS_ERK10QByteArray(
+    QIODevice *device,
+    QSslKey *key,
+    QSslCertificate *cert,
+    QList<QSslCertificate> *caCertificates,
+    const QByteArray *passPhrase) {
+  return QSslCertificate::importPkcs12(
+      device,
+      key,
+      cert,
+      caCertificates,
+      *passPhrase);
+}
+#endif  // !defined(QT_NO_SSL)
+
+//  Qt::HANDLE QSslCertificate::handle() const
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_ZNK15QSslCertificate6handleEv(
+    const QSslCertificate *self) {
+  return self->handle();
+}
+
 //  QList<QSslCertificate>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QSslCertificate> *ritual_list_make_QSslCertificate() {
@@ -313,5 +382,13 @@ QSslCertificate *ritual_list_at_QSslCertificate(
 //  QList<QSslCertificate>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QSslCertificate(QList<QSslCertificate> *self) {
+  delete self;
+}
+
+//  a QMultiMap<QSsl::AlternativeNameEntryType, QString> a ritual of
+//      QSslCertificate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSslCertificate__QMultiMap_QSsl_AlternativeNameEntryType_QString(
+    QMultiMap<QSsl::AlternativeNameEntryType, QString> *self) {
   delete self;
 }

@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render11LightSourceC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render11LightSourceC1EPKNS0_6EntityERKSt6vectorIPNS0_5LightESaIS7_EE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render11LightSourceD1Ev": ["nothing", "address"]
   }
 }

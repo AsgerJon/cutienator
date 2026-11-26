@@ -34,6 +34,9 @@
     "ritual_ZNK28QSequentialAnimationGroupJob28animationActualTotalDurationEPK21QAbstractAnimationJob": [
       "int", "address", "address"
     ],
+    "ritual_ZNK28QSequentialAnimationGroupJob19indexForCurrentTimeEv": [
+      "address", "address"
+    ],
     "ritual_ZN28QSequentialAnimationGroupJob19setCurrentAnimationEPK21QAbstractAnimationJobb": [
       "nothing", "address", "address", "bool"
     ],
@@ -49,6 +52,12 @@
     "ritual_ZNK28QSequentialAnimationGroupJob5atEndEv": ["bool", "address"],
     "ritual_ZN28QSequentialAnimationGroupJob7restartEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob14rewindForwardsERKNS_14AnimationIndexE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob15advanceForwardsERKNS_14AnimationIndexE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QSequentialAnimationGroupJob": [
       "bool", "address", "chars", "address"
@@ -79,6 +88,9 @@
     ],
     "ritual_own_ZN28QSequentialAnimationGroupJob16animationRemovedEP21QAbstractAnimationJobS1_S1_": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_drop_QSequentialAnimationGroupJob__QSequentialAnimationGroupJob_AnimationIndex": [
+      "nothing", "address"
     ]
   }
 }

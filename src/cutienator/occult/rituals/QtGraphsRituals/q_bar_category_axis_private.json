@@ -41,6 +41,9 @@
       "nothing", "address", "address"
     ],
     "ritual_own_ZN23QBarCategoryAxisPrivate3minEv": ["double", "address"],
-    "ritual_own_ZN23QBarCategoryAxisPrivate3maxEv": ["double", "address"]
+    "ritual_own_ZN23QBarCategoryAxisPrivate3maxEv": ["double", "address"],
+    "ritual_own_ZN23QBarCategoryAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ]
   }
 }

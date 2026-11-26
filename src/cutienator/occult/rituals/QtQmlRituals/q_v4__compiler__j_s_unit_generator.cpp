@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4compileddata_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4compilercontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
 
@@ -204,6 +205,61 @@ QV4::CompiledData::Unit *ritual_ZN3QV48Compiler15JSUnitGenerator12generateUnitEN
     QV4::Compiler::JSUnitGenerator *self,
     QV4::Compiler::JSUnitGenerator::GeneratorOption option) {
   return self->generateUnit(option);
+}
+
+//  void QV4::Compiler::JSUnitGenerator::writeFunction(char *f, Context
+//      *irFunction) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK3QV48Compiler15JSUnitGenerator13writeFunctionEPcPNS0_7ContextE(
+    const QV4::Compiler::JSUnitGenerator *self,
+    char *f,
+    QV4::Compiler::Context *irFunction) {
+  self->writeFunction(f, irFunction);
+}
+
+//  void QV4::Compiler::JSUnitGenerator::writeClass(char *f, const Class &c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV48Compiler15JSUnitGenerator10writeClassEPcRKNS0_5ClassE(
+    QV4::Compiler::JSUnitGenerator *self,
+    char *f,
+    const QV4::Compiler::Class *c) {
+  self->writeClass(f, *c);
+}
+
+//  void QV4::Compiler::JSUnitGenerator::writeTemplateObject(char *f, const
+//      TemplateObject &o)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV48Compiler15JSUnitGenerator19writeTemplateObjectEPcRKNS0_14TemplateObjectE(
+    QV4::Compiler::JSUnitGenerator *self,
+    char *f,
+    const QV4::Compiler::TemplateObject *o) {
+  self->writeTemplateObject(f, *o);
+}
+
+//  void QV4::Compiler::JSUnitGenerator::writeBlock(char *f, Context
+//      *irBlock) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK3QV48Compiler15JSUnitGenerator10writeBlockEPcPNS0_7ContextE(
+    const QV4::Compiler::JSUnitGenerator *self,
+    char *f,
+    QV4::Compiler::Context *irBlock) {
+  self->writeBlock(f, irBlock);
+}
+
+//  CompiledData::Unit
+//      QV4::Compiler::JSUnitGenerator::generateHeader(GeneratorOption
+//      option, quint32_le *functionOffsets, uint *jsClassDataOffset)
+extern "C" Q_DECL_EXPORT
+QV4::CompiledData::Unit *ritual_ZN3QV48Compiler15JSUnitGenerator14generateHeaderENS1_15GeneratorOptionEP15QSpecialIntegerI24QLittleEndianStorageTypeIjEEPj(
+    QV4::Compiler::JSUnitGenerator *self,
+    QV4::Compiler::JSUnitGenerator::GeneratorOption option,
+    quint32_le *functionOffsets,
+    uint *jsClassDataOffset) {
+  return new QV4::CompiledData::Unit(
+      self->generateHeader(
+          option,
+          functionOffsets,
+          jsClassDataOffset));
 }
 
 //  QV4::Compiler::JSUnitGenerator::~JSUnitGenerator()

@@ -6,6 +6,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWebSockets/6.12.0/QtWebSockets/private/qwebsocketdataprocessor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -32,23 +34,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 140, as _ZN15QWebSocketFrame5clearEv
-inline void QWebSocketFrame::clear()
-{
-    m_closeCode = QWebSocketProtocol::CloseCodeNormal;
-    m_closeReason.clear();
-    m_isFinalFrame = true;
-    m_mask = 0;
-    m_rsv1 = false;
-    m_rsv2 = false;
-    m_rsv3 = false;
-    m_opCode = QWebSocketProtocol::OpCodeReservedC;
-    m_length = 0;
-    m_payload.clear();
-    m_isValid = false;
-    m_processingState = PS_READ_HEADER;
-}
-
 //  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 33, as _ZN15QWebSocketFrame22setMaxAllowedFrameSizeEy
 inline void QWebSocketFrame::setMaxAllowedFrameSize(quint64 maxAllowedFrameSize)
 {
@@ -66,6 +51,23 @@ inline quint64 QWebSocketFrame::maxAllowedFrameSize() const
 inline quint64 QWebSocketFrame::maxFrameSize()
 {
     return MAX_FRAME_SIZE_IN_BYTES;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 140, as _ZN15QWebSocketFrame5clearEv
+inline void QWebSocketFrame::clear()
+{
+    m_closeCode = QWebSocketProtocol::CloseCodeNormal;
+    m_closeReason.clear();
+    m_isFinalFrame = true;
+    m_mask = 0;
+    m_rsv1 = false;
+    m_rsv2 = false;
+    m_rsv3 = false;
+    m_opCode = QWebSocketProtocol::OpCodeReservedC;
+    m_length = 0;
+    m_payload.clear();
+    m_isValid = false;
+    m_processingState = PS_READ_HEADER;
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 175, as _ZN15QWebSocketFrame9readFrameEP9QIODevice
@@ -115,12 +117,6 @@ inline void QWebSocketFrame::readFrame(QIODevice *pIoDevice)
     }
 }
 
-//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 63, as _ZN23QWebSocketDataProcessorD1Ev
-inline QWebSocketDataProcessor::~QWebSocketDataProcessor()
-{
-    clear();
-}
-
 //  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 68, as _ZN23QWebSocketDataProcessor22setMaxAllowedFrameSizeEy
 inline void QWebSocketDataProcessor::setMaxAllowedFrameSize(quint64 maxAllowedFrameSize)
 {
@@ -158,21 +154,18 @@ inline quint64 QWebSocketDataProcessor::maxFrameSize()
    return QWebSocketFrame::maxFrameSize();
 }
 
-//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 231, as _ZN23QWebSocketDataProcessor5clearEv
-inline void QWebSocketDataProcessor::clear()
+//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 114, as _ZN23QWebSocketDataProcessor14setIdleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE
+inline void QWebSocketDataProcessor::setIdleTimeout(std::chrono::milliseconds timeout)
 {
-    m_processingState = PS_READ_HEADER;
-    m_isFinalFrame = false;
-    m_isFragmented = false;
-    m_opCode = QWebSocketProtocol::OpCodeClose;
-    m_hasMask = false;
-    m_mask = 0;
-    m_binaryMessage.clear();
-    m_textMessage.clear();
-    m_payloadLength = 0;
-    m_decoder.resetState();
-    m_hasFailed = false;
-    frame.clear();
+    Q_ASSERT(!m_waitTimer->isActive());
+    m_waitTimer->setInterval(timeout);
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 123, as _ZNK23QWebSocketDataProcessor11idleTimeoutEv
+inline std::chrono::milliseconds QWebSocketDataProcessor::idleTimeout() const
+{
+    using namespace std::chrono;
+    return duration_cast<milliseconds>(m_waitTimer->interval());
 }
 //  -----------------------------------------------------------------------
 
@@ -350,6 +343,25 @@ const QMetaObject *ritual_ZNK23QWebSocketDataProcessor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWebSocketDataProcessor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QWebSocketDataProcessor11qt_metacastEPKc(
+    QWebSocketDataProcessor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWebSocketDataProcessor::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QWebSocketDataProcessor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWebSocketDataProcessor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QWebSocketDataProcessor::~QWebSocketDataProcessor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QWebSocketDataProcessorD1Ev(QWebSocketDataProcessor *self) {
@@ -400,11 +412,275 @@ quint64 ritual_ZN23QWebSocketDataProcessor12maxFrameSizeEv() {
   return QWebSocketDataProcessor::maxFrameSize();
 }
 
+//  void QWebSocketDataProcessor::setIdleTimeout(std::chrono::milliseconds
+//      timeout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWebSocketDataProcessor14setIdleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QWebSocketDataProcessor *self,
+    long long timeout) {
+  self->setIdleTimeout(std::chrono::milliseconds(timeout));
+}
+
+//  std::chrono::milliseconds QWebSocketDataProcessor::idleTimeout() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK23QWebSocketDataProcessor11idleTimeoutEv(
+    const QWebSocketDataProcessor *self) {
+  return static_cast<long long>(self->idleTimeout().count());
+}
+
+//  void QWebSocketDataProcessor::pingReceived(const QByteArray &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWebSocketDataProcessor12pingReceivedERK10QByteArray(
+    QWebSocketDataProcessor *self,
+    const QByteArray *data) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWebSocketDataProcessor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "pingReceived(const QByteArray &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "pingReceived(const QByteArray &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(data)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QWebSocketDataProcessor::pongReceived(const QByteArray &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWebSocketDataProcessor12pongReceivedERK10QByteArray(
+    QWebSocketDataProcessor *self,
+    const QByteArray *data) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWebSocketDataProcessor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "pongReceived(const QByteArray &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "pongReceived(const QByteArray &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(data)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QWebSocketDataProcessor::closeReceived(QWebSocketProtocol::CloseCode
+//      closeCode, const QString &closeReason)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWebSocketDataProcessor13closeReceivedEN18QWebSocketProtocol9CloseCodeERK7QString(
+    QWebSocketDataProcessor *self,
+    QWebSocketProtocol::CloseCode closeCode,
+    const QString *closeReason) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWebSocketDataProcessor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "closeReceived(QWebSocketProtocol::CloseCode,const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "closeReceived(QWebSocketProtocol::CloseCode,const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&closeCode)),
+      const_cast<void *>(static_cast<const void *>(closeReason)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QWebSocketDataProcessor::textFrameReceived(const QString &frame,
+//      bool lastFrame)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWebSocketDataProcessor17textFrameReceivedERK7QStringb(
+    QWebSocketDataProcessor *self,
+    const QString *frame,
+    bool lastFrame) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWebSocketDataProcessor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "textFrameReceived(const QString &,bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "textFrameReceived(const QString &,bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(frame)),
+      const_cast<void *>(static_cast<const void *>(&lastFrame)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QWebSocketDataProcessor::binaryFrameReceived(const QByteArray
+//      &frame, bool lastFrame)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWebSocketDataProcessor19binaryFrameReceivedERK10QByteArrayb(
+    QWebSocketDataProcessor *self,
+    const QByteArray *frame,
+    bool lastFrame) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWebSocketDataProcessor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "binaryFrameReceived(const QByteArray &,bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "binaryFrameReceived(const QByteArray &,bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(frame)),
+      const_cast<void *>(static_cast<const void *>(&lastFrame)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QWebSocketDataProcessor::textMessageReceived(const QString &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWebSocketDataProcessor19textMessageReceivedERK7QString(
+    QWebSocketDataProcessor *self,
+    const QString *message) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWebSocketDataProcessor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "textMessageReceived(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "textMessageReceived(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(message)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QWebSocketDataProcessor::binaryMessageReceived(const QByteArray
+//      &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWebSocketDataProcessor21binaryMessageReceivedERK10QByteArray(
+    QWebSocketDataProcessor *self,
+    const QByteArray *message) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWebSocketDataProcessor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "binaryMessageReceived(const QByteArray &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "binaryMessageReceived(const QByteArray &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(message)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QWebSocketDataProcessor::errorEncountered(QWebSocketProtocol::CloseCo
+//      de code, const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWebSocketDataProcessor16errorEncounteredEN18QWebSocketProtocol9CloseCodeERK7QString(
+    QWebSocketDataProcessor *self,
+    QWebSocketProtocol::CloseCode code,
+    const QString *description) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWebSocketDataProcessor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "errorEncountered(QWebSocketProtocol::CloseCode,const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "errorEncountered(QWebSocketProtocol::CloseCode,const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&code)),
+      const_cast<void *>(static_cast<const void *>(description)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QWebSocketDataProcessor::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QWebSocketDataProcessor5clearEv(
     QWebSocketDataProcessor *self) {
-  self->clear();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWebSocketDataProcessor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "clear()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "clear()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQWebSocketDataProcessor, for the

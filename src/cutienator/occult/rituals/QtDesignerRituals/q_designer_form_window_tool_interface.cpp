@@ -330,6 +330,25 @@ const QMetaObject *ritual_ZNK32QDesignerFormWindowToolInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerFormWindowToolInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QDesignerFormWindowToolInterface11qt_metacastEPKc(
+    QDesignerFormWindowToolInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerFormWindowToolInterface::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QDesignerFormWindowToolInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerFormWindowToolInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerFormWindowToolInterface::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -338,6 +357,14 @@ QString *ritual_ZN32QDesignerFormWindowToolInterface2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QDesignerFormWindowToolInterface::tr(s, c, n));
+}
+
+//  QDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface(QObjec
+//      t *parent)
+extern "C" Q_DECL_EXPORT
+QDesignerFormWindowToolInterface *ritual_ZN32QDesignerFormWindowToolInterfaceC1EP7QObject(
+    QObject *parent) {
+  return new CuteQDesignerFormWindowToolInterface(parent);
 }
 
 //  QDesignerFormWindowToolInterface::~QDesignerFormWindowToolInterface()

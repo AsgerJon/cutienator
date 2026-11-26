@@ -7,6 +7,7 @@
 #include <QtSvg/6.12.0/QtSvg/private/qsvggraphics_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qline.h>
+#include <QtCore/qrect.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -90,10 +91,49 @@ void ritual_ZN8QSvgLineD1Ev(QSvgLine *self) {
   delete self;
 }
 
+//  void QSvgLine::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSvgLine11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgLine *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
 //  Type QSvgLine::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK8QSvgLine4typeEv(const QSvgLine *self) {
   return self->type();
+}
+
+//  QRectF QSvgLine::internalFastBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgLine18internalFastBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgLine *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalFastBounds(p, *states));
+}
+
+//  QRectF QSvgLine::internalBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgLine14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgLine *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
+}
+
+//  QRectF QSvgLine::decoratedInternalBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgLine23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgLine *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedInternalBounds(p, *states));
 }
 
 //  bool QSvgLine::requiresGroupRendering() const
@@ -106,6 +146,17 @@ bool ritual_ZNK8QSvgLine22requiresGroupRenderingEv(const QSvgLine *self) {
 extern "C" Q_DECL_EXPORT
 QLineF *ritual_ZNK8QSvgLine4lineEv(const QSvgLine *self) {
   return new QLineF(self->line());
+}
+
+//  QRectF QSvgLine::internalBounds(QPainter *p, QSvgExtraStates &states,
+//      BoundsMode mode) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgLine14internalBoundsEP8QPainterR15QSvgExtraStatesN8QSvgNode10BoundsModeE(
+    const QSvgLine *self,
+    QPainter *p,
+    QSvgExtraStates *states,
+    QSvgNode::BoundsMode mode) {
+  return new QRectF(self->internalBounds(p, *states, mode));
 }
 
 //  a Python function taken by a CuteQSvgLine, for the function named by the

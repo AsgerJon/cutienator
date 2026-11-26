@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QSpiAccessibleBridge10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QSpiAccessibleBridge11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QSpiAccessibleBridge11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QSpiAccessibleBridge2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK20QSpiAccessibleBridge14dBusConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QSpiAccessibleBridge12spiRoleNamesEv": [
       "address", "address"
     ],
     "ritual_ZN20QSpiAccessibleBridge8instanceEv": ["address"],

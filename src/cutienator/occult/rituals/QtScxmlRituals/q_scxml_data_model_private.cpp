@@ -87,3 +87,9 @@ void ritual_ZN22QScxmlDataModelPrivate23emitStateMachineChangedEP18QScxmlStateMa
     QScxmlStateMachine *newValue) {
   self->emitStateMachineChanged(newValue);
 }
+
+//  size_t QScxmlDataModelPrivate::_qt_property_m_stateMachine_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN22QScxmlDataModelPrivate34_qt_property_m_stateMachine_offsetEv() {
+  return QScxmlDataModelPrivate::_qt_property_m_stateMachine_offset();
+}

@@ -7,8 +7,49 @@
     "ritual_ZNK10Qt3DExtras10Qt3DWindow10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras10Qt3DWindow2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindowC1EP7QScreenN10Qt3DRender3APIE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindowD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DExtras10Qt3DWindow14registerAspectEPN8Qt3DCore15QAbstractAspectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindow14registerAspectERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindow13setRootEntityEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindow19setActiveFrameGraphEPN10Qt3DRender15QFrameGraphNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras10Qt3DWindow16activeFrameGraphEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras10Qt3DWindow17defaultFrameGraphEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras10Qt3DWindow6cameraEv": ["address", "address"],
+    "ritual_ZNK10Qt3DExtras10Qt3DWindow14renderSettingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindow9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras10Qt3DWindow5eventEP6QEvent": [
+      "bool", "address", "address"
     ],
     "ritual_ZN10Qt3DExtras10Qt3DWindow6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DExtras10Qt3DWindow6d_funcEv": ["address", "address"],

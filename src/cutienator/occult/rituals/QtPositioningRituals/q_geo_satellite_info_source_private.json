@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN30QGeoSatelliteInfoSourcePrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN30QGeoSatelliteInfoSourcePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN30QGeoSatelliteInfoSourcePrivate28_qt_property_interval_offsetEv": [
+      "size_t"
+    ]
   }
 }

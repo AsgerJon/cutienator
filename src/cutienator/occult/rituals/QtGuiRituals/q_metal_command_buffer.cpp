@@ -56,6 +56,12 @@ public:
   }
 };
 
+//  void QMetalCommandBuffer::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QMetalCommandBuffer7destroyEv(QMetalCommandBuffer *self) {
+  self->destroy();
+}
+
 //  a Python function taken by a CuteQMetalCommandBuffer, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

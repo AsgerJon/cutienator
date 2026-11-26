@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickScreenInfo10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickScreenInfo11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickScreenInfo11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickScreenInfo2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -42,6 +48,36 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK16QQuickScreenInfo13wrappedScreenEv": ["address", "address"],
+    "ritual_ZN16QQuickScreenInfo11nameChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickScreenInfo19manufacturerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScreenInfo12modelChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickScreenInfo19serialNumberChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScreenInfo12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickScreenInfo13heightChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickScreenInfo22desktopGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScreenInfo26logicalPixelDensityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScreenInfo19pixelDensityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScreenInfo23devicePixelRatioChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScreenInfo25primaryOrientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScreenInfo18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScreenInfo15virtualXChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickScreenInfo15virtualYChangedEv": ["nothing", "address"],
     "ritual_take_QQuickScreenInfo": ["bool", "address", "chars", "address"]
   }
 }

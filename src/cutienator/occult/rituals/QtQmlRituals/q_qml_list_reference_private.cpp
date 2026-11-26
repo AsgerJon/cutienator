@@ -6,6 +6,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmllist_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtQml/qqmllist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/qqmllist.h>
 #include <QtQml/private/qqmllist_p.h>
@@ -25,6 +27,22 @@
 inline QQmlListReferencePrivate::QQmlListReferencePrivate()
 : refCount(1)
 {
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmllist.cpp, line 29, as _ZN24QQmlListReferencePrivate4initERK16QQmlListPropertyI7QObjectE9QMetaType
+inline QQmlListReference QQmlListReferencePrivate::init(
+        const QQmlListProperty<QObject> &prop, QMetaType propType)
+{
+    QQmlListReference rv;
+
+    if (!prop.object) return rv;
+
+    rv.d = new QQmlListReferencePrivate;
+    rv.d->object = prop.object;
+    rv.d->property = prop;
+    rv.d->propertyType = propType;
+
+    return rv;
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmllist.cpp, line 44, as _ZN24QQmlListReferencePrivate6addrefEv
@@ -48,6 +66,15 @@ inline void QQmlListReferencePrivate::release()
 extern "C" Q_DECL_EXPORT
 QQmlListReferencePrivate *ritual_ZN24QQmlListReferencePrivateC1Ev() {
   return new QQmlListReferencePrivate();
+}
+
+//  QQmlListReference QQmlListReferencePrivate::init(const
+//      QQmlListProperty<QObject> &a0, QMetaType a1)
+extern "C" Q_DECL_EXPORT
+QQmlListReference *ritual_ZN24QQmlListReferencePrivate4initERK16QQmlListPropertyI7QObjectE9QMetaType(
+    const QQmlListProperty<QObject> *a0,
+    const QMetaType *a1) {
+  return new QQmlListReference(QQmlListReferencePrivate::init(*a0, *a1));
 }
 
 //  void QQmlListReferencePrivate::addref()

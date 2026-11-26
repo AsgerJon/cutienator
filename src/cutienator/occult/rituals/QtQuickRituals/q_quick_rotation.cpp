@@ -16,6 +16,24 @@ const QMetaObject *ritual_ZNK14QQuickRotation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRotation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickRotation11qt_metacastEPKc(
+    QQuickRotation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRotation::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickRotation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRotation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRotation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickRotation2trEPKcS1_i(
@@ -100,6 +118,45 @@ void ritual_ZNK14QQuickRotation7applyToEP10QMatrix4x4(
     const QQuickRotation *self,
     QMatrix4x4 *matrix) {
   self->applyTo(matrix);
+}
+
+//  void QQuickRotation::originChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRotation13originChangedEv(QQuickRotation *self) {
+  self->originChanged();
+}
+
+//  void QQuickRotation::angleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRotation12angleChangedEv(QQuickRotation *self) {
+  self->angleChanged();
+}
+
+//  void QQuickRotation::axisChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRotation11axisChangedEv(QQuickRotation *self) {
+  self->axisChanged();
+}
+
+//  void QQuickRotation::distanceToPlaneChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRotation22distanceToPlaneChangedEv(
+    QQuickRotation *self) {
+  self->distanceToPlaneChanged();
+}
+
+//  QQuickRotationPrivate *QQuickRotation::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickRotationPrivate *ritual_ZN14QQuickRotation6d_funcEv(
+    QQuickRotation *self) {
+  return self->d_func();
+}
+
+//  const QQuickRotationPrivate *QQuickRotation::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickRotationPrivate *ritual_ZNK14QQuickRotation6d_funcEv(
+    const QQuickRotation *self) {
+  return self->d_func();
 }
 
 //  void QQuickRotation::applyTo(QMatrix4x4 *matrix) const

@@ -7,15 +7,24 @@
   "rows": {
     "ritual_ZN17QDnsLookupPrivateC1Ev": ["address"],
     "ritual_ZN17QDnsLookupPrivate11nameChangedEv": ["nothing", "address"],
+    "ritual_ZN17QDnsLookupPrivate24_qt_property_name_offsetEv": ["size_t"],
     "ritual_ZN17QDnsLookupPrivate17nameserverChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QDnsLookupPrivate30_qt_property_nameserver_offsetEv": [
+      "size_t"
+    ],
     "ritual_ZN17QDnsLookupPrivate11typeChangedEv": ["nothing", "address"],
+    "ritual_ZN17QDnsLookupPrivate24_qt_property_type_offsetEv": ["size_t"],
     "ritual_ZN17QDnsLookupPrivate21nameserverPortChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QDnsLookupPrivate24_qt_property_port_offsetEv": ["size_t"],
     "ritual_ZN17QDnsLookupPrivate25nameserverProtocolChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QDnsLookupPrivate28_qt_property_protocol_offsetEv": [
+      "size_t"
     ],
     "ritual_ZN17QDnsLookupPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QDnsLookupPrivate6q_funcEv": ["address", "address"]

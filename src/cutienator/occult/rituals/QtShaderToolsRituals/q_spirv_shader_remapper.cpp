@@ -29,6 +29,22 @@ QString *ritual_ZNK20QSpirvShaderRemapper12errorMessageEv(
   return new QString(self->errorMessage());
 }
 
+//  void QSpirvShaderRemapper::remapErrorHandler(const std::string &s)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QSpirvShaderRemapper17remapErrorHandlerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(
+    QSpirvShaderRemapper *self,
+    const std::string *s) {
+  self->remapErrorHandler(*s);
+}
+
+//  void QSpirvShaderRemapper::remapLogHandler(const std::string &s)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QSpirvShaderRemapper15remapLogHandlerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(
+    QSpirvShaderRemapper *self,
+    const std::string *s) {
+  self->remapLogHandler(*s);
+}
+
 //  QSpirvShaderRemapper::~QSpirvShaderRemapper()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QSpirvShaderRemapperD1Ev(QSpirvShaderRemapper *self) {

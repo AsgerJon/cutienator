@@ -9,7 +9,10 @@
       "address", "int", "text", "unsigned short", "text", "text"
     ],
     "ritual_ZN13QNetworkProxyC1ERKS_": ["address", "address"],
+    "ritual_ZN13QNetworkProxyaSEOS_": ["address", "address", "address"],
+    "ritual_ZN13QNetworkProxyaSERKS_": ["address", "address", "address"],
     "ritual_ZN13QNetworkProxyD1Ev": ["nothing", "address"],
+    "ritual_ZN13QNetworkProxy4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK13QNetworkProxyeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK13QNetworkProxyneERKS_": ["bool", "address", "address"],
     "ritual_ZN13QNetworkProxy7setTypeENS_9ProxyTypeE": [
@@ -44,6 +47,9 @@
     "ritual_ZN13QNetworkProxy16applicationProxyEv": ["address"],
     "ritual_ZNK13QNetworkProxy7headersEv": ["address", "address"],
     "ritual_ZN13QNetworkProxy10setHeadersERK12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkProxy10setHeadersEO12QHttpHeaders": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK13QNetworkProxy6headerEN15QNetworkRequest12KnownHeadersE": [

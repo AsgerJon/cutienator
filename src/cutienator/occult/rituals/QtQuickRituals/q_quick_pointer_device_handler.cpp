@@ -345,6 +345,25 @@ const QMetaObject *ritual_ZNK26QQuickPointerDeviceHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPointerDeviceHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickPointerDeviceHandler11qt_metacastEPKc(
+    QQuickPointerDeviceHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPointerDeviceHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickPointerDeviceHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPointerDeviceHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPointerDeviceHandler::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -433,6 +452,43 @@ void ritual_ZN26QQuickPointerDeviceHandler20setAcceptedModifiersE6QFlagsIN2Qt16K
     int acceptedModifiers) {
   self->setAcceptedModifiers(
       QFlags<Qt::KeyboardModifier>::fromInt(acceptedModifiers));
+}
+
+//  void QQuickPointerDeviceHandler::acceptedDevicesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickPointerDeviceHandler22acceptedDevicesChangedEv(
+    QQuickPointerDeviceHandler *self) {
+  self->acceptedDevicesChanged();
+}
+
+//  void QQuickPointerDeviceHandler::acceptedPointerTypesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickPointerDeviceHandler27acceptedPointerTypesChangedEv(
+    QQuickPointerDeviceHandler *self) {
+  self->acceptedPointerTypesChanged();
+}
+
+//  void QQuickPointerDeviceHandler::acceptedButtonsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickPointerDeviceHandler22acceptedButtonsChangedEv(
+    QQuickPointerDeviceHandler *self) {
+  self->acceptedButtonsChanged();
+}
+
+//  void QQuickPointerDeviceHandler::acceptedModifiersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickPointerDeviceHandler24acceptedModifiersChangedEv(
+    QQuickPointerDeviceHandler *self) {
+  self->acceptedModifiersChanged();
+}
+
+//  QQuickPointerDeviceHandler::QQuickPointerDeviceHandler(QQuickPointerDevic
+//      eHandlerPrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPointerDeviceHandler *ritual_ZN26QQuickPointerDeviceHandlerC1ER33QQuickPointerDeviceHandlerPrivateP10QQuickItem(
+    QQuickPointerDeviceHandlerPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickPointerDeviceHandler(*dd, parent);
 }
 
 //  bool QQuickPointerDeviceHandler::wantsPointerEvent(QPointerEvent *event)

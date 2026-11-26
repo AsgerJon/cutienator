@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK15QHXYModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QHXYModelMapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QHXYModelMapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QHXYModelMapper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -28,6 +34,16 @@
     "ritual_ZNK15QHXYModelMapper11columnCountEv": ["int", "address"],
     "ritual_ZN15QHXYModelMapper14setColumnCountEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN15QHXYModelMapper14seriesReplacedEv": ["nothing", "address"],
+    "ritual_ZN15QHXYModelMapper13modelReplacedEv": ["nothing", "address"],
+    "ritual_ZN15QHXYModelMapper11xRowChangedEv": ["nothing", "address"],
+    "ritual_ZN15QHXYModelMapper11yRowChangedEv": ["nothing", "address"],
+    "ritual_ZN15QHXYModelMapper18firstColumnChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QHXYModelMapper18columnCountChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QHXYModelMapper": ["bool", "address", "chars", "address"]
   }

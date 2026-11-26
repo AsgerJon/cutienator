@@ -9,6 +9,7 @@
     "ritual_ZN15QOpcUaWriteItemC1ERK7QStringN6QOpcUa13NodeAttributeERK8QVariantNS3_5TypesES2_": [
       "address", "text", "int", "address", "int", "text"
     ],
+    "ritual_ZN15QOpcUaWriteItemaSERKS_": ["address", "address", "address"],
     "ritual_ZN15QOpcUaWriteItemD1Ev": ["nothing", "address"],
     "ritual_ZNK15QOpcUaWriteItem6nodeIdEv": ["text", "address"],
     "ritual_ZN15QOpcUaWriteItem9setNodeIdERK7QString": [

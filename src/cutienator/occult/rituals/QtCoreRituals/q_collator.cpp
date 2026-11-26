@@ -29,6 +29,30 @@ void ritual_ZN9QCollatorD1Ev(QCollator *self) {
   delete self;
 }
 
+//  QCollator &QCollator::operator=(const QCollator &a0)
+extern "C" Q_DECL_EXPORT
+QCollator *ritual_ZN9QCollatoraSERKS_(QCollator *self, const QCollator *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QCollator::QCollator(QCollator &&other)
+extern "C" Q_DECL_EXPORT
+QCollator *ritual_ZN9QCollatorC1EOS_(QCollator *other) {
+  return new QCollator(std::move(*other));
+}
+
+//  QCollator &QCollator::operator=(QCollator &&other)
+extern "C" Q_DECL_EXPORT
+QCollator *ritual_ZN9QCollatoraSEOS_(QCollator *self, QCollator *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCollator::swap(QCollator &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QCollator4swapERS_(QCollator *self, QCollator *other) {
+  self->swap(*other);
+}
+
 //  void QCollator::setLocale(const QLocale &locale)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QCollator9setLocaleERK7QLocale(

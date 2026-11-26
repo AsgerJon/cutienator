@@ -237,6 +237,12 @@ public:
   }
 };
 
+//  QDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface()
+extern "C" Q_DECL_EXPORT
+QDesignerFormWindowCursorInterface *ritual_ZN34QDesignerFormWindowCursorInterfaceC1Ev() {
+  return new CuteQDesignerFormWindowCursorInterface();
+}
+
 //  QDesignerFormWindowCursorInterface::~QDesignerFormWindowCursorInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN34QDesignerFormWindowCursorInterfaceD1Ev(

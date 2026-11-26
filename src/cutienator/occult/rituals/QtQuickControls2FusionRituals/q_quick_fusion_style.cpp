@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK17QQuickFusionStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFusionStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickFusionStyle11qt_metacastEPKc(
+    QQuickFusionStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFusionStyle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickFusionStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFusionStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFusionStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickFusionStyle2trEPKcS1_i(
@@ -336,6 +355,13 @@ extern "C" Q_DECL_EXPORT
 QColor *ritual_ZN17QQuickFusionStyle11grooveColorEP13QQuickPalette(
     QQuickPalette *palette) {
   return new QColor(QQuickFusionStyle::grooveColor(palette));
+}
+
+//  void QQuickFusionStyle::highContrastChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickFusionStyle19highContrastChangedEv(
+    QQuickFusionStyle *self) {
+  self->highContrastChanged();
 }
 
 //  a Python function taken by a CuteQQuickFusionStyle, for the function

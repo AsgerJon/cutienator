@@ -118,7 +118,7 @@ typedef void (*CuteQQuickAnimationPropertyUpdaterCall1)(const void *, const QDeb
 class CuteQQuickAnimationPropertyUpdater : public QQuickAnimationPropertyUpdater {
 public:
   using QQuickAnimationPropertyUpdater::QQuickAnimationPropertyUpdater;
-  CuteQQuickAnimationPropertyUpdater(const QQuickAnimationPropertyUpdater &other) : QQuickAnimationPropertyUpdater(other) {}
+  CuteQQuickAnimationPropertyUpdater(const QQuickAnimationPropertyUpdater & other) : QQuickAnimationPropertyUpdater(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

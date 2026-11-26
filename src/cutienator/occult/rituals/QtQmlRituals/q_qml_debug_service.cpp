@@ -14,6 +14,7 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qobject.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
@@ -347,6 +348,25 @@ const QMetaObject *ritual_ZNK16QQmlDebugService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDebugService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQmlDebugService11qt_metacastEPKc(
+    QQmlDebugService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDebugService::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQmlDebugService11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDebugService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlDebugService::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQmlDebugService2trEPKcS1_i(
@@ -354,6 +374,20 @@ QString *ritual_ZN16QQmlDebugService2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQmlDebugService::tr(s, c, n));
+}
+
+//  QQmlDebugServicePrivate *QQmlDebugService::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlDebugServicePrivate *ritual_ZN16QQmlDebugService6d_funcEv(
+    QQmlDebugService *self) {
+  return self->d_func();
+}
+
+//  const QQmlDebugServicePrivate *QQmlDebugService::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlDebugServicePrivate *ritual_ZNK16QQmlDebugService6d_funcEv(
+    const QQmlDebugService *self) {
+  return self->d_func();
 }
 
 //  QQmlDebugService::~QQmlDebugService()
@@ -471,6 +505,42 @@ QQmlDebugService *ritual_ZN16QQmlDebugServiceC1ERK7QStringfP7QObject(
     float version,
     QObject *parent) {
   return new CuteQQmlDebugService(*a0, version, parent);
+}
+
+//  void QQmlDebugService::attachedToEngine(QJSEngine *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlDebugService16attachedToEngineEP9QJSEngine(
+    QQmlDebugService *self,
+    QJSEngine *a0) {
+  self->attachedToEngine(a0);
+}
+
+//  void QQmlDebugService::detachedFromEngine(QJSEngine *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlDebugService18detachedFromEngineEP9QJSEngine(
+    QQmlDebugService *self,
+    QJSEngine *a0) {
+  self->detachedFromEngine(a0);
+}
+
+//  void QQmlDebugService::messageToClient(const QString &name, const
+//      QByteArray &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlDebugService15messageToClientERK7QStringRK10QByteArray(
+    QQmlDebugService *self,
+    const QString *name,
+    const QByteArray *message) {
+  self->messageToClient(*name, *message);
+}
+
+//  void QQmlDebugService::messagesToClient(const QString &name, const
+//      QList<QByteArray> &messages)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlDebugService16messagesToClientERK7QStringRK5QListI10QByteArrayE(
+    QQmlDebugService *self,
+    const QString *name,
+    const QList<QByteArray> *messages) {
+  self->messagesToClient(*name, *messages);
 }
 
 //  a Python function taken by a CuteQQmlDebugService, for the function named

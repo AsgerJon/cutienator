@@ -803,6 +803,25 @@ const QMetaObject *ritual_ZNK20QQuickPre64TextInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPre64TextInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickPre64TextInput11qt_metacastEPKc(
+    QQuickPre64TextInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPre64TextInput::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickPre64TextInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPre64TextInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  a Python function taken by a CuteQQuickPre64TextInput, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

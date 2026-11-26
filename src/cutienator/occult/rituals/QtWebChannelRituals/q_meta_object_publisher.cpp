@@ -8,10 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qjsonobject.h>
-#include <QtCore/qjsonvalue.h>
-#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qjsonarray.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qjsonvalue.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
@@ -198,6 +199,25 @@ const QMetaObject *ritual_ZNK20QMetaObjectPublisher10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMetaObjectPublisher::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QMetaObjectPublisher11qt_metacastEPKc(
+    QMetaObjectPublisher *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMetaObjectPublisher::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QMetaObjectPublisher11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMetaObjectPublisher *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMetaObjectPublisher::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QMetaObjectPublisher2trEPKcS1_i(
@@ -306,11 +326,65 @@ QJsonObject *ritual_ZN20QMetaObjectPublisher16initializeClientEP28QWebChannelAbs
   return new QJsonObject(self->initializeClient(transport));
 }
 
+//  void QMetaObjectPublisher::initializePropertyUpdates(QObject *const
+//      object, const QJsonObject &objectInfo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMetaObjectPublisher25initializePropertyUpdatesEP7QObjectRK11QJsonObject(
+    QMetaObjectPublisher *self,
+    QObject *const object,
+    const QJsonObject *objectInfo) {
+  self->initializePropertyUpdates(object, *objectInfo);
+}
+
 //  void QMetaObjectPublisher::sendPendingPropertyUpdates()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QMetaObjectPublisher26sendPendingPropertyUpdatesEv(
     QMetaObjectPublisher *self) {
   self->sendPendingPropertyUpdates();
+}
+
+//  QVariant QMetaObjectPublisher::invokeMethod_helper(QObject *const object,
+//      const QMetaMethod &method, const QJsonArray &args)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN20QMetaObjectPublisher19invokeMethod_helperEP7QObjectRK11QMetaMethodRK10QJsonArray(
+    QMetaObjectPublisher *self,
+    QObject *const object,
+    const QMetaMethod *method,
+    const QJsonArray *args) {
+  return new QVariant(self->invokeMethod_helper(object, *method, *args));
+}
+
+//  QVariant QMetaObjectPublisher::invokeMethod(QObject *const object, const
+//      QMetaMethod &method, const QJsonArray &args)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN20QMetaObjectPublisher12invokeMethodEP7QObjectRK11QMetaMethodRK10QJsonArray(
+    QMetaObjectPublisher *self,
+    QObject *const object,
+    const QMetaMethod *method,
+    const QJsonArray *args) {
+  return new QVariant(self->invokeMethod(object, *method, *args));
+}
+
+//  QVariant QMetaObjectPublisher::invokeMethod(QObject *const object, const
+//      int methodIndex, const QJsonArray &args)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN20QMetaObjectPublisher12invokeMethodEP7QObjectiRK10QJsonArray(
+    QMetaObjectPublisher *self,
+    QObject *const object,
+    int methodIndex,
+    const QJsonArray *args) {
+  return new QVariant(self->invokeMethod(object, methodIndex, *args));
+}
+
+//  QVariant QMetaObjectPublisher::invokeMethod(QObject *const object, const
+//      QByteArray &methodName, const QJsonArray &args)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN20QMetaObjectPublisher12invokeMethodEP7QObjectRK10QByteArrayRK10QJsonArray(
+    QMetaObjectPublisher *self,
+    QObject *const object,
+    const QByteArray *methodName,
+    const QJsonArray *args) {
+  return new QVariant(self->invokeMethod(object, *methodName, *args));
 }
 
 //  void QMetaObjectPublisher::setProperty(QObject *object, const int
@@ -511,6 +585,14 @@ bool ritual_ZNK20QMetaObjectPublisher12blockUpdatesEv(
   return self->blockUpdates();
 }
 
+//  void QMetaObjectPublisher::blockUpdatesChanged(bool block)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMetaObjectPublisher19blockUpdatesChangedEb(
+    QMetaObjectPublisher *self,
+    bool block) {
+  self->blockUpdatesChanged(block);
+}
+
 //  void QMetaObjectPublisher::handleMessage(const QJsonObject &message,
 //      QWebChannelAbstractTransport *transport)
 extern "C" Q_DECL_EXPORT
@@ -534,6 +616,29 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QMetaObjectPublisher21onBlockUpdatesChangedEv(
     QMetaObjectPublisher *self) {
   self->onBlockUpdatesChanged();
+}
+
+//  SignalHandler<QMetaObjectPublisher>
+//      *QMetaObjectPublisher::signalHandlerFor(const QObject *object)
+extern "C" Q_DECL_EXPORT
+SignalHandler<QMetaObjectPublisher> *ritual_ZN20QMetaObjectPublisher16signalHandlerForEPK7QObject(
+    QMetaObjectPublisher *self,
+    const QObject *object) {
+  return self->signalHandlerFor(object);
+}
+
+//  size_t QMetaObjectPublisher::_qt_property_blockUpdatesStatus_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN20QMetaObjectPublisher38_qt_property_blockUpdatesStatus_offsetEv() {
+  return QMetaObjectPublisher::_qt_property_blockUpdatesStatus_offset();
+}
+
+//  size_t
+//      QMetaObjectPublisher::_qt_property_propertyUpdateIntervalTime_offset(
+//      )
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN20QMetaObjectPublisher46_qt_property_propertyUpdateIntervalTime_offsetEv() {
+  return QMetaObjectPublisher::_qt_property_propertyUpdateIntervalTime_offset();
 }
 
 //  a Python function taken by a CuteQMetaObjectPublisher, for the function

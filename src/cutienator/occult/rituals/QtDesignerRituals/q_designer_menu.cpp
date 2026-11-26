@@ -973,6 +973,24 @@ const QMetaObject *ritual_ZNK13QDesignerMenu10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerMenu::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QDesignerMenu11qt_metacastEPKc(
+    QDesignerMenu *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerMenu::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QDesignerMenu11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerMenu *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerMenu::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QDesignerMenu2trEPKcS1_i(

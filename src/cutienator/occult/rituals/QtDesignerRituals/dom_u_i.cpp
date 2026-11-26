@@ -20,6 +20,23 @@ void ritual_ZN5DomUID1Ev(DomUI *self) {
   delete self;
 }
 
+//  void DomUI::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5DomUI4readER16QXmlStreamReader(
+    DomUI *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomUI::write(QXmlStreamWriter &writer, const QString &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK5DomUI5writeER16QXmlStreamWriterRK7QString(
+    const DomUI *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomUI::hasAttributeVersion() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK5DomUI19hasAttributeVersionEv(const DomUI *self) {

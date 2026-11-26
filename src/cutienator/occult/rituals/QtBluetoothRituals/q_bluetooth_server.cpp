@@ -182,6 +182,25 @@ const QMetaObject *ritual_ZNK16QBluetoothServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBluetoothServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QBluetoothServer11qt_metacastEPKc(
+    QBluetoothServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBluetoothServer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QBluetoothServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBluetoothServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBluetoothServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QBluetoothServer2trEPKcS1_i(
@@ -310,6 +329,20 @@ extern "C" Q_DECL_EXPORT
 QBluetoothServer::Error ritual_ZNK16QBluetoothServer5errorEv(
     const QBluetoothServer *self) {
   return self->error();
+}
+
+//  void QBluetoothServer::newConnection()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBluetoothServer13newConnectionEv(QBluetoothServer *self) {
+  self->newConnection();
+}
+
+//  void QBluetoothServer::errorOccurred(QBluetoothServer::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QBluetoothServer13errorOccurredENS_5ErrorE(
+    QBluetoothServer *self,
+    QBluetoothServer::Error error) {
+  self->errorOccurred(error);
 }
 
 //  QBluetoothServerPrivate *QBluetoothServer::d_func()

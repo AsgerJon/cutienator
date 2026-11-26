@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickSwipeView10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickSwipeView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickSwipeView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickSwipeView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,12 @@
     ],
     "ritual_ZNK15QQuickSwipeView12isHorizontalEv": ["bool", "address"],
     "ritual_ZNK15QQuickSwipeView10isVerticalEv": ["bool", "address"],
+    "ritual_ZN15QQuickSwipeView18interactiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickSwipeView18orientationChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN15QQuickSwipeView17componentCompleteEv": [
       "nothing", "address"
     ],
@@ -42,6 +54,8 @@
       "nothing", "address", "int", "address"
     ],
     "ritual_ZNK15QQuickSwipeView14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN15QQuickSwipeView6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickSwipeView6d_funcEv": ["address", "address"],
     "ritual_own_ZN15QQuickSwipeView17componentCompleteEv": [
       "nothing", "address"
     ],

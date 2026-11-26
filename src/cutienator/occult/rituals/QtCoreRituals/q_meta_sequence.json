@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qmetacontainer.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qmetacontainer.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN13QMetaSequenceC1Ev": ["address"],
@@ -11,37 +12,90 @@
     "ritual_ZNK13QMetaSequence13valueMetaTypeEv": ["address", "address"],
     "ritual_ZNK13QMetaSequence10isSortableEv": ["bool", "address"],
     "ritual_ZNK13QMetaSequence18canAddValueAtBeginEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence15addValueAtBeginEPvPKv": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence16canAddValueAtEndEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence13addValueAtEndEPvPKv": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence21canRemoveValueAtBeginEv": [
       "bool", "address"
     ],
+    "ritual_ZNK13QMetaSequence18removeValueAtBeginEPv": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence19canRemoveValueAtEndEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence16removeValueAtEndEPv": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence18canGetValueAtIndexEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence12valueAtIndexEPKvxPv": [
+      "nothing", "address", "address", "long long", "address"
+    ],
     "ritual_ZNK13QMetaSequence18canSetValueAtIndexEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence15setValueAtIndexEPvxPKv": [
+      "nothing", "address", "address", "long long", "address"
+    ],
     "ritual_ZNK13QMetaSequence11canAddValueEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence8addValueEPvPKv": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence14canRemoveValueEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence11removeValueEPv": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence21canGetValueAtIteratorEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence15valueAtIteratorEPKvPv": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK13QMetaSequence21canSetValueAtIteratorEv": [
       "bool", "address"
     ],
+    "ritual_ZNK13QMetaSequence18setValueAtIteratorEPKvS1_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence24canInsertValueAtIteratorEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence21insertValueAtIteratorEPvPKvS2_": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZNK13QMetaSequence23canEraseValueAtIteratorEv": [
       "bool", "address"
     ],
+    "ritual_ZNK13QMetaSequence20eraseValueAtIteratorEPvPKv": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence23canEraseRangeAtIteratorEv": [
       "bool", "address"
     ],
+    "ritual_ZNK13QMetaSequence20eraseRangeAtIteratorEPvPKvS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence26canGetValueAtConstIteratorEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence20valueAtConstIteratorEPKvPv": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK13QMetaSequence5ifaceEv": ["address", "address"],
     "ritual_ZeqRK13QMetaSequenceS1_": ["bool", "address", "address"],
     "ritual_ZneRK13QMetaSequenceS1_": ["bool", "address", "address"],
     "ritual_ZNK13QMetaSequence1dEv": ["address", "address"],
-    "ritual_ZN13QMetaSequenceD1Ev": ["nothing", "address"]
+    "ritual_ZN13QMetaSequenceD1Ev": ["nothing", "address"],
+    "ritual_ZN13QMetaSequence13fromContainerI5QListIiEEES_v": ["address"],
+    "ritual_ZN13QMetaSequence13fromContainerI5QListIdEEES_v": ["address"],
+    "ritual_ZN13QMetaSequence13fromContainerI5QListI7QStringEEES_v": [
+      "address"
+    ],
+    "ritual_ZN13QMetaSequence13fromContainerI5QListI8QVariantEEES_v": [
+      "address"
+    ],
+    "ritual_ZN13QMetaSequence13fromContainerI5QListI10QByteArrayEEES_v": [
+      "address"
+    ]
   }
 }

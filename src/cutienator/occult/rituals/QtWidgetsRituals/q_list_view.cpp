@@ -7,10 +7,14 @@
 #include <QtWidgets/qlistview.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtGui/qregion.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -2092,6 +2096,22 @@ const QMetaObject *ritual_ZNK9QListView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QListView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QListView11qt_metacastEPKc(QListView *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QListView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QListView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QListView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QListView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QListView2trEPKcS1_i(
@@ -2367,6 +2387,22 @@ void ritual_ZN9QListView12setRootIndexERK11QModelIndex(
   self->setRootIndex(*index);
 }
 
+//  void QListView::indexesMoved(const QModelIndexList &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView12indexesMovedERK5QListI11QModelIndexE(
+    QListView *self,
+    const QList<QModelIndex> *indexes) {
+  self->indexesMoved(*indexes);
+}
+
+//  QListView::QListView(QListViewPrivate &a0, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QListView *ritual_ZN9QListViewC1ER16QListViewPrivateP7QWidget(
+    QListViewPrivate *a0,
+    QWidget *parent) {
+  return new CuteQListView(*a0, parent);
+}
+
 //  bool QListView::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QListView5eventEP6QEvent(QListView *self, QEvent *e) {
@@ -2395,6 +2431,17 @@ void ritual_ZN9QListView14resizeContentsEii(
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK9QListView12contentsSizeEv(const QListView *self) {
   return new QSize(self->contentsSize());
+}
+
+//  void QListView::dataChanged(const QModelIndex &topLeft, const QModelIndex
+//      &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView11dataChangedERK11QModelIndexS2_RK5QListIiE(
+    QListView *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->dataChanged(*topLeft, *bottomRight, *roles);
 }
 
 //  void QListView::rowsInserted(const QModelIndex &parent, int start, int

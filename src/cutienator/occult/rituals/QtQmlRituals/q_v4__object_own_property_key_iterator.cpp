@@ -16,7 +16,7 @@ typedef const QV4::PropertyKey * (*CuteQV4_ObjectOwnPropertyKeyIteratorCall0)(co
 class CuteQV4_ObjectOwnPropertyKeyIterator : public QV4::ObjectOwnPropertyKeyIterator {
 public:
   using QV4::ObjectOwnPropertyKeyIterator::ObjectOwnPropertyKeyIterator;
-  CuteQV4_ObjectOwnPropertyKeyIterator(const QV4::ObjectOwnPropertyKeyIterator &other) : QV4::ObjectOwnPropertyKeyIterator(other) {}
+  CuteQV4_ObjectOwnPropertyKeyIterator(const QV4::ObjectOwnPropertyKeyIterator & other) : QV4::ObjectOwnPropertyKeyIterator(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -48,6 +48,17 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV428ObjectOwnPropertyKeyIteratorD1Ev(
     QV4::ObjectOwnPropertyKeyIterator *self) {
   delete self;
+}
+
+//  PropertyKey QV4::ObjectOwnPropertyKeyIterator::next(const Object *o,
+//      Property *pd, PropertyAttributes *attrs)
+extern "C" Q_DECL_EXPORT
+QV4::PropertyKey *ritual_ZN3QV428ObjectOwnPropertyKeyIterator4nextEPKNS_6ObjectEPNS_8PropertyEPNS_18PropertyAttributesE(
+    QV4::ObjectOwnPropertyKeyIterator *self,
+    const QV4::Object *o,
+    QV4::Property *pd,
+    QV4::PropertyAttributes *attrs) {
+  return new QV4::PropertyKey(self->next(o, pd, attrs));
 }
 
 //  a Python function taken by a CuteQV4_ObjectOwnPropertyKeyIterator, for

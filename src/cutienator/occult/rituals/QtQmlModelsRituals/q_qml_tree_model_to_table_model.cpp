@@ -10,10 +10,14 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmltreemodeltotablemodel_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qbytearray.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
@@ -24,6 +28,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK25QQmlTreeModelToTableModel10metaObjectEv(
     const QQmlTreeModelToTableModel *self) {
   return self->metaObject();
+}
+
+//  void *QQmlTreeModelToTableModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQmlTreeModelToTableModel11qt_metacastEPKc(
+    QQmlTreeModelToTableModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlTreeModelToTableModel::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQmlTreeModelToTableModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlTreeModelToTableModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQmlTreeModelToTableModel::tr(const char *s, const char *c, int
@@ -227,6 +250,25 @@ void ritual_ZN25QQmlTreeModelToTableModel22showModelTopLevelItemsEb(
   self->showModelTopLevelItems(doInsertRows);
 }
 
+//  void QQmlTreeModelToTableModel::showModelChildItems(const TreeItem
+//      &parent, int start, int end, bool doInsertRows, bool
+//      doExpandPendingRows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlTreeModelToTableModel19showModelChildItemsERKNS_8TreeItemEiibb(
+    QQmlTreeModelToTableModel *self,
+    const QQmlTreeModelToTableModel::TreeItem *parent,
+    int start,
+    int end,
+    bool doInsertRows,
+    bool doExpandPendingRows) {
+  self->showModelChildItems(
+      *parent,
+      start,
+      end,
+      doInsertRows,
+      doExpandPendingRows);
+}
+
 //  int QQmlTreeModelToTableModel::itemIndex(const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK25QQmlTreeModelToTableModel9itemIndexERK11QModelIndex(
@@ -276,6 +318,37 @@ bool ritual_ZNK25QQmlTreeModelToTableModel15testConsistencyEb(
     const QQmlTreeModelToTableModel *self,
     bool dumpOnFail) {
   return self->testConsistency(dumpOnFail);
+}
+
+//  void QQmlTreeModelToTableModel::modelChanged(QAbstractItemModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlTreeModelToTableModel12modelChangedEP18QAbstractItemModel(
+    QQmlTreeModelToTableModel *self,
+    QAbstractItemModel *model) {
+  self->modelChanged(model);
+}
+
+//  void QQmlTreeModelToTableModel::rootIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlTreeModelToTableModel16rootIndexChangedEv(
+    QQmlTreeModelToTableModel *self) {
+  self->rootIndexChanged();
+}
+
+//  void QQmlTreeModelToTableModel::expanded(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlTreeModelToTableModel8expandedERK11QModelIndex(
+    QQmlTreeModelToTableModel *self,
+    const QModelIndex *index) {
+  self->expanded(*index);
+}
+
+//  void QQmlTreeModelToTableModel::collapsed(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlTreeModelToTableModel9collapsedERK11QModelIndex(
+    QQmlTreeModelToTableModel *self,
+    const QModelIndex *index) {
+  self->collapsed(*index);
 }
 
 //  void QQmlTreeModelToTableModel::expand(const QModelIndex &a0)
@@ -387,6 +460,17 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN25QQmlTreeModelToTableModel17modelHasBeenResetEv(
     QQmlTreeModelToTableModel *self) {
   self->modelHasBeenReset();
+}
+
+//  void QQmlTreeModelToTableModel::modelDataChanged(const QModelIndex
+//      &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlTreeModelToTableModel16modelDataChangedERK11QModelIndexS2_RK5QListIiE(
+    QQmlTreeModelToTableModel *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->modelDataChanged(*topLeft, *bottomRight, *roles);
 }
 
 //  void QQmlTreeModelToTableModel::modelLayoutAboutToBeChanged(const
@@ -556,6 +640,17 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK25QQmlTreeModelToTableModel20isAggregatingSignalsEv(
     const QQmlTreeModelToTableModel *self) {
   return self->isAggregatingSignals();
+}
+
+//  void QQmlTreeModelToTableModel::queueDataChanged(int top, int bottom,
+//      std::initializer_list<int> roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlTreeModelToTableModel16queueDataChangedEiiSt16initializer_listIiE(
+    QQmlTreeModelToTableModel *self,
+    int top,
+    int bottom,
+    const std::initializer_list<int> *roles) {
+  self->queueDataChanged(top, bottom, *roles);
 }
 
 //  void QQmlTreeModelToTableModel::emitQueuedSignals()

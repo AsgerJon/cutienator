@@ -67,12 +67,36 @@ void ritual_ZN15QSSGRenderLayer19setProbeOrientationERK9QVector3D(
   self->setProbeOrientation(*angles);
 }
 
+//  void QSSGRenderLayer::addEffect(QSSGRenderEffect &inEffect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSSGRenderLayer9addEffectER16QSSGRenderEffect(
+    QSSGRenderLayer *self,
+    QSSGRenderEffect *inEffect) {
+  self->addEffect(*inEffect);
+}
+
 //  bool QSSGRenderLayer::hasEffect(QSSGRenderEffect *inEffect) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QSSGRenderLayer9hasEffectEP16QSSGRenderEffect(
     const QSSGRenderLayer *self,
     QSSGRenderEffect *inEffect) {
   return self->hasEffect(inEffect);
+}
+
+//  void QSSGRenderLayer::setImportScene(QSSGRenderNode &rootNode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSSGRenderLayer14setImportSceneER14QSSGRenderNode(
+    QSSGRenderLayer *self,
+    QSSGRenderNode *rootNode) {
+  self->setImportScene(*rootNode);
+}
+
+//  void QSSGRenderLayer::removeImportScene(QSSGRenderNode &importedNode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSSGRenderLayer17removeImportSceneER14QSSGRenderNode(
+    QSSGRenderLayer *self,
+    QSSGRenderNode *importedNode) {
+  self->removeImportScene(*importedNode);
 }
 
 //  bool QSSGRenderLayer::isMsaaEnabled() const

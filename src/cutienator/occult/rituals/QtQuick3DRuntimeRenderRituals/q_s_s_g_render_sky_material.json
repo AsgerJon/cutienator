@@ -6,6 +6,25 @@
   ],
   "rows": {
     "ritual_ZN21QSSGRenderSkyMaterialC1Ev": ["address"],
-    "ritual_ZN21QSSGRenderSkyMaterialD1Ev": ["nothing", "address"]
+    "ritual_ZN21QSSGRenderSkyMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZN21QSSGRenderSkyMaterial14ensurePipelineERK26QSSGRenderContextInterface": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRenderSkyMaterial24ensureBackgroundPipelineERK26QSSGRenderContextInterfaceRK18QSSGShaderFeaturesji": [
+      "address", "address", "address", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN21QSSGRenderSkyMaterial14updateUniformsERK26QSSGRenderContextInterfaceRK10QMatrix4x415QVarLengthArrayIS3_Lx6EE": [
+      "unsigned int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRenderSkyMaterial24updateBackgroundUniformsERK26QSSGRenderContextInterfaceRK15QVarLengthArrayI10QMatrix4x4Lx2EES7_ff": [
+      "nothing", "address", "address", "address", "address", "float", "float"
+    ],
+    "ritual_ZN21QSSGRenderSkyMaterial13buildPipelineERK26QSSGRenderContextInterface10QByteArrayRK15QVarLengthArrayISt4pairIS3_S3_ELx16EES9_RKS3_S9_RK18QSSGShaderFeaturesiSB_": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_drop_QSSGRenderSkyMaterial__QSSGRhiShaderPipelinePtr": [
+      "nothing", "address"
+    ]
   }
 }

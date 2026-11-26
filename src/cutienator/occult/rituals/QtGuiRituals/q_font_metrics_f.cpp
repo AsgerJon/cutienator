@@ -35,10 +35,48 @@ QFontMetricsF *ritual_ZN13QFontMetricsFC1ERKS_(const QFontMetricsF *a0) {
   return new QFontMetricsF(*a0);
 }
 
+//  QFontMetricsF::QFontMetricsF(QFontMetricsF &&a0)
+extern "C" Q_DECL_EXPORT
+QFontMetricsF *ritual_ZN13QFontMetricsFC1EOS_(QFontMetricsF *a0) {
+  return new QFontMetricsF(std::move(*a0));
+}
+
 //  QFontMetricsF::~QFontMetricsF()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QFontMetricsFD1Ev(QFontMetricsF *self) {
   delete self;
+}
+
+//  QFontMetricsF &QFontMetricsF::operator=(const QFontMetricsF &a0)
+extern "C" Q_DECL_EXPORT
+QFontMetricsF *ritual_ZN13QFontMetricsFaSERKS_(
+    QFontMetricsF *self,
+    const QFontMetricsF *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QFontMetricsF &QFontMetricsF::operator=(const QFontMetrics &a0)
+extern "C" Q_DECL_EXPORT
+QFontMetricsF *ritual_ZN13QFontMetricsFaSERK12QFontMetrics(
+    QFontMetricsF *self,
+    const QFontMetrics *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QFontMetricsF &QFontMetricsF::operator=(QFontMetricsF &&other)
+extern "C" Q_DECL_EXPORT
+QFontMetricsF *ritual_ZN13QFontMetricsFaSEOS_(
+    QFontMetricsF *self,
+    QFontMetricsF *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QFontMetricsF::swap(QFontMetricsF &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QFontMetricsF4swapERS_(
+    QFontMetricsF *self,
+    QFontMetricsF *other) {
+  self->swap(*other);
 }
 
 //  qreal QFontMetricsF::ascent() const

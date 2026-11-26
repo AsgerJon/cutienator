@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK20QQmlXmlListModelRole10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlXmlListModelRole::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQmlXmlListModelRole11qt_metacastEPKc(
+    QQmlXmlListModelRole *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlXmlListModelRole::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQmlXmlListModelRole11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlXmlListModelRole *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlXmlListModelRole::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQmlXmlListModelRole2trEPKcS1_i(
@@ -255,6 +274,27 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QQmlXmlListModelRole7isValidEv(
     const QQmlXmlListModelRole *self) {
   return self->isValid();
+}
+
+//  void QQmlXmlListModelRole::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlXmlListModelRole11nameChangedEv(
+    QQmlXmlListModelRole *self) {
+  self->nameChanged();
+}
+
+//  void QQmlXmlListModelRole::elementNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlXmlListModelRole18elementNameChangedEv(
+    QQmlXmlListModelRole *self) {
+  self->elementNameChanged();
+}
+
+//  void QQmlXmlListModelRole::attributeNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlXmlListModelRole20attributeNameChangedEv(
+    QQmlXmlListModelRole *self) {
+  self->attributeNameChanged();
 }
 
 //  a Python function taken by a CuteQQmlXmlListModelRole, for the function

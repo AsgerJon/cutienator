@@ -8,6 +8,22 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/qnodeid.h>
 
+//  Qt3DRender::Render::RenderTargetSelector::RenderTargetSelector()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::RenderTargetSelector *ritual_ZN10Qt3DRender6Render20RenderTargetSelectorC1Ev() {
+  return new Qt3DRender::Render::RenderTargetSelector();
+}
+
+//  void Qt3DRender::Render::RenderTargetSelector::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render20RenderTargetSelector16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::RenderTargetSelector *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  Qt3DCore::QNodeId
 //      Qt3DRender::Render::RenderTargetSelector::renderTargetUuid() const
 extern "C" Q_DECL_EXPORT

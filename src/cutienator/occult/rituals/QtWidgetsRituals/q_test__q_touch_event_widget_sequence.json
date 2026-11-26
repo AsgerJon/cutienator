@@ -5,8 +5,27 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN5QTest25QTouchEventWidgetSequenceD1Ev": ["nothing", "address"],
+    "ritual_ZN5QTest25QTouchEventWidgetSequence5pressEiRK6QPointP7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN5QTest25QTouchEventWidgetSequence4moveEiRK6QPointP7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN5QTest25QTouchEventWidgetSequence7releaseEiRK6QPointP7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN5QTest25QTouchEventWidgetSequence10stationaryEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN5QTest25QTouchEventWidgetSequence6commitEb": [
+      "bool", "address", "bool"
+    ],
     "ritual_ZN5QTest25QTouchEventWidgetSequenceC1EP7QWidgetP15QPointingDeviceb": [
       "address", "address", "address", "bool"
+    ],
+    "ritual_ZN5QTest25QTouchEventWidgetSequence11mapToScreenEP7QWidgetRK6QPoint": [
+      "address", "address", "address", "address"
     ],
     "ritual_take_QTest_QTouchEventWidgetSequence": [
       "bool", "address", "chars", "address"

@@ -24,8 +24,17 @@
     "ritual_ZNK9QtPrivate12XmlStringRef6slicedExx": [
       "address", "address", "long long", "long long"
     ],
+    "ritual_ZNK9QtPrivate12XmlStringRef4dataEv": ["address", "address"],
     "ritual_ZNK9QtPrivate12XmlStringRef4sizeEv": ["long long", "address"],
     "ritual_ZNK9QtPrivate12XmlStringRef5emptyEv": ["bool", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef5beginEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef3endEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef6cbeginEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef4cendEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef6rbeginEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef4rendEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef7crbeginEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef5crendEv": ["address", "address"],
     "ritual_ZN9QtPrivateeqERKNS_12XmlStringRefES2_": [
       "bool", "address", "address"
     ],
@@ -83,6 +92,9 @@
     "ritual_ZNK9QtPrivate12XmlStringRef6verifyExx": [
       "nothing", "address", "long long", "long long"
     ],
-    "ritual_ZN9QtPrivate12XmlStringRefD1Ev": ["nothing", "address"]
+    "ritual_ZN9QtPrivate12XmlStringRefD1Ev": ["nothing", "address"],
+    "ritual_drop_QtPrivate_XmlStringRef__QtPrivate_XmlStringRef_const_reverse_iterator": [
+      "nothing", "address"
+    ]
   }
 }

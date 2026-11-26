@@ -5,7 +5,13 @@
     "egration_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9QtWayland12ServerBufferC1ERK5QSizeNS0_6FormatE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN9QtWayland12ServerBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN9QtWayland12ServerBuffer17resourceForClientEP9wl_client": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QtWayland12ServerBuffer11bufferInUseEv": ["bool", "address"],
     "ritual_ZN9QtWayland12ServerBuffer15toOpenGlTextureEv": [
       "address", "address"
@@ -14,6 +20,8 @@
       "nothing", "address"
     ],
     "ritual_ZNK9QtWayland12ServerBuffer11isYInvertedEv": ["bool", "address"],
+    "ritual_ZNK9QtWayland12ServerBuffer4sizeEv": ["address", "address"],
+    "ritual_ZNK9QtWayland12ServerBuffer6formatEv": ["int", "address"],
     "ritual_take_QtWayland_ServerBuffer": [
       "bool", "address", "chars", "address"
     ],

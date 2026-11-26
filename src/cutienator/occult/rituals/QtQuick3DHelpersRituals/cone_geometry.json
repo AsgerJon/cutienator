@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12ConeGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN12ConeGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12ConeGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12ConeGeometry2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12ConeGeometryC1EP14QQuick3DObject": ["address", "address"],
     "ritual_ZN12ConeGeometryD1Ev": ["nothing", "address"],
@@ -30,9 +36,28 @@
     "ritual_ZNK12ConeGeometry6statusEv": ["int", "address"],
     "ritual_ZN12ConeGeometry16doUpdateGeometryEv": ["nothing", "address"],
     "ritual_ZN12ConeGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN12ConeGeometry16topRadiusChangedEv": ["nothing", "address"],
+    "ritual_ZN12ConeGeometry19bottomRadiusChangedEv": ["nothing", "address"],
+    "ritual_ZN12ConeGeometry13lengthChangedEv": ["nothing", "address"],
+    "ritual_ZN12ConeGeometry12ringsChangedEv": ["nothing", "address"],
+    "ritual_ZN12ConeGeometry15segmentsChangedEv": ["nothing", "address"],
+    "ritual_ZN12ConeGeometry19asynchronousChangedEv": ["nothing", "address"],
+    "ritual_ZN12ConeGeometry13statusChangedEv": ["nothing", "address"],
     "ritual_ZN12ConeGeometry22scheduleGeometryUpdateEv": [
       "nothing", "address"
     ],
-    "ritual_take_ConeGeometry": ["bool", "address", "chars", "address"]
+    "ritual_ZN12ConeGeometry14updateGeometryERKNS_12GeometryDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ConeGeometry20generateConeGeometryEfffii": [
+      "address", "float", "float", "float", "int", "int"
+    ],
+    "ritual_ZN12ConeGeometry25generateConeGeometryAsyncER8QPromiseINS_12GeometryDataEEfffii": [
+      "nothing", "address", "float", "float", "float", "int", "int"
+    ],
+    "ritual_take_ConeGeometry": ["bool", "address", "chars", "address"],
+    "ritual_drop_ConeGeometry__ConeGeometry_GeometryData": [
+      "nothing", "address"
+    ]
   }
 }

@@ -8,13 +8,25 @@
     "ritual_ZNK22QQuickGrabGestureEvent10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickGrabGestureEvent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickGrabGestureEvent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickGrabGestureEvent24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN22QQuickGrabGestureEvent4grabEv": ["nothing", "address"],
     "ritual_ZNK22QQuickGrabGestureEvent9wantsGrabEv": ["bool", "address"],
+    "ritual_ZN22QQuickGrabGestureEvent11touchPointsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK22QQuickGrabGestureEvent13dragThresholdEv": [
       "double", "address"
+    ],
+    "ritual_drop_QQuickGrabGestureEvent__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

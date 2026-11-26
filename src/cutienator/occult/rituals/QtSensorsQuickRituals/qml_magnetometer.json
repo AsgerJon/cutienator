@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QmlMagnetometer10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QmlMagnetometer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QmlMagnetometer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QmlMagnetometer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK15QmlMagnetometer6sensorEv": ["address", "address"],
+    "ritual_ZN15QmlMagnetometer22returnGeoValuesChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK15QmlMagnetometer13createReadingEv": ["address", "address"],
     "ritual_take_QmlMagnetometer": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QmlMagnetometer6sensorEv": ["address", "address"],

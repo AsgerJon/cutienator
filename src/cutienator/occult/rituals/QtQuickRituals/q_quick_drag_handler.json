@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickDragHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickDragHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickDragHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickDragHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,11 +38,20 @@
     "ritual_ZN17QQuickDragHandler11setSnapModeENS_8SnapModeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN17QQuickDragHandler18translationChangedE9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickDragHandler15snapModeChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QQuickDragHandler17wantsPointerEventEP13QPointerEvent": [
       "bool", "address", "address"
     ],
     "ritual_ZN17QQuickDragHandler15onActiveChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QQuickDragHandler13onGrabChangedEP20QQuickPointerHandlerN15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "int", "address", "address"
     ],
     "ritual_ZN17QQuickDragHandler22enforceAxisConstraintsEP7QPointF": [
       "nothing", "address", "address"

@@ -13,7 +13,10 @@
       "address", "address", "int", "text", "int"
     ],
     "ritual_ZN9QPageSizeC1ERKS_": ["address", "address"],
+    "ritual_ZN9QPageSizeaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QPageSizeaSERKS_": ["address", "address", "address"],
     "ritual_ZN9QPageSizeD1Ev": ["nothing", "address"],
+    "ritual_ZN9QPageSize4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QPageSize14isEquivalentToERKS_": [
       "bool", "address", "address"
     ],
@@ -60,6 +63,7 @@
     "ritual_ZN9QPageSizeC1EiRK5QSizeRK7QString": [
       "address", "int", "address", "text"
     ],
+    "ritual_ZN9QPageSizeC1ER16QPageSizePrivate": ["address", "address"],
     "ritual_list_make_QPageSize": ["address"],
     "ritual_list_add_QPageSize": ["nothing", "address", "address"],
     "ritual_list_size_QPageSize": ["long long", "address"],

@@ -9,7 +9,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttp2configuration_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(http)
 #include <QtNetwork/qhttp2configuration.h>
+#endif
+
+//  QHttp2ConfigurationPrivate
+//      *QHttp2ConfigurationPrivate::get(QHttp2Configuration &config)
+extern "C" Q_DECL_EXPORT
+QHttp2ConfigurationPrivate *ritual_ZN26QHttp2ConfigurationPrivate3getER19QHttp2Configuration(
+    QHttp2Configuration *config) {
+  return QHttp2ConfigurationPrivate::get(*config);
+}
 
 //  const QHttp2ConfigurationPrivate *QHttp2ConfigurationPrivate::get(const
 //      QHttp2Configuration &config)

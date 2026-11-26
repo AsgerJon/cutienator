@@ -16,6 +16,12 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtQuick/QQuickTransform>
+#include <QtCore/QBindable>
+#include <QtCore/QSharedPointer>
+#include <QtQuick/QQuickItemGrabResult>
+#include <QtCore/QSize>
 
 //  Only a class built on QQuickItem may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -820,6 +826,24 @@ const QMetaObject *ritual_ZNK10QQuickItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickItem11qt_metacastEPKc(
+    QQuickItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQuickItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQuickItem2trEPKcS1_i(
@@ -928,6 +952,13 @@ void ritual_ZN10QQuickItem17setBaselineOffsetEd(QQuickItem *self, qreal a0) {
   self->setBaselineOffset(a0);
 }
 
+//  QQmlListProperty<QQuickTransform> QQuickItem::transform()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickTransform> *ritual_ZN10QQuickItem9transformEv(
+    QQuickItem *self) {
+  return new QQmlListProperty<QQuickTransform>(self->transform());
+}
+
 //  qreal QQuickItem::x() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10QQuickItem1xEv(const QQuickItem *self) {
@@ -966,6 +997,18 @@ void ritual_ZN10QQuickItem11setPositionERK7QPointF(
   self->setPosition(*a0);
 }
 
+//  QBindable<qreal> QQuickItem::bindableX()
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZN10QQuickItem9bindableXEv(QQuickItem *self) {
+  return new QBindable<qreal>(self->bindableX());
+}
+
+//  QBindable<qreal> QQuickItem::bindableY()
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZN10QQuickItem9bindableYEv(QQuickItem *self) {
+  return new QBindable<qreal>(self->bindableY());
+}
+
 //  qreal QQuickItem::width() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10QQuickItem5widthEv(const QQuickItem *self) {
@@ -996,6 +1039,12 @@ qreal ritual_ZNK10QQuickItem13implicitWidthEv(const QQuickItem *self) {
   return self->implicitWidth();
 }
 
+//  QBindable<qreal> QQuickItem::bindableWidth()
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZN10QQuickItem13bindableWidthEv(QQuickItem *self) {
+  return new QBindable<qreal>(self->bindableWidth());
+}
+
 //  qreal QQuickItem::height() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10QQuickItem6heightEv(const QQuickItem *self) {
@@ -1024,6 +1073,12 @@ void ritual_ZN10QQuickItem17setImplicitHeightEd(QQuickItem *self, qreal a0) {
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10QQuickItem14implicitHeightEv(const QQuickItem *self) {
   return self->implicitHeight();
+}
+
+//  QBindable<qreal> QQuickItem::bindableHeight()
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZN10QQuickItem14bindableHeightEv(QQuickItem *self) {
+  return new QBindable<qreal>(self->bindableHeight());
 }
 
 //  QSizeF QQuickItem::size() const
@@ -1403,6 +1458,14 @@ void ritual_ZN10QQuickItem26setFiltersChildMouseEventsEb(
   self->setFiltersChildMouseEvents(filter);
 }
 
+//  void QQuickItem::grabTouchPoints(const QList<int> &ids)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem15grabTouchPointsERK5QListIiE(
+    QQuickItem *self,
+    const QList<int> *ids) {
+  self->grabTouchPoints(*ids);
+}
+
 //  void QQuickItem::ungrabTouchPoints()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickItem17ungrabTouchPointsEv(QQuickItem *self) {
@@ -1429,6 +1492,17 @@ bool ritual_ZN10QQuickItem11grabToImageERK8QJSValueRK5QSize(
     const QJSValue *callback,
     const QSize *targetSize) {
   return self->grabToImage(*callback, *targetSize);
+}
+
+//  QSharedPointer<QQuickItemGrabResult> QQuickItem::grabToImage(const QSize
+//      &targetSize)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QQuickItemGrabResult> *ritual_ZN10QQuickItem11grabToImageERK5QSize(
+    QQuickItem *self,
+    const QSize *targetSize) {
+  return new QSharedPointer<QQuickItemGrabResult>(
+      self->grabToImage(
+          *targetSize));
 }
 
 //  bool QQuickItem::contains(const QPointF &point) const
@@ -1766,6 +1840,212 @@ void ritual_ZN10QQuickItem6updateEv(QQuickItem *self) {
   self->update();
 }
 
+//  void QQuickItem::childrenRectChanged(const QRectF &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem19childrenRectChangedERK6QRectF(
+    QQuickItem *self,
+    const QRectF *a0) {
+  self->childrenRectChanged(*a0);
+}
+
+//  void QQuickItem::baselineOffsetChanged(qreal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem21baselineOffsetChangedEd(
+    QQuickItem *self,
+    qreal a0) {
+  self->baselineOffsetChanged(a0);
+}
+
+//  void QQuickItem::stateChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem12stateChangedERK7QString(
+    QQuickItem *self,
+    const QString *a0) {
+  self->stateChanged(*a0);
+}
+
+//  void QQuickItem::focusChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem12focusChangedEb(QQuickItem *self, bool a0) {
+  self->focusChanged(a0);
+}
+
+//  void QQuickItem::activeFocusChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem18activeFocusChangedEb(QQuickItem *self, bool a0) {
+  self->activeFocusChanged(a0);
+}
+
+//  void QQuickItem::focusPolicyChanged(Qt::FocusPolicy a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem18focusPolicyChangedEN2Qt11FocusPolicyE(
+    QQuickItem *self,
+    Qt::FocusPolicy a0) {
+  self->focusPolicyChanged(a0);
+}
+
+//  void QQuickItem::activeFocusOnTabChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem23activeFocusOnTabChangedEb(
+    QQuickItem *self,
+    bool a0) {
+  self->activeFocusOnTabChanged(a0);
+}
+
+//  void QQuickItem::parentChanged(QQuickItem *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem13parentChangedEPS_(
+    QQuickItem *self,
+    QQuickItem *a0) {
+  self->parentChanged(a0);
+}
+
+//  void QQuickItem::transformOriginChanged(TransformOrigin a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem22transformOriginChangedENS_15TransformOriginE(
+    QQuickItem *self,
+    QQuickItem::TransformOrigin a0) {
+  self->transformOriginChanged(a0);
+}
+
+//  void QQuickItem::smoothChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem13smoothChangedEb(QQuickItem *self, bool a0) {
+  self->smoothChanged(a0);
+}
+
+//  void QQuickItem::antialiasingChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem19antialiasingChangedEb(
+    QQuickItem *self,
+    bool a0) {
+  self->antialiasingChanged(a0);
+}
+
+//  void QQuickItem::clipChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem11clipChangedEb(QQuickItem *self, bool a0) {
+  self->clipChanged(a0);
+}
+
+//  void QQuickItem::windowChanged(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem13windowChangedEP12QQuickWindow(
+    QQuickItem *self,
+    QQuickWindow *window) {
+  self->windowChanged(window);
+}
+
+//  void QQuickItem::childrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem15childrenChangedEv(QQuickItem *self) {
+  self->childrenChanged();
+}
+
+//  void QQuickItem::opacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem14opacityChangedEv(QQuickItem *self) {
+  self->opacityChanged();
+}
+
+//  void QQuickItem::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem14enabledChangedEv(QQuickItem *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickItem::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem14visibleChangedEv(QQuickItem *self) {
+  self->visibleChanged();
+}
+
+//  void QQuickItem::visibleChildrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem22visibleChildrenChangedEv(QQuickItem *self) {
+  self->visibleChildrenChanged();
+}
+
+//  void QQuickItem::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem15rotationChangedEv(QQuickItem *self) {
+  self->rotationChanged();
+}
+
+//  void QQuickItem::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem12scaleChangedEv(QQuickItem *self) {
+  self->scaleChanged();
+}
+
+//  void QQuickItem::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem8xChangedEv(QQuickItem *self) {
+  self->xChanged();
+}
+
+//  void QQuickItem::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem8yChangedEv(QQuickItem *self) {
+  self->yChanged();
+}
+
+//  void QQuickItem::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem12widthChangedEv(QQuickItem *self) {
+  self->widthChanged();
+}
+
+//  void QQuickItem::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem13heightChangedEv(QQuickItem *self) {
+  self->heightChanged();
+}
+
+//  void QQuickItem::zChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem8zChangedEv(QQuickItem *self) {
+  self->zChanged();
+}
+
+//  void QQuickItem::implicitWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem20implicitWidthChangedEv(QQuickItem *self) {
+  self->implicitWidthChanged();
+}
+
+//  void QQuickItem::implicitHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem21implicitHeightChangedEv(QQuickItem *self) {
+  self->implicitHeightChanged();
+}
+
+//  void QQuickItem::containmentMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem22containmentMaskChangedEv(QQuickItem *self) {
+  self->containmentMaskChanged();
+}
+
+//  void QQuickItem::paletteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem14paletteChangedEv(QQuickItem *self) {
+  self->paletteChanged();
+}
+
+//  void QQuickItem::paletteCreated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem14paletteCreatedEv(QQuickItem *self) {
+  self->paletteCreated();
+}
+
+//  void QQuickItem::mutabilityGroupChanged(int group)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickItem22mutabilityGroupChangedEi(
+    QQuickItem *self,
+    int group) {
+  self->mutabilityGroupChanged(group);
+}
+
 //  bool QQuickItem::event(QEvent *a0)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN10QQuickItem5eventEP6QEvent(QQuickItem *self, QEvent *a0) {
@@ -2037,6 +2317,14 @@ void ritual_ZN10QQuickItem16releaseResourcesEv(QQuickItem *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickItem12updatePolishEv(QQuickItem *self) {
   self->updatePolish();
+}
+
+//  QQuickItem::QQuickItem(QQuickItemPrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickItem *ritual_ZN10QQuickItemC1ER17QQuickItemPrivatePS_(
+    QQuickItemPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickItem(*dd, parent);
 }
 
 #if !defined(QT_NO_DEBUG_STREAM)
@@ -2394,5 +2682,25 @@ QQuickItem *ritual_list_at_QQuickItem_ptr(
 //  QList<QQuickItem *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQuickItem_ptr(QList<QQuickItem *> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickTransform> a ritual of QQuickItem gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickItem__QQmlListProperty_QQuickTransform(
+    QQmlListProperty<QQuickTransform> *self) {
+  delete self;
+}
+
+//  a QBindable<qreal> a ritual of QQuickItem gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickItem__QBindable_qreal(QBindable<qreal> *self) {
+  delete self;
+}
+
+//  a QSharedPointer<QQuickItemGrabResult> a ritual of QQuickItem gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickItem__QSharedPointer_QQuickItemGrabResult(
+    QSharedPointer<QQuickItemGrabResult> *self) {
   delete self;
 }

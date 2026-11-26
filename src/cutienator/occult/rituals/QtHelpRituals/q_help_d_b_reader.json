@@ -6,7 +6,42 @@
   ],
   "rows": {
     "ritual_ZNK13QHelpDBReader10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QHelpDBReader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QHelpDBReader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QHelpDBReaderD1Ev": ["nothing", "address"],
-    "ritual_take_QHelpDBReader": ["bool", "address", "chars", "address"]
+    "ritual_ZNK13QHelpDBReader13namespaceNameEv": ["text", "address"],
+    "ritual_ZNK13QHelpDBReader13virtualFolderEv": ["text", "address"],
+    "ritual_ZNK13QHelpDBReader7versionEv": ["text", "address"],
+    "ritual_ZNK13QHelpDBReader19filterAttributeSetsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QHelpDBReader9filesDataERK5QListI7QStringERKS1_": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK13QHelpDBReader8fileDataERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZNK13QHelpDBReader13customFiltersEv": ["address", "address"],
+    "ritual_ZNK13QHelpDBReader16filterAttributesERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QHelpDBReader8metaDataERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN13QHelpDBReader16versionHeuristicERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZNK13QHelpDBReader5quoteERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_take_QHelpDBReader": ["bool", "address", "chars", "address"],
+    "ritual_drop_QHelpDBReader__QList_QStringList": ["nothing", "address"],
+    "ritual_drop_QHelpDBReader__QMultiMap_QString_QByteArray": [
+      "nothing", "address"
+    ]
   }
 }

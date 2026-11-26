@@ -183,6 +183,25 @@ const QMetaObject *ritual_ZNK17QGeoCodingManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoCodingManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QGeoCodingManager11qt_metacastEPKc(
+    QGeoCodingManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoCodingManager::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QGeoCodingManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoCodingManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoCodingManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QGeoCodingManager2trEPKcS1_i(
@@ -257,6 +276,25 @@ extern "C" Q_DECL_EXPORT
 QLocale *ritual_ZNK17QGeoCodingManager6localeEv(
     const QGeoCodingManager *self) {
   return new QLocale(self->locale());
+}
+
+//  void QGeoCodingManager::finished(QGeoCodeReply *reply)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGeoCodingManager8finishedEP13QGeoCodeReply(
+    QGeoCodingManager *self,
+    QGeoCodeReply *reply) {
+  self->finished(reply);
+}
+
+//  void QGeoCodingManager::errorOccurred(QGeoCodeReply *reply,
+//      QGeoCodeReply::Error error, const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGeoCodingManager13errorOccurredEP13QGeoCodeReplyNS0_5ErrorERK7QString(
+    QGeoCodingManager *self,
+    QGeoCodeReply *reply,
+    QGeoCodeReply::Error error,
+    const QString *errorString) {
+  self->errorOccurred(reply, error, *errorString);
 }
 
 //  QGeoCodingManager::QGeoCodingManager(QGeoCodingManagerEngine *engine,

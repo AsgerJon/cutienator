@@ -2,7 +2,7 @@
 //  QtGraphs/qlogvalue3daxisformatter.h, Qt 6.12.0. Changes made here are
 //  lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qlogvalue3daxisformatter.h>
 #include <QtCore/qstring.h>
@@ -278,6 +278,25 @@ const QMetaObject *ritual_ZNK24QLogValue3DAxisFormatter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLogValue3DAxisFormatter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QLogValue3DAxisFormatter11qt_metacastEPKc(
+    QLogValue3DAxisFormatter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLogValue3DAxisFormatter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QLogValue3DAxisFormatter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLogValue3DAxisFormatter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLogValue3DAxisFormatter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QLogValue3DAxisFormatter2trEPKcS1_i(
@@ -300,6 +319,15 @@ extern "C" Q_DECL_EXPORT
 const QLogValue3DAxisFormatterPrivate *ritual_ZNK24QLogValue3DAxisFormatter6d_funcEv(
     const QLogValue3DAxisFormatter *self) {
   return self->d_func();
+}
+
+//  QLogValue3DAxisFormatter::QLogValue3DAxisFormatter(QLogValue3DAxisFormatt
+//      erPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QLogValue3DAxisFormatter *ritual_ZN24QLogValue3DAxisFormatterC1ER31QLogValue3DAxisFormatterPrivateP7QObject(
+    QLogValue3DAxisFormatterPrivate *d,
+    QObject *parent) {
+  return new CuteQLogValue3DAxisFormatter(*d, parent);
 }
 
 //  QLogValue3DAxisFormatter::QLogValue3DAxisFormatter(QObject *parent)
@@ -361,6 +389,30 @@ bool ritual_ZNK24QLogValue3DAxisFormatter17edgeLabelsVisibleEv(
   return self->edgeLabelsVisible();
 }
 
+//  void QLogValue3DAxisFormatter::baseChanged(qreal base)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLogValue3DAxisFormatter11baseChangedEd(
+    QLogValue3DAxisFormatter *self,
+    qreal base) {
+  self->baseChanged(base);
+}
+
+//  void QLogValue3DAxisFormatter::autoSubGridChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLogValue3DAxisFormatter18autoSubGridChangedEb(
+    QLogValue3DAxisFormatter *self,
+    bool enabled) {
+  self->autoSubGridChanged(enabled);
+}
+
+//  void QLogValue3DAxisFormatter::edgeLabelsVisibleChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLogValue3DAxisFormatter24edgeLabelsVisibleChangedEb(
+    QLogValue3DAxisFormatter *self,
+    bool enabled) {
+  self->edgeLabelsVisibleChanged(enabled);
+}
+
 //  QValue3DAxisFormatter *QLogValue3DAxisFormatter::createNewInstance()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -390,6 +442,14 @@ float ritual_ZNK24QLogValue3DAxisFormatter7valueAtEf(
     const QLogValue3DAxisFormatter *self,
     float position) {
   return self->valueAt(position);
+}
+
+//  void QLogValue3DAxisFormatter::populateCopy(QValue3DAxisFormatter &copy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLogValue3DAxisFormatter12populateCopyER21QValue3DAxisFormatter(
+    QLogValue3DAxisFormatter *self,
+    QValue3DAxisFormatter *copy) {
+  self->populateCopy(*copy);
 }
 
 //  a Python function taken by a CuteQLogValue3DAxisFormatter, for the
@@ -435,4 +495,4 @@ float ritual_own_ZNK24QLogValue3DAxisFormatter7valueAtEf(
       position);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

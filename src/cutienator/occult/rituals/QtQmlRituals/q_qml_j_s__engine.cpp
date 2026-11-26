@@ -1,11 +1,11 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmljsengine_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  Written by hand on 2026-11-25 from
+//  QtQml/6.12.0/QtQml/private/qqmljsengine_p.h, Qt 6.12.0, from Qt's
+//  source. Kept as it is when the generator runs again.
+//  Qt's library offers nothing of this class by name: it has no
+//  virtual function and its functions are all inline. Not written: the
+//  constructor, and 'comments', which gives a QList.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
-#include <QtQml/QtQml>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsengine_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
 
@@ -19,8 +19,9 @@ void ritual_ZN6QQmlJS6Engine7setCodeERK7QString(
 
 //  const QString &QQmlJS::Engine::code() const
 extern "C" Q_DECL_EXPORT
-QString *ritual_ZNK6QQmlJS6Engine4codeEv(const QQmlJS::Engine *self) {
-  return new QString(self->code());
+const QString *ritual_ZNK6QQmlJS6Engine4codeEv(
+    const QQmlJS::Engine *self) {
+  return &(self->code());
 }
 
 //  void QQmlJS::Engine::addComment(int pos, int len, int line, int col)
@@ -32,6 +33,21 @@ void ritual_ZN6QQmlJS6Engine10addCommentEiiii(
     int line,
     int col) {
   self->addComment(pos, len, line, col);
+}
+
+//  Lexer *QQmlJS::Engine::lexer() const
+extern "C" Q_DECL_EXPORT
+QQmlJS::Lexer *ritual_ZNK6QQmlJS6Engine5lexerEv(
+    const QQmlJS::Engine *self) {
+  return self->lexer();
+}
+
+//  void QQmlJS::Engine::setLexer(Lexer *lexer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS6Engine8setLexerEPNS_5LexerE(
+    QQmlJS::Engine *self,
+    QQmlJS::Lexer *lexer) {
+  self->setLexer(lexer);
 }
 
 //  Directives *QQmlJS::Engine::directives() const
@@ -51,7 +67,8 @@ void ritual_ZN6QQmlJS6Engine13setDirectivesEPNS_10DirectivesE(
 
 //  MemoryPool *QQmlJS::Engine::pool()
 extern "C" Q_DECL_EXPORT
-QQmlJS::MemoryPool *ritual_ZN6QQmlJS6Engine4poolEv(QQmlJS::Engine *self) {
+QQmlJS::MemoryPool *ritual_ZN6QQmlJS6Engine4poolEv(
+    QQmlJS::Engine *self) {
   return self->pool();
 }
 
@@ -64,26 +81,27 @@ const QQmlJS::MemoryPool *ritual_ZNK6QQmlJS6Engine4poolEv(
 
 //  QStringView QQmlJS::Engine::midRef(int position, int size)
 extern "C" Q_DECL_EXPORT
-QString *ritual_ZN6QQmlJS6Engine6midRefEii(
+QStringView *ritual_ZN6QQmlJS6Engine6midRefEii(
     QQmlJS::Engine *self,
     int position,
     int size) {
-  return new QString(self->midRef(position, size).toString());
+  return new QStringView(self->midRef(position, size));
 }
 
 //  QStringView QQmlJS::Engine::newStringRef(const QString &text)
 extern "C" Q_DECL_EXPORT
-QString *ritual_ZN6QQmlJS6Engine12newStringRefERK7QString(
+QStringView *ritual_ZN6QQmlJS6Engine12newStringRefERK7QString(
     QQmlJS::Engine *self,
     const QString *text) {
-  return new QString(self->newStringRef(*text).toString());
+  return new QStringView(self->newStringRef(*text));
 }
 
-//  QStringView QQmlJS::Engine::newStringRef(const QChar *chars, int size)
+//  QStringView QQmlJS::Engine::newStringRef(const QChar *chars, int
+//      size)
 extern "C" Q_DECL_EXPORT
-QString *ritual_ZN6QQmlJS6Engine12newStringRefEPK5QChari(
+QStringView *ritual_ZN6QQmlJS6Engine12newStringRefEPK5QChari(
     QQmlJS::Engine *self,
     const QChar *chars,
     int size) {
-  return new QString(self->newStringRef(chars, size).toString());
+  return new QStringView(self->newStringRef(chars, size));
 }

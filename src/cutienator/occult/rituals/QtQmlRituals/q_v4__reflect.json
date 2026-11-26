@@ -7,6 +7,39 @@
   "rows": {
     "ritual_ZN3QV47Reflect10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV47Reflect11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV47Reflect1dEv": ["address", "address"]
+    "ritual_ZNK3QV47Reflect1dEv": ["address", "address"],
+    "ritual_ZN3QV47Reflect21method_definePropertyEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect21method_deletePropertyEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect10method_getEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect31method_getOwnPropertyDescriptorEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect21method_getPrototypeOfEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect10method_hasEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect19method_isExtensibleEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect14method_ownKeysEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect24method_preventExtensionsEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect10method_setEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Reflect21method_setPrototypeOfEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

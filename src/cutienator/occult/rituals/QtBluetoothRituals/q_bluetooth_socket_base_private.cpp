@@ -26,41 +26,42 @@ typedef const QBluetoothAddress * (*CuteQBluetoothSocketBasePrivateCall5)(const 
 typedef quint16 (*CuteQBluetoothSocketBasePrivateCall6)(const void *, int *);
 typedef void (*CuteQBluetoothSocketBasePrivateCall7)(const void *, int *);
 typedef void (*CuteQBluetoothSocketBasePrivateCall8)(const void *, int *);
-typedef qint64 (*CuteQBluetoothSocketBasePrivateCall9)(const void *, int *);
-typedef bool (*CuteQBluetoothSocketBasePrivateCall10)(const void *, int *);
-typedef qint64 (*CuteQBluetoothSocketBasePrivateCall11)(const void *, int *);
-typedef bool (*CuteQBluetoothSocketBasePrivateCall12)(const void *, int, int, int, int, int *);
+typedef qint64 (*CuteQBluetoothSocketBasePrivateCall9)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQBluetoothSocketBasePrivateCall10)(const void *, int *);
+typedef bool (*CuteQBluetoothSocketBasePrivateCall11)(const void *, int *);
+typedef qint64 (*CuteQBluetoothSocketBasePrivateCall12)(const void *, int *);
+typedef bool (*CuteQBluetoothSocketBasePrivateCall13)(const void *, int, int, int, int, int *);
 #if !(defined(QT_ANDROID_BLUETOOTH))
-typedef void (*CuteQBluetoothSocketBasePrivateCall13)(const void *, const QBluetoothAddress *, quint16, int, int *);
+typedef void (*CuteQBluetoothSocketBasePrivateCall14)(const void *, const QBluetoothAddress *, quint16, int, int *);
 #endif  // !(defined(QT_ANDROID_BLUETOOTH))
-typedef void (*CuteQBluetoothSocketBasePrivateCall14)(const void *, const QBluetoothServiceInfo *, int, int *);
-typedef void (*CuteQBluetoothSocketBasePrivateCall15)(const void *, const QBluetoothAddress *, const QBluetoothUuid *, int, int *);
-typedef void (*CuteQBluetoothSocketBasePrivateCall16)(const void *, const QBluetoothAddress *, quint16, int, int *);
+typedef void (*CuteQBluetoothSocketBasePrivateCall15)(const void *, const QBluetoothServiceInfo *, int, int *);
+typedef void (*CuteQBluetoothSocketBasePrivateCall16)(const void *, const QBluetoothAddress *, const QBluetoothUuid *, int, int *);
+typedef void (*CuteQBluetoothSocketBasePrivateCall17)(const void *, const QBluetoothAddress *, quint16, int, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQBluetoothSocketBasePrivateCall17)(const void *, QEvent *, int *);
+typedef bool (*CuteQBluetoothSocketBasePrivateCall18)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQBluetoothSocketBasePrivateCall18)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQBluetoothSocketBasePrivateCall19)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQBluetoothSocketBasePrivateCall19)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQBluetoothSocketBasePrivateCall20)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQBluetoothSocketBasePrivateCall20)(const void *, QChildEvent *, int *);
+typedef void (*CuteQBluetoothSocketBasePrivateCall21)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQBluetoothSocketBasePrivateCall21)(const void *, QEvent *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQBluetoothSocketBasePrivateCall22)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQBluetoothSocketBasePrivateCall22)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQBluetoothSocketBasePrivateCall23)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQBluetoothSocketBasePrivateCall24)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQBluetoothSocketBasePrivate : public QBluetoothSocketBasePrivate {
 public:
   using QBluetoothSocketBasePrivate::QBluetoothSocketBasePrivate;
-  void *taken[24] = {};
+  void *taken[25] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate18ensureNativeSocketEN21QBluetoothServiceInfo8ProtocolE")) {
@@ -99,79 +100,83 @@ public:
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK27QBluetoothSocketBasePrivate14bytesAvailableEv")) {
+    if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate8readDataEPcx")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK27QBluetoothSocketBasePrivate11canReadLineEv")) {
+    if (!std::strcmp(key, "_ZNK27QBluetoothSocketBasePrivate14bytesAvailableEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK27QBluetoothSocketBasePrivate12bytesToWriteEv")) {
+    if (!std::strcmp(key, "_ZNK27QBluetoothSocketBasePrivate11canReadLineEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
+    if (!std::strcmp(key, "_ZNK27QBluetoothSocketBasePrivate12bytesToWriteEv")) {
       taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
+      taken[13] = call;
       return true;
     }
 #if !(defined(QT_ANDROID_BLUETOOTH))
     if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate22connectToServiceHelperERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
-      taken[13] = call;
+      taken[14] = call;
       return true;
     }
 #endif  // !(defined(QT_ANDROID_BLUETOOTH))
     if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate16connectToServiceERK21QBluetoothServiceInfo6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
-      taken[14] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate16connectToServiceERK17QBluetoothAddressRK14QBluetoothUuid6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate16connectToServiceERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
+    if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate16connectToServiceERK17QBluetoothAddressRK14QBluetoothUuid6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN27QBluetoothSocketBasePrivate16connectToServiceERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
+      taken[17] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[17] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[18] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[19] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[20] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[21] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[22] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[23] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[24] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -284,11 +289,23 @@ public:
     }
   }
 
-  //  qint64 QBluetoothSocketBasePrivate::bytesAvailable() const
-  qint64 bytesAvailable() const override {
+  //  qint64 QBluetoothSocketBasePrivate::readData(char *data, qint64
+  //      maxSize)
+  qint64 readData(char *data, qint64 maxSize) override {
     if (taken[9]) {
       int handled = 0;
       CuteQBluetoothSocketBasePrivateCall9 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall9>(taken[9]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  qint64 QBluetoothSocketBasePrivate::bytesAvailable() const
+  qint64 bytesAvailable() const override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQBluetoothSocketBasePrivateCall10 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall10>(taken[10]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -297,9 +314,9 @@ public:
 
   //  bool QBluetoothSocketBasePrivate::canReadLine() const
   bool canReadLine() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall10 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall10>(taken[10]);
+      CuteQBluetoothSocketBasePrivateCall11 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall11>(taken[11]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -308,9 +325,9 @@ public:
 
   //  qint64 QBluetoothSocketBasePrivate::bytesToWrite() const
   qint64 bytesToWrite() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall11 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall11>(taken[11]);
+      CuteQBluetoothSocketBasePrivateCall12 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall12>(taken[12]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -326,9 +343,9 @@ public:
       QBluetoothServiceInfo::Protocol socketType,
       QBluetoothSocket::SocketState socketState,
       QBluetoothSocket::OpenMode openMode) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall12 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall12>(taken[12]);
+      CuteQBluetoothSocketBasePrivateCall13 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall13>(taken[13]);
       bool given = call(this, socketDescriptor, static_cast<int>(socketType), static_cast<int>(socketState), static_cast<int>(openMode.toInt()), &handled);
       if (handled) return given;
     }
@@ -343,9 +360,9 @@ public:
       const QBluetoothAddress &address,
       quint16 port,
       QIODevice::OpenMode openMode) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall13 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall13>(taken[13]);
+      CuteQBluetoothSocketBasePrivateCall14 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall14>(taken[14]);
       call(this, &address, port, static_cast<int>(openMode.toInt()), &handled);
       if (handled) return;
     }
@@ -357,9 +374,9 @@ public:
   void connectToService(
       const QBluetoothServiceInfo &service,
       QIODevice::OpenMode openMode) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall14 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall14>(taken[14]);
+      CuteQBluetoothSocketBasePrivateCall15 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall15>(taken[15]);
       call(this, &service, static_cast<int>(openMode.toInt()), &handled);
       if (handled) return;
     }
@@ -372,9 +389,9 @@ public:
       const QBluetoothAddress &address,
       const QBluetoothUuid &uuid,
       QIODevice::OpenMode openMode) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall15 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall15>(taken[15]);
+      CuteQBluetoothSocketBasePrivateCall16 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall16>(taken[16]);
       call(this, &address, &uuid, static_cast<int>(openMode.toInt()), &handled);
       if (handled) return;
     }
@@ -387,9 +404,9 @@ public:
       const QBluetoothAddress &address,
       quint16 port,
       QIODevice::OpenMode openMode) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall16 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall16>(taken[16]);
+      CuteQBluetoothSocketBasePrivateCall17 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall17>(taken[17]);
       call(this, &address, port, static_cast<int>(openMode.toInt()), &handled);
       if (handled) return;
     }
@@ -398,9 +415,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall17 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall17>(taken[17]);
+      CuteQBluetoothSocketBasePrivateCall18 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall18>(taken[18]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -411,9 +428,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall18 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall18>(taken[18]);
+      CuteQBluetoothSocketBasePrivateCall19 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall19>(taken[19]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -424,9 +441,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall19 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall19>(taken[19]);
+      CuteQBluetoothSocketBasePrivateCall20 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall20>(taken[20]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -437,9 +454,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall20 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall20>(taken[20]);
+      CuteQBluetoothSocketBasePrivateCall21 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall21>(taken[21]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -450,9 +467,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall21 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall21>(taken[21]);
+      CuteQBluetoothSocketBasePrivateCall22 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall22>(taken[22]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -463,9 +480,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[22]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall22 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall22>(taken[22]);
+      CuteQBluetoothSocketBasePrivateCall23 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall23>(taken[23]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -476,9 +493,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[23]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQBluetoothSocketBasePrivateCall23 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall23>(taken[23]);
+      CuteQBluetoothSocketBasePrivateCall24 call = reinterpret_cast<CuteQBluetoothSocketBasePrivateCall24>(taken[24]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -492,6 +509,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK27QBluetoothSocketBasePrivate10metaObjectEv(
     const QBluetoothSocketBasePrivate *self) {
   return self->metaObject();
+}
+
+//  void *QBluetoothSocketBasePrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QBluetoothSocketBasePrivate11qt_metacastEPKc(
+    QBluetoothSocketBasePrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBluetoothSocketBasePrivate::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QBluetoothSocketBasePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBluetoothSocketBasePrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QBluetoothSocketBasePrivate::~QBluetoothSocketBasePrivate()
@@ -574,6 +610,15 @@ qint64 ritual_ZN27QBluetoothSocketBasePrivate9writeDataEPKcx(
     const char *data,
     qint64 maxSize) {
   return self->writeData(data, maxSize);
+}
+
+//  qint64 QBluetoothSocketBasePrivate::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN27QBluetoothSocketBasePrivate8readDataEPcx(
+    QBluetoothSocketBasePrivate *self,
+    char *data,
+    qint64 maxSize) {
+  return self->readData(data, maxSize);
 }
 
 //  qint64 QBluetoothSocketBasePrivate::bytesAvailable() const

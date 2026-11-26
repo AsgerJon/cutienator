@@ -2188,6 +2188,25 @@ public:
   }
 };
 
+//  QQmlJSStorageInitializer::QQmlJSStorageInitializer(const
+//      QV4::Compiler::JSUnitGenerator *jsUnitGenerator, const
+//      QQmlJSTypeResolver *typeResolver, QQmlJSLogger *logger, const
+//      BasicBlocks &basicBlocks, const InstructionAnnotations &annotations)
+extern "C" Q_DECL_EXPORT
+QQmlJSStorageInitializer *ritual_ZN24QQmlJSStorageInitializerC1EPKN3QV48Compiler15JSUnitGeneratorEPK18QQmlJSTypeResolverP12QQmlJSLoggerRK8QFlatMapIiN17QQmlJSCompilePass10BasicBlockESt4lessIiE5QListIiESF_ISC_EERKSA_IiNSB_21InstructionAnnotationESE_SG_SF_ISL_EE(
+    const QV4::Compiler::JSUnitGenerator *jsUnitGenerator,
+    const QQmlJSTypeResolver *typeResolver,
+    QQmlJSLogger *logger,
+    const QQmlJSCompilePass::BasicBlocks *basicBlocks,
+    const QQmlJSCompilePass::InstructionAnnotations *annotations) {
+  return new CuteQQmlJSStorageInitializer(
+      jsUnitGenerator,
+      typeResolver,
+      logger,
+      *basicBlocks,
+      *annotations);
+}
+
 //  BlocksAndAnnotations QQmlJSStorageInitializer::run(const Function
 //      *function)
 extern "C" Q_DECL_EXPORT

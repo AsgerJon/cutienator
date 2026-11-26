@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickDoubleSpinBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickDoubleSpinBox2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -38,6 +44,40 @@
     ],
     "ritual_ZN19QQuickDoubleSpinBox8increaseEv": ["nothing", "address"],
     "ritual_ZN19QQuickDoubleSpinBox8decreaseEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox11fromChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox9toChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox12valueChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox15stepSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox15decimalsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox15editableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox16validatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox20textFromValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox20valueFromTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox13valueModifiedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox23inputMethodHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox27inputMethodComposingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox11wrapChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox18displayTextChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QQuickDoubleSpinBox12focusInEventEP11QFocusEvent": [
       "nothing", "address", "address"
     ],
@@ -80,6 +120,8 @@
     "ritual_ZN19QQuickDoubleSpinBox26accessibilityActiveChangedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN19QQuickDoubleSpinBox6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickDoubleSpinBox6d_funcEv": ["address", "address"],
     "ritual_ZN19QQuickDoubleSpinBox11d_base_funcEv": ["address", "address"],
     "ritual_ZNK19QQuickDoubleSpinBox11d_base_funcEv": ["address", "address"],
     "ritual_take_QQuickDoubleSpinBox": [

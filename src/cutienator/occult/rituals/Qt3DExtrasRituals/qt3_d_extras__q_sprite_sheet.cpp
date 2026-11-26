@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DExtras/Qt3DExtras>
 
 //  A Qt3DExtras::QSpriteSheet that Python can take functions over in. Every Qt3DExtras::QSpriteSheet
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras12QSpriteSheet10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QSpriteSheet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras12QSpriteSheet11qt_metacastEPKc(
+    Qt3DExtras::QSpriteSheet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QSpriteSheet::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras12QSpriteSheet11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QSpriteSheet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QSpriteSheet::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DExtras12QSpriteSheet2trEPKcS2_i(
@@ -186,6 +207,73 @@ QString *ritual_ZN10Qt3DExtras12QSpriteSheet2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QSpriteSheet::tr(s, c, n));
+}
+
+//  Qt3DExtras::QSpriteSheet::QSpriteSheet(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QSpriteSheet *ritual_ZN10Qt3DExtras12QSpriteSheetC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QSpriteSheet(parent);
+}
+
+//  Qt3DExtras::QSpriteSheet::~QSpriteSheet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras12QSpriteSheetD1Ev(
+    Qt3DExtras::QSpriteSheet *self) {
+  delete self;
+}
+
+//  QList<QSpriteSheetItem *> Qt3DExtras::QSpriteSheet::sprites() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DExtras::QSpriteSheetItem *> *ritual_ZNK10Qt3DExtras12QSpriteSheet7spritesEv(
+    const Qt3DExtras::QSpriteSheet *self) {
+  return new QList<Qt3DExtras::QSpriteSheetItem *>(self->sprites());
+}
+
+//  QSpriteSheetItem *Qt3DExtras::QSpriteSheet::addSprite(int x, int y, int
+//      width, int height)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QSpriteSheetItem *ritual_ZN10Qt3DExtras12QSpriteSheet9addSpriteEiiii(
+    Qt3DExtras::QSpriteSheet *self,
+    int x,
+    int y,
+    int width,
+    int height) {
+  return self->addSprite(x, y, width, height);
+}
+
+//  void Qt3DExtras::QSpriteSheet::addSprite(QSpriteSheetItem *sprite)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras12QSpriteSheet9addSpriteEPNS_16QSpriteSheetItemE(
+    Qt3DExtras::QSpriteSheet *self,
+    Qt3DExtras::QSpriteSheetItem *sprite) {
+  self->addSprite(sprite);
+}
+
+//  void Qt3DExtras::QSpriteSheet::removeSprite(QSpriteSheetItem *sprite)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras12QSpriteSheet12removeSpriteEPNS_16QSpriteSheetItemE(
+    Qt3DExtras::QSpriteSheet *self,
+    Qt3DExtras::QSpriteSheetItem *sprite) {
+  self->removeSprite(sprite);
+}
+
+//  void Qt3DExtras::QSpriteSheet::setSprites(QList<QSpriteSheetItem *>
+//      sprites)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras12QSpriteSheet10setSpritesE5QListIPNS_16QSpriteSheetItemEE(
+    Qt3DExtras::QSpriteSheet *self,
+    const QList<Qt3DExtras::QSpriteSheetItem *> *sprites) {
+  self->setSprites(*sprites);
+}
+
+//  void Qt3DExtras::QSpriteSheet::spritesChanged(QList<QSpriteSheetItem *>
+//      sprites)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras12QSpriteSheet14spritesChangedE5QListIPNS_16QSpriteSheetItemEE(
+    Qt3DExtras::QSpriteSheet *self,
+    const QList<Qt3DExtras::QSpriteSheetItem *> *sprites) {
+  self->spritesChanged(*sprites);
 }
 
 //  QSpriteSheetPrivate *Qt3DExtras::QSpriteSheet::d_func()
@@ -210,4 +298,12 @@ bool ritual_take_Qt3DExtras_QSpriteSheet(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DExtras_QSpriteSheet *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DExtras::QSpriteSheetItem *> a ritual of
+//      Qt3DExtras::QSpriteSheet gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DExtras_QSpriteSheet__QList_Qt3DExtras_QSpriteSheetItem(
+    QList<Qt3DExtras::QSpriteSheetItem *> *self) {
+  delete self;
 }

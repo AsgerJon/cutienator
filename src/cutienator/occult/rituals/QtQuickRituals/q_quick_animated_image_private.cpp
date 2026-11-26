@@ -7,9 +7,13 @@
 #if QT_CONFIG(quick_animatedimage)
 #if QT_CONFIG(quick_animatedimage)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_animatedimage)
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickanimatedimage_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickanimatedimage_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>

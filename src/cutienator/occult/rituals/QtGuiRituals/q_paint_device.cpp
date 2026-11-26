@@ -234,6 +234,12 @@ int ritual_ZN12QPaintDevice13encodeMetricFENS_17PaintDeviceMetricEd(
   return QPaintDevice::encodeMetricF(metric, value);
 }
 
+//  QPaintDevice::QPaintDevice()
+extern "C" Q_DECL_EXPORT
+QPaintDevice *ritual_ZN12QPaintDeviceC1Ev() {
+  return new CuteQPaintDevice();
+}
+
 //  int QPaintDevice::metric(PaintDeviceMetric metric) const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE(

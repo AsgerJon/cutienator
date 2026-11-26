@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13PlaneGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN13PlaneGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13PlaneGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13PlaneGeometry2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13PlaneGeometryC1EP14QQuick3DObject": ["address", "address"],
     "ritual_ZN13PlaneGeometryD1Ev": ["nothing", "address"],
@@ -36,9 +42,34 @@
     ],
     "ritual_ZN13PlaneGeometry16doUpdateGeometryEv": ["nothing", "address"],
     "ritual_ZN13PlaneGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN13PlaneGeometry12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN13PlaneGeometry13heightChangedEv": ["nothing", "address"],
+    "ritual_ZN13PlaneGeometry21meshResolutionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13PlaneGeometry12planeChangedEv": ["nothing", "address"],
+    "ritual_ZN13PlaneGeometry15mirroredChangedEv": ["nothing", "address"],
+    "ritual_ZN13PlaneGeometry19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13PlaneGeometry13statusChangedEv": ["nothing", "address"],
+    "ritual_ZN13PlaneGeometry15reversedChangedEv": ["nothing", "address"],
     "ritual_ZN13PlaneGeometry22scheduleGeometryUpdateEv": [
       "nothing", "address"
     ],
-    "ritual_take_PlaneGeometry": ["bool", "address", "chars", "address"]
+    "ritual_ZN13PlaneGeometry14updateGeometryERKNS_12GeometryDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13PlaneGeometry21generatePlaneGeometryEff5QSizeNS_5PlaneEbb": [
+      "address", "float", "float", "address", "int", "bool", "bool"
+    ],
+    "ritual_ZN13PlaneGeometry26generatePlaneGeometryAsyncER8QPromiseINS_12GeometryDataEEff5QSizeNS_5PlaneEbb": [
+      "nothing", "address", "float", "float", "address", "int", "bool",
+      "bool"
+    ],
+    "ritual_take_PlaneGeometry": ["bool", "address", "chars", "address"],
+    "ritual_drop_PlaneGeometry__PlaneGeometry_GeometryData": [
+      "nothing", "address"
+    ]
   }
 }

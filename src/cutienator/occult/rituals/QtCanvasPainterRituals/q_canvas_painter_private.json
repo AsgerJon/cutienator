@@ -38,6 +38,9 @@
     "ritual_ZN21QCanvasPainterPrivate14setStencilClipERK5QListI6QRectFE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN21QCanvasPainterPrivate14setStencilClipERK11QVectorPath": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QCanvasPainterPrivate17setBrushTransformERK10QTransform": [
       "nothing", "address", "address"
     ],
@@ -49,6 +52,9 @@
     ],
     "ritual_ZN21QCanvasPainterPrivate8fillTextERK7QStringRK6QRectF": [
       "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate14fillShapedTextEP11QFontEnginePKjPK11QFixedPointi": [
+      "nothing", "address", "address", "address", "address", "int"
     ],
     "ritual_ZNK21QCanvasPainterPrivate15textBoundingBoxERK7QStringddd": [
       "address", "address", "text", "double", "double", "double"

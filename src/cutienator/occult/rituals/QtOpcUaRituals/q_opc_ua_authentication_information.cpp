@@ -19,6 +19,16 @@ QOpcUaAuthenticationInformation *ritual_ZN31QOpcUaAuthenticationInformationC1ERK
   return new QOpcUaAuthenticationInformation(*a0);
 }
 
+//  QOpcUaAuthenticationInformation
+//      &QOpcUaAuthenticationInformation::operator=(const
+//      QOpcUaAuthenticationInformation &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaAuthenticationInformation *ritual_ZN31QOpcUaAuthenticationInformationaSERKS_(
+    QOpcUaAuthenticationInformation *self,
+    const QOpcUaAuthenticationInformation *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaAuthenticationInformation::operator==(const
 //      QOpcUaAuthenticationInformation &rhs) const
 extern "C" Q_DECL_EXPORT

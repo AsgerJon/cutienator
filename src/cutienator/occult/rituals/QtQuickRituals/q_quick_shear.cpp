@@ -16,6 +16,24 @@ const QMetaObject *ritual_ZNK11QQuickShear10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShear::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickShear11qt_metacastEPKc(
+    QQuickShear *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShear::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickShear11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShear *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShear::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickShear2trEPKcS1_i(
@@ -99,6 +117,49 @@ void ritual_ZNK11QQuickShear7applyToEP10QMatrix4x4(
     const QQuickShear *self,
     QMatrix4x4 *matrix) {
   self->applyTo(matrix);
+}
+
+//  void QQuickShear::originChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShear13originChangedEv(QQuickShear *self) {
+  self->originChanged();
+}
+
+//  void QQuickShear::xFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShear14xFactorChangedEv(QQuickShear *self) {
+  self->xFactorChanged();
+}
+
+//  void QQuickShear::yFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShear14yFactorChangedEv(QQuickShear *self) {
+  self->yFactorChanged();
+}
+
+//  void QQuickShear::xAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShear13xAngleChangedEv(QQuickShear *self) {
+  self->xAngleChanged();
+}
+
+//  void QQuickShear::yAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShear13yAngleChangedEv(QQuickShear *self) {
+  self->yAngleChanged();
+}
+
+//  QQuickShearPrivate *QQuickShear::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickShearPrivate *ritual_ZN11QQuickShear6d_funcEv(QQuickShear *self) {
+  return self->d_func();
+}
+
+//  const QQuickShearPrivate *QQuickShear::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickShearPrivate *ritual_ZNK11QQuickShear6d_funcEv(
+    const QQuickShear *self) {
+  return self->d_func();
 }
 
 //  void QQuickShear::applyTo(QMatrix4x4 *matrix) const

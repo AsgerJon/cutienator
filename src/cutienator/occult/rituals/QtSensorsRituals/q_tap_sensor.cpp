@@ -179,6 +179,24 @@ const QMetaObject *ritual_ZNK10QTapSensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTapSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QTapSensor11qt_metacastEPKc(
+    QTapSensor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTapSensor::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QTapSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTapSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTapSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QTapSensor2trEPKcS1_i(
@@ -219,6 +237,14 @@ void ritual_ZN10QTapSensor24setReturnDoubleTapEventsEb(
     QTapSensor *self,
     bool returnDoubleTapEvents) {
   self->setReturnDoubleTapEvents(returnDoubleTapEvents);
+}
+
+//  void QTapSensor::returnDoubleTapEventsChanged(bool returnDoubleTapEvents)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTapSensor28returnDoubleTapEventsChangedEb(
+    QTapSensor *self,
+    bool returnDoubleTapEvents) {
+  self->returnDoubleTapEventsChanged(returnDoubleTapEvents);
 }
 
 //  QTapSensorPrivate *QTapSensor::d_func()

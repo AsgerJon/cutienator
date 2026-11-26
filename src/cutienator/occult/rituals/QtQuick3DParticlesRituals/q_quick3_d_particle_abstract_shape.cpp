@@ -258,6 +258,25 @@ const QMetaObject *ritual_ZNK29QQuick3DParticleAbstractShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleAbstractShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuick3DParticleAbstractShape11qt_metacastEPKc(
+    QQuick3DParticleAbstractShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleAbstractShape::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuick3DParticleAbstractShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleAbstractShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleAbstractShape::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -273,6 +292,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN29QQuick3DParticleAbstractShape22qt_qmlMarker_anonymousEv(
     QQuick3DParticleAbstractShape *self) {
   self->qt_qmlMarker_anonymous();
+}
+
+//  QQuick3DParticleAbstractShape::QQuick3DParticleAbstractShape(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DParticleAbstractShape *ritual_ZN29QQuick3DParticleAbstractShapeC1EP7QObject(
+    QObject *parent) {
+  return new CuteQQuick3DParticleAbstractShape(parent);
 }
 
 //  QVector3D QQuick3DParticleAbstractShape::getPosition(int particleIndex)

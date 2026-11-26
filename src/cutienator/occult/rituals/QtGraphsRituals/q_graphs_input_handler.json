@@ -9,16 +9,41 @@
   ],
   "rows": {
     "ritual_ZNK19QGraphsInputHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QGraphsInputHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QGraphsInputHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN19QGraphsInputHandler12pendingPointEv": ["address", "address"],
+    "ritual_ZN19QGraphsInputHandler14setZoomEnabledEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN19QGraphsInputHandler13isZoomEnabledEv": ["bool", "address"],
+    "ritual_ZN19QGraphsInputHandler22setZoomAtTargetEnabledEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN19QGraphsInputHandler21isZoomAtTargetEnabledEv": [
       "bool", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler18setRotationEnabledEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN19QGraphsInputHandler17isRotationEnabledEv": [
       "bool", "address"
     ],
+    "ritual_ZN19QGraphsInputHandler13setPanEnabledEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN19QGraphsInputHandler12isPanEnabledEv": ["bool", "address"],
+    "ritual_ZN19QGraphsInputHandler11setDragModeEN10QtGraphs3D8DragModeE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN19QGraphsInputHandler8dragModeEv": ["int", "address"],
+    "ritual_ZN19QGraphsInputHandler19setSelectionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN19QGraphsInputHandler18isSelectionEnabledEv": [
       "bool", "address"
     ],
@@ -34,6 +59,12 @@
     "ritual_ZN19QGraphsInputHandler23unsetDefaultDragHandlerEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QGraphsInputHandler24unsetDefaultWheelHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler24unsetDefaultPinchHandlerEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QGraphsInputHandler13setDragButtonE6QFlagsIN2Qt11MouseButtonEE": [
       "nothing", "address", "int"
     ],
@@ -46,6 +77,15 @@
     ],
     "ritual_ZN19QGraphsInputHandler13onGrabChangedEN15QPointingDevice14GrabTransitionE11QEventPoint": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler7onWheelEP16QQuickWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler19onPinchScaleChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QGraphsInputHandler9mouseMoveE6QPoint": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN19QGraphsInputHandler14hoverMoveEventEP11QHoverEvent": [
       "nothing", "address", "address"

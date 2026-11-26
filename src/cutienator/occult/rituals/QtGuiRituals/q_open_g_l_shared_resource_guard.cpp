@@ -77,11 +77,31 @@ public:
 #endif  // !defined(QT_NO_OPENGL)
 };
 
+//  QOpenGLSharedResourceGuard::QOpenGLSharedResourceGuard(QOpenGLContext
+//      *context, GLuint id, FreeResourceFunc func)
+extern "C" Q_DECL_EXPORT
+QOpenGLSharedResourceGuard *ritual_ZN26QOpenGLSharedResourceGuardC1EP14QOpenGLContextjPFvP16QOpenGLFunctionsjE(
+    QOpenGLContext *context,
+    GLuint id,
+    void *func) {
+  return new CuteQOpenGLSharedResourceGuard(
+      context,
+      id,
+      reinterpret_cast<QOpenGLSharedResourceGuard::FreeResourceFunc>(func));
+}
+
 //  QOpenGLSharedResourceGuard::~QOpenGLSharedResourceGuard()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QOpenGLSharedResourceGuardD1Ev(
     QOpenGLSharedResourceGuard *self) {
   delete self;
+}
+
+//  GLuint QOpenGLSharedResourceGuard::id() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK26QOpenGLSharedResourceGuard2idEv(
+    const QOpenGLSharedResourceGuard *self) {
+  return self->id();
 }
 
 //  void QOpenGLSharedResourceGuard::invalidateResource()

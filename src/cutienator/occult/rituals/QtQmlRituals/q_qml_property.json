@@ -23,6 +23,10 @@
       "address", "address", "text", "address"
     ],
     "ritual_ZN12QQmlPropertyC1ERKS_": ["address", "address"],
+    "ritual_ZN12QQmlPropertyaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QQmlPropertyC1EOS_": ["address", "address"],
+    "ritual_ZN12QQmlPropertyaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QQmlProperty4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK12QQmlPropertyeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QQmlProperty4typeEv": ["int", "address"],
     "ritual_ZNK12QQmlProperty7isValidEv": ["bool", "address"],

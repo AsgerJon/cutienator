@@ -7,7 +7,17 @@
   "rows": {
     "ritual_ZN19QPlaceContactDetailC1Ev": ["address"],
     "ritual_ZN19QPlaceContactDetailC1ERKS_": ["address", "address"],
+    "ritual_ZN19QPlaceContactDetailC1EOS_": ["address", "address"],
     "ritual_ZN19QPlaceContactDetailD1Ev": ["nothing", "address"],
+    "ritual_ZN19QPlaceContactDetailaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QPlaceContactDetailaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QPlaceContactDetail4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK19QPlaceContactDetailS1_": ["bool", "address", "address"],
     "ritual_ZneRK19QPlaceContactDetailS1_": ["bool", "address", "address"],
     "ritual_ZNK19QPlaceContactDetail5labelEv": ["text", "address"],

@@ -15,6 +15,18 @@ QByteArray *ritual_ZNK14QQsbCollection9EntryDesc11generateShaEv(
   return new QByteArray(self->generateSha());
 }
 
+//  QByteArray QQsbCollection::EntryDesc::generateSha(const QByteArray
+//      &materialKey, const FeatureSet &featureSet)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN14QQsbCollection9EntryDesc11generateShaERK10QByteArrayRK4QMapIS1_bE(
+    const QByteArray *materialKey,
+    const QQsbCollection::FeatureSet *featureSet) {
+  return new QByteArray(
+      QQsbCollection::EntryDesc::generateSha(
+          *materialKey,
+          *featureSet));
+}
+
 //  QQsbCollection::EntryDesc::~EntryDesc()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQsbCollection9EntryDescD1Ev(

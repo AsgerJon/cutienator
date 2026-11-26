@@ -8,19 +8,113 @@
     "ritual_ZNK22QHelpCollectionHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QHelpCollectionHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QHelpCollectionHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QHelpCollectionHandlerD1Ev": ["nothing", "address"],
     "ritual_ZNK22QHelpCollectionHandler14collectionFileEv": [
       "text", "address"
     ],
+    "ritual_ZNK22QHelpCollectionHandler13customFiltersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler16filterAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler16filterAttributesERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler7filtersEv": ["address", "address"],
+    "ritual_ZNK22QHelpCollectionHandler19availableComponentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler17availableVersionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler20namespaceToComponentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler18namespaceToVersionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler10filterDataERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN22QHelpCollectionHandler13setFilterDataERK7QStringRK15QHelpFilterData": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN22QHelpCollectionHandler12removeFilterERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler23registeredDocumentationERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler24registeredDocumentationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler11customValueERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN22QHelpCollectionHandler17registerComponentERK7QStringi": [
+      "int", "address", "text", "int"
+    ],
+    "ritual_ZN22QHelpCollectionHandler15registerVersionERK7QStringi": [
+      "bool", "address", "text", "int"
+    ],
     "ritual_ZN22QHelpCollectionHandler11setReadOnlyEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN22QHelpCollectionHandler9buildQUrlERK7QStringS2_S2_S2_": [
+      "address", "text", "text", "text", "text"
+    ],
+    "ritual_ZN22QHelpCollectionHandler5errorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler16namespaceVersionERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN22QHelpCollectionHandler12createTablesEP9QSqlQuery": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN22QHelpCollectionHandler7closeDBEv": ["nothing", "address"],
+    "ritual_ZN22QHelpCollectionHandler37recreateIndexAndNamespaceFilterTablesEP9QSqlQuery": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QHelpCollectionHandler20unregisterIndexTableEii": [
+      "bool", "address", "int", "int"
+    ],
     "ritual_ZNK22QHelpCollectionHandler15absoluteDocPathERK7QString": [
       "text", "address", "text"
     ],
+    "ritual_ZNK22QHelpCollectionHandler18isTimeStampCorrectERKNS_9TimeStampE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler16hasTimeStampInfoERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN22QHelpCollectionHandler10execVacuumEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QHelpCollectionHandler": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QHelpCollectionHandler__QList_QHelpCollectionHandler_ContentsData": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHelpCollectionHandler__QList_QStringList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHelpCollectionHandler__QMap_QString_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHelpCollectionHandler__QHelpCollectionHandler_FileInfoList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHelpCollectionHandler__QMultiMap_QString_QUrl": [
+      "nothing", "address"
     ]
   }
 }

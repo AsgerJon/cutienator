@@ -65,20 +65,6 @@ inline void QGfxSourceProxyME::setInput(QQuickItem *input)
     Q_EMIT inputChanged();
 }
 
-//  from ../qtdeclarative/src/effects/qquickmultieffect.cpp, line 1620, as _ZN24QQuickMultiEffectPrivate14getBlurWeightsEfR9QVector4DR9QVector2D
-inline void QQuickMultiEffectPrivate::getBlurWeights(float blurLod, QVector4D &blurWeight1, QVector2D &blurWeight2)
-{
-    float bw1 = blurWeight(std::fabs(blurLod - 0.1f));
-    float bw2 = blurWeight(std::fabs(blurLod - 0.3f));
-    float bw3 = blurWeight(std::fabs(blurLod - 0.5f));
-    float bw4 = blurWeight(std::fabs(blurLod - 0.7f));
-    float bw5 = blurWeight(std::fabs(blurLod - 0.9f));
-    float bw6 = blurWeight(std::fabs(blurLod - 1.1f));
-    float bsum = bw1 + bw2 + bw3 + bw4 + bw5 + bw6;
-    blurWeight1 = QVector4D(bw1 / bsum, bw2 / bsum, bw3 / bsum, bw4 / bsum);
-    blurWeight2 = QVector2D(bw5 / bsum, bw6 / bsum);
-}
-
 //  from ../qtdeclarative/src/effects/qquickmultieffect.cpp, line 937, as _ZN24QQuickMultiEffectPrivateD1Ev
 inline QQuickMultiEffectPrivate::~QQuickMultiEffectPrivate()
 {
@@ -622,6 +608,20 @@ inline float QQuickMultiEffectPrivate::calculateLod(float blurAmount)
 inline float QQuickMultiEffectPrivate::blurWeight(float v)
 {
     return std::max(0.0f, std::min(1.0f, 1.0f - v * 2.0f));
+}
+
+//  from ../qtdeclarative/src/effects/qquickmultieffect.cpp, line 1620, as _ZN24QQuickMultiEffectPrivate14getBlurWeightsEfR9QVector4DR9QVector2D
+inline void QQuickMultiEffectPrivate::getBlurWeights(float blurLod, QVector4D &blurWeight1, QVector2D &blurWeight2)
+{
+    float bw1 = blurWeight(std::fabs(blurLod - 0.1f));
+    float bw2 = blurWeight(std::fabs(blurLod - 0.3f));
+    float bw3 = blurWeight(std::fabs(blurLod - 0.5f));
+    float bw4 = blurWeight(std::fabs(blurLod - 0.7f));
+    float bw5 = blurWeight(std::fabs(blurLod - 0.9f));
+    float bw6 = blurWeight(std::fabs(blurLod - 1.1f));
+    float bsum = bw1 + bw2 + bw3 + bw4 + bw5 + bw6;
+    blurWeight1 = QVector4D(bw1 / bsum, bw2 / bsum, bw3 / bsum, bw4 / bsum);
+    blurWeight2 = QVector2D(bw5 / bsum, bw6 / bsum);
 }
 
 //  from ../qtdeclarative/src/effects/qquickmultieffect.cpp, line 1633, as _ZN24QQuickMultiEffectPrivate17updateBlurWeightsEv
@@ -1456,6 +1456,17 @@ float ritual_ZN24QQuickMultiEffectPrivate10blurWeightEf(
     QQuickMultiEffectPrivate *self,
     float v) {
   return self->blurWeight(v);
+}
+
+//  void QQuickMultiEffectPrivate::getBlurWeights(float blurLod, QVector4D
+//      &blurWeight1, QVector2D &blurWeight2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickMultiEffectPrivate14getBlurWeightsEfR9QVector4DR9QVector2D(
+    QQuickMultiEffectPrivate *self,
+    float blurLod,
+    QVector4D *blurWeight1,
+    QVector2D *blurWeight2) {
+  self->getBlurWeights(blurLod, *blurWeight1, *blurWeight2);
 }
 
 //  void QQuickMultiEffectPrivate::updateBlurWeights()

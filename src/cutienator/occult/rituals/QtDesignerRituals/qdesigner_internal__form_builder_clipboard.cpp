@@ -13,6 +13,21 @@ qdesigner_internal::FormBuilderClipboard *ritual_ZN18qdesigner_internal20FormBui
   return new qdesigner_internal::FormBuilderClipboard();
 }
 
+//  qdesigner_internal::FormBuilderClipboard::FormBuilderClipboard(QWidget
+//      *w)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::FormBuilderClipboard *ritual_ZN18qdesigner_internal20FormBuilderClipboardC1EP7QWidget(
+    QWidget *w) {
+  return new qdesigner_internal::FormBuilderClipboard(w);
+}
+
+//  bool qdesigner_internal::FormBuilderClipboard::empty() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal20FormBuilderClipboard5emptyEv(
+    const qdesigner_internal::FormBuilderClipboard *self) {
+  return self->empty();
+}
+
 //  qdesigner_internal::FormBuilderClipboard::~FormBuilderClipboard()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18qdesigner_internal20FormBuilderClipboardD1Ev(

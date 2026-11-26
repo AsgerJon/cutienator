@@ -31,6 +31,18 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/kernel/qstandardgestures.cpp, line 43, as local:qstandardgestures.cpp:panOffset
+#if !defined(QT_NO_GESTURES)
+static QPointF panOffset(const QList<QEventPoint> &touchPoints, int maxCount)
+{
+    QPointF result;
+    const int count = qMin(touchPoints.size(), maxCount);
+    for (int p = 0; p < count; ++p)
+        result += touchPoints.at(p).position() - touchPoints.at(p).pressPosition();
+    return result / qreal(count);
+}
+#endif  // !defined(QT_NO_GESTURES)
+
 //  from src/widgets/kernel/qstandardgestures.cpp, line 29, as _ZN21QPanGestureRecognizer6createEP7QObject
 #if !defined(QT_NO_GESTURES)
 #if defined(Q_OS_LINUX)
@@ -71,6 +83,17 @@ QGesture *ritual_ZN21QPanGestureRecognizer6createEP7QObject(
     QPanGestureRecognizer *self,
     QObject *target) {
   return self->create(target);
+}
+
+//  QGestureRecognizer::Result QPanGestureRecognizer::recognize(QGesture
+//      *state, QObject *watched, QEvent *event)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QPanGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent(
+    QPanGestureRecognizer *self,
+    QGesture *state,
+    QObject *watched,
+    QEvent *event) {
+  return static_cast<int>(self->recognize(state, watched, event).toInt());
 }
 
 //  void QPanGestureRecognizer::reset(QGesture *state)

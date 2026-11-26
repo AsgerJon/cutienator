@@ -13,6 +13,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlchangeset_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
 
 //  const QMetaObject *QQmlInstanceModel::metaObject() const
@@ -20,6 +23,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17QQmlInstanceModel10metaObjectEv(
     const QQmlInstanceModel *self) {
   return self->metaObject();
+}
+
+//  void *QQmlInstanceModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQmlInstanceModel11qt_metacastEPKc(
+    QQmlInstanceModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlInstanceModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQmlInstanceModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlInstanceModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQmlInstanceModel::tr(const char *s, const char *c, int n)
@@ -150,6 +172,77 @@ bool ritual_ZN17QQmlInstanceModel19setRequiredPropertyEiRK7QStringRK8QVariant(
     const QString *name,
     const QVariant *value) {
   return self->setRequiredProperty(index, *name, *value);
+}
+
+//  void QQmlInstanceModel::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlInstanceModel12countChangedEv(QQmlInstanceModel *self) {
+  self->countChanged();
+}
+
+//  void QQmlInstanceModel::modelUpdated(const QQmlChangeSet &changeSet, bool
+//      reset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlInstanceModel12modelUpdatedERK13QQmlChangeSetb(
+    QQmlInstanceModel *self,
+    const QQmlChangeSet *changeSet,
+    bool reset) {
+  self->modelUpdated(*changeSet, reset);
+}
+
+//  void QQmlInstanceModel::createdItem(int index, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlInstanceModel11createdItemEiP7QObject(
+    QQmlInstanceModel *self,
+    int index,
+    QObject *object) {
+  self->createdItem(index, object);
+}
+
+//  void QQmlInstanceModel::initItem(int index, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlInstanceModel8initItemEiP7QObject(
+    QQmlInstanceModel *self,
+    int index,
+    QObject *object) {
+  self->initItem(index, object);
+}
+
+//  void QQmlInstanceModel::updateItemProperties(int index, QObject *object,
+//      bool init)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlInstanceModel20updateItemPropertiesEiP7QObjectb(
+    QQmlInstanceModel *self,
+    int index,
+    QObject *object,
+    bool init) {
+  self->updateItemProperties(index, object, init);
+}
+
+//  void QQmlInstanceModel::destroyingItem(QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlInstanceModel14destroyingItemEP7QObject(
+    QQmlInstanceModel *self,
+    QObject *object) {
+  self->destroyingItem(object);
+}
+
+//  void QQmlInstanceModel::itemPooled(int index, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlInstanceModel10itemPooledEiP7QObject(
+    QQmlInstanceModel *self,
+    int index,
+    QObject *object) {
+  self->itemPooled(index, object);
+}
+
+//  void QQmlInstanceModel::itemReused(int index, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlInstanceModel10itemReusedEiP7QObject(
+    QQmlInstanceModel *self,
+    int index,
+    QObject *object) {
+  self->itemReused(index, object);
 }
 
 //  void QQmlInstanceModel::cancel(int a0)

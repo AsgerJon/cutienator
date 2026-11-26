@@ -11,6 +11,7 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuick3DInstanceList that Python can take functions over in. Every QQuick3DInstanceList
 //  Python makes is one. Each function below asks the Python
@@ -288,6 +289,25 @@ const QMetaObject *ritual_ZNK20QQuick3DInstanceList10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DInstanceList::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuick3DInstanceList11qt_metacastEPKc(
+    QQuick3DInstanceList *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DInstanceList::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuick3DInstanceList11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DInstanceList *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DInstanceList::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuick3DInstanceList2trEPKcS1_i(
@@ -318,11 +338,26 @@ QByteArray *ritual_ZN20QQuick3DInstanceList17getInstanceBufferEPi(
   return new QByteArray(self->getInstanceBuffer(instanceCount));
 }
 
+//  QQmlListProperty<QQuick3DInstanceListEntry>
+//      QQuick3DInstanceList::instances()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DInstanceListEntry> *ritual_ZN20QQuick3DInstanceList9instancesEv(
+    QQuick3DInstanceList *self) {
+  return new QQmlListProperty<QQuick3DInstanceListEntry>(self->instances());
+}
+
 //  int QQuick3DInstanceList::instanceCount() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK20QQuick3DInstanceList13instanceCountEv(
     const QQuick3DInstanceList *self) {
   return self->instanceCount();
+}
+
+//  void QQuick3DInstanceList::instanceCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DInstanceList20instanceCountChangedEv(
+    QQuick3DInstanceList *self) {
+  self->instanceCountChanged();
 }
 
 //  void QQuick3DInstanceList::handleInstanceChange()
@@ -347,6 +382,40 @@ void ritual_ZN20QQuick3DInstanceList20generateInstanceDataEv(
   self->generateInstanceData();
 }
 
+//  void QQuick3DInstanceList::qmlAppendInstanceListEntry(QQmlListProperty<QQ
+//      uick3DInstanceListEntry> *list, QQuick3DInstanceListEntry *material)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DInstanceList26qmlAppendInstanceListEntryEP16QQmlListPropertyI25QQuick3DInstanceListEntryEPS1_(
+    QQmlListProperty<QQuick3DInstanceListEntry> *list,
+    QQuick3DInstanceListEntry *material) {
+  QQuick3DInstanceList::qmlAppendInstanceListEntry(list, material);
+}
+
+//  QQuick3DInstanceListEntry *QQuick3DInstanceList::qmlInstanceListEntryAt(Q
+//      QmlListProperty<QQuick3DInstanceListEntry> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DInstanceListEntry *ritual_ZN20QQuick3DInstanceList22qmlInstanceListEntryAtEP16QQmlListPropertyI25QQuick3DInstanceListEntryEx(
+    QQmlListProperty<QQuick3DInstanceListEntry> *list,
+    qsizetype index) {
+  return QQuick3DInstanceList::qmlInstanceListEntryAt(list, index);
+}
+
+//  qsizetype QQuick3DInstanceList::qmlInstanceListEntriesCount(QQmlListPrope
+//      rty<QQuick3DInstanceListEntry> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN20QQuick3DInstanceList27qmlInstanceListEntriesCountEP16QQmlListPropertyI25QQuick3DInstanceListEntryE(
+    QQmlListProperty<QQuick3DInstanceListEntry> *list) {
+  return QQuick3DInstanceList::qmlInstanceListEntriesCount(list);
+}
+
+//  void QQuick3DInstanceList::qmlClearInstanceListEntries(QQmlListProperty<Q
+//      Quick3DInstanceListEntry> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DInstanceList27qmlClearInstanceListEntriesEP16QQmlListPropertyI25QQuick3DInstanceListEntryE(
+    QQmlListProperty<QQuick3DInstanceListEntry> *list) {
+  QQuick3DInstanceList::qmlClearInstanceListEntries(list);
+}
+
 //  a Python function taken by a CuteQQuick3DInstanceList, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -355,4 +424,12 @@ bool ritual_take_QQuick3DInstanceList(
     const char *key,
     void *call) {
   return static_cast<CuteQQuick3DInstanceList *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QQuick3DInstanceListEntry> a ritual of
+//      QQuick3DInstanceList gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DInstanceList__QQmlListProperty_QQuick3DInstanceListEntry(
+    QQmlListProperty<QQuick3DInstanceListEntry> *self) {
+  delete self;
 }

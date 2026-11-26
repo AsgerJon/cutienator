@@ -12,3 +12,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QPhysicsCommandD1Ev(QPhysicsCommand *self) {
   delete self;
 }
+
+//  void QPhysicsCommand::execute(const QDynamicRigidBody &rigidBody,
+//      physx::PxRigidBody &body)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPhysicsCommand7executeERK17QDynamicRigidBodyRN5physx11PxRigidBodyE(
+    QPhysicsCommand *self,
+    const QDynamicRigidBody *rigidBody,
+    physx::PxRigidBody *body) {
+  self->execute(*rigidBody, *body);
+}

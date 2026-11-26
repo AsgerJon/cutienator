@@ -45,6 +45,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/xml/dom/qdom.cpp, line 1460, as _ZN15QDomNodePrivate13ownerDocumentEv
 #if QT_CONFIG(dom)
 inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()
@@ -57,21 +59,6 @@ inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()
     }
 
     return static_cast<QDomDocumentPrivate *>(p);
-}
-#endif  // QT_CONFIG(dom)
-
-//  from src/xml/dom/qdom.cpp, line 757, as _ZNK19QDomNodeListPrivate11forEachNodeEN3qxp12function_refIJFvP15QDomNodePrivateEEEE
-#if QT_CONFIG(dom)
-inline void QDomNodeListPrivate::forEachNode(qxp::function_ref<void(QDomNodePrivate*)> yield) const
-{
-    if (!node_impl)
-        return;
-
-    QDomNodePrivate *current = findNextInOrder(node_impl);
-    while (current && current != node_impl) {
-        yield(current);
-        current = findNextInOrder(current);
-    }
 }
 #endif  // QT_CONFIG(dom)
 
@@ -119,6 +106,14 @@ inline QDomNodeListPrivate::~QDomNodeListPrivate()
 {
     if (node_impl && !node_impl->ref.deref())
         delete node_impl;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 644, as _ZNK19QDomNodeListPrivateeqERKS_
+#if QT_CONFIG(dom)
+inline bool QDomNodeListPrivate::operator==(const QDomNodeListPrivate &other) const noexcept
+{
+    return (node_impl == other.node_impl) && (tagname == other.tagname);
 }
 #endif  // QT_CONFIG(dom)
 
@@ -222,6 +217,21 @@ inline QDomNodePrivate *QDomNodeListPrivate::findPrevInOrder(QDomNodePrivate *p)
 }
 #endif  // QT_CONFIG(dom)
 
+//  from src/xml/dom/qdom.cpp, line 757, as _ZNK19QDomNodeListPrivate11forEachNodeEN3qxp12function_refIJFvP15QDomNodePrivateEEEE
+#if QT_CONFIG(dom)
+inline void QDomNodeListPrivate::forEachNode(qxp::function_ref<void(QDomNodePrivate*)> yield) const
+{
+    if (!node_impl)
+        return;
+
+    QDomNodePrivate *current = findNextInOrder(node_impl);
+    while (current && current != node_impl) {
+        yield(current);
+        current = findNextInOrder(current);
+    }
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 769, as _ZNK19QDomNodeListPrivate15maybeCreateListEv
 #if QT_CONFIG(dom)
 inline bool QDomNodeListPrivate::maybeCreateList() const
@@ -303,6 +313,16 @@ void ritual_ZN19QDomNodeListPrivateD1Ev(QDomNodeListPrivate *self) {
 }
 
 #if QT_CONFIG(dom)
+//  bool QDomNodeListPrivate::operator==(const QDomNodeListPrivate &a0) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK19QDomNodeListPrivateeqERKS_(
+    const QDomNodeListPrivate *self,
+    const QDomNodeListPrivate *a0) {
+  return self->operator==(*a0);
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
 //  void QDomNodeListPrivate::createList() const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK19QDomNodeListPrivate10createListEv(
@@ -340,6 +360,17 @@ QDomNodePrivate *ritual_ZNK19QDomNodeListPrivate15findPrevInOrderEP15QDomNodePri
     const QDomNodeListPrivate *self,
     QDomNodePrivate *p) {
   return self->findPrevInOrder(p);
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+//  void QDomNodeListPrivate::forEachNode(qxp::function_ref<void
+//      (QDomNodePrivate *)> yield) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK19QDomNodeListPrivate11forEachNodeEN3qxp12function_refIJFvP15QDomNodePrivateEEEE(
+    const QDomNodeListPrivate *self,
+    const qxp::function_ref<void (QDomNodePrivate *)> *yield) {
+  self->forEachNode(*yield);
 }
 #endif  // QT_CONFIG(dom)
 

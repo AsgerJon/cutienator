@@ -15,6 +15,15 @@
     "ritual_ZN22QQuickTableViewPrivate12updatePolishEv": [
       "nothing", "address"
     ],
+    "ritual_ZN22QQuickTableViewPrivate5fixupERN22QQuickFlickablePrivate8AxisDataEdd": [
+      "nothing", "address", "address", "double", "double"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate27visualIndicesForOrientationEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate28logicalIndicesForOrientationEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN22QQuickTableViewPrivate4initEv": ["nothing", "address"],
     "ritual_ZNK22QQuickTableViewPrivate17getAttachedObjectEPK7QObject": [
       "address", "address", "address"
@@ -174,6 +183,12 @@
     "ritual_ZN22QQuickTableViewPrivate15loadFxTableItemERK6QPointN13QQmlIncubator14IncubationModeE": [
       "address", "address", "address", "int"
     ],
+    "ritual_ZN22QQuickTableViewPrivate11releaseItemEP11FxTableItemN17QQmlInstanceModel12ReusableFlagE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18releaseLoadedItemsEN17QQmlInstanceModel12ReusableFlagE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QQuickTableViewPrivate10unloadItemERK6QPoint": [
       "nothing", "address", "address"
     ],
@@ -197,6 +212,9 @@
     ],
     "ritual_ZN22QQuickTableViewPrivate22moveToNextRebuildStateEv": [
       "bool", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate16calculateTopLeftER6QPointR7QPointF": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN22QQuickTableViewPrivate16loadInitialTableEv": [
       "nothing", "address"
@@ -307,6 +325,9 @@
     ],
     "ritual_ZN22QQuickTableViewPrivate18modelResetCallbackEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate19dataChangedCallbackERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN22QQuickTableViewPrivate17positionViewAtRowEi6QFlagsIN2Qt13AlignmentFlagEEd6QRectF": [
       "nothing", "address", "int", "int", "double", "address"
@@ -419,6 +440,9 @@
     ],
     "ritual_ZN22QQuickTableViewPrivate18scrollTowardsPointERK7QPointFRK6QSizeF": [
       "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate11setCallbackESt8functionIFvN16QQuickSelectable12CallBackFlagEEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN22QQuickTableViewPrivate23cancelSelectionTrackingEv": [
       "nothing", "address"

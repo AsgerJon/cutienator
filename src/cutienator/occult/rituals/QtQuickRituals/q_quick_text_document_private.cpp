@@ -7,6 +7,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktextdocument_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qurl.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/qquicktextdocument.h>
@@ -26,6 +27,75 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from ../qtdeclarative/src/quick/items/qquicktextdocument.cpp, line 375, as _ZN25QQuickTextDocumentPrivate7writeToERK4QUrl
+inline void QQuickTextDocumentPrivate::writeTo(const QUrl &fileUrl)
+{
+    auto *doc = editor->document();
+    if (!doc)
+        return;
+
+    const QString filePath = QQmlFile::urlToLocalFileOrQrc(fileUrl);
+    const bool sameUrl = fileUrl == url;
+    if (!sameUrl) {
+#if QT_CONFIG(mimetype)
+        const auto type = QMimeDatabase().mimeTypeForUrl(fileUrl);
+        if (type.inherits("text/html"_L1))
+            detectedFormat = Qt::RichText;
+        else if (type.inherits("text/markdown"_L1))
+            detectedFormat = Qt::MarkdownText;
+        else
+            detectedFormat = Qt::PlainText;
+#else
+        if (filePath.endsWith(".html"_L1, Qt::CaseInsensitive) ||
+            filePath.endsWith(".htm"_L1, Qt::CaseInsensitive))
+            detectedFormat = Qt::RichText;
+        else if (filePath.endsWith(".md"_L1, Qt::CaseInsensitive) ||
+                 filePath.endsWith(".markdown"_L1, Qt::CaseInsensitive))
+            detectedFormat = Qt::MarkdownText;
+        else
+            detectedFormat = Qt::PlainText;
+#endif
+    }
+    QFile file(filePath);
+    if (!file.open(QFile::WriteOnly | QFile::Truncate |
+                   (detectedFormat == Qt::RichText ? QFile::NotOpen : QFile::Text))) {
+        setStatus(QQuickTextDocument::Status::WriteError,
+                  QQuickTextDocument::tr("Cannot save: %1").arg(file.errorString()));
+        return;
+    }
+    setStatus(QQuickTextDocument::Status::Saving, {});
+    QByteArray raw;
+
+    switch (detectedFormat) {
+#if QT_CONFIG(textmarkdownwriter)
+    case Qt::MarkdownText:
+        raw = doc->toMarkdown().toUtf8();
+        break;
+#endif
+#if QT_CONFIG(texthtmlparser)
+    case Qt::RichText:
+        if (sameUrl && encoding) {
+            QStringEncoder enc(*encoding);
+            raw = enc.encode(doc->toHtml());
+        } else {
+            // default to UTF-8 unless the user is saving the same file as previously loaded
+            raw = doc->toHtml().toUtf8();
+        }
+        break;
+#endif
+    default:
+        raw = doc->toPlainText().toUtf8();
+        break;
+    }
+
+    file.write(raw);
+    file.close();
+    setStatus(QQuickTextDocument::Status::Saved, {});
+    doc->setModified(false);
+}
 
 //  from ../qtdeclarative/src/quick/items/qquicktextdocument.cpp, line 441, as _ZNK25QQuickTextDocumentPrivate8documentEv
 inline QTextDocument *QQuickTextDocumentPrivate::document() const
@@ -98,6 +168,14 @@ extern "C" Q_DECL_EXPORT
 const QQuickTextDocumentPrivate *ritual_ZN25QQuickTextDocumentPrivate3getEPK18QQuickTextDocument(
     const QQuickTextDocument *doc) {
   return QQuickTextDocumentPrivate::get(doc);
+}
+
+//  void QQuickTextDocumentPrivate::writeTo(const QUrl &fileUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickTextDocumentPrivate7writeToERK4QUrl(
+    QQuickTextDocumentPrivate *self,
+    const QUrl *fileUrl) {
+  self->writeTo(*fileUrl);
 }
 
 //  QTextDocument *QQuickTextDocumentPrivate::document() const

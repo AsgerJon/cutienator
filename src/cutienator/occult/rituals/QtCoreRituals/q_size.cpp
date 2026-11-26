@@ -1,8 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qsize.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qsize.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  rituals for functions the generator leaves out: 2. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qsize.h>
 #include <QtCore/qmargins.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QSize>
 
 //  QSize::QSize()
 extern "C" Q_DECL_EXPORT
@@ -210,6 +213,14 @@ QSizeF *ritual_ZNK5QSize7toSizeFEv(const QSize *self) {
   return new QSizeF(self->toSizeF());
 }
 
+//  QSize::QSize(Representation w, Representation h)
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZN5QSizeC1EN9QtPrivate16QCheckedIntegers11QCheckedIntIiNS1_13SafeCheckImplIiEENS1_18AssertReportPolicyEEES6_(
+    const QSize::Representation *w,
+    const QSize::Representation *h) {
+  return new QSize(*w, *h);
+}
+
 //  QSize::~QSize()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QSizeD1Ev(QSize *self) {
@@ -244,4 +255,18 @@ QSize *ritual_list_at_QSize(const QList<QSize> *self, long long index) {
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QSize(QList<QSize> *self) {
   delete self;
+}
+
+//  int &QSize::rwidth()
+extern "C" Q_DECL_EXPORT
+int *ritual_ZN5QSize6rwidthEv(
+    QSize *self) {
+  return &(self->rwidth());
+}
+
+//  int &QSize::rheight()
+extern "C" Q_DECL_EXPORT
+int *ritual_ZN5QSize7rheightEv(
+    QSize *self) {
+  return &(self->rheight());
 }

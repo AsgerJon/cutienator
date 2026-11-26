@@ -73,6 +73,65 @@ const Qt3DRender::QObjectPicker *ritual_ZNK10Qt3DRender20QObjectPickerPrivate6q_
   return self->q_func();
 }
 
+//  void Qt3DRender::QObjectPickerPrivate::propagateEvent(QPickEvent *event,
+//      EventType type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QObjectPickerPrivate14propagateEventEPNS_10QPickEventENS0_9EventTypeE(
+    Qt3DRender::QObjectPickerPrivate *self,
+    Qt3DRender::QPickEvent *event,
+    Qt3DRender::QObjectPickerPrivate::EventType type) {
+  self->propagateEvent(event, type);
+}
+
+//  void Qt3DRender::QObjectPickerPrivate::pressedEvent(QPickEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QObjectPickerPrivate12pressedEventEPNS_10QPickEventE(
+    Qt3DRender::QObjectPickerPrivate *self,
+    Qt3DRender::QPickEvent *event) {
+  self->pressedEvent(event);
+}
+
+//  void Qt3DRender::QObjectPickerPrivate::clickedEvent(QPickEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QObjectPickerPrivate12clickedEventEPNS_10QPickEventE(
+    Qt3DRender::QObjectPickerPrivate *self,
+    Qt3DRender::QPickEvent *event) {
+  self->clickedEvent(event);
+}
+
+//  void Qt3DRender::QObjectPickerPrivate::movedEvent(QPickEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QObjectPickerPrivate10movedEventEPNS_10QPickEventE(
+    Qt3DRender::QObjectPickerPrivate *self,
+    Qt3DRender::QPickEvent *event) {
+  self->movedEvent(event);
+}
+
+//  void Qt3DRender::QObjectPickerPrivate::releasedEvent(QPickEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QObjectPickerPrivate13releasedEventEPNS_10QPickEventE(
+    Qt3DRender::QObjectPickerPrivate *self,
+    Qt3DRender::QPickEvent *event) {
+  self->releasedEvent(event);
+}
+
+//  void Qt3DRender::QObjectPickerPrivate::setPressed(bool pressed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QObjectPickerPrivate10setPressedEb(
+    Qt3DRender::QObjectPickerPrivate *self,
+    bool pressed) {
+  self->setPressed(pressed);
+}
+
+//  void Qt3DRender::QObjectPickerPrivate::setContainsMouse(bool
+//      containsMouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QObjectPickerPrivate16setContainsMouseEb(
+    Qt3DRender::QObjectPickerPrivate *self,
+    bool containsMouse) {
+  self->setContainsMouse(containsMouse);
+}
+
 //  a Python function taken by a CuteQt3DRender_QObjectPickerPrivate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

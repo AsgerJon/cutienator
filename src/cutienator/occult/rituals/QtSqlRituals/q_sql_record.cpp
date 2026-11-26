@@ -18,10 +18,38 @@ QSqlRecord *ritual_ZN10QSqlRecordC1ERKS_(const QSqlRecord *other) {
   return new QSqlRecord(*other);
 }
 
+//  QSqlRecord::QSqlRecord(QSqlRecord &&other)
+extern "C" Q_DECL_EXPORT
+QSqlRecord *ritual_ZN10QSqlRecordC1EOS_(QSqlRecord *other) {
+  return new QSqlRecord(std::move(*other));
+}
+
+//  QSqlRecord &QSqlRecord::operator=(const QSqlRecord &other)
+extern "C" Q_DECL_EXPORT
+QSqlRecord *ritual_ZN10QSqlRecordaSERKS_(
+    QSqlRecord *self,
+    const QSqlRecord *other) {
+  return &(self->operator=(*other));
+}
+
+//  QSqlRecord &QSqlRecord::operator=(QSqlRecord &&other)
+extern "C" Q_DECL_EXPORT
+QSqlRecord *ritual_ZN10QSqlRecordaSEOS_(
+    QSqlRecord *self,
+    QSqlRecord *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QSqlRecord::~QSqlRecord()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QSqlRecordD1Ev(QSqlRecord *self) {
   delete self;
+}
+
+//  void QSqlRecord::swap(QSqlRecord &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSqlRecord4swapERS_(QSqlRecord *self, QSqlRecord *other) {
+  self->swap(*other);
 }
 
 //  bool QSqlRecord::operator==(const QSqlRecord &other) const

@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtMqtt/qmqtttopicfilter.h>
 #include <QtMqtt/qmqtttype.h>
+#include <QtMqtt/qmqttmessage.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -181,6 +182,25 @@ const QMetaObject *ritual_ZNK17QMqttSubscription10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMqttSubscription::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QMqttSubscription11qt_metacastEPKc(
+    QMqttSubscription *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMqttSubscription::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QMqttSubscription11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMqttSubscription *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMqttSubscription::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QMqttSubscription2trEPKcS1_i(
@@ -249,6 +269,30 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK17QMqttSubscription22sharedSubscriptionNameEv(
     const QMqttSubscription *self) {
   return new QString(self->sharedSubscriptionName());
+}
+
+//  void QMqttSubscription::stateChanged(SubscriptionState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMqttSubscription12stateChangedENS_17SubscriptionStateE(
+    QMqttSubscription *self,
+    QMqttSubscription::SubscriptionState state) {
+  self->stateChanged(state);
+}
+
+//  void QMqttSubscription::qosChanged(quint8 a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMqttSubscription10qosChangedEh(
+    QMqttSubscription *self,
+    quint8 a0) {
+  self->qosChanged(a0);
+}
+
+//  void QMqttSubscription::messageReceived(QMqttMessage msg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMqttSubscription15messageReceivedE12QMqttMessage(
+    QMqttSubscription *self,
+    const QMqttMessage *msg) {
+  self->messageReceived(*msg);
 }
 
 //  void QMqttSubscription::unsubscribe()

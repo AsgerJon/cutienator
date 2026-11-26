@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQmlDelegateChooser10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQmlDelegateChooser11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQmlDelegateChooser11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQmlDelegateChooser2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -13,11 +19,34 @@
     "ritual_ZN19QQmlDelegateChooser7setRoleERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN19QQmlDelegateChooser7choicesEv": ["address", "address"],
+    "ritual_ZN19QQmlDelegateChooser14choices_appendEP16QQmlListPropertyI18QQmlDelegateChoiceEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlDelegateChooser13choices_countEP16QQmlListPropertyI18QQmlDelegateChoiceE": [
+      "long long", "address"
+    ],
+    "ritual_ZN19QQmlDelegateChooser10choices_atEP16QQmlListPropertyI18QQmlDelegateChoiceEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN19QQmlDelegateChooser13choices_clearEP16QQmlListPropertyI18QQmlDelegateChoiceE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlDelegateChooser15choices_replaceEP16QQmlListPropertyI18QQmlDelegateChoiceExPS1_": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN19QQmlDelegateChooser18choices_removeLastEP16QQmlListPropertyI18QQmlDelegateChoiceE": [
+      "nothing", "address"
+    ],
     "ritual_ZNK19QQmlDelegateChooser8delegateEP16QQmlAdaptorModelii": [
       "address", "address", "address", "int", "int"
     ],
+    "ritual_ZN19QQmlDelegateChooser11roleChangedEv": ["nothing", "address"],
     "ritual_own_ZNK19QQmlDelegateChooser8delegateEP16QQmlAdaptorModelii": [
       "address", "address", "address", "int", "int"
+    ],
+    "ritual_drop_QQmlDelegateChooser__QQmlListProperty_QQmlDelegateChoice": [
+      "nothing", "address"
     ]
   }
 }

@@ -346,6 +346,25 @@ const QMetaObject *ritual_ZNK18QQuickPointHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPointHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickPointHandler11qt_metacastEPKc(
+    QQuickPointHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPointHandler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickPointHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPointHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPointHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickPointHandler2trEPKcS1_i(
@@ -369,6 +388,13 @@ QVector2D *ritual_ZNK18QQuickPointHandler11translationEv(
   return new QVector2D(self->translation());
 }
 
+//  void QQuickPointHandler::translationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPointHandler18translationChangedEv(
+    QQuickPointHandler *self) {
+  self->translationChanged();
+}
+
 //  bool QQuickPointHandler::wantsEventPoint(const QPointerEvent *event,
 //      const QEventPoint &point)
 extern "C" Q_DECL_EXPORT
@@ -377,6 +403,16 @@ bool ritual_ZN18QQuickPointHandler15wantsEventPointEPK13QPointerEventRK11QEventP
     const QPointerEvent *event,
     const QEventPoint *point) {
   return self->wantsEventPoint(event, *point);
+}
+
+//  void QQuickPointHandler::handleEventPoint(QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPointHandler16handleEventPointEP13QPointerEventR11QEventPoint(
+    QQuickPointHandler *self,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->handleEventPoint(event, *point);
 }
 
 //  a Python function taken by a CuteQQuickPointHandler, for the function

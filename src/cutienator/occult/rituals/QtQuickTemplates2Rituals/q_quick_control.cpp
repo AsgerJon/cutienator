@@ -1074,6 +1074,24 @@ const QMetaObject *ritual_ZNK13QQuickControl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickControl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickControl11qt_metacastEPKc(
+    QQuickControl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickControl::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickControl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickControl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickControl::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickControl2trEPKcS1_i(
@@ -1546,10 +1564,200 @@ void ritual_ZN13QQuickControl16resetBottomInsetEv(QQuickControl *self) {
   self->resetBottomInset();
 }
 
+//  void QQuickControl::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl11fontChangedEv(QQuickControl *self) {
+  self->fontChanged();
+}
+
+//  void QQuickControl::availableWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl21availableWidthChangedEv(QQuickControl *self) {
+  self->availableWidthChanged();
+}
+
+//  void QQuickControl::availableHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl22availableHeightChangedEv(
+    QQuickControl *self) {
+  self->availableHeightChanged();
+}
+
+//  void QQuickControl::paddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl14paddingChangedEv(QQuickControl *self) {
+  self->paddingChanged();
+}
+
+//  void QQuickControl::topPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl17topPaddingChangedEv(QQuickControl *self) {
+  self->topPaddingChanged();
+}
+
+//  void QQuickControl::leftPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl18leftPaddingChangedEv(QQuickControl *self) {
+  self->leftPaddingChanged();
+}
+
+//  void QQuickControl::rightPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl19rightPaddingChangedEv(QQuickControl *self) {
+  self->rightPaddingChanged();
+}
+
+//  void QQuickControl::bottomPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl20bottomPaddingChangedEv(QQuickControl *self) {
+  self->bottomPaddingChanged();
+}
+
+//  void QQuickControl::spacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl14spacingChangedEv(QQuickControl *self) {
+  self->spacingChanged();
+}
+
+//  void QQuickControl::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl13localeChangedEv(QQuickControl *self) {
+  self->localeChanged();
+}
+
+//  void QQuickControl::focusReasonChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl18focusReasonChangedEv(QQuickControl *self) {
+  self->focusReasonChanged();
+}
+
+//  void QQuickControl::mirroredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl15mirroredChangedEv(QQuickControl *self) {
+  self->mirroredChanged();
+}
+
+//  void QQuickControl::visualFocusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl18visualFocusChangedEv(QQuickControl *self) {
+  self->visualFocusChanged();
+}
+
+//  void QQuickControl::hoveredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl14hoveredChangedEv(QQuickControl *self) {
+  self->hoveredChanged();
+}
+
+//  void QQuickControl::hoverEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl19hoverEnabledChangedEv(QQuickControl *self) {
+  self->hoverEnabledChanged();
+}
+
+//  void QQuickControl::wheelEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl19wheelEnabledChangedEv(QQuickControl *self) {
+  self->wheelEnabledChanged();
+}
+
+//  void QQuickControl::backgroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl17backgroundChangedEv(QQuickControl *self) {
+  self->backgroundChanged();
+}
+
+//  void QQuickControl::contentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl18contentItemChangedEv(QQuickControl *self) {
+  self->contentItemChanged();
+}
+
+//  void QQuickControl::baselineOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl21baselineOffsetChangedEv(QQuickControl *self) {
+  self->baselineOffsetChanged();
+}
+
+//  void QQuickControl::horizontalPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl24horizontalPaddingChangedEv(
+    QQuickControl *self) {
+  self->horizontalPaddingChanged();
+}
+
+//  void QQuickControl::verticalPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl22verticalPaddingChangedEv(
+    QQuickControl *self) {
+  self->verticalPaddingChanged();
+}
+
+//  void QQuickControl::implicitContentWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl27implicitContentWidthChangedEv(
+    QQuickControl *self) {
+  self->implicitContentWidthChanged();
+}
+
+//  void QQuickControl::implicitContentHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl28implicitContentHeightChangedEv(
+    QQuickControl *self) {
+  self->implicitContentHeightChanged();
+}
+
+//  void QQuickControl::implicitBackgroundWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl30implicitBackgroundWidthChangedEv(
+    QQuickControl *self) {
+  self->implicitBackgroundWidthChanged();
+}
+
+//  void QQuickControl::implicitBackgroundHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl31implicitBackgroundHeightChangedEv(
+    QQuickControl *self) {
+  self->implicitBackgroundHeightChanged();
+}
+
+//  void QQuickControl::topInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl15topInsetChangedEv(QQuickControl *self) {
+  self->topInsetChanged();
+}
+
+//  void QQuickControl::leftInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl16leftInsetChangedEv(QQuickControl *self) {
+  self->leftInsetChanged();
+}
+
+//  void QQuickControl::rightInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl17rightInsetChangedEv(QQuickControl *self) {
+  self->rightInsetChanged();
+}
+
+//  void QQuickControl::bottomInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickControl18bottomInsetChangedEv(QQuickControl *self) {
+  self->bottomInsetChanged();
+}
+
 //  QFont QQuickControl::defaultFont() const
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK13QQuickControl11defaultFontEv(const QQuickControl *self) {
   return new QFont(self->defaultFont());
+}
+
+//  QQuickControl::QQuickControl(QQuickControlPrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickControl *ritual_ZN13QQuickControlC1ER20QQuickControlPrivateP10QQuickItem(
+    QQuickControlPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickControl(*dd, parent);
 }
 
 //  void QQuickControl::classBegin()

@@ -14,6 +14,10 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtGui/QVulkanInfoVector>
+#include <QtGui/QVulkanExtension>
+#include <QtGui/QVulkanWindow>
 
 //  Only a class built on QVulkanWindow may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -645,6 +649,24 @@ const QMetaObject *ritual_ZNK13QVulkanWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVulkanWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QVulkanWindow11qt_metacastEPKc(
+    QVulkanWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVulkanWindow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QVulkanWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVulkanWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVulkanWindow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QVulkanWindow2trEPKcS1_i(
@@ -694,12 +716,30 @@ int ritual_ZNK13QVulkanWindow5flagsEv(const QVulkanWindow *self) {
   return static_cast<int>(self->flags().toInt());
 }
 
+//  QList<VkPhysicalDeviceProperties>
+//      QVulkanWindow::availablePhysicalDevices()
+extern "C" Q_DECL_EXPORT
+QList<VkPhysicalDeviceProperties> *ritual_ZN13QVulkanWindow24availablePhysicalDevicesEv(
+    QVulkanWindow *self) {
+  return new QList<VkPhysicalDeviceProperties>(
+      self->availablePhysicalDevices());
+}
+
 //  void QVulkanWindow::setPhysicalDeviceIndex(int idx)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QVulkanWindow22setPhysicalDeviceIndexEi(
     QVulkanWindow *self,
     int idx) {
   self->setPhysicalDeviceIndex(idx);
+}
+
+//  QVulkanInfoVector<QVulkanExtension>
+//      QVulkanWindow::supportedDeviceExtensions()
+extern "C" Q_DECL_EXPORT
+QVulkanInfoVector<QVulkanExtension> *ritual_ZN13QVulkanWindow25supportedDeviceExtensionsEv(
+    QVulkanWindow *self) {
+  return new QVulkanInfoVector<QVulkanExtension>(
+      self->supportedDeviceExtensions());
 }
 
 //  void QVulkanWindow::setDeviceExtensions(const QByteArrayList &extensions)
@@ -710,12 +750,55 @@ void ritual_ZN13QVulkanWindow19setDeviceExtensionsERK5QListI10QByteArrayE(
   self->setDeviceExtensions(*extensions);
 }
 
+//  void QVulkanWindow::setEnabledFeaturesModifier(const
+//      EnabledFeaturesModifier &modifier)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QVulkanWindow26setEnabledFeaturesModifierERKSt8functionIFvR24VkPhysicalDeviceFeaturesEE(
+    QVulkanWindow *self,
+    const QVulkanWindow::EnabledFeaturesModifier *modifier) {
+  self->setEnabledFeaturesModifier(*modifier);
+}
+
+//  void QVulkanWindow::setEnabledFeaturesModifier(EnabledFeatures2Modifier
+//      modifier)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QVulkanWindow26setEnabledFeaturesModifierESt8functionIFvR25VkPhysicalDeviceFeatures2EE(
+    QVulkanWindow *self,
+    const QVulkanWindow::EnabledFeatures2Modifier *modifier) {
+  self->setEnabledFeaturesModifier(*modifier);
+}
+
+//  void QVulkanWindow::setPreferredColorFormats(const QList<VkFormat>
+//      &formats)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QVulkanWindow24setPreferredColorFormatsERK5QListI8VkFormatE(
+    QVulkanWindow *self,
+    const QList<VkFormat> *formats) {
+  self->setPreferredColorFormats(*formats);
+}
+
+//  QList<int> QVulkanWindow::supportedSampleCounts()
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZN13QVulkanWindow21supportedSampleCountsEv(
+    QVulkanWindow *self) {
+  return new QList<int>(self->supportedSampleCounts());
+}
+
 //  void QVulkanWindow::setSampleCount(int sampleCount)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QVulkanWindow14setSampleCountEi(
     QVulkanWindow *self,
     int sampleCount) {
   self->setSampleCount(sampleCount);
+}
+
+//  void QVulkanWindow::setQueueCreateInfoModifier(const
+//      QueueCreateInfoModifier &modifier)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QVulkanWindow26setQueueCreateInfoModifierERKSt8functionIFvPK23VkQueueFamilyPropertiesjR5QListI23VkDeviceQueueCreateInfoEEE(
+    QVulkanWindow *self,
+    const QVulkanWindow::QueueCreateInfoModifier *modifier) {
+  self->setQueueCreateInfoModifier(*modifier);
 }
 
 //  bool QVulkanWindow::isValid() const
@@ -737,11 +820,102 @@ void ritual_ZN13QVulkanWindow10frameReadyEv(QVulkanWindow *self) {
   self->frameReady();
 }
 
+//  VkPhysicalDevice QVulkanWindow::physicalDevice() const
+extern "C" Q_DECL_EXPORT
+VkPhysicalDevice *ritual_ZNK13QVulkanWindow14physicalDeviceEv(
+    const QVulkanWindow *self) {
+  return new VkPhysicalDevice(self->physicalDevice());
+}
+
+//  const VkPhysicalDeviceProperties
+//      *QVulkanWindow::physicalDeviceProperties() const
+extern "C" Q_DECL_EXPORT
+const VkPhysicalDeviceProperties *ritual_ZNK13QVulkanWindow24physicalDevicePropertiesEv(
+    const QVulkanWindow *self) {
+  return self->physicalDeviceProperties();
+}
+
+//  VkDevice QVulkanWindow::device() const
+extern "C" Q_DECL_EXPORT
+VkDevice *ritual_ZNK13QVulkanWindow6deviceEv(const QVulkanWindow *self) {
+  return new VkDevice(self->device());
+}
+
+//  VkQueue QVulkanWindow::graphicsQueue() const
+extern "C" Q_DECL_EXPORT
+VkQueue *ritual_ZNK13QVulkanWindow13graphicsQueueEv(
+    const QVulkanWindow *self) {
+  return new VkQueue(self->graphicsQueue());
+}
+
+//  uint32_t QVulkanWindow::graphicsQueueFamilyIndex() const
+extern "C" Q_DECL_EXPORT
+uint32_t ritual_ZNK13QVulkanWindow24graphicsQueueFamilyIndexEv(
+    const QVulkanWindow *self) {
+  return self->graphicsQueueFamilyIndex();
+}
+
+//  VkCommandPool QVulkanWindow::graphicsCommandPool() const
+extern "C" Q_DECL_EXPORT
+VkCommandPool *ritual_ZNK13QVulkanWindow19graphicsCommandPoolEv(
+    const QVulkanWindow *self) {
+  return new VkCommandPool(self->graphicsCommandPool());
+}
+
+//  uint32_t QVulkanWindow::hostVisibleMemoryIndex() const
+extern "C" Q_DECL_EXPORT
+uint32_t ritual_ZNK13QVulkanWindow22hostVisibleMemoryIndexEv(
+    const QVulkanWindow *self) {
+  return self->hostVisibleMemoryIndex();
+}
+
+//  uint32_t QVulkanWindow::deviceLocalMemoryIndex() const
+extern "C" Q_DECL_EXPORT
+uint32_t ritual_ZNK13QVulkanWindow22deviceLocalMemoryIndexEv(
+    const QVulkanWindow *self) {
+  return self->deviceLocalMemoryIndex();
+}
+
+//  VkRenderPass QVulkanWindow::defaultRenderPass() const
+extern "C" Q_DECL_EXPORT
+VkRenderPass *ritual_ZNK13QVulkanWindow17defaultRenderPassEv(
+    const QVulkanWindow *self) {
+  return new VkRenderPass(self->defaultRenderPass());
+}
+
+//  VkFormat QVulkanWindow::colorFormat() const
+extern "C" Q_DECL_EXPORT
+VkFormat *ritual_ZNK13QVulkanWindow11colorFormatEv(
+    const QVulkanWindow *self) {
+  return new VkFormat(self->colorFormat());
+}
+
+//  VkFormat QVulkanWindow::depthStencilFormat() const
+extern "C" Q_DECL_EXPORT
+VkFormat *ritual_ZNK13QVulkanWindow18depthStencilFormatEv(
+    const QVulkanWindow *self) {
+  return new VkFormat(self->depthStencilFormat());
+}
+
 //  QSize QVulkanWindow::swapChainImageSize() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK13QVulkanWindow18swapChainImageSizeEv(
     const QVulkanWindow *self) {
   return new QSize(self->swapChainImageSize());
+}
+
+//  VkCommandBuffer QVulkanWindow::currentCommandBuffer() const
+extern "C" Q_DECL_EXPORT
+VkCommandBuffer *ritual_ZNK13QVulkanWindow20currentCommandBufferEv(
+    const QVulkanWindow *self) {
+  return new VkCommandBuffer(self->currentCommandBuffer());
+}
+
+//  VkFramebuffer QVulkanWindow::currentFramebuffer() const
+extern "C" Q_DECL_EXPORT
+VkFramebuffer *ritual_ZNK13QVulkanWindow18currentFramebufferEv(
+    const QVulkanWindow *self) {
+  return new VkFramebuffer(self->currentFramebuffer());
 }
 
 //  int QVulkanWindow::currentFrame() const
@@ -771,6 +945,59 @@ int ritual_ZNK13QVulkanWindow26currentSwapChainImageIndexEv(
   return self->currentSwapChainImageIndex();
 }
 
+//  VkImage QVulkanWindow::swapChainImage(int idx) const
+extern "C" Q_DECL_EXPORT
+VkImage *ritual_ZNK13QVulkanWindow14swapChainImageEi(
+    const QVulkanWindow *self,
+    int idx) {
+  return new VkImage(self->swapChainImage(idx));
+}
+
+//  VkImageView QVulkanWindow::swapChainImageView(int idx) const
+extern "C" Q_DECL_EXPORT
+VkImageView *ritual_ZNK13QVulkanWindow18swapChainImageViewEi(
+    const QVulkanWindow *self,
+    int idx) {
+  return new VkImageView(self->swapChainImageView(idx));
+}
+
+//  VkImage QVulkanWindow::depthStencilImage() const
+extern "C" Q_DECL_EXPORT
+VkImage *ritual_ZNK13QVulkanWindow17depthStencilImageEv(
+    const QVulkanWindow *self) {
+  return new VkImage(self->depthStencilImage());
+}
+
+//  VkImageView QVulkanWindow::depthStencilImageView() const
+extern "C" Q_DECL_EXPORT
+VkImageView *ritual_ZNK13QVulkanWindow21depthStencilImageViewEv(
+    const QVulkanWindow *self) {
+  return new VkImageView(self->depthStencilImageView());
+}
+
+//  VkSampleCountFlagBits QVulkanWindow::sampleCountFlagBits() const
+extern "C" Q_DECL_EXPORT
+VkSampleCountFlagBits *ritual_ZNK13QVulkanWindow19sampleCountFlagBitsEv(
+    const QVulkanWindow *self) {
+  return new VkSampleCountFlagBits(self->sampleCountFlagBits());
+}
+
+//  VkImage QVulkanWindow::msaaColorImage(int idx) const
+extern "C" Q_DECL_EXPORT
+VkImage *ritual_ZNK13QVulkanWindow14msaaColorImageEi(
+    const QVulkanWindow *self,
+    int idx) {
+  return new VkImage(self->msaaColorImage(idx));
+}
+
+//  VkImageView QVulkanWindow::msaaColorImageView(int idx) const
+extern "C" Q_DECL_EXPORT
+VkImageView *ritual_ZNK13QVulkanWindow18msaaColorImageViewEi(
+    const QVulkanWindow *self,
+    int idx) {
+  return new VkImageView(self->msaaColorImageView(idx));
+}
+
 //  bool QVulkanWindow::supportsGrab() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QVulkanWindow12supportsGrabEv(const QVulkanWindow *self) {
@@ -788,6 +1015,14 @@ extern "C" Q_DECL_EXPORT
 QMatrix4x4 *ritual_ZN13QVulkanWindow20clipCorrectionMatrixEv(
     QVulkanWindow *self) {
   return new QMatrix4x4(self->clipCorrectionMatrix());
+}
+
+//  void QVulkanWindow::frameGrabbed(const QImage &image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QVulkanWindow12frameGrabbedERK6QImage(
+    QVulkanWindow *self,
+    const QImage *image) {
+  self->frameGrabbed(*image);
 }
 
 //  void QVulkanWindow::exposeEvent(QExposeEvent *a0)
@@ -853,6 +1088,93 @@ bool ritual_own_ZN13QVulkanWindow5eventEP6QEvent(
     QVulkanWindow *self,
     QEvent *a0) {
   return static_cast<OwnQVulkanWindow *>(self)->OwnQVulkanWindow::event(a0);
+}
+
+//  a QList<VkPhysicalDeviceProperties> a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__QList_VkPhysicalDeviceProperties(
+    QList<VkPhysicalDeviceProperties> *self) {
+  delete self;
+}
+
+//  a QVulkanInfoVector<QVulkanExtension> a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__QVulkanInfoVector_QVulkanExtension(
+    QVulkanInfoVector<QVulkanExtension> *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__QList_int(QList<int> *self) {
+  delete self;
+}
+
+//  a VkPhysicalDevice a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkPhysicalDevice(VkPhysicalDevice *self) {
+  delete self;
+}
+
+//  a VkDevice a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkDevice(VkDevice *self) {
+  delete self;
+}
+
+//  a VkQueue a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkQueue(VkQueue *self) {
+  delete self;
+}
+
+//  a VkCommandPool a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkCommandPool(VkCommandPool *self) {
+  delete self;
+}
+
+//  a VkRenderPass a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkRenderPass(VkRenderPass *self) {
+  delete self;
+}
+
+//  a VkFormat a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkFormat(VkFormat *self) {
+  delete self;
+}
+
+//  a VkCommandBuffer a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkCommandBuffer(VkCommandBuffer *self) {
+  delete self;
+}
+
+//  a VkFramebuffer a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkFramebuffer(VkFramebuffer *self) {
+  delete self;
+}
+
+//  a VkImage a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkImage(VkImage *self) {
+  delete self;
+}
+
+//  a VkImageView a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkImageView(VkImageView *self) {
+  delete self;
+}
+
+//  a VkSampleCountFlagBits a ritual of QVulkanWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVulkanWindow__VkSampleCountFlagBits(
+    VkSampleCountFlagBits *self) {
+  delete self;
 }
 
 #endif  // (QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)) || defined(Q_QDOC)

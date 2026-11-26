@@ -204,6 +204,25 @@ const QMetaObject *ritual_ZNK33QNetworkInformationBackendFactory10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNetworkInformationBackendFactory::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN33QNetworkInformationBackendFactory11qt_metacastEPKc(
+    QNetworkInformationBackendFactory *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNetworkInformationBackendFactory::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN33QNetworkInformationBackendFactory11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNetworkInformationBackendFactory *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QNetworkInformationBackendFactory::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT

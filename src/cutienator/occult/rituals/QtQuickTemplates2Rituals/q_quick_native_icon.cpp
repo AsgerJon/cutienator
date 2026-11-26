@@ -54,6 +54,18 @@ inline void QQuickNativeIcon::setMask(bool mask)
 {
     m_mask = mask;
 }
+
+//  from ../qtdeclarative/src/quicktemplates/qquicknativeicon.cpp, line 39, as _ZNK16QQuickNativeIconeqERKS_
+inline bool QQuickNativeIcon::operator==(const QQuickNativeIcon &other) const
+{
+    return m_source == other.m_source && m_name == other.m_name && m_mask == other.m_mask;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicknativeicon.cpp, line 44, as _ZNK16QQuickNativeIconneERKS_
+inline bool QQuickNativeIcon::operator!=(const QQuickNativeIcon &other) const
+{
+    return !(*this == other);
+}
 //  -----------------------------------------------------------------------
 
 //  void QQuickNativeIcon::qt_qmlMarker_anonymous()
@@ -103,6 +115,22 @@ void ritual_ZN16QQuickNativeIcon7setMaskEb(
     QQuickNativeIcon *self,
     bool mask) {
   self->setMask(mask);
+}
+
+//  bool QQuickNativeIcon::operator==(const QQuickNativeIcon &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QQuickNativeIconeqERKS_(
+    const QQuickNativeIcon *self,
+    const QQuickNativeIcon *other) {
+  return self->operator==(*other);
+}
+
+//  bool QQuickNativeIcon::operator!=(const QQuickNativeIcon &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QQuickNativeIconneERKS_(
+    const QQuickNativeIcon *self,
+    const QQuickNativeIcon *other) {
+  return self->operator!=(*other);
 }
 
 //  QQuickNativeIcon::~QQuickNativeIcon()

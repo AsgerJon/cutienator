@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QVideoSink10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QVideoSink11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QVideoSink11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QVideoSink2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QVideoSinkC1EP7QObject": ["address", "address"],
     "ritual_ZN10QVideoSinkD1Ev": ["nothing", "address"],
@@ -20,6 +26,13 @@
     ],
     "ritual_ZNK10QVideoSink10videoFrameEv": ["address", "address"],
     "ritual_ZNK10QVideoSink17platformVideoSinkEv": ["address", "address"],
+    "ritual_ZNK10QVideoSink17videoFrameChangedERK11QVideoFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QVideoSink19subtitleTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QVideoSink16videoSizeChangedEv": ["nothing", "address"],
     "ritual_ZN10QVideoSink9setSourceEP7QObject": [
       "nothing", "address", "address"
     ],

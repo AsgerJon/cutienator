@@ -8,8 +8,30 @@
     "ritual_ZNK13Qt3DAnimation13QClipAnimator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation13QClipAnimator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation13QClipAnimator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation13QClipAnimator2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation13QClipAnimatorC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation13QClipAnimatorD1Ev": ["nothing", "address"],
+    "ritual_ZNK13Qt3DAnimation13QClipAnimator4clipEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation13QClipAnimator7setClipEPNS_22QAbstractAnimationClipE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation13QClipAnimator11clipChangedEPNS_22QAbstractAnimationClipE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation13QClipAnimatorC1ERNS_20QClipAnimatorPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation13QClipAnimator6d_funcEv": [
       "address", "address"

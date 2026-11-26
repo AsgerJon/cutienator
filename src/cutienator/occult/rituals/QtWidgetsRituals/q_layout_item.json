@@ -4,6 +4,9 @@
     "QtWidgets/qlayoutitem.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QLayoutItemC1E6QFlagsIN2Qt13AlignmentFlagEE": [
+      "address", "int"
+    ],
     "ritual_ZN11QLayoutItemD1Ev": ["nothing", "address"],
     "ritual_ZNK11QLayoutItem8sizeHintEv": ["address", "address"],
     "ritual_ZNK11QLayoutItem11minimumSizeEv": ["address", "address"],

@@ -7,6 +7,53 @@
 #include <Qt3DAnimation/6.12.0/Qt3DAnimation/private/qanimationcliploader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DAnimation/qabstractanimationclip.h>
+#include <Qt3DAnimation/private/qabstractanimationclip_p.h>
+#include <Qt3DAnimation/qanimationcliploader.h>
+#include <Qt3DAnimation/private/qanimationcliploader_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/animation/frontend/qabstractanimationclip.cpp, line 11, as _ZN13Qt3DAnimation29QAbstractAnimationClipPrivateC2Ev
+namespace Qt3DAnimation {
+inline QAbstractAnimationClipPrivate::QAbstractAnimationClipPrivate()
+    : Qt3DCore::QNodePrivate()
+    , m_duration(0.0f)
+{
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qanimationcliploader.cpp, line 11, as _ZN13Qt3DAnimation27QAnimationClipLoaderPrivateC1Ev
+namespace Qt3DAnimation {
+inline QAnimationClipLoaderPrivate::QAnimationClipLoaderPrivate()
+    : QAbstractAnimationClipPrivate()
+    , m_source()
+    , m_status(QAnimationClipLoader::NotReady)
+{
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qanimationcliploader.cpp, line 18, as _ZN13Qt3DAnimation27QAnimationClipLoaderPrivate9setStatusENS_20QAnimationClipLoader6StatusE
+namespace Qt3DAnimation {
+inline void QAnimationClipLoaderPrivate::setStatus(QAnimationClipLoader::Status status)
+{
+    Q_Q(QAnimationClipLoader);
+    if (status != m_status) {
+        m_status = status;
+        const bool blocked = q->blockNotifications(true);
+        emit q->statusChanged(m_status);
+        q->blockNotifications(blocked);
+    }
+}
+}  // namespace Qt3DAnimation
+//  -----------------------------------------------------------------------
 
 //  A Qt3DAnimation::QAnimationClipLoaderPrivate that Python can take functions over in. Every Qt3DAnimation::QAnimationClipLoaderPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +99,21 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DAnimation::QAnimationClipLoaderPrivate::QAnimationClipLoaderPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationClipLoaderPrivate *ritual_ZN13Qt3DAnimation27QAnimationClipLoaderPrivateC1Ev() {
+  return new CuteQt3DAnimation_QAnimationClipLoaderPrivate();
+}
+
+//  void Qt3DAnimation::QAnimationClipLoaderPrivate::setStatus(QAnimationClip
+//      Loader::Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation27QAnimationClipLoaderPrivate9setStatusENS_20QAnimationClipLoader6StatusE(
+    Qt3DAnimation::QAnimationClipLoaderPrivate *self,
+    Qt3DAnimation::QAnimationClipLoader::Status status) {
+  self->setStatus(status);
+}
 
 //  QAnimationClipLoader
 //      *Qt3DAnimation::QAnimationClipLoaderPrivate::q_func()

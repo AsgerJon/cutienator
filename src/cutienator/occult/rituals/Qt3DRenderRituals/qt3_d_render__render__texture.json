@@ -5,20 +5,57 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render7TextureC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render7TextureD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render7Texture12addDirtyFlagE6QFlagsINS1_9DirtyFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render7Texture10dirtyFlagsEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender6Render7Texture10unsetDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render7Texture7cleanupEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render7Texture20addTextureDataUpdateERKNS_18QTextureDataUpdateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render7Texture29takePendingTextureDataUpdatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render7Texture16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render7Texture10propertiesEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render7Texture10parametersEv": [
       "address", "address"
     ],
+    "ritual_ZNK10Qt3DRender6Render7Texture15textureImageIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render7Texture13dataGeneratorEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render7Texture15sharedTextureIdEv": [
       "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render7Texture16setDataGeneratorERK14QSharedPointerINS_17QTextureGeneratorEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render7Texture7isValidEPNS0_19TextureImageManagerE": [
+      "bool", "address", "address"
     ],
     "ritual_take_Qt3DRender_Render_Texture": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render7Texture16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_Texture__std_vector_Qt3DRender_QTextureDataUpdate": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Texture__Qt3DCore_QNodeIdVector": [
+      "nothing", "address"
     ]
   }
 }

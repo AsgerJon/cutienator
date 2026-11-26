@@ -6,6 +6,73 @@
   ],
   "rows": {
     "ritual_ZN19QSSGRendererPrivateC1Ev": ["address"],
-    "ritual_ZN19QSSGRendererPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN19QSSGRendererPrivate29generateRhiShaderPipelineImplER20QSSGSubsetRenderableR24QSSGShaderLibraryManagerR15QSSGShaderCacheR20QSSGProgramGeneratorRK38QSSGShaderDefaultMaterialKeyPropertiesRK18QSSGShaderFeaturesRK26QSSGUserShaderAugmentationR10QByteArray": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate25generateRhiShaderPipelineER12QSSGRendererR20QSSGSubsetRenderableRK18QSSGShaderFeaturesRK26QSSGUserShaderAugmentation": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate35getShaderPipelineForDefaultMaterialER12QSSGRendererR20QSSGSubsetRenderableRK18QSSGShaderFeaturesRK26QSSGUserShaderAugmentation": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate21getLayerHitObjectListERK15QSSGRenderLayerR17QSSGBufferManagerRK13QSSGRenderRaybR15QVarLengthArrayI20QSSGRenderPickResultLx20EE": [
+      "nothing", "address", "address", "address", "bool", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate32intersectRayWithSubsetRenderableERK15QSSGRenderLayerR17QSSGBufferManagerRK13QSSGRenderRayRK14QSSGRenderNodeR15QVarLengthArrayI20QSSGRenderPickResultLx20EE": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate22intersectRayWithItem2DERK15QSSGRenderLayerRK13QSSGRenderRayRK16QSSGRenderItem2DR15QVarLengthArrayI20QSSGRenderPickResultLx20EE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate30closestPointOnSubsetRenderableERK15QSSGRenderLayerR17QSSGBufferManagerRK9QVector3DfRK14QSSGRenderNode": [
+      "address", "address", "address", "address", "float", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate11syncPickAllERK26QSSGRenderContextInterfaceRK15QSSGRenderLayerRK13QSSGRenderRay": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate8syncPickERK26QSSGRenderContextInterfaceRK15QSSGRenderLayerRK13QSSGRenderRayP14QSSGRenderNode": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate14syncPickSubsetERK15QSSGRenderLayerR17QSSGBufferManagerRK13QSSGRenderRay15QVarLengthArrayIP14QSSGRenderNodeLx256EE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate20syncPickClosestPointERK26QSSGRenderContextInterfaceRK15QSSGRenderLayerRK9QVector3DfP14QSSGRenderNode": [
+      "address", "address", "address", "address", "float", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate17syncPickInFrustumERK26QSSGRenderContextInterfaceRK15QSSGRenderLayerRK11QSSGFrustum": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate22isGlobalPickingEnabledERK12QSSGRenderer": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate23setGlobalPickingEnabledER12QSSGRendererb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QSSGRendererPrivate25setRenderContextInterfaceER12QSSGRendererP26QSSGRenderContextInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate18setSgRenderContextER12QSSGRendererP16QSGRenderContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate20getCurrentRenderDataERK12QSSGRenderer": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivate18getSgRenderContextERK12QSSGRenderer": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGRendererPrivateD1Ev": ["nothing", "address"],
+    "ritual_drop_QSSGRendererPrivate__QSSGRhiShaderPipelinePtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGRendererPrivate__std_optional_QSSGRenderPickResult": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGRendererPrivate__QSSGRendererPrivate_PickResultList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGRendererPrivate__QList_const_QSSGRenderNode": [
+      "nothing", "address"
+    ]
   }
 }

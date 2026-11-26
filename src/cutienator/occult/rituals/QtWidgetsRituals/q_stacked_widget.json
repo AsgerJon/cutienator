@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QStackedWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QStackedWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QStackedWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QStackedWidget2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,9 +38,20 @@
     "ritual_ZN14QStackedWidget16setCurrentWidgetEP7QWidget": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QStackedWidget14currentChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QStackedWidget13widgetRemovedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QStackedWidget11widgetAddedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN14QStackedWidget5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN14QStackedWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QStackedWidget6d_funcEv": ["address", "address"],
     "ritual_take_QStackedWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZN14QStackedWidget5eventEP6QEvent": [
       "bool", "address", "address"

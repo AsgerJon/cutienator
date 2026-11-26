@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QVPieModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QVPieModelMapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QVPieModelMapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QVPieModelMapper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,6 +40,16 @@
     "ritual_ZN16QVPieModelMapper11setRowCountEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN16QVPieModelMapper14seriesReplacedEv": ["nothing", "address"],
+    "ritual_ZN16QVPieModelMapper13modelReplacedEv": ["nothing", "address"],
+    "ritual_ZN16QVPieModelMapper19valuesColumnChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QVPieModelMapper19labelsColumnChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QVPieModelMapper15firstRowChangedEv": ["nothing", "address"],
+    "ritual_ZN16QVPieModelMapper15rowCountChangedEv": ["nothing", "address"],
     "ritual_take_QVPieModelMapper": ["bool", "address", "chars", "address"]
   }
 }

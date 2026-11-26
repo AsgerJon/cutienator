@@ -15,9 +15,13 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
+#endif
 #include <QtGui/qcolor.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtGui/QAccessible>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/private/rangecontrols_p.h>
 #if QT_CONFIG(slider)
@@ -50,6 +54,19 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/accessible/rangecontrols.cpp, line 351, as _ZN25QAccessibleAbstractSliderC1EP7QWidgetN11QAccessible4RoleE
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(slider)
+inline QAccessibleAbstractSlider::QAccessibleAbstractSlider(QWidget *w, QAccessible::Role r)
+    : QAccessibleWidgetV2(w, r)
+{
+    Q_ASSERT(qobject_cast<QAbstractSlider *>(w));
+}
+#endif  // QT_CONFIG(slider)
+#endif  // QT_CONFIG(accessibility)
 
 //  from src/widgets/accessible/rangecontrols.cpp, line 357, as _ZN25QAccessibleAbstractSlider14interface_castEN11QAccessible13InterfaceTypeE
 #if QT_CONFIG(accessibility)
@@ -155,22 +172,22 @@ inline QAbstractSlider *QAccessibleAbstractSlider::abstractSlider() const
 //  function handed over for it, and runs Qt's own without one.
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-typedef const QVariant * (*CuteQAccessibleAbstractSliderCall0)(const void *, int, int *);
+typedef void * (*CuteQAccessibleAbstractSliderCall0)(const void *, int, int *);
 #endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-typedef const QVariant * (*CuteQAccessibleAbstractSliderCall1)(const void *, int *);
+typedef const QVariant * (*CuteQAccessibleAbstractSliderCall1)(const void *, int, int *);
 #endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-typedef void (*CuteQAccessibleAbstractSliderCall2)(const void *, const QVariant *, int *);
+typedef const QVariant * (*CuteQAccessibleAbstractSliderCall2)(const void *, int *);
 #endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-typedef const QVariant * (*CuteQAccessibleAbstractSliderCall3)(const void *, int *);
+typedef void (*CuteQAccessibleAbstractSliderCall3)(const void *, const QVariant *, int *);
 #endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
@@ -184,71 +201,79 @@ typedef const QVariant * (*CuteQAccessibleAbstractSliderCall5)(const void *, int
 #endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef bool (*CuteQAccessibleAbstractSliderCall6)(const void *, int *);
+#if QT_CONFIG(slider)
+typedef const QVariant * (*CuteQAccessibleAbstractSliderCall6)(const void *, int *);
+#endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleAbstractSliderCall7)(const void *, int *);
+typedef bool (*CuteQAccessibleAbstractSliderCall7)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleAbstractSliderCall8)(const void *, int *);
+typedef void * (*CuteQAccessibleAbstractSliderCall8)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleAbstractSliderCall9)(const void *, const QAccessibleInterface *, int *);
+typedef int (*CuteQAccessibleAbstractSliderCall9)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleAbstractSliderCall10)(const void *, int *);
+typedef int (*CuteQAccessibleAbstractSliderCall10)(const void *, const QAccessibleInterface *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QRect * (*CuteQAccessibleAbstractSliderCall11)(const void *, int *);
+typedef void * (*CuteQAccessibleAbstractSliderCall11)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleAbstractSliderCall12)(const void *, int *);
+typedef const QRect * (*CuteQAccessibleAbstractSliderCall12)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleAbstractSliderCall13)(const void *, int, int *);
+typedef void * (*CuteQAccessibleAbstractSliderCall13)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleAbstractSliderCall14)(const void *, int, int *);
+typedef void * (*CuteQAccessibleAbstractSliderCall14)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleAbstractSliderCall15)(const void *, int *);
+typedef QString * (*CuteQAccessibleAbstractSliderCall15)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QAccessible::State * (*CuteQAccessibleAbstractSliderCall16)(const void *, int *);
+typedef int (*CuteQAccessibleAbstractSliderCall16)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QColor * (*CuteQAccessibleAbstractSliderCall17)(const void *, int *);
+typedef const QAccessible::State * (*CuteQAccessibleAbstractSliderCall17)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleAbstractSliderCall18)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleAbstractSliderCall19)(const void *, const QString *, int *);
+typedef const QColor * (*CuteQAccessibleAbstractSliderCall19)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleAbstractSliderCall20)(const void *, int *);
+typedef void (*CuteQAccessibleAbstractSliderCall20)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleAbstractSliderCall21)(const void *, int, const QString *, int *);
+typedef void * (*CuteQAccessibleAbstractSliderCall21)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleAbstractSliderCall22)(const void *, int, int, int *);
+typedef void (*CuteQAccessibleAbstractSliderCall22)(const void *, int, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleAbstractSliderCall23)(const void *, const QString *, int *);
+typedef void * (*CuteQAccessibleAbstractSliderCall23)(const void *, int, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleAbstractSliderCall24)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleAbstractSliderCall24)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleAbstractSliderCall25)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleAbstractSliderCall26)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleAbstractSlider : public QAccessibleAbstractSlider {
 public:
   using QAccessibleAbstractSlider::QAccessibleAbstractSlider;
-  void *taken[25] = {};
+  void *taken[27] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
       taken[0] = call;
       return true;
     }
@@ -256,7 +281,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-    if (!std::strcmp(key, "_ZNK25QAccessibleValueInterface12currentValueEv")) {
+    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
       taken[1] = call;
       return true;
     }
@@ -264,7 +289,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-    if (!std::strcmp(key, "_ZN25QAccessibleValueInterface15setCurrentValueERK8QVariant")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleValueInterface12currentValueEv")) {
       taken[2] = call;
       return true;
     }
@@ -272,7 +297,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-    if (!std::strcmp(key, "_ZNK25QAccessibleValueInterface12maximumValueEv")) {
+    if (!std::strcmp(key, "_ZN25QAccessibleValueInterface15setCurrentValueERK8QVariant")) {
       taken[3] = call;
       return true;
     }
@@ -280,7 +305,7 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-    if (!std::strcmp(key, "_ZNK25QAccessibleValueInterface12minimumValueEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleValueInterface12maximumValueEv")) {
       taken[4] = call;
       return true;
     }
@@ -288,123 +313,137 @@ public:
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
-    if (!std::strcmp(key, "_ZNK25QAccessibleValueInterface15minimumStepSizeEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleValueInterface12minimumValueEv")) {
       taken[5] = call;
       return true;
     }
 #endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
+#if QT_CONFIG(slider)
+    if (!std::strcmp(key, "_ZNK25QAccessibleValueInterface15minimumStepSizeEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
       taken[7] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10childCountEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
       taken[8] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface12indexOfChildEPKS_")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10childCountEv")) {
       taken[9] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface12indexOfChildEPKS_")) {
       taken[10] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
       taken[11] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
       taken[12] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5childEi")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
       taken[13] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5childEi")) {
       taken[14] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
       taken[15] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
       taken[16] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
       taken[17] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
       taken[18] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[19] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
       taken[20] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
       taken[21] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
       taken[22] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
       taken[23] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
       taken[24] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[25] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+      taken[26] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -413,13 +452,30 @@ public:
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
+  //  void
+  //      *QAccessibleAbstractSlider::interface_cast(QAccessible::Interface
+  //      Type t)
+  void *interface_cast(QAccessible::InterfaceType t) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQAccessibleAbstractSliderCall0 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall0>(taken[0]);
+      void * given = call(this, static_cast<int>(t), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleAbstractSlider::interface_cast(t);
+  }
+#endif  // QT_CONFIG(slider)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(slider)
   //  QVariant
   //      QAccessibleAbstractSlider::attributeValue(QAccessible::Attribute
   //      key) const
   QVariant attributeValue(QAccessible::Attribute key) const override {
-    if (taken[0]) {
+    if (taken[1]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall0 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall0>(taken[0]);
+      CuteQAccessibleAbstractSliderCall1 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall1>(taken[1]);
       const QVariant * given = call(this, static_cast<int>(key), &handled);
       if (handled && given) return *given;
     }
@@ -432,9 +488,9 @@ public:
 #if QT_CONFIG(slider)
   //  QVariant QAccessibleAbstractSlider::currentValue() const
   QVariant currentValue() const override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall1 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall1>(taken[1]);
+      CuteQAccessibleAbstractSliderCall2 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall2>(taken[2]);
       const QVariant * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -448,9 +504,9 @@ public:
   //  void QAccessibleAbstractSlider::setCurrentValue(const QVariant
   //      &value)
   void setCurrentValue(const QVariant &value) override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall2 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall2>(taken[2]);
+      CuteQAccessibleAbstractSliderCall3 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall3>(taken[3]);
       call(this, &value, &handled);
       if (handled) return;
     }
@@ -463,9 +519,9 @@ public:
 #if QT_CONFIG(slider)
   //  QVariant QAccessibleAbstractSlider::maximumValue() const
   QVariant maximumValue() const override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall3 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall3>(taken[3]);
+      CuteQAccessibleAbstractSliderCall4 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall4>(taken[4]);
       const QVariant * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -478,9 +534,9 @@ public:
 #if QT_CONFIG(slider)
   //  QVariant QAccessibleAbstractSlider::minimumValue() const
   QVariant minimumValue() const override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall4 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall4>(taken[4]);
+      CuteQAccessibleAbstractSliderCall5 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall5>(taken[5]);
       const QVariant * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -493,9 +549,9 @@ public:
 #if QT_CONFIG(slider)
   //  QVariant QAccessibleAbstractSlider::minimumStepSize() const
   QVariant minimumStepSize() const override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall5 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall5>(taken[5]);
+      CuteQAccessibleAbstractSliderCall6 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall6>(taken[6]);
       const QVariant * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -507,9 +563,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  bool QAccessibleWidget::isValid() const
   bool isValid() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall6 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall6>(taken[6]);
+      CuteQAccessibleAbstractSliderCall7 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall7>(taken[7]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -520,9 +576,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QWindow *QAccessibleWidget::window() const
   QWindow *window() const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall7 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall7>(taken[7]);
+      CuteQAccessibleAbstractSliderCall8 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall8>(taken[8]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWindow *>(given);
     }
@@ -533,9 +589,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  int QAccessibleWidget::childCount() const
   int childCount() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall8 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall8>(taken[8]);
+      CuteQAccessibleAbstractSliderCall9 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall9>(taken[9]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -547,9 +603,9 @@ public:
   //  int QAccessibleWidget::indexOfChild(const QAccessibleInterface
   //      *child) const
   int indexOfChild(const QAccessibleInterface *child) const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall9 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall9>(taken[9]);
+      CuteQAccessibleAbstractSliderCall10 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall10>(taken[10]);
       int given = call(this, child, &handled);
       if (handled) return given;
     }
@@ -560,9 +616,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::focusChild() const
   QAccessibleInterface *focusChild() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall10 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall10>(taken[10]);
+      CuteQAccessibleAbstractSliderCall11 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall11>(taken[11]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -573,9 +629,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QRect QAccessibleWidget::rect() const
   QRect rect() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall11 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall11>(taken[11]);
+      CuteQAccessibleAbstractSliderCall12 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall12>(taken[12]);
       const QRect * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -586,9 +642,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::parent() const
   QAccessibleInterface *parent() const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall12 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall12>(taken[12]);
+      CuteQAccessibleAbstractSliderCall13 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall13>(taken[13]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -599,9 +655,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::child(int index) const
   QAccessibleInterface *child(int index) const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall13 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall13>(taken[13]);
+      CuteQAccessibleAbstractSliderCall14 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall14>(taken[14]);
       void * given = call(this, index, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -612,9 +668,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QString QAccessibleWidget::text(QAccessible::Text t) const
   QString text(QAccessible::Text t) const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall14 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall14>(taken[14]);
+      CuteQAccessibleAbstractSliderCall15 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall15>(taken[15]);
       QString * given = call(this, static_cast<int>(t), &handled);
       if (handled && given) {
         QString back(*given);
@@ -629,9 +685,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::Role QAccessibleWidget::role() const
   QAccessible::Role role() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall15 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall15>(taken[15]);
+      CuteQAccessibleAbstractSliderCall16 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall16>(taken[16]);
       int given = call(this, &handled);
       if (handled) return static_cast<QAccessible::Role>(given);
     }
@@ -642,9 +698,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::State QAccessibleWidget::state() const
   QAccessible::State state() const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall16 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall16>(taken[16]);
+      CuteQAccessibleAbstractSliderCall17 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall17>(taken[17]);
       const QAccessible::State * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -655,9 +711,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall17 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall17>(taken[17]);
+      CuteQAccessibleAbstractSliderCall18 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall18>(taken[18]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -668,9 +724,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall18 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall18>(taken[18]);
+      CuteQAccessibleAbstractSliderCall19 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall19>(taken[19]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -681,9 +737,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  void QAccessibleWidget::doAction(const QString &actionName)
   void doAction(const QString &actionName) override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall19 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall19>(taken[19]);
+      CuteQAccessibleAbstractSliderCall20 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall20>(taken[20]);
       call(this, &actionName, &handled);
       if (handled) return;
     }
@@ -694,9 +750,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QObject *QAccessibleObject::object() const
   QObject *object() const override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall20 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall20>(taken[20]);
+      CuteQAccessibleAbstractSliderCall21 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall21>(taken[21]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QObject *>(given);
     }
@@ -708,9 +764,9 @@ public:
   //  void QAccessibleObject::setText(QAccessible::Text t, const QString
   //      &text)
   void setText(QAccessible::Text t, const QString &text) override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall21 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall21>(taken[21]);
+      CuteQAccessibleAbstractSliderCall22 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall22>(taken[22]);
       call(this, static_cast<int>(t), &text, &handled);
       if (handled) return;
     }
@@ -721,9 +777,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const
   QAccessibleInterface *childAt(int x, int y) const override {
-    if (taken[22]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall22 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall22>(taken[22]);
+      CuteQAccessibleAbstractSliderCall23 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall23>(taken[23]);
       void * given = call(this, x, y, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -732,12 +788,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQAccessibleAbstractSliderCall24 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall24>(taken[24]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionName(const QString
   //      &name) const
   QString localizedActionName(const QString &name) const override {
-    if (taken[23]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall23 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall23>(taken[23]);
+      CuteQAccessibleAbstractSliderCall25 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall25>(taken[25]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -753,9 +822,9 @@ public:
   //  QString QAccessibleActionInterface::localizedActionDescription(const
   //      QString &name) const
   QString localizedActionDescription(const QString &name) const override {
-    if (taken[24]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQAccessibleAbstractSliderCall24 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall24>(taken[24]);
+      CuteQAccessibleAbstractSliderCall26 call = reinterpret_cast<CuteQAccessibleAbstractSliderCall26>(taken[26]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -767,6 +836,37 @@ public:
   }
 #endif  // QT_CONFIG(accessibility)
 };
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(slider)
+//  QAccessibleAbstractSlider::QAccessibleAbstractSlider(QWidget *w,
+//      QAccessible::Role r)
+extern "C" Q_DECL_EXPORT
+QAccessibleAbstractSlider *ritual_ZN25QAccessibleAbstractSliderC1EP7QWidgetN11QAccessible4RoleE(
+    QWidget *w,
+    QAccessible::Role r) {
+  return new CuteQAccessibleAbstractSlider(w, r);
+}
+#endif  // QT_CONFIG(slider)
+#endif  // QT_CONFIG(accessibility)
+
+//  void
+//      *QAccessibleAbstractSlider::interface_cast(QAccessible::InterfaceType
+//      t)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QAccessibleAbstractSlider14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleAbstractSlider *self,
+    QAccessible::InterfaceType t) {
+  return self->interface_cast(t);
+}
+
+//  QList<QAccessible::Attribute> QAccessibleAbstractSlider::attributeKeys()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QAccessible::Attribute> *ritual_ZNK25QAccessibleAbstractSlider13attributeKeysEv(
+    const QAccessibleAbstractSlider *self) {
+  return new QList<QAccessible::Attribute>(self->attributeKeys());
+}
 
 //  QVariant QAccessibleAbstractSlider::attributeValue(QAccessible::Attribute
 //      key) const
@@ -843,6 +943,20 @@ bool ritual_take_QAccessibleAbstractSlider(
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
+//  void
+//      *QAccessibleAbstractSlider::interface_cast(QAccessible::InterfaceType
+//      t)
+extern "C" Q_DECL_EXPORT
+void *ritual_own_ZN25QAccessibleAbstractSlider14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleAbstractSlider *self,
+    QAccessible::InterfaceType t) {
+  return self->QAccessibleAbstractSlider::interface_cast(t);
+}
+#endif  // QT_CONFIG(slider)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(slider)
 //  QVariant QAccessibleAbstractSlider::attributeValue(QAccessible::Attribute
 //      key) const
 extern "C" Q_DECL_EXPORT
@@ -909,6 +1023,14 @@ QVariant *ritual_own_ZNK25QAccessibleAbstractSlider15minimumStepSizeEv(
 }
 #endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)
+
+//  a QList<QAccessible::Attribute> a ritual of QAccessibleAbstractSlider
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessibleAbstractSlider__QList_QAccessible_Attribute(
+    QList<QAccessible::Attribute> *self) {
+  delete self;
+}
 
 #endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(accessibility)

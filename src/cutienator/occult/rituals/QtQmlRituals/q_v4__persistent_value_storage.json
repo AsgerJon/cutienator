@@ -5,11 +5,30 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV422PersistentValueStorageC1EPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV422PersistentValueStorageD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV422PersistentValueStorage8allocateEv": [
+      "address", "address"
+    ],
     "ritual_ZN3QV422PersistentValueStorage4freeEPNS_5ValueE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV422PersistentValueStorage4markEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV422PersistentValueStorage17clearFreePageHintEv": [
       "nothing", "address"
     ],
     "ritual_ZN3QV422PersistentValueStorage9getEngineEPKNS_5ValueE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV422PersistentValueStorage13freeUncheckedEPNS_5ValueE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV422PersistentValueStorage8freePageEPv": [
+      "nothing", "address"
     ]
   }
 }

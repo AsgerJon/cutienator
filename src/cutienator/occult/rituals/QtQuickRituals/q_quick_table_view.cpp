@@ -17,7 +17,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -1088,6 +1090,24 @@ const QMetaObject *ritual_ZNK15QQuickTableView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTableView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickTableView11qt_metacastEPKc(
+    QQuickTableView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTableView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickTableView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTableView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTableView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickTableView2trEPKcS1_i(
@@ -1852,6 +1872,218 @@ QQuickTableViewAttached *ritual_ZN15QQuickTableView21qmlAttachedPropertiesEP7QOb
   return QQuickTableView::qmlAttachedProperties(a0);
 }
 
+//  void QQuickTableView::rowsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView11rowsChangedEv(QQuickTableView *self) {
+  self->rowsChanged();
+}
+
+//  void QQuickTableView::columnsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView14columnsChangedEv(QQuickTableView *self) {
+  self->columnsChanged();
+}
+
+//  void QQuickTableView::rowSpacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView17rowSpacingChangedEv(QQuickTableView *self) {
+  self->rowSpacingChanged();
+}
+
+//  void QQuickTableView::columnSpacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView20columnSpacingChangedEv(
+    QQuickTableView *self) {
+  self->columnSpacingChanged();
+}
+
+//  void QQuickTableView::rowHeightProviderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView24rowHeightProviderChangedEv(
+    QQuickTableView *self) {
+  self->rowHeightProviderChanged();
+}
+
+//  void QQuickTableView::columnWidthProviderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView26columnWidthProviderChangedEv(
+    QQuickTableView *self) {
+  self->columnWidthProviderChanged();
+}
+
+//  void QQuickTableView::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView12modelChangedEv(QQuickTableView *self) {
+  self->modelChanged();
+}
+
+//  void QQuickTableView::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView15delegateChangedEv(QQuickTableView *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickTableView::reuseItemsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView17reuseItemsChangedEv(QQuickTableView *self) {
+  self->reuseItemsChanged();
+}
+
+//  void QQuickTableView::syncViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView15syncViewChangedEv(QQuickTableView *self) {
+  self->syncViewChanged();
+}
+
+//  void QQuickTableView::syncDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView20syncDirectionChangedEv(
+    QQuickTableView *self) {
+  self->syncDirectionChanged();
+}
+
+//  void QQuickTableView::leftColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView17leftColumnChangedEv(QQuickTableView *self) {
+  self->leftColumnChanged();
+}
+
+//  void QQuickTableView::rightColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView18rightColumnChangedEv(
+    QQuickTableView *self) {
+  self->rightColumnChanged();
+}
+
+//  void QQuickTableView::topRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView13topRowChangedEv(QQuickTableView *self) {
+  self->topRowChanged();
+}
+
+//  void QQuickTableView::bottomRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView16bottomRowChangedEv(QQuickTableView *self) {
+  self->bottomRowChanged();
+}
+
+//  void QQuickTableView::selectionModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView21selectionModelChangedEv(
+    QQuickTableView *self) {
+  self->selectionModelChanged();
+}
+
+//  void QQuickTableView::animateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView14animateChangedEv(QQuickTableView *self) {
+  self->animateChanged();
+}
+
+//  void QQuickTableView::keyNavigationEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView27keyNavigationEnabledChangedEv(
+    QQuickTableView *self) {
+  self->keyNavigationEnabledChanged();
+}
+
+//  void QQuickTableView::pointerNavigationEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView31pointerNavigationEnabledChangedEv(
+    QQuickTableView *self) {
+  self->pointerNavigationEnabledChanged();
+}
+
+//  void QQuickTableView::currentRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView17currentRowChangedEv(QQuickTableView *self) {
+  self->currentRowChanged();
+}
+
+//  void QQuickTableView::currentColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView20currentColumnChangedEv(
+    QQuickTableView *self) {
+  self->currentColumnChanged();
+}
+
+//  void QQuickTableView::alternatingRowsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView22alternatingRowsChangedEv(
+    QQuickTableView *self) {
+  self->alternatingRowsChanged();
+}
+
+//  void QQuickTableView::selectionBehaviorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView24selectionBehaviorChangedEv(
+    QQuickTableView *self) {
+  self->selectionBehaviorChanged();
+}
+
+//  void QQuickTableView::resizableColumnsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView23resizableColumnsChangedEv(
+    QQuickTableView *self) {
+  self->resizableColumnsChanged();
+}
+
+//  void QQuickTableView::resizableRowsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView20resizableRowsChangedEv(
+    QQuickTableView *self) {
+  self->resizableRowsChanged();
+}
+
+//  void QQuickTableView::editTriggersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView19editTriggersChangedEv(
+    QQuickTableView *self) {
+  self->editTriggersChanged();
+}
+
+//  void QQuickTableView::layoutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView13layoutChangedEv(QQuickTableView *self) {
+  self->layoutChanged();
+}
+
+//  void QQuickTableView::selectionModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView20selectionModeChangedEv(
+    QQuickTableView *self) {
+  self->selectionModeChanged();
+}
+
+//  void QQuickTableView::rowMoved(int logicalIndex, int oldVisualIndex, int
+//      newVisualIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView8rowMovedEiii(
+    QQuickTableView *self,
+    int logicalIndex,
+    int oldVisualIndex,
+    int newVisualIndex) {
+  self->rowMoved(logicalIndex, oldVisualIndex, newVisualIndex);
+}
+
+//  void QQuickTableView::columnMoved(int logicalIndex, int oldVisualIndex,
+//      int newVisualIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView11columnMovedEiii(
+    QQuickTableView *self,
+    int logicalIndex,
+    int oldVisualIndex,
+    int newVisualIndex) {
+  self->columnMoved(logicalIndex, oldVisualIndex, newVisualIndex);
+}
+
+//  void QQuickTableView::delegateModelAccessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickTableView26delegateModelAccessChangedEv(
+    QQuickTableView *self) {
+  self->delegateModelAccessChanged();
+}
+
 //  void QQuickTableView::geometryChange(const QRectF &newGeometry, const
 //      QRectF &oldGeometry)
 extern "C" Q_DECL_EXPORT
@@ -1885,6 +2117,15 @@ bool ritual_ZN15QQuickTableView11eventFilterEP7QObjectP6QEvent(
     QObject *obj,
     QEvent *event) {
   return self->eventFilter(obj, event);
+}
+
+//  QQuickTableView::QQuickTableView(QQuickTableViewPrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickTableView *ritual_ZN15QQuickTableViewC1ER22QQuickTableViewPrivateP10QQuickItem(
+    QQuickTableViewPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickTableView(*dd, parent);
 }
 
 //  void QQuickTableView::componentFinalized()

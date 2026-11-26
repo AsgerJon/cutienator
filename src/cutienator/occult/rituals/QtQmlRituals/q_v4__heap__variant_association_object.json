@@ -2,14 +2,32 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qv4variantassociationobject_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV44Heap24VariantAssociationObject11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap24VariantAssociationObject4initERK4QMapI7QString8QVariantEPNS0_6ObjectEi6QFlagsINS0_15ReferenceObject4FlagEE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN3QV44Heap24VariantAssociationObject4initERK5QHashI7QString8QVariantEPNS0_6ObjectEi6QFlagsINS0_15ReferenceObject4FlagEE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN3QV44Heap24VariantAssociationObject14storagePointerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV44Heap24VariantAssociationObject10setVariantERK8QVariant": [
+      "bool", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_VariantAssociationObject_QV4_Heap_VariantAssociationObjectData": [
       "address", "address"
+    ],
+    "ritual_ZN3QV44Heap24VariantAssociationObject21createElementWrappersI4QMapI7QString8QVariantEEEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap24VariantAssociationObject21createElementWrappersI5QHashI7QString8QVariantEEEvRKT_": [
+      "nothing", "address", "address"
     ]
   }
 }

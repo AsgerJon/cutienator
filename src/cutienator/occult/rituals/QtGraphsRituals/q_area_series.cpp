@@ -1,11 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qareaseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qareaseries.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qcolor.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -231,6 +232,24 @@ const QMetaObject *ritual_ZNK11QAreaSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAreaSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QAreaSeries11qt_metacastEPKc(
+    QAreaSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAreaSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QAreaSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAreaSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAreaSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QAreaSeries2trEPKcS1_i(
@@ -403,6 +422,120 @@ void ritual_ZN11QAreaSeries19setSelectedGradientEP19QQuickShapeGradient(
   self->setSelectedGradient(newSelectedGradient);
 }
 
+//  void QAreaSeries::colorChanged(QColor newColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries12colorChangedE6QColor(
+    QAreaSeries *self,
+    const QColor *newColor) {
+  self->colorChanged(*newColor);
+}
+
+//  void QAreaSeries::selectedColorChanged(QColor newSelectedColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries20selectedColorChangedE6QColor(
+    QAreaSeries *self,
+    const QColor *newSelectedColor) {
+  self->selectedColorChanged(*newSelectedColor);
+}
+
+//  void QAreaSeries::borderColorChanged(QColor newBorderColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries18borderColorChangedE6QColor(
+    QAreaSeries *self,
+    const QColor *newBorderColor) {
+  self->borderColorChanged(*newBorderColor);
+}
+
+//  void QAreaSeries::selectedBorderColorChanged(QColor
+//      newSelectedBorderColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries26selectedBorderColorChangedE6QColor(
+    QAreaSeries *self,
+    const QColor *newSelectedBorderColor) {
+  self->selectedBorderColorChanged(*newSelectedBorderColor);
+}
+
+//  void QAreaSeries::borderWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries18borderWidthChangedEv(QAreaSeries *self) {
+  self->borderWidthChanged();
+}
+
+//  void QAreaSeries::selectedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries15selectedChangedEv(QAreaSeries *self) {
+  self->selectedChanged();
+}
+
+//  void QAreaSeries::upperSeriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries18upperSeriesChangedEv(QAreaSeries *self) {
+  self->upperSeriesChanged();
+}
+
+//  void QAreaSeries::lowerSeriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries18lowerSeriesChangedEv(QAreaSeries *self) {
+  self->lowerSeriesChanged();
+}
+
+//  void QAreaSeries::gradientChanged(QQuickShapeGradient *newGradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries15gradientChangedEP19QQuickShapeGradient(
+    QAreaSeries *self,
+    QQuickShapeGradient *newGradient) {
+  self->gradientChanged(newGradient);
+}
+
+//  void QAreaSeries::selectedGradientChanged(QQuickShapeGradient
+//      *newGradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries23selectedGradientChangedEP19QQuickShapeGradient(
+    QAreaSeries *self,
+    QQuickShapeGradient *newGradient) {
+  self->selectedGradientChanged(newGradient);
+}
+
+//  void QAreaSeries::clicked(QPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries7clickedE6QPoint(
+    QAreaSeries *self,
+    const QPoint *point) {
+  self->clicked(*point);
+}
+
+//  void QAreaSeries::doubleClicked(QPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries13doubleClickedE6QPoint(
+    QAreaSeries *self,
+    const QPoint *point) {
+  self->doubleClicked(*point);
+}
+
+//  void QAreaSeries::pressed(QPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries7pressedE6QPoint(
+    QAreaSeries *self,
+    const QPoint *point) {
+  self->pressed(*point);
+}
+
+//  void QAreaSeries::released(QPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries8releasedE6QPoint(
+    QAreaSeries *self,
+    const QPoint *point) {
+  self->released(*point);
+}
+
+//  QAreaSeries::QAreaSeries(QAreaSeriesPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAreaSeries *ritual_ZN11QAreaSeriesC1ER18QAreaSeriesPrivateP7QObject(
+    QAreaSeriesPrivate *dd,
+    QObject *parent) {
+  return new CuteQAreaSeries(*dd, parent);
+}
+
 //  QAreaSeriesPrivate *QAreaSeries::d_func()
 extern "C" Q_DECL_EXPORT
 QAreaSeriesPrivate *ritual_ZN11QAreaSeries6d_funcEv(QAreaSeries *self) {
@@ -433,4 +566,4 @@ QAbstractSeries::SeriesType ritual_own_ZNK11QAreaSeries4typeEv(
   return self->QAreaSeries::type();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area))

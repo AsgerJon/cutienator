@@ -8,6 +8,12 @@
     "ritual_ZN16QQmlCustomParserD1Ev": ["nothing", "address"],
     "ritual_ZN16QQmlCustomParser11clearErrorsEv": ["nothing", "address"],
     "ritual_ZNK16QQmlCustomParser5flagsEv": ["int", "address"],
+    "ritual_ZN16QQmlCustomParser14verifyBindingsERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEERK5QListIPKNS2_7BindingEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQmlCustomParser13applyBindingsEP7QObjectRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERK5QListIPKNS3_12CompiledData7BindingEE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK16QQmlCustomParser6errorsEv": ["address", "address"],
     "ritual_ZN16QQmlCustomParser5errorEPKN3QV412CompiledData7BindingERK7QString": [
       "nothing", "address", "address", "text"

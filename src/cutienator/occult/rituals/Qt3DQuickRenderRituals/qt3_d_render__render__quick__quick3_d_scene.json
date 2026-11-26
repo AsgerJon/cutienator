@@ -8,8 +8,17 @@
     "ritual_ZNK10Qt3DRender6Render5Quick12Quick3DScene10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render5Quick12Quick3DScene11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick12Quick3DScene11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render5Quick12Quick3DScene2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick12Quick3DSceneC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render5Quick12Quick3DScene11parentSceneEv": [
       "address", "address"

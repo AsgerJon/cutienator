@@ -47,6 +47,13 @@ public:
   }
 };
 
+//  QQmlSA::ElementPass::ElementPass(PassManager *manager)
+extern "C" Q_DECL_EXPORT
+QQmlSA::ElementPass *ritual_ZN6QQmlSA11ElementPassC1EPNS_11PassManagerE(
+    QQmlSA::PassManager *manager) {
+  return new CuteQQmlSA_ElementPass(manager);
+}
+
 //  bool QQmlSA::ElementPass::shouldRun(const Element &element)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN6QQmlSA11ElementPass9shouldRunERKNS_7ElementE(

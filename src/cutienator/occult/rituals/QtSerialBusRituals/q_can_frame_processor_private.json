@@ -14,6 +14,12 @@
     "ritual_ZN25QCanFrameProcessorPrivate10addWarningERK7QString": [
       "nothing", "address", "text"
     ],
-    "ritual_ZN25QCanFrameProcessorPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN25QCanFrameProcessorPrivate3getERK18QCanFrameProcessor": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanFrameProcessorPrivateD1Ev": ["nothing", "address"],
+    "ritual_drop_QCanFrameProcessorPrivate__std_optional_QtCanBus_UniqueId": [
+      "nothing", "address"
+    ]
   }
 }

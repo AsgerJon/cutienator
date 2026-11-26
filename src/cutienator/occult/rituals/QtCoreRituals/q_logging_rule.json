@@ -6,8 +6,12 @@
   ],
   "rows": {
     "ritual_ZN12QLoggingRuleC1Ev": ["address"],
+    "ritual_ZN12QLoggingRuleC1E11QStringViewb": ["address", "text", "bool"],
     "ritual_ZNK12QLoggingRule4passE13QLatin1String9QtMsgType": [
       "int", "address", "address", "int"
+    ],
+    "ritual_ZN12QLoggingRule5parseE11QStringView": [
+      "nothing", "address", "text"
     ],
     "ritual_ZN12QLoggingRuleD1Ev": ["nothing", "address"],
     "ritual_list_make_QLoggingRule": ["address"],

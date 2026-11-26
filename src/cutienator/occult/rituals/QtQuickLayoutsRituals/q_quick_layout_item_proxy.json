@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickLayoutItemProxy10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickLayoutItemProxy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickLayoutItemProxyD1Ev": ["nothing", "address"],
     "ritual_ZN21QQuickLayoutItemProxy14geometryChangeERK6QRectFS2_": [
       "nothing", "address", "address", "address"
@@ -16,6 +22,109 @@
       "nothing", "address", "int", "address"
     ],
     "ritual_ZNK21QQuickLayoutItemProxy6targetEv": ["address", "address"],
+    "ritual_ZN21QQuickLayoutItemProxy11clearTargetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy9updatePosEv": ["nothing", "address"],
+    "ritual_ZN21QQuickLayoutItemProxy25targetMinimumWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy24proxyMinimumWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy26targetMinimumHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy25proxyMinimumHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy27targetPreferredWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy26proxyPreferredWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy28targetPreferredHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy27proxyPreferredHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy25targetMaximumWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy24proxyMaximumWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy26targetMaximumHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy25proxyMaximumHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy22targetFillWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy21proxyFillWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy23targetFillHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy22proxyFillHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy22targetAlignmentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy21proxyAlignmentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy36targetHorizontalStretchFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy35proxyHorizontalStretchFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy34targetVerticalStretchFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy33proxyVerticalStretchFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy20targetMarginsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy19proxyMarginsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy23targetLeftMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy22proxyLeftMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy22targetTopMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy21proxyTopMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy24targetRightMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy23proxyRightMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy25targetBottomMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy24proxyBottomMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy13targetChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN21QQuickLayoutItemProxy6d_funcEv": ["address", "address"],
     "ritual_ZNK21QQuickLayoutItemProxy6d_funcEv": ["address", "address"],
     "ritual_take_QQuickLayoutItemProxy": [

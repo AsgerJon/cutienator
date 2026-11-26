@@ -1,8 +1,9 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtDesigner/6.12.0/QtDesigner/private/iconselector_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtDesigner/6.12.0/QtDesigner/private/iconselector_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
   ],
   "rows": {
     "ritual_ZNK18qdesigner_internal12IconSelector10metaObjectEv": [
@@ -10,6 +11,42 @@
     ],
     "ritual_ZN18qdesigner_internal12IconSelector2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelector6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12IconSelector6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelectorC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelectorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelector13setFormEditorEP28QDesignerFormEditorInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelector12setIconCacheEPNS_17DesignerIconCacheE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelector7setIconERKNS_22PropertySheetIconValueE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12IconSelector4iconEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelector11checkPixmapERK7QStringNS0_9CheckModeEPS1_": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelector16choosePixmapFileERK7QStringP27QDesignerDialogGuiInterfaceP7QWidget": [
+      "text", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelector20choosePixmapResourceEP28QDesignerFormEditorInterfaceP15QtResourceModelRK7QStringP7QWidget": [
+      "text", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12IconSelector11iconChangedERKNS_22PropertySheetIconValueE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_qdesigner_internal_IconSelector": [
       "bool", "address", "chars", "address"

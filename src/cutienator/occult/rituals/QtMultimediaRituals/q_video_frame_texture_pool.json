@@ -14,6 +14,9 @@
     "ritual_ZN22QVideoFrameTexturePool15setCurrentFrameE11QVideoFrame": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QVideoFrameTexturePool14updateTexturesER4QRhiR23QRhiResourceUpdateBatch": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN22QVideoFrameTexturePool17onFrameEndInvokedEv": [
       "nothing", "address"
     ],

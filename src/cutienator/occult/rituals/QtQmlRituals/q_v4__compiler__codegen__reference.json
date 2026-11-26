@@ -17,6 +17,21 @@
     "ritual_ZN3QV48Compiler7Codegen9ReferenceC1ERKS2_": [
       "address", "address"
     ],
+    "ritual_ZN3QV48Compiler7Codegen9ReferenceC1EOS2_": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9ReferenceaSERKS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9ReferenceaSEOS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9ReferenceeqERKS2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9ReferenceneERKS2_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK3QV48Compiler7Codegen9Reference7isValidEv": [
       "bool", "address"
     ],
@@ -61,6 +76,9 @@
     ],
     "ritual_ZN3QV48Compiler7Codegen9Reference9fromConstEPS1_y": [
       "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference21storeWipesAccumulatorEv": [
+      "bool", "address"
     ],
     "ritual_ZNK3QV48Compiler7Codegen9Reference11nameAsIndexEv": [
       "int", "address"

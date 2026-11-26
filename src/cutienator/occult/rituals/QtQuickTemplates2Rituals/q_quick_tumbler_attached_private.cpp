@@ -29,6 +29,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quicktemplates/qquicktumbler.cpp, line 64, as local:qquicktumbler.cpp:delegateHeight
+namespace {
+static inline qreal delegateHeight(const QQuickTumbler *tumbler)
+    {
+        return tumbler->availableHeight() / tumbler->visibleItemCount();
+    }
+}  // namespace
+
 //  from ../qtdeclarative/src/quicktemplates/qquicktumbler.cpp, line 932, as _ZN28QQuickTumblerAttachedPrivate4initEP10QQuickItem
 inline void QQuickTumblerAttachedPrivate::init(QQuickItem *delegateItem)
 {
@@ -51,6 +59,68 @@ inline void QQuickTumblerAttachedPrivate::init(QQuickItem *delegateItem)
         if ((tumbler = qobject_cast<QQuickTumbler*>(parentItem)))
             break;
     }
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktumbler.cpp, line 955, as _ZN28QQuickTumblerAttachedPrivate21calculateDisplacementEv
+inline void QQuickTumblerAttachedPrivate::calculateDisplacement()
+{
+    const qreal previousDisplacement = displacement;
+    displacement = 0;
+
+    if (!tumbler) {
+        // Can happen if the attached properties are accessed on the wrong type of item or the tumbler was destroyed.
+        // We don't want to emit the change signal though, as this could cause warnings about Tumbler.tumbler being null.
+        return;
+    }
+
+    // Can happen if there is no ListView or PathView within the contentItem.
+    QQuickTumblerPrivate *tumblerPrivate = QQuickTumblerPrivate::get(tumbler);
+    if (!tumblerPrivate->viewContentItem) {
+        emitIfDisplacementChanged(previousDisplacement, displacement);
+        return;
+    }
+
+    // The attached property gets created before our count is updated, so just cheat here
+    // to avoid having to listen to count changes.
+    const int count = tumblerPrivate->view->property("count").toInt();
+    // This can happen in tests, so it may happen in normal usage too.
+    if (count == 0) {
+        emitIfDisplacementChanged(previousDisplacement, displacement);
+        return;
+    }
+
+    if (tumblerPrivate->viewContentItemType == QQuickTumblerPrivate::PathViewContentItem) {
+        const qreal offset = tumblerPrivate->viewOffset;
+
+        displacement = count > 1 ? count - index - offset : 0;
+        // Don't add 1 if count <= visibleItemCount
+        const int visibleItems = tumbler->visibleItemCount();
+        const int halfVisibleItems = visibleItems / 2 + (visibleItems < count ? 1 : 0);
+        if (displacement > halfVisibleItems)
+            displacement -= count;
+        else if (displacement < -halfVisibleItems)
+            displacement += count;
+    } else {
+        const qreal contentY = tumblerPrivate->viewContentY;
+        const qreal delegateH = delegateHeight(tumbler);
+        const qreal preferredHighlightBegin = tumblerPrivate->view->property("preferredHighlightBegin").toReal();
+        const qreal itemY = qobject_cast<QQuickItem*>(parent)->y();
+        qreal currentItemY = 0;
+        auto currentItem = tumblerPrivate->view->property("currentItem").value<QQuickItem*>();
+        if (currentItem)
+            currentItemY = currentItem->y();
+        // Start from the y position of the current item.
+        const qreal topOfCurrentItemInViewport = currentItemY - contentY;
+        // Then, calculate the distance between it and the preferredHighlightBegin.
+        const qreal relativePositionToPreferredHighlightBegin = topOfCurrentItemInViewport - preferredHighlightBegin;
+        // Next, calculate the distance between us and the current item.
+        const qreal distanceFromCurrentItem = currentItemY - itemY;
+        const qreal displacementInPixels = distanceFromCurrentItem - relativePositionToPreferredHighlightBegin;
+        // Convert it from pixels to a floating point index.
+        displacement = displacementInPixels / delegateH;
+    }
+
+    emitIfDisplacementChanged(previousDisplacement, displacement);
 }
 
 //  from ../qtdeclarative/src/quicktemplates/qquicktumbler.cpp, line 1016, as _ZN28QQuickTumblerAttachedPrivate25emitIfDisplacementChangedEdd
@@ -90,6 +160,13 @@ void ritual_ZN28QQuickTumblerAttachedPrivate4initEP10QQuickItem(
     QQuickTumblerAttachedPrivate *self,
     QQuickItem *delegateItem) {
   self->init(delegateItem);
+}
+
+//  void QQuickTumblerAttachedPrivate::calculateDisplacement()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickTumblerAttachedPrivate21calculateDisplacementEv(
+    QQuickTumblerAttachedPrivate *self) {
+  self->calculateDisplacement();
 }
 
 //  void QQuickTumblerAttachedPrivate::emitIfDisplacementChanged(qreal

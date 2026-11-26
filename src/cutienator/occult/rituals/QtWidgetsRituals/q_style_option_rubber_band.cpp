@@ -18,6 +18,15 @@ QStyleOptionRubberBand *ritual_ZN22QStyleOptionRubberBandC1ERKS_(
   return new QStyleOptionRubberBand(*other);
 }
 
+//  QStyleOptionRubberBand &QStyleOptionRubberBand::operator=(const
+//      QStyleOptionRubberBand &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionRubberBand *ritual_ZN22QStyleOptionRubberBandaSERKS_(
+    QStyleOptionRubberBand *self,
+    const QStyleOptionRubberBand *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionRubberBand::QStyleOptionRubberBand(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionRubberBand *ritual_ZN22QStyleOptionRubberBandC1Ei(int version) {

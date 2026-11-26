@@ -216,6 +216,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore17QAspectJobManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QAspectJobManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore17QAspectJobManager11qt_metacastEPKc(
+    Qt3DCore::QAspectJobManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QAspectJobManager::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore17QAspectJobManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QAspectJobManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QAspectJobManager::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -224,6 +243,61 @@ QString *ritual_ZN8Qt3DCore17QAspectJobManager2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QAspectJobManager::tr(s, c, n));
+}
+
+//  Qt3DCore::QAspectJobManager::QAspectJobManager(QAspectManager *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAspectJobManager *ritual_ZN8Qt3DCore17QAspectJobManagerC1EPNS_14QAspectManagerE(
+    Qt3DCore::QAspectManager *parent) {
+  return new CuteQt3DCore_QAspectJobManager(parent);
+}
+
+//  Qt3DCore::QAspectJobManager::~QAspectJobManager()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QAspectJobManagerD1Ev(
+    Qt3DCore::QAspectJobManager *self) {
+  delete self;
+}
+
+//  void Qt3DCore::QAspectJobManager::initialize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QAspectJobManager10initializeEv(
+    Qt3DCore::QAspectJobManager *self) {
+  self->initialize();
+}
+
+//  void Qt3DCore::QAspectJobManager::enqueueJobs(const
+//      std::vector<QAspectJobPtr> &jobQueue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QAspectJobManager11enqueueJobsERKSt6vectorI14QSharedPointerINS_10QAspectJobEESaIS4_EE(
+    Qt3DCore::QAspectJobManager *self,
+    const std::vector<Qt3DCore::QAspectJobPtr> *jobQueue) {
+  self->enqueueJobs(*jobQueue);
+}
+
+//  int Qt3DCore::QAspectJobManager::waitForAllJobs()
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore17QAspectJobManager14waitForAllJobsEv(
+    Qt3DCore::QAspectJobManager *self) {
+  return self->waitForAllJobs();
+}
+
+//  void Qt3DCore::QAspectJobManager::waitForPerThreadFunction(JobFunction
+//      func, void *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QAspectJobManager24waitForPerThreadFunctionEPFvPvES1_(
+    Qt3DCore::QAspectJobManager *self,
+    void *func,
+    void *arg) {
+  self->waitForPerThreadFunction(
+      reinterpret_cast<Qt3DCore::QAbstractAspectJobManager::JobFunction>(func),
+      arg);
+}
+
+//  int Qt3DCore::QAspectJobManager::idealThreadCount()
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore17QAspectJobManager16idealThreadCountEv() {
+  return Qt3DCore::QAspectJobManager::idealThreadCount();
 }
 
 //  a Python function taken by a CuteQt3DCore_QAspectJobManager, for the

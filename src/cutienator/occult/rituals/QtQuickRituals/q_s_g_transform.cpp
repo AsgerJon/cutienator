@@ -68,6 +68,13 @@ int ritual_ZNK12QSGTransform9compareToERKS_(
   return self->compareTo(*other);
 }
 
+//  const float *QSGTransform::invertedData() const
+extern "C" Q_DECL_EXPORT
+const float *ritual_ZNK12QSGTransform12invertedDataEv(
+    const QSGTransform *self) {
+  return self->invertedData();
+}
+
 //  QSGTransform::~QSGTransform()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QSGTransformD1Ev(QSGTransform *self) {

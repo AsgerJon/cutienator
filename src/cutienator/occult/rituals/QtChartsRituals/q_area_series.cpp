@@ -8,6 +8,7 @@
 #include <QtGui/qbrush.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qfont.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -199,6 +200,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK11QAreaSeries10metaObjectEv(
     const QAreaSeries *self) {
   return self->metaObject();
+}
+
+//  void *QAreaSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QAreaSeries11qt_metacastEPKc(
+    QAreaSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAreaSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QAreaSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAreaSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QAreaSeries::tr(const char *s, const char *c, int n)
@@ -409,6 +428,109 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QAreaSeries19pointLabelsClippingEv(
     const QAreaSeries *self) {
   return self->pointLabelsClipping();
+}
+
+//  void QAreaSeries::clicked(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries7clickedERK7QPointF(
+    QAreaSeries *self,
+    const QPointF *point) {
+  self->clicked(*point);
+}
+
+//  void QAreaSeries::hovered(const QPointF &point, bool state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries7hoveredERK7QPointFb(
+    QAreaSeries *self,
+    const QPointF *point,
+    bool state) {
+  self->hovered(*point, state);
+}
+
+//  void QAreaSeries::pressed(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries7pressedERK7QPointF(
+    QAreaSeries *self,
+    const QPointF *point) {
+  self->pressed(*point);
+}
+
+//  void QAreaSeries::released(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries8releasedERK7QPointF(
+    QAreaSeries *self,
+    const QPointF *point) {
+  self->released(*point);
+}
+
+//  void QAreaSeries::doubleClicked(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries13doubleClickedERK7QPointF(
+    QAreaSeries *self,
+    const QPointF *point) {
+  self->doubleClicked(*point);
+}
+
+//  void QAreaSeries::selected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries8selectedEv(QAreaSeries *self) {
+  self->selected();
+}
+
+//  void QAreaSeries::colorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries12colorChangedE6QColor(
+    QAreaSeries *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QAreaSeries::borderColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries18borderColorChangedE6QColor(
+    QAreaSeries *self,
+    const QColor *color) {
+  self->borderColorChanged(*color);
+}
+
+//  void QAreaSeries::pointLabelsFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries24pointLabelsFormatChangedERK7QString(
+    QAreaSeries *self,
+    const QString *format) {
+  self->pointLabelsFormatChanged(*format);
+}
+
+//  void QAreaSeries::pointLabelsVisibilityChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries28pointLabelsVisibilityChangedEb(
+    QAreaSeries *self,
+    bool visible) {
+  self->pointLabelsVisibilityChanged(visible);
+}
+
+//  void QAreaSeries::pointLabelsFontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries22pointLabelsFontChangedERK5QFont(
+    QAreaSeries *self,
+    const QFont *font) {
+  self->pointLabelsFontChanged(*font);
+}
+
+//  void QAreaSeries::pointLabelsColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries23pointLabelsColorChangedERK6QColor(
+    QAreaSeries *self,
+    const QColor *color) {
+  self->pointLabelsColorChanged(*color);
+}
+
+//  void QAreaSeries::pointLabelsClippingChanged(bool clipping)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAreaSeries26pointLabelsClippingChangedEb(
+    QAreaSeries *self,
+    bool clipping) {
+  self->pointLabelsClippingChanged(clipping);
 }
 
 //  QAreaSeriesPrivate *QAreaSeries::d_func()

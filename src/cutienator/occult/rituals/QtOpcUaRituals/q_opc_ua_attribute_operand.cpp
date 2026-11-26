@@ -20,6 +20,15 @@ QOpcUaAttributeOperand *ritual_ZN22QOpcUaAttributeOperandC1ERKS_(
   return new QOpcUaAttributeOperand(*a0);
 }
 
+//  QOpcUaAttributeOperand &QOpcUaAttributeOperand::operator=(const
+//      QOpcUaAttributeOperand &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaAttributeOperand *ritual_ZN22QOpcUaAttributeOperandaSERKS_(
+    QOpcUaAttributeOperand *self,
+    const QOpcUaAttributeOperand *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QVariant QOpcUaAttributeOperand::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK22QOpcUaAttributeOperandcv8QVariantEv(
@@ -69,6 +78,13 @@ extern "C" Q_DECL_EXPORT
 QList<QOpcUaRelativePathElement> *ritual_ZNK22QOpcUaAttributeOperand10browsePathEv(
     const QOpcUaAttributeOperand *self) {
   return new QList<QOpcUaRelativePathElement>(self->browsePath());
+}
+
+//  QList<QOpcUaRelativePathElement> &QOpcUaAttributeOperand::browsePathRef()
+extern "C" Q_DECL_EXPORT
+QList<QOpcUaRelativePathElement> *ritual_ZN22QOpcUaAttributeOperand13browsePathRefEv(
+    QOpcUaAttributeOperand *self) {
+  return &(self->browsePathRef());
 }
 
 //  void QOpcUaAttributeOperand::setBrowsePath(const

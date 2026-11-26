@@ -2202,7 +2202,7 @@ class ClassGenerator:
     #  '__take_ritual__'. And the one that runs just the class's own
     #  function, where the ordinary ritual lets C++ look the function
     #  up in the object: it belongs to the function of that name.
-    apart = ('cast', 'take', 'own', 'list', 'map')
+    apart = ('cast', 'take', 'own', 'list', 'map', 'drop')
     written = self.getRitualGenerator().getWritten()
     start = len('ritual_own')
     owned = {
@@ -2552,7 +2552,7 @@ class ClassGenerator:
       #  A ritual of our own making stands for no function Qt declares,
       #  and one that runs just the class's own function for one that
       #  has a ritual already.
-      ours = ('cast', 'take', 'own', 'list', 'map')
+      ours = ('cast', 'take', 'own', 'list', 'map', 'drop')
       declared = [plan for plan in written if plan['kind'] not in ours]
       total = len(declared) + len(notWritten)
       counted = '; '.join(

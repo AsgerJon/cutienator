@@ -9,6 +9,22 @@
 #include <Qt3DCore/qnodeid.h>
 #include <QtCore/qstring.h>
 
+//  Qt3DRender::Render::RenderSettings::RenderSettings()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::RenderSettings *ritual_ZN10Qt3DRender6Render14RenderSettingsC1Ev() {
+  return new Qt3DRender::Render::RenderSettings();
+}
+
+//  void Qt3DRender::Render::RenderSettings::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render14RenderSettings16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::RenderSettings *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  Qt3DCore::QNodeId
 //      Qt3DRender::Render::RenderSettings::activeFrameGraphID() const
 extern "C" Q_DECL_EXPORT

@@ -1070,6 +1070,24 @@ const QMetaObject *ritual_ZNK14QQuickGroupBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGroupBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickGroupBox11qt_metacastEPKc(
+    QQuickGroupBox *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGroupBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickGroupBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGroupBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGroupBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickGroupBox2trEPKcS1_i(
@@ -1134,6 +1152,32 @@ qreal ritual_ZNK14QQuickGroupBox19implicitLabelHeightEv(
   return self->implicitLabelHeight();
 }
 
+//  void QQuickGroupBox::titleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickGroupBox12titleChangedEv(QQuickGroupBox *self) {
+  self->titleChanged();
+}
+
+//  void QQuickGroupBox::labelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickGroupBox12labelChangedEv(QQuickGroupBox *self) {
+  self->labelChanged();
+}
+
+//  void QQuickGroupBox::implicitLabelWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickGroupBox25implicitLabelWidthChangedEv(
+    QQuickGroupBox *self) {
+  self->implicitLabelWidthChanged();
+}
+
+//  void QQuickGroupBox::implicitLabelHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickGroupBox26implicitLabelHeightChangedEv(
+    QQuickGroupBox *self) {
+  self->implicitLabelHeightChanged();
+}
+
 //  void QQuickGroupBox::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickGroupBox17componentCompleteEv(QQuickGroupBox *self) {
@@ -1165,6 +1209,20 @@ void ritual_ZN14QQuickGroupBox26accessibilityActiveChangedEb(
   self->accessibilityActiveChanged(active);
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickGroupBoxPrivate *QQuickGroupBox::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickGroupBoxPrivate *ritual_ZN14QQuickGroupBox6d_funcEv(
+    QQuickGroupBox *self) {
+  return self->d_func();
+}
+
+//  const QQuickGroupBoxPrivate *QQuickGroupBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickGroupBoxPrivate *ritual_ZNK14QQuickGroupBox6d_funcEv(
+    const QQuickGroupBox *self) {
+  return self->d_func();
+}
 
 //  a Python function taken by a CuteQQuickGroupBox, for the function named
 //      by the key

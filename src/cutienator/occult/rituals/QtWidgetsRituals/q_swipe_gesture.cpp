@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK13QSwipeGesture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSwipeGesture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QSwipeGesture11qt_metacastEPKc(
+    QSwipeGesture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSwipeGesture::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QSwipeGesture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSwipeGesture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSwipeGesture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QSwipeGesture2trEPKcS1_i(

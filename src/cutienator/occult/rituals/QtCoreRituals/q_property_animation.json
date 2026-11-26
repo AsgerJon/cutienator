@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QPropertyAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QPropertyAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QPropertyAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QPropertyAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,9 +24,15 @@
     "ritual_ZN18QPropertyAnimation15setTargetObjectEP7QObject": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QPropertyAnimation20bindableTargetObjectEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QPropertyAnimation12propertyNameEv": ["address", "address"],
     "ritual_ZN18QPropertyAnimation15setPropertyNameERK10QByteArray": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPropertyAnimation20bindablePropertyNameEv": [
+      "address", "address"
     ],
     "ritual_ZN18QPropertyAnimation5eventEP6QEvent": [
       "bool", "address", "address"
@@ -44,6 +56,12 @@
     ],
     "ritual_own_ZN18QPropertyAnimation11updateStateEN18QAbstractAnimation5StateES1_": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_drop_QPropertyAnimation__QBindable_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPropertyAnimation__QBindable_QByteArray": [
+      "nothing", "address"
     ]
   }
 }

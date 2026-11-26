@@ -9,6 +9,9 @@
       "address", "address", "address"
     ],
     "ritual_ZN30QSoundEffectPrivateSynchronousD1Ev": ["nothing", "address"],
+    "ritual_ZN30QSoundEffectPrivateSynchronous8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN30QSoundEffectPrivateSynchronous9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
@@ -38,6 +41,9 @@
     ],
     "ritual_ZN30QSoundEffectPrivateSynchronous12decoderErrorEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN30QSoundEffectPrivateSynchronous11sampleReadyESt10shared_ptrI7QSampleE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK30QSoundEffectPrivateSynchronous9loopCountEv": [
       "int", "address"
@@ -72,6 +78,9 @@
     "ritual_ZN30QSoundEffectPrivateSynchronous14setAudioDeviceE12QAudioDevice": [
       "bool", "address", "address"
     ],
+    "ritual_ZN30QSoundEffectPrivateSynchronous9setSourceE4QUrlR12QSampleCache": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK30QSoundEffectPrivateSynchronous6statusEv": [
       "int", "address"
     ],
@@ -86,6 +95,9 @@
     ],
     "ritual_take_QSoundEffectPrivateSynchronous": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QSoundEffectPrivateSynchronous8readDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_own_ZNK30QSoundEffectPrivateSynchronous4sizeEv": [
       "long long", "address"

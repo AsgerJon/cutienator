@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "parts first": [
+    "QtGraphsWidgets", "QtGraphs", "QtQuickWidgets", "QtCore", "QtGui",
+    "QtQuick", "QtQml", "QtWidgets", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN24Q3DBarsWidgetItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24Q3DBarsWidgetItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24Q3DBarsWidgetItemPrivateC1Ev": ["address"]
+  }
+}

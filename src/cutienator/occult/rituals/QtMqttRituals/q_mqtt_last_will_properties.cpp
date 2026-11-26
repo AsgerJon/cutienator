@@ -20,6 +20,15 @@ QMqttLastWillProperties *ritual_ZN23QMqttLastWillPropertiesC1ERKS_(
   return new QMqttLastWillProperties(*a0);
 }
 
+//  QMqttLastWillProperties &QMqttLastWillProperties::operator=(const
+//      QMqttLastWillProperties &a0)
+extern "C" Q_DECL_EXPORT
+QMqttLastWillProperties *ritual_ZN23QMqttLastWillPropertiesaSERKS_(
+    QMqttLastWillProperties *self,
+    const QMqttLastWillProperties *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QMqttLastWillProperties::~QMqttLastWillProperties()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QMqttLastWillPropertiesD1Ev(QMqttLastWillProperties *self) {

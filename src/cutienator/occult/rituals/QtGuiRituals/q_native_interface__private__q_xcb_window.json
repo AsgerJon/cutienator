@@ -8,6 +8,7 @@
     "ritual_ZN16QNativeInterface7Private10QXcbWindowD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN16QNativeInterface7Private10QXcbWindowC1Ev": ["address"],
     "ritual_ZN16QNativeInterface7Private10QXcbWindow13setWindowTypeE6QFlagsINS1_10WindowTypeEE": [
       "nothing", "address", "int"
     ],

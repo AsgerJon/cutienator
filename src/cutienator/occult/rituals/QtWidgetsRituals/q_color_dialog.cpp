@@ -1041,6 +1041,24 @@ const QMetaObject *ritual_ZNK12QColorDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QColorDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QColorDialog11qt_metacastEPKc(
+    QColorDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QColorDialog::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QColorDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QColorDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QColorDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QColorDialog2trEPKcS1_i(
@@ -1048,6 +1066,19 @@ QString *ritual_ZN12QColorDialog2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QColorDialog::tr(s, c, n));
+}
+
+//  QColorDialogPrivate *QColorDialog::d_func()
+extern "C" Q_DECL_EXPORT
+QColorDialogPrivate *ritual_ZN12QColorDialog6d_funcEv(QColorDialog *self) {
+  return self->d_func();
+}
+
+//  const QColorDialogPrivate *QColorDialog::d_func() const
+extern "C" Q_DECL_EXPORT
+const QColorDialogPrivate *ritual_ZNK12QColorDialog6d_funcEv(
+    const QColorDialog *self) {
+  return self->d_func();
 }
 
 //  QColorDialog::QColorDialog(QWidget *parent)
@@ -1187,6 +1218,22 @@ void ritual_ZN12QColorDialog16setStandardColorEi6QColor(
     int index,
     const QColor *color) {
   QColorDialog::setStandardColor(index, *color);
+}
+
+//  void QColorDialog::currentColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QColorDialog19currentColorChangedERK6QColor(
+    QColorDialog *self,
+    const QColor *color) {
+  self->currentColorChanged(*color);
+}
+
+//  void QColorDialog::colorSelected(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QColorDialog13colorSelectedERK6QColor(
+    QColorDialog *self,
+    const QColor *color) {
+  self->colorSelected(*color);
 }
 
 //  void QColorDialog::changeEvent(QEvent *event)

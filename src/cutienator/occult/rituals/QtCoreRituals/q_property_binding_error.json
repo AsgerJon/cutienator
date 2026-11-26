@@ -9,6 +9,13 @@
       "address", "int", "text"
     ],
     "ritual_ZN21QPropertyBindingErrorC1ERKS_": ["address", "address"],
+    "ritual_ZN21QPropertyBindingErroraSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QPropertyBindingErrorC1EOS_": ["address", "address"],
+    "ritual_ZN21QPropertyBindingErroraSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QPropertyBindingErrorD1Ev": ["nothing", "address"],
     "ritual_ZNK21QPropertyBindingError8hasErrorEv": ["bool", "address"],
     "ritual_ZNK21QPropertyBindingError4typeEv": ["int", "address"],

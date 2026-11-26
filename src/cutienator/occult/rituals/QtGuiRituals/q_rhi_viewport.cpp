@@ -5,6 +5,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <array>
 
 //  QRhiViewport::QRhiViewport()
 extern "C" Q_DECL_EXPORT
@@ -23,6 +24,13 @@ QRhiViewport *ritual_ZN12QRhiViewportC1Effffff(
     float minDepth,
     float maxDepth) {
   return new QRhiViewport(x, y, w, h, minDepth, maxDepth);
+}
+
+//  std::array<float, 4> QRhiViewport::viewport() const
+extern "C" Q_DECL_EXPORT
+std::array<float, 4> *ritual_ZNK12QRhiViewport8viewportEv(
+    const QRhiViewport *self) {
+  return new std::array<float, 4>(self->viewport());
 }
 
 //  void QRhiViewport::setViewport(float x, float y, float w, float h)
@@ -83,5 +91,12 @@ bool ritual_ZneRK12QRhiViewportS1_(
 //  QRhiViewport::~QRhiViewport()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QRhiViewportD1Ev(QRhiViewport *self) {
+  delete self;
+}
+
+//  a std::array<float, 4> a ritual of QRhiViewport gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QRhiViewport__std_array_float_4(
+    std::array<float, 4> *self) {
   delete self;
 }

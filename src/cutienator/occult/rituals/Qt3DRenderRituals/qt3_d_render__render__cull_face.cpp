@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_CullFaceCall0)(const void *, const Qt3DRend
 class CuteQt3DRender_Render_CullFace : public Qt3DRender::Render::CullFace {
 public:
   using Qt3DRender::Render::CullFace::CullFace;
-  CuteQt3DRender_Render_CullFace(const Qt3DRender::Render::CullFace &other) : Qt3DRender::Render::CullFace(other) {}
+  CuteQt3DRender_Render_CullFace(const Qt3DRender::Render::CullFace & other) : Qt3DRender::Render::CullFace(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::CullFace::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::CullFace::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render8CullFace16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::CullFace *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::CullFace::~CullFace()
 extern "C" Q_DECL_EXPORT

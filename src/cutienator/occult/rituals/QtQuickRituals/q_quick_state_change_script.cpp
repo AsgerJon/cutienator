@@ -466,6 +466,25 @@ const QMetaObject *ritual_ZNK23QQuickStateChangeScript10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStateChangeScript::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickStateChangeScript11qt_metacastEPKc(
+    QQuickStateChangeScript *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStateChangeScript::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickStateChangeScript11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStateChangeScript *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStateChangeScript::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickStateChangeScript2trEPKcS1_i(
@@ -473,6 +492,21 @@ QString *ritual_ZN23QQuickStateChangeScript2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickStateChangeScript::tr(s, c, n));
+}
+
+//  QQuickStateChangeScriptPrivate *QQuickStateChangeScript::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickStateChangeScriptPrivate *ritual_ZN23QQuickStateChangeScript6d_funcEv(
+    QQuickStateChangeScript *self) {
+  return self->d_func();
+}
+
+//  const QQuickStateChangeScriptPrivate *QQuickStateChangeScript::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QQuickStateChangeScriptPrivate *ritual_ZNK23QQuickStateChangeScript6d_funcEv(
+    const QQuickStateChangeScript *self) {
+  return self->d_func();
 }
 
 //  QQuickStateChangeScript::QQuickStateChangeScript(QObject *parent)

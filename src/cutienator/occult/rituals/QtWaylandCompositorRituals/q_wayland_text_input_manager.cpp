@@ -42,6 +42,25 @@ const QMetaObject *ritual_ZNK24QWaylandTextInputManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandTextInputManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QWaylandTextInputManager11qt_metacastEPKc(
+    QWaylandTextInputManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandTextInputManager::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QWaylandTextInputManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandTextInputManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandTextInputManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QWaylandTextInputManager2trEPKcS1_i(
@@ -49,6 +68,21 @@ QString *ritual_ZN24QWaylandTextInputManager2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandTextInputManager::tr(s, c, n));
+}
+
+//  QWaylandTextInputManagerPrivate *QWaylandTextInputManager::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandTextInputManagerPrivate *ritual_ZN24QWaylandTextInputManager6d_funcEv(
+    QWaylandTextInputManager *self) {
+  return self->d_func();
+}
+
+//  const QWaylandTextInputManagerPrivate *QWaylandTextInputManager::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QWaylandTextInputManagerPrivate *ritual_ZNK24QWaylandTextInputManager6d_funcEv(
+    const QWaylandTextInputManager *self) {
+  return self->d_func();
 }
 
 //  QWaylandTextInputManager::QWaylandTextInputManager()
@@ -70,6 +104,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QWaylandTextInputManager10initializeEv(
     QWaylandTextInputManager *self) {
   self->initialize();
+}
+
+//  const struct wl_interface *QWaylandTextInputManager::interface()
+extern "C" Q_DECL_EXPORT
+const struct wl_interface *ritual_ZN24QWaylandTextInputManager9interfaceEv() {
+  return QWaylandTextInputManager::interface();
 }
 
 //  QByteArray QWaylandTextInputManager::interfaceName()

@@ -54,6 +54,22 @@ public:
   }
 };
 
+//  QVideoTextureHelper::QVideoFrameTexturesFromHandlesSet::~QVideoFrameTextu
+//      resFromHandlesSet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QVideoTextureHelper33QVideoFrameTexturesFromHandlesSetD1Ev(
+    QVideoTextureHelper::QVideoFrameTexturesFromHandlesSet *self) {
+  delete self;
+}
+
+//  QVideoFrameTexturesHandlesUPtr
+//      QVideoTextureHelper::QVideoFrameTexturesFromHandlesSet::takeHandles()
+extern "C" Q_DECL_EXPORT
+QVideoFrameTexturesHandlesUPtr *ritual_ZN19QVideoTextureHelper33QVideoFrameTexturesFromHandlesSet11takeHandlesEv(
+    QVideoTextureHelper::QVideoFrameTexturesFromHandlesSet *self) {
+  return new QVideoFrameTexturesHandlesUPtr(self->takeHandles());
+}
+
 //  a Python function taken by a
 //      CuteQVideoTextureHelper_QVideoFrameTexturesFromHandlesSet, for the
 //      function named by the key
@@ -63,4 +79,12 @@ bool ritual_take_QVideoTextureHelper_QVideoFrameTexturesFromHandlesSet(
     const char *key,
     void *call) {
   return static_cast<CuteQVideoTextureHelper_QVideoFrameTexturesFromHandlesSet *>(self)->take(key, call);
+}
+
+//  a QVideoFrameTexturesHandlesUPtr a ritual of
+//      QVideoTextureHelper::QVideoFrameTexturesFromHandlesSet gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVideoTextureHelper_QVideoFrameTexturesFromHandlesSet__QVideoFrameTexturesHandlesUPtr(
+    QVideoFrameTexturesHandlesUPtr *self) {
+  delete self;
 }

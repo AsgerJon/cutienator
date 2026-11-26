@@ -12,6 +12,7 @@
     "ritual_ZNK15QAccessibleList17selectedCellCountEv": ["int", "address"],
     "ritual_ZNK15QAccessibleList13selectedCellsEv": ["address", "address"],
     "ritual_take_QAccessibleList": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QAccessibleList5childEi": ["address", "address", "int"],
     "ritual_own_ZNK15QAccessibleList6cellAtEii": [
       "address", "address", "int", "int"
     ],

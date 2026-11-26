@@ -7,6 +7,8 @@
   "rows": {
     "ritual_ZN3QV415EvalErrorObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
-    ]
+    ],
+    "ritual_ZNK3QV415EvalErrorObject1dEv": ["address", "address"],
+    "ritual_ZN3QV415EvalErrorObject1dEv": ["address", "address"]
   }
 }

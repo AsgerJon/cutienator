@@ -8,6 +8,31 @@
 #include <QtQml/6.12.0/QtQml/private/qv4propertykey_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QV4::ScopedPropertyKey::ScopedPropertyKey(const Scope &scope)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedPropertyKey *ritual_ZN3QV417ScopedPropertyKeyC1ERKNS_5ScopeE(
+    const QV4::Scope *scope) {
+  return new QV4::ScopedPropertyKey(*scope);
+}
+
+//  QV4::ScopedPropertyKey::ScopedPropertyKey(const Scope &scope, const
+//      PropertyKey &v)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedPropertyKey *ritual_ZN3QV417ScopedPropertyKeyC1ERKNS_5ScopeERKNS_11PropertyKeyE(
+    const QV4::Scope *scope,
+    const QV4::PropertyKey *v) {
+  return new QV4::ScopedPropertyKey(*scope, *v);
+}
+
+//  ScopedPropertyKey &QV4::ScopedPropertyKey::operator=(const PropertyKey
+//      &other)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedPropertyKey *ritual_ZN3QV417ScopedPropertyKeyaSERKNS_11PropertyKeyE(
+    QV4::ScopedPropertyKey *self,
+    const QV4::PropertyKey *other) {
+  return &(self->operator=(*other));
+}
+
 //  PropertyKey *QV4::ScopedPropertyKey::operator->()
 extern "C" Q_DECL_EXPORT
 QV4::PropertyKey *ritual_ZN3QV417ScopedPropertyKeyptEv(

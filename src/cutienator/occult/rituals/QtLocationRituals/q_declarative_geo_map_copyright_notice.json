@@ -8,6 +8,12 @@
     "ritual_ZNK33QDeclarativeGeoMapCopyrightNotice10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN33QDeclarativeGeoMapCopyrightNotice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN33QDeclarativeGeoMapCopyrightNotice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN33QDeclarativeGeoMapCopyrightNotice2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -50,6 +56,21 @@
     "ritual_ZN33QDeclarativeGeoMapCopyrightNotice29onCopyrightsStyleSheetChangedERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN33QDeclarativeGeoMapCopyrightNotice13linkActivatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN33QDeclarativeGeoMapCopyrightNotice16mapSourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QDeclarativeGeoMapCopyrightNotice22backgroundColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN33QDeclarativeGeoMapCopyrightNotice17styleSheetChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN33QDeclarativeGeoMapCopyrightNotice24copyrightsVisibleChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN33QDeclarativeGeoMapCopyrightNotice5paintEP8QPainter": [
       "nothing", "address", "address"
     ],
@@ -67,6 +88,12 @@
     ],
     "ritual_ZN33QDeclarativeGeoMapCopyrightNotice15createCopyrightEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN33QDeclarativeGeoMapCopyrightNotice6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QDeclarativeGeoMapCopyrightNotice6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_QDeclarativeGeoMapCopyrightNotice": [
       "bool", "address", "chars", "address"

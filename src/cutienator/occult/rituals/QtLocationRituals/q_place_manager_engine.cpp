@@ -441,6 +441,25 @@ const QMetaObject *ritual_ZNK19QPlaceManagerEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlaceManagerEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QPlaceManagerEngine11qt_metacastEPKc(
+    QPlaceManagerEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlaceManagerEngine::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QPlaceManagerEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlaceManagerEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlaceManagerEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QPlaceManagerEngine2trEPKcS1_i(
@@ -633,6 +652,86 @@ QPlaceMatchReply *ritual_ZN19QPlaceManagerEngine14matchingPlacesERK18QPlaceMatch
     QPlaceManagerEngine *self,
     const QPlaceMatchRequest *request) {
   return self->matchingPlaces(*request);
+}
+
+//  void QPlaceManagerEngine::finished(QPlaceReply *reply)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceManagerEngine8finishedEP11QPlaceReply(
+    QPlaceManagerEngine *self,
+    QPlaceReply *reply) {
+  self->finished(reply);
+}
+
+//  void QPlaceManagerEngine::errorOccurred(QPlaceReply *a0,
+//      QPlaceReply::Error error, const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceManagerEngine13errorOccurredEP11QPlaceReplyNS0_5ErrorERK7QString(
+    QPlaceManagerEngine *self,
+    QPlaceReply *a0,
+    QPlaceReply::Error error,
+    const QString *errorString) {
+  self->errorOccurred(a0, error, *errorString);
+}
+
+//  void QPlaceManagerEngine::placeAdded(const QString &placeId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceManagerEngine10placeAddedERK7QString(
+    QPlaceManagerEngine *self,
+    const QString *placeId) {
+  self->placeAdded(*placeId);
+}
+
+//  void QPlaceManagerEngine::placeUpdated(const QString &placeId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceManagerEngine12placeUpdatedERK7QString(
+    QPlaceManagerEngine *self,
+    const QString *placeId) {
+  self->placeUpdated(*placeId);
+}
+
+//  void QPlaceManagerEngine::placeRemoved(const QString &placeId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceManagerEngine12placeRemovedERK7QString(
+    QPlaceManagerEngine *self,
+    const QString *placeId) {
+  self->placeRemoved(*placeId);
+}
+
+//  void QPlaceManagerEngine::categoryAdded(const QPlaceCategory &category,
+//      const QString &parentCategoryId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceManagerEngine13categoryAddedERK14QPlaceCategoryRK7QString(
+    QPlaceManagerEngine *self,
+    const QPlaceCategory *category,
+    const QString *parentCategoryId) {
+  self->categoryAdded(*category, *parentCategoryId);
+}
+
+//  void QPlaceManagerEngine::categoryUpdated(const QPlaceCategory &category,
+//      const QString &parentCategoryId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceManagerEngine15categoryUpdatedERK14QPlaceCategoryRK7QString(
+    QPlaceManagerEngine *self,
+    const QPlaceCategory *category,
+    const QString *parentCategoryId) {
+  self->categoryUpdated(*category, *parentCategoryId);
+}
+
+//  void QPlaceManagerEngine::categoryRemoved(const QString &categoryId,
+//      const QString &parentCategoryId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceManagerEngine15categoryRemovedERK7QStringS2_(
+    QPlaceManagerEngine *self,
+    const QString *categoryId,
+    const QString *parentCategoryId) {
+  self->categoryRemoved(*categoryId, *parentCategoryId);
+}
+
+//  void QPlaceManagerEngine::dataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceManagerEngine11dataChangedEv(
+    QPlaceManagerEngine *self) {
+  self->dataChanged();
 }
 
 //  QPlaceManager *QPlaceManagerEngine::manager() const

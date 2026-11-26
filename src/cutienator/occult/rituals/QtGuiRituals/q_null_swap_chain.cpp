@@ -24,6 +24,69 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/rhi/qrhinull.cpp, line 1089, as _ZN14QNullSwapChain14createOrResizeEv
+inline bool QNullSwapChain::createOrResize()
+{
+    const bool needsRegistration = !window || window != m_window;
+    if (window && window != m_window)
+        destroy();
+
+    window = m_window;
+    m_currentPixelSize = surfacePixelSize();
+    rt.setRenderPassDescriptor(m_renderPassDesc); // for the public getter in QRhiRenderTarget
+    rt.d.rp = QRHI_RES(QNullRenderPassDescriptor, m_renderPassDesc);
+    rt.d.pixelSize = m_currentPixelSize;
+    frameCount = 0;
+
+    if (needsRegistration) {
+        QRHI_RES_RHI(QRhiNull);
+        rhiD->registerResource(this);
+    }
+
+    return true;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 1071, as _ZN14QNullSwapChain16surfacePixelSizeEv
+inline QSize QNullSwapChain::surfacePixelSize()
+{
+    return QSize(1280, 720);
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 1076, as _ZN14QNullSwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE
+inline bool QNullSwapChain::isFormatSupported(Format f)
+{
+    return f == SDR;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 1066, as _ZN14QNullSwapChain24currentFrameRenderTargetEv
+inline QRhiRenderTarget *QNullSwapChain::currentFrameRenderTarget()
+{
+    return &rt;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 1061, as _ZN14QNullSwapChain25currentFrameCommandBufferEv
+inline QRhiCommandBuffer *QNullSwapChain::currentFrameCommandBuffer()
+{
+    return &cb;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 1081, as _ZN14QNullSwapChain33newCompatibleRenderPassDescriptorEv
+inline QRhiRenderPassDescriptor *QNullSwapChain::newCompatibleRenderPassDescriptor()
+{
+    QNullRenderPassDescriptor *rpD = new QNullRenderPassDescriptor(m_rhi);
+    QRHI_RES_RHI(QRhiNull);
+    rhiD->registerResource(rpD, false);
+    return rpD;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 1054, as _ZN14QNullSwapChain7destroyEv
+inline void QNullSwapChain::destroy()
+{
+    QRHI_RES_RHI(QRhiNull);
+    if (rhiD)
+        rhiD->unregisterResource(this);
+}
+
 //  from src/gui/rhi/qrhinull.cpp, line 1027, as _ZN18QNullCommandBufferC1EP18QRhiImplementation
 inline QNullCommandBuffer::QNullCommandBuffer(QRhiImplementation *rhi)
     : QRhiCommandBuffer(rhi)
@@ -34,12 +97,6 @@ inline QNullCommandBuffer::QNullCommandBuffer(QRhiImplementation *rhi)
 inline QNullCommandBuffer::~QNullCommandBuffer()
 {
     destroy();
-}
-
-//  from src/gui/rhi/qrhinull.cpp, line 811, as _ZN25QNullRenderPassDescriptorC1EP18QRhiImplementation
-inline QNullRenderPassDescriptor::QNullRenderPassDescriptor(QRhiImplementation *rhi)
-    : QRhiRenderPassDescriptor(rhi)
-{
 }
 
 //  from src/gui/rhi/qrhinull.cpp, line 847, as _ZN26QNullSwapChainRenderTargetC1EP18QRhiImplementationP13QRhiSwapChain
@@ -59,6 +116,12 @@ inline QNullSwapChainRenderTarget::~QNullSwapChainRenderTarget()
 inline void QNullCommandBuffer::destroy()
 {
     // nothing to do here
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 811, as _ZN25QNullRenderPassDescriptorC1EP18QRhiImplementation
+inline QNullRenderPassDescriptor::QNullRenderPassDescriptor(QRhiImplementation *rhi)
+    : QRhiRenderPassDescriptor(rhi)
+{
 }
 
 //  from src/gui/rhi/qrhinull.cpp, line 858, as _ZN26QNullSwapChainRenderTarget7destroyEv
@@ -84,46 +147,29 @@ inline QSize QNullSwapChainRenderTarget::pixelSize() const
     return d.pixelSize;
 }
 
-//  from src/gui/rhi/qrhinull.cpp, line 1049, as _ZN14QNullSwapChainD1Ev
-inline QNullSwapChain::~QNullSwapChain()
+//  from src/gui/rhi/qrhinull.cpp, line 816, as _ZN25QNullRenderPassDescriptorD1Ev
+inline QNullRenderPassDescriptor::~QNullRenderPassDescriptor()
 {
     destroy();
 }
 
-//  from src/gui/rhi/qrhinull.cpp, line 1054, as _ZN14QNullSwapChain7destroyEv
-inline void QNullSwapChain::destroy()
+//  from src/gui/rhi/qrhinull.cpp, line 821, as _ZN25QNullRenderPassDescriptor7destroyEv
+inline void QNullRenderPassDescriptor::destroy()
 {
     QRHI_RES_RHI(QRhiNull);
     if (rhiD)
         rhiD->unregisterResource(this);
 }
 
-//  from src/gui/rhi/qrhinull.cpp, line 1061, as _ZN14QNullSwapChain25currentFrameCommandBufferEv
-inline QRhiCommandBuffer *QNullSwapChain::currentFrameCommandBuffer()
+//  from src/gui/rhi/qrhinull.cpp, line 828, as _ZNK25QNullRenderPassDescriptor12isCompatibleEPK24QRhiRenderPassDescriptor
+inline bool QNullRenderPassDescriptor::isCompatible(const QRhiRenderPassDescriptor *other) const
 {
-    return &cb;
+    Q_UNUSED(other);
+    return true;
 }
 
-//  from src/gui/rhi/qrhinull.cpp, line 1066, as _ZN14QNullSwapChain24currentFrameRenderTargetEv
-inline QRhiRenderTarget *QNullSwapChain::currentFrameRenderTarget()
-{
-    return &rt;
-}
-
-//  from src/gui/rhi/qrhinull.cpp, line 1071, as _ZN14QNullSwapChain16surfacePixelSizeEv
-inline QSize QNullSwapChain::surfacePixelSize()
-{
-    return QSize(1280, 720);
-}
-
-//  from src/gui/rhi/qrhinull.cpp, line 1076, as _ZN14QNullSwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE
-inline bool QNullSwapChain::isFormatSupported(Format f)
-{
-    return f == SDR;
-}
-
-//  from src/gui/rhi/qrhinull.cpp, line 1081, as _ZN14QNullSwapChain33newCompatibleRenderPassDescriptorEv
-inline QRhiRenderPassDescriptor *QNullSwapChain::newCompatibleRenderPassDescriptor()
+//  from src/gui/rhi/qrhinull.cpp, line 834, as _ZNK25QNullRenderPassDescriptor33newCompatibleRenderPassDescriptorEv
+inline QRhiRenderPassDescriptor *QNullRenderPassDescriptor::newCompatibleRenderPassDescriptor() const
 {
     QNullRenderPassDescriptor *rpD = new QNullRenderPassDescriptor(m_rhi);
     QRHI_RES_RHI(QRhiNull);
@@ -131,26 +177,24 @@ inline QRhiRenderPassDescriptor *QNullSwapChain::newCompatibleRenderPassDescript
     return rpD;
 }
 
-//  from src/gui/rhi/qrhinull.cpp, line 1089, as _ZN14QNullSwapChain14createOrResizeEv
-inline bool QNullSwapChain::createOrResize()
+//  from src/gui/rhi/qrhinull.cpp, line 842, as _ZNK25QNullRenderPassDescriptor16serializedFormatEv
+inline QVector<quint32> QNullRenderPassDescriptor::serializedFormat() const
 {
-    const bool needsRegistration = !window || window != m_window;
-    if (window && window != m_window)
-        destroy();
+    return {};
+}
 
-    window = m_window;
-    m_currentPixelSize = surfacePixelSize();
-    rt.setRenderPassDescriptor(m_renderPassDesc); // for the public getter in QRhiRenderTarget
-    rt.d.rp = QRHI_RES(QNullRenderPassDescriptor, m_renderPassDesc);
-    rt.d.pixelSize = m_currentPixelSize;
-    frameCount = 0;
+//  from src/gui/rhi/qrhinull.cpp, line 1042, as _ZN14QNullSwapChainC1EP18QRhiImplementation
+inline QNullSwapChain::QNullSwapChain(QRhiImplementation *rhi)
+    : QRhiSwapChain(rhi),
+      rt(rhi, this),
+      cb(rhi)
+{
+}
 
-    if (needsRegistration) {
-        QRHI_RES_RHI(QRhiNull);
-        rhiD->registerResource(this);
-    }
-
-    return true;
+//  from src/gui/rhi/qrhinull.cpp, line 1049, as _ZN14QNullSwapChainD1Ev
+inline QNullSwapChain::~QNullSwapChain()
+{
+    destroy();
 }
 //  -----------------------------------------------------------------------
 
@@ -330,6 +374,13 @@ public:
     return QRhiSwapChain::hdrInfo();
   }
 };
+
+//  QNullSwapChain::QNullSwapChain(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QNullSwapChain *ritual_ZN14QNullSwapChainC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQNullSwapChain(rhi);
+}
 
 //  QNullSwapChain::~QNullSwapChain()
 extern "C" Q_DECL_EXPORT

@@ -248,6 +248,24 @@ const QMetaObject *ritual_ZNK12QmlTapSensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlTapSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QmlTapSensor11qt_metacastEPKc(
+    QmlTapSensor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlTapSensor::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QmlTapSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlTapSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlTapSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QmlTapSensor2trEPKcS1_i(
@@ -288,6 +306,15 @@ void ritual_ZN12QmlTapSensor24setReturnDoubleTapEventsEb(
 extern "C" Q_DECL_EXPORT
 QSensor *ritual_ZNK12QmlTapSensor6sensorEv(const QmlTapSensor *self) {
   return self->sensor();
+}
+
+//  void QmlTapSensor::returnDoubleTapEventsChanged(bool
+//      returnDoubleTapEvents)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QmlTapSensor28returnDoubleTapEventsChangedEb(
+    QmlTapSensor *self,
+    bool returnDoubleTapEvents) {
+  self->returnDoubleTapEventsChanged(returnDoubleTapEvents);
 }
 
 //  QmlSensorReading *QmlTapSensor::createReading() const

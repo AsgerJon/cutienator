@@ -4,6 +4,10 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QToolBarChangeEventC1ERKS_": ["address", "address"],
+    "ritual_ZN19QToolBarChangeEventaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QToolBarChangeEvent5cloneEv": ["address", "address"],
     "ritual_ZN19QToolBarChangeEventD1Ev": ["nothing", "address"],
     "ritual_ZN19QToolBarChangeEventC1Eb": ["address", "bool"],

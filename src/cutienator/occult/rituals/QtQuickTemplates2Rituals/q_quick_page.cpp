@@ -1070,6 +1070,24 @@ const QMetaObject *ritual_ZNK10QQuickPage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickPage11qt_metacastEPKc(
+    QQuickPage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPage::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQuickPage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQuickPage2trEPKcS1_i(
@@ -1163,6 +1181,56 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10QQuickPage20implicitFooterHeightEv(
     const QQuickPage *self) {
   return self->implicitFooterHeight();
+}
+
+//  void QQuickPage::titleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPage12titleChangedEv(QQuickPage *self) {
+  self->titleChanged();
+}
+
+//  void QQuickPage::headerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPage13headerChangedEv(QQuickPage *self) {
+  self->headerChanged();
+}
+
+//  void QQuickPage::footerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPage13footerChangedEv(QQuickPage *self) {
+  self->footerChanged();
+}
+
+//  void QQuickPage::implicitHeaderWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPage26implicitHeaderWidthChangedEv(QQuickPage *self) {
+  self->implicitHeaderWidthChanged();
+}
+
+//  void QQuickPage::implicitHeaderHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPage27implicitHeaderHeightChangedEv(QQuickPage *self) {
+  self->implicitHeaderHeightChanged();
+}
+
+//  void QQuickPage::implicitFooterWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPage26implicitFooterWidthChangedEv(QQuickPage *self) {
+  self->implicitFooterWidthChanged();
+}
+
+//  void QQuickPage::implicitFooterHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPage27implicitFooterHeightChangedEv(QQuickPage *self) {
+  self->implicitFooterHeightChanged();
+}
+
+//  QQuickPage::QQuickPage(QQuickPagePrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPage *ritual_ZN10QQuickPageC1ER17QQuickPagePrivateP10QQuickItem(
+    QQuickPagePrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickPage(*dd, parent);
 }
 
 //  void QQuickPage::componentComplete()

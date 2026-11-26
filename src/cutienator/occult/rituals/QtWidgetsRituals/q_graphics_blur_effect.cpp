@@ -255,6 +255,25 @@ const QMetaObject *ritual_ZNK19QGraphicsBlurEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsBlurEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QGraphicsBlurEffect11qt_metacastEPKc(
+    QGraphicsBlurEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsBlurEffect::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QGraphicsBlurEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsBlurEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsBlurEffect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QGraphicsBlurEffect2trEPKcS1_i(
@@ -313,6 +332,23 @@ void ritual_ZN19QGraphicsBlurEffect12setBlurHintsE6QFlagsINS_8BlurHintEE(
     QGraphicsBlurEffect *self,
     int hints) {
   self->setBlurHints(QFlags<QGraphicsBlurEffect::BlurHint>::fromInt(hints));
+}
+
+//  void QGraphicsBlurEffect::blurRadiusChanged(qreal blurRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphicsBlurEffect17blurRadiusChangedEd(
+    QGraphicsBlurEffect *self,
+    qreal blurRadius) {
+  self->blurRadiusChanged(blurRadius);
+}
+
+//  void QGraphicsBlurEffect::blurHintsChanged(BlurHints hints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphicsBlurEffect16blurHintsChangedE6QFlagsINS_8BlurHintEE(
+    QGraphicsBlurEffect *self,
+    int hints) {
+  self->blurHintsChanged(
+      QFlags<QGraphicsBlurEffect::BlurHint>::fromInt(hints));
 }
 
 //  void QGraphicsBlurEffect::draw(QPainter *painter)

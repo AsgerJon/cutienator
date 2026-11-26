@@ -8,6 +8,9 @@
     "ritual_ZN17QtProtobufPrivate18QProtobufFieldInfoC1ENS_25QProtobufPropertyOrderingEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK17QtProtobufPrivate18QProtobufFieldInfo8jsonNameEv": [
+      "address", "address"
+    ],
     "ritual_ZNK17QtProtobufPrivate18QProtobufFieldInfo11fieldNumberEv": [
       "int", "address"
     ],
@@ -18,6 +21,9 @@
       "int", "address"
     ],
     "ritual_ZN17QtProtobufPrivate18QProtobufFieldInfoD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtProtobufPrivate_QProtobufFieldInfo__QUtf8StringView": [
       "nothing", "address"
     ]
   }

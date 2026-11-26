@@ -6,7 +6,9 @@
 #if QT_CONFIG(graphicsview)
 #if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsview.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsview_p.h>
@@ -16,7 +18,9 @@
 #include <QtGui/qregion.h>
 #include <QtGui/qcursor.h>
 #include <QtGui/qtransform.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsitem.h>
+#endif
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/qpa/qplatformbackingstore.h>
@@ -59,6 +63,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 1368, as _ZNK26QAbstractScrollAreaPrivate14contentsOffsetEv
 #if QT_CONFIG(scrollarea)

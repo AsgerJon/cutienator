@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QMediaPlayer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QMediaPlayer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QMediaPlayer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QMediaPlayer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QMediaPlayerC1EP7QObject": ["address", "address"],
     "ritual_ZN12QMediaPlayerD1Ev": ["nothing", "address"],
@@ -86,6 +92,58 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN12QMediaPlayer20resetPlaybackOptionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QMediaPlayer13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QMediaPlayer20playbackStateChangedENS_13PlaybackStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QMediaPlayer18mediaStatusChangedENS_11MediaStatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QMediaPlayer15durationChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN12QMediaPlayer15positionChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN12QMediaPlayer15hasAudioChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QMediaPlayer15hasVideoChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QMediaPlayer21bufferProgressChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN12QMediaPlayer15seekableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QMediaPlayer14playingChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QMediaPlayer19playbackRateChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QMediaPlayer12loopsChangedEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer15metaDataChangedEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer18videoOutputChangedEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer18audioOutputChangedEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer24audioBufferOutputChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QMediaPlayer13tracksChangedEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer19activeTracksChangedEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer12errorChangedEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer13errorOccurredENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN12QMediaPlayer24pitchCompensationChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QMediaPlayer22playbackOptionsChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN12QMediaPlayer6d_funcEv": ["address", "address"],

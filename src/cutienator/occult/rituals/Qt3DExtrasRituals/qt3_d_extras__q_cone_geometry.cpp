@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras13QConeGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QConeGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras13QConeGeometry11qt_metacastEPKc(
+    Qt3DExtras::QConeGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QConeGeometry::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras13QConeGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QConeGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QConeGeometry::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,235 @@ QString *ritual_ZN10Qt3DExtras13QConeGeometry2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QConeGeometry::tr(s, c, n));
+}
+
+//  Qt3DExtras::QConeGeometry::QConeGeometry(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QConeGeometry *ritual_ZN10Qt3DExtras13QConeGeometryC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QConeGeometry(parent);
+}
+
+//  Qt3DExtras::QConeGeometry::~QConeGeometry()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometryD1Ev(
+    Qt3DExtras::QConeGeometry *self) {
+  delete self;
+}
+
+//  void Qt3DExtras::QConeGeometry::updateVertices()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry14updateVerticesEv(
+    Qt3DExtras::QConeGeometry *self) {
+  self->updateVertices();
+}
+
+//  void Qt3DExtras::QConeGeometry::updateIndices()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry13updateIndicesEv(
+    Qt3DExtras::QConeGeometry *self) {
+  self->updateIndices();
+}
+
+//  bool Qt3DExtras::QConeGeometry::hasTopEndcap() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras13QConeGeometry12hasTopEndcapEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->hasTopEndcap();
+}
+
+//  bool Qt3DExtras::QConeGeometry::hasBottomEndcap() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras13QConeGeometry15hasBottomEndcapEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->hasBottomEndcap();
+}
+
+//  float Qt3DExtras::QConeGeometry::topRadius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras13QConeGeometry9topRadiusEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->topRadius();
+}
+
+//  float Qt3DExtras::QConeGeometry::bottomRadius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras13QConeGeometry12bottomRadiusEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->bottomRadius();
+}
+
+//  int Qt3DExtras::QConeGeometry::rings() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras13QConeGeometry5ringsEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->rings();
+}
+
+//  int Qt3DExtras::QConeGeometry::slices() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras13QConeGeometry6slicesEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->slices();
+}
+
+//  float Qt3DExtras::QConeGeometry::length() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras13QConeGeometry6lengthEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->length();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QConeGeometry::positionAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras13QConeGeometry17positionAttributeEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->positionAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QConeGeometry::normalAttribute() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras13QConeGeometry15normalAttributeEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->normalAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QConeGeometry::texCoordAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras13QConeGeometry17texCoordAttributeEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->texCoordAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QConeGeometry::indexAttribute() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras13QConeGeometry14indexAttributeEv(
+    const Qt3DExtras::QConeGeometry *self) {
+  return self->indexAttribute();
+}
+
+//  void Qt3DExtras::QConeGeometry::setHasTopEndcap(bool hasTopEndcap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry15setHasTopEndcapEb(
+    Qt3DExtras::QConeGeometry *self,
+    bool hasTopEndcap) {
+  self->setHasTopEndcap(hasTopEndcap);
+}
+
+//  void Qt3DExtras::QConeGeometry::setHasBottomEndcap(bool hasBottomEndcap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry18setHasBottomEndcapEb(
+    Qt3DExtras::QConeGeometry *self,
+    bool hasBottomEndcap) {
+  self->setHasBottomEndcap(hasBottomEndcap);
+}
+
+//  void Qt3DExtras::QConeGeometry::setTopRadius(float topRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry12setTopRadiusEf(
+    Qt3DExtras::QConeGeometry *self,
+    float topRadius) {
+  self->setTopRadius(topRadius);
+}
+
+//  void Qt3DExtras::QConeGeometry::setBottomRadius(float bottomRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry15setBottomRadiusEf(
+    Qt3DExtras::QConeGeometry *self,
+    float bottomRadius) {
+  self->setBottomRadius(bottomRadius);
+}
+
+//  void Qt3DExtras::QConeGeometry::setRings(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry8setRingsEi(
+    Qt3DExtras::QConeGeometry *self,
+    int rings) {
+  self->setRings(rings);
+}
+
+//  void Qt3DExtras::QConeGeometry::setSlices(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry9setSlicesEi(
+    Qt3DExtras::QConeGeometry *self,
+    int slices) {
+  self->setSlices(slices);
+}
+
+//  void Qt3DExtras::QConeGeometry::setLength(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry9setLengthEf(
+    Qt3DExtras::QConeGeometry *self,
+    float length) {
+  self->setLength(length);
+}
+
+//  void Qt3DExtras::QConeGeometry::hasTopEndcapChanged(bool hasTopEndcap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry19hasTopEndcapChangedEb(
+    Qt3DExtras::QConeGeometry *self,
+    bool hasTopEndcap) {
+  self->hasTopEndcapChanged(hasTopEndcap);
+}
+
+//  void Qt3DExtras::QConeGeometry::hasBottomEndcapChanged(bool
+//      hasBottomEndcap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry22hasBottomEndcapChangedEb(
+    Qt3DExtras::QConeGeometry *self,
+    bool hasBottomEndcap) {
+  self->hasBottomEndcapChanged(hasBottomEndcap);
+}
+
+//  void Qt3DExtras::QConeGeometry::topRadiusChanged(float topRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry16topRadiusChangedEf(
+    Qt3DExtras::QConeGeometry *self,
+    float topRadius) {
+  self->topRadiusChanged(topRadius);
+}
+
+//  void Qt3DExtras::QConeGeometry::bottomRadiusChanged(float bottomRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry19bottomRadiusChangedEf(
+    Qt3DExtras::QConeGeometry *self,
+    float bottomRadius) {
+  self->bottomRadiusChanged(bottomRadius);
+}
+
+//  void Qt3DExtras::QConeGeometry::ringsChanged(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry12ringsChangedEi(
+    Qt3DExtras::QConeGeometry *self,
+    int rings) {
+  self->ringsChanged(rings);
+}
+
+//  void Qt3DExtras::QConeGeometry::slicesChanged(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry13slicesChangedEi(
+    Qt3DExtras::QConeGeometry *self,
+    int slices) {
+  self->slicesChanged(slices);
+}
+
+//  void Qt3DExtras::QConeGeometry::lengthChanged(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QConeGeometry13lengthChangedEf(
+    Qt3DExtras::QConeGeometry *self,
+    float length) {
+  self->lengthChanged(length);
+}
+
+//  Qt3DExtras::QConeGeometry::QConeGeometry(QConeGeometryPrivate &dd, QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QConeGeometry *ritual_ZN10Qt3DExtras13QConeGeometryC1ERNS_20QConeGeometryPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QConeGeometryPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QConeGeometry(*dd, parent);
 }
 
 //  QConeGeometryPrivate *Qt3DExtras::QConeGeometry::d_func()

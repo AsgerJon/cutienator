@@ -5,6 +5,24 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal19InsertWidgetCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19InsertWidgetCommandD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19InsertWidgetCommand4initEP7QWidgetbii": [
+      "nothing", "address", "address", "bool", "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal19InsertWidgetCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19InsertWidgetCommand4undoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19InsertWidgetCommand18refreshBuddyLabelsEv": [
+      "nothing", "address"
+    ],
     "ritual_take_qdesigner_internal_InsertWidgetCommand": [
       "bool", "address", "chars", "address"
     ],

@@ -8,6 +8,13 @@
     "ritual_ZNK27QByteDeviceWrappingIoDevice10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QByteDeviceWrappingIoDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QByteDeviceWrappingIoDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN27QByteDeviceWrappingIoDeviceD1Ev": ["nothing", "address"],
     "ritual_ZNK27QByteDeviceWrappingIoDevice12isSequentialEv": [
       "bool", "address"
     ],
@@ -15,6 +22,9 @@
     "ritual_ZN27QByteDeviceWrappingIoDevice5resetEv": ["bool", "address"],
     "ritual_ZNK27QByteDeviceWrappingIoDevice4sizeEv": [
       "long long", "address"
+    ],
+    "ritual_ZN27QByteDeviceWrappingIoDevice8readDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_ZN27QByteDeviceWrappingIoDevice9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
@@ -33,6 +43,9 @@
     ],
     "ritual_own_ZNK27QByteDeviceWrappingIoDevice4sizeEv": [
       "long long", "address"
+    ],
+    "ritual_own_ZN27QByteDeviceWrappingIoDevice8readDataEPcx": [
+      "long long", "address", "address", "long long"
     ]
   }
 }

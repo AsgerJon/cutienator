@@ -5,6 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore20QGeometryViewPrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore20QGeometryViewPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore20QGeometryViewPrivate3getEPNS_13QGeometryViewE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QGeometryViewPrivate6updateEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN8Qt3DCore20QGeometryViewPrivate6q_funcEv": [
       "address", "address"
     ],

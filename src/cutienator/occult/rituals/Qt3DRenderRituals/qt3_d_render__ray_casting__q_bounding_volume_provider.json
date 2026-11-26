@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN10Qt3DRender10RayCasting23QBoundingVolumeProviderD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting23QBoundingVolumeProvider15boundingVolumesEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_RayCasting_QBoundingVolumeProvider__QList_Qt3DRender_RayCasting_QBoundingVolume": [
+      "nothing", "address"
     ]
   }
 }

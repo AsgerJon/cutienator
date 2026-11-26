@@ -7,6 +7,25 @@
 #include <Qt3DInput/6.12.0/Qt3DInput/private/abstractactioninput_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DInput/private/abstractactioninput_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/input/backend/abstractactioninput.cpp, line 12, as _ZN9Qt3DInput5Input19AbstractActionInputC1Ev
+namespace Qt3DInput::Input {
+inline AbstractActionInput::AbstractActionInput()
+    : BackendNode()
+{
+}
+}  // namespace Qt3DInput::Input
+//  -----------------------------------------------------------------------
 
 //  A Qt3DInput::Input::AbstractActionInput that Python can take functions over in. Every Qt3DInput::Input::AbstractActionInput
 //  Python makes is one. Each function below asks the Python
@@ -58,6 +77,12 @@ public:
     Qt3DInput::Input::BackendNode::syncFromFrontEnd(frontEnd, firstTime);
   }
 };
+
+//  Qt3DInput::Input::AbstractActionInput::AbstractActionInput()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::AbstractActionInput *ritual_ZN9Qt3DInput5Input19AbstractActionInputC1Ev() {
+  return new CuteQt3DInput_Input_AbstractActionInput();
+}
 
 //  qint64 Qt3DInput::Input::AbstractActionInput::milliToNano(qint64 milli)
 extern "C" Q_DECL_EXPORT

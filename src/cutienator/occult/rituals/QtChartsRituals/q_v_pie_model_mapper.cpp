@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK16QVPieModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVPieModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QVPieModelMapper11qt_metacastEPKc(
+    QVPieModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVPieModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QVPieModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVPieModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVPieModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QVPieModelMapper2trEPKcS1_i(
@@ -282,6 +301,44 @@ void ritual_ZN16QVPieModelMapper11setRowCountEi(
     QVPieModelMapper *self,
     int rowCount) {
   self->setRowCount(rowCount);
+}
+
+//  void QVPieModelMapper::seriesReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVPieModelMapper14seriesReplacedEv(QVPieModelMapper *self) {
+  self->seriesReplaced();
+}
+
+//  void QVPieModelMapper::modelReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVPieModelMapper13modelReplacedEv(QVPieModelMapper *self) {
+  self->modelReplaced();
+}
+
+//  void QVPieModelMapper::valuesColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVPieModelMapper19valuesColumnChangedEv(
+    QVPieModelMapper *self) {
+  self->valuesColumnChanged();
+}
+
+//  void QVPieModelMapper::labelsColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVPieModelMapper19labelsColumnChangedEv(
+    QVPieModelMapper *self) {
+  self->labelsColumnChanged();
+}
+
+//  void QVPieModelMapper::firstRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVPieModelMapper15firstRowChangedEv(QVPieModelMapper *self) {
+  self->firstRowChanged();
+}
+
+//  void QVPieModelMapper::rowCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVPieModelMapper15rowCountChangedEv(QVPieModelMapper *self) {
+  self->rowCountChanged();
 }
 
 //  a Python function taken by a CuteQVPieModelMapper, for the function named

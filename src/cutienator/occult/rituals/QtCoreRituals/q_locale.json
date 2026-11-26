@@ -14,9 +14,13 @@
       "address", "unsigned short", "unsigned short", "unsigned short"
     ],
     "ritual_ZN7QLocaleC1ERKS_": ["address", "address"],
+    "ritual_ZN7QLocaleaSEOS_": ["address", "address", "address"],
+    "ritual_ZN7QLocaleaSERKS_": ["address", "address", "address"],
     "ritual_ZN7QLocaleD1Ev": ["nothing", "address"],
+    "ritual_ZN7QLocale4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK7QLocale8languageEv": ["unsigned short", "address"],
     "ritual_ZNK7QLocale6scriptEv": ["unsigned short", "address"],
+    "ritual_ZNK7QLocale9territoryEv": ["address", "address"],
     "ritual_ZNK7QLocale7countryEv": ["unsigned short", "address"],
     "ritual_ZNK7QLocale4nameENS_12TagSeparatorE": [
       "text", "address", "char"
@@ -97,6 +101,30 @@
     "ritual_ZNK7QLocale8toStringEt": ["text", "address", "unsigned short"],
     "ritual_ZNK7QLocale8toStringEi": ["text", "address", "int"],
     "ritual_ZNK7QLocale8toStringEj": ["text", "address", "unsigned int"],
+    "ritual_ZNK7QLocale8toStringExiDi": [
+      "text", "address", "long long", "int", "unsigned int"
+    ],
+    "ritual_ZNK7QLocale8toStringEyiDi": [
+      "text", "address", "unsigned long long", "int", "unsigned int"
+    ],
+    "ritual_ZNK7QLocale8toStringEiiDi": [
+      "text", "address", "int", "int", "unsigned int"
+    ],
+    "ritual_ZNK7QLocale8toStringEjiDi": [
+      "text", "address", "unsigned int", "int", "unsigned int"
+    ],
+    "ritual_ZNK7QLocale8toStringEliDi": [
+      "text", "address", "long", "int", "unsigned int"
+    ],
+    "ritual_ZNK7QLocale8toStringEmiDi": [
+      "text", "address", "unsigned long", "int", "unsigned int"
+    ],
+    "ritual_ZNK7QLocale8toStringEsiDi": [
+      "text", "address", "short", "int", "unsigned int"
+    ],
+    "ritual_ZNK7QLocale8toStringEtiDi": [
+      "text", "address", "unsigned short", "int", "unsigned int"
+    ],
     "ritual_ZNK7QLocale8toStringEdci": [
       "text", "address", "double", "char", "int"
     ],
@@ -201,6 +229,7 @@
       "text", "address", "int", "int"
     ],
     "ritual_ZNK7QLocale14firstDayOfWeekEv": ["int", "address"],
+    "ritual_ZNK7QLocale8weekdaysEv": ["address", "address"],
     "ritual_ZNK7QLocale6amTextEv": ["text", "address"],
     "ritual_ZNK7QLocale6pmTextEv": ["text", "address"],
     "ritual_ZNK7QLocale17measurementSystemEv": ["int", "address"],
@@ -250,6 +279,7 @@
     "ritual_ZN7QLocale15territoryToCodeENS_7CountryE": [
       "text", "unsigned short"
     ],
+    "ritual_ZN7QLocale15codeToTerritoryE11QStringView": ["address", "text"],
     "ritual_ZN7QLocale13countryToCodeENS_7CountryE": [
       "text", "unsigned short"
     ],
@@ -280,6 +310,9 @@
     "ritual_ZN7QLocale15matchingLocalesENS_8LanguageENS_6ScriptENS_7CountryE": [
       "address", "unsigned short", "unsigned short", "unsigned short"
     ],
+    "ritual_ZN7QLocale20countriesForLanguageENS_8LanguageE": [
+      "address", "unsigned short"
+    ],
     "ritual_ZN7QLocale16setNumberOptionsE6QFlagsINS_12NumberOptionEE": [
       "nothing", "address", "int"
     ],
@@ -293,13 +326,21 @@
     "ritual_ZNK7QLocale19createSeparatedListERK5QListI7QStringE": [
       "text", "address", "address"
     ],
+    "ritual_ZN7QLocaleC1ER14QLocalePrivate": ["address", "address"],
     "ritual_ZNK7QLocale6equalsERKS_": ["bool", "address", "address"],
     "ritual_ZeqRK7QLocaleS1_": ["bool", "address", "address"],
     "ritual_ZneRK7QLocaleS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK7QLocaleRKNS_8LanguageE": ["bool", "address", "address"],
+    "ritual_ZneRK7QLocaleRKNS_8LanguageE": ["bool", "address", "address"],
+    "ritual_ZeqRKN7QLocale8LanguageERKS_": ["bool", "address", "address"],
+    "ritual_ZneRKN7QLocale8LanguageERKS_": ["bool", "address", "address"],
     "ritual_list_make_QLocale": ["address"],
     "ritual_list_add_QLocale": ["nothing", "address", "address"],
     "ritual_list_size_QLocale": ["long long", "address"],
     "ritual_list_at_QLocale": ["address", "address", "long long"],
-    "ritual_list_drop_QLocale": ["nothing", "address"]
+    "ritual_list_drop_QLocale": ["nothing", "address"],
+    "ritual_drop_QLocale__QLocale_Territory": ["nothing", "address"],
+    "ritual_drop_QLocale__QList_Qt_DayOfWeek": ["nothing", "address"],
+    "ritual_drop_QLocale__QList_QLocale_Country": ["nothing", "address"]
   }
 }

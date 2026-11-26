@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickRangeSlider10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickRangeSlider11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickRangeSlider11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickRangeSlider2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -63,6 +69,33 @@
     "ritual_ZNK17QQuickRangeSlider20effectiveSecondValueEv": [
       "double", "address"
     ],
+    "ritual_ZN17QQuickRangeSlider11fromChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickRangeSlider9toChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickRangeSlider15stepSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickRangeSlider15snapModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickRangeSlider18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickRangeSlider11liveChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickRangeSlider25touchDragThresholdChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickRangeSlider22crossingEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickRangeSlider21handlesCrossedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickRangeSlider26effectiveFirstValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickRangeSlider27effectiveSecondValueChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QQuickRangeSlider12focusInEventEP11QFocusEvent": [
       "nothing", "address", "address"
     ],
@@ -102,6 +135,8 @@
     "ritual_ZN17QQuickRangeSlider16updateFocusOrderEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QQuickRangeSlider6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickRangeSlider6d_funcEv": ["address", "address"],
     "ritual_take_QQuickRangeSlider": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QQuickRangeSlider12focusInEventEP11QFocusEvent": [
       "nothing", "address", "address"

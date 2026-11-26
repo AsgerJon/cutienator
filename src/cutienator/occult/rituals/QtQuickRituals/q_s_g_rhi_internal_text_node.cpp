@@ -462,6 +462,19 @@ public:
   }
 };
 
+//  void QSGRhiInternalTextNode::addDecorationNode(const QRectF &rect, const
+//      QColor &color, QTextCharFormat::UnderlineStyle style, RecycleBin
+//      *recycleBin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QSGRhiInternalTextNode17addDecorationNodeERK6QRectFRK6QColorN15QTextCharFormat14UnderlineStyleEPN19QSGInternalTextNode10RecycleBinE(
+    QSGRhiInternalTextNode *self,
+    const QRectF *rect,
+    const QColor *color,
+    QTextCharFormat::UnderlineStyle style,
+    QSGInternalTextNode::RecycleBin *recycleBin) {
+  self->addDecorationNode(*rect, *color, style, recycleBin);
+}
+
 //  a Python function taken by a CuteQSGRhiInternalTextNode, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

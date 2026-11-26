@@ -12,6 +12,7 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtRemoteObjects/qremoteobjectsource.h>
 #include <QtRemoteObjects/private/qremoteobjectsource_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -24,6 +25,31 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <algorithm>
 #include <iterator>
+#include <QtRemoteObjects/private/qremoteobjectsourceio_p.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectnode_p.h>
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
+#include <QtRemoteObjects/qtremoteobjectglobal.h>
+#include <QtRemoteObjects/private/qconnection_local_backend_p.h>
+#include <QtCore/qstringlist.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodeladapter_p.h>
+#include <QtCore/qitemselectionmodel.h>
+#include <QtCore/private/qmetaobjectbuilder_p.h>
+#include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
+#include <QtRemoteObjects/qremoteobjectnode.h>
+#include <QtRemoteObjects/private/qremoteobjectnode_p.h>
+#include <QtRemoteObjects/qremoteobjectregistry.h>
+#include <QtRemoteObjects/qremoteobjectdynamicreplica.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
+#include <QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodelreplica_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodeladapter_p.h>
+#include <QtCore/qabstractitemmodel.h>
+#include <memory>
+#include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -33,10 +59,180 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 248, as _ZN23QRemoteObjectSourceBaseD1Ev
-inline QRemoteObjectSourceBase::~QRemoteObjectSourceBase()
+using namespace QRemoteObjectStringLiterals;
+
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
 {
-    delete m_api;
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 526, as _ZN13DynamicApiMapC1EP7QObjectPK11QMetaObjectRK7QStringS7_
+inline DynamicApiMap::DynamicApiMap(QObject *object, const QMetaObject *metaObject, const QString &name, const QString &typeName)
+    : m_name(name),
+      m_typeName(typeName),
+      m_metaObject(metaObject),
+      m_cachedMetamethodIndex(-1)
+{
+    m_enumOffset = metaObject->enumeratorOffset();
+    m_enumCount = metaObject->enumeratorCount() - m_enumOffset;
+
+    const int propCount = metaObject->propertyCount();
+    const int propOffset = metaObject->propertyOffset();
+    m_properties.reserve(propCount-propOffset);
+    QSet<int> invalidSignals;
+    for (int i = propOffset; i < propCount; ++i) {
+        const QMetaProperty property = metaObject->property(i);
+        const auto metaType = property.metaType();
+        if (metaType.flags().testFlag(QMetaType::PointerToQObject)) {
+            auto propertyMeta = metaType.metaObject();
+            QObject *child = property.read(object).value<QObject *>();
+            const QMetaObject *meta = child ? child->metaObject() : propertyMeta;
+            if (!meta) {
+                const int notifyIndex = metaObject->property(i).notifySignalIndex();
+                if (notifyIndex != -1)
+                    invalidSignals << notifyIndex;
+                continue;
+            }
+            if (meta->inherits(&QAbstractItemModel::staticMetaObject)) {
+                const QByteArray name = QByteArray::fromRawData(property.name(),
+                                                                qsizetype(qstrlen(property.name())));
+                const QByteArray infoName = name.toUpper() + QByteArrayLiteral("_ROLES");
+                const int infoIndex = metaObject->indexOfClassInfo(infoName.constData());
+                QByteArray roleInfo;
+                if (infoIndex >= 0) {
+                    auto ci = metaObject->classInfo(infoIndex);
+                    roleInfo = QByteArray::fromRawData(ci.value(), qsizetype(qstrlen(ci.value())));
+                }
+                m_models << ModelInfo({qobject_cast<QAbstractItemModel *>(child),
+                                       QString::fromLatin1(property.name()),
+                                       roleInfo});
+            } else {
+                QString typeName = QtRemoteObjects::getTypeNameAndMetaobjectFromClassInfo(meta);
+                if (typeName.isNull()) {
+                    typeName = QString::fromLatin1(meta->className());
+                    if (typeName.contains(QLatin1String("QQuick")))
+                        typeName.remove(QLatin1String("QQuick"));
+                    else if (int index = typeName.indexOf(QLatin1String("_QMLTYPE_")))
+                        typeName.truncate(index);
+                    // TODO better way to ensure we have consistent typenames between source/replicas?
+                    else if (typeName.endsWith(QLatin1String("Source")))
+                        typeName.chop(6);
+                }
+
+                m_subclasses << new DynamicApiMap(child, meta, QString::fromLatin1(property.name()), typeName);
+            }
+        }
+        m_properties << i;
+        const int notifyIndex = metaObject->property(i).notifySignalIndex();
+        if (notifyIndex != -1) {
+            m_signals << notifyIndex;
+            m_propertyAssociatedWithSignal.append(i-propOffset);
+            //The starting values of _signals will be the notify signals
+            //So if we are processing _signal with index i, api->sourcePropertyIndex(_propertyAssociatedWithSignal.at(i))
+            //will be the property that changed.  This is only valid if i < _propertyAssociatedWithSignal.size().
+        }
+    }
+    const int methodCount = metaObject->methodCount();
+    const int methodOffset = metaObject->methodOffset();
+    for (int i = methodOffset; i < methodCount; ++i) {
+        const QMetaMethod mm = metaObject->method(i);
+        const QMetaMethod::MethodType m = mm.methodType();
+        if (m == QMetaMethod::Signal) {
+            if (m_signals.indexOf(i) >= 0)  // Already added as a property notifier
+                continue;
+            if (invalidSignals.contains(i)) // QObject with no metatype
+                continue;
+            m_signals << i;
+        } else if (m == QMetaMethod::Slot || m == QMetaMethod::Method)
+            m_methods << i;
+    }
+
+    m_objectSignature = QtPrivate::qtro_classinfo_signature(metaObject);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsourceio.cpp, line 104, as _ZN21QRemoteObjectSourceIo14registerSourceEP23QRemoteObjectSourceBase
+inline void QRemoteObjectSourceIo::registerSource(QRemoteObjectSourceBase *source)
+{
+    Q_ASSERT(source);
+    const QString &name = source->name();
+    m_sourceObjects[name] = source;
+    if (source->isRoot()) {
+        QRemoteObjectRootSource *root = static_cast<QRemoteObjectRootSource *>(source);
+        qRODebug(this) << "Registering" << name;
+        m_sourceRoots[name] = root;
+        m_objectToSourceMap[source->m_object] = root;
+        if (serverAddress().isValid()) {
+            const auto &type = source->m_api->typeName();
+            emit remoteObjectAdded(qMakePair(name, QRemoteObjectSourceLocationInfo(type, serverAddress())));
+        }
+    }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectabstractitemmodeladapter.cpp, line 48, as _ZN31QAbstractItemModelSourceAdapterC1EP18QAbstractItemModelP19QItemSelectionModelRK5QListIiE
+inline QAbstractItemModelSourceAdapter::QAbstractItemModelSourceAdapter(QAbstractItemModel *obj, QItemSelectionModel *sel, const QList<int> &roles)
+    : QObject(obj),
+      m_model(obj),
+      m_availableRoles(roles)
+{
+    QAbstractItemModelSourceAdapter::registerTypes();
+    m_selectionModel = sel;
+    connect(m_model, &QAbstractItemModel::dataChanged, this, &QAbstractItemModelSourceAdapter::sourceDataChanged);
+    connect(m_model, &QAbstractItemModel::rowsInserted, this, &QAbstractItemModelSourceAdapter::sourceRowsInserted);
+    connect(m_model, &QAbstractItemModel::columnsInserted, this, &QAbstractItemModelSourceAdapter::sourceColumnsInserted);
+    connect(m_model, &QAbstractItemModel::rowsRemoved, this, &QAbstractItemModelSourceAdapter::sourceRowsRemoved);
+    connect(m_model, &QAbstractItemModel::rowsMoved, this, &QAbstractItemModelSourceAdapter::sourceRowsMoved);
+    connect(m_model, &QAbstractItemModel::layoutChanged, this, &QAbstractItemModelSourceAdapter::sourceLayoutChanged);
+    if (m_selectionModel)
+        connect(m_selectionModel, &QItemSelectionModel::currentChanged, this, &QAbstractItemModelSourceAdapter::sourceCurrentChanged);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 247, as _ZN15QtRemoteObjects37getTypeNameAndMetaobjectFromClassInfoERPK11QMetaObject
+inline QString QtRemoteObjects::getTypeNameAndMetaobjectFromClassInfo(const QMetaObject *& meta) {
+    QString typeName;
+    const int ind = meta->indexOfClassInfo(QCLASSINFO_REMOTEOBJECT_TYPE);
+    if (ind != -1) { //We have an object created from repc or at least with QCLASSINFO defined
+        typeName = QString::fromLatin1(meta->classInfo(ind).value());
+        while (true) {
+            Q_ASSERT(meta->superClass());//This recurses to QObject, which doesn't have QCLASSINFO_REMOTEOBJECT_TYPE
+            //At the point superclass doesn't have the same QCLASSINFO_REMOTEOBJECT_TYPE,
+            //we have the metaobject we should work from
+            if (ind != meta->superClass()->indexOfClassInfo(QCLASSINFO_REMOTEOBJECT_TYPE))
+                break;
+            meta = meta->superClass();
+        }
+    }
+    return typeName;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 373, as _ZN23QRemoteObjectSourceBase11marshalArgsEiPPv
+inline QVariantList* QRemoteObjectSourceBase::marshalArgs(int index, void **a)
+{
+    QVariantList &list = m_marshalledArgs;
+    int N = m_api->signalParameterCount(index);
+    if (N == 1 && QMetaType(m_api->signalParameterType(index, 0)).flags().testFlag(QMetaType::PointerToQObject))
+        N = 0; // Don't try to send pointers, the will be handle by QRO_
+    if (list.size() < N)
+        list.reserve(N);
+    const int minFill = std::min(int(list.size()), N);
+    for (int i = 0; i < minFill; ++i) {
+        const int type = m_api->signalParameterType(index, i);
+        if (type == QMetaType::QVariant)
+            list[i] = *reinterpret_cast<QVariant *>(a[i + 1]);
+        else
+            list[i] = QVariant(QMetaType(type), a[i + 1]);
+    }
+    for (int i = int(list.size()); i < N; ++i) {
+        const int type = m_api->signalParameterType(index, i);
+        if (type == QMetaType::QVariant)
+            list << *reinterpret_cast<QVariant *>(a[i + 1]);
+        else
+            list << QVariant(QMetaType(type), a[i + 1]);
+    }
+    for (int i = N; i < list.size(); ++i)
+        list.removeLast();
+    return &m_marshalledArgs;
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 401, as _ZN23QRemoteObjectSourceBase6invokeEN11QMetaObject4CallEiRK5QListI8QVariantEPS3_
@@ -330,6 +526,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK23QRemoteObjectSourceBase6isRootEv(
     const QRemoteObjectSourceBase *self) {
   return self->isRoot();
+}
+
+//  QVariantList *QRemoteObjectSourceBase::marshalArgs(int index, void **a)
+extern "C" Q_DECL_EXPORT
+QVariantList *ritual_ZN23QRemoteObjectSourceBase11marshalArgsEiPPv(
+    QRemoteObjectSourceBase *self,
+    int index,
+    void **a) {
+  return self->marshalArgs(index, a);
 }
 
 //  bool QRemoteObjectSourceBase::invoke(QMetaObject::Call c, int index,

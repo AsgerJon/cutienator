@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QBlittablePlatformPixmapC1Ev": ["address"],
     "ritual_ZN24QBlittablePlatformPixmapD1Ev": ["nothing", "address"],
     "ritual_ZNK24QBlittablePlatformPixmap15createBlittableERK5QSizeb": [
       "address", "address", "address", "bool"
@@ -46,6 +47,9 @@
     ],
     "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayERK7QPointFRK9QTextItem": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayERK11QVectorPath": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayERK12QPainterPath": [
       "nothing", "address", "address"

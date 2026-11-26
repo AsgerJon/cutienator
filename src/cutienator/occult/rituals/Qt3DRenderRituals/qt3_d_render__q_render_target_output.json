@@ -8,8 +8,64 @@
     "ritual_ZNK10Qt3DRender19QRenderTargetOutput10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender19QRenderTargetOutput2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutputC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutputD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender19QRenderTargetOutput15attachmentPointEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderTargetOutput7textureEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderTargetOutput8mipLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderTargetOutput5layerEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderTargetOutput4faceEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput18setAttachmentPointENS0_15AttachmentPointE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput10setTextureEPNS_16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput11setMipLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput8setLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput7setFaceENS_16QAbstractTexture11CubeMapFaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput22attachmentPointChangedENS0_15AttachmentPointE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput14textureChangedEPNS_16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput15mipLevelChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput12layerChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutput11faceChangedENS_16QAbstractTexture11CubeMapFaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderTargetOutputC1ERNS_26QRenderTargetOutputPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender19QRenderTargetOutput6d_funcEv": [
       "address", "address"

@@ -8,11 +8,20 @@
     "ritual_ZNK16QNativeInterface7Private14QWaylandWindow10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN16QNativeInterface7Private14QWaylandWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QNativeInterface7Private14QWaylandWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QNativeInterface7Private14QWaylandWindow2trEPKcS3_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN16QNativeInterface7Private14QWaylandWindowD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZNK16QNativeInterface7Private14QWaylandWindow7surfaceEv": [
+      "address", "address"
     ],
     "ritual_ZN16QNativeInterface7Private14QWaylandWindow16setCustomMarginsERK8QMargins": [
       "nothing", "address", "address"
@@ -29,8 +38,29 @@
     "ritual_ZN16QNativeInterface7Private14QWaylandWindow24setParentControlGeometryERK5QRect": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN16QNativeInterface7Private14QWaylandWindow14surfaceCreatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QNativeInterface7Private14QWaylandWindow16surfaceDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QNativeInterface7Private14QWaylandWindow18surfaceRoleCreatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QNativeInterface7Private14QWaylandWindow20surfaceRoleDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QNativeInterface7Private14QWaylandWindow25xdgActivationTokenCreatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QNativeInterface7Private14QWaylandWindow12_surfaceRoleEv": [
+      "address", "address"
+    ],
     "ritual_take_QNativeInterface_Private_QWaylandWindow": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QNativeInterface_Private_QWaylandWindow__std_any": [
+      "nothing", "address"
     ]
   }
 }

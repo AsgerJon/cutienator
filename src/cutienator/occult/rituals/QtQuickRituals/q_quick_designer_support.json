@@ -46,6 +46,9 @@
     "ritual_ZN21QQuickDesignerSupport24anchorCenterInTargetItemEP10QQuickItem": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickDesignerSupport16anchorLineTargetEP10QQuickItemRK7QStringP11QQmlContext": [
+      "address", "address", "text", "address"
+    ],
     "ritual_ZN21QQuickDesignerSupport11resetAnchorEP10QQuickItemRK7QString": [
       "nothing", "address", "text"
     ],
@@ -84,6 +87,9 @@
       "nothing"
     ],
     "ritual_ZN21QQuickDesignerSupport11polishItemsEP12QQuickWindow": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickDesignerSupport__std_pair_QString_QObject": [
       "nothing", "address"
     ]
   }

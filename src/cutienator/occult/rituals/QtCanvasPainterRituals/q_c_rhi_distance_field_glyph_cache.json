@@ -15,8 +15,14 @@
     "ritual_ZN28QCRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEii": [
       "nothing", "address", "address", "int", "int"
     ],
+    "ritual_ZN28QCRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEiiPKv": [
+      "nothing", "address", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QCRhiDistanceFieldGlyphCache13resizeTextureEPNS_11TextureInfoEii": [
       "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN28QCRhiDistanceFieldGlyphCache15referenceGlyphsERK15QVarLengthArrayIjLx16EE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN28QCRhiDistanceFieldGlyphCache22optimizeAfterRenderingEv": [
       "nothing", "address"
@@ -24,14 +30,29 @@
     "ritual_ZN28QCRhiDistanceFieldGlyphCache20commitResourceUpdateEP23QRhiResourceUpdateBatch": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN28QCRhiDistanceFieldGlyphCache11getTexturesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QCRhiDistanceFieldGlyphCache11getTexturesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK28QCRhiDistanceFieldGlyphCache17solidTileTexCoordEv": [
       "address", "address"
+    ],
+    "ritual_ZN28QCRhiDistanceFieldGlyphCache22ensureSolidTileTextureEv": [
+      "nothing", "address"
     ],
     "ritual_ZN28QCRhiDistanceFieldGlyphCache23uploadSolidTileIfNeededEv": [
       "nothing", "address"
     ],
     "ritual_ZNK28QCRhiDistanceFieldGlyphCache14maxTextureSizeEv": [
       "int", "address"
+    ],
+    "ritual_ZN28QCRhiDistanceFieldGlyphCache18markGlyphsToRenderERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QCRhiDistanceFieldGlyphCache13releaseGlyphsERK4QSetIjE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK28QCRhiDistanceFieldGlyphCache26useTextureResizeWorkaroundEv": [
       "bool", "address"

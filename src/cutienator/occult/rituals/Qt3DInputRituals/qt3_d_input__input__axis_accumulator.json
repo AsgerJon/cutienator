@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input15AxisAccumulatorC1Ev": ["address"],
+    "ritual_ZN9Qt3DInput5Input15AxisAccumulator7cleanupEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK9Qt3DInput5Input15AxisAccumulator12sourceAxisIdEv": [
       "address", "address"
     ],
@@ -17,8 +21,23 @@
     "ritual_ZNK9Qt3DInput5Input15AxisAccumulator5valueEv": [
       "float", "address"
     ],
+    "ritual_ZN9Qt3DInput5Input15AxisAccumulator8setValueEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZNK9Qt3DInput5Input15AxisAccumulator8velocityEv": [
       "float", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input15AxisAccumulator11setVelocityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput5Input15AxisAccumulator16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN9Qt3DInput5Input15AxisAccumulator15stepIntegrationEPNS0_11AxisManagerEf": [
+      "nothing", "address", "address", "float"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input15AxisAccumulator16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ]
   }
 }

@@ -14,6 +14,24 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtBluetooth/private/gattservice1_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtconnectivity/src/bluetooth/bluez/gattservice1.cpp, line 25, as _ZN18QtBluetoothPrivate29OrgBluezGattService1InterfaceD1Ev
+namespace QtBluetoothPrivate {
+inline OrgBluezGattService1Interface::~OrgBluezGattService1Interface()
+{
+}
+}  // namespace QtBluetoothPrivate
+//  -----------------------------------------------------------------------
 
 //  A QtBluetoothPrivate::OrgBluezGattService1Interface that Python can take functions over in. Every QtBluetoothPrivate::OrgBluezGattService1Interface
 //  Python makes is one. Each function below asks the Python
@@ -204,12 +222,41 @@ const QMetaObject *ritual_ZNK18QtBluetoothPrivate29OrgBluezGattService1Interface
   return self->metaObject();
 }
 
+//  void
+//      *QtBluetoothPrivate::OrgBluezGattService1Interface::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtBluetoothPrivate29OrgBluezGattService1Interface11qt_metacastEPKc(
+    QtBluetoothPrivate::OrgBluezGattService1Interface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtBluetoothPrivate::OrgBluezGattService1Interface::qt_metacall(QMetaO
+//      bject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QtBluetoothPrivate29OrgBluezGattService1Interface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtBluetoothPrivate::OrgBluezGattService1Interface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const char
 //      *QtBluetoothPrivate::OrgBluezGattService1Interface::staticInterfaceNa
 //      me()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN18QtBluetoothPrivate29OrgBluezGattService1Interface19staticInterfaceNameEv() {
   return QtBluetoothPrivate::OrgBluezGattService1Interface::staticInterfaceName();
+}
+
+//  QtBluetoothPrivate::OrgBluezGattService1Interface::~OrgBluezGattService1I
+//      nterface()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate29OrgBluezGattService1InterfaceD1Ev(
+    QtBluetoothPrivate::OrgBluezGattService1Interface *self) {
+  delete self;
 }
 
 //  QDBusObjectPath

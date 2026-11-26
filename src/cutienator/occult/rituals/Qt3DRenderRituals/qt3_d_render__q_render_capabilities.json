@@ -8,8 +8,109 @@
     "ritual_ZNK10Qt3DRender19QRenderCapabilities10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender19QRenderCapabilities11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderCapabilities11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender19QRenderCapabilities2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderCapabilitiesC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderCapabilitiesD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities3apiEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities7profileEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities12majorVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities12minorVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities10extensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities6vendorEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities8rendererEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities13driverVersionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities11glslVersionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities10maxSamplesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities14maxTextureSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities15maxTextureUnitsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities16maxTextureLayersEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities11supportsUBOEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities10maxUBOSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities14maxUBOBindingsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities12supportsSSBOEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities11maxSSBOSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities15maxSSBOBindingsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities18supportsImageStoreEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities13maxImageUnitsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities15supportsComputeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities18maxWorkGroupCountXEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities18maxWorkGroupCountYEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities18maxWorkGroupCountZEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities17maxWorkGroupSizeXEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities17maxWorkGroupSizeYEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities17maxWorkGroupSizeZEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities21maxComputeInvocationsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCapabilities26maxComputeSharedMemorySizeEv": [
+      "int", "address"
     ],
     "ritual_ZN10Qt3DRender19QRenderCapabilities6d_funcEv": [
       "address", "address"

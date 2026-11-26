@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlCompiler/6.12.0/QtQmlCompiler/private/qcoloroutput_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: added by hand, instances of templates of
+//  the class: 1. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtQmlCompiler/QtQmlCompiler>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -91,4 +92,13 @@ void ritual_ZN12QColorOutput11flushBufferEv(QColorOutput *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QColorOutput13discardBufferEv(QColorOutput *self) {
   self->discardBuffer();
+}
+
+//  void QColorOutput::write<void>(const QString &message, int color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QColorOutput5writeIvEEvRK7QStringi(
+    QColorOutput *self,
+    const QString *message,
+    int color) {
+  self->write<void>(*message, color);
 }

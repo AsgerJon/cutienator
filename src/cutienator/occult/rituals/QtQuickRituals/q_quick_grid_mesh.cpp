@@ -23,6 +23,24 @@ const QMetaObject *ritual_ZNK14QQuickGridMesh10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGridMesh::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickGridMesh11qt_metacastEPKc(
+    QQuickGridMesh *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGridMesh::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickGridMesh11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGridMesh *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGridMesh::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickGridMesh2trEPKcS1_i(
@@ -84,6 +102,12 @@ void ritual_ZN14QQuickGridMesh13setResolutionERK5QSize(
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK14QQuickGridMesh10resolutionEv(const QQuickGridMesh *self) {
   return new QSize(self->resolution());
+}
+
+//  void QQuickGridMesh::resolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickGridMesh17resolutionChangedEv(QQuickGridMesh *self) {
+  self->resolutionChanged();
 }
 
 //  QSGGeometry *QQuickGridMesh::updateGeometry(QSGGeometry *geometry, int

@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZNK12QSSGIblBaker15inputExtensionsEv": ["address", "address"],
     "ritual_ZNK12QSSGIblBaker15outputExtensionEv": ["text", "address"],
+    "ritual_ZN12QSSGIblBaker6importERK7QStringRK4QDirP5QListIS0_E": [
+      "text", "address", "text", "address", "address"
+    ],
     "ritual_ZN12QSSGIblBakerD1Ev": ["nothing", "address"]
   }
 }

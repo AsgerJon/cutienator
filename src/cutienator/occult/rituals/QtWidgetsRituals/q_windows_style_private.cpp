@@ -6,9 +6,13 @@
 #if QT_CONFIG(style_windows)
 #if QT_CONFIG(style_windows)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(style_windows)
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwindowsstyle_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwindowsstyle_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>

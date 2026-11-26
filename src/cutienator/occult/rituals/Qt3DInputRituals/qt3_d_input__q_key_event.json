@@ -5,9 +5,19 @@
   ],
   "rows": {
     "ritual_ZNK9Qt3DInput9QKeyEvent10metaObjectEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput9QKeyEvent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput9QKeyEvent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput9QKeyEvent2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9Qt3DInput9QKeyEventC1EN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt": [
+      "address", "int", "int", "int", "text", "bool", "unsigned short"
+    ],
+    "ritual_ZN9Qt3DInput9QKeyEventD1Ev": ["nothing", "address"],
     "ritual_ZNK9Qt3DInput9QKeyEvent3keyEv": ["int", "address"],
     "ritual_ZNK9Qt3DInput9QKeyEvent4textEv": ["text", "address"],
     "ritual_ZNK9Qt3DInput9QKeyEvent9modifiersEv": ["int", "address"],

@@ -6,6 +6,15 @@
   ],
   "rows": {
     "ritual_ZN19QSSGRenderExtensionD1Ev": ["nothing", "address"],
+    "ritual_ZN19QSSGRenderExtension11prepareDataER13QSSGFrameData": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QSSGRenderExtension13prepareRenderER13QSSGFrameData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGRenderExtension6renderER13QSSGFrameData": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QSSGRenderExtension13resetForFrameEv": [
       "nothing", "address"
     ],

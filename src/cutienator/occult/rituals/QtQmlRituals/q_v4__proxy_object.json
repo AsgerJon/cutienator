@@ -10,6 +10,36 @@
     "ritual_ZNK3QV411ProxyObject1dEv": ["address", "address"],
     "ritual_ZN3QV411ProxyObject20defaultInternalClassEPNS_10EngineBaseE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject10virtualPutEPNS_7ManagedENS_11PropertyKeyERKNS_5ValueEPS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject21virtualDeletePropertyEPNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject18virtualHasPropertyEPKNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject21virtualGetOwnPropertyEPKNS_7ManagedENS_11PropertyKeyEPNS_8PropertyE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject24virtualDefineOwnPropertyEPNS_7ManagedENS_11PropertyKeyEPKNS_8PropertyENS_18PropertyAttributesE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject19virtualIsExtensibleEPKNS_7ManagedE": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject24virtualPreventExtensionsEPNS_7ManagedE": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject21virtualGetPrototypeOfEPKNS_7ManagedE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV411ProxyObject21virtualSetPrototypeOfEPNS_7ManagedEPKNS_6ObjectE": [
+      "bool", "address", "address"
     ]
   }
 }

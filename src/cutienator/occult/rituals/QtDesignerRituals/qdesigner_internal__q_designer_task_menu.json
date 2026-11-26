@@ -8,8 +8,86 @@
     "ritual_ZNK18qdesigner_internal17QDesignerTaskMenu10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal17QDesignerTaskMenu2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenuC1EP7QWidgetP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenuD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerTaskMenu6widgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerTaskMenu11taskActionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu23isSlotNavigationEnabledEPK28QDesignerFormEditorInterface": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu14navigateToSlotEP28QDesignerFormEditorInterfaceP7QObjectRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerTaskMenu10formWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu18changeTextPropertyERK7QStringS3_NS0_12PropertyModeEN2Qt10TextFormatE": [
+      "nothing", "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu15createSeparatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerTaskMenu17applicableObjectsEPK28QDesignerFormWindowInterfaceNS0_12PropertyModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerTaskMenu17applicableWidgetsEPK28QDesignerFormWindowInterfaceNS0_12PropertyModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu11setPropertyEP28QDesignerFormWindowInterfaceNS0_12PropertyModeERK7QStringRK8QVariant": [
+      "nothing", "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu16changeObjectNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu13changeToolTipEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu15changeWhatsThisEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu16changeStyleSheetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu13createMenuBarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu10addToolBarEN2Qt11ToolBarAreaE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu15createStatusBarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu15removeStatusBarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu20containerFakeMethodsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu18slotNavigateToSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu9applySizeEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu19slotLayoutAlignmentEv": [
+      "nothing", "address"
     ],
     "ritual_cast_qdesigner_internal_QDesignerTaskMenu_QDesignerTaskMenuExtension": [
       "address", "address"

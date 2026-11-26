@@ -10,6 +10,9 @@
     "ritual_ZN25QAbstractAnimationPrivate3getEP18QAbstractAnimation": [
       "address", "address"
     ],
+    "ritual_ZN25QAbstractAnimationPrivate25_qt_property_state_offsetEv": [
+      "size_t"
+    ],
     "ritual_ZN25QAbstractAnimationPrivate8setStateEN18QAbstractAnimation5StateE": [
       "nothing", "address", "int"
     ],
@@ -19,11 +22,23 @@
     "ritual_ZN25QAbstractAnimationPrivate20emitDirectionChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN25QAbstractAnimationPrivate29_qt_property_direction_offsetEv": [
+      "size_t"
+    ],
     "ritual_ZN25QAbstractAnimationPrivate14setCurrentTimeEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN25QAbstractAnimationPrivate36_qt_property_totalCurrentTime_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN25QAbstractAnimationPrivate29_qt_property_loopCount_offsetEv": [
+      "size_t"
+    ],
     "ritual_ZN25QAbstractAnimationPrivate22emitCurrentLoopChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractAnimationPrivate31_qt_property_currentLoop_offsetEv": [
+      "size_t"
     ],
     "ritual_ZN25QAbstractAnimationPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QAbstractAnimationPrivate6q_funcEv": ["address", "address"]

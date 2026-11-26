@@ -40,6 +40,36 @@ public:
   }
 };
 
+//  Qt3DRender::Render::ComputeCommand::ComputeCommand()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::ComputeCommand *ritual_ZN10Qt3DRender6Render14ComputeCommandC1Ev() {
+  return new CuteQt3DRender_Render_ComputeCommand();
+}
+
+//  Qt3DRender::Render::ComputeCommand::~ComputeCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render14ComputeCommandD1Ev(
+    Qt3DRender::Render::ComputeCommand *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::ComputeCommand::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render14ComputeCommand7cleanupEv(
+    Qt3DRender::Render::ComputeCommand *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::ComputeCommand::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render14ComputeCommand16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::ComputeCommand *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  int Qt3DRender::Render::ComputeCommand::x() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK10Qt3DRender6Render14ComputeCommand1xEv(
@@ -74,6 +104,27 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QComputeCommand::RunType ritual_ZNK10Qt3DRender6Render14ComputeCommand7runTypeEv(
     const Qt3DRender::Render::ComputeCommand *self) {
   return self->runType();
+}
+
+//  void Qt3DRender::Render::ComputeCommand::updateFrameCount()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render14ComputeCommand16updateFrameCountEv(
+    Qt3DRender::Render::ComputeCommand *self) {
+  self->updateFrameCount();
+}
+
+//  bool Qt3DRender::Render::ComputeCommand::hasReachedFrameCount() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender6Render14ComputeCommand20hasReachedFrameCountEv(
+    const Qt3DRender::Render::ComputeCommand *self) {
+  return self->hasReachedFrameCount();
+}
+
+//  void Qt3DRender::Render::ComputeCommand::resetHasReachedFrameCount()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render14ComputeCommand25resetHasReachedFrameCountEv(
+    Qt3DRender::Render::ComputeCommand *self) {
+  self->resetHasReachedFrameCount();
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_ComputeCommand, for

@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK4Line10metaObjectEv": ["address", "address"],
+    "ritual_ZN4Line11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN4Line11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN4Line2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN4LineC1EP7QWidget": ["address", "address"],
     "ritual_ZN4Line14setOrientationEN2Qt11OrientationE": [

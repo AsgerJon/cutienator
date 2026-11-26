@@ -5,7 +5,31 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12PickingUtils24HierarchicalEntityPickerC1ERKNS_10RayCasting6QRay3DEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render12PickingUtils24HierarchicalEntityPicker17setLayerFilterIdsERK5QListIN8Qt3DCore7QNodeIdEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12PickingUtils24HierarchicalEntityPicker11setLayerIdsERK5QListIN8Qt3DCore7QNodeIdEENS_18QAbstractRayCaster10FilterModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12PickingUtils24HierarchicalEntityPicker4hitsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12PickingUtils24HierarchicalEntityPicker8entitiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12PickingUtils24HierarchicalEntityPicker21entityToPriorityTableEv": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render12PickingUtils24HierarchicalEntityPickerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_PickingUtils_HierarchicalEntityPicker__Qt3DRender_Render_PickingUtils_HitList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_PickingUtils_HierarchicalEntityPicker__QHash_Qt3DCore_QNodeId_int": [
       "nothing", "address"
     ]
   }

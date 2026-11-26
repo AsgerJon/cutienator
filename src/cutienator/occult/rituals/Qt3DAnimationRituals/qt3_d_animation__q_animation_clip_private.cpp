@@ -7,6 +7,38 @@
 #include <Qt3DAnimation/6.12.0/Qt3DAnimation/private/qanimationclip_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DAnimation/qabstractanimationclip.h>
+#include <Qt3DAnimation/private/qabstractanimationclip_p.h>
+#include <Qt3DAnimation/qanimationclip.h>
+#include <Qt3DAnimation/private/qanimationclip_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/animation/frontend/qabstractanimationclip.cpp, line 11, as _ZN13Qt3DAnimation29QAbstractAnimationClipPrivateC2Ev
+namespace Qt3DAnimation {
+inline QAbstractAnimationClipPrivate::QAbstractAnimationClipPrivate()
+    : Qt3DCore::QNodePrivate()
+    , m_duration(0.0f)
+{
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qanimationclip.cpp, line 11, as _ZN13Qt3DAnimation21QAnimationClipPrivateC1Ev
+namespace Qt3DAnimation {
+inline QAnimationClipPrivate::QAnimationClipPrivate()
+    : QAbstractAnimationClipPrivate()
+    , m_clipData()
+{
+}
+}  // namespace Qt3DAnimation
+//  -----------------------------------------------------------------------
 
 //  A Qt3DAnimation::QAnimationClipPrivate that Python can take functions over in. Every Qt3DAnimation::QAnimationClipPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +84,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DAnimation::QAnimationClipPrivate::QAnimationClipPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationClipPrivate *ritual_ZN13Qt3DAnimation21QAnimationClipPrivateC1Ev() {
+  return new CuteQt3DAnimation_QAnimationClipPrivate();
+}
 
 //  QAnimationClip *Qt3DAnimation::QAnimationClipPrivate::q_func()
 extern "C" Q_DECL_EXPORT

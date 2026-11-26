@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK20QQuickStateOperation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStateOperation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickStateOperation11qt_metacastEPKc(
+    QQuickStateOperation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStateOperation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickStateOperation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStateOperation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStateOperation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickStateOperation2trEPKcS1_i(
@@ -59,6 +78,15 @@ void ritual_ZN20QQuickStateOperation8setStateEP11QQuickState(
     QQuickStateOperation *self,
     QQuickState *state) {
   self->setState(state);
+}
+
+//  QQuickStateOperation::QQuickStateOperation(QObjectPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickStateOperation *ritual_ZN20QQuickStateOperationC1ER14QObjectPrivateP7QObject(
+    QObjectPrivate *dd,
+    QObject *parent) {
+  return new QQuickStateOperation(*dd, parent);
 }
 
 //  QQuickStateOperationPrivate *QQuickStateOperation::d_func()

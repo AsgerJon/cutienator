@@ -7,6 +7,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qbuffer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #include <cstring>
 
 //  A Qt3DCore::QBufferPrivate that Python can take functions over in. Every Qt3DCore::QBufferPrivate
@@ -66,6 +67,34 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QBuffer *ritual_ZNK8Qt3DCore14QBufferPrivate6q_funcEv(
     const Qt3DCore::QBufferPrivate *self) {
   return self->q_func();
+}
+
+//  Qt3DCore::QBufferPrivate::QBufferPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBufferPrivate *ritual_ZN8Qt3DCore14QBufferPrivateC1Ev() {
+  return new CuteQt3DCore_QBufferPrivate();
+}
+
+//  QBufferPrivate *Qt3DCore::QBufferPrivate::get(QBuffer *q)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBufferPrivate *ritual_ZN8Qt3DCore14QBufferPrivate3getEPNS_7QBufferE(
+    Qt3DCore::QBuffer *q) {
+  return Qt3DCore::QBufferPrivate::get(q);
+}
+
+//  void Qt3DCore::QBufferPrivate::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QBufferPrivate6updateEv(
+    Qt3DCore::QBufferPrivate *self) {
+  self->update();
+}
+
+//  void Qt3DCore::QBufferPrivate::setData(const QByteArray &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QBufferPrivate7setDataERK10QByteArray(
+    Qt3DCore::QBufferPrivate *self,
+    const QByteArray *data) {
+  self->setData(*data);
 }
 
 //  a Python function taken by a CuteQt3DCore_QBufferPrivate, for the

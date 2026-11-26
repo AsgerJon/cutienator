@@ -5,7 +5,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -19,6 +19,19 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGraphs/qabstractaxis.h>
+#if QT_CONFIG(graphs_2d_bar)
+#include <QtGraphs/QBarCategoryAxis>
+#endif
+#include <QtGraphs/QGraphsTheme>
+#include <QtGraphs/private/axisrenderer_p.h>
+#include <QtGraphs/private/qabstractaxis_p.h>
+#include <QtGraphs/private/qdatetimeaxis_p.h>
+#include <QtGraphs/private/qgraphsview_p.h>
+#include <QtGraphs/private/qvalueaxis_p.h>
+#include <QtGraphs/private/qlogvalueaxis_p.h>
+#include <QtQuick/private/qquickdraghandler_p.h>
+#include <QtGui/qfontmetrics.h>
 #include <QtGraphs/qareaseries.h>
 #if QT_CONFIG(graphs_2d_spline)
 #include <QtGraphs/qsplineseries.h>
@@ -38,19 +51,6 @@
 #include <QtGui/QRadialGradient>
 #include <QtGui/QConicalGradient>
 #endif
-#include <QtGraphs/qabstractaxis.h>
-#if QT_CONFIG(graphs_2d_bar)
-#include <QtGraphs/QBarCategoryAxis>
-#endif
-#include <QtGraphs/QGraphsTheme>
-#include <QtGraphs/private/axisrenderer_p.h>
-#include <QtGraphs/private/qabstractaxis_p.h>
-#include <QtGraphs/private/qdatetimeaxis_p.h>
-#include <QtGraphs/private/qgraphsview_p.h>
-#include <QtGraphs/private/qvalueaxis_p.h>
-#include <QtGraphs/private/qlogvalueaxis_p.h>
-#include <QtQuick/private/qquickdraghandler_p.h>
-#include <QtGui/qfontmetrics.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -59,39 +59,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 166, as _ZN12AreaRenderer14getSeriesStyleEPNS_10PointGroupE
-inline AreaRenderer::SeriesStyle AreaRenderer::getSeriesStyle(PointGroup *group)
-{
-    auto theme = m_graph->theme();
-
-    const auto &seriesColors = theme->seriesColors();
-    qsizetype index = group->colorIndex % seriesColors.size();
-    QColor color = group->series->color().alpha() != 0 ? group->series->color()
-                                                       : seriesColors.at(index);
-    const auto &borderColors = theme->borderColors();
-    index = group->colorIndex % borderColors.size();
-    QColor borderColor = group->series->borderColor().alpha() != 0 ? group->series->borderColor()
-                                                                   : borderColors.at(index);
-
-    QQuickShapeGradient *gradient = group->series->gradient();
-
-    if (group->series->isSelected()) {
-        color = group->series->selectedColor().alpha() != 0 ? group->series->selectedColor()
-                                                            : color.lighter();
-        borderColor = group->series->selectedBorderColor().alpha() != 0
-                          ? group->series->selectedBorderColor()
-                          : borderColor.lighter();
-        if (group->series->selectedGradient())
-            gradient = group->series->selectedGradient();
-    }
-
-    qreal borderWidth = group->series->borderWidth();
-    if (qFuzzyCompare(borderWidth, qreal(-1.0)))
-        borderWidth = theme->borderWidth();
-
-    return {color, gradient, borderColor, borderWidth};
-}
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 193, as _ZNK12AxisRenderer8getAxisXEP15QAbstractSeries
 inline const AxisRenderer::AxisProperties &AxisRenderer::getAxisX(QAbstractSeries *series) const
@@ -113,17 +80,19 @@ inline const AxisRenderer::AxisProperties &AxisRenderer::getAxisY(QAbstractSerie
     return (*m_vertAxes)[0];
 }
 
-//  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 68, as _ZN12AreaRendererD1Ev
-inline AreaRenderer::~AreaRenderer()
-{
-    qDeleteAll(m_groups);
-}
-
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 73, as _ZN12AreaRenderer19resetShapePathCountEv
 inline void AreaRenderer::resetShapePathCount()
 {
     m_currentShapePathIndex = 0;
 }
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 79, as _ZNK12AreaRenderer13paintSnapshotEv
+#if QT_CONFIG(graphs_2d_high_performance_backend)
+inline AreaRenderer::PaintSnapshot AreaRenderer::paintSnapshot() const
+{
+    return m_areaPaintSnapshot;
+}
+#endif  // QT_CONFIG(graphs_2d_high_performance_backend)
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 84, as _ZN12AreaRenderer15synchronizeDataEv
 #if QT_CONFIG(graphs_2d_high_performance_backend)
@@ -161,6 +130,63 @@ inline void AreaRenderer::synchronizeData()
 }
 #endif  // QT_CONFIG(graphs_2d_high_performance_backend)
 
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 117, as _ZN12AreaRenderer13paintSnapshotERK5QListINS_13AreaPaintDataEEP14QCanvasPainter
+#if QT_CONFIG(graphs_2d_high_performance_backend)
+inline void AreaRenderer::paintSnapshot(const PaintSnapshot &snapshot, QCanvasPainter *p)
+{
+    for (const auto &areaPaintSnapshot : snapshot) {
+        const auto &gradient = areaPaintSnapshot.gradient;
+        switch (gradient.type()) {
+        case QGradient::LinearGradient: {
+            const auto &lg = static_cast<const QLinearGradient &>(gradient);
+            QCanvasLinearGradient canvasGradient(lg.start().x(),
+                                                 lg.start().y(),
+                                                 lg.finalStop().x(),
+                                                 lg.finalStop().y());
+            const QGradientStops stops = lg.stops();
+            for (const auto &stop : stops)
+                canvasGradient.setColorAt(stop.first, stop.second);
+            p->setFillStyle(canvasGradient);
+        } break;
+        case QGradient::RadialGradient: {
+            const auto &rg = static_cast<const QRadialGradient &>(gradient);
+            QCanvasRadialGradient canvasGradient(rg.center().x(),
+                                                 rg.center().y(),
+                                                 rg.focalRadius(),
+                                                 rg.centerRadius());
+            const QGradientStops stops = rg.stops();
+            for (const auto &stop : stops)
+                canvasGradient.setColorAt(stop.first, stop.second);
+            p->setFillStyle(canvasGradient);
+        } break;
+        case QGradient::ConicalGradient: {
+            const auto &cg = static_cast<const QConicalGradient &>(gradient);
+            QCanvasConicalGradient canvasGradient(cg.center().x(), cg.center().y(), cg.angle());
+            const QGradientStops stops = cg.stops();
+            for (const auto &stop : stops)
+                canvasGradient.setColorAt(stop.first, stop.second);
+            p->setFillStyle(canvasGradient);
+        } break;
+        case QGradient::NoGradient: {
+            p->setFillStyle(areaPaintSnapshot.resolvedColor);
+        }
+        }
+        p->setStrokeStyle(areaPaintSnapshot.resolvedBorderColor);
+        p->setLineWidth(areaPaintSnapshot.resolvedBorderWidth);
+        p->beginPath();
+        p->addPath(areaPaintSnapshot.painterPath);
+        p->fill();
+        p->stroke();
+    }
+}
+#endif  // QT_CONFIG(graphs_2d_high_performance_backend)
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 457, as _ZN12AreaRenderer11afterUpdateER5QListIP15QAbstractSeriesE
+inline void AreaRenderer::afterUpdate(QList<QAbstractSeries *> &cleanupSeries)
+{
+    Q_UNUSED(cleanupSeries);
+}
+
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 462, as _ZN12AreaRenderer12updateSeriesEP11QAreaSeries
 inline void AreaRenderer::updateSeries(QAreaSeries *series)
 {
@@ -178,6 +204,39 @@ inline void AreaRenderer::seriesAboutToBeRemoved(QAbstractSeries *series)
             m_groups.erase(iter);
         }
     }
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 166, as _ZN12AreaRenderer14getSeriesStyleEPNS_10PointGroupE
+inline AreaRenderer::SeriesStyle AreaRenderer::getSeriesStyle(PointGroup *group)
+{
+    auto theme = m_graph->theme();
+
+    const auto &seriesColors = theme->seriesColors();
+    qsizetype index = group->colorIndex % seriesColors.size();
+    QColor color = group->series->color().alpha() != 0 ? group->series->color()
+                                                       : seriesColors.at(index);
+    const auto &borderColors = theme->borderColors();
+    index = group->colorIndex % borderColors.size();
+    QColor borderColor = group->series->borderColor().alpha() != 0 ? group->series->borderColor()
+                                                                   : borderColors.at(index);
+
+    QQuickShapeGradient *gradient = group->series->gradient();
+
+    if (group->series->isSelected()) {
+        color = group->series->selectedColor().alpha() != 0 ? group->series->selectedColor()
+                                                            : color.lighter();
+        borderColor = group->series->selectedBorderColor().alpha() != 0
+                          ? group->series->selectedBorderColor()
+                          : borderColor.lighter();
+        if (group->series->selectedGradient())
+            gradient = group->series->selectedGradient();
+    }
+
+    qreal borderWidth = group->series->borderWidth();
+    if (qFuzzyCompare(borderWidth, qreal(-1.0)))
+        borderWidth = theme->borderWidth();
+
+    return {color, gradient, borderColor, borderWidth};
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 198, as _ZNK12AreaRenderer26calculateRenderCoordinatesEP11QAreaSeriesddPdS2_
@@ -1006,6 +1065,24 @@ const QMetaObject *ritual_ZNK12AreaRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *AreaRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12AreaRenderer11qt_metacastEPKc(
+    AreaRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int AreaRenderer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12AreaRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    AreaRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  AreaRenderer::~AreaRenderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12AreaRendererD1Ev(AreaRenderer *self) {
@@ -1019,12 +1096,40 @@ void ritual_ZN12AreaRenderer19resetShapePathCountEv(AreaRenderer *self) {
 }
 
 #if QT_CONFIG(graphs_2d_high_performance_backend)
+//  PaintSnapshot AreaRenderer::paintSnapshot() const
+extern "C" Q_DECL_EXPORT
+AreaRenderer::PaintSnapshot *ritual_ZNK12AreaRenderer13paintSnapshotEv(
+    const AreaRenderer *self) {
+  return new AreaRenderer::PaintSnapshot(self->paintSnapshot());
+}
+#endif  // QT_CONFIG(graphs_2d_high_performance_backend)
+
+#if QT_CONFIG(graphs_2d_high_performance_backend)
 //  void AreaRenderer::synchronizeData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12AreaRenderer15synchronizeDataEv(AreaRenderer *self) {
   self->synchronizeData();
 }
 #endif  // QT_CONFIG(graphs_2d_high_performance_backend)
+
+#if QT_CONFIG(graphs_2d_high_performance_backend)
+//  void AreaRenderer::paintSnapshot(const PaintSnapshot &snapshot,
+//      QCanvasPainter *p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AreaRenderer13paintSnapshotERK5QListINS_13AreaPaintDataEEP14QCanvasPainter(
+    const AreaRenderer::PaintSnapshot *snapshot,
+    QCanvasPainter *p) {
+  AreaRenderer::paintSnapshot(*snapshot, p);
+}
+#endif  // QT_CONFIG(graphs_2d_high_performance_backend)
+
+//  void AreaRenderer::afterUpdate(QList<QAbstractSeries *> &cleanupSeries)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AreaRenderer11afterUpdateER5QListIP15QAbstractSeriesE(
+    AreaRenderer *self,
+    QList<QAbstractSeries *> *cleanupSeries) {
+  self->afterUpdate(*cleanupSeries);
+}
 
 //  void AreaRenderer::updateSeries(QAreaSeries *series)
 extern "C" Q_DECL_EXPORT
@@ -1040,6 +1145,14 @@ void ritual_ZN12AreaRenderer22seriesAboutToBeRemovedEP15QAbstractSeries(
     AreaRenderer *self,
     QAbstractSeries *series) {
   self->seriesAboutToBeRemoved(series);
+}
+
+//  SeriesStyle AreaRenderer::getSeriesStyle(PointGroup *group)
+extern "C" Q_DECL_EXPORT
+AreaRenderer::SeriesStyle *ritual_ZN12AreaRenderer14getSeriesStyleEPNS_10PointGroupE(
+    AreaRenderer *self,
+    AreaRenderer::PointGroup *group) {
+  return new AreaRenderer::SeriesStyle(self->getSeriesStyle(group));
 }
 
 //  void AreaRenderer::calculateRenderCoordinates(QAreaSeries *series, qreal
@@ -1078,4 +1191,18 @@ bool ritual_take_AreaRenderer(
   return static_cast<CuteAreaRenderer *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area))
+//  a AreaRenderer::PaintSnapshot a ritual of AreaRenderer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_AreaRenderer__AreaRenderer_PaintSnapshot(
+    AreaRenderer::PaintSnapshot *self) {
+  delete self;
+}
+
+//  a AreaRenderer::SeriesStyle a ritual of AreaRenderer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_AreaRenderer__AreaRenderer_SeriesStyle(
+    AreaRenderer::SeriesStyle *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area))

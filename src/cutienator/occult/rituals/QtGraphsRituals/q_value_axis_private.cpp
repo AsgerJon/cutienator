@@ -3,7 +3,7 @@
 //  here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qvalueaxis.h>
@@ -13,6 +13,8 @@
 #include <QtCore/qvariant.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGraphs/QAbstractAxis>
+#include <QtGraphs/private/qabstractaxis_p.h>
 #include <QtGraphs/QValueAxis>
 #include <QtGraphs/private/qvalueaxis_p.h>
 #include <QtGraphs/private/charthelpers_p.h>
@@ -25,6 +27,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 697, as _ZN20QAbstractAxisPrivateC2Ev
+inline QAbstractAxisPrivate::QAbstractAxisPrivate() {}
+
+//  from ../qtgraphs/src/graphs2d/axis/valueaxis/qvalueaxis.cpp, line 527, as _ZN17QValueAxisPrivateD1Ev
+inline QValueAxisPrivate::~QValueAxisPrivate() {}
 
 //  from ../qtgraphs/src/graphs2d/axis/valueaxis/qvalueaxis.cpp, line 558, as _ZN17QValueAxisPrivate8setRangeEdd
 inline void QValueAxisPrivate::setRange(qreal min, qreal max)
@@ -60,25 +68,6 @@ inline void QValueAxisPrivate::setRange(qreal min, qreal max)
     }
 }
 
-//  from ../qtgraphs/src/graphs2d/axis/valueaxis/qvalueaxis.cpp, line 591, as _ZN17QValueAxisPrivate20calculateVisualRangeEv
-inline void QValueAxisPrivate::calculateVisualRange()
-{
-    Q_Q(QValueAxis);
-    qreal diff = m_max - m_min;
-    qreal center = diff / 2.0f + m_min + m_pan;
-    diff /= m_zoom;
-    qreal min = center - diff / 2.0f;
-    qreal max = center + diff / 2.0f;
-    if (!QtPrivate::fuzzyCompare(m_visualMin, min)) {
-        m_visualMin = min;
-        emit q->visualMinChanged(min);
-    }
-    if (!QtPrivate::fuzzyCompare(m_visualMax, max)) {
-        m_visualMax = max;
-        emit q->visualMaxChanged(max);
-    }
-}
-
 //  from ../qtgraphs/src/graphs2d/axis/valueaxis/qvalueaxis.cpp, line 529, as _ZN17QValueAxisPrivate6setMinERK8QVariant
 inline void QValueAxisPrivate::setMin(const QVariant &min)
 {
@@ -109,6 +98,32 @@ inline void QValueAxisPrivate::setRange(const QVariant &min, const QVariant &max
     qreal value2 = max.toReal(&ok2);
     if (ok1 && ok2)
         q->setRange(value1, value2);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 310, as _Z8lcAxis2Dv
+inline const QLoggingCategory &lcAxis2D()
+{
+    static const QLoggingCategory category("qt.graphs2d.axis.properties");
+    return category;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/valueaxis/qvalueaxis.cpp, line 591, as _ZN17QValueAxisPrivate20calculateVisualRangeEv
+inline void QValueAxisPrivate::calculateVisualRange()
+{
+    Q_Q(QValueAxis);
+    qreal diff = m_max - m_min;
+    qreal center = diff / 2.0f + m_min + m_pan;
+    diff /= m_zoom;
+    qreal min = center - diff / 2.0f;
+    qreal max = center + diff / 2.0f;
+    if (!QtPrivate::fuzzyCompare(m_visualMin, min)) {
+        m_visualMin = min;
+        emit q->visualMinChanged(min);
+    }
+    if (!QtPrivate::fuzzyCompare(m_visualMax, max)) {
+        m_visualMax = max;
+        emit q->visualMaxChanged(max);
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -230,6 +245,12 @@ public:
   }
 };
 
+//  QValueAxisPrivate::~QValueAxisPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QValueAxisPrivateD1Ev(QValueAxisPrivate *self) {
+  delete self;
+}
+
 //  qreal QValueAxisPrivate::min()
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZN17QValueAxisPrivate3minEv(QValueAxisPrivate *self) {
@@ -319,6 +340,15 @@ qreal ritual_own_ZN17QValueAxisPrivate3maxEv(QValueAxisPrivate *self) {
   return self->QValueAxisPrivate::max();
 }
 
+//  void QValueAxisPrivate::setRange(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN17QValueAxisPrivate8setRangeEdd(
+    QValueAxisPrivate *self,
+    qreal min,
+    qreal max) {
+  self->QValueAxisPrivate::setRange(min, max);
+}
+
 //  void QValueAxisPrivate::setMin(const QVariant &min)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QValueAxisPrivate6setMinERK8QVariant(
@@ -349,4 +379,4 @@ void ritual_own_ZN17QValueAxisPrivate8setRangeERK8QVariantS2_(
       *max);
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

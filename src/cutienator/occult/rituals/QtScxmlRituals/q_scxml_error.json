@@ -9,6 +9,7 @@
       "address", "text", "int", "int", "text"
     ],
     "ritual_ZN11QScxmlErrorC1ERKS_": ["address", "address"],
+    "ritual_ZN11QScxmlErroraSERKS_": ["address", "address", "address"],
     "ritual_ZN11QScxmlErrorD1Ev": ["nothing", "address"],
     "ritual_ZNK11QScxmlError7isValidEv": ["bool", "address"],
     "ritual_ZNK11QScxmlError8fileNameEv": ["text", "address"],

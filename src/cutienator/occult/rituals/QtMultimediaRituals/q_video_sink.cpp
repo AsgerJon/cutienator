@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK10QVideoSink10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVideoSink::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QVideoSink11qt_metacastEPKc(
+    QVideoSink *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVideoSink::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QVideoSink11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVideoSink *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVideoSink::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QVideoSink2trEPKcS1_i(
@@ -253,6 +271,28 @@ extern "C" Q_DECL_EXPORT
 QPlatformVideoSink *ritual_ZNK10QVideoSink17platformVideoSinkEv(
     const QVideoSink *self) {
   return self->platformVideoSink();
+}
+
+//  void QVideoSink::videoFrameChanged(const QVideoFrame &frame) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QVideoSink17videoFrameChangedERK11QVideoFrame(
+    const QVideoSink *self,
+    const QVideoFrame *frame) {
+  self->videoFrameChanged(*frame);
+}
+
+//  void QVideoSink::subtitleTextChanged(const QString &subtitleText) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QVideoSink19subtitleTextChangedERK7QString(
+    const QVideoSink *self,
+    const QString *subtitleText) {
+  self->subtitleTextChanged(*subtitleText);
+}
+
+//  void QVideoSink::videoSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QVideoSink16videoSizeChangedEv(QVideoSink *self) {
+  self->videoSizeChanged();
 }
 
 //  void QVideoSink::setSource(QObject *source)

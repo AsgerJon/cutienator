@@ -179,6 +179,14 @@ const QMetaObject *ritual_ZNK10Qt3DRender15QRenderStateSet10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QRenderStateSet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender15QRenderStateSet11qt_metacastEPKc(
+    Qt3DRender::QRenderStateSet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString Qt3DRender::QRenderStateSet::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT

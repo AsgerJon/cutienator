@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by hand on 2026-11-26 from QtPrintSupport/6.12.0/",
+    "QtPrintSupport/private/qprintengine_mac_p.h, Qt 6.12.0, from Qt's",
+    "source: Objective-C++, built on Apple's systems only. Kept as it is",
+    "when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN15QMacPrintEngineC1EN8QPrinter11PrinterModeERK7QString": ["address", "int", "text"],
+    "ritual_ZN15QMacPrintEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QMacPrintEngine6handleEv": ["address", "address"],
+    "ritual_ZN15QMacPrintEngine5beginEP12QPaintDevice": ["bool", "address", "address"],
+    "ritual_ZN15QMacPrintEngine3endEv": ["bool", "address"],
+    "ritual_ZNK15QMacPrintEngine11paintEngineEv": ["address", "address"],
+    "ritual_ZN15QMacPrintEngine11setPropertyEN12QPrintEngine22PrintEnginePropertyKeyERK8QVariant": ["nothing", "address", "int", "address"],
+    "ritual_ZNK15QMacPrintEngine8propertyEN12QPrintEngine22PrintEnginePropertyKeyE": ["address", "address", "int"],
+    "ritual_ZNK15QMacPrintEngine12printerStateEv": ["int", "address"],
+    "ritual_ZN15QMacPrintEngine7newPageEv": ["bool", "address"],
+    "ritual_ZN15QMacPrintEngine5abortEv": ["bool", "address"],
+    "ritual_ZNK15QMacPrintEngine6metricEN12QPaintDevice17PaintDeviceMetricE": ["int", "address", "int"],
+    "ritual_ZN15QMacPrintEngine9printInfoEv": ["address", "address"],
+    "ritual_ZN15QMacPrintEngine11updateStateERK17QPaintEngineState": ["nothing", "address", "address"],
+    "ritual_ZN15QMacPrintEngine9drawLinesEPK6QLineFi": ["nothing", "address", "address", "int"],
+    "ritual_ZN15QMacPrintEngine9drawRectsEPK6QRectFi": ["nothing", "address", "address", "int"],
+    "ritual_ZN15QMacPrintEngine10drawPointsEPK7QPointFi": ["nothing", "address", "address", "int"],
+    "ritual_ZN15QMacPrintEngine11drawEllipseERK6QRectF": ["nothing", "address", "address"],
+    "ritual_ZN15QMacPrintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": ["nothing", "address", "address", "int", "int"],
+    "ritual_ZN15QMacPrintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": ["nothing", "address", "address", "address", "address"],
+    "ritual_ZN15QMacPrintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": ["nothing", "address", "address", "address", "address", "int"],
+    "ritual_ZN15QMacPrintEngine12drawTextItemERK7QPointFRK9QTextItem": ["nothing", "address", "address", "address"],
+    "ritual_ZN15QMacPrintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": ["nothing", "address", "address", "address", "address"],
+    "ritual_ZN15QMacPrintEngine8drawPathERK12QPainterPath": ["nothing", "address", "address"]
+  }
+}

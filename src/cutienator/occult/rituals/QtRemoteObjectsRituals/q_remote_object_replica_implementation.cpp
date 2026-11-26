@@ -6,9 +6,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtRemoteObjects/qremoteobjectpendingcall.h>
 #include <QtCore/qvariant.h>
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/qremoteobjectreplica.h>
@@ -26,6 +27,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qthread.h>
 #include <limits>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -105,9 +107,11 @@ inline void QRemoteObjectReplicaImplementation::setDynamicMetaObject(const QMeta
     m_metaObject = meta;
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 55, as _ZN34QRemoteObjectReplicaImplementationD1Ev
-inline QRemoteObjectReplicaImplementation::~QRemoteObjectReplicaImplementation()
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
 {
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 130, as _ZNK34QRemoteObjectReplicaImplementation26needsDynamicInitializationEv
@@ -521,6 +525,33 @@ bool ritual_ZNK34QRemoteObjectReplicaImplementation26needsDynamicInitializationE
   return self->needsDynamicInitialization();
 }
 
+//  const QVariant QRemoteObjectReplicaImplementation::getProperty(int i)
+//      const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK34QRemoteObjectReplicaImplementation11getPropertyEi(
+    const QRemoteObjectReplicaImplementation *self,
+    int i) {
+  return new QVariant(self->getProperty(i));
+}
+
+//  void QRemoteObjectReplicaImplementation::setProperties(QVariantList &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QRemoteObjectReplicaImplementation13setPropertiesEO5QListI8QVariantE(
+    QRemoteObjectReplicaImplementation *self,
+    QVariantList *a0) {
+  self->setProperties(std::move(*a0));
+}
+
+//  void QRemoteObjectReplicaImplementation::setProperty(int i, const
+//      QVariant &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QRemoteObjectReplicaImplementation11setPropertyEiRK8QVariant(
+    QRemoteObjectReplicaImplementation *self,
+    int i,
+    const QVariant *a1) {
+  self->setProperty(i, *a1);
+}
+
 //  bool QRemoteObjectReplicaImplementation::isShortCircuit() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK34QRemoteObjectReplicaImplementation14isShortCircuitEv(
@@ -612,6 +643,33 @@ QRemoteObjectNode *ritual_ZNK34QRemoteObjectReplicaImplementation4nodeEv(
   return self->node();
 }
 
+//  void QRemoteObjectReplicaImplementation::_q_send(QMetaObject::Call call,
+//      int index, const QVariantList &args)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QRemoteObjectReplicaImplementation7_q_sendEN11QMetaObject4CallEiRK5QListI8QVariantE(
+    QRemoteObjectReplicaImplementation *self,
+    QMetaObject::Call call,
+    int index,
+    const QList<QVariant> *args) {
+  self->_q_send(call, index, *args);
+}
+
+//  QRemoteObjectPendingCall
+//      QRemoteObjectReplicaImplementation::_q_sendWithReply(QMetaObject::Cal
+//      l call, int index, const QVariantList &args)
+extern "C" Q_DECL_EXPORT
+QRemoteObjectPendingCall *ritual_ZN34QRemoteObjectReplicaImplementation16_q_sendWithReplyEN11QMetaObject4CallEiRK5QListI8QVariantE(
+    QRemoteObjectReplicaImplementation *self,
+    QMetaObject::Call call,
+    int index,
+    const QList<QVariant> *args) {
+  return new QRemoteObjectPendingCall(
+      self->_q_sendWithReply(
+          call,
+          index,
+          *args));
+}
+
 //  void QRemoteObjectReplicaImplementation::setDynamicMetaObject(const
 //      QMetaObject *meta)
 extern "C" Q_DECL_EXPORT
@@ -619,6 +677,16 @@ void ritual_ZN34QRemoteObjectReplicaImplementation20setDynamicMetaObjectEPK11QMe
     QRemoteObjectReplicaImplementation *self,
     const QMetaObject *meta) {
   self->setDynamicMetaObject(meta);
+}
+
+//  void
+//      QRemoteObjectReplicaImplementation::setDynamicProperties(QVariantList
+//      &&values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QRemoteObjectReplicaImplementation20setDynamicPropertiesEO5QListI8QVariantE(
+    QRemoteObjectReplicaImplementation *self,
+    QVariantList *values) {
+  self->setDynamicProperties(std::move(*values));
 }
 
 //  QRemoteObjectReplicaImplementation as the QReplicaImplementationInterface
@@ -680,6 +748,16 @@ void ritual_own_ZN34QRemoteObjectReplicaImplementation16notifyAboutReplyEiRK8QVa
     int a0,
     const QVariant *a1) {
   self->QRemoteObjectReplicaImplementation::notifyAboutReply(a0, *a1);
+}
+
+//  void
+//      QRemoteObjectReplicaImplementation::configurePrivate(QRemoteObjectRep
+//      lica *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN34QRemoteObjectReplicaImplementation16configurePrivateEP20QRemoteObjectReplica(
+    QRemoteObjectReplicaImplementation *self,
+    QRemoteObjectReplica *a0) {
+  self->QRemoteObjectReplicaImplementation::configurePrivate(a0);
 }
 
 //  QRemoteObjectNode *QRemoteObjectReplicaImplementation::node() const

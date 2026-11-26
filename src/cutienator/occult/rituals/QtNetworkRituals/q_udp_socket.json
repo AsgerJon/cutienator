@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QUdpSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QUdpSocket11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QUdpSocket11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QUdpSocket2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QUdpSocketC1EP7QObject": ["address", "address"],
     "ritual_ZN10QUdpSocketD1Ev": ["nothing", "address"],
@@ -34,6 +40,9 @@
     "ritual_ZN10QUdpSocket15receiveDatagramEx": [
       "address", "address", "long long"
     ],
+    "ritual_ZN10QUdpSocket12readDatagramEPcxP12QHostAddressPt": [
+      "long long", "address", "address", "long long", "address", "address"
+    ],
     "ritual_ZN10QUdpSocket13writeDatagramERK16QNetworkDatagram": [
       "long long", "address", "address"
     ],
@@ -44,6 +53,8 @@
     "ritual_ZN10QUdpSocket13writeDatagramERK10QByteArrayRK12QHostAddresst": [
       "long long", "address", "address", "address", "unsigned short"
     ],
+    "ritual_ZN10QUdpSocket6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QUdpSocket6d_funcEv": ["address", "address"],
     "ritual_take_QUdpSocket": ["bool", "address", "chars", "address"]
   }
 }

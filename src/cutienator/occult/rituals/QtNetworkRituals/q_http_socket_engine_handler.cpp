@@ -38,6 +38,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/network/socket/qhttpsocketengine.cpp, line 817, as _ZN24QHttpSocketEngineHandler18createSocketEngineEN15QAbstractSocket10SocketTypeERK13QNetworkProxyP7QObject
 #if !defined(QT_NO_NETWORKPROXY)
 inline QAbstractSocketEngine *QHttpSocketEngineHandler::createSocketEngine(QAbstractSocket::SocketType socketType,
@@ -133,7 +135,7 @@ typedef void * (*CuteQHttpSocketEngineHandlerCall1)(const void *, qintptr, QObje
 class CuteQHttpSocketEngineHandler : public QHttpSocketEngineHandler {
 public:
   using QHttpSocketEngineHandler::QHttpSocketEngineHandler;
-  CuteQHttpSocketEngineHandler(const QHttpSocketEngineHandler &other) : QHttpSocketEngineHandler(other) {}
+  CuteQHttpSocketEngineHandler(const QHttpSocketEngineHandler & other) : QHttpSocketEngineHandler(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

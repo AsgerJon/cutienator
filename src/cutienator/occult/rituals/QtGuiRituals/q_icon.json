@@ -7,9 +7,13 @@
     "ritual_ZN5QIconC1Ev": ["address"],
     "ritual_ZN5QIconC1ERK7QPixmap": ["address", "address"],
     "ritual_ZN5QIconC1ERKS_": ["address", "address"],
+    "ritual_ZN5QIconC1EOS_": ["address", "address"],
     "ritual_ZN5QIconC1ERK7QString": ["address", "text"],
     "ritual_ZN5QIconC1EP11QIconEngine": ["address", "address"],
     "ritual_ZN5QIconD1Ev": ["nothing", "address"],
+    "ritual_ZN5QIconaSERKS_": ["address", "address", "address"],
+    "ritual_ZN5QIconaSEOS_": ["address", "address", "address"],
+    "ritual_ZN5QIcon4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK5QIconcv8QVariantEv": ["address", "address"],
     "ritual_ZNK5QIcon6pixmapERK5QSizeNS_4ModeENS_5StateE": [
       "address", "address", "address", "int", "int"
@@ -76,6 +80,9 @@
     "ritual_ZN5QIcon9themeNameEv": ["text"],
     "ritual_ZN5QIcon12setThemeNameERK7QString": ["nothing", "text"],
     "ritual_ZN5QIcon17fallbackThemeNameEv": ["text"],
-    "ritual_ZN5QIcon20setFallbackThemeNameERK7QString": ["nothing", "text"]
+    "ritual_ZN5QIcon20setFallbackThemeNameERK7QString": ["nothing", "text"],
+    "ritual_ZlsR11QDataStreamRK5QIcon": ["address", "address", "address"],
+    "ritual_ZrsR11QDataStreamR5QIcon": ["address", "address", "address"],
+    "ritual_ZN5QIcon8data_ptrEv": ["address", "address"]
   }
 }

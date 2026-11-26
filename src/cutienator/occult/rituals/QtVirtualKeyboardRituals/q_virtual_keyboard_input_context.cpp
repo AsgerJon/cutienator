@@ -8,6 +8,9 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QString>
+#include <QtCore/QList>
+#include <QtGui/QInputMethodEvent>
 
 //  A QVirtualKeyboardInputContext that Python can take functions over in. Every QVirtualKeyboardInputContext
 //  Python makes is one. Each function below asks the Python
@@ -183,6 +186,25 @@ const QMetaObject *ritual_ZNK28QVirtualKeyboardInputContext10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVirtualKeyboardInputContext::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QVirtualKeyboardInputContext11qt_metacastEPKc(
+    QVirtualKeyboardInputContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVirtualKeyboardInputContext::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QVirtualKeyboardInputContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVirtualKeyboardInputContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVirtualKeyboardInputContext::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -279,6 +301,28 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK28QVirtualKeyboardInputContext11preeditTextEv(
     const QVirtualKeyboardInputContext *self) {
   return new QString(self->preeditText());
+}
+
+//  void QVirtualKeyboardInputContext::setPreeditText(const QString &text,
+//      QList<QInputMethodEvent::Attribute> attributes, int replaceFrom, int
+//      replaceLength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext14setPreeditTextERK7QString5QListIN17QInputMethodEvent9AttributeEEii(
+    QVirtualKeyboardInputContext *self,
+    const QString *text,
+    const QList<QInputMethodEvent::Attribute> *attributes,
+    int replaceFrom,
+    int replaceLength) {
+  self->setPreeditText(*text, *attributes, replaceFrom, replaceLength);
+}
+
+//  QList<QInputMethodEvent::Attribute>
+//      QVirtualKeyboardInputContext::preeditTextAttributes() const
+extern "C" Q_DECL_EXPORT
+QList<QInputMethodEvent::Attribute> *ritual_ZNK28QVirtualKeyboardInputContext21preeditTextAttributesEv(
+    const QVirtualKeyboardInputContext *self) {
+  return new QList<QInputMethodEvent::Attribute>(
+      self->preeditTextAttributes());
 }
 
 //  QString QVirtualKeyboardInputContext::surroundingText() const
@@ -429,6 +473,125 @@ void ritual_ZN28QVirtualKeyboardInputContext25setSelectionOnFocusObjectERK7QPoin
   self->setSelectionOnFocusObject(*anchorPos, *cursorPos);
 }
 
+//  void QVirtualKeyboardInputContext::preeditTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext18preeditTextChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->preeditTextChanged();
+}
+
+//  void QVirtualKeyboardInputContext::inputMethodHintsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext23inputMethodHintsChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->inputMethodHintsChanged();
+}
+
+//  void QVirtualKeyboardInputContext::surroundingTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext22surroundingTextChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->surroundingTextChanged();
+}
+
+//  void QVirtualKeyboardInputContext::selectedTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext19selectedTextChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->selectedTextChanged();
+}
+
+//  void QVirtualKeyboardInputContext::anchorPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext21anchorPositionChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->anchorPositionChanged();
+}
+
+//  void QVirtualKeyboardInputContext::cursorPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext21cursorPositionChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->cursorPositionChanged();
+}
+
+//  void QVirtualKeyboardInputContext::anchorRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext22anchorRectangleChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->anchorRectangleChanged();
+}
+
+//  void QVirtualKeyboardInputContext::cursorRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext22cursorRectangleChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->cursorRectangleChanged();
+}
+
+//  void QVirtualKeyboardInputContext::shiftActiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext18shiftActiveChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->shiftActiveChanged();
+}
+
+//  void QVirtualKeyboardInputContext::capsLockActiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext21capsLockActiveChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->capsLockActiveChanged();
+}
+
+//  void QVirtualKeyboardInputContext::uppercaseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext16uppercaseChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->uppercaseChanged();
+}
+
+//  void QVirtualKeyboardInputContext::animatingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext16animatingChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->animatingChanged();
+}
+
+//  void QVirtualKeyboardInputContext::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext13localeChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->localeChanged();
+}
+
+//  void QVirtualKeyboardInputContext::inputItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext16inputItemChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->inputItemChanged();
+}
+
+//  void QVirtualKeyboardInputContext::selectionControlVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext30selectionControlVisibleChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->selectionControlVisibleChanged();
+}
+
+//  void QVirtualKeyboardInputContext::anchorRectIntersectsClipRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext35anchorRectIntersectsClipRectChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->anchorRectIntersectsClipRectChanged();
+}
+
+//  void QVirtualKeyboardInputContext::cursorRectIntersectsClipRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QVirtualKeyboardInputContext35cursorRectIntersectsClipRectChangedEv(
+    QVirtualKeyboardInputContext *self) {
+  self->cursorRectIntersectsClipRectChanged();
+}
+
 //  a Python function taken by a CuteQVirtualKeyboardInputContext, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -437,4 +600,12 @@ bool ritual_take_QVirtualKeyboardInputContext(
     const char *key,
     void *call) {
   return static_cast<CuteQVirtualKeyboardInputContext *>(self)->take(key, call);
+}
+
+//  a QList<QInputMethodEvent::Attribute> a ritual of
+//      QVirtualKeyboardInputContext gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVirtualKeyboardInputContext__QList_QInputMethodEvent_Attribute(
+    QList<QInputMethodEvent::Attribute> *self) {
+  delete self;
 }

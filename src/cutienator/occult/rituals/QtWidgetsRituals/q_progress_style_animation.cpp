@@ -26,6 +26,25 @@ const QMetaObject *ritual_ZNK23QProgressStyleAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QProgressStyleAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QProgressStyleAnimation11qt_metacastEPKc(
+    QProgressStyleAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QProgressStyleAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QProgressStyleAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QProgressStyleAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QProgressStyleAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QProgressStyleAnimation2trEPKcS1_i(

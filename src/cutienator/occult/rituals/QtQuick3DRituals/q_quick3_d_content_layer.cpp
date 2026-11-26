@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK20QQuick3DContentLayer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DContentLayer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuick3DContentLayer11qt_metacastEPKc(
+    QQuick3DContentLayer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DContentLayer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuick3DContentLayer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DContentLayer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DContentLayer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuick3DContentLayer2trEPKcS1_i(

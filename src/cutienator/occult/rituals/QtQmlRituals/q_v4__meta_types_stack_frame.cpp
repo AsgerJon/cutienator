@@ -8,11 +8,39 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetatype.h>
 
+//  void QV4::MetaTypesStackFrame::init(Function *v4Function, QObject
+//      *thisObject, ExecutionContext *context, void **returnAndArgs, const
+//      QMetaType *metaTypes, int argc)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV419MetaTypesStackFrame4initEPNS_8FunctionEP7QObjectPNS_16ExecutionContextEPPvPK9QMetaTypei(
+    QV4::MetaTypesStackFrame *self,
+    QV4::Function *v4Function,
+    QObject *thisObject,
+    QV4::ExecutionContext *context,
+    void **returnAndArgs,
+    const QMetaType *metaTypes,
+    int argc) {
+  self->init(
+      v4Function,
+      thisObject,
+      context,
+      returnAndArgs,
+      metaTypes,
+      argc);
+}
+
 //  QMetaType QV4::MetaTypesStackFrame::returnType() const
 extern "C" Q_DECL_EXPORT
 QMetaType *ritual_ZNK3QV419MetaTypesStackFrame10returnTypeEv(
     const QV4::MetaTypesStackFrame *self) {
   return new QMetaType(self->returnType());
+}
+
+//  void *QV4::MetaTypesStackFrame::returnValue() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK3QV419MetaTypesStackFrame11returnValueEv(
+    const QV4::MetaTypesStackFrame *self) {
+  return self->returnValue();
 }
 
 //  bool QV4::MetaTypesStackFrame::isReturnValueUndefined() const
@@ -36,11 +64,25 @@ const QMetaType *ritual_ZNK3QV419MetaTypesStackFrame8argTypesEv(
   return self->argTypes();
 }
 
+//  void **QV4::MetaTypesStackFrame::argv() const
+extern "C" Q_DECL_EXPORT
+void **ritual_ZNK3QV419MetaTypesStackFrame4argvEv(
+    const QV4::MetaTypesStackFrame *self) {
+  return self->argv();
+}
+
 //  const QMetaType *QV4::MetaTypesStackFrame::returnAndArgTypes() const
 extern "C" Q_DECL_EXPORT
 const QMetaType *ritual_ZNK3QV419MetaTypesStackFrame17returnAndArgTypesEv(
     const QV4::MetaTypesStackFrame *self) {
   return self->returnAndArgTypes();
+}
+
+//  void **QV4::MetaTypesStackFrame::returnAndArgValues() const
+extern "C" Q_DECL_EXPORT
+void **ritual_ZNK3QV419MetaTypesStackFrame18returnAndArgValuesEv(
+    const QV4::MetaTypesStackFrame *self) {
+  return self->returnAndArgValues();
 }
 
 //  QObject *QV4::MetaTypesStackFrame::thisObject() const

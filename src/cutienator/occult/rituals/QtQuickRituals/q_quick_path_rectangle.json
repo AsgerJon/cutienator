@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickPathRectangle10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickPathRectangle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickPathRectangle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickPathRectangle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -121,6 +127,44 @@
     ],
     "ritual_ZN19QQuickPathRectangle16resetCornerBevelEN2Qt6CornerE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickPathRectangle9addToPathER12QPainterPathRK14QQuickPathData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickPathRectangle13heightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle23strokeAdjustmentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle13radiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle20topLeftRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle21topRightRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle23bottomLeftRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle24bottomRightRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle12bevelChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickPathRectangle19topLeftBevelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle20topRightBevelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle22bottomLeftBevelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle23bottomRightBevelChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN19QQuickPathRectangle23emitCornerRadiusChangedEN2Qt6CornerE": [
       "nothing", "address", "int"

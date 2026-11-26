@@ -1,5 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/qscrollerproperties.h, Qt 6.12.0. Changes made here are lost.
+//  QtWidgets/qscrollerproperties.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: took out the constructor taking
+//  QScrollerPropertiesPrivate &, which is private and which Qt's library
+//  does not offer (undefined reference), and operator=, which is not
+//  written, and their rows. Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(scroller)
 #if QT_CONFIG(scroller)

@@ -38,7 +38,7 @@ typedef bool (*CuteQLottieLayerCall8)(const void *, int, const QVariant *, int *
 class CuteQLottieLayer : public QLottieLayer {
 public:
   using QLottieLayer::QLottieLayer;
-  CuteQLottieLayer(const QLottieLayer &other) : QLottieLayer(other) {}
+  CuteQLottieLayer(const QLottieLayer & other) : QLottieLayer(other) {}
   void *taken[9] = {};
 
   bool take(const char *key, void *call) {
@@ -254,6 +254,14 @@ void ritual_ZN12QLottieLayer16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieLayer::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QLottieLayer6renderER15QLottieRenderer(
+    const QLottieLayer *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  QLottieBase *QLottieLayer::findChild(const QString &childName)
 extern "C" Q_DECL_EXPORT
 QLottieBase *ritual_ZN12QLottieLayer9findChildERK7QString(
@@ -313,6 +321,14 @@ int ritual_ZNK12QLottieLayer13linkedLayerIdEv(const QLottieLayer *self) {
   return self->linkedLayerId();
 }
 
+//  void QLottieLayer::applyLayerTransform(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QLottieLayer19applyLayerTransformER15QLottieRenderer(
+    const QLottieLayer *self,
+    QLottieRenderer *renderer) {
+  self->applyLayerTransform(*renderer);
+}
+
 //  QSize QLottieLayer::layerSize() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK12QLottieLayer9layerSizeEv(const QLottieLayer *self) {
@@ -348,6 +364,14 @@ extern "C" Q_DECL_EXPORT
 const QLottieLayer *ritual_ZN12QLottieLayer11checkedCastEPK11QLottieBase(
     const QLottieBase *node) {
   return QLottieLayer::checkedCast(node);
+}
+
+//  void QLottieLayer::renderEffects(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QLottieLayer13renderEffectsER15QLottieRenderer(
+    const QLottieLayer *self,
+    QLottieRenderer *renderer) {
+  self->renderEffects(*renderer);
 }
 
 //  QLottieLayer *QLottieLayer::resolveLinkedLayer()

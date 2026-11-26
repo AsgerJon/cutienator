@@ -8,14 +8,41 @@
     "ritual_ZNK18qdesigner_internal12MetaDataBase10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal12MetaDataBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal12MetaDataBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal12MetaDataBase2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12MetaDataBaseC1EP28QDesignerFormEditorInterfaceP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12MetaDataBaseD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12MetaDataBase4coreEv": [
+      "address", "address"
     ],
     "ritual_ZNK18qdesigner_internal12MetaDataBase4itemEP7QObject": [
       "address", "address", "address"
     ],
     "ritual_ZNK18qdesigner_internal12MetaDataBase16metaDataBaseItemEP7QObject": [
       "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12MetaDataBase3addEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12MetaDataBase6removeEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12MetaDataBase7objectsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12MetaDataBase13slotDestroyedEP7QObject": [
+      "nothing", "address", "address"
     ],
     "ritual_take_qdesigner_internal_MetaDataBase": [
       "bool", "address", "chars", "address"

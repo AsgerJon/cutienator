@@ -2,6 +2,11 @@
 //  QtCore/qloggingcategory.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/qstring.h>
+#include <QtCore/QtCore>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/6.12.0/QtCore/private/qloggingcategory_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QLoggingCategory>
 
 //  QLoggingCategory::QLoggingCategory(const char *category, QtMsgType
 //      severityLevel)
@@ -70,10 +75,31 @@ const char *ritual_ZNK16QLoggingCategory12categoryNameEv(
   return self->categoryName();
 }
 
+//  QLoggingCategory &QLoggingCategory::operator()()
+extern "C" Q_DECL_EXPORT
+QLoggingCategory *ritual_ZN16QLoggingCategoryclEv(QLoggingCategory *self) {
+  return &(self->operator()());
+}
+
+//  const QLoggingCategory &QLoggingCategory::operator()() const
+extern "C" Q_DECL_EXPORT
+const QLoggingCategory *ritual_ZNK16QLoggingCategoryclEv(
+    const QLoggingCategory *self) {
+  return &(self->operator()());
+}
+
 //  QLoggingCategory *QLoggingCategory::defaultCategory()
 extern "C" Q_DECL_EXPORT
 QLoggingCategory *ritual_ZN16QLoggingCategory15defaultCategoryEv() {
   return QLoggingCategory::defaultCategory();
+}
+
+//  CategoryFilter QLoggingCategory::installFilter(CategoryFilter a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QLoggingCategory13installFilterEPFvPS_E(void *a0) {
+  return reinterpret_cast<void *>(
+      QLoggingCategory::installFilter(
+          reinterpret_cast<QLoggingCategory::CategoryFilter>(a0)));
 }
 
 //  void QLoggingCategory::setFilterRules(const QString &rules)
@@ -81,4 +107,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QLoggingCategory14setFilterRulesERK7QString(
     const QString *rules) {
   QLoggingCategory::setFilterRules(*rules);
+}
+
+//  QLoggingCategory::QLoggingCategory(UnregisteredInitialization a0, const
+//      char *category)
+extern "C" Q_DECL_EXPORT
+QLoggingCategory *ritual_ZN16QLoggingCategoryC1ENS_26UnregisteredInitializationEPKc(
+    const QLoggingCategory::UnregisteredInitialization *a0,
+    const char *category) {
+  return new QLoggingCategory(*a0, category);
 }

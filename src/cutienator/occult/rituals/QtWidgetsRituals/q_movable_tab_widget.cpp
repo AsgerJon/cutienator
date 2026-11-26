@@ -52,6 +52,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qtabbar.cpp, line 68, as _ZN17QMovableTabWidgetC1EP7QWidget
 inline QMovableTabWidget::QMovableTabWidget(QWidget *parent)
     : QWidget(parent)

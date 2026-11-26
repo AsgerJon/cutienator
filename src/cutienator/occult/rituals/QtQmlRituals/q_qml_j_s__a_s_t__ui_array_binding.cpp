@@ -201,6 +201,16 @@ public:
   }
 };
 
+//  QQmlJS::AST::UiArrayBinding::UiArrayBinding(UiQualifiedId *qualifiedId,
+//      UiArrayMemberList *members)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiArrayBinding *ritual_ZN6QQmlJS3AST14UiArrayBindingC1EPNS0_13UiQualifiedIdEPNS0_17UiArrayMemberListE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiQualifiedId *qualifiedId,
+    QQmlJS::AST::UiArrayMemberList *members) {
+  return new (pool) CuteQQmlJS_AST_UiArrayBinding(qualifiedId, members);
+}
+
 //  SourceLocation QQmlJS::AST::UiArrayBinding::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST14UiArrayBinding19firstSourceLocationEv(
@@ -213,6 +223,14 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST14UiArrayBinding18lastSourceLocationEv(
     const QQmlJS::AST::UiArrayBinding *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  void QQmlJS::AST::UiArrayBinding::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST14UiArrayBinding7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiArrayBinding *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_UiArrayBinding, for the

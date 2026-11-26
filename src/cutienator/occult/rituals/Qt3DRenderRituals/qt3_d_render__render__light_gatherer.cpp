@@ -7,6 +7,12 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/lightgatherer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  Qt3DRender::Render::LightGatherer::LightGatherer()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::LightGatherer *ritual_ZN10Qt3DRender6Render13LightGathererC1Ev() {
+  return new Qt3DRender::Render::LightGatherer();
+}
+
 //  void Qt3DRender::Render::LightGatherer::setManager(EntityManager
 //      *manager)
 extern "C" Q_DECL_EXPORT
@@ -16,12 +22,26 @@ void ritual_ZN10Qt3DRender6Render13LightGatherer10setManagerEPNS0_13EntityManage
   self->setManager(manager);
 }
 
+//  std::vector<LightSource> &Qt3DRender::Render::LightGatherer::lights()
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DRender::Render::LightSource> *ritual_ZN10Qt3DRender6Render13LightGatherer6lightsEv(
+    Qt3DRender::Render::LightGatherer *self) {
+  return &(self->lights());
+}
+
 //  EnvironmentLight *Qt3DRender::Render::LightGatherer::environmentLight()
 //      const
 extern "C" Q_DECL_EXPORT
 Qt3DRender::Render::EnvironmentLight *ritual_ZNK10Qt3DRender6Render13LightGatherer16environmentLightEv(
     const Qt3DRender::Render::LightGatherer *self) {
   return self->environmentLight();
+}
+
+//  void Qt3DRender::Render::LightGatherer::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render13LightGatherer3runEv(
+    Qt3DRender::Render::LightGatherer *self) {
+  self->run();
 }
 
 //  void Qt3DRender::Render::LightGatherer::run()

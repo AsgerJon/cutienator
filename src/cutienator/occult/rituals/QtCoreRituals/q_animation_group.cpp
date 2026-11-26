@@ -286,6 +286,24 @@ const QMetaObject *ritual_ZNK15QAnimationGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAnimationGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QAnimationGroup11qt_metacastEPKc(
+    QAnimationGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAnimationGroup::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QAnimationGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAnimationGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAnimationGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QAnimationGroup2trEPKcS1_i(
@@ -293,6 +311,12 @@ QString *ritual_ZN15QAnimationGroup2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAnimationGroup::tr(s, c, n));
+}
+
+//  QAnimationGroup::QAnimationGroup(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAnimationGroup *ritual_ZN15QAnimationGroupC1EP7QObject(QObject *parent) {
+  return new CuteQAnimationGroup(parent);
 }
 
 //  QAnimationGroup::~QAnimationGroup()
@@ -363,6 +387,15 @@ QAbstractAnimation *ritual_ZN15QAnimationGroup13takeAnimationEi(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAnimationGroup5clearEv(QAnimationGroup *self) {
   self->clear();
+}
+
+//  QAnimationGroup::QAnimationGroup(QAnimationGroupPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAnimationGroup *ritual_ZN15QAnimationGroupC1ER22QAnimationGroupPrivateP7QObject(
+    QAnimationGroupPrivate *dd,
+    QObject *parent) {
+  return new CuteQAnimationGroup(*dd, parent);
 }
 
 //  bool QAnimationGroup::event(QEvent *event)

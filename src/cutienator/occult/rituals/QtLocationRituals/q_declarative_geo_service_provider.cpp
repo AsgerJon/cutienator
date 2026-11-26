@@ -14,6 +14,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QDeclarativeGeoServiceProvider that Python can take functions over in. Every QDeclarativeGeoServiceProvider
 //  Python makes is one. Each function below asks the Python
@@ -221,6 +222,25 @@ const QMetaObject *ritual_ZNK30QDeclarativeGeoServiceProvider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoServiceProvider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QDeclarativeGeoServiceProvider11qt_metacastEPKc(
+    QDeclarativeGeoServiceProvider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoServiceProvider::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QDeclarativeGeoServiceProvider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoServiceProvider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoServiceProvider::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -273,6 +293,15 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK30QDeclarativeGeoServiceProvider4nameEv(
     const QDeclarativeGeoServiceProvider *self) {
   return new QString(self->name());
+}
+
+//  QQmlListProperty<QDeclarativePluginParameter>
+//      QDeclarativeGeoServiceProvider::parameters()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QDeclarativePluginParameter> *ritual_ZN30QDeclarativeGeoServiceProvider10parametersEv(
+    QDeclarativeGeoServiceProvider *self) {
+  return new QQmlListProperty<QDeclarativePluginParameter>(
+      self->parameters());
 }
 
 //  QVariantMap QDeclarativeGeoServiceProvider::parameterMap() const
@@ -329,6 +358,51 @@ QGeoServiceProvider *ritual_ZNK30QDeclarativeGeoServiceProvider24sharedGeoServic
   return self->sharedGeoServiceProvider();
 }
 
+//  bool QDeclarativeGeoServiceProvider::supportsRouting(const
+//      RoutingFeatures &feature) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK30QDeclarativeGeoServiceProvider15supportsRoutingERK6QFlagsINS_14RoutingFeatureEE(
+    const QDeclarativeGeoServiceProvider *self,
+    const QDeclarativeGeoServiceProvider::RoutingFeatures *feature) {
+  return self->supportsRouting(*feature);
+}
+
+//  bool QDeclarativeGeoServiceProvider::supportsGeocoding(const
+//      GeocodingFeatures &feature) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK30QDeclarativeGeoServiceProvider17supportsGeocodingERK6QFlagsINS_16GeocodingFeatureEE(
+    const QDeclarativeGeoServiceProvider *self,
+    const QDeclarativeGeoServiceProvider::GeocodingFeatures *feature) {
+  return self->supportsGeocoding(*feature);
+}
+
+//  bool QDeclarativeGeoServiceProvider::supportsMapping(const
+//      MappingFeatures &feature) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK30QDeclarativeGeoServiceProvider15supportsMappingERK6QFlagsINS_14MappingFeatureEE(
+    const QDeclarativeGeoServiceProvider *self,
+    const QDeclarativeGeoServiceProvider::MappingFeatures *feature) {
+  return self->supportsMapping(*feature);
+}
+
+//  bool QDeclarativeGeoServiceProvider::supportsPlaces(const PlacesFeatures
+//      &feature) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK30QDeclarativeGeoServiceProvider14supportsPlacesERK6QFlagsINS_13PlacesFeatureEE(
+    const QDeclarativeGeoServiceProvider *self,
+    const QDeclarativeGeoServiceProvider::PlacesFeatures *feature) {
+  return self->supportsPlaces(*feature);
+}
+
+//  bool QDeclarativeGeoServiceProvider::supportsNavigation(const
+//      NavigationFeature &feature) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK30QDeclarativeGeoServiceProvider18supportsNavigationERKNS_17NavigationFeatureE(
+    const QDeclarativeGeoServiceProvider *self,
+    const QDeclarativeGeoServiceProvider::NavigationFeature *feature) {
+  return self->supportsNavigation(*feature);
+}
+
 //  QStringList QDeclarativeGeoServiceProvider::locales() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK30QDeclarativeGeoServiceProvider7localesEv(
@@ -367,6 +441,45 @@ bool ritual_ZNK30QDeclarativeGeoServiceProvider17allowExperimentalEv(
   return self->allowExperimental();
 }
 
+//  void QDeclarativeGeoServiceProvider::nameChanged(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QDeclarativeGeoServiceProvider11nameChangedERK7QString(
+    QDeclarativeGeoServiceProvider *self,
+    const QString *name) {
+  self->nameChanged(*name);
+}
+
+//  void QDeclarativeGeoServiceProvider::localesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QDeclarativeGeoServiceProvider14localesChangedEv(
+    QDeclarativeGeoServiceProvider *self) {
+  self->localesChanged();
+}
+
+//  void QDeclarativeGeoServiceProvider::attached()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QDeclarativeGeoServiceProvider8attachedEv(
+    QDeclarativeGeoServiceProvider *self) {
+  self->attached();
+}
+
+//  void QDeclarativeGeoServiceProvider::preferredChanged(const QStringList
+//      &preferences)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QDeclarativeGeoServiceProvider16preferredChangedERK5QListI7QStringE(
+    QDeclarativeGeoServiceProvider *self,
+    const QList<QString> *preferences) {
+  self->preferredChanged(*preferences);
+}
+
+//  void QDeclarativeGeoServiceProvider::allowExperimentalChanged(bool allow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QDeclarativeGeoServiceProvider24allowExperimentalChangedEb(
+    QDeclarativeGeoServiceProvider *self,
+    bool allow) {
+  self->allowExperimentalChanged(allow);
+}
+
 //  bool QDeclarativeGeoServiceProvider::parametersReady()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN30QDeclarativeGeoServiceProvider15parametersReadyEv(
@@ -379,6 +492,42 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN30QDeclarativeGeoServiceProvider9tryAttachEv(
     QDeclarativeGeoServiceProvider *self) {
   self->tryAttach();
+}
+
+//  void QDeclarativeGeoServiceProvider::parameter_append(QQmlListProperty<QD
+//      eclarativePluginParameter> *prop, QDeclarativePluginParameter
+//      *mapObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QDeclarativeGeoServiceProvider16parameter_appendEP16QQmlListPropertyI27QDeclarativePluginParameterEPS1_(
+    QQmlListProperty<QDeclarativePluginParameter> *prop,
+    QDeclarativePluginParameter *mapObject) {
+  QDeclarativeGeoServiceProvider::parameter_append(prop, mapObject);
+}
+
+//  qsizetype QDeclarativeGeoServiceProvider::parameter_count(QQmlListPropert
+//      y<QDeclarativePluginParameter> *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN30QDeclarativeGeoServiceProvider15parameter_countEP16QQmlListPropertyI27QDeclarativePluginParameterE(
+    QQmlListProperty<QDeclarativePluginParameter> *prop) {
+  return QDeclarativeGeoServiceProvider::parameter_count(prop);
+}
+
+//  QDeclarativePluginParameter *QDeclarativeGeoServiceProvider::parameter_at
+//      (QQmlListProperty<QDeclarativePluginParameter> *prop, qsizetype
+//      index)
+extern "C" Q_DECL_EXPORT
+QDeclarativePluginParameter *ritual_ZN30QDeclarativeGeoServiceProvider12parameter_atEP16QQmlListPropertyI27QDeclarativePluginParameterEx(
+    QQmlListProperty<QDeclarativePluginParameter> *prop,
+    qsizetype index) {
+  return QDeclarativeGeoServiceProvider::parameter_at(prop, index);
+}
+
+//  void QDeclarativeGeoServiceProvider::parameter_clear(QQmlListProperty<QDe
+//      clarativePluginParameter> *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QDeclarativeGeoServiceProvider15parameter_clearEP16QQmlListPropertyI27QDeclarativePluginParameterE(
+    QQmlListProperty<QDeclarativePluginParameter> *prop) {
+  QDeclarativeGeoServiceProvider::parameter_clear(prop);
 }
 
 //  QDeclarativeGeoServiceProvider as the QQmlParserStatus it is built on
@@ -410,4 +559,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN30QDeclarativeGeoServiceProvider17componentCompleteEv(
     QDeclarativeGeoServiceProvider *self) {
   self->QDeclarativeGeoServiceProvider::componentComplete();
+}
+
+//  a QQmlListProperty<QDeclarativePluginParameter> a ritual of
+//      QDeclarativeGeoServiceProvider gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativeGeoServiceProvider__QQmlListProperty_QDeclarativePluginParameter(
+    QQmlListProperty<QDeclarativePluginParameter> *self) {
+  delete self;
 }

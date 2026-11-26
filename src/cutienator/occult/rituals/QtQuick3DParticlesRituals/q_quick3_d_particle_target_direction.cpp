@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK31QQuick3DParticleTargetDirection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleTargetDirection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QQuick3DParticleTargetDirection11qt_metacastEPKc(
+    QQuick3DParticleTargetDirection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleTargetDirection::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QQuick3DParticleTargetDirection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleTargetDirection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleTargetDirection::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -113,6 +132,41 @@ void ritual_ZN31QQuick3DParticleTargetDirection21setMagnitudeVariationEf(
     QQuick3DParticleTargetDirection *self,
     float magnitudeVariation) {
   self->setMagnitudeVariation(magnitudeVariation);
+}
+
+//  void QQuick3DParticleTargetDirection::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DParticleTargetDirection15positionChangedEv(
+    QQuick3DParticleTargetDirection *self) {
+  self->positionChanged();
+}
+
+//  void QQuick3DParticleTargetDirection::positionVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DParticleTargetDirection24positionVariationChangedEv(
+    QQuick3DParticleTargetDirection *self) {
+  self->positionVariationChanged();
+}
+
+//  void QQuick3DParticleTargetDirection::normalizedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DParticleTargetDirection17normalizedChangedEv(
+    QQuick3DParticleTargetDirection *self) {
+  self->normalizedChanged();
+}
+
+//  void QQuick3DParticleTargetDirection::magnitudeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DParticleTargetDirection16magnitudeChangedEv(
+    QQuick3DParticleTargetDirection *self) {
+  self->magnitudeChanged();
+}
+
+//  void QQuick3DParticleTargetDirection::magnitudeChangedVariation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DParticleTargetDirection25magnitudeChangedVariationEv(
+    QQuick3DParticleTargetDirection *self) {
+  self->magnitudeChangedVariation();
 }
 
 //  QVector3D QQuick3DParticleTargetDirection::sample(const

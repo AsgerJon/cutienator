@@ -8,6 +8,18 @@
     "ritual_ZN6QQmlJS3AST14PatternElement17unwrapInitializerEv": [
       "nothing", "address"
     ],
+    "ritual_ZN6QQmlJS3AST14PatternElementC1EPNS0_14ExpressionNodeENS1_4TypeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN6QQmlJS3AST14PatternElementC1E11QStringViewPNS0_14TypeAnnotationEPNS0_14ExpressionNodeENS1_4TypeE": [
+      "address", "address", "text", "address", "address", "int"
+    ],
+    "ritual_ZN6QQmlJS3AST14PatternElementC1EPNS0_7PatternEPNS0_14ExpressionNodeENS1_4TypeE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN6QQmlJS3AST14PatternElement7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN6QQmlJS3AST14PatternElement33convertLiteralToAssignmentPatternEPNS_14SourceLocationEP7QString": [
       "bool", "address", "address", "address"
     ],

@@ -180,6 +180,28 @@ bool ritual_ZN14QLocationUtils18getPosInfoFromNmeaE14QByteArrayViewP16QGeoPositi
   return QLocationUtils::getPosInfoFromNmea(*bv, info, uere, hasFix);
 }
 
+//  QNmeaSatelliteInfoSource::SatelliteInfoParseStatus
+//      QLocationUtils::getSatInfoFromNmea(QByteArrayView bv,
+//      QList<QGeoSatelliteInfo> &infos, QGeoSatelliteInfo::SatelliteSystem
+//      &system)
+extern "C" Q_DECL_EXPORT
+QNmeaSatelliteInfoSource::SatelliteInfoParseStatus ritual_ZN14QLocationUtils18getSatInfoFromNmeaE14QByteArrayViewR5QListI17QGeoSatelliteInfoERNS2_15SatelliteSystemE(
+    const QByteArrayView *bv,
+    QList<QGeoSatelliteInfo> *infos,
+    QGeoSatelliteInfo::SatelliteSystem *system) {
+  return QLocationUtils::getSatInfoFromNmea(*bv, *infos, *system);
+}
+
+//  QGeoSatelliteInfo::SatelliteSystem
+//      QLocationUtils::getSatInUseFromNmea(QByteArrayView bv, QList<int>
+//      &pnrsInUse)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfo::SatelliteSystem ritual_ZN14QLocationUtils19getSatInUseFromNmeaE14QByteArrayViewR5QListIiE(
+    const QByteArrayView *bv,
+    QList<int> *pnrsInUse) {
+  return QLocationUtils::getSatInUseFromNmea(*bv, *pnrsInUse);
+}
+
 //  bool QLocationUtils::hasValidNmeaChecksum(QByteArrayView bv)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN14QLocationUtils20hasValidNmeaChecksumE14QByteArrayView(

@@ -5,11 +5,90 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN4QCss6ParserC1Ev": ["address"],
+    "ritual_ZN4QCss6ParserC1ERK7QStringb": ["address", "text", "bool"],
+    "ritual_ZN4QCss6Parser4initERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN4QCss6Parser5parseEPNS_10StyleSheetEN2Qt15CaseSensitivityE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN4QCss6Parser11errorSymbolEv": ["address", "address"],
+    "ritual_ZN4QCss6Parser11parseImportEPNS_10ImportRuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser10parseMediaEPNS_9MediaRuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser11parseMediumEP5QListI7QStringE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser9parsePageEPNS_8PageRuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser15parsePseudoPageEP7QString": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser17parseNextOperatorEPNS_5ValueE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser14parseAnimationEPNS_13AnimationRuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser15parseCombinatorEPNS_13BasicSelector8RelationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser13parsePropertyEPNS_11DeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser12parseRulesetEPNS_9StyleRuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser13parseSelectorEPNS_8SelectorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser19parseSimpleSelectorEPNS_13BasicSelectorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser10parseClassEP7QString": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser16parseElementNameEP7QString": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser11parseAttribEPNS_17AttributeSelectorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser11parsePseudoEPNS_6PseudoE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser20parseNextDeclarationEPNS_11DeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser9parsePrioEPNS_11DeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser9parseExprEP5QListINS_5ValueEE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser9parseTermEPNS_5ValueE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser13parseFunctionEP7QStringS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser13parseHexColorEP6QColor": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser15testAndParseUriEP7QString": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN4QCss6Parser11testRulesetEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser12testSelectorEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser17parseNextSelectorEPNS_8SelectorE": [
       "bool", "address", "address"
     ],
+    "ritual_ZN4QCss6Parser18testSimpleSelectorEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser23parseNextSimpleSelectorEPNS_13BasicSelectorE": [
       "bool", "address", "address"
     ],
@@ -18,6 +97,9 @@
     "ritual_ZN4QCss6Parser10testAttribEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser10testPseudoEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser10testMediumEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser15parseNextMediumEP5QListI7QStringE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN4QCss6Parser14testPseudoPageEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser10testImportEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser9testMediaEv": ["bool", "address"],
@@ -25,7 +107,12 @@
     "ritual_ZN4QCss6Parser13testAnimationEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser14testCombinatorEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser12testPropertyEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser8testTermEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser8testExprEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser13parseNextExprEP5QListINS_5ValueEE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser8testPrioEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser12testHexColorEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser12testFunctionEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser17parseNextFunctionEP7QStringS2_": [
@@ -35,10 +122,22 @@
     "ritual_ZN4QCss6Parser9skipSpaceEv": ["nothing", "address"],
     "ritual_ZNK4QCss6Parser7hasNextEv": ["bool", "address"],
     "ritual_ZN4QCss6Parser4nextEv": ["int", "address"],
+    "ritual_ZN4QCss6Parser4nextENS_9TokenTypeE": ["bool", "address", "int"],
+    "ritual_ZN4QCss6Parser4testENS_9TokenTypeE": ["bool", "address", "int"],
     "ritual_ZN4QCss6Parser4prevEv": ["nothing", "address"],
     "ritual_ZNK4QCss6Parser6symbolEv": ["address", "address"],
     "ritual_ZNK4QCss6Parser5lexemEv": ["text", "address"],
+    "ritual_ZNK4QCss6Parser13unquotedLexemEv": ["text", "address"],
+    "ritual_ZN4QCss6Parser10lexemUntilENS_9TokenTypeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN4QCss6Parser5untilENS_9TokenTypeES1_": [
+      "bool", "address", "int", "int"
+    ],
     "ritual_ZNK4QCss6Parser6lookupEv": ["int", "address"],
+    "ritual_ZN4QCss6Parser20testTokenAndEndsWithENS_9TokenTypeE13QLatin1String": [
+      "bool", "address", "int", "address"
+    ],
     "ritual_ZN4QCss6Parser11recordErrorEv": ["bool", "address"],
     "ritual_ZN4QCss6ParserD1Ev": ["nothing", "address"]
   }

@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore9QArmature10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QArmature::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore9QArmature11qt_metacastEPKc(
+    Qt3DCore::QArmature *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QArmature::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore9QArmature11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QArmature *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QArmature::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore9QArmature2trEPKcS2_i(
@@ -186,6 +205,53 @@ QString *ritual_ZN8Qt3DCore9QArmature2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QArmature::tr(s, c, n));
+}
+
+//  Qt3DCore::QArmature::QArmature(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QArmature *ritual_ZN8Qt3DCore9QArmatureC1EPNS_5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QArmature(parent);
+}
+
+//  Qt3DCore::QArmature::~QArmature()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore9QArmatureD1Ev(Qt3DCore::QArmature *self) {
+  delete self;
+}
+
+//  QAbstractSkeleton *Qt3DCore::QArmature::skeleton() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractSkeleton *ritual_ZNK8Qt3DCore9QArmature8skeletonEv(
+    const Qt3DCore::QArmature *self) {
+  return self->skeleton();
+}
+
+//  void Qt3DCore::QArmature::setSkeleton(Qt3DCore::QAbstractSkeleton
+//      *skeleton)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore9QArmature11setSkeletonEPNS_17QAbstractSkeletonE(
+    Qt3DCore::QArmature *self,
+    Qt3DCore::QAbstractSkeleton *skeleton) {
+  self->setSkeleton(skeleton);
+}
+
+//  void Qt3DCore::QArmature::skeletonChanged(Qt3DCore::QAbstractSkeleton
+//      *skeleton)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore9QArmature15skeletonChangedEPNS_17QAbstractSkeletonE(
+    Qt3DCore::QArmature *self,
+    Qt3DCore::QAbstractSkeleton *skeleton) {
+  self->skeletonChanged(skeleton);
+}
+
+//  Qt3DCore::QArmature::QArmature(QArmaturePrivate &dd, Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QArmature *ritual_ZN8Qt3DCore9QArmatureC1ERNS_16QArmaturePrivateEPNS_5QNodeE(
+    Qt3DCore::QArmaturePrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QArmature(*dd, parent);
 }
 
 //  QArmaturePrivate *Qt3DCore::QArmature::d_func()

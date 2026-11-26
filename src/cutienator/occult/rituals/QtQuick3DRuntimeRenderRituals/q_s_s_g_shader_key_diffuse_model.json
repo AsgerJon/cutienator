@@ -6,6 +6,18 @@
   ],
   "rows": {
     "ritual_ZN25QSSGShaderKeyDiffuseModelC1EPKc": ["address", "chars"],
+    "ritual_ZN25QSSGShaderKeyDiffuseModel15setDiffuseModelE11QSSGDataRefIjEN25QSSGRenderDefaultMaterial20MaterialDiffuseModelE": [
+      "nothing", "address", "address", "unsigned char"
+    ],
+    "ritual_ZNK25QSSGShaderKeyDiffuseModel15getDiffuseModelE12QSSGDataViewIjE": [
+      "unsigned char", "address", "address"
+    ],
+    "ritual_ZNK25QSSGShaderKeyDiffuseModel8toStringER10QByteArray12QSSGDataViewIjE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QSSGShaderKeyDiffuseModel10fromStringERK10QByteArray11QSSGDataRefIjE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN25QSSGShaderKeyDiffuseModelD1Ev": ["nothing", "address"]
   }
 }

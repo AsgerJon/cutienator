@@ -6,8 +6,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssglayerrenderdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qsize.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DRuntimeRender/private/qssglayerrenderdata_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderer_p.h>
@@ -45,6 +45,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3d/src/runtimerender/rendererimpl/qssglayerrenderdata.cpp, line 3121, as _ZN32QSSGLayerRenderPreparationResultC1ERK6QRectFR15QSSGRenderLayer
+inline QSSGLayerRenderPreparationResult::QSSGLayerRenderPreparationResult(const QRectF &inViewport, QSSGRenderLayer &inLayer)
+    : layer(&inLayer)
+    , m_state(State::DataPrep)
+{
+    viewport = inViewport;
+}
+
 //  from ../qtquick3d/src/runtimerender/rendererimpl/qssglayerrenderdata.cpp, line 3128, as _ZNK32QSSGLayerRenderPreparationResult14isLayerVisibleEv
 inline bool QSSGLayerRenderPreparationResult::isLayerVisible() const
 {
@@ -63,6 +71,15 @@ inline QSize QSSGLayerRenderPreparationResult::textureDimensions() const
 extern "C" Q_DECL_EXPORT
 QSSGLayerRenderPreparationResult *ritual_ZN32QSSGLayerRenderPreparationResultC1Ev() {
   return new QSSGLayerRenderPreparationResult();
+}
+
+//  QSSGLayerRenderPreparationResult::QSSGLayerRenderPreparationResult(const
+//      QRectF &inViewport, QSSGRenderLayer &inLayer)
+extern "C" Q_DECL_EXPORT
+QSSGLayerRenderPreparationResult *ritual_ZN32QSSGLayerRenderPreparationResultC1ERK6QRectFR15QSSGRenderLayer(
+    const QRectF *inViewport,
+    QSSGRenderLayer *inLayer) {
+  return new QSSGLayerRenderPreparationResult(*inViewport, *inLayer);
 }
 
 //  void QSSGLayerRenderPreparationResult::setState(State state)

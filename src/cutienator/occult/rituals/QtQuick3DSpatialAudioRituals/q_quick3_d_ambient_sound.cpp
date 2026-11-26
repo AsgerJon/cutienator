@@ -24,12 +24,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dambientsound.cpp, line 40, as _ZN20QQuick3DAmbientSoundD1Ev
-inline QQuick3DAmbientSound::~QQuick3DAmbientSound()
-{
-    delete m_sound;
-}
-
 //  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dambientsound.cpp, line 55, as _ZN20QQuick3DAmbientSound9setSourceERK4QUrl
 inline void QQuick3DAmbientSound::setSource(const QUrl& source)
 {
@@ -76,24 +70,6 @@ inline bool QQuick3DAmbientSound::autoPlay() const
 inline void QQuick3DAmbientSound::setAutoPlay(bool autoPlay)
 {
     m_sound->setAutoPlay(autoPlay);
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dambientsound.cpp, line 116, as _ZN20QQuick3DAmbientSound4playEv
-inline void QQuick3DAmbientSound::play()
-{
-    m_sound->play();
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dambientsound.cpp, line 126, as _ZN20QQuick3DAmbientSound5pauseEv
-inline void QQuick3DAmbientSound::pause()
-{
-    m_sound->pause();
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dambientsound.cpp, line 137, as _ZN20QQuick3DAmbientSound4stopEv
-inline void QQuick3DAmbientSound::stop()
-{
-    m_sound->stop();
 }
 //  -----------------------------------------------------------------------
 
@@ -271,6 +247,25 @@ const QMetaObject *ritual_ZNK20QQuick3DAmbientSound10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DAmbientSound::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuick3DAmbientSound11qt_metacastEPKc(
+    QQuick3DAmbientSound *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DAmbientSound::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuick3DAmbientSound11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DAmbientSound *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuick3DAmbientSound::~QQuick3DAmbientSound()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DAmbientSoundD1Ev(QQuick3DAmbientSound *self) {
@@ -340,19 +335,173 @@ void ritual_ZN20QQuick3DAmbientSound11setAutoPlayEb(
 //  void QQuick3DAmbientSound::play()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DAmbientSound4playEv(QQuick3DAmbientSound *self) {
-  self->play();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAmbientSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "play()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "play()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DAmbientSound::pause()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DAmbientSound5pauseEv(QQuick3DAmbientSound *self) {
-  self->pause();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAmbientSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "pause()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "pause()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DAmbientSound::stop()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DAmbientSound4stopEv(QQuick3DAmbientSound *self) {
-  self->stop();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAmbientSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "stop()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "stop()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAmbientSound::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DAmbientSound13sourceChangedEv(
+    QQuick3DAmbientSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAmbientSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sourceChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sourceChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAmbientSound::volumeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DAmbientSound13volumeChangedEv(
+    QQuick3DAmbientSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAmbientSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "volumeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "volumeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAmbientSound::loopsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DAmbientSound12loopsChangedEv(
+    QQuick3DAmbientSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAmbientSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "loopsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "loopsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAmbientSound::autoPlayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DAmbientSound15autoPlayChangedEv(
+    QQuick3DAmbientSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAmbientSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "autoPlayChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "autoPlayChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuick3DAmbientSound, for the function

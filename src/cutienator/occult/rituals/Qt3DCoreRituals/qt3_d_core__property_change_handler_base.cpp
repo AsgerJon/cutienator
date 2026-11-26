@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore25PropertyChangeHandlerBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::PropertyChangeHandlerBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore25PropertyChangeHandlerBase11qt_metacastEPKc(
+    Qt3DCore::PropertyChangeHandlerBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::PropertyChangeHandlerBase::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore25PropertyChangeHandlerBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::PropertyChangeHandlerBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::PropertyChangeHandlerBase::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -193,6 +212,35 @@ QString *ritual_ZN8Qt3DCore25PropertyChangeHandlerBase2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::PropertyChangeHandlerBase::tr(s, c, n));
+}
+
+//  Qt3DCore::PropertyChangeHandlerBase::PropertyChangeHandlerBase(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::PropertyChangeHandlerBase *ritual_ZN8Qt3DCore25PropertyChangeHandlerBaseC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DCore_PropertyChangeHandlerBase(parent);
+}
+
+//  void Qt3DCore::PropertyChangeHandlerBase::connectToPropertyChange(const
+//      QObject *object, int propertyIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25PropertyChangeHandlerBase23connectToPropertyChangeEPK7QObjecti(
+    Qt3DCore::PropertyChangeHandlerBase *self,
+    const QObject *object,
+    int propertyIndex) {
+  self->connectToPropertyChange(object, propertyIndex);
+}
+
+//  void
+//      Qt3DCore::PropertyChangeHandlerBase::disconnectFromPropertyChange(con
+//      st QObject *object, int propertyIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25PropertyChangeHandlerBase28disconnectFromPropertyChangeEPK7QObjecti(
+    Qt3DCore::PropertyChangeHandlerBase *self,
+    const QObject *object,
+    int propertyIndex) {
+  self->disconnectFromPropertyChange(object, propertyIndex);
 }
 
 //  a Python function taken by a CuteQt3DCore_PropertyChangeHandlerBase, for

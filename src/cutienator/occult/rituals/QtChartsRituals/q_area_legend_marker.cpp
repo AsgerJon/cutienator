@@ -226,6 +226,25 @@ const QMetaObject *ritual_ZNK17QAreaLegendMarker10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAreaLegendMarker::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QAreaLegendMarker11qt_metacastEPKc(
+    QAreaLegendMarker *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAreaLegendMarker::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QAreaLegendMarker11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAreaLegendMarker *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAreaLegendMarker::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QAreaLegendMarker2trEPKcS1_i(
@@ -262,6 +281,15 @@ QLegendMarker::LegendMarkerType ritual_ZN17QAreaLegendMarker4typeEv(
 extern "C" Q_DECL_EXPORT
 QAreaSeries *ritual_ZN17QAreaLegendMarker6seriesEv(QAreaLegendMarker *self) {
   return self->series();
+}
+
+//  QAreaLegendMarker::QAreaLegendMarker(QAreaLegendMarkerPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAreaLegendMarker *ritual_ZN17QAreaLegendMarkerC1ER24QAreaLegendMarkerPrivateP7QObject(
+    QAreaLegendMarkerPrivate *d,
+    QObject *parent) {
+  return new CuteQAreaLegendMarker(*d, parent);
 }
 
 //  QAreaLegendMarkerPrivate *QAreaLegendMarker::d_func()

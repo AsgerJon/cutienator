@@ -9,8 +9,13 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qdbusmenuregistrarproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDBus/qdbusextratypes.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtDBus/QDBusPendingReply>
+#include <QtCore/QString>
+#include <QtDBus/QDBusObjectPath>
+#include <QtDBus/QDBusReply>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qdbusmenuregistrarproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -215,6 +220,25 @@ const QMetaObject *ritual_ZNK27QDBusMenuRegistrarInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDBusMenuRegistrarInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QDBusMenuRegistrarInterface11qt_metacastEPKc(
+    QDBusMenuRegistrarInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusMenuRegistrarInterface::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QDBusMenuRegistrarInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusMenuRegistrarInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const char *QDBusMenuRegistrarInterface::staticInterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN27QDBusMenuRegistrarInterface19staticInterfaceNameEv() {
@@ -228,6 +252,52 @@ void ritual_ZN27QDBusMenuRegistrarInterfaceD1Ev(
   delete self;
 }
 
+//  QDBusPendingReply<QString, QDBusObjectPath>
+//      QDBusMenuRegistrarInterface::GetMenuForWindow(uint windowId)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<QString, QDBusObjectPath> *ritual_ZN27QDBusMenuRegistrarInterface16GetMenuForWindowEj(
+    QDBusMenuRegistrarInterface *self,
+    uint windowId) {
+  return new QDBusPendingReply<QString, QDBusObjectPath>(
+      self->GetMenuForWindow(
+          windowId));
+}
+
+//  QDBusReply<QString> QDBusMenuRegistrarInterface::GetMenuForWindow(uint
+//      windowId, QDBusObjectPath &menuObjectPath)
+extern "C" Q_DECL_EXPORT
+QDBusReply<QString> *ritual_ZN27QDBusMenuRegistrarInterface16GetMenuForWindowEjR15QDBusObjectPath(
+    QDBusMenuRegistrarInterface *self,
+    uint windowId,
+    QDBusObjectPath *menuObjectPath) {
+  return new QDBusReply<QString>(
+      self->GetMenuForWindow(
+          windowId,
+          *menuObjectPath));
+}
+
+//  QDBusPendingReply<> QDBusMenuRegistrarInterface::RegisterWindow(uint
+//      windowId, const QDBusObjectPath &menuObjectPath)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN27QDBusMenuRegistrarInterface14RegisterWindowEjRK15QDBusObjectPath(
+    QDBusMenuRegistrarInterface *self,
+    uint windowId,
+    const QDBusObjectPath *menuObjectPath) {
+  return new QDBusPendingReply<>(
+      self->RegisterWindow(
+          windowId,
+          *menuObjectPath));
+}
+
+//  QDBusPendingReply<> QDBusMenuRegistrarInterface::UnregisterWindow(uint
+//      windowId)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN27QDBusMenuRegistrarInterface16UnregisterWindowEj(
+    QDBusMenuRegistrarInterface *self,
+    uint windowId) {
+  return new QDBusPendingReply<>(self->UnregisterWindow(windowId));
+}
+
 //  a Python function taken by a CuteQDBusMenuRegistrarInterface, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -236,6 +306,28 @@ bool ritual_take_QDBusMenuRegistrarInterface(
     const char *key,
     void *call) {
   return static_cast<CuteQDBusMenuRegistrarInterface *>(self)->take(key, call);
+}
+
+//  a QDBusPendingReply<QString, QDBusObjectPath> a ritual of
+//      QDBusMenuRegistrarInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDBusMenuRegistrarInterface__QDBusPendingReply_QString_QDBusObjectPath(
+    QDBusPendingReply<QString, QDBusObjectPath> *self) {
+  delete self;
+}
+
+//  a QDBusReply<QString> a ritual of QDBusMenuRegistrarInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDBusMenuRegistrarInterface__QDBusReply_QString(
+    QDBusReply<QString> *self) {
+  delete self;
+}
+
+//  a QDBusPendingReply<> a ritual of QDBusMenuRegistrarInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDBusMenuRegistrarInterface__QDBusPendingReply(
+    QDBusPendingReply<> *self) {
+  delete self;
 }
 
 #endif  // 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))

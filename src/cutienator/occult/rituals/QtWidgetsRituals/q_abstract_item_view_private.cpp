@@ -97,6 +97,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 3594, as _ZN24QAbstractItemViewPrivate11rowsRemovedERK11QModelIndexii
 inline void QAbstractItemViewPrivate::rowsRemoved(const QModelIndex &index, int start, int end)
 {
@@ -1043,6 +1045,44 @@ inline void QAbstractItemViewPrivate::removeEditor(QWidget *editor)
         editorIndexHash.erase(it);
     }
 }
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 177, as _ZN24QAbstractItemViewPrivate23updateItemAccessibilityERK11QModelIndexRK5QListIiE
+#if QT_CONFIG(accessibility)
+inline void QAbstractItemViewPrivate::updateItemAccessibility(const QModelIndex &index,
+                                                       const QList<int> &roles)
+{
+    Q_Q(QAbstractItemView);
+
+    if (!QAccessible::isActive())
+        return;
+
+    const int childIndex = accessibleChildIndex(index);
+    if (childIndex < 0)
+        return;
+
+    // see QAccessibleTableCell for how role data are mapped to the a11y layer
+
+    for (int role : roles) {
+        if (role == Qt::AccessibleTextRole
+            || (role == Qt::DisplayRole
+                && index.data(Qt::AccessibleTextRole).toString().isEmpty())) {
+            QAccessibleEvent event(q, QAccessible::NameChanged);
+            event.setChild(childIndex);
+            QAccessible::updateAccessibility(&event);
+        } else if (role == Qt::AccessibleDescriptionRole) {
+            QAccessibleEvent event(q, QAccessible::DescriptionChanged);
+            event.setChild(childIndex);
+            QAccessible::updateAccessibility(&event);
+        } else if (role == Qt::CheckStateRole) {
+            QAccessible::State state;
+            state.checked = true;
+            QAccessibleStateChangeEvent event(q, state);
+            event.setChild(childIndex);
+            QAccessible::updateAccessibility(&event);
+        }
+    }
+}
+#endif  // QT_CONFIG(accessibility)
 
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 4765, as _ZNK24QAbstractItemViewPrivate24selectedDraggableIndexesEv
 #if QT_CONFIG(draganddrop)
@@ -2481,6 +2521,18 @@ int ritual_ZNK24QAbstractItemViewPrivate20accessibleChildIndexERK11QModelIndex(
     const QAbstractItemViewPrivate *self,
     const QModelIndex *index) {
   return self->accessibleChildIndex(*index);
+}
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+//  void QAbstractItemViewPrivate::updateItemAccessibility(const QModelIndex
+//      &index, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QAbstractItemViewPrivate23updateItemAccessibilityERK11QModelIndexRK5QListIiE(
+    QAbstractItemViewPrivate *self,
+    const QModelIndex *index,
+    const QList<int> *roles) {
+  self->updateItemAccessibility(*index, *roles);
 }
 #endif  // QT_CONFIG(accessibility)
 

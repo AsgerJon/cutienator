@@ -8,6 +8,12 @@
     "ritual_ZNK25QDeclarativeGeoRouteQuery10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QDeclarativeGeoRouteQuery2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,6 +38,9 @@
     ],
     "ritual_ZNK25QDeclarativeGeoRouteQuery23numberAlternativeRoutesEv": [
       "int", "address"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery12featureTypesEv": [
+      "address", "address"
     ],
     "ritual_ZNK25QDeclarativeGeoRouteQuery9waypointsEv": [
       "address", "address"
@@ -102,6 +111,36 @@
     "ritual_ZNK25QDeclarativeGeoRouteQuery13departureTimeEv": [
       "address", "address"
     ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery30numberAlternativeRoutesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery18travelModesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery25routeOptimizationsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery16waypointsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery20excludedAreasChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery19featureTypesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery21maneuverDetailChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery20segmentDetailChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery19queryDetailsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery20departureTimeChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN25QDeclarativeGeoRouteQuery29excludedAreaCoordinateChangedEv": [
       "nothing", "address"
     ],
@@ -121,6 +160,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN25QDeclarativeGeoRouteQuery17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativeGeoRouteQuery__QList_int": [
       "nothing", "address"
     ]
   }

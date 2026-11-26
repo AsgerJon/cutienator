@@ -19,6 +19,13 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtlocation/src/location/places/qplacecontentrequest.cpp, line 13, as _ZNK27QPlaceContentRequestPrivateeqERKS_
+inline bool QPlaceContentRequestPrivate::operator==(const QPlaceContentRequestPrivate &other) const
+{
+    return contentType == other.contentType
+            && limit == other.limit;
+}
+
 //  from ../qtlocation/src/location/places/qplacecontentrequest.cpp, line 19, as _ZN27QPlaceContentRequestPrivate5clearEv
 inline void QPlaceContentRequestPrivate::clear()
 {
@@ -26,6 +33,15 @@ inline void QPlaceContentRequestPrivate::clear()
     limit = -1;
 }
 //  -----------------------------------------------------------------------
+
+//  bool QPlaceContentRequestPrivate::operator==(const
+//      QPlaceContentRequestPrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK27QPlaceContentRequestPrivateeqERKS_(
+    const QPlaceContentRequestPrivate *self,
+    const QPlaceContentRequestPrivate *other) {
+  return self->operator==(*other);
+}
 
 //  void QPlaceContentRequestPrivate::clear()
 extern "C" Q_DECL_EXPORT

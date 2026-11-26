@@ -12,7 +12,9 @@
 #include <QtLabsQmlModels/6.12.0/QtLabsQmlModels/private/qqmlabstractcolumnmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlatin1stringview.h>
@@ -24,6 +26,11 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QString>
+#include <optional>
+#include <QtCore/QVariantList>
+#include <QtCore/QVariant>
 
 //  Only a class built on QQmlAbstractColumnModel may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1055,6 +1062,25 @@ const QMetaObject *ritual_ZNK23QQmlAbstractColumnModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlAbstractColumnModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQmlAbstractColumnModel11qt_metacastEPKc(
+    QQmlAbstractColumnModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlAbstractColumnModel::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQmlAbstractColumnModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlAbstractColumnModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlAbstractColumnModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQmlAbstractColumnModel2trEPKcS1_i(
@@ -1071,10 +1097,76 @@ void ritual_ZN23QQmlAbstractColumnModel22qt_qmlMarker_anonymousEv(
   self->qt_qmlMarker_anonymous();
 }
 
+//  QQmlAbstractColumnModel::QQmlAbstractColumnModel(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQmlAbstractColumnModel *ritual_ZN23QQmlAbstractColumnModelC1EP7QObject(
+    QObject *parent) {
+  return new CuteQQmlAbstractColumnModel(parent);
+}
+
 //  QQmlAbstractColumnModel::~QQmlAbstractColumnModel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQmlAbstractColumnModelD1Ev(QQmlAbstractColumnModel *self) {
   delete self;
+}
+
+//  QQmlListProperty<QQmlTableModelColumn> QQmlAbstractColumnModel::columns()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQmlTableModelColumn> *ritual_ZN23QQmlAbstractColumnModel7columnsEv(
+    QQmlAbstractColumnModel *self) {
+  return new QQmlListProperty<QQmlTableModelColumn>(self->columns());
+}
+
+//  void QQmlAbstractColumnModel::columns_append(QQmlListProperty<QQmlTableMo
+//      delColumn> *property, QQmlTableModelColumn *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQmlAbstractColumnModel14columns_appendEP16QQmlListPropertyI20QQmlTableModelColumnEPS1_(
+    QQmlListProperty<QQmlTableModelColumn> *property,
+    QQmlTableModelColumn *value) {
+  QQmlAbstractColumnModel::columns_append(property, value);
+}
+
+//  qsizetype QQmlAbstractColumnModel::columns_count(QQmlListProperty<QQmlTab
+//      leModelColumn> *property)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN23QQmlAbstractColumnModel13columns_countEP16QQmlListPropertyI20QQmlTableModelColumnE(
+    QQmlListProperty<QQmlTableModelColumn> *property) {
+  return QQmlAbstractColumnModel::columns_count(property);
+}
+
+//  QQmlTableModelColumn *QQmlAbstractColumnModel::columns_at(QQmlListPropert
+//      y<QQmlTableModelColumn> *property, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQmlTableModelColumn *ritual_ZN23QQmlAbstractColumnModel10columns_atEP16QQmlListPropertyI20QQmlTableModelColumnEx(
+    QQmlListProperty<QQmlTableModelColumn> *property,
+    qsizetype index) {
+  return QQmlAbstractColumnModel::columns_at(property, index);
+}
+
+//  void QQmlAbstractColumnModel::columns_clear(QQmlListProperty<QQmlTableMod
+//      elColumn> *property)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQmlAbstractColumnModel13columns_clearEP16QQmlListPropertyI20QQmlTableModelColumnE(
+    QQmlListProperty<QQmlTableModelColumn> *property) {
+  QQmlAbstractColumnModel::columns_clear(property);
+}
+
+//  void QQmlAbstractColumnModel::columns_replace(QQmlListProperty<QQmlTableM
+//      odelColumn> *property, qsizetype index, QQmlTableModelColumn *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQmlAbstractColumnModel15columns_replaceEP16QQmlListPropertyI20QQmlTableModelColumnExPS1_(
+    QQmlListProperty<QQmlTableModelColumn> *property,
+    qsizetype index,
+    QQmlTableModelColumn *value) {
+  QQmlAbstractColumnModel::columns_replace(property, index, value);
+}
+
+//  void QQmlAbstractColumnModel::columns_removeLast(QQmlListProperty<QQmlTab
+//      leModelColumn> *property)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQmlAbstractColumnModel18columns_removeLastEP16QQmlListPropertyI20QQmlTableModelColumnE(
+    QQmlListProperty<QQmlTableModelColumn> *property) {
+  QQmlAbstractColumnModel::columns_removeLast(property);
 }
 
 //  QVariant QQmlAbstractColumnModel::data(const QModelIndex &index, const
@@ -1135,6 +1227,20 @@ int ritual_ZNK23QQmlAbstractColumnModel5flagsERK11QModelIndex(
   return static_cast<int>(self->flags(*index).toInt());
 }
 
+//  void QQmlAbstractColumnModel::columnCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQmlAbstractColumnModel18columnCountChangedEv(
+    QQmlAbstractColumnModel *self) {
+  self->columnCountChanged();
+}
+
+//  void QQmlAbstractColumnModel::rowsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQmlAbstractColumnModel11rowsChangedEv(
+    QQmlAbstractColumnModel *self) {
+  self->rowsChanged();
+}
+
 //  void QQmlAbstractColumnModel::classBegin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQmlAbstractColumnModel10classBeginEv(
@@ -1184,6 +1290,22 @@ void ritual_ZN23QQmlAbstractColumnModel14setDataPrivateERK11QModelIndexRK7QStrin
   self->setDataPrivate(*index, *roleName, *value);
 }
 
+//  ColumnRoleMetadata QQmlAbstractColumnModel::fetchColumnRoleData(const
+//      QString &roleNameKey, QQmlTableModelColumn *tableModelColumn, int
+//      columnIndex) const
+extern "C" Q_DECL_EXPORT
+QQmlAbstractColumnModel::ColumnRoleMetadata *ritual_ZNK23QQmlAbstractColumnModel19fetchColumnRoleDataERK7QStringP20QQmlTableModelColumni(
+    const QQmlAbstractColumnModel *self,
+    const QString *roleNameKey,
+    QQmlTableModelColumn *tableModelColumn,
+    int columnIndex) {
+  return new QQmlAbstractColumnModel::ColumnRoleMetadata(
+      self->fetchColumnRoleData(
+          *roleNameKey,
+          tableModelColumn,
+          columnIndex));
+}
+
 //  void QQmlAbstractColumnModel::fetchColumnMetadata()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQmlAbstractColumnModel19fetchColumnMetadataEv(
@@ -1218,6 +1340,16 @@ extern "C" Q_DECL_EXPORT
 QLatin1String *ritual_ZN23QQmlAbstractColumnModel10jsTypeNameERK8QJSValue(
     const QJSValue *v) {
   return new QLatin1String(QQmlAbstractColumnModel::jsTypeName(*v));
+}
+
+//  std::optional<QVariantList>
+//      QQmlAbstractColumnModel::validateRowsArgument(const QVariant &rows)
+//      const
+extern "C" Q_DECL_EXPORT
+std::optional<QVariantList> *ritual_ZNK23QQmlAbstractColumnModel20validateRowsArgumentERK8QVariant(
+    const QQmlAbstractColumnModel *self,
+    const QVariant *rows) {
+  return new std::optional<QVariantList>(self->validateRowsArgument(*rows));
 }
 
 //  QQmlAbstractColumnModel as the QQmlParserStatus it is built on
@@ -1281,6 +1413,29 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN23QQmlAbstractColumnModel17componentCompleteEv(
     QQmlAbstractColumnModel *self) {
   static_cast<OwnQQmlAbstractColumnModel *>(self)->OwnQQmlAbstractColumnModel::componentComplete();
+}
+
+//  a QQmlListProperty<QQmlTableModelColumn> a ritual of
+//      QQmlAbstractColumnModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlAbstractColumnModel__QQmlListProperty_QQmlTableModelColumn(
+    QQmlListProperty<QQmlTableModelColumn> *self) {
+  delete self;
+}
+
+//  a QQmlAbstractColumnModel::ColumnRoleMetadata a ritual of
+//      QQmlAbstractColumnModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlAbstractColumnModel__QQmlAbstractColumnModel_ColumnRoleMetadata(
+    QQmlAbstractColumnModel::ColumnRoleMetadata *self) {
+  delete self;
+}
+
+//  a std::optional<QVariantList> a ritual of QQmlAbstractColumnModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlAbstractColumnModel__std_optional_QVariantList(
+    std::optional<QVariantList> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_table_model)

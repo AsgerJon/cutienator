@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QAbstractSlider10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractSlider11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QAbstractSlider11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QAbstractSlider2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -59,6 +65,20 @@
     "ritual_ZN15QAbstractSlider8setRangeEii": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN15QAbstractSlider12valueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSlider13sliderPressedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSlider11sliderMovedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSlider14sliderReleasedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSlider12rangeChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QAbstractSlider15actionTriggeredEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN15QAbstractSlider5eventEP6QEvent": [
       "bool", "address", "address"
     ],
@@ -80,6 +100,9 @@
     ],
     "ritual_ZN15QAbstractSlider11changeEventEP6QEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSliderC1ER22QAbstractSliderPrivateP7QWidget": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QAbstractSlider6d_funcEv": ["address", "address"],
     "ritual_ZNK15QAbstractSlider6d_funcEv": ["address", "address"],

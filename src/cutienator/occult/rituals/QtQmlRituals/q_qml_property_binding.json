@@ -2,16 +2,33 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qqmlpropertybinding_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN19QQmlPropertyBinding24jsExpressionOffsetLengthEv": ["size_t"],
     "ritual_ZN19QQmlPropertyBinding12jsExpressionEv": ["address", "address"],
     "ritual_ZNK19QQmlPropertyBinding12jsExpressionEv": [
       "address", "address"
     ],
+    "ritual_ZN19QQmlPropertyBinding6createEPK16QQmlPropertyDataPN3QV48FunctionEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS3_16ExecutionContextES7_17QQmlPropertyIndex": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding6createE9QMetaTypePN3QV48FunctionEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS1_16ExecutionContextES5_17QQmlPropertyIndex": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding20createFromCodeStringEPK16QQmlPropertyDataRK7QStringP7QObjectRK14QQmlRefPointerI15QQmlContextDataES5_tS7_17QQmlPropertyIndex": [
+      "address", "address", "text", "address", "address", "text",
+      "unsigned short", "address", "address"
+    ],
     "ritual_ZN19QQmlPropertyBinding22createFromScriptStringEPK16QQmlPropertyDataRK16QQmlScriptStringP7QObjectP11QQmlContextS7_17QQmlPropertyIndex": [
       "address", "address", "address", "address", "address", "address",
       "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding23createFromBoundFunctionEPK16QQmlPropertyDataPN3QV413BoundFunctionEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS3_16ExecutionContextES7_17QQmlPropertyIndex": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
     ],
     "ritual_ZN19QQmlPropertyBinding11isUndefinedERK23QUntypedPropertyBinding": [
       "bool", "address"
@@ -21,6 +38,9 @@
     ],
     "ritual_ZNK19QQmlPropertyBinding15hasDependenciesEv": [
       "bool", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding25handleUndefinedAssignmentEP17QQmlEnginePrivatePv": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN19QQmlPropertyBinding33createBindingLoopErrorDescriptionEv": [
       "text", "address"
@@ -33,6 +53,36 @@
     ],
     "ritual_ZN19QQmlPropertyBinding20bindingErrorCallbackEP23QPropertyBindingPrivate": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding10doEvaluateILN9QMetaType4TypeE39EEEbS1_P20QUntypedPropertyDataPv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding10doEvaluateILN9QMetaType4TypeE1EEEbS1_P20QUntypedPropertyDataPv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding10doEvaluateILN9QMetaType4TypeE2EEEbS1_P20QUntypedPropertyDataPv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding10doEvaluateILN9QMetaType4TypeE6EEEbS1_P20QUntypedPropertyDataPv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding10doEvaluateILN9QMetaType4TypeE10EEEbS1_P20QUntypedPropertyDataPv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding8evaluateILN9QMetaType4TypeE39EEEbS1_Pv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding8evaluateILN9QMetaType4TypeE1EEEbS1_Pv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding8evaluateILN9QMetaType4TypeE2EEEbS1_Pv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding8evaluateILN9QMetaType4TypeE6EEEbS1_Pv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding8evaluateILN9QMetaType4TypeE10EEEbS1_Pv": [
+      "bool", "address", "address", "address"
     ]
   }
 }

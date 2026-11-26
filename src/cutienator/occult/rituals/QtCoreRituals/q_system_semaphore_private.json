@@ -23,6 +23,12 @@
     ],
     "ritual_ZN23QSystemSemaphorePrivate15destructBackendEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN23QSystemSemaphorePrivate6handleEN16QSystemSemaphore10AccessModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QSystemSemaphorePrivate11cleanHandleEv": [
+      "nothing", "address"
     ]
   }
 }

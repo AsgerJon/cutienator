@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN14QQmlJSImporter26ImportVisitorPrerequisitesC1E22QDeferredSharedPointerI11QQmlJSScopeEP12QQmlJSLoggerRK7QStringRK5QListIS6_E": [
+      "address", "address", "address", "text", "address"
+    ],
     "ritual_ZN14QQmlJSImporter26ImportVisitorPrerequisitesD1Ev": [
       "nothing", "address"
     ]

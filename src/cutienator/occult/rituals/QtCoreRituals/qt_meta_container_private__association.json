@@ -1,10 +1,50 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qmetaassociation.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qmetaassociation.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZN22QtMetaContainerPrivate11AssociationC1Ev": ["address"],
+    "ritual_ZN22QtMetaContainerPrivate11AssociationC1ERK16QMetaAssociation9QMetaTypePv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11AssociationC1ERK16QMetaAssociation9QMetaTypePKv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11AssociationC1EO9QIterableI16QMetaAssociationE": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11AssociationaSEO9QIterableI16QMetaAssociationE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate11Association5beginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate11Association3endEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate11Association10constBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate11Association8constEndEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11Association12mutableBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11Association10mutableEndEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate11Association4findERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate11Association9constFindERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11Association11mutableFindERK8QVariant": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK22QtMetaContainerPrivate11Association11containsKeyERK8QVariant": [
       "bool", "address", "address"
     ],
@@ -22,6 +62,24 @@
     ],
     "ritual_ZN22QtMetaContainerPrivate11AssociationD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_drop_QtMetaContainerPrivate_Association__QtMetaContainerPrivate_Association_ConstIterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtMetaContainerPrivate_Association__QtMetaContainerPrivate_Association_Iterator": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11AssociationC2I4QMapI7QString8QVariantEEEPT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11AssociationC2I4QMapI7QString8QVariantEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11AssociationC2I5QHashI7QString8QVariantEEEPT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11AssociationC2I5QHashI7QString8QVariantEEEPKT_": [
+      "address", "address"
     ]
   }
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QCoapInternalRequest10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QCoapInternalRequest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QCoapInternalRequest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK20QCoapInternalRequest7isValidEv": ["bool", "address"],
     "ritual_ZN20QCoapInternalRequest16initEmptyMessageEtN12QCoapMessage4TypeE": [
       "nothing", "address", "unsigned short", "unsigned char"
@@ -15,6 +21,15 @@
     ],
     "ritual_ZN20QCoapInternalRequest8setTokenERK10QByteArray": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest17setToRequestBlockEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QCoapInternalRequest14setToSendBlockEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QCoapInternalRequest16checkBlockNumberEj": [
+      "bool", "address", "unsigned int"
     ],
     "ritual_ZN20QCoapInternalRequest9addOptionERK11QCoapOption": [
       "nothing", "address", "address"
@@ -63,10 +78,23 @@
     "ritual_ZN20QCoapInternalRequest16stopTransmissionEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QCoapInternalRequest7timeoutEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest26maxTransmissionSpanReachedEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest23multicastRequestExpiredEPS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QCoapInternalRequest13uriHostOptionERK4QUrl": [
       "address", "address", "address"
     ],
     "ritual_ZN20QCoapInternalRequest6d_funcEv": ["address", "address"],
-    "ritual_ZNK20QCoapInternalRequest6d_funcEv": ["address", "address"]
+    "ritual_ZNK20QCoapInternalRequest6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK20QCoapInternalRequest7isValidEv": ["bool", "address"],
+    "ritual_own_ZN20QCoapInternalRequest9addOptionERK11QCoapOption": [
+      "nothing", "address", "address"
+    ]
   }
 }

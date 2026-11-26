@@ -293,6 +293,24 @@ const QMetaObject *ritual_ZNK14QQuick3DLoader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DLoader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuick3DLoader11qt_metacastEPKc(
+    QQuick3DLoader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DLoader::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuick3DLoader11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DLoader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DLoader::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuick3DLoader2trEPKcS1_i(
@@ -404,6 +422,55 @@ void ritual_ZN14QQuick3DLoader15setAsynchronousEb(
 extern "C" Q_DECL_EXPORT
 QObject *ritual_ZNK14QQuick3DLoader4itemEv(const QQuick3DLoader *self) {
   return self->item();
+}
+
+//  void QQuick3DLoader::itemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DLoader11itemChangedEv(QQuick3DLoader *self) {
+  self->itemChanged();
+}
+
+//  void QQuick3DLoader::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DLoader13activeChangedEv(QQuick3DLoader *self) {
+  self->activeChanged();
+}
+
+//  void QQuick3DLoader::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DLoader13sourceChangedEv(QQuick3DLoader *self) {
+  self->sourceChanged();
+}
+
+//  void QQuick3DLoader::sourceComponentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DLoader22sourceComponentChangedEv(
+    QQuick3DLoader *self) {
+  self->sourceComponentChanged();
+}
+
+//  void QQuick3DLoader::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DLoader13statusChangedEv(QQuick3DLoader *self) {
+  self->statusChanged();
+}
+
+//  void QQuick3DLoader::progressChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DLoader15progressChangedEv(QQuick3DLoader *self) {
+  self->progressChanged();
+}
+
+//  void QQuick3DLoader::loaded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DLoader6loadedEv(QQuick3DLoader *self) {
+  self->loaded();
+}
+
+//  void QQuick3DLoader::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DLoader19asynchronousChangedEv(QQuick3DLoader *self) {
+  self->asynchronousChanged();
 }
 
 //  void QQuick3DLoader::componentComplete()

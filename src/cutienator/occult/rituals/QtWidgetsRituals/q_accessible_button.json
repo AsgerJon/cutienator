@@ -8,6 +8,9 @@
     "ritual_ZN17QAccessibleButton2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZNK17QAccessibleButton4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
     "ritual_ZNK17QAccessibleButton5stateEv": ["address", "address"],
     "ritual_ZNK17QAccessibleButton4rectEv": ["address", "address"],
     "ritual_ZNK17QAccessibleButton4roleEv": ["int", "address"],

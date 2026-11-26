@@ -46,6 +46,34 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/xml/dom/qdom.cpp, line 1480, as local:qdom.cpp:qNormalizeNode
+#if QT_CONFIG(dom)
+static void qNormalizeNode(QDomNodePrivate* n)
+{
+    QDomNodePrivate* p = n->first;
+    QDomTextPrivate* t = nullptr;
+
+    while (p) {
+        if (p->isText()) {
+            if (t) {
+                QDomNodePrivate* tmp = p->next;
+                t->appendData(p->nodeValue());
+                n->removeChild(p);
+                p = tmp;
+            } else {
+                t = static_cast<QDomTextPrivate *>(p);
+                p = p->next;
+            }
+        } else {
+            p = p->next;
+            t = nullptr;
+        }
+    }
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1454, as _ZN15QDomNodePrivate11appendChildEPS_
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomNodePrivate::appendChild(QDomNodePrivate* newChild)
@@ -404,6 +432,16 @@ inline void QDomNodePrivate::clear()
 }
 #endif  // QT_CONFIG(dom)
 
+//  from src/xml/dom/qdom.cpp, line 1502, as _ZN15QDomNodePrivate9normalizeEv
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::normalize()
+{
+    // ### This one has moved from QDomElementPrivate to this position. It is
+    // not tested.
+    qNormalizeNode(this);
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 5684, as _ZN32QDomProcessingInstructionPrivate9cloneNodeEb
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomProcessingInstructionPrivate::cloneNode(bool deep)
@@ -412,6 +450,29 @@ inline QDomNodePrivate* QDomProcessingInstructionPrivate::cloneNode(bool deep)
     // We are not interested in this node
     p->ref.deref();
     return p;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 5678, as _ZN32QDomProcessingInstructionPrivateC1EPS_b
+#if QT_CONFIG(dom)
+inline QDomProcessingInstructionPrivate::QDomProcessingInstructionPrivate(QDomProcessingInstructionPrivate* n, bool deep)
+    : QDomNodePrivate(n, deep)
+{
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1460, as _ZN15QDomNodePrivate13ownerDocumentEv
+#if QT_CONFIG(dom)
+inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()
+{
+    QDomNodePrivate* p = this;
+    while (p && !p->isDocument()) {
+        if (!p->hasParent)
+            return static_cast<QDomDocumentPrivate *>(p->ownerNode);
+        p = p->parent();
+    }
+
+    return static_cast<QDomDocumentPrivate *>(p);
 }
 #endif  // QT_CONFIG(dom)
 //  -----------------------------------------------------------------------
@@ -452,7 +513,7 @@ typedef void (*CuteQDomProcessingInstructionPrivateCall9)(const void *, int *);
 class CuteQDomProcessingInstructionPrivate : public QDomProcessingInstructionPrivate {
 public:
   using QDomProcessingInstructionPrivate::QDomProcessingInstructionPrivate;
-  CuteQDomProcessingInstructionPrivate(const QDomProcessingInstructionPrivate &other) : QDomProcessingInstructionPrivate(other) {}
+  CuteQDomProcessingInstructionPrivate(const QDomProcessingInstructionPrivate & other) : QDomProcessingInstructionPrivate(other) {}
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {
@@ -675,6 +736,17 @@ extern "C" Q_DECL_EXPORT
 QDomNode::NodeType ritual_ZNK32QDomProcessingInstructionPrivate8nodeTypeEv(
     const QDomProcessingInstructionPrivate *self) {
   return self->nodeType();
+}
+
+//  void QDomProcessingInstructionPrivate::save(QTextStream &s, int a1, int
+//      a2) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK32QDomProcessingInstructionPrivate4saveER11QTextStreamii(
+    const QDomProcessingInstructionPrivate *self,
+    QTextStream *s,
+    int a1,
+    int a2) {
+  self->save(*s, a1, a2);
 }
 
 //  QDomProcessingInstructionPrivate::~QDomProcessingInstructionPrivate()

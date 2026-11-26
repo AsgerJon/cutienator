@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <vector>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DLogic::QLogicAspect that Python can take functions over in. Every Qt3DLogic::QLogicAspect
 //  Python makes is one. Each function below asks the Python
@@ -275,6 +277,25 @@ const QMetaObject *ritual_ZNK9Qt3DLogic12QLogicAspect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DLogic::QLogicAspect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DLogic12QLogicAspect11qt_metacastEPKc(
+    Qt3DLogic::QLogicAspect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DLogic::QLogicAspect::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DLogic12QLogicAspect11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DLogic::QLogicAspect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DLogic::QLogicAspect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DLogic12QLogicAspect2trEPKcS2_i(
@@ -282,6 +303,42 @@ QString *ritual_ZN9Qt3DLogic12QLogicAspect2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DLogic::QLogicAspect::tr(s, c, n));
+}
+
+//  Qt3DLogic::QLogicAspect::QLogicAspect(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DLogic::QLogicAspect *ritual_ZN9Qt3DLogic12QLogicAspectC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DLogic_QLogicAspect(parent);
+}
+
+//  Qt3DLogic::QLogicAspect::~QLogicAspect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DLogic12QLogicAspectD1Ev(Qt3DLogic::QLogicAspect *self) {
+  delete self;
+}
+
+//  std::vector<Qt3DCore::QAspectJobPtr>
+//      Qt3DLogic::QLogicAspect::jobsToExecute(qint64 time)
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZN9Qt3DLogic12QLogicAspect13jobsToExecuteEx(
+    Qt3DLogic::QLogicAspect *self,
+    qint64 time) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(self->jobsToExecute(time));
+}
+
+//  void Qt3DLogic::QLogicAspect::onRegistered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DLogic12QLogicAspect12onRegisteredEv(
+    Qt3DLogic::QLogicAspect *self) {
+  self->onRegistered();
+}
+
+//  void Qt3DLogic::QLogicAspect::onEngineStartup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DLogic12QLogicAspect15onEngineStartupEv(
+    Qt3DLogic::QLogicAspect *self) {
+  self->onEngineStartup();
 }
 
 //  QLogicAspectPrivate *Qt3DLogic::QLogicAspect::d_func()
@@ -296,6 +353,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DLogic::QLogicAspectPrivate *ritual_ZNK9Qt3DLogic12QLogicAspect6d_funcEv(
     const Qt3DLogic::QLogicAspect *self) {
   return self->d_func();
+}
+
+//  Qt3DLogic::QLogicAspect::QLogicAspect(QLogicAspectPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DLogic::QLogicAspect *ritual_ZN9Qt3DLogic12QLogicAspectC1ERNS_19QLogicAspectPrivateEP7QObject(
+    Qt3DLogic::QLogicAspectPrivate *dd,
+    QObject *parent) {
+  return new CuteQt3DLogic_QLogicAspect(*dd, parent);
 }
 
 //  a Python function taken by a CuteQt3DLogic_QLogicAspect, for the function
@@ -320,4 +386,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9Qt3DLogic12QLogicAspect15onEngineStartupEv(
     Qt3DLogic::QLogicAspect *self) {
   self->Qt3DLogic::QLogicAspect::onEngineStartup();
+}
+
+//  a std::vector<Qt3DCore::QAspectJobPtr> a ritual of
+//      Qt3DLogic::QLogicAspect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DLogic_QLogicAspect__std_vector_Qt3DCore_QAspectJobPtr(
+    std::vector<Qt3DCore::QAspectJobPtr> *self) {
+  delete self;
 }

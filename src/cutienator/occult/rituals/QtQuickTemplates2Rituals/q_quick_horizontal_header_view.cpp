@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the constructor taking a
+//  QQuickHorizontalHeaderViewPrivate is left out: Qt's library does not
+//  offer it. Kept as it is when the generator runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
@@ -1076,6 +1079,14 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK26QQuickHorizontalHeaderView10metaObjectEv(
     const QQuickHorizontalHeaderView *self) {
   return self->metaObject();
+}
+
+//  void *QQuickHorizontalHeaderView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickHorizontalHeaderView11qt_metacastEPKc(
+    QQuickHorizontalHeaderView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
 }
 
 //  QString QQuickHorizontalHeaderView::tr(const char *s, const char *c, int

@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbarcategoryaxis.h>
@@ -14,6 +14,8 @@
 #include <QtCore/qstring.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGraphs/QAbstractAxis>
+#include <QtGraphs/private/qabstractaxis_p.h>
 #include <QtGraphs/QBarCategoryAxis>
 #include <QtGraphs/private/qbarcategoryaxis_p.h>
 #include <QtCore/QtMath>
@@ -25,6 +27,9 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 697, as _ZN20QAbstractAxisPrivateC2Ev
+inline QAbstractAxisPrivate::QAbstractAxisPrivate() {}
 
 //  from ../qtgraphs/src/graphs2d/axis/barcategoryaxis/qbarcategoryaxis.cpp, line 503, as _ZN23QBarCategoryAxisPrivateD1Ev
 inline QBarCategoryAxisPrivate::~QBarCategoryAxisPrivate()
@@ -103,6 +108,13 @@ inline void QBarCategoryAxisPrivate::setRange(qreal min, qreal max)
     if (changed) {
         emit q->rangeChanged(m_min, m_max);
     }
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 310, as _Z8lcAxis2Dv
+inline const QLoggingCategory &lcAxis2D()
+{
+    static const QLoggingCategory category("qt.graphs2d.axis.properties");
+    return category;
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/barcategoryaxis/qbarcategoryaxis.cpp, line 577, as _ZN23QBarCategoryAxisPrivate8setRangeERK7QStringS2_
@@ -391,4 +403,13 @@ qreal ritual_own_ZN23QBarCategoryAxisPrivate3maxEv(
   return self->QBarCategoryAxisPrivate::max();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+//  void QBarCategoryAxisPrivate::setRange(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN23QBarCategoryAxisPrivate8setRangeEdd(
+    QBarCategoryAxisPrivate *self,
+    qreal min,
+    qreal max) {
+  self->QBarCategoryAxisPrivate::setRange(min, max);
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))

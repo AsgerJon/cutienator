@@ -19,9 +19,15 @@
     "ritual_ZNK17QCanDbcFileParser19messageDescriptionsEv": [
       "address", "address"
     ],
+    "ritual_ZNK17QCanDbcFileParser24messageValueDescriptionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK17QCanDbcFileParser5errorEv": ["unsigned char", "address"],
     "ritual_ZNK17QCanDbcFileParser11errorStringEv": ["text", "address"],
     "ritual_ZNK17QCanDbcFileParser8warningsEv": ["address", "address"],
-    "ritual_ZN17QCanDbcFileParser19uniqueIdDescriptionEv": ["address"]
+    "ritual_ZN17QCanDbcFileParser19uniqueIdDescriptionEv": ["address"],
+    "ritual_drop_QCanDbcFileParser__QCanDbcFileParser_MessageValueDescriptions": [
+      "nothing", "address"
+    ]
   }
 }

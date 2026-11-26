@@ -12,6 +12,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QWizard may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1139,6 +1140,22 @@ const QMetaObject *ritual_ZNK7QWizard10metaObjectEv(const QWizard *self) {
   return self->metaObject();
 }
 
+//  void *QWizard::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QWizard11qt_metacastEPKc(QWizard *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWizard::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QWizard11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWizard *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWizard::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QWizard2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1192,6 +1209,18 @@ QWizardPage *ritual_ZNK7QWizard4pageEi(const QWizard *self, int id) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK7QWizard14hasVisitedPageEi(const QWizard *self, int id) {
   return self->hasVisitedPage(id);
+}
+
+//  QList<int> QWizard::visitedIds() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK7QWizard10visitedIdsEv(const QWizard *self) {
+  return new QList<int>(self->visitedIds());
+}
+
+//  QList<int> QWizard::pageIds() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK7QWizard7pageIdsEv(const QWizard *self) {
+  return new QList<int>(self->pageIds());
 }
 
 //  void QWizard::setStartId(int id)
@@ -1309,6 +1338,14 @@ QString *ritual_ZNK7QWizard10buttonTextENS_12WizardButtonE(
   return new QString(self->buttonText(which));
 }
 
+//  void QWizard::setButtonLayout(const QList<WizardButton> &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard15setButtonLayoutERK5QListINS_12WizardButtonEE(
+    QWizard *self,
+    const QList<QWizard::WizardButton> *layout) {
+  self->setButtonLayout(*layout);
+}
+
 //  void QWizard::setButton(WizardButton which, QAbstractButton *button)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWizard9setButtonENS_12WizardButtonEP15QAbstractButton(
@@ -1408,6 +1445,36 @@ QSize *ritual_ZNK7QWizard8sizeHintEv(const QWizard *self) {
   return new QSize(self->sizeHint());
 }
 
+//  void QWizard::currentIdChanged(int id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard16currentIdChangedEi(QWizard *self, int id) {
+  self->currentIdChanged(id);
+}
+
+//  void QWizard::helpRequested()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard13helpRequestedEv(QWizard *self) {
+  self->helpRequested();
+}
+
+//  void QWizard::customButtonClicked(int which)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard19customButtonClickedEi(QWizard *self, int which) {
+  self->customButtonClicked(which);
+}
+
+//  void QWizard::pageAdded(int id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard9pageAddedEi(QWizard *self, int id) {
+  self->pageAdded(id);
+}
+
+//  void QWizard::pageRemoved(int id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard11pageRemovedEi(QWizard *self, int id) {
+  self->pageRemoved(id);
+}
+
 //  void QWizard::back()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWizard4backEv(QWizard *self) {
@@ -1470,6 +1537,18 @@ void ritual_ZN7QWizard14initializePageEi(QWizard *self, int id) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWizard11cleanupPageEi(QWizard *self, int id) {
   self->cleanupPage(id);
+}
+
+//  QWizardPrivate *QWizard::d_func()
+extern "C" Q_DECL_EXPORT
+QWizardPrivate *ritual_ZN7QWizard6d_funcEv(QWizard *self) {
+  return self->d_func();
+}
+
+//  const QWizardPrivate *QWizard::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWizardPrivate *ritual_ZNK7QWizard6d_funcEv(const QWizard *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQWizard, for the function named by the
@@ -1541,6 +1620,12 @@ void ritual_own_ZN7QWizard14initializePageEi(QWizard *self, int id) {
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWizard11cleanupPageEi(QWizard *self, int id) {
   static_cast<OwnQWizard *>(self)->OwnQWizard::cleanupPage(id);
+}
+
+//  a QList<int> a ritual of QWizard gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWizard__QList_int(QList<int> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(wizard)

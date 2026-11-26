@@ -13,6 +13,9 @@
     "ritual_ZN25QQuickTextDocumentPrivate3getEPK18QQuickTextDocument": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickTextDocumentPrivate7writeToERK4QUrl": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK25QQuickTextDocumentPrivate8documentEv": [
       "address", "address"
     ],

@@ -6,9 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickTextureFactory10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickTextureFactory11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickTextureFactory11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickTextureFactory2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN20QQuickTextureFactoryC1Ev": ["address"],
     "ritual_ZN20QQuickTextureFactoryD1Ev": ["nothing", "address"],
     "ritual_ZNK20QQuickTextureFactory13createTextureEP12QQuickWindow": [
       "address", "address", "address"

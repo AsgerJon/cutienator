@@ -16,6 +16,7 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QSharedPointer>
 
 //  QQmlJSMetaProperty::QQmlJSMetaProperty()
 extern "C" Q_DECL_EXPORT
@@ -150,6 +151,23 @@ bool ritual_ZNK18QQmlJSMetaProperty9isPrivateEv(
   return self->isPrivate();
 }
 
+//  void QQmlJSMetaProperty::setType(const QDeferredSharedPointer<const
+//      QQmlJSScope> &type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlJSMetaProperty7setTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSMetaProperty *self,
+    const QDeferredSharedPointer<const QQmlJSScope> *type) {
+  self->setType(*type);
+}
+
+//  QDeferredSharedPointer<const QQmlJSScope> QQmlJSMetaProperty::type()
+//      const
+extern "C" Q_DECL_EXPORT
+QDeferredSharedPointer<const QQmlJSScope> *ritual_ZNK18QQmlJSMetaProperty4typeEv(
+    const QQmlJSMetaProperty *self) {
+  return new QDeferredSharedPointer<const QQmlJSScope>(self->type());
+}
+
 //  void QQmlJSMetaProperty::setSourceLocation(const QQmlJS::SourceLocation
 //      &newSourceLocation)
 extern "C" Q_DECL_EXPORT
@@ -277,6 +295,23 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK18QQmlJSMetaProperty15aliasTargetNameEv(
     const QQmlJSMetaProperty *self) {
   return new QString(self->aliasTargetName());
+}
+
+//  void QQmlJSMetaProperty::setAliasTargetScope(const QSharedPointer<const
+//      QQmlJSScope> &scope)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlJSMetaProperty19setAliasTargetScopeERK14QSharedPointerIK11QQmlJSScopeE(
+    QQmlJSMetaProperty *self,
+    const QSharedPointer<const QQmlJSScope> *scope) {
+  self->setAliasTargetScope(*scope);
+}
+
+//  QSharedPointer<const QQmlJSScope> QQmlJSMetaProperty::aliasTargetScope()
+//      const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK18QQmlJSMetaProperty16aliasTargetScopeEv(
+    const QQmlJSMetaProperty *self) {
+  return new QSharedPointer<const QQmlJSScope>(self->aliasTargetScope());
 }
 
 //  void QQmlJSMetaProperty::setIsFinal(bool isFinal)
@@ -456,5 +491,20 @@ QQmlJSMetaProperty *ritual_map_get_QHash_QString_QQmlJSMetaProperty(
 extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QHash_QString_QQmlJSMetaProperty(
     QHash<QString, QQmlJSMetaProperty> *self) {
+  delete self;
+}
+
+//  a QDeferredSharedPointer<const QQmlJSScope> a ritual of
+//      QQmlJSMetaProperty gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSMetaProperty__QDeferredSharedPointer_const_QQmlJSScope(
+    QDeferredSharedPointer<const QQmlJSScope> *self) {
+  delete self;
+}
+
+//  a QSharedPointer<const QQmlJSScope> a ritual of QQmlJSMetaProperty gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSMetaProperty__QSharedPointer_const_QQmlJSScope(
+    QSharedPointer<const QQmlJSScope> *self) {
   delete self;
 }

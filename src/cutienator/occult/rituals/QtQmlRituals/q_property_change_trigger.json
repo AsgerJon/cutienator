@@ -5,6 +5,12 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN22QPropertyChangeTriggerC1EP24QQmlJavaScriptExpression": [
+      "address", "address"
+    ],
+    "ritual_ZN22QPropertyChangeTrigger7triggerEP17QPropertyObserverP20QUntypedPropertyData": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK22QPropertyChangeTrigger8propertyEv": ["address", "address"]
   }
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK25QQuickRegularPolygonShape10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickRegularPolygonShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuickRegularPolygonShape2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -63,6 +69,12 @@
     "ritual_ZN25QQuickRegularPolygonShape14setStrokeStyleEN15QQuickShapePath11StrokeStyleE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK25QQuickRegularPolygonShape11dashPatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape14setDashPatternERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK25QQuickRegularPolygonShape12fillGradientEv": [
       "address", "address"
     ],
@@ -78,6 +90,42 @@
     "ritual_ZN25QQuickRegularPolygonShape11setFillItemEP10QQuickItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN25QQuickRegularPolygonShape19cornerRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape16sideCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape18strokeColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape18strokeWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape16fillColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape16joinStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape15capStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape18strokeStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape17dashOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape18dashPatternChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape19fillGradientChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape15fillItemChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN25QQuickRegularPolygonShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
     ],
@@ -88,6 +136,9 @@
     ],
     "ritual_own_ZN25QQuickRegularPolygonShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QQuickRegularPolygonShape__QList_qreal": [
+      "nothing", "address"
     ]
   }
 }

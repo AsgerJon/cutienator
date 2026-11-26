@@ -5,6 +5,10 @@
     "xt_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QSSGRhiShaderPipelineC1ER14QSSGRhiContext": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline7contextEv": ["address", "address"],
     "ritual_ZNK21QSSGRhiShaderPipeline6isNullEv": ["bool", "address"],
     "ritual_ZN21QSSGRhiShaderPipeline8addStageERK15QRhiShaderStage6QFlagsINS_9StageFlagEE": [
       "nothing", "address", "address", "int"
@@ -28,11 +32,29 @@
     "ritual_ZNK21QSSGRhiShaderPipeline29ub0DirectionalLightDataOffsetEv": [
       "int", "address"
     ],
+    "ritual_ZNK21QSSGRhiShaderPipeline12vertexInputsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline15setUniformValueEPcPKcRK8QVariantN21QSSGRenderShaderValue4TypeE": [
+      "nothing", "address", "address", "chars", "address", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline10setUniformEPcPKcPKvmPi6QFlagsINS_11UniformFlagEE": [
+      "nothing", "address", "address", "chars", "address", "size_t",
+      "address", "int"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline15setUniformArrayEPcPKcPKvmN21QSSGRenderShaderValue4TypeEPi": [
+      "nothing", "address", "address", "chars", "address", "size_t",
+      "unsigned int", "address"
+    ],
     "ritual_ZN21QSSGRhiShaderPipeline17bindingForTextureEPKci": [
       "int", "address", "chars", "int"
     ],
     "ritual_ZN21QSSGRhiShaderPipeline15bindingForImageEPKc": [
       "int", "address", "chars"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline18setShaderResourcesEPcR17QSSGBufferManagerRK10QByteArrayRK8QVariantN21QSSGRenderShaderValue4TypeE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "unsigned int"
     ],
     "ritual_ZN21QSSGRhiShaderPipeline16setLightsEnabledEb": [
       "nothing", "address", "bool"
@@ -40,10 +62,19 @@
     "ritual_ZNK21QSSGRhiShaderPipeline17isLightingEnabledEv": [
       "bool", "address"
     ],
+    "ritual_ZN21QSSGRhiShaderPipeline27ensureCombinedUniformBufferEPP10QRhiBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline19ensureUniformBufferEPP10QRhiBuffer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QSSGRhiShaderPipeline20setLightProbeTextureEP11QRhiTexture24QSSGRenderTextureCoordOpS2_": [
       "nothing", "address", "address", "unsigned char", "unsigned char"
     ],
     "ritual_ZNK21QSSGRhiShaderPipeline17lightProbeTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline16lightProbeTilingEv": [
       "address", "address"
     ],
     "ritual_ZN21QSSGRhiShaderPipeline16setScreenTextureEP11QRhiTexture": [
@@ -97,6 +128,7 @@
     "ritual_ZN21QSSGRhiShaderPipeline12setOITImagesEP11QRhiTextureS1_S1_": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_ZN21QSSGRhiShaderPipeline9oitImagesEv": ["address", "address"],
     "ritual_ZN21QSSGRhiShaderPipeline18resetExtraTexturesEv": [
       "nothing", "address"
     ],
@@ -109,11 +141,23 @@
     "ritual_ZNK21QSSGRhiShaderPipeline14extraTextureAtEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN21QSSGRhiShaderPipeline14extraTextureAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline17lightsUniformDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline28directionalLightsUniformDataEv": [
+      "address", "address"
+    ],
     "ritual_ZNK21QSSGRhiShaderPipeline23instanceBufferLocationsEv": [
       "address", "address"
     ],
     "ritual_ZN21QSSGRhiShaderPipeline15offsetOfUniformERK10QByteArray": [
       "int", "address", "address"
+    ],
+    "ritual_drop_QSSGRhiShaderPipeline__QPair_QSSGRenderTextureCoordOp_QSSGRenderTextureCoordOp": [
+      "nothing", "address"
     ]
   }
 }

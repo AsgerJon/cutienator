@@ -18,6 +18,9 @@
     "ritual_ZN24QSGInternalRectangleNode11setPenWidthEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZN24QSGInternalRectangleNode16setGradientStopsERK5QListISt4pairId6QColorEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QSGInternalRectangleNode19setGradientVerticalEb": [
       "nothing", "address", "bool"
     ],

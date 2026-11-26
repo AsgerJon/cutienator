@@ -19,6 +19,43 @@
     ],
     "ritual_ZN6QQmlSA18PassManagerPrivate17deletePassManagerEPNS_11PassManagerE": [
       "nothing", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate20registerPropertyPassESt10shared_ptrINS_12PropertyPassEE14QAnyStringViewS4_S4_b": [
+      "bool", "address", "address", "text", "text", "text", "bool"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate33registerPropertyPassOnBuiltinTypeESt10shared_ptrINS_12PropertyPassEE14QAnyStringViewS4_b": [
+      "bool", "address", "address", "text", "text", "bool"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate7analyzeERKNS_7ElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate7visitorERKNS_11PassManagerE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate8resolverERKNS_11PassManagerE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate21findPropertyUsePassesERKNS_7ElementERK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate12analyzeWriteERKNS_7ElementERK7QStringS3_S3_RKNS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate11analyzeReadERKNS_7ElementERK7QStringS3_RKNS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate11analyzeCallERKNS_7ElementERK7QStringS3_RKNS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate14analyzeBindingERKNS_7ElementES3_RKNS_14SourceLocationE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate25addBindingSourceLocationsERKNS_7ElementES3_7QStringb": [
+      "nothing", "address", "address", "address", "text", "bool"
+    ],
+    "ritual_drop_QQmlSA_PassManagerPrivate__QSet_QQmlSA_PropertyPass": [
+      "nothing", "address"
     ]
   }
 }

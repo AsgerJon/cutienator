@@ -63,6 +63,25 @@ const QMetaObject *ritual_ZNK19QQuick3DXrHandInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrHandInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuick3DXrHandInput11qt_metacastEPKc(
+    QQuick3DXrHandInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrHandInput::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuick3DXrHandInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrHandInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  bool QQuick3DXrHandInput::isActive() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QQuick3DXrHandInput8isActiveEv(
@@ -96,4 +115,229 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QQuick3DXrHandInput20isHandTrackingActiveEv(
     const QQuick3DXrHandInput *self) {
   return self->isHandTrackingActive();
+}
+
+//  void QQuick3DXrHandInput::isActiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandInput15isActiveChangedEv(
+    QQuick3DXrHandInput *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandInput")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "isActiveChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "isActiveChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHandInput::poseSpaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandInput16poseSpaceChangedEv(
+    QQuick3DXrHandInput *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandInput")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "poseSpaceChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "poseSpaceChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHandInput::posePositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandInput19posePositionChangedEv(
+    QQuick3DXrHandInput *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandInput")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "posePositionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "posePositionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHandInput::poseRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandInput19poseRotationChangedEv(
+    QQuick3DXrHandInput *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandInput")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "poseRotationChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "poseRotationChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHandInput::jointPositionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandInput21jointPositionsChangedEv(
+    QQuick3DXrHandInput *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandInput")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "jointPositionsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "jointPositionsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHandInput::jointRotationsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandInput21jointRotationsChangedEv(
+    QQuick3DXrHandInput *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandInput")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "jointRotationsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "jointRotationsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHandInput::jointDataUpdated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandInput16jointDataUpdatedEv(
+    QQuick3DXrHandInput *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandInput")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "jointDataUpdated()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "jointDataUpdated()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHandInput::pokePositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandInput19pokePositionChangedEv(
+    QQuick3DXrHandInput *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandInput")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "pokePositionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "pokePositionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHandInput::isHandTrackingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandInput21isHandTrackingChangedEv(
+    QQuick3DXrHandInput *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandInput")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "isHandTrackingChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "isHandTrackingChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }

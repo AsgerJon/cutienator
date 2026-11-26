@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemtreeindicator_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it (Qt"
+  ],
+  "rows": {
+    "ritual_ZNK28QQuickStyleItemTreeIndicator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickStyleItemTreeIndicator16connectToControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QQuickStyleItemTreeIndicator10paintEventEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickStyleItemTreeIndicator17calculateGeometryEv": [
+      "address", "address"
+    ]
+  }
+}

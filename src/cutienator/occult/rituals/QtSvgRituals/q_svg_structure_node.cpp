@@ -5,6 +5,9 @@
 #include <QtSvg/QtSvg>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstructure_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qrect.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -79,12 +82,40 @@ void ritual_ZN17QSvgStructureNodeD1Ev(QSvgStructureNode *self) {
   delete self;
 }
 
+//  QRectF QSvgStructureNode::internalBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK17QSvgStructureNode14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgStructureNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
+}
+
+//  QRectF QSvgStructureNode::decoratedInternalBounds(QPainter *p,
+//      QSvgExtraStates &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK17QSvgStructureNode23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgStructureNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedInternalBounds(p, *states));
+}
+
 //  QSvgNode *QSvgStructureNode::previousSiblingNode(QSvgNode *n) const
 extern "C" Q_DECL_EXPORT
 QSvgNode *ritual_ZNK17QSvgStructureNode19previousSiblingNodeEP8QSvgNode(
     const QSvgStructureNode *self,
     QSvgNode *n) {
   return self->previousSiblingNode(n);
+}
+
+//  const std::list<std::unique_ptr<QSvgNode>>
+//      &QSvgStructureNode::renderers() const
+extern "C" Q_DECL_EXPORT
+const std::list<std::unique_ptr<QSvgNode>> *ritual_ZNK17QSvgStructureNode9renderersB5cxx11Ev(
+    const QSvgStructureNode *self) {
+  return &(self->renderers());
 }
 
 //  void QSvgStructureNode::releaseDescendants()

@@ -1,10 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qshortcut.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qshortcut.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK9QShortcut10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QShortcut11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QShortcut11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QShortcut2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QShortcut6d_funcEv": ["address", "address"],
     "ritual_ZNK9QShortcut6d_funcEv": ["address", "address"],
@@ -40,8 +44,13 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK9QShortcut9whatsThisEv": ["text", "address"],
+    "ritual_ZN9QShortcut9activatedEv": ["nothing", "address"],
+    "ritual_ZN9QShortcut20activatedAmbiguouslyEv": ["nothing", "address"],
     "ritual_ZN9QShortcut5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_take_QShortcut": ["bool", "address", "chars", "address"],
-    "ritual_own_ZN9QShortcut5eventEP6QEvent": ["bool", "address", "address"]
+    "ritual_own_ZN9QShortcut5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZNK9QShortcut12parentWidgetIP7QObjectEET_v": [
+      "address", "address"
+    ]
   }
 }

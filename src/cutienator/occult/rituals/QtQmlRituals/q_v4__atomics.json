@@ -7,6 +7,15 @@
   "rows": {
     "ritual_ZN3QV47Atomics10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV47Atomics11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV47Atomics1dEv": ["address", "address"]
+    "ritual_ZNK3QV47Atomics1dEv": ["address", "address"],
+    "ritual_ZN3QV47Atomics17method_isLockFreeEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Atomics11method_waitEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV47Atomics11method_wakeEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

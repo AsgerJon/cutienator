@@ -12,6 +12,7 @@
 #include <QtQml/6.12.0/QtQml/private/qqmlpropertycache_p.h>
 #include <QtQml/6.12.0/QtQml/private/qqmltype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/private/qqmltype_p_p.h>
 #include <QtQml/qjsvalue.h>
@@ -286,6 +287,29 @@ inline QQmlPropertyCache::ConstPtr QQmlMetaTypeData::propertyCache(
     return raw;
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmlmetatypedata.cpp, line 246, as _ZNK16QQmlMetaTypeData33findPropertyCacheInCompositeTypesE9QMetaType
+inline QQmlPropertyCache::ConstPtr QQmlMetaTypeData::findPropertyCacheInCompositeTypes(QMetaType t) const
+{
+    // Last inserted
+    auto iter = compositeTypes.constFind(t.iface());
+    return (iter == compositeTypes.constEnd())
+            ? QQmlPropertyCache::ConstPtr()
+            : propertyCacheForPotentialInlineComponentType(t, iter);
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmlmetatypedata.cpp, line 234, as _ZN16QQmlMetaTypeData44propertyCacheForPotentialInlineComponentTypeE9QMetaTypeRKN10QMultiHashIPKN9QtPrivate18QMetaTypeInterfaceE14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEEE14const_iteratorE
+inline QQmlPropertyCache::ConstPtr QQmlMetaTypeData::propertyCacheForPotentialInlineComponentType(
+        QMetaType t, const QQmlMetaTypeData::CompositeTypes::const_iterator &iter) {
+    if (t != (*iter)->metaType()) {
+        // this is an inline component, and what we have in the iterator is currently the parent compilation unit
+        for (const auto &icDatum : std::as_const((*iter)->inlineComponentData)) {
+            if (icDatum.qmlType.typeId() == t)
+                return (*iter)->propertyCaches.at(icDatum.objectIndex);
+        }
+    }
+    return (*iter)->rootPropertyCache();
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmlmetatypedata.cpp, line 255, as _ZN16QQmlMetaTypeData19clearCompositeTypesEv
 inline void QQmlMetaTypeData::clearCompositeTypes()
 {
@@ -403,12 +427,53 @@ QQmlPropertyCache::ConstPtr *ritual_ZN16QQmlMetaTypeData13propertyCacheERK8QQmlT
           *version));
 }
 
+//  QQmlPropertyCache::ConstPtr
+//      QQmlMetaTypeData::findPropertyCacheInCompositeTypes(QMetaType t)
+//      const
+extern "C" Q_DECL_EXPORT
+QQmlPropertyCache::ConstPtr *ritual_ZNK16QQmlMetaTypeData33findPropertyCacheInCompositeTypesE9QMetaType(
+    const QQmlMetaTypeData *self,
+    const QMetaType *t) {
+  return new QQmlPropertyCache::ConstPtr(
+      self->findPropertyCacheInCompositeTypes(
+          *t));
+}
+
+//  QQmlPropertyCache::ConstPtr
+//      QQmlMetaTypeData::propertyCacheForPotentialInlineComponentType(QMetaT
+//      ype t, const QQmlMetaTypeData::CompositeTypes::const_iterator &iter)
+extern "C" Q_DECL_EXPORT
+QQmlPropertyCache::ConstPtr *ritual_ZN16QQmlMetaTypeData44propertyCacheForPotentialInlineComponentTypeE9QMetaTypeRKN10QMultiHashIPKN9QtPrivate18QMetaTypeInterfaceE14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEEE14const_iteratorE(
+    const QMetaType *t,
+    const QQmlMetaTypeData::CompositeTypes::const_iterator *iter) {
+  return new QQmlPropertyCache::ConstPtr(
+      QQmlMetaTypeData::propertyCacheForPotentialInlineComponentType(
+          *t,
+          *iter));
+}
+
+//  void QQmlMetaTypeData::setTypeRegistrationFailures(QStringList *failures)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlMetaTypeData27setTypeRegistrationFailuresEP5QListI7QStringE(
+    QQmlMetaTypeData *self,
+    QStringList *failures) {
+  self->setTypeRegistrationFailures(failures);
+}
+
 //  void QQmlMetaTypeData::recordTypeRegFailure(const QString &message)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQmlMetaTypeData20recordTypeRegFailureERK7QString(
     QQmlMetaTypeData *self,
     const QString *message) {
   self->recordTypeRegFailure(*message);
+}
+
+//  void QQmlMetaTypeData::clearCompositeType(const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &cu)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlMetaTypeData18clearCompositeTypeERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE(
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *cu) {
+  QQmlMetaTypeData::clearCompositeType(*cu);
 }
 
 //  void QQmlMetaTypeData::clearCompositeTypes()

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QCalendarPopup10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QCalendarPopup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QCalendarPopup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QCalendarPopup12selectedDateEv": ["address", "address"],
     "ritual_ZN14QCalendarPopup7setDateE5QDate": [
       "nothing", "address", "address"
@@ -19,6 +25,22 @@
     "ritual_ZNK14QCalendarPopup14calendarWidgetEv": ["address", "address"],
     "ritual_ZN14QCalendarPopup17setCalendarWidgetEP15QCalendarWidget": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup9activatedE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup15newDateSelectedE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup14hidingCalendarE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup11resetButtonEv": ["nothing", "address"],
+    "ritual_ZN14QCalendarPopup12dateSelectedE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup20dateSelectionChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN14QCalendarPopup9hideEventEP10QHideEvent": [
       "nothing", "address", "address"

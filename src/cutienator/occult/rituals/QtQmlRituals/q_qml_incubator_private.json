@@ -19,6 +19,12 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN20QQmlIncubatorPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN20QQmlIncubatorPrivate15forceCompletionER26QQmlInstantiationInterrupt": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlIncubatorPrivate8incubateER26QQmlInstantiationInterrupt": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QQmlIncubatorPrivate25incubateCppBasedComponentEP13QQmlComponentP11QQmlContext": [
       "nothing", "address", "address", "address"
     ],

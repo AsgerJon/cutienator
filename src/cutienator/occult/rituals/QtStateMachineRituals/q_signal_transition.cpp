@@ -6,6 +6,9 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QObject>
+#include <QtCore/QByteArray>
 
 //  Only a class built on QSignalTransition may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -221,6 +224,25 @@ const QMetaObject *ritual_ZNK17QSignalTransition10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSignalTransition::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QSignalTransition11qt_metacastEPKc(
+    QSignalTransition *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSignalTransition::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QSignalTransition11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSignalTransition *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSignalTransition::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QSignalTransition2trEPKcS1_i(
@@ -268,6 +290,13 @@ void ritual_ZN17QSignalTransition15setSenderObjectEPK7QObject(
   self->setSenderObject(sender);
 }
 
+//  QBindable<const QObject *> QSignalTransition::bindableSenderObject()
+extern "C" Q_DECL_EXPORT
+QBindable<const QObject *> *ritual_ZN17QSignalTransition20bindableSenderObjectEv(
+    QSignalTransition *self) {
+  return new QBindable<const QObject *>(self->bindableSenderObject());
+}
+
 //  QByteArray QSignalTransition::signal() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK17QSignalTransition6signalEv(
@@ -281,6 +310,13 @@ void ritual_ZN17QSignalTransition9setSignalERK10QByteArray(
     QSignalTransition *self,
     const QByteArray *signal) {
   self->setSignal(*signal);
+}
+
+//  QBindable<QByteArray> QSignalTransition::bindableSignal()
+extern "C" Q_DECL_EXPORT
+QBindable<QByteArray> *ritual_ZN17QSignalTransition14bindableSignalEv(
+    QSignalTransition *self) {
+  return new QBindable<QByteArray>(self->bindableSignal());
 }
 
 //  bool QSignalTransition::eventTest(QEvent *event)
@@ -305,6 +341,34 @@ bool ritual_ZN17QSignalTransition5eventEP6QEvent(
     QSignalTransition *self,
     QEvent *e) {
   return self->event(e);
+}
+
+//  void QSignalTransition::senderObjectChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSignalTransition19senderObjectChangedENS_14QPrivateSignalE(
+    QSignalTransition *self) {
+  self->senderObjectChanged(QSignalTransition::QPrivateSignal());
+}
+
+//  void QSignalTransition::signalChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSignalTransition13signalChangedENS_14QPrivateSignalE(
+    QSignalTransition *self) {
+  self->signalChanged(QSignalTransition::QPrivateSignal());
+}
+
+//  QSignalTransitionPrivate *QSignalTransition::d_func()
+extern "C" Q_DECL_EXPORT
+QSignalTransitionPrivate *ritual_ZN17QSignalTransition6d_funcEv(
+    QSignalTransition *self) {
+  return self->d_func();
+}
+
+//  const QSignalTransitionPrivate *QSignalTransition::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSignalTransitionPrivate *ritual_ZNK17QSignalTransition6d_funcEv(
+    const QSignalTransition *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQSignalTransition, for the function
@@ -342,4 +406,18 @@ bool ritual_own_ZN17QSignalTransition5eventEP6QEvent(
     QEvent *e) {
   return static_cast<OwnQSignalTransition *>(self)->OwnQSignalTransition::event(
       e);
+}
+
+//  a QBindable<const QObject *> a ritual of QSignalTransition gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSignalTransition__QBindable_const_QObject(
+    QBindable<const QObject *> *self) {
+  delete self;
+}
+
+//  a QBindable<QByteArray> a ritual of QSignalTransition gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSignalTransition__QBindable_QByteArray(
+    QBindable<QByteArray> *self) {
+  delete self;
 }

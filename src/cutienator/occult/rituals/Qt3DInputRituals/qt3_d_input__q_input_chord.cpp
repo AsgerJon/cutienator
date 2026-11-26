@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DInput/Qt3DInput>
 
 //  A Qt3DInput::QInputChord that Python can take functions over in. Every Qt3DInput::QInputChord
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput11QInputChord10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QInputChord::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput11QInputChord11qt_metacastEPKc(
+    Qt3DInput::QInputChord *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QInputChord::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput11QInputChord11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QInputChord *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QInputChord::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DInput11QInputChord2trEPKcS2_i(
@@ -186,6 +207,65 @@ QString *ritual_ZN9Qt3DInput11QInputChord2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QInputChord::tr(s, c, n));
+}
+
+//  Qt3DInput::QInputChord::QInputChord(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QInputChord *ritual_ZN9Qt3DInput11QInputChordC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QInputChord(parent);
+}
+
+//  Qt3DInput::QInputChord::~QInputChord()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput11QInputChordD1Ev(Qt3DInput::QInputChord *self) {
+  delete self;
+}
+
+//  int Qt3DInput::QInputChord::timeout() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput11QInputChord7timeoutEv(
+    const Qt3DInput::QInputChord *self) {
+  return self->timeout();
+}
+
+//  void Qt3DInput::QInputChord::addChord(QAbstractActionInput *input)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput11QInputChord8addChordEPNS_20QAbstractActionInputE(
+    Qt3DInput::QInputChord *self,
+    Qt3DInput::QAbstractActionInput *input) {
+  self->addChord(input);
+}
+
+//  void Qt3DInput::QInputChord::removeChord(QAbstractActionInput *input)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput11QInputChord11removeChordEPNS_20QAbstractActionInputE(
+    Qt3DInput::QInputChord *self,
+    Qt3DInput::QAbstractActionInput *input) {
+  self->removeChord(input);
+}
+
+//  QList<QAbstractActionInput *> Qt3DInput::QInputChord::chords() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DInput::QAbstractActionInput *> *ritual_ZNK9Qt3DInput11QInputChord6chordsEv(
+    const Qt3DInput::QInputChord *self) {
+  return new QList<Qt3DInput::QAbstractActionInput *>(self->chords());
+}
+
+//  void Qt3DInput::QInputChord::setTimeout(int timeout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput11QInputChord10setTimeoutEi(
+    Qt3DInput::QInputChord *self,
+    int timeout) {
+  self->setTimeout(timeout);
+}
+
+//  void Qt3DInput::QInputChord::timeoutChanged(int timeout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput11QInputChord14timeoutChangedEi(
+    Qt3DInput::QInputChord *self,
+    int timeout) {
+  self->timeoutChanged(timeout);
 }
 
 //  QInputChordPrivate *Qt3DInput::QInputChord::d_func()
@@ -210,4 +290,12 @@ bool ritual_take_Qt3DInput_QInputChord(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_QInputChord *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DInput::QAbstractActionInput *> a ritual of
+//      Qt3DInput::QInputChord gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QInputChord__QList_Qt3DInput_QAbstractActionInput(
+    QList<Qt3DInput::QAbstractActionInput *> *self) {
+  delete self;
 }

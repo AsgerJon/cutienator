@@ -127,6 +127,13 @@ qreal ritual_ZNK15QSGGeometryNode16inheritedOpacityEv(
   return self->inheritedOpacity();
 }
 
+//  QSGGeometryNode::QSGGeometryNode(QSGGeometryNodePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QSGGeometryNode *ritual_ZN15QSGGeometryNodeC1ER22QSGGeometryNodePrivate(
+    QSGGeometryNodePrivate *dd) {
+  return new CuteQSGGeometryNode(*dd);
+}
+
 //  a Python function taken by a CuteQSGGeometryNode, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

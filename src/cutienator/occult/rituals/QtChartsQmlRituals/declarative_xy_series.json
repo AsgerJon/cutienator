@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19DeclarativeXySeriesC1Ev": ["address"],
     "ritual_ZN19DeclarativeXySeriesD1Ev": ["nothing", "address"],
     "ritual_ZN19DeclarativeXySeries10classBeginEv": ["nothing", "address"],
     "ritual_ZN19DeclarativeXySeries17componentCompleteEv": [

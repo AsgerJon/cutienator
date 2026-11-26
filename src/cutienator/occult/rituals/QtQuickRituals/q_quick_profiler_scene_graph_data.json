@@ -2,9 +2,24 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickprofiler_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
-    "ritual_ZN28QQuickProfilerSceneGraphDataD1Ev": ["nothing", "address"]
+    "ritual_ZN28QQuickProfilerSceneGraphDataD1Ev": ["nothing", "address"],
+    "ritual_ZN28QQuickProfilerSceneGraphData7timingsILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE0EEEPxv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickProfilerSceneGraphData7timingsILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE1EEEPxv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickProfilerSceneGraphData7timingsILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE3EEEPxv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickProfilerSceneGraphData7timingsILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE6EEEPxv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickProfilerSceneGraphData7timingsILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE9EEEPxv": [
+      "address", "address"
+    ]
   }
 }

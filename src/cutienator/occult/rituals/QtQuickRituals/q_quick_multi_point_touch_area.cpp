@@ -8,12 +8,15 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickmultipointtoucharea_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qobject.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuickMultiPointTouchArea may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -798,6 +801,25 @@ const QMetaObject *ritual_ZNK25QQuickMultiPointTouchArea10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMultiPointTouchArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickMultiPointTouchArea11qt_metacastEPKc(
+    QQuickMultiPointTouchArea *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMultiPointTouchArea::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickMultiPointTouchArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMultiPointTouchArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMultiPointTouchArea::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -865,6 +887,125 @@ void ritual_ZN25QQuickMultiPointTouchArea15setMouseEnabledEb(
     QQuickMultiPointTouchArea *self,
     bool arg) {
   self->setMouseEnabled(arg);
+}
+
+//  QQmlListProperty<QQuickTouchPoint>
+//      QQuickMultiPointTouchArea::touchPoints()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickTouchPoint> *ritual_ZN25QQuickMultiPointTouchArea11touchPointsEv(
+    QQuickMultiPointTouchArea *self) {
+  return new QQmlListProperty<QQuickTouchPoint>(self->touchPoints());
+}
+
+//  void QQuickMultiPointTouchArea::touchPoint_append(QQmlListProperty<QQuick
+//      TouchPoint> *list, QQuickTouchPoint *touch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea17touchPoint_appendEP16QQmlListPropertyI16QQuickTouchPointEPS1_(
+    QQmlListProperty<QQuickTouchPoint> *list,
+    QQuickTouchPoint *touch) {
+  QQuickMultiPointTouchArea::touchPoint_append(list, touch);
+}
+
+//  qsizetype QQuickMultiPointTouchArea::touchPoint_count(QQmlListProperty<QQ
+//      uickTouchPoint> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN25QQuickMultiPointTouchArea16touchPoint_countEP16QQmlListPropertyI16QQuickTouchPointE(
+    QQmlListProperty<QQuickTouchPoint> *list) {
+  return QQuickMultiPointTouchArea::touchPoint_count(list);
+}
+
+//  QQuickTouchPoint *QQuickMultiPointTouchArea::touchPoint_at(QQmlListProper
+//      ty<QQuickTouchPoint> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickTouchPoint *ritual_ZN25QQuickMultiPointTouchArea13touchPoint_atEP16QQmlListPropertyI16QQuickTouchPointEx(
+    QQmlListProperty<QQuickTouchPoint> *list,
+    qsizetype index) {
+  return QQuickMultiPointTouchArea::touchPoint_at(list, index);
+}
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  void QQuickMultiPointTouchArea::pressed(const QList<QObject *>
+//      &touchPoints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea7pressedERK5QListIP7QObjectE(
+    QQuickMultiPointTouchArea *self,
+    const QList<QObject *> *touchPoints) {
+  self->pressed(*touchPoints);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  void QQuickMultiPointTouchArea::updated(const QList<QObject *>
+//      &touchPoints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea7updatedERK5QListIP7QObjectE(
+    QQuickMultiPointTouchArea *self,
+    const QList<QObject *> *touchPoints) {
+  self->updated(*touchPoints);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  void QQuickMultiPointTouchArea::released(const QList<QObject *>
+//      &touchPoints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea8releasedERK5QListIP7QObjectE(
+    QQuickMultiPointTouchArea *self,
+    const QList<QObject *> *touchPoints) {
+  self->released(*touchPoints);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  void QQuickMultiPointTouchArea::canceled(const QList<QObject *>
+//      &touchPoints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea8canceledERK5QListIP7QObjectE(
+    QQuickMultiPointTouchArea *self,
+    const QList<QObject *> *touchPoints) {
+  self->canceled(*touchPoints);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+//  void QQuickMultiPointTouchArea::gestureStarted(QQuickGrabGestureEvent
+//      *gesture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea14gestureStartedEP22QQuickGrabGestureEvent(
+    QQuickMultiPointTouchArea *self,
+    QQuickGrabGestureEvent *gesture) {
+  self->gestureStarted(gesture);
+}
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  void QQuickMultiPointTouchArea::touchUpdated(const QList<QObject *>
+//      &touchPoints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea12touchUpdatedERK5QListIP7QObjectE(
+    QQuickMultiPointTouchArea *self,
+    const QList<QObject *> *touchPoints) {
+  self->touchUpdated(*touchPoints);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+//  void QQuickMultiPointTouchArea::minimumTouchPointsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea25minimumTouchPointsChangedEv(
+    QQuickMultiPointTouchArea *self) {
+  self->minimumTouchPointsChanged();
+}
+
+//  void QQuickMultiPointTouchArea::maximumTouchPointsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea25maximumTouchPointsChangedEv(
+    QQuickMultiPointTouchArea *self) {
+  self->maximumTouchPointsChanged();
+}
+
+//  void QQuickMultiPointTouchArea::mouseEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickMultiPointTouchArea19mouseEnabledChangedEv(
+    QQuickMultiPointTouchArea *self) {
+  self->mouseEnabledChanged();
 }
 
 //  void QQuickMultiPointTouchArea::touchEvent(QTouchEvent *a0)
@@ -1109,4 +1250,12 @@ QSGNode *ritual_own_ZN25QQuickMultiPointTouchArea15updatePaintNodeEP7QSGNodePN10
   return static_cast<OwnQQuickMultiPointTouchArea *>(self)->OwnQQuickMultiPointTouchArea::updatePaintNode(
       a0,
       a1);
+}
+
+//  a QQmlListProperty<QQuickTouchPoint> a ritual of
+//      QQuickMultiPointTouchArea gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickMultiPointTouchArea__QQmlListProperty_QQuickTouchPoint(
+    QQmlListProperty<QQuickTouchPoint> *self) {
+  delete self;
 }

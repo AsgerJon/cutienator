@@ -20,6 +20,9 @@
     "ritual_ZN10QFontCache10findEngineERKNS_3KeyE": [
       "address", "address", "address"
     ],
+    "ritual_ZN10QFontCache26updateHitCountAndTimeStampERNS_6EngineE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QFontCache12insertEngineERKNS_3KeyEP11QFontEngineb": [
       "nothing", "address", "address", "address", "bool"
     ],

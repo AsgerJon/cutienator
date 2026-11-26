@@ -17,6 +17,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/private/qmimetypeparser_p.h>
+#include <QtCore/private/qmimetype_p.h>
+#include <QtCore/private/qmimemagicrulematcher_p.h>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDebug>
+#include <QtCore/QDir>
+#include <QtCore/QXmlStreamReader>
+#include <QtCore/QXmlStreamWriter>
+#include <QtCore/QStack>
 #include <QtCore/private/qmimeprovider_p.h>
 #include <QtCore/private/qmimetypeparser_p.h>
 #include <QtCore/qstandardpaths.h>
@@ -38,6 +47,12 @@
 #    include <zlib.h>
 #  endif
 #endif
+#include <QtCore/private/qmimeglobpattern_p.h>
+#if QT_CONFIG(regularexpression)
+#include <QtCore/QRegularExpression>
+#endif
+#include <QtCore/QStringList>
+#include <QtCore/QDebug>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -46,6 +61,24 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/mimetypes/qmimeglobpattern.cpp, line 170, as local:qmimeglobpattern.cpp:isFastPattern
+static bool isFastPattern(QStringView pattern)
+{
+   // starts with "*.", has no other '*' and no other '.'
+   return pattern.lastIndexOf(u'*') == 0
+      && pattern.lastIndexOf(u'.') == 1
+      // and contains no other special character
+      && !pattern.contains(u'?')
+      && !pattern.contains(u'[')
+      ;
+}
+
+//  from src/corelib/mimetypes/qmimetypeparser.cpp, line 61, as _ZN15QMimeTypeParserD2Ev
+inline QMimeTypeParser::~QMimeTypeParser()
+    = default;
 
 //  from src/corelib/mimetypes/qmimeprovider.cpp, line 1045, as _ZN16QMimeXMLProvider11addMimeTypeERK16QMimeTypeXMLData
 inline void QMimeXMLProvider::addMimeType(const QMimeTypeXMLData &mt)
@@ -59,10 +92,10 @@ inline void QMimeXMLProvider::addGlobPattern(const QMimeGlobPattern &glob)
     m_mimeTypeGlobs.addGlob(glob);
 }
 
-//  from src/corelib/mimetypes/qmimeprovider.cpp, line 1059, as _ZN16QMimeXMLProvider9addParentERK7QStringS2_
-inline void QMimeXMLProvider::addParent(const QString &child, const QString &parent)
+//  from src/corelib/mimetypes/qmimeprovider.cpp, line 1100, as _ZN16QMimeXMLProvider15addMagicMatcherERK21QMimeMagicRuleMatcher
+inline void QMimeXMLProvider::addMagicMatcher(const QMimeMagicRuleMatcher &matcher)
 {
-    m_parents[child].append(parent);
+    m_magicMatchers.append(matcher);
 }
 
 //  from src/corelib/mimetypes/qmimeprovider.cpp, line 1078, as _ZN16QMimeXMLProvider8addAliasERK7QStringS2_
@@ -71,10 +104,37 @@ inline void QMimeXMLProvider::addAlias(const QString &alias, const QString &name
     m_aliases.insert(alias, name);
 }
 
-//  from src/corelib/mimetypes/qmimeprovider.cpp, line 1100, as _ZN16QMimeXMLProvider15addMagicMatcherERK21QMimeMagicRuleMatcher
-inline void QMimeXMLProvider::addMagicMatcher(const QMimeMagicRuleMatcher &matcher)
+//  from src/corelib/mimetypes/qmimeprovider.cpp, line 1059, as _ZN16QMimeXMLProvider9addParentERK7QStringS2_
+inline void QMimeXMLProvider::addParent(const QString &child, const QString &parent)
 {
-    m_magicMatchers.append(matcher);
+    m_parents[child].append(parent);
+}
+
+//  from src/corelib/mimetypes/qmimeglobpattern.cpp, line 181, as _ZN20QMimeAllGlobPatterns7addGlobERK16QMimeGlobPattern
+inline void QMimeAllGlobPatterns::addGlob(const QMimeGlobPattern &glob)
+{
+    const QString &pattern = glob.pattern();
+    Q_ASSERT(!pattern.isEmpty());
+
+    // Store each patterns into either m_fastPatternDict (*.txt, *.html
+    // etc. with default weight 50) or for the rest, like core.*, *.tar.bz2, *~,
+    // into highWeightPatternOffset (>50) or lowWeightPatternOffset (<=50).
+
+    if (glob.weight() == 50 && isFastPattern(pattern) && !glob.isCaseSensitive()) {
+        // The bulk of the patterns is *.foo with weight 50 --> those go into the fast patterns hash.
+        const QString extension = pattern.mid(2).toLower();
+        QStringList &patterns = m_fastPatterns[extension]; // find or create
+        if (!patterns.contains(glob.mimeType()))
+            patterns.append(glob.mimeType());
+    } else {
+        if (glob.weight() > 50) {
+            if (!m_highWeightGlobs.hasPattern(glob.mimeType(), glob.pattern()))
+                m_highWeightGlobs.append(glob);
+        } else {
+            if (!m_lowWeightGlobs.hasPattern(glob.mimeType(), glob.pattern()))
+                m_lowWeightGlobs.append(glob);
+        }
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -214,6 +274,12 @@ public:
 #endif  // QT_CONFIG(mimetype)
 };
 
+//  QMimeTypeParser::~QMimeTypeParser()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMimeTypeParserD1Ev(QMimeTypeParser *self) {
+  delete self;
+}
+
 //  bool QMimeTypeParser::process(const QMimeTypeXMLData &t, QString *a1)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QMimeTypeParser7processERK16QMimeTypeXMLDataP7QString(
@@ -279,6 +345,17 @@ bool ritual_own_ZN15QMimeTypeParser7processERK16QMimeTypeXMLDataP7QString(
     QString *a1) {
   return static_cast<OwnQMimeTypeParser *>(self)->OwnQMimeTypeParser::process(
       *t,
+      a1);
+}
+
+//  bool QMimeTypeParser::process(const QMimeGlobPattern &glob, QString *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN15QMimeTypeParser7processERK16QMimeGlobPatternP7QString(
+    QMimeTypeParser *self,
+    const QMimeGlobPattern *glob,
+    QString *a1) {
+  return static_cast<OwnQMimeTypeParser *>(self)->OwnQMimeTypeParser::process(
+      *glob,
       a1);
 }
 

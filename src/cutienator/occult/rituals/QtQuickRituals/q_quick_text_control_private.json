@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN24QQuickTextControlPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK24QQuickTextControlPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QQuickTextControlPrivateC1Ev": ["address"],
     "ritual_ZN24QQuickTextControlPrivate17setCursorPositionERK7QPointF": [
       "nothing", "address", "address"
     ],

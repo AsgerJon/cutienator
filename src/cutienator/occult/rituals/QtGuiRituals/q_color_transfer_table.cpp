@@ -13,6 +13,26 @@ QColorTransferTable *ritual_ZN19QColorTransferTableC1Ev() {
   return new QColorTransferTable();
 }
 
+//  QColorTransferTable::QColorTransferTable(uint32_t size, const
+//      QList<uint8_t> &table, Type type)
+extern "C" Q_DECL_EXPORT
+QColorTransferTable *ritual_ZN19QColorTransferTableC1EjRK5QListIhENS_4TypeE(
+    uint32_t size,
+    const QList<uint8_t> *table,
+    QColorTransferTable::Type type) {
+  return new QColorTransferTable(size, *table, type);
+}
+
+//  QColorTransferTable::QColorTransferTable(uint32_t size, const
+//      QList<uint16_t> &table, Type type)
+extern "C" Q_DECL_EXPORT
+QColorTransferTable *ritual_ZN19QColorTransferTableC1EjRK5QListItENS_4TypeE(
+    uint32_t size,
+    const QList<uint16_t> *table,
+    QColorTransferTable::Type type) {
+  return new QColorTransferTable(size, *table, type);
+}
+
 //  bool QColorTransferTable::isEmpty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QColorTransferTable7isEmptyEv(

@@ -10,7 +10,14 @@
     ],
     "ritual_ZN13QFontMetricsFC1ERK12QFontMetrics": ["address", "address"],
     "ritual_ZN13QFontMetricsFC1ERKS_": ["address", "address"],
+    "ritual_ZN13QFontMetricsFC1EOS_": ["address", "address"],
     "ritual_ZN13QFontMetricsFD1Ev": ["nothing", "address"],
+    "ritual_ZN13QFontMetricsFaSERKS_": ["address", "address", "address"],
+    "ritual_ZN13QFontMetricsFaSERK12QFontMetrics": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QFontMetricsFaSEOS_": ["address", "address", "address"],
+    "ritual_ZN13QFontMetricsF4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK13QFontMetricsF6ascentEv": ["double", "address"],
     "ritual_ZNK13QFontMetricsF9capHeightEv": ["double", "address"],
     "ritual_ZNK13QFontMetricsF7descentEv": ["double", "address"],

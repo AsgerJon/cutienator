@@ -10,6 +10,9 @@
     "ritual_ZNK23QSSGRenderInstanceTable8dataSizeEv": [
       "long long", "address"
     ],
+    "ritual_ZNK23QSSGRenderInstanceTable9constDataEv": [
+      "address", "address"
+    ],
     "ritual_ZN23QSSGRenderInstanceTable7setDataERK10QByteArrayii": [
       "nothing", "address", "address", "int", "int"
     ],

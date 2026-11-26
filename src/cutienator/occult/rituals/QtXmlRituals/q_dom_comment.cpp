@@ -17,6 +17,14 @@ QDomComment *ritual_ZN11QDomCommentC1ERKS_(const QDomComment *comment) {
   return new QDomComment(*comment);
 }
 
+//  QDomComment &QDomComment::operator=(const QDomComment &other)
+extern "C" Q_DECL_EXPORT
+QDomComment *ritual_ZN11QDomCommentaSERKS_(
+    QDomComment *self,
+    const QDomComment *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDomNode::NodeType QDomComment::nodeType() const
 extern "C" Q_DECL_EXPORT
 QDomNode::NodeType ritual_ZNK11QDomComment8nodeTypeEv(

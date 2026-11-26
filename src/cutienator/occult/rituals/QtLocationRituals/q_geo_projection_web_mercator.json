@@ -110,6 +110,9 @@
     "ritual_ZNK25QGeoProjectionWebMercator19projectableGeometryEv": [
       "address", "address"
     ],
+    "ritual_ZNK25QGeoProjectionWebMercator25fitViewportToGeoRectangleERK13QGeoRectangleRK8QMargins": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN25QGeoProjectionWebMercator11setupCameraEv": [
       "nothing", "address"
     ],
@@ -173,6 +176,9 @@
     ],
     "ritual_own_ZNK25QGeoProjectionWebMercator13visibleRegionEv": [
       "address", "address"
+    ],
+    "ritual_drop_QGeoProjectionWebMercator__QPair_QGeoCoordinate_qreal": [
+      "nothing", "address"
     ]
   }
 }

@@ -5,6 +5,8 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QSvgAnimateNodeC1Ev": ["address"],
+    "ritual_ZN15QSvgAnimateNodeC1EP8QSvgNode": ["address", "address"],
     "ritual_ZN15QSvgAnimateNodeD1Ev": ["nothing", "address"],
     "ritual_ZN15QSvgAnimateNode9setLinkIdERK7QString": [
       "nothing", "address", "text"
@@ -26,6 +28,12 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK15QSvgAnimateNode12additiveTypeEv": ["int", "address"],
+    "ritual_ZN15QSvgAnimateNode11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK15QSvgAnimateNode14shouldDrawNodeEP8QPainterR15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_cast_QSvgAnimateNode_QSvgAbstractAnimation": [
       "address", "address"
     ],

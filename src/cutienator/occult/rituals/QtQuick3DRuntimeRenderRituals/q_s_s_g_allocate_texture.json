@@ -9,8 +9,15 @@
     "ritual_ZN19QSSGAllocateTextureC1E23QSSGRenderTextureFormat": [
       "address", "address"
     ],
+    "ritual_ZNK19QSSGAllocateTexture7textureEv": ["address", "address"],
+    "ritual_ZN19QSSGAllocateTexture10setTextureERKSt10unique_ptrI21QSSGManagedRhiTextureSt14default_deleteIS1_EE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QSSGAllocateTexture6formatEv": ["address", "address"],
     "ritual_ZN19QSSGAllocateTexture9setFormatE23QSSGRenderTextureFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSSGAllocateTexture8addDebugER6QDebug": [
       "nothing", "address", "address"
     ]
   }

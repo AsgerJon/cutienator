@@ -35,6 +35,17 @@ bool ritual_ZNK3QV48Property8isSubsetERKNS_18PropertyAttributesEPKS0_S1_(
   return self->isSubset(*attrs, other, *otherAttrs);
 }
 
+//  void QV4::Property::merge(PropertyAttributes &attrs, const Property
+//      *other, PropertyAttributes otherAttrs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV48Property5mergeERNS_18PropertyAttributesEPKS0_S1_(
+    QV4::Property *self,
+    QV4::PropertyAttributes *attrs,
+    const QV4::Property *other,
+    const QV4::PropertyAttributes *otherAttrs) {
+  self->merge(*attrs, other, *otherAttrs);
+}
+
 //  Heap::FunctionObject *QV4::Property::getter() const
 extern "C" Q_DECL_EXPORT
 QV4::Heap::FunctionObject *ritual_ZNK3QV48Property6getterEv(
@@ -72,6 +83,17 @@ void ritual_ZN3QV48Property4copyEPKS0_NS_18PropertyAttributesE(
     const QV4::Property *other,
     const QV4::PropertyAttributes *attrs) {
   self->copy(other, *attrs);
+}
+
+//  bool QV4::Property::isCompatible(PropertyAttributes &attrs, const
+//      Property *other, PropertyAttributes otherAttrs) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK3QV48Property12isCompatibleERNS_18PropertyAttributesEPKS0_S1_(
+    const QV4::Property *self,
+    QV4::PropertyAttributes *attrs,
+    const QV4::Property *other,
+    const QV4::PropertyAttributes *otherAttrs) {
+  return self->isCompatible(*attrs, other, *otherAttrs);
 }
 
 //  QV4::Property::Property()

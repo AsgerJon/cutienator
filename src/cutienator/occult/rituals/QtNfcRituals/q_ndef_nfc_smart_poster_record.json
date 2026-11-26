@@ -10,6 +10,9 @@
       "address", "address"
     ],
     "ritual_ZN25QNdefNfcSmartPosterRecordC1ERKS_": ["address", "address"],
+    "ritual_ZN25QNdefNfcSmartPosterRecordaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN25QNdefNfcSmartPosterRecordD1Ev": ["nothing", "address"],
     "ritual_ZN25QNdefNfcSmartPosterRecord10setPayloadERK10QByteArray": [
       "nothing", "address", "address"

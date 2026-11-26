@@ -5,7 +5,9 @@
 #if QT_CONFIG(undogroup)
 #include <QtGui/qundogroup.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(undocommand)
 #include <QtGui/qundostack.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -184,6 +186,24 @@ const QMetaObject *ritual_ZNK10QUndoGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QUndoGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QUndoGroup11qt_metacastEPKc(
+    QUndoGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QUndoGroup::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QUndoGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QUndoGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QUndoGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QUndoGroup2trEPKcS1_i(
@@ -191,6 +211,19 @@ QString *ritual_ZN10QUndoGroup2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QUndoGroup::tr(s, c, n));
+}
+
+//  QUndoGroupPrivate *QUndoGroup::d_func()
+extern "C" Q_DECL_EXPORT
+QUndoGroupPrivate *ritual_ZN10QUndoGroup6d_funcEv(QUndoGroup *self) {
+  return self->d_func();
+}
+
+//  const QUndoGroupPrivate *QUndoGroup::d_func() const
+extern "C" Q_DECL_EXPORT
+const QUndoGroupPrivate *ritual_ZNK10QUndoGroup6d_funcEv(
+    const QUndoGroup *self) {
+  return self->d_func();
 }
 
 //  QUndoGroup::QUndoGroup(QObject *parent)
@@ -306,6 +339,58 @@ void ritual_ZN10QUndoGroup14setActiveStackEP10QUndoStack(
     QUndoGroup *self,
     QUndoStack *stack) {
   self->setActiveStack(stack);
+}
+
+//  void QUndoGroup::activeStackChanged(QUndoStack *stack)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoGroup18activeStackChangedEP10QUndoStack(
+    QUndoGroup *self,
+    QUndoStack *stack) {
+  self->activeStackChanged(stack);
+}
+
+//  void QUndoGroup::indexChanged(int idx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoGroup12indexChangedEi(QUndoGroup *self, int idx) {
+  self->indexChanged(idx);
+}
+
+//  void QUndoGroup::cleanChanged(bool clean)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoGroup12cleanChangedEb(QUndoGroup *self, bool clean) {
+  self->cleanChanged(clean);
+}
+
+//  void QUndoGroup::canUndoChanged(bool canUndo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoGroup14canUndoChangedEb(
+    QUndoGroup *self,
+    bool canUndo) {
+  self->canUndoChanged(canUndo);
+}
+
+//  void QUndoGroup::canRedoChanged(bool canRedo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoGroup14canRedoChangedEb(
+    QUndoGroup *self,
+    bool canRedo) {
+  self->canRedoChanged(canRedo);
+}
+
+//  void QUndoGroup::undoTextChanged(const QString &undoText)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoGroup15undoTextChangedERK7QString(
+    QUndoGroup *self,
+    const QString *undoText) {
+  self->undoTextChanged(*undoText);
+}
+
+//  void QUndoGroup::redoTextChanged(const QString &redoText)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoGroup15redoTextChangedERK7QString(
+    QUndoGroup *self,
+    const QString *redoText) {
+  self->redoTextChanged(*redoText);
 }
 
 //  a Python function taken by a CuteQUndoGroup, for the function named by

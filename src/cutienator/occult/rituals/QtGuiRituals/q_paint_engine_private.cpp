@@ -20,11 +20,12 @@
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQPaintEnginePrivateCall0)(const void *, int *);
 typedef void * (*CuteQPaintEnginePrivateCall1)(const void *, int *);
+typedef void * (*CuteQPaintEnginePrivateCall2)(const void *, int *);
 class CuteQPaintEnginePrivate : public QPaintEnginePrivate {
 public:
   using QPaintEnginePrivate::QPaintEnginePrivate;
-  CuteQPaintEnginePrivate(const QPaintEnginePrivate &other) : QPaintEnginePrivate(other) {}
-  void *taken[2] = {};
+  CuteQPaintEnginePrivate(const QPaintEnginePrivate & other) : QPaintEnginePrivate(other) {}
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN19QPaintEnginePrivate18systemStateChangedEv")) {
@@ -33,6 +34,10 @@ public:
     }
     if (!std::strcmp(key, "_ZN19QPaintEnginePrivate15aggregateEngineEv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN19QPaintEnginePrivate12nativeHandleEv")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -58,6 +63,17 @@ public:
       if (handled) return static_cast<QPaintEngine *>(given);
     }
     return QPaintEnginePrivate::aggregateEngine();
+  }
+
+  //  Qt::HANDLE QPaintEnginePrivate::nativeHandle()
+  Qt::HANDLE nativeHandle() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQPaintEnginePrivateCall2 call = reinterpret_cast<CuteQPaintEnginePrivateCall2>(taken[2]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<Qt::HANDLE>(given);
+    }
+    return QPaintEnginePrivate::nativeHandle();
   }
 };
 
@@ -151,6 +167,13 @@ QPaintEngine *ritual_ZN19QPaintEnginePrivate15aggregateEngineEv(
   return self->aggregateEngine();
 }
 
+//  Qt::HANDLE QPaintEnginePrivate::nativeHandle()
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_ZN19QPaintEnginePrivate12nativeHandleEv(
+    QPaintEnginePrivate *self) {
+  return self->nativeHandle();
+}
+
 //  a Python function taken by a CuteQPaintEnginePrivate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -173,4 +196,11 @@ extern "C" Q_DECL_EXPORT
 QPaintEngine *ritual_own_ZN19QPaintEnginePrivate15aggregateEngineEv(
     QPaintEnginePrivate *self) {
   return self->QPaintEnginePrivate::aggregateEngine();
+}
+
+//  Qt::HANDLE QPaintEnginePrivate::nativeHandle()
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_own_ZN19QPaintEnginePrivate12nativeHandleEv(
+    QPaintEnginePrivate *self) {
+  return self->QPaintEnginePrivate::nativeHandle();
 }

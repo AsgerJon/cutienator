@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QTimerInfoC1EN2Qt7TimerIdENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS0_9TimerTypeEP7QObject": [
+      "address", "int", "long long", "int", "address"
+    ],
     "ritual_ZN10QTimerInfoD1Ev": ["nothing", "address"]
   }
 }

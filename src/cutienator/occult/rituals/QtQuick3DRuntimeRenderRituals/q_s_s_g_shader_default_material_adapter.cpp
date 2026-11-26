@@ -8,6 +8,14 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qvectornd.h>
 
+//  QSSGShaderDefaultMaterialAdapter::QSSGShaderDefaultMaterialAdapter(const
+//      QSSGRenderDefaultMaterial &material)
+extern "C" Q_DECL_EXPORT
+QSSGShaderDefaultMaterialAdapter *ritual_ZN32QSSGShaderDefaultMaterialAdapterC1ERK25QSSGRenderDefaultMaterial(
+    const QSSGRenderDefaultMaterial *material) {
+  return new QSSGShaderDefaultMaterialAdapter(*material);
+}
+
 //  bool QSSGShaderDefaultMaterialAdapter::isPrincipled()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN32QSSGShaderDefaultMaterialAdapter12isPrincipledEv(

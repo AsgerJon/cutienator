@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qdatastream.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qdatastream.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN11QDataStreamC1Ev": ["address"],
@@ -31,7 +32,45 @@
     ],
     "ritual_ZNK11QDataStream7versionEv": ["int", "address"],
     "ritual_ZN11QDataStream10setVersionEi": ["nothing", "address", "int"],
+    "ritual_ZN11QDataStreamrsERc": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERa": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERh": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERs": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERt": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERi": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERj": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERx": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERy": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERDn": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERb": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERf": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERd": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERDs": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamrsERDi": ["address", "address", "address"],
+    "ritual_ZN11QDataStreamlsEc": ["address", "address", "char"],
+    "ritual_ZN11QDataStreamlsEa": ["address", "address", "signed char"],
+    "ritual_ZN11QDataStreamlsEh": ["address", "address", "unsigned char"],
+    "ritual_ZN11QDataStreamlsEs": ["address", "address", "short"],
+    "ritual_ZN11QDataStreamlsEt": ["address", "address", "unsigned short"],
+    "ritual_ZN11QDataStreamlsEi": ["address", "address", "int"],
+    "ritual_ZN11QDataStreamlsEj": ["address", "address", "unsigned int"],
+    "ritual_ZN11QDataStreamlsEx": ["address", "address", "long long"],
+    "ritual_ZN11QDataStreamlsEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN11QDataStreamlsEDn": ["address", "address"],
+    "ritual_ZN11QDataStreamlsEf": ["address", "address", "float"],
+    "ritual_ZN11QDataStreamlsEd": ["address", "address", "double"],
+    "ritual_ZN11QDataStreamlsEPKc": ["address", "address", "chars"],
+    "ritual_ZN11QDataStreamlsEDs": ["address", "address", "unsigned short"],
+    "ritual_ZN11QDataStreamlsEDi": ["address", "address", "unsigned int"],
     "ritual_ZNK11QDataStreamcvbEv": ["bool", "address"],
+    "ritual_ZN11QDataStream11readRawDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN11QDataStream10writeBytesEPKcx": [
+      "address", "address", "chars", "long long"
+    ],
     "ritual_ZN11QDataStream12writeRawDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
@@ -44,6 +83,29 @@
     "ritual_ZN11QDataStream16abortTransactionEv": ["nothing", "address"],
     "ritual_ZNK11QDataStream26isDeviceTransactionStartedEv": [
       "bool", "address"
+    ],
+    "ritual_ZN11QDataStream9readBlockEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN11QDataStream13readQSizeTypeERS_": ["long long", "address"],
+    "ritual_ZN11QDataStream14writeQSizeTypeERS_x": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZlsR11QDataStreamRK7QString": ["address", "address", "text"],
+    "ritual_ZrsR11QDataStreamR7QString": ["address", "address", "address"],
+    "ritual_ZlsR11QDataStreamRK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QDataStreamlsIbLb1EEERS_T_": ["address", "address", "bool"],
+    "ritual_ZN11QDataStreamrsERPc": ["address", "address", "address"],
+    "ritual_ZN11QDataStream9readBytesERPcRj": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QDataStream9readBytesERPcRx": [
+      "address", "address", "address", "address"
     ]
   }
 }

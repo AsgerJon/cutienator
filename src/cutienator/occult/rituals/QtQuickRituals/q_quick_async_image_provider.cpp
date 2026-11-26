@@ -288,6 +288,12 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  QQuickAsyncImageProvider::QQuickAsyncImageProvider()
+extern "C" Q_DECL_EXPORT
+QQuickAsyncImageProvider *ritual_ZN24QQuickAsyncImageProviderC1Ev() {
+  return new CuteQQuickAsyncImageProvider();
+}
+
 //  QQuickAsyncImageProvider::~QQuickAsyncImageProvider()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickAsyncImageProviderD1Ev(

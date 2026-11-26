@@ -256,6 +256,24 @@ const QMetaObject *ritual_ZNK15QGraphicsEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QGraphicsEffect11qt_metacastEPKc(
+    QGraphicsEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsEffect::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QGraphicsEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsEffect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QGraphicsEffect2trEPKcS1_i(
@@ -263,6 +281,12 @@ QString *ritual_ZN15QGraphicsEffect2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QGraphicsEffect::tr(s, c, n));
+}
+
+//  QGraphicsEffect::QGraphicsEffect(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsEffect *ritual_ZN15QGraphicsEffectC1EP7QObject(QObject *parent) {
+  return new CuteQGraphicsEffect(parent);
 }
 
 //  QGraphicsEffect::~QGraphicsEffect()
@@ -304,6 +328,23 @@ void ritual_ZN15QGraphicsEffect10setEnabledEb(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsEffect6updateEv(QGraphicsEffect *self) {
   self->update();
+}
+
+//  void QGraphicsEffect::enabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsEffect14enabledChangedEb(
+    QGraphicsEffect *self,
+    bool enabled) {
+  self->enabledChanged(enabled);
+}
+
+//  QGraphicsEffect::QGraphicsEffect(QGraphicsEffectPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsEffect *ritual_ZN15QGraphicsEffectC1ER22QGraphicsEffectPrivateP7QObject(
+    QGraphicsEffectPrivate *d,
+    QObject *parent) {
+  return new CuteQGraphicsEffect(*d, parent);
 }
 
 //  void QGraphicsEffect::draw(QPainter *painter)

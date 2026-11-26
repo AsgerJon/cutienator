@@ -13,7 +13,9 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qvariant.h>
@@ -1078,6 +1080,25 @@ const QMetaObject *ritual_ZNK20QQuickHeaderViewBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickHeaderViewBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickHeaderViewBase11qt_metacastEPKc(
+    QQuickHeaderViewBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickHeaderViewBase::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickHeaderViewBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickHeaderViewBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickHeaderViewBase::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickHeaderViewBase2trEPKcS1_i(
@@ -1129,6 +1150,22 @@ void ritual_ZN20QQuickHeaderViewBase11setTextRoleERK7QString(
     QQuickHeaderViewBase *self,
     const QString *role) {
   self->setTextRole(*role);
+}
+
+//  QQuickHeaderViewBase::QQuickHeaderViewBase(QQuickHeaderViewBasePrivate
+//      &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickHeaderViewBase *ritual_ZN20QQuickHeaderViewBaseC1ER27QQuickHeaderViewBasePrivateP10QQuickItem(
+    QQuickHeaderViewBasePrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickHeaderViewBase(*dd, parent);
+}
+
+//  void QQuickHeaderViewBase::textRoleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickHeaderViewBase15textRoleChangedEv(
+    QQuickHeaderViewBase *self) {
+  self->textRoleChanged();
 }
 
 //  a Python function taken by a CuteQQuickHeaderViewBase, for the function

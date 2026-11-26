@@ -2,15 +2,32 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qqmlpropertycache_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN17QQmlPropertyCache16createStandaloneEPK11QMetaObject13QTypeRevision": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlPropertyCacheC1EN3qxp12function_refIJKFN17OverrideSemantics6StatusER16QQmlPropertyDataPS4_NS2_9CheckModeEEEEE": [
+      "address", "address"
+    ],
     "ritual_ZN17QQmlPropertyCacheD1Ev": ["nothing", "address"],
     "ritual_ZN17QQmlPropertyCache6updateEPK11QMetaObject": [
       "nothing", "address", "address"
     ],
     "ritual_ZN17QQmlPropertyCache10invalidateEPK11QMetaObject": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQmlPropertyCache4copyEv": ["address", "address"],
+    "ritual_ZNK17QQmlPropertyCache7rebasedERKNS_8ConstPtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QQmlPropertyCache13copyAndAppendEPK11QMetaObject13QTypeRevisionN16QQmlPropertyData5FlagsES5_S5_": [
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZNK17QQmlPropertyCache14copyAndReserveEiiii": [
+      "address", "address", "int", "int", "int", "int"
     ],
     "ritual_ZNK17QQmlPropertyCache10metaObjectEv": ["address", "address"],
     "ritual_ZNK17QQmlPropertyCache16createMetaObjectEv": [
@@ -47,6 +64,15 @@
     "ritual_ZNK17QQmlPropertyCache19isAllowedInRevisionEPK16QQmlPropertyData": [
       "bool", "address", "address"
     ],
+    "ritual_ZN17QQmlPropertyCache8propertyEP7QObject11QStringViewRK14QQmlRefPointerI15QQmlContextDataEP16QQmlPropertyData": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN17QQmlPropertyCache8propertyEP7QObjectRK13QLatin1StringRK14QQmlRefPointerI15QQmlContextDataEP16QQmlPropertyData": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlPropertyCache8propertyEP7QObjectPKN3QV46StringERK14QQmlRefPointerI15QQmlContextDataEP16QQmlPropertyData": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK17QQmlPropertyCache13originalCloneEi": [
       "int", "address", "int"
     ],
@@ -70,8 +96,20 @@
     "ritual_ZNK17QQmlPropertyCache14ownSignalCountEv": ["int", "address"],
     "ritual_ZNK17QQmlPropertyCache12signalOffsetEv": ["int", "address"],
     "ritual_ZNK17QQmlPropertyCache12ownEnumCountEv": ["int", "address"],
+    "ritual_ZNK17QQmlPropertyCache19toMetaObjectBuilderER18QMetaObjectBuilder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQmlPropertyCache19callJSFactoryMethodEP7QObjectPPv": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN17QQmlPropertyCache24determineMetaObjectSizesERK11QMetaObjectPiS3_": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlPropertyCache9addToHashER18QCryptographicHashRK11QMetaObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QQmlPropertyCache8checksumEP5QHashIy10QByteArrayEPb": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZNK17QQmlPropertyCache15allowedRevisionEi": [
       "address", "address", "int"
@@ -80,9 +118,25 @@
       "nothing", "address", "int", "address"
     ],
     "ritual_ZNK17QQmlPropertyCache11isCompositeEv": ["bool", "address"],
+    "ritual_ZN17QQmlPropertyCacheC1ERK21QQmlMetaObjectPointerN3qxp12function_refIJKFN17OverrideSemantics6StatusER16QQmlPropertyDataPS7_NS5_9CheckModeEEEEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QQmlPropertyCache4copyERK21QQmlMetaObjectPointeri": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZN17QQmlPropertyCache6appendEPK11QMetaObject13QTypeRevisionN16QQmlPropertyData5FlagsES5_S5_": [
       "nothing", "address", "address", "address", "address", "address",
       "address"
+    ],
+    "ritual_ZN17QQmlPropertyCache18appendPropertyAttrERK7QStringO16QQmlPropertyData": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN17QQmlPropertyCache11appendAliasERK7QStringN16QQmlPropertyData5FlagsEi9QMetaType13QTypeRevisioniii": [
+      "address", "address", "text", "address", "int", "address", "address",
+      "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlPropertyCache22appendComponentWrapperEii": [
+      "address", "address", "int", "int"
     ],
     "ritual_ZN17QQmlPropertyCache12appendSignalERK7QStringN16QQmlPropertyData5FlagsEiPK9QMetaTypeRK5QListI10QByteArrayE": [
       "nothing", "address", "text", "address", "int", "address", "address"
@@ -96,6 +150,21 @@
     ],
     "ritual_ZN17QQmlPropertyCache21createArgumentsObjectEiRK5QListI10QByteArrayE": [
       "address", "address", "int", "address"
+    ],
+    "ritual_drop_QQmlPropertyCache__QQmlPropertyCache_Ptr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlPropertyCache__QQmlPropertyCache_AppendResult": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQmlPropertyCache17findNamedPropertyI7QStringEEP16QQmlPropertyDataRKT_": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN17QQmlPropertyCache16setNamedPropertyI7QStringEEvRKT_iP16QQmlPropertyData": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZNK17QQmlPropertyCache8propertyI7QStringEEPK16QQmlPropertyDataRKT_P7QObjectRK14QQmlRefPointerI15QQmlContextDataE": [
+      "address", "address", "text", "address", "address"
     ]
   }
 }

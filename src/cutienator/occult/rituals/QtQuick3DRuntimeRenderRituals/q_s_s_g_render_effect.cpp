@@ -19,6 +19,16 @@ void ritual_ZN16QSSGRenderEffectD1Ev(QSSGRenderEffect *self) {
   delete self;
 }
 
+//  void QSSGRenderEffect::finalizeShaders(const QSSGRenderLayer &layer,
+//      QSSGRenderContextInterface *renderContext)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSSGRenderEffect15finalizeShadersERK15QSSGRenderLayerP26QSSGRenderContextInterface(
+    QSSGRenderEffect *self,
+    const QSSGRenderLayer *layer,
+    QSSGRenderContextInterface *renderContext) {
+  self->finalizeShaders(*layer, renderContext);
+}
+
 //  void QSSGRenderEffect::markDirty()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSSGRenderEffect9markDirtyEv(QSSGRenderEffect *self) {

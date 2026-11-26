@@ -11,7 +11,13 @@
     "ritual_ZN12QFilePrivate16openExternalFileE6QFlagsIN13QIODeviceBase12OpenModeFlagEEiS0_IN11QFileDevice14FileHandleFlagEE": [
       "bool", "address", "int", "int", "int"
     ],
+    "ritual_ZN12QFilePrivate16openExternalFileE6QFlagsIN13QIODeviceBase12OpenModeFlagEEP8_IO_FILES0_IN11QFileDevice14FileHandleFlagEE": [
+      "bool", "address", "int", "address", "int"
+    ],
     "ritual_ZNK12QFilePrivate6engineEv": ["address", "address"],
+    "ritual_ZNK12QFilePrivate18writeToDebugStreamER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QFilePrivate": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK12QFilePrivate6engineEv": ["address", "address"]
   }

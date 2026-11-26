@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QTreeModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTreeModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QTreeModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QTreeModelD1Ev": ["nothing", "address"],
     "ritual_ZNK10QTreeModel4viewEv": ["address", "address"],
     "ritual_ZN10QTreeModel5clearEv": ["nothing", "address"],
@@ -58,10 +64,25 @@
     "ritual_ZN10QTreeModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN10QTreeModel12ensureSortedEiN2Qt9SortOrderEiiRK11QModelIndex": [
+      "nothing", "address", "int", "int", "int", "int", "address"
+    ],
+    "ritual_ZN10QTreeModel12itemLessThanERKSt4pairIP15QTreeWidgetItemiES5_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QTreeModel15itemGreaterThanERKSt4pairIP15QTreeWidgetItemiES5_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QTreeModel23sortedInsertionIteratorERKN5QListIP15QTreeWidgetItemE8iteratorES6_N2Qt9SortOrderES2_": [
+      "address", "address", "address", "int", "address"
+    ],
     "ritual_ZN10QTreeModel10insertRowsEiiRK11QModelIndex": [
       "bool", "address", "int", "int", "address"
     ],
     "ritual_ZN10QTreeModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QTreeModel10removeRowsEiiRK11QModelIndex": [
       "bool", "address", "int", "int", "address"
     ],
     "ritual_ZNK10QTreeModel9mimeTypesEv": ["address", "address"],
@@ -77,6 +98,9 @@
     "ritual_ZNK10QTreeModel19createIndexFromItemEiiP15QTreeWidgetItem": [
       "address", "address", "int", "int", "address"
     ],
+    "ritual_ZN10QTreeModel15emitDataChangedEP15QTreeWidgetItemiRK5QListIiE": [
+      "nothing", "address", "address", "int", "address"
+    ],
     "ritual_ZN10QTreeModel16beginInsertItemsEP15QTreeWidgetItemii": [
       "nothing", "address", "address", "int", "int"
     ],
@@ -85,6 +109,9 @@
       "nothing", "address", "address", "int", "int"
     ],
     "ritual_ZN10QTreeModel14endRemoveItemsEv": ["nothing", "address"],
+    "ritual_ZN10QTreeModel9sortItemsEP5QListIP15QTreeWidgetItemEiN2Qt9SortOrderE": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZN10QTreeModel10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
@@ -135,6 +162,9 @@
     "ritual_own_ZN10QTreeModel13insertColumnsEiiRK11QModelIndex": [
       "bool", "address", "int", "int", "address"
     ],
+    "ritual_own_ZN10QTreeModel10removeRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
     "ritual_own_ZN10QTreeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
     ],
@@ -142,6 +172,9 @@
     "ritual_own_ZNK10QTreeModel20supportedDragActionsEv": ["int", "address"],
     "ritual_own_ZN10QTreeModel10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QTreeModel__QList_QTreeWidgetItem_iterator": [
+      "nothing", "address"
     ]
   }
 }

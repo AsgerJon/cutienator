@@ -5,7 +5,9 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/qpielegendmarker.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qpielegendmarker_p.h>
@@ -234,6 +236,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK23QPieLegendMarkerPrivate10metaObjectEv(
     const QPieLegendMarkerPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QPieLegendMarkerPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QPieLegendMarkerPrivate11qt_metacastEPKc(
+    QPieLegendMarkerPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPieLegendMarkerPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QPieLegendMarkerPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPieLegendMarkerPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QPieLegendMarkerPrivate::tr(const char *s, const char *c, int n)

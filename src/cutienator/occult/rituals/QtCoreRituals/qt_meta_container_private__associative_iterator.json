@@ -4,10 +4,28 @@
     "QtCore/qmetaassociation.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QtMetaContainerPrivate19AssociativeIteratorC1EO9QIteratorI16QMetaAssociationE": [
+      "address", "address"
+    ],
     "ritual_ZNK22QtMetaContainerPrivate19AssociativeIterator3keyEv": [
       "address", "address"
     ],
+    "ritual_ZNK22QtMetaContainerPrivate19AssociativeIterator5valueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate19AssociativeIteratordeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate19AssociativeIteratorptEv": [
+      "address", "address"
+    ],
     "ritual_ZN22QtMetaContainerPrivate19AssociativeIteratorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtMetaContainerPrivate_AssociativeIterator__QtMetaContainerPrivate_AssociativeIterator_reference": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtMetaContainerPrivate_AssociativeIterator__QtMetaContainerPrivate_AssociativeIterator_pointer": [
       "nothing", "address"
     ]
   }

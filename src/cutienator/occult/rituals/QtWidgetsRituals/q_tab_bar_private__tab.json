@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN14QTabBarPrivate3TabC1ERK5QIconRK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_ZN14QTabBarPrivate3Tab14startAnimationEPS_i": [
+      "nothing", "address", "address", "int"
     ]
   }
 }

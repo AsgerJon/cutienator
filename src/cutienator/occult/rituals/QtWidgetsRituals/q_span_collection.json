@@ -16,6 +16,9 @@
       "address", "address", "int", "int"
     ],
     "ritual_ZN15QSpanCollection5clearEv": ["nothing", "address"],
+    "ritual_ZNK15QSpanCollection11spansInRectEiiii": [
+      "address", "address", "int", "int", "int", "int"
+    ],
     "ritual_ZN15QSpanCollection18updateInsertedRowsEii": [
       "nothing", "address", "int", "int"
     ],
@@ -27,6 +30,12 @@
     ],
     "ritual_ZN15QSpanCollection20updateRemovedColumnsEii": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QSpanCollection17cleanSpanSubIndexER4QMapIiPNS_4SpanEEib": [
+      "bool", "address", "address", "int", "bool"
+    ],
+    "ritual_drop_QSpanCollection__QSet_QSpanCollection_Span": [
+      "nothing", "address"
     ]
   }
 }

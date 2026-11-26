@@ -8,15 +8,27 @@
     "ritual_ZNK24QQuick3DParticleAffector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuick3DParticleAffector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuick3DParticleAffector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuick3DParticleAffector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN24QQuick3DParticleAffector24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
+    "ritual_ZN24QQuick3DParticleAffectorC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
     "ritual_ZN24QQuick3DParticleAffectorD1Ev": ["nothing", "address"],
     "ritual_ZNK24QQuick3DParticleAffector6systemEv": ["address", "address"],
     "ritual_ZNK24QQuick3DParticleAffector7enabledEv": ["bool", "address"],
+    "ritual_ZN24QQuick3DParticleAffector9particlesEv": [
+      "address", "address"
+    ],
     "ritual_ZN24QQuick3DParticleAffector14appendParticleEP16QQuick3DParticle": [
       "nothing", "address", "address"
     ],
@@ -41,6 +53,13 @@
     "ritual_ZN24QQuick3DParticleAffector10setEnabledEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN24QQuick3DParticleAffector6updateEv": ["nothing", "address"],
+    "ritual_ZN24QQuick3DParticleAffector13systemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DParticleAffector14enabledChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN24QQuick3DParticleAffector17componentCompleteEv": [
       "nothing", "address"
     ],
@@ -50,6 +69,24 @@
     "ritual_ZN24QQuick3DParticleAffector14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
       "nothing", "address", "address", "address", "float"
     ],
+    "ritual_ZN24QQuick3DParticleAffector14appendParticleEP16QQmlListPropertyI16QQuick3DParticleEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DParticleAffector13particleCountEP16QQmlListPropertyI16QQuick3DParticleE": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QQuick3DParticleAffector8particleEP16QQmlListPropertyI16QQuick3DParticleEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN24QQuick3DParticleAffector14clearParticlesEP16QQmlListPropertyI16QQuick3DParticleE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DParticleAffector15replaceParticleEP16QQmlListPropertyI16QQuick3DParticleExPS1_": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN24QQuick3DParticleAffector18removeLastParticleEP16QQmlListPropertyI16QQuick3DParticleE": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuick3DParticleAffector": [
       "bool", "address", "chars", "address"
     ],
@@ -57,6 +94,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN24QQuick3DParticleAffector15prepareToAffectEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DParticleAffector__QQmlListProperty_QQuick3DParticle": [
       "nothing", "address"
     ]
   }

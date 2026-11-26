@@ -8,6 +8,12 @@
     "ritual_ZNK21QSGThreadedRenderLoop10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QSGThreadedRenderLoop11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QSGThreadedRenderLoopD1Ev": ["nothing", "address"],
     "ritual_ZN21QSGThreadedRenderLoop4showEP12QQuickWindow": [
       "nothing", "address", "address"
@@ -18,7 +24,16 @@
     "ritual_ZN21QSGThreadedRenderLoop6resizeEP12QQuickWindow": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN21QSGThreadedRenderLoop15windowDestroyedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QSGThreadedRenderLoop15exposureChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop4grabEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop6updateEP12QQuickWindow": [
       "nothing", "address", "address"
     ],
     "ritual_ZN21QSGThreadedRenderLoop11maybeUpdateEP12QQuickWindow": [
@@ -42,20 +57,53 @@
     "ritual_ZN21QSGThreadedRenderLoop5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN21QSGThreadedRenderLoop7postJobEP12QQuickWindowP9QRunnable": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK21QSGThreadedRenderLoop20interleaveIncubationEv": [
       "bool", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop16animationStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop16animationStoppedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop9windowForEP12QQuickWindow": [
+      "address", "address", "address"
     ],
     "ritual_ZNK21QSGThreadedRenderLoop13anyoneShowingEv": [
       "bool", "address"
     ],
+    "ritual_ZN21QSGThreadedRenderLoop25startOrStopAnimationTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop17postUpdateRequestEPNS_6WindowE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QSGThreadedRenderLoop16releaseSwapchainEP12QQuickWindow": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
     ],
     "ritual_take_QSGThreadedRenderLoop": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN21QSGThreadedRenderLoop4showEP12QQuickWindow": [
       "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGThreadedRenderLoop4hideEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGThreadedRenderLoop6resizeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGThreadedRenderLoop15windowDestroyedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGThreadedRenderLoop4grabEP12QQuickWindow": [
+      "address", "address", "address"
     ],
     "ritual_own_ZNK21QSGThreadedRenderLoop17sceneGraphContextEv": [
       "address", "address"
@@ -66,8 +114,20 @@
     "ritual_own_ZNK21QSGThreadedRenderLoop15animationDriverEv": [
       "address", "address"
     ],
+    "ritual_own_ZN21QSGThreadedRenderLoop16releaseResourcesEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGThreadedRenderLoop5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN21QSGThreadedRenderLoop7postJobEP12QQuickWindowP9QRunnable": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_own_ZNK21QSGThreadedRenderLoop20interleaveIncubationEv": [
       "bool", "address"
+    ],
+    "ritual_own_ZN21QSGThreadedRenderLoop11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
     ]
   }
 }

@@ -8,11 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasboxshadow.h>
 #include <QtCanvasPainter/qcanvasbrush.h>
-#include <QtGui/qvectornd.h>
-#include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcpaint_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qvectornd.h>
+#include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasboxshadow.h>
@@ -28,6 +28,73 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 14, as local:qcanvasboxshadow.cpp:QCPAINTER_BOX_SHADOW_MULTIPLIER
+static constexpr qreal QCPAINTER_BOX_SHADOW_MULTIPLIER = 1.0;
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 570, as _ZN23QCanvasBoxShadowPrivate5cloneEv
+inline QCanvasBrushPrivate *QCanvasBoxShadowPrivate::clone()
+{
+    return new QCanvasBoxShadowPrivate(*this);
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 489, as _ZNK23QCanvasBoxShadowPrivate11createPaintEP14QCanvasPainter
+inline QCPaint QCanvasBoxShadowPrivate::createPaint(QCanvasPainter *painter) const
+{
+    Q_UNUSED(painter);
+    auto *d = this;
+    if (d->changed) {
+        // TODO: Support non-antialiased shadows?
+        const qreal aa = 1.0;
+
+        // Adjust blur to grow equally towards in & out.
+        const qreal blurIn = QCPAINTER_BOX_SHADOW_MULTIPLIER * d->blur + 0.5 * aa;
+        const qreal blurOut = 2 * QCPAINTER_BOX_SHADOW_MULTIPLIER * d->blur + aa;
+
+        qreal extendX = d->spread - blurIn;
+        qreal extendY = d->spread - blurIn;
+
+        // Limit max extends when width & height are < 0.
+        // This reduces rendering issues of thin rects with big blur
+        // values being to sharp at center (smoothstep is clipped),
+        // but causes some extra blurriness to those.
+        if (extendX <  -0.5 * d->width) {
+            const qreal diff = extendX + 0.5 * d->width;
+            extendX -= 0.25 * diff;
+        }
+        if (extendY <  -0.5 * d->height) {
+            const qreal diff = extendY + 0.5 * d->height;
+            extendY -= 0.25 * diff;
+        }
+
+        const qreal x = d->x - extendX;
+        const qreal y = d->y - extendY;
+        const qreal width = d->width + 2 * extendX;
+        const qreal height = d->height + 2 * extendY;
+
+        QColor color = d->clampedColor();
+
+        // Use adjusted width & height extended with blur & spread.
+        // QVector4D is float-based, so the corner radii are truncated here.
+        const float commonRadius = float(d->clampedRadius(d->radius, width, height));
+        QVector4D radius { commonRadius, commonRadius, commonRadius, commonRadius };
+
+        if (d->topLeftRadius >= 0)
+            radius.setX(float(d->clampedRadius(d->topLeftRadius, width, height)));
+        if (d->topRightRadius >= 0)
+            radius.setY(float(d->clampedRadius(d->topRightRadius, width, height)));
+        if (d->bottomLeftRadius >= 0)
+            radius.setZ(float(d->clampedRadius(d->bottomLeftRadius, width, height)));
+        if (d->bottomRightRadius >= 0)
+            radius.setW(float(d->clampedRadius(d->bottomRightRadius, width, height)));
+
+        createBoxShadow(x, y, width, height, radius, blurOut, color);
+
+        const_cast<QCanvasBoxShadowPrivate *>(d)->changed = false;
+    }
+
+    return d->paint;
+}
 
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 137, as _ZNK23QCanvasBoxShadowPrivate6equalsERK19QCanvasBrushPrivate
 inline bool QCanvasBoxShadowPrivate::equals(const QCanvasBrushPrivate &other) const noexcept
@@ -50,12 +117,6 @@ inline bool QCanvasBoxShadowPrivate::equals(const QCanvasBrushPrivate &other) co
         return false;
 
     return true;
-}
-
-//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 570, as _ZN23QCanvasBoxShadowPrivate5cloneEv
-inline QCanvasBrushPrivate *QCanvasBoxShadowPrivate::clone()
-{
-    return new QCanvasBoxShadowPrivate(*this);
 }
 
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 546, as _ZNK23QCanvasBoxShadowPrivate15createBoxShadowEddddRK9QVector4Dd6QColor
@@ -99,6 +160,19 @@ inline qreal QCanvasBoxShadowPrivate::clampedRadius(qreal rad, qreal width, qrea
     spreadRadius = qMax(0.0, spreadRadius);
     return qMin(spreadRadius, maxRadius);
 }
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 593, as _ZNK23QCanvasBoxShadowPrivate12clampedColorEv
+inline QColor QCanvasBoxShadowPrivate::clampedColor() const
+{
+    QColor c = color;
+    const qreal minSize = qMin(width + 2 * spread, height + 2 * spread);
+    const qreal blurTreshold = minSize * 0.5 * QCPAINTER_BOX_SHADOW_MULTIPLIER;
+    if (blur > blurTreshold) {
+        const qreal fade = blurTreshold / blur;
+        c.setAlphaF(color.alphaF() * fade);
+    }
+    return c;
+}
 //  -----------------------------------------------------------------------
 
 //  A QCanvasBoxShadowPrivate that Python can take functions over in. Every QCanvasBoxShadowPrivate
@@ -109,7 +183,7 @@ typedef const QCPaint * (*CuteQCanvasBoxShadowPrivateCall1)(const void *, QCanva
 class CuteQCanvasBoxShadowPrivate : public QCanvasBoxShadowPrivate {
 public:
   using QCanvasBoxShadowPrivate::QCanvasBoxShadowPrivate;
-  CuteQCanvasBoxShadowPrivate(const QCanvasBoxShadowPrivate &other) : QCanvasBoxShadowPrivate(other) {}
+  CuteQCanvasBoxShadowPrivate(const QCanvasBoxShadowPrivate & other) : QCanvasBoxShadowPrivate(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -155,6 +229,15 @@ QCanvasBrushPrivate *ritual_ZN23QCanvasBoxShadowPrivate5cloneEv(
   return self->clone();
 }
 
+//  bool QCanvasBoxShadowPrivate::equals(const QCanvasBrushPrivate &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK23QCanvasBoxShadowPrivate6equalsERK19QCanvasBrushPrivate(
+    const QCanvasBoxShadowPrivate *self,
+    const QCanvasBrushPrivate *other) {
+  return self->equals(*other);
+}
+
 //  QCanvasBoxShadowPrivate *QCanvasBoxShadowPrivate::get(QCanvasBoxShadow
 //      *brush)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +272,15 @@ QCanvasBoxShadow *ritual_ZN23QCanvasBoxShadowPrivate18getFromCanvasBrushERK12QCa
           *brush));
 }
 
+//  QCPaint QCanvasBoxShadowPrivate::createPaint(QCanvasPainter *painter)
+//      const
+extern "C" Q_DECL_EXPORT
+QCPaint *ritual_ZNK23QCanvasBoxShadowPrivate11createPaintEP14QCanvasPainter(
+    const QCanvasBoxShadowPrivate *self,
+    QCanvasPainter *painter) {
+  return new QCPaint(self->createPaint(painter));
+}
+
 //  void QCanvasBoxShadowPrivate::createBoxShadow(qreal x, qreal y, qreal
 //      width, qreal height, const QVector4D &radius, qreal blur, QColor
 //      color) const
@@ -216,6 +308,13 @@ qreal ritual_ZNK23QCanvasBoxShadowPrivate13clampedRadiusEddd(
   return self->clampedRadius(radius, width, height);
 }
 
+//  QColor QCanvasBoxShadowPrivate::clampedColor() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK23QCanvasBoxShadowPrivate12clampedColorEv(
+    const QCanvasBoxShadowPrivate *self) {
+  return new QColor(self->clampedColor());
+}
+
 //  QCanvasBoxShadowPrivate::~QCanvasBoxShadowPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QCanvasBoxShadowPrivateD1Ev(QCanvasBoxShadowPrivate *self) {
@@ -230,4 +329,20 @@ bool ritual_take_QCanvasBoxShadowPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQCanvasBoxShadowPrivate *>(self)->take(key, call);
+}
+
+//  QCanvasBrushPrivate *QCanvasBoxShadowPrivate::clone()
+extern "C" Q_DECL_EXPORT
+QCanvasBrushPrivate *ritual_own_ZN23QCanvasBoxShadowPrivate5cloneEv(
+    QCanvasBoxShadowPrivate *self) {
+  return self->QCanvasBoxShadowPrivate::clone();
+}
+
+//  QCPaint QCanvasBoxShadowPrivate::createPaint(QCanvasPainter *painter)
+//      const
+extern "C" Q_DECL_EXPORT
+QCPaint *ritual_own_ZNK23QCanvasBoxShadowPrivate11createPaintEP14QCanvasPainter(
+    const QCanvasBoxShadowPrivate *self,
+    QCanvasPainter *painter) {
+  return new QCPaint(self->QCanvasBoxShadowPrivate::createPaint(painter));
 }

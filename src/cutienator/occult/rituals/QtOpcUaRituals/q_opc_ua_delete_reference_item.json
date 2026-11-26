@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN25QOpcUaDeleteReferenceItemC1Ev": ["address"],
     "ritual_ZN25QOpcUaDeleteReferenceItemC1ERKS_": ["address", "address"],
+    "ritual_ZN25QOpcUaDeleteReferenceItemaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN25QOpcUaDeleteReferenceItemD1Ev": ["nothing", "address"],
     "ritual_ZNK25QOpcUaDeleteReferenceItem12sourceNodeIdEv": [
       "text", "address"

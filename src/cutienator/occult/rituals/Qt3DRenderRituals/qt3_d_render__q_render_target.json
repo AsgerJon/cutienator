@@ -7,13 +7,38 @@
     "ritual_ZNK10Qt3DRender13QRenderTarget10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender13QRenderTarget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderTarget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender13QRenderTarget2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderTargetC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderTargetD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender13QRenderTarget9addOutputEPNS_19QRenderTargetOutputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderTarget12removeOutputEPNS_19QRenderTargetOutputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QRenderTarget7outputsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderTargetC1ERNS_20QRenderTargetPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender13QRenderTarget6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender13QRenderTarget6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DRender_QRenderTarget": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QRenderTarget__QList_Qt3DRender_QRenderTargetOutput": [
+      "nothing", "address"
     ]
   }
 }

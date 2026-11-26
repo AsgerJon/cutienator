@@ -1,8 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qproperty.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qproperty.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 4. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qproperty.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qmetatype.h>
+#include <QtCore/qstring.h>
 
 //  QUntypedBindable::QUntypedBindable(QUntypedPropertyData *d, const
 //      QtPrivate::QBindableInterface *i)
@@ -116,4 +119,35 @@ QMetaType *ritual_ZNK16QUntypedBindable8metaTypeEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QUntypedBindableD1Ev(QUntypedBindable *self) {
   delete self;
+}
+
+//  QUntypedBindable::QUntypedBindable<QProperty<int>>(QProperty<int> *p)
+extern "C" Q_DECL_EXPORT
+QUntypedBindable *ritual_ZN16QUntypedBindableC2I9QPropertyIiEEEPT_(
+    QProperty<int> *p) {
+  return new QUntypedBindable(p);
+}
+
+//  QUntypedBindable::QUntypedBindable<QProperty<double>>(
+//      QProperty<double> *p)
+extern "C" Q_DECL_EXPORT
+QUntypedBindable *ritual_ZN16QUntypedBindableC2I9QPropertyIdEEEPT_(
+    QProperty<double> *p) {
+  return new QUntypedBindable(p);
+}
+
+//  QUntypedBindable::QUntypedBindable<QProperty<bool>>(
+//      QProperty<bool> *p)
+extern "C" Q_DECL_EXPORT
+QUntypedBindable *ritual_ZN16QUntypedBindableC2I9QPropertyIbEEEPT_(
+    QProperty<bool> *p) {
+  return new QUntypedBindable(p);
+}
+
+//  QUntypedBindable::QUntypedBindable<QProperty<QString>>(
+//      QProperty<QString> *p)
+extern "C" Q_DECL_EXPORT
+QUntypedBindable *ritual_ZN16QUntypedBindableC2I9QPropertyI7QStringEEEPT_(
+    QProperty<QString> *p) {
+  return new QUntypedBindable(p);
 }

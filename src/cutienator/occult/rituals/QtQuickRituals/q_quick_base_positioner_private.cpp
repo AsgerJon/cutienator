@@ -32,6 +32,13 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/items/qquickpositioners.cpp, line 18, as local:qquickpositioners.cpp:positionerWatchedChanges
+static const QQuickItemPrivate::ChangeTypes positionerWatchedChanges
+    = QQuickItemPrivate::Geometry
+    | QQuickItemPrivate::SiblingOrder
+    | QQuickItemPrivate::Visibility
+    | QQuickItemPrivate::Destroyed;
+
 //  from ../qtdeclarative/src/quick/items/qquickpositioners.cpp, line 633, as _ZN27QQuickBasePositionerPrivate9ExtraDataC1Ev
 inline QQuickBasePositionerPrivate::ExtraData::ExtraData()
     : padding(0)
@@ -44,6 +51,13 @@ inline QQuickBasePositionerPrivate::ExtraData::ExtraData()
     , explicitRightPadding(false)
     , explicitBottomPadding(false)
 {
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpositioners.cpp, line 24, as _ZN27QQuickBasePositionerPrivate12watchChangesEP10QQuickItem
+inline void QQuickBasePositionerPrivate::watchChanges(QQuickItem *other)
+{
+    QQuickItemPrivate *otherPrivate = QQuickItemPrivate::get(other);
+    otherPrivate->addItemChangeListener(this, positionerWatchedChanges);
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickpositioners.cpp, line 646, as _ZN27QQuickBasePositionerPrivate13setTopPaddingEdb
@@ -577,6 +591,14 @@ void ritual_ZN27QQuickBasePositionerPrivate4initEN20QQuickBasePositioner14Positi
     QQuickBasePositionerPrivate *self,
     QQuickBasePositioner::PositionerType at) {
   self->init(at);
+}
+
+//  void QQuickBasePositionerPrivate::watchChanges(QQuickItem *other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickBasePositionerPrivate12watchChangesEP10QQuickItem(
+    QQuickBasePositionerPrivate *self,
+    QQuickItem *other) {
+  self->watchChanges(other);
 }
 
 //  void QQuickBasePositionerPrivate::setPositioningDirty()

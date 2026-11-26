@@ -8,6 +8,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
 #include <QtWaylandCompositor/qwaylandview.h>
+#include <QtGui/qregion.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -186,6 +187,24 @@ const QMetaObject *ritual_ZNK15QWaylandSurface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandSurface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QWaylandSurface11qt_metacastEPKc(
+    QWaylandSurface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandSurface::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QWaylandSurface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandSurface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandSurface::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QWaylandSurface2trEPKcS1_i(
@@ -193,6 +212,20 @@ QString *ritual_ZN15QWaylandSurface2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandSurface::tr(s, c, n));
+}
+
+//  QWaylandSurfacePrivate *QWaylandSurface::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandSurfacePrivate *ritual_ZN15QWaylandSurface6d_funcEv(
+    QWaylandSurface *self) {
+  return self->d_func();
+}
+
+//  const QWaylandSurfacePrivate *QWaylandSurface::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandSurfacePrivate *ritual_ZNK15QWaylandSurface6d_funcEv(
+    const QWaylandSurface *self) {
+  return self->d_func();
 }
 
 //  void QWaylandSurface::qt_qmlMarker_uncreatable()
@@ -249,6 +282,24 @@ extern "C" Q_DECL_EXPORT
 QWaylandClient *ritual_ZNK15QWaylandSurface6clientEv(
     const QWaylandSurface *self) {
   return self->client();
+}
+
+//  ::wl_client *QWaylandSurface::waylandClient() const
+extern "C" Q_DECL_EXPORT
+::wl_client *ritual_ZNK15QWaylandSurface13waylandClientEv(
+    const QWaylandSurface *self) {
+  return self->waylandClient();
+}
+
+//  bool QWaylandSurface::setRole(QWaylandSurfaceRole *role, wl_resource
+//      *errorResource, uint32_t errorCode)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QWaylandSurface7setRoleEP19QWaylandSurfaceRoleP11wl_resourcej(
+    QWaylandSurface *self,
+    QWaylandSurfaceRole *role,
+    wl_resource *errorResource,
+    uint32_t errorCode) {
+  return self->setRole(role, errorResource, errorCode);
 }
 
 //  QWaylandSurfaceRole *QWaylandSurface::role() const
@@ -376,6 +427,20 @@ QList<QWaylandView *> *ritual_ZNK15QWaylandSurface5viewsEv(
   return new QList<QWaylandView *>(self->views());
 }
 
+//  QWaylandSurface *QWaylandSurface::fromResource(::wl_resource *resource)
+extern "C" Q_DECL_EXPORT
+QWaylandSurface *ritual_ZN15QWaylandSurface12fromResourceEP11wl_resource(
+    ::wl_resource *resource) {
+  return QWaylandSurface::fromResource(resource);
+}
+
+//  struct wl_resource *QWaylandSurface::resource() const
+extern "C" Q_DECL_EXPORT
+struct wl_resource *ritual_ZNK15QWaylandSurface8resourceEv(
+    const QWaylandSurface *self) {
+  return self->resource();
+}
+
 //  void QWaylandSurface::markAsCursorSurface(bool cursorSurface)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QWaylandSurface19markAsCursorSurfaceEb(
@@ -420,6 +485,165 @@ void ritual_ZN15QWaylandSurface15updateSelectionEv(QWaylandSurface *self) {
   self->updateSelection();
 }
 #endif  // QT_CONFIG(clipboard)
+
+//  QWaylandSurface::QWaylandSurface(QWaylandSurfacePrivate &dptr)
+extern "C" Q_DECL_EXPORT
+QWaylandSurface *ritual_ZN15QWaylandSurfaceC1ER22QWaylandSurfacePrivate(
+    QWaylandSurfacePrivate *dptr) {
+  return new CuteQWaylandSurface(*dptr);
+}
+
+//  void QWaylandSurface::hasContentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface17hasContentChangedEv(QWaylandSurface *self) {
+  self->hasContentChanged();
+}
+
+//  void QWaylandSurface::damaged(const QRegion &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface7damagedERK7QRegion(
+    QWaylandSurface *self,
+    const QRegion *rect) {
+  self->damaged(*rect);
+}
+
+//  void QWaylandSurface::parentChanged(QWaylandSurface *newParent,
+//      QWaylandSurface *oldParent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface13parentChangedEPS_S0_(
+    QWaylandSurface *self,
+    QWaylandSurface *newParent,
+    QWaylandSurface *oldParent) {
+  self->parentChanged(newParent, oldParent);
+}
+
+//  void QWaylandSurface::childAdded(QWaylandSurface *child)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface10childAddedEPS_(
+    QWaylandSurface *self,
+    QWaylandSurface *child) {
+  self->childAdded(child);
+}
+
+//  void QWaylandSurface::sourceGeometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface21sourceGeometryChangedEv(
+    QWaylandSurface *self) {
+  self->sourceGeometryChanged();
+}
+
+//  void QWaylandSurface::destinationSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface22destinationSizeChangedEv(
+    QWaylandSurface *self) {
+  self->destinationSizeChanged();
+}
+
+//  void QWaylandSurface::bufferSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface17bufferSizeChangedEv(QWaylandSurface *self) {
+  self->bufferSizeChanged();
+}
+
+//  void QWaylandSurface::bufferScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface18bufferScaleChangedEv(
+    QWaylandSurface *self) {
+  self->bufferScaleChanged();
+}
+
+//  void QWaylandSurface::offsetForNextFrame(const QPoint &offset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface18offsetForNextFrameERK6QPoint(
+    QWaylandSurface *self,
+    const QPoint *offset) {
+  self->offsetForNextFrame(*offset);
+}
+
+//  void QWaylandSurface::contentOrientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface25contentOrientationChangedEv(
+    QWaylandSurface *self) {
+  self->contentOrientationChanged();
+}
+
+//  void QWaylandSurface::surfaceDestroyed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface16surfaceDestroyedEv(QWaylandSurface *self) {
+  self->surfaceDestroyed();
+}
+
+//  void QWaylandSurface::originChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface13originChangedEv(QWaylandSurface *self) {
+  self->originChanged();
+}
+
+//  void QWaylandSurface::subsurfacePositionChanged(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface25subsurfacePositionChangedERK6QPoint(
+    QWaylandSurface *self,
+    const QPoint *position) {
+  self->subsurfacePositionChanged(*position);
+}
+
+//  void QWaylandSurface::subsurfacePlaceAbove(QWaylandSurface *sibling)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface20subsurfacePlaceAboveEPS_(
+    QWaylandSurface *self,
+    QWaylandSurface *sibling) {
+  self->subsurfacePlaceAbove(sibling);
+}
+
+//  void QWaylandSurface::subsurfacePlaceBelow(QWaylandSurface *sibling)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface20subsurfacePlaceBelowEPS_(
+    QWaylandSurface *self,
+    QWaylandSurface *sibling) {
+  self->subsurfacePlaceBelow(sibling);
+}
+
+//  void QWaylandSurface::dragStarted(QWaylandDrag *drag)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface11dragStartedEP12QWaylandDrag(
+    QWaylandSurface *self,
+    QWaylandDrag *drag) {
+  self->dragStarted(drag);
+}
+
+//  void QWaylandSurface::cursorSurfaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface20cursorSurfaceChangedEv(
+    QWaylandSurface *self) {
+  self->cursorSurfaceChanged();
+}
+
+//  void QWaylandSurface::inhibitsIdleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface19inhibitsIdleChangedEv(
+    QWaylandSurface *self) {
+  self->inhibitsIdleChanged();
+}
+
+//  void QWaylandSurface::isOpaqueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface15isOpaqueChangedEv(QWaylandSurface *self) {
+  self->isOpaqueChanged();
+}
+
+//  void QWaylandSurface::configure(bool hasBuffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface9configureEb(
+    QWaylandSurface *self,
+    bool hasBuffer) {
+  self->configure(hasBuffer);
+}
+
+//  void QWaylandSurface::redraw()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWaylandSurface6redrawEv(QWaylandSurface *self) {
+  self->redraw();
+}
 
 //  a Python function taken by a CuteQWaylandSurface, for the function named
 //      by the key

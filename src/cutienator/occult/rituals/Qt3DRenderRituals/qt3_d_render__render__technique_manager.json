@@ -5,5 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render16TechniqueManagerC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render16TechniqueManager17addDirtyTechniqueEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16TechniqueManager19takeDirtyTechniquesEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_TechniqueManager__std_vector_Qt3DCore_QNodeId": [
+      "nothing", "address"
+    ]
   }
 }

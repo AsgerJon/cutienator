@@ -15,6 +15,24 @@ const QMetaObject *ritual_ZNK15QQuickScaleGrid10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScaleGrid::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickScaleGrid11qt_metacastEPKc(
+    QQuickScaleGrid *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScaleGrid::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickScaleGrid11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScaleGrid *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScaleGrid::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickScaleGrid2trEPKcS1_i(
@@ -89,4 +107,36 @@ int ritual_ZNK15QQuickScaleGrid6bottomEv(const QQuickScaleGrid *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickScaleGrid9setBottomEi(QQuickScaleGrid *self, int a0) {
   self->setBottom(a0);
+}
+
+//  void QQuickScaleGrid::borderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScaleGrid13borderChangedEv(QQuickScaleGrid *self) {
+  self->borderChanged();
+}
+
+//  void QQuickScaleGrid::leftBorderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScaleGrid17leftBorderChangedEv(QQuickScaleGrid *self) {
+  self->leftBorderChanged();
+}
+
+//  void QQuickScaleGrid::topBorderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScaleGrid16topBorderChangedEv(QQuickScaleGrid *self) {
+  self->topBorderChanged();
+}
+
+//  void QQuickScaleGrid::rightBorderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScaleGrid18rightBorderChangedEv(
+    QQuickScaleGrid *self) {
+  self->rightBorderChanged();
+}
+
+//  void QQuickScaleGrid::bottomBorderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScaleGrid19bottomBorderChangedEv(
+    QQuickScaleGrid *self) {
+  self->bottomBorderChanged();
 }

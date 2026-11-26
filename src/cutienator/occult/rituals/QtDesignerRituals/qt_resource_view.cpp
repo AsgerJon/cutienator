@@ -865,6 +865,24 @@ const QMetaObject *ritual_ZNK14QtResourceView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtResourceView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QtResourceView11qt_metacastEPKc(
+    QtResourceView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtResourceView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QtResourceView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtResourceView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtResourceView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QtResourceView2trEPKcS1_i(
@@ -972,12 +990,62 @@ QString *ritual_ZN14QtResourceView14encodeMimeDataENS_12ResourceTypeERK7QString(
   return new QString(QtResourceView::encodeMimeData(resourceType, *path));
 }
 
+//  bool QtResourceView::decodeMimeData(const QMimeData *md, ResourceType *t,
+//      QString *file)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QtResourceView14decodeMimeDataEPK9QMimeDataPNS_12ResourceTypeEP7QString(
+    const QMimeData *md,
+    QtResourceView::ResourceType *t,
+    QString *file) {
+  return QtResourceView::decodeMimeData(md, t, file);
+}
+
+//  bool QtResourceView::decodeMimeData(const QString &text, ResourceType *t,
+//      QString *file)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QtResourceView14decodeMimeDataERK7QStringPNS_12ResourceTypeEPS0_(
+    const QString *text,
+    QtResourceView::ResourceType *t,
+    QString *file) {
+  return QtResourceView::decodeMimeData(*text, t, file);
+}
+
+//  void QtResourceView::resourceSelected(const QString &resource)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QtResourceView16resourceSelectedERK7QString(
+    QtResourceView *self,
+    const QString *resource) {
+  self->resourceSelected(*resource);
+}
+
+//  void QtResourceView::resourceActivated(const QString &resource)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QtResourceView17resourceActivatedERK7QString(
+    QtResourceView *self,
+    const QString *resource) {
+  self->resourceActivated(*resource);
+}
+
 //  bool QtResourceView::event(QEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN14QtResourceView5eventEP6QEvent(
     QtResourceView *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  QtResourceViewPrivate *QtResourceView::d_func()
+extern "C" Q_DECL_EXPORT
+QtResourceViewPrivate *ritual_ZN14QtResourceView6d_funcEv(
+    QtResourceView *self) {
+  return self->d_func();
+}
+
+//  const QtResourceViewPrivate *QtResourceView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QtResourceViewPrivate *ritual_ZNK14QtResourceView6d_funcEv(
+    const QtResourceView *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQtResourceView, for the function named

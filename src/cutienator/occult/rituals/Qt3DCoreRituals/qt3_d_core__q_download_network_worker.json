@@ -7,6 +7,39 @@
   "rows": {
     "ritual_ZNK8Qt3DCore22QDownloadNetworkWorker10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker13submitRequestERK14QSharedPointerINS_16QDownloadRequestEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker13cancelRequestERK14QSharedPointerINS_16QDownloadRequestEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker17cancelAllRequestsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker17requestDownloadedERK14QSharedPointerINS_16QDownloadRequestEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker17onRequestSubmitedERK14QSharedPointerINS_16QDownloadRequestEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker18onRequestCancelledERK14QSharedPointerINS_16QDownloadRequestEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker22onAllRequestsCancelledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker17onRequestFinishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker20onDownloadProgressedExx": [
+      "nothing", "address", "long long", "long long"
     ]
   }
 }

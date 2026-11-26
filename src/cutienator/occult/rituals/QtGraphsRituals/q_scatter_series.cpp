@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qscatterseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_scatter))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_scatter))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qscatterseries.h>
 #include <QtCore/qstring.h>
@@ -236,6 +236,24 @@ const QMetaObject *ritual_ZNK14QScatterSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScatterSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QScatterSeries11qt_metacastEPKc(
+    QScatterSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScatterSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QScatterSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScatterSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScatterSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QScatterSeries2trEPKcS1_i(
@@ -262,6 +280,15 @@ extern "C" Q_DECL_EXPORT
 QAbstractSeries::SeriesType ritual_ZNK14QScatterSeries4typeEv(
     const QScatterSeries *self) {
   return self->type();
+}
+
+//  QScatterSeries::QScatterSeries(QScatterSeriesPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QScatterSeries *ritual_ZN14QScatterSeriesC1ER21QScatterSeriesPrivateP7QObject(
+    QScatterSeriesPrivate *dd,
+    QObject *parent) {
+  return new CuteQScatterSeries(*dd, parent);
 }
 
 //  void QScatterSeries::componentComplete()
@@ -308,4 +335,4 @@ void ritual_own_ZN14QScatterSeries17componentCompleteEv(
   static_cast<OwnQScatterSeries *>(self)->OwnQScatterSeries::componentComplete();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_scatter))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_scatter))

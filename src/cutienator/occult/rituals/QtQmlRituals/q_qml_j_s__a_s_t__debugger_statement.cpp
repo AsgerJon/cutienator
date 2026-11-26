@@ -201,6 +201,21 @@ public:
   }
 };
 
+//  QQmlJS::AST::DebuggerStatement::DebuggerStatement()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::DebuggerStatement *ritual_ZN6QQmlJS3AST17DebuggerStatementC1Ev(
+    QQmlJS::MemoryPool *pool) {
+  return new (pool) CuteQQmlJS_AST_DebuggerStatement();
+}
+
+//  void QQmlJS::AST::DebuggerStatement::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST17DebuggerStatement7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::DebuggerStatement *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::DebuggerStatement::firstSourceLocation()
 //      const
 extern "C" Q_DECL_EXPORT

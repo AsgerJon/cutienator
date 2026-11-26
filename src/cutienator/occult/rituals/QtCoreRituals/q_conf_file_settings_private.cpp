@@ -13,6 +13,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <optional>
+#include <QtCore/QVariant>
+#include <QtCore/QString>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsettings.h>
 #include <QtCore/private/qsettings_p.h>
@@ -54,22 +57,26 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/io/qsettings.cpp, line 283, as _ZN16QSettingsPrivate12processChildE11QStringViewNS_9ChildSpecER5QListI7QStringE
-inline void QSettingsPrivate::processChild(QStringView key, ChildSpec spec, QStringList &result)
-{
-    if (spec != AllKeys) {
-        qsizetype slashPos = key.indexOf(u'/');
-        if (slashPos == -1) {
-            if (spec != ChildKeys)
-                return;
-        } else {
-            if (spec != ChildGroups)
-                return;
-            key.truncate(slashPos);
-        }
-    }
-    result.append(key.toString());
-}
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/io/qsettings.cpp, line 75, as local:qsettings.cpp:ConfFileHash
+typedef QHash<QString, QConfFile *> ConfFileHash;
+
+//  from src/corelib/io/qsettings.cpp, line 76, as local:qsettings.cpp:ConfFileCache
+typedef QCache<QString, QConfFile> ConfFileCache;
+
+//  from src/corelib/io/qsettings.cpp, line 78, as local:qsettings.cpp:Path
+namespace {
+struct Path
+    {
+        // Note: Defining constructors explicitly because of buggy C++11
+        // implementation in MSVC (uniform initialization).
+        Path() {}
+        Path(const QString & p, bool ud) : path(p), userDefined(ud) {}
+        QString path;
+        bool userDefined = false; //!< true - user defined, overridden by setPath
+    };
+}  // namespace
 
 //  from src/corelib/io/qsettings.cpp, line 178, as _ZN16QSettingsPrivateC2EN9QSettings6FormatE
 inline QSettingsPrivate::QSettingsPrivate(QSettings::Format format)
@@ -102,66 +109,101 @@ inline void QConfFileSettingsPrivate::initAccess()
 }
 #endif  // defined(Q_OS_LINUX)
 
-//  from src/corelib/io/qsettings.cpp, line 1694, as _ZN24QConfFileSettingsPrivate14readIniSectionERK12QSettingsKey14QByteArrayViewP4QMapIS0_8QVariantE
-inline bool QConfFileSettingsPrivate::readIniSection(const QSettingsKey &section, QByteArrayView data,
-                                              ParsedSettingsMap *settingsMap)
+//  from src/corelib/io/qsettings.cpp, line 1194, as _ZN24QConfFileSettingsPrivate3setERK7QStringRK8QVariant
+inline void QConfFileSettingsPrivate::set(const QString &key, const QVariant &value)
 {
-    QStringList strListValue;
-    bool sectionIsLowercase = (section == section.originalCaseKey());
-    qsizetype equalsPos;
+    if (confFiles.isEmpty())
+        return;
 
-    bool ok = true;
-    qsizetype dataPos = 0;
-    qsizetype lineStart;
-    qsizetype lineLen;
-    qsizetype position = section.originalKeyPosition();
+    // Note: First config file is always the most specific.
+    QConfFile *confFile = confFiles.at(0);
 
-    while (readIniLine(data, dataPos, lineStart, lineLen, equalsPos)) {
-        QByteArrayView line = data.sliced(lineStart, lineLen);
-        Q_ASSERT(!line.startsWith('['));
+    QSettingsKey theKey(key, caseSensitivity, nextPosition++);
+    const auto locker = qt_scoped_lock(confFile->mutex);
+    confFile->removedKeys.remove(theKey);
+    confFile->addedKeys.insert(theKey, value);
+}
 
-        if (equalsPos == -1) {
-            if (!line.startsWith(';'))
-                ok = false;
-            continue;
-        }
-        // Shift equalPos indexing to be within line, rather than data:
-        equalsPos -= lineStart;
-        // Assured by readIniLine:
-        Q_ASSERT(equalsPos >= 0 && equalsPos < lineLen);
+//  from src/corelib/io/qsettings.cpp, line 1289, as _ZN24QConfFileSettingsPrivate4syncEv
+inline void QConfFileSettingsPrivate::sync()
+{
+    // people probably won't be checking the status a whole lot, so in case of
+    // error we just try to go on and make the best of it
 
-        QByteArrayView key = line.first(equalsPos).trimmed();
-        QByteArrayView value = line.sliced(equalsPos + 1);
-
-        QString strKey = section.originalCaseKey();
-        const Qt::CaseSensitivity casing = iniUnescapedKey(key, strKey) && sectionIsLowercase
-                                           ? Qt::CaseSensitive
-                                           : IniCaseSensitivity;
-
-        QString strValue;
-        strValue.reserve(value.size());
-        QVariant variant = iniUnescapedStringList(value, strValue, strListValue)
-                           ? stringListToVariantList(strListValue)
-                           : stringToVariant(strValue);
-
-        /*
-            We try to avoid the expensive toLower() call in
-            QSettingsKey by passing Qt::CaseSensitive when the
-            key is already in lowercase.
-        */
-        settingsMap->insert(QSettingsKey(strKey, casing, position), std::move(variant));
-        ++position;
+    for (auto confFile : std::as_const(confFiles)) {
+        const auto locker = qt_scoped_lock(confFile->mutex);
+        syncConfFile(confFile);
     }
-
-    return ok;
 }
 
-//  from src/corelib/io/qsettings.cpp, line 312, as _ZNK16QSettingsPrivate9setStatusEN9QSettings6StatusE
-inline void QSettingsPrivate::setStatus(QSettings::Status status) const
+//  from src/corelib/io/qsettings.cpp, line 1275, as _ZN24QConfFileSettingsPrivate5clearEv
+inline void QConfFileSettingsPrivate::clear()
 {
-    if (status == QSettings::NoError || this->status == QSettings::NoError)
-        this->status = status;
+    if (confFiles.isEmpty())
+        return;
+
+    // Note: First config file is always the most specific.
+    QConfFile *confFile = confFiles.at(0);
+
+    const auto locker = qt_scoped_lock(confFile->mutex);
+    ensureAllSectionsParsed(confFile);
+    confFile->addedKeys.clear();
+    confFile->removedKeys = confFile->originalKeys;
 }
+
+//  from src/corelib/io/qsettings.cpp, line 1300, as _ZN24QConfFileSettingsPrivate5flushEv
+inline void QConfFileSettingsPrivate::flush()
+{
+    sync();
+}
+
+//  from src/corelib/io/qsettings.cpp, line 1165, as _ZN24QConfFileSettingsPrivate6removeERK7QString
+inline void QConfFileSettingsPrivate::remove(const QString &key)
+{
+    if (confFiles.isEmpty())
+        return;
+
+    // Note: First config file is always the most specific.
+    QConfFile *confFile = confFiles.at(0);
+
+    QSettingsKey theKey(key, caseSensitivity);
+    QSettingsKey prefix(key + u'/', caseSensitivity);
+    const auto locker = qt_scoped_lock(confFile->mutex);
+
+    ensureSectionParsed(confFile, theKey);
+    ensureSectionParsed(confFile, prefix);
+
+    auto i = confFile->addedKeys.lowerBound(prefix);
+    while (i != confFile->addedKeys.end() && i.key().startsWith(prefix))
+        i = confFile->addedKeys.erase(i);
+    confFile->addedKeys.remove(theKey);
+
+    auto j = const_cast<const ParsedSettingsMap *>(&confFile->originalKeys)->lowerBound(prefix);
+    while (j != confFile->originalKeys.constEnd() && j.key().startsWith(prefix)) {
+        confFile->removedKeys.insert(j.key(), QVariant());
+        ++j;
+    }
+    if (confFile->originalKeys.contains(theKey))
+        confFile->removedKeys.insert(theKey, QVariant());
+}
+
+//  from src/corelib/io/qsettings.cpp, line 1314, as _ZNK24QConfFileSettingsPrivate10isWritableEv
+#if defined(Q_OS_LINUX)
+inline bool QConfFileSettingsPrivate::isWritable() const
+{
+#if defined(Q_OS_WASM)
+    if (format > QSettings::IniFormat && format != QSettings::WebIndexedDBFormat && !writeFunc)
+#else
+    if (format > QSettings::IniFormat && !writeFunc)
+#endif
+        return false;
+
+    if (confFiles.isEmpty())
+        return false;
+
+    return confFiles.at(0)->isWritable();
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qsettings.cpp, line 1208, as _ZNK24QConfFileSettingsPrivate3getERK7QString
 inline std::optional<QVariant> QConfFileSettingsPrivate::get(const QString &key) const
@@ -192,30 +234,54 @@ inline std::optional<QVariant> QConfFileSettingsPrivate::get(const QString &key)
     return std::nullopt;
 }
 
-//  from src/corelib/io/qsettings.cpp, line 123, as _ZNK9QConfFile10isWritableEv
-inline bool QConfFile::isWritable() const
+//  from src/corelib/io/qsettings.cpp, line 1236, as _ZNK24QConfFileSettingsPrivate8childrenERK7QStringN16QSettingsPrivate9ChildSpecE
+inline QStringList QConfFileSettingsPrivate::children(const QString &prefix, ChildSpec spec) const
 {
-    QFileInfo fileInfo(name);
+    QStringList result;
 
-#if QT_CONFIG(temporaryfile)
-    if (fileInfo.exists()) {
-#endif
-        QFile file(name);
-        return file.open(QFile::ReadWrite);
-#if QT_CONFIG(temporaryfile)
-    } else {
-        // Create the directories to the file.
-        QDir dir(fileInfo.absolutePath());
-        if (!dir.exists()) {
-            if (!dir.mkpath(dir.absolutePath()))
-                return false;
+    QSettingsKey thePrefix(prefix, caseSensitivity);
+    qsizetype startPos = prefix.size();
+
+    for (auto confFile : std::as_const(confFiles)) {
+        const auto locker = qt_scoped_lock(confFile->mutex);
+
+        if (thePrefix.isEmpty())
+            ensureAllSectionsParsed(confFile);
+        else
+            ensureSectionParsed(confFile, thePrefix);
+
+        const auto &originalKeys = confFile->originalKeys;
+        auto i = originalKeys.lowerBound(thePrefix);
+        while (i != originalKeys.end() && i.key().startsWith(thePrefix)) {
+            if (!confFile->removedKeys.contains(i.key()))
+                processChild(QStringView{i.key().originalCaseKey()}.sliced(startPos), spec, result);
+            ++i;
         }
 
-        // we use a temporary file to avoid race conditions
-        QTemporaryFile file(name);
-        return file.open();
+        const auto &addedKeys = confFile->addedKeys;
+        auto j = addedKeys.lowerBound(thePrefix);
+        while (j != addedKeys.end() && j.key().startsWith(thePrefix)) {
+            processChild(QStringView{j.key().originalCaseKey()}.sliced(startPos), spec, result);
+            ++j;
+        }
+
+        if (!fallbacks)
+            break;
     }
-#endif
+    std::sort(result.begin(), result.end());
+    result.erase(std::unique(result.begin(), result.end()),
+                 result.end());
+    return result;
+}
+
+//  from src/corelib/io/qsettings.cpp, line 1305, as _ZNK24QConfFileSettingsPrivate8fileNameEv
+inline QString QConfFileSettingsPrivate::fileName() const
+{
+    if (confFiles.isEmpty())
+        return QString();
+
+    // Note: First config file is always the most specific.
+    return confFiles.at(0)->name;
 }
 
 //  from src/corelib/io/qsettings.cpp, line 526, as _ZN16QSettingsPrivate15iniUnescapedKeyE14QByteArrayViewR7QString
@@ -276,6 +342,60 @@ inline bool QSettingsPrivate::iniUnescapedKey(QByteArrayView key, QString &resul
     return lowercaseOnly;
 }
 
+//  from src/corelib/io/qsettings.cpp, line 447, as _ZN16QSettingsPrivate15stringToVariantERK7QString
+inline QVariant QSettingsPrivate::stringToVariant(const QString &s)
+{
+    if (s.startsWith(u'@')) {
+        if (s.endsWith(u')')) {
+            if (s.startsWith("@ByteArray("_L1)) {
+                return QVariant(QStringView{s}.sliced(11).chopped(1).toLatin1());
+            } else if (s.startsWith("@String("_L1)) {
+                return QVariant(QStringView{s}.sliced(8).chopped(1).toString());
+            } else if (s.startsWith("@Variant("_L1)
+                       || s.startsWith("@DateTime("_L1)) {
+#ifndef QT_NO_DATASTREAM
+                QDataStream::Version version;
+                int offset;
+                if (s.at(1) == u'D') {
+                    version = QDataStream::Qt_5_6;
+                    offset = 10;
+                } else {
+                    version = QDataStream::Qt_4_0;
+                    offset = 9;
+                }
+                QByteArray a = QStringView{s}.sliced(offset).toLatin1();
+                QDataStream stream(&a, QIODevice::ReadOnly);
+                stream.setVersion(version);
+                QVariant result;
+                stream >> result;
+                return result;
+#else
+                Q_ASSERT(!"QSettings: Cannot load custom types without QDataStream support");
+#endif
+            } else if (s.startsWith("@Rect("_L1)) {
+                QStringList args = QSettingsPrivate::splitArgs(s, 5);
+                if (args.size() == 4)
+                    return QVariant(QRect(args[0].toInt(), args[1].toInt(), args[2].toInt(), args[3].toInt()));
+            } else if (s.startsWith("@Size("_L1)) {
+                QStringList args = QSettingsPrivate::splitArgs(s, 5);
+                if (args.size() == 2)
+                    return QVariant(QSize(args[0].toInt(), args[1].toInt()));
+            } else if (s.startsWith("@Point("_L1)) {
+                QStringList args = QSettingsPrivate::splitArgs(s, 6);
+                if (args.size() == 2)
+                    return QVariant(QPoint(args[0].toInt(), args[1].toInt()));
+            } else if (s == "@Invalid()"_L1) {
+                return QVariant();
+            }
+
+        }
+        if (s.startsWith("@@"_L1))
+            return QVariant(s.sliced(1));
+    }
+
+    return QVariant(s);
+}
+
 //  from src/corelib/io/qsettings.cpp, line 346, as _ZN16QSettingsPrivate23stringListToVariantListERK5QListI7QStringE
 inline QVariant QSettingsPrivate::stringListToVariantList(const QStringList &l)
 {
@@ -297,150 +417,49 @@ inline QVariant QSettingsPrivate::stringListToVariantList(const QStringList &l)
     return outStringList;
 }
 
-//  from src/corelib/io/qsettings.cpp, line 1165, as _ZN24QConfFileSettingsPrivate6removeERK7QString
-inline void QConfFileSettingsPrivate::remove(const QString &key)
+//  from src/corelib/io/qsettings.cpp, line 312, as _ZNK16QSettingsPrivate9setStatusEN9QSettings6StatusE
+inline void QSettingsPrivate::setStatus(QSettings::Status status) const
 {
-    if (confFiles.isEmpty())
-        return;
-
-    // Note: First config file is always the most specific.
-    QConfFile *confFile = confFiles.at(0);
-
-    QSettingsKey theKey(key, caseSensitivity);
-    QSettingsKey prefix(key + u'/', caseSensitivity);
-    const auto locker = qt_scoped_lock(confFile->mutex);
-
-    ensureSectionParsed(confFile, theKey);
-    ensureSectionParsed(confFile, prefix);
-
-    auto i = confFile->addedKeys.lowerBound(prefix);
-    while (i != confFile->addedKeys.end() && i.key().startsWith(prefix))
-        i = confFile->addedKeys.erase(i);
-    confFile->addedKeys.remove(theKey);
-
-    auto j = const_cast<const ParsedSettingsMap *>(&confFile->originalKeys)->lowerBound(prefix);
-    while (j != confFile->originalKeys.constEnd() && j.key().startsWith(prefix)) {
-        confFile->removedKeys.insert(j.key(), QVariant());
-        ++j;
-    }
-    if (confFile->originalKeys.contains(theKey))
-        confFile->removedKeys.insert(theKey, QVariant());
+    if (status == QSettings::NoError || this->status == QSettings::NoError)
+        this->status = status;
 }
 
-//  from src/corelib/io/qsettings.cpp, line 1194, as _ZN24QConfFileSettingsPrivate3setERK7QStringRK8QVariant
-inline void QConfFileSettingsPrivate::set(const QString &key, const QVariant &value)
+//  from src/corelib/io/qsettings.cpp, line 123, as _ZNK9QConfFile10isWritableEv
+inline bool QConfFile::isWritable() const
 {
-    if (confFiles.isEmpty())
-        return;
+    QFileInfo fileInfo(name);
 
-    // Note: First config file is always the most specific.
-    QConfFile *confFile = confFiles.at(0);
-
-    QSettingsKey theKey(key, caseSensitivity, nextPosition++);
-    const auto locker = qt_scoped_lock(confFile->mutex);
-    confFile->removedKeys.remove(theKey);
-    confFile->addedKeys.insert(theKey, value);
-}
-
-//  from src/corelib/io/qsettings.cpp, line 1236, as _ZNK24QConfFileSettingsPrivate8childrenERK7QStringN16QSettingsPrivate9ChildSpecE
-inline QStringList QConfFileSettingsPrivate::children(const QString &prefix, ChildSpec spec) const
-{
-    QStringList result;
-
-    QSettingsKey thePrefix(prefix, caseSensitivity);
-    qsizetype startPos = prefix.size();
-
-    for (auto confFile : std::as_const(confFiles)) {
-        const auto locker = qt_scoped_lock(confFile->mutex);
-
-        if (thePrefix.isEmpty())
-            ensureAllSectionsParsed(confFile);
-        else
-            ensureSectionParsed(confFile, thePrefix);
-
-        const auto &originalKeys = confFile->originalKeys;
-        auto i = originalKeys.lowerBound(thePrefix);
-        while (i != originalKeys.end() && i.key().startsWith(thePrefix)) {
-            if (!confFile->removedKeys.contains(i.key()))
-                processChild(QStringView{i.key().originalCaseKey()}.sliced(startPos), spec, result);
-            ++i;
-        }
-
-        const auto &addedKeys = confFile->addedKeys;
-        auto j = addedKeys.lowerBound(thePrefix);
-        while (j != addedKeys.end() && j.key().startsWith(thePrefix)) {
-            processChild(QStringView{j.key().originalCaseKey()}.sliced(startPos), spec, result);
-            ++j;
-        }
-
-        if (!fallbacks)
-            break;
-    }
-    std::sort(result.begin(), result.end());
-    result.erase(std::unique(result.begin(), result.end()),
-                 result.end());
-    return result;
-}
-
-//  from src/corelib/io/qsettings.cpp, line 1275, as _ZN24QConfFileSettingsPrivate5clearEv
-inline void QConfFileSettingsPrivate::clear()
-{
-    if (confFiles.isEmpty())
-        return;
-
-    // Note: First config file is always the most specific.
-    QConfFile *confFile = confFiles.at(0);
-
-    const auto locker = qt_scoped_lock(confFile->mutex);
-    ensureAllSectionsParsed(confFile);
-    confFile->addedKeys.clear();
-    confFile->removedKeys = confFile->originalKeys;
-}
-
-//  from src/corelib/io/qsettings.cpp, line 1289, as _ZN24QConfFileSettingsPrivate4syncEv
-inline void QConfFileSettingsPrivate::sync()
-{
-    // people probably won't be checking the status a whole lot, so in case of
-    // error we just try to go on and make the best of it
-
-    for (auto confFile : std::as_const(confFiles)) {
-        const auto locker = qt_scoped_lock(confFile->mutex);
-        syncConfFile(confFile);
-    }
-}
-
-//  from src/corelib/io/qsettings.cpp, line 1300, as _ZN24QConfFileSettingsPrivate5flushEv
-inline void QConfFileSettingsPrivate::flush()
-{
-    sync();
-}
-
-//  from src/corelib/io/qsettings.cpp, line 1314, as _ZNK24QConfFileSettingsPrivate10isWritableEv
-#if defined(Q_OS_LINUX)
-inline bool QConfFileSettingsPrivate::isWritable() const
-{
-#if defined(Q_OS_WASM)
-    if (format > QSettings::IniFormat && format != QSettings::WebIndexedDBFormat && !writeFunc)
-#else
-    if (format > QSettings::IniFormat && !writeFunc)
+#if QT_CONFIG(temporaryfile)
+    if (fileInfo.exists()) {
 #endif
-        return false;
+        QFile file(name);
+        return file.open(QFile::ReadWrite);
+#if QT_CONFIG(temporaryfile)
+    } else {
+        // Create the directories to the file.
+        QDir dir(fileInfo.absolutePath());
+        if (!dir.exists()) {
+            if (!dir.mkpath(dir.absolutePath()))
+                return false;
+        }
 
-    if (confFiles.isEmpty())
-        return false;
-
-    return confFiles.at(0)->isWritable();
+        // we use a temporary file to avoid race conditions
+        QTemporaryFile file(name);
+        return file.open();
+    }
+#endif
 }
-#endif  // defined(Q_OS_LINUX)
 
-//  from src/corelib/io/qsettings.cpp, line 1305, as _ZNK24QConfFileSettingsPrivate8fileNameEv
-inline QString QConfFileSettingsPrivate::fileName() const
+//  from src/corelib/io/qsettings.cpp, line 112, as _ZNK9QConfFile12mergedKeyMapEv
+inline ParsedSettingsMap QConfFile::mergedKeyMap() const
 {
-    if (confFiles.isEmpty())
-        return QString();
+    ParsedSettingsMap result = originalKeys;
 
-    // Note: First config file is always the most specific.
-    return confFiles.at(0)->name;
+    for (auto i = removedKeys.begin(); i != removedKeys.end(); ++i)
+        result.remove(i.key());
+    for (auto i = addedKeys.begin(); i != addedKeys.end(); ++i)
+        result.insert(i.key(), i.value());
+    return result;
 }
 //  -----------------------------------------------------------------------
 
@@ -608,6 +627,15 @@ void ritual_ZN24QConfFileSettingsPrivate3setERK7QStringRK8QVariant(
   self->set(*key, *value);
 }
 
+//  std::optional<QVariant> QConfFileSettingsPrivate::get(const QString &key)
+//      const
+extern "C" Q_DECL_EXPORT
+std::optional<QVariant> *ritual_ZNK24QConfFileSettingsPrivate3getERK7QString(
+    const QConfFileSettingsPrivate *self,
+    const QString *key) {
+  return new std::optional<QVariant>(self->get(*key));
+}
+
 //  QStringList QConfFileSettingsPrivate::children(const QString &prefix,
 //      ChildSpec spec) const
 extern "C" Q_DECL_EXPORT
@@ -718,5 +746,12 @@ void ritual_own_ZN24QConfFileSettingsPrivate10initAccessEv(
   self->QConfFileSettingsPrivate::initAccess();
 }
 #endif  // defined(Q_OS_LINUX)
+
+//  a std::optional<QVariant> a ritual of QConfFileSettingsPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QConfFileSettingsPrivate__std_optional_QVariant(
+    std::optional<QVariant> *self) {
+  delete self;
+}
 
 #endif  // QT_CONFIG(settings)

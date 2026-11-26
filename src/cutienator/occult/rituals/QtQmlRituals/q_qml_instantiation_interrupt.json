@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN26QQmlInstantiationInterruptC1Ev": ["address"],
+    "ritual_ZN26QQmlInstantiationInterruptC1EPSt6atomicIbE14QDeadlineTimer": [
+      "address", "address", "address"
+    ],
     "ritual_ZN26QQmlInstantiationInterruptC1E14QDeadlineTimer": [
       "address", "address"
     ],

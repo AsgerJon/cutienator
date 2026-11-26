@@ -86,11 +86,34 @@ public:
   }
 };
 
+//  Qt3DCore::QBackendNodePrivate::QBackendNodePrivate(QBackendNode::Mode
+//      mode)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBackendNodePrivate *ritual_ZN8Qt3DCore19QBackendNodePrivateC1ENS_12QBackendNode4ModeE(
+    Qt3DCore::QBackendNode::Mode mode) {
+  return new CuteQt3DCore_QBackendNodePrivate(mode);
+}
+
 //  Qt3DCore::QBackendNodePrivate::~QBackendNodePrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore19QBackendNodePrivateD1Ev(
     Qt3DCore::QBackendNodePrivate *self) {
   delete self;
+}
+
+//  void Qt3DCore::QBackendNodePrivate::setEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore19QBackendNodePrivate10setEnabledEb(
+    Qt3DCore::QBackendNodePrivate *self,
+    bool enabled) {
+  self->setEnabled(enabled);
+}
+
+//  QBackendNodePrivate *Qt3DCore::QBackendNodePrivate::get(QBackendNode *n)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBackendNodePrivate *ritual_ZN8Qt3DCore19QBackendNodePrivate3getEPNS_12QBackendNodeE(
+    Qt3DCore::QBackendNode *n) {
+  return Qt3DCore::QBackendNodePrivate::get(n);
 }
 
 //  QBackendNode *Qt3DCore::QBackendNodePrivate::q_func()

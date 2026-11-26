@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN16QDBusPendingCallC1ERKS_": ["address", "address"],
+    "ritual_ZN16QDBusPendingCallC1EOS_": ["address", "address"],
+    "ritual_ZN16QDBusPendingCallD1Ev": ["nothing", "address"],
+    "ritual_ZN16QDBusPendingCallaSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QDBusPendingCallaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QDBusPendingCall4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QDBusPendingCall10isFinishedEv": ["bool", "address"],
+    "ritual_ZN16QDBusPendingCall15waitForFinishedEv": ["nothing", "address"],
+    "ritual_ZNK16QDBusPendingCall7isErrorEv": ["bool", "address"],
+    "ritual_ZNK16QDBusPendingCall7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QDBusPendingCall5errorEv": ["address", "address"],
+    "ritual_ZNK16QDBusPendingCall5replyEv": ["address", "address"],
+    "ritual_ZN16QDBusPendingCall9fromErrorERK10QDBusError": [
+      "address", "address"
+    ],
+    "ritual_ZN16QDBusPendingCall17fromCompletedCallERK12QDBusMessage": [
+      "address", "address"
+    ],
+    "ritual_ZN16QDBusPendingCallC1EP23QDBusPendingCallPrivate": [
+      "address", "address"
+    ]
+  }
+}

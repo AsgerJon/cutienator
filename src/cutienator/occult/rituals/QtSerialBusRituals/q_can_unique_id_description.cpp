@@ -17,10 +17,44 @@ QCanUniqueIdDescription *ritual_ZN23QCanUniqueIdDescriptionC1ERKS_(
   return new QCanUniqueIdDescription(*other);
 }
 
+//  QCanUniqueIdDescription::QCanUniqueIdDescription(QCanUniqueIdDescription
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCanUniqueIdDescription *ritual_ZN23QCanUniqueIdDescriptionC1EOS_(
+    QCanUniqueIdDescription *other) {
+  return new QCanUniqueIdDescription(std::move(*other));
+}
+
 //  QCanUniqueIdDescription::~QCanUniqueIdDescription()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QCanUniqueIdDescriptionD1Ev(QCanUniqueIdDescription *self) {
   delete self;
+}
+
+//  QCanUniqueIdDescription &QCanUniqueIdDescription::operator=(const
+//      QCanUniqueIdDescription &other)
+extern "C" Q_DECL_EXPORT
+QCanUniqueIdDescription *ritual_ZN23QCanUniqueIdDescriptionaSERKS_(
+    QCanUniqueIdDescription *self,
+    const QCanUniqueIdDescription *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCanUniqueIdDescription
+//      &QCanUniqueIdDescription::operator=(QCanUniqueIdDescription &&other)
+extern "C" Q_DECL_EXPORT
+QCanUniqueIdDescription *ritual_ZN23QCanUniqueIdDescriptionaSEOS_(
+    QCanUniqueIdDescription *self,
+    QCanUniqueIdDescription *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCanUniqueIdDescription::swap(QCanUniqueIdDescription &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QCanUniqueIdDescription4swapERS_(
+    QCanUniqueIdDescription *self,
+    QCanUniqueIdDescription *other) {
+  self->swap(*other);
 }
 
 //  bool QCanUniqueIdDescription::isValid() const

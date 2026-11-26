@@ -16,6 +16,16 @@
     ],
     "ritual_ZN27QWebSocketCorsAuthenticatorD1Ev": ["nothing", "address"],
     "ritual_ZN27QWebSocketCorsAuthenticatorC1ERKS_": ["address", "address"],
+    "ritual_ZN27QWebSocketCorsAuthenticatorC1EOS_": ["address", "address"],
+    "ritual_ZN27QWebSocketCorsAuthenticatoraSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QWebSocketCorsAuthenticator4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QWebSocketCorsAuthenticatoraSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK27QWebSocketCorsAuthenticator6originEv": ["text", "address"],
     "ritual_ZN27QWebSocketCorsAuthenticator10setAllowedEb": [
       "nothing", "address", "bool"

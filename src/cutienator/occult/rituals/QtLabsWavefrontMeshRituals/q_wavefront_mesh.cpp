@@ -245,6 +245,24 @@ const QMetaObject *ritual_ZNK14QWavefrontMesh10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWavefrontMesh::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QWavefrontMesh11qt_metacastEPKc(
+    QWavefrontMesh *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWavefrontMesh::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QWavefrontMesh11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWavefrontMesh *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWavefrontMesh::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QWavefrontMesh2trEPKcS1_i(
@@ -361,10 +379,50 @@ void ritual_ZN14QWavefrontMesh19setProjectionPlaneWERK9QVector3D(
   self->setProjectionPlaneW(*projectionPlaneW);
 }
 
+//  void QWavefrontMesh::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWavefrontMesh13sourceChangedEv(QWavefrontMesh *self) {
+  self->sourceChanged();
+}
+
+//  void QWavefrontMesh::lastErrorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWavefrontMesh16lastErrorChangedEv(QWavefrontMesh *self) {
+  self->lastErrorChanged();
+}
+
+//  void QWavefrontMesh::projectionPlaneVChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWavefrontMesh23projectionPlaneVChangedEv(
+    QWavefrontMesh *self) {
+  self->projectionPlaneVChanged();
+}
+
+//  void QWavefrontMesh::projectionPlaneWChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWavefrontMesh23projectionPlaneWChangedEv(
+    QWavefrontMesh *self) {
+  self->projectionPlaneWChanged();
+}
+
 //  void QWavefrontMesh::readData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QWavefrontMesh8readDataEv(QWavefrontMesh *self) {
   self->readData();
+}
+
+//  QWavefrontMeshPrivate *QWavefrontMesh::d_func()
+extern "C" Q_DECL_EXPORT
+QWavefrontMeshPrivate *ritual_ZN14QWavefrontMesh6d_funcEv(
+    QWavefrontMesh *self) {
+  return self->d_func();
+}
+
+//  const QWavefrontMeshPrivate *QWavefrontMesh::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWavefrontMeshPrivate *ritual_ZNK14QWavefrontMesh6d_funcEv(
+    const QWavefrontMesh *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQWavefrontMesh, for the function named

@@ -2,6 +2,7 @@
 //  Qt3DExtras/qplanegeometry.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qplanegeometry.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras14QPlaneGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QPlaneGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras14QPlaneGeometry11qt_metacastEPKc(
+    Qt3DExtras::QPlaneGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QPlaneGeometry::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras14QPlaneGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QPlaneGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QPlaneGeometry::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -194,6 +214,167 @@ extern "C" Q_DECL_EXPORT
 Qt3DExtras::QPlaneGeometry *ritual_ZN10Qt3DExtras14QPlaneGeometryC1EPN8Qt3DCore5QNodeE(
     Qt3DCore::QNode *parent) {
   return new CuteQt3DExtras_QPlaneGeometry(parent);
+}
+
+//  Qt3DExtras::QPlaneGeometry::~QPlaneGeometry()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometryD1Ev(
+    Qt3DExtras::QPlaneGeometry *self) {
+  delete self;
+}
+
+//  void Qt3DExtras::QPlaneGeometry::updateVertices()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry14updateVerticesEv(
+    Qt3DExtras::QPlaneGeometry *self) {
+  self->updateVertices();
+}
+
+//  void Qt3DExtras::QPlaneGeometry::updateIndices()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry13updateIndicesEv(
+    Qt3DExtras::QPlaneGeometry *self) {
+  self->updateIndices();
+}
+
+//  QSize Qt3DExtras::QPlaneGeometry::resolution() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DExtras14QPlaneGeometry10resolutionEv(
+    const Qt3DExtras::QPlaneGeometry *self) {
+  return new QSize(self->resolution());
+}
+
+//  float Qt3DExtras::QPlaneGeometry::width() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras14QPlaneGeometry5widthEv(
+    const Qt3DExtras::QPlaneGeometry *self) {
+  return self->width();
+}
+
+//  float Qt3DExtras::QPlaneGeometry::height() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras14QPlaneGeometry6heightEv(
+    const Qt3DExtras::QPlaneGeometry *self) {
+  return self->height();
+}
+
+//  bool Qt3DExtras::QPlaneGeometry::mirrored() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras14QPlaneGeometry8mirroredEv(
+    const Qt3DExtras::QPlaneGeometry *self) {
+  return self->mirrored();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QPlaneGeometry::positionAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras14QPlaneGeometry17positionAttributeEv(
+    const Qt3DExtras::QPlaneGeometry *self) {
+  return self->positionAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QPlaneGeometry::normalAttribute() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras14QPlaneGeometry15normalAttributeEv(
+    const Qt3DExtras::QPlaneGeometry *self) {
+  return self->normalAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QPlaneGeometry::texCoordAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras14QPlaneGeometry17texCoordAttributeEv(
+    const Qt3DExtras::QPlaneGeometry *self) {
+  return self->texCoordAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QPlaneGeometry::tangentAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras14QPlaneGeometry16tangentAttributeEv(
+    const Qt3DExtras::QPlaneGeometry *self) {
+  return self->tangentAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QPlaneGeometry::indexAttribute() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras14QPlaneGeometry14indexAttributeEv(
+    const Qt3DExtras::QPlaneGeometry *self) {
+  return self->indexAttribute();
+}
+
+//  void Qt3DExtras::QPlaneGeometry::setResolution(const QSize &resolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry13setResolutionERK5QSize(
+    Qt3DExtras::QPlaneGeometry *self,
+    const QSize *resolution) {
+  self->setResolution(*resolution);
+}
+
+//  void Qt3DExtras::QPlaneGeometry::setWidth(float width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry8setWidthEf(
+    Qt3DExtras::QPlaneGeometry *self,
+    float width) {
+  self->setWidth(width);
+}
+
+//  void Qt3DExtras::QPlaneGeometry::setHeight(float height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry9setHeightEf(
+    Qt3DExtras::QPlaneGeometry *self,
+    float height) {
+  self->setHeight(height);
+}
+
+//  void Qt3DExtras::QPlaneGeometry::setMirrored(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry11setMirroredEb(
+    Qt3DExtras::QPlaneGeometry *self,
+    bool mirrored) {
+  self->setMirrored(mirrored);
+}
+
+//  void Qt3DExtras::QPlaneGeometry::resolutionChanged(const QSize
+//      &resolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry17resolutionChangedERK5QSize(
+    Qt3DExtras::QPlaneGeometry *self,
+    const QSize *resolution) {
+  self->resolutionChanged(*resolution);
+}
+
+//  void Qt3DExtras::QPlaneGeometry::widthChanged(float width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry12widthChangedEf(
+    Qt3DExtras::QPlaneGeometry *self,
+    float width) {
+  self->widthChanged(width);
+}
+
+//  void Qt3DExtras::QPlaneGeometry::heightChanged(float height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry13heightChangedEf(
+    Qt3DExtras::QPlaneGeometry *self,
+    float height) {
+  self->heightChanged(height);
+}
+
+//  void Qt3DExtras::QPlaneGeometry::mirroredChanged(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPlaneGeometry15mirroredChangedEb(
+    Qt3DExtras::QPlaneGeometry *self,
+    bool mirrored) {
+  self->mirroredChanged(mirrored);
+}
+
+//  Qt3DExtras::QPlaneGeometry::QPlaneGeometry(QPlaneGeometryPrivate &dd,
+//      QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QPlaneGeometry *ritual_ZN10Qt3DExtras14QPlaneGeometryC1ERNS_21QPlaneGeometryPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QPlaneGeometryPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QPlaneGeometry(*dd, parent);
 }
 
 //  QPlaneGeometryPrivate *Qt3DExtras::QPlaneGeometry::d_func()

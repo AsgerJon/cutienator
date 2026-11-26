@@ -5,6 +5,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  Only a class built on QAbstractState may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -216,6 +217,24 @@ const QMetaObject *ritual_ZNK14QAbstractState10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractState::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QAbstractState11qt_metacastEPKc(
+    QAbstractState *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractState::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QAbstractState11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractState *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractState::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QAbstractState2trEPKcS1_i(
@@ -251,6 +270,41 @@ bool ritual_ZNK14QAbstractState6activeEv(const QAbstractState *self) {
   return self->active();
 }
 
+//  QBindable<bool> QAbstractState::bindableActive()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN14QAbstractState14bindableActiveEv(
+    QAbstractState *self) {
+  return new QBindable<bool>(self->bindableActive());
+}
+
+//  void QAbstractState::entered(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractState7enteredENS_14QPrivateSignalE(
+    QAbstractState *self) {
+  self->entered(QAbstractState::QPrivateSignal());
+}
+
+//  void QAbstractState::exited(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractState6exitedENS_14QPrivateSignalE(
+    QAbstractState *self) {
+  self->exited(QAbstractState::QPrivateSignal());
+}
+
+//  void QAbstractState::activeChanged(bool active)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractState13activeChangedEb(
+    QAbstractState *self,
+    bool active) {
+  self->activeChanged(active);
+}
+
+//  QAbstractState::QAbstractState(QState *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractState *ritual_ZN14QAbstractStateC1EP6QState(QState *parent) {
+  return new CuteQAbstractState(parent);
+}
+
 //  void QAbstractState::onEntry(QEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QAbstractState7onEntryEP6QEvent(
@@ -273,6 +327,28 @@ bool ritual_ZN14QAbstractState5eventEP6QEvent(
     QAbstractState *self,
     QEvent *e) {
   return self->event(e);
+}
+
+//  QAbstractState::QAbstractState(QAbstractStatePrivate &dd, QState *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractState *ritual_ZN14QAbstractStateC1ER21QAbstractStatePrivateP6QState(
+    QAbstractStatePrivate *dd,
+    QState *parent) {
+  return new CuteQAbstractState(*dd, parent);
+}
+
+//  QAbstractStatePrivate *QAbstractState::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractStatePrivate *ritual_ZN14QAbstractState6d_funcEv(
+    QAbstractState *self) {
+  return self->d_func();
+}
+
+//  const QAbstractStatePrivate *QAbstractState::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractStatePrivate *ritual_ZNK14QAbstractState6d_funcEv(
+    const QAbstractState *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQAbstractState, for the function named
@@ -325,5 +401,11 @@ QAbstractState *ritual_list_at_QAbstractState_ptr(
 //  QList<QAbstractState *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QAbstractState_ptr(QList<QAbstractState *> *self) {
+  delete self;
+}
+
+//  a QBindable<bool> a ritual of QAbstractState gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractState__QBindable_bool(QBindable<bool> *self) {
   delete self;
 }

@@ -2,8 +2,11 @@
 //  Qt3DRender/qraycaster.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qraycaster.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <Qt3DRender/Qt3DRender>
+#include <QtGui/QVector3D>
 
 //  A Qt3DRender::QRayCaster that Python can take functions over in. Every Qt3DRender::QRayCaster
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +182,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QRayCaster10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QRayCaster::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QRayCaster11qt_metacastEPKc(
+    Qt3DRender::QRayCaster *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QRayCaster::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QRayCaster11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QRayCaster *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QRayCaster::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QRayCaster2trEPKcS2_i(
@@ -186,6 +208,130 @@ QString *ritual_ZN10Qt3DRender10QRayCaster2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QRayCaster::tr(s, c, n));
+}
+
+//  Qt3DRender::QRayCaster::QRayCaster(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRayCaster *ritual_ZN10Qt3DRender10QRayCasterC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRayCaster(parent);
+}
+
+//  Qt3DRender::QRayCaster::~QRayCaster()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QRayCasterD1Ev(Qt3DRender::QRayCaster *self) {
+  delete self;
+}
+
+//  QVector3D Qt3DRender::QRayCaster::origin() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK10Qt3DRender10QRayCaster6originEv(
+    const Qt3DRender::QRayCaster *self) {
+  return new QVector3D(self->origin());
+}
+
+//  QVector3D Qt3DRender::QRayCaster::direction() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK10Qt3DRender10QRayCaster9directionEv(
+    const Qt3DRender::QRayCaster *self) {
+  return new QVector3D(self->direction());
+}
+
+//  float Qt3DRender::QRayCaster::length() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender10QRayCaster6lengthEv(
+    const Qt3DRender::QRayCaster *self) {
+  return self->length();
+}
+
+//  void Qt3DRender::QRayCaster::setOrigin(const QVector3D &origin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QRayCaster9setOriginERK9QVector3D(
+    Qt3DRender::QRayCaster *self,
+    const QVector3D *origin) {
+  self->setOrigin(*origin);
+}
+
+//  void Qt3DRender::QRayCaster::setDirection(const QVector3D &direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QRayCaster12setDirectionERK9QVector3D(
+    Qt3DRender::QRayCaster *self,
+    const QVector3D *direction) {
+  self->setDirection(*direction);
+}
+
+//  void Qt3DRender::QRayCaster::setLength(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QRayCaster9setLengthEf(
+    Qt3DRender::QRayCaster *self,
+    float length) {
+  self->setLength(length);
+}
+
+//  void Qt3DRender::QRayCaster::trigger()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QRayCaster7triggerEv(
+    Qt3DRender::QRayCaster *self) {
+  self->trigger();
+}
+
+//  void Qt3DRender::QRayCaster::trigger(const QVector3D &origin, const
+//      QVector3D &direction, float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QRayCaster7triggerERK9QVector3DS3_f(
+    Qt3DRender::QRayCaster *self,
+    const QVector3D *origin,
+    const QVector3D *direction,
+    float length) {
+  self->trigger(*origin, *direction, length);
+}
+
+//  Qt3DRender::QAbstractRayCaster::Hits Qt3DRender::QRayCaster::pick(const
+//      QVector3D &origin, const QVector3D &direction, float length)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCaster::Hits *ritual_ZN10Qt3DRender10QRayCaster4pickERK9QVector3DS3_f(
+    Qt3DRender::QRayCaster *self,
+    const QVector3D *origin,
+    const QVector3D *direction,
+    float length) {
+  return new Qt3DRender::QAbstractRayCaster::Hits(
+      self->pick(
+          *origin,
+          *direction,
+          length));
+}
+
+//  void Qt3DRender::QRayCaster::originChanged(const QVector3D &origin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QRayCaster13originChangedERK9QVector3D(
+    Qt3DRender::QRayCaster *self,
+    const QVector3D *origin) {
+  self->originChanged(*origin);
+}
+
+//  void Qt3DRender::QRayCaster::directionChanged(const QVector3D &direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QRayCaster16directionChangedERK9QVector3D(
+    Qt3DRender::QRayCaster *self,
+    const QVector3D *direction) {
+  self->directionChanged(*direction);
+}
+
+//  void Qt3DRender::QRayCaster::lengthChanged(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QRayCaster13lengthChangedEf(
+    Qt3DRender::QRayCaster *self,
+    float length) {
+  self->lengthChanged(length);
+}
+
+//  Qt3DRender::QRayCaster::QRayCaster(QAbstractRayCasterPrivate &dd, QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRayCaster *ritual_ZN10Qt3DRender10QRayCasterC1ERNS_25QAbstractRayCasterPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QAbstractRayCasterPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRayCaster(*dd, parent);
 }
 
 //  a Python function taken by a CuteQt3DRender_QRayCaster, for the function
@@ -196,4 +342,12 @@ bool ritual_take_Qt3DRender_QRayCaster(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QRayCaster *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QAbstractRayCaster::Hits a ritual of Qt3DRender::QRayCaster
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QRayCaster__Qt3DRender_QAbstractRayCaster_Hits(
+    Qt3DRender::QAbstractRayCaster::Hits *self) {
+  delete self;
 }

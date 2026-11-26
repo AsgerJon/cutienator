@@ -33,6 +33,15 @@ void ritual_ZN18QWaylandOutputModeD1Ev(QWaylandOutputMode *self) {
   delete self;
 }
 
+//  QWaylandOutputMode &QWaylandOutputMode::operator=(const
+//      QWaylandOutputMode &other)
+extern "C" Q_DECL_EXPORT
+QWaylandOutputMode *ritual_ZN18QWaylandOutputModeaSERKS_(
+    QWaylandOutputMode *self,
+    const QWaylandOutputMode *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QWaylandOutputMode::operator==(const QWaylandOutputMode &other)
 //      const
 extern "C" Q_DECL_EXPORT

@@ -900,7 +900,17 @@ class HeaderFolder:
         os.path.realpath(self.getPartFolder(name))
         for name in self.getPartNames() if name != partName}
     found = dict()  # type: Dict[str, List[str]]
+    #  The conditions a folder is entered under, by its path: those of
+    #  the 'if' around the 'add_subdirectory' naming it, as QtQuick3DXr
+    #  enters 'visionos' only 'if (VISIONOS)'. A folder holds what its
+    #  parent holds.
+    entered = dict()  # type: Dict[str, List[str]]
     for here, folders, names in os.walk(root):
+      place = os.path.normpath(here)
+      inherited = entered.get(place)
+      if inherited is None:
+        inherited = entered.get(os.path.dirname(place), [])
+        entered[place] = inherited
       folders[:] = sorted(
           name for name in folders
           if not self._isOtherModule(os.path.join(here, name), others))
@@ -926,7 +936,11 @@ class HeaderFolder:
         if word == 'endif' and opened:
           opened.pop()
           continue
-        conditions = [one for one, _ in opened]
+        conditions = [*inherited, *(one for one, _ in opened)]
+        if word == 'add_subdirectory' and arguments.split():
+          entered[os.path.normpath(os.path.join(
+              place, arguments.split()[0]))] = conditions
+          continue
         if word == 'qt_internal_extend_target':
           own = re.search(r'\bCONDITION\b(.*)', arguments, re.S)
           asked = ''

@@ -29,6 +29,15 @@
 #include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/QStyleOptionTitleBar>
 #include <QtWidgets/QGraphicsSceneMouseEvent>
+#include <QtCore/qglobal.h>
+#include <QtWidgets/qgraphicslayout.h>
+#include <QtWidgets/qgraphicsscene.h>
+#include <QtWidgets/qgraphicslayoutitem.h>
+#include <QtWidgets/private/qgraphicslayoutitem_p.h>
+#include <QtWidgets/qwidget.h>
+#include <QtWidgets/qgraphicswidget.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtCore/QtDebug>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -38,32 +47,290 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 373, as local:qgraphicswidget_p.cpp:minimumHeightForWidth
+static qreal minimumHeightForWidth(qreal width, qreal minh, qreal maxh,
+                                   const QGraphicsWidget *widget,
+                                   bool heightForWidth = true)
+{
+    qreal minimumHeightForWidth = -1;
+    const bool hasHFW = QGraphicsLayoutItemPrivate::get(widget)->hasHeightForWidth();
+    if (hasHFW == heightForWidth) {
+        minimumHeightForWidth = hasHFW
+                                ? widget->effectiveSizeHint(Qt::MinimumSize, QSizeF(width, -1)).height()
+                                : widget->effectiveSizeHint(Qt::MinimumSize, QSizeF(-1, width)).width();    //"width" is here height!
+    } else {
+        // widthForHeight
+        const qreal constraint = width;
+        while (maxh - minh > 0.1) {
+            qreal middle = minh + (maxh - minh)/2;
+            // ### really bad, if we are a widget with a layout it will call
+            // layout->effectiveSizeHint(Qt::MiniumumSize), which again will call
+            // sizeHint three times because of how the cache works
+            qreal hfw = hasHFW
+                        ? widget->effectiveSizeHint(Qt::MinimumSize, QSizeF(middle, -1)).height()
+                        : widget->effectiveSizeHint(Qt::MinimumSize, QSizeF(-1, middle)).width();
+            if (hfw > constraint) {
+                minh = middle;
+            } else if (hfw <= constraint) {
+                maxh = middle;
+            }
+        }
+        minimumHeightForWidth = maxh;
+    }
+    return minimumHeightForWidth;
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 405, as local:qgraphicswidget_p.cpp:minimumWidthForHeight
+static qreal minimumWidthForHeight(qreal height, qreal minw, qreal maxw,
+                                   const QGraphicsWidget *widget)
+{
+    return minimumHeightForWidth(height, minw, maxw, widget, false);
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 411, as local:qgraphicswidget_p.cpp:closestAcceptableSize
+static QSizeF closestAcceptableSize(const QSizeF &proposed,
+                                    const QGraphicsWidget *widget)
+{
+    const QSizeF current = widget->size();
+
+    qreal minw = proposed.width();
+    qreal maxw = current.width();
+    qreal minh = proposed.height();
+    qreal maxh = current.height();
+
+    qreal middlew = maxw;
+    qreal middleh = maxh;
+    qreal min_hfw;
+    min_hfw = minimumHeightForWidth(maxw, minh, maxh, widget);
+
+    do {
+        if (maxw - minw < 0.1) {
+            // we still haven't found anything, cut off binary search
+            minw = maxw;
+            minh = maxh;
+        }
+        middlew = minw + (maxw - minw)/2.0;
+        middleh = minh + (maxh - minh)/2.0;
+
+        min_hfw = minimumHeightForWidth(middlew, minh, maxh, widget);
+
+        if (min_hfw > middleh) {
+            minw = middlew;
+            minh = middleh;
+        } else if (min_hfw <= middleh) {
+            maxw = middlew;
+            maxh = middleh;
+        }
+    } while (maxw != minw);
+
+    min_hfw = minimumHeightForWidth(middlew, minh, maxh, widget);
+
+    QSizeF result;
+    if (min_hfw < maxh) {
+        result = QSizeF(middlew, min_hfw);
+    } else {
+        // Needed because of the cut-off we do above.
+        result = QSizeF(minimumWidthForHeight(maxh, proposed.width(), current.width(), widget), maxh);
+    }
+    return result;
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 458, as local:qgraphicswidget_p.cpp:_q_boundGeometryToSizeConstraints
+static void _q_boundGeometryToSizeConstraints(const QRectF &startGeometry,
+                                              QRectF *rect, Qt::WindowFrameSection section,
+                                              const QSizeF &min, const QSizeF &max,
+                                              const QGraphicsWidget *widget)
+{
+    const QRectF proposedRect = *rect;
+    qreal width = qBound(min.width(), proposedRect.width(), max.width());
+    qreal height = qBound(min.height(), proposedRect.height(), max.height());
+
+    const bool hasHFW = QGraphicsLayoutItemPrivate::get(widget)->hasHeightForWidth();
+    const bool hasWFH = QGraphicsLayoutItemPrivate::get(widget)->hasWidthForHeight();
+
+    const bool widthChanged = proposedRect.width() != widget->size().width();
+    const bool heightChanged = proposedRect.height() != widget->size().height();
+
+    if (hasHFW || hasWFH) {
+        if (widthChanged || heightChanged) {
+            qreal minExtent;
+            qreal maxExtent;
+            qreal constraint;
+            qreal proposed;
+            if (hasHFW) {
+                minExtent = min.height();
+                maxExtent = max.height();
+                constraint = width;
+                proposed = proposedRect.height();
+            } else {
+                // width for height
+                minExtent = min.width();
+                maxExtent = max.width();
+                constraint = height;
+                proposed = proposedRect.width();
+            }
+            if (minimumHeightForWidth(constraint, minExtent, maxExtent, widget, hasHFW) > proposed) {
+                QSizeF effectiveSize = closestAcceptableSize(QSizeF(width, height), widget);
+                width = effectiveSize.width();
+                height = effectiveSize.height();
+            }
+        }
+    }
+
+    switch (section) {
+    case Qt::LeftSection:
+        rect->setRect(startGeometry.right() - qRound(width), startGeometry.top(),
+                      qRound(width), startGeometry.height());
+        break;
+    case Qt::TopLeftSection:
+        rect->setRect(startGeometry.right() - qRound(width), startGeometry.bottom() - qRound(height),
+                      qRound(width), qRound(height));
+        break;
+    case Qt::TopSection:
+        rect->setRect(startGeometry.left(), startGeometry.bottom() - qRound(height),
+                      startGeometry.width(), qRound(height));
+        break;
+    case Qt::TopRightSection:
+        rect->setTop(rect->bottom() - qRound(height));
+        rect->setWidth(qRound(width));
+        break;
+    case Qt::RightSection:
+        rect->setWidth(qRound(width));
+        break;
+    case Qt::BottomRightSection:
+        rect->setWidth(qRound(width));
+        rect->setHeight(qRound(height));
+        break;
+    case Qt::BottomSection:
+        rect->setHeight(qRound(height));
+        break;
+    case Qt::BottomLeftSection:
+        rect->setRect(startGeometry.right() - qRound(width), startGeometry.top(),
+                      qRound(width), qRound(height));
+        break;
+    default:
+        break;
+    }
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 806, as _ZN22QGraphicsWidgetPrivate10resetWidthEv
+inline void QGraphicsWidgetPrivate::resetWidth()
+{
+    Q_Q(QGraphicsWidget);
+    q->setGeometry(QRectF(q->x(), q->y(), 0, height()));
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 829, as _ZN22QGraphicsWidgetPrivate11resetHeightEv
+inline void QGraphicsWidgetPrivate::resetHeight()
+{
+    Q_Q(QGraphicsWidget);
+    q->setGeometry(QRectF(q->x(), q->y(), width(), 0));
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 216, as _ZN22QGraphicsWidgetPrivate11resolveFontEj
+inline void QGraphicsWidgetPrivate::resolveFont(uint inheritedMask)
+{
+    Q_Q(QGraphicsWidget);
+    inheritedFontResolveMask = inheritedMask;
+    if (QGraphicsWidget *p = q->parentWidget())
+        inheritedFontResolveMask |= p->d_func()->inheritedFontResolveMask;
+    QFont naturalFont = naturalWidgetFont();
+    QFont resolvedFont = font.resolve(naturalFont);
+    updateFont(resolvedFont);
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 121, as _ZN22QGraphicsWidgetPrivate14resolvePaletteEj
+inline void QGraphicsWidgetPrivate::resolvePalette(uint inheritedMask)
+{
+    inheritedPaletteResolveMask = inheritedMask;
+    QPalette naturalPalette = naturalWidgetPalette();
+    QPalette resolvedPalette = palette.resolve(naturalPalette);
+    updatePalette(resolvedPalette);
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 795, as _ZN22QGraphicsWidgetPrivate8setWidthEd
+inline void QGraphicsWidgetPrivate::setWidth(qreal w)
+{
+    if (qIsNaN(w))
+        return;
+    Q_Q(QGraphicsWidget);
+    if (q->geometry().width() == w)
+        return;
+
+    q->setGeometry(QRectF(q->x(), q->y(), w, height()));
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 818, as _ZN22QGraphicsWidgetPrivate9setHeightEd
+inline void QGraphicsWidgetPrivate::setHeight(qreal h)
+{
+    if (qIsNaN(h))
+        return;
+    Q_Q(QGraphicsWidget);
+    if (q->geometry().height() == h)
+        return;
+
+    q->setGeometry(QRectF(q->x(), q->y(), width(), h));
+}
+
 //  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 74, as _ZN22QGraphicsWidgetPrivateD2Ev
 inline QGraphicsWidgetPrivate::~QGraphicsWidgetPrivate()
 {
 }
 
-//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 293, as _ZN22QGraphicsWidgetPrivate17adjustWindowFlagsEP6QFlagsIN2Qt10WindowTypeEE
-inline void QGraphicsWidgetPrivate::adjustWindowFlags(Qt::WindowFlags *flags)
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 789, as _ZNK22QGraphicsWidgetPrivate5widthEv
+inline qreal QGraphicsWidgetPrivate::width() const
 {
-    bool customize =  (*flags & (Qt::CustomizeWindowHint
-            | Qt::FramelessWindowHint
-            | Qt::WindowTitleHint
-            | Qt::WindowSystemMenuHint
-            | Qt::WindowMinimizeButtonHint
-            | Qt::WindowMaximizeButtonHint
-            | Qt::WindowContextHelpButtonHint));
+    Q_Q(const QGraphicsWidget);
+    return q->geometry().width();
+}
 
-    uint type = (*flags & Qt::WindowType_Mask);
-    if (customize)
-        ;
-    else if (type == Qt::Dialog || type == Qt::Sheet)
-        *flags |= Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowContextHelpButtonHint;
-    else if (type == Qt::Tool)
-        *flags |= Qt::WindowTitleHint | Qt::WindowSystemMenuHint;
-    else if (type == Qt::Window || type == Qt::SubWindow)
-        *flags |= Qt::WindowTitleHint | Qt::WindowSystemMenuHint
-                  | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint;
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 812, as _ZNK22QGraphicsWidgetPrivate6heightEv
+inline qreal QGraphicsWidgetPrivate::height() const
+{
+    Q_Q(const QGraphicsWidget);
+    return q->geometry().height();
+}
+
+//  from src/widgets/graphicsview/qgraphicslayoutitem.cpp, line 239, as _ZNK26QGraphicsLayoutItemPrivate17hasHeightForWidthEv
+inline bool QGraphicsLayoutItemPrivate::hasHeightForWidth() const
+{
+    Q_Q(const QGraphicsLayoutItem);
+    if (isLayout) {
+        const QGraphicsLayout *l = static_cast<const QGraphicsLayout *>(q);
+        for (int i = l->count() - 1; i >= 0; --i) {
+            if (QGraphicsLayoutItemPrivate::get(l->itemAt(i))->hasHeightForWidth())
+                return true;
+        }
+    } else if (QGraphicsItem *item = q->graphicsItem()) {
+        if (item->isWidget()) {
+            QGraphicsWidget *w = static_cast<QGraphicsWidget *>(item);
+            if (w->layout()) {
+                return QGraphicsLayoutItemPrivate::get(w->layout())->hasHeightForWidth();
+            }
+        }
+    }
+    return q->sizePolicy().hasHeightForWidth();
+}
+
+//  from src/widgets/graphicsview/qgraphicslayoutitem.cpp, line 259, as _ZNK26QGraphicsLayoutItemPrivate17hasWidthForHeightEv
+inline bool QGraphicsLayoutItemPrivate::hasWidthForHeight() const
+{
+    Q_Q(const QGraphicsLayoutItem);
+    if (isLayout) {
+        const QGraphicsLayout *l = static_cast<const QGraphicsLayout *>(q);
+        for (int i = l->count() - 1; i >= 0; --i) {
+            if (QGraphicsLayoutItemPrivate::get(l->itemAt(i))->hasWidthForHeight())
+                return true;
+        }
+    } else if (QGraphicsItem *item = q->graphicsItem()) {
+        if (item->isWidget()) {
+            QGraphicsWidget *w = static_cast<QGraphicsWidget *>(item);
+            if (w->layout()) {
+                return QGraphicsLayoutItemPrivate::get(w->layout())->hasWidthForHeight();
+            }
+        }
+    }
+    return q->sizePolicy().hasWidthForHeight();
 }
 
 //  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 21, as _ZN22QGraphicsWidgetPrivate4initEP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE
@@ -227,15 +494,6 @@ inline void QGraphicsWidgetPrivate::setPalette_helper(const QPalette &palette)
     updatePalette(palette);
 }
 
-//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 121, as _ZN22QGraphicsWidgetPrivate14resolvePaletteEj
-inline void QGraphicsWidgetPrivate::resolvePalette(uint inheritedMask)
-{
-    inheritedPaletteResolveMask = inheritedMask;
-    QPalette naturalPalette = naturalWidgetPalette();
-    QPalette resolvedPalette = palette.resolve(naturalPalette);
-    updatePalette(resolvedPalette);
-}
-
 //  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 129, as _ZN22QGraphicsWidgetPrivate13updatePaletteERK8QPalette
 inline void QGraphicsWidgetPrivate::updatePalette(const QPalette &palette)
 {
@@ -285,18 +543,6 @@ inline void QGraphicsWidgetPrivate::setFont_helper(const QFont &font)
     if (this->font == font && this->font.resolveMask() == font.resolveMask())
         return;
     updateFont(font);
-}
-
-//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 216, as _ZN22QGraphicsWidgetPrivate11resolveFontEj
-inline void QGraphicsWidgetPrivate::resolveFont(uint inheritedMask)
-{
-    Q_Q(QGraphicsWidget);
-    inheritedFontResolveMask = inheritedMask;
-    if (QGraphicsWidget *p = q->parentWidget())
-        inheritedFontResolveMask |= p->d_func()->inheritedFontResolveMask;
-    QFont naturalFont = naturalWidgetFont();
-    QFont resolvedFont = font.resolve(naturalFont);
-    updateFont(resolvedFont);
 }
 
 //  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 227, as _ZN22QGraphicsWidgetPrivate10updateFontERK5QFont
@@ -368,6 +614,29 @@ inline void QGraphicsWidgetPrivate::initStyleOptionTitleBar(QStyleOptionTitleBar
         windowData->windowTitle, Qt::ElideRight, textRect.width());
 }
 
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 293, as _ZN22QGraphicsWidgetPrivate17adjustWindowFlagsEP6QFlagsIN2Qt10WindowTypeEE
+inline void QGraphicsWidgetPrivate::adjustWindowFlags(Qt::WindowFlags *flags)
+{
+    bool customize =  (*flags & (Qt::CustomizeWindowHint
+            | Qt::FramelessWindowHint
+            | Qt::WindowTitleHint
+            | Qt::WindowSystemMenuHint
+            | Qt::WindowMinimizeButtonHint
+            | Qt::WindowMaximizeButtonHint
+            | Qt::WindowContextHelpButtonHint));
+
+    uint type = (*flags & Qt::WindowType_Mask);
+    if (customize)
+        ;
+    else if (type == Qt::Dialog || type == Qt::Sheet)
+        *flags |= Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowContextHelpButtonHint;
+    else if (type == Qt::Tool)
+        *flags |= Qt::WindowTitleHint | Qt::WindowSystemMenuHint;
+    else if (type == Qt::Window || type == Qt::SubWindow)
+        *flags |= Qt::WindowTitleHint | Qt::WindowSystemMenuHint
+                  | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint;
+}
+
 //  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 315, as _ZN22QGraphicsWidgetPrivate28windowFrameMouseReleaseEventEP24QGraphicsSceneMouseEvent
 inline void QGraphicsWidgetPrivate::windowFrameMouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
@@ -417,6 +686,77 @@ inline void QGraphicsWidgetPrivate::windowFrameMousePressEvent(QGraphicsSceneMou
         q->update();
     }
     event->setAccepted(windowData->grabbedSection != Qt::NoSection);
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 535, as _ZN22QGraphicsWidgetPrivate25windowFrameMouseMoveEventEP24QGraphicsSceneMouseEvent
+inline void QGraphicsWidgetPrivate::windowFrameMouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+    Q_Q(QGraphicsWidget);
+    ensureWindowData();
+    if (!(event->buttons() & Qt::LeftButton) || windowData->hoveredSubControl != QStyle::SC_TitleBarLabel)
+        return;
+
+    QLineF delta(q->mapFromScene(event->buttonDownScenePos(Qt::LeftButton)), event->pos());
+    QLineF parentDelta(q->mapToParent(delta.p1()), q->mapToParent(delta.p2()));
+    QLineF parentXDelta(q->mapToParent(QPointF(delta.p1().x(), 0)), q->mapToParent(QPointF(delta.p2().x(), 0)));
+    QLineF parentYDelta(q->mapToParent(QPointF(0, delta.p1().y())), q->mapToParent(QPointF(0, delta.p2().y())));
+
+    QRectF newGeometry;
+    switch (windowData->grabbedSection) {
+    case Qt::LeftSection:
+        newGeometry = QRectF(windowData->startGeometry.topLeft()
+                             + QPointF(parentXDelta.dx(), parentXDelta.dy()),
+                             windowData->startGeometry.size() - QSizeF(delta.dx(), delta.dy()));
+        break;
+    case Qt::TopLeftSection:
+        newGeometry = QRectF(windowData->startGeometry.topLeft()
+                             + QPointF(parentDelta.dx(), parentDelta.dy()),
+                             windowData->startGeometry.size() - QSizeF(delta.dx(), delta.dy()));
+        break;
+    case Qt::TopSection:
+        newGeometry = QRectF(windowData->startGeometry.topLeft()
+                             + QPointF(parentYDelta.dx(), parentYDelta.dy()),
+                             windowData->startGeometry.size() - QSizeF(0, delta.dy()));
+        break;
+    case Qt::TopRightSection:
+        newGeometry = QRectF(windowData->startGeometry.topLeft()
+                             + QPointF(parentYDelta.dx(), parentYDelta.dy()),
+                             windowData->startGeometry.size() - QSizeF(-delta.dx(), delta.dy()));
+        break;
+    case Qt::RightSection:
+        newGeometry = QRectF(windowData->startGeometry.topLeft(),
+                             windowData->startGeometry.size() + QSizeF(delta.dx(), 0));
+        break;
+    case Qt::BottomRightSection:
+        newGeometry = QRectF(windowData->startGeometry.topLeft(),
+                             windowData->startGeometry.size() + QSizeF(delta.dx(), delta.dy()));
+        break;
+    case Qt::BottomSection:
+        newGeometry = QRectF(windowData->startGeometry.topLeft(),
+                             windowData->startGeometry.size() + QSizeF(0, delta.dy()));
+        break;
+    case Qt::BottomLeftSection:
+        newGeometry = QRectF(windowData->startGeometry.topLeft()
+                             + QPointF(parentXDelta.dx(), parentXDelta.dy()),
+                             windowData->startGeometry.size() - QSizeF(delta.dx(), -delta.dy()));
+        break;
+    case Qt::TitleBarArea:
+        newGeometry = QRectF(windowData->startGeometry.topLeft()
+                             + QPointF(parentDelta.dx(), parentDelta.dy()),
+                             windowData->startGeometry.size());
+        break;
+    case Qt::NoSection:
+        break;
+    }
+
+    if (windowData->grabbedSection != Qt::NoSection) {
+        _q_boundGeometryToSizeConstraints(windowData->startGeometry, &newGeometry,
+                                          windowData->grabbedSection,
+                                          q->effectiveSizeHint(Qt::MinimumSize),
+                                          q->effectiveSizeHint(Qt::MaximumSize),
+                                          q);
+        q->setGeometry(newGeometry);
+    }
 }
 
 //  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 605, as _ZN22QGraphicsWidgetPrivate25windowFrameHoverMoveEventEP24QGraphicsSceneHoverEvent
@@ -531,58 +871,6 @@ inline void QGraphicsWidgetPrivate::windowFrameHoverLeaveEvent(QGraphicsSceneHov
 inline bool QGraphicsWidgetPrivate::hasDecoration() const
 {
     return (windowFlags & Qt::Window) && (windowFlags & Qt::WindowTitleHint);
-}
-
-//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 789, as _ZNK22QGraphicsWidgetPrivate5widthEv
-inline qreal QGraphicsWidgetPrivate::width() const
-{
-    Q_Q(const QGraphicsWidget);
-    return q->geometry().width();
-}
-
-//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 795, as _ZN22QGraphicsWidgetPrivate8setWidthEd
-inline void QGraphicsWidgetPrivate::setWidth(qreal w)
-{
-    if (qIsNaN(w))
-        return;
-    Q_Q(QGraphicsWidget);
-    if (q->geometry().width() == w)
-        return;
-
-    q->setGeometry(QRectF(q->x(), q->y(), w, height()));
-}
-
-//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 806, as _ZN22QGraphicsWidgetPrivate10resetWidthEv
-inline void QGraphicsWidgetPrivate::resetWidth()
-{
-    Q_Q(QGraphicsWidget);
-    q->setGeometry(QRectF(q->x(), q->y(), 0, height()));
-}
-
-//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 812, as _ZNK22QGraphicsWidgetPrivate6heightEv
-inline qreal QGraphicsWidgetPrivate::height() const
-{
-    Q_Q(const QGraphicsWidget);
-    return q->geometry().height();
-}
-
-//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 818, as _ZN22QGraphicsWidgetPrivate9setHeightEd
-inline void QGraphicsWidgetPrivate::setHeight(qreal h)
-{
-    if (qIsNaN(h))
-        return;
-    Q_Q(QGraphicsWidget);
-    if (q->geometry().height() == h)
-        return;
-
-    q->setGeometry(QRectF(q->x(), q->y(), width(), h));
-}
-
-//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 829, as _ZN22QGraphicsWidgetPrivate11resetHeightEv
-inline void QGraphicsWidgetPrivate::resetHeight()
-{
-    Q_Q(QGraphicsWidget);
-    q->setGeometry(QRectF(q->x(), q->y(), width(), 0));
 }
 
 //  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 835, as _ZN22QGraphicsWidgetPrivate21setGeometryFromSetPosEv
@@ -1110,6 +1398,14 @@ void ritual_ZN22QGraphicsWidgetPrivate23initStyleOptionTitleBarEP20QStyleOptionT
   self->initStyleOptionTitleBar(option);
 }
 
+//  void QGraphicsWidgetPrivate::adjustWindowFlags(Qt::WindowFlags *wFlags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGraphicsWidgetPrivate17adjustWindowFlagsEP6QFlagsIN2Qt10WindowTypeEE(
+    QGraphicsWidgetPrivate *self,
+    Qt::WindowFlags *wFlags) {
+  self->adjustWindowFlags(wFlags);
+}
+
 //  void QGraphicsWidgetPrivate::windowFrameMouseReleaseEvent(QGraphicsSceneM
 //      ouseEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -1126,6 +1422,15 @@ void ritual_ZN22QGraphicsWidgetPrivate26windowFrameMousePressEventEP24QGraphicsS
     QGraphicsWidgetPrivate *self,
     QGraphicsSceneMouseEvent *event) {
   self->windowFrameMousePressEvent(event);
+}
+
+//  void QGraphicsWidgetPrivate::windowFrameMouseMoveEvent(QGraphicsSceneMous
+//      eEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGraphicsWidgetPrivate25windowFrameMouseMoveEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsWidgetPrivate *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->windowFrameMouseMoveEvent(event);
 }
 
 //  void QGraphicsWidgetPrivate::windowFrameHoverMoveEvent(QGraphicsSceneHove

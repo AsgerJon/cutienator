@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A Qt3DInput::QAxisSetting that Python can take functions over in. Every Qt3DInput::QAxisSetting
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput12QAxisSetting10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QAxisSetting::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput12QAxisSetting11qt_metacastEPKc(
+    Qt3DInput::QAxisSetting *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QAxisSetting::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput12QAxisSetting11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QAxisSetting *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QAxisSetting::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DInput12QAxisSetting2trEPKcS2_i(
@@ -186,6 +206,88 @@ QString *ritual_ZN9Qt3DInput12QAxisSetting2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QAxisSetting::tr(s, c, n));
+}
+
+//  Qt3DInput::QAxisSetting::QAxisSetting(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAxisSetting *ritual_ZN9Qt3DInput12QAxisSettingC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QAxisSetting(parent);
+}
+
+//  Qt3DInput::QAxisSetting::~QAxisSetting()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QAxisSettingD1Ev(Qt3DInput::QAxisSetting *self) {
+  delete self;
+}
+
+//  float Qt3DInput::QAxisSetting::deadZoneRadius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK9Qt3DInput12QAxisSetting14deadZoneRadiusEv(
+    const Qt3DInput::QAxisSetting *self) {
+  return self->deadZoneRadius();
+}
+
+//  QList<int> Qt3DInput::QAxisSetting::axes() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK9Qt3DInput12QAxisSetting4axesEv(
+    const Qt3DInput::QAxisSetting *self) {
+  return new QList<int>(self->axes());
+}
+
+//  bool Qt3DInput::QAxisSetting::isSmoothEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9Qt3DInput12QAxisSetting15isSmoothEnabledEv(
+    const Qt3DInput::QAxisSetting *self) {
+  return self->isSmoothEnabled();
+}
+
+//  void Qt3DInput::QAxisSetting::setDeadZoneRadius(float deadZoneRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QAxisSetting17setDeadZoneRadiusEf(
+    Qt3DInput::QAxisSetting *self,
+    float deadZoneRadius) {
+  self->setDeadZoneRadius(deadZoneRadius);
+}
+
+//  void Qt3DInput::QAxisSetting::setAxes(const QList<int> &axes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QAxisSetting7setAxesERK5QListIiE(
+    Qt3DInput::QAxisSetting *self,
+    const QList<int> *axes) {
+  self->setAxes(*axes);
+}
+
+//  void Qt3DInput::QAxisSetting::setSmoothEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QAxisSetting16setSmoothEnabledEb(
+    Qt3DInput::QAxisSetting *self,
+    bool enabled) {
+  self->setSmoothEnabled(enabled);
+}
+
+//  void Qt3DInput::QAxisSetting::deadZoneRadiusChanged(float deadZoneRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QAxisSetting21deadZoneRadiusChangedEf(
+    Qt3DInput::QAxisSetting *self,
+    float deadZoneRadius) {
+  self->deadZoneRadiusChanged(deadZoneRadius);
+}
+
+//  void Qt3DInput::QAxisSetting::axesChanged(const QList<int> &axes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QAxisSetting11axesChangedERK5QListIiE(
+    Qt3DInput::QAxisSetting *self,
+    const QList<int> *axes) {
+  self->axesChanged(*axes);
+}
+
+//  void Qt3DInput::QAxisSetting::smoothChanged(bool smooth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QAxisSetting13smoothChangedEb(
+    Qt3DInput::QAxisSetting *self,
+    bool smooth) {
+  self->smoothChanged(smooth);
 }
 
 //  QAxisSettingPrivate *Qt3DInput::QAxisSetting::d_func()
@@ -210,4 +312,10 @@ bool ritual_take_Qt3DInput_QAxisSetting(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_QAxisSetting *>(self)->take(key, call);
+}
+
+//  a QList<int> a ritual of Qt3DInput::QAxisSetting gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QAxisSetting__QList_int(QList<int> *self) {
+  delete self;
 }

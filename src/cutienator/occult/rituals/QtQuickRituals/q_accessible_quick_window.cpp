@@ -11,7 +11,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qaccessiblequickview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
 #include <QtQuick/qquickitem.h>

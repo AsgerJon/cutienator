@@ -8,6 +8,7 @@
 #include <QtQml/6.12.0/QtQml/private/qqmlobjectcreator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/qqmlerror.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
 //  QQmlComponentPrivate::ConstructionState::ConstructionState()
@@ -16,11 +17,37 @@ QQmlComponentPrivate::ConstructionState *ritual_ZN20QQmlComponentPrivate17Constr
   return new QQmlComponentPrivate::ConstructionState();
 }
 
+//  QQmlComponentPrivate::ConstructionState::ConstructionState(ConstructionSt
+//      ate &&other)
+extern "C" Q_DECL_EXPORT
+QQmlComponentPrivate::ConstructionState *ritual_ZN20QQmlComponentPrivate17ConstructionStateC1EOS0_(
+    QQmlComponentPrivate::ConstructionState *other) {
+  return new QQmlComponentPrivate::ConstructionState(std::move(*other));
+}
+
 //  QQmlComponentPrivate::ConstructionState::~ConstructionState()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlComponentPrivate17ConstructionStateD1Ev(
     QQmlComponentPrivate::ConstructionState *self) {
   delete self;
+}
+
+//  QQmlComponentPrivate::ConstructionState &QQmlComponentPrivate::Constructi
+//      onState::operator=(QQmlComponentPrivate::ConstructionState &&other)
+extern "C" Q_DECL_EXPORT
+QQmlComponentPrivate::ConstructionState *ritual_ZN20QQmlComponentPrivate17ConstructionStateaSEOS0_(
+    QQmlComponentPrivate::ConstructionState *self,
+    QQmlComponentPrivate::ConstructionState *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QQmlComponentPrivate::ConstructionState::swap(ConstructionState
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlComponentPrivate17ConstructionState4swapERS0_(
+    QQmlComponentPrivate::ConstructionState *self,
+    QQmlComponentPrivate::ConstructionState *other) {
+  self->swap(*other);
 }
 
 //  void QQmlComponentPrivate::ConstructionState::ensureRequiredPropertyStora
@@ -112,6 +139,26 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QQmlComponentPrivate17ConstructionState10hasCreatorEv(
     const QQmlComponentPrivate::ConstructionState *self) {
   return self->hasCreator();
+}
+
+//  QQmlObjectCreator
+//      *QQmlComponentPrivate::ConstructionState::initCreator(const
+//      QQmlRefPointer<QQmlContextData> &parentContext, const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &compilationUnit,
+//      const QQmlRefPointer<QQmlContextData> &creationContext, const QString
+//      &inlineComponentName)
+extern "C" Q_DECL_EXPORT
+QQmlObjectCreator *ritual_ZN20QQmlComponentPrivate17ConstructionState11initCreatorERK14QQmlRefPointerI15QQmlContextDataERKS1_IN3QV425ExecutableCompilationUnitEES5_RK7QString(
+    QQmlComponentPrivate::ConstructionState *self,
+    const QQmlRefPointer<QQmlContextData> *parentContext,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *compilationUnit,
+    const QQmlRefPointer<QQmlContextData> *creationContext,
+    const QString *inlineComponentName) {
+  return self->initCreator(
+      *parentContext,
+      *compilationUnit,
+      *creationContext,
+      *inlineComponentName);
 }
 
 //  bool QQmlComponentPrivate::ConstructionState::isCompletePending() const

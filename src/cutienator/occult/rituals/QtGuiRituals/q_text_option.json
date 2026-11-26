@@ -10,6 +10,7 @@
     ],
     "ritual_ZN11QTextOptionD1Ev": ["nothing", "address"],
     "ritual_ZN11QTextOptionC1ERKS_": ["address", "address"],
+    "ritual_ZN11QTextOptionaSERKS_": ["address", "address", "address"],
     "ritual_ZN11QTextOption12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
       "nothing", "address", "int"
     ],
@@ -30,9 +31,19 @@
       "nothing", "address", "double"
     ],
     "ritual_ZNK11QTextOption15tabStopDistanceEv": ["double", "address"],
+    "ritual_ZN11QTextOption11setTabArrayERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextOption8tabArrayEv": ["address", "address"],
+    "ritual_ZN11QTextOption7setTabsERK5QListINS_3TabEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextOption4tabsEv": ["address", "address"],
     "ritual_ZN11QTextOption19setUseDesignMetricsEb": [
       "nothing", "address", "bool"
     ],
-    "ritual_ZNK11QTextOption16useDesignMetricsEv": ["bool", "address"]
+    "ritual_ZNK11QTextOption16useDesignMetricsEv": ["bool", "address"],
+    "ritual_drop_QTextOption__QList_qreal": ["nothing", "address"],
+    "ritual_drop_QTextOption__QList_QTextOption_Tab": ["nothing", "address"]
   }
 }

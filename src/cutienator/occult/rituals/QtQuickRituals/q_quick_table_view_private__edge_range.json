@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QQuickTableViewPrivate9EdgeRangeC1Ev": ["address"],
     "ritual_ZN22QQuickTableViewPrivate9EdgeRange13containsIndexEN2Qt4EdgeEi": [
       "bool", "address", "int", "int"
     ],

@@ -11,8 +11,15 @@
     "ritual_ZNK8Qt3DCore22QBoundingVolumePrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore22QBoundingVolumePrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore22QBoundingVolumePrivate17setImplicitBoundsERK9QVector3DS3_S3_f": [
+      "nothing", "address", "address", "address", "address", "float"
+    ],
     "ritual_ZN8Qt3DCore22QBoundingVolumePrivate7setViewEPNS_13QGeometryViewE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QBoundingVolumePrivate3getEPNS_15QBoundingVolumeE": [
+      "address", "address"
     ],
     "ritual_take_Qt3DCore_QBoundingVolumePrivate": [
       "bool", "address", "chars", "address"

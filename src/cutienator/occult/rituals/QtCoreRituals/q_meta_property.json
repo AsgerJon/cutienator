@@ -39,11 +39,26 @@
     "ritual_ZNK13QMetaProperty5writeEP7QObjectRK8QVariant": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZNK13QMetaProperty5writeEP7QObjectO8QVariant": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK13QMetaProperty5resetEP7QObject": [
       "bool", "address", "address"
     ],
     "ritual_ZNK13QMetaProperty8bindableEP7QObject": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK13QMetaProperty12readOnGadgetEPKv": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QMetaProperty13writeOnGadgetEPvRK8QVariant": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK13QMetaProperty13writeOnGadgetEPvO8QVariant": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK13QMetaProperty13resetOnGadgetEPv": [
+      "bool", "address", "address"
     ],
     "ritual_ZNK13QMetaProperty12hasStdCppSetEv": ["bool", "address"],
     "ritual_ZNK13QMetaProperty7isAliasEv": ["bool", "address"],
@@ -53,6 +68,9 @@
     ],
     "ritual_ZNK13QMetaProperty20registerPropertyTypeEv": ["int", "address"],
     "ritual_ZN13QMetaPropertyC1EPK11QMetaObjecti": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QMetaProperty19getMetaPropertyDataEPK11QMetaObjecti": [
       "address", "address", "int"
     ],
     "ritual_ZN13QMetaPropertyD1Ev": ["nothing", "address"],
@@ -69,6 +87,7 @@
     ],
     "ritual_map_has_QHash_int_QMetaProperty": ["bool", "address", "int"],
     "ritual_map_get_QHash_int_QMetaProperty": ["address", "address", "int"],
-    "ritual_map_drop_QHash_int_QMetaProperty": ["nothing", "address"]
+    "ritual_map_drop_QHash_int_QMetaProperty": ["nothing", "address"],
+    "ritual_drop_QMetaProperty__QMetaProperty_Data": ["nothing", "address"]
   }
 }

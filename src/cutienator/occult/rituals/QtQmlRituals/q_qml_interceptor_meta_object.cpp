@@ -20,7 +20,7 @@ typedef void (*CuteQQmlInterceptorMetaObjectCall1)(const void *, QObject *, int 
 class CuteQQmlInterceptorMetaObject : public QQmlInterceptorMetaObject {
 public:
   using QQmlInterceptorMetaObject::QQmlInterceptorMetaObject;
-  CuteQQmlInterceptorMetaObject(const QQmlInterceptorMetaObject &other) : QQmlInterceptorMetaObject(other) {}
+  CuteQQmlInterceptorMetaObject(const QQmlInterceptorMetaObject & other) : QQmlInterceptorMetaObject(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -146,6 +146,40 @@ void ritual_ZN25QQmlInterceptorMetaObject19setInterceptionModeEP7QObjectNS_20Int
     QObject *object,
     QQmlInterceptorMetaObject::InterceptionBehavior behavior) {
   QQmlInterceptorMetaObject::setInterceptionMode(object, behavior);
+}
+
+//  int QQmlInterceptorMetaObject::metaCall(QObject *o, QMetaObject::Call c,
+//      int id, void **a)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQmlInterceptorMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv(
+    QQmlInterceptorMetaObject *self,
+    QObject *o,
+    QMetaObject::Call c,
+    int id,
+    void **a) {
+  return self->metaCall(o, c, id, a);
+}
+
+//  bool QQmlInterceptorMetaObject::intercept(QMetaObject::Call c, int id,
+//      void **a)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QQmlInterceptorMetaObject9interceptEN11QMetaObject4CallEiPPv(
+    QQmlInterceptorMetaObject *self,
+    QMetaObject::Call c,
+    int id,
+    void **a) {
+  return self->intercept(c, id, a);
+}
+
+//  bool QQmlInterceptorMetaObject::doIntercept(QMetaObject::Call c, int id,
+//      void **a)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QQmlInterceptorMetaObject11doInterceptEN11QMetaObject4CallEiPPv(
+    QQmlInterceptorMetaObject *self,
+    QMetaObject::Call c,
+    int id,
+    void **a) {
+  return self->doIntercept(c, id, a);
 }
 
 //  a Python function taken by a CuteQQmlInterceptorMetaObject, for the

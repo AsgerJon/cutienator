@@ -36,9 +36,17 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 55, as _ZN27QWebSocketHandshakeResponseD1Ev
-inline QWebSocketHandshakeResponse::~QWebSocketHandshakeResponse()
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 94, as local:qwebsockethandshakeresponse.cpp:listIntersection
+template <class T, class Compare>
+static QList<T> listIntersection(QList<T> list1, QList<T> list2, Compare comp)
 {
+    QList<T> result;
+    std::sort(list1.begin(), list1.end(), comp);
+    std::sort(list2.begin(), list2.end(), comp);
+    std::set_intersection(list1.cbegin(), list1.cend(),
+                          list2.cbegin(), list2.cend(),
+                          std::back_inserter(result), comp);
+    return result;
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 62, as _ZNK27QWebSocketHandshakeResponse7isValidEv
@@ -90,6 +98,16 @@ inline QString QWebSocketHandshakeResponse::calculateAcceptKey(const QString &ke
     const QString tmpKey = key % QStringLiteral("258EAFA5-E914-47DA-95CA-C5AB0DC85B11");
     const QByteArray hash = QCryptographicHash::hash(tmpKey.toLatin1(), QCryptographicHash::Sha1);
     return QString::fromLatin1(hash.toBase64());
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 216, as _ZNK27QWebSocketHandshakeResponse13writeToStreamER11QTextStream
+inline QTextStream &QWebSocketHandshakeResponse::writeToStream(QTextStream &textStream) const
+{
+    if (Q_LIKELY(!m_response.isEmpty()))
+        textStream << m_response.toLatin1().constData();
+    else
+        textStream.setStatus(QTextStream::WriteFailed);
+    return textStream;
 }
 //  -----------------------------------------------------------------------
 
@@ -267,6 +285,25 @@ const QMetaObject *ritual_ZNK27QWebSocketHandshakeResponse10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWebSocketHandshakeResponse::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QWebSocketHandshakeResponse11qt_metacastEPKc(
+    QWebSocketHandshakeResponse *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWebSocketHandshakeResponse::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QWebSocketHandshakeResponse11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWebSocketHandshakeResponse *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QWebSocketHandshakeResponse::~QWebSocketHandshakeResponse()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QWebSocketHandshakeResponseD1Ev(
@@ -331,6 +368,15 @@ QString *ritual_ZNK27QWebSocketHandshakeResponse18calculateAcceptKeyERK7QString(
     const QWebSocketHandshakeResponse *self,
     const QString *key) {
   return new QString(self->calculateAcceptKey(*key));
+}
+
+//  QTextStream &QWebSocketHandshakeResponse::writeToStream(QTextStream
+//      &textStream) const
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZNK27QWebSocketHandshakeResponse13writeToStreamER11QTextStream(
+    const QWebSocketHandshakeResponse *self,
+    QTextStream *textStream) {
+  return &(self->writeToStream(*textStream));
 }
 
 //  a Python function taken by a CuteQWebSocketHandshakeResponse, for the

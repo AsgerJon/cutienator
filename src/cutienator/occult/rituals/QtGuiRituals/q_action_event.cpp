@@ -15,6 +15,7 @@ typedef void (*CuteQActionEventCall1)(const void *, bool, int *);
 class CuteQActionEvent : public QActionEvent {
 public:
   using QActionEvent::QActionEvent;
+  CuteQActionEvent(const QActionEvent & other) : QActionEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -55,6 +56,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QActionEvent::QActionEvent(const QActionEvent &a0)
+extern "C" Q_DECL_EXPORT
+QActionEvent *ritual_ZN12QActionEventC1ERKS_(const QActionEvent *a0) {
+  return new CuteQActionEvent(*a0);
+}
+
+//  QActionEvent &QActionEvent::operator=(const QActionEvent &other)
+extern "C" Q_DECL_EXPORT
+QActionEvent *ritual_ZN12QActionEventaSERKS_(
+    QActionEvent *self,
+    const QActionEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QActionEvent *QActionEvent::clone() const
 extern "C" Q_DECL_EXPORT

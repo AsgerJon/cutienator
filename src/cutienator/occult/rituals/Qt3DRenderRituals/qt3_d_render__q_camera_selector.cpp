@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender15QCameraSelector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QCameraSelector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender15QCameraSelector11qt_metacastEPKc(
+    Qt3DRender::QCameraSelector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QCameraSelector::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender15QCameraSelector11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QCameraSelector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QCameraSelector::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,53 @@ QString *ritual_ZN10Qt3DRender15QCameraSelector2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QCameraSelector::tr(s, c, n));
+}
+
+//  Qt3DRender::QCameraSelector::QCameraSelector(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QCameraSelector *ritual_ZN10Qt3DRender15QCameraSelectorC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QCameraSelector(parent);
+}
+
+//  Qt3DRender::QCameraSelector::~QCameraSelector()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QCameraSelectorD1Ev(
+    Qt3DRender::QCameraSelector *self) {
+  delete self;
+}
+
+//  Qt3DCore::QEntity *Qt3DRender::QCameraSelector::camera() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEntity *ritual_ZNK10Qt3DRender15QCameraSelector6cameraEv(
+    const Qt3DRender::QCameraSelector *self) {
+  return self->camera();
+}
+
+//  void Qt3DRender::QCameraSelector::setCamera(Qt3DCore::QEntity *camera)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QCameraSelector9setCameraEPN8Qt3DCore7QEntityE(
+    Qt3DRender::QCameraSelector *self,
+    Qt3DCore::QEntity *camera) {
+  self->setCamera(camera);
+}
+
+//  void Qt3DRender::QCameraSelector::cameraChanged(Qt3DCore::QEntity
+//      *camera)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QCameraSelector13cameraChangedEPN8Qt3DCore7QEntityE(
+    Qt3DRender::QCameraSelector *self,
+    Qt3DCore::QEntity *camera) {
+  self->cameraChanged(camera);
+}
+
+//  Qt3DRender::QCameraSelector::QCameraSelector(QCameraSelectorPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QCameraSelector *ritual_ZN10Qt3DRender15QCameraSelectorC1ERNS_22QCameraSelectorPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QCameraSelectorPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QCameraSelector(*dd, parent);
 }
 
 //  QCameraSelectorPrivate *Qt3DRender::QCameraSelector::d_func()

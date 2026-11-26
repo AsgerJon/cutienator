@@ -17,6 +17,12 @@
     "ritual_ZN17QHttpServerRouter15removeConverterE9QMetaType": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN17QHttpServerRouter15clearConvertersEv": ["nothing", "address"]
+    "ritual_ZN17QHttpServerRouter15clearConvertersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNKR17QHttpServerRouter10convertersEv": ["address", "address"],
+    "ritual_ZNK17QHttpServerRouter13handleRequestERK18QHttpServerRequestR20QHttpServerResponder": [
+      "bool", "address", "address", "address"
+    ]
   }
 }

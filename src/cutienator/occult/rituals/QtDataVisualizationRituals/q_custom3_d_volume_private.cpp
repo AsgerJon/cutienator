@@ -44,6 +44,25 @@ inline QCustom3DItemPrivate::~QCustom3DItemPrivate()
 {
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/qcustom3ditem.cpp, line 475, as _ZN20QCustom3DItemPrivateC2EP13QCustom3DItemRK7QStringRK9QVector3DS7_RK11QQuaternion
+inline QCustom3DItemPrivate::QCustom3DItemPrivate(QCustom3DItem *q, const QString &meshFile,
+                                           const QVector3D &position, const QVector3D &scaling,
+                                           const QQuaternion &rotation) :
+    q_ptr(q),
+    m_textureImage(QImage(1, 1, QImage::Format_ARGB32)),
+    m_meshFile(meshFile),
+    m_position(position),
+    m_positionAbsolute(false),
+    m_scaling(scaling),
+    m_scalingAbsolute(true),
+    m_rotation(rotation),
+    m_visible(true),
+    m_shadowCasting(true),
+    m_isLabelItem(false),
+    m_isVolumeItem(false)
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qcustom3ditem.cpp, line 508, as _ZN20QCustom3DItemPrivate14resetDirtyBitsEv
 inline void QCustom3DItemPrivate::resetDirtyBits()
 {
@@ -350,6 +369,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QCustom3DVolumePrivate10metaObjectEv(
     const QCustom3DVolumePrivate *self) {
   return self->metaObject();
+}
+
+//  void *QCustom3DVolumePrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QCustom3DVolumePrivate11qt_metacastEPKc(
+    QCustom3DVolumePrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCustom3DVolumePrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QCustom3DVolumePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCustom3DVolumePrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QCustom3DVolumePrivate::~QCustom3DVolumePrivate()

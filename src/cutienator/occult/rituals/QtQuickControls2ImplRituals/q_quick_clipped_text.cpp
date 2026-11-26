@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK17QQuickClippedText10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickClippedText::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickClippedText11qt_metacastEPKc(
+    QQuickClippedText *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickClippedText::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickClippedText11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickClippedText *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickClippedText::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickClippedText2trEPKcS1_i(

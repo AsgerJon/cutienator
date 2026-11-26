@@ -188,6 +188,25 @@ const QMetaObject *ritual_ZNK20QLowEnergyController10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLowEnergyController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QLowEnergyController11qt_metacastEPKc(
+    QLowEnergyController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLowEnergyController::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QLowEnergyController11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLowEnergyController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLowEnergyController::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QLowEnergyController2trEPKcS1_i(
@@ -402,6 +421,80 @@ int ritual_ZNK20QLowEnergyController3mtuEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QLowEnergyController8readRssiEv(QLowEnergyController *self) {
   self->readRssi();
+}
+
+//  void QLowEnergyController::connected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLowEnergyController9connectedEv(
+    QLowEnergyController *self) {
+  self->connected();
+}
+
+//  void QLowEnergyController::disconnected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLowEnergyController12disconnectedEv(
+    QLowEnergyController *self) {
+  self->disconnected();
+}
+
+//  void
+//      QLowEnergyController::stateChanged(QLowEnergyController::ControllerSt
+//      ate state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLowEnergyController12stateChangedENS_15ControllerStateE(
+    QLowEnergyController *self,
+    QLowEnergyController::ControllerState state) {
+  self->stateChanged(state);
+}
+
+//  void QLowEnergyController::errorOccurred(QLowEnergyController::Error
+//      newError)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLowEnergyController13errorOccurredENS_5ErrorE(
+    QLowEnergyController *self,
+    QLowEnergyController::Error newError) {
+  self->errorOccurred(newError);
+}
+
+//  void QLowEnergyController::mtuChanged(int mtu)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLowEnergyController10mtuChangedEi(
+    QLowEnergyController *self,
+    int mtu) {
+  self->mtuChanged(mtu);
+}
+
+//  void QLowEnergyController::rssiRead(qint16 rssi)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLowEnergyController8rssiReadEs(
+    QLowEnergyController *self,
+    qint16 rssi) {
+  self->rssiRead(rssi);
+}
+
+//  void QLowEnergyController::serviceDiscovered(const QBluetoothUuid
+//      &newService)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLowEnergyController17serviceDiscoveredERK14QBluetoothUuid(
+    QLowEnergyController *self,
+    const QBluetoothUuid *newService) {
+  self->serviceDiscovered(*newService);
+}
+
+//  void QLowEnergyController::discoveryFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLowEnergyController17discoveryFinishedEv(
+    QLowEnergyController *self) {
+  self->discoveryFinished();
+}
+
+//  void QLowEnergyController::connectionUpdated(const
+//      QLowEnergyConnectionParameters &parameters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLowEnergyController17connectionUpdatedERK30QLowEnergyConnectionParameters(
+    QLowEnergyController *self,
+    const QLowEnergyConnectionParameters *parameters) {
+  self->connectionUpdated(*parameters);
 }
 
 //  QLowEnergyController::QLowEnergyController(const QBluetoothAddress

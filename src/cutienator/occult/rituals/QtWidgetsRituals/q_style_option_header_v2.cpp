@@ -16,6 +16,15 @@ QStyleOptionHeaderV2 *ritual_ZN20QStyleOptionHeaderV2C1ERKS_(
   return new QStyleOptionHeaderV2(*other);
 }
 
+//  QStyleOptionHeaderV2 &QStyleOptionHeaderV2::operator=(const
+//      QStyleOptionHeaderV2 &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionHeaderV2 *ritual_ZN20QStyleOptionHeaderV2aSERKS_(
+    QStyleOptionHeaderV2 *self,
+    const QStyleOptionHeaderV2 *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionHeaderV2::QStyleOptionHeaderV2(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionHeaderV2 *ritual_ZN20QStyleOptionHeaderV2C1Ei(int version) {

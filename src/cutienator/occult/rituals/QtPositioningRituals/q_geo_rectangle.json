@@ -18,6 +18,7 @@
     "ritual_ZN13QGeoRectangleC1ERKS_": ["address", "address"],
     "ritual_ZN13QGeoRectangleC1ERK9QGeoShape": ["address", "address"],
     "ritual_ZN13QGeoRectangleD1Ev": ["nothing", "address"],
+    "ritual_ZN13QGeoRectangleaSERKS_": ["address", "address", "address"],
     "ritual_ZN13QGeoRectangle10setTopLeftERK14QGeoCoordinate": [
       "nothing", "address", "address"
     ],
@@ -65,6 +66,12 @@
     "ritual_ZNK13QGeoRectangle8toStringEv": ["text", "address"],
     "ritual_ZN13QGeoRectangle6d_funcEv": ["address", "address"],
     "ritual_ZNK13QGeoRectangle6d_funcEv": ["address", "address"],
+    "ritual_ZlsR11QDataStreamRK13QGeoRectangle": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR13QGeoRectangle": [
+      "address", "address", "address"
+    ],
     "ritual_list_make_QGeoRectangle": ["address"],
     "ritual_list_add_QGeoRectangle": ["nothing", "address", "address"],
     "ritual_list_size_QGeoRectangle": ["long long", "address"],

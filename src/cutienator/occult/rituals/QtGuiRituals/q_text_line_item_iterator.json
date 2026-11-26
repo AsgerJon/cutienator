@@ -10,6 +10,7 @@
     ],
     "ritual_ZNK21QTextLineItemIterator5atEndEv": ["bool", "address"],
     "ritual_ZNK21QTextLineItemIterator11atBeginningEv": ["bool", "address"],
+    "ritual_ZN21QTextLineItemIterator4nextEv": ["address", "address"],
     "ritual_ZNK21QTextLineItemIterator18getSelectionBoundsEP6QFixedS1_": [
       "bool", "address", "address", "address"
     ],

@@ -27,9 +27,38 @@ void ritual_ZN16QEventLoopLockerD1Ev(QEventLoopLocker *self) {
   delete self;
 }
 
+//  QEventLoopLocker::QEventLoopLocker(QEventLoopLocker &&other)
+extern "C" Q_DECL_EXPORT
+QEventLoopLocker *ritual_ZN16QEventLoopLockerC1EOS_(
+    QEventLoopLocker *other) {
+  return new QEventLoopLocker(std::move(*other));
+}
+
+//  QEventLoopLocker &QEventLoopLocker::operator=(QEventLoopLocker &&other)
+extern "C" Q_DECL_EXPORT
+QEventLoopLocker *ritual_ZN16QEventLoopLockeraSEOS_(
+    QEventLoopLocker *self,
+    QEventLoopLocker *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QEventLoopLocker::swap(QEventLoopLocker &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QEventLoopLocker4swapERS_(
+    QEventLoopLocker *self,
+    QEventLoopLocker *other) {
+  self->swap(*other);
+}
+
 //  Type QEventLoopLocker::type() const
 extern "C" Q_DECL_EXPORT
 QEventLoopLocker::Type ritual_ZNK16QEventLoopLocker4typeEv(
     const QEventLoopLocker *self) {
   return self->type();
+}
+
+//  void *QEventLoopLocker::pointer() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK16QEventLoopLocker7pointerEv(const QEventLoopLocker *self) {
+  return self->pointer();
 }

@@ -13,6 +13,14 @@ QSSGDepthStencilAttachment *ritual_ZN26QSSGDepthStencilAttachmentC1Ev() {
   return new QSSGDepthStencilAttachment();
 }
 
+//  void QSSGDepthStencilAttachment::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK26QSSGDepthStencilAttachment8addDebugER6QDebug(
+    const QSSGDepthStencilAttachment *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGDepthStencilAttachment::~QSSGDepthStencilAttachment()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QSSGDepthStencilAttachmentD1Ev(

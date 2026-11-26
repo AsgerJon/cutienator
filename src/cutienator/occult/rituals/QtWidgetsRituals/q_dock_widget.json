@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QDockWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QDockWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QDockWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QDockWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QDockWidgetC1ERK7QStringP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "text", "address", "int"
@@ -40,6 +46,21 @@
     ],
     "ritual_Zls6QDebugPK11QDockWidget": ["address", "address", "address"],
     "ritual_ZNK11QDockWidget16toggleViewActionEv": ["address", "address"],
+    "ritual_ZN11QDockWidget15featuresChangedE6QFlagsINS_17DockWidgetFeatureEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QDockWidget15topLevelChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QDockWidget19allowedAreasChangedE6QFlagsIN2Qt14DockWidgetAreaEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QDockWidget17visibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QDockWidget19dockLocationChangedEN2Qt14DockWidgetAreaE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN11QDockWidget11changeEventEP6QEvent": [
       "nothing", "address", "address"
     ],

@@ -150,7 +150,7 @@ typedef void (*CuteQQuickPathAnimationUpdaterCall1)(const void *, const QDebug *
 class CuteQQuickPathAnimationUpdater : public QQuickPathAnimationUpdater {
 public:
   using QQuickPathAnimationUpdater::QQuickPathAnimationUpdater;
-  CuteQQuickPathAnimationUpdater(const QQuickPathAnimationUpdater &other) : QQuickPathAnimationUpdater(other) {}
+  CuteQQuickPathAnimationUpdater(const QQuickPathAnimationUpdater & other) : QQuickPathAnimationUpdater(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

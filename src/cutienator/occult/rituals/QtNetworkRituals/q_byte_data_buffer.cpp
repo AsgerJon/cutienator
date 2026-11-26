@@ -9,6 +9,14 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qbytearrayview.h>
 
+//  void QByteDataBuffer::popFront(QByteArray &ba, qint64 n)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QByteDataBuffer8popFrontER10QByteArrayx(
+    QByteArray *ba,
+    qint64 n) {
+  QByteDataBuffer::popFront(*ba, n);
+}
+
 //  void QByteDataBuffer::squeezeFirst()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QByteDataBuffer12squeezeFirstEv(QByteDataBuffer *self) {
@@ -23,6 +31,14 @@ void ritual_ZN15QByteDataBuffer6appendERKS_(
   self->append(*other);
 }
 
+//  void QByteDataBuffer::append(QByteDataBuffer &&other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QByteDataBuffer6appendEOS_(
+    QByteDataBuffer *self,
+    QByteDataBuffer *other) {
+  self->append(std::move(*other));
+}
+
 //  void QByteDataBuffer::append(const QByteArray &bd)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QByteDataBuffer6appendERK10QByteArray(
@@ -31,12 +47,28 @@ void ritual_ZN15QByteDataBuffer6appendERK10QByteArray(
   self->append(*bd);
 }
 
+//  void QByteDataBuffer::append(QByteArray &&bd)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QByteDataBuffer6appendEO10QByteArray(
+    QByteDataBuffer *self,
+    QByteArray *bd) {
+  self->append(std::move(*bd));
+}
+
 //  void QByteDataBuffer::prepend(const QByteArray &bd)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QByteDataBuffer7prependERK10QByteArray(
     QByteDataBuffer *self,
     const QByteArray *bd) {
   self->prepend(*bd);
+}
+
+//  void QByteDataBuffer::prepend(QByteArray &&bd)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QByteDataBuffer7prependEO10QByteArray(
+    QByteDataBuffer *self,
+    QByteArray *bd) {
+  self->prepend(std::move(*bd));
 }
 
 //  QByteArray QByteDataBuffer::read()
@@ -57,6 +89,15 @@ QByteArray *ritual_ZN15QByteDataBuffer4readEx(
     QByteDataBuffer *self,
     qint64 amount) {
   return new QByteArray(self->read(amount));
+}
+
+//  qint64 QByteDataBuffer::read(char *dst, qint64 amount)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN15QByteDataBuffer4readEPcx(
+    QByteDataBuffer *self,
+    char *dst,
+    qint64 amount) {
+  return self->read(dst, amount);
 }
 
 //  QByteArrayView QByteDataBuffer::readPointer() const
@@ -111,6 +152,14 @@ extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK15QByteDataBuffer13sizeNextBlockEv(
     const QByteDataBuffer *self) {
   return self->sizeNextBlock();
+}
+
+//  QByteArray &QByteDataBuffer::operator[](qsizetype i)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN15QByteDataBufferixEx(
+    QByteDataBuffer *self,
+    qsizetype i) {
+  return &(self->operator[](i));
 }
 
 //  bool QByteDataBuffer::canReadLine() const

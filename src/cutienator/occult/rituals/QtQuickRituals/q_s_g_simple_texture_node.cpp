@@ -178,6 +178,20 @@ bool ritual_ZNK20QSGSimpleTextureNode11ownsTextureEv(
   return self->ownsTexture();
 }
 
+//  QSGSimpleTextureNodePrivate *QSGSimpleTextureNode::d_func()
+extern "C" Q_DECL_EXPORT
+QSGSimpleTextureNodePrivate *ritual_ZN20QSGSimpleTextureNode6d_funcEv(
+    QSGSimpleTextureNode *self) {
+  return self->d_func();
+}
+
+//  const QSGSimpleTextureNodePrivate *QSGSimpleTextureNode::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSGSimpleTextureNodePrivate *ritual_ZNK20QSGSimpleTextureNode6d_funcEv(
+    const QSGSimpleTextureNode *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQSGSimpleTextureNode, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

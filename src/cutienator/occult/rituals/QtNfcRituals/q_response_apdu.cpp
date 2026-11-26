@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNfc/6.12.0/QtNfc/private/qapduutils_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtNfc/6.12.0/QtNfc/private/qapduutils_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: completed by hand: status(). Kept as it is when the generator
+//  runs again.
 #include <QtNfc/6.12.0/QtNfc/private/qtnfcglobal_p.h>
 #include <QtNfc/QtNfc>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -57,4 +58,10 @@ bool ritual_ZNK13QResponseApdu4isOkEv(const QResponseApdu *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QResponseApduD1Ev(QResponseApdu *self) {
   delete self;
+}
+
+//  uint16_t QResponseApdu::status() const
+extern "C" Q_DECL_EXPORT
+unsigned short ritual_ZNK13QResponseApdu6statusEv(const QResponseApdu *self) {
+  return self->status();
 }

@@ -3,6 +3,7 @@
 //  here are lost.
 #include <QtWaylandCompositor/qwaylandsurfacegrabber.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -180,6 +181,25 @@ const QMetaObject *ritual_ZNK22QWaylandSurfaceGrabber10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandSurfaceGrabber::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QWaylandSurfaceGrabber11qt_metacastEPKc(
+    QWaylandSurfaceGrabber *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandSurfaceGrabber::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QWaylandSurfaceGrabber11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandSurfaceGrabber *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandSurfaceGrabber::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QWaylandSurfaceGrabber2trEPKcS1_i(
@@ -187,6 +207,21 @@ QString *ritual_ZN22QWaylandSurfaceGrabber2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandSurfaceGrabber::tr(s, c, n));
+}
+
+//  QWaylandSurfaceGrabberPrivate *QWaylandSurfaceGrabber::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandSurfaceGrabberPrivate *ritual_ZN22QWaylandSurfaceGrabber6d_funcEv(
+    QWaylandSurfaceGrabber *self) {
+  return self->d_func();
+}
+
+//  const QWaylandSurfaceGrabberPrivate *QWaylandSurfaceGrabber::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QWaylandSurfaceGrabberPrivate *ritual_ZNK22QWaylandSurfaceGrabber6d_funcEv(
+    const QWaylandSurfaceGrabber *self) {
+  return self->d_func();
 }
 
 //  QWaylandSurfaceGrabber::QWaylandSurfaceGrabber(QWaylandSurface *surface,
@@ -209,6 +244,22 @@ QWaylandSurface *ritual_ZNK22QWaylandSurfaceGrabber7surfaceEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QWaylandSurfaceGrabber4grabEv(QWaylandSurfaceGrabber *self) {
   self->grab();
+}
+
+//  void QWaylandSurfaceGrabber::success(const QImage &image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QWaylandSurfaceGrabber7successERK6QImage(
+    QWaylandSurfaceGrabber *self,
+    const QImage *image) {
+  self->success(*image);
+}
+
+//  void QWaylandSurfaceGrabber::failed(Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QWaylandSurfaceGrabber6failedENS_5ErrorE(
+    QWaylandSurfaceGrabber *self,
+    QWaylandSurfaceGrabber::Error error) {
+  self->failed(error);
 }
 
 //  a Python function taken by a CuteQWaylandSurfaceGrabber, for the function

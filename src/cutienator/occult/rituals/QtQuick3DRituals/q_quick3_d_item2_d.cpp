@@ -33,29 +33,17 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtquick3d/src/quick3d/qquick3ditem2d.cpp, line 37, as _ZN14QQuick3DItem2DD1Ev
-inline QQuick3DItem2D::~QQuick3DItem2D()
+//  from ../qtquick3d/src/quick3d/qquick3ditem2d.cpp, line 73, as _ZN14QQuick3DItem2D13updatePickingEv
+inline void QQuick3DItem2D::updatePicking()
 {
-    delete m_contentItem;
-}
-
-//  from ../qtquick3d/src/quick3d/qquick3ditem2d.cpp, line 63, as _ZNK14QQuick3DItem2D11contentItemEv
-inline QQuickItem *QQuick3DItem2D::contentItem() const
-{
-    return m_contentItem;
+    m_pickingDirty = true;
+    update();
 }
 
 //  from ../qtquick3d/src/quick3d/qquick3ditem2d.cpp, line 68, as _ZN14QQuick3DItem2D13itemDestroyedEP10QQuickItem
 inline void QQuick3DItem2D::itemDestroyed(QQuickItem *item)
 {
     removeChildItem(item);
-}
-
-//  from ../qtquick3d/src/quick3d/qquick3ditem2d.cpp, line 73, as _ZN14QQuick3DItem2D13updatePickingEv
-inline void QQuick3DItem2D::updatePicking()
-{
-    m_pickingDirty = true;
-    update();
 }
 
 //  from ../qtquick3d/src/quick3d/qquick3ditem2d.cpp, line 133, as _ZN14QQuick3DItem2D7preSyncEv
@@ -131,6 +119,24 @@ inline void QQuick3DItem2D::markAllDirty()
     m_pickingDirty = true;
 
     QQuick3DNode::markAllDirty();
+}
+
+//  from ../qtquick3d/src/quick3d/qquick3ditem2d.cpp, line 52, as _ZN14QQuick3DItem2D15removeChildItemEP10QQuickItem
+inline void QQuick3DItem2D::removeChildItem(QQuickItem *item)
+{
+    m_sourceItems.removeOne(item);
+    if (item)
+        QQuickItemPrivate::get(item)->removeItemChangeListener(this, QQuickItemPrivate::ChangeType::Destroyed);
+    if (m_sourceItems.isEmpty())
+        emit allChildrenRemoved();
+    else
+        update();
+}
+
+//  from ../qtquick3d/src/quick3d/qquick3ditem2d.cpp, line 63, as _ZNK14QQuick3DItem2D11contentItemEv
+inline QQuickItem *QQuick3DItem2D::contentItem() const
+{
+    return m_contentItem;
 }
 //  -----------------------------------------------------------------------
 
@@ -752,6 +758,24 @@ const QMetaObject *ritual_ZNK14QQuick3DItem2D10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DItem2D::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuick3DItem2D11qt_metacastEPKc(
+    QQuick3DItem2D *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DItem2D::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuick3DItem2D11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DItem2D *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuick3DItem2D::~QQuick3DItem2D()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuick3DItem2DD1Ev(QQuick3DItem2D *self) {
@@ -776,7 +800,76 @@ void ritual_ZN14QQuick3DItem2D13itemDestroyedEP10QQuickItem(
 //  void QQuick3DItem2D::updatePicking()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuick3DItem2D13updatePickingEv(QQuick3DItem2D *self) {
-  self->updatePicking();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DItem2D")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updatePicking()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updatePicking()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DItem2D::derefWindow(QObject *win)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DItem2D11derefWindowEP7QObject(
+    QQuick3DItem2D *self,
+    QObject *win) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DItem2D")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "derefWindow(QObject *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "derefWindow(QObject *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&win)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DItem2D::allChildrenRemoved()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DItem2D18allChildrenRemovedEv(QQuick3DItem2D *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DItem2D")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "allChildrenRemoved()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "allChildrenRemoved()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DItem2D::preSync()

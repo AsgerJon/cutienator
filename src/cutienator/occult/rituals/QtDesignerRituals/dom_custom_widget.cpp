@@ -21,6 +21,24 @@ void ritual_ZN15DomCustomWidgetD1Ev(DomCustomWidget *self) {
   delete self;
 }
 
+//  void DomCustomWidget::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15DomCustomWidget4readER16QXmlStreamReader(
+    DomCustomWidget *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomCustomWidget::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15DomCustomWidget5writeER16QXmlStreamWriterRK7QString(
+    const DomCustomWidget *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  QString DomCustomWidget::elementClass() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15DomCustomWidget12elementClassEv(

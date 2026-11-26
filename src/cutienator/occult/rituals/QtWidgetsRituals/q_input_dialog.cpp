@@ -1028,6 +1028,24 @@ const QMetaObject *ritual_ZNK12QInputDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QInputDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QInputDialog11qt_metacastEPKc(
+    QInputDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QInputDialog::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QInputDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QInputDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QInputDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QInputDialog2trEPKcS1_i(
@@ -1035,6 +1053,19 @@ QString *ritual_ZN12QInputDialog2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QInputDialog::tr(s, c, n));
+}
+
+//  QInputDialogPrivate *QInputDialog::d_func()
+extern "C" Q_DECL_EXPORT
+QInputDialogPrivate *ritual_ZN12QInputDialog6d_funcEv(QInputDialog *self) {
+  return self->d_func();
+}
+
+//  const QInputDialogPrivate *QInputDialog::d_func() const
+extern "C" Q_DECL_EXPORT
+const QInputDialogPrivate *ritual_ZNK12QInputDialog6d_funcEv(
+    const QInputDialog *self) {
+  return self->d_func();
 }
 
 //  QInputDialog::QInputDialog(QWidget *parent, Qt::WindowFlags flags)
@@ -1497,6 +1528,54 @@ void ritual_ZN12QInputDialog13setDoubleStepEd(
 extern "C" Q_DECL_EXPORT
 double ritual_ZNK12QInputDialog10doubleStepEv(const QInputDialog *self) {
   return self->doubleStep();
+}
+
+//  void QInputDialog::textValueChanged(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputDialog16textValueChangedERK7QString(
+    QInputDialog *self,
+    const QString *text) {
+  self->textValueChanged(*text);
+}
+
+//  void QInputDialog::textValueSelected(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputDialog17textValueSelectedERK7QString(
+    QInputDialog *self,
+    const QString *text) {
+  self->textValueSelected(*text);
+}
+
+//  void QInputDialog::intValueChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputDialog15intValueChangedEi(
+    QInputDialog *self,
+    int value) {
+  self->intValueChanged(value);
+}
+
+//  void QInputDialog::intValueSelected(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputDialog16intValueSelectedEi(
+    QInputDialog *self,
+    int value) {
+  self->intValueSelected(value);
+}
+
+//  void QInputDialog::doubleValueChanged(double value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputDialog18doubleValueChangedEd(
+    QInputDialog *self,
+    double value) {
+  self->doubleValueChanged(value);
+}
+
+//  void QInputDialog::doubleValueSelected(double value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputDialog19doubleValueSelectedEd(
+    QInputDialog *self,
+    double value) {
+  self->doubleValueSelected(value);
 }
 
 //  void QInputDialog::done(int result)

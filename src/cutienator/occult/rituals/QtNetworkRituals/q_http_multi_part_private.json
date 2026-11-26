@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QHttpMultiPartPrivateC1Ev": ["address"],
     "ritual_ZN21QHttpMultiPartPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN21QHttpMultiPartPrivate3getEP14QHttpMultiPart": [
       "address", "address"

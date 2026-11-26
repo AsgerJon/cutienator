@@ -20,6 +20,53 @@ void ritual_ZN17QSGMaterialShaderD1Ev(QSGMaterialShader *self) {
   delete self;
 }
 
+//  bool QSGMaterialShader::updateUniformData(RenderState &state, QSGMaterial
+//      *newMaterial, QSGMaterial *oldMaterial)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QSGMaterialShader17updateUniformDataERNS_11RenderStateEP11QSGMaterialS3_(
+    QSGMaterialShader *self,
+    QSGMaterialShader::RenderState *state,
+    QSGMaterial *newMaterial,
+    QSGMaterial *oldMaterial) {
+  return self->updateUniformData(*state, newMaterial, oldMaterial);
+}
+
+//  void QSGMaterialShader::updateSampledImage(RenderState &state, int
+//      binding, QSGTexture **texture, QSGMaterial *newMaterial, QSGMaterial
+//      *oldMaterial)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSGMaterialShader18updateSampledImageERNS_11RenderStateEiPP10QSGTextureP11QSGMaterialS6_(
+    QSGMaterialShader *self,
+    QSGMaterialShader::RenderState *state,
+    int binding,
+    QSGTexture **texture,
+    QSGMaterial *newMaterial,
+    QSGMaterial *oldMaterial) {
+  self->updateSampledImage(
+      *state,
+      binding,
+      texture,
+      newMaterial,
+      oldMaterial);
+}
+
+//  bool QSGMaterialShader::updateGraphicsPipelineState(RenderState &state,
+//      GraphicsPipelineState *ps, QSGMaterial *newMaterial, QSGMaterial
+//      *oldMaterial)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QSGMaterialShader27updateGraphicsPipelineStateERNS_11RenderStateEPNS_21GraphicsPipelineStateEP11QSGMaterialS5_(
+    QSGMaterialShader *self,
+    QSGMaterialShader::RenderState *state,
+    QSGMaterialShader::GraphicsPipelineState *ps,
+    QSGMaterial *newMaterial,
+    QSGMaterial *oldMaterial) {
+  return self->updateGraphicsPipelineState(
+      *state,
+      ps,
+      newMaterial,
+      oldMaterial);
+}
+
 //  Flags QSGMaterialShader::flags() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK17QSGMaterialShader5flagsEv(const QSGMaterialShader *self) {
@@ -63,6 +110,13 @@ extern "C" Q_DECL_EXPORT
 const QSGMaterialShaderPrivate *ritual_ZNK17QSGMaterialShader6d_funcEv(
     const QSGMaterialShader *self) {
   return self->d_func();
+}
+
+//  QSGMaterialShader::QSGMaterialShader(QSGMaterialShaderPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QSGMaterialShader *ritual_ZN17QSGMaterialShaderC1ER24QSGMaterialShaderPrivate(
+    QSGMaterialShaderPrivate *dd) {
+  return new QSGMaterialShader(*dd);
 }
 
 //  void QSGMaterialShader::setShaderFileName(Stage stage, const QString

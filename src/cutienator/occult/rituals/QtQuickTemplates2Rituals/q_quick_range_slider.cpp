@@ -1040,6 +1040,25 @@ const QMetaObject *ritual_ZNK17QQuickRangeSlider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRangeSlider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickRangeSlider11qt_metacastEPKc(
+    QQuickRangeSlider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRangeSlider::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickRangeSlider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRangeSlider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRangeSlider::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickRangeSlider2trEPKcS1_i(
@@ -1252,6 +1271,80 @@ qreal ritual_ZNK17QQuickRangeSlider20effectiveSecondValueEv(
   return self->effectiveSecondValue();
 }
 
+//  void QQuickRangeSlider::fromChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider11fromChangedEv(QQuickRangeSlider *self) {
+  self->fromChanged();
+}
+
+//  void QQuickRangeSlider::toChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider9toChangedEv(QQuickRangeSlider *self) {
+  self->toChanged();
+}
+
+//  void QQuickRangeSlider::stepSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider15stepSizeChangedEv(
+    QQuickRangeSlider *self) {
+  self->stepSizeChanged();
+}
+
+//  void QQuickRangeSlider::snapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider15snapModeChangedEv(
+    QQuickRangeSlider *self) {
+  self->snapModeChanged();
+}
+
+//  void QQuickRangeSlider::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider18orientationChangedEv(
+    QQuickRangeSlider *self) {
+  self->orientationChanged();
+}
+
+//  void QQuickRangeSlider::liveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider11liveChangedEv(QQuickRangeSlider *self) {
+  self->liveChanged();
+}
+
+//  void QQuickRangeSlider::touchDragThresholdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider25touchDragThresholdChangedEv(
+    QQuickRangeSlider *self) {
+  self->touchDragThresholdChanged();
+}
+
+//  void QQuickRangeSlider::crossingEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider22crossingEnabledChangedEv(
+    QQuickRangeSlider *self) {
+  self->crossingEnabledChanged();
+}
+
+//  void QQuickRangeSlider::handlesCrossedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider21handlesCrossedChangedEv(
+    QQuickRangeSlider *self) {
+  self->handlesCrossedChanged();
+}
+
+//  void QQuickRangeSlider::effectiveFirstValueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider26effectiveFirstValueChangedEv(
+    QQuickRangeSlider *self) {
+  self->effectiveFirstValueChanged();
+}
+
+//  void QQuickRangeSlider::effectiveSecondValueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickRangeSlider27effectiveSecondValueChangedEv(
+    QQuickRangeSlider *self) {
+  self->effectiveSecondValueChanged();
+}
+
 //  void QQuickRangeSlider::focusInEvent(QFocusEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickRangeSlider12focusInEventEP11QFocusEvent(
@@ -1366,6 +1459,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickRangeSlider16updateFocusOrderEv(
     QQuickRangeSlider *self) {
   self->updateFocusOrder();
+}
+
+//  QQuickRangeSliderPrivate *QQuickRangeSlider::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickRangeSliderPrivate *ritual_ZN17QQuickRangeSlider6d_funcEv(
+    QQuickRangeSlider *self) {
+  return self->d_func();
+}
+
+//  const QQuickRangeSliderPrivate *QQuickRangeSlider::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickRangeSliderPrivate *ritual_ZNK17QQuickRangeSlider6d_funcEv(
+    const QQuickRangeSlider *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQuickRangeSlider, for the function

@@ -5,7 +5,16 @@
   ],
   "rows": {
     "ritual_ZNK11QColumnView10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QColumnView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QColumnView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QColumnView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QColumnView19updatePreviewWidgetERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QColumnViewC1EP7QWidget": ["address", "address"],
     "ritual_ZN11QColumnViewD1Ev": ["nothing", "address"],
     "ritual_ZNK11QColumnView7indexAtERK6QPoint": [
@@ -39,6 +48,13 @@
     "ritual_ZNK11QColumnView13previewWidgetEv": ["address", "address"],
     "ritual_ZN11QColumnView16setPreviewWidgetEP7QWidget": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN11QColumnView15setColumnWidthsERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QColumnView12columnWidthsEv": ["address", "address"],
+    "ritual_ZN11QColumnViewC1ER18QColumnViewPrivateP7QWidget": [
+      "address", "address", "address"
     ],
     "ritual_ZNK11QColumnView13isIndexHiddenERK11QModelIndex": [
       "bool", "address", "address"
@@ -120,6 +136,7 @@
     ],
     "ritual_own_ZN11QColumnView12createColumnERK11QModelIndex": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_drop_QColumnView__QList_int": ["nothing", "address"]
   }
 }

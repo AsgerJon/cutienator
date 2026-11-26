@@ -13,6 +13,9 @@
     "ritual_ZN22QWindowsPrinterSupport17createPaintEngineEP12QPrintEngineN8QPrinter11PrinterModeE": [
       "address", "address", "address", "int"
     ],
+    "ritual_ZN22QWindowsPrinterSupport17createPrintDeviceERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK22QWindowsPrinterSupport23availablePrintDeviceIdsEv": [
       "address", "address"
     ],
@@ -30,6 +33,9 @@
     ],
     "ritual_own_ZNK22QWindowsPrinterSupport20defaultPrintDeviceIdEv": [
       "text", "address"
+    ],
+    "ritual_drop_QWindowsPrinterSupport__QPrintDevice": [
+      "nothing", "address"
     ]
   }
 }

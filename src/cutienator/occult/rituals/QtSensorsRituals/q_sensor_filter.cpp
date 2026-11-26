@@ -63,6 +63,12 @@ bool ritual_ZN13QSensorFilter6filterEP14QSensorReading(
   return self->filter(reading);
 }
 
+//  QSensorFilter::QSensorFilter()
+extern "C" Q_DECL_EXPORT
+QSensorFilter *ritual_ZN13QSensorFilterC1Ev() {
+  return new CuteQSensorFilter();
+}
+
 //  QSensorFilter::~QSensorFilter()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSensorFilterD1Ev(QSensorFilter *self) {

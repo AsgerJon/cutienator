@@ -5,7 +5,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qdebug.h>
 #include <cstring>
+#include <QtCore/QVector>
 
 //  A QRhiShaderResourceBindings that Python can take functions over in. Every QRhiShaderResourceBindings
 //  Python makes is one. Each function below asks the Python
@@ -90,6 +92,15 @@ QRhiResource::Type ritual_ZNK26QRhiShaderResourceBindings12resourceTypeEv(
   return self->resourceType();
 }
 
+//  void QRhiShaderResourceBindings::setBindings(std::initializer_list<QRhiSh
+//      aderResourceBinding> list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QRhiShaderResourceBindings11setBindingsESt16initializer_listI25QRhiShaderResourceBindingE(
+    QRhiShaderResourceBindings *self,
+    const std::initializer_list<QRhiShaderResourceBinding> *list) {
+  self->setBindings(*list);
+}
+
 //  const QRhiShaderResourceBinding
 //      *QRhiShaderResourceBindings::cbeginBindings() const
 extern "C" Q_DECL_EXPORT
@@ -131,6 +142,14 @@ bool ritual_ZNK26QRhiShaderResourceBindings18isLayoutCompatibleEPKS_(
   return self->isLayoutCompatible(other);
 }
 
+//  QVector<quint32>
+//      QRhiShaderResourceBindings::serializedLayoutDescription() const
+extern "C" Q_DECL_EXPORT
+QVector<quint32> *ritual_ZNK26QRhiShaderResourceBindings27serializedLayoutDescriptionEv(
+    const QRhiShaderResourceBindings *self) {
+  return new QVector<quint32>(self->serializedLayoutDescription());
+}
+
 //  bool QRhiShaderResourceBindings::create()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN26QRhiShaderResourceBindings6createEv(
@@ -147,6 +166,24 @@ void ritual_ZN26QRhiShaderResourceBindings15updateResourcesE6QFlagsINS_10UpdateF
       QFlags<QRhiShaderResourceBindings::UpdateFlag>::fromInt(flags));
 }
 
+//  QRhiShaderResourceBindings::QRhiShaderResourceBindings(QRhiImplementation
+//      *rhi)
+extern "C" Q_DECL_EXPORT
+QRhiShaderResourceBindings *ritual_ZN26QRhiShaderResourceBindingsC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQRhiShaderResourceBindings(rhi);
+}
+
+#if !defined(QT_NO_DEBUG_STREAM)
+//  QDebug operator<<(QDebug a0, const QRhiShaderResourceBindings &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK26QRhiShaderResourceBindings(
+    const QDebug *a0,
+    const QRhiShaderResourceBindings *a1) {
+  return new QDebug(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DEBUG_STREAM)
+
 //  a Python function taken by a CuteQRhiShaderResourceBindings, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -162,4 +199,11 @@ extern "C" Q_DECL_EXPORT
 QRhiResource::Type ritual_own_ZNK26QRhiShaderResourceBindings12resourceTypeEv(
     const QRhiShaderResourceBindings *self) {
   return self->QRhiShaderResourceBindings::resourceType();
+}
+
+//  a QVector<quint32> a ritual of QRhiShaderResourceBindings gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QRhiShaderResourceBindings__QVector_quint32(
+    QVector<quint32> *self) {
+  delete self;
 }

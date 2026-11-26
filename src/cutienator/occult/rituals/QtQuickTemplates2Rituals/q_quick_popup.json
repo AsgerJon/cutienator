@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QQuickPopup10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickPopup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QQuickPopup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QQuickPopup2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QQuickPopupC1EP7QObject": ["address", "address"],
     "ritual_ZN11QQuickPopupD1Ev": ["nothing", "address"],
@@ -206,12 +212,100 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN11QQuickPopup16resetBottomInsetEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup17setWindowModalityEN2Qt14WindowModalityE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK11QQuickPopup9popupTypeEv": ["int", "address"],
     "ritual_ZN11QQuickPopup12setPopupTypeENS_9PopupTypeE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN11QQuickPopup4openEv": ["nothing", "address"],
     "ritual_ZN11QQuickPopup5closeEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup6openedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup6closedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup11aboutToShowEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup11aboutToHideEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup8xChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup8yChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup8zChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup13heightChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup20implicitWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup21implicitHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup19contentWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup20contentHeightChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup21availableWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup22availableHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup14marginsChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup16topMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup17leftMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup18rightMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup19bottomMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup14paddingChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup17topPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup18leftPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup19rightPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup20bottomPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup11fontChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup13localeChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup13parentChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup17backgroundChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup18contentItemChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup22contentChildrenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup11clipChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup12focusChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup18activeFocusChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup12modalChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup10dimChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup14visibleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup14opacityChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup12scaleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup18closePolicyChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup12enterChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup11exitChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup13windowChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQuickPopup14spacingChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup13openedChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup15mirroredChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup14paletteChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup14paletteCreatedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup24horizontalPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup22verticalPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup27implicitContentWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup28implicitContentHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup30implicitBackgroundWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup31implicitBackgroundHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPopup15topInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup16leftInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup17rightInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup18bottomInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopup16popupTypeChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPopupC1ER18QQuickPopupPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN11QQuickPopup10classBeginEv": ["nothing", "address"],
     "ritual_ZN11QQuickPopup17componentCompleteEv": ["nothing", "address"],
     "ritual_ZNK11QQuickPopup19isComponentCompleteEv": ["bool", "address"],

@@ -5,10 +5,31 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render6BufferC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render6BufferD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render6Buffer7cleanupEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render6Buffer16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Buffer10setManagerEPNS0_13BufferManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Buffer22updateDataFromGPUToCPUE10QByteArray": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render6Buffer5usageEv": ["int", "address"],
     "ritual_ZNK10Qt3DRender6Render6Buffer4dataEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender6Render6Buffer20pendingBufferUpdatesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render6Buffer7isDirtyEv": ["bool", "address"],
     "ritual_ZNK10Qt3DRender6Render6Buffer6accessEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender6Render6Buffer10unsetDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Buffer15forceDataUploadEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DRender_Render_Buffer": [
       "bool", "address", "chars", "address"
     ],

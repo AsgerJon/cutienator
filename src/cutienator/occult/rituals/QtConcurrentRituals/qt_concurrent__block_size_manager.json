@@ -5,6 +5,18 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN12QtConcurrent16BlockSizeManagerC1EP11QThreadPooli": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QtConcurrent16BlockSizeManager14timeBeforeUserEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16BlockSizeManager13timeAfterUserEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16BlockSizeManager9blockSizeEv": [
+      "int", "address"
+    ],
     "ritual_ZN12QtConcurrent16BlockSizeManager14blockSizeMaxedEv": [
       "bool", "address"
     ]

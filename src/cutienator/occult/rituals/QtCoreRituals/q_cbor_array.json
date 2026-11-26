@@ -6,7 +6,14 @@
   "rows": {
     "ritual_ZN10QCborArrayC1Ev": ["address"],
     "ritual_ZN10QCborArrayC1ERKS_": ["address", "address"],
+    "ritual_ZN10QCborArrayC1EOS_": ["address", "address"],
+    "ritual_ZN10QCborArrayaSERKS_": ["address", "address", "address"],
+    "ritual_ZN10QCborArrayaSEOS_": ["address", "address", "address"],
+    "ritual_ZN10QCborArrayC1ESt16initializer_listI10QCborValueE": [
+      "address", "address"
+    ],
     "ritual_ZN10QCborArrayD1Ev": ["nothing", "address"],
+    "ritual_ZN10QCborArray4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK10QCborArray11toCborValueEv": ["address", "address"],
     "ritual_ZNK10QCborArray4sizeEv": ["long long", "address"],
     "ritual_ZNK10QCborArray7isEmptyEv": ["bool", "address"],
@@ -21,10 +28,19 @@
     "ritual_ZN10QCborArray6insertExRK10QCborValue": [
       "nothing", "address", "long long", "address"
     ],
+    "ritual_ZN10QCborArray6insertExO10QCborValue": [
+      "nothing", "address", "long long", "address"
+    ],
     "ritual_ZN10QCborArray7prependERK10QCborValue": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QCborArray7prependEO10QCborValue": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QCborArray6appendERK10QCborValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QCborArray6appendEO10QCborValue": [
       "nothing", "address", "address"
     ],
     "ritual_ZN10QCborArray7extractENS_13ConstIteratorE": [
@@ -43,6 +59,26 @@
       "bool", "address", "address"
     ],
     "ritual_ZNK10QCborArray7compareERKS_": ["int", "address", "address"],
+    "ritual_ZN10QCborArray5beginEv": ["address", "address"],
+    "ritual_ZNK10QCborArray10constBeginEv": ["address", "address"],
+    "ritual_ZNK10QCborArray5beginEv": ["address", "address"],
+    "ritual_ZNK10QCborArray6cbeginEv": ["address", "address"],
+    "ritual_ZN10QCborArray3endEv": ["address", "address"],
+    "ritual_ZNK10QCborArray8constEndEv": ["address", "address"],
+    "ritual_ZNK10QCborArray3endEv": ["address", "address"],
+    "ritual_ZNK10QCborArray4cendEv": ["address", "address"],
+    "ritual_ZN10QCborArray6insertENS_8IteratorERK10QCborValue": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QCborArray6insertENS_13ConstIteratorERK10QCborValue": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QCborArray5eraseENS_8IteratorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QCborArray5eraseENS_13ConstIteratorE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10QCborArray9push_backERK10QCborValue": [
       "nothing", "address", "address"
     ],
@@ -58,6 +94,9 @@
     "ritual_ZN10QCborArraypLERK10QCborValue": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QCborArraylsERK10QCborValue": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10QCborArray14fromStringListERK5QListI7QStringE": [
       "address", "address"
     ],
@@ -65,6 +104,9 @@
       "address", "address"
     ],
     "ritual_ZN10QCborArray13fromJsonArrayERK10QJsonArray": [
+      "address", "address"
+    ],
+    "ritual_ZN10QCborArray13fromJsonArrayEO10QJsonArray": [
       "address", "address"
     ],
     "ritual_ZNK10QCborArray13toVariantListEv": ["address", "address"],
@@ -136,10 +178,17 @@
       "bool", "address", "address"
     ],
     "ritual_ZN10QCborArray6detachEx": ["nothing", "address", "long long"],
+    "ritual_ZN10QCborArrayC1ER21QCborContainerPrivate": [
+      "address", "address"
+    ],
     "ritual_list_make_QCborArray": ["address"],
     "ritual_list_add_QCborArray": ["nothing", "address", "address"],
     "ritual_list_size_QCborArray": ["long long", "address"],
     "ritual_list_at_QCborArray": ["address", "address", "long long"],
-    "ritual_list_drop_QCborArray": ["nothing", "address"]
+    "ritual_list_drop_QCborArray": ["nothing", "address"],
+    "ritual_drop_QCborArray__QCborArray_iterator": ["nothing", "address"],
+    "ritual_drop_QCborArray__QCborArray_const_iterator": [
+      "nothing", "address"
+    ]
   }
 }

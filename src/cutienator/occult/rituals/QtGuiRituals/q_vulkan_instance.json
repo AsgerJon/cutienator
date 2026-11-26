@@ -6,8 +6,19 @@
   "rows": {
     "ritual_ZN15QVulkanInstanceC1Ev": ["address"],
     "ritual_ZN15QVulkanInstanceD1Ev": ["nothing", "address"],
+    "ritual_ZN15QVulkanInstance15supportedLayersEv": ["address", "address"],
+    "ritual_ZNK15QVulkanInstance15supportedLayersEv": ["address", "address"],
+    "ritual_ZN15QVulkanInstance19supportedExtensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QVulkanInstance19supportedExtensionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK15QVulkanInstance19supportedApiVersionEv": [
       "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance13setVkInstanceEP12VkInstance_T": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN15QVulkanInstance8setFlagsE6QFlagsINS_4FlagEE": [
       "nothing", "address", "int"
@@ -24,19 +35,58 @@
     "ritual_ZN15QVulkanInstance6createEv": ["bool", "address"],
     "ritual_ZN15QVulkanInstance7destroyEv": ["nothing", "address"],
     "ritual_ZNK15QVulkanInstance7isValidEv": ["bool", "address"],
+    "ritual_ZNK15QVulkanInstance9errorCodeEv": ["address", "address"],
+    "ritual_ZNK15QVulkanInstance10vkInstanceEv": ["address", "address"],
     "ritual_ZNK15QVulkanInstance5flagsEv": ["int", "address"],
     "ritual_ZNK15QVulkanInstance6layersEv": ["address", "address"],
     "ritual_ZNK15QVulkanInstance10extensionsEv": ["address", "address"],
     "ritual_ZNK15QVulkanInstance10apiVersionEv": ["address", "address"],
+    "ritual_ZN15QVulkanInstance19getInstanceProcAddrEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_ZNK15QVulkanInstance6handleEv": ["address", "address"],
+    "ritual_ZNK15QVulkanInstance9functionsEv": ["address", "address"],
+    "ritual_ZN15QVulkanInstance15deviceFunctionsEP10VkDevice_T": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance20resetDeviceFunctionsEP10VkDevice_T": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance16surfaceForWindowEP7QWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance15supportsPresentEP18VkPhysicalDevice_TjP7QWindow": [
+      "bool", "address", "address", "unsigned int", "address"
+    ],
     "ritual_ZN15QVulkanInstance22presentAboutToBeQueuedEP7QWindow": [
       "nothing", "address", "address"
     ],
     "ritual_ZN15QVulkanInstance13presentQueuedEP7QWindow": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QVulkanInstance24installDebugOutputFilterEPFbj26VkDebugReportObjectTypeEXTmmiPKcS2_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance23removeDebugOutputFilterEPFbj26VkDebugReportObjectTypeEXTmmiPKcS2_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance24installDebugOutputFilterESt8functionIFb6QFlagsINS_24DebugMessageSeverityFlagEES1_INS_20DebugMessageTypeFlagEEPKvEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QVulkanInstance23clearDebugOutputFiltersEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_drop_QVulkanInstance__QVulkanInfoVector_QVulkanLayer": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QVulkanInstance__QVulkanInfoVector_QVulkanExtension": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QVulkanInstance__VkResult": ["nothing", "address"],
+    "ritual_drop_QVulkanInstance__VkInstance": ["nothing", "address"],
+    "ritual_drop_QVulkanInstance__PFN_vkVoidFunction": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QVulkanInstance__VkSurfaceKHR": ["nothing", "address"]
   }
 }

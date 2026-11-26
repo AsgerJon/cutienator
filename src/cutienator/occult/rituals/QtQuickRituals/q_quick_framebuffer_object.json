@@ -8,9 +8,17 @@
     "ritual_ZNK23QQuickFramebufferObject10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickFramebufferObject11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickFramebufferObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickFramebufferObject2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN23QQuickFramebufferObject6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickFramebufferObject6d_funcEv": ["address", "address"],
     "ritual_ZNK23QQuickFramebufferObject22textureFollowsItemSizeEv": [
       "bool", "address"
     ],
@@ -40,6 +48,12 @@
     ],
     "ritual_ZN23QQuickFramebufferObject15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
       "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject29textureFollowsItemSizeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickFramebufferObject23mirrorVerticallyChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN23QQuickFramebufferObject20invalidateSceneGraphEv": [
       "nothing", "address"

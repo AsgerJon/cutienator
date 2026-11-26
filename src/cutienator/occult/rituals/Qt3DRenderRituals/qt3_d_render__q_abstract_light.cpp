@@ -2,6 +2,7 @@
 //  Qt3DRender/qabstractlight.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qabstractlight.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QAbstractLight10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QAbstractLight::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QAbstractLight11qt_metacastEPKc(
+    Qt3DRender::QAbstractLight *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QAbstractLight::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QAbstractLight11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QAbstractLight *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QAbstractLight::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,75 @@ QString *ritual_ZN10Qt3DRender14QAbstractLight2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QAbstractLight::tr(s, c, n));
+}
+
+//  Qt3DRender::QAbstractLight::~QAbstractLight()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QAbstractLightD1Ev(
+    Qt3DRender::QAbstractLight *self) {
+  delete self;
+}
+
+//  Type Qt3DRender::QAbstractLight::type() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractLight::Type ritual_ZNK10Qt3DRender14QAbstractLight4typeEv(
+    const Qt3DRender::QAbstractLight *self) {
+  return self->type();
+}
+
+//  QColor Qt3DRender::QAbstractLight::color() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DRender14QAbstractLight5colorEv(
+    const Qt3DRender::QAbstractLight *self) {
+  return new QColor(self->color());
+}
+
+//  float Qt3DRender::QAbstractLight::intensity() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender14QAbstractLight9intensityEv(
+    const Qt3DRender::QAbstractLight *self) {
+  return self->intensity();
+}
+
+//  void Qt3DRender::QAbstractLight::setColor(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QAbstractLight8setColorERK6QColor(
+    Qt3DRender::QAbstractLight *self,
+    const QColor *color) {
+  self->setColor(*color);
+}
+
+//  void Qt3DRender::QAbstractLight::setIntensity(float intensity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QAbstractLight12setIntensityEf(
+    Qt3DRender::QAbstractLight *self,
+    float intensity) {
+  self->setIntensity(intensity);
+}
+
+//  Qt3DRender::QAbstractLight::QAbstractLight(QAbstractLightPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractLight *ritual_ZN10Qt3DRender14QAbstractLightC1ERNS_21QAbstractLightPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QAbstractLightPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QAbstractLight(*dd, parent);
+}
+
+//  void Qt3DRender::QAbstractLight::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QAbstractLight12colorChangedERK6QColor(
+    Qt3DRender::QAbstractLight *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void Qt3DRender::QAbstractLight::intensityChanged(float intensity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QAbstractLight16intensityChangedEf(
+    Qt3DRender::QAbstractLight *self,
+    float intensity) {
+  self->intensityChanged(intensity);
 }
 
 //  QAbstractLightPrivate *Qt3DRender::QAbstractLight::d_func()

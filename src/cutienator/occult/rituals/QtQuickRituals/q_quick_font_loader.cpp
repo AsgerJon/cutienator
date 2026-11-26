@@ -186,6 +186,25 @@ const QMetaObject *ritual_ZNK16QQuickFontLoader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFontLoader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickFontLoader11qt_metacastEPKc(
+    QQuickFontLoader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFontLoader::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickFontLoader11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFontLoader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFontLoader::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickFontLoader2trEPKcS1_i(
@@ -193,6 +212,20 @@ QString *ritual_ZN16QQuickFontLoader2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickFontLoader::tr(s, c, n));
+}
+
+//  QQuickFontLoaderPrivate *QQuickFontLoader::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickFontLoaderPrivate *ritual_ZN16QQuickFontLoader6d_funcEv(
+    QQuickFontLoader *self) {
+  return self->d_func();
+}
+
+//  const QQuickFontLoaderPrivate *QQuickFontLoader::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickFontLoaderPrivate *ritual_ZNK16QQuickFontLoader6d_funcEv(
+    const QQuickFontLoader *self) {
+  return self->d_func();
 }
 
 //  QQuickFontLoader::QQuickFontLoader(QObject *parent)
@@ -240,6 +273,30 @@ void ritual_ZN16QQuickFontLoader14updateFontInfoEi(
     QQuickFontLoader *self,
     int a0) {
   self->updateFontInfo(a0);
+}
+
+//  void QQuickFontLoader::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFontLoader13sourceChangedEv(QQuickFontLoader *self) {
+  self->sourceChanged();
+}
+
+//  void QQuickFontLoader::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFontLoader11nameChangedEv(QQuickFontLoader *self) {
+  self->nameChanged();
+}
+
+//  void QQuickFontLoader::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFontLoader11fontChangedEv(QQuickFontLoader *self) {
+  self->fontChanged();
+}
+
+//  void QQuickFontLoader::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFontLoader13statusChangedEv(QQuickFontLoader *self) {
+  self->statusChanged();
 }
 
 //  a Python function taken by a CuteQQuickFontLoader, for the function named

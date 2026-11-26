@@ -1,10 +1,41 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qmetasequence.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qmetasequence.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN22QtMetaContainerPrivate8SequenceC1Ev": ["address"],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC1ERK13QMetaSequence9QMetaTypePv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC1ERK13QMetaSequence9QMetaTypePKv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC1EO9QIterableI13QMetaSequenceE": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceaSEO9QIterableI13QMetaSequenceE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate8Sequence5beginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate8Sequence3endEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate8Sequence10constBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate8Sequence8constEndEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8Sequence12mutableBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8Sequence10mutableEndEv": [
+      "address", "address"
+    ],
     "ritual_ZNK22QtMetaContainerPrivate8Sequence2atEx": [
       "address", "address", "long long"
     ],
@@ -32,6 +63,36 @@
     "ritual_ZNK22QtMetaContainerPrivate8Sequence13valueMetaTypeEv": [
       "address", "address"
     ],
-    "ritual_ZN22QtMetaContainerPrivate8SequenceD1Ev": ["nothing", "address"]
+    "ritual_ZN22QtMetaContainerPrivate8SequenceD1Ev": ["nothing", "address"],
+    "ritual_drop_QtMetaContainerPrivate_Sequence__QtMetaContainerPrivate_Sequence_ConstIterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtMetaContainerPrivate_Sequence__QtMetaContainerPrivate_Sequence_Iterator": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC2I5QListIiEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC2I5QListIdEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC2I5QListI7QStringEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC2I5QListI8QVariantEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC2I5QListIiEEEPT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC2I5QListIdEEEPT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC2I5QListI7QStringEEEPT_": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate8SequenceC2I5QListI8QVariantEEEPT_": [
+      "address", "address"
+    ]
   }
 }

@@ -5,11 +5,17 @@
   ],
   "rows": {
     "ritual_ZN30QAccessibleAttributesInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QAccessibleAttributesInterface13attributeKeysEv": [
+      "address", "address"
+    ],
     "ritual_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
     ],
     "ritual_take_QAccessibleAttributesInterface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QAccessibleAttributesInterface__QList_QAccessible_Attribute": [
+      "nothing", "address"
     ]
   }
 }

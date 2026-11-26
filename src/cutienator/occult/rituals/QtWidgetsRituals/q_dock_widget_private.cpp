@@ -12,6 +12,51 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qdockwidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/private/qmainwindowlayout_p.h>
+#if QT_CONFIG(dockwidget)
+#include <QtWidgets/private/qdockarealayout_p.h>
+#include <QtWidgets/qdockwidget.h>
+#include <QtWidgets/private/qdockwidget_p.h>
+#endif
+#if QT_CONFIG(toolbar)
+#include <QtWidgets/private/qtoolbar_p.h>
+#include <QtWidgets/qtoolbar.h>
+#include <QtWidgets/private/qtoolbarlayout_p.h>
+#endif
+#include <QtWidgets/qmainwindow.h>
+#if QT_CONFIG(rubberband)
+#include <QtWidgets/qrubberband.h>
+#endif
+#if QT_CONFIG(tabbar)
+#include <QtWidgets/private/qtabbar_p.h>
+#endif
+#include <QtWidgets/qapplication.h>
+#if QT_CONFIG(draganddrop)
+#include <QtGui/qdrag.h>
+#endif
+#include <QtCore/qmimedata.h>
+#if QT_CONFIG(statusbar)
+#include <QtWidgets/qstatusbar.h>
+#endif
+#include <QtCore/qstring.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/qstack.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qpointer.h>
+#ifndef QT_NO_DEBUG_STREAM
+#  include <QtCore/qdebug.h>
+#  include <QtCore/qtextstream.h>
+#endif
+#include <QtWidgets/private/qmenu_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qlayoutengine_p.h>
+#include <QtWidgets/private/qwidgetresizehandler_p.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
+#include <QtCore/QScopedValueRollback>
+#include <QtCore/private/qoffsetstringarray_p.h>
+#include <optional>
 #include <QtWidgets/private/qwidgetresizehandler_p.h>
 #include <QtWidgets/qframe.h>
 #include <QtWidgets/qapplication.h>
@@ -52,6 +97,151 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 39, as local:qdockwidget.cpp:mainwindow_from_dock
+static const QMainWindow *mainwindow_from_dock(const QDockWidget *dock)
+{
+    for (const QWidget *p = dock->parentWidget(); p; p = p->parentWidget()) {
+        if (const QMainWindow *window = qobject_cast<const QMainWindow*>(p))
+            return window;
+    }
+    return nullptr;
+}
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 54, as local:qdockwidget.cpp:hasFeature
+static inline bool hasFeature(const QDockWidgetPrivate *priv, QDockWidget::DockWidgetFeature feature)
+{ return (priv->features & feature) == feature; }
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 91, as local:qdockwidget.cpp:QDockWidgetTitleButton
+class QDockWidgetTitleButton : public QAbstractButton
+{
+    Q_OBJECT
+
+public:
+    QDockWidgetTitleButton(QDockWidget *dockWidget);
+
+    QSize sizeHint() const override;
+    QSize minimumSizeHint() const override
+    { return sizeHint(); }
+
+    void enterEvent(QEnterEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
+
+protected:
+    bool event(QEvent *event) override;
+
+private:
+    QSize dockButtonIconSize() const;
+
+    mutable int m_iconSize = -1;
+};
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 115, as local:qdockwidget.cpp:QDockWidgetTitleButton::QDockWidgetTitleButton
+inline QDockWidgetTitleButton::QDockWidgetTitleButton(QDockWidget *dockWidget)
+    : QAbstractButton(dockWidget)
+{
+    setFocusPolicy(Qt::NoFocus);
+}
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 121, as local:qdockwidget.cpp:QDockWidgetTitleButton::event
+inline bool QDockWidgetTitleButton::event(QEvent *event)
+{
+    switch (event->type()) {
+    case QEvent::StyleChange:
+    case QEvent::DevicePixelRatioChange:
+        m_iconSize = -1;
+        break;
+    default:
+        break;
+    }
+    return QAbstractButton::event(event);
+}
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 134, as local:qdockwidget.cpp:QDockWidgetTitleButton::dockButtonIconSize
+inline QSize QDockWidgetTitleButton::dockButtonIconSize() const
+{
+    if (m_iconSize < 0) {
+        m_iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize, nullptr, this);
+        if (style()->styleHint(QStyle::SH_DockWidget_ButtonsHaveFrame, nullptr, this))
+            m_iconSize = (m_iconSize * 5) / 8;  // 16 -> 10
+    }
+    return QSize(m_iconSize, m_iconSize);
+}
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 144, as local:qdockwidget.cpp:QDockWidgetTitleButton::sizeHint
+inline QSize QDockWidgetTitleButton::sizeHint() const
+{
+    ensurePolished();
+
+    int size = 2*style()->pixelMetric(QStyle::PM_DockWidgetTitleBarButtonMargin, nullptr, this);
+    if (!icon().isNull()) {
+        const QSize sz = icon().actualSize(dockButtonIconSize());
+        size += qMax(sz.width(), sz.height());
+    }
+
+    return QSize(size, size);
+}
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 157, as local:qdockwidget.cpp:QDockWidgetTitleButton::enterEvent
+inline void QDockWidgetTitleButton::enterEvent(QEnterEvent *event)
+{
+    if (isEnabled()) update();
+    QAbstractButton::enterEvent(event);
+}
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 163, as local:qdockwidget.cpp:QDockWidgetTitleButton::leaveEvent
+inline void QDockWidgetTitleButton::leaveEvent(QEvent *event)
+{
+    if (isEnabled()) update();
+    QAbstractButton::leaveEvent(event);
+}
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 169, as local:qdockwidget.cpp:QDockWidgetTitleButton::paintEvent
+inline void QDockWidgetTitleButton::paintEvent(QPaintEvent *)
+{
+    QStylePainter p(this);
+
+    QStyleOptionToolButton opt;
+    opt.initFrom(this);
+    opt.state |= QStyle::State_AutoRaise;
+
+    if (style()->styleHint(QStyle::SH_DockWidget_ButtonsHaveFrame, nullptr, this)) {
+        if (isEnabled() && underMouse() && !isChecked() && !isDown())
+            opt.state |= QStyle::State_Raised;
+        if (isChecked())
+            opt.state |= QStyle::State_On;
+        if (isDown())
+            opt.state |= QStyle::State_Sunken;
+        p.drawPrimitive(QStyle::PE_PanelButtonTool, opt);
+    } else if (isDown() || isChecked()) {
+        // no frame, but the icon might have explicit pixmaps for QIcon::On
+        opt.state |= QStyle::State_On | QStyle::State_Sunken;
+    }
+
+    opt.icon = icon();
+    opt.subControls = { };
+    opt.activeSubControls = { };
+    opt.features = QStyleOptionToolButton::None;
+    opt.arrowType = Qt::NoArrow;
+    opt.iconSize = dockButtonIconSize();
+    p.drawComplexControl(QStyle::CC_ToolButton, opt);
+}
+
+//  from src/widgets/widgets/qwidgetresizehandler.cpp, line 22, as local:qwidgetresizehandler.cpp:RANGE
+#define RANGE 4
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 3440, as _ZN17QMainWindowLayout17needsPlatformDragEv
+#if QT_CONFIG(draganddrop)
+inline bool QMainWindowLayout::needsPlatformDrag()
+{
+    static const bool wayland =
+            QGuiApplication::platformName().startsWith("wayland"_L1, Qt::CaseInsensitive);
+    return wayland;
+}
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/widgets/qwidgetresizehandler.cpp, line 40, as _ZN20QWidgetResizeHandler10setEnabledEb
 inline void QWidgetResizeHandler::setEnabled(bool b)

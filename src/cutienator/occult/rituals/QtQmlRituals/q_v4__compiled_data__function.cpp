@@ -7,11 +7,32 @@
 #include <QtQml/6.12.0/QtQml/private/qv4compileddata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  size_t QV4::CompiledData::Function::lineAndStatementNumberOffset() const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK3QV412CompiledData8Function28lineAndStatementNumberOffsetEv(
+    const QV4::CompiledData::Function *self) {
+  return self->lineAndStatementNumberOffset();
+}
+
+//  size_t QV4::CompiledData::Function::labelInfosOffset() const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK3QV412CompiledData8Function16labelInfosOffsetEv(
+    const QV4::CompiledData::Function *self) {
+  return self->labelInfosOffset();
+}
+
 //  const Parameter *QV4::CompiledData::Function::formalsTable() const
 extern "C" Q_DECL_EXPORT
 const QV4::CompiledData::Parameter *ritual_ZNK3QV412CompiledData8Function12formalsTableEv(
     const QV4::CompiledData::Function *self) {
   return self->formalsTable();
+}
+
+//  const quint32_le *QV4::CompiledData::Function::localsTable() const
+extern "C" Q_DECL_EXPORT
+const quint32_le *ritual_ZNK3QV412CompiledData8Function11localsTableEv(
+    const QV4::CompiledData::Function *self) {
+  return self->localsTable();
 }
 
 //  const CodeOffsetToLineAndStatement
@@ -36,6 +57,13 @@ const QV4::CompiledData::Parameter *ritual_ZNK3QV412CompiledData8Function10forma
   return self->formalsEnd();
 }
 
+//  const quint32_le *QV4::CompiledData::Function::labelInfoTable() const
+extern "C" Q_DECL_EXPORT
+const quint32_le *ritual_ZNK3QV412CompiledData8Function14labelInfoTableEv(
+    const QV4::CompiledData::Function *self) {
+  return self->labelInfoTable();
+}
+
 //  const char *QV4::CompiledData::Function::code() const
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZNK3QV412CompiledData8Function4codeEv(
@@ -58,6 +86,12 @@ int ritual_ZN3QV412CompiledData8Function13calculateSizeEiiiii(
       nLinesAndStatements,
       labelInfoSize,
       codeSize);
+}
+
+//  size_t QV4::CompiledData::Function::align(size_t a)
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN3QV412CompiledData8Function5alignEm(size_t a) {
+  return QV4::CompiledData::Function::align(a);
 }
 
 //  QV4::CompiledData::Function::~Function()

@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN19QMimeTypeParserBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN19QMimeTypeParserBase11parseNumberE11QStringViewPiP7QString": [
+      "bool", "text", "address", "address"
+    ],
     "ritual_ZN19QMimeTypeParserBase7processERK16QMimeTypeXMLDataP7QString": [
       "bool", "address", "address", "address"
     ],

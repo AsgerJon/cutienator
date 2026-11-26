@@ -9,6 +9,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -1074,6 +1075,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal14ConnectionEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::ConnectionEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal14ConnectionEdit11qt_metacastEPKc(
+    qdesigner_internal::ConnectionEdit *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::ConnectionEdit::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal14ConnectionEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::ConnectionEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::ConnectionEdit::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -1082,6 +1102,49 @@ QString *ritual_ZN18qdesigner_internal14ConnectionEdit2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::ConnectionEdit::tr(s, c, n));
+}
+
+//  qdesigner_internal::ConnectionEdit::ConnectionEdit(QWidget *parent,
+//      QDesignerFormWindowInterface *form)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ConnectionEdit *ritual_ZN18qdesigner_internal14ConnectionEditC1EP7QWidgetP28QDesignerFormWindowInterface(
+    QWidget *parent,
+    QDesignerFormWindowInterface *form) {
+  return new Cuteqdesigner_internal_ConnectionEdit(parent, form);
+}
+
+//  qdesigner_internal::ConnectionEdit::~ConnectionEdit()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEditD1Ev(
+    qdesigner_internal::ConnectionEdit *self) {
+  delete self;
+}
+
+//  const QPointer<QWidget> &qdesigner_internal::ConnectionEdit::background()
+//      const
+extern "C" Q_DECL_EXPORT
+const QPointer<QWidget> *ritual_ZNK18qdesigner_internal14ConnectionEdit10backgroundEv(
+    const qdesigner_internal::ConnectionEdit *self) {
+  return &(self->background());
+}
+
+//  void qdesigner_internal::ConnectionEdit::setSelected(Connection *con,
+//      bool sel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit11setSelectedEPNS_10ConnectionEb(
+    qdesigner_internal::ConnectionEdit *self,
+    qdesigner_internal::Connection *con,
+    bool sel) {
+  self->setSelected(con, sel);
+}
+
+//  bool qdesigner_internal::ConnectionEdit::selected(const Connection *con)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal14ConnectionEdit8selectedEPKNS_10ConnectionE(
+    const qdesigner_internal::ConnectionEdit *self,
+    const qdesigner_internal::Connection *con) {
+  return self->selected(con);
 }
 
 //  int qdesigner_internal::ConnectionEdit::connectionCount() const
@@ -1135,12 +1198,93 @@ QUndoStack *ritual_ZNK18qdesigner_internal14ConnectionEdit9undoStackEv(
   return self->undoStack();
 }
 
+//  void qdesigner_internal::ConnectionEdit::clear()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit5clearEv(
+    qdesigner_internal::ConnectionEdit *self) {
+  self->clear();
+}
+
 //  void qdesigner_internal::ConnectionEdit::showEvent(QShowEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18qdesigner_internal14ConnectionEdit9showEventEP10QShowEvent(
     qdesigner_internal::ConnectionEdit *self,
     QShowEvent *a0) {
   self->showEvent(a0);
+}
+
+//  void qdesigner_internal::ConnectionEdit::aboutToAddConnection(int idx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit20aboutToAddConnectionEi(
+    qdesigner_internal::ConnectionEdit *self,
+    int idx) {
+  self->aboutToAddConnection(idx);
+}
+
+//  void qdesigner_internal::ConnectionEdit::connectionAdded(qdesigner_intern
+//      al::Connection *con)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit15connectionAddedEPNS_10ConnectionE(
+    qdesigner_internal::ConnectionEdit *self,
+    qdesigner_internal::Connection *con) {
+  self->connectionAdded(con);
+}
+
+//  void qdesigner_internal::ConnectionEdit::aboutToRemoveConnection(qdesigne
+//      r_internal::Connection *con)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit23aboutToRemoveConnectionEPNS_10ConnectionE(
+    qdesigner_internal::ConnectionEdit *self,
+    qdesigner_internal::Connection *con) {
+  self->aboutToRemoveConnection(con);
+}
+
+//  void qdesigner_internal::ConnectionEdit::connectionRemoved(int idx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit17connectionRemovedEi(
+    qdesigner_internal::ConnectionEdit *self,
+    int idx) {
+  self->connectionRemoved(idx);
+}
+
+//  void qdesigner_internal::ConnectionEdit::connectionSelected(qdesigner_int
+//      ernal::Connection *con)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit18connectionSelectedEPNS_10ConnectionE(
+    qdesigner_internal::ConnectionEdit *self,
+    qdesigner_internal::Connection *con) {
+  self->connectionSelected(con);
+}
+
+//  void qdesigner_internal::ConnectionEdit::widgetActivated(QWidget *wgt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit15widgetActivatedEP7QWidget(
+    qdesigner_internal::ConnectionEdit *self,
+    QWidget *wgt) {
+  self->widgetActivated(wgt);
+}
+
+//  void qdesigner_internal::ConnectionEdit::connectionChanged(qdesigner_inte
+//      rnal::Connection *con)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit17connectionChangedEPNS_10ConnectionE(
+    qdesigner_internal::ConnectionEdit *self,
+    qdesigner_internal::Connection *con) {
+  self->connectionChanged(con);
+}
+
+//  void qdesigner_internal::ConnectionEdit::selectNone()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit10selectNoneEv(
+    qdesigner_internal::ConnectionEdit *self) {
+  self->selectNone();
+}
+
+//  void qdesigner_internal::ConnectionEdit::selectAll()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit9selectAllEv(
+    qdesigner_internal::ConnectionEdit *self) {
+  self->selectAll();
 }
 
 //  void qdesigner_internal::ConnectionEdit::deleteSelected()
@@ -1182,6 +1326,91 @@ void ritual_ZN18qdesigner_internal14ConnectionEdit13objectRemovedEP7QObject(
   self->objectRemoved(o);
 }
 
+//  void qdesigner_internal::ConnectionEdit::updateLines()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit11updateLinesEv(
+    qdesigner_internal::ConnectionEdit *self) {
+  self->updateLines();
+}
+
+//  void qdesigner_internal::ConnectionEdit::enableUpdateBackground(bool
+//      enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit22enableUpdateBackgroundEb(
+    qdesigner_internal::ConnectionEdit *self,
+    bool enable) {
+  self->enableUpdateBackground(enable);
+}
+
+//  void qdesigner_internal::ConnectionEdit::paintEvent(QPaintEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit10paintEventEP11QPaintEvent(
+    qdesigner_internal::ConnectionEdit *self,
+    QPaintEvent *e) {
+  self->paintEvent(e);
+}
+
+//  void qdesigner_internal::ConnectionEdit::mouseMoveEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit14mouseMoveEventEP11QMouseEvent(
+    qdesigner_internal::ConnectionEdit *self,
+    QMouseEvent *e) {
+  self->mouseMoveEvent(e);
+}
+
+//  void qdesigner_internal::ConnectionEdit::mousePressEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit15mousePressEventEP11QMouseEvent(
+    qdesigner_internal::ConnectionEdit *self,
+    QMouseEvent *e) {
+  self->mousePressEvent(e);
+}
+
+//  void qdesigner_internal::ConnectionEdit::mouseReleaseEvent(QMouseEvent
+//      *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit17mouseReleaseEventEP11QMouseEvent(
+    qdesigner_internal::ConnectionEdit *self,
+    QMouseEvent *e) {
+  self->mouseReleaseEvent(e);
+}
+
+//  void qdesigner_internal::ConnectionEdit::keyPressEvent(QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit13keyPressEventEP9QKeyEvent(
+    qdesigner_internal::ConnectionEdit *self,
+    QKeyEvent *e) {
+  self->keyPressEvent(e);
+}
+
+//  void
+//      qdesigner_internal::ConnectionEdit::mouseDoubleClickEvent(QMouseEvent
+//      *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit21mouseDoubleClickEventEP11QMouseEvent(
+    qdesigner_internal::ConnectionEdit *self,
+    QMouseEvent *e) {
+  self->mouseDoubleClickEvent(e);
+}
+
+//  void qdesigner_internal::ConnectionEdit::resizeEvent(QResizeEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit11resizeEventEP12QResizeEvent(
+    qdesigner_internal::ConnectionEdit *self,
+    QResizeEvent *e) {
+  self->resizeEvent(e);
+}
+
+//  void
+//      qdesigner_internal::ConnectionEdit::contextMenuEvent(QContextMenuEven
+//      t *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit16contextMenuEventEP17QContextMenuEvent(
+    qdesigner_internal::ConnectionEdit *self,
+    QContextMenuEvent *event) {
+  self->contextMenuEvent(event);
+}
+
 //  Connection *qdesigner_internal::ConnectionEdit::createConnection(QWidget
 //      *source, QWidget *target)
 extern "C" Q_DECL_EXPORT
@@ -1210,6 +1439,37 @@ QWidget *ritual_ZNK18qdesigner_internal14ConnectionEdit8widgetAtERK6QPoint(
   return self->widgetAt(*pos);
 }
 
+//  void qdesigner_internal::ConnectionEdit::createContextMenu(QMenu &menu)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit17createContextMenuER5QMenu(
+    qdesigner_internal::ConnectionEdit *self,
+    QMenu *menu) {
+  self->createContextMenu(*menu);
+}
+
+//  void qdesigner_internal::ConnectionEdit::addConnection(Connection *con)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit13addConnectionEPNS_10ConnectionE(
+    qdesigner_internal::ConnectionEdit *self,
+    qdesigner_internal::Connection *con) {
+  self->addConnection(con);
+}
+
+//  QRect qdesigner_internal::ConnectionEdit::widgetRect(QWidget *w) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK18qdesigner_internal14ConnectionEdit10widgetRectEP7QWidget(
+    const qdesigner_internal::ConnectionEdit *self,
+    QWidget *w) {
+  return new QRect(self->widgetRect(w));
+}
+
+//  State qdesigner_internal::ConnectionEdit::state() const
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ConnectionEdit::State ritual_ZNK18qdesigner_internal14ConnectionEdit5stateEv(
+    const qdesigner_internal::ConnectionEdit *self) {
+  return self->state();
+}
+
 //  void qdesigner_internal::ConnectionEdit::endConnection(QWidget *target,
 //      const QPoint &pos)
 extern "C" Q_DECL_EXPORT
@@ -1220,11 +1480,157 @@ void ritual_ZN18qdesigner_internal14ConnectionEdit13endConnectionEP7QWidgetRK6QP
   self->endConnection(target, *pos);
 }
 
+//  const ConnectionList
+//      &qdesigner_internal::ConnectionEdit::connectionList() const
+extern "C" Q_DECL_EXPORT
+const qdesigner_internal::CETypes::ConnectionList *ritual_ZNK18qdesigner_internal14ConnectionEdit14connectionListEv(
+    const qdesigner_internal::ConnectionEdit *self) {
+  return &(self->connectionList());
+}
+
+//  const ConnectionSet &qdesigner_internal::ConnectionEdit::selection()
+//      const
+extern "C" Q_DECL_EXPORT
+const qdesigner_internal::CETypes::ConnectionSet *ritual_ZNK18qdesigner_internal14ConnectionEdit9selectionEv(
+    const qdesigner_internal::ConnectionEdit *self) {
+  return &(self->selection());
+}
+
+//  Connection *qdesigner_internal::ConnectionEdit::takeConnection(Connection
+//      *con)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::Connection *ritual_ZN18qdesigner_internal14ConnectionEdit14takeConnectionEPNS_10ConnectionE(
+    qdesigner_internal::ConnectionEdit *self,
+    qdesigner_internal::Connection *con) {
+  return self->takeConnection(con);
+}
+
 //  Connection *qdesigner_internal::ConnectionEdit::newlyAddedConnection()
 extern "C" Q_DECL_EXPORT
 qdesigner_internal::Connection *ritual_ZN18qdesigner_internal14ConnectionEdit20newlyAddedConnectionEv(
     qdesigner_internal::ConnectionEdit *self) {
   return self->newlyAddedConnection();
+}
+
+//  void qdesigner_internal::ConnectionEdit::clearNewlyAddedConnection()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit25clearNewlyAddedConnectionEv(
+    qdesigner_internal::ConnectionEdit *self) {
+  self->clearNewlyAddedConnection();
+}
+
+//  void qdesigner_internal::ConnectionEdit::findObjectsUnderMouse(const
+//      QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit21findObjectsUnderMouseERK6QPoint(
+    qdesigner_internal::ConnectionEdit *self,
+    const QPoint *pos) {
+  self->findObjectsUnderMouse(*pos);
+}
+
+//  void qdesigner_internal::ConnectionEdit::startConnection(QWidget *source,
+//      const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit15startConnectionEP7QWidgetRK6QPoint(
+    qdesigner_internal::ConnectionEdit *self,
+    QWidget *source,
+    const QPoint *pos) {
+  self->startConnection(source, *pos);
+}
+
+//  void qdesigner_internal::ConnectionEdit::continueConnection(QWidget
+//      *target, const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit18continueConnectionEP7QWidgetRK6QPoint(
+    qdesigner_internal::ConnectionEdit *self,
+    QWidget *target,
+    const QPoint *pos) {
+  self->continueConnection(target, *pos);
+}
+
+//  void qdesigner_internal::ConnectionEdit::abortConnection()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit15abortConnectionEv(
+    qdesigner_internal::ConnectionEdit *self) {
+  self->abortConnection();
+}
+
+//  void qdesigner_internal::ConnectionEdit::startDrag(const EndPoint
+//      &end_point, const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit9startDragERKNS_7CETypes8EndPointERK6QPoint(
+    qdesigner_internal::ConnectionEdit *self,
+    const qdesigner_internal::CETypes::EndPoint *end_point,
+    const QPoint *pos) {
+  self->startDrag(*end_point, *pos);
+}
+
+//  void qdesigner_internal::ConnectionEdit::continueDrag(const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit12continueDragERK6QPoint(
+    qdesigner_internal::ConnectionEdit *self,
+    const QPoint *pos) {
+  self->continueDrag(*pos);
+}
+
+//  void qdesigner_internal::ConnectionEdit::endDrag(const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit7endDragERK6QPoint(
+    qdesigner_internal::ConnectionEdit *self,
+    const QPoint *pos) {
+  self->endDrag(*pos);
+}
+
+//  void qdesigner_internal::ConnectionEdit::adjustHotSopt(const EndPoint
+//      &end_point, const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit13adjustHotSoptERKNS_7CETypes8EndPointERK6QPoint(
+    qdesigner_internal::ConnectionEdit *self,
+    const qdesigner_internal::CETypes::EndPoint *end_point,
+    const QPoint *pos) {
+  self->adjustHotSopt(*end_point, *pos);
+}
+
+//  Connection *qdesigner_internal::ConnectionEdit::connectionAt(const QPoint
+//      &pos) const
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::Connection *ritual_ZNK18qdesigner_internal14ConnectionEdit12connectionAtERK6QPoint(
+    const qdesigner_internal::ConnectionEdit *self,
+    const QPoint *pos) {
+  return self->connectionAt(*pos);
+}
+
+//  EndPoint qdesigner_internal::ConnectionEdit::endPointAt(const QPoint
+//      &pos) const
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::CETypes::EndPoint *ritual_ZNK18qdesigner_internal14ConnectionEdit10endPointAtERK6QPoint(
+    const qdesigner_internal::ConnectionEdit *self,
+    const QPoint *pos) {
+  return new qdesigner_internal::CETypes::EndPoint(self->endPointAt(*pos));
+}
+
+//  void qdesigner_internal::ConnectionEdit::paintConnection(QPainter *p,
+//      Connection *con, WidgetSet *heavy_highlight_set, WidgetSet
+//      *light_highlight_set) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal14ConnectionEdit15paintConnectionEP8QPainterPNS_10ConnectionEP5QHashIP7QWidgetS7_ES9_(
+    const qdesigner_internal::ConnectionEdit *self,
+    QPainter *p,
+    qdesigner_internal::Connection *con,
+    qdesigner_internal::CETypes::WidgetSet *heavy_highlight_set,
+    qdesigner_internal::CETypes::WidgetSet *light_highlight_set) {
+  self->paintConnection(p, con, heavy_highlight_set, light_highlight_set);
+}
+
+//  void qdesigner_internal::ConnectionEdit::paintLabel(QPainter *p,
+//      EndPoint::Type type, Connection *con)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14ConnectionEdit10paintLabelEP8QPainterNS_7CETypes8EndPoint4TypeEPNS_10ConnectionE(
+    qdesigner_internal::ConnectionEdit *self,
+    QPainter *p,
+    qdesigner_internal::CETypes::EndPoint::Type type,
+    qdesigner_internal::Connection *con) {
+  self->paintLabel(p, type, con);
 }
 
 //  qdesigner_internal::ConnectionEdit as the qdesigner_internal::CETypes it

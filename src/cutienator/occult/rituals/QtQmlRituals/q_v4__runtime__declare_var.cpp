@@ -7,6 +7,15 @@
 #include <QtQml/6.12.0/QtQml/private/qv4runtimeapi_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  void QV4::Runtime::DeclareVar::call(ExecutionEngine *a0, Bool a1, int a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV47Runtime10DeclareVar4callEPNS_15ExecutionEngineEji(
+    QV4::ExecutionEngine *a0,
+    QV4::Bool a1,
+    int a2) {
+  QV4::Runtime::DeclareVar::call(a0, a1, a2);
+}
+
 //  QV4::Runtime::DeclareVar::~DeclareVar()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV47Runtime10DeclareVarD1Ev(QV4::Runtime::DeclareVar *self) {

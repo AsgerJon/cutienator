@@ -7,13 +7,51 @@
     "ritual_ZNK9Qt3DInput14QInputSequence10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput14QInputSequence11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSequence11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput14QInputSequence2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSequenceC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSequenceD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput14QInputSequence7timeoutEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput14QInputSequence14buttonIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSequence11addSequenceEPNS_20QAbstractActionInputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSequence14removeSequenceEPNS_20QAbstractActionInputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput14QInputSequence9sequencesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSequence10setTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSequence17setButtonIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSequence14timeoutChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput14QInputSequence21buttonIntervalChangedEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN9Qt3DInput14QInputSequence6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput14QInputSequence6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DInput_QInputSequence": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DInput_QInputSequence__QList_Qt3DInput_QAbstractActionInput": [
+      "nothing", "address"
     ]
   }
 }

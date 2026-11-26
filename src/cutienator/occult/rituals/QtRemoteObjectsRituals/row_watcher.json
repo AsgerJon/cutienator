@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10RowWatcher10metaObjectEv": ["address", "address"],
+    "ritual_ZN10RowWatcher11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10RowWatcher11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_take_RowWatcher": ["bool", "address", "chars", "address"]
   }
 }

@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QQmlPluginImporterC1ERK7QString13QTypeRevisionPK27QQmlTypeLoaderQmldirContentP14QQmlTypeLoaderP5QListI9QQmlErrorE": [
+      "address", "text", "address", "address", "address", "address"
+    ],
     "ritual_ZN18QQmlPluginImporterD1Ev": ["nothing", "address"],
     "ritual_ZN18QQmlPluginImporter19truncateToDirectoryERK7QString": [
       "text", "text"

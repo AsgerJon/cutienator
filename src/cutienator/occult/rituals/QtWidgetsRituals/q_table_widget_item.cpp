@@ -29,7 +29,7 @@ typedef void (*CuteQTableWidgetItemCall2)(const void *, int, const QVariant *, i
 class CuteQTableWidgetItem : public QTableWidgetItem {
 public:
   using QTableWidgetItem::QTableWidgetItem;
-  CuteQTableWidgetItem(const QTableWidgetItem &other) : QTableWidgetItem(other) {}
+  CuteQTableWidgetItem(const QTableWidgetItem & other) : QTableWidgetItem(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -401,6 +401,35 @@ bool ritual_ZNK16QTableWidgetItemltERKS_(
     const QTableWidgetItem *self,
     const QTableWidgetItem *other) {
   return self->operator<(*other);
+}
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QTableWidgetItem::read(QDataStream &in)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QTableWidgetItem4readER11QDataStream(
+    QTableWidgetItem *self,
+    QDataStream *in) {
+  self->read(*in);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QTableWidgetItem::write(QDataStream &out) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QTableWidgetItem5writeER11QDataStream(
+    const QTableWidgetItem *self,
+    QDataStream *out) {
+  self->write(*out);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+//  QTableWidgetItem &QTableWidgetItem::operator=(const QTableWidgetItem
+//      &other)
+extern "C" Q_DECL_EXPORT
+QTableWidgetItem *ritual_ZN16QTableWidgetItemaSERKS_(
+    QTableWidgetItem *self,
+    const QTableWidgetItem *other) {
+  return &(self->operator=(*other));
 }
 
 //  int QTableWidgetItem::type() const

@@ -9,6 +9,9 @@
     "ritual_ZN31QMqttServerConnectionPropertiesC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN31QMqttServerConnectionPropertiesaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN31QMqttServerConnectionPropertiesD1Ev": ["nothing", "address"],
     "ritual_ZNK31QMqttServerConnectionProperties19availablePropertiesEv": [
       "int", "address"

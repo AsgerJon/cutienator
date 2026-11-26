@@ -34,11 +34,25 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 914, as _ZN26QStubReplicaImplementationC1Ev
+inline QStubReplicaImplementation::QStubReplicaImplementation() {}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 916, as _ZN26QStubReplicaImplementationD1Ev
+inline QStubReplicaImplementation::~QStubReplicaImplementation() {}
+
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 918, as _ZNK26QStubReplicaImplementation11getPropertyEi
 inline const QVariant QStubReplicaImplementation::getProperty(int i) const
 {
     Q_ASSERT_X(i >= 0 && i < m_propertyStorage.size(), __FUNCTION__, qPrintable(QString(QLatin1String("0 <= %1 < %2")).arg(i).arg(m_propertyStorage.size())));
     return m_propertyStorage[i];
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 924, as _ZN26QStubReplicaImplementation13setPropertiesEO5QListI8QVariantE
+inline void QStubReplicaImplementation::setProperties(QVariantList &&properties)
+{
+    Q_ASSERT(m_propertyStorage.isEmpty());
+    m_propertyStorage.reserve(properties.size());
+    m_propertyStorage = std::move(properties);
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 931, as _ZN26QStubReplicaImplementation11setPropertyEiRK8QVariant
@@ -67,12 +81,33 @@ inline QRemoteObjectPendingCall QStubReplicaImplementation::_q_sendWithReply(QMe
 }
 //  -----------------------------------------------------------------------
 
+//  QStubReplicaImplementation::QStubReplicaImplementation()
+extern "C" Q_DECL_EXPORT
+QStubReplicaImplementation *ritual_ZN26QStubReplicaImplementationC1Ev() {
+  return new QStubReplicaImplementation();
+}
+
+//  QStubReplicaImplementation::~QStubReplicaImplementation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStubReplicaImplementationD1Ev(
+    QStubReplicaImplementation *self) {
+  delete self;
+}
+
 //  const QVariant QStubReplicaImplementation::getProperty(int i) const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK26QStubReplicaImplementation11getPropertyEi(
     const QStubReplicaImplementation *self,
     int i) {
   return new QVariant(self->getProperty(i));
+}
+
+//  void QStubReplicaImplementation::setProperties(QVariantList &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QStubReplicaImplementation13setPropertiesEO5QListI8QVariantE(
+    QStubReplicaImplementation *self,
+    QVariantList *a0) {
+  self->setProperties(std::move(*a0));
 }
 
 //  void QStubReplicaImplementation::setProperty(int i, const QVariant &a1)

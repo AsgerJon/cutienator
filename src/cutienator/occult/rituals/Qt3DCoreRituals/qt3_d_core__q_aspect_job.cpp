@@ -2,6 +2,8 @@
 //  Qt3DCore/qaspectjob.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DCore/qaspectjob.h>
 #include <cstring>
+#include <QtCore/QWeakPointer>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DCore::QAspectJob that Python can take functions over in. Every Qt3DCore::QAspectJob
 //  Python makes is one. Each function below asks the Python
@@ -63,10 +65,42 @@ public:
   }
 };
 
+//  Qt3DCore::QAspectJob::QAspectJob()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAspectJob *ritual_ZN8Qt3DCore10QAspectJobC1Ev() {
+  return new CuteQt3DCore_QAspectJob();
+}
+
 //  Qt3DCore::QAspectJob::~QAspectJob()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore10QAspectJobD1Ev(Qt3DCore::QAspectJob *self) {
   delete self;
+}
+
+//  void Qt3DCore::QAspectJob::addDependency(QWeakPointer<QAspectJob>
+//      dependency)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore10QAspectJob13addDependencyE12QWeakPointerIS0_E(
+    Qt3DCore::QAspectJob *self,
+    const QWeakPointer<Qt3DCore::QAspectJob> *dependency) {
+  self->addDependency(*dependency);
+}
+
+//  void Qt3DCore::QAspectJob::removeDependency(QWeakPointer<QAspectJob>
+//      dependency)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore10QAspectJob16removeDependencyE12QWeakPointerIS0_E(
+    Qt3DCore::QAspectJob *self,
+    const QWeakPointer<Qt3DCore::QAspectJob> *dependency) {
+  self->removeDependency(*dependency);
+}
+
+//  const std::vector<QWeakPointer<QAspectJob>>
+//      &Qt3DCore::QAspectJob::dependencies() const
+extern "C" Q_DECL_EXPORT
+const std::vector<QWeakPointer<Qt3DCore::QAspectJob>> *ritual_ZNK8Qt3DCore10QAspectJob12dependenciesEv(
+    const Qt3DCore::QAspectJob *self) {
+  return &(self->dependencies());
 }
 
 //  void Qt3DCore::QAspectJob::run()
@@ -88,6 +122,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN8Qt3DCore10QAspectJob10isRequiredEv(
     Qt3DCore::QAspectJob *self) {
   return self->isRequired();
+}
+
+//  Qt3DCore::QAspectJob::QAspectJob(QAspectJobPrivate &dd)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAspectJob *ritual_ZN8Qt3DCore10QAspectJobC1ERNS_17QAspectJobPrivateE(
+    Qt3DCore::QAspectJobPrivate *dd) {
+  return new CuteQt3DCore_QAspectJob(*dd);
 }
 
 //  QAspectJobPrivate *Qt3DCore::QAspectJob::d_func()

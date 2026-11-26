@@ -19,7 +19,7 @@ typedef bool (*CuteQSvgStrokeStyleCall1)(const void *, int *);
 class CuteQSvgStrokeStyle : public QSvgStrokeStyle {
 public:
   using QSvgStrokeStyle::QSvgStrokeStyle;
-  CuteQSvgStrokeStyle(const QSvgStrokeStyle &other) : QSvgStrokeStyle(other) {}
+  CuteQSvgStrokeStyle(const QSvgStrokeStyle & other) : QSvgStrokeStyle(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -69,6 +69,26 @@ void ritual_ZN15QSvgStrokeStyleD1Ev(QSvgStrokeStyle *self) {
   delete self;
 }
 
+//  void QSvgStrokeStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgStrokeStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgStrokeStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgStrokeStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgStrokeStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgStrokeStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
+}
+
 //  Type QSvgStrokeStyle::type() const
 extern "C" Q_DECL_EXPORT
 QSvgStyleProperty::Type ritual_ZNK15QSvgStrokeStyle4typeEv(
@@ -82,6 +102,23 @@ void ritual_ZN15QSvgStrokeStyle9setStrokeE6QBrush(
     QSvgStrokeStyle *self,
     const QBrush *brush) {
   self->setStroke(*brush);
+}
+
+//  void QSvgStrokeStyle::setPaintServer(QSvgPaintServerSharedPtr
+//      paintServer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgStrokeStyle14setPaintServerESt10shared_ptrI15QSvgPaintServerE(
+    QSvgStrokeStyle *self,
+    const QSvgPaintServerSharedPtr *paintServer) {
+  self->setPaintServer(*paintServer);
+}
+
+//  void QSvgStrokeStyle::setDashArray(const QList<qreal> &dashes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgStrokeStyle12setDashArrayERK5QListIdE(
+    QSvgStrokeStyle *self,
+    const QList<qreal> *dashes) {
+  self->setDashArray(*dashes);
 }
 
 //  void QSvgStrokeStyle::setDashArrayNone()

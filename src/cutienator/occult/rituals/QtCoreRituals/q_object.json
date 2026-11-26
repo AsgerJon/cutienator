@@ -1,10 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qobject.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qobject.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK7QObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QObject11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QObject2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QObject6d_funcEv": ["address", "address"],
     "ritual_ZNK7QObject6d_funcEv": ["address", "address"],
@@ -18,6 +22,7 @@
     "ritual_ZN7QObject13setObjectNameE14QAnyStringView": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN7QObject18bindableObjectNameEv": ["address", "address"],
     "ritual_ZNK7QObject12isWidgetTypeEv": ["bool", "address"],
     "ritual_ZNK7QObject12isWindowTypeEv": ["bool", "address"],
     "ritual_ZNK7QObject15isQuickItemTypeEv": ["bool", "address"],
@@ -30,6 +35,9 @@
     ],
     "ritual_ZN7QObject10startTimerEiN2Qt9TimerTypeE": [
       "int", "address", "int", "int"
+    ],
+    "ritual_ZN7QObject10startTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeE": [
+      "int", "address", "long long", "int"
     ],
     "ritual_ZN7QObject9killTimerEi": ["nothing", "address", "int"],
     "ritual_ZN7QObject9killTimerEN2Qt7TimerIdE": [
@@ -67,15 +75,28 @@
     "ritual_ZN7QObject10disconnectERKN11QMetaObject10ConnectionE": [
       "bool", "address"
     ],
+    "ritual_ZN7QObject10disconnectERN11QMetaObject10ConnectionE": [
+      "bool", "address"
+    ],
+    "ritual_ZN7QObject10disconnectEON11QMetaObject10ConnectionE": [
+      "bool", "address"
+    ],
     "ritual_ZNK7QObject14dumpObjectTreeEv": ["nothing", "address"],
     "ritual_ZNK7QObject14dumpObjectInfoEv": ["nothing", "address"],
     "ritual_ZN7QObject11setPropertyEPKcRK8QVariant": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_ZN7QObject11setPropertyEPKcO8QVariant": [
       "bool", "address", "chars", "address"
     ],
     "ritual_ZNK7QObject8propertyEPKc": ["address", "address", "chars"],
     "ritual_ZNK7QObject20dynamicPropertyNamesEv": ["address", "address"],
     "ritual_ZN7QObject14bindingStorageEv": ["address", "address"],
     "ritual_ZNK7QObject14bindingStorageEv": ["address", "address"],
+    "ritual_ZN7QObject9destroyedEPS_": ["nothing", "address", "address"],
+    "ritual_ZN7QObject17objectNameChangedERK7QStringNS_14QPrivateSignalE": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZNK7QObject6parentEv": ["address", "address"],
     "ritual_ZNK7QObject8inheritsEPKc": ["bool", "address", "chars"],
     "ritual_ZN7QObject11deleteLaterEv": ["nothing", "address"],
@@ -100,11 +121,21 @@
     "ritual_ZN7QObject16disconnectNotifyERK11QMetaMethod": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN7QObjectC1ER14QObjectPrivatePS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN7QObject15doSetObjectNameERK7QString": [
       "nothing", "address", "text"
     ],
     "ritual_ZN7QObject13doSetPropertyEPKcRK8QVariantPS2_": [
       "bool", "address", "chars", "address", "address"
+    ],
+    "ritual_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject": [
+      "address", "address", "address", "address", "address", "address",
+      "int", "address", "address"
+    ],
+    "ritual_ZN7QObject14disconnectImplEPKS_PPvS1_S3_PK11QMetaObject": [
+      "bool", "address", "address", "address", "address", "address"
     ],
     "ritual_take_QObject": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QObject5eventEP6QEvent": ["bool", "address", "address"],
@@ -158,6 +189,16 @@
     "ritual_map_get_QHash_QString_QObject_ptr": [
       "address", "address", "text"
     ],
-    "ritual_map_drop_QHash_QString_QObject_ptr": ["nothing", "address"]
+    "ritual_map_drop_QHash_QString_QObject_ptr": ["nothing", "address"],
+    "ritual_drop_QObject__QBindable_QString": ["nothing", "address"],
+    "ritual_ZNK7QObject9findChildIPS_EET_14QAnyStringView6QFlagsIN2Qt15FindChildOptionEE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZNK7QObject12findChildrenIPS_EE5QListIT_E14QAnyStringView6QFlagsIN2Qt15FindChildOptionEE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZNK7QObject12findChildrenIPS_EE5QListIT_ERK18QRegularExpression6QFlagsIN2Qt15FindChildOptionEE": [
+      "address", "address", "address", "int"
+    ]
   }
 }

@@ -6,6 +6,15 @@
   ],
   "rows": {
     "ritual_ZN25QScxmlStateMachinePrivate10OrderedSetC1Ev": ["address"],
+    "ritual_ZN25QScxmlStateMachinePrivate10OrderedSetC1ESt16initializer_listIiE": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate10OrderedSet8takeListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate10OrderedSet4listEv": [
+      "address", "address"
+    ],
     "ritual_ZNK25QScxmlStateMachinePrivate10OrderedSet8containsEi": [
       "bool", "address", "int"
     ],
@@ -27,7 +36,19 @@
     "ritual_ZN25QScxmlStateMachinePrivate10OrderedSet5clearEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK25QScxmlStateMachinePrivate10OrderedSet5beginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate10OrderedSet3endEv": [
+      "address", "address"
+    ],
     "ritual_ZN25QScxmlStateMachinePrivate10OrderedSetD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachinePrivate_OrderedSet__std_vector_int": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachinePrivate_OrderedSet__QScxmlStateMachinePrivate_OrderedSet_const_iterator": [
       "nothing", "address"
     ]
   }

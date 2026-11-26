@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST9JSVisitorC1Ev": ["address"],
     "ritual_ZN6QQmlJS3AST9JSVisitor8preVisitEPNS0_4NodeE": [
       "bool", "address", "address"
     ],

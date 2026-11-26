@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Moth9InstrInfo4sizeENS0_5Instr4TypeE": ["int", "int"],
     "ritual_ZN3QV44Moth9InstrInfoD1Ev": ["nothing", "address"]
   }
 }

@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::Render::Quick::Quick3DRenderTargetOutput that Python can take functions over in. Every Qt3DRender::Render::Quick::Quick3DRenderTargetOutput
 //  Python makes is one. Each function below asks the Python
@@ -186,6 +188,27 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick25Quick3DRenderTargetOutpu
   return self->metaObject();
 }
 
+//  void
+//      *Qt3DRender::Render::Quick::Quick3DRenderTargetOutput::qt_metacast(co
+//      nst char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick25Quick3DRenderTargetOutput11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::Quick3DRenderTargetOutput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Render::Quick::Quick3DRenderTargetOutput::qt_metacall(QMe
+//      taObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick25Quick3DRenderTargetOutput11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::Quick3DRenderTargetOutput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::Quick3DRenderTargetOutput::tr(const
 //      char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -200,12 +223,30 @@ QString *ritual_ZN10Qt3DRender6Render5Quick25Quick3DRenderTargetOutput2trEPKcS4_
           n));
 }
 
+//  Qt3DRender::Render::Quick::Quick3DRenderTargetOutput::Quick3DRenderTarget
+//      Output(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DRenderTargetOutput *ritual_ZN10Qt3DRender6Render5Quick25Quick3DRenderTargetOutputC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DRenderTargetOutput(parent);
+}
+
 //  QRenderTarget *Qt3DRender::Render::Quick::Quick3DRenderTargetOutput::pare
 //      ntRenderTarget() const
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QRenderTarget *ritual_ZNK10Qt3DRender6Render5Quick25Quick3DRenderTargetOutput18parentRenderTargetEv(
     const Qt3DRender::Render::Quick::Quick3DRenderTargetOutput *self) {
   return self->parentRenderTarget();
+}
+
+//  QQmlListProperty<QRenderTargetOutput>
+//      Qt3DRender::Render::Quick::Quick3DRenderTargetOutput::qmlAttachments(
+//      )
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DRender::QRenderTargetOutput> *ritual_ZN10Qt3DRender6Render5Quick25Quick3DRenderTargetOutput14qmlAttachmentsEv(
+    Qt3DRender::Render::Quick::Quick3DRenderTargetOutput *self) {
+  return new QQmlListProperty<Qt3DRender::QRenderTargetOutput>(
+      self->qmlAttachments());
 }
 
 //  a Python function taken by a
@@ -217,4 +258,12 @@ bool ritual_take_Qt3DRender_Render_Quick_Quick3DRenderTargetOutput(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Render_Quick_Quick3DRenderTargetOutput *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DRender::QRenderTargetOutput> a ritual of
+//      Qt3DRender::Render::Quick::Quick3DRenderTargetOutput gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Quick_Quick3DRenderTargetOutput__QQmlListProperty_Qt3DRender_QRenderTargetOutput(
+    QQmlListProperty<Qt3DRender::QRenderTargetOutput> *self) {
+  delete self;
 }

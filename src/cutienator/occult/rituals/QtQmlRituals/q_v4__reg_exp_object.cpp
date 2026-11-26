@@ -1,11 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQml/6.12.0/QtQml/private/qv4regexpobject_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4regexpobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qregularexpression.h>
 #include <QtCore/qstring.h>
 
 //  const QV4::VTable *QV4::RegExpObject::staticVTable()
@@ -49,6 +51,12 @@ QV4::Object *ritual_ZN3QV412RegExpObject16defaultPrototypeEPNS_15ExecutionEngine
   return QV4::RegExpObject::defaultPrototype(e);
 }
 
+//  void QV4::RegExpObject::initProperties()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV412RegExpObject14initPropertiesEv(QV4::RegExpObject *self) {
+  self->initProperties();
+}
+
 //  int QV4::RegExpObject::lastIndex() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK3QV412RegExpObject9lastIndexEv(const QV4::RegExpObject *self) {
@@ -63,9 +71,35 @@ void ritual_ZN3QV412RegExpObject12setLastIndexEi(
   self->setLastIndex(index);
 }
 
+#if QT_CONFIG(regularexpression)
+//  QRegularExpression QV4::RegExpObject::toQRegularExpression() const
+extern "C" Q_DECL_EXPORT
+QRegularExpression *ritual_ZNK3QV412RegExpObject20toQRegularExpressionEv(
+    const QV4::RegExpObject *self) {
+  return new QRegularExpression(self->toQRegularExpression());
+}
+#endif  // QT_CONFIG(regularexpression)
+
+//  QString QV4::RegExpObject::toString() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK3QV412RegExpObject8toStringEv(
+    const QV4::RegExpObject *self) {
+  return new QString(self->toString());
+}
+
 //  QString QV4::RegExpObject::source() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK3QV412RegExpObject6sourceEv(
     const QV4::RegExpObject *self) {
   return new QString(self->source());
+}
+
+//  ReturnedValue QV4::RegExpObject::builtinExec(ExecutionEngine *engine,
+//      const String *s)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV412RegExpObject11builtinExecEPNS_15ExecutionEngineEPKNS_6StringE(
+    QV4::RegExpObject *self,
+    QV4::ExecutionEngine *engine,
+    const QV4::String *s) {
+  return self->builtinExec(engine, s);
 }

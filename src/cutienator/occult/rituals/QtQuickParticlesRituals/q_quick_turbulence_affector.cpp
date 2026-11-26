@@ -842,6 +842,25 @@ const QMetaObject *ritual_ZNK24QQuickTurbulenceAffector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTurbulenceAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickTurbulenceAffector11qt_metacastEPKc(
+    QQuickTurbulenceAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTurbulenceAffector::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickTurbulenceAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTurbulenceAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTurbulenceAffector::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuickTurbulenceAffector2trEPKcS1_i(
@@ -885,6 +904,22 @@ extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK24QQuickTurbulenceAffector11noiseSourceEv(
     const QQuickTurbulenceAffector *self) {
   return new QUrl(self->noiseSource());
+}
+
+//  void QQuickTurbulenceAffector::strengthChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickTurbulenceAffector15strengthChangedEd(
+    QQuickTurbulenceAffector *self,
+    qreal arg) {
+  self->strengthChanged(arg);
+}
+
+//  void QQuickTurbulenceAffector::noiseSourceChanged(const QUrl &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickTurbulenceAffector18noiseSourceChangedERK4QUrl(
+    QQuickTurbulenceAffector *self,
+    const QUrl *arg) {
+  self->noiseSourceChanged(*arg);
 }
 
 //  void QQuickTurbulenceAffector::setStrength(qreal arg)

@@ -9,6 +9,9 @@
     "ritual_ZNK3QV416BoundConstructor11d_uncheckedEv": [
       "address", "address"
     ],
-    "ritual_ZNK3QV416BoundConstructor1dEv": ["address", "address"]
+    "ritual_ZNK3QV416BoundConstructor1dEv": ["address", "address"],
+    "ritual_ZN3QV416BoundConstructor24virtualCallAsConstructorEPKNS_14FunctionObjectEPKNS_5ValueEiS6_": [
+      "unsigned long long", "address", "address", "int", "address"
+    ]
   }
 }

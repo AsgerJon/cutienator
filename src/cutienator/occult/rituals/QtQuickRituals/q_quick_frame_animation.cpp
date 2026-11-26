@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK20QQuickFrameAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFrameAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickFrameAnimation11qt_metacastEPKc(
+    QQuickFrameAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFrameAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickFrameAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFrameAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFrameAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickFrameAnimation2trEPKcS1_i(
@@ -29,6 +48,20 @@ QString *ritual_ZN20QQuickFrameAnimation2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickFrameAnimation::tr(s, c, n));
+}
+
+//  QQuickFrameAnimationPrivate *QQuickFrameAnimation::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickFrameAnimationPrivate *ritual_ZN20QQuickFrameAnimation6d_funcEv(
+    QQuickFrameAnimation *self) {
+  return self->d_func();
+}
+
+//  const QQuickFrameAnimationPrivate *QQuickFrameAnimation::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickFrameAnimationPrivate *ritual_ZNK20QQuickFrameAnimation6d_funcEv(
+    const QQuickFrameAnimation *self) {
+  return self->d_func();
 }
 
 //  QQuickFrameAnimation::QQuickFrameAnimation(QObject *parent)
@@ -144,6 +177,55 @@ void ritual_ZN20QQuickFrameAnimation6resumeEv(QQuickFrameAnimation *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickFrameAnimation5resetEv(QQuickFrameAnimation *self) {
   self->reset();
+}
+
+//  void QQuickFrameAnimation::triggered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFrameAnimation9triggeredEv(
+    QQuickFrameAnimation *self) {
+  self->triggered();
+}
+
+//  void QQuickFrameAnimation::runningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFrameAnimation14runningChangedEv(
+    QQuickFrameAnimation *self) {
+  self->runningChanged();
+}
+
+//  void QQuickFrameAnimation::pausedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFrameAnimation13pausedChangedEv(
+    QQuickFrameAnimation *self) {
+  self->pausedChanged();
+}
+
+//  void QQuickFrameAnimation::currentFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFrameAnimation19currentFrameChangedEv(
+    QQuickFrameAnimation *self) {
+  self->currentFrameChanged();
+}
+
+//  void QQuickFrameAnimation::frameTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFrameAnimation16frameTimeChangedEv(
+    QQuickFrameAnimation *self) {
+  self->frameTimeChanged();
+}
+
+//  void QQuickFrameAnimation::smoothFrameTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFrameAnimation22smoothFrameTimeChangedEv(
+    QQuickFrameAnimation *self) {
+  self->smoothFrameTimeChanged();
+}
+
+//  void QQuickFrameAnimation::elapsedTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFrameAnimation18elapsedTimeChangedEv(
+    QQuickFrameAnimation *self) {
+  self->elapsedTimeChanged();
 }
 
 //  void QQuickFrameAnimation::setCurrentFrame(int frame)

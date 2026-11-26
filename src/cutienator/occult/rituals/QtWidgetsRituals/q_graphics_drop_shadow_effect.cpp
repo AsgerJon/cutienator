@@ -258,6 +258,25 @@ const QMetaObject *ritual_ZNK25QGraphicsDropShadowEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsDropShadowEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QGraphicsDropShadowEffect11qt_metacastEPKc(
+    QGraphicsDropShadowEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsDropShadowEffect::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QGraphicsDropShadowEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsDropShadowEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsDropShadowEffect::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -381,6 +400,30 @@ void ritual_ZN25QGraphicsDropShadowEffect8setColorERK6QColor(
     QGraphicsDropShadowEffect *self,
     const QColor *color) {
   self->setColor(*color);
+}
+
+//  void QGraphicsDropShadowEffect::offsetChanged(const QPointF &offset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QGraphicsDropShadowEffect13offsetChangedERK7QPointF(
+    QGraphicsDropShadowEffect *self,
+    const QPointF *offset) {
+  self->offsetChanged(*offset);
+}
+
+//  void QGraphicsDropShadowEffect::blurRadiusChanged(qreal blurRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QGraphicsDropShadowEffect17blurRadiusChangedEd(
+    QGraphicsDropShadowEffect *self,
+    qreal blurRadius) {
+  self->blurRadiusChanged(blurRadius);
+}
+
+//  void QGraphicsDropShadowEffect::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QGraphicsDropShadowEffect12colorChangedERK6QColor(
+    QGraphicsDropShadowEffect *self,
+    const QColor *color) {
+  self->colorChanged(*color);
 }
 
 //  void QGraphicsDropShadowEffect::draw(QPainter *painter)

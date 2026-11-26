@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemframe_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when"
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickStyleItemFrame10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickStyleItemFrameD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickStyleItemFrame10paintEventEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickStyleItemFrame17calculateGeometryEv": [
+      "address", "address"
+    ]
+  }
+}

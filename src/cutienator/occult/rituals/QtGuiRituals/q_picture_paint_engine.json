@@ -5,14 +5,42 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QPicturePaintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QPicturePaintEngine6d_funcEv": ["address", "address"],
     "ritual_ZN19QPicturePaintEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN19QPicturePaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QPicturePaintEngine3endEv": ["bool", "address"],
     "ritual_ZN19QPicturePaintEngine11updateStateERK17QPaintEngineState": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QPicturePaintEngine11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QPicturePaintEngine8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QPicturePaintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QPicturePaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QPicturePaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QPicturePaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QPicturePaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK19QPicturePaintEngine4typeEv": ["int", "address"],
     "ritual_take_QPicturePaintEngine": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZN19QPicturePaintEngine3endEv": ["bool", "address"],
     "ritual_own_ZNK19QPicturePaintEngine4typeEv": ["int", "address"]
   }
 }

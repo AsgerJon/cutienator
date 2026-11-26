@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtNfc/6.12.0/QtNfc/private/qndefaccessfsm_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtNfc/6.12.0/QtNfc/private/qndefaccessfsm_p.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN14QNdefAccessFsmD1Ev": ["nothing", "address"],
@@ -14,6 +14,8 @@
     "ritual_ZN14QNdefAccessFsm13writeMessagesERK5QListI12QNdefMessageE": [
       "int", "address", "address"
     ],
-    "ritual_take_QNdefAccessFsm": ["bool", "address", "chars", "address"]
+    "ritual_take_QNdefAccessFsm": ["bool", "address", "chars", "address"],
+    "ritual_ZN14QNdefAccessFsm10getCommandERNS_6ActionE": ["address", "address", "address"],
+    "ritual_ZN14QNdefAccessFsm10getMessageERNS_6ActionE": ["address", "address", "address"]
   }
 }

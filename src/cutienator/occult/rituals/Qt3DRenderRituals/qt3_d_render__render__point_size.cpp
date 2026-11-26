@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_PointSizeCall0)(const void *, const Qt3DRen
 class CuteQt3DRender_Render_PointSize : public Qt3DRender::Render::PointSize {
 public:
   using Qt3DRender::Render::PointSize::PointSize;
-  CuteQt3DRender_Render_PointSize(const Qt3DRender::Render::PointSize &other) : Qt3DRender::Render::PointSize(other) {}
+  CuteQt3DRender_Render_PointSize(const Qt3DRender::Render::PointSize & other) : Qt3DRender::Render::PointSize(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::PointSize::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::PointSize::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9PointSize16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::PointSize *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::PointSize::~PointSize()
 extern "C" Q_DECL_EXPORT

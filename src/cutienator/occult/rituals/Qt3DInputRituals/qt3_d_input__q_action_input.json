@@ -7,13 +7,40 @@
     "ritual_ZNK9Qt3DInput12QActionInput10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput12QActionInput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput12QActionInput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput12QActionInput2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput12QActionInputC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput12QActionInputD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput12QActionInput12sourceDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput12QActionInput7buttonsEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput12QActionInput15setSourceDeviceEPNS_23QAbstractPhysicalDeviceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput12QActionInput10setButtonsERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput12QActionInput19sourceDeviceChangedEPNS_23QAbstractPhysicalDeviceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput12QActionInput14buttonsChangedERK5QListIiE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN9Qt3DInput12QActionInput6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput12QActionInput6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DInput_QActionInput": [
       "bool", "address", "chars", "address"
-    ]
+    ],
+    "ritual_drop_Qt3DInput_QActionInput__QList_int": ["nothing", "address"]
   }
 }

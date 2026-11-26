@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QtFontStyle3KeyC1ERK7QString": ["address", "text"],
     "ritual_ZN11QtFontStyle3KeyC1Ev": ["address"],
     "ritual_ZN11QtFontStyle3KeyC1ERKS0_": ["address", "address"],
     "ritual_ZNK11QtFontStyle3KeyeqERKS0_": ["bool", "address", "address"],

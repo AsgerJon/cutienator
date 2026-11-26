@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickControl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickControl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickControl2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickControlC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN13QQuickControlD1Ev": ["nothing", "address"],
@@ -129,7 +135,65 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN13QQuickControl16resetBottomInsetEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl11fontChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl21availableWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl22availableHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl14paddingChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl17topPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl18leftPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl19rightPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl20bottomPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl14spacingChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl13localeChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl18focusReasonChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl15mirroredChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl18visualFocusChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl14hoveredChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl19hoverEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl19wheelEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl17backgroundChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl18contentItemChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl21baselineOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl24horizontalPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl22verticalPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl27implicitContentWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl28implicitContentHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl30implicitBackgroundWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl31implicitBackgroundHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickControl15topInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl16leftInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl17rightInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl18bottomInsetChangedEv": ["nothing", "address"],
     "ritual_ZNK13QQuickControl11defaultFontEv": ["address", "address"],
+    "ritual_ZN13QQuickControlC1ER20QQuickControlPrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QQuickControl10classBeginEv": ["nothing", "address"],
     "ritual_ZN13QQuickControl17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN13QQuickControl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [

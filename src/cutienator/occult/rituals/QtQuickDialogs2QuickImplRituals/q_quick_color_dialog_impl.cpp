@@ -10,12 +10,32 @@
 #include <QtGui/qcolor.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
+#include <QtCore/QSharedPointer>
 
 //  const QMetaObject *QQuickColorDialogImpl::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK21QQuickColorDialogImpl10metaObjectEv(
     const QQuickColorDialogImpl *self) {
   return self->metaObject();
+}
+
+//  void *QQuickColorDialogImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickColorDialogImpl11qt_metacastEPKc(
+    QQuickColorDialogImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickColorDialogImpl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickColorDialogImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickColorDialogImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickColorDialogImpl::tr(const char *s, const char *c, int n)
@@ -47,6 +67,23 @@ extern "C" Q_DECL_EXPORT
 QQuickColorDialogImplAttached *ritual_ZN21QQuickColorDialogImpl21qmlAttachedPropertiesEP7QObject(
     QObject *object) {
   return QQuickColorDialogImpl::qmlAttachedProperties(object);
+}
+
+//  QSharedPointer<QColorDialogOptions> QQuickColorDialogImpl::options()
+//      const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QColorDialogOptions> *ritual_ZNK21QQuickColorDialogImpl7optionsEv(
+    const QQuickColorDialogImpl *self) {
+  return new QSharedPointer<QColorDialogOptions>(self->options());
+}
+
+//  void QQuickColorDialogImpl::setOptions(const
+//      QSharedPointer<QColorDialogOptions> &options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickColorDialogImpl10setOptionsERK14QSharedPointerI19QColorDialogOptionsE(
+    QQuickColorDialogImpl *self,
+    const QSharedPointer<QColorDialogOptions> *options) {
+  self->setOptions(*options);
 }
 
 //  QColor QQuickColorDialogImpl::color() const
@@ -206,6 +243,21 @@ void ritual_ZN21QQuickColorDialogImpl16invokeEyeDropperEv(
   self->invokeEyeDropper();
 }
 
+//  void QQuickColorDialogImpl::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickColorDialogImpl12colorChangedERK6QColor(
+    QQuickColorDialogImpl *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QQuickColorDialogImpl::specChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickColorDialogImpl11specChangedEv(
+    QQuickColorDialogImpl *self) {
+  self->specChanged();
+}
+
 //  void QQuickColorDialogImpl::itemChange(QQuickItem::ItemChange change,
 //      const QQuickItem::ItemChangeData &data)
 extern "C" Q_DECL_EXPORT
@@ -238,4 +290,12 @@ void ritual_own_ZN21QQuickColorDialogImpl10itemChangeEN10QQuickItem10ItemChangeE
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->QQuickColorDialogImpl::itemChange(change, *data);
+}
+
+//  a QSharedPointer<QColorDialogOptions> a ritual of QQuickColorDialogImpl
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickColorDialogImpl__QSharedPointer_QColorDialogOptions(
+    QSharedPointer<QColorDialogOptions> *self) {
+  delete self;
 }

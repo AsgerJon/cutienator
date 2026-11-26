@@ -23,6 +23,9 @@
     "ritual_ZNK11QLottieRoot8endFrameEv": ["int", "address"],
     "ritual_ZNK11QLottieRoot9frameRateEv": ["int", "address"],
     "ritual_ZNK11QLottieRoot15precompositionsEv": ["address", "address"],
+    "ritual_ZN11QLottieRoot20resolvePrecompLayersEP11QLottieBaseP6QStackI7QStringE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_take_QLottieRoot": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QLottieRoot5cloneEv": ["address", "address"],
     "ritual_own_ZN11QLottieRoot16updatePropertiesEi": [

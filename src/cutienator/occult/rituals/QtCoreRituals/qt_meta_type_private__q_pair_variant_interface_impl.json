@@ -1,14 +1,42 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qmetatype.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qmetatype.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN17QtMetaTypePrivate25QPairVariantInterfaceImplC1Ev": [
       "address"
     ],
+    "ritual_ZNK17QtMetaTypePrivate25QPairVariantInterfaceImpl5firstEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QtMetaTypePrivate25QPairVariantInterfaceImpl6secondEPv": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QtMetaTypePrivate25QPairVariantInterfaceImplD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QtMetaTypePrivate25QPairVariantInterfaceImplC2ISt4pairIiiEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtMetaTypePrivate25QPairVariantInterfaceImplC2ISt4pairI7QStringiEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtMetaTypePrivate25QPairVariantInterfaceImplC2ISt4pairI7QString8QVariantEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtMetaTypePrivate25QPairVariantInterfaceImpl12getFirstImplISt4pairIiiEEEvPKPKvPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtMetaTypePrivate25QPairVariantInterfaceImpl12getFirstImplISt4pairI7QString8QVariantEEEvPKPKvPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtMetaTypePrivate25QPairVariantInterfaceImpl13getSecondImplISt4pairIiiEEEvPKPKvPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtMetaTypePrivate25QPairVariantInterfaceImpl13getSecondImplISt4pairI7QString8QVariantEEEvPKPKvPv": [
+      "nothing", "address", "address"
     ]
   }
 }

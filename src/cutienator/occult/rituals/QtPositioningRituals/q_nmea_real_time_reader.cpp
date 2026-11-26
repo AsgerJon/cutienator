@@ -30,6 +30,25 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 26, as local:qnmeapositioninfosource.cpp:QGeoPositionInfoPrivateNmea
+#if USE_POSITION_NMEA_PIMPL
+class QGeoPositionInfoPrivateNmea : public QGeoPositionInfoPrivate
+{
+public:
+    virtual ~QGeoPositionInfoPrivateNmea();
+
+    QList<QByteArray> nmeaSentences;
+};
+#endif  // USE_POSITION_NMEA_PIMPL
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 35, as local:qnmeapositioninfosource.cpp:QGeoPositionInfoPrivateNmea::~QGeoPositionInfoPrivateNmea
+#if USE_POSITION_NMEA_PIMPL
+inline QGeoPositionInfoPrivateNmea::~QGeoPositionInfoPrivateNmea()
+{
+
+}
+#endif  // USE_POSITION_NMEA_PIMPL
+
 //  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 628, as _ZN30QNmeaPositionInfoSourcePrivate15notifyNewUpdateEP16QGeoPositionInfob
 inline void QNmeaPositionInfoSourcePrivate::notifyNewUpdate(QGeoPositionInfo *update, bool hasFix)
 {
@@ -150,6 +169,19 @@ public:
     QNmeaRealTimeReader::readAvailableData();
   }
 };
+
+//  QNmeaRealTimeReader::~QNmeaRealTimeReader()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QNmeaRealTimeReaderD1Ev(QNmeaRealTimeReader *self) {
+  delete self;
+}
+
+//  void QNmeaRealTimeReader::readAvailableData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QNmeaRealTimeReader17readAvailableDataEv(
+    QNmeaRealTimeReader *self) {
+  self->readAvailableData();
+}
 
 //  void QNmeaRealTimeReader::notifyNewUpdate()
 extern "C" Q_DECL_EXPORT

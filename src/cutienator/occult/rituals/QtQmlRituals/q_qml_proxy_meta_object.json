@@ -5,8 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QQmlProxyMetaObjectC1EP7QObjectPK5QListINS_9ProxyDataEE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QQmlProxyMetaObjectD1Ev": ["nothing", "address"],
     "ritual_ZN19QQmlProxyMetaObject17extensionObjectIdEi": ["int", "int"],
+    "ritual_ZN19QQmlProxyMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv": [
+      "int", "address", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQmlProxyMetaObject19toDynamicMetaObjectEP7QObject": [
       "address", "address", "address"
     ],

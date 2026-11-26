@@ -798,6 +798,24 @@ const QMetaObject *ritual_ZNK14QQuickDropArea10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDropArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickDropArea11qt_metacastEPKc(
+    QQuickDropArea *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDropArea::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickDropArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDropArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDropArea::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickDropArea2trEPKcS1_i(
@@ -847,6 +865,54 @@ QQuickDropAreaDrag *ritual_ZN14QQuickDropArea4dragEv(QQuickDropArea *self) {
   return self->drag();
 }
 
+//  void QQuickDropArea::containsDragChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDropArea19containsDragChangedEv(QQuickDropArea *self) {
+  self->containsDragChanged();
+}
+
+//  void QQuickDropArea::keysChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDropArea11keysChangedEv(QQuickDropArea *self) {
+  self->keysChanged();
+}
+
+//  void QQuickDropArea::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDropArea13sourceChangedEv(QQuickDropArea *self) {
+  self->sourceChanged();
+}
+
+//  void QQuickDropArea::entered(QQuickDragEvent *drag)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDropArea7enteredEP15QQuickDragEvent(
+    QQuickDropArea *self,
+    QQuickDragEvent *drag) {
+  self->entered(drag);
+}
+
+//  void QQuickDropArea::exited()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDropArea6exitedEv(QQuickDropArea *self) {
+  self->exited();
+}
+
+//  void QQuickDropArea::positionChanged(QQuickDragEvent *drag)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDropArea15positionChangedEP15QQuickDragEvent(
+    QQuickDropArea *self,
+    QQuickDragEvent *drag) {
+  self->positionChanged(drag);
+}
+
+//  void QQuickDropArea::dropped(QQuickDragEvent *drop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDropArea7droppedEP15QQuickDragEvent(
+    QQuickDropArea *self,
+    QQuickDragEvent *drop) {
+  self->dropped(drop);
+}
+
 //  void QQuickDropArea::dragMoveEvent(QDragMoveEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickDropArea13dragMoveEventEP14QDragMoveEvent(
@@ -877,6 +943,20 @@ void ritual_ZN14QQuickDropArea9dropEventEP10QDropEvent(
     QQuickDropArea *self,
     QDropEvent *event) {
   self->dropEvent(event);
+}
+
+//  QQuickDropAreaPrivate *QQuickDropArea::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickDropAreaPrivate *ritual_ZN14QQuickDropArea6d_funcEv(
+    QQuickDropArea *self) {
+  return self->d_func();
+}
+
+//  const QQuickDropAreaPrivate *QQuickDropArea::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickDropAreaPrivate *ritual_ZNK14QQuickDropArea6d_funcEv(
+    const QQuickDropArea *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQuickDropArea, for the function named

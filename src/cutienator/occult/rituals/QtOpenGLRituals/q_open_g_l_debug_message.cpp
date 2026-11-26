@@ -20,10 +20,36 @@ QOpenGLDebugMessage *ritual_ZN19QOpenGLDebugMessageC1ERKS_(
   return new QOpenGLDebugMessage(*debugMessage);
 }
 
+//  QOpenGLDebugMessage &QOpenGLDebugMessage::operator=(const
+//      QOpenGLDebugMessage &debugMessage)
+extern "C" Q_DECL_EXPORT
+QOpenGLDebugMessage *ritual_ZN19QOpenGLDebugMessageaSERKS_(
+    QOpenGLDebugMessage *self,
+    const QOpenGLDebugMessage *debugMessage) {
+  return &(self->operator=(*debugMessage));
+}
+
+//  QOpenGLDebugMessage &QOpenGLDebugMessage::operator=(QOpenGLDebugMessage
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QOpenGLDebugMessage *ritual_ZN19QOpenGLDebugMessageaSEOS_(
+    QOpenGLDebugMessage *self,
+    QOpenGLDebugMessage *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QOpenGLDebugMessage::~QOpenGLDebugMessage()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QOpenGLDebugMessageD1Ev(QOpenGLDebugMessage *self) {
   delete self;
+}
+
+//  void QOpenGLDebugMessage::swap(QOpenGLDebugMessage &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QOpenGLDebugMessage4swapERS_(
+    QOpenGLDebugMessage *self,
+    QOpenGLDebugMessage *other) {
+  self->swap(*other);
 }
 
 //  Source QOpenGLDebugMessage::source() const
@@ -45,6 +71,13 @@ extern "C" Q_DECL_EXPORT
 QOpenGLDebugMessage::Severity ritual_ZNK19QOpenGLDebugMessage8severityEv(
     const QOpenGLDebugMessage *self) {
   return self->severity();
+}
+
+//  GLuint QOpenGLDebugMessage::id() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK19QOpenGLDebugMessage2idEv(
+    const QOpenGLDebugMessage *self) {
+  return self->id();
 }
 
 //  QString QOpenGLDebugMessage::message() const

@@ -10,7 +10,16 @@
       "address", "address", "address"
     ],
     "ritual_ZN16QGeoPositionInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN16QGeoPositionInfoC1EOS_": ["address", "address"],
+    "ritual_ZN16QGeoPositionInfoC1ER23QGeoPositionInfoPrivate": [
+      "address", "address"
+    ],
     "ritual_ZN16QGeoPositionInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN16QGeoPositionInfoaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QGeoPositionInfoaSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QGeoPositionInfo4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK16QGeoPositionInfoS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QGeoPositionInfoS1_": ["bool", "address", "address"],
     "ritual_ZNK16QGeoPositionInfo7isValidEv": ["bool", "address"],
@@ -42,6 +51,30 @@
       "address", "address", "address"
     ],
     "ritual_ZN16QGeoPositionInfo14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK16QGeoPositionInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR16QGeoPositionInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QGeoPositionInfo13dataStreamOutER11QDataStreamRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QGeoPositionInfo12dataStreamInER11QDataStreamRS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamN16QGeoPositionInfo9AttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZrsR11QDataStreamRN16QGeoPositionInfo9AttributeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QGeoPositionInfo13dataStreamOutER11QDataStreamNS_9AttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QGeoPositionInfo12dataStreamInER11QDataStreamRNS_9AttributeE": [
       "address", "address", "address"
     ]
   }

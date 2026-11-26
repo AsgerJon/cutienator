@@ -8,6 +8,86 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgrhiatlastexture_p.h>
+#include <QtCore/QVarLengthArray>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QtMath>
+#include <QtGui/QWindow>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtQuick/private/qsgtexture_p.h>
+#include <QtQuick/private/qsgcompressedtexture_p.h>
+#include <QtQuick/private/qsgcompressedatlastexture_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 363, as _ZN18QSGRhiAtlasTexture7TextureC1EPNS_5AtlasERK5QRectRK6QImage
+namespace QSGRhiAtlasTexture {
+inline Texture::Texture(Atlas *atlas, const QRect &textureRect, const QImage &image)
+    : TextureBase(atlas, textureRect)
+    , m_image(image)
+    , m_has_alpha(image.hasAlphaChannel())
+{
+    float w = atlas->size().width();
+    float h = atlas->size().height();
+    QRect nopad = atlasSubRectWithoutPadding();
+    m_texture_coords_rect = QRectF(nopad.x() / w,
+                                   nopad.y() / h,
+                                   nopad.width() / w,
+                                   nopad.height() / h);
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 201, as _ZN18QSGRhiAtlasTexture5Atlas15generateTextureEv
+namespace QSGRhiAtlasTexture {
+inline bool Atlas::generateTexture()
+{
+    m_texture = m_rhi->newTexture(m_format, m_size, 1, QRhiTexture::UsedAsTransferSource);
+    if (!m_texture)
+        return false;
+
+    if (!m_texture->create()) {
+        delete m_texture;
+        m_texture = nullptr;
+        return false;
+    }
+
+    return true;
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 324, as _ZN18QSGRhiAtlasTexture11TextureBaseC2EPNS_9AtlasBaseERK5QRect
+namespace QSGRhiAtlasTexture {
+inline TextureBase::TextureBase(AtlasBase *atlas, const QRect &textureRect)
+    : QSGTexture(*(new QSGTexturePrivate(this)))
+    , m_allocated_rect(textureRect)
+    , m_atlas(atlas)
+{
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 331, as _ZN18QSGRhiAtlasTexture11TextureBaseD2Ev
+namespace QSGRhiAtlasTexture {
+inline TextureBase::~TextureBase()
+{
+    m_atlas->remove(this);
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 185, as _ZN18QSGRhiAtlasTexture5AtlasD1Ev
+namespace QSGRhiAtlasTexture {
+inline Atlas::~Atlas()
+{
+}
+}  // namespace QSGRhiAtlasTexture
+//  -----------------------------------------------------------------------
 
 //  A QSGRhiAtlasTexture::Atlas that Python can take functions over in. Every QSGRhiAtlasTexture::Atlas
 //  Python makes is one. Each function below asks the Python
@@ -211,6 +291,30 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  QSGRhiAtlasTexture::Atlas::~Atlas()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSGRhiAtlasTexture5AtlasD1Ev(
+    QSGRhiAtlasTexture::Atlas *self) {
+  delete self;
+}
+
+//  bool QSGRhiAtlasTexture::Atlas::generateTexture()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QSGRhiAtlasTexture5Atlas15generateTextureEv(
+    QSGRhiAtlasTexture::Atlas *self) {
+  return self->generateTexture();
+}
+
+//  void QSGRhiAtlasTexture::Atlas::enqueueTextureUpload(TextureBase *t,
+//      QRhiResourceUpdateBatch *resourceUpdates)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSGRhiAtlasTexture5Atlas20enqueueTextureUploadEPNS_11TextureBaseEP23QRhiResourceUpdateBatch(
+    QSGRhiAtlasTexture::Atlas *self,
+    QSGRhiAtlasTexture::TextureBase *t,
+    QRhiResourceUpdateBatch *resourceUpdates) {
+  self->enqueueTextureUpload(t, resourceUpdates);
+}
+
 //  QRhiTexture::Format QSGRhiAtlasTexture::Atlas::format() const
 extern "C" Q_DECL_EXPORT
 QRhiTexture::Format ritual_ZNK18QSGRhiAtlasTexture5Atlas6formatEv(
@@ -226,4 +330,11 @@ bool ritual_take_QSGRhiAtlasTexture_Atlas(
     const char *key,
     void *call) {
   return static_cast<CuteQSGRhiAtlasTexture_Atlas *>(self)->take(key, call);
+}
+
+//  bool QSGRhiAtlasTexture::Atlas::generateTexture()
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN18QSGRhiAtlasTexture5Atlas15generateTextureEv(
+    QSGRhiAtlasTexture::Atlas *self) {
+  return self->QSGRhiAtlasTexture::Atlas::generateTexture();
 }

@@ -69,7 +69,7 @@ typedef void (*CuteQQmlUnbindableToUnbindablePropertyBindingCall1)(const void *,
 class CuteQQmlUnbindableToUnbindablePropertyBinding : public QQmlUnbindableToUnbindablePropertyBinding {
 public:
   using QQmlUnbindableToUnbindablePropertyBinding::QQmlUnbindableToUnbindablePropertyBinding;
-  CuteQQmlUnbindableToUnbindablePropertyBinding(const QQmlUnbindableToUnbindablePropertyBinding &other) : QQmlUnbindableToUnbindablePropertyBinding(other) {}
+  CuteQQmlUnbindableToUnbindablePropertyBinding(const QQmlUnbindableToUnbindablePropertyBinding & other) : QQmlUnbindableToUnbindablePropertyBinding(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

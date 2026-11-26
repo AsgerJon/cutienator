@@ -28,6 +28,16 @@ inline Q3DLightPrivate::Q3DLightPrivate(Q3DLight *q) :
 inline Q3DLightPrivate::~Q3DLightPrivate()
 {
 }
+
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dlight.cpp, line 90, as _ZN15Q3DLightPrivate4syncER8Q3DLight
+inline void Q3DLightPrivate::sync(Q3DLight &other)
+{
+    if (q_ptr->isDirty()) {
+        other.setPosition(q_ptr->position());
+        other.setAutoPosition(q_ptr->isAutoPosition());
+        q_ptr->setDirty(false);
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  Q3DLightPrivate::Q3DLightPrivate(Q3DLight *q)
@@ -40,4 +50,12 @@ Q3DLightPrivate *ritual_ZN15Q3DLightPrivateC1EP8Q3DLight(Q3DLight *q) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15Q3DLightPrivateD1Ev(Q3DLightPrivate *self) {
   delete self;
+}
+
+//  void Q3DLightPrivate::sync(Q3DLight &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15Q3DLightPrivate4syncER8Q3DLight(
+    Q3DLightPrivate *self,
+    Q3DLight *other) {
+  self->sync(*other);
 }

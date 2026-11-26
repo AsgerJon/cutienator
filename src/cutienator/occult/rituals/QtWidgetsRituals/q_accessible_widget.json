@@ -17,6 +17,9 @@
     "ritual_ZNK17QAccessibleWidget12indexOfChildEPK20QAccessibleInterface": [
       "int", "address", "address"
     ],
+    "ritual_ZNK17QAccessibleWidget9relationsE6QFlagsIN11QAccessible12RelationFlagEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK17QAccessibleWidget10focusChildEv": ["address", "address"],
     "ritual_ZNK17QAccessibleWidget4rectEv": ["address", "address"],
     "ritual_ZNK17QAccessibleWidget6parentEv": ["address", "address"],
@@ -31,6 +34,9 @@
     ],
     "ritual_ZNK17QAccessibleWidget15backgroundColorEv": [
       "address", "address"
+    ],
+    "ritual_ZN17QAccessibleWidget14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
     ],
     "ritual_ZNK17QAccessibleWidget11actionNamesEv": ["address", "address"],
     "ritual_ZN17QAccessibleWidget8doActionERK7QString": [
@@ -74,8 +80,14 @@
     "ritual_own_ZNK17QAccessibleWidget15backgroundColorEv": [
       "address", "address"
     ],
+    "ritual_own_ZN17QAccessibleWidget14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_own_ZN17QAccessibleWidget8doActionERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_drop_QAccessibleWidget__QList_std_pair_QAccessibleInterface_QAccessible_Relation": [
+      "nothing", "address"
     ]
   }
 }

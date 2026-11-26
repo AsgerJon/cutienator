@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZNK6QtCbor8ByteData4byteEv": ["chars", "address"],
+    "ritual_ZN6QtCbor8ByteData4byteEv": ["address", "address"],
     "ritual_ZNK6QtCbor8ByteData5utf16Ev": ["address", "address"],
     "ritual_ZN6QtCbor8ByteData5utf16Ev": ["address", "address"],
     "ritual_ZNK6QtCbor8ByteData11toByteArrayEv": ["address", "address"],
@@ -13,8 +14,10 @@
     "ritual_ZNK6QtCbor8ByteData12toUtf8StringEv": ["text", "address"],
     "ritual_ZNK6QtCbor8ByteData15asByteArrayViewEv": ["address", "address"],
     "ritual_ZNK6QtCbor8ByteData8asLatin1Ev": ["address", "address"],
+    "ritual_ZNK6QtCbor8ByteData16asUtf8StringViewEv": ["address", "address"],
     "ritual_ZNK6QtCbor8ByteData12asStringViewEv": ["text", "address"],
     "ritual_ZNK6QtCbor8ByteData12asQStringRawEv": ["text", "address"],
-    "ritual_ZN6QtCbor8ByteDataD1Ev": ["nothing", "address"]
+    "ritual_ZN6QtCbor8ByteDataD1Ev": ["nothing", "address"],
+    "ritual_drop_QtCbor_ByteData__QUtf8StringView": ["nothing", "address"]
   }
 }

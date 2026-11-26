@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK13QCustom3DItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCustom3DItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QCustom3DItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QCustom3DItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QCustom3DItem6d_funcEv": ["address", "address"],
     "ritual_ZNK13QCustom3DItem6d_funcEv": ["address", "address"],
@@ -60,6 +66,40 @@
     ],
     "ritual_ZN13QCustom3DItem15setTextureImageERK6QImage": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItem15meshFileChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QCustom3DItem18textureFileChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QCustom3DItem15positionChangedE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItem23positionAbsoluteChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QCustom3DItem14scalingChangedE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItem15rotationChangedERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItem23rotationAbsoluteChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QCustom3DItem14visibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QCustom3DItem20shadowCastingChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QCustom3DItem22scalingAbsoluteChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QCustom3DItem10needUpdateEv": ["nothing", "address"],
+    "ritual_ZN13QCustom3DItemC1ER20QCustom3DItemPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QCustom3DItem": ["bool", "address", "chars", "address"],
     "ritual_list_make_QCustom3DItem_ptr": ["address"],

@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN8QQmlTypeC1Ev": ["address"],
     "ritual_ZN8QQmlTypeC1ERKS_": ["address", "address"],
+    "ritual_ZN8QQmlTypeC1EOS_": ["address", "address"],
+    "ritual_ZN8QQmlTypeaSERKS_": ["address", "address", "address"],
+    "ritual_ZN8QQmlTypeaSEOS_": ["address", "address", "address"],
     "ritual_ZN8QQmlTypeC1EPK15QQmlTypePrivate": ["address", "address"],
     "ritual_ZN8QQmlTypeD1Ev": ["nothing", "address"],
     "ritual_ZNK8QQmlType7isValidEv": ["bool", "address"],
@@ -21,12 +24,18 @@
     "ritual_ZNK8QQmlType18availableInVersionERK16QHashedStringRef13QTypeRevision": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZNK8QQmlType23createValueTypeFunctionEv": ["address", "address"],
     "ritual_ZNK8QQmlType21canConstructValueTypeEv": ["bool", "address"],
     "ritual_ZNK8QQmlType20canPopulateValueTypeEv": ["bool", "address"],
     "ritual_ZNK8QQmlType6createEv": ["address", "address"],
+    "ritual_ZNK8QQmlType6createEPPvm": [
+      "address", "address", "address", "size_t"
+    ],
     "ritual_ZNK8QQmlType18createWithQQmlDataEv": ["address", "address"],
+    "ritual_ZNK8QQmlType14createFunctionEv": ["address", "address"],
     "ritual_ZNK8QQmlType12customParserEv": ["address", "address"],
     "ritual_ZNK8QQmlType11isCreatableEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType17extensionFunctionEv": ["address", "address"],
     "ritual_ZNK8QQmlType19extensionMetaObjectEv": ["address", "address"],
     "ritual_ZNK8QQmlType14isExtendedTypeEv": ["bool", "address"],
     "ritual_ZNK8QQmlType16noCreationReasonEv": ["text", "address"],
@@ -48,6 +57,9 @@
     "ritual_ZNK8QQmlType28containsRevisionedAttributesEv": [
       "bool", "address"
     ],
+    "ritual_ZNK8QQmlType26attachedPropertiesFunctionEP14QQmlTypeLoader": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK8QQmlType22attachedPropertiesTypeEP14QQmlTypeLoader": [
       "address", "address", "address"
     ],
@@ -60,6 +72,7 @@
     "ritual_ZNK8QQmlType13finalizerCastEv": ["int", "address"],
     "ritual_ZNK8QQmlType5indexEv": ["int", "address"],
     "ritual_ZNK8QQmlType21isInlineComponentTypeEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType21singletonInstanceInfoEv": ["address", "address"],
     "ritual_ZNK8QQmlType9sourceUrlEv": ["address", "address"],
     "ritual_ZNK8QQmlType9enumValueEP14QQmlTypeLoaderRK16QHashedStringRefPb": [
       "int", "address", "address", "address", "address"
@@ -129,6 +142,9 @@
     "ritual_list_add_QQmlType": ["nothing", "address", "address"],
     "ritual_list_size_QQmlType": ["long long", "address"],
     "ritual_list_at_QQmlType": ["address", "address", "long long"],
-    "ritual_list_drop_QQmlType": ["nothing", "address"]
+    "ritual_list_drop_QQmlType": ["nothing", "address"],
+    "ritual_drop_QQmlType__QQmlType_SingletonInstanceInfo_ConstPtr": [
+      "nothing", "address"
+    ]
   }
 }

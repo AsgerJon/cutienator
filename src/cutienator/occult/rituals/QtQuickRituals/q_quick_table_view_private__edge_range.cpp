@@ -35,6 +35,13 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 1634, as _ZN22QQuickTableViewPrivate9EdgeRangeC1Ev
+inline QQuickTableViewPrivate::EdgeRange::EdgeRange()
+    : startIndex(kEdgeIndexNotSet)
+    , endIndex(kEdgeIndexNotSet)
+    , size(0)
+{}
+
 //  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 1640, as _ZN22QQuickTableViewPrivate9EdgeRange13containsIndexEN2Qt4EdgeEi
 inline bool QQuickTableViewPrivate::EdgeRange::containsIndex(Qt::Edge edge, int index)
 {
@@ -57,6 +64,12 @@ inline bool QQuickTableViewPrivate::EdgeRange::containsIndex(Qt::Edge edge, int 
     return index >= s && index <= e;
 }
 //  -----------------------------------------------------------------------
+
+//  QQuickTableViewPrivate::EdgeRange::EdgeRange()
+extern "C" Q_DECL_EXPORT
+QQuickTableViewPrivate::EdgeRange *ritual_ZN22QQuickTableViewPrivate9EdgeRangeC1Ev() {
+  return new QQuickTableViewPrivate::EdgeRange();
+}
 
 //  bool QQuickTableViewPrivate::EdgeRange::containsIndex(Qt::Edge edge, int
 //      index)

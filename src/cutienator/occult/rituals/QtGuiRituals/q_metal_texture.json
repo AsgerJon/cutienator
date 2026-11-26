@@ -5,6 +5,12 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN13QMetalTexture7destroyEv": ["nothing", "address"],
+    "ritual_ZN13QMetalTexture6createEv": ["bool", "address"],
+    "ritual_ZN13QMetalTexture10createFromEN11QRhiTexture13NativeTextureE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QMetalTexture13nativeTextureEv": ["address", "address"],
     "ritual_take_QMetalTexture": ["bool", "address", "chars", "address"]
   }
 }

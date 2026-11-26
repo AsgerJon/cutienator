@@ -8,10 +8,38 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 
+//  qdesigner_internal::DesignerMetaEnum::DesignerMetaEnum(const QString
+//      &name, const QString &scope, const QString &separator)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::DesignerMetaEnum *ritual_ZN18qdesigner_internal16DesignerMetaEnumC1ERK7QStringS3_S3_(
+    const QString *name,
+    const QString *scope,
+    const QString *separator) {
+  return new qdesigner_internal::DesignerMetaEnum(*name, *scope, *separator);
+}
+
 //  qdesigner_internal::DesignerMetaEnum::DesignerMetaEnum()
 extern "C" Q_DECL_EXPORT
 qdesigner_internal::DesignerMetaEnum *ritual_ZN18qdesigner_internal16DesignerMetaEnumC1Ev() {
   return new qdesigner_internal::DesignerMetaEnum();
+}
+
+//  QString qdesigner_internal::DesignerMetaEnum::messageToStringFailed(int
+//      value) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal16DesignerMetaEnum21messageToStringFailedEi(
+    const qdesigner_internal::DesignerMetaEnum *self,
+    int value) {
+  return new QString(self->messageToStringFailed(value));
+}
+
+//  QString qdesigner_internal::DesignerMetaEnum::messageParseFailed(const
+//      QString &s) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal16DesignerMetaEnum18messageParseFailedERK7QString(
+    const qdesigner_internal::DesignerMetaEnum *self,
+    const QString *s) {
+  return new QString(self->messageParseFailed(*s));
 }
 
 //  int qdesigner_internal::DesignerMetaEnum::parseEnum(const QString &s,

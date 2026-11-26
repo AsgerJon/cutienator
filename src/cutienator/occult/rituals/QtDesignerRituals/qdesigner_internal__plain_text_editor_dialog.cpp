@@ -9,6 +9,7 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/plaintexteditor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtGui/qfont.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -1025,6 +1026,27 @@ const QMetaObject *ritual_ZNK18qdesigner_internal21PlainTextEditorDialog10metaOb
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::PlainTextEditorDialog::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal21PlainTextEditorDialog11qt_metacastEPKc(
+    qdesigner_internal::PlainTextEditorDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      qdesigner_internal::PlainTextEditorDialog::qt_metacall(QMetaObject::C
+//      all a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal21PlainTextEditorDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::PlainTextEditorDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::PlainTextEditorDialog::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -1033,6 +1055,54 @@ QString *ritual_ZN18qdesigner_internal21PlainTextEditorDialog2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::PlainTextEditorDialog::tr(s, c, n));
+}
+
+//  qdesigner_internal::PlainTextEditorDialog::PlainTextEditorDialog(QDesigne
+//      rFormEditorInterface *core, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::PlainTextEditorDialog *ritual_ZN18qdesigner_internal21PlainTextEditorDialogC1EP28QDesignerFormEditorInterfaceP7QWidget(
+    QDesignerFormEditorInterface *core,
+    QWidget *parent) {
+  return new Cuteqdesigner_internal_PlainTextEditorDialog(core, parent);
+}
+
+//  qdesigner_internal::PlainTextEditorDialog::~PlainTextEditorDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal21PlainTextEditorDialogD1Ev(
+    qdesigner_internal::PlainTextEditorDialog *self) {
+  delete self;
+}
+
+//  int qdesigner_internal::PlainTextEditorDialog::showDialog()
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal21PlainTextEditorDialog10showDialogEv(
+    qdesigner_internal::PlainTextEditorDialog *self) {
+  return self->showDialog();
+}
+
+//  void qdesigner_internal::PlainTextEditorDialog::setDefaultFont(const
+//      QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal21PlainTextEditorDialog14setDefaultFontERK5QFont(
+    qdesigner_internal::PlainTextEditorDialog *self,
+    const QFont *font) {
+  self->setDefaultFont(*font);
+}
+
+//  void qdesigner_internal::PlainTextEditorDialog::setText(const QString
+//      &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal21PlainTextEditorDialog7setTextERK7QString(
+    qdesigner_internal::PlainTextEditorDialog *self,
+    const QString *text) {
+  self->setText(*text);
+}
+
+//  QString qdesigner_internal::PlainTextEditorDialog::text() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal21PlainTextEditorDialog4textEv(
+    const qdesigner_internal::PlainTextEditorDialog *self) {
+  return new QString(self->text());
 }
 
 //  a Python function taken by a

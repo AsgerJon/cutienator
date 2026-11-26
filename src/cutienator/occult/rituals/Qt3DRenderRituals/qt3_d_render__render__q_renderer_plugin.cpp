@@ -202,6 +202,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render15QRendererPlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::QRendererPlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render15QRendererPlugin11qt_metacastEPKc(
+    Qt3DRender::Render::QRendererPlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Render::QRendererPlugin::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render15QRendererPlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::QRendererPlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::QRendererPlugin::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -210,6 +229,20 @@ QString *ritual_ZN10Qt3DRender6Render15QRendererPlugin2trEPKcS3_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::Render::QRendererPlugin::tr(s, c, n));
+}
+
+//  Qt3DRender::Render::QRendererPlugin::QRendererPlugin(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::QRendererPlugin *ritual_ZN10Qt3DRender6Render15QRendererPluginC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_QRendererPlugin(parent);
+}
+
+//  Qt3DRender::Render::QRendererPlugin::~QRendererPlugin()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15QRendererPluginD1Ev(
+    Qt3DRender::Render::QRendererPlugin *self) {
+  delete self;
 }
 
 //  AbstractRenderer *Qt3DRender::Render::QRendererPlugin::create(const

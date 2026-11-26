@@ -8,7 +8,40 @@
     "ritual_ZN12QSampleCache8instanceEv": ["address"],
     "ritual_ZN12QSampleCacheC1EP7QObject": ["address", "address"],
     "ritual_ZN12QSampleCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN12QSampleCache19requestSampleFutureERK4QUrlSt8optionalIiES3_INS_16SampleSourceTypeEE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK12QSampleCache8isCachedERK4QUrlSt8optionalIiE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12QSampleCache10loadSampleE5QSpanIKcLm18446744073709551615EE": [
+      "address", "address"
+    ],
+    "ritual_ZN12QSampleCache20loadSampleViaDecoderESt7variantIJ4QUrl10QByteArrayEE": [
+      "address", "address"
+    ],
+    "ritual_ZN12QSampleCache25loadSampleAsyncViaDecoderE10QByteArray": [
+      "address", "address"
+    ],
     "ritual_ZN12QSampleCache10threadPoolEv": ["address", "address"],
-    "ritual_take_QSampleCache": ["bool", "address", "chars", "address"]
+    "ritual_ZN12QSampleCache24removeUnreferencedSampleERK4QUrlSt8optionalIN19QtMultimediaPrivate10SampleRateEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QSampleCache10loadSampleERK4QUrlSt8optionalINS_16SampleSourceTypeEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QSampleCache15loadSampleAsyncERK4QUrlSt8optionalINS_16SampleSourceTypeEE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_take_QSampleCache": ["bool", "address", "chars", "address"],
+    "ritual_drop_QSampleCache__QFuture_SharedSamplePtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSampleCache__QSampleCache_SampleLoadResult": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSampleCache__QFuture_QSampleCache_SampleLoadResult": [
+      "nothing", "address"
+    ]
   }
 }

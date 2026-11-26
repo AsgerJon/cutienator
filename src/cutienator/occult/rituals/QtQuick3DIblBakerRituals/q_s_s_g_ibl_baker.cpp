@@ -7,6 +7,7 @@
 #include <QtQuick3DIblBaker/6.12.0/QtQuick3DIblBaker/private/qssgiblbaker_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qdir.h>
 #include <QtCore/qlist.h>
 
 //  const QStringList QSSGIblBaker::inputExtensions() const
@@ -21,6 +22,17 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK12QSSGIblBaker15outputExtensionEv(
     const QSSGIblBaker *self) {
   return new QString(self->outputExtension());
+}
+
+//  const QString QSSGIblBaker::import(const QString &sourceFile, const QDir
+//      &savePath, QStringList *generatedFiles)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN12QSSGIblBaker6importERK7QStringRK4QDirP5QListIS0_E(
+    QSSGIblBaker *self,
+    const QString *sourceFile,
+    const QDir *savePath,
+    QStringList *generatedFiles) {
+  return new QString(self->import(*sourceFile, *savePath, generatedFiles));
 }
 
 //  QSSGIblBaker::~QSSGIblBaker()

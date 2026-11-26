@@ -8,6 +8,9 @@
     "ritual_ZN25QCanvasCustomBrushPrivateC1Ev": ["address"],
     "ritual_ZN25QCanvasCustomBrushPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN25QCanvasCustomBrushPrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK25QCanvasCustomBrushPrivate6equalsERK19QCanvasBrushPrivate": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK25QCanvasCustomBrushPrivate11createPaintEP14QCanvasPainter": [
       "address", "address", "address"
     ],
@@ -15,6 +18,9 @@
       "address", "address"
     ],
     "ritual_ZN25QCanvasCustomBrushPrivate3getEPK18QCanvasCustomBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasCustomBrushPrivate3getER18QCanvasCustomBrush": [
       "address", "address"
     ],
     "ritual_ZN25QCanvasCustomBrushPrivate3getERK18QCanvasCustomBrush": [

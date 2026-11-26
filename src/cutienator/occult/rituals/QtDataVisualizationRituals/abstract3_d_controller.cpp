@@ -8,6 +8,7 @@
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/abstract3dcontroller_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
 #include <QtDataVisualization/qabstract3dseries.h>
 #include <QtDataVisualization/qabstract3daxis.h>
 #include <QtDataVisualization/qabstract3dinputhandler.h>
@@ -1109,6 +1110,25 @@ const QMetaObject *ritual_ZNK20Abstract3DController10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Abstract3DController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20Abstract3DController11qt_metacastEPKc(
+    Abstract3DController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Abstract3DController::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20Abstract3DController11qt_metacallEN11QMetaObject4CallEiPPv(
+    Abstract3DController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Abstract3DController::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20Abstract3DController2trEPKcS1_i(
@@ -1116,6 +1136,16 @@ QString *ritual_ZN20Abstract3DController2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(Abstract3DController::tr(s, c, n));
+}
+
+//  Abstract3DController::Abstract3DController(QRect initialViewport,
+//      Q3DScene *scene, QObject *parent)
+extern "C" Q_DECL_EXPORT
+Abstract3DController *ritual_ZN20Abstract3DControllerC1E5QRectP8Q3DSceneP7QObject(
+    const QRect *initialViewport,
+    Q3DScene *scene,
+    QObject *parent) {
+  return new CuteAbstract3DController(*initialViewport, scene, parent);
 }
 
 //  Abstract3DController::~Abstract3DController()
@@ -2161,6 +2191,190 @@ void ritual_ZN20Abstract3DController16updateCustomItemEv(
   self->updateCustomItem();
 }
 
+//  void Abstract3DController::shadowQualityChanged(QAbstract3DGraph::ShadowQ
+//      uality quality)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController20shadowQualityChangedEN16QAbstract3DGraph13ShadowQualityE(
+    Abstract3DController *self,
+    QAbstract3DGraph::ShadowQuality quality) {
+  self->shadowQualityChanged(quality);
+}
+
+//  void
+//      Abstract3DController::activeInputHandlerChanged(QAbstract3DInputHandl
+//      er *inputHandler)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController25activeInputHandlerChangedEP23QAbstract3DInputHandler(
+    Abstract3DController *self,
+    QAbstract3DInputHandler *inputHandler) {
+  self->activeInputHandlerChanged(inputHandler);
+}
+
+//  void Abstract3DController::activeThemeChanged(Q3DTheme *activeTheme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController18activeThemeChangedEP8Q3DTheme(
+    Abstract3DController *self,
+    Q3DTheme *activeTheme) {
+  self->activeThemeChanged(activeTheme);
+}
+
+//  void Abstract3DController::selectionModeChanged(QAbstract3DGraph::Selecti
+//      onFlags mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController20selectionModeChangedE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE(
+    Abstract3DController *self,
+    int mode) {
+  self->selectionModeChanged(
+      QFlags<QAbstract3DGraph::SelectionFlag>::fromInt(mode));
+}
+
+//  void Abstract3DController::needRender()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController10needRenderEv(
+    Abstract3DController *self) {
+  self->needRender();
+}
+
+//  void Abstract3DController::axisXChanged(QAbstract3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController12axisXChangedEP15QAbstract3DAxis(
+    Abstract3DController *self,
+    QAbstract3DAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void Abstract3DController::axisYChanged(QAbstract3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController12axisYChangedEP15QAbstract3DAxis(
+    Abstract3DController *self,
+    QAbstract3DAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void Abstract3DController::axisZChanged(QAbstract3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController12axisZChangedEP15QAbstract3DAxis(
+    Abstract3DController *self,
+    QAbstract3DAxis *axis) {
+  self->axisZChanged(axis);
+}
+
+//  void Abstract3DController::elementSelected(QAbstract3DGraph::ElementType
+//      type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController15elementSelectedEN16QAbstract3DGraph11ElementTypeE(
+    Abstract3DController *self,
+    QAbstract3DGraph::ElementType type) {
+  self->elementSelected(type);
+}
+
+//  void Abstract3DController::measureFpsChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController17measureFpsChangedEb(
+    Abstract3DController *self,
+    bool enabled) {
+  self->measureFpsChanged(enabled);
+}
+
+//  void Abstract3DController::currentFpsChanged(qreal fps)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController17currentFpsChangedEd(
+    Abstract3DController *self,
+    qreal fps) {
+  self->currentFpsChanged(fps);
+}
+
+//  void Abstract3DController::orthoProjectionChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController22orthoProjectionChangedEb(
+    Abstract3DController *self,
+    bool enabled) {
+  self->orthoProjectionChanged(enabled);
+}
+
+//  void Abstract3DController::aspectRatioChanged(qreal ratio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController18aspectRatioChangedEd(
+    Abstract3DController *self,
+    qreal ratio) {
+  self->aspectRatioChanged(ratio);
+}
+
+//  void Abstract3DController::horizontalAspectRatioChanged(qreal ratio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController28horizontalAspectRatioChangedEd(
+    Abstract3DController *self,
+    qreal ratio) {
+  self->horizontalAspectRatioChanged(ratio);
+}
+
+//  void Abstract3DController::optimizationHintsChanged(QAbstract3DGraph::Opt
+//      imizationHints hints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController24optimizationHintsChangedE6QFlagsIN16QAbstract3DGraph16OptimizationHintEE(
+    Abstract3DController *self,
+    int hints) {
+  self->optimizationHintsChanged(
+      QFlags<QAbstract3DGraph::OptimizationHint>::fromInt(hints));
+}
+
+//  void Abstract3DController::polarChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController12polarChangedEb(
+    Abstract3DController *self,
+    bool enabled) {
+  self->polarChanged(enabled);
+}
+
+//  void Abstract3DController::radialLabelOffsetChanged(float offset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController24radialLabelOffsetChangedEf(
+    Abstract3DController *self,
+    float offset) {
+  self->radialLabelOffsetChanged(offset);
+}
+
+//  void Abstract3DController::reflectionChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController17reflectionChangedEb(
+    Abstract3DController *self,
+    bool enabled) {
+  self->reflectionChanged(enabled);
+}
+
+//  void Abstract3DController::reflectivityChanged(qreal reflectivity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController19reflectivityChangedEd(
+    Abstract3DController *self,
+    qreal reflectivity) {
+  self->reflectivityChanged(reflectivity);
+}
+
+//  void Abstract3DController::localeChanged(const QLocale &locale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController13localeChangedERK7QLocale(
+    Abstract3DController *self,
+    const QLocale *locale) {
+  self->localeChanged(*locale);
+}
+
+//  void Abstract3DController::queriedGraphPositionChanged(const QVector3D
+//      &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController27queriedGraphPositionChangedERK9QVector3D(
+    Abstract3DController *self,
+    const QVector3D *data) {
+  self->queriedGraphPositionChanged(*data);
+}
+
+//  void Abstract3DController::marginChanged(qreal margin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController13marginChangedEd(
+    Abstract3DController *self,
+    qreal margin) {
+  self->marginChanged(margin);
+}
+
 //  QAbstract3DAxis
 //      *Abstract3DController::createDefaultAxis(QAbstract3DAxis::AxisOrienta
 //      tion orientation)
@@ -2190,6 +2404,17 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20Abstract3DController31startRecordingRemovesAndInsertsEv(
     Abstract3DController *self) {
   self->startRecordingRemovesAndInserts();
+}
+
+//  void Abstract3DController::setAxisHelper(QAbstract3DAxis::AxisOrientation
+//      orientation, QAbstract3DAxis *axis, QAbstract3DAxis **axisPtr)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Abstract3DController13setAxisHelperEN15QAbstract3DAxis15AxisOrientationEPS0_PS2_(
+    Abstract3DController *self,
+    QAbstract3DAxis::AxisOrientation orientation,
+    QAbstract3DAxis *axis,
+    QAbstract3DAxis **axisPtr) {
+  self->setAxisHelper(orientation, axis, axisPtr);
 }
 
 //  a Python function taken by a CuteAbstract3DController, for the function

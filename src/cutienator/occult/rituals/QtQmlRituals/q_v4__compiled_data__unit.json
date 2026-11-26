@@ -17,6 +17,18 @@
     "ritual_ZNK3QV412CompiledData4Unit16stringAtInternalEj": [
       "text", "address", "unsigned int"
     ],
+    "ritual_ZNK3QV412CompiledData4Unit19functionOffsetTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit16classOffsetTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit25templateObjectOffsetTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit16blockOffsetTableEv": [
+      "address", "address"
+    ],
     "ritual_ZNK3QV412CompiledData4Unit10functionAtEi": [
       "address", "address", "int"
     ],
@@ -35,10 +47,17 @@
     "ritual_ZNK3QV412CompiledData4Unit8regexpAtEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK3QV412CompiledData4Unit9constantsEv": ["address", "address"],
     "ritual_ZNK3QV412CompiledData4Unit9jsClassAtEiPi": [
       "address", "address", "int", "address"
     ],
     "ritual_ZNK3QV412CompiledData4Unit12translationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit23translationContextIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV412CompiledData4Unit23translationContextIndexEv": [
       "address", "address"
     ],
     "ritual_ZNK3QV412CompiledData4Unit16importEntryTableEv": [
@@ -52,6 +71,12 @@
     ],
     "ritual_ZNK3QV412CompiledData4Unit20starExportEntryTableEv": [
       "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit18moduleRequestTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit12verifyHeaderE9QDateTimeP7QString": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZN3QV412CompiledData4UnitD1Ev": ["nothing", "address"]
   }

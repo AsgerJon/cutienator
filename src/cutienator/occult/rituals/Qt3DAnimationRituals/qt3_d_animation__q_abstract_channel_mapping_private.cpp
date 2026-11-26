@@ -7,6 +7,35 @@
 #include <Qt3DAnimation/6.12.0/Qt3DAnimation/private/qabstractchannelmapping_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DAnimation/qabstractchannelmapping.h>
+#include <Qt3DAnimation/private/qabstractchannelmapping_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/animation/frontend/qabstractchannelmapping.cpp, line 11, as _ZN13Qt3DAnimation30QAbstractChannelMappingPrivateC1Ev
+namespace Qt3DAnimation {
+inline QAbstractChannelMappingPrivate::QAbstractChannelMappingPrivate()
+    : Qt3DCore::QNodePrivate()
+    , m_mappingType(ChannelMapping)
+{
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qabstractchannelmapping.cpp, line 18, as _ZN13Qt3DAnimation30QAbstractChannelMappingPrivate3getEPKNS_23QAbstractChannelMappingE
+namespace Qt3DAnimation {
+inline const QAbstractChannelMappingPrivate *QAbstractChannelMappingPrivate::get(const QAbstractChannelMapping *q)
+{
+    return q->d_func();
+}
+}  // namespace Qt3DAnimation
+//  -----------------------------------------------------------------------
 
 //  A Qt3DAnimation::QAbstractChannelMappingPrivate that Python can take functions over in. Every Qt3DAnimation::QAbstractChannelMappingPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +81,22 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DAnimation::QAbstractChannelMappingPrivate::QAbstractChannelMappingPri
+//      vate()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractChannelMappingPrivate *ritual_ZN13Qt3DAnimation30QAbstractChannelMappingPrivateC1Ev() {
+  return new CuteQt3DAnimation_QAbstractChannelMappingPrivate();
+}
+
+//  const QAbstractChannelMappingPrivate
+//      *Qt3DAnimation::QAbstractChannelMappingPrivate::get(const
+//      Qt3DAnimation::QAbstractChannelMapping *q)
+extern "C" Q_DECL_EXPORT
+const Qt3DAnimation::QAbstractChannelMappingPrivate *ritual_ZN13Qt3DAnimation30QAbstractChannelMappingPrivate3getEPKNS_23QAbstractChannelMappingE(
+    const Qt3DAnimation::QAbstractChannelMapping *q) {
+  return Qt3DAnimation::QAbstractChannelMappingPrivate::get(q);
+}
 
 //  QAbstractChannelMapping
 //      *Qt3DAnimation::QAbstractChannelMappingPrivate::q_func()

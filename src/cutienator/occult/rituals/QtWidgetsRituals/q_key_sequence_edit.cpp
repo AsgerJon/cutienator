@@ -6,7 +6,9 @@
 #if QT_CONFIG(keysequenceedit)
 #include <QtWidgets/qkeysequenceedit.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <QtCore/qnamespace.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
@@ -900,6 +902,25 @@ const QMetaObject *ritual_ZNK16QKeySequenceEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QKeySequenceEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QKeySequenceEdit11qt_metacastEPKc(
+    QKeySequenceEdit *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QKeySequenceEdit::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QKeySequenceEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QKeySequenceEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QKeySequenceEdit::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QKeySequenceEdit2trEPKcS1_i(
@@ -995,6 +1016,34 @@ void ritual_ZN16QKeySequenceEdit24setMaximumSequenceLengthEx(
     QKeySequenceEdit *self,
     qsizetype count) {
   self->setMaximumSequenceLength(count);
+}
+
+//  void QKeySequenceEdit::editingFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QKeySequenceEdit15editingFinishedEv(QKeySequenceEdit *self) {
+  self->editingFinished();
+}
+
+//  void QKeySequenceEdit::keySequenceChanged(const QKeySequence
+//      &keySequence)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QKeySequenceEdit18keySequenceChangedERK12QKeySequence(
+    QKeySequenceEdit *self,
+    const QKeySequence *keySequence) {
+  self->keySequenceChanged(*keySequence);
+}
+
+//  QKeySequenceEdit::QKeySequenceEdit(QKeySequenceEditPrivate &d, QWidget
+//      *parent, Qt::WindowFlags f)
+extern "C" Q_DECL_EXPORT
+QKeySequenceEdit *ritual_ZN16QKeySequenceEditC1ER23QKeySequenceEditPrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE(
+    QKeySequenceEditPrivate *d,
+    QWidget *parent,
+    int f) {
+  return new CuteQKeySequenceEdit(
+      *d,
+      parent,
+      QFlags<Qt::WindowType>::fromInt(f));
 }
 
 //  bool QKeySequenceEdit::event(QEvent *a0)

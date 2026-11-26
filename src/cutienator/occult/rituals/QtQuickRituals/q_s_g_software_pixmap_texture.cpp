@@ -52,6 +52,25 @@ const QMetaObject *ritual_ZNK24QSGSoftwarePixmapTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGSoftwarePixmapTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QSGSoftwarePixmapTexture11qt_metacastEPKc(
+    QSGSoftwarePixmapTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGSoftwarePixmapTexture::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QSGSoftwarePixmapTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGSoftwarePixmapTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  qint64 QSGSoftwarePixmapTexture::comparisonKey() const
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK24QSGSoftwarePixmapTexture13comparisonKeyEv(

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuick3DXrHandInput10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DXrHandInput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK19QQuick3DXrHandInput8isActiveEv": ["bool", "address"],
     "ritual_ZNK19QQuick3DXrHandInput14jointPositionsEv": [
       "address", "address"
@@ -18,6 +24,33 @@
     ],
     "ritual_ZNK19QQuick3DXrHandInput20isHandTrackingActiveEv": [
       "bool", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput15isActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput16poseSpaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput19posePositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput19poseRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput21jointPositionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput21jointRotationsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput16jointDataUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput19pokePositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput21isHandTrackingChangedEv": [
+      "nothing", "address"
     ]
   }
 }

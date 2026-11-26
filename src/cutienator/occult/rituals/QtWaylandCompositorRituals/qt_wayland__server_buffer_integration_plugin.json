@@ -8,8 +8,17 @@
     "ritual_ZNK9QtWayland29ServerBufferIntegrationPlugin10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9QtWayland29ServerBufferIntegrationPlugin11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9QtWayland29ServerBufferIntegrationPlugin11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QtWayland29ServerBufferIntegrationPlugin2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9QtWayland29ServerBufferIntegrationPluginD1Ev": [
+      "nothing", "address"
     ],
     "ritual_ZN9QtWayland29ServerBufferIntegrationPlugin6createERK7QStringRK5QListIS1_E": [
       "address", "address", "text", "address"

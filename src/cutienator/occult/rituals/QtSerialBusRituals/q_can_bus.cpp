@@ -11,6 +11,22 @@ const QMetaObject *ritual_ZNK7QCanBus10metaObjectEv(const QCanBus *self) {
   return self->metaObject();
 }
 
+//  void *QCanBus::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QCanBus11qt_metacastEPKc(QCanBus *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCanBus::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QCanBus11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCanBus *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCanBus::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QCanBus2trEPKcS1_i(const char *s, const char *c, int n) {

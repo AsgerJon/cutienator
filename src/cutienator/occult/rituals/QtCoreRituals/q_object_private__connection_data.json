@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN14QObjectPrivate14ConnectionData20connectionsForSignalEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN14QObjectPrivate14ConnectionData18resizeSignalVectorEm": [
       "nothing", "address", "size_t"
     ],

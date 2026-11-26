@@ -19,11 +19,39 @@ QOpenGLPixelTransferOptions *ritual_ZN27QOpenGLPixelTransferOptionsC1ERKS_(
   return new QOpenGLPixelTransferOptions(*a0);
 }
 
+//  QOpenGLPixelTransferOptions
+//      &QOpenGLPixelTransferOptions::operator=(QOpenGLPixelTransferOptions
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QOpenGLPixelTransferOptions *ritual_ZN27QOpenGLPixelTransferOptionsaSEOS_(
+    QOpenGLPixelTransferOptions *self,
+    QOpenGLPixelTransferOptions *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QOpenGLPixelTransferOptions &QOpenGLPixelTransferOptions::operator=(const
+//      QOpenGLPixelTransferOptions &a0)
+extern "C" Q_DECL_EXPORT
+QOpenGLPixelTransferOptions *ritual_ZN27QOpenGLPixelTransferOptionsaSERKS_(
+    QOpenGLPixelTransferOptions *self,
+    const QOpenGLPixelTransferOptions *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QOpenGLPixelTransferOptions::~QOpenGLPixelTransferOptions()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QOpenGLPixelTransferOptionsD1Ev(
     QOpenGLPixelTransferOptions *self) {
   delete self;
+}
+
+//  void QOpenGLPixelTransferOptions::swap(QOpenGLPixelTransferOptions
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QOpenGLPixelTransferOptions4swapERS_(
+    QOpenGLPixelTransferOptions *self,
+    QOpenGLPixelTransferOptions *other) {
+  self->swap(*other);
 }
 
 //  void QOpenGLPixelTransferOptions::setAlignment(int alignment)

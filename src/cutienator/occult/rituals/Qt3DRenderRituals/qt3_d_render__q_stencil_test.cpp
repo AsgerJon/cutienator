@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender12QStencilTest10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QStencilTest::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender12QStencilTest11qt_metacastEPKc(
+    Qt3DRender::QStencilTest *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QStencilTest::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender12QStencilTest11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QStencilTest *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QStencilTest::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender12QStencilTest2trEPKcS2_i(
@@ -186,6 +205,34 @@ QString *ritual_ZN10Qt3DRender12QStencilTest2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QStencilTest::tr(s, c, n));
+}
+
+//  Qt3DRender::QStencilTest::QStencilTest(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilTest *ritual_ZN10Qt3DRender12QStencilTestC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QStencilTest(parent);
+}
+
+//  Qt3DRender::QStencilTest::~QStencilTest()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QStencilTestD1Ev(
+    Qt3DRender::QStencilTest *self) {
+  delete self;
+}
+
+//  QStencilTestArguments *Qt3DRender::QStencilTest::front() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilTestArguments *ritual_ZNK10Qt3DRender12QStencilTest5frontEv(
+    const Qt3DRender::QStencilTest *self) {
+  return self->front();
+}
+
+//  QStencilTestArguments *Qt3DRender::QStencilTest::back() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilTestArguments *ritual_ZNK10Qt3DRender12QStencilTest4backEv(
+    const Qt3DRender::QStencilTest *self) {
+  return self->back();
 }
 
 //  QStencilTestPrivate *Qt3DRender::QStencilTest::d_func()

@@ -48,6 +48,9 @@
     "ritual_ZNK21QAccessibleTextWidget13offsetAtPointERK6QPoint": [
       "int", "address", "address"
     ],
+    "ritual_ZNK21QAccessibleTextWidget10attributesEiPiS0_": [
+      "text", "address", "int", "address", "address"
+    ],
     "ritual_ZN21QAccessibleTextWidget10deleteTextEii": [
       "nothing", "address", "int", "int"
     ],

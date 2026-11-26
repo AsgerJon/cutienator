@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK26QHeightMapSurfaceDataProxy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHeightMapSurfaceDataProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QHeightMapSurfaceDataProxy11qt_metacastEPKc(
+    QHeightMapSurfaceDataProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHeightMapSurfaceDataProxy::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QHeightMapSurfaceDataProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHeightMapSurfaceDataProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHeightMapSurfaceDataProxy::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -369,6 +388,79 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK26QHeightMapSurfaceDataProxy10autoScaleYEv(
     const QHeightMapSurfaceDataProxy *self) {
   return self->autoScaleY();
+}
+
+//  void QHeightMapSurfaceDataProxy::heightMapChanged(const QImage &image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QHeightMapSurfaceDataProxy16heightMapChangedERK6QImage(
+    QHeightMapSurfaceDataProxy *self,
+    const QImage *image) {
+  self->heightMapChanged(*image);
+}
+
+//  void QHeightMapSurfaceDataProxy::heightMapFileChanged(const QString
+//      &filename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QHeightMapSurfaceDataProxy20heightMapFileChangedERK7QString(
+    QHeightMapSurfaceDataProxy *self,
+    const QString *filename) {
+  self->heightMapFileChanged(*filename);
+}
+
+//  void QHeightMapSurfaceDataProxy::minXValueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QHeightMapSurfaceDataProxy16minXValueChangedEf(
+    QHeightMapSurfaceDataProxy *self,
+    float value) {
+  self->minXValueChanged(value);
+}
+
+//  void QHeightMapSurfaceDataProxy::maxXValueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QHeightMapSurfaceDataProxy16maxXValueChangedEf(
+    QHeightMapSurfaceDataProxy *self,
+    float value) {
+  self->maxXValueChanged(value);
+}
+
+//  void QHeightMapSurfaceDataProxy::minZValueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QHeightMapSurfaceDataProxy16minZValueChangedEf(
+    QHeightMapSurfaceDataProxy *self,
+    float value) {
+  self->minZValueChanged(value);
+}
+
+//  void QHeightMapSurfaceDataProxy::maxZValueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QHeightMapSurfaceDataProxy16maxZValueChangedEf(
+    QHeightMapSurfaceDataProxy *self,
+    float value) {
+  self->maxZValueChanged(value);
+}
+
+//  void QHeightMapSurfaceDataProxy::minYValueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QHeightMapSurfaceDataProxy16minYValueChangedEf(
+    QHeightMapSurfaceDataProxy *self,
+    float value) {
+  self->minYValueChanged(value);
+}
+
+//  void QHeightMapSurfaceDataProxy::maxYValueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QHeightMapSurfaceDataProxy16maxYValueChangedEf(
+    QHeightMapSurfaceDataProxy *self,
+    float value) {
+  self->maxYValueChanged(value);
+}
+
+//  void QHeightMapSurfaceDataProxy::autoScaleYChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QHeightMapSurfaceDataProxy17autoScaleYChangedEb(
+    QHeightMapSurfaceDataProxy *self,
+    bool enabled) {
+  self->autoScaleYChanged(enabled);
 }
 
 //  QHeightMapSurfaceDataProxy::QHeightMapSurfaceDataProxy(QHeightMapSurfaceD

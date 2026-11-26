@@ -12,6 +12,7 @@ typedef void (*CuteQDynamicPropertyChangeEventCall1)(const void *, bool, int *);
 class CuteQDynamicPropertyChangeEvent : public QDynamicPropertyChangeEvent {
 public:
   using QDynamicPropertyChangeEvent::QDynamicPropertyChangeEvent;
+  CuteQDynamicPropertyChangeEvent(const QDynamicPropertyChangeEvent & other) : QDynamicPropertyChangeEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -49,6 +50,23 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QDynamicPropertyChangeEvent::QDynamicPropertyChangeEvent(const
+//      QDynamicPropertyChangeEvent &a0)
+extern "C" Q_DECL_EXPORT
+QDynamicPropertyChangeEvent *ritual_ZN27QDynamicPropertyChangeEventC1ERKS_(
+    const QDynamicPropertyChangeEvent *a0) {
+  return new CuteQDynamicPropertyChangeEvent(*a0);
+}
+
+//  QDynamicPropertyChangeEvent &QDynamicPropertyChangeEvent::operator=(const
+//      QDynamicPropertyChangeEvent &other)
+extern "C" Q_DECL_EXPORT
+QDynamicPropertyChangeEvent *ritual_ZN27QDynamicPropertyChangeEventaSERKS_(
+    QDynamicPropertyChangeEvent *self,
+    const QDynamicPropertyChangeEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QDynamicPropertyChangeEvent *QDynamicPropertyChangeEvent::clone() const
 extern "C" Q_DECL_EXPORT

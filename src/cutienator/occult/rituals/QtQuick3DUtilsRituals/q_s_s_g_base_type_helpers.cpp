@@ -96,6 +96,13 @@ const char *ritual_ZN19QSSGBaseTypeHelpers11displayNameE25QSSGRenderTextureCubeF
   return QSSGBaseTypeHelpers::displayName(face);
 }
 
+//  size_t QSSGBaseTypeHelpers::getSizeOfType(QSSGRenderComponentType type)
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN19QSSGBaseTypeHelpers13getSizeOfTypeE23QSSGRenderComponentType(
+    QSSGRenderComponentType type) {
+  return QSSGBaseTypeHelpers::getSizeOfType(type);
+}
+
 //  QSSGRenderTextureCubeFace
 //      QSSGBaseTypeHelpers::next(QSSGRenderTextureCubeFace face)
 extern "C" Q_DECL_EXPORT

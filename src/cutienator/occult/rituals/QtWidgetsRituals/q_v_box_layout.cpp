@@ -569,6 +569,24 @@ const QMetaObject *ritual_ZNK11QVBoxLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVBoxLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QVBoxLayout11qt_metacastEPKc(
+    QVBoxLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVBoxLayout::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QVBoxLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVBoxLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVBoxLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QVBoxLayout2trEPKcS1_i(

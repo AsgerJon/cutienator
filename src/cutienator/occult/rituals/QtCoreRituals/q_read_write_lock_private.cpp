@@ -28,6 +28,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/corelib/thread/qreadwritelock.cpp, line 496, as local:qreadwritelock.cpp:handleEquals
+static auto handleEquals(Qt::HANDLE handle)
+{
+    return [handle](QReadWriteLockPrivate::Reader reader) { return reader.handle == handle; };
+}
+
 //  from src/corelib/thread/qreadwritelock.cpp, line 457, as _ZN21QReadWriteLockPrivate12lockForWriteERSt11unique_lockISt5mutexE14QDeadlineTimer
 inline bool QReadWriteLockPrivate::lockForWrite(std::unique_lock<std::mutex> &lock, QDeadlineTimer timeout)
 {
@@ -59,6 +65,29 @@ inline bool QReadWriteLockPrivate::lockForWrite(std::unique_lock<std::mutex> &lo
     return true;
 }
 
+//  from src/corelib/thread/qreadwritelock.cpp, line 435, as _ZN21QReadWriteLockPrivate11lockForReadERSt11unique_lockISt5mutexE14QDeadlineTimer
+inline bool QReadWriteLockPrivate::lockForRead(std::unique_lock<std::mutex> &lock, QDeadlineTimer timeout)
+{
+    using std::chrono::steady_clock;
+    Q_ASSERT(!mutex.try_lock()); // mutex must be locked when entering this function
+
+    while (waitingWriters || writerCount) {
+        if (timeout.hasExpired())
+            return false;
+        if (!timeout.isForever()) {
+            waitingReaders++;
+            readerCond.wait_until(lock, timeout.deadline<steady_clock>());
+        } else {
+            waitingReaders++;
+            readerCond.wait(lock);
+        }
+        waitingReaders--;
+    }
+    readerCount++;
+    Q_ASSERT(writerCount == 0);
+    return true;
+}
+
 //  from src/corelib/thread/qreadwritelock.cpp, line 487, as _ZN21QReadWriteLockPrivate6unlockEv
 inline void QReadWriteLockPrivate::unlock()
 {
@@ -87,6 +116,29 @@ inline bool QReadWriteLockPrivate::recursiveLockForWrite(QDeadlineTimer timeout)
     currentWriter = self;
     return true;
 }
+
+//  from src/corelib/thread/qreadwritelock.cpp, line 501, as _ZN21QReadWriteLockPrivate20recursiveLockForReadE14QDeadlineTimer
+inline bool QReadWriteLockPrivate::recursiveLockForRead(QDeadlineTimer timeout)
+{
+    Q_ASSERT(recursive);
+    auto lock = qt_unique_lock(mutex);
+
+    Qt::HANDLE self = QThread::currentThreadId();
+
+    auto it = std::find_if(currentReaders.begin(), currentReaders.end(),
+                           handleEquals(self));
+    if (it != currentReaders.end()) {
+        ++it->recursionLevel;
+        return true;
+    }
+
+    if (!lockForRead(lock, timeout))
+        return false;
+
+    Reader r = {self, 1};
+    currentReaders.append(std::move(r));
+    return true;
+}
 //  -----------------------------------------------------------------------
 
 //  QReadWriteLockPrivate::QReadWriteLockPrivate(bool isRecursive)
@@ -94,6 +146,26 @@ extern "C" Q_DECL_EXPORT
 QReadWriteLockPrivate *ritual_ZN21QReadWriteLockPrivateC1Eb(
     bool isRecursive) {
   return new QReadWriteLockPrivate(isRecursive);
+}
+
+//  bool QReadWriteLockPrivate::lockForWrite(std::unique_lock<std::mutex>
+//      &lock, QDeadlineTimer timeout)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QReadWriteLockPrivate12lockForWriteERSt11unique_lockISt5mutexE14QDeadlineTimer(
+    QReadWriteLockPrivate *self,
+    std::unique_lock<std::mutex> *lock,
+    const QDeadlineTimer *timeout) {
+  return self->lockForWrite(*lock, *timeout);
+}
+
+//  bool QReadWriteLockPrivate::lockForRead(std::unique_lock<std::mutex>
+//      &lock, QDeadlineTimer timeout)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QReadWriteLockPrivate11lockForReadERSt11unique_lockISt5mutexE14QDeadlineTimer(
+    QReadWriteLockPrivate *self,
+    std::unique_lock<std::mutex> *lock,
+    const QDeadlineTimer *timeout) {
+  return self->lockForRead(*lock, *timeout);
 }
 
 //  void QReadWriteLockPrivate::unlock()
@@ -108,6 +180,20 @@ bool ritual_ZN21QReadWriteLockPrivate21recursiveLockForWriteE14QDeadlineTimer(
     QReadWriteLockPrivate *self,
     const QDeadlineTimer *timeout) {
   return self->recursiveLockForWrite(*timeout);
+}
+
+//  bool QReadWriteLockPrivate::recursiveLockForRead(QDeadlineTimer timeout)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QReadWriteLockPrivate20recursiveLockForReadE14QDeadlineTimer(
+    QReadWriteLockPrivate *self,
+    const QDeadlineTimer *timeout) {
+  return self->recursiveLockForRead(*timeout);
+}
+
+//  quintptr QReadWriteLockPrivate::describeState(void *dd)
+extern "C" Q_DECL_EXPORT
+quintptr ritual_ZN21QReadWriteLockPrivate13describeStateEPv(void *dd) {
+  return QReadWriteLockPrivate::describeState(dd);
 }
 
 #endif  // QT_CONFIG(thread)

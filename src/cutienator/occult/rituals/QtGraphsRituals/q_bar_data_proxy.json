@@ -8,6 +8,9 @@
   ],
   "rows": {
     "ritual_ZNK13QBarDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QBarDataProxy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_ZN13QBarDataProxy2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QBarDataProxy6d_funcEv": ["address", "address"],
     "ritual_ZNK13QBarDataProxy6d_funcEv": ["address", "address"],
@@ -53,6 +56,25 @@
     ],
     "ritual_ZN13QBarDataProxy10removeRowsExxNS_12RemoveLabelsE": [
       "nothing", "address", "long long", "long long", "int"
+    ],
+    "ritual_ZN13QBarDataProxy10arrayResetEv": ["nothing", "address"],
+    "ritual_ZN13QBarDataProxy9rowsAddedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN13QBarDataProxy11rowsChangedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN13QBarDataProxy11rowsRemovedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN13QBarDataProxy12rowsInsertedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN13QBarDataProxy11itemChangedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN13QBarDataProxyC1ER20QBarDataProxyPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QBarDataProxy": ["bool", "address", "chars", "address"]
   }

@@ -5,8 +5,23 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST16UiHeaderItemListC1EPNS0_8UiImportE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST16UiHeaderItemListC1EPNS0_8UiPragmaE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST16UiHeaderItemListC1EPS1_PNS0_8UiImportE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST16UiHeaderItemListC1EPS1_PNS0_8UiPragmaE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN6QQmlJS3AST16UiHeaderItemList6finishEv": [
       "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST16UiHeaderItemList7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK6QQmlJS3AST16UiHeaderItemList19firstSourceLocationEv": [
       "address", "address"

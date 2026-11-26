@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK17QPixmapBlurFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QPixmapBlurFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QPixmapBlurFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QPixmapBlurFilter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN17QPixmapBlurFilter6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QPixmapBlurFilter6d_funcEv": ["address", "address"],
     "ritual_ZN17QPixmapBlurFilterC1EP7QObject": ["address", "address"],
     "ritual_ZN17QPixmapBlurFilterD1Ev": ["nothing", "address"],
     "ritual_ZN17QPixmapBlurFilter9setRadiusEd": [

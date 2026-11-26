@@ -5,6 +5,18 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK25VDMObjectDelegateDataType8rowCountERK16QQmlAdaptorModel": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK25VDMObjectDelegateDataType11columnCountERK16QQmlAdaptorModel": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK25VDMObjectDelegateDataType5valueERK16QQmlAdaptorModeliRK7QString": [
+      "address", "address", "address", "int", "text"
+    ],
+    "ritual_ZNK25VDMObjectDelegateDataType7cleanupER16QQmlAdaptorModel": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN25VDMObjectDelegateDataTypeD1Ev": ["nothing", "address"],
     "ritual_cast_VDMObjectDelegateDataType_QQmlAdaptorModel_Accessors": [
       "address", "address"

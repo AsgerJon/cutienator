@@ -15,10 +15,38 @@ QGeoAddress *ritual_ZN11QGeoAddressC1ERKS_(const QGeoAddress *other) {
   return new QGeoAddress(*other);
 }
 
+//  QGeoAddress::QGeoAddress(QGeoAddress &&other)
+extern "C" Q_DECL_EXPORT
+QGeoAddress *ritual_ZN11QGeoAddressC1EOS_(QGeoAddress *other) {
+  return new QGeoAddress(std::move(*other));
+}
+
 //  QGeoAddress::~QGeoAddress()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QGeoAddressD1Ev(QGeoAddress *self) {
   delete self;
+}
+
+//  QGeoAddress &QGeoAddress::operator=(const QGeoAddress &other)
+extern "C" Q_DECL_EXPORT
+QGeoAddress *ritual_ZN11QGeoAddressaSERKS_(
+    QGeoAddress *self,
+    const QGeoAddress *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoAddress &QGeoAddress::operator=(QGeoAddress &&other)
+extern "C" Q_DECL_EXPORT
+QGeoAddress *ritual_ZN11QGeoAddressaSEOS_(
+    QGeoAddress *self,
+    QGeoAddress *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoAddress::swap(QGeoAddress &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGeoAddress4swapERS_(QGeoAddress *self, QGeoAddress *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoAddress &lhs, const QGeoAddress &rhs)

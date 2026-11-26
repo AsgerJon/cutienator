@@ -10,6 +10,9 @@
     "ritual_ZN19QDBusMessagePrivate18createResponseLinkEPKS_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN19QDBusMessagePrivate22setParametersValidatedER12QDBusMessageb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN19QDBusMessagePrivate7isLocalERK12QDBusMessage": [
       "bool", "address"
     ]

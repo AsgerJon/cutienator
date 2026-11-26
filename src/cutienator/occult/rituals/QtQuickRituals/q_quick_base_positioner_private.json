@@ -15,6 +15,9 @@
     "ritual_ZN27QQuickBasePositionerPrivate4initEN20QQuickBasePositioner14PositionerTypeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN27QQuickBasePositionerPrivate12watchChangesEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN27QQuickBasePositionerPrivate19setPositioningDirtyEv": [
       "nothing", "address"
     ],

@@ -8,7 +8,28 @@
     "ritual_ZNK31QQStyleKitIndicatorWithSubTypes10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQStyleKitIndicatorWithSubTypes11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQStyleKitIndicatorWithSubTypes11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QQStyleKitIndicatorWithSubTypes24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQStyleKitIndicatorWithSubTypes17foregroundChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQStyleKitIndicatorWithSubTypes9upChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQStyleKitIndicatorWithSubTypes11downChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQStyleKitIndicatorWithSubTypes12firstChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQStyleKitIndicatorWithSubTypes13secondChangedEv": [
       "nothing", "address"
     ]
   }

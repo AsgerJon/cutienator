@@ -68,6 +68,12 @@ public:
   }
 };
 
+//  QSGVisitableNode::QSGVisitableNode()
+extern "C" Q_DECL_EXPORT
+QSGVisitableNode *ritual_ZN16QSGVisitableNodeC1Ev() {
+  return new CuteQSGVisitableNode();
+}
+
 //  QSGVisitableNode::~QSGVisitableNode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSGVisitableNodeD1Ev(QSGVisitableNode *self) {

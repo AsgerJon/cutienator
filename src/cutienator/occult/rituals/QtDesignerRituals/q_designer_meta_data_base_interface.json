@@ -8,6 +8,12 @@
     "ritual_ZNK30QDesignerMetaDataBaseInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QDesignerMetaDataBaseInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QDesignerMetaDataBaseInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QDesignerMetaDataBaseInterface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,9 @@
     ],
     "ritual_ZNK30QDesignerMetaDataBaseInterface4coreEv": [
       "address", "address"
+    ],
+    "ritual_ZN30QDesignerMetaDataBaseInterface7changedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QDesignerMetaDataBaseInterface": [
       "bool", "address", "chars", "address"

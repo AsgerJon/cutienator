@@ -137,6 +137,13 @@ void ritual_ZN16QRhiRenderTarget23setRenderPassDescriptorEP24QRhiRenderPassDescr
   self->setRenderPassDescriptor(desc);
 }
 
+//  QRhiRenderTarget::QRhiRenderTarget(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QRhiRenderTarget *ritual_ZN16QRhiRenderTargetC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQRhiRenderTarget(rhi);
+}
+
 //  a Python function taken by a CuteQRhiRenderTarget, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

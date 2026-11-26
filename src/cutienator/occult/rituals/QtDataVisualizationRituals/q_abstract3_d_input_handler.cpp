@@ -291,6 +291,25 @@ const QMetaObject *ritual_ZNK23QAbstract3DInputHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstract3DInputHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QAbstract3DInputHandler11qt_metacastEPKc(
+    QAbstract3DInputHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstract3DInputHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QAbstract3DInputHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstract3DInputHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstract3DInputHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QAbstract3DInputHandler2trEPKcS1_i(
@@ -412,6 +431,31 @@ void ritual_ZN23QAbstract3DInputHandler8setSceneEP8Q3DScene(
     QAbstract3DInputHandler *self,
     Q3DScene *scene) {
   self->setScene(scene);
+}
+
+//  void QAbstract3DInputHandler::positionChanged(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QAbstract3DInputHandler15positionChangedERK6QPoint(
+    QAbstract3DInputHandler *self,
+    const QPoint *position) {
+  self->positionChanged(*position);
+}
+
+//  void QAbstract3DInputHandler::inputViewChanged(QAbstract3DInputHandler::I
+//      nputView view)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QAbstract3DInputHandler16inputViewChangedENS_9InputViewE(
+    QAbstract3DInputHandler *self,
+    QAbstract3DInputHandler::InputView view) {
+  self->inputViewChanged(view);
+}
+
+//  void QAbstract3DInputHandler::sceneChanged(Q3DScene *scene)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QAbstract3DInputHandler12sceneChangedEP8Q3DScene(
+    QAbstract3DInputHandler *self,
+    Q3DScene *scene) {
+  self->sceneChanged(scene);
 }
 
 //  void QAbstract3DInputHandler::setPrevDistance(int distance)

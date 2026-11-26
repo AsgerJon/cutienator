@@ -89,6 +89,20 @@ public:
   }
 };
 
+//  void QMetalShadingRateMap::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMetalShadingRateMap7destroyEv(QMetalShadingRateMap *self) {
+  self->destroy();
+}
+
+//  bool QMetalShadingRateMap::createFrom(NativeShadingRateMap src)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QMetalShadingRateMap10createFromEN18QRhiShadingRateMap20NativeShadingRateMapE(
+    QMetalShadingRateMap *self,
+    const QRhiShadingRateMap::NativeShadingRateMap *src) {
+  return self->createFrom(*src);
+}
+
 //  a Python function taken by a CuteQMetalShadingRateMap, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

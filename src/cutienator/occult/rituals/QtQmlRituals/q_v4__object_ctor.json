@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN3QV410ObjectCtor10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV410ObjectCtor11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV410ObjectCtor1dEv": ["address", "address"]
+    "ritual_ZNK3QV410ObjectCtor1dEv": ["address", "address"],
+    "ritual_ZN3QV410ObjectCtor24virtualCallAsConstructorEPKNS_14FunctionObjectEPKNS_5ValueEiS6_": [
+      "unsigned long long", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV410ObjectCtor11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

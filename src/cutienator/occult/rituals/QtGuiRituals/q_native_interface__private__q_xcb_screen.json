@@ -8,6 +8,7 @@
     "ritual_ZN16QNativeInterface7Private10QXcbScreenD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN16QNativeInterface7Private10QXcbScreenC1Ev": ["address"],
     "ritual_ZNK16QNativeInterface7Private10QXcbScreen20virtualDesktopNumberEv": [
       "int", "address"
     ],

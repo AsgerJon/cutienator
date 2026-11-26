@@ -8,6 +8,24 @@
     "ritual_ZNK18qdesigner_internal18SelectSignalDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal18SelectSignalDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal18SelectSignalDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18SelectSignalDialogD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18SelectSignalDialog14currentChangedERK11QModelIndexS3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18SelectSignalDialog9activatedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal18SelectSignalDialog15methodFromIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
     "ritual_take_qdesigner_internal_SelectSignalDialog": [
       "bool", "address", "chars", "address"
     ]

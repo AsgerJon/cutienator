@@ -10,8 +10,37 @@
   "rows": {
     "ritual_ZN20QBarDataProxyPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QBarDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QBarDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QBarDataProxyPrivate10resetArrayEO5QListIS0_I12QBarDataItemEEOS0_I7QStringES7_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate6setRowExO5QListI12QBarDataItemEO7QString": [
+      "nothing", "address", "long long", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate7setRowsExO5QListIS0_I12QBarDataItemEEOS0_I7QStringE": [
+      "nothing", "address", "long long", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate7setItemExxO12QBarDataItem": [
+      "nothing", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate6addRowEO5QListI12QBarDataItemEO7QString": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate7addRowsEO5QListIS0_I12QBarDataItemEEOS0_I7QStringE": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate9insertRowExO5QListI12QBarDataItemEO7QString": [
+      "nothing", "address", "long long", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate10insertRowsExO5QListIS0_I12QBarDataItemEEOS0_I7QStringE": [
+      "nothing", "address", "long long", "address", "address"
+    ],
     "ritual_ZN20QBarDataProxyPrivate10removeRowsExxb": [
       "nothing", "address", "long long", "long long", "bool"
+    ],
+    "ritual_ZNK20QBarDataProxyPrivate11limitValuesExxxx": [
+      "address", "address", "long long", "long long", "long long",
+      "long long"
     ],
     "ritual_ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
       "nothing", "address", "address"
@@ -21,6 +50,9 @@
     ],
     "ritual_own_ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QBarDataProxyPrivate__QPair_float_float": [
+      "nothing", "address"
     ]
   }
 }

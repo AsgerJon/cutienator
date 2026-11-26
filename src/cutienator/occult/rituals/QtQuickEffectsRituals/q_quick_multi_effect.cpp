@@ -817,6 +817,25 @@ const QMetaObject *ritual_ZNK17QQuickMultiEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMultiEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickMultiEffect11qt_metacastEPKc(
+    QQuickMultiEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMultiEffect::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickMultiEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMultiEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMultiEffect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickMultiEffect2trEPKcS1_i(
@@ -1253,6 +1272,227 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QQuickMultiEffect14hasProxySourceEv(
     const QQuickMultiEffect *self) {
   return self->hasProxySource();
+}
+
+//  void QQuickMultiEffect::shaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect13shaderChangedEv(QQuickMultiEffect *self) {
+  self->shaderChanged();
+}
+
+//  void QQuickMultiEffect::itemSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect15itemSizeChangedEv(
+    QQuickMultiEffect *self) {
+  self->itemSizeChanged();
+}
+
+//  void QQuickMultiEffect::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect13sourceChangedEv(QQuickMultiEffect *self) {
+  self->sourceChanged();
+}
+
+//  void QQuickMultiEffect::autoPaddingEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect25autoPaddingEnabledChangedEv(
+    QQuickMultiEffect *self) {
+  self->autoPaddingEnabledChanged();
+}
+
+//  void QQuickMultiEffect::paddingRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect18paddingRectChangedEv(
+    QQuickMultiEffect *self) {
+  self->paddingRectChanged();
+}
+
+//  void QQuickMultiEffect::brightnessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect17brightnessChangedEv(
+    QQuickMultiEffect *self) {
+  self->brightnessChanged();
+}
+
+//  void QQuickMultiEffect::contrastChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect15contrastChangedEv(
+    QQuickMultiEffect *self) {
+  self->contrastChanged();
+}
+
+//  void QQuickMultiEffect::saturationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect17saturationChangedEv(
+    QQuickMultiEffect *self) {
+  self->saturationChanged();
+}
+
+//  void QQuickMultiEffect::colorizationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect19colorizationChangedEv(
+    QQuickMultiEffect *self) {
+  self->colorizationChanged();
+}
+
+//  void QQuickMultiEffect::colorizationColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect24colorizationColorChangedEv(
+    QQuickMultiEffect *self) {
+  self->colorizationColorChanged();
+}
+
+//  void QQuickMultiEffect::blurEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect18blurEnabledChangedEv(
+    QQuickMultiEffect *self) {
+  self->blurEnabledChanged();
+}
+
+//  void QQuickMultiEffect::blurChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect11blurChangedEv(QQuickMultiEffect *self) {
+  self->blurChanged();
+}
+
+//  void QQuickMultiEffect::blurMaxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect14blurMaxChangedEv(
+    QQuickMultiEffect *self) {
+  self->blurMaxChanged();
+}
+
+//  void QQuickMultiEffect::blurMultiplierChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect21blurMultiplierChangedEv(
+    QQuickMultiEffect *self) {
+  self->blurMultiplierChanged();
+}
+
+//  void QQuickMultiEffect::shadowEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect20shadowEnabledChangedEv(
+    QQuickMultiEffect *self) {
+  self->shadowEnabledChanged();
+}
+
+//  void QQuickMultiEffect::shadowOpacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect20shadowOpacityChangedEv(
+    QQuickMultiEffect *self) {
+  self->shadowOpacityChanged();
+}
+
+//  void QQuickMultiEffect::shadowBlurChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect17shadowBlurChangedEv(
+    QQuickMultiEffect *self) {
+  self->shadowBlurChanged();
+}
+
+//  void QQuickMultiEffect::shadowHorizontalOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect29shadowHorizontalOffsetChangedEv(
+    QQuickMultiEffect *self) {
+  self->shadowHorizontalOffsetChanged();
+}
+
+//  void QQuickMultiEffect::shadowVerticalOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect27shadowVerticalOffsetChangedEv(
+    QQuickMultiEffect *self) {
+  self->shadowVerticalOffsetChanged();
+}
+
+//  void QQuickMultiEffect::shadowColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect18shadowColorChangedEv(
+    QQuickMultiEffect *self) {
+  self->shadowColorChanged();
+}
+
+//  void QQuickMultiEffect::shadowScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect18shadowScaleChangedEv(
+    QQuickMultiEffect *self) {
+  self->shadowScaleChanged();
+}
+
+//  void QQuickMultiEffect::maskEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect18maskEnabledChangedEv(
+    QQuickMultiEffect *self) {
+  self->maskEnabledChanged();
+}
+
+//  void QQuickMultiEffect::maskSourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect17maskSourceChangedEv(
+    QQuickMultiEffect *self) {
+  self->maskSourceChanged();
+}
+
+//  void QQuickMultiEffect::maskThresholdMinChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect23maskThresholdMinChangedEv(
+    QQuickMultiEffect *self) {
+  self->maskThresholdMinChanged();
+}
+
+//  void QQuickMultiEffect::maskSpreadAtMinChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect22maskSpreadAtMinChangedEv(
+    QQuickMultiEffect *self) {
+  self->maskSpreadAtMinChanged();
+}
+
+//  void QQuickMultiEffect::maskThresholdMaxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect23maskThresholdMaxChangedEv(
+    QQuickMultiEffect *self) {
+  self->maskThresholdMaxChanged();
+}
+
+//  void QQuickMultiEffect::maskSpreadAtMaxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect22maskSpreadAtMaxChangedEv(
+    QQuickMultiEffect *self) {
+  self->maskSpreadAtMaxChanged();
+}
+
+//  void QQuickMultiEffect::maskInvertedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect19maskInvertedChangedEv(
+    QQuickMultiEffect *self) {
+  self->maskInvertedChanged();
+}
+
+//  void QQuickMultiEffect::itemRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect15itemRectChangedEv(
+    QQuickMultiEffect *self) {
+  self->itemRectChanged();
+}
+
+//  void QQuickMultiEffect::fragmentShaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect21fragmentShaderChangedEv(
+    QQuickMultiEffect *self) {
+  self->fragmentShaderChanged();
+}
+
+//  void QQuickMultiEffect::vertexShaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect19vertexShaderChangedEv(
+    QQuickMultiEffect *self) {
+  self->vertexShaderChanged();
+}
+
+//  void QQuickMultiEffect::hasProxySourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMultiEffect21hasProxySourceChangedEv(
+    QQuickMultiEffect *self) {
+  self->hasProxySourceChanged();
 }
 
 //  void QQuickMultiEffect::componentComplete()

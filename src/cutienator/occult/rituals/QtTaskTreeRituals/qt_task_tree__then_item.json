@@ -4,6 +4,17 @@
     "QtTaskTree/qconditional.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK10QtTaskTree8ThenItemcvNS_14ExecutableItemEEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree8ThenItemC1ERKS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree8ThenItemC1EOS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree8ThenItemaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree8ThenItem4swapERS0_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QtTaskTreersERKNS_8ThenItemERKNS_4ElseE": [
       "address", "address", "address"
     ],

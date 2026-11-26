@@ -4,6 +4,7 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qtquick3druntimerenderglobal_p.h>
 #include <QtQuick3DRuntimeRender/QtQuick3DRuntimeRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrendercontextcore.h>
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -23,6 +24,43 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 863, as _ZN20ScreenReflectionPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData
+inline void ScreenReflectionPass::renderPrep(QSSGRenderer &renderer, QSSGLayerRenderData &data)
+{
+    QSSG_ASSERT(!data.renderedCameras.isEmpty(), return);
+    QSSGRenderCamera *camera = data.renderedCameras[0];
+
+    const auto &rhiCtx = renderer.contextInterface()->rhiContext();
+    QSSG_ASSERT(rhiCtx->rhi()->isRecordingFrame(), return);
+    rhiScreenTexture = data.getRenderResult(QSSGRenderResult::Key::ScreenTexture);
+    QSSG_ASSERT_X(rhiScreenTexture && rhiScreenTexture->isValid(), "Invalid screen texture!", return);
+
+    const auto &layer = data.layer;
+    const auto shaderFeatures = data.getShaderFeatures();
+    const bool layerEnableDepthTest = layer.layerFlags.testFlag(QSSGRenderLayer::LayerFlag::EnableDepthTest);
+
+    QRhiRenderPassDescriptor *mainRpDesc = rhiCtx->mainRenderPassDescriptor();
+    const int samples = rhiCtx->mainPassSampleCount();
+    const int viewCount = data.layer.viewCount;
+
+    // NOTE: We're piggybacking on the screen map pass for now, but we could do better.
+    ps = data.getPipelineState();
+    const bool depthTestEnabled = (data.screenMapPass.ps.flags.testFlag(QSSGRhiGraphicsPipelineState::Flag::DepthTestEnabled));
+    ps.flags.setFlag(QSSGRhiGraphicsPipelineState::Flag::DepthTestEnabled, depthTestEnabled);
+    const bool depthWriteEnabled = (data.screenMapPass.ps.flags.testFlag(QSSGRhiGraphicsPipelineState::Flag::DepthWriteEnabled));
+    ps.flags.setFlag(QSSGRhiGraphicsPipelineState::Flag::DepthWriteEnabled, depthWriteEnabled);
+    sortedScreenTextureObjects = data.getSortedScreenTextureRenderableObjects(*camera);
+    for (const auto &handle : std::as_const(sortedScreenTextureObjects)) {
+        QSSGRenderableObject *theObject = handle.obj;
+        const auto depthWriteMode = theObject->depthWriteMode;
+        ps.flags.setFlag(QSSGRhiGraphicsPipelineState::Flag::BlendEnabled, theObject->renderableFlags.hasTransparency());
+        const bool curDepthWriteEnabled = !(depthWriteMode == QSSGDepthDrawMode::Never || depthWriteMode == QSSGDepthDrawMode::OpaquePrePass
+                                     || data.isZPrePassActive() || !layerEnableDepthTest);
+        ps.flags.setFlag(QSSGRhiGraphicsPipelineState::Flag::DepthWriteEnabled, curDepthWriteEnabled);
+        RenderHelpers::rhiPrepareRenderable(rhiCtx.get(), this, data, *theObject, mainRpDesc, &ps, shaderFeatures, samples, viewCount);
+    }
+}
+
 //  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 921, as _ZN20ScreenReflectionPass13resetForFrameEv
 inline void ScreenReflectionPass::resetForFrame()
 {
@@ -31,6 +69,16 @@ inline void ScreenReflectionPass::resetForFrame()
     ps = {};
 }
 //  -----------------------------------------------------------------------
+
+//  void ScreenReflectionPass::renderPrep(QSSGRenderer &renderer,
+//      QSSGLayerRenderData &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ScreenReflectionPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData(
+    ScreenReflectionPass *self,
+    QSSGRenderer *renderer,
+    QSSGLayerRenderData *data) {
+  self->renderPrep(*renderer, *data);
+}
 
 //  Type ScreenReflectionPass::passType() const
 extern "C" Q_DECL_EXPORT

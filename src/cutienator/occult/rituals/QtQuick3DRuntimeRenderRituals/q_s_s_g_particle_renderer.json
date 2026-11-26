@@ -5,12 +5,39 @@
     "cles_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QSSGParticleRenderer26updateUniformsForParticlesERK19QSSGLayerRenderDataR21QSSGRhiShaderPipelineP14QSSGRhiContextPcR23QSSGParticlesRenderableRK15QVarLengthArrayIP16QSSGRenderCameraLx2EE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN20QSSGParticleRenderer30updateUniformsForParticleModelER21QSSGRhiShaderPipelinePcPK15QSSGRenderModelj": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN20QSSGParticleRenderer26getShaderPipelineParticlesER12QSSGRendererR23QSSGParticlesRenderableRK18QSSGShaderFeatures": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QSSGParticleRenderer25generateRhiShaderPipelineER12QSSGRendererR23QSSGParticlesRenderableRK18QSSGShaderFeaturesR10QByteArrayRK39QSSGShaderParticleMaterialKeyProperties": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QSSGParticleRenderer20rhiPrepareRenderableER21QSSGRhiShaderPipelinePvP14QSSGRhiContextP28QSSGRhiGraphicsPipelineStateR23QSSGParticlesRenderableRK19QSSGLayerRenderDataP24QRhiRenderPassDescriptoriiP16QSSGRenderCamera25QSSGRenderTextureCubeFaceP22QSSGReflectionMapEntryb": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address", "int", "int", "address", "unsigned char",
+      "address", "bool"
+    ],
+    "ritual_ZN20QSSGParticleRenderer19rhiRenderRenderableEP14QSSGRhiContextR23QSSGParticlesRenderablePb25QSSGRenderTextureCubeFaceRK28QSSGRhiGraphicsPipelineState": [
+      "nothing", "address", "address", "address", "unsigned char", "address"
+    ],
+    "ritual_ZN20QSSGParticleRenderer24prepareParticlesForModelER21QSSGRhiShaderPipelineP14QSSGRhiContextR32QSSGRhiShaderResourceBindingListPK15QSSGRenderModel": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN20QSSGParticleRenderer22particleShaderFeaturesERK18QSSGShaderFeatures": [
       "address", "address"
     ],
     "ritual_ZN20QSSGParticleRenderer21setShaderCacheEnabledEb": [
       "nothing", "bool"
     ],
-    "ritual_ZN20QSSGParticleRendererD1Ev": ["nothing", "address"]
+    "ritual_ZN20QSSGParticleRendererD1Ev": ["nothing", "address"],
+    "ritual_drop_QSSGParticleRenderer__QSSGRhiShaderPipelinePtr": [
+      "nothing", "address"
+    ]
   }
 }

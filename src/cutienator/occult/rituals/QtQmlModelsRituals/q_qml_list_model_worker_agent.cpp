@@ -12,11 +12,17 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/QtQml>
 #include <QtQml/qjsvalue.h>
-#include <QtCore/qstring.h>
-#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQmlModels/private/qqmllistmodelworkeragent_p.h>
+#include <QtQmlModels/private/qqmllistmodel_p_p.h>
+#include <QtQml/private/qqmldata_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtCore/qcoreevent.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qdebug.h>
 #include <QtQmlModels/private/qqmllistmodel_p_p.h>
 #include <QtQmlModels/private/qqmllistmodelworkeragent_p.h>
 #include <QtQml/private/qjsvalue_p.h>
@@ -42,14 +48,6 @@
 #include <QtCore/QXmlStreamReader>
 #include <QtCore/qdatetime.h>
 #include <QtCore/QScopedValueRollback>
-#include <QtQmlModels/private/qqmllistmodelworkeragent_p.h>
-#include <QtQmlModels/private/qqmllistmodel_p_p.h>
-#include <QtQml/private/qqmldata_p.h>
-#include <QtQml/private/qqmlengine_p.h>
-#include <QtQml/qqmlinfo.h>
-#include <QtCore/qcoreevent.h>
-#include <QtCore/qcoreapplication.h>
-#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -58,6 +56,47 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 45, as local:qqmllistmodel.cpp:isMemoryUsed
+template <typename T>
+static bool isMemoryUsed(const char *mem)
+{
+    for (size_t i=0 ; i < sizeof(T) ; ++i) {
+        if (mem[i] != 0)
+            return true;
+    }
+
+    return false;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 120, as _ZN24QQmlListModelWorkerAgent5eventEP6QEvent
+inline bool QQmlListModelWorkerAgent::event(QEvent *e)
+{
+    if (e->type() == QEvent::User) {
+        bool cc = false;
+        QMutexLocker locker(&mutex);
+        if (m_orig) {
+            Sync *s = static_cast<Sync *>(e);
+
+            cc = (m_orig->count() != s->list->count());
+
+            Q_ASSERT(m_orig->m_dynamicRoles == s->list->m_dynamicRoles);
+            if (m_orig->m_dynamicRoles)
+                QQmlListModel::sync(s->list, m_orig);
+            else
+                ListModel::sync(s->list->m_listModel, m_orig->m_listModel);
+        }
+
+        syncDone.wakeAll();
+        locker.unlock();
+
+        if (cc)
+            emit m_orig->countChanged();
+        return true;
+    }
+
+    return QObject::event(e);
+}
 
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 336, as _ZN9ListModel4syncEPS_S0_
 inline bool ListModel::sync(ListModel *src, ListModel *target)
@@ -532,49 +571,10 @@ inline QV4::ExecutionEngine *QQmlListModelWorkerAgent::engine() const
     return m_copy->m_engine;
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 47, as _ZN24QQmlListModelWorkerAgent6addrefEv
-inline void QQmlListModelWorkerAgent::addref()
-{
-    m_ref.ref();
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 52, as _ZN24QQmlListModelWorkerAgent7releaseEv
-inline void QQmlListModelWorkerAgent::release()
-{
-    bool del = !m_ref.deref();
-
-    if (del)
-        deleteLater();
-}
-
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 65, as _ZNK24QQmlListModelWorkerAgent5countEv
 inline int QQmlListModelWorkerAgent::count() const
 {
     return m_copy->count();
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 70, as _ZN24QQmlListModelWorkerAgent5clearEv
-inline void QQmlListModelWorkerAgent::clear()
-{
-    m_copy->clear();
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 75, as _ZN24QQmlListModelWorkerAgent6removeEP14QQmlV4Function
-inline void QQmlListModelWorkerAgent::remove(QQmlV4FunctionPtr args)
-{
-    m_copy->remove(args);
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 80, as _ZN24QQmlListModelWorkerAgent6appendEP14QQmlV4Function
-inline void QQmlListModelWorkerAgent::append(QQmlV4FunctionPtr args)
-{
-    m_copy->append(args);
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 85, as _ZN24QQmlListModelWorkerAgent6insertEP14QQmlV4Function
-inline void QQmlListModelWorkerAgent::insert(QQmlV4FunctionPtr args)
-{
-    m_copy->insert(args);
 }
 
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 90, as _ZNK24QQmlListModelWorkerAgent3getEi
@@ -583,57 +583,10 @@ inline QJSValue QQmlListModelWorkerAgent::get(int index) const
     return m_copy->get(index);
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 95, as _ZN24QQmlListModelWorkerAgent3setEiRK8QJSValue
-inline void QQmlListModelWorkerAgent::set(int index, const QJSValue &value)
-{
-    m_copy->set(index, value);
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 100, as _ZN24QQmlListModelWorkerAgent11setPropertyEiRK7QStringRK8QVariant
-inline void QQmlListModelWorkerAgent::setProperty(int index, const QString& property, const QVariant& value)
-{
-    m_copy->setProperty(index, property, value);
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 105, as _ZN24QQmlListModelWorkerAgent4moveEiii
-inline void QQmlListModelWorkerAgent::move(int from, int to, int count)
-{
-    m_copy->move(from, to, count);
-}
-
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 60, as _ZN24QQmlListModelWorkerAgent14modelDestroyedEv
 inline void QQmlListModelWorkerAgent::modelDestroyed()
 {
     m_orig = nullptr;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodelworkeragent.cpp, line 120, as _ZN24QQmlListModelWorkerAgent5eventEP6QEvent
-inline bool QQmlListModelWorkerAgent::event(QEvent *e)
-{
-    if (e->type() == QEvent::User) {
-        bool cc = false;
-        QMutexLocker locker(&mutex);
-        if (m_orig) {
-            Sync *s = static_cast<Sync *>(e);
-
-            cc = (m_orig->count() != s->list->count());
-
-            Q_ASSERT(m_orig->m_dynamicRoles == s->list->m_dynamicRoles);
-            if (m_orig->m_dynamicRoles)
-                QQmlListModel::sync(s->list, m_orig);
-            else
-                ListModel::sync(s->list->m_listModel, m_orig->m_listModel);
-        }
-
-        syncDone.wakeAll();
-        locker.unlock();
-
-        if (cc)
-            emit m_orig->countChanged();
-        return true;
-    }
-
-    return QObject::event(e);
 }
 //  -----------------------------------------------------------------------
 
@@ -817,6 +770,25 @@ const QMetaObject *ritual_ZNK24QQmlListModelWorkerAgent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlListModelWorkerAgent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQmlListModelWorkerAgent11qt_metacastEPKc(
+    QQmlListModelWorkerAgent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlListModelWorkerAgent::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQmlListModelWorkerAgent11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlListModelWorkerAgent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQmlListModelWorkerAgent::qt_qmlMarker_anonymous()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlListModelWorkerAgent22qt_qmlMarker_anonymousEv(
@@ -842,14 +814,50 @@ QV4::ExecutionEngine *ritual_ZNK24QQmlListModelWorkerAgent6engineEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlListModelWorkerAgent6addrefEv(
     QQmlListModelWorkerAgent *self) {
-  self->addref();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlListModelWorkerAgent")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "addref()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "addref()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQmlListModelWorkerAgent::release()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlListModelWorkerAgent7releaseEv(
     QQmlListModelWorkerAgent *self) {
-  self->release();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlListModelWorkerAgent")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "release()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "release()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  int QQmlListModelWorkerAgent::count() const
@@ -863,7 +871,25 @@ int ritual_ZNK24QQmlListModelWorkerAgent5countEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlListModelWorkerAgent5clearEv(
     QQmlListModelWorkerAgent *self) {
-  self->clear();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlListModelWorkerAgent")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "clear()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "clear()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQmlListModelWorkerAgent::remove(QQmlV4FunctionPtr args)
@@ -871,7 +897,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlListModelWorkerAgent6removeEP14QQmlV4Function(
     QQmlListModelWorkerAgent *self,
     QQmlV4FunctionPtr args) {
-  self->remove(args);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlListModelWorkerAgent")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "remove(QQmlV4FunctionPtr)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "remove(QQmlV4FunctionPtr)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&args)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQmlListModelWorkerAgent::append(QQmlV4FunctionPtr args)
@@ -879,7 +924,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlListModelWorkerAgent6appendEP14QQmlV4Function(
     QQmlListModelWorkerAgent *self,
     QQmlV4FunctionPtr args) {
-  self->append(args);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlListModelWorkerAgent")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "append(QQmlV4FunctionPtr)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "append(QQmlV4FunctionPtr)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&args)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQmlListModelWorkerAgent::insert(QQmlV4FunctionPtr args)
@@ -887,7 +951,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlListModelWorkerAgent6insertEP14QQmlV4Function(
     QQmlListModelWorkerAgent *self,
     QQmlV4FunctionPtr args) {
-  self->insert(args);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlListModelWorkerAgent")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "insert(QQmlV4FunctionPtr)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "insert(QQmlV4FunctionPtr)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&args)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QJSValue QQmlListModelWorkerAgent::get(int index) const
@@ -898,26 +981,6 @@ QJSValue *ritual_ZNK24QQmlListModelWorkerAgent3getEi(
   return new QJSValue(self->get(index));
 }
 
-//  void QQmlListModelWorkerAgent::set(int index, const QJSValue &value)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN24QQmlListModelWorkerAgent3setEiRK8QJSValue(
-    QQmlListModelWorkerAgent *self,
-    int index,
-    const QJSValue *value) {
-  self->set(index, *value);
-}
-
-//  void QQmlListModelWorkerAgent::setProperty(int index, const QString
-//      &property, const QVariant &value)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN24QQmlListModelWorkerAgent11setPropertyEiRK7QStringRK8QVariant(
-    QQmlListModelWorkerAgent *self,
-    int index,
-    const QString *property,
-    const QVariant *value) {
-  self->setProperty(index, *property, *value);
-}
-
 //  void QQmlListModelWorkerAgent::move(int from, int to, int count)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlListModelWorkerAgent4moveEiii(
@@ -925,7 +988,53 @@ void ritual_ZN24QQmlListModelWorkerAgent4moveEiii(
     int from,
     int to,
     int count) {
-  self->move(from, to, count);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlListModelWorkerAgent")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "move(int,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "move(int,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&from)),
+      const_cast<void *>(static_cast<const void *>(&to)),
+      const_cast<void *>(static_cast<const void *>(&count)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQmlListModelWorkerAgent::sync()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlListModelWorkerAgent4syncEv(
+    QQmlListModelWorkerAgent *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlListModelWorkerAgent")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sync()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sync()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQmlListModelWorkerAgent::modelDestroyed()
@@ -933,6 +1042,34 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlListModelWorkerAgent14modelDestroyedEv(
     QQmlListModelWorkerAgent *self) {
   self->modelDestroyed();
+}
+
+//  void QQmlListModelWorkerAgent::engineChanged(QQmlV4ExecutionEnginePtr
+//      engine)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlListModelWorkerAgent13engineChangedEPN3QV415ExecutionEngineE(
+    QQmlListModelWorkerAgent *self,
+    QQmlV4ExecutionEnginePtr engine) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlListModelWorkerAgent")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "engineChanged(QQmlV4ExecutionEnginePtr)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "engineChanged(QQmlV4ExecutionEnginePtr)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&engine)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  bool QQmlListModelWorkerAgent::event(QEvent *a0)

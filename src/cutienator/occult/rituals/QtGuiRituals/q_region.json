@@ -15,14 +15,22 @@
       "address", "address", "int"
     ],
     "ritual_ZN7QRegionC1ERKS_": ["address", "address"],
+    "ritual_ZN7QRegionC1EOS_": ["address", "address"],
     "ritual_ZN7QRegionC1ERK7QBitmap": ["address", "address"],
     "ritual_ZN7QRegionD1Ev": ["nothing", "address"],
+    "ritual_ZN7QRegionaSERKS_": ["address", "address", "address"],
+    "ritual_ZN7QRegionaSEOS_": ["address", "address", "address"],
+    "ritual_ZN7QRegion4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK7QRegion7isEmptyEv": ["bool", "address"],
     "ritual_ZNK7QRegion6isNullEv": ["bool", "address"],
     "ritual_ZNK7QRegion5beginEv": ["address", "address"],
     "ritual_ZNK7QRegion6cbeginEv": ["address", "address"],
     "ritual_ZNK7QRegion3endEv": ["address", "address"],
     "ritual_ZNK7QRegion4cendEv": ["address", "address"],
+    "ritual_ZNK7QRegion6rbeginEv": ["address", "address"],
+    "ritual_ZNK7QRegion7crbeginEv": ["address", "address"],
+    "ritual_ZNK7QRegion4rendEv": ["address", "address"],
+    "ritual_ZNK7QRegion5crendEv": ["address", "address"],
     "ritual_ZNK7QRegion8containsERK6QPoint": ["bool", "address", "address"],
     "ritual_ZNK7QRegion8containsERK5QRect": ["bool", "address", "address"],
     "ritual_ZN7QRegion9translateEii": ["nothing", "address", "int", "int"],
@@ -53,6 +61,10 @@
     "ritual_ZN7QRegion8setRectsEPK5QRecti": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN7QRegion8setRectsE5QSpanIK5QRectLm18446744073709551615EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QRegion5rectsEv": ["address", "address"],
     "ritual_ZNK7QRegion9rectCountEv": ["int", "address"],
     "ritual_ZNK7QRegionorERKS_": ["address", "address", "address"],
     "ritual_ZNK7QRegionplERKS_": ["address", "address", "address"],
@@ -71,10 +83,17 @@
     "ritual_ZNK7QRegioneqERKS_": ["bool", "address", "address"],
     "ritual_ZNK7QRegionneERKS_": ["bool", "address", "address"],
     "ritual_ZNK7QRegioncv8QVariantEv": ["address", "address"],
+    "ritual_ZlsR11QDataStreamRK7QRegion": ["address", "address", "address"],
+    "ritual_ZrsR11QDataStreamR7QRegion": ["address", "address", "address"],
     "ritual_ZNK7QRegion4copyEv": ["address", "address"],
     "ritual_ZN7QRegion6detachEv": ["nothing", "address"],
     "ritual_ZN7QRegion4execERK10QByteArrayiN11QDataStream9ByteOrderE": [
       "nothing", "address", "address", "int", "int"
-    ]
+    ],
+    "ritual_ZN7QRegion7cleanUpEPNS_11QRegionDataE": ["nothing", "address"],
+    "ritual_drop_QRegion__QRegion_const_reverse_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QRegion__QSpan_const_QRect": ["nothing", "address"]
   }
 }

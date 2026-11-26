@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from QtQuickNativeStyle/6.12.0/",
+    "QtQuickNativeStyle/private/qquickmacstyle_mac_p.h, Qt 6.12.0, from",
+    "Qt's source: Objective-C++, built on Apple's systems only. Kept as",
+    "it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN4QQC29QMacStyleC1Ev": ["address"],
+    "ritual_ZN4QQC29QMacStyle6createEv": ["address"],
+    "ritual_ZN4QQC216QMacStylePrivate12CocoaControlC1Ev": ["address"],
+    "ritual_ZN4QQC216QMacStylePrivate12CocoaControlC1ENS0_16CocoaControlTypeENS_12QStyleHelper16WidgetSizePolicyE": ["address", "int", "int"],
+    "ritual_ZNK4QQC216QMacStylePrivate12CocoaControleqERKS1_": ["bool", "address", "address"],
+    "ritual_ZNK4QQC216QMacStylePrivate12CocoaControl16defaultFrameSizeEv": ["address", "address"],
+    "ritual_ZNK4QQC216QMacStylePrivate12CocoaControl20adjustedControlFrameERK6QRectF": ["address", "address", "address"],
+    "ritual_ZNK4QQC216QMacStylePrivate12CocoaControl12titleMarginsEv": ["address", "address"],
+    "ritual_ZN4QQC216QMacStylePrivateC1Ev": ["address"],
+    "ritual_ZN4QQC216QMacStylePrivate18comboboxEditBoundsERK6QRectFRKNS0_12CocoaControlE": ["address", "address", "address"],
+    "ritual_ZNK4QQC216QMacStylePrivate15windowPanelPathERK6QRectF": ["address", "address", "address"],
+    "ritual_ZNK4QQC216QMacStylePrivate20setAutoDefaultButtonEP7QObject": ["nothing", "address", "address"],
+    "ritual_ZN4QQC216QMacStylePrivate12tabDirectionENS_15QStyleOptionTab5ShapeE": ["int", "int"],
+    "ritual_ZN4QQC216QMacStylePrivate12verticalTabsENS0_9DirectionE": ["bool", "int"],
+    "ritual_ZN4QQC216QMacStylePrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate17aquaSizeConstrainEPKNS_12QStyleOptionENS_6QStyle12ContentsTypeE5QSizePS6_": [
+      "int", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate26effectiveAquaSizeConstrainEPKNS_12QStyleOptionENS_6QStyle12ContentsTypeE5QSizePS6_": [
+      "int", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate12animateSpeedENS0_8AnimatesE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate12cocoaControlENS0_12CocoaControlE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate9cocoaCellENS0_12CocoaControlE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate22setupNSGraphicsContextEP9CGContextb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate24restoreNSGraphicsContextEP9CGContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate20resolveCurrentNSViewEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate22drawToolbarButtonArrowEPKNS_12QStyleOptionEP8QPainter": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate24windowButtonCocoaControlENS_6QStyle10SubControlE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate9tabLayoutEPKNS_15QStyleOptionTabEP5QRectS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK4QQC216QMacStylePrivate12CocoaControl31getCocoaButtonTypeAndBezelStyleEP12NSButtonTypeP12NSBezelStyle": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

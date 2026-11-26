@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZN13QJsonValueRefC1ERKS_": ["address", "address"],
+    "ritual_ZN13QJsonValueRefaSERK10QJsonValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QJsonValueRefaSERKS_": ["address", "address", "address"],
     "ritual_ZN13QJsonValueRefC1EP10QJsonArrayx": [
       "address", "address", "long long"
     ],

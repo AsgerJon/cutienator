@@ -6,7 +6,15 @@
   ],
   "rows": {
     "ritual_ZNK13QWaylandTouch10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QWaylandTouch11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QWaylandTouch11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QWaylandTouch2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QWaylandTouch6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QWaylandTouch6d_funcEv": ["address", "address"],
     "ritual_ZN13QWaylandTouchC1EP12QWaylandSeatP7QObject": [
       "address", "address", "address"
     ],

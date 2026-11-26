@@ -5,6 +5,7 @@
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qrhinull_p.h>
+#include <QtGui/6.12.0/QtGui/rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #include <cstring>
@@ -20,47 +21,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from src/gui/rhi/qrhinull.cpp, line 811, as _ZN25QNullRenderPassDescriptorC1EP18QRhiImplementation
-inline QNullRenderPassDescriptor::QNullRenderPassDescriptor(QRhiImplementation *rhi)
-    : QRhiRenderPassDescriptor(rhi)
-{
-}
-
-//  from src/gui/rhi/qrhinull.cpp, line 885, as _ZN24QNullTextureRenderTargetD1Ev
-inline QNullTextureRenderTarget::~QNullTextureRenderTarget()
-{
-    destroy();
-}
-
-//  from src/gui/rhi/qrhinull.cpp, line 890, as _ZN24QNullTextureRenderTarget7destroyEv
-inline void QNullTextureRenderTarget::destroy()
-{
-    QRHI_RES_RHI(QRhiNull);
-    if (rhiD)
-        rhiD->unregisterResource(this);
-}
-
-//  from src/gui/rhi/qrhinull.cpp, line 924, as _ZNK24QNullTextureRenderTarget9pixelSizeEv
-inline QSize QNullTextureRenderTarget::pixelSize() const
-{
-    if (!QRhiRenderTargetAttachmentTracker::isUpToDate<QNullTexture, QNullRenderBuffer>(m_desc, d.currentResIdList))
-        const_cast<QNullTextureRenderTarget *>(this)->create();
-
-    return d.pixelSize;
-}
-
-//  from src/gui/rhi/qrhinull.cpp, line 932, as _ZNK24QNullTextureRenderTarget16devicePixelRatioEv
-inline float QNullTextureRenderTarget::devicePixelRatio() const
-{
-    return d.dpr;
-}
-
-//  from src/gui/rhi/qrhinull.cpp, line 937, as _ZNK24QNullTextureRenderTarget11sampleCountEv
-inline int QNullTextureRenderTarget::sampleCount() const
-{
-    return 1;
-}
 
 //  from src/gui/rhi/qrhinull.cpp, line 897, as _ZN24QNullTextureRenderTarget33newCompatibleRenderPassDescriptorEv
 inline QRhiRenderPassDescriptor *QNullTextureRenderTarget::newCompatibleRenderPassDescriptor()
@@ -89,6 +49,92 @@ inline bool QNullTextureRenderTarget::create()
     QRhiRenderTargetAttachmentTracker::updateResIdList<QNullTexture, QNullRenderBuffer>(m_desc, &d.currentResIdList);
     rhiD->registerResource(this);
     return true;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 890, as _ZN24QNullTextureRenderTarget7destroyEv
+inline void QNullTextureRenderTarget::destroy()
+{
+    QRHI_RES_RHI(QRhiNull);
+    if (rhiD)
+        rhiD->unregisterResource(this);
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 937, as _ZNK24QNullTextureRenderTarget11sampleCountEv
+inline int QNullTextureRenderTarget::sampleCount() const
+{
+    return 1;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 932, as _ZNK24QNullTextureRenderTarget16devicePixelRatioEv
+inline float QNullTextureRenderTarget::devicePixelRatio() const
+{
+    return d.dpr;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 924, as _ZNK24QNullTextureRenderTarget9pixelSizeEv
+inline QSize QNullTextureRenderTarget::pixelSize() const
+{
+    if (!QRhiRenderTargetAttachmentTracker::isUpToDate<QNullTexture, QNullRenderBuffer>(m_desc, d.currentResIdList))
+        const_cast<QNullTextureRenderTarget *>(this)->create();
+
+    return d.pixelSize;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 811, as _ZN25QNullRenderPassDescriptorC1EP18QRhiImplementation
+inline QNullRenderPassDescriptor::QNullRenderPassDescriptor(QRhiImplementation *rhi)
+    : QRhiRenderPassDescriptor(rhi)
+{
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 816, as _ZN25QNullRenderPassDescriptorD1Ev
+inline QNullRenderPassDescriptor::~QNullRenderPassDescriptor()
+{
+    destroy();
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 821, as _ZN25QNullRenderPassDescriptor7destroyEv
+inline void QNullRenderPassDescriptor::destroy()
+{
+    QRHI_RES_RHI(QRhiNull);
+    if (rhiD)
+        rhiD->unregisterResource(this);
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 828, as _ZNK25QNullRenderPassDescriptor12isCompatibleEPK24QRhiRenderPassDescriptor
+inline bool QNullRenderPassDescriptor::isCompatible(const QRhiRenderPassDescriptor *other) const
+{
+    Q_UNUSED(other);
+    return true;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 834, as _ZNK25QNullRenderPassDescriptor33newCompatibleRenderPassDescriptorEv
+inline QRhiRenderPassDescriptor *QNullRenderPassDescriptor::newCompatibleRenderPassDescriptor() const
+{
+    QNullRenderPassDescriptor *rpD = new QNullRenderPassDescriptor(m_rhi);
+    QRHI_RES_RHI(QRhiNull);
+    rhiD->registerResource(rpD, false);
+    return rpD;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 842, as _ZNK25QNullRenderPassDescriptor16serializedFormatEv
+inline QVector<quint32> QNullRenderPassDescriptor::serializedFormat() const
+{
+    return {};
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 877, as _ZN24QNullTextureRenderTargetC1EP18QRhiImplementationRK34QRhiTextureRenderTargetDescription6QFlagsIN23QRhiTextureRenderTarget4FlagEE
+inline QNullTextureRenderTarget::QNullTextureRenderTarget(QRhiImplementation *rhi,
+                                                   const QRhiTextureRenderTargetDescription &desc,
+                                                   Flags flags)
+    : QRhiTextureRenderTarget(rhi, desc, flags),
+      d(rhi)
+{
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 885, as _ZN24QNullTextureRenderTargetD1Ev
+inline QNullTextureRenderTarget::~QNullTextureRenderTarget()
+{
+    destroy();
 }
 //  -----------------------------------------------------------------------
 
@@ -217,6 +263,19 @@ public:
     return QRhiTextureRenderTarget::resourceType();
   }
 };
+
+//  QNullTextureRenderTarget::QNullTextureRenderTarget(QRhiImplementation
+//      *rhi, const QRhiTextureRenderTargetDescription &desc, Flags flags)
+extern "C" Q_DECL_EXPORT
+QNullTextureRenderTarget *ritual_ZN24QNullTextureRenderTargetC1EP18QRhiImplementationRK34QRhiTextureRenderTargetDescription6QFlagsIN23QRhiTextureRenderTarget4FlagEE(
+    QRhiImplementation *rhi,
+    const QRhiTextureRenderTargetDescription *desc,
+    int flags) {
+  return new CuteQNullTextureRenderTarget(
+      rhi,
+      *desc,
+      QFlags<QRhiTextureRenderTarget::Flag>::fromInt(flags));
+}
 
 //  QNullTextureRenderTarget::~QNullTextureRenderTarget()
 extern "C" Q_DECL_EXPORT

@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN33QSGOpaqueTextureMaterialRhiShaderC1Ei": ["address", "int"]
+    "ritual_ZN33QSGOpaqueTextureMaterialRhiShaderC1Ei": ["address", "int"],
+    "ritual_ZN33QSGOpaqueTextureMaterialRhiShader17updateUniformDataERN17QSGMaterialShader11RenderStateEP11QSGMaterialS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN33QSGOpaqueTextureMaterialRhiShader18updateSampledImageERN17QSGMaterialShader11RenderStateEiPP10QSGTextureP11QSGMaterialS7_": [
+      "nothing", "address", "address", "int", "address", "address", "address"
+    ]
   }
 }

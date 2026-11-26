@@ -613,6 +613,24 @@ const QMetaObject *ritual_ZNK12QQuickWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickWindow11qt_metacastEPKc(
+    QQuickWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWindow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWindow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickWindow2trEPKcS1_i(
@@ -968,6 +986,136 @@ QRhiSwapChain *ritual_ZNK12QQuickWindow9swapChainEv(
   return self->swapChain();
 }
 
+//  void QQuickWindow::frameSwapped()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow12frameSwappedEv(QQuickWindow *self) {
+  self->frameSwapped();
+}
+
+//  void QQuickWindow::sceneGraphInitialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow21sceneGraphInitializedEv(QQuickWindow *self) {
+  self->sceneGraphInitialized();
+}
+
+//  void QQuickWindow::sceneGraphInvalidated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow21sceneGraphInvalidatedEv(QQuickWindow *self) {
+  self->sceneGraphInvalidated();
+}
+
+//  void QQuickWindow::beforeSynchronizing()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow19beforeSynchronizingEv(QQuickWindow *self) {
+  self->beforeSynchronizing();
+}
+
+//  void QQuickWindow::afterSynchronizing()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow18afterSynchronizingEv(QQuickWindow *self) {
+  self->afterSynchronizing();
+}
+
+//  void QQuickWindow::beforeRendering()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow15beforeRenderingEv(QQuickWindow *self) {
+  self->beforeRendering();
+}
+
+//  void QQuickWindow::afterRendering()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow14afterRenderingEv(QQuickWindow *self) {
+  self->afterRendering();
+}
+
+//  void QQuickWindow::afterAnimating()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow14afterAnimatingEv(QQuickWindow *self) {
+  self->afterAnimating();
+}
+
+//  void QQuickWindow::sceneGraphAboutToStop()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow21sceneGraphAboutToStopEv(QQuickWindow *self) {
+  self->sceneGraphAboutToStop();
+}
+
+//  void QQuickWindow::closing(QQuickCloseEvent *close)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow7closingEP16QQuickCloseEvent(
+    QQuickWindow *self,
+    QQuickCloseEvent *close) {
+  self->closing(close);
+}
+
+//  void QQuickWindow::colorChanged(const QColor &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow12colorChangedERK6QColor(
+    QQuickWindow *self,
+    const QColor *a0) {
+  self->colorChanged(*a0);
+}
+
+//  void QQuickWindow::activeFocusItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow22activeFocusItemChangedEv(QQuickWindow *self) {
+  self->activeFocusItemChanged();
+}
+
+//  void QQuickWindow::sceneGraphError(QQuickWindow::SceneGraphError error,
+//      const QString &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow15sceneGraphErrorENS_15SceneGraphErrorERK7QString(
+    QQuickWindow *self,
+    QQuickWindow::SceneGraphError error,
+    const QString *message) {
+  self->sceneGraphError(error, *message);
+}
+
+//  void QQuickWindow::beforeRenderPassRecording()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow25beforeRenderPassRecordingEv(
+    QQuickWindow *self) {
+  self->beforeRenderPassRecording();
+}
+
+//  void QQuickWindow::afterRenderPassRecording()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow24afterRenderPassRecordingEv(
+    QQuickWindow *self) {
+  self->afterRenderPassRecording();
+}
+
+//  void QQuickWindow::paletteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow14paletteChangedEv(QQuickWindow *self) {
+  self->paletteChanged();
+}
+
+//  void QQuickWindow::paletteCreated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow14paletteCreatedEv(QQuickWindow *self) {
+  self->paletteCreated();
+}
+
+//  void QQuickWindow::beforeFrameBegin()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow16beforeFrameBeginEv(QQuickWindow *self) {
+  self->beforeFrameBegin();
+}
+
+//  void QQuickWindow::afterFrameEnd()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow13afterFrameEndEv(QQuickWindow *self) {
+  self->afterFrameEnd();
+}
+
+//  void QQuickWindow::devicePixelRatioChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWindow23devicePixelRatioChangedEv(QQuickWindow *self) {
+  self->devicePixelRatioChanged();
+}
+
 //  void QQuickWindow::update()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQuickWindow6updateEv(QQuickWindow *self) {
@@ -978,6 +1126,23 @@ void ritual_ZN12QQuickWindow6updateEv(QQuickWindow *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQuickWindow16releaseResourcesEv(QQuickWindow *self) {
   self->releaseResources();
+}
+
+//  QQuickWindow::QQuickWindow(QQuickWindowPrivate &dd, QWindow *parent)
+extern "C" Q_DECL_EXPORT
+QQuickWindow *ritual_ZN12QQuickWindowC1ER19QQuickWindowPrivateP7QWindow(
+    QQuickWindowPrivate *dd,
+    QWindow *parent) {
+  return new CuteQQuickWindow(*dd, parent);
+}
+
+//  QQuickWindow::QQuickWindow(QQuickWindowPrivate &dd, QQuickRenderControl
+//      *control)
+extern "C" Q_DECL_EXPORT
+QQuickWindow *ritual_ZN12QQuickWindowC1ER19QQuickWindowPrivateP19QQuickRenderControl(
+    QQuickWindowPrivate *dd,
+    QQuickRenderControl *control) {
+  return new CuteQQuickWindow(*dd, control);
 }
 
 //  void QQuickWindow::exposeEvent(QExposeEvent *a0)

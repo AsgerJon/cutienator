@@ -5,17 +5,52 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV415IdentifierTable8addEntryEPNS_4Heap14StringOrSymbolE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV415IdentifierTableC1EPNS_15ExecutionEngineEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV415IdentifierTableD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV415IdentifierTable12insertStringERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415IdentifierTable12insertSymbolERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZN3QV415IdentifierTable13asPropertyKeyEPKNS_4Heap6StringE": [
       "address", "address", "address"
     ],
     "ritual_ZN3QV415IdentifierTable13asPropertyKeyEPKNS_6StringE": [
       "address", "address", "address"
     ],
+    "ritual_ZN3QV415IdentifierTable13asPropertyKeyERK7QStringNS0_21KeyConversionBehaviorE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN3QV415IdentifierTable17asPropertyKeyImplEPKNS_4Heap6StringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV415IdentifierTable9resolveIdENS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV415IdentifierTable11stringForIdENS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV415IdentifierTable11symbolForIdENS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV415IdentifierTable11markObjectsEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV415IdentifierTable5sweepEv": ["nothing", "address"],
     "ritual_ZN3QV415IdentifierTable17addIdentifierHashEPNS_18IdentifierHashDataE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN3QV415IdentifierTable20removeIdentifierHashEPNS_18IdentifierHashDataE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV415IdentifierTable18resolveStringEntryERK7QStringjj": [
+      "address", "address", "text", "unsigned int", "unsigned int"
     ]
   }
 }

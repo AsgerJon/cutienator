@@ -8,6 +8,15 @@
     "ritual_ZN19QHostAddressPrivate10setAddressEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZN19QHostAddressPrivate10setAddressEPKh": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QHostAddressPrivate10setAddressERK12QIPv6Address": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QHostAddressPrivate5parseERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZN19QHostAddressPrivate5clearEv": ["nothing", "address"],
     "ritual_ZNK19QHostAddressPrivate8classifyEv": ["int", "address"],
     "ritual_ZN19QHostAddressPrivate8classifyERK12QHostAddress": [

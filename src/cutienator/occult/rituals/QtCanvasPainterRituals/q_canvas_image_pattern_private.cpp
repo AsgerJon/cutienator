@@ -5,12 +5,10 @@
 #include <QtCanvasPainter/QtCanvasPainter>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvasimagepattern_p.h>
+#include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcpaint_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasimagepattern.h>
 #include <QtCanvasPainter/qcanvasbrush.h>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcpaint_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasimagepattern.h>
@@ -24,6 +22,15 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasimagepattern.cpp, line 414, as local:qcanvasimagepattern.cpp:DECONST
+#define DECONST(d) const_cast<QCanvasImagePatternPrivate *>(d)
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasimagepattern.cpp, line 435, as _ZN26QCanvasImagePatternPrivate5cloneEv
+inline QCanvasBrushPrivate *QCanvasImagePatternPrivate::clone()
+{
+    return new QCanvasImagePatternPrivate(*this);
+}
 
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvasimagepattern.cpp, line 178, as _ZNK26QCanvasImagePatternPrivate6equalsERK19QCanvasBrushPrivate
 inline bool QCanvasImagePatternPrivate::equals(const QCanvasBrushPrivate &other) const noexcept
@@ -45,12 +52,6 @@ inline bool QCanvasImagePatternPrivate::equals(const QCanvasBrushPrivate &other)
 
     return true;
 }
-
-//  from ../qtcanvaspainter/src/canvaspainter/qcanvasimagepattern.cpp, line 435, as _ZN26QCanvasImagePatternPrivate5cloneEv
-inline QCanvasBrushPrivate *QCanvasImagePatternPrivate::clone()
-{
-    return new QCanvasImagePatternPrivate(*this);
-}
 //  -----------------------------------------------------------------------
 
 //  A QCanvasImagePatternPrivate that Python can take functions over in. Every QCanvasImagePatternPrivate
@@ -61,7 +62,7 @@ typedef const QCPaint * (*CuteQCanvasImagePatternPrivateCall1)(const void *, QCa
 class CuteQCanvasImagePatternPrivate : public QCanvasImagePatternPrivate {
 public:
   using QCanvasImagePatternPrivate::QCanvasImagePatternPrivate;
-  CuteQCanvasImagePatternPrivate(const QCanvasImagePatternPrivate &other) : QCanvasImagePatternPrivate(other) {}
+  CuteQCanvasImagePatternPrivate(const QCanvasImagePatternPrivate & other) : QCanvasImagePatternPrivate(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -111,6 +112,24 @@ extern "C" Q_DECL_EXPORT
 QCanvasBrushPrivate *ritual_ZN26QCanvasImagePatternPrivate5cloneEv(
     QCanvasImagePatternPrivate *self) {
   return self->clone();
+}
+
+//  bool QCanvasImagePatternPrivate::equals(const QCanvasBrushPrivate &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK26QCanvasImagePatternPrivate6equalsERK19QCanvasBrushPrivate(
+    const QCanvasImagePatternPrivate *self,
+    const QCanvasBrushPrivate *other) {
+  return self->equals(*other);
+}
+
+//  QCPaint QCanvasImagePatternPrivate::createPaint(QCanvasPainter *painter)
+//      const
+extern "C" Q_DECL_EXPORT
+QCPaint *ritual_ZNK26QCanvasImagePatternPrivate11createPaintEP14QCanvasPainter(
+    const QCanvasImagePatternPrivate *self,
+    QCanvasPainter *painter) {
+  return new QCPaint(self->createPaint(painter));
 }
 
 //  QCanvasImagePatternPrivate

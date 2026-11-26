@@ -8,12 +8,43 @@
     "ritual_ZNK24QSurfaceDataProxyPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QSurfaceDataProxyPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QSurfaceDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QSurfaceDataProxyPrivate10resetArrayEP5QListIPS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate6setRowEiP5QListI16QSurfaceDataItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate7setRowsEiRK5QListIPS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN24QSurfaceDataProxyPrivate7setItemEiiRK16QSurfaceDataItem": [
       "nothing", "address", "int", "int", "address"
     ],
+    "ritual_ZN24QSurfaceDataProxyPrivate6addRowEP5QListI16QSurfaceDataItemE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate7addRowsERK5QListIPS0_I16QSurfaceDataItemEE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate9insertRowEiP5QListI16QSurfaceDataItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate10insertRowsEiRK5QListIPS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN24QSurfaceDataProxyPrivate10removeRowsEii": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK24QSurfaceDataProxyPrivate11limitValuesER9QVector3DS1_P15QAbstract3DAxisS3_S3_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
     ],
     "ritual_ZNK24QSurfaceDataProxyPrivate12isValidValueEfP15QAbstract3DAxis": [
       "bool", "address", "float", "address"

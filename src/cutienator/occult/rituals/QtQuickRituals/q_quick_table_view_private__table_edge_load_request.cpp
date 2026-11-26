@@ -11,6 +11,50 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qpoint.h>
 #include <QtCore/qstring.h>
+#include <QtCore/QList>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 1575, as _Z28lcTableViewDelegateLifecyclev
+inline const QLoggingCategory &lcTableViewDelegateLifecycle()
+{
+    static const QLoggingCategory category("qt.quick.tableview.lifecycle");
+    return category;
+}
+//  -----------------------------------------------------------------------
+
+//  void QQuickTableViewPrivate::TableEdgeLoadRequest::begin(const QPoint
+//      &cell, const QPointF &pos, QQmlIncubator::IncubationMode
+//      incubationMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTableViewPrivate20TableEdgeLoadRequest5beginERK6QPointRK7QPointFN13QQmlIncubator14IncubationModeE(
+    QQuickTableViewPrivate::TableEdgeLoadRequest *self,
+    const QPoint *cell,
+    const QPointF *pos,
+    QQmlIncubator::IncubationMode incubationMode) {
+  self->begin(*cell, *pos, incubationMode);
+}
+
+//  void QQuickTableViewPrivate::TableEdgeLoadRequest::begin(Qt::Edge
+//      edgeToLoad, int edgeIndex, const QList<int> visibleCellsInEdge,
+//      QQmlIncubator::IncubationMode incubationMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTableViewPrivate20TableEdgeLoadRequest5beginEN2Qt4EdgeEi5QListIiEN13QQmlIncubator14IncubationModeE(
+    QQuickTableViewPrivate::TableEdgeLoadRequest *self,
+    Qt::Edge edgeToLoad,
+    int edgeIndex,
+    const QList<int> *visibleCellsInEdge,
+    QQmlIncubator::IncubationMode incubationMode) {
+  self->begin(edgeToLoad, edgeIndex, *visibleCellsInEdge, incubationMode);
+}
 
 //  void QQuickTableViewPrivate::TableEdgeLoadRequest::markAsDone()
 extern "C" Q_DECL_EXPORT

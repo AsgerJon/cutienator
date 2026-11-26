@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuick3DSkyMaterial10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DSkyMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuick3DSkyMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuick3DSkyMaterial2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -43,6 +49,27 @@
     ],
     "ritual_ZN19QQuick3DSkyMaterial13setSkyboxModeENS_10SkyboxModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuick3DSkyMaterial22radianceMapSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DSkyMaterial21fragmentShaderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DSkyMaterial25fragmentShaderCodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DSkyMaterial16enableIBLChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DSkyMaterial21iblSampleCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DSkyMaterial22iblRenderFramesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DSkyMaterial17skyboxModeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN19QQuick3DSkyMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

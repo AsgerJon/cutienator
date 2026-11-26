@@ -8,8 +8,41 @@
     "ritual_ZNK13Qt3DAnimation20QAnimationClipLoader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation20QAnimationClipLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationClipLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation20QAnimationClipLoader2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationClipLoaderC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationClipLoaderC1ERK4QUrlPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationClipLoaderD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationClipLoader6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationClipLoader6statusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationClipLoader9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationClipLoader13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationClipLoader13statusChangedENS0_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationClipLoaderC1ERNS_27QAnimationClipLoaderPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation20QAnimationClipLoader6d_funcEv": [
       "address", "address"

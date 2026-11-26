@@ -8,6 +8,12 @@
     "ritual_ZNK21QObjectCleanupHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QObjectCleanupHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QObjectCleanupHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QObjectCleanupHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

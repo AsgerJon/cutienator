@@ -10,6 +10,8 @@
   "rows": {
     "ritual_ZN16QPieSlicePrivate3getEP9QPieSlice": ["address", "address"],
     "ritual_ZN16QPieSlicePrivate3getEPK9QPieSlice": ["address", "address"],
+    "ritual_ZN16QPieSlicePrivateC1Ev": ["address"],
+    "ritual_ZN16QPieSlicePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN16QPieSlicePrivate13setPercentageEd": [
       "nothing", "address", "double"
     ],

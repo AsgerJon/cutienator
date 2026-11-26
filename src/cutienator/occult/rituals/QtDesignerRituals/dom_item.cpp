@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
 //  DomItem::DomItem()
@@ -18,6 +19,24 @@ DomItem *ritual_ZN7DomItemC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7DomItemD1Ev(DomItem *self) {
   delete self;
+}
+
+//  void DomItem::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7DomItem4readER16QXmlStreamReader(
+    DomItem *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomItem::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK7DomItem5writeER16QXmlStreamWriterRK7QString(
+    const DomItem *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  bool DomItem::hasAttributeRow() const

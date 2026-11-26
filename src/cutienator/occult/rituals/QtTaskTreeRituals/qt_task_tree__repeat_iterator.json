@@ -4,6 +4,7 @@
     "QtTaskTree/qtasktree.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QtTaskTree14RepeatIteratorC1Ex": ["address", "long long"],
     "ritual_ZN10QtTaskTree14RepeatIteratorD1Ev": ["nothing", "address"]
   }
 }

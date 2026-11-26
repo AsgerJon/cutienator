@@ -8,6 +8,8 @@
     "ritual_ZN15QDBusObjectPathC1EPKc": ["address", "chars"],
     "ritual_ZN15QDBusObjectPathC1E13QLatin1String": ["address", "address"],
     "ritual_ZN15QDBusObjectPathC1ERK7QString": ["address", "text"],
+    "ritual_ZN15QDBusObjectPathC1EO7QString": ["address", "address"],
+    "ritual_ZN15QDBusObjectPath4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN15QDBusObjectPath7setPathERK7QString": [
       "nothing", "address", "text"
     ],

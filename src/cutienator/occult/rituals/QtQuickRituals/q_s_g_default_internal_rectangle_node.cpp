@@ -20,9 +20,27 @@ void ritual_ZN31QSGDefaultInternalRectangleNode26updateMaterialAntialiasingEv(
   self->updateMaterialAntialiasing();
 }
 
+//  void QSGDefaultInternalRectangleNode::updateMaterialBlending(QSGNode::Dir
+//      tyState *state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QSGDefaultInternalRectangleNode22updateMaterialBlendingEP6QFlagsIN7QSGNode13DirtyStateBitEE(
+    QSGDefaultInternalRectangleNode *self,
+    QSGNode::DirtyState *state) {
+  self->updateMaterialBlending(state);
+}
+
 //  void QSGDefaultInternalRectangleNode::updateMaterialAntialiasing()
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN31QSGDefaultInternalRectangleNode26updateMaterialAntialiasingEv(
     QSGDefaultInternalRectangleNode *self) {
   self->QSGDefaultInternalRectangleNode::updateMaterialAntialiasing();
+}
+
+//  void QSGDefaultInternalRectangleNode::updateMaterialBlending(QSGNode::Dir
+//      tyState *state)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QSGDefaultInternalRectangleNode22updateMaterialBlendingEP6QFlagsIN7QSGNode13DirtyStateBitEE(
+    QSGDefaultInternalRectangleNode *self,
+    QSGNode::DirtyState *state) {
+  self->QSGDefaultInternalRectangleNode::updateMaterialBlending(state);
 }

@@ -6,9 +6,18 @@
   ],
   "rows": {
     "ritual_ZNK19QNetworkAccessCache10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QNetworkAccessCache11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QNetworkAccessCache11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QNetworkAccessCacheD1Ev": ["nothing", "address"],
     "ritual_ZNK19QNetworkAccessCache8hasEntryERK10QByteArray": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN19QNetworkAccessCache10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QNetworkAccessCache": [
       "bool", "address", "chars", "address"

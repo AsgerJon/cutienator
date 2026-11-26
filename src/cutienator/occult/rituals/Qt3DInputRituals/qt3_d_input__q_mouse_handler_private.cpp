@@ -7,6 +7,96 @@
 #include <Qt3DInput/6.12.0/Qt3DInput/private/qmousehandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DInput/qmousehandler.h>
+#include <Qt3DInput/private/qmousehandler_p.h>
+#include <Qt3DInput/qmousedevice.h>
+#include <Qt3DInput/qmouseevent.h>
+#include <QtCore/QTimer>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/input/frontend/qmousehandler.cpp, line 19, as _ZN9Qt3DInput20QMouseHandlerPrivateC1Ev
+namespace Qt3DInput {
+using namespace Qt3DCore;
+using namespace std::chrono_literals;
+inline QMouseHandlerPrivate::QMouseHandlerPrivate()
+    : QComponentPrivate()
+    , m_mouseDevice(nullptr)
+    , m_containsMouse(false)
+{
+    m_shareable = false;
+}
+}  // namespace Qt3DInput
+
+//  from ../qt3d/src/input/frontend/qmousehandler.cpp, line 27, as _ZN9Qt3DInput20QMouseHandlerPrivateD1Ev
+namespace Qt3DInput {
+using namespace Qt3DCore;
+using namespace std::chrono_literals;
+inline QMouseHandlerPrivate::~QMouseHandlerPrivate()
+{
+}
+}  // namespace Qt3DInput
+
+//  from ../qt3d/src/input/frontend/qmousehandler.cpp, line 31, as _ZN9Qt3DInput20QMouseHandlerPrivate4initEv
+namespace Qt3DInput {
+using namespace Qt3DCore;
+using namespace std::chrono_literals;
+inline void QMouseHandlerPrivate::init()
+{
+    Q_Q(QMouseHandler);
+
+    m_pressAndHoldTimer = new QTimer(q);
+    m_pressAndHoldTimer->setSingleShot(true);
+    m_pressAndHoldTimer->setInterval(800ms);
+    QObject::connect(m_pressAndHoldTimer, &QTimer::timeout, q, [this, q] {
+        emit q->pressAndHold(m_lastPressedEvent.data());
+    });
+}
+}  // namespace Qt3DInput
+
+//  from ../qt3d/src/input/frontend/qmousehandler.cpp, line 43, as _ZN9Qt3DInput20QMouseHandlerPrivate10mouseEventERK14QSharedPointerINS_11QMouseEventEE
+namespace Qt3DInput {
+using namespace Qt3DCore;
+using namespace std::chrono_literals;
+inline void QMouseHandlerPrivate::mouseEvent(const QMouseEventPtr &event)
+{
+    Q_Q(QMouseHandler);
+    switch (event->type()) {
+    case QEvent::MouseButtonPress:
+        m_lastPressedEvent = event;
+        m_pressAndHoldTimer->start();
+        emit q->pressed(event.data());
+        break;
+    case QEvent::MouseButtonRelease:
+        m_pressAndHoldTimer->stop();
+        emit q->released(event.data());
+        emit q->clicked(event.data());
+        break;
+#if QT_CONFIG(gestures)
+    case QEvent::Gesture:
+        emit q->clicked(event.data());
+        break;
+#endif
+    case QEvent::MouseButtonDblClick:
+        emit q->doubleClicked(event.data());
+        break;
+    case QEvent::MouseMove:
+        m_pressAndHoldTimer->stop();
+        emit q->positionChanged(event.data());
+        break;
+    default:
+        break;
+    }
+}
+}  // namespace Qt3DInput
+//  -----------------------------------------------------------------------
 
 //  A Qt3DInput::QMouseHandlerPrivate that Python can take functions over in. Every Qt3DInput::QMouseHandlerPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +142,35 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DInput::QMouseHandlerPrivate::QMouseHandlerPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QMouseHandlerPrivate *ritual_ZN9Qt3DInput20QMouseHandlerPrivateC1Ev() {
+  return new CuteQt3DInput_QMouseHandlerPrivate();
+}
+
+//  Qt3DInput::QMouseHandlerPrivate::~QMouseHandlerPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput20QMouseHandlerPrivateD1Ev(
+    Qt3DInput::QMouseHandlerPrivate *self) {
+  delete self;
+}
+
+//  void Qt3DInput::QMouseHandlerPrivate::init()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput20QMouseHandlerPrivate4initEv(
+    Qt3DInput::QMouseHandlerPrivate *self) {
+  self->init();
+}
+
+//  void Qt3DInput::QMouseHandlerPrivate::mouseEvent(const QMouseEventPtr
+//      &event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput20QMouseHandlerPrivate10mouseEventERK14QSharedPointerINS_11QMouseEventEE(
+    Qt3DInput::QMouseHandlerPrivate *self,
+    const Qt3DInput::QMouseEventPtr *event) {
+  self->mouseEvent(*event);
+}
 
 //  QMouseHandler *Qt3DInput::QMouseHandlerPrivate::q_func()
 extern "C" Q_DECL_EXPORT

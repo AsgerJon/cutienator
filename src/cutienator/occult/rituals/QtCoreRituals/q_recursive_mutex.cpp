@@ -1,9 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qmutex.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qmutex.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  instances of templates of the class: 1. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(thread) || defined(Q_QDOC)
 #include <QtCore/qmutex.h>
 #include <QtCore/qdeadlinetimer.h>
+#include <chrono>
 
 //  QRecursiveMutex::QRecursiveMutex()
 extern "C" Q_DECL_EXPORT
@@ -49,6 +52,15 @@ void ritual_ZN15QRecursiveMutex6unlockEv(QRecursiveMutex *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QRecursiveMutex8try_lockEv(QRecursiveMutex *self) {
   return self->try_lock();
+}
+
+//  bool QRecursiveMutex::try_lock_for<long, std::ratio<1,
+//      1000>>(std::chrono::duration<long, std::ratio<1, 1000>> duration)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QRecursiveMutex12try_lock_forIlSt5ratioILl1ELl1000EEEEbNSt6chrono8durationIT_T0_EE(
+    QRecursiveMutex *self,
+    long long duration) {
+  return self->try_lock_for(std::chrono::milliseconds(duration));
 }
 
 #endif  // QT_CONFIG(thread) || defined(Q_QDOC)

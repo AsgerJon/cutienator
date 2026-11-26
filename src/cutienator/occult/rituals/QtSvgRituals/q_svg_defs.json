@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN8QSvgDefsC1EP8QSvgNode": ["address", "address"],
     "ritual_ZN8QSvgDefsD1Ev": ["nothing", "address"],
+    "ritual_ZN8QSvgDefs11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgDefs14shouldDrawNodeEP8QPainterR15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgDefs4typeEv": ["int", "address"],
     "ritual_take_QSvgDefs": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8QSvgDefs4typeEv": ["int", "address"]

@@ -7,7 +7,16 @@
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/texturehelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qimage.h>
+#include <QtCore/qsize.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtGui/QPainter>
+#include <QtGui/QOpenGLContext>
+#include <QtGui/QOffscreenSurface>
+#include <QtGui/qquaternion.h>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QRegularExpression>
+#include <QtCore/QLocale>
 #include <QtDataVisualization/private/texturehelper_p.h>
 #include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QImage>
@@ -21,6 +30,95 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 17, as local:utils.cpp:NUM_IN_POWER
+#define NUM_IN_POWER(y, x) for (;y<x;y<<=1)
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 18, as local:utils.cpp:MIN_POWER
+#define MIN_POWER 2
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 25, as _ZN5Utils20getNearestPowerOfTwoEj
+inline GLuint Utils::getNearestPowerOfTwo(GLuint value)
+{
+    GLuint powOfTwoValue = MIN_POWER;
+    NUM_IN_POWER(powOfTwoValue, value);
+    return powOfTwoValue;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 37, as _ZN13TextureHelperD1Ev
+inline TextureHelper::~TextureHelper()
+{
+#if !QT_CONFIG(opengles2)
+    delete m_openGlFunctions_2_1;
+#endif
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 133, as _ZN13TextureHelper20createCubeMapTextureERK6QImageb
+inline GLuint TextureHelper::createCubeMapTexture(const QImage &image, bool useTrilinearFiltering)
+{
+    if (image.isNull())
+        return 0;
+
+    GLuint textureId;
+    glGenTextures(1, &textureId);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
+    QImage glTexture = convertToGLFormat(image);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP, 0, GL_RGBA, glTexture.width(), glTexture.height(),
+                 0, GL_RGBA, GL_UNSIGNED_BYTE, glTexture.bits());
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    if (useTrilinearFiltering) {
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+    } else {
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    }
+    glBindTexture(GL_TEXTURE_2D, 0);
+    return textureId;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 217, as _ZN13TextureHelper27createCursorPositionTextureERK5QSizeRj
+inline GLuint TextureHelper::createCursorPositionTexture(const QSize &size, GLuint &frameBuffer)
+{
+    GLuint textureid;
+    glGenTextures(1, &textureid);
+    glBindTexture(GL_TEXTURE_2D, textureid);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.width(), size.height(), 0, GL_RGBA,
+                 GL_UNSIGNED_BYTE, NULL);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glGenFramebuffers(1, &frameBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D,
+                           textureid, 0);
+
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE) {
+        qCritical() << "Cursor position mapper frame buffer creation failed:" << status;
+        glDeleteTextures(1, &textureid);
+        textureid = 0;
+    }
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+    return textureid;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 325, as _ZN13TextureHelper13deleteTextureEPj
+inline void TextureHelper::deleteTexture(GLuint *texture)
+{
+    if (texture && *texture) {
+        if (QOpenGLContext::currentContext())
+            glDeleteTextures(1, texture);
+        *texture = 0;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 334, as _ZN13TextureHelper17convertToGLFormatERK6QImage
+inline QImage TextureHelper::convertToGLFormat(const QImage &srcImage)
+{
+    QImage res(srcImage.size(), QImage::Format_ARGB32);
+    convertToGLFormatHelper(res, srcImage.convertToFormat(QImage::Format_ARGB32), GL_RGBA);
+    return res;
+}
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 341, as _ZN13TextureHelper23convertToGLFormatHelperER6QImageRKS0_j
 inline void TextureHelper::convertToGLFormatHelper(QImage &dstImage, const QImage &srcImage,
@@ -116,22 +214,6 @@ inline void TextureHelper::convertToGLFormatHelper(QImage &dstImage, const QImag
     }
 }
 
-//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 37, as _ZN13TextureHelperD1Ev
-inline TextureHelper::~TextureHelper()
-{
-#if !QT_CONFIG(opengles2)
-    delete m_openGlFunctions_2_1;
-#endif
-}
-
-//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 334, as _ZN13TextureHelper17convertToGLFormatERK6QImage
-inline QImage TextureHelper::convertToGLFormat(const QImage &srcImage)
-{
-    QImage res(srcImage.size(), QImage::Format_ARGB32);
-    convertToGLFormatHelper(res, srcImage.convertToFormat(QImage::Format_ARGB32), GL_RGBA);
-    return res;
-}
-
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 434, as _ZN13TextureHelper29qt_gl_convertToGLFormatHelperEjj
 inline QRgb TextureHelper::qt_gl_convertToGLFormatHelper(QRgb src_pixel, GLenum texture_format)
 {
@@ -166,12 +248,51 @@ void ritual_ZN13TextureHelperD1Ev(TextureHelper *self) {
   delete self;
 }
 
+//  GLuint TextureHelper::createCubeMapTexture(const QImage &image, bool
+//      useTrilinearFiltering)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN13TextureHelper20createCubeMapTextureERK6QImageb(
+    TextureHelper *self,
+    const QImage *image,
+    bool useTrilinearFiltering) {
+  return self->createCubeMapTexture(*image, useTrilinearFiltering);
+}
+
+//  GLuint TextureHelper::createCursorPositionTexture(const QSize &size,
+//      GLuint &frameBuffer)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN13TextureHelper27createCursorPositionTextureERK5QSizeRj(
+    TextureHelper *self,
+    const QSize *size,
+    GLuint *frameBuffer) {
+  return self->createCursorPositionTexture(*size, *frameBuffer);
+}
+
+//  void TextureHelper::deleteTexture(GLuint *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TextureHelper13deleteTextureEPj(
+    TextureHelper *self,
+    GLuint *texture) {
+  self->deleteTexture(texture);
+}
+
 //  QImage TextureHelper::convertToGLFormat(const QImage &srcImage)
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN13TextureHelper17convertToGLFormatERK6QImage(
     TextureHelper *self,
     const QImage *srcImage) {
   return new QImage(self->convertToGLFormat(*srcImage));
+}
+
+//  void TextureHelper::convertToGLFormatHelper(QImage &dstImage, const
+//      QImage &srcImage, GLenum texture_format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TextureHelper23convertToGLFormatHelperER6QImageRKS0_j(
+    TextureHelper *self,
+    QImage *dstImage,
+    const QImage *srcImage,
+    GLenum texture_format) {
+  self->convertToGLFormatHelper(*dstImage, *srcImage, texture_format);
 }
 
 //  QRgb TextureHelper::qt_gl_convertToGLFormatHelper(QRgb src_pixel, GLenum

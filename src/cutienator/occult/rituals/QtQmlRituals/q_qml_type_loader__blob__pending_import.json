@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN14QQmlTypeLoader4Blob13PendingImportC1Ev": ["address"],
+    "ritual_ZN14QQmlTypeLoader4Blob13PendingImportC1ERK14QQmlRefPointerIS0_EPKN3QV412CompiledData6ImportE6QFlagsIN11QQmlImports10ImportFlagEE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZN14QQmlTypeLoader4Blob13PendingImportD1Ev": [
       "nothing", "address"
     ]

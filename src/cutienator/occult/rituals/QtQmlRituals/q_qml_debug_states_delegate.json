@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN23QQmlDebugStatesDelegateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QQmlDebugStatesDelegate15buildStatesListEbRK5QListI8QPointerI7QObjectEE": [
+      "nothing", "address", "bool", "address"
+    ],
     "ritual_ZN23QQmlDebugStatesDelegate13updateBindingEP11QQmlContextRK12QQmlPropertyRK8QVariantbRK7QStringiiPb": [
       "nothing", "address", "address", "address", "address", "bool", "text",
       "int", "int", "address"

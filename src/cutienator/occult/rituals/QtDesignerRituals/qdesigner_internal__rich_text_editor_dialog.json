@@ -8,8 +8,41 @@
     "ritual_ZNK18qdesigner_internal20RichTextEditorDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal20RichTextEditorDialog2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialogC1EP28QDesignerFormEditorInterfaceP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialogD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialog10showDialogEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialog14setDefaultFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialog7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal20RichTextEditorDialog4textEN2Qt10TextFormatE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialog15tabIndexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialog15richTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20RichTextEditorDialog13sourceChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_qdesigner_internal_RichTextEditorDialog": [
       "bool", "address", "chars", "address"

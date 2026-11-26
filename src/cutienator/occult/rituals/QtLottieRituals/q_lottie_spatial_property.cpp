@@ -10,6 +10,8 @@
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QPointF>
+#include <QtCore/QJsonObject>
 
 //  void QLottieSpatialProperty::construct(const QJsonObject &definition)
 extern "C" Q_DECL_EXPORT
@@ -17,6 +19,35 @@ void ritual_ZN22QLottieSpatialProperty9constructERK11QJsonObject(
     QLottieSpatialProperty *self,
     const QJsonObject *definition) {
   self->construct(*definition);
+}
+
+//  EasingSegment<QPointF> QLottieSpatialProperty::parseKeyframe(const
+//      QJsonObject keyframe, bool fromExpression)
+extern "C" Q_DECL_EXPORT
+EasingSegment<QPointF> *ritual_ZN22QLottieSpatialProperty13parseKeyframeE11QJsonObjectb(
+    QLottieSpatialProperty *self,
+    const QJsonObject *keyframe,
+    bool fromExpression) {
+  return new EasingSegment<QPointF>(
+      self->parseKeyframe(
+          *keyframe,
+          fromExpression));
+}
+
+//  EasingSegment<QPointF> QLottieSpatialProperty::parseKeyframe(const
+//      QJsonObject keyframe, const QJsonObject nextKeyframe, bool
+//      fromExpression)
+extern "C" Q_DECL_EXPORT
+EasingSegment<QPointF> *ritual_ZN22QLottieSpatialProperty13parseKeyframeE11QJsonObjectS0_b(
+    QLottieSpatialProperty *self,
+    const QJsonObject *keyframe,
+    const QJsonObject *nextKeyframe,
+    bool fromExpression) {
+  return new EasingSegment<QPointF>(
+      self->parseKeyframe(
+          *keyframe,
+          *nextKeyframe,
+          fromExpression));
 }
 
 //  bool QLottieSpatialProperty::update(int frame)
@@ -88,4 +119,11 @@ bool ritual_own_ZN22QLottieSpatialProperty6updateEi(
     QLottieSpatialProperty *self,
     int frame) {
   return self->QLottieSpatialProperty::update(frame);
+}
+
+//  a EasingSegment<QPointF> a ritual of QLottieSpatialProperty gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieSpatialProperty__EasingSegment_QPointF(
+    EasingSegment<QPointF> *self) {
+  delete self;
 }

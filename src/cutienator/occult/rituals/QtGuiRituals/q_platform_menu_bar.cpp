@@ -293,6 +293,25 @@ const QMetaObject *ritual_ZNK16QPlatformMenuBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformMenuBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QPlatformMenuBar11qt_metacastEPKc(
+    QPlatformMenuBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformMenuBar::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QPlatformMenuBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformMenuBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformMenuBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QPlatformMenuBar2trEPKcS1_i(

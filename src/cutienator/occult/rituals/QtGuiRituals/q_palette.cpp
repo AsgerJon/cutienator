@@ -92,6 +92,32 @@ void ritual_ZN8QPaletteD1Ev(QPalette *self) {
   delete self;
 }
 
+//  QPalette &QPalette::operator=(const QPalette &palette)
+extern "C" Q_DECL_EXPORT
+QPalette *ritual_ZN8QPaletteaSERKS_(
+    QPalette *self,
+    const QPalette *palette) {
+  return &(self->operator=(*palette));
+}
+
+//  QPalette::QPalette(QPalette &&other)
+extern "C" Q_DECL_EXPORT
+QPalette *ritual_ZN8QPaletteC1EOS_(QPalette *other) {
+  return new QPalette(std::move(*other));
+}
+
+//  QPalette &QPalette::operator=(QPalette &&other)
+extern "C" Q_DECL_EXPORT
+QPalette *ritual_ZN8QPaletteaSEOS_(QPalette *self, QPalette *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPalette::swap(QPalette &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPalette4swapERS_(QPalette *self, QPalette *other) {
+  self->swap(*other);
+}
+
 //  QVariant QPalette::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK8QPalettecv8QVariantEv(const QPalette *self) {
@@ -521,4 +547,12 @@ void ritual_ZN8QPalette4initEv(QPalette *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPalette6detachEv(QPalette *self) {
   self->detach();
+}
+
+//  QDataStream &operator<<(QDataStream &s, const QPalette &p)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK8QPalette(
+    QDataStream *s,
+    const QPalette *p) {
+  return &(operator<<(*s, *p));
 }

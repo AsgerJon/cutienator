@@ -6,7 +6,13 @@
   "rows": {
     "ritual_ZN16QPdfOutputIntentC1Ev": ["address"],
     "ritual_ZN16QPdfOutputIntentC1ERKS_": ["address", "address"],
+    "ritual_ZN16QPdfOutputIntentC1EOS_": ["address", "address"],
+    "ritual_ZN16QPdfOutputIntentaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QPdfOutputIntentaSEOS_": ["address", "address", "address"],
     "ritual_ZN16QPdfOutputIntentD1Ev": ["nothing", "address"],
+    "ritual_ZN16QPdfOutputIntent4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK16QPdfOutputIntent25outputConditionIdentifierEv": [
       "text", "address"
     ],

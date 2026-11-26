@@ -62,18 +62,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 41, as _ZN21QLottieRasterRenderer9saveStateEv
-inline void QLottieRasterRenderer::saveState()
-{
-    qCDebug(lcLottieQtLottieRender) << "Save painter state";
-    m_painter->save();
-    saveTrimmingState();
-    m_pathStack.push_back(m_unitedPath);
-    m_fillEffectStack.push_back(m_fillEffect);
-    m_inverseFillTransformStack.push(m_inverseFillTransform);
-    m_unitedPath.clear();
-}
-
 //  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 52, as _ZN21QLottieRasterRenderer12restoreStateEv
 inline void QLottieRasterRenderer::restoreState()
 {
@@ -85,265 +73,6 @@ inline void QLottieRasterRenderer::restoreState()
     m_clipPath.setFillRule(m_unitedPath.fillRule());
     m_fillEffect = m_fillEffectStack.pop();
     m_inverseFillTransform = m_inverseFillTransformStack.pop();
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 64, as _ZN21QLottieRasterRenderer6renderERK21QLottiePrecomposition
-inline void QLottieRasterRenderer::render(const QLottiePrecomposition &precomp)
-{
-    Q_UNUSED(precomp);
-    // Nothing to do: no graphical properties at this level
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 70, as _ZN21QLottieRasterRenderer6renderERK12QLottieLayer
-inline void QLottieRasterRenderer::render(const QLottieLayer &layer)
-{
-    qCDebug(lcLottieQtLottieRender) << "Layer:" << layer.name()
-                                    << "is matte:" << layer.isMatteLayer()
-                                    << "using matte:" << layer.isUsingMatteLayer();
-    if (layer.isMatteLayer())
-        m_buildingClipRegion = true;
-    else if (!m_clipPath.isEmpty()) {
-        QTransform inv = m_painter->transform().inverted();
-        if (layer.matteMode() == QLottieLayer::Alpha)
-            m_painter->setClipPath(inv.map(m_clipPath));
-        else if (layer.matteMode() == QLottieLayer::InvertedAlpha) {
-            QPainterPath screen;
-            screen.addRect(0, 0, m_painter->device()->width(),
-                           m_painter->device()->height());
-            m_painter->setClipPath(inv.map(screen - m_clipPath));
-        }
-        else {
-            // Clipping is not applied to paths that have
-            // not setting clipping parameters
-            m_painter->setClipping(false);
-        }
-        m_buildingClipRegion = false;
-        m_clipPath = QPainterPath();
-    }
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 97, as _ZN21QLottieRasterRenderer6renderERK17QLottieSolidLayer
-inline void QLottieRasterRenderer::render(const QLottieSolidLayer &layer)
-{
-    render(static_cast<const QLottieLayer &>(layer));
-    m_painter->fillRect(QRect(QPoint(), layer.layerSize()), layer.color());
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 103, as _ZN21QLottieRasterRenderer6renderERK16QLottieTextLayer
-inline void QLottieRasterRenderer::render(const QLottieTextLayer &layer)
-{
-    render(static_cast<const QLottieLayer &>(layer));
-
-    for (const QPainterPath &path : layer.buildGlyphPaths())
-        m_painter->fillPath(path, QBrush(layer.textDocument().fillColor));
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 111, as _ZN21QLottieRasterRenderer6renderERK11QLottieRect
-inline void QLottieRasterRenderer::render(const QLottieRect &rect)
-{
-    qCDebug(lcLottieQtLottieRender) << "Rect:" << rect.name()
-                                    << rect.position() << rect.size();
-    m_renderPath.addPath(rect.path());
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 118, as _ZN21QLottieRasterRenderer6renderERK14QLottieEllipse
-inline void QLottieRasterRenderer::render(const QLottieEllipse &ellipse)
-{
-    qCDebug(lcLottieQtLottieRender) << "Ellipse:" << ellipse.name()
-                                    << ellipse.position()
-                                    << ellipse.size();
-    m_renderPath.addPath(ellipse.path());
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 126, as _ZN21QLottieRasterRenderer6renderERK15QLottiePolyStar
-inline void QLottieRasterRenderer::render(const QLottiePolyStar &star)
-{
-    qCDebug(lcLottieQtLottieRender) << "PolyStar:" << star.name()
-                                    << star.position() << star.pointCount()
-                                    << star.outerRadius() << star.innerRadius();
-    m_renderPath.addPath(star.path());
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 154, as _ZN21QLottieRasterRenderer6renderERK12QLottieRound
-inline void QLottieRasterRenderer::render(const QLottieRound &round)
-{
-    Q_UNUSED(round);
-    // Rounded Corners modifier, not implemented
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 160, as _ZN21QLottieRasterRenderer6renderERK11QLottieFill
-inline void QLottieRasterRenderer::render(const QLottieFill &fill)
-{
-    qCDebug(lcLottieQtLottieRender) << "Fill:" <<fill.name()
-                                       << fill.color();
-
-    if (m_fillEffect)
-        return;
-
-    float alpha = fill.color().alphaF() * fill.opacity() / 100.0f;
-    QColor color = fill.color();
-    color.setAlphaF(alpha);
-    m_painter->setBrush(color);
-    m_renderPath.setFillRule(fill.fillRule());
-    m_unitedPath.setFillRule(fill.fillRule());
-    m_clipPath.setFillRule(fill.fillRule());
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 177, as _ZN21QLottieRasterRenderer6renderERK12QLottieGFill
-inline void QLottieRasterRenderer::render(const QLottieGFill &gradient)
-{
-    qCDebug(lcLottieQtLottieRender) << "Gradient:" << gradient.name()
-                                       << gradient.value();
-
-    if (m_fillEffect)
-        return;
-
-    m_inverseFillTransform = QTransform();
-
-    if (gradient.value())
-        m_painter->setBrush(*gradient.value());
-    else
-        qCWarning(lcLottieQtLottieRender) << "Gradient:"
-                                             << gradient.name()
-                                             << "Cannot draw gradient fill";
-    m_renderPath.setFillRule(gradient.fillRule());
-    m_unitedPath.setFillRule(gradient.fillRule());
-    m_clipPath.setFillRule(gradient.fillRule());
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 134, as _ZN21QLottieRasterRenderer6renderERK12QLottieImage
-inline void QLottieRasterRenderer::render(const QLottieImage &image)
-{
-    const QImage img = image.image();
-    if (img.isNull())
-        return;
-
-    m_painter->save();
-
-    for (int i = 0; i < m_repeatCount; i++) {
-        qCDebug(lcLottieQtLottieRender) << "Image" << image.name();
-
-        applyRepeaterTransform(i);
-
-        m_painter->drawImage(QRectF(QPointF(), image.size()), img);
-    }
-
-    m_painter->restore();
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 198, as _ZN21QLottieRasterRenderer6renderERK13QLottieStroke
-inline void QLottieRasterRenderer::render(const QLottieStroke &stroke)
-{
-    qCDebug(lcLottieQtLottieRender) << "Stroke:" << stroke.name()
-                                       << stroke.pen() << stroke.pen().miterLimit();
-
-    if (m_fillEffect)
-        return;
-
-    m_painter->setPen(stroke.pen());
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 209, as _ZN21QLottieRasterRenderer6renderERK21QLottieBasicTransform
-inline void QLottieRasterRenderer::render(const QLottieBasicTransform &transform)
-{
-    QTransform t = m_painter->transform();
-    applyTransform(&t, transform);
-    m_painter->setTransform(t);
-    if (transform.hasLinkedLayerTransform())
-        m_painter->setOpacity(1.0);
-    m_painter->setOpacity(m_painter->opacity() * transform.opacity());
-
-    qCDebug(lcLottieQtLottieRender) << transform.name()
-                                       << m_painter->transform()
-                                       << "opacity:"  << m_painter->opacity();
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 223, as _ZN21QLottieRasterRenderer6renderERK21QLottieShapeTransform
-inline void QLottieRasterRenderer::render(const QLottieShapeTransform &transform)
-{
-    qCDebug(lcLottieQtLottieRender) << "Shape transform:"  << transform.name()
-                                       << "of" << transform.parent()->name();
-
-    QTransform t = m_painter->transform();
-    applyTransform(&t, transform, true);
-    m_painter->setTransform(t);
-    m_painter->setOpacity(m_painter->opacity() * transform.opacity());
-
-    if (m_painter->brush().gradient())
-        applyTransform(&m_inverseFillTransform, transform, true);
-
-    qCDebug(lcLottieQtLottieRender) << transform.name()
-                                   << m_painter->transform()
-                                   << m_painter->opacity();
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 241, as _ZN21QLottieRasterRenderer6renderERK20QLottieFreeFormShape
-inline void QLottieRasterRenderer::render(const QLottieFreeFormShape &shape)
-{
-    qCDebug(lcLottieQtLottieRender) << "Render shape:"
-                                    << shape.name() << "of"
-                                    << shape.parent()->name();
-    m_renderPath.addPath(shape.path());
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 249, as _ZN21QLottieRasterRenderer6renderERK15QLottieTrimPath
-inline void QLottieRasterRenderer::render(const QLottieTrimPath &trimPath)
-{
-    // TODO: Move "Sequential" trimming to the prerendering thread
-    // Now it is done in the GUI thread
-
-    m_painter->save();
-
-    for (int i = 0; i < m_repeatCount; i ++) {
-        qCDebug(lcLottieQtLottieRender) << "Render shape:"
-                                           << trimPath.name() << "of"
-                                           << trimPath.parent()->name();
-        applyRepeaterTransform(i);
-        if (!trimPath.isParallel() && !qFuzzyCompare(qreal(0.0), m_unitedPath.length())) {
-            qCDebug(lcLottieQtLottieRender) << "Render trim path in the GUI thread";
-            QPainterPath tr = trimPath.trim(m_unitedPath);
-            // Do not use the applied transform, as the transform
-            // is already included in m_unitedPath
-            m_painter->setTransform(QTransform());
-            m_painter->drawPath(tr);
-        }
-    }
-
-    m_painter->restore();
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 274, as _ZN21QLottieRasterRenderer6renderERK17QLottieFillEffect
-inline void QLottieRasterRenderer::render(const QLottieFillEffect &effect)
-{
-    qCDebug(lcLottieQtLottieRender) << "Fill:" <<effect.name()
-                                       << effect.color();
-
-    m_fillEffect = &effect;
-    m_painter->setBrush(m_fillEffect->color());
-    m_painter->setOpacity(m_painter->opacity() * m_fillEffect->opacity());
-}
-
-//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 284, as _ZN21QLottieRasterRenderer6renderERK15QLottieRepeater
-inline void QLottieRasterRenderer::render(const QLottieRepeater &repeater)
-{
-    qCDebug(lcLottieQtLottieRender) << "Repeater:" <<repeater.name()
-                                       << "count:" << repeater.copies();
-
-    if (m_repeaterTransform) {
-        qCWarning(lcLottieQtLottieRender) << "Only one Repeater can be active at a time!";
-        return;
-    }
-
-    m_repeatCount = repeater.copies();
-    m_repeatOffset = repeater.offset();
-
-    // Can store pointer to transform, although the transform
-    // is managed by another thread. The object will be available
-    // until the frame has been rendered
-    m_repeaterTransform = &repeater.transform();
-
-    m_painter->translate(m_repeatOffset * m_repeaterTransform->position().x(),
-                         m_repeatOffset * m_repeaterTransform->position().y());
 }
 
 //  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 306, as _ZN21QLottieRasterRenderer18renderPathElementsERK5QListIP11QLottieBaseE
@@ -392,6 +121,18 @@ inline void QLottieRasterRenderer::renderPathElements(const QList<QLottieBase *>
     }
 
     m_painter->restore();
+}
+
+//  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 41, as _ZN21QLottieRasterRenderer9saveStateEv
+inline void QLottieRasterRenderer::saveState()
+{
+    qCDebug(lcLottieQtLottieRender) << "Save painter state";
+    m_painter->save();
+    saveTrimmingState();
+    m_pathStack.push_back(m_unitedPath);
+    m_fillEffectStack.push_back(m_fillEffect);
+    m_inverseFillTransformStack.push(m_inverseFillTransform);
+    m_unitedPath.clear();
 }
 
 //  from ../qtlottie/src/lottie/renderer/qlottierasterrenderer.cpp, line 353, as _ZN21QLottieRasterRenderer22applyRepeaterTransformEi
@@ -449,7 +190,7 @@ typedef void (*CuteQLottieRasterRendererCall24)(const void *, const QLottieGroup
 class CuteQLottieRasterRenderer : public QLottieRasterRenderer {
 public:
   using QLottieRasterRenderer::QLottieRasterRenderer;
-  CuteQLottieRasterRenderer(const QLottieRasterRenderer &other) : QLottieRasterRenderer(other) {}
+  CuteQLottieRasterRenderer(const QLottieRasterRenderer & other) : QLottieRasterRenderer(other) {}
   void *taken[25] = {};
 
   bool take(const char *key, void *call) {
@@ -1026,36 +767,4 @@ bool ritual_take_QLottieRasterRenderer(
     const char *key,
     void *call) {
   return static_cast<CuteQLottieRasterRenderer *>(self)->take(key, call);
-}
-
-//  void QLottieRasterRenderer::render(const QLottiePrecomposition &precomp)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN21QLottieRasterRenderer6renderERK21QLottiePrecomposition(
-    QLottieRasterRenderer *self,
-    const QLottiePrecomposition *precomp) {
-  self->QLottieRasterRenderer::render(*precomp);
-}
-
-//  void QLottieRasterRenderer::render(const QLottieSolidLayer &layer)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN21QLottieRasterRenderer6renderERK17QLottieSolidLayer(
-    QLottieRasterRenderer *self,
-    const QLottieSolidLayer *layer) {
-  self->QLottieRasterRenderer::render(*layer);
-}
-
-//  void QLottieRasterRenderer::render(const QLottieTextLayer &layer)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN21QLottieRasterRenderer6renderERK16QLottieTextLayer(
-    QLottieRasterRenderer *self,
-    const QLottieTextLayer *layer) {
-  self->QLottieRasterRenderer::render(*layer);
-}
-
-//  void QLottieRasterRenderer::render(const QLottieRound &round)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN21QLottieRasterRenderer6renderERK12QLottieRound(
-    QLottieRasterRenderer *self,
-    const QLottieRound *round) {
-  self->QLottieRasterRenderer::render(*round);
 }

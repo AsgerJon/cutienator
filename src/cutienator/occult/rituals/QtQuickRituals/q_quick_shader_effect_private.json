@@ -35,11 +35,17 @@
     "ritual_ZN25QQuickShaderEffectPrivate24setSupportsAtlasTexturesEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN25QQuickShaderEffectPrivate11handleEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN25QQuickShaderEffectPrivate21handleGeometryChangedERK6QRectFS2_": [
       "nothing", "address", "address", "address"
     ],
     "ritual_ZN25QQuickShaderEffectPrivate16handleItemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QQuickShaderEffectPrivate18updateUniformValueERK10QByteArrayRK8QVariantP19QSGShaderEffectNode": [
+      "bool", "address", "address", "address", "address"
     ],
     "ritual_ZN25QQuickShaderEffectPrivate15sourceDestroyedEP7QObject": [
       "nothing", "address", "address"
@@ -55,6 +61,9 @@
     ],
     "ritual_take_QQuickShaderEffectPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQuickShaderEffectPrivate__std_optional_int": [
+      "nothing", "address"
     ]
   }
 }

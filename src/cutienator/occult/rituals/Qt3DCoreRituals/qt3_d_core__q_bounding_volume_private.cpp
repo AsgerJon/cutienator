@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qboundingvolume_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qvectornd.h>
 #include <cstring>
 
 //  A Qt3DCore::QBoundingVolumePrivate that Python can take functions over in. Every Qt3DCore::QBoundingVolumePrivate
@@ -83,12 +84,39 @@ const Qt3DCore::QBoundingVolume *ritual_ZNK8Qt3DCore22QBoundingVolumePrivate6q_f
   return self->q_func();
 }
 
+//  Qt3DCore::QBoundingVolumePrivate::QBoundingVolumePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBoundingVolumePrivate *ritual_ZN8Qt3DCore22QBoundingVolumePrivateC1Ev() {
+  return new CuteQt3DCore_QBoundingVolumePrivate();
+}
+
+//  void Qt3DCore::QBoundingVolumePrivate::setImplicitBounds(const QVector3D
+//      &minPoint, const QVector3D &maxPoint, const QVector3D &center, float
+//      radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore22QBoundingVolumePrivate17setImplicitBoundsERK9QVector3DS3_S3_f(
+    Qt3DCore::QBoundingVolumePrivate *self,
+    const QVector3D *minPoint,
+    const QVector3D *maxPoint,
+    const QVector3D *center,
+    float radius) {
+  self->setImplicitBounds(*minPoint, *maxPoint, *center, radius);
+}
+
 //  void Qt3DCore::QBoundingVolumePrivate::setView(QGeometryView *view)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore22QBoundingVolumePrivate7setViewEPNS_13QGeometryViewE(
     Qt3DCore::QBoundingVolumePrivate *self,
     Qt3DCore::QGeometryView *view) {
   self->setView(view);
+}
+
+//  QBoundingVolumePrivate
+//      *Qt3DCore::QBoundingVolumePrivate::get(QBoundingVolume *q)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBoundingVolumePrivate *ritual_ZN8Qt3DCore22QBoundingVolumePrivate3getEPNS_15QBoundingVolumeE(
+    Qt3DCore::QBoundingVolume *q) {
+  return Qt3DCore::QBoundingVolumePrivate::get(q);
 }
 
 //  a Python function taken by a CuteQt3DCore_QBoundingVolumePrivate, for the

@@ -8,6 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtGui/qfontmetrics.h>
+#include <utility>
+#include <QtCore/QRectF>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/private/qctextlayout_p.h>
 #include <QtGui/QTransform>
@@ -84,6 +86,36 @@ inline float QCTextLayout::calculateVerticalAlignment(QCanvasPainter::TextBaseli
     return offset;
 }
 
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qctextlayout.cpp, line 72, as _ZN12QCTextLayout28calculateHorizontalAlignmentEN14QCanvasPainter9TextAlignERK6QRectFfS4_
+inline std::pair<float, float> QCTextLayout::calculateHorizontalAlignment(QCanvasPainter::TextAlign align,
+                                                                   const QRectF &rect,
+                                                                   float layoutWidth,
+                                                                   const QRectF &layoutRect)
+{
+    float offset1 = 0;
+    float offset2 = 0;
+    float paddingOffset = (layoutRect.width() - layoutWidth);
+    float alignOffset = (rect.width() - layoutRect.width());
+    switch (align) {
+    case QCanvasPainter::TextAlign::Left:
+        offset2 = -paddingOffset;
+        break;
+    case QCanvasPainter::TextAlign::Right:
+        offset1 = paddingOffset + alignOffset;
+        offset2 = alignOffset;
+        break;
+    case QCanvasPainter::TextAlign::Center:
+        offset1 = (alignOffset + paddingOffset) * 0.5f;
+        offset2 = (alignOffset - paddingOffset) * 0.5f;
+        break;
+    case QCanvasPainter::TextAlign::Start:
+    case QCanvasPainter::TextAlign::End:
+    default:
+        break;
+    }
+    return { offset1, offset2 };
+}
+
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qctextlayout.cpp, line 101, as _ZN12QCTextLayout20convertToQtDirectionEN14QCanvasPainter13TextDirectionE
 inline Qt::LayoutDirection QCTextLayout::convertToQtDirection(QCanvasPainter::TextDirection direction)
 {
@@ -137,6 +169,24 @@ float ritual_ZN12QCTextLayout26calculateVerticalAlignmentEN14QCanvasPainter12Tex
       *layoutRect);
 }
 
+//  std::pair<float, float>
+//      QCTextLayout::calculateHorizontalAlignment(QCanvasPainter::TextAlign
+//      align, const QRectF &rect, float layoutWidth, const QRectF
+//      &layoutRect)
+extern "C" Q_DECL_EXPORT
+std::pair<float, float> *ritual_ZN12QCTextLayout28calculateHorizontalAlignmentEN14QCanvasPainter9TextAlignERK6QRectFfS4_(
+    QCanvasPainter::TextAlign align,
+    const QRectF *rect,
+    float layoutWidth,
+    const QRectF *layoutRect) {
+  return new std::pair<float, float>(
+      QCTextLayout::calculateHorizontalAlignment(
+          align,
+          *rect,
+          layoutWidth,
+          *layoutRect));
+}
+
 //  Qt::LayoutDirection
 //      QCTextLayout::convertToQtDirection(QCanvasPainter::TextDirection
 //      direction)
@@ -149,5 +199,12 @@ Qt::LayoutDirection ritual_ZN12QCTextLayout20convertToQtDirectionEN14QCanvasPain
 //  QCTextLayout::~QCTextLayout()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QCTextLayoutD1Ev(QCTextLayout *self) {
+  delete self;
+}
+
+//  a std::pair<float, float> a ritual of QCTextLayout gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCTextLayout__std_pair_float_float(
+    std::pair<float, float> *self) {
   delete self;
 }

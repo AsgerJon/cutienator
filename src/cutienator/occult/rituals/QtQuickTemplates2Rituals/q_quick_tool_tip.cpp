@@ -29,6 +29,24 @@ const QMetaObject *ritual_ZNK13QQuickToolTip10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickToolTip::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickToolTip11qt_metacastEPKc(
+    QQuickToolTip *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickToolTip::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickToolTip11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickToolTip *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickToolTip::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickToolTip2trEPKcS1_i(
@@ -106,6 +124,24 @@ QQuickToolTipAttached *ritual_ZN13QQuickToolTip21qmlAttachedPropertiesEP7QObject
   return QQuickToolTip::qmlAttachedProperties(object);
 }
 
+//  void QQuickToolTip::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickToolTip11textChangedEv(QQuickToolTip *self) {
+  self->textChanged();
+}
+
+//  void QQuickToolTip::delayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickToolTip12delayChangedEv(QQuickToolTip *self) {
+  self->delayChanged();
+}
+
+//  void QQuickToolTip::timeoutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickToolTip14timeoutChangedEv(QQuickToolTip *self) {
+  self->timeoutChanged();
+}
+
 //  void QQuickToolTip::show(const QString &text, int ms)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQuickToolTip4showERK7QStringi(
@@ -163,6 +199,20 @@ void ritual_ZN13QQuickToolTip26accessibilityActiveChangedEb(
   self->accessibilityActiveChanged(active);
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickToolTipPrivate *QQuickToolTip::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickToolTipPrivate *ritual_ZN13QQuickToolTip6d_funcEv(
+    QQuickToolTip *self) {
+  return self->d_func();
+}
+
+//  const QQuickToolTipPrivate *QQuickToolTip::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickToolTipPrivate *ritual_ZNK13QQuickToolTip6d_funcEv(
+    const QQuickToolTip *self) {
+  return self->d_func();
+}
 
 //  void QQuickToolTip::setVisible(bool visible)
 extern "C" Q_DECL_EXPORT

@@ -1,17 +1,50 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4persistent_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4persistent_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV49WeakValueC1Ev": ["address"],
+    "ritual_ZN3QV49WeakValueC1ERKS0_": ["address", "address"],
+    "ritual_ZN3QV49WeakValueC1EPNS_15ExecutionEngineERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV49WeakValueaSERKS0_": ["address", "address", "address"],
+    "ritual_ZN3QV49WeakValueD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV49WeakValue3setEPNS_15ExecutionEngineERKNS_5ValueE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV49WeakValue3setEPNS_15ExecutionEngineEy": [
+      "nothing", "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV49WeakValue3setEPNS_15ExecutionEngineEPNS_4Heap4BaseE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK3QV49WeakValue5valueEv": ["unsigned long long", "address"],
     "ritual_ZNK3QV49WeakValue8valueRefEv": ["address", "address"],
     "ritual_ZNK3QV49WeakValue9asManagedEv": ["address", "address"],
     "ritual_ZNK3QV49WeakValue6engineEv": ["address", "address"],
     "ritual_ZNK3QV49WeakValue11isUndefinedEv": ["bool", "address"],
     "ritual_ZNK3QV49WeakValue17isNullOrUndefinedEv": ["bool", "address"],
-    "ritual_ZN3QV49WeakValue5clearEv": ["nothing", "address"]
+    "ritual_ZN3QV49WeakValue5clearEv": ["nothing", "address"],
+    "ritual_ZN3QV49WeakValue8markOnceEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV49WeakValue8allocValEPNS_15ExecutionEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV49WeakValue4freeEv": ["nothing", "address"],
+    "ritual_ZNK3QV49WeakValue2asINS_6ObjectEEEPT_v": ["address", "address"],
+    "ritual_ZNK3QV49WeakValue2asINS_6StringEEEPT_v": ["address", "address"],
+    "ritual_ZNK3QV49WeakValue2asINS_14FunctionObjectEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV49WeakValue2asINS_11ArrayObjectEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV49WeakValue2asINS_14QObjectWrapperEEEPT_v": [
+      "address", "address"
+    ]
   }
 }

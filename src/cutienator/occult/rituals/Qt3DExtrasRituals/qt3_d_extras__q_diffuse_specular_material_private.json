@@ -5,6 +5,21 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras31QDiffuseSpecularMaterialPrivateC1Ev": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DExtras31QDiffuseSpecularMaterialPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras31QDiffuseSpecularMaterialPrivate20handleAmbientChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras31QDiffuseSpecularMaterialPrivate22handleShininessChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras31QDiffuseSpecularMaterialPrivate25handleTextureScaleChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DExtras31QDiffuseSpecularMaterialPrivate6q_funcEv": [
       "address", "address"
     ],

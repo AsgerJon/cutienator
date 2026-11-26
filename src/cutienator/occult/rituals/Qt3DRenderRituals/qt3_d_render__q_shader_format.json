@@ -5,6 +5,37 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender13QShaderFormatC1Ev": ["address"],
+    "ritual_ZNK10Qt3DRender13QShaderFormat3apiEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender13QShaderFormat6setApiENS0_3ApiE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender13QShaderFormat7versionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QShaderFormat10setVersionERK14QVersionNumber": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QShaderFormat10extensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QShaderFormat13setExtensionsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QShaderFormat6vendorEv": ["text", "address"],
+    "ritual_ZN10Qt3DRender13QShaderFormat9setVendorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10Qt3DRender13QShaderFormat7isValidEv": ["bool", "address"],
+    "ritual_ZNK10Qt3DRender13QShaderFormat8supportsERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QShaderFormat10shaderTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QShaderFormat13setShaderTypeENS0_10ShaderTypeE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN10Qt3DRender13QShaderFormatD1Ev": ["nothing", "address"]
   }
 }

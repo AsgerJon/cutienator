@@ -36,6 +36,9 @@
     "ritual_ZN18QOpenGLPaintDevice18ensureActiveTargetEv": [
       "nothing", "address"
     ],
+    "ritual_ZN18QOpenGLPaintDeviceC1ER25QOpenGLPaintDevicePrivate": [
+      "address", "address"
+    ],
     "ritual_ZNK18QOpenGLPaintDevice6metricEN12QPaintDevice17PaintDeviceMetricE": [
       "int", "address", "int"
     ],

@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4context_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4context_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV44Heap11CallContext11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
@@ -11,8 +11,17 @@
     "ritual_ZN3QV44Heap11CallContext4initEv": ["nothing", "address"],
     "ritual_ZNK3QV44Heap11CallContext4argcEv": ["int", "address"],
     "ritual_ZNK3QV44Heap11CallContext4argsEv": ["address", "address"],
+    "ritual_ZN3QV44Heap11CallContext6setArgEjNS_5ValueE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
     "ritual_cast_QV4_Heap_CallContext_QV4_Heap_CallContextData": [
       "address", "address"
+    ],
+    "ritual_ZN3QV44Heap11CallContext26setupLocalTemporalDeadZoneINS_12CompiledData8FunctionEEEvPT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap11CallContext26setupLocalTemporalDeadZoneINS_12CompiledData5BlockEEEvPT_": [
+      "nothing", "address", "address"
     ]
   }
 }

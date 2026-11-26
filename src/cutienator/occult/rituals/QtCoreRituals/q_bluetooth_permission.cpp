@@ -36,10 +36,43 @@ QBluetoothPermission *ritual_ZN20QBluetoothPermissionC1ERKS_(
   return new QBluetoothPermission(*other);
 }
 
+//  QBluetoothPermission::QBluetoothPermission(QBluetoothPermission &&other)
+extern "C" Q_DECL_EXPORT
+QBluetoothPermission *ritual_ZN20QBluetoothPermissionC1EOS_(
+    QBluetoothPermission *other) {
+  return new QBluetoothPermission(std::move(*other));
+}
+
 //  QBluetoothPermission::~QBluetoothPermission()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QBluetoothPermissionD1Ev(QBluetoothPermission *self) {
   delete self;
+}
+
+//  QBluetoothPermission &QBluetoothPermission::operator=(const
+//      QBluetoothPermission &other)
+extern "C" Q_DECL_EXPORT
+QBluetoothPermission *ritual_ZN20QBluetoothPermissionaSERKS_(
+    QBluetoothPermission *self,
+    const QBluetoothPermission *other) {
+  return &(self->operator=(*other));
+}
+
+//  QBluetoothPermission
+//      &QBluetoothPermission::operator=(QBluetoothPermission &&other)
+extern "C" Q_DECL_EXPORT
+QBluetoothPermission *ritual_ZN20QBluetoothPermissionaSEOS_(
+    QBluetoothPermission *self,
+    QBluetoothPermission *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QBluetoothPermission::swap(QBluetoothPermission &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QBluetoothPermission4swapERS_(
+    QBluetoothPermission *self,
+    QBluetoothPermission *other) {
+  self->swap(*other);
 }
 
 #endif  // QT_CONFIG(permissions)

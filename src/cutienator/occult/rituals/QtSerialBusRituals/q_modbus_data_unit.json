@@ -10,6 +10,9 @@
     "ritual_ZN15QModbusDataUnitC1ENS_12RegisterTypeEit": [
       "address", "int", "int", "unsigned short"
     ],
+    "ritual_ZN15QModbusDataUnitC1ENS_12RegisterTypeEiRK5QListItE": [
+      "address", "int", "int", "address"
+    ],
     "ritual_ZNK15QModbusDataUnit12registerTypeEv": ["int", "address"],
     "ritual_ZN15QModbusDataUnit15setRegisterTypeENS_12RegisterTypeE": [
       "nothing", "address", "int"
@@ -17,6 +20,10 @@
     "ritual_ZNK15QModbusDataUnit12startAddressEv": ["int", "address"],
     "ritual_ZN15QModbusDataUnit15setStartAddressEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QModbusDataUnit6valuesEv": ["address", "address"],
+    "ritual_ZN15QModbusDataUnit9setValuesERK5QListItE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK15QModbusDataUnit10valueCountEv": ["long long", "address"],
     "ritual_ZN15QModbusDataUnit13setValueCountEx": [
@@ -29,6 +36,7 @@
       "unsigned short", "address", "long long"
     ],
     "ritual_ZNK15QModbusDataUnit7isValidEv": ["bool", "address"],
-    "ritual_ZN15QModbusDataUnitD1Ev": ["nothing", "address"]
+    "ritual_ZN15QModbusDataUnitD1Ev": ["nothing", "address"],
+    "ritual_drop_QModbusDataUnit__QList_quint16": ["nothing", "address"]
   }
 }

@@ -12,6 +12,7 @@
     "ritual_ZN19QVideoFrameTextures17onFrameEndInvokedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QVideoFrameTextures11takeHandlesEv": ["address", "address"],
     "ritual_ZN19QVideoFrameTextures14setSourceFrameE11QVideoFrame": [
       "nothing", "address", "address"
     ],
@@ -19,6 +20,9 @@
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN19QVideoFrameTextures17onFrameEndInvokedEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QVideoFrameTextures__QVideoFrameTexturesHandlesUPtr": [
       "nothing", "address"
     ]
   }

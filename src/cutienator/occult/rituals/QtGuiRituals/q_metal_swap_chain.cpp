@@ -8,9 +8,11 @@
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qrhimetal_p.h>
-#include <QtGui/6.12.0/QtGui/rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/rhi/qrhi.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 
 //  A QMetalSwapChain that Python can take functions over in. Every QMetalSwapChain
@@ -189,6 +191,55 @@ public:
     return QRhiSwapChain::currentFrameRenderTarget(targetBuffer);
   }
 };
+
+//  void QMetalSwapChain::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMetalSwapChain7destroyEv(QMetalSwapChain *self) {
+  self->destroy();
+}
+
+//  QRhiCommandBuffer *QMetalSwapChain::currentFrameCommandBuffer()
+extern "C" Q_DECL_EXPORT
+QRhiCommandBuffer *ritual_ZN15QMetalSwapChain25currentFrameCommandBufferEv(
+    QMetalSwapChain *self) {
+  return self->currentFrameCommandBuffer();
+}
+
+//  QRhiRenderTarget *QMetalSwapChain::currentFrameRenderTarget()
+extern "C" Q_DECL_EXPORT
+QRhiRenderTarget *ritual_ZN15QMetalSwapChain24currentFrameRenderTargetEv(
+    QMetalSwapChain *self) {
+  return self->currentFrameRenderTarget();
+}
+
+//  QSize QMetalSwapChain::surfacePixelSize()
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZN15QMetalSwapChain16surfacePixelSizeEv(
+    QMetalSwapChain *self) {
+  return new QSize(self->surfacePixelSize());
+}
+
+//  bool QMetalSwapChain::isFormatSupported(Format f)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QMetalSwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE(
+    QMetalSwapChain *self,
+    QRhiSwapChain::Format f) {
+  return self->isFormatSupported(f);
+}
+
+//  QRhiRenderPassDescriptor
+//      *QMetalSwapChain::newCompatibleRenderPassDescriptor()
+extern "C" Q_DECL_EXPORT
+QRhiRenderPassDescriptor *ritual_ZN15QMetalSwapChain33newCompatibleRenderPassDescriptorEv(
+    QMetalSwapChain *self) {
+  return self->newCompatibleRenderPassDescriptor();
+}
+
+//  bool QMetalSwapChain::createOrResize()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QMetalSwapChain14createOrResizeEv(QMetalSwapChain *self) {
+  return self->createOrResize();
+}
 
 //  QRhiSwapChainHdrInfo QMetalSwapChain::hdrInfo()
 extern "C" Q_DECL_EXPORT

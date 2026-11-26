@@ -16,11 +16,20 @@
     "ritual_ZN22QQuickStackViewPrivate18warnOfInterruptionERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN22QQuickStackViewPrivate14setCurrentItemEP18QQuickStackElement": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickStackViewPrivate13parseElementsEP10QQmlEngineRK5QListI18QQuickStackViewArgE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK22QQuickStackViewPrivate11findElementEP10QQuickItem": [
       "address", "address", "address"
     ],
     "ritual_ZNK22QQuickStackViewPrivate11findElementERKN3QV45ValueE": [
       "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickStackViewPrivate11popElementsEPN3QV415ExecutionEngineEP18QQuickStackElement": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZN22QQuickStackViewPrivate18ensureTransitionerEv": [
       "nothing", "address"

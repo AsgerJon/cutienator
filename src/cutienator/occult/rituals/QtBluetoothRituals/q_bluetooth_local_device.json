@@ -8,6 +8,12 @@
     "ritual_ZNK21QBluetoothLocalDevice10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QBluetoothLocalDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QBluetoothLocalDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QBluetoothLocalDevice2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,6 +40,23 @@
     "ritual_ZNK21QBluetoothLocalDevice4nameEv": ["text", "address"],
     "ritual_ZNK21QBluetoothLocalDevice7addressEv": ["address", "address"],
     "ritual_ZN21QBluetoothLocalDevice10allDevicesEv": ["address"],
+    "ritual_ZN21QBluetoothLocalDevice20hostModeStateChangedENS_8HostModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QBluetoothLocalDevice15deviceConnectedERK17QBluetoothAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QBluetoothLocalDevice18deviceDisconnectedERK17QBluetoothAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QBluetoothLocalDevice15pairingFinishedERK17QBluetoothAddressNS_7PairingE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QBluetoothLocalDevice13errorOccurredENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QBluetoothLocalDevice6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QBluetoothLocalDevice6d_funcEv": ["address", "address"],
     "ritual_take_QBluetoothLocalDevice": [
       "bool", "address", "chars", "address"
     ]

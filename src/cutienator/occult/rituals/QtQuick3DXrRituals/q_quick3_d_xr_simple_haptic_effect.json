@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuick3DXrSimpleHapticEffect10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuick3DXrSimpleHapticEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuick3DXrSimpleHapticEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuick3DXrSimpleHapticEffect9amplitudeEv": [
       "float", "address"
     ],
@@ -16,6 +22,15 @@
     ],
     "ritual_ZN28QQuick3DXrSimpleHapticEffect9frequencyEv": [
       "float", "address"
+    ],
+    "ritual_ZN28QQuick3DXrSimpleHapticEffect16amplitudeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DXrSimpleHapticEffect15durationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DXrSimpleHapticEffect16frequencyChangedEv": [
+      "nothing", "address"
     ]
   }
 }

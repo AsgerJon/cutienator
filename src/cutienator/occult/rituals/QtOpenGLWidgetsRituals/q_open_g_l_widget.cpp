@@ -919,6 +919,24 @@ const QMetaObject *ritual_ZNK13QOpenGLWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QOpenGLWidget11qt_metacastEPKc(
+    QOpenGLWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QOpenGLWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QOpenGLWidget2trEPKcS1_i(
@@ -926,6 +944,20 @@ QString *ritual_ZN13QOpenGLWidget2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QOpenGLWidget::tr(s, c, n));
+}
+
+//  QOpenGLWidgetPrivate *QOpenGLWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLWidgetPrivate *ritual_ZN13QOpenGLWidget6d_funcEv(
+    QOpenGLWidget *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLWidgetPrivate *QOpenGLWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOpenGLWidgetPrivate *ritual_ZNK13QOpenGLWidget6d_funcEv(
+    const QOpenGLWidget *self) {
+  return self->d_func();
 }
 
 //  QOpenGLWidget::QOpenGLWidget(QWidget *parent, Qt::WindowFlags f)
@@ -972,6 +1004,13 @@ QSurfaceFormat *ritual_ZNK13QOpenGLWidget6formatEv(
   return new QSurfaceFormat(self->format());
 }
 
+//  GLenum QOpenGLWidget::textureFormat() const
+extern "C" Q_DECL_EXPORT
+GLenum ritual_ZNK13QOpenGLWidget13textureFormatEv(
+    const QOpenGLWidget *self) {
+  return self->textureFormat();
+}
+
 //  void QOpenGLWidget::setTextureFormat(GLenum texFormat)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QOpenGLWidget16setTextureFormatEj(
@@ -1013,6 +1052,22 @@ QOpenGLContext *ritual_ZNK13QOpenGLWidget7contextEv(
   return self->context();
 }
 
+//  GLuint QOpenGLWidget::defaultFramebufferObject() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK13QOpenGLWidget24defaultFramebufferObjectEv(
+    const QOpenGLWidget *self) {
+  return self->defaultFramebufferObject();
+}
+
+//  GLuint QOpenGLWidget::defaultFramebufferObject(TargetBuffer targetBuffer)
+//      const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK13QOpenGLWidget24defaultFramebufferObjectENS_12TargetBufferE(
+    const QOpenGLWidget *self,
+    QOpenGLWidget::TargetBuffer targetBuffer) {
+  return self->defaultFramebufferObject(targetBuffer);
+}
+
 //  QImage QOpenGLWidget::grabFramebuffer()
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN13QOpenGLWidget15grabFramebufferEv(QOpenGLWidget *self) {
@@ -1032,6 +1087,30 @@ extern "C" Q_DECL_EXPORT
 QOpenGLWidget::TargetBuffer ritual_ZNK13QOpenGLWidget19currentTargetBufferEv(
     const QOpenGLWidget *self) {
   return self->currentTargetBuffer();
+}
+
+//  void QOpenGLWidget::aboutToCompose()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QOpenGLWidget14aboutToComposeEv(QOpenGLWidget *self) {
+  self->aboutToCompose();
+}
+
+//  void QOpenGLWidget::frameSwapped()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QOpenGLWidget12frameSwappedEv(QOpenGLWidget *self) {
+  self->frameSwapped();
+}
+
+//  void QOpenGLWidget::aboutToResize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QOpenGLWidget13aboutToResizeEv(QOpenGLWidget *self) {
+  self->aboutToResize();
+}
+
+//  void QOpenGLWidget::resized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QOpenGLWidget7resizedEv(QOpenGLWidget *self) {
+  self->resized();
 }
 
 //  void QOpenGLWidget::initializeGL()

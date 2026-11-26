@@ -8,6 +8,12 @@
     "ritual_ZNK24QAbstract3DSeriesPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QAbstract3DSeriesPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QAbstract3DSeriesPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK24QAbstract3DSeriesPrivate9dataProxyEv": [
       "address", "address"
@@ -65,6 +71,9 @@
     ],
     "ritual_ZN24QAbstract3DSeriesPrivate7setNameERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate12resetToThemeERK8Q3DThemeib": [
+      "nothing", "address", "address", "int", "bool"
     ],
     "ritual_ZN24QAbstract3DSeriesPrivate9itemLabelEv": ["text", "address"],
     "ritual_ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv": [

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QmlPressureReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QmlPressureReading11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QmlPressureReading11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QmlPressureReading2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,15 +23,34 @@
     ],
     "ritual_ZN18QmlPressureReadingD1Ev": ["nothing", "address"],
     "ritual_ZNK18QmlPressureReading8pressureEv": ["double", "address"],
+    "ritual_ZNK18QmlPressureReading16bindablePressureEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QmlPressureReading11temperatureEv": ["double", "address"],
+    "ritual_ZNK18QmlPressureReading19bindableTemperatureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QmlPressureReading15pressureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QmlPressureReading18temperatureChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK18QmlPressureReading7readingEv": ["address", "address"],
     "ritual_ZN18QmlPressureReading13readingUpdateEv": ["nothing", "address"],
+    "ritual_ZN18QmlPressureReading30_qt_property_m_pressure_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN18QmlPressureReading33_qt_property_m_temperature_offsetEv": [
+      "size_t"
+    ],
     "ritual_take_QmlPressureReading": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZNK18QmlPressureReading7readingEv": ["address", "address"],
     "ritual_own_ZN18QmlPressureReading13readingUpdateEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_drop_QmlPressureReading__QBindable_qreal": ["nothing", "address"]
   }
 }

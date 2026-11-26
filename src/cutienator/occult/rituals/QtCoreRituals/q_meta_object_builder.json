@@ -137,6 +137,12 @@
     "ritual_ZN18QMetaObjectBuilder16indexOfClassInfoERK10QByteArray": [
       "int", "address", "address"
     ],
+    "ritual_ZNK18QMetaObjectBuilder22staticMetacallFunctionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder25setStaticMetacallFunctionEPFvP7QObjectN11QMetaObject4CallEiPPvE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QMetaObjectBuilder12toMetaObjectEv": ["address", "address"]
   }
 }

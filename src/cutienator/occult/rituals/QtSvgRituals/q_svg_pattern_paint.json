@@ -8,6 +8,9 @@
     "ritual_ZN16QSvgPatternPaintC1EP11QSvgPattern": ["address", "address"],
     "ritual_ZN16QSvgPatternPaintD1Ev": ["nothing", "address"],
     "ritual_ZNK16QSvgPatternPaint4typeEv": ["signed char", "address"],
+    "ritual_ZN16QSvgPatternPaint5brushEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN16QSvgPatternPaint11patternNodeEv": ["address", "address"],
     "ritual_take_QSvgPatternPaint": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK16QSvgPatternPaint4typeEv": ["signed char", "address"]

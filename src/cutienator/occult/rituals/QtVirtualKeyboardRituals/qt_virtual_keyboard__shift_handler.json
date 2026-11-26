@@ -1,8 +1,8 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
-    "alKeyboard/6.12.0/QtVirtualKeyboard/private/shifthandler_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/shifthandler_p.h,",
+    "Qt 6.12.0, from Qt's source."
   ],
   "rows": {
     "ritual_ZNK17QtVirtualKeyboard12ShiftHandler10metaObjectEv": [
@@ -16,6 +16,88 @@
     ],
     "ritual_ZN17QtVirtualKeyboard12ShiftHandler11toggleShiftEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandlerC1EP28QVirtualKeyboardInputContext": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QtVirtualKeyboard12ShiftHandler24sentenceEndingCharactersEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler27setSentenceEndingCharactersERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard12ShiftHandler27isAutoCapitalizationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard12ShiftHandler20isToggleShiftEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard12ShiftHandler13isShiftActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard12ShiftHandler16isCapsLockActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard12ShiftHandler11isUppercaseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler14setShiftActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler17setCapsLockActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler21clearToggleShiftTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler31sentenceEndingCharactersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler25toggleShiftEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler32autoCapitalizationEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler18shiftActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler21capsLockActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler16uppercaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler14autoCapitalizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler7restartEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler13localeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler25inputMethodVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler28setAutoCapitalizationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler21setToggleShiftEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard12ShiftHandler6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard12ShiftHandler6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_QtVirtualKeyboard_ShiftHandler": [
       "bool", "address", "chars", "address"

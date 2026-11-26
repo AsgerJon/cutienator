@@ -9,6 +9,9 @@
     "ritual_ZNK23QRemoteObjectSourceBase10hasAdapterEv": ["bool", "address"],
     "ritual_ZNK23QRemoteObjectSourceBase4nameEv": ["text", "address"],
     "ritual_ZNK23QRemoteObjectSourceBase6isRootEv": ["bool", "address"],
+    "ritual_ZN23QRemoteObjectSourceBase11marshalArgsEiPPv": [
+      "address", "address", "int", "address"
+    ],
     "ritual_ZN23QRemoteObjectSourceBase6invokeEN11QMetaObject4CallEiRK5QListI8QVariantEPS3_": [
       "bool", "address", "int", "int", "address", "address"
     ],

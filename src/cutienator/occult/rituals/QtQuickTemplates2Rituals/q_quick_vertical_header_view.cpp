@@ -13,7 +13,9 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qvariant.h>
@@ -1078,6 +1080,25 @@ const QMetaObject *ritual_ZNK24QQuickVerticalHeaderView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickVerticalHeaderView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickVerticalHeaderView11qt_metacastEPKc(
+    QQuickVerticalHeaderView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickVerticalHeaderView::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickVerticalHeaderView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickVerticalHeaderView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickVerticalHeaderView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuickVerticalHeaderView2trEPKcS1_i(
@@ -1129,6 +1150,22 @@ void ritual_ZN24QQuickVerticalHeaderView14setMovableRowsEb(
     QQuickVerticalHeaderView *self,
     bool movableRows) {
   self->setMovableRows(movableRows);
+}
+
+//  void QQuickVerticalHeaderView::movableRowsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickVerticalHeaderView18movableRowsChangedEv(
+    QQuickVerticalHeaderView *self) {
+  self->movableRowsChanged();
+}
+
+//  QQuickVerticalHeaderView::QQuickVerticalHeaderView(QQuickVerticalHeaderVi
+//      ewPrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickVerticalHeaderView *ritual_ZN24QQuickVerticalHeaderViewC1ER31QQuickVerticalHeaderViewPrivateP10QQuickItem(
+    QQuickVerticalHeaderViewPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickVerticalHeaderView(*dd, parent);
 }
 
 //  a Python function taken by a CuteQQuickVerticalHeaderView, for the

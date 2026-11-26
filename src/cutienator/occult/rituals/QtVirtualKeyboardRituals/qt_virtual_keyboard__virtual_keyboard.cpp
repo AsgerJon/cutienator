@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK17QtVirtualKeyboard15VirtualKeyboard10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtVirtualKeyboard::VirtualKeyboard::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QtVirtualKeyboard15VirtualKeyboard11qt_metacastEPKc(
+    QtVirtualKeyboard::VirtualKeyboard *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtVirtualKeyboard::VirtualKeyboard::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QtVirtualKeyboard15VirtualKeyboard11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtVirtualKeyboard::VirtualKeyboard *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtVirtualKeyboard::VirtualKeyboard::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -206,6 +225,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QtVirtualKeyboard15VirtualKeyboard21qt_qmlMarker_attachedEv(
     QtVirtualKeyboard::VirtualKeyboard *self) {
   self->qt_qmlMarker_attached();
+}
+
+//  VirtualKeyboardAttachedType
+//      *QtVirtualKeyboard::VirtualKeyboard::qmlAttachedProperties(QObject
+//      *object)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::VirtualKeyboardAttachedType *ritual_ZN17QtVirtualKeyboard15VirtualKeyboard21qmlAttachedPropertiesEP7QObject(
+    QObject *object) {
+  return QtVirtualKeyboard::VirtualKeyboard::qmlAttachedProperties(object);
 }
 
 //  a Python function taken by a CuteQtVirtualKeyboard_VirtualKeyboard, for

@@ -28,17 +28,17 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1295, as _ZN31QQuickShapeTextureFillRhiShaderC1Ei
-inline QQuickShapeTextureFillRhiShader::QQuickShapeTextureFillRhiShader(int viewCount)
-{
-    setShaderFileName(VertexStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/texturefill.vert.qsb"), viewCount);
-    setShaderFileName(FragmentStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/texturefill.frag.qsb"), viewCount);
-}
-
-//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1393, as _ZN30QQuickShapeTextureFillMaterialD1Ev
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1393, as _ZN30QQuickShapeTextureFillMaterialD2Ev
 inline QQuickShapeTextureFillMaterial::~QQuickShapeTextureFillMaterial()
 {
     delete m_dummyTexture;
+}
+
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1422, as _ZNK30QQuickShapeTextureFillMaterial12createShaderEN20QSGRendererInterface10RenderModeE
+inline QSGMaterialShader *QQuickShapeTextureFillMaterial::createShader(QSGRendererInterface::RenderMode renderMode) const
+{
+    Q_UNUSED(renderMode);
+    return new QQuickShapeTextureFillRhiShader(viewCount());
 }
 
 //  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1398, as _ZNK30QQuickShapeTextureFillMaterial4typeEv
@@ -67,11 +67,105 @@ inline int QQuickShapeTextureFillMaterial::compare(const QSGMaterial *other) con
     return diff < 0 ? -1 : (diff > 0 ? 1 : 0);
 }
 
-//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1422, as _ZNK30QQuickShapeTextureFillMaterial12createShaderEN20QSGRendererInterface10RenderModeE
-inline QSGMaterialShader *QQuickShapeTextureFillMaterial::createShader(QSGRendererInterface::RenderMode renderMode) const
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1295, as _ZN31QQuickShapeTextureFillRhiShaderC1Ei
+inline QQuickShapeTextureFillRhiShader::QQuickShapeTextureFillRhiShader(int viewCount)
 {
-    Q_UNUSED(renderMode);
-    return new QQuickShapeTextureFillRhiShader(viewCount());
+    setShaderFileName(VertexStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/texturefill.vert.qsb"), viewCount);
+    setShaderFileName(FragmentStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/texturefill.frag.qsb"), viewCount);
+}
+
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1301, as _ZN31QQuickShapeTextureFillRhiShader17updateUniformDataERN17QSGMaterialShader11RenderStateEP11QSGMaterialS4_
+inline bool QQuickShapeTextureFillRhiShader::updateUniformData(RenderState &state,
+                                                        QSGMaterial *newMaterial, QSGMaterial *oldMaterial)
+{
+    Q_ASSERT(oldMaterial == nullptr || newMaterial->type() == oldMaterial->type());
+    QQuickShapeTextureFillMaterial *m = static_cast<QQuickShapeTextureFillMaterial *>(newMaterial);
+    bool changed = false;
+    QByteArray *buf = state.uniformData();
+    const int shaderMatrixCount = newMaterial->viewCount();
+    const int matrixCount = qMin(state.projectionMatrixCount(), shaderMatrixCount);
+    Q_ASSERT(buf->size() >= 64 * shaderMatrixCount + 64 + 8 + 4);
+
+    if (state.isMatrixDirty()) {
+        for (int viewIndex = 0; viewIndex < matrixCount; ++viewIndex) {
+            const QMatrix4x4 m = state.combinedMatrix();
+            memcpy(buf->data() + 64 * viewIndex, m.constData(), 64);
+            changed = true;
+        }
+    }
+
+    QQuickShapeGenericStrokeFillNode *node = m->node();
+
+    if (!oldMaterial || m_fillTransform != node->m_fillTransform) {
+        memcpy(buf->data() + 64 * shaderMatrixCount, node->m_fillTransform.invertedData(), 64);
+        m_fillTransform = node->m_fillTransform;
+        changed = true;
+    }
+
+    const QSizeF boundsSize = node->m_fillTextureProvider != nullptr && node->m_fillTextureProvider->texture() != nullptr
+        ? node->m_fillTextureProvider->texture()->textureSize()
+        : QSizeF(0, 0);
+
+
+    const QVector2D boundsVector(boundsSize.width() / state.devicePixelRatio(),
+                                 boundsSize.height() / state.devicePixelRatio());
+    if (!oldMaterial || m_boundsSize != boundsVector) {
+        m_boundsSize = boundsVector;
+        Q_ASSERT(sizeof(m_boundsSize) == 8);
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64, &m_boundsSize, 8);
+        changed = true;
+    }
+
+    if (state.isOpacityDirty()) {
+        const float opacity = state.opacity();
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64 + 8, &opacity, 4);
+        changed = true;
+    }
+
+    return changed;
+}
+
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1351, as _ZN31QQuickShapeTextureFillRhiShader18updateSampledImageERN17QSGMaterialShader11RenderStateEiPP10QSGTextureP11QSGMaterialS7_
+inline void QQuickShapeTextureFillRhiShader::updateSampledImage(RenderState &state, int binding, QSGTexture **texture,
+                                                         QSGMaterial *newMaterial, QSGMaterial *)
+{
+    if (binding != 1)
+        return;
+
+    QQuickShapeTextureFillMaterial *m = static_cast<QQuickShapeTextureFillMaterial *>(newMaterial);
+    QQuickShapeGenericStrokeFillNode *node = m->node();
+    if (node->m_fillTextureProvider != nullptr) {
+        QSGTexture *providedTexture = node->m_fillTextureProvider->texture();
+        if (providedTexture != nullptr) {
+            if (providedTexture->isAtlasTexture()) {
+                // Create a non-atlas copy to make texture coordinate wrapping work. This
+                // texture copy is owned by the QSGTexture so memory is managed with the original
+                // texture provider.
+                QSGTexture *newTexture = providedTexture->removedFromAtlas(state.resourceUpdateBatch());
+                if (newTexture != nullptr)
+                    providedTexture = newTexture;
+            }
+
+            providedTexture->commitTextureOperations(state.rhi(), state.resourceUpdateBatch());
+            *texture = providedTexture;
+            return;
+        }
+    }
+
+    if (m->dummyTexture() == nullptr) {
+        QSGPlainTexture *dummyTexture = new QSGPlainTexture;
+        dummyTexture->setFiltering(QSGTexture::Nearest);
+        dummyTexture->setHorizontalWrapMode(QSGTexture::Repeat);
+        dummyTexture->setVerticalWrapMode(QSGTexture::Repeat);
+        QImage img(128, 128, QImage::Format_ARGB32_Premultiplied);
+        img.fill(0);
+        dummyTexture->setImage(img);
+        dummyTexture->commitTextureOperations(state.rhi(), state.resourceUpdateBatch());
+
+        m->setDummyTexture(dummyTexture);
+    }
+
+    *texture = m->dummyTexture();
 }
 //  -----------------------------------------------------------------------
 
@@ -219,4 +313,13 @@ int ritual_own_ZNK30QQuickShapeTextureFillMaterial7compareEPK11QSGMaterial(
     const QQuickShapeTextureFillMaterial *self,
     const QSGMaterial *other) {
   return self->QQuickShapeTextureFillMaterial::compare(other);
+}
+
+//  QSGMaterialShader *QQuickShapeTextureFillMaterial::createShader(QSGRender
+//      erInterface::RenderMode renderMode) const
+extern "C" Q_DECL_EXPORT
+QSGMaterialShader *ritual_own_ZNK30QQuickShapeTextureFillMaterial12createShaderEN20QSGRendererInterface10RenderModeE(
+    const QQuickShapeTextureFillMaterial *self,
+    QSGRendererInterface::RenderMode renderMode) {
+  return self->QQuickShapeTextureFillMaterial::createShader(renderMode);
 }

@@ -15,8 +15,12 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qsize.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/6.12.0/QtWidgets/private/qbsptree_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/private/qbsptree_p.h>
 #include <QtWidgets/qlistview.h>
 #include <QtWidgets/qabstractitemdelegate.h>
 #if QT_CONFIG(accessibility)
@@ -40,6 +44,16 @@
 #include <QtWidgets/private/qlistview_p.h>
 #include <QtWidgets/private/qscrollbar_p.h>
 #include <algorithm>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qabstractslider.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/private/qabstractslider_p.h>
+#include <QtCore/qdebug.h>
+#if QT_CONFIG(accessibility)
+#include <QtGui/qaccessible.h>
+#endif
+#include <limits.h>
+#include <QtWidgets/private/qapplication_p.h>
 #include <QtWidgets/qabstractitemview.h>
 #include <QtCore/qpointer.h>
 #include <QtWidgets/qapplication.h>
@@ -75,7 +89,6 @@
 #  include <QtWidgets/qscroller.h>
 #endif
 #include <algorithm>
-#include <QtWidgets/private/qbsptree_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -85,352 +98,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/itemviews/qlistview.cpp, line 3354, as _ZN16QListViewPrivate19scrollElasticBandByEii
-inline void QListViewPrivate::scrollElasticBandBy(int dx, int dy)
-{
-    if (dx > 0) // right
-        elasticBand.moveRight(elasticBand.right() + dx);
-    else if (dx < 0) // left
-        elasticBand.moveLeft(elasticBand.left() - dx);
-    if (dy > 0) // down
-        elasticBand.moveBottom(elasticBand.bottom() + dy);
-    else if (dy < 0) // up
-        elasticBand.moveTop(elasticBand.top() - dy);
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 3290, as _ZN17QIconModeViewBase7addLeafER5QListIiERK5QRectjN8QBspTree4DataE
-inline void QIconModeViewBase::addLeaf(QList<int> &leaf, const QRect &area, uint visited,
-                                QBspTree::Data data)
-{
-    QListViewItem *vi;
-    QIconModeViewBase *_this = static_cast<QIconModeViewBase *>(data.ptr);
-    for (int i = 0; i < leaf.size(); ++i) {
-        int idx = leaf.at(i);
-        if (idx < 0 || idx >= _this->items.size())
-            continue;
-        vi = &_this->items[idx];
-        Q_ASSERT(vi);
-        if (vi->isValid() && vi->rect().intersects(area) && vi->visited != visited) {
-            QModelIndex index  = _this->dd->listViewItemToIndex(*vi);
-            Q_ASSERT(index.isValid());
-            _this->interSectingVector->append(index);
-            vi->visited = visited;
-        }
-    }
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1974, as _ZN19QCommonListViewBase13paintDragDropEP8QPainter
-#if QT_CONFIG(draganddrop)
-inline void QCommonListViewBase::paintDragDrop(QPainter *painter)
-{
-    // FIXME: Until the we can provide a proper drop indicator
-    // in IconMode, it makes no sense to show it
-    dd->paintDropIndicator(painter);
-}
-#endif  // QT_CONFIG(draganddrop)
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1963, as _ZN19QCommonListViewBase15appendHiddenRowEi
-inline void QCommonListViewBase::appendHiddenRow(int row)
-{
-    dd->hiddenRows.insert(dd->model->index(row, 0, qq->rootIndex()));
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1968, as _ZN19QCommonListViewBase15removeHiddenRowEi
-inline void QCommonListViewBase::removeHiddenRow(int row)
-{
-    dd->hiddenRows.remove(dd->model->index(row, 0, qq->rootIndex()));
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 2047, as _ZN19QCommonListViewBase16scrollContentsByEiib
-inline void QCommonListViewBase::scrollContentsBy(int dx, int dy, bool /*scrollElasticBand*/)
-{
-    dd->scrollContentsBy(isRightToLeft() ? -dx : dx, dy);
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 2017, as _ZN19QCommonListViewBase23updateVerticalScrollBarERK5QSize
-inline void QCommonListViewBase::updateVerticalScrollBar(const QSize &step)
-{
-    verticalScrollBar()->d_func()->itemviewChangeSingleStep(step.height() + spacing());
-    verticalScrollBar()->setPageStep(viewport()->height());
-
-    // If both scroll bars are set to auto, we might end up in a situation with enough space
-    // for the actual content. But still one of the scroll bars will become enabled due to
-    // the other one using the space. The other one will become invisible in the same cycle.
-    // -> Infinite loop, QTBUG-39902
-    const bool bothScrollBarsAuto = qq->verticalScrollBarPolicy() == Qt::ScrollBarAsNeeded &&
-                                    qq->horizontalScrollBarPolicy() == Qt::ScrollBarAsNeeded;
-
-    const QSize viewportSize = QListModeViewBase::viewportSize(qq);
-
-    bool horizontalWantsToShow = contentsSize.width() > viewportSize.width();
-    bool verticalWantsToShow;
-    if (horizontalWantsToShow)
-        verticalWantsToShow = contentsSize.height() > viewportSize.height() - qq->horizontalScrollBar()->height();
-    else
-        verticalWantsToShow = contentsSize.height() > viewportSize.height();
-
-    if (bothScrollBarsAuto && !verticalWantsToShow) {
-        // break the infinite loop described above by setting the range to 0, 0.
-        // QAbstractScrollArea will then hide the scroll bar for us
-        verticalScrollBar()->setRange(0, 0);
-    } else {
-        verticalScrollBar()->setRange(0, contentsSize.height() - viewport()->height());
-    }
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1987, as _ZN19QCommonListViewBase25updateHorizontalScrollBarERK5QSize
-inline void QCommonListViewBase::updateHorizontalScrollBar(const QSize &step)
-{
-    horizontalScrollBar()->d_func()->itemviewChangeSingleStep(step.width() + spacing());
-    horizontalScrollBar()->setPageStep(viewport()->width());
-
-    // If both scroll bars are set to auto, we might end up in a situation with enough space
-    // for the actual content. But still one of the scroll bars will become enabled due to
-    // the other one using the space. The other one will become invisible in the same cycle.
-    // -> Infinite loop, QTBUG-39902
-    const bool bothScrollBarsAuto = qq->verticalScrollBarPolicy() == Qt::ScrollBarAsNeeded &&
-                                    qq->horizontalScrollBarPolicy() == Qt::ScrollBarAsNeeded;
-
-    const QSize viewportSize = QListModeViewBase::viewportSize(qq);
-
-    bool verticalWantsToShow = contentsSize.height() > viewportSize.height();
-    bool horizontalWantsToShow;
-    if (verticalWantsToShow)
-        horizontalWantsToShow = contentsSize.width() > viewportSize.width() - qq->verticalScrollBar()->width();
-    else
-        horizontalWantsToShow = contentsSize.width() > viewportSize.width();
-
-    if (bothScrollBarsAuto && !horizontalWantsToShow) {
-        // break the infinite loop described above by setting the range to 0, 0.
-        // QAbstractScrollArea will then hide the scroll bar for us
-        horizontalScrollBar()->setRange(0, 0);
-    } else {
-        horizontalScrollBar()->setRange(0, contentsSize.width() - viewport()->width());
-    }
-}
-
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 4552, as _ZN24QAbstractItemViewPrivate13clearOrRemoveEv
-inline void QAbstractItemViewPrivate::clearOrRemove()
-{
-#if QT_CONFIG(draganddrop)
-    const QItemSelection selection = selectionModel->selection();
-    QList<QItemSelectionRange>::const_iterator it = selection.constBegin();
-
-    if (!overwrite) {
-        for (; it != selection.constEnd(); ++it) {
-            QModelIndex parent = (*it).parent();
-            if ((*it).left() != 0)
-                continue;
-            if ((*it).right() != (model->columnCount(parent) - 1))
-                continue;
-            int count = (*it).bottom() - (*it).top() + 1;
-            model->removeRows((*it).top(), count, parent);
-        }
-    } else {
-        // we can't remove the rows so reset the items (i.e. the view is like a table)
-        QModelIndexList list = selection.indexes();
-        for (int i=0; i < list.size(); ++i) {
-            QModelIndex index = list.at(i);
-            QMap<int, QVariant> roles = model->itemData(index);
-            for (QMap<int, QVariant>::Iterator it = roles.begin(); it != roles.end(); ++it)
-                it.value() = QVariant();
-            model->setItemData(index, roles);
-        }
-    }
-#endif
-}
-
-//  from src/widgets/itemviews/qbsptree.cpp, line 67, as _ZN8QBspTree4initERK5QRectiNS_4Node4TypeEi
-inline void QBspTree::init(const QRect &area, int depth, NodeType type, int index)
-{
-    Node::Type t = Node::None; // t should never have this value
-    if (type == Node::Both) // if both planes are specified, use 2d bsp
-        t = (depth & 1) ? Node::HorizontalPlane : Node::VerticalPlane;
-    else
-        t = type;
-    QPoint center = area.center();
-    nodes[index].pos = (t == Node::VerticalPlane ? center.x() : center.y());
-    nodes[index].type = t;
-
-    QRect front = area;
-    QRect back = area;
-
-    if (t == Node::VerticalPlane) {
-        front.setLeft(center.x());
-        back.setRight(center.x() - 1); // front includes the center
-    } else { // t == Node::HorizontalPlane
-        front.setTop(center.y());
-        back.setBottom(center.y() - 1);
-    }
-
-    int idx = firstChildIndex(index);
-    if (--depth) {
-        init(back, depth, type, idx);
-        init(front, depth, type, idx + 1);
-    }
-}
-
-//  from src/widgets/itemviews/qbsptree.cpp, line 11, as _ZN8QBspTree6createEii
-inline void QBspTree::create(int n, int d)
-{
-    // simple heuristics to find the best tree depth
-    if (d == -1) {
-        int c;
-        for (c = 0; n; ++c)
-            n = n / 10;
-        depth = c << 1;
-    } else {
-        depth = d;
-    }
-    depth = qMax(depth, uint(1));
-
-    nodes.resize((1ll << depth) - 1); // resize to number of nodes
-    leaves.resize(1ll << depth); // resize to number of leaves
-}
-
-//  from src/widgets/itemviews/qbsptree.cpp, line 96, as _ZN8QBspTree6insertER5QListIiERK5QRectjNS_4DataE
-inline void QBspTree::insert(QList<int> &leaf, const QRect &, uint, QBspTreeData data)
-{
-    leaf.append(data.i);
-}
-
-//  from src/widgets/itemviews/qbsptree.cpp, line 101, as _ZN8QBspTree6removeER5QListIiERK5QRectjNS_4DataE
-inline void QBspTree::remove(QList<int> &leaf, const QRect &, uint, QBspTreeData data)
-{
-    int i = leaf.indexOf(data.i);
-    if (i != -1)
-        leaf.remove(i);
-}
-
-//  from src/widgets/itemviews/qbsptree.cpp, line 28, as _ZN8QBspTree7destroyEv
-inline void QBspTree::destroy()
-{
-    leaves.clear();
-    nodes.clear();
-}
-
-//  from src/widgets/itemviews/qbsptree.cpp, line 34, as _ZN8QBspTree9climbTreeERK5QRectPFvR5QListIiES2_jNS_4DataEES6_
-inline void QBspTree::climbTree(const QRect &rect, callback *function, QBspTreeData data)
-{
-    if (nodes.isEmpty())
-        return;
-    ++visited;
-    climbTree(rect, function, data, 0);
-}
-
-//  from src/widgets/itemviews/qbsptree.cpp, line 42, as _ZN8QBspTree9climbTreeERK5QRectPFvR5QListIiES2_jNS_4DataEES6_i
-inline void QBspTree::climbTree(const QRect &area, callback *function, QBspTreeData data, int index)
-{
-    if (index >= nodes.size()) { // the index points to a leaf
-        Q_ASSERT(!nodes.isEmpty());
-        function(leaf(index - nodes.size()), area, visited, data);
-        return;
-    }
-
-    Node::Type t = (Node::Type) nodes.at(index).type;
-
-    int pos = nodes.at(index).pos;
-    int idx = firstChildIndex(index);
-    if (t == Node::VerticalPlane) {
-        if (area.left() < pos)
-            climbTree(area, function, data, idx); // back
-        if (area.right() >= pos)
-            climbTree(area, function, data, idx + 1); // front
-    } else {
-        if (area.top() < pos)
-            climbTree(area, function, data, idx); // back
-        if (area.bottom() >= pos)
-            climbTree(area, function, data, idx + 1); // front
-    }
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1878, as _ZNK16QListViewPrivate8itemSizeERK20QStyleOptionViewItemRK11QModelIndex
-inline QSize QListViewPrivate::itemSize(const QStyleOptionViewItem &option, const QModelIndex &index) const
-{
-    Q_Q(const QListView);
-    if (!uniformItemSizes) {
-        const QAbstractItemDelegate *delegate = q->itemDelegateForIndex(index);
-        return delegate ? delegate->sizeHint(option, index) : QSize();
-    }
-    if (!cachedItemSize.isValid()) { // the last item is probably the largest, so we use its size
-        int row = model->rowCount(root) - 1;
-        QModelIndex sample = model->index(row, column, root);
-        const QAbstractItemDelegate *delegate = q->itemDelegateForIndex(sample);
-        cachedItemSize = delegate ? delegate->sizeHint(option, sample) : QSize();
-    }
-    return cachedItemSize;
-}
-
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 4433, as _ZNK24QAbstractItemViewPrivate16shouldAutoScrollERK6QPoint
-inline bool QAbstractItemViewPrivate::shouldAutoScroll(const QPoint &pos) const
-{
-    if (!autoScroll)
-        return false;
-    const QRect area = QWidgetPrivate::get(viewport)->clipRect();
-    return (pos.y() - area.top() < autoScrollMargin)
-        || (area.bottom() - pos.y() < autoScrollMargin)
-        || (pos.x() - area.left() < autoScrollMargin)
-        || (area.right() - pos.x() < autoScrollMargin);
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1830, as _ZNK16QListViewPrivate13mapToViewportERK5QRectb
-inline QRect QListViewPrivate::mapToViewport(const QRect &rect, bool extend) const
-{
-    Q_Q(const QListView);
-    if (!rect.isValid())
-        return rect;
-
-    QRect result = extend ? commonListView->mapToViewport(rect) : rect;
-    int dx = -q->horizontalOffset();
-    int dy = -q->verticalOffset();
-    return result.adjusted(dx, dy, dx, dy);
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1822, as _ZNK16QListViewPrivate19indexToListViewItemERK11QModelIndex
-inline QListViewItem QListViewPrivate::indexToListViewItem(const QModelIndex &index) const
-{
-    if (!index.isValid() || isHidden(index.row()))
-        return QListViewItem();
-
-    return commonListView->indexToListViewItem(index);
-}
-
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 4452, as _ZNK24QAbstractItemViewPrivate27interruptDelayedItemsLayoutEv
-inline void QAbstractItemViewPrivate::interruptDelayedItemsLayout() const
-{
-    delayedLayout.stop();
-    delayedPendingLayout = false;
-}
-
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 4719, as _ZNK24QAbstractItemViewPrivate14renderToPixmapERK5QListI11QModelIndexEP5QRect
-inline QPixmap QAbstractItemViewPrivate::renderToPixmap(const QModelIndexList &indexes, QRect *r) const
-{
-    Q_Q(const QAbstractItemView);
-    Q_ASSERT(r);
-    QItemViewPaintPairs paintPairs = draggablePaintPairs(indexes, r);
-    if (paintPairs.isEmpty())
-        return QPixmap();
-
-    QWindow *window = windowHandle(WindowHandleMode::Closest);
-    const qreal scale = window ? window->devicePixelRatio() : qreal(1);
-
-    QPixmap pixmap(r->size() * scale);
-    pixmap.setDevicePixelRatio(scale);
-
-    pixmap.fill(Qt::transparent);
-    QPainter painter(&pixmap);
-    painter.setLayoutDirection(q->layoutDirection());
-    QStyleOptionViewItem option;
-    q->initViewItemOption(&option);
-    option.state |= QStyle::State_Selected;
-    for (int j = 0; j < paintPairs.size(); ++j) {
-        option.rect = paintPairs.at(j).rect.translated(-r->topLeft());
-        const QModelIndex &current = paintPairs.at(j).index;
-        adjustViewOptionsForIndex(&option, current);
-        q->itemDelegateForIndex(current)->paint(&painter, option, current);
-    }
-    return pixmap;
-}
+//  from src/widgets/itemviews/qbsptree.cpp, line 9, as _ZN8QBspTreeC1Ev
+inline QBspTree::QBspTree() : depth(6), visited(0) {}
 
 //  from src/widgets/itemviews/qlistview.cpp, line 3254, as _ZNK17QIconModeViewBase9itemIndexERK13QListViewItem
 inline int QIconModeViewBase::itemIndex(const QListViewItem &item) const
@@ -725,6 +394,403 @@ inline bool QIconModeViewBase::filterStartDrag(Qt::DropActions supportedActions)
 }
 #endif  // QT_CONFIG(draganddrop)
 
+//  from src/widgets/itemviews/qlistview.cpp, line 2071, as _ZNK19QCommonListViewBase23horizontalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_
+inline int QCommonListViewBase::horizontalScrollToValue(const int /*index*/, QListView::ScrollHint hint,
+                                            bool leftOf, bool rightOf, const QRect &area, const QRect &rect) const
+{
+    int horizontalValue = horizontalScrollBar()->value();
+    if (isRightToLeft()) {
+        if (hint == QListView::PositionAtCenter) {
+            horizontalValue += ((area.width() - rect.width()) / 2) - rect.left();
+        } else {
+            if (leftOf)
+                horizontalValue -= rect.left();
+            else if (rightOf)
+                horizontalValue += qMin(rect.left(), area.width() - rect.right());
+        }
+    } else {
+        if (hint == QListView::PositionAtCenter) {
+            horizontalValue += rect.left() - ((area.width()- rect.width()) / 2);
+        } else {
+            if (leftOf)
+                horizontalValue += rect.left();
+            else if (rightOf)
+                horizontalValue += qMin(rect.left(), rect.right() - area.width());
+        }
+    }
+    return horizontalValue;
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2052, as _ZNK19QCommonListViewBase21verticalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_
+inline int QCommonListViewBase::verticalScrollToValue(int /*index*/, QListView::ScrollHint hint,
+                                          bool above, bool below, const QRect &area, const QRect &rect) const
+{
+    int verticalValue = verticalScrollBar()->value();
+    QRect adjusted = rect.adjusted(-spacing(), -spacing(), spacing(), spacing());
+    if (hint == QListView::PositionAtTop || above)
+        verticalValue += adjusted.top();
+    else if (hint == QListView::PositionAtBottom || below)
+        verticalValue += qMin(adjusted.top(), adjusted.bottom() - area.height() + 1);
+    else if (hint == QListView::PositionAtCenter)
+        verticalValue += adjusted.top() - ((area.height() - adjusted.height()) / 2);
+    return verticalValue;
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2047, as _ZN19QCommonListViewBase16scrollContentsByEiib
+inline void QCommonListViewBase::scrollContentsBy(int dx, int dy, bool /*scrollElasticBand*/)
+{
+    dd->scrollContentsBy(isRightToLeft() ? -dx : dx, dy);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2066, as _ZNK19QCommonListViewBase16horizontalOffsetEv
+inline int QCommonListViewBase::horizontalOffset() const
+{
+    return (isRightToLeft() ? horizontalScrollBar()->maximum() - horizontalScrollBar()->value() : horizontalScrollBar()->value());
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1987, as _ZN19QCommonListViewBase25updateHorizontalScrollBarERK5QSize
+inline void QCommonListViewBase::updateHorizontalScrollBar(const QSize &step)
+{
+    horizontalScrollBar()->d_func()->itemviewChangeSingleStep(step.width() + spacing());
+    horizontalScrollBar()->setPageStep(viewport()->width());
+
+    // If both scroll bars are set to auto, we might end up in a situation with enough space
+    // for the actual content. But still one of the scroll bars will become enabled due to
+    // the other one using the space. The other one will become invisible in the same cycle.
+    // -> Infinite loop, QTBUG-39902
+    const bool bothScrollBarsAuto = qq->verticalScrollBarPolicy() == Qt::ScrollBarAsNeeded &&
+                                    qq->horizontalScrollBarPolicy() == Qt::ScrollBarAsNeeded;
+
+    const QSize viewportSize = QListModeViewBase::viewportSize(qq);
+
+    bool verticalWantsToShow = contentsSize.height() > viewportSize.height();
+    bool horizontalWantsToShow;
+    if (verticalWantsToShow)
+        horizontalWantsToShow = contentsSize.width() > viewportSize.width() - qq->verticalScrollBar()->width();
+    else
+        horizontalWantsToShow = contentsSize.width() > viewportSize.width();
+
+    if (bothScrollBarsAuto && !horizontalWantsToShow) {
+        // break the infinite loop described above by setting the range to 0, 0.
+        // QAbstractScrollArea will then hide the scroll bar for us
+        horizontalScrollBar()->setRange(0, 0);
+    } else {
+        horizontalScrollBar()->setRange(0, contentsSize.width() - viewport()->width());
+    }
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2017, as _ZN19QCommonListViewBase23updateVerticalScrollBarERK5QSize
+inline void QCommonListViewBase::updateVerticalScrollBar(const QSize &step)
+{
+    verticalScrollBar()->d_func()->itemviewChangeSingleStep(step.height() + spacing());
+    verticalScrollBar()->setPageStep(viewport()->height());
+
+    // If both scroll bars are set to auto, we might end up in a situation with enough space
+    // for the actual content. But still one of the scroll bars will become enabled due to
+    // the other one using the space. The other one will become invisible in the same cycle.
+    // -> Infinite loop, QTBUG-39902
+    const bool bothScrollBarsAuto = qq->verticalScrollBarPolicy() == Qt::ScrollBarAsNeeded &&
+                                    qq->horizontalScrollBarPolicy() == Qt::ScrollBarAsNeeded;
+
+    const QSize viewportSize = QListModeViewBase::viewportSize(qq);
+
+    bool horizontalWantsToShow = contentsSize.width() > viewportSize.width();
+    bool verticalWantsToShow;
+    if (horizontalWantsToShow)
+        verticalWantsToShow = contentsSize.height() > viewportSize.height() - qq->horizontalScrollBar()->height();
+    else
+        verticalWantsToShow = contentsSize.height() > viewportSize.height();
+
+    if (bothScrollBarsAuto && !verticalWantsToShow) {
+        // break the infinite loop described above by setting the range to 0, 0.
+        // QAbstractScrollArea will then hide the scroll bar for us
+        verticalScrollBar()->setRange(0, 0);
+    } else {
+        verticalScrollBar()->setRange(0, contentsSize.height() - viewport()->height());
+    }
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1963, as _ZN19QCommonListViewBase15appendHiddenRowEi
+inline void QCommonListViewBase::appendHiddenRow(int row)
+{
+    dd->hiddenRows.insert(dd->model->index(row, 0, qq->rootIndex()));
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1968, as _ZN19QCommonListViewBase15removeHiddenRowEi
+inline void QCommonListViewBase::removeHiddenRow(int row)
+{
+    dd->hiddenRows.remove(dd->model->index(row, 0, qq->rootIndex()));
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1974, as _ZN19QCommonListViewBase13paintDragDropEP8QPainter
+#if QT_CONFIG(draganddrop)
+inline void QCommonListViewBase::paintDragDrop(QPainter *painter)
+{
+    // FIXME: Until the we can provide a proper drop indicator
+    // in IconMode, it makes no sense to show it
+    dd->paintDropIndicator(painter);
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qbsptree.cpp, line 67, as _ZN8QBspTree4initERK5QRectiNS_4Node4TypeEi
+inline void QBspTree::init(const QRect &area, int depth, NodeType type, int index)
+{
+    Node::Type t = Node::None; // t should never have this value
+    if (type == Node::Both) // if both planes are specified, use 2d bsp
+        t = (depth & 1) ? Node::HorizontalPlane : Node::VerticalPlane;
+    else
+        t = type;
+    QPoint center = area.center();
+    nodes[index].pos = (t == Node::VerticalPlane ? center.x() : center.y());
+    nodes[index].type = t;
+
+    QRect front = area;
+    QRect back = area;
+
+    if (t == Node::VerticalPlane) {
+        front.setLeft(center.x());
+        back.setRight(center.x() - 1); // front includes the center
+    } else { // t == Node::HorizontalPlane
+        front.setTop(center.y());
+        back.setBottom(center.y() - 1);
+    }
+
+    int idx = firstChildIndex(index);
+    if (--depth) {
+        init(back, depth, type, idx);
+        init(front, depth, type, idx + 1);
+    }
+}
+
+//  from src/widgets/itemviews/qbsptree.cpp, line 96, as _ZN8QBspTree6insertER5QListIiERK5QRectjNS_4DataE
+inline void QBspTree::insert(QList<int> &leaf, const QRect &, uint, QBspTreeData data)
+{
+    leaf.append(data.i);
+}
+
+//  from src/widgets/itemviews/qbsptree.cpp, line 42, as _ZN8QBspTree9climbTreeERK5QRectPFvR5QListIiES2_jNS_4DataEES6_i
+inline void QBspTree::climbTree(const QRect &area, callback *function, QBspTreeData data, int index)
+{
+    if (index >= nodes.size()) { // the index points to a leaf
+        Q_ASSERT(!nodes.isEmpty());
+        function(leaf(index - nodes.size()), area, visited, data);
+        return;
+    }
+
+    Node::Type t = (Node::Type) nodes.at(index).type;
+
+    int pos = nodes.at(index).pos;
+    int idx = firstChildIndex(index);
+    if (t == Node::VerticalPlane) {
+        if (area.left() < pos)
+            climbTree(area, function, data, idx); // back
+        if (area.right() >= pos)
+            climbTree(area, function, data, idx + 1); // front
+    } else {
+        if (area.top() < pos)
+            climbTree(area, function, data, idx); // back
+        if (area.bottom() >= pos)
+            climbTree(area, function, data, idx + 1); // front
+    }
+}
+
+//  from src/widgets/itemviews/qbsptree.cpp, line 101, as _ZN8QBspTree6removeER5QListIiERK5QRectjNS_4DataE
+inline void QBspTree::remove(QList<int> &leaf, const QRect &, uint, QBspTreeData data)
+{
+    int i = leaf.indexOf(data.i);
+    if (i != -1)
+        leaf.remove(i);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 3354, as _ZN16QListViewPrivate19scrollElasticBandByEii
+inline void QListViewPrivate::scrollElasticBandBy(int dx, int dy)
+{
+    if (dx > 0) // right
+        elasticBand.moveRight(elasticBand.right() + dx);
+    else if (dx < 0) // left
+        elasticBand.moveLeft(elasticBand.left() - dx);
+    if (dy > 0) // down
+        elasticBand.moveBottom(elasticBand.bottom() + dy);
+    else if (dy < 0) // up
+        elasticBand.moveTop(elasticBand.top() - dy);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1982, as _ZN17QListModeViewBase12viewportSizeEPK17QAbstractItemView
+inline QSize QListModeViewBase::viewportSize(const QAbstractItemView *v)
+{
+    return v->contentsRect().marginsRemoved(v->viewportMargins()).size();
+}
+
+//  from src/widgets/widgets/qabstractslider.cpp, line 816, as _ZN22QAbstractSliderPrivate24itemviewChangeSingleStepEi
+inline void QAbstractSliderPrivate::itemviewChangeSingleStep(int step)
+{
+    singleStepFromItemView = step;
+    if (viewMayChangeSingleStep && singleStep != step)
+        setSteps(step, pageStep);
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4552, as _ZN24QAbstractItemViewPrivate13clearOrRemoveEv
+inline void QAbstractItemViewPrivate::clearOrRemove()
+{
+#if QT_CONFIG(draganddrop)
+    const QItemSelection selection = selectionModel->selection();
+    QList<QItemSelectionRange>::const_iterator it = selection.constBegin();
+
+    if (!overwrite) {
+        for (; it != selection.constEnd(); ++it) {
+            QModelIndex parent = (*it).parent();
+            if ((*it).left() != 0)
+                continue;
+            if ((*it).right() != (model->columnCount(parent) - 1))
+                continue;
+            int count = (*it).bottom() - (*it).top() + 1;
+            model->removeRows((*it).top(), count, parent);
+        }
+    } else {
+        // we can't remove the rows so reset the items (i.e. the view is like a table)
+        QModelIndexList list = selection.indexes();
+        for (int i=0; i < list.size(); ++i) {
+            QModelIndex index = list.at(i);
+            QMap<int, QVariant> roles = model->itemData(index);
+            for (QMap<int, QVariant>::Iterator it = roles.begin(); it != roles.end(); ++it)
+                it.value() = QVariant();
+            model->setItemData(index, roles);
+        }
+    }
+#endif
+}
+
+//  from src/widgets/itemviews/qbsptree.cpp, line 11, as _ZN8QBspTree6createEii
+inline void QBspTree::create(int n, int d)
+{
+    // simple heuristics to find the best tree depth
+    if (d == -1) {
+        int c;
+        for (c = 0; n; ++c)
+            n = n / 10;
+        depth = c << 1;
+    } else {
+        depth = d;
+    }
+    depth = qMax(depth, uint(1));
+
+    nodes.resize((1ll << depth) - 1); // resize to number of nodes
+    leaves.resize(1ll << depth); // resize to number of leaves
+}
+
+//  from src/widgets/itemviews/qbsptree.cpp, line 28, as _ZN8QBspTree7destroyEv
+inline void QBspTree::destroy()
+{
+    leaves.clear();
+    nodes.clear();
+}
+
+//  from src/widgets/itemviews/qbsptree.cpp, line 34, as _ZN8QBspTree9climbTreeERK5QRectPFvR5QListIiES2_jNS_4DataEES6_
+inline void QBspTree::climbTree(const QRect &rect, callback *function, QBspTreeData data)
+{
+    if (nodes.isEmpty())
+        return;
+    ++visited;
+    climbTree(rect, function, data, 0);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1830, as _ZNK16QListViewPrivate13mapToViewportERK5QRectb
+inline QRect QListViewPrivate::mapToViewport(const QRect &rect, bool extend) const
+{
+    Q_Q(const QListView);
+    if (!rect.isValid())
+        return rect;
+
+    QRect result = extend ? commonListView->mapToViewport(rect) : rect;
+    int dx = -q->horizontalOffset();
+    int dy = -q->verticalOffset();
+    return result.adjusted(dx, dy, dx, dy);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1822, as _ZNK16QListViewPrivate19indexToListViewItemERK11QModelIndex
+inline QListViewItem QListViewPrivate::indexToListViewItem(const QModelIndex &index) const
+{
+    if (!index.isValid() || isHidden(index.row()))
+        return QListViewItem();
+
+    return commonListView->indexToListViewItem(index);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1878, as _ZNK16QListViewPrivate8itemSizeERK20QStyleOptionViewItemRK11QModelIndex
+inline QSize QListViewPrivate::itemSize(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_Q(const QListView);
+    if (!uniformItemSizes) {
+        const QAbstractItemDelegate *delegate = q->itemDelegateForIndex(index);
+        return delegate ? delegate->sizeHint(option, index) : QSize();
+    }
+    if (!cachedItemSize.isValid()) { // the last item is probably the largest, so we use its size
+        int row = model->rowCount(root) - 1;
+        QModelIndex sample = model->index(row, column, root);
+        const QAbstractItemDelegate *delegate = q->itemDelegateForIndex(sample);
+        cachedItemSize = delegate ? delegate->sizeHint(option, sample) : QSize();
+    }
+    return cachedItemSize;
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4719, as _ZNK24QAbstractItemViewPrivate14renderToPixmapERK5QListI11QModelIndexEP5QRect
+inline QPixmap QAbstractItemViewPrivate::renderToPixmap(const QModelIndexList &indexes, QRect *r) const
+{
+    Q_Q(const QAbstractItemView);
+    Q_ASSERT(r);
+    QItemViewPaintPairs paintPairs = draggablePaintPairs(indexes, r);
+    if (paintPairs.isEmpty())
+        return QPixmap();
+
+    QWindow *window = windowHandle(WindowHandleMode::Closest);
+    const qreal scale = window ? window->devicePixelRatio() : qreal(1);
+
+    QPixmap pixmap(r->size() * scale);
+    pixmap.setDevicePixelRatio(scale);
+
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    painter.setLayoutDirection(q->layoutDirection());
+    QStyleOptionViewItem option;
+    q->initViewItemOption(&option);
+    option.state |= QStyle::State_Selected;
+    for (int j = 0; j < paintPairs.size(); ++j) {
+        option.rect = paintPairs.at(j).rect.translated(-r->topLeft());
+        const QModelIndex &current = paintPairs.at(j).index;
+        adjustViewOptionsForIndex(&option, current);
+        q->itemDelegateForIndex(current)->paint(&painter, option, current);
+    }
+    return pixmap;
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4433, as _ZNK24QAbstractItemViewPrivate16shouldAutoScrollERK6QPoint
+inline bool QAbstractItemViewPrivate::shouldAutoScroll(const QPoint &pos) const
+{
+    if (!autoScroll)
+        return false;
+    const QRect area = QWidgetPrivate::get(viewport)->clipRect();
+    return (pos.y() - area.top() < autoScrollMargin)
+        || (area.bottom() - pos.y() < autoScrollMargin)
+        || (pos.x() - area.left() < autoScrollMargin)
+        || (area.right() - pos.x() < autoScrollMargin);
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4452, as _ZNK24QAbstractItemViewPrivate27interruptDelayedItemsLayoutEv
+inline void QAbstractItemViewPrivate::interruptDelayedItemsLayout() const
+{
+    delayedLayout.stop();
+    delayedPendingLayout = false;
+}
+
+//  from src/widgets/widgets/qabstractslider.cpp, line 215, as _ZN22QAbstractSliderPrivate8setStepsEii
+inline void QAbstractSliderPrivate::setSteps(int single, int page)
+{
+    Q_Q(QAbstractSlider);
+    singleStep = qAbs(single);
+    pageStep = qAbs(page);
+    q->sliderChange(QAbstractSlider::SliderStepsChange);
+}
+
 //  from src/widgets/itemviews/qlistview.cpp, line 3057, as _ZN17QIconModeViewBase11initBspTreeERK5QSize
 inline void QIconModeViewBase::initBspTree(const QSize &contents)
 {
@@ -903,6 +969,27 @@ inline void QIconModeViewBase::doDynamicLayout(const QListViewLayoutInfo &info)
         viewport()->update();
 }
 
+//  from src/widgets/itemviews/qlistview.cpp, line 3290, as _ZN17QIconModeViewBase7addLeafER5QListIiERK5QRectjN8QBspTree4DataE
+inline void QIconModeViewBase::addLeaf(QList<int> &leaf, const QRect &area, uint visited,
+                                QBspTree::Data data)
+{
+    QListViewItem *vi;
+    QIconModeViewBase *_this = static_cast<QIconModeViewBase *>(data.ptr);
+    for (int i = 0; i < leaf.size(); ++i) {
+        int idx = leaf.at(i);
+        if (idx < 0 || idx >= _this->items.size())
+            continue;
+        vi = &_this->items[idx];
+        Q_ASSERT(vi);
+        if (vi->isValid() && vi->rect().intersects(area) && vi->visited != visited) {
+            QModelIndex index  = _this->dd->listViewItemToIndex(*vi);
+            Q_ASSERT(index.isValid());
+            _this->interSectingVector->append(index);
+            vi->visited = visited;
+        }
+    }
+}
+
 //  from src/widgets/itemviews/qlistview.cpp, line 3246, as _ZNK17QIconModeViewBase9itemsRectERK5QListI11QModelIndexE
 inline QRect QIconModeViewBase::itemsRect(const QList<QModelIndex> &indexes) const
 {
@@ -969,6 +1056,16 @@ inline void QIconModeViewBase::moveItem(int index, const QPoint &dest)
     moved.setBit(index, true);
 }
 //  -----------------------------------------------------------------------
+
+#if QT_CONFIG(draganddrop)
+//  QIconModeViewBase::QIconModeViewBase(QListView *q, QListViewPrivate *d)
+extern "C" Q_DECL_EXPORT
+QIconModeViewBase *ritual_ZN17QIconModeViewBaseC1EP9QListViewP16QListViewPrivate(
+    QListView *q,
+    QListViewPrivate *d) {
+  return new QIconModeViewBase(q, d);
+}
+#endif  // QT_CONFIG(draganddrop)
 
 //  int QIconModeViewBase::itemIndex(const QListViewItem &item) const
 extern "C" Q_DECL_EXPORT
@@ -1130,6 +1227,17 @@ void ritual_ZN17QIconModeViewBase15doDynamicLayoutERK19QListViewLayoutInfo(
     QIconModeViewBase *self,
     const QListViewLayoutInfo *info) {
   self->doDynamicLayout(*info);
+}
+
+//  void QIconModeViewBase::addLeaf(QList<int> &leaf, const QRect &area, uint
+//      visited, QBspTree::Data data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QIconModeViewBase7addLeafER5QListIiERK5QRectjN8QBspTree4DataE(
+    QList<int> *leaf,
+    const QRect *area,
+    uint visited,
+    const QBspTree::Data *data) {
+  QIconModeViewBase::addLeaf(*leaf, *area, visited, *data);
 }
 
 //  QRect QIconModeViewBase::itemsRect(const QList<QModelIndex> &indexes)

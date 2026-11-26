@@ -864,6 +864,25 @@ const QMetaObject *ritual_ZNK19QPrintPreviewWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPrintPreviewWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QPrintPreviewWidget11qt_metacastEPKc(
+    QPrintPreviewWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPrintPreviewWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QPrintPreviewWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPrintPreviewWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPrintPreviewWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QPrintPreviewWidget2trEPKcS1_i(
@@ -871,6 +890,20 @@ QString *ritual_ZN19QPrintPreviewWidget2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPrintPreviewWidget::tr(s, c, n));
+}
+
+//  QPrintPreviewWidgetPrivate *QPrintPreviewWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QPrintPreviewWidgetPrivate *ritual_ZN19QPrintPreviewWidget6d_funcEv(
+    QPrintPreviewWidget *self) {
+  return self->d_func();
+}
+
+//  const QPrintPreviewWidgetPrivate *QPrintPreviewWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPrintPreviewWidgetPrivate *ritual_ZNK19QPrintPreviewWidget6d_funcEv(
+    const QPrintPreviewWidget *self) {
+  return self->d_func();
 }
 
 //  QPrintPreviewWidget::QPrintPreviewWidget(QPrinter *printer, QWidget
@@ -1069,6 +1102,21 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QPrintPreviewWidget13updatePreviewEv(
     QPrintPreviewWidget *self) {
   self->updatePreview();
+}
+
+//  void QPrintPreviewWidget::paintRequested(QPrinter *printer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPrintPreviewWidget14paintRequestedEP8QPrinter(
+    QPrintPreviewWidget *self,
+    QPrinter *printer) {
+  self->paintRequested(printer);
+}
+
+//  void QPrintPreviewWidget::previewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPrintPreviewWidget14previewChangedEv(
+    QPrintPreviewWidget *self) {
+  self->previewChanged();
 }
 
 //  a Python function taken by a CuteQPrintPreviewWidget, for the function

@@ -2,6 +2,7 @@
 //  Qt3DRender/qdirectionallight.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qdirectionallight.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender17QDirectionalLight10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QDirectionalLight::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender17QDirectionalLight11qt_metacastEPKc(
+    Qt3DRender::QDirectionalLight *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QDirectionalLight::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender17QDirectionalLight11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QDirectionalLight *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QDirectionalLight::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -194,6 +214,47 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QDirectionalLight *ritual_ZN10Qt3DRender17QDirectionalLightC1EPN8Qt3DCore5QNodeE(
     Qt3DCore::QNode *parent) {
   return new CuteQt3DRender_QDirectionalLight(parent);
+}
+
+//  Qt3DRender::QDirectionalLight::~QDirectionalLight()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QDirectionalLightD1Ev(
+    Qt3DRender::QDirectionalLight *self) {
+  delete self;
+}
+
+//  QVector3D Qt3DRender::QDirectionalLight::worldDirection() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK10Qt3DRender17QDirectionalLight14worldDirectionEv(
+    const Qt3DRender::QDirectionalLight *self) {
+  return new QVector3D(self->worldDirection());
+}
+
+//  void Qt3DRender::QDirectionalLight::setWorldDirection(const QVector3D
+//      &worldDirection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QDirectionalLight17setWorldDirectionERK9QVector3D(
+    Qt3DRender::QDirectionalLight *self,
+    const QVector3D *worldDirection) {
+  self->setWorldDirection(*worldDirection);
+}
+
+//  void Qt3DRender::QDirectionalLight::worldDirectionChanged(const QVector3D
+//      &worldDirection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QDirectionalLight21worldDirectionChangedERK9QVector3D(
+    Qt3DRender::QDirectionalLight *self,
+    const QVector3D *worldDirection) {
+  self->worldDirectionChanged(*worldDirection);
+}
+
+//  Qt3DRender::QDirectionalLight::QDirectionalLight(QDirectionalLightPrivate
+//      &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QDirectionalLight *ritual_ZN10Qt3DRender17QDirectionalLightC1ERNS_24QDirectionalLightPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QDirectionalLightPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QDirectionalLight(*dd, parent);
 }
 
 //  QDirectionalLightPrivate *Qt3DRender::QDirectionalLight::d_func()

@@ -36,6 +36,9 @@
     "ritual_ZN24QQuickShapeCurveRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN24QQuickShapeCurveRenderer14setStrokeStyleEiN15QQuickShapePath11StrokeStyleEdRK5QListIdE": [
+      "nothing", "address", "int", "int", "double", "address"
+    ],
     "ritual_ZN24QQuickShapeCurveRenderer15setFillGradientEiP19QQuickShapeGradient": [
       "nothing", "address", "int", "address"
     ],
@@ -50,6 +53,9 @@
     ],
     "ritual_ZN24QQuickShapeCurveRenderer7endSyncEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer16setAsyncCallbackEPFvPvES0_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK24QQuickShapeCurveRenderer5flagsEv": ["int", "address"],
     "ritual_ZN24QQuickShapeCurveRenderer17handleSceneChangeEP12QQuickWindow": [
@@ -68,7 +74,13 @@
     "ritual_ZN24QQuickShapeCurveRenderer21setDebugVisualizationEi": [
       "nothing", "int"
     ],
+    "ritual_ZN24QQuickShapeCurveRenderer11setUpRunnerEPNS_8PathDataE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QQuickShapeCurveRenderer20maybeUpdateAsyncItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer11processPathEPNS_8PathDataE": [
       "nothing", "address"
     ],
     "ritual_ZN24QQuickShapeCurveRenderer12addFillNodesERK9QQuadPath": [

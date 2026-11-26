@@ -9,6 +9,8 @@
 #include <QtCore/qchar.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QUtf8StringView>
+#include <QtCore/QLatin1String>
 
 //  QLatin1String::QLatin1String()
 extern "C" Q_DECL_EXPORT
@@ -180,6 +182,16 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK13QLatin1String7compareES_N2Qt15CaseSensitivityE(
     const QLatin1String *self,
     const QLatin1String *other,
+    Qt::CaseSensitivity cs) {
+  return self->compare(*other, cs);
+}
+
+//  int QLatin1String::compare(QUtf8StringView other, Qt::CaseSensitivity cs)
+//      const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK13QLatin1String7compareE20QBasicUtf8StringViewILb0EEN2Qt15CaseSensitivityE(
+    const QLatin1String *self,
+    const QUtf8StringView *other,
     Qt::CaseSensitivity cs) {
   return self->compare(*other, cs);
 }
@@ -541,6 +553,62 @@ double ritual_ZNK13QLatin1String8toDoubleEPb(
   return self->toDouble(ok);
 }
 
+//  const_iterator QLatin1String::begin() const
+extern "C" Q_DECL_EXPORT
+QLatin1String::const_iterator ritual_ZNK13QLatin1String5beginEv(
+    const QLatin1String *self) {
+  return self->begin();
+}
+
+//  const_iterator QLatin1String::cbegin() const
+extern "C" Q_DECL_EXPORT
+QLatin1String::const_iterator ritual_ZNK13QLatin1String6cbeginEv(
+    const QLatin1String *self) {
+  return self->cbegin();
+}
+
+//  const_iterator QLatin1String::end() const
+extern "C" Q_DECL_EXPORT
+QLatin1String::const_iterator ritual_ZNK13QLatin1String3endEv(
+    const QLatin1String *self) {
+  return self->end();
+}
+
+//  const_iterator QLatin1String::cend() const
+extern "C" Q_DECL_EXPORT
+QLatin1String::const_iterator ritual_ZNK13QLatin1String4cendEv(
+    const QLatin1String *self) {
+  return self->cend();
+}
+
+//  const_reverse_iterator QLatin1String::rbegin() const
+extern "C" Q_DECL_EXPORT
+QLatin1String::const_reverse_iterator *ritual_ZNK13QLatin1String6rbeginEv(
+    const QLatin1String *self) {
+  return new QLatin1String::const_reverse_iterator(self->rbegin());
+}
+
+//  const_reverse_iterator QLatin1String::crbegin() const
+extern "C" Q_DECL_EXPORT
+QLatin1String::const_reverse_iterator *ritual_ZNK13QLatin1String7crbeginEv(
+    const QLatin1String *self) {
+  return new QLatin1String::const_reverse_iterator(self->crbegin());
+}
+
+//  const_reverse_iterator QLatin1String::rend() const
+extern "C" Q_DECL_EXPORT
+QLatin1String::const_reverse_iterator *ritual_ZNK13QLatin1String4rendEv(
+    const QLatin1String *self) {
+  return new QLatin1String::const_reverse_iterator(self->rend());
+}
+
+//  const_reverse_iterator QLatin1String::crend() const
+extern "C" Q_DECL_EXPORT
+QLatin1String::const_reverse_iterator *ritual_ZNK13QLatin1String5crendEv(
+    const QLatin1String *self) {
+  return new QLatin1String::const_reverse_iterator(self->crend());
+}
+
 //  qsizetype QLatin1String::max_size() const
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK13QLatin1String8max_sizeEv(const QLatin1String *self) {
@@ -617,6 +685,23 @@ QLatin1String *ritual_ZNK13QLatin1String7choppedEx(
     const QLatin1String *self,
     qsizetype n) {
   return new QLatin1String(self->chopped(n));
+}
+
+//  QLatin1StringView &QLatin1String::slice(qsizetype pos)
+extern "C" Q_DECL_EXPORT
+QLatin1StringView *ritual_ZN13QLatin1String5sliceEx(
+    QLatin1String *self,
+    qsizetype pos) {
+  return &(self->slice(pos));
+}
+
+//  QLatin1StringView &QLatin1String::slice(qsizetype pos, qsizetype n)
+extern "C" Q_DECL_EXPORT
+QLatin1StringView *ritual_ZN13QLatin1String5sliceExx(
+    QLatin1String *self,
+    qsizetype pos,
+    qsizetype n) {
+  return &(self->slice(pos, n));
 }
 
 //  void QLatin1String::chop(qsizetype n)
@@ -1148,6 +1233,138 @@ bool ritual_ZgeRK10QByteArrayRK13QLatin1String(
 }
 #endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator==(const QLatin1StringView &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QLatin1StringRKPKc(
+    const QLatin1String *lhs,
+    const char *const *rhs) {
+  return operator==(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator!=(const QLatin1StringView &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QLatin1StringRKPKc(
+    const QLatin1String *lhs,
+    const char *const *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<(const QLatin1StringView &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK13QLatin1StringRKPKc(
+    const QLatin1String *lhs,
+    const char *const *rhs) {
+  return operator<(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>(const QLatin1StringView &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK13QLatin1StringRKPKc(
+    const QLatin1String *lhs,
+    const char *const *rhs) {
+  return operator>(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<=(const QLatin1StringView &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK13QLatin1StringRKPKc(
+    const QLatin1String *lhs,
+    const char *const *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>=(const QLatin1StringView &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK13QLatin1StringRKPKc(
+    const QLatin1String *lhs,
+    const char *const *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator==(const char *const &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKPKcRK13QLatin1String(
+    const char *const *lhs,
+    const QLatin1String *rhs) {
+  return operator==(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator!=(const char *const &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKPKcRK13QLatin1String(
+    const char *const *lhs,
+    const QLatin1String *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<(const char *const &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKPKcRK13QLatin1String(
+    const char *const *lhs,
+    const QLatin1String *rhs) {
+  return operator<(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>(const char *const &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKPKcRK13QLatin1String(
+    const char *const *lhs,
+    const QLatin1String *rhs) {
+  return operator>(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<=(const char *const &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKPKcRK13QLatin1String(
+    const char *const *lhs,
+    const QLatin1String *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>=(const char *const &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKPKcRK13QLatin1String(
+    const char *const *lhs,
+    const QLatin1String *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+#endif
+
 //  void QLatin1String::verify(qsizetype pos, qsizetype n) const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK13QLatin1String6verifyExx(
@@ -1234,6 +1451,13 @@ QLatin1String *ritual_list_at_QLatin1String(
 //  QList<QLatin1String>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QLatin1String(QList<QLatin1String> *self) {
+  delete self;
+}
+
+//  a QLatin1String::const_reverse_iterator a ritual of QLatin1String gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLatin1String__QLatin1String_const_reverse_iterator(
+    QLatin1String::const_reverse_iterator *self) {
   delete self;
 }
 

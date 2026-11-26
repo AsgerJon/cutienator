@@ -5,6 +5,8 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QBlitterPaintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QBlitterPaintEngine6d_funcEv": ["address", "address"],
     "ritual_ZN19QBlitterPaintEngineC1EP24QBlittablePlatformPixmap": [
       "address", "address"
     ],
@@ -13,6 +15,9 @@
       "bool", "address", "address"
     ],
     "ritual_ZN19QBlitterPaintEngine3endEv": ["bool", "address"],
+    "ritual_ZN19QBlitterPaintEngine4fillERK11QVectorPathRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN19QBlitterPaintEngine8fillRectERK6QRectFRK6QBrush": [
       "nothing", "address", "address", "address"
     ],
@@ -84,8 +89,14 @@
     "ritual_ZN19QBlitterPaintEngine10drawPointsEPK6QPointi": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN19QBlitterPaintEngine6strokeERK11QVectorPathRK4QPen": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN19QBlitterPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine": [
+      "bool", "address", "int", "address", "address", "address"
     ],
     "ritual_take_QBlitterPaintEngine": [
       "bool", "address", "chars", "address"
@@ -172,6 +183,9 @@
     ],
     "ritual_own_ZN19QBlitterPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine": [
+      "bool", "address", "int", "address", "address", "address"
     ]
   }
 }

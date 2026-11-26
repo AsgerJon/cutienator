@@ -44,6 +44,13 @@ bool ritual_ZNK13QElapsedTimer7isValidEv(const QElapsedTimer *self) {
   return self->isValid();
 }
 
+//  Duration QElapsedTimer::durationElapsed() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK13QElapsedTimer15durationElapsedEv(
+    const QElapsedTimer *self) {
+  return static_cast<long long>(self->durationElapsed().count());
+}
+
 //  qint64 QElapsedTimer::nsecsElapsed() const
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK13QElapsedTimer12nsecsElapsedEv(const QElapsedTimer *self) {
@@ -69,6 +76,14 @@ extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK13QElapsedTimer19msecsSinceReferenceEv(
     const QElapsedTimer *self) {
   return self->msecsSinceReference();
+}
+
+//  Duration QElapsedTimer::durationTo(const QElapsedTimer &other) const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK13QElapsedTimer10durationToERKS_(
+    const QElapsedTimer *self,
+    const QElapsedTimer *other) {
+  return static_cast<long long>(self->durationTo(*other).count());
 }
 
 //  qint64 QElapsedTimer::msecsTo(const QElapsedTimer &other) const

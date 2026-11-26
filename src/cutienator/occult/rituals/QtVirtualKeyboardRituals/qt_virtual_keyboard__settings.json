@@ -1,8 +1,8 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
+    "Written by hand on 2026-11-25 from",
     "QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/settings_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0, from Qt's source."
   ],
   "rows": {
     "ritual_ZNK17QtVirtualKeyboard8Settings10metaObjectEv": [
@@ -11,11 +11,249 @@
     "ritual_ZN17QtVirtualKeyboard8Settings2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN17QtVirtualKeyboard8SettingsC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings8instanceEv": ["address"],
+    "ritual_ZNK17QtVirtualKeyboard8Settings5styleEv": ["text", "address"],
+    "ritual_ZN17QtVirtualKeyboard8Settings8setStyleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings9styleNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings12setStyleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings14resetStyleNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings6localeEv": ["text", "address"],
+    "ritual_ZN17QtVirtualKeyboard8Settings9setLocaleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings11resetLocaleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings18resetActiveLocalesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings10layoutPathEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings13setLayoutPathERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings15resetLayoutPathEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings16wclAutoHideDelayEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings19setWclAutoHideDelayEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings21resetWclAutoHideDelayEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings16wclAlwaysVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings19setWclAlwaysVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings21resetWclAlwaysVisibleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings17wclAutoCommitWordEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings20setWclAutoCommitWordEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings22resetWclAutoCommitWordEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings14fullScreenModeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings17setFullScreenModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings19resetFullScreenModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings12userDataPathEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings15setUserDataPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings17resetUserDataPathEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings23hwrTimeoutForAlphabeticEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings26setHwrTimeoutForAlphabeticEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings28resetHwrTimeoutForAlphabeticEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings16hwrTimeoutForCjkEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings19setHwrTimeoutForCjkEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings21resetHwrTimeoutForCjkEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings16inputMethodHintsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings19setInputMethodHintsERK6QFlagsIN2Qt15InputMethodHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings21resetInputMethodHintsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings25isHandwritingModeDisabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings26setHandwritingModeDisabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings28resetHandwritingModeDisabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings28isDefaultInputMethodDisabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings29setDefaultInputMethodDisabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings31resetDefaultInputMethodDisabledEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK17QtVirtualKeyboard8Settings27isDefaultDictionaryDisabledEv": [
       "bool", "address"
     ],
     "ritual_ZN17QtVirtualKeyboard8Settings28setDefaultDictionaryDisabledEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings30resetDefaultDictionaryDisabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings19visibleFunctionKeysEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings22setVisibleFunctionKeysE6QFlagsINS_19KeyboardFunctionKeyEE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings24resetVisibleFunctionKeysEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings13closeOnReturnEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings16setCloseOnReturnEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings18resetCloseOnReturnEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings14keySoundVolumeEv": [
+      "double", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings17setKeySoundVolumeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings19resetKeySoundVolumeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings25arrowKeyNavigationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings28setArrowKeyNavigationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings30resetArrowKeyNavigationEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings12styleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings16styleNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings17requestResetStyleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings13localeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings23availableLocalesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings20activeLocalesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings17layoutPathChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings23wclAutoHideDelayChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings23wclAlwaysVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings24wclAutoCommitWordChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings21fullScreenModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings19userDataPathChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings13userDataResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings30hwrTimeoutForAlphabeticChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings23hwrTimeoutForCjkChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings23inputMethodHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings30handwritingModeDisabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings33defaultInputMethodDisabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings32defaultDictionaryDisabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings26visibleFunctionKeysChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings20closeOnReturnChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings21keySoundVolumeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings32arrowKeyNavigationEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QtVirtualKeyboard8Settings6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_QtVirtualKeyboard_Settings": [
       "bool", "address", "chars", "address"

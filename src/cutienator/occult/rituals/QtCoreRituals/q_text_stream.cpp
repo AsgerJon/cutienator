@@ -5,6 +5,8 @@
 #include <QtCore/qlocale.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qchar.h>
+#include <QtCore/qstringview.h>
+#include <QtCore/qlatin1stringview.h>
 
 //  QTextStreamPrivate *QTextStream::d_func()
 extern "C" Q_DECL_EXPORT
@@ -29,6 +31,16 @@ QTextStream *ritual_ZN11QTextStreamC1Ev() {
 extern "C" Q_DECL_EXPORT
 QTextStream *ritual_ZN11QTextStreamC1EP9QIODevice(QIODevice *device) {
   return new QTextStream(device);
+}
+
+//  QTextStream::QTextStream(FILE *fileHandle, OpenMode openMode)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamC1EP8_IO_FILE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(
+    FILE *fileHandle,
+    int openMode) {
+  return new QTextStream(
+      fileHandle,
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(openMode));
 }
 
 //  QTextStream::QTextStream(QString *string, OpenMode openMode)
@@ -336,6 +348,242 @@ void ritual_ZN11QTextStream22setRealNumberPrecisionEi(
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QTextStream19realNumberPrecisionEv(const QTextStream *self) {
   return self->realNumberPrecision();
+}
+
+//  QTextStream &QTextStream::operator>>(QChar &ch)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsER5QChar(QTextStream *self, QChar *ch) {
+  return &(self->operator>>(*ch));
+}
+
+//  QTextStream &QTextStream::operator>>(char &ch)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERc(QTextStream *self, char *ch) {
+  return &(self->operator>>(*ch));
+}
+
+//  QTextStream &QTextStream::operator>>(char16_t &ch)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERDs(QTextStream *self, char16_t *ch) {
+  return &(self->operator>>(*ch));
+}
+
+//  QTextStream &QTextStream::operator>>(short &i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERs(QTextStream *self, short *i) {
+  return &(self->operator>>(*i));
+}
+
+//  QTextStream &QTextStream::operator>>(unsigned short &i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERt(
+    QTextStream *self,
+    unsigned short *i) {
+  return &(self->operator>>(*i));
+}
+
+//  QTextStream &QTextStream::operator>>(int &i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERi(QTextStream *self, int *i) {
+  return &(self->operator>>(*i));
+}
+
+//  QTextStream &QTextStream::operator>>(unsigned int &i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERj(
+    QTextStream *self,
+    unsigned int *i) {
+  return &(self->operator>>(*i));
+}
+
+//  QTextStream &QTextStream::operator>>(long &i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERl(QTextStream *self, long *i) {
+  return &(self->operator>>(*i));
+}
+
+//  QTextStream &QTextStream::operator>>(unsigned long &i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERm(
+    QTextStream *self,
+    unsigned long *i) {
+  return &(self->operator>>(*i));
+}
+
+//  QTextStream &QTextStream::operator>>(qlonglong &i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERx(QTextStream *self, qlonglong *i) {
+  return &(self->operator>>(*i));
+}
+
+//  QTextStream &QTextStream::operator>>(qulonglong &i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERy(QTextStream *self, qulonglong *i) {
+  return &(self->operator>>(*i));
+}
+
+//  QTextStream &QTextStream::operator>>(float &f)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERf(QTextStream *self, float *f) {
+  return &(self->operator>>(*f));
+}
+
+//  QTextStream &QTextStream::operator>>(double &f)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsERd(QTextStream *self, double *f) {
+  return &(self->operator>>(*f));
+}
+
+//  QTextStream &QTextStream::operator>>(QString &s)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsER7QString(
+    QTextStream *self,
+    QString *s) {
+  return &(self->operator>>(*s));
+}
+
+//  QTextStream &QTextStream::operator>>(QByteArray &array)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsER10QByteArray(
+    QTextStream *self,
+    QByteArray *array) {
+  return &(self->operator>>(*array));
+}
+
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 12)
+//  QTextStream &QTextStream::operator>>(char *c)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamrsEPc(QTextStream *self, char *c) {
+  return &(self->operator>>(c));
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 12)
+
+//  QTextStream &QTextStream::operator<<(QChar ch)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsE5QChar(
+    QTextStream *self,
+    const QChar *ch) {
+  return &(self->operator<<(*ch));
+}
+
+//  QTextStream &QTextStream::operator<<(char ch)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEc(QTextStream *self, char ch) {
+  return &(self->operator<<(ch));
+}
+
+//  QTextStream &QTextStream::operator<<(char16_t ch)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEDs(QTextStream *self, char16_t ch) {
+  return &(self->operator<<(ch));
+}
+
+//  QTextStream &QTextStream::operator<<(short i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEs(QTextStream *self, short i) {
+  return &(self->operator<<(i));
+}
+
+//  QTextStream &QTextStream::operator<<(unsigned short i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEt(
+    QTextStream *self,
+    unsigned short i) {
+  return &(self->operator<<(i));
+}
+
+//  QTextStream &QTextStream::operator<<(int i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEi(QTextStream *self, int i) {
+  return &(self->operator<<(i));
+}
+
+//  QTextStream &QTextStream::operator<<(unsigned int i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEj(QTextStream *self, unsigned int i) {
+  return &(self->operator<<(i));
+}
+
+//  QTextStream &QTextStream::operator<<(long i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEl(QTextStream *self, long i) {
+  return &(self->operator<<(i));
+}
+
+//  QTextStream &QTextStream::operator<<(unsigned long i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEm(QTextStream *self, unsigned long i) {
+  return &(self->operator<<(i));
+}
+
+//  QTextStream &QTextStream::operator<<(qlonglong i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEx(QTextStream *self, qlonglong i) {
+  return &(self->operator<<(i));
+}
+
+//  QTextStream &QTextStream::operator<<(qulonglong i)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEy(QTextStream *self, qulonglong i) {
+  return &(self->operator<<(i));
+}
+
+//  QTextStream &QTextStream::operator<<(float f)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEf(QTextStream *self, float f) {
+  return &(self->operator<<(f));
+}
+
+//  QTextStream &QTextStream::operator<<(double f)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEd(QTextStream *self, double f) {
+  return &(self->operator<<(f));
+}
+
+//  QTextStream &QTextStream::operator<<(const QString &s)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsERK7QString(
+    QTextStream *self,
+    const QString *s) {
+  return &(self->operator<<(*s));
+}
+
+//  QTextStream &QTextStream::operator<<(QStringView s)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsE11QStringView(
+    QTextStream *self,
+    const QString *s) {
+  return &(self->operator<<(QStringView(*s)));
+}
+
+//  QTextStream &QTextStream::operator<<(QLatin1StringView s)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsE13QLatin1String(
+    QTextStream *self,
+    const QLatin1String *s) {
+  return &(self->operator<<(*s));
+}
+
+//  QTextStream &QTextStream::operator<<(const QByteArray &array)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsERK10QByteArray(
+    QTextStream *self,
+    const QByteArray *array) {
+  return &(self->operator<<(*array));
+}
+
+//  QTextStream &QTextStream::operator<<(const char *c)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEPKc(QTextStream *self, const char *c) {
+  return &(self->operator<<(c));
+}
+
+//  QTextStream &QTextStream::operator<<(const void *ptr)
+extern "C" Q_DECL_EXPORT
+QTextStream *ritual_ZN11QTextStreamlsEPKv(
+    QTextStream *self,
+    const void *ptr) {
+  return &(self->operator<<(ptr));
 }
 
 //  bool QTextStream::operator bool() const

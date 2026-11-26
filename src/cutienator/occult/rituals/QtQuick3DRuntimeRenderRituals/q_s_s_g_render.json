@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN10QSSGRenderC1Ev": ["address"],
     "ritual_ZN10QSSGRenderC1ERKS_": ["address", "address"],
+    "ritual_ZNK10QSSGRender8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QSSGRenderD1Ev": ["nothing", "address"]
   }
 }

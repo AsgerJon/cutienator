@@ -308,6 +308,12 @@ public:
   }
 };
 
+//  QDesignerMetaObjectInterface::QDesignerMetaObjectInterface()
+extern "C" Q_DECL_EXPORT
+QDesignerMetaObjectInterface *ritual_ZN28QDesignerMetaObjectInterfaceC1Ev() {
+  return new CuteQDesignerMetaObjectInterface();
+}
+
 //  QDesignerMetaObjectInterface::~QDesignerMetaObjectInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QDesignerMetaObjectInterfaceD1Ev(

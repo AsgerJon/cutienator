@@ -18,6 +18,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on ChartValueAxisY may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1286,6 +1287,24 @@ const QMetaObject *ritual_ZNK15ChartValueAxisY10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ChartValueAxisY::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15ChartValueAxisY11qt_metacastEPKc(
+    ChartValueAxisY *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ChartValueAxisY::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15ChartValueAxisY11qt_metacallEN11QMetaObject4CallEiPPv(
+    ChartValueAxisY *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ChartValueAxisY::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15ChartValueAxisY2trEPKcS1_i(
@@ -1317,6 +1336,13 @@ QSizeF *ritual_ZNK15ChartValueAxisY8sizeHintEN2Qt8SizeHintERK6QSizeF(
     Qt::SizeHint which,
     const QSizeF *constraint) {
   return new QSizeF(self->sizeHint(which, *constraint));
+}
+
+//  QList<qreal> ChartValueAxisY::calculateLayout() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK15ChartValueAxisY15calculateLayoutEv(
+    const ChartValueAxisY *self) {
+  return new QList<qreal>(self->calculateLayout());
 }
 
 //  void ChartValueAxisY::updateGeometry()
@@ -1398,4 +1424,10 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN15ChartValueAxisY14updateGeometryEv(
     ChartValueAxisY *self) {
   static_cast<OwnChartValueAxisY *>(self)->OwnChartValueAxisY::updateGeometry();
+}
+
+//  a QList<qreal> a ritual of ChartValueAxisY gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_ChartValueAxisY__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

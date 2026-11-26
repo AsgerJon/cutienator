@@ -5,9 +5,13 @@
 #if QT_CONFIG(identityproxymodel)
 #include <QtCore/qidentityproxymodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -1258,6 +1262,25 @@ const QMetaObject *ritual_ZNK19QIdentityProxyModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QIdentityProxyModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QIdentityProxyModel11qt_metacastEPKc(
+    QIdentityProxyModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QIdentityProxyModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QIdentityProxyModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QIdentityProxyModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QIdentityProxyModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QIdentityProxyModel2trEPKcS1_i(
@@ -1508,6 +1531,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QIdentityProxyModel23handleSourceDataChangesEv(
     const QIdentityProxyModel *self) {
   return self->handleSourceDataChanges();
+}
+
+//  QIdentityProxyModel::QIdentityProxyModel(QIdentityProxyModelPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QIdentityProxyModel *ritual_ZN19QIdentityProxyModelC1ER26QIdentityProxyModelPrivateP7QObject(
+    QIdentityProxyModelPrivate *dd,
+    QObject *parent) {
+  return new CuteQIdentityProxyModel(*dd, parent);
 }
 
 //  void QIdentityProxyModel::setHandleSourceLayoutChanges(bool a0)

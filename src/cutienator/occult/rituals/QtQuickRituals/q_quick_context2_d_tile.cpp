@@ -62,6 +62,13 @@ inline QPainter* QQuickContext2DTile::createPainter(bool smooth, bool antialiasi
 
     return nullptr;
 }
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 16, as _ZN19QQuickContext2DTileD2Ev
+inline QQuickContext2DTile::~QQuickContext2DTile()
+{
+    if (m_painter.isActive())
+        m_painter.end();
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickContext2DTile may call these functions of it.

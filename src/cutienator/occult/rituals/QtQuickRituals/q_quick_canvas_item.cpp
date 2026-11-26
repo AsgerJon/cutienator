@@ -12,6 +12,8 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickcanvasitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qsize.h>
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qpoint.h>
@@ -50,17 +52,328 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 32, as local:qquickcanvasitem.cpp:QQuickCanvasTextureProvider
+class QQuickCanvasTextureProvider : public QSGTextureProvider
+{
+public:
+    QSGTexture *tex;
+    QSGTexture *texture() const override { return tex; }
+    void fireTextureChanged() { emit textureChanged(); }
+};
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 126, as local:qquickcanvasitem.cpp:QQuickCanvasItemPrivate
+class QQuickCanvasItemPrivate : public QQuickItemPrivate
+{
+public:
+    QQuickCanvasItemPrivate();
+    ~QQuickCanvasItemPrivate();
+    QQuickCanvasContext *context;
+    QSizeF canvasSize;
+    QSize tileSize;
+    QRectF canvasWindow;
+    QRectF dirtyRect;
+    uint hasCanvasSize :1;
+    uint hasTileSize :1;
+    uint hasCanvasWindow :1;
+    uint available :1;
+    QQuickCanvasItem::RenderTarget renderTarget;
+    QQuickCanvasItem::RenderStrategy renderStrategy;
+    QString contextType;
+    QHash<QUrl, QQmlRefPointer<QQuickCanvasPixmap> > pixmaps;
+    QUrl baseUrl;
+    QMap<int, QV4::PersistentValue> animationCallbacks;
+    mutable QQuickCanvasTextureProvider *textureProvider;
+    QSGInternalImageNode *node;
+    QSGTexture *nodeTexture;
+};
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 151, as local:qquickcanvasitem.cpp:QQuickCanvasItemPrivate::QQuickCanvasItemPrivate
+inline QQuickCanvasItemPrivate::QQuickCanvasItemPrivate()
+    : QQuickItemPrivate()
+    , context(nullptr)
+    , canvasSize(1, 1)
+    , tileSize(1, 1)
+    , hasCanvasSize(false)
+    , hasTileSize(false)
+    , hasCanvasWindow(false)
+    , available(false)
+    , renderTarget(QQuickCanvasItem::Image)
+    , renderStrategy(QQuickCanvasItem::Immediate)
+    , textureProvider(nullptr)
+    , node(nullptr)
+    , nodeTexture(nullptr)
+{
+    implicitAntialiasing = true;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 169, as local:qquickcanvasitem.cpp:QQuickCanvasItemPrivate::~QQuickCanvasItemPrivate
+inline QQuickCanvasItemPrivate::~QQuickCanvasItemPrivate()
+{
+    pixmaps.clear();
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 1103, as local:qquickcanvasitem.cpp:mimeToType
+static const char* mimeToType(const QString &mime)
+{
+    const QLatin1String imagePrefix("image/");
+    if (!mime.startsWith(imagePrefix))
+        return nullptr;
+    const QStringView mimeExt = QStringView{mime}.mid(imagePrefix.size());
+    if (mimeExt == QLatin1String("png"))
+        return "png";
+    else if (mimeExt == QLatin1String("bmp"))
+        return "bmp";
+    else if (mimeExt == QLatin1String("jpeg"))
+        return "jpeg";
+    else if (mimeExt == QLatin1String("x-portable-pixmap"))
+        return "ppm";
+    else if (mimeExt == QLatin1String("tiff"))
+        return "tiff";
+    else if (mimeExt == QLatin1String("xpm"))
+        return "xpm";
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 1087, as _ZNK16QQuickCanvasItem7toImageERK6QRectF
+inline QImage QQuickCanvasItem::toImage(const QRectF& rect) const
+{
+    Q_D(const QQuickCanvasItem);
+
+    if (!d->context)
+        return QImage();
+
+    const QRectF &rectSource = rect.isEmpty() ? canvasWindow() : rect;
+    const qreal dpr = window() && rect.isEmpty() ? window()->effectiveDevicePixelRatio() : qreal(1);
+    const QRectF rectScaled(rectSource.topLeft() * dpr, rectSource.size() * dpr);
+
+    QImage image = d->context->toImage(rectScaled);
+    image.setDevicePixelRatio(dpr);
+    return image;
+}
+
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 768, as _ZNK16QQuickCanvasItem17isTextureProviderEv
 inline bool QQuickCanvasItem::isTextureProvider() const
 {
     return true;
 }
 
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 624, as _ZN16QQuickCanvasItem14schedulePolishEv
-inline void QQuickCanvasItem::schedulePolish()
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 773, as _ZNK16QQuickCanvasItem15textureProviderEv
+inline QSGTextureProvider *QQuickCanvasItem::textureProvider() const
 {
-    auto polishRequestEvent = new QEvent(QEvent::PolishRequest);
-    QCoreApplication::postEvent(this, polishRequestEvent);
+    // When Item::layer::enabled == true, QQuickItem will be a texture
+    // provider. In this case we should prefer to return the layer rather
+    // than the canvas itself.
+    if (QQuickItem::isTextureProvider())
+        return QQuickItem::textureProvider();
+
+    Q_D(const QQuickCanvasItem);
+
+    QQuickWindow *w = window();
+    if (!w || !w->isSceneGraphInitialized()
+            || QThread::currentThread() != QQuickWindowPrivate::get(w)->context->thread()) {
+        qWarning("QQuickCanvasItem::textureProvider: can only be queried on the rendering thread of an exposed window");
+        return nullptr;
+    }
+
+    if (!d->textureProvider)
+        d->textureProvider = new QQuickCanvasTextureProvider;
+    d->textureProvider->tex = d->nodeTexture;
+    return d->textureProvider;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 630, as _ZN16QQuickCanvasItem17componentCompleteEv
+inline void QQuickCanvasItem::componentComplete()
+{
+    QQuickItem::componentComplete();
+
+    Q_D(QQuickCanvasItem);
+    d->baseUrl = qmlEngine(this)->contextForObject(this)->baseUrl();
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 638, as _ZN16QQuickCanvasItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickCanvasItem::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &value)
+{
+    QQuickItem::itemChange(change, value);
+    if (change != QQuickItem::ItemSceneChange)
+        return;
+
+    Q_D(QQuickCanvasItem);
+    if (d->available) {
+        if (d->dirtyAttributes & QQuickItemPrivate::ContentUpdateMask)
+            requestPaint();
+        return;
+    }
+
+    if (value.window== nullptr)
+        return;
+
+    d->window = value.window;
+    QSGRenderContext *context = QQuickWindowPrivate::get(d->window)->context;
+
+    // Rendering to FramebufferObject needs a valid OpenGL context.
+    if (context != nullptr && (d->renderTarget != FramebufferObject || context->isValid())) {
+        // Defer the call. In some (arguably incorrect) cases we get here due
+        // to ItemSceneChange with the user-supplied property values not yet
+        // set. Work this around by a deferred invoke. (QTBUG-49692)
+        QMetaObject::invokeMethod(this, "sceneGraphInitialized", Qt::QueuedConnection);
+    } else {
+        connect(d->window, SIGNAL(sceneGraphInitialized()), SLOT(sceneGraphInitialized()));
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 668, as _ZN16QQuickCanvasItem12updatePolishEv
+inline void QQuickCanvasItem::updatePolish()
+{
+    QQuickItem::updatePolish();
+
+    Q_D(QQuickCanvasItem);
+    if (d->context && d->renderStrategy != QQuickCanvasItem::Cooperative)
+        d->context->prepare(d->canvasSize.toSize(), d->tileSize, d->canvasWindow.toRect(), d->dirtyRect.toRect(), d->smooth, antialiasing());
+
+    if (d->animationCallbacks.size() > 0 && isVisible()) {
+        QMap<int, QV4::PersistentValue> animationCallbacks = d->animationCallbacks;
+        d->animationCallbacks.clear();
+
+        QV4::ExecutionEngine *v4 = qmlEngine(this)->handle();
+        QV4::Scope scope(v4);
+        QV4::ScopedFunctionObject function(scope);
+        QV4::JSCallArguments jsCall(scope, 1);
+        *jsCall.thisObject = QV4::QObjectWrapper::wrap(v4, this);
+
+        for (auto it = animationCallbacks.cbegin(), end = animationCallbacks.cend(); it != end; ++it) {
+            function = it.value().value();
+            jsCall.args[0] = QV4::Value::fromUInt32(QDateTime::currentMSecsSinceEpoch());
+            function->call(jsCall);
+        }
+    }
+    else {
+        if (d->dirtyRect.isValid()) {
+            if (d->hasTileSize && d->hasCanvasWindow)
+                emit paint(tiledRect(d->canvasWindow.intersected(d->dirtyRect.toAlignedRect()), d->tileSize));
+            else
+                emit paint(d->dirtyRect.toRect());
+            d->dirtyRect = QRectF();
+        }
+    }
+
+    if (d->context) {
+        if (d->renderStrategy == QQuickCanvasItem::Cooperative)
+            update();
+        else
+            d->context->flush();
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 710, as _ZN16QQuickCanvasItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE
+inline QSGNode *QQuickCanvasItem::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
+{
+    Q_D(QQuickCanvasItem);
+
+    if (!d->context || d->canvasWindow.size().isEmpty()) {
+        if (d->textureProvider) {
+            d->textureProvider->tex = nullptr;
+            d->textureProvider->fireTextureChanged();
+        }
+        delete oldNode;
+        return nullptr;
+    }
+
+    QSGInternalImageNode *node = static_cast<QSGInternalImageNode *>(oldNode);
+    if (!node) {
+        QSGRenderContext *rc = QQuickWindowPrivate::get(window())->context;
+        node = rc->sceneGraphContext()->createInternalImageNode(rc);
+        d->node = node;
+    }
+
+
+    if (d->smooth)
+        node->setFiltering(QSGTexture::Linear);
+    else
+        node->setFiltering(QSGTexture::Nearest);
+
+    if (d->renderStrategy == QQuickCanvasItem::Cooperative) {
+        d->context->prepare(d->canvasSize.toSize(), d->tileSize, d->canvasWindow.toRect(), d->dirtyRect.toRect(), d->smooth, antialiasing());
+        d->context->flush();
+    }
+
+    QQuickContext2D *ctx = qobject_cast<QQuickContext2D *>(d->context);
+    QQuickContext2DTexture *factory = ctx->texture();
+    QSGTexture *texture = factory->textureForNextFrame(d->nodeTexture, window());
+    if (!texture) {
+        delete node;
+        d->node = nullptr;
+        d->nodeTexture = nullptr;
+        if (d->textureProvider) {
+            d->textureProvider->tex = nullptr;
+            d->textureProvider->fireTextureChanged();
+        }
+        return nullptr;
+    }
+
+    d->nodeTexture = texture;
+    node->setTexture(texture);
+    node->setTargetRect(QRectF(QPoint(0, 0), d->canvasWindow.size()));
+    node->setInnerTargetRect(QRectF(QPoint(0, 0), d->canvasWindow.size()));
+    node->update();
+
+    if (d->textureProvider) {
+        d->textureProvider->tex = d->nodeTexture;
+        d->textureProvider->fireTextureChanged();
+    }
+    return node;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 545, as _ZN16QQuickCanvasItem14geometryChangeERK6QRectFS2_
+inline void QQuickCanvasItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
+{
+    Q_D(QQuickCanvasItem);
+
+    QQuickItem::geometryChange(newGeometry, oldGeometry);
+
+    // Due to indirect recursion, newGeometry may be outdated
+    // after this call, so we use width and height instead.
+    QSizeF newSize = QSizeF(width(), height());
+    if (!d->hasCanvasSize && d->canvasSize != newSize) {
+        d->canvasSize = newSize;
+        emit canvasSizeChanged();
+    }
+
+    if (!d->hasTileSize && d->tileSize != newSize) {
+        d->tileSize = newSize.toSize();
+        emit tileSizeChanged();
+    }
+
+    const QRectF rect = QRectF(QPointF(0, 0), newSize);
+
+    if (!d->hasCanvasWindow && d->canvasWindow != rect) {
+        d->canvasWindow = rect;
+        emit canvasWindowChanged();
+    }
+
+    if (d->available && newSize != oldGeometry.size()) {
+        if (isVisible() || (d->extra.isAllocated() && d->extra->effectRefCount > 0))
+            requestPaint();
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 577, as _ZN16QQuickCanvasItem16releaseResourcesEv
+inline void QQuickCanvasItem::releaseResources()
+{
+    Q_D(QQuickCanvasItem);
+
+    if (d->context) {
+        delete d->context;
+        d->context = nullptr;
+    }
+    d->node = nullptr; // managed by the scene graph, just reset the pointer
+    if (d->textureProvider) {
+        QQuickWindowQObjectCleanupJob::schedule(window(), d->textureProvider);
+        d->textureProvider = nullptr;
+    }
+    if (d->nodeTexture) {
+        QQuickWindowQObjectCleanupJob::schedule(window(), d->nodeTexture);
+        d->nodeTexture = nullptr;
+    }
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 596, as _ZN16QQuickCanvasItem5eventEP6QEvent
@@ -73,6 +386,58 @@ inline bool QQuickCanvasItem::event(QEvent *event)
     default:
         return QQuickItem::event(event);
     }
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 53, as _ZN18QQuickCanvasPixmapD1Ev
+inline QQuickCanvasPixmap::~QQuickCanvasPixmap()
+{
+    delete m_pixmap;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 425, as _ZNK16QQuickCanvasItem12canvasWindowEv
+inline QRectF QQuickCanvasItem::canvasWindow() const
+{
+    Q_D(const QQuickCanvasItem);
+    return d->canvasWindow;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 910, as _ZN16QQuickCanvasItem12requestPaintEv
+inline void QQuickCanvasItem::requestPaint()
+{
+    markDirty(d_func()->canvasWindow);
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 924, as _ZN16QQuickCanvasItem9markDirtyERK6QRectF
+inline void QQuickCanvasItem::markDirty(const QRectF& rect)
+{
+    Q_D(QQuickCanvasItem);
+    if (!d->available)
+        return;
+
+    d->dirtyRect |= rect;
+
+    polish();
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 1133, as _ZNK16QQuickCanvasItem9toDataURLERK7QString
+inline QString QQuickCanvasItem::toDataURL(const QString& mimeType) const
+{
+    QImage image = toImage();
+
+    if (!image.isNull()) {
+        QByteArray ba;
+        QBuffer buffer(&ba);
+        buffer.open(QIODevice::WriteOnly);
+        const QString mime = mimeType.toLower();
+        const char* type = mimeToType(mime);
+        if (!type)
+            return QStringLiteral("data:,");
+
+        image.save(&buffer, type);
+        buffer.close();
+        return QLatin1String("data:") + mime + QLatin1String(";base64,") + QLatin1String(ba.toBase64().constData());
+    }
+    return QStringLiteral("data:,");
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 1194, as _ZN16QQuickCanvasItem9tiledRectERK6QRectFRK5QSize
@@ -96,6 +461,9 @@ inline QRect QQuickCanvasItem::tiledRect(const QRectF &window, const QSize &tile
 //  Only a class built on QQuickCanvasItem may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
 struct OwnQQuickCanvasItem : QQuickCanvasItem {
+  using QQuickCanvasItem::componentComplete;
+  using QQuickCanvasItem::itemChange;
+  using QQuickCanvasItem::releaseResources;
   using QQuickCanvasItem::event;
 };
 
@@ -923,6 +1291,166 @@ const QMetaObject *ritual_ZNK16QQuickCanvasItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickCanvasItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickCanvasItem11qt_metacastEPKc(
+    QQuickCanvasItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickCanvasItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickCanvasItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickCanvasItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QQuickCanvasItem::getContext(QQmlV4FunctionPtr args)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem10getContextEP14QQmlV4Function(
+    QQuickCanvasItem *self,
+    QQmlV4FunctionPtr args) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "getContext(QQmlV4FunctionPtr)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "getContext(QQmlV4FunctionPtr)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&args)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::requestAnimationFrame(QQmlV4FunctionPtr args)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem21requestAnimationFrameEP14QQmlV4Function(
+    QQuickCanvasItem *self,
+    QQmlV4FunctionPtr args) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "requestAnimationFrame(QQmlV4FunctionPtr)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "requestAnimationFrame(QQmlV4FunctionPtr)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&args)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::cancelRequestAnimationFrame(QQmlV4FunctionPtr
+//      args)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem27cancelRequestAnimationFrameEP14QQmlV4Function(
+    QQuickCanvasItem *self,
+    QQmlV4FunctionPtr args) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "cancelRequestAnimationFrame(QQmlV4FunctionPtr)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "cancelRequestAnimationFrame(QQmlV4FunctionPtr)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&args)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::requestPaint()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem12requestPaintEv(QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "requestPaint()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "requestPaint()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::markDirty(const QRectF &dirtyRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem9markDirtyERK6QRectF(
+    QQuickCanvasItem *self,
+    const QRectF *dirtyRect) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "markDirty(const QRectF &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "markDirty(const QRectF &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(dirtyRect)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  QString QQuickCanvasItem::toDataURL(const QString &type) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK16QQuickCanvasItem9toDataURLERK7QString(
+    const QQuickCanvasItem *self,
+    const QString *type) {
+  return new QString(self->toDataURL(*type));
+}
+
 //  bool QQuickCanvasItem::isTextureProvider() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QQuickCanvasItem17isTextureProviderEv(
@@ -930,10 +1458,489 @@ bool ritual_ZNK16QQuickCanvasItem17isTextureProviderEv(
   return self->isTextureProvider();
 }
 
+//  QSGTextureProvider *QQuickCanvasItem::textureProvider() const
+extern "C" Q_DECL_EXPORT
+QSGTextureProvider *ritual_ZNK16QQuickCanvasItem15textureProviderEv(
+    const QQuickCanvasItem *self) {
+  return self->textureProvider();
+}
+
+//  void QQuickCanvasItem::paint(const QRect &region)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem5paintERK5QRect(
+    QQuickCanvasItem *self,
+    const QRect *region) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "paint(const QRect &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "paint(const QRect &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(region)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::painted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem7paintedEv(QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "painted()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "painted()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::availableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem16availableChangedEv(
+    QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "availableChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "availableChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::contextTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem18contextTypeChangedEv(
+    QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "contextTypeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "contextTypeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::contextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem14contextChangedEv(QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "contextChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "contextChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::canvasSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem17canvasSizeChangedEv(
+    QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "canvasSizeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "canvasSizeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::tileSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem15tileSizeChangedEv(QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "tileSizeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "tileSizeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::canvasWindowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem19canvasWindowChangedEv(
+    QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "canvasWindowChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "canvasWindowChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::renderTargetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem19renderTargetChangedEv(
+    QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "renderTargetChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "renderTargetChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::renderStrategyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem21renderStrategyChangedEv(
+    QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "renderStrategyChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "renderStrategyChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::imageLoaded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem11imageLoadedEv(QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "imageLoaded()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "imageLoaded()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::loadImage(const QUrl &url, QSizeF sourceSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem9loadImageERK4QUrl6QSizeF(
+    QQuickCanvasItem *self,
+    const QUrl *url,
+    const QSizeF *sourceSize) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "loadImage(const QUrl &,QSizeF)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "loadImage(const QUrl &,QSizeF)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(url)),
+      const_cast<void *>(static_cast<const void *>(sourceSize)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::unloadImage(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem11unloadImageERK4QUrl(
+    QQuickCanvasItem *self,
+    const QUrl *url) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "unloadImage(const QUrl &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "unloadImage(const QUrl &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(url)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::sceneGraphInitialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem21sceneGraphInitializedEv(
+    QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sceneGraphInitialized()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sceneGraphInitialized()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::checkAnimationCallbacks()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem23checkAnimationCallbacksEv(
+    QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "checkAnimationCallbacks()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "checkAnimationCallbacks()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::invalidateSceneGraph()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem20invalidateSceneGraphEv(
+    QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "invalidateSceneGraph()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "invalidateSceneGraph()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuickCanvasItem::schedulePolish()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickCanvasItem14schedulePolishEv(QQuickCanvasItem *self) {
-  self->schedulePolish();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "schedulePolish()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "schedulePolish()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickCanvasItem::componentComplete()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem17componentCompleteEv(
+    QQuickCanvasItem *self) {
+  self->componentComplete();
+}
+
+//  void QQuickCanvasItem::itemChange(QQuickItem::ItemChange a0, const
+//      QQuickItem::ItemChangeData &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE(
+    QQuickCanvasItem *self,
+    QQuickItem::ItemChange a0,
+    const QQuickItem::ItemChangeData *a1) {
+  self->itemChange(a0, *a1);
+}
+
+//  void QQuickCanvasItem::updatePolish()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem12updatePolishEv(QQuickCanvasItem *self) {
+  self->updatePolish();
+}
+
+//  QSGNode *QQuickCanvasItem::updatePaintNode(QSGNode *a0,
+//      UpdatePaintNodeData *a1)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN16QQuickCanvasItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE(
+    QQuickCanvasItem *self,
+    QSGNode *a0,
+    QQuickItem::UpdatePaintNodeData *a1) {
+  return self->updatePaintNode(a0, a1);
+}
+
+//  void QQuickCanvasItem::geometryChange(const QRectF &newGeometry, const
+//      QRectF &oldGeometry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem14geometryChangeERK6QRectFS2_(
+    QQuickCanvasItem *self,
+    const QRectF *newGeometry,
+    const QRectF *oldGeometry) {
+  self->geometryChange(*newGeometry, *oldGeometry);
+}
+
+//  void QQuickCanvasItem::releaseResources()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem16releaseResourcesEv(
+    QQuickCanvasItem *self) {
+  self->releaseResources();
 }
 
 //  bool QQuickCanvasItem::event(QEvent *event)
@@ -942,6 +1949,44 @@ bool ritual_ZN16QQuickCanvasItem5eventEP6QEvent(
     QQuickCanvasItem *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  QQuickCanvasItemPrivate *QQuickCanvasItem::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickCanvasItemPrivate *ritual_ZN16QQuickCanvasItem6d_funcEv(
+    QQuickCanvasItem *self) {
+  return self->d_func();
+}
+
+//  const QQuickCanvasItemPrivate *QQuickCanvasItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickCanvasItemPrivate *ritual_ZNK16QQuickCanvasItem6d_funcEv(
+    const QQuickCanvasItem *self) {
+  return self->d_func();
+}
+
+//  void QQuickCanvasItem::delayedCreate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickCanvasItem13delayedCreateEv(QQuickCanvasItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "delayedCreate()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "delayedCreate()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QRect QQuickCanvasItem::tiledRect(const QRectF &window, const QSize
@@ -970,6 +2015,39 @@ bool ritual_own_ZNK16QQuickCanvasItem17isTextureProviderEv(
   return self->QQuickCanvasItem::isTextureProvider();
 }
 
+//  QSGTextureProvider *QQuickCanvasItem::textureProvider() const
+extern "C" Q_DECL_EXPORT
+QSGTextureProvider *ritual_own_ZNK16QQuickCanvasItem15textureProviderEv(
+    const QQuickCanvasItem *self) {
+  return self->QQuickCanvasItem::textureProvider();
+}
+
+//  void QQuickCanvasItem::componentComplete()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN16QQuickCanvasItem17componentCompleteEv(
+    QQuickCanvasItem *self) {
+  static_cast<OwnQQuickCanvasItem *>(self)->OwnQQuickCanvasItem::componentComplete();
+}
+
+//  void QQuickCanvasItem::itemChange(QQuickItem::ItemChange a0, const
+//      QQuickItem::ItemChangeData &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN16QQuickCanvasItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE(
+    QQuickCanvasItem *self,
+    QQuickItem::ItemChange a0,
+    const QQuickItem::ItemChangeData *a1) {
+  static_cast<OwnQQuickCanvasItem *>(self)->OwnQQuickCanvasItem::itemChange(
+      a0,
+      *a1);
+}
+
+//  void QQuickCanvasItem::releaseResources()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN16QQuickCanvasItem16releaseResourcesEv(
+    QQuickCanvasItem *self) {
+  static_cast<OwnQQuickCanvasItem *>(self)->OwnQQuickCanvasItem::releaseResources();
+}
+
 //  bool QQuickCanvasItem::event(QEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN16QQuickCanvasItem5eventEP6QEvent(
@@ -977,6 +2055,13 @@ bool ritual_own_ZN16QQuickCanvasItem5eventEP6QEvent(
     QEvent *event) {
   return static_cast<OwnQQuickCanvasItem *>(self)->OwnQQuickCanvasItem::event(
       event);
+}
+
+//  a QQmlRefPointer<QQuickCanvasPixmap> a ritual of QQuickCanvasItem gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickCanvasItem__QQmlRefPointer_QQuickCanvasPixmap(
+    QQmlRefPointer<QQuickCanvasPixmap> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_canvas)

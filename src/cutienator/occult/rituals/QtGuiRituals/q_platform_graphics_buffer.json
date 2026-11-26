@@ -2,11 +2,17 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/6.12.0/QtGui/qpa/qplatformgraphicsbuffer.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK23QPlatformGraphicsBuffer10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN23QPlatformGraphicsBuffer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QPlatformGraphicsBuffer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
     ],
     "ritual_ZN23QPlatformGraphicsBuffer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
@@ -20,6 +26,7 @@
     "ritual_ZNK23QPlatformGraphicsBuffer13bindToTextureERK5QRect": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK23QPlatformGraphicsBuffer4dataEv": ["address", "address"],
     "ritual_ZNK23QPlatformGraphicsBuffer12bytesPerLineEv": [
       "int", "address"
     ],
@@ -27,6 +34,12 @@
     "ritual_ZNK23QPlatformGraphicsBuffer6originEv": ["int", "address"],
     "ritual_ZNK23QPlatformGraphicsBuffer4sizeEv": ["address", "address"],
     "ritual_ZNK23QPlatformGraphicsBuffer6formatEv": ["address", "address"],
+    "ritual_ZN23QPlatformGraphicsBuffer8unlockedE6QFlagsINS_10AccessTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QPlatformGraphicsBufferC1ERK5QSizeRK12QPixelFormat": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QPlatformGraphicsBuffer6doLockE6QFlagsINS_10AccessTypeEERK5QRect": [
       "bool", "address", "int", "address"
     ],
@@ -37,9 +50,12 @@
     "ritual_own_ZNK23QPlatformGraphicsBuffer13bindToTextureERK5QRect": [
       "bool", "address", "address"
     ],
+    "ritual_own_ZNK23QPlatformGraphicsBuffer4dataEv": ["address", "address"],
     "ritual_own_ZNK23QPlatformGraphicsBuffer12bytesPerLineEv": [
       "int", "address"
     ],
-    "ritual_own_ZNK23QPlatformGraphicsBuffer6originEv": ["int", "address"]
+    "ritual_own_ZNK23QPlatformGraphicsBuffer6originEv": ["int", "address"],
+    "ritual_ZN23QPlatformGraphicsBuffer4dataEv": ["address", "address"],
+    "ritual_own_ZN23QPlatformGraphicsBuffer4dataEv": ["address", "address"]
   }
 }

@@ -21,6 +21,24 @@ void ritual_ZN18DomPropertyToolTipD1Ev(DomPropertyToolTip *self) {
   delete self;
 }
 
+//  void DomPropertyToolTip::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18DomPropertyToolTip4readER16QXmlStreamReader(
+    DomPropertyToolTip *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomPropertyToolTip::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18DomPropertyToolTip5writeER16QXmlStreamWriterRK7QString(
+    const DomPropertyToolTip *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomPropertyToolTip::hasAttributeName() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK18DomPropertyToolTip16hasAttributeNameEv(

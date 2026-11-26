@@ -8,11 +8,20 @@
     "ritual_ZNK26QDeclarativeGeoMapItemBase10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QDeclarativeGeoMapItemBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN26QDeclarativeGeoMapItemBase24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBaseC1EP10QQuickItem": [
+      "address", "address"
     ],
     "ritual_ZN26QDeclarativeGeoMapItemBaseD1Ev": ["nothing", "address"],
     "ritual_ZN26QDeclarativeGeoMapItemBase6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
@@ -62,8 +71,26 @@
     "ritual_ZNK26QDeclarativeGeoMapItemBase14mapItemOpacityEv": [
       "double", "address"
     ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase14setParentGroupER27QDeclarativeGeoMapItemGroup": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK26QDeclarativeGeoMapItemBase26setShapeTriangulationScaleEP11QQuickShaped": [
       "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase21mapItemOpacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase21addTransitionFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase24removeTransitionFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase23referenceSurfaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase19lodThresholdChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN26QDeclarativeGeoMapItemBase20afterChildrenChangedEv": [
       "nothing", "address"

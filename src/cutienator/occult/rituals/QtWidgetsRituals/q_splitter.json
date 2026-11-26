@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QSplitter10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QSplitter11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QSplitter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QSplitter2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QSplitterC1EP7QWidget": ["address", "address"],
     "ritual_ZN9QSplitterC1EN2Qt11OrientationEP7QWidget": [
@@ -37,6 +41,10 @@
     "ritual_ZN9QSplitter7refreshEv": ["nothing", "address"],
     "ritual_ZNK9QSplitter8sizeHintEv": ["address", "address"],
     "ritual_ZNK9QSplitter15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZNK9QSplitter5sizesEv": ["address", "address"],
+    "ritual_ZN9QSplitter8setSizesERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK9QSplitter9saveStateEv": ["address", "address"],
     "ritual_ZN9QSplitter12restoreStateERK10QByteArray": [
       "bool", "address", "address"
@@ -51,6 +59,9 @@
     ],
     "ritual_ZNK9QSplitter6handleEi": ["address", "address", "int"],
     "ritual_ZN9QSplitter16setStretchFactorEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9QSplitter13splitterMovedEii": [
       "nothing", "address", "int", "int"
     ],
     "ritual_ZN9QSplitter12createHandleEv": ["address", "address"],
@@ -86,6 +97,7 @@
     ],
     "ritual_own_ZN9QSplitter11changeEventEP6QEvent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_drop_QSplitter__QList_int": ["nothing", "address"]
   }
 }

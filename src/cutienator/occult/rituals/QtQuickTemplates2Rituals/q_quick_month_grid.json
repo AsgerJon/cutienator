@@ -5,6 +5,57 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZNK15QQuickMonthGrid10metaObjectEv": ["address", "address"]
+    "ritual_ZNK15QQuickMonthGrid10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickMonthGrid11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickMonthGrid11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid12monthChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMonthGrid11yearChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMonthGrid13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMonthGrid12titleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMonthGrid15delegateChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMonthGrid7pressedE9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid8releasedE9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid7clickedE9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid12pressAndHoldE9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid12localeChangeERK7QLocaleS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid13paddingChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid12updatePolishEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMonthGrid10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMonthGrid6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickMonthGrid6d_funcEv": ["address", "address"],
+    "ritual_own_ZN15QQuickMonthGrid17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickMonthGrid14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMonthGrid13paddingChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMonthGrid12updatePolishEv": ["nothing", "address"]
   }
 }

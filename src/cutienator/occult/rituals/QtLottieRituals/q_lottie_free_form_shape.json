@@ -16,8 +16,17 @@
     "ritual_ZN20QLottieFreeFormShape16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK20QLottieFreeFormShape6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QLottieFreeFormShape11acceptsTrimEv": ["bool", "address"],
     "ritual_ZNK20QLottieFreeFormShape10isAnimatedEv": ["bool", "address"],
+    "ritual_ZNK20QLottieFreeFormShape18startPointPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QLottieFreeFormShape19parseShapeKeyframesER11QJsonObject": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QLottieFreeFormShape10buildShapeERK11QJsonObject": [
       "nothing", "address", "address"
     ],
@@ -47,6 +56,11 @@
     "ritual_own_ZNK20QLottieFreeFormShape11acceptsTrimEv": [
       "bool", "address"
     ],
-    "ritual_own_ZNK20QLottieFreeFormShape10isAnimatedEv": ["bool", "address"]
+    "ritual_own_ZNK20QLottieFreeFormShape10isAnimatedEv": [
+      "bool", "address"
+    ],
+    "ritual_drop_QLottieFreeFormShape__QLottieProperty2D_QPointF": [
+      "nothing", "address"
+    ]
   }
 }

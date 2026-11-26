@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK26QQmlGrpcClientStreamSender10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlGrpcClientStreamSender::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQmlGrpcClientStreamSender11qt_metacastEPKc(
+    QQmlGrpcClientStreamSender *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlGrpcClientStreamSender::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQmlGrpcClientStreamSender11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlGrpcClientStreamSender *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlGrpcClientStreamSender::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -205,6 +224,30 @@ QQmlGrpcClientStreamSender *ritual_ZN26QQmlGrpcClientStreamSenderC1EP17QGrpcClie
     QGrpcClientStream *stream,
     QObject *parent) {
   return new CuteQQmlGrpcClientStreamSender(stream, parent);
+}
+
+//  void QQmlGrpcClientStreamSender::writeMessageImpl(const QProtobufMessage
+//      &message) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK26QQmlGrpcClientStreamSender16writeMessageImplERK16QProtobufMessage(
+    const QQmlGrpcClientStreamSender *self,
+    const QProtobufMessage *message) {
+  self->writeMessageImpl(*message);
+}
+
+//  QQmlGrpcClientStreamSenderPrivate *QQmlGrpcClientStreamSender::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlGrpcClientStreamSenderPrivate *ritual_ZN26QQmlGrpcClientStreamSender6d_funcEv(
+    QQmlGrpcClientStreamSender *self) {
+  return self->d_func();
+}
+
+//  const QQmlGrpcClientStreamSenderPrivate
+//      *QQmlGrpcClientStreamSender::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlGrpcClientStreamSenderPrivate *ritual_ZNK26QQmlGrpcClientStreamSender6d_funcEv(
+    const QQmlGrpcClientStreamSender *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQmlGrpcClientStreamSender, for the

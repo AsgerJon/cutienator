@@ -11,6 +11,9 @@
     "ritual_ZN11QSvgHandlerC1ERK10QByteArray6QFlagsIN5QtSvg6OptionEENS4_12AnimatorTypeE": [
       "address", "address", "int", "unsigned int"
     ],
+    "ritual_ZN11QSvgHandlerC1EP16QXmlStreamReader6QFlagsIN5QtSvg6OptionEENS3_12AnimatorTypeE": [
+      "address", "address", "int", "unsigned int"
+    ],
     "ritual_ZN11QSvgHandlerD1Ev": ["nothing", "address"],
     "ritual_ZNK11QSvgHandler6deviceEv": ["address", "address"],
     "ritual_ZNK11QSvgHandler8documentEv": ["address", "address"],
@@ -35,6 +38,7 @@
     ],
     "ritual_ZN11QSvgHandler10setInStyleEb": ["nothing", "address", "bool"],
     "ritual_ZNK11QSvgHandler7inStyleEv": ["bool", "address"],
+    "ritual_ZN11QSvgHandler10cssHandlerEv": ["address", "address"],
     "ritual_ZN11QSvgHandler13setAnimPeriodEii": [
       "nothing", "address", "int", "int"
     ],

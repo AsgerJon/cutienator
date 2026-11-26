@@ -8,7 +8,16 @@
     "ritual_ZNK23ScatterItemModelHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23ScatterItemModelHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23ScatterItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23ScatterItemModelHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN23ScatterItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN23ScatterItemModelHandler18handleRowsInsertedERK11QModelIndexii": [
       "nothing", "address", "address", "int", "int"
     ],
@@ -21,8 +30,14 @@
     "ritual_take_ScatterItemModelHandler": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZN23ScatterItemModelHandler18handleRowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_own_ZN23ScatterItemModelHandler17handleRowsRemovedERK11QModelIndexii": [
       "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN23ScatterItemModelHandler12resolveModelEv": [
+      "nothing", "address"
     ]
   }
 }

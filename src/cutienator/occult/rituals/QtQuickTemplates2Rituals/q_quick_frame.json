@@ -6,8 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK11QQuickFrame10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickFrame11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QQuickFrame11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QQuickFrame2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QQuickFrameC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN11QQuickFrameC1ER18QQuickFramePrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK11QQuickFrame14accessibleRoleEv": ["int", "address"],
     "ritual_ZN11QQuickFrame6d_funcEv": ["address", "address"],
     "ritual_ZNK11QQuickFrame6d_funcEv": ["address", "address"],

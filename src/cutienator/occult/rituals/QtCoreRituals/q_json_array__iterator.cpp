@@ -25,6 +25,14 @@ QJsonArray::iterator *ritual_ZN10QJsonArray8iteratorC1ERKS0_(
   return new QJsonArray::iterator(*other);
 }
 
+//  iterator &QJsonArray::iterator::operator=(const iterator &other)
+extern "C" Q_DECL_EXPORT
+QJsonArray::iterator *ritual_ZN10QJsonArray8iteratoraSERKS0_(
+    QJsonArray::iterator *self,
+    const QJsonArray::iterator *other) {
+  return &(self->operator=(*other));
+}
+
 //  QJsonValueRef QJsonArray::iterator::operator*() const
 extern "C" Q_DECL_EXPORT
 QJsonValueRef *ritual_ZNK10QJsonArray8iteratordeEv(
@@ -54,12 +62,26 @@ QJsonValueRef *ritual_ZNK10QJsonArray8iteratorixEx(
   return new QJsonValueRef(self->operator[](j));
 }
 
+//  iterator &QJsonArray::iterator::operator++()
+extern "C" Q_DECL_EXPORT
+QJsonArray::iterator *ritual_ZN10QJsonArray8iteratorppEv(
+    QJsonArray::iterator *self) {
+  return &(self->operator++());
+}
+
 //  iterator QJsonArray::iterator::operator++(int a0)
 extern "C" Q_DECL_EXPORT
 QJsonArray::iterator *ritual_ZN10QJsonArray8iteratorppEi(
     QJsonArray::iterator *self,
     int a0) {
   return new QJsonArray::iterator(self->operator++(a0));
+}
+
+//  iterator &QJsonArray::iterator::operator--()
+extern "C" Q_DECL_EXPORT
+QJsonArray::iterator *ritual_ZN10QJsonArray8iteratormmEv(
+    QJsonArray::iterator *self) {
+  return &(self->operator--());
 }
 
 //  iterator QJsonArray::iterator::operator--(int a0)

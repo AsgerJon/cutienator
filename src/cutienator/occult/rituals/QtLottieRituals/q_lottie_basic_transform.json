@@ -16,6 +16,9 @@
     "ritual_ZN21QLottieBasicTransform16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK21QLottieBasicTransform6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QLottieBasicTransform11anchorPointEv": [
       "address", "address"
     ],
@@ -26,10 +29,25 @@
     "ritual_ZNK21QLottieBasicTransform13splitPositionEv": [
       "bool", "address"
     ],
+    "ritual_ZNK21QLottieBasicTransform12xPosPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieBasicTransform12yPosPropertyEv": [
+      "address", "address"
+    ],
     "ritual_ZNK21QLottieBasicTransform19anchorPointPropertyEv": [
       "address", "address"
     ],
     "ritual_ZNK21QLottieBasicTransform16positionPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieBasicTransform13scalePropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieBasicTransform16rotationPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieBasicTransform15opacityPropertyEv": [
       "address", "address"
     ],
     "ritual_ZNK21QLottieBasicTransform23hasLinkedLayerTransformEv": [
@@ -51,6 +69,12 @@
     ],
     "ritual_own_ZNK21QLottieBasicTransform8positionEv": [
       "address", "address"
+    ],
+    "ritual_drop_QLottieBasicTransform__QLottieProperty_qreal": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QLottieBasicTransform__QLottieProperty2D_QPointF": [
+      "nothing", "address"
     ]
   }
 }

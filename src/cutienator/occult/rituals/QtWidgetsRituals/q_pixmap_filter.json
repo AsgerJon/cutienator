@@ -6,7 +6,15 @@
   ],
   "rows": {
     "ritual_ZNK13QPixmapFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QPixmapFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QPixmapFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QPixmapFilter2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QPixmapFilter6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QPixmapFilter6d_funcEv": ["address", "address"],
     "ritual_ZN13QPixmapFilterD1Ev": ["nothing", "address"],
     "ritual_ZNK13QPixmapFilter4typeEv": ["int", "address"],
     "ritual_ZNK13QPixmapFilter15boundingRectForERK6QRectF": [
@@ -14,6 +22,12 @@
     ],
     "ritual_ZNK13QPixmapFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6QRectF": [
       "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QPixmapFilterC1ER20QPixmapFilterPrivateNS_10FilterTypeEP7QObject": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN13QPixmapFilterC1ENS_10FilterTypeEP7QObject": [
+      "address", "int", "address"
     ],
     "ritual_take_QPixmapFilter": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QPixmapFilter15boundingRectForERK6QRectF": [

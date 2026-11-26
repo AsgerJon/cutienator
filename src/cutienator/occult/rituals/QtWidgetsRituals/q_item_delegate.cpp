@@ -6,7 +6,9 @@
 #include <QtWidgets/qitemdelegate.h>
 #include <QtCore/qstring.h>
 #include <QtWidgets/qstyleoption.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qpixmap.h>
@@ -552,6 +554,24 @@ const QMetaObject *ritual_ZNK13QItemDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QItemDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QItemDelegate11qt_metacastEPKc(
+    QItemDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QItemDelegate::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QItemDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QItemDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QItemDelegate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QItemDelegate2trEPKcS1_i(
@@ -827,6 +847,20 @@ QRect *ritual_ZNK13QItemDelegate13textRectangleEP8QPainterRK5QRectRK5QFontRK7QSt
     const QFont *font,
     const QString *text) {
   return new QRect(self->textRectangle(painter, *rect, *font, *text));
+}
+
+//  QItemDelegatePrivate *QItemDelegate::d_func()
+extern "C" Q_DECL_EXPORT
+QItemDelegatePrivate *ritual_ZN13QItemDelegate6d_funcEv(
+    QItemDelegate *self) {
+  return self->d_func();
+}
+
+//  const QItemDelegatePrivate *QItemDelegate::d_func() const
+extern "C" Q_DECL_EXPORT
+const QItemDelegatePrivate *ritual_ZNK13QItemDelegate6d_funcEv(
+    const QItemDelegate *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQItemDelegate, for the function named by

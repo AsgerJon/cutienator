@@ -974,6 +974,25 @@ const QMetaObject *ritual_ZNK17QGraphicsTextItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsTextItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QGraphicsTextItem11qt_metacastEPKc(
+    QGraphicsTextItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsTextItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QGraphicsTextItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsTextItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsTextItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QGraphicsTextItem2trEPKcS1_i(
@@ -1214,6 +1233,22 @@ extern "C" Q_DECL_EXPORT
 QTextCursor *ritual_ZNK17QGraphicsTextItem10textCursorEv(
     const QGraphicsTextItem *self) {
   return new QTextCursor(self->textCursor());
+}
+
+//  void QGraphicsTextItem::linkActivated(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem13linkActivatedERK7QString(
+    QGraphicsTextItem *self,
+    const QString *a0) {
+  self->linkActivated(*a0);
+}
+
+//  void QGraphicsTextItem::linkHovered(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem11linkHoveredERK7QString(
+    QGraphicsTextItem *self,
+    const QString *a0) {
+  self->linkHovered(*a0);
 }
 
 //  bool QGraphicsTextItem::sceneEvent(QEvent *event)

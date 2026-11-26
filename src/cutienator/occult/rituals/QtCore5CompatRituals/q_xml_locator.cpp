@@ -48,6 +48,12 @@ public:
   }
 };
 
+//  QXmlLocator::QXmlLocator()
+extern "C" Q_DECL_EXPORT
+QXmlLocator *ritual_ZN11QXmlLocatorC1Ev() {
+  return new CuteQXmlLocator();
+}
+
 //  QXmlLocator::~QXmlLocator()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QXmlLocatorD1Ev(QXmlLocator *self) {

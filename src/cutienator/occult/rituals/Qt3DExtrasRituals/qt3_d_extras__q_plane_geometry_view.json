@@ -8,8 +8,54 @@
     "ritual_ZNK10Qt3DExtras18QPlaneGeometryView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras18QPlaneGeometryView2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryViewC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras18QPlaneGeometryView5widthEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras18QPlaneGeometryView6heightEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras18QPlaneGeometryView14meshResolutionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras18QPlaneGeometryView8mirroredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView8setWidthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView9setHeightEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView17setMeshResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView11setMirroredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView21meshResolutionChangedERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView12widthChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView13heightChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView15mirroredChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_take_Qt3DExtras_QPlaneGeometryView": [
       "bool", "address", "chars", "address"

@@ -12,6 +12,12 @@
     "ritual_ZN8QSvgText11setTextAreaERK6QSizeF": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8QSvgText11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgText14shouldDrawNodeEP8QPainterR15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgText4typeEv": ["int", "address"],
     "ritual_ZNK8QSvgText18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
       "bool", "address", "address", "address"
@@ -27,9 +33,18 @@
     "ritual_ZN8QSvgText17setWhitespaceModeENS_14WhitespaceModeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK8QSvgText18internalFastBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgText14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgText8positionEv": ["address", "address"],
     "ritual_ZNK8QSvgText4sizeEv": ["address", "address"],
     "ritual_ZNK8QSvgText14whitespaceModeEv": ["int", "address"],
+    "ritual_ZNK8QSvgText11draw_helperEP8QPainterR15QSvgExtraStatesP6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_take_QSvgText": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8QSvgText4typeEv": ["int", "address"],
     "ritual_own_ZNK8QSvgText18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [

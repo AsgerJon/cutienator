@@ -20,7 +20,13 @@
     "ritual_ZN17QSvgGradientPaint19setGradientStopsSetEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN17QSvgGradientPaint5brushEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN17QSvgGradientPaint12resolveStopsEv": ["nothing", "address"],
+    "ritual_ZN17QSvgGradientPaint19resolveStops_helperER4QSetI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QSvgGradientPaint": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QSvgGradientPaint4typeEv": ["signed char", "address"]
   }

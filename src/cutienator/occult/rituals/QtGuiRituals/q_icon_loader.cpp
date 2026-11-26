@@ -135,6 +135,23 @@ QIconEngine *ritual_ZNK11QIconLoader10iconEngineERK7QString(
   return self->iconEngine(*iconName);
 }
 
+//  QThemeIconInfo QIconLoader::findIconHelper(const QString &themeName,
+//      const QString &iconName, QStringList &visited, DashRule rule) const
+extern "C" Q_DECL_EXPORT
+QThemeIconInfo *ritual_ZNK11QIconLoader14findIconHelperERK7QStringS2_R5QListIS0_ENS_8DashRuleE(
+    const QIconLoader *self,
+    const QString *themeName,
+    const QString *iconName,
+    QStringList *visited,
+    QIconLoader::DashRule rule) {
+  return new QThemeIconInfo(
+      self->findIconHelper(
+          *themeName,
+          *iconName,
+          *visited,
+          rule));
+}
+
 //  QThemeIconInfo QIconLoader::lookupFallbackIcon(const QString &iconName)
 //      const
 extern "C" Q_DECL_EXPORT

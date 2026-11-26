@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK31QQuickMessageDialogImplAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMessageDialogImplAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QQuickMessageDialogImplAttached11qt_metacastEPKc(
+    QQuickMessageDialogImplAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMessageDialogImplAttached::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QQuickMessageDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMessageDialogImplAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMessageDialogImplAttached::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -63,6 +82,20 @@ void ritual_ZN31QQuickMessageDialogImplAttached21setDetailedTextButtonEP12QQuick
     QQuickMessageDialogImplAttached *self,
     QQuickButton *detailedTextButton) {
   self->setDetailedTextButton(detailedTextButton);
+}
+
+//  void QQuickMessageDialogImplAttached::buttonBoxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickMessageDialogImplAttached16buttonBoxChangedEv(
+    QQuickMessageDialogImplAttached *self) {
+  self->buttonBoxChanged();
+}
+
+//  void QQuickMessageDialogImplAttached::detailedTextButtonChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickMessageDialogImplAttached25detailedTextButtonChangedEv(
+    QQuickMessageDialogImplAttached *self) {
+  self->detailedTextButtonChanged();
 }
 
 //  QQuickMessageDialogImplAttachedPrivate

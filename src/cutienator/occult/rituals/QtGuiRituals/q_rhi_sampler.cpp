@@ -185,6 +185,28 @@ bool ritual_ZN11QRhiSampler6createEv(QRhiSampler *self) {
   return self->create();
 }
 
+//  QRhiSampler::QRhiSampler(QRhiImplementation *rhi, Filter magFilter_,
+//      Filter minFilter_, Filter mipmapMode_, AddressMode u_, AddressMode
+//      v_, AddressMode w_)
+extern "C" Q_DECL_EXPORT
+QRhiSampler *ritual_ZN11QRhiSamplerC1EP18QRhiImplementationNS_6FilterES2_S2_NS_11AddressModeES3_S3_(
+    QRhiImplementation *rhi,
+    QRhiSampler::Filter magFilter_,
+    QRhiSampler::Filter minFilter_,
+    QRhiSampler::Filter mipmapMode_,
+    QRhiSampler::AddressMode u_,
+    QRhiSampler::AddressMode v_,
+    QRhiSampler::AddressMode w_) {
+  return new CuteQRhiSampler(
+      rhi,
+      magFilter_,
+      minFilter_,
+      mipmapMode_,
+      u_,
+      v_,
+      w_);
+}
+
 //  a Python function taken by a CuteQRhiSampler, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -8,14 +8,60 @@
     "ritual_ZNK13Qt3DAnimation15QAnimationGroup10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation15QAnimationGroup2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroupC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation15QAnimationGroup4nameEv": ["text", "address"],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup13animationListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation15QAnimationGroup8positionEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation15QAnimationGroup8durationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup13setAnimationsERK5QListIPNS_18QAbstractAnimationEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup12addAnimationEPNS_18QAbstractAnimationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup15removeAnimationEPNS_18QAbstractAnimationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup11setPositionEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup15positionChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation15QAnimationGroup15durationChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN13Qt3DAnimation15QAnimationGroup6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation15QAnimationGroup6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QAnimationGroup__QList_Qt3DAnimation_QAbstractAnimation": [
+      "nothing", "address"
     ]
   }
 }

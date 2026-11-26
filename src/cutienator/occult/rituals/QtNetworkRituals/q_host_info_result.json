@@ -6,6 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK15QHostInfoResult10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QHostInfoResult11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QHostInfoResult11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QHostInfoResultD1Ev": ["nothing", "address"],
+    "ritual_ZN15QHostInfoResult12resultsReadyERK9QHostInfo": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QHostInfoResult24finalizePostResultsReadyERK9QHostInfo": [
       "nothing", "address", "address"
     ],

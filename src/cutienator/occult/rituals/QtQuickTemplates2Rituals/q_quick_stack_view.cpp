@@ -1060,6 +1060,24 @@ const QMetaObject *ritual_ZNK15QQuickStackView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStackView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickStackView11qt_metacastEPKc(
+    QQuickStackView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStackView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickStackView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStackView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStackView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickStackView2trEPKcS1_i(
@@ -1414,6 +1432,81 @@ void ritual_ZN15QQuickStackView5clearENS_9OperationE(
     QQuickStackView *self,
     QQuickStackView::Operation operation) {
   self->clear(operation);
+}
+
+//  void QQuickStackView::busyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView11busyChangedEv(QQuickStackView *self) {
+  self->busyChanged();
+}
+
+//  void QQuickStackView::depthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView12depthChangedEv(QQuickStackView *self) {
+  self->depthChanged();
+}
+
+//  void QQuickStackView::currentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView18currentItemChangedEv(
+    QQuickStackView *self) {
+  self->currentItemChanged();
+}
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickStackView::popEnterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView15popEnterChangedEv(QQuickStackView *self) {
+  self->popEnterChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickStackView::popExitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView14popExitChangedEv(QQuickStackView *self) {
+  self->popExitChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickStackView::pushEnterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView16pushEnterChangedEv(QQuickStackView *self) {
+  self->pushEnterChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickStackView::pushExitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView15pushExitChangedEv(QQuickStackView *self) {
+  self->pushExitChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickStackView::replaceEnterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView19replaceEnterChangedEv(
+    QQuickStackView *self) {
+  self->replaceEnterChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
+//  void QQuickStackView::replaceExitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView18replaceExitChangedEv(
+    QQuickStackView *self) {
+  self->replaceExitChanged();
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+//  void QQuickStackView::emptyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStackView12emptyChangedEv(QQuickStackView *self) {
+  self->emptyChanged();
 }
 
 //  void QQuickStackView::componentComplete()

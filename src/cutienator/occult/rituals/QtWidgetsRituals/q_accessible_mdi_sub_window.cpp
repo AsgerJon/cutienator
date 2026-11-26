@@ -85,6 +85,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/accessible/qaccessiblewidgets.cpp, line 411, as _ZN23QAccessibleMdiSubWindow7setTextEN11QAccessible4TextERK7QString
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(mdiarea)
@@ -98,32 +100,6 @@ inline void QAccessibleMdiSubWindow::setText(QAccessible::Text textType, const Q
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 419, as _ZNK23QAccessibleMdiSubWindow5stateEv
-#if QT_CONFIG(accessibility)
-#if QT_CONFIG(mdiarea)
-inline QAccessible::State QAccessibleMdiSubWindow::state() const
-{
-    QAccessible::State state;
-    state.focusable = true;
-    if (!mdiSubWindow()->isMaximized()) {
-        state.movable = true;
-        state.sizeable = true;
-    }
-    if (mdiSubWindow()->isAncestorOf(QApplication::focusWidget())
-            || QApplication::focusWidget() == mdiSubWindow())
-        state.focused = true;
-    if (!mdiSubWindow()->isVisible())
-        state.invisible = true;
-    if (const QWidget *parent = mdiSubWindow()->parentWidget())
-        if (!parent->contentsRect().contains(mdiSubWindow()->geometry()))
-            state.offscreen = true;
-    if (!mdiSubWindow()->isEnabled())
-        state.disabled = true;
-    return state;
-}
-#endif  // QT_CONFIG(mdiarea)
-#endif  // QT_CONFIG(accessibility)
-
 //  from src/widgets/accessible/qaccessiblewidgets.cpp, line 440, as _ZNK23QAccessibleMdiSubWindow10childCountEv
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(mdiarea)
@@ -132,20 +108,6 @@ inline int QAccessibleMdiSubWindow::childCount() const
     if (mdiSubWindow()->widget())
         return 1;
     return 0;
-}
-#endif  // QT_CONFIG(mdiarea)
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 447, as _ZNK23QAccessibleMdiSubWindow5childEi
-#if QT_CONFIG(accessibility)
-#if QT_CONFIG(mdiarea)
-inline QAccessibleInterface *QAccessibleMdiSubWindow::child(int index) const
-{
-    QMdiSubWindow *source = mdiSubWindow();
-    if (index != 0 || !source->widget())
-        return nullptr;
-
-    return QAccessible::queryAccessibleInterface(source->widget());
 }
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(accessibility)
@@ -173,6 +135,61 @@ inline QRect QAccessibleMdiSubWindow::rect() const
         return QAccessibleWidgetV2::rect();
     const QPoint pos = mdiSubWindow()->mapToGlobal(QPoint(0, 0));
     return QRect(pos, mdiSubWindow()->size());
+}
+#endif  // QT_CONFIG(mdiarea)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 401, as _ZNK23QAccessibleMdiSubWindow4textEN11QAccessible4TextE
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(mdiarea)
+inline QString QAccessibleMdiSubWindow::text(QAccessible::Text textType) const
+{
+    if (textType == QAccessible::Name) {
+        QString title = mdiSubWindow()->windowTitle();
+        title.remove("[*]"_L1);
+        return title;
+    }
+    return QAccessibleWidgetV2::text(textType);
+}
+#endif  // QT_CONFIG(mdiarea)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 447, as _ZNK23QAccessibleMdiSubWindow5childEi
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(mdiarea)
+inline QAccessibleInterface *QAccessibleMdiSubWindow::child(int index) const
+{
+    QMdiSubWindow *source = mdiSubWindow();
+    if (index != 0 || !source->widget())
+        return nullptr;
+
+    return QAccessible::queryAccessibleInterface(source->widget());
+}
+#endif  // QT_CONFIG(mdiarea)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 419, as _ZNK23QAccessibleMdiSubWindow5stateEv
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(mdiarea)
+inline QAccessible::State QAccessibleMdiSubWindow::state() const
+{
+    QAccessible::State state;
+    state.focusable = true;
+    if (!mdiSubWindow()->isMaximized()) {
+        state.movable = true;
+        state.sizeable = true;
+    }
+    if (mdiSubWindow()->isAncestorOf(QApplication::focusWidget())
+            || QApplication::focusWidget() == mdiSubWindow())
+        state.focused = true;
+    if (!mdiSubWindow()->isVisible())
+        state.invisible = true;
+    if (const QWidget *parent = mdiSubWindow()->parentWidget())
+        if (!parent->contentsRect().contains(mdiSubWindow()->geometry()))
+            state.offscreen = true;
+    if (!mdiSubWindow()->isEnabled())
+        state.disabled = true;
+    return state;
 }
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(accessibility)
@@ -227,13 +244,13 @@ typedef const QRect * (*CuteQAccessibleMdiSubWindowCall6)(const void *, int *);
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QVariant * (*CuteQAccessibleMdiSubWindowCall7)(const void *, int, int *);
+typedef void * (*CuteQAccessibleMdiSubWindowCall7)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef bool (*CuteQAccessibleMdiSubWindowCall8)(const void *, int *);
+typedef const QVariant * (*CuteQAccessibleMdiSubWindowCall8)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleMdiSubWindowCall9)(const void *, int *);
+typedef bool (*CuteQAccessibleMdiSubWindowCall9)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef void * (*CuteQAccessibleMdiSubWindowCall10)(const void *, int *);
@@ -242,33 +259,39 @@ typedef void * (*CuteQAccessibleMdiSubWindowCall10)(const void *, int *);
 typedef void * (*CuteQAccessibleMdiSubWindowCall11)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleMdiSubWindowCall12)(const void *, int *);
+typedef void * (*CuteQAccessibleMdiSubWindowCall12)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QColor * (*CuteQAccessibleMdiSubWindowCall13)(const void *, int *);
+typedef int (*CuteQAccessibleMdiSubWindowCall13)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleMdiSubWindowCall14)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleMdiSubWindowCall15)(const void *, const QString *, int *);
+typedef const QColor * (*CuteQAccessibleMdiSubWindowCall15)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleMdiSubWindowCall16)(const void *, int *);
+typedef void (*CuteQAccessibleMdiSubWindowCall16)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleMdiSubWindowCall17)(const void *, int, int, int *);
+typedef void * (*CuteQAccessibleMdiSubWindowCall17)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleMdiSubWindowCall18)(const void *, const QString *, int *);
+typedef void * (*CuteQAccessibleMdiSubWindowCall18)(const void *, int, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleMdiSubWindowCall19)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleMdiSubWindowCall19)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleMdiSubWindowCall20)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleMdiSubWindowCall21)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleMdiSubWindow : public QAccessibleMdiSubWindow {
 public:
   using QAccessibleMdiSubWindow::QAccessibleMdiSubWindow;
-  void *taken[20] = {};
+  void *taken[22] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -328,80 +351,92 @@ public:
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
       taken[7] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
+    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
       taken[8] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
       taken[9] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
       taken[10] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
       taken[11] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
       taken[12] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
       taken[13] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
       taken[14] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[15] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
       taken[16] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
       taken[17] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
       taken[18] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
       taken[19] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[20] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+      taken[21] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -521,12 +556,26 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
-  //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
-  //      key) const
-  QVariant attributeValue(QAccessible::Attribute key) const override {
+  //  void *QAccessibleWidgetV2::interface_cast(QAccessible::InterfaceType
+  //      t)
+  void *interface_cast(QAccessible::InterfaceType t) override {
     if (taken[7]) {
       int handled = 0;
       CuteQAccessibleMdiSubWindowCall7 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall7>(taken[7]);
+      void * given = call(this, static_cast<int>(t), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleWidgetV2::interface_cast(t);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
+  //      key) const
+  QVariant attributeValue(QAccessible::Attribute key) const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQAccessibleMdiSubWindowCall8 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall8>(taken[8]);
       const QVariant * given = call(this, static_cast<int>(key), &handled);
       if (handled && given) return *given;
     }
@@ -537,9 +586,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  bool QAccessibleWidget::isValid() const
   bool isValid() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall8 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall8>(taken[8]);
+      CuteQAccessibleMdiSubWindowCall9 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall9>(taken[9]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -550,9 +599,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QWindow *QAccessibleWidget::window() const
   QWindow *window() const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall9 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall9>(taken[9]);
+      CuteQAccessibleMdiSubWindowCall10 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall10>(taken[10]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWindow *>(given);
     }
@@ -563,9 +612,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::focusChild() const
   QAccessibleInterface *focusChild() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall10 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall10>(taken[10]);
+      CuteQAccessibleMdiSubWindowCall11 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall11>(taken[11]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -576,9 +625,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::parent() const
   QAccessibleInterface *parent() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall11 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall11>(taken[11]);
+      CuteQAccessibleMdiSubWindowCall12 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall12>(taken[12]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -589,9 +638,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::Role QAccessibleWidget::role() const
   QAccessible::Role role() const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall12 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall12>(taken[12]);
+      CuteQAccessibleMdiSubWindowCall13 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall13>(taken[13]);
       int given = call(this, &handled);
       if (handled) return static_cast<QAccessible::Role>(given);
     }
@@ -602,9 +651,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall13 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall13>(taken[13]);
+      CuteQAccessibleMdiSubWindowCall14 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall14>(taken[14]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -615,9 +664,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall14 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall14>(taken[14]);
+      CuteQAccessibleMdiSubWindowCall15 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall15>(taken[15]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -628,9 +677,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  void QAccessibleWidget::doAction(const QString &actionName)
   void doAction(const QString &actionName) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall15 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall15>(taken[15]);
+      CuteQAccessibleMdiSubWindowCall16 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall16>(taken[16]);
       call(this, &actionName, &handled);
       if (handled) return;
     }
@@ -641,9 +690,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QObject *QAccessibleObject::object() const
   QObject *object() const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall16 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall16>(taken[16]);
+      CuteQAccessibleMdiSubWindowCall17 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall17>(taken[17]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QObject *>(given);
     }
@@ -654,9 +703,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const
   QAccessibleInterface *childAt(int x, int y) const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall17 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall17>(taken[17]);
+      CuteQAccessibleMdiSubWindowCall18 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall18>(taken[18]);
       void * given = call(this, x, y, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -665,12 +714,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQAccessibleMdiSubWindowCall19 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall19>(taken[19]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionName(const QString
   //      &name) const
   QString localizedActionName(const QString &name) const override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall18 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall18>(taken[18]);
+      CuteQAccessibleMdiSubWindowCall20 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall20>(taken[20]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -686,9 +748,9 @@ public:
   //  QString QAccessibleActionInterface::localizedActionDescription(const
   //      QString &name) const
   QString localizedActionDescription(const QString &name) const override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQAccessibleMdiSubWindowCall19 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall19>(taken[19]);
+      CuteQAccessibleMdiSubWindowCall21 call = reinterpret_cast<CuteQAccessibleMdiSubWindowCall21>(taken[21]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -700,6 +762,14 @@ public:
   }
 #endif  // QT_CONFIG(accessibility)
 };
+
+//  QString QAccessibleMdiSubWindow::text(QAccessible::Text textType) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK23QAccessibleMdiSubWindow4textEN11QAccessible4TextE(
+    const QAccessibleMdiSubWindow *self,
+    QAccessible::Text textType) {
+  return new QString(self->text(textType));
+}
 
 //  void QAccessibleMdiSubWindow::setText(QAccessible::Text textType, const
 //      QString &text)
@@ -769,6 +839,18 @@ bool ritual_take_QAccessibleMdiSubWindow(
     void *call) {
   return static_cast<CuteQAccessibleMdiSubWindow *>(self)->take(key, call);
 }
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(mdiarea)
+//  QString QAccessibleMdiSubWindow::text(QAccessible::Text textType) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK23QAccessibleMdiSubWindow4textEN11QAccessible4TextE(
+    const QAccessibleMdiSubWindow *self,
+    QAccessible::Text textType) {
+  return new QString(self->QAccessibleMdiSubWindow::text(textType));
+}
+#endif  // QT_CONFIG(mdiarea)
+#endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(mdiarea)

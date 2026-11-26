@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK29QQuickScrollIndicatorAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScrollIndicatorAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuickScrollIndicatorAttached11qt_metacastEPKc(
+    QQuickScrollIndicatorAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScrollIndicatorAttached::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuickScrollIndicatorAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScrollIndicatorAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScrollIndicatorAttached::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -239,6 +258,36 @@ void ritual_ZN29QQuickScrollIndicatorAttached11setVerticalEP21QQuickScrollIndica
     QQuickScrollIndicatorAttached *self,
     QQuickScrollIndicator *vertical) {
   self->setVertical(vertical);
+}
+
+//  void QQuickScrollIndicatorAttached::horizontalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickScrollIndicatorAttached17horizontalChangedEv(
+    QQuickScrollIndicatorAttached *self) {
+  self->horizontalChanged();
+}
+
+//  void QQuickScrollIndicatorAttached::verticalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickScrollIndicatorAttached15verticalChangedEv(
+    QQuickScrollIndicatorAttached *self) {
+  self->verticalChanged();
+}
+
+//  QQuickScrollIndicatorAttachedPrivate
+//      *QQuickScrollIndicatorAttached::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickScrollIndicatorAttachedPrivate *ritual_ZN29QQuickScrollIndicatorAttached6d_funcEv(
+    QQuickScrollIndicatorAttached *self) {
+  return self->d_func();
+}
+
+//  const QQuickScrollIndicatorAttachedPrivate
+//      *QQuickScrollIndicatorAttached::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickScrollIndicatorAttachedPrivate *ritual_ZNK29QQuickScrollIndicatorAttached6d_funcEv(
+    const QQuickScrollIndicatorAttached *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQuickScrollIndicatorAttached, for the

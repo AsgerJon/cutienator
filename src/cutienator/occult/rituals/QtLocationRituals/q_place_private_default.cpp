@@ -18,6 +18,10 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QList>
+#include <QtLocation/QPlaceContactDetail>
 
 //  A QPlacePrivateDefault that Python can take functions over in. Every QPlacePrivateDefault
 //  Python makes is one. Each function below asks the Python
@@ -46,7 +50,7 @@ typedef const QPlaceAttribute * (*CuteQPlacePrivateDefaultCall20)(const void *, 
 class CuteQPlacePrivateDefault : public QPlacePrivateDefault {
 public:
   using QPlacePrivateDefault::QPlacePrivateDefault;
-  CuteQPlacePrivateDefault(const QPlacePrivateDefault &other) : QPlacePrivateDefault(other) {}
+  CuteQPlacePrivateDefault(const QPlacePrivateDefault & other) : QPlacePrivateDefault(other) {}
   void *taken[21] = {};
 
   bool take(const char *key, void *call) {
@@ -572,6 +576,30 @@ QMap<QString, QPlaceAttribute> *ritual_ZNK20QPlacePrivateDefault18extendedAttrib
   return new QMap<QString, QPlaceAttribute>(self->extendedAttributes());
 }
 
+//  QMap<QString, QPlaceAttribute>
+//      &QPlacePrivateDefault::extendedAttributes()
+extern "C" Q_DECL_EXPORT
+QMap<QString, QPlaceAttribute> *ritual_ZN20QPlacePrivateDefault18extendedAttributesEv(
+    QPlacePrivateDefault *self) {
+  return &(self->extendedAttributes());
+}
+
+//  QMap<QString, QList<QPlaceContactDetail>>
+//      QPlacePrivateDefault::contacts() const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QList<QPlaceContactDetail>> *ritual_ZNK20QPlacePrivateDefault8contactsEv(
+    const QPlacePrivateDefault *self) {
+  return new QMap<QString, QList<QPlaceContactDetail>>(self->contacts());
+}
+
+//  QMap<QString, QList<QPlaceContactDetail>>
+//      &QPlacePrivateDefault::contacts()
+extern "C" Q_DECL_EXPORT
+QMap<QString, QList<QPlaceContactDetail>> *ritual_ZN20QPlacePrivateDefault8contactsEv(
+    QPlacePrivateDefault *self) {
+  return &(self->contacts());
+}
+
 //  a Python function taken by a CuteQPlacePrivateDefault, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -723,4 +751,12 @@ void ritual_own_ZN20QPlacePrivateDefault17setDetailsFetchedEb(
     QPlacePrivateDefault *self,
     bool fetched) {
   self->QPlacePrivateDefault::setDetailsFetched(fetched);
+}
+
+//  a QMap<QString, QList<QPlaceContactDetail>> a ritual of
+//      QPlacePrivateDefault gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlacePrivateDefault__QMap_QString_QList_QPlaceContactDetail(
+    QMap<QString, QList<QPlaceContactDetail>> *self) {
+  delete self;
 }

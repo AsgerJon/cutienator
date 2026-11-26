@@ -9,6 +9,7 @@
 #include <QtCore/qpoint.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/private/abstractrenderitem_p.h>
+#include <QtDataVisualization/private/barrenderitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -23,13 +24,31 @@ inline AbstractRenderItem::AbstractRenderItem()
 {
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 23, as _ZN13BarRenderItemD1Ev
+inline BarRenderItem::~BarRenderItem()
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 12, as _ZN18AbstractRenderItemC2ERKS_
 inline AbstractRenderItem::AbstractRenderItem(const AbstractRenderItem &other)
 {
     m_translation = other.m_translation;
     m_rotation = other.m_rotation;
 }
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 18, as _ZN18AbstractRenderItemD2Ev
+inline AbstractRenderItem::~AbstractRenderItem()
+{
+}
 //  -----------------------------------------------------------------------
+
+//  BarRenderItem &BarRenderItem::operator=(const BarRenderItem &a0)
+extern "C" Q_DECL_EXPORT
+BarRenderItem *ritual_ZN13BarRenderItemaSERKS_(
+    BarRenderItem *self,
+    const BarRenderItem *a0) {
+  return &(self->operator=(*a0));
+}
 
 //  BarRenderItem::~BarRenderItem()
 extern "C" Q_DECL_EXPORT
@@ -69,4 +88,10 @@ void ritual_ZN13BarRenderItem9setHeightEf(
     BarRenderItem *self,
     GLfloat height) {
   self->setHeight(height);
+}
+
+//  GLfloat BarRenderItem::height() const
+extern "C" Q_DECL_EXPORT
+GLfloat ritual_ZNK13BarRenderItem6heightEv(const BarRenderItem *self) {
+  return self->height();
 }

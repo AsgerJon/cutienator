@@ -380,6 +380,14 @@ int ritual_ZNK28QSequentialAnimationGroupJob28animationActualTotalDurationEPK21Q
   return self->animationActualTotalDuration(anim);
 }
 
+//  AnimationIndex QSequentialAnimationGroupJob::indexForCurrentTime() const
+extern "C" Q_DECL_EXPORT
+QSequentialAnimationGroupJob::AnimationIndex *ritual_ZNK28QSequentialAnimationGroupJob19indexForCurrentTimeEv(
+    const QSequentialAnimationGroupJob *self) {
+  return new QSequentialAnimationGroupJob::AnimationIndex(
+      self->indexForCurrentTime());
+}
+
 //  void QSequentialAnimationGroupJob::setCurrentAnimation(const
 //      QAbstractAnimationJob *anim, bool intermediate)
 extern "C" Q_DECL_EXPORT
@@ -432,6 +440,24 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN28QSequentialAnimationGroupJob7restartEv(
     QSequentialAnimationGroupJob *self) {
   self->restart();
+}
+
+//  void QSequentialAnimationGroupJob::rewindForwards(const AnimationIndex
+//      &newAnimationIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QSequentialAnimationGroupJob14rewindForwardsERKNS_14AnimationIndexE(
+    QSequentialAnimationGroupJob *self,
+    const QSequentialAnimationGroupJob::AnimationIndex *newAnimationIndex) {
+  self->rewindForwards(*newAnimationIndex);
+}
+
+//  void QSequentialAnimationGroupJob::advanceForwards(const AnimationIndex
+//      &newAnimationIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QSequentialAnimationGroupJob15advanceForwardsERKNS_14AnimationIndexE(
+    QSequentialAnimationGroupJob *self,
+    const QSequentialAnimationGroupJob::AnimationIndex *newAnimationIndex) {
+  self->advanceForwards(*newAnimationIndex);
 }
 
 //  a Python function taken by a CuteQSequentialAnimationGroupJob, for the
@@ -528,6 +554,14 @@ void ritual_own_ZN28QSequentialAnimationGroupJob16animationRemovedEP21QAbstractA
     QAbstractAnimationJob *a1,
     QAbstractAnimationJob *a2) {
   self->QSequentialAnimationGroupJob::animationRemoved(anim, a1, a2);
+}
+
+//  a QSequentialAnimationGroupJob::AnimationIndex a ritual of
+//      QSequentialAnimationGroupJob gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSequentialAnimationGroupJob__QSequentialAnimationGroupJob_AnimationIndex(
+    QSequentialAnimationGroupJob::AnimationIndex *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_animation)

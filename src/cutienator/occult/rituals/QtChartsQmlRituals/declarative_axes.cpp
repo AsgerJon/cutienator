@@ -15,6 +15,24 @@ const QMetaObject *ritual_ZNK15DeclarativeAxes10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeAxes::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15DeclarativeAxes11qt_metacastEPKc(
+    DeclarativeAxes *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeAxes::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15DeclarativeAxes11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeAxes *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeAxes::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15DeclarativeAxes2trEPKcS1_i(
@@ -118,4 +136,36 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15DeclarativeAxes21emitAxisYRightChangedEv(
     DeclarativeAxes *self) {
   self->emitAxisYRightChanged();
+}
+
+//  void DeclarativeAxes::axisXChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15DeclarativeAxes12axisXChangedEP13QAbstractAxis(
+    DeclarativeAxes *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeAxes::axisYChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15DeclarativeAxes12axisYChangedEP13QAbstractAxis(
+    DeclarativeAxes *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeAxes::axisXTopChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15DeclarativeAxes15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeAxes *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void DeclarativeAxes::axisYRightChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15DeclarativeAxes17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeAxes *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
 }

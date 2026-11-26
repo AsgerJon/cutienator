@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender18QCameraLensPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender18QCameraLensPrivate22updateProjectionMatrixEv": [
       "nothing", "address"
     ],
@@ -13,6 +14,9 @@
     ],
     "ritual_ZNK10Qt3DRender18QCameraLensPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QCameraLensPrivate20processViewAllResultEN8Qt3DCore7QNodeIdERK9QVector3Df": [
+      "nothing", "address", "address", "address", "float"
     ],
     "ritual_ZN10Qt3DRender18QCameraLensPrivate26updatePerpectiveProjectionEv": [
       "nothing", "address"

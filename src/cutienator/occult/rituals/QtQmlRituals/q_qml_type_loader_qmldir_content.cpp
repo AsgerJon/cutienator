@@ -92,6 +92,15 @@ QQmlTypeLoaderQmldirContent *ritual_ZN27QQmlTypeLoaderQmldirContentC1ERKS_(
   return new QQmlTypeLoaderQmldirContent(*a0);
 }
 
+//  QQmlTypeLoaderQmldirContent &QQmlTypeLoaderQmldirContent::operator=(const
+//      QQmlTypeLoaderQmldirContent &a0)
+extern "C" Q_DECL_EXPORT
+QQmlTypeLoaderQmldirContent *ritual_ZN27QQmlTypeLoaderQmldirContentaSERKS_(
+    QQmlTypeLoaderQmldirContent *self,
+    const QQmlTypeLoaderQmldirContent *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QQmlTypeLoaderQmldirContent::hasContent() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK27QQmlTypeLoaderQmldirContent10hasContentEv(
@@ -128,6 +137,34 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK27QQmlTypeLoaderQmldirContent13typeNamespaceEv(
     const QQmlTypeLoaderQmldirContent *self) {
   return new QString(self->typeNamespace());
+}
+
+//  QQmlDirComponents QQmlTypeLoaderQmldirContent::components() const
+extern "C" Q_DECL_EXPORT
+QQmlDirComponents *ritual_ZNK27QQmlTypeLoaderQmldirContent10componentsEv(
+    const QQmlTypeLoaderQmldirContent *self) {
+  return new QQmlDirComponents(self->components());
+}
+
+//  QQmlDirScripts QQmlTypeLoaderQmldirContent::scripts() const
+extern "C" Q_DECL_EXPORT
+QQmlDirScripts *ritual_ZNK27QQmlTypeLoaderQmldirContent7scriptsEv(
+    const QQmlTypeLoaderQmldirContent *self) {
+  return new QQmlDirScripts(self->scripts());
+}
+
+//  QQmlDirPlugins QQmlTypeLoaderQmldirContent::plugins() const
+extern "C" Q_DECL_EXPORT
+QQmlDirPlugins *ritual_ZNK27QQmlTypeLoaderQmldirContent7pluginsEv(
+    const QQmlTypeLoaderQmldirContent *self) {
+  return new QQmlDirPlugins(self->plugins());
+}
+
+//  QQmlDirImports QQmlTypeLoaderQmldirContent::imports() const
+extern "C" Q_DECL_EXPORT
+QQmlDirImports *ritual_ZNK27QQmlTypeLoaderQmldirContent7importsEv(
+    const QQmlTypeLoaderQmldirContent *self) {
+  return new QQmlDirImports(self->imports());
 }
 
 //  QString QQmlTypeLoaderQmldirContent::qmldirLocation() const
@@ -176,5 +213,33 @@ bool ritual_ZNK27QQmlTypeLoaderQmldirContent11hasTypeInfoEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QQmlTypeLoaderQmldirContentD1Ev(
     QQmlTypeLoaderQmldirContent *self) {
+  delete self;
+}
+
+//  a QQmlDirComponents a ritual of QQmlTypeLoaderQmldirContent gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTypeLoaderQmldirContent__QQmlDirComponents(
+    QQmlDirComponents *self) {
+  delete self;
+}
+
+//  a QQmlDirScripts a ritual of QQmlTypeLoaderQmldirContent gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTypeLoaderQmldirContent__QQmlDirScripts(
+    QQmlDirScripts *self) {
+  delete self;
+}
+
+//  a QQmlDirPlugins a ritual of QQmlTypeLoaderQmldirContent gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTypeLoaderQmldirContent__QQmlDirPlugins(
+    QQmlDirPlugins *self) {
+  delete self;
+}
+
+//  a QQmlDirImports a ritual of QQmlTypeLoaderQmldirContent gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTypeLoaderQmldirContent__QQmlDirImports(
+    QQmlDirImports *self) {
   delete self;
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK23QWaylandQuickCompositor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QWaylandQuickCompositor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QWaylandQuickCompositor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QWaylandQuickCompositor2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK10QAudioSink10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAudioSink::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QAudioSink11qt_metacastEPKc(
+    QAudioSink *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAudioSink::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QAudioSink11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAudioSink *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAudioSink::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QAudioSink2trEPKcS1_i(
@@ -354,6 +372,24 @@ void ritual_ZN10QAudioSink9setVolumeEd(QAudioSink *self, qreal a0) {
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10QAudioSink6volumeEv(const QAudioSink *self) {
   return self->volume();
+}
+
+#if !(defined(Q_QDOC))
+//  void QAudioSink::stateChanged(QAudio::State state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioSink12stateChangedEN6QAudio5StateE(
+    QAudioSink *self,
+    QAudio::State state) {
+  self->stateChanged(state);
+}
+#endif  // !(defined(Q_QDOC))
+
+//  void QAudioSink::startABIImpl(QtAudioPrivate::AudioSinkCallback &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioSink12startABIImplEOSt7variantIJSt8functionIFv5QSpanIfLm18446744073709551615EEEES1_IFvS2_IhLm18446744073709551615EEEES1_IFvS2_IsLm18446744073709551615EEEES1_IFvS2_IiLm18446744073709551615EEEEEE(
+    QAudioSink *self,
+    QtAudioPrivate::AudioSinkCallback *a0) {
+  self->startABIImpl(std::move(*a0));
 }
 
 //  a Python function taken by a CuteQAudioSink, for the function named by

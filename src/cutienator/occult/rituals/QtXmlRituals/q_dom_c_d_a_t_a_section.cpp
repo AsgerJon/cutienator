@@ -18,6 +18,15 @@ QDomCDATASection *ritual_ZN16QDomCDATASectionC1ERKS_(
   return new QDomCDATASection(*cdataSection);
 }
 
+//  QDomCDATASection &QDomCDATASection::operator=(const QDomCDATASection
+//      &other)
+extern "C" Q_DECL_EXPORT
+QDomCDATASection *ritual_ZN16QDomCDATASectionaSERKS_(
+    QDomCDATASection *self,
+    const QDomCDATASection *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDomNode::NodeType QDomCDATASection::nodeType() const
 extern "C" Q_DECL_EXPORT
 QDomNode::NodeType ritual_ZNK16QDomCDATASection8nodeTypeEv(

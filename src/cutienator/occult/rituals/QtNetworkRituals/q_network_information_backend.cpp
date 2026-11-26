@@ -221,6 +221,25 @@ const QMetaObject *ritual_ZNK26QNetworkInformationBackend10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNetworkInformationBackend::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QNetworkInformationBackend11qt_metacastEPKc(
+    QNetworkInformationBackend *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNetworkInformationBackend::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QNetworkInformationBackend11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNetworkInformationBackend *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QNetworkInformationBackend::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -229,6 +248,12 @@ QString *ritual_ZN26QNetworkInformationBackend2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QNetworkInformationBackend::tr(s, c, n));
+}
+
+//  QNetworkInformationBackend::QNetworkInformationBackend()
+extern "C" Q_DECL_EXPORT
+QNetworkInformationBackend *ritual_ZN26QNetworkInformationBackendC1Ev() {
+  return new CuteQNetworkInformationBackend();
 }
 
 //  QNetworkInformationBackend::~QNetworkInformationBackend()
@@ -279,6 +304,41 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK26QNetworkInformationBackend9isMeteredEv(
     const QNetworkInformationBackend *self) {
   return self->isMetered();
+}
+
+//  void QNetworkInformationBackend::reachabilityChanged(QNetworkInformation:
+//      :Reachability reachability)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QNetworkInformationBackend19reachabilityChangedEN19QNetworkInformation12ReachabilityE(
+    QNetworkInformationBackend *self,
+    QNetworkInformation::Reachability reachability) {
+  self->reachabilityChanged(reachability);
+}
+
+//  void QNetworkInformationBackend::behindCaptivePortalChanged(bool
+//      behindPortal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QNetworkInformationBackend26behindCaptivePortalChangedEb(
+    QNetworkInformationBackend *self,
+    bool behindPortal) {
+  self->behindCaptivePortalChanged(behindPortal);
+}
+
+//  void QNetworkInformationBackend::transportMediumChanged(QNetworkInformati
+//      on::TransportMedium medium)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QNetworkInformationBackend22transportMediumChangedEN19QNetworkInformation15TransportMediumE(
+    QNetworkInformationBackend *self,
+    QNetworkInformation::TransportMedium medium) {
+  self->transportMediumChanged(medium);
+}
+
+//  void QNetworkInformationBackend::isMeteredChanged(bool isMetered)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QNetworkInformationBackend16isMeteredChangedEb(
+    QNetworkInformationBackend *self,
+    bool isMetered) {
+  self->isMeteredChanged(isMetered);
 }
 
 //  void QNetworkInformationBackend::setReachability(QNetworkInformation::Rea

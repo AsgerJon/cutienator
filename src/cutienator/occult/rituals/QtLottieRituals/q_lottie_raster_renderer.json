@@ -72,18 +72,6 @@
     ],
     "ritual_take_QLottieRasterRenderer": [
       "bool", "address", "chars", "address"
-    ],
-    "ritual_own_ZN21QLottieRasterRenderer6renderERK21QLottiePrecomposition": [
-      "nothing", "address", "address"
-    ],
-    "ritual_own_ZN21QLottieRasterRenderer6renderERK17QLottieSolidLayer": [
-      "nothing", "address", "address"
-    ],
-    "ritual_own_ZN21QLottieRasterRenderer6renderERK16QLottieTextLayer": [
-      "nothing", "address", "address"
-    ],
-    "ritual_own_ZN21QLottieRasterRenderer6renderERK12QLottieRound": [
-      "nothing", "address", "address"
     ]
   }
 }

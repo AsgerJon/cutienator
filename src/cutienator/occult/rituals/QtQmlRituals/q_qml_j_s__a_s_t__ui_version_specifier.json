@@ -5,6 +5,15 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST18UiVersionSpecifierC1Ei": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN6QQmlJS3AST18UiVersionSpecifierC1Eii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN6QQmlJS3AST18UiVersionSpecifier7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK6QQmlJS3AST18UiVersionSpecifier19firstSourceLocationEv": [
       "address", "address"
     ],

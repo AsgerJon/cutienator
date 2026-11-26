@@ -5,8 +5,15 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input13InputSettingsC1Ev": ["address"],
     "ritual_ZNK9Qt3DInput5Input13InputSettings11eventSourceEv": [
       "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input13InputSettings16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input13InputSettings16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ]
   }
 }

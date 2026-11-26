@@ -8,9 +8,13 @@
       "address", "text", "text", "int", "text"
     ],
     "ritual_ZN9QSqlErrorC1ERKS_": ["address", "address"],
+    "ritual_ZN9QSqlErrorC1EOS_": ["address", "address"],
+    "ritual_ZN9QSqlErroraSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QSqlErroraSEOS_": ["address", "address", "address"],
     "ritual_ZN9QSqlErrorD1Ev": ["nothing", "address"],
     "ritual_ZNK9QSqlErroreqERKS_": ["bool", "address", "address"],
     "ritual_ZNK9QSqlErrorneERKS_": ["bool", "address", "address"],
+    "ritual_ZN9QSqlError4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QSqlError10driverTextEv": ["text", "address"],
     "ritual_ZNK9QSqlError12databaseTextEv": ["text", "address"],
     "ritual_ZNK9QSqlError4typeEv": ["int", "address"],

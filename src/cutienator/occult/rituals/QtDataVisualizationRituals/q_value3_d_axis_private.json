@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QValue3DAxisPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QValue3DAxisPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QValue3DAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QValue3DAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN19QValue3DAxisPrivate8setRangeEffb": [
       "nothing", "address", "float", "float", "bool"
@@ -17,6 +23,9 @@
       "nothing", "address", "float"
     ],
     "ritual_ZN19QValue3DAxisPrivate17emitLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QValue3DAxisPrivate14formatterDirtyEv": [
       "nothing", "address"
     ],
     "ritual_ZN19QValue3DAxisPrivate12updateLabelsEv": ["nothing", "address"],

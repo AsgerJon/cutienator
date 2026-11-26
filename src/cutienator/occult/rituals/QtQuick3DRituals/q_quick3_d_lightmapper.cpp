@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK19QQuick3DLightmapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DLightmapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuick3DLightmapper11qt_metacastEPKc(
+    QQuick3DLightmapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DLightmapper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuick3DLightmapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DLightmapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DLightmapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuick3DLightmapper2trEPKcS1_i(
@@ -188,4 +207,87 @@ void ritual_ZN19QQuick3DLightmapper16setTexelsPerUnitEf(
     QQuick3DLightmapper *self,
     float newTexelsPerUnit) {
   self->setTexelsPerUnit(newTexelsPerUnit);
+}
+
+//  void QQuick3DLightmapper::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper7changedEv(QQuick3DLightmapper *self) {
+  self->changed();
+}
+
+//  void QQuick3DLightmapper::opacityThresholdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper23opacityThresholdChangedEv(
+    QQuick3DLightmapper *self) {
+  self->opacityThresholdChanged();
+}
+
+//  void QQuick3DLightmapper::biasChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper11biasChangedEv(
+    QQuick3DLightmapper *self) {
+  self->biasChanged();
+}
+
+//  void QQuick3DLightmapper::adaptiveBiasEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper26adaptiveBiasEnabledChangedEv(
+    QQuick3DLightmapper *self) {
+  self->adaptiveBiasEnabledChanged();
+}
+
+//  void QQuick3DLightmapper::indirectLightEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper27indirectLightEnabledChangedEv(
+    QQuick3DLightmapper *self) {
+  self->indirectLightEnabledChanged();
+}
+
+//  void QQuick3DLightmapper::samplesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper14samplesChangedEv(
+    QQuick3DLightmapper *self) {
+  self->samplesChanged();
+}
+
+//  void QQuick3DLightmapper::indirectLightWorkgroupSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper33indirectLightWorkgroupSizeChangedEv(
+    QQuick3DLightmapper *self) {
+  self->indirectLightWorkgroupSizeChanged();
+}
+
+//  void QQuick3DLightmapper::bouncesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper14bouncesChangedEv(
+    QQuick3DLightmapper *self) {
+  self->bouncesChanged();
+}
+
+//  void QQuick3DLightmapper::indirectLightFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper26indirectLightFactorChangedEv(
+    QQuick3DLightmapper *self) {
+  self->indirectLightFactorChanged();
+}
+
+//  void QQuick3DLightmapper::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper13sourceChangedEv(
+    QQuick3DLightmapper *self) {
+  self->sourceChanged();
+}
+
+//  void QQuick3DLightmapper::denoiseSigmaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper19denoiseSigmaChangedEv(
+    QQuick3DLightmapper *self) {
+  self->denoiseSigmaChanged();
+}
+
+//  void QQuick3DLightmapper::texelsPerUnitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DLightmapper20texelsPerUnitChangedEv(
+    QQuick3DLightmapper *self) {
+  self->texelsPerUnitChanged();
 }

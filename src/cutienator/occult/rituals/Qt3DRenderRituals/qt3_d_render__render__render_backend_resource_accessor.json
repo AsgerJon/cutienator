@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN10Qt3DRender6Render29RenderBackendResourceAccessorD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render29RenderBackendResourceAccessor14accessResourceENS1_12ResourceTypeEN8Qt3DCore7QNodeIdEPPvPP6QMutex": [
+      "bool", "address", "int", "address", "address", "address"
     ]
   }
 }

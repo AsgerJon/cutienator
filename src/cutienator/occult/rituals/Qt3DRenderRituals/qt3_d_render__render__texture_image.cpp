@@ -40,6 +40,36 @@ public:
   }
 };
 
+//  Qt3DRender::Render::TextureImage::TextureImage()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::TextureImage *ritual_ZN10Qt3DRender6Render12TextureImageC1Ev() {
+  return new CuteQt3DRender_Render_TextureImage();
+}
+
+//  Qt3DRender::Render::TextureImage::~TextureImage()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12TextureImageD1Ev(
+    Qt3DRender::Render::TextureImage *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::TextureImage::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12TextureImage7cleanupEv(
+    Qt3DRender::Render::TextureImage *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::TextureImage::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12TextureImage16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::TextureImage *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  int Qt3DRender::Render::TextureImage::layer() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK10Qt3DRender6Render12TextureImage5layerEv(
@@ -62,11 +92,27 @@ Qt3DRender::QAbstractTexture::CubeMapFace ritual_ZNK10Qt3DRender6Render12Texture
   return self->face();
 }
 
+//  QTextureImageDataGeneratorPtr
+//      Qt3DRender::Render::TextureImage::dataGenerator() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureImageDataGeneratorPtr *ritual_ZNK10Qt3DRender6Render12TextureImage13dataGeneratorEv(
+    const Qt3DRender::Render::TextureImage *self) {
+  return new Qt3DRender::QTextureImageDataGeneratorPtr(
+      self->dataGenerator());
+}
+
 //  bool Qt3DRender::Render::TextureImage::isDirty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10Qt3DRender6Render12TextureImage7isDirtyEv(
     const Qt3DRender::Render::TextureImage *self) {
   return self->isDirty();
+}
+
+//  void Qt3DRender::Render::TextureImage::unsetDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12TextureImage10unsetDirtyEv(
+    Qt3DRender::Render::TextureImage *self) {
+  self->unsetDirty();
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_TextureImage, for the
@@ -89,4 +135,12 @@ void ritual_own_ZN10Qt3DRender6Render12TextureImage16syncFromFrontEndEPKN8Qt3DCo
   self->Qt3DRender::Render::TextureImage::syncFromFrontEnd(
       frontEnd,
       firstTime);
+}
+
+//  a Qt3DRender::QTextureImageDataGeneratorPtr a ritual of
+//      Qt3DRender::Render::TextureImage gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_TextureImage__Qt3DRender_QTextureImageDataGeneratorPtr(
+    Qt3DRender::QTextureImageDataGeneratorPtr *self) {
+  delete self;
 }

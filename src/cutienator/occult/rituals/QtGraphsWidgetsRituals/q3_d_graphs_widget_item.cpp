@@ -7,12 +7,20 @@
 #include <QtGraphs/qgraphstheme.h>
 #include <QtCore/qlocale.h>
 #include <QtGui/qvectornd.h>
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qcustom3ditem.h>
+#endif
+#include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qcolor.h>
+#include <QtGui/qeventpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
+#include <QtQuick/QQuickItemGrabResult>
+#include <QtCore/QSize>
 
 //  Only a class built on Q3DGraphsWidgetItem may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -193,6 +201,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK19Q3DGraphsWidgetItem10metaObjectEv(
     const Q3DGraphsWidgetItem *self) {
   return self->metaObject();
+}
+
+//  void *Q3DGraphsWidgetItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19Q3DGraphsWidgetItem11qt_metacastEPKc(
+    Q3DGraphsWidgetItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DGraphsWidgetItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19Q3DGraphsWidgetItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DGraphsWidgetItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString Q3DGraphsWidgetItem::tr(const char *s, const char *c, int n)
@@ -451,6 +478,17 @@ QCustom3DItem *ritual_ZNK19Q3DGraphsWidgetItem18selectedCustomItemEv(
   return self->selectedCustomItem();
 }
 
+//  QSharedPointer<QQuickItemGrabResult>
+//      Q3DGraphsWidgetItem::renderToImage(QSize imageSize) const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QQuickItemGrabResult> *ritual_ZNK19Q3DGraphsWidgetItem13renderToImageE5QSize(
+    const Q3DGraphsWidgetItem *self,
+    const QSize *imageSize) {
+  return new QSharedPointer<QQuickItemGrabResult>(
+      self->renderToImage(
+          *imageSize));
+}
+
 //  QtGraphs3D::CameraPreset Q3DGraphsWidgetItem::cameraPreset() const
 extern "C" Q_DECL_EXPORT
 QtGraphs3D::CameraPreset ritual_ZNK19Q3DGraphsWidgetItem12cameraPresetEv(
@@ -672,6 +710,24 @@ void ritual_ZN19Q3DGraphsWidgetItem24setTransparencyTechniqueEN10QtGraphs3D21Tra
     Q3DGraphsWidgetItem *self,
     QtGraphs3D::TransparencyTechnique technique) {
   self->setTransparencyTechnique(technique);
+}
+
+//  void Q3DGraphsWidgetItem::setShadowQuality(const
+//      QtGraphs3D::ShadowQuality &shadowQuality)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem16setShadowQualityERKN10QtGraphs3D13ShadowQualityE(
+    Q3DGraphsWidgetItem *self,
+    const QtGraphs3D::ShadowQuality *shadowQuality) {
+  self->setShadowQuality(*shadowQuality);
+}
+
+//  void Q3DGraphsWidgetItem::setSelectionMode(const
+//      QtGraphs3D::SelectionFlags &selectionMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem16setSelectionModeERK6QFlagsIN10QtGraphs3D13SelectionFlagEE(
+    Q3DGraphsWidgetItem *self,
+    const QtGraphs3D::SelectionFlags *selectionMode) {
+  self->setSelectionMode(*selectionMode);
 }
 
 //  void Q3DGraphsWidgetItem::setMeasureFps(bool enable)
@@ -1027,12 +1083,31 @@ void ritual_ZN19Q3DGraphsWidgetItem13setLightColorE6QColor(
   self->setLightColor(*newLightColor);
 }
 
+//  void Q3DGraphsWidgetItem::setGridLineType(const QtGraphs3D::GridLineType
+//      &gridLineType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem15setGridLineTypeERKN10QtGraphs3D12GridLineTypeE(
+    Q3DGraphsWidgetItem *self,
+    const QtGraphs3D::GridLineType *gridLineType) {
+  self->setGridLineType(*gridLineType);
+}
+
 //  void Q3DGraphsWidgetItem::setWidget(QQuickWidget *widget)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19Q3DGraphsWidgetItem9setWidgetEP12QQuickWidget(
     Q3DGraphsWidgetItem *self,
     QQuickWidget *widget) {
   self->setWidget(widget);
+}
+
+//  Q3DGraphsWidgetItem::Q3DGraphsWidgetItem(Q3DGraphsWidgetItemPrivate &dd,
+//      QObject *parent, const QString &graph)
+extern "C" Q_DECL_EXPORT
+Q3DGraphsWidgetItem *ritual_ZN19Q3DGraphsWidgetItemC1ER26Q3DGraphsWidgetItemPrivateP7QObjectRK7QString(
+    Q3DGraphsWidgetItemPrivate *dd,
+    QObject *parent,
+    const QString *graph) {
+  return new CuteQ3DGraphsWidgetItem(*dd, parent, *graph);
 }
 
 //  bool Q3DGraphsWidgetItem::event(QEvent *event)
@@ -1050,6 +1125,412 @@ bool ritual_ZN19Q3DGraphsWidgetItem11eventFilterEP7QObjectP6QEvent(
     QObject *obj,
     QEvent *event) {
   return self->eventFilter(obj, event);
+}
+
+//  void Q3DGraphsWidgetItem::activeThemeChanged(QGraphsTheme *activeTheme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem18activeThemeChangedEP12QGraphsTheme(
+    Q3DGraphsWidgetItem *self,
+    QGraphsTheme *activeTheme) {
+  self->activeThemeChanged(activeTheme);
+}
+
+//  void Q3DGraphsWidgetItem::shadowQualityChanged(QtGraphs3D::ShadowQuality
+//      quality)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem20shadowQualityChangedEN10QtGraphs3D13ShadowQualityE(
+    Q3DGraphsWidgetItem *self,
+    QtGraphs3D::ShadowQuality quality) {
+  self->shadowQualityChanged(quality);
+}
+
+//  void Q3DGraphsWidgetItem::transparencyTechniqueChanged(QtGraphs3D::Transp
+//      arencyTechnique technique)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem28transparencyTechniqueChangedEN10QtGraphs3D21TransparencyTechniqueE(
+    Q3DGraphsWidgetItem *self,
+    QtGraphs3D::TransparencyTechnique technique) {
+  self->transparencyTechniqueChanged(technique);
+}
+
+//  void Q3DGraphsWidgetItem::selectionModeChanged(const
+//      QtGraphs3D::SelectionFlags selectionMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem20selectionModeChangedE6QFlagsIN10QtGraphs3D13SelectionFlagEE(
+    Q3DGraphsWidgetItem *self,
+    int selectionMode) {
+  self->selectionModeChanged(
+      QFlags<QtGraphs3D::SelectionFlag>::fromInt(selectionMode));
+}
+
+//  void Q3DGraphsWidgetItem::selectedElementChanged(QtGraphs3D::ElementType
+//      type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem22selectedElementChangedEN10QtGraphs3D11ElementTypeE(
+    Q3DGraphsWidgetItem *self,
+    QtGraphs3D::ElementType type) {
+  self->selectedElementChanged(type);
+}
+
+//  void Q3DGraphsWidgetItem::measureFpsChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem17measureFpsChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool enabled) {
+  self->measureFpsChanged(enabled);
+}
+
+//  void Q3DGraphsWidgetItem::currentFpsChanged(int fps)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem17currentFpsChangedEi(
+    Q3DGraphsWidgetItem *self,
+    int fps) {
+  self->currentFpsChanged(fps);
+}
+
+//  void Q3DGraphsWidgetItem::orthoProjectionChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem22orthoProjectionChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool enabled) {
+  self->orthoProjectionChanged(enabled);
+}
+
+//  void Q3DGraphsWidgetItem::aspectRatioChanged(qreal ratio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem18aspectRatioChangedEd(
+    Q3DGraphsWidgetItem *self,
+    qreal ratio) {
+  self->aspectRatioChanged(ratio);
+}
+
+//  void
+//      Q3DGraphsWidgetItem::optimizationHintChanged(QtGraphs3D::Optimization
+//      Hint hint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem23optimizationHintChangedEN10QtGraphs3D16OptimizationHintE(
+    Q3DGraphsWidgetItem *self,
+    QtGraphs3D::OptimizationHint hint) {
+  self->optimizationHintChanged(hint);
+}
+
+//  void Q3DGraphsWidgetItem::polarChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem12polarChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool enabled) {
+  self->polarChanged(enabled);
+}
+
+//  void Q3DGraphsWidgetItem::labelMarginChanged(float margin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem18labelMarginChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float margin) {
+  self->labelMarginChanged(margin);
+}
+
+//  void Q3DGraphsWidgetItem::radialLabelOffsetChanged(float offset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem24radialLabelOffsetChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float offset) {
+  self->radialLabelOffsetChanged(offset);
+}
+
+//  void Q3DGraphsWidgetItem::horizontalAspectRatioChanged(qreal ratio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem28horizontalAspectRatioChangedEd(
+    Q3DGraphsWidgetItem *self,
+    qreal ratio) {
+  self->horizontalAspectRatioChanged(ratio);
+}
+
+//  void Q3DGraphsWidgetItem::localeChanged(const QLocale &locale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem13localeChangedERK7QLocale(
+    Q3DGraphsWidgetItem *self,
+    const QLocale *locale) {
+  self->localeChanged(*locale);
+}
+
+//  void Q3DGraphsWidgetItem::queriedGraphPositionChanged(QVector3D data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem27queriedGraphPositionChangedE9QVector3D(
+    Q3DGraphsWidgetItem *self,
+    const QVector3D *data) {
+  self->queriedGraphPositionChanged(*data);
+}
+
+//  void Q3DGraphsWidgetItem::marginChanged(qreal margin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem13marginChangedEd(
+    Q3DGraphsWidgetItem *self,
+    qreal margin) {
+  self->marginChanged(margin);
+}
+
+//  void Q3DGraphsWidgetItem::cutoffMarginChanged(qreal newMargin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem19cutoffMarginChangedEd(
+    Q3DGraphsWidgetItem *self,
+    qreal newMargin) {
+  self->cutoffMarginChanged(newMargin);
+}
+
+//  void Q3DGraphsWidgetItem::cameraPresetChanged(QtGraphs3D::CameraPreset
+//      preset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem19cameraPresetChangedEN10QtGraphs3D12CameraPresetE(
+    Q3DGraphsWidgetItem *self,
+    QtGraphs3D::CameraPreset preset) {
+  self->cameraPresetChanged(preset);
+}
+
+//  void Q3DGraphsWidgetItem::cameraXRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem22cameraXRotationChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float rotation) {
+  self->cameraXRotationChanged(rotation);
+}
+
+//  void Q3DGraphsWidgetItem::cameraYRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem22cameraYRotationChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float rotation) {
+  self->cameraYRotationChanged(rotation);
+}
+
+//  void Q3DGraphsWidgetItem::cameraZoomLevelChanged(float zoomLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem22cameraZoomLevelChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float zoomLevel) {
+  self->cameraZoomLevelChanged(zoomLevel);
+}
+
+//  void Q3DGraphsWidgetItem::cameraTargetPositionChanged(QVector3D target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem27cameraTargetPositionChangedE9QVector3D(
+    Q3DGraphsWidgetItem *self,
+    const QVector3D *target) {
+  self->cameraTargetPositionChanged(*target);
+}
+
+//  void Q3DGraphsWidgetItem::minCameraZoomLevelChanged(float zoomLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem25minCameraZoomLevelChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float zoomLevel) {
+  self->minCameraZoomLevelChanged(zoomLevel);
+}
+
+//  void Q3DGraphsWidgetItem::maxCameraZoomLevelChanged(float zoomLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem25maxCameraZoomLevelChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float zoomLevel) {
+  self->maxCameraZoomLevelChanged(zoomLevel);
+}
+
+//  void Q3DGraphsWidgetItem::minCameraXRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem25minCameraXRotationChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float rotation) {
+  self->minCameraXRotationChanged(rotation);
+}
+
+//  void Q3DGraphsWidgetItem::minCameraYRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem25minCameraYRotationChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float rotation) {
+  self->minCameraYRotationChanged(rotation);
+}
+
+//  void Q3DGraphsWidgetItem::maxCameraXRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem25maxCameraXRotationChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float rotation) {
+  self->maxCameraXRotationChanged(rotation);
+}
+
+//  void Q3DGraphsWidgetItem::maxCameraYRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem25maxCameraYRotationChangedEf(
+    Q3DGraphsWidgetItem *self,
+    float rotation) {
+  self->maxCameraYRotationChanged(rotation);
+}
+
+//  void Q3DGraphsWidgetItem::wrapCameraXRotationChanged(bool wrap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem26wrapCameraXRotationChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool wrap) {
+  self->wrapCameraXRotationChanged(wrap);
+}
+
+//  void Q3DGraphsWidgetItem::wrapCameraYRotationChanged(bool wrap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem26wrapCameraYRotationChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool wrap) {
+  self->wrapCameraYRotationChanged(wrap);
+}
+
+//  void Q3DGraphsWidgetItem::msaaSamplesChanged(int samples)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem18msaaSamplesChangedEi(
+    Q3DGraphsWidgetItem *self,
+    int samples) {
+  self->msaaSamplesChanged(samples);
+}
+
+//  void Q3DGraphsWidgetItem::tapped(QEventPoint eventPoint, Qt::MouseButton
+//      button)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem6tappedE11QEventPointN2Qt11MouseButtonE(
+    Q3DGraphsWidgetItem *self,
+    const QEventPoint *eventPoint,
+    Qt::MouseButton button) {
+  self->tapped(*eventPoint, button);
+}
+
+//  void Q3DGraphsWidgetItem::doubleTapped(QEventPoint eventPoint,
+//      Qt::MouseButton button)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem12doubleTappedE11QEventPointN2Qt11MouseButtonE(
+    Q3DGraphsWidgetItem *self,
+    const QEventPoint *eventPoint,
+    Qt::MouseButton button) {
+  self->doubleTapped(*eventPoint, button);
+}
+
+//  void Q3DGraphsWidgetItem::longPressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem11longPressedEv(
+    Q3DGraphsWidgetItem *self) {
+  self->longPressed();
+}
+
+//  void Q3DGraphsWidgetItem::dragged(QVector2D delta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem7draggedE9QVector2D(
+    Q3DGraphsWidgetItem *self,
+    const QVector2D *delta) {
+  self->dragged(*delta);
+}
+
+//  void Q3DGraphsWidgetItem::wheel(QWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem5wheelEP11QWheelEvent(
+    Q3DGraphsWidgetItem *self,
+    QWheelEvent *event) {
+  self->wheel(event);
+}
+
+//  void Q3DGraphsWidgetItem::pinch(qreal delta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem5pinchEd(
+    Q3DGraphsWidgetItem *self,
+    qreal delta) {
+  self->pinch(delta);
+}
+
+//  void Q3DGraphsWidgetItem::mouseMove(QPoint mousePos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem9mouseMoveE6QPoint(
+    Q3DGraphsWidgetItem *self,
+    const QPoint *mousePos) {
+  self->mouseMove(*mousePos);
+}
+
+//  void Q3DGraphsWidgetItem::zoomEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem18zoomEnabledChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool enable) {
+  self->zoomEnabledChanged(enable);
+}
+
+//  void Q3DGraphsWidgetItem::zoomAtTargetEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem26zoomAtTargetEnabledChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool enable) {
+  self->zoomAtTargetEnabledChanged(enable);
+}
+
+//  void Q3DGraphsWidgetItem::rotationEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem22rotationEnabledChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool enable) {
+  self->rotationEnabledChanged(enable);
+}
+
+//  void Q3DGraphsWidgetItem::panEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem17panEnabledChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool enable) {
+  self->panEnabledChanged(enable);
+}
+
+//  void Q3DGraphsWidgetItem::dragModeChanged(QtGraphs3D::DragMode dragMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem15dragModeChangedEN10QtGraphs3D8DragModeE(
+    Q3DGraphsWidgetItem *self,
+    QtGraphs3D::DragMode dragMode) {
+  self->dragModeChanged(dragMode);
+}
+
+//  void Q3DGraphsWidgetItem::selectionEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem23selectionEnabledChangedEb(
+    Q3DGraphsWidgetItem *self,
+    bool enable) {
+  self->selectionEnabledChanged(enable);
+}
+
+//  void Q3DGraphsWidgetItem::ambientLightStrengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem27ambientLightStrengthChangedEv(
+    Q3DGraphsWidgetItem *self) {
+  self->ambientLightStrengthChanged();
+}
+
+//  void Q3DGraphsWidgetItem::lightStrengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem20lightStrengthChangedEv(
+    Q3DGraphsWidgetItem *self) {
+  self->lightStrengthChanged();
+}
+
+//  void Q3DGraphsWidgetItem::shadowStrengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem21shadowStrengthChangedEv(
+    Q3DGraphsWidgetItem *self) {
+  self->shadowStrengthChanged();
+}
+
+//  void Q3DGraphsWidgetItem::lightColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem17lightColorChangedEv(
+    Q3DGraphsWidgetItem *self) {
+  self->lightColorChanged();
+}
+
+//  void Q3DGraphsWidgetItem::gridLineTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Q3DGraphsWidgetItem19gridLineTypeChangedEv(
+    Q3DGraphsWidgetItem *self) {
+  self->gridLineTypeChanged();
 }
 
 //  Q3DGraphsWidgetItemPrivate *Q3DGraphsWidgetItem::d_func()
@@ -1094,4 +1575,12 @@ bool ritual_own_ZN19Q3DGraphsWidgetItem11eventFilterEP7QObjectP6QEvent(
   return static_cast<OwnQ3DGraphsWidgetItem *>(self)->OwnQ3DGraphsWidgetItem::eventFilter(
       obj,
       event);
+}
+
+//  a QSharedPointer<QQuickItemGrabResult> a ritual of Q3DGraphsWidgetItem
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Q3DGraphsWidgetItem__QSharedPointer_QQuickItemGrabResult(
+    QSharedPointer<QQuickItemGrabResult> *self) {
+  delete self;
 }

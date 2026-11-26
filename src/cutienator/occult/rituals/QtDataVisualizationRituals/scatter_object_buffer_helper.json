@@ -11,6 +11,15 @@
     ],
     "ritual_ZN25ScatterObjectBufferHelper9setScaleYEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN25ScatterObjectBufferHelper22createRangeGradientUVsEP24ScatterSeriesRenderCacheR5QListI9QVector2DE": [
+      "unsigned int", "address", "address", "address"
+    ],
+    "ritual_ZN25ScatterObjectBufferHelper23createObjectGradientUVsEP24ScatterSeriesRenderCacheR5QListI9QVector2DERKS2_I9QVector3DE": [
+      "unsigned int", "address", "address", "address", "address"
+    ],
+    "ritual_take_ScatterObjectBufferHelper": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

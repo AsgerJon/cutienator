@@ -8,6 +8,9 @@
     "ritual_ZN10ListLayoutC1Ev": ["address"],
     "ritual_ZN10ListLayoutC1EPKS_": ["address", "address"],
     "ritual_ZN10ListLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN10ListLayout15getRoleOrCreateEPN3QV46StringENS_4Role8DataTypeE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK10ListLayout15getExistingRoleEi": [
       "address", "address", "int"
     ],

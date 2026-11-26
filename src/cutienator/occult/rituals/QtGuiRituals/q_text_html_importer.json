@@ -5,11 +5,22 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QTextHtmlImporter6importEv": ["nothing", "address"],
     "ritual_ZN17QTextHtmlImporter8closeTagEv": ["bool", "address"],
+    "ritual_ZN17QTextHtmlImporter9scanTableEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN17QTextHtmlImporter11appendBlockERK16QTextBlockFormat15QTextCharFormat": [
       "nothing", "address", "address", "address"
     ],
     "ritual_ZN17QTextHtmlImporter14appendNodeTextEv": ["bool", "address"],
-    "ritual_ZN17QTextHtmlImporterD1Ev": ["nothing", "address"]
+    "ritual_ZN17QTextHtmlImporter16processBlockNodeEv": ["int", "address"],
+    "ritual_ZN17QTextHtmlImporter19processSpecialNodesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QTextHtmlImporterD1Ev": ["nothing", "address"],
+    "ritual_drop_QTextHtmlImporter__QTextHtmlImporter_Table": [
+      "nothing", "address"
+    ]
   }
 }

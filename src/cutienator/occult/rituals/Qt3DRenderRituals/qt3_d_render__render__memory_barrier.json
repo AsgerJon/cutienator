@@ -5,6 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render13MemoryBarrierC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render13MemoryBarrierD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13MemoryBarrier14waitOperationsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13MemoryBarrier16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_take_Qt3DRender_Render_MemoryBarrier": [
       "bool", "address", "chars", "address"
     ],

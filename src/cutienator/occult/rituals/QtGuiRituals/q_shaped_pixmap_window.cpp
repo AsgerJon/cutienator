@@ -8,8 +8,10 @@
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/qpa/qplatformwindow.h>
 #include <QtGui/6.12.0/QtGui/private/qshapedpixmapdndwindow_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qpixmap.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qsize.h>
@@ -31,9 +33,42 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/kernel/qshapedpixmapdndwindow.cpp, line 55, as _ZN19QShapedPixmapWindow10paintEventEP11QPaintEvent
+inline void QShapedPixmapWindow::paintEvent(QPaintEvent *)
+{
+    if (!m_pixmap.isNull()) {
+        const QRect rect(QPoint(0, 0), size());
+        QPainter painter(this);
+        if (m_useCompositing)
+            painter.setCompositionMode(QPainter::CompositionMode_Source);
+        else
+            painter.fillRect(rect, QGuiApplication::palette().base());
+        painter.drawPixmap(rect, m_pixmap);
+    }
+}
+
 //  from src/gui/kernel/qshapedpixmapdndwindow.cpp, line 28, as _ZN19QShapedPixmapWindowD1Ev
 inline QShapedPixmapWindow::~QShapedPixmapWindow()
 {
+}
+
+//  from src/gui/kernel/qshapedpixmapdndwindow.cpp, line 32, as _ZN19QShapedPixmapWindow9setPixmapERK7QPixmap
+inline void QShapedPixmapWindow::setPixmap(const QPixmap &pixmap)
+{
+    m_pixmap = pixmap;
+    if (!m_useCompositing) {
+        const QBitmap mask = m_pixmap.mask();
+        if (!mask.isNull()) {
+            if (!handle())
+                create();
+            if (auto platformWindow = handle()) {
+                const auto pixmapDpr = m_pixmap.devicePixelRatio();
+                const auto winDpr = devicePixelRatio();
+                const auto maskSize = (QSizeF(m_pixmap.size()) * winDpr / pixmapDpr).toSize();
+                platformWindow->setMask(QBitmap::fromPixmap(mask.scaled(maskSize)));
+            }
+        }
+    }
 }
 
 //  from src/gui/kernel/qshapedpixmapdndwindow.cpp, line 50, as _ZN19QShapedPixmapWindow10setHotspotERK6QPoint
@@ -50,20 +85,6 @@ inline void QShapedPixmapWindow::updateGeometry(const QPoint &pos)
         size = m_pixmap.deviceIndependentSize().toSize();
     }
     setGeometry(QRect(pos - m_hotSpot, size));
-}
-
-//  from src/gui/kernel/qshapedpixmapdndwindow.cpp, line 55, as _ZN19QShapedPixmapWindow10paintEventEP11QPaintEvent
-inline void QShapedPixmapWindow::paintEvent(QPaintEvent *)
-{
-    if (!m_pixmap.isNull()) {
-        const QRect rect(QPoint(0, 0), size());
-        QPainter painter(this);
-        if (m_useCompositing)
-            painter.setCompositionMode(QPainter::CompositionMode_Source);
-        else
-            painter.fillRect(rect, QGuiApplication::palette().base());
-        painter.drawPixmap(rect, m_pixmap);
-    }
 }
 //  -----------------------------------------------------------------------
 
@@ -745,6 +766,25 @@ const QMetaObject *ritual_ZNK19QShapedPixmapWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QShapedPixmapWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QShapedPixmapWindow11qt_metacastEPKc(
+    QShapedPixmapWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QShapedPixmapWindow::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QShapedPixmapWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QShapedPixmapWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QShapedPixmapWindow::~QShapedPixmapWindow()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QShapedPixmapWindowD1Ev(QShapedPixmapWindow *self) {
@@ -757,6 +797,14 @@ void ritual_ZN19QShapedPixmapWindow17setUseCompositingEb(
     QShapedPixmapWindow *self,
     bool on) {
   self->setUseCompositing(on);
+}
+
+//  void QShapedPixmapWindow::setPixmap(const QPixmap &pixmap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QShapedPixmapWindow9setPixmapERK7QPixmap(
+    QShapedPixmapWindow *self,
+    const QPixmap *pixmap) {
+  self->setPixmap(*pixmap);
 }
 
 //  void QShapedPixmapWindow::setHotspot(const QPoint &hotspot)

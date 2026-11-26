@@ -6,7 +6,36 @@
   "rows": {
     "ritual_ZN6QQmlSA13FixSuggestion6d_funcEv": ["address", "address"],
     "ritual_ZNK6QQmlSA13FixSuggestion6d_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA13FixSuggestionC1ERK7QStringRKNS_14SourceLocationERKNS_12DocumentEditE": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA13FixSuggestionC1ERK7QStringRKNS_14SourceLocationERK5QListINS_12DocumentEditEE": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA13FixSuggestionC1ERKS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA13FixSuggestionC1EOS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA13FixSuggestionaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA13FixSuggestionaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA13FixSuggestionD1Ev": ["nothing", "address"],
     "ritual_ZNK6QQmlSA13FixSuggestion11descriptionEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA13FixSuggestion8locationEv": ["address", "address"],
+    "ritual_ZN6QQmlSA13FixSuggestion15addDocumentEditERKNS_12DocumentEditE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA13FixSuggestion13documentEditsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA13FixSuggestion11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA13FixSuggestion8fileNameEv": ["text", "address"],
+    "ritual_ZN6QQmlSA13FixSuggestion17setAutoApplicableEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK6QQmlSA13FixSuggestion16isAutoApplicableEv": [
       "bool", "address"
     ],
@@ -15,6 +44,12 @@
     ],
     "ritual_ZN6QQmlSAneERKNS_13FixSuggestionES2_": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA13FixSuggestion18operatorEqualsImplERKS0_S2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_drop_QQmlSA_FixSuggestion__QList_QQmlSA_DocumentEdit": [
+      "nothing", "address"
     ]
   }
 }

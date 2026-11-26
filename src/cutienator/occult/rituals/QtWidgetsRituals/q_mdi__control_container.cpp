@@ -10,8 +10,159 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qmdisubwindow_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qicon.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/private/qmdisubwindow_p.h>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QStylePainter>
+#include <QtWidgets/QVBoxLayout>
+#include <QtGui/QMouseEvent>
+#if QT_CONFIG(whatsthis)
+#include <QtWidgets/QWhatsThis>
+#endif
+#if QT_CONFIG(tooltip)
+#include <QtWidgets/QToolTip>
+#endif
+#if QT_CONFIG(mainwindow)
+#include <QtWidgets/QMainWindow>
+#endif
+#include <QtWidgets/QScrollBar>
+#include <QtCore/QDebug>
+#include <QtWidgets/QMdiArea>
+#include <QtCore/QScopedValueRollback>
+#if QT_CONFIG(action)
+#  include <QtWidgets/qaction.h>
+#endif
+#if QT_CONFIG(menu)
+#include <QtWidgets/QMenu>
+#endif
+#include <QtWidgets/QProxyStyle>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qmdisubwindow.cpp, line 362, as local:qmdisubwindow.cpp:ControlLabel
+namespace QMdi {
+using namespace Qt::StringLiterals;
+using namespace std::chrono_literals;
+class ControlLabel : public QWidget
+{
+    Q_OBJECT
+public:
+    ControlLabel(QWidget *parent = nullptr);
+
+    QSize sizeHint() const override;
+
+signals:
+    void _q_clicked();
+    void _q_doubleClicked();
+
+protected:
+    bool event(QEvent *event) override;
+    void paintEvent(QPaintEvent *paintEvent) override;
+    void mousePressEvent(QMouseEvent *mouseEvent) override;
+    void mouseDoubleClickEvent(QMouseEvent *mouseEvent) override;
+    void mouseReleaseEvent(QMouseEvent *mouseEvent) override;
+
+private:
+    QPixmap label;
+    bool isPressed;
+    void updateWindowIcon();
+};
+}  // namespace QMdi
+
+//  from src/widgets/widgets/qmdisubwindow.cpp, line 493, as local:qmdisubwindow.cpp:ControllerWidget
+namespace QMdi {
+using namespace Qt::StringLiterals;
+using namespace std::chrono_literals;
+class ControllerWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    ControllerWidget(QWidget *parent = nullptr);
+    QSize sizeHint() const override;
+    void setControlVisible(QMdiSubWindowPrivate::WindowStateAction action, bool visible);
+    inline bool hasVisibleControls() const
+    {
+        return (visibleControls & QStyle::SC_MdiMinButton)
+               || (visibleControls & QStyle::SC_MdiNormalButton)
+               || (visibleControls & QStyle::SC_MdiCloseButton);
+    }
+
+signals:
+    void _q_minimize();
+    void _q_restore();
+    void _q_close();
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    bool event(QEvent *event) override;
+
+private:
+    QStyle::SubControl activeControl;
+    QStyle::SubControl hoverControl;
+    QStyle::SubControls visibleControls;
+    void initStyleOption(QStyleOptionComplex *option) const;
+    inline QStyle::SubControl getSubControl(const QPoint &pos) const
+    {
+        QStyleOptionComplex opt;
+        initStyleOption(&opt);
+        return style()->hitTestComplexControl(QStyle::CC_MdiControls, &opt, pos, this);
+    }
+};
+}  // namespace QMdi
+
+//  from src/widgets/widgets/qmdisubwindow.cpp, line 429, as _ZN4QMdi12ControlLabel10paintEventEP11QPaintEvent
+namespace QMdi {
+using namespace Qt::StringLiterals;
+using namespace std::chrono_literals;
+inline void ControlLabel::paintEvent(QPaintEvent * /*paintEvent*/)
+{
+    QPainter painter(this);
+    painter.drawPixmap(0, 0, label);
+}
+}  // namespace QMdi
+
+//  from src/widgets/widgets/qmdisubwindow.cpp, line 716, as _ZN4QMdi16ControlContainerD1Ev
+namespace QMdi {
+using namespace Qt::StringLiterals;
+using namespace std::chrono_literals;
+inline ControlContainer::~ControlContainer()
+{
+#if QT_CONFIG(menubar)
+    removeButtonsFromMenuBar();
+#endif
+    delete m_menuLabel;
+    m_menuLabel = nullptr;
+    delete m_controllerWidget;
+    m_controllerWidget = nullptr;
+}
+}  // namespace QMdi
+
+//  from src/widgets/widgets/qmdisubwindow.cpp, line 841, as _ZN4QMdi16ControlContainer16updateWindowIconERK5QIcon
+namespace QMdi {
+using namespace Qt::StringLiterals;
+using namespace std::chrono_literals;
+inline void ControlContainer::updateWindowIcon(const QIcon &windowIcon)
+{
+    if (m_menuLabel)
+        m_menuLabel->setWindowIcon(windowIcon);
+}
+}  // namespace QMdi
+//  -----------------------------------------------------------------------
 
 //  A QMdi::ControlContainer that Python can take functions over in. Every QMdi::ControlContainer
 //  Python makes is one. Each function below asks the Python
@@ -180,6 +331,12 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  QMdi::ControlContainer::~ControlContainer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QMdi16ControlContainerD1Ev(QMdi::ControlContainer *self) {
+  delete self;
+}
+
 #if QT_CONFIG(menubar)
 //  QMenuBar *QMdi::ControlContainer::menuBar() const
 extern "C" Q_DECL_EXPORT
@@ -188,6 +345,14 @@ QMenuBar *ritual_ZNK4QMdi16ControlContainer7menuBarEv(
   return self->menuBar();
 }
 #endif  // QT_CONFIG(menubar)
+
+//  void QMdi::ControlContainer::updateWindowIcon(const QIcon &windowIcon)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QMdi16ControlContainer16updateWindowIconERK5QIcon(
+    QMdi::ControlContainer *self,
+    const QIcon *windowIcon) {
+  self->updateWindowIcon(*windowIcon);
+}
 
 //  QWidget *QMdi::ControlContainer::controllerWidget() const
 extern "C" Q_DECL_EXPORT

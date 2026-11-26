@@ -19,6 +19,31 @@ QHttp2Configuration *ritual_ZN19QHttp2ConfigurationC1ERKS_(
   return new QHttp2Configuration(*other);
 }
 
+//  QHttp2Configuration::QHttp2Configuration(QHttp2Configuration &&other)
+extern "C" Q_DECL_EXPORT
+QHttp2Configuration *ritual_ZN19QHttp2ConfigurationC1EOS_(
+    QHttp2Configuration *other) {
+  return new QHttp2Configuration(std::move(*other));
+}
+
+//  QHttp2Configuration &QHttp2Configuration::operator=(const
+//      QHttp2Configuration &other)
+extern "C" Q_DECL_EXPORT
+QHttp2Configuration *ritual_ZN19QHttp2ConfigurationaSERKS_(
+    QHttp2Configuration *self,
+    const QHttp2Configuration *other) {
+  return &(self->operator=(*other));
+}
+
+//  QHttp2Configuration &QHttp2Configuration::operator=(QHttp2Configuration
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QHttp2Configuration *ritual_ZN19QHttp2ConfigurationaSEOS_(
+    QHttp2Configuration *self,
+    QHttp2Configuration *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QHttp2Configuration::~QHttp2Configuration()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QHttp2ConfigurationD1Ev(QHttp2Configuration *self) {
@@ -113,6 +138,14 @@ extern "C" Q_DECL_EXPORT
 unsigned int ritual_ZNK19QHttp2Configuration20maxConcurrentStreamsEv(
     const QHttp2Configuration *self) {
   return self->maxConcurrentStreams();
+}
+
+//  void QHttp2Configuration::swap(QHttp2Configuration &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QHttp2Configuration4swapERS_(
+    QHttp2Configuration *self,
+    QHttp2Configuration *other) {
+  self->swap(*other);
 }
 
 //  bool QHttp2Configuration::isEqual(const QHttp2Configuration &other) const

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qvectorpath_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qvectorpath_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 2. Kept
+//  as it is when the generator runs again.
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,6 +12,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qpainterpath_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  QVectorPath::QVectorPath(const qreal *points, int count, const
+//      QPainterPath::ElementType *elements, uint hints)
+extern "C" Q_DECL_EXPORT
+QVectorPath *ritual_ZN11QVectorPathC1EPKdiPKN12QPainterPath11ElementTypeEj(
+    const qreal *points,
+    int count,
+    const QPainterPath::ElementType *elements,
+    uint hints) {
+  return new QVectorPath(points, count, elements, hints);
+}
 
 //  QVectorPath::~QVectorPath()
 extern "C" Q_DECL_EXPORT
@@ -79,6 +91,19 @@ uint ritual_ZNK11QVectorPath5hintsEv(const QVectorPath *self) {
   return self->hints();
 }
 
+//  const QPainterPath::ElementType *QVectorPath::elements() const
+extern "C" Q_DECL_EXPORT
+const QPainterPath::ElementType *ritual_ZNK11QVectorPath8elementsEv(
+    const QVectorPath *self) {
+  return self->elements();
+}
+
+//  const qreal *QVectorPath::points() const
+extern "C" Q_DECL_EXPORT
+const qreal *ritual_ZNK11QVectorPath6pointsEv(const QVectorPath *self) {
+  return self->points();
+}
+
 //  bool QVectorPath::isEmpty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QVectorPath7isEmptyEv(const QVectorPath *self) {
@@ -105,6 +130,20 @@ uint ritual_ZN11QVectorPath12polygonFlagsEN12QPaintEngine15PolygonDrawModeE(
   return QVectorPath::polygonFlags(mode);
 }
 
+//  CacheEntry *QVectorPath::addCacheData(QPaintEngineEx *engine, void *data,
+//      qvectorpath_cache_cleanup cleanup) const
+extern "C" Q_DECL_EXPORT
+QVectorPath::CacheEntry *ritual_ZNK11QVectorPath12addCacheDataEP14QPaintEngineExPvPFvS1_S2_E(
+    const QVectorPath *self,
+    QPaintEngineEx *engine,
+    void *data,
+    void *cleanup) {
+  return self->addCacheData(
+      engine,
+      data,
+      reinterpret_cast<qvectorpath_cache_cleanup>(cleanup));
+}
+
 //  CacheEntry *QVectorPath::lookupCacheData(QPaintEngineEx *engine) const
 extern "C" Q_DECL_EXPORT
 QVectorPath::CacheEntry *ritual_ZNK11QVectorPath15lookupCacheDataEP14QPaintEngineEx(
@@ -117,4 +156,22 @@ QVectorPath::CacheEntry *ritual_ZNK11QVectorPath15lookupCacheDataEP14QPaintEngin
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QVectorPath6isRectEv(const QVectorPath *self) {
   return self->isRect();
+}
+
+//  static bool QVectorPath::isRect<double>(const double *pts, int
+//      elementCount)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QVectorPath6isRectIdEEbPKT_i(
+    const double *pts,
+    int elementCount) {
+  return QVectorPath::isRect<double>(pts, elementCount);
+}
+
+//  static bool QVectorPath::isRect<float>(const float *pts, int
+//      elementCount)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QVectorPath6isRectIfEEbPKT_i(
+    const float *pts,
+    int elementCount) {
+  return QVectorPath::isRect<float>(pts, elementCount);
 }

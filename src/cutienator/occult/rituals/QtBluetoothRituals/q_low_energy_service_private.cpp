@@ -6,6 +6,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qlowenergyserviceprivate_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtBluetooth/qlowenergycharacteristic.h>
+#include <QtCore/qbytearray.h>
+#include <QtBluetooth/qlowenergydescriptor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -200,11 +203,238 @@ const QMetaObject *ritual_ZNK24QLowEnergyServicePrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLowEnergyServicePrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QLowEnergyServicePrivate11qt_metacastEPKc(
+    QLowEnergyServicePrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLowEnergyServicePrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QLowEnergyServicePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLowEnergyServicePrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QLowEnergyServicePrivate::~QLowEnergyServicePrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QLowEnergyServicePrivateD1Ev(
     QLowEnergyServicePrivate *self) {
   delete self;
+}
+
+//  void
+//      QLowEnergyServicePrivate::stateChanged(QLowEnergyService::ServiceStat
+//      e newState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate12stateChangedEN17QLowEnergyService12ServiceStateE(
+    QLowEnergyServicePrivate *self,
+    QLowEnergyService::ServiceState newState) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLowEnergyServicePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "stateChanged(QLowEnergyService::ServiceState)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "stateChanged(QLowEnergyService::ServiceState)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&newState)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QLowEnergyServicePrivate::errorOccurred(QLowEnergyService::ServiceErr
+//      or error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate13errorOccurredEN17QLowEnergyService12ServiceErrorE(
+    QLowEnergyServicePrivate *self,
+    QLowEnergyService::ServiceError error) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLowEnergyServicePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "errorOccurred(QLowEnergyService::ServiceError)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "errorOccurred(QLowEnergyService::ServiceError)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&error)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QLowEnergyServicePrivate::characteristicChanged(const
+//      QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate21characteristicChangedERK24QLowEnergyCharacteristicRK10QByteArray(
+    QLowEnergyServicePrivate *self,
+    const QLowEnergyCharacteristic *characteristic,
+    const QByteArray *newValue) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLowEnergyServicePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "characteristicChanged(const QLowEnergyCharacteristic &,const QByteArray &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "characteristicChanged(const QLowEnergyCharacteristic &,const QByteArray &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(characteristic)),
+      const_cast<void *>(static_cast<const void *>(newValue)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QLowEnergyServicePrivate::characteristicRead(const
+//      QLowEnergyCharacteristic &info, const QByteArray &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate18characteristicReadERK24QLowEnergyCharacteristicRK10QByteArray(
+    QLowEnergyServicePrivate *self,
+    const QLowEnergyCharacteristic *info,
+    const QByteArray *value) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLowEnergyServicePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "characteristicRead(const QLowEnergyCharacteristic &,const QByteArray &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "characteristicRead(const QLowEnergyCharacteristic &,const QByteArray &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(info)),
+      const_cast<void *>(static_cast<const void *>(value)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QLowEnergyServicePrivate::characteristicWritten(const
+//      QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate21characteristicWrittenERK24QLowEnergyCharacteristicRK10QByteArray(
+    QLowEnergyServicePrivate *self,
+    const QLowEnergyCharacteristic *characteristic,
+    const QByteArray *newValue) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLowEnergyServicePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "characteristicWritten(const QLowEnergyCharacteristic &,const QByteArray &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "characteristicWritten(const QLowEnergyCharacteristic &,const QByteArray &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(characteristic)),
+      const_cast<void *>(static_cast<const void *>(newValue)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QLowEnergyServicePrivate::descriptorRead(const QLowEnergyDescriptor
+//      &info, const QByteArray &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate14descriptorReadERK20QLowEnergyDescriptorRK10QByteArray(
+    QLowEnergyServicePrivate *self,
+    const QLowEnergyDescriptor *info,
+    const QByteArray *value) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLowEnergyServicePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "descriptorRead(const QLowEnergyDescriptor &,const QByteArray &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "descriptorRead(const QLowEnergyDescriptor &,const QByteArray &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(info)),
+      const_cast<void *>(static_cast<const void *>(value)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QLowEnergyServicePrivate::descriptorWritten(const
+//      QLowEnergyDescriptor &descriptor, const QByteArray &newValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate17descriptorWrittenERK20QLowEnergyDescriptorRK10QByteArray(
+    QLowEnergyServicePrivate *self,
+    const QLowEnergyDescriptor *descriptor,
+    const QByteArray *newValue) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLowEnergyServicePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "descriptorWritten(const QLowEnergyDescriptor &,const QByteArray &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "descriptorWritten(const QLowEnergyDescriptor &,const QByteArray &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(descriptor)),
+      const_cast<void *>(static_cast<const void *>(newValue)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQLowEnergyServicePrivate, for the

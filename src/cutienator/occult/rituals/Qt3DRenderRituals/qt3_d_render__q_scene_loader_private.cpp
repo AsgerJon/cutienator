@@ -53,6 +53,30 @@ public:
   }
 };
 
+//  Qt3DRender::QSceneLoaderPrivate::QSceneLoaderPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSceneLoaderPrivate *ritual_ZN10Qt3DRender19QSceneLoaderPrivateC1Ev() {
+  return new CuteQt3DRender_QSceneLoaderPrivate();
+}
+
+//  void Qt3DRender::QSceneLoaderPrivate::setStatus(QSceneLoader::Status
+//      status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender19QSceneLoaderPrivate9setStatusENS_12QSceneLoader6StatusE(
+    Qt3DRender::QSceneLoaderPrivate *self,
+    Qt3DRender::QSceneLoader::Status status) {
+  self->setStatus(status);
+}
+
+//  void Qt3DRender::QSceneLoaderPrivate::setSceneRoot(Qt3DCore::QEntity
+//      *root)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender19QSceneLoaderPrivate12setSceneRootEPN8Qt3DCore7QEntityE(
+    Qt3DRender::QSceneLoaderPrivate *self,
+    Qt3DCore::QEntity *root) {
+  self->setSceneRoot(root);
+}
+
 //  QSceneLoader *Qt3DRender::QSceneLoaderPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QSceneLoader *ritual_ZN10Qt3DRender19QSceneLoaderPrivate6q_funcEv(
@@ -65,6 +89,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QSceneLoader *ritual_ZNK10Qt3DRender19QSceneLoaderPrivate6q_funcEv(
     const Qt3DRender::QSceneLoaderPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DRender::QSceneLoaderPrivate::populateEntityMap(Qt3DCore::QEntity
+//      *parentEntity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender19QSceneLoaderPrivate17populateEntityMapEPN8Qt3DCore7QEntityE(
+    Qt3DRender::QSceneLoaderPrivate *self,
+    Qt3DCore::QEntity *parentEntity) {
+  self->populateEntityMap(parentEntity);
 }
 
 //  a Python function taken by a CuteQt3DRender_QSceneLoaderPrivate, for the

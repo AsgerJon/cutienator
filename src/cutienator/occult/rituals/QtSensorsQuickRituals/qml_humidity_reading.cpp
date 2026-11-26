@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlHumidityReading that Python can take functions over in. Every QmlHumidityReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK18QmlHumidityReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlHumidityReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QmlHumidityReading11qt_metacastEPKc(
+    QmlHumidityReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlHumidityReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QmlHumidityReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlHumidityReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlHumidityReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QmlHumidityReading2trEPKcS1_i(
@@ -252,11 +272,39 @@ qreal ritual_ZNK18QmlHumidityReading16relativeHumidityEv(
   return self->relativeHumidity();
 }
 
+//  QBindable<qreal> QmlHumidityReading::bindableRelativeHumidity() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK18QmlHumidityReading24bindableRelativeHumidityEv(
+    const QmlHumidityReading *self) {
+  return new QBindable<qreal>(self->bindableRelativeHumidity());
+}
+
 //  qreal QmlHumidityReading::absoluteHumidity() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK18QmlHumidityReading16absoluteHumidityEv(
     const QmlHumidityReading *self) {
   return self->absoluteHumidity();
+}
+
+//  QBindable<qreal> QmlHumidityReading::bindableAbsoluteHumidity() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK18QmlHumidityReading24bindableAbsoluteHumidityEv(
+    const QmlHumidityReading *self) {
+  return new QBindable<qreal>(self->bindableAbsoluteHumidity());
+}
+
+//  void QmlHumidityReading::relativeHumidityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QmlHumidityReading23relativeHumidityChangedEv(
+    QmlHumidityReading *self) {
+  self->relativeHumidityChanged();
+}
+
+//  void QmlHumidityReading::absoluteHumidityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QmlHumidityReading23absoluteHumidityChangedEv(
+    QmlHumidityReading *self) {
+  self->absoluteHumidityChanged();
 }
 
 //  QSensorReading *QmlHumidityReading::reading() const
@@ -271,6 +319,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QmlHumidityReading13readingUpdateEv(
     QmlHumidityReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlHumidityReading::_qt_property_m_relativeHumidity_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN18QmlHumidityReading38_qt_property_m_relativeHumidity_offsetEv() {
+  return QmlHumidityReading::_qt_property_m_relativeHumidity_offset();
+}
+
+//  size_t QmlHumidityReading::_qt_property_m_absoluteHumidity_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN18QmlHumidityReading38_qt_property_m_absoluteHumidity_offsetEv() {
+  return QmlHumidityReading::_qt_property_m_absoluteHumidity_offset();
 }
 
 //  a Python function taken by a CuteQmlHumidityReading, for the function
@@ -295,4 +355,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN18QmlHumidityReading13readingUpdateEv(
     QmlHumidityReading *self) {
   self->QmlHumidityReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlHumidityReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlHumidityReading__QBindable_qreal(
+    QBindable<qreal> *self) {
+  delete self;
 }

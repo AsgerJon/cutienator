@@ -1050,6 +1050,25 @@ const QMetaObject *ritual_ZNK18QCommandLinkButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCommandLinkButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QCommandLinkButton11qt_metacastEPKc(
+    QCommandLinkButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCommandLinkButton::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QCommandLinkButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCommandLinkButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCommandLinkButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QCommandLinkButton2trEPKcS1_i(
@@ -1151,6 +1170,20 @@ void ritual_ZN18QCommandLinkButton10paintEventEP11QPaintEvent(
     QCommandLinkButton *self,
     QPaintEvent *a0) {
   self->paintEvent(a0);
+}
+
+//  QCommandLinkButtonPrivate *QCommandLinkButton::d_func()
+extern "C" Q_DECL_EXPORT
+QCommandLinkButtonPrivate *ritual_ZN18QCommandLinkButton6d_funcEv(
+    QCommandLinkButton *self) {
+  return self->d_func();
+}
+
+//  const QCommandLinkButtonPrivate *QCommandLinkButton::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCommandLinkButtonPrivate *ritual_ZNK18QCommandLinkButton6d_funcEv(
+    const QCommandLinkButton *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQCommandLinkButton, for the function

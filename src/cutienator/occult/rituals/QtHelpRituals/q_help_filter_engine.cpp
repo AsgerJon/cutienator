@@ -10,6 +10,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QMap>
+#include <QtCore/QString>
 
 //  A QHelpFilterEngine that Python can take functions over in. Every QHelpFilterEngine
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,25 @@ const QMetaObject *ritual_ZNK17QHelpFilterEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHelpFilterEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QHelpFilterEngine11qt_metacastEPKc(
+    QHelpFilterEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHelpFilterEngine::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QHelpFilterEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHelpFilterEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHelpFilterEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QHelpFilterEngine2trEPKcS1_i(
@@ -192,6 +213,13 @@ QString *ritual_ZN17QHelpFilterEngine2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QHelpFilterEngine::tr(s, c, n));
+}
+
+//  QMap<QString, QString> QHelpFilterEngine::namespaceToComponent() const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QString> *ritual_ZNK17QHelpFilterEngine20namespaceToComponentEv(
+    const QHelpFilterEngine *self) {
+  return new QMap<QString, QString>(self->namespaceToComponent());
 }
 
 //  QMap<QString, QVersionNumber> QHelpFilterEngine::namespaceToVersion()
@@ -289,6 +317,14 @@ QList<QString> *ritual_ZNK17QHelpFilterEngine7indicesERK7QString(
   return new QList<QString>(self->indices(*filterName));
 }
 
+//  void QHelpFilterEngine::filterActivated(const QString &newFilter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHelpFilterEngine15filterActivatedERK7QString(
+    QHelpFilterEngine *self,
+    const QString *newFilter) {
+  self->filterActivated(*newFilter);
+}
+
 //  QHelpFilterEngine::QHelpFilterEngine(QHelpEngineCore *helpEngine)
 extern "C" Q_DECL_EXPORT
 QHelpFilterEngine *ritual_ZN17QHelpFilterEngineC1EP15QHelpEngineCore(
@@ -319,4 +355,11 @@ bool ritual_take_QHelpFilterEngine(
     const char *key,
     void *call) {
   return static_cast<CuteQHelpFilterEngine *>(self)->take(key, call);
+}
+
+//  a QMap<QString, QString> a ritual of QHelpFilterEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHelpFilterEngine__QMap_QString_QString(
+    QMap<QString, QString> *self) {
+  delete self;
 }

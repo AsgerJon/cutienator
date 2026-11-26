@@ -81,6 +81,21 @@
     "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_5ScxmlE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEP5QListIPNS_11InstructionEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitERK5QListIPNS_11DataElementEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitERK5QListIPNS_17StateOrTransitionEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitERK5QListIPS1_IPNS_11InstructionEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitERK5QListIPNS_5ParamEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_DocumentModel_NodeVisitor": [
       "bool", "address", "chars", "address"
     ],

@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,12 +12,17 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlocale.h>
 #include <QtGui/qvectornd.h>
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qabstract3dseries.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtGraphs/QCustom3DItem>
 
 //  A QQuickGraphsNode that Python can take functions over in. Every QQuickGraphsNode
 //  Python makes is one. Each function below asks the Python
@@ -554,6 +559,25 @@ const QMetaObject *ritual_ZNK16QQuickGraphsNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGraphsNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickGraphsNode11qt_metacastEPKc(
+    QQuickGraphsNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGraphsNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickGraphsNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGraphsNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGraphsNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickGraphsNode2trEPKcS1_i(
@@ -568,6 +592,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickGraphsNode24qt_qmlMarker_uncreatableEv(
     QQuickGraphsNode *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QQuickGraphsNode::QQuickGraphsNode(QQuick3DNode *parent)
+extern "C" Q_DECL_EXPORT
+QQuickGraphsNode *ritual_ZN16QQuickGraphsNodeC1EP12QQuick3DNode(
+    QQuick3DNode *parent) {
+  return new CuteQQuickGraphsNode(parent);
 }
 
 //  QQuickGraphsNode::~QQuickGraphsNode()
@@ -620,6 +651,13 @@ extern "C" Q_DECL_EXPORT
 QGraphsTheme *ritual_ZNK16QQuickGraphsNode5themeEv(
     const QQuickGraphsNode *self) {
   return self->theme();
+}
+
+//  QQmlListProperty<QCustom3DItem> QQuickGraphsNode::customItemList() const
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QCustom3DItem> *ritual_ZNK16QQuickGraphsNode14customItemListEv(
+    const QQuickGraphsNode *self) {
+  return new QQmlListProperty<QCustom3DItem>(self->customItemList());
 }
 
 //  void QQuickGraphsNode::setAspectRatio(qreal aspectRatio)
@@ -754,6 +792,15 @@ extern "C" Q_DECL_EXPORT
 QtGraphs3D::GridLineType ritual_ZNK16QQuickGraphsNode12gridLineTypeEv(
     const QQuickGraphsNode *self) {
   return self->gridLineType();
+}
+
+//  void QQuickGraphsNode::setGridLineType(const QtGraphs3D::GridLineType
+//      &gridLineType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode15setGridLineTypeERKN10QtGraphs3D12GridLineTypeE(
+    QQuickGraphsNode *self,
+    const QtGraphs3D::GridLineType *gridLineType) {
+  self->setGridLineType(*gridLineType);
 }
 
 //  bool QQuickGraphsNode::hasSeries(QAbstract3DSeries *series)
@@ -894,6 +941,95 @@ void ritual_ZN16QQuickGraphsNode14setGraphParentEv(QQuickGraphsNode *self) {
   self->setGraphParent();
 }
 
+//  void QQuickGraphsNode::queriedGraphPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode27queriedGraphPositionChangedEv(
+    QQuickGraphsNode *self) {
+  self->queriedGraphPositionChanged();
+}
+
+//  void QQuickGraphsNode::selectedElementChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode22selectedElementChangedEv(
+    QQuickGraphsNode *self) {
+  self->selectedElementChanged();
+}
+
+//  void QQuickGraphsNode::optimizationHintChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode23optimizationHintChangedEv(
+    QQuickGraphsNode *self) {
+  self->optimizationHintChanged();
+}
+
+//  void QQuickGraphsNode::selectionModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode20selectionModeChangedEv(
+    QQuickGraphsNode *self) {
+  self->selectionModeChanged();
+}
+
+//  void QQuickGraphsNode::themeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode12themeChangedEv(QQuickGraphsNode *self) {
+  self->themeChanged();
+}
+
+//  void QQuickGraphsNode::aspectRatioChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode18aspectRatioChangedEv(
+    QQuickGraphsNode *self) {
+  self->aspectRatioChanged();
+}
+
+//  void QQuickGraphsNode::polarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode12polarChangedEv(QQuickGraphsNode *self) {
+  self->polarChanged();
+}
+
+//  void QQuickGraphsNode::labelMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode18labelMarginChangedEv(
+    QQuickGraphsNode *self) {
+  self->labelMarginChanged();
+}
+
+//  void QQuickGraphsNode::radialLabelOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode24radialLabelOffsetChangedEv(
+    QQuickGraphsNode *self) {
+  self->radialLabelOffsetChanged();
+}
+
+//  void QQuickGraphsNode::horizontalAspectRatioChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode28horizontalAspectRatioChangedEv(
+    QQuickGraphsNode *self) {
+  self->horizontalAspectRatioChanged();
+}
+
+//  void QQuickGraphsNode::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode13localeChangedEv(QQuickGraphsNode *self) {
+  self->localeChanged();
+}
+
+//  void QQuickGraphsNode::marginChanged(qreal margin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode13marginChangedEd(
+    QQuickGraphsNode *self,
+    qreal margin) {
+  self->marginChanged(margin);
+}
+
+//  void QQuickGraphsNode::gridLineTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsNode19gridLineTypeChangedEv(
+    QQuickGraphsNode *self) {
+  self->gridLineTypeChanged();
+}
+
 //  a Python function taken by a CuteQQuickGraphsNode, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -1012,4 +1148,11 @@ QCustom3DItem *ritual_own_ZNK16QQuickGraphsNode18selectedCustomItemEv(
   return self->QQuickGraphsNode::selectedCustomItem();
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+//  a QQmlListProperty<QCustom3DItem> a ritual of QQuickGraphsNode gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickGraphsNode__QQmlListProperty_QCustom3DItem(
+    QQmlListProperty<QCustom3DItem> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

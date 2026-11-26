@@ -7,6 +7,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  Only a class built on QPauseAnimation may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -288,6 +289,24 @@ const QMetaObject *ritual_ZNK15QPauseAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPauseAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QPauseAnimation11qt_metacastEPKc(
+    QPauseAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPauseAnimation::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QPauseAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPauseAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPauseAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QPauseAnimation2trEPKcS1_i(
@@ -331,6 +350,13 @@ void ritual_ZN15QPauseAnimation11setDurationEi(
   self->setDuration(msecs);
 }
 
+//  QBindable<int> QPauseAnimation::bindableDuration()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN15QPauseAnimation16bindableDurationEv(
+    QPauseAnimation *self) {
+  return new QBindable<int>(self->bindableDuration());
+}
+
 //  bool QPauseAnimation::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QPauseAnimation5eventEP6QEvent(
@@ -345,6 +371,20 @@ void ritual_ZN15QPauseAnimation17updateCurrentTimeEi(
     QPauseAnimation *self,
     int a0) {
   self->updateCurrentTime(a0);
+}
+
+//  QPauseAnimationPrivate *QPauseAnimation::d_func()
+extern "C" Q_DECL_EXPORT
+QPauseAnimationPrivate *ritual_ZN15QPauseAnimation6d_funcEv(
+    QPauseAnimation *self) {
+  return self->d_func();
+}
+
+//  const QPauseAnimationPrivate *QPauseAnimation::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPauseAnimationPrivate *ritual_ZNK15QPauseAnimation6d_funcEv(
+    const QPauseAnimation *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQPauseAnimation, for the function named
@@ -379,6 +419,12 @@ void ritual_own_ZN15QPauseAnimation17updateCurrentTimeEi(
     int a0) {
   static_cast<OwnQPauseAnimation *>(self)->OwnQPauseAnimation::updateCurrentTime(
       a0);
+}
+
+//  a QBindable<int> a ritual of QPauseAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPauseAnimation__QBindable_int(QBindable<int> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(animation)

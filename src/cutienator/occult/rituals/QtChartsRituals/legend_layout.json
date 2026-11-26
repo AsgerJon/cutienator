@@ -27,6 +27,9 @@
     "ritual_ZN12LegendLayout20setDettachedGeometryERK6QRectF": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN12LegendLayout15widthLongerThanEPKNS_17LegendWidthStructES2_": [
+      "bool", "address", "address"
+    ],
     "ritual_take_LegendLayout": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12LegendLayout11setGeometryERK6QRectF": [
       "nothing", "address", "address"

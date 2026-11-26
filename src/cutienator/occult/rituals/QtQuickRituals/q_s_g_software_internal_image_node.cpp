@@ -22,6 +22,18 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalimagenode.cpp, line 395, as local:qsgsoftwareinternalimagenode.cpp:getTileRule
+static Qt::TileRule getTileRule(qreal factor)
+{
+    int ifactor = qRound(factor);
+    if (qFuzzyCompare(factor, ifactor )) {
+        if (ifactor  == 1 || ifactor  == 0)
+            return Qt::StretchTile;
+        return Qt::RoundTile;
+    }
+    return Qt::RepeatTile;
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalimagenode.cpp, line 293, as _ZN28QSGSoftwareInternalImageNode13setTargetRectERK6QRectF
 inline void QSGSoftwareInternalImageNode::setTargetRect(const QRectF &rect)
 {
@@ -134,6 +146,38 @@ inline void QSGSoftwareInternalImageNode::preprocess()
     if (doDirty)
         markDirty(DirtyMaterial);
     m_cachedMirroredPixmapIsDirty = doDirty;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalimagenode.cpp, line 459, as _ZN28QSGSoftwareInternalImageNode26updateCachedMirroredPixmapEv
+inline void QSGSoftwareInternalImageNode::updateCachedMirroredPixmap()
+{
+    if (m_cachedMirroredPixmapIsDirty) {
+        if (m_mirrorHorizontally || m_mirrorVertically || m_textureIsLayer) {
+            QTransform transform(
+                (m_mirrorHorizontally ? -1 : 1), 0,
+                0                              , (m_textureIsLayer ? -1 : 1) * (m_mirrorVertically ? -1 : 1),
+                0                              , 0
+                );
+            m_cachedMirroredPixmap = pixmap().transformed(transform);
+        } else {
+            //Cleanup cached pixmap if necessary
+            if (!m_cachedMirroredPixmap.isNull())
+                m_cachedMirroredPixmap = QPixmap();
+        }
+        m_cachedMirroredPixmapIsDirty = false;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalimagenode.cpp, line 448, as _ZNK28QSGSoftwareInternalImageNode6pixmapEv
+inline const QPixmap &QSGSoftwareInternalImageNode::pixmap() const
+{
+    if (QSGSoftwarePixmapTexture *pt = qobject_cast<QSGSoftwarePixmapTexture*>(m_texture))
+        return pt->pixmap();
+    if (QSGSoftwareLayer *layer = qobject_cast<QSGSoftwareLayer*>(m_texture))
+        return layer->pixmap();
+    Q_ASSERT(m_texture == nullptr);
+    static const QPixmap nullPixmap;
+    return nullPixmap;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalimagenode.cpp, line 443, as _ZNK28QSGSoftwareInternalImageNode4rectEv

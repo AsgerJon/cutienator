@@ -16,6 +16,24 @@ const QMetaObject *ritual_ZNK11QQuickScale10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScale::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickScale11qt_metacastEPKc(
+    QQuickScale *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScale::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickScale11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScale *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScale::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickScale2trEPKcS1_i(
@@ -87,6 +105,49 @@ void ritual_ZNK11QQuickScale7applyToEP10QMatrix4x4(
     const QQuickScale *self,
     QMatrix4x4 *matrix) {
   self->applyTo(matrix);
+}
+
+//  void QQuickScale::originChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickScale13originChangedEv(QQuickScale *self) {
+  self->originChanged();
+}
+
+//  void QQuickScale::xScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickScale13xScaleChangedEv(QQuickScale *self) {
+  self->xScaleChanged();
+}
+
+//  void QQuickScale::yScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickScale13yScaleChangedEv(QQuickScale *self) {
+  self->yScaleChanged();
+}
+
+//  void QQuickScale::zScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickScale13zScaleChangedEv(QQuickScale *self) {
+  self->zScaleChanged();
+}
+
+//  void QQuickScale::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickScale12scaleChangedEv(QQuickScale *self) {
+  self->scaleChanged();
+}
+
+//  QQuickScalePrivate *QQuickScale::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickScalePrivate *ritual_ZN11QQuickScale6d_funcEv(QQuickScale *self) {
+  return self->d_func();
+}
+
+//  const QQuickScalePrivate *QQuickScale::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickScalePrivate *ritual_ZNK11QQuickScale6d_funcEv(
+    const QQuickScale *self) {
+  return self->d_func();
 }
 
 //  void QQuickScale::applyTo(QMatrix4x4 *matrix) const

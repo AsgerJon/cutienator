@@ -24,6 +24,25 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtpositioning/src/positioning/qgeopositioninfo.cpp, line 390, as _ZN23QGeoPositionInfoPrivateD1Ev
+inline QGeoPositionInfoPrivate::~QGeoPositionInfoPrivate()
+{
+
+}
+
+//  from ../qtpositioning/src/positioning/qgeopositioninfo.cpp, line 378, as _ZN23QGeoPositionInfoPrivateC1Ev
+inline QGeoPositionInfoPrivate::QGeoPositionInfoPrivate() : QSharedData()
+{
+}
+
+//  from ../qtpositioning/src/positioning/qgeopositioninfo.cpp, line 395, as _ZNK23QGeoPositionInfoPrivateeqERKS_
+inline bool QGeoPositionInfoPrivate::operator==(const QGeoPositionInfoPrivate &other) const
+{
+    return timestamp == other.timestamp
+           && coord == other.coord
+            && doubleAttribs == other.doubleAttribs;
+}
+
 //  from ../qtpositioning/src/positioning/qgeopositioninfo.cpp, line 402, as _ZN23QGeoPositionInfoPrivate3getERK16QGeoPositionInfo
 inline QGeoPositionInfoPrivate *QGeoPositionInfoPrivate::get(const QGeoPositionInfo &info)
 {
@@ -31,10 +50,25 @@ inline QGeoPositionInfoPrivate *QGeoPositionInfoPrivate::get(const QGeoPositionI
 }
 //  -----------------------------------------------------------------------
 
+//  QGeoPositionInfoPrivate::QGeoPositionInfoPrivate()
+extern "C" Q_DECL_EXPORT
+QGeoPositionInfoPrivate *ritual_ZN23QGeoPositionInfoPrivateC1Ev() {
+  return new QGeoPositionInfoPrivate();
+}
+
 //  QGeoPositionInfoPrivate::~QGeoPositionInfoPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QGeoPositionInfoPrivateD1Ev(QGeoPositionInfoPrivate *self) {
   delete self;
+}
+
+//  bool QGeoPositionInfoPrivate::operator==(const QGeoPositionInfoPrivate
+//      &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK23QGeoPositionInfoPrivateeqERKS_(
+    const QGeoPositionInfoPrivate *self,
+    const QGeoPositionInfoPrivate *other) {
+  return self->operator==(*other);
 }
 
 //  QGeoPositionInfoPrivate *QGeoPositionInfoPrivate::get(const

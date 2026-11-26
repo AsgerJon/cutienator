@@ -8,8 +8,20 @@
     "ritual_ZNK26QQuickItemParticleAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuickItemParticleAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuickItemParticleAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK26QQuickItemParticleAttached8particleEv": [
       "address", "address"
+    ],
+    "ritual_ZN26QQuickItemParticleAttached8detachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickItemParticleAttached8attachedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQuickItemParticleAttached": [
       "bool", "address", "chars", "address"

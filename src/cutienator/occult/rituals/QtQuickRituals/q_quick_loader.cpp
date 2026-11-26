@@ -796,6 +796,24 @@ const QMetaObject *ritual_ZNK12QQuickLoader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLoader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickLoader11qt_metacastEPKc(
+    QQuickLoader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLoader::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickLoader11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLoader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickLoader::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickLoader2trEPKcS1_i(
@@ -911,6 +929,54 @@ void ritual_ZN12QQuickLoader15setAsynchronousEb(QQuickLoader *self, bool a) {
 extern "C" Q_DECL_EXPORT
 QObject *ritual_ZNK12QQuickLoader4itemEv(const QQuickLoader *self) {
   return self->item();
+}
+
+//  void QQuickLoader::itemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickLoader11itemChangedEv(QQuickLoader *self) {
+  self->itemChanged();
+}
+
+//  void QQuickLoader::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickLoader13activeChangedEv(QQuickLoader *self) {
+  self->activeChanged();
+}
+
+//  void QQuickLoader::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickLoader13sourceChangedEv(QQuickLoader *self) {
+  self->sourceChanged();
+}
+
+//  void QQuickLoader::sourceComponentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickLoader22sourceComponentChangedEv(QQuickLoader *self) {
+  self->sourceComponentChanged();
+}
+
+//  void QQuickLoader::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickLoader13statusChangedEv(QQuickLoader *self) {
+  self->statusChanged();
+}
+
+//  void QQuickLoader::progressChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickLoader15progressChangedEv(QQuickLoader *self) {
+  self->progressChanged();
+}
+
+//  void QQuickLoader::loaded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickLoader6loadedEv(QQuickLoader *self) {
+  self->loaded();
+}
+
+//  void QQuickLoader::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickLoader19asynchronousChangedEv(QQuickLoader *self) {
+  self->asynchronousChanged();
 }
 
 //  void QQuickLoader::geometryChange(const QRectF &newGeometry, const QRectF

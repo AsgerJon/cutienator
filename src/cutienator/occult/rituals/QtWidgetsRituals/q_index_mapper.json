@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN12QIndexMapperC1Ev": ["address"],
     "ritual_ZN12QIndexMapperC1Eii": ["address", "int", "int"],
+    "ritual_ZN12QIndexMapperC1ERK5QListIiE": ["address", "address"],
     "ritual_ZNK12QIndexMapper5countEv": ["int", "address"],
     "ritual_ZNK12QIndexMapperixEi": ["int", "address", "int"],
     "ritual_ZNK12QIndexMapper7indexOfEi": ["int", "address", "int"],

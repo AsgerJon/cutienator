@@ -9,6 +9,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
+#include <QtQuick3D/QQuick3DObject>
 
 //  A QQuick3DObjectPrivate that Python can take functions over in. Every QQuick3DObjectPrivate
 //  Python makes is one. Each function below asks the Python
@@ -115,6 +118,41 @@ void ritual_ZN21QQuick3DObjectPrivate4initEP14QQuick3DObject(
   self->init(parent);
 }
 
+//  QQmlListProperty<QObject> QQuick3DObjectPrivate::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN21QQuick3DObjectPrivate4dataEv(
+    QQuick3DObjectPrivate *self) {
+  return new QQmlListProperty<QObject>(self->data());
+}
+
+//  QQmlListProperty<QObject> QQuick3DObjectPrivate::resources()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN21QQuick3DObjectPrivate9resourcesEv(
+    QQuick3DObjectPrivate *self) {
+  return new QQmlListProperty<QObject>(self->resources());
+}
+
+//  QQmlListProperty<QQuick3DObject> QQuick3DObjectPrivate::children()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DObject> *ritual_ZN21QQuick3DObjectPrivate8childrenEv(
+    QQuick3DObjectPrivate *self) {
+  return new QQmlListProperty<QQuick3DObject>(self->children());
+}
+
+//  QQmlListProperty<QQuickState> QQuick3DObjectPrivate::states()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickState> *ritual_ZN21QQuick3DObjectPrivate6statesEv(
+    QQuick3DObjectPrivate *self) {
+  return new QQmlListProperty<QQuickState>(self->states());
+}
+
+//  QQmlListProperty<QQuickTransition> QQuick3DObjectPrivate::transitions()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickTransition> *ritual_ZN21QQuick3DObjectPrivate11transitionsEv(
+    QQuick3DObjectPrivate *self) {
+  return new QQmlListProperty<QQuickTransition>(self->transitions());
+}
+
 //  QString QQuick3DObjectPrivate::state() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK21QQuick3DObjectPrivate5stateEv(
@@ -128,6 +166,111 @@ void ritual_ZN21QQuick3DObjectPrivate8setStateERK7QString(
     QQuick3DObjectPrivate *self,
     const QString *a0) {
   self->setState(*a0);
+}
+
+//  void QQuick3DObjectPrivate::data_append(QQmlListProperty<QObject> *a0,
+//      QObject *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DObjectPrivate11data_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *a0,
+    QObject *a1) {
+  QQuick3DObjectPrivate::data_append(a0, a1);
+}
+
+//  qsizetype QQuick3DObjectPrivate::data_count(QQmlListProperty<QObject>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN21QQuick3DObjectPrivate10data_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  return QQuick3DObjectPrivate::data_count(a0);
+}
+
+//  QObject *QQuick3DObjectPrivate::data_at(QQmlListProperty<QObject> *a0,
+//      qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN21QQuick3DObjectPrivate7data_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *a0,
+    qsizetype a1) {
+  return QQuick3DObjectPrivate::data_at(a0, a1);
+}
+
+//  void QQuick3DObjectPrivate::data_clear(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DObjectPrivate10data_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QQuick3DObjectPrivate::data_clear(a0);
+}
+
+//  QObject *QQuick3DObjectPrivate::resources_at(QQmlListProperty<QObject>
+//      *a0, qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN21QQuick3DObjectPrivate12resources_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *a0,
+    qsizetype a1) {
+  return QQuick3DObjectPrivate::resources_at(a0, a1);
+}
+
+//  void QQuick3DObjectPrivate::resources_append(QQmlListProperty<QObject>
+//      *a0, QObject *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DObjectPrivate16resources_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *a0,
+    QObject *a1) {
+  QQuick3DObjectPrivate::resources_append(a0, a1);
+}
+
+//  qsizetype
+//      QQuick3DObjectPrivate::resources_count(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN21QQuick3DObjectPrivate15resources_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  return QQuick3DObjectPrivate::resources_count(a0);
+}
+
+//  void QQuick3DObjectPrivate::resources_clear(QQmlListProperty<QObject>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DObjectPrivate15resources_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QQuick3DObjectPrivate::resources_clear(a0);
+}
+
+//  void
+//      QQuick3DObjectPrivate::children_append(QQmlListProperty<QQuick3DObjec
+//      t> *a0, QQuick3DObject *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DObjectPrivate15children_appendEP16QQmlListPropertyI14QQuick3DObjectEPS1_(
+    QQmlListProperty<QQuick3DObject> *a0,
+    QQuick3DObject *a1) {
+  QQuick3DObjectPrivate::children_append(a0, a1);
+}
+
+//  qsizetype
+//      QQuick3DObjectPrivate::children_count(QQmlListProperty<QQuick3DObject
+//      > *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN21QQuick3DObjectPrivate14children_countEP16QQmlListPropertyI14QQuick3DObjectE(
+    QQmlListProperty<QQuick3DObject> *a0) {
+  return QQuick3DObjectPrivate::children_count(a0);
+}
+
+//  QQuick3DObject
+//      *QQuick3DObjectPrivate::children_at(QQmlListProperty<QQuick3DObject>
+//      *a0, qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QQuick3DObject *ritual_ZN21QQuick3DObjectPrivate11children_atEP16QQmlListPropertyI14QQuick3DObjectEx(
+    QQmlListProperty<QQuick3DObject> *a0,
+    qsizetype a1) {
+  return QQuick3DObjectPrivate::children_at(a0, a1);
+}
+
+//  void
+//      QQuick3DObjectPrivate::children_clear(QQmlListProperty<QQuick3DObject
+//      > *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DObjectPrivate14children_clearEP16QQmlListPropertyI14QQuick3DObjectE(
+    QQmlListProperty<QQuick3DObject> *a0) {
+  QQuick3DObjectPrivate::children_clear(a0);
 }
 
 //  void QQuick3DObjectPrivate::_q_resourceObjectDeleted(QObject *a0)
@@ -267,11 +410,28 @@ void ritual_ZN21QQuick3DObjectPrivate19siblingOrderChangedEv(
   self->siblingOrderChanged();
 }
 
+//  void QQuick3DObjectPrivate::refSceneManager(QQuick3DSceneManager &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DObjectPrivate15refSceneManagerER20QQuick3DSceneManager(
+    QQuick3DObjectPrivate *self,
+    QQuick3DSceneManager *a0) {
+  self->refSceneManager(*a0);
+}
+
 //  void QQuick3DObjectPrivate::derefSceneManager()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuick3DObjectPrivate17derefSceneManagerEv(
     QQuick3DObjectPrivate *self) {
   self->derefSceneManager();
+}
+
+//  void QQuick3DObjectPrivate::refSceneManager(QQuick3DObject *obj,
+//      QQuick3DSceneManager &mgr)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DObjectPrivate15refSceneManagerEP14QQuick3DObjectR20QQuick3DSceneManager(
+    QQuick3DObject *obj,
+    QQuick3DSceneManager *mgr) {
+  QQuick3DObjectPrivate::refSceneManager(obj, *mgr);
 }
 
 //  void QQuick3DObjectPrivate::derefSceneManager(QQuick3DObject *obj)
@@ -330,4 +490,33 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN21QQuick3DObjectPrivate12updatePolishEv(
     QQuick3DObjectPrivate *self) {
   self->QQuick3DObjectPrivate::updatePolish();
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuick3DObjectPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DObjectPrivate__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuick3DObject> a ritual of QQuick3DObjectPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DObjectPrivate__QQmlListProperty_QQuick3DObject(
+    QQmlListProperty<QQuick3DObject> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickState> a ritual of QQuick3DObjectPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DObjectPrivate__QQmlListProperty_QQuickState(
+    QQmlListProperty<QQuickState> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickTransition> a ritual of QQuick3DObjectPrivate
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DObjectPrivate__QQmlListProperty_QQuickTransition(
+    QQmlListProperty<QQuickTransition> *self) {
+  delete self;
 }

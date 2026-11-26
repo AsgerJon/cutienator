@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK21QQuick3DBakedLightmap10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DBakedLightmap::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DBakedLightmap11qt_metacastEPKc(
+    QQuick3DBakedLightmap *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DBakedLightmap::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DBakedLightmap11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DBakedLightmap *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DBakedLightmap::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuick3DBakedLightmap2trEPKcS1_i(
@@ -67,4 +86,32 @@ void ritual_ZN21QQuick3DBakedLightmap13setLoadPrefixERK7QString(
     QQuick3DBakedLightmap *self,
     const QString *loadPrefix) {
   self->setLoadPrefix(*loadPrefix);
+}
+
+//  void QQuick3DBakedLightmap::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DBakedLightmap7changedEv(
+    QQuick3DBakedLightmap *self) {
+  self->changed();
+}
+
+//  void QQuick3DBakedLightmap::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DBakedLightmap14enabledChangedEv(
+    QQuick3DBakedLightmap *self) {
+  self->enabledChanged();
+}
+
+//  void QQuick3DBakedLightmap::keyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DBakedLightmap10keyChangedEv(
+    QQuick3DBakedLightmap *self) {
+  self->keyChanged();
+}
+
+//  void QQuick3DBakedLightmap::loadPrefixChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DBakedLightmap17loadPrefixChangedEv(
+    QQuick3DBakedLightmap *self) {
+  self->loadPrefixChanged();
 }

@@ -195,6 +195,24 @@ const QMetaObject *ritual_ZNK15QQuickTransform10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTransform::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickTransform11qt_metacastEPKc(
+    QQuickTransform *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTransform::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickTransform11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTransform *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTransform::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickTransform2trEPKcS1_i(
@@ -209,6 +227,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickTransform22qt_qmlMarker_anonymousEv(
     QQuickTransform *self) {
   self->qt_qmlMarker_anonymous();
+}
+
+//  QQuickTransform::QQuickTransform(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickTransform *ritual_ZN15QQuickTransformC1EP7QObject(QObject *parent) {
+  return new CuteQQuickTransform(parent);
 }
 
 //  QQuickTransform::~QQuickTransform()
@@ -245,6 +269,15 @@ void ritual_ZNK15QQuickTransform7applyToEP10QMatrix4x4(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickTransform6updateEv(QQuickTransform *self) {
   self->update();
+}
+
+//  QQuickTransform::QQuickTransform(QQuickTransformPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickTransform *ritual_ZN15QQuickTransformC1ER22QQuickTransformPrivateP7QObject(
+    QQuickTransformPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickTransform(*dd, parent);
 }
 
 //  QQuickTransformPrivate *QQuickTransform::d_func()

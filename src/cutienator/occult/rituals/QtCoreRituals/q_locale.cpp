@@ -6,6 +6,10 @@
 #include <QtCore/qdatetime.h>
 #include <QtCore/qcalendar.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QLocale>
+#include <QtCore/QList>
+#include <QtCore/Qt>
+#include <QtCore/QStringView>
 
 //  QLocale::QLocale()
 extern "C" Q_DECL_EXPORT
@@ -48,10 +52,28 @@ QLocale *ritual_ZN7QLocaleC1ERKS_(const QLocale *other) {
   return new QLocale(*other);
 }
 
+//  QLocale &QLocale::operator=(QLocale &&other)
+extern "C" Q_DECL_EXPORT
+QLocale *ritual_ZN7QLocaleaSEOS_(QLocale *self, QLocale *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QLocale &QLocale::operator=(const QLocale &other)
+extern "C" Q_DECL_EXPORT
+QLocale *ritual_ZN7QLocaleaSERKS_(QLocale *self, const QLocale *other) {
+  return &(self->operator=(*other));
+}
+
 //  QLocale::~QLocale()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QLocaleD1Ev(QLocale *self) {
   delete self;
+}
+
+//  void QLocale::swap(QLocale &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLocale4swapERS_(QLocale *self, QLocale *other) {
+  self->swap(*other);
 }
 
 //  Language QLocale::language() const
@@ -64,6 +86,12 @@ QLocale::Language ritual_ZNK7QLocale8languageEv(const QLocale *self) {
 extern "C" Q_DECL_EXPORT
 QLocale::Script ritual_ZNK7QLocale6scriptEv(const QLocale *self) {
   return self->script();
+}
+
+//  Territory QLocale::territory() const
+extern "C" Q_DECL_EXPORT
+QLocale::Territory *ritual_ZNK7QLocale9territoryEv(const QLocale *self) {
+  return new QLocale::Territory(self->territory());
 }
 
 #if QT_DEPRECATED_SINCE(6, 6)
@@ -336,6 +364,94 @@ QString *ritual_ZNK7QLocale8toStringEi(const QLocale *self, int i) {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QLocale8toStringEj(const QLocale *self, uint i) {
   return new QString(self->toString(i));
+}
+
+//  QString QLocale::toString(qlonglong number, int fieldWidth, char32_t
+//      fillChar) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QLocale8toStringExiDi(
+    const QLocale *self,
+    qlonglong number,
+    int fieldWidth,
+    char32_t fillChar) {
+  return new QString(self->toString(number, fieldWidth, fillChar));
+}
+
+//  QString QLocale::toString(qulonglong number, int fieldWidth, char32_t
+//      fillChar) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QLocale8toStringEyiDi(
+    const QLocale *self,
+    qulonglong number,
+    int fieldWidth,
+    char32_t fillChar) {
+  return new QString(self->toString(number, fieldWidth, fillChar));
+}
+
+//  QString QLocale::toString(int number, int fieldWidth, char32_t fillChar)
+//      const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QLocale8toStringEiiDi(
+    const QLocale *self,
+    int number,
+    int fieldWidth,
+    char32_t fillChar) {
+  return new QString(self->toString(number, fieldWidth, fillChar));
+}
+
+//  QString QLocale::toString(uint number, int fieldWidth, char32_t fillChar)
+//      const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QLocale8toStringEjiDi(
+    const QLocale *self,
+    uint number,
+    int fieldWidth,
+    char32_t fillChar) {
+  return new QString(self->toString(number, fieldWidth, fillChar));
+}
+
+//  QString QLocale::toString(long number, int fieldWidth, char32_t fillChar)
+//      const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QLocale8toStringEliDi(
+    const QLocale *self,
+    long number,
+    int fieldWidth,
+    char32_t fillChar) {
+  return new QString(self->toString(number, fieldWidth, fillChar));
+}
+
+//  QString QLocale::toString(ulong number, int fieldWidth, char32_t
+//      fillChar) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QLocale8toStringEmiDi(
+    const QLocale *self,
+    ulong number,
+    int fieldWidth,
+    char32_t fillChar) {
+  return new QString(self->toString(number, fieldWidth, fillChar));
+}
+
+//  QString QLocale::toString(short number, int fieldWidth, char32_t
+//      fillChar) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QLocale8toStringEsiDi(
+    const QLocale *self,
+    short number,
+    int fieldWidth,
+    char32_t fillChar) {
+  return new QString(self->toString(number, fieldWidth, fillChar));
+}
+
+//  QString QLocale::toString(ushort number, int fieldWidth, char32_t
+//      fillChar) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QLocale8toStringEtiDi(
+    const QLocale *self,
+    ushort number,
+    int fieldWidth,
+    char32_t fillChar) {
+  return new QString(self->toString(number, fieldWidth, fillChar));
 }
 
 //  QString QLocale::toString(double f, char format, int precision) const
@@ -724,6 +840,12 @@ Qt::DayOfWeek ritual_ZNK7QLocale14firstDayOfWeekEv(const QLocale *self) {
   return self->firstDayOfWeek();
 }
 
+//  QList<Qt::DayOfWeek> QLocale::weekdays() const
+extern "C" Q_DECL_EXPORT
+QList<Qt::DayOfWeek> *ritual_ZNK7QLocale8weekdaysEv(const QLocale *self) {
+  return new QList<Qt::DayOfWeek>(self->weekdays());
+}
+
 //  QString QLocale::amText() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QLocale6amTextEv(const QLocale *self) {
@@ -911,6 +1033,15 @@ QString *ritual_ZN7QLocale15territoryToCodeENS_7CountryE(
   return new QString(QLocale::territoryToCode(territory));
 }
 
+//  Territory QLocale::codeToTerritory(QStringView territoryCode)
+extern "C" Q_DECL_EXPORT
+QLocale::Territory *ritual_ZN7QLocale15codeToTerritoryE11QStringView(
+    const QString *territoryCode) {
+  return new QLocale::Territory(
+      QLocale::codeToTerritory(
+          QStringView(*territoryCode)));
+}
+
 #if QT_DEPRECATED_SINCE(6, 6)
 //  QString QLocale::countryToCode(Country country)
 extern "C" Q_DECL_EXPORT
@@ -1005,6 +1136,15 @@ QList<QLocale> *ritual_ZN7QLocale15matchingLocalesENS_8LanguageENS_6ScriptENS_7C
           territory));
 }
 
+#if QT_DEPRECATED_SINCE(6, 6)
+//  QList<Country> QLocale::countriesForLanguage(Language lang)
+extern "C" Q_DECL_EXPORT
+QList<QLocale::Country> *ritual_ZN7QLocale20countriesForLanguageENS_8LanguageE(
+    QLocale::Language lang) {
+  return new QList<QLocale::Country>(QLocale::countriesForLanguage(lang));
+}
+#endif  // QT_DEPRECATED_SINCE(6, 6)
+
 //  void QLocale::setNumberOptions(NumberOptions options)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QLocale16setNumberOptionsE6QFlagsINS_12NumberOptionEE(
@@ -1046,6 +1186,12 @@ QString *ritual_ZNK7QLocale19createSeparatedListERK5QListI7QStringE(
   return new QString(self->createSeparatedList(*strl));
 }
 
+//  QLocale::QLocale(QLocalePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QLocale *ritual_ZN7QLocaleC1ER14QLocalePrivate(QLocalePrivate *dd) {
+  return new QLocale(*dd);
+}
+
 //  bool QLocale::equals(const QLocale &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK7QLocale6equalsERKS_(
@@ -1063,6 +1209,38 @@ bool ritual_ZeqRK7QLocaleS1_(const QLocale *lhs, const QLocale *rhs) {
 //  bool operator!=(const QLocale &lhs, const QLocale &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK7QLocaleS1_(const QLocale *lhs, const QLocale *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QLocale &lhs, const Language &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK7QLocaleRKNS_8LanguageE(
+    const QLocale *lhs,
+    const QLocale::Language *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLocale &lhs, const Language &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK7QLocaleRKNS_8LanguageE(
+    const QLocale *lhs,
+    const QLocale::Language *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const Language &lhs, const QLocale &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN7QLocale8LanguageERKS_(
+    const QLocale::Language *lhs,
+    const QLocale *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const Language &lhs, const QLocale &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN7QLocale8LanguageERKS_(
+    const QLocale::Language *lhs,
+    const QLocale *rhs) {
   return operator!=(*lhs, *rhs);
 }
 
@@ -1095,5 +1273,24 @@ QLocale *ritual_list_at_QLocale(
 //  QList<QLocale>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QLocale(QList<QLocale> *self) {
+  delete self;
+}
+
+//  a QLocale::Territory a ritual of QLocale gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLocale__QLocale_Territory(QLocale::Territory *self) {
+  delete self;
+}
+
+//  a QList<Qt::DayOfWeek> a ritual of QLocale gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLocale__QList_Qt_DayOfWeek(QList<Qt::DayOfWeek> *self) {
+  delete self;
+}
+
+//  a QList<QLocale::Country> a ritual of QLocale gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLocale__QList_QLocale_Country(
+    QList<QLocale::Country> *self) {
   delete self;
 }

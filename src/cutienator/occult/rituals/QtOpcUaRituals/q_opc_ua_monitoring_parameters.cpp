@@ -5,6 +5,8 @@
 #include <QtCore/qvariant.h>
 #include <QtOpcUa/qopcuaeventfilterresult.h>
 #include <QtCore/qstring.h>
+#include <QtCore/QSet>
+#include <QtCore/QHash>
 
 //  QOpcUaMonitoringParameters::QOpcUaMonitoringParameters()
 extern "C" Q_DECL_EXPORT
@@ -39,6 +41,15 @@ extern "C" Q_DECL_EXPORT
 QOpcUaMonitoringParameters *ritual_ZN26QOpcUaMonitoringParametersC1ERKS_(
     const QOpcUaMonitoringParameters *other) {
   return new QOpcUaMonitoringParameters(*other);
+}
+
+//  QOpcUaMonitoringParameters &QOpcUaMonitoringParameters::operator=(const
+//      QOpcUaMonitoringParameters &other)
+extern "C" Q_DECL_EXPORT
+QOpcUaMonitoringParameters *ritual_ZN26QOpcUaMonitoringParametersaSERKS_(
+    QOpcUaMonitoringParameters *self,
+    const QOpcUaMonitoringParameters *other) {
+  return &(self->operator=(*other));
 }
 
 //  double QOpcUaMonitoringParameters::samplingInterval() const
@@ -331,4 +342,53 @@ void ritual_ZN26QOpcUaMonitoringParameters13setIndexRangeERK7QString(
     QOpcUaMonitoringParameters *self,
     const QString *indexRange) {
   self->setIndexRange(*indexRange);
+}
+
+//  QSet<quint32> QOpcUaMonitoringParameters::triggeredItemIds() const
+extern "C" Q_DECL_EXPORT
+QSet<quint32> *ritual_ZNK26QOpcUaMonitoringParameters16triggeredItemIdsEv(
+    const QOpcUaMonitoringParameters *self) {
+  return new QSet<quint32>(self->triggeredItemIds());
+}
+
+//  void QOpcUaMonitoringParameters::setTriggeredItemIds(const QSet<quint32>
+//      &id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QOpcUaMonitoringParameters19setTriggeredItemIdsERK4QSetIjE(
+    QOpcUaMonitoringParameters *self,
+    const QSet<quint32> *id) {
+  self->setTriggeredItemIds(*id);
+}
+
+//  QHash<quint32, QOpcUa::UaStatusCode>
+//      QOpcUaMonitoringParameters::failedTriggeredItemsStatus() const
+extern "C" Q_DECL_EXPORT
+QHash<quint32, QOpcUa::UaStatusCode> *ritual_ZNK26QOpcUaMonitoringParameters26failedTriggeredItemsStatusEv(
+    const QOpcUaMonitoringParameters *self) {
+  return new QHash<quint32, QOpcUa::UaStatusCode>(
+      self->failedTriggeredItemsStatus());
+}
+
+//  void QOpcUaMonitoringParameters::setFailedTriggeredItemsStatus(const
+//      QHash<quint32, QOpcUa::UaStatusCode> &status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QOpcUaMonitoringParameters29setFailedTriggeredItemsStatusERK5QHashIjN6QOpcUa12UaStatusCodeEE(
+    QOpcUaMonitoringParameters *self,
+    const QHash<quint32, QOpcUa::UaStatusCode> *status) {
+  self->setFailedTriggeredItemsStatus(*status);
+}
+
+//  a QSet<quint32> a ritual of QOpcUaMonitoringParameters gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpcUaMonitoringParameters__QSet_quint32(
+    QSet<quint32> *self) {
+  delete self;
+}
+
+//  a QHash<quint32, QOpcUa::UaStatusCode> a ritual of
+//      QOpcUaMonitoringParameters gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpcUaMonitoringParameters__QHash_quint32_QOpcUa_UaStatusCode(
+    QHash<quint32, QOpcUa::UaStatusCode> *self) {
+  delete self;
 }

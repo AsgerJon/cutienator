@@ -71,6 +71,12 @@ public:
   }
 };
 
+//  Qt3DRender::QMeshPrivate::QMeshPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QMeshPrivate *ritual_ZN10Qt3DRender12QMeshPrivateC1Ev() {
+  return new CuteQt3DRender_QMeshPrivate();
+}
+
 //  QMesh *Qt3DRender::QMeshPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QMesh *ritual_ZN10Qt3DRender12QMeshPrivate6q_funcEv(
@@ -83,6 +89,36 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QMesh *ritual_ZNK10Qt3DRender12QMeshPrivate6q_funcEv(
     const Qt3DRender::QMeshPrivate *self) {
   return self->q_func();
+}
+
+//  QMeshPrivate *Qt3DRender::QMeshPrivate::get(QMesh *q)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QMeshPrivate *ritual_ZN10Qt3DRender12QMeshPrivate3getEPNS_5QMeshE(
+    Qt3DRender::QMesh *q) {
+  return Qt3DRender::QMeshPrivate::get(q);
+}
+
+//  void Qt3DRender::QMeshPrivate::setScene(Qt3DCore::QScene *scene)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QMeshPrivate8setSceneEPN8Qt3DCore6QSceneE(
+    Qt3DRender::QMeshPrivate *self,
+    Qt3DCore::QScene *scene) {
+  self->setScene(scene);
+}
+
+//  void Qt3DRender::QMeshPrivate::updateFunctor()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QMeshPrivate13updateFunctorEv(
+    Qt3DRender::QMeshPrivate *self) {
+  self->updateFunctor();
+}
+
+//  void Qt3DRender::QMeshPrivate::setStatus(QMesh::Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QMeshPrivate9setStatusENS_5QMesh6StatusE(
+    Qt3DRender::QMeshPrivate *self,
+    Qt3DRender::QMesh::Status status) {
+  self->setStatus(status);
 }
 
 //  a Python function taken by a CuteQt3DRender_QMeshPrivate, for the

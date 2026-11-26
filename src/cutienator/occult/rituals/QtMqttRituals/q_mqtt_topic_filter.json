@@ -10,6 +10,11 @@
     ],
     "ritual_ZN16QMqttTopicFilterC1ERKS_": ["address", "address"],
     "ritual_ZN16QMqttTopicFilterD1Ev": ["nothing", "address"],
+    "ritual_ZN16QMqttTopicFilteraSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QMqttTopicFilteraSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QMqttTopicFilter4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK16QMqttTopicFilter6filterEv": ["text", "address"],
     "ritual_ZN16QMqttTopicFilter9setFilterERK7QString": [
       "nothing", "address", "text"

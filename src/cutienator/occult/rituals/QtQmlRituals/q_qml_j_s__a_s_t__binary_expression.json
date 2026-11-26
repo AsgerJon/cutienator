@@ -5,6 +5,15 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST16BinaryExpressionC1EPNS0_14ExpressionNodeEiS3_": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST16BinaryExpression20binaryExpressionCastEv": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST16BinaryExpression7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK6QQmlJS3AST16BinaryExpression19firstSourceLocationEv": [
       "address", "address"
     ],

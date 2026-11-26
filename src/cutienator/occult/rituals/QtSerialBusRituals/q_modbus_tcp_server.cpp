@@ -2,6 +2,7 @@
 //  QtSerialBus/qmodbustcpserver.h, Qt 6.12.0. Changes made here are lost.
 #include <QtSerialBus/qmodbustcpserver.h>
 #include <QtCore/qstring.h>
+#include <QtSerialBus/qmodbuspdu.h>
 #include <QtCore/qvariant.h>
 #include <QtSerialBus/qmodbusdataunit.h>
 #include <QtCore/qmetaobject.h>
@@ -300,6 +301,25 @@ const QMetaObject *ritual_ZNK16QModbusTcpServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QModbusTcpServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QModbusTcpServer11qt_metacastEPKc(
+    QModbusTcpServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QModbusTcpServer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QModbusTcpServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QModbusTcpServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QModbusTcpServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QModbusTcpServer2trEPKcS1_i(
@@ -345,6 +365,23 @@ void ritual_ZN16QModbusTcpServer25installConnectionObserverEP28QModbusTcpConnect
   self->installConnectionObserver(observer);
 }
 
+//  void QModbusTcpServer::modbusClientDisconnected(QTcpSocket *modbusClient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QModbusTcpServer24modbusClientDisconnectedEP10QTcpSocket(
+    QModbusTcpServer *self,
+    QTcpSocket *modbusClient) {
+  self->modbusClientDisconnected(modbusClient);
+}
+
+//  QModbusTcpServer::QModbusTcpServer(QModbusTcpServerPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QModbusTcpServer *ritual_ZN16QModbusTcpServerC1ER23QModbusTcpServerPrivateP7QObject(
+    QModbusTcpServerPrivate *dd,
+    QObject *parent) {
+  return new CuteQModbusTcpServer(*dd, parent);
+}
+
 //  bool QModbusTcpServer::open()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN16QModbusTcpServer4openEv(QModbusTcpServer *self) {
@@ -355,6 +392,15 @@ bool ritual_ZN16QModbusTcpServer4openEv(QModbusTcpServer *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QModbusTcpServer5closeEv(QModbusTcpServer *self) {
   self->close();
+}
+
+//  QModbusResponse QModbusTcpServer::processRequest(const QModbusPdu
+//      &request)
+extern "C" Q_DECL_EXPORT
+QModbusResponse *ritual_ZN16QModbusTcpServer14processRequestERK10QModbusPdu(
+    QModbusTcpServer *self,
+    const QModbusPdu *request) {
+  return new QModbusResponse(self->processRequest(*request));
 }
 
 //  a Python function taken by a CuteQModbusTcpServer, for the function named

@@ -18,6 +18,15 @@ QScxmlExecutableContent::StateTable::Array::const_iterator *ritual_ZN23QScxmlExe
       pos);
 }
 
+//  const_iterator
+//      &QScxmlExecutableContent::StateTable::Array::const_iterator::operator
+//      ++()
+extern "C" Q_DECL_EXPORT
+QScxmlExecutableContent::StateTable::Array::const_iterator *ritual_ZN23QScxmlExecutableContent10StateTable5Array14const_iteratorppEv(
+    QScxmlExecutableContent::StateTable::Array::const_iterator *self) {
+  return &(self->operator++());
+}
+
 //  bool QScxmlExecutableContent::StateTable::Array::const_iterator::operator
 //      ==(const const_iterator &other) const
 extern "C" Q_DECL_EXPORT

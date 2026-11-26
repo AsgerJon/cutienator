@@ -4,7 +4,9 @@
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(shortcut)
 #include <QtGui/qevent.h>
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <cstring>
 
 //  A QShortcutEvent that Python can take functions over in. Every QShortcutEvent
@@ -17,6 +19,7 @@ typedef void (*CuteQShortcutEventCall1)(const void *, bool, int *);
 class CuteQShortcutEvent : public QShortcutEvent {
 public:
   using QShortcutEvent::QShortcutEvent;
+  CuteQShortcutEvent(const QShortcutEvent & other) : QShortcutEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -57,6 +60,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QShortcutEvent::QShortcutEvent(const QShortcutEvent &a0)
+extern "C" Q_DECL_EXPORT
+QShortcutEvent *ritual_ZN14QShortcutEventC1ERKS_(const QShortcutEvent *a0) {
+  return new CuteQShortcutEvent(*a0);
+}
+
+//  QShortcutEvent &QShortcutEvent::operator=(const QShortcutEvent &other)
+extern "C" Q_DECL_EXPORT
+QShortcutEvent *ritual_ZN14QShortcutEventaSERKS_(
+    QShortcutEvent *self,
+    const QShortcutEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QShortcutEvent *QShortcutEvent::clone() const
 extern "C" Q_DECL_EXPORT

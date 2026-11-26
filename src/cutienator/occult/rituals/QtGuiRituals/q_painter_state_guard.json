@@ -4,6 +4,11 @@
     "QtGui/qpainterstateguard.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QPainterStateGuardC1EOS_": ["address", "address"],
+    "ritual_ZN18QPainterStateGuardaSEOS_": ["address", "address", "address"],
+    "ritual_ZN18QPainterStateGuard4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QPainterStateGuardC1EP8QPainterNS_12InitialStateE": [
       "address", "address", "unsigned char"
     ],

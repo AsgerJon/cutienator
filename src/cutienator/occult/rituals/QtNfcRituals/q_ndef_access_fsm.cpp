@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNfc/6.12.0/QtNfc/private/qndefaccessfsm_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtNfc/6.12.0/QtNfc/private/qndefaccessfsm_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: completed by hand: getCommand and getMessage (virtual,
+//  called through the object). Kept as it is when the generator runs again.
 #include <QtNfc/6.12.0/QtNfc/private/qtnfcglobal_p.h>
 #include <QtNfc/QtNfc>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -117,4 +118,20 @@ bool ritual_take_QNdefAccessFsm(
     const char *key,
     void *call) {
   return static_cast<CuteQNdefAccessFsm *>(self)->take(key, call);
+}
+
+//  QByteArray QNdefAccessFsm::getCommand(Action &nextAction)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN14QNdefAccessFsm10getCommandERNS_6ActionE(
+    QNdefAccessFsm *self,
+    QNdefAccessFsm::Action *nextAction) {
+  return new QByteArray(self->getCommand(*nextAction));
+}
+
+//  QNdefMessage QNdefAccessFsm::getMessage(Action &nextAction)
+extern "C" Q_DECL_EXPORT
+QNdefMessage *ritual_ZN14QNdefAccessFsm10getMessageERNS_6ActionE(
+    QNdefAccessFsm *self,
+    QNdefAccessFsm::Action *nextAction) {
+  return new QNdefMessage(self->getMessage(*nextAction));
 }

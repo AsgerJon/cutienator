@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN29QQuick3DXrInputManagerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuick3DXrInputManagerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuick3DXrInputManagerPrivate7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QQuick3DXrInputManagerPrivate3getEP22QQuick3DXrInputManager": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuick3DXrInputManagerPrivate26setPosePositionAndRotationEN11QtQuick3DXr10HandednessENS0_13HandPoseSpaceERK9QVector3DRK11QQuaternion": [
+      "nothing", "address", "unsigned char", "int", "address", "address"
+    ],
+    "ritual_ZN29QQuick3DXrInputManagerPrivate18registerControllerEP20QQuick3DXrController": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQuick3DXrInputManagerPrivate20unregisterControllerEP20QQuick3DXrController": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQuick3DXrInputManagerPrivate11isPoseInUseEN11QtQuick3DXr10HandednessENS0_13HandPoseSpaceE": [
+      "bool", "address", "unsigned char", "int"
+    ],
+    "ritual_ZNK29QQuick3DXrInputManagerPrivate13leftHandInputEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuick3DXrInputManagerPrivate14rightHandInputEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuick3DXrInputManagerPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN29QQuick3DXrInputManagerPrivate9handSpaceEN11QtQuick3DXr10HandednessENS0_13HandPoseSpaceE": ["address", "address", "unsigned char", "int"],
+    "ritual_ZNK29QQuick3DXrInputManagerPrivate17getPokeJointIndexEv": ["long long", "address"]
+  }
+}

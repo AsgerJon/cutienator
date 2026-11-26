@@ -7,7 +7,11 @@
   "rows": {
     "ritual_ZN7QShaderC1Ev": ["address"],
     "ritual_ZN7QShaderC1ERKS_": ["address", "address"],
+    "ritual_ZN7QShaderaSERKS_": ["address", "address", "address"],
+    "ritual_ZN7QShaderC1EOS_": ["address", "address"],
+    "ritual_ZN7QShaderaSEOS_": ["address", "address", "address"],
     "ritual_ZN7QShaderD1Ev": ["nothing", "address"],
+    "ritual_ZN7QShader4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN7QShader6detachEv": ["nothing", "address"],
     "ritual_ZNK7QShader7isValidEv": ["bool", "address"],
     "ritual_ZNK7QShader5stageEv": ["int", "address"],
@@ -32,8 +36,20 @@
     "ritual_ZN7QShader14fromSerializedERK10QByteArray": [
       "address", "address"
     ],
+    "ritual_ZNK7QShader24nativeResourceBindingMapERK10QShaderKey": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QShader21setResourceBindingMapERK10QShaderKeyRK4QMapIiSt4pairIiiEE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN7QShader24removeResourceBindingMapERK10QShaderKey": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QShader41separateToCombinedImageSamplerMappingListERK10QShaderKey": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QShader44setSeparateToCombinedImageSamplerMappingListERK10QShaderKeyRK5QListINS_37SeparateToCombinedImageSamplerMappingEE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN7QShader47removeSeparateToCombinedImageSamplerMappingListERK10QShaderKey": [
       "nothing", "address", "address"
@@ -48,6 +64,12 @@
       "nothing", "address", "address"
     ],
     "ritual_ZeqRK7QShaderS1_": ["bool", "address", "address"],
-    "ritual_Zls6QDebugRK7QShader": ["address", "address", "address"]
+    "ritual_Zls6QDebugRK7QShader": ["address", "address", "address"],
+    "ritual_drop_QShader__QShader_NativeResourceBindingMap": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QShader__QShader_SeparateToCombinedImageSamplerMappingList": [
+      "nothing", "address"
+    ]
   }
 }

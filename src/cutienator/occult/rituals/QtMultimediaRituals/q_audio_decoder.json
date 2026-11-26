@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QAudioDecoder10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QAudioDecoder11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QAudioDecoder11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QAudioDecoder2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QAudioDecoderC1EP7QObject": ["address", "address"],
     "ritual_ZN13QAudioDecoderD1Ev": ["nothing", "address"],
@@ -23,6 +29,7 @@
     "ritual_ZN13QAudioDecoder14setAudioFormatERK12QAudioFormat": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK13QAudioDecoder5errorEv": ["int", "address"],
     "ritual_ZNK13QAudioDecoder11errorStringEv": ["text", "address"],
     "ritual_ZNK13QAudioDecoder4readEv": ["address", "address"],
     "ritual_ZNK13QAudioDecoder15bufferAvailableEv": ["bool", "address"],
@@ -30,6 +37,27 @@
     "ritual_ZNK13QAudioDecoder8durationEv": ["long long", "address"],
     "ritual_ZN13QAudioDecoder5startEv": ["nothing", "address"],
     "ritual_ZN13QAudioDecoder4stopEv": ["nothing", "address"],
+    "ritual_ZN13QAudioDecoder22bufferAvailableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAudioDecoder11bufferReadyEv": ["nothing", "address"],
+    "ritual_ZN13QAudioDecoder8finishedEv": ["nothing", "address"],
+    "ritual_ZN13QAudioDecoder17isDecodingChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAudioDecoder13formatChangedERK12QAudioFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAudioDecoder5errorENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QAudioDecoder13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN13QAudioDecoder15positionChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN13QAudioDecoder15durationChangedEx": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZN13QAudioDecoder6d_funcEv": ["address", "address"],
     "ritual_ZNK13QAudioDecoder6d_funcEv": ["address", "address"],
     "ritual_take_QAudioDecoder": ["bool", "address", "chars", "address"]

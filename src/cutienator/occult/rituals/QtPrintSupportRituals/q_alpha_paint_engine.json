@@ -30,6 +30,9 @@
     "ritual_ZN17QAlphaPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_ZN17QAlphaPaintEngineC1ER24QAlphaPaintEnginePrivate6QFlagsIN12QPaintEngine18PaintEngineFeatureEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK17QAlphaPaintEngine13alphaClippingEv": ["address", "address"],
     "ritual_ZNK17QAlphaPaintEngine12continueCallEv": ["bool", "address"],
     "ritual_ZN17QAlphaPaintEngine12flushAndInitEb": [

@@ -2188,6 +2188,25 @@ public:
   }
 };
 
+//  QQmlJSStorageGeneralizer::QQmlJSStorageGeneralizer(const
+//      QV4::Compiler::JSUnitGenerator *jsUnitGenerator, const
+//      QQmlJSTypeResolver *typeResolver, QQmlJSLogger *logger, const
+//      BasicBlocks &basicBlocks, const InstructionAnnotations &annotations)
+extern "C" Q_DECL_EXPORT
+QQmlJSStorageGeneralizer *ritual_ZN24QQmlJSStorageGeneralizerC1EPKN3QV48Compiler15JSUnitGeneratorEPK18QQmlJSTypeResolverP12QQmlJSLoggerRK8QFlatMapIiN17QQmlJSCompilePass10BasicBlockESt4lessIiE5QListIiESF_ISC_EERKSA_IiNSB_21InstructionAnnotationESE_SG_SF_ISL_EE(
+    const QV4::Compiler::JSUnitGenerator *jsUnitGenerator,
+    const QQmlJSTypeResolver *typeResolver,
+    QQmlJSLogger *logger,
+    const QQmlJSCompilePass::BasicBlocks *basicBlocks,
+    const QQmlJSCompilePass::InstructionAnnotations *annotations) {
+  return new CuteQQmlJSStorageGeneralizer(
+      jsUnitGenerator,
+      typeResolver,
+      logger,
+      *basicBlocks,
+      *annotations);
+}
+
 //  BlocksAndAnnotations QQmlJSStorageGeneralizer::run(const Function
 //      *function)
 extern "C" Q_DECL_EXPORT

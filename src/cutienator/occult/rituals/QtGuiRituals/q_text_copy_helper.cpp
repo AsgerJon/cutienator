@@ -6,7 +6,6 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qtextdocumentfragment_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGui/qtextcursor.h>
 #include <QtGui/qtextformat.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qtextdocumentfragment.h>
@@ -33,23 +32,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/text/qtextdocumentfragment.cpp, line 25, as _ZN15QTextCopyHelperC1ERK11QTextCursorS2_bRK15QTextCharFormat
-#if defined(Q_OS_LINUX)
-inline QTextCopyHelper::QTextCopyHelper(const QTextCursor &_source, const QTextCursor &_destination, bool forceCharFormat, const QTextCharFormat &fmt)
-#if defined(Q_CC_DIAB) // compiler bug
-    : formatCollection(*_destination.d->priv->formatCollection()), originalText((const QString)_source.d->priv->buffer())
-#else
-    : formatCollection(*_destination.d->priv->formatCollection()), originalText(_source.d->priv->buffer())
-#endif
-{
-    src = _source.d->priv;
-    dst = _destination.d->priv;
-    insertPos = _destination.position();
-    this->forceCharFormat = forceCharFormat;
-    primaryCharFormatIndex = convertFormatIndex(fmt);
-    cursor = _source;
-}
-#endif  // defined(Q_OS_LINUX)
+using namespace Qt::StringLiterals;
 
 //  from src/gui/text/qtextdocumentfragment.cpp, line 127, as _ZN15QTextCopyHelper4copyEv
 inline void QTextCopyHelper::copy()
@@ -207,18 +190,6 @@ inline int QTextCopyHelper::convertFormatIndex(const QTextFormat &oldFormat, int
     return idx;
 }
 //  -----------------------------------------------------------------------
-
-//  QTextCopyHelper::QTextCopyHelper(const QTextCursor &_source, const
-//      QTextCursor &_destination, bool forceCharFormat, const
-//      QTextCharFormat &fmt)
-extern "C" Q_DECL_EXPORT
-QTextCopyHelper *ritual_ZN15QTextCopyHelperC1ERK11QTextCursorS2_bRK15QTextCharFormat(
-    const QTextCursor *_source,
-    const QTextCursor *_destination,
-    bool forceCharFormat,
-    const QTextCharFormat *fmt) {
-  return new QTextCopyHelper(*_source, *_destination, forceCharFormat, *fmt);
-}
 
 //  void QTextCopyHelper::copy()
 extern "C" Q_DECL_EXPORT

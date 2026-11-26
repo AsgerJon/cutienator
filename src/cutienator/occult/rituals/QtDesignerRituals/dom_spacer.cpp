@@ -21,6 +21,24 @@ void ritual_ZN9DomSpacerD1Ev(DomSpacer *self) {
   delete self;
 }
 
+//  void DomSpacer::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9DomSpacer4readER16QXmlStreamReader(
+    DomSpacer *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomSpacer::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9DomSpacer5writeER16QXmlStreamWriterRK7QString(
+    const DomSpacer *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomSpacer::hasAttributeName() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9DomSpacer16hasAttributeNameEv(const DomSpacer *self) {

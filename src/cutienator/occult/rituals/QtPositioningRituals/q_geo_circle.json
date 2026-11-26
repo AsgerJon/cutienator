@@ -11,6 +11,7 @@
     "ritual_ZN10QGeoCircleC1ERKS_": ["address", "address"],
     "ritual_ZN10QGeoCircleC1ERK9QGeoShape": ["address", "address"],
     "ritual_ZN10QGeoCircleD1Ev": ["nothing", "address"],
+    "ritual_ZN10QGeoCircleaSERKS_": ["address", "address", "address"],
     "ritual_ZN10QGeoCircle9setCenterERK14QGeoCoordinate": [
       "nothing", "address", "address"
     ],
@@ -28,6 +29,12 @@
     ],
     "ritual_ZNK10QGeoCircle8toStringEv": ["text", "address"],
     "ritual_ZN10QGeoCircle6d_funcEv": ["address", "address"],
-    "ritual_ZNK10QGeoCircle6d_funcEv": ["address", "address"]
+    "ritual_ZNK10QGeoCircle6d_funcEv": ["address", "address"],
+    "ritual_ZlsR11QDataStreamRK10QGeoCircle": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR10QGeoCircle": [
+      "address", "address", "address"
+    ]
   }
 }

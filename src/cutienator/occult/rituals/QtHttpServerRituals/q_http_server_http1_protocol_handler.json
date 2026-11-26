@@ -8,11 +8,26 @@
     "ritual_ZNK31QHttpServerHttp1ProtocolHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QHttpServerHttp1ProtocolHandler20startHandlingRequestEv": [
       "nothing", "address"
     ],
     "ritual_ZN31QHttpServerHttp1ProtocolHandler18socketDisconnectedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler5writeERK10QByteArrayRK12QHttpHeadersN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler5writeEN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler17writeBeginChunkedERK12QHttpHeadersN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "address", "int", "unsigned int"
     ],
     "ritual_ZN31QHttpServerHttp1ProtocolHandler11writeHeaderERK10QByteArrayS2_": [
       "nothing", "address", "address", "address"
@@ -22,6 +37,9 @@
     ],
     "ritual_ZN31QHttpServerHttp1ProtocolHandler5writeEPKcx": [
       "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler32addConnectionAndKeepAliveHeadersER12QHttpHeaders": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN31QHttpServerHttp1ProtocolHandler21checkKeepAliveTimeoutEv": [
       "nothing", "address"

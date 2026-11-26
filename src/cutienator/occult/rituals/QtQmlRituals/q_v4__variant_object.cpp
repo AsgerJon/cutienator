@@ -40,3 +40,25 @@ QV4::Object *ritual_ZN3QV413VariantObject16defaultPrototypeEPNS_15ExecutionEngin
     QV4::ExecutionEngine *e) {
   return QV4::VariantObject::defaultPrototype(e);
 }
+
+//  void QV4::VariantObject::addVmePropertyReference() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK3QV413VariantObject23addVmePropertyReferenceEv(
+    const QV4::VariantObject *self) {
+  self->addVmePropertyReference();
+}
+
+//  void QV4::VariantObject::removeVmePropertyReference() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK3QV413VariantObject26removeVmePropertyReferenceEv(
+    const QV4::VariantObject *self) {
+  self->removeVmePropertyReference();
+}
+
+//  bool QV4::VariantObject::virtualIsEqualTo(Managed *m, Managed *other)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN3QV413VariantObject16virtualIsEqualToEPNS_7ManagedES2_(
+    QV4::Managed *m,
+    QV4::Managed *other) {
+  return QV4::VariantObject::virtualIsEqualTo(m, other);
+}

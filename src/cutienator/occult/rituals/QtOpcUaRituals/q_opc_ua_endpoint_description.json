@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN25QOpcUaEndpointDescriptionC1Ev": ["address"],
     "ritual_ZN25QOpcUaEndpointDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN25QOpcUaEndpointDescriptionaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK25QOpcUaEndpointDescriptioneqERKS_": [
       "bool", "address", "address"
     ],
@@ -18,6 +21,9 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK25QOpcUaEndpointDescription6serverEv": ["address", "address"],
+    "ritual_ZN25QOpcUaEndpointDescription9serverRefEv": [
+      "address", "address"
+    ],
     "ritual_ZN25QOpcUaEndpointDescription9setServerERK28QOpcUaApplicationDescription": [
       "nothing", "address", "address"
     ],
@@ -40,6 +46,9 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK25QOpcUaEndpointDescription18userIdentityTokensEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QOpcUaEndpointDescription21userIdentityTokensRefEv": [
       "address", "address"
     ],
     "ritual_ZN25QOpcUaEndpointDescription21setUserIdentityTokensERK5QListI21QOpcUaUserTokenPolicyE": [

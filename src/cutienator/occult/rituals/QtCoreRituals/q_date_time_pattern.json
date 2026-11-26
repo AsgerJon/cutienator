@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN16QDateTimePatternC1ERK5QListIN17QtTemporalPattern13TemporalFieldEE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QDateTimePatternC1ERK5QListIN17QtTemporalPattern13TemporalFieldEEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK16QDateTimePattern15dateTimeSupportEv": ["int", "address"],
     "ritual_ZNK16QDateTimePattern7isValidEv": ["bool", "address"],
     "ritual_ZN16QDateTimePattern9setLocaleERK7QLocale": [
@@ -15,10 +21,14 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN16QDateTimePattern13clearBaseYearEv": ["nothing", "address"],
+    "ritual_ZNK16QDateTimePattern8baseYearEv": ["address", "address"],
     "ritual_ZN16QDateTimePattern11setCalendarE9QCalendar": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK16QDateTimePattern8calendarEv": ["address", "address"],
+    "ritual_ZNK16QDateTimePattern5parseE11QStringViewRK9QDateTime": [
+      "address", "address", "text", "address"
+    ],
     "ritual_ZNK16QDateTimePattern9serializeERK9QDateTime": [
       "text", "address", "address"
     ],
@@ -28,6 +38,10 @@
     "ritual_ZN16QDateTimePattern9forLocaleERK7QLocaleNS0_10FormatTypeE": [
       "address", "address", "int"
     ],
-    "ritual_ZN16QDateTimePatternD1Ev": ["nothing", "address"]
+    "ritual_ZN16QDateTimePatternD1Ev": ["nothing", "address"],
+    "ritual_drop_QDateTimePattern__std_optional_int": ["nothing", "address"],
+    "ritual_drop_QDateTimePattern__QtTemporalPattern_ParseResult_QDateTime": [
+      "nothing", "address"
+    ]
   }
 }

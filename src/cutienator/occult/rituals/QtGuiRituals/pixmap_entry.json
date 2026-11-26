@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN11PixmapEntry6pixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ],
     "ritual_ZN11PixmapEntryD1Ev": ["nothing", "address"]
   }
 }

@@ -11,6 +11,7 @@
     "ritual_ZN8QGeoPathC1ERKS_": ["address", "address"],
     "ritual_ZN8QGeoPathC1ERK9QGeoShape": ["address", "address"],
     "ritual_ZN8QGeoPathD1Ev": ["nothing", "address"],
+    "ritual_ZN8QGeoPathaSERKS_": ["address", "address", "address"],
     "ritual_ZN8QGeoPath7setPathERK5QListI14QGeoCoordinateE": [
       "nothing", "address", "address"
     ],
@@ -55,6 +56,8 @@
     ],
     "ritual_ZNK8QGeoPath8toStringEv": ["text", "address"],
     "ritual_ZN8QGeoPath6d_funcEv": ["address", "address"],
-    "ritual_ZNK8QGeoPath6d_funcEv": ["address", "address"]
+    "ritual_ZNK8QGeoPath6d_funcEv": ["address", "address"],
+    "ritual_ZlsR11QDataStreamRK8QGeoPath": ["address", "address", "address"],
+    "ritual_ZrsR11QDataStreamR8QGeoPath": ["address", "address", "address"]
   }
 }

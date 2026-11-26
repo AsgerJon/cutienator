@@ -129,6 +129,12 @@ public:
 #endif  // QT_CONFIG(accessibility)
 };
 
+//  QAccessibleViewportInterface::QAccessibleViewportInterface()
+extern "C" Q_DECL_EXPORT
+QAccessibleViewportInterface *ritual_ZN28QAccessibleViewportInterfaceC1Ev() {
+  return new CuteQAccessibleViewportInterface();
+}
+
 //  QAccessibleViewportInterface::~QAccessibleViewportInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QAccessibleViewportInterfaceD1Ev(

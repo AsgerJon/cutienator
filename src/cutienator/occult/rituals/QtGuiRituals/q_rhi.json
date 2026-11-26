@@ -23,6 +23,15 @@
     "ritual_ZN4QRhi11backendNameENS_14ImplementationE": ["chars", "int"],
     "ritual_ZNK4QRhi10driverInfoEv": ["address", "address"],
     "ritual_ZNK4QRhi6threadEv": ["address", "address"],
+    "ritual_ZN4QRhi18addCleanupCallbackERKSt8functionIFvPS_EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN4QRhi18addCleanupCallbackEPKvRKSt8functionIFvPS_EE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN4QRhi21removeCleanupCallbackEPKv": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN4QRhi19newGraphicsPipelineEv": ["address", "address"],
     "ritual_ZN4QRhi18newComputePipelineEv": ["address", "address"],
     "ritual_ZN4QRhi25newShaderResourceBindingsEv": ["address", "address"],
@@ -57,11 +66,15 @@
     ],
     "ritual_ZNK4QRhi16isRecordingFrameEv": ["bool", "address"],
     "ritual_ZNK4QRhi16currentFrameSlotEv": ["int", "address"],
+    "ritual_ZN4QRhi19beginOffscreenFrameEPP17QRhiCommandBuffer6QFlagsINS_14BeginFrameFlagEE": [
+      "int", "address", "address", "int"
+    ],
     "ritual_ZN4QRhi17endOffscreenFrameE6QFlagsINS_12EndFrameFlagEE": [
       "int", "address", "int"
     ],
     "ritual_ZN4QRhi6finishEv": ["int", "address"],
     "ritual_ZN4QRhi23nextResourceUpdateBatchEv": ["address", "address"],
+    "ritual_ZNK4QRhi21supportedSampleCountsEv": ["address", "address"],
     "ritual_ZNK4QRhi13ubufAlignmentEv": ["int", "address"],
     "ritual_ZNK4QRhi11ubufAlignedEi": ["int", "address", "int"],
     "ritual_ZN4QRhi16mipLevelsForSizeERK5QSize": ["int", "address"],
@@ -101,6 +114,7 @@
     "ritual_ZNK4QRhi21supportedShadingRatesEi": [
       "address", "address", "int"
     ],
-    "ritual_ZN4QRhiC1Ev": ["address"]
+    "ritual_ZN4QRhiC1Ev": ["address"],
+    "ritual_drop_QRhi__QList_int": ["nothing", "address"]
   }
 }

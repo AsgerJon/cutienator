@@ -5,6 +5,15 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN5HPack14HuffmanDecoder8addTableEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN5HPack14HuffmanDecoder10tableEntryENS_11PrefixTableEj": [
+      "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN5HPack14HuffmanDecoder13setTableEntryENS_11PrefixTableEjNS_16PrefixTableEntryE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
     "ritual_ZN5HPack14HuffmanDecoderD1Ev": ["nothing", "address"]
   }
 }

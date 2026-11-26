@@ -23,6 +23,9 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
+#include <QtQuick/QQuickItem>
 
 //  Only a class built on QQuickContainer may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1163,6 +1166,24 @@ const QMetaObject *ritual_ZNK15QQuickContainer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickContainer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickContainer11qt_metacastEPKc(
+    QQuickContainer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickContainer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickContainer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickContainer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickContainer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickContainer2trEPKcS1_i(
@@ -1248,6 +1269,20 @@ QVariant *ritual_ZNK15QQuickContainer12contentModelEv(
   return new QVariant(self->contentModel());
 }
 
+//  QQmlListProperty<QObject> QQuickContainer::contentData()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN15QQuickContainer11contentDataEv(
+    QQuickContainer *self) {
+  return new QQmlListProperty<QObject>(self->contentData());
+}
+
+//  QQmlListProperty<QQuickItem> QQuickContainer::contentChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickItem> *ritual_ZN15QQuickContainer15contentChildrenEv(
+    QQuickContainer *self) {
+  return new QQmlListProperty<QQuickItem>(self->contentChildren());
+}
+
 //  int QQuickContainer::currentIndex() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QQuickContainer12currentIndexEv(
@@ -1325,6 +1360,56 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickContainer21decrementCurrentIndexEv(
     QQuickContainer *self) {
   self->decrementCurrentIndex();
+}
+
+//  void QQuickContainer::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickContainer12countChangedEv(QQuickContainer *self) {
+  self->countChanged();
+}
+
+//  void QQuickContainer::contentChildrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickContainer22contentChildrenChangedEv(
+    QQuickContainer *self) {
+  self->contentChildrenChanged();
+}
+
+//  void QQuickContainer::currentIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickContainer19currentIndexChangedEv(
+    QQuickContainer *self) {
+  self->currentIndexChanged();
+}
+
+//  void QQuickContainer::currentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickContainer18currentItemChangedEv(
+    QQuickContainer *self) {
+  self->currentItemChanged();
+}
+
+//  void QQuickContainer::contentWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickContainer19contentWidthChangedEv(
+    QQuickContainer *self) {
+  self->contentWidthChanged();
+}
+
+//  void QQuickContainer::contentHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickContainer20contentHeightChangedEv(
+    QQuickContainer *self) {
+  self->contentHeightChanged();
+}
+
+//  QQuickContainer::QQuickContainer(QQuickContainerPrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickContainer *ritual_ZN15QQuickContainerC1ER22QQuickContainerPrivateP10QQuickItem(
+    QQuickContainerPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickContainer(*dd, parent);
 }
 
 //  void QQuickContainer::componentComplete()
@@ -1483,6 +1568,20 @@ void ritual_own_ZN15QQuickContainer11itemRemovedEiP10QQuickItem(
   static_cast<OwnQQuickContainer *>(self)->OwnQQuickContainer::itemRemoved(
       index,
       item);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickContainer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickContainer__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickItem> a ritual of QQuickContainer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickContainer__QQmlListProperty_QQuickItem(
+    QQmlListProperty<QQuickItem> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quicktemplates2_container)

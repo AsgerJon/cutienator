@@ -16,6 +16,7 @@
 #include <QtGui/qtransform.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QPlatformScreen that Python can take functions over in. Every QPlatformScreen
 //  Python makes is one. Each function below asks the Python
@@ -435,6 +436,12 @@ const QPlatformScreenPrivate *ritual_ZNK15QPlatformScreen6d_funcEv(
   return self->d_func();
 }
 
+//  QPlatformScreen::QPlatformScreen()
+extern "C" Q_DECL_EXPORT
+QPlatformScreen *ritual_ZN15QPlatformScreenC1Ev() {
+  return new CuteQPlatformScreen();
+}
+
 //  QPlatformScreen::~QPlatformScreen()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QPlatformScreenD1Ev(QPlatformScreen *self) {
@@ -499,6 +506,20 @@ extern "C" Q_DECL_EXPORT
 QSizeF *ritual_ZNK15QPlatformScreen12physicalSizeEv(
     const QPlatformScreen *self) {
   return new QSizeF(self->physicalSize());
+}
+
+//  QDpi QPlatformScreen::logicalDpi() const
+extern "C" Q_DECL_EXPORT
+QDpi *ritual_ZNK15QPlatformScreen10logicalDpiEv(
+    const QPlatformScreen *self) {
+  return new QDpi(self->logicalDpi());
+}
+
+//  QDpi QPlatformScreen::logicalBaseDpi() const
+extern "C" Q_DECL_EXPORT
+QDpi *ritual_ZNK15QPlatformScreen14logicalBaseDpiEv(
+    const QPlatformScreen *self) {
+  return new QDpi(self->logicalBaseDpi());
 }
 
 //  qreal QPlatformScreen::devicePixelRatio() const
@@ -630,6 +651,13 @@ void ritual_ZN15QPlatformScreen13setPowerStateENS_10PowerStateE(
   self->setPowerState(state);
 }
 
+//  QList<Mode> QPlatformScreen::modes() const
+extern "C" Q_DECL_EXPORT
+QList<QPlatformScreen::Mode> *ritual_ZNK15QPlatformScreen5modesEv(
+    const QPlatformScreen *self) {
+  return new QList<QPlatformScreen::Mode>(self->modes());
+}
+
 //  int QPlatformScreen::currentMode() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QPlatformScreen11currentModeEv(const QPlatformScreen *self) {
@@ -670,6 +698,12 @@ QRect *ritual_ZN15QPlatformScreen10mapBetweenEN2Qt17ScreenOrientationES1_RK5QRec
     Qt::ScreenOrientation b,
     const QRect *rect) {
   return new QRect(QPlatformScreen::mapBetween(a, b, *rect));
+}
+
+//  QDpi QPlatformScreen::overrideDpi(const QDpi &in)
+extern "C" Q_DECL_EXPORT
+QDpi *ritual_ZN15QPlatformScreen11overrideDpiERKSt4pairIddE(const QDpi *in) {
+  return new QDpi(QPlatformScreen::overrideDpi(*in));
 }
 
 //  void QPlatformScreen::resizeMaximizedWindows()
@@ -876,5 +910,18 @@ QPlatformScreen *ritual_list_at_QPlatformScreen_ptr(
 //  QList<QPlatformScreen *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QPlatformScreen_ptr(QList<QPlatformScreen *> *self) {
+  delete self;
+}
+
+//  a QDpi a ritual of QPlatformScreen gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformScreen__QDpi(QDpi *self) {
+  delete self;
+}
+
+//  a QList<QPlatformScreen::Mode> a ritual of QPlatformScreen gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformScreen__QList_QPlatformScreen_Mode(
+    QList<QPlatformScreen::Mode> *self) {
   delete self;
 }

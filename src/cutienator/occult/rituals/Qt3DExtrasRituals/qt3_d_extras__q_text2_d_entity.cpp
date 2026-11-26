@@ -2,6 +2,8 @@
 //  Qt3DExtras/qtext2dentity.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qtext2dentity.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qfont.h>
+#include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras13QText2DEntity10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QText2DEntity::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras13QText2DEntity11qt_metacastEPKc(
+    Qt3DExtras::QText2DEntity *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QText2DEntity::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras13QText2DEntity11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QText2DEntity *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QText2DEntity::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,150 @@ QString *ritual_ZN10Qt3DExtras13QText2DEntity2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QText2DEntity::tr(s, c, n));
+}
+
+//  Qt3DExtras::QText2DEntity::QText2DEntity(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QText2DEntity *ritual_ZN10Qt3DExtras13QText2DEntityC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QText2DEntity(parent);
+}
+
+//  Qt3DExtras::QText2DEntity::~QText2DEntity()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntityD1Ev(
+    Qt3DExtras::QText2DEntity *self) {
+  delete self;
+}
+
+//  QFont Qt3DExtras::QText2DEntity::font() const
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZNK10Qt3DExtras13QText2DEntity4fontEv(
+    const Qt3DExtras::QText2DEntity *self) {
+  return new QFont(self->font());
+}
+
+//  void Qt3DExtras::QText2DEntity::setFont(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity7setFontERK5QFont(
+    Qt3DExtras::QText2DEntity *self,
+    const QFont *font) {
+  self->setFont(*font);
+}
+
+//  QColor Qt3DExtras::QText2DEntity::color() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras13QText2DEntity5colorEv(
+    const Qt3DExtras::QText2DEntity *self) {
+  return new QColor(self->color());
+}
+
+//  void Qt3DExtras::QText2DEntity::setColor(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity8setColorERK6QColor(
+    Qt3DExtras::QText2DEntity *self,
+    const QColor *color) {
+  self->setColor(*color);
+}
+
+//  QString Qt3DExtras::QText2DEntity::text() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DExtras13QText2DEntity4textEv(
+    const Qt3DExtras::QText2DEntity *self) {
+  return new QString(self->text());
+}
+
+//  void Qt3DExtras::QText2DEntity::setText(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity7setTextERK7QString(
+    Qt3DExtras::QText2DEntity *self,
+    const QString *text) {
+  self->setText(*text);
+}
+
+//  float Qt3DExtras::QText2DEntity::width() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras13QText2DEntity5widthEv(
+    const Qt3DExtras::QText2DEntity *self) {
+  return self->width();
+}
+
+//  float Qt3DExtras::QText2DEntity::height() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras13QText2DEntity6heightEv(
+    const Qt3DExtras::QText2DEntity *self) {
+  return self->height();
+}
+
+//  void Qt3DExtras::QText2DEntity::setWidth(float width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity8setWidthEf(
+    Qt3DExtras::QText2DEntity *self,
+    float width) {
+  self->setWidth(width);
+}
+
+//  void Qt3DExtras::QText2DEntity::setHeight(float height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity9setHeightEf(
+    Qt3DExtras::QText2DEntity *self,
+    float height) {
+  self->setHeight(height);
+}
+
+//  Qt::Alignment Qt3DExtras::QText2DEntity::alignment() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras13QText2DEntity9alignmentEv(
+    const Qt3DExtras::QText2DEntity *self) {
+  return static_cast<int>(self->alignment().toInt());
+}
+
+//  void Qt3DExtras::QText2DEntity::setAlignment(Qt::Alignment alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE(
+    Qt3DExtras::QText2DEntity *self,
+    int alignment) {
+  self->setAlignment(QFlags<Qt::AlignmentFlag>::fromInt(alignment));
+}
+
+//  void Qt3DExtras::QText2DEntity::fontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity11fontChangedERK5QFont(
+    Qt3DExtras::QText2DEntity *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+
+//  void Qt3DExtras::QText2DEntity::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity12colorChangedERK6QColor(
+    Qt3DExtras::QText2DEntity *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void Qt3DExtras::QText2DEntity::textChanged(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity11textChangedERK7QString(
+    Qt3DExtras::QText2DEntity *self,
+    const QString *text) {
+  self->textChanged(*text);
+}
+
+//  void Qt3DExtras::QText2DEntity::widthChanged(float width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity12widthChangedEf(
+    Qt3DExtras::QText2DEntity *self,
+    float width) {
+  self->widthChanged(width);
+}
+
+//  void Qt3DExtras::QText2DEntity::heightChanged(float height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QText2DEntity13heightChangedEf(
+    Qt3DExtras::QText2DEntity *self,
+    float height) {
+  self->heightChanged(height);
 }
 
 //  QText2DEntityPrivate *Qt3DExtras::QText2DEntity::d_func()

@@ -1,13 +1,56 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qdirlisting.h, Qt 6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from QtCore/qdirlisting.h, Qt 6.12.0,",
+    "from Qt's source. Kept as it is when the generator runs again."
   ],
   "rows": {
-    "ritual_ZN11QDirListing14const_iteratorC1Ev": ["address"],
-    "ritual_ZN11QDirListing14const_iteratorppEi": [
-      "nothing", "address", "int"
+    "ritual_ZNK11QDirListing14const_iteratordeEv": [
+      "address",
+      "address"
     ],
-    "ritual_ZNK11QDirListing14const_iterator5atEndEv": ["bool", "address"]
+    "ritual_ZNK11QDirListing14const_iteratorptEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN11QDirListing14const_iteratorppEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN11QDirListing14const_iteratorppEi": [
+      "nothing",
+      "address",
+      "int"
+    ],
+    "ritual_ZNK11QDirListing14const_iterator5atEndEv": [
+      "bool",
+      "address"
+    ],
+    "ritual_ZeqRKN11QDirListing14const_iteratorENS_8sentinelE": [
+      "bool",
+      "address",
+      "address"
+    ],
+    "ritual_ZneRKN11QDirListing14const_iteratorENS_8sentinelE": [
+      "bool",
+      "address",
+      "address"
+    ],
+    "ritual_ZeqN11QDirListing8sentinelERKNS_14const_iteratorE": [
+      "bool",
+      "address",
+      "address"
+    ],
+    "ritual_ZneN11QDirListing8sentinelERKNS_14const_iteratorE": [
+      "bool",
+      "address",
+      "address"
+    ],
+    "ritual_ZN11QDirListing14const_iteratorC1Ev": [
+      "address"
+    ],
+    "ritual_ZN11QDirListing14const_iteratorD1Ev": [
+      "nothing",
+      "address"
+    ]
   }
 }

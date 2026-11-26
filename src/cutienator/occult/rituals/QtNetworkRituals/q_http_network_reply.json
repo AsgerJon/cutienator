@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QHttpNetworkReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QHttpNetworkReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QHttpNetworkReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QHttpNetworkReply2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -85,6 +91,12 @@
     "ritual_ZN17QHttpNetworkReply34supportsUserProvidedDownloadBufferEv": [
       "bool", "address"
     ],
+    "ritual_ZN17QHttpNetworkReply29setUserProvidedDownloadBufferEPc": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply26userProvidedDownloadBufferEv": [
+      "address", "address"
+    ],
     "ritual_ZN17QHttpNetworkReply5abortEv": ["nothing", "address"],
     "ritual_ZNK17QHttpNetworkReply9isAbortedEv": ["bool", "address"],
     "ritual_ZNK17QHttpNetworkReply10isFinishedEv": ["bool", "address"],
@@ -115,6 +127,41 @@
     ],
     "ritual_ZN17QHttpNetworkReply15ignoreSslErrorsERK5QListI9QSslErrorE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply9encryptedEv": ["nothing", "address"],
+    "ritual_ZN17QHttpNetworkReply9sslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply23socketStartedConnectingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply11requestSentEv": ["nothing", "address"],
+    "ritual_ZN17QHttpNetworkReply9readyReadEv": ["nothing", "address"],
+    "ritual_ZN17QHttpNetworkReply8finishedEv": ["nothing", "address"],
+    "ritual_ZN17QHttpNetworkReply17finishedWithErrorEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN17QHttpNetworkReply13headerChangedEv": ["nothing", "address"],
+    "ritual_ZN17QHttpNetworkReply16dataReadProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QHttpNetworkReply16dataSendProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QHttpNetworkReply16cacheCredentialsERK19QHttpNetworkRequestP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply22authenticationRequiredERK19QHttpNetworkRequestP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply10redirectedERK4QUrlii": [
+      "nothing", "address", "address", "int", "int"
     ],
     "ritual_ZN17QHttpNetworkReply6d_funcEv": ["address", "address"],
     "ritual_ZNK17QHttpNetworkReply6d_funcEv": ["address", "address"],

@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN11QDomCommentC1Ev": ["address"],
     "ritual_ZN11QDomCommentC1ERKS_": ["address", "address"],
+    "ritual_ZN11QDomCommentaSERKS_": ["address", "address", "address"],
     "ritual_ZNK11QDomComment8nodeTypeEv": ["int", "address"],
     "ritual_ZN11QDomCommentC1EP18QDomCommentPrivate": ["address", "address"],
     "ritual_ZN11QDomCommentD1Ev": ["nothing", "address"]

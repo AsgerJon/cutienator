@@ -30,17 +30,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 172, as _ZN17SeriesRenderCache7cleanupEP13TextureHelper
-inline void SeriesRenderCache::cleanup(TextureHelper *texHelper)
-{
-    ObjectHelper::releaseObjectHelper(m_renderer, m_object);
-    if (QOpenGLContext::currentContext()) {
-        texHelper->deleteTexture(&m_baseUniformTexture);
-        texHelper->deleteTexture(&m_baseGradientTexture);
-        texHelper->deleteTexture(&m_singleHighlightGradientTexture);
-        texHelper->deleteTexture(&m_multiHighlightGradientTexture);
-    }
-}
+//  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 16, as local:objecthelper.cpp:ObjectHelperRef
+struct ObjectHelperRef {
+    int refCount;
+    ObjectHelper *obj;
+};
 
 //  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 13, as _ZN17SeriesRenderCacheC2EP17QAbstract3DSeriesP18Abstract3DRenderer
 inline SeriesRenderCache::SeriesRenderCache(QAbstract3DSeries *series, Abstract3DRenderer *renderer)
@@ -60,11 +54,31 @@ inline SeriesRenderCache::SeriesRenderCache(QAbstract3DSeries *series, Abstract3
 {
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/scatterseriesrendercache.cpp, line 30, as _ZN24ScatterSeriesRenderCache7cleanupEP13TextureHelper
+inline void ScatterSeriesRenderCache::cleanup(TextureHelper *texHelper)
+{
+    m_renderArray.clear();
+
+    SeriesRenderCache::cleanup(texHelper);
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/scatterseriesrendercache.cpp, line 24, as _ZN24ScatterSeriesRenderCacheD2Ev
 inline ScatterSeriesRenderCache::~ScatterSeriesRenderCache()
 {
     delete m_scatterBufferObj;
     delete m_scatterBufferPoints;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 172, as _ZN17SeriesRenderCache7cleanupEP13TextureHelper
+inline void SeriesRenderCache::cleanup(TextureHelper *texHelper)
+{
+    ObjectHelper::releaseObjectHelper(m_renderer, m_object);
+    if (QOpenGLContext::currentContext()) {
+        texHelper->deleteTexture(&m_baseUniformTexture);
+        texHelper->deleteTexture(&m_baseGradientTexture);
+        texHelper->deleteTexture(&m_singleHighlightGradientTexture);
+        texHelper->deleteTexture(&m_multiHighlightGradientTexture);
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 325, as _ZN13TextureHelper13deleteTextureEPj
@@ -76,14 +90,6 @@ inline void TextureHelper::deleteTexture(GLuint *texture)
         *texture = 0;
     }
 }
-
-//  from ../qtdatavis3d/src/datavisualization/engine/scatterseriesrendercache.cpp, line 30, as _ZN24ScatterSeriesRenderCache7cleanupEP13TextureHelper
-inline void ScatterSeriesRenderCache::cleanup(TextureHelper *texHelper)
-{
-    m_renderArray.clear();
-
-    SeriesRenderCache::cleanup(texHelper);
-}
 //  -----------------------------------------------------------------------
 
 //  A ScatterSeriesRenderCache that Python can take functions over in. Every ScatterSeriesRenderCache
@@ -94,7 +100,7 @@ typedef void (*CuteScatterSeriesRenderCacheCall1)(const void *, bool, int *);
 class CuteScatterSeriesRenderCache : public ScatterSeriesRenderCache {
 public:
   using ScatterSeriesRenderCache::ScatterSeriesRenderCache;
-  CuteScatterSeriesRenderCache(const ScatterSeriesRenderCache &other) : ScatterSeriesRenderCache(other) {}
+  CuteScatterSeriesRenderCache(const ScatterSeriesRenderCache & other) : ScatterSeriesRenderCache(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -145,6 +151,13 @@ void ritual_ZN24ScatterSeriesRenderCache7cleanupEP13TextureHelper(
     ScatterSeriesRenderCache *self,
     TextureHelper *texHelper) {
   self->cleanup(texHelper);
+}
+
+//  ScatterRenderItemArray &ScatterSeriesRenderCache::renderArray()
+extern "C" Q_DECL_EXPORT
+ScatterRenderItemArray *ritual_ZN24ScatterSeriesRenderCache11renderArrayEv(
+    ScatterSeriesRenderCache *self) {
+  return &(self->renderArray());
 }
 
 //  QScatter3DSeries *ScatterSeriesRenderCache::series() const
@@ -260,6 +273,20 @@ extern "C" Q_DECL_EXPORT
 ScatterPointBufferHelper *ritual_ZNK24ScatterSeriesRenderCache12bufferPointsEv(
     const ScatterSeriesRenderCache *self) {
   return self->bufferPoints();
+}
+
+//  QList<int> &ScatterSeriesRenderCache::updateIndices()
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZN24ScatterSeriesRenderCache13updateIndicesEv(
+    ScatterSeriesRenderCache *self) {
+  return &(self->updateIndices());
+}
+
+//  QList<int> &ScatterSeriesRenderCache::bufferIndices()
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZN24ScatterSeriesRenderCache13bufferIndicesEv(
+    ScatterSeriesRenderCache *self) {
+  return &(self->bufferIndices());
 }
 
 //  void ScatterSeriesRenderCache::setVisibilityChanged(bool changed)

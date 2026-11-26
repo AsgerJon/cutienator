@@ -1,8 +1,8 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of Qt3DAni",
-    "mation/6.12.0/Qt3DAnimation/private/loadanimationclipjob_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/loadanimationclipjob_p.h,",
+    "Qt 6.12.0, from Qt's source."
   ],
   "rows": {
     "ritual_ZN13Qt3DAnimation9Animation20LoadAnimationClipJob10setHandlerEPNS0_7HandlerE": [
@@ -10,6 +10,9 @@
     ],
     "ritual_ZNK13Qt3DAnimation9Animation20LoadAnimationClipJob7handlerEv": [
       "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation20LoadAnimationClipJob3runEv": [
+      "nothing", "address"
     ]
   }
 }

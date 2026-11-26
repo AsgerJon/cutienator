@@ -8,6 +8,24 @@
     "ritual_ZNK32OrgBluezProfile1ContextInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32OrgBluezProfile1ContextInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32OrgBluezProfile1ContextInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN32OrgBluezProfile1ContextInterface13newConnectionERK23QDBusUnixFileDescriptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32OrgBluezProfile1ContextInterface13NewConnectionERK15QDBusObjectPathRK23QDBusUnixFileDescriptorRK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN32OrgBluezProfile1ContextInterface20RequestDisconnectionERK15QDBusObjectPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32OrgBluezProfile1ContextInterface7ReleaseEv": [
+      "nothing", "address"
+    ],
     "ritual_cast_OrgBluezProfile1ContextInterface_QDBusContext": [
       "address", "address"
     ],

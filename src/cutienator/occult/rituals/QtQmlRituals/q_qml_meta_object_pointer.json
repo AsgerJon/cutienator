@@ -10,6 +10,7 @@
       "address", "address"
     ],
     "ritual_ZN21QQmlMetaObjectPointerD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQmlMetaObjectPointerC1ERKS_": ["address", "address"],
     "ritual_ZNK21QQmlMetaObjectPointer13setSharedOnceEP11QMetaObject": [
       "nothing", "address", "address"
     ],

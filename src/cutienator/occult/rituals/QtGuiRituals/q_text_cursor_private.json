@@ -36,6 +36,9 @@
     ],
     "ritual_ZNK18QTextCursorPrivate5blockEv": ["address", "address"],
     "ritual_ZNK18QTextCursorPrivate11blockFormatEv": ["address", "address"],
+    "ritual_ZNK18QTextCursorPrivate11blockLayoutER10QTextBlock": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18QTextCursorPrivate21complexSelectionTableEv": [
       "address", "address"
     ],

@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN14QNullSwapChainC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
     "ritual_ZN14QNullSwapChainD1Ev": ["nothing", "address"],
     "ritual_ZN14QNullSwapChain7destroyEv": ["nothing", "address"],
     "ritual_ZN14QNullSwapChain25currentFrameCommandBufferEv": [

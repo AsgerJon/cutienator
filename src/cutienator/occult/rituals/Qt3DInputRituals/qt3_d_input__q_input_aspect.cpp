@@ -3,7 +3,10 @@
 #include <Qt3DInput/qinputaspect.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <vector>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DInput::QInputAspect that Python can take functions over in. Every Qt3DInput::QInputAspect
 //  Python makes is one. Each function below asks the Python
@@ -275,6 +278,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput12QInputAspect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QInputAspect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput12QInputAspect11qt_metacastEPKc(
+    Qt3DInput::QInputAspect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QInputAspect::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput12QInputAspect11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QInputAspect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QInputAspect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DInput12QInputAspect2trEPKcS2_i(
@@ -282,6 +304,72 @@ QString *ritual_ZN9Qt3DInput12QInputAspect2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QInputAspect::tr(s, c, n));
+}
+
+//  Qt3DInput::QInputAspect::QInputAspect(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QInputAspect *ritual_ZN9Qt3DInput12QInputAspectC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DInput_QInputAspect(parent);
+}
+
+//  Qt3DInput::QInputAspect::~QInputAspect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QInputAspectD1Ev(Qt3DInput::QInputAspect *self) {
+  delete self;
+}
+
+//  QAbstractPhysicalDevice
+//      *Qt3DInput::QInputAspect::createPhysicalDevice(const QString &name)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractPhysicalDevice *ritual_ZN9Qt3DInput12QInputAspect20createPhysicalDeviceERK7QString(
+    Qt3DInput::QInputAspect *self,
+    const QString *name) {
+  return self->createPhysicalDevice(*name);
+}
+
+//  QStringList Qt3DInput::QInputAspect::availablePhysicalDevices() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9Qt3DInput12QInputAspect24availablePhysicalDevicesEv(
+    const Qt3DInput::QInputAspect *self) {
+  return new QList<QString>(self->availablePhysicalDevices());
+}
+
+//  std::vector<Qt3DCore::QAspectJobPtr>
+//      Qt3DInput::QInputAspect::jobsToExecute(qint64 time)
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZN9Qt3DInput12QInputAspect13jobsToExecuteEx(
+    Qt3DInput::QInputAspect *self,
+    qint64 time) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(self->jobsToExecute(time));
+}
+
+//  void Qt3DInput::QInputAspect::onRegistered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QInputAspect12onRegisteredEv(
+    Qt3DInput::QInputAspect *self) {
+  self->onRegistered();
+}
+
+//  void Qt3DInput::QInputAspect::onUnregistered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QInputAspect14onUnregisteredEv(
+    Qt3DInput::QInputAspect *self) {
+  self->onUnregistered();
+}
+
+//  void Qt3DInput::QInputAspect::onEngineStartup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QInputAspect15onEngineStartupEv(
+    Qt3DInput::QInputAspect *self) {
+  self->onEngineStartup();
+}
+
+//  void Qt3DInput::QInputAspect::jobsDone()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QInputAspect8jobsDoneEv(
+    Qt3DInput::QInputAspect *self) {
+  self->jobsDone();
 }
 
 //  QInputAspectPrivate *Qt3DInput::QInputAspect::d_func()
@@ -296,6 +384,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DInput::QInputAspectPrivate *ritual_ZNK9Qt3DInput12QInputAspect6d_funcEv(
     const Qt3DInput::QInputAspect *self) {
   return self->d_func();
+}
+
+//  Qt3DInput::QInputAspect::QInputAspect(QInputAspectPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QInputAspect *ritual_ZN9Qt3DInput12QInputAspectC1ERNS_19QInputAspectPrivateEP7QObject(
+    Qt3DInput::QInputAspectPrivate *dd,
+    QObject *parent) {
+  return new CuteQt3DInput_QInputAspect(*dd, parent);
 }
 
 //  a Python function taken by a CuteQt3DInput_QInputAspect, for the function
@@ -334,4 +431,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9Qt3DInput12QInputAspect8jobsDoneEv(
     Qt3DInput::QInputAspect *self) {
   self->Qt3DInput::QInputAspect::jobsDone();
+}
+
+//  a std::vector<Qt3DCore::QAspectJobPtr> a ritual of
+//      Qt3DInput::QInputAspect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QInputAspect__std_vector_Qt3DCore_QAspectJobPtr(
+    std::vector<Qt3DCore::QAspectJobPtr> *self) {
+  delete self;
 }

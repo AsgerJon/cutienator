@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsimporter_p.h>
 #include <QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsscopesbyid_p.h>
+#include <QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsscope_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -19,6 +20,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QHash>
+#include <QtCore/QList>
+#include <QtCore/QString>
 
 //  Only a class built on QQmlJSImportVisitor may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -3844,6 +3848,13 @@ void ritual_ZN19QQmlJSImportVisitorD1Ev(QQmlJSImportVisitor *self) {
   delete self;
 }
 
+//  QQmlJSScope::Ptr QQmlJSImportVisitor::result() const
+extern "C" Q_DECL_EXPORT
+QQmlJSScope::Ptr *ritual_ZNK19QQmlJSImportVisitor6resultEv(
+    const QQmlJSImportVisitor *self) {
+  return new QQmlJSScope::Ptr(self->result());
+}
+
 //  const QQmlJSLogger *QQmlJSImportVisitor::logger() const
 extern "C" Q_DECL_EXPORT
 const QQmlJSLogger *ritual_ZNK19QQmlJSImportVisitor6loggerEv(
@@ -3870,6 +3881,39 @@ extern "C" Q_DECL_EXPORT
 QQmlJSScopesById *ritual_ZNK19QQmlJSImportVisitor17addressableScopesEv(
     const QQmlJSImportVisitor *self) {
   return new QQmlJSScopesById(self->addressableScopes());
+}
+
+//  QDuplicateTracker<QQmlJSScope::ConstPtr>
+//      *QQmlJSImportVisitor::knownUnresolvedTypes()
+extern "C" Q_DECL_EXPORT
+QDuplicateTracker<QQmlJSScope::ConstPtr> *ritual_ZN19QQmlJSImportVisitor20knownUnresolvedTypesEv(
+    QQmlJSImportVisitor *self) {
+  return self->knownUnresolvedTypes();
+}
+
+//  QHash<QQmlJS::SourceLocation, QQmlJSMetaSignalHandler>
+//      QQmlJSImportVisitor::signalHandlers() const
+extern "C" Q_DECL_EXPORT
+QHash<QQmlJS::SourceLocation, QQmlJSMetaSignalHandler> *ritual_ZNK19QQmlJSImportVisitor14signalHandlersEv(
+    const QQmlJSImportVisitor *self) {
+  return new QHash<QQmlJS::SourceLocation, QQmlJSMetaSignalHandler>(
+      self->signalHandlers());
+}
+
+//  QList<QQmlJSScope::ConstPtr> QQmlJSImportVisitor::qmlTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QQmlJSScope::ConstPtr> *ritual_ZNK19QQmlJSImportVisitor8qmlTypesEv(
+    const QQmlJSImportVisitor *self) {
+  return new QList<QQmlJSScope::ConstPtr>(self->qmlTypes());
+}
+
+//  QHash<QV4::CompiledData::Location, QQmlJSScope::ConstPtr>
+//      QQmlJSImportVisitor::scopesBylocation() const
+extern "C" Q_DECL_EXPORT
+QHash<QV4::CompiledData::Location, QQmlJSScope::ConstPtr> *ritual_ZNK19QQmlJSImportVisitor16scopesBylocationEv(
+    const QQmlJSImportVisitor *self) {
+  return new QHash<QV4::CompiledData::Location, QQmlJSScope::ConstPtr>(
+      self->scopesBylocation());
 }
 
 //  QString QQmlJSImportVisitor::implicitImportDirectory(const QString
@@ -4330,6 +4374,38 @@ void ritual_ZN19QQmlJSImportVisitor24throwRecursionDepthErrorEv(
   self->throwRecursionDepthError();
 }
 
+//  bool QQmlJSImportVisitor::checkCustomParser(const QQmlJSScope::ConstPtr
+//      &scope)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQmlJSImportVisitor17checkCustomParserERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSImportVisitor *self,
+    const QQmlJSScope::ConstPtr *scope) {
+  return self->checkCustomParser(*scope);
+}
+
+//  void QQmlJSImportVisitor::setScopeName(QQmlJSScope::Ptr &scope,
+//      QQmlJSScope::ScopeType type, const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSImportVisitor12setScopeNameER22QDeferredSharedPointerI11QQmlJSScopeEN6QQmlSA9ScopeTypeERK7QString(
+    QQmlJSImportVisitor *self,
+    QQmlJSScope::Ptr *scope,
+    QQmlJSScope::ScopeType type,
+    const QString *name) {
+  self->setScopeName(*scope, type, *name);
+}
+
+//  bool QQmlJSImportVisitor::safeInsertJSIdentifier(QQmlJSScope::Ptr &scope,
+//      const QString &name, const QQmlJSScope::JavaScriptIdentifier
+//      &identifier)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQmlJSImportVisitor22safeInsertJSIdentifierER22QDeferredSharedPointerI11QQmlJSScopeERK7QStringRKNS1_20JavaScriptIdentifierE(
+    QQmlJSImportVisitor *self,
+    QQmlJSScope::Ptr *scope,
+    const QString *name,
+    const QQmlJSScope::JavaScriptIdentifier *identifier) {
+  return self->safeInsertJSIdentifier(*scope, *name, *identifier);
+}
+
 //  void QQmlJSImportVisitor::createAttachedAndGroupedScopes(QQmlJS::AST::UiQ
 //      ualifiedId *propertyName)
 extern "C" Q_DECL_EXPORT
@@ -4348,12 +4424,35 @@ int ritual_ZN19QQmlJSImportVisitor28openAttachedAndGroupedScopesEPN6QQmlJS3AST13
   return self->openAttachedAndGroupedScopes(propertyName);
 }
 
+//  QQmlJSMetaMethod::RelativeFunctionIndex
+//      QQmlJSImportVisitor::addFunctionOrExpression(const
+//      QQmlJSScope::ConstPtr &scope, const QString &name)
+extern "C" Q_DECL_EXPORT
+QQmlJSMetaMethod::RelativeFunctionIndex ritual_ZN19QQmlJSImportVisitor23addFunctionOrExpressionERK22QDeferredSharedPointerIK11QQmlJSScopeERK7QString(
+    QQmlJSImportVisitor *self,
+    const QQmlJSScope::ConstPtr *scope,
+    const QString *name) {
+  return self->addFunctionOrExpression(*scope, *name);
+}
+
 //  void QQmlJSImportVisitor::forgetFunctionExpression(const QString &name)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQmlJSImportVisitor24forgetFunctionExpressionERK7QString(
     QQmlJSImportVisitor *self,
     const QString *name) {
   self->forgetFunctionExpression(*name);
+}
+
+//  int QQmlJSImportVisitor::synthesizeCompilationUnitRuntimeFunctionIndices(
+//      const QQmlJSScope::Ptr &scope, int count) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK19QQmlJSImportVisitor47synthesizeCompilationUnitRuntimeFunctionIndicesERK22QDeferredSharedPointerI11QQmlJSScopeEi(
+    const QQmlJSImportVisitor *self,
+    const QQmlJSScope::Ptr *scope,
+    int count) {
+  return self->synthesizeCompilationUnitRuntimeFunctionIndices(
+      *scope,
+      count);
 }
 
 //  void QQmlJSImportVisitor::populateRuntimeFunctionIndicesForDocument()
@@ -4392,6 +4491,36 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQmlJSImportVisitor16leaveEnvironmentEv(
     QQmlJSImportVisitor *self) {
   self->leaveEnvironment();
+}
+
+//  bool QQmlJSImportVisitor::checkTypeResolved(const QQmlJSScope::ConstPtr
+//      &type)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQmlJSImportVisitor17checkTypeResolvedERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSImportVisitor *self,
+    const QQmlJSScope::ConstPtr *type) {
+  return self->checkTypeResolved(*type);
+}
+
+//  void QQmlJSImportVisitor::warnUnresolvedType(const QQmlJSScope::ConstPtr
+//      &type) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK19QQmlJSImportVisitor18warnUnresolvedTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    const QQmlJSImportVisitor *self,
+    const QQmlJSScope::ConstPtr *type) {
+  self->warnUnresolvedType(*type);
+}
+
+//  void QQmlJSImportVisitor::warnMissingPropertyForBinding(const QString
+//      &property, const QQmlJS::SourceLocation &location, const
+//      std::optional<QQmlJSFixSuggestion> &fixSuggestion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSImportVisitor29warnMissingPropertyForBindingERK7QStringRKN6QQmlJS14SourceLocationERKSt8optionalI19QQmlJSFixSuggestionE(
+    QQmlJSImportVisitor *self,
+    const QString *property,
+    const QQmlJS::SourceLocation *location,
+    const std::optional<QQmlJSFixSuggestion> *fixSuggestion) {
+  self->warnMissingPropertyForBinding(*property, *location, *fixSuggestion);
 }
 
 //  QList<QQmlJSAnnotation>
@@ -4467,6 +4596,43 @@ void ritual_ZN19QQmlJSImportVisitor28flushPendingSignalParametersEv(
   self->flushPendingSignalParameters();
 }
 
+//  void QQmlJSImportVisitor::breakInheritanceCycles(const QQmlJSScope::Ptr
+//      &scope)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSImportVisitor22breakInheritanceCyclesERK22QDeferredSharedPointerI11QQmlJSScopeE(
+    QQmlJSImportVisitor *self,
+    const QQmlJSScope::Ptr *scope) {
+  self->breakInheritanceCycles(*scope);
+}
+
+//  void QQmlJSImportVisitor::checkDeprecation(const QQmlJSScope::ConstPtr
+//      &scope)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSImportVisitor16checkDeprecationERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSImportVisitor *self,
+    const QQmlJSScope::ConstPtr *scope) {
+  self->checkDeprecation(*scope);
+}
+
+//  void
+//      QQmlJSImportVisitor::checkGroupedAndAttachedScopes(QQmlJSScope::Const
+//      Ptr scope)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSImportVisitor29checkGroupedAndAttachedScopesE22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSImportVisitor *self,
+    const QQmlJSScope::ConstPtr *scope) {
+  self->checkGroupedAndAttachedScopes(*scope);
+}
+
+//  void QQmlJSImportVisitor::checkForComponentTypeWithProperties(const
+//      QQmlJSScope::ConstPtr &scope)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSImportVisitor35checkForComponentTypeWithPropertiesERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSImportVisitor *self,
+    const QQmlJSScope::ConstPtr *scope) {
+  self->checkForComponentTypeWithProperties(*scope);
+}
+
 //  bool QQmlJSImportVisitor::rootScopeIsValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QQmlJSImportVisitor16rootScopeIsValidEv(
@@ -4496,6 +4662,23 @@ bool ritual_ZNK19QQmlJSImportVisitor14isImportPrefixE7QString(
     const QQmlJSImportVisitor *self,
     const QString *prefix) {
   return self->isImportPrefix(*prefix);
+}
+
+//  void QQmlJSImportVisitor::checkSignal(const QQmlJSScope::ConstPtr
+//      &signalScope, const QQmlJS::SourceLocation &location, const QString
+//      &handlerName, const QStringList &handlerParameters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSImportVisitor11checkSignalERK22QDeferredSharedPointerIK11QQmlJSScopeERKN6QQmlJS14SourceLocationERK7QStringRK5QListISA_E(
+    QQmlJSImportVisitor *self,
+    const QQmlJSScope::ConstPtr *signalScope,
+    const QQmlJS::SourceLocation *location,
+    const QString *handlerName,
+    const QList<QString> *handlerParameters) {
+  self->checkSignal(
+      *signalScope,
+      *location,
+      *handlerName,
+      *handlerParameters);
 }
 
 //  void QQmlJSImportVisitor::importBaseModules()
@@ -4555,6 +4738,18 @@ void ritual_ZN19QQmlJSImportVisitor29visitFunctionExpressionHelperEPN6QQmlJS3AST
   self->visitFunctionExpressionHelper(fexpr);
 }
 
+//  void QQmlJSImportVisitor::processImportWarnings(const QString &what,
+//      const QList<QQmlJS::DiagnosticMessage> &warnings, const
+//      QQmlJS::SourceLocation &srcLocation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSImportVisitor21processImportWarningsERK7QStringRK5QListIN6QQmlJS17DiagnosticMessageEERKNS4_14SourceLocationE(
+    QQmlJSImportVisitor *self,
+    const QString *what,
+    const QList<QQmlJS::DiagnosticMessage> *warnings,
+    const QQmlJS::SourceLocation *srcLocation) {
+  self->processImportWarnings(*what, *warnings, *srcLocation);
+}
+
 //  void QQmlJSImportVisitor::addImportWithLocation(const QString &name,
 //      const QQmlJS::SourceLocation &loc, bool hadWarnings)
 extern "C" Q_DECL_EXPORT
@@ -4586,6 +4781,38 @@ void ritual_ZN19QQmlJSImportVisitor14enterRootScopeEN6QQmlSA9ScopeTypeERK7QStrin
     const QString *name,
     const QQmlJS::SourceLocation *location) {
   self->enterRootScope(type, *name, *location);
+}
+
+//  QList<QQmlJS::DiagnosticMessage>
+//      QQmlJSImportVisitor::importFromHost(const QString &path, const
+//      QString &prefix, const QQmlJS::SourceLocation &location)
+extern "C" Q_DECL_EXPORT
+QList<QQmlJS::DiagnosticMessage> *ritual_ZN19QQmlJSImportVisitor14importFromHostERK7QStringS2_RKN6QQmlJS14SourceLocationE(
+    QQmlJSImportVisitor *self,
+    const QString *path,
+    const QString *prefix,
+    const QQmlJS::SourceLocation *location) {
+  return new QList<QQmlJS::DiagnosticMessage>(
+      self->importFromHost(
+          *path,
+          *prefix,
+          *location));
+}
+
+//  QList<QQmlJS::DiagnosticMessage> QQmlJSImportVisitor::importFromQrc(const
+//      QString &path, const QString &prefix, const QQmlJS::SourceLocation
+//      &location)
+extern "C" Q_DECL_EXPORT
+QList<QQmlJS::DiagnosticMessage> *ritual_ZN19QQmlJSImportVisitor13importFromQrcERK7QStringS2_RKN6QQmlJS14SourceLocationE(
+    QQmlJSImportVisitor *self,
+    const QString *path,
+    const QString *prefix,
+    const QQmlJS::SourceLocation *location) {
+  return new QList<QQmlJS::DiagnosticMessage>(
+      self->importFromQrc(
+          *path,
+          *prefix,
+          *location));
 }
 
 //  a Python function taken by a CuteQQmlJSImportVisitor, for the function
@@ -5090,4 +5317,41 @@ void ritual_own_ZN19QQmlJSImportVisitor20handleLiteralBindingERK25QQmlJSMetaProp
     const QQmlJSMetaPropertyBinding *a0,
     const QQmlJS::AST::UiPublicMember *a1) {
   self->QQmlJSImportVisitor::handleLiteralBinding(*a0, a1);
+}
+
+//  a QQmlJSScope::Ptr a ritual of QQmlJSImportVisitor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSImportVisitor__QQmlJSScope_Ptr(
+    QQmlJSScope::Ptr *self) {
+  delete self;
+}
+
+//  a QHash<QQmlJS::SourceLocation, QQmlJSMetaSignalHandler> a ritual of
+//      QQmlJSImportVisitor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSImportVisitor__QHash_QQmlJS_SourceLocation_QQmlJSMetaSignalHandler(
+    QHash<QQmlJS::SourceLocation, QQmlJSMetaSignalHandler> *self) {
+  delete self;
+}
+
+//  a QList<QQmlJSScope::ConstPtr> a ritual of QQmlJSImportVisitor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSImportVisitor__QList_QQmlJSScope_ConstPtr(
+    QList<QQmlJSScope::ConstPtr> *self) {
+  delete self;
+}
+
+//  a QHash<QV4::CompiledData::Location, QQmlJSScope::ConstPtr> a ritual of
+//      QQmlJSImportVisitor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSImportVisitor__QHash_QV4_CompiledData_Location_QQmlJSScope_ConstPtr(
+    QHash<QV4::CompiledData::Location, QQmlJSScope::ConstPtr> *self) {
+  delete self;
+}
+
+//  a QList<QQmlJS::DiagnosticMessage> a ritual of QQmlJSImportVisitor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSImportVisitor__QList_QQmlJS_DiagnosticMessage(
+    QList<QQmlJS::DiagnosticMessage> *self) {
+  delete self;
 }

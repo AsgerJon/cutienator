@@ -6,6 +6,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtGui/QInputDevice>
 
 //  A QInputDevice that Python can take functions over in. Every QInputDevice
 //  Python makes is one. Each function below asks the Python
@@ -181,6 +183,24 @@ const QMetaObject *ritual_ZNK12QInputDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QInputDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QInputDevice11qt_metacastEPKc(
+    QInputDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QInputDevice::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QInputDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QInputDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QInputDevice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QInputDevice2trEPKcS1_i(
@@ -279,12 +299,51 @@ QList<QString> *ritual_ZN12QInputDevice9seatNamesEv() {
   return new QList<QString>(QInputDevice::seatNames());
 }
 
+//  QList<const QInputDevice *> QInputDevice::devices()
+extern "C" Q_DECL_EXPORT
+QList<const QInputDevice *> *ritual_ZN12QInputDevice7devicesEv() {
+  return new QList<const QInputDevice *>(QInputDevice::devices());
+}
+
 //  const QInputDevice *QInputDevice::primaryKeyboard(const QString
 //      &seatName)
 extern "C" Q_DECL_EXPORT
 const QInputDevice *ritual_ZN12QInputDevice15primaryKeyboardERK7QString(
     const QString *seatName) {
   return QInputDevice::primaryKeyboard(*seatName);
+}
+
+//  bool QInputDevice::operator==(const QInputDevice &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK12QInputDeviceeqERKS_(
+    const QInputDevice *self,
+    const QInputDevice *other) {
+  return self->operator==(*other);
+}
+
+//  void QInputDevice::availableVirtualGeometryChanged(QRect area)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputDevice31availableVirtualGeometryChangedE5QRect(
+    QInputDevice *self,
+    const QRect *area) {
+  self->availableVirtualGeometryChanged(*area);
+}
+
+//  void QInputDevice::capabilitiesChanged(Capabilities capabilities)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputDevice19capabilitiesChangedE6QFlagsINS_10CapabilityEE(
+    QInputDevice *self,
+    int capabilities) {
+  self->capabilitiesChanged(
+      QFlags<QInputDevice::Capability>::fromInt(capabilities));
+}
+
+//  QInputDevice::QInputDevice(QInputDevicePrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QInputDevice *ritual_ZN12QInputDeviceC1ER19QInputDevicePrivateP7QObject(
+    QInputDevicePrivate *d,
+    QObject *parent) {
+  return new CuteQInputDevice(*d, parent);
 }
 
 //  a Python function taken by a CuteQInputDevice, for the function named by
@@ -295,4 +354,11 @@ bool ritual_take_QInputDevice(
     const char *key,
     void *call) {
   return static_cast<CuteQInputDevice *>(self)->take(key, call);
+}
+
+//  a QList<const QInputDevice *> a ritual of QInputDevice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QInputDevice__QList_const_QInputDevice(
+    QList<const QInputDevice *> *self) {
+  delete self;
 }

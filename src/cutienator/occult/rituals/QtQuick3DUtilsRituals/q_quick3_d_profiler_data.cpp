@@ -29,6 +29,25 @@ QQuick3DProfilerData *ritual_ZN20QQuick3DProfilerDataC1Exiixx(
   return new QQuick3DProfilerData(time, messageType, detailType, d1, d2);
 }
 
+//  QQuick3DProfilerData::QQuick3DProfilerData(qint64 time, int messageType,
+//      int detailType, qint64 d1, qint64 d2, const QList<int> &ids)
+extern "C" Q_DECL_EXPORT
+QQuick3DProfilerData *ritual_ZN20QQuick3DProfilerDataC1ExiixxRK5QListIiE(
+    qint64 time,
+    int messageType,
+    int detailType,
+    qint64 d1,
+    qint64 d2,
+    const QList<int> *ids) {
+  return new QQuick3DProfilerData(
+      time,
+      messageType,
+      detailType,
+      d1,
+      d2,
+      *ids);
+}
+
 //  QQuick3DProfilerData::~QQuick3DProfilerData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DProfilerDataD1Ev(QQuick3DProfilerData *self) {

@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QCoapConnectionPrivateC1EN6QtCoap12SecurityModeE": [
+      "address", "unsigned char"
+    ],
     "ritual_ZN22QCoapConnectionPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QCoapConnectionPrivate11sendRequestERK10QByteArrayRK7QStringt": [
       "nothing", "address", "address", "text", "unsigned short"

@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QSettings10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QSettings11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QSettings11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QSettings2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QSettings6d_funcEv": ["address", "address"],
     "ritual_ZNK9QSettings6d_funcEv": ["address", "address"],
@@ -77,6 +81,9 @@
     "ritual_ZN9QSettings13defaultFormatEv": ["int"],
     "ritual_ZN9QSettings7setPathENS_6FormatENS_5ScopeERK7QString": [
       "nothing", "int", "int", "text"
+    ],
+    "ritual_ZN9QSettings14registerFormatERK7QStringPFbR9QIODeviceR4QMapIS0_8QVariantEEPFbS4_RKS7_EN2Qt15CaseSensitivityE": [
+      "int", "text", "address", "address", "int"
     ],
     "ritual_ZN9QSettings5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_take_QSettings": ["bool", "address", "chars", "address"],

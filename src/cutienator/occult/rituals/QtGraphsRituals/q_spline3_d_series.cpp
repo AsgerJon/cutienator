@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qspline3dseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qspline3dseries.h>
 #include <QtCore/qstring.h>
@@ -183,6 +183,24 @@ const QMetaObject *ritual_ZNK15QSpline3DSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSpline3DSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QSpline3DSeries11qt_metacastEPKc(
+    QSpline3DSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSpline3DSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QSpline3DSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSpline3DSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSpline3DSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QSpline3DSeries2trEPKcS1_i(
@@ -324,6 +342,63 @@ int ritual_ZNK15QSpline3DSeries16splineResolutionEv(
   return self->splineResolution();
 }
 
+//  void QSpline3DSeries::splineVisibilityChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSpline3DSeries23splineVisibilityChangedEb(
+    QSpline3DSeries *self,
+    bool visible) {
+  self->splineVisibilityChanged(visible);
+}
+
+//  void QSpline3DSeries::splineTensionChanged(qreal tension)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSpline3DSeries20splineTensionChangedEd(
+    QSpline3DSeries *self,
+    qreal tension) {
+  self->splineTensionChanged(tension);
+}
+
+//  void QSpline3DSeries::splineKnottingChanged(qreal knotting)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSpline3DSeries21splineKnottingChangedEd(
+    QSpline3DSeries *self,
+    qreal knotting) {
+  self->splineKnottingChanged(knotting);
+}
+
+//  void QSpline3DSeries::splineLoopingChanged(bool looping)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSpline3DSeries20splineLoopingChangedEb(
+    QSpline3DSeries *self,
+    bool looping) {
+  self->splineLoopingChanged(looping);
+}
+
+//  void QSpline3DSeries::splineColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSpline3DSeries18splineColorChangedE6QColor(
+    QSpline3DSeries *self,
+    const QColor *color) {
+  self->splineColorChanged(*color);
+}
+
+//  void QSpline3DSeries::splineResolutionChanged(int resolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSpline3DSeries23splineResolutionChangedEi(
+    QSpline3DSeries *self,
+    int resolution) {
+  self->splineResolutionChanged(resolution);
+}
+
+//  QSpline3DSeries::QSpline3DSeries(QSpline3DSeriesPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QSpline3DSeries *ritual_ZN15QSpline3DSeriesC1ER22QSpline3DSeriesPrivateP7QObject(
+    QSpline3DSeriesPrivate *d,
+    QObject *parent) {
+  return new CuteQSpline3DSeries(*d, parent);
+}
+
 //  a Python function taken by a CuteQSpline3DSeries, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -334,4 +409,4 @@ bool ritual_take_QSpline3DSeries(
   return static_cast<CuteQSpline3DSeries *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))

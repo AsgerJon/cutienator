@@ -29,6 +29,43 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 685, as local:qsgrhishadereffectnode.cpp:loadShaderFromFile
+static QShader loadShaderFromFile(const QString &filename)
+{
+    QFile f(filename);
+    if (!f.open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed to find shader" << filename;
+        return QShader();
+    }
+    return QShader::fromSerialized(f.readAll());
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 695, as local:qsgrhishadereffectnode.cpp:QSGRhiShaderEffectDefaultShader
+struct QSGRhiShaderEffectDefaultShader
+{
+    QShader shader;
+    quint32 matrixArrayByteSize;
+    quint32 opacityOffset;
+    qint8 viewCount;
+    static QSGRhiShaderEffectDefaultShader create(const QString &filename, int viewCount);
+};
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 704, as local:qsgrhishadereffectnode.cpp:QSGRhiShaderEffectDefaultShader::create
+inline QSGRhiShaderEffectDefaultShader QSGRhiShaderEffectDefaultShader::create(const QString &filename, int viewCount)
+{
+    QSGRhiShaderEffectDefaultShader s;
+    s.shader = loadShaderFromFile(filename);
+    const QList<QShaderDescription::BlockVariable> uboMembers = s.shader.description().uniformBlocks().constFirst().members;
+    for (const auto &member: uboMembers) {
+        if (member.name == QByteArrayLiteral("qt_Matrix"))
+            s.matrixArrayByteSize = member.size;
+        else if (member.name == QByteArrayLiteral("qt_Opacity"))
+            s.opacityOffset = member.offset;
+    }
+    s.viewCount = viewCount;
+    return s;
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 518, as _ZN26QSGRhiShaderEffectMaterialC1EP22QSGRhiShaderEffectNode
 inline QSGRhiShaderEffectMaterial::QSGRhiShaderEffectMaterial(QSGRhiShaderEffectNode *node)
     : m_node(node)
@@ -77,22 +114,6 @@ inline void QSGRhiShaderEffectNode::preprocess()
         }
     }
 }
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 884, as _ZN22QSGRhiShaderEffectNode19handleTextureChangeEv
-inline void QSGRhiShaderEffectNode::handleTextureChange()
-{
-    markDirty(QSGNode::DirtyMaterial);
-    emit textureChanged();
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 890, as _ZN22QSGRhiShaderEffectNode30handleTextureProviderDestroyedEP7QObject
-inline void QSGRhiShaderEffectNode::handleTextureProviderDestroyed(QObject *object)
-{
-    for (QSGTextureProvider *&tp : m_material.m_textureProviders) {
-        if (tp == object)
-            tp = nullptr;
-    }
-}
 //  -----------------------------------------------------------------------
 
 //  const QMetaObject *QSGRhiShaderEffectNode::metaObject() const
@@ -100,6 +121,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QSGRhiShaderEffectNode10metaObjectEv(
     const QSGRhiShaderEffectNode *self) {
   return self->metaObject();
+}
+
+//  void *QSGRhiShaderEffectNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QSGRhiShaderEffectNode11qt_metacastEPKc(
+    QSGRhiShaderEffectNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGRhiShaderEffectNode::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QSGRhiShaderEffectNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGRhiShaderEffectNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QRectF QSGRhiShaderEffectNode::updateNormalizedTextureSubRect(bool
@@ -113,6 +153,14 @@ QRectF *ritual_ZN22QSGRhiShaderEffectNode30updateNormalizedTextureSubRectEb(
           supportsAtlasTextures));
 }
 
+//  void QSGRhiShaderEffectNode::syncMaterial(SyncData *syncData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QSGRhiShaderEffectNode12syncMaterialEPN19QSGShaderEffectNode8SyncDataE(
+    QSGRhiShaderEffectNode *self,
+    QSGShaderEffectNode::SyncData *syncData) {
+  self->syncMaterial(syncData);
+}
+
 //  void QSGRhiShaderEffectNode::preprocess()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSGRhiShaderEffectNode10preprocessEv(
@@ -124,16 +172,25 @@ void ritual_ZN22QSGRhiShaderEffectNode10preprocessEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSGRhiShaderEffectNode19handleTextureChangeEv(
     QSGRhiShaderEffectNode *self) {
-  self->handleTextureChange();
-}
-
-//  void QSGRhiShaderEffectNode::handleTextureProviderDestroyed(QObject
-//      *object)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN22QSGRhiShaderEffectNode30handleTextureProviderDestroyedEP7QObject(
-    QSGRhiShaderEffectNode *self,
-    QObject *object) {
-  self->handleTextureProviderDestroyed(object);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSGRhiShaderEffectNode")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handleTextureChange()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handleTextureChange()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QRectF QSGRhiShaderEffectNode::updateNormalizedTextureSubRect(bool

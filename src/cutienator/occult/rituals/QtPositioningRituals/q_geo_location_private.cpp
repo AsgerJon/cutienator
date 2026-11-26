@@ -39,6 +39,16 @@ inline QGeoLocationPrivate::~QGeoLocationPrivate()
 {
 }
 
+//  from ../qtpositioning/src/positioning/qgeolocation.cpp, line 30, as _ZNK19QGeoLocationPrivateeqERKS_
+inline bool QGeoLocationPrivate::operator==(const QGeoLocationPrivate &other) const
+{
+    return  (this->address == other.address
+            && this->coordinate == other.coordinate
+            && this->viewport == other.viewport
+            && this->extendedAttributes == other.extendedAttributes);
+
+}
+
 //  from ../qtpositioning/src/positioning/qgeolocation.cpp, line 39, as _ZNK19QGeoLocationPrivate7isEmptyEv
 inline bool QGeoLocationPrivate::isEmpty() const
 {
@@ -67,6 +77,15 @@ QGeoLocationPrivate *ritual_ZN19QGeoLocationPrivateC1ERKS_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGeoLocationPrivateD1Ev(QGeoLocationPrivate *self) {
   delete self;
+}
+
+//  bool QGeoLocationPrivate::operator==(const QGeoLocationPrivate &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK19QGeoLocationPrivateeqERKS_(
+    const QGeoLocationPrivate *self,
+    const QGeoLocationPrivate *other) {
+  return self->operator==(*other);
 }
 
 //  bool QGeoLocationPrivate::isEmpty() const

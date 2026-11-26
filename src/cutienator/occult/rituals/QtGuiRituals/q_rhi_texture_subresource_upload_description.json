@@ -9,6 +9,9 @@
     "ritual_ZN39QRhiTextureSubresourceUploadDescriptionC1ERK6QImage": [
       "address", "address"
     ],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescriptionC1EPKvj": [
+      "address", "address", "unsigned int"
+    ],
     "ritual_ZN39QRhiTextureSubresourceUploadDescriptionC1ERK10QByteArray": [
       "address", "address"
     ],

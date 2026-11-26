@@ -110,6 +110,53 @@ public:
 #endif  // QT_CONFIG(undocommand)
 };
 
+//  qdesigner_internal::ContainerWidgetCommand::ContainerWidgetCommand(QDesig
+//      nerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ContainerWidgetCommand *ritual_ZN18qdesigner_internal22ContainerWidgetCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_ContainerWidgetCommand(formWindow);
+}
+
+//  qdesigner_internal::ContainerWidgetCommand::~ContainerWidgetCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22ContainerWidgetCommandD1Ev(
+    qdesigner_internal::ContainerWidgetCommand *self) {
+  delete self;
+}
+
+//  QDesignerContainerExtension
+//      *qdesigner_internal::ContainerWidgetCommand::containerExtension()
+//      const
+extern "C" Q_DECL_EXPORT
+QDesignerContainerExtension *ritual_ZNK18qdesigner_internal22ContainerWidgetCommand18containerExtensionEv(
+    const qdesigner_internal::ContainerWidgetCommand *self) {
+  return self->containerExtension();
+}
+
+//  void qdesigner_internal::ContainerWidgetCommand::init(QWidget
+//      *containerWidget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22ContainerWidgetCommand4initEP7QWidget(
+    qdesigner_internal::ContainerWidgetCommand *self,
+    QWidget *containerWidget) {
+  self->init(containerWidget);
+}
+
+//  void qdesigner_internal::ContainerWidgetCommand::removePage()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22ContainerWidgetCommand10removePageEv(
+    qdesigner_internal::ContainerWidgetCommand *self) {
+  self->removePage();
+}
+
+//  void qdesigner_internal::ContainerWidgetCommand::addPage()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22ContainerWidgetCommand7addPageEv(
+    qdesigner_internal::ContainerWidgetCommand *self) {
+  self->addPage();
+}
+
 //  a Python function taken by a
 //      Cuteqdesigner_internal_ContainerWidgetCommand, for the function named
 //      by the key

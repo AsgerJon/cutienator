@@ -8,9 +8,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/private/qfont_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qfont.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QPlatformFontDatabase that Python can take functions over in. Every QPlatformFontDatabase
 //  Python makes is one. Each function below asks the Python
@@ -19,20 +23,22 @@ typedef void (*CuteQPlatformFontDatabaseCall0)(const void *, int *);
 typedef bool (*CuteQPlatformFontDatabaseCall1)(const void *, const QString *, int *);
 typedef void (*CuteQPlatformFontDatabaseCall2)(const void *, const QString *, int *);
 typedef void (*CuteQPlatformFontDatabaseCall3)(const void *, int *);
-typedef void * (*CuteQPlatformFontDatabaseCall4)(const void *, const QByteArray *, qreal, int, int *);
-typedef void * (*CuteQPlatformFontDatabaseCall5)(const void *, QFontEngine *, int, int *);
-typedef QString * (*CuteQPlatformFontDatabaseCall6)(const void *, int *);
-typedef const QFont * (*CuteQPlatformFontDatabaseCall7)(const void *, int *);
-typedef bool (*CuteQPlatformFontDatabaseCall8)(const void *, const QString *, int *);
-typedef QString * (*CuteQPlatformFontDatabaseCall9)(const void *, const QString *, int *);
-typedef bool (*CuteQPlatformFontDatabaseCall10)(const void *, int *);
-typedef bool (*CuteQPlatformFontDatabaseCall11)(const void *, int *);
+typedef void * (*CuteQPlatformFontDatabaseCall4)(const void *, const QFontDef *, void *, int *);
+typedef void * (*CuteQPlatformFontDatabaseCall5)(const void *, const QByteArray *, qreal, int, int *);
+typedef void * (*CuteQPlatformFontDatabaseCall6)(const void *, QFontEngine *, int, int *);
+typedef void (*CuteQPlatformFontDatabaseCall7)(const void *, void *, int *);
+typedef QString * (*CuteQPlatformFontDatabaseCall8)(const void *, int *);
+typedef const QFont * (*CuteQPlatformFontDatabaseCall9)(const void *, int *);
+typedef bool (*CuteQPlatformFontDatabaseCall10)(const void *, const QString *, int *);
+typedef QString * (*CuteQPlatformFontDatabaseCall11)(const void *, const QString *, int *);
 typedef bool (*CuteQPlatformFontDatabaseCall12)(const void *, int *);
+typedef bool (*CuteQPlatformFontDatabaseCall13)(const void *, int *);
+typedef bool (*CuteQPlatformFontDatabaseCall14)(const void *, int *);
 class CuteQPlatformFontDatabase : public QPlatformFontDatabase {
 public:
   using QPlatformFontDatabase::QPlatformFontDatabase;
-  CuteQPlatformFontDatabase(const QPlatformFontDatabase &other) : QPlatformFontDatabase(other) {}
-  void *taken[13] = {};
+  CuteQPlatformFontDatabase(const QPlatformFontDatabase & other) : QPlatformFontDatabase(other) {}
+  void *taken[15] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN21QPlatformFontDatabase20populateFontDatabaseEv")) {
@@ -51,40 +57,48 @@ public:
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QPlatformFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE")) {
+    if (!std::strcmp(key, "_ZN21QPlatformFontDatabase10fontEngineERK8QFontDefPv")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QPlatformFontDatabase15fontEngineMultiEP11QFontEngineN20QFontDatabasePrivate14ExtendedScriptE")) {
+    if (!std::strcmp(key, "_ZN21QPlatformFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase7fontDirEv")) {
+    if (!std::strcmp(key, "_ZN21QPlatformFontDatabase15fontEngineMultiEP11QFontEngineN20QFontDatabasePrivate14ExtendedScriptE")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase11defaultFontEv")) {
+    if (!std::strcmp(key, "_ZN21QPlatformFontDatabase13releaseHandleEPv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase19isPrivateFontFamilyERK7QString")) {
+    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase7fontDirEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase22resolveFontFamilyAliasERK7QString")) {
+    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase11defaultFontEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase19fontsAlwaysScalableEv")) {
+    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase19isPrivateFontFamilyERK7QString")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase32supportsVariableApplicationFontsEv")) {
+    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase22resolveFontFamilyAliasERK7QString")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase19supportsColrv0FontsEv")) {
+    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase19fontsAlwaysScalableEv")) {
       taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase32supportsVariableApplicationFontsEv")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK21QPlatformFontDatabase19supportsColrv0FontsEv")) {
+      taken[14] = call;
       return true;
     }
     return false;
@@ -135,6 +149,18 @@ public:
     QPlatformFontDatabase::invalidate();
   }
 
+  //  QFontEngine *QPlatformFontDatabase::fontEngine(const QFontDef
+  //      &fontDef, void *handle)
+  QFontEngine *fontEngine(const QFontDef &fontDef, void *handle) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQPlatformFontDatabaseCall4 call = reinterpret_cast<CuteQPlatformFontDatabaseCall4>(taken[4]);
+      void * given = call(this, &fontDef, handle, &handled);
+      if (handled) return static_cast<QFontEngine *>(given);
+    }
+    return QPlatformFontDatabase::fontEngine(fontDef, handle);
+  }
+
   //  QFontEngine *QPlatformFontDatabase::fontEngine(const QByteArray
   //      &fontData, qreal pixelSize, QFont::HintingPreference
   //      hintingPreference)
@@ -142,9 +168,9 @@ public:
       const QByteArray &fontData,
       qreal pixelSize,
       QFont::HintingPreference hintingPreference) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQPlatformFontDatabaseCall4 call = reinterpret_cast<CuteQPlatformFontDatabaseCall4>(taken[4]);
+      CuteQPlatformFontDatabaseCall5 call = reinterpret_cast<CuteQPlatformFontDatabaseCall5>(taken[5]);
       void * given = call(this, &fontData, pixelSize, static_cast<int>(hintingPreference), &handled);
       if (handled) return static_cast<QFontEngine *>(given);
     }
@@ -156,20 +182,31 @@ public:
   QFontEngineMulti *fontEngineMulti(
       QFontEngine *fontEngine,
       QFontDatabasePrivate::ExtendedScript script) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQPlatformFontDatabaseCall5 call = reinterpret_cast<CuteQPlatformFontDatabaseCall5>(taken[5]);
+      CuteQPlatformFontDatabaseCall6 call = reinterpret_cast<CuteQPlatformFontDatabaseCall6>(taken[6]);
       void * given = call(this, fontEngine, static_cast<int>(script), &handled);
       if (handled) return static_cast<QFontEngineMulti *>(given);
     }
     return QPlatformFontDatabase::fontEngineMulti(fontEngine, script);
   }
 
+  //  void QPlatformFontDatabase::releaseHandle(void *handle)
+  void releaseHandle(void *handle) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQPlatformFontDatabaseCall7 call = reinterpret_cast<CuteQPlatformFontDatabaseCall7>(taken[7]);
+      call(this, handle, &handled);
+      if (handled) return;
+    }
+    QPlatformFontDatabase::releaseHandle(handle);
+  }
+
   //  QString QPlatformFontDatabase::fontDir() const
   QString fontDir() const override {
-    if (taken[6]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQPlatformFontDatabaseCall6 call = reinterpret_cast<CuteQPlatformFontDatabaseCall6>(taken[6]);
+      CuteQPlatformFontDatabaseCall8 call = reinterpret_cast<CuteQPlatformFontDatabaseCall8>(taken[8]);
       QString * given = call(this, &handled);
       if (handled && given) {
         QString back(*given);
@@ -182,9 +219,9 @@ public:
 
   //  QFont QPlatformFontDatabase::defaultFont() const
   QFont defaultFont() const override {
-    if (taken[7]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQPlatformFontDatabaseCall7 call = reinterpret_cast<CuteQPlatformFontDatabaseCall7>(taken[7]);
+      CuteQPlatformFontDatabaseCall9 call = reinterpret_cast<CuteQPlatformFontDatabaseCall9>(taken[9]);
       const QFont * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -194,9 +231,9 @@ public:
   //  bool QPlatformFontDatabase::isPrivateFontFamily(const QString
   //      &family) const
   bool isPrivateFontFamily(const QString &family) const override {
-    if (taken[8]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQPlatformFontDatabaseCall8 call = reinterpret_cast<CuteQPlatformFontDatabaseCall8>(taken[8]);
+      CuteQPlatformFontDatabaseCall10 call = reinterpret_cast<CuteQPlatformFontDatabaseCall10>(taken[10]);
       bool given = call(this, &family, &handled);
       if (handled) return given;
     }
@@ -206,9 +243,9 @@ public:
   //  QString QPlatformFontDatabase::resolveFontFamilyAlias(const QString
   //      &family) const
   QString resolveFontFamilyAlias(const QString &family) const override {
-    if (taken[9]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQPlatformFontDatabaseCall9 call = reinterpret_cast<CuteQPlatformFontDatabaseCall9>(taken[9]);
+      CuteQPlatformFontDatabaseCall11 call = reinterpret_cast<CuteQPlatformFontDatabaseCall11>(taken[11]);
       QString * given = call(this, &family, &handled);
       if (handled && given) {
         QString back(*given);
@@ -221,9 +258,9 @@ public:
 
   //  bool QPlatformFontDatabase::fontsAlwaysScalable() const
   bool fontsAlwaysScalable() const override {
-    if (taken[10]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQPlatformFontDatabaseCall10 call = reinterpret_cast<CuteQPlatformFontDatabaseCall10>(taken[10]);
+      CuteQPlatformFontDatabaseCall12 call = reinterpret_cast<CuteQPlatformFontDatabaseCall12>(taken[12]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -232,9 +269,9 @@ public:
 
   //  bool QPlatformFontDatabase::supportsVariableApplicationFonts() const
   bool supportsVariableApplicationFonts() const override {
-    if (taken[11]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQPlatformFontDatabaseCall11 call = reinterpret_cast<CuteQPlatformFontDatabaseCall11>(taken[11]);
+      CuteQPlatformFontDatabaseCall13 call = reinterpret_cast<CuteQPlatformFontDatabaseCall13>(taken[13]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -243,9 +280,9 @@ public:
 
   //  bool QPlatformFontDatabase::supportsColrv0Fonts() const
   bool supportsColrv0Fonts() const override {
-    if (taken[12]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQPlatformFontDatabaseCall12 call = reinterpret_cast<CuteQPlatformFontDatabaseCall12>(taken[12]);
+      CuteQPlatformFontDatabaseCall14 call = reinterpret_cast<CuteQPlatformFontDatabaseCall14>(taken[14]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -324,6 +361,16 @@ QList<QString> *ritual_ZN21QPlatformFontDatabase18addApplicationFontERK10QByteAr
           font));
 }
 
+//  QFontEngine *QPlatformFontDatabase::fontEngine(const QFontDef &fontDef,
+//      void *handle)
+extern "C" Q_DECL_EXPORT
+QFontEngine *ritual_ZN21QPlatformFontDatabase10fontEngineERK8QFontDefPv(
+    QPlatformFontDatabase *self,
+    const QFontDef *fontDef,
+    void *handle) {
+  return self->fontEngine(*fontDef, handle);
+}
+
 //  QFontEngine *QPlatformFontDatabase::fontEngine(const QByteArray
 //      &fontData, qreal pixelSize, QFont::HintingPreference
 //      hintingPreference)
@@ -344,6 +391,14 @@ QFontEngineMulti *ritual_ZN21QPlatformFontDatabase15fontEngineMultiEP11QFontEngi
     QFontEngine *fontEngine,
     QFontDatabasePrivate::ExtendedScript script) {
   return self->fontEngineMulti(fontEngine, script);
+}
+
+//  void QPlatformFontDatabase::releaseHandle(void *handle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlatformFontDatabase13releaseHandleEPv(
+    QPlatformFontDatabase *self,
+    void *handle) {
+  self->releaseHandle(handle);
 }
 
 //  QString QPlatformFontDatabase::fontDir() const
@@ -385,6 +440,13 @@ bool ritual_ZNK21QPlatformFontDatabase19fontsAlwaysScalableEv(
   return self->fontsAlwaysScalable();
 }
 
+//  QList<int> QPlatformFontDatabase::standardSizes() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK21QPlatformFontDatabase13standardSizesEv(
+    const QPlatformFontDatabase *self) {
+  return new QList<int>(self->standardSizes());
+}
+
 //  bool QPlatformFontDatabase::supportsVariableApplicationFonts() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QPlatformFontDatabase32supportsVariableApplicationFontsEv(
@@ -423,6 +485,42 @@ QSupportedWritingSystems *ritual_ZN21QPlatformFontDatabase26writingSystemsFromOS
       QPlatformFontDatabase::writingSystemsFromOS2Table(
           os2Table,
           length));
+}
+
+//  void QPlatformFontDatabase::registerFont(const QString &familyname, const
+//      QString &stylename, const QString &foundryname, QFont::Weight weight,
+//      QFont::Style style, QFont::Stretch stretch, bool antialiased, bool
+//      scalable, int pixelSize, bool fixedPitch, bool colorFont, const
+//      QSupportedWritingSystems &writingSystems, void *handle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlatformFontDatabase12registerFontERK7QStringS2_S2_N5QFont6WeightENS3_5StyleENS3_7StretchEbbibbRK24QSupportedWritingSystemsPv(
+    const QString *familyname,
+    const QString *stylename,
+    const QString *foundryname,
+    QFont::Weight weight,
+    QFont::Style style,
+    QFont::Stretch stretch,
+    bool antialiased,
+    bool scalable,
+    int pixelSize,
+    bool fixedPitch,
+    bool colorFont,
+    const QSupportedWritingSystems *writingSystems,
+    void *handle) {
+  QPlatformFontDatabase::registerFont(
+      *familyname,
+      *stylename,
+      *foundryname,
+      weight,
+      style,
+      stretch,
+      antialiased,
+      scalable,
+      pixelSize,
+      fixedPitch,
+      colorFont,
+      *writingSystems,
+      handle);
 }
 
 //  void QPlatformFontDatabase::registerFontFamily(const QString &familyName)
@@ -495,6 +593,16 @@ void ritual_own_ZN21QPlatformFontDatabase10invalidateEv(
   self->QPlatformFontDatabase::invalidate();
 }
 
+//  QFontEngine *QPlatformFontDatabase::fontEngine(const QFontDef &fontDef,
+//      void *handle)
+extern "C" Q_DECL_EXPORT
+QFontEngine *ritual_own_ZN21QPlatformFontDatabase10fontEngineERK8QFontDefPv(
+    QPlatformFontDatabase *self,
+    const QFontDef *fontDef,
+    void *handle) {
+  return self->QPlatformFontDatabase::fontEngine(*fontDef, handle);
+}
+
 //  QFontEngine *QPlatformFontDatabase::fontEngine(const QByteArray
 //      &fontData, qreal pixelSize, QFont::HintingPreference
 //      hintingPreference)
@@ -518,6 +626,14 @@ QFontEngineMulti *ritual_own_ZN21QPlatformFontDatabase15fontEngineMultiEP11QFont
     QFontEngine *fontEngine,
     QFontDatabasePrivate::ExtendedScript script) {
   return self->QPlatformFontDatabase::fontEngineMulti(fontEngine, script);
+}
+
+//  void QPlatformFontDatabase::releaseHandle(void *handle)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN21QPlatformFontDatabase13releaseHandleEPv(
+    QPlatformFontDatabase *self,
+    void *handle) {
+  self->QPlatformFontDatabase::releaseHandle(handle);
 }
 
 //  QString QPlatformFontDatabase::fontDir() const
@@ -573,4 +689,10 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK21QPlatformFontDatabase19supportsColrv0FontsEv(
     const QPlatformFontDatabase *self) {
   return self->QPlatformFontDatabase::supportsColrv0Fonts();
+}
+
+//  a QList<int> a ritual of QPlatformFontDatabase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformFontDatabase__QList_int(QList<int> *self) {
+  delete self;
 }

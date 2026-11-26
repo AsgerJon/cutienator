@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK21QQuick3DParticleShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DParticleShape11qt_metacastEPKc(
+    QQuick3DParticleShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleShape::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DParticleShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleShape::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuick3DParticleShape2trEPKcS1_i(
@@ -92,6 +111,27 @@ void ritual_ZN21QQuick3DParticleShape10setExtentsE9QVector3D(
     QQuick3DParticleShape *self,
     const QVector3D *extends) {
   self->setExtents(*extends);
+}
+
+//  void QQuick3DParticleShape::fillChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DParticleShape11fillChangedEv(
+    QQuick3DParticleShape *self) {
+  self->fillChanged();
+}
+
+//  void QQuick3DParticleShape::typeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DParticleShape11typeChangedEv(
+    QQuick3DParticleShape *self) {
+  self->typeChanged();
+}
+
+//  void QQuick3DParticleShape::extentsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DParticleShape14extentsChangedEv(
+    QQuick3DParticleShape *self) {
+  self->extentsChanged();
 }
 
 //  QVector3D QQuick3DParticleShape::randomPositionCube(int particleIndex)

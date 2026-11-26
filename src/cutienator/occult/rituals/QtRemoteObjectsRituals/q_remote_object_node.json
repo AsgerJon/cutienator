@@ -1,11 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Changes made here",
-    "are lost."
+    "QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Edited by hand:",
+    "see the ritual file."
   ],
   "rows": {
     "ritual_ZNK17QRemoteObjectNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QRemoteObjectNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QRemoteObjectNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QRemoteObjectNode2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -29,6 +35,9 @@
     "ritual_ZN17QRemoteObjectNode14acquireDynamicERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZN17QRemoteObjectNode12acquireModelERK7QStringN15QtRemoteObjects13InitialActionERK5QListIiE": [
+      "address", "address", "text", "int", "address"
+    ],
     "ritual_ZNK17QRemoteObjectNode11registryUrlEv": ["address", "address"],
     "ritual_ZN17QRemoteObjectNode14setRegistryUrlERK4QUrl": [
       "bool", "address", "address"
@@ -47,6 +56,30 @@
     "ritual_ZNK17QRemoteObjectNode17heartbeatIntervalEv": ["int", "address"],
     "ritual_ZN17QRemoteObjectNode20setHeartbeatIntervalEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN17QRemoteObjectNode22registerExternalSchemaERK7QStringSt8functionIFv4QUrlEE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode17remoteObjectAddedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode19remoteObjectRemovedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode18registryUrlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode21persistedStoreChangedEP35QRemoteObjectAbstractPersistedStore": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode5errorENS_9ErrorCodeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QRemoteObjectNode24heartbeatIntervalChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QRemoteObjectNodeC1ER24QRemoteObjectNodePrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN17QRemoteObjectNode10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
@@ -71,6 +104,9 @@
     ],
     "ritual_own_ZN17QRemoteObjectNode10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_callback_ZN17QRemoteObjectNode22registerExternalSchemaERK7QStringSt8functionIFv4QUrlEE": [
+      "nothing", "address", "text", "address", "address"
     ]
   }
 }

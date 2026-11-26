@@ -31,6 +31,18 @@ QJSValue *ritual_ZN8QJSValueC1ERKS_(const QJSValue *other) {
   return new QJSValue(*other);
 }
 
+//  QJSValue::QJSValue(QJSValue &&other)
+extern "C" Q_DECL_EXPORT
+QJSValue *ritual_ZN8QJSValueC1EOS_(QJSValue *other) {
+  return new QJSValue(std::move(*other));
+}
+
+//  QJSValue &QJSValue::operator=(QJSValue &&other)
+extern "C" Q_DECL_EXPORT
+QJSValue *ritual_ZN8QJSValueaSEOS_(QJSValue *self, QJSValue *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QJSValue::QJSValue(bool value)
 extern "C" Q_DECL_EXPORT
 QJSValue *ritual_ZN8QJSValueC1Eb(bool value) {
@@ -75,6 +87,25 @@ QJSValue *ritual_ZN8QJSValueC1EPKc(const char *str) {
   return new QJSValue(str);
 }
 #endif  // !defined(QT_NO_CAST_FROM_ASCII)
+
+//  QJSValue &QJSValue::operator=(const QJSValue &other)
+extern "C" Q_DECL_EXPORT
+QJSValue *ritual_ZN8QJSValueaSERKS_(QJSValue *self, const QJSValue *other) {
+  return &(self->operator=(*other));
+}
+
+//  QJSValue::QJSValue(QJSPrimitiveValue &&value)
+extern "C" Q_DECL_EXPORT
+QJSValue *ritual_ZN8QJSValueC1EO17QJSPrimitiveValue(
+    QJSPrimitiveValue *value) {
+  return new QJSValue(std::move(*value));
+}
+
+//  QJSValue::QJSValue(QJSManagedValue &&value)
+extern "C" Q_DECL_EXPORT
+QJSValue *ritual_ZN8QJSValueC1EO15QJSManagedValue(QJSManagedValue *value) {
+  return new QJSValue(std::move(*value));
+}
 
 //  bool QJSValue::isBool() const
 extern "C" Q_DECL_EXPORT

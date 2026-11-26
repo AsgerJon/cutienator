@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender11QShaderNode4RuleC1ERK10QByteArrayRK5QListIS2_E": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender11QShaderNode4RuleD1Ev": ["nothing", "address"]
   }
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK25QPlatformFontDialogHelper10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QPlatformFontDialogHelper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QPlatformFontDialogHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QPlatformFontDialogHelper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,18 @@
     ],
     "ritual_ZNK25QPlatformFontDialogHelper11currentFontEv": [
       "address", "address"
+    ],
+    "ritual_ZNK25QPlatformFontDialogHelper7optionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformFontDialogHelper10setOptionsERK14QSharedPointerI18QFontDialogOptionsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QPlatformFontDialogHelper18currentFontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QPlatformFontDialogHelper12fontSelectedERK5QFont": [
+      "nothing", "address", "address"
     ]
   }
 }

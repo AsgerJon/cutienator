@@ -6,9 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK14FileInfoThread10metaObjectEv": ["address", "address"],
+    "ritual_ZN14FileInfoThread11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14FileInfoThread11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14FileInfoThreadD1Ev": ["nothing", "address"],
     "ritual_ZN14FileInfoThread5clearEv": ["nothing", "address"],
     "ritual_ZN14FileInfoThread10removePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14FileInfoThread10dirChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14FileInfoThread10updateFileERK7QString": [
       "nothing", "address", "text"
     ],
     "ritual_ZN14FileInfoThread3runEv": ["nothing", "address"],

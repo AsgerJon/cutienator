@@ -15,6 +15,91 @@ QV4::ScopedValue *ritual_ZN3QV411ScopedValueC1ERKS0_(
   return new QV4::ScopedValue(*a0);
 }
 
+//  QV4::ScopedValue::ScopedValue(ScopedValue &&a0)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueC1EOS0_(QV4::ScopedValue *a0) {
+  return new QV4::ScopedValue(std::move(*a0));
+}
+
+//  QV4::ScopedValue::ScopedValue(const Scope &scope)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeE(
+    const QV4::Scope *scope) {
+  return new QV4::ScopedValue(*scope);
+}
+
+//  QV4::ScopedValue::ScopedValue(const Scope &scope, const Value &v)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeERKNS_5ValueE(
+    const QV4::Scope *scope,
+    const QV4::Value *v) {
+  return new QV4::ScopedValue(*scope, *v);
+}
+
+//  QV4::ScopedValue::ScopedValue(const Scope &scope, Heap::Base *o)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeEPNS_4Heap4BaseE(
+    const QV4::Scope *scope,
+    QV4::Heap::Base *o) {
+  return new QV4::ScopedValue(*scope, o);
+}
+
+//  QV4::ScopedValue::ScopedValue(const Scope &scope, Managed *m)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeEPNS_7ManagedE(
+    const QV4::Scope *scope,
+    QV4::Managed *m) {
+  return new QV4::ScopedValue(*scope, m);
+}
+
+//  QV4::ScopedValue::ScopedValue(const Scope &scope, const ReturnedValue &v)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeERKy(
+    const QV4::Scope *scope,
+    QV4::ReturnedValue v) {
+  return new QV4::ScopedValue(*scope, v);
+}
+
+//  ScopedValue &QV4::ScopedValue::operator=(const Value &v)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueaSERKNS_5ValueE(
+    QV4::ScopedValue *self,
+    const QV4::Value *v) {
+  return &(self->operator=(*v));
+}
+
+//  ScopedValue &QV4::ScopedValue::operator=(Heap::Base *o)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueaSEPNS_4Heap4BaseE(
+    QV4::ScopedValue *self,
+    QV4::Heap::Base *o) {
+  return &(self->operator=(o));
+}
+
+//  ScopedValue &QV4::ScopedValue::operator=(Managed *m)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueaSEPNS_7ManagedE(
+    QV4::ScopedValue *self,
+    QV4::Managed *m) {
+  return &(self->operator=(m));
+}
+
+//  ScopedValue &QV4::ScopedValue::operator=(const ReturnedValue &v)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueaSERKy(
+    QV4::ScopedValue *self,
+    QV4::ReturnedValue v) {
+  return &(self->operator=(v));
+}
+
+//  ScopedValue &QV4::ScopedValue::operator=(const ScopedValue &other)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedValue *ritual_ZN3QV411ScopedValueaSERKS0_(
+    QV4::ScopedValue *self,
+    const QV4::ScopedValue *other) {
+  return &(self->operator=(*other));
+}
+
 //  Value *QV4::ScopedValue::operator->()
 extern "C" Q_DECL_EXPORT
 QV4::Value *ritual_ZN3QV411ScopedValueptEv(QV4::ScopedValue *self) {

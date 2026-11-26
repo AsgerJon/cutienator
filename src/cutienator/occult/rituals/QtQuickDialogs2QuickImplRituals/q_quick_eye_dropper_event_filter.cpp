@@ -6,6 +6,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickcolordialogimpl_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <functional>
+#include <QtCore/QPoint>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickDialogs2QuickImpl/private/qquickcolordialogimpl_p.h>
 #include <QtQuickDialogs2QuickImpl/private/qquickcolordialogimpl_p_p.h>
@@ -65,6 +67,16 @@ inline bool QQuickEyeDropperEventFilter::eventFilter(QObject *obj, QEvent *event
 struct OwnQQuickEyeDropperEventFilter : QQuickEyeDropperEventFilter {
   using QQuickEyeDropperEventFilter::eventFilter;
 };
+
+//  QQuickEyeDropperEventFilter::QQuickEyeDropperEventFilter(std::function<vo
+//      id (QPoint, LeaveReason)> callOnLeave, std::function<void (QPoint)>
+//      callOnUpdate)
+extern "C" Q_DECL_EXPORT
+QQuickEyeDropperEventFilter *ritual_ZN27QQuickEyeDropperEventFilterC1ESt8functionIFv6QPointNS_11LeaveReasonEEES0_IFvS1_EE(
+    const std::function<void (QPoint, QQuickEyeDropperEventFilter::LeaveReason)> *callOnLeave,
+    const std::function<void (QPoint)> *callOnUpdate) {
+  return new QQuickEyeDropperEventFilter(*callOnLeave, *callOnUpdate);
+}
 
 //  bool QQuickEyeDropperEventFilter::eventFilter(QObject *obj, QEvent
 //      *event)

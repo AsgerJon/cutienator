@@ -20,6 +20,24 @@ void ritual_ZN17DomLayoutFunctionD1Ev(DomLayoutFunction *self) {
   delete self;
 }
 
+//  void DomLayoutFunction::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DomLayoutFunction4readER16QXmlStreamReader(
+    DomLayoutFunction *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomLayoutFunction::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17DomLayoutFunction5writeER16QXmlStreamWriterRK7QString(
+    const DomLayoutFunction *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomLayoutFunction::hasAttributeSpacing() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17DomLayoutFunction19hasAttributeSpacingEv(

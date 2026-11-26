@@ -6,12 +6,25 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickSideBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickSideBar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickSideBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickSideBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickSideBarC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN13QQuickSideBarD1Ev": ["nothing", "address"],
     "ritual_ZNK13QQuickSideBar6dialogEv": ["address", "address"],
     "ritual_ZN13QQuickSideBar9setDialogEP12QQuickDialog": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickSideBar11folderPathsEv": ["address", "address"],
+    "ritual_ZN13QQuickSideBar14setFolderPathsERK5QListIN14QStandardPaths16StandardLocationEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickSideBar20effectiveFolderPathsEv": [
+      "address", "address"
     ],
     "ritual_ZNK13QQuickSideBar13favoritePathsEv": ["address", "address"],
     "ritual_ZNK13QQuickSideBar14buttonDelegateEv": ["address", "address"],
@@ -28,6 +41,23 @@
     "ritual_ZN13QQuickSideBar22setAddFavoriteDelegateEP13QQmlComponent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QQuickSideBar13dialogChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSideBar18folderPathsChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSideBar27effectiveFolderPathsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickSideBar20favoritePathsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickSideBar21buttonDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickSideBar24separatorDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickSideBar26addFavoriteDelegateChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN13QQuickSideBar17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN13QQuickSideBar16setFavoritePathsERK5QListI4QUrlE": [
       "nothing", "address", "address"
@@ -36,6 +66,9 @@
     "ritual_ZNK13QQuickSideBar6d_funcEv": ["address", "address"],
     "ritual_take_QQuickSideBar": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QQuickSideBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickSideBar__QList_QStandardPaths_StandardLocation": [
       "nothing", "address"
     ]
   }

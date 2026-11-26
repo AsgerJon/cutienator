@@ -11,6 +11,9 @@
     "ritual_ZN16QProtobufMessage11setPropertyE14QAnyStringViewRK8QVariant": [
       "bool", "address", "text", "address"
     ],
+    "ritual_ZN16QProtobufMessage11setPropertyE14QAnyStringViewO8QVariant": [
+      "bool", "address", "text", "address"
+    ],
     "ritual_ZNK16QProtobufMessage16unknownFieldDataEi": [
       "address", "address", "int"
     ],
@@ -26,8 +29,20 @@
     "ritual_ZN16QProtobufMessageC1EPK11QMetaObjectPKN17QtProtobufPrivate25QProtobufPropertyOrderingE": [
       "address", "address", "address"
     ],
+    "ritual_ZN16QProtobufMessageC1ER23QProtobufMessagePrivate": [
+      "address", "address"
+    ],
     "ritual_ZN16QProtobufMessageD1Ev": ["nothing", "address"],
+    "ritual_ZN16QProtobufMessageC1ERKS_": ["address", "address"],
+    "ritual_ZN16QProtobufMessageaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QProtobufMessageC1EOS_": ["address", "address"],
+    "ritual_ZN16QProtobufMessageaSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QProtobufMessage4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK16QProtobufMessage10metaObjectEv": ["address", "address"],
+    "ritual_ZeqRK16QProtobufMessageS1_": ["bool", "address", "address"],
+    "ritual_ZneRK16QProtobufMessageS1_": ["bool", "address", "address"],
     "ritual_ZN16QProtobufMessage6d_funcEv": ["address", "address"],
     "ritual_ZNK16QProtobufMessage6d_funcEv": ["address", "address"]
   }

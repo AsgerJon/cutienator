@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN9QtPrivate24QCaseSensitiveLatin1HashC1Ev": ["address"],
+    "ritual_ZNK9QtPrivate24QCaseSensitiveLatin1HashclEc": [
+      "size_t", "address", "char"
+    ],
     "ritual_ZN9QtPrivate24QCaseSensitiveLatin1HashD1Ev": [
       "nothing", "address"
     ]

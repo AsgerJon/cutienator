@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNfc/6.12.0/QtNfc/private/qnfctagtype4ndeffsm_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtNfc/6.12.0/QtNfc/private/qnfctagtype4ndeffsm_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25: completed by hand: getCommand and getMessage, with
+//  the inline copy of Qt's code they need (QCommandApdu::build). Kept as it
+//  is when the generator runs again.
 #include <QtNfc/6.12.0/QtNfc/private/qtnfcglobal_p.h>
 #include <QtNfc/QtNfc>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -223,6 +225,125 @@ QNfcTagType4NdefFsm::handleWriteNdefFileResponse(const QResponseApdu &response)
 
     return SendCommand;
 }
+//  from ../qtconnectivity/src/nfc/qapduutils.cpp, line 41, as _ZN12QCommandApdu5buildEhhhh15QByteArrayViewt
+inline QByteArray QCommandApdu::build(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2,
+                               QByteArrayView data, uint16_t ne)
+{
+    Q_ASSERT(data.size() <= 0xFFFF);
+
+    QByteArray apdu;
+    apdu.append(static_cast<char>(cla));
+    apdu.append(static_cast<char>(ins));
+    apdu.append(static_cast<char>(p1));
+    apdu.append(static_cast<char>(p2));
+
+    bool extendedLc = false;
+    uint16_t nc = data.size();
+
+    if (nc > 0) {
+        if (nc < 256) {
+            apdu.append(static_cast<char>(nc));
+        } else {
+            extendedLc = true;
+            apdu.append('\0');
+            apdu.append(static_cast<char>(nc >> 8));
+            apdu.append(static_cast<char>(nc & 0xFF));
+        }
+        apdu.append(data);
+    }
+
+    if (ne) {
+        if (ne < 256) {
+            apdu.append(static_cast<char>(ne));
+        } else if (ne == 256) {
+            apdu.append(static_cast<char>('\0'));
+        } else {
+            if (!extendedLc)
+                apdu.append('\0');
+            apdu.append(static_cast<char>(ne >> 8));
+            apdu.append(static_cast<char>(ne & 0xFF));
+        }
+    }
+
+    return apdu;
+}
+
+//  from ../qtconnectivity/src/nfc/ndef/qnfctagtype4ndeffsm.cpp, line 19, as _ZN19QNfcTagType4NdefFsm10getCommandERN14QNdefAccessFsm6ActionE
+inline QByteArray QNfcTagType4NdefFsm::getCommand(QNdefAccessFsm::Action &nextAction)
+{
+    // ID of the NDEF Tag Application
+    static constexpr uint8_t NtagApplicationIdV2[] { 0xD2, 0x76, 0x00, 0x00, 0x85, 0x01, 0x01 };
+    // Capability container file ID.
+    static constexpr uint8_t CapabilityContainerId[] { 0xE1, 0x03 };
+    // Shortcut for specifying zero length of NDEF message data.
+    static constexpr uint8_t ZeroLength[] { 0x00, 0x00 };
+
+    nextAction = ProvideResponse;
+
+    switch (m_currentState) {
+    case SelectApplicationForProbe:
+    case SelectApplicationForRead:
+    case SelectApplicationForWrite:
+        return QCommandApdu::build(0x00, QCommandApdu::Select, 0x04, 0x00,
+                                   QByteArrayView::fromArray(NtagApplicationIdV2), 256);
+    case SelectCCFile:
+        return QCommandApdu::build(0x00, QCommandApdu::Select, 0x00, 0x0C,
+                                   QByteArrayView::fromArray(CapabilityContainerId));
+    case ReadCCFile:
+        return QCommandApdu::build(0x00, QCommandApdu::ReadBinary, 0x00, 0x00, {}, 15);
+    case SelectNdefFileForRead:
+    case SelectNdefFileForWrite:
+        return QCommandApdu::build(0x00, QCommandApdu::Select, 0x00, 0x0C, m_ndefFileId);
+    case ReadNdefMessageLength:
+        return QCommandApdu::build(0x00, QCommandApdu::ReadBinary, 0x00, 0x00, {}, 2);
+    case ReadNdefMessage: {
+        uint16_t readSize = qMin(m_fileSize, m_maxReadSize);
+
+        return QCommandApdu::build(0x00, QCommandApdu::ReadBinary, m_fileOffset >> 8,
+                                   m_fileOffset & 0xFF, {}, readSize);
+    }
+    case ClearNdefLength:
+        m_fileOffset = 2;
+        m_fileSize = m_ndefData.size();
+        return QCommandApdu::build(0x00, QCommandApdu::UpdateBinary, 0x00, 0x00,
+                                   QByteArrayView::fromArray(ZeroLength));
+    case WriteNdefFile: {
+        uint16_t updateSize = qMin(m_fileSize, m_maxUpdateSize);
+        uint16_t fileOffset = m_fileOffset;
+
+        m_fileOffset += updateSize;
+        m_fileSize -= updateSize;
+
+        return QCommandApdu::build(0x00, QCommandApdu::UpdateBinary, fileOffset >> 8,
+                                   fileOffset & 0xFF, m_ndefData.mid(fileOffset - 2, updateSize));
+    }
+    case WriteNdefLength: {
+        QByteArray data(2, Qt::Uninitialized);
+        qToUnaligned(qToBigEndian<uint16_t>(m_ndefData.size()), data.data());
+
+        return QCommandApdu::build(0x00, QCommandApdu::UpdateBinary, 0x00, 0x00, data);
+    }
+    default:
+        nextAction = Unexpected;
+        return {};
+    }
+}
+
+//  from ../qtconnectivity/src/nfc/ndef/qnfctagtype4ndeffsm.cpp, line 79, as _ZN19QNfcTagType4NdefFsm10getMessageERN14QNdefAccessFsm6ActionE
+inline QNdefMessage QNfcTagType4NdefFsm::getMessage(QNdefAccessFsm::Action &nextAction)
+{
+    if (m_currentState == NdefMessageRead) {
+        auto message = QNdefMessage::fromByteArray(m_ndefData);
+        m_ndefData.clear();
+        m_currentState = NdefSupportDetected;
+        nextAction = Done;
+        return message;
+    }
+
+    nextAction = Unexpected;
+    return {};
+}
+
 //  -----------------------------------------------------------------------
 
 //  Action QNfcTagType4NdefFsm::provideResponse(const QByteArray &response)
@@ -311,4 +432,20 @@ extern "C" Q_DECL_EXPORT
 QNdefAccessFsm::Action ritual_own_ZN19QNfcTagType4NdefFsm12readMessagesEv(
     QNfcTagType4NdefFsm *self) {
   return self->QNfcTagType4NdefFsm::readMessages();
+}
+
+//  QByteArray QNfcTagType4NdefFsm::getCommand(Action &nextAction)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN19QNfcTagType4NdefFsm10getCommandERN14QNdefAccessFsm6ActionE(
+    QNfcTagType4NdefFsm *self,
+    QNdefAccessFsm::Action *nextAction) {
+  return new QByteArray(self->getCommand(*nextAction));
+}
+
+//  QNdefMessage QNfcTagType4NdefFsm::getMessage(Action &nextAction)
+extern "C" Q_DECL_EXPORT
+QNdefMessage *ritual_ZN19QNfcTagType4NdefFsm10getMessageERN14QNdefAccessFsm6ActionE(
+    QNfcTagType4NdefFsm *self,
+    QNdefAccessFsm::Action *nextAction) {
+  return new QNdefMessage(self->getMessage(*nextAction));
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QAbstractOAuth10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QAbstractOAuth11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QAbstractOAuth11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QAbstractOAuth2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -52,20 +58,63 @@
     "ritual_ZN14QAbstractOAuth14prepareRequestEP15QNetworkRequestRK10QByteArrayS4_": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_ZNK14QAbstractOAuth24modifyParametersFunctionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QAbstractOAuth27setModifyParametersFunctionERKSt8functionIFvNS_5StageEP9QMultiMapI7QString8QVariantEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QAbstractOAuth11contentTypeEv": ["int", "address"],
     "ritual_ZN14QAbstractOAuth14setContentTypeENS_11ContentTypeE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN14QAbstractOAuth5grantEv": ["nothing", "address"],
+    "ritual_ZN14QAbstractOAuth23clientIdentifierChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QAbstractOAuth12tokenChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QAbstractOAuth13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QAbstractOAuth23authorizationUrlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QAbstractOAuth18extraTokensChangedERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QAbstractOAuth18contentTypeChangedENS_11ContentTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QAbstractOAuth13requestFailedENS_5ErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QAbstractOAuth20authorizeWithBrowserERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QAbstractOAuth7grantedEv": ["nothing", "address"],
+    "ritual_ZN14QAbstractOAuth8finishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QAbstractOAuth17replyDataReceivedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QAbstractOAuth9setStatusENS_6StatusE": [
       "nothing", "address", "int"
     ],
     "ritual_ZNK14QAbstractOAuth8callbackEv": ["text", "address"],
+    "ritual_ZN14QAbstractOAuth26resourceOwnerAuthorizationERK4QUrlRK9QMultiMapI7QString8QVariantE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN14QAbstractOAuth20generateRandomStringEh": [
       "address", "unsigned char"
     ],
     "ritual_ZN14QAbstractOAuth6d_funcEv": ["address", "address"],
     "ritual_ZNK14QAbstractOAuth6d_funcEv": ["address", "address"],
-    "ritual_take_QAbstractOAuth": ["bool", "address", "chars", "address"]
+    "ritual_take_QAbstractOAuth": ["bool", "address", "chars", "address"],
+    "ritual_drop_QAbstractOAuth__QAbstractOAuth_ModifyParametersFunction": [
+      "nothing", "address"
+    ]
   }
 }

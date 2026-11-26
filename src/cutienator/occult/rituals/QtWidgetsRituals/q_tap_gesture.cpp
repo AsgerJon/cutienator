@@ -182,6 +182,24 @@ const QMetaObject *ritual_ZNK11QTapGesture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTapGesture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QTapGesture11qt_metacastEPKc(
+    QTapGesture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTapGesture::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QTapGesture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTapGesture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTapGesture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QTapGesture2trEPKcS1_i(

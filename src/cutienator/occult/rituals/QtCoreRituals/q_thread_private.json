@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN14QThreadPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK14QThreadPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QThreadPrivate8threadIdEv": ["address", "address"],
+    "ritual_ZN14QThreadPrivate7wakeAllEv": ["nothing", "address"],
+    "ritual_ZN14QThreadPrivate7cleanupEv": ["nothing", "address"],
     "ritual_ZN14QThreadPrivate3refEv": ["nothing", "address"],
     "ritual_ZN14QThreadPrivate5derefEv": ["nothing", "address"],
     "ritual_ZN14QThreadPrivate13bindingStatusEv": ["address", "address"],

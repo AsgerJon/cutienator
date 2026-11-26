@@ -8,6 +8,12 @@
     "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN32QQuickLabsPlatformSystemTrayIcon20qmlExtendedNamespaceEv": [
       "address"
     ],
@@ -41,8 +47,35 @@
     "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon4iconEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon4showEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon4hideEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN32QQuickLabsPlatformSystemTrayIcon11showMessageERK7QStringS2_N23QPlatformSystemTrayIcon11MessageIconEi": [
       "nothing", "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon9activatedEN23QPlatformSystemTrayIcon16ActivationReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon14messageClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon14tooltipChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon11menuChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon15geometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon11iconChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN32QQuickLabsPlatformSystemTrayIcon7cleanupEv": [
       "nothing", "address"
@@ -51,6 +84,9 @@
       "nothing", "address"
     ],
     "ritual_ZN32QQuickLabsPlatformSystemTrayIcon17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon10updateIconEv": [
       "nothing", "address"
     ],
     "ritual_cast_QQuickLabsPlatformSystemTrayIcon_QQmlParserStatus": [

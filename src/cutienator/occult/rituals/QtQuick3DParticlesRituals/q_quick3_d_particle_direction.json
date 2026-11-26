@@ -8,11 +8,20 @@
     "ritual_ZNK25QQuick3DParticleDirection10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuick3DParticleDirection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuick3DParticleDirection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuick3DParticleDirection2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN25QQuick3DParticleDirection22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleDirectionC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN25QQuick3DParticleDirection6sampleERK20QQuick3DParticleData": [
       "address", "address", "address"

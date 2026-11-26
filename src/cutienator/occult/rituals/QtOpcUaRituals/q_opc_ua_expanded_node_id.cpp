@@ -35,6 +35,15 @@ QOpcUaExpandedNodeId *ritual_ZN20QOpcUaExpandedNodeIdC1ERK7QStringS2_j(
   return new QOpcUaExpandedNodeId(*namespaceUri, *nodeId, serverIndex);
 }
 
+//  QOpcUaExpandedNodeId &QOpcUaExpandedNodeId::operator=(const
+//      QOpcUaExpandedNodeId &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaExpandedNodeId *ritual_ZN20QOpcUaExpandedNodeIdaSERKS_(
+    QOpcUaExpandedNodeId *self,
+    const QOpcUaExpandedNodeId *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaExpandedNodeId::operator==(const QOpcUaExpandedNodeId &a0)
 //      const
 extern "C" Q_DECL_EXPORT

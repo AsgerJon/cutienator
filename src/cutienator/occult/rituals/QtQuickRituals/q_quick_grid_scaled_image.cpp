@@ -83,6 +83,19 @@ inline QQuickGridScaledImage::QQuickGridScaledImage(QIODevice *data)
     _pix = imgFile;
 }
 
+//  from ../qtdeclarative/src/quick/items/qquickscalegrid.cpp, line 74, as _ZN21QQuickGridScaledImageaSERKS_
+inline QQuickGridScaledImage &QQuickGridScaledImage::operator=(const QQuickGridScaledImage &o)
+{
+    _l = o._l;
+    _r = o._r;
+    _t = o._t;
+    _b = o._b;
+    _h = o._h;
+    _v = o._v;
+    _pix = o._pix;
+    return *this;
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickscalegrid.cpp, line 151, as _ZNK21QQuickGridScaledImage7isValidEv
 inline bool QQuickGridScaledImage::isValid() const
 {
@@ -157,6 +170,15 @@ extern "C" Q_DECL_EXPORT
 QQuickGridScaledImage *ritual_ZN21QQuickGridScaledImageC1EP9QIODevice(
     QIODevice *a0) {
   return new QQuickGridScaledImage(a0);
+}
+
+//  QQuickGridScaledImage &QQuickGridScaledImage::operator=(const
+//      QQuickGridScaledImage &a0)
+extern "C" Q_DECL_EXPORT
+QQuickGridScaledImage *ritual_ZN21QQuickGridScaledImageaSERKS_(
+    QQuickGridScaledImage *self,
+    const QQuickGridScaledImage *a0) {
+  return &(self->operator=(*a0));
 }
 
 //  bool QQuickGridScaledImage::isValid() const

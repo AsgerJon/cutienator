@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuick3DXrSpatialAnchor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuick3DXrSpatialAnchor24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -31,8 +37,50 @@
     "ritual_ZNK23QQuick3DXrSpatialAnchor8offset2DEv": ["address", "address"],
     "ritual_ZNK23QQuick3DXrSpatialAnchor8extent2DEv": ["address", "address"],
     "ritual_ZNK23QQuick3DXrSpatialAnchor10identifierEv": ["text", "address"],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor15roomLayoutUuidsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor18setRoomLayoutUuidsERK4QSetI5QUuidE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor19spaceContainerUuidsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor22setSpaceContainerUuidsERK4QSetI5QUuidE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor5spaceEv": [
       "unsigned long long", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor15offset3DChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor15extent3DChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor15rotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor21classificationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor27classificationStringChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor18has2DBoundsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor18has3DBoundsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor15offset2DChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor15extent2DChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor4uuidEv": ["address", "address"],
     "ritual_take_QQuick3DXrSpatialAnchor": [
@@ -46,6 +94,7 @@
     "ritual_list_at_QQuick3DXrSpatialAnchor_ptr": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QQuick3DXrSpatialAnchor_ptr": ["nothing", "address"]
+    "ritual_list_drop_QQuick3DXrSpatialAnchor_ptr": ["nothing", "address"],
+    "ritual_drop_QQuick3DXrSpatialAnchor__QSet_QUuid": ["nothing", "address"]
   }
 }

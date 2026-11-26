@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15ChartValueAxisY10metaObjectEv": ["address", "address"],
+    "ritual_ZN15ChartValueAxisY11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15ChartValueAxisY11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15ChartValueAxisY2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,7 @@
     "ritual_ZNK15ChartValueAxisY8sizeHintEN2Qt8SizeHintERK6QSizeF": [
       "address", "address", "int", "address"
     ],
+    "ritual_ZNK15ChartValueAxisY15calculateLayoutEv": ["address", "address"],
     "ritual_ZN15ChartValueAxisY14updateGeometryEv": ["nothing", "address"],
     "ritual_ZN15ChartValueAxisY22handleTickCountChangedEi": [
       "nothing", "address", "int"
@@ -41,6 +48,7 @@
     ],
     "ritual_own_ZN15ChartValueAxisY14updateGeometryEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_drop_ChartValueAxisY__QList_qreal": ["nothing", "address"]
   }
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK27QDeclarativePluginParameter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QDeclarativePluginParameter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QDeclarativePluginParameter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QDeclarativePluginParameter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -27,6 +33,15 @@
     ],
     "ritual_ZNK27QDeclarativePluginParameter13isInitializedEv": [
       "bool", "address"
+    ],
+    "ritual_ZN27QDeclarativePluginParameter11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN27QDeclarativePluginParameter12valueChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePluginParameter11initializedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QDeclarativePluginParameter": [
       "bool", "address", "chars", "address"

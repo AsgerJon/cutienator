@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK18DeclarativeMargins10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeMargins::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18DeclarativeMargins11qt_metacastEPKc(
+    DeclarativeMargins *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeMargins::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18DeclarativeMargins11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeMargins *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeMargins::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18DeclarativeMargins2trEPKcS1_i(
@@ -237,6 +256,54 @@ void ritual_ZN18DeclarativeMargins8setRightEi(
     DeclarativeMargins *self,
     int right) {
   self->setRight(right);
+}
+
+//  void DeclarativeMargins::topChanged(int top, int bottom, int left, int
+//      right)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18DeclarativeMargins10topChangedEiiii(
+    DeclarativeMargins *self,
+    int top,
+    int bottom,
+    int left,
+    int right) {
+  self->topChanged(top, bottom, left, right);
+}
+
+//  void DeclarativeMargins::bottomChanged(int top, int bottom, int left, int
+//      right)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18DeclarativeMargins13bottomChangedEiiii(
+    DeclarativeMargins *self,
+    int top,
+    int bottom,
+    int left,
+    int right) {
+  self->bottomChanged(top, bottom, left, right);
+}
+
+//  void DeclarativeMargins::leftChanged(int top, int bottom, int left, int
+//      right)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18DeclarativeMargins11leftChangedEiiii(
+    DeclarativeMargins *self,
+    int top,
+    int bottom,
+    int left,
+    int right) {
+  self->leftChanged(top, bottom, left, right);
+}
+
+//  void DeclarativeMargins::rightChanged(int top, int bottom, int left, int
+//      right)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18DeclarativeMargins12rightChangedEiiii(
+    DeclarativeMargins *self,
+    int top,
+    int bottom,
+    int left,
+    int right) {
+  self->rightChanged(top, bottom, left, right);
 }
 
 //  DeclarativeMargins as the QMargins it is built on

@@ -53,6 +53,19 @@ public:
   }
 };
 
+//  Qt3DRender::QAbstractTextureImagePrivate::QAbstractTextureImagePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTextureImagePrivate *ritual_ZN10Qt3DRender28QAbstractTextureImagePrivateC1Ev() {
+  return new CuteQt3DRender_QAbstractTextureImagePrivate();
+}
+
+//  Qt3DRender::QAbstractTextureImagePrivate::~QAbstractTextureImagePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender28QAbstractTextureImagePrivateD1Ev(
+    Qt3DRender::QAbstractTextureImagePrivate *self) {
+  delete self;
+}
+
 //  QAbstractTextureImage *Qt3DRender::QAbstractTextureImagePrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QAbstractTextureImage *ritual_ZN10Qt3DRender28QAbstractTextureImagePrivate6q_funcEv(
@@ -68,6 +81,15 @@ const Qt3DRender::QAbstractTextureImage *ritual_ZNK10Qt3DRender28QAbstractTextur
   return self->q_func();
 }
 
+//  QTextureImageDataGeneratorPtr
+//      Qt3DRender::QAbstractTextureImagePrivate::dataGenerator() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureImageDataGeneratorPtr *ritual_ZNK10Qt3DRender28QAbstractTextureImagePrivate13dataGeneratorEv(
+    const Qt3DRender::QAbstractTextureImagePrivate *self) {
+  return new Qt3DRender::QTextureImageDataGeneratorPtr(
+      self->dataGenerator());
+}
+
 //  a Python function taken by a CuteQt3DRender_QAbstractTextureImagePrivate,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT
@@ -76,4 +98,12 @@ bool ritual_take_Qt3DRender_QAbstractTextureImagePrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QAbstractTextureImagePrivate *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QTextureImageDataGeneratorPtr a ritual of
+//      Qt3DRender::QAbstractTextureImagePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QAbstractTextureImagePrivate__Qt3DRender_QTextureImageDataGeneratorPtr(
+    Qt3DRender::QTextureImageDataGeneratorPtr *self) {
+  delete self;
 }

@@ -7,6 +7,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwidgetwindow_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
@@ -35,28 +36,181 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/kernel/qwidgetwindow.cpp, line 168, as _ZN13QWidgetWindowD1Ev
-inline QWidgetWindow::~QWidgetWindow()
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/kernel/qwidgetwindow.cpp, line 35, as local:qwidgetwindow.cpp:QWidgetWindowPrivate
+class QWidgetWindowPrivate : public QWindowPrivate
 {
-    // destroy while we are still alive
-    destroy();
+    Q_DECLARE_PUBLIC(QWidgetWindow)
+public:
+    void setVisible(bool visible) override
+    {
+        Q_Q(QWidgetWindow);
+        qCDebug(lcWidgetShowHide) << "Setting visibility of" << q->widget()
+               << "to" << visible << "via QWidgetWindowPrivate";
 
-    if (!m_widget)
-        return;
+        if (QWidget *widget = q->widget()) {
+            // If the widget's visible state is already matching the new QWindow
+            // visible state we assume the widget has already synced up.
+            if (visible != widget->isVisible())
+                QWidgetPrivate::get(widget)->setVisible(visible);
+        }
 
-    QTLWExtra *topData = QWidgetPrivate::get(m_widget)->topData();
-    Q_ASSERT(topData);
+        // If we end up calling QWidgetPrivate::setVisible() above, we will
+        // in most cases recurse back into setNativeWindowVisibility() to
+        // update the QWindow state. But during QWidget::destroy() this is
+        // not the case, as Qt::WA_WState_Created has been unset by the time
+        // we check if we should call hide_helper(). We handle this case, as
+        // well as the cases where we don't call QWidgetPrivate::setVisible(),
+        // by syncing up the QWindow state here if needed.
+        if (q->isVisible() != visible)
+            QWindowPrivate::setVisible(visible);
+    }
 
-    // The QPlaformBackingStore may hold a reference to the window,
-    // so the backingstore needs to be deleted first.
-    topData->repaintManager.reset(nullptr);
-    delete topData->backingStore;
-    topData->backingStore = nullptr;
-    topData->widgetTextures.clear();
+    QWindow *eventReceiver() override {
+        Q_Q(QWidgetWindow);
+        QWindow *w = q;
+        while (w->parent() && qobject_cast<QWidgetWindow *>(w) && qobject_cast<QWidgetWindow *>(w->parent())) {
+            w = w->parent();
+        }
+        return w;
+    }
 
-    // Too late to do anything beyond this point
-    topData->window = nullptr;
+    void clearFocusObject() override
+    {
+        Q_Q(QWidgetWindow);
+        QWidget *widget = q->widget();
+        if (widget && widget->focusWidget())
+            widget->focusWidget()->clearFocus();
+    }
+
+    void setFocusToTarget(FocusTarget target, Qt::FocusReason reason) override
+    {
+        Q_Q(QWidgetWindow);
+        QWidget *widget = q->widget();
+        if (!widget)
+            return;
+
+        switch (target) {
+        case FocusTarget::Prev:
+        case FocusTarget::Next: {
+            QWidget *focusWidget = widget->focusWidget() ? widget->focusWidget() : widget;
+            q->focusNextPrevChild(focusWidget, target == FocusTarget::Next);
+            return;
+        }
+        case FocusTarget::First:
+        case FocusTarget::Last: {
+            QWidgetWindow::FocusWidgets fw = target == FocusTarget::First
+                ? QWidgetWindow::FirstFocusWidget
+                : QWidgetWindow::LastFocusWidget;
+            if (QWidget *newFocusWidget = q->getFocusWidget(fw))
+                newFocusWidget->setFocus(reason);
+            break;
+        }
+        default:
+            break;
+        }
+    }
+
+    QRectF closestAcceptableGeometry(const QRectF &rect) const override;
+
+    bool participatesInLastWindowClosed() const override;
+    bool treatAsVisible() const override;
+
+    QPalette windowPalette() const override
+    {
+        Q_Q(const QWidgetWindow);
+        if (const auto *widget = q->widget())
+            return widget->palette();
+        return QWindowPrivate::windowPalette();
+    }
+};
+
+//  from src/widgets/kernel/qwidgetwindow.cpp, line 122, as local:qwidgetwindow.cpp:QWidgetWindowPrivate::closestAcceptableGeometry
+inline QRectF QWidgetWindowPrivate::closestAcceptableGeometry(const QRectF &rect) const
+{
+    Q_Q(const QWidgetWindow);
+    const QWidget *widget = q->widget();
+    if (!widget || !widget->isWindow() || !widget->hasHeightForWidth())
+        return QRect();
+    const QSize oldSize = rect.size().toSize();
+    const QSize newSize = QLayout::closestAcceptableSize(widget, oldSize);
+    if (newSize == oldSize)
+        return QRectF();
+    const int dw = newSize.width() - oldSize.width();
+    const int dh = newSize.height() - oldSize.height();
+    QRectF result = rect;
+    const QRectF currentGeometry(widget->geometry());
+    const qreal topOffset = result.top() - currentGeometry.top();
+    const qreal bottomOffset = result.bottom() - currentGeometry.bottom();
+    if (qAbs(topOffset) > qAbs(bottomOffset))
+        result.setTop(result.top() - dh); // top edge drag
+    else
+        result.setBottom(result.bottom() + dh); // bottom edge drag
+    const qreal leftOffset = result.left() - currentGeometry.left();
+    const qreal rightOffset = result.right() - currentGeometry.right();
+    if (qAbs(leftOffset) > qAbs(rightOffset))
+        result.setLeft(result.left() - dw); // left edge drag
+    else
+        result.setRight(result.right() + dw); // right edge drag
+    return result;
 }
+
+//  from src/widgets/kernel/qwidgetwindow.cpp, line 772, as local:qwidgetwindow.cpp:sendChangeRecursively
+static void sendChangeRecursively(QWidget *widget, QEvent::Type type)
+{
+    QEvent e(type);
+    QCoreApplication::sendEvent(widget, &e);
+    QWidgetPrivate *d = QWidgetPrivate::get(widget);
+    for (int i = 0; i < d->children.size(); ++i) {
+        QWidget *w = qobject_cast<QWidget *>(d->children.at(i));
+        if (w)
+            sendChangeRecursively(w, type);
+    }
+}
+
+//  from src/widgets/kernel/qwidgetwindow.cpp, line 903, as local:qwidgetwindow.cpp:QWidgetWindowPrivate::participatesInLastWindowClosed
+inline bool QWidgetWindowPrivate::participatesInLastWindowClosed() const
+{
+    Q_Q(const QWidgetWindow);
+
+    // For historical reasons WA_QuitOnClose has been closely tied
+    // to the lastWindowClosed signal, since the default behavior
+    // is to quit the application after emitting lastWindowClosed.
+    // ### Qt 7: Rename this attribute, or decouple behavior.
+    if (!q->widget()->testAttribute(Qt::WA_QuitOnClose))
+        return false;
+
+    return QWindowPrivate::participatesInLastWindowClosed();
+}
+
+//  from src/widgets/kernel/qwidgetwindow.cpp, line 917, as local:qwidgetwindow.cpp:QWidgetWindowPrivate::treatAsVisible
+inline bool QWidgetWindowPrivate::treatAsVisible() const
+{
+    Q_Q(const QWidgetWindow);
+
+    // Widget windows may have Qt::WA_DontShowOnScreen, in which case the
+    // QQWidget will be visible, but the corresponding QWindow will not.
+    // Since the lastWindowClosed logic relies on checking whether the
+    // closed window was visible, and if there are any remaining visible
+    // windows, we need to reflect the QWidget state, not the QWindow one.
+    return q->widget()->isVisible();
+}
+
+//  from src/widgets/kernel/qwidgetwindow.cpp, line 966, as local:qwidgetwindow.cpp:findDnDTarget
+#if QT_CONFIG(draganddrop)
+static QWidget *findDnDTarget(QWidget *parent, const QPointF &pos)
+{
+    // Find a target widget under mouse that accepts drops (QTBUG-22987).
+    QWidget *widget = parent->childAt(pos);
+    if (!widget)
+        widget = parent;
+    for ( ; widget && !widget->isWindow() && !widget->acceptDrops(); widget = widget->parentWidget()) ;
+    if (widget && !widget->acceptDrops())
+        widget = nullptr;
+    return widget;
+}
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 191, as _ZNK13QWidgetWindow14accessibleRootEv
 #if QT_CONFIG(accessibility)
@@ -89,6 +243,29 @@ inline QObject *QWidgetWindow::focusObject() const
         return focusObj;
 
     return widget;
+}
+
+//  from src/widgets/kernel/qwidgetwindow.cpp, line 168, as _ZN13QWidgetWindowD1Ev
+inline QWidgetWindow::~QWidgetWindow()
+{
+    // destroy while we are still alive
+    destroy();
+
+    if (!m_widget)
+        return;
+
+    QTLWExtra *topData = QWidgetPrivate::get(m_widget)->topData();
+    Q_ASSERT(topData);
+
+    // The QPlaformBackingStore may hold a reference to the window,
+    // so the backingstore needs to be deleted first.
+    topData->repaintManager.reset(nullptr);
+    delete topData->backingStore;
+    topData->backingStore = nullptr;
+    topData->widgetTextures.clear();
+
+    // Too late to do anything beyond this point
+    topData->window = nullptr;
 }
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 233, as _ZN13QWidgetWindow18focusNextPrevChildEP7QWidgetb
@@ -166,6 +343,28 @@ inline void QWidgetWindow::handleResizeEvent(QResizeEvent *event)
         }
     }
 }
+
+//  from src/widgets/kernel/qwidgetwindow.cpp, line 988, as _ZN13QWidgetWindow20handleDragEnterEventEP14QDragMoveEventP7QWidget
+#if QT_CONFIG(draganddrop)
+inline void QWidgetWindow::handleDragEnterEvent(QDragMoveEvent *event, QWidget *widget)
+{
+    Q_ASSERT(m_dragTarget == nullptr);
+    if (!widget)
+        widget = findDnDTarget(m_widget, event->position());
+    if (!widget) {
+        event->ignore();
+        return;
+    }
+    m_dragTarget = widget;
+
+    const QPointF mapped = widget->mapFromGlobal(m_widget->mapToGlobal(event->position()));
+    QDragEnterEvent translated(mapped, event->possibleActions(), event->mimeData(),
+                               event->buttons(), event->modifiers());
+    QGuiApplication::forwardEvent(m_dragTarget, &translated, event);
+    event->setAccepted(translated.isAccepted());
+    event->setDropAction(translated.dropAction());
+}
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 1052, as _ZN13QWidgetWindow20handleDragLeaveEventEP15QDragLeaveEvent
 #if QT_CONFIG(draganddrop)
@@ -958,6 +1157,38 @@ const QMetaObject *ritual_ZNK13QWidgetWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWidgetWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QWidgetWindow11qt_metacastEPKc(
+    QWidgetWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWidgetWindow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QWidgetWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWidgetWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QWidgetWindowPrivate *QWidgetWindow::d_func()
+extern "C" Q_DECL_EXPORT
+QWidgetWindowPrivate *ritual_ZN13QWidgetWindow6d_funcEv(
+    QWidgetWindow *self) {
+  return self->d_func();
+}
+
+//  const QWidgetWindowPrivate *QWidgetWindow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWidgetWindowPrivate *ritual_ZNK13QWidgetWindow6d_funcEv(
+    const QWidgetWindow *self) {
+  return self->d_func();
+}
+
 //  QWidgetWindow::~QWidgetWindow()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QWidgetWindowD1Ev(QWidgetWindow *self) {
@@ -994,6 +1225,22 @@ void ritual_ZN13QWidgetWindow18focusNextPrevChildEP7QWidgetb(
   QWidgetWindow::focusNextPrevChild(widget, next);
 }
 
+//  bool QWidgetWindow::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QWidgetWindow5eventEP6QEvent(
+    QWidgetWindow *self,
+    QEvent *a0) {
+  return self->event(a0);
+}
+
+//  void QWidgetWindow::closeEvent(QCloseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QWidgetWindow10closeEventEP11QCloseEvent(
+    QWidgetWindow *self,
+    QCloseEvent *a0) {
+  self->closeEvent(a0);
+}
+
 //  void QWidgetWindow::handleNonClientAreaMouseEvent(QMouseEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QWidgetWindow29handleNonClientAreaMouseEventEP11QMouseEvent(
@@ -1025,6 +1272,18 @@ void ritual_ZN13QWidgetWindow17handleResizeEventEP12QResizeEvent(
     QResizeEvent *a0) {
   self->handleResizeEvent(a0);
 }
+
+#if QT_CONFIG(draganddrop)
+//  void QWidgetWindow::handleDragEnterEvent(QDragMoveEvent *a0, QWidget
+//      *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QWidgetWindow20handleDragEnterEventEP14QDragMoveEventP7QWidget(
+    QWidgetWindow *self,
+    QDragMoveEvent *a0,
+    QWidget *widget) {
+  self->handleDragEnterEvent(a0, widget);
+}
+#endif  // QT_CONFIG(draganddrop)
 
 #if QT_CONFIG(draganddrop)
 //  void QWidgetWindow::handleDragLeaveEvent(QDragLeaveEvent *a0)
@@ -1063,6 +1322,17 @@ void ritual_ZN13QWidgetWindow29handleWindowStateChangedEventEP23QWindowStateChan
   self->handleWindowStateChangedEvent(event);
 }
 
+//  bool QWidgetWindow::nativeEvent(const QByteArray &eventType, void
+//      *message, qintptr *result)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QWidgetWindow11nativeEventERK10QByteArrayPvPx(
+    QWidgetWindow *self,
+    const QByteArray *eventType,
+    void *message,
+    qintptr *result) {
+  return self->nativeEvent(*eventType, message, result);
+}
+
 #if QT_CONFIG(tabletevent)
 //  void QWidgetWindow::handleTabletEvent(QTabletEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -1082,6 +1352,30 @@ void ritual_ZN13QWidgetWindow18handleGestureEventEP19QNativeGestureEvent(
   self->handleGestureEvent(a0);
 }
 #endif  // !defined(QT_NO_GESTURES)
+
+//  void QWidgetWindow::updateObjectName()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QWidgetWindow16updateObjectNameEv(QWidgetWindow *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWidgetWindow")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateObjectName()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateObjectName()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
 
 //  bool QWidgetWindow::updateSize()
 extern "C" Q_DECL_EXPORT

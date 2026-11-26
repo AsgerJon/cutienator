@@ -8,6 +8,15 @@
     "ritual_ZN22QJSManagedValuePrivate6memberEPK15QJSManagedValue": [
       "address", "address"
     ],
-    "ritual_ZN22QJSManagedValuePrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN22QJSManagedValuePrivate6createEPN3QV415ExecutionEngineERKNS0_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QJSManagedValuePrivate6createERKN3QV47ManagedE": [
+      "address", "address"
+    ],
+    "ritual_ZN22QJSManagedValuePrivateD1Ev": ["nothing", "address"],
+    "ritual_drop_QJSManagedValuePrivate__QJSManagedValue": [
+      "nothing", "address"
+    ]
   }
 }

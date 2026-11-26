@@ -8,7 +8,25 @@
     "ritual_ZNK22QDockWidgetGroupWindow10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QDockWidgetGroupWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QDockWidgetGroupWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK22QDockWidgetGroupWindow10layoutInfoEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QDockWidgetGroupWindow13tabLayoutInfoEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QDockWidgetGroupWindow22activeTabbedDockWidgetEv": [
+      "address", "address"
+    ],
     "ritual_ZNK22QDockWidgetGroupWindow21hasVisibleDockWidgetsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QDockWidgetGroupWindow14hasNativeDecosEv": [
       "bool", "address"
     ],
     "ritual_ZN22QDockWidgetGroupWindow10childEventEP11QChildEvent": [
@@ -17,8 +35,18 @@
     "ritual_ZNK22QDockWidgetGroupWindow11dockWidgetsEv": [
       "address", "address"
     ],
+    "ritual_ZN22QDockWidgetGroupWindow7resizedEv": ["nothing", "address"],
+    "ritual_ZN22QDockWidgetGroupWindow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN22QDockWidgetGroupWindow11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN22QDockWidgetGroupWindow10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QDockWidgetGroupWindow10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
     ]
   }
 }

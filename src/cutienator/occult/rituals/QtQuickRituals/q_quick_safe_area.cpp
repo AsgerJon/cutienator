@@ -527,6 +527,24 @@ const QMetaObject *ritual_ZNK14QQuickSafeArea10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSafeArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickSafeArea11qt_metacastEPKc(
+    QQuickSafeArea *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSafeArea::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickSafeArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSafeArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSafeArea::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickSafeArea2trEPKcS1_i(
@@ -597,6 +615,19 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickSafeArea26updateSafeAreasRecursivelyEP10QQuickItem(
     QQuickItem *fromItem) {
   QQuickSafeArea::updateSafeAreasRecursively(fromItem);
+}
+
+//  void QQuickSafeArea::marginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickSafeArea14marginsChangedEv(QQuickSafeArea *self) {
+  self->marginsChanged();
+}
+
+//  void QQuickSafeArea::additionalMarginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickSafeArea24additionalMarginsChangedEv(
+    QQuickSafeArea *self) {
+  self->additionalMarginsChanged();
 }
 
 //  void QQuickSafeArea::windowChanged()

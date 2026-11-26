@@ -38,7 +38,7 @@ typedef const QSize * (*CuteQLottiePolyStarCall11)(const void *, int *);
 class CuteQLottiePolyStar : public QLottiePolyStar {
 public:
   using QLottiePolyStar::QLottiePolyStar;
-  CuteQLottiePolyStar(const QLottiePolyStar &other) : QLottiePolyStar(other) {}
+  CuteQLottiePolyStar(const QLottiePolyStar & other) : QLottiePolyStar(other) {}
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {
@@ -266,6 +266,14 @@ void ritual_ZN15QLottiePolyStar16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottiePolyStar::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QLottiePolyStar6renderER15QLottieRenderer(
+    const QLottiePolyStar *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  bool QLottiePolyStar::acceptsTrim() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QLottiePolyStar11acceptsTrimEv(
@@ -318,6 +326,22 @@ bool ritual_ZNK15QLottiePolyStar20isPolygonModeEnabledEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QLottiePolyStar10isAnimatedEv(const QLottiePolyStar *self) {
   return self->isAnimated();
+}
+
+//  const QLottieProperty<qreal> &QLottiePolyStar::outerRadiusProperty()
+//      const
+extern "C" Q_DECL_EXPORT
+const QLottieProperty<qreal> *ritual_ZNK15QLottiePolyStar19outerRadiusPropertyEv(
+    const QLottiePolyStar *self) {
+  return &(self->outerRadiusProperty());
+}
+
+//  const QLottieProperty<qreal> &QLottiePolyStar::innerRadiusProperty()
+//      const
+extern "C" Q_DECL_EXPORT
+const QLottieProperty<qreal> *ritual_ZNK15QLottiePolyStar19innerRadiusPropertyEv(
+    const QLottiePolyStar *self) {
+  return &(self->innerRadiusProperty());
 }
 
 //  const QLottieSpatialProperty &QLottiePolyStar::positionProperty() const

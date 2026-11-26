@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN28QSSGRenderablesFilterCommandC1Ev": ["address"],
+    "ritual_ZNK28QSSGRenderablesFilterCommand8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN28QSSGRenderablesFilterCommandD1Ev": ["nothing", "address"]
   }
 }

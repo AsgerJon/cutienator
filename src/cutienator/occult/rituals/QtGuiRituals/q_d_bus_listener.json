@@ -5,6 +5,24 @@
     "made here are lost."
   ],
   "rows": {
-    "ritual_ZNK13QDBusListener10metaObjectEv": ["address", "address"]
+    "ritual_ZNK13QDBusListener10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QDBusListener11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QDBusListener11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN13QDBusListener16onSettingChangedERK7QStringS2_RK12QDBusVariant": [
+      "nothing", "address", "text", "text", "address"
+    ],
+    "ritual_ZN13QDBusListener14settingChangedENS_8ProviderENS_7SettingERK8QVariant": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK13QDBusListener10findSignalERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_drop_QDBusListener__std_optional_QDBusListener_ChangeSignal": [
+      "nothing", "address"
+    ]
   }
 }

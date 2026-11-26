@@ -214,6 +214,25 @@ const QMetaObject *ritual_ZNK16QPlaceMatchReply10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlaceMatchReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QPlaceMatchReply11qt_metacastEPKc(
+    QPlaceMatchReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlaceMatchReply::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QPlaceMatchReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlaceMatchReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlaceMatchReply::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QPlaceMatchReply2trEPKcS1_i(
@@ -270,6 +289,20 @@ void ritual_ZN16QPlaceMatchReply10setRequestERK18QPlaceMatchRequest(
     QPlaceMatchReply *self,
     const QPlaceMatchRequest *request) {
   self->setRequest(*request);
+}
+
+//  QPlaceMatchReplyPrivate *QPlaceMatchReply::d_func()
+extern "C" Q_DECL_EXPORT
+QPlaceMatchReplyPrivate *ritual_ZN16QPlaceMatchReply6d_funcEv(
+    QPlaceMatchReply *self) {
+  return self->d_func();
+}
+
+//  const QPlaceMatchReplyPrivate *QPlaceMatchReply::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPlaceMatchReplyPrivate *ritual_ZNK16QPlaceMatchReply6d_funcEv(
+    const QPlaceMatchReply *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQPlaceMatchReply, for the function named

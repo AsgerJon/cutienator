@@ -4,6 +4,8 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QPointerEventC1ERKS_": ["address", "address"],
+    "ritual_ZN13QPointerEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK13QPointerEvent5cloneEv": ["address", "address"],
     "ritual_ZN13QPointerEventD1Ev": ["nothing", "address"],
     "ritual_ZN13QPointerEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEERK5QListI11QEventPointE": [
@@ -15,6 +17,7 @@
       "nothing", "address", "unsigned long long"
     ],
     "ritual_ZNK13QPointerEvent10pointCountEv": ["long long", "address"],
+    "ritual_ZN13QPointerEvent5pointEx": ["address", "address", "long long"],
     "ritual_ZNK13QPointerEvent6pointsEv": ["address", "address"],
     "ritual_ZN13QPointerEvent9pointByIdEi": ["address", "address", "int"],
     "ritual_ZNK13QPointerEvent16allPointsGrabbedEv": ["bool", "address"],
@@ -31,6 +34,9 @@
     "ritual_ZN13QPointerEvent19setExclusiveGrabberERK11QEventPointP7QObject": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZNK13QPointerEvent15passiveGrabbersERK11QEventPoint": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QPointerEvent20clearPassiveGrabbersERK11QEventPoint": [
       "nothing", "address", "address"
     ],
@@ -39,6 +45,9 @@
     ],
     "ritual_ZN13QPointerEvent20removePassiveGrabberERK11QEventPointP7QObject": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QPointerEventC1EN6QEvent4TypeENS0_19SinglePointEventTagEPK12QInputDevice6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "int", "address", "address", "int"
     ],
     "ritual_take_QPointerEvent": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QPointerEvent5cloneEv": ["address", "address"],
@@ -50,6 +59,9 @@
     "ritual_own_ZNK13QPointerEvent10isEndEventEv": ["bool", "address"],
     "ritual_own_ZN13QPointerEvent11setAcceptedEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_drop_QPointerEvent__QList_QPointer_QObject": [
+      "nothing", "address"
     ]
   }
 }

@@ -6,12 +6,20 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickRadioDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickRadioDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickRadioDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickRadioDelegate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN19QQuickRadioDelegateC1EP10QQuickItem": ["address", "address"],
     "ritual_ZNK19QQuickRadioDelegate11defaultFontEv": ["address", "address"],
     "ritual_ZNK19QQuickRadioDelegate14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN19QQuickRadioDelegate6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickRadioDelegate6d_funcEv": ["address", "address"],
     "ritual_own_ZNK19QQuickRadioDelegate11defaultFontEv": [
       "address", "address"
     ],

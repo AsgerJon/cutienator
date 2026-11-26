@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QIconvCodec10IconvStateC1EPv": ["address", "address"],
     "ritual_ZN11QIconvCodec10IconvStateD1Ev": ["nothing", "address"],
     "ritual_ZN11QIconvCodec10IconvState9saveCharsEPKci": [
       "nothing", "address", "chars", "int"

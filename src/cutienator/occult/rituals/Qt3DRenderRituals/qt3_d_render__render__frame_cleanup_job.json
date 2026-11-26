@@ -5,6 +5,22 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render15FrameCleanupJobC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render15FrameCleanupJobD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15FrameCleanupJob7setRootEPNS0_6EntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15FrameCleanupJob11setManagersEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15FrameCleanupJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15FrameCleanupJob26updateBoundingVolumesDebugEPNS0_6EntityE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_Qt3DRender_Render_FrameCleanupJob": [
       "bool", "address", "chars", "address"
     ]

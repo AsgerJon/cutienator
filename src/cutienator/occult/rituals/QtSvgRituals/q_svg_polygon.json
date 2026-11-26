@@ -12,9 +12,24 @@
     "ritual_ZNK11QSvgPolygon18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN11QSvgPolygon11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK11QSvgPolygon4typeEv": ["int", "address"],
+    "ritual_ZNK11QSvgPolygon18internalFastBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QSvgPolygon14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QSvgPolygon23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK11QSvgPolygon22requiresGroupRenderingEv": ["bool", "address"],
     "ritual_ZNK11QSvgPolygon7polygonEv": ["address", "address"],
+    "ritual_ZNK11QSvgPolygon14internalBoundsEP8QPainterR15QSvgExtraStatesN8QSvgNode10BoundsModeE": [
+      "address", "address", "address", "address", "int"
+    ],
     "ritual_take_QSvgPolygon": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QSvgPolygon18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
       "bool", "address", "address", "address"

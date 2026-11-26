@@ -6,8 +6,23 @@
   ],
   "rows": {
     "ritual_ZN3QV421ResolvedTypeReferenceC1Ev": ["address"],
+    "ritual_ZN3QV421ResolvedTypeReference19createPropertyCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV421ResolvedTypeReference9addToHashEP18QCryptographicHashP5QHashIy10QByteArrayE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN3QV421ResolvedTypeReference18doDynamicTypeCheckEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK3QV421ResolvedTypeReference4typeEv": ["address", "address"],
     "ritual_ZN3QV421ResolvedTypeReference7setTypeE8QQmlType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV421ResolvedTypeReference15compilationUnitEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV421ResolvedTypeReference18setCompilationUnitERK14QQmlRefPointerINS_12CompiledData15CompilationUnitEE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK3QV421ResolvedTypeReference17typePropertyCacheEv": [
@@ -33,6 +48,9 @@
     ],
     "ritual_ZN3QV421ResolvedTypeReference18setIsSelfReferenceEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_drop_QV4_ResolvedTypeReference__QQmlRefPointer_QV4_CompiledData_CompilationUnit": [
+      "nothing", "address"
     ]
   }
 }

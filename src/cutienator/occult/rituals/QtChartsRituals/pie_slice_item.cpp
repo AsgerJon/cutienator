@@ -13,9 +13,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qpainterpath.h>
+#if QT_CONFIG(charts_pie_chart)
+#include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/pieslicedata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qvariant.h>
@@ -946,6 +949,24 @@ const QMetaObject *ritual_ZNK12PieSliceItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PieSliceItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12PieSliceItem11qt_metacastEPKc(
+    PieSliceItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PieSliceItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12PieSliceItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    PieSliceItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString PieSliceItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12PieSliceItem2trEPKcS1_i(
@@ -1047,6 +1068,44 @@ QPointF *ritual_ZN12PieSliceItem11sliceCenterE7QPointFdP9QPieSlice(
     qreal radius,
     QPieSlice *slice) {
   return new QPointF(PieSliceItem::sliceCenter(*point, radius, slice));
+}
+
+//  void PieSliceItem::clicked(Qt::MouseButtons buttons)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12PieSliceItem7clickedE6QFlagsIN2Qt11MouseButtonEE(
+    PieSliceItem *self,
+    int buttons) {
+  self->clicked(QFlags<Qt::MouseButton>::fromInt(buttons));
+}
+
+//  void PieSliceItem::hovered(bool state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12PieSliceItem7hoveredEb(PieSliceItem *self, bool state) {
+  self->hovered(state);
+}
+
+//  void PieSliceItem::pressed(Qt::MouseButtons buttons)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12PieSliceItem7pressedE6QFlagsIN2Qt11MouseButtonEE(
+    PieSliceItem *self,
+    int buttons) {
+  self->pressed(QFlags<Qt::MouseButton>::fromInt(buttons));
+}
+
+//  void PieSliceItem::released(Qt::MouseButtons buttons)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12PieSliceItem8releasedE6QFlagsIN2Qt11MouseButtonEE(
+    PieSliceItem *self,
+    int buttons) {
+  self->released(QFlags<Qt::MouseButton>::fromInt(buttons));
+}
+
+//  void PieSliceItem::doubleClicked(Qt::MouseButtons buttons)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12PieSliceItem13doubleClickedE6QFlagsIN2Qt11MouseButtonEE(
+    PieSliceItem *self,
+    int buttons) {
+  self->doubleClicked(QFlags<Qt::MouseButton>::fromInt(buttons));
 }
 
 //  void PieSliceItem::updateGeometry()

@@ -130,7 +130,7 @@ typedef QString * (*CuteQGraphicsGridLayoutEngineItemCall7)(const void *, int *)
 class CuteQGraphicsGridLayoutEngineItem : public QGraphicsGridLayoutEngineItem {
 public:
   using QGraphicsGridLayoutEngineItem::QGraphicsGridLayoutEngineItem;
-  CuteQGraphicsGridLayoutEngineItem(const QGraphicsGridLayoutEngineItem &other) : QGraphicsGridLayoutEngineItem(other) {}
+  CuteQGraphicsGridLayoutEngineItem(const QGraphicsGridLayoutEngineItem & other) : QGraphicsGridLayoutEngineItem(other) {}
   void *taken[8] = {};
 
   bool take(const char *key, void *call) {

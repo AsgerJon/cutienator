@@ -2,10 +2,16 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/scatter3drenderer_",
-    "p.h, Qt 6.12.0. Changes made here are lost."
+    "p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK17Scatter3DRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN17Scatter3DRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17Scatter3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17Scatter3DRenderer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,9 @@
     ],
     "ritual_ZN17Scatter3DRenderer14createNewCacheEP17QAbstract3DSeries": [
       "address", "address", "address"
+    ],
+    "ritual_ZN17Scatter3DRenderer11updateItemsERK5QListIN19Scatter3DController10ChangeItemEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17Scatter3DRenderer11updateSceneEP8Q3DScene": [
       "nothing", "address", "address"
@@ -49,6 +58,12 @@
     "ritual_ZN17Scatter3DRenderer16initializeOpenGLEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17Scatter3DRenderer15fixCameraTargetER9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Scatter3DRenderer20getVisibleItemBoundsER9QVector3DS1_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN17Scatter3DRenderer11initShadersERK7QStringS2_": [
       "nothing", "address", "text", "text"
     ],
@@ -62,6 +77,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN17Scatter3DRenderer14updateTexturesEv": ["nothing", "address"],
+    "ritual_ZN17Scatter3DRenderer15fixMeshFileNameER7QStringN17QAbstract3DSeries4MeshE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN17Scatter3DRenderer9drawSceneEj": [
       "nothing", "address", "unsigned int"
     ],
@@ -92,8 +110,14 @@
     "ritual_ZN17Scatter3DRenderer15initPointShaderEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17Scatter3DRenderer20calculateTranslationER17ScatterRenderItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17Scatter3DRenderer28calculateSceneScalingFactorsEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN17Scatter3DRenderer16updateRenderItemERK16QScatterDataItemR17ScatterRenderItem": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_Scatter3DRenderer": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17Scatter3DRenderer10updateDataEv": ["nothing", "address"],
@@ -147,6 +171,9 @@
     ],
     "ritual_own_ZN17Scatter3DRenderer17updateDepthBufferEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN17Scatter3DRenderer30selectionColorToSeriesAndIndexERK9QVector4DRiRP17QAbstract3DSeries": [
+      "nothing", "address", "address", "address", "address"
     ]
   }
 }

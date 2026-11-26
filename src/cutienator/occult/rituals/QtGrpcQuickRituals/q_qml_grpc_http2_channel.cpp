@@ -10,6 +10,8 @@
 #include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <memory>
+#include <QtGrpc/QAbstractGrpcChannel>
 
 //  A QQmlGrpcHttp2Channel that Python can take functions over in. Every QQmlGrpcHttp2Channel
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,25 @@ const QMetaObject *ritual_ZNK20QQmlGrpcHttp2Channel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlGrpcHttp2Channel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQmlGrpcHttp2Channel11qt_metacastEPKc(
+    QQmlGrpcHttp2Channel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlGrpcHttp2Channel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQmlGrpcHttp2Channel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlGrpcHttp2Channel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlGrpcHttp2Channel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQmlGrpcHttp2Channel2trEPKcS1_i(
@@ -205,6 +226,14 @@ QQmlGrpcHttp2Channel *ritual_ZN20QQmlGrpcHttp2ChannelC1EP7QObject(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlGrpcHttp2ChannelD1Ev(QQmlGrpcHttp2Channel *self) {
   delete self;
+}
+
+//  std::shared_ptr<QAbstractGrpcChannel> QQmlGrpcHttp2Channel::channel()
+//      const
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QAbstractGrpcChannel> *ritual_ZNK20QQmlGrpcHttp2Channel7channelEv(
+    const QQmlGrpcHttp2Channel *self) {
+  return new std::shared_ptr<QAbstractGrpcChannel>(self->channel());
 }
 
 //  QQmlGrpcChannelOptions *QQmlGrpcHttp2Channel::options() const
@@ -237,11 +266,46 @@ void ritual_ZN20QQmlGrpcHttp2Channel10setHostUriERK4QUrl(
   self->setHostUri(*hostUri);
 }
 
+//  void QQmlGrpcHttp2Channel::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlGrpcHttp2Channel14optionsChangedEv(
+    QQmlGrpcHttp2Channel *self) {
+  self->optionsChanged();
+}
+
+//  void QQmlGrpcHttp2Channel::channelUpdated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlGrpcHttp2Channel14channelUpdatedEv(
+    QQmlGrpcHttp2Channel *self) {
+  self->channelUpdated();
+}
+
+//  void QQmlGrpcHttp2Channel::hostUriChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlGrpcHttp2Channel14hostUriChangedEv(
+    QQmlGrpcHttp2Channel *self) {
+  self->hostUriChanged();
+}
+
 //  void QQmlGrpcHttp2Channel::updateChannel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlGrpcHttp2Channel13updateChannelEv(
     QQmlGrpcHttp2Channel *self) {
   self->updateChannel();
+}
+
+//  QQmlGrpcHttp2ChannelPrivate *QQmlGrpcHttp2Channel::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlGrpcHttp2ChannelPrivate *ritual_ZN20QQmlGrpcHttp2Channel6d_funcEv(
+    QQmlGrpcHttp2Channel *self) {
+  return self->d_func();
+}
+
+//  const QQmlGrpcHttp2ChannelPrivate *QQmlGrpcHttp2Channel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlGrpcHttp2ChannelPrivate *ritual_ZNK20QQmlGrpcHttp2Channel6d_funcEv(
+    const QQmlGrpcHttp2Channel *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQmlGrpcHttp2Channel, for the function
@@ -252,4 +316,12 @@ bool ritual_take_QQmlGrpcHttp2Channel(
     const char *key,
     void *call) {
   return static_cast<CuteQQmlGrpcHttp2Channel *>(self)->take(key, call);
+}
+
+//  a std::shared_ptr<QAbstractGrpcChannel> a ritual of QQmlGrpcHttp2Channel
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlGrpcHttp2Channel__std_shared_ptr_QAbstractGrpcChannel(
+    std::shared_ptr<QAbstractGrpcChannel> *self) {
+  delete self;
 }

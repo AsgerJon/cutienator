@@ -5,10 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QFileDialogComboBoxC1EP7QWidget": ["address", "address"],
+    "ritual_ZN19QFileDialogComboBox9showPopupEv": ["nothing", "address"],
+    "ritual_ZN19QFileDialogComboBox10setHistoryERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QFileDialogComboBox7historyEv": ["address", "address"],
     "ritual_ZN19QFileDialogComboBox10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_own_ZN19QFileDialogComboBox9showPopupEv": ["nothing", "address"],
     "ritual_own_ZN19QFileDialogComboBox10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"
     ]

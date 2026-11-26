@@ -11,7 +11,7 @@ typedef void * (*CuteQStateMachine_WrappedEventCall1)(const void *, int *);
 class CuteQStateMachine_WrappedEvent : public QStateMachine::WrappedEvent {
 public:
   using QStateMachine::WrappedEvent::WrappedEvent;
-  CuteQStateMachine_WrappedEvent(const QStateMachine::WrappedEvent &other) : QStateMachine::WrappedEvent(other) {}
+  CuteQStateMachine_WrappedEvent(const QStateMachine::WrappedEvent & other) : QStateMachine::WrappedEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

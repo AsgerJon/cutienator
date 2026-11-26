@@ -22,6 +22,9 @@
     "ritual_ZN26QQuickDeliveryAgentPrivate17clearFocusInScopeEP10QQuickItemS1_N2Qt11FocusReasonE6QFlagsINS_11FocusOptionEE": [
       "nothing", "address", "address", "address", "int", "int"
     ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate23notifyFocusChangesRecurEPP10QQuickItemiN2Qt11FocusReasonE": [
+      "nothing", "address", "int", "int"
+    ],
     "ritual_ZN26QQuickDeliveryAgentPrivate16clearFocusObjectEv": [
       "nothing", "address"
     ],
@@ -66,6 +69,12 @@
     ],
     "ritual_ZN26QQuickDeliveryAgentPrivate13onGrabChangedEP7QObjectN15QPointingDevice14GrabTransitionEPK13QPointerEventRK11QEventPoint": [
       "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate17clonePointerEventEP13QPointerEventSt8optionalI7QPointFE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate24deliverToPassiveGrabbersERK5QListI8QPointerI7QObjectEEP13QPointerEvent": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN26QQuickDeliveryAgentPrivate22sendFilteredMouseEventEP6QEventP10QQuickItemS3_": [
       "bool", "address", "address", "address", "address"
@@ -169,6 +178,14 @@
     "ritual_ZN26QQuickDeliveryAgentPrivate27deliverMatchingPointsToItemEP10QQuickItembP13QPointerEventb": [
       "nothing", "address", "address", "bool", "address", "bool"
     ],
+    "ritual_ZNK26QQuickDeliveryAgentPrivate12eventTargetsEP10QQuickItemPK6QEventi7QPointFS5_N3qxp12function_refIJFSt8optionalIbES1_S4_EEEE": [
+      "address", "address", "address", "address", "int", "address",
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickDeliveryAgentPrivate18eventTargetsAppendEP10QQuickItemPK6QEventi7QPointFS5_N3qxp12function_refIJFSt8optionalIbES1_S4_EEEER5QListIS1_E": [
+      "nothing", "address", "address", "address", "int", "address",
+      "address", "address", "address"
+    ],
     "ritual_ZNK26QQuickDeliveryAgentPrivate14pointerTargetsEP10QQuickItemPK13QPointerEventRK11QEventPointbb": [
       "address", "address", "address", "address", "address", "bool", "bool"
     ],
@@ -195,6 +212,10 @@
     ],
     "ritual_ZN26QQuickDeliveryAgentPrivate16deliverDragEventEP17QQuickDragGrabberP6QEvent": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate16deliverDragEventEP17QQuickDragGrabberP10QQuickItemP14QDragMoveEventP15QVarLengthArrayIS3_Lx64EEP7QObject": [
+      "bool", "address", "address", "address", "address", "address",
+      "address"
     ],
     "ritual_ZN26QQuickDeliveryAgentPrivate17dragOverThresholdEdN2Qt4AxisEP11QMouseEventi": [
       "bool", "double", "int", "address", "int"

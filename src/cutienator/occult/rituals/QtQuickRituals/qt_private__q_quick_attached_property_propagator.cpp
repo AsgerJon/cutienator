@@ -10,6 +10,7 @@
 #include <QtCore/qdebug.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QtPrivate::QQuickAttachedPropertyPropagator may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -212,6 +213,26 @@ const QMetaObject *ritual_ZNK9QtPrivate32QQuickAttachedPropertyPropagator10metaO
   return self->metaObject();
 }
 
+//  void *QtPrivate::QQuickAttachedPropertyPropagator::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagator11qt_metacastEPKc(
+    QtPrivate::QQuickAttachedPropertyPropagator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtPrivate::QQuickAttachedPropertyPropagator::qt_metacall(QMetaObject:
+//      :Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtPrivate::QQuickAttachedPropertyPropagator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtPrivate::QQuickAttachedPropertyPropagator::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -226,6 +247,39 @@ QString *ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagator2trEPKcS2_i(
           n));
 }
 
+//  QtPrivate::QQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropag
+//      ator(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtPrivate::QQuickAttachedPropertyPropagator *ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagatorC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtPrivate_QQuickAttachedPropertyPropagator(parent);
+}
+
+//  QtPrivate::QQuickAttachedPropertyPropagator::~QQuickAttachedPropertyPropa
+//      gator()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagatorD1Ev(
+    QtPrivate::QQuickAttachedPropertyPropagator *self) {
+  delete self;
+}
+
+//  QList<QQuickAttachedPropertyPropagator *>
+//      QtPrivate::QQuickAttachedPropertyPropagator::attachedChildren() const
+extern "C" Q_DECL_EXPORT
+QList<QtPrivate::QQuickAttachedPropertyPropagator *> *ritual_ZNK9QtPrivate32QQuickAttachedPropertyPropagator16attachedChildrenEv(
+    const QtPrivate::QQuickAttachedPropertyPropagator *self) {
+  return new QList<QtPrivate::QQuickAttachedPropertyPropagator *>(
+      self->attachedChildren());
+}
+
+//  QQuickAttachedPropertyPropagator
+//      *QtPrivate::QQuickAttachedPropertyPropagator::attachedParent() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::QQuickAttachedPropertyPropagator *ritual_ZNK9QtPrivate32QQuickAttachedPropertyPropagator14attachedParentEv(
+    const QtPrivate::QQuickAttachedPropertyPropagator *self) {
+  return self->attachedParent();
+}
+
 //  QQuickAttachedPropertyPropagator
 //      *QtPrivate::QQuickAttachedPropertyPropagator::attachedObject(const
 //      QMetaObject *attachedType, QObject *attachee, bool create)
@@ -238,6 +292,34 @@ QtPrivate::QQuickAttachedPropertyPropagator *ritual_ZN9QtPrivate32QQuickAttached
       attachedType,
       attachee,
       create);
+}
+
+//  QQuickAttachedPropertyPropagator *QtPrivate::QQuickAttachedPropertyPropag
+//      ator::fallbackAttachedObject(const QMetaObject *attachedType, QObject
+//      *attachee)
+extern "C" Q_DECL_EXPORT
+QtPrivate::QQuickAttachedPropertyPropagator *ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagator22fallbackAttachedObjectEPK11QMetaObjectP7QObject(
+    const QMetaObject *attachedType,
+    QObject *attachee) {
+  return QtPrivate::QQuickAttachedPropertyPropagator::fallbackAttachedObject(
+      attachedType,
+      attachee);
+}
+
+//  QtPrivate::QQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropag
+//      ator(QQuickAttachedPropertyPropagatorPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtPrivate::QQuickAttachedPropertyPropagator *ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagatorC1ERNS_39QQuickAttachedPropertyPropagatorPrivateEP7QObject(
+    QtPrivate::QQuickAttachedPropertyPropagatorPrivate *dd,
+    QObject *parent) {
+  return new CuteQtPrivate_QQuickAttachedPropertyPropagator(*dd, parent);
+}
+
+//  void QtPrivate::QQuickAttachedPropertyPropagator::initialize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagator10initializeEv(
+    QtPrivate::QQuickAttachedPropertyPropagator *self) {
+  self->initialize();
 }
 
 //  void QtPrivate::QQuickAttachedPropertyPropagator::attachedParentChange(QQ
@@ -300,4 +382,12 @@ void ritual_own_ZN9QtPrivate32QQuickAttachedPropertyPropagator20attachedParentCh
   static_cast<OwnQtPrivate_QQuickAttachedPropertyPropagator *>(self)->OwnQtPrivate_QQuickAttachedPropertyPropagator::attachedParentChange(
       newParent,
       oldParent);
+}
+
+//  a QList<QtPrivate::QQuickAttachedPropertyPropagator *> a ritual of
+//      QtPrivate::QQuickAttachedPropertyPropagator gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtPrivate_QQuickAttachedPropertyPropagator__QList_QtPrivate_QQuickAttachedPropertyPropagator(
+    QList<QtPrivate::QQuickAttachedPropertyPropagator *> *self) {
+  delete self;
 }

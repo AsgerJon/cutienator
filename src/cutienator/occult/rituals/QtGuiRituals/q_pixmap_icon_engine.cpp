@@ -47,11 +47,12 @@ typedef QString * (*CuteQPixmapIconEngineCall7)(const void *, int *);
 typedef void * (*CuteQPixmapIconEngineCall8)(const void *, int *);
 #endif  // !defined(QT_NO_ICON)
 typedef QString * (*CuteQPixmapIconEngineCall9)(const void *, int *);
+typedef void (*CuteQPixmapIconEngineCall10)(const void *, int, void *, int *);
 class CuteQPixmapIconEngine : public QPixmapIconEngine {
 public:
   using QPixmapIconEngine::QPixmapIconEngine;
-  CuteQPixmapIconEngine(const QPixmapIconEngine &other) : QPixmapIconEngine(other) {}
-  void *taken[10] = {};
+  CuteQPixmapIconEngine(const QPixmapIconEngine & other) : QPixmapIconEngine(other) {}
+  void *taken[11] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_ICON)
@@ -110,6 +111,10 @@ public:
 #endif  // !defined(QT_NO_ICON)
     if (!std::strcmp(key, "_ZN11QIconEngine8iconNameEv")) {
       taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QIconEngine12virtual_hookEiPv")) {
+      taken[10] = call;
       return true;
     }
     return false;
@@ -277,6 +282,17 @@ public:
     }
     return QIconEngine::iconName();
   }
+
+  //  void QIconEngine::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQPixmapIconEngineCall10 call = reinterpret_cast<CuteQPixmapIconEngineCall10>(taken[10]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QIconEngine::virtual_hook(id, data);
+  }
 };
 
 //  QPixmapIconEngine::QPixmapIconEngine()
@@ -406,6 +422,22 @@ extern "C" Q_DECL_EXPORT
 QIconEngine *ritual_ZNK17QPixmapIconEngine5cloneEv(
     const QPixmapIconEngine *self) {
   return self->clone();
+}
+
+//  bool QPixmapIconEngine::read(QDataStream &in)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QPixmapIconEngine4readER11QDataStream(
+    QPixmapIconEngine *self,
+    QDataStream *in) {
+  return self->read(*in);
+}
+
+//  bool QPixmapIconEngine::write(QDataStream &out) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QPixmapIconEngine5writeER11QDataStream(
+    const QPixmapIconEngine *self,
+    QDataStream *out) {
+  return self->write(*out);
 }
 
 //  QSize QPixmapIconEngine::adjustSize(const QSize &expectedSize, QSize

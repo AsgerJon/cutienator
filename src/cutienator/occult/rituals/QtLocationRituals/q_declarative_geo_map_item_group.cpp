@@ -793,6 +793,25 @@ const QMetaObject *ritual_ZNK27QDeclarativeGeoMapItemGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoMapItemGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QDeclarativeGeoMapItemGroup11qt_metacastEPKc(
+    QDeclarativeGeoMapItemGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoMapItemGroup::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QDeclarativeGeoMapItemGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoMapItemGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoMapItemGroup::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -818,6 +837,16 @@ void ritual_ZN27QDeclarativeGeoMapItemGroupD1Ev(
   delete self;
 }
 
+//  void
+//      QDeclarativeGeoMapItemGroup::setParentGroup(QDeclarativeGeoMapItemGro
+//      up &parentGroup)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeGeoMapItemGroup14setParentGroupERS_(
+    QDeclarativeGeoMapItemGroup *self,
+    QDeclarativeGeoMapItemGroup *parentGroup) {
+  self->setParentGroup(*parentGroup);
+}
+
 //  void QDeclarativeGeoMapItemGroup::setQuickMap(QDeclarativeGeoMap
 //      *quickMap)
 extern "C" Q_DECL_EXPORT
@@ -839,6 +868,27 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK27QDeclarativeGeoMapItemGroup14mapItemOpacityEv(
     const QDeclarativeGeoMapItemGroup *self) {
   return self->mapItemOpacity();
+}
+
+//  void QDeclarativeGeoMapItemGroup::mapItemOpacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeGeoMapItemGroup21mapItemOpacityChangedEv(
+    QDeclarativeGeoMapItemGroup *self) {
+  self->mapItemOpacityChanged();
+}
+
+//  void QDeclarativeGeoMapItemGroup::addTransitionFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeGeoMapItemGroup21addTransitionFinishedEv(
+    QDeclarativeGeoMapItemGroup *self) {
+  self->addTransitionFinished();
+}
+
+//  void QDeclarativeGeoMapItemGroup::removeTransitionFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeGeoMapItemGroup24removeTransitionFinishedEv(
+    QDeclarativeGeoMapItemGroup *self) {
+  self->removeTransitionFinished();
 }
 
 //  void QDeclarativeGeoMapItemGroup::classBegin()

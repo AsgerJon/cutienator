@@ -1,12 +1,15 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qpolygon.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qpolygon.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN8QPolygonC1Ev": ["address"],
     "ritual_ZN8QPolygonC1ERK5QListI6QPointE": ["address", "address"],
+    "ritual_ZN8QPolygonC1EO5QListI6QPointE": ["address", "address"],
     "ritual_ZN8QPolygonC1ERK5QRectb": ["address", "address", "bool"],
+    "ritual_ZN8QPolygonC1EiPKi": ["address", "int", "address"],
+    "ritual_ZN8QPolygon4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK8QPolygoncv8QVariantEv": ["address", "address"],
     "ritual_ZN8QPolygon9translateEii": ["nothing", "address", "int", "int"],
     "ritual_ZN8QPolygon9translateERK6QPoint": [
@@ -29,6 +32,12 @@
     "ritual_ZN8QPolygon8setPointEiRK6QPoint": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN8QPolygon9setPointsEiPKi": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8QPolygon9putPointsEiiPKi": [
+      "nothing", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QPolygon9putPointsEiiRKS_i": [
       "nothing", "address", "int", "int", "address", "int"
     ],
@@ -44,6 +53,12 @@
     ],
     "ritual_ZNK8QPolygon10intersectsERKS_": ["bool", "address", "address"],
     "ritual_ZNK8QPolygon10toPolygonFEv": ["address", "address"],
-    "ritual_ZN8QPolygonD1Ev": ["nothing", "address"]
+    "ritual_ZN8QPolygonD1Ev": ["nothing", "address"],
+    "ritual_ZN8QPolygon9setPointsEiiiz": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8QPolygon9putPointsEiiiiz": [
+      "nothing", "address", "int", "int", "address"
+    ]
   }
 }

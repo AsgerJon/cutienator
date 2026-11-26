@@ -13,11 +13,26 @@
       "address", "address"
     ],
     "ritual_ZNK3QV418QMetaObjectWrapper1dEv": ["address", "address"],
+    "ritual_ZN3QV418QMetaObjectWrapper14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
     "ritual_ZN3QV418QMetaObjectWrapper6createEPNS_15ExecutionEngineEPK11QMetaObject": [
       "unsigned long long", "address", "address"
     ],
     "ritual_ZNK3QV418QMetaObjectWrapper10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN3QV418QMetaObjectWrapper24virtualCallAsConstructorEPKNS_14FunctionObjectEPKNS_5ValueEiS6_": [
+      "unsigned long long", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV418QMetaObjectWrapper16virtualIsEqualToEPNS_7ManagedES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV418QMetaObjectWrapper4initEPNS_15ExecutionEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV418QMetaObjectWrapper17constructInternalEPK11QMetaObjectPK16QQmlPropertyDataPNS_4Heap14FunctionObjectEPKNS_5ValueEi": [
+      "unsigned long long", "address", "address", "address", "address", "int"
     ]
   }
 }

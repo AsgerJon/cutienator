@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickSwipeViewAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickSwipeViewAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickSwipeViewAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickSwipeViewAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,6 +26,23 @@
     "ritual_ZNK23QQuickSwipeViewAttached10isNextItemEv": ["bool", "address"],
     "ritual_ZNK23QQuickSwipeViewAttached14isPreviousItemEv": [
       "bool", "address"
-    ]
+    ],
+    "ritual_ZN23QQuickSwipeViewAttached12indexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSwipeViewAttached20isCurrentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSwipeViewAttached11viewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSwipeViewAttached17isNextItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSwipeViewAttached21isPreviousItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickSwipeViewAttached6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickSwipeViewAttached6d_funcEv": ["address", "address"]
   }
 }

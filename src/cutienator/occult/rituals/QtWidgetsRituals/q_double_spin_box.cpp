@@ -1121,6 +1121,24 @@ const QMetaObject *ritual_ZNK14QDoubleSpinBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDoubleSpinBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QDoubleSpinBox11qt_metacastEPKc(
+    QDoubleSpinBox *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDoubleSpinBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QDoubleSpinBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDoubleSpinBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDoubleSpinBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QDoubleSpinBox2trEPKcS1_i(
@@ -1262,6 +1280,16 @@ void ritual_ZN14QDoubleSpinBox11setDecimalsEi(
   self->setDecimals(prec);
 }
 
+//  QValidator::State QDoubleSpinBox::validate(QString &input, int &pos)
+//      const
+extern "C" Q_DECL_EXPORT
+QValidator::State ritual_ZNK14QDoubleSpinBox8validateER7QStringRi(
+    const QDoubleSpinBox *self,
+    QString *input,
+    int *pos) {
+  return self->validate(*input, *pos);
+}
+
 //  double QDoubleSpinBox::valueFromText(const QString &text) const
 extern "C" Q_DECL_EXPORT
 double ritual_ZNK14QDoubleSpinBox13valueFromTextERK7QString(
@@ -1278,10 +1306,48 @@ QString *ritual_ZNK14QDoubleSpinBox13textFromValueEd(
   return new QString(self->textFromValue(val));
 }
 
+//  void QDoubleSpinBox::fixup(QString &str) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QDoubleSpinBox5fixupER7QString(
+    const QDoubleSpinBox *self,
+    QString *str) {
+  self->fixup(*str);
+}
+
 //  void QDoubleSpinBox::setValue(double val)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QDoubleSpinBox8setValueEd(QDoubleSpinBox *self, double val) {
   self->setValue(val);
+}
+
+//  void QDoubleSpinBox::valueChanged(double a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QDoubleSpinBox12valueChangedEd(
+    QDoubleSpinBox *self,
+    double a0) {
+  self->valueChanged(a0);
+}
+
+//  void QDoubleSpinBox::textChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QDoubleSpinBox11textChangedERK7QString(
+    QDoubleSpinBox *self,
+    const QString *a0) {
+  self->textChanged(*a0);
+}
+
+//  QDoubleSpinBoxPrivate *QDoubleSpinBox::d_func()
+extern "C" Q_DECL_EXPORT
+QDoubleSpinBoxPrivate *ritual_ZN14QDoubleSpinBox6d_funcEv(
+    QDoubleSpinBox *self) {
+  return self->d_func();
+}
+
+//  const QDoubleSpinBoxPrivate *QDoubleSpinBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QDoubleSpinBoxPrivate *ritual_ZNK14QDoubleSpinBox6d_funcEv(
+    const QDoubleSpinBox *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQDoubleSpinBox, for the function named

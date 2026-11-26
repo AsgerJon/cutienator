@@ -8,6 +8,12 @@
     "ritual_ZNK26QOpenGLEngineShaderManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QOpenGLEngineShaderManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QOpenGLEngineShaderManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -38,6 +44,9 @@
     ],
     "ritual_ZN26QOpenGLEngineShaderManager17removeCustomStageEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager18getUniformLocationENS_7UniformE": [
+      "unsigned int", "address", "int"
     ],
     "ritual_ZN26QOpenGLEngineShaderManager8setDirtyEv": [
       "nothing", "address"

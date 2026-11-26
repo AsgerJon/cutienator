@@ -54,6 +54,12 @@ void ritual_ZN16QNativeInterface7Private10QXcbScreenD1Ev(
   delete self;
 }
 
+//  QNativeInterface::Private::QXcbScreen::QXcbScreen()
+extern "C" Q_DECL_EXPORT
+QNativeInterface::Private::QXcbScreen *ritual_ZN16QNativeInterface7Private10QXcbScreenC1Ev() {
+  return new CuteQNativeInterface_Private_QXcbScreen();
+}
+
 //  int QNativeInterface::Private::QXcbScreen::virtualDesktopNumber() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK16QNativeInterface7Private10QXcbScreen20virtualDesktopNumberEv(

@@ -5,6 +5,22 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation27QAnimationControllerPrivateC1Ev": ["address"],
+    "ritual_ZN13Qt3DAnimation27QAnimationControllerPrivate14updatePositionEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation27QAnimationControllerPrivate17extractAnimationsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation27QAnimationControllerPrivate15clearAnimationsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation27QAnimationControllerPrivate9findGroupERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13Qt3DAnimation27QAnimationControllerPrivate14scaledPositionEf": [
+      "float", "address", "float"
+    ],
     "ritual_ZN13Qt3DAnimation27QAnimationControllerPrivate6q_funcEv": [
       "address", "address"
     ],

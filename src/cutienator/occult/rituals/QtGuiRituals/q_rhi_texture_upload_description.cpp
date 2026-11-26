@@ -20,6 +20,23 @@ QRhiTextureUploadDescription *ritual_ZN28QRhiTextureUploadDescriptionC1ERK22QRhi
   return new QRhiTextureUploadDescription(*entry);
 }
 
+//  QRhiTextureUploadDescription::QRhiTextureUploadDescription(std::initializ
+//      er_list<QRhiTextureUploadEntry> list)
+extern "C" Q_DECL_EXPORT
+QRhiTextureUploadDescription *ritual_ZN28QRhiTextureUploadDescriptionC1ESt16initializer_listI22QRhiTextureUploadEntryE(
+    const std::initializer_list<QRhiTextureUploadEntry> *list) {
+  return new QRhiTextureUploadDescription(*list);
+}
+
+//  void QRhiTextureUploadDescription::setEntries(std::initializer_list<QRhiT
+//      extureUploadEntry> list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QRhiTextureUploadDescription10setEntriesESt16initializer_listI22QRhiTextureUploadEntryE(
+    QRhiTextureUploadDescription *self,
+    const std::initializer_list<QRhiTextureUploadEntry> *list) {
+  self->setEntries(*list);
+}
+
 //  const QRhiTextureUploadEntry
 //      *QRhiTextureUploadDescription::cbeginEntries() const
 extern "C" Q_DECL_EXPORT

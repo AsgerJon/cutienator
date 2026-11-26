@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickCanvasContext10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickCanvasContext11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickCanvasContext11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickCanvasContextD1Ev": ["nothing", "address"],
     "ritual_ZNK19QQuickCanvasContext12contextNamesEv": [
       "address", "address"
@@ -27,6 +33,9 @@
     ],
     "ritual_ZN19QQuickCanvasContext7toImageERK6QRectF": [
       "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickCanvasContext14textureChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQuickCanvasContext": [
       "bool", "address", "chars", "address"

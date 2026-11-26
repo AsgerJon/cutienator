@@ -8,7 +8,20 @@
     "ritual_ZNK21QDBusAdaptorConnector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QDBusAdaptorConnector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QDBusAdaptorConnector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QDBusAdaptorConnectorD1Ev": ["nothing", "address"],
+    "ritual_ZN21QDBusAdaptorConnector9relaySlotE19QMethodRawArguments": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QDBusAdaptorConnector6polishEv": ["nothing", "address"],
+    "ritual_ZN21QDBusAdaptorConnector11relaySignalEP7QObjectPK11QMetaObjectiRK5QListI8QVariantE": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
     "ritual_take_QDBusAdaptorConnector": [
       "bool", "address", "chars", "address"
     ]

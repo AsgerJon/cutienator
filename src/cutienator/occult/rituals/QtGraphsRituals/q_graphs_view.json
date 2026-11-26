@@ -9,6 +9,12 @@
   ],
   "rows": {
     "ritual_ZNK11QGraphsView10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QGraphsView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QGraphsView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QGraphsView2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QGraphsViewC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN11QGraphsViewD1Ev": ["nothing", "address"],
@@ -30,6 +36,19 @@
     "ritual_ZNK11QGraphsView13getSeriesListEv": ["address", "address"],
     "ritual_ZN11QGraphsView23getDataPointCoordinatesEP15QAbstractSeriesdd": [
       "address", "address", "address", "double", "double"
+    ],
+    "ritual_ZN11QGraphsView10seriesListEv": ["address", "address"],
+    "ritual_ZN11QGraphsView16appendSeriesFuncEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QGraphsView15countSeriesFuncEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN11QGraphsView12atSeriesFuncEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN11QGraphsView15clearSeriesFuncEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
     ],
     "ritual_ZNK11QGraphsView5themeEv": ["address", "address"],
     "ritual_ZN11QGraphsView8setThemeEP12QGraphsTheme": [
@@ -183,6 +202,59 @@
       "address", "address", "address", "address"
     ],
     "ritual_ZN11QGraphsView12updatePolishEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView12themeChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView16marginTopChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView19marginBottomChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView17marginLeftChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView18marginRightChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView19clipPlotAreaChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView15plotAreaChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView10hoverEnterERK7QString7QPointFS3_": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN11QGraphsView9hoverExitERK7QString7QPointF": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN11QGraphsView5hoverERK7QString7QPointFS3_": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN11QGraphsView21axisXSmoothingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QGraphsView21axisYSmoothingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QGraphsView20gridSmoothingChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView20shadowVisibleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView18shadowColorChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView21shadowBarWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QGraphsView20shadowXOffsetChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView20shadowYOffsetChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView22shadowSmoothingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QGraphsView12axisXChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView12axisYChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView18orientationChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView16zoomStyleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView15panStyleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QGraphsView22zoomAreaEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QGraphsView23zoomAreaDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QGraphsView22zoomSensitivityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QGraphsView23useCanvasPainterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QGraphsView26dynamicLabelMarginsChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN11QGraphsView15polishAndUpdateEv": ["nothing", "address"],
     "ritual_ZN11QGraphsView22getSeriesRendererIndexEP15QAbstractSeries": [
       "int", "address", "address"
@@ -209,6 +281,9 @@
     "ritual_own_ZN11QGraphsView15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
       "address", "address", "address", "address"
     ],
-    "ritual_own_ZN11QGraphsView12updatePolishEv": ["nothing", "address"]
+    "ritual_own_ZN11QGraphsView12updatePolishEv": ["nothing", "address"],
+    "ritual_drop_QGraphsView__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

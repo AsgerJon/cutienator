@@ -21,10 +21,34 @@ QDnsTextRecord *ritual_ZN14QDnsTextRecordC1ERKS_(
   return new QDnsTextRecord(*other);
 }
 
+//  QDnsTextRecord &QDnsTextRecord::operator=(QDnsTextRecord &&other)
+extern "C" Q_DECL_EXPORT
+QDnsTextRecord *ritual_ZN14QDnsTextRecordaSEOS_(
+    QDnsTextRecord *self,
+    QDnsTextRecord *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDnsTextRecord &QDnsTextRecord::operator=(const QDnsTextRecord &other)
+extern "C" Q_DECL_EXPORT
+QDnsTextRecord *ritual_ZN14QDnsTextRecordaSERKS_(
+    QDnsTextRecord *self,
+    const QDnsTextRecord *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDnsTextRecord::~QDnsTextRecord()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QDnsTextRecordD1Ev(QDnsTextRecord *self) {
   delete self;
+}
+
+//  void QDnsTextRecord::swap(QDnsTextRecord &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QDnsTextRecord4swapERS_(
+    QDnsTextRecord *self,
+    QDnsTextRecord *other) {
+  self->swap(*other);
 }
 
 //  QString QDnsTextRecord::name() const

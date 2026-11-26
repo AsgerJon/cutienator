@@ -36,6 +36,34 @@ void ritual_ZN11QCanvasPathD1Ev(QCanvasPath *self) {
   delete self;
 }
 
+//  QCanvasPath &QCanvasPath::operator=(const QCanvasPath &path)
+extern "C" Q_DECL_EXPORT
+QCanvasPath *ritual_ZN11QCanvasPathaSERKS_(
+    QCanvasPath *self,
+    const QCanvasPath *path) {
+  return &(self->operator=(*path));
+}
+
+//  QCanvasPath::QCanvasPath(QCanvasPath &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasPath *ritual_ZN11QCanvasPathC1EOS_(QCanvasPath *other) {
+  return new QCanvasPath(std::move(*other));
+}
+
+//  QCanvasPath &QCanvasPath::operator=(QCanvasPath &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasPath *ritual_ZN11QCanvasPathaSEOS_(
+    QCanvasPath *self,
+    QCanvasPath *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCanvasPath::swap(QCanvasPath &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QCanvasPath4swapERS_(QCanvasPath *self, QCanvasPath *other) {
+  self->swap(*other);
+}
+
 //  QVariant QCanvasPath::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK11QCanvasPathcv8QVariantEv(const QCanvasPath *self) {
@@ -455,4 +483,17 @@ bool ritual_ZneRK11QCanvasPathS1_(
     const QCanvasPath *lhs,
     const QCanvasPath *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QCanvasPathPrivate *QCanvasPath::d_func()
+extern "C" Q_DECL_EXPORT
+QCanvasPathPrivate *ritual_ZN11QCanvasPath6d_funcEv(QCanvasPath *self) {
+  return self->d_func();
+}
+
+//  const QCanvasPathPrivate *QCanvasPath::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCanvasPathPrivate *ritual_ZNK11QCanvasPath6d_funcEv(
+    const QCanvasPath *self) {
+  return self->d_func();
 }

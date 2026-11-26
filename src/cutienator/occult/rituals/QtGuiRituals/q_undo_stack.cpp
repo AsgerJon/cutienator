@@ -184,6 +184,24 @@ const QMetaObject *ritual_ZNK10QUndoStack10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QUndoStack::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QUndoStack11qt_metacastEPKc(
+    QUndoStack *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QUndoStack::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QUndoStack11qt_metacallEN11QMetaObject4CallEiPPv(
+    QUndoStack *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QUndoStack::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QUndoStack2trEPKcS1_i(
@@ -384,6 +402,50 @@ void ritual_ZN10QUndoStack4redoEv(QUndoStack *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QUndoStack9setActiveEb(QUndoStack *self, bool active) {
   self->setActive(active);
+}
+
+//  void QUndoStack::indexChanged(int idx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoStack12indexChangedEi(QUndoStack *self, int idx) {
+  self->indexChanged(idx);
+}
+
+//  void QUndoStack::cleanChanged(bool clean)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoStack12cleanChangedEb(QUndoStack *self, bool clean) {
+  self->cleanChanged(clean);
+}
+
+//  void QUndoStack::canUndoChanged(bool canUndo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoStack14canUndoChangedEb(
+    QUndoStack *self,
+    bool canUndo) {
+  self->canUndoChanged(canUndo);
+}
+
+//  void QUndoStack::canRedoChanged(bool canRedo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoStack14canRedoChangedEb(
+    QUndoStack *self,
+    bool canRedo) {
+  self->canRedoChanged(canRedo);
+}
+
+//  void QUndoStack::undoTextChanged(const QString &undoText)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoStack15undoTextChangedERK7QString(
+    QUndoStack *self,
+    const QString *undoText) {
+  self->undoTextChanged(*undoText);
+}
+
+//  void QUndoStack::redoTextChanged(const QString &redoText)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QUndoStack15redoTextChangedERK7QString(
+    QUndoStack *self,
+    const QString *redoText) {
+  self->redoTextChanged(*redoText);
 }
 
 //  a Python function taken by a CuteQUndoStack, for the function named by

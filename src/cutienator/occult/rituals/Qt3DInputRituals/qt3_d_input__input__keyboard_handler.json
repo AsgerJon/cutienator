@@ -5,8 +5,30 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input15KeyboardHandlerC1Ev": ["address"],
+    "ritual_ZNK9Qt3DInput5Input15KeyboardHandler14keyboardDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input15KeyboardHandler15setInputHandlerEPNS0_12InputHandlerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input15KeyboardHandler8setFocusEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK9Qt3DInput5Input15KeyboardHandler5focusEv": [
       "bool", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input15KeyboardHandler16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN9Qt3DInput5Input15KeyboardHandler12requestFocusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input15KeyboardHandler16setSourcerDeviceEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input15KeyboardHandler16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ]
   }
 }

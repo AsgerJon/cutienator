@@ -45,6 +45,62 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 190, as local:qquickoverlay.cpp:canCascadeCloseOnOutsidePress
+static bool canCascadeCloseOnOutsidePress(const QQuickPopup *popup)
+{
+    static const QQuickPopup::ClosePolicy outsideFlags = QQuickPopup::CloseOnPressOutside
+            | QQuickPopup::CloseOnReleaseOutside
+            | QQuickPopup::CloseOnPressOutsideParent
+            | QQuickPopup::CloseOnReleaseOutsideParent;
+    return popup->closePolicy().testAnyFlags(outsideFlags);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 208, as local:qquickoverlay.cpp:closedItselfViaCloseMultiple
+static bool closedItselfViaCloseMultiple(const QQuickPopup *popup, bool wasOpened)
+{
+    return wasOpened && !popup->isOpened() && canCascadeCloseOnOutsidePress(popup)
+            && popup->closePolicy().testFlag(QQuickPopup::CloseMultiple);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 276, as _ZN20QQuickOverlayPrivate13handleReleaseEP10QQuickItemP6QEventP11QQuickPopup
+inline bool QQuickOverlayPrivate::handleRelease(QQuickItem *source, QEvent *event, QQuickPopup *target)
+{
+    if (target) {
+        const bool wasOpened = target->isOpened();
+        setMouseGrabberPopup(nullptr);
+        if (target->overlayEvent(source, event)) {
+            setMouseGrabberPopup(nullptr);
+            if (!closedItselfViaCloseMultiple(target, wasOpened))
+                return true;
+        }
+    } else if (!closeCascadeStopped) {
+        const auto popups = stackingOrderPopups();
+        for (QQuickPopup *popup : popups) {
+            if (popup->overlayEvent(source, event))
+                return true;
+            if (!canCascadeCloseOnOutsidePress(popup))
+                continue;
+            if (!popup->closePolicy().testFlag(QQuickPopup::CloseMultiple)) {
+                closeCascadeStopped = true;
+                break;
+            }
+        }
+    }
+    return false;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 69, as _ZN20QQuickOverlayPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
+inline void QQuickOverlayPrivate::itemGeometryChanged(QQuickItem *, QQuickGeometryChange, const QRectF &)
+{
+    updateGeometry();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 74, as _ZN20QQuickOverlayPrivate19itemRotationChangedEP10QQuickItem
+inline void QQuickOverlayPrivate::itemRotationChanged(QQuickItem *)
+{
+    updateGeometry();
+}
+
 //  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 83, as _ZN20QQuickOverlayPrivate24eatEventIfBlockedByModalEP13QPointerEvent
 #if QT_CONFIG(tabletevent) || QT_CONFIG(wheelevent)
 inline bool QQuickOverlayPrivate::eatEventIfBlockedByModal(QPointerEvent *event)
@@ -149,11 +205,85 @@ inline bool QQuickOverlayPrivate::startDrag(QEvent *event, const QPointF &pos)
     return false;
 }
 
+//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 214, as _ZN20QQuickOverlayPrivate11handlePressEP10QQuickItemP6QEventP11QQuickPopup
+inline bool QQuickOverlayPrivate::handlePress(QQuickItem *source, QEvent *event, QQuickPopup *target)
+{
+    if (target) {
+        const bool wasOpened = target->isOpened();
+        if (target->overlayEvent(source, event)) {
+            if (closedItselfViaCloseMultiple(target, wasOpened))
+                return false;
+            setMouseGrabberPopup(target);
+            return true;
+        }
+        return false;
+    }
+
+    switch (event->type()) {
+    default: {
+        if (mouseGrabberPopup)
+            break;
+#if QT_CONFIG(quicktemplates2_multitouch)
+        Q_FALLTHROUGH();
+    case QEvent::TouchBegin:
+    case QEvent::TouchUpdate:
+    case QEvent::TouchEnd:
+#endif
+        // allow non-modal popups to close themselves,
+        // and non-dimming modal popups to block the event
+        if (closeCascadeStopped)
+            break;
+        const auto popups = stackingOrderPopups();
+        bool passedWithCloseMultiple = false;
+        for (QQuickPopup *popup : popups) {
+            if (popup->overlayEvent(source, event)) {
+                // Don't grab a deeper popup as the mouse grabber when we've
+                // already iterated past a higher popup via CloseMultiple. The
+                // release loop's CloseMultiple logic will handle closing the
+                // higher popup correctly without a grabbed target.
+                if (!passedWithCloseMultiple)
+                    setMouseGrabberPopup(popup);
+                return true;
+            }
+            if (!canCascadeCloseOnOutsidePress(popup))
+                continue;
+            if (!popup->closePolicy().testFlag(QQuickPopup::CloseMultiple)) {
+                closeCascadeStopped = true;
+                break;
+            }
+            passedWithCloseMultiple = true;
+        }
+        break;
+    }
+    }
+
+    event->ignore();
+    return false;
+}
+
 //  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 269, as _ZN20QQuickOverlayPrivate10handleMoveEP10QQuickItemP6QEventP11QQuickPopup
 inline bool QQuickOverlayPrivate::handleMove(QQuickItem *source, QEvent *event, QQuickPopup *target)
 {
     if (target)
         return target->overlayEvent(source, event);
+    return false;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 302, as _ZN20QQuickOverlayPrivate16handleMouseEventEP10QQuickItemP11QMouseEventP11QQuickPopup
+inline bool QQuickOverlayPrivate::handleMouseEvent(QQuickItem *source, QMouseEvent *event, QQuickPopup *target)
+{
+    switch (event->type()) {
+    case QEvent::MouseButtonPress:
+        if (!target && startDrag(event, event->scenePosition()))
+            return true;
+        return handlePress(source, event, target);
+    case QEvent::MouseMove:
+        return handleMove(source, event, target ? target : mouseGrabberPopup.data());
+    case QEvent::MouseButtonRelease:
+        return handleRelease(source, event, target ? target : mouseGrabberPopup.data());
+    default:
+        break;
+    }
     return false;
 }
 
@@ -173,6 +303,43 @@ inline bool QQuickOverlayPrivate::handleHoverEvent(QQuickItem *source, QHoverEve
     }
     return false;
 }
+
+//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 336, as _ZN20QQuickOverlayPrivate16handleTouchEventEP10QQuickItemP11QTouchEventP11QQuickPopup
+#if QT_CONFIG(quicktemplates2_multitouch)
+inline bool QQuickOverlayPrivate::handleTouchEvent(QQuickItem *source, QTouchEvent *event, QQuickPopup *target)
+{
+    bool handled = false;
+    switch (event->type()) {
+    case QEvent::TouchBegin:
+    case QEvent::TouchUpdate:
+    case QEvent::TouchEnd:
+        for (const QTouchEvent::TouchPoint &point : event->points()) {
+            switch (point.state()) {
+            case QEventPoint::Pressed:
+                if (!target && startDrag(event, point.scenePosition()))
+                    handled = true;
+                else
+                    handled |= handlePress(source, event, target);
+                break;
+            case QEventPoint::Updated:
+                handled |= handleMove(source, event, target ? target : mouseGrabberPopup.data());
+                break;
+            case QEventPoint::Released:
+                handled |= handleRelease(source, event, target ? target : mouseGrabberPopup.data());
+                break;
+            default:
+                break;
+            }
+        }
+        break;
+
+    default:
+        break;
+    }
+
+    return handled;
+}
+#endif  // QT_CONFIG(quicktemplates2_multitouch)
 
 //  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 371, as _ZN20QQuickOverlayPrivate8addPopupEP11QQuickPopup
 inline void QQuickOverlayPrivate::addPopup(QQuickPopup *popup)
@@ -227,18 +394,6 @@ inline QList<QQuickPopup *> QQuickOverlayPrivate::stackingOrderDrawers() const
         return one->z() > another->z();
     });
     return sorted;
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 69, as _ZN20QQuickOverlayPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
-inline void QQuickOverlayPrivate::itemGeometryChanged(QQuickItem *, QQuickGeometryChange, const QRectF &)
-{
-    updateGeometry();
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 74, as _ZN20QQuickOverlayPrivate19itemRotationChangedEP10QQuickItem
-inline void QQuickOverlayPrivate::itemRotationChanged(QQuickItem *)
-{
-    updateGeometry();
 }
 
 //  from ../qtdeclarative/src/quicktemplates/qquickoverlay.cpp, line 396, as _ZN20QQuickOverlayPrivate14updateGeometryEv
@@ -653,6 +808,17 @@ bool ritual_ZN20QQuickOverlayPrivate9startDragEP6QEventRK7QPointF(
   return self->startDrag(event, *pos);
 }
 
+//  bool QQuickOverlayPrivate::handlePress(QQuickItem *source, QEvent *event,
+//      QQuickPopup *target)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QQuickOverlayPrivate11handlePressEP10QQuickItemP6QEventP11QQuickPopup(
+    QQuickOverlayPrivate *self,
+    QQuickItem *source,
+    QEvent *event,
+    QQuickPopup *target) {
+  return self->handlePress(source, event, target);
+}
+
 //  bool QQuickOverlayPrivate::handleMove(QQuickItem *source, QEvent *event,
 //      QQuickPopup *target)
 extern "C" Q_DECL_EXPORT
@@ -662,6 +828,17 @@ bool ritual_ZN20QQuickOverlayPrivate10handleMoveEP10QQuickItemP6QEventP11QQuickP
     QEvent *event,
     QQuickPopup *target) {
   return self->handleMove(source, event, target);
+}
+
+//  bool QQuickOverlayPrivate::handleMouseEvent(QQuickItem *source,
+//      QMouseEvent *event, QQuickPopup *target)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QQuickOverlayPrivate16handleMouseEventEP10QQuickItemP11QMouseEventP11QQuickPopup(
+    QQuickOverlayPrivate *self,
+    QQuickItem *source,
+    QMouseEvent *event,
+    QQuickPopup *target) {
+  return self->handleMouseEvent(source, event, target);
 }
 
 //  bool QQuickOverlayPrivate::handleHoverEvent(QQuickItem *source,
@@ -674,6 +851,19 @@ bool ritual_ZN20QQuickOverlayPrivate16handleHoverEventEP10QQuickItemP11QHoverEve
     QQuickPopup *target) {
   return self->handleHoverEvent(source, event, target);
 }
+
+#if QT_CONFIG(quicktemplates2_multitouch)
+//  bool QQuickOverlayPrivate::handleTouchEvent(QQuickItem *source,
+//      QTouchEvent *event, QQuickPopup *target)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QQuickOverlayPrivate16handleTouchEventEP10QQuickItemP11QTouchEventP11QQuickPopup(
+    QQuickOverlayPrivate *self,
+    QQuickItem *source,
+    QTouchEvent *event,
+    QQuickPopup *target) {
+  return self->handleTouchEvent(source, event, target);
+}
+#endif  // QT_CONFIG(quicktemplates2_multitouch)
 
 //  void QQuickOverlayPrivate::addPopup(QQuickPopup *popup)
 extern "C" Q_DECL_EXPORT

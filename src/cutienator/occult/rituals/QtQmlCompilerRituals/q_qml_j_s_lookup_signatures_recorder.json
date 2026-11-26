@@ -8,9 +8,39 @@
     "ritual_ZN30QQmlJSLookupSignaturesRecorderC1ERK7QStringPK18QQmlJSTypeResolver": [
       "address", "text", "address"
     ],
+    "ritual_ZNK30QQmlJSLookupSignaturesRecorder10signaturesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQmlJSLookupSignaturesRecorder20recordPropertyLookupERK22QDeferredSharedPointerIK11QQmlJSScopeERK18QQmlJSMetaProperty": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN30QQmlJSLookupSignaturesRecorder18recordMethodLookupERK22QDeferredSharedPointerIK11QQmlJSScopeERK16QQmlJSMetaMethod": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN30QQmlJSLookupSignaturesRecorder19recordEnumKeyLookupERK22QDeferredSharedPointerIK11QQmlJSScopeERK14QQmlJSMetaEnumRK7QString": [
+      "bool", "address", "address", "address", "text"
+    ],
     "ritual_ZN30QQmlJSLookupSignaturesRecorder13rejectMessageEv": [
       "text", "address"
     ],
-    "ritual_ZN30QQmlJSLookupSignaturesRecorderD1Ev": ["nothing", "address"]
+    "ritual_ZNK30QQmlJSLookupSignaturesRecorder10cantDesyncERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK30QQmlJSLookupSignaturesRecorder8safeBaseERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK30QQmlJSLookupSignaturesRecorder22isUnnamedCompositeTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN30QQmlJSLookupSignaturesRecorder4typeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN30QQmlJSLookupSignaturesRecorderD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlJSLookupSignaturesRecorder__QQmlPrivate_AOTLookupValidation_LookupSignatures": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSLookupSignaturesRecorder__std_optional_QQmlPrivate_AOTLookupValidation_Type": [
+      "nothing", "address"
+    ]
   }
 }

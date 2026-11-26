@@ -4,6 +4,15 @@
     "QtCore/qnamespace.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9QInternal16registerCallbackENS_8CallbackEPFbPPvE": [
+      "bool", "int", "address"
+    ],
+    "ritual_ZN9QInternal18unregisterCallbackENS_8CallbackEPFbPPvE": [
+      "bool", "int", "address"
+    ],
+    "ritual_ZN9QInternal17activateCallbacksENS_8CallbackEPPv": [
+      "bool", "int", "address"
+    ],
     "ritual_ZN9QInternalD1Ev": ["nothing", "address"]
   }
 }

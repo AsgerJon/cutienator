@@ -8,8 +8,53 @@
     "ritual_ZNK10Qt3DRender26QStencilOperationArguments10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArguments11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArguments11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender26QStencilOperationArguments2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArgumentsD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender26QStencilOperationArguments8faceModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender26QStencilOperationArguments27stencilTestFailureOperationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender26QStencilOperationArguments25depthTestFailureOperationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender26QStencilOperationArguments21allTestsPassOperationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArguments30setStencilTestFailureOperationENS0_9OperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArguments28setDepthTestFailureOperationENS0_9OperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArguments24setAllTestsPassOperationENS0_9OperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArguments34stencilTestFailureOperationChangedENS0_9OperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArguments32depthTestFailureOperationChangedENS0_9OperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArguments28allTestsPassOperationChangedENS0_9OperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArguments15faceModeChangedENS0_8FaceModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender26QStencilOperationArgumentsC1ENS0_8FaceModeEP7QObject": [
+      "address", "int", "address"
     ],
     "ritual_ZN10Qt3DRender26QStencilOperationArguments6d_funcEv": [
       "address", "address"

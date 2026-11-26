@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickDragMimeData10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickDragMimeData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickDragMimeData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK18QQuickDragMimeData4keysEv": ["address", "address"],
     "ritual_ZNK18QQuickDragMimeData6sourceEv": ["address", "address"]
   }

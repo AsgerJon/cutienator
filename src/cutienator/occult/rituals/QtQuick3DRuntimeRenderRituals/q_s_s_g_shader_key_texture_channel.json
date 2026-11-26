@@ -6,6 +6,18 @@
   ],
   "rows": {
     "ritual_ZN27QSSGShaderKeyTextureChannelC1EPKc": ["address", "chars"],
+    "ritual_ZNK27QSSGShaderKeyTextureChannel17getTextureChannelE12QSSGDataViewIjE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN27QSSGShaderKeyTextureChannel17setTextureChannelENS_17TexturChannelBitsE11QSSGDataRefIjE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK27QSSGShaderKeyTextureChannel8toStringER10QByteArray12QSSGDataViewIjE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QSSGShaderKeyTextureChannel10fromStringERK10QByteArray11QSSGDataRefIjE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN27QSSGShaderKeyTextureChannelD1Ev": ["nothing", "address"]
   }
 }

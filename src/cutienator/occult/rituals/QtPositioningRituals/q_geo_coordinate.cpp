@@ -36,10 +36,40 @@ QGeoCoordinate *ritual_ZN14QGeoCoordinateC1ERKS_(
   return new QGeoCoordinate(*other);
 }
 
+//  QGeoCoordinate::QGeoCoordinate(QGeoCoordinate &&other)
+extern "C" Q_DECL_EXPORT
+QGeoCoordinate *ritual_ZN14QGeoCoordinateC1EOS_(QGeoCoordinate *other) {
+  return new QGeoCoordinate(std::move(*other));
+}
+
 //  QGeoCoordinate::~QGeoCoordinate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QGeoCoordinateD1Ev(QGeoCoordinate *self) {
   delete self;
+}
+
+//  QGeoCoordinate &QGeoCoordinate::operator=(const QGeoCoordinate &other)
+extern "C" Q_DECL_EXPORT
+QGeoCoordinate *ritual_ZN14QGeoCoordinateaSERKS_(
+    QGeoCoordinate *self,
+    const QGeoCoordinate *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoCoordinate &QGeoCoordinate::operator=(QGeoCoordinate &&other)
+extern "C" Q_DECL_EXPORT
+QGeoCoordinate *ritual_ZN14QGeoCoordinateaSEOS_(
+    QGeoCoordinate *self,
+    QGeoCoordinate *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoCoordinate::swap(QGeoCoordinate &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGeoCoordinate4swapERS_(
+    QGeoCoordinate *self,
+    QGeoCoordinate *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoCoordinate &lhs, const QGeoCoordinate &rhs)
@@ -161,6 +191,13 @@ bool ritual_ZN14QGeoCoordinate6equalsERKS_S1_(
   return QGeoCoordinate::equals(*lhs, *rhs);
 }
 
+//  QGeoCoordinate::QGeoCoordinate(QGeoCoordinatePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QGeoCoordinate *ritual_ZN14QGeoCoordinateC1ER21QGeoCoordinatePrivate(
+    QGeoCoordinatePrivate *dd) {
+  return new QGeoCoordinate(*dd);
+}
+
 #if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug dbg, const QGeoCoordinate &coord)
 extern "C" Q_DECL_EXPORT
@@ -181,6 +218,49 @@ QDebug *ritual_ZN14QGeoCoordinate14debugStreamingE6QDebugRKS_(
   return new QDebug(QGeoCoordinate::debugStreaming(*dbg, *coord));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &stream, const QGeoCoordinate
+//      &coordinate)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK14QGeoCoordinate(
+    QDataStream *stream,
+    const QGeoCoordinate *coordinate) {
+  return &(operator<<(*stream, *coordinate));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &stream, QGeoCoordinate &coordinate)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR14QGeoCoordinate(
+    QDataStream *stream,
+    QGeoCoordinate *coordinate) {
+  return &(operator>>(*stream, *coordinate));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoCoordinate::dataStreamOut(QDataStream &stream, const
+//      QGeoCoordinate &coordinate)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN14QGeoCoordinate13dataStreamOutER11QDataStreamRKS_(
+    QDataStream *stream,
+    const QGeoCoordinate *coordinate) {
+  return &(QGeoCoordinate::dataStreamOut(*stream, *coordinate));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoCoordinate::dataStreamIn(QDataStream &stream,
+//      QGeoCoordinate &coordinate)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN14QGeoCoordinate12dataStreamInER11QDataStreamRS_(
+    QDataStream *stream,
+    QGeoCoordinate *coordinate) {
+  return &(QGeoCoordinate::dataStreamIn(*stream, *coordinate));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 //  QList<QGeoCoordinate>::QList()
 extern "C" Q_DECL_EXPORT

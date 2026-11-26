@@ -1,8 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0. Changes made
 //  here are lost.
-#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(filedialog)
@@ -12,10 +12,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qurl.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -42,25 +42,68 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/dialogs/qsidebar.cpp, line 47, as _ZN9QUrlModelD1Ev
-inline QUrlModel::~QUrlModel()
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 53, as local:qsidebar.cpp:uriListMimeType
+constexpr char uriListMimeType[] = "text/uri-list";
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 56, as local:qsidebar.cpp:hasSupportedFormat
+#if QT_CONFIG(draganddrop)
+static bool hasSupportedFormat(const QMimeData *data)
 {
-    for (auto &conn : modelConnections)
-        disconnect(conn);
+    return data->hasFormat(QLatin1StringView(uriListMimeType));
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 312, as _ZN9QUrlModel11dataChangedERK11QModelIndexS2_
+inline void QUrlModel::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
+{
+    QModelIndex parent = topLeft.parent();
+    for (int i = 0; i < watching.size(); ++i) {
+        QModelIndex index = watching.at(i).index;
+        if (index.model() && topLeft.model()) {
+            Q_ASSERT(index.model() == topLeft.model());
+        }
+        if (   index.row() >= topLeft.row()
+            && index.row() <= bottomRight.row()
+            && index.column() >= topLeft.column()
+            && index.column() <= bottomRight.column()
+            && index.parent() == parent) {
+                changed(watching.at(i).path);
+        }
+    }
 }
 
-//  from src/widgets/dialogs/qsidebar.cpp, line 91, as _ZNK9QUrlModel8mimeDataERK5QListI11QModelIndexE
-inline QMimeData *QUrlModel::mimeData(const QModelIndexList &indexes) const
+//  from src/widgets/dialogs/qsidebar.cpp, line 333, as _ZN9QUrlModel13layoutChangedEv
+inline void QUrlModel::layoutChanged()
 {
-    QList<QUrl> list;
-    for (const auto &index : indexes) {
-        if (index.column() == 0)
-           list.append(index.data(UrlRole).toUrl());
-    }
-    QMimeData *data = new QMimeData();
-    data->setUrls(list);
-    return data;
+    QStringList paths;
+    paths.reserve(watching.size());
+    for (const WatchItem &item : std::as_const(watching))
+        paths.append(item.path);
+    watching.clear();
+    for (const auto &path : paths) {
+        QModelIndex newIndex = fileSystemModel->index(path);
+        watching.append({newIndex, path});
+        if (newIndex.isValid())
+            changed(path);
+     }
 }
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 127, as _ZN9QUrlModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QUrlModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
+                                 int row, int column, const QModelIndex &parent)
+{
+    if (!hasSupportedFormat(data))
+        return false;
+    Q_UNUSED(action);
+    Q_UNUSED(column);
+    Q_UNUSED(parent);
+    addUrls(data->urls(), row);
+    return true;
+}
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 73, as _ZNK9QUrlModel5flagsERK11QModelIndex
 inline Qt::ItemFlags QUrlModel::flags(const QModelIndex &index) const
@@ -99,6 +142,81 @@ inline bool QUrlModel::setData(const QModelIndex &index, const QVariant &value, 
     return QStandardItemModel::setData(index, value, role);
 }
 
+//  from src/widgets/dialogs/qsidebar.cpp, line 47, as _ZN9QUrlModelD1Ev
+inline QUrlModel::~QUrlModel()
+{
+    for (auto &conn : modelConnections)
+        disconnect(conn);
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 110, as _ZN9QUrlModel7canDropEP15QDragEnterEvent
+#if QT_CONFIG(draganddrop)
+inline bool QUrlModel::canDrop(QDragEnterEvent *event)
+{
+    if (!hasSupportedFormat(event->mimeData()))
+        return false;
+
+    const QList<QUrl> list = event->mimeData()->urls();
+    for (const auto &url : list) {
+        const QModelIndex idx = fileSystemModel->index(url.toLocalFile());
+        if (!fileSystemModel->isDir(idx))
+            return false;
+    }
+    return true;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 217, as _ZN9QUrlModel7setUrlsERK5QListI4QUrlE
+inline void QUrlModel::setUrls(const QList<QUrl> &list)
+{
+    removeRows(0, rowCount());
+    invalidUrls.clear();
+    watching.clear();
+    addUrls(list, 0);
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 231, as _ZN9QUrlModel7addUrlsERK5QListI4QUrlEib
+#if defined(Q_OS_LINUX)
+inline void QUrlModel::addUrls(const QList<QUrl> &list, int row, bool move)
+{
+    if (row == -1)
+        row = rowCount();
+    row = qMin(row, rowCount());
+    const auto rend = list.crend();
+    for (auto it = list.crbegin(); it != rend; ++it) {
+        QUrl url = *it;
+        if (!url.isValid() || url.scheme() != "file"_L1)
+            continue;
+        //this makes sure the url is clean
+        const QString cleanUrl = QDir::cleanPath(url.toLocalFile());
+        if (!cleanUrl.isEmpty())
+            url = QUrl::fromLocalFile(cleanUrl);
+
+        for (int j = 0; move && j < rowCount(); ++j) {
+            QString local = index(j, 0).data(UrlRole).toUrl().toLocalFile();
+#if defined(Q_OS_WIN)
+            const Qt::CaseSensitivity cs = Qt::CaseInsensitive;
+#else
+            const Qt::CaseSensitivity cs = Qt::CaseSensitive;
+#endif
+            if (!cleanUrl.compare(local, cs)) {
+                removeRow(j);
+                if (j <= row)
+                    row--;
+                break;
+            }
+        }
+        row = qMax(row, 0);
+        QModelIndex idx = fileSystemModel->index(cleanUrl);
+        if (!fileSystemModel->isDir(idx))
+            continue;
+        insertRows(row, 1);
+        setUrl(index(row, 0), url, idx);
+        watching.append({idx, cleanUrl});
+    }
+}
+#endif  // defined(Q_OS_LINUX)
+
 //  from src/widgets/dialogs/qsidebar.cpp, line 273, as _ZNK9QUrlModel4urlsEv
 inline QList<QUrl> QUrlModel::urls() const
 {
@@ -108,41 +226,6 @@ inline QList<QUrl> QUrlModel::urls() const
     for (int i = 0; i < numRows; ++i)
         list.append(data(index(i, 0), UrlRole).toUrl());
     return list;
-}
-
-//  from src/widgets/dialogs/qsidebar.cpp, line 312, as _ZN9QUrlModel11dataChangedERK11QModelIndexS2_
-inline void QUrlModel::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
-{
-    QModelIndex parent = topLeft.parent();
-    for (int i = 0; i < watching.size(); ++i) {
-        QModelIndex index = watching.at(i).index;
-        if (index.model() && topLeft.model()) {
-            Q_ASSERT(index.model() == topLeft.model());
-        }
-        if (   index.row() >= topLeft.row()
-            && index.row() <= bottomRight.row()
-            && index.column() >= topLeft.column()
-            && index.column() <= bottomRight.column()
-            && index.parent() == parent) {
-                changed(watching.at(i).path);
-        }
-    }
-}
-
-//  from src/widgets/dialogs/qsidebar.cpp, line 333, as _ZN9QUrlModel13layoutChangedEv
-inline void QUrlModel::layoutChanged()
-{
-    QStringList paths;
-    paths.reserve(watching.size());
-    for (const WatchItem &item : std::as_const(watching))
-        paths.append(item.path);
-    watching.clear();
-    for (const auto &path : paths) {
-        QModelIndex newIndex = fileSystemModel->index(path);
-        watching.append({newIndex, path});
-        if (newIndex.isValid())
-            changed(path);
-     }
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 166, as _ZN9QUrlModel6setUrlERK11QModelIndexRK4QUrlS2_
@@ -1249,10 +1332,32 @@ const QMetaObject *ritual_ZNK9QUrlModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QUrlModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QUrlModel11qt_metacastEPKc(QUrlModel *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QUrlModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QUrlModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QUrlModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QUrlModel::~QUrlModel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QUrlModelD1Ev(QUrlModel *self) {
   delete self;
+}
+
+//  QStringList QUrlModel::mimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QUrlModel9mimeTypesEv(const QUrlModel *self) {
+  return new QList<QString>(self->mimeTypes());
 }
 
 //  QMimeData *QUrlModel::mimeData(const QModelIndexList &indexes) const
@@ -1262,6 +1367,31 @@ QMimeData *ritual_ZNK9QUrlModel8mimeDataERK5QListI11QModelIndexE(
     const QList<QModelIndex> *indexes) {
   return self->mimeData(*indexes);
 }
+
+#if QT_CONFIG(draganddrop)
+//  bool QUrlModel::canDrop(QDragEnterEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QUrlModel7canDropEP15QDragEnterEvent(
+    QUrlModel *self,
+    QDragEnterEvent *event) {
+  return self->canDrop(event);
+}
+#endif  // QT_CONFIG(draganddrop)
+
+#if QT_CONFIG(draganddrop)
+//  bool QUrlModel::dropMimeData(const QMimeData *data, Qt::DropAction
+//      action, int row, int column, const QModelIndex &parent)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QUrlModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex(
+    QUrlModel *self,
+    const QMimeData *data,
+    Qt::DropAction action,
+    int row,
+    int column,
+    const QModelIndex *parent) {
+  return self->dropMimeData(data, action, row, column, *parent);
+}
+#endif  // QT_CONFIG(draganddrop)
 
 //  Qt::ItemFlags QUrlModel::flags(const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
@@ -1282,6 +1412,28 @@ bool ritual_ZN9QUrlModel7setDataERK11QModelIndexRK8QVarianti(
   return self->setData(*index, *value, role);
 }
 
+#if defined(Q_OS_LINUX)
+//  void QUrlModel::setUrls(const QList<QUrl> &list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QUrlModel7setUrlsERK5QListI4QUrlE(
+    QUrlModel *self,
+    const QList<QUrl> *list) {
+  self->setUrls(*list);
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  void QUrlModel::addUrls(const QList<QUrl> &urls, int row, bool move)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QUrlModel7addUrlsERK5QListI4QUrlEib(
+    QUrlModel *self,
+    const QList<QUrl> *urls,
+    int row,
+    bool move) {
+  self->addUrls(*urls, row, move);
+}
+#endif  // defined(Q_OS_LINUX)
+
 //  QList<QUrl> QUrlModel::urls() const
 extern "C" Q_DECL_EXPORT
 QList<QUrl> *ritual_ZNK9QUrlModel4urlsEv(const QUrlModel *self) {
@@ -1295,13 +1447,51 @@ void ritual_ZN9QUrlModel11dataChangedERK11QModelIndexS2_(
     QUrlModel *self,
     const QModelIndex *topLeft,
     const QModelIndex *bottomRight) {
-  self->dataChanged(*topLeft, *bottomRight);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QUrlModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "dataChanged(const QModelIndex &,const QModelIndex &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "dataChanged(const QModelIndex &,const QModelIndex &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(topLeft)),
+      const_cast<void *>(static_cast<const void *>(bottomRight)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QUrlModel::layoutChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QUrlModel13layoutChangedEv(QUrlModel *self) {
-  self->layoutChanged();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QUrlModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "layoutChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "layoutChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QUrlModel::setUrl(const QModelIndex &index, const QUrl &url, const
@@ -1329,6 +1519,23 @@ extern "C" Q_DECL_EXPORT
 bool ritual_take_QUrlModel(QUrlModel *self, const char *key, void *call) {
   return static_cast<CuteQUrlModel *>(self)->take(key, call);
 }
+
+#if QT_CONFIG(draganddrop)
+#if defined(Q_OS_LINUX)
+//  bool QUrlModel::dropMimeData(const QMimeData *data, Qt::DropAction
+//      action, int row, int column, const QModelIndex &parent)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN9QUrlModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex(
+    QUrlModel *self,
+    const QMimeData *data,
+    Qt::DropAction action,
+    int row,
+    int column,
+    const QModelIndex *parent) {
+  return self->QUrlModel::dropMimeData(data, action, row, column, *parent);
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(draganddrop)
 
 //  Qt::ItemFlags QUrlModel::flags(const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT

@@ -30,6 +30,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtlocation/src/location/quickmapitems/qdeclarativegeomapquickitem.cpp, line 108, as _ZNK22QMapQuickItemMatrix4x47applyToEP10QMatrix4x4
+inline void QMapQuickItemMatrix4x4::applyTo(QMatrix4x4 *matrix) const
+{
+    *matrix *= m_matrix;
+}
+
 //  from ../qtlocation/src/location/quickmapitems/qdeclarativegeomapquickitem.cpp, line 100, as _ZN22QMapQuickItemMatrix4x49setMatrixERK10QMatrix4x4
 inline void QMapQuickItemMatrix4x4::setMatrix(const QMatrix4x4 &matrix)
 {
@@ -37,12 +43,6 @@ inline void QMapQuickItemMatrix4x4::setMatrix(const QMatrix4x4 &matrix)
         return;
     m_matrix = matrix;
     update();
-}
-
-//  from ../qtlocation/src/location/quickmapitems/qdeclarativegeomapquickitem.cpp, line 108, as _ZNK22QMapQuickItemMatrix4x47applyToEP10QMatrix4x4
-inline void QMapQuickItemMatrix4x4::applyTo(QMatrix4x4 *matrix) const
-{
-    *matrix *= m_matrix;
 }
 //  -----------------------------------------------------------------------
 

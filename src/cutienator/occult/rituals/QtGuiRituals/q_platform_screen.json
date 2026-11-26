@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN15QPlatformScreen6d_funcEv": ["address", "address"],
     "ritual_ZNK15QPlatformScreen6d_funcEv": ["address", "address"],
+    "ritual_ZN15QPlatformScreenC1Ev": ["address"],
     "ritual_ZN15QPlatformScreenD1Ev": ["nothing", "address"],
     "ritual_ZNK15QPlatformScreen13isPlaceholderEv": ["bool", "address"],
     "ritual_ZNK15QPlatformScreen10grabWindowEyiiii": [
@@ -20,6 +21,8 @@
     "ritual_ZNK15QPlatformScreen6formatEv": ["int", "address"],
     "ritual_ZNK15QPlatformScreen10colorSpaceEv": ["address", "address"],
     "ritual_ZNK15QPlatformScreen12physicalSizeEv": ["address", "address"],
+    "ritual_ZNK15QPlatformScreen10logicalDpiEv": ["address", "address"],
+    "ritual_ZNK15QPlatformScreen14logicalBaseDpiEv": ["address", "address"],
     "ritual_ZNK15QPlatformScreen16devicePixelRatioEv": ["double", "address"],
     "ritual_ZNK15QPlatformScreen11refreshRateEv": ["double", "address"],
     "ritual_ZNK15QPlatformScreen17nativeOrientationEv": ["int", "address"],
@@ -48,6 +51,7 @@
     "ritual_ZN15QPlatformScreen13setPowerStateENS_10PowerStateE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK15QPlatformScreen5modesEv": ["address", "address"],
     "ritual_ZNK15QPlatformScreen11currentModeEv": ["int", "address"],
     "ritual_ZNK15QPlatformScreen13preferredModeEv": ["int", "address"],
     "ritual_ZN15QPlatformScreen12angleBetweenEN2Qt17ScreenOrientationES1_": [
@@ -58,6 +62,9 @@
     ],
     "ritual_ZN15QPlatformScreen10mapBetweenEN2Qt17ScreenOrientationES1_RK5QRect": [
       "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QPlatformScreen11overrideDpiERKSt4pairIddE": [
+      "address", "address"
     ],
     "ritual_ZN15QPlatformScreen22resizeMaximizedWindowsEv": [
       "nothing", "address"
@@ -105,6 +112,10 @@
     "ritual_list_at_QPlatformScreen_ptr": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QPlatformScreen_ptr": ["nothing", "address"]
+    "ritual_list_drop_QPlatformScreen_ptr": ["nothing", "address"],
+    "ritual_drop_QPlatformScreen__QDpi": ["nothing", "address"],
+    "ritual_drop_QPlatformScreen__QList_QPlatformScreen_Mode": [
+      "nothing", "address"
+    ]
   }
 }

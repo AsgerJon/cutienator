@@ -8,12 +8,32 @@
     "ritual_ZNK21QQuickWeekNumberModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickWeekNumberModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickWeekNumberModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK21QQuickWeekNumberModel9roleNamesEv": ["address", "address"],
     "ritual_ZNK21QQuickWeekNumberModel4dataERK11QModelIndexi": [
       "address", "address", "address", "int"
     ],
     "ritual_ZNK21QQuickWeekNumberModel8rowCountERK11QModelIndex": [
       "int", "address", "address"
+    ],
+    "ritual_ZN21QQuickWeekNumberModel12monthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWeekNumberModel11yearChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWeekNumberModel13localeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWeekNumberModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickWeekNumberModel6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK21QQuickWeekNumberModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
     ],
     "ritual_own_ZNK21QQuickWeekNumberModel8rowCountERK11QModelIndex": [
       "int", "address", "address"

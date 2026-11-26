@@ -19,6 +19,12 @@
     "ritual_ZN12QShaderBaker15setSourceStringERK10QByteArrayN7QShader5StageERK7QString": [
       "nothing", "address", "address", "int", "text"
     ],
+    "ritual_ZN12QShaderBaker19setGeneratedShadersERK5QListISt4pairIN7QShader6SourceE14QShaderVersionEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QShaderBaker26setGeneratedShaderVariantsERK5QListIN7QShader7VariantEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QShaderBaker11setPreambleERK10QByteArray": [
       "nothing", "address", "address"
     ],

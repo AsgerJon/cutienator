@@ -8,6 +8,12 @@
     "ritual_ZNK26QDeclarativePositionSource10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QDeclarativePositionSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QDeclarativePositionSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QDeclarativePositionSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -46,6 +52,9 @@
     "ritual_ZNK26QDeclarativePositionSource14positionSourceEv": [
       "address", "address"
     ],
+    "ritual_ZN26QDeclarativePositionSource10parametersEv": [
+      "address", "address"
+    ],
     "ritual_ZNK26QDeclarativePositionSource12parameterMapEv": [
       "address", "address"
     ],
@@ -61,12 +70,57 @@
     "ritual_ZNK26QDeclarativePositionSource15backendPropertyERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZNK26QDeclarativePositionSource35bindableSupportedPositioningMethodsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource19bindableSourceErrorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource15bindableIsValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource12bindableNameEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource16bindablePositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource14bindableActiveEv": [
+      "address", "address"
+    ],
     "ritual_ZN26QDeclarativePositionSource6updateEi": [
       "nothing", "address", "int"
     ],
     "ritual_ZN26QDeclarativePositionSource5startEv": ["nothing", "address"],
     "ritual_ZN26QDeclarativePositionSource4stopEv": ["nothing", "address"],
+    "ritual_ZN26QDeclarativePositionSource15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource13activeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource21updateIntervalChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource34supportedPositioningMethodsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource34preferredPositioningMethodsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource18sourceErrorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource11nameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource15validityChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN26QDeclarativePositionSource22positionUpdateReceivedERK16QGeoPositionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource19sourceErrorReceivedEN22QGeoPositionInfoSource5ErrorE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN26QDeclarativePositionSource22onParameterInitializedEv": [
@@ -87,6 +141,18 @@
     "ritual_ZN26QDeclarativePositionSource9tryAttachERK7QStringb": [
       "nothing", "address", "text", "bool"
     ],
+    "ritual_ZN26QDeclarativePositionSource16parameter_appendEP16QQmlListPropertyI27QDeclarativePluginParameterEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource15parameter_countEP16QQmlListPropertyI27QDeclarativePluginParameterE": [
+      "long long", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource12parameter_atEP16QQmlListPropertyI27QDeclarativePluginParameterEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN26QDeclarativePositionSource15parameter_clearEP16QQmlListPropertyI27QDeclarativePluginParameterE": [
+      "nothing", "address"
+    ],
     "ritual_ZNK26QDeclarativePositionSource24isValidActualComputationEv": [
       "bool", "address"
     ],
@@ -95,6 +161,24 @@
     ],
     "ritual_ZN26QDeclarativePositionSource12executeStartEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource32_qt_property_m_sourceName_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN26QDeclarativePositionSource28_qt_property_m_active_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN26QDeclarativePositionSource30_qt_property_m_position_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN26QDeclarativePositionSource33_qt_property_m_sourceError_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN26QDeclarativePositionSource49_qt_property_m_supportedPositioningMethods_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN26QDeclarativePositionSource29_qt_property_m_isValid_offsetEv": [
+      "size_t"
     ],
     "ritual_cast_QDeclarativePositionSource_QQmlParserStatus": [
       "address", "address"
@@ -106,6 +190,24 @@
       "nothing", "address"
     ],
     "ritual_own_ZN26QDeclarativePositionSource17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePositionSource__QQmlListProperty_QDeclarativePluginParameter": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePositionSource__QBindable_QDeclarativePositionSource_PositioningMethods": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePositionSource__QBindable_QDeclarativePositionSource_SourceError": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePositionSource__QBindable_bool": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePositionSource__QBindable_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePositionSource__QBindable_QDeclarativePosition": [
       "nothing", "address"
     ]
   }

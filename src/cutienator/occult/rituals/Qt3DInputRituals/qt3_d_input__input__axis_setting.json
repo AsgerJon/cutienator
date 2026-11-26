@@ -5,11 +5,25 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input11AxisSettingC1Ev": ["address"],
+    "ritual_ZN9Qt3DInput5Input11AxisSetting7cleanupEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK9Qt3DInput5Input11AxisSetting14deadZoneRadiusEv": [
       "float", "address"
     ],
+    "ritual_ZNK9Qt3DInput5Input11AxisSetting4axesEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput5Input11AxisSetting15isSmoothEnabledEv": [
       "bool", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input11AxisSetting16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input11AxisSetting16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DInput_Input_AxisSetting__QList_int": [
+      "nothing", "address"
     ]
   }
 }

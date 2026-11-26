@@ -5,6 +5,12 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QColorTrcLut9fromGammaEfNS_9DirectionE": [
+      "address", "float", "int"
+    ],
+    "ritual_ZN12QColorTrcLut7fromTrcERK9QColorTrcNS_9DirectionE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN12QColorTrcLut12setFromGammaEfNS_9DirectionE": [
       "nothing", "address", "float", "int"
     ],
@@ -50,6 +56,16 @@
       "int", "address", "float"
     ],
     "ritual_ZNK12QColorTrcLut10fromLinearEf": ["float", "address", "float"],
-    "ritual_ZN12QColorTrcLutC1Ev": ["address"]
+    "ritual_ZN12QColorTrcLutC1Ev": ["address"],
+    "ritual_ZN12QColorTrcLut6createEv": ["address"],
+    "ritual_ZN12QColorTrcLut16convertWithTableEjPKt": [
+      "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN12QColorTrcLut16convertWithTableE7QRgba64PKt": [
+      "address", "address", "address"
+    ],
+    "ritual_drop_QColorTrcLut__std_shared_ptr_QColorTrcLut": [
+      "nothing", "address"
+    ]
   }
 }

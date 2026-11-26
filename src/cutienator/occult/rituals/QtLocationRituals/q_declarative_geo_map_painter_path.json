@@ -8,11 +8,20 @@
     "ritual_ZNK29QDeclarativeGeoMapPainterPath10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QDeclarativeGeoMapPainterPath11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QDeclarativeGeoMapPainterPath11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK29QDeclarativeGeoMapPainterPath4pathEv": [
       "address", "address"
     ],
     "ritual_ZN29QDeclarativeGeoMapPainterPath7setPathERK12QPainterPath": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeGeoMapPainterPath9addToPathER12QPainterPathRK14QQuickPathData": [
+      "nothing", "address", "address", "address"
     ]
   }
 }

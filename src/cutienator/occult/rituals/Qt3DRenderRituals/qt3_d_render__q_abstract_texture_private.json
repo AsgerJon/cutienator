@@ -5,11 +5,30 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender23QAbstractTexturePrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender23QAbstractTexturePrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender23QAbstractTexturePrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAbstractTexturePrivate11dataFunctorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QAbstractTexturePrivate14setDataFunctorERK14QSharedPointerINS_17QTextureGeneratorEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QAbstractTexturePrivate9setStatusENS_16QAbstractTexture6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QAbstractTexturePrivate9setHandleERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QAbstractTexturePrivate13setHandleTypeENS_16QAbstractTexture10HandleTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_drop_Qt3DRender_QAbstractTexturePrivate__Qt3DRender_QTextureGeneratorPtr": [
+      "nothing", "address"
     ]
   }
 }

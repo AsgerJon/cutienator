@@ -5,11 +5,18 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender26QRenderCapabilitiesPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender26QRenderCapabilitiesPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender26QRenderCapabilitiesPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender26QRenderCapabilitiesPrivate3getEPKNS_19QRenderCapabilitiesE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender26QRenderCapabilitiesPrivate8toStringEv": [
+      "text", "address"
     ]
   }
 }

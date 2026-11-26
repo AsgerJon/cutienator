@@ -7,6 +7,10 @@
   "rows": {
     "ritual_ZN3QV419QQmlTypeConstructor10__dataTestEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_ZNK3QV419QQmlTypeConstructor11d_uncheckedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV419QQmlTypeConstructor1dEv": ["address", "address"]
   }
 }

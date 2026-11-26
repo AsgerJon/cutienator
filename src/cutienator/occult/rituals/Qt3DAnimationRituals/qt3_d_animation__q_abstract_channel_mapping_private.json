@@ -5,6 +5,12 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation30QAbstractChannelMappingPrivateC1Ev": [
+      "address"
+    ],
+    "ritual_ZN13Qt3DAnimation30QAbstractChannelMappingPrivate3getEPKNS_23QAbstractChannelMappingE": [
+      "address", "address"
+    ],
     "ritual_ZN13Qt3DAnimation30QAbstractChannelMappingPrivate6q_funcEv": [
       "address", "address"
     ],

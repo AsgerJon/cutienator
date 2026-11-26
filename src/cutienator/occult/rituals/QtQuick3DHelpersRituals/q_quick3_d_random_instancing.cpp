@@ -289,6 +289,25 @@ const QMetaObject *ritual_ZNK24QQuick3DRandomInstancing10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DRandomInstancing::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuick3DRandomInstancing11qt_metacastEPKc(
+    QQuick3DRandomInstancing *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DRandomInstancing::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuick3DRandomInstancing11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DRandomInstancing *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DRandomInstancing::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuick3DRandomInstancing2trEPKcS1_i(
@@ -459,6 +478,69 @@ void ritual_ZN24QQuick3DRandomInstancing13setColorModelENS_10ColorModelE(
     QQuick3DRandomInstancing *self,
     QQuick3DRandomInstancing::ColorModel colorModel) {
   self->setColorModel(colorModel);
+}
+
+//  void QQuick3DRandomInstancing::instanceCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DRandomInstancing20instanceCountChangedEv(
+    QQuick3DRandomInstancing *self) {
+  self->instanceCountChanged();
+}
+
+//  void QQuick3DRandomInstancing::randomSeedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DRandomInstancing17randomSeedChangedEv(
+    QQuick3DRandomInstancing *self) {
+  self->randomSeedChanged();
+}
+
+//  void QQuick3DRandomInstancing::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DRandomInstancing15positionChangedEv(
+    QQuick3DRandomInstancing *self) {
+  self->positionChanged();
+}
+
+//  void QQuick3DRandomInstancing::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DRandomInstancing12scaleChangedEv(
+    QQuick3DRandomInstancing *self) {
+  self->scaleChanged();
+}
+
+//  void QQuick3DRandomInstancing::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DRandomInstancing15rotationChangedEv(
+    QQuick3DRandomInstancing *self) {
+  self->rotationChanged();
+}
+
+//  void QQuick3DRandomInstancing::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DRandomInstancing12colorChangedEv(
+    QQuick3DRandomInstancing *self) {
+  self->colorChanged();
+}
+
+//  void QQuick3DRandomInstancing::customDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DRandomInstancing17customDataChangedEv(
+    QQuick3DRandomInstancing *self) {
+  self->customDataChanged();
+}
+
+//  void QQuick3DRandomInstancing::colorModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DRandomInstancing17colorModelChangedEv(
+    QQuick3DRandomInstancing *self) {
+  self->colorModelChanged();
+}
+
+//  void QQuick3DRandomInstancing::gridSpacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DRandomInstancing18gridSpacingChangedEv(
+    QQuick3DRandomInstancing *self) {
+  self->gridSpacingChanged();
 }
 
 //  void QQuick3DRandomInstancing::handleChange()

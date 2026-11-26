@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QStyleKitStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QStyleKitStyle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QStyleKitStyle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QStyleKitStyle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -58,6 +64,9 @@
     "ritual_ZN14QStyleKitStyle6polishEP12QApplication": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QStyleKitStyle6polishER8QPalette": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QStyleKitStyle8unpolishEP7QWidget": [
       "nothing", "address", "address"
     ],
@@ -69,6 +78,18 @@
     ],
     "ritual_ZN14QStyleKitStyle5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN14QStyleKitStyle16stylePathChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QStyleKitStyle16themeNameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QStyleKitStyle26availableThemeNamesChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QStyleKitStyle23customThemeNamesChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN14QStyleKitStyle6d_funcEv": ["address", "address"],
     "ritual_ZNK14QStyleKitStyle6d_funcEv": ["address", "address"],

@@ -7,12 +7,46 @@
   "rows": {
     "ritual_ZN24QOpcUaConnectionSettingsC1Ev": ["address"],
     "ritual_ZN24QOpcUaConnectionSettingsC1ERKS_": ["address", "address"],
+    "ritual_ZN24QOpcUaConnectionSettingsaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaConnectionSettingsC1EOS_": ["address", "address"],
+    "ritual_ZN24QOpcUaConnectionSettingsaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN24QOpcUaConnectionSettingsD1Ev": ["nothing", "address"],
+    "ritual_ZN24QOpcUaConnectionSettings4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK24QOpcUaConnectionSettings16sessionLocaleIdsEv": [
       "address", "address"
     ],
     "ritual_ZN24QOpcUaConnectionSettings19setSessionLocaleIdsERK5QListI7QStringE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QOpcUaConnectionSettings21secureChannelLifeTimeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QOpcUaConnectionSettings24setSecureChannelLifeTimeENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK24QOpcUaConnectionSettings14sessionTimeoutEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QOpcUaConnectionSettings17setSessionTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK24QOpcUaConnectionSettings14requestTimeoutEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QOpcUaConnectionSettings17setRequestTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK24QOpcUaConnectionSettings14connectTimeoutEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QOpcUaConnectionSettings17setConnectTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
     ],
     "ritual_ZeqRK24QOpcUaConnectionSettingsS1_": [
       "bool", "address", "address"

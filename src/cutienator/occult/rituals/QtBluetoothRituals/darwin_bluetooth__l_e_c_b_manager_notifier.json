@@ -8,6 +8,72 @@
     "ritual_ZNK15DarwinBluetooth19LECBManagerNotifier10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier16deviceDiscoveredE20QBluetoothDeviceInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier17discoveryFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier9connectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier12disconnectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier10mtuChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier24serviceDiscoveryFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier31serviceDetailsDiscoveryFinishedE14QSharedPointerI24QLowEnergyServicePrivateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier18characteristicReadEtRK10QByteArray": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier21characteristicWrittenEtRK10QByteArray": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier21characteristicUpdatedEtRK10QByteArray": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier14descriptorReadEtRK10QByteArray": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier17descriptorWrittenEtRK10QByteArray": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier19notificationEnabledEtb": [
+      "nothing", "address", "unsigned short", "bool"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier20servicesWereModifiedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier11rssiUpdatedEs": [
+      "nothing", "address", "short"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier14LEnotSupportedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier14CBManagerErrorEN30QBluetoothDeviceDiscoveryAgent5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier14CBManagerErrorEN20QLowEnergyController5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier14CBManagerErrorERK14QBluetoothUuidN20QLowEnergyController5ErrorE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15DarwinBluetooth19LECBManagerNotifier14CBManagerErrorERK14QBluetoothUuidN17QLowEnergyService12ServiceErrorE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_take_DarwinBluetooth_LECBManagerNotifier": [
       "bool", "address", "chars", "address"
     ]

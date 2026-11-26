@@ -5,9 +5,17 @@
   ],
   "rows": {
     "ritual_ZNK14QStackedLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QStackedLayout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QStackedLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QStackedLayout2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QStackedLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QStackedLayout6d_funcEv": ["address", "address"],
     "ritual_ZN14QStackedLayoutC1Ev": ["address"],
     "ritual_ZN14QStackedLayoutC1EP7QWidget": ["address", "address"],
     "ritual_ZN14QStackedLayoutC1EP7QLayout": ["address", "address"],
@@ -39,6 +47,15 @@
     "ritual_ZNK14QStackedLayout17hasHeightForWidthEv": ["bool", "address"],
     "ritual_ZNK14QStackedLayout14heightForWidthEi": [
       "int", "address", "int"
+    ],
+    "ritual_ZN14QStackedLayout13widgetRemovedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QStackedLayout14currentChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QStackedLayout11widgetAddedEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN14QStackedLayout15setCurrentIndexEi": [
       "nothing", "address", "int"

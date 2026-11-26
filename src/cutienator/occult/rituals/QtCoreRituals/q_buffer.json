@@ -5,12 +5,17 @@
   ],
   "rows": {
     "ritual_ZNK7QBuffer10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QBuffer11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QBuffer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QBuffer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QBufferC1EP7QObject": ["address", "address"],
     "ritual_ZN7QBufferC1EP10QByteArrayP7QObject": [
       "address", "address", "address"
     ],
     "ritual_ZN7QBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN7QBuffer6bufferEv": ["address", "address"],
     "ritual_ZNK7QBuffer6bufferEv": ["address", "address"],
     "ritual_ZN7QBuffer9setBufferEP10QByteArray": [
       "nothing", "address", "address"
@@ -37,9 +42,14 @@
     "ritual_ZN7QBuffer16disconnectNotifyERK11QMetaMethod": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN7QBuffer8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN7QBuffer9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
+    "ritual_ZN7QBuffer6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QBuffer6d_funcEv": ["address", "address"],
     "ritual_take_QBuffer": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QBuffer4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int"
@@ -55,6 +65,9 @@
     ],
     "ritual_own_ZN7QBuffer16disconnectNotifyERK11QMetaMethod": [
       "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QBuffer8readDataEPcx": [
+      "long long", "address", "address", "long long"
     ]
   }
 }

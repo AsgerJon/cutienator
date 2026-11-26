@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qpiemodelmapper.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qpiemodelmapper.h>
 #include <QtCore/qstring.h>
@@ -182,6 +182,24 @@ const QMetaObject *ritual_ZNK15QPieModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPieModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QPieModelMapper11qt_metacastEPKc(
+    QPieModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPieModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QPieModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPieModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPieModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QPieModelMapper2trEPKcS1_i(
@@ -320,6 +338,51 @@ void ritual_ZN15QPieModelMapper8setModelEP18QAbstractItemModel(
   self->setModel(model);
 }
 
+//  void QPieModelMapper::seriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPieModelMapper13seriesChangedEv(QPieModelMapper *self) {
+  self->seriesChanged();
+}
+
+//  void QPieModelMapper::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPieModelMapper12modelChangedEv(QPieModelMapper *self) {
+  self->modelChanged();
+}
+
+//  void QPieModelMapper::valuesSectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPieModelMapper20valuesSectionChangedEv(
+    QPieModelMapper *self) {
+  self->valuesSectionChanged();
+}
+
+//  void QPieModelMapper::labelsSectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPieModelMapper20labelsSectionChangedEv(
+    QPieModelMapper *self) {
+  self->labelsSectionChanged();
+}
+
+//  void QPieModelMapper::firstChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPieModelMapper12firstChangedEv(QPieModelMapper *self) {
+  self->firstChanged();
+}
+
+//  void QPieModelMapper::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPieModelMapper12countChangedEv(QPieModelMapper *self) {
+  self->countChanged();
+}
+
+//  void QPieModelMapper::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPieModelMapper18orientationChangedEv(
+    QPieModelMapper *self) {
+  self->orientationChanged();
+}
+
 //  void QPieModelMapper::onSliceLabelChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QPieModelMapper19onSliceLabelChangedEv(
@@ -334,6 +397,15 @@ void ritual_ZN15QPieModelMapper19onSliceValueChangedEv(
   self->onSliceValueChanged();
 }
 
+//  QPieModelMapper::QPieModelMapper(QPieModelMapperPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QPieModelMapper *ritual_ZN15QPieModelMapperC1ER22QPieModelMapperPrivateP7QObject(
+    QPieModelMapperPrivate *dd,
+    QObject *parent) {
+  return new CuteQPieModelMapper(*dd, parent);
+}
+
 //  a Python function taken by a CuteQPieModelMapper, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -344,4 +416,4 @@ bool ritual_take_QPieModelMapper(
   return static_cast<CuteQPieModelMapper *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))

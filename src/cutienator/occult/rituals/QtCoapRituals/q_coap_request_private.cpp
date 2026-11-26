@@ -6,8 +6,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCoap/6.12.0/QtCoap/private/qcoaprequest_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qurl.h>
+#include <QtCoap/qcoaprequest.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtCoap/private/qcoaprequest_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qdatetime.h>
@@ -22,10 +25,64 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 18, as local:qcoaprequest.cpp:CoapScheme
+namespace {
+const auto CoapScheme = QLatin1String("coap");
+}  // namespace
+
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 19, as local:qcoaprequest.cpp:CoapSecureScheme
+namespace {
+const auto CoapSecureScheme = QLatin1String("coaps");
+}  // namespace
+
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 14, as _Z14lcCoapExchangev
+inline const QLoggingCategory &lcCoapExchange()
+{
+    static const QLoggingCategory category("qt.coap.exchange");
+    return category;
+}
+
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 254, as _ZN19QCoapRequestPrivate11adjustedUrlERK4QUrlb
+inline QUrl QCoapRequestPrivate::adjustedUrl(const QUrl &url, bool secure)
+{
+    if (url.isEmpty() || !url.isValid())
+        return QUrl();
+
+    QUrl finalizedUrl = url;
+    const auto scheme = secure ? CoapSecureScheme : CoapScheme;
+    if (url.host().isEmpty() && url.isRelative()) {
+        // In some cases host address is mistaken for part of the relative path,
+        // prepending the scheme fixes this.
+        finalizedUrl = QUrl{scheme + "://"_L1 + url.toString()};
+    } else if (url.scheme().isEmpty()) {
+        finalizedUrl.setScheme(scheme);
+    }
+
+    if (finalizedUrl.host().isEmpty()) {
+        qCWarning(lcCoapExchange) << "The requested URL" << url << "is not a valid CoAP URL.";
+        return QUrl();
+    }
+
+    if (url.port() == -1) {
+        const auto port = secure ? QtCoap::DefaultSecurePort : QtCoap::DefaultPort;
+        finalizedUrl.setPort(port);
+    }
+
+    return finalizedUrl;
+}
+
 //  from ../qtcoap/src/coap/qcoaprequest.cpp, line 287, as _ZN12QCoapRequest6d_funcEv
 inline QCoapRequestPrivate* QCoapRequest::d_func()
 {
     return static_cast<QCoapRequestPrivate*>(d_ptr.data());
+}
+
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 34, as _ZNK19QCoapRequestPrivate5cloneEv
+inline QCoapRequestPrivate *QCoapRequestPrivate::clone() const
+{
+    return new QCoapRequestPrivate(*this);
 }
 
 //  from ../qtcoap/src/coap/qcoaprequest.cpp, line 30, as _ZN19QCoapRequestPrivateD1Ev
@@ -33,10 +90,55 @@ inline QCoapRequestPrivate::~QCoapRequestPrivate()
 {
 }
 
-//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 34, as _ZNK19QCoapRequestPrivate5cloneEv
-inline QCoapRequestPrivate *QCoapRequestPrivate::clone() const
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 44, as _ZN19QCoapRequestPrivate6setUrlERK4QUrl
+inline void QCoapRequestPrivate::setUrl(const QUrl &url)
 {
-    return new QCoapRequestPrivate(*this);
+    // Print no warning when clearing URL
+    if (url.isEmpty()) {
+        uri = url;
+        return;
+    }
+
+    // Make first checks before editing the URL, to avoid editing it
+    // in a wrong way (e.g. when adding the scheme)
+    if (!url.isValid()) {
+        qCWarning(lcCoapExchange) << "Invalid CoAP url" << url.toString();
+        return;
+    }
+
+    // If the port is unknown, try to set it based on scheme
+    QUrl finalizedUrl = url;
+    if (!url.scheme().isEmpty()) {
+        if (url.scheme() == CoapScheme) {
+            if (url.port() == -1)
+                finalizedUrl.setPort(QtCoap::DefaultPort);
+        } else if (url.scheme() == CoapSecureScheme) {
+            if (url.port() == -1)
+                finalizedUrl.setPort(QtCoap::DefaultSecurePort);
+        } else {
+            qCWarning(lcCoapExchange) << "QCoapRequest: Request URL's scheme" << url.scheme()
+                                      << "isn't valid for CoAP";
+            return;
+        }
+    }
+
+    uri = finalizedUrl;
+}
+
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 217, as _ZN19QCoapRequestPrivate9adjustUrlEb
+inline void QCoapRequestPrivate::adjustUrl(bool secure)
+{
+    uri = adjustedUrl(uri, secure);
+}
+
+//  from ../qtcoap/src/coap/qcoaprequest.cpp, line 298, as _ZN19QCoapRequestPrivate13createRequestERK12QCoapRequestN6QtCoap6MethodEb
+inline QCoapRequest
+QCoapRequestPrivate::createRequest(const QCoapRequest &other, QtCoap::Method method, bool isSecure)
+{
+    QCoapRequest request(other);
+    request.d_func()->method = method;
+    request.d_func()->adjustUrl(isSecure);
+    return request;
 }
 //  -----------------------------------------------------------------------
 
@@ -80,6 +182,36 @@ extern "C" Q_DECL_EXPORT
 QCoapRequestPrivate *ritual_ZNK19QCoapRequestPrivate5cloneEv(
     const QCoapRequestPrivate *self) {
   return self->clone();
+}
+
+//  void QCoapRequestPrivate::setUrl(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QCoapRequestPrivate6setUrlERK4QUrl(
+    QCoapRequestPrivate *self,
+    const QUrl *url) {
+  self->setUrl(*url);
+}
+
+//  void QCoapRequestPrivate::adjustUrl(bool secure)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QCoapRequestPrivate9adjustUrlEb(
+    QCoapRequestPrivate *self,
+    bool secure) {
+  self->adjustUrl(secure);
+}
+
+//  QCoapRequest QCoapRequestPrivate::createRequest(const QCoapRequest
+//      &other, QtCoap::Method method, bool isSecure)
+extern "C" Q_DECL_EXPORT
+QCoapRequest *ritual_ZN19QCoapRequestPrivate13createRequestERK12QCoapRequestN6QtCoap6MethodEb(
+    const QCoapRequest *other,
+    QtCoap::Method method,
+    bool isSecure) {
+  return new QCoapRequest(
+      QCoapRequestPrivate::createRequest(
+          *other,
+          method,
+          isSecure));
 }
 
 //  a Python function taken by a CuteQCoapRequestPrivate, for the function

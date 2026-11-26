@@ -11,6 +11,8 @@
     "ritual_ZNK27QTransposeProxyModelPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN27QTransposeProxyModelPrivateC1Ev": ["address"],
+    "ritual_ZN27QTransposeProxyModelPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK27QTransposeProxyModelPrivate20uncheckedMapToSourceERK11QModelIndex": [
       "address", "address", "address"
     ],
@@ -22,6 +24,9 @@
     ],
     "ritual_ZN27QTransposeProxyModelPrivate24onLayoutAboutToBeChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate13onDataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN27QTransposeProxyModelPrivate19onHeaderDataChangedEN2Qt11OrientationEii": [
       "nothing", "address", "int", "int", "int"

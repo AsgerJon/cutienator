@@ -36,6 +36,14 @@ void ritual_ZN17QLottieShapeLayer16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieShapeLayer::render(QLottieRenderer &render) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QLottieShapeLayer6renderER15QLottieRenderer(
+    const QLottieShapeLayer *self,
+    QLottieRenderer *render) {
+  self->render(*render);
+}
+
 //  int QLottieShapeLayer::parse(const QJsonObject &definition)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN17QLottieShapeLayer5parseERK11QJsonObject(

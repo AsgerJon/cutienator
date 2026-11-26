@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN5QmlIR8DocumentC1ERK7QStringS3_b": [
+      "address", "text", "text", "bool"
+    ],
     "ritual_ZNK5QmlIR8Document11isSingletonEv": ["bool", "address"],
     "ritual_ZN5QmlIR8Document14registerStringERK7QString": [
       "int", "address", "text"

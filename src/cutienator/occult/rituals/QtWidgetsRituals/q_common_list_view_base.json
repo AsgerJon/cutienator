@@ -25,6 +25,14 @@
     "ritual_ZN19QCommonListViewBase11dataChangedERK11QModelIndexS2_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZNK19QCommonListViewBase23horizontalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_": [
+      "int", "address", "int", "address", "bool", "bool", "address",
+      "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase21verticalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_": [
+      "int", "address", "int", "address", "bool", "bool", "address",
+      "address"
+    ],
     "ritual_ZN19QCommonListViewBase16scrollContentsByEiib": [
       "nothing", "address", "int", "int", "bool"
     ],
@@ -82,6 +90,12 @@
       "address", "address"
     ],
     "ritual_ZNK19QCommonListViewBase19horizontalScrollBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase18verticalScrollModeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase20horizontalScrollModeEv": [
       "address", "address"
     ],
     "ritual_ZNK19QCommonListViewBase10modelIndexEi": [
@@ -152,6 +166,9 @@
     ],
     "ritual_own_ZN19QCommonListViewBase15filterStartDragE6QFlagsIN2Qt10DropActionEE": [
       "bool", "address", "int"
+    ],
+    "ritual_drop_QCommonListViewBase__QListView_ScrollMode": [
+      "nothing", "address"
     ]
   }
 }

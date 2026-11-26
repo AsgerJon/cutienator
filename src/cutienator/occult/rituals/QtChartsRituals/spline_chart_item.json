@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15SplineChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN15SplineChartItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15SplineChartItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15SplineChartItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,6 +38,9 @@
     ],
     "ritual_ZN15SplineChartItem14updateGeometryEv": ["nothing", "address"],
     "ritual_ZN15SplineChartItem22calculateControlPointsERK5QListI7QPointFE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15SplineChartItem18firstControlPointsERK5QListIdE": [
       "address", "address", "address"
     ],
     "ritual_ZN15SplineChartItem11updateChartERK5QListI7QPointFES4_i": [
@@ -86,6 +95,7 @@
     ],
     "ritual_own_ZN15SplineChartItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_drop_SplineChartItem__QList_qreal": ["nothing", "address"]
   }
 }

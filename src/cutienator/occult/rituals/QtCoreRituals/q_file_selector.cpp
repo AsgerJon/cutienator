@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK13QFileSelector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFileSelector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QFileSelector11qt_metacastEPKc(
+    QFileSelector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFileSelector::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QFileSelector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFileSelector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFileSelector::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QFileSelector2trEPKcS1_i(

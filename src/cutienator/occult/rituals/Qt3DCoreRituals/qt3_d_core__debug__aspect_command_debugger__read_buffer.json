@@ -8,6 +8,12 @@
     "ritual_ZNK8Qt3DCore5Debug21AspectCommandDebugger10ReadBuffer4sizeEv": [
       "long long", "address"
     ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger10ReadBuffer6insertERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger10ReadBuffer4trimEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger10ReadBufferD1Ev": [
       "nothing", "address"
     ]

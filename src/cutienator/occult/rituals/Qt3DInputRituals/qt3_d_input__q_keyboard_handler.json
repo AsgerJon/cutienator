@@ -8,8 +8,154 @@
     "ritual_ZNK9Qt3DInput16QKeyboardHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput16QKeyboardHandler2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandlerC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput16QKeyboardHandler12sourceDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput16QKeyboardHandler5focusEv": ["bool", "address"],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler15setSourceDeviceEPNS_15QKeyboardDeviceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler8setFocusEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler19sourceDeviceChangedEPNS_15QKeyboardDeviceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler12focusChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit0PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit1PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit2PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit3PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit4PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit5PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit6PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit7PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit8PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13digit9PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler11leftPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler12rightPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler9upPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler11downPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler10tabPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler14backtabPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler15asteriskPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler17numberSignPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13escapePressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13returnPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler12enterPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13deletePressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler12spacePressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler11backPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13cancelPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13selectPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler10yesPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler9noPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler15context1PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler15context2PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler15context3PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler15context4PressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler11callPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler13hangupPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler11flipPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler11menuPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler15volumeUpPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler17volumeDownPressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler7pressedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QKeyboardHandler8releasedEPNS_9QKeyEventE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN9Qt3DInput16QKeyboardHandler6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput16QKeyboardHandler6d_funcEv": [

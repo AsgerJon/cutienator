@@ -9,6 +9,9 @@
       "address", "address", "bool"
     ],
     "ritual_ZNK23QDomCDATASectionPrivate8nodeTypeEv": ["int", "address"],
+    "ritual_ZNK23QDomCDATASectionPrivate4saveER11QTextStreamii": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZN23QDomCDATASectionPrivateD1Ev": ["nothing", "address"],
     "ritual_take_QDomCDATASectionPrivate": [
       "bool", "address", "chars", "address"

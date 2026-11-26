@@ -17,6 +17,9 @@
     "ritual_ZNK39QQmlPropertyToUnbindablePropertyBinding6sourceEv": [
       "address", "address"
     ],
+    "ritual_ZN39QQmlPropertyToUnbindablePropertyBindingC1EP10QQmlEngineRK12QQmlPropertyS4_": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN39QQmlPropertyToUnbindablePropertyBinding15capturePropertyEPK11QMetaObjectRK13QMetaProperty": [
       "nothing", "address", "address", "address"
     ],

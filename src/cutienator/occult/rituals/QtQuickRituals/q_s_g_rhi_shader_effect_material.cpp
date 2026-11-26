@@ -29,6 +29,124 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 253, as local:qsgrhishadereffectnode.cpp:QSGRhiShaderEffectMaterialShader
+class QSGRhiShaderEffectMaterialShader : public QSGMaterialShader
+{
+public:
+    QSGRhiShaderEffectMaterialShader(const QSGRhiShaderEffectMaterial *material);
+
+    bool updateUniformData(RenderState &state, QSGMaterial *newMaterial, QSGMaterial *oldMaterial) override;
+    void updateSampledImage(RenderState &state, int binding, QSGTexture **texture, QSGMaterial *newMaterial, QSGMaterial *oldMaterial) override;
+    bool updateGraphicsPipelineState(RenderState &state, GraphicsPipelineState *ps, QSGMaterial *newMaterial, QSGMaterial *oldMaterial) override;
+};
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 263, as local:qsgrhishadereffectnode.cpp:QSGRhiShaderEffectMaterialShader::QSGRhiShaderEffectMaterialShader
+inline QSGRhiShaderEffectMaterialShader::QSGRhiShaderEffectMaterialShader(const QSGRhiShaderEffectMaterial *material)
+{
+    setFlag(UpdatesGraphicsPipelineState, true);
+    setShader(VertexStage, material->m_vertexShader);
+    setShader(FragmentStage, material->m_fragmentShader);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 277, as local:qsgrhishadereffectnode.cpp:fillUniformBlockMember
+template<typename T>
+static inline void fillUniformBlockMember(char *dst, const T *value, int valueCount, int fieldSizeBytes)
+{
+    const size_t valueBytes = sizeof(T) * valueCount;
+    const size_t fieldBytes = fieldSizeBytes;
+    if (valueBytes <= fieldBytes) {
+        memcpy(dst, value, valueBytes);
+        if (valueBytes < fieldBytes)
+            memset(dst + valueBytes, 0, fieldBytes - valueBytes);
+    } else {
+        memcpy(dst, value, fieldBytes);
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 453, as local:qsgrhishadereffectnode.cpp:QSGRhiShaderEffectMaterialShader::updateSampledImage
+inline void QSGRhiShaderEffectMaterialShader::updateSampledImage(RenderState &state, int binding, QSGTexture **texture,
+                                                          QSGMaterial *newMaterial, QSGMaterial *oldMaterial)
+{
+    Q_UNUSED(oldMaterial);
+    QSGRhiShaderEffectMaterial *mat = static_cast<QSGRhiShaderEffectMaterial *>(newMaterial);
+
+    if (binding >= QSGRhiShaderEffectMaterial::MAX_BINDINGS)
+        return;
+
+    QSGTextureProvider *tp = mat->m_textureProviders.at(binding);
+    if (tp) {
+        if (QSGTexture *t = tp->texture()) {
+            t->commitTextureOperations(state.rhi(), state.resourceUpdateBatch());
+
+            if (t->isAtlasTexture() && !mat->m_geometryUsesTextureSubRect && !mat->usesSubRectUniform(binding)) {
+                // Why the hassle with the batch: while removedFromAtlas() is
+                // able to operate with its own resource update batch (which is
+                // then committed immediately), that approach is wrong when the
+                // atlas enqueued (in the updateRhiTexture() above) not yet
+                // committed operations to state.resourceUpdateBatch()... The
+                // only safe way then is to use the same batch the atlas'
+                // updateRhiTexture() used.
+                QSGTexture *newTexture = t->removedFromAtlas(state.resourceUpdateBatch());
+                if (newTexture) {
+                    t = newTexture;
+                    t->commitTextureOperations(state.rhi(), state.resourceUpdateBatch());
+                }
+            }
+            *texture = t;
+            return;
+        }
+    }
+
+    if (!mat->m_dummyTexture) {
+        mat->m_dummyTexture = new QSGPlainTexture;
+        mat->m_dummyTexture->setFiltering(QSGTexture::Nearest);
+        mat->m_dummyTexture->setHorizontalWrapMode(QSGTexture::Repeat);
+        mat->m_dummyTexture->setVerticalWrapMode(QSGTexture::Repeat);
+        QImage img(128, 128, QImage::Format_ARGB32_Premultiplied);
+        img.fill(0);
+        mat->m_dummyTexture->setImage(img);
+        mat->m_dummyTexture->commitTextureOperations(state.rhi(), state.resourceUpdateBatch());
+    }
+    *texture = mat->m_dummyTexture;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 499, as local:qsgrhishadereffectnode.cpp:QSGRhiShaderEffectMaterialShader::updateGraphicsPipelineState
+inline bool QSGRhiShaderEffectMaterialShader::updateGraphicsPipelineState(RenderState &state, GraphicsPipelineState *ps,
+                                                                   QSGMaterial *newMaterial, QSGMaterial *oldMaterial)
+{
+    Q_UNUSED(state);
+    Q_UNUSED(oldMaterial);
+    QSGRhiShaderEffectMaterial *mat = static_cast<QSGRhiShaderEffectMaterial *>(newMaterial);
+
+    switch (mat->m_cullMode) {
+    case QSGShaderEffectNode::FrontFaceCulling:
+        ps->cullMode = GraphicsPipelineState::CullFront;
+        return true;
+    case QSGShaderEffectNode::BackFaceCulling:
+        ps->cullMode = GraphicsPipelineState::CullBack;
+        return true;
+    default:
+        return false;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 532, as local:qsgrhishadereffectnode.cpp:hasAtlasTexture
+static bool hasAtlasTexture(const QList<QSGTextureProvider *> &textureProviders)
+{
+    for (QSGTextureProvider *tp : textureProviders) {
+        if (tp && tp->texture() && tp->texture()->isAtlasTexture())
+            return true;
+    }
+    return false;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 593, as _ZNK26QSGRhiShaderEffectMaterial12createShaderEN20QSGRendererInterface10RenderModeE
+inline QSGMaterialShader *QSGRhiShaderEffectMaterial::createShader(QSGRendererInterface::RenderMode renderMode) const
+{
+    Q_UNUSED(renderMode);
+    return new QSGRhiShaderEffectMaterialShader(this);
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 588, as _ZNK26QSGRhiShaderEffectMaterial4typeEv
 inline QSGMaterialType *QSGRhiShaderEffectMaterial::type() const
 {
@@ -149,11 +267,28 @@ public:
   }
 };
 
+//  int QSGRhiShaderEffectMaterial::compare(const QSGMaterial *other) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK26QSGRhiShaderEffectMaterial7compareEPK11QSGMaterial(
+    const QSGRhiShaderEffectMaterial *self,
+    const QSGMaterial *other) {
+  return self->compare(other);
+}
+
 //  QSGMaterialType *QSGRhiShaderEffectMaterial::type() const
 extern "C" Q_DECL_EXPORT
 QSGMaterialType *ritual_ZNK26QSGRhiShaderEffectMaterial4typeEv(
     const QSGRhiShaderEffectMaterial *self) {
   return self->type();
+}
+
+//  QSGMaterialShader *QSGRhiShaderEffectMaterial::createShader(QSGRendererIn
+//      terface::RenderMode renderMode) const
+extern "C" Q_DECL_EXPORT
+QSGMaterialShader *ritual_ZNK26QSGRhiShaderEffectMaterial12createShaderEN20QSGRendererInterface10RenderModeE(
+    const QSGRhiShaderEffectMaterial *self,
+    QSGRendererInterface::RenderMode renderMode) {
+  return self->createShader(renderMode);
 }
 
 //  void QSGRhiShaderEffectMaterial::updateTextureProviders(bool

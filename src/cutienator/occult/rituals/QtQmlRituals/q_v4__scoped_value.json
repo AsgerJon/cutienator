@@ -6,6 +6,33 @@
   ],
   "rows": {
     "ritual_ZN3QV411ScopedValueC1ERKS0_": ["address", "address"],
+    "ritual_ZN3QV411ScopedValueC1EOS0_": ["address", "address"],
+    "ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeE": ["address", "address"],
+    "ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeEPNS_4Heap4BaseE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeEPNS_7ManagedE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ScopedValueC1ERKNS_5ScopeERKy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV411ScopedValueaSERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ScopedValueaSEPNS_4Heap4BaseE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ScopedValueaSEPNS_7ManagedE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ScopedValueaSERKy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV411ScopedValueaSERKS0_": ["address", "address", "address"],
     "ritual_ZN3QV411ScopedValueptEv": ["address", "address"],
     "ritual_ZNK3QV411ScopedValueptEv": ["address", "address"],
     "ritual_ZN3QV411ScopedValuecvPNS_5ValueEEv": ["address", "address"],

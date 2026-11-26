@@ -13,14 +13,29 @@
     "ritual_ZNK10Qt3DRender6Render5Quick15QQuick3DScene2D10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2D11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2D11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2D2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2DC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render5Quick15QQuick3DScene2D13parentScene2DEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render5Quick15QQuick3DScene2D8entitiesEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DRender_Render_Quick_QQuick3DScene2D": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Quick_QQuick3DScene2D__QQmlListProperty_Qt3DCore_QEntity": [
+      "nothing", "address"
     ]
   }
 }

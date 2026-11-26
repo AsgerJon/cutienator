@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK19StackedBarChartItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *StackedBarChartItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19StackedBarChartItem11qt_metacastEPKc(
+    StackedBarChartItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int StackedBarChartItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19StackedBarChartItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    StackedBarChartItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString StackedBarChartItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19StackedBarChartItem2trEPKcS1_i(

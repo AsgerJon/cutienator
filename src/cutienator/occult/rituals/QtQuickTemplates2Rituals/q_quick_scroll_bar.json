@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickScrollBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickScrollBar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickScrollBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickScrollBar2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -60,6 +66,28 @@
     "ritual_ZN15QQuickScrollBar7setSizeEd": ["nothing", "address", "double"],
     "ritual_ZN15QQuickScrollBar11setPositionEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickScrollBar11sizeChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar15positionChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar15stepSizeChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar14pressedChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickScrollBar15snapModeChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar18interactiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickScrollBar13policyChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar18minimumSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickScrollBar17visualSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickScrollBar21visualPositionChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN15QQuickScrollBar15mousePressEventEP11QMouseEvent": [
       "nothing", "address", "address"

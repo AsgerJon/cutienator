@@ -7,11 +7,21 @@
   "rows": {
     "ritual_ZN21QGrpcOperationPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QGrpcOperationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QGrpcOperationPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN21QGrpcOperationPrivate3getEPK14QGrpcOperation": [
       "address", "address"
     ],
     "ritual_ZN21QGrpcOperationPrivate3getEP14QGrpcOperation": [
       "address", "address"
+    ],
+    "ritual_ZN21QGrpcOperationPrivate18asyncFinishInvalidEO11QGrpcStatus": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGrpcOperationPrivate23serializeInitialMessageERK16QProtobufMessage": [
+      "address", "address", "address"
+    ],
+    "ritual_drop_QGrpcOperationPrivate__std_optional_QByteArray": [
+      "nothing", "address"
     ]
   }
 }

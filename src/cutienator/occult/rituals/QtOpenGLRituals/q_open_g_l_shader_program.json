@@ -1,11 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtOpenGL/qopenglshaderprogram.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "QtOpenGL/qopenglshaderprogram.h, Qt 6.12.0. Edited by hand: see",
+    "the ritual file."
   ],
   "rows": {
     "ritual_ZNK20QOpenGLShaderProgram10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QOpenGLShaderProgram11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QOpenGLShaderProgram2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -51,6 +57,9 @@
     "ritual_ZN20QOpenGLShaderProgram4bindEv": ["bool", "address"],
     "ritual_ZN20QOpenGLShaderProgram7releaseEv": ["nothing", "address"],
     "ritual_ZN20QOpenGLShaderProgram6createEv": ["bool", "address"],
+    "ritual_ZNK20QOpenGLShaderProgram9programIdEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZNK20QOpenGLShaderProgram25maxGeometryOutputVerticesEv": [
       "int", "address"
     ],
@@ -59,6 +68,18 @@
     ],
     "ritual_ZNK20QOpenGLShaderProgram16patchVertexCountEv": [
       "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram33setDefaultOuterTessellationLevelsERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QOpenGLShaderProgram30defaultOuterTessellationLevelsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram33setDefaultInnerTessellationLevelsERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QOpenGLShaderProgram30defaultInnerTessellationLevelsEv": [
+      "address", "address"
     ],
     "ritual_ZN20QOpenGLShaderProgram21bindAttributeLocationEPKci": [
       "nothing", "address", "chars", "int"
@@ -102,6 +123,9 @@
     "ritual_ZN20QOpenGLShaderProgram17setAttributeValueEiRK6QColor": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN20QOpenGLShaderProgram17setAttributeValueEiPKfii": [
+      "nothing", "address", "int", "address", "int", "int"
+    ],
     "ritual_ZN20QOpenGLShaderProgram17setAttributeValueEPKcf": [
       "nothing", "address", "chars", "float"
     ],
@@ -126,6 +150,12 @@
     "ritual_ZN20QOpenGLShaderProgram17setAttributeValueEPKcRK6QColor": [
       "nothing", "address", "chars", "address"
     ],
+    "ritual_ZN20QOpenGLShaderProgram17setAttributeValueEPKcPKfii": [
+      "nothing", "address", "chars", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEiPKfii": [
+      "nothing", "address", "int", "address", "int", "int"
+    ],
     "ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEiPK9QVector2Di": [
       "nothing", "address", "int", "address", "int"
     ],
@@ -135,6 +165,12 @@
     "ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEiPK9QVector4Di": [
       "nothing", "address", "int", "address", "int"
     ],
+    "ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEijPKvii": [
+      "nothing", "address", "int", "unsigned int", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEPKcPKfii": [
+      "nothing", "address", "chars", "address", "int", "int"
+    ],
     "ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEPKcPK9QVector2Di": [
       "nothing", "address", "chars", "address", "int"
     ],
@@ -143,6 +179,9 @@
     ],
     "ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEPKcPK9QVector4Di": [
       "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEPKcjPKvii": [
+      "nothing", "address", "chars", "unsigned int", "address", "int", "int"
     ],
     "ritual_ZN20QOpenGLShaderProgram18setAttributeBufferEijiii": [
       "nothing", "address", "int", "unsigned int", "int", "int", "int"
@@ -213,6 +252,30 @@
     "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK6QSizeF": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi2ELi2EfE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi2ELi3EfE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi2ELi4EfE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi3ELi2EfE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi3ELi3EfE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi3ELi4EfE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi4ELi2EfE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi4ELi3EfE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK10QMatrix4x4": [
       "nothing", "address", "int", "address"
     ],
@@ -261,11 +324,44 @@
     "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK6QSizeF": [
       "nothing", "address", "chars", "address"
     ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi2ELi2EfE": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi2ELi3EfE": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi2ELi4EfE": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi3ELi2EfE": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi3ELi3EfE": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi3ELi4EfE": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi4ELi2EfE": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi4ELi3EfE": [
+      "nothing", "address", "chars", "address"
+    ],
     "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK10QMatrix4x4": [
       "nothing", "address", "chars", "address"
     ],
     "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK10QTransform": [
       "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPKfii": [
+      "nothing", "address", "int", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPKii": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPKji": [
+      "nothing", "address", "int", "address", "int"
     ],
     "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK9QVector2Di": [
       "nothing", "address", "int", "address", "int"
@@ -276,8 +372,41 @@
     "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK9QVector4Di": [
       "nothing", "address", "int", "address", "int"
     ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi2ELi2EfEi": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi2ELi3EfEi": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi2ELi4EfEi": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi3ELi2EfEi": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi3ELi3EfEi": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi3ELi4EfEi": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi4ELi2EfEi": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi4ELi3EfEi": [
+      "nothing", "address", "int", "address", "int"
+    ],
     "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK10QMatrix4x4i": [
       "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPKfii": [
+      "nothing", "address", "chars", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPKii": [
+      "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPKji": [
+      "nothing", "address", "chars", "address", "int"
     ],
     "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK9QVector2Di": [
       "nothing", "address", "chars", "address", "int"
@@ -286,6 +415,30 @@
       "nothing", "address", "chars", "address", "int"
     ],
     "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK9QVector4Di": [
+      "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi2ELi2EfEi": [
+      "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi2ELi3EfEi": [
+      "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi2ELi4EfEi": [
+      "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi3ELi2EfEi": [
+      "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi3ELi3EfEi": [
+      "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi3ELi4EfEi": [
+      "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi4ELi2EfEi": [
+      "nothing", "address", "chars", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi4ELi3EfEi": [
       "nothing", "address", "chars", "address", "int"
     ],
     "ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK10QMatrix4x4i": [
@@ -297,10 +450,31 @@
     "ritual_ZN20QOpenGLShaderProgram15shaderDestroyedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QOpenGLShaderProgram6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QOpenGLShaderProgram6d_funcEv": ["address", "address"],
     "ritual_ZN20QOpenGLShaderProgram4initEv": ["bool", "address"],
     "ritual_take_QOpenGLShaderProgram": [
       "bool", "address", "chars", "address"
     ],
-    "ritual_own_ZN20QOpenGLShaderProgram4linkEv": ["bool", "address"]
+    "ritual_own_ZN20QOpenGLShaderProgram4linkEv": ["bool", "address"],
+    "ritual_drop_QOpenGLShaderProgram__QList_float": ["nothing", "address"],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiPA2_Kf": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcPA2_Kf": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiPA3_Kf": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcPA3_Kf": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEiPA4_Kf": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcPA4_Kf": [
+      "nothing", "address", "chars", "address"
+    ]
   }
 }

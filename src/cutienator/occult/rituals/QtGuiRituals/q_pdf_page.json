@@ -5,5 +5,7 @@
     "are lost."
   ],
   "rows": {
+    "ritual_ZN8QPdfPageC1Ev": ["address"],
+    "ritual_ZN8QPdfPageD1Ev": ["nothing", "address"]
   }
 }

@@ -165,6 +165,10 @@ class MacOS(System):
         os.path.join(inner, 'private'),
     )
 
+  def buildsObjectiveC(self) -> bool:
+    """Yes: 'clang++' on macOS compiles Objective-C++."""
+    return True
+
   def getLinkerFlags(self, qtFolder: str) -> Paths:
     """
     Gives what the linker is told on macOS.
@@ -179,11 +183,19 @@ class MacOS(System):
       'QtCore.framework/Versions/A/QtCore', so it is that folder and not
       the framework that the built file has to carry.
 
-    Nothing more: Apple's linker refuses a function no Qt shared object
+    Then Apple's frameworks a ritual file of Objective-C++ calls, and
+    the runtime of Objective-C ('-lobjc'). Nothing more: Apple's linker
+    refuses a function no Qt shared object
     offers by itself, what '-Wl,--no-undefined' asks on Linux, and
     warns that its own word for it, '-undefined error', is deprecated.
     """
-    return ('-Wl,-rpath,%s' % qtFolder,)
+    #  A ritual file of Objective-C++ calls Apple's own frameworks and
+    #  the runtime of Objective-C, which no Qt shared object offers for
+    #  it.
+    apple = (
+        '-framework', 'Foundation', '-framework', 'AppKit',
+        '-framework', 'Metal', '-framework', 'QuartzCore', '-lobjc')
+    return ('-Wl,-rpath,%s' % qtFolder, *apple)
 
   def prepareOpening(self) -> None:
     """

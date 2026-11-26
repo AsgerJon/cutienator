@@ -185,6 +185,26 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick20Quick3DMemoryBarrier10me
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::Quick::Quick3DMemoryBarrier::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick20Quick3DMemoryBarrier11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::Quick3DMemoryBarrier *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Render::Quick::Quick3DMemoryBarrier::qt_metacall(QMetaObj
+//      ect::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick20Quick3DMemoryBarrier11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::Quick3DMemoryBarrier *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::Quick3DMemoryBarrier::tr(const char
 //      *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -199,6 +219,21 @@ QString *ritual_ZN10Qt3DRender6Render5Quick20Quick3DMemoryBarrier2trEPKcS4_i(
           n));
 }
 
+//  Qt3DRender::Render::Quick::Quick3DMemoryBarrier::Quick3DMemoryBarrier(QOb
+//      ject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DMemoryBarrier *ritual_ZN10Qt3DRender6Render5Quick20Quick3DMemoryBarrierC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DMemoryBarrier(parent);
+}
+
+//  Qt3DRender::Render::Quick::Quick3DMemoryBarrier::~Quick3DMemoryBarrier()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render5Quick20Quick3DMemoryBarrierD1Ev(
+    Qt3DRender::Render::Quick::Quick3DMemoryBarrier *self) {
+  delete self;
+}
+
 //  QMemoryBarrier
 //      *Qt3DRender::Render::Quick::Quick3DMemoryBarrier::parentBarrier()
 //      const
@@ -206,6 +241,22 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QMemoryBarrier *ritual_ZNK10Qt3DRender6Render5Quick20Quick3DMemoryBarrier13parentBarrierEv(
     const Qt3DRender::Render::Quick::Quick3DMemoryBarrier *self) {
   return self->parentBarrier();
+}
+
+//  void Qt3DRender::Render::Quick::Quick3DMemoryBarrier::setWaitFor(int
+//      waitOperations)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render5Quick20Quick3DMemoryBarrier10setWaitForEi(
+    Qt3DRender::Render::Quick::Quick3DMemoryBarrier *self,
+    int waitOperations) {
+  self->setWaitFor(waitOperations);
+}
+
+//  int Qt3DRender::Render::Quick::Quick3DMemoryBarrier::waitFor() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender6Render5Quick20Quick3DMemoryBarrier7waitForEv(
+    const Qt3DRender::Render::Quick::Quick3DMemoryBarrier *self) {
+  return self->waitFor();
 }
 
 //  a Python function taken by a

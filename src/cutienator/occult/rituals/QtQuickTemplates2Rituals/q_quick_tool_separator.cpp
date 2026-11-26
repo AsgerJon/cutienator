@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK19QQuickToolSeparator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickToolSeparator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickToolSeparator11qt_metacastEPKc(
+    QQuickToolSeparator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickToolSeparator::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickToolSeparator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickToolSeparator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickToolSeparator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickToolSeparator2trEPKcS1_i(
@@ -69,6 +88,13 @@ bool ritual_ZNK19QQuickToolSeparator10isVerticalEv(
   return self->isVertical();
 }
 
+//  void QQuickToolSeparator::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickToolSeparator18orientationChangedEv(
+    QQuickToolSeparator *self) {
+  self->orientationChanged();
+}
+
 //  QFont QQuickToolSeparator::defaultFont() const
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK19QQuickToolSeparator11defaultFontEv(
@@ -84,6 +110,20 @@ QAccessible::Role ritual_ZNK19QQuickToolSeparator14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickToolSeparatorPrivate *QQuickToolSeparator::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickToolSeparatorPrivate *ritual_ZN19QQuickToolSeparator6d_funcEv(
+    QQuickToolSeparator *self) {
+  return self->d_func();
+}
+
+//  const QQuickToolSeparatorPrivate *QQuickToolSeparator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickToolSeparatorPrivate *ritual_ZNK19QQuickToolSeparator6d_funcEv(
+    const QQuickToolSeparator *self) {
+  return self->d_func();
+}
 
 //  QFont QQuickToolSeparator::defaultFont() const
 extern "C" Q_DECL_EXPORT

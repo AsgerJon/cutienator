@@ -5,6 +5,13 @@
     "s.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN16QSSGModelHelpers17setModelMaterialsERK13QSSGFrameData17QSSGRenderablesId10QSSGNodeId5QListI14QSSGResourceIdE": [
+      "nothing", "address", "unsigned long long", "unsigned long long",
+      "address"
+    ],
+    "ritual_ZN16QSSGModelHelpers17setModelMaterialsERK13QSSGFrameData17QSSGRenderablesId5QListI14QSSGResourceIdE": [
+      "nothing", "address", "unsigned long long", "address"
+    ],
     "ritual_ZN16QSSGModelHelpers18getGlobalTransformERK13QSSGFrameData10QSSGNodeId17QSSGPrepContextId": [
       "address", "address", "unsigned long long", "unsigned long long"
     ],

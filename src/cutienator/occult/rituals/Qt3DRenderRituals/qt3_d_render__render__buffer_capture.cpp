@@ -40,6 +40,12 @@ public:
   }
 };
 
+//  Qt3DRender::Render::BufferCapture::BufferCapture()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::BufferCapture *ritual_ZN10Qt3DRender6Render13BufferCaptureC1Ev() {
+  return new CuteQt3DRender_Render_BufferCapture();
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_BufferCapture, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

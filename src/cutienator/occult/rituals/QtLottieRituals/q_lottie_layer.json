@@ -25,6 +25,9 @@
     "ritual_ZN12QLottieLayer16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK12QLottieLayer6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QLottieLayer9findChildERK7QString": [
       "address", "address", "text"
     ],
@@ -36,6 +39,9 @@
     "ritual_ZNK12QLottieLayer9transformEv": ["address", "address"],
     "ritual_ZNK12QLottieLayer14hasLinkedLayerEv": ["bool", "address"],
     "ritual_ZNK12QLottieLayer13linkedLayerIdEv": ["int", "address"],
+    "ritual_ZNK12QLottieLayer19applyLayerTransformER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK12QLottieLayer9layerSizeEv": ["address", "address"],
     "ritual_ZNK12QLottieLayer10startFrameEv": ["int", "address"],
     "ritual_ZNK12QLottieLayer8endFrameEv": ["int", "address"],
@@ -43,6 +49,9 @@
     "ritual_ZNK12QLottieLayer11timeStretchEv": ["double", "address"],
     "ritual_ZN12QLottieLayer11checkedCastEPK11QLottieBase": [
       "address", "address"
+    ],
+    "ritual_ZNK12QLottieLayer13renderEffectsER15QLottieRenderer": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN12QLottieLayer18resolveLinkedLayerEv": ["address", "address"],
     "ritual_ZNK12QLottieLayer11linkedLayerEv": ["address", "address"],

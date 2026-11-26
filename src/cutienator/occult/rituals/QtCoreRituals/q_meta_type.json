@@ -1,14 +1,25 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qmetatype.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qmetatype.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
+    "ritual_ZN9QMetaType25registerNormalizedTypedefERK10QByteArrayS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QMetaType4typeEPKc": ["int", "chars"],
+    "ritual_ZN9QMetaType4typeERK10QByteArray": ["int", "address"],
     "ritual_ZN9QMetaType8typeNameEi": ["chars", "int"],
     "ritual_ZN9QMetaType6sizeOfEi": ["int", "int"],
     "ritual_ZN9QMetaType9typeFlagsEi": ["int", "int"],
     "ritual_ZN9QMetaType17metaObjectForTypeEi": ["address", "int"],
+    "ritual_ZN9QMetaType6createEiPKv": ["address", "int", "address"],
+    "ritual_ZN9QMetaType7destroyEiPv": ["nothing", "int", "address"],
+    "ritual_ZN9QMetaType9constructEiPvPKv": [
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZN9QMetaType8destructEiPv": ["nothing", "int", "address"],
     "ritual_ZN9QMetaType12isRegisteredEi": ["bool", "int"],
     "ritual_ZN9QMetaTypeC1Ei": ["address", "int"],
     "ritual_ZN9QMetaTypeC1EPKN9QtPrivate18QMetaTypeInterfaceE": [
@@ -29,36 +40,87 @@
     "ritual_ZNK9QMetaType5flagsEv": ["int", "address"],
     "ritual_ZNK9QMetaType10metaObjectEv": ["address", "address"],
     "ritual_ZNK9QMetaType4nameEv": ["chars", "address"],
+    "ritual_ZNK9QMetaType6createEPKv": ["address", "address", "address"],
+    "ritual_ZNK9QMetaType7destroyEPv": ["nothing", "address", "address"],
+    "ritual_ZNK9QMetaType9constructEPvPKv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QMetaType8destructEPv": ["nothing", "address", "address"],
+    "ritual_ZNK9QMetaType7compareEPKvS1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QMetaType6equalsEPKvS1_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK9QMetaType22isDefaultConstructibleEv": ["bool", "address"],
     "ritual_ZNK9QMetaType19isCopyConstructibleEv": ["bool", "address"],
     "ritual_ZNK9QMetaType19isMoveConstructibleEv": ["bool", "address"],
     "ritual_ZNK9QMetaType14isDestructibleEv": ["bool", "address"],
     "ritual_ZNK9QMetaType20isEqualityComparableEv": ["bool", "address"],
     "ritual_ZNK9QMetaType9isOrderedEv": ["bool", "address"],
+    "ritual_ZNK9QMetaType4saveER11QDataStreamPKv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK9QMetaType4loadER11QDataStreamPv": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK9QMetaType32hasRegisteredDataStreamOperatorsEv": [
       "bool", "address"
+    ],
+    "ritual_ZN9QMetaType4saveER11QDataStreamiPKv": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN9QMetaType4loadER11QDataStreamiPv": [
+      "bool", "address", "int", "address"
     ],
     "ritual_ZNK9QMetaType14underlyingTypeEv": ["address", "address"],
     "ritual_ZN9QMetaType8fromNameE14QByteArrayView": ["address", "address"],
     "ritual_ZeqRK9QMetaTypeS1_": ["bool", "address", "address"],
     "ritual_ZneRK9QMetaTypeS1_": ["bool", "address", "address"],
     "ritual_Zls6QDebug9QMetaType": ["address", "address", "address"],
+    "ritual_ZN9QMetaType11debugStreamER6QDebugPKv": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK9QMetaType32hasRegisteredDebugStreamOperatorEv": [
       "bool", "address"
+    ],
+    "ritual_ZN9QMetaType11debugStreamER6QDebugPKvi": [
+      "bool", "address", "address", "int"
     ],
     "ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorEi": [
       "bool", "int"
     ],
+    "ritual_ZN9QMetaType7convertES_PKvS_Pv": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN9QMetaType10canConvertES_S_": ["bool", "address", "address"],
+    "ritual_ZN9QMetaType4viewES_PvS_S0_": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN9QMetaType7canViewES_S_": ["bool", "address", "address"],
+    "ritual_ZN9QMetaType7convertEPKviPvi": [
+      "bool", "address", "int", "address", "int"
+    ],
+    "ritual_ZN9QMetaType7compareEPKvS1_iPi": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN9QMetaType6equalsEPKvS1_iPi": [
+      "bool", "address", "address", "int", "address"
+    ],
     "ritual_ZN9QMetaType30hasRegisteredConverterFunctionES_S_": [
       "bool", "address", "address"
     ],
     "ritual_ZN9QMetaType32hasRegisteredMutableViewFunctionES_S_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN9QMetaType25registerConverterFunctionERKSt8functionIFbPKvPvEES_S_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN9QMetaType27unregisterConverterFunctionES_S_": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN9QMetaType27registerMutableViewFunctionERKSt8functionIFbPvS1_EES_S_": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZN9QMetaType29unregisterMutableViewFunctionES_S_": [
       "nothing", "address", "address"
@@ -87,6 +149,31 @@
     "ritual_list_add_QMetaType": ["nothing", "address", "address"],
     "ritual_list_size_QMetaType": ["long long", "address"],
     "ritual_list_at_QMetaType": ["address", "address", "long long"],
-    "ritual_list_drop_QMetaType": ["nothing", "address"]
+    "ritual_list_drop_QMetaType": ["nothing", "address"],
+    "ritual_ZN9QMetaType8fromTypeIiEES_v": ["address"],
+    "ritual_ZN9QMetaType8fromTypeIdEES_v": ["address"],
+    "ritual_ZN9QMetaType8fromTypeIbEES_v": ["address"],
+    "ritual_ZN9QMetaType8fromTypeI7QStringEES_v": ["address"],
+    "ritual_ZN9QMetaType8fromTypeI8QVariantEES_v": ["address"],
+    "ritual_ZN9QMetaType30hasRegisteredConverterFunctionIi7QStringEEbv": [
+      "bool"
+    ],
+    "ritual_ZN9QMetaType30hasRegisteredConverterFunctionI7QStringiEEbv": [
+      "bool"
+    ],
+    "ritual_ZN9QMetaType30hasRegisteredConverterFunctionIidEEbv": ["bool"],
+    "ritual_ZN9QMetaType32hasRegisteredMutableViewFunctionIidEEbv": ["bool"],
+    "ritual_ZN9QMetaType32hasRegisteredMutableViewFunctionI7QString10QByteArrayEEbv": [
+      "bool"
+    ],
+    "ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorIiEEbv": ["bool"],
+    "ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorIdEEbv": ["bool"],
+    "ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorIbEEbv": ["bool"],
+    "ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorI7QStringEEbv": [
+      "bool"
+    ],
+    "ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorI8QVariantEEbv": [
+      "bool"
+    ]
   }
 }

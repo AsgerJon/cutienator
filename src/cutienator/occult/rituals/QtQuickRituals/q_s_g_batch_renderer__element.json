@@ -9,6 +9,12 @@
     "ritual_ZN16QSGBatchRenderer7Element7setNodeEP15QSGGeometryNode": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN16QSGBatchRenderer7Element17ensureBoundsValidEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer7Element13computeBoundsEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN16QSGBatchRenderer7ElementD1Ev": ["nothing", "address"]
   }
 }

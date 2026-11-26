@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickAnimatedSprite10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickAnimatedSprite11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickAnimatedSprite2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,55 @@
     "ritual_ZN20QQuickAnimatedSprite17setFinishBehaviorENS_14FinishBehaviorE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN20QQuickAnimatedSprite13pausedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite14runningChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite18interpolateChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite14reverseChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite16frameSyncChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite17frameCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite18frameHeightChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite17frameWidthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite13frameXChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite13frameYChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite16frameRateChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite20frameDurationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite12loopsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite19currentFrameChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite21finishBehaviorChangedENS_14FinishBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite8finishedEv": ["nothing", "address"],
     "ritual_ZN20QQuickAnimatedSprite5startEv": ["nothing", "address"],
     "ritual_ZN20QQuickAnimatedSprite4stopEv": ["nothing", "address"],
     "ritual_ZN20QQuickAnimatedSprite7restartEv": ["nothing", "address"],

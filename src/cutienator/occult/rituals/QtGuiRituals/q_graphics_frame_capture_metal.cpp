@@ -27,7 +27,7 @@ typedef QString * (*CuteQGraphicsFrameCaptureMetalCall8)(const void *, int *);
 class CuteQGraphicsFrameCaptureMetal : public QGraphicsFrameCaptureMetal {
 public:
   using QGraphicsFrameCaptureMetal::QGraphicsFrameCaptureMetal;
-  CuteQGraphicsFrameCaptureMetal(const QGraphicsFrameCaptureMetal &other) : QGraphicsFrameCaptureMetal(other) {}
+  CuteQGraphicsFrameCaptureMetal(const QGraphicsFrameCaptureMetal & other) : QGraphicsFrameCaptureMetal(other) {}
   void *taken[9] = {};
 
   bool take(const char *key, void *call) {
@@ -175,6 +175,49 @@ public:
     return QGraphicsFrameCapturePrivate::capturedFileName();
   }
 };
+
+//  void QGraphicsFrameCaptureMetal::setRhi(QRhi *rhi)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QGraphicsFrameCaptureMetal6setRhiEP4QRhi(
+    QGraphicsFrameCaptureMetal *self,
+    QRhi *rhi) {
+  self->setRhi(rhi);
+}
+
+//  void QGraphicsFrameCaptureMetal::startCaptureFrame()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QGraphicsFrameCaptureMetal17startCaptureFrameEv(
+    QGraphicsFrameCaptureMetal *self) {
+  self->startCaptureFrame();
+}
+
+//  void QGraphicsFrameCaptureMetal::endCaptureFrame()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QGraphicsFrameCaptureMetal15endCaptureFrameEv(
+    QGraphicsFrameCaptureMetal *self) {
+  self->endCaptureFrame();
+}
+
+//  bool QGraphicsFrameCaptureMetal::initialized() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK26QGraphicsFrameCaptureMetal11initializedEv(
+    const QGraphicsFrameCaptureMetal *self) {
+  return self->initialized();
+}
+
+//  bool QGraphicsFrameCaptureMetal::isCapturing() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK26QGraphicsFrameCaptureMetal11isCapturingEv(
+    const QGraphicsFrameCaptureMetal *self) {
+  return self->isCapturing();
+}
+
+//  void QGraphicsFrameCaptureMetal::openCapture()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QGraphicsFrameCaptureMetal11openCaptureEv(
+    QGraphicsFrameCaptureMetal *self) {
+  self->openCapture();
+}
 
 //  a Python function taken by a CuteQGraphicsFrameCaptureMetal, for the
 //      function named by the key

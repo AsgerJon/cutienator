@@ -5,6 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render13LevelOfDetailC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render13LevelOfDetailD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13LevelOfDetail7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13LevelOfDetail16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render13LevelOfDetail6cameraEv": [
       "address", "address"
     ],
@@ -13,6 +23,9 @@
     ],
     "ritual_ZNK10Qt3DRender6Render13LevelOfDetail13thresholdTypeEv": [
       "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13LevelOfDetail10thresholdsEv": [
+      "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render13LevelOfDetail6radiusEv": [
       "float", "address"
@@ -23,11 +36,17 @@
     "ritual_ZNK10Qt3DRender6Render13LevelOfDetail25hasBoundingVolumeOverrideEv": [
       "bool", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render13LevelOfDetail15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_take_Qt3DRender_Render_LevelOfDetail": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render13LevelOfDetail16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_LevelOfDetail__QList_qreal": [
+      "nothing", "address"
     ]
   }
 }

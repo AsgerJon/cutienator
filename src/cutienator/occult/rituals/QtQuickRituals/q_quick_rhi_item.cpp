@@ -806,6 +806,24 @@ const QMetaObject *ritual_ZNK13QQuickRhiItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRhiItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickRhiItem11qt_metacastEPKc(
+    QQuickRhiItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRhiItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickRhiItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRhiItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRhiItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickRhiItem2trEPKcS1_i(
@@ -827,6 +845,12 @@ extern "C" Q_DECL_EXPORT
 const QQuickRhiItemPrivate *ritual_ZNK13QQuickRhiItem6d_funcEv(
     const QQuickRhiItem *self) {
   return self->d_func();
+}
+
+//  QQuickRhiItem::QQuickRhiItem(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickRhiItem *ritual_ZN13QQuickRhiItemC1EP10QQuickItem(QQuickItem *parent) {
+  return new CuteQQuickRhiItem(parent);
 }
 
 //  QQuickRhiItem::~QQuickRhiItem()
@@ -942,6 +966,69 @@ extern "C" Q_DECL_EXPORT
 QSGTextureProvider *ritual_ZNK13QQuickRhiItem15textureProviderEv(
     const QQuickRhiItem *self) {
   return self->textureProvider();
+}
+
+//  void QQuickRhiItem::sampleCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickRhiItem18sampleCountChangedEv(QQuickRhiItem *self) {
+  self->sampleCountChanged();
+}
+
+//  void QQuickRhiItem::colorBufferFormatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickRhiItem24colorBufferFormatChangedEv(
+    QQuickRhiItem *self) {
+  self->colorBufferFormatChanged();
+}
+
+//  void QQuickRhiItem::autoRenderTargetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickRhiItem23autoRenderTargetChangedEv(
+    QQuickRhiItem *self) {
+  self->autoRenderTargetChanged();
+}
+
+//  void QQuickRhiItem::mirrorVerticallyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickRhiItem23mirrorVerticallyChangedEv(
+    QQuickRhiItem *self) {
+  self->mirrorVerticallyChanged();
+}
+
+//  void QQuickRhiItem::alphaBlendingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickRhiItem20alphaBlendingChangedEv(QQuickRhiItem *self) {
+  self->alphaBlendingChanged();
+}
+
+//  void QQuickRhiItem::fixedColorBufferWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickRhiItem28fixedColorBufferWidthChangedEv(
+    QQuickRhiItem *self) {
+  self->fixedColorBufferWidthChanged();
+}
+
+//  void QQuickRhiItem::fixedColorBufferHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickRhiItem29fixedColorBufferHeightChangedEv(
+    QQuickRhiItem *self) {
+  self->fixedColorBufferHeightChanged();
+}
+
+//  void QQuickRhiItem::effectiveColorBufferSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickRhiItem31effectiveColorBufferSizeChangedEv(
+    QQuickRhiItem *self) {
+  self->effectiveColorBufferSizeChanged();
+}
+
+//  QQuickRhiItem::QQuickRhiItem(QQuickRhiItemPrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickRhiItem *ritual_ZN13QQuickRhiItemC1ER20QQuickRhiItemPrivateP10QQuickItem(
+    QQuickRhiItemPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickRhiItem(*dd, parent);
 }
 
 //  QQuickRhiItemRenderer *QQuickRhiItem::createRenderer()

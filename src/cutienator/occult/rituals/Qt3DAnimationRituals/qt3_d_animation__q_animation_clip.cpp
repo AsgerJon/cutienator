@@ -2,6 +2,7 @@
 //  Qt3DAnimation/qanimationclip.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DAnimation/qanimationclip.h>
 #include <QtCore/qstring.h>
+#include <Qt3DAnimation/qanimationclipdata.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation14QAnimationClip10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QAnimationClip::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation14QAnimationClip11qt_metacastEPKc(
+    Qt3DAnimation::QAnimationClip *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QAnimationClip::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation14QAnimationClip11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QAnimationClip *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QAnimationClip::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,55 @@ QString *ritual_ZN13Qt3DAnimation14QAnimationClip2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QAnimationClip::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QAnimationClip::QAnimationClip(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationClip *ritual_ZN13Qt3DAnimation14QAnimationClipC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAnimationClip(parent);
+}
+
+//  Qt3DAnimation::QAnimationClip::~QAnimationClip()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation14QAnimationClipD1Ev(
+    Qt3DAnimation::QAnimationClip *self) {
+  delete self;
+}
+
+//  Qt3DAnimation::QAnimationClipData
+//      Qt3DAnimation::QAnimationClip::clipData() const
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationClipData *ritual_ZNK13Qt3DAnimation14QAnimationClip8clipDataEv(
+    const Qt3DAnimation::QAnimationClip *self) {
+  return new Qt3DAnimation::QAnimationClipData(self->clipData());
+}
+
+//  void Qt3DAnimation::QAnimationClip::setClipData(const
+//      Qt3DAnimation::QAnimationClipData &clipData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation14QAnimationClip11setClipDataERKNS_18QAnimationClipDataE(
+    Qt3DAnimation::QAnimationClip *self,
+    const Qt3DAnimation::QAnimationClipData *clipData) {
+  self->setClipData(*clipData);
+}
+
+//  void Qt3DAnimation::QAnimationClip::clipDataChanged(Qt3DAnimation::QAnima
+//      tionClipData clipData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation14QAnimationClip15clipDataChangedENS_18QAnimationClipDataE(
+    Qt3DAnimation::QAnimationClip *self,
+    const Qt3DAnimation::QAnimationClipData *clipData) {
+  self->clipDataChanged(*clipData);
+}
+
+//  Qt3DAnimation::QAnimationClip::QAnimationClip(QAnimationClipPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationClip *ritual_ZN13Qt3DAnimation14QAnimationClipC1ERNS_21QAnimationClipPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QAnimationClipPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAnimationClip(*dd, parent);
 }
 
 //  QAnimationClipPrivate *Qt3DAnimation::QAnimationClip::d_func()

@@ -6,7 +6,9 @@
 #if QT_CONFIG(completer)
 #include <QtWidgets/qcompleter.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -229,6 +231,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK10QCompleter10metaObjectEv(
     const QCompleter *self) {
   return self->metaObject();
+}
+
+//  void *QCompleter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QCompleter11qt_metacastEPKc(
+    QCompleter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCompleter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QCompleter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCompleter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QCompleter::tr(const char *s, const char *c, int n)
@@ -512,6 +532,38 @@ bool ritual_ZN10QCompleter11eventFilterEP7QObjectP6QEvent(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN10QCompleter5eventEP6QEvent(QCompleter *self, QEvent *a0) {
   return self->event(a0);
+}
+
+//  void QCompleter::activated(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCompleter9activatedERK7QString(
+    QCompleter *self,
+    const QString *text) {
+  self->activated(*text);
+}
+
+//  void QCompleter::activated(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCompleter9activatedERK11QModelIndex(
+    QCompleter *self,
+    const QModelIndex *index) {
+  self->activated(*index);
+}
+
+//  void QCompleter::highlighted(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCompleter11highlightedERK7QString(
+    QCompleter *self,
+    const QString *text) {
+  self->highlighted(*text);
+}
+
+//  void QCompleter::highlighted(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCompleter11highlightedERK11QModelIndex(
+    QCompleter *self,
+    const QModelIndex *index) {
+  self->highlighted(*index);
 }
 
 //  QCompleterPrivate *QCompleter::d_func()

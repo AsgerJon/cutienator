@@ -7,6 +7,7 @@
 #include <QtGui/6.12.0/QtGui/qpa/qplatformservices.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -199,6 +200,25 @@ const QMetaObject *ritual_ZNK27QPlatformServiceColorPicker10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformServiceColorPicker::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QPlatformServiceColorPicker11qt_metacastEPKc(
+    QPlatformServiceColorPicker *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformServiceColorPicker::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QPlatformServiceColorPicker11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformServiceColorPicker *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformServiceColorPicker::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -214,6 +234,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN27QPlatformServiceColorPicker9pickColorEv(
     QPlatformServiceColorPicker *self) {
   self->pickColor();
+}
+
+//  void QPlatformServiceColorPicker::colorPicked(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QPlatformServiceColorPicker11colorPickedERK6QColor(
+    QPlatformServiceColorPicker *self,
+    const QColor *color) {
+  self->colorPicked(*color);
 }
 
 //  a Python function taken by a CuteQPlatformServiceColorPicker, for the

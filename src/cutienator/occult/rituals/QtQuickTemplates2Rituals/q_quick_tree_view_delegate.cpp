@@ -30,6 +30,25 @@ const QMetaObject *ritual_ZNK22QQuickTreeViewDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTreeViewDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickTreeViewDelegate11qt_metacastEPKc(
+    QQuickTreeViewDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTreeViewDelegate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickTreeViewDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTreeViewDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTreeViewDelegate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickTreeViewDelegate2trEPKcS1_i(
@@ -211,6 +230,90 @@ void ritual_ZN22QQuickTreeViewDelegate14setRightMarginEd(
   self->setRightMargin(rightMargin);
 }
 
+//  void QQuickTreeViewDelegate::indicatorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate16indicatorChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->indicatorChanged();
+}
+
+//  void QQuickTreeViewDelegate::indentationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate18indentationChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->indentationChanged();
+}
+
+//  void QQuickTreeViewDelegate::isTreeNodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate17isTreeNodeChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->isTreeNodeChanged();
+}
+
+//  void QQuickTreeViewDelegate::hasChildrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate18hasChildrenChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->hasChildrenChanged();
+}
+
+//  void QQuickTreeViewDelegate::expandedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate15expandedChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->expandedChanged();
+}
+
+//  void QQuickTreeViewDelegate::depthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate12depthChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->depthChanged();
+}
+
+//  void QQuickTreeViewDelegate::treeviewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate15treeviewChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->treeviewChanged();
+}
+
+//  void QQuickTreeViewDelegate::leftMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate17leftMarginChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->leftMarginChanged();
+}
+
+//  void QQuickTreeViewDelegate::rightMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate18rightMarginChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->rightMarginChanged();
+}
+
+//  void QQuickTreeViewDelegate::currentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate14currentChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->currentChanged();
+}
+
+//  void QQuickTreeViewDelegate::selectedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate15selectedChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->selectedChanged();
+}
+
+//  void QQuickTreeViewDelegate::editingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTreeViewDelegate14editingChangedEv(
+    QQuickTreeViewDelegate *self) {
+  self->editingChanged();
+}
+
 //  QFont QQuickTreeViewDelegate::defaultFont() const
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK22QQuickTreeViewDelegate11defaultFontEv(
@@ -241,6 +344,21 @@ void ritual_ZN22QQuickTreeViewDelegate15mousePressEventEP11QMouseEvent(
     QQuickTreeViewDelegate *self,
     QMouseEvent *event) {
   self->mousePressEvent(event);
+}
+
+//  QQuickTreeViewDelegatePrivate *QQuickTreeViewDelegate::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickTreeViewDelegatePrivate *ritual_ZN22QQuickTreeViewDelegate6d_funcEv(
+    QQuickTreeViewDelegate *self) {
+  return self->d_func();
+}
+
+//  const QQuickTreeViewDelegatePrivate *QQuickTreeViewDelegate::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QQuickTreeViewDelegatePrivate *ritual_ZNK22QQuickTreeViewDelegate6d_funcEv(
+    const QQuickTreeViewDelegate *self) {
+  return self->d_func();
 }
 
 //  QFont QQuickTreeViewDelegate::defaultFont() const

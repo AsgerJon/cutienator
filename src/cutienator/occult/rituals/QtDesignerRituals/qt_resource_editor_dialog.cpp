@@ -13,3 +13,50 @@ const QMetaObject *ritual_ZNK22QtResourceEditorDialog10metaObjectEv(
     const QtResourceEditorDialog *self) {
   return self->metaObject();
 }
+
+//  void *QtResourceEditorDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QtResourceEditorDialog11qt_metacastEPKc(
+    QtResourceEditorDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtResourceEditorDialog::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QtResourceEditorDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtResourceEditorDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QtResourceEditorDialog::accept()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QtResourceEditorDialog6acceptEv(
+    QtResourceEditorDialog *self) {
+  self->accept();
+}
+
+//  QtResourceEditorDialog::~QtResourceEditorDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QtResourceEditorDialogD1Ev(QtResourceEditorDialog *self) {
+  delete self;
+}
+
+//  QtResourceEditorDialogPrivate *QtResourceEditorDialog::d_func()
+extern "C" Q_DECL_EXPORT
+QtResourceEditorDialogPrivate *ritual_ZN22QtResourceEditorDialog6d_funcEv(
+    QtResourceEditorDialog *self) {
+  return self->d_func();
+}
+
+//  const QtResourceEditorDialogPrivate *QtResourceEditorDialog::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QtResourceEditorDialogPrivate *ritual_ZNK22QtResourceEditorDialog6d_funcEv(
+    const QtResourceEditorDialog *self) {
+  return self->d_func();
+}

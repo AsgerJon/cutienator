@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN11DomGradientC1Ev": ["address"],
     "ritual_ZN11DomGradientD1Ev": ["nothing", "address"],
+    "ritual_ZN11DomGradient4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomGradient5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK11DomGradient18hasAttributeStartXEv": ["bool", "address"],
     "ritual_ZNK11DomGradient15attributeStartXEv": ["double", "address"],
     "ritual_ZN11DomGradient18setAttributeStartXEd": [

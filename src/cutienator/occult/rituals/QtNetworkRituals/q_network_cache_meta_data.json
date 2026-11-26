@@ -8,6 +8,15 @@
     "ritual_ZN21QNetworkCacheMetaDataC1Ev": ["address"],
     "ritual_ZN21QNetworkCacheMetaDataC1ERKS_": ["address", "address"],
     "ritual_ZN21QNetworkCacheMetaDataD1Ev": ["nothing", "address"],
+    "ritual_ZN21QNetworkCacheMetaDataaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkCacheMetaDataaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkCacheMetaData4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QNetworkCacheMetaDataeqERKS_": [
       "bool", "address", "address"
     ],
@@ -17,6 +26,12 @@
     "ritual_ZNK21QNetworkCacheMetaData7isValidEv": ["bool", "address"],
     "ritual_ZNK21QNetworkCacheMetaData3urlEv": ["address", "address"],
     "ritual_ZN21QNetworkCacheMetaData6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkCacheMetaData10rawHeadersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkCacheMetaData13setRawHeadersERK5QListISt4pairI10QByteArrayS2_EE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK21QNetworkCacheMetaData7headersEv": ["address", "address"],
@@ -38,6 +53,18 @@
     "ritual_ZNK21QNetworkCacheMetaData10saveToDiskEv": ["bool", "address"],
     "ritual_ZN21QNetworkCacheMetaData13setSaveToDiskEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QNetworkCacheMetaData10attributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkCacheMetaData13setAttributesERK5QHashIN15QNetworkRequest9AttributeE8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_QNetworkCacheMetaData__QNetworkCacheMetaData_RawHeaderList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QNetworkCacheMetaData__QNetworkCacheMetaData_AttributesMap": [
+      "nothing", "address"
     ]
   }
 }

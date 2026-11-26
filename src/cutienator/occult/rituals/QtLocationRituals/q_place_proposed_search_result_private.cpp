@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/6.12.0/QtLocation/private/qplaceproposedsearchresult_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtLocation/qplacesearchresult.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/qplacesearchresult.h>
@@ -47,7 +48,7 @@ typedef int (*CuteQPlaceProposedSearchResultPrivateCall2)(const void *, int *);
 class CuteQPlaceProposedSearchResultPrivate : public QPlaceProposedSearchResultPrivate {
 public:
   using QPlaceProposedSearchResultPrivate::QPlaceProposedSearchResultPrivate;
-  CuteQPlaceProposedSearchResultPrivate(const QPlaceProposedSearchResultPrivate &other) : QPlaceProposedSearchResultPrivate(other) {}
+  CuteQPlaceProposedSearchResultPrivate(const QPlaceProposedSearchResultPrivate & other) : QPlaceProposedSearchResultPrivate(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -126,6 +127,15 @@ extern "C" Q_DECL_EXPORT
 QPlaceSearchResult::SearchResultType ritual_ZNK33QPlaceProposedSearchResultPrivate4typeEv(
     const QPlaceProposedSearchResultPrivate *self) {
   return self->type();
+}
+
+//  void QPlaceProposedSearchResultPrivate::copyIfPossible(QSharedDataPointer
+//      <QPlaceSearchResultPrivate> &d_ptr, const QPlaceSearchResult &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QPlaceProposedSearchResultPrivate14copyIfPossibleER18QSharedDataPointerI25QPlaceSearchResultPrivateERK18QPlaceSearchResult(
+    QSharedDataPointer<QPlaceSearchResultPrivate> *d_ptr,
+    const QPlaceSearchResult *other) {
+  QPlaceProposedSearchResultPrivate::copyIfPossible(*d_ptr, *other);
 }
 
 //  QPlaceProposedSearchResultPrivate::~QPlaceProposedSearchResultPrivate()

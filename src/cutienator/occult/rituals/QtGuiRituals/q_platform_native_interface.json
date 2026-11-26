@@ -8,8 +8,50 @@
     "ritual_ZNK24QPlatformNativeInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QPlatformNativeInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QPlatformNativeInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QPlatformNativeInterface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QPlatformNativeInterface28nativeResourceForIntegrationERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface24nativeResourceForContextERK10QByteArrayP14QOpenGLContext": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface23nativeResourceForScreenERK10QByteArrayP7QScreen": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface23nativeResourceForWindowERK10QByteArrayP7QWindow": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface29nativeResourceForBackingStoreERK10QByteArrayP13QBackingStore": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface23nativeResourceForCursorERK10QByteArrayRK7QCursor": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface36nativeResourceFunctionForIntegrationERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface32nativeResourceFunctionForContextERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface31nativeResourceFunctionForScreenERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface31nativeResourceFunctionForWindowERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface37nativeResourceFunctionForBackingStoreERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QPlatformNativeInterface16platformFunctionERK10QByteArray": [
+      "address", "address", "address"
     ],
     "ritual_ZNK24QPlatformNativeInterface16windowPropertiesEP15QPlatformWindow": [
       "address", "address", "address"
@@ -23,8 +65,29 @@
     "ritual_ZN24QPlatformNativeInterface17setWindowPropertyEP15QPlatformWindowRK7QStringRK8QVariant": [
       "nothing", "address", "address", "text", "address"
     ],
+    "ritual_ZN24QPlatformNativeInterface21windowPropertyChangedEP15QPlatformWindowRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_take_QPlatformNativeInterface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QPlatformNativeInterface28nativeResourceForIntegrationERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN24QPlatformNativeInterface24nativeResourceForContextERK10QByteArrayP14QOpenGLContext": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN24QPlatformNativeInterface23nativeResourceForScreenERK10QByteArrayP7QScreen": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN24QPlatformNativeInterface23nativeResourceForWindowERK10QByteArrayP7QWindow": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN24QPlatformNativeInterface29nativeResourceForBackingStoreERK10QByteArrayP13QBackingStore": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN24QPlatformNativeInterface23nativeResourceForCursorERK10QByteArrayRK7QCursor": [
+      "address", "address", "address", "address"
     ],
     "ritual_own_ZNK24QPlatformNativeInterface14windowPropertyEP15QPlatformWindowRK7QString": [
       "address", "address", "address", "text"

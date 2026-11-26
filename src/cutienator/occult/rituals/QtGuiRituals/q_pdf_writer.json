@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QPdfWriter10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QPdfWriter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QPdfWriter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QPdfWriter2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QPdfWriterC1ERK7QString": ["address", "text"],
     "ritual_ZN10QPdfWriterC1EP9QIODevice": ["address", "address"],
@@ -51,6 +57,8 @@
     "ritual_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMetricE": [
       "int", "address", "int"
     ],
+    "ritual_ZN10QPdfWriter6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QPdfWriter6d_funcEv": ["address", "address"],
     "ritual_cast_QPdfWriter_QPagedPaintDevice": ["address", "address"],
     "ritual_take_QPdfWriter": ["bool", "address", "chars", "address"],
     "ritual_own_ZN10QPdfWriter7newPageEv": ["bool", "address"],

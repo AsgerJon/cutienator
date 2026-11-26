@@ -25,34 +25,26 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 19, as _ZN24QQuickAnimatorControllerD1Ev
-inline QQuickAnimatorController::~QQuickAnimatorController()
+//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 28, as local:qquickanimatorcontroller.cpp:qquickanimator_invalidate_jobs
+static void qquickanimator_invalidate_jobs(QAbstractAnimationJob *job)
 {
-}
-
-//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 63, as _ZN24QQuickAnimatorController7advanceEv
-inline void QQuickAnimatorController::advance()
-{
-    bool running = false;
-    for (const QSharedPointer<QAbstractAnimationJob> &job : std::as_const(m_animationRoots)) {
-        if (job->isRunning()) {
-            running = true;
-            break;
-        }
+    if (job->isRenderThreadJob()) {
+        static_cast<QQuickAnimatorJob *>(job)->invalidate();
+    } else if (job->isGroup()) {
+        for (QAbstractAnimationJob *a : *static_cast<QAnimationGroupJob *>(job)->children())
+            qquickanimator_invalidate_jobs(a);
     }
-
-    for (QQuickAnimatorJob *job : std::as_const(m_runningAnimators))
-        job->commit();
-
-    if (running)
-        m_window->update();
 }
 
-//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 128, as _ZN24QQuickAnimatorController13afterNodeSyncEv
-inline void QQuickAnimatorController::afterNodeSync()
+//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 80, as local:qquickanimatorcontroller.cpp:qquickanimator_sync_before_start
+static void qquickanimator_sync_before_start(QAbstractAnimationJob *job)
 {
-    for (QQuickAnimatorJob *job : std::as_const(m_runningAnimators))
-        job->postSync();
+    if (job->isRenderThreadJob()) {
+        static_cast<QQuickAnimatorJob *>(job)->preSync();
+    } else if (job->isGroup()) {
+        for (QAbstractAnimationJob *a : *static_cast<QAnimationGroupJob *>(job)->children())
+            qquickanimator_sync_before_start(a);
+    }
 }
 
 //  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 134, as _ZN24QQuickAnimatorController17animationFinishedEP21QAbstractAnimationJob
@@ -76,11 +68,107 @@ inline void QQuickAnimatorController::animationStateChanged(QAbstractAnimationJo
     }
 }
 
+//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 19, as _ZN24QQuickAnimatorControllerD1Ev
+inline QQuickAnimatorController::~QQuickAnimatorController()
+{
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 63, as _ZN24QQuickAnimatorController7advanceEv
+inline void QQuickAnimatorController::advance()
+{
+    bool running = false;
+    for (const QSharedPointer<QAbstractAnimationJob> &job : std::as_const(m_animationRoots)) {
+        if (job->isRunning()) {
+            running = true;
+            break;
+        }
+    }
+
+    for (QQuickAnimatorJob *job : std::as_const(m_runningAnimators))
+        job->commit();
+
+    if (running)
+        m_window->update();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 90, as _ZN24QQuickAnimatorController14beforeNodeSyncEv
+inline void QQuickAnimatorController::beforeNodeSync()
+{
+    for (const QSharedPointer<QAbstractAnimationJob> &toPause : std::as_const(m_rootsPendingPause)) {
+        toPause->pause();
+        m_animationRoots.remove(toPause.data());
+    }
+    m_rootsPendingPause.clear();
+    for (const QSharedPointer<QAbstractAnimationJob> &toStop : std::as_const(m_rootsPendingStop)) {
+        toStop->stop();
+        m_animationRoots.remove(toStop.data());
+    }
+    m_rootsPendingStop.clear();
+
+
+    for (QQuickAnimatorJob *job : std::as_const(m_runningAnimators))
+        job->preSync();
+
+    // Start pending jobs
+    for (const QSharedPointer<QAbstractAnimationJob> &job : std::as_const(m_rootsPendingStart)) {
+        Q_ASSERT(!job->isRunning());
+
+        // We want to make sure that presync is called before
+        // updateAnimationTime is called the very first time, so before
+        // starting a tree of jobs, we go through it and call preSync on all
+        // its animators.
+        qquickanimator_sync_before_start(job.data());
+
+        // The start the job..
+        job->start();
+        m_animationRoots.insert(job.data(), job);
+    }
+    m_rootsPendingStart.clear();
+
+    // Issue an update directly on the window to force another render pass.
+    if (m_animationRoots.size())
+        m_window->update();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 128, as _ZN24QQuickAnimatorController13afterNodeSyncEv
+inline void QQuickAnimatorController::afterNodeSync()
+{
+    for (QQuickAnimatorJob *job : std::as_const(m_runningAnimators))
+        job->postSync();
+}
+
 //  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 154, as _ZN24QQuickAnimatorController11requestSyncEv
 inline void QQuickAnimatorController::requestSync()
 {
     // Force a "sync" pass as the newly started animation needs to sync properties from GUI.
     m_window->maybeUpdate();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 175, as _ZN24QQuickAnimatorController5startERK14QSharedPointerI21QAbstractAnimationJobE
+inline void QQuickAnimatorController::start(const QSharedPointer<QAbstractAnimationJob> &job)
+{
+    m_rootsPendingStart.insert(job);
+    m_rootsPendingPause.remove(job);
+    m_rootsPendingStop.remove(job);
+    job->addAnimationChangeListener(this, QAbstractAnimationJob::Completion);
+    start_helper(job.data());
+    requestSync();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 186, as _ZN24QQuickAnimatorController6cancelERK14QSharedPointerI21QAbstractAnimationJobE
+inline void QQuickAnimatorController::cancel(const QSharedPointer<QAbstractAnimationJob> &job)
+{
+    m_rootsPendingStart.remove(job);
+    m_rootsPendingPause.remove(job);
+    m_rootsPendingStop.insert(job);
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 194, as _ZN24QQuickAnimatorController5pauseERK14QSharedPointerI21QAbstractAnimationJobE
+inline void QQuickAnimatorController::pause(const QSharedPointer<QAbstractAnimationJob> &job)
+{
+    m_rootsPendingStart.remove(job);
+    m_rootsPendingStop.remove(job);
+    m_rootsPendingPause.insert(job);
 }
 
 //  from ../qtdeclarative/src/quick/util/qquickanimatorcontroller.cpp, line 162, as _ZN24QQuickAnimatorController12start_helperEP21QAbstractAnimationJob
@@ -371,6 +459,25 @@ const QMetaObject *ritual_ZNK24QQuickAnimatorController10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnimatorController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickAnimatorController11qt_metacastEPKc(
+    QQuickAnimatorController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnimatorController::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickAnimatorController11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnimatorController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickAnimatorController::~QQuickAnimatorController()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickAnimatorControllerD1Ev(
@@ -383,6 +490,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickAnimatorController7advanceEv(
     QQuickAnimatorController *self) {
   self->advance();
+}
+
+//  void QQuickAnimatorController::beforeNodeSync()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAnimatorController14beforeNodeSyncEv(
+    QQuickAnimatorController *self) {
+  self->beforeNodeSync();
 }
 
 //  void QQuickAnimatorController::afterNodeSync()
@@ -419,6 +533,42 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickAnimatorController11requestSyncEv(
     QQuickAnimatorController *self) {
   self->requestSync();
+}
+
+//  void QQuickAnimatorController::start(const
+//      QSharedPointer<QAbstractAnimationJob> &job)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAnimatorController5startERK14QSharedPointerI21QAbstractAnimationJobE(
+    QQuickAnimatorController *self,
+    const QSharedPointer<QAbstractAnimationJob> *job) {
+  self->start(*job);
+}
+
+//  void QQuickAnimatorController::cancel(const
+//      QSharedPointer<QAbstractAnimationJob> &job)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAnimatorController6cancelERK14QSharedPointerI21QAbstractAnimationJobE(
+    QQuickAnimatorController *self,
+    const QSharedPointer<QAbstractAnimationJob> *job) {
+  self->cancel(*job);
+}
+
+//  void QQuickAnimatorController::pause(const
+//      QSharedPointer<QAbstractAnimationJob> &job)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAnimatorController5pauseERK14QSharedPointerI21QAbstractAnimationJobE(
+    QQuickAnimatorController *self,
+    const QSharedPointer<QAbstractAnimationJob> *job) {
+  self->pause(*job);
+}
+
+//  bool QQuickAnimatorController::isPendingStart(const
+//      QSharedPointer<QAbstractAnimationJob> &job) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK24QQuickAnimatorController14isPendingStartERK14QSharedPointerI21QAbstractAnimationJobE(
+    const QQuickAnimatorController *self,
+    const QSharedPointer<QAbstractAnimationJob> *job) {
+  return self->isPendingStart(*job);
 }
 
 //  void QQuickAnimatorController::lock()

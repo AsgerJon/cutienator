@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender10RayCasting14BoundingSphere6centerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting14BoundingSphere6radiusEv": [
+      "float", "address"
+    ],
+    "ritual_take_Qt3DRender_RayCasting_BoundingSphere": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

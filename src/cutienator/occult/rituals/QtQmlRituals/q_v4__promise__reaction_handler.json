@@ -8,6 +8,22 @@
     "ritual_ZNK3QV47Promise15ReactionHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN3QV47Promise15ReactionHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN3QV47Promise15ReactionHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN3QV47Promise15ReactionHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV47Promise15ReactionHandler11addReactionEPNS_15ExecutionEngineEPKNS_5ValueES6_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV47Promise15ReactionHandler18addResolveThenableEPNS_15ExecutionEngineEPKNS_13PromiseObjectEPKNS_6ObjectEPKNS_14FunctionObjectE": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV47Promise15ReactionHandler11customEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QV4_Promise_ReactionHandler": [
       "bool", "address", "chars", "address"
     ]

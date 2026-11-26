@@ -5,8 +5,19 @@
   ],
   "rows": {
     "ritual_ZN9QtPrivate16SlotObjSharedPtrC1Ev": ["address"],
+    "ritual_ZN9QtPrivate16SlotObjSharedPtrC1EDn": ["address"],
     "ritual_ZN9QtPrivate16SlotObjSharedPtrC1ERKS0_": ["address", "address"],
+    "ritual_ZN9QtPrivate16SlotObjSharedPtraSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate16SlotObjSharedPtrC1EOS0_": ["address", "address"],
+    "ritual_ZN9QtPrivate16SlotObjSharedPtraSEOS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QtPrivate16SlotObjSharedPtrD1Ev": ["nothing", "address"],
+    "ritual_ZN9QtPrivate16SlotObjSharedPtr4swapERS0_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK9QtPrivate16SlotObjSharedPtrcvbEv": ["bool", "address"]
   }
 }

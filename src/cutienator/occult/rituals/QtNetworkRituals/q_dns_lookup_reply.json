@@ -5,12 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QDnsLookupReply8setErrorEN10QDnsLookup5ErrorEO7QString": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN15QDnsLookupReply23makeResolverSystemErrorEi": [
       "nothing", "address", "int"
     ],
     "ritual_ZN15QDnsLookupReply16makeTimeoutErrorEv": ["nothing", "address"],
     "ritual_ZN15QDnsLookupReply17makeDnsRcodeErrorEh": [
       "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QDnsLookupReply21makeInvalidReplyErrorEO7QString": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK15QDnsLookupReply11allAreEmptyEv": ["bool", "address"],
     "ritual_ZN15QDnsLookupReplyD1Ev": ["nothing", "address"]

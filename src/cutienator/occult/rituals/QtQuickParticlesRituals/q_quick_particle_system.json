@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickParticleSystem10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickParticleSystem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickParticleSystem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickParticleSystem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,18 @@
     "ritual_ZN20QQuickParticleSystemD1Ev": ["nothing", "address"],
     "ritual_ZNK20QQuickParticleSystem9isRunningEv": ["bool", "address"],
     "ritual_ZNK20QQuickParticleSystem5countEv": ["int", "address"],
+    "ritual_ZN20QQuickParticleSystem17systemInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem14runningChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickParticleSystem13pausedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickParticleSystem12emptyChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN20QQuickParticleSystem5startEv": ["nothing", "address"],
     "ritual_ZN20QQuickParticleSystem4stopEv": ["nothing", "address"],
     "ritual_ZN20QQuickParticleSystem7restartEv": ["nothing", "address"],
@@ -87,6 +105,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN20QQuickParticleSystem26unregisterParticleAffectorEP22QQuickParticleAffector": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem21statePropertyRedirectEP16QQmlListPropertyI7QObjectEPS1_": [
       "nothing", "address", "address"
     ],
     "ritual_ZN20QQuickParticleSystem13stateRedirectEP19QQuickParticleGroupPS_P7QObject": [

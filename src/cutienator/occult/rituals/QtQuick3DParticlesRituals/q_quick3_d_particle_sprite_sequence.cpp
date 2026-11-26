@@ -223,6 +223,25 @@ const QMetaObject *ritual_ZNK30QQuick3DParticleSpriteSequence10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleSpriteSequence::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QQuick3DParticleSpriteSequence11qt_metacastEPKc(
+    QQuick3DParticleSpriteSequence *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleSpriteSequence::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QQuick3DParticleSpriteSequence11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleSpriteSequence *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleSpriteSequence::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -354,6 +373,55 @@ void ritual_ZN30QQuick3DParticleSpriteSequence21setAnimationDirectionENS_18Anima
     QQuick3DParticleSpriteSequence *self,
     QQuick3DParticleSpriteSequence::AnimationDirection animationDirection) {
   self->setAnimationDirection(animationDirection);
+}
+
+//  void QQuick3DParticleSpriteSequence::frameCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteSequence17frameCountChangedEv(
+    QQuick3DParticleSpriteSequence *self) {
+  self->frameCountChanged();
+}
+
+//  void QQuick3DParticleSpriteSequence::frameIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteSequence17frameIndexChangedEv(
+    QQuick3DParticleSpriteSequence *self) {
+  self->frameIndexChanged();
+}
+
+//  void QQuick3DParticleSpriteSequence::interpolateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteSequence18interpolateChangedEv(
+    QQuick3DParticleSpriteSequence *self) {
+  self->interpolateChanged();
+}
+
+//  void QQuick3DParticleSpriteSequence::durationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteSequence15durationChangedEv(
+    QQuick3DParticleSpriteSequence *self) {
+  self->durationChanged();
+}
+
+//  void QQuick3DParticleSpriteSequence::durationVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteSequence24durationVariationChangedEv(
+    QQuick3DParticleSpriteSequence *self) {
+  self->durationVariationChanged();
+}
+
+//  void QQuick3DParticleSpriteSequence::randomStartChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteSequence18randomStartChangedEv(
+    QQuick3DParticleSpriteSequence *self) {
+  self->randomStartChanged();
+}
+
+//  void QQuick3DParticleSpriteSequence::animationDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteSequence25animationDirectionChangedEv(
+    QQuick3DParticleSpriteSequence *self) {
+  self->animationDirectionChanged();
 }
 
 //  void QQuick3DParticleSpriteSequence::componentComplete()

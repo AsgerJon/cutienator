@@ -2,9 +2,65 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/6.12.0/QtNetwork/private/http2frames_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
-    "ritual_ZN5Http211FrameWriterD1Ev": ["nothing", "address"]
+    "ritual_ZN5Http211FrameWriterC1Ev": ["address"],
+    "ritual_ZN5Http211FrameWriterC1ENS_9FrameTypeE6QFlagsINS_9FrameFlagEEj": [
+      "address", "unsigned char", "int", "unsigned int"
+    ],
+    "ritual_ZN5Http211FrameWriter13outboundFrameEv": ["address", "address"],
+    "ritual_ZN5Http211FrameWriter16setOutboundFrameEONS_5FrameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5Http211FrameWriter5startENS_9FrameTypeE6QFlagsINS_9FrameFlagEEj": [
+      "nothing", "address", "unsigned char", "int", "unsigned int"
+    ],
+    "ritual_ZN5Http211FrameWriter14setPayloadSizeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN5Http211FrameWriter7setTypeENS_9FrameTypeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN5Http211FrameWriter8setFlagsE6QFlagsINS_9FrameFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN5Http211FrameWriter7addFlagENS_9FrameFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN5Http211FrameWriter6appendEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN5Http211FrameWriter6appendENS_8SettingsE": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN5Http211FrameWriter6appendERKSt6vectorIhSaIhEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5Http211FrameWriter6appendE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5Http211FrameWriter6appendEPKhS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK5Http211FrameWriter5writeER9QIODevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5Http211FrameWriter12writeHEADERSER9QIODevicej": [
+      "bool", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN5Http211FrameWriter9writeDATAER9QIODevicejPKhj": [
+      "bool", "address", "address", "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN5Http211FrameWriter17updatePayloadSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN5Http211FrameWriterD1Ev": ["nothing", "address"],
+    "ritual_ZN5Http211FrameWriter6appendItEEvT_": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN5Http211FrameWriter6appendIjEEvT_": [
+      "nothing", "address", "unsigned int"
+    ]
   }
 }

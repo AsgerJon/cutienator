@@ -5,6 +5,15 @@
     "xt_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QSSGRhiContextStats3getER14QSSGRhiContext": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStats3getERK14QSSGRhiContext": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStatsC1ER14QSSGRhiContext": [
+      "address", "address"
+    ],
     "ritual_ZN19QSSGRhiContextStats16profilingEnabledEv": ["bool"],
     "ritual_ZN19QSSGRhiContextStats20rendererDebugEnabledEv": ["bool"],
     "ritual_ZNK19QSSGRhiContextStats9isEnabledEv": ["bool", "address"],

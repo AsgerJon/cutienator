@@ -53,6 +53,12 @@ public:
   }
 };
 
+//  Qt3DRender::QPickingSettingsPrivate::QPickingSettingsPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingSettingsPrivate *ritual_ZN10Qt3DRender23QPickingSettingsPrivateC1Ev() {
+  return new CuteQt3DRender_QPickingSettingsPrivate();
+}
+
 //  a Python function taken by a CuteQt3DRender_QPickingSettingsPrivate, for
 //      the function named by the key
 extern "C" Q_DECL_EXPORT

@@ -7,6 +7,21 @@
   "rows": {
     "ritual_ZNK27QQuickWidgetOffscreenWindow10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN27QQuickWidgetOffscreenWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuickWidgetOffscreenWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK27QQuickWidgetOffscreenWindow14accessibleRootEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickWidgetOffscreenWindow6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickWidgetOffscreenWindow6d_funcEv": [
+      "address", "address"
     ]
   }
 }

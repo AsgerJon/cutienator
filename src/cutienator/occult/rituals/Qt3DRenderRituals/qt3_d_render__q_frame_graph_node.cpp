@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender15QFrameGraphNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QFrameGraphNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender15QFrameGraphNode11qt_metacastEPKc(
+    Qt3DRender::QFrameGraphNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QFrameGraphNode::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender15QFrameGraphNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QFrameGraphNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QFrameGraphNode::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,45 @@ QString *ritual_ZN10Qt3DRender15QFrameGraphNode2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QFrameGraphNode::tr(s, c, n));
+}
+
+//  Qt3DRender::QFrameGraphNode::QFrameGraphNode(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFrameGraphNode *ritual_ZN10Qt3DRender15QFrameGraphNodeC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QFrameGraphNode(parent);
+}
+
+//  Qt3DRender::QFrameGraphNode::~QFrameGraphNode()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QFrameGraphNodeD1Ev(
+    Qt3DRender::QFrameGraphNode *self) {
+  delete self;
+}
+
+//  QFrameGraphNode *Qt3DRender::QFrameGraphNode::parentFrameGraphNode()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFrameGraphNode *ritual_ZNK10Qt3DRender15QFrameGraphNode20parentFrameGraphNodeEv(
+    const Qt3DRender::QFrameGraphNode *self) {
+  return self->parentFrameGraphNode();
+}
+
+//  Qt3DRender::QFrameGraphNode::QFrameGraphNode(QFrameGraphNodePrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFrameGraphNode *ritual_ZN10Qt3DRender15QFrameGraphNodeC1ERNS_22QFrameGraphNodePrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QFrameGraphNodePrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QFrameGraphNode(*dd, parent);
+}
+
+//  void Qt3DRender::QFrameGraphNode::onParentChanged(QObject *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QFrameGraphNode15onParentChangedEP7QObject(
+    Qt3DRender::QFrameGraphNode *self,
+    QObject *a0) {
+  self->onParentChanged(a0);
 }
 
 //  QFrameGraphNodePrivate *Qt3DRender::QFrameGraphNode::d_func()

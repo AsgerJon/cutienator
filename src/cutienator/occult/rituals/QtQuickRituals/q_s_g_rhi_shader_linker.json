@@ -8,6 +8,12 @@
     "ritual_ZN18QSGRhiShaderLinker5resetERK7QShaderS2_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN18QSGRhiShaderLinker13feedConstantsERKN19QSGShaderEffectNode10ShaderDataEPK4QSetIiE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QSGRhiShaderLinker12feedSamplersERKN19QSGShaderEffectNode10ShaderDataEPK4QSetIiE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN18QSGRhiShaderLinker19linkTextureSubRectsEv": [
       "nothing", "address"
     ],

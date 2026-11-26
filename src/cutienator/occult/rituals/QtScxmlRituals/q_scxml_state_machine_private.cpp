@@ -1,15 +1,19 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  Written by hand on 2026-11-25 from
+//  QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h,
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Qt's StateTable is a typedef of the class, so its Array is written
+//  QScxmlStateMachinePrivate::StateTable::Array. Not written: the
+//  functions taking or giving a std::vector ('stateNames',
+//  'historyStates', 'selectTransitions', 'getProperAncestors',
+//  'getChildStates', 'allInFinalStates', 'someInFinalStates').
+//  'invokedServicesActualCalculation' gives a QList, written as a new
+//  list given as an address.
 #include <QtScxml/6.12.0/QtScxml/private/qscxmlglobals_p.h>
-#include <QtScxml/qscxmlstatemachine.h>
-#include <QtScxml/QtScxml>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qstring.h>
 #include <QtScxml/qscxmlinvokableservice.h>
-#include <QtCore/qlist.h>
+#include <QtCore/qstring.h>
+#include <utility>
 
 //  QScxmlStateMachine *QScxmlStateMachinePrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -201,9 +205,9 @@ void ritual_ZN25QScxmlStateMachinePrivate6attachEP22QScxmlStateMachineInfo(
 
 //  const OrderedSet &QScxmlStateMachinePrivate::configuration() const
 extern "C" Q_DECL_EXPORT
-QScxmlStateMachinePrivate::OrderedSet *ritual_ZNK25QScxmlStateMachinePrivate13configurationEv(
+const QScxmlStateMachinePrivate::OrderedSet *ritual_ZNK25QScxmlStateMachinePrivate13configurationEv(
     const QScxmlStateMachinePrivate *self) {
-  return new QScxmlStateMachinePrivate::OrderedSet(self->configuration());
+  return &(self->configuration());
 }
 
 //  void QScxmlStateMachinePrivate::updateMetaCache()
@@ -227,6 +231,16 @@ void ritual_ZN25QScxmlStateMachinePrivate15returnDoneEventEi(
     QScxmlStateMachinePrivate *self,
     QScxmlExecutableContent::ContainerId doneData) {
   self->returnDoneEvent(doneData);
+}
+
+//  bool QScxmlStateMachinePrivate::nameMatch(const StateTable::Array
+//      &patterns, QScxmlEvent *event) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK25QScxmlStateMachinePrivate9nameMatchERKN23QScxmlExecutableContent10StateTable5ArrayEP11QScxmlEvent(
+    const QScxmlStateMachinePrivate *self,
+    const QScxmlStateMachinePrivate::StateTable::Array *patterns,
+    QScxmlEvent *event) {
+  return self->nameMatch(*patterns, event);
 }
 
 //  void QScxmlStateMachinePrivate::removeConflictingTransitions(OrderedSet
@@ -254,6 +268,16 @@ void ritual_ZN25QScxmlStateMachinePrivate10exitStatesERKNS_10OrderedSetE(
     QScxmlStateMachinePrivate *self,
     const QScxmlStateMachinePrivate::OrderedSet *enabledTransitions) {
   self->exitStates(*enabledTransitions);
+}
+
+//  void QScxmlStateMachinePrivate::computeExitSet(const OrderedSet
+//      &enabledTransitions, OrderedSet &statesToExit) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK25QScxmlStateMachinePrivate14computeExitSetERKNS_10OrderedSetERS0_(
+    const QScxmlStateMachinePrivate *self,
+    const QScxmlStateMachinePrivate::OrderedSet *enabledTransitions,
+    QScxmlStateMachinePrivate::OrderedSet *statesToExit) {
+  self->computeExitSet(*enabledTransitions, *statesToExit);
 }
 
 //  void QScxmlStateMachinePrivate::executeTransitionContent(const OrderedSet
@@ -374,6 +398,14 @@ int ritual_ZNK25QScxmlStateMachinePrivate19getTransitionDomainEi(
   return self->getTransitionDomain(transitionIndex);
 }
 
+//  int QScxmlStateMachinePrivate::findLCCA(OrderedSet &&states) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK25QScxmlStateMachinePrivate8findLCCAEONS_10OrderedSetE(
+    const QScxmlStateMachinePrivate *self,
+    QScxmlStateMachinePrivate::OrderedSet *states) {
+  return self->findLCCA(std::move(*states));
+}
+
 //  void QScxmlStateMachinePrivate::getEffectiveTargetStates(OrderedSet
 //      *targets, int transitionIndex) const
 extern "C" Q_DECL_EXPORT
@@ -421,15 +453,6 @@ void ritual_ZN25QScxmlStateMachinePrivate12setTableDataEP15QScxmlTableData(
   self->setTableData(tableData);
 }
 
-//  QList<QScxmlInvokableService *>
-//      QScxmlStateMachinePrivate::invokedServicesActualCalculation() const
-extern "C" Q_DECL_EXPORT
-QList<QScxmlInvokableService *> *ritual_ZNK25QScxmlStateMachinePrivate32invokedServicesActualCalculationEv(
-    const QScxmlStateMachinePrivate *self) {
-  return new QList<QScxmlInvokableService *>(
-      self->invokedServicesActualCalculation());
-}
-
 //  bool QScxmlStateMachinePrivate::isRunnable() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK25QScxmlStateMachinePrivate10isRunnableEv(
@@ -449,4 +472,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK25QScxmlStateMachinePrivate10isFinishedEv(
     const QScxmlStateMachinePrivate *self) {
   return self->isFinished();
+}
+
+//  QList<QScxmlInvokableService*>
+//      QScxmlStateMachinePrivate::invokedServicesActualCalculation() const
+extern "C" Q_DECL_EXPORT
+QList<QScxmlInvokableService *> *ritual_ZNK25QScxmlStateMachinePrivate32invokedServicesActualCalculationEv(
+    const QScxmlStateMachinePrivate *self) {
+  return new QList<QScxmlInvokableService *>(
+      self->invokedServicesActualCalculation());
 }

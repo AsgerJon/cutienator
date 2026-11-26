@@ -11,6 +11,12 @@
     "ritual_ZNK23QQuickGraphsSurfaceNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickGraphsSurfaceNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickGraphsSurfaceNode2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -45,6 +51,21 @@
     "ritual_ZN23QQuickGraphsSurfaceNode17surfaceSeriesListEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickGraphsSurfaceNode10seriesListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode16appendSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode15countSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesE": [
+      "long long", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode12atSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode15clearSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesE": [
+      "nothing", "address"
+    ],
     "ritual_ZN23QQuickGraphsSurfaceNode9addSeriesEP16QSurface3DSeries": [
       "nothing", "address", "address"
     ],
@@ -62,6 +83,21 @@
     ],
     "ritual_ZN23QQuickGraphsSurfaceNode17componentCompleteEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode12axisXChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode12axisYChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode12axisZChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode21selectedSeriesChangedEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode25flipHorizontalGridChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN23QQuickGraphsSurfaceNode12graphSurfaceEv": [
       "address", "address"
@@ -85,6 +121,9 @@
       "bool", "address", "address", "address"
     ],
     "ritual_own_ZN23QQuickGraphsSurfaceNode17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickGraphsSurfaceNode__QQmlListProperty_QSurface3DSeries": [
       "nothing", "address"
     ]
   }

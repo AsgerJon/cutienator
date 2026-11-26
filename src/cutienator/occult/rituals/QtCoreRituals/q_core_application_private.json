@@ -18,6 +18,9 @@
     "ritual_ZN23QCoreApplicationPrivate13checkInstanceEPKc": [
       "bool", "chars"
     ],
+    "ritual_ZN23QCoreApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN23QCoreApplicationPrivate34sendThroughApplicationEventFiltersEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],
@@ -61,6 +64,9 @@
     "ritual_ZN23QCoreApplicationPrivate17cleanupThreadDataEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QCoreApplicationPrivate23lockThreadPostEventListEP7QObject": [
+      "address", "address"
+    ],
     "ritual_ZN23QCoreApplicationPrivate11execCleanupEv": [
       "nothing", "address"
     ],
@@ -76,6 +82,9 @@
     "ritual_take_QCoreApplicationPrivate": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZN23QCoreApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZN23QCoreApplicationPrivate21createEventDispatcherEv": [
       "nothing", "address"
     ],
@@ -88,6 +97,9 @@
     "ritual_own_ZN23QCoreApplicationPrivate20canQuitAutomaticallyEv": [
       "bool", "address"
     ],
-    "ritual_own_ZN23QCoreApplicationPrivate4quitEv": ["nothing", "address"]
+    "ritual_own_ZN23QCoreApplicationPrivate4quitEv": ["nothing", "address"],
+    "ritual_drop_QCoreApplicationPrivate__QCoreApplicationPrivate_QPostEventListLocker": [
+      "nothing", "address"
+    ]
   }
 }

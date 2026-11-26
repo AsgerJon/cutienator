@@ -33,6 +33,22 @@
       "address", "int"
     ],
     "ritual_ZN15QCanvasGradientC1ERK12QCanvasBrush": ["address", "address"],
-    "ritual_ZN15QCanvasGradientD1Ev": ["nothing", "address"]
+    "ritual_ZN15QCanvasGradientC1ERKS_": ["address", "address"],
+    "ritual_ZN15QCanvasGradientaSERKS_": ["address", "address", "address"],
+    "ritual_ZN15QCanvasGradientC1EOS_": ["address", "address"],
+    "ritual_ZN15QCanvasGradientaSEOS_": ["address", "address", "address"],
+    "ritual_ZN15QCanvasGradientD1Ev": ["nothing", "address"],
+    "ritual_ZN15QCanvasGradient4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZeqRK15QCanvasGradientS1_": ["bool", "address", "address"],
+    "ritual_ZneRK15QCanvasGradientS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK15QCanvasGradient": [
+      "address", "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK15QCanvasGradient": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR15QCanvasGradient": [
+      "address", "address", "address"
+    ]
   }
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17TimeoutTransition10metaObjectEv": ["address", "address"],
+    "ritual_ZN17TimeoutTransition11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17TimeoutTransition11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17TimeoutTransition2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -14,6 +20,9 @@
     "ritual_ZNK17TimeoutTransition7timeoutEv": ["int", "address"],
     "ritual_ZN17TimeoutTransition10setTimeoutEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN17TimeoutTransition15bindableTimeoutEv": [
+      "address", "address"
     ],
     "ritual_ZN17TimeoutTransition10classBeginEv": ["nothing", "address"],
     "ritual_ZN17TimeoutTransition17componentCompleteEv": [
@@ -24,6 +33,7 @@
     "ritual_own_ZN17TimeoutTransition10classBeginEv": ["nothing", "address"],
     "ritual_own_ZN17TimeoutTransition17componentCompleteEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_drop_TimeoutTransition__QBindable_int": ["nothing", "address"]
   }
 }

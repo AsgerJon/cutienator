@@ -5,12 +5,34 @@
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qcolortrclut_p.h>
+#include <QtGui/6.12.0/QtGui/private/qcolortrc_p.h>
 #include <QtGui/6.12.0/QtGui/private/qcolortransferfunction_p.h>
 #include <QtGui/6.12.0/QtGui/private/qcolortransfertable_p.h>
 #include <QtGui/6.12.0/QtGui/private/qcolortransfergeneric_p.h>
-#include <QtGui/6.12.0/QtGui/private/qcolortrc_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qrgba64.h>
+#include <memory>
+
+//  std::shared_ptr<QColorTrcLut> QColorTrcLut::fromGamma(float gamma,
+//      Direction dir)
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QColorTrcLut> *ritual_ZN12QColorTrcLut9fromGammaEfNS_9DirectionE(
+    float gamma,
+    QColorTrcLut::Direction dir) {
+  return new std::shared_ptr<QColorTrcLut>(
+      QColorTrcLut::fromGamma(
+          gamma,
+          dir));
+}
+
+//  std::shared_ptr<QColorTrcLut> QColorTrcLut::fromTrc(const QColorTrc &trc,
+//      Direction dir)
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QColorTrcLut> *ritual_ZN12QColorTrcLut7fromTrcERK9QColorTrcNS_9DirectionE(
+    const QColorTrc *trc,
+    QColorTrcLut::Direction dir) {
+  return new std::shared_ptr<QColorTrcLut>(QColorTrcLut::fromTrc(*trc, dir));
+}
 
 //  void QColorTrcLut::setFromGamma(float gamma, Direction dir)
 extern "C" Q_DECL_EXPORT
@@ -160,4 +182,34 @@ float ritual_ZNK12QColorTrcLut10fromLinearEf(
 extern "C" Q_DECL_EXPORT
 QColorTrcLut *ritual_ZN12QColorTrcLutC1Ev() {
   return new QColorTrcLut();
+}
+
+//  std::shared_ptr<QColorTrcLut> QColorTrcLut::create()
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QColorTrcLut> *ritual_ZN12QColorTrcLut6createEv() {
+  return new std::shared_ptr<QColorTrcLut>(QColorTrcLut::create());
+}
+
+//  QRgb QColorTrcLut::convertWithTable(QRgb rgb32, const ushort *table)
+extern "C" Q_DECL_EXPORT
+QRgb ritual_ZN12QColorTrcLut16convertWithTableEjPKt(
+    QRgb rgb32,
+    const ushort *table) {
+  return QColorTrcLut::convertWithTable(rgb32, table);
+}
+
+//  QRgba64 QColorTrcLut::convertWithTable(QRgba64 rgb64, const ushort
+//      *table)
+extern "C" Q_DECL_EXPORT
+QRgba64 *ritual_ZN12QColorTrcLut16convertWithTableE7QRgba64PKt(
+    const QRgba64 *rgb64,
+    const ushort *table) {
+  return new QRgba64(QColorTrcLut::convertWithTable(*rgb64, table));
+}
+
+//  a std::shared_ptr<QColorTrcLut> a ritual of QColorTrcLut gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QColorTrcLut__std_shared_ptr_QColorTrcLut(
+    std::shared_ptr<QColorTrcLut> *self) {
+  delete self;
 }

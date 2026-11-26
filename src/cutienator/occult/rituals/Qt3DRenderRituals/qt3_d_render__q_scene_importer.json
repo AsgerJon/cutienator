@@ -8,6 +8,12 @@
     "ritual_ZNK10Qt3DRender14QSceneImporter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender14QSceneImporter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender14QSceneImporter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender14QSceneImporter2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,25 @@
     ],
     "ritual_ZN10Qt3DRender14QSceneImporter4nodeERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_ZNK10Qt3DRender14QSceneImporter6statusEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender14QSceneImporter6errorsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QSceneImporter13statusChangedENS0_12ParserStatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QSceneImporter13errorsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QSceneImporter9setStatusENS0_12ParserStatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QSceneImporter8logErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender14QSceneImporter7logInfoERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_take_Qt3DRender_QSceneImporter": [
       "bool", "address", "chars", "address"

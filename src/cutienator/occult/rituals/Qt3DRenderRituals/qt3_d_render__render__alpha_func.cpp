@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_AlphaFuncCall0)(const void *, const Qt3DRen
 class CuteQt3DRender_Render_AlphaFunc : public Qt3DRender::Render::AlphaFunc {
 public:
   using Qt3DRender::Render::AlphaFunc::AlphaFunc;
-  CuteQt3DRender_Render_AlphaFunc(const Qt3DRender::Render::AlphaFunc &other) : Qt3DRender::Render::AlphaFunc(other) {}
+  CuteQt3DRender_Render_AlphaFunc(const Qt3DRender::Render::AlphaFunc & other) : Qt3DRender::Render::AlphaFunc(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::AlphaFunc::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::AlphaFunc::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9AlphaFunc16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::AlphaFunc *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::AlphaFunc::~AlphaFunc()
 extern "C" Q_DECL_EXPORT

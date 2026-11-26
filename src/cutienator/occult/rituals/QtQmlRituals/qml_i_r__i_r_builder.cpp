@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmlirbuilder_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qqmlirbuilder_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: added by hand, instances of templates of the class: 5.
+//  Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,9 +9,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4compileddata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstringview.h>
+#include <QtCore/qtyperevision.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 
 //  A QmlIR::IRBuilder that Python can take functions over in. Every QmlIR::IRBuilder
@@ -254,7 +259,7 @@ typedef void (*CuteQmlIR_IRBuilderCall234)(const void *, QQmlJS::AST::TypeAnnota
 class CuteQmlIR_IRBuilder : public QmlIR::IRBuilder {
 public:
   using QmlIR::IRBuilder::IRBuilder;
-  CuteQmlIR_IRBuilder(const QmlIR::IRBuilder &other) : QmlIR::IRBuilder(other) {}
+  CuteQmlIR_IRBuilder(const QmlIR::IRBuilder & other) : QmlIR::IRBuilder(other) {}
   void *taken[235] = {};
 
   bool take(const char *key, void *call) {
@@ -3805,11 +3810,153 @@ QString *ritual_ZN5QmlIR9IRBuilder2trEPKcS2_i(
   return new QString(QmlIR::IRBuilder::tr(sourceText, disambiguation, n));
 }
 
+//  QmlIR::IRBuilder::IRBuilder()
+extern "C" Q_DECL_EXPORT
+QmlIR::IRBuilder *ritual_ZN5QmlIR9IRBuilderC1Ev() {
+  return new CuteQmlIR_IRBuilder();
+}
+
+//  bool QmlIR::IRBuilder::generateFromQml(const QString &code, const QString
+//      &url, Document *output)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder15generateFromQmlERK7QStringS3_PNS_8DocumentE(
+    QmlIR::IRBuilder *self,
+    const QString *code,
+    const QString *url,
+    QmlIR::Document *output) {
+  return self->generateFromQml(*code, *url, output);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiImport *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST8UiImportE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiImport *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiPragma *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST8UiPragmaE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiPragma *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiProgram *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST9UiProgramE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiProgram *a0) {
+  return self->visit(a0);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiArrayBinding *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST14UiArrayBindingE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiArrayBinding *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiObjectBinding *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST15UiObjectBindingE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiObjectBinding *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiObjectDefinition *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST18UiObjectDefinitionE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiObjectDefinition *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiInlineComponent *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST17UiInlineComponentE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiInlineComponent *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiEnumDeclaration *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST17UiEnumDeclarationE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiEnumDeclaration *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiPublicMember *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST14UiPublicMemberE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiPublicMember *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiScriptBinding *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST15UiScriptBindingE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiScriptBinding *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiSourceElement *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST15UiSourceElementE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiSourceElement *ast) {
+  return self->visit(ast);
+}
+
+//  bool QmlIR::IRBuilder::visit(QQmlJS::AST::UiRequired *ast)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST10UiRequiredE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiRequired *ast) {
+  return self->visit(ast);
+}
+
 //  void QmlIR::IRBuilder::throwRecursionDepthError()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QmlIR9IRBuilder24throwRecursionDepthErrorEv(
     QmlIR::IRBuilder *self) {
   self->throwRecursionDepthError();
+}
+
+//  void QmlIR::IRBuilder::accept(QQmlJS::AST::Node *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR9IRBuilder6acceptEPN6QQmlJS3AST4NodeE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::Node *node) {
+  self->accept(node);
+}
+
+//  bool QmlIR::IRBuilder::defineQMLObject(int *objectIndex,
+//      QQmlJS::AST::UiQualifiedId *qualifiedTypeNameId, const
+//      QV4::CompiledData::Location &location,
+//      QQmlJS::AST::UiObjectInitializer *initializer, Object
+//      *declarationsOverride)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder15defineQMLObjectEPiPN6QQmlJS3AST13UiQualifiedIdERKN3QV412CompiledData8LocationEPNS3_19UiObjectInitializerEPNS_6ObjectE(
+    QmlIR::IRBuilder *self,
+    int *objectIndex,
+    QQmlJS::AST::UiQualifiedId *qualifiedTypeNameId,
+    const QV4::CompiledData::Location *location,
+    QQmlJS::AST::UiObjectInitializer *initializer,
+    QmlIR::Object *declarationsOverride) {
+  return self->defineQMLObject(
+      objectIndex,
+      qualifiedTypeNameId,
+      *location,
+      initializer,
+      declarationsOverride);
 }
 
 //  bool QmlIR::IRBuilder::defineQMLObject(int *objectIndex,
@@ -3823,6 +3970,30 @@ bool ritual_ZN5QmlIR9IRBuilder15defineQMLObjectEPiPN6QQmlJS3AST18UiObjectDefinit
   return self->defineQMLObject(objectIndex, node, declarationsOverride);
 }
 
+//  QString QmlIR::IRBuilder::asString(QQmlJS::AST::UiQualifiedId *node)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QmlIR9IRBuilder8asStringEPN6QQmlJS3AST13UiQualifiedIdE(
+    QQmlJS::AST::UiQualifiedId *node) {
+  return new QString(QmlIR::IRBuilder::asString(node));
+}
+
+//  QStringView QmlIR::IRBuilder::asStringRef(QQmlJS::AST::Node *node)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QmlIR9IRBuilder11asStringRefEPN6QQmlJS3AST4NodeE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::Node *node) {
+  return new QString(self->asStringRef(node).toString());
+}
+
+//  QTypeRevision QmlIR::IRBuilder::extractVersion(QStringView string)
+extern "C" Q_DECL_EXPORT
+QTypeRevision *ritual_ZN5QmlIR9IRBuilder14extractVersionE11QStringView(
+    const QString *string) {
+  return new QTypeRevision(
+      QmlIR::IRBuilder::extractVersion(
+          QStringView(*string)));
+}
+
 //  QStringView QmlIR::IRBuilder::textRefAt(const QQmlJS::SourceLocation
 //      &loc) const
 extern "C" Q_DECL_EXPORT
@@ -3830,6 +4001,16 @@ QString *ritual_ZNK5QmlIR9IRBuilder9textRefAtERKN6QQmlJS14SourceLocationE(
     const QmlIR::IRBuilder *self,
     const QQmlJS::SourceLocation *loc) {
   return new QString(self->textRefAt(*loc).toString());
+}
+
+//  QStringView QmlIR::IRBuilder::textRefAt(const QQmlJS::SourceLocation
+//      &first, const QQmlJS::SourceLocation &last) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK5QmlIR9IRBuilder9textRefAtERKN6QQmlJS14SourceLocationES4_(
+    const QmlIR::IRBuilder *self,
+    const QQmlJS::SourceLocation *first,
+    const QQmlJS::SourceLocation *last) {
+  return new QString(self->textRefAt(*first, *last).toString());
 }
 
 //  void QmlIR::IRBuilder::setBindingValue(QV4::CompiledData::Binding
@@ -3844,6 +4025,89 @@ void ritual_ZN5QmlIR9IRBuilder15setBindingValueEPN3QV412CompiledData7BindingEPN6
   self->setBindingValue(binding, statement, parentNode);
 }
 
+//  void QmlIR::IRBuilder::tryGeneratingTranslationBinding(QStringView base,
+//      QQmlJS::AST::ArgumentList *args, QV4::CompiledData::Binding *binding)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR9IRBuilder31tryGeneratingTranslationBindingE11QStringViewPN6QQmlJS3AST12ArgumentListEPN3QV412CompiledData7BindingE(
+    QmlIR::IRBuilder *self,
+    const QString *base,
+    QQmlJS::AST::ArgumentList *args,
+    QV4::CompiledData::Binding *binding) {
+  self->tryGeneratingTranslationBinding(QStringView(*base), args, binding);
+}
+
+//  void QmlIR::IRBuilder::appendBinding(QQmlJS::AST::UiQualifiedId *name,
+//      QQmlJS::AST::Statement *value, QQmlJS::AST::Node *parentNode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR9IRBuilder13appendBindingEPN6QQmlJS3AST13UiQualifiedIdEPNS2_9StatementEPNS2_4NodeE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiQualifiedId *name,
+    QQmlJS::AST::Statement *value,
+    QQmlJS::AST::Node *parentNode) {
+  self->appendBinding(name, value, parentNode);
+}
+
+//  void QmlIR::IRBuilder::appendBinding(QQmlJS::AST::UiQualifiedId *name,
+//      int objectIndex, bool isOnAssignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR9IRBuilder13appendBindingEPN6QQmlJS3AST13UiQualifiedIdEib(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiQualifiedId *name,
+    int objectIndex,
+    bool isOnAssignment) {
+  self->appendBinding(name, objectIndex, isOnAssignment);
+}
+
+//  void QmlIR::IRBuilder::appendBinding(const QQmlJS::SourceLocation
+//      &qualifiedNameLocation, const QQmlJS::SourceLocation &nameLocation,
+//      quint32 propertyNameIndex, QQmlJS::AST::Statement *value,
+//      QQmlJS::AST::Node *parentNode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR9IRBuilder13appendBindingERKN6QQmlJS14SourceLocationES4_jPNS1_3AST9StatementEPNS5_4NodeE(
+    QmlIR::IRBuilder *self,
+    const QQmlJS::SourceLocation *qualifiedNameLocation,
+    const QQmlJS::SourceLocation *nameLocation,
+    quint32 propertyNameIndex,
+    QQmlJS::AST::Statement *value,
+    QQmlJS::AST::Node *parentNode) {
+  self->appendBinding(
+      *qualifiedNameLocation,
+      *nameLocation,
+      propertyNameIndex,
+      value,
+      parentNode);
+}
+
+//  void QmlIR::IRBuilder::appendBinding(const QQmlJS::SourceLocation
+//      &qualifiedNameLocation, const QQmlJS::SourceLocation &nameLocation,
+//      quint32 propertyNameIndex, int objectIndex, bool isListItem, bool
+//      isOnAssignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR9IRBuilder13appendBindingERKN6QQmlJS14SourceLocationES4_jibb(
+    QmlIR::IRBuilder *self,
+    const QQmlJS::SourceLocation *qualifiedNameLocation,
+    const QQmlJS::SourceLocation *nameLocation,
+    quint32 propertyNameIndex,
+    int objectIndex,
+    bool isListItem,
+    bool isOnAssignment) {
+  self->appendBinding(
+      *qualifiedNameLocation,
+      *nameLocation,
+      propertyNameIndex,
+      objectIndex,
+      isListItem,
+      isOnAssignment);
+}
+
+//  bool QmlIR::IRBuilder::appendAlias(QQmlJS::AST::UiPublicMember *node)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder11appendAliasEPN6QQmlJS3AST14UiPublicMemberE(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiPublicMember *node) {
+  return self->appendAlias(node);
+}
+
 //  void
 //      QmlIR::IRBuilder::registerFunctionExpr(QQmlJS::AST::FunctionExpressio
 //      n *fexp, IsQmlFunction a1)
@@ -3853,6 +4117,44 @@ void ritual_ZN5QmlIR9IRBuilder20registerFunctionExprEPN6QQmlJS3AST18FunctionExpr
     QQmlJS::AST::FunctionExpression *fexp,
     QmlIR::IRBuilder::IsQmlFunction a1) {
   self->registerFunctionExpr(fexp, a1);
+}
+
+//  Object *QmlIR::IRBuilder::bindingsTarget() const
+extern "C" Q_DECL_EXPORT
+QmlIR::Object *ritual_ZNK5QmlIR9IRBuilder14bindingsTargetEv(
+    const QmlIR::IRBuilder *self) {
+  return self->bindingsTarget();
+}
+
+//  bool QmlIR::IRBuilder::setId(const QQmlJS::SourceLocation &idLocation,
+//      QQmlJS::AST::Statement *value)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder5setIdERKN6QQmlJS14SourceLocationEPNS1_3AST9StatementE(
+    QmlIR::IRBuilder *self,
+    const QQmlJS::SourceLocation *idLocation,
+    QQmlJS::AST::Statement *value) {
+  return self->setId(*idLocation, value);
+}
+
+//  bool QmlIR::IRBuilder::resolveQualifiedId(QQmlJS::AST::UiQualifiedId
+//      **nameToResolve, Object **object, bool onAssignment)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder18resolveQualifiedIdEPPN6QQmlJS3AST13UiQualifiedIdEPPNS_6ObjectEb(
+    QmlIR::IRBuilder *self,
+    QQmlJS::AST::UiQualifiedId **nameToResolve,
+    QmlIR::Object **object,
+    bool onAssignment) {
+  return self->resolveQualifiedId(nameToResolve, object, onAssignment);
+}
+
+//  void QmlIR::IRBuilder::recordError(const QQmlJS::SourceLocation
+//      &location, const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR9IRBuilder11recordErrorERKN6QQmlJS14SourceLocationERK7QString(
+    QmlIR::IRBuilder *self,
+    const QQmlJS::SourceLocation *location,
+    const QString *description) {
+  self->recordError(*location, *description);
 }
 
 //  quint32 QmlIR::IRBuilder::registerString(const QString &str) const
@@ -3869,6 +4171,35 @@ QString *ritual_ZNK5QmlIR9IRBuilder8stringAtEi(
     const QmlIR::IRBuilder *self,
     int index) {
   return new QString(self->stringAt(index));
+}
+
+//  bool QmlIR::IRBuilder::isStatementNodeScript(QQmlJS::AST::Statement
+//      *statement)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder21isStatementNodeScriptEPN6QQmlJS3AST9StatementE(
+    QQmlJS::AST::Statement *statement) {
+  return QmlIR::IRBuilder::isStatementNodeScript(statement);
+}
+
+//  bool QmlIR::IRBuilder::isRedundantNullInitializerForPropertyDeclaration(P
+//      roperty *property, QQmlJS::AST::Statement *statement)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QmlIR9IRBuilder48isRedundantNullInitializerForPropertyDeclarationEPNS_8PropertyEPN6QQmlJS3AST9StatementE(
+    QmlIR::Property *property,
+    QQmlJS::AST::Statement *statement) {
+  return QmlIR::IRBuilder::isRedundantNullInitializerForPropertyDeclaration(
+      property,
+      statement);
+}
+
+//  QString QmlIR::IRBuilder::sanityCheckFunctionNames(Object *obj,
+//      QQmlJS::SourceLocation *errorLocation)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QmlIR9IRBuilder24sanityCheckFunctionNamesEPNS_6ObjectEPN6QQmlJS14SourceLocationE(
+    QmlIR::IRBuilder *self,
+    QmlIR::Object *obj,
+    QQmlJS::SourceLocation *errorLocation) {
+  return new QString(self->sanityCheckFunctionNames(obj, errorLocation));
 }
 
 //  QmlIR::IRBuilder::~IRBuilder()
@@ -4011,4 +4342,39 @@ void ritual_own_ZN5QmlIR9IRBuilder20registerFunctionExprEPN6QQmlJS3AST18Function
     QQmlJS::AST::FunctionExpression *fexp,
     QmlIR::IRBuilder::IsQmlFunction a1) {
   self->QmlIR::IRBuilder::registerFunctionExpr(fexp, a1);
+}
+
+//  QmlIR::Object *QmlIR::IRBuilder::New<QmlIR::Object>()
+extern "C" Q_DECL_EXPORT
+QmlIR::Object * ritual_ZN5QmlIR9IRBuilder3NewINS_6ObjectEEEPT_v(
+    QmlIR::IRBuilder *self) {
+  return self->New<QmlIR::Object>();
+}
+
+//  QmlIR::Pragma *QmlIR::IRBuilder::New<QmlIR::Pragma>()
+extern "C" Q_DECL_EXPORT
+QmlIR::Pragma * ritual_ZN5QmlIR9IRBuilder3NewINS_6PragmaEEEPT_v(
+    QmlIR::IRBuilder *self) {
+  return self->New<QmlIR::Pragma>();
+}
+
+//  QmlIR::Enum *QmlIR::IRBuilder::New<QmlIR::Enum>()
+extern "C" Q_DECL_EXPORT
+QmlIR::Enum * ritual_ZN5QmlIR9IRBuilder3NewINS_4EnumEEEPT_v(
+    QmlIR::IRBuilder *self) {
+  return self->New<QmlIR::Enum>();
+}
+
+//  QmlIR::EnumValue *QmlIR::IRBuilder::New<QmlIR::EnumValue>()
+extern "C" Q_DECL_EXPORT
+QmlIR::EnumValue * ritual_ZN5QmlIR9IRBuilder3NewINS_9EnumValueEEEPT_v(
+    QmlIR::IRBuilder *self) {
+  return self->New<QmlIR::EnumValue>();
+}
+
+//  QmlIR::Signal *QmlIR::IRBuilder::New<QmlIR::Signal>()
+extern "C" Q_DECL_EXPORT
+QmlIR::Signal * ritual_ZN5QmlIR9IRBuilder3NewINS_6SignalEEEPT_v(
+    QmlIR::IRBuilder *self) {
+  return self->New<QmlIR::Signal>();
 }

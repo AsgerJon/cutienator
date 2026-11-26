@@ -29,10 +29,40 @@ QPainterPath *ritual_ZN12QPainterPathC1ERKS_(const QPainterPath *other) {
   return new QPainterPath(*other);
 }
 
+//  QPainterPath &QPainterPath::operator=(const QPainterPath &other)
+extern "C" Q_DECL_EXPORT
+QPainterPath *ritual_ZN12QPainterPathaSERKS_(
+    QPainterPath *self,
+    const QPainterPath *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPainterPath::QPainterPath(QPainterPath &&other)
+extern "C" Q_DECL_EXPORT
+QPainterPath *ritual_ZN12QPainterPathC1EOS_(QPainterPath *other) {
+  return new QPainterPath(std::move(*other));
+}
+
+//  QPainterPath &QPainterPath::operator=(QPainterPath &&other)
+extern "C" Q_DECL_EXPORT
+QPainterPath *ritual_ZN12QPainterPathaSEOS_(
+    QPainterPath *self,
+    QPainterPath *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QPainterPath::~QPainterPath()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QPainterPathD1Ev(QPainterPath *self) {
   delete self;
+}
+
+//  void QPainterPath::swap(QPainterPath &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPainterPath4swapERS_(
+    QPainterPath *self,
+    QPainterPath *other) {
+  self->swap(*other);
 }
 
 //  void QPainterPath::clear()
@@ -699,6 +729,26 @@ QPainterPathPrivate *ritual_ZNK12QPainterPath6d_funcEv(
     const QPainterPath *self) {
   return self->d_func();
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QPainterPath &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK12QPainterPath(
+    QDataStream *a0,
+    const QPainterPath *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QPainterPath &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR12QPainterPath(
+    QDataStream *a0,
+    QPainterPath *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 //  QList<QPainterPath>::QList()
 extern "C" Q_DECL_EXPORT

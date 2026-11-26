@@ -8,8 +8,39 @@
     "ritual_ZNK10Qt3DRender17QEnvironmentLight10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender17QEnvironmentLight11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender17QEnvironmentLight11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender17QEnvironmentLight2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QEnvironmentLightC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QEnvironmentLightD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender17QEnvironmentLight10irradianceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QEnvironmentLight8specularEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QEnvironmentLight13setIrradianceEPNS_16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QEnvironmentLight11setSpecularEPNS_16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QEnvironmentLightC1ERNS_24QEnvironmentLightPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QEnvironmentLight17irradianceChangedEPNS_16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QEnvironmentLight15specularChangedEPNS_16QAbstractTextureE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN10Qt3DRender17QEnvironmentLight6d_funcEv": [
       "address", "address"

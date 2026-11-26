@@ -14,10 +14,40 @@ QPlaceRatings *ritual_ZN13QPlaceRatingsC1ERKS_(const QPlaceRatings *other) {
   return new QPlaceRatings(*other);
 }
 
+//  QPlaceRatings::QPlaceRatings(QPlaceRatings &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceRatings *ritual_ZN13QPlaceRatingsC1EOS_(QPlaceRatings *other) {
+  return new QPlaceRatings(std::move(*other));
+}
+
 //  QPlaceRatings::~QPlaceRatings()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QPlaceRatingsD1Ev(QPlaceRatings *self) {
   delete self;
+}
+
+//  QPlaceRatings &QPlaceRatings::operator=(const QPlaceRatings &other)
+extern "C" Q_DECL_EXPORT
+QPlaceRatings *ritual_ZN13QPlaceRatingsaSERKS_(
+    QPlaceRatings *self,
+    const QPlaceRatings *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlaceRatings &QPlaceRatings::operator=(QPlaceRatings &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceRatings *ritual_ZN13QPlaceRatingsaSEOS_(
+    QPlaceRatings *self,
+    QPlaceRatings *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlaceRatings::swap(QPlaceRatings &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPlaceRatings4swapERS_(
+    QPlaceRatings *self,
+    QPlaceRatings *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPlaceRatings &lhs, const QPlaceRatings &rhs)

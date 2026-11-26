@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN17QStyleOptionFrameC1Ev": ["address"],
     "ritual_ZN17QStyleOptionFrameC1ERKS_": ["address", "address"],
+    "ritual_ZN17QStyleOptionFrameaSERKS_": ["address", "address", "address"],
     "ritual_ZN17QStyleOptionFrameC1Ei": ["address", "int"],
     "ritual_ZN17QStyleOptionFrameD1Ev": ["nothing", "address"]
   }

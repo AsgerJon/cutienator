@@ -8,11 +8,18 @@
     "ritual_ZNK21QPlatformAudioDevices10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QPlatformAudioDevices11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QPlatformAudioDevices11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QPlatformAudioDevices2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN21QPlatformAudioDevicesC1Ev": ["address"],
     "ritual_ZN21QPlatformAudioDevicesD1Ev": ["nothing", "address"],
+    "ritual_ZN21QPlatformAudioDevices6createEv": ["address"],
     "ritual_ZNK21QPlatformAudioDevices11audioInputsEv": [
       "address", "address"
     ],
@@ -55,6 +62,12 @@
     "ritual_ZN21QPlatformAudioDevices23updateAudioOutputsCacheEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QPlatformAudioDevices18audioInputsChangedENS_10PrivateTagE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDevices19audioOutputsChangedENS_10PrivateTagE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QPlatformAudioDevices": [
       "bool", "address", "chars", "address"
     ],
@@ -69,6 +82,9 @@
     ],
     "ritual_own_ZNK21QPlatformAudioDevices14hasCallbackApiEv": [
       "bool", "address"
+    ],
+    "ritual_drop_QPlatformAudioDevices__std_unique_ptr_QPlatformAudioDevices": [
+      "nothing", "address"
     ]
   }
 }

@@ -6,7 +6,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qvariant.h>
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
+#include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtRemoteObjects/qremoteobjectreplica.h>
 #include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -22,6 +26,18 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qthread.h>
 #include <limits>
+#include <QtRemoteObjects/qremoteobjectsource.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/qremoteobjectnode.h>
+#include <QtRemoteObjects/qremoteobjectdynamicreplica.h>
+#include <QtRemoteObjects/private/qconnectionfactories_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsourceio_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodeladapter_p.h>
+#include <QtCore/qmetaobject.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/qabstractitemmodel.h>
+#include <algorithm>
+#include <iterator>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -31,9 +47,80 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace QRemoteObjectStringLiterals;
+
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
+{
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 55, as _ZN34QRemoteObjectReplicaImplementationD2Ev
 inline QRemoteObjectReplicaImplementation::~QRemoteObjectReplicaImplementation()
 {
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 401, as _ZN23QRemoteObjectSourceBase6invokeEN11QMetaObject4CallEiRK5QListI8QVariantEPS3_
+inline bool QRemoteObjectSourceBase::invoke(QMetaObject::Call c, int index, const QVariantList &args, QVariant* returnValue)
+{
+    int status = -1;
+    int flags = 0;
+    bool forAdapter = (c == QMetaObject::InvokeMetaMethod ? m_api->isAdapterMethod(index) : m_api->isAdapterProperty(index));
+    int resolvedIndex = (c == QMetaObject::InvokeMetaMethod ? m_api->sourceMethodIndex(index) : m_api->sourcePropertyIndex(index));
+    if (resolvedIndex < 0)
+        return false;
+    QVarLengthArray<void*, 10> param(args.size() + 1);
+
+    if (c == QMetaObject::InvokeMetaMethod) {
+        QMetaMethod method;
+        if (!forAdapter)
+            method = parent()->metaObject()->method(resolvedIndex);
+
+        if (returnValue) {
+            if (!forAdapter && method.isValid() && method.returnType() == QMetaType::QVariant)
+                param[0] = const_cast<void*>(reinterpret_cast<const void*>(returnValue));
+            else
+                param[0] = returnValue->data();
+        } else {
+            param[0] = nullptr;
+        }
+
+        auto argument = [&](int i) -> void * {
+            if ((forAdapter && m_api->methodParameterType(index, i) == QMetaType::QVariant) ||
+                    (method.isValid() && method.parameterType(i) == QMetaType::QVariant)) {
+                return const_cast<void*>(reinterpret_cast<const void*>(&args.at(i)));
+            }
+            return const_cast<void*>(args.at(i).data());
+        };
+
+        for (int i = 0; i < args.size(); ++i) {
+            param[i + 1] = argument(i);
+        }
+    } else if (c == QMetaObject::WriteProperty || c == QMetaObject::ReadProperty) {
+        bool isQVariant = !forAdapter && parent()->metaObject()->property(resolvedIndex).userType() == QMetaType::QVariant;
+        for (int i = 0; i < args.size(); ++i) {
+            if (isQVariant)
+                param[i] = const_cast<void*>(reinterpret_cast<const void*>(&args.at(i)));
+            else
+                param[i] = const_cast<void*>(args.at(i).data());
+        }
+        if (c == QMetaObject::WriteProperty) {
+            Q_ASSERT(param.size() == 2); // for return-value and setter value
+            // check QMetaProperty::write for an explanation of these
+            param.append(&status);
+            param.append(&flags);
+        }
+    } else {
+        // Better safe than sorry
+        return false;
+    }
+    int r = -1;
+    if (forAdapter)
+        r = m_adapter->qt_metacall(c, resolvedIndex, param.data());
+    else
+        r = parent()->qt_metacall(c, resolvedIndex, param.data());
+    return r == -1 && status == -1;
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 505, as _ZN34QRemoteObjectReplicaImplementation16configurePrivateEP20QRemoteObjectReplica
@@ -119,11 +206,94 @@ inline void QRemoteObjectReplicaImplementation::setDynamicProperties(QVariantLis
     //rely on order of properties;
     setProperties(std::move(values));
 }
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 860, as _ZN31QInProcessReplicaImplementation13setPropertiesEO5QListI8QVariantE
+inline void QInProcessReplicaImplementation::setProperties(QVariantList &&)
+{
+    //TODO some verification here maybe?
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 874, as _ZN31QInProcessReplicaImplementation7_q_sendEN11QMetaObject4CallEiRK5QListI8QVariantE
+inline void QInProcessReplicaImplementation::_q_send(QMetaObject::Call call, int index, const QVariantList &args)
+{
+    Q_ASSERT(call == QMetaObject::InvokeMetaMethod || call == QMetaObject::WriteProperty);
+
+    const SourceApiMap *api = connectionToSource->m_api;
+    if (call == QMetaObject::InvokeMetaMethod) {
+        const int resolvedIndex = api->sourceMethodIndex(index - m_methodOffset);
+        if (resolvedIndex < 0)
+            qCWarning(QT_REMOTEOBJECT) << "Skipping invalid invocation.  Index not found:" << index - m_methodOffset;
+        else
+            connectionToSource->invoke(call, index - m_methodOffset, args);
+    } else {
+        const int resolvedIndex = connectionToSource->m_api->sourcePropertyIndex(index - m_propertyOffset);
+        if (resolvedIndex < 0)
+            qCWarning(QT_REMOTEOBJECT) << "Skipping invalid property setter.  Index not found:" << index - m_propertyOffset;
+        else
+            connectionToSource->invoke(call, index - m_propertyOffset, args);
+    }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 894, as _ZN31QInProcessReplicaImplementation16_q_sendWithReplyEN11QMetaObject4CallEiRK5QListI8QVariantE
+inline QRemoteObjectPendingCall QInProcessReplicaImplementation::_q_sendWithReply(QMetaObject::Call call, int index, const QVariantList &args)
+{
+    Q_ASSERT(call == QMetaObject::InvokeMetaMethod);
+
+    const int ReplicaIndex = index - m_methodOffset;
+    auto metaType = QMetaType::fromName(connectionToSource->m_api->typeName(ReplicaIndex).constData());
+    if (!metaType.sizeOf())
+        metaType = QMetaType(QMetaType::UnknownType);
+    QVariant returnValue(metaType, nullptr);
+
+    const int resolvedIndex = connectionToSource->m_api->sourceMethodIndex(ReplicaIndex);
+    if (resolvedIndex < 0) {
+        qCWarning(QT_REMOTEOBJECT) << "Skipping invalid invocation.  Index not found:" << ReplicaIndex;
+        return QRemoteObjectPendingCall();
+    }
+
+    connectionToSource->invoke(call, ReplicaIndex, args, &returnValue);
+    return QRemoteObjectPendingCall::fromCompletedCall(returnValue);
+}
 //  -----------------------------------------------------------------------
+
+//  void QInProcessReplicaImplementation::setProperties(QVariantList &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QInProcessReplicaImplementation13setPropertiesEO5QListI8QVariantE(
+    QInProcessReplicaImplementation *self,
+    QVariantList *a0) {
+  self->setProperties(std::move(*a0));
+}
 
 //  bool QInProcessReplicaImplementation::isShortCircuit() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK31QInProcessReplicaImplementation14isShortCircuitEv(
     const QInProcessReplicaImplementation *self) {
   return self->isShortCircuit();
+}
+
+//  void QInProcessReplicaImplementation::_q_send(QMetaObject::Call call, int
+//      index, const QVariantList &args)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QInProcessReplicaImplementation7_q_sendEN11QMetaObject4CallEiRK5QListI8QVariantE(
+    QInProcessReplicaImplementation *self,
+    QMetaObject::Call call,
+    int index,
+    const QList<QVariant> *args) {
+  self->_q_send(call, index, *args);
+}
+
+//  QRemoteObjectPendingCall
+//      QInProcessReplicaImplementation::_q_sendWithReply(QMetaObject::Call
+//      call, int index, const QVariantList &args)
+extern "C" Q_DECL_EXPORT
+QRemoteObjectPendingCall *ritual_ZN31QInProcessReplicaImplementation16_q_sendWithReplyEN11QMetaObject4CallEiRK5QListI8QVariantE(
+    QInProcessReplicaImplementation *self,
+    QMetaObject::Call call,
+    int index,
+    const QList<QVariant> *args) {
+  return new QRemoteObjectPendingCall(
+      self->_q_sendWithReply(
+          call,
+          index,
+          *args));
 }

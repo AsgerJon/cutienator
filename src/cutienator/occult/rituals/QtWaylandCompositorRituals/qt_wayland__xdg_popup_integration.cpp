@@ -17,4 +17,48 @@ const QMetaObject *ritual_ZNK9QtWayland19XdgPopupIntegration10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtWayland::XdgPopupIntegration::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QtWayland19XdgPopupIntegration11qt_metacastEPKc(
+    QtWayland::XdgPopupIntegration *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtWayland::XdgPopupIntegration::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QtWayland19XdgPopupIntegration11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtWayland::XdgPopupIntegration *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QtWayland::XdgPopupIntegration::handleGeometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland19XdgPopupIntegration21handleGeometryChangedEv(
+    QtWayland::XdgPopupIntegration *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QtWayland::XdgPopupIntegration")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handleGeometryChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handleGeometryChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 #endif  // QT_CONFIG(wayland_compositor_quick)

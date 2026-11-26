@@ -84,21 +84,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/widgets/qcombobox.cpp, line 83, as _ZN17QComboBoxListView11resizeEventEP12QResizeEvent
-inline void QComboBoxListView::resizeEvent(QResizeEvent *event)
-{
-    resizeContents(viewport()->width(), contentsSize().height());
-    QListView::resizeEvent(event);
-}
-
-//  from src/widgets/widgets/qcombobox.cpp, line 89, as _ZNK17QComboBoxListView18initViewItemOptionEP20QStyleOptionViewItem
-inline void QComboBoxListView::initViewItemOption(QStyleOptionViewItem *option) const
-{
-    QListView::initViewItemOption(option);
-    option->showDecorationSelected = true;
-    if (combo)
-        option->font = combo->font();
-}
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/widgets/qcombobox.cpp, line 97, as _ZN17QComboBoxListView10paintEventEP11QPaintEvent
 inline void QComboBoxListView::paintEvent(QPaintEvent *e)
@@ -122,6 +108,22 @@ inline void QComboBoxListView::paintEvent(QPaintEvent *e)
         }
     }
     QListView::paintEvent(e);
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 83, as _ZN17QComboBoxListView11resizeEventEP12QResizeEvent
+inline void QComboBoxListView::resizeEvent(QResizeEvent *event)
+{
+    resizeContents(viewport()->width(), contentsSize().height());
+    QListView::resizeEvent(event);
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 89, as _ZNK17QComboBoxListView18initViewItemOptionEP20QStyleOptionViewItem
+inline void QComboBoxListView::initViewItemOption(QStyleOptionViewItem *option) const
+{
+    QListView::initViewItemOption(option);
+    option->showDecorationSelected = true;
+    if (combo)
+        option->font = combo->font();
 }
 //  -----------------------------------------------------------------------
 
@@ -2177,6 +2179,31 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17QComboBoxListView10metaObjectEv(
     const QComboBoxListView *self) {
   return self->metaObject();
+}
+
+//  void *QComboBoxListView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QComboBoxListView11qt_metacastEPKc(
+    QComboBoxListView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QComboBoxListView::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QComboBoxListView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QComboBoxListView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QComboBoxListView::~QComboBoxListView()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QComboBoxListViewD1Ev(QComboBoxListView *self) {
+  delete self;
 }
 
 //  void QComboBoxListView::resizeEvent(QResizeEvent *event)

@@ -6,7 +6,10 @@
   "rows": {
     "ritual_ZN13QTemporaryDirC1Ev": ["address"],
     "ritual_ZN13QTemporaryDirC1ERK7QString": ["address", "text"],
+    "ritual_ZN13QTemporaryDirC1EOS_": ["address", "address"],
+    "ritual_ZN13QTemporaryDiraSEOS_": ["address", "address", "address"],
     "ritual_ZN13QTemporaryDirD1Ev": ["nothing", "address"],
+    "ritual_ZN13QTemporaryDir4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK13QTemporaryDir7isValidEv": ["bool", "address"],
     "ritual_ZNK13QTemporaryDir11errorStringEv": ["text", "address"],
     "ritual_ZNK13QTemporaryDir10autoRemoveEv": ["bool", "address"],

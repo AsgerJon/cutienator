@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK25QQuickSplitHandleAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSplitHandleAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickSplitHandleAttached11qt_metacastEPKc(
+    QQuickSplitHandleAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSplitHandleAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickSplitHandleAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSplitHandleAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSplitHandleAttached::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -70,6 +89,35 @@ extern "C" Q_DECL_EXPORT
 QQuickSplitHandleAttached *ritual_ZN25QQuickSplitHandleAttached21qmlAttachedPropertiesEP7QObject(
     QObject *object) {
   return QQuickSplitHandleAttached::qmlAttachedProperties(object);
+}
+
+//  void QQuickSplitHandleAttached::hoveredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickSplitHandleAttached14hoveredChangedEv(
+    QQuickSplitHandleAttached *self) {
+  self->hoveredChanged();
+}
+
+//  void QQuickSplitHandleAttached::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickSplitHandleAttached14pressedChangedEv(
+    QQuickSplitHandleAttached *self) {
+  self->pressedChanged();
+}
+
+//  QQuickSplitHandleAttachedPrivate *QQuickSplitHandleAttached::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSplitHandleAttachedPrivate *ritual_ZN25QQuickSplitHandleAttached6d_funcEv(
+    QQuickSplitHandleAttached *self) {
+  return self->d_func();
+}
+
+//  const QQuickSplitHandleAttachedPrivate
+//      *QQuickSplitHandleAttached::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSplitHandleAttachedPrivate *ritual_ZNK25QQuickSplitHandleAttached6d_funcEv(
+    const QQuickSplitHandleAttached *self) {
+  return self->d_func();
 }
 
 #endif  // QT_CONFIG(quicktemplates2_container)

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15Q3DInputHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN15Q3DInputHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15Q3DInputHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15Q3DInputHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -40,6 +46,18 @@
     ],
     "ritual_ZN15Q3DInputHandler10wheelEventEP11QWheelEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN15Q3DInputHandler22rotationEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15Q3DInputHandler18zoomEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15Q3DInputHandler23selectionEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15Q3DInputHandler26zoomAtTargetEnabledChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_take_Q3DInputHandler": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15Q3DInputHandler15mousePressEventEP11QMouseEventRK6QPoint": [

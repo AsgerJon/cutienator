@@ -13,6 +13,14 @@ QSSGPipelineStateOverrideCommand *ritual_ZN32QSSGPipelineStateOverrideCommandC1E
   return new QSSGPipelineStateOverrideCommand();
 }
 
+//  void QSSGPipelineStateOverrideCommand::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK32QSSGPipelineStateOverrideCommand8addDebugER6QDebug(
+    const QSSGPipelineStateOverrideCommand *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGPipelineStateOverrideCommand::~QSSGPipelineStateOverrideCommand()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN32QSSGPipelineStateOverrideCommandD1Ev(

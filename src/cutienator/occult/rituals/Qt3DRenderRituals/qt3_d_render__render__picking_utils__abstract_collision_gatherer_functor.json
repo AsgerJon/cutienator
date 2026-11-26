@@ -7,6 +7,21 @@
   "rows": {
     "ritual_ZN10Qt3DRender6Render12PickingUtils32AbstractCollisionGathererFunctorD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12PickingUtils32AbstractCollisionGathererFunctor11computeHitsERKSt6vectorIPNS0_6EntityESaIS5_EENS_16QPickingSettings14PickResultModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12PickingUtils32AbstractCollisionGathererFunctor4pickEPKNS0_6EntityE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12PickingUtils32AbstractCollisionGathererFunctor13rayHitsEntityEPKNS0_6EntityE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12PickingUtils32AbstractCollisionGathererFunctor8sortHitsERSt6vectorINS_10RayCasting21QCollisionQueryResult3HitESaIS6_EE": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_PickingUtils_AbstractCollisionGathererFunctor__Qt3DRender_Render_PickingUtils_HitList": [
+      "nothing", "address"
     ]
   }
 }

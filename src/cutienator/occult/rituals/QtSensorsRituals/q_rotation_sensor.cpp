@@ -179,6 +179,24 @@ const QMetaObject *ritual_ZNK15QRotationSensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRotationSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QRotationSensor11qt_metacastEPKc(
+    QRotationSensor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRotationSensor::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QRotationSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRotationSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRotationSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QRotationSensor2trEPKcS1_i(
@@ -217,6 +235,14 @@ bool ritual_ZNK15QRotationSensor4hasZEv(const QRotationSensor *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QRotationSensor7setHasZEb(QRotationSensor *self, bool hasZ) {
   self->setHasZ(hasZ);
+}
+
+//  void QRotationSensor::hasZChanged(bool hasZ)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QRotationSensor11hasZChangedEb(
+    QRotationSensor *self,
+    bool hasZ) {
+  self->hasZChanged(hasZ);
 }
 
 //  QRotationSensorPrivate *QRotationSensor::d_func()

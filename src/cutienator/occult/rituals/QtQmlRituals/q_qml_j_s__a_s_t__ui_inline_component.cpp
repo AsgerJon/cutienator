@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -201,6 +205,18 @@ public:
   }
 };
 
+//  QQmlJS::AST::UiInlineComponent::UiInlineComponent(QStringView
+//      inlineComponentName, UiObjectDefinition *inlineComponent)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiInlineComponent *ritual_ZN6QQmlJS3AST17UiInlineComponentC1E11QStringViewPNS0_18UiObjectDefinitionE(
+    QQmlJS::MemoryPool *pool,
+    const QString *inlineComponentName,
+    QQmlJS::AST::UiObjectDefinition *inlineComponent) {
+  return new (pool) CuteQQmlJS_AST_UiInlineComponent(
+      QStringView(*inlineComponentName),
+      inlineComponent);
+}
+
 //  SourceLocation QQmlJS::AST::UiInlineComponent::lastSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST17UiInlineComponent18lastSourceLocationEv(
@@ -214,6 +230,14 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST17UiInlineComponent19firstSourceLocationEv(
     const QQmlJS::AST::UiInlineComponent *self) {
   return new QQmlJS::SourceLocation(self->firstSourceLocation());
+}
+
+//  void QQmlJS::AST::UiInlineComponent::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST17UiInlineComponent7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiInlineComponent *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_UiInlineComponent, for the

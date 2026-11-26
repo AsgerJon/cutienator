@@ -23,27 +23,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 169, as _ZN38QNonContiguousByteDeviceRingBufferImplD1Ev
-inline QNonContiguousByteDeviceRingBufferImpl::~QNonContiguousByteDeviceRingBufferImpl()
-{
-}
-
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 173, as _ZN38QNonContiguousByteDeviceRingBufferImpl11readPointerExRx
-inline const char* QNonContiguousByteDeviceRingBufferImpl::readPointer(qint64 maximumLength, qint64 &len)
-{
-    if (atEnd()) {
-        len = -1;
-        return nullptr;
-    }
-
-    const char *returnValue = ringBuffer->readPointerAtPosition(currentPosition, len);
-
-    if (maximumLength != -1)
-        len = qMin(len, maximumLength);
-
-    return returnValue;
-}
-
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 188, as _ZN38QNonContiguousByteDeviceRingBufferImpl18advanceReadPointerEx
 inline bool QNonContiguousByteDeviceRingBufferImpl::advanceReadPointer(qint64 amount)
 {
@@ -75,6 +54,11 @@ inline qint64 QNonContiguousByteDeviceRingBufferImpl::size() const
 inline qint64 QNonContiguousByteDeviceRingBufferImpl::pos() const
 {
     return currentPosition;
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 169, as _ZN38QNonContiguousByteDeviceRingBufferImplD1Ev
+inline QNonContiguousByteDeviceRingBufferImpl::~QNonContiguousByteDeviceRingBufferImpl()
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -333,6 +317,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl10metaObjectEv(
     const QNonContiguousByteDeviceRingBufferImpl *self) {
   return self->metaObject();
+}
+
+//  void *QNonContiguousByteDeviceRingBufferImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN38QNonContiguousByteDeviceRingBufferImpl11qt_metacastEPKc(
+    QNonContiguousByteDeviceRingBufferImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNonContiguousByteDeviceRingBufferImpl::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN38QNonContiguousByteDeviceRingBufferImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNonContiguousByteDeviceRingBufferImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QNonContiguousByteDeviceRingBufferImpl::~QNonContiguousByteDeviceRingBuff

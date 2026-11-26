@@ -40,7 +40,7 @@ typedef void (*CuteQQmlDMObjectDataMetaObjectCall1)(const void *, QObject *, int
 class CuteQQmlDMObjectDataMetaObject : public QQmlDMObjectDataMetaObject {
 public:
   using QQmlDMObjectDataMetaObject::QQmlDMObjectDataMetaObject;
-  CuteQQmlDMObjectDataMetaObject(const QQmlDMObjectDataMetaObject &other) : QQmlDMObjectDataMetaObject(other) {}
+  CuteQQmlDMObjectDataMetaObject(const QQmlDMObjectDataMetaObject & other) : QQmlDMObjectDataMetaObject(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -88,6 +88,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QQmlDMObjectDataMetaObjectD1Ev(
     QQmlDMObjectDataMetaObject *self) {
   delete self;
+}
+
+//  int QQmlDMObjectDataMetaObject::metaCall(QObject *o, QMetaObject::Call
+//      call, int id, void **arguments)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQmlDMObjectDataMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv(
+    QQmlDMObjectDataMetaObject *self,
+    QObject *o,
+    QMetaObject::Call call,
+    int id,
+    void **arguments) {
+  return self->metaCall(o, call, id, arguments);
 }
 
 //  int QQmlDMObjectDataMetaObject::createProperty(const char *name, const

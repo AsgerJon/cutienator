@@ -21,6 +21,9 @@
     "ritual_ZN19QRhiComputePipeline25setShaderResourceBindingsEP26QRhiShaderResourceBindings": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN19QRhiComputePipelineC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
     "ritual_take_QRhiComputePipeline": [
       "bool", "address", "chars", "address"
     ],

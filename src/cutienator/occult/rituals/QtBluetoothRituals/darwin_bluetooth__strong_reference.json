@@ -2,10 +2,16 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtBluetooth/6.12.0/QtBluetooth/private/btraii_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN15DarwinBluetooth15StrongReferenceC1Ev": ["address"],
-    "ritual_ZNK15DarwinBluetooth15StrongReferencecvbEv": ["bool", "address"]
+    "ritual_ZN15DarwinBluetooth15StrongReference4swapERS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DarwinBluetooth15StrongReferencecvbEv": ["bool", "address"],
+    "ritual_ZNK15DarwinBluetooth15StrongReference5getAsIvEEPT_v": [
+      "address", "address"
+    ]
   }
 }

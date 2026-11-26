@@ -12,8 +12,13 @@
 #include <QtLocation/6.12.0/QtLocation/private/qgeocameradata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtLocation/6.12.0/QtLocation/private/qgeotilespec_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QSet>
 
 //  A QGeoTiledMapScene that Python can take functions over in. Every QGeoTiledMapScene
 //  Python makes is one. Each function below asks the Python
@@ -189,6 +194,25 @@ const QMetaObject *ritual_ZNK17QGeoTiledMapScene10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoTiledMapScene::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QGeoTiledMapScene11qt_metacastEPKc(
+    QGeoTiledMapScene *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoTiledMapScene::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QGeoTiledMapScene11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoTiledMapScene *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoTiledMapScene::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QGeoTiledMapScene2trEPKcS1_i(
@@ -257,6 +281,31 @@ void ritual_ZN17QGeoTiledMapScene14setVisibleAreaERK6QRectF(
   self->setVisibleArea(*visibleArea);
 }
 
+//  void QGeoTiledMapScene::setVisibleTiles(const QSet<QGeoTileSpec> &tiles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGeoTiledMapScene15setVisibleTilesERK4QSetI12QGeoTileSpecE(
+    QGeoTiledMapScene *self,
+    const QSet<QGeoTileSpec> *tiles) {
+  self->setVisibleTiles(*tiles);
+}
+
+//  const QSet<QGeoTileSpec> &QGeoTiledMapScene::visibleTiles() const
+extern "C" Q_DECL_EXPORT
+const QSet<QGeoTileSpec> *ritual_ZNK17QGeoTiledMapScene12visibleTilesEv(
+    const QGeoTiledMapScene *self) {
+  return &(self->visibleTiles());
+}
+
+//  void QGeoTiledMapScene::addTile(const QGeoTileSpec &spec,
+//      QSharedPointer<QGeoTileTexture> texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGeoTiledMapScene7addTileERK12QGeoTileSpec14QSharedPointerI15QGeoTileTextureE(
+    QGeoTiledMapScene *self,
+    const QGeoTileSpec *spec,
+    const QSharedPointer<QGeoTileTexture> *texture) {
+  self->addTile(*spec, *texture);
+}
+
 //  QSGNode *QGeoTiledMapScene::updateSceneGraph(QSGNode *oldNode,
 //      QQuickWindow *window)
 extern "C" Q_DECL_EXPORT
@@ -267,11 +316,27 @@ QSGNode *ritual_ZN17QGeoTiledMapScene16updateSceneGraphEP7QSGNodeP12QQuickWindow
   return self->updateSceneGraph(oldNode, window);
 }
 
+//  QSet<QGeoTileSpec> QGeoTiledMapScene::texturedTiles()
+extern "C" Q_DECL_EXPORT
+QSet<QGeoTileSpec> *ritual_ZN17QGeoTiledMapScene13texturedTilesEv(
+    QGeoTiledMapScene *self) {
+  return new QSet<QGeoTileSpec>(self->texturedTiles());
+}
+
 //  void QGeoTiledMapScene::clearTexturedTiles()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QGeoTiledMapScene18clearTexturedTilesEv(
     QGeoTiledMapScene *self) {
   self->clearTexturedTiles();
+}
+
+//  void QGeoTiledMapScene::newTilesVisible(const QSet<QGeoTileSpec>
+//      &newTiles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGeoTiledMapScene15newTilesVisibleERK4QSetI12QGeoTileSpecE(
+    QGeoTiledMapScene *self,
+    const QSet<QGeoTileSpec> *newTiles) {
+  self->newTilesVisible(*newTiles);
 }
 
 //  void QGeoTiledMapScene::updateSceneParameters()
@@ -289,4 +354,11 @@ bool ritual_take_QGeoTiledMapScene(
     const char *key,
     void *call) {
   return static_cast<CuteQGeoTiledMapScene *>(self)->take(key, call);
+}
+
+//  a QSet<QGeoTileSpec> a ritual of QGeoTiledMapScene gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoTiledMapScene__QSet_QGeoTileSpec(
+    QSet<QGeoTileSpec> *self) {
+  delete self;
 }

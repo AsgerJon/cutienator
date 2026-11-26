@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickRenderControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickRenderControl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickRenderControl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickRenderControl2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -36,6 +42,13 @@
     "ritual_ZNK19QQuickRenderControl13commandBufferEv": [
       "address", "address"
     ],
+    "ritual_ZN19QQuickRenderControlC1ER26QQuickRenderControlPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickRenderControl15renderRequestedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickRenderControl12sceneChangedEv": ["nothing", "address"],
     "ritual_ZN19QQuickRenderControl6d_funcEv": ["address", "address"],
     "ritual_ZNK19QQuickRenderControl6d_funcEv": ["address", "address"],
     "ritual_take_QQuickRenderControl": [

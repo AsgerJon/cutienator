@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickTextLine10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickTextLine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickTextLine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickTextLine2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

@@ -14,6 +14,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QSet>
+#include <QtCore/QByteArray>
 
 //  A QAbstractOAuth2 that Python can take functions over in. Every QAbstractOAuth2
 //  Python makes is one. Each function below asks the Python
@@ -328,6 +330,24 @@ const QMetaObject *ritual_ZNK15QAbstractOAuth210metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractOAuth2::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QAbstractOAuth211qt_metacastEPKc(
+    QAbstractOAuth2 *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractOAuth2::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QAbstractOAuth211qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractOAuth2 *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractOAuth2::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QAbstractOAuth22trEPKcS1_i(
@@ -335,6 +355,21 @@ QString *ritual_ZN15QAbstractOAuth22trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractOAuth2::tr(s, c, n));
+}
+
+//  QAbstractOAuth2::QAbstractOAuth2(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractOAuth2 *ritual_ZN15QAbstractOAuth2C1EP7QObject(QObject *parent) {
+  return new CuteQAbstractOAuth2(parent);
+}
+
+//  QAbstractOAuth2::QAbstractOAuth2(QNetworkAccessManager *manager, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractOAuth2 *ritual_ZN15QAbstractOAuth2C1EP21QNetworkAccessManagerP7QObject(
+    QNetworkAccessManager *manager,
+    QObject *parent) {
+  return new CuteQAbstractOAuth2(manager, parent);
 }
 
 //  QAbstractOAuth2::~QAbstractOAuth2()
@@ -461,6 +496,29 @@ void ritual_ZN15QAbstractOAuth28setScopeERK7QString(
 }
 #endif  // !defined(QOAUTH2_NO_LEGACY_SCOPE)
 
+//  QSet<QByteArray> QAbstractOAuth2::grantedScopeTokens() const
+extern "C" Q_DECL_EXPORT
+QSet<QByteArray> *ritual_ZNK15QAbstractOAuth218grantedScopeTokensEv(
+    const QAbstractOAuth2 *self) {
+  return new QSet<QByteArray>(self->grantedScopeTokens());
+}
+
+//  QSet<QByteArray> QAbstractOAuth2::requestedScopeTokens() const
+extern "C" Q_DECL_EXPORT
+QSet<QByteArray> *ritual_ZNK15QAbstractOAuth220requestedScopeTokensEv(
+    const QAbstractOAuth2 *self) {
+  return new QSet<QByteArray>(self->requestedScopeTokens());
+}
+
+//  void QAbstractOAuth2::setRequestedScopeTokens(const QSet<QByteArray>
+//      &tokens)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth223setRequestedScopeTokensERK4QSetI10QByteArrayE(
+    QAbstractOAuth2 *self,
+    const QSet<QByteArray> *tokens) {
+  self->setRequestedScopeTokens(*tokens);
+}
+
 //  QString QAbstractOAuth2::userAgent() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QAbstractOAuth29userAgentEv(
@@ -533,6 +591,21 @@ void ritual_ZN15QAbstractOAuth215setRefreshTokenERK7QString(
     QAbstractOAuth2 *self,
     const QString *refreshToken) {
   self->setRefreshToken(*refreshToken);
+}
+
+//  std::chrono::seconds QAbstractOAuth2::refreshLeadTime() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK15QAbstractOAuth215refreshLeadTimeEv(
+    const QAbstractOAuth2 *self) {
+  return static_cast<long long>(self->refreshLeadTime().count());
+}
+
+//  void QAbstractOAuth2::setRefreshLeadTime(std::chrono::seconds leadTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth218setRefreshLeadTimeENSt6chrono8durationIlSt5ratioILl1ELl1EEEE(
+    QAbstractOAuth2 *self,
+    long long leadTime) {
+  self->setRefreshLeadTime(std::chrono::seconds(leadTime));
 }
 
 //  bool QAbstractOAuth2::autoRefresh() const
@@ -650,6 +723,192 @@ void ritual_ZN15QAbstractOAuth213refreshTokensEv(QAbstractOAuth2 *self) {
   self->refreshTokens();
 }
 
+#if !defined(QOAUTH2_NO_LEGACY_SCOPE)
+//  void QAbstractOAuth2::scopeChanged(const QString &scope)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth212scopeChangedERK7QString(
+    QAbstractOAuth2 *self,
+    const QString *scope) {
+  self->scopeChanged(*scope);
+}
+#endif  // !defined(QOAUTH2_NO_LEGACY_SCOPE)
+
+//  void QAbstractOAuth2::grantedScopeTokensChanged(const QSet<QByteArray>
+//      &tokens)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth225grantedScopeTokensChangedERK4QSetI10QByteArrayE(
+    QAbstractOAuth2 *self,
+    const QSet<QByteArray> *tokens) {
+  self->grantedScopeTokensChanged(*tokens);
+}
+
+//  void QAbstractOAuth2::requestedScopeTokensChanged(const QSet<QByteArray>
+//      &tokens)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth227requestedScopeTokensChangedERK4QSetI10QByteArrayE(
+    QAbstractOAuth2 *self,
+    const QSet<QByteArray> *tokens) {
+  self->requestedScopeTokensChanged(*tokens);
+}
+
+//  void QAbstractOAuth2::userAgentChanged(const QString &userAgent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth216userAgentChangedERK7QString(
+    QAbstractOAuth2 *self,
+    const QString *userAgent) {
+  self->userAgentChanged(*userAgent);
+}
+
+//  void QAbstractOAuth2::responseTypeChanged(const QString &responseType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth219responseTypeChangedERK7QString(
+    QAbstractOAuth2 *self,
+    const QString *responseType) {
+  self->responseTypeChanged(*responseType);
+}
+
+//  void QAbstractOAuth2::clientIdentifierSharedKeyChanged(const QString
+//      &clientIdentifierSharedKey)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth232clientIdentifierSharedKeyChangedERK7QString(
+    QAbstractOAuth2 *self,
+    const QString *clientIdentifierSharedKey) {
+  self->clientIdentifierSharedKeyChanged(*clientIdentifierSharedKey);
+}
+
+//  void QAbstractOAuth2::stateChanged(const QString &state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth212stateChangedERK7QString(
+    QAbstractOAuth2 *self,
+    const QString *state) {
+  self->stateChanged(*state);
+}
+
+//  void QAbstractOAuth2::expirationAtChanged(const QDateTime &expiration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth219expirationAtChangedERK9QDateTime(
+    QAbstractOAuth2 *self,
+    const QDateTime *expiration) {
+  self->expirationAtChanged(*expiration);
+}
+
+//  void QAbstractOAuth2::refreshTokenChanged(const QString &refreshToken)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth219refreshTokenChangedERK7QString(
+    QAbstractOAuth2 *self,
+    const QString *refreshToken) {
+  self->refreshTokenChanged(*refreshToken);
+}
+
+//  void QAbstractOAuth2::accessTokenAboutToExpire()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth224accessTokenAboutToExpireEv(
+    QAbstractOAuth2 *self) {
+  self->accessTokenAboutToExpire();
+}
+
+//  void QAbstractOAuth2::refreshLeadTimeChanged(std::chrono::seconds
+//      leadTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth222refreshLeadTimeChangedENSt6chrono8durationIlSt5ratioILl1ELl1EEEE(
+    QAbstractOAuth2 *self,
+    long long leadTime) {
+  self->refreshLeadTimeChanged(std::chrono::seconds(leadTime));
+}
+
+//  void QAbstractOAuth2::autoRefreshChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth218autoRefreshChangedEb(
+    QAbstractOAuth2 *self,
+    bool enable) {
+  self->autoRefreshChanged(enable);
+}
+
+//  void QAbstractOAuth2::nonceModeChanged(NonceMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth216nonceModeChangedENS_9NonceModeE(
+    QAbstractOAuth2 *self,
+    QAbstractOAuth2::NonceMode mode) {
+  self->nonceModeChanged(mode);
+}
+
+//  void QAbstractOAuth2::nonceChanged(const QString &nonce)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth212nonceChangedERK7QString(
+    QAbstractOAuth2 *self,
+    const QString *nonce) {
+  self->nonceChanged(*nonce);
+}
+
+//  void QAbstractOAuth2::idTokenChanged(const QString &idToken)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth214idTokenChangedERK7QString(
+    QAbstractOAuth2 *self,
+    const QString *idToken) {
+  self->idTokenChanged(*idToken);
+}
+
+//  void QAbstractOAuth2::tokenUrlChanged(const QUrl &tokenUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth215tokenUrlChangedERK4QUrl(
+    QAbstractOAuth2 *self,
+    const QUrl *tokenUrl) {
+  self->tokenUrlChanged(*tokenUrl);
+}
+
+#if !defined(QT_NO_SSL)
+//  void QAbstractOAuth2::sslConfigurationChanged(const QSslConfiguration
+//      &configuration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth223sslConfigurationChangedERK17QSslConfiguration(
+    QAbstractOAuth2 *self,
+    const QSslConfiguration *configuration) {
+  self->sslConfigurationChanged(*configuration);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if QT_DEPRECATED_SINCE(6, 13)
+//  void QAbstractOAuth2::error(const QString &error, const QString
+//      &errorDescription, const QUrl &uri)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth25errorERK7QStringS2_RK4QUrl(
+    QAbstractOAuth2 *self,
+    const QString *error,
+    const QString *errorDescription,
+    const QUrl *uri) {
+  self->error(*error, *errorDescription, *uri);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 13)
+
+//  void QAbstractOAuth2::serverReportedErrorOccurred(const QString &error,
+//      const QString &errorDescription, const QUrl &uri)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth227serverReportedErrorOccurredERK7QStringS2_RK4QUrl(
+    QAbstractOAuth2 *self,
+    const QString *error,
+    const QString *errorDescription,
+    const QUrl *uri) {
+  self->serverReportedErrorOccurred(*error, *errorDescription, *uri);
+}
+
+//  void QAbstractOAuth2::authorizationCallbackReceived(const QVariantMap
+//      &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractOAuth229authorizationCallbackReceivedERK4QMapI7QString8QVariantE(
+    QAbstractOAuth2 *self,
+    const QMap<QString, QVariant> *data) {
+  self->authorizationCallbackReceived(*data);
+}
+
+//  QAbstractOAuth2::QAbstractOAuth2(QAbstractOAuth2Private &a0, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractOAuth2 *ritual_ZN15QAbstractOAuth2C1ER22QAbstractOAuth2PrivateP7QObject(
+    QAbstractOAuth2Private *a0,
+    QObject *parent) {
+  return new CuteQAbstractOAuth2(*a0, parent);
+}
+
 //  void QAbstractOAuth2::setResponseType(const QString &responseType)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAbstractOAuth215setResponseTypeERK7QString(
@@ -741,6 +1000,12 @@ void ritual_own_ZN15QAbstractOAuth214prepareRequestEP15QNetworkRequestRK10QByteA
     const QByteArray *verb,
     const QByteArray *body) {
   self->QAbstractOAuth2::prepareRequest(request, *verb, *body);
+}
+
+//  a QSet<QByteArray> a ritual of QAbstractOAuth2 gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractOAuth2__QSet_QByteArray(QSet<QByteArray> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_HTTP)

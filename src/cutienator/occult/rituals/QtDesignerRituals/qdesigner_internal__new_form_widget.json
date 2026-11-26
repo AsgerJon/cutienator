@@ -2,14 +2,83 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtDesigner/6.12.0/QtDesigner/private/newformwidget_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK18qdesigner_internal13NewFormWidget10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal13NewFormWidget2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidgetC1EP28QDesignerFormEditorInterfaceP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidgetD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13NewFormWidget18hasCurrentTemplateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget15currentTemplateEP7QString": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13NewFormWidget25isEmbeddedGroupBoxVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget26setEmbeddedGroupBoxVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget8grabFormEP28QDesignerFormEditorInterfaceR9QIODeviceRK7QStringRKNS_13DeviceProfileE": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget23treeWidgetItemActivatedEP15QTreeWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget28treeWidgetCurrentItemChangedEP15QTreeWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget21treeWidgetItemPressedEP15QTreeWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget29slotDeviceProfileIndexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal13NewFormWidget17formPreviewPixmapERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal13NewFormWidget17formPreviewPixmapER9QIODeviceRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget17formPreviewPixmapEPK15QTreeWidgetItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13NewFormWidget14itemToTemplateEPK15QTreeWidgetItemP7QString": [
+      "text", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget16currentTemplateIEP7QString": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13NewFormWidget12templateSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget15setTemplateSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13NewFormWidget17profileComboIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13NewFormWidget20currentDeviceProfileEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget21showCurrentItemPixmapEv": [
+      "bool", "address"
     ],
     "ritual_take_qdesigner_internal_NewFormWidget": [
       "bool", "address", "chars", "address"
@@ -19,6 +88,12 @@
     ],
     "ritual_own_ZN18qdesigner_internal13NewFormWidget15currentTemplateEP7QString": [
       "text", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget8loadFromERK7QStringbS3_S3_RP15QTreeWidgetItem": [
+      "nothing", "address", "text", "bool", "text", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13NewFormWidget8loadFromERK7QStringRK5QListIS1_ES3_RP15QTreeWidgetItem": [
+      "nothing", "address", "text", "address", "text", "address"
     ]
   }
 }

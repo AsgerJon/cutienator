@@ -8,8 +8,89 @@
     "ritual_ZNK10Qt3DExtras22QOrbitCameraController10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras22QOrbitCameraController2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraControllerC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraControllerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras22QOrbitCameraController11zoomInLimitEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras22QOrbitCameraController8upVectorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras22QOrbitCameraController17inverseXTranslateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras22QOrbitCameraController17inverseYTranslateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras22QOrbitCameraController10inversePanEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras22QOrbitCameraController11inverseTiltEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras22QOrbitCameraController23zoomTranslateViewCenterEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController14setZoomInLimitEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController11setUpVectorERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController20setInverseXTranslateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController20setInverseYTranslateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController13setInversePanEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController14setInverseTiltEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController26setZoomTranslateViewCenterEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController18zoomInLimitChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController15upVectorChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController24inverseXTranslateChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController24inverseYTranslateChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController17inversePanChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController18inverseTiltChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController30zoomTranslateViewCenterChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraControllerC1ERNS_29QOrbitCameraControllerPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras22QOrbitCameraController10moveCameraERKNS_25QAbstractCameraController10InputStateEf": [
+      "nothing", "address", "address", "float"
     ],
     "ritual_ZN10Qt3DExtras22QOrbitCameraController6d_funcEv": [
       "address", "address"

@@ -275,6 +275,25 @@ const QMetaObject *ritual_ZNK24QLogValue3DAxisFormatter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLogValue3DAxisFormatter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QLogValue3DAxisFormatter11qt_metacastEPKc(
+    QLogValue3DAxisFormatter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLogValue3DAxisFormatter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QLogValue3DAxisFormatter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLogValue3DAxisFormatter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLogValue3DAxisFormatter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QLogValue3DAxisFormatter2trEPKcS1_i(
@@ -352,6 +371,30 @@ bool ritual_ZNK24QLogValue3DAxisFormatter14showEdgeLabelsEv(
   return self->showEdgeLabels();
 }
 
+//  void QLogValue3DAxisFormatter::baseChanged(qreal base)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLogValue3DAxisFormatter11baseChangedEd(
+    QLogValue3DAxisFormatter *self,
+    qreal base) {
+  self->baseChanged(base);
+}
+
+//  void QLogValue3DAxisFormatter::autoSubGridChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLogValue3DAxisFormatter18autoSubGridChangedEb(
+    QLogValue3DAxisFormatter *self,
+    bool enabled) {
+  self->autoSubGridChanged(enabled);
+}
+
+//  void QLogValue3DAxisFormatter::showEdgeLabelsChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLogValue3DAxisFormatter21showEdgeLabelsChangedEb(
+    QLogValue3DAxisFormatter *self,
+    bool enabled) {
+  self->showEdgeLabelsChanged(enabled);
+}
+
 //  QValue3DAxisFormatter *QLogValue3DAxisFormatter::createNewInstance()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -381,6 +424,15 @@ float ritual_ZNK24QLogValue3DAxisFormatter7valueAtEf(
     const QLogValue3DAxisFormatter *self,
     float position) {
   return self->valueAt(position);
+}
+
+//  void QLogValue3DAxisFormatter::populateCopy(QValue3DAxisFormatter &copy)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK24QLogValue3DAxisFormatter12populateCopyER21QValue3DAxisFormatter(
+    const QLogValue3DAxisFormatter *self,
+    QValue3DAxisFormatter *copy) {
+  self->populateCopy(*copy);
 }
 
 //  QLogValue3DAxisFormatterPrivate *QLogValue3DAxisFormatter::dptr()

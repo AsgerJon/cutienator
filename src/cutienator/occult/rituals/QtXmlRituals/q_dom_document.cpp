@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtXml/qdom.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0. Edited by hand on 2026-11-25: added by hand, instances of
+//  templates of the class: 1. Kept as it is when the generator runs again.
 #include <QtXml/qtxmlglobal.h>
 #if QT_CONFIG(dom)
 #if QT_CONFIG(dom)
@@ -31,6 +32,14 @@ QDomDocument *ritual_ZN12QDomDocumentC1ERK16QDomDocumentType(
 extern "C" Q_DECL_EXPORT
 QDomDocument *ritual_ZN12QDomDocumentC1ERKS_(const QDomDocument *document) {
   return new QDomDocument(*document);
+}
+
+//  QDomDocument &QDomDocument::operator=(const QDomDocument &other)
+extern "C" Q_DECL_EXPORT
+QDomDocument *ritual_ZN12QDomDocumentaSERKS_(
+    QDomDocument *self,
+    const QDomDocument *other) {
+  return &(self->operator=(*other));
 }
 
 //  QDomDocument::~QDomDocument()
@@ -391,6 +400,19 @@ extern "C" Q_DECL_EXPORT
 QDomDocument *ritual_ZN12QDomDocumentC1EP19QDomDocumentPrivate(
     QDomDocumentPrivate *a0) {
   return new QDomDocument(a0);
+}
+
+//  ParseResult QDomDocument::setContent<void>(const QByteArray &data,
+//      ParseOptions options)
+extern "C" Q_DECL_EXPORT
+QDomDocument::ParseResult *ritual_ZN12QDomDocument10setContentIvEENS_11ParseResultERK10QByteArray6QFlagsINS_11ParseOptionEE(
+    QDomDocument *self,
+    const QByteArray *data,
+    int options) {
+  return new QDomDocument::ParseResult(
+      self->setContent<void>(
+          *data,
+          QFlags<QDomDocument::ParseOption>::fromInt(options)));
 }
 
 #endif  // QT_CONFIG(dom)

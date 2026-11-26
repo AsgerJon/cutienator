@@ -5,6 +5,9 @@
     "ss_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20ScreenReflectionPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK20ScreenReflectionPass8passTypeEv": ["int", "address"],
     "ritual_ZN20ScreenReflectionPass13resetForFrameEv": [
       "nothing", "address"

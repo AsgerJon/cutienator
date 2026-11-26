@@ -7,8 +7,46 @@
     "ritual_ZNK10Qt3DRender12QScissorTest10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender12QScissorTest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender12QScissorTest2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTestC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTestD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender12QScissorTest4leftEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender12QScissorTest6bottomEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender12QScissorTest5widthEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender12QScissorTest6heightEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender12QScissorTest7setLeftEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTest9setBottomEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTest8setWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTest9setHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTest11leftChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTest13bottomChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTest12widthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QScissorTest13heightChangedEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN10Qt3DRender12QScissorTest6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender12QScissorTest6d_funcEv": ["address", "address"],

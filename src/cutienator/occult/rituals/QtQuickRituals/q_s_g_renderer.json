@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QSGRendererC1EP16QSGRenderContext": ["address", "address"],
     "ritual_ZN11QSGRendererD1Ev": ["nothing", "address"],
     "ritual_ZNK11QSGRenderer23currentProjectionMatrixEi": [
       "address", "address", "int"
@@ -55,6 +56,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK11QSGRenderer12renderTargetEv": ["address", "address"],
+    "ritual_ZN11QSGRenderer31setRenderPassRecordingCallbacksEPFvPvES2_S0_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN11QSGRenderer6renderEv": ["nothing", "address"],
     "ritual_ZN11QSGRenderer13prepareInlineEv": ["nothing", "address"],
     "ritual_ZN11QSGRenderer12renderInlineEv": ["nothing", "address"],

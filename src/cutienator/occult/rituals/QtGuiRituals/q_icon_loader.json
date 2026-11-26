@@ -35,6 +35,9 @@
     "ritual_ZNK11QIconLoader10iconEngineERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZNK11QIconLoader14findIconHelperERK7QStringS2_R5QListIS0_ENS_8DashRuleE": [
+      "address", "address", "text", "text", "address", "int"
+    ],
     "ritual_ZNK11QIconLoader18lookupFallbackIconERK7QString": [
       "address", "address", "text"
     ],

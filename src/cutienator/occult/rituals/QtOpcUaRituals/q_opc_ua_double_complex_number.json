@@ -10,6 +10,9 @@
     "ritual_ZN25QOpcUaDoubleComplexNumberC1Edd": [
       "address", "double", "double"
     ],
+    "ritual_ZN25QOpcUaDoubleComplexNumberaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK25QOpcUaDoubleComplexNumbereqERKS_": [
       "bool", "address", "address"
     ],

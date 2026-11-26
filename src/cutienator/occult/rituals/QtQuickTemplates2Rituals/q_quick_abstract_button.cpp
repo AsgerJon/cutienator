@@ -13,7 +13,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickicon_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #include <QtGui/qfont.h>
@@ -1080,6 +1082,25 @@ const QMetaObject *ritual_ZNK20QQuickAbstractButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAbstractButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickAbstractButton11qt_metacastEPKc(
+    QQuickAbstractButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAbstractButton::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickAbstractButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAbstractButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAbstractButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickAbstractButton2trEPKcS1_i(
@@ -1375,6 +1396,178 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickAbstractButton12animateClickEv(
     QQuickAbstractButton *self) {
   self->animateClick();
+}
+
+//  void QQuickAbstractButton::pressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton7pressedEv(QQuickAbstractButton *self) {
+  self->pressed();
+}
+
+//  void QQuickAbstractButton::released()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton8releasedEv(QQuickAbstractButton *self) {
+  self->released();
+}
+
+//  void QQuickAbstractButton::canceled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton8canceledEv(QQuickAbstractButton *self) {
+  self->canceled();
+}
+
+//  void QQuickAbstractButton::clicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton7clickedEv(QQuickAbstractButton *self) {
+  self->clicked();
+}
+
+//  void QQuickAbstractButton::pressAndHold()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton12pressAndHoldEv(
+    QQuickAbstractButton *self) {
+  self->pressAndHold();
+}
+
+//  void QQuickAbstractButton::doubleClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton13doubleClickedEv(
+    QQuickAbstractButton *self) {
+  self->doubleClicked();
+}
+
+//  void QQuickAbstractButton::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton11textChangedEv(
+    QQuickAbstractButton *self) {
+  self->textChanged();
+}
+
+//  void QQuickAbstractButton::downChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton11downChangedEv(
+    QQuickAbstractButton *self) {
+  self->downChanged();
+}
+
+//  void QQuickAbstractButton::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton14pressedChangedEv(
+    QQuickAbstractButton *self) {
+  self->pressedChanged();
+}
+
+//  void QQuickAbstractButton::checkedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton14checkedChangedEv(
+    QQuickAbstractButton *self) {
+  self->checkedChanged();
+}
+
+//  void QQuickAbstractButton::checkableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton16checkableChangedEv(
+    QQuickAbstractButton *self) {
+  self->checkableChanged();
+}
+
+//  void QQuickAbstractButton::autoExclusiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton20autoExclusiveChangedEv(
+    QQuickAbstractButton *self) {
+  self->autoExclusiveChanged();
+}
+
+//  void QQuickAbstractButton::autoRepeatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton17autoRepeatChangedEv(
+    QQuickAbstractButton *self) {
+  self->autoRepeatChanged();
+}
+
+//  void QQuickAbstractButton::indicatorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton16indicatorChangedEv(
+    QQuickAbstractButton *self) {
+  self->indicatorChanged();
+}
+
+//  void QQuickAbstractButton::toggled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton7toggledEv(QQuickAbstractButton *self) {
+  self->toggled();
+}
+
+//  void QQuickAbstractButton::iconChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton11iconChangedEv(
+    QQuickAbstractButton *self) {
+  self->iconChanged();
+}
+
+//  void QQuickAbstractButton::displayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton14displayChangedEv(
+    QQuickAbstractButton *self) {
+  self->displayChanged();
+}
+
+//  void QQuickAbstractButton::actionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton13actionChangedEv(
+    QQuickAbstractButton *self) {
+  self->actionChanged();
+}
+
+//  void QQuickAbstractButton::autoRepeatDelayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton22autoRepeatDelayChangedEv(
+    QQuickAbstractButton *self) {
+  self->autoRepeatDelayChanged();
+}
+
+//  void QQuickAbstractButton::autoRepeatIntervalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton25autoRepeatIntervalChangedEv(
+    QQuickAbstractButton *self) {
+  self->autoRepeatIntervalChanged();
+}
+
+//  void QQuickAbstractButton::pressXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton13pressXChangedEv(
+    QQuickAbstractButton *self) {
+  self->pressXChanged();
+}
+
+//  void QQuickAbstractButton::pressYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton13pressYChangedEv(
+    QQuickAbstractButton *self) {
+  self->pressYChanged();
+}
+
+//  void QQuickAbstractButton::implicitIndicatorWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton29implicitIndicatorWidthChangedEv(
+    QQuickAbstractButton *self) {
+  self->implicitIndicatorWidthChanged();
+}
+
+//  void QQuickAbstractButton::implicitIndicatorHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAbstractButton30implicitIndicatorHeightChangedEv(
+    QQuickAbstractButton *self) {
+  self->implicitIndicatorHeightChanged();
+}
+
+//  QQuickAbstractButton::QQuickAbstractButton(QQuickAbstractButtonPrivate
+//      &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickAbstractButton *ritual_ZN20QQuickAbstractButtonC1ER27QQuickAbstractButtonPrivateP10QQuickItem(
+    QQuickAbstractButtonPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickAbstractButton(*dd, parent);
 }
 
 //  void QQuickAbstractButton::componentComplete()

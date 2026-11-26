@@ -5,5 +5,23 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN5HPack10BitOStreamC1ERSt6vectorIhSaIhEE": [
+      "address", "address"
+    ],
+    "ritual_ZN5HPack10BitOStream9writeBitsEhh": [
+      "nothing", "address", "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN5HPack10BitOStream5writeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK5HPack10BitOStream9bitLengthEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK5HPack10BitOStream10byteLengthEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK5HPack10BitOStream5beginEv": ["address", "address"],
+    "ritual_ZNK5HPack10BitOStream3endEv": ["address", "address"],
+    "ritual_ZN5HPack10BitOStream5clearEv": ["nothing", "address"]
   }
 }

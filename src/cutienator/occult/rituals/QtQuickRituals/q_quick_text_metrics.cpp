@@ -17,6 +17,25 @@ const QMetaObject *ritual_ZNK17QQuickTextMetrics10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTextMetrics::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickTextMetrics11qt_metacastEPKc(
+    QQuickTextMetrics *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTextMetrics::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickTextMetrics11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTextMetrics *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTextMetrics::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickTextMetrics2trEPKcS1_i(
@@ -145,4 +164,43 @@ void ritual_ZN17QQuickTextMetrics13setRenderTypeEN10QQuickText10RenderTypeE(
     QQuickTextMetrics *self,
     QQuickText::RenderType renderType) {
   self->setRenderType(renderType);
+}
+
+//  void QQuickTextMetrics::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextMetrics11fontChangedEv(QQuickTextMetrics *self) {
+  self->fontChanged();
+}
+
+//  void QQuickTextMetrics::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextMetrics11textChangedEv(QQuickTextMetrics *self) {
+  self->textChanged();
+}
+
+//  void QQuickTextMetrics::elideChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextMetrics12elideChangedEv(QQuickTextMetrics *self) {
+  self->elideChanged();
+}
+
+//  void QQuickTextMetrics::elideWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextMetrics17elideWidthChangedEv(
+    QQuickTextMetrics *self) {
+  self->elideWidthChanged();
+}
+
+//  void QQuickTextMetrics::metricsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextMetrics14metricsChangedEv(
+    QQuickTextMetrics *self) {
+  self->metricsChanged();
+}
+
+//  void QQuickTextMetrics::renderTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextMetrics17renderTypeChangedEv(
+    QQuickTextMetrics *self) {
+  self->renderTypeChanged();
 }

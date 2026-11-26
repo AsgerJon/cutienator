@@ -6,6 +6,7 @@
 #include <QtSerialBus/qcanmessagedescription.h>
 #include <QtSerialBus/qcanuniqueiddescription.h>
 #include <QtCore/qlist.h>
+#include <QtSerialBus/QCanDbcFileParser>
 
 //  QCanDbcFileParser::QCanDbcFileParser()
 extern "C" Q_DECL_EXPORT
@@ -51,6 +52,15 @@ QList<QCanMessageDescription> *ritual_ZNK17QCanDbcFileParser19messageDescription
   return new QList<QCanMessageDescription>(self->messageDescriptions());
 }
 
+//  MessageValueDescriptions QCanDbcFileParser::messageValueDescriptions()
+//      const
+extern "C" Q_DECL_EXPORT
+QCanDbcFileParser::MessageValueDescriptions *ritual_ZNK17QCanDbcFileParser24messageValueDescriptionsEv(
+    const QCanDbcFileParser *self) {
+  return new QCanDbcFileParser::MessageValueDescriptions(
+      self->messageValueDescriptions());
+}
+
 //  Error QCanDbcFileParser::error() const
 extern "C" Q_DECL_EXPORT
 QCanDbcFileParser::Error ritual_ZNK17QCanDbcFileParser5errorEv(
@@ -77,4 +87,12 @@ extern "C" Q_DECL_EXPORT
 QCanUniqueIdDescription *ritual_ZN17QCanDbcFileParser19uniqueIdDescriptionEv() {
   return new QCanUniqueIdDescription(
       QCanDbcFileParser::uniqueIdDescription());
+}
+
+//  a QCanDbcFileParser::MessageValueDescriptions a ritual of
+//      QCanDbcFileParser gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCanDbcFileParser__QCanDbcFileParser_MessageValueDescriptions(
+    QCanDbcFileParser::MessageValueDescriptions *self) {
+  delete self;
 }

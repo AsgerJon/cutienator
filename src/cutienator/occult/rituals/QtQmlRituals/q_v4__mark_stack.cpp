@@ -6,6 +6,14 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4mmdefs_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qdeadlinetimer.h>
+
+//  QV4::MarkStack::MarkStack(ExecutionEngine *engine)
+extern "C" Q_DECL_EXPORT
+QV4::MarkStack *ritual_ZN3QV49MarkStackC1EPNS_15ExecutionEngineE(
+    QV4::ExecutionEngine *engine) {
+  return new QV4::MarkStack(engine);
+}
 
 //  QV4::MarkStack::~MarkStack()
 extern "C" Q_DECL_EXPORT
@@ -39,6 +47,28 @@ extern "C" Q_DECL_EXPORT
 QV4::ExecutionEngine *ritual_ZNK3QV49MarkStack6engineEv(
     const QV4::MarkStack *self) {
   return self->engine();
+}
+
+//  void QV4::MarkStack::drain()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV49MarkStack5drainEv(QV4::MarkStack *self) {
+  self->drain();
+}
+
+//  DrainState QV4::MarkStack::drain(QDeadlineTimer deadline)
+extern "C" Q_DECL_EXPORT
+QV4::MarkStack::DrainState ritual_ZN3QV49MarkStack5drainE14QDeadlineTimer(
+    QV4::MarkStack *self,
+    const QDeadlineTimer *deadline) {
+  return self->drain(*deadline);
+}
+
+//  void QV4::MarkStack::setSoftLimit(size_t size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV49MarkStack12setSoftLimitEm(
+    QV4::MarkStack *self,
+    size_t size) {
+  self->setSoftLimit(size);
 }
 
 //  Heap::Base *QV4::MarkStack::pop()

@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 
 //  DomPalette::DomPalette()
 extern "C" Q_DECL_EXPORT
@@ -17,6 +18,24 @@ DomPalette *ritual_ZN10DomPaletteC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10DomPaletteD1Ev(DomPalette *self) {
   delete self;
+}
+
+//  void DomPalette::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10DomPalette4readER16QXmlStreamReader(
+    DomPalette *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomPalette::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10DomPalette5writeER16QXmlStreamWriterRK7QString(
+    const DomPalette *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  DomColorGroup *DomPalette::elementActive() const

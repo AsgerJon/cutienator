@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,6 +11,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/QList>
 #include <QtGraphs/qgraphsglobal.h>
@@ -29,6 +31,9 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtgraphs/src/graphs2d/animation/qgraphtransition.cpp, line 168, as _ZN16QGraphTransition10classBeginEv
+inline void QGraphTransition::classBegin() {}
+
 //  from ../qtgraphs/src/graphs2d/animation/qgraphtransition.cpp, line 137, as _ZN16QGraphTransition11initializedEv
 inline bool QGraphTransition::initialized()
 {
@@ -45,7 +50,19 @@ inline bool QGraphTransition::contains(QGraphAnimation::GraphAnimationType type)
 
     return false;
 }
+
+//  from ../qtgraphs/src/graphs2d/animation/qgraphtransition.cpp, line 181, as _ZN16QGraphTransition5clearEP16QQmlListPropertyI7QObjectE
+inline void QGraphTransition::clear(QQmlListProperty<QObject> *)
+{
+    Q_UNIMPLEMENTED();
+}
 //  -----------------------------------------------------------------------
+
+//  Only a class built on QGraphTransition may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQGraphTransition : QGraphTransition {
+  using QGraphTransition::classBegin;
+};
 
 //  A QGraphTransition that Python can take functions over in. Every QGraphTransition
 //  Python makes is one. Each function below asks the Python
@@ -253,6 +270,31 @@ const QMetaObject *ritual_ZNK16QGraphTransition10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphTransition::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QGraphTransition11qt_metacastEPKc(
+    QGraphTransition *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphTransition::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QGraphTransition11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphTransition *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QGraphTransition::~QGraphTransition()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QGraphTransitionD1Ev(QGraphTransition *self) {
+  delete self;
+}
+
 //  bool QGraphTransition::initialized()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN16QGraphTransition11initializedEv(QGraphTransition *self) {
@@ -265,6 +307,26 @@ bool ritual_ZN16QGraphTransition8containsEN15QGraphAnimation18GraphAnimationType
     QGraphTransition *self,
     QGraphAnimation::GraphAnimationType type) {
   return self->contains(type);
+}
+
+//  void QGraphTransition::classBegin()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QGraphTransition10classBeginEv(QGraphTransition *self) {
+  self->classBegin();
+}
+
+//  void QGraphTransition::componentComplete()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QGraphTransition17componentCompleteEv(
+    QGraphTransition *self) {
+  self->componentComplete();
+}
+
+//  void QGraphTransition::clear(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QGraphTransition5clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QGraphTransition::clear(a0);
 }
 
 //  QGraphTransition as the QQmlParserStatus it is built on
@@ -284,4 +346,17 @@ bool ritual_take_QGraphTransition(
   return static_cast<CuteQGraphTransition *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+//  void QGraphTransition::classBegin()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN16QGraphTransition10classBeginEv(QGraphTransition *self) {
+  static_cast<OwnQGraphTransition *>(self)->OwnQGraphTransition::classBegin();
+}
+
+//  a QQmlListProperty<QObject> a ritual of QGraphTransition gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGraphTransition__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))

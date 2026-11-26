@@ -26,6 +26,9 @@
       "address", "address", "address"
     ],
     "ritual_ZNK23QDomDocumentTypePrivate8nodeTypeEv": ["int", "address"],
+    "ritual_ZNK23QDomDocumentTypePrivate4saveER11QTextStreamii": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_take_QDomDocumentTypePrivate": [
       "bool", "address", "chars", "address"
     ],

@@ -11,6 +11,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSpan>
+#include <cstddef>
 
 //  A QIOVectoredReadOperation that Python can take functions over in. Every QIOVectoredReadOperation
 //  Python makes is one. Each function below asks the Python
@@ -186,6 +188,22 @@ void ritual_ZN24QIOVectoredReadOperationD1Ev(
   delete self;
 }
 
+//  QSpan<const QSpan<std::byte>> QIOVectoredReadOperation::data() const
+extern "C" Q_DECL_EXPORT
+QSpan<const QSpan<std::byte>> *ritual_ZNK24QIOVectoredReadOperation4dataEv(
+    const QIOVectoredReadOperation *self) {
+  return new QSpan<const QSpan<std::byte>>(self->data());
+}
+
+//  QIOVectoredReadOperation::QIOVectoredReadOperation(QIOOperationPrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QIOVectoredReadOperation *ritual_ZN24QIOVectoredReadOperationC1ER19QIOOperationPrivateP7QObject(
+    QIOOperationPrivate *dd,
+    QObject *parent) {
+  return new CuteQIOVectoredReadOperation(*dd, parent);
+}
+
 //  a Python function taken by a CuteQIOVectoredReadOperation, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -194,6 +212,13 @@ bool ritual_take_QIOVectoredReadOperation(
     const char *key,
     void *call) {
   return static_cast<CuteQIOVectoredReadOperation *>(self)->take(key, call);
+}
+
+//  a QSpan<const QSpan<std::byte>> a ritual of QIOVectoredReadOperation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QIOVectoredReadOperation__QSpan_const_QSpan_std_byte(
+    QSpan<const QSpan<std::byte>> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(async_io)

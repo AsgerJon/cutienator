@@ -16,10 +16,40 @@ QXmlAttributes *ritual_ZN14QXmlAttributesC1ERKS_(const QXmlAttributes *a0) {
   return new QXmlAttributes(*a0);
 }
 
+//  QXmlAttributes::QXmlAttributes(QXmlAttributes &&a0)
+extern "C" Q_DECL_EXPORT
+QXmlAttributes *ritual_ZN14QXmlAttributesC1EOS_(QXmlAttributes *a0) {
+  return new QXmlAttributes(std::move(*a0));
+}
+
+//  QXmlAttributes &QXmlAttributes::operator=(const QXmlAttributes &a0)
+extern "C" Q_DECL_EXPORT
+QXmlAttributes *ritual_ZN14QXmlAttributesaSERKS_(
+    QXmlAttributes *self,
+    const QXmlAttributes *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QXmlAttributes &QXmlAttributes::operator=(QXmlAttributes &&a0)
+extern "C" Q_DECL_EXPORT
+QXmlAttributes *ritual_ZN14QXmlAttributesaSEOS_(
+    QXmlAttributes *self,
+    QXmlAttributes *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QXmlAttributes::~QXmlAttributes()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QXmlAttributesD1Ev(QXmlAttributes *self) {
   delete self;
+}
+
+//  void QXmlAttributes::swap(QXmlAttributes &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QXmlAttributes4swapERS_(
+    QXmlAttributes *self,
+    QXmlAttributes *other) {
+  self->swap(*other);
 }
 
 //  int QXmlAttributes::index(const QString &qName) const

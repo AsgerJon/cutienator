@@ -25,7 +25,7 @@ typedef void (*CuteQQmlProxyMetaObjectCall1)(const void *, QObject *, int *);
 class CuteQQmlProxyMetaObject : public QQmlProxyMetaObject {
 public:
   using QQmlProxyMetaObject::QQmlProxyMetaObject;
-  CuteQQmlProxyMetaObject(const QQmlProxyMetaObject &other) : QQmlProxyMetaObject(other) {}
+  CuteQQmlProxyMetaObject(const QQmlProxyMetaObject & other) : QQmlProxyMetaObject(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -67,6 +67,15 @@ public:
   }
 };
 
+//  QQmlProxyMetaObject::QQmlProxyMetaObject(QObject *a0, const
+//      QList<ProxyData> *a1)
+extern "C" Q_DECL_EXPORT
+QQmlProxyMetaObject *ritual_ZN19QQmlProxyMetaObjectC1EP7QObjectPK5QListINS_9ProxyDataEE(
+    QObject *a0,
+    const QList<QQmlProxyMetaObject::ProxyData> *a1) {
+  return new CuteQQmlProxyMetaObject(a0, a1);
+}
+
 //  QQmlProxyMetaObject::~QQmlProxyMetaObject()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQmlProxyMetaObjectD1Ev(QQmlProxyMetaObject *self) {
@@ -77,6 +86,18 @@ void ritual_ZN19QQmlProxyMetaObjectD1Ev(QQmlProxyMetaObject *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZN19QQmlProxyMetaObject17extensionObjectIdEi(int id) {
   return QQmlProxyMetaObject::extensionObjectId(id);
+}
+
+//  int QQmlProxyMetaObject::metaCall(QObject *o, QMetaObject::Call _c, int
+//      _id, void **_a)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQmlProxyMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv(
+    QQmlProxyMetaObject *self,
+    QObject *o,
+    QMetaObject::Call _c,
+    int _id,
+    void **_a) {
+  return self->metaCall(o, _c, _id, _a);
 }
 
 #if !(QT_VERSION >= QT_VERSION_CHECK(7, 0, 0))

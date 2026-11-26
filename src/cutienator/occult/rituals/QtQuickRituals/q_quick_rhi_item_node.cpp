@@ -237,25 +237,6 @@ inline void QQuickRhiItemNode::resetRenderTargetObjects()
     m_renderPassDescriptor.reset();
     m_depthStencilBuffer.reset();
 }
-
-//  from ../qtdeclarative/src/quick/items/qquickrhiitem.cpp, line 389, as _ZN17QQuickRhiItemNode6renderEv
-inline void QQuickRhiItemNode::render()
-{
-    // called before Qt Quick starts recording its main render pass
-
-    if (!isValid() || !m_renderPending)
-        return;
-
-    QRhiCommandBuffer *cb = queryCommandBuffer();
-    if (!cb)
-        return;
-
-    m_renderPending = false;
-    m_renderer->render(cb);
-
-    markDirty(QSGNode::DirtyMaterial);
-    emit textureChanged();
-}
 //  -----------------------------------------------------------------------
 
 //  A QQuickRhiItemNode that Python can take functions over in. Every QQuickRhiItemNode
@@ -480,6 +461,25 @@ const QMetaObject *ritual_ZNK17QQuickRhiItemNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRhiItemNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickRhiItemNode11qt_metacastEPKc(
+    QQuickRhiItemNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRhiItemNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickRhiItemNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRhiItemNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QSGTexture *QQuickRhiItemNode::texture() const
 extern "C" Q_DECL_EXPORT
 QSGTexture *ritual_ZNK17QQuickRhiItemNode7textureEv(
@@ -545,7 +545,25 @@ void ritual_ZN17QQuickRhiItemNode11setRendererEP21QQuickRhiItemRenderer(
 //  void QQuickRhiItemNode::render()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickRhiItemNode6renderEv(QQuickRhiItemNode *self) {
-  self->render();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickRhiItemNode")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "render()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "render()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QQuickRhiItemNode as the QSGSimpleTextureNode it is built on

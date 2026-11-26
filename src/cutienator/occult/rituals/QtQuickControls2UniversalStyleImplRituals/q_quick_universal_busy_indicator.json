@@ -9,6 +9,12 @@
     "ritual_ZNK28QQuickUniversalBusyIndicator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickUniversalBusyIndicator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuickUniversalBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK28QQuickUniversalBusyIndicator5countEv": ["int", "address"],
     "ritual_ZN28QQuickUniversalBusyIndicator8setCountEi": [
       "nothing", "address", "int"
@@ -22,6 +28,9 @@
     "ritual_ZNK28QQuickUniversalBusyIndicator7elapsedEv": ["int", "address"],
     "ritual_ZN28QQuickUniversalBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN28QQuickUniversalBusyIndicator15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
     ],
     "ritual_own_ZN28QQuickUniversalBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"

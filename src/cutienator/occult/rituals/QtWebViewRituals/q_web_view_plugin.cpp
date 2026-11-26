@@ -220,6 +220,24 @@ const QMetaObject *ritual_ZNK14QWebViewPlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWebViewPlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QWebViewPlugin11qt_metacastEPKc(
+    QWebViewPlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWebViewPlugin::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QWebViewPlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWebViewPlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWebViewPlugin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QWebViewPlugin2trEPKcS1_i(
@@ -227,6 +245,12 @@ QString *ritual_ZN14QWebViewPlugin2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWebViewPlugin::tr(s, c, n));
+}
+
+//  QWebViewPlugin::QWebViewPlugin(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QWebViewPlugin *ritual_ZN14QWebViewPluginC1EP7QObject(QObject *parent) {
+  return new CuteQWebViewPlugin(parent);
 }
 
 //  QWebViewPlugin::~QWebViewPlugin()

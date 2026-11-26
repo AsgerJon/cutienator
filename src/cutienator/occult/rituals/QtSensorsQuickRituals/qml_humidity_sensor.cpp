@@ -248,6 +248,25 @@ const QMetaObject *ritual_ZNK17QmlHumiditySensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlHumiditySensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QmlHumiditySensor11qt_metacastEPKc(
+    QmlHumiditySensor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlHumiditySensor::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QmlHumiditySensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlHumiditySensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlHumiditySensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QmlHumiditySensor2trEPKcS1_i(

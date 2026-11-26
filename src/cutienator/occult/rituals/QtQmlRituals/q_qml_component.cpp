@@ -237,6 +237,24 @@ const QMetaObject *ritual_ZNK13QQmlComponent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlComponent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQmlComponent11qt_metacastEPKc(
+    QQmlComponent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlComponent::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQmlComponent11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlComponent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlComponent::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQmlComponent2trEPKcS1_i(
@@ -459,6 +477,17 @@ void ritual_ZN13QQmlComponent14completeCreateEv(QQmlComponent *self) {
   self->completeCreate();
 }
 
+//  void QQmlComponent::create(QQmlIncubator &a0, QQmlContext *context,
+//      QQmlContext *forContext)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlComponent6createER13QQmlIncubatorP11QQmlContextS3_(
+    QQmlComponent *self,
+    QQmlIncubator *a0,
+    QQmlContext *context,
+    QQmlContext *forContext) {
+  self->create(*a0, context, forContext);
+}
+
 //  QQmlContext *QQmlComponent::creationContext() const
 extern "C" Q_DECL_EXPORT
 QQmlContext *ritual_ZNK13QQmlComponent15creationContextEv(
@@ -517,6 +546,30 @@ void ritual_ZN13QQmlComponent7setDataERK10QByteArrayRK4QUrl(
     const QByteArray *data,
     const QUrl *baseUrl) {
   self->setData(*data, *baseUrl);
+}
+
+//  void QQmlComponent::statusChanged(QQmlComponent::Status a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlComponent13statusChangedENS_6StatusE(
+    QQmlComponent *self,
+    QQmlComponent::Status a0) {
+  self->statusChanged(a0);
+}
+
+//  void QQmlComponent::progressChanged(qreal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlComponent15progressChangedEd(
+    QQmlComponent *self,
+    qreal a0) {
+  self->progressChanged(a0);
+}
+
+//  QQmlComponent::QQmlComponent(QQmlComponentPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQmlComponent *ritual_ZN13QQmlComponentC1ER20QQmlComponentPrivateP7QObject(
+    QQmlComponentPrivate *dd,
+    QObject *parent) {
+  return new CuteQQmlComponent(*dd, parent);
 }
 
 #if QT_DEPRECATED_SINCE(6, 3)

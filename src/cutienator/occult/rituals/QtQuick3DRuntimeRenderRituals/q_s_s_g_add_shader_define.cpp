@@ -23,6 +23,14 @@ QSSGAddShaderDefine *ritual_ZN19QSSGAddShaderDefineC1ERK10QByteArrayi(
   return new QSSGAddShaderDefine(*name, value);
 }
 
+//  void QSSGAddShaderDefine::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK19QSSGAddShaderDefine8addDebugER6QDebug(
+    const QSSGAddShaderDefine *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGAddShaderDefine::~QSSGAddShaderDefine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QSSGAddShaderDefineD1Ev(QSSGAddShaderDefine *self) {

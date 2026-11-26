@@ -9,6 +9,9 @@
       "address", "address", "int"
     ],
     "ritual_ZN3QV44Moth17BytecodeGenerator4JumpD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV44Moth17BytecodeGenerator4JumpC1EOS2_": [
+      "address", "address"
+    ],
     "ritual_ZN3QV44Moth17BytecodeGenerator4Jump4linkEv": [
       "nothing", "address"
     ],

@@ -1,6 +1,9 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DRender/6.12.0/Qt3DRender/private/sendbuffercapturejob_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  Qt3DRender/6.12.0/Qt3DRender/private/sendbuffercapturejob_p.h, Qt
+//  6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again. Left out: d_func() (the private class is only declared where
+//  the header is read, so it cannot be named). Left out: addRequest
+//  takes a QPair (std::pair), so it is not written.
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qt3drender_global_p.h>
 #include <Qt3DRender/Qt3DRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,9 +11,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 
-//  A Qt3DRender::Render::SendBufferCaptureJob that Python can take functions over in. Every Qt3DRender::Render::SendBufferCaptureJob
-//  Python makes is one. Each function below asks the Python
-//  function handed over for it, and runs Qt's own without one.
+//  A Qt3DRender::Render::SendBufferCaptureJob that Python can take functions
+//      over in. Every Qt3DRender::Render::SendBufferCaptureJob Python makes
+//      is one. Each function below asks the Python function handed over for
+//      it, and runs Qt's own without one.
 typedef void (*CuteQt3DRender_Render_SendBufferCaptureJobCall0)(const void *, Qt3DCore::QAspectEngine *, int *);
 typedef bool (*CuteQt3DRender_Render_SendBufferCaptureJobCall1)(const void *, int *);
 class CuteQt3DRender_Render_SendBufferCaptureJob : public Qt3DRender::Render::SendBufferCaptureJob {
@@ -53,6 +57,19 @@ public:
   }
 };
 
+//  Qt3DRender::Render::SendBufferCaptureJob::SendBufferCaptureJob()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::SendBufferCaptureJob *ritual_ZN10Qt3DRender6Render20SendBufferCaptureJobC1Ev() {
+  return new CuteQt3DRender_Render_SendBufferCaptureJob();
+}
+
+//  Qt3DRender::Render::SendBufferCaptureJob::~SendBufferCaptureJob()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render20SendBufferCaptureJobD1Ev(
+    Qt3DRender::Render::SendBufferCaptureJob *self) {
+  delete self;
+}
+
 //  void Qt3DRender::Render::SendBufferCaptureJob::setManagers(NodeManagers
 //      *nodeManagers)
 extern "C" Q_DECL_EXPORT
@@ -60,6 +77,20 @@ void ritual_ZN10Qt3DRender6Render20SendBufferCaptureJob11setManagersEPNS0_12Node
     Qt3DRender::Render::SendBufferCaptureJob *self,
     Qt3DRender::Render::NodeManagers *nodeManagers) {
   self->setManagers(nodeManagers);
+}
+
+//  bool Qt3DRender::Render::SendBufferCaptureJob::hasRequests() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender6Render20SendBufferCaptureJob11hasRequestsEv(
+    const Qt3DRender::Render::SendBufferCaptureJob *self) {
+  return self->hasRequests();
+}
+
+//  void Qt3DRender::Render::SendBufferCaptureJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render20SendBufferCaptureJob3runEv(
+    Qt3DRender::Render::SendBufferCaptureJob *self) {
+  self->run();
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_SendBufferCaptureJob,

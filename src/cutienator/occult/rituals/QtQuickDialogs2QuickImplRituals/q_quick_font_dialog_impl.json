@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickFontDialogImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickFontDialogImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickFontDialogImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickFontDialogImpl2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,10 @@
     "ritual_ZN20QQuickFontDialogImpl21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
     ],
+    "ritual_ZNK20QQuickFontDialogImpl7optionsEv": ["address", "address"],
+    "ritual_ZN20QQuickFontDialogImpl10setOptionsERK14QSharedPointerI18QFontDialogOptionsE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QQuickFontDialogImpl11currentFontEv": [
       "address", "address"
     ],
@@ -23,6 +33,12 @@
       "nothing", "address", "address", "bool"
     ],
     "ritual_ZN20QQuickFontDialogImpl4initEv": ["nothing", "address"],
+    "ritual_ZN20QQuickFontDialogImpl14optionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickFontDialogImpl18currentFontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QQuickFontDialogImpl15keyReleaseEventEP9QKeyEvent": [
       "nothing", "address", "address"
     ],
@@ -42,6 +58,9 @@
     ],
     "ritual_own_ZN20QQuickFontDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QQuickFontDialogImpl__QSharedPointer_QFontDialogOptions": [
+      "nothing", "address"
     ]
   }
 }

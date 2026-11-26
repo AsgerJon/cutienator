@@ -8,6 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
+#include <QtQml/QtQml>
+#include <QtQml/qjsvalue.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -225,6 +227,25 @@ const QMetaObject *ritual_ZNK18QQuickWorkerScript10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWorkerScript::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickWorkerScript11qt_metacastEPKc(
+    QQuickWorkerScript *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWorkerScript::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickWorkerScript11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWorkerScript *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWorkerScript::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickWorkerScript2trEPKcS1_i(
@@ -274,6 +295,28 @@ void ritual_ZN18QQuickWorkerScript11sendMessageEP14QQmlV4Function(
     QQuickWorkerScript *self,
     QQmlV4FunctionPtr a0) {
   self->sendMessage(a0);
+}
+
+//  void QQuickWorkerScript::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWorkerScript13sourceChangedEv(
+    QQuickWorkerScript *self) {
+  self->sourceChanged();
+}
+
+//  void QQuickWorkerScript::readyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWorkerScript12readyChangedEv(
+    QQuickWorkerScript *self) {
+  self->readyChanged();
+}
+
+//  void QQuickWorkerScript::message(const QJSValue &messageObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWorkerScript7messageERK8QJSValue(
+    QQuickWorkerScript *self,
+    const QJSValue *messageObject) {
+  self->message(*messageObject);
 }
 
 //  void QQuickWorkerScript::classBegin()

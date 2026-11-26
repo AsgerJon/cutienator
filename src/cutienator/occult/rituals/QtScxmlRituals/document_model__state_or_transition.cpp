@@ -7,6 +7,40 @@
 #include <QtScxml/6.12.0/QtScxml/private/qscxmlcompiler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtScxml/private/qscxmlcompiler_p.h>
+#include <QtScxml/private/qscxmlexecutablecontent_p.h>
+#include <QtCore/qxmlstream.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qstring.h>
+#ifndef BUILD_QSCXMLC
+#include <QtScxml/private/qscxmlinvokableservice_p.h>
+#include <QtScxml/private/qscxmldatamodel_p.h>
+#include <QtScxml/private/qscxmlstatemachine_p.h>
+#include <QtScxml/qscxmlstatemachine.h>
+#include <QtScxml/private/qscxmltabledata_p.h>
+#include <QtCore/private/qmetaobjectbuilder_p.h>
+#endif
+#include <QtCore/qmap.h>
+#include <functional>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from ../qtscxml/src/scxml/qscxmlcompiler.cpp, line 1144, as _ZN13DocumentModel4NodeD2Ev
+inline DocumentModel::Node::~Node()
+{
+}
+//  -----------------------------------------------------------------------
 
 //  A DocumentModel::StateOrTransition that Python can take functions over in. Every DocumentModel::StateOrTransition
 //  Python makes is one. Each function below asks the Python
@@ -163,6 +197,14 @@ public:
     return DocumentModel::Node::asScxml();
   }
 };
+
+//  DocumentModel::StateOrTransition::StateOrTransition(const XmlLocation
+//      &xmlLocation)
+extern "C" Q_DECL_EXPORT
+DocumentModel::StateOrTransition *ritual_ZN13DocumentModel17StateOrTransitionC1ERKNS_11XmlLocationE(
+    const DocumentModel::XmlLocation *xmlLocation) {
+  return new CuteDocumentModel_StateOrTransition(*xmlLocation);
+}
 
 //  a Python function taken by a CuteDocumentModel_StateOrTransition, for the
 //      function named by the key

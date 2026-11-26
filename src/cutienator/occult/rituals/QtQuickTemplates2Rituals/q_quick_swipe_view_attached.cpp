@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK23QQuickSwipeViewAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSwipeViewAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickSwipeViewAttached11qt_metacastEPKc(
+    QQuickSwipeViewAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSwipeViewAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickSwipeViewAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSwipeViewAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSwipeViewAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickSwipeViewAttached2trEPKcS1_i(
@@ -68,6 +87,56 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK23QQuickSwipeViewAttached14isPreviousItemEv(
     const QQuickSwipeViewAttached *self) {
   return self->isPreviousItem();
+}
+
+//  void QQuickSwipeViewAttached::indexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickSwipeViewAttached12indexChangedEv(
+    QQuickSwipeViewAttached *self) {
+  self->indexChanged();
+}
+
+//  void QQuickSwipeViewAttached::isCurrentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickSwipeViewAttached20isCurrentItemChangedEv(
+    QQuickSwipeViewAttached *self) {
+  self->isCurrentItemChanged();
+}
+
+//  void QQuickSwipeViewAttached::viewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickSwipeViewAttached11viewChangedEv(
+    QQuickSwipeViewAttached *self) {
+  self->viewChanged();
+}
+
+//  void QQuickSwipeViewAttached::isNextItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickSwipeViewAttached17isNextItemChangedEv(
+    QQuickSwipeViewAttached *self) {
+  self->isNextItemChanged();
+}
+
+//  void QQuickSwipeViewAttached::isPreviousItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickSwipeViewAttached21isPreviousItemChangedEv(
+    QQuickSwipeViewAttached *self) {
+  self->isPreviousItemChanged();
+}
+
+//  QQuickSwipeViewAttachedPrivate *QQuickSwipeViewAttached::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSwipeViewAttachedPrivate *ritual_ZN23QQuickSwipeViewAttached6d_funcEv(
+    QQuickSwipeViewAttached *self) {
+  return self->d_func();
+}
+
+//  const QQuickSwipeViewAttachedPrivate *QQuickSwipeViewAttached::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QQuickSwipeViewAttachedPrivate *ritual_ZNK23QQuickSwipeViewAttached6d_funcEv(
+    const QQuickSwipeViewAttached *self) {
+  return self->d_func();
 }
 
 #endif  // QT_CONFIG(quicktemplates2_container)

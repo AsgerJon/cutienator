@@ -8,8 +8,38 @@
     "ritual_ZNK8Qt3DCore5Quick13Quick3DBuffer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DBuffer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DBuffer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore5Quick13Quick3DBuffer2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DBufferC1EPNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick13Quick3DBuffer10bufferDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DBuffer13setBufferDataERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DBuffer14readBinaryFileERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DBuffer10updateDataEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DBuffer17bufferDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DBuffer11initEnginesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DBuffer16convertToRawDataERK8QJSValue": [
+      "address", "address", "address"
     ]
   }
 }

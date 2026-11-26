@@ -28,6 +28,13 @@
     "ritual_ZN18QMqttControlPacket9appendRawERK10QByteArray": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QMqttControlPacket24appendRawVariableIntegerEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QMqttControlPacket9serializeEv": ["address", "address"],
+    "ritual_ZNK18QMqttControlPacket16serializePayloadEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QMqttControlPacket7payloadEv": ["address", "address"],
     "ritual_ZN18QMqttControlPacketD1Ev": ["nothing", "address"]
   }

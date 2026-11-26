@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtGui/QMatrix3x3>
 
 //  A Qt3DExtras::QAbstractSpriteSheet that Python can take functions over in. Every Qt3DExtras::QAbstractSpriteSheet
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras20QAbstractSpriteSheet10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QAbstractSpriteSheet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras20QAbstractSpriteSheet11qt_metacastEPKc(
+    Qt3DExtras::QAbstractSpriteSheet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QAbstractSpriteSheet::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras20QAbstractSpriteSheet11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QAbstractSpriteSheet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QAbstractSpriteSheet::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,89 @@ QString *ritual_ZN10Qt3DExtras20QAbstractSpriteSheet2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QAbstractSpriteSheet::tr(s, c, n));
+}
+
+//  Qt3DExtras::QAbstractSpriteSheet::~QAbstractSpriteSheet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras20QAbstractSpriteSheetD1Ev(
+    Qt3DExtras::QAbstractSpriteSheet *self) {
+  delete self;
+}
+
+//  Qt3DRender::QAbstractTexture *Qt3DExtras::QAbstractSpriteSheet::texture()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTexture *ritual_ZNK10Qt3DExtras20QAbstractSpriteSheet7textureEv(
+    const Qt3DExtras::QAbstractSpriteSheet *self) {
+  return self->texture();
+}
+
+//  QMatrix3x3 Qt3DExtras::QAbstractSpriteSheet::textureTransform() const
+extern "C" Q_DECL_EXPORT
+QMatrix3x3 *ritual_ZNK10Qt3DExtras20QAbstractSpriteSheet16textureTransformEv(
+    const Qt3DExtras::QAbstractSpriteSheet *self) {
+  return new QMatrix3x3(self->textureTransform());
+}
+
+//  int Qt3DExtras::QAbstractSpriteSheet::currentIndex() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras20QAbstractSpriteSheet12currentIndexEv(
+    const Qt3DExtras::QAbstractSpriteSheet *self) {
+  return self->currentIndex();
+}
+
+//  void
+//      Qt3DExtras::QAbstractSpriteSheet::setTexture(Qt3DRender::QAbstractTex
+//      ture *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras20QAbstractSpriteSheet10setTextureEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QAbstractSpriteSheet *self,
+    Qt3DRender::QAbstractTexture *texture) {
+  self->setTexture(texture);
+}
+
+//  void Qt3DExtras::QAbstractSpriteSheet::setCurrentIndex(int currentIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras20QAbstractSpriteSheet15setCurrentIndexEi(
+    Qt3DExtras::QAbstractSpriteSheet *self,
+    int currentIndex) {
+  self->setCurrentIndex(currentIndex);
+}
+
+//  void Qt3DExtras::QAbstractSpriteSheet::textureChanged(Qt3DRender::QAbstra
+//      ctTexture *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras20QAbstractSpriteSheet14textureChangedEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QAbstractSpriteSheet *self,
+    Qt3DRender::QAbstractTexture *texture) {
+  self->textureChanged(texture);
+}
+
+//  void Qt3DExtras::QAbstractSpriteSheet::textureTransformChanged(const
+//      QMatrix3x3 &textureTransform)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras20QAbstractSpriteSheet23textureTransformChangedERK14QGenericMatrixILi3ELi3EfE(
+    Qt3DExtras::QAbstractSpriteSheet *self,
+    const QMatrix3x3 *textureTransform) {
+  self->textureTransformChanged(*textureTransform);
+}
+
+//  void Qt3DExtras::QAbstractSpriteSheet::currentIndexChanged(int
+//      currentIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras20QAbstractSpriteSheet19currentIndexChangedEi(
+    Qt3DExtras::QAbstractSpriteSheet *self,
+    int currentIndex) {
+  self->currentIndexChanged(currentIndex);
+}
+
+//  Qt3DExtras::QAbstractSpriteSheet::QAbstractSpriteSheet(QAbstractSpriteShe
+//      etPrivate &d, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QAbstractSpriteSheet *ritual_ZN10Qt3DExtras20QAbstractSpriteSheetC1ERNS_27QAbstractSpriteSheetPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QAbstractSpriteSheetPrivate *d,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QAbstractSpriteSheet(*d, parent);
 }
 
 //  QAbstractSpriteSheetPrivate *Qt3DExtras::QAbstractSpriteSheet::d_func()
@@ -212,4 +315,11 @@ bool ritual_take_Qt3DExtras_QAbstractSpriteSheet(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DExtras_QAbstractSpriteSheet *>(self)->take(key, call);
+}
+
+//  a QMatrix3x3 a ritual of Qt3DExtras::QAbstractSpriteSheet gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DExtras_QAbstractSpriteSheet__QMatrix3x3(
+    QMatrix3x3 *self) {
+  delete self;
 }

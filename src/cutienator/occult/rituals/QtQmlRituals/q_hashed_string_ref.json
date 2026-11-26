@@ -16,6 +16,7 @@
       "address", "address"
     ],
     "ritual_ZN16QHashedStringRefC1ERKS_": ["address", "address"],
+    "ritual_ZN16QHashedStringRefaSERKS_": ["address", "address", "address"],
     "ritual_ZNK16QHashedStringRefeqERK7QString": ["bool", "address", "text"],
     "ritual_ZNK16QHashedStringRefeqERK13QHashedString": [
       "bool", "address", "address"

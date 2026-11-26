@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QMessageDialogOptions12CustomButtonC1EiRK7QStringN21QPlatformDialogHelper10ButtonRoleEPv": [
+      "address", "int", "text", "int", "address"
+    ],
     "ritual_ZN21QMessageDialogOptions12CustomButtonD1Ev": [
       "nothing", "address"
     ]

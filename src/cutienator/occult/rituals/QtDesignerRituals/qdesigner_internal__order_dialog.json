@@ -8,17 +8,57 @@
     "ritual_ZNK18qdesigner_internal11OrderDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal11OrderDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal11OrderDialog2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18qdesigner_internal11OrderDialogC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialogD1Ev": ["nothing", "address"],
     "ritual_ZN18qdesigner_internal11OrderDialog16pagesOfContainerEPK28QDesignerFormEditorInterfaceP7QWidget": [
       "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog11setPageListERK5QListIP7QWidgetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal11OrderDialog8pageListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog14setDescriptionERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_ZN18qdesigner_internal11OrderDialog9setFormatENS0_6FormatE": [
       "nothing", "address", "int"
     ],
     "ritual_ZNK18qdesigner_internal11OrderDialog6formatEv": [
       "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog15upButtonClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog17downButtonClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog25pageListCurrentRowChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog25slotEnableButtonsAfterDnDEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog9slotResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog9buildListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11OrderDialog13enableButtonsEi": [
+      "nothing", "address", "int"
     ],
     "ritual_take_qdesigner_internal_OrderDialog": [
       "bool", "address", "chars", "address"

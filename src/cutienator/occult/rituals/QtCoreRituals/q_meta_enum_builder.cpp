@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
+#include <optional>
 
 //  QMetaEnumBuilder::QMetaEnumBuilder()
 extern "C" Q_DECL_EXPORT
@@ -122,6 +123,14 @@ int ritual_ZNK16QMetaEnumBuilder5valueEi(
   return self->value(index);
 }
 
+//  std::optional<quint64> QMetaEnumBuilder::value64(int index) const
+extern "C" Q_DECL_EXPORT
+std::optional<quint64> *ritual_ZNK16QMetaEnumBuilder7value64Ei(
+    const QMetaEnumBuilder *self,
+    int index) {
+  return new std::optional<quint64>(self->value64(index));
+}
+
 //  int QMetaEnumBuilder::addKey(const QByteArray &name, int value)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN16QMetaEnumBuilder6addKeyERK10QByteArrayi(
@@ -157,8 +166,22 @@ QMetaEnumBuilder *ritual_ZN16QMetaEnumBuilderC1EPK18QMetaObjectBuilderi(
   return new QMetaEnumBuilder(mobj, index);
 }
 
+//  QMetaEnumBuilderPrivate *QMetaEnumBuilder::d_func() const
+extern "C" Q_DECL_EXPORT
+QMetaEnumBuilderPrivate *ritual_ZNK16QMetaEnumBuilder6d_funcEv(
+    const QMetaEnumBuilder *self) {
+  return self->d_func();
+}
+
 //  QMetaEnumBuilder::~QMetaEnumBuilder()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QMetaEnumBuilderD1Ev(QMetaEnumBuilder *self) {
+  delete self;
+}
+
+//  a std::optional<quint64> a ritual of QMetaEnumBuilder gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMetaEnumBuilder__std_optional_quint64(
+    std::optional<quint64> *self) {
   delete self;
 }

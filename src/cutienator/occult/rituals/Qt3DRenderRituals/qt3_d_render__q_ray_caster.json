@@ -7,11 +7,55 @@
     "ritual_ZNK10Qt3DRender10QRayCaster10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QRayCaster11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCaster11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QRayCaster2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN10Qt3DRender10QRayCasterC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCasterD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender10QRayCaster6originEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender10QRayCaster9directionEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender10QRayCaster6lengthEv": ["float", "address"],
+    "ritual_ZN10Qt3DRender10QRayCaster9setOriginERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCaster12setDirectionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCaster9setLengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCaster7triggerEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender10QRayCaster7triggerERK9QVector3DS3_f": [
+      "nothing", "address", "address", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCaster4pickERK9QVector3DS3_f": [
+      "address", "address", "address", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCaster13originChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCaster16directionChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCaster13lengthChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QRayCasterC1ERNS_25QAbstractRayCasterPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
     "ritual_take_Qt3DRender_QRayCaster": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QRayCaster__Qt3DRender_QAbstractRayCaster_Hits": [
+      "nothing", "address"
     ]
   }
 }

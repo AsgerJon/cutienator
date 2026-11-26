@@ -8,11 +8,26 @@
     "ritual_ZNK8Qt3DCore5Quick13Quick3DEntity10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DEntity11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DEntity11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore5Quick13Quick3DEntity2trEPKcS3_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DEntityC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick13Quick3DEntity13componentListEv": [
+      "address", "address"
+    ],
     "ritual_ZNK8Qt3DCore5Quick13Quick3DEntity12parentEntityEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DCore_Quick_Quick3DEntity__QQmlListProperty_Qt3DCore_QComponent": [
+      "nothing", "address"
     ]
   }
 }

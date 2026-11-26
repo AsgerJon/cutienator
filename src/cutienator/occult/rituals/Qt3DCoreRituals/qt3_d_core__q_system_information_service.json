@@ -8,8 +8,26 @@
     "ritual_ZNK8Qt3DCore25QSystemInformationService10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore25QSystemInformationService2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationServiceC1EPNS_13QAspectEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore25QSystemInformationService14isTraceEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK8Qt3DCore25QSystemInformationService22isGraphicsTraceEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK8Qt3DCore25QSystemInformationService22isCommandServerEnabledEv": [
+      "bool", "address"
     ],
     "ritual_ZNK8Qt3DCore25QSystemInformationService11aspectNamesEv": [
       "address", "address"
@@ -17,10 +35,40 @@
     "ritual_ZNK8Qt3DCore25QSystemInformationService21threadPoolThreadCountEv": [
       "int", "address"
     ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService24writePreviousFrameTracesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService15revealLogFolderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService15setTraceEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService23setGraphicsTraceEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService14executeCommandERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService11dumpCommandERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService19traceEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationService27graphicsTraceEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN8Qt3DCore25QSystemInformationService6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK8Qt3DCore25QSystemInformationService6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationServiceC1EPNS_13QAspectEngineERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore25QSystemInformationServiceC1ERNS_32QSystemInformationServicePrivateE": [
       "address", "address"
     ],
     "ritual_take_Qt3DCore_QSystemInformationService": [

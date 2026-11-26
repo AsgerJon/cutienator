@@ -9,6 +9,11 @@
   ],
   "rows": {
     "ritual_ZNK8AxisLine10metaObjectEv": ["address", "address"],
+    "ritual_ZN8AxisLine11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8AxisLine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8AxisLineD1Ev": ["nothing", "address"],
     "ritual_ZN8AxisLine12setupShadersEv": ["nothing", "address"],
     "ritual_ZNK8AxisLine11iResolutionEv": ["address", "address"],
     "ritual_ZNK8AxisLine9smoothingEv": ["double", "address"],
@@ -19,6 +24,11 @@
     "ritual_ZN8AxisLine14geometryChangeERK6QRectFS2_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN8AxisLine18iResolutionChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisLine16smoothingChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisLine12colorChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisLine16lineWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisLine19isHorizontalChangedEv": ["nothing", "address"],
     "ritual_take_AxisLine": ["bool", "address", "chars", "address"],
     "ritual_own_ZN8AxisLine17componentCompleteEv": ["nothing", "address"]
   }

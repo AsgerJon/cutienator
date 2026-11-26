@@ -16,7 +16,17 @@
     "ritual_ZNK17QOpenGLExtensions18hasOpenGLExtensionENS_15OpenGLExtensionE": [
       "bool", "address", "int"
     ],
+    "ritual_ZN17QOpenGLExtensions11glMapBufferEjj": [
+      "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN17QOpenGLExtensions18glGetBufferSubDataEjllPv": [
+      "nothing", "address", "unsigned int", "long long", "long long",
+      "address"
+    ],
     "ritual_ZN17QOpenGLExtensions11flushSharedEv": ["nothing", "address"],
+    "ritual_ZN17QOpenGLExtensions18discardFramebufferEjiPKj": [
+      "nothing", "address", "unsigned int", "int", "address"
+    ],
     "ritual_ZNK17QOpenGLExtensions1dEv": ["address", "address"],
     "ritual_ZN17QOpenGLExtensions13isInitializedEPK23QOpenGLFunctionsPrivate": [
       "bool", "address"

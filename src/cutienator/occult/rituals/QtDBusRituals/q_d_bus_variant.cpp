@@ -21,6 +21,20 @@ QDBusVariant *ritual_ZN12QDBusVariantC1ERK8QVariant(
   return new QDBusVariant(*variant);
 }
 
+//  QDBusVariant::QDBusVariant(QVariant &&v)
+extern "C" Q_DECL_EXPORT
+QDBusVariant *ritual_ZN12QDBusVariantC1EO8QVariant(QVariant *v) {
+  return new QDBusVariant(std::move(*v));
+}
+
+//  void QDBusVariant::swap(QDBusVariant &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QDBusVariant4swapERS_(
+    QDBusVariant *self,
+    QDBusVariant *other) {
+  self->swap(*other);
+}
+
 //  void QDBusVariant::setVariant(const QVariant &variant)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QDBusVariant10setVariantERK8QVariant(

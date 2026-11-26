@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK4QMdi12RegularTiler9rearrangeER5QListIP7QWidgetERK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK4QMdi12RegularTiler4typeEv": ["int", "address"],
     "ritual_ZN4QMdi12RegularTilerD1Ev": ["nothing", "address"],
     "ritual_own_ZNK4QMdi12RegularTiler4typeEv": ["int", "address"]

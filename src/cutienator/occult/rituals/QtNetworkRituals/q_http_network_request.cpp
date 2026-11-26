@@ -30,6 +30,108 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/network/access/qhttpnetworkheader.cpp, line 9, as _ZN18QHttpNetworkHeaderD2Ev
+inline QHttpNetworkHeader::~QHttpNetworkHeader()
+    = default;
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 264, as _ZN19QHttpNetworkRequest14setHeaderFieldERK10QByteArrayS2_
+inline void QHttpNetworkRequest::setHeaderField(const QByteArray &name, const QByteArray &data)
+{
+    d->setHeaderField(name, data);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 249, as _ZN19QHttpNetworkRequest16setContentLengthEx
+inline void QHttpNetworkRequest::setContentLength(qint64 length)
+{
+    d->setContentLength(length);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 196, as _ZN19QHttpNetworkRequest6setUrlERK4QUrl
+inline void QHttpNetworkRequest::setUrl(const QUrl &url)
+{
+    d->url = url;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 188, as _ZN19QHttpNetworkRequestD2Ev
+inline QHttpNetworkRequest::~QHttpNetworkRequest()
+{
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 14, as _ZN26QHttpNetworkRequestPrivateC1EN19QHttpNetworkRequest9OperationENS0_8PriorityERK4QUrl
+inline QHttpNetworkRequestPrivate::QHttpNetworkRequestPrivate(QHttpNetworkRequest::Operation op,
+        QHttpNetworkRequest::Priority pri, const QUrl &newUrl)
+    : QHttpNetworkHeaderPrivate(newUrl), operation(op), priority(pri), uploadByteDevice(nullptr),
+      autoDecompress(false), pipeliningAllowed(false), http2Allowed(true),
+      http2Direct(false), withCredentials(true), preConnect(false), redirectCount(0),
+      redirectPolicy(QNetworkRequest::ManualRedirectPolicy)
+{
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 259, as _ZNK19QHttpNetworkRequest11headerFieldE14QByteArrayViewRK10QByteArray
+inline QByteArray QHttpNetworkRequest::headerField(QByteArrayView name, const QByteArray &defaultValue) const
+{
+    return d->headerField(name, defaultValue);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 381, as _ZNK19QHttpNetworkRequest12majorVersionEv
+inline int QHttpNetworkRequest::majorVersion() const
+{
+    return 1;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 386, as _ZNK19QHttpNetworkRequest12minorVersionEv
+inline int QHttpNetworkRequest::minorVersion() const
+{
+    return 1;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 244, as _ZNK19QHttpNetworkRequest13contentLengthEv
+inline qint64 QHttpNetworkRequest::contentLength() const
+{
+    return d->contentLength();
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 192, as _ZNK19QHttpNetworkRequest3urlEv
+inline QUrl QHttpNetworkRequest::url() const
+{
+    return d->url;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 254, as _ZNK19QHttpNetworkRequest6headerEv
+inline QHttpHeaders QHttpNetworkRequest::header() const
+{
+    return d->parser.headers();
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 45, as _ZN26QHttpNetworkRequestPrivateD1Ev
+inline QHttpNetworkRequestPrivate::~QHttpNetworkRequestPrivate()
+{
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 49, as _ZNK26QHttpNetworkRequestPrivateeqERKS_
+inline bool QHttpNetworkRequestPrivate::operator==(const QHttpNetworkRequestPrivate &other) const
+{
+    return QHttpNetworkHeaderPrivate::operator==(other)
+        && (operation == other.operation)
+        && (fullLocalServerName == other.fullLocalServerName)
+        && (priority == other.priority)
+        && (uploadByteDevice == other.uploadByteDevice)
+        && (autoDecompress == other.autoDecompress)
+        && (pipeliningAllowed == other.pipeliningAllowed)
+        && (http2Allowed == other.http2Allowed)
+        && (http2Direct == other.http2Direct)
+        && (h2cAllowed == other.h2cAllowed)
+        // we do not clear the customVerb in setOperation
+        && (operation != QHttpNetworkRequest::Custom || (customVerb == other.customVerb))
+        && (withCredentials == other.withCredentials)
+        && (ssl == other.ssl)
+        && (preConnect == other.preConnect)
+        && (redirectPolicy == other.redirectPolicy)
+        && (peerVerifyName == other.peerVerifyName)
+        && (needResendWithCredentials == other.needResendWithCredentials)
+        ;
+}
+
 //  from src/network/access/qhttpnetworkheader.cpp, line 53, as _ZN25QHttpNetworkHeaderPrivate18prependHeaderFieldERK10QByteArrayS2_
 inline void QHttpNetworkHeaderPrivate::prependHeaderField(const QByteArray &name, const QByteArray &data)
 {
@@ -59,15 +161,16 @@ inline QHttpNetworkRequestPrivate::QHttpNetworkRequestPrivate(const QHttpNetwork
 {
 }
 
-//  from src/network/access/qhttpnetworkrequest.cpp, line 45, as _ZN26QHttpNetworkRequestPrivateD1Ev
-inline QHttpNetworkRequestPrivate::~QHttpNetworkRequestPrivate()
-{
-}
-
 //  from src/network/access/qhttpnetworkheader.cpp, line 63, as _ZN25QHttpNetworkHeaderPrivate12clearHeadersEv
 inline void QHttpNetworkHeaderPrivate::clearHeaders()
 {
     parser.clearHeaders();
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 68, as _ZNK25QHttpNetworkHeaderPrivateeqERKS_
+inline bool QHttpNetworkHeaderPrivate::operator==(const QHttpNetworkHeaderPrivate &other) const
+{
+   return (url == other.url);
 }
 
 //  from src/network/access/qhttpnetworkheader.cpp, line 17, as _ZNK25QHttpNetworkHeaderPrivate13contentLengthEv
@@ -111,63 +214,18 @@ inline QList<QByteArray> QHttpNetworkHeaderPrivate::headerFieldValues(QByteArray
     return parser.headerFieldValues(name);
 }
 
-//  from src/network/access/qhttpnetworkrequest.cpp, line 188, as _ZN19QHttpNetworkRequestD1Ev
-inline QHttpNetworkRequest::~QHttpNetworkRequest()
+//  from src/network/access/qhttpnetworkrequest.cpp, line 279, as _ZN19QHttpNetworkRequestaSERKS_
+inline QHttpNetworkRequest &QHttpNetworkRequest::operator=(const QHttpNetworkRequest &other)
 {
+    QHttpNetworkHeader::operator=(other);
+    d = other.d;
+    return *this;
 }
 
-//  from src/network/access/qhttpnetworkrequest.cpp, line 192, as _ZNK19QHttpNetworkRequest3urlEv
-inline QUrl QHttpNetworkRequest::url() const
+//  from src/network/access/qhttpnetworkrequest.cpp, line 286, as _ZNK19QHttpNetworkRequesteqERKS_
+inline bool QHttpNetworkRequest::operator==(const QHttpNetworkRequest &other) const
 {
-    return d->url;
-}
-
-//  from src/network/access/qhttpnetworkrequest.cpp, line 196, as _ZN19QHttpNetworkRequest6setUrlERK4QUrl
-inline void QHttpNetworkRequest::setUrl(const QUrl &url)
-{
-    d->url = url;
-}
-
-//  from src/network/access/qhttpnetworkrequest.cpp, line 381, as _ZNK19QHttpNetworkRequest12majorVersionEv
-inline int QHttpNetworkRequest::majorVersion() const
-{
-    return 1;
-}
-
-//  from src/network/access/qhttpnetworkrequest.cpp, line 386, as _ZNK19QHttpNetworkRequest12minorVersionEv
-inline int QHttpNetworkRequest::minorVersion() const
-{
-    return 1;
-}
-
-//  from src/network/access/qhttpnetworkrequest.cpp, line 244, as _ZNK19QHttpNetworkRequest13contentLengthEv
-inline qint64 QHttpNetworkRequest::contentLength() const
-{
-    return d->contentLength();
-}
-
-//  from src/network/access/qhttpnetworkrequest.cpp, line 249, as _ZN19QHttpNetworkRequest16setContentLengthEx
-inline void QHttpNetworkRequest::setContentLength(qint64 length)
-{
-    d->setContentLength(length);
-}
-
-//  from src/network/access/qhttpnetworkrequest.cpp, line 254, as _ZNK19QHttpNetworkRequest6headerEv
-inline QHttpHeaders QHttpNetworkRequest::header() const
-{
-    return d->parser.headers();
-}
-
-//  from src/network/access/qhttpnetworkrequest.cpp, line 259, as _ZNK19QHttpNetworkRequest11headerFieldE14QByteArrayViewRK10QByteArray
-inline QByteArray QHttpNetworkRequest::headerField(QByteArrayView name, const QByteArray &defaultValue) const
-{
-    return d->headerField(name, defaultValue);
-}
-
-//  from src/network/access/qhttpnetworkrequest.cpp, line 264, as _ZN19QHttpNetworkRequest14setHeaderFieldERK10QByteArrayS2_
-inline void QHttpNetworkRequest::setHeaderField(const QByteArray &name, const QByteArray &data)
-{
-    d->setHeaderField(name, data);
+    return d->operator==(*other.d);
 }
 
 //  from src/network/access/qhttpnetworkrequest.cpp, line 269, as _ZN19QHttpNetworkRequest18prependHeaderFieldERK10QByteArrayS2_
@@ -459,7 +517,7 @@ typedef void (*CuteQHttpNetworkRequestCall8)(const void *, const QByteArray *, c
 class CuteQHttpNetworkRequest : public QHttpNetworkRequest {
 public:
   using QHttpNetworkRequest::QHttpNetworkRequest;
-  CuteQHttpNetworkRequest(const QHttpNetworkRequest &other) : QHttpNetworkRequest(other) {}
+  CuteQHttpNetworkRequest(const QHttpNetworkRequest & other) : QHttpNetworkRequest(other) {}
   void *taken[9] = {};
 
   bool take(const char *key, void *call) {
@@ -648,6 +706,24 @@ public:
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QHttpNetworkRequestD1Ev(QHttpNetworkRequest *self) {
   delete self;
+}
+
+//  QHttpNetworkRequest &QHttpNetworkRequest::operator=(const
+//      QHttpNetworkRequest &other)
+extern "C" Q_DECL_EXPORT
+QHttpNetworkRequest *ritual_ZN19QHttpNetworkRequestaSERKS_(
+    QHttpNetworkRequest *self,
+    const QHttpNetworkRequest *other) {
+  return &(self->operator=(*other));
+}
+
+//  bool QHttpNetworkRequest::operator==(const QHttpNetworkRequest &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK19QHttpNetworkRequesteqERKS_(
+    const QHttpNetworkRequest *self,
+    const QHttpNetworkRequest *other) {
+  return self->operator==(*other);
 }
 
 //  QUrl QHttpNetworkRequest::url() const

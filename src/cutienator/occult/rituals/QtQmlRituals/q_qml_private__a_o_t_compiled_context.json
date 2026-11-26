@@ -4,32 +4,180 @@
     "QtQml/qqmlprivate.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext10thisObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext9qmlEngineEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext10jsMetaTypeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext21setInstructionPointerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext9setLocalsEPKNS_23AOTTrackedLocalsStorageE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext23setReturnValueUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQmlPrivate18AOTCompiledContext4markEP7QObjectPN3QV49MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQmlPrivate18AOTCompiledContext4markERK8QVariantPN3QV49MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext13captureLookupEjP7QObject": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext31captureQmlContextPropertyLookupEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext18captureTranslationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext18translationContextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext20lookupResultMetaTypeEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext15storeNameSloppyEjPv9QMetaType": [
+      "nothing", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext24javaScriptGlobalPropertyEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext22resolveLoggingCategoryEP7QObjectPb": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext14writeToConsoleE9QtMsgTypeRK7QStringPK16QLoggingCategory": [
+      "nothing", "address", "int", "text", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext18constructValueTypeE9QMetaTypePK11QMetaObjectiPPv": [
+      "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext17constructDateTimeEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext17constructDateTimeERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext17constructDateTimeERK17QJSPrimitiveValue": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext17constructDateTimeEddddddd": [
+      "address", "address", "double", "double", "double", "double", "double",
+      "double", "double"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext28callQmlContextPropertyLookupEjPPvi": [
+      "bool", "address", "unsigned int", "address", "int"
     ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext32initCallQmlContextPropertyLookupEji": [
       "nothing", "address", "unsigned int", "int"
     ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext19loadContextIdLookupEjPv": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext23initLoadContextIdLookupEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext24callObjectPropertyLookupEjP7QObjectPPvi": [
+      "bool", "address", "unsigned int", "address", "address", "int"
+    ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext28initCallObjectPropertyLookupEjP7QObjecti": [
       "nothing", "address", "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext37initCallObjectPropertyLookupAsVariantEjP7QObject": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext16loadGlobalLookupEjPv": [
+      "bool", "address", "unsigned int", "address"
     ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext20initLoadGlobalLookupEj9QMetaType": [
       "nothing", "address", "unsigned int", "address"
     ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext29loadScopeObjectPropertyLookupEjPv": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext34writeBackScopeObjectPropertyLookupEjPv": [
+      "bool", "address", "unsigned int", "address"
+    ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext33initLoadScopeObjectPropertyLookupEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext19loadSingletonLookupEjPv": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext23initLoadSingletonLookupEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext18loadAttachedLookupEjP7QObjectPv": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext22initLoadAttachedLookupEjjP7QObject": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext14loadTypeLookupEjPv": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext18initLoadTypeLookupEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext15getObjectLookupEjP7QObjectPv": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext21writeBackObjectLookupEjP7QObjectPv": [
+      "bool", "address", "unsigned int", "address", "address"
     ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext19initGetObjectLookupEjP7QObject": [
       "nothing", "address", "unsigned int", "address"
     ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext28initGetObjectLookupAsVariantEjP7QObject": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext14getValueLookupEjPvS1_": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext20writeBackValueLookupEjPvS1_": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext18initGetValueLookupEjPK11QMetaObject": [
       "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext13getEnumLookupEjPv": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext17initGetEnumLookupEjPK11QMetaObjectPKcS5_": [
+      "nothing", "address", "unsigned int", "address", "chars", "chars"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext15setObjectLookupEjP7QObjectPv": [
+      "bool", "address", "unsigned int", "address", "address"
     ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext19initSetObjectLookupEjP7QObject": [
       "nothing", "address", "unsigned int", "address"
     ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext28initSetObjectLookupAsVariantEjP7QObject": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext14setValueLookupEjPvS1_": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext18initSetValueLookupEjPK11QMetaObject": [
       "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext27initSetValueLookupAsVariantEjPK11QMetaObject": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext15callValueLookupEjPvPS1_i": [
+      "bool", "address", "unsigned int", "address", "address", "int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext19initCallValueLookupEjPK11QMetaObjecti": [
+      "nothing", "address", "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext29setObjectImplicitDestructibleEP7QObject": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK11QQmlPrivate18AOTCompiledContext23setImplicitDestructibleEP7QObject": [
       "nothing", "address", "address"

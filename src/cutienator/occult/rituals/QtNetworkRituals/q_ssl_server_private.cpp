@@ -5,7 +5,9 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(ssl)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qsslserver.h>
+#endif
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qsslserver_p.h>

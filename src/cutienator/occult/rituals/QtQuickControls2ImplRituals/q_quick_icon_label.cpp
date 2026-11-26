@@ -799,6 +799,24 @@ const QMetaObject *ritual_ZNK15QQuickIconLabel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickIconLabel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickIconLabel11qt_metacastEPKc(
+    QQuickIconLabel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickIconLabel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickIconLabel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickIconLabel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickIconLabel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickIconLabel2trEPKcS1_i(
@@ -1032,6 +1050,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickIconLabel18resetBottomPaddingEv(
     QQuickIconLabel *self) {
   self->resetBottomPadding();
+}
+
+//  void QQuickIconLabel::defaultIconColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickIconLabel23defaultIconColorChangedEv(
+    QQuickIconLabel *self) {
+  self->defaultIconColorChanged();
+}
+
+//  QQuickIconLabel::QQuickIconLabel(QQuickIconLabelPrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickIconLabel *ritual_ZN15QQuickIconLabelC1ER22QQuickIconLabelPrivateP10QQuickItem(
+    QQuickIconLabelPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickIconLabel(*dd, parent);
 }
 
 //  void QQuickIconLabel::componentComplete()

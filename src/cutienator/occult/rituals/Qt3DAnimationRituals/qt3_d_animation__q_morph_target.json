@@ -8,14 +8,47 @@
     "ritual_ZNK13Qt3DAnimation12QMorphTarget10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation12QMorphTarget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation12QMorphTarget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation12QMorphTarget2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation12QMorphTargetC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation12QMorphTarget13attributeListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation12QMorphTarget14attributeNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation12QMorphTarget13setAttributesERK5QListIPN8Qt3DCore10QAttributeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation12QMorphTarget12addAttributeEPN8Qt3DCore10QAttributeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation12QMorphTarget15removeAttributeEPN8Qt3DCore10QAttributeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation12QMorphTarget12fromGeometryEPN8Qt3DCore9QGeometryERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation12QMorphTarget21attributeNamesChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation12QMorphTarget6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation12QMorphTarget6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QMorphTarget__QList_Qt3DCore_QAttribute": [
+      "nothing", "address"
     ]
   }
 }

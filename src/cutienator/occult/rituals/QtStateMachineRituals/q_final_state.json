@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QFinalState10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QFinalState11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QFinalState11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QFinalState2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QFinalStateC1EP6QState": ["address", "address"],
     "ritual_ZN11QFinalStateD1Ev": ["nothing", "address"],
@@ -16,6 +22,11 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN11QFinalState5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN11QFinalStateC1ER18QFinalStatePrivateP6QState": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QFinalState6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QFinalState6d_funcEv": ["address", "address"],
     "ritual_take_QFinalState": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QFinalState7onEntryEP6QEvent": [
       "nothing", "address", "address"

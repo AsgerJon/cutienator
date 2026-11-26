@@ -1040,6 +1040,24 @@ const QMetaObject *ritual_ZNK13QErrorMessage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QErrorMessage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QErrorMessage11qt_metacastEPKc(
+    QErrorMessage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QErrorMessage::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QErrorMessage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QErrorMessage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QErrorMessage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QErrorMessage2trEPKcS1_i(
@@ -1047,6 +1065,20 @@ QString *ritual_ZN13QErrorMessage2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QErrorMessage::tr(s, c, n));
+}
+
+//  QErrorMessagePrivate *QErrorMessage::d_func()
+extern "C" Q_DECL_EXPORT
+QErrorMessagePrivate *ritual_ZN13QErrorMessage6d_funcEv(
+    QErrorMessage *self) {
+  return self->d_func();
+}
+
+//  const QErrorMessagePrivate *QErrorMessage::d_func() const
+extern "C" Q_DECL_EXPORT
+const QErrorMessagePrivate *ritual_ZNK13QErrorMessage6d_funcEv(
+    const QErrorMessage *self) {
+  return self->d_func();
 }
 
 //  QErrorMessage::QErrorMessage(QWidget *parent)

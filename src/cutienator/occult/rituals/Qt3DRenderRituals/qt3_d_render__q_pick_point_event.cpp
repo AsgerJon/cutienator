@@ -1,5 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DRender/qpickpointevent.h, Qt 6.12.0. Changes made here are lost.
+//  Qt3DRender/qpickpointevent.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: 'd_func' gives
+//  'Qt3DRender::QPickPointEventPrivate', written in full (the compiler did
+//  not know the short name), and 'qt_metacast' is taken out (a Q_OBJECT
+//  class gets 'metaObject' only). Kept as it is when the generator runs
+//  again.
 #include <Qt3DRender/qpickpointevent.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
@@ -220,6 +225,22 @@ Qt3DRender::QPickPointEvent *ritual_ZN10Qt3DRender15QPickPointEventC1ERK7QPointF
       button,
       buttons,
       modifiers);
+}
+
+//  Qt3DRender::QPickPointEventPrivate *
+//      Qt3DRender::QPickPointEvent::d_func()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickPointEventPrivate *ritual_ZN10Qt3DRender15QPickPointEvent6d_funcEv(
+    Qt3DRender::QPickPointEvent *self) {
+  return self->d_func();
+}
+
+//  const Qt3DRender::QPickPointEventPrivate *
+//      Qt3DRender::QPickPointEvent::d_func() const
+extern "C" Q_DECL_EXPORT
+const Qt3DRender::QPickPointEventPrivate *ritual_ZNK10Qt3DRender15QPickPointEvent6d_funcEv(
+    const Qt3DRender::QPickPointEvent *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQt3DRender_QPickPointEvent, for the

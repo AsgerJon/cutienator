@@ -62,6 +62,20 @@ void ritual_ZN13QtResourceSetD1Ev(QtResourceSet *self) {
   delete self;
 }
 
+//  QtResourceSetPrivate *QtResourceSet::d_func()
+extern "C" Q_DECL_EXPORT
+QtResourceSetPrivate *ritual_ZN13QtResourceSet6d_funcEv(
+    QtResourceSet *self) {
+  return self->d_func();
+}
+
+//  const QtResourceSetPrivate *QtResourceSet::d_func() const
+extern "C" Q_DECL_EXPORT
+const QtResourceSetPrivate *ritual_ZNK13QtResourceSet6d_funcEv(
+    const QtResourceSet *self) {
+  return self->d_func();
+}
+
 //  QList<QtResourceSet *>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QtResourceSet *> *ritual_list_make_QtResourceSet_ptr() {

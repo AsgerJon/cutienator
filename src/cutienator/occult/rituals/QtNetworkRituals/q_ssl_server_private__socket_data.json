@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QSslServerPrivate10SocketDataC1EN11QMetaObject10ConnectionES2_OSt10shared_ptrI6QTimerE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN17QSslServerPrivate10SocketData17disconnectSignalsEv": [
       "nothing", "address"
     ],

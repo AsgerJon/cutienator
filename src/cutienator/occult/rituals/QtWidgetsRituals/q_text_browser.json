@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QTextBrowser10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QTextBrowser11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QTextBrowser11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QTextBrowser2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QTextBrowserC1EP7QWidget": ["address", "address"],
     "ritual_ZN12QTextBrowserD1Ev": ["nothing", "address"],
@@ -39,6 +45,22 @@
     "ritual_ZN12QTextBrowser7forwardEv": ["nothing", "address"],
     "ritual_ZN12QTextBrowser4homeEv": ["nothing", "address"],
     "ritual_ZN12QTextBrowser6reloadEv": ["nothing", "address"],
+    "ritual_ZN12QTextBrowser17backwardAvailableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QTextBrowser16forwardAvailableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QTextBrowser14historyChangedEv": ["nothing", "address"],
+    "ritual_ZN12QTextBrowser13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTextBrowser11highlightedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTextBrowser13anchorClickedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QTextBrowser5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN12QTextBrowser13keyPressEventEP9QKeyEvent": [
       "nothing", "address", "address"
@@ -64,6 +86,8 @@
     "ritual_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument12ResourceTypeE": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN12QTextBrowser6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QTextBrowser6d_funcEv": ["address", "address"],
     "ritual_take_QTextBrowser": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QTextBrowser12loadResourceEiRK4QUrl": [
       "address", "address", "int", "address"

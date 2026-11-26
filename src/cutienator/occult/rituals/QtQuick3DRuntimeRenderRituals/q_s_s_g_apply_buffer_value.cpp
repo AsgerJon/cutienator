@@ -17,6 +17,14 @@ QSSGApplyBufferValue *ritual_ZN20QSSGApplyBufferValueC1ERK10QByteArrayS2_(
   return new QSSGApplyBufferValue(*bufferName, *shaderSampler);
 }
 
+//  void QSSGApplyBufferValue::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK20QSSGApplyBufferValue8addDebugER6QDebug(
+    const QSSGApplyBufferValue *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGApplyBufferValue::QSSGApplyBufferValue(const QSSGApplyBufferValue
 //      &command)
 extern "C" Q_DECL_EXPORT

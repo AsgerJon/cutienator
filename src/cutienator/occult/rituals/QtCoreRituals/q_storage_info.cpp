@@ -31,10 +31,40 @@ QStorageInfo *ritual_ZN12QStorageInfoC1ERKS_(const QStorageInfo *other) {
   return new QStorageInfo(*other);
 }
 
+//  QStorageInfo::QStorageInfo(QStorageInfo &&a0)
+extern "C" Q_DECL_EXPORT
+QStorageInfo *ritual_ZN12QStorageInfoC1EOS_(QStorageInfo *a0) {
+  return new QStorageInfo(std::move(*a0));
+}
+
 //  QStorageInfo::~QStorageInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QStorageInfoD1Ev(QStorageInfo *self) {
   delete self;
+}
+
+//  QStorageInfo &QStorageInfo::operator=(const QStorageInfo &other)
+extern "C" Q_DECL_EXPORT
+QStorageInfo *ritual_ZN12QStorageInfoaSERKS_(
+    QStorageInfo *self,
+    const QStorageInfo *other) {
+  return &(self->operator=(*other));
+}
+
+//  QStorageInfo &QStorageInfo::operator=(QStorageInfo &&other)
+extern "C" Q_DECL_EXPORT
+QStorageInfo *ritual_ZN12QStorageInfoaSEOS_(
+    QStorageInfo *self,
+    QStorageInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QStorageInfo::swap(QStorageInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QStorageInfo4swapERS_(
+    QStorageInfo *self,
+    QStorageInfo *other) {
+  self->swap(*other);
 }
 
 //  void QStorageInfo::setPath(const QString &path)
@@ -146,6 +176,13 @@ QList<QStorageInfo> *ritual_ZN12QStorageInfo14mountedVolumesEv() {
 extern "C" Q_DECL_EXPORT
 QStorageInfo *ritual_ZN12QStorageInfo4rootEv() {
   return new QStorageInfo(QStorageInfo::root());
+}
+
+//  QStorageInfo::QStorageInfo(QStorageInfoPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QStorageInfo *ritual_ZN12QStorageInfoC1ER19QStorageInfoPrivate(
+    QStorageInfoPrivate *dd) {
+  return new QStorageInfo(*dd);
 }
 
 //  bool operator==(const QStorageInfo &lhs, const QStorageInfo &rhs)

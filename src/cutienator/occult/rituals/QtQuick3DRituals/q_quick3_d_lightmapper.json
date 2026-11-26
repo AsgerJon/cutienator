@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuick3DLightmapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DLightmapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuick3DLightmapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuick3DLightmapper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -62,6 +68,38 @@
     ],
     "ritual_ZN19QQuick3DLightmapper16setTexelsPerUnitEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DLightmapper7changedEv": ["nothing", "address"],
+    "ritual_ZN19QQuick3DLightmapper23opacityThresholdChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper11biasChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuick3DLightmapper26adaptiveBiasEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper27indirectLightEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper14samplesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper33indirectLightWorkgroupSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper14bouncesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper26indirectLightFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper13sourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper19denoiseSigmaChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper20texelsPerUnitChangedEv": [
+      "nothing", "address"
     ]
   }
 }

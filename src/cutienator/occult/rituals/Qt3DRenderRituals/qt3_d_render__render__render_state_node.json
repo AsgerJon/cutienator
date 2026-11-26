@@ -5,14 +5,21 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render15RenderStateNodeC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render15RenderStateNodeD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15RenderStateNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ],
     "ritual_ZNK10Qt3DRender6Render15RenderStateNode4typeEv": [
       "int", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render15RenderStateNode4implEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15RenderStateNode7cleanupEv": [
+      "nothing", "address"
     ],
     "ritual_take_Qt3DRender_Render_RenderStateNode": [
       "bool", "address", "chars", "address"

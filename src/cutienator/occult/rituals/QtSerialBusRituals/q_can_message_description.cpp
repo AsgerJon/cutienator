@@ -21,10 +21,44 @@ QCanMessageDescription *ritual_ZN22QCanMessageDescriptionC1ERKS_(
   return new QCanMessageDescription(*other);
 }
 
+//  QCanMessageDescription::QCanMessageDescription(QCanMessageDescription
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCanMessageDescription *ritual_ZN22QCanMessageDescriptionC1EOS_(
+    QCanMessageDescription *other) {
+  return new QCanMessageDescription(std::move(*other));
+}
+
 //  QCanMessageDescription::~QCanMessageDescription()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QCanMessageDescriptionD1Ev(QCanMessageDescription *self) {
   delete self;
+}
+
+//  QCanMessageDescription &QCanMessageDescription::operator=(const
+//      QCanMessageDescription &other)
+extern "C" Q_DECL_EXPORT
+QCanMessageDescription *ritual_ZN22QCanMessageDescriptionaSERKS_(
+    QCanMessageDescription *self,
+    const QCanMessageDescription *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCanMessageDescription
+//      &QCanMessageDescription::operator=(QCanMessageDescription &&other)
+extern "C" Q_DECL_EXPORT
+QCanMessageDescription *ritual_ZN22QCanMessageDescriptionaSEOS_(
+    QCanMessageDescription *self,
+    QCanMessageDescription *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCanMessageDescription::swap(QCanMessageDescription &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QCanMessageDescription4swapERS_(
+    QCanMessageDescription *self,
+    QCanMessageDescription *other) {
+  self->swap(*other);
 }
 
 //  bool QCanMessageDescription::isValid() const

@@ -8,8 +8,26 @@
     "ritual_ZNK34QtBluezPeripheralConnectionManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN34QtBluezPeripheralConnectionManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN34QtBluezPeripheralConnectionManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN34QtBluezPeripheralConnectionManager5resetEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN34QtBluezPeripheralConnectionManager23remoteDeviceAccessEventERK7QStringt": [
+      "nothing", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN34QtBluezPeripheralConnectionManager24connectivityStateChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN34QtBluezPeripheralConnectionManager19remoteDeviceChangedERK17QBluetoothAddressRK7QStringt": [
+      "nothing", "address", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN34QtBluezPeripheralConnectionManager24remoteDeviceDisconnectedERK17QBluetoothAddress": [
+      "nothing", "address", "address"
     ]
   }
 }

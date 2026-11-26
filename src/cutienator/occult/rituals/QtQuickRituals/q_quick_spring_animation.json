@@ -8,9 +8,17 @@
     "ritual_ZNK21QQuickSpringAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickSpringAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickSpringAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickSpringAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN21QQuickSpringAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickSpringAnimation6d_funcEv": ["address", "address"],
     "ritual_ZN21QQuickSpringAnimationC1EP7QObject": ["address", "address"],
     "ritual_ZN21QQuickSpringAnimationD1Ev": ["nothing", "address"],
     "ritual_ZNK21QQuickSpringAnimation8velocityEv": ["double", "address"],
@@ -36,6 +44,18 @@
     "ritual_ZNK21QQuickSpringAnimation7modulusEv": ["double", "address"],
     "ritual_ZN21QQuickSpringAnimation10setModulusEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickSpringAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN21QQuickSpringAnimation14modulusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickSpringAnimation11massChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickSpringAnimation11syncChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQuickSpringAnimation": [
       "bool", "address", "chars", "address"

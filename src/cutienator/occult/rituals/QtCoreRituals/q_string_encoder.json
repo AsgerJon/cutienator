@@ -1,9 +1,13 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qstringconverter.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qstringconverter.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
+    "ritual_ZN14QStringEncoderC1EPKN16QStringConverter9InterfaceE": [
+      "address", "address"
+    ],
     "ritual_ZN14QStringEncoderC1Ev": ["address"],
     "ritual_ZN14QStringEncoderC1EN16QStringConverter8EncodingE6QFlagsIN20QStringConverterBase4FlagEE": [
       "address", "int", "int"
@@ -14,6 +18,13 @@
     "ritual_ZNK14QStringEncoder13requiredSpaceEx": [
       "long long", "address", "long long"
     ],
+    "ritual_ZN14QStringEncoder14appendToBufferEPc11QStringView": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN14QStringEncoder8finalizeEPcx": [
+      "address", "address", "address", "long long"
+    ],
+    "ritual_ZN14QStringEncoder8finalizeEv": ["address", "address"],
     "ritual_ZN14QStringEncoder23invalidateAndReturnNullEv": [
       "address", "address"
     ],
@@ -22,6 +33,19 @@
     ],
     "ritual_ZN14QStringEncoder17encodeAsByteArrayE11QStringView": [
       "address", "address", "text"
+    ],
+    "ritual_drop_QStringEncoder__QStringEncoder_FinalizeResult": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QStringEncoder6encodeIvEENS_11DecodedDataIRK7QStringEES4_": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QStringEncoder6encodeE11QStringView": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QStringEncoderclIvEENS_11DecodedDataIRK7QStringEES4_": ["address", "address", "text"],
+    "ritual_ZN14QStringEncoderclE11QStringView": [
+      "address", "address", "address"
     ]
   }
 }

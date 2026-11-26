@@ -5,6 +5,40 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN16QQmlAdaptorModel9AccessorsD1Ev": ["nothing", "address"]
+    "ritual_ZN16QQmlAdaptorModel9AccessorsC1Ev": ["address"],
+    "ritual_ZN16QQmlAdaptorModel9AccessorsD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors8rowCountERKS_": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors11columnCountERKS_": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors7cleanupERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors5valueERKS_iRK7QString": [
+      "address", "address", "address", "int", "text"
+    ],
+    "ritual_ZN16QQmlAdaptorModel9Accessors10createItemERS_RK14QQmlRefPointerI29QQmlDelegateModelItemMetaTypeEiii": [
+      "address", "address", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors6notifyERKS_RK5QListIP21QQmlDelegateModelItemEiiRKS3_IiE": [
+      "bool", "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors19replaceWatchedRolesERS_RK5QListI10QByteArrayES6_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors16parentModelIndexERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors10modelIndexERKS_i": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors12canFetchMoreERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9Accessors9fetchMoreERS_": [
+      "nothing", "address", "address"
+    ]
   }
 }

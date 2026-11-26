@@ -8,6 +8,9 @@
     "ritual_ZN3QV44Heap12SymbolObject11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap12SymbolObject4initEPKNS_6SymbolE": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_SymbolObject_QV4_Heap_SymbolObjectData": [
       "address", "address"
     ]

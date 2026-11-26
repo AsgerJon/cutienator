@@ -10,6 +10,12 @@
   ],
   "rows": {
     "ritual_ZNK20Q3DScatterWidgetItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN20Q3DScatterWidgetItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20Q3DScatterWidgetItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -46,6 +52,18 @@
     ],
     "ritual_ZN20Q3DScatterWidgetItem5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem12axisXChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem12axisYChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem12axisZChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem21selectedSeriesChangedEP16QScatter3DSeries": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN20Q3DScatterWidgetItem6d_funcEv": ["address", "address"],
     "ritual_ZNK20Q3DScatterWidgetItem6d_funcEv": ["address", "address"],

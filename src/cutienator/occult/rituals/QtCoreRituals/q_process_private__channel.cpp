@@ -11,6 +11,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qprocess_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdebug.h>
 #include <QtCore/qdir.h>
@@ -64,6 +65,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QProcessPrivate7Channel5clearEv(
     QProcessPrivate::Channel *self) {
   self->clear();
+}
+#endif  // QT_CONFIG(process)
+
+#if QT_CONFIG(process)
+//  Channel &QProcessPrivate::Channel::operator=(const QString &fileName)
+extern "C" Q_DECL_EXPORT
+QProcessPrivate::Channel *ritual_ZN15QProcessPrivate7ChannelaSERK7QString(
+    QProcessPrivate::Channel *self,
+    const QString *fileName) {
+  return &(self->operator=(*fileName));
 }
 #endif  // QT_CONFIG(process)
 

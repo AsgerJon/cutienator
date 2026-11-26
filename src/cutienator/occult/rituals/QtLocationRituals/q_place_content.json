@@ -7,10 +7,15 @@
     "ritual_ZN13QPlaceContentC1ENS_4TypeE": ["address", "int"],
     "ritual_ZN13QPlaceContentD1Ev": ["nothing", "address"],
     "ritual_ZN13QPlaceContentC1ERKS_": ["address", "address"],
+    "ritual_ZN13QPlaceContentaSERKS_": ["address", "address", "address"],
+    "ritual_ZN13QPlaceContentC1EOS_": ["address", "address"],
+    "ritual_ZN13QPlaceContentaSEOS_": ["address", "address", "address"],
+    "ritual_ZN13QPlaceContent4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN13QPlaceContent6detachEv": ["nothing", "address"],
     "ritual_ZNK13QPlaceContenteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK13QPlaceContentneERKS_": ["bool", "address", "address"],
     "ritual_ZNK13QPlaceContent4typeEv": ["int", "address"],
+    "ritual_ZNK13QPlaceContent8dataTagsEv": ["address", "address"],
     "ritual_ZNK13QPlaceContent5valueENS_7DataTagE": [
       "address", "address", "int"
     ],
@@ -42,6 +47,9 @@
     ],
     "ritual_map_has_QMap_int_QPlaceContent": ["bool", "address", "int"],
     "ritual_map_get_QMap_int_QPlaceContent": ["address", "address", "int"],
-    "ritual_map_drop_QMap_int_QPlaceContent": ["nothing", "address"]
+    "ritual_map_drop_QMap_int_QPlaceContent": ["nothing", "address"],
+    "ritual_drop_QPlaceContent__QList_QPlaceContent_DataTag": [
+      "nothing", "address"
+    ]
   }
 }

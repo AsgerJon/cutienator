@@ -7,8 +7,51 @@
     "ritual_ZNK10Qt3DRender10QWaitFence10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QWaitFence11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFence11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QWaitFence2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFenceC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFenceD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender10QWaitFence13setHandleTypeENS0_10HandleTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFence9setHandleE8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QWaitFence10handleTypeEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender10QWaitFence6handleEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender10QWaitFence9waitOnCPUEv": ["bool", "address"],
+    "ritual_ZN10Qt3DRender10QWaitFence12setWaitOnCPUEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender10QWaitFence7timeoutEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFence10setTimeoutEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFence16waitOnCPUChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFence14timeoutChangedEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFence17handleTypeChangedENS0_10HandleTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFence13handleChangedE8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QWaitFenceC1ERNS_17QWaitFencePrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender10QWaitFence6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender10QWaitFence6d_funcEv": ["address", "address"],

@@ -2,14 +2,81 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtMultimedia/6.12.0/QtMultimedia/private/qrtaudioengine_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK19QtMultimediaPrivate14QRtAudioEngine10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngineC1ERK12QAudioDeviceRK12QAudioFormatSt8optionalINS_17AudioEndpointRoleEES7_INS_18NativePeriodFramesEE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngineD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine4playESt10shared_ptrINS_19QRtAudioEngineVoiceEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine4stopERKSt10shared_ptrINS_19QRtAudioEngineVoiceEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine16rtMemoryResourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine9audioSinkEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate14QRtAudioEngine6voicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate14QRtAudioEngine10audioStateEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine12stateChangedEN6QAudio5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine21runNonRtNotificationsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine20runNonRtNotificationENS0_16StopNotificationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine20runNonRtNotificationENS0_10VisitReplyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine18sendAppToRtCommandESt7variantIJNS0_11PlayCommandENS0_11StopCommandENS0_12VisitCommandENS0_19VisitCommandTrivialEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine23sendRtToAppNotificationESt7variantIJNS0_16StopNotificationENS0_10VisitReplyEEE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine21sendPendingRtCommandsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine27sendPendingAppNotificationsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine4stopENS_7VoiceIdE": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine15allocateVoiceIdEv": [
+      "unsigned long long"
+    ],
+    "ritual_ZN19QtMultimediaPrivate14QRtAudioEngine13voiceFinishedENS_7VoiceIdE": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_callback_ZN19QtMultimediaPrivate14QRtAudioEngine12visitVoiceRtENS_7VoiceIdESt8functionIFvRNS_19QRtAudioEngineVoiceEEEb": [
+      "nothing", "address", "unsigned long long", "address", "address",
+      "bool"
     ]
   }
 }

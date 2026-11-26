@@ -5,8 +5,14 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmltypeloaderqmldircontent_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qurl.h>
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qv4compileddata_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qtyperevision.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmldatablob_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -189,6 +195,192 @@ void ritual_ZN14QQmlTypeLoader4Blob19setCachedUnitStatusEN12QQmlMetaType21Cached
     QQmlTypeLoader::Blob *self,
     QQmlMetaType::CachedUnitLookupError status) {
   self->setCachedUnitStatus(status);
+}
+
+//  void QQmlTypeLoader::Blob::importQmldirScripts(const PendingImportPtr
+//      &import, const QQmlTypeLoaderQmldirContent &qmldir, const QUrl
+//      &qmldirUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader4Blob19importQmldirScriptsERKSt10shared_ptrINS0_13PendingImportEERK27QQmlTypeLoaderQmldirContentRK4QUrl(
+    QQmlTypeLoader::Blob *self,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import,
+    const QQmlTypeLoaderQmldirContent *qmldir,
+    const QUrl *qmldirUrl) {
+  self->importQmldirScripts(*import, *qmldir, *qmldirUrl);
+}
+
+//  bool QQmlTypeLoader::Blob::handleLocalQmldirForImport(const
+//      PendingImportPtr &import, const QString &qmldirFilePath, const
+//      QString &qmldirUrl, QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob26handleLocalQmldirForImportERKSt10shared_ptrINS0_13PendingImportEERK7QStringS8_P5QListI9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import,
+    const QString *qmldirFilePath,
+    const QString *qmldirUrl,
+    QList<QQmlError> *errors) {
+  return self->handleLocalQmldirForImport(
+      *import,
+      *qmldirFilePath,
+      *qmldirUrl,
+      errors);
+}
+
+//  bool QQmlTypeLoader::Blob::addImport(const QV4::CompiledData::Import
+//      *import, QQmlImports::ImportFlags a1, QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob9addImportEPKN3QV412CompiledData6ImportE6QFlagsIN11QQmlImports10ImportFlagEEP5QListI9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QV4::CompiledData::Import *import,
+    int a1,
+    QList<QQmlError> *errors) {
+  return self->addImport(
+      import,
+      QFlags<QQmlImports::ImportFlag>::fromInt(a1),
+      errors);
+}
+
+//  bool QQmlTypeLoader::Blob::addImport(const PendingImportPtr &import,
+//      QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob9addImportERKSt10shared_ptrINS0_13PendingImportEEP5QListI9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import,
+    QList<QQmlError> *errors) {
+  return self->addImport(*import, errors);
+}
+
+//  bool QQmlTypeLoader::Blob::fetchQmldir(const QUrl &url, const
+//      PendingImportPtr &import, int priority, QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob11fetchQmldirERK4QUrlRKSt10shared_ptrINS0_13PendingImportEEiP5QListI9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QUrl *url,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import,
+    int priority,
+    QList<QQmlError> *errors) {
+  return self->fetchQmldir(*url, *import, priority, errors);
+}
+
+//  bool QQmlTypeLoader::Blob::updateQmldir(const
+//      QQmlRefPointer<QQmlQmldirData> &data, const PendingImportPtr &import,
+//      QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob12updateQmldirERK14QQmlRefPointerI14QQmlQmldirDataERKSt10shared_ptrINS0_13PendingImportEEP5QListI9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlRefPointer<QQmlQmldirData> *data,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import,
+    QList<QQmlError> *errors) {
+  return self->updateQmldir(*data, *import, errors);
+}
+
+//  bool QQmlTypeLoader::Blob::addScriptImport(const PendingImportPtr
+//      &import)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob15addScriptImportERKSt10shared_ptrINS0_13PendingImportEE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import) {
+  return self->addScriptImport(*import);
+}
+
+//  bool QQmlTypeLoader::Blob::addFileImport(const PendingImportPtr &import,
+//      QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob13addFileImportERKSt10shared_ptrINS0_13PendingImportEEP5QListI9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import,
+    QList<QQmlError> *errors) {
+  return self->addFileImport(*import, errors);
+}
+
+//  bool QQmlTypeLoader::Blob::addLibraryImport(const PendingImportPtr
+//      &import, QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob16addLibraryImportERKSt10shared_ptrINS0_13PendingImportEEP5QListI9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import,
+    QList<QQmlError> *errors) {
+  return self->addLibraryImport(*import, errors);
+}
+
+//  bool QQmlTypeLoader::Blob::qmldirDataAvailable(const
+//      QQmlRefPointer<QQmlQmldirData> &a0, QList<QQmlError> *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob19qmldirDataAvailableERK14QQmlRefPointerI14QQmlQmldirDataEP5QListI9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlRefPointer<QQmlQmldirData> *a0,
+    QList<QQmlError> *a1) {
+  return self->qmldirDataAvailable(*a0, a1);
+}
+
+//  void QQmlTypeLoader::Blob::scriptImported(const
+//      QQmlRefPointer<QQmlScriptBlob> &a0, const QV4::CompiledData::Location
+//      &a1, const QString &a2, const QString &a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader4Blob14scriptImportedERK14QQmlRefPointerI14QQmlScriptBlobERKN3QV412CompiledData8LocationERK7QStringSD_(
+    QQmlTypeLoader::Blob *self,
+    const QQmlRefPointer<QQmlScriptBlob> *a0,
+    const QV4::CompiledData::Location *a1,
+    const QString *a2,
+    const QString *a3) {
+  self->scriptImported(*a0, *a1, *a2, *a3);
+}
+
+//  void QQmlTypeLoader::Blob::dependencyComplete(const QQmlDataBlob::Ptr
+//      &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTypeLoader4Blob18dependencyCompleteERK14QQmlRefPointerI12QQmlDataBlobE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlDataBlob::Ptr *a0) {
+  self->dependencyComplete(*a0);
+}
+
+//  bool QQmlTypeLoader::Blob::loadImportDependencies(const PendingImportPtr
+//      &currentImport, const QString &qmldirUri, QQmlImports::ImportFlags
+//      flags, QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob22loadImportDependenciesERKSt10shared_ptrINS0_13PendingImportEERK7QString6QFlagsIN11QQmlImports10ImportFlagEEP5QListI9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlTypeLoader::Blob::PendingImportPtr *currentImport,
+    const QString *qmldirUri,
+    int flags,
+    QList<QQmlError> *errors) {
+  return self->loadImportDependencies(
+      *currentImport,
+      *qmldirUri,
+      QFlags<QQmlImports::ImportFlag>::fromInt(flags),
+      errors);
+}
+
+//  bool QQmlTypeLoader::Blob::registerPendingTypes(const PendingImportPtr
+//      &import)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob20registerPendingTypesERKSt10shared_ptrINS0_13PendingImportEE(
+    QQmlTypeLoader::Blob *self,
+    const QQmlTypeLoader::Blob::PendingImportPtr *import) {
+  return self->registerPendingTypes(*import);
+}
+
+//  bool QQmlTypeLoader::Blob::loadDependentImports(const
+//      QList<QQmlDirParser::Import> &imports, const QString &qualifier,
+//      QTypeRevision version, quint8 precedence, QQmlImports::ImportFlags
+//      flags, QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQmlTypeLoader4Blob20loadDependentImportsERK5QListIN13QQmlDirParser6ImportEERK7QString13QTypeRevisionh6QFlagsIN11QQmlImports10ImportFlagEEPS1_I9QQmlErrorE(
+    QQmlTypeLoader::Blob *self,
+    const QList<QQmlDirParser::Import> *imports,
+    const QString *qualifier,
+    const QTypeRevision *version,
+    quint8 precedence,
+    int flags,
+    QList<QQmlError> *errors) {
+  return self->loadDependentImports(
+      *imports,
+      *qualifier,
+      *version,
+      precedence,
+      QFlags<QQmlImports::ImportFlag>::fromInt(flags),
+      errors);
 }
 
 //  QString QQmlTypeLoader::Blob::stringAt(int a0) const

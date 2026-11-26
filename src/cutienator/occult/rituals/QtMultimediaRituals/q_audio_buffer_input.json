@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QAudioBufferInput10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QAudioBufferInput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QAudioBufferInput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QAudioBufferInput2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,12 +27,17 @@
     "ritual_ZNK17QAudioBufferInput14captureSessionEv": [
       "address", "address"
     ],
+    "ritual_ZN17QAudioBufferInput22readyToSendAudioBufferEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QAudioBufferInput17setCaptureSessionEP20QMediaCaptureSession": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK17QAudioBufferInput24platformAudioBufferInputEv": [
       "address", "address"
     ],
+    "ritual_ZN17QAudioBufferInput6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QAudioBufferInput6d_funcEv": ["address", "address"],
     "ritual_take_QAudioBufferInput": ["bool", "address", "chars", "address"]
   }
 }

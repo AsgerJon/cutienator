@@ -3,7 +3,7 @@
 //  Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qitemmodelbardataproxy.h>
@@ -12,6 +12,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGraphs/private/baritemmodelhandler_p.h>
+#include <QtGraphs/private/qbar3dseries_p.h>
+#include <QtGraphs/private/qbar3dseries_p.h>
+#include <QtGraphs/private/qbardataproxy_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #include <QtGraphs/private/baritemmodelhandler_p.h>
 #include <QtGraphs/private/qitemmodelbardataproxy_p.h>
 #include <QtGraphs/private/qgraphs3dlogging_p.h>
@@ -24,7 +29,36 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtgraphs/src/graphs3d/data/qitemmodelbardataproxy.cpp, line 1093, as _ZN29QItemModelBarDataProxyPrivateD1Ev
+//  from ../qtgraphs/src/graphs3d/data/baritemmodelhandler.cpp, line 30, as _ZN19BarItemModelHandlerC1EP22QItemModelBarDataProxyP7QObject
+inline BarItemModelHandler::BarItemModelHandler(QItemModelBarDataProxy *proxy, QObject *parent)
+    : AbstractItemModelHandler(parent)
+    , m_proxy(proxy)
+    , m_proxyArray(0)
+    , m_columnCount(0)
+    , m_valueRole(noRoleIndex)
+    , m_rotationRole(noRoleIndex)
+    , m_haveValuePattern(false)
+    , m_haveRotationPattern(false)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qbardataproxy.cpp, line 698, as _ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries
+inline void QBarDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+{
+    Q_Q(QBarDataProxy);
+    QAbstractDataProxyPrivate::setSeries(series);
+    QBar3DSeries *barSeries = static_cast<QBar3DSeries *>(series);
+    emit q->seriesChanged(barSeries);
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qbardataproxy.cpp, line 545, as _ZN20QBarDataProxyPrivateC2Ev
+inline QBarDataProxyPrivate::QBarDataProxyPrivate()
+    : QAbstractDataProxyPrivate(QAbstractDataProxy::DataType::Bar)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qbardataproxy.cpp, line 549, as _ZN20QBarDataProxyPrivateD2Ev
+inline QBarDataProxyPrivate::~QBarDataProxyPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qitemmodelbardataproxy.cpp, line 1093, as _ZN29QItemModelBarDataProxyPrivateD2Ev
 inline QItemModelBarDataProxyPrivate::~QItemModelBarDataProxyPrivate()
 {
     delete m_itemModelHandler;
@@ -92,4 +126,4 @@ bool ritual_take_QItemModelBarDataProxyPrivate(
   return static_cast<CuteQItemModelBarDataProxyPrivate *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))

@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QSvgAnimatedPropertyFloat that Python can take functions over in. Every QSvgAnimatedPropertyFloat
 //  Python makes is one. Each function below asks the Python
@@ -53,12 +54,27 @@ void ritual_ZN25QSvgAnimatedPropertyFloatD1Ev(
   delete self;
 }
 
+//  void QSvgAnimatedPropertyFloat::setValues(const QList<qreal> &values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSvgAnimatedPropertyFloat9setValuesERK5QListIdE(
+    QSvgAnimatedPropertyFloat *self,
+    const QList<qreal> *values) {
+  self->setValues(*values);
+}
+
 //  void QSvgAnimatedPropertyFloat::appendValue(const qreal value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QSvgAnimatedPropertyFloat11appendValueEd(
     QSvgAnimatedPropertyFloat *self,
     qreal value) {
   self->appendValue(value);
+}
+
+//  QList<qreal> QSvgAnimatedPropertyFloat::values() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK25QSvgAnimatedPropertyFloat6valuesEv(
+    const QSvgAnimatedPropertyFloat *self) {
+  return new QList<qreal>(self->values());
 }
 
 //  void QSvgAnimatedPropertyFloat::interpolate(uint index, qreal t) const
@@ -87,4 +103,10 @@ void ritual_own_ZNK25QSvgAnimatedPropertyFloat11interpolateEjd(
     uint index,
     qreal t) {
   self->QSvgAnimatedPropertyFloat::interpolate(index, t);
+}
+
+//  a QList<qreal> a ritual of QSvgAnimatedPropertyFloat gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSvgAnimatedPropertyFloat__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

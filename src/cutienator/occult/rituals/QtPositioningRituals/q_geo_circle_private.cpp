@@ -50,16 +50,40 @@ inline QGeoShapePrivate::~QGeoShapePrivate()
 {
 }
 
-//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 129, as _ZNK17QGeoCirclePrivate7isValidEv
-inline bool QGeoCirclePrivate::isValid() const
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 197, as _ZNK17QGeoCirclePrivate20boundingGeoRectangleEv
+inline QGeoRectangle QGeoCirclePrivate::boundingGeoRectangle() const
 {
-    return m_center.isValid() && !qIsNaN(m_radius) && m_radius >= -1e-7;
+    return m_bbox;
+}
+
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 427, as _ZNK17QGeoCirclePrivate4hashEm
+inline size_t QGeoCirclePrivate::hash(size_t seed) const
+{
+    return qHashMulti(seed, m_center, m_radius);
+}
+
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 412, as _ZNK17QGeoCirclePrivate5cloneEv
+inline QGeoShapePrivate *QGeoCirclePrivate::clone() const
+{
+    return new QGeoCirclePrivate(*this);
+}
+
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 192, as _ZNK17QGeoCirclePrivate6centerEv
+inline QGeoCoordinate QGeoCirclePrivate::center() const
+{
+    return m_center;
 }
 
 //  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 134, as _ZNK17QGeoCirclePrivate7isEmptyEv
 inline bool QGeoCirclePrivate::isEmpty() const
 {
     return !isValid() || m_radius <= 1e-7;
+}
+
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 129, as _ZNK17QGeoCirclePrivate7isValidEv
+inline bool QGeoCirclePrivate::isValid() const
+{
+    return m_center.isValid() && !qIsNaN(m_radius) && m_radius >= -1e-7;
 }
 
 //  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 179, as _ZNK17QGeoCirclePrivate8containsERK14QGeoCoordinate
@@ -76,17 +100,38 @@ inline bool QGeoCirclePrivate::contains(const QGeoCoordinate &coordinate) const
     return false;
 }
 
-//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 192, as _ZNK17QGeoCirclePrivate6centerEv
-inline QGeoCoordinate QGeoCirclePrivate::center() const
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 417, as _ZNK17QGeoCirclePrivateeqERK16QGeoShapePrivate
+inline bool QGeoCirclePrivate::operator==(const QGeoShapePrivate &other) const
 {
-    return m_center;
+    if (!QGeoShapePrivate::operator==(other))
+        return false;
+
+    const QGeoCirclePrivate &otherCircle = static_cast<const QGeoCirclePrivate &>(other);
+
+    return m_radius == otherCircle.m_radius && m_center == otherCircle.m_center;
 }
 
-//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 197, as _ZNK17QGeoCirclePrivate20boundingGeoRectangleEv
-inline QGeoRectangle QGeoCirclePrivate::boundingGeoRectangle() const
+//  from ../qtpositioning/src/positioning/qgeoshape.cpp, line 34, as _ZNK16QGeoShapePrivateeqERKS_
+inline bool QGeoShapePrivate::operator==(const QGeoShapePrivate &other) const
 {
-    return m_bbox;
+    return type == other.type;
 }
+
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 404, as _ZN17QGeoCirclePrivateC1ERKS_
+inline QGeoCirclePrivate::QGeoCirclePrivate(const QGeoCirclePrivate &other)
+:   QGeoShapePrivate(QGeoShape::CircleType), m_center(other.m_center),
+    m_radius(other.m_radius), m_bbox(other.m_bbox)
+{
+}
+
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 393, as _ZN17QGeoCirclePrivateC1Ev
+inline QGeoCirclePrivate::QGeoCirclePrivate()
+:   QGeoShapePrivate(QGeoShape::CircleType), m_radius(-1.0)
+{
+}
+
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 410, as _ZN17QGeoCirclePrivateD1Ev
+inline QGeoCirclePrivate::~QGeoCirclePrivate() {}
 
 //  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 276, as _ZNK17QGeoCirclePrivate14crossNorthPoleEv
 inline bool QGeoCirclePrivate::crossNorthPole() const
@@ -193,12 +238,6 @@ inline void QGeoCirclePrivate::extendCircle(const QGeoCoordinate &coordinate)
 
     setRadius(m_center.distanceTo(coordinate));
 }
-
-//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 412, as _ZNK17QGeoCirclePrivate5cloneEv
-inline QGeoShapePrivate *QGeoCirclePrivate::clone() const
-{
-    return new QGeoCirclePrivate(*this);
-}
 //  -----------------------------------------------------------------------
 
 //  A QGeoCirclePrivate that Python can take functions over in. Every QGeoCirclePrivate
@@ -210,11 +249,12 @@ typedef bool (*CuteQGeoCirclePrivateCall2)(const void *, const QGeoCoordinate *,
 typedef const QGeoCoordinate * (*CuteQGeoCirclePrivateCall3)(const void *, int *);
 typedef const QGeoRectangle * (*CuteQGeoCirclePrivateCall4)(const void *, int *);
 typedef void * (*CuteQGeoCirclePrivateCall5)(const void *, int *);
+typedef size_t (*CuteQGeoCirclePrivateCall6)(const void *, size_t, int *);
 class CuteQGeoCirclePrivate : public QGeoCirclePrivate {
 public:
   using QGeoCirclePrivate::QGeoCirclePrivate;
-  CuteQGeoCirclePrivate(const QGeoCirclePrivate &other) : QGeoCirclePrivate(other) {}
-  void *taken[6] = {};
+  CuteQGeoCirclePrivate(const QGeoCirclePrivate & other) : QGeoCirclePrivate(other) {}
+  void *taken[7] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK16QGeoShapePrivate7isValidEv")) {
@@ -239,6 +279,10 @@ public:
     }
     if (!std::strcmp(key, "_ZNK16QGeoShapePrivate5cloneEv")) {
       taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate4hashEm")) {
+      taken[6] = call;
       return true;
     }
     return false;
@@ -310,7 +354,30 @@ public:
     }
     return QGeoCirclePrivate::clone();
   }
+
+  //  size_t QGeoCirclePrivate::hash(size_t seed) const
+  size_t hash(size_t seed) const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQGeoCirclePrivateCall6 call = reinterpret_cast<CuteQGeoCirclePrivateCall6>(taken[6]);
+      size_t given = call(this, seed, &handled);
+      if (handled) return given;
+    }
+    return QGeoCirclePrivate::hash(seed);
+  }
 };
+
+//  QGeoCirclePrivate::QGeoCirclePrivate()
+extern "C" Q_DECL_EXPORT
+QGeoCirclePrivate *ritual_ZN17QGeoCirclePrivateC1Ev() {
+  return new CuteQGeoCirclePrivate();
+}
+
+//  QGeoCirclePrivate::~QGeoCirclePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGeoCirclePrivateD1Ev(QGeoCirclePrivate *self) {
+  delete self;
+}
 
 //  bool QGeoCirclePrivate::isValid() const
 extern "C" Q_DECL_EXPORT
@@ -398,6 +465,22 @@ QGeoShapePrivate *ritual_ZNK17QGeoCirclePrivate5cloneEv(
   return self->clone();
 }
 
+//  bool QGeoCirclePrivate::operator==(const QGeoShapePrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QGeoCirclePrivateeqERK16QGeoShapePrivate(
+    const QGeoCirclePrivate *self,
+    const QGeoShapePrivate *other) {
+  return self->operator==(*other);
+}
+
+//  size_t QGeoCirclePrivate::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK17QGeoCirclePrivate4hashEm(
+    const QGeoCirclePrivate *self,
+    size_t seed) {
+  return self->hash(seed);
+}
+
 //  a Python function taken by a CuteQGeoCirclePrivate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -442,4 +525,19 @@ extern "C" Q_DECL_EXPORT
 QGeoRectangle *ritual_own_ZNK17QGeoCirclePrivate20boundingGeoRectangleEv(
     const QGeoCirclePrivate *self) {
   return new QGeoRectangle(self->QGeoCirclePrivate::boundingGeoRectangle());
+}
+
+//  QGeoShapePrivate *QGeoCirclePrivate::clone() const
+extern "C" Q_DECL_EXPORT
+QGeoShapePrivate *ritual_own_ZNK17QGeoCirclePrivate5cloneEv(
+    const QGeoCirclePrivate *self) {
+  return self->QGeoCirclePrivate::clone();
+}
+
+//  size_t QGeoCirclePrivate::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_own_ZNK17QGeoCirclePrivate4hashEm(
+    const QGeoCirclePrivate *self,
+    size_t seed) {
+  return self->QGeoCirclePrivate::hash(seed);
 }

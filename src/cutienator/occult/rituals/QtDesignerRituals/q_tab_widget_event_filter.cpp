@@ -7,6 +7,7 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_tabwidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -184,6 +185,25 @@ const QMetaObject *ritual_ZNK21QTabWidgetEventFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTabWidgetEventFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QTabWidgetEventFilter11qt_metacastEPKc(
+    QTabWidgetEventFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTabWidgetEventFilter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QTabWidgetEventFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTabWidgetEventFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTabWidgetEventFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QTabWidgetEventFilter2trEPKcS1_i(
@@ -275,6 +295,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QTabWidgetEventFilter12addPageAfterEv(
     QTabWidgetEventFilter *self) {
   self->addPageAfter();
+}
+
+//  int QTabWidgetEventFilter::pageFromPosition(const QPoint &pos, QRect
+//      &rect) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK21QTabWidgetEventFilter16pageFromPositionERK6QPointR5QRect(
+    const QTabWidgetEventFilter *self,
+    const QPoint *pos,
+    QRect *rect) {
+  return self->pageFromPosition(*pos, *rect);
 }
 
 //  QTabBar *QTabWidgetEventFilter::tabBar() const

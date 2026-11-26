@@ -6,6 +6,10 @@
   "rows": {
     "ritual_ZN14QOpcUaArgumentC1Ev": ["address"],
     "ritual_ZN14QOpcUaArgumentC1ERKS_": ["address", "address"],
+    "ritual_ZN14QOpcUaArgumentC1ERK7QStringS2_iRK5QListIjERK19QOpcUaLocalizedText": [
+      "address", "text", "text", "int", "address", "address"
+    ],
+    "ritual_ZN14QOpcUaArgumentaSERKS_": ["address", "address", "address"],
     "ritual_ZNK14QOpcUaArgumenteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK14QOpcUaArgumentcv8QVariantEv": ["address", "address"],
     "ritual_ZN14QOpcUaArgumentD1Ev": ["nothing", "address"],
@@ -21,9 +25,17 @@
     "ritual_ZN14QOpcUaArgument12setValueRankEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK14QOpcUaArgument15arrayDimensionsEv": ["address", "address"],
+    "ritual_ZN14QOpcUaArgument18arrayDimensionsRefEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QOpcUaArgument18setArrayDimensionsERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QOpcUaArgument11descriptionEv": ["address", "address"],
     "ritual_ZN14QOpcUaArgument14setDescriptionERK19QOpcUaLocalizedText": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_drop_QOpcUaArgument__QList_quint32": ["nothing", "address"]
   }
 }

@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qtyperevision.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qtyperevision.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN13QTypeRevision4zeroEv": ["address"],
@@ -24,6 +25,22 @@
     "ritual_ZN13QTypeRevisionC1Ehh": [
       "address", "unsigned char", "unsigned char"
     ],
-    "ritual_ZN13QTypeRevisionD1Ev": ["nothing", "address"]
+    "ritual_ZN13QTypeRevisionD1Ev": ["nothing", "address"],
+    "ritual_ZN13QTypeRevision14isValidSegmentIiLb1EEEbT_": ["bool", "int"],
+    "ritual_ZN13QTypeRevision11fromVersionIiiLb1ELb1EEES_T_T0_": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN13QTypeRevision16fromMajorVersionIiLb1EEES_T_": [
+      "address", "int"
+    ],
+    "ritual_ZN13QTypeRevision16fromMinorVersionIiLb1EEES_T_": [
+      "address", "int"
+    ],
+    "ritual_ZN13QTypeRevision18fromEncodedVersionIiLb1EEES_T_": [
+      "address", "int"
+    ],
+    "ritual_ZNK13QTypeRevision16toEncodedVersionIiLb1EEET_v": [
+      "int", "address"
+    ]
   }
 }

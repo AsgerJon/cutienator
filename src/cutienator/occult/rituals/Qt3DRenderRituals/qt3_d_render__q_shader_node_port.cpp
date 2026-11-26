@@ -7,6 +7,12 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qshadernodeport_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  Qt3DRender::QShaderNodePort::QShaderNodePort()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderNodePort *ritual_ZN10Qt3DRender15QShaderNodePortC1Ev() {
+  return new Qt3DRender::QShaderNodePort();
+}
+
 //  Qt3DRender::QShaderNodePort::~QShaderNodePort()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender15QShaderNodePortD1Ev(

@@ -1,12 +1,199 @@
+//  Edited by hand on 2026-11-25: 'fillFromDirEnt' takes Qt's
+//  'QT_DIRENT', which on Linux is 'struct dirent64', not 'struct
+//  dirent': its ritual takes a 'const QT_DIRENT *', and is named by
+//  'dirent64' as Qt's Linux library names it. Kept as it is when the
+//  generator runs again.
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qfilesystemmetadata_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qfilesystemmetadata_p.h, Qt 6.12.0.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qfilesystemmetadata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdatetime.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include "qplatformdefs.h"
+#include <QtCore/private/qfilesystemengine_p.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qstorageinfo.h>
+#include <QtCore/qurl.h>
+#include <QtCore/qoperatingsystemversion.h>
+#include <QtCore/private/qcore_unix_p.h>
+#include <QtCore/private/qfiledevice_p.h>
+#include <QtCore/private/qfunctions_p.h>
+#include <QtCore/qvarlengtharray.h>
+#ifndef QT_BOOTSTRAPPED
+# include <QtCore/qstandardpaths.h>
+# include <QtCore/private/qtemporaryfile_p.h>
+#endif
+#include <grp.h>
+#include <pwd.h>
+#include <stdlib.h> // for realpath()
+#include <unistd.h>
+#include <stdio.h>
+#include <errno.h>
+#include <chrono>
+#if __has_include(<paths.h>)
+# include <paths.h>
+#endif
+#if __has_include(<sys/disk.h>)
+# include <sys/disk.h>
+#endif
+#if defined(Q_OS_DARWIN)
+# include <QtCore/private/qcore_mac_p.h>
+# include <CoreFoundation/CFBundle.h>
+# include <UniformTypeIdentifiers/UTType.h>
+# include <UniformTypeIdentifiers/UTCoreTypes.h>
+# include <Foundation/Foundation.h>
+# include <copyfile.h>
+#endif
+#ifdef Q_OS_MACOS
+#include <CoreServices/CoreServices.h>
+#endif
+#if defined(QT_PLATFORM_UIKIT)
+#include <MobileCoreServices/MobileCoreServices.h>
+#endif
+#if defined(Q_OS_LINUX)
+#  include <sys/ioctl.h>
+#  include <sys/sendfile.h>
+#  include <linux/fs.h>
+#endif
+#if defined(Q_OS_VXWORKS)
+# include <sys/statfs.h>
+# if __has_include(<dosFsLib.h>)
+#  include <dosFsLib.h>
+# endif
+#endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/corelib/io/qfilesystemengine_unix.cpp, line 517, as _ZN19QFileSystemMetaData14fillFromDirEntERK6dirent
+#if defined(Q_OS_LINUX)
+inline void QFileSystemMetaData::fillFromDirEnt(const QT_DIRENT &entry)
+{
+#if defined(_DEXTRA_FIRST)
+    knownFlagsMask = {};
+    entryFlags = {};
+    for (dirent_extra *extra = _DEXTRA_FIRST(&entry); _DEXTRA_VALID(extra, &entry);
+         extra = _DEXTRA_NEXT(extra)) {
+        if (extra->d_type == _DTYPE_STAT || extra->d_type == _DTYPE_LSTAT) {
+
+            const struct dirent_extra_stat * const extra_stat =
+                    reinterpret_cast<struct dirent_extra_stat *>(extra);
+
+            // Remember whether this was a link or not, this saves an lstat() call later.
+            if (extra->d_type == _DTYPE_LSTAT) {
+                knownFlagsMask |= QFileSystemMetaData::LinkType;
+                if (S_ISLNK(extra_stat->d_stat.st_mode))
+                    entryFlags |= QFileSystemMetaData::LinkType;
+            }
+
+            // For symlinks, the extra type _DTYPE_LSTAT doesn't work for filling out the meta data,
+            // as we need the stat() information there, not the lstat() information.
+            // In this case, don't use the extra information.
+            // Unfortunately, readdir() never seems to return extra info of type _DTYPE_STAT, so for
+            // symlinks, we always incur the cost of an extra stat() call later.
+            if (S_ISLNK(extra_stat->d_stat.st_mode) && extra->d_type == _DTYPE_LSTAT)
+                continue;
+
+#if defined(QT_USE_XOPEN_LFS_EXTENSIONS) && defined(QT_LARGEFILE_SUPPORT)
+            // Even with large file support, d_stat is always of type struct stat, not struct stat64,
+            // so it needs to be converted
+            struct stat64 statBuf;
+            fillStat64fromStat32(&statBuf, extra_stat->d_stat);
+            fillFromStatBuf(statBuf);
+#else
+            fillFromStatBuf(extra_stat->d_stat);
+#endif
+            knownFlagsMask |= QFileSystemMetaData::PosixStatFlags;
+            if (!S_ISLNK(extra_stat->d_stat.st_mode)) {
+                knownFlagsMask |= QFileSystemMetaData::ExistsAttribute;
+                entryFlags |= QFileSystemMetaData::ExistsAttribute;
+            }
+        }
+    }
+#elif defined(_DIRENT_HAVE_D_TYPE) || defined(Q_OS_BSD4)
+    // BSD4 includes OS X and iOS
+
+    // ### This will clear all entry flags and knownFlagsMask
+    switch (entry.d_type)
+    {
+    case DT_DIR:
+        knownFlagsMask = QFileSystemMetaData::LinkType
+            | QFileSystemMetaData::FileType
+            | QFileSystemMetaData::DirectoryType
+            | QFileSystemMetaData::SequentialType
+            | QFileSystemMetaData::ExistsAttribute;
+
+        entryFlags = QFileSystemMetaData::DirectoryType
+            | QFileSystemMetaData::ExistsAttribute;
+
+        break;
+
+    case DT_BLK:
+        knownFlagsMask = QFileSystemMetaData::LinkType
+            | QFileSystemMetaData::FileType
+            | QFileSystemMetaData::DirectoryType
+            | QFileSystemMetaData::BundleType
+            | QFileSystemMetaData::AliasType
+            | QFileSystemMetaData::SequentialType
+            | QFileSystemMetaData::ExistsAttribute;
+
+        entryFlags = QFileSystemMetaData::ExistsAttribute;
+
+        break;
+
+    case DT_CHR:
+    case DT_FIFO:
+    case DT_SOCK:
+        // ### System attribute
+        knownFlagsMask = QFileSystemMetaData::LinkType
+            | QFileSystemMetaData::FileType
+            | QFileSystemMetaData::DirectoryType
+            | QFileSystemMetaData::BundleType
+            | QFileSystemMetaData::AliasType
+            | QFileSystemMetaData::SequentialType
+            | QFileSystemMetaData::ExistsAttribute;
+
+        entryFlags = QFileSystemMetaData::SequentialType
+            | QFileSystemMetaData::ExistsAttribute;
+
+        break;
+
+    case DT_LNK:
+        knownFlagsMask = QFileSystemMetaData::LinkType;
+        entryFlags = QFileSystemMetaData::LinkType;
+        break;
+
+    case DT_REG:
+        knownFlagsMask = QFileSystemMetaData::LinkType
+            | QFileSystemMetaData::FileType
+            | QFileSystemMetaData::DirectoryType
+            | QFileSystemMetaData::BundleType
+            | QFileSystemMetaData::SequentialType
+            | QFileSystemMetaData::ExistsAttribute;
+
+        entryFlags = QFileSystemMetaData::FileType
+            | QFileSystemMetaData::ExistsAttribute;
+
+        break;
+
+    case DT_UNKNOWN:
+    default:
+        clear();
+    }
+#else
+    Q_UNUSED(entry);
+#endif
+}
+#endif  // defined(Q_OS_LINUX)
+//  -----------------------------------------------------------------------
 
 //  QFileSystemMetaData::QFileSystemMetaData()
 extern "C" Q_DECL_EXPORT
@@ -223,6 +410,18 @@ bool ritual_ZNK19QFileSystemMetaData12isExecutableEv(
     const QFileSystemMetaData *self) {
   return self->isExecutable();
 }
+
+#if defined(Q_OS_UNIX)
+#if defined(Q_OS_LINUX)
+//  void QFileSystemMetaData::fillFromDirEnt(const QT_DIRENT &statBuffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QFileSystemMetaData14fillFromDirEntERK8dirent64(
+    QFileSystemMetaData *self,
+    const QT_DIRENT *statBuffer) {
+  self->fillFromDirEnt(*statBuffer);
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 
 //  QFileSystemMetaData::~QFileSystemMetaData()
 extern "C" Q_DECL_EXPORT

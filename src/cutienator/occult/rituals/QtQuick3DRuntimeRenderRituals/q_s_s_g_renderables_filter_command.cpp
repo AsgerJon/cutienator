@@ -13,6 +13,14 @@ QSSGRenderablesFilterCommand *ritual_ZN28QSSGRenderablesFilterCommandC1Ev() {
   return new QSSGRenderablesFilterCommand();
 }
 
+//  void QSSGRenderablesFilterCommand::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK28QSSGRenderablesFilterCommand8addDebugER6QDebug(
+    const QSSGRenderablesFilterCommand *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGRenderablesFilterCommand::~QSSGRenderablesFilterCommand()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QSSGRenderablesFilterCommandD1Ev(

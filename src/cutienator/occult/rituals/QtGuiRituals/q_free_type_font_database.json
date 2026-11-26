@@ -8,17 +8,27 @@
     "ritual_ZN21QFreeTypeFontDatabase20populateFontDatabaseEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QFreeTypeFontDatabase10fontEngineERK8QFontDefPv": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN21QFreeTypeFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
       "address", "address", "address", "double", "int"
     ],
     "ritual_ZN21QFreeTypeFontDatabase18addApplicationFontERK10QByteArrayRK7QStringPN20QFontDatabasePrivate15ApplicationFontE": [
       "address", "address", "address", "text", "address"
     ],
+    "ritual_ZN21QFreeTypeFontDatabase13releaseHandleEPv": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QFreeTypeFontDatabase32supportsVariableApplicationFontsEv": [
       "bool", "address"
     ],
     "ritual_ZNK21QFreeTypeFontDatabase19supportsColrv0FontsEv": [
       "bool", "address"
+    ],
+    "ritual_ZN21QFreeTypeFontDatabase24addNamedInstancesForFaceEPviRK7QStringS3_N5QFont6WeightENS4_7StretchENS4_5StyleEbbRK24QSupportedWritingSystemsRK10QByteArraySD_": [
+      "nothing", "address", "int", "text", "text", "int", "int", "int",
+      "bool", "bool", "address", "address", "address"
     ],
     "ritual_ZN21QFreeTypeFontDatabase9addTTFileERK10QByteArrayS2_PN20QFontDatabasePrivate15ApplicationFontE": [
       "address", "address", "address", "address"
@@ -30,8 +40,14 @@
     "ritual_own_ZN21QFreeTypeFontDatabase20populateFontDatabaseEv": [
       "nothing", "address"
     ],
+    "ritual_own_ZN21QFreeTypeFontDatabase10fontEngineERK8QFontDefPv": [
+      "address", "address", "address", "address"
+    ],
     "ritual_own_ZN21QFreeTypeFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
       "address", "address", "address", "double", "int"
+    ],
+    "ritual_own_ZN21QFreeTypeFontDatabase13releaseHandleEPv": [
+      "nothing", "address", "address"
     ],
     "ritual_own_ZNK21QFreeTypeFontDatabase32supportsVariableApplicationFontsEv": [
       "bool", "address"

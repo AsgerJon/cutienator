@@ -8,6 +8,16 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 
+//  QmlIR::Document::Document(const QString &fileName, const QString
+//      &finalUrl, bool debugMode)
+extern "C" Q_DECL_EXPORT
+QmlIR::Document *ritual_ZN5QmlIR8DocumentC1ERK7QStringS3_b(
+    const QString *fileName,
+    const QString *finalUrl,
+    bool debugMode) {
+  return new QmlIR::Document(*fileName, *finalUrl, debugMode);
+}
+
 //  bool QmlIR::Document::isSingleton() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK5QmlIR8Document11isSingletonEv(const QmlIR::Document *self) {

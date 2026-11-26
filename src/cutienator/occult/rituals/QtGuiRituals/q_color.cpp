@@ -75,6 +75,14 @@ QColor *ritual_ZN6QColor10fromStringE14QAnyStringView(const QString *name) {
   return new QColor(QColor::fromString(QAnyStringView(*name)));
 }
 
+//  QColor &QColor::operator=(Qt::GlobalColor color)
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZN6QColoraSEN2Qt11GlobalColorE(
+    QColor *self,
+    Qt::GlobalColor color) {
+  return &(self->operator=(color));
+}
+
 //  bool QColor::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QColor7isValidEv(const QColor *self) {
@@ -764,6 +772,24 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN6QColor11isRgbaValidEiiii(int r, int g, int b, int a) {
   return QColor::isRgbaValid(r, g, b, a);
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QColor &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK6QColor(
+    QDataStream *a0,
+    const QColor *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QColor &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR6QColor(QDataStream *a0, QColor *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 #if defined(Q_COMPILER_UNIFORM_INIT)
 //  QColor::QColor(Spec spec, ushort a1, ushort a2, ushort a3, ushort a4,

@@ -7,6 +7,8 @@
 #include <QtCore/6.12.0/QtCore/private/qlocale_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlocale.h>
+#include <array>
+#include <QtCore/QLocale>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qglobal.h>
 #if defined(Q_OS_MACOS)
@@ -64,6 +66,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/corelib/text/qlocale.cpp, line 419, as _ZNK9QLocaleId24withLikelySubtagsRemovedEv
 inline QLocaleId QLocaleId::withLikelySubtagsRemoved() const noexcept
@@ -164,4 +168,18 @@ extern "C" Q_DECL_EXPORT
 QLocale::MeasurementSystem ritual_ZNK14QLocalePrivate17measurementSystemEv(
     const QLocalePrivate *self) {
   return self->measurementSystem();
+}
+
+//  a std::array<char, 4> a ritual of QLocalePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLocalePrivate__std_array_char_4(
+    std::array<char, 4> *self) {
+  delete self;
+}
+
+//  a QLocale::Territory a ritual of QLocalePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLocalePrivate__QLocale_Territory(
+    QLocale::Territory *self) {
+  delete self;
 }

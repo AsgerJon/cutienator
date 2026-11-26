@@ -4,7 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -26,6 +26,14 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/animation/qgraphanimation.cpp, line 53, as _ZN15QGraphAnimationC2EP7QObject
+inline QGraphAnimation::QGraphAnimation(QObject *parent)
+    : QVariantAnimation(parent)
+{
+    connect(this, &QVariantAnimation::valueChanged, this, &QGraphAnimation::valueUpdated);
+    connect(this, &QVariantAnimation::finished, this, &QGraphAnimation::end);
+}
 
 //  from ../qtgraphs/src/graphs2d/animation/qgraphanimation.cpp, line 65, as _ZNK15QGraphAnimation9animatingEv
 inline QGraphAnimation::AnimationState QGraphAnimation::animating() const
@@ -448,6 +456,31 @@ const QMetaObject *ritual_ZNK18QXYSeriesAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QXYSeriesAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QXYSeriesAnimation11qt_metacastEPKc(
+    QXYSeriesAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QXYSeriesAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QXYSeriesAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QXYSeriesAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QXYSeriesAnimation::~QXYSeriesAnimation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QXYSeriesAnimationD1Ev(QXYSeriesAnimation *self) {
+  delete self;
+}
+
 //  void QXYSeriesAnimation::updateCurrent(QGraphTransition::TransitionType
 //      tt, int index, QPointF point)
 extern "C" Q_DECL_EXPORT
@@ -457,6 +490,36 @@ void ritual_ZN18QXYSeriesAnimation13updateCurrentEN16QGraphTransition14Transitio
     int index,
     const QPointF *point) {
   self->updateCurrent(tt, index, *point);
+}
+
+//  void QXYSeriesAnimation::setAnimatingValue(const QVariant &start, const
+//      QVariant &end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QXYSeriesAnimation17setAnimatingValueERK8QVariantS2_(
+    QXYSeriesAnimation *self,
+    const QVariant *start,
+    const QVariant *end) {
+  self->setAnimatingValue(*start, *end);
+}
+
+//  void QXYSeriesAnimation::animate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QXYSeriesAnimation7animateEv(QXYSeriesAnimation *self) {
+  self->animate();
+}
+
+//  void QXYSeriesAnimation::end()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QXYSeriesAnimation3endEv(QXYSeriesAnimation *self) {
+  self->end();
+}
+
+//  void QXYSeriesAnimation::valueUpdated(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QXYSeriesAnimation12valueUpdatedERK8QVariant(
+    QXYSeriesAnimation *self,
+    const QVariant *value) {
+  self->valueUpdated(*value);
 }
 
 //  a Python function taken by a CuteQXYSeriesAnimation, for the function
@@ -469,4 +532,4 @@ bool ritual_take_QXYSeriesAnimation(
   return static_cast<CuteQXYSeriesAnimation *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))

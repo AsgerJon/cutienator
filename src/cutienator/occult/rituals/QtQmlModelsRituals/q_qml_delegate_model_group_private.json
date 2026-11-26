@@ -15,11 +15,17 @@
     "ritual_ZN29QQmlDelegateModelGroupPrivate3getEP22QQmlDelegateModelGroup": [
       "address", "address"
     ],
+    "ritual_ZN29QQmlDelegateModelGroupPrivate8setModelEP17QQmlDelegateModelN18QQmlListCompositor5GroupE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN29QQmlDelegateModelGroupPrivate18isChangedConnectedEv": [
       "bool", "address"
     ],
     "ritual_ZN29QQmlDelegateModelGroupPrivate16emitModelUpdatedEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN29QQmlDelegateModelGroupPrivate14createdPackageEiP13QQuickPackage": [
+      "nothing", "address", "int", "address"
     ]
   }
 }

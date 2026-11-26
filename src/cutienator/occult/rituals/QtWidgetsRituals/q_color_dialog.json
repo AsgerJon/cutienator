@@ -5,7 +5,15 @@
   ],
   "rows": {
     "ritual_ZNK12QColorDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QColorDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QColorDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QColorDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QColorDialog6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QColorDialog6d_funcEv": ["address", "address"],
     "ritual_ZN12QColorDialogC1EP7QWidget": ["address", "address"],
     "ritual_ZN12QColorDialogC1ERK6QColorP7QWidget": [
       "address", "address", "address"
@@ -41,6 +49,12 @@
     "ritual_ZN12QColorDialog13standardColorEi": ["address", "int"],
     "ritual_ZN12QColorDialog16setStandardColorEi6QColor": [
       "nothing", "int", "address"
+    ],
+    "ritual_ZN12QColorDialog19currentColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QColorDialog13colorSelectedERK6QColor": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN12QColorDialog11changeEventEP6QEvent": [
       "nothing", "address", "address"

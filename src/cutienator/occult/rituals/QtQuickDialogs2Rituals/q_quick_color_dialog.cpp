@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK17QQuickColorDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickColorDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickColorDialog11qt_metacastEPKc(
+    QQuickColorDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickColorDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickColorDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickColorDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickColorDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickColorDialog2trEPKcS1_i(
@@ -90,6 +109,20 @@ void ritual_ZN17QQuickColorDialog10setOptionsE6QFlagsIN19QColorDialogOptions17Co
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickColorDialog12resetOptionsEv(QQuickColorDialog *self) {
   self->resetOptions();
+}
+
+//  void QQuickColorDialog::selectedColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickColorDialog20selectedColorChangedEv(
+    QQuickColorDialog *self) {
+  self->selectedColorChanged();
+}
+
+//  void QQuickColorDialog::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickColorDialog14optionsChangedEv(
+    QQuickColorDialog *self) {
+  self->optionsChanged();
 }
 
 //  bool QQuickColorDialog::useNativeDialog() const

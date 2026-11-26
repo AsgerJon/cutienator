@@ -12,6 +12,9 @@
 #include <QtCore/qmargins.h>
 #include <QtGui/qpalette.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
+#include <QtQuick/QQuickItem>
 
 //  A QQuickPopupPrivate that Python can take functions over in. Every QQuickPopupPrivate
 //  Python makes is one. Each function below asks the Python
@@ -393,6 +396,20 @@ extern "C" Q_DECL_EXPORT
 QQuickPopupPrivate *ritual_ZN18QQuickPopupPrivate3getEP11QQuickPopup(
     QQuickPopup *popup) {
   return QQuickPopupPrivate::get(popup);
+}
+
+//  QQmlListProperty<QObject> QQuickPopupPrivate::contentData()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN18QQuickPopupPrivate11contentDataEv(
+    QQuickPopupPrivate *self) {
+  return new QQmlListProperty<QObject>(self->contentData());
+}
+
+//  QQmlListProperty<QQuickItem> QQuickPopupPrivate::contentChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickItem> *ritual_ZN18QQuickPopupPrivate15contentChildrenEv(
+    QQuickPopupPrivate *self) {
+  return new QQmlListProperty<QQuickItem>(self->contentChildren());
 }
 
 //  void QQuickPopupPrivate::init()
@@ -947,4 +964,18 @@ void ritual_own_ZN18QQuickPopupPrivate22updateChildrenPalettesERK8QPalette(
     QQuickPopupPrivate *self,
     const QPalette *parentPalette) {
   self->QQuickPopupPrivate::updateChildrenPalettes(*parentPalette);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickPopupPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPopupPrivate__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickItem> a ritual of QQuickPopupPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPopupPrivate__QQmlListProperty_QQuickItem(
+    QQmlListProperty<QQuickItem> *self) {
+  delete self;
 }

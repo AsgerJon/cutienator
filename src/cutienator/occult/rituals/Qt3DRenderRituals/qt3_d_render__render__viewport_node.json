@@ -5,6 +5,43 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12ViewportNodeC1Ev": ["address"],
+    "ritual_ZNK10Qt3DRender6Render12ViewportNode4xMinEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ViewportNode7setXMinEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12ViewportNode4yMinEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ViewportNode7setYMinEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12ViewportNode4xMaxEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ViewportNode7setXMaxEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12ViewportNode4yMaxEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ViewportNode7setYMaxEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12ViewportNode5gammaEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ViewportNode8setGammaEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ViewportNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ViewportNode15computeViewportERK6QRectFPKS1_": [
+      "address", "address", "address"
+    ],
     "ritual_own_ZN10Qt3DRender6Render12ViewportNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
     ]

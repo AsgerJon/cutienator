@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickhandlerpoint_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qpoint.h>
 #include <QtGui/qeventpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -349,6 +350,25 @@ const QMetaObject *ritual_ZNK24QQuickSinglePointHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSinglePointHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickSinglePointHandler11qt_metacastEPKc(
+    QQuickSinglePointHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSinglePointHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickSinglePointHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSinglePointHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSinglePointHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuickSinglePointHandler2trEPKcS1_i(
@@ -372,6 +392,22 @@ QQuickHandlerPoint *ritual_ZNK24QQuickSinglePointHandler5pointEv(
   return new QQuickHandlerPoint(self->point());
 }
 
+//  void QQuickSinglePointHandler::pointChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSinglePointHandler12pointChangedEv(
+    QQuickSinglePointHandler *self) {
+  self->pointChanged();
+}
+
+//  QQuickSinglePointHandler::QQuickSinglePointHandler(QQuickSinglePointHandl
+//      erPrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickSinglePointHandler *ritual_ZN24QQuickSinglePointHandlerC1ER31QQuickSinglePointHandlerPrivateP10QQuickItem(
+    QQuickSinglePointHandlerPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickSinglePointHandler(*dd, parent);
+}
+
 //  bool QQuickSinglePointHandler::wantsPointerEvent(QPointerEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN24QQuickSinglePointHandler17wantsPointerEventEP13QPointerEvent(
@@ -389,12 +425,45 @@ void ritual_ZN24QQuickSinglePointHandler22handlePointerEventImplEP13QPointerEven
   self->handlePointerEventImpl(event);
 }
 
+//  void QQuickSinglePointHandler::handleEventPoint(QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSinglePointHandler16handleEventPointEP13QPointerEventR11QEventPoint(
+    QQuickSinglePointHandler *self,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->handleEventPoint(event, *point);
+}
+
+//  void QQuickSinglePointHandler::onGrabChanged(QQuickPointerHandler
+//      *grabber, QPointingDevice::GrabTransition transition, QPointerEvent
+//      *event, QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSinglePointHandler13onGrabChangedEP20QQuickPointerHandlerN15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint(
+    QQuickSinglePointHandler *self,
+    QQuickPointerHandler *grabber,
+    QPointingDevice::GrabTransition transition,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->onGrabChanged(grabber, transition, event, *point);
+}
+
 //  void QQuickSinglePointHandler::setIgnoreAdditionalPoints(bool v)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickSinglePointHandler25setIgnoreAdditionalPointsEb(
     QQuickSinglePointHandler *self,
     bool v) {
   self->setIgnoreAdditionalPoints(v);
+}
+
+//  void QQuickSinglePointHandler::moveTarget(QPointF pos, QEventPoint
+//      &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSinglePointHandler10moveTargetE7QPointFR11QEventPoint(
+    QQuickSinglePointHandler *self,
+    const QPointF *pos,
+    QEventPoint *point) {
+  self->moveTarget(*pos, *point);
 }
 
 //  void QQuickSinglePointHandler::setPointId(int id)

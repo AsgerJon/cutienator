@@ -28,6 +28,41 @@ void ritual_ZN26QCoapSecurityConfigurationD1Ev(
   delete self;
 }
 
+//  QCoapSecurityConfiguration::QCoapSecurityConfiguration(QCoapSecurityConfi
+//      guration &&other)
+extern "C" Q_DECL_EXPORT
+QCoapSecurityConfiguration *ritual_ZN26QCoapSecurityConfigurationC1EOS_(
+    QCoapSecurityConfiguration *other) {
+  return new QCoapSecurityConfiguration(std::move(*other));
+}
+
+//  QCoapSecurityConfiguration
+//      &QCoapSecurityConfiguration::operator=(QCoapSecurityConfiguration
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCoapSecurityConfiguration *ritual_ZN26QCoapSecurityConfigurationaSEOS_(
+    QCoapSecurityConfiguration *self,
+    QCoapSecurityConfiguration *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QCoapSecurityConfiguration &QCoapSecurityConfiguration::operator=(const
+//      QCoapSecurityConfiguration &other)
+extern "C" Q_DECL_EXPORT
+QCoapSecurityConfiguration *ritual_ZN26QCoapSecurityConfigurationaSERKS_(
+    QCoapSecurityConfiguration *self,
+    const QCoapSecurityConfiguration *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QCoapSecurityConfiguration::swap(QCoapSecurityConfiguration &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QCoapSecurityConfiguration4swapERS_(
+    QCoapSecurityConfiguration *self,
+    QCoapSecurityConfiguration *other) {
+  self->swap(*other);
+}
+
 //  void QCoapSecurityConfiguration::setPreSharedKeyIdentity(const QByteArray
 //      &preSharedKeyIdentity)
 extern "C" Q_DECL_EXPORT

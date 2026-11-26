@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QPlaceManagerEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QPlaceManagerEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QPlaceManagerEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QPlaceManagerEngine2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -67,6 +73,31 @@
     "ritual_ZN19QPlaceManagerEngine14matchingPlacesERK18QPlaceMatchRequest": [
       "address", "address", "address"
     ],
+    "ritual_ZN19QPlaceManagerEngine8finishedEP11QPlaceReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QPlaceManagerEngine13errorOccurredEP11QPlaceReplyNS0_5ErrorERK7QString": [
+      "nothing", "address", "address", "int", "text"
+    ],
+    "ritual_ZN19QPlaceManagerEngine10placeAddedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QPlaceManagerEngine12placeUpdatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QPlaceManagerEngine12placeRemovedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QPlaceManagerEngine13categoryAddedERK14QPlaceCategoryRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN19QPlaceManagerEngine15categoryUpdatedERK14QPlaceCategoryRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN19QPlaceManagerEngine15categoryRemovedERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN19QPlaceManagerEngine11dataChangedEv": ["nothing", "address"],
     "ritual_ZNK19QPlaceManagerEngine7managerEv": ["address", "address"],
     "ritual_ZN19QPlaceManagerEngine14setManagerNameERK7QString": [
       "nothing", "address", "text"

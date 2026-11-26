@@ -16,6 +16,22 @@ const QMetaObject *ritual_ZNK9QQuickPen10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPen::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QQuickPen11qt_metacastEPKc(QQuickPen *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPen::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QQuickPen11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPen *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPen::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QQuickPen2trEPKcS1_i(
@@ -79,4 +95,22 @@ void ritual_ZN9QQuickPen15setPixelAlignedEb(QQuickPen *self, bool aligned) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QQuickPen7isValidEv(const QQuickPen *self) {
   return self->isValid();
+}
+
+//  void QQuickPen::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QQuickPen12widthChangedEv(QQuickPen *self) {
+  self->widthChanged();
+}
+
+//  void QQuickPen::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QQuickPen12colorChangedEv(QQuickPen *self) {
+  self->colorChanged();
+}
+
+//  void QQuickPen::pixelAlignedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QQuickPen19pixelAlignedChangedEv(QQuickPen *self) {
+  self->pixelAlignedChanged();
 }

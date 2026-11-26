@@ -21,6 +21,14 @@ void ritual_ZN17QSSGSubRenderPass10setSubPassE14QSSGResourceId(
   self->setSubPass(userPassId);
 }
 
+//  void QSSGSubRenderPass::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QSSGSubRenderPass8addDebugER6QDebug(
+    const QSSGSubRenderPass *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGSubRenderPass::~QSSGSubRenderPass()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QSSGSubRenderPassD1Ev(QSSGSubRenderPass *self) {

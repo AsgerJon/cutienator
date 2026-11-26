@@ -18,6 +18,10 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QList>
+#include <QtLocation/QPlaceContactDetail>
 
 //  A QPlacePrivate that Python can take functions over in. Every QPlacePrivate
 //  Python makes is one. Each function below asks the Python
@@ -385,6 +389,14 @@ QPlacePrivate *ritual_ZN13QPlacePrivate5cloneEv(QPlacePrivate *self) {
   return self->clone();
 }
 
+//  bool QPlacePrivate::operator==(const QPlacePrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QPlacePrivateeqERKS_(
+    const QPlacePrivate *self,
+    const QPlacePrivate *other) {
+  return self->operator==(*other);
+}
+
 //  bool QPlacePrivate::isEmpty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QPlacePrivate7isEmptyEv(const QPlacePrivate *self) {
@@ -545,6 +557,27 @@ QMap<QString, QPlaceAttribute> *ritual_ZNK13QPlacePrivate18extendedAttributesEv(
   return new QMap<QString, QPlaceAttribute>(self->extendedAttributes());
 }
 
+//  QMap<QString, QPlaceAttribute> &QPlacePrivate::extendedAttributes()
+extern "C" Q_DECL_EXPORT
+QMap<QString, QPlaceAttribute> *ritual_ZN13QPlacePrivate18extendedAttributesEv(
+    QPlacePrivate *self) {
+  return &(self->extendedAttributes());
+}
+
+//  QMap<QString, QList<QPlaceContactDetail>> QPlacePrivate::contacts() const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QList<QPlaceContactDetail>> *ritual_ZNK13QPlacePrivate8contactsEv(
+    const QPlacePrivate *self) {
+  return new QMap<QString, QList<QPlaceContactDetail>>(self->contacts());
+}
+
+//  QMap<QString, QList<QPlaceContactDetail>> &QPlacePrivate::contacts()
+extern "C" Q_DECL_EXPORT
+QMap<QString, QList<QPlaceContactDetail>> *ritual_ZN13QPlacePrivate8contactsEv(
+    QPlacePrivate *self) {
+  return &(self->contacts());
+}
+
 //  QPlaceAttribute QPlacePrivate::extendedAttribute(const QString
 //      &attributeType) const
 extern "C" Q_DECL_EXPORT
@@ -579,4 +612,12 @@ QPlaceAttribute *ritual_own_ZNK13QPlacePrivate17extendedAttributeERK7QString(
   return new QPlaceAttribute(
       self->QPlacePrivate::extendedAttribute(
           *attributeType));
+}
+
+//  a QMap<QString, QList<QPlaceContactDetail>> a ritual of QPlacePrivate
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlacePrivate__QMap_QString_QList_QPlaceContactDetail(
+    QMap<QString, QList<QPlaceContactDetail>> *self) {
+  delete self;
 }

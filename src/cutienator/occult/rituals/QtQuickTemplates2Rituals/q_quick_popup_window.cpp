@@ -10,6 +10,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#include <optional>
+#include <QtCore/QPoint>
 
 //  Only a class built on QQuickPopupWindow may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -25,6 +27,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17QQuickPopupWindow10metaObjectEv(
     const QQuickPopupWindow *self) {
   return self->metaObject();
+}
+
+//  void *QQuickPopupWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickPopupWindow11qt_metacastEPKc(
+    QQuickPopupWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPopupWindow::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickPopupWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPopupWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickPopupWindow::tr(const char *s, const char *c, int n)
@@ -98,6 +119,15 @@ void ritual_ZN17QQuickPopupWindow13windowChangedEP7QWindow(
   self->windowChanged(window);
 }
 
+//  std::optional<QPoint> QQuickPopupWindow::global2Local(const QPoint &pos)
+//      const
+extern "C" Q_DECL_EXPORT
+std::optional<QPoint> *ritual_ZNK17QQuickPopupWindow12global2LocalERK6QPoint(
+    const QQuickPopupWindow *self,
+    const QPoint *pos) {
+  return new std::optional<QPoint>(self->global2Local(*pos));
+}
+
 //  void QQuickPopupWindow::parentWindowXChanged(int newX)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickPopupWindow20parentWindowXChangedEi(
@@ -146,6 +176,20 @@ QRect *ritual_ZNK17QQuickPopupWindow21parentControlGeometryEv(
 }
 #endif  // QT_CONFIG(wayland)
 
+//  QQuickPopupWindowPrivate *QQuickPopupWindow::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickPopupWindowPrivate *ritual_ZN17QQuickPopupWindow6d_funcEv(
+    QQuickPopupWindow *self) {
+  return self->d_func();
+}
+
+//  const QQuickPopupWindowPrivate *QQuickPopupWindow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickPopupWindowPrivate *ritual_ZNK17QQuickPopupWindow6d_funcEv(
+    const QQuickPopupWindow *self) {
+  return self->d_func();
+}
+
 //  void QQuickPopupWindow::hideEvent(QHideEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QQuickPopupWindow9hideEventEP10QHideEvent(
@@ -180,4 +224,11 @@ bool ritual_own_ZN17QQuickPopupWindow5eventEP6QEvent(
     QEvent *e) {
   return static_cast<OwnQQuickPopupWindow *>(self)->OwnQQuickPopupWindow::event(
       e);
+}
+
+//  a std::optional<QPoint> a ritual of QQuickPopupWindow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPopupWindow__std_optional_QPoint(
+    std::optional<QPoint> *self) {
+  delete self;
 }

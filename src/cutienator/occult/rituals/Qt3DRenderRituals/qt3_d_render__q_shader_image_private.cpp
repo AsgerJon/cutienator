@@ -7,6 +7,40 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qshaderimage_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DRender/qshaderimage.h>
+#include <Qt3DRender/private/qshaderimage_p.h>
+#include <Qt3DRender/qabstracttexture.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/render/materialsystem/qshaderimage.cpp, line 12, as _ZN10Qt3DRender19QShaderImagePrivateC1Ev
+namespace Qt3DRender {
+inline QShaderImagePrivate::QShaderImagePrivate()
+    : Qt3DCore::QNodePrivate()
+    , m_texture(nullptr)
+    , m_mipLevel(0)
+    , m_layer(0)
+    , m_access(QShaderImage::ReadWrite)
+    , m_format(QShaderImage::Automatic)
+    , m_layered(false)
+{
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/render/materialsystem/qshaderimage.cpp, line 23, as _ZN10Qt3DRender19QShaderImagePrivateD1Ev
+namespace Qt3DRender {
+inline QShaderImagePrivate::~QShaderImagePrivate()
+{
+}
+}  // namespace Qt3DRender
+//  -----------------------------------------------------------------------
 
 //  A Qt3DRender::QShaderImagePrivate that Python can take functions over in. Every Qt3DRender::QShaderImagePrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +86,19 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DRender::QShaderImagePrivate::QShaderImagePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderImagePrivate *ritual_ZN10Qt3DRender19QShaderImagePrivateC1Ev() {
+  return new CuteQt3DRender_QShaderImagePrivate();
+}
+
+//  Qt3DRender::QShaderImagePrivate::~QShaderImagePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender19QShaderImagePrivateD1Ev(
+    Qt3DRender::QShaderImagePrivate *self) {
+  delete self;
+}
 
 //  QShaderImage *Qt3DRender::QShaderImagePrivate::q_func()
 extern "C" Q_DECL_EXPORT

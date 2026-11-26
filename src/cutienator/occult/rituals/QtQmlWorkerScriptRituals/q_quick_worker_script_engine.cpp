@@ -199,6 +199,32 @@ const QMetaObject *ritual_ZNK24QQuickWorkerScriptEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWorkerScriptEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickWorkerScriptEngine11qt_metacastEPKc(
+    QQuickWorkerScriptEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWorkerScriptEngine::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickWorkerScriptEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWorkerScriptEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QQuickWorkerScriptEngine::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickWorkerScriptEngine3runEv(
+    QQuickWorkerScriptEngine *self) {
+  self->run();
+}
+
 //  a Python function taken by a CuteQQuickWorkerScriptEngine, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

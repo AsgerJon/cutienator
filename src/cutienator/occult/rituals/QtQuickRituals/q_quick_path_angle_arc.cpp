@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK18QQuickPathAngleArc10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathAngleArc::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickPathAngleArc11qt_metacastEPKc(
+    QQuickPathAngleArc *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathAngleArc::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickPathAngleArc11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathAngleArc *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathAngleArc::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickPathAngleArc2trEPKcS1_i(
@@ -138,6 +157,65 @@ void ritual_ZN18QQuickPathAngleArc14setMoveToStartEb(
     QQuickPathAngleArc *self,
     bool a0) {
   self->setMoveToStart(a0);
+}
+
+//  void QQuickPathAngleArc::addToPath(QPainterPath &path, const
+//      QQuickPathData &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathAngleArc9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickPathAngleArc *self,
+    QPainterPath *path,
+    const QQuickPathData *a1) {
+  self->addToPath(*path, *a1);
+}
+
+//  void QQuickPathAngleArc::centerXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathAngleArc14centerXChangedEv(
+    QQuickPathAngleArc *self) {
+  self->centerXChanged();
+}
+
+//  void QQuickPathAngleArc::centerYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathAngleArc14centerYChangedEv(
+    QQuickPathAngleArc *self) {
+  self->centerYChanged();
+}
+
+//  void QQuickPathAngleArc::radiusXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathAngleArc14radiusXChangedEv(
+    QQuickPathAngleArc *self) {
+  self->radiusXChanged();
+}
+
+//  void QQuickPathAngleArc::radiusYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathAngleArc14radiusYChangedEv(
+    QQuickPathAngleArc *self) {
+  self->radiusYChanged();
+}
+
+//  void QQuickPathAngleArc::startAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathAngleArc17startAngleChangedEv(
+    QQuickPathAngleArc *self) {
+  self->startAngleChanged();
+}
+
+//  void QQuickPathAngleArc::sweepAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathAngleArc17sweepAngleChangedEv(
+    QQuickPathAngleArc *self) {
+  self->sweepAngleChanged();
+}
+
+//  void QQuickPathAngleArc::moveToStartChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPathAngleArc18moveToStartChangedEv(
+    QQuickPathAngleArc *self) {
+  self->moveToStartChanged();
 }
 
 #endif  // QT_CONFIG(quick_path)

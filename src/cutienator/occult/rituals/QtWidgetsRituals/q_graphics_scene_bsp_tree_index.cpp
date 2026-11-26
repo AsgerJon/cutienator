@@ -24,9 +24,6 @@
 #include <QtWidgets/private/qgraphicssceneindex_p.h>
 #include <QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
 #include <QtGui/qpainterpath.h>
-#include <QtWidgets/private/qgraphicsscene_bsp_p.h>
-#include <QtCore/qstring.h>
-#include <QtWidgets/private/qgraphicsitem_p.h>
 #include <QtCore/qglobal.h>
 #include <QtWidgets/private/qgraphicsscene_p.h>
 #include <QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
@@ -34,6 +31,9 @@
 #include <QtCore/qmath.h>
 #include <QtCore/qdebug.h>
 #include <algorithm>
+#include <QtWidgets/private/qgraphicsscene_bsp_p.h>
+#include <QtCore/qstring.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -42,6 +42,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 55, as local:qgraphicsscenebsptreeindex.cpp:intmaxlog
+static inline int intmaxlog(int n)
+{
+    return  (n > 0 ? qMax(qCeil(qLn(qreal(n)) / qLn(qreal(2))), 5) : 0);
+}
 
 //  from src/widgets/graphicsview/qgraphicssceneindex.cpp, line 561, as _ZN19QGraphicsSceneIndex10deleteItemEP13QGraphicsItem
 inline void QGraphicsSceneIndex::deleteItem(QGraphicsItem *item)
@@ -60,14 +66,6 @@ inline QGraphicsSceneIndex::QGraphicsSceneIndex(QGraphicsSceneIndexPrivate &dd, 
 inline QGraphicsSceneIndex::~QGraphicsSceneIndex()
 {
 
-}
-
-//  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 34, as _ZN21QGraphicsSceneBspTree5clearEv
-inline void QGraphicsSceneBspTree::clear()
-{
-    leafCnt = 0;
-    nodes.clear();
-    leaves.clear();
 }
 
 //  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 599, as _ZN26QGraphicsSceneBspTreeIndex10itemChangeEPK13QGraphicsItemNS0_18GraphicsItemChangeEPKv
@@ -126,6 +124,13 @@ inline void QGraphicsSceneBspTreeIndex::itemChange(const QGraphicsItem *item, QG
     }
 }
 
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 465, as _ZN26QGraphicsSceneBspTreeIndex10removeItemEP13QGraphicsItem
+inline void QGraphicsSceneBspTreeIndex::removeItem(QGraphicsItem *item)
+{
+    Q_D(QGraphicsSceneBspTreeIndex);
+    d->removeItem(item);
+}
+
 //  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 189, as _ZN33QGraphicsSceneBspTreeIndexPrivate10resetIndexEv
 inline void QGraphicsSceneBspTreeIndexPrivate::resetIndex()
 {
@@ -142,6 +147,103 @@ inline void QGraphicsSceneBspTreeIndexPrivate::resetIndex()
     untransformableItems.clear();
     regenerateIndex = true;
     startIndexTimer();
+}
+
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 586, as _ZN26QGraphicsSceneBspTreeIndex15updateSceneRectERK6QRectF
+inline void QGraphicsSceneBspTreeIndex::updateSceneRect(const QRectF &rect)
+{
+    Q_D(QGraphicsSceneBspTreeIndex);
+    d->sceneRect = rect;
+    d->resetIndex();
+}
+
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 660, as _ZN26QGraphicsSceneBspTreeIndex5eventEP6QEvent
+inline bool QGraphicsSceneBspTreeIndex::event(QEvent *event)
+{
+    Q_D(QGraphicsSceneBspTreeIndex);
+    if (event->type() == QEvent::Timer) {
+            if (d->indexTimer.isActive() && static_cast<QTimerEvent *>(event)->id() == d->indexTimer.id()) {
+                if (d->restartIndexTimer) {
+                    d->restartIndexTimer = false;
+                } else {
+                    // this call will kill the timer
+                    d->_q_updateIndex();
+                }
+            }
+    }
+    return QObject::event(event);
+}
+
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 434, as _ZN26QGraphicsSceneBspTreeIndex5clearEv
+inline void QGraphicsSceneBspTreeIndex::clear()
+{
+    Q_D(QGraphicsSceneBspTreeIndex);
+    d->bsp.clear();
+    d->lastItemCount = 0;
+    d->freeItemIndexes.clear();
+    for (int i = 0; i < d->indexedItems.size(); ++i) {
+        // Ensure item bits are reset properly.
+        if (QGraphicsItem *item = d->indexedItems.at(i)) {
+            Q_ASSERT(!item->d_ptr->itemDiscovered);
+            item->d_ptr->index = -1;
+        }
+    }
+    d->indexedItems.clear();
+    d->unindexedItems.clear();
+    d->untransformableItems.clear();
+    d->regenerateIndex = true;
+}
+
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 456, as _ZN26QGraphicsSceneBspTreeIndex7addItemEP13QGraphicsItem
+inline void QGraphicsSceneBspTreeIndex::addItem(QGraphicsItem *item)
+{
+    Q_D(QGraphicsSceneBspTreeIndex);
+    d->addItem(item);
+}
+
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 475, as _ZN26QGraphicsSceneBspTreeIndex25prepareBoundingRectChangeEPK13QGraphicsItem
+inline void QGraphicsSceneBspTreeIndex::prepareBoundingRectChange(const QGraphicsItem *item)
+{
+    if (!item)
+        return;
+
+    if (item->d_ptr->index == -1 || item->d_ptr->itemIsUntransformable()
+        || (item->d_ptr->ancestorFlags & QGraphicsItemPrivate::AncestorClipsChildren
+            || item->d_ptr->ancestorFlags & QGraphicsItemPrivate::AncestorContainsChildren)) {
+        return; // Item is not in BSP tree; nothing to do.
+    }
+
+    Q_D(QGraphicsSceneBspTreeIndex);
+    QGraphicsItem *thatItem = const_cast<QGraphicsItem *>(item);
+    d->removeItem(thatItem, /*recursive=*/false, /*moveToUnindexedItems=*/true);
+    for (int i = 0; i < item->d_ptr->children.size(); ++i)  // ### Do we really need this?
+        prepareBoundingRectChange(item->d_ptr->children.at(i));
+}
+
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 154, as _ZN33QGraphicsSceneBspTreeIndexPrivate17purgeRemovedItemsEv
+inline void QGraphicsSceneBspTreeIndexPrivate::purgeRemovedItems()
+{
+    if (!purgePending && removedItems.isEmpty())
+        return;
+
+    // Remove stale items from the BSP tree.
+    bsp.removeItems(removedItems);
+    // Purge this list.
+    removedItems.clear();
+    freeItemIndexes.clear();
+    for (int i = 0; i < indexedItems.size(); ++i) {
+        if (!indexedItems.at(i))
+            freeItemIndexes << i;
+    }
+    purgePending = false;
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 34, as _ZN21QGraphicsSceneBspTree5clearEv
+inline void QGraphicsSceneBspTree::clear()
+{
+    leafCnt = 0;
+    nodes.clear();
+    leaves.clear();
 }
 
 //  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 270, as _ZN33QGraphicsSceneBspTreeIndexPrivate7addItemEP13QGraphicsItemb
@@ -220,43 +322,6 @@ inline void QGraphicsSceneBspTreeIndexPrivate::removeItem(QGraphicsItem *item, b
     }
 }
 
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 154, as _ZN33QGraphicsSceneBspTreeIndexPrivate17purgeRemovedItemsEv
-inline void QGraphicsSceneBspTreeIndexPrivate::purgeRemovedItems()
-{
-    if (!purgePending && removedItems.isEmpty())
-        return;
-
-    // Remove stale items from the BSP tree.
-    bsp.removeItems(removedItems);
-    // Purge this list.
-    removedItems.clear();
-    freeItemIndexes.clear();
-    for (int i = 0; i < indexedItems.size(); ++i) {
-        if (!indexedItems.at(i))
-            freeItemIndexes << i;
-    }
-    purgePending = false;
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 260, as _ZN33QGraphicsSceneBspTreeIndexPrivate19invalidateSortCacheEv
-inline void QGraphicsSceneBspTreeIndexPrivate::invalidateSortCache()
-{
-    Q_Q(QGraphicsSceneBspTreeIndex);
-    if (!sortCacheEnabled || updatingSortCache)
-        return;
-
-    updatingSortCache = true;
-    QMetaObject::invokeMethod(q, "_q_updateSortCache", Qt::QueuedConnection);
-}
-
-//  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 48, as _ZN21QGraphicsSceneBspTree10removeItemEP13QGraphicsItemRK6QRectF
-inline void QGraphicsSceneBspTree::removeItem(QGraphicsItem *item, const QRectF &rect)
-{
-    climbTree([item](QList<QGraphicsItem *> *items){
-        items->removeAll(item);
-    }, rect);
-}
-
 //  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 55, as _ZN21QGraphicsSceneBspTree11removeItemsERK4QSetIP13QGraphicsItemE
 inline void QGraphicsSceneBspTree::removeItems(const QSet<QGraphicsItem *> &items)
 {
@@ -272,6 +337,14 @@ inline void QGraphicsSceneBspTree::removeItems(const QSet<QGraphicsItem *> &item
     }
 }
 
+//  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 48, as _ZN21QGraphicsSceneBspTree10removeItemEP13QGraphicsItemRK6QRectF
+inline void QGraphicsSceneBspTree::removeItem(QGraphicsItem *item, const QRectF &rect)
+{
+    climbTree([item](QList<QGraphicsItem *> *items){
+        items->removeAll(item);
+    }, rect);
+}
+
 //  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 418, as _ZN26QGraphicsSceneBspTreeIndexD1Ev
 inline QGraphicsSceneBspTreeIndex::~QGraphicsSceneBspTreeIndex()
 {
@@ -285,125 +358,11 @@ inline QGraphicsSceneBspTreeIndex::~QGraphicsSceneBspTreeIndex()
     }
 }
 
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 500, as _ZNK26QGraphicsSceneBspTreeIndex13estimateItemsERK6QRectFN2Qt9SortOrderE
-inline QList<QGraphicsItem *> QGraphicsSceneBspTreeIndex::estimateItems(const QRectF &rect, Qt::SortOrder order) const
-{
-    Q_D(const QGraphicsSceneBspTreeIndex);
-    return const_cast<QGraphicsSceneBspTreeIndexPrivate*>(d)->estimateItems(rect, order);
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 506, as _ZNK26QGraphicsSceneBspTreeIndex21estimateTopLevelItemsERK6QRectFN2Qt9SortOrderE
-inline QList<QGraphicsItem *> QGraphicsSceneBspTreeIndex::estimateTopLevelItems(const QRectF &rect, Qt::SortOrder order) const
-{
-    Q_D(const QGraphicsSceneBspTreeIndex);
-    return const_cast<QGraphicsSceneBspTreeIndexPrivate*>(d)->estimateItems(rect, order, /*onlyTopLevels=*/true);
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 517, as _ZNK26QGraphicsSceneBspTreeIndex5itemsEN2Qt9SortOrderE
-inline QList<QGraphicsItem *> QGraphicsSceneBspTreeIndex::items(Qt::SortOrder order) const
-{
-    Q_D(const QGraphicsSceneBspTreeIndex);
-    const_cast<QGraphicsSceneBspTreeIndexPrivate*>(d)->purgeRemovedItems();
-    QList<QGraphicsItem *> itemList;
-    itemList.reserve(d->indexedItems.size() + d->unindexedItems.size());
-
-    // Rebuild the list of items to avoid holes. ### We could also just
-    // compress the item lists at this point.
-    QGraphicsItem *null = nullptr; // work-around for (at least) MSVC 2012 emitting
-                                   // warning C4100 for its own header <algorithm>
-                                   // when passing nullptr directly to remove_copy:
-    std::remove_copy(d->indexedItems.cbegin(), d->indexedItems.cend(),
-                     std::back_inserter(itemList), null);
-    std::remove_copy(d->unindexedItems.cbegin(), d->unindexedItems.cend(),
-                     std::back_inserter(itemList), null);
-
-    d->sortItems(&itemList, order, d->sortCacheEnabled);
-    return itemList;
-}
-
 //  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 565, as _ZNK26QGraphicsSceneBspTreeIndex12bspTreeDepthEv
 inline int QGraphicsSceneBspTreeIndex::bspTreeDepth() const
 {
     Q_D(const QGraphicsSceneBspTreeIndex);
     return d->bspTreeDepth;
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 586, as _ZN26QGraphicsSceneBspTreeIndex15updateSceneRectERK6QRectF
-inline void QGraphicsSceneBspTreeIndex::updateSceneRect(const QRectF &rect)
-{
-    Q_D(QGraphicsSceneBspTreeIndex);
-    d->sceneRect = rect;
-    d->resetIndex();
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 660, as _ZN26QGraphicsSceneBspTreeIndex5eventEP6QEvent
-inline bool QGraphicsSceneBspTreeIndex::event(QEvent *event)
-{
-    Q_D(QGraphicsSceneBspTreeIndex);
-    if (event->type() == QEvent::Timer) {
-            if (d->indexTimer.isActive() && static_cast<QTimerEvent *>(event)->id() == d->indexTimer.id()) {
-                if (d->restartIndexTimer) {
-                    d->restartIndexTimer = false;
-                } else {
-                    // this call will kill the timer
-                    d->_q_updateIndex();
-                }
-            }
-    }
-    return QObject::event(event);
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 434, as _ZN26QGraphicsSceneBspTreeIndex5clearEv
-inline void QGraphicsSceneBspTreeIndex::clear()
-{
-    Q_D(QGraphicsSceneBspTreeIndex);
-    d->bsp.clear();
-    d->lastItemCount = 0;
-    d->freeItemIndexes.clear();
-    for (int i = 0; i < d->indexedItems.size(); ++i) {
-        // Ensure item bits are reset properly.
-        if (QGraphicsItem *item = d->indexedItems.at(i)) {
-            Q_ASSERT(!item->d_ptr->itemDiscovered);
-            item->d_ptr->index = -1;
-        }
-    }
-    d->indexedItems.clear();
-    d->unindexedItems.clear();
-    d->untransformableItems.clear();
-    d->regenerateIndex = true;
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 456, as _ZN26QGraphicsSceneBspTreeIndex7addItemEP13QGraphicsItem
-inline void QGraphicsSceneBspTreeIndex::addItem(QGraphicsItem *item)
-{
-    Q_D(QGraphicsSceneBspTreeIndex);
-    d->addItem(item);
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 465, as _ZN26QGraphicsSceneBspTreeIndex10removeItemEP13QGraphicsItem
-inline void QGraphicsSceneBspTreeIndex::removeItem(QGraphicsItem *item)
-{
-    Q_D(QGraphicsSceneBspTreeIndex);
-    d->removeItem(item);
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 475, as _ZN26QGraphicsSceneBspTreeIndex25prepareBoundingRectChangeEPK13QGraphicsItem
-inline void QGraphicsSceneBspTreeIndex::prepareBoundingRectChange(const QGraphicsItem *item)
-{
-    if (!item)
-        return;
-
-    if (item->d_ptr->index == -1 || item->d_ptr->itemIsUntransformable()
-        || (item->d_ptr->ancestorFlags & QGraphicsItemPrivate::AncestorClipsChildren
-            || item->d_ptr->ancestorFlags & QGraphicsItemPrivate::AncestorContainsChildren)) {
-        return; // Item is not in BSP tree; nothing to do.
-    }
-
-    Q_D(QGraphicsSceneBspTreeIndex);
-    QGraphicsItem *thatItem = const_cast<QGraphicsItem *>(item);
-    d->removeItem(thatItem, /*recursive=*/false, /*moveToUnindexedItems=*/true);
-    for (int i = 0; i < item->d_ptr->children.size(); ++i)  // ### Do we really need this?
-        prepareBoundingRectChange(item->d_ptr->children.at(i));
 }
 //  -----------------------------------------------------------------------
 
@@ -726,6 +685,25 @@ const QMetaObject *ritual_ZNK26QGraphicsSceneBspTreeIndex10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsSceneBspTreeIndex::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QGraphicsSceneBspTreeIndex11qt_metacastEPKc(
+    QGraphicsSceneBspTreeIndex *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsSceneBspTreeIndex::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QGraphicsSceneBspTreeIndex11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsSceneBspTreeIndex *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QGraphicsSceneBspTreeIndex::~QGraphicsSceneBspTreeIndex()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QGraphicsSceneBspTreeIndexD1Ev(
@@ -819,6 +797,17 @@ void ritual_ZN26QGraphicsSceneBspTreeIndex25prepareBoundingRectChangeEPK13QGraph
     QGraphicsSceneBspTreeIndex *self,
     const QGraphicsItem *item) {
   self->prepareBoundingRectChange(item);
+}
+
+//  void QGraphicsSceneBspTreeIndex::itemChange(const QGraphicsItem *item,
+//      QGraphicsItem::GraphicsItemChange change, const void *const value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QGraphicsSceneBspTreeIndex10itemChangeEPK13QGraphicsItemNS0_18GraphicsItemChangeEPKv(
+    QGraphicsSceneBspTreeIndex *self,
+    const QGraphicsItem *item,
+    QGraphicsItem::GraphicsItemChange change,
+    const void *const value) {
+  self->itemChange(item, change, value);
 }
 
 //  QGraphicsSceneBspTreeIndexPrivate *QGraphicsSceneBspTreeIndex::d_func()

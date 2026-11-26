@@ -8,6 +8,7 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickanimation_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
 #include <cstring>
 
 //  A QQuickPropertyAnimationPrivate that Python can take functions over in. Every QQuickPropertyAnimationPrivate
@@ -149,6 +150,15 @@ void ritual_ZN30QQuickPropertyAnimationPrivate27animationCurrentLoopChangedEP21Q
     QQuickPropertyAnimationPrivate *self,
     QAbstractAnimationJob *job) {
   self->animationCurrentLoopChanged(job);
+}
+
+//  void QQuickPropertyAnimationPrivate::convertVariant(QVariant &variant,
+//      QMetaType type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickPropertyAnimationPrivate14convertVariantER8QVariant9QMetaType(
+    QVariant *variant,
+    const QMetaType *type) {
+  QQuickPropertyAnimationPrivate::convertVariant(*variant, *type);
 }
 
 //  a Python function taken by a CuteQQuickPropertyAnimationPrivate, for the

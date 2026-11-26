@@ -17,6 +17,8 @@
 #include <QtCore/qlocale.h>
 #include <QtCore/qtimezone.h>
 #include <cstring>
+#include <QtCore/QDateTime>
+#include <QtCore/QStringView>
 
 //  Only a class built on QDateTimeParser may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -48,7 +50,7 @@ typedef const QLocale * (*CuteQDateTimeParserCall4)(const void *, int *);
 class CuteQDateTimeParser : public QDateTimeParser {
 public:
   using QDateTimeParser::QDateTimeParser;
-  CuteQDateTimeParser(const QDateTimeParser &other) : QDateTimeParser(other) {}
+  CuteQDateTimeParser(const QDateTimeParser & other) : QDateTimeParser(other) {}
   void *taken[5] = {};
 
   bool take(const char *key, void *call) {
@@ -283,6 +285,21 @@ QDateTimeParser::StateNode *ritual_ZNK15QDateTimeParser10scanStringERK9QDateTime
           fixup));
 }
 
+//  ParsedSection QDateTimeParser::parseSection(const QDateTime
+//      &currentValue, int sectionIndex, int offset) const
+extern "C" Q_DECL_EXPORT
+QDateTimeParser::ParsedSection *ritual_ZNK15QDateTimeParser12parseSectionERK9QDateTimeii(
+    const QDateTimeParser *self,
+    const QDateTime *currentValue,
+    int sectionIndex,
+    int offset) {
+  return new QDateTimeParser::ParsedSection(
+      self->parseSection(
+          *currentValue,
+          sectionIndex,
+          offset));
+}
+
 //  int QDateTimeParser::findMonth(QStringView str, int monthstart, int
 //      sectionIndex, int year, QString *monthName, int *used) const
 extern "C" Q_DECL_EXPORT
@@ -319,6 +336,62 @@ int ritual_ZNK15QDateTimeParser7findDayE11QStringViewiiP7QStringPi(
       sectionIndex,
       dayName,
       used);
+}
+
+//  ParsedSection QDateTimeParser::findUtcOffset(QStringView str, int mode)
+//      const
+extern "C" Q_DECL_EXPORT
+QDateTimeParser::ParsedSection *ritual_ZNK15QDateTimeParser13findUtcOffsetE11QStringViewi(
+    const QDateTimeParser *self,
+    const QString *str,
+    int mode) {
+  return new QDateTimeParser::ParsedSection(
+      self->findUtcOffset(
+          QStringView(*str),
+          mode));
+}
+
+//  ParsedSection QDateTimeParser::findTimeZoneName(QStringView str, const
+//      QDateTime &when) const
+extern "C" Q_DECL_EXPORT
+QDateTimeParser::ParsedSection *ritual_ZNK15QDateTimeParser16findTimeZoneNameE11QStringViewRK9QDateTime(
+    const QDateTimeParser *self,
+    const QString *str,
+    const QDateTime *when) {
+  return new QDateTimeParser::ParsedSection(
+      self->findTimeZoneName(
+          QStringView(*str),
+          *when));
+}
+
+//  ParsedSection QDateTimeParser::findTimeZone(QStringView str, const
+//      QDateTime &when, int maxVal, int minVal, int mode) const
+extern "C" Q_DECL_EXPORT
+QDateTimeParser::ParsedSection *ritual_ZNK15QDateTimeParser12findTimeZoneE11QStringViewRK9QDateTimeiii(
+    const QDateTimeParser *self,
+    const QString *str,
+    const QDateTime *when,
+    int maxVal,
+    int minVal,
+    int mode) {
+  return new QDateTimeParser::ParsedSection(
+      self->findTimeZone(
+          QStringView(*str),
+          *when,
+          maxVal,
+          minVal,
+          mode));
+}
+
+//  AmPmFinder QDateTimeParser::findAmPm(QString &str, int index, int *used)
+//      const
+extern "C" Q_DECL_EXPORT
+QDateTimeParser::AmPmFinder ritual_ZNK15QDateTimeParser8findAmPmER7QStringiPi(
+    const QDateTimeParser *self,
+    QString *str,
+    int index,
+    int *used) {
+  return self->findAmPm(*str, index, used);
 }
 
 //  bool QDateTimeParser::potentialValue(QStringView str, int min, int max,
@@ -435,6 +508,16 @@ int ritual_ZNK15QDateTimeParser8getDigitERK9QDateTimei(
     const QDateTime *dt,
     int index) {
   return self->getDigit(*dt, index);
+}
+
+//  bool QDateTimeParser::setDigit(QDateTime &t, int index, int newval) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QDateTimeParser8setDigitER9QDateTimeii(
+    const QDateTimeParser *self,
+    QDateTime *t,
+    int index,
+    int newval) {
+  return self->setDigit(*t, index, newval);
 }
 
 //  int QDateTimeParser::absoluteMax(int index, const QDateTime &value) const
@@ -566,6 +649,13 @@ QLocale *ritual_own_ZNK15QDateTimeParser6localeEv(
     const QDateTimeParser *self) {
   return new QLocale(
       static_cast<const OwnQDateTimeParser *>(self)->OwnQDateTimeParser::locale());
+}
+
+//  a QDateTimeParser::ParsedSection a ritual of QDateTimeParser gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDateTimeParser__QDateTimeParser_ParsedSection(
+    QDateTimeParser::ParsedSection *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(datetimeparser)

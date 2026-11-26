@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlLightSensorReading that Python can take functions over in. Every QmlLightSensorReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK21QmlLightSensorReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlLightSensorReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QmlLightSensorReading11qt_metacastEPKc(
+    QmlLightSensorReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlLightSensorReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QmlLightSensorReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlLightSensorReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlLightSensorReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QmlLightSensorReading2trEPKcS1_i(
@@ -252,6 +272,20 @@ qreal ritual_ZNK21QmlLightSensorReading11illuminanceEv(
   return self->illuminance();
 }
 
+//  QBindable<qreal> QmlLightSensorReading::bindableIlluminance() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK21QmlLightSensorReading19bindableIlluminanceEv(
+    const QmlLightSensorReading *self) {
+  return new QBindable<qreal>(self->bindableIlluminance());
+}
+
+//  void QmlLightSensorReading::illuminanceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QmlLightSensorReading18illuminanceChangedEv(
+    QmlLightSensorReading *self) {
+  self->illuminanceChanged();
+}
+
 //  QSensorReading *QmlLightSensorReading::reading() const
 extern "C" Q_DECL_EXPORT
 QSensorReading *ritual_ZNK21QmlLightSensorReading7readingEv(
@@ -264,6 +298,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QmlLightSensorReading13readingUpdateEv(
     QmlLightSensorReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlLightSensorReading::_qt_property_m_illuminance_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN21QmlLightSensorReading33_qt_property_m_illuminance_offsetEv() {
+  return QmlLightSensorReading::_qt_property_m_illuminance_offset();
 }
 
 //  a Python function taken by a CuteQmlLightSensorReading, for the function
@@ -288,4 +328,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN21QmlLightSensorReading13readingUpdateEv(
     QmlLightSensorReading *self) {
   self->QmlLightSensorReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlLightSensorReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlLightSensorReading__QBindable_qreal(
+    QBindable<qreal> *self) {
+  delete self;
 }

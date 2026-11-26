@@ -7,6 +7,7 @@
 #include <QtLocation/6.12.0/QtLocation/private/qgeorouteparser_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtLocation/qgeorouterequest.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
@@ -186,6 +187,24 @@ const QMetaObject *ritual_ZNK15QGeoRouteParser10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoRouteParser::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QGeoRouteParser11qt_metacastEPKc(
+    QGeoRouteParser *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoRouteParser::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QGeoRouteParser11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoRouteParser *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoRouteParser::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QGeoRouteParser2trEPKcS1_i(
@@ -215,6 +234,17 @@ void ritual_ZN15QGeoRouteParserD1Ev(QGeoRouteParser *self) {
   delete self;
 }
 
+//  QGeoRouteReply::Error QGeoRouteParser::parseReply(QList<QGeoRoute>
+//      &routes, QString &errorString, const QByteArray &reply) const
+extern "C" Q_DECL_EXPORT
+QGeoRouteReply::Error ritual_ZNK15QGeoRouteParser10parseReplyER5QListI9QGeoRouteER7QStringRK10QByteArray(
+    const QGeoRouteParser *self,
+    QList<QGeoRoute> *routes,
+    QString *errorString,
+    const QByteArray *reply) {
+  return self->parseReply(*routes, *errorString, *reply);
+}
+
 //  QUrl QGeoRouteParser::requestUrl(const QGeoRouteRequest &request, const
 //      QString &prefix) const
 extern "C" Q_DECL_EXPORT
@@ -238,6 +268,23 @@ void ritual_ZN15QGeoRouteParser14setTrafficSideENS_11TrafficSideE(
     QGeoRouteParser *self,
     QGeoRouteParser::TrafficSide trafficSide) {
   self->setTrafficSide(trafficSide);
+}
+
+//  void QGeoRouteParser::trafficSideChanged(TrafficSide trafficSide)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGeoRouteParser18trafficSideChangedENS_11TrafficSideE(
+    QGeoRouteParser *self,
+    QGeoRouteParser::TrafficSide trafficSide) {
+  self->trafficSideChanged(trafficSide);
+}
+
+//  QGeoRouteParser::QGeoRouteParser(QGeoRouteParserPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QGeoRouteParser *ritual_ZN15QGeoRouteParserC1ER22QGeoRouteParserPrivateP7QObject(
+    QGeoRouteParserPrivate *dd,
+    QObject *parent) {
+  return new CuteQGeoRouteParser(*dd, parent);
 }
 
 //  a Python function taken by a CuteQGeoRouteParser, for the function named

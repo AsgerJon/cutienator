@@ -34,6 +34,15 @@ void ritual_ZN21QOpcUaExtensionObjectD1Ev(QOpcUaExtensionObject *self) {
   delete self;
 }
 
+//  QOpcUaExtensionObject &QOpcUaExtensionObject::operator=(const
+//      QOpcUaExtensionObject &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaExtensionObject *ritual_ZN21QOpcUaExtensionObjectaSERKS_(
+    QOpcUaExtensionObject *self,
+    const QOpcUaExtensionObject *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaExtensionObject::operator==(const QOpcUaExtensionObject &rhs)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -71,6 +80,13 @@ extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK21QOpcUaExtensionObject11encodedBodyEv(
     const QOpcUaExtensionObject *self) {
   return new QByteArray(self->encodedBody());
+}
+
+//  QByteArray &QOpcUaExtensionObject::encodedBodyRef()
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN21QOpcUaExtensionObject14encodedBodyRefEv(
+    QOpcUaExtensionObject *self) {
+  return &(self->encodedBodyRef());
 }
 
 //  void QOpcUaExtensionObject::setEncodedBody(const QByteArray &encodedBody)

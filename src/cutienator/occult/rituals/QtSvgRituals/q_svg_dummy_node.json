@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN13QSvgDummyNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN13QSvgDummyNode11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK13QSvgDummyNode4typeEv": ["int", "address"],
     "ritual_take_QSvgDummyNode": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QSvgDummyNode4typeEv": ["int", "address"]

@@ -12,6 +12,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QMultiMap>
+#include <QtNetwork/QSsl>
+#include <QtCore/QString>
 
 //  A QTlsPrivate::X509Certificate that Python can take functions over in. Every QTlsPrivate::X509Certificate
 //  Python makes is one. Each function below asks the Python
@@ -32,10 +35,12 @@ typedef bool (*CuteQTlsPrivate_X509CertificateCall12)(const void *, qsizetype, i
 typedef const QByteArray * (*CuteQTlsPrivate_X509CertificateCall13)(const void *, int *);
 typedef const QByteArray * (*CuteQTlsPrivate_X509CertificateCall14)(const void *, int *);
 typedef QString * (*CuteQTlsPrivate_X509CertificateCall15)(const void *, int *);
+typedef void * (*CuteQTlsPrivate_X509CertificateCall16)(const void *, int *);
+typedef size_t (*CuteQTlsPrivate_X509CertificateCall17)(const void *, size_t, int *);
 class CuteQTlsPrivate_X509Certificate : public QTlsPrivate::X509Certificate {
 public:
   using QTlsPrivate::X509Certificate::X509Certificate;
-  void *taken[16] = {};
+  void *taken[18] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK11QTlsPrivate15X509Certificate6isNullEv")) {
@@ -100,6 +105,14 @@ public:
     }
     if (!std::strcmp(key, "_ZNK11QTlsPrivate15X509Certificate6toTextEv")) {
       taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate15X509Certificate6handleEv")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate15X509Certificate4hashEm")) {
+      taken[17] = call;
       return true;
     }
     return false;
@@ -297,6 +310,28 @@ public:
     }
     return {};
   }
+
+  //  Qt::HANDLE QTlsPrivate::X509Certificate::handle() const
+  Qt::HANDLE handle() const override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQTlsPrivate_X509CertificateCall16 call = reinterpret_cast<CuteQTlsPrivate_X509CertificateCall16>(taken[16]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<Qt::HANDLE>(given);
+    }
+    return {};
+  }
+
+  //  size_t QTlsPrivate::X509Certificate::hash(size_t seed) const
+  size_t hash(size_t seed) const noexcept override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQTlsPrivate_X509CertificateCall17 call = reinterpret_cast<CuteQTlsPrivate_X509CertificateCall17>(taken[17]);
+      size_t given = call(this, seed, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
 };
 
 //  QTlsPrivate::X509Certificate::~X509Certificate()
@@ -304,6 +339,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTlsPrivate15X509CertificateD1Ev(
     QTlsPrivate::X509Certificate *self) {
   delete self;
+}
+
+//  bool QTlsPrivate::X509Certificate::isEqual(const X509Certificate &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QTlsPrivate15X509Certificate7isEqualERKS0_(
+    const QTlsPrivate::X509Certificate *self,
+    const QTlsPrivate::X509Certificate *other) {
+  return self->isEqual(*other);
 }
 
 //  bool QTlsPrivate::X509Certificate::isNull() const
@@ -386,6 +430,15 @@ extern "C" Q_DECL_EXPORT
 QList<QByteArray> *ritual_ZNK11QTlsPrivate15X509Certificate20issuerInfoAttributesEv(
     const QTlsPrivate::X509Certificate *self) {
   return new QList<QByteArray>(self->issuerInfoAttributes());
+}
+
+//  QMultiMap<QSsl::AlternativeNameEntryType, QString>
+//      QTlsPrivate::X509Certificate::subjectAlternativeNames() const
+extern "C" Q_DECL_EXPORT
+QMultiMap<QSsl::AlternativeNameEntryType, QString> *ritual_ZNK11QTlsPrivate15X509Certificate23subjectAlternativeNamesEv(
+    const QTlsPrivate::X509Certificate *self) {
+  return new QMultiMap<QSsl::AlternativeNameEntryType, QString>(
+      self->subjectAlternativeNames());
 }
 
 //  QDateTime QTlsPrivate::X509Certificate::effectiveDate() const
@@ -479,6 +532,21 @@ QString *ritual_ZNK11QTlsPrivate15X509Certificate6toTextEv(
   return new QString(self->toText());
 }
 
+//  Qt::HANDLE QTlsPrivate::X509Certificate::handle() const
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_ZNK11QTlsPrivate15X509Certificate6handleEv(
+    const QTlsPrivate::X509Certificate *self) {
+  return self->handle();
+}
+
+//  size_t QTlsPrivate::X509Certificate::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK11QTlsPrivate15X509Certificate4hashEm(
+    const QTlsPrivate::X509Certificate *self,
+    size_t seed) {
+  return self->hash(seed);
+}
+
 //  a Python function taken by a CuteQTlsPrivate_X509Certificate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -494,4 +562,12 @@ extern "C" Q_DECL_EXPORT
 QTlsPrivate::TlsKey *ritual_own_ZNK11QTlsPrivate15X509Certificate9publicKeyEv(
     const QTlsPrivate::X509Certificate *self) {
   return self->QTlsPrivate::X509Certificate::publicKey();
+}
+
+//  a QMultiMap<QSsl::AlternativeNameEntryType, QString> a ritual of
+//      QTlsPrivate::X509Certificate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTlsPrivate_X509Certificate__QMultiMap_QSsl_AlternativeNameEntryType_QString(
+    QMultiMap<QSsl::AlternativeNameEntryType, QString> *self) {
+  delete self;
 }

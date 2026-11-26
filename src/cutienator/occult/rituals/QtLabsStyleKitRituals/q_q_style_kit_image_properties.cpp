@@ -186,6 +186,25 @@ const QMetaObject *ritual_ZNK25QQStyleKitImageProperties10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitImageProperties::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQStyleKitImageProperties11qt_metacastEPKc(
+    QQStyleKitImageProperties *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitImageProperties::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQStyleKitImageProperties11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitImageProperties *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQStyleKitImageProperties::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -256,6 +275,27 @@ void ritual_ZN25QQStyleKitImageProperties11setFillModeEN11QQuickImage8FillModeE(
     QQStyleKitImageProperties *self,
     QQuickImage::FillMode fillMode) {
   self->setFillMode(fillMode);
+}
+
+//  void QQStyleKitImageProperties::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQStyleKitImageProperties13sourceChangedEv(
+    QQStyleKitImageProperties *self) {
+  self->sourceChanged();
+}
+
+//  void QQStyleKitImageProperties::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQStyleKitImageProperties12colorChangedEv(
+    QQStyleKitImageProperties *self) {
+  self->colorChanged();
+}
+
+//  void QQStyleKitImageProperties::fillModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQStyleKitImageProperties15fillModeChangedEv(
+    QQStyleKitImageProperties *self) {
+  self->fillModeChanged();
 }
 
 //  a Python function taken by a CuteQQStyleKitImageProperties, for the

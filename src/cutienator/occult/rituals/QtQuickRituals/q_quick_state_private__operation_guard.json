@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QQuickStatePrivate14OperationGuardC1EP7QObjectP5QListIS0_E": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18QQuickStatePrivate14OperationGuard19objectDestroyedImplEP13QQmlGuardImpl": [
       "nothing", "address"
     ],

@@ -33,6 +33,22 @@ inline QAccessibleQuickControl::QAccessibleQuickControl(QQuickControl *control)
 {
 }
 
+//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickpage.cpp, line 15, as _ZNK20QAccessibleQuickPage5childEi
+inline QAccessibleInterface *QAccessibleQuickPage::child(int index) const
+{
+    const QList<QQuickItem*> kids = orderedChildItems();
+    if (QQuickItem *item = kids.value(index))
+        return QAccessible::queryAccessibleInterface(item);
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickpage.cpp, line 23, as _ZNK20QAccessibleQuickPage12indexOfChildEPK20QAccessibleInterface
+inline int QAccessibleQuickPage::indexOfChild(const QAccessibleInterface *iface) const
+{
+    const QList<QQuickItem*> kids = orderedChildItems();
+    return (int)kids.indexOf(static_cast<QQuickItem*>(iface->object()));
+}
+
 //  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickcontrol.cpp, line 15, as _ZNK23QAccessibleQuickControl13attributeKeysEv
 inline QList<QAccessible::Attribute> QAccessibleQuickControl::attributeKeys() const
 {
@@ -50,22 +66,6 @@ inline QVariant QAccessibleQuickControl::attributeValue(QAccessible::Attribute k
         return QVariant::fromValue(control()->locale());
 
     return QAccessibleQuickItem::attributeValue(key);
-}
-
-//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickpage.cpp, line 15, as _ZNK20QAccessibleQuickPage5childEi
-inline QAccessibleInterface *QAccessibleQuickPage::child(int index) const
-{
-    const QList<QQuickItem*> kids = orderedChildItems();
-    if (QQuickItem *item = kids.value(index))
-        return QAccessible::queryAccessibleInterface(item);
-    return nullptr;
-}
-
-//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickpage.cpp, line 23, as _ZNK20QAccessibleQuickPage12indexOfChildEPK20QAccessibleInterface
-inline int QAccessibleQuickPage::indexOfChild(const QAccessibleInterface *iface) const
-{
-    const QList<QQuickItem*> kids = orderedChildItems();
-    return (int)kids.indexOf(static_cast<QQuickItem*>(iface->object()));
 }
 
 //  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickpage.cpp, line 43, as _ZNK20QAccessibleQuickPage4pageEv

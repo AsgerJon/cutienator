@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QQuickPropertyChangesParser10verifyListERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEEPKNS2_7BindingE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QQuickPropertyChangesParser14verifyBindingsERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEERK5QListIPKNS2_7BindingEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QQuickPropertyChangesParser13applyBindingsEP7QObjectRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERK5QListIPKNS3_12CompiledData7BindingEE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN27QQuickPropertyChangesParserD1Ev": ["nothing", "address"]
   }
 }

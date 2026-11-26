@@ -42,6 +42,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qdockwidget.cpp, line 569, as _ZN15QDockWidgetItemC1EP11QDockWidget
 inline QDockWidgetItem::QDockWidgetItem(QDockWidget *dockWidget)
     : QWidgetItem(dockWidget)

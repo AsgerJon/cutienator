@@ -5,6 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN6QQmlJS7ManagedD1Ev": ["nothing", "address"]
+    "ritual_ZN6QQmlJS7ManagedC1Ev": ["address", "address"],
+    "ritual_ZN6QQmlJS7ManagedD1Ev": ["nothing", "address"],
+    "ritual_ZN6QQmlJS7ManagednwEmPNS_10MemoryPoolE": [
+      "address", "address", "size_t", "address"
+    ],
+    "ritual_ZN6QQmlJS7ManageddlEPv": ["nothing", "address", "address"],
+    "ritual_ZN6QQmlJS7ManageddlEPvPNS_10MemoryPoolE": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

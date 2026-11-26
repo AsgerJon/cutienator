@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGrpcQuick/qqmlgrpccalloptions.h, Qt 6.12.0. Changes made here are lost.
+//  QtGrpcQuick/qqmlgrpccalloptions.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: wrote QQmlGrpcCallOptionsPrivate in full,
+//  as QtGrpcQuickPrivate::QQmlGrpcCallOptionsPrivate, in the two d_func
+//  rituals. Kept as it is when the generator runs again.
 #include <QtGrpcQuick/QtGrpcQuick>
 #include <QtGrpcQuick/qqmlgrpccalloptions.h>
 #include <QtCore/qstring.h>
@@ -181,6 +184,15 @@ const QMetaObject *ritual_ZNK18QtGrpcQuickPrivate19QQmlGrpcCallOptions10metaObje
   return self->metaObject();
 }
 
+//  void *QtGrpcQuickPrivate::QQmlGrpcCallOptions::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtGrpcQuickPrivate19QQmlGrpcCallOptions11qt_metacastEPKc(
+    QtGrpcQuickPrivate::QQmlGrpcCallOptions *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString QtGrpcQuickPrivate::QQmlGrpcCallOptions::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +201,22 @@ QString *ritual_ZN18QtGrpcQuickPrivate19QQmlGrpcCallOptions2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtGrpcQuickPrivate::QQmlGrpcCallOptions::tr(s, c, n));
+}
+
+//  QQmlGrpcCallOptionsPrivate
+//      *QtGrpcQuickPrivate::QQmlGrpcCallOptions::d_func()
+extern "C" Q_DECL_EXPORT
+QtGrpcQuickPrivate::QQmlGrpcCallOptionsPrivate *ritual_ZN18QtGrpcQuickPrivate19QQmlGrpcCallOptions6d_funcEv(
+    QtGrpcQuickPrivate::QQmlGrpcCallOptions *self) {
+  return self->d_func();
+}
+
+//  const QQmlGrpcCallOptionsPrivate
+//      *QtGrpcQuickPrivate::QQmlGrpcCallOptions::d_func() const
+extern "C" Q_DECL_EXPORT
+const QtGrpcQuickPrivate::QQmlGrpcCallOptionsPrivate *ritual_ZNK18QtGrpcQuickPrivate19QQmlGrpcCallOptions6d_funcEv(
+    const QtGrpcQuickPrivate::QQmlGrpcCallOptions *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQtGrpcQuickPrivate_QQmlGrpcCallOptions,

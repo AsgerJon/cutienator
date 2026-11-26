@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras17QCylinderGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QCylinderGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras17QCylinderGeometry11qt_metacastEPKc(
+    Qt3DExtras::QCylinderGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QCylinderGeometry::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras17QCylinderGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QCylinderGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QCylinderGeometry::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,167 @@ QString *ritual_ZN10Qt3DExtras17QCylinderGeometry2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QCylinderGeometry::tr(s, c, n));
+}
+
+//  Qt3DExtras::QCylinderGeometry::QCylinderGeometry(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QCylinderGeometry *ritual_ZN10Qt3DExtras17QCylinderGeometryC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QCylinderGeometry(parent);
+}
+
+//  Qt3DExtras::QCylinderGeometry::~QCylinderGeometry()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometryD1Ev(
+    Qt3DExtras::QCylinderGeometry *self) {
+  delete self;
+}
+
+//  void Qt3DExtras::QCylinderGeometry::updateVertices()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry14updateVerticesEv(
+    Qt3DExtras::QCylinderGeometry *self) {
+  self->updateVertices();
+}
+
+//  void Qt3DExtras::QCylinderGeometry::updateIndices()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry13updateIndicesEv(
+    Qt3DExtras::QCylinderGeometry *self) {
+  self->updateIndices();
+}
+
+//  int Qt3DExtras::QCylinderGeometry::rings() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras17QCylinderGeometry5ringsEv(
+    const Qt3DExtras::QCylinderGeometry *self) {
+  return self->rings();
+}
+
+//  int Qt3DExtras::QCylinderGeometry::slices() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras17QCylinderGeometry6slicesEv(
+    const Qt3DExtras::QCylinderGeometry *self) {
+  return self->slices();
+}
+
+//  float Qt3DExtras::QCylinderGeometry::radius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras17QCylinderGeometry6radiusEv(
+    const Qt3DExtras::QCylinderGeometry *self) {
+  return self->radius();
+}
+
+//  float Qt3DExtras::QCylinderGeometry::length() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras17QCylinderGeometry6lengthEv(
+    const Qt3DExtras::QCylinderGeometry *self) {
+  return self->length();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QCylinderGeometry::positionAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras17QCylinderGeometry17positionAttributeEv(
+    const Qt3DExtras::QCylinderGeometry *self) {
+  return self->positionAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QCylinderGeometry::normalAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras17QCylinderGeometry15normalAttributeEv(
+    const Qt3DExtras::QCylinderGeometry *self) {
+  return self->normalAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QCylinderGeometry::texCoordAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras17QCylinderGeometry17texCoordAttributeEv(
+    const Qt3DExtras::QCylinderGeometry *self) {
+  return self->texCoordAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QCylinderGeometry::indexAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras17QCylinderGeometry14indexAttributeEv(
+    const Qt3DExtras::QCylinderGeometry *self) {
+  return self->indexAttribute();
+}
+
+//  void Qt3DExtras::QCylinderGeometry::setRings(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry8setRingsEi(
+    Qt3DExtras::QCylinderGeometry *self,
+    int rings) {
+  self->setRings(rings);
+}
+
+//  void Qt3DExtras::QCylinderGeometry::setSlices(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry9setSlicesEi(
+    Qt3DExtras::QCylinderGeometry *self,
+    int slices) {
+  self->setSlices(slices);
+}
+
+//  void Qt3DExtras::QCylinderGeometry::setRadius(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry9setRadiusEf(
+    Qt3DExtras::QCylinderGeometry *self,
+    float radius) {
+  self->setRadius(radius);
+}
+
+//  void Qt3DExtras::QCylinderGeometry::setLength(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry9setLengthEf(
+    Qt3DExtras::QCylinderGeometry *self,
+    float length) {
+  self->setLength(length);
+}
+
+//  void Qt3DExtras::QCylinderGeometry::radiusChanged(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry13radiusChangedEf(
+    Qt3DExtras::QCylinderGeometry *self,
+    float radius) {
+  self->radiusChanged(radius);
+}
+
+//  void Qt3DExtras::QCylinderGeometry::ringsChanged(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry12ringsChangedEi(
+    Qt3DExtras::QCylinderGeometry *self,
+    int rings) {
+  self->ringsChanged(rings);
+}
+
+//  void Qt3DExtras::QCylinderGeometry::slicesChanged(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry13slicesChangedEi(
+    Qt3DExtras::QCylinderGeometry *self,
+    int slices) {
+  self->slicesChanged(slices);
+}
+
+//  void Qt3DExtras::QCylinderGeometry::lengthChanged(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QCylinderGeometry13lengthChangedEf(
+    Qt3DExtras::QCylinderGeometry *self,
+    float length) {
+  self->lengthChanged(length);
+}
+
+//  Qt3DExtras::QCylinderGeometry::QCylinderGeometry(QCylinderGeometryPrivate
+//      &dd, QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QCylinderGeometry *ritual_ZN10Qt3DExtras17QCylinderGeometryC1ERNS_24QCylinderGeometryPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QCylinderGeometryPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QCylinderGeometry(*dd, parent);
 }
 
 //  QCylinderGeometryPrivate *Qt3DExtras::QCylinderGeometry::d_func()

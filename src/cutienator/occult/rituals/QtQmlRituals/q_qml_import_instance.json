@@ -5,6 +5,10 @@
     "here are lost."
   ],
   "rows": {
-    "ritual_ZN18QQmlImportInstanceD1Ev": ["nothing", "address"]
+    "ritual_ZN18QQmlImportInstance19getVersionedScriptsERK5QListIN13QQmlDirParser6ScriptEE13QTypeRevision": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QQmlImportInstanceD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlImportInstance__QQmlDirScripts": ["nothing", "address"]
   }
 }

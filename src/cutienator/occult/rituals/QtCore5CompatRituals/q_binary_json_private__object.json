@@ -11,6 +11,9 @@
     "ritual_ZN18QBinaryJsonPrivate6Object7entryAtEj": [
       "address", "address", "unsigned int"
     ],
+    "ritual_ZNK18QBinaryJsonPrivate6Object7indexOfE11QStringViewPb": [
+      "unsigned int", "address", "text", "address"
+    ],
     "ritual_ZN18QBinaryJsonPrivate6ObjectD1Ev": ["nothing", "address"]
   }
 }

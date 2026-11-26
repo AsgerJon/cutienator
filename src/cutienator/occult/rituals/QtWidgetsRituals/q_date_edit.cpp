@@ -1152,6 +1152,22 @@ const QMetaObject *ritual_ZNK9QDateEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDateEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QDateEdit11qt_metacastEPKc(QDateEdit *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDateEdit::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QDateEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDateEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDateEdit::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QDateEdit2trEPKcS1_i(
@@ -1179,6 +1195,14 @@ QDateEdit *ritual_ZN9QDateEditC1E5QDateP7QWidget(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QDateEditD1Ev(QDateEdit *self) {
   delete self;
+}
+
+//  void QDateEdit::userDateChanged(QDate date)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QDateEdit15userDateChangedE5QDate(
+    QDateEdit *self,
+    const QDate *date) {
+  self->userDateChanged(*date);
 }
 
 //  a Python function taken by a CuteQDateEdit, for the function named by the

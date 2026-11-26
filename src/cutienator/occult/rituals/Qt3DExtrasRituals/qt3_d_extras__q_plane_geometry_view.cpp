@@ -2,6 +2,7 @@
 //  Qt3DExtras/qplanegeometryview.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qplanegeometryview.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras18QPlaneGeometryView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QPlaneGeometryView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras18QPlaneGeometryView11qt_metacastEPKc(
+    Qt3DExtras::QPlaneGeometryView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QPlaneGeometryView::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras18QPlaneGeometryView11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QPlaneGeometryView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QPlaneGeometryView::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,115 @@ QString *ritual_ZN10Qt3DExtras18QPlaneGeometryView2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QPlaneGeometryView::tr(s, c, n));
+}
+
+//  Qt3DExtras::QPlaneGeometryView::QPlaneGeometryView(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QPlaneGeometryView *ritual_ZN10Qt3DExtras18QPlaneGeometryViewC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QPlaneGeometryView(parent);
+}
+
+//  Qt3DExtras::QPlaneGeometryView::~QPlaneGeometryView()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras18QPlaneGeometryViewD1Ev(
+    Qt3DExtras::QPlaneGeometryView *self) {
+  delete self;
+}
+
+//  float Qt3DExtras::QPlaneGeometryView::width() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras18QPlaneGeometryView5widthEv(
+    const Qt3DExtras::QPlaneGeometryView *self) {
+  return self->width();
+}
+
+//  float Qt3DExtras::QPlaneGeometryView::height() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras18QPlaneGeometryView6heightEv(
+    const Qt3DExtras::QPlaneGeometryView *self) {
+  return self->height();
+}
+
+//  QSize Qt3DExtras::QPlaneGeometryView::meshResolution() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DExtras18QPlaneGeometryView14meshResolutionEv(
+    const Qt3DExtras::QPlaneGeometryView *self) {
+  return new QSize(self->meshResolution());
+}
+
+//  bool Qt3DExtras::QPlaneGeometryView::mirrored() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras18QPlaneGeometryView8mirroredEv(
+    const Qt3DExtras::QPlaneGeometryView *self) {
+  return self->mirrored();
+}
+
+//  void Qt3DExtras::QPlaneGeometryView::setWidth(float width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras18QPlaneGeometryView8setWidthEf(
+    Qt3DExtras::QPlaneGeometryView *self,
+    float width) {
+  self->setWidth(width);
+}
+
+//  void Qt3DExtras::QPlaneGeometryView::setHeight(float height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras18QPlaneGeometryView9setHeightEf(
+    Qt3DExtras::QPlaneGeometryView *self,
+    float height) {
+  self->setHeight(height);
+}
+
+//  void Qt3DExtras::QPlaneGeometryView::setMeshResolution(const QSize
+//      &resolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras18QPlaneGeometryView17setMeshResolutionERK5QSize(
+    Qt3DExtras::QPlaneGeometryView *self,
+    const QSize *resolution) {
+  self->setMeshResolution(*resolution);
+}
+
+//  void Qt3DExtras::QPlaneGeometryView::setMirrored(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras18QPlaneGeometryView11setMirroredEb(
+    Qt3DExtras::QPlaneGeometryView *self,
+    bool mirrored) {
+  self->setMirrored(mirrored);
+}
+
+//  void Qt3DExtras::QPlaneGeometryView::meshResolutionChanged(const QSize
+//      &meshResolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras18QPlaneGeometryView21meshResolutionChangedERK5QSize(
+    Qt3DExtras::QPlaneGeometryView *self,
+    const QSize *meshResolution) {
+  self->meshResolutionChanged(*meshResolution);
+}
+
+//  void Qt3DExtras::QPlaneGeometryView::widthChanged(float width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras18QPlaneGeometryView12widthChangedEf(
+    Qt3DExtras::QPlaneGeometryView *self,
+    float width) {
+  self->widthChanged(width);
+}
+
+//  void Qt3DExtras::QPlaneGeometryView::heightChanged(float height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras18QPlaneGeometryView13heightChangedEf(
+    Qt3DExtras::QPlaneGeometryView *self,
+    float height) {
+  self->heightChanged(height);
+}
+
+//  void Qt3DExtras::QPlaneGeometryView::mirroredChanged(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras18QPlaneGeometryView15mirroredChangedEb(
+    Qt3DExtras::QPlaneGeometryView *self,
+    bool mirrored) {
+  self->mirroredChanged(mirrored);
 }
 
 //  a Python function taken by a CuteQt3DExtras_QPlaneGeometryView, for the

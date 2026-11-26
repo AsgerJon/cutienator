@@ -7,9 +7,19 @@
     "ritual_ZNK10Qt3DRender17QTextureRectangle10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender17QTextureRectangle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureRectangle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender17QTextureRectangle2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN10Qt3DRender17QTextureRectangleC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureRectangleD1Ev": ["nothing", "address"],
     "ritual_take_Qt3DRender_QTextureRectangle": [
       "bool", "address", "chars", "address"
     ]

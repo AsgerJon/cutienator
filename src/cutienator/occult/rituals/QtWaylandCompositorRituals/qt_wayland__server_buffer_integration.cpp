@@ -103,6 +103,12 @@ public:
   }
 };
 
+//  QtWayland::ServerBufferIntegration::ServerBufferIntegration()
+extern "C" Q_DECL_EXPORT
+QtWayland::ServerBufferIntegration *ritual_ZN9QtWayland23ServerBufferIntegrationC1Ev() {
+  return new CuteQtWayland_ServerBufferIntegration();
+}
+
 //  QtWayland::ServerBufferIntegration::~ServerBufferIntegration()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QtWayland23ServerBufferIntegrationD1Ev(

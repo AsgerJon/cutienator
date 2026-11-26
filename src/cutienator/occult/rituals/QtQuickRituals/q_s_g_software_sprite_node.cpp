@@ -27,28 +27,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 17, as _ZN21QSGSoftwareSpriteNodeD1Ev
-inline QSGSoftwareSpriteNode::~QSGSoftwareSpriteNode()
-{
-    delete m_texture;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 22, as _ZN21QSGSoftwareSpriteNode10setTextureEP10QSGTexture
-inline void QSGSoftwareSpriteNode::setTexture(QSGTexture *texture)
-{
-    m_texture = qobject_cast<QSGSoftwarePixmapTexture*>(texture);
-    markDirty(DirtyMaterial);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 28, as _ZN21QSGSoftwareSpriteNode7setTimeEf
-inline void QSGSoftwareSpriteNode::setTime(float time)
-{
-    if (m_time != time) {
-        m_time = time;
-        markDirty(DirtyMaterial);
-    }
-}
-
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 36, as _ZN21QSGSoftwareSpriteNode10setSourceAERK6QPoint
 inline void QSGSoftwareSpriteNode::setSourceA(const QPoint &source)
 {
@@ -67,13 +45,17 @@ inline void QSGSoftwareSpriteNode::setSourceB(const QPoint &source)
     }
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 52, as _ZN21QSGSoftwareSpriteNode13setSpriteSizeERK5QSize
-inline void QSGSoftwareSpriteNode::setSpriteSize(const QSize &size)
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 22, as _ZN21QSGSoftwareSpriteNode10setTextureEP10QSGTexture
+inline void QSGSoftwareSpriteNode::setTexture(QSGTexture *texture)
 {
-    if (m_spriteSize != size) {
-        m_spriteSize = size;
-        markDirty(DirtyMaterial);
-    }
+    m_texture = qobject_cast<QSGSoftwarePixmapTexture*>(texture);
+    markDirty(DirtyMaterial);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 76, as _ZN21QSGSoftwareSpriteNode12setFilteringEN10QSGTexture9FilteringE
+inline void QSGSoftwareSpriteNode::setFiltering(QSGTexture::Filtering filtering)
+{
+    Q_UNUSED(filtering);
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 60, as _ZN21QSGSoftwareSpriteNode12setSheetSizeERK5QSize
@@ -85,6 +67,20 @@ inline void QSGSoftwareSpriteNode::setSheetSize(const QSize &size)
     }
 }
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 52, as _ZN21QSGSoftwareSpriteNode13setSpriteSizeERK5QSize
+inline void QSGSoftwareSpriteNode::setSpriteSize(const QSize &size)
+{
+    if (m_spriteSize != size) {
+        m_spriteSize = size;
+        markDirty(DirtyMaterial);
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 81, as _ZN21QSGSoftwareSpriteNode6updateEv
+inline void QSGSoftwareSpriteNode::update()
+{
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 68, as _ZN21QSGSoftwareSpriteNode7setSizeERK6QSizeF
 inline void QSGSoftwareSpriteNode::setSize(const QSizeF &size)
 {
@@ -94,15 +90,19 @@ inline void QSGSoftwareSpriteNode::setSize(const QSizeF &size)
     }
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 76, as _ZN21QSGSoftwareSpriteNode12setFilteringEN10QSGTexture9FilteringE
-inline void QSGSoftwareSpriteNode::setFiltering(QSGTexture::Filtering filtering)
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 28, as _ZN21QSGSoftwareSpriteNode7setTimeEf
+inline void QSGSoftwareSpriteNode::setTime(float time)
 {
-    Q_UNUSED(filtering);
+    if (m_time != time) {
+        m_time = time;
+        markDirty(DirtyMaterial);
+    }
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 81, as _ZN21QSGSoftwareSpriteNode6updateEv
-inline void QSGSoftwareSpriteNode::update()
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 17, as _ZN21QSGSoftwareSpriteNodeD2Ev
+inline QSGSoftwareSpriteNode::~QSGSoftwareSpriteNode()
 {
+    delete m_texture;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarespritenode.cpp, line 85, as _ZN21QSGSoftwareSpriteNode5paintEP8QPainter

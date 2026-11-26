@@ -10,6 +10,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtVirtualKeyboard/QVirtualKeyboardInputEngine>
+#include <QtCore/QString>
 
 //  A QtVirtualKeyboard::FallbackInputMethod that Python can take functions over in. Every QtVirtualKeyboard::FallbackInputMethod
 //  Python makes is one. Each function below asks the Python
@@ -403,6 +406,25 @@ const QMetaObject *ritual_ZNK17QtVirtualKeyboard19FallbackInputMethod10metaObjec
   return self->metaObject();
 }
 
+//  void *QtVirtualKeyboard::FallbackInputMethod::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QtVirtualKeyboard19FallbackInputMethod11qt_metacastEPKc(
+    QtVirtualKeyboard::FallbackInputMethod *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtVirtualKeyboard::FallbackInputMethod::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QtVirtualKeyboard19FallbackInputMethod11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtVirtualKeyboard::FallbackInputMethod *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtVirtualKeyboard::FallbackInputMethod::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -411,6 +433,73 @@ QString *ritual_ZN17QtVirtualKeyboard19FallbackInputMethod2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtVirtualKeyboard::FallbackInputMethod::tr(s, c, n));
+}
+
+//  QtVirtualKeyboard::FallbackInputMethod::FallbackInputMethod(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::FallbackInputMethod *ritual_ZN17QtVirtualKeyboard19FallbackInputMethodC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtVirtualKeyboard_FallbackInputMethod(parent);
+}
+
+//  QList<QVirtualKeyboardInputEngine::InputMode>
+//      QtVirtualKeyboard::FallbackInputMethod::inputModes(const QString
+//      &locale)
+extern "C" Q_DECL_EXPORT
+QList<QVirtualKeyboardInputEngine::InputMode> *ritual_ZN17QtVirtualKeyboard19FallbackInputMethod10inputModesERK7QString(
+    QtVirtualKeyboard::FallbackInputMethod *self,
+    const QString *locale) {
+  return new QList<QVirtualKeyboardInputEngine::InputMode>(
+      self->inputModes(
+          *locale));
+}
+
+//  bool QtVirtualKeyboard::FallbackInputMethod::setInputMode(const QString
+//      &locale, QVirtualKeyboardInputEngine::InputMode inputMode)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QtVirtualKeyboard19FallbackInputMethod12setInputModeERK7QStringN27QVirtualKeyboardInputEngine9InputModeE(
+    QtVirtualKeyboard::FallbackInputMethod *self,
+    const QString *locale,
+    QVirtualKeyboardInputEngine::InputMode inputMode) {
+  return self->setInputMode(*locale, inputMode);
+}
+
+//  bool QtVirtualKeyboard::FallbackInputMethod::setTextCase(QVirtualKeyboard
+//      InputEngine::TextCase textCase)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QtVirtualKeyboard19FallbackInputMethod11setTextCaseEN27QVirtualKeyboardInputEngine8TextCaseE(
+    QtVirtualKeyboard::FallbackInputMethod *self,
+    QVirtualKeyboardInputEngine::TextCase textCase) {
+  return self->setTextCase(textCase);
+}
+
+//  bool QtVirtualKeyboard::FallbackInputMethod::keyEvent(Qt::Key key, const
+//      QString &text, Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QtVirtualKeyboard19FallbackInputMethod8keyEventEN2Qt3KeyERK7QString6QFlagsINS1_16KeyboardModifierEE(
+    QtVirtualKeyboard::FallbackInputMethod *self,
+    Qt::Key key,
+    const QString *text,
+    int modifiers) {
+  return self->keyEvent(
+      key,
+      *text,
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
+}
+
+//  void QtVirtualKeyboard::FallbackInputMethod::reset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard19FallbackInputMethod5resetEv(
+    QtVirtualKeyboard::FallbackInputMethod *self) {
+  self->reset();
+}
+
+//  void QtVirtualKeyboard::FallbackInputMethod::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard19FallbackInputMethod6updateEv(
+    QtVirtualKeyboard::FallbackInputMethod *self) {
+  self->update();
 }
 
 //  a Python function taken by a CuteQtVirtualKeyboard_FallbackInputMethod,
@@ -470,4 +559,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QtVirtualKeyboard19FallbackInputMethod6updateEv(
     QtVirtualKeyboard::FallbackInputMethod *self) {
   self->QtVirtualKeyboard::FallbackInputMethod::update();
+}
+
+//  a QList<QVirtualKeyboardInputEngine::InputMode> a ritual of
+//      QtVirtualKeyboard::FallbackInputMethod gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtVirtualKeyboard_FallbackInputMethod__QList_QVirtualKeyboardInputEngine_InputMode(
+    QList<QVirtualKeyboardInputEngine::InputMode> *self) {
+  delete self;
 }

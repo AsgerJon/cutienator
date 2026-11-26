@@ -24,6 +24,9 @@
     "ritual_ZN16QNativeInterface7Private11QVsp2Screen11removeLayerEi": [
       "bool", "address", "int"
     ],
+    "ritual_ZN16QNativeInterface7Private11QVsp2Screen16addBlendListenerEPFvvE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QNativeInterface_Private_QVsp2Screen": [
       "bool", "address", "chars", "address"
     ]

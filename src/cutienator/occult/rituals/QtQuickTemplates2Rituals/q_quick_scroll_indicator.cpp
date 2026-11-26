@@ -23,6 +23,25 @@ const QMetaObject *ritual_ZNK21QQuickScrollIndicator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScrollIndicator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickScrollIndicator11qt_metacastEPKc(
+    QQuickScrollIndicator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScrollIndicator::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickScrollIndicator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScrollIndicator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScrollIndicator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickScrollIndicator2trEPKcS1_i(
@@ -157,6 +176,55 @@ void ritual_ZN21QQuickScrollIndicator11setPositionEd(
   self->setPosition(position);
 }
 
+//  void QQuickScrollIndicator::sizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickScrollIndicator11sizeChangedEv(
+    QQuickScrollIndicator *self) {
+  self->sizeChanged();
+}
+
+//  void QQuickScrollIndicator::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickScrollIndicator15positionChangedEv(
+    QQuickScrollIndicator *self) {
+  self->positionChanged();
+}
+
+//  void QQuickScrollIndicator::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickScrollIndicator13activeChangedEv(
+    QQuickScrollIndicator *self) {
+  self->activeChanged();
+}
+
+//  void QQuickScrollIndicator::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickScrollIndicator18orientationChangedEv(
+    QQuickScrollIndicator *self) {
+  self->orientationChanged();
+}
+
+//  void QQuickScrollIndicator::minimumSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickScrollIndicator18minimumSizeChangedEv(
+    QQuickScrollIndicator *self) {
+  self->minimumSizeChanged();
+}
+
+//  void QQuickScrollIndicator::visualSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickScrollIndicator17visualSizeChangedEv(
+    QQuickScrollIndicator *self) {
+  self->visualSizeChanged();
+}
+
+//  void QQuickScrollIndicator::visualPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickScrollIndicator21visualPositionChangedEv(
+    QQuickScrollIndicator *self) {
+  self->visualPositionChanged();
+}
+
 #if QT_CONFIG(quicktemplates2_multitouch)
 //  void QQuickScrollIndicator::touchEvent(QTouchEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -175,6 +243,20 @@ QAccessible::Role ritual_ZNK21QQuickScrollIndicator14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickScrollIndicatorPrivate *QQuickScrollIndicator::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickScrollIndicatorPrivate *ritual_ZN21QQuickScrollIndicator6d_funcEv(
+    QQuickScrollIndicator *self) {
+  return self->d_func();
+}
+
+//  const QQuickScrollIndicatorPrivate *QQuickScrollIndicator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickScrollIndicatorPrivate *ritual_ZNK21QQuickScrollIndicator6d_funcEv(
+    const QQuickScrollIndicator *self) {
+  return self->d_func();
+}
 
 #if QT_CONFIG(quicktemplates2_multitouch)
 //  void QQuickScrollIndicator::touchEvent(QTouchEvent *event)

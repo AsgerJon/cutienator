@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QQuickDrawer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickDrawer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuickDrawer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuickDrawer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuickDrawerC1EP7QObject": ["address", "address"],
     "ritual_ZNK12QQuickDrawer4edgeEv": ["int", "address"],
@@ -25,6 +31,10 @@
     "ritual_ZN12QQuickDrawer14setInteractiveEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN12QQuickDrawer11edgeChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDrawer15positionChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDrawer17dragMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDrawer18interactiveChangedEv": ["nothing", "address"],
     "ritual_ZN12QQuickDrawer21childMouseEventFilterEP10QQuickItemP6QEvent": [
       "bool", "address", "address", "address"
     ],

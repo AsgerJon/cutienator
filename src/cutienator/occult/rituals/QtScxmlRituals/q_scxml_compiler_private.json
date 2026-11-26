@@ -230,6 +230,8 @@
     "ritual_ZN21QScxmlCompilerPrivate15checkAttributesERK20QXmlStreamAttributesNS_11ParserState4KindE": [
       "bool", "address", "address", "int"
     ],
+    "ritual_ZN21QScxmlCompilerPrivate7currentEv": ["address", "address"],
+    "ritual_ZN21QScxmlCompilerPrivate8previousEv": ["address", "address"],
     "ritual_ZNK21QScxmlCompilerPrivate11hasPreviousEv": ["bool", "address"]
   }
 }

@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore24QAbstractServiceProvider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QAbstractServiceProvider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore24QAbstractServiceProvider11qt_metacastEPKc(
+    Qt3DCore::QAbstractServiceProvider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QAbstractServiceProvider::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore24QAbstractServiceProvider11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QAbstractServiceProvider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QAbstractServiceProvider::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -199,6 +218,42 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore24QAbstractServiceProviderD1Ev(
     Qt3DCore::QAbstractServiceProvider *self) {
   delete self;
+}
+
+//  int Qt3DCore::QAbstractServiceProvider::type() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK8Qt3DCore24QAbstractServiceProvider4typeEv(
+    const Qt3DCore::QAbstractServiceProvider *self) {
+  return self->type();
+}
+
+//  QString Qt3DCore::QAbstractServiceProvider::description() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK8Qt3DCore24QAbstractServiceProvider11descriptionEv(
+    const Qt3DCore::QAbstractServiceProvider *self) {
+  return new QString(self->description());
+}
+
+//  Qt3DCore::QAbstractServiceProvider::QAbstractServiceProvider(int type,
+//      const QString &description, QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractServiceProvider *ritual_ZN8Qt3DCore24QAbstractServiceProviderC1EiRK7QStringP7QObject(
+    int type,
+    const QString *description,
+    QObject *parent) {
+  return new CuteQt3DCore_QAbstractServiceProvider(
+      type,
+      *description,
+      parent);
+}
+
+//  Qt3DCore::QAbstractServiceProvider::QAbstractServiceProvider(QAbstractSer
+//      viceProviderPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractServiceProvider *ritual_ZN8Qt3DCore24QAbstractServiceProviderC1ERNS_31QAbstractServiceProviderPrivateEP7QObject(
+    Qt3DCore::QAbstractServiceProviderPrivate *dd,
+    QObject *parent) {
+  return new CuteQt3DCore_QAbstractServiceProvider(*dd, parent);
 }
 
 //  QAbstractServiceProviderPrivate

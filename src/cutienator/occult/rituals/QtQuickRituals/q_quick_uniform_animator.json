@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickUniformAnimator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickUniformAnimator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickUniformAnimator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickUniformAnimator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,9 @@
     "ritual_ZN21QQuickUniformAnimatorC1EP7QObject": ["address", "address"],
     "ritual_ZNK21QQuickUniformAnimator7uniformEv": ["text", "address"],
     "ritual_ZN21QQuickUniformAnimator10setUniformERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQuickUniformAnimator14uniformChangedERK7QString": [
       "nothing", "address", "text"
     ],
     "ritual_ZNK21QQuickUniformAnimator9createJobEv": ["address", "address"],

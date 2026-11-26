@@ -9,6 +9,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/qaudiodevice.h>
 #include <cstring>
+#include <optional>
+#include <QtGui/QVector3D>
+#include <QtCore/QSpan>
+#include <QtSpatialAudio/QAudioRoom>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSpatialAudio/qaudioengine.h>
 #include <QtSpatialAudio/private/qaudioengine_p.h>
@@ -77,6 +81,42 @@ inline void QAudioEnginePrivate::removeRoom(QAudioRoom *room)
 inline QAudioRoom *QAudioEnginePrivate::currentRoom() const
 {
     return m_currentRoom;
+}
+
+//  from ../qtmultimedia/src/spatialaudio/qaudioengine.cpp, line 171, as _ZNK19QAudioEnginePrivate27findSmallestRoomForListenerE5QSpanIP10QAudioRoomLm18446744073709551615EE
+inline QAudioEnginePrivate::SmallestRoomForListenerResult
+QAudioEnginePrivate::findSmallestRoomForListener(QSpan<QAudioRoom *> rooms) const
+{
+    const std::optional<QVector3D> listenerPos = listenerPosition();
+
+    if (!listenerPos)
+        return SmallestRoomForListenerResult{
+            nullptr,
+            0.f,
+        };
+
+    std::optional<float> roomVolume;
+    QAudioRoom *room = nullptr;
+
+    for (QAudioRoom *r : std::as_const(rooms)) {
+        QVector3D dim2 = r->dimensions() / 2.;
+        float vol = dim2.x() * dim2.y() * dim2.z();
+        if (roomVolume && vol > roomVolume)
+            continue;
+        QVector3D dist = r->position() - *listenerPos;
+        // transform into room coordinates
+        dist = r->rotation().rotatedVector(dist);
+        if (qAbs(dist.x()) <= dim2.x() && qAbs(dist.y()) <= dim2.y()
+            && qAbs(dist.z()) <= dim2.z()) {
+            room = r;
+            roomVolume = vol;
+        }
+    }
+
+    return SmallestRoomForListenerResult{
+        room,
+        roomVolume.value_or(0.f),
+    };
 }
 //  -----------------------------------------------------------------------
 
@@ -267,6 +307,12 @@ QAudioEnginePrivate *ritual_ZN19QAudioEnginePrivate3getEP12QAudioEngine(
   return QAudioEnginePrivate::get(engine);
 }
 
+//  QAudioEnginePrivate::~QAudioEnginePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAudioEnginePrivateD1Ev(QAudioEnginePrivate *self) {
+  delete self;
+}
+
 //  int QAudioEnginePrivate::sampleRate() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK19QAudioEnginePrivate10sampleRateEv(
@@ -294,6 +340,13 @@ extern "C" Q_DECL_EXPORT
 float ritual_ZNK19QAudioEnginePrivate12masterVolumeEv(
     const QAudioEnginePrivate *self) {
   return self->masterVolume();
+}
+
+//  std::optional<QVector3D> QAudioEnginePrivate::listenerPosition() const
+extern "C" Q_DECL_EXPORT
+std::optional<QVector3D> *ritual_ZNK19QAudioEnginePrivate16listenerPositionEv(
+    const QAudioEnginePrivate *self) {
+  return new std::optional<QVector3D>(self->listenerPosition());
 }
 
 //  void QAudioEnginePrivate::setOutputMode(QAudioEngine::OutputMode a0)
@@ -399,6 +452,28 @@ void ritual_ZN19QAudioEnginePrivate11removeSoundEP25QSpatialAudioSoundPrivate(
   self->removeSound(a0);
 }
 
+//  void QAudioEnginePrivate::setSoundPlaybackData(QSpatialAudioSoundPrivate
+//      *a0, SharedPlaybackState a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAudioEnginePrivate20setSoundPlaybackDataEP25QSpatialAudioSoundPrivateSt10shared_ptrIN20QSpatialAudioPrivate26QSpatialAudioPlaybackStateEE(
+    QAudioEnginePrivate *self,
+    QSpatialAudioSoundPrivate *a0,
+    const QAudioEnginePrivate::SharedPlaybackState *a1) {
+  self->setSoundPlaybackData(a0, *a1);
+}
+
+//  SmallestRoomForListenerResult
+//      QAudioEnginePrivate::findSmallestRoomForListener(QSpan<QAudioRoom *>
+//      rooms) const
+extern "C" Q_DECL_EXPORT
+QAudioEnginePrivate::SmallestRoomForListenerResult *ritual_ZNK19QAudioEnginePrivate27findSmallestRoomForListenerE5QSpanIP10QAudioRoomLm18446744073709551615EE(
+    const QAudioEnginePrivate *self,
+    const QSpan<QAudioRoom *> *rooms) {
+  return new QAudioEnginePrivate::SmallestRoomForListenerResult(
+      self->findSmallestRoomForListener(
+          *rooms));
+}
+
 //  a Python function taken by a CuteQAudioEnginePrivate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -407,4 +482,19 @@ bool ritual_take_QAudioEnginePrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQAudioEnginePrivate *>(self)->take(key, call);
+}
+
+//  a std::optional<QVector3D> a ritual of QAudioEnginePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAudioEnginePrivate__std_optional_QVector3D(
+    std::optional<QVector3D> *self) {
+  delete self;
+}
+
+//  a QAudioEnginePrivate::SmallestRoomForListenerResult a ritual of
+//      QAudioEnginePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAudioEnginePrivate__QAudioEnginePrivate_SmallestRoomForListenerResult(
+    QAudioEnginePrivate::SmallestRoomForListenerResult *self) {
+  delete self;
 }

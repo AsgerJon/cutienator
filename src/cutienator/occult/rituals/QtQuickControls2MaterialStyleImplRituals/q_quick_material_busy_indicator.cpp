@@ -26,6 +26,83 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialbusyindicator.cpp, line 30, as local:qquickmaterialbusyindicator.cpp:SpanAnimationDuration
+static const int SpanAnimationDuration = 700;
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialbusyindicator.cpp, line 31, as local:qquickmaterialbusyindicator.cpp:RotationAnimationDuration
+static const int RotationAnimationDuration = SpanAnimationDuration * 6;
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialbusyindicator.cpp, line 37, as local:qquickmaterialbusyindicator.cpp:QQuickMaterialBusyIndicatorNode
+class QQuickMaterialBusyIndicatorNode : public QQuickAnimatedNode
+{
+public:
+    QQuickMaterialBusyIndicatorNode(QQuickMaterialBusyIndicator *item);
+
+    void sync(QQuickItem *item) override;
+
+protected:
+    void updateCurrentTime(int time) override;
+
+private:
+    int m_lastStartAngle = 0;
+    int m_lastEndAngle = 0;
+    qreal m_width = 0;
+    qreal m_height = 0;
+    qreal m_devicePixelRatio = 1;
+    QColor m_color;
+};
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialbusyindicator.cpp, line 56, as local:qquickmaterialbusyindicator.cpp:QQuickMaterialBusyIndicatorNode::QQuickMaterialBusyIndicatorNode
+inline QQuickMaterialBusyIndicatorNode::QQuickMaterialBusyIndicatorNode(QQuickMaterialBusyIndicator *item)
+    : QQuickAnimatedNode(item)
+{
+    setLoopCount(Infinite);
+    setCurrentTime(item->elapsed());
+    setDuration(RotationAnimationDuration);
+
+    QSGImageNode *textureNode = item->window()->createImageNode();
+    textureNode->setOwnsTexture(true);
+    appendChildNode(textureNode);
+
+    // A texture seems to be required here, but we don't have one yet, as we haven't drawn anything,
+    // so just use a blank image.
+    QImage blankImage(item->width(), item->height(), QImage::Format_ARGB32_Premultiplied);
+    blankImage.fill(Qt::transparent);
+    textureNode->setTexture(item->window()->createTextureFromImage(blankImage));
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialbusyindicator.cpp, line 135, as local:qquickmaterialbusyindicator.cpp:QQuickMaterialBusyIndicatorNode::sync
+inline void QQuickMaterialBusyIndicatorNode::sync(QQuickItem *item)
+{
+    QQuickMaterialBusyIndicator *indicator = static_cast<QQuickMaterialBusyIndicator *>(item);
+    m_color = indicator->color();
+    m_width = indicator->width();
+    m_height = indicator->height();
+    m_devicePixelRatio = indicator->window()->effectiveDevicePixelRatio();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialbusyindicator.cpp, line 183, as _ZN27QQuickMaterialBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickMaterialBusyIndicator::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
+{
+    QQuickItem::itemChange(change, data);
+    switch (change) {
+    case ItemOpacityHasChanged:
+        // If running is set to false and then true within a short period (QTBUG-85860), our
+        // OpacityAnimator cancels the 1 => 0 animation (which was for running being set to false),
+        // setting opacity to 0 and hence visible to false. This happens _after_ setRunning(true)
+        // was called, because the properties were set synchronously but the animation is
+        // asynchronous. To account for this situation, we only hide ourselves if we're not running.
+        if (qFuzzyIsNull(data.realValue) && !m_running)
+            setVisible(false);
+        break;
+    case ItemVisibleHasChanged:
+        update();
+        break;
+    default:
+        break;
+    }
+}
+
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialbusyindicator.cpp, line 150, as _ZNK27QQuickMaterialBusyIndicator5colorEv
 inline QColor QQuickMaterialBusyIndicator::color() const
 {
@@ -63,28 +140,6 @@ inline int QQuickMaterialBusyIndicator::elapsed() const
 {
     return m_elapsed;
 }
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialbusyindicator.cpp, line 183, as _ZN27QQuickMaterialBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
-inline void QQuickMaterialBusyIndicator::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
-{
-    QQuickItem::itemChange(change, data);
-    switch (change) {
-    case ItemOpacityHasChanged:
-        // If running is set to false and then true within a short period (QTBUG-85860), our
-        // OpacityAnimator cancels the 1 => 0 animation (which was for running being set to false),
-        // setting opacity to 0 and hence visible to false. This happens _after_ setRunning(true)
-        // was called, because the properties were set synchronously but the animation is
-        // asynchronous. To account for this situation, we only hide ourselves if we're not running.
-        if (qFuzzyIsNull(data.realValue) && !m_running)
-            setVisible(false);
-        break;
-    case ItemVisibleHasChanged:
-        update();
-        break;
-    default:
-        break;
-    }
-}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickMaterialBusyIndicator may call these functions of it.
@@ -98,6 +153,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK27QQuickMaterialBusyIndicator10metaObjectEv(
     const QQuickMaterialBusyIndicator *self) {
   return self->metaObject();
+}
+
+//  void *QQuickMaterialBusyIndicator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuickMaterialBusyIndicator11qt_metacastEPKc(
+    QQuickMaterialBusyIndicator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMaterialBusyIndicator::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuickMaterialBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMaterialBusyIndicator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QColor QQuickMaterialBusyIndicator::color() const
@@ -145,6 +219,16 @@ void ritual_ZN27QQuickMaterialBusyIndicator10itemChangeEN10QQuickItem10ItemChang
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->itemChange(change, *data);
+}
+
+//  QSGNode *QQuickMaterialBusyIndicator::updatePaintNode(QSGNode *oldNode,
+//      UpdatePaintNodeData *a1)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN27QQuickMaterialBusyIndicator15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE(
+    QQuickMaterialBusyIndicator *self,
+    QSGNode *oldNode,
+    QQuickItem::UpdatePaintNodeData *a1) {
+  return self->updatePaintNode(oldNode, a1);
 }
 
 //  void QQuickMaterialBusyIndicator::itemChange(ItemChange change, const

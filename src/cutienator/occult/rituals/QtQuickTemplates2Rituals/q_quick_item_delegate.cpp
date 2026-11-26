@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK18QQuickItemDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickItemDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickItemDelegate11qt_metacastEPKc(
+    QQuickItemDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickItemDelegate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickItemDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickItemDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickItemDelegate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickItemDelegate2trEPKcS1_i(
@@ -55,6 +74,13 @@ void ritual_ZN18QQuickItemDelegate14setHighlightedEb(
   self->setHighlighted(highlighted);
 }
 
+//  void QQuickItemDelegate::highlightedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickItemDelegate18highlightedChangedEv(
+    QQuickItemDelegate *self) {
+  self->highlightedChanged();
+}
+
 //  QFont QQuickItemDelegate::defaultFont() const
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK18QQuickItemDelegate11defaultFontEv(
@@ -70,6 +96,15 @@ QAccessible::Role ritual_ZNK18QQuickItemDelegate14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickItemDelegate::QQuickItemDelegate(QQuickItemDelegatePrivate &dd,
+//      QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickItemDelegate *ritual_ZN18QQuickItemDelegateC1ER25QQuickItemDelegatePrivateP10QQuickItem(
+    QQuickItemDelegatePrivate *dd,
+    QQuickItem *parent) {
+  return new QQuickItemDelegate(*dd, parent);
+}
 
 //  QQuickItemDelegatePrivate *QQuickItemDelegate::d_func()
 extern "C" Q_DECL_EXPORT

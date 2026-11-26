@@ -105,6 +105,12 @@
     "ritual_ZN20QTextTableCellFormatC1ERK11QTextFormat": [
       "address", "address"
     ],
+    "ritual_ZlsR11QDataStreamRK20QTextTableCellFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR20QTextTableCellFormat": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QTextTableCellFormatD1Ev": ["nothing", "address"]
   }
 }

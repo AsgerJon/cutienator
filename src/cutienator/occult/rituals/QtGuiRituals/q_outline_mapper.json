@@ -15,12 +15,27 @@
     "ritual_ZN14QOutlineMapper12beginOutlineEN2Qt8FillRuleE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN14QOutlineMapper10endOutlineEv": ["nothing", "address"],
+    "ritual_ZN14QOutlineMapper12clipElementsEPK7QPointFPKN12QPainterPath11ElementTypeEi": [
+      "nothing", "address", "address", "address", "int"
+    ],
     "ritual_ZN14QOutlineMapper6moveToERK7QPointF": [
       "nothing", "address", "address"
     ],
     "ritual_ZN14QOutlineMapper6lineToERK7QPointF": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN14QOutlineMapper12closeSubpathEv": ["nothing", "address"]
+    "ritual_ZN14QOutlineMapper7curveToERK7QPointFS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QOutlineMapper12closeSubpathEv": ["nothing", "address"],
+    "ritual_ZN14QOutlineMapper7outlineEv": ["address", "address"],
+    "ritual_ZN14QOutlineMapper11convertPathERK12QPainterPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QOutlineMapper11convertPathERK11QVectorPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QOutlineMapper12elementTypesEv": ["address", "address"]
   }
 }

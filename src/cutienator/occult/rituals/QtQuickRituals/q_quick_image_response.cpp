@@ -232,6 +232,25 @@ const QMetaObject *ritual_ZNK19QQuickImageResponse10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickImageResponse::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickImageResponse11qt_metacastEPKc(
+    QQuickImageResponse *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickImageResponse::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickImageResponse11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickImageResponse *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickImageResponse::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickImageResponse2trEPKcS1_i(
@@ -239,6 +258,12 @@ QString *ritual_ZN19QQuickImageResponse2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickImageResponse::tr(s, c, n));
+}
+
+//  QQuickImageResponse::QQuickImageResponse()
+extern "C" Q_DECL_EXPORT
+QQuickImageResponse *ritual_ZN19QQuickImageResponseC1Ev() {
+  return new CuteQQuickImageResponse();
 }
 
 //  QQuickImageResponse::~QQuickImageResponse()
@@ -265,6 +290,12 @@ QString *ritual_ZNK19QQuickImageResponse11errorStringEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickImageResponse6cancelEv(QQuickImageResponse *self) {
   self->cancel();
+}
+
+//  void QQuickImageResponse::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickImageResponse8finishedEv(QQuickImageResponse *self) {
+  self->finished();
 }
 
 //  QQuickImageResponsePrivate *QQuickImageResponse::d_func()

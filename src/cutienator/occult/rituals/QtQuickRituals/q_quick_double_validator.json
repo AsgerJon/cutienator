@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickDoubleValidator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickDoubleValidator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickDoubleValidator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickDoubleValidator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,9 @@
       "nothing", "address", "text"
     ],
     "ritual_ZN21QQuickDoubleValidator15resetLocaleNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDoubleValidator17localeNameChangedEv": [
       "nothing", "address"
     ],
     "ritual_take_QQuickDoubleValidator": [

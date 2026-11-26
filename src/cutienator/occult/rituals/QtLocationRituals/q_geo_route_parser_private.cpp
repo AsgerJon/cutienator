@@ -7,6 +7,7 @@
 #include <QtLocation/6.12.0/QtLocation/private/qgeorouteparser_p.h>
 #include <QtLocation/6.12.0/QtLocation/private/qgeorouteparser_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #include <QtLocation/qgeorouterequest.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
@@ -62,6 +63,17 @@ const QGeoRouteParser *ritual_ZNK22QGeoRouteParserPrivate6q_funcEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QGeoRouteParserPrivateD1Ev(QGeoRouteParserPrivate *self) {
   delete self;
+}
+
+//  QGeoRouteReply::Error QGeoRouteParserPrivate::parseReply(QList<QGeoRoute>
+//      &routes, QString &errorString, const QByteArray &reply) const
+extern "C" Q_DECL_EXPORT
+QGeoRouteReply::Error ritual_ZNK22QGeoRouteParserPrivate10parseReplyER5QListI9QGeoRouteER7QStringRK10QByteArray(
+    const QGeoRouteParserPrivate *self,
+    QList<QGeoRoute> *routes,
+    QString *errorString,
+    const QByteArray *reply) {
+  return self->parseReply(*routes, *errorString, *reply);
 }
 
 //  QUrl QGeoRouteParserPrivate::requestUrl(const QGeoRouteRequest &request,

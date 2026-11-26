@@ -30,6 +30,14 @@ QRegularExpressionMatch *ritual_ZNK9QtPrivate52QRegularExpressionMatchIteratorRa
   return new QRegularExpressionMatch(self->operator*());
 }
 
+//  QRegularExpressionMatchIteratorRangeBasedForIterator &QtPrivate::QRegular
+//      ExpressionMatchIteratorRangeBasedForIterator::operator++()
+extern "C" Q_DECL_EXPORT
+QtPrivate::QRegularExpressionMatchIteratorRangeBasedForIterator *ritual_ZN9QtPrivate52QRegularExpressionMatchIteratorRangeBasedForIteratorppEv(
+    QtPrivate::QRegularExpressionMatchIteratorRangeBasedForIterator *self) {
+  return &(self->operator++());
+}
+
 //  QRegularExpressionMatchIteratorRangeBasedForIterator QtPrivate::QRegularE
 //      xpressionMatchIteratorRangeBasedForIterator::operator++(int a0)
 extern "C" Q_DECL_EXPORT

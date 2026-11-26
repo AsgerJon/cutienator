@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK17QQuickProgressBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickProgressBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickProgressBar11qt_metacastEPKc(
+    QQuickProgressBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickProgressBar::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickProgressBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickProgressBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickProgressBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickProgressBar2trEPKcS1_i(
@@ -111,6 +130,45 @@ void ritual_ZN17QQuickProgressBar16setIndeterminateEb(
   self->setIndeterminate(indeterminate);
 }
 
+//  void QQuickProgressBar::fromChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickProgressBar11fromChangedEv(QQuickProgressBar *self) {
+  self->fromChanged();
+}
+
+//  void QQuickProgressBar::toChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickProgressBar9toChangedEv(QQuickProgressBar *self) {
+  self->toChanged();
+}
+
+//  void QQuickProgressBar::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickProgressBar12valueChangedEv(QQuickProgressBar *self) {
+  self->valueChanged();
+}
+
+//  void QQuickProgressBar::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickProgressBar15positionChangedEv(
+    QQuickProgressBar *self) {
+  self->positionChanged();
+}
+
+//  void QQuickProgressBar::visualPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickProgressBar21visualPositionChangedEv(
+    QQuickProgressBar *self) {
+  self->visualPositionChanged();
+}
+
+//  void QQuickProgressBar::indeterminateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickProgressBar20indeterminateChangedEv(
+    QQuickProgressBar *self) {
+  self->indeterminateChanged();
+}
+
 //  void QQuickProgressBar::mirrorChange()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickProgressBar12mirrorChangeEv(QQuickProgressBar *self) {
@@ -132,6 +190,20 @@ QAccessible::Role ritual_ZNK17QQuickProgressBar14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickProgressBarPrivate *QQuickProgressBar::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickProgressBarPrivate *ritual_ZN17QQuickProgressBar6d_funcEv(
+    QQuickProgressBar *self) {
+  return self->d_func();
+}
+
+//  const QQuickProgressBarPrivate *QQuickProgressBar::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickProgressBarPrivate *ritual_ZNK17QQuickProgressBar6d_funcEv(
+    const QQuickProgressBar *self) {
+  return self->d_func();
+}
 
 //  void QQuickProgressBar::mirrorChange()
 extern "C" Q_DECL_EXPORT

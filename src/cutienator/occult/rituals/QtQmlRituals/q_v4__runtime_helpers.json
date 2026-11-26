@@ -5,11 +5,20 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV414RuntimeHelpers18objectDefaultValueEPKNS_6ObjectEi": [
+      "unsigned long long", "address", "int"
+    ],
     "ritual_ZN3QV414RuntimeHelpers11toPrimitiveERKNS_5ValueENS_8TypeHintE": [
       "unsigned long long", "address", "int"
     ],
+    "ritual_ZN3QV414RuntimeHelpers19ordinaryToPrimitiveEPNS_15ExecutionEngineEPKNS_6ObjectEPNS_6StringE": [
+      "unsigned long long", "address", "address", "address"
+    ],
     "ritual_ZN3QV414RuntimeHelpers14stringToNumberERK7QString": [
       "double", "text"
+    ],
+    "ritual_ZN3QV414RuntimeHelpers16stringFromNumberEPNS_15ExecutionEngineEd": [
+      "address", "address", "double"
     ],
     "ritual_ZN3QV414RuntimeHelpers8toNumberERKNS_5ValueE": [
       "double", "address"
@@ -17,8 +26,20 @@
     "ritual_ZN3QV414RuntimeHelpers14numberToStringEP7QStringdi": [
       "nothing", "address", "double", "int"
     ],
+    "ritual_ZN3QV414RuntimeHelpers15convertToStringEPNS_15ExecutionEngineENS_5ValueENS_8TypeHintE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV414RuntimeHelpers15convertToObjectEPNS_15ExecutionEngineERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV414RuntimeHelpers11equalHelperERKNS_5ValueES3_": [
+      "unsigned int", "address", "address"
+    ],
     "ritual_ZN3QV414RuntimeHelpers11strictEqualERKNS_5ValueES3_": [
       "unsigned int", "address", "address"
+    ],
+    "ritual_ZN3QV414RuntimeHelpers9addHelperEPNS_15ExecutionEngineERKNS_5ValueES5_": [
+      "unsigned long long", "address", "address", "address"
     ],
     "ritual_ZN3QV414RuntimeHelpersD1Ev": ["nothing", "address"]
   }

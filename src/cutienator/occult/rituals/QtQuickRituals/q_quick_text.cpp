@@ -821,6 +821,24 @@ const QMetaObject *ritual_ZNK10QQuickText10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickText::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickText11qt_metacastEPKc(
+    QQuickText *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickText::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQuickText11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickText *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickText::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQuickText2trEPKcS1_i(
@@ -1339,6 +1357,255 @@ QSizeF *ritual_ZNK10QQuickText7advanceEv(const QQuickText *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickText10invalidateEv(QQuickText *self) {
   self->invalidate();
+}
+
+//  void QQuickText::textChanged(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText11textChangedERK7QString(
+    QQuickText *self,
+    const QString *text) {
+  self->textChanged(*text);
+}
+
+//  void QQuickText::linkActivated(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText13linkActivatedERK7QString(
+    QQuickText *self,
+    const QString *link) {
+  self->linkActivated(*link);
+}
+
+//  void QQuickText::linkHovered(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText11linkHoveredERK7QString(
+    QQuickText *self,
+    const QString *link) {
+  self->linkHovered(*link);
+}
+
+//  void QQuickText::fontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText11fontChangedERK5QFont(
+    QQuickText *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+
+//  void QQuickText::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText12colorChangedEv(QQuickText *self) {
+  self->colorChanged();
+}
+
+//  void QQuickText::linkColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText16linkColorChangedEv(QQuickText *self) {
+  self->linkColorChanged();
+}
+
+//  void QQuickText::styleChanged(QQuickText::TextStyle style)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText12styleChangedENS_9TextStyleE(
+    QQuickText *self,
+    QQuickText::TextStyle style) {
+  self->styleChanged(style);
+}
+
+//  void QQuickText::styleColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText17styleColorChangedEv(QQuickText *self) {
+  self->styleColorChanged();
+}
+
+//  void QQuickText::horizontalAlignmentChanged(QQuickText::HAlignment
+//      alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText26horizontalAlignmentChangedENS_10HAlignmentE(
+    QQuickText *self,
+    QQuickText::HAlignment alignment) {
+  self->horizontalAlignmentChanged(alignment);
+}
+
+//  void QQuickText::verticalAlignmentChanged(QQuickText::VAlignment
+//      alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText24verticalAlignmentChangedENS_10VAlignmentE(
+    QQuickText *self,
+    QQuickText::VAlignment alignment) {
+  self->verticalAlignmentChanged(alignment);
+}
+
+//  void QQuickText::wrapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText15wrapModeChangedEv(QQuickText *self) {
+  self->wrapModeChanged();
+}
+
+//  void QQuickText::lineCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText16lineCountChangedEv(QQuickText *self) {
+  self->lineCountChanged();
+}
+
+//  void QQuickText::truncatedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText16truncatedChangedEv(QQuickText *self) {
+  self->truncatedChanged();
+}
+
+//  void QQuickText::maximumLineCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText23maximumLineCountChangedEv(QQuickText *self) {
+  self->maximumLineCountChanged();
+}
+
+//  void QQuickText::textFormatChanged(QQuickText::TextFormat textFormat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText17textFormatChangedENS_10TextFormatE(
+    QQuickText *self,
+    QQuickText::TextFormat textFormat) {
+  self->textFormatChanged(textFormat);
+}
+
+//  void QQuickText::elideModeChanged(QQuickText::TextElideMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText16elideModeChangedENS_13TextElideModeE(
+    QQuickText *self,
+    QQuickText::TextElideMode mode) {
+  self->elideModeChanged(mode);
+}
+
+//  void QQuickText::contentSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText18contentSizeChangedEv(QQuickText *self) {
+  self->contentSizeChanged();
+}
+
+//  void QQuickText::contentWidthChanged(qreal contentWidth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText19contentWidthChangedEd(
+    QQuickText *self,
+    qreal contentWidth) {
+  self->contentWidthChanged(contentWidth);
+}
+
+//  void QQuickText::contentHeightChanged(qreal contentHeight)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText20contentHeightChangedEd(
+    QQuickText *self,
+    qreal contentHeight) {
+  self->contentHeightChanged(contentHeight);
+}
+
+//  void QQuickText::lineHeightChanged(qreal lineHeight)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText17lineHeightChangedEd(
+    QQuickText *self,
+    qreal lineHeight) {
+  self->lineHeightChanged(lineHeight);
+}
+
+//  void QQuickText::lineHeightModeChanged(QQuickText::LineHeightMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText21lineHeightModeChangedENS_14LineHeightModeE(
+    QQuickText *self,
+    QQuickText::LineHeightMode mode) {
+  self->lineHeightModeChanged(mode);
+}
+
+//  void QQuickText::fontSizeModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText19fontSizeModeChangedEv(QQuickText *self) {
+  self->fontSizeModeChanged();
+}
+
+//  void QQuickText::minimumPixelSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText23minimumPixelSizeChangedEv(QQuickText *self) {
+  self->minimumPixelSizeChanged();
+}
+
+//  void QQuickText::minimumPointSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText23minimumPointSizeChangedEv(QQuickText *self) {
+  self->minimumPointSizeChanged();
+}
+
+//  void QQuickText::effectiveHorizontalAlignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText35effectiveHorizontalAlignmentChangedEv(
+    QQuickText *self) {
+  self->effectiveHorizontalAlignmentChanged();
+}
+
+//  void QQuickText::lineLaidOut(QQuickTextLine *line)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText11lineLaidOutEP14QQuickTextLine(
+    QQuickText *self,
+    QQuickTextLine *line) {
+  self->lineLaidOut(line);
+}
+
+//  void QQuickText::baseUrlChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText14baseUrlChangedEv(QQuickText *self) {
+  self->baseUrlChanged();
+}
+
+//  void QQuickText::renderTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText17renderTypeChangedEv(QQuickText *self) {
+  self->renderTypeChanged();
+}
+
+//  void QQuickText::paddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText14paddingChangedEv(QQuickText *self) {
+  self->paddingChanged();
+}
+
+//  void QQuickText::topPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText17topPaddingChangedEv(QQuickText *self) {
+  self->topPaddingChanged();
+}
+
+//  void QQuickText::leftPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText18leftPaddingChangedEv(QQuickText *self) {
+  self->leftPaddingChanged();
+}
+
+//  void QQuickText::rightPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText19rightPaddingChangedEv(QQuickText *self) {
+  self->rightPaddingChanged();
+}
+
+//  void QQuickText::bottomPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText20bottomPaddingChangedEv(QQuickText *self) {
+  self->bottomPaddingChanged();
+}
+
+//  void QQuickText::fontInfoChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText15fontInfoChangedEv(QQuickText *self) {
+  self->fontInfoChanged();
+}
+
+//  void QQuickText::renderTypeQualityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickText24renderTypeQualityChangedEv(QQuickText *self) {
+  self->renderTypeQualityChanged();
+}
+
+//  QQuickText::QQuickText(QQuickTextPrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickText *ritual_ZN10QQuickTextC1ER17QQuickTextPrivateP10QQuickItem(
+    QQuickTextPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickText(*dd, parent);
 }
 
 //  void QQuickText::mousePressEvent(QMouseEvent *event)

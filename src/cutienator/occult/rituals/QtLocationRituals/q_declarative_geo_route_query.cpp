@@ -14,6 +14,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QDeclarativeGeoRouteQuery that Python can take functions over in. Every QDeclarativeGeoRouteQuery
 //  Python makes is one. Each function below asks the Python
@@ -221,6 +222,25 @@ const QMetaObject *ritual_ZNK25QDeclarativeGeoRouteQuery10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoRouteQuery::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QDeclarativeGeoRouteQuery11qt_metacastEPKc(
+    QDeclarativeGeoRouteQuery *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoRouteQuery::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QDeclarativeGeoRouteQuery11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoRouteQuery *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoRouteQuery::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -289,6 +309,13 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK25QDeclarativeGeoRouteQuery23numberAlternativeRoutesEv(
     const QDeclarativeGeoRouteQuery *self) {
   return self->numberAlternativeRoutes();
+}
+
+//  QList<int> QDeclarativeGeoRouteQuery::featureTypes() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK25QDeclarativeGeoRouteQuery12featureTypesEv(
+    const QDeclarativeGeoRouteQuery *self) {
+  return new QList<int>(self->featureTypes());
 }
 
 //  QList<QGeoCoordinate> QDeclarativeGeoRouteQuery::waypoints() const
@@ -478,6 +505,76 @@ QDateTime *ritual_ZNK25QDeclarativeGeoRouteQuery13departureTimeEv(
   return new QDateTime(self->departureTime());
 }
 
+//  void QDeclarativeGeoRouteQuery::numberAlternativeRoutesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery30numberAlternativeRoutesChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->numberAlternativeRoutesChanged();
+}
+
+//  void QDeclarativeGeoRouteQuery::travelModesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery18travelModesChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->travelModesChanged();
+}
+
+//  void QDeclarativeGeoRouteQuery::routeOptimizationsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery25routeOptimizationsChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->routeOptimizationsChanged();
+}
+
+//  void QDeclarativeGeoRouteQuery::waypointsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery16waypointsChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->waypointsChanged();
+}
+
+//  void QDeclarativeGeoRouteQuery::excludedAreasChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery20excludedAreasChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->excludedAreasChanged();
+}
+
+//  void QDeclarativeGeoRouteQuery::featureTypesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery19featureTypesChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->featureTypesChanged();
+}
+
+//  void QDeclarativeGeoRouteQuery::maneuverDetailChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery21maneuverDetailChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->maneuverDetailChanged();
+}
+
+//  void QDeclarativeGeoRouteQuery::segmentDetailChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery20segmentDetailChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->segmentDetailChanged();
+}
+
+//  void QDeclarativeGeoRouteQuery::queryDetailsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery19queryDetailsChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->queryDetailsChanged();
+}
+
+//  void QDeclarativeGeoRouteQuery::departureTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteQuery20departureTimeChangedEv(
+    QDeclarativeGeoRouteQuery *self) {
+  self->departureTimeChanged();
+}
+
 //  void QDeclarativeGeoRouteQuery::excludedAreaCoordinateChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QDeclarativeGeoRouteQuery29excludedAreaCoordinateChangedEv(
@@ -528,4 +625,10 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN25QDeclarativeGeoRouteQuery17componentCompleteEv(
     QDeclarativeGeoRouteQuery *self) {
   self->QDeclarativeGeoRouteQuery::componentComplete();
+}
+
+//  a QList<int> a ritual of QDeclarativeGeoRouteQuery gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativeGeoRouteQuery__QList_int(QList<int> *self) {
+  delete self;
 }

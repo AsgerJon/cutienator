@@ -730,6 +730,14 @@ public:
   }
 };
 
+//  qdesigner_internal::QEditorFormBuilder::QEditorFormBuilder(QDesignerFormE
+//      ditorInterface *core)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::QEditorFormBuilder *ritual_ZN18qdesigner_internal18QEditorFormBuilderC1EP28QDesignerFormEditorInterface(
+    QDesignerFormEditorInterface *core) {
+  return new Cuteqdesigner_internal_QEditorFormBuilder(core);
+}
+
 //  bool qdesigner_internal::QEditorFormBuilder::copy(QIODevice *dev, const
 //      FormBuilderClipboard &selection)
 extern "C" Q_DECL_EXPORT

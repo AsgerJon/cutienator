@@ -7,6 +7,15 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssglayerrenderdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QSSGBakedLightingModel::QSSGBakedLightingModel(const QSSGRenderModel
+//      *model, const QVector<QSSGRenderableObjectHandle> &renderables)
+extern "C" Q_DECL_EXPORT
+QSSGBakedLightingModel *ritual_ZN22QSSGBakedLightingModelC1EPK15QSSGRenderModelRK5QListI26QSSGRenderableObjectHandleE(
+    const QSSGRenderModel *model,
+    const QVector<QSSGRenderableObjectHandle> *renderables) {
+  return new QSSGBakedLightingModel(model, *renderables);
+}
+
 //  QSSGBakedLightingModel::~QSSGBakedLightingModel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSSGBakedLightingModelD1Ev(QSSGBakedLightingModel *self) {

@@ -5,6 +5,34 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render18RenderTargetOutputC1Ev": ["address"],
+    "ritual_ZNK10Qt3DRender6Render18RenderTargetOutput11textureUuidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18RenderTargetOutput8mipLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18RenderTargetOutput5layerEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18RenderTargetOutput4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18RenderTargetOutput4faceEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18RenderTargetOutput5pointEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render18RenderTargetOutput16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render18RenderTargetOutput10attachmentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18RenderTargetOutput10attachmentEv": [
+      "address", "address"
+    ],
     "ritual_own_ZN10Qt3DRender6Render18RenderTargetOutput16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
     ]

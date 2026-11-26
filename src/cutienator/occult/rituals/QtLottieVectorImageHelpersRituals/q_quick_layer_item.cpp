@@ -794,6 +794,24 @@ const QMetaObject *ritual_ZNK15QQuickLayerItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLayerItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickLayerItem11qt_metacastEPKc(
+    QQuickLayerItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLayerItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickLayerItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLayerItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickLayerItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickLayerItem2trEPKcS1_i(
@@ -839,6 +857,13 @@ void ritual_ZN15QQuickLayerItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14It
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *a1) {
   self->itemChange(change, *a1);
+}
+
+//  void QQuickLayerItem::transformMatrixChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickLayerItem22transformMatrixChangedEv(
+    QQuickLayerItem *self) {
+  self->transformMatrixChanged();
 }
 
 //  a Python function taken by a CuteQQuickLayerItem, for the function named

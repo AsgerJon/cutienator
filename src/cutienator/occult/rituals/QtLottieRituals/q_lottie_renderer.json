@@ -1,0 +1,106 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN15QLottieRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN15QLottieRenderer9saveStateEv": ["nothing", "address"],
+    "ritual_ZN15QLottieRenderer12restoreStateEv": ["nothing", "address"],
+    "ritual_ZN15QLottieRenderer16setTrimmingStateENS_13TrimmingStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QLottieRenderer13trimmingStateEv": ["int", "address"],
+    "ritual_ZN15QLottieRenderer6renderERK21QLottiePrecomposition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK12QLottieLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK17QLottieSolidLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK16QLottieTextLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK12QLottieGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK11QLottieRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK14QLottieEllipse": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK15QLottiePolyStar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK12QLottieRound": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK11QLottieFill": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK12QLottieGFill": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK12QLottieImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK13QLottieStroke": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK21QLottieBasicTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK21QLottieShapeTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK20QLottieFreeFormShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK15QLottieTrimPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK17QLottieFillEffect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6renderERK15QLottieRepeater": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer18renderPathElementsERK5QListIP11QLottieBaseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6finishERK12QLottieLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer6finishERK12QLottieGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRenderer17saveTrimmingStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QLottieRenderer20restoreTrimmingStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QLottieRenderer14applyTransformEP10QTransformRK21QLottieBasicTransformb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_take_QLottieRenderer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QLottieRenderer16setTrimmingStateENS_13TrimmingStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK15QLottieRenderer13trimmingStateEv": ["int", "address"],
+    "ritual_own_ZN15QLottieRenderer6renderERK16QLottieTextLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QLottieRenderer6renderERK12QLottieGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QLottieRenderer6finishERK12QLottieLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QLottieRenderer6finishERK12QLottieGroup": [
+      "nothing", "address", "address"
+    ]
+  }
+}

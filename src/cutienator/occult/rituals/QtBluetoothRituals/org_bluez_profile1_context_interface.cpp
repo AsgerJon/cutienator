@@ -9,7 +9,13 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/profile1context_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDBus/qdbusunixfiledescriptor.h>
+#include <QtDBus/qdbusextratypes.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A OrgBluezProfile1ContextInterface that Python can take functions over in. Every OrgBluezProfile1ContextInterface
@@ -184,6 +190,139 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK32OrgBluezProfile1ContextInterface10metaObjectEv(
     const OrgBluezProfile1ContextInterface *self) {
   return self->metaObject();
+}
+
+//  void *OrgBluezProfile1ContextInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32OrgBluezProfile1ContextInterface11qt_metacastEPKc(
+    OrgBluezProfile1ContextInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int OrgBluezProfile1ContextInterface::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32OrgBluezProfile1ContextInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    OrgBluezProfile1ContextInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void OrgBluezProfile1ContextInterface::newConnection(const
+//      QDBusUnixFileDescriptor &fd)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32OrgBluezProfile1ContextInterface13newConnectionERK23QDBusUnixFileDescriptor(
+    OrgBluezProfile1ContextInterface *self,
+    const QDBusUnixFileDescriptor *fd) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "OrgBluezProfile1ContextInterface")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "newConnection(const QDBusUnixFileDescriptor &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "newConnection(const QDBusUnixFileDescriptor &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(fd)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void OrgBluezProfile1ContextInterface::NewConnection(const
+//      QDBusObjectPath &a0, const QDBusUnixFileDescriptor &a1, const
+//      QVariantMap &a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32OrgBluezProfile1ContextInterface13NewConnectionERK15QDBusObjectPathRK23QDBusUnixFileDescriptorRK4QMapI7QString8QVariantE(
+    OrgBluezProfile1ContextInterface *self,
+    const QDBusObjectPath *a0,
+    const QDBusUnixFileDescriptor *a1,
+    const QMap<QString, QVariant> *a2) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "OrgBluezProfile1ContextInterface")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "NewConnection(const QDBusObjectPath &,const QDBusUnixFileDescriptor &,const QVariantMap &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "NewConnection(const QDBusObjectPath &,const QDBusUnixFileDescriptor &,const QVariantMap &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(a0)),
+      const_cast<void *>(static_cast<const void *>(a1)),
+      const_cast<void *>(static_cast<const void *>(a2)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void OrgBluezProfile1ContextInterface::RequestDisconnection(const
+//      QDBusObjectPath &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32OrgBluezProfile1ContextInterface20RequestDisconnectionERK15QDBusObjectPath(
+    OrgBluezProfile1ContextInterface *self,
+    const QDBusObjectPath *a0) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "OrgBluezProfile1ContextInterface")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "RequestDisconnection(const QDBusObjectPath &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "RequestDisconnection(const QDBusObjectPath &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(a0)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void OrgBluezProfile1ContextInterface::Release()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32OrgBluezProfile1ContextInterface7ReleaseEv(
+    OrgBluezProfile1ContextInterface *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "OrgBluezProfile1ContextInterface")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "Release()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "Release()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  OrgBluezProfile1ContextInterface as the QDBusContext it is built on

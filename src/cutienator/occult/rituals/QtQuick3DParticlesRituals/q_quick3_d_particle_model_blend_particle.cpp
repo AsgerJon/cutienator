@@ -379,6 +379,25 @@ const QMetaObject *ritual_ZNK34QQuick3DParticleModelBlendParticle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleModelBlendParticle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN34QQuick3DParticleModelBlendParticle11qt_metacastEPKc(
+    QQuick3DParticleModelBlendParticle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleModelBlendParticle::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN34QQuick3DParticleModelBlendParticle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleModelBlendParticle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleModelBlendParticle::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -497,6 +516,55 @@ void ritual_ZN34QQuick3DParticleModelBlendParticle11setEmitModeENS_18ModelBlendE
     QQuick3DParticleModelBlendParticle *self,
     QQuick3DParticleModelBlendParticle::ModelBlendEmitMode emitMode) {
   self->setEmitMode(emitMode);
+}
+
+//  void QQuick3DParticleModelBlendParticle::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QQuick3DParticleModelBlendParticle15delegateChangedEv(
+    QQuick3DParticleModelBlendParticle *self) {
+  self->delegateChanged();
+}
+
+//  void QQuick3DParticleModelBlendParticle::blendFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QQuick3DParticleModelBlendParticle18blendFactorChangedEv(
+    QQuick3DParticleModelBlendParticle *self) {
+  self->blendFactorChanged();
+}
+
+//  void QQuick3DParticleModelBlendParticle::endNodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QQuick3DParticleModelBlendParticle14endNodeChangedEv(
+    QQuick3DParticleModelBlendParticle *self) {
+  self->endNodeChanged();
+}
+
+//  void QQuick3DParticleModelBlendParticle::modelBlendModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QQuick3DParticleModelBlendParticle21modelBlendModeChangedEv(
+    QQuick3DParticleModelBlendParticle *self) {
+  self->modelBlendModeChanged();
+}
+
+//  void QQuick3DParticleModelBlendParticle::endTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QQuick3DParticleModelBlendParticle14endTimeChangedEv(
+    QQuick3DParticleModelBlendParticle *self) {
+  self->endTimeChanged();
+}
+
+//  void QQuick3DParticleModelBlendParticle::activationNodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QQuick3DParticleModelBlendParticle21activationNodeChangedEv(
+    QQuick3DParticleModelBlendParticle *self) {
+  self->activationNodeChanged();
+}
+
+//  void QQuick3DParticleModelBlendParticle::emitModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QQuick3DParticleModelBlendParticle15emitModeChangedEv(
+    QQuick3DParticleModelBlendParticle *self) {
+  self->emitModeChanged();
 }
 
 //  void QQuick3DParticleModelBlendParticle::itemChange(ItemChange a0, const
@@ -648,6 +716,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN34QQuick3DParticleModelBlendParticle20handleEndNodeChangedEv(
     QQuick3DParticleModelBlendParticle *self) {
   self->handleEndNodeChanged();
+}
+
+//  PerEmitterData &QQuick3DParticleModelBlendParticle::perEmitterData(int
+//      emitterIndex)
+extern "C" Q_DECL_EXPORT
+QQuick3DParticleModelBlendParticle::PerEmitterData *ritual_ZN34QQuick3DParticleModelBlendParticle14perEmitterDataEi(
+    QQuick3DParticleModelBlendParticle *self,
+    int emitterIndex) {
+  return &(self->perEmitterData(emitterIndex));
 }
 
 //  a Python function taken by a CuteQQuick3DParticleModelBlendParticle, for

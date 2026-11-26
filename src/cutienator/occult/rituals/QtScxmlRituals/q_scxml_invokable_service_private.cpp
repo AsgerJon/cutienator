@@ -8,6 +8,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtScxml/qscxmlexecutablecontent.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtScxml/private/qscxmlglobals_p.h>
 #include <QtScxml/private/qscxmlinvokableservice_p.h>
@@ -55,6 +59,67 @@ inline QString QScxmlInvokableServicePrivate::calculateId(
 
     return newId;
 }
+
+//  from ../qtscxml/src/scxml/qscxmlinvokableservice.cpp, line 225, as _ZNK29QScxmlInvokableServicePrivate13calculateDataEP18QScxmlStateMachineRK5QListIN23QScxmlExecutableContent13ParameterInfoEERKS2_IiEPb
+inline QVariantMap QScxmlInvokableServicePrivate::calculateData(
+        QScxmlStateMachine *parent,
+        const QList<QScxmlExecutableContent::ParameterInfo> &parameters,
+        const QList<QScxmlExecutableContent::StringId> &names,
+        bool *ok) const
+{
+    Q_ASSERT(ok);
+
+    QVariantMap result;
+    auto dataModel = parent->dataModel();
+    auto tableData = parent->tableData();
+
+    for (const QScxmlExecutableContent::ParameterInfo &param : parameters) {
+        auto name = tableData->string(param.name);
+
+        if (param.expr != QScxmlExecutableContent::NoEvaluator) {
+            *ok = false;
+            auto v = dataModel->evaluateToVariant(param.expr, ok);
+            if (!*ok)
+                return QVariantMap();
+            result.insert(name, v);
+        } else {
+            QString loc;
+            if (param.location != QScxmlExecutableContent::NoString) {
+                loc = tableData->string(param.location);
+            }
+
+            if (loc.isEmpty()) {
+                // TODO: error message?
+                *ok = false;
+                return QVariantMap();
+            }
+
+            auto v = dataModel->scxmlProperty(loc);
+            result.insert(name, v);
+        }
+    }
+
+    for (QScxmlExecutableContent::StringId locid : names) {
+        QString loc;
+        if (locid != QScxmlExecutableContent::NoString) {
+            loc = tableData->string(locid);
+        }
+        if (loc.isEmpty()) {
+            // TODO: error message?
+            *ok = false;
+            return QVariantMap();
+        }
+        if (dataModel->hasScxmlProperty(loc)) {
+            auto v = dataModel->scxmlProperty(loc);
+            result.insert(loc, v);
+        } else {
+            *ok = false;
+            return QVariantMap();
+        }
+    }
+
+    return result;
+}
 //  -----------------------------------------------------------------------
 
 //  QScxmlInvokableServicePrivate::QScxmlInvokableServicePrivate(QScxmlStateM
@@ -75,4 +140,24 @@ QString *ritual_ZNK29QScxmlInvokableServicePrivate11calculateIdEP18QScxmlStateMa
     const QScxmlExecutableContent::InvokeInfo *invokeInfo,
     bool *ok) {
   return new QString(self->calculateId(parent, *invokeInfo, ok));
+}
+
+//  QVariantMap
+//      QScxmlInvokableServicePrivate::calculateData(QScxmlStateMachine
+//      *parent, const QList<QScxmlExecutableContent::ParameterInfo>
+//      &parameters, const QList<QScxmlExecutableContent::StringId> &names,
+//      bool *ok) const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVariant> *ritual_ZNK29QScxmlInvokableServicePrivate13calculateDataEP18QScxmlStateMachineRK5QListIN23QScxmlExecutableContent13ParameterInfoEERKS2_IiEPb(
+    const QScxmlInvokableServicePrivate *self,
+    QScxmlStateMachine *parent,
+    const QList<QScxmlExecutableContent::ParameterInfo> *parameters,
+    const QList<QScxmlExecutableContent::StringId> *names,
+    bool *ok) {
+  return new QMap<QString, QVariant>(
+      self->calculateData(
+          parent,
+          *parameters,
+          *names,
+          ok));
 }

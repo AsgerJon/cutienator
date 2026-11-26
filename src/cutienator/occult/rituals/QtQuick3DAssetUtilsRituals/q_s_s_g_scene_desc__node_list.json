@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QSSGSceneDesc8NodeListC1EPKPvx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN13QSSGSceneDesc8NodeListD1Ev": ["nothing", "address"]
   }
 }

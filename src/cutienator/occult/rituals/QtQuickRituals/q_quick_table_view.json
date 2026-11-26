@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickTableView10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickTableView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickTableView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickTableView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -222,6 +228,81 @@
     "ritual_ZN15QQuickTableView21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
     ],
+    "ritual_ZN15QQuickTableView11rowsChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView14columnsChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView17rowSpacingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView20columnSpacingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView24rowHeightProviderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView26columnWidthProviderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView12modelChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView15delegateChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView17reuseItemsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView15syncViewChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView20syncDirectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView17leftColumnChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView18rightColumnChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView13topRowChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView16bottomRowChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView21selectionModelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView14animateChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView27keyNavigationEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView31pointerNavigationEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView17currentRowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView20currentColumnChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView22alternatingRowsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView24selectionBehaviorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView23resizableColumnsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView20resizableRowsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView19editTriggersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView13layoutChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView20selectionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView8rowMovedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN15QQuickTableView11columnMovedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN15QQuickTableView26delegateModelAccessChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN15QQuickTableView14geometryChangeERK6QRectFS2_": [
       "nothing", "address", "address", "address"
     ],
@@ -233,6 +314,9 @@
     ],
     "ritual_ZN15QQuickTableView11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickTableViewC1ER22QQuickTableViewPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QQuickTableView18componentFinalizedEv": [
       "nothing", "address"

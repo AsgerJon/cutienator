@@ -11,6 +11,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <optional>
+#include <QtGui/QFont>
+#include <QtCore/QString>
 
 //  Only a class built on QFontComboBox may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1060,6 +1063,24 @@ const QMetaObject *ritual_ZNK13QFontComboBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFontComboBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QFontComboBox11qt_metacastEPKc(
+    QFontComboBox *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFontComboBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QFontComboBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFontComboBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFontComboBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QFontComboBox2trEPKcS1_i(
@@ -1169,6 +1190,15 @@ void ritual_ZN13QFontComboBox14setDisplayFontERK7QStringRK5QFont(
   self->setDisplayFont(*fontFamily, *font);
 }
 
+//  std::optional<QFont> QFontComboBox::displayFont(const QString
+//      &fontFamily) const
+extern "C" Q_DECL_EXPORT
+std::optional<QFont> *ritual_ZNK13QFontComboBox11displayFontERK7QString(
+    const QFontComboBox *self,
+    const QString *fontFamily) {
+  return new std::optional<QFont>(self->displayFont(*fontFamily));
+}
+
 //  void QFontComboBox::setCurrentFont(const QFont &f)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QFontComboBox14setCurrentFontERK5QFont(
@@ -1177,12 +1207,34 @@ void ritual_ZN13QFontComboBox14setCurrentFontERK5QFont(
   self->setCurrentFont(*f);
 }
 
+//  void QFontComboBox::currentFontChanged(const QFont &f)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QFontComboBox18currentFontChangedERK5QFont(
+    QFontComboBox *self,
+    const QFont *f) {
+  self->currentFontChanged(*f);
+}
+
 //  bool QFontComboBox::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN13QFontComboBox5eventEP6QEvent(
     QFontComboBox *self,
     QEvent *e) {
   return self->event(e);
+}
+
+//  QFontComboBoxPrivate *QFontComboBox::d_func()
+extern "C" Q_DECL_EXPORT
+QFontComboBoxPrivate *ritual_ZN13QFontComboBox6d_funcEv(
+    QFontComboBox *self) {
+  return self->d_func();
+}
+
+//  const QFontComboBoxPrivate *QFontComboBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFontComboBoxPrivate *ritual_ZNK13QFontComboBox6d_funcEv(
+    const QFontComboBox *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQFontComboBox, for the function named by
@@ -1207,6 +1259,13 @@ bool ritual_own_ZN13QFontComboBox5eventEP6QEvent(
     QFontComboBox *self,
     QEvent *e) {
   return static_cast<OwnQFontComboBox *>(self)->OwnQFontComboBox::event(e);
+}
+
+//  a std::optional<QFont> a ritual of QFontComboBox gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFontComboBox__std_optional_QFont(
+    std::optional<QFont> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(fontcombobox)

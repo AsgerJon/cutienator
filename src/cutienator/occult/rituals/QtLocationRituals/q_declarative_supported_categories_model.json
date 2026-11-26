@@ -8,6 +8,12 @@
     "ritual_ZNK36QDeclarativeSupportedCategoriesModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN36QDeclarativeSupportedCategoriesModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -62,6 +68,18 @@
     "ritual_ZN36QDeclarativeSupportedCategoriesModel9setStatusENS_6StatusERK7QString": [
       "nothing", "address", "int", "text"
     ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel13pluginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel19hierarchicalChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel13statusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel11dataChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN36QDeclarativeSupportedCategoriesModel6updateEv": [
       "nothing", "address"
     ],
@@ -85,6 +103,9 @@
     ],
     "ritual_ZNK36QDeclarativeSupportedCategoriesModel5indexERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel13rowToAddChildEPNS_17PlaceCategoryNodeERK14QPlaceCategory": [
+      "int", "address", "address", "address"
     ],
     "ritual_ZN36QDeclarativeSupportedCategoriesModel12updateLayoutEv": [
       "nothing", "address"

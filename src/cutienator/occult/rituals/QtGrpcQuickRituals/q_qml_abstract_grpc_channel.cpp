@@ -6,6 +6,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <memory>
+#include <QtGrpc/QAbstractGrpcChannel>
 
 //  A QQmlAbstractGrpcChannel that Python can take functions over in. Every QQmlAbstractGrpcChannel
 //  Python makes is one. Each function below asks the Python
@@ -181,6 +183,25 @@ const QMetaObject *ritual_ZNK23QQmlAbstractGrpcChannel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlAbstractGrpcChannel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQmlAbstractGrpcChannel11qt_metacastEPKc(
+    QQmlAbstractGrpcChannel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlAbstractGrpcChannel::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQmlAbstractGrpcChannel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlAbstractGrpcChannel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlAbstractGrpcChannel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQmlAbstractGrpcChannel2trEPKcS1_i(
@@ -194,6 +215,14 @@ QString *ritual_ZN23QQmlAbstractGrpcChannel2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQmlAbstractGrpcChannelD1Ev(QQmlAbstractGrpcChannel *self) {
   delete self;
+}
+
+//  std::shared_ptr<QAbstractGrpcChannel> QQmlAbstractGrpcChannel::channel()
+//      const
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QAbstractGrpcChannel> *ritual_ZNK23QQmlAbstractGrpcChannel7channelEv(
+    const QQmlAbstractGrpcChannel *self) {
+  return new std::shared_ptr<QAbstractGrpcChannel>(self->channel());
 }
 
 //  QQmlAbstractGrpcChannelPrivate *QQmlAbstractGrpcChannel::d_func()
@@ -219,4 +248,12 @@ bool ritual_take_QQmlAbstractGrpcChannel(
     const char *key,
     void *call) {
   return static_cast<CuteQQmlAbstractGrpcChannel *>(self)->take(key, call);
+}
+
+//  a std::shared_ptr<QAbstractGrpcChannel> a ritual of
+//      QQmlAbstractGrpcChannel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlAbstractGrpcChannel__std_shared_ptr_QAbstractGrpcChannel(
+    std::shared_ptr<QAbstractGrpcChannel> *self) {
+  delete self;
 }

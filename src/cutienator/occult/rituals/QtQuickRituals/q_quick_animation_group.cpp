@@ -11,6 +11,7 @@
 #include <QtQml/qqmlproperty.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuickAnimationGroup that Python can take functions over in. Every QQuickAnimationGroup
 //  Python makes is one. Each function below asks the Python
@@ -250,6 +251,25 @@ const QMetaObject *ritual_ZNK20QQuickAnimationGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnimationGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickAnimationGroup11qt_metacastEPKc(
+    QQuickAnimationGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnimationGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickAnimationGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnimationGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnimationGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickAnimationGroup2trEPKcS1_i(
@@ -286,6 +306,23 @@ void ritual_ZN20QQuickAnimationGroupD1Ev(QQuickAnimationGroup *self) {
   delete self;
 }
 
+//  QQmlListProperty<QQuickAbstractAnimation>
+//      QQuickAnimationGroup::animations()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickAbstractAnimation> *ritual_ZN20QQuickAnimationGroup10animationsEv(
+    QQuickAnimationGroup *self) {
+  return new QQmlListProperty<QQuickAbstractAnimation>(self->animations());
+}
+
+//  QQuickAnimationGroup::QQuickAnimationGroup(QQuickAnimationGroupPrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickAnimationGroup *ritual_ZN20QQuickAnimationGroupC1ER27QQuickAnimationGroupPrivateP7QObject(
+    QQuickAnimationGroupPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickAnimationGroup(*dd, parent);
+}
+
 //  a Python function taken by a CuteQQuickAnimationGroup, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -294,4 +331,12 @@ bool ritual_take_QQuickAnimationGroup(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickAnimationGroup *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QQuickAbstractAnimation> a ritual of
+//      QQuickAnimationGroup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickAnimationGroup__QQmlListProperty_QQuickAbstractAnimation(
+    QQmlListProperty<QQuickAbstractAnimation> *self) {
+  delete self;
 }

@@ -5,6 +5,9 @@
     "xt_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN35QSSGRhiGraphicsPipelineStatePrivate17setShaderPipelineER28QSSGRhiGraphicsPipelineStatePK21QSSGRhiShaderPipeline": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN35QSSGRhiGraphicsPipelineStatePrivate17getShaderPipelineERK28QSSGRhiGraphicsPipelineState": [
       "address", "address"
     ],

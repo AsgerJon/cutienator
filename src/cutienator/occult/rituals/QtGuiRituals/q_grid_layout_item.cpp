@@ -161,6 +161,23 @@ public:
   }
 };
 
+//  QGridLayoutItem::QGridLayoutItem(int row, int column, int rowSpan, int
+//      columnSpan, Qt::Alignment alignment)
+extern "C" Q_DECL_EXPORT
+QGridLayoutItem *ritual_ZN15QGridLayoutItemC1Eiiii6QFlagsIN2Qt13AlignmentFlagEE(
+    int row,
+    int column,
+    int rowSpan,
+    int columnSpan,
+    int alignment) {
+  return new CuteQGridLayoutItem(
+      row,
+      column,
+      rowSpan,
+      columnSpan,
+      QFlags<Qt::AlignmentFlag>::fromInt(alignment));
+}
+
 //  QGridLayoutItem::~QGridLayoutItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGridLayoutItemD1Ev(QGridLayoutItem *self) {

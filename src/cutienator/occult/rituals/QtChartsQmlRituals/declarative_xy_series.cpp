@@ -38,6 +38,12 @@ public:
   }
 };
 
+//  DeclarativeXySeries::DeclarativeXySeries()
+extern "C" Q_DECL_EXPORT
+DeclarativeXySeries *ritual_ZN19DeclarativeXySeriesC1Ev() {
+  return new CuteDeclarativeXySeries();
+}
+
 //  DeclarativeXySeries::~DeclarativeXySeries()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19DeclarativeXySeriesD1Ev(DeclarativeXySeries *self) {

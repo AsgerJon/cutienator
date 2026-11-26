@@ -8,6 +8,20 @@
     "ritual_ZN30QBackingStoreDefaultCompositorD1Ev": ["nothing", "address"],
     "ritual_ZN30QBackingStoreDefaultCompositor5resetEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK30QBackingStoreDefaultCompositor9toTextureEPK21QPlatformBackingStoreP4QRhiP23QRhiResourceUpdateBatchRK7QRegionP6QFlagsINS0_11TextureFlagEE": [
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZNK30QBackingStoreDefaultCompositor9toTextureERK6QImageP4QRhiP23QRhiResourceUpdateBatchRK7QRegionP6QFlagsIN21QPlatformBackingStore11TextureFlagEE": [
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN30QBackingStoreDefaultCompositor14updateUniformsEPNS_11PerQuadDataEP23QRhiResourceUpdateBatchRK10QMatrix4x4RK14QGenericMatrixILi3ELi3EfE6QFlagsINS_19UpdateUniformOptionEE": [
+      "nothing", "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_drop_QBackingStoreDefaultCompositor__QBackingStoreDefaultCompositor_PerQuadData": [
+      "nothing", "address"
     ]
   }
 }

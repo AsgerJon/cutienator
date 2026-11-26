@@ -6,6 +6,18 @@
   ],
   "rows": {
     "ritual_ZNK13QSpiDBusCache10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QSpiDBusCache11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QSpiDBusCache11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN13QSpiDBusCache13AddAccessibleERK23QSpiAccessibleCacheItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSpiDBusCache16RemoveAccessibleERK19QSpiObjectReference": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13QSpiDBusCache8GetItemsEv": ["address", "address"],
     "ritual_take_QSpiDBusCache": ["bool", "address", "chars", "address"]
   }

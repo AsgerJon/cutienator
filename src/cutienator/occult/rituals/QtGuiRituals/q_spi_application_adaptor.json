@@ -8,9 +8,21 @@
     "ritual_ZNK22QSpiApplicationAdaptor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QSpiApplicationAdaptor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QSpiApplicationAdaptor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QSpiApplicationAdaptorD1Ev": ["nothing", "address"],
     "ritual_ZN22QSpiApplicationAdaptor10sendEventsEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QSpiApplicationAdaptor15windowActivatedEP7QObjectb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN22QSpiApplicationAdaptor11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZN22QSpiApplicationAdaptor30notifyKeyboardListenerCallbackERK12QDBusMessage": [
       "nothing", "address", "address"

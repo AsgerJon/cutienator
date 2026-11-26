@@ -12,9 +12,13 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlsortfilterproxymodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtCore/qbytearray.h>
 #include <QtCore/qcompare.h>
 #include <QtCore/qsize.h>
@@ -23,6 +27,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/Qt>
 
 //  Only a class built on QQmlSortFilterProxyModel may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1310,6 +1316,25 @@ const QMetaObject *ritual_ZNK24QQmlSortFilterProxyModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlSortFilterProxyModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQmlSortFilterProxyModel11qt_metacastEPKc(
+    QQmlSortFilterProxyModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlSortFilterProxyModel::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQmlSortFilterProxyModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlSortFilterProxyModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlSortFilterProxyModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQmlSortFilterProxyModel2trEPKcS1_i(
@@ -1331,6 +1356,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlSortFilterProxyModelD1Ev(
     QQmlSortFilterProxyModel *self) {
   delete self;
+}
+
+//  QQmlListProperty<QQmlFilterBase> QQmlSortFilterProxyModel::filters()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQmlFilterBase> *ritual_ZN24QQmlSortFilterProxyModel7filtersEv(
+    QQmlSortFilterProxyModel *self) {
+  return new QQmlListProperty<QQmlFilterBase>(self->filters());
+}
+
+//  QQmlListProperty<QQmlSorterBase> QQmlSortFilterProxyModel::sorters()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQmlSorterBase> *ritual_ZN24QQmlSortFilterProxyModel7sortersEv(
+    QQmlSortFilterProxyModel *self) {
+  return new QQmlListProperty<QQmlSorterBase>(self->sorters());
 }
 
 #if QT_DEPRECATED_SINCE(6, 12)
@@ -1617,6 +1656,15 @@ void ritual_ZN24QQmlSortFilterProxyModel20setPrimarySortColumnEi(
   self->setPrimarySortColumn(column);
 }
 
+//  void QQmlSortFilterProxyModel::setPrimarySortOrder(const Qt::SortOrder
+//      sortOrder)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlSortFilterProxyModel19setPrimarySortOrderEN2Qt9SortOrderE(
+    QQmlSortFilterProxyModel *self,
+    const Qt::SortOrder *sortOrder) {
+  self->setPrimarySortOrder(*sortOrder);
+}
+
 //  QVariant QQmlSortFilterProxyModel::sourceData(const QModelIndex
 //      &sourceIndex, int role) const
 extern "C" Q_DECL_EXPORT
@@ -1711,6 +1759,55 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlSortFilterProxyModel16invalidateFilterEv(
     QQmlSortFilterProxyModel *self) {
   self->invalidateFilter();
+}
+
+//  void QQmlSortFilterProxyModel::dynamicSortFilterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlSortFilterProxyModel24dynamicSortFilterChangedEv(
+    QQmlSortFilterProxyModel *self) {
+  self->dynamicSortFilterChanged();
+}
+
+//  void QQmlSortFilterProxyModel::recursiveFilteringChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlSortFilterProxyModel25recursiveFilteringChangedEv(
+    QQmlSortFilterProxyModel *self) {
+  self->recursiveFilteringChanged();
+}
+
+//  void QQmlSortFilterProxyModel::autoAcceptChildRowsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlSortFilterProxyModel26autoAcceptChildRowsChangedEv(
+    QQmlSortFilterProxyModel *self) {
+  self->autoAcceptChildRowsChanged();
+}
+
+//  void QQmlSortFilterProxyModel::filtersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlSortFilterProxyModel14filtersChangedEv(
+    QQmlSortFilterProxyModel *self) {
+  self->filtersChanged();
+}
+
+//  void QQmlSortFilterProxyModel::sortersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlSortFilterProxyModel14sortersChangedEv(
+    QQmlSortFilterProxyModel *self) {
+  self->sortersChanged();
+}
+
+//  void QQmlSortFilterProxyModel::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlSortFilterProxyModel12modelChangedEv(
+    QQmlSortFilterProxyModel *self) {
+  self->modelChanged();
+}
+
+//  void QQmlSortFilterProxyModel::primarySorterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlSortFilterProxyModel20primarySorterChangedEv(
+    QQmlSortFilterProxyModel *self) {
+  self->primarySorterChanged();
 }
 
 //  QQmlSortFilterProxyModelPrivate *QQmlSortFilterProxyModel::d_func()
@@ -1988,6 +2085,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN24QQmlSortFilterProxyModel17componentCompleteEv(
     QQmlSortFilterProxyModel *self) {
   self->QQmlSortFilterProxyModel::componentComplete();
+}
+
+//  a QQmlListProperty<QQmlFilterBase> a ritual of QQmlSortFilterProxyModel
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlSortFilterProxyModel__QQmlListProperty_QQmlFilterBase(
+    QQmlListProperty<QQmlFilterBase> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQmlSorterBase> a ritual of QQmlSortFilterProxyModel
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlSortFilterProxyModel__QQmlListProperty_QQmlSorterBase(
+    QQmlListProperty<QQmlSorterBase> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_sfpm_model)

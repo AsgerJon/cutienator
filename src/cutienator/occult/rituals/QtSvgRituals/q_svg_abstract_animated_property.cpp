@@ -11,6 +11,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QSvgAbstractAnimatedProperty that Python can take functions over in. Every QSvgAbstractAnimatedProperty
 //  Python makes is one. Each function below asks the Python
@@ -41,11 +42,29 @@ public:
   }
 };
 
+//  QSvgAbstractAnimatedProperty::QSvgAbstractAnimatedProperty(const QString
+//      &name, Type type)
+extern "C" Q_DECL_EXPORT
+QSvgAbstractAnimatedProperty *ritual_ZN28QSvgAbstractAnimatedPropertyC1ERK7QStringNS_4TypeE(
+    const QString *name,
+    QSvgAbstractAnimatedProperty::Type type) {
+  return new CuteQSvgAbstractAnimatedProperty(*name, type);
+}
+
 //  QSvgAbstractAnimatedProperty::~QSvgAbstractAnimatedProperty()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QSvgAbstractAnimatedPropertyD1Ev(
     QSvgAbstractAnimatedProperty *self) {
   delete self;
+}
+
+//  void QSvgAbstractAnimatedProperty::setKeyFrames(const QList<qreal>
+//      &keyFrames)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QSvgAbstractAnimatedProperty12setKeyFramesERK5QListIdE(
+    QSvgAbstractAnimatedProperty *self,
+    const QList<qreal> *keyFrames) {
+  self->setKeyFrames(*keyFrames);
 }
 
 //  void QSvgAbstractAnimatedProperty::appendKeyFrame(qreal keyFrame)
@@ -54,6 +73,13 @@ void ritual_ZN28QSvgAbstractAnimatedProperty14appendKeyFrameEd(
     QSvgAbstractAnimatedProperty *self,
     qreal keyFrame) {
   self->appendKeyFrame(keyFrame);
+}
+
+//  QList<qreal> QSvgAbstractAnimatedProperty::keyFrames() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK28QSvgAbstractAnimatedProperty9keyFramesEv(
+    const QSvgAbstractAnimatedProperty *self) {
+  return new QList<qreal>(self->keyFrames());
 }
 
 //  const QSvgEasingInterface
@@ -157,5 +183,12 @@ QSvgAbstractAnimatedProperty *ritual_list_at_QSvgAbstractAnimatedProperty_ptr(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QSvgAbstractAnimatedProperty_ptr(
     QList<QSvgAbstractAnimatedProperty *> *self) {
+  delete self;
+}
+
+//  a QList<qreal> a ritual of QSvgAbstractAnimatedProperty gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSvgAbstractAnimatedProperty__QList_qreal(
+    QList<qreal> *self) {
   delete self;
 }

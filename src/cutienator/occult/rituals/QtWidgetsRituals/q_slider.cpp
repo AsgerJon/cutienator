@@ -954,6 +954,22 @@ const QMetaObject *ritual_ZNK7QSlider10metaObjectEv(const QSlider *self) {
   return self->metaObject();
 }
 
+//  void *QSlider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QSlider11qt_metacastEPKc(QSlider *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSlider::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QSlider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSlider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSlider::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QSlider2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1063,6 +1079,18 @@ void ritual_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider(
     const QSlider *self,
     QStyleOptionSlider *option) {
   self->initStyleOption(option);
+}
+
+//  QSliderPrivate *QSlider::d_func()
+extern "C" Q_DECL_EXPORT
+QSliderPrivate *ritual_ZN7QSlider6d_funcEv(QSlider *self) {
+  return self->d_func();
+}
+
+//  const QSliderPrivate *QSlider::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSliderPrivate *ritual_ZNK7QSlider6d_funcEv(const QSlider *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQSlider, for the function named by the

@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender26QStencilOperationArguments10metaObjec
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QStencilOperationArguments::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender26QStencilOperationArguments11qt_metacastEPKc(
+    Qt3DRender::QStencilOperationArguments *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QStencilOperationArguments::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender26QStencilOperationArguments11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QStencilOperationArguments *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QStencilOperationArguments::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +208,118 @@ QString *ritual_ZN10Qt3DRender26QStencilOperationArguments2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QStencilOperationArguments::tr(s, c, n));
+}
+
+//  Qt3DRender::QStencilOperationArguments::~QStencilOperationArguments()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender26QStencilOperationArgumentsD1Ev(
+    Qt3DRender::QStencilOperationArguments *self) {
+  delete self;
+}
+
+//  FaceMode Qt3DRender::QStencilOperationArguments::faceMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilOperationArguments::FaceMode ritual_ZNK10Qt3DRender26QStencilOperationArguments8faceModeEv(
+    const Qt3DRender::QStencilOperationArguments *self) {
+  return self->faceMode();
+}
+
+//  Operation
+//      Qt3DRender::QStencilOperationArguments::stencilTestFailureOperation()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilOperationArguments::Operation ritual_ZNK10Qt3DRender26QStencilOperationArguments27stencilTestFailureOperationEv(
+    const Qt3DRender::QStencilOperationArguments *self) {
+  return self->stencilTestFailureOperation();
+}
+
+//  Operation
+//      Qt3DRender::QStencilOperationArguments::depthTestFailureOperation()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilOperationArguments::Operation ritual_ZNK10Qt3DRender26QStencilOperationArguments25depthTestFailureOperationEv(
+    const Qt3DRender::QStencilOperationArguments *self) {
+  return self->depthTestFailureOperation();
+}
+
+//  Operation Qt3DRender::QStencilOperationArguments::allTestsPassOperation()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilOperationArguments::Operation ritual_ZNK10Qt3DRender26QStencilOperationArguments21allTestsPassOperationEv(
+    const Qt3DRender::QStencilOperationArguments *self) {
+  return self->allTestsPassOperation();
+}
+
+//  void Qt3DRender::QStencilOperationArguments::setStencilTestFailureOperati
+//      on(Operation operation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender26QStencilOperationArguments30setStencilTestFailureOperationENS0_9OperationE(
+    Qt3DRender::QStencilOperationArguments *self,
+    Qt3DRender::QStencilOperationArguments::Operation operation) {
+  self->setStencilTestFailureOperation(operation);
+}
+
+//  void Qt3DRender::QStencilOperationArguments::setDepthTestFailureOperation
+//      (Operation operation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender26QStencilOperationArguments28setDepthTestFailureOperationENS0_9OperationE(
+    Qt3DRender::QStencilOperationArguments *self,
+    Qt3DRender::QStencilOperationArguments::Operation operation) {
+  self->setDepthTestFailureOperation(operation);
+}
+
+//  void Qt3DRender::QStencilOperationArguments::setAllTestsPassOperation(Ope
+//      ration operation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender26QStencilOperationArguments24setAllTestsPassOperationENS0_9OperationE(
+    Qt3DRender::QStencilOperationArguments *self,
+    Qt3DRender::QStencilOperationArguments::Operation operation) {
+  self->setAllTestsPassOperation(operation);
+}
+
+//  void Qt3DRender::QStencilOperationArguments::stencilTestFailureOperationC
+//      hanged(Operation stencilFail)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender26QStencilOperationArguments34stencilTestFailureOperationChangedENS0_9OperationE(
+    Qt3DRender::QStencilOperationArguments *self,
+    Qt3DRender::QStencilOperationArguments::Operation stencilFail) {
+  self->stencilTestFailureOperationChanged(stencilFail);
+}
+
+//  void Qt3DRender::QStencilOperationArguments::depthTestFailureOperationCha
+//      nged(Operation depthFail)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender26QStencilOperationArguments32depthTestFailureOperationChangedENS0_9OperationE(
+    Qt3DRender::QStencilOperationArguments *self,
+    Qt3DRender::QStencilOperationArguments::Operation depthFail) {
+  self->depthTestFailureOperationChanged(depthFail);
+}
+
+//  void Qt3DRender::QStencilOperationArguments::allTestsPassOperationChanged
+//      (Operation stencilDepthPass)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender26QStencilOperationArguments28allTestsPassOperationChangedENS0_9OperationE(
+    Qt3DRender::QStencilOperationArguments *self,
+    Qt3DRender::QStencilOperationArguments::Operation stencilDepthPass) {
+  self->allTestsPassOperationChanged(stencilDepthPass);
+}
+
+//  void Qt3DRender::QStencilOperationArguments::faceModeChanged(FaceMode
+//      faceMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender26QStencilOperationArguments15faceModeChangedENS0_8FaceModeE(
+    Qt3DRender::QStencilOperationArguments *self,
+    Qt3DRender::QStencilOperationArguments::FaceMode faceMode) {
+  self->faceModeChanged(faceMode);
+}
+
+//  Qt3DRender::QStencilOperationArguments::QStencilOperationArguments(FaceMo
+//      de mode, QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilOperationArguments *ritual_ZN10Qt3DRender26QStencilOperationArgumentsC1ENS0_8FaceModeEP7QObject(
+    Qt3DRender::QStencilOperationArguments::FaceMode mode,
+    QObject *parent) {
+  return new CuteQt3DRender_QStencilOperationArguments(mode, parent);
 }
 
 //  QStencilOperationArgumentsPrivate

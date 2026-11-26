@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QIODevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QIODevice11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QIODevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QIODevice2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QIODeviceD1Ev": ["nothing", "address"],
     "ritual_ZNK9QIODevice8openModeEv": ["int", "address"],
@@ -37,11 +41,26 @@
     "ritual_ZN9QIODevice5resetEv": ["bool", "address"],
     "ritual_ZNK9QIODevice14bytesAvailableEv": ["long long", "address"],
     "ritual_ZNK9QIODevice12bytesToWriteEv": ["long long", "address"],
+    "ritual_ZN9QIODevice4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN9QIODevice4readEx": ["address", "address", "long long"],
     "ritual_ZN9QIODevice7readAllEv": ["address", "address"],
+    "ritual_ZN9QIODevice8readLineEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN9QIODevice8readLineEx": ["address", "address", "long long"],
     "ritual_ZN9QIODevice12readLineIntoEP10QByteArrayx": [
       "bool", "address", "address", "long long"
+    ],
+    "ritual_ZN9QIODevice12readLineIntoE5QSpanIcLm18446744073709551615EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QIODevice12readLineIntoE5QSpanIhLm18446744073709551615EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QIODevice12readLineIntoE5QSpanISt4byteLm18446744073709551615EE": [
+      "address", "address", "address"
     ],
     "ritual_ZNK9QIODevice11canReadLineEv": ["bool", "address"],
     "ritual_ZN9QIODevice16startTransactionEv": ["nothing", "address"],
@@ -55,13 +74,33 @@
     "ritual_ZN9QIODevice5writeERK10QByteArray": [
       "long long", "address", "address"
     ],
+    "ritual_ZN9QIODevice4peekEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN9QIODevice4peekEx": ["address", "address", "long long"],
     "ritual_ZN9QIODevice4skipEx": ["long long", "address", "long long"],
     "ritual_ZN9QIODevice16waitForReadyReadEi": ["bool", "address", "int"],
     "ritual_ZN9QIODevice19waitForBytesWrittenEi": ["bool", "address", "int"],
     "ritual_ZN9QIODevice9ungetCharEc": ["nothing", "address", "char"],
     "ritual_ZN9QIODevice7putCharEc": ["bool", "address", "char"],
+    "ritual_ZN9QIODevice7getCharEPc": ["bool", "address", "address"],
     "ritual_ZNK9QIODevice11errorStringEv": ["text", "address"],
+    "ritual_ZN9QIODevice9readyReadEv": ["nothing", "address"],
+    "ritual_ZN9QIODevice16channelReadyReadEi": ["nothing", "address", "int"],
+    "ritual_ZN9QIODevice12bytesWrittenEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN9QIODevice19channelBytesWrittenEix": [
+      "nothing", "address", "int", "long long"
+    ],
+    "ritual_ZN9QIODevice12aboutToCloseEv": ["nothing", "address"],
+    "ritual_ZN9QIODevice19readChannelFinishedEv": ["nothing", "address"],
+    "ritual_ZN9QIODevice8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN9QIODevice12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN9QIODevice8skipDataEx": ["long long", "address", "long long"],
     "ritual_ZN9QIODevice9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
@@ -94,6 +133,9 @@
     ],
     "ritual_own_ZN9QIODevice19waitForBytesWrittenEi": [
       "bool", "address", "int"
+    ],
+    "ritual_own_ZN9QIODevice12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_own_ZN9QIODevice8skipDataEx": [
       "long long", "address", "long long"

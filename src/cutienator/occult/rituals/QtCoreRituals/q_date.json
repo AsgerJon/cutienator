@@ -119,6 +119,12 @@
     "ritual_ZgtRK5QDateS1_": ["bool", "address", "address"],
     "ritual_ZleRK5QDateS1_": ["bool", "address", "address"],
     "ritual_ZgeRK5QDateS1_": ["bool", "address", "address"],
+    "ritual_ZppR5QDate": ["address", "address"],
+    "ritual_ZmmR5QDate": ["address", "address"],
+    "ritual_ZppR5QDatei": ["address", "address", "int"],
+    "ritual_ZmmR5QDatei": ["address", "address", "int"],
+    "ritual_ZlsR11QDataStream5QDate": ["address", "address", "address"],
+    "ritual_ZrsR11QDataStreamR5QDate": ["address", "address", "address"],
     "ritual_ZN5QDateD1Ev": ["nothing", "address"]
   }
 }

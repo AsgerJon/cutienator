@@ -8,6 +8,12 @@
     "ritual_ZNK25QSequentialAnimationGroup10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QSequentialAnimationGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QSequentialAnimationGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QSequentialAnimationGroup2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,7 +30,16 @@
     "ritual_ZNK25QSequentialAnimationGroup16currentAnimationEv": [
       "address", "address"
     ],
+    "ritual_ZNK25QSequentialAnimationGroup24bindableCurrentAnimationEv": [
+      "address", "address"
+    ],
     "ritual_ZNK25QSequentialAnimationGroup8durationEv": ["int", "address"],
+    "ritual_ZN25QSequentialAnimationGroup23currentAnimationChangedEP18QAbstractAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSequentialAnimationGroupC1ER32QSequentialAnimationGroupPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN25QSequentialAnimationGroup5eventEP6QEvent": [
       "bool", "address", "address"
     ],
@@ -56,6 +71,9 @@
     ],
     "ritual_own_ZN25QSequentialAnimationGroup15updateDirectionEN18QAbstractAnimation9DirectionE": [
       "nothing", "address", "int"
+    ],
+    "ritual_drop_QSequentialAnimationGroup__QBindable_QAbstractAnimation": [
+      "nothing", "address"
     ]
   }
 }

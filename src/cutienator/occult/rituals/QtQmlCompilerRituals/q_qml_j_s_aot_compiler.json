@@ -15,9 +15,21 @@
     "ritual_ZN17QQmlJSAotCompiler8setScopeEPKN5QmlIR6ObjectES3_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN17QQmlJSAotCompiler14compileBindingEPKN3QV48Compiler7ContextERKN5QmlIR7BindingEPN6QQmlJS3AST4NodeE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlJSAotCompiler15compileFunctionEPKN3QV48Compiler7ContextERK7QStringPN6QQmlJS3AST4NodeE": [
+      "address", "address", "address", "text", "address"
+    ],
     "ritual_ZNK17QQmlJSAotCompiler10globalCodeEv": ["address", "address"],
+    "ritual_ZNK17QQmlJSAotCompiler16lookupSignaturesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK17QQmlJSAotCompiler14isLintCompilerEv": ["bool", "address"],
     "ritual_ZNK17QQmlJSAotCompiler15noAotValidationEv": ["bool", "address"],
+    "ritual_ZN17QQmlJSAotCompiler25finalizeBindingOrFunctionEv": [
+      "address", "address"
+    ],
     "ritual_ZNK17QQmlJSAotCompiler8diagnoseERK7QString9QtMsgTypeRKN6QQmlJS14SourceLocationE": [
       "address", "address", "text", "int", "address"
     ],
@@ -39,6 +51,15 @@
     ],
     "ritual_own_ZNK17QQmlJSAotCompiler8diagnoseERK7QString9QtMsgTypeRKN6QQmlJS14SourceLocationE": [
       "address", "address", "text", "int", "address"
+    ],
+    "ritual_drop_QQmlJSAotCompiler__std_variant_QQmlJSAotFunction_QList_QQmlJS_DiagnosticMessage": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSAotCompiler__LookupSignatures": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSAotCompiler__std_optional_QList_QQmlJS_DiagnosticMessage": [
+      "nothing", "address"
     ]
   }
 }

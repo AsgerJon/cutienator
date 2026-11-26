@@ -35,39 +35,40 @@ typedef void * (*CuteQSGDefaultContextCall15)(const void *, int *);
 typedef void * (*CuteQSGDefaultContextCall16)(const void *, QSGRenderContext *, int *);
 typedef int (*CuteQSGDefaultContextCall17)(const void *, int, int *);
 typedef int (*CuteQSGDefaultContextCall18)(const void *, int *);
-typedef int (*CuteQSGDefaultContextCall19)(const void *, int *);
+typedef void * (*CuteQSGDefaultContextCall19)(const void *, QQuickWindow *, int, int *);
 typedef int (*CuteQSGDefaultContextCall20)(const void *, int *);
 typedef int (*CuteQSGDefaultContextCall21)(const void *, int *);
-typedef void * (*CuteQSGDefaultContextCall22)(const void *, QObject *, int *);
-typedef float (*CuteQSGDefaultContextCall23)(const void *, QAnimationDriver *, int *);
-typedef bool (*CuteQSGDefaultContextCall24)(const void *, QAnimationDriver *, int *);
-typedef const QSize * (*CuteQSGDefaultContextCall25)(const void *, int *);
-typedef void * (*CuteQSGDefaultContextCall26)(const void *, QSGRenderContext *, int *);
+typedef int (*CuteQSGDefaultContextCall22)(const void *, int *);
+typedef void * (*CuteQSGDefaultContextCall23)(const void *, QObject *, int *);
+typedef float (*CuteQSGDefaultContextCall24)(const void *, QAnimationDriver *, int *);
+typedef bool (*CuteQSGDefaultContextCall25)(const void *, QAnimationDriver *, int *);
+typedef const QSize * (*CuteQSGDefaultContextCall26)(const void *, int *);
+typedef void * (*CuteQSGDefaultContextCall27)(const void *, QSGRenderContext *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSGDefaultContextCall27)(const void *, QEvent *, int *);
+typedef bool (*CuteQSGDefaultContextCall28)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSGDefaultContextCall28)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQSGDefaultContextCall29)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSGDefaultContextCall29)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQSGDefaultContextCall30)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSGDefaultContextCall30)(const void *, QChildEvent *, int *);
+typedef void (*CuteQSGDefaultContextCall31)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSGDefaultContextCall31)(const void *, QEvent *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSGDefaultContextCall32)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSGDefaultContextCall32)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSGDefaultContextCall33)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQSGDefaultContextCall34)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQSGDefaultContext : public QSGDefaultContext {
 public:
   using QSGDefaultContext::QSGDefaultContext;
-  void *taken[34] = {};
+  void *taken[35] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN10QSGContext24renderContextInitializedEP16QSGRenderContext")) {
@@ -148,77 +149,81 @@ public:
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QSGRendererInterface10shaderTypeEv")) {
+    if (!std::strcmp(key, "_ZNK20QSGRendererInterface11getResourceEP12QQuickWindowNS_8ResourceE")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QSGRendererInterface21shaderCompilationTypeEv")) {
+    if (!std::strcmp(key, "_ZNK20QSGRendererInterface10shaderTypeEv")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QSGRendererInterface16shaderSourceTypeEv")) {
+    if (!std::strcmp(key, "_ZNK20QSGRendererInterface21shaderCompilationTypeEv")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSGContext21createAnimationDriverEP7QObject")) {
+    if (!std::strcmp(key, "_ZNK20QSGRendererInterface16shaderSourceTypeEv")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSGContext31vsyncIntervalForAnimationDriverEP16QAnimationDriver")) {
+    if (!std::strcmp(key, "_ZN10QSGContext21createAnimationDriverEP7QObject")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSGContext16isVSyncDependentEP16QAnimationDriver")) {
+    if (!std::strcmp(key, "_ZN10QSGContext31vsyncIntervalForAnimationDriverEP16QAnimationDriver")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK10QSGContext14minimumFBOSizeEv")) {
+    if (!std::strcmp(key, "_ZN10QSGContext16isVSyncDependentEP16QAnimationDriver")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QSGContext14createTextNodeEP16QSGRenderContext")) {
+    if (!std::strcmp(key, "_ZNK10QSGContext14minimumFBOSizeEv")) {
       taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN10QSGContext14createTextNodeEP16QSGRenderContext")) {
+      taken[27] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[27] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[28] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[29] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[30] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[31] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[32] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[33] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[34] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -460,11 +465,25 @@ public:
     return QSGDefaultContext::graphicsApi();
   }
 
-  //  ShaderType QSGDefaultContext::shaderType() const
-  QSGRendererInterface::ShaderType shaderType() const override {
+  //  void *QSGDefaultContext::getResource(QQuickWindow *window, Resource
+  //      resource) const
+  void *getResource(
+      QQuickWindow *window,
+      QSGRendererInterface::Resource resource) const override {
     if (taken[19]) {
       int handled = 0;
       CuteQSGDefaultContextCall19 call = reinterpret_cast<CuteQSGDefaultContextCall19>(taken[19]);
+      void * given = call(this, window, static_cast<int>(resource), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QSGDefaultContext::getResource(window, resource);
+  }
+
+  //  ShaderType QSGDefaultContext::shaderType() const
+  QSGRendererInterface::ShaderType shaderType() const override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQSGDefaultContextCall20 call = reinterpret_cast<CuteQSGDefaultContextCall20>(taken[20]);
       int given = call(this, &handled);
       if (handled) return static_cast<QSGRendererInterface::ShaderType>(given);
     }
@@ -474,9 +493,9 @@ public:
   //  ShaderCompilationTypes QSGDefaultContext::shaderCompilationType()
   //      const
   QSGRendererInterface::ShaderCompilationTypes shaderCompilationType() const override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQSGDefaultContextCall20 call = reinterpret_cast<CuteQSGDefaultContextCall20>(taken[20]);
+      CuteQSGDefaultContextCall21 call = reinterpret_cast<CuteQSGDefaultContextCall21>(taken[21]);
       int given = call(this, &handled);
       if (handled) return QFlags<QSGRendererInterface::ShaderCompilationType>::fromInt(given);
     }
@@ -485,9 +504,9 @@ public:
 
   //  ShaderSourceTypes QSGDefaultContext::shaderSourceType() const
   QSGRendererInterface::ShaderSourceTypes shaderSourceType() const override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQSGDefaultContextCall21 call = reinterpret_cast<CuteQSGDefaultContextCall21>(taken[21]);
+      CuteQSGDefaultContextCall22 call = reinterpret_cast<CuteQSGDefaultContextCall22>(taken[22]);
       int given = call(this, &handled);
       if (handled) return QFlags<QSGRendererInterface::ShaderSourceType>::fromInt(given);
     }
@@ -496,9 +515,9 @@ public:
 
   //  QAnimationDriver *QSGContext::createAnimationDriver(QObject *parent)
   QAnimationDriver *createAnimationDriver(QObject *parent) override {
-    if (taken[22]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQSGDefaultContextCall22 call = reinterpret_cast<CuteQSGDefaultContextCall22>(taken[22]);
+      CuteQSGDefaultContextCall23 call = reinterpret_cast<CuteQSGDefaultContextCall23>(taken[23]);
       void * given = call(this, parent, &handled);
       if (handled) return static_cast<QAnimationDriver *>(given);
     }
@@ -508,9 +527,9 @@ public:
   //  float QSGContext::vsyncIntervalForAnimationDriver(QAnimationDriver
   //      *driver)
   float vsyncIntervalForAnimationDriver(QAnimationDriver *driver) override {
-    if (taken[23]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQSGDefaultContextCall23 call = reinterpret_cast<CuteQSGDefaultContextCall23>(taken[23]);
+      CuteQSGDefaultContextCall24 call = reinterpret_cast<CuteQSGDefaultContextCall24>(taken[24]);
       float given = call(this, driver, &handled);
       if (handled) return given;
     }
@@ -519,9 +538,9 @@ public:
 
   //  bool QSGContext::isVSyncDependent(QAnimationDriver *driver)
   bool isVSyncDependent(QAnimationDriver *driver) override {
-    if (taken[24]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQSGDefaultContextCall24 call = reinterpret_cast<CuteQSGDefaultContextCall24>(taken[24]);
+      CuteQSGDefaultContextCall25 call = reinterpret_cast<CuteQSGDefaultContextCall25>(taken[25]);
       bool given = call(this, driver, &handled);
       if (handled) return given;
     }
@@ -530,9 +549,9 @@ public:
 
   //  QSize QSGContext::minimumFBOSize() const
   QSize minimumFBOSize() const override {
-    if (taken[25]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQSGDefaultContextCall25 call = reinterpret_cast<CuteQSGDefaultContextCall25>(taken[25]);
+      CuteQSGDefaultContextCall26 call = reinterpret_cast<CuteQSGDefaultContextCall26>(taken[26]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -542,9 +561,9 @@ public:
   //  QSGTextNode *QSGContext::createTextNode(QSGRenderContext
   //      *renderContext)
   QSGTextNode *createTextNode(QSGRenderContext *renderContext) override {
-    if (taken[26]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQSGDefaultContextCall26 call = reinterpret_cast<CuteQSGDefaultContextCall26>(taken[26]);
+      CuteQSGDefaultContextCall27 call = reinterpret_cast<CuteQSGDefaultContextCall27>(taken[27]);
       void * given = call(this, renderContext, &handled);
       if (handled) return static_cast<QSGTextNode *>(given);
     }
@@ -554,9 +573,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[27]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQSGDefaultContextCall27 call = reinterpret_cast<CuteQSGDefaultContextCall27>(taken[27]);
+      CuteQSGDefaultContextCall28 call = reinterpret_cast<CuteQSGDefaultContextCall28>(taken[28]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -567,9 +586,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[28]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQSGDefaultContextCall28 call = reinterpret_cast<CuteQSGDefaultContextCall28>(taken[28]);
+      CuteQSGDefaultContextCall29 call = reinterpret_cast<CuteQSGDefaultContextCall29>(taken[29]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -580,9 +599,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[29]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQSGDefaultContextCall29 call = reinterpret_cast<CuteQSGDefaultContextCall29>(taken[29]);
+      CuteQSGDefaultContextCall30 call = reinterpret_cast<CuteQSGDefaultContextCall30>(taken[30]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -593,9 +612,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[30]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQSGDefaultContextCall30 call = reinterpret_cast<CuteQSGDefaultContextCall30>(taken[30]);
+      CuteQSGDefaultContextCall31 call = reinterpret_cast<CuteQSGDefaultContextCall31>(taken[31]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -606,9 +625,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[31]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQSGDefaultContextCall31 call = reinterpret_cast<CuteQSGDefaultContextCall31>(taken[31]);
+      CuteQSGDefaultContextCall32 call = reinterpret_cast<CuteQSGDefaultContextCall32>(taken[32]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -619,9 +638,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[32]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQSGDefaultContextCall32 call = reinterpret_cast<CuteQSGDefaultContextCall32>(taken[32]);
+      CuteQSGDefaultContextCall33 call = reinterpret_cast<CuteQSGDefaultContextCall33>(taken[33]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -632,9 +651,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[33]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQSGDefaultContextCall33 call = reinterpret_cast<CuteQSGDefaultContextCall33>(taken[33]);
+      CuteQSGDefaultContextCall34 call = reinterpret_cast<CuteQSGDefaultContextCall34>(taken[34]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -830,6 +849,16 @@ extern "C" Q_DECL_EXPORT
 QSGRendererInterface::GraphicsApi ritual_ZNK17QSGDefaultContext11graphicsApiEv(
     const QSGDefaultContext *self) {
   return self->graphicsApi();
+}
+
+//  void *QSGDefaultContext::getResource(QQuickWindow *window, Resource
+//      resource) const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK17QSGDefaultContext11getResourceEP12QQuickWindowN20QSGRendererInterface8ResourceE(
+    const QSGDefaultContext *self,
+    QQuickWindow *window,
+    QSGRendererInterface::Resource resource) {
+  return self->getResource(window, resource);
 }
 
 //  ShaderType QSGDefaultContext::shaderType() const
@@ -1029,6 +1058,16 @@ extern "C" Q_DECL_EXPORT
 QSGRendererInterface::GraphicsApi ritual_own_ZNK17QSGDefaultContext11graphicsApiEv(
     const QSGDefaultContext *self) {
   return self->QSGDefaultContext::graphicsApi();
+}
+
+//  void *QSGDefaultContext::getResource(QQuickWindow *window, Resource
+//      resource) const
+extern "C" Q_DECL_EXPORT
+void *ritual_own_ZNK17QSGDefaultContext11getResourceEP12QQuickWindowN20QSGRendererInterface8ResourceE(
+    const QSGDefaultContext *self,
+    QQuickWindow *window,
+    QSGRendererInterface::Resource resource) {
+  return self->QSGDefaultContext::getResource(window, resource);
 }
 
 //  ShaderType QSGDefaultContext::shaderType() const

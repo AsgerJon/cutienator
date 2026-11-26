@@ -586,6 +586,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras10Qt3DWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::Qt3DWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras10Qt3DWindow11qt_metacastEPKc(
+    Qt3DExtras::Qt3DWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::Qt3DWindow::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras10Qt3DWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::Qt3DWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::Qt3DWindow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DExtras10Qt3DWindow2trEPKcS2_i(
@@ -593,6 +612,110 @@ QString *ritual_ZN10Qt3DExtras10Qt3DWindow2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::Qt3DWindow::tr(s, c, n));
+}
+
+//  Qt3DExtras::Qt3DWindow::Qt3DWindow(QScreen *screen, Qt3DRender::API a1)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::Qt3DWindow *ritual_ZN10Qt3DExtras10Qt3DWindowC1EP7QScreenN10Qt3DRender3APIE(
+    QScreen *screen,
+    Qt3DRender::API a1) {
+  return new CuteQt3DExtras_Qt3DWindow(screen, a1);
+}
+
+//  Qt3DExtras::Qt3DWindow::~Qt3DWindow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10Qt3DWindowD1Ev(Qt3DExtras::Qt3DWindow *self) {
+  delete self;
+}
+
+//  void Qt3DExtras::Qt3DWindow::registerAspect(Qt3DCore::QAbstractAspect
+//      *aspect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10Qt3DWindow14registerAspectEPN8Qt3DCore15QAbstractAspectE(
+    Qt3DExtras::Qt3DWindow *self,
+    Qt3DCore::QAbstractAspect *aspect) {
+  self->registerAspect(aspect);
+}
+
+//  void Qt3DExtras::Qt3DWindow::registerAspect(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10Qt3DWindow14registerAspectERK7QString(
+    Qt3DExtras::Qt3DWindow *self,
+    const QString *name) {
+  self->registerAspect(*name);
+}
+
+//  void Qt3DExtras::Qt3DWindow::setRootEntity(Qt3DCore::QEntity *root)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10Qt3DWindow13setRootEntityEPN8Qt3DCore7QEntityE(
+    Qt3DExtras::Qt3DWindow *self,
+    Qt3DCore::QEntity *root) {
+  self->setRootEntity(root);
+}
+
+//  void
+//      Qt3DExtras::Qt3DWindow::setActiveFrameGraph(Qt3DRender::QFrameGraphNo
+//      de *activeFrameGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10Qt3DWindow19setActiveFrameGraphEPN10Qt3DRender15QFrameGraphNodeE(
+    Qt3DExtras::Qt3DWindow *self,
+    Qt3DRender::QFrameGraphNode *activeFrameGraph) {
+  self->setActiveFrameGraph(activeFrameGraph);
+}
+
+//  Qt3DRender::QFrameGraphNode *Qt3DExtras::Qt3DWindow::activeFrameGraph()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFrameGraphNode *ritual_ZNK10Qt3DExtras10Qt3DWindow16activeFrameGraphEv(
+    const Qt3DExtras::Qt3DWindow *self) {
+  return self->activeFrameGraph();
+}
+
+//  Qt3DExtras::QForwardRenderer *Qt3DExtras::Qt3DWindow::defaultFrameGraph()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QForwardRenderer *ritual_ZNK10Qt3DExtras10Qt3DWindow17defaultFrameGraphEv(
+    const Qt3DExtras::Qt3DWindow *self) {
+  return self->defaultFrameGraph();
+}
+
+//  Qt3DRender::QCamera *Qt3DExtras::Qt3DWindow::camera() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QCamera *ritual_ZNK10Qt3DExtras10Qt3DWindow6cameraEv(
+    const Qt3DExtras::Qt3DWindow *self) {
+  return self->camera();
+}
+
+//  Qt3DRender::QRenderSettings *Qt3DExtras::Qt3DWindow::renderSettings()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderSettings *ritual_ZNK10Qt3DExtras10Qt3DWindow14renderSettingsEv(
+    const Qt3DExtras::Qt3DWindow *self) {
+  return self->renderSettings();
+}
+
+//  void Qt3DExtras::Qt3DWindow::showEvent(QShowEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10Qt3DWindow9showEventEP10QShowEvent(
+    Qt3DExtras::Qt3DWindow *self,
+    QShowEvent *e) {
+  self->showEvent(e);
+}
+
+//  void Qt3DExtras::Qt3DWindow::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10Qt3DWindow11resizeEventEP12QResizeEvent(
+    Qt3DExtras::Qt3DWindow *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  bool Qt3DExtras::Qt3DWindow::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DExtras10Qt3DWindow5eventEP6QEvent(
+    Qt3DExtras::Qt3DWindow *self,
+    QEvent *e) {
+  return self->event(e);
 }
 
 //  Qt3DWindowPrivate *Qt3DExtras::Qt3DWindow::d_func()

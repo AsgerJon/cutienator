@@ -20,6 +20,15 @@ QSSGRenderSubset *ritual_ZN16QSSGRenderSubsetC1ERKS_(
   return new QSSGRenderSubset(*inOther);
 }
 
+//  QSSGRenderSubset &QSSGRenderSubset::operator=(const QSSGRenderSubset
+//      &inOther)
+extern "C" Q_DECL_EXPORT
+QSSGRenderSubset *ritual_ZN16QSSGRenderSubsetaSERKS_(
+    QSSGRenderSubset *self,
+    const QSSGRenderSubset *inOther) {
+  return &(self->operator=(*inOther));
+}
+
 //  quint32 QSSGRenderSubset::lodCount(int lodLevel) const
 extern "C" Q_DECL_EXPORT
 quint32 ritual_ZNK16QSSGRenderSubset8lodCountEi(

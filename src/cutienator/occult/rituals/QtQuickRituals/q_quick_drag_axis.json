@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickDragAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickDragAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickDragAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickDragAxis2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,6 +40,12 @@
     ],
     "ritual_ZN14QQuickDragAxis11updateValueEddd": [
       "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN14QQuickDragAxis14minimumChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickDragAxis14maximumChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickDragAxis14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickDragAxis18activeValueChangedEd": [
+      "nothing", "address", "double"
     ]
   }
 }

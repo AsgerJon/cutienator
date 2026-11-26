@@ -134,6 +134,14 @@ int ritual_ZNK12QAudioFormat14bytesPerSampleEv(const QAudioFormat *self) {
   return self->bytesPerSample();
 }
 
+//  float QAudioFormat::normalizedSampleValue(const void *sample) const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK12QAudioFormat21normalizedSampleValueEPKv(
+    const QAudioFormat *self,
+    const void *sample) {
+  return self->normalizedSampleValue(sample);
+}
+
 //  bool operator==(const QAudioFormat &a, const QAudioFormat &b)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK12QAudioFormatS1_(

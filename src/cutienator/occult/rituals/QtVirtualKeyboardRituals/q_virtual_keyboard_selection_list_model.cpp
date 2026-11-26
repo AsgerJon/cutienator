@@ -5,7 +5,9 @@
 #include <QtVirtualKeyboard/QtVirtualKeyboard>
 #include <QtVirtualKeyboard/qvirtualkeyboardselectionlistmodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qsize.h>
@@ -938,6 +940,25 @@ const QMetaObject *ritual_ZNK34QVirtualKeyboardSelectionListModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVirtualKeyboardSelectionListModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN34QVirtualKeyboardSelectionListModel11qt_metacastEPKc(
+    QVirtualKeyboardSelectionListModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVirtualKeyboardSelectionListModel::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN34QVirtualKeyboardSelectionListModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVirtualKeyboardSelectionListModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVirtualKeyboardSelectionListModel::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -946,6 +967,22 @@ QString *ritual_ZN34QVirtualKeyboardSelectionListModel2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QVirtualKeyboardSelectionListModel::tr(s, c, n));
+}
+
+//  QVirtualKeyboardSelectionListModelPrivate
+//      *QVirtualKeyboardSelectionListModel::d_func()
+extern "C" Q_DECL_EXPORT
+QVirtualKeyboardSelectionListModelPrivate *ritual_ZN34QVirtualKeyboardSelectionListModel6d_funcEv(
+    QVirtualKeyboardSelectionListModel *self) {
+  return self->d_func();
+}
+
+//  const QVirtualKeyboardSelectionListModelPrivate
+//      *QVirtualKeyboardSelectionListModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QVirtualKeyboardSelectionListModelPrivate *ritual_ZNK34QVirtualKeyboardSelectionListModel6d_funcEv(
+    const QVirtualKeyboardSelectionListModel *self) {
+  return self->d_func();
 }
 
 //  void QVirtualKeyboardSelectionListModel::qt_qmlMarker_uncreatable()
@@ -1046,6 +1083,29 @@ QVariant *ritual_ZNK34QVirtualKeyboardSelectionListModel6dataAtEiNS_4RoleE(
     int index,
     QVirtualKeyboardSelectionListModel::Role role) {
   return new QVariant(self->dataAt(index, role));
+}
+
+//  void QVirtualKeyboardSelectionListModel::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QVirtualKeyboardSelectionListModel12countChangedEv(
+    QVirtualKeyboardSelectionListModel *self) {
+  self->countChanged();
+}
+
+//  void QVirtualKeyboardSelectionListModel::activeItemChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QVirtualKeyboardSelectionListModel17activeItemChangedEi(
+    QVirtualKeyboardSelectionListModel *self,
+    int index) {
+  self->activeItemChanged(index);
+}
+
+//  void QVirtualKeyboardSelectionListModel::itemSelected(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QVirtualKeyboardSelectionListModel12itemSelectedEi(
+    QVirtualKeyboardSelectionListModel *self,
+    int index) {
+  self->itemSelected(index);
 }
 
 //  void QVirtualKeyboardSelectionListModel::selectionListChanged(Type type)

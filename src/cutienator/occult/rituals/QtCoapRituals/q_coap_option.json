@@ -14,7 +14,11 @@
       "address", "int", "unsigned int"
     ],
     "ritual_ZN11QCoapOptionC1ERKS_": ["address", "address"],
+    "ritual_ZN11QCoapOptionC1EOS_": ["address", "address"],
     "ritual_ZN11QCoapOptionD1Ev": ["nothing", "address"],
+    "ritual_ZN11QCoapOptionaSERKS_": ["address", "address", "address"],
+    "ritual_ZN11QCoapOptionaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QCoapOption4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK11QCoapOption11opaqueValueEv": ["address", "address"],
     "ritual_ZNK11QCoapOption9uintValueEv": ["unsigned int", "address"],
     "ritual_ZNK11QCoapOption11stringValueEv": ["text", "address"],

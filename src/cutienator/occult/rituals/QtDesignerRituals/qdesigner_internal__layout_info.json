@@ -11,11 +11,23 @@
     "ritual_ZN18qdesigner_internal10LayoutInfo10layoutTypeEPK28QDesignerFormEditorInterfacePK7QWidget": [
       "int", "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal10LayoutInfo17managedLayoutTypeEPK28QDesignerFormEditorInterfacePK7QWidgetPP7QLayout": [
+      "int", "address", "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal10LayoutInfo10layoutTypeEPK28QDesignerFormEditorInterfacePK7QLayout": [
       "int", "address", "address"
     ],
     "ritual_ZN18qdesigner_internal10LayoutInfo10layoutTypeERK7QString": [
       "int", "text"
+    ],
+    "ritual_ZN18qdesigner_internal10LayoutInfo10layoutNameENS0_4TypeE": [
+      "text", "int"
+    ],
+    "ritual_ZN18qdesigner_internal10LayoutInfo12layoutParentEPK28QDesignerFormEditorInterfaceP7QLayout": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10LayoutInfo17laidoutWidgetTypeEPK28QDesignerFormEditorInterfaceP7QWidgetPbPP7QLayout": [
+      "int", "address", "address", "address", "address"
     ],
     "ritual_ZN18qdesigner_internal10LayoutInfo15isWidgetLaidoutEPK28QDesignerFormEditorInterfaceP7QWidget": [
       "bool", "address", "address"

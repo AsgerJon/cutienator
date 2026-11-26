@@ -36,6 +36,34 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/dbus/qdbusdemarshaller.cpp, line 14, as local:qdbusdemarshaller.cpp:qIterGet
+template <typename T>
+static inline T qIterGet(DBusMessageIter *it)
+{
+    // Use a union of expected and largest type q_dbus_message_iter_get_basic
+    // will return to ensure reading the wrong basic type does not result in
+    // stack overwrite
+    union {
+        // The value to be extracted
+        T t;
+        // Largest type that q_dbus_message_iter_get_basic will return
+        // according to dbus_message_iter_get_basic API documentation
+        dbus_uint64_t maxValue;
+        // A pointer to ensure no stack overwrite in case there is a platform
+        // where sizeof(void*) > sizeof(dbus_uint64_t)
+        void* ptr;
+    } value;
+
+    // Initialize the value in case a narrower type is extracted to it.
+    // Note that the result of extracting a narrower type in place of a wider
+    // one and vice-versa will be platform-dependent.
+    value.t = T();
+
+    q_dbus_message_iter_get_basic(it, &value);
+    q_dbus_message_iter_next(it);
+    return value.t;
+}
+
 //  from src/dbus/qdbusargument.cpp, line 29, as _ZN20QDBusArgumentPrivateD2Ev
 #if !defined(QT_NO_DBUS)
 inline QDBusArgumentPrivate::~QDBusArgumentPrivate()

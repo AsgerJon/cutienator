@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QTableWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QTableWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QTableWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QTableWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QTableWidgetC1EP7QWidget": ["address", "address"],
     "ritual_ZN12QTableWidgetC1EiiP7QWidget": [
@@ -142,6 +148,51 @@
     "ritual_ZN12QTableWidget12removeColumnEi": ["nothing", "address", "int"],
     "ritual_ZN12QTableWidget5clearEv": ["nothing", "address"],
     "ritual_ZN12QTableWidget13clearContentsEv": ["nothing", "address"],
+    "ritual_ZN12QTableWidget11itemPressedEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget11itemClickedEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget17itemDoubleClickedEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget13itemActivatedEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget11itemEnteredEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget11itemChangedEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget18currentItemChangedEP16QTableWidgetItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget20itemSelectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QTableWidget11cellPressedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget11cellClickedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget17cellDoubleClickedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget13cellActivatedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget11cellEnteredEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget11cellChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget18currentCellChangedEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
     "ritual_ZN12QTableWidget5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZNK12QTableWidget9mimeTypesEv": ["address", "address"],
     "ritual_ZNK12QTableWidget8mimeDataERK5QListIP16QTableWidgetItemE": [

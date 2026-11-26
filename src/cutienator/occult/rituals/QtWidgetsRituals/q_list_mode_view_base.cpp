@@ -16,6 +16,8 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qlist.h>
+#include <QtWidgets/QListView>
+#include <QtCore/QRect>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qlistview.h>
 #include <QtWidgets/qabstractitemdelegate.h>
@@ -93,238 +95,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1974, as _ZN19QCommonListViewBase13paintDragDropEP8QPainter
-#if QT_CONFIG(draganddrop)
-inline void QCommonListViewBase::paintDragDrop(QPainter *painter)
-{
-    // FIXME: Until the we can provide a proper drop indicator
-    // in IconMode, it makes no sense to show it
-    dd->paintDropIndicator(painter);
-}
-#endif  // QT_CONFIG(draganddrop)
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1963, as _ZN19QCommonListViewBase15appendHiddenRowEi
-inline void QCommonListViewBase::appendHiddenRow(int row)
-{
-    dd->hiddenRows.insert(dd->model->index(row, 0, qq->rootIndex()));
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1968, as _ZN19QCommonListViewBase15removeHiddenRowEi
-inline void QCommonListViewBase::removeHiddenRow(int row)
-{
-    dd->hiddenRows.remove(dd->model->index(row, 0, qq->rootIndex()));
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 2047, as _ZN19QCommonListViewBase16scrollContentsByEiib
-inline void QCommonListViewBase::scrollContentsBy(int dx, int dy, bool /*scrollElasticBand*/)
-{
-    dd->scrollContentsBy(isRightToLeft() ? -dx : dx, dy);
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 2017, as _ZN19QCommonListViewBase23updateVerticalScrollBarERK5QSize
-inline void QCommonListViewBase::updateVerticalScrollBar(const QSize &step)
-{
-    verticalScrollBar()->d_func()->itemviewChangeSingleStep(step.height() + spacing());
-    verticalScrollBar()->setPageStep(viewport()->height());
-
-    // If both scroll bars are set to auto, we might end up in a situation with enough space
-    // for the actual content. But still one of the scroll bars will become enabled due to
-    // the other one using the space. The other one will become invisible in the same cycle.
-    // -> Infinite loop, QTBUG-39902
-    const bool bothScrollBarsAuto = qq->verticalScrollBarPolicy() == Qt::ScrollBarAsNeeded &&
-                                    qq->horizontalScrollBarPolicy() == Qt::ScrollBarAsNeeded;
-
-    const QSize viewportSize = QListModeViewBase::viewportSize(qq);
-
-    bool horizontalWantsToShow = contentsSize.width() > viewportSize.width();
-    bool verticalWantsToShow;
-    if (horizontalWantsToShow)
-        verticalWantsToShow = contentsSize.height() > viewportSize.height() - qq->horizontalScrollBar()->height();
-    else
-        verticalWantsToShow = contentsSize.height() > viewportSize.height();
-
-    if (bothScrollBarsAuto && !verticalWantsToShow) {
-        // break the infinite loop described above by setting the range to 0, 0.
-        // QAbstractScrollArea will then hide the scroll bar for us
-        verticalScrollBar()->setRange(0, 0);
-    } else {
-        verticalScrollBar()->setRange(0, contentsSize.height() - viewport()->height());
-    }
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1987, as _ZN19QCommonListViewBase25updateHorizontalScrollBarERK5QSize
-inline void QCommonListViewBase::updateHorizontalScrollBar(const QSize &step)
-{
-    horizontalScrollBar()->d_func()->itemviewChangeSingleStep(step.width() + spacing());
-    horizontalScrollBar()->setPageStep(viewport()->width());
-
-    // If both scroll bars are set to auto, we might end up in a situation with enough space
-    // for the actual content. But still one of the scroll bars will become enabled due to
-    // the other one using the space. The other one will become invisible in the same cycle.
-    // -> Infinite loop, QTBUG-39902
-    const bool bothScrollBarsAuto = qq->verticalScrollBarPolicy() == Qt::ScrollBarAsNeeded &&
-                                    qq->horizontalScrollBarPolicy() == Qt::ScrollBarAsNeeded;
-
-    const QSize viewportSize = QListModeViewBase::viewportSize(qq);
-
-    bool verticalWantsToShow = contentsSize.height() > viewportSize.height();
-    bool horizontalWantsToShow;
-    if (verticalWantsToShow)
-        horizontalWantsToShow = contentsSize.width() > viewportSize.width() - qq->verticalScrollBar()->width();
-    else
-        horizontalWantsToShow = contentsSize.width() > viewportSize.width();
-
-    if (bothScrollBarsAuto && !horizontalWantsToShow) {
-        // break the infinite loop described above by setting the range to 0, 0.
-        // QAbstractScrollArea will then hide the scroll bar for us
-        horizontalScrollBar()->setRange(0, 0);
-    } else {
-        horizontalScrollBar()->setRange(0, contentsSize.width() - viewport()->width());
-    }
-}
-
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 4444, as _ZN24QAbstractItemViewPrivate20doDelayedItemsLayoutEi
-inline void QAbstractItemViewPrivate::doDelayedItemsLayout(int delay)
-{
-    if (!delayedPendingLayout) {
-        delayedPendingLayout = true;
-        delayedLayout.start(delay, q_func());
-    }
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1878, as _ZNK16QListViewPrivate8itemSizeERK20QStyleOptionViewItemRK11QModelIndex
-inline QSize QListViewPrivate::itemSize(const QStyleOptionViewItem &option, const QModelIndex &index) const
-{
-    Q_Q(const QListView);
-    if (!uniformItemSizes) {
-        const QAbstractItemDelegate *delegate = q->itemDelegateForIndex(index);
-        return delegate ? delegate->sizeHint(option, index) : QSize();
-    }
-    if (!cachedItemSize.isValid()) { // the last item is probably the largest, so we use its size
-        int row = model->rowCount(root) - 1;
-        QModelIndex sample = model->index(row, column, root);
-        const QAbstractItemDelegate *delegate = q->itemDelegateForIndex(sample);
-        cachedItemSize = delegate ? delegate->sizeHint(option, sample) : QSize();
-    }
-    return cachedItemSize;
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 2309, as _ZNK17QListModeViewBase21verticalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_
-inline int QListModeViewBase::verticalScrollToValue(int index, QListView::ScrollHint hint,
-                                          bool above, bool below, const QRect &area, const QRect &rect) const
-{
-    if (verticalScrollMode() == QAbstractItemView::ScrollPerItem) {
-        int value;
-        if (scrollValueMap.isEmpty()) {
-            value = 0;
-        } else {
-            int scrollBarValue = verticalScrollBar()->value();
-            int numHidden = 0;
-            for (const auto &idx : std::as_const(dd->hiddenRows))
-                if (idx.row() <= scrollBarValue)
-                    ++numHidden;
-            value = qBound(0, scrollValueMap.at(verticalScrollBar()->value()) - numHidden, flowPositions.size() - 1);
-        }
-        if (above)
-            hint = QListView::PositionAtTop;
-        else if (below)
-            hint = QListView::PositionAtBottom;
-        if (hint == QListView::EnsureVisible)
-            return value;
-
-        return perItemScrollToValue(index, value, area.height(), hint, Qt::Vertical, isWrapping(), rect.height());
-    }
-
-    return QCommonListViewBase::verticalScrollToValue(index, hint, above, below, area, rect);
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 2378, as _ZNK17QListModeViewBase23horizontalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_
-inline int QListModeViewBase::horizontalScrollToValue(int index, QListView::ScrollHint hint,
-                                            bool leftOf, bool rightOf, const QRect &area, const QRect &rect) const
-{
-    if (horizontalScrollMode() != QAbstractItemView::ScrollPerItem)
-        return QCommonListViewBase::horizontalScrollToValue(index, hint, leftOf, rightOf, area, rect);
-
-    int value;
-    if (scrollValueMap.isEmpty())
-        value = 0;
-    else
-        value = qBound(0, scrollValueMap.at(horizontalScrollBar()->value()), flowPositions.size() - 1);
-    if (leftOf)
-        hint = QListView::PositionAtTop;
-    else if (rightOf)
-        hint = QListView::PositionAtBottom;
-    if (hint == QListView::EnsureVisible)
-        return value;
-
-    return perItemScrollToValue(index, value, area.width(), hint, Qt::Horizontal, isWrapping(), rect.width());
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 2066, as _ZNK19QCommonListViewBase16horizontalOffsetEv
-inline int QCommonListViewBase::horizontalOffset() const
-{
-    return (isRightToLeft() ? horizontalScrollBar()->maximum() - horizontalScrollBar()->value() : horizontalScrollBar()->value());
-}
-
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 2167, as _ZN24QAbstractItemViewPrivate16droppingOnItselfEP10QDropEventRK11QModelIndex
-#if QT_CONFIG(draganddrop)
-inline bool QAbstractItemViewPrivate::droppingOnItself(QDropEvent *event, const QModelIndex &index)
-{
-    Q_Q(QAbstractItemView);
-    Qt::DropAction dropAction = event->dropAction();
-    if (q->dragDropMode() == QAbstractItemView::InternalMove)
-        dropAction = Qt::MoveAction;
-    if (event->source() == q
-        && event->possibleActions() & Qt::MoveAction
-        && dropAction == Qt::MoveAction) {
-        QModelIndexList selectedIndexes = q->selectedIndexes();
-        QModelIndex child = index;
-        while (child.isValid() && child != root) {
-            if (selectedIndexes.contains(child))
-                return true;
-            child = child.parent();
-        }
-    }
-    return false;
-}
-#endif  // QT_CONFIG(draganddrop)
-
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 4433, as _ZNK24QAbstractItemViewPrivate16shouldAutoScrollERK6QPoint
-inline bool QAbstractItemViewPrivate::shouldAutoScroll(const QPoint &pos) const
-{
-    if (!autoScroll)
-        return false;
-    const QRect area = QWidgetPrivate::get(viewport)->clipRect();
-    return (pos.y() - area.top() < autoScrollMargin)
-        || (area.bottom() - pos.y() < autoScrollMargin)
-        || (pos.x() - area.left() < autoScrollMargin)
-        || (area.right() - pos.x() < autoScrollMargin);
-}
-
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 4452, as _ZNK24QAbstractItemViewPrivate27interruptDelayedItemsLayoutEv
-inline void QAbstractItemViewPrivate::interruptDelayedItemsLayout() const
-{
-    delayedLayout.stop();
-    delayedPendingLayout = false;
-}
-
-//  from src/widgets/widgets/qabstractslider.cpp, line 816, as _ZN22QAbstractSliderPrivate24itemviewChangeSingleStepEi
-inline void QAbstractSliderPrivate::itemviewChangeSingleStep(int step)
-{
-    singleStepFromItemView = step;
-    if (viewMayChangeSingleStep && singleStep != step)
-        setSteps(step, pageStep);
-}
-
-//  from src/widgets/widgets/qabstractslider.cpp, line 215, as _ZN22QAbstractSliderPrivate8setStepsEii
-inline void QAbstractSliderPrivate::setSteps(int single, int page)
-{
-    Q_Q(QAbstractSlider);
-    singleStep = qAbs(single);
-    pageStep = qAbs(page);
-    q->sliderChange(QAbstractSlider::SliderStepsChange);
-}
 
 //  from src/widgets/itemviews/qlistview.cpp, line 2451, as _ZNK17QListModeViewBase19indexToListViewItemERK11QModelIndex
 inline QListViewItem QListModeViewBase::indexToListViewItem(const QModelIndex &index) const
@@ -455,6 +225,57 @@ inline void QListModeViewBase::dataChanged(const QModelIndex &, const QModelInde
     dd->doDelayedItemsLayout();
 }
 
+//  from src/widgets/itemviews/qlistview.cpp, line 2378, as _ZNK17QListModeViewBase23horizontalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_
+inline int QListModeViewBase::horizontalScrollToValue(int index, QListView::ScrollHint hint,
+                                            bool leftOf, bool rightOf, const QRect &area, const QRect &rect) const
+{
+    if (horizontalScrollMode() != QAbstractItemView::ScrollPerItem)
+        return QCommonListViewBase::horizontalScrollToValue(index, hint, leftOf, rightOf, area, rect);
+
+    int value;
+    if (scrollValueMap.isEmpty())
+        value = 0;
+    else
+        value = qBound(0, scrollValueMap.at(horizontalScrollBar()->value()), flowPositions.size() - 1);
+    if (leftOf)
+        hint = QListView::PositionAtTop;
+    else if (rightOf)
+        hint = QListView::PositionAtBottom;
+    if (hint == QListView::EnsureVisible)
+        return value;
+
+    return perItemScrollToValue(index, value, area.width(), hint, Qt::Horizontal, isWrapping(), rect.width());
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2309, as _ZNK17QListModeViewBase21verticalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_
+inline int QListModeViewBase::verticalScrollToValue(int index, QListView::ScrollHint hint,
+                                          bool above, bool below, const QRect &area, const QRect &rect) const
+{
+    if (verticalScrollMode() == QAbstractItemView::ScrollPerItem) {
+        int value;
+        if (scrollValueMap.isEmpty()) {
+            value = 0;
+        } else {
+            int scrollBarValue = verticalScrollBar()->value();
+            int numHidden = 0;
+            for (const auto &idx : std::as_const(dd->hiddenRows))
+                if (idx.row() <= scrollBarValue)
+                    ++numHidden;
+            value = qBound(0, scrollValueMap.at(verticalScrollBar()->value()) - numHidden, flowPositions.size() - 1);
+        }
+        if (above)
+            hint = QListView::PositionAtTop;
+        else if (below)
+            hint = QListView::PositionAtBottom;
+        if (hint == QListView::EnsureVisible)
+            return value;
+
+        return perItemScrollToValue(index, value, area.height(), hint, Qt::Vertical, isWrapping(), rect.height());
+    }
+
+    return QCommonListViewBase::verticalScrollToValue(index, hint, above, below, area, rect);
+}
+
 //  from src/widgets/itemviews/qlistview.cpp, line 2399, as _ZN17QListModeViewBase16scrollContentsByEiib
 inline void QListModeViewBase::scrollContentsBy(int dx, int dy, bool scrollElasticBand)
 {
@@ -563,12 +384,6 @@ inline int QListModeViewBase::verticalOffset() const
     return QCommonListViewBase::verticalOffset();
 }
 
-//  from src/widgets/itemviews/qlistview.cpp, line 1982, as _ZN17QListModeViewBase12viewportSizeEPK17QAbstractItemView
-inline QSize QListModeViewBase::viewportSize(const QAbstractItemView *v)
-{
-    return v->contentsRect().marginsRemoved(v->viewportMargins()).size();
-}
-
 //  from src/widgets/itemviews/qlistview.cpp, line 2290, as _ZN17QListModeViewBase25updateHorizontalScrollBarERK5QSize
 inline void QListModeViewBase::updateHorizontalScrollBar(const QSize &step)
 {
@@ -609,6 +424,244 @@ inline void QListModeViewBase::updateVerticalScrollBar(const QSize &step)
     } else {
         QCommonListViewBase::updateVerticalScrollBar(step);
     }
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2071, as _ZNK19QCommonListViewBase23horizontalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_
+inline int QCommonListViewBase::horizontalScrollToValue(const int /*index*/, QListView::ScrollHint hint,
+                                            bool leftOf, bool rightOf, const QRect &area, const QRect &rect) const
+{
+    int horizontalValue = horizontalScrollBar()->value();
+    if (isRightToLeft()) {
+        if (hint == QListView::PositionAtCenter) {
+            horizontalValue += ((area.width() - rect.width()) / 2) - rect.left();
+        } else {
+            if (leftOf)
+                horizontalValue -= rect.left();
+            else if (rightOf)
+                horizontalValue += qMin(rect.left(), area.width() - rect.right());
+        }
+    } else {
+        if (hint == QListView::PositionAtCenter) {
+            horizontalValue += rect.left() - ((area.width()- rect.width()) / 2);
+        } else {
+            if (leftOf)
+                horizontalValue += rect.left();
+            else if (rightOf)
+                horizontalValue += qMin(rect.left(), rect.right() - area.width());
+        }
+    }
+    return horizontalValue;
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2052, as _ZNK19QCommonListViewBase21verticalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_
+inline int QCommonListViewBase::verticalScrollToValue(int /*index*/, QListView::ScrollHint hint,
+                                          bool above, bool below, const QRect &area, const QRect &rect) const
+{
+    int verticalValue = verticalScrollBar()->value();
+    QRect adjusted = rect.adjusted(-spacing(), -spacing(), spacing(), spacing());
+    if (hint == QListView::PositionAtTop || above)
+        verticalValue += adjusted.top();
+    else if (hint == QListView::PositionAtBottom || below)
+        verticalValue += qMin(adjusted.top(), adjusted.bottom() - area.height() + 1);
+    else if (hint == QListView::PositionAtCenter)
+        verticalValue += adjusted.top() - ((area.height() - adjusted.height()) / 2);
+    return verticalValue;
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2047, as _ZN19QCommonListViewBase16scrollContentsByEiib
+inline void QCommonListViewBase::scrollContentsBy(int dx, int dy, bool /*scrollElasticBand*/)
+{
+    dd->scrollContentsBy(isRightToLeft() ? -dx : dx, dy);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2066, as _ZNK19QCommonListViewBase16horizontalOffsetEv
+inline int QCommonListViewBase::horizontalOffset() const
+{
+    return (isRightToLeft() ? horizontalScrollBar()->maximum() - horizontalScrollBar()->value() : horizontalScrollBar()->value());
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1987, as _ZN19QCommonListViewBase25updateHorizontalScrollBarERK5QSize
+inline void QCommonListViewBase::updateHorizontalScrollBar(const QSize &step)
+{
+    horizontalScrollBar()->d_func()->itemviewChangeSingleStep(step.width() + spacing());
+    horizontalScrollBar()->setPageStep(viewport()->width());
+
+    // If both scroll bars are set to auto, we might end up in a situation with enough space
+    // for the actual content. But still one of the scroll bars will become enabled due to
+    // the other one using the space. The other one will become invisible in the same cycle.
+    // -> Infinite loop, QTBUG-39902
+    const bool bothScrollBarsAuto = qq->verticalScrollBarPolicy() == Qt::ScrollBarAsNeeded &&
+                                    qq->horizontalScrollBarPolicy() == Qt::ScrollBarAsNeeded;
+
+    const QSize viewportSize = QListModeViewBase::viewportSize(qq);
+
+    bool verticalWantsToShow = contentsSize.height() > viewportSize.height();
+    bool horizontalWantsToShow;
+    if (verticalWantsToShow)
+        horizontalWantsToShow = contentsSize.width() > viewportSize.width() - qq->verticalScrollBar()->width();
+    else
+        horizontalWantsToShow = contentsSize.width() > viewportSize.width();
+
+    if (bothScrollBarsAuto && !horizontalWantsToShow) {
+        // break the infinite loop described above by setting the range to 0, 0.
+        // QAbstractScrollArea will then hide the scroll bar for us
+        horizontalScrollBar()->setRange(0, 0);
+    } else {
+        horizontalScrollBar()->setRange(0, contentsSize.width() - viewport()->width());
+    }
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2017, as _ZN19QCommonListViewBase23updateVerticalScrollBarERK5QSize
+inline void QCommonListViewBase::updateVerticalScrollBar(const QSize &step)
+{
+    verticalScrollBar()->d_func()->itemviewChangeSingleStep(step.height() + spacing());
+    verticalScrollBar()->setPageStep(viewport()->height());
+
+    // If both scroll bars are set to auto, we might end up in a situation with enough space
+    // for the actual content. But still one of the scroll bars will become enabled due to
+    // the other one using the space. The other one will become invisible in the same cycle.
+    // -> Infinite loop, QTBUG-39902
+    const bool bothScrollBarsAuto = qq->verticalScrollBarPolicy() == Qt::ScrollBarAsNeeded &&
+                                    qq->horizontalScrollBarPolicy() == Qt::ScrollBarAsNeeded;
+
+    const QSize viewportSize = QListModeViewBase::viewportSize(qq);
+
+    bool horizontalWantsToShow = contentsSize.width() > viewportSize.width();
+    bool verticalWantsToShow;
+    if (horizontalWantsToShow)
+        verticalWantsToShow = contentsSize.height() > viewportSize.height() - qq->horizontalScrollBar()->height();
+    else
+        verticalWantsToShow = contentsSize.height() > viewportSize.height();
+
+    if (bothScrollBarsAuto && !verticalWantsToShow) {
+        // break the infinite loop described above by setting the range to 0, 0.
+        // QAbstractScrollArea will then hide the scroll bar for us
+        verticalScrollBar()->setRange(0, 0);
+    } else {
+        verticalScrollBar()->setRange(0, contentsSize.height() - viewport()->height());
+    }
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1963, as _ZN19QCommonListViewBase15appendHiddenRowEi
+inline void QCommonListViewBase::appendHiddenRow(int row)
+{
+    dd->hiddenRows.insert(dd->model->index(row, 0, qq->rootIndex()));
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1968, as _ZN19QCommonListViewBase15removeHiddenRowEi
+inline void QCommonListViewBase::removeHiddenRow(int row)
+{
+    dd->hiddenRows.remove(dd->model->index(row, 0, qq->rootIndex()));
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1974, as _ZN19QCommonListViewBase13paintDragDropEP8QPainter
+#if QT_CONFIG(draganddrop)
+inline void QCommonListViewBase::paintDragDrop(QPainter *painter)
+{
+    // FIXME: Until the we can provide a proper drop indicator
+    // in IconMode, it makes no sense to show it
+    dd->paintDropIndicator(painter);
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 2167, as _ZN24QAbstractItemViewPrivate16droppingOnItselfEP10QDropEventRK11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QAbstractItemViewPrivate::droppingOnItself(QDropEvent *event, const QModelIndex &index)
+{
+    Q_Q(QAbstractItemView);
+    Qt::DropAction dropAction = event->dropAction();
+    if (q->dragDropMode() == QAbstractItemView::InternalMove)
+        dropAction = Qt::MoveAction;
+    if (event->source() == q
+        && event->possibleActions() & Qt::MoveAction
+        && dropAction == Qt::MoveAction) {
+        QModelIndexList selectedIndexes = q->selectedIndexes();
+        QModelIndex child = index;
+        while (child.isValid() && child != root) {
+            if (selectedIndexes.contains(child))
+                return true;
+            child = child.parent();
+        }
+    }
+    return false;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4433, as _ZNK24QAbstractItemViewPrivate16shouldAutoScrollERK6QPoint
+inline bool QAbstractItemViewPrivate::shouldAutoScroll(const QPoint &pos) const
+{
+    if (!autoScroll)
+        return false;
+    const QRect area = QWidgetPrivate::get(viewport)->clipRect();
+    return (pos.y() - area.top() < autoScrollMargin)
+        || (area.bottom() - pos.y() < autoScrollMargin)
+        || (pos.x() - area.left() < autoScrollMargin)
+        || (area.right() - pos.x() < autoScrollMargin);
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4452, as _ZNK24QAbstractItemViewPrivate27interruptDelayedItemsLayoutEv
+inline void QAbstractItemViewPrivate::interruptDelayedItemsLayout() const
+{
+    delayedLayout.stop();
+    delayedPendingLayout = false;
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1878, as _ZNK16QListViewPrivate8itemSizeERK20QStyleOptionViewItemRK11QModelIndex
+inline QSize QListViewPrivate::itemSize(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_Q(const QListView);
+    if (!uniformItemSizes) {
+        const QAbstractItemDelegate *delegate = q->itemDelegateForIndex(index);
+        return delegate ? delegate->sizeHint(option, index) : QSize();
+    }
+    if (!cachedItemSize.isValid()) { // the last item is probably the largest, so we use its size
+        int row = model->rowCount(root) - 1;
+        QModelIndex sample = model->index(row, column, root);
+        const QAbstractItemDelegate *delegate = q->itemDelegateForIndex(sample);
+        cachedItemSize = delegate ? delegate->sizeHint(option, sample) : QSize();
+    }
+    return cachedItemSize;
+}
+
+//  from src/widgets/widgets/qabstractslider.cpp, line 816, as _ZN22QAbstractSliderPrivate24itemviewChangeSingleStepEi
+inline void QAbstractSliderPrivate::itemviewChangeSingleStep(int step)
+{
+    singleStepFromItemView = step;
+    if (viewMayChangeSingleStep && singleStep != step)
+        setSteps(step, pageStep);
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4444, as _ZN24QAbstractItemViewPrivate20doDelayedItemsLayoutEi
+inline void QAbstractItemViewPrivate::doDelayedItemsLayout(int delay)
+{
+    if (!delayedPendingLayout) {
+        delayedPendingLayout = true;
+        delayedLayout.start(delay, q_func());
+    }
+}
+
+//  from src/widgets/widgets/qabstractslider.cpp, line 215, as _ZN22QAbstractSliderPrivate8setStepsEii
+inline void QAbstractSliderPrivate::setSteps(int single, int page)
+{
+    Q_Q(QAbstractSlider);
+    singleStep = qAbs(single);
+    pageStep = qAbs(page);
+    q->sliderChange(QAbstractSlider::SliderStepsChange);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2100, as _ZN17QListModeViewBaseC1EP9QListViewP16QListViewPrivate
+inline QListModeViewBase::QListModeViewBase(QListView *q, QListViewPrivate *d)
+    : QCommonListViewBase(q, d)
+{
+#if QT_CONFIG(draganddrop)
+    dd->defaultDropAction = Qt::CopyAction;
+#endif
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1982, as _ZN17QListModeViewBase12viewportSizeEPK17QAbstractItemView
+inline QSize QListModeViewBase::viewportSize(const QAbstractItemView *v)
+{
+    return v->contentsRect().marginsRemoved(v->viewportMargins()).size();
 }
 
 //  from src/widgets/itemviews/qlistview.cpp, line 2109, as _ZNK17QListModeViewBase8positionERK6QPointRK5QRectRK11QModelIndex
@@ -1014,6 +1067,16 @@ inline int QListModeViewBase::perItemScrollingPageSteps(int length, int bounds, 
 }
 //  -----------------------------------------------------------------------
 
+#if QT_CONFIG(draganddrop)
+//  QListModeViewBase::QListModeViewBase(QListView *q, QListViewPrivate *d)
+extern "C" Q_DECL_EXPORT
+QListModeViewBase *ritual_ZN17QListModeViewBaseC1EP9QListViewP16QListViewPrivate(
+    QListView *q,
+    QListViewPrivate *d) {
+  return new QListModeViewBase(q, d);
+}
+#endif  // QT_CONFIG(draganddrop)
+
 //  int QListModeViewBase::itemIndex(const QListViewItem &item) const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK17QListModeViewBase9itemIndexERK13QListViewItem(
@@ -1072,6 +1135,48 @@ void ritual_ZN17QListModeViewBase11dataChangedERK11QModelIndexS2_(
     const QModelIndex *a0,
     const QModelIndex *a1) {
   self->dataChanged(*a0, *a1);
+}
+
+//  int QListModeViewBase::horizontalScrollToValue(int index,
+//      QListView::ScrollHint hint, bool leftOf, bool rightOf, const QRect
+//      &area, const QRect &rect) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK17QListModeViewBase23horizontalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_(
+    const QListModeViewBase *self,
+    int index,
+    const QListView::ScrollHint *hint,
+    bool leftOf,
+    bool rightOf,
+    const QRect *area,
+    const QRect *rect) {
+  return self->horizontalScrollToValue(
+      index,
+      *hint,
+      leftOf,
+      rightOf,
+      *area,
+      *rect);
+}
+
+//  int QListModeViewBase::verticalScrollToValue(int index,
+//      QListView::ScrollHint hint, bool above, bool below, const QRect
+//      &area, const QRect &rect) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK17QListModeViewBase21verticalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_(
+    const QListModeViewBase *self,
+    int index,
+    const QListView::ScrollHint *hint,
+    bool above,
+    bool below,
+    const QRect *area,
+    const QRect *rect) {
+  return self->verticalScrollToValue(
+      index,
+      *hint,
+      above,
+      below,
+      *area,
+      *rect);
 }
 
 //  void QListModeViewBase::scrollContentsBy(int dx, int dy, bool

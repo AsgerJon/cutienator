@@ -71,6 +71,21 @@
     "ritual_ZN3QV48Compiler15JSUnitGenerator12generateUnitENS1_15GeneratorOptionE": [
       "address", "address", "int"
     ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator13writeFunctionEPcPNS0_7ContextE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator10writeClassEPcRKNS0_5ClassE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator19writeTemplateObjectEPcRKNS0_14TemplateObjectE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator10writeBlockEPcPNS0_7ContextE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator14generateHeaderENS1_15GeneratorOptionEP15QSpecialIntegerI24QLittleEndianStorageTypeIjEEPj": [
+      "address", "address", "int", "address", "address"
+    ],
     "ritual_ZN3QV48Compiler15JSUnitGeneratorD1Ev": ["nothing", "address"]
   }
 }

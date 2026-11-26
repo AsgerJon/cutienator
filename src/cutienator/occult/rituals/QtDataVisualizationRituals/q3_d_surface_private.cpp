@@ -20,11 +20,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdatavis3d/src/datavisualization/engine/q3dsurface.cpp, line 319, as _ZN17Q3DSurfacePrivateD1Ev
-inline Q3DSurfacePrivate::~Q3DSurfacePrivate()
-{
-}
-
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dsurface.cpp, line 323, as _ZN17Q3DSurfacePrivate18handleAxisXChangedEP15QAbstract3DAxis
 inline void Q3DSurfacePrivate::handleAxisXChanged(QAbstract3DAxis *axis)
 {
@@ -41,6 +36,11 @@ inline void Q3DSurfacePrivate::handleAxisYChanged(QAbstract3DAxis *axis)
 inline void Q3DSurfacePrivate::handleAxisZChanged(QAbstract3DAxis *axis)
 {
     emit qptr()->axisZChanged(static_cast<QValue3DAxis *>(axis));
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dsurface.cpp, line 319, as _ZN17Q3DSurfacePrivateD1Ev
+inline Q3DSurfacePrivate::~Q3DSurfacePrivate()
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dsurface.cpp, line 338, as _ZN17Q3DSurfacePrivate4qptrEv
@@ -270,6 +270,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17Q3DSurfacePrivate10metaObjectEv(
     const Q3DSurfacePrivate *self) {
   return self->metaObject();
+}
+
+//  void *Q3DSurfacePrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17Q3DSurfacePrivate11qt_metacastEPKc(
+    Q3DSurfacePrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DSurfacePrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17Q3DSurfacePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DSurfacePrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  Q3DSurfacePrivate::~Q3DSurfacePrivate()

@@ -37,6 +37,15 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/dbus/qdbusargument.cpp, line 29, as _ZN20QDBusArgumentPrivateD1Ev
+#if !defined(QT_NO_DBUS)
+inline QDBusArgumentPrivate::~QDBusArgumentPrivate()
+{
+    if (message)
+        q_dbus_message_unref(message);
+}
+#endif  // !defined(QT_NO_DBUS)
+
 //  from src/dbus/qdbusargument.cpp, line 99, as _ZN20QDBusArgumentPrivate9checkReadEPS_
 #if !defined(QT_NO_DBUS)
 inline bool QDBusArgumentPrivate::checkRead(QDBusArgumentPrivate *d)
@@ -90,6 +99,13 @@ extern "C" Q_DECL_EXPORT
 QDBusArgument *ritual_ZN20QDBusArgumentPrivate6createEPS_(
     QDBusArgumentPrivate *d) {
   return new QDBusArgument(QDBusArgumentPrivate::create(d));
+}
+
+//  QDBusArgumentPrivate *QDBusArgumentPrivate::d(QDBusArgument &q)
+extern "C" Q_DECL_EXPORT
+QDBusArgumentPrivate *ritual_ZN20QDBusArgumentPrivate1dER13QDBusArgument(
+    QDBusArgument *q) {
+  return QDBusArgumentPrivate::d(*q);
 }
 
 #endif  // !defined(QT_NO_DBUS)

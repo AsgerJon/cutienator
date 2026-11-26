@@ -1370,6 +1370,24 @@ const QMetaObject *ritual_ZNK12QTextBrowser10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTextBrowser::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QTextBrowser11qt_metacastEPKc(
+    QTextBrowser *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextBrowser::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QTextBrowser11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextBrowser *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTextBrowser::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QTextBrowser2trEPKcS1_i(
@@ -1539,6 +1557,52 @@ void ritual_ZN12QTextBrowser6reloadEv(QTextBrowser *self) {
   self->reload();
 }
 
+//  void QTextBrowser::backwardAvailable(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser17backwardAvailableEb(
+    QTextBrowser *self,
+    bool a0) {
+  self->backwardAvailable(a0);
+}
+
+//  void QTextBrowser::forwardAvailable(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser16forwardAvailableEb(
+    QTextBrowser *self,
+    bool a0) {
+  self->forwardAvailable(a0);
+}
+
+//  void QTextBrowser::historyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser14historyChangedEv(QTextBrowser *self) {
+  self->historyChanged();
+}
+
+//  void QTextBrowser::sourceChanged(const QUrl &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser13sourceChangedERK4QUrl(
+    QTextBrowser *self,
+    const QUrl *a0) {
+  self->sourceChanged(*a0);
+}
+
+//  void QTextBrowser::highlighted(const QUrl &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser11highlightedERK4QUrl(
+    QTextBrowser *self,
+    const QUrl *a0) {
+  self->highlighted(*a0);
+}
+
+//  void QTextBrowser::anchorClicked(const QUrl &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser13anchorClickedERK4QUrl(
+    QTextBrowser *self,
+    const QUrl *a0) {
+  self->anchorClicked(*a0);
+}
+
 //  bool QTextBrowser::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN12QTextBrowser5eventEP6QEvent(QTextBrowser *self, QEvent *e) {
@@ -1609,6 +1673,19 @@ void ritual_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument12ResourceTypeE
     const QUrl *name,
     QTextDocument::ResourceType type) {
   self->doSetSource(*name, type);
+}
+
+//  QTextBrowserPrivate *QTextBrowser::d_func()
+extern "C" Q_DECL_EXPORT
+QTextBrowserPrivate *ritual_ZN12QTextBrowser6d_funcEv(QTextBrowser *self) {
+  return self->d_func();
+}
+
+//  const QTextBrowserPrivate *QTextBrowser::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTextBrowserPrivate *ritual_ZNK12QTextBrowser6d_funcEv(
+    const QTextBrowser *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQTextBrowser, for the function named by

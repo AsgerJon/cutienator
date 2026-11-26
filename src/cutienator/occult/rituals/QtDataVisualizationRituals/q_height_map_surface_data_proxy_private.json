@@ -8,6 +8,12 @@
     "ritual_ZNK33QHeightMapSurfaceDataProxyPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN33QHeightMapSurfaceDataProxyPrivateD1Ev": [
       "nothing", "address"
     ],

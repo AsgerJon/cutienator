@@ -8,6 +8,12 @@
     "ritual_ZNK27QLowEnergyControllerPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QLowEnergyControllerPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QLowEnergyControllerPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN27QLowEnergyControllerPrivate4initEv": ["nothing", "address"],
     "ritual_ZN27QLowEnergyControllerPrivate15connectToDeviceEv": [
@@ -21,6 +27,19 @@
     ],
     "ritual_ZN27QLowEnergyControllerPrivate22discoverServiceDetailsERK14QBluetoothUuidN17QLowEnergyService13DiscoveryModeE": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate18readCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEt": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate14readDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEtt": [
+      "nothing", "address", "address", "unsigned short", "unsigned short"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate19writeCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEtRK10QByteArrayN17QLowEnergyService9WriteModeE": [
+      "nothing", "address", "address", "unsigned short", "address", "int"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate15writeDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEttRK10QByteArray": [
+      "nothing", "address", "address", "unsigned short", "unsigned short",
+      "address"
     ],
     "ritual_ZN27QLowEnergyControllerPrivate16startAdvertisingERK31QLowEnergyAdvertisingParametersRK25QLowEnergyAdvertisingDataS5_": [
       "nothing", "address", "address", "address", "address"
@@ -47,6 +66,9 @@
     "ritual_ZN27QLowEnergyControllerPrivate8setErrorEN20QLowEnergyController5ErrorE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN27QLowEnergyControllerPrivate16serviceForHandleEt": [
+      "address", "address", "unsigned short"
+    ],
     "ritual_ZN27QLowEnergyControllerPrivate23characteristicForHandleEt": [
       "address", "address", "unsigned short"
     ],
@@ -68,6 +90,9 @@
     ],
     "ritual_take_QLowEnergyControllerPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QLowEnergyControllerPrivate__QSharedPointer_QLowEnergyServicePrivate": [
+      "nothing", "address"
     ]
   }
 }

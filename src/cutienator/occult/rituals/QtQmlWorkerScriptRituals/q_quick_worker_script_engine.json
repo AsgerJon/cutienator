@@ -8,6 +8,13 @@
     "ritual_ZNK24QQuickWorkerScriptEngine10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickWorkerScriptEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickWorkerScriptEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN24QQuickWorkerScriptEngine3runEv": ["nothing", "address"],
     "ritual_take_QQuickWorkerScriptEngine": [
       "bool", "address", "chars", "address"
     ]

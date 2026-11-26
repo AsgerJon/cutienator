@@ -13,13 +13,66 @@
     "ritual_ZNK10Qt3DRender5Quick8QScene2D10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender5Quick8QScene2D2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2DC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender5Quick8QScene2D6outputEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender5Quick8QScene2D12renderPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender5Quick8QScene2D4itemEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender5Quick8QScene2D14isMouseEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender5Quick8QScene2D8entitiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D9addEntityEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D12removeEntityEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D9setOutputEPNS_19QRenderTargetOutputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D15setRenderPolicyENS1_12RenderPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D7setItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D15setMouseEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D13outputChangedEPNS_19QRenderTargetOutputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D19renderPolicyChangedENS1_12RenderPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D11itemChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick8QScene2D19mouseEnabledChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN10Qt3DRender5Quick8QScene2D6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender5Quick8QScene2D6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DRender_Quick_QScene2D": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_Quick_QScene2D__QList_Qt3DCore_QEntity": [
+      "nothing", "address"
     ]
   }
 }

@@ -5,6 +5,10 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV410JsonParserC1EPNS_15ExecutionEngineEPK5QChari": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV410JsonParser9nextTokenEv": ["address", "address"],
     "ritual_ZN3QV410JsonParserD1Ev": ["nothing", "address"]
   }
 }

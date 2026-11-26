@@ -205,6 +205,18 @@ inline void QLogValue3DAxisFormatterPrivate::recalculate()
     }
 }
 
+//  from ../qtdatavis3d/src/datavisualization/axis/qlogvalue3daxisformatter.cpp, line 399, as _ZNK31QLogValue3DAxisFormatterPrivate12populateCopyER21QValue3DAxisFormatter
+inline void QLogValue3DAxisFormatterPrivate::populateCopy(QValue3DAxisFormatter &copy) const
+{
+    QLogValue3DAxisFormatter *logFormatter = static_cast<QLogValue3DAxisFormatter *>(&copy);
+    QLogValue3DAxisFormatterPrivate *priv = logFormatter->dptr();
+
+    priv->m_base = m_base;
+    priv->m_logMin = m_logMin;
+    priv->m_logMax = m_logMax;
+    priv->m_logRangeNormalizer = m_logRangeNormalizer;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/axis/qlogvalue3daxisformatter.cpp, line 410, as _ZNK31QLogValue3DAxisFormatterPrivate10positionAtEf
 inline float QLogValue3DAxisFormatterPrivate::positionAt(float value) const
 {
@@ -402,6 +414,25 @@ const QMetaObject *ritual_ZNK31QLogValue3DAxisFormatterPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLogValue3DAxisFormatterPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QLogValue3DAxisFormatterPrivate11qt_metacastEPKc(
+    QLogValue3DAxisFormatterPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLogValue3DAxisFormatterPrivate::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QLogValue3DAxisFormatterPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLogValue3DAxisFormatterPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QLogValue3DAxisFormatterPrivate::~QLogValue3DAxisFormatterPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QLogValue3DAxisFormatterPrivateD1Ev(
@@ -414,6 +445,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN31QLogValue3DAxisFormatterPrivate11recalculateEv(
     QLogValue3DAxisFormatterPrivate *self) {
   self->recalculate();
+}
+
+//  void QLogValue3DAxisFormatterPrivate::populateCopy(QValue3DAxisFormatter
+//      &copy) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK31QLogValue3DAxisFormatterPrivate12populateCopyER21QValue3DAxisFormatter(
+    const QLogValue3DAxisFormatterPrivate *self,
+    QValue3DAxisFormatter *copy) {
+  self->populateCopy(*copy);
 }
 
 //  float QLogValue3DAxisFormatterPrivate::positionAt(float value) const

@@ -2,6 +2,7 @@
 //  Qt3DCore/qboundingvolume.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DCore/qboundingvolume.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore15QBoundingVolume10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QBoundingVolume::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore15QBoundingVolume11qt_metacastEPKc(
+    Qt3DCore::QBoundingVolume *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QBoundingVolume::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore15QBoundingVolume11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QBoundingVolume *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QBoundingVolume::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,153 @@ QString *ritual_ZN8Qt3DCore15QBoundingVolume2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QBoundingVolume::tr(s, c, n));
+}
+
+//  Qt3DCore::QBoundingVolume::QBoundingVolume(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBoundingVolume *ritual_ZN8Qt3DCore15QBoundingVolumeC1EPNS_5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QBoundingVolume(parent);
+}
+
+//  Qt3DCore::QBoundingVolume::~QBoundingVolume()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolumeD1Ev(
+    Qt3DCore::QBoundingVolume *self) {
+  delete self;
+}
+
+//  QGeometryView *Qt3DCore::QBoundingVolume::view() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QGeometryView *ritual_ZNK8Qt3DCore15QBoundingVolume4viewEv(
+    const Qt3DCore::QBoundingVolume *self) {
+  return self->view();
+}
+
+//  QVector3D Qt3DCore::QBoundingVolume::implicitMinPoint() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK8Qt3DCore15QBoundingVolume16implicitMinPointEv(
+    const Qt3DCore::QBoundingVolume *self) {
+  return new QVector3D(self->implicitMinPoint());
+}
+
+//  QVector3D Qt3DCore::QBoundingVolume::implicitMaxPoint() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK8Qt3DCore15QBoundingVolume16implicitMaxPointEv(
+    const Qt3DCore::QBoundingVolume *self) {
+  return new QVector3D(self->implicitMaxPoint());
+}
+
+//  bool Qt3DCore::QBoundingVolume::areImplicitPointsValid() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore15QBoundingVolume22areImplicitPointsValidEv(
+    const Qt3DCore::QBoundingVolume *self) {
+  return self->areImplicitPointsValid();
+}
+
+//  QVector3D Qt3DCore::QBoundingVolume::minPoint() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK8Qt3DCore15QBoundingVolume8minPointEv(
+    const Qt3DCore::QBoundingVolume *self) {
+  return new QVector3D(self->minPoint());
+}
+
+//  QVector3D Qt3DCore::QBoundingVolume::maxPoint() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK8Qt3DCore15QBoundingVolume8maxPointEv(
+    const Qt3DCore::QBoundingVolume *self) {
+  return new QVector3D(self->maxPoint());
+}
+
+//  void Qt3DCore::QBoundingVolume::setView(QGeometryView *view)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolume7setViewEPNS_13QGeometryViewE(
+    Qt3DCore::QBoundingVolume *self,
+    Qt3DCore::QGeometryView *view) {
+  self->setView(view);
+}
+
+//  void Qt3DCore::QBoundingVolume::setMinPoint(const QVector3D &minPoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolume11setMinPointERK9QVector3D(
+    Qt3DCore::QBoundingVolume *self,
+    const QVector3D *minPoint) {
+  self->setMinPoint(*minPoint);
+}
+
+//  void Qt3DCore::QBoundingVolume::setMaxPoint(const QVector3D &maxPoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolume11setMaxPointERK9QVector3D(
+    Qt3DCore::QBoundingVolume *self,
+    const QVector3D *maxPoint) {
+  self->setMaxPoint(*maxPoint);
+}
+
+//  bool Qt3DCore::QBoundingVolume::updateImplicitBounds()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8Qt3DCore15QBoundingVolume20updateImplicitBoundsEv(
+    Qt3DCore::QBoundingVolume *self) {
+  return self->updateImplicitBounds();
+}
+
+//  void Qt3DCore::QBoundingVolume::viewChanged(QGeometryView *view)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolume11viewChangedEPNS_13QGeometryViewE(
+    Qt3DCore::QBoundingVolume *self,
+    Qt3DCore::QGeometryView *view) {
+  self->viewChanged(view);
+}
+
+//  void Qt3DCore::QBoundingVolume::implicitMinPointChanged(const QVector3D
+//      &implicitMinPoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolume23implicitMinPointChangedERK9QVector3D(
+    Qt3DCore::QBoundingVolume *self,
+    const QVector3D *implicitMinPoint) {
+  self->implicitMinPointChanged(*implicitMinPoint);
+}
+
+//  void Qt3DCore::QBoundingVolume::implicitMaxPointChanged(const QVector3D
+//      &implicitMaxPoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolume23implicitMaxPointChangedERK9QVector3D(
+    Qt3DCore::QBoundingVolume *self,
+    const QVector3D *implicitMaxPoint) {
+  self->implicitMaxPointChanged(*implicitMaxPoint);
+}
+
+//  void Qt3DCore::QBoundingVolume::implicitPointsValidChanged(bool
+//      implicitPointsValid)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolume26implicitPointsValidChangedEb(
+    Qt3DCore::QBoundingVolume *self,
+    bool implicitPointsValid) {
+  self->implicitPointsValidChanged(implicitPointsValid);
+}
+
+//  void Qt3DCore::QBoundingVolume::minPointChanged(QVector3D minPoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolume15minPointChangedE9QVector3D(
+    Qt3DCore::QBoundingVolume *self,
+    const QVector3D *minPoint) {
+  self->minPointChanged(*minPoint);
+}
+
+//  void Qt3DCore::QBoundingVolume::maxPointChanged(QVector3D maxPoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QBoundingVolume15maxPointChangedE9QVector3D(
+    Qt3DCore::QBoundingVolume *self,
+    const QVector3D *maxPoint) {
+  self->maxPointChanged(*maxPoint);
+}
+
+//  Qt3DCore::QBoundingVolume::QBoundingVolume(QBoundingVolumePrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBoundingVolume *ritual_ZN8Qt3DCore15QBoundingVolumeC1ERNS_22QBoundingVolumePrivateEPNS_5QNodeE(
+    Qt3DCore::QBoundingVolumePrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QBoundingVolume(*dd, parent);
 }
 
 //  QBoundingVolumePrivate *Qt3DCore::QBoundingVolume::d_func()

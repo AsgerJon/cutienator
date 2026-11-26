@@ -1,16 +1,22 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qstringhash_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qstringhash_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 3. Kept
+//  as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qstringhash_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qstringview.h>
+#include <QtCore/qlatin1stringview.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qhashedstring_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qlatin1stringview.h>
+#include <QtCore/QString>
+#include <QtCore/QStringView>
+#include <QtCore/QLatin1StringView>
+#include <QtCore/QLatin1String>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/private/qhashedstring_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -34,6 +40,53 @@ inline QString QHashedCStringRef::toUtf16() const
     return rv;
 }
 //  -----------------------------------------------------------------------
+
+//  HashedForm<QString>::Type QStringHashBase::hashedString(const QString &s)
+extern "C" Q_DECL_EXPORT
+HashedForm<QString>::Type *ritual_ZN15QStringHashBase12hashedStringERK7QString(
+    const QString *s) {
+  return new HashedForm<QString>::Type(QStringHashBase::hashedString(*s));
+}
+
+//  HashedForm<QStringView>::Type QStringHashBase::hashedString(QStringView
+//      s)
+extern "C" Q_DECL_EXPORT
+HashedForm<QStringView>::Type *ritual_ZN15QStringHashBase12hashedStringE11QStringView(
+    const QString *s) {
+  return new HashedForm<QStringView>::Type(
+      QStringHashBase::hashedString(
+          QStringView(*s)));
+}
+
+//  HashedForm<QV4::String *>::Type QStringHashBase::hashedString(QV4::String
+//      *s)
+extern "C" Q_DECL_EXPORT
+HashedForm<QV4::String *>::Type *ritual_ZN15QStringHashBase12hashedStringEPN3QV46StringE(
+    QV4::String *s) {
+  return new HashedForm<QV4::String *>::Type(
+      QStringHashBase::hashedString(
+          s));
+}
+
+//  HashedForm<const QV4::String *>::Type QStringHashBase::hashedString(const
+//      QV4::String *s)
+extern "C" Q_DECL_EXPORT
+HashedForm<const QV4::String *>::Type *ritual_ZN15QStringHashBase12hashedStringEPKN3QV46StringE(
+    const QV4::String *s) {
+  return new HashedForm<const QV4::String *>::Type(
+      QStringHashBase::hashedString(
+          s));
+}
+
+//  HashedForm<QLatin1StringView>::Type
+//      QStringHashBase::hashedString(QLatin1StringView s)
+extern "C" Q_DECL_EXPORT
+HashedForm<QLatin1StringView>::Type *ritual_ZN15QStringHashBase12hashedStringE13QLatin1String(
+    const QLatin1String *s) {
+  return new HashedForm<QLatin1StringView>::Type(
+      QStringHashBase::hashedString(
+          *s));
+}
 
 //  const QString &QStringHashBase::toQString(const QString &s)
 extern "C" Q_DECL_EXPORT
@@ -100,4 +153,62 @@ quint32 ritual_ZN15QStringHashBase6hashOfEPKN3QV46StringE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QStringHashBaseD1Ev(QStringHashBase *self) {
   delete self;
+}
+
+//  a HashedForm<QString>::Type a ritual of QStringHashBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStringHashBase__HashedForm_QString_Type(
+    HashedForm<QString>::Type *self) {
+  delete self;
+}
+
+//  a HashedForm<QStringView>::Type a ritual of QStringHashBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStringHashBase__HashedForm_QStringView_Type(
+    HashedForm<QStringView>::Type *self) {
+  delete self;
+}
+
+//  a HashedForm<QV4::String *>::Type a ritual of QStringHashBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStringHashBase__HashedForm_QV4_String_Type(
+    HashedForm<QV4::String *>::Type *self) {
+  delete self;
+}
+
+//  a HashedForm<const QV4::String *>::Type a ritual of QStringHashBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStringHashBase__HashedForm_const_QV4_String_Type(
+    HashedForm<const QV4::String *>::Type *self) {
+  delete self;
+}
+
+//  a HashedForm<QLatin1StringView>::Type a ritual of QStringHashBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStringHashBase__HashedForm_QLatin1StringView_Type(
+    HashedForm<QLatin1StringView>::Type *self) {
+  delete self;
+}
+
+//  static quint32 QStringHashBase::hashOf<QString>(const QString &key)
+extern "C" Q_DECL_EXPORT
+unsigned int ritual_ZN15QStringHashBase6hashOfI7QStringEEjRKT_(
+    const QString *key) {
+  return QStringHashBase::hashOf<QString>(*key);
+}
+
+//  static quint32 QStringHashBase::hashOf<QStringView>(
+//      const QStringView &key)
+extern "C" Q_DECL_EXPORT
+unsigned int ritual_ZN15QStringHashBase6hashOfI11QStringViewEEjRKT_(
+    const QStringView *key) {
+  return QStringHashBase::hashOf<QStringView>(*key);
+}
+
+//  static quint32 QStringHashBase::hashOf<QLatin1StringView>(
+//      const QLatin1StringView &key)
+extern "C" Q_DECL_EXPORT
+unsigned int ritual_ZN15QStringHashBase6hashOfI13QLatin1StringEEjRKT_(
+    const QLatin1StringView *key) {
+  return QStringHashBase::hashOf<QLatin1StringView>(*key);
 }

@@ -5,6 +5,8 @@
 #include <QtNetwork/qhttpheaders.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qjsondocument.h>
+#include <QtNetwork/QHttpHeaders>
+#include <QtCore/QList>
 
 //  QHttpServerResponderPrivate *QHttpServerResponder::d_func()
 extern "C" Q_DECL_EXPORT
@@ -20,10 +22,34 @@ const QHttpServerResponderPrivate *ritual_ZNK20QHttpServerResponder6d_funcEv(
   return self->d_func();
 }
 
+//  QHttpServerResponder::QHttpServerResponder(QHttpServerResponder &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerResponder *ritual_ZN20QHttpServerResponderC1EOS_(
+    QHttpServerResponder *other) {
+  return new QHttpServerResponder(std::move(*other));
+}
+
+//  QHttpServerResponder
+//      &QHttpServerResponder::operator=(QHttpServerResponder &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerResponder *ritual_ZN20QHttpServerResponderaSEOS_(
+    QHttpServerResponder *self,
+    QHttpServerResponder *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QHttpServerResponder::~QHttpServerResponder()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QHttpServerResponderD1Ev(QHttpServerResponder *self) {
   delete self;
+}
+
+//  void QHttpServerResponder::swap(QHttpServerResponder &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QHttpServerResponder4swapERS_(
+    QHttpServerResponder *self,
+    QHttpServerResponder *other) {
+  self->swap(*other);
 }
 
 //  void QHttpServerResponder::write(QIODevice *data, const QHttpHeaders
@@ -109,6 +135,15 @@ void ritual_ZN20QHttpServerResponder5writeENS_10StatusCodeE(
   self->write(status);
 }
 
+//  void QHttpServerResponder::sendResponse(const QHttpServerResponse
+//      &response)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QHttpServerResponder12sendResponseERK19QHttpServerResponse(
+    QHttpServerResponder *self,
+    const QHttpServerResponse *response) {
+  self->sendResponse(*response);
+}
+
 //  void QHttpServerResponder::writeBeginChunked(const QHttpHeaders &headers,
 //      StatusCode status)
 extern "C" Q_DECL_EXPORT
@@ -127,6 +162,17 @@ void ritual_ZN20QHttpServerResponder17writeBeginChunkedERK10QByteArrayNS_10Statu
     const QByteArray *mimeType,
     QHttpServerResponder::StatusCode status) {
   self->writeBeginChunked(*mimeType, status);
+}
+
+//  void QHttpServerResponder::writeBeginChunked(const QHttpHeaders &headers,
+//      QList<QHttpHeaders::WellKnownHeader> trailerNames, StatusCode status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QHttpServerResponder17writeBeginChunkedERK12QHttpHeaders5QListINS0_15WellKnownHeaderEENS_10StatusCodeE(
+    QHttpServerResponder *self,
+    const QHttpHeaders *headers,
+    const QList<QHttpHeaders::WellKnownHeader> *trailerNames,
+    QHttpServerResponder::StatusCode status) {
+  self->writeBeginChunked(*headers, *trailerNames, status);
 }
 
 //  void QHttpServerResponder::writeChunk(const QByteArray &data)

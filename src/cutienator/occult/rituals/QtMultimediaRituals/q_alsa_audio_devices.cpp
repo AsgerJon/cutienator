@@ -13,23 +13,24 @@
 #include <QtMultimedia/qaudioformat.h>
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qcoreapplication.h>
-#include <QtCore/qvarlengtharray.h>
-#include <QtMultimedia/private/qaudiohelpers_p.h>
-#include <QtMultimedia/private/qalsaaudiosink_p.h>
-#include <QtCore/QLoggingCategory>
-#include <QtCore/qcoreapplication.h>
-#include <QtCore/qvarlengtharray.h>
-#include <QtMultimedia/private/qaudiohelpers_p.h>
-#include <QtMultimedia/private/qalsaaudiosource_p.h>
 #include <QtMultimedia/private/qalsaaudiodevices_p.h>
 #include <QtMultimedia/qmediadevices.h>
 #include <QtMultimedia/private/qalsaaudiosource_p.h>
 #include <QtMultimedia/private/qalsaaudiosink_p.h>
 #include <QtMultimedia/private/qalsaaudiodevice_p.h>
 #include <alsa/asoundlib.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtMultimedia/private/qaudiohelpers_p.h>
+#include <QtMultimedia/private/qalsaaudiosource_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtMultimedia/private/qaudiohelpers_p.h>
+#include <QtMultimedia/private/qalsaaudiosink_p.h>
+#include <QtCore/QLoggingCategory>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -39,12 +40,33 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiosink.cpp, line 15, as _ZN14QAlsaAudioSinkC1E12QAudioDeviceRK12QAudioFormatP7QObject
-inline QAlsaAudioSink::QAlsaAudioSink(QAudioDevice device, const QAudioFormat &format, QObject *parent)
-    : QPlatformAudioSink(std::move(device), format, parent)
+//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiodevices.cpp, line 17, as local:qalsaaudiodevices.cpp:free_char
+namespace {
+struct free_char
 {
-    timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &QAlsaAudioSink::userFeed);
+    void operator()(char *c) const { ::free(c); }
+};
+}  // namespace
+
+//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiodevices.cpp, line 22, as local:qalsaaudiodevices.cpp:unique_str
+namespace {
+using unique_str = std::unique_ptr<char, free_char>;
+}  // namespace
+
+//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiodevices.cpp, line 121, as _ZN17QAlsaAudioDevices15createAudioSinkERK12QAudioDeviceRK12QAudioFormatP7QObject
+inline QPlatformAudioSink *QAlsaAudioDevices::createAudioSink(const QAudioDevice &deviceInfo,
+                                                       const QAudioFormat &fmt,
+                                                       QObject *parent)
+{
+    return new QAlsaAudioSink(deviceInfo, fmt, parent);
+}
+
+//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiodevices.cpp, line 114, as _ZN17QAlsaAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject
+inline QPlatformAudioSource *QAlsaAudioDevices::createAudioSource(const QAudioDevice &deviceInfo,
+                                                           const QAudioFormat &fmt,
+                                                           QObject *parent)
+{
+    return new QAlsaAudioSource(deviceInfo, fmt, parent);
 }
 
 //  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiosource.cpp, line 13, as _ZN16QAlsaAudioSourceC1E12QAudioDeviceRK12QAudioFormatP7QObject
@@ -69,20 +91,12 @@ inline QAlsaAudioSource::QAlsaAudioSource(QAudioDevice device, const QAudioForma
     connect(timer, &QTimer::timeout, this, &QAlsaAudioSource::userFeed);
 }
 
-//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiodevices.cpp, line 114, as _ZN17QAlsaAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject
-inline QPlatformAudioSource *QAlsaAudioDevices::createAudioSource(const QAudioDevice &deviceInfo,
-                                                           const QAudioFormat &fmt,
-                                                           QObject *parent)
+//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiosink.cpp, line 15, as _ZN14QAlsaAudioSinkC1E12QAudioDeviceRK12QAudioFormatP7QObject
+inline QAlsaAudioSink::QAlsaAudioSink(QAudioDevice device, const QAudioFormat &format, QObject *parent)
+    : QPlatformAudioSink(std::move(device), format, parent)
 {
-    return new QAlsaAudioSource(deviceInfo, fmt, parent);
-}
-
-//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiodevices.cpp, line 121, as _ZN17QAlsaAudioDevices15createAudioSinkERK12QAudioDeviceRK12QAudioFormatP7QObject
-inline QPlatformAudioSink *QAlsaAudioDevices::createAudioSink(const QAudioDevice &deviceInfo,
-                                                       const QAudioFormat &fmt,
-                                                       QObject *parent)
-{
-    return new QAlsaAudioSink(deviceInfo, fmt, parent);
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &QAlsaAudioSink::userFeed);
 }
 //  -----------------------------------------------------------------------
 
@@ -352,6 +366,20 @@ extern "C" Q_DECL_EXPORT
 QLatin1String *ritual_ZNK17QAlsaAudioDevices11backendNameEv(
     const QAlsaAudioDevices *self) {
   return new QLatin1String(self->backendName());
+}
+
+//  QList<QAudioDevice> QAlsaAudioDevices::findAudioInputs() const
+extern "C" Q_DECL_EXPORT
+QList<QAudioDevice> *ritual_ZNK17QAlsaAudioDevices15findAudioInputsEv(
+    const QAlsaAudioDevices *self) {
+  return new QList<QAudioDevice>(self->findAudioInputs());
+}
+
+//  QList<QAudioDevice> QAlsaAudioDevices::findAudioOutputs() const
+extern "C" Q_DECL_EXPORT
+QList<QAudioDevice> *ritual_ZNK17QAlsaAudioDevices16findAudioOutputsEv(
+    const QAlsaAudioDevices *self) {
+  return new QList<QAudioDevice>(self->findAudioOutputs());
 }
 
 //  a Python function taken by a CuteQAlsaAudioDevices, for the function

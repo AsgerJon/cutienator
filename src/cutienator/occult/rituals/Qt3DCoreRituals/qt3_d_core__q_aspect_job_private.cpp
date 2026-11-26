@@ -16,7 +16,7 @@ typedef void (*CuteQt3DCore_QAspectJobPrivateCall1)(const void *, Qt3DCore::QAsp
 class CuteQt3DCore_QAspectJobPrivate : public Qt3DCore::QAspectJobPrivate {
 public:
   using Qt3DCore::QAspectJobPrivate::QAspectJobPrivate;
-  CuteQt3DCore_QAspectJobPrivate(const Qt3DCore::QAspectJobPrivate &other) : Qt3DCore::QAspectJobPrivate(other) {}
+  CuteQt3DCore_QAspectJobPrivate(const Qt3DCore::QAspectJobPrivate & other) : Qt3DCore::QAspectJobPrivate(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -54,6 +54,12 @@ public:
     Qt3DCore::QAspectJobPrivate::postFrame(aspectManager);
   }
 };
+
+//  Qt3DCore::QAspectJobPrivate::QAspectJobPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAspectJobPrivate *ritual_ZN8Qt3DCore17QAspectJobPrivateC1Ev() {
+  return new CuteQt3DCore_QAspectJobPrivate();
+}
 
 //  Qt3DCore::QAspectJobPrivate::~QAspectJobPrivate()
 extern "C" Q_DECL_EXPORT

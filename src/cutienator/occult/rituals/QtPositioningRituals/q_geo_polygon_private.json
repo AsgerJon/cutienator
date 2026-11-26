@@ -19,6 +19,10 @@
     "ritual_ZN18QGeoPolygonPrivate9translateEdd": [
       "nothing", "address", "double", "double"
     ],
+    "ritual_ZNK18QGeoPolygonPrivateeqERK16QGeoShapePrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QGeoPolygonPrivate4hashEm": ["size_t", "address", "size_t"],
     "ritual_ZN18QGeoPolygonPrivate9markDirtyEv": ["nothing", "address"],
     "ritual_ZNK18QGeoPolygonPrivate10holesCountEv": ["long long", "address"],
     "ritual_ZNK18QGeoPolygonPrivate15polygonContainsERK14QGeoCoordinate": [
@@ -46,6 +50,9 @@
     ],
     "ritual_own_ZN18QGeoPolygonPrivate9translateEdd": [
       "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZNK18QGeoPolygonPrivate4hashEm": [
+      "size_t", "address", "size_t"
     ],
     "ritual_own_ZN18QGeoPolygonPrivate9markDirtyEv": ["nothing", "address"]
   }

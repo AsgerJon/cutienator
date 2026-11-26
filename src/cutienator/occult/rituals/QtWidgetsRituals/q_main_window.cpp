@@ -8,7 +8,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
+#if QT_CONFIG(dockwidget)
 #include <QtWidgets/qdockwidget.h>
+#endif
 #include <QtCore/qbytearray.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -908,6 +910,24 @@ const QMetaObject *ritual_ZNK11QMainWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMainWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QMainWindow11qt_metacastEPKc(
+    QMainWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMainWindow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QMainWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMainWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMainWindow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QMainWindow2trEPKcS1_i(
@@ -1363,6 +1383,19 @@ Qt::DockWidgetArea ritual_ZNK11QMainWindow14dockWidgetAreaEP11QDockWidget(
 }
 #endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
+//  void QMainWindow::resizeDocks(const QList<QDockWidget *> &docks, const
+//      QList<int> &sizes, Qt::Orientation orientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMainWindow11resizeDocksERK5QListIP11QDockWidgetERKS0_IiEN2Qt11OrientationE(
+    QMainWindow *self,
+    const QList<QDockWidget *> *docks,
+    const QList<int> *sizes,
+    Qt::Orientation orientation) {
+  self->resizeDocks(*docks, *sizes, orientation);
+}
+#endif  // QT_CONFIG(dockwidget)
+
 //  QByteArray QMainWindow::saveState(int version) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK11QMainWindow9saveStateEi(
@@ -1416,6 +1449,33 @@ void ritual_ZN11QMainWindow30setUnifiedTitleAndToolBarOnMacEb(
 }
 #endif  // QT_CONFIG(toolbar)
 
+//  void QMainWindow::iconSizeChanged(const QSize &iconSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMainWindow15iconSizeChangedERK5QSize(
+    QMainWindow *self,
+    const QSize *iconSize) {
+  self->iconSizeChanged(*iconSize);
+}
+
+//  void QMainWindow::toolButtonStyleChanged(Qt::ToolButtonStyle
+//      toolButtonStyle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMainWindow22toolButtonStyleChangedEN2Qt15ToolButtonStyleE(
+    QMainWindow *self,
+    Qt::ToolButtonStyle toolButtonStyle) {
+  self->toolButtonStyleChanged(toolButtonStyle);
+}
+
+#if QT_CONFIG(dockwidget)
+//  void QMainWindow::tabifiedDockWidgetActivated(QDockWidget *dockWidget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMainWindow27tabifiedDockWidgetActivatedEP11QDockWidget(
+    QMainWindow *self,
+    QDockWidget *dockWidget) {
+  self->tabifiedDockWidgetActivated(dockWidget);
+}
+#endif  // QT_CONFIG(dockwidget)
+
 #if !defined(QT_NO_CONTEXTMENU)
 //  void QMainWindow::contextMenuEvent(QContextMenuEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -1432,6 +1492,19 @@ bool ritual_ZN11QMainWindow5eventEP6QEvent(
     QMainWindow *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  QMainWindowPrivate *QMainWindow::d_func()
+extern "C" Q_DECL_EXPORT
+QMainWindowPrivate *ritual_ZN11QMainWindow6d_funcEv(QMainWindow *self) {
+  return self->d_func();
+}
+
+//  const QMainWindowPrivate *QMainWindow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QMainWindowPrivate *ritual_ZNK11QMainWindow6d_funcEv(
+    const QMainWindow *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQMainWindow, for the function named by

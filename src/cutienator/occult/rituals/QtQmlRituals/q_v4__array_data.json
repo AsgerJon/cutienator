@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4arraydata_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4arraydata_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV49ArrayData12staticVTableEv": ["address"],
@@ -13,6 +13,7 @@
     "ritual_ZN3QV49ArrayData8setAllocEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZNK3QV49ArrayData4typeEv": ["address", "address"],
     "ritual_ZN3QV49ArrayData7setTypeENS_4Heap9ArrayData4TypeE": [
       "nothing", "address", "int"
     ],
@@ -37,8 +38,22 @@
     "ritual_ZNK3QV49ArrayData3getEj": [
       "unsigned long long", "address", "unsigned int"
     ],
+    "ritual_ZN3QV49ArrayData16ensureAttributesEPNS_6ObjectE": [
+      "nothing", "address"
+    ],
     "ritual_ZN3QV49ArrayData7reallocEPNS_6ObjectENS_4Heap9ArrayData4TypeEjb": [
       "nothing", "address", "int", "unsigned int", "bool"
-    ]
+    ],
+    "ritual_ZN3QV49ArrayData4sortEPNS_15ExecutionEngineEPNS_6ObjectERKNS_5ValueEj": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV49ArrayData6appendEPNS_6ObjectEPNS_11ArrayObjectEj": [
+      "unsigned int", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV49ArrayData6insertEPNS_6ObjectEjPKNS_5ValueEb": [
+      "nothing", "address", "unsigned int", "address", "bool"
+    ],
+    "ritual_drop_QV4_ArrayData__QV4_ArrayData_Type": ["nothing", "address"],
+    "ritual_ZN3QV49ArrayData5allocEv": ["address", "address"]
   }
 }

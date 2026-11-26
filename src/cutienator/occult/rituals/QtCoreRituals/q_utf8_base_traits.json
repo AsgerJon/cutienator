@@ -2,15 +2,63 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/6.12.0/QtCore/private/qstringconverter_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN15QUtf8BaseTraits8peekByteEPKcx": [
       "unsigned char", "chars", "long long"
     ],
+    "ritual_ZN15QUtf8BaseTraits8peekByteEPKhx": [
+      "unsigned char", "address", "long long"
+    ],
+    "ritual_ZN15QUtf8BaseTraits8peekByteEPK8qchar8_tx": [
+      "unsigned char", "address", "long long"
+    ],
     "ritual_ZN15QUtf8BaseTraits14availableBytesEPKcS1_": [
       "long long", "chars", "chars"
     ],
-    "ritual_ZN15QUtf8BaseTraitsD1Ev": ["nothing", "address"]
+    "ritual_ZN15QUtf8BaseTraits14availableBytesEPKhS1_": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN15QUtf8BaseTraits14availableBytesEPK8qchar8_tS2_": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN15QUtf8BaseTraits9peekUtf16EPKDsx": [
+      "unsigned short", "address", "long long"
+    ],
+    "ritual_ZN15QUtf8BaseTraits14availableUtf16EPKDsS1_": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN15QUtf8BaseTraitsD1Ev": ["nothing", "address"],
+    "ritual_ZN15QUtf8BaseTraits10appendByteERPhh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QUtf8BaseTraits10appendByteERP8qchar8_tS0_": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QUtf8BaseTraits11appendUtf16ERPDsDs": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN15QUtf8BaseTraits10appendUcs4ERPDsDi": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN15QUtf8BaseTraits11appendUtf16ERPDiDs": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN15QUtf8BaseTraits10appendUcs4ERPDiDi": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN15QUtf8BaseTraits11advanceByteERPKcx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN15QUtf8BaseTraits11advanceByteERPKhx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN15QUtf8BaseTraits11advanceByteERPK8qchar8_tx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN15QUtf8BaseTraits12advanceUtf16ERPKDsx": [
+      "nothing", "address", "long long"
+    ]
   }
 }

@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/6.12.0/QtCore/private/qproperty_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtCore/6.12.0/QtCore/private/qproperty_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK27QPropertyBindingDataPointer7bindingEv": [
@@ -26,6 +26,21 @@
     "ritual_ZNK27QPropertyBindingDataPointer13observerCountEv": [
       "int", "address"
     ],
-    "ritual_ZN27QPropertyBindingDataPointerD1Ev": ["nothing", "address"]
+    "ritual_ZN27QPropertyBindingDataPointerD1Ev": ["nothing", "address"],
+    "ritual_ZN27QPropertyBindingDataPointer3getIiEES_R9QPropertyIT_E": [
+      "address", "address"
+    ],
+    "ritual_ZN27QPropertyBindingDataPointer3getIdEES_R9QPropertyIT_E": [
+      "address", "address"
+    ],
+    "ritual_ZN27QPropertyBindingDataPointer3getIbEES_R9QPropertyIT_E": [
+      "address", "address"
+    ],
+    "ritual_ZN27QPropertyBindingDataPointer3getI7QStringEES_R9QPropertyIT_E": [
+      "address", "address"
+    ],
+    "ritual_ZN27QPropertyBindingDataPointer3getI8QVariantEES_R9QPropertyIT_E": [
+      "address", "address"
+    ]
   }
 }

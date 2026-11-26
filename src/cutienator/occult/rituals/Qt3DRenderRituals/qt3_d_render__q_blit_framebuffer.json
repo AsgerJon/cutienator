@@ -8,8 +8,84 @@
     "ritual_ZNK10Qt3DRender16QBlitFramebuffer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender16QBlitFramebuffer2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebufferC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebufferD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender16QBlitFramebuffer6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QBlitFramebuffer11destinationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QBlitFramebuffer10sourceRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QBlitFramebuffer15destinationRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QBlitFramebuffer21sourceAttachmentPointEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QBlitFramebuffer26destinationAttachmentPointEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QBlitFramebuffer19interpolationMethodEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer9setSourceEPNS_13QRenderTargetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer14setDestinationEPNS_13QRenderTargetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer13setSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer18setDestinationRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer24setSourceAttachmentPointENS_19QRenderTargetOutput15AttachmentPointE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer29setDestinationAttachmentPointENS_19QRenderTargetOutput15AttachmentPointE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer22setInterpolationMethodENS0_19InterpolationMethodE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer13sourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer18destinationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer17sourceRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer22destinationRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer28sourceAttachmentPointChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer33destinationAttachmentPointChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebuffer26interpolationMethodChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QBlitFramebufferC1ERNS_23QBlitFramebufferPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender16QBlitFramebuffer6d_funcEv": [
       "address", "address"

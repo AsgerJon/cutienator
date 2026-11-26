@@ -180,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras21QCylinderGeometryView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QCylinderGeometryView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras21QCylinderGeometryView11qt_metacastEPKc(
+    Qt3DExtras::QCylinderGeometryView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QCylinderGeometryView::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras21QCylinderGeometryView11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QCylinderGeometryView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QCylinderGeometryView::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -188,6 +207,113 @@ QString *ritual_ZN10Qt3DExtras21QCylinderGeometryView2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QCylinderGeometryView::tr(s, c, n));
+}
+
+//  Qt3DExtras::QCylinderGeometryView::QCylinderGeometryView(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QCylinderGeometryView *ritual_ZN10Qt3DExtras21QCylinderGeometryViewC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QCylinderGeometryView(parent);
+}
+
+//  Qt3DExtras::QCylinderGeometryView::~QCylinderGeometryView()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QCylinderGeometryViewD1Ev(
+    Qt3DExtras::QCylinderGeometryView *self) {
+  delete self;
+}
+
+//  int Qt3DExtras::QCylinderGeometryView::rings() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras21QCylinderGeometryView5ringsEv(
+    const Qt3DExtras::QCylinderGeometryView *self) {
+  return self->rings();
+}
+
+//  int Qt3DExtras::QCylinderGeometryView::slices() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras21QCylinderGeometryView6slicesEv(
+    const Qt3DExtras::QCylinderGeometryView *self) {
+  return self->slices();
+}
+
+//  float Qt3DExtras::QCylinderGeometryView::radius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras21QCylinderGeometryView6radiusEv(
+    const Qt3DExtras::QCylinderGeometryView *self) {
+  return self->radius();
+}
+
+//  float Qt3DExtras::QCylinderGeometryView::length() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras21QCylinderGeometryView6lengthEv(
+    const Qt3DExtras::QCylinderGeometryView *self) {
+  return self->length();
+}
+
+//  void Qt3DExtras::QCylinderGeometryView::setRings(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QCylinderGeometryView8setRingsEi(
+    Qt3DExtras::QCylinderGeometryView *self,
+    int rings) {
+  self->setRings(rings);
+}
+
+//  void Qt3DExtras::QCylinderGeometryView::setSlices(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QCylinderGeometryView9setSlicesEi(
+    Qt3DExtras::QCylinderGeometryView *self,
+    int slices) {
+  self->setSlices(slices);
+}
+
+//  void Qt3DExtras::QCylinderGeometryView::setRadius(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QCylinderGeometryView9setRadiusEf(
+    Qt3DExtras::QCylinderGeometryView *self,
+    float radius) {
+  self->setRadius(radius);
+}
+
+//  void Qt3DExtras::QCylinderGeometryView::setLength(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QCylinderGeometryView9setLengthEf(
+    Qt3DExtras::QCylinderGeometryView *self,
+    float length) {
+  self->setLength(length);
+}
+
+//  void Qt3DExtras::QCylinderGeometryView::radiusChanged(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QCylinderGeometryView13radiusChangedEf(
+    Qt3DExtras::QCylinderGeometryView *self,
+    float radius) {
+  self->radiusChanged(radius);
+}
+
+//  void Qt3DExtras::QCylinderGeometryView::ringsChanged(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QCylinderGeometryView12ringsChangedEi(
+    Qt3DExtras::QCylinderGeometryView *self,
+    int rings) {
+  self->ringsChanged(rings);
+}
+
+//  void Qt3DExtras::QCylinderGeometryView::slicesChanged(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QCylinderGeometryView13slicesChangedEi(
+    Qt3DExtras::QCylinderGeometryView *self,
+    int slices) {
+  self->slicesChanged(slices);
+}
+
+//  void Qt3DExtras::QCylinderGeometryView::lengthChanged(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QCylinderGeometryView13lengthChangedEf(
+    Qt3DExtras::QCylinderGeometryView *self,
+    float length) {
+  self->lengthChanged(length);
 }
 
 //  a Python function taken by a CuteQt3DExtras_QCylinderGeometryView, for

@@ -8,14 +8,29 @@
     "ritual_ZNK10Qt3DRender6Render5Quick16Quick3DRayCaster10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render5Quick16Quick3DRayCaster11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick16Quick3DRayCaster11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render5Quick16Quick3DRayCaster2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick16Quick3DRayCasterC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick16Quick3DRayCaster9qmlLayersEv": [
+      "address", "address"
     ],
     "ritual_ZN10Qt3DRender6Render5Quick16Quick3DRayCaster6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render5Quick16Quick3DRayCaster6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Quick_Quick3DRayCaster__QQmlListProperty_Qt3DRender_QLayer": [
+      "nothing", "address"
     ]
   }
 }

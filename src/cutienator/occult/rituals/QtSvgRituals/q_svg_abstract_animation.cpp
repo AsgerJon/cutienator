@@ -73,6 +73,12 @@ public:
   }
 };
 
+//  QSvgAbstractAnimation::QSvgAbstractAnimation()
+extern "C" Q_DECL_EXPORT
+QSvgAbstractAnimation *ritual_ZN21QSvgAbstractAnimationC1Ev() {
+  return new CuteQSvgAbstractAnimation();
+}
+
 //  QSvgAbstractAnimation::~QSvgAbstractAnimation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QSvgAbstractAnimationD1Ev(QSvgAbstractAnimation *self) {

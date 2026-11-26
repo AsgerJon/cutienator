@@ -4,6 +4,17 @@
     "QtTaskTree/qtasktree.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QtTaskTree11StorageBaseC1ERKS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree11StorageBaseC1EOS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree11StorageBase4swapERS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree11StorageBaseC1ERKSt8functionIFSt10shared_ptrIvEvEE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QtTaskTree11StorageBase17activeStorageVoidEv": [
+      "address", "address"
+    ],
     "ritual_ZN10QtTaskTreeeqERKNS_11StorageBaseES2_": [
       "bool", "address", "address"
     ],

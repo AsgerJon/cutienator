@@ -6,7 +6,11 @@
   "rows": {
     "ritual_ZN12QGeoManeuverC1Ev": ["address"],
     "ritual_ZN12QGeoManeuverC1ERKS_": ["address", "address"],
+    "ritual_ZN12QGeoManeuverC1EOS_": ["address", "address"],
     "ritual_ZN12QGeoManeuverD1Ev": ["nothing", "address"],
+    "ritual_ZN12QGeoManeuveraSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QGeoManeuveraSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QGeoManeuver4swapERS_": ["nothing", "address", "address"],
     "ritual_ZeqRK12QGeoManeuverS1_": ["bool", "address", "address"],
     "ritual_ZneRK12QGeoManeuverS1_": ["bool", "address", "address"],
     "ritual_ZNK12QGeoManeuver7isValidEv": ["bool", "address"],

@@ -20,7 +20,7 @@ typedef const QPen * (*CuteQLottieGStrokeCall3)(const void *, int *);
 class CuteQLottieGStroke : public QLottieGStroke {
 public:
   using QLottieGStroke::QLottieGStroke;
-  CuteQLottieGStroke(const QLottieGStroke &other) : QLottieGStroke(other) {}
+  CuteQLottieGStroke(const QLottieGStroke & other) : QLottieGStroke(other) {}
   void *taken[4] = {};
 
   bool take(const char *key, void *call) {
@@ -114,6 +114,14 @@ void ritual_ZN14QLottieGStroke16updatePropertiesEi(
     QLottieGStroke *self,
     int frame) {
   self->updateProperties(frame);
+}
+
+//  void QLottieGStroke::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QLottieGStroke6renderER15QLottieRenderer(
+    const QLottieGStroke *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
 }
 
 //  int QLottieGStroke::parse(const QJsonObject &definition)

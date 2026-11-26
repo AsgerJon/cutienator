@@ -26,6 +26,22 @@ const QMetaObject *ritual_ZNK9QQuickRow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QQuickRow11qt_metacastEPKc(QQuickRow *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QQuickRow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QQuickRow2trEPKcS1_i(
@@ -63,6 +79,19 @@ Qt::LayoutDirection ritual_ZNK9QQuickRow24effectiveLayoutDirectionEv(
   return self->effectiveLayoutDirection();
 }
 
+//  void QQuickRow::layoutDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QQuickRow22layoutDirectionChangedEv(QQuickRow *self) {
+  self->layoutDirectionChanged();
+}
+
+//  void QQuickRow::effectiveLayoutDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QQuickRow31effectiveLayoutDirectionChangedEv(
+    QQuickRow *self) {
+  self->effectiveLayoutDirectionChanged();
+}
+
 //  void QQuickRow::doPositioning(QSizeF *contentSize)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QQuickRow13doPositioningEP6QSizeF(
@@ -75,6 +104,19 @@ void ritual_ZN9QQuickRow13doPositioningEP6QSizeF(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QQuickRow24reportConflictingAnchorsEv(QQuickRow *self) {
   self->reportConflictingAnchors();
+}
+
+//  QQuickRowPrivate *QQuickRow::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickRowPrivate *ritual_ZN9QQuickRow6d_funcEv(QQuickRow *self) {
+  return self->d_func();
+}
+
+//  const QQuickRowPrivate *QQuickRow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickRowPrivate *ritual_ZNK9QQuickRow6d_funcEv(
+    const QQuickRow *self) {
+  return self->d_func();
 }
 
 //  void QQuickRow::doPositioning(QSizeF *contentSize)

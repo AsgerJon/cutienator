@@ -5,6 +5,25 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras26QDiffuseMapMaterialPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DExtras26QDiffuseMapMaterialPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras26QDiffuseMapMaterialPrivate20handleAmbientChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras26QDiffuseMapMaterialPrivate20handleDiffuseChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras26QDiffuseMapMaterialPrivate21handleSpecularChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras26QDiffuseMapMaterialPrivate22handleShininessChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras26QDiffuseMapMaterialPrivate25handleTextureScaleChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DExtras26QDiffuseMapMaterialPrivate6q_funcEv": [
       "address", "address"
     ],

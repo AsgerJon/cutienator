@@ -17,6 +17,7 @@
     ],
     "ritual_ZN14QStringMatcherC1ERKS_": ["address", "address"],
     "ritual_ZN14QStringMatcherD1Ev": ["nothing", "address"],
+    "ritual_ZN14QStringMatcheraSERKS_": ["address", "address", "address"],
     "ritual_ZN14QStringMatcher10setPatternERK7QString": [
       "nothing", "address", "text"
     ],

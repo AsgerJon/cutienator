@@ -2,6 +2,7 @@
 //  Qt3DExtras/qplanemesh.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qplanemesh.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras10QPlaneMesh10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QPlaneMesh::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras10QPlaneMesh11qt_metacastEPKc(
+    Qt3DExtras::QPlaneMesh *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QPlaneMesh::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras10QPlaneMesh11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QPlaneMesh *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QPlaneMesh::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DExtras10QPlaneMesh2trEPKcS2_i(
@@ -186,6 +206,112 @@ QString *ritual_ZN10Qt3DExtras10QPlaneMesh2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QPlaneMesh::tr(s, c, n));
+}
+
+//  Qt3DExtras::QPlaneMesh::QPlaneMesh(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QPlaneMesh *ritual_ZN10Qt3DExtras10QPlaneMeshC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QPlaneMesh(parent);
+}
+
+//  Qt3DExtras::QPlaneMesh::~QPlaneMesh()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10QPlaneMeshD1Ev(Qt3DExtras::QPlaneMesh *self) {
+  delete self;
+}
+
+//  float Qt3DExtras::QPlaneMesh::width() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras10QPlaneMesh5widthEv(
+    const Qt3DExtras::QPlaneMesh *self) {
+  return self->width();
+}
+
+//  float Qt3DExtras::QPlaneMesh::height() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras10QPlaneMesh6heightEv(
+    const Qt3DExtras::QPlaneMesh *self) {
+  return self->height();
+}
+
+//  QSize Qt3DExtras::QPlaneMesh::meshResolution() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DExtras10QPlaneMesh14meshResolutionEv(
+    const Qt3DExtras::QPlaneMesh *self) {
+  return new QSize(self->meshResolution());
+}
+
+//  bool Qt3DExtras::QPlaneMesh::mirrored() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras10QPlaneMesh8mirroredEv(
+    const Qt3DExtras::QPlaneMesh *self) {
+  return self->mirrored();
+}
+
+//  void Qt3DExtras::QPlaneMesh::setWidth(float width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10QPlaneMesh8setWidthEf(
+    Qt3DExtras::QPlaneMesh *self,
+    float width) {
+  self->setWidth(width);
+}
+
+//  void Qt3DExtras::QPlaneMesh::setHeight(float height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10QPlaneMesh9setHeightEf(
+    Qt3DExtras::QPlaneMesh *self,
+    float height) {
+  self->setHeight(height);
+}
+
+//  void Qt3DExtras::QPlaneMesh::setMeshResolution(const QSize &resolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10QPlaneMesh17setMeshResolutionERK5QSize(
+    Qt3DExtras::QPlaneMesh *self,
+    const QSize *resolution) {
+  self->setMeshResolution(*resolution);
+}
+
+//  void Qt3DExtras::QPlaneMesh::setMirrored(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10QPlaneMesh11setMirroredEb(
+    Qt3DExtras::QPlaneMesh *self,
+    bool mirrored) {
+  self->setMirrored(mirrored);
+}
+
+//  void Qt3DExtras::QPlaneMesh::meshResolutionChanged(const QSize
+//      &meshResolution)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10QPlaneMesh21meshResolutionChangedERK5QSize(
+    Qt3DExtras::QPlaneMesh *self,
+    const QSize *meshResolution) {
+  self->meshResolutionChanged(*meshResolution);
+}
+
+//  void Qt3DExtras::QPlaneMesh::widthChanged(float width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10QPlaneMesh12widthChangedEf(
+    Qt3DExtras::QPlaneMesh *self,
+    float width) {
+  self->widthChanged(width);
+}
+
+//  void Qt3DExtras::QPlaneMesh::heightChanged(float height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10QPlaneMesh13heightChangedEf(
+    Qt3DExtras::QPlaneMesh *self,
+    float height) {
+  self->heightChanged(height);
+}
+
+//  void Qt3DExtras::QPlaneMesh::mirroredChanged(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras10QPlaneMesh15mirroredChangedEb(
+    Qt3DExtras::QPlaneMesh *self,
+    bool mirrored) {
+  self->mirroredChanged(mirrored);
 }
 
 //  a Python function taken by a CuteQt3DExtras_QPlaneMesh, for the function

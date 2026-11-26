@@ -5,6 +5,9 @@
     "are lost."
   ],
   "rows": {
-    "ritual_ZN26QAbstractNativeEventFilterD1Ev": ["nothing", "address"]
+    "ritual_ZN26QAbstractNativeEventFilterD1Ev": ["nothing", "address"],
+    "ritual_ZN26QAbstractNativeEventFilter17nativeEventFilterERK10QByteArrayPvPx": [
+      "bool", "address", "address", "address", "address"
+    ]
   }
 }

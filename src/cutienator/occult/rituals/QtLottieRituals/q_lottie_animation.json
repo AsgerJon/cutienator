@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QLottieAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QLottieAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QLottieAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QLottieAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -57,6 +63,25 @@
       "double", "address", "bool"
     ],
     "ritual_ZNK16QLottieAnimation10jsonSourceEv": ["address", "address"],
+    "ritual_ZN16QLottieAnimation13statusChangedEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation14qualityChangedEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation8finishedEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation16frameRateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QLottieAnimation15autoPlayChangedEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation12loopsChangedEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation16directionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QLottieAnimation17startFrameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QLottieAnimation15endFrameChangedEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation19currentFrameChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN16QLottieAnimation12loadFinishedERK10QByteArray": [
       "nothing", "address", "address"
     ],

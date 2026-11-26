@@ -1990,6 +1990,25 @@ const QMetaObject *ritual_ZNK17QAbstractItemView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractItemView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QAbstractItemView11qt_metacastEPKc(
+    QAbstractItemView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractItemView::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QAbstractItemView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractItemView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractItemView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QAbstractItemView2trEPKcS1_i(
@@ -2612,6 +2631,17 @@ void ritual_ZN17QAbstractItemView6updateERK11QModelIndex(
   self->update(*index);
 }
 
+//  void QAbstractItemView::dataChanged(const QModelIndex &topLeft, const
+//      QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView11dataChangedERK11QModelIndexS2_RK5QListIiE(
+    QAbstractItemView *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->dataChanged(*topLeft, *bottomRight, *roles);
+}
+
 //  void QAbstractItemView::rowsInserted(const QModelIndex &parent, int
 //      start, int end)
 extern "C" Q_DECL_EXPORT
@@ -2731,6 +2761,61 @@ void ritual_ZN17QAbstractItemView15editorDestroyedEP7QObject(
     QAbstractItemView *self,
     QObject *editor) {
   self->editorDestroyed(editor);
+}
+
+//  void QAbstractItemView::pressed(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView7pressedERK11QModelIndex(
+    QAbstractItemView *self,
+    const QModelIndex *index) {
+  self->pressed(*index);
+}
+
+//  void QAbstractItemView::clicked(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView7clickedERK11QModelIndex(
+    QAbstractItemView *self,
+    const QModelIndex *index) {
+  self->clicked(*index);
+}
+
+//  void QAbstractItemView::doubleClicked(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView13doubleClickedERK11QModelIndex(
+    QAbstractItemView *self,
+    const QModelIndex *index) {
+  self->doubleClicked(*index);
+}
+
+//  void QAbstractItemView::activated(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView9activatedERK11QModelIndex(
+    QAbstractItemView *self,
+    const QModelIndex *index) {
+  self->activated(*index);
+}
+
+//  void QAbstractItemView::entered(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView7enteredERK11QModelIndex(
+    QAbstractItemView *self,
+    const QModelIndex *index) {
+  self->entered(*index);
+}
+
+//  void QAbstractItemView::viewportEntered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView15viewportEnteredEv(
+    QAbstractItemView *self) {
+  self->viewportEntered();
+}
+
+//  void QAbstractItemView::iconSizeChanged(const QSize &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView15iconSizeChangedERK5QSize(
+    QAbstractItemView *self,
+    const QSize *size) {
+  self->iconSizeChanged(*size);
 }
 
 //  QModelIndex QAbstractItemView::moveCursor(CursorAction cursorAction,

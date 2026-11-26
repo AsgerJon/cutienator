@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QAmbisonicDecoderD1Ev": ["nothing", "address"],
     "ritual_ZNK17QAmbisonicDecoder14hasValidConfigEv": ["bool", "address"],
     "ritual_ZNK17QAmbisonicDecoder14nInputChannelsEv": ["int", "address"],
     "ritual_ZNK17QAmbisonicDecoder15nOutputChannelsEv": ["int", "address"],

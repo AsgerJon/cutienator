@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QSqlTableModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QSqlTableModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QSqlTableModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QSqlTableModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -84,6 +90,21 @@
     "ritual_ZN14QSqlTableModel6revertEv": ["nothing", "address"],
     "ritual_ZN14QSqlTableModel9submitAllEv": ["bool", "address"],
     "ritual_ZN14QSqlTableModel9revertAllEv": ["nothing", "address"],
+    "ritual_ZN14QSqlTableModel11primeInsertEiR10QSqlRecord": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QSqlTableModel12beforeInsertER10QSqlRecord": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSqlTableModel12beforeUpdateEiR10QSqlRecord": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QSqlTableModel12beforeDeleteEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QSqlTableModelC1ER21QSqlTableModelPrivateP7QObjectRK12QSqlDatabase": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN14QSqlTableModel16updateRowInTableEiRK10QSqlRecord": [
       "bool", "address", "int", "address"
     ],

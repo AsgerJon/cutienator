@@ -57,6 +57,14 @@ void ritual_ZN14QStringMatcherD1Ev(QStringMatcher *self) {
   delete self;
 }
 
+//  QStringMatcher &QStringMatcher::operator=(const QStringMatcher &other)
+extern "C" Q_DECL_EXPORT
+QStringMatcher *ritual_ZN14QStringMatcheraSERKS_(
+    QStringMatcher *self,
+    const QStringMatcher *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QStringMatcher::setPattern(const QString &pattern)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QStringMatcher10setPatternERK7QString(

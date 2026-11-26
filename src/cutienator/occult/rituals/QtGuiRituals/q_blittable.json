@@ -5,6 +5,11 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN10QBlittable6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QBlittable6d_funcEv": ["address", "address"],
+    "ritual_ZN10QBlittableC1ERK5QSize6QFlagsINS_10CapabilityEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN10QBlittableD1Ev": ["nothing", "address"],
     "ritual_ZNK10QBlittable12capabilitiesEv": ["int", "address"],
     "ritual_ZNK10QBlittable4sizeEv": ["address", "address"],
@@ -20,6 +25,10 @@
     "ritual_ZN10QBlittable17drawPixmapOpacityERK6QRectFRK7QPixmapS2_N8QPainter15CompositionModeEd": [
       "nothing", "address", "address", "address", "address", "int", "double"
     ],
+    "ritual_ZN10QBlittable16drawCachedGlyphsEPK17QPaintEngineStateN11QFontEngine11GlyphFormatEiPKjPK11QFixedPointPS3_": [
+      "bool", "address", "address", "int", "int", "address", "address",
+      "address"
+    ],
     "ritual_ZN10QBlittable4lockEv": ["address", "address"],
     "ritual_ZN10QBlittable6unlockEv": ["nothing", "address"],
     "ritual_ZNK10QBlittable8isLockedEv": ["bool", "address"],
@@ -31,6 +40,10 @@
     ],
     "ritual_own_ZN10QBlittable17drawPixmapOpacityERK6QRectFRK7QPixmapS2_N8QPainter15CompositionModeEd": [
       "nothing", "address", "address", "address", "address", "int", "double"
+    ],
+    "ritual_own_ZN10QBlittable16drawCachedGlyphsEPK17QPaintEngineStateN11QFontEngine11GlyphFormatEiPKjPK11QFixedPointPS3_": [
+      "bool", "address", "address", "int", "int", "address", "address",
+      "address"
     ]
   }
 }

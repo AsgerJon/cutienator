@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlLidReading that Python can take functions over in. Every QmlLidReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,24 @@ const QMetaObject *ritual_ZNK13QmlLidReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlLidReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QmlLidReading11qt_metacastEPKc(
+    QmlLidReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlLidReading::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QmlLidReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlLidReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlLidReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QmlLidReading2trEPKcS1_i(
@@ -250,10 +269,40 @@ bool ritual_ZNK13QmlLidReading13backLidClosedEv(const QmlLidReading *self) {
   return self->backLidClosed();
 }
 
+//  QBindable<bool> QmlLidReading::bindableBackLidClosed() const
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZNK13QmlLidReading21bindableBackLidClosedEv(
+    const QmlLidReading *self) {
+  return new QBindable<bool>(self->bindableBackLidClosed());
+}
+
 //  bool QmlLidReading::frontLidClosed() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QmlLidReading14frontLidClosedEv(const QmlLidReading *self) {
   return self->frontLidClosed();
+}
+
+//  QBindable<bool> QmlLidReading::bindableFrontLidClosed() const
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZNK13QmlLidReading22bindableFrontLidClosedEv(
+    const QmlLidReading *self) {
+  return new QBindable<bool>(self->bindableFrontLidClosed());
+}
+
+//  void QmlLidReading::backLidChanged(bool closed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QmlLidReading14backLidChangedEb(
+    QmlLidReading *self,
+    bool closed) {
+  self->backLidChanged(closed);
+}
+
+//  bool QmlLidReading::frontLidChanged(bool closed)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QmlLidReading15frontLidChangedEb(
+    QmlLidReading *self,
+    bool closed) {
+  return self->frontLidChanged(closed);
 }
 
 //  QSensorReading *QmlLidReading::reading() const
@@ -267,6 +316,18 @@ QSensorReading *ritual_ZNK13QmlLidReading7readingEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QmlLidReading13readingUpdateEv(QmlLidReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlLidReading::_qt_property_m_backClosed_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN13QmlLidReading32_qt_property_m_backClosed_offsetEv() {
+  return QmlLidReading::_qt_property_m_backClosed_offset();
+}
+
+//  size_t QmlLidReading::_qt_property_m_frontClosed_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN13QmlLidReading33_qt_property_m_frontClosed_offsetEv() {
+  return QmlLidReading::_qt_property_m_frontClosed_offset();
 }
 
 //  a Python function taken by a CuteQmlLidReading, for the function named by
@@ -290,4 +351,10 @@ QSensorReading *ritual_own_ZNK13QmlLidReading7readingEv(
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN13QmlLidReading13readingUpdateEv(QmlLidReading *self) {
   self->QmlLidReading::readingUpdate();
+}
+
+//  a QBindable<bool> a ritual of QmlLidReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlLidReading__QBindable_bool(QBindable<bool> *self) {
+  delete self;
 }

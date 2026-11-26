@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10Q3DScatter10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Q3DScatter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Q3DScatter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Q3DScatter2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10Q3DScatterC1EPK14QSurfaceFormatP7QWindow": [
       "address", "address", "address"
@@ -38,6 +44,18 @@
     ],
     "ritual_ZNK10Q3DScatter4axesEv": ["address", "address"],
     "ritual_ZNK10Q3DScatter14selectedSeriesEv": ["address", "address"],
+    "ritual_ZN10Q3DScatter12axisXChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Q3DScatter12axisYChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Q3DScatter12axisZChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Q3DScatter21selectedSeriesChangedEP16QScatter3DSeries": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Q3DScatter4dptrEv": ["address", "address"],
     "ritual_ZNK10Q3DScatter5dptrcEv": ["address", "address"],
     "ritual_take_Q3DScatter": ["bool", "address", "chars", "address"]

@@ -8,14 +8,47 @@
     "ritual_ZNK18qdesigner_internal17QDesignerMimeData10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal17QDesignerMimeData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerMimeData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal17QDesignerMimeData2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerMimeDataD1Ev": [
+      "nothing", "address"
     ],
     "ritual_ZNK18qdesigner_internal17QDesignerMimeData5itemsEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal17QDesignerMimeData8execDragERK5QListIP25QDesignerDnDItemInterfaceEP7QWidget": [
+      "int", "address", "address"
+    ],
     "ritual_ZNK18qdesigner_internal17QDesignerMimeData7hotSpotEv": [
       "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerMimeData14moveDecorationERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerMimeData32removeMovedWidgetsFromSourceFormERK5QListIP25QDesignerDnDItemInterfaceE": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerMimeData11acceptEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerMimeData21acceptEventWithActionEN2Qt10DropActionEP10QDropEvent": [
+      "nothing", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerMimeDataC1ERK5QListIP25QDesignerDnDItemInterfaceEP5QDrag": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerMimeData18proposedDropActionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerMimeData20setImageTransparencyER6QImagei": [
+      "nothing", "address", "int"
     ],
     "ritual_take_qdesigner_internal_QDesignerMimeData": [
       "bool", "address", "chars", "address"

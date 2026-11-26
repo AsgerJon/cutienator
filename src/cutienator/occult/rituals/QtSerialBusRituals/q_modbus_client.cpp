@@ -257,6 +257,24 @@ const QMetaObject *ritual_ZNK13QModbusClient10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QModbusClient::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QModbusClient11qt_metacastEPKc(
+    QModbusClient *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QModbusClient::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QModbusClient11qt_metacallEN11QMetaObject4CallEiPPv(
+    QModbusClient *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QModbusClient::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QModbusClient2trEPKcS1_i(
@@ -278,6 +296,12 @@ extern "C" Q_DECL_EXPORT
 const QModbusClientPrivate *ritual_ZNK13QModbusClient6d_funcEv(
     const QModbusClient *self) {
   return self->d_func();
+}
+
+//  QModbusClient::QModbusClient(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QModbusClient *ritual_ZN13QModbusClientC1EP7QObject(QObject *parent) {
+  return new CuteQModbusClient(parent);
 }
 
 //  QModbusClient::~QModbusClient()
@@ -353,6 +377,22 @@ void ritual_ZN13QModbusClient18setNumberOfRetriesEi(
     QModbusClient *self,
     int number) {
   self->setNumberOfRetries(number);
+}
+
+//  void QModbusClient::timeoutChanged(int newTimeout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QModbusClient14timeoutChangedEi(
+    QModbusClient *self,
+    int newTimeout) {
+  self->timeoutChanged(newTimeout);
+}
+
+//  QModbusClient::QModbusClient(QModbusClientPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QModbusClient *ritual_ZN13QModbusClientC1ER20QModbusClientPrivateP7QObject(
+    QModbusClientPrivate *dd,
+    QObject *parent) {
+  return new CuteQModbusClient(*dd, parent);
 }
 
 //  bool QModbusClient::processResponse(const QModbusResponse &response,

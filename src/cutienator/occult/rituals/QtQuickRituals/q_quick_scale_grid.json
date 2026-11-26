@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickScaleGrid10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickScaleGrid11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickScaleGrid11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickScaleGrid2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,17 @@
     "ritual_ZNK15QQuickScaleGrid5rightEv": ["int", "address"],
     "ritual_ZN15QQuickScaleGrid8setRightEi": ["nothing", "address", "int"],
     "ritual_ZNK15QQuickScaleGrid6bottomEv": ["int", "address"],
-    "ritual_ZN15QQuickScaleGrid9setBottomEi": ["nothing", "address", "int"]
+    "ritual_ZN15QQuickScaleGrid9setBottomEi": ["nothing", "address", "int"],
+    "ritual_ZN15QQuickScaleGrid13borderChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScaleGrid17leftBorderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickScaleGrid16topBorderChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScaleGrid18rightBorderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickScaleGrid19bottomBorderChangedEv": [
+      "nothing", "address"
+    ]
   }
 }

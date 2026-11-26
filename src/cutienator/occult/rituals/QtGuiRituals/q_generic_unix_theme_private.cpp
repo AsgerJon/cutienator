@@ -68,6 +68,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/gui/platform/unix/qgenericunixtheme.cpp, line 67, as _ZN24QGenericUnixThemePrivateC1Ev
 inline QGenericUnixThemePrivate::QGenericUnixThemePrivate()
     : QPlatformThemePrivate()

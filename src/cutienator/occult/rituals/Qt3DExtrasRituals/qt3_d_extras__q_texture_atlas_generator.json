@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras22QTextureAtlasGeneratorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras22QTextureAtlasGeneratorclEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras22QTextureAtlasGeneratoreqERKN10Qt3DRender17QTextureGeneratorE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK10Qt3DExtras22QTextureAtlasGenerator2idEv": [
       "long long", "address"
     ],
@@ -13,6 +22,9 @@
     ],
     "ritual_own_ZNK10Qt3DExtras22QTextureAtlasGenerator2idEv": [
       "long long", "address"
+    ],
+    "ritual_drop_Qt3DExtras_QTextureAtlasGenerator__Qt3DRender_QTextureDataPtr": [
+      "nothing", "address"
     ]
   }
 }

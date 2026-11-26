@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QHeaderView10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QHeaderView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QHeaderView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QHeaderView2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QHeaderViewC1EN2Qt11OrientationEP7QWidget": [
       "address", "int", "address"
@@ -146,6 +152,37 @@
     "ritual_ZN11QHeaderView17headerDataChangedEN2Qt11OrientationEii": [
       "nothing", "address", "int", "int", "int"
     ],
+    "ritual_ZN11QHeaderView12sectionMovedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView14sectionResizedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView14sectionPressedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QHeaderView14sectionClickedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QHeaderView14sectionEnteredEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QHeaderView20sectionDoubleClickedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QHeaderView19sectionCountChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView26sectionHandleDoubleClickedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QHeaderView17geometriesChangedEv": ["nothing", "address"],
+    "ritual_ZN11QHeaderView20sortIndicatorChangedEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView29sortIndicatorClearableChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN11QHeaderView13updateSectionEi": ["nothing", "address", "int"],
     "ritual_ZN11QHeaderView14resizeSectionsEv": ["nothing", "address"],
     "ritual_ZN11QHeaderView16sectionsInsertedERK11QModelIndexii": [
@@ -153,6 +190,9 @@
     ],
     "ritual_ZN11QHeaderView24sectionsAboutToBeRemovedERK11QModelIndexii": [
       "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QHeaderViewC1ER18QHeaderViewPrivateN2Qt11OrientationEP7QWidget": [
+      "address", "address", "int", "address"
     ],
     "ritual_ZN11QHeaderView10initializeEv": ["nothing", "address"],
     "ritual_ZN11QHeaderView18initializeSectionsEv": ["nothing", "address"],
@@ -192,6 +232,9 @@
     "ritual_ZN11QHeaderView16updateGeometriesEv": ["nothing", "address"],
     "ritual_ZN11QHeaderView16scrollContentsByEii": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView11dataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN11QHeaderView12rowsInsertedERK11QModelIndexii": [
       "nothing", "address", "address", "int", "int"

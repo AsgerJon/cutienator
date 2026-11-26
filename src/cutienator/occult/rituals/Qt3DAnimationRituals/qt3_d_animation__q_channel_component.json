@@ -5,11 +5,72 @@
     "are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation17QChannelComponentC1Ev": ["address"],
+    "ritual_ZN13Qt3DAnimation17QChannelComponentC1ERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation17QChannelComponentC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation17QChannelComponentaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation17QChannelComponentD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation17QChannelComponent7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent13keyFrameCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation17QChannelComponent14appendKeyFrameERKNS_9QKeyFrameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation17QChannelComponent14insertKeyFrameEiRKNS_9QKeyFrameE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation17QChannelComponent14removeKeyFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation17QChannelComponent14clearKeyFramesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent5beginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent6cbeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent3endEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent4cendEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent6rbeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent7crbeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent4rendEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation17QChannelComponent5crendEv": [
+      "address", "address"
+    ],
     "ritual_ZN13Qt3DAnimationeqERKNS_17QChannelComponentES2_": [
       "bool", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimationneERKNS_17QChannelComponentES2_": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QChannelComponent__Qt3DAnimation_QChannelComponent_const_reverse_iterator": [
+      "nothing", "address"
     ]
   }
 }

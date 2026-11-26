@@ -34,10 +34,43 @@ QContactsPermission *ritual_ZN19QContactsPermissionC1ERKS_(
   return new QContactsPermission(*other);
 }
 
+//  QContactsPermission::QContactsPermission(QContactsPermission &&other)
+extern "C" Q_DECL_EXPORT
+QContactsPermission *ritual_ZN19QContactsPermissionC1EOS_(
+    QContactsPermission *other) {
+  return new QContactsPermission(std::move(*other));
+}
+
 //  QContactsPermission::~QContactsPermission()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QContactsPermissionD1Ev(QContactsPermission *self) {
   delete self;
+}
+
+//  QContactsPermission &QContactsPermission::operator=(const
+//      QContactsPermission &other)
+extern "C" Q_DECL_EXPORT
+QContactsPermission *ritual_ZN19QContactsPermissionaSERKS_(
+    QContactsPermission *self,
+    const QContactsPermission *other) {
+  return &(self->operator=(*other));
+}
+
+//  QContactsPermission &QContactsPermission::operator=(QContactsPermission
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QContactsPermission *ritual_ZN19QContactsPermissionaSEOS_(
+    QContactsPermission *self,
+    QContactsPermission *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QContactsPermission::swap(QContactsPermission &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QContactsPermission4swapERS_(
+    QContactsPermission *self,
+    QContactsPermission *other) {
+  self->swap(*other);
 }
 
 #endif  // QT_CONFIG(permissions)

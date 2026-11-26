@@ -5,6 +5,19 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render14AttachmentPackC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render14AttachmentPackC1EPKNS0_12RenderTargetEPNS0_17AttachmentManagerERK5QListINS_19QRenderTargetOutput15AttachmentPointEE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14AttachmentPack11attachmentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14AttachmentPack14getDrawBuffersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14AttachmentPack18getDrawBufferIndexENS_19QRenderTargetOutput15AttachmentPointE": [
+      "int", "address", "int"
+    ],
     "ritual_ZN10Qt3DRender6Render14AttachmentPackD1Ev": [
       "nothing", "address"
     ]

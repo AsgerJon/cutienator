@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLabsPlatform/private/qquicklabsplatformmenuitem_p.h>
 #include <QtLabsPlatform/private/qquicklabsplatformmenu_p.h>
@@ -30,20 +31,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 364, as _ZN26QQuickLabsPlatformMenuItem10setCheckedEb
-inline void QQuickLabsPlatformMenuItem::setChecked(bool checked)
-{
-    if (m_checked == checked)
-        return;
-
-    if (checked && !m_checkable)
-        setCheckable(true);
-
-    m_checked = checked;
-    sync();
-    emit checkedChanged();
-}
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 127, as _ZN26QQuickLabsPlatformMenuItem4syncEv
 inline void QQuickLabsPlatformMenuItem::sync()
@@ -85,6 +72,58 @@ inline void QQuickLabsPlatformMenuItem::sync()
 
     if (m_menu && m_menu->handle())
         m_menu->handle()->syncMenuItem(m_handle);
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 364, as _ZN26QQuickLabsPlatformMenuItem10setCheckedEb
+inline void QQuickLabsPlatformMenuItem::setChecked(bool checked)
+{
+    if (m_checked == checked)
+        return;
+
+    if (checked && !m_checkable)
+        setCheckable(true);
+
+    m_checked = checked;
+    sync();
+    emit checkedChanged();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitemgroup.cpp, line 283, as _ZN31QQuickLabsPlatformMenuItemGroup5clearEv
+inline void QQuickLabsPlatformMenuItemGroup::clear()
+{
+    if (m_items.isEmpty())
+        return;
+
+    for (QQuickLabsPlatformMenuItem *item : std::as_const(m_items)) {
+        item->setGroup(nullptr);
+        disconnect(item, &QQuickLabsPlatformMenuItem::checkedChanged, this, &QQuickLabsPlatformMenuItemGroup::updateCurrent);
+        disconnect(item, &QQuickLabsPlatformMenuItem::triggered, this, &QQuickLabsPlatformMenuItemGroup::activateItem);
+        disconnect(item, &QQuickLabsPlatformMenuItem::hovered, this, &QQuickLabsPlatformMenuItemGroup::hoverItem);
+    }
+
+    setCheckedItem(nullptr);
+
+    m_items.clear();
+    emit itemsChanged();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitemgroup.cpp, line 237, as _ZN31QQuickLabsPlatformMenuItemGroup7addItemEP26QQuickLabsPlatformMenuItem
+inline void QQuickLabsPlatformMenuItemGroup::addItem(QQuickLabsPlatformMenuItem *item)
+{
+    if (!item || m_items.contains(item))
+        return;
+
+    m_items.append(item);
+    item->setGroup(this);
+
+    connect(item, &QQuickLabsPlatformMenuItem::checkedChanged, this, &QQuickLabsPlatformMenuItemGroup::updateCurrent);
+    connect(item, &QQuickLabsPlatformMenuItem::triggered, this, &QQuickLabsPlatformMenuItemGroup::activateItem);
+    connect(item, &QQuickLabsPlatformMenuItem::hovered, this, &QQuickLabsPlatformMenuItemGroup::hoverItem);
+
+    if (m_exclusive && item->isChecked())
+        setCheckedItem(item);
+
+    emit itemsChanged();
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 359, as _ZNK26QQuickLabsPlatformMenuItem9isCheckedEv
@@ -131,6 +170,20 @@ inline QQuickLabsPlatformMenuItem *QQuickLabsPlatformMenuItemGroup::findCurrent(
             return item;
     }
     return nullptr;
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitemgroup.cpp, line 340, as _ZN31QQuickLabsPlatformMenuItemGroup11items_countEP16QQmlListPropertyI26QQuickLabsPlatformMenuItemE
+inline qsizetype QQuickLabsPlatformMenuItemGroup::items_count(QQmlListProperty<QQuickLabsPlatformMenuItem> *prop)
+{
+    QQuickLabsPlatformMenuItemGroup *group = static_cast<QQuickLabsPlatformMenuItemGroup *>(prop->object);
+    return group->m_items.size();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitemgroup.cpp, line 346, as _ZN31QQuickLabsPlatformMenuItemGroup8items_atEP16QQmlListPropertyI26QQuickLabsPlatformMenuItemEx
+inline QQuickLabsPlatformMenuItem *QQuickLabsPlatformMenuItemGroup::items_at(QQmlListProperty<QQuickLabsPlatformMenuItem> *prop, qsizetype index)
+{
+    QQuickLabsPlatformMenuItemGroup *group = static_cast<QQuickLabsPlatformMenuItemGroup *>(prop->object);
+    return group->m_items.value(index);
 }
 //  -----------------------------------------------------------------------
 
@@ -308,6 +361,25 @@ const QMetaObject *ritual_ZNK31QQuickLabsPlatformMenuItemGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLabsPlatformMenuItemGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QQuickLabsPlatformMenuItemGroup11qt_metacastEPKc(
+    QQuickLabsPlatformMenuItemGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformMenuItemGroup::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QQuickLabsPlatformMenuItemGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformMenuItemGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickLabsPlatformMenuItemGroup::~QQuickLabsPlatformMenuItemGroup()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QQuickLabsPlatformMenuItemGroupD1Ev(
@@ -344,12 +416,293 @@ QQuickLabsPlatformMenuItem *ritual_ZNK31QQuickLabsPlatformMenuItemGroup11checked
   return self->checkedItem();
 }
 
+//  void QQuickLabsPlatformMenuItemGroup::addItem(QQuickLabsPlatformMenuItem
+//      *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup7addItemEP26QQuickLabsPlatformMenuItem(
+    QQuickLabsPlatformMenuItemGroup *self,
+    QQuickLabsPlatformMenuItem *item) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "addItem(QQuickLabsPlatformMenuItem *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "addItem(QQuickLabsPlatformMenuItem *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&item)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QQuickLabsPlatformMenuItemGroup::removeItem(QQuickLabsPlatformMenuIte
+//      m *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup10removeItemEP26QQuickLabsPlatformMenuItem(
+    QQuickLabsPlatformMenuItemGroup *self,
+    QQuickLabsPlatformMenuItem *item) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "removeItem(QQuickLabsPlatformMenuItem *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "removeItem(QQuickLabsPlatformMenuItem *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&item)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItemGroup::clear()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup5clearEv(
+    QQuickLabsPlatformMenuItemGroup *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "clear()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "clear()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QQuickLabsPlatformMenuItemGroup::triggered(QQuickLabsPlatformMenuItem
+//      *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup9triggeredEP26QQuickLabsPlatformMenuItem(
+    QQuickLabsPlatformMenuItemGroup *self,
+    QQuickLabsPlatformMenuItem *item) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "triggered(QQuickLabsPlatformMenuItem *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "triggered(QQuickLabsPlatformMenuItem *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&item)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItemGroup::hovered(QQuickLabsPlatformMenuItem
+//      *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup7hoveredEP26QQuickLabsPlatformMenuItem(
+    QQuickLabsPlatformMenuItemGroup *self,
+    QQuickLabsPlatformMenuItem *item) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "hovered(QQuickLabsPlatformMenuItem *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "hovered(QQuickLabsPlatformMenuItem *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&item)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItemGroup::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup14enabledChangedEv(
+    QQuickLabsPlatformMenuItemGroup *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "enabledChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "enabledChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItemGroup::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup14visibleChangedEv(
+    QQuickLabsPlatformMenuItemGroup *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "visibleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "visibleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItemGroup::exclusiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup16exclusiveChangedEv(
+    QQuickLabsPlatformMenuItemGroup *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "exclusiveChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "exclusiveChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItemGroup::checkedItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup18checkedItemChangedEv(
+    QQuickLabsPlatformMenuItemGroup *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "checkedItemChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "checkedItemChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItemGroup::itemsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickLabsPlatformMenuItemGroup12itemsChangedEv(
+    QQuickLabsPlatformMenuItemGroup *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItemGroup")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "itemsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "itemsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  QQuickLabsPlatformMenuItem
 //      *QQuickLabsPlatformMenuItemGroup::findCurrent() const
 extern "C" Q_DECL_EXPORT
 QQuickLabsPlatformMenuItem *ritual_ZNK31QQuickLabsPlatformMenuItemGroup11findCurrentEv(
     const QQuickLabsPlatformMenuItemGroup *self) {
   return self->findCurrent();
+}
+
+//  qsizetype QQuickLabsPlatformMenuItemGroup::items_count(QQmlListProperty<Q
+//      QuickLabsPlatformMenuItem> *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN31QQuickLabsPlatformMenuItemGroup11items_countEP16QQmlListPropertyI26QQuickLabsPlatformMenuItemE(
+    QQmlListProperty<QQuickLabsPlatformMenuItem> *prop) {
+  return QQuickLabsPlatformMenuItemGroup::items_count(prop);
+}
+
+//  QQuickLabsPlatformMenuItem *QQuickLabsPlatformMenuItemGroup::items_at(QQm
+//      lListProperty<QQuickLabsPlatformMenuItem> *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickLabsPlatformMenuItem *ritual_ZN31QQuickLabsPlatformMenuItemGroup8items_atEP16QQmlListPropertyI26QQuickLabsPlatformMenuItemEx(
+    QQmlListProperty<QQuickLabsPlatformMenuItem> *prop,
+    qsizetype index) {
+  return QQuickLabsPlatformMenuItemGroup::items_at(prop, index);
 }
 
 //  a Python function taken by a CuteQQuickLabsPlatformMenuItemGroup, for the
@@ -360,4 +713,12 @@ bool ritual_take_QQuickLabsPlatformMenuItemGroup(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickLabsPlatformMenuItemGroup *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QQuickLabsPlatformMenuItem> a ritual of
+//      QQuickLabsPlatformMenuItemGroup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickLabsPlatformMenuItemGroup__QQmlListProperty_QQuickLabsPlatformMenuItem(
+    QQmlListProperty<QQuickLabsPlatformMenuItem> *self) {
+  delete self;
 }

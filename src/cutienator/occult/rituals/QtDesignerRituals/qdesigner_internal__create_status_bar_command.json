@@ -5,5 +5,23 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal22CreateStatusBarCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22CreateStatusBarCommand4initEP11QMainWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22CreateStatusBarCommand4undoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22CreateStatusBarCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal22CreateStatusBarCommand4undoEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal22CreateStatusBarCommand4redoEv": [
+      "nothing", "address"
+    ]
   }
 }

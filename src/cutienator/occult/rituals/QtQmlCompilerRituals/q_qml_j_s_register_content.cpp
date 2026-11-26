@@ -74,11 +74,57 @@ int ritual_ZNK21QQmlJSRegisterContent17resultLookupIndexEv(
   return self->resultLookupIndex();
 }
 
+//  QQmlJSScope::ConstPtr QQmlJSRegisterContent::storedType() const
+extern "C" Q_DECL_EXPORT
+QQmlJSScope::ConstPtr *ritual_ZNK21QQmlJSRegisterContent10storedTypeEv(
+    const QQmlJSRegisterContent *self) {
+  return new QQmlJSScope::ConstPtr(self->storedType());
+}
+
+//  QQmlJSScope::ConstPtr QQmlJSRegisterContent::containedType() const
+extern "C" Q_DECL_EXPORT
+QQmlJSScope::ConstPtr *ritual_ZNK21QQmlJSRegisterContent13containedTypeEv(
+    const QQmlJSRegisterContent *self) {
+  return new QQmlJSScope::ConstPtr(self->containedType());
+}
+
+//  QQmlJSScope::ConstPtr QQmlJSRegisterContent::scopeType() const
+extern "C" Q_DECL_EXPORT
+QQmlJSScope::ConstPtr *ritual_ZNK21QQmlJSRegisterContent9scopeTypeEv(
+    const QQmlJSRegisterContent *self) {
+  return new QQmlJSScope::ConstPtr(self->scopeType());
+}
+
+//  bool QQmlJSRegisterContent::contains(const QQmlJSScope::ConstPtr &type)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QQmlJSRegisterContent8containsERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    const QQmlJSRegisterContent *self,
+    const QQmlJSScope::ConstPtr *type) {
+  return self->contains(*type);
+}
+
+//  bool QQmlJSRegisterContent::isStoredIn(const QQmlJSScope::ConstPtr &type)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QQmlJSRegisterContent10isStoredInERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    const QQmlJSRegisterContent *self,
+    const QQmlJSScope::ConstPtr *type) {
+  return self->isStoredIn(*type);
+}
+
 //  bool QQmlJSRegisterContent::isType() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QQmlJSRegisterContent6isTypeEv(
     const QQmlJSRegisterContent *self) {
   return self->isType();
+}
+
+//  QQmlJSScope::ConstPtr QQmlJSRegisterContent::type() const
+extern "C" Q_DECL_EXPORT
+QQmlJSScope::ConstPtr *ritual_ZNK21QQmlJSRegisterContent4typeEv(
+    const QQmlJSRegisterContent *self) {
+  return new QQmlJSScope::ConstPtr(self->type());
 }
 
 //  bool QQmlJSRegisterContent::isProperty() const
@@ -137,6 +183,13 @@ QList<QQmlJSMetaMethod> *ritual_ZNK21QQmlJSRegisterContent6methodEv(
   return new QList<QQmlJSMetaMethod>(self->method());
 }
 
+//  QQmlJSScope::ConstPtr QQmlJSRegisterContent::methodType() const
+extern "C" Q_DECL_EXPORT
+QQmlJSScope::ConstPtr *ritual_ZNK21QQmlJSRegisterContent10methodTypeEv(
+    const QQmlJSRegisterContent *self) {
+  return new QQmlJSScope::ConstPtr(self->methodType());
+}
+
 //  bool QQmlJSRegisterContent::isImportNamespace() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QQmlJSRegisterContent17isImportNamespaceEv(
@@ -151,11 +204,25 @@ uint ritual_ZNK21QQmlJSRegisterContent15importNamespaceEv(
   return self->importNamespace();
 }
 
+//  QQmlJSScope::ConstPtr QQmlJSRegisterContent::importNamespaceType() const
+extern "C" Q_DECL_EXPORT
+QQmlJSScope::ConstPtr *ritual_ZNK21QQmlJSRegisterContent19importNamespaceTypeEv(
+    const QQmlJSRegisterContent *self) {
+  return new QQmlJSScope::ConstPtr(self->importNamespaceType());
+}
+
 //  bool QQmlJSRegisterContent::isConversion() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QQmlJSRegisterContent12isConversionEv(
     const QQmlJSRegisterContent *self) {
   return self->isConversion();
+}
+
+//  QQmlJSScope::ConstPtr QQmlJSRegisterContent::conversionResultType() const
+extern "C" Q_DECL_EXPORT
+QQmlJSScope::ConstPtr *ritual_ZNK21QQmlJSRegisterContent20conversionResultTypeEv(
+    const QQmlJSRegisterContent *self) {
+  return new QQmlJSScope::ConstPtr(self->conversionResultType());
 }
 
 //  QQmlJSRegisterContent QQmlJSRegisterContent::conversionResultScope()
@@ -244,6 +311,14 @@ quintptr ritual_ZNK21QQmlJSRegisterContent2idEv(
   return self->id();
 }
 
+//  QQmlJSRegisterContent::QQmlJSRegisterContent(QQmlJSRegisterContentPrivate
+//      *dd)
+extern "C" Q_DECL_EXPORT
+QQmlJSRegisterContent *ritual_ZN21QQmlJSRegisterContentC1EP28QQmlJSRegisterContentPrivate(
+    QQmlJSRegisterContentPrivate *dd) {
+  return new QQmlJSRegisterContent(dd);
+}
+
 //  bool operator==(QQmlJSRegisterContent a, QQmlJSRegisterContent b)
 extern "C" Q_DECL_EXPORT
 bool ritual_Zeq21QQmlJSRegisterContentS_(
@@ -301,5 +376,12 @@ QQmlJSRegisterContent *ritual_list_at_QQmlJSRegisterContent(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQmlJSRegisterContent(
     QList<QQmlJSRegisterContent> *self) {
+  delete self;
+}
+
+//  a QQmlJSScope::ConstPtr a ritual of QQmlJSRegisterContent gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSRegisterContent__QQmlJSScope_ConstPtr(
+    QQmlJSScope::ConstPtr *self) {
   delete self;
 }

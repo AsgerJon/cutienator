@@ -34,3 +34,15 @@ QV4::Heap::DynamicFunctionObject *ritual_ZNK3QV421DynamicFunctionObject1dEv(
     const QV4::DynamicFunctionObject *self) {
   return self->d();
 }
+
+//  ReturnedValue QV4::DynamicFunctionObject::virtualCall(const
+//      FunctionObject *f, const Value *thisObject, const Value *argv, int
+//      argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV421DynamicFunctionObject11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *f,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::DynamicFunctionObject::virtualCall(f, thisObject, argv, argc);
+}

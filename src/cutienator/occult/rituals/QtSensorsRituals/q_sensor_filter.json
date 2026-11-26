@@ -7,6 +7,7 @@
     "ritual_ZN13QSensorFilter6filterEP14QSensorReading": [
       "bool", "address", "address"
     ],
+    "ritual_ZN13QSensorFilterC1Ev": ["address"],
     "ritual_ZN13QSensorFilterD1Ev": ["nothing", "address"],
     "ritual_ZN13QSensorFilter9setSensorEP7QSensor": [
       "nothing", "address", "address"

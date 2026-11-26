@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickVideoOutput10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickVideoOutput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickVideoOutput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickVideoOutput2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,25 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN17QQuickVideoOutput11clearOutputEv": ["nothing", "address"],
+    "ritual_ZN17QQuickVideoOutput13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickVideoOutput15fillModeChangedENS_8FillModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickVideoOutput18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput15mirroredChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput17sourceRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput18contentRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput24endOfStreamPolicyChangedENS_17EndOfStreamPolicyE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN17QQuickVideoOutput15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
       "address", "address", "address", "address"
     ],
@@ -62,6 +87,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN17QQuickVideoOutput17_q_updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput16setSignalBackoffESt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEE": [
       "nothing", "address"
     ],
     "ritual_take_QQuickVideoOutput": ["bool", "address", "chars", "address"],

@@ -26,6 +26,9 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 17, as local:qqmltypecompiler.cpp:COMPILE_EXCEPTION
+#define COMPILE_EXCEPTION(token, desc) \
+
 //  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 280, as _ZN15QQmlCompilePassC2EP16QQmlTypeCompiler
 inline QQmlCompilePass::QQmlCompilePass(QQmlTypeCompiler *typeCompiler)
     : compiler(typeCompiler)

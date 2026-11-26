@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QListModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QListModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QListModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QListModelD1Ev": ["nothing", "address"],
     "ritual_ZNK10QListModel4viewEv": ["address", "address"],
     "ritual_ZN10QListModel5clearEv": ["nothing", "address"],
@@ -60,6 +66,18 @@
     "ritual_ZN10QListModel12ensureSortedEiN2Qt9SortOrderEii": [
       "nothing", "address", "int", "int", "int", "int"
     ],
+    "ritual_ZN10QListModel12itemLessThanERKSt4pairIP15QListWidgetItemiES5_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QListModel15itemGreaterThanERKSt4pairIP15QListWidgetItemiES5_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QListModel23sortedInsertionIteratorERKN5QListIP15QListWidgetItemE8iteratorES6_N2Qt9SortOrderES2_": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN10QListModel11itemChangedEP15QListWidgetItemRK5QListIiE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK10QListModel9mimeTypesEv": ["address", "address"],
     "ritual_ZNK10QListModel8mimeDataERK5QListI11QModelIndexE": [
       "address", "address", "address"
@@ -105,6 +123,9 @@
       "bool", "address", "address", "int", "int", "int", "address"
     ],
     "ritual_own_ZNK10QListModel20supportedDropActionsEv": ["int", "address"],
-    "ritual_own_ZNK10QListModel20supportedDragActionsEv": ["int", "address"]
+    "ritual_own_ZNK10QListModel20supportedDragActionsEv": ["int", "address"],
+    "ritual_drop_QListModel__QList_QListWidgetItem_iterator": [
+      "nothing", "address"
+    ]
   }
 }

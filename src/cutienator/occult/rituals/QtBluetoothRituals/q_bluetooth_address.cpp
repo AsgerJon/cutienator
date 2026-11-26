@@ -41,6 +41,36 @@ void ritual_ZN17QBluetoothAddressD1Ev(QBluetoothAddress *self) {
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QBluetoothAddress &QBluetoothAddress::operator=(const QBluetoothAddress
+//      &other)
+extern "C" Q_DECL_EXPORT
+QBluetoothAddress *ritual_ZN17QBluetoothAddressaSERKS_(
+    QBluetoothAddress *self,
+    const QBluetoothAddress *other) {
+  return &(self->operator=(*other));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QBluetoothAddress::QBluetoothAddress(QBluetoothAddress &&a0)
+extern "C" Q_DECL_EXPORT
+QBluetoothAddress *ritual_ZN17QBluetoothAddressC1EOS_(
+    QBluetoothAddress *a0) {
+  return new QBluetoothAddress(std::move(*a0));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QBluetoothAddress &QBluetoothAddress::operator=(QBluetoothAddress &&a0)
+extern "C" Q_DECL_EXPORT
+QBluetoothAddress *ritual_ZN17QBluetoothAddressaSEOS_(
+    QBluetoothAddress *self,
+    QBluetoothAddress *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
 //  bool QBluetoothAddress::isNull() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QBluetoothAddress6isNullEv(const QBluetoothAddress *self) {

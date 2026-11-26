@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN23QSGOutlinedTextMaterialD1Ev": ["nothing", "address"],
     "ritual_ZNK23QSGOutlinedTextMaterial4typeEv": ["address", "address"],
+    "ritual_ZNK23QSGOutlinedTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
     "ritual_take_QSGOutlinedTextMaterial": [
       "bool", "address", "chars", "address"
     ],

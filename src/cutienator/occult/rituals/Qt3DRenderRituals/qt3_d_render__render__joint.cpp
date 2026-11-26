@@ -14,6 +14,30 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qvectornd.h>
 #include <QtGui/qquaternion.h>
+#include <QtCore/QList>
+
+//  Qt3DRender::Render::Joint::Joint()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Joint *ritual_ZN10Qt3DRender6Render5JointC1Ev() {
+  return new Qt3DRender::Render::Joint();
+}
+
+//  void Qt3DRender::Render::Joint::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render5Joint7cleanupEv(
+    Qt3DRender::Render::Joint *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::Joint::syncFromFrontEnd(const Qt3DCore::QNode
+//      *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render5Joint16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::Joint *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
 
 //  Qt3DCore::Sqt Qt3DRender::Render::Joint::localPose() const
 extern "C" Q_DECL_EXPORT
@@ -36,6 +60,13 @@ QString *ritual_ZNK10Qt3DRender6Render5Joint4nameEv(
   return new QString(self->name());
 }
 
+//  QList<Qt3DCore::QNodeId> Qt3DRender::Render::Joint::childJointIds() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QNodeId> *ritual_ZNK10Qt3DRender6Render5Joint13childJointIdsEv(
+    const Qt3DRender::Render::Joint *self) {
+  return new QList<Qt3DCore::QNodeId>(self->childJointIds());
+}
+
 //  QVector3D Qt3DRender::Render::Joint::translation() const
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZNK10Qt3DRender6Render5Joint11translationEv(
@@ -55,6 +86,22 @@ extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZNK10Qt3DRender6Render5Joint5scaleEv(
     const Qt3DRender::Render::Joint *self) {
   return new QVector3D(self->scale());
+}
+
+//  void Qt3DRender::Render::Joint::setOwningSkeleton(HSkeleton
+//      skeletonHandle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render5Joint17setOwningSkeletonEN8Qt3DCore7QHandleINS0_8SkeletonEEE(
+    Qt3DRender::Render::Joint *self,
+    const Qt3DRender::Render::HSkeleton *skeletonHandle) {
+  self->setOwningSkeleton(*skeletonHandle);
+}
+
+//  HSkeleton Qt3DRender::Render::Joint::owningSkeleton() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::HSkeleton *ritual_ZNK10Qt3DRender6Render5Joint14owningSkeletonEv(
+    const Qt3DRender::Render::Joint *self) {
+  return new Qt3DRender::Render::HSkeleton(self->owningSkeleton());
 }
 
 //  void Qt3DRender::Render::Joint::setJointManager(JointManager
@@ -97,4 +144,19 @@ void ritual_own_ZN10Qt3DRender6Render5Joint16syncFromFrontEndEPKN8Qt3DCore5QNode
     const Qt3DCore::QNode *frontEnd,
     bool firstTime) {
   self->Qt3DRender::Render::Joint::syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  a QList<Qt3DCore::QNodeId> a ritual of Qt3DRender::Render::Joint gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Joint__QList_Qt3DCore_QNodeId(
+    QList<Qt3DCore::QNodeId> *self) {
+  delete self;
+}
+
+//  a Qt3DRender::Render::HSkeleton a ritual of Qt3DRender::Render::Joint
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Joint__Qt3DRender_Render_HSkeleton(
+    Qt3DRender::Render::HSkeleton *self) {
+  delete self;
 }

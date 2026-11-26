@@ -8,6 +8,18 @@
     "ritual_ZNK22QuickSharedImageLoader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QuickSharedImageLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QuickSharedImageLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN22QuickSharedImageLoader8loadFileERK7QStringP5QListI8QVariantE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN22QuickSharedImageLoader3keyERK7QStringP5QListI8QVariantE": [
+      "text", "address", "text", "address"
+    ],
     "ritual_take_QuickSharedImageLoader": [
       "bool", "address", "chars", "address"
     ]

@@ -15,6 +15,16 @@
     "ritual_ZNK12QSpirvShader19remappedSpirvBinaryE6QFlagsINS_9RemapFlagEEP7QString": [
       "address", "address", "int", "address"
     ],
+    "ritual_ZNK12QSpirvShader15translateToGLSLEi6QFlagsINS_8GlslFlagEEN7QShader5StageERKNS_13MultiViewInfoEP5QListINS_37SeparateToCombinedImageSamplerMappingEE": [
+      "address", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK12QSpirvShader15translateToHLSLEiP4QMapIiSt4pairIiiEE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK12QSpirvShader14translateToMSLEi6QFlagsINS_7MslFlagEEN7QShader5StageEP4QMapIiSt4pairIiiEEPNS3_16NativeShaderInfoERKNS_13MultiViewInfoERKNS_16TessellationInfoE": [
+      "address", "address", "int", "int", "int", "address", "address",
+      "address", "address"
+    ],
     "ritual_ZNK12QSpirvShader23translationErrorMessageEv": [
       "text", "address"
     ]

@@ -7,6 +7,10 @@
     "ritual_ZN12QEasingCurveC1ENS_4TypeE": ["address", "int"],
     "ritual_ZN12QEasingCurveC1ERKS_": ["address", "address"],
     "ritual_ZN12QEasingCurveD1Ev": ["nothing", "address"],
+    "ritual_ZN12QEasingCurveaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QEasingCurveC1EOS_": ["address", "address"],
+    "ritual_ZN12QEasingCurveaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QEasingCurve4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK12QEasingCurve9amplitudeEv": ["double", "address"],
     "ritual_ZN12QEasingCurve12setAmplitudeEd": [
       "nothing", "address", "double"
@@ -28,6 +32,10 @@
     "ritual_ZN12QEasingCurve7setTypeENS_4TypeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN12QEasingCurve13setCustomTypeEPFddE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QEasingCurve10customTypeEv": ["address", "address"],
     "ritual_ZNK12QEasingCurve16valueForProgressEd": [
       "double", "address", "double"
     ],
@@ -35,6 +43,12 @@
       "address", "address", "address"
     ],
     "ritual_Zls6QDebugRK12QEasingCurve": ["address", "address", "address"],
+    "ritual_ZlsR11QDataStreamRK12QEasingCurve": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR12QEasingCurve": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK12QEasingCurveS1_": ["bool", "address", "address"],
     "ritual_ZneRK12QEasingCurveS1_": ["bool", "address", "address"]
   }

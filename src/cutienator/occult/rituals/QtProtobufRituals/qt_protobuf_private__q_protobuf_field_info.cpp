@@ -2,6 +2,7 @@
 //  QtProtobuf/qprotobufpropertyordering.h, Qt 6.12.0. Changes made here are
 //  lost.
 #include <QtProtobuf/qprotobufpropertyordering.h>
+#include <QtCore/QUtf8StringView>
 
 //  QtProtobufPrivate::QProtobufFieldInfo::QProtobufFieldInfo(QProtobufProper
 //      tyOrdering ord, int ind)
@@ -10,6 +11,13 @@ QtProtobufPrivate::QProtobufFieldInfo *ritual_ZN17QtProtobufPrivate18QProtobufFi
     const QtProtobufPrivate::QProtobufPropertyOrdering *ord,
     int ind) {
   return new QtProtobufPrivate::QProtobufFieldInfo(*ord, ind);
+}
+
+//  QUtf8StringView QtProtobufPrivate::QProtobufFieldInfo::jsonName() const
+extern "C" Q_DECL_EXPORT
+QUtf8StringView *ritual_ZNK17QtProtobufPrivate18QProtobufFieldInfo8jsonNameEv(
+    const QtProtobufPrivate::QProtobufFieldInfo *self) {
+  return new QUtf8StringView(self->jsonName());
 }
 
 //  int QtProtobufPrivate::QProtobufFieldInfo::fieldNumber() const
@@ -37,5 +45,12 @@ int ritual_ZNK17QtProtobufPrivate18QProtobufFieldInfo10fieldFlagsEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QtProtobufPrivate18QProtobufFieldInfoD1Ev(
     QtProtobufPrivate::QProtobufFieldInfo *self) {
+  delete self;
+}
+
+//  a QUtf8StringView a ritual of QtProtobufPrivate::QProtobufFieldInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtProtobufPrivate_QProtobufFieldInfo__QUtf8StringView(
+    QUtf8StringView *self) {
   delete self;
 }

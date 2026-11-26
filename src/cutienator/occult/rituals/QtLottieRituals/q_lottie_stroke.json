@@ -11,11 +11,20 @@
     "ritual_ZN13QLottieStroke16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK13QLottieStroke6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13QLottieStroke5parseERK11QJsonObject": [
       "int", "address", "address"
     ],
     "ritual_ZNK13QLottieStroke3penEv": ["address", "address"],
     "ritual_ZNK13QLottieStroke7opacityEv": ["double", "address"],
+    "ritual_ZNK13QLottieStroke13colorPropertyEv": ["address", "address"],
+    "ritual_ZNK13QLottieStroke15opacityPropertyEv": ["address", "address"],
+    "ritual_ZNK13QLottieStroke13widthPropertyEv": ["address", "address"],
+    "ritual_ZNK13QLottieStroke18dashOffsetPropertyEv": [
+      "address", "address"
+    ],
     "ritual_ZNK13QLottieStroke8getColorEv": ["address", "address"],
     "ritual_ZN13QLottieStroke17updateDashPatternEv": ["nothing", "address"],
     "ritual_ZN13QLottieStrokeD1Ev": ["nothing", "address"],
@@ -27,6 +36,12 @@
     "ritual_own_ZN13QLottieStroke5parseERK11QJsonObject": [
       "int", "address", "address"
     ],
-    "ritual_own_ZNK13QLottieStroke3penEv": ["address", "address"]
+    "ritual_own_ZNK13QLottieStroke3penEv": ["address", "address"],
+    "ritual_drop_QLottieStroke__QLottieProperty4D_QVector4D": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QLottieStroke__QLottieProperty_qreal": [
+      "nothing", "address"
+    ]
   }
 }

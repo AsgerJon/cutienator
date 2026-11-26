@@ -2,11 +2,17 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtMulti",
     "media/6.12.0/QtMultimedia/private/qplatformsurfacecapture_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK23QPlatformSurfaceCapture10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
     ],
     "ritual_ZN23QPlatformSurfaceCapture2trEPKcS1_i": [
       "text", "chars", "chars", "int"
@@ -15,9 +21,19 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK23QPlatformSurfaceCapture8isActiveEv": ["bool", "address"],
+    "ritual_ZN23QPlatformSurfaceCapture9setSourceESt7variantIJ8QPointerI7QScreenE17QCapturableWindowEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QPlatformSurfaceCapture6sourceEv": ["address", "address"],
     "ritual_ZNK23QPlatformSurfaceCapture5errorEv": ["int", "address"],
     "ritual_ZNK23QPlatformSurfaceCapture11errorStringEv": [
       "text", "address"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture12setFrameRateESt8optionalIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QPlatformSurfaceCapture9frameRateEv": [
+      "address", "address"
     ],
     "ritual_ZN23QPlatformSurfaceCapture15setIgnoreCursorEb": [
       "nothing", "address", "bool"
@@ -34,12 +50,41 @@
     "ritual_ZN23QPlatformSurfaceCapture17setActiveInternalEb": [
       "bool", "address", "bool"
     ],
+    "ritual_ZN23QPlatformSurfaceCapture20checkScreenWithErrorER8QPointerI7QScreenE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN23QPlatformSurfaceCapture11updateErrorENS_5ErrorERK7QString": [
       "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture13sourceChangedE17QCapturableWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture13sourceChangedE8QPointerI7QScreenE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture13errorOccurredENS_5ErrorE7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture16frameRateChangedESt8optionalIdE": [
+      "nothing", "address", "address"
     ],
     "ritual_own_ZN23QPlatformSurfaceCapture9setActiveEb": [
       "nothing", "address", "bool"
     ],
-    "ritual_own_ZNK23QPlatformSurfaceCapture8isActiveEv": ["bool", "address"]
+    "ritual_own_ZNK23QPlatformSurfaceCapture8isActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_drop_QPlatformSurfaceCapture__QPlatformSurfaceCapture_Source": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformSurfaceCapture__std_optional_qreal": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QPlatformSurfaceCapture6sourceI8QPointerI7QScreenEEET_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QPlatformSurfaceCapture6sourceI17QCapturableWindowEET_v": [
+      "address", "address"
+    ]
   }
 }

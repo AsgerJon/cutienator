@@ -8,7 +8,11 @@
       "address", "text", "address", "text"
     ],
     "ritual_ZN9QSqlFieldC1ERKS_": ["address", "address"],
+    "ritual_ZN9QSqlFieldaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QSqlFieldC1EOS_": ["address", "address"],
+    "ritual_ZN9QSqlFieldaSEOS_": ["address", "address", "address"],
     "ritual_ZN9QSqlFieldD1Ev": ["nothing", "address"],
+    "ritual_ZN9QSqlField4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QSqlFieldeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK9QSqlFieldneERKS_": ["bool", "address", "address"],
     "ritual_ZN9QSqlField8setValueERK8QVariant": [

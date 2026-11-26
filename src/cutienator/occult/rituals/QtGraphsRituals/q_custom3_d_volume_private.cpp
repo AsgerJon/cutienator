@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qcustom3dvolume.h>
@@ -26,6 +26,48 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 635, as _ZN20QCustom3DItemPrivateC2Ev
+inline QCustom3DItemPrivate::QCustom3DItemPrivate()
+    : m_textureImage(QImage(1, 1, QImage::Format_ARGB32))
+    , m_position(QVector3D(0.0f, 0.0f, 0.0f))
+    , m_positionAbsolute(false)
+    , m_scaling(QVector3D(0.1f, 0.1f, 0.1f))
+    , m_scalingAbsolute(true)
+    , m_rotation(QQuaternion())
+    , m_visible(true)
+    , m_shadowCasting(true)
+    , m_isLabelItem(false)
+    , m_isVolumeItem(false)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 666, as _ZN20QCustom3DItemPrivateD2Ev
+inline QCustom3DItemPrivate::~QCustom3DItemPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3dvolume.cpp, line 1418, as _ZN22QCustom3DVolumePrivateD1Ev
+inline QCustom3DVolumePrivate::~QCustom3DVolumePrivate()
+{
+    delete m_textureData;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 648, as _ZN20QCustom3DItemPrivateC2ERK7QString9QVector3DS3_RK11QQuaternion
+inline QCustom3DItemPrivate::QCustom3DItemPrivate(const QString &meshFile,
+                                           QVector3D position,
+                                           QVector3D scaling,
+                                           const QQuaternion &rotation)
+    : m_textureImage(QImage(1, 1, QImage::Format_ARGB32))
+    , m_meshFile(meshFile)
+    , m_position(position)
+    , m_positionAbsolute(false)
+    , m_scaling(scaling)
+    , m_scalingAbsolute(true)
+    , m_rotation(rotation)
+    , m_rotationAbsolute(true)
+    , m_visible(true)
+    , m_shadowCasting(true)
+    , m_isLabelItem(false)
+    , m_isVolumeItem(false)
+{}
+
 //  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 679, as _ZN20QCustom3DItemPrivate14resetDirtyBitsEv
 inline void QCustom3DItemPrivate::resetDirtyBits()
 {
@@ -38,10 +80,28 @@ inline void QCustom3DItemPrivate::resetDirtyBits()
     m_dirtyBits.shadowCastingDirty = false;
 }
 
-//  from ../qtgraphs/src/graphs3d/data/qcustom3dvolume.cpp, line 1418, as _ZN22QCustom3DVolumePrivateD1Ev
-inline QCustom3DVolumePrivate::~QCustom3DVolumePrivate()
+//  from ../qtgraphs/src/graphs3d/data/qcustom3dvolume.cpp, line 1349, as _ZN22QCustom3DVolumePrivateC1Ev
+inline QCustom3DVolumePrivate::QCustom3DVolumePrivate()
+    : m_textureWidth(0)
+    , m_textureHeight(0)
+    , m_textureDepth(0)
+    , m_sliceIndexX(-1)
+    , m_sliceIndexY(-1)
+    , m_sliceIndexZ(-1)
+    , m_textureFormat(QImage::Format_ARGB32)
+    , m_textureData(0)
+    , m_alphaMultiplier(1.0f)
+    , m_preserveOpacity(true)
+    , m_useHighDefShader(true)
+    , m_drawSlices(false)
+    , m_drawSliceFrames(false)
+    , m_sliceFrameColor(Qt::black)
+    , m_sliceFrameWidths(QVector3D(0.01f, 0.01f, 0.01f))
+    , m_sliceFrameGaps(QVector3D(0.01f, 0.01f, 0.01f))
+    , m_sliceFrameThicknesses(QVector3D(0.01f, 0.01f, 0.01f))
 {
-    delete m_textureData;
+    m_isVolumeItem = true;
+    m_meshFile = QStringLiteral(":/defaultMeshes/barMeshFull");
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qcustom3dvolume.cpp, line 1423, as _ZN22QCustom3DVolumePrivate14resetDirtyBitsEv
@@ -84,6 +144,12 @@ const QCustom3DVolume *ritual_ZNK22QCustom3DVolumePrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QCustom3DVolumePrivate::QCustom3DVolumePrivate()
+extern "C" Q_DECL_EXPORT
+QCustom3DVolumePrivate *ritual_ZN22QCustom3DVolumePrivateC1Ev() {
+  return new QCustom3DVolumePrivate();
+}
+
 //  QCustom3DVolumePrivate::~QCustom3DVolumePrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QCustom3DVolumePrivateD1Ev(QCustom3DVolumePrivate *self) {
@@ -105,4 +171,4 @@ int ritual_ZN22QCustom3DVolumePrivate20multipliedAlphaValueEi(
   return self->multipliedAlphaValue(alpha);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DRender/qnodepthmask.h, Qt 6.12.0. Changes made here are lost.
+//  Qt3DRender/qnodepthmask.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the 'd_func' rituals name
+//  Qt3DRender::QNoDepthMaskPrivate in full, as the
+//  compiler asked. Kept as it is when the generator runs again.
 #include <Qt3DRender/qnodepthmask.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -179,6 +182,14 @@ const QMetaObject *ritual_ZNK10Qt3DRender12QNoDepthMask10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QNoDepthMask::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender12QNoDepthMask11qt_metacastEPKc(
+    Qt3DRender::QNoDepthMask *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString Qt3DRender::QNoDepthMask::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender12QNoDepthMask2trEPKcS2_i(
@@ -186,6 +197,20 @@ QString *ritual_ZN10Qt3DRender12QNoDepthMask2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QNoDepthMask::tr(s, c, n));
+}
+
+//  Qt3DRender::QNoDepthMaskPrivate *Qt3DRender::QNoDepthMask::d_func()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QNoDepthMaskPrivate *ritual_ZN10Qt3DRender12QNoDepthMask6d_funcEv(
+    Qt3DRender::QNoDepthMask *self) {
+  return self->d_func();
+}
+
+//  const Qt3DRender::QNoDepthMaskPrivate *Qt3DRender::QNoDepthMask::d_func() const
+extern "C" Q_DECL_EXPORT
+const Qt3DRender::QNoDepthMaskPrivate *ritual_ZNK10Qt3DRender12QNoDepthMask6d_funcEv(
+    const Qt3DRender::QNoDepthMask *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQt3DRender_QNoDepthMask, for the

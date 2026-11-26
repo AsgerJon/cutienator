@@ -257,6 +257,25 @@ const QMetaObject *ritual_ZNK16QModbusTcpClient10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QModbusTcpClient::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QModbusTcpClient11qt_metacastEPKc(
+    QModbusTcpClient *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QModbusTcpClient::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QModbusTcpClient11qt_metacallEN11QMetaObject4CallEiPPv(
+    QModbusTcpClient *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QModbusTcpClient::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QModbusTcpClient2trEPKcS1_i(
@@ -290,6 +309,15 @@ QModbusTcpClient *ritual_ZN16QModbusTcpClientC1EP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QModbusTcpClientD1Ev(QModbusTcpClient *self) {
   delete self;
+}
+
+//  QModbusTcpClient::QModbusTcpClient(QModbusTcpClientPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QModbusTcpClient *ritual_ZN16QModbusTcpClientC1ER23QModbusTcpClientPrivateP7QObject(
+    QModbusTcpClientPrivate *dd,
+    QObject *parent) {
+  return new CuteQModbusTcpClient(*dd, parent);
 }
 
 //  bool QModbusTcpClient::open()

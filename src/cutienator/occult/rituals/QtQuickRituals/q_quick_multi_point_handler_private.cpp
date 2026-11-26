@@ -98,6 +98,20 @@ QQuickMultiPointHandlerPrivate *ritual_ZN30QQuickMultiPointHandlerPrivateC1Eii(
       maxPointCount);
 }
 
+//  QMetaProperty &QQuickMultiPointHandlerPrivate::xMetaProperty() const
+extern "C" Q_DECL_EXPORT
+QMetaProperty *ritual_ZNK30QQuickMultiPointHandlerPrivate13xMetaPropertyEv(
+    const QQuickMultiPointHandlerPrivate *self) {
+  return &(self->xMetaProperty());
+}
+
+//  QMetaProperty &QQuickMultiPointHandlerPrivate::yMetaProperty() const
+extern "C" Q_DECL_EXPORT
+QMetaProperty *ritual_ZNK30QQuickMultiPointHandlerPrivate13yMetaPropertyEv(
+    const QQuickMultiPointHandlerPrivate *self) {
+  return &(self->yMetaProperty());
+}
+
 //  a Python function taken by a CuteQQuickMultiPointHandlerPrivate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

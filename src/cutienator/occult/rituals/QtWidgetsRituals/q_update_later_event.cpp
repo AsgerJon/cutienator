@@ -17,7 +17,7 @@ typedef void * (*CuteQUpdateLaterEventCall1)(const void *, int *);
 class CuteQUpdateLaterEvent : public QUpdateLaterEvent {
 public:
   using QUpdateLaterEvent::QUpdateLaterEvent;
-  CuteQUpdateLaterEvent(const QUpdateLaterEvent &other) : QUpdateLaterEvent(other) {}
+  CuteQUpdateLaterEvent(const QUpdateLaterEvent & other) : QUpdateLaterEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

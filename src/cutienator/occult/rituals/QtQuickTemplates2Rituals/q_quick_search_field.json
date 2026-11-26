@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickSearchField10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickSearchField11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickSearchField11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickSearchField2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -71,6 +77,65 @@
     "ritual_ZN17QQuickSearchField10selectWordEv": ["nothing", "address"],
     "ritual_ZN17QQuickSearchField9selectAllEv": ["nothing", "address"],
     "ritual_ZN17QQuickSearchField8deselectEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField9activatedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickSearchField11highlightedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickSearchField8acceptedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField15searchTriggeredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField10textEditedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField22suggestionModelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField20delegateModelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField22suggestionCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField19currentIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField23highlightedIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField11textChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField15textRoleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField11liveChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField12popupChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField15delegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField22placeholderTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField24selectTextByMouseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField19selectedTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField21selectionStartChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField19selectionEndChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField21cursorPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField19searchButtonPressedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField18clearButtonPressedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QQuickSearchField11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],
@@ -102,6 +167,8 @@
     "ritual_ZN17QQuickSearchField10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN17QQuickSearchField6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickSearchField6d_funcEv": ["address", "address"],
     "ritual_take_QQuickSearchField": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QQuickSearchField11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"

@@ -38,11 +38,48 @@ QOpcUaHistoryReadEventRequest *ritual_ZN29QOpcUaHistoryReadEventRequestC1ERKS_(
   return new QOpcUaHistoryReadEventRequest(*other);
 }
 
+//  QOpcUaHistoryReadEventRequest::QOpcUaHistoryReadEventRequest(QOpcUaHistor
+//      yReadEventRequest &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaHistoryReadEventRequest *ritual_ZN29QOpcUaHistoryReadEventRequestC1EOS_(
+    QOpcUaHistoryReadEventRequest *other) {
+  return new QOpcUaHistoryReadEventRequest(std::move(*other));
+}
+
+//  QOpcUaHistoryReadEventRequest
+//      &QOpcUaHistoryReadEventRequest::operator=(QOpcUaHistoryReadEventReque
+//      st &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaHistoryReadEventRequest *ritual_ZN29QOpcUaHistoryReadEventRequestaSEOS_(
+    QOpcUaHistoryReadEventRequest *self,
+    QOpcUaHistoryReadEventRequest *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QOpcUaHistoryReadEventRequest
+//      &QOpcUaHistoryReadEventRequest::operator=(const
+//      QOpcUaHistoryReadEventRequest &other)
+extern "C" Q_DECL_EXPORT
+QOpcUaHistoryReadEventRequest *ritual_ZN29QOpcUaHistoryReadEventRequestaSERKS_(
+    QOpcUaHistoryReadEventRequest *self,
+    const QOpcUaHistoryReadEventRequest *other) {
+  return &(self->operator=(*other));
+}
+
 //  QOpcUaHistoryReadEventRequest::~QOpcUaHistoryReadEventRequest()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QOpcUaHistoryReadEventRequestD1Ev(
     QOpcUaHistoryReadEventRequest *self) {
   delete self;
+}
+
+//  void QOpcUaHistoryReadEventRequest::swap(QOpcUaHistoryReadEventRequest
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QOpcUaHistoryReadEventRequest4swapERS_(
+    QOpcUaHistoryReadEventRequest *self,
+    QOpcUaHistoryReadEventRequest *other) {
+  self->swap(*other);
 }
 
 //  QDateTime QOpcUaHistoryReadEventRequest::startTimestamp() const

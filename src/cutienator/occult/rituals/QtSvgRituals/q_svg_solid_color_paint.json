@@ -9,6 +9,9 @@
     "ritual_ZN19QSvgSolidColorPaintD1Ev": ["nothing", "address"],
     "ritual_ZNK19QSvgSolidColorPaint4typeEv": ["signed char", "address"],
     "ritual_ZNK19QSvgSolidColorPaint6qcolorEv": ["address", "address"],
+    "ritual_ZN19QSvgSolidColorPaint5brushEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_take_QSvgSolidColorPaint": [
       "bool", "address", "chars", "address"
     ],

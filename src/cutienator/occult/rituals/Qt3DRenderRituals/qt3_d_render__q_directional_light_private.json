@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender24QDirectionalLightPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender24QDirectionalLightPrivate6q_funcEv": [
       "address", "address"
     ],

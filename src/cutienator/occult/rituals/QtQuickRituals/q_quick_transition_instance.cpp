@@ -27,6 +27,108 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/util/qquicktransition.cpp, line 84, as local:qquicktransition.cpp:QQuickTransitionPrivate
+class QQuickTransitionPrivate : public QObjectPrivate
+{
+    Q_DECLARE_PUBLIC(QQuickTransition)
+public:
+    QQuickTransitionPrivate()
+    : fromState(QLatin1String("*")), toState(QLatin1String("*"))
+    , runningInstanceCount(0), state(QAbstractAnimationJob::Stopped)
+    , reversed(false), reversible(false), enabled(true)
+    {
+    }
+
+    static QQuickTransitionPrivate *get(QQuickTransition *q) { return q->d_func(); }
+    void animationStateChanged(QAbstractAnimationJob::State newState);
+
+    QString fromState;
+    QString toState;
+    quint32 runningInstanceCount;
+    QAbstractAnimationJob::State state;
+    bool reversed;
+    bool reversible;
+    bool enabled;
+protected:
+
+    static void append_animation(QQmlListProperty<QQuickAbstractAnimation> *list, QQuickAbstractAnimation *a);
+    static qsizetype animation_count(QQmlListProperty<QQuickAbstractAnimation> *list);
+    static QQuickAbstractAnimation* animation_at(QQmlListProperty<QQuickAbstractAnimation> *list, qsizetype pos);
+    static void clear_animations(QQmlListProperty<QQuickAbstractAnimation> *list);
+    static void removeLast_animation(QQmlListProperty<QQuickAbstractAnimation> *list);
+    static void replace_animation(
+            QQmlListProperty<QQuickAbstractAnimation> *list, qsizetype pos,
+            QQuickAbstractAnimation *a);
+
+    QList<QPointer<QQuickAbstractAnimation>> animations;
+};
+
+//  from ../qtdeclarative/src/quick/util/qquicktransition.cpp, line 119, as local:qquicktransition.cpp:QQuickTransitionPrivate::append_animation
+inline void QQuickTransitionPrivate::append_animation(QQmlListProperty<QQuickAbstractAnimation> *list, QQuickAbstractAnimation *a)
+{
+    QQuickTransition *q = static_cast<QQuickTransition *>(list->object);
+    q->d_func()->animations.append(a);
+    if (a)
+        a->setDisableUserControl();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicktransition.cpp, line 127, as local:qquicktransition.cpp:QQuickTransitionPrivate::animation_count
+inline qsizetype QQuickTransitionPrivate::animation_count(QQmlListProperty<QQuickAbstractAnimation> *list)
+{
+    QQuickTransition *q = static_cast<QQuickTransition *>(list->object);
+    return q->d_func()->animations.size();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicktransition.cpp, line 133, as local:qquicktransition.cpp:QQuickTransitionPrivate::animation_at
+inline QQuickAbstractAnimation* QQuickTransitionPrivate::animation_at(QQmlListProperty<QQuickAbstractAnimation> *list, qsizetype pos)
+{
+    QQuickTransition *q = static_cast<QQuickTransition *>(list->object);
+    return q->d_func()->animations.at(pos);
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicktransition.cpp, line 139, as local:qquicktransition.cpp:QQuickTransitionPrivate::clear_animations
+inline void QQuickTransitionPrivate::clear_animations(QQmlListProperty<QQuickAbstractAnimation> *list)
+{
+    QQuickTransition *q = static_cast<QQuickTransition *>(list->object);
+    q->d_func()->animations.clear();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicktransition.cpp, line 145, as local:qquicktransition.cpp:QQuickTransitionPrivate::removeLast_animation
+inline void QQuickTransitionPrivate::removeLast_animation(QQmlListProperty<QQuickAbstractAnimation> *list)
+{
+    QQuickTransition *q = static_cast<QQuickTransition *>(list->object);
+    q->d_func()->animations.removeLast();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicktransition.cpp, line 151, as local:qquicktransition.cpp:QQuickTransitionPrivate::replace_animation
+inline void QQuickTransitionPrivate::replace_animation(
+        QQmlListProperty<QQuickAbstractAnimation> *list, qsizetype pos, QQuickAbstractAnimation *a)
+{
+    QQuickTransition *q = static_cast<QQuickTransition *>(list->object);
+    QQuickTransitionPrivate *d = q->d_func();
+    if (d->animations.length() <= pos)
+        d->animations.resize(pos + 1, nullptr);
+    d->animations[pos] = a;
+    if (a)
+        a->setDisableUserControl();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicktransition.cpp, line 172, as local:qquicktransition.cpp:QQuickTransitionPrivate::animationStateChanged
+inline void QQuickTransitionPrivate::animationStateChanged(QAbstractAnimationJob::State newState)
+{
+    Q_Q(QQuickTransition);
+
+    if (newState == QAbstractAnimationJob::Running) {
+        runningInstanceCount++;
+        if (runningInstanceCount == 1)
+            emit q->runningChanged();
+    } else if (newState == QAbstractAnimationJob::Stopped) {
+        runningInstanceCount--;
+        if (runningInstanceCount == 0)
+            emit q->runningChanged();
+    }
+}
+
 //  from ../qtdeclarative/src/quick/util/qquicktransition.cpp, line 205, as _ZN24QQuickTransitionInstanceD1Ev
 inline QQuickTransitionInstance::~QQuickTransitionInstance()
 {
@@ -80,7 +182,7 @@ typedef void (*CuteQQuickTransitionInstanceCall3)(const void *, QAbstractAnimati
 class CuteQQuickTransitionInstance : public QQuickTransitionInstance {
 public:
   using QQuickTransitionInstance::QQuickTransitionInstance;
-  CuteQQuickTransitionInstance(const QQuickTransitionInstance &other) : QQuickTransitionInstance(other) {}
+  CuteQQuickTransitionInstance(const QQuickTransitionInstance & other) : QQuickTransitionInstance(other) {}
   void *taken[4] = {};
 
   bool take(const char *key, void *call) {
@@ -209,6 +311,19 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK24QQuickTransitionInstance9isRunningEv(
     const QQuickTransitionInstance *self) {
   return self->isRunning();
+}
+
+//  void
+//      QQuickTransitionInstance::animationStateChanged(QAbstractAnimationJob
+//      *a0, QAbstractAnimationJob::State a1, QAbstractAnimationJob::State
+//      a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickTransitionInstance21animationStateChangedEP21QAbstractAnimationJobNS0_5StateES2_(
+    QQuickTransitionInstance *self,
+    QAbstractAnimationJob *a0,
+    QAbstractAnimationJob::State a1,
+    QAbstractAnimationJob::State a2) {
+  self->animationStateChanged(a0, a1, a2);
 }
 
 //  void QQuickTransitionInstance::removeStateChangeListener()

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12ChartDataSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN12ChartDataSet11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12ChartDataSet11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12ChartDataSet2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12ChartDataSetC1EP6QChart": ["address", "address"],
     "ritual_ZN12ChartDataSetD1Ev": ["nothing", "address"],
@@ -55,6 +61,18 @@
     ],
     "ritual_ZNK12ChartDataSet15domainForSeriesEP15QAbstractSeries": [
       "address", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet9axisAddedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet11axisRemovedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet11seriesAddedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet13seriesRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN12ChartDataSet14reverseChangedEv": ["nothing", "address"],
     "ritual_ZN12ChartDataSet10createAxesE6QFlagsIN13QAbstractAxis8AxisTypeEEN2Qt11OrientationE": [

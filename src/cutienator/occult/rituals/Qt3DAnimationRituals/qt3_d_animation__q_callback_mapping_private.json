@@ -5,6 +5,7 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation23QCallbackMappingPrivateC1Ev": ["address"],
     "ritual_ZN13Qt3DAnimation23QCallbackMappingPrivate6q_funcEv": [
       "address", "address"
     ],

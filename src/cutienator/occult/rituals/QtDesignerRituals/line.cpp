@@ -874,6 +874,22 @@ const QMetaObject *ritual_ZNK4Line10metaObjectEv(const Line *self) {
   return self->metaObject();
 }
 
+//  void *Line::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN4Line11qt_metacastEPKc(Line *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Line::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN4Line11qt_metacallEN11QMetaObject4CallEiPPv(
+    Line *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Line::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN4Line2trEPKcS1_i(const char *s, const char *c, int n) {

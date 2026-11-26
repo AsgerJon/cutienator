@@ -7,6 +7,39 @@
 #include <QtQuick/6.12.0/QtQuick/private/qsgbatchrenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgbatchrenderer_p.h>
+#include <QtCore/qmath.h>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QtNumeric>
+#include <QtGui/QGuiApplication>
+#include <QtCore/private/qnumeric_p.h>
+#include <QtQuick/private/qsgmaterialshader_p.h>
+#include <QtQuick/private/qsgrhivisualizer_p.h>
+#include <QtQuick/private/qsgnode_p.h>
+#include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/scenegraph/coreapi/qsgbatchrenderer.cpp, line 48, as local:qsgbatchrenderer.cpp:SHADOWNODE_TRAVERSE
+#define SHADOWNODE_TRAVERSE(NODE) for (Node *child = NODE->firstChild(); child; child = child->sibling())
+
+//  from ../qtdeclarative/src/quick/scenegraph/coreapi/qsgbatchrenderer.cpp, line 4327, as local:qsgbatchrenderer.cpp:QSGNODE_DIRTY_PARENT
+#define QSGNODE_DIRTY_PARENT (QSGNode::DirtyNodeAdded \
+
+//  from ../qtdeclarative/src/quick/scenegraph/coreapi/qsgbatchrenderer.cpp, line 4323, as _ZN16QSGBatchRenderer10VisualizerD2Ev
+namespace QSGBatchRenderer {
+inline Visualizer::~Visualizer()
+{
+}
+}  // namespace QSGBatchRenderer
+//  -----------------------------------------------------------------------
 
 //  A QSGBatchRenderer::Visualizer that Python can take functions over in. Every QSGBatchRenderer::Visualizer
 //  Python makes is one. Each function below asks the Python

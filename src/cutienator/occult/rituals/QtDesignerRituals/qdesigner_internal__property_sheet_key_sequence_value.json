@@ -5,6 +5,27 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal29PropertySheetKeySequenceValueC1ERK12QKeySequencebRK7QStringS6_": [
+      "address", "address", "bool", "text", "text"
+    ],
+    "ritual_ZN18qdesigner_internal29PropertySheetKeySequenceValueC1ERKN12QKeySequence11StandardKeyEbRK7QStringS7_": [
+      "address", "address", "bool", "text", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal29PropertySheetKeySequenceValue5valueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29PropertySheetKeySequenceValue8setValueERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal29PropertySheetKeySequenceValue11standardKeyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29PropertySheetKeySequenceValue14setStandardKeyERKN12QKeySequence11StandardKeyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal29PropertySheetKeySequenceValue13isStandardKeyEv": [
+      "bool", "address"
+    ],
     "ritual_ZN18qdesigner_internaleqERKNS_29PropertySheetKeySequenceValueES2_": [
       "bool", "address", "address"
     ],

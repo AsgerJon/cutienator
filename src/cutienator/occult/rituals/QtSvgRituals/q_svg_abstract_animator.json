@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QSvgAbstractAnimatorC1Ev": ["address"],
     "ritual_ZN20QSvgAbstractAnimatorD1Ev": ["nothing", "address"],
     "ritual_ZN20QSvgAbstractAnimator15appendAnimationEPK8QSvgNodeP21QSvgAbstractAnimation": [
       "nothing", "address", "address", "address"

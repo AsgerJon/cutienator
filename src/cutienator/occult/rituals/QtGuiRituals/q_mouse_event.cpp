@@ -17,6 +17,7 @@ typedef void (*CuteQMouseEventCall5)(const void *, bool, int *);
 class CuteQMouseEvent : public QMouseEvent {
 public:
   using QMouseEvent::QMouseEvent;
+  CuteQMouseEvent(const QMouseEvent & other) : QMouseEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -113,6 +114,20 @@ public:
     QPointerEvent::setAccepted(accepted);
   }
 };
+
+//  QMouseEvent::QMouseEvent(const QMouseEvent &a0)
+extern "C" Q_DECL_EXPORT
+QMouseEvent *ritual_ZN11QMouseEventC1ERKS_(const QMouseEvent *a0) {
+  return new CuteQMouseEvent(*a0);
+}
+
+//  QMouseEvent &QMouseEvent::operator=(const QMouseEvent &other)
+extern "C" Q_DECL_EXPORT
+QMouseEvent *ritual_ZN11QMouseEventaSERKS_(
+    QMouseEvent *self,
+    const QMouseEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QMouseEvent *QMouseEvent::clone() const
 extern "C" Q_DECL_EXPORT

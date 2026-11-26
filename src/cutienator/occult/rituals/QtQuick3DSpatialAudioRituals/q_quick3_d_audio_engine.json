@@ -6,7 +6,25 @@
   ],
   "rows": {
     "ritual_ZNK19QQuick3DAudioEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DAudioEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuick3DAudioEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuick3DAudioEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQuick3DAudioEngine17outputModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DAudioEngine19outputDeviceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DAudioEngine19masterVolumeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DAudioEngine20distanceScaleChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuick3DAudioEngine": [
       "bool", "address", "chars", "address"
     ]

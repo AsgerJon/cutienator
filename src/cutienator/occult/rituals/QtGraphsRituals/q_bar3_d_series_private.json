@@ -13,6 +13,7 @@
     "ritual_ZN19QBar3DSeriesPrivate3getEP12QBar3DSeries": [
       "address", "address"
     ],
+    "ritual_ZN19QBar3DSeriesPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
       "nothing", "address", "address"
     ],
@@ -21,6 +22,18 @@
     ],
     "ritual_ZN19QBar3DSeriesPrivate15createItemLabelEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate14setSelectedBarE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate12setRowColorsERK5QListI6QColorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate23setValueColoringEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate12setDataArrayERK5QListIS0_I12QBarDataItemEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN19QBar3DSeriesPrivate8clearRowEx": [
       "nothing", "address", "long long"

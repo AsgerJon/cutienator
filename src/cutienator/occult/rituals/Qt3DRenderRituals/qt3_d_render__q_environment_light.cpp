@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender17QEnvironmentLight10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QEnvironmentLight::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender17QEnvironmentLight11qt_metacastEPKc(
+    Qt3DRender::QEnvironmentLight *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QEnvironmentLight::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender17QEnvironmentLight11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QEnvironmentLight *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QEnvironmentLight::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,83 @@ QString *ritual_ZN10Qt3DRender17QEnvironmentLight2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QEnvironmentLight::tr(s, c, n));
+}
+
+//  Qt3DRender::QEnvironmentLight::QEnvironmentLight(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QEnvironmentLight *ritual_ZN10Qt3DRender17QEnvironmentLightC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QEnvironmentLight(parent);
+}
+
+//  Qt3DRender::QEnvironmentLight::~QEnvironmentLight()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QEnvironmentLightD1Ev(
+    Qt3DRender::QEnvironmentLight *self) {
+  delete self;
+}
+
+//  Qt3DRender::QAbstractTexture *Qt3DRender::QEnvironmentLight::irradiance()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTexture *ritual_ZNK10Qt3DRender17QEnvironmentLight10irradianceEv(
+    const Qt3DRender::QEnvironmentLight *self) {
+  return self->irradiance();
+}
+
+//  Qt3DRender::QAbstractTexture *Qt3DRender::QEnvironmentLight::specular()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTexture *ritual_ZNK10Qt3DRender17QEnvironmentLight8specularEv(
+    const Qt3DRender::QEnvironmentLight *self) {
+  return self->specular();
+}
+
+//  void
+//      Qt3DRender::QEnvironmentLight::setIrradiance(Qt3DRender::QAbstractTex
+//      ture *irradiance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QEnvironmentLight13setIrradianceEPNS_16QAbstractTextureE(
+    Qt3DRender::QEnvironmentLight *self,
+    Qt3DRender::QAbstractTexture *irradiance) {
+  self->setIrradiance(irradiance);
+}
+
+//  void
+//      Qt3DRender::QEnvironmentLight::setSpecular(Qt3DRender::QAbstractTextu
+//      re *specular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QEnvironmentLight11setSpecularEPNS_16QAbstractTextureE(
+    Qt3DRender::QEnvironmentLight *self,
+    Qt3DRender::QAbstractTexture *specular) {
+  self->setSpecular(specular);
+}
+
+//  Qt3DRender::QEnvironmentLight::QEnvironmentLight(QEnvironmentLightPrivate
+//      &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QEnvironmentLight *ritual_ZN10Qt3DRender17QEnvironmentLightC1ERNS_24QEnvironmentLightPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QEnvironmentLightPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QEnvironmentLight(*dd, parent);
+}
+
+//  void Qt3DRender::QEnvironmentLight::irradianceChanged(Qt3DRender::QAbstra
+//      ctTexture *environmentIrradiance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QEnvironmentLight17irradianceChangedEPNS_16QAbstractTextureE(
+    Qt3DRender::QEnvironmentLight *self,
+    Qt3DRender::QAbstractTexture *environmentIrradiance) {
+  self->irradianceChanged(environmentIrradiance);
+}
+
+//  void Qt3DRender::QEnvironmentLight::specularChanged(Qt3DRender::QAbstract
+//      Texture *environmentSpecular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QEnvironmentLight15specularChangedEPNS_16QAbstractTextureE(
+    Qt3DRender::QEnvironmentLight *self,
+    Qt3DRender::QAbstractTexture *environmentSpecular) {
+  self->specularChanged(environmentSpecular);
 }
 
 //  QEnvironmentLightPrivate *Qt3DRender::QEnvironmentLight::d_func()

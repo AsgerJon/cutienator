@@ -10,6 +10,7 @@
 #include <QtGui/6.12.0/QtGui/private/qrhigles2_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <QtCore/QVector>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qrhigles2_p.h>
 #include <QtGui/QOffscreenSurface>
@@ -30,12 +31,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from src/gui/rhi/qrhigles2.cpp, line 6493, as _ZNK26QGles2RenderPassDescriptor16serializedFormatEv
-inline QVector<quint32> QGles2RenderPassDescriptor::serializedFormat() const
-{
-    return {};
-}
 
 //  from src/gui/rhi/qrhigles2.cpp, line 6462, as _ZN26QGles2RenderPassDescriptorC1EP18QRhiImplementation
 inline QGles2RenderPassDescriptor::QGles2RenderPassDescriptor(QRhiImplementation *rhi)
@@ -71,6 +66,12 @@ inline QRhiRenderPassDescriptor *QGles2RenderPassDescriptor::newCompatibleRender
     QRHI_RES_RHI(QRhiGles2);
     rhiD->registerResource(rpD, false);
     return rpD;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6493, as _ZNK26QGles2RenderPassDescriptor16serializedFormatEv
+inline QVector<quint32> QGles2RenderPassDescriptor::serializedFormat() const
+{
+    return {};
 }
 //  -----------------------------------------------------------------------
 
@@ -210,6 +211,13 @@ QRhiRenderPassDescriptor *ritual_ZNK26QGles2RenderPassDescriptor33newCompatibleR
   return self->newCompatibleRenderPassDescriptor();
 }
 
+//  QVector<quint32> QGles2RenderPassDescriptor::serializedFormat() const
+extern "C" Q_DECL_EXPORT
+QVector<quint32> *ritual_ZNK26QGles2RenderPassDescriptor16serializedFormatEv(
+    const QGles2RenderPassDescriptor *self) {
+  return new QVector<quint32>(self->serializedFormat());
+}
+
 //  a Python function taken by a CuteQGles2RenderPassDescriptor, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -243,6 +251,13 @@ extern "C" Q_DECL_EXPORT
 QRhiRenderPassDescriptor *ritual_own_ZNK26QGles2RenderPassDescriptor33newCompatibleRenderPassDescriptorEv(
     const QGles2RenderPassDescriptor *self) {
   return self->QGles2RenderPassDescriptor::newCompatibleRenderPassDescriptor();
+}
+
+//  a QVector<quint32> a ritual of QGles2RenderPassDescriptor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGles2RenderPassDescriptor__QVector_quint32(
+    QVector<quint32> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(opengl)

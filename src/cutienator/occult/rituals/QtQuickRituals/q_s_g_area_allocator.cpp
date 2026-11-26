@@ -9,6 +9,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qpoint.h>
 
 //  QSGAreaAllocator::QSGAreaAllocator(const QSize &size)
 extern "C" Q_DECL_EXPORT
@@ -63,4 +64,34 @@ const char *ritual_ZN16QSGAreaAllocator11deserializeEPKci(
     const char *data,
     int size) {
   return self->deserialize(data, size);
+}
+
+//  bool QSGAreaAllocator::allocateInNode(const QSize &size, QPoint &result,
+//      const QRect &currentRect, QSGAreaAllocatorNode *node)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSGAreaAllocator14allocateInNodeERK5QSizeR6QPointRK5QRectP20QSGAreaAllocatorNode(
+    QSGAreaAllocator *self,
+    const QSize *size,
+    QPoint *result,
+    const QRect *currentRect,
+    QSGAreaAllocatorNode *node) {
+  return self->allocateInNode(*size, *result, *currentRect, node);
+}
+
+//  bool QSGAreaAllocator::deallocateInNode(const QPoint &pos,
+//      QSGAreaAllocatorNode *node)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSGAreaAllocator16deallocateInNodeERK6QPointP20QSGAreaAllocatorNode(
+    QSGAreaAllocator *self,
+    const QPoint *pos,
+    QSGAreaAllocatorNode *node) {
+  return self->deallocateInNode(*pos, node);
+}
+
+//  void QSGAreaAllocator::mergeNodeWithNeighbors(QSGAreaAllocatorNode *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGAreaAllocator22mergeNodeWithNeighborsEP20QSGAreaAllocatorNode(
+    QSGAreaAllocator *self,
+    QSGAreaAllocatorNode *node) {
+  self->mergeNodeWithNeighbors(node);
 }

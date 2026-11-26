@@ -8,8 +8,17 @@
     "ritual_ZNK23QQuickMenuItemIconLabel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickMenuItemIconLabel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickMenuItemIconLabel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickMenuItemIconLabelD1Ev": ["nothing", "address"],
     "ritual_ZNK23QQuickMenuItemIconLabel8menuItemEv": ["address", "address"],
+    "ritual_ZN23QQuickMenuItemIconLabel15menuItemChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN23QQuickMenuItemIconLabel17componentCompleteEv": [
       "nothing", "address"
     ],

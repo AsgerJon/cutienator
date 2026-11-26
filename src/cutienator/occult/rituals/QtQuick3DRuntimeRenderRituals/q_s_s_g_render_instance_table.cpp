@@ -30,6 +30,13 @@ qsizetype ritual_ZNK23QSSGRenderInstanceTable8dataSizeEv(
   return self->dataSize();
 }
 
+//  const void *QSSGRenderInstanceTable::constData() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK23QSSGRenderInstanceTable9constDataEv(
+    const QSSGRenderInstanceTable *self) {
+  return self->constData();
+}
+
 //  void QSSGRenderInstanceTable::setData(const QByteArray &data, int count,
 //      int stride)
 extern "C" Q_DECL_EXPORT

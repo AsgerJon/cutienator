@@ -18,6 +18,25 @@ const QMetaObject *ritual_ZNK20QQuick3DXrController10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuick3DXrController11qt_metacastEPKc(
+    QQuick3DXrController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrController::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuick3DXrController11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DXrController::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuick3DXrController2trEPKcS1_i(
@@ -96,4 +115,60 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QQuick3DXrController8isActiveEv(
     const QQuick3DXrController *self) {
   return self->isActive();
+}
+
+//  void QQuick3DXrController::controllerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DXrController17controllerChangedEv(
+    QQuick3DXrController *self) {
+  self->controllerChanged();
+}
+
+//  void QQuick3DXrController::actionMapperChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DXrController19actionMapperChangedEv(
+    QQuick3DXrController *self) {
+  self->actionMapperChanged();
+}
+
+//  void QQuick3DXrController::poseSpaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DXrController16poseSpaceChangedEv(
+    QQuick3DXrController *self) {
+  self->poseSpaceChanged();
+}
+
+//  void QQuick3DXrController::pokePositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DXrController19pokePositionChangedEv(
+    QQuick3DXrController *self) {
+  self->pokePositionChanged();
+}
+
+//  void QQuick3DXrController::jointPositionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DXrController21jointPositionsChangedEv(
+    QQuick3DXrController *self) {
+  self->jointPositionsChanged();
+}
+
+//  void QQuick3DXrController::jointRotationsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DXrController21jointRotationsChangedEv(
+    QQuick3DXrController *self) {
+  self->jointRotationsChanged();
+}
+
+//  void QQuick3DXrController::jointDataUpdated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DXrController16jointDataUpdatedEv(
+    QQuick3DXrController *self) {
+  self->jointDataUpdated();
+}
+
+//  void QQuick3DXrController::isActiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DXrController15isActiveChangedEv(
+    QQuick3DXrController *self) {
+  self->isActiveChanged();
 }

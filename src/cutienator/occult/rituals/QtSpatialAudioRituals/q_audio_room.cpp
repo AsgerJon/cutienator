@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK10QAudioRoom10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAudioRoom::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QAudioRoom11qt_metacastEPKc(
+    QAudioRoom *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAudioRoom::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QAudioRoom11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAudioRoom *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAudioRoom::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QAudioRoom2trEPKcS1_i(
@@ -311,6 +329,67 @@ void ritual_ZN10QAudioRoom19setReverbBrightnessEf(
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK10QAudioRoom16reverbBrightnessEv(const QAudioRoom *self) {
   return self->reverbBrightness();
+}
+
+//  void QAudioRoom::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioRoom15positionChangedEv(QAudioRoom *self) {
+  self->positionChanged();
+}
+
+//  void QAudioRoom::dimensionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioRoom17dimensionsChangedEv(QAudioRoom *self) {
+  self->dimensionsChanged();
+}
+
+//  void QAudioRoom::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioRoom15rotationChangedEv(QAudioRoom *self) {
+  self->rotationChanged();
+}
+
+//  void QAudioRoom::wallsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioRoom12wallsChangedEv(QAudioRoom *self) {
+  self->wallsChanged();
+}
+
+//  void QAudioRoom::reflectionGainChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioRoom21reflectionGainChangedEv(QAudioRoom *self) {
+  self->reflectionGainChanged();
+}
+
+//  void QAudioRoom::reverbGainChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioRoom17reverbGainChangedEv(QAudioRoom *self) {
+  self->reverbGainChanged();
+}
+
+//  void QAudioRoom::reverbTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioRoom17reverbTimeChangedEv(QAudioRoom *self) {
+  self->reverbTimeChanged();
+}
+
+//  void QAudioRoom::reverbBrightnessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QAudioRoom23reverbBrightnessChangedEv(QAudioRoom *self) {
+  self->reverbBrightnessChanged();
+}
+
+//  QAudioRoomPrivate *QAudioRoom::d_func()
+extern "C" Q_DECL_EXPORT
+QAudioRoomPrivate *ritual_ZN10QAudioRoom6d_funcEv(QAudioRoom *self) {
+  return self->d_func();
+}
+
+//  const QAudioRoomPrivate *QAudioRoom::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAudioRoomPrivate *ritual_ZNK10QAudioRoom6d_funcEv(
+    const QAudioRoom *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQAudioRoom, for the function named by

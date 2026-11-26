@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qrect.h>
 #include <cstring>
 
 //  A QSvgPath that Python can take functions over in. Every QSvgPath
@@ -100,10 +101,49 @@ bool ritual_ZNK8QSvgPath18separateFillStrokeEPK8QPainterRK15QSvgExtraStates(
   return self->separateFillStroke(a0, *a1);
 }
 
+//  void QSvgPath::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSvgPath11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgPath *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
 //  Type QSvgPath::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK8QSvgPath4typeEv(const QSvgPath *self) {
   return self->type();
+}
+
+//  QRectF QSvgPath::internalFastBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgPath18internalFastBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgPath *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalFastBounds(p, *states));
+}
+
+//  QRectF QSvgPath::internalBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgPath14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgPath *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
+}
+
+//  QRectF QSvgPath::decoratedInternalBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgPath23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgPath *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedInternalBounds(p, *states));
 }
 
 //  bool QSvgPath::requiresGroupRendering() const

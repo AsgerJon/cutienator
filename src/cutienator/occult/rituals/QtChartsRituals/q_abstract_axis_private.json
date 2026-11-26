@@ -6,8 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK20QAbstractAxisPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QAbstractAxisPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QAbstractAxisPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QAbstractAxisPrivateC1EP13QAbstractAxis": [
+      "address", "address"
     ],
     "ritual_ZN20QAbstractAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK20QAbstractAxisPrivate9alignmentEv": ["int", "address"],
@@ -27,6 +36,9 @@
     "ritual_ZN20QAbstractAxisPrivate15initializeThemeEP10ChartThemeb": [
       "nothing", "address", "address", "bool"
     ],
+    "ritual_ZN20QAbstractAxisPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve": [
+      "nothing", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QAbstractAxisPrivate6setMinERK8QVariant": [
       "nothing", "address", "address"
     ],
@@ -43,6 +55,9 @@
     "ritual_ZN20QAbstractAxisPrivate3maxEv": ["double", "address"],
     "ritual_ZN20QAbstractAxisPrivate8axisItemEv": ["address", "address"],
     "ritual_ZN20QAbstractAxisPrivate18handleRangeChangedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate12rangeChangedEdd": [
       "nothing", "address", "double", "double"
     ],
     "ritual_ZN20QAbstractAxisPrivate6q_funcEv": ["address", "address"],

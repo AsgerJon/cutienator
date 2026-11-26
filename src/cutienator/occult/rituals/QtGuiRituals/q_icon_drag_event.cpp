@@ -11,6 +11,7 @@ typedef void (*CuteQIconDragEventCall1)(const void *, bool, int *);
 class CuteQIconDragEvent : public QIconDragEvent {
 public:
   using QIconDragEvent::QIconDragEvent;
+  CuteQIconDragEvent(const QIconDragEvent & other) : QIconDragEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -47,6 +48,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QIconDragEvent::QIconDragEvent(const QIconDragEvent &a0)
+extern "C" Q_DECL_EXPORT
+QIconDragEvent *ritual_ZN14QIconDragEventC1ERKS_(const QIconDragEvent *a0) {
+  return new CuteQIconDragEvent(*a0);
+}
+
+//  QIconDragEvent &QIconDragEvent::operator=(const QIconDragEvent &other)
+extern "C" Q_DECL_EXPORT
+QIconDragEvent *ritual_ZN14QIconDragEventaSERKS_(
+    QIconDragEvent *self,
+    const QIconDragEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QIconDragEvent *QIconDragEvent::clone() const
 extern "C" Q_DECL_EXPORT

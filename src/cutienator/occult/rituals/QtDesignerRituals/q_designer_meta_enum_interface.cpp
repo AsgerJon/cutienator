@@ -243,6 +243,12 @@ public:
   }
 };
 
+//  QDesignerMetaEnumInterface::QDesignerMetaEnumInterface()
+extern "C" Q_DECL_EXPORT
+QDesignerMetaEnumInterface *ritual_ZN26QDesignerMetaEnumInterfaceC1Ev() {
+  return new CuteQDesignerMetaEnumInterface();
+}
+
 //  QDesignerMetaEnumInterface::~QDesignerMetaEnumInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QDesignerMetaEnumInterfaceD1Ev(

@@ -185,6 +185,24 @@ const QMetaObject *ritual_ZNK13QPluginLoader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPluginLoader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QPluginLoader11qt_metacastEPKc(
+    QPluginLoader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPluginLoader::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QPluginLoader11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPluginLoader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPluginLoader::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QPluginLoader2trEPKcS1_i(

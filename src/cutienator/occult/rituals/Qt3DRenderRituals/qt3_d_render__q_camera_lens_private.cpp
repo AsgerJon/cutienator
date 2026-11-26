@@ -6,6 +6,14 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qcameralens_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DCore/qnodeid.h>
+#include <QtGui/qvectornd.h>
+
+//  Qt3DRender::QCameraLensPrivate::QCameraLensPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QCameraLensPrivate *ritual_ZN10Qt3DRender18QCameraLensPrivateC1Ev() {
+  return new Qt3DRender::QCameraLensPrivate();
+}
 
 //  void Qt3DRender::QCameraLensPrivate::updateProjectionMatrix()
 extern "C" Q_DECL_EXPORT
@@ -26,6 +34,18 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QCameraLens *ritual_ZNK10Qt3DRender18QCameraLensPrivate6q_funcEv(
     const Qt3DRender::QCameraLensPrivate *self) {
   return self->q_func();
+}
+
+//  void
+//      Qt3DRender::QCameraLensPrivate::processViewAllResult(Qt3DCore::QNodeI
+//      d requestId, const QVector3D &center, float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QCameraLensPrivate20processViewAllResultEN8Qt3DCore7QNodeIdERK9QVector3Df(
+    Qt3DRender::QCameraLensPrivate *self,
+    const Qt3DCore::QNodeId *requestId,
+    const QVector3D *center,
+    float radius) {
+  self->processViewAllResult(*requestId, *center, radius);
 }
 
 //  void Qt3DRender::QCameraLensPrivate::updatePerpectiveProjection()

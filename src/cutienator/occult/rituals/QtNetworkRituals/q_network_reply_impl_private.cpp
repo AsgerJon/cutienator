@@ -12,6 +12,7 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/qnetworkreply.h>
@@ -57,6 +58,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/network/access/qnetworkreply.cpp, line 17, as _ZN20QNetworkReplyPrivateC2Ev
 inline QNetworkReplyPrivate::QNetworkReplyPrivate()
@@ -318,6 +321,40 @@ inline void QNetworkReplyImplPrivate::initCacheSaveDevice()
     }
 }
 
+//  from src/network/access/qnetworkreplyimpl.cpp, line 548, as _ZN24QNetworkReplyImplPrivate17setDownloadBufferE14QSharedPointerIcEx
+inline void QNetworkReplyImplPrivate::setDownloadBuffer(QSharedPointer<char> sp, qint64 size)
+{
+    Q_Q(QNetworkReplyImpl);
+
+    downloadBufferPointer = sp;
+    downloadBuffer = downloadBufferPointer.data();
+    downloadBufferCurrentSize = 0;
+    downloadBufferMaximumSize = size;
+    q->setAttribute(QNetworkRequest::DownloadBufferAttribute, QVariant::fromValue<QSharedPointer<char> > (downloadBufferPointer));
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 527, as _ZN24QNetworkReplyImplPrivate17getDownloadBufferEx
+inline char* QNetworkReplyImplPrivate::getDownloadBuffer(qint64 size)
+{
+    Q_Q(QNetworkReplyImpl);
+
+    if (!downloadBuffer) {
+        // We are requested to create it
+        // Check attribute() if allocating a buffer of that size can be allowed
+        QVariant bufferAllocationPolicy = request.attribute(QNetworkRequest::MaximumDownloadBufferSizeAttribute);
+        if (bufferAllocationPolicy.isValid() && bufferAllocationPolicy.toLongLong() >= size) {
+            downloadBufferCurrentSize = 0;
+            downloadBufferMaximumSize = size;
+            downloadBuffer = new char[downloadBufferMaximumSize]; // throws if allocation fails
+            downloadBufferPointer = QSharedPointer<char>(downloadBuffer, [](auto p) { delete[] p; });
+
+            q->setAttribute(QNetworkRequest::DownloadBufferAttribute, QVariant::fromValue<QSharedPointer<char> > (downloadBufferPointer));
+        }
+    }
+
+    return downloadBuffer;
+}
+
 //  from src/network/access/qnetworkreplyimpl.cpp, line 590, as _ZN24QNetworkReplyImplPrivate8finishedEv
 inline void QNetworkReplyImplPrivate::finished()
 {
@@ -471,19 +508,24 @@ inline QAbstractNetworkCache *QNetworkReplyImplPrivate::networkCache() const
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef bool (*CuteQNetworkReplyImplPrivateCall0)(const void *, char, int *);
-typedef const QByteArray * (*CuteQNetworkReplyImplPrivateCall1)(const void *, qint64, int *);
+typedef qint64 (*CuteQNetworkReplyImplPrivateCall1)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQNetworkReplyImplPrivateCall2)(const void *, qint64, int *);
 class CuteQNetworkReplyImplPrivate : public QNetworkReplyImplPrivate {
 public:
   using QNetworkReplyImplPrivate::QNetworkReplyImplPrivate;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN16QIODevicePrivate13putCharHelperEc")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -500,11 +542,22 @@ public:
     return QIODevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[1]) {
       int handled = 0;
       CuteQNetworkReplyImplPrivateCall1 call = reinterpret_cast<CuteQNetworkReplyImplPrivateCall1>(taken[1]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQNetworkReplyImplPrivateCall2 call = reinterpret_cast<CuteQNetworkReplyImplPrivateCall2>(taken[2]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }
@@ -596,6 +649,24 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QNetworkReplyImplPrivate19initCacheSaveDeviceEv(
     QNetworkReplyImplPrivate *self) {
   self->initCacheSaveDevice();
+}
+
+//  void QNetworkReplyImplPrivate::setDownloadBuffer(QSharedPointer<char> sp,
+//      qint64 size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate17setDownloadBufferE14QSharedPointerIcEx(
+    QNetworkReplyImplPrivate *self,
+    const QSharedPointer<char> *sp,
+    qint64 size) {
+  self->setDownloadBuffer(*sp, size);
+}
+
+//  char *QNetworkReplyImplPrivate::getDownloadBuffer(qint64 size)
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN24QNetworkReplyImplPrivate17getDownloadBufferEx(
+    QNetworkReplyImplPrivate *self,
+    qint64 size) {
+  return self->getDownloadBuffer(size);
 }
 
 //  void QNetworkReplyImplPrivate::finished()

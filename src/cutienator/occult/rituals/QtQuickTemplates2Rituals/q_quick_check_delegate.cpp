@@ -25,6 +25,25 @@ const QMetaObject *ritual_ZNK19QQuickCheckDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickCheckDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickCheckDelegate11qt_metacastEPKc(
+    QQuickCheckDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickCheckDelegate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickCheckDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickCheckDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickCheckDelegate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickCheckDelegate2trEPKcS1_i(
@@ -71,6 +90,27 @@ void ritual_ZN19QQuickCheckDelegate13setCheckStateEN2Qt10CheckStateE(
   self->setCheckState(state);
 }
 
+//  void QQuickCheckDelegate::tristateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickCheckDelegate15tristateChangedEv(
+    QQuickCheckDelegate *self) {
+  self->tristateChanged();
+}
+
+//  void QQuickCheckDelegate::checkStateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickCheckDelegate17checkStateChangedEv(
+    QQuickCheckDelegate *self) {
+  self->checkStateChanged();
+}
+
+//  void QQuickCheckDelegate::nextCheckStateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickCheckDelegate21nextCheckStateChangedEv(
+    QQuickCheckDelegate *self) {
+  self->nextCheckStateChanged();
+}
+
 //  QFont QQuickCheckDelegate::defaultFont() const
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK19QQuickCheckDelegate11defaultFontEv(
@@ -101,6 +141,20 @@ QAccessible::Role ritual_ZNK19QQuickCheckDelegate14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickCheckDelegatePrivate *QQuickCheckDelegate::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickCheckDelegatePrivate *ritual_ZN19QQuickCheckDelegate6d_funcEv(
+    QQuickCheckDelegate *self) {
+  return self->d_func();
+}
+
+//  const QQuickCheckDelegatePrivate *QQuickCheckDelegate::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickCheckDelegatePrivate *ritual_ZNK19QQuickCheckDelegate6d_funcEv(
+    const QQuickCheckDelegate *self) {
+  return self->d_func();
+}
 
 //  QFont QQuickCheckDelegate::defaultFont() const
 extern "C" Q_DECL_EXPORT

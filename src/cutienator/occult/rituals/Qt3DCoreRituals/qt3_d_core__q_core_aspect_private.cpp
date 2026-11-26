@@ -89,6 +89,19 @@ public:
   }
 };
 
+//  Qt3DCore::QCoreAspectPrivate::QCoreAspectPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QCoreAspectPrivate *ritual_ZN8Qt3DCore18QCoreAspectPrivateC1Ev() {
+  return new CuteQt3DCore_QCoreAspectPrivate();
+}
+
+//  Qt3DCore::QCoreAspectPrivate::~QCoreAspectPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore18QCoreAspectPrivateD1Ev(
+    Qt3DCore::QCoreAspectPrivate *self) {
+  delete self;
+}
+
 //  QCoreAspect *Qt3DCore::QCoreAspectPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QCoreAspect *ritual_ZN8Qt3DCore18QCoreAspectPrivate6q_funcEv(
@@ -101,6 +114,28 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QCoreAspect *ritual_ZNK8Qt3DCore18QCoreAspectPrivate6q_funcEv(
     const Qt3DCore::QCoreAspectPrivate *self) {
   return self->q_func();
+}
+
+//  QCoreAspectPrivate *Qt3DCore::QCoreAspectPrivate::get(QCoreAspect
+//      *aspect)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QCoreAspectPrivate *ritual_ZN8Qt3DCore18QCoreAspectPrivate3getEPNS_11QCoreAspectE(
+    Qt3DCore::QCoreAspect *aspect) {
+  return Qt3DCore::QCoreAspectPrivate::get(aspect);
+}
+
+//  void Qt3DCore::QCoreAspectPrivate::jobsDone()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore18QCoreAspectPrivate8jobsDoneEv(
+    Qt3DCore::QCoreAspectPrivate *self) {
+  self->jobsDone();
+}
+
+//  void Qt3DCore::QCoreAspectPrivate::frameDone()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore18QCoreAspectPrivate9frameDoneEv(
+    Qt3DCore::QCoreAspectPrivate *self) {
+  self->frameDone();
 }
 
 //  a Python function taken by a CuteQt3DCore_QCoreAspectPrivate, for the

@@ -44,6 +44,13 @@ QSqlRecord *ritual_ZNK21QSqlTableModelPrivate11ModifiedRow3recEv(
   return new QSqlRecord(self->rec());
 }
 
+//  QSqlRecord &QSqlTableModelPrivate::ModifiedRow::recRef()
+extern "C" Q_DECL_EXPORT
+QSqlRecord *ritual_ZN21QSqlTableModelPrivate11ModifiedRow6recRefEv(
+    QSqlTableModelPrivate::ModifiedRow *self) {
+  return &(self->recRef());
+}
+
 //  void QSqlTableModelPrivate::ModifiedRow::setValue(int c, const QVariant
 //      &v)
 extern "C" Q_DECL_EXPORT
@@ -99,6 +106,15 @@ QSqlRecord *ritual_ZNK21QSqlTableModelPrivate11ModifiedRow13primaryValuesERK10QS
     const QSqlTableModelPrivate::ModifiedRow *self,
     const QSqlRecord *pi) {
   return new QSqlRecord(self->primaryValues(*pi));
+}
+
+//  void QSqlTableModelPrivate::ModifiedRow::setGenerated(QSqlRecord &r, bool
+//      g)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSqlTableModelPrivate11ModifiedRow12setGeneratedER10QSqlRecordb(
+    QSqlRecord *r,
+    bool g) {
+  QSqlTableModelPrivate::ModifiedRow::setGenerated(*r, g);
 }
 
 //  QSqlTableModelPrivate::ModifiedRow::~ModifiedRow()

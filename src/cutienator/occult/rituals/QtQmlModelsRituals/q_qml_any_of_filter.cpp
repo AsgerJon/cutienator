@@ -11,13 +11,33 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlanyoffilter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 
 //  const QMetaObject *QQmlAnyOfFilter::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK15QQmlAnyOfFilter10metaObjectEv(
     const QQmlAnyOfFilter *self) {
   return self->metaObject();
+}
+
+//  void *QQmlAnyOfFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQmlAnyOfFilter11qt_metacastEPKc(
+    QQmlAnyOfFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlAnyOfFilter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlAnyOfFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlAnyOfFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQmlAnyOfFilter::tr(const char *s, const char *c, int n)

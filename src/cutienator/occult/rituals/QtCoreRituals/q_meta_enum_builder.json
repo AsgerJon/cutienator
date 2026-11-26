@@ -31,6 +31,7 @@
     "ritual_ZNK16QMetaEnumBuilder8keyCountEv": ["int", "address"],
     "ritual_ZNK16QMetaEnumBuilder3keyEi": ["address", "address", "int"],
     "ritual_ZNK16QMetaEnumBuilder5valueEi": ["int", "address", "int"],
+    "ritual_ZNK16QMetaEnumBuilder7value64Ei": ["address", "address", "int"],
     "ritual_ZN16QMetaEnumBuilder6addKeyERK10QByteArrayi": [
       "int", "address", "address", "int"
     ],
@@ -41,6 +42,10 @@
     "ritual_ZN16QMetaEnumBuilderC1EPK18QMetaObjectBuilderi": [
       "address", "address", "int"
     ],
-    "ritual_ZN16QMetaEnumBuilderD1Ev": ["nothing", "address"]
+    "ritual_ZNK16QMetaEnumBuilder6d_funcEv": ["address", "address"],
+    "ritual_ZN16QMetaEnumBuilderD1Ev": ["nothing", "address"],
+    "ritual_drop_QMetaEnumBuilder__std_optional_quint64": [
+      "nothing", "address"
+    ]
   }
 }

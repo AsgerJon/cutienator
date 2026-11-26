@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras19QSphereGeometryView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QSphereGeometryView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras19QSphereGeometryView11qt_metacastEPKc(
+    Qt3DExtras::QSphereGeometryView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QSphereGeometryView::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras19QSphereGeometryView11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QSphereGeometryView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QSphereGeometryView::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,114 @@ QString *ritual_ZN10Qt3DExtras19QSphereGeometryView2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QSphereGeometryView::tr(s, c, n));
+}
+
+//  Qt3DExtras::QSphereGeometryView::QSphereGeometryView(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QSphereGeometryView *ritual_ZN10Qt3DExtras19QSphereGeometryViewC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QSphereGeometryView(parent);
+}
+
+//  Qt3DExtras::QSphereGeometryView::~QSphereGeometryView()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QSphereGeometryViewD1Ev(
+    Qt3DExtras::QSphereGeometryView *self) {
+  delete self;
+}
+
+//  int Qt3DExtras::QSphereGeometryView::rings() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras19QSphereGeometryView5ringsEv(
+    const Qt3DExtras::QSphereGeometryView *self) {
+  return self->rings();
+}
+
+//  int Qt3DExtras::QSphereGeometryView::slices() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras19QSphereGeometryView6slicesEv(
+    const Qt3DExtras::QSphereGeometryView *self) {
+  return self->slices();
+}
+
+//  float Qt3DExtras::QSphereGeometryView::radius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras19QSphereGeometryView6radiusEv(
+    const Qt3DExtras::QSphereGeometryView *self) {
+  return self->radius();
+}
+
+//  bool Qt3DExtras::QSphereGeometryView::generateTangents() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras19QSphereGeometryView16generateTangentsEv(
+    const Qt3DExtras::QSphereGeometryView *self) {
+  return self->generateTangents();
+}
+
+//  void Qt3DExtras::QSphereGeometryView::setRings(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QSphereGeometryView8setRingsEi(
+    Qt3DExtras::QSphereGeometryView *self,
+    int rings) {
+  self->setRings(rings);
+}
+
+//  void Qt3DExtras::QSphereGeometryView::setSlices(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QSphereGeometryView9setSlicesEi(
+    Qt3DExtras::QSphereGeometryView *self,
+    int slices) {
+  self->setSlices(slices);
+}
+
+//  void Qt3DExtras::QSphereGeometryView::setRadius(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QSphereGeometryView9setRadiusEf(
+    Qt3DExtras::QSphereGeometryView *self,
+    float radius) {
+  self->setRadius(radius);
+}
+
+//  void Qt3DExtras::QSphereGeometryView::setGenerateTangents(bool gen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QSphereGeometryView19setGenerateTangentsEb(
+    Qt3DExtras::QSphereGeometryView *self,
+    bool gen) {
+  self->setGenerateTangents(gen);
+}
+
+//  void Qt3DExtras::QSphereGeometryView::radiusChanged(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QSphereGeometryView13radiusChangedEf(
+    Qt3DExtras::QSphereGeometryView *self,
+    float radius) {
+  self->radiusChanged(radius);
+}
+
+//  void Qt3DExtras::QSphereGeometryView::ringsChanged(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QSphereGeometryView12ringsChangedEi(
+    Qt3DExtras::QSphereGeometryView *self,
+    int rings) {
+  self->ringsChanged(rings);
+}
+
+//  void Qt3DExtras::QSphereGeometryView::slicesChanged(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QSphereGeometryView13slicesChangedEi(
+    Qt3DExtras::QSphereGeometryView *self,
+    int slices) {
+  self->slicesChanged(slices);
+}
+
+//  void Qt3DExtras::QSphereGeometryView::generateTangentsChanged(bool
+//      generateTangents)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QSphereGeometryView23generateTangentsChangedEb(
+    Qt3DExtras::QSphereGeometryView *self,
+    bool generateTangents) {
+  self->generateTangentsChanged(generateTangents);
 }
 
 //  a Python function taken by a CuteQt3DExtras_QSphereGeometryView, for the

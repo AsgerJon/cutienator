@@ -17,6 +17,9 @@
     "ritual_ZN22QQuickShapePathPrivate20_q_fillItemDestroyedEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK22QQuickShapePathPrivate18writeToDebugStreamER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QQuickShapePathPrivate3getEP15QQuickShapePath": [
       "address", "address"
     ]

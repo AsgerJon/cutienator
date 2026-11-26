@@ -21,10 +21,36 @@ QDnsDomainNameRecord *ritual_ZN20QDnsDomainNameRecordC1ERKS_(
   return new QDnsDomainNameRecord(*other);
 }
 
+//  QDnsDomainNameRecord
+//      &QDnsDomainNameRecord::operator=(QDnsDomainNameRecord &&other)
+extern "C" Q_DECL_EXPORT
+QDnsDomainNameRecord *ritual_ZN20QDnsDomainNameRecordaSEOS_(
+    QDnsDomainNameRecord *self,
+    QDnsDomainNameRecord *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDnsDomainNameRecord &QDnsDomainNameRecord::operator=(const
+//      QDnsDomainNameRecord &other)
+extern "C" Q_DECL_EXPORT
+QDnsDomainNameRecord *ritual_ZN20QDnsDomainNameRecordaSERKS_(
+    QDnsDomainNameRecord *self,
+    const QDnsDomainNameRecord *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDnsDomainNameRecord::~QDnsDomainNameRecord()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QDnsDomainNameRecordD1Ev(QDnsDomainNameRecord *self) {
   delete self;
+}
+
+//  void QDnsDomainNameRecord::swap(QDnsDomainNameRecord &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDnsDomainNameRecord4swapERS_(
+    QDnsDomainNameRecord *self,
+    QDnsDomainNameRecord *other) {
+  self->swap(*other);
 }
 
 //  QString QDnsDomainNameRecord::name() const

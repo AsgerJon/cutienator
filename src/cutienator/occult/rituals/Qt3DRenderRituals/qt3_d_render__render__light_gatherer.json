@@ -5,11 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render13LightGathererC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render13LightGatherer10setManagerEPNS0_13EntityManagerE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render13LightGatherer6lightsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render13LightGatherer16environmentLightEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13LightGatherer3runEv": [
+      "nothing", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render13LightGatherer3runEv": [
       "nothing", "address"

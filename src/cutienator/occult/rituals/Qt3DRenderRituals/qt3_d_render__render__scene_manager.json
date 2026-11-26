@@ -5,5 +5,25 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12SceneManagerC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render12SceneManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render12SceneManager18setDownloadServiceEPN8Qt3DCore22QDownloadHelperServiceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12SceneManager12addSceneDataERK4QUrlN8Qt3DCore7QNodeIdERK10QByteArray": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12SceneManager26takePendingSceneLoaderJobsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12SceneManager18startSceneDownloadERK4QUrlN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12SceneManager18clearSceneDownloadEPNS0_15SceneDownloaderE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_SceneManager__std_vector_Qt3DRender_Render_LoadSceneJobPtr": [
+      "nothing", "address"
+    ]
   }
 }

@@ -26,21 +26,22 @@ typedef bool (*CuteQMilankovicCalendarCall7)(const void *, int *);
 typedef QString * (*CuteQMilankovicCalendarCall8)(const void *, const QLocale *, int, int, int, int *);
 typedef QString * (*CuteQMilankovicCalendarCall9)(const void *, const QLocale *, int, int, int, int *);
 typedef void * (*CuteQMilankovicCalendarCall10)(const void *, int *);
-typedef int (*CuteQMilankovicCalendarCall11)(const void *, int, int *);
+typedef void * (*CuteQMilankovicCalendarCall11)(const void *, int *);
 typedef int (*CuteQMilankovicCalendarCall12)(const void *, int, int *);
-typedef bool (*CuteQMilankovicCalendarCall13)(const void *, int, int, int, int *);
-typedef bool (*CuteQMilankovicCalendarCall14)(const void *, int *);
+typedef int (*CuteQMilankovicCalendarCall13)(const void *, int, int *);
+typedef bool (*CuteQMilankovicCalendarCall14)(const void *, int, int, int, int *);
 typedef bool (*CuteQMilankovicCalendarCall15)(const void *, int *);
-typedef int (*CuteQMilankovicCalendarCall16)(const void *, int *);
+typedef bool (*CuteQMilankovicCalendarCall16)(const void *, int *);
 typedef int (*CuteQMilankovicCalendarCall17)(const void *, int *);
-typedef int (*CuteQMilankovicCalendarCall18)(const void *, qint64, int *);
-typedef qint64 (*CuteQMilankovicCalendarCall19)(const void *, const QCalendar::YearMonthDay *, int, int *);
-typedef QString * (*CuteQMilankovicCalendarCall20)(const void *, const QLocale *, int, int, int *);
+typedef int (*CuteQMilankovicCalendarCall18)(const void *, int *);
+typedef int (*CuteQMilankovicCalendarCall19)(const void *, qint64, int *);
+typedef qint64 (*CuteQMilankovicCalendarCall20)(const void *, const QCalendar::YearMonthDay *, int, int *);
 typedef QString * (*CuteQMilankovicCalendarCall21)(const void *, const QLocale *, int, int, int *);
+typedef QString * (*CuteQMilankovicCalendarCall22)(const void *, const QLocale *, int, int, int *);
 class CuteQMilankovicCalendar : public QMilankovicCalendar {
 public:
   using QMilankovicCalendar::QMilankovicCalendar;
-  void *taken[22] = {};
+  void *taken[23] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK16QCalendarBackend4nameEv")) {
@@ -87,48 +88,52 @@ public:
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend10daysInYearEi")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend15localeMonthDataEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend12monthsInYearEi")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend10daysInYearEi")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isDateValidEiii")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend12monthsInYearEi")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isProlepticEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isDateValidEiii")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11hasYearZeroEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isProlepticEv")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend18maximumDaysInMonthEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11hasYearZeroEv")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend19maximumMonthsInYearEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend18maximumDaysInMonthEv")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend9dayOfWeekEx")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend19maximumMonthsInYearEv")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend21matchCenturyToWeekdayERKN9QCalendar12YearMonthDayEi")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend9dayOfWeekEx")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11weekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend21matchCenturyToWeekdayERKN9QCalendar12YearMonthDayEi")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend21standaloneWeekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11weekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
       taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend21standaloneWeekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
+      taken[22] = call;
       return true;
     }
     return false;
@@ -278,11 +283,22 @@ public:
     return QRomanCalendar::localeMonthIndexData();
   }
 
-  //  int QCalendarBackend::daysInYear(int year) const
-  int daysInYear(int year) const override {
+  //  const char16_t *QRomanCalendar::localeMonthData() const
+  const char16_t *localeMonthData() const override {
     if (taken[11]) {
       int handled = 0;
       CuteQMilankovicCalendarCall11 call = reinterpret_cast<CuteQMilankovicCalendarCall11>(taken[11]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<const char16_t *>(given);
+    }
+    return QRomanCalendar::localeMonthData();
+  }
+
+  //  int QCalendarBackend::daysInYear(int year) const
+  int daysInYear(int year) const override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQMilankovicCalendarCall12 call = reinterpret_cast<CuteQMilankovicCalendarCall12>(taken[12]);
       int given = call(this, year, &handled);
       if (handled) return given;
     }
@@ -291,9 +307,9 @@ public:
 
   //  int QCalendarBackend::monthsInYear(int year) const
   int monthsInYear(int year) const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall12 call = reinterpret_cast<CuteQMilankovicCalendarCall12>(taken[12]);
+      CuteQMilankovicCalendarCall13 call = reinterpret_cast<CuteQMilankovicCalendarCall13>(taken[13]);
       int given = call(this, year, &handled);
       if (handled) return given;
     }
@@ -303,9 +319,9 @@ public:
   //  bool QCalendarBackend::isDateValid(int year, int month, int day)
   //      const
   bool isDateValid(int year, int month, int day) const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall13 call = reinterpret_cast<CuteQMilankovicCalendarCall13>(taken[13]);
+      CuteQMilankovicCalendarCall14 call = reinterpret_cast<CuteQMilankovicCalendarCall14>(taken[14]);
       bool given = call(this, year, month, day, &handled);
       if (handled) return given;
     }
@@ -314,9 +330,9 @@ public:
 
   //  bool QCalendarBackend::isProleptic() const
   bool isProleptic() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall14 call = reinterpret_cast<CuteQMilankovicCalendarCall14>(taken[14]);
+      CuteQMilankovicCalendarCall15 call = reinterpret_cast<CuteQMilankovicCalendarCall15>(taken[15]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -325,9 +341,9 @@ public:
 
   //  bool QCalendarBackend::hasYearZero() const
   bool hasYearZero() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall15 call = reinterpret_cast<CuteQMilankovicCalendarCall15>(taken[15]);
+      CuteQMilankovicCalendarCall16 call = reinterpret_cast<CuteQMilankovicCalendarCall16>(taken[16]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -336,9 +352,9 @@ public:
 
   //  int QCalendarBackend::maximumDaysInMonth() const
   int maximumDaysInMonth() const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall16 call = reinterpret_cast<CuteQMilankovicCalendarCall16>(taken[16]);
+      CuteQMilankovicCalendarCall17 call = reinterpret_cast<CuteQMilankovicCalendarCall17>(taken[17]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -347,9 +363,9 @@ public:
 
   //  int QCalendarBackend::maximumMonthsInYear() const
   int maximumMonthsInYear() const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall17 call = reinterpret_cast<CuteQMilankovicCalendarCall17>(taken[17]);
+      CuteQMilankovicCalendarCall18 call = reinterpret_cast<CuteQMilankovicCalendarCall18>(taken[18]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -358,9 +374,9 @@ public:
 
   //  int QCalendarBackend::dayOfWeek(qint64 jd) const
   int dayOfWeek(qint64 jd) const override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall18 call = reinterpret_cast<CuteQMilankovicCalendarCall18>(taken[18]);
+      CuteQMilankovicCalendarCall19 call = reinterpret_cast<CuteQMilankovicCalendarCall19>(taken[19]);
       int given = call(this, jd, &handled);
       if (handled) return given;
     }
@@ -372,9 +388,9 @@ public:
   qint64 matchCenturyToWeekday(
       const QCalendar::YearMonthDay &parts,
       int dow) const override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall19 call = reinterpret_cast<CuteQMilankovicCalendarCall19>(taken[19]);
+      CuteQMilankovicCalendarCall20 call = reinterpret_cast<CuteQMilankovicCalendarCall20>(taken[20]);
       qint64 given = call(this, &parts, dow, &handled);
       if (handled) return given;
     }
@@ -387,9 +403,9 @@ public:
       const QLocale &locale,
       int day,
       QLocale::FormatType format) const override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall20 call = reinterpret_cast<CuteQMilankovicCalendarCall20>(taken[20]);
+      CuteQMilankovicCalendarCall21 call = reinterpret_cast<CuteQMilankovicCalendarCall21>(taken[21]);
       QString * given = call(this, &locale, day, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);
@@ -406,9 +422,9 @@ public:
       const QLocale &locale,
       int day,
       QLocale::FormatType format) const override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQMilankovicCalendarCall21 call = reinterpret_cast<CuteQMilankovicCalendarCall21>(taken[21]);
+      CuteQMilankovicCalendarCall22 call = reinterpret_cast<CuteQMilankovicCalendarCall22>(taken[22]);
       QString * given = call(this, &locale, day, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);

@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK23QSSGAssetImporterPlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSSGAssetImporterPlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QSSGAssetImporterPlugin11qt_metacastEPKc(
+    QSSGAssetImporterPlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSSGAssetImporterPlugin::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QSSGAssetImporterPlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSSGAssetImporterPlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSSGAssetImporterPlugin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QSSGAssetImporterPlugin2trEPKcS1_i(

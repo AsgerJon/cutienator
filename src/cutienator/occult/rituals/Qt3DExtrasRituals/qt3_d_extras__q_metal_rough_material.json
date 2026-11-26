@@ -8,8 +8,75 @@
     "ritual_ZNK10Qt3DExtras19QMetalRoughMaterial10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras19QMetalRoughMaterial2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterialC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras19QMetalRoughMaterial9baseColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QMetalRoughMaterial9metalnessEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QMetalRoughMaterial9roughnessEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QMetalRoughMaterial16ambientOcclusionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QMetalRoughMaterial6normalEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QMetalRoughMaterial12textureScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial12setBaseColorERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial12setMetalnessERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial12setRoughnessERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial19setAmbientOcclusionERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial9setNormalERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial15setTextureScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial16baseColorChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial16metalnessChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial16roughnessChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial23ambientOcclusionChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial13normalChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterial19textureScaleChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QMetalRoughMaterialC1ERNS_26QMetalRoughMaterialPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DExtras19QMetalRoughMaterial6d_funcEv": [
       "address", "address"

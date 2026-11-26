@@ -353,6 +353,25 @@ const QMetaObject *ritual_ZNK22QQuickAnimatorProxyJob10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnimatorProxyJob::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickAnimatorProxyJob11qt_metacastEPKc(
+    QQuickAnimatorProxyJob *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnimatorProxyJob::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickAnimatorProxyJob11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnimatorProxyJob *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnimatorProxyJob::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickAnimatorProxyJob2trEPKcS1_i(
@@ -382,6 +401,14 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK22QQuickAnimatorProxyJob8durationEv(
     const QQuickAnimatorProxyJob *self) {
   return self->duration();
+}
+
+//  const QSharedPointer<QAbstractAnimationJob>
+//      &QQuickAnimatorProxyJob::job() const
+extern "C" Q_DECL_EXPORT
+const QSharedPointer<QAbstractAnimationJob> *ritual_ZNK22QQuickAnimatorProxyJob3jobEv(
+    const QQuickAnimatorProxyJob *self) {
+  return &(self->job());
 }
 
 //  void QQuickAnimatorProxyJob::updateCurrentTime(int a0)

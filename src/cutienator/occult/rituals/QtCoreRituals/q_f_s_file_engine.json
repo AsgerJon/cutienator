@@ -10,6 +10,9 @@
     "ritual_ZN13QFSFileEngineC1Ev": ["address"],
     "ritual_ZN13QFSFileEngineC1ERK7QString": ["address", "text"],
     "ritual_ZN13QFSFileEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN13QFSFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEESt8optionalIS0_IN11QFileDevice10PermissionEEE": [
+      "bool", "address", "int", "address"
+    ],
     "ritual_ZN13QFSFileEngine5closeEv": ["bool", "address"],
     "ritual_ZN13QFSFileEngine5flushEv": ["bool", "address"],
     "ritual_ZN13QFSFileEngine10syncToDiskEv": ["bool", "address"],
@@ -26,6 +29,9 @@
       "bool", "address", "text"
     ],
     "ritual_ZN13QFSFileEngine4linkERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK13QFSFileEngine5mkdirERK7QStringbSt8optionalI6QFlagsIN11QFileDevice10PermissionEEE": [
+      "bool", "address", "text", "bool", "address"
+    ],
     "ritual_ZNK13QFSFileEngine5rmdirERK7QStringb": [
       "bool", "address", "text", "bool"
     ],
@@ -48,10 +54,28 @@
     "ritual_ZNK13QFSFileEngine5ownerEN19QAbstractFileEngine9FileOwnerE": [
       "text", "address", "int"
     ],
+    "ritual_ZN13QFSFileEngine11setFileTimeERK9QDateTimeN11QFileDevice8FileTimeE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK13QFSFileEngine8fileTimeEN11QFileDevice8FileTimeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QFSFileEngine11setFileNameERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN13QFSFileEngine12setFileEntryEO16QFileSystemEntry": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK13QFSFileEngine6handleEv": ["int", "address"],
+    "ritual_ZN13QFSFileEngine14beginEntryListERK7QString6QFlagsIN11QDirListing12IteratorFlagEERK5QListIS0_E": [
+      "address", "address", "text", "int", "address"
+    ],
+    "ritual_ZN13QFSFileEngine4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN13QFSFileEngine8readLineEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN13QFSFileEngine5writeEPKcx": [
       "long long", "address", "chars", "long long"
     ],
@@ -68,9 +92,15 @@
     "ritual_ZN13QFSFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEEiS0_IN11QFileDevice14FileHandleFlagEE": [
       "bool", "address", "int", "int", "int"
     ],
+    "ritual_ZN13QFSFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEEP8_IO_FILES0_IN11QFileDevice14FileHandleFlagEE": [
+      "bool", "address", "int", "address", "int"
+    ],
     "ritual_ZN13QFSFileEngine14setCurrentPathERK7QString": ["bool", "text"],
     "ritual_ZN13QFSFileEngine11currentPathERK7QString": ["text", "text"],
     "ritual_ZN13QFSFileEngine6drivesEv": ["address"],
+    "ritual_ZN13QFSFileEngineC1ER20QFSFileEnginePrivate": [
+      "address", "address"
+    ],
     "ritual_ZN13QFSFileEngine13rename_helperERK7QStringNS_10RenameModeE": [
       "bool", "address", "text", "int"
     ],
@@ -123,6 +153,12 @@
       "nothing", "address", "text"
     ],
     "ritual_own_ZNK13QFSFileEngine6handleEv": ["int", "address"],
+    "ritual_own_ZN13QFSFileEngine4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_own_ZN13QFSFileEngine8readLineEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_own_ZN13QFSFileEngine7cloneToEP19QAbstractFileEngine": [
       "signed char", "address", "address"
     ],
@@ -132,6 +168,9 @@
     ],
     "ritual_own_ZNK13QFSFileEngine17supportsExtensionEN19QAbstractFileEngine9ExtensionE": [
       "bool", "address", "int"
+    ],
+    "ritual_drop_QFSFileEngine__QAbstractFileEngine_IteratorUniquePtr": [
+      "nothing", "address"
     ]
   }
 }

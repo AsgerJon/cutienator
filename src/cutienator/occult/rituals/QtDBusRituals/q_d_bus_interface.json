@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN14QDBusInterfaceC1ERK7QStringS2_S2_RK15QDBusConnectionP7QObject": [
+      "address", "text", "text", "text", "address", "address"
+    ],
+    "ritual_ZN14QDBusInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QDBusInterface10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QDBusInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QDBusInterface6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QDBusInterface6d_funcEv": ["address", "address"],
+    "ritual_take_QDBusInterface": ["bool", "address", "chars", "address"]
+  }
+}

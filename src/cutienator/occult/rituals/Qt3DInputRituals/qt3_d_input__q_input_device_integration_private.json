@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "Qt3DInput/6.12.0/Qt3DInput/private/qinputdeviceintegration_p_p.h,",
+    "Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZN9Qt3DInput30QInputDeviceIntegrationPrivateC1Ev": ["address"],
+    "ritual_ZN9Qt3DInput30QInputDeviceIntegrationPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput30QInputDeviceIntegrationPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DInput_QInputDeviceIntegrationPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

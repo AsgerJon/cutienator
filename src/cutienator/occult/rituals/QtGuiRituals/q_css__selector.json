@@ -5,6 +5,11 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZNK4QCss8Selector11specificityEv": ["int", "address"],
+    "ritual_ZNK4QCss8Selector11pseudoClassEPy": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZNK4QCss8Selector13pseudoElementEv": ["text", "address"],
     "ritual_ZN4QCss8SelectorD1Ev": ["nothing", "address"]
   }
 }

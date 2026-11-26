@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN11DomTabStopsC1Ev": ["address"],
     "ritual_ZN11DomTabStopsD1Ev": ["nothing", "address"],
+    "ritual_ZN11DomTabStops4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomTabStops5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK11DomTabStops14elementTabStopEv": ["address", "address"],
     "ritual_ZN11DomTabStops17setElementTabStopERK5QListI7QStringE": [
       "nothing", "address", "address"

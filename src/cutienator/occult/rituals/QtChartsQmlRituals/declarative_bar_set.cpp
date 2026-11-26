@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK17DeclarativeBarSet10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeBarSet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17DeclarativeBarSet11qt_metacastEPKc(
+    DeclarativeBarSet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeBarSet::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17DeclarativeBarSet11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeBarSet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeBarSet::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17DeclarativeBarSet2trEPKcS1_i(
@@ -112,6 +131,31 @@ void ritual_ZN17DeclarativeBarSet7replaceEid(
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZN17DeclarativeBarSet2atEi(DeclarativeBarSet *self, int index) {
   return self->at(index);
+}
+
+//  void DeclarativeBarSet::countChanged(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DeclarativeBarSet12countChangedEi(
+    DeclarativeBarSet *self,
+    int count) {
+  self->countChanged(count);
+}
+
+//  void DeclarativeBarSet::borderWidthChanged(qreal width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DeclarativeBarSet18borderWidthChangedEd(
+    DeclarativeBarSet *self,
+    qreal width) {
+  self->borderWidthChanged(width);
+}
+
+//  void DeclarativeBarSet::brushFilenameChanged(const QString
+//      &brushFilename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DeclarativeBarSet20brushFilenameChangedERK7QString(
+    DeclarativeBarSet *self,
+    const QString *brushFilename) {
+  self->brushFilenameChanged(*brushFilename);
 }
 
 //  void DeclarativeBarSet::handleCountChanged(int index, int count)

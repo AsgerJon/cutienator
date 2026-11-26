@@ -5,8 +5,26 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal20DeleteTabPageCommandD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20DeleteTabPageCommand4initEP10QTabWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20DeleteTabPageCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20DeleteTabPageCommand4undoEv": [
+      "nothing", "address"
+    ],
     "ritual_take_qdesigner_internal_DeleteTabPageCommand": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal20DeleteTabPageCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal20DeleteTabPageCommand4undoEv": [
+      "nothing", "address"
     ]
   }
 }

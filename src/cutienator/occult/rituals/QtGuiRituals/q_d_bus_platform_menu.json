@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QDBusPlatformMenu10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QDBusPlatformMenu11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QDBusPlatformMenu11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QDBusPlatformMenuD1Ev": ["nothing", "address"],
     "ritual_ZN17QDBusPlatformMenu14insertMenuItemEP17QPlatformMenuItemS1_": [
       "nothing", "address", "address", "address"
@@ -63,6 +69,15 @@
     ],
     "ritual_ZNK17QDBusPlatformMenu13createSubMenuEv": ["address", "address"],
     "ritual_ZNK17QDBusPlatformMenu8revisionEv": ["unsigned int", "address"],
+    "ritual_ZN17QDBusPlatformMenu7updatedEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN17QDBusPlatformMenu17propertiesUpdatedE5QListI13QDBusMenuItemES0_I17QDBusMenuItemKeysE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QDBusPlatformMenu14popupRequestedEij": [
+      "nothing", "address", "int", "unsigned int"
+    ],
     "ritual_take_QDBusPlatformMenu": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QDBusPlatformMenu25syncSeparatorsCollapsibleEb": [
       "nothing", "address", "bool"

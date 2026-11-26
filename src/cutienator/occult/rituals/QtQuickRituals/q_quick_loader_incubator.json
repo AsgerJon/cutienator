@@ -5,11 +5,17 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QQuickLoaderIncubatorC1EP19QQuickLoaderPrivateN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN21QQuickLoaderIncubator13statusChangedEN13QQmlIncubator6StatusE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN21QQuickLoaderIncubator15setInitialStateEP7QObject": [
       "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickLoaderIncubator13statusChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
     ],
     "ritual_own_ZN21QQuickLoaderIncubator15setInitialStateEP7QObject": [
       "nothing", "address", "address"

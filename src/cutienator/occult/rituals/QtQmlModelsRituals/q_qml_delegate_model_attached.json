@@ -8,6 +8,13 @@
     "ritual_ZNK25QQmlDelegateModelAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQmlDelegateModelAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQmlDelegateModelAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN25QQmlDelegateModelAttachedD1Ev": ["nothing", "address"],
     "ritual_ZNK25QQmlDelegateModelAttached16inPersistedItemsEv": [
       "bool", "address"
     ],
@@ -22,6 +29,12 @@
     "ritual_ZNK25QQmlDelegateModelAttached6groupsEv": ["address", "address"],
     "ritual_ZNK25QQmlDelegateModelAttached12isUnresolvedEv": [
       "bool", "address"
+    ],
+    "ritual_ZN25QQmlDelegateModelAttached13groupsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlDelegateModelAttached17unresolvedChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQmlDelegateModelAttached": [
       "bool", "address", "chars", "address"

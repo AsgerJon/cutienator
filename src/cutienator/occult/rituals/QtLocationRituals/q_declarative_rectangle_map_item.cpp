@@ -923,6 +923,25 @@ const QMetaObject *ritual_ZNK28QDeclarativeRectangleMapItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeRectangleMapItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QDeclarativeRectangleMapItem11qt_metacastEPKc(
+    QDeclarativeRectangleMapItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeRectangleMapItem::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QDeclarativeRectangleMapItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeRectangleMapItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeRectangleMapItem::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1043,6 +1062,32 @@ void ritual_ZN28QDeclarativeRectangleMapItem11setGeoShapeERK9QGeoShape(
     QDeclarativeRectangleMapItem *self,
     const QGeoShape *shape) {
   self->setGeoShape(*shape);
+}
+
+//  void QDeclarativeRectangleMapItem::topLeftChanged(const QGeoCoordinate
+//      &topLeft)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDeclarativeRectangleMapItem14topLeftChangedERK14QGeoCoordinate(
+    QDeclarativeRectangleMapItem *self,
+    const QGeoCoordinate *topLeft) {
+  self->topLeftChanged(*topLeft);
+}
+
+//  void QDeclarativeRectangleMapItem::bottomRightChanged(const
+//      QGeoCoordinate &bottomRight)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDeclarativeRectangleMapItem18bottomRightChangedERK14QGeoCoordinate(
+    QDeclarativeRectangleMapItem *self,
+    const QGeoCoordinate *bottomRight) {
+  self->bottomRightChanged(*bottomRight);
+}
+
+//  void QDeclarativeRectangleMapItem::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDeclarativeRectangleMapItem12colorChangedERK6QColor(
+    QDeclarativeRectangleMapItem *self,
+    const QColor *color) {
+  self->colorChanged(*color);
 }
 
 //  void QDeclarativeRectangleMapItem::geometryChange(const QRectF

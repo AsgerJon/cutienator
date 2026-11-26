@@ -5,6 +5,31 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras21QGoochMaterialPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DExtras21QGoochMaterialPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QGoochMaterialPrivate20handleDiffuseChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QGoochMaterialPrivate21handleSpecularChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QGoochMaterialPrivate17handleCoolChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QGoochMaterialPrivate17handleWarmChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QGoochMaterialPrivate18handleAlphaChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QGoochMaterialPrivate17handleBetaChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QGoochMaterialPrivate22handleShininessChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DExtras21QGoochMaterialPrivate6q_funcEv": [
       "address", "address"
     ],

@@ -5,6 +5,7 @@
 #if QT_CONFIG(modbus_serialport)
 #include <QtSerialBus/qmodbusrtuserialserver.h>
 #include <QtCore/qstring.h>
+#include <QtSerialBus/qmodbuspdu.h>
 #include <QtCore/qvariant.h>
 #include <QtSerialBus/qmodbusdataunit.h>
 #include <QtCore/qmetaobject.h>
@@ -303,6 +304,25 @@ const QMetaObject *ritual_ZNK22QModbusRtuSerialServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QModbusRtuSerialServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QModbusRtuSerialServer11qt_metacastEPKc(
+    QModbusRtuSerialServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QModbusRtuSerialServer::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QModbusRtuSerialServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QModbusRtuSerialServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QModbusRtuSerialServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QModbusRtuSerialServer2trEPKcS1_i(
@@ -362,6 +382,15 @@ void ritual_ZN22QModbusRtuSerialServer18setInterFrameDelayEi(
   self->setInterFrameDelay(microseconds);
 }
 
+//  QModbusRtuSerialServer::QModbusRtuSerialServer(QModbusRtuSerialServerPriv
+//      ate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QModbusRtuSerialServer *ritual_ZN22QModbusRtuSerialServerC1ER29QModbusRtuSerialServerPrivateP7QObject(
+    QModbusRtuSerialServerPrivate *dd,
+    QObject *parent) {
+  return new CuteQModbusRtuSerialServer(*dd, parent);
+}
+
 //  bool QModbusRtuSerialServer::open()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN22QModbusRtuSerialServer4openEv(QModbusRtuSerialServer *self) {
@@ -373,6 +402,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QModbusRtuSerialServer5closeEv(
     QModbusRtuSerialServer *self) {
   self->close();
+}
+
+//  QModbusResponse QModbusRtuSerialServer::processRequest(const QModbusPdu
+//      &request)
+extern "C" Q_DECL_EXPORT
+QModbusResponse *ritual_ZN22QModbusRtuSerialServer14processRequestERK10QModbusPdu(
+    QModbusRtuSerialServer *self,
+    const QModbusPdu *request) {
+  return new QModbusResponse(self->processRequest(*request));
 }
 
 //  a Python function taken by a CuteQModbusRtuSerialServer, for the function

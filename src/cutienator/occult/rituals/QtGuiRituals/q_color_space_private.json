@@ -6,19 +6,44 @@
   ],
   "rows": {
     "ritual_ZN18QColorSpacePrivateC1Ev": ["address"],
+    "ritual_ZN18QColorSpacePrivateC1EN11QColorSpace15NamedColorSpaceE": [
+      "address", "int"
+    ],
+    "ritual_ZN18QColorSpacePrivateC1EN11QColorSpace9PrimariesENS0_16TransferFunctionEf": [
+      "address", "int", "int", "float"
+    ],
+    "ritual_ZN18QColorSpacePrivateC1EN11QColorSpace9PrimariesERK5QListItE": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN18QColorSpacePrivateC1ERKN11QColorSpace13PrimaryPointsENS0_16TransferFunctionEf": [
+      "address", "address", "int", "float"
+    ],
     "ritual_ZN18QColorSpacePrivateC1E7QPointFN11QColorSpace16TransferFunctionEf": [
       "address", "address", "int", "float"
+    ],
+    "ritual_ZN18QColorSpacePrivateC1E7QPointFRK5QListItE": [
+      "address", "address", "address"
     ],
     "ritual_ZN18QColorSpacePrivateC1ERKS_": ["address", "address"],
     "ritual_ZN18QColorSpacePrivate3getERK11QColorSpace": [
       "address", "address"
     ],
+    "ritual_ZN18QColorSpacePrivate3getER11QColorSpace": [
+      "address", "address"
+    ],
     "ritual_ZNK18QColorSpacePrivate7isValidEv": ["bool", "address"],
+    "ritual_ZN18QColorSpacePrivate10initializeEv": ["nothing", "address"],
     "ritual_ZN18QColorSpacePrivate19setTransferFunctionEv": [
       "nothing", "address"
     ],
     "ritual_ZN18QColorSpacePrivate18identifyColorSpaceEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN18QColorSpacePrivate24setTransferFunctionTableERK5QListItE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QColorSpacePrivate25setTransferFunctionTablesERK5QListItES3_S3_": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZNK18QColorSpacePrivate19transformationToXYZEv": [
       "address", "address"

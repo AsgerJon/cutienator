@@ -187,6 +187,24 @@ const QMetaObject *ritual_ZNK12QIOOperation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QIOOperation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QIOOperation11qt_metacastEPKc(
+    QIOOperation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QIOOperation::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QIOOperation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QIOOperation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QIOOperation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QIOOperation2trEPKcS1_i(
@@ -220,6 +238,28 @@ QIOOperation::Error ritual_ZNK12QIOOperation5errorEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QIOOperation10isFinishedEv(const QIOOperation *self) {
   return self->isFinished();
+}
+
+//  void QIOOperation::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QIOOperation8finishedEv(QIOOperation *self) {
+  self->finished();
+}
+
+//  void QIOOperation::errorOccurred(Error err)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QIOOperation13errorOccurredENS_5ErrorE(
+    QIOOperation *self,
+    QIOOperation::Error err) {
+  self->errorOccurred(err);
+}
+
+//  QIOOperation::QIOOperation(QIOOperationPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QIOOperation *ritual_ZN12QIOOperationC1ER19QIOOperationPrivateP7QObject(
+    QIOOperationPrivate *dd,
+    QObject *parent) {
+  return new CuteQIOOperation(*dd, parent);
 }
 
 //  void QIOOperation::ensureCompleteOrCanceled()

@@ -9,6 +9,12 @@
     "ritual_ZNK24QQuickBasicBusyIndicator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickBasicBusyIndicator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickBasicBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK24QQuickBasicBusyIndicator3penEv": ["address", "address"],
     "ritual_ZN24QQuickBasicBusyIndicator6setPenERK6QColor": [
       "nothing", "address", "address"
@@ -24,6 +30,9 @@
     "ritual_ZNK24QQuickBasicBusyIndicator7elapsedEv": ["int", "address"],
     "ritual_ZN24QQuickBasicBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QQuickBasicBusyIndicator15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
     ],
     "ritual_own_ZN24QQuickBasicBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"

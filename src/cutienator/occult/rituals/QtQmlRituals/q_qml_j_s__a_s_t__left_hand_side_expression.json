@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST22LeftHandSideExpression26leftHandSideExpressionCastEv": [
+      "address", "address"
+    ],
     "ritual_own_ZN6QQmlJS3AST22LeftHandSideExpression26leftHandSideExpressionCastEv": [
       "address", "address"
     ]

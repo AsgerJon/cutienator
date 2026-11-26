@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qopenglcontext.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qopenglcontext.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 4. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qtguiglobal.h>
 #if !defined(QT_NO_OPENGL)
 #include <QtGui/qopenglcontext.h>
@@ -9,6 +11,10 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QSet>
+#include <QtCore/QByteArray>
+#include <functional>
+#include <QtGui/qopenglcontext_platform.h>
 
 //  A QOpenGLContext that Python can take functions over in. Every QOpenGLContext
 //  Python makes is one. Each function below asks the Python
@@ -184,6 +190,24 @@ const QMetaObject *ritual_ZNK14QOpenGLContext10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLContext::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QOpenGLContext11qt_metacastEPKc(
+    QOpenGLContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLContext::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QOpenGLContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLContext::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QOpenGLContext2trEPKcS1_i(
@@ -282,6 +306,13 @@ QScreen *ritual_ZNK14QOpenGLContext6screenEv(const QOpenGLContext *self) {
   return self->screen();
 }
 
+//  GLuint QOpenGLContext::defaultFramebufferObject() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK14QOpenGLContext24defaultFramebufferObjectEv(
+    const QOpenGLContext *self) {
+  return self->defaultFramebufferObject();
+}
+
 //  bool QOpenGLContext::makeCurrent(QSurface *surface)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN14QOpenGLContext11makeCurrentEP8QSurface(
@@ -302,6 +333,24 @@ void ritual_ZN14QOpenGLContext11swapBuffersEP8QSurface(
     QOpenGLContext *self,
     QSurface *surface) {
   self->swapBuffers(surface);
+}
+
+//  QFunctionPointer QOpenGLContext::getProcAddress(const QByteArray
+//      &procName) const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK14QOpenGLContext14getProcAddressERK10QByteArray(
+    const QOpenGLContext *self,
+    const QByteArray *procName) {
+  return reinterpret_cast<void *>(self->getProcAddress(*procName));
+}
+
+//  QFunctionPointer QOpenGLContext::getProcAddress(const char *procName)
+//      const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK14QOpenGLContext14getProcAddressEPKc(
+    const QOpenGLContext *self,
+    const char *procName) {
+  return reinterpret_cast<void *>(self->getProcAddress(procName));
 }
 
 //  QSurface *QOpenGLContext::surface() const
@@ -353,6 +402,13 @@ QOpenGLExtraFunctions *ritual_ZNK14QOpenGLContext14extraFunctionsEv(
   return self->extraFunctions();
 }
 
+//  QSet<QByteArray> QOpenGLContext::extensions() const
+extern "C" Q_DECL_EXPORT
+QSet<QByteArray> *ritual_ZNK14QOpenGLContext10extensionsEv(
+    const QOpenGLContext *self) {
+  return new QSet<QByteArray>(self->extensions());
+}
+
 //  bool QOpenGLContext::hasExtension(const QByteArray &extension) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14QOpenGLContext12hasExtensionERK10QByteArray(
@@ -385,11 +441,37 @@ QOpenGLContext *ritual_ZN14QOpenGLContext18globalShareContextEv() {
   return QOpenGLContext::globalShareContext();
 }
 
+//  void *QOpenGLContext::resolveInterface(const char *name, int revision)
+//      const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK14QOpenGLContext16resolveInterfaceEPKci(
+    const QOpenGLContext *self,
+    const char *name,
+    int revision) {
+  return self->resolveInterface(name, revision);
+}
+
+//  void QOpenGLContext::aboutToBeDestroyed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLContext18aboutToBeDestroyedEv(QOpenGLContext *self) {
+  self->aboutToBeDestroyed();
+}
+
 //  QOpenGLTextureHelper *QOpenGLContext::textureFunctions() const
 extern "C" Q_DECL_EXPORT
 QOpenGLTextureHelper *ritual_ZNK14QOpenGLContext16textureFunctionsEv(
     const QOpenGLContext *self) {
   return self->textureFunctions();
+}
+
+//  void QOpenGLContext::setTextureFunctions(QOpenGLTextureHelper
+//      *textureFuncs, std::function<void ()> destroyCallback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLContext19setTextureFunctionsEP20QOpenGLTextureHelperSt8functionIFvvEE(
+    QOpenGLContext *self,
+    QOpenGLTextureHelper *textureFuncs,
+    const std::function<void ()> *destroyCallback) {
+  self->setTextureFunctions(textureFuncs, *destroyCallback);
 }
 
 //  void QOpenGLContext::destroy()
@@ -442,5 +524,55 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QOpenGLContext_ptr(QList<QOpenGLContext *> *self) {
   delete self;
 }
+
+//  a QSet<QByteArray> a ritual of QOpenGLContext gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLContext__QSet_QByteArray(QSet<QByteArray> *self) {
+  delete self;
+}
+
+#if defined(Q_OS_MACOS)
+//  QNativeInterface::QCocoaGLContext
+//      *QOpenGLContext::nativeInterface<QNativeInterface::QCocoaGLContext>()
+//      const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QCocoaGLContext *ritual_ZNK14QOpenGLContext15nativeInterfaceIN16QNativeInterface15QCocoaGLContextENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QOpenGLContext *self) {
+  return self->nativeInterface<QNativeInterface::QCocoaGLContext>();
+}
+#endif  // defined(Q_OS_MACOS)
+
+#if defined(Q_OS_WIN)
+//  QNativeInterface::QWGLContext
+//      *QOpenGLContext::nativeInterface<QNativeInterface::QWGLContext>()
+//      const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QWGLContext *ritual_ZNK14QOpenGLContext15nativeInterfaceIN16QNativeInterface11QWGLContextENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QOpenGLContext *self) {
+  return self->nativeInterface<QNativeInterface::QWGLContext>();
+}
+#endif  // defined(Q_OS_WIN)
+
+#if QT_CONFIG(xcb_glx_plugin)
+//  QNativeInterface::QGLXContext
+//      *QOpenGLContext::nativeInterface<QNativeInterface::QGLXContext>()
+//      const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QGLXContext *ritual_ZNK14QOpenGLContext15nativeInterfaceIN16QNativeInterface11QGLXContextENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QOpenGLContext *self) {
+  return self->nativeInterface<QNativeInterface::QGLXContext>();
+}
+#endif  // QT_CONFIG(xcb_glx_plugin)
+
+#if QT_CONFIG(egl)
+//  QNativeInterface::QEGLContext
+//      *QOpenGLContext::nativeInterface<QNativeInterface::QEGLContext>()
+//      const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QEGLContext *ritual_ZNK14QOpenGLContext15nativeInterfaceIN16QNativeInterface11QEGLContextENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QOpenGLContext *self) {
+  return self->nativeInterface<QNativeInterface::QEGLContext>();
+}
+#endif  // QT_CONFIG(egl)
 
 #endif  // !defined(QT_NO_OPENGL)

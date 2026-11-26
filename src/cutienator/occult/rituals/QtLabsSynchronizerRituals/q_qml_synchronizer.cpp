@@ -186,6 +186,25 @@ const QMetaObject *ritual_ZNK16QQmlSynchronizer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlSynchronizer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQmlSynchronizer11qt_metacastEPKc(
+    QQmlSynchronizer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlSynchronizer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQmlSynchronizer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlSynchronizer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlSynchronizer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQmlSynchronizer2trEPKcS1_i(
@@ -193,6 +212,20 @@ QString *ritual_ZN16QQmlSynchronizer2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQmlSynchronizer::tr(s, c, n));
+}
+
+//  QQmlSynchronizerPrivate *QQmlSynchronizer::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlSynchronizerPrivate *ritual_ZN16QQmlSynchronizer6d_funcEv(
+    QQmlSynchronizer *self) {
+  return self->d_func();
+}
+
+//  const QQmlSynchronizerPrivate *QQmlSynchronizer::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlSynchronizerPrivate *ritual_ZNK16QQmlSynchronizer6d_funcEv(
+    const QQmlSynchronizer *self) {
+  return self->d_func();
 }
 
 //  QQmlSynchronizer::QQmlSynchronizer(QObject *parent)
@@ -259,6 +292,54 @@ void ritual_ZN16QQmlSynchronizer17setTargetPropertyERK7QString(
     QQmlSynchronizer *self,
     const QString *property) {
   self->setTargetProperty(*property);
+}
+
+//  void QQmlSynchronizer::sourceObjectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlSynchronizer19sourceObjectChangedEv(
+    QQmlSynchronizer *self) {
+  self->sourceObjectChanged();
+}
+
+//  void QQmlSynchronizer::sourcePropertyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlSynchronizer21sourcePropertyChangedEv(
+    QQmlSynchronizer *self) {
+  self->sourcePropertyChanged();
+}
+
+//  void QQmlSynchronizer::targetObjectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlSynchronizer19targetObjectChangedEv(
+    QQmlSynchronizer *self) {
+  self->targetObjectChanged();
+}
+
+//  void QQmlSynchronizer::targetPropertyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlSynchronizer21targetPropertyChangedEv(
+    QQmlSynchronizer *self) {
+  self->targetPropertyChanged();
+}
+
+//  void QQmlSynchronizer::valueBounced(QObject *object, const QString
+//      &property)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlSynchronizer12valueBouncedEP7QObjectRK7QString(
+    QQmlSynchronizer *self,
+    QObject *object,
+    const QString *property) {
+  self->valueBounced(object, *property);
+}
+
+//  void QQmlSynchronizer::valueIgnored(QObject *object, const QString
+//      &property)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlSynchronizer12valueIgnoredEP7QObjectRK7QString(
+    QQmlSynchronizer *self,
+    QObject *object,
+    const QString *property) {
+  self->valueIgnored(object, *property);
 }
 
 //  void QQmlSynchronizer::setTarget(const QQmlProperty &target)

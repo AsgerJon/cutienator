@@ -7,6 +7,9 @@
     "ritual_ZN9QHttpPartC1Ev": ["address"],
     "ritual_ZN9QHttpPartC1ERKS_": ["address", "address"],
     "ritual_ZN9QHttpPartD1Ev": ["nothing", "address"],
+    "ritual_ZN9QHttpPartaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QHttpPartaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QHttpPart4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QHttpParteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK9QHttpPartneERKS_": ["bool", "address", "address"],
     "ritual_ZN9QHttpPart9setHeaderEN15QNetworkRequest12KnownHeadersERK8QVariant": [

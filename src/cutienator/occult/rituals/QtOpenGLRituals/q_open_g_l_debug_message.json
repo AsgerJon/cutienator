@@ -6,10 +6,20 @@
   "rows": {
     "ritual_ZN19QOpenGLDebugMessageC1Ev": ["address"],
     "ritual_ZN19QOpenGLDebugMessageC1ERKS_": ["address", "address"],
+    "ritual_ZN19QOpenGLDebugMessageaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QOpenGLDebugMessageaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QOpenGLDebugMessageD1Ev": ["nothing", "address"],
+    "ritual_ZN19QOpenGLDebugMessage4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QOpenGLDebugMessage6sourceEv": ["int", "address"],
     "ritual_ZNK19QOpenGLDebugMessage4typeEv": ["int", "address"],
     "ritual_ZNK19QOpenGLDebugMessage8severityEv": ["int", "address"],
+    "ritual_ZNK19QOpenGLDebugMessage2idEv": ["unsigned int", "address"],
     "ritual_ZNK19QOpenGLDebugMessage7messageEv": ["text", "address"],
     "ritual_ZN19QOpenGLDebugMessage24createApplicationMessageERK7QStringjNS_8SeverityENS_4TypeE": [
       "address", "text", "unsigned int", "int", "int"

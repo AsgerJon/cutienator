@@ -32,6 +32,24 @@ const QMetaObject *ritual_ZNK15QQuickSwipeView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSwipeView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickSwipeView11qt_metacastEPKc(
+    QQuickSwipeView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSwipeView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickSwipeView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSwipeView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSwipeView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickSwipeView2trEPKcS1_i(
@@ -106,6 +124,20 @@ bool ritual_ZNK15QQuickSwipeView10isVerticalEv(const QQuickSwipeView *self) {
   return self->isVertical();
 }
 
+//  void QQuickSwipeView::interactiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickSwipeView18interactiveChangedEv(
+    QQuickSwipeView *self) {
+  self->interactiveChanged();
+}
+
+//  void QQuickSwipeView::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickSwipeView18orientationChangedEv(
+    QQuickSwipeView *self) {
+  self->orientationChanged();
+}
+
 //  void QQuickSwipeView::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickSwipeView17componentCompleteEv(QQuickSwipeView *self) {
@@ -157,6 +189,20 @@ QAccessible::Role ritual_ZNK15QQuickSwipeView14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickSwipeViewPrivate *QQuickSwipeView::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSwipeViewPrivate *ritual_ZN15QQuickSwipeView6d_funcEv(
+    QQuickSwipeView *self) {
+  return self->d_func();
+}
+
+//  const QQuickSwipeViewPrivate *QQuickSwipeView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSwipeViewPrivate *ritual_ZNK15QQuickSwipeView6d_funcEv(
+    const QQuickSwipeView *self) {
+  return self->d_func();
+}
 
 //  void QQuickSwipeView::componentComplete()
 extern "C" Q_DECL_EXPORT

@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickDialogButtonBox10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickDialogButtonBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickDialogButtonBox2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -66,6 +72,38 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN21QQuickDialogButtonBox17resetButtonLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox8acceptedEv": ["nothing", "address"],
+    "ritual_ZN21QQuickDialogButtonBox8rejectedEv": ["nothing", "address"],
+    "ritual_ZN21QQuickDialogButtonBox13helpRequestedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox7clickedEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox16alignmentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox22standardButtonsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox15delegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox7appliedEv": ["nothing", "address"],
+    "ritual_ZN21QQuickDialogButtonBox5resetEv": ["nothing", "address"],
+    "ritual_ZN21QQuickDialogButtonBox9discardedEv": ["nothing", "address"],
+    "ritual_ZN21QQuickDialogButtonBox19buttonLayoutChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox28defaultStandardButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox20defaultButtonChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN21QQuickDialogButtonBox12updatePolishEv": [

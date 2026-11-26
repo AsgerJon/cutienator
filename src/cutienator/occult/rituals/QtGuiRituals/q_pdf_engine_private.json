@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/6.12.0/QtGui/private/qpdf_p.h, Qt 6.12.0. Changes made here",
-    "are lost."
+    "QtGui/6.12.0/QtGui/private/qpdf_p.h, Qt 6.12.0. Edited by hand:",
+    "see the ritual file."
   ],
   "rows": {
     "ritual_ZN17QPdfEnginePrivate6q_funcEv": ["address", "address"],
@@ -39,6 +39,9 @@
     ],
     "ritual_ZN17QPdfEnginePrivate28generateRadialGradientShaderEPK15QRadialGradientRK10QTransformb": [
       "int", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN17QPdfEnginePrivate21createShadingFunctionEPK9QGradientiibb": [
+      "address", "address", "address", "int", "int", "bool", "bool"
     ],
     "ritual_ZNK17QPdfEnginePrivate18colorModelForColorERK6QColor": [
       "int", "address", "address"
@@ -87,6 +90,12 @@
     "ritual_ZN17QPdfEnginePrivate15writeCompressedEP9QIODevice": [
       "int", "address", "address"
     ],
-    "ritual_take_QPdfEnginePrivate": ["bool", "address", "chars", "address"]
+    "ritual_take_QPdfEnginePrivate": ["bool", "address", "chars", "address"],
+    "ritual_drop_QPdfEnginePrivate__QPdfEnginePrivate_ShadingFunctionResult": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate7xprintfEPKcz": [
+      "nothing", "address", "chars"
+    ]
   }
 }

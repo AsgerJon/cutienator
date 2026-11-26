@@ -6,6 +6,13 @@
   ],
   "rows": {
     "ritual_ZNK15QColumnViewGrip10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QColumnViewGrip11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QColumnViewGrip11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QColumnViewGrip9gripMovedEi": ["nothing", "address", "int"],
     "ritual_ZN15QColumnViewGripD1Ev": ["nothing", "address"],
     "ritual_ZN15QColumnViewGrip10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"

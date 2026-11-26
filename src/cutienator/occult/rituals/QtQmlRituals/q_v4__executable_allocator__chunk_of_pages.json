@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN3QV419ExecutableAllocator12ChunkOfPagesC1Ev": ["address"]
+    "ritual_ZN3QV419ExecutableAllocator12ChunkOfPagesC1Ev": ["address"],
+    "ritual_ZNK3QV419ExecutableAllocator12ChunkOfPages8containsEPNS0_10AllocationE": [
+      "bool", "address", "address"
+    ]
   }
 }

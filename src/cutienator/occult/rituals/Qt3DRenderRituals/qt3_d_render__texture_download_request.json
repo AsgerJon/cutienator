@@ -5,7 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender22TextureDownloadRequestC1ERK14QSharedPointerINS_27QTextureFromSourceGeneratorEERK4QUrlPN8Qt3DCore13QAspectEngineENS9_7QNodeIdE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender22TextureDownloadRequest11onCompletedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender22TextureDownloadRequestD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender22TextureDownloadRequest11onCompletedEv": [
       "nothing", "address"
     ]
   }

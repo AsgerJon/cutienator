@@ -8,6 +8,12 @@
     "ritual_ZNK22QModbusRtuSerialServer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QModbusRtuSerialServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QModbusRtuSerialServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QModbusRtuSerialServer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,8 +30,14 @@
     "ritual_ZN22QModbusRtuSerialServer18setInterFrameDelayEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN22QModbusRtuSerialServerC1ER29QModbusRtuSerialServerPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QModbusRtuSerialServer4openEv": ["bool", "address"],
     "ritual_ZN22QModbusRtuSerialServer5closeEv": ["nothing", "address"],
+    "ritual_ZN22QModbusRtuSerialServer14processRequestERK10QModbusPdu": [
+      "address", "address", "address"
+    ],
     "ritual_take_QModbusRtuSerialServer": [
       "bool", "address", "chars", "address"
     ],

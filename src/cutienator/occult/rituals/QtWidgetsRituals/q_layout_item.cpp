@@ -257,6 +257,13 @@ public:
   }
 };
 
+//  QLayoutItem::QLayoutItem(Qt::Alignment alignment)
+extern "C" Q_DECL_EXPORT
+QLayoutItem *ritual_ZN11QLayoutItemC1E6QFlagsIN2Qt13AlignmentFlagEE(
+    int alignment) {
+  return new CuteQLayoutItem(QFlags<Qt::AlignmentFlag>::fromInt(alignment));
+}
+
 //  QLayoutItem::~QLayoutItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QLayoutItemD1Ev(QLayoutItem *self) {

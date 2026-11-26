@@ -853,6 +853,25 @@ const QMetaObject *ritual_ZNK16QQuickFusionKnob10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFusionKnob::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickFusionKnob11qt_metacastEPKc(
+    QQuickFusionKnob *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFusionKnob::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickFusionKnob11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFusionKnob *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuickFusionKnob::paint(QPainter *painter)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickFusionKnob5paintEP8QPainter(

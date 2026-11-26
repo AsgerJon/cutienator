@@ -242,10 +242,38 @@ const QMetaObject *ritual_ZNK8QQmlBind10metaObjectEv(const QQmlBind *self) {
   return self->metaObject();
 }
 
+//  void *QQmlBind::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QQmlBind11qt_metacastEPKc(QQmlBind *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlBind::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QQmlBind11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlBind *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlBind::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QQmlBind2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QQmlBind::tr(s, c, n));
+}
+
+//  QQmlBindPrivate *QQmlBind::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlBindPrivate *ritual_ZN8QQmlBind6d_funcEv(QQmlBind *self) {
+  return self->d_func();
+}
+
+//  const QQmlBindPrivate *QQmlBind::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlBindPrivate *ritual_ZNK8QQmlBind6d_funcEv(const QQmlBind *self) {
+  return self->d_func();
 }
 
 //  QQmlBind::QQmlBind(QObject *parent)
@@ -337,6 +365,42 @@ void ritual_ZN8QQmlBind14setRestoreModeENS_15RestorationModeE(
     QQmlBind *self,
     QQmlBind::RestorationMode a0) {
   self->setRestoreMode(a0);
+}
+
+//  void QQmlBind::restoreModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QQmlBind18restoreModeChangedEv(QQmlBind *self) {
+  self->restoreModeChanged();
+}
+
+//  void QQmlBind::objectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QQmlBind13objectChangedEv(QQmlBind *self) {
+  self->objectChanged();
+}
+
+//  void QQmlBind::propertyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QQmlBind15propertyChangedEv(QQmlBind *self) {
+  self->propertyChanged();
+}
+
+//  void QQmlBind::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QQmlBind12valueChangedEv(QQmlBind *self) {
+  self->valueChanged();
+}
+
+//  void QQmlBind::whenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QQmlBind11whenChangedEv(QQmlBind *self) {
+  self->whenChanged();
+}
+
+//  void QQmlBind::delayedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QQmlBind14delayedChangedEv(QQmlBind *self) {
+  self->delayedChanged();
 }
 
 //  void QQmlBind::setTarget(const QQmlProperty &a0)

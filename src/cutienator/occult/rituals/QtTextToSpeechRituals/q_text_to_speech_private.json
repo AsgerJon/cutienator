@@ -16,6 +16,9 @@
     ],
     "ritual_ZN20QTextToSpeechPrivate27disconnectSynthesizeFunctorEv": [
       "nothing", "address"
+    ],
+    "ritual_drop_QTextToSpeechPrivate__QMultiHash_QString_QCborMap": [
+      "nothing", "address"
     ]
   }
 }

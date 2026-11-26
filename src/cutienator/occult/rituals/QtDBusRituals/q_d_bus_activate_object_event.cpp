@@ -49,18 +49,48 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/dbus/qdbusintegrator.cpp, line 1601, as _ZN24QDBusActivateObjectEventD1Ev
+using namespace Qt::StringLiterals;
+
+//  from src/dbus/qdbusintegrator.cpp, line 420, as local:qdbusintegrator.cpp:findChildObject
 #if !defined(QT_NO_DBUS)
-inline QDBusActivateObjectEvent::~QDBusActivateObjectEvent()
+static QObject *findChildObject(const QDBusConnectionPrivate::ObjectTreeNode *root,
+                                const QString &fullpath, int start)
 {
-    if (!handled) {
-        // we're being destroyed without delivering
-        // it means the object was deleted between posting and delivering
-        QDBusConnectionPrivate *that = QDBusConnectionPrivate::d(connection);
-        that->sendError(message, QDBusError::UnknownObject);
+    int length = fullpath.size();
+
+    // any object in the tree can tell us to switch to its own object tree:
+    const QDBusConnectionPrivate::ObjectTreeNode *node = root;
+    if (node && node->flags & QDBusConnection::ExportChildObjects) {
+        QObject *obj = node->obj;
+
+        while (obj) {
+            if (start >= length)
+                // we're at the correct level
+                return obj;
+
+            int pos = fullpath.indexOf(u'/', start);
+            pos = (pos == -1 ? length : pos);
+            auto pathComponent = QStringView{fullpath}.mid(start, pos - start);
+
+            // find a child with the proper name
+            QObject *next = nullptr;
+            for (QObject *child : std::as_const(obj->children())) {
+                if (child->objectName() == pathComponent) {
+                    next = child;
+                    break;
+                }
+            }
+
+            if (!next)
+                break;
+
+            obj = next;
+            start = pos + 1;
+        }
     }
 
-    // semaphore releasing happens in ~QMetaCallEvent
+    // object not found
+    return nullptr;
 }
 #endif  // !defined(QT_NO_DBUS)
 
@@ -79,6 +109,108 @@ inline void QDBusActivateObjectEvent::placeMetaCall(QObject *)
     handled = true;
 }
 #endif  // !defined(QT_NO_DBUS)
+
+//  from src/dbus/qdbusintegrator.cpp, line 1601, as _ZN24QDBusActivateObjectEventD2Ev
+#if !defined(QT_NO_DBUS)
+inline QDBusActivateObjectEvent::~QDBusActivateObjectEvent()
+{
+    if (!handled) {
+        // we're being destroyed without delivering
+        // it means the object was deleted between posting and delivering
+        QDBusConnectionPrivate *that = QDBusConnectionPrivate::d(connection);
+        that->sendError(message, QDBusError::UnknownObject);
+    }
+
+    // semaphore releasing happens in ~QMetaCallEvent
+}
+#endif  // !defined(QT_NO_DBUS)
+
+//  from src/dbus/qdbusintegrator.cpp, line 1452, as _ZN22QDBusConnectionPrivate14activateObjectERNS_14ObjectTreeNodeERK12QDBusMessagei
+#if !defined(QT_NO_DBUS)
+inline void QDBusConnectionPrivate::activateObject(ObjectTreeNode &node, const QDBusMessage &msg,
+                                            int pathStartPos)
+{
+    // This is called by QDBusConnectionPrivate::handleObjectCall to place a call to a slot
+    // on the object.
+    //
+    // The call is routed through the adaptor sub-objects if we have any
+
+    // object may be null
+
+    if (node.flags & QDBusConnectionPrivate::VirtualObject) {
+        if (node.treeNode->handleMessage(msg, q(this))) {
+            return;
+        } else {
+            if (activateInternalFilters(node, msg))
+                return;
+        }
+    }
+
+    if (pathStartPos != msg.path().size()) {
+        node.flags &= ~QDBusConnection::ExportAllSignals;
+        node.obj = findChildObject(&node, msg.path(), pathStartPos);
+        if (!node.obj) {
+            sendError(msg, QDBusError::UnknownObject);
+            return;
+        }
+    }
+
+    QDBusAdaptorConnector *connector;
+    if (node.flags & QDBusConnection::ExportAdaptors &&
+        (connector = qDBusFindAdaptorConnector(node.obj))) {
+        auto newflags = node.flags | QDBusConnection::ExportAllSlots;
+
+        if (msg.interface().isEmpty()) {
+            // place the call in all interfaces
+            // let the first one that handles it to work
+            for (const QDBusAdaptorConnector::AdaptorData &adaptorData :
+                 std::as_const(connector->adaptors)) {
+                if (activateCall(adaptorData.adaptor, newflags, msg))
+                    return;
+            }
+        } else {
+            // check if we have an interface matching the name that was asked:
+            QDBusAdaptorConnector::AdaptorMap::ConstIterator it;
+            it = std::lower_bound(connector->adaptors.constBegin(), connector->adaptors.constEnd(),
+                                  msg.interface());
+            if (it != connector->adaptors.constEnd() && msg.interface() == QLatin1StringView(it->interface)) {
+                if (!activateCall(it->adaptor, newflags, msg))
+                    sendError(msg, QDBusError::UnknownMethod);
+                return;
+            }
+        }
+    }
+
+    // no adaptors matched or were exported
+    // try our standard filters
+    if (activateInternalFilters(node, msg))
+        return;                 // internal filters have already run or an error has been sent
+
+    // try the object itself:
+    if (node.flags & (QDBusConnection::ExportScriptableSlots|QDBusConnection::ExportNonScriptableSlots) ||
+        node.flags & (QDBusConnection::ExportScriptableInvokables|QDBusConnection::ExportNonScriptableInvokables)) {
+        bool interfaceFound = true;
+        if (!msg.interface().isEmpty()) {
+            if (!node.interfaceName.isEmpty())
+                interfaceFound = msg.interface() == node.interfaceName;
+            else
+                interfaceFound = qDBusInterfaceInObject(node.obj, msg.interface());
+        }
+
+        if (interfaceFound) {
+            if (!activateCall(node.obj, node.flags, msg))
+                sendError(msg, QDBusError::UnknownMethod);
+            return;
+        }
+    }
+
+    // nothing matched, send an error code
+    if (msg.interface().isEmpty())
+        sendError(msg, QDBusError::UnknownMethod);
+    else
+        sendError(msg, QDBusError::UnknownInterface);
+}
+#endif  // !defined(QT_NO_DBUS)
 //  -----------------------------------------------------------------------
 
 //  A QDBusActivateObjectEvent that Python can take functions over in. Every QDBusActivateObjectEvent
@@ -92,7 +224,7 @@ typedef void * (*CuteQDBusActivateObjectEventCall2)(const void *, int *);
 class CuteQDBusActivateObjectEvent : public QDBusActivateObjectEvent {
 public:
   using QDBusActivateObjectEvent::QDBusActivateObjectEvent;
-  CuteQDBusActivateObjectEvent(const QDBusActivateObjectEvent &other) : QDBusActivateObjectEvent(other) {}
+  CuteQDBusActivateObjectEvent(const QDBusActivateObjectEvent & other) : QDBusActivateObjectEvent(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

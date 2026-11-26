@@ -838,6 +838,20 @@ int ritual_ZNK18QGraphicsItemGroup4typeEv(const QGraphicsItemGroup *self) {
   return self->type();
 }
 
+//  QGraphicsItemGroupPrivate *QGraphicsItemGroup::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsItemGroupPrivate *ritual_ZN18QGraphicsItemGroup6d_funcEv(
+    QGraphicsItemGroup *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsItemGroupPrivate *QGraphicsItemGroup::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsItemGroupPrivate *ritual_ZNK18QGraphicsItemGroup6d_funcEv(
+    const QGraphicsItemGroup *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsItemGroup, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

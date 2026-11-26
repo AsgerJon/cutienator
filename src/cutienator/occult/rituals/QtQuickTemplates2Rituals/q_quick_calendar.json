@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickCalendar10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickCalendar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickCalendar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_take_QQuickCalendar": ["bool", "address", "chars", "address"]
   }
 }

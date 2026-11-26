@@ -11,6 +11,9 @@
     "ritual_ZN16QSGBatchRenderer4RectoRERKS0_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN16QSGBatchRenderer4Rect3mapERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QSGBatchRenderer4Rect3setEffff": [
       "nothing", "address", "float", "float", "float", "float"
     ],

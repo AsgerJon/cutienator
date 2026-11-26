@@ -6,8 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK20QLegendMarkerPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QLegendMarkerPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QLegendMarkerPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QLegendMarkerPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QLegendMarkerPrivateC1EP13QLegendMarkerP7QLegend": [
+      "address", "address", "address"
     ],
     "ritual_ZN20QLegendMarkerPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK20QLegendMarkerPrivate4itemEv": ["address", "address"],

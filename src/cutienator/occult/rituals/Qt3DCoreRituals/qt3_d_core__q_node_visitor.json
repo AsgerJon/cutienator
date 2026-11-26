@@ -5,6 +5,22 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN8Qt3DCore12QNodeVisitorD1Ev": ["nothing", "address"]
+    "ritual_ZN8Qt3DCore12QNodeVisitorC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore12QNodeVisitorD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore12QNodeVisitor8rootNodeEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore12QNodeVisitor11currentNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodeVisitor7setPathE5QListIPNS_5QNodeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore12QNodeVisitor4pathEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore12QNodeVisitor6appendEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore12QNodeVisitor8pop_backEv": ["nothing", "address"],
+    "ritual_drop_Qt3DCore_QNodeVisitor__Qt3DCore_QNodeVector": [
+      "nothing", "address"
+    ]
   }
 }

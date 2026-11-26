@@ -8,8 +8,26 @@
     "ritual_ZNK18qdesigner_internal17DesignerIconCache10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal17DesignerIconCache11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal17DesignerIconCache11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal17DesignerIconCache2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal17DesignerIconCacheC1EPNS_19DesignerPixmapCacheEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17DesignerIconCache4iconERKNS_22PropertySheetIconValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17DesignerIconCache5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17DesignerIconCache8reloadedEv": [
+      "nothing", "address"
     ]
   }
 }

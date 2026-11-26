@@ -5,6 +5,12 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN21QQmlValueTypeProvider19heapCreateValueTypeERK8QQmlTypeRKN3QV45ValueEPNS3_15ExecutionEngineE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QQmlValueTypeProvider18constructValueTypeE9QMetaTypePK11QMetaObjectiPPv": [
+      "address", "address", "address", "int", "address"
+    ],
     "ritual_ZN21QQmlValueTypeProviderD1Ev": ["nothing", "address"]
   }
 }

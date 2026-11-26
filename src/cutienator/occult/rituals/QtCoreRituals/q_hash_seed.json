@@ -5,6 +5,7 @@
   ],
   "rows": {
     "ritual_ZN9QHashSeedC1Em": ["address", "size_t"],
+    "ritual_ZNK9QHashSeedcvmEv": ["size_t", "address"],
     "ritual_ZN9QHashSeed10globalSeedEv": ["address"],
     "ritual_ZN9QHashSeed26setDeterministicGlobalSeedEv": ["nothing"],
     "ritual_ZN9QHashSeed21resetRandomGlobalSeedEv": ["nothing"],

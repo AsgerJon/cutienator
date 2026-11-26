@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN25QXmlStreamPrivateTagStackC1Ev": ["address"],
+    "ritual_ZN25QXmlStreamPrivateTagStack18addToStringStorageE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN25QXmlStreamPrivateTagStack12tagStack_popEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QXmlStreamPrivateTagStack13tagStack_pushEv": [
+      "address", "address"
+    ]
+  }
+}

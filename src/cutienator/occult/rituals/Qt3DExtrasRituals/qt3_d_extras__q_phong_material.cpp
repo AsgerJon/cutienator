@@ -2,6 +2,7 @@
 //  Qt3DExtras/qphongmaterial.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qphongmaterial.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras14QPhongMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QPhongMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras14QPhongMaterial11qt_metacastEPKc(
+    Qt3DExtras::QPhongMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QPhongMaterial::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras14QPhongMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QPhongMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QPhongMaterial::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,112 @@ QString *ritual_ZN10Qt3DExtras14QPhongMaterial2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QPhongMaterial::tr(s, c, n));
+}
+
+//  Qt3DExtras::QPhongMaterial::QPhongMaterial(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QPhongMaterial *ritual_ZN10Qt3DExtras14QPhongMaterialC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QPhongMaterial(parent);
+}
+
+//  Qt3DExtras::QPhongMaterial::~QPhongMaterial()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPhongMaterialD1Ev(
+    Qt3DExtras::QPhongMaterial *self) {
+  delete self;
+}
+
+//  QColor Qt3DExtras::QPhongMaterial::ambient() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras14QPhongMaterial7ambientEv(
+    const Qt3DExtras::QPhongMaterial *self) {
+  return new QColor(self->ambient());
+}
+
+//  QColor Qt3DExtras::QPhongMaterial::diffuse() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras14QPhongMaterial7diffuseEv(
+    const Qt3DExtras::QPhongMaterial *self) {
+  return new QColor(self->diffuse());
+}
+
+//  QColor Qt3DExtras::QPhongMaterial::specular() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras14QPhongMaterial8specularEv(
+    const Qt3DExtras::QPhongMaterial *self) {
+  return new QColor(self->specular());
+}
+
+//  float Qt3DExtras::QPhongMaterial::shininess() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras14QPhongMaterial9shininessEv(
+    const Qt3DExtras::QPhongMaterial *self) {
+  return self->shininess();
+}
+
+//  void Qt3DExtras::QPhongMaterial::setAmbient(const QColor &ambient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPhongMaterial10setAmbientERK6QColor(
+    Qt3DExtras::QPhongMaterial *self,
+    const QColor *ambient) {
+  self->setAmbient(*ambient);
+}
+
+//  void Qt3DExtras::QPhongMaterial::setDiffuse(const QColor &diffuse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPhongMaterial10setDiffuseERK6QColor(
+    Qt3DExtras::QPhongMaterial *self,
+    const QColor *diffuse) {
+  self->setDiffuse(*diffuse);
+}
+
+//  void Qt3DExtras::QPhongMaterial::setSpecular(const QColor &specular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPhongMaterial11setSpecularERK6QColor(
+    Qt3DExtras::QPhongMaterial *self,
+    const QColor *specular) {
+  self->setSpecular(*specular);
+}
+
+//  void Qt3DExtras::QPhongMaterial::setShininess(float shininess)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPhongMaterial12setShininessEf(
+    Qt3DExtras::QPhongMaterial *self,
+    float shininess) {
+  self->setShininess(shininess);
+}
+
+//  void Qt3DExtras::QPhongMaterial::ambientChanged(const QColor &ambient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPhongMaterial14ambientChangedERK6QColor(
+    Qt3DExtras::QPhongMaterial *self,
+    const QColor *ambient) {
+  self->ambientChanged(*ambient);
+}
+
+//  void Qt3DExtras::QPhongMaterial::diffuseChanged(const QColor &diffuse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPhongMaterial14diffuseChangedERK6QColor(
+    Qt3DExtras::QPhongMaterial *self,
+    const QColor *diffuse) {
+  self->diffuseChanged(*diffuse);
+}
+
+//  void Qt3DExtras::QPhongMaterial::specularChanged(const QColor &specular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPhongMaterial15specularChangedERK6QColor(
+    Qt3DExtras::QPhongMaterial *self,
+    const QColor *specular) {
+  self->specularChanged(*specular);
+}
+
+//  void Qt3DExtras::QPhongMaterial::shininessChanged(float shininess)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QPhongMaterial16shininessChangedEf(
+    Qt3DExtras::QPhongMaterial *self,
+    float shininess) {
+  self->shininessChanged(shininess);
 }
 
 //  QPhongMaterialPrivate *Qt3DExtras::QPhongMaterial::d_func()

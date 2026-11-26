@@ -185,6 +185,14 @@ const QMetaObject *ritual_ZNK17QSurfaceDataProxy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSurfaceDataProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QSurfaceDataProxy11qt_metacastEPKc(
+    QSurfaceDataProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString QSurfaceDataProxy::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QSurfaceDataProxy2trEPKcS1_i(
@@ -328,6 +336,70 @@ void ritual_ZN17QSurfaceDataProxy10removeRowsExx(
     qsizetype rowIndex,
     qsizetype removeCount) {
   self->removeRows(rowIndex, removeCount);
+}
+
+//  void QSurfaceDataProxy::arrayReset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSurfaceDataProxy10arrayResetEv(QSurfaceDataProxy *self) {
+  self->arrayReset();
+}
+
+//  void QSurfaceDataProxy::rowsAdded(qsizetype startIndex, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSurfaceDataProxy9rowsAddedExx(
+    QSurfaceDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->rowsAdded(startIndex, count);
+}
+
+//  void QSurfaceDataProxy::rowsChanged(qsizetype startIndex, qsizetype
+//      count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSurfaceDataProxy11rowsChangedExx(
+    QSurfaceDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->rowsChanged(startIndex, count);
+}
+
+//  void QSurfaceDataProxy::rowsRemoved(qsizetype startIndex, qsizetype
+//      count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSurfaceDataProxy11rowsRemovedExx(
+    QSurfaceDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->rowsRemoved(startIndex, count);
+}
+
+//  void QSurfaceDataProxy::rowsInserted(qsizetype startIndex, qsizetype
+//      count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSurfaceDataProxy12rowsInsertedExx(
+    QSurfaceDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->rowsInserted(startIndex, count);
+}
+
+//  void QSurfaceDataProxy::itemChanged(qsizetype rowIndex, qsizetype
+//      columnIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSurfaceDataProxy11itemChangedExx(
+    QSurfaceDataProxy *self,
+    qsizetype rowIndex,
+    qsizetype columnIndex) {
+  self->itemChanged(rowIndex, columnIndex);
+}
+
+//  QSurfaceDataProxy::QSurfaceDataProxy(QSurfaceDataProxyPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QSurfaceDataProxy *ritual_ZN17QSurfaceDataProxyC1ER24QSurfaceDataProxyPrivateP7QObject(
+    QSurfaceDataProxyPrivate *d,
+    QObject *parent) {
+  return new CuteQSurfaceDataProxy(*d, parent);
 }
 
 //  a Python function taken by a CuteQSurfaceDataProxy, for the function

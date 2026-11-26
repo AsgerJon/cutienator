@@ -5,6 +5,44 @@
     "mage_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZNK20QQuickNinePatchImage10metaObjectEv": ["address", "address"]
+    "ritual_ZNK20QQuickNinePatchImage10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickNinePatchImage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickNinePatchImage11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage17topPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage18leftPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage19rightPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage20bottomPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage15topInsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage16leftInsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage17rightInsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage18bottomInsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage12pixmapChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickNinePatchImage6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickNinePatchImage6d_funcEv": ["address", "address"]
   }
 }

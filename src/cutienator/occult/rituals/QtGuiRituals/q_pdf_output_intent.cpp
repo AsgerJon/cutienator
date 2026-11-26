@@ -20,10 +20,42 @@ QPdfOutputIntent *ritual_ZN16QPdfOutputIntentC1ERKS_(
   return new QPdfOutputIntent(*other);
 }
 
+//  QPdfOutputIntent::QPdfOutputIntent(QPdfOutputIntent &&other)
+extern "C" Q_DECL_EXPORT
+QPdfOutputIntent *ritual_ZN16QPdfOutputIntentC1EOS_(
+    QPdfOutputIntent *other) {
+  return new QPdfOutputIntent(std::move(*other));
+}
+
+//  QPdfOutputIntent &QPdfOutputIntent::operator=(const QPdfOutputIntent
+//      &other)
+extern "C" Q_DECL_EXPORT
+QPdfOutputIntent *ritual_ZN16QPdfOutputIntentaSERKS_(
+    QPdfOutputIntent *self,
+    const QPdfOutputIntent *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPdfOutputIntent &QPdfOutputIntent::operator=(QPdfOutputIntent &&other)
+extern "C" Q_DECL_EXPORT
+QPdfOutputIntent *ritual_ZN16QPdfOutputIntentaSEOS_(
+    QPdfOutputIntent *self,
+    QPdfOutputIntent *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QPdfOutputIntent::~QPdfOutputIntent()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QPdfOutputIntentD1Ev(QPdfOutputIntent *self) {
   delete self;
+}
+
+//  void QPdfOutputIntent::swap(QPdfOutputIntent &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPdfOutputIntent4swapERS_(
+    QPdfOutputIntent *self,
+    QPdfOutputIntent *other) {
+  self->swap(*other);
 }
 
 //  QString QPdfOutputIntent::outputConditionIdentifier() const

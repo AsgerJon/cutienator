@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qqmlpropertytopropertybinding_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN37QQmlPropertyToBindablePropertyBindingC1EP10QQmlEngineRK12QQmlPropertyS4_PKN9QtPrivate21BindingFunctionVTableE": [
@@ -10,6 +10,12 @@
     ],
     "ritual_ZNK37QQmlPropertyToBindablePropertyBinding6sourceEv": [
       "address", "address"
+    ],
+    "ritual_ZN37QQmlPropertyToBindablePropertyBinding6updateI39QQmlUnbindableToBindablePropertyBindingEEb9QMetaTypeP20QUntypedPropertyDataPv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN37QQmlPropertyToBindablePropertyBinding6updateI37QQmlBindableToBindablePropertyBindingEEb9QMetaTypeP20QUntypedPropertyDataPv": [
+      "bool", "address", "address", "address"
     ]
   }
 }

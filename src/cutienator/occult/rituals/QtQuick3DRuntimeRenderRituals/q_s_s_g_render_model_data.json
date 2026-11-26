@@ -5,8 +5,42 @@
     "ta_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QSSGRenderModelDataC1ERKSt10shared_ptrI24QSSGGlobalRenderNodeDataE": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGRenderModelData22getModelViewProjectionE23QSSGRenderStorageHandleIL10HandleType1EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGRenderModelData22getModelViewProjectionERK15QSSGRenderModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGRenderModelData15getNormalMatrixE23QSSGRenderStorageHandleIL10HandleType1EE14QGenericMatrixILi3ELi3EfE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGRenderModelData15getNormalMatrixERK15QSSGRenderModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGRenderModelData7getMeshERK15QSSGRenderModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGRenderModelData12getMaterialsERK15QSSGRenderModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGRenderModelData14globalNodeDataEv": [
+      "address", "address"
+    ],
     "ritual_ZN19QSSGRenderModelData22getThreadPoolThresholdEv": [
       "unsigned int"
-    ]
+    ],
+    "ritual_ZN19QSSGRenderModelData15prepareMeshDataERK12QSSGDataViewIP15QSSGRenderModelEP12QSSGRenderer": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRenderModelData16prepareMaterialsERK12QSSGDataViewIP15QSSGRenderModelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_QSSGRenderModelData__QSSGRenderModelData_ModelViewProjections": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGRenderModelData__QMatrix3x3": ["nothing", "address"]
   }
 }

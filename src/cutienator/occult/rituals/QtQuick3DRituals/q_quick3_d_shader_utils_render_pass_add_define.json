@@ -8,6 +8,12 @@
     "ritual_ZNK38QQuick3DShaderUtilsRenderPassAddDefine10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -29,6 +35,12 @@
     ],
     "ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine8setValueEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine11nameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine12valueChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQuick3DShaderUtilsRenderPassAddDefine": [
       "bool", "address", "chars", "address"

@@ -5,9 +5,13 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender14QCameraPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender14QCameraPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender14QCameraPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QCameraPrivate28updateViewMatrixAndTransformEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_take_Qt3DRender_QCameraPrivate": [
       "bool", "address", "chars", "address"

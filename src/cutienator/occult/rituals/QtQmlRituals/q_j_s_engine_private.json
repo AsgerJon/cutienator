@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qjsengine_p.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN16QJSEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QJSEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QJSEnginePrivate3getEP9QJSEngine": ["address", "address"],
+    "ritual_ZN16QJSEnginePrivate3getEPK9QJSEngine": ["address", "address"],
+    "ritual_ZN16QJSEnginePrivate3getEPS_": ["address", "address"],
+    "ritual_ZN16QJSEnginePrivate3getEPKS_": ["address", "address"],
+    "ritual_ZN16QJSEnginePrivate3getEPN3QV415ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QJSEnginePrivateC1Ev": ["address"],
+    "ritual_ZN16QJSEnginePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16QJSEnginePrivate16addToDebugServerEP9QJSEngine": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QJSEnginePrivate21removeFromDebugServerEP9QJSEngine": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QJSEnginePrivate17uiLanguageChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

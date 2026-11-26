@@ -14,6 +14,9 @@
     "ritual_ZN21QScatterSeriesPrivate15initializeThemeEiP10ChartThemeb": [
       "nothing", "address", "int", "address", "bool"
     ],
+    "ritual_ZN21QScatterSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve": [
+      "nothing", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QScatterSeriesPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QScatterSeriesPrivate6q_funcEv": ["address", "address"],
     "ritual_own_ZN21QScatterSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [

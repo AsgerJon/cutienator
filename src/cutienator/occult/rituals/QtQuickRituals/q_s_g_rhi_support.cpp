@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qsgrhisupport_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -55,6 +56,39 @@ void ritual_ZN13QSGRhiSupport15checkEnvQSgInfoEv() {
   QSGRhiSupport::checkEnvQSgInfo();
 }
 
+#if QT_CONFIG(opengl)
+//  QRhiTexture::Format QSGRhiSupport::toRhiTextureFormatFromGL(uint format,
+//      QRhiTexture::Flags *flags)
+extern "C" Q_DECL_EXPORT
+QRhiTexture::Format ritual_ZN13QSGRhiSupport24toRhiTextureFormatFromGLEjP6QFlagsIN11QRhiTexture4FlagEE(
+    uint format,
+    QRhiTexture::Flags *flags) {
+  return QSGRhiSupport::toRhiTextureFormatFromGL(format, flags);
+}
+#endif  // QT_CONFIG(opengl)
+
+#if QT_CONFIG(vulkan)
+//  QRhiTexture::Format QSGRhiSupport::toRhiTextureFormatFromVulkan(uint
+//      format, QRhiTexture::Flags *flags)
+extern "C" Q_DECL_EXPORT
+QRhiTexture::Format ritual_ZN13QSGRhiSupport28toRhiTextureFormatFromVulkanEjP6QFlagsIN11QRhiTexture4FlagEE(
+    uint format,
+    QRhiTexture::Flags *flags) {
+  return QSGRhiSupport::toRhiTextureFormatFromVulkan(format, flags);
+}
+#endif  // QT_CONFIG(vulkan)
+
+#if QT_CONFIG(metal)
+//  QRhiTexture::Format QSGRhiSupport::toRhiTextureFormatFromMetal(uint
+//      format, QRhiTexture::Flags *flags)
+extern "C" Q_DECL_EXPORT
+QRhiTexture::Format ritual_ZN13QSGRhiSupport27toRhiTextureFormatFromMetalEjP6QFlagsIN11QRhiTexture4FlagEE(
+    uint format,
+    QRhiTexture::Flags *flags) {
+  return QSGRhiSupport::toRhiTextureFormatFromMetal(format, flags);
+}
+#endif  // QT_CONFIG(metal)
+
 //  void QSGRhiSupport::configure(QSGRendererInterface::GraphicsApi api)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSGRhiSupport9configureEN20QSGRendererInterface11GraphicsApiE(
@@ -89,6 +123,17 @@ extern "C" Q_DECL_EXPORT
 QSurface::SurfaceType ritual_ZNK13QSGRhiSupport17windowSurfaceTypeEv(
     const QSGRhiSupport *self) {
   return self->windowSurfaceType();
+}
+
+//  const void *QSGRhiSupport::rifResource(QSGRendererInterface::Resource
+//      res, const QSGDefaultRenderContext *rc, const QQuickWindow *w)
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZN13QSGRhiSupport11rifResourceEN20QSGRendererInterface8ResourceEPK23QSGDefaultRenderContextPK12QQuickWindow(
+    QSGRhiSupport *self,
+    QSGRendererInterface::Resource res,
+    const QSGDefaultRenderContext *rc,
+    const QQuickWindow *w) {
+  return self->rifResource(res, rc, w);
 }
 
 //  QOffscreenSurface *QSGRhiSupport::maybeCreateOffscreenSurface(QWindow
@@ -149,6 +194,16 @@ void ritual_ZN13QSGRhiSupport20applySwapChainFormatEP13QRhiSwapChainP12QQuickWin
     QRhiSwapChain *scWithWindowSet,
     QQuickWindow *window) {
   self->applySwapChainFormat(scWithWindowSet, window);
+}
+
+//  QRhiTexture::Format QSGRhiSupport::toRhiTextureFormat(uint nativeFormat,
+//      QRhiTexture::Flags *flags) const
+extern "C" Q_DECL_EXPORT
+QRhiTexture::Format ritual_ZNK13QSGRhiSupport18toRhiTextureFormatEjP6QFlagsIN11QRhiTexture4FlagEE(
+    const QSGRhiSupport *self,
+    uint nativeFormat,
+    QRhiTexture::Flags *flags) {
+  return self->toRhiTextureFormat(nativeFormat, flags);
 }
 
 //  bool QSGRhiSupport::attemptReinitWithSwRastUponFail() const

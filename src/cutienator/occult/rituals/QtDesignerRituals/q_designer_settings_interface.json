@@ -5,6 +5,7 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN26QDesignerSettingsInterfaceC1Ev": ["address"],
     "ritual_ZN26QDesignerSettingsInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZN26QDesignerSettingsInterface10beginGroupERK7QString": [
       "nothing", "address", "text"

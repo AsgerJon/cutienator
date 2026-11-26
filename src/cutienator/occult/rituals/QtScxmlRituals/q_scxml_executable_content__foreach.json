@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN23QScxmlExecutableContent7Foreach4kindEv": ["int"],
     "ritual_ZNK23QScxmlExecutableContent7Foreach4sizeEv": ["int", "address"],
+    "ritual_ZNK23QScxmlExecutableContent7Foreach10blockstartEv": [
+      "address", "address"
+    ],
     "ritual_ZN23QScxmlExecutableContent7ForeachD1Ev": ["nothing", "address"]
   }
 }

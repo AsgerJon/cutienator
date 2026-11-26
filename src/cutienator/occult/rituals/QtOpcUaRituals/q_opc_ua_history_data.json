@@ -9,6 +9,9 @@
     "ritual_ZN17QOpcUaHistoryDataC1ERK7QString": ["address", "text"],
     "ritual_ZN17QOpcUaHistoryDataC1ERKS_": ["address", "address"],
     "ritual_ZN17QOpcUaHistoryDataD1Ev": ["nothing", "address"],
+    "ritual_ZN17QOpcUaHistoryData4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QOpcUaHistoryData10statusCodeEv": [
       "unsigned int", "address"
     ],
@@ -24,6 +27,7 @@
     "ritual_ZN17QOpcUaHistoryData9setNodeIdERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN17QOpcUaHistoryDataaSERKS_": ["address", "address", "address"],
     "ritual_list_make_QOpcUaHistoryData": ["address"],
     "ritual_list_add_QOpcUaHistoryData": ["nothing", "address", "address"],
     "ritual_list_size_QOpcUaHistoryData": ["long long", "address"],

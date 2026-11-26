@@ -178,6 +178,22 @@ const QMetaObject *ritual_ZNK8QCompass10metaObjectEv(const QCompass *self) {
   return self->metaObject();
 }
 
+//  void *QCompass::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QCompass11qt_metacastEPKc(QCompass *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCompass::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QCompass11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCompass *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCompass::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QCompass2trEPKcS1_i(const char *s, const char *c, int n) {

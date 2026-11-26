@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtQuick3DHelpe
 //  rs/6.12.0/QtQuick3DHelpers/private/extrudedtextgeometry_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/qtquick3dhelpersglobal_p.h>
 #include <QtQuick3DHelpers/QtQuick3DHelpers>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,6 +12,8 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QString>
+#include <QtGui/QFont>
 
 //  A ExtrudedTextGeometry that Python can take functions over in. Every ExtrudedTextGeometry
 //  Python makes is one. Each function below asks the Python
@@ -287,6 +290,25 @@ const QMetaObject *ritual_ZNK20ExtrudedTextGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ExtrudedTextGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20ExtrudedTextGeometry11qt_metacastEPKc(
+    ExtrudedTextGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ExtrudedTextGeometry::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20ExtrudedTextGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    ExtrudedTextGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ExtrudedTextGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20ExtrudedTextGeometry2trEPKcS1_i(
@@ -405,12 +427,100 @@ void ritual_ZN20ExtrudedTextGeometry15requestFinishedEv(
   self->requestFinished();
 }
 
+//  void ExtrudedTextGeometry::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ExtrudedTextGeometry11textChangedEv(
+    ExtrudedTextGeometry *self) {
+  self->textChanged();
+}
+
+//  void ExtrudedTextGeometry::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ExtrudedTextGeometry11fontChangedEv(
+    ExtrudedTextGeometry *self) {
+  self->fontChanged();
+}
+
+//  void ExtrudedTextGeometry::depthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ExtrudedTextGeometry12depthChangedEv(
+    ExtrudedTextGeometry *self) {
+  self->depthChanged();
+}
+
+//  void ExtrudedTextGeometry::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ExtrudedTextGeometry12scaleChangedEv(
+    ExtrudedTextGeometry *self) {
+  self->scaleChanged();
+}
+
+//  void ExtrudedTextGeometry::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ExtrudedTextGeometry19asynchronousChangedEv(
+    ExtrudedTextGeometry *self) {
+  self->asynchronousChanged();
+}
+
+//  void ExtrudedTextGeometry::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ExtrudedTextGeometry13statusChangedEv(
+    ExtrudedTextGeometry *self) {
+  self->statusChanged();
+}
+
 //  void ExtrudedTextGeometry::scheduleGeometryUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20ExtrudedTextGeometry22scheduleGeometryUpdateEv(
     ExtrudedTextGeometry *self) {
   self->scheduleGeometryUpdate();
 }
+
+//  void ExtrudedTextGeometry::updateGeometry(const GeometryData
+//      &geometryData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ExtrudedTextGeometry14updateGeometryERKNS_12GeometryDataE(
+    ExtrudedTextGeometry *self,
+    const ExtrudedTextGeometry::GeometryData *geometryData) {
+  self->updateGeometry(*geometryData);
+}
+
+//  ExtrudedTextGeometry::GeometryData
+//      ExtrudedTextGeometry::generateExtrudedTextGeometry(const QString
+//      &text, const QFont &font, float depth, float scale)
+extern "C" Q_DECL_EXPORT
+ExtrudedTextGeometry::GeometryData *ritual_ZN20ExtrudedTextGeometry28generateExtrudedTextGeometryERK7QStringRK5QFontff(
+    const QString *text,
+    const QFont *font,
+    float depth,
+    float scale) {
+  return new ExtrudedTextGeometry::GeometryData(
+      ExtrudedTextGeometry::generateExtrudedTextGeometry(
+          *text,
+          *font,
+          depth,
+          scale));
+}
+
+#if QT_CONFIG(concurrent)
+//  void ExtrudedTextGeometry::generateExtrudedTextGeometryAsync(QPromise<Ext
+//      rudedTextGeometry::GeometryData> &promise, const QString &text, const
+//      QFont &font, float depth, float scale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ExtrudedTextGeometry33generateExtrudedTextGeometryAsyncER8QPromiseINS_12GeometryDataEERK7QStringRK5QFontff(
+    QPromise<ExtrudedTextGeometry::GeometryData> *promise,
+    const QString *text,
+    const QFont *font,
+    float depth,
+    float scale) {
+  ExtrudedTextGeometry::generateExtrudedTextGeometryAsync(
+      *promise,
+      *text,
+      *font,
+      depth,
+      scale);
+}
+#endif  // QT_CONFIG(concurrent)
 
 //  a Python function taken by a CuteExtrudedTextGeometry, for the function
 //      named by the key
@@ -420,4 +530,12 @@ bool ritual_take_ExtrudedTextGeometry(
     const char *key,
     void *call) {
   return static_cast<CuteExtrudedTextGeometry *>(self)->take(key, call);
+}
+
+//  a ExtrudedTextGeometry::GeometryData a ritual of ExtrudedTextGeometry
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_ExtrudedTextGeometry__ExtrudedTextGeometry_GeometryData(
+    ExtrudedTextGeometry::GeometryData *self) {
+  delete self;
 }

@@ -5,6 +5,32 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN10Qt3DRender12QShaderGraphD1Ev": ["nothing", "address"]
+    "ritual_ZN10Qt3DRender12QShaderGraph7addNodeERKNS_11QShaderNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderGraph10removeNodeERKNS_11QShaderNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender12QShaderGraph5nodesEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender12QShaderGraph7addEdgeERKNS0_4EdgeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderGraph10removeEdgeERKNS0_4EdgeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender12QShaderGraph5edgesEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender12QShaderGraph16createStatementsERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderGraphD1Ev": ["nothing", "address"],
+    "ritual_drop_Qt3DRender_QShaderGraph__QList_Qt3DRender_QShaderNode": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_QShaderGraph__QList_Qt3DRender_QShaderGraph_Edge": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_QShaderGraph__QList_Qt3DRender_QShaderGraph_Statement": [
+      "nothing", "address"
+    ]
   }
 }

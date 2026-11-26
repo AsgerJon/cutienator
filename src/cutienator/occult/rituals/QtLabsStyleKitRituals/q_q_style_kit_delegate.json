@@ -6,8 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK18QQStyleKitDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQStyleKitDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQStyleKitDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK18QQStyleKitDelegate13delegateStyleEv": [
       "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitDelegate20delegateStyleChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN18QQStyleKitDelegate18updateImplicitSizeEv": [
       "nothing", "address"

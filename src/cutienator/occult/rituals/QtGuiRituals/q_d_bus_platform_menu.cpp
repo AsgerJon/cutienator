@@ -13,6 +13,9 @@
 #include <QtGui/qicon.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qrect.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/private/qdbusmenutypes_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -21,6 +24,21 @@
 #include <QtCore/QDateTime>
 #include <QtCore/QDebug>
 #include <QtGui/QWindow>
+#include <QtGui/private/qdbusmenutypes_p.h>
+#include <QDBusConnection>
+#include <QDBusMetaType>
+#include <QtGui/QImage>
+#include <QtGui/QIcon>
+#include <QtGui/QImage>
+#include <QtGui/QPixmap>
+#include <QtCore/QDebug>
+#include <QtCore/QtEndian>
+#include <QtCore/QBuffer>
+#if QT_CONFIG(shortcut)
+#  include <QtGui/private/qkeysequence_p.h>
+#endif
+#include <QtGui/qpa/qplatformmenu.h>
+#include <QtGui/private/qdbusplatformmenu_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -30,11 +48,18 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 138, as _ZN17QDBusPlatformMenuD1Ev
-inline QDBusPlatformMenu::~QDBusPlatformMenu()
+using namespace Qt::StringLiterals;
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 224, as _ZN17QDBusPlatformMenu10setEnabledEb
+inline void QDBusPlatformMenu::setEnabled(bool enabled)
 {
-    if (m_containingMenuItem)
-        m_containingMenuItem->setMenu(nullptr);
+    m_isEnabled = enabled;
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 229, as _ZN17QDBusPlatformMenu10setVisibleEb
+inline void QDBusPlatformMenu::setVisible(bool isVisible)
+{
+    m_isVisible = isVisible;
 }
 
 //  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 144, as _ZN17QDBusPlatformMenu14insertMenuItemEP17QPlatformMenuItemS1_
@@ -102,24 +127,6 @@ inline void QDBusPlatformMenu::setIcon(const QIcon &icon)
     m_icon = icon;
 }
 
-//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 224, as _ZN17QDBusPlatformMenu10setEnabledEb
-inline void QDBusPlatformMenu::setEnabled(bool enabled)
-{
-    m_isEnabled = enabled;
-}
-
-//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 229, as _ZN17QDBusPlatformMenu10setVisibleEb
-inline void QDBusPlatformMenu::setVisible(bool isVisible)
-{
-    m_isVisible = isVisible;
-}
-
-//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 234, as _ZN17QDBusPlatformMenu21setContainingMenuItemEP21QDBusPlatformMenuItem
-inline void QDBusPlatformMenu::setContainingMenuItem(QDBusPlatformMenuItem *item)
-{
-    m_containingMenuItem = item;
-}
-
 //  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 239, as _ZN17QDBusPlatformMenu9showPopupEPK7QWindowRK5QRectPK17QPlatformMenuItem
 inline void QDBusPlatformMenu::showPopup(const QWindow *parentWindow, const QRect &targetRect, const QPlatformMenuItem *item)
 {
@@ -142,12 +149,6 @@ inline QPlatformMenuItem *QDBusPlatformMenu::menuItemForTag(quintptr tag) const
     return m_itemsByTag[tag];
 }
 
-//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 258, as _ZNK17QDBusPlatformMenu5itemsEv
-inline const QList<QDBusPlatformMenuItem *> QDBusPlatformMenu::items() const
-{
-    return m_items;
-}
-
 //  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 263, as _ZNK17QDBusPlatformMenu14createMenuItemEv
 inline QPlatformMenuItem *QDBusPlatformMenu::createMenuItem() const
 {
@@ -159,6 +160,98 @@ inline QPlatformMenuItem *QDBusPlatformMenu::createMenuItem() const
 inline QPlatformMenu *QDBusPlatformMenu::createSubMenu() const
 {
     return new QDBusPlatformMenu;
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 13, as _Z7qLcMenuv
+inline const QLoggingCategory &qLcMenu()
+{
+    static const QLoggingCategory category("qt.qpa.menu");
+    return category;
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 206, as _ZN17QDBusPlatformMenu11emitUpdatedEv
+inline void QDBusPlatformMenu::emitUpdated()
+{
+    if (m_containingMenuItem)
+        emit updated(++m_revision, m_containingMenuItem->dbusID());
+    else
+        emit updated(++m_revision, 0);
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 178, as _ZN17QDBusPlatformMenu11syncSubMenuEPKS_
+inline void QDBusPlatformMenu::syncSubMenu(const QDBusPlatformMenu *menu)
+{
+    // The adaptor is only connected to the propertiesUpdated signal of the top-level
+    // menu, so the submenus should transfer their signals to their parents.
+    connect(menu, &QDBusPlatformMenu::propertiesUpdated,
+            this, &QDBusPlatformMenu::propertiesUpdated, Qt::UniqueConnection);
+    connect(menu, &QDBusPlatformMenu::updated,
+            this, &QDBusPlatformMenu::updated, Qt::UniqueConnection);
+    connect(menu, &QDBusPlatformMenu::popupRequested,
+            this, &QDBusPlatformMenu::popupRequested, Qt::UniqueConnection);
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenutypes.cpp, line 158, as _ZN13QDBusMenuItemC1EPK21QDBusPlatformMenuItem
+inline QDBusMenuItem::QDBusMenuItem(const QDBusPlatformMenuItem *item)
+    : m_id(item->dbusID())
+{
+    if (item->isSeparator()) {
+        m_properties.insert("type"_L1, "separator"_L1);
+    } else {
+        m_properties.insert("label"_L1, convertMnemonic(item->text()));
+        if (item->menu())
+            m_properties.insert("children-display"_L1, "submenu"_L1);
+        m_properties.insert("enabled"_L1, item->isEnabled());
+        if (item->isCheckable()) {
+            QString toggleType = item->hasExclusiveGroup() ? "radio"_L1 : "checkmark"_L1;
+            m_properties.insert("toggle-type"_L1, toggleType);
+            m_properties.insert("toggle-state"_L1, item->isChecked() ? 1 : 0);
+        }
+#ifndef QT_NO_SHORTCUT
+        const QKeySequence &scut = item->shortcut();
+        if (!scut.isEmpty()) {
+            QDBusMenuShortcut shortcut = convertKeySequence(scut);
+            m_properties.insert("shortcut"_L1, QVariant::fromValue(shortcut));
+        }
+#endif
+        const QIcon &icon = item->icon();
+        if (!icon.name().isEmpty()) {
+            m_properties.insert("icon-name"_L1, icon.name());
+        } else if (!icon.isNull()) {
+            QBuffer buf;
+            icon.pixmap(16).save(&buf, "PNG");
+            m_properties.insert("icon-data"_L1, buf.data());
+        }
+    }
+    m_properties.insert("visible"_L1, item->isVisible());
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 130, as _ZN17QDBusPlatformMenuC1Ev
+inline QDBusPlatformMenu::QDBusPlatformMenu()
+    : m_isEnabled(true)
+    , m_isVisible(true)
+    , m_revision(1)
+    , m_containingMenuItem(nullptr)
+{
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 138, as _ZN17QDBusPlatformMenuD1Ev
+inline QDBusPlatformMenu::~QDBusPlatformMenu()
+{
+    if (m_containingMenuItem)
+        m_containingMenuItem->setMenu(nullptr);
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 234, as _ZN17QDBusPlatformMenu21setContainingMenuItemEP21QDBusPlatformMenuItem
+inline void QDBusPlatformMenu::setContainingMenuItem(QDBusPlatformMenuItem *item)
+{
+    m_containingMenuItem = item;
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 258, as _ZNK17QDBusPlatformMenu5itemsEv
+inline const QList<QDBusPlatformMenuItem *> QDBusPlatformMenu::items() const
+{
+    return m_items;
 }
 //  -----------------------------------------------------------------------
 
@@ -664,6 +757,25 @@ const QMetaObject *ritual_ZNK17QDBusPlatformMenu10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDBusPlatformMenu::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QDBusPlatformMenu11qt_metacastEPKc(
+    QDBusPlatformMenu *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusPlatformMenu::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QDBusPlatformMenu11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusPlatformMenu *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QDBusPlatformMenu::~QDBusPlatformMenu()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QDBusPlatformMenuD1Ev(QDBusPlatformMenu *self) {
@@ -855,6 +967,94 @@ extern "C" Q_DECL_EXPORT
 uint ritual_ZNK17QDBusPlatformMenu8revisionEv(
     const QDBusPlatformMenu *self) {
   return self->revision();
+}
+
+//  void QDBusPlatformMenu::updated(uint revision, int dbusId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDBusPlatformMenu7updatedEji(
+    QDBusPlatformMenu *self,
+    uint revision,
+    int dbusId) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusPlatformMenu")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updated(uint,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updated(uint,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&revision)),
+      const_cast<void *>(static_cast<const void *>(&dbusId)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusPlatformMenu::propertiesUpdated(QDBusMenuItemList updatedProps,
+//      QDBusMenuItemKeysList removedProps)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDBusPlatformMenu17propertiesUpdatedE5QListI13QDBusMenuItemES0_I17QDBusMenuItemKeysE(
+    QDBusPlatformMenu *self,
+    const QList<QDBusMenuItem> *updatedProps,
+    const QList<QDBusMenuItemKeys> *removedProps) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusPlatformMenu")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "propertiesUpdated(QDBusMenuItemList,QDBusMenuItemKeysList)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "propertiesUpdated(QDBusMenuItemList,QDBusMenuItemKeysList)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(updatedProps)),
+      const_cast<void *>(static_cast<const void *>(removedProps)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusPlatformMenu::popupRequested(int id, uint timestamp)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDBusPlatformMenu14popupRequestedEij(
+    QDBusPlatformMenu *self,
+    int id,
+    uint timestamp) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusPlatformMenu")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "popupRequested(int,uint)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "popupRequested(int,uint)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&id)),
+      const_cast<void *>(static_cast<const void *>(&timestamp)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQDBusPlatformMenu, for the function

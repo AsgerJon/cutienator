@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QRemoteObjectPackets16DataStreamPacketC1Et": [
+      "address", "unsigned short"
+    ],
     "ritual_ZN20QRemoteObjectPackets16DataStreamPacket5setIdEt": [
       "nothing", "address", "unsigned short"
     ],

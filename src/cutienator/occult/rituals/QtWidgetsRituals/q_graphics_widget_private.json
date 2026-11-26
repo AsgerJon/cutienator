@@ -56,10 +56,16 @@
     "ritual_ZN22QGraphicsWidgetPrivate23initStyleOptionTitleBarEP20QStyleOptionTitleBar": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QGraphicsWidgetPrivate17adjustWindowFlagsEP6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QGraphicsWidgetPrivate28windowFrameMouseReleaseEventEP24QGraphicsSceneMouseEvent": [
       "nothing", "address", "address"
     ],
     "ritual_ZN22QGraphicsWidgetPrivate26windowFrameMousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate25windowFrameMouseMoveEventEP24QGraphicsSceneMouseEvent": [
       "nothing", "address", "address"
     ],
     "ritual_ZN22QGraphicsWidgetPrivate25windowFrameHoverMoveEventEP24QGraphicsSceneHoverEvent": [

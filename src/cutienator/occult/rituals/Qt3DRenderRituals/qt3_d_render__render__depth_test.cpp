@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_DepthTestCall0)(const void *, const Qt3DRen
 class CuteQt3DRender_Render_DepthTest : public Qt3DRender::Render::DepthTest {
 public:
   using Qt3DRender::Render::DepthTest::DepthTest;
-  CuteQt3DRender_Render_DepthTest(const Qt3DRender::Render::DepthTest &other) : Qt3DRender::Render::DepthTest(other) {}
+  CuteQt3DRender_Render_DepthTest(const Qt3DRender::Render::DepthTest & other) : Qt3DRender::Render::DepthTest(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::DepthTest::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::DepthTest::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9DepthTest16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::DepthTest *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::DepthTest::~DepthTest()
 extern "C" Q_DECL_EXPORT

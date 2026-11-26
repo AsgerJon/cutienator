@@ -6,13 +6,281 @@
   ],
   "rows": {
     "ritual_ZNK18QQStyleKitControls10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQStyleKitControls11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQStyleKitControls11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQStyleKitControls24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls21set_applicationWindowEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls18set_abstractButtonEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls11set_controlEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17set_busyIndicatorEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls10set_buttonEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls12set_checkBoxEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17set_checkDelegateEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls12set_comboBoxEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls15set_delayButtonEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls8set_dialEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls10set_dialogEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls19set_dialogButtonBoxEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls14set_flatButtonEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls15set_progressBarEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls13set_scrollBarEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls19set_scrollIndicatorEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls14set_scrollViewEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls15set_searchFieldEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls10set_sliderEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls11set_spinBoxEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls10set_tabBarEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls13set_tabButtonEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls13set_textFieldEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls13set_textInputEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls11set_toolBarEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls14set_toolButtonEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17set_toolSeparatorEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17set_swipeDelegateEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17set_switchControlEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls18set_switchDelegateEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls15set_radioButtonEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17set_radioDelegateEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls15set_roundButtonEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls16set_itemDelegateEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls9set_popupEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls8set_paneEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls8set_pageEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17set_pageIndicatorEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls9set_frameEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls9set_labelEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls12set_groupBoxEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls12set_textAreaEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls8set_menuEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls11set_menuBarEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls15set_menuBarItemEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls12set_menuItemEP17QQStyleKitControl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17set_menuSeparatorEP17QQStyleKitControl": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK18QQStyleKitControls15getControlStyleEj": [
       "address", "address", "unsigned int"
     ],
+    "ritual_ZN18QQStyleKitControls4dataEv": ["address", "address"],
     "ritual_ZNK18QQStyleKitControls8childrenEv": ["address", "address"],
+    "ritual_ZN18QQStyleKitControls11dataChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls24applicationWindowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls21abstractButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls14controlChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls20busyIndicatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls13buttonChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls15checkBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls20checkDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls15comboBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls18delayButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls11dialChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls13dialogChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls22dialogButtonBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17flatButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls18progressBarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls16scrollBarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls22scrollIndicatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17scrollViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls18searchFieldChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls13sliderChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls14spinBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls13tabBarChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls16tabButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls16textFieldChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls16textInputChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls14toolBarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls17toolButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls20toolSeparatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls20swipeDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls20switchControlChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls21switchDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls18radioButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls20radioDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls18roundButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls19itemDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls12popupChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls11paneChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls11pageChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls20pageIndicatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls12frameChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls12labelChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls15groupBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls15textAreaChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls11menuChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls14menuBarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls18menuBarItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls15menuItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQStyleKitControls20menuSeparatorChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN18QQStyleKitControls10classBeginEv": ["nothing", "address"],
     "ritual_ZN18QQStyleKitControls17componentCompleteEv": [
       "nothing", "address"
@@ -20,6 +288,11 @@
     "ritual_cast_QQStyleKitControls_QQmlParserStatus": [
       "address", "address"
     ],
-    "ritual_own_ZN18QQStyleKitControls10classBeginEv": ["nothing", "address"]
+    "ritual_own_ZN18QQStyleKitControls10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQStyleKitControls__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

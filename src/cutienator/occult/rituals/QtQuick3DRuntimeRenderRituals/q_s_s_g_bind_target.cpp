@@ -25,6 +25,14 @@ QSSGBindTarget *ritual_ZN14QSSGBindTargetC1ERKS_(
   return new QSSGBindTarget(*command);
 }
 
+//  void QSSGBindTarget::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QSSGBindTarget8addDebugER6QDebug(
+    const QSSGBindTarget *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGBindTarget::~QSSGBindTarget()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSSGBindTargetD1Ev(QSSGBindTarget *self) {

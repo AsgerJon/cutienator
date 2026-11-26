@@ -8,11 +8,69 @@
     "ritual_ZNK10Qt3DRender14QLevelOfDetail10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender14QLevelOfDetail2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN10Qt3DRender14QLevelOfDetailC1EPN8Qt3DCore5QNodeE": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetailD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender14QLevelOfDetail6cameraEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QLevelOfDetail12currentIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QLevelOfDetail13thresholdTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QLevelOfDetail10thresholdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QLevelOfDetail14volumeOverrideEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail20createBoundingSphereERK9QVector3Df": [
+      "address", "address", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail9setCameraEPNS_7QCameraE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail16setThresholdTypeENS0_13ThresholdTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail13setThresholdsERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail17setVolumeOverrideERKNS_28QLevelOfDetailBoundingSphereE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail13cameraChangedEPNS_7QCameraE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail19currentIndexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail20thresholdTypeChangedENS0_13ThresholdTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail17thresholdsChangedERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetail21volumeOverrideChangedERKNS_28QLevelOfDetailBoundingSphereE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QLevelOfDetailC1ERNS_21QLevelOfDetailPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender14QLevelOfDetail6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender14QLevelOfDetail6d_funcEv": [
@@ -20,6 +78,9 @@
     ],
     "ritual_take_Qt3DRender_QLevelOfDetail": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QLevelOfDetail__QList_qreal": [
+      "nothing", "address"
     ]
   }
 }

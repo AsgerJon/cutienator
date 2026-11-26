@@ -34,7 +34,7 @@ typedef const QSize * (*CuteQLottieGroupCall11)(const void *, int *);
 class CuteQLottieGroup : public QLottieGroup {
 public:
   using QLottieGroup::QLottieGroup;
-  CuteQLottieGroup(const QLottieGroup &other) : QLottieGroup(other) {}
+  CuteQLottieGroup(const QLottieGroup & other) : QLottieGroup(other) {}
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {
@@ -243,6 +243,14 @@ void ritual_ZN12QLottieGroup16updatePropertiesEi(
     QLottieGroup *self,
     int frame) {
   self->updateProperties(frame);
+}
+
+//  void QLottieGroup::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QLottieGroup6renderER15QLottieRenderer(
+    const QLottieGroup *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
 }
 
 //  int QLottieGroup::parse(const QJsonObject &definition)

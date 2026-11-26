@@ -17,6 +17,24 @@
     "ritual_ZN35QOAuthHttpServerReplyHandlerPrivateD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZNK35QOAuthHttpServerReplyHandlerPrivate8callbackEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK35QOAuthHttpServerReplyHandlerPrivate12callbackHostEv": [
+      "text", "address"
+    ],
+    "ritual_ZN35QOAuthHttpServerReplyHandlerPrivate18_q_clientConnectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QOAuthHttpServerReplyHandlerPrivate11_q_readDataEP10QTcpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QOAuthHttpServerReplyHandlerPrivate15_q_answerClientEP10QTcpSocketRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN35QOAuthHttpServerReplyHandlerPrivate21initializeLocalServerEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN35QOAuthHttpServerReplyHandlerPrivate6listenERK12QHostAddresst": [
       "bool", "address", "address", "unsigned short"
     ]

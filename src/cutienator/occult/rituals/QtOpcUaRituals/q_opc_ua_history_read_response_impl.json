@@ -8,6 +8,12 @@
     "ritual_ZNK29QOpcUaHistoryReadResponseImpl10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QOpcUaHistoryReadResponseImpl2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -52,6 +58,23 @@
     ],
     "ritual_ZNK29QOpcUaHistoryReadResponseImpl6handleEv": [
       "unsigned long long", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl23historyReadRawRequestedE27QOpcUaHistoryReadRawRequest5QListI10QByteArrayEby": [
+      "nothing", "address", "address", "address", "bool",
+      "unsigned long long"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl26historyReadEventsRequestedE29QOpcUaHistoryReadEventRequest5QListI10QByteArrayEby": [
+      "nothing", "address", "address", "address", "bool",
+      "unsigned long long"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl23readHistoryDataFinishedE5QListI17QOpcUaHistoryDataEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl25readHistoryEventsFinishedE5QListI18QOpcUaHistoryEventEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl12stateChangedEN25QOpcUaHistoryReadResponse5StateE": [
+      "nothing", "address", "unsigned int"
     ],
     "ritual_ZN29QOpcUaHistoryReadResponseImpl8setStateEN25QOpcUaHistoryReadResponse5StateE": [
       "nothing", "address", "unsigned int"

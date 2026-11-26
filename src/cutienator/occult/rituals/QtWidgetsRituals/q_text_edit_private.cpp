@@ -83,6 +83,16 @@
 #include <QtGui/qtextobject.h>
 #include <QtGui/qtexttable.h>
 #include <QtCore/qvariant.h>
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -91,6 +101,66 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qtextedit.cpp, line 54, as local:qtextedit.cpp:QTextEditControl
+class QTextEditControl : public QWidgetTextControl
+{
+public:
+    inline QTextEditControl(QObject *parent) : QWidgetTextControl(parent) {}
+
+    virtual QMimeData *createMimeDataFromSelection() const override {
+        QTextEdit *ed = qobject_cast<QTextEdit *>(parent());
+        if (!ed)
+            return QWidgetTextControl::createMimeDataFromSelection();
+        return ed->createMimeDataFromSelection();
+    }
+    virtual bool canInsertFromMimeData(const QMimeData *source) const override {
+        QTextEdit *ed = qobject_cast<QTextEdit *>(parent());
+        if (!ed)
+            return QWidgetTextControl::canInsertFromMimeData(source);
+        return ed->canInsertFromMimeData(source);
+    }
+    virtual void insertFromMimeData(const QMimeData *source) override {
+        QTextEdit *ed = qobject_cast<QTextEdit *>(parent());
+        if (!ed)
+            QWidgetTextControl::insertFromMimeData(source);
+        else
+            ed->insertFromMimeData(source);
+    }
+    QVariant loadResource(int type, const QUrl &name) override {
+        auto *ed = qobject_cast<QTextEdit *>(parent());
+        if (!ed)
+            return QWidgetTextControl::loadResource(type, name);
+
+        QUrl resolvedName = ed->d_func()->resolveUrl(name);
+        return ed->loadResource(type, resolvedName);
+    }
+};
+
+//  from src/widgets/widgets/qtextedit.cpp, line 262, as local:qtextedit.cpp:documentSize
+#if QT_CONFIG(scrollbar)
+static QSize documentSize(QWidgetTextControl *control)
+{
+    QTextDocument *doc = control->document();
+    QAbstractTextDocumentLayout *layout = doc->documentLayout();
+
+    QSize docSize;
+
+    if (QTextDocumentLayout *tlayout = qobject_cast<QTextDocumentLayout *>(layout)) {
+        docSize = tlayout->dynamicDocumentSize().toSize();
+        int percentageDone = tlayout->layoutStatus();
+        // extrapolate height
+        if (percentageDone > 0)
+            docSize.setHeight(docSize.height() * 100 / percentageDone);
+    } else {
+        docSize = layout->documentSize().toSize();
+    }
+
+    return docSize;
+}
+#endif  // QT_CONFIG(scrollbar)
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 133, as _ZN26QAbstractScrollAreaPrivateC2Ev
 #if QT_CONFIG(scrollarea)
@@ -141,6 +211,239 @@ inline bool QAbstractScrollAreaPrivate::canStartScrollingAt(const QPoint &startP
     return true;
 }
 #endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qtextedit.cpp, line 282, as _ZN16QTextEditPrivate16adjustScrollbarsEv
+#if QT_CONFIG(scrollbar)
+inline void QTextEditPrivate::adjustScrollbars()
+{
+    if (ignoreAutomaticScrollbarAdjustment)
+        return;
+    ignoreAutomaticScrollbarAdjustment = true; // avoid recursion, #106108
+
+    QSize viewportSize = viewport->size();
+    QSize docSize = documentSize(control);
+
+    // due to the recursion guard we have to repeat this step a few times,
+    // as adding/removing a scroll bar will cause the document or viewport
+    // size to change
+    // ideally we should loop until the viewport size and doc size stabilize,
+    // but in corner cases they might fluctuate, so we need to limit the
+    // number of iterations
+    for (int i = 0; i < 4; ++i) {
+        hbar->setRange(0, docSize.width() - viewportSize.width());
+        hbar->setPageStep(viewportSize.width());
+
+        vbar->setRange(0, docSize.height() - viewportSize.height());
+        vbar->setPageStep(viewportSize.height());
+
+        // if we are in left-to-right mode widening the document due to
+        // lazy layouting does not require a repaint. If in right-to-left
+        // the scroll bar has the value zero and it visually has the maximum
+        // value (it is visually at the right), then widening the document
+        // keeps it at value zero but visually adjusts it to the new maximum
+        // on the right, hence we need an update.
+        if (q_func()->isRightToLeft())
+            viewport->update();
+
+        _q_showOrHideScrollBars();
+
+        const QSize oldViewportSize = viewportSize;
+        const QSize oldDocSize = docSize;
+
+        // make sure the document is layouted if the viewport width changes
+        viewportSize = viewport->size();
+        if (viewportSize.width() != oldViewportSize.width())
+            relayoutDocument();
+
+        docSize = documentSize(control);
+        if (viewportSize == oldViewportSize && docSize == oldDocSize)
+            break;
+    }
+    ignoreAutomaticScrollbarAdjustment = false;
+}
+#endif  // QT_CONFIG(scrollbar)
+
+//  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
+inline QFramePrivate::QFramePrivate()
+    : frect(0, 0, 0, 0),
+      frameStyle(QFrame::NoFrame | QFrame::Plain),
+      lineWidth(1),
+      midLineWidth(0),
+      frameWidth(0),
+      leftFrameWidth(0), rightFrameWidth(0),
+      topFrameWidth(0), bottomFrameWidth(0)
+{
+}
+
+//  from src/widgets/widgets/qframe.cpp, line 30, as _ZN13QFramePrivateD2Ev
+inline QFramePrivate::~QFramePrivate()
+{
+}
+
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1363, as _ZN26QAbstractScrollAreaPrivate23_q_showOrHideScrollBarsEv
+#if QT_CONFIG(scrollarea)
+inline void QAbstractScrollAreaPrivate::_q_showOrHideScrollBars()
+{
+    layoutChildren();
+}
+#endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 288, as _ZN26QAbstractScrollAreaPrivate14layoutChildrenEv
+#if QT_CONFIG(scrollarea)
+inline void QAbstractScrollAreaPrivate::layoutChildren()
+{
+    bool needH = false;
+    bool needV = false;
+    layoutChildren_helper(&needH, &needV);
+    // Call a second time if one scrollbar was needed and not the other to
+    // check if it needs to readjust accordingly
+    if (needH != needV)
+        layoutChildren_helper(&needH, &needV);
+}
+#endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 299, as _ZN26QAbstractScrollAreaPrivate21layoutChildren_helperEPbS0_
+#if QT_CONFIG(scrollarea)
+inline void QAbstractScrollAreaPrivate::layoutChildren_helper(bool *needHorizontalScrollbar, bool *needVerticalScrollbar)
+{
+    Q_Q(QAbstractScrollArea);
+    QStyleOptionSlider barOpt;
+
+    hbar->initStyleOption(&barOpt);
+    bool htransient = hbar->style()->styleHint(QStyle::SH_ScrollBar_Transient, &barOpt, hbar);
+    bool needh = *needHorizontalScrollbar || ((hbarpolicy != Qt::ScrollBarAlwaysOff) && ((hbarpolicy == Qt::ScrollBarAlwaysOn && !htransient)
+                            || ((hbarpolicy == Qt::ScrollBarAsNeeded || htransient)
+                            && hbar->minimum() < hbar->maximum() && !hbar->sizeHint().isEmpty())));
+    const int hscrollOverlap = hbar->style()->pixelMetric(QStyle::PM_ScrollView_ScrollBarOverlap, &barOpt, hbar);
+
+    vbar->initStyleOption(&barOpt);
+    bool vtransient = vbar->style()->styleHint(QStyle::SH_ScrollBar_Transient, &barOpt, vbar);
+    bool needv = *needVerticalScrollbar || ((vbarpolicy != Qt::ScrollBarAlwaysOff) && ((vbarpolicy == Qt::ScrollBarAlwaysOn && !vtransient)
+                            || ((vbarpolicy == Qt::ScrollBarAsNeeded || vtransient)
+                            && vbar->minimum() < vbar->maximum() && !vbar->sizeHint().isEmpty())));
+    const int vscrollOverlap = vbar->style()->pixelMetric(QStyle::PM_ScrollView_ScrollBarOverlap, &barOpt, vbar);
+
+    QStyleOption opt(0);
+    opt.initFrom(q);
+
+    const int hsbExt = hbar->sizeHint().height();
+    const int vsbExt = vbar->sizeHint().width();
+    const QPoint extPoint(vsbExt, hsbExt);
+    const QSize extSize(vsbExt, hsbExt);
+
+    const QRect widgetRect = q->rect();
+
+    const bool hasCornerWidget = (cornerWidget != nullptr);
+
+    QPoint cornerOffset((needv && vscrollOverlap == 0) ? vsbExt : 0, (needh && hscrollOverlap == 0) ? hsbExt : 0);
+    QRect controlsRect;
+    QRect viewportRect;
+
+    // In FrameOnlyAroundContents mode the frame is drawn between the controls and
+    // the viewport, else the frame rect is equal to the widget rect.
+    if ((frameStyle != QFrame::NoFrame) &&
+        q->style()->styleHint(QStyle::SH_ScrollView_FrameOnlyAroundContents, &opt, q)) {
+        controlsRect = widgetRect;
+        const int spacing = q->style()->pixelMetric(QStyle::PM_ScrollView_ScrollBarSpacing, &opt, q);
+        const QPoint cornerExtra(needv ? spacing + vscrollOverlap : 0, needh ? spacing + hscrollOverlap : 0);
+        QRect frameRect = widgetRect;
+        frameRect.adjust(0, 0, -cornerOffset.x() - cornerExtra.x(), -cornerOffset.y() - cornerExtra.y());
+        q->setFrameRect(QStyle::visualRect(opt.direction, opt.rect, frameRect));
+        // The frame rect needs to be in logical coords, however we need to flip
+        // the contentsRect back before passing it on to the viewportRect
+        // since the viewportRect has its logical coords calculated later.
+        viewportRect = QStyle::visualRect(opt.direction, opt.rect, q->contentsRect());
+    } else {
+        q->setFrameRect(QStyle::visualRect(opt.direction, opt.rect, widgetRect));
+        controlsRect = q->contentsRect();
+        viewportRect = QRect(controlsRect.topLeft(), controlsRect.bottomRight() - cornerOffset);
+    }
+
+    cornerOffset = QPoint(needv ? vsbExt : 0, needh ? hsbExt : 0);
+
+    // If we have a corner widget and are only showing one scroll bar, we need to move it
+    // to make room for the corner widget.
+    if (hasCornerWidget && ((needv && vscrollOverlap == 0) || (needh && hscrollOverlap == 0)))
+        cornerOffset =  extPoint;
+
+    // The corner point is where the scroll bar rects, the corner widget rect and the
+    // viewport rect meets.
+    const QPoint cornerPoint(controlsRect.bottomRight() + QPoint(1, 1) - cornerOffset);
+
+    // Some styles paints the corner if both scorllbars are showing and there is
+    // no corner widget.
+    if (needv && needh && !hasCornerWidget && hscrollOverlap == 0 && vscrollOverlap == 0)
+        cornerPaintingRect = QStyle::visualRect(opt.direction, opt.rect, QRect(cornerPoint, extSize));
+    else
+        cornerPaintingRect = QRect();
+
+    // move the scrollbars away from top/left headers
+    int vHeaderRight = 0;
+    int hHeaderBottom = 0;
+#if QT_CONFIG(itemviews)
+    if ((vscrollOverlap > 0 && needv) || (hscrollOverlap > 0 && needh)) {
+        const QList<QHeaderView *> headers = q->findChildren<QHeaderView*>();
+        if (headers.size() <= 2) {
+            for (const QHeaderView *header : headers) {
+                const QRect geo = header->geometry();
+                if (header->orientation() == Qt::Vertical && header->isVisible() && QStyle::visualRect(opt.direction, opt.rect, geo).left() <= opt.rect.width() / 2)
+                    vHeaderRight = QStyle::visualRect(opt.direction, opt.rect, geo).right();
+                else if (header->orientation() == Qt::Horizontal && header->isVisible() && geo.top() <= q->frameWidth())
+                    hHeaderBottom = geo.bottom();
+             }
+         }
+    }
+#endif // QT_CONFIG(itemviews)
+    if (needh) {
+        QRect horizontalScrollBarRect(QPoint(controlsRect.left() + vHeaderRight, cornerPoint.y()), QPoint(cornerPoint.x() - 1, controlsRect.bottom()));
+
+        if (!hasCornerWidget && htransient)
+            horizontalScrollBarRect.adjust(0, 0, cornerOffset.x(), 0);
+        scrollBarContainers[Qt::Horizontal]->setGeometry(QStyle::visualRect(opt.direction, opt.rect, horizontalScrollBarRect));
+        scrollBarContainers[Qt::Horizontal]->raise();
+    }
+
+    if (needv) {
+        QRect verticalScrollBarRect  (QPoint(cornerPoint.x(), controlsRect.top() + hHeaderBottom),  QPoint(controlsRect.right(), cornerPoint.y() - 1));
+        if (!hasCornerWidget && vtransient)
+            verticalScrollBarRect.adjust(0, 0, 0, cornerOffset.y());
+        scrollBarContainers[Qt::Vertical]->setGeometry(QStyle::visualRect(opt.direction, opt.rect, verticalScrollBarRect));
+        scrollBarContainers[Qt::Vertical]->raise();
+    }
+
+    if (cornerWidget) {
+        const QRect cornerWidgetRect(cornerPoint, controlsRect.bottomRight());
+        cornerWidget->setGeometry(QStyle::visualRect(opt.direction, opt.rect, cornerWidgetRect));
+    }
+
+    scrollBarContainers[Qt::Horizontal]->setVisible(needh);
+    scrollBarContainers[Qt::Vertical]->setVisible(needv);
+
+    if (q->isRightToLeft())
+        viewportRect.adjust(right, top, -left, -bottom);
+    else
+        viewportRect.adjust(left, top, -right, -bottom);
+    viewportRect = QStyle::visualRect(opt.direction, opt.rect, viewportRect);
+    viewportRect.translate(-overshoot);
+    viewport->setGeometry(viewportRect); // resize the viewport last
+
+    *needHorizontalScrollbar = needh;
+    *needVerticalScrollbar = needv;
+}
+#endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qtextedit.cpp, line 88, as _ZN16QTextEditPrivateC1Ev
+inline QTextEditPrivate::QTextEditPrivate()
+    : control(nullptr),
+      autoFormatting(QTextEdit::AutoNone), tabChangesFocus(false),
+      lineWrap(QTextEdit::WidgetWidth), lineWrapColumnOrWidth(0),
+      wordWrap(QTextOption::WrapAtWordBoundaryOrAnywhere), clickCausedFocus(0)
+{
+    ignoreAutomaticScrollbarAdjustment = false;
+    preferRichText = false;
+    showCursorOnInitialShow = true;
+    inDrag = false;
+}
 
 //  from src/widgets/widgets/qtextedit.cpp, line 100, as _ZN16QTextEditPrivateD1Ev
 inline QTextEditPrivate::~QTextEditPrivate()
@@ -200,6 +503,110 @@ inline void QTextEditPrivate::repaintContents(const QRectF &contentsRect)
 
     r.translate(-xOffset, -yOffset);
     viewport->update(r);
+}
+
+//  from src/widgets/widgets/qtextedit.cpp, line 332, as _ZN16QTextEditPrivate13ensureVisibleERK6QRectF
+inline void QTextEditPrivate::ensureVisible(const QRectF &_rect)
+{
+    const QRect rect = _rect.toRect();
+    if ((vbar->isVisible() && vbar->maximum() < rect.bottom())
+        || (hbar->isVisible() && hbar->maximum() < rect.right()))
+        adjustScrollbars();
+    const int visibleWidth = viewport->width();
+    const int visibleHeight = viewport->height();
+    const bool rtl = q_func()->isRightToLeft();
+
+    if (rect.x() < horizontalOffset()) {
+        if (rtl)
+            hbar->setValue(hbar->maximum() - rect.x());
+        else
+            hbar->setValue(rect.x());
+    } else if (rect.x() + rect.width() > horizontalOffset() + visibleWidth) {
+        if (rtl)
+            hbar->setValue(hbar->maximum() - (rect.x() + rect.width() - visibleWidth));
+        else
+            hbar->setValue(rect.x() + rect.width() - visibleWidth);
+    }
+
+    if (rect.y() < verticalOffset())
+        vbar->setValue(rect.y());
+    else if (rect.y() + rect.height() > verticalOffset() + visibleHeight)
+        vbar->setValue(rect.y() + rect.height() - visibleHeight);
+}
+
+//  from src/widgets/widgets/qtextedit.cpp, line 1411, as _ZN16QTextEditPrivate16relayoutDocumentEv
+inline void QTextEditPrivate::relayoutDocument()
+{
+    QTextDocument *doc = control->document();
+    QAbstractTextDocumentLayout *layout = doc->documentLayout();
+
+    if (QTextDocumentLayout *tlayout = qobject_cast<QTextDocumentLayout *>(layout)) {
+        if (lineWrap == QTextEdit::FixedColumnWidth)
+            tlayout->setFixedColumnWidth(lineWrapColumnOrWidth);
+        else
+            tlayout->setFixedColumnWidth(-1);
+    }
+
+    QTextDocumentLayout *tlayout = qobject_cast<QTextDocumentLayout *>(layout);
+    QSize lastUsedSize;
+    if (tlayout)
+        lastUsedSize = tlayout->dynamicDocumentSize().toSize();
+    else
+        lastUsedSize = layout->documentSize().toSize();
+
+    // ignore calls to adjustScrollbars caused by an emission of the
+    // usedSizeChanged() signal in the layout, as we're calling it
+    // later on our own anyway (or deliberately not) .
+    const bool oldIgnoreScrollbarAdjustment = ignoreAutomaticScrollbarAdjustment;
+    ignoreAutomaticScrollbarAdjustment = true;
+
+    int width = viewport->width();
+    if (lineWrap == QTextEdit::FixedPixelWidth)
+        width = lineWrapColumnOrWidth;
+    else if (lineWrap == QTextEdit::NoWrap) {
+        QVariant alignmentProperty = doc->documentLayout()->property("contentHasAlignment");
+        if (alignmentProperty.userType() == QMetaType::Bool && !alignmentProperty.toBool()) {
+
+            width = 0;
+        }
+    }
+
+    doc->setPageSize(QSize(width, -1));
+    if (tlayout)
+        tlayout->ensureLayouted(verticalOffset() + viewport->height());
+
+    ignoreAutomaticScrollbarAdjustment = oldIgnoreScrollbarAdjustment;
+
+    QSize usedSize;
+    if (tlayout)
+        usedSize = tlayout->dynamicDocumentSize().toSize();
+    else
+        usedSize = layout->documentSize().toSize();
+
+    // this is an obscure situation in the layout that can happen:
+    // if a character at the end of a line is the tallest one and therefore
+    // influencing the total height of the line and the line right below it
+    // is always taller though, then it can happen that if due to line breaking
+    // that tall character wraps into the lower line the document not only shrinks
+    // horizontally (causing the character to wrap in the first place) but also
+    // vertically, because the original line is now smaller and the one below kept
+    // its size. So a layout with less width _can_ take up less vertical space, too.
+    // If the wider case causes a vertical scroll bar to appear and the narrower one
+    // (narrower because the vertical scroll bar takes up horizontal space)) to disappear
+    // again then we have an endless loop, as adjustScrollbars sets new ranges on the
+    // scroll bars, the QAbstractScrollArea will find out about it and try to show/hide
+    // the scroll bars again. That's why we try to detect this case here and break out.
+    //
+    // (if you change this please also check the layoutingLoop() testcase in
+    // QTextEdit's autotests)
+    if (lastUsedSize.isValid()
+        && !vbar->isHidden()
+        && viewport->width() < lastUsedSize.width()
+        && usedSize.height() < lastUsedSize.height()
+        && usedSize.height() <= viewport->height())
+        return;
+
+    adjustScrollbars();
 }
 
 //  from src/widgets/widgets/qtextedit.cpp, line 106, as _ZN16QTextEditPrivate20createAutoBulletListEv
@@ -704,6 +1111,14 @@ const QTextEdit *ritual_ZNK16QTextEditPrivate6q_funcEv(
   return self->q_func();
 }
 
+#if QT_CONFIG(scrollarea)
+//  QTextEditPrivate::QTextEditPrivate()
+extern "C" Q_DECL_EXPORT
+QTextEditPrivate *ritual_ZN16QTextEditPrivateC1Ev() {
+  return new CuteQTextEditPrivate();
+}
+#endif  // QT_CONFIG(scrollarea)
+
 //  QTextEditPrivate::~QTextEditPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextEditPrivateD1Ev(QTextEditPrivate *self) {
@@ -734,6 +1149,29 @@ QPoint *ritual_ZNK16QTextEditPrivate13mapToContentsERK6QPoint(
     const QPoint *point) {
   return new QPoint(self->mapToContents(*point));
 }
+
+#if QT_CONFIG(scrollbar)
+#if QT_CONFIG(scrollarea)
+//  void QTextEditPrivate::ensureVisible(const QRectF &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QTextEditPrivate13ensureVisibleERK6QRectF(
+    QTextEditPrivate *self,
+    const QRectF *rect) {
+  self->ensureVisible(*rect);
+}
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(scrollbar)
+
+#if QT_CONFIG(scrollbar)
+#if QT_CONFIG(scrollarea)
+//  void QTextEditPrivate::relayoutDocument()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QTextEditPrivate16relayoutDocumentEv(
+    QTextEditPrivate *self) {
+  self->relayoutDocument();
+}
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(scrollbar)
 
 //  void QTextEditPrivate::createAutoBulletList()
 extern "C" Q_DECL_EXPORT

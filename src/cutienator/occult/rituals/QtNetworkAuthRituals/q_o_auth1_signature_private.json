@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN23QOAuth1SignaturePrivateC1Ev": ["address"],
+    "ritual_ZN23QOAuth1SignaturePrivateC1ERK4QUrlN16QOAuth1Signature17HttpRequestMethodERK9QMultiMapI7QString8QVariantERKS6_SC_": [
+      "address", "address", "int", "address", "text", "text"
+    ],
     "ritual_ZNK23QOAuth1SignaturePrivate6secretEv": ["address", "address"],
     "ritual_ZN23QOAuth1SignaturePrivateD1Ev": ["nothing", "address"]
   }

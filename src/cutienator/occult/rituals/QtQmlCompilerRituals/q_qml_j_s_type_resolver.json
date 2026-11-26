@@ -23,14 +23,109 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK18QQmlJSTypeResolver9cloneModeEv": ["int", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver8voidTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver9emptyTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver8nullTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver8realTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver9floatTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver8int8TypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver9uint8TypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver9int16TypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver10uint16TypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver9int32TypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver10uint32TypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver9int64TypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver10uint64TypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver8sizeTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver8boolTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver10stringTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver14stringListTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver13byteArrayTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver7urlTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver12dateTimeTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver8dateTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver8timeTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver10regexpTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver15variantListTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver14variantMapTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver7varTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver18qmlPropertyMapTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver11jsValueTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver15jsPrimitiveTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver16listPropertyTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver14metaObjectTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver12functionTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver14jsGlobalObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver11qObjectTypeEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver15qObjectListTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver14arrayPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver16forInIteratorPtrEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver16forOfIteratorPtrEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver20qQmlScriptStringTypeEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver21jsGlobalObjectContentEv": [
       "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver10mathObjectEv": ["address", "address"],
+    "ritual_ZNK18QQmlJSTypeResolver13consoleObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver12typeForConstEy": [
+      "address", "address", "unsigned long long"
     ],
     "ritual_ZNK18QQmlJSTypeResolver8isPrefixERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver13importedTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver13importedNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver11typeForNameERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver11nameForTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "text", "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver20seenModuleQualifiersEv": [
       "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver16scopeForLocationERKN3QV412CompiledData8LocationE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver11typeFromASTEPN6QQmlJS3AST4TypeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver9typeForIdERK22QDeferredSharedPointerIK11QQmlJSScopeERK7QString6QFlagsI22QQmlJSScopesByIdOptionE": [
+      "address", "address", "address", "text", "int"
     ],
     "ritual_ZNK18QQmlJSTypeResolver11objectsByIdEv": ["address", "address"],
     "ritual_ZNK18QQmlJSTypeResolver18canCallJSFunctionsEv": [
@@ -39,14 +134,41 @@
     "ritual_ZNK18QQmlJSTypeResolver20canAddressValueTypesEv": [
       "bool", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver10scopedTypeERK22QDeferredSharedPointerIK11QQmlJSScopeERK7QString6QFlagsI22QQmlJSScopesByIdOptionE": [
+      "address", "address", "address", "text", "int"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver14signalHandlersEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver11isPrimitiveE21QQmlJSRegisterContent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver11isPrimitiveERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
       "bool", "address", "address"
     ],
     "ritual_ZNK18QQmlJSTypeResolver9isNumericE21QQmlJSRegisterContent": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver9isNumericERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver10isIntegralE21QQmlJSRegisterContent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver10isIntegralERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver15isSignedIntegerERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver17isUnsignedIntegerERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver18isNativeArrayIndexERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver7canHoldERK22QDeferredSharedPointerIK11QQmlJSScopeES5_": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZNK18QQmlJSTypeResolver16canHoldUndefinedE21QQmlJSRegisterContent": [
       "bool", "address", "address"
@@ -54,17 +176,47 @@
     "ritual_ZNK18QQmlJSTypeResolver14isOptionalTypeE21QQmlJSRegisterContent": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver11canPopulateERK22QDeferredSharedPointerIK11QQmlJSScopeES5_Pb": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver16canConvertFromToERK22QDeferredSharedPointerIK11QQmlJSScopeES5_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver16canConvertFromToE21QQmlJSRegisterContentS0_": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver18areEquivalentListsERK22QDeferredSharedPointerIK11QQmlJSScopeES5_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver19isTriviallyCopyableERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver8inheritsERK22QDeferredSharedPointerIK11QQmlJSScopeES5_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver11genericTypeERK22QDeferredSharedPointerIK11QQmlJSScopeENS_18ComponentIsGenericE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver10storedTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver8originalE21QQmlJSRegisterContent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver21originalContainedTypeE21QQmlJSRegisterContent": [
       "address", "address", "address"
     ],
     "ritual_ZNK18QQmlJSTypeResolver8shadowedE21QQmlJSRegisterContent": [
       "address", "address", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver5mergeERK22QDeferredSharedPointerIK11QQmlJSScopeES5_": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver30extractNonVoidFromOptionalTypeE21QQmlJSRegisterContent": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver17selectConstructorERK22QDeferredSharedPointerIK11QQmlJSScopeES5_Pb": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZNK18QQmlJSTypeResolver22typeForBinaryOperationEN10QSOperator2OpE21QQmlJSRegisterContentS2_": [
       "address", "address", "int", "address", "address"
@@ -78,6 +230,18 @@
     "ritual_ZNK18QQmlJSTypeResolver15clearMergeCacheEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver11literalTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver13operationTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver9namedTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver13syntheticTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver10scopedTypeE21QQmlJSRegisterContentRK7QStringi6QFlagsI22QQmlJSScopesByIdOptionE": [
       "address", "address", "address", "text", "int", "int"
     ],
@@ -87,17 +251,38 @@
     "ritual_ZNK18QQmlJSTypeResolver11elementTypeE21QQmlJSRegisterContent": [
       "address", "address", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver10returnTypeERK16QQmlJSMetaMethodRK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContent": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver13extensionTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContent": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver8baseTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContent": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver11parentScopeERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContent": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver15iteratorPointerE21QQmlJSRegisterContentN6QQmlJS3AST11ForEachTypeEi": [
       "address", "address", "address", "int", "int"
     ],
     "ritual_ZNK18QQmlJSTypeResolver7convertE21QQmlJSRegisterContentS0_": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver7convertE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver17adjustTrackedTypeE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver17adjustTrackedTypeE21QQmlJSRegisterContentS0_": [
       "bool", "address", "address", "address"
     ],
     "ritual_ZNK18QQmlJSTypeResolver17adjustTrackedTypeE21QQmlJSRegisterContentRK5QListIS0_E": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver18adjustOriginalTypeE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK18QQmlJSTypeResolver14generalizeTypeE21QQmlJSRegisterContent": [
       "nothing", "address", "address"
@@ -111,11 +296,23 @@
     "ritual_ZNK18QQmlJSTypeResolver10checkEnumsE21QQmlJSRegisterContentRK7QStringPS0_": [
       "bool", "address", "address", "text", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver27canPrimitivelyConvertFromToERK22QDeferredSharedPointerIK11QQmlJSScopeES5_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver14lengthPropertyEb21QQmlJSRegisterContent": [
       "address", "address", "bool", "address"
     ],
+    "ritual_ZNK18QQmlJSTypeResolver20containedTypeForNameERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK18QQmlJSTypeResolver22registerContentForNameERK7QString21QQmlJSRegisterContent": [
       "address", "address", "text", "address"
+    ],
+    "ritual_ZNK18QQmlJSTypeResolver21resolveParentPropertyERK7QStringRK22QDeferredSharedPointerIK11QQmlJSScopeES8_": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_drop_QQmlJSTypeResolver__QQmlJSScope_ConstPtr": [
+      "nothing", "address"
     ]
   }
 }

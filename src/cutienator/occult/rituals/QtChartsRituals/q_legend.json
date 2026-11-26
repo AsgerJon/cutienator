@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK7QLegend10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QLegend11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QLegend11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QLegend2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QLegendC1EP6QChart": ["address", "address"],
     "ritual_ZN7QLegendD1Ev": ["nothing", "address"],
@@ -62,6 +66,36 @@
     ],
     "ritual_ZN7QLegend9showEventEP10QShowEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLegend24backgroundVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN7QLegend12colorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLegend18borderColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLegend11fontChangedE5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLegend17labelColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLegend21reverseMarkersChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN7QLegend19showToolTipsChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN7QLegend18markerShapeChangedENS_11MarkerShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QLegend22attachedToChartChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN7QLegend18interactiveChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_take_QLegend": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QLegend5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [

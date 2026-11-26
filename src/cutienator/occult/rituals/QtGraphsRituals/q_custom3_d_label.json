@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK14QCustom3DLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QCustom3DLabel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QCustom3DLabel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QCustom3DLabel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -47,6 +53,27 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK14QCustom3DLabel14isFacingCameraEv": ["bool", "address"],
+    "ritual_ZN14QCustom3DLabel11textChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QCustom3DLabel11fontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCustom3DLabel16textColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCustom3DLabel22backgroundColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCustom3DLabel20borderVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QCustom3DLabel24backgroundVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QCustom3DLabel19facingCameraChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_QCustom3DLabel": ["bool", "address", "chars", "address"]
   }
 }

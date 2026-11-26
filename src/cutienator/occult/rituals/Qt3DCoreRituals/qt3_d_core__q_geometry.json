@@ -5,17 +5,51 @@
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore9QGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore9QGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore9QGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore9QGeometry2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore9QGeometryC1EPNS_5QNodeE": ["address", "address"],
+    "ritual_ZN8Qt3DCore9QGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore9QGeometry10attributesEv": ["address", "address"],
     "ritual_ZN8Qt3DCore9QGeometry12addAttributeEPNS_10QAttributeE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN8Qt3DCore9QGeometry15removeAttributeEPNS_10QAttributeE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK8Qt3DCore9QGeometry31boundingVolumePositionAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore9QGeometry9minExtentEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore9QGeometry9maxExtentEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore9QGeometry34setBoundingVolumePositionAttributeEPNS_10QAttributeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore9QGeometry38boundingVolumePositionAttributeChangedEPNS_10QAttributeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore9QGeometry16minExtentChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore9QGeometry16maxExtentChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore9QGeometryC1ERNS_16QGeometryPrivateEPNS_5QNodeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore9QGeometry6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore9QGeometry6d_funcEv": ["address", "address"],
-    "ritual_take_Qt3DCore_QGeometry": ["bool", "address", "chars", "address"]
+    "ritual_take_Qt3DCore_QGeometry": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DCore_QGeometry__QList_Qt3DCore_QAttribute": [
+      "nothing", "address"
+    ]
   }
 }

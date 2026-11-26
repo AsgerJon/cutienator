@@ -22,6 +22,14 @@ QSqlRelation *ritual_ZN12QSqlRelationC1ERK7QStringS2_S2_(
   return new QSqlRelation(*aTableName, *indexCol, *displayCol);
 }
 
+//  void QSqlRelation::swap(QSqlRelation &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QSqlRelation4swapERS_(
+    QSqlRelation *self,
+    QSqlRelation *other) {
+  self->swap(*other);
+}
+
 //  QString QSqlRelation::tableName() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK12QSqlRelation9tableNameEv(const QSqlRelation *self) {

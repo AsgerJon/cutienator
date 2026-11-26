@@ -8,8 +8,20 @@
     "ritual_ZNK28QWaylandIdleInhibitManagerV110metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QWaylandIdleInhibitManagerV111qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QWaylandIdleInhibitManagerV111qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QWaylandIdleInhibitManagerV12trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QWaylandIdleInhibitManagerV16d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QWaylandIdleInhibitManagerV16d_funcEv": [
+      "address", "address"
     ],
     "ritual_ZN28QWaylandIdleInhibitManagerV1C1Ev": ["address"],
     "ritual_ZN28QWaylandIdleInhibitManagerV1C1EP18QWaylandCompositor": [
@@ -19,6 +31,7 @@
     "ritual_ZN28QWaylandIdleInhibitManagerV110initializeEv": [
       "nothing", "address"
     ],
+    "ritual_ZN28QWaylandIdleInhibitManagerV19interfaceEv": ["address"],
     "ritual_take_QWaylandIdleInhibitManagerV1": [
       "bool", "address", "chars", "address"
     ],

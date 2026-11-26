@@ -6,13 +6,27 @@
   ],
   "rows": {
     "ritual_ZNK17QToolBarSeparator10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QToolBarSeparator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QToolBarSeparator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK17QToolBarSeparator11orientationEv": ["int", "address"],
     "ritual_ZNK17QToolBarSeparator8sizeHintEv": ["address", "address"],
     "ritual_ZN17QToolBarSeparator10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QToolBarSeparator15initStyleOptionEP12QStyleOption": [
       "nothing", "address", "address"
     ],
     "ritual_ZN17QToolBarSeparator14setOrientationEN2Qt11OrientationE": [
       "nothing", "address", "int"
     ],
-    "ritual_take_QToolBarSeparator": ["bool", "address", "chars", "address"]
+    "ritual_take_QToolBarSeparator": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QToolBarSeparator8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN17QToolBarSeparator10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ]
   }
 }

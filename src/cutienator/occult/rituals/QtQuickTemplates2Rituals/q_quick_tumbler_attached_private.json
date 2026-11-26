@@ -17,6 +17,9 @@
     "ritual_ZN28QQuickTumblerAttachedPrivate4initEP10QQuickItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN28QQuickTumblerAttachedPrivate21calculateDisplacementEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN28QQuickTumblerAttachedPrivate25emitIfDisplacementChangedEdd": [
       "nothing", "address", "double", "double"
     ]

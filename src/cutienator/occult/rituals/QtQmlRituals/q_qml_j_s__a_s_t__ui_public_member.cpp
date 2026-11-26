@@ -5,8 +5,46 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  QQmlJS::AST::UiPublicMember::UiPublicMember(UiQualifiedId *memberType,
+//      QStringView name)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiPublicMember *ritual_ZN6QQmlJS3AST14UiPublicMemberC1EPNS0_13UiQualifiedIdE11QStringView(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiQualifiedId *memberType,
+    const QString *name) {
+  return new (pool) QQmlJS::AST::UiPublicMember(
+      memberType,
+      QStringView(*name));
+}
+
+//  QQmlJS::AST::UiPublicMember::UiPublicMember(UiQualifiedId *memberType,
+//      QStringView name, Statement *statement)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiPublicMember *ritual_ZN6QQmlJS3AST14UiPublicMemberC1EPNS0_13UiQualifiedIdE11QStringViewPNS0_9StatementE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiQualifiedId *memberType,
+    const QString *name,
+    QQmlJS::AST::Statement *statement) {
+  return new (pool) QQmlJS::AST::UiPublicMember(
+      memberType,
+      QStringView(*name),
+      statement);
+}
+
+//  void QQmlJS::AST::UiPublicMember::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST14UiPublicMember7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiPublicMember *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
 
 //  SourceLocation QQmlJS::AST::UiPublicMember::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT

@@ -53,6 +53,19 @@ public:
   }
 };
 
+//  Qt3DRender::QEnvironmentLightPrivate::QEnvironmentLightPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QEnvironmentLightPrivate *ritual_ZN10Qt3DRender24QEnvironmentLightPrivateC1Ev() {
+  return new CuteQt3DRender_QEnvironmentLightPrivate();
+}
+
+//  Qt3DRender::QEnvironmentLightPrivate::~QEnvironmentLightPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender24QEnvironmentLightPrivateD1Ev(
+    Qt3DRender::QEnvironmentLightPrivate *self) {
+  delete self;
+}
+
 //  QEnvironmentLight *Qt3DRender::QEnvironmentLightPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QEnvironmentLight *ritual_ZN10Qt3DRender24QEnvironmentLightPrivate6q_funcEv(
@@ -66,6 +79,13 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QEnvironmentLight *ritual_ZNK10Qt3DRender24QEnvironmentLightPrivate6q_funcEv(
     const Qt3DRender::QEnvironmentLightPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DRender::QEnvironmentLightPrivate::_q_updateEnvMapsSize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender24QEnvironmentLightPrivate20_q_updateEnvMapsSizeEv(
+    Qt3DRender::QEnvironmentLightPrivate *self) {
+  self->_q_updateEnvMapsSize();
 }
 
 //  a Python function taken by a CuteQt3DRender_QEnvironmentLightPrivate, for

@@ -11,7 +11,13 @@
     ],
     "ritual_ZN17QVideoFrameFormatC1ERKS_": ["address", "address"],
     "ritual_ZN17QVideoFrameFormatD1Ev": ["nothing", "address"],
+    "ritual_ZN17QVideoFrameFormatC1EOS_": ["address", "address"],
+    "ritual_ZN17QVideoFrameFormataSEOS_": ["address", "address", "address"],
+    "ritual_ZN17QVideoFrameFormat4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QVideoFrameFormat6detachEv": ["nothing", "address"],
+    "ritual_ZN17QVideoFrameFormataSERKS_": ["address", "address", "address"],
     "ritual_ZNK17QVideoFrameFormateqERKS_": ["bool", "address", "address"],
     "ritual_ZNK17QVideoFrameFormatneERKS_": ["bool", "address", "address"],
     "ritual_ZNK17QVideoFrameFormat7isValidEv": ["bool", "address"],

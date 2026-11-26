@@ -49,10 +49,31 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::Literals::StringLiterals;
+
+//  from ../qtdeclarative/src/quick/util/qquickpixmapcache.cpp, line 48, as local:qquickpixmapcache.cpp:CACHE_REMOVAL_FRACTION
+#define CACHE_REMOVAL_FRACTION 4
+
+//  from ../qtdeclarative/src/quick/util/qquickpixmapcache.cpp, line 146, as local:qquickpixmapcache.cpp:QQuickPixmapData
+class QQuickPixmapData;
+
 //  from ../qtdeclarative/src/quick/util/qquickpixmapcache.cpp, line 1258, as _ZN17QQuickPixmapCacheD1Ev
 inline QQuickPixmapCache::~QQuickPixmapCache()
 {
     destroyCache();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickpixmapcache.cpp, line 1401, as _ZN17QQuickPixmapCache10timerEventEP11QTimerEvent
+inline void QQuickPixmapCache::timerEvent(QTimerEvent *)
+{
+    int removalCost = m_unreferencedCost / CACHE_REMOVAL_FRACTION;
+
+    shrinkCache(removalCost);
+
+    if (m_unreferencedPixmaps == nullptr) {
+        killTimer(m_timerId);
+        m_timerId = -1;
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -230,10 +251,37 @@ const QMetaObject *ritual_ZNK17QQuickPixmapCache10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPixmapCache::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickPixmapCache11qt_metacastEPKc(
+    QQuickPixmapCache *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPixmapCache::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickPixmapCache11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPixmapCache *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickPixmapCache::~QQuickPixmapCache()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickPixmapCacheD1Ev(QQuickPixmapCache *self) {
   delete self;
+}
+
+//  void QQuickPixmapCache::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickPixmapCache10timerEventEP11QTimerEvent(
+    QQuickPixmapCache *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
 }
 
 //  a Python function taken by a CuteQQuickPixmapCache, for the function

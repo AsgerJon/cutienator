@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QQuickTableViewPrivate20TableEdgeLoadRequest5beginERK6QPointRK7QPointFN13QQmlIncubator14IncubationModeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20TableEdgeLoadRequest5beginEN2Qt4EdgeEi5QListIiEN13QQmlIncubator14IncubationModeE": [
+      "nothing", "address", "int", "int", "address", "int"
+    ],
     "ritual_ZN22QQuickTableViewPrivate20TableEdgeLoadRequest10markAsDoneEv": [
       "nothing", "address"
     ],

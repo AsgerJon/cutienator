@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickTrailEmitter10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickTrailEmitter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickTrailEmitter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickTrailEmitter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,6 +31,24 @@
     ],
     "ritual_ZNK18QQuickTrailEmitter6followEv": ["text", "address"],
     "ritual_ZNK18QQuickTrailEmitter12emissonShapeEv": ["address", "address"],
+    "ritual_ZN18QQuickTrailEmitter19emitFollowParticlesERK5QListI20QQuickV4ParticleDataERKS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickTrailEmitter36particlesPerParticlePerSecondChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickTrailEmitter24emitterXVariationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQuickTrailEmitter24emitterYVariationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQuickTrailEmitter13followChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QQuickTrailEmitter20emissionShapeChangedEP22QQuickParticleExtruder": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QQuickTrailEmitter32setParticlesPerParticlePerSecondEi": [
       "nothing", "address", "int"
     ],

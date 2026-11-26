@@ -11,14 +11,32 @@
     "ritual_ZNK29QModbusRtuSerialClientPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate11onReadyReadEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN29QModbusRtuSerialClientPrivate14onAboutToCloseEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate17onResponseTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate14onBytesWrittenEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate7onErrorEN11QSerialPort15SerialPortErrorE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN29QModbusRtuSerialClientPrivate16setupEnvironmentEv": [
       "nothing", "address"
     ],
     "ritual_ZN29QModbusRtuSerialClientPrivate14enqueueRequestERK14QModbusRequestiRK15QModbusDataUnitN12QModbusReply9ReplyTypeE": [
       "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate19scheduleNextRequestEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate12processQueueEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK29QModbusRtuSerialClientPrivate26canMatchRequestAndResponseERK15QModbusResponsei": [
       "bool", "address", "address", "int"
@@ -31,6 +49,9 @@
     ],
     "ritual_take_QModbusRtuSerialClientPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QModbusRtuSerialClientPrivate14enqueueRequestERK14QModbusRequestiRK15QModbusDataUnitN12QModbusReply9ReplyTypeE": [
+      "address", "address", "address", "int", "address", "int"
     ],
     "ritual_own_ZNK29QModbusRtuSerialClientPrivate6isOpenEv": [
       "bool", "address"

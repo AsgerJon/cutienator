@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput18QInputDevicePlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QInputDevicePlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput18QInputDevicePlugin11qt_metacastEPKc(
+    Qt3DInput::QInputDevicePlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QInputDevicePlugin::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput18QInputDevicePlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QInputDevicePlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QInputDevicePlugin::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -193,6 +212,20 @@ QString *ritual_ZN9Qt3DInput18QInputDevicePlugin2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QInputDevicePlugin::tr(s, c, n));
+}
+
+//  Qt3DInput::QInputDevicePlugin::QInputDevicePlugin(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QInputDevicePlugin *ritual_ZN9Qt3DInput18QInputDevicePluginC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DInput_QInputDevicePlugin(parent);
+}
+
+//  Qt3DInput::QInputDevicePlugin::~QInputDevicePlugin()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput18QInputDevicePluginD1Ev(
+    Qt3DInput::QInputDevicePlugin *self) {
+  delete self;
 }
 
 //  QInputDeviceIntegration *Qt3DInput::QInputDevicePlugin::create(const

@@ -5,5 +5,11 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN33QPhysicsCommandSetAngularVelocityD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QPhysicsCommandSetAngularVelocity7executeERK17QDynamicRigidBodyRN5physx11PxRigidBodyE": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

@@ -5,8 +5,14 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN20QPlatformCursorImageC1EPKhS1_iiii": [
+      "address", "address", "address", "int", "int", "int", "int"
+    ],
     "ritual_ZN20QPlatformCursorImage5imageEv": ["address", "address"],
     "ritual_ZNK20QPlatformCursorImage7hotspotEv": ["address", "address"],
+    "ritual_ZN20QPlatformCursorImage3setEPKhS1_iiii": [
+      "nothing", "address", "address", "address", "int", "int", "int", "int"
+    ],
     "ritual_ZN20QPlatformCursorImage3setERK6QImageii": [
       "nothing", "address", "address", "int", "int"
     ],

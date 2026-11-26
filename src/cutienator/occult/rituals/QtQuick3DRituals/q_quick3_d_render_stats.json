@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuick3DRenderStats10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DRenderStats11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuick3DRenderStats11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuick3DRenderStats2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -89,6 +95,70 @@
     ],
     "ritual_ZN19QQuick3DRenderStats9setWindowEP12QQuickWindow": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats10fpsChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuick3DRenderStats16frameTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats17renderTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats15syncTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats19maxFrameTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats36extendedDataCollectionEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats20drawCallCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats22drawVertexCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats20imageDataSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats19meshDataSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats22renderPassCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats24renderPassDetailsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats21textureDetailsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats18meshDetailsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats20pipelineCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats29materialGenerationTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats27effectGenerationTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats27pipelineCreationTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats21vmemAllocCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats20vmemUsedBytesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats22graphicsApiNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats27lastCompletedGpuTimeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN19QQuick3DRenderStats14onFrameSwappedEv": [
       "nothing", "address"

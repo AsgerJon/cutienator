@@ -48,6 +48,39 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/util/qscroller.cpp, line 155, as local:qscroller.cpp:QScrollTimer
+#if QT_CONFIG(animation)
+class QScrollTimer : public QAbstractAnimation
+{
+public:
+    QScrollTimer(QScrollerPrivate *_d) : QAbstractAnimation(_d), d(_d), skip(0) {}
+
+    int duration() const override
+    {
+        return -1;
+    }
+
+    void start()
+    {
+        QAbstractAnimation::start();
+        skip = 0;
+    }
+
+protected:
+    void updateCurrentTime(int /*currentTime*/) override
+   {
+        if (++skip >= d->frameRateSkip()) {
+            skip = 0;
+            d->timerTick();
+        }
+    }
+
+private:
+    QScrollerPrivate *d;
+    int skip;
+};
+#endif  // QT_CONFIG(animation)
+
 //  from src/widgets/util/qscroller.cpp, line 855, as _ZN16QScrollerPrivate4initEv
 inline void QScrollerPrivate::init()
 {
@@ -249,6 +282,34 @@ inline qreal QScrollerPrivate::nextSnapPos(qreal p, int dir, Qt::Orientation ori
     return bestSnapPos;
 }
 
+//  from src/widgets/util/qscroller.cpp, line 1788, as _ZN16QScrollerPrivate19nextSegmentPositionER6QQueueINS_13ScrollSegmentEExd
+inline qreal QScrollerPrivate::nextSegmentPosition(QQueue<ScrollSegment> &segments, qint64 now, qreal oldPos)
+{
+    qreal pos = oldPos;
+
+    // check the X segments for new positions
+    while (!segments.isEmpty()) {
+        const ScrollSegment s = segments.head();
+
+        if ((s.startTime + s.deltaTime * s.stopProgress) <= now) {
+            segments.dequeue();
+            pos = s.stopPos;
+        } else if (s.startTime <= now) {
+            qreal progress = qreal(now - s.startTime) / qreal(s.deltaTime);
+            pos = s.startPos + s.deltaPos * s.curve.valueForProgress(progress);
+            if (s.deltaPos > 0 ? pos > s.stopPos : pos < s.stopPos) {
+                segments.dequeue();
+                pos = s.stopPos;
+            } else {
+                break;
+            }
+        } else {
+            break;
+        }
+    }
+    return pos;
+}
+
 //  from src/widgets/util/qscroller.cpp, line 866, as _ZN16QScrollerPrivate9stateNameEN9QScroller5StateE
 inline const char *QScrollerPrivate::stateName(QScroller::State state)
 {
@@ -447,6 +508,25 @@ const QMetaObject *ritual_ZNK16QScrollerPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScrollerPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QScrollerPrivate11qt_metacastEPKc(
+    QScrollerPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScrollerPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QScrollerPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScrollerPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QScroller *QScrollerPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 QScroller *ritual_ZN16QScrollerPrivate6q_funcEv(QScrollerPrivate *self) {
@@ -517,6 +597,16 @@ qreal ritual_ZNK16QScrollerPrivate11nextSnapPosEdiN2Qt11OrientationE(
   return self->nextSnapPos(p, dir, orientation);
 }
 
+//  qreal QScrollerPrivate::nextSegmentPosition(QQueue<ScrollSegment>
+//      &segments, qint64 now, qreal oldPos)
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZN16QScrollerPrivate19nextSegmentPositionER6QQueueINS_13ScrollSegmentEExd(
+    QQueue<QScrollerPrivate::ScrollSegment> *segments,
+    qint64 now,
+    qreal oldPos) {
+  return QScrollerPrivate::nextSegmentPosition(*segments, now, oldPos);
+}
+
 //  int QScrollerPrivate::frameRateSkip() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK16QScrollerPrivate13frameRateSkipEv(
@@ -536,6 +626,30 @@ extern "C" Q_DECL_EXPORT
 const char *ritual_ZN16QScrollerPrivate9inputNameEN9QScroller5InputE(
     QScroller::Input input) {
   return QScrollerPrivate::inputName(input);
+}
+
+//  void QScrollerPrivate::targetDestroyed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScrollerPrivate15targetDestroyedEv(QScrollerPrivate *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QScrollerPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "targetDestroyed()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "targetDestroyed()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQScrollerPrivate, for the function named

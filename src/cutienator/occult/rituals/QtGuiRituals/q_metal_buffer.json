@@ -5,6 +5,15 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN12QMetalBuffer7destroyEv": ["nothing", "address"],
+    "ritual_ZN12QMetalBuffer6createEv": ["bool", "address"],
+    "ritual_ZN12QMetalBuffer12nativeBufferEv": ["address", "address"],
+    "ritual_ZN12QMetalBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12QMetalBuffer41endFullDynamicBufferUpdateForCurrentFrameEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QMetalBuffer": ["bool", "address", "chars", "address"]
   }
 }

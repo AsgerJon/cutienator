@@ -27,6 +27,9 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtlocation/src/location/maps/qgeomaptype.cpp, line 161, as _ZN18QGeoMapTypePrivateC1Ev
+inline QGeoMapTypePrivate::QGeoMapTypePrivate() = default;
+
 //  from ../qtlocation/src/location/maps/qgeomaptype.cpp, line 163, as _ZN18QGeoMapTypePrivateC1EN11QGeoMapType8MapStyleERK7QStringS4_bbiRK10QByteArrayRK22QGeoCameraCapabilitiesRK4QMapIS2_8QVariantE
 inline QGeoMapTypePrivate::QGeoMapTypePrivate(QGeoMapType::MapStyle style, const QString &name,
                                        const QString &description, bool mobile, bool night,
@@ -38,7 +41,22 @@ inline QGeoMapTypePrivate::QGeoMapTypePrivate(QGeoMapType::MapStyle style, const
     style_(style), mapId_(mapId), mobile_(mobile), night_(night)
 {
 }
+
+//  from ../qtlocation/src/location/maps/qgeomaptype.cpp, line 174, as _ZNK18QGeoMapTypePrivateeqERKS_
+inline bool QGeoMapTypePrivate::operator==(const QGeoMapTypePrivate &other) const
+{
+    return pluginName_ == other.pluginName_ && style_ == other.style_ && name_ == other.name_ &&
+           description_ == other.description_ && mobile_ == other.mobile_ && night_ == other.night_ &&
+           mapId_ == other.mapId_ && cameraCapabilities_ == other.cameraCapabilities_ &&
+           metadata_ == other.metadata_;
+}
 //  -----------------------------------------------------------------------
+
+//  QGeoMapTypePrivate::QGeoMapTypePrivate()
+extern "C" Q_DECL_EXPORT
+QGeoMapTypePrivate *ritual_ZN18QGeoMapTypePrivateC1Ev() {
+  return new QGeoMapTypePrivate();
+}
 
 //  QGeoMapTypePrivate::QGeoMapTypePrivate(QGeoMapType::MapStyle style, const
 //      QString &name, const QString &description, bool mobile, bool night,
@@ -65,6 +83,15 @@ QGeoMapTypePrivate *ritual_ZN18QGeoMapTypePrivateC1EN11QGeoMapType8MapStyleERK7Q
       *pluginName,
       *cameraCapabilities,
       *metadata);
+}
+
+//  bool QGeoMapTypePrivate::operator==(const QGeoMapTypePrivate &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18QGeoMapTypePrivateeqERKS_(
+    const QGeoMapTypePrivate *self,
+    const QGeoMapTypePrivate *other) {
+  return self->operator==(*other);
 }
 
 //  QGeoMapTypePrivate::~QGeoMapTypePrivate()

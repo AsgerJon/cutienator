@@ -9,8 +9,9 @@
 #include <QtGui/qcolor.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qpoint.h>
-#include <QtCore/qbytearray.h>
+#include <QtGui/qimage.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qlocale.h>
 #include <QtGui/qquaternion.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -30,6 +31,20 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 17, as local:utils.cpp:NUM_IN_POWER
+#define NUM_IN_POWER(y, x) for (;y<x;y<<=1)
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 18, as local:utils.cpp:MIN_POWER
+#define MIN_POWER 2
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 25, as _ZN5Utils20getNearestPowerOfTwoEj
+inline GLuint Utils::getNearestPowerOfTwo(GLuint value)
+{
+    GLuint powOfTwoValue = MIN_POWER;
+    NUM_IN_POWER(powOfTwoValue, value);
+    return powOfTwoValue;
+}
 
 //  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 32, as _ZN5Utils15vectorFromColorERK6QColor
 inline QVector4D Utils::vectorFromColor(const QColor &color)
@@ -62,6 +77,55 @@ inline QVector4D Utils::getSelection(QPoint mousepos, int height)
                                                                 (void *)pixel);
     QVector4D selectedColor(pixel[0], pixel[1], pixel[2], pixel[3]);
     return selectedColor;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 184, as _ZN5Utils16getGradientImageER15QLinearGradient
+inline QImage Utils::getGradientImage(QLinearGradient &gradient)
+{
+    QImage image(QSize(gradientTextureWidth, gradientTextureHeight), QImage::Format_RGB32);
+    gradient.setFinalStop(qreal(gradientTextureWidth), qreal(gradientTextureHeight));
+    gradient.setStart(0.0, 0.0);
+
+    QPainter pmp(&image);
+    pmp.setBrush(QBrush(gradient));
+    pmp.setPen(Qt::NoPen);
+    pmp.drawRect(0, 0, int(gradientTextureWidth), int(gradientTextureHeight));
+    return image;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 197, as _ZN5Utils14preParseFormatERK7QStringRS0_S3_RiRc
+inline Utils::ParamType Utils::preParseFormat(const QString &format, QString &preStr, QString &postStr,
+                                       int &precision, char &formatSpec)
+{
+    static QRegularExpression formatMatcher(QStringLiteral("^([^%]*)%([\\-\\+#\\s\\d\\.lhjztL]*)([dicuoxfegXFEG])(.*)$"));
+    static QRegularExpression precisionMatcher(QStringLiteral("\\.(\\d+)"));
+
+    Utils::ParamType retVal;
+
+    QRegularExpressionMatch formatMatch = formatMatcher.match(format, 0);
+
+    if (formatMatch.hasMatch()) {
+        preStr = formatMatch.captured(1);
+        // Six and 'g' are defaults in Qt API
+        precision = 6;
+        if (!formatMatch.captured(2).isEmpty()) {
+            QRegularExpressionMatch precisionMatch = precisionMatcher.match(formatMatch.captured(2),
+                                                                            0);
+            if (precisionMatch.hasMatch())
+                precision = precisionMatch.captured(1).toInt();
+        }
+        if (formatMatch.captured(3).isEmpty())
+            formatSpec = 'g';
+        else
+            formatSpec = formatMatch.captured(3).at(0).toLatin1();
+        postStr = formatMatch.captured(4);
+        retVal = mapFormatCharToParamType(formatSpec);
+    } else {
+        retVal = ParamTypeUnknown;
+        // The out parameters are irrelevant in unknown case
+    }
+
+    return retVal;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 248, as _ZN5Utils18formatLabelSprintfERK10QByteArrayNS_9ParamTypeEd
@@ -155,6 +219,12 @@ inline Utils::ParamType Utils::mapFormatCharToParamType(char formatSpec)
 }
 //  -----------------------------------------------------------------------
 
+//  GLuint Utils::getNearestPowerOfTwo(GLuint value)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN5Utils20getNearestPowerOfTwoEj(GLuint value) {
+  return Utils::getNearestPowerOfTwo(value);
+}
+
 //  QVector4D Utils::vectorFromColor(const QColor &color)
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZN5Utils15vectorFromColorERK6QColor(const QColor *color) {
@@ -181,6 +251,30 @@ QVector4D *ritual_ZN5Utils12getSelectionE6QPointi(
     const QPoint *mousepos,
     int height) {
   return new QVector4D(Utils::getSelection(*mousepos, height));
+}
+
+//  QImage Utils::getGradientImage(QLinearGradient &gradient)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN5Utils16getGradientImageER15QLinearGradient(
+    QLinearGradient *gradient) {
+  return new QImage(Utils::getGradientImage(*gradient));
+}
+
+//  ParamType Utils::preParseFormat(const QString &format, QString &preStr,
+//      QString &postStr, int &precision, char &formatSpec)
+extern "C" Q_DECL_EXPORT
+Utils::ParamType ritual_ZN5Utils14preParseFormatERK7QStringRS0_S3_RiRc(
+    const QString *format,
+    QString *preStr,
+    QString *postStr,
+    int *precision,
+    char *formatSpec) {
+  return Utils::preParseFormat(
+      *format,
+      *preStr,
+      *postStr,
+      *precision,
+      *formatSpec);
 }
 
 //  QString Utils::formatLabelSprintf(const QByteArray &format, ParamType

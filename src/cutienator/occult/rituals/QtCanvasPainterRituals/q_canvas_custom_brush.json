@@ -7,6 +7,11 @@
   "rows": {
     "ritual_ZN18QCanvasCustomBrushC1Ev": ["address"],
     "ritual_ZN18QCanvasCustomBrushC1ERKS_": ["address", "address"],
+    "ritual_ZN18QCanvasCustomBrushaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QCanvasCustomBrushC1EOS_": ["address", "address"],
+    "ritual_ZN18QCanvasCustomBrushaSEOS_": ["address", "address", "address"],
     "ritual_ZN18QCanvasCustomBrushD1Ev": ["nothing", "address"],
     "ritual_ZNK18QCanvasCustomBrushcv12QCanvasBrushEv": [
       "address", "address"
@@ -42,10 +47,19 @@
     "ritual_ZN18QCanvasCustomBrush8setData4ERK9QVector4D": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QCanvasCustomBrush4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK18QCanvasCustomBrushS1_": ["bool", "address", "address"],
     "ritual_ZneRK18QCanvasCustomBrushS1_": ["bool", "address", "address"],
     "ritual_ZN18QCanvasCustomBrushC1EP25QCanvasCustomBrushPrivate": [
       "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK18QCanvasCustomBrush": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR18QCanvasCustomBrush": [
+      "address", "address", "address"
     ],
     "ritual_Zls6QDebugRK18QCanvasCustomBrush": [
       "address", "address", "address"

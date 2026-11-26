@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN16QSvgOpacityStyleC1Ed": ["address", "double"],
     "ritual_ZN16QSvgOpacityStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSvgOpacityStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QSvgOpacityStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK16QSvgOpacityStyle4typeEv": ["unsigned char", "address"],
     "ritual_ZNK16QSvgOpacityStyle7opacityEv": ["double", "address"],
     "ritual_ZNK16QSvgOpacityStyle9isDefaultEv": ["bool", "address"],

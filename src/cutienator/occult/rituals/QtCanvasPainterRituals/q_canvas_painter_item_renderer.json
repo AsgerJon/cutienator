@@ -42,8 +42,15 @@
     "ritual_ZN26QCanvasPainterItemRenderer11synchronizeEP13QQuickRhiItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN26QCanvasPainterItemRenderer19beginCanvasPaintingER22QCanvasOffscreenCanvas": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QCanvasPainterItemRenderer17endCanvasPaintingEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer6d_funcEv": ["address", "address"],
+    "ritual_ZNK26QCanvasPainterItemRenderer6d_funcEv": [
+      "address", "address"
     ],
     "ritual_ZN26QCanvasPainterItemRenderer14grabCanvasImplERK22QCanvasOffscreenCanvasPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
       "nothing", "address", "address", "address", "address"

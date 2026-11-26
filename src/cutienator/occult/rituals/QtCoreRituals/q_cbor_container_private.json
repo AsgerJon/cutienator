@@ -1,11 +1,16 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/6.12.0/QtCore/private/qcborvalue_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtCore/6.12.0/QtCore/private/qcborvalue_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN21QCborContainerPrivateC1Ev": ["address"],
+    "ritual_ZN21QCborContainerPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN21QCborContainerPrivateC1EOS_": ["address", "address"],
+    "ritual_ZN21QCborContainerPrivate15addByteDataImplER10QByteArrayRxPKcx": [
+      "long long", "address", "address", "chars", "long long"
+    ],
     "ritual_ZN21QCborContainerPrivate11addByteDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
@@ -51,6 +56,9 @@
     "ritual_ZNK21QCborContainerPrivate15anyStringViewAtEx": [
       "text", "address", "long long"
     ],
+    "ritual_ZN21QCborContainerPrivate10resetValueER10QCborValue": [
+      "nothing", "address"
+    ],
     "ritual_ZN21QCborContainerPrivate9makeValueEN10QCborValue4TypeExPS_NS_20ContainerDispositionE": [
       "address", "int", "long long", "address", "int"
     ],
@@ -59,6 +67,12 @@
     ],
     "ritual_ZN21QCborContainerPrivate16elementFromValueERK10QCborValue": [
       "address", "address"
+    ],
+    "ritual_ZN21QCborContainerPrivate14findCborMapKeyIxEE18QCborValueConstRefT_": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN21QCborContainerPrivate14findCborMapKeyIxEE10QCborValueRKS1_T_": [
+      "address", "address", "long long"
     ]
   }
 }

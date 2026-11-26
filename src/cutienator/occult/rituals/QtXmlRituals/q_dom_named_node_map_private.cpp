@@ -45,6 +45,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/xml/dom/qdom.cpp, line 2681, as _ZN23QDomNamedNodeMapPrivateC1EP15QDomNodePrivate
 #if QT_CONFIG(dom)
 inline QDomNamedNodeMapPrivate::QDomNamedNodeMapPrivate(QDomNodePrivate *pimpl)

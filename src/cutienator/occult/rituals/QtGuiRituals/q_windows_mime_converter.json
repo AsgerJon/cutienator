@@ -8,6 +8,30 @@
     "ritual_ZN21QWindowsMimeConverterD1Ev": ["nothing", "address"],
     "ritual_ZN21QWindowsMimeConverter16registerMimeTypeERK7QString": [
       "int", "text"
+    ],
+    "ritual_ZNK21QWindowsMimeConverter18canConvertFromMimeERK12tagFORMATETCPK9QMimeData": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK21QWindowsMimeConverter15convertFromMimeERK12tagFORMATETCPK9QMimeDataP12tagSTGMEDIUM": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK21QWindowsMimeConverter14formatsForMimeERK7QStringPK9QMimeData": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK21QWindowsMimeConverter16canConvertToMimeERK7QStringP11IDataObject": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZNK21QWindowsMimeConverter13convertToMimeERK7QStringP11IDataObject9QMetaType": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZNK21QWindowsMimeConverter13mimeForFormatERK12tagFORMATETC": [
+      "text", "address", "address"
+    ],
+    "ritual_take_QWindowsMimeConverter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QWindowsMimeConverter__QList_FORMATETC": [
+      "nothing", "address"
     ]
   }
 }

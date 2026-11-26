@@ -8,8 +8,26 @@
     "ritual_ZNK28QPlatformMessageDialogHelper10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QPlatformMessageDialogHelper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QPlatformMessageDialogHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QPlatformMessageDialogHelper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK28QPlatformMessageDialogHelper7optionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QPlatformMessageDialogHelper10setOptionsERK14QSharedPointerI21QMessageDialogOptionsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QPlatformMessageDialogHelper7clickedEN21QPlatformDialogHelper14StandardButtonENS0_10ButtonRoleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN28QPlatformMessageDialogHelper20checkBoxStateChangedEN2Qt10CheckStateE": [
+      "nothing", "address", "int"
     ]
   }
 }

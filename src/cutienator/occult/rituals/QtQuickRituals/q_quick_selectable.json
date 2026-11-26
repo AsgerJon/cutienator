@@ -29,6 +29,9 @@
     "ritual_ZN16QQuickSelectable18scrollTowardsPointERK7QPointFRK6QSizeF": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN16QQuickSelectable11setCallbackESt8functionIFvNS_12CallBackFlagEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QQuickSelectable": ["bool", "address", "chars", "address"]
   }
 }

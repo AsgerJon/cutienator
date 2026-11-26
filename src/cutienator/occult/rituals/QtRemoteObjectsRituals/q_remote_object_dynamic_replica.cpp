@@ -219,6 +219,25 @@ const QMetaObject *ritual_ZNK27QRemoteObjectDynamicReplica10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRemoteObjectDynamicReplica::qt_metacast(const char *name)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QRemoteObjectDynamicReplica11qt_metacastEPKc(
+    QRemoteObjectDynamicReplica *self,
+    const char *name) {
+  return self->qt_metacast(name);
+}
+
+//  int QRemoteObjectDynamicReplica::qt_metacall(QMetaObject::Call call, int
+//      id, void **argv)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QRemoteObjectDynamicReplica11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRemoteObjectDynamicReplica *self,
+    QMetaObject::Call call,
+    int id,
+    void **argv) {
+  return self->qt_metacall(call, id, argv);
+}
+
 //  QRemoteObjectDynamicReplica::QRemoteObjectDynamicReplica()
 extern "C" Q_DECL_EXPORT
 QRemoteObjectDynamicReplica *ritual_ZN27QRemoteObjectDynamicReplicaC1Ev() {

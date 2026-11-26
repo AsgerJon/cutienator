@@ -4,11 +4,22 @@
     "QtGui/qfontdatabase.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QFontDatabase13standardSizesEv": ["address"],
     "ritual_ZN13QFontDatabaseC1Ev": ["address"],
+    "ritual_ZN13QFontDatabase14writingSystemsEv": ["address"],
+    "ritual_ZN13QFontDatabase14writingSystemsERK7QString": [
+      "address", "text"
+    ],
     "ritual_ZN13QFontDatabase8familiesENS_13WritingSystemE": [
       "address", "int"
     ],
     "ritual_ZN13QFontDatabase6stylesERK7QString": ["address", "text"],
+    "ritual_ZN13QFontDatabase10pointSizesERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN13QFontDatabase11smoothSizesERK7QStringS2_": [
+      "address", "text", "text"
+    ],
     "ritual_ZN13QFontDatabase11styleStringERK5QFont": ["text", "address"],
     "ritual_ZN13QFontDatabase11styleStringERK9QFontInfo": [
       "text", "address"
@@ -77,6 +88,10 @@
     "ritual_ZN13QFontDatabase10systemFontENS_10SystemFontE": [
       "address", "int"
     ],
-    "ritual_ZN13QFontDatabaseD1Ev": ["nothing", "address"]
+    "ritual_ZN13QFontDatabaseD1Ev": ["nothing", "address"],
+    "ritual_drop_QFontDatabase__QList_int": ["nothing", "address"],
+    "ritual_drop_QFontDatabase__QList_QFontDatabase_WritingSystem": [
+      "nothing", "address"
+    ]
   }
 }

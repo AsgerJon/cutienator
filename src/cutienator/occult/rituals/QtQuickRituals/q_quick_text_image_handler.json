@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickTextImageHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickTextImageHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickTextImageHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickTextImageHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN22QQuickTextImageHandler13intrinsicSizeEP13QTextDocumentiRK11QTextFormat": [
       "address", "address", "address", "int", "address"

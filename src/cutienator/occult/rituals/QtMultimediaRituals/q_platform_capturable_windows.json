@@ -13,11 +13,17 @@
     "ritual_ZNK26QPlatformCapturableWindows13isWindowValidERK24QCapturableWindowPrivate": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK26QPlatformCapturableWindows11fromQWindowEP7QWindow": [
+      "address", "address", "address"
+    ],
     "ritual_take_QPlatformCapturableWindows": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZNK26QPlatformCapturableWindows13isWindowValidERK24QCapturableWindowPrivate": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QPlatformCapturableWindows__q23_expected_QCapturableWindow_QString": [
+      "nothing", "address"
     ]
   }
 }

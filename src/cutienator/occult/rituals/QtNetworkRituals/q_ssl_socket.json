@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QSslSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSslSocket11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QSslSocket11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QSslSocket2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QSslSocketC1EP7QObject": ["address", "address"],
     "ritual_ZN10QSslSocketD1Ev": ["nothing", "address"],
@@ -107,11 +113,20 @@
     "ritual_ZN10QSslSocket17availableBackendsEv": ["address"],
     "ritual_ZN10QSslSocket13activeBackendEv": ["text"],
     "ritual_ZN10QSslSocket16setActiveBackendERK7QString": ["bool", "text"],
+    "ritual_ZN10QSslSocket18supportedProtocolsERK7QString": [
+      "address", "text"
+    ],
     "ritual_ZN10QSslSocket19isProtocolSupportedEN4QSsl11SslProtocolERK7QString": [
       "bool", "int", "text"
     ],
+    "ritual_ZN10QSslSocket18implementedClassesERK7QString": [
+      "address", "text"
+    ],
     "ritual_ZN10QSslSocket18isClassImplementedEN4QSsl16ImplementedClassERK7QString": [
       "bool", "int", "text"
+    ],
+    "ritual_ZN10QSslSocket17supportedFeaturesERK7QString": [
+      "address", "text"
     ],
     "ritual_ZN10QSslSocket18isFeatureSupportedEN4QSsl16SupportedFeatureERK7QString": [
       "bool", "int", "text"
@@ -125,6 +140,37 @@
     "ritual_ZN10QSslSocket21startClientEncryptionEv": ["nothing", "address"],
     "ritual_ZN10QSslSocket21startServerEncryptionEv": ["nothing", "address"],
     "ritual_ZN10QSslSocket15ignoreSslErrorsEv": ["nothing", "address"],
+    "ritual_ZN10QSslSocket9encryptedEv": ["nothing", "address"],
+    "ritual_ZN10QSslSocket15peerVerifyErrorERK9QSslError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSslSocket9sslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSslSocket11modeChangedENS_7SslModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QSslSocket21encryptedBytesWrittenEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN10QSslSocket34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSslSocket24newSessionTicketReceivedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QSslSocket9alertSentEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ],
+    "ritual_ZN10QSslSocket13alertReceivedEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ],
+    "ritual_ZN10QSslSocket27handshakeInterruptedOnErrorERK9QSslError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSslSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN10QSslSocket8skipDataEx": [
       "long long", "address", "long long"
     ],
@@ -170,8 +216,18 @@
     "ritual_own_ZN10QSslSocket19waitForDisconnectedEi": [
       "bool", "address", "int"
     ],
+    "ritual_own_ZN10QSslSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_own_ZN10QSslSocket8skipDataEx": [
       "long long", "address", "long long"
+    ],
+    "ritual_drop_QSslSocket__QList_QSsl_SslProtocol": ["nothing", "address"],
+    "ritual_drop_QSslSocket__QList_QSsl_ImplementedClass": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSslSocket__QList_QSsl_SupportedFeature": [
+      "nothing", "address"
     ]
   }
 }

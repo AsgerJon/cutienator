@@ -21,6 +21,47 @@ void ritual_ZN21QDBusPendingReplyBaseD1Ev(QDBusPendingReplyBase *self) {
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QDBusPendingReplyBase::QDBusPendingReplyBase(const QDBusPendingReplyBase
+//      &a0)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReplyBase *ritual_ZN21QDBusPendingReplyBaseC1ERKS_(
+    const QDBusPendingReplyBase *a0) {
+  return new QDBusPendingReplyBase(*a0);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QDBusPendingReplyBase &QDBusPendingReplyBase::operator=(const
+//      QDBusPendingReplyBase &a0)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReplyBase *ritual_ZN21QDBusPendingReplyBaseaSERKS_(
+    QDBusPendingReplyBase *self,
+    const QDBusPendingReplyBase *a0) {
+  return &(self->operator=(*a0));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QDBusPendingReplyBase::QDBusPendingReplyBase(QDBusPendingReplyBase &&a0)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReplyBase *ritual_ZN21QDBusPendingReplyBaseC1EOS_(
+    QDBusPendingReplyBase *a0) {
+  return new QDBusPendingReplyBase(std::move(*a0));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QDBusPendingReplyBase
+//      &QDBusPendingReplyBase::operator=(QDBusPendingReplyBase &&a0)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReplyBase *ritual_ZN21QDBusPendingReplyBaseaSEOS_(
+    QDBusPendingReplyBase *self,
+    QDBusPendingReplyBase *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
 //  void QDBusPendingReplyBase::assign(const QDBusPendingCall &call)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QDBusPendingReplyBase6assignERK16QDBusPendingCall(

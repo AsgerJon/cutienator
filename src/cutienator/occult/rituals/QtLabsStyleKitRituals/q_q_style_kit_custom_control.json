@@ -8,6 +8,15 @@
     "ritual_ZNK23QQStyleKitCustomControl10metaObjectEv": [
       "address", "address"
     ],
-    "ritual_ZNK23QQStyleKitCustomControl11controlTypeEv": ["int", "address"]
+    "ritual_ZN23QQStyleKitCustomControl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQStyleKitCustomControl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK23QQStyleKitCustomControl11controlTypeEv": ["int", "address"],
+    "ritual_ZN23QQStyleKitCustomControl18controlTypeChangedEv": [
+      "nothing", "address"
+    ]
   }
 }

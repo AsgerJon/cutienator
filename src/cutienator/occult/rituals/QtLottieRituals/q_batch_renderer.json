@@ -6,9 +6,27 @@
   ],
   "rows": {
     "ritual_ZNK14QBatchRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QBatchRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QBatchRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QBatchRendererD1Ev": ["nothing", "address"],
     "ritual_ZN14QBatchRenderer8getFrameEP16QLottieAnimationi": [
       "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QBatchRenderer10frameReadyEP16QLottieAnimationi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QBatchRenderer16registerAnimatorEP16QLottieAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBatchRenderer18deregisterAnimatorEP16QLottieAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBatchRenderer13frameRenderedEP16QLottieAnimationi": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_ZN14QBatchRenderer3runEv": ["nothing", "address"],
     "ritual_take_QBatchRenderer": ["bool", "address", "chars", "address"]

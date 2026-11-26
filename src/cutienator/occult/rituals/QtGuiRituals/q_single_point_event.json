@@ -4,6 +4,8 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QSinglePointEventC1ERKS_": ["address", "address"],
+    "ritual_ZN17QSinglePointEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK17QSinglePointEvent5cloneEv": ["address", "address"],
     "ritual_ZN17QSinglePointEventD1Ev": ["nothing", "address"],
     "ritual_ZNK17QSinglePointEvent6buttonEv": ["int", "address"],

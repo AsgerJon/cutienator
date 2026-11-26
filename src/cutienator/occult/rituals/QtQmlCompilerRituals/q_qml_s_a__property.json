@@ -6,7 +6,20 @@
   "rows": {
     "ritual_ZN6QQmlSA8Property6d_funcEv": ["address", "address"],
     "ritual_ZNK6QQmlSA8Property6d_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA8PropertyC1Ev": ["address"],
+    "ritual_ZN6QQmlSA8PropertyC1ERKS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA8PropertyC1EOS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA8PropertyaSERKS0_": ["address", "address", "address"],
+    "ritual_ZN6QQmlSA8PropertyaSEOS0_": ["address", "address", "address"],
+    "ritual_ZN6QQmlSA8PropertyD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA8Property8typeNameEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA8Property7isValidEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA8Property10isReadonlyEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA8Property4typeEv": ["address", "address"],
     "ritual_ZN6QQmlSAeqERKNS_8PropertyES2_": ["bool", "address", "address"],
-    "ritual_ZN6QQmlSAneERKNS_8PropertyES2_": ["bool", "address", "address"]
+    "ritual_ZN6QQmlSAneERKNS_8PropertyES2_": ["bool", "address", "address"],
+    "ritual_ZN6QQmlSA8Property18operatorEqualsImplERKS0_S2_": [
+      "bool", "address", "address"
+    ]
   }
 }

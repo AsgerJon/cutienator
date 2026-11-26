@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN32QSSGPipelineStateOverrideCommandC1Ev": ["address"],
+    "ritual_ZNK32QSSGPipelineStateOverrideCommand8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN32QSSGPipelineStateOverrideCommandD1Ev": ["nothing", "address"]
   }
 }

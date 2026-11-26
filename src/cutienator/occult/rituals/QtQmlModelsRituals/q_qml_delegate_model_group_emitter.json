@@ -20,6 +20,15 @@
     ],
     "ritual_take_QQmlDelegateModelGroupEmitter": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QQmlDelegateModelGroupEmitter14createdPackageEiP13QQuickPackage": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN29QQmlDelegateModelGroupEmitter11initPackageEiP13QQuickPackage": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN29QQmlDelegateModelGroupEmitter17destroyingPackageEP13QQuickPackage": [
+      "nothing", "address", "address"
     ]
   }
 }

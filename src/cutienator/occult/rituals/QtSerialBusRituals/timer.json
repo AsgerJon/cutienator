@@ -6,9 +6,14 @@
   ],
   "rows": {
     "ritual_ZNK5Timer10metaObjectEv": ["address", "address"],
+    "ritual_ZN5Timer11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN5Timer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN5Timer5startEi": ["int", "address", "int"],
     "ritual_ZN5Timer4stopEv": ["nothing", "address"],
     "ritual_ZNK5Timer8isActiveEv": ["bool", "address"],
+    "ritual_ZN5Timer7timeoutEi": ["nothing", "address", "int"],
     "ritual_ZN5Timer10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ]

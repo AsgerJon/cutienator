@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN25QWidgetTextControlPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QWidgetTextControlPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QWidgetTextControlPrivateC1Ev": ["address"],
     "ritual_ZN25QWidgetTextControlPrivate23updateCurrentCharFormatEv": [
       "nothing", "address"
     ],
@@ -86,6 +87,17 @@
     ],
     "ritual_ZN25QWidgetTextControlPrivate22resetHighlightedAnchorEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate15mousePressEventEP6QEventN2Qt11MouseButtonERK7QPointF6QFlagsINS2_16KeyboardModifierEES7_IS3_ES6_": [
+      "nothing", "address", "address", "int", "address", "int", "int",
+      "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate14mouseMoveEventEP6QEventN2Qt11MouseButtonERK7QPointF6QFlagsINS2_16KeyboardModifierEES7_IS3_ES6_": [
+      "nothing", "address", "address", "int", "address", "int", "int",
+      "address"
     ],
     "ritual_ZN25QWidgetTextControlPrivate17mouseReleaseEventEP6QEventN2Qt11MouseButtonERK7QPointF6QFlagsINS2_16KeyboardModifierEES7_IS3_ES6_": [
       "nothing", "address", "address", "int", "address", "int", "int",

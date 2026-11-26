@@ -111,6 +111,9 @@
     "ritual_ZN15QPlatformWindow17invalidateSurfaceEv": [
       "nothing", "address"
     ],
+    "ritual_ZN15QPlatformWindow15initialGeometryEPK7QWindowRK5QRectiiPPK7QScreen": [
+      "address", "address", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QPlatformWindow13requestUpdateEv": ["nothing", "address"],
     "ritual_ZNK15QPlatformWindow23hasPendingUpdateRequestEv": [
       "bool", "address"

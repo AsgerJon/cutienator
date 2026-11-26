@@ -15,6 +15,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qcborarray.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QMultiMap>
+#include <QtCore/QString>
 
 //  QString QFactoryLoader::tr(const char *sourceText, const char
 //      *disambiguation, int n)
@@ -90,6 +92,13 @@ void ritual_ZN14QFactoryLoader18setExtraSearchPathERK7QString(
   self->setExtraSearchPath(*path);
 }
 
+//  QMultiMap<int, QString> QFactoryLoader::keyMap() const
+extern "C" Q_DECL_EXPORT
+QMultiMap<int, QString> *ritual_ZNK14QFactoryLoader6keyMapEv(
+    const QFactoryLoader *self) {
+  return new QMultiMap<int, QString>(self->keyMap());
+}
+
 //  int QFactoryLoader::indexOf(const QString &needle) const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK14QFactoryLoader7indexOfERK7QString(
@@ -118,6 +127,13 @@ QObject *ritual_ZNK14QFactoryLoader8instanceEi(
     const QFactoryLoader *self,
     int index) {
   return self->instance(index);
+}
+
+//  a QMultiMap<int, QString> a ritual of QFactoryLoader gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFactoryLoader__QMultiMap_int_QString(
+    QMultiMap<int, QString> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_QOBJECT)

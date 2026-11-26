@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN8QDomNodeC1Ev": ["address"],
     "ritual_ZN8QDomNodeC1ERKS_": ["address", "address"],
+    "ritual_ZN8QDomNodeaSERKS_": ["address", "address", "address"],
     "ritual_ZNK8QDomNodeeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK8QDomNodeneERKS_": ["bool", "address", "address"],
     "ritual_ZN8QDomNodeD1Ev": ["nothing", "address"],
@@ -82,6 +83,9 @@
     "ritual_ZNK8QDomNode23toProcessingInstructionEv": ["address", "address"],
     "ritual_ZNK8QDomNode15toCharacterDataEv": ["address", "address"],
     "ritual_ZNK8QDomNode9toCommentEv": ["address", "address"],
+    "ritual_ZNK8QDomNode4saveER11QTextStreamiNS_14EncodingPolicyE": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZNK8QDomNode17firstChildElementERK7QStringS2_": [
       "address", "address", "text", "text"
     ],

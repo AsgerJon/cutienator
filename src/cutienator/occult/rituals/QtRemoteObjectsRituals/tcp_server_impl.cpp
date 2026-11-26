@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/private/qconnection_tcpip_backend_p.h>
 #include <QtNetwork/qhostinfo.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -28,6 +29,13 @@ inline TcpServerIo::TcpServerIo(QTcpSocket *conn, QObject *parent)
     connect(conn, &QAbstractSocket::disconnected, this, &QtROServerIoDevice::disconnected);
 }
 
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
+{
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_tcpip_backend.cpp, line 121, as _ZN13TcpServerImplD1Ev
 inline TcpServerImpl::~TcpServerImpl()
 {
@@ -44,6 +52,32 @@ inline bool TcpServerImpl::hasPendingConnections() const
 inline QUrl TcpServerImpl::address() const
 {
     return m_originalUrl;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_tcpip_backend.cpp, line 144, as _ZN13TcpServerImpl6listenERK4QUrl
+inline bool TcpServerImpl::listen(const QUrl &address)
+{
+    QHostAddress host(address.host());
+    if (host.isNull()) {
+        if (address.host().isEmpty()) {
+            host = QHostAddress::Any;
+        } else {
+            qCWarning(QT_REMOTEOBJECT) << address.host() << " is not an IP address, trying to resolve it";
+            QHostInfo info = QHostInfo::fromName(address.host());
+            if (info.addresses().isEmpty())
+                host = QHostAddress::Any;
+            else
+                host = info.addresses().constFirst();
+        }
+    }
+
+    bool ret = m_server.listen(host, quint16(address.port()));
+    if (ret) {
+        m_originalUrl.setScheme(QLatin1String("tcp"));
+        m_originalUrl.setHost(m_server.serverAddress().toString());
+        m_originalUrl.setPort(m_server.serverPort());
+    }
+    return ret;
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_tcpip_backend.cpp, line 169, as _ZNK13TcpServerImpl11serverErrorEv
@@ -76,6 +110,14 @@ bool ritual_ZNK13TcpServerImpl21hasPendingConnectionsEv(
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK13TcpServerImpl7addressEv(const TcpServerImpl *self) {
   return new QUrl(self->address());
+}
+
+//  bool TcpServerImpl::listen(const QUrl &address)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13TcpServerImpl6listenERK4QUrl(
+    TcpServerImpl *self,
+    const QUrl *address) {
+  return self->listen(*address);
 }
 
 //  QAbstractSocket::SocketError TcpServerImpl::serverError() const

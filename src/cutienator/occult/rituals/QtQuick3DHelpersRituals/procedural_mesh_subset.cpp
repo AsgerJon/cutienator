@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK20ProceduralMeshSubset10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ProceduralMeshSubset::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20ProceduralMeshSubset11qt_metacastEPKc(
+    ProceduralMeshSubset *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ProceduralMeshSubset::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20ProceduralMeshSubset11qt_metacallEN11QMetaObject4CallEiPPv(
+    ProceduralMeshSubset *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ProceduralMeshSubset::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20ProceduralMeshSubset2trEPKcS1_i(
@@ -67,4 +86,31 @@ void ritual_ZN20ProceduralMeshSubset7setNameERK7QString(
     ProceduralMeshSubset *self,
     const QString *newName) {
   self->setName(*newName);
+}
+
+//  void ProceduralMeshSubset::offsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ProceduralMeshSubset13offsetChangedEv(
+    ProceduralMeshSubset *self) {
+  self->offsetChanged();
+}
+
+//  void ProceduralMeshSubset::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ProceduralMeshSubset12countChangedEv(
+    ProceduralMeshSubset *self) {
+  self->countChanged();
+}
+
+//  void ProceduralMeshSubset::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ProceduralMeshSubset11nameChangedEv(
+    ProceduralMeshSubset *self) {
+  self->nameChanged();
+}
+
+//  void ProceduralMeshSubset::isDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20ProceduralMeshSubset7isDirtyEv(ProceduralMeshSubset *self) {
+  self->isDirty();
 }

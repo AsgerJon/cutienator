@@ -180,6 +180,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput9QKeyEvent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QKeyEvent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput9QKeyEvent11qt_metacastEPKc(
+    Qt3DInput::QKeyEvent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QKeyEvent::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput9QKeyEvent11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QKeyEvent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QKeyEvent::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DInput9QKeyEvent2trEPKcS2_i(
@@ -187,6 +206,32 @@ QString *ritual_ZN9Qt3DInput9QKeyEvent2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QKeyEvent::tr(s, c, n));
+}
+
+//  Qt3DInput::QKeyEvent::QKeyEvent(QEvent::Type type, int key,
+//      Qt::KeyboardModifiers modifiers, const QString &text, bool autorep,
+//      ushort count)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QKeyEvent *ritual_ZN9Qt3DInput9QKeyEventC1EN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt(
+    QEvent::Type type,
+    int key,
+    int modifiers,
+    const QString *text,
+    bool autorep,
+    ushort count) {
+  return new CuteQt3DInput_QKeyEvent(
+      type,
+      key,
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
+      *text,
+      autorep,
+      count);
+}
+
+//  Qt3DInput::QKeyEvent::~QKeyEvent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput9QKeyEventD1Ev(Qt3DInput::QKeyEvent *self) {
+  delete self;
 }
 
 //  int Qt3DInput::QKeyEvent::key() const

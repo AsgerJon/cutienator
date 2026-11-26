@@ -25,6 +25,25 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/io/qfilesystemengine.cpp, line 100, as local:qfilesystemengine.cpp:_q_checkEntry
+static inline bool _q_checkEntry(QFileSystemEntry &entry, QFileSystemMetaData &data, bool resolvingEntry)
+{
+    if (resolvingEntry) {
+        if (!QFileSystemEngine::fillMetaData(entry, data, QFileSystemMetaData::ExistsAttribute)
+                || !data.exists()) {
+            data.clear();
+            return false;
+        }
+    }
+
+    return true;
+}
+
+//  from src/corelib/io/qfilesystementry.cpp, line 21, as local:qfilesystementry.cpp:Uninitialized
+constexpr int Uninitialized = -2;
+
 //  from src/corelib/io/qfilesystementry.cpp, line 46, as _ZN16QFileSystemEntryC1Ev
 inline QFileSystemEntry::QFileSystemEntry()
     : m_lastSeparator(-1),
@@ -112,6 +131,15 @@ inline QString QFileSystemEntry::filePath() const
     return m_filePath;
 }
 
+//  from src/corelib/io/qfilesystementry.cpp, line 319, as _ZNK16QFileSystemEntry17findLastSeparatorEv
+inline void QFileSystemEntry::findLastSeparator() const
+{
+    if (m_lastSeparator == Uninitialized) {
+        resolveFilePath();
+        m_lastSeparator = m_filePath.lastIndexOf(u'/');
+    }
+}
+
 //  from src/corelib/io/qfilesystementry.cpp, line 112, as _ZNK16QFileSystemEntry15resolveFilePathEv
 #if defined(Q_OS_LINUX)
 inline void QFileSystemEntry::resolveFilePath() const
@@ -139,6 +167,29 @@ QDirEntryInfo *ritual_ZN13QDirEntryInfoC1EPK27QAbstractFileEngineIterator(
     const QAbstractFileEngineIterator *iterator) {
   return new QDirEntryInfo(iterator);
 }
+
+//  QDirEntryInfo::QDirEntryInfo(QFileSystemEntry &&e, QFileSystemMetaData
+//      &&md)
+extern "C" Q_DECL_EXPORT
+QDirEntryInfo *ritual_ZN13QDirEntryInfoC1EO16QFileSystemEntryO19QFileSystemMetaData(
+    QFileSystemEntry *e,
+    QFileSystemMetaData *md) {
+  return new QDirEntryInfo(std::move(*e), std::move(*md));
+}
+
+//  QDirEntryInfo::QDirEntryInfo(QFileInfo &&info)
+extern "C" Q_DECL_EXPORT
+QDirEntryInfo *ritual_ZN13QDirEntryInfoC1EO9QFileInfo(QFileInfo *info) {
+  return new QDirEntryInfo(std::move(*info));
+}
+
+#if defined(Q_OS_LINUX)
+//  QString QDirEntryInfo::fileName()
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN13QDirEntryInfo8fileNameEv(QDirEntryInfo *self) {
+  return new QString(self->fileName());
+}
+#endif  // defined(Q_OS_LINUX)
 
 #if defined(Q_OS_LINUX)
 //  QString QDirEntryInfo::filePath()

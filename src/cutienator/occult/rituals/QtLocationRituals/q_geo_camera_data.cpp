@@ -21,10 +21,40 @@ QGeoCameraData *ritual_ZN14QGeoCameraDataC1ERKS_(
   return new QGeoCameraData(*other);
 }
 
+//  QGeoCameraData::QGeoCameraData(QGeoCameraData &&other)
+extern "C" Q_DECL_EXPORT
+QGeoCameraData *ritual_ZN14QGeoCameraDataC1EOS_(QGeoCameraData *other) {
+  return new QGeoCameraData(std::move(*other));
+}
+
 //  QGeoCameraData::~QGeoCameraData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QGeoCameraDataD1Ev(QGeoCameraData *self) {
   delete self;
+}
+
+//  QGeoCameraData &QGeoCameraData::operator=(const QGeoCameraData &other)
+extern "C" Q_DECL_EXPORT
+QGeoCameraData *ritual_ZN14QGeoCameraDataaSERKS_(
+    QGeoCameraData *self,
+    const QGeoCameraData *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoCameraData &QGeoCameraData::operator=(QGeoCameraData &&other)
+extern "C" Q_DECL_EXPORT
+QGeoCameraData *ritual_ZN14QGeoCameraDataaSEOS_(
+    QGeoCameraData *self,
+    QGeoCameraData *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoCameraData::swap(QGeoCameraData &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGeoCameraData4swapERS_(
+    QGeoCameraData *self,
+    QGeoCameraData *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoCameraData &lhs, const QGeoCameraData &rhs)

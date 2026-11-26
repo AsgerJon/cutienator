@@ -8,6 +8,12 @@
     "ritual_ZNK26QQuickLabsPlatformMenuItem10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQuickLabsPlatformMenuItem20qmlExtendedNamespaceEv": [
       "address"
     ],
@@ -45,6 +51,52 @@
     ],
     "ritual_ZNK26QQuickLabsPlatformMenuItem4fontEv": ["address", "address"],
     "ritual_ZNK26QQuickLabsPlatformMenuItem4iconEv": ["address", "address"],
+    "ritual_ZN26QQuickLabsPlatformMenuItem6toggleEv": ["nothing", "address"],
+    "ritual_ZN26QQuickLabsPlatformMenuItem9triggeredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem7hoveredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem11menuChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem14subMenuChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem12groupChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem14enabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem16separatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem16checkableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem14checkedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem11roleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem11textChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem15shortcutChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem11fontChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem11iconChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN26QQuickLabsPlatformMenuItem10classBeginEv": [
       "nothing", "address"
     ],
@@ -53,6 +105,12 @@
     ],
     "ritual_ZN26QQuickLabsPlatformMenuItem5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem8activateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem10updateIconEv": [
+      "nothing", "address"
     ],
     "ritual_ZN26QQuickLabsPlatformMenuItem11addShortcutEv": [
       "nothing", "address"

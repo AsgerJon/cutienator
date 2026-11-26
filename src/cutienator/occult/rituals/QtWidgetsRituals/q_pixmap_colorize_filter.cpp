@@ -241,6 +241,25 @@ const QMetaObject *ritual_ZNK21QPixmapColorizeFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPixmapColorizeFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QPixmapColorizeFilter11qt_metacastEPKc(
+    QPixmapColorizeFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPixmapColorizeFilter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QPixmapColorizeFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPixmapColorizeFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPixmapColorizeFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QPixmapColorizeFilter2trEPKcS1_i(
@@ -248,6 +267,20 @@ QString *ritual_ZN21QPixmapColorizeFilter2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPixmapColorizeFilter::tr(s, c, n));
+}
+
+//  QPixmapColorizeFilterPrivate *QPixmapColorizeFilter::d_func()
+extern "C" Q_DECL_EXPORT
+QPixmapColorizeFilterPrivate *ritual_ZN21QPixmapColorizeFilter6d_funcEv(
+    QPixmapColorizeFilter *self) {
+  return self->d_func();
+}
+
+//  const QPixmapColorizeFilterPrivate *QPixmapColorizeFilter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPixmapColorizeFilterPrivate *ritual_ZNK21QPixmapColorizeFilter6d_funcEv(
+    const QPixmapColorizeFilter *self) {
+  return self->d_func();
 }
 
 //  QPixmapColorizeFilter::QPixmapColorizeFilter(QObject *parent)

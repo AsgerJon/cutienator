@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK17QGraphicsTextItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGraphicsTextItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QGraphicsTextItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QGraphicsTextItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -75,6 +81,12 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK17QGraphicsTextItem10textCursorEv": ["address", "address"],
+    "ritual_ZN17QGraphicsTextItem13linkActivatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QGraphicsTextItem11linkHoveredERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN17QGraphicsTextItem10sceneEventEP6QEvent": [
       "bool", "address", "address"
     ],

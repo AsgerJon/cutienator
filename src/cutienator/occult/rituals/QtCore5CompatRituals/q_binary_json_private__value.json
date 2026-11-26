@@ -9,6 +9,9 @@
     "ritual_ZNK18QBinaryJsonPrivate5Value4dataEPKNS_4BaseE": [
       "chars", "address", "address"
     ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value11usedStorageEPKNS_4BaseE": [
+      "unsigned int", "address", "address"
+    ],
     "ritual_ZNK18QBinaryJsonPrivate5Value9toBooleanEv": ["bool", "address"],
     "ritual_ZNK18QBinaryJsonPrivate5Value8toDoubleEPKNS_4BaseE": [
       "double", "address", "address"
@@ -24,6 +27,15 @@
     ],
     "ritual_ZNK18QBinaryJsonPrivate5Value4baseEPKNS_4BaseE": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value17toScalarJsonValueEPKNS_4BaseE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate5Value15requiredStorageERK16QBinaryJsonValuePb": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate5Value12valueToStoreERK16QBinaryJsonValuej": [
+      "unsigned int", "address", "unsigned int"
     ],
     "ritual_ZN18QBinaryJsonPrivate5Value13setIsLatinKeyEb": [
       "nothing", "address", "bool"

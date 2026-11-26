@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation25QAbstractAnimationPrivateC1ENS_18QAbstractAnimation13AnimationTypeE": [
+      "address", "int"
+    ],
     "ritual_ZN13Qt3DAnimation25QAbstractAnimationPrivate6q_funcEv": [
       "address", "address"
     ],

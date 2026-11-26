@@ -39,6 +39,12 @@
     "ritual_ZN24QNetworkReplyImplPrivate19initCacheSaveDeviceEv": [
       "nothing", "address"
     ],
+    "ritual_ZN24QNetworkReplyImplPrivate17setDownloadBufferE14QSharedPointerIcEx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate17getDownloadBufferEx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN24QNetworkReplyImplPrivate8finishedEv": ["nothing", "address"],
     "ritual_ZN24QNetworkReplyImplPrivate5errorEN13QNetworkReply12NetworkErrorERK7QString": [
       "nothing", "address", "int", "text"

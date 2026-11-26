@@ -10,6 +10,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qmdiarea_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qrect.h>
+
+//  void QMdi::IconTiler::rearrange(QList<QWidget *> &widgets, const QRect
+//      &domain) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK4QMdi9IconTiler9rearrangeER5QListIP7QWidgetERK5QRect(
+    const QMdi::IconTiler *self,
+    QList<QWidget *> *widgets,
+    const QRect *domain) {
+  self->rearrange(*widgets, *domain);
+}
 
 //  Type QMdi::IconTiler::type() const
 extern "C" Q_DECL_EXPORT

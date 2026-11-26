@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK17QQuickViewSection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickViewSection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickViewSection11qt_metacastEPKc(
+    QQuickViewSection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickViewSection::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickViewSection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickViewSection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickViewSection::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickViewSection2trEPKcS1_i(
@@ -101,6 +120,41 @@ void ritual_ZN17QQuickViewSection19setLabelPositioningEi(
     QQuickViewSection *self,
     int pos) {
   self->setLabelPositioning(pos);
+}
+
+//  void QQuickViewSection::sectionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickViewSection15sectionsChangedEv(
+    QQuickViewSection *self) {
+  self->sectionsChanged();
+}
+
+//  void QQuickViewSection::propertyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickViewSection15propertyChangedEv(
+    QQuickViewSection *self) {
+  self->propertyChanged();
+}
+
+//  void QQuickViewSection::criteriaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickViewSection15criteriaChangedEv(
+    QQuickViewSection *self) {
+  self->criteriaChanged();
+}
+
+//  void QQuickViewSection::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickViewSection15delegateChangedEv(
+    QQuickViewSection *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickViewSection::labelPositioningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickViewSection23labelPositioningChangedEv(
+    QQuickViewSection *self) {
+  self->labelPositioningChanged();
 }
 
 #endif  // QT_CONFIG(quick_listview)

@@ -6,6 +6,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <optional>
 
 //  A QWindowCapture that Python can take functions over in. Every QWindowCapture
 //  Python makes is one. Each function below asks the Python
@@ -181,6 +182,24 @@ const QMetaObject *ritual_ZNK14QWindowCapture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWindowCapture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QWindowCapture11qt_metacastEPKc(
+    QWindowCapture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWindowCapture::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QWindowCapture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWindowCapture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWindowCapture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QWindowCapture2trEPKcS1_i(
@@ -250,6 +269,21 @@ QString *ritual_ZNK14QWindowCapture11errorStringEv(
   return new QString(self->errorString());
 }
 
+//  void QWindowCapture::setMaximumFrameRate(std::optional<qreal> frameRate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWindowCapture19setMaximumFrameRateESt8optionalIdE(
+    QWindowCapture *self,
+    const std::optional<qreal> *frameRate) {
+  self->setMaximumFrameRate(*frameRate);
+}
+
+//  std::optional<qreal> QWindowCapture::maximumFrameRate() const
+extern "C" Q_DECL_EXPORT
+std::optional<qreal> *ritual_ZNK14QWindowCapture16maximumFrameRateEv(
+    const QWindowCapture *self) {
+  return new std::optional<qreal>(self->maximumFrameRate());
+}
+
 //  void QWindowCapture::setActive(bool active)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QWindowCapture9setActiveEb(
@@ -268,6 +302,45 @@ void ritual_ZN14QWindowCapture5startEv(QWindowCapture *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QWindowCapture4stopEv(QWindowCapture *self) {
   self->stop();
+}
+
+//  void QWindowCapture::activeChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWindowCapture13activeChangedEb(
+    QWindowCapture *self,
+    bool a0) {
+  self->activeChanged(a0);
+}
+
+//  void QWindowCapture::windowChanged(QCapturableWindow window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWindowCapture13windowChangedE17QCapturableWindow(
+    QWindowCapture *self,
+    const QCapturableWindow *window) {
+  self->windowChanged(*window);
+}
+
+//  void QWindowCapture::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWindowCapture12errorChangedEv(QWindowCapture *self) {
+  self->errorChanged();
+}
+
+//  void QWindowCapture::errorOccurred(QWindowCapture::Error error, const
+//      QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWindowCapture13errorOccurredENS_5ErrorERK7QString(
+    QWindowCapture *self,
+    QWindowCapture::Error error,
+    const QString *errorString) {
+  self->errorOccurred(error, *errorString);
+}
+
+//  void QWindowCapture::maximumFrameRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWindowCapture23maximumFrameRateChangedEv(
+    QWindowCapture *self) {
+  self->maximumFrameRateChanged();
 }
 
 //  void QWindowCapture::setCaptureSession(QMediaCaptureSession
@@ -308,4 +381,11 @@ bool ritual_take_QWindowCapture(
     const char *key,
     void *call) {
   return static_cast<CuteQWindowCapture *>(self)->take(key, call);
+}
+
+//  a std::optional<qreal> a ritual of QWindowCapture gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWindowCapture__std_optional_qreal(
+    std::optional<qreal> *self) {
+  delete self;
 }

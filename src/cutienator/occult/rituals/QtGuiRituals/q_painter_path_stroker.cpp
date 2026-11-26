@@ -2,6 +2,7 @@
 //  QtGui/qpainterpath.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qpainterpath.h>
 #include <QtGui/qpen.h>
+#include <QtCore/QList>
 
 //  QPainterPathStrokerPrivate *QPainterPathStroker::d_func()
 extern "C" Q_DECL_EXPORT
@@ -119,6 +120,21 @@ void ritual_ZN19QPainterPathStroker14setDashPatternEN2Qt8PenStyleE(
   self->setDashPattern(a0);
 }
 
+//  void QPainterPathStroker::setDashPattern(const QList<qreal> &dashPattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPainterPathStroker14setDashPatternERK5QListIdE(
+    QPainterPathStroker *self,
+    const QList<qreal> *dashPattern) {
+  self->setDashPattern(*dashPattern);
+}
+
+//  QList<qreal> QPainterPathStroker::dashPattern() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK19QPainterPathStroker11dashPatternEv(
+    const QPainterPathStroker *self) {
+  return new QList<qreal>(self->dashPattern());
+}
+
 //  void QPainterPathStroker::setDashOffset(qreal offset)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QPainterPathStroker13setDashOffsetEd(
@@ -141,4 +157,10 @@ QPainterPath *ritual_ZNK19QPainterPathStroker12createStrokeERK12QPainterPath(
     const QPainterPathStroker *self,
     const QPainterPath *path) {
   return new QPainterPath(self->createStroke(*path));
+}
+
+//  a QList<qreal> a ritual of QPainterPathStroker gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPainterPathStroker__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

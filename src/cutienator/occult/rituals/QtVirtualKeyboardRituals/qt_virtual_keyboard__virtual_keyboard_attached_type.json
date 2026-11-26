@@ -8,17 +8,29 @@
     "ritual_ZNK17QtVirtualKeyboard27VirtualKeyboardAttachedType10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedTypeC1EP7QObject": [
+      "address", "address"
+    ],
     "ritual_ZNK17QtVirtualKeyboard27VirtualKeyboardAttachedType17extraDictionariesEv": [
       "address", "address"
     ],
     "ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType20setExtraDictionariesERK5QListI7QStringE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType24extraDictionariesChangedEv": [
+      "nothing", "address"
     ]
   }
 }

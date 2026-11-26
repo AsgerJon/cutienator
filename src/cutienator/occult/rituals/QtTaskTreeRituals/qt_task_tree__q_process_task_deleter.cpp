@@ -6,6 +6,20 @@
 #if QT_CONFIG(process)
 #include <QtTaskTree/qprocesstask.h>
 
+//  void QtTaskTree::QProcessTaskDeleter::syncAll()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QtTaskTree19QProcessTaskDeleter7syncAllEv() {
+  QtTaskTree::QProcessTaskDeleter::syncAll();
+}
+
+//  void QtTaskTree::QProcessTaskDeleter::operator()(QProcess *process) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QtTaskTree19QProcessTaskDeleterclEP8QProcess(
+    const QtTaskTree::QProcessTaskDeleter *self,
+    QProcess *process) {
+  self->operator()(process);
+}
+
 //  QtTaskTree::QProcessTaskDeleter::~QProcessTaskDeleter()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QtTaskTree19QProcessTaskDeleterD1Ev(

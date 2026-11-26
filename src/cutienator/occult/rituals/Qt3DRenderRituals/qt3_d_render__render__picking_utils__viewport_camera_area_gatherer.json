@@ -8,7 +8,22 @@
     "ritual_ZN10Qt3DRender6Render12PickingUtils26ViewportCameraAreaGathererC1ERKN8Qt3DCore7QNodeIdE": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render12PickingUtils26ViewportCameraAreaGatherer6gatherEPNS0_14FrameGraphNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12PickingUtils26ViewportCameraAreaGatherer5visitEPNS0_14FrameGraphNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12PickingUtils26ViewportCameraAreaGatherer27gatherUpViewportCameraAreasEPNS0_14FrameGraphNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12PickingUtils26ViewportCameraAreaGatherer8isUniqueERKSt6vectorINS1_25ViewportCameraAreaDetailsESaIS4_EERKS4_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render12PickingUtils26ViewportCameraAreaGathererD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_PickingUtils_ViewportCameraAreaGatherer__std_vector_Qt3DRender_Render_PickingUtils_ViewportCameraAreaDetails": [
       "nothing", "address"
     ]
   }

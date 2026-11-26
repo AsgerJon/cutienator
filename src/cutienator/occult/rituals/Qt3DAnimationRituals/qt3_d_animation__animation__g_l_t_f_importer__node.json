@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter4NodeC1Ev": ["address"],
     "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter4NodeD1Ev": [
       "nothing", "address"
     ]

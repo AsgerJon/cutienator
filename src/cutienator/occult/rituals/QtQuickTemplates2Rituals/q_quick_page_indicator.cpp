@@ -1049,6 +1049,25 @@ const QMetaObject *ritual_ZNK19QQuickPageIndicator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPageIndicator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickPageIndicator11qt_metacastEPKc(
+    QQuickPageIndicator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPageIndicator::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickPageIndicator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPageIndicator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPageIndicator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickPageIndicator2trEPKcS1_i(
@@ -1131,6 +1150,34 @@ void ritual_ZN19QQuickPageIndicator11setDelegateEP13QQmlComponent(
   self->setDelegate(delegate);
 }
 
+//  void QQuickPageIndicator::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPageIndicator12countChangedEv(
+    QQuickPageIndicator *self) {
+  self->countChanged();
+}
+
+//  void QQuickPageIndicator::currentIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPageIndicator19currentIndexChangedEv(
+    QQuickPageIndicator *self) {
+  self->currentIndexChanged();
+}
+
+//  void QQuickPageIndicator::interactiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPageIndicator18interactiveChangedEv(
+    QQuickPageIndicator *self) {
+  self->interactiveChanged();
+}
+
+//  void QQuickPageIndicator::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPageIndicator15delegateChangedEv(
+    QQuickPageIndicator *self) {
+  self->delegateChanged();
+}
+
 //  void QQuickPageIndicator::contentItemChange(QQuickItem *newItem,
 //      QQuickItem *oldItem)
 extern "C" Q_DECL_EXPORT
@@ -1159,6 +1206,20 @@ QAccessible::Role ritual_ZNK19QQuickPageIndicator14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickPageIndicatorPrivate *QQuickPageIndicator::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickPageIndicatorPrivate *ritual_ZN19QQuickPageIndicator6d_funcEv(
+    QQuickPageIndicator *self) {
+  return self->d_func();
+}
+
+//  const QQuickPageIndicatorPrivate *QQuickPageIndicator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickPageIndicatorPrivate *ritual_ZNK19QQuickPageIndicator6d_funcEv(
+    const QQuickPageIndicator *self) {
+  return self->d_func();
+}
 
 //  a Python function taken by a CuteQQuickPageIndicator, for the function
 //      named by the key

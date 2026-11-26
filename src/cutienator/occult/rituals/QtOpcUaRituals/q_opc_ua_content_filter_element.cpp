@@ -3,6 +3,10 @@
 //  lost.
 #include <QtOpcUa/qopcuacontentfilterelement.h>
 #include <QtCore/qvariant.h>
+#include <QtOpcUa/qopcuasimpleattributeoperand.h>
+#include <QtOpcUa/qopcuaattributeoperand.h>
+#include <QtOpcUa/qopcualiteraloperand.h>
+#include <QtOpcUa/qopcuaelementoperand.h>
 #include <QtCore/qlist.h>
 
 //  QOpcUaContentFilterElement::QOpcUaContentFilterElement()
@@ -19,6 +23,15 @@ QOpcUaContentFilterElement *ritual_ZN26QOpcUaContentFilterElementC1ERKS_(
   return new QOpcUaContentFilterElement(*a0);
 }
 
+//  QOpcUaContentFilterElement &QOpcUaContentFilterElement::operator=(const
+//      QOpcUaContentFilterElement &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaContentFilterElement *ritual_ZN26QOpcUaContentFilterElementaSERKS_(
+    QOpcUaContentFilterElement *self,
+    const QOpcUaContentFilterElement *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QVariant QOpcUaContentFilterElement::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK26QOpcUaContentFilterElementcv8QVariantEv(
@@ -31,6 +44,51 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QOpcUaContentFilterElementD1Ev(
     QOpcUaContentFilterElement *self) {
   delete self;
+}
+
+//  QOpcUaContentFilterElement
+//      &QOpcUaContentFilterElement::operator<<(FilterOperator op)
+extern "C" Q_DECL_EXPORT
+QOpcUaContentFilterElement *ritual_ZN26QOpcUaContentFilterElementlsENS_14FilterOperatorE(
+    QOpcUaContentFilterElement *self,
+    QOpcUaContentFilterElement::FilterOperator op) {
+  return &(self->operator<<(op));
+}
+
+//  QOpcUaContentFilterElement &QOpcUaContentFilterElement::operator<<(const
+//      QOpcUaSimpleAttributeOperand &op)
+extern "C" Q_DECL_EXPORT
+QOpcUaContentFilterElement *ritual_ZN26QOpcUaContentFilterElementlsERK28QOpcUaSimpleAttributeOperand(
+    QOpcUaContentFilterElement *self,
+    const QOpcUaSimpleAttributeOperand *op) {
+  return &(self->operator<<(*op));
+}
+
+//  QOpcUaContentFilterElement &QOpcUaContentFilterElement::operator<<(const
+//      QOpcUaAttributeOperand &op)
+extern "C" Q_DECL_EXPORT
+QOpcUaContentFilterElement *ritual_ZN26QOpcUaContentFilterElementlsERK22QOpcUaAttributeOperand(
+    QOpcUaContentFilterElement *self,
+    const QOpcUaAttributeOperand *op) {
+  return &(self->operator<<(*op));
+}
+
+//  QOpcUaContentFilterElement &QOpcUaContentFilterElement::operator<<(const
+//      QOpcUaLiteralOperand &op)
+extern "C" Q_DECL_EXPORT
+QOpcUaContentFilterElement *ritual_ZN26QOpcUaContentFilterElementlsERK20QOpcUaLiteralOperand(
+    QOpcUaContentFilterElement *self,
+    const QOpcUaLiteralOperand *op) {
+  return &(self->operator<<(*op));
+}
+
+//  QOpcUaContentFilterElement &QOpcUaContentFilterElement::operator<<(const
+//      QOpcUaElementOperand &op)
+extern "C" Q_DECL_EXPORT
+QOpcUaContentFilterElement *ritual_ZN26QOpcUaContentFilterElementlsERK20QOpcUaElementOperand(
+    QOpcUaContentFilterElement *self,
+    const QOpcUaElementOperand *op) {
+  return &(self->operator<<(*op));
 }
 
 //  QOpcUaContentFilterElement::FilterOperator
@@ -55,6 +113,13 @@ extern "C" Q_DECL_EXPORT
 QList<QVariant> *ritual_ZNK26QOpcUaContentFilterElement14filterOperandsEv(
     const QOpcUaContentFilterElement *self) {
   return new QList<QVariant>(self->filterOperands());
+}
+
+//  QList<QVariant> &QOpcUaContentFilterElement::filterOperandsRef()
+extern "C" Q_DECL_EXPORT
+QList<QVariant> *ritual_ZN26QOpcUaContentFilterElement17filterOperandsRefEv(
+    QOpcUaContentFilterElement *self) {
+  return &(self->filterOperandsRef());
 }
 
 //  void QOpcUaContentFilterElement::setFilterOperands(const QList<QVariant>

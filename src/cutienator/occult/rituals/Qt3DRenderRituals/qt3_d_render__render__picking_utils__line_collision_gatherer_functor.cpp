@@ -7,10 +7,41 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/pickboundingvolumeutils_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  HitList Qt3DRender::Render::PickingUtils::LineCollisionGathererFunctor::c
+//      omputeHits(const std::vector<Entity *> &entities,
+//      Qt3DRender::QPickingSettings::PickResultMode mode)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::PickingUtils::HitList *ritual_ZN10Qt3DRender6Render12PickingUtils28LineCollisionGathererFunctor11computeHitsERKSt6vectorIPNS0_6EntityESaIS5_EENS_16QPickingSettings14PickResultModeE(
+    Qt3DRender::Render::PickingUtils::LineCollisionGathererFunctor *self,
+    const std::vector<Qt3DRender::Render::Entity *> *entities,
+    Qt3DRender::QPickingSettings::PickResultMode mode) {
+  return new Qt3DRender::Render::PickingUtils::HitList(
+      self->computeHits(
+          *entities,
+          mode));
+}
+
+//  HitList Qt3DRender::Render::PickingUtils::LineCollisionGathererFunctor::p
+//      ick(const Entity *entity) const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::PickingUtils::HitList *ritual_ZNK10Qt3DRender6Render12PickingUtils28LineCollisionGathererFunctor4pickEPKNS0_6EntityE(
+    const Qt3DRender::Render::PickingUtils::LineCollisionGathererFunctor *self,
+    const Qt3DRender::Render::Entity *entity) {
+  return new Qt3DRender::Render::PickingUtils::HitList(self->pick(entity));
+}
+
 //  Qt3DRender::Render::PickingUtils::LineCollisionGathererFunctor::~LineColl
 //      isionGathererFunctor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender6Render12PickingUtils28LineCollisionGathererFunctorD1Ev(
     Qt3DRender::Render::PickingUtils::LineCollisionGathererFunctor *self) {
+  delete self;
+}
+
+//  a Qt3DRender::Render::PickingUtils::HitList a ritual of
+//      Qt3DRender::Render::PickingUtils::LineCollisionGathererFunctor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_PickingUtils_LineCollisionGathererFunctor__Qt3DRender_Render_PickingUtils_HitList(
+    Qt3DRender::Render::PickingUtils::HitList *self) {
   delete self;
 }

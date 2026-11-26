@@ -10,6 +10,9 @@
     "ritual_ZN19QOpcUaQualifiedNameC1EtRK7QString": [
       "address", "unsigned short", "text"
     ],
+    "ritual_ZN19QOpcUaQualifiedNameaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QOpcUaQualifiedNameeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK19QOpcUaQualifiedNamecv8QVariantEv": ["address", "address"],
     "ritual_ZN19QOpcUaQualifiedNameD1Ev": ["nothing", "address"],

@@ -8,9 +8,16 @@
     "ritual_ZNK23QAbstractAnimationTimer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QAbstractAnimationTimer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QAbstractAnimationTimer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QAbstractAnimationTimer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN23QAbstractAnimationTimerC1Ev": ["address"],
     "ritual_ZN23QAbstractAnimationTimerD1Ev": ["nothing", "address"],
     "ritual_ZN23QAbstractAnimationTimer20updateAnimationsTimeEx": [
       "nothing", "address", "long long"

@@ -14,6 +14,9 @@
     "ritual_ZN12QLottieRound16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK12QLottieRound6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK12QLottieRound11acceptsTrimEv": ["bool", "address"],
     "ritual_ZNK12QLottieRound8positionEv": ["address", "address"],
     "ritual_ZNK12QLottieRound6radiusEv": ["double", "address"],

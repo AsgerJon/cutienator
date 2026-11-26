@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK13QCustomSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCustomSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QCustomSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QCustomSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QCustomSeriesC1EP7QObject": ["address", "address"],
     "ritual_ZN13QCustomSeriesD1Ev": ["nothing", "address"],
@@ -32,6 +38,10 @@
     "ritual_ZN13QCustomSeries6insertEx": ["nothing", "address", "long long"],
     "ritual_ZN13QCustomSeries6removeEx": ["nothing", "address", "long long"],
     "ritual_ZN13QCustomSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN13QCustomSeries15delegateChangedEv": ["nothing", "address"],
+    "ritual_ZN13QCustomSeriesC1ER20QCustomSeriesPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QCustomSeries17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN13QCustomSeries14updateDelegateEP10QQuickItemx": [
       "nothing", "address", "address", "long long"
@@ -39,6 +49,8 @@
     "ritual_ZN13QCustomSeries5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN13QCustomSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QCustomSeries6d_funcEv": ["address", "address"],
     "ritual_take_QCustomSeries": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QCustomSeries4typeEv": ["int", "address"],
     "ritual_own_ZN13QCustomSeries17componentCompleteEv": [

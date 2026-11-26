@@ -6,12 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK12QQuickLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickLayout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuickLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuickLayout2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuickLayout24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN12QQuickLayout21qt_qmlMarker_attachedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN12QQuickLayoutC1ER19QQuickLayoutPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN12QQuickLayoutD1Ev": ["nothing", "address"],
     "ritual_ZN12QQuickLayout21qmlAttachedPropertiesEP7QObject": [
@@ -38,6 +47,9 @@
     "ritual_ZNK12QQuickLayout9itemCountEv": ["int", "address"],
     "ritual_ZN12QQuickLayout9rearrangeERK6QSizeF": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout25effectiveSizeHints_helperEP10QQuickItemP6QSizeFPP20QQuickLayoutAttachedb": [
+      "nothing", "address", "address", "address", "bool"
     ],
     "ritual_ZN12QQuickLayout26effectiveSizePolicy_helperEP10QQuickItemN2Qt11OrientationEP20QQuickLayoutAttached": [
       "int", "address", "int", "address"
@@ -80,6 +92,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK12QQuickLayout17_q_dumpLayoutTreeEv": ["nothing", "address"],
+    "ritual_ZNK12QQuickLayout23dumpLayoutTreeRecursiveEiR7QString": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN12QQuickLayout12updatePolishEv": ["nothing", "address"],
     "ritual_ZN12QQuickLayout20invalidateSenderItemEv": [
       "nothing", "address"

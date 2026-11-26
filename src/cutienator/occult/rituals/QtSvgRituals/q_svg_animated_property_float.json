@@ -7,9 +7,13 @@
   "rows": {
     "ritual_ZN25QSvgAnimatedPropertyFloatC1ERK7QString": ["address", "text"],
     "ritual_ZN25QSvgAnimatedPropertyFloatD1Ev": ["nothing", "address"],
+    "ritual_ZN25QSvgAnimatedPropertyFloat9setValuesERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN25QSvgAnimatedPropertyFloat11appendValueEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZNK25QSvgAnimatedPropertyFloat6valuesEv": ["address", "address"],
     "ritual_ZNK25QSvgAnimatedPropertyFloat11interpolateEjd": [
       "nothing", "address", "unsigned int", "double"
     ],
@@ -18,6 +22,9 @@
     ],
     "ritual_own_ZNK25QSvgAnimatedPropertyFloat11interpolateEjd": [
       "nothing", "address", "unsigned int", "double"
+    ],
+    "ritual_drop_QSvgAnimatedPropertyFloat__QList_qreal": [
+      "nothing", "address"
     ]
   }
 }

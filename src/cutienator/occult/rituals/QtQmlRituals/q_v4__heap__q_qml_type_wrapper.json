@@ -5,11 +5,28 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap15QQmlTypeWrapper4initENS1_12TypeNameModeEP7QObjectPK15QQmlTypePrivate": [
+      "nothing", "address", "unsigned char", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap15QQmlTypeWrapper4initENS1_12TypeNameModeEP7QObjectP17QQmlTypeNameCachePK13QQmlImportRef": [
+      "nothing", "address", "unsigned char", "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap15QQmlTypeWrapper7destroyEv": ["nothing", "address"],
+    "ritual_ZNK3QV44Heap15QQmlTypeWrapper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap15QQmlTypeWrapper8metaTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap15QQmlTypeWrapper4typeEv": ["address", "address"],
     "ritual_ZNK3QV44Heap15QQmlTypeWrapper12typeNameModeEv": [
       "unsigned char", "address"
     ],
     "ritual_ZNK3QV44Heap15QQmlTypeWrapper4kindEv": [
       "unsigned char", "address"
+    ],
+    "ritual_ZNK3QV44Heap15QQmlTypeWrapper14queryNamespaceEPKNS_6StringEPNS_15ExecutionEngineE": [
+      "address", "address", "address", "address"
     ]
   }
 }

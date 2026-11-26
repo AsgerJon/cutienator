@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN13DomColorGroupC1Ev": ["address"],
     "ritual_ZN13DomColorGroupD1Ev": ["nothing", "address"],
+    "ritual_ZN13DomColorGroup4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13DomColorGroup5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK13DomColorGroup16elementColorRoleEv": ["address", "address"],
     "ritual_ZN13DomColorGroup19setElementColorRoleERK5QListIP12DomColorRoleE": [
       "nothing", "address", "address"

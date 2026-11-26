@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qguiapplication.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qguiapplication.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, instances of templates of the class: 2. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qguiapplication.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qwindow.h>
@@ -9,9 +11,11 @@
 #include <QtGui/qcursor.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qpalette.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtGui/qguiapplication_platform.h>
 
 //  Only a class built on QGuiApplication may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -246,6 +250,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK15QGuiApplication10metaObjectEv(
     const QGuiApplication *self) {
   return self->metaObject();
+}
+
+//  void *QGuiApplication::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QGuiApplication11qt_metacastEPKc(
+    QGuiApplication *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGuiApplication::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QGuiApplication11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGuiApplication *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QGuiApplication::tr(const char *s, const char *c, int n)
@@ -528,6 +550,16 @@ QPlatformNativeInterface *ritual_ZN15QGuiApplication23platformNativeInterfaceEv(
   return QGuiApplication::platformNativeInterface();
 }
 
+//  QFunctionPointer QGuiApplication::platformFunction(const QByteArray
+//      &function)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QGuiApplication16platformFunctionERK10QByteArray(
+    const QByteArray *function) {
+  return reinterpret_cast<void *>(
+      QGuiApplication::platformFunction(
+          *function));
+}
+
 //  void QGuiApplication::setQuitOnLastWindowClosed(bool quit)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGuiApplication25setQuitOnLastWindowClosedEb(bool quit) {
@@ -612,11 +644,138 @@ bool ritual_ZNK15QGuiApplication15isSavingSessionEv(
 }
 #endif  // !defined(QT_NO_SESSIONMANAGER)
 
+//  void *QGuiApplication::resolveInterface(const char *name, int revision)
+//      const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK15QGuiApplication16resolveInterfaceEPKci(
+    const QGuiApplication *self,
+    const char *name,
+    int revision) {
+  return self->resolveInterface(name, revision);
+}
+
 //  void QGuiApplication::sync()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGuiApplication4syncEv() {
   QGuiApplication::sync();
 }
+
+//  void QGuiApplication::fontDatabaseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication19fontDatabaseChangedEv(
+    QGuiApplication *self) {
+  self->fontDatabaseChanged();
+}
+
+//  void QGuiApplication::screenAdded(QScreen *screen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication11screenAddedEP7QScreen(
+    QGuiApplication *self,
+    QScreen *screen) {
+  self->screenAdded(screen);
+}
+
+//  void QGuiApplication::screenRemoved(QScreen *screen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication13screenRemovedEP7QScreen(
+    QGuiApplication *self,
+    QScreen *screen) {
+  self->screenRemoved(screen);
+}
+
+//  void QGuiApplication::primaryScreenChanged(QScreen *screen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication20primaryScreenChangedEP7QScreen(
+    QGuiApplication *self,
+    QScreen *screen) {
+  self->primaryScreenChanged(screen);
+}
+
+//  void QGuiApplication::lastWindowClosed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication16lastWindowClosedEv(QGuiApplication *self) {
+  self->lastWindowClosed();
+}
+
+//  void QGuiApplication::focusObjectChanged(QObject *focusObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication18focusObjectChangedEP7QObject(
+    QGuiApplication *self,
+    QObject *focusObject) {
+  self->focusObjectChanged(focusObject);
+}
+
+//  void QGuiApplication::focusWindowChanged(QWindow *focusWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication18focusWindowChangedEP7QWindow(
+    QGuiApplication *self,
+    QWindow *focusWindow) {
+  self->focusWindowChanged(focusWindow);
+}
+
+//  void QGuiApplication::applicationStateChanged(Qt::ApplicationState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication23applicationStateChangedEN2Qt16ApplicationStateE(
+    QGuiApplication *self,
+    Qt::ApplicationState state) {
+  self->applicationStateChanged(state);
+}
+
+//  void QGuiApplication::layoutDirectionChanged(Qt::LayoutDirection
+//      direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication22layoutDirectionChangedEN2Qt15LayoutDirectionE(
+    QGuiApplication *self,
+    Qt::LayoutDirection direction) {
+  self->layoutDirectionChanged(direction);
+}
+
+#if !defined(QT_NO_SESSIONMANAGER)
+//  void QGuiApplication::commitDataRequest(QSessionManager &sessionManager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication17commitDataRequestER15QSessionManager(
+    QGuiApplication *self,
+    QSessionManager *sessionManager) {
+  self->commitDataRequest(*sessionManager);
+}
+#endif  // !defined(QT_NO_SESSIONMANAGER)
+
+#if !defined(QT_NO_SESSIONMANAGER)
+//  void QGuiApplication::saveStateRequest(QSessionManager &sessionManager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication16saveStateRequestER15QSessionManager(
+    QGuiApplication *self,
+    QSessionManager *sessionManager) {
+  self->saveStateRequest(*sessionManager);
+}
+#endif  // !defined(QT_NO_SESSIONMANAGER)
+
+//  void QGuiApplication::applicationDisplayNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication29applicationDisplayNameChangedEv(
+    QGuiApplication *self) {
+  self->applicationDisplayNameChanged();
+}
+
+#if QT_DEPRECATED_SINCE(6, 0)
+//  void QGuiApplication::paletteChanged(const QPalette &pal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication14paletteChangedERK8QPalette(
+    QGuiApplication *self,
+    const QPalette *pal) {
+  self->paletteChanged(*pal);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 0)
+
+#if QT_DEPRECATED_SINCE(6, 0)
+//  void QGuiApplication::fontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGuiApplication11fontChangedERK5QFont(
+    QGuiApplication *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  bool QGuiApplication::event(QEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -638,6 +797,13 @@ bool ritual_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP14QPostEventLis
   return self->compressEvent(a0, receiver, a2);
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+//  QGuiApplication::QGuiApplication(QGuiApplicationPrivate &p)
+extern "C" Q_DECL_EXPORT
+QGuiApplication *ritual_ZN15QGuiApplicationC1ER22QGuiApplicationPrivate(
+    QGuiApplicationPrivate *p) {
+  return new CuteQGuiApplication(*p);
+}
 
 //  QGuiApplicationPrivate *QGuiApplication::d_func()
 extern "C" Q_DECL_EXPORT
@@ -696,3 +862,25 @@ bool ritual_own_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP14QPostEven
       a2);
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_CONFIG(xcb)
+//  QNativeInterface::QX11Application
+//      *QGuiApplication::nativeInterface<QNativeInterface::QX11Application>()
+//      const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QX11Application *ritual_ZNK15QGuiApplication15nativeInterfaceIN16QNativeInterface15QX11ApplicationENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QGuiApplication *self) {
+  return self->nativeInterface<QNativeInterface::QX11Application>();
+}
+#endif  // QT_CONFIG(xcb)
+
+#if QT_CONFIG(wayland)
+//  QNativeInterface::QWaylandApplication
+//      *QGuiApplication::nativeInterface<QNativeInterface::QWaylandApplication>()
+//      const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QWaylandApplication *ritual_ZNK15QGuiApplication15nativeInterfaceIN16QNativeInterface19QWaylandApplicationENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QGuiApplication *self) {
+  return self->nativeInterface<QNativeInterface::QWaylandApplication>();
+}
+#endif  // QT_CONFIG(wayland)

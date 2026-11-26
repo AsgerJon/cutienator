@@ -5,6 +5,30 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal31ChangeFormLayoutItemRoleCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal31ChangeFormLayoutItemRoleCommand4initEP7QWidgetNS0_9OperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal31ChangeFormLayoutItemRoleCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal31ChangeFormLayoutItemRoleCommand4undoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal31ChangeFormLayoutItemRoleCommand18possibleOperationsEP28QDesignerFormEditorInterfaceP7QWidget": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal31ChangeFormLayoutItemRoleCommand19managedFormLayoutOfEP28QDesignerFormEditorInterfaceP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal31ChangeFormLayoutItemRoleCommand16reverseOperationENS0_9OperationE": [
+      "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal31ChangeFormLayoutItemRoleCommand11doOperationENS0_9OperationE": [
+      "nothing", "address", "int"
+    ],
     "ritual_own_ZN18qdesigner_internal31ChangeFormLayoutItemRoleCommand4redoEv": [
       "nothing", "address"
     ],

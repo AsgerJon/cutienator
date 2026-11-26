@@ -10,6 +10,8 @@
 #include <QtGui/6.12.0/QtGui/private/qopengl_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
+#include <QtCore/QSet>
+#include <QtCore/QByteArray>
 
 //  QOpenGLExtensionMatcher::QOpenGLExtensionMatcher()
 extern "C" Q_DECL_EXPORT
@@ -25,9 +27,23 @@ bool ritual_ZNK23QOpenGLExtensionMatcher5matchERK10QByteArray(
   return self->match(*extension);
 }
 
+//  QSet<QByteArray> QOpenGLExtensionMatcher::extensions() const
+extern "C" Q_DECL_EXPORT
+QSet<QByteArray> *ritual_ZNK23QOpenGLExtensionMatcher10extensionsEv(
+    const QOpenGLExtensionMatcher *self) {
+  return new QSet<QByteArray>(self->extensions());
+}
+
 //  QOpenGLExtensionMatcher::~QOpenGLExtensionMatcher()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QOpenGLExtensionMatcherD1Ev(QOpenGLExtensionMatcher *self) {
+  delete self;
+}
+
+//  a QSet<QByteArray> a ritual of QOpenGLExtensionMatcher gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLExtensionMatcher__QSet_QByteArray(
+    QSet<QByteArray> *self) {
   delete self;
 }
 

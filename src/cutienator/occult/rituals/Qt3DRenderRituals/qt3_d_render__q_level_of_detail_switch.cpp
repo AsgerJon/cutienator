@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender20QLevelOfDetailSwitch10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QLevelOfDetailSwitch::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender20QLevelOfDetailSwitch11qt_metacastEPKc(
+    Qt3DRender::QLevelOfDetailSwitch *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QLevelOfDetailSwitch::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender20QLevelOfDetailSwitch11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QLevelOfDetailSwitch *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QLevelOfDetailSwitch::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -195,6 +214,22 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QLevelOfDetailSwitch *ritual_ZN10Qt3DRender20QLevelOfDetailSwitchC1EPN8Qt3DCore5QNodeE(
     Qt3DCore::QNode *parent) {
   return new CuteQt3DRender_QLevelOfDetailSwitch(parent);
+}
+
+//  Qt3DRender::QLevelOfDetailSwitch::~QLevelOfDetailSwitch()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QLevelOfDetailSwitchD1Ev(
+    Qt3DRender::QLevelOfDetailSwitch *self) {
+  delete self;
+}
+
+//  Qt3DRender::QLevelOfDetailSwitch::QLevelOfDetailSwitch(QLevelOfDetailPriv
+//      ate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLevelOfDetailSwitch *ritual_ZN10Qt3DRender20QLevelOfDetailSwitchC1ERNS_21QLevelOfDetailPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QLevelOfDetailPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QLevelOfDetailSwitch(*dd, parent);
 }
 
 //  QLevelOfDetailSwitchPrivate *Qt3DRender::QLevelOfDetailSwitch::d_func()

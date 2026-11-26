@@ -6,6 +6,7 @@
 #include <QtNetwork/qocspresponse.h>
 #include <QtNetwork/qsslcertificate.h>
 #include <QtCore/qlist.h>
+#include <QtNetwork/QSslCertificate>
 
 //  QOcspResponse::QOcspResponse()
 extern "C" Q_DECL_EXPORT
@@ -19,10 +20,32 @@ QOcspResponse *ritual_ZN13QOcspResponseC1ERKS_(const QOcspResponse *other) {
   return new QOcspResponse(*other);
 }
 
+//  QOcspResponse::QOcspResponse(QOcspResponse &&other)
+extern "C" Q_DECL_EXPORT
+QOcspResponse *ritual_ZN13QOcspResponseC1EOS_(QOcspResponse *other) {
+  return new QOcspResponse(std::move(*other));
+}
+
 //  QOcspResponse::~QOcspResponse()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QOcspResponseD1Ev(QOcspResponse *self) {
   delete self;
+}
+
+//  QOcspResponse &QOcspResponse::operator=(const QOcspResponse &other)
+extern "C" Q_DECL_EXPORT
+QOcspResponse *ritual_ZN13QOcspResponseaSERKS_(
+    QOcspResponse *self,
+    const QOcspResponse *other) {
+  return &(self->operator=(*other));
+}
+
+//  QOcspResponse &QOcspResponse::operator=(QOcspResponse &&other)
+extern "C" Q_DECL_EXPORT
+QOcspResponse *ritual_ZN13QOcspResponseaSEOS_(
+    QOcspResponse *self,
+    QOcspResponse *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  QOcspCertificateStatus QOcspResponse::certificateStatus() const
@@ -39,11 +62,26 @@ QOcspRevocationReason ritual_ZNK13QOcspResponse16revocationReasonEv(
   return self->revocationReason();
 }
 
+//  class QSslCertificate QOcspResponse::responder() const
+extern "C" Q_DECL_EXPORT
+class QSslCertificate *ritual_ZNK13QOcspResponse9responderEv(
+    const QOcspResponse *self) {
+  return new class QSslCertificate(self->responder());
+}
+
 //  QSslCertificate QOcspResponse::subject() const
 extern "C" Q_DECL_EXPORT
 QSslCertificate *ritual_ZNK13QOcspResponse7subjectEv(
     const QOcspResponse *self) {
   return new QSslCertificate(self->subject());
+}
+
+//  void QOcspResponse::swap(QOcspResponse &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QOcspResponse4swapERS_(
+    QOcspResponse *self,
+    QOcspResponse *other) {
+  self->swap(*other);
 }
 
 //  bool QOcspResponse::isEqual(const QOcspResponse &other) const
@@ -101,6 +139,13 @@ QOcspResponse *ritual_list_at_QOcspResponse(
 //  QList<QOcspResponse>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QOcspResponse(QList<QOcspResponse> *self) {
+  delete self;
+}
+
+//  a class QSslCertificate a ritual of QOcspResponse gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOcspResponse__class_QSslCertificate(
+    class QSslCertificate *self) {
   delete self;
 }
 

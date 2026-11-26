@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCanvasPainter/qcanvascustombrush.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCanvasPainter/qcanvascustombrush.h>
 #include <QtCanvasPainter/qcanvasbrush.h>
 #include <QtCore/qvariant.h>
@@ -11,6 +12,46 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qvectornd.h>
 #include <QtCore/qdebug.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCanvasPainter/qcanvascustombrush.h>
+#include <QtCanvasPainter/private/qcanvascustombrush_p.h>
+#include <QtCore/QFile>
+#include <QtCore/QDebug>
+#include <QtCore/QDataStream>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvascustombrush.cpp, line 538, as _ZN25QCanvasCustomBrushPrivate5cloneEv
+inline QCanvasBrushPrivate *QCanvasCustomBrushPrivate::clone()
+{
+    return new QCanvasCustomBrushPrivate(*this);
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvascustombrush.cpp, line 328, as _ZNK25QCanvasCustomBrushPrivate6equalsERK19QCanvasBrushPrivate
+inline bool QCanvasCustomBrushPrivate::equals(const QCanvasBrushPrivate &other) const noexcept
+{
+    Q_ASSERT(other.type == type);
+    const auto &bd = static_cast<const QCanvasCustomBrushPrivate &>(other);
+
+    if (fragmentShader != bd.fragmentShader
+        || vertexShader != bd.vertexShader
+        || timeRunning != bd.timeRunning
+        || time != bd.time
+        || data[0] != bd.data[0]
+        || data[1] != bd.data[1]
+        || data[2] != bd.data[2]
+        || data[3] != bd.data[3])
+        return false;
+
+    return true;
+}
+//  -----------------------------------------------------------------------
 
 //  QCanvasCustomBrush::QCanvasCustomBrush()
 extern "C" Q_DECL_EXPORT
@@ -23,6 +64,31 @@ extern "C" Q_DECL_EXPORT
 QCanvasCustomBrush *ritual_ZN18QCanvasCustomBrushC1ERKS_(
     const QCanvasCustomBrush *a0) {
   return new QCanvasCustomBrush(*a0);
+}
+
+//  QCanvasCustomBrush &QCanvasCustomBrush::operator=(const
+//      QCanvasCustomBrush &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasCustomBrush *ritual_ZN18QCanvasCustomBrushaSERKS_(
+    QCanvasCustomBrush *self,
+    const QCanvasCustomBrush *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QCanvasCustomBrush::QCanvasCustomBrush(QCanvasCustomBrush &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasCustomBrush *ritual_ZN18QCanvasCustomBrushC1EOS_(
+    QCanvasCustomBrush *a0) {
+  return new QCanvasCustomBrush(std::move(*a0));
+}
+
+//  QCanvasCustomBrush &QCanvasCustomBrush::operator=(QCanvasCustomBrush
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasCustomBrush *ritual_ZN18QCanvasCustomBrushaSEOS_(
+    QCanvasCustomBrush *self,
+    QCanvasCustomBrush *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  QCanvasCustomBrush::~QCanvasCustomBrush()
@@ -124,6 +190,14 @@ void ritual_ZN18QCanvasCustomBrush8setData4ERK9QVector4D(
   self->setData4(*data);
 }
 
+//  void QCanvasCustomBrush::swap(QCanvasCustomBrush &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QCanvasCustomBrush4swapERS_(
+    QCanvasCustomBrush *self,
+    QCanvasCustomBrush *other) {
+  self->swap(*other);
+}
+
 //  bool operator==(const QCanvasCustomBrush &lhs, const QCanvasCustomBrush
 //      &rhs)
 extern "C" Q_DECL_EXPORT
@@ -148,6 +222,26 @@ QCanvasCustomBrush *ritual_ZN18QCanvasCustomBrushC1EP25QCanvasCustomBrushPrivate
     QCanvasCustomBrushPrivate *p) {
   return new QCanvasCustomBrush(p);
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QCanvasCustomBrush &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK18QCanvasCustomBrush(
+    QDataStream *a0,
+    const QCanvasCustomBrush *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QCanvasCustomBrush &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR18QCanvasCustomBrush(
+    QDataStream *a0,
+    QCanvasCustomBrush *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 #if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug a0, const QCanvasCustomBrush &a1)

@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK26QQuickFlickableVisibleArea10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFlickableVisibleArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickFlickableVisibleArea11qt_metacastEPKc(
+    QQuickFlickableVisibleArea *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFlickableVisibleArea::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickFlickableVisibleArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFlickableVisibleArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFlickableVisibleArea::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -73,4 +92,36 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QQuickFlickableVisibleArea13updateVisibleEv(
     QQuickFlickableVisibleArea *self) {
   self->updateVisible();
+}
+
+//  void QQuickFlickableVisibleArea::xPositionChanged(qreal xPosition)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickFlickableVisibleArea16xPositionChangedEd(
+    QQuickFlickableVisibleArea *self,
+    qreal xPosition) {
+  self->xPositionChanged(xPosition);
+}
+
+//  void QQuickFlickableVisibleArea::yPositionChanged(qreal yPosition)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickFlickableVisibleArea16yPositionChangedEd(
+    QQuickFlickableVisibleArea *self,
+    qreal yPosition) {
+  self->yPositionChanged(yPosition);
+}
+
+//  void QQuickFlickableVisibleArea::widthRatioChanged(qreal widthRatio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickFlickableVisibleArea17widthRatioChangedEd(
+    QQuickFlickableVisibleArea *self,
+    qreal widthRatio) {
+  self->widthRatioChanged(widthRatio);
+}
+
+//  void QQuickFlickableVisibleArea::heightRatioChanged(qreal heightRatio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickFlickableVisibleArea18heightRatioChangedEd(
+    QQuickFlickableVisibleArea *self,
+    qreal heightRatio) {
+  self->heightRatioChanged(heightRatio);
 }

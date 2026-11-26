@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickLabsPlatformMenu10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickLabsPlatformMenu11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickLabsPlatformMenu20qmlExtendedNamespaceEv": ["address"],
     "ritual_ZN22QQuickLabsPlatformMenu30qt_qmlMarker_extendedNamespaceEv": [
       "nothing", "address"
@@ -27,11 +33,84 @@
     "ritual_ZNK22QQuickLabsPlatformMenu4typeEv": ["int", "address"],
     "ritual_ZNK22QQuickLabsPlatformMenu5titleEv": ["text", "address"],
     "ritual_ZNK22QQuickLabsPlatformMenu4fontEv": ["address", "address"],
+    "ritual_ZN22QQuickLabsPlatformMenu7addItemEP26QQuickLabsPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu10removeItemEP26QQuickLabsPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu7addMenuEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu10removeMenuEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu5clearEv": ["nothing", "address"],
+    "ritual_ZN22QQuickLabsPlatformMenu4openEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QQuickLabsPlatformMenu5closeEv": ["nothing", "address"],
+    "ritual_ZN22QQuickLabsPlatformMenu11aboutToShowEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu11aboutToHideEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu12itemsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu14menuBarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu17parentMenuChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu21systemTrayIconChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu12titleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu14enabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu19minimumWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu11fontChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu11typeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu11iconChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN22QQuickLabsPlatformMenu10classBeginEv": [
       "nothing", "address"
     ],
     "ritual_ZN22QQuickLabsPlatformMenu17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu10data_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu7data_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu10data_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu11items_countEP16QQmlListPropertyI26QQuickLabsPlatformMenuItemE": [
+      "long long", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu8items_atEP16QQmlListPropertyI26QQuickLabsPlatformMenuItemEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu10updateIconEv": [
       "nothing", "address"
     ],
     "ritual_cast_QQuickLabsPlatformMenu_QQmlParserStatus": [
@@ -41,6 +120,12 @@
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN22QQuickLabsPlatformMenu10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickLabsPlatformMenu__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickLabsPlatformMenu__QQmlListProperty_QQuickLabsPlatformMenuItem": [
       "nothing", "address"
     ]
   }

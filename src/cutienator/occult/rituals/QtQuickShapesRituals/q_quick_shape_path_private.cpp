@@ -49,6 +49,14 @@ void ritual_ZN22QQuickShapePathPrivate20_q_fillItemDestroyedEv(
   self->_q_fillItemDestroyed();
 }
 
+//  void QQuickShapePathPrivate::writeToDebugStream(QDebug &debug) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK22QQuickShapePathPrivate18writeToDebugStreamER6QDebug(
+    const QQuickShapePathPrivate *self,
+    QDebug *debug) {
+  self->writeToDebugStream(*debug);
+}
+
 //  QQuickShapePathPrivate *QQuickShapePathPrivate::get(QQuickShapePath *p)
 extern "C" Q_DECL_EXPORT
 QQuickShapePathPrivate *ritual_ZN22QQuickShapePathPrivate3getEP15QQuickShapePath(

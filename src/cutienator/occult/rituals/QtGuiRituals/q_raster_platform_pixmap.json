@@ -15,7 +15,13 @@
     "ritual_ZN21QRasterPlatformPixmap6resizeEii": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN21QRasterPlatformPixmap8fromDataEPKhjPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "bool", "address", "address", "unsigned int", "chars", "int"
+    ],
     "ritual_ZN21QRasterPlatformPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap16fromImageInPlaceER6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
       "nothing", "address", "address", "int"
     ],
     "ritual_ZN21QRasterPlatformPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19ImageConversionFlagEE": [

@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DInput/Qt3DInput>
 
 //  A Qt3DInput::QAxis that Python can take functions over in. Every Qt3DInput::QAxis
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput5QAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput5QAxis11qt_metacastEPKc(
+    Qt3DInput::QAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QAxis::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput5QAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DInput5QAxis2trEPKcS2_i(
@@ -186,6 +207,56 @@ QString *ritual_ZN9Qt3DInput5QAxis2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QAxis::tr(s, c, n));
+}
+
+//  Qt3DInput::QAxis::QAxis(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAxis *ritual_ZN9Qt3DInput5QAxisC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QAxis(parent);
+}
+
+//  Qt3DInput::QAxis::~QAxis()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput5QAxisD1Ev(Qt3DInput::QAxis *self) {
+  delete self;
+}
+
+//  void Qt3DInput::QAxis::addInput(QAbstractAxisInput *input)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput5QAxis8addInputEPNS_18QAbstractAxisInputE(
+    Qt3DInput::QAxis *self,
+    Qt3DInput::QAbstractAxisInput *input) {
+  self->addInput(input);
+}
+
+//  void Qt3DInput::QAxis::removeInput(QAbstractAxisInput *input)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput5QAxis11removeInputEPNS_18QAbstractAxisInputE(
+    Qt3DInput::QAxis *self,
+    Qt3DInput::QAbstractAxisInput *input) {
+  self->removeInput(input);
+}
+
+//  QList<QAbstractAxisInput *> Qt3DInput::QAxis::inputs() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DInput::QAbstractAxisInput *> *ritual_ZNK9Qt3DInput5QAxis6inputsEv(
+    const Qt3DInput::QAxis *self) {
+  return new QList<Qt3DInput::QAbstractAxisInput *>(self->inputs());
+}
+
+//  float Qt3DInput::QAxis::value() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK9Qt3DInput5QAxis5valueEv(const Qt3DInput::QAxis *self) {
+  return self->value();
+}
+
+//  void Qt3DInput::QAxis::valueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput5QAxis12valueChangedEf(
+    Qt3DInput::QAxis *self,
+    float value) {
+  self->valueChanged(value);
 }
 
 //  QAxisPrivate *Qt3DInput::QAxis::d_func()
@@ -210,4 +281,12 @@ bool ritual_take_Qt3DInput_QAxis(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_QAxis *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DInput::QAbstractAxisInput *> a ritual of Qt3DInput::QAxis
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QAxis__QList_Qt3DInput_QAbstractAxisInput(
+    QList<Qt3DInput::QAbstractAxisInput *> *self) {
+  delete self;
 }

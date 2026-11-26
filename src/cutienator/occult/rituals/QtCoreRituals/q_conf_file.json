@@ -5,11 +5,13 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZNK9QConfFile12mergedKeyMapEv": ["address", "address"],
     "ritual_ZNK9QConfFile10isWritableEv": ["bool", "address"],
     "ritual_list_make_QConfFile_ptr": ["address"],
     "ritual_list_add_QConfFile_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QConfFile_ptr": ["long long", "address"],
     "ritual_list_at_QConfFile_ptr": ["address", "address", "long long"],
-    "ritual_list_drop_QConfFile_ptr": ["nothing", "address"]
+    "ritual_list_drop_QConfFile_ptr": ["nothing", "address"],
+    "ritual_drop_QConfFile__ParsedSettingsMap": ["nothing", "address"]
   }
 }

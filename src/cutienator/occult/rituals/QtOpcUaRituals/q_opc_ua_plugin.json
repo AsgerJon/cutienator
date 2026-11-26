@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QOpcUaPlugin10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QOpcUaPlugin11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QOpcUaPlugin11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QOpcUaPlugin2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QOpcUaPluginD1Ev": ["nothing", "address"],
     "ritual_ZN12QOpcUaPlugin12createClientERK4QMapI7QString8QVariantE": [

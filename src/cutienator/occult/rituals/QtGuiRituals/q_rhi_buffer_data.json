@@ -8,8 +8,15 @@
     "ritual_ZN14QRhiBufferDataC1Ev": ["address"],
     "ritual_ZN14QRhiBufferDataD1Ev": ["nothing", "address"],
     "ritual_ZN14QRhiBufferDataC1ERKS_": ["address", "address"],
+    "ritual_ZN14QRhiBufferDataaSERKS_": ["address", "address", "address"],
     "ritual_ZNK14QRhiBufferData9constDataEv": ["chars", "address"],
     "ritual_ZNK14QRhiBufferData4sizeEv": ["unsigned int", "address"],
-    "ritual_ZNK14QRhiBufferData10largeAllocEv": ["unsigned int", "address"]
+    "ritual_ZNK14QRhiBufferData10largeAllocEv": ["unsigned int", "address"],
+    "ritual_ZN14QRhiBufferData6assignEPKcj": [
+      "nothing", "address", "chars", "unsigned int"
+    ],
+    "ritual_ZN14QRhiBufferData6assignE10QByteArray": [
+      "nothing", "address", "address"
+    ]
   }
 }

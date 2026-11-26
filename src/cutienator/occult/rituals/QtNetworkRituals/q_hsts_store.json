@@ -5,11 +5,20 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QHstsStoreC1ERK7QString": ["address", "text"],
+    "ritual_ZN10QHstsStoreD1Ev": ["nothing", "address"],
+    "ritual_ZN10QHstsStore12readPoliciesEv": ["address", "address"],
     "ritual_ZN10QHstsStore13addToObservedERK11QHstsPolicy": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QHstsStore11synchronizeEv": ["nothing", "address"],
     "ritual_ZNK10QHstsStore10isWritableEv": ["bool", "address"],
+    "ritual_ZN10QHstsStore16absoluteFilePathERK7QString": ["text", "text"],
+    "ritual_ZN10QHstsStore15beginHstsGroupsEv": ["nothing", "address"],
     "ritual_ZN10QHstsStore15serializePolicyERK7QStringRK11QHstsPolicy": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN10QHstsStore17deserializePolicyERK7QStringR11QHstsPolicy": [
       "bool", "address", "text", "address"
     ],
     "ritual_ZN10QHstsStore11evictPolicyERK7QString": [

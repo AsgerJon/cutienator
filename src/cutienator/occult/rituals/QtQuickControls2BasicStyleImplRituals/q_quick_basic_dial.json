@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickBasicDial10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickBasicDial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickBasicDial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK15QQuickBasicDial8progressEv": ["double", "address"],
     "ritual_ZN15QQuickBasicDial11setProgressEd": [
       "nothing", "address", "double"

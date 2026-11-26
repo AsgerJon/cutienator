@@ -231,6 +231,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore28QAbstractFrameAdvanceService10metaObject
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QAbstractFrameAdvanceService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore28QAbstractFrameAdvanceService11qt_metacastEPKc(
+    Qt3DCore::QAbstractFrameAdvanceService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QAbstractFrameAdvanceService::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore28QAbstractFrameAdvanceService11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QAbstractFrameAdvanceService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QAbstractFrameAdvanceService::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -260,6 +279,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore28QAbstractFrameAdvanceService4stopEv(
     Qt3DCore::QAbstractFrameAdvanceService *self) {
   self->stop();
+}
+
+//  Qt3DCore::QAbstractFrameAdvanceService::QAbstractFrameAdvanceService(cons
+//      t QString &description)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractFrameAdvanceService *ritual_ZN8Qt3DCore28QAbstractFrameAdvanceServiceC1ERK7QString(
+    const QString *description) {
+  return new CuteQt3DCore_QAbstractFrameAdvanceService(*description);
+}
+
+//  Qt3DCore::QAbstractFrameAdvanceService::QAbstractFrameAdvanceService(QAbs
+//      tractFrameAdvanceServicePrivate &dd)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractFrameAdvanceService *ritual_ZN8Qt3DCore28QAbstractFrameAdvanceServiceC1ERNS_35QAbstractFrameAdvanceServicePrivateE(
+    Qt3DCore::QAbstractFrameAdvanceServicePrivate *dd) {
+  return new CuteQt3DCore_QAbstractFrameAdvanceService(*dd);
 }
 
 //  a Python function taken by a CuteQt3DCore_QAbstractFrameAdvanceService,

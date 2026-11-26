@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickColorDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickColorDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickColorDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickColorDialog2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -23,6 +29,10 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN17QQuickColorDialog12resetOptionsEv": ["nothing", "address"],
+    "ritual_ZN17QQuickColorDialog20selectedColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickColorDialog14optionsChangedEv": ["nothing", "address"],
     "ritual_ZNK17QQuickColorDialog15useNativeDialogEv": ["bool", "address"],
     "ritual_ZN17QQuickColorDialog8onCreateEP21QPlatformDialogHelper": [
       "nothing", "address", "address"

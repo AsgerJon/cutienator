@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN16QOpcUaErrorStateC1Ev": ["address"],
     "ritual_ZN16QOpcUaErrorStateC1ERKS_": ["address", "address"],
+    "ritual_ZN16QOpcUaErrorStateaSERKS_": ["address", "address", "address"],
     "ritual_ZN16QOpcUaErrorStateD1Ev": ["nothing", "address"],
     "ritual_ZNK16QOpcUaErrorState14connectionStepEv": ["int", "address"],
     "ritual_ZN16QOpcUaErrorState17setConnectionStepENS_14ConnectionStepE": [

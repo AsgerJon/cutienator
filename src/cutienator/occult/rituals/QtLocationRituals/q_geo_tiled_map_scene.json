@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QGeoTiledMapScene10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGeoTiledMapScene11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QGeoTiledMapScene11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QGeoTiledMapScene2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,15 +31,29 @@
     "ritual_ZN17QGeoTiledMapScene14setVisibleAreaERK6QRectF": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QGeoTiledMapScene15setVisibleTilesERK4QSetI12QGeoTileSpecE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QGeoTiledMapScene12visibleTilesEv": ["address", "address"],
+    "ritual_ZN17QGeoTiledMapScene7addTileERK12QGeoTileSpec14QSharedPointerI15QGeoTileTextureE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN17QGeoTiledMapScene16updateSceneGraphEP7QSGNodeP12QQuickWindow": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN17QGeoTiledMapScene13texturedTilesEv": ["address", "address"],
     "ritual_ZN17QGeoTiledMapScene18clearTexturedTilesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QGeoTiledMapScene15newTilesVisibleERK4QSetI12QGeoTileSpecE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17QGeoTiledMapScene21updateSceneParametersEv": [
       "nothing", "address"
     ],
-    "ritual_take_QGeoTiledMapScene": ["bool", "address", "chars", "address"]
+    "ritual_take_QGeoTiledMapScene": ["bool", "address", "chars", "address"],
+    "ritual_drop_QGeoTiledMapScene__QSet_QGeoTileSpec": [
+      "nothing", "address"
+    ]
   }
 }

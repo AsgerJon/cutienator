@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qbarset.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbarset.h>
 #include <QtCore/qstring.h>
@@ -10,6 +10,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QBarSet that Python can take functions over in. Every QBarSet
 //  Python makes is one. Each function below asks the Python
@@ -184,6 +185,22 @@ const QMetaObject *ritual_ZNK7QBarSet10metaObjectEv(const QBarSet *self) {
   return self->metaObject();
 }
 
+//  void *QBarSet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QBarSet11qt_metacastEPKc(QBarSet *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarSet::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QBarSet11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarSet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBarSet::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QBarSet2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -242,6 +259,14 @@ void ritual_ZN7QBarSet6appendEd(QBarSet *self, qreal value) {
   self->append(value);
 }
 
+//  void QBarSet::append(const QList<qreal> &values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet6appendERK5QListIdE(
+    QBarSet *self,
+    const QList<qreal> *values) {
+  self->append(*values);
+}
+
 //  void QBarSet::insert(qsizetype index, qreal value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QBarSet6insertExd(
@@ -297,6 +322,12 @@ void ritual_ZN7QBarSet5clearEv(QBarSet *self) {
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK7QBarSetixEx(const QBarSet *self, qsizetype index) {
   return self->operator[](index);
+}
+
+//  QBarSet &QBarSet::operator<<(qreal value)
+extern "C" Q_DECL_EXPORT
+QBarSet *ritual_ZN7QBarSetlsEd(QBarSet *self, qreal value) {
+  return &(self->operator<<(value));
 }
 
 //  QColor QBarSet::color() const
@@ -420,6 +451,154 @@ void ritual_ZN7QBarSet15deselectAllBarsEv(QBarSet *self) {
   self->deselectAllBars();
 }
 
+//  void QBarSet::selectBars(const QList<qsizetype> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet10selectBarsERK5QListIxE(
+    QBarSet *self,
+    const QList<qsizetype> *indexes) {
+  self->selectBars(*indexes);
+}
+
+//  void QBarSet::deselectBars(const QList<qsizetype> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12deselectBarsERK5QListIxE(
+    QBarSet *self,
+    const QList<qsizetype> *indexes) {
+  self->deselectBars(*indexes);
+}
+
+//  void QBarSet::toggleSelection(const QList<qsizetype> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet15toggleSelectionERK5QListIxE(
+    QBarSet *self,
+    const QList<qsizetype> *indexes) {
+  self->toggleSelection(*indexes);
+}
+
+//  QList<qsizetype> QBarSet::selectedBars() const
+extern "C" Q_DECL_EXPORT
+QList<qsizetype> *ritual_ZNK7QBarSet12selectedBarsEv(const QBarSet *self) {
+  return new QList<qsizetype>(self->selectedBars());
+}
+
+//  void QBarSet::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet6updateEv(QBarSet *self) {
+  self->update();
+}
+
+//  void QBarSet::labelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12labelChangedEv(QBarSet *self) {
+  self->labelChanged();
+}
+
+//  void QBarSet::colorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12colorChangedE6QColor(
+    QBarSet *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QBarSet::borderColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet18borderColorChangedE6QColor(
+    QBarSet *self,
+    const QColor *color) {
+  self->borderColorChanged(*color);
+}
+
+//  void QBarSet::labelColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet17labelColorChangedE6QColor(
+    QBarSet *self,
+    const QColor *color) {
+  self->labelColorChanged(*color);
+}
+
+//  void QBarSet::valuesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet13valuesChangedEv(QBarSet *self) {
+  self->valuesChanged();
+}
+
+//  void QBarSet::selectedColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet20selectedColorChangedE6QColor(
+    QBarSet *self,
+    const QColor *color) {
+  self->selectedColorChanged(*color);
+}
+
+//  void QBarSet::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12countChangedEv(QBarSet *self) {
+  self->countChanged();
+}
+
+//  void QBarSet::borderWidthChanged(qreal width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet18borderWidthChangedEd(QBarSet *self, qreal width) {
+  self->borderWidthChanged(width);
+}
+
+//  void QBarSet::valuesAdded(qsizetype index, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet11valuesAddedExx(
+    QBarSet *self,
+    qsizetype index,
+    qsizetype count) {
+  self->valuesAdded(index, count);
+}
+
+//  void QBarSet::valuesRemoved(qsizetype index, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet13valuesRemovedExx(
+    QBarSet *self,
+    qsizetype index,
+    qsizetype count) {
+  self->valuesRemoved(index, count);
+}
+
+//  void QBarSet::valueChanged(qsizetype index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12valueChangedEx(QBarSet *self, qsizetype index) {
+  self->valueChanged(index);
+}
+
+//  void QBarSet::updatedBars()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet11updatedBarsEv(QBarSet *self) {
+  self->updatedBars();
+}
+
+//  void QBarSet::valueAdded(qsizetype index, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet10valueAddedExx(
+    QBarSet *self,
+    qsizetype index,
+    qsizetype count) {
+  self->valueAdded(index, count);
+}
+
+//  void QBarSet::valueRemoved(qsizetype index, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12valueRemovedExx(
+    QBarSet *self,
+    qsizetype index,
+    qsizetype count) {
+  self->valueRemoved(index, count);
+}
+
+//  void QBarSet::selectedBarsChanged(const QList<qsizetype> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet19selectedBarsChangedERK5QListIxE(
+    QBarSet *self,
+    const QList<qsizetype> *indexes) {
+  self->selectedBarsChanged(*indexes);
+}
+
 //  a Python function taken by a CuteQBarSet, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
@@ -459,4 +638,10 @@ void ritual_list_drop_QBarSet_ptr(QList<QBarSet *> *self) {
   delete self;
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+//  a QList<qsizetype> a ritual of QBarSet gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QBarSet__QList_qsizetype(QList<qsizetype> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))

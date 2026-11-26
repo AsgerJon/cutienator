@@ -53,6 +53,29 @@ public:
   }
 };
 
+//  Qt3DCore::QSkeletonLoaderPrivate::QSkeletonLoaderPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QSkeletonLoaderPrivate *ritual_ZN8Qt3DCore22QSkeletonLoaderPrivateC1Ev() {
+  return new CuteQt3DCore_QSkeletonLoaderPrivate();
+}
+
+//  void Qt3DCore::QSkeletonLoaderPrivate::setStatus(QSkeletonLoader::Status
+//      status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore22QSkeletonLoaderPrivate9setStatusENS_15QSkeletonLoader6StatusE(
+    Qt3DCore::QSkeletonLoaderPrivate *self,
+    Qt3DCore::QSkeletonLoader::Status status) {
+  self->setStatus(status);
+}
+
+//  void Qt3DCore::QSkeletonLoaderPrivate::setRootJoint(QJoint *rootJoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore22QSkeletonLoaderPrivate12setRootJointEPNS_6QJointE(
+    Qt3DCore::QSkeletonLoaderPrivate *self,
+    Qt3DCore::QJoint *rootJoint) {
+  self->setRootJoint(rootJoint);
+}
+
 //  QSkeletonLoader *Qt3DCore::QSkeletonLoaderPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QSkeletonLoader *ritual_ZN8Qt3DCore22QSkeletonLoaderPrivate6q_funcEv(

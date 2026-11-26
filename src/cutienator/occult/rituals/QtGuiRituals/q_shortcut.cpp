@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qshortcut.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qshortcut.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 1. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(shortcut)
@@ -10,6 +12,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/qobject.h>
 
 //  Only a class built on QShortcut may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -197,6 +200,22 @@ const QMetaObject *ritual_ZNK9QShortcut10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QShortcut::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QShortcut11qt_metacastEPKc(QShortcut *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QShortcut::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QShortcut11qt_metacallEN11QMetaObject4CallEiPPv(
+    QShortcut *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QShortcut::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QShortcut2trEPKcS1_i(
@@ -352,6 +371,18 @@ QString *ritual_ZNK9QShortcut9whatsThisEv(const QShortcut *self) {
   return new QString(self->whatsThis());
 }
 
+//  void QShortcut::activated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QShortcut9activatedEv(QShortcut *self) {
+  self->activated();
+}
+
+//  void QShortcut::activatedAmbiguously()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QShortcut20activatedAmbiguouslyEv(QShortcut *self) {
+  self->activatedAmbiguously();
+}
+
 //  bool QShortcut::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QShortcut5eventEP6QEvent(QShortcut *self, QEvent *e) {
@@ -370,6 +401,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN9QShortcut5eventEP6QEvent(QShortcut *self, QEvent *e) {
   return static_cast<OwnQShortcut *>(self)->OwnQShortcut::event(e);
 }
+
+#if QT_DEPRECATED_SINCE(6, 0)
+//  QObject *QShortcut::parentWidget<QObject *>() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK9QShortcut12parentWidgetIP7QObjectEET_v(
+    const QShortcut *self) {
+  return self->parentWidget<QObject *>();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 #endif  // QT_CONFIG(shortcut)
 #endif  // QT_CONFIG(shortcut)

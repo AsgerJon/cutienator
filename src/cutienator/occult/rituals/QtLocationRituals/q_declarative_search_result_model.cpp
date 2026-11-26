@@ -21,6 +21,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QDeclarativeSearchResultModel may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1070,6 +1071,25 @@ const QMetaObject *ritual_ZNK29QDeclarativeSearchResultModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeSearchResultModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QDeclarativeSearchResultModel11qt_metacastEPKc(
+    QDeclarativeSearchResultModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeSearchResultModel::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QDeclarativeSearchResultModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeSearchResultModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeSearchResultModel::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1109,6 +1129,48 @@ void ritual_ZN29QDeclarativeSearchResultModel13setSearchTermERK7QString(
     QDeclarativeSearchResultModel *self,
     const QString *searchTerm) {
   self->setSearchTerm(*searchTerm);
+}
+
+//  QQmlListProperty<QDeclarativeCategory>
+//      QDeclarativeSearchResultModel::categories()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QDeclarativeCategory> *ritual_ZN29QDeclarativeSearchResultModel10categoriesEv(
+    QDeclarativeSearchResultModel *self) {
+  return new QQmlListProperty<QDeclarativeCategory>(self->categories());
+}
+
+//  void QDeclarativeSearchResultModel::categories_append(QQmlListProperty<QD
+//      eclarativeCategory> *list, QDeclarativeCategory *category)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel17categories_appendEP16QQmlListPropertyI20QDeclarativeCategoryEPS1_(
+    QQmlListProperty<QDeclarativeCategory> *list,
+    QDeclarativeCategory *category) {
+  QDeclarativeSearchResultModel::categories_append(list, category);
+}
+
+//  qsizetype QDeclarativeSearchResultModel::categories_count(QQmlListPropert
+//      y<QDeclarativeCategory> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN29QDeclarativeSearchResultModel16categories_countEP16QQmlListPropertyI20QDeclarativeCategoryE(
+    QQmlListProperty<QDeclarativeCategory> *list) {
+  return QDeclarativeSearchResultModel::categories_count(list);
+}
+
+//  QDeclarativeCategory *QDeclarativeSearchResultModel::category_at(QQmlList
+//      Property<QDeclarativeCategory> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QDeclarativeCategory *ritual_ZN29QDeclarativeSearchResultModel11category_atEP16QQmlListPropertyI20QDeclarativeCategoryEx(
+    QQmlListProperty<QDeclarativeCategory> *list,
+    qsizetype index) {
+  return QDeclarativeSearchResultModel::category_at(list, index);
+}
+
+//  void QDeclarativeSearchResultModel::categories_clear(QQmlListProperty<QDe
+//      clarativeCategory> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel16categories_clearEP16QQmlListPropertyI20QDeclarativeCategoryE(
+    QQmlListProperty<QDeclarativeCategory> *list) {
+  QDeclarativeSearchResultModel::categories_clear(list);
 }
 
 //  QString QDeclarativeSearchResultModel::recommendationId() const
@@ -1245,6 +1307,76 @@ void ritual_ZN29QDeclarativeSearchResultModel10updateWithEi(
     QDeclarativeSearchResultModel *self,
     int proposedSearchIndex) {
   self->updateWith(proposedSearchIndex);
+}
+
+//  void QDeclarativeSearchResultModel::searchTermChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel17searchTermChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->searchTermChanged();
+}
+
+//  void QDeclarativeSearchResultModel::categoriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel17categoriesChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->categoriesChanged();
+}
+
+//  void QDeclarativeSearchResultModel::recommendationIdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel23recommendationIdChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->recommendationIdChanged();
+}
+
+//  void QDeclarativeSearchResultModel::relevanceHintChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel20relevanceHintChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->relevanceHintChanged();
+}
+
+//  void QDeclarativeSearchResultModel::visibilityScopeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel22visibilityScopeChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->visibilityScopeChanged();
+}
+
+//  void QDeclarativeSearchResultModel::rowCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel15rowCountChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->rowCountChanged();
+}
+
+//  void QDeclarativeSearchResultModel::favoritesPluginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel22favoritesPluginChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->favoritesPluginChanged();
+}
+
+//  void QDeclarativeSearchResultModel::favoritesMatchParametersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel31favoritesMatchParametersChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->favoritesMatchParametersChanged();
+}
+
+//  void QDeclarativeSearchResultModel::dataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel11dataChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->dataChanged();
+}
+
+//  void QDeclarativeSearchResultModel::incrementalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativeSearchResultModel18incrementalChangedEv(
+    QDeclarativeSearchResultModel *self) {
+  self->incrementalChanged();
 }
 
 //  QPlaceReply *QDeclarativeSearchResultModel::sendQuery(QPlaceManager
@@ -1403,4 +1535,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN29QDeclarativeSearchResultModel16onContentUpdatedEv(
     QDeclarativeSearchResultModel *self) {
   static_cast<OwnQDeclarativeSearchResultModel *>(self)->OwnQDeclarativeSearchResultModel::onContentUpdated();
+}
+
+//  a QQmlListProperty<QDeclarativeCategory> a ritual of
+//      QDeclarativeSearchResultModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativeSearchResultModel__QQmlListProperty_QDeclarativeCategory(
+    QQmlListProperty<QDeclarativeCategory> *self) {
+  delete self;
 }

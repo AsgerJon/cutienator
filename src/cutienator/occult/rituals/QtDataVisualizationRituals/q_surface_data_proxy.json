@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QSurfaceDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QSurfaceDataProxy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QSurfaceDataProxy11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QSurfaceDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -14,11 +20,21 @@
     "ritual_ZNK17QSurfaceDataProxy6seriesEv": ["address", "address"],
     "ritual_ZNK17QSurfaceDataProxy8rowCountEv": ["int", "address"],
     "ritual_ZNK17QSurfaceDataProxy11columnCountEv": ["int", "address"],
+    "ritual_ZNK17QSurfaceDataProxy5arrayEv": ["address", "address"],
     "ritual_ZNK17QSurfaceDataProxy6itemAtEii": [
       "address", "address", "int", "int"
     ],
     "ritual_ZNK17QSurfaceDataProxy6itemAtERK6QPoint": [
       "address", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy10resetArrayEP5QListIPS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy6setRowEiP5QListI16QSurfaceDataItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy7setRowsEiRK5QListIPS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_ZN17QSurfaceDataProxy7setItemEiiRK16QSurfaceDataItem": [
       "nothing", "address", "int", "int", "address"
@@ -26,8 +42,45 @@
     "ritual_ZN17QSurfaceDataProxy7setItemERK6QPointRK16QSurfaceDataItem": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN17QSurfaceDataProxy6addRowEP5QListI16QSurfaceDataItemE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy7addRowsERK5QListIPS0_I16QSurfaceDataItemEE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy9insertRowEiP5QListI16QSurfaceDataItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy10insertRowsEiRK5QListIPS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN17QSurfaceDataProxy10removeRowsEii": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxy10arrayResetEv": ["nothing", "address"],
+    "ritual_ZN17QSurfaceDataProxy9rowsAddedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxy11rowsChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxy11rowsRemovedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxy12rowsInsertedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxy11itemChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxy15rowCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxy18columnCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxy13seriesChangedEP16QSurface3DSeries": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17QSurfaceDataProxyC1EP24QSurfaceDataProxyPrivateP7QObject": [
       "address", "address", "address"

@@ -5,6 +5,16 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render20UpdateTreeEnabledJobC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render20UpdateTreeEnabledJob7setRootEPNS0_6EntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20UpdateTreeEnabledJob11setManagersEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20UpdateTreeEnabledJob3runEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN10Qt3DRender6Render20UpdateTreeEnabledJob3runEv": [
       "nothing", "address"
     ]

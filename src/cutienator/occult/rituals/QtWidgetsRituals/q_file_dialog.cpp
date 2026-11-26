@@ -10,10 +10,12 @@
 #include <QtCore/qdir.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qbytearray.h>
+#if QT_CONFIG(filedialog)
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -1056,6 +1058,24 @@ const QMetaObject *ritual_ZNK11QFileDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFileDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QFileDialog11qt_metacastEPKc(
+    QFileDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFileDialog::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QFileDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFileDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFileDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QFileDialog2trEPKcS1_i(
@@ -1473,6 +1493,78 @@ void ritual_ZN11QFileDialog10setVisibleEb(QFileDialog *self, bool visible) {
   self->setVisible(visible);
 }
 
+//  void QFileDialog::fileSelected(const QString &file)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog12fileSelectedERK7QString(
+    QFileDialog *self,
+    const QString *file) {
+  self->fileSelected(*file);
+}
+
+//  void QFileDialog::filesSelected(const QStringList &files)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog13filesSelectedERK5QListI7QStringE(
+    QFileDialog *self,
+    const QList<QString> *files) {
+  self->filesSelected(*files);
+}
+
+//  void QFileDialog::currentChanged(const QString &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog14currentChangedERK7QString(
+    QFileDialog *self,
+    const QString *path) {
+  self->currentChanged(*path);
+}
+
+//  void QFileDialog::directoryEntered(const QString &directory)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog16directoryEnteredERK7QString(
+    QFileDialog *self,
+    const QString *directory) {
+  self->directoryEntered(*directory);
+}
+
+//  void QFileDialog::urlSelected(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog11urlSelectedERK4QUrl(
+    QFileDialog *self,
+    const QUrl *url) {
+  self->urlSelected(*url);
+}
+
+//  void QFileDialog::urlsSelected(const QList<QUrl> &urls)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog12urlsSelectedERK5QListI4QUrlE(
+    QFileDialog *self,
+    const QList<QUrl> *urls) {
+  self->urlsSelected(*urls);
+}
+
+//  void QFileDialog::currentUrlChanged(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog17currentUrlChangedERK4QUrl(
+    QFileDialog *self,
+    const QUrl *url) {
+  self->currentUrlChanged(*url);
+}
+
+//  void QFileDialog::directoryUrlEntered(const QUrl &directory)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog19directoryUrlEnteredERK4QUrl(
+    QFileDialog *self,
+    const QUrl *directory) {
+  self->directoryUrlEntered(*directory);
+}
+
+//  void QFileDialog::filterSelected(const QString &filter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog14filterSelectedERK7QString(
+    QFileDialog *self,
+    const QString *filter) {
+  self->filterSelected(*filter);
+}
+
 //  QString QFileDialog::getOpenFileName(QWidget *parent, const QString
 //      &caption, const QString &dir, const QString &filter, QString
 //      *selectedFilter, Options options)
@@ -1639,6 +1731,17 @@ QList<QUrl> *ritual_ZN11QFileDialog15getOpenFileUrlsEP7QWidgetRK7QStringRK4QUrlS
           selectedFilter,
           QFlags<QFileDialog::Option>::fromInt(options),
           *supportedSchemes));
+}
+
+//  void QFileDialog::getOpenFileContent(const QString &nameFilter, const
+//      std::function<void (const QString &, const QByteArray &)>
+//      &fileContentsReady, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog18getOpenFileContentERK7QStringRKSt8functionIFvS2_RK10QByteArrayEEP7QWidget(
+    const QString *nameFilter,
+    const std::function<void (const QString &, const QByteArray &)> *fileContentsReady,
+    QWidget *parent) {
+  QFileDialog::getOpenFileContent(*nameFilter, *fileContentsReady, parent);
 }
 
 //  void QFileDialog::saveFileContent(const QByteArray &fileContent, const

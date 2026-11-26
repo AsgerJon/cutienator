@@ -6,7 +6,13 @@
   ],
   "rows": {
     "ritual_ZNK8QQmlBind10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QQmlBind11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QQmlBind11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QQmlBind2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QQmlBind6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QQmlBind6d_funcEv": ["address", "address"],
     "ritual_ZN8QQmlBindC1EP7QObject": ["address", "address"],
     "ritual_ZN8QQmlBindD1Ev": ["nothing", "address"],
     "ritual_ZNK8QQmlBind4whenEv": ["bool", "address"],
@@ -29,6 +35,12 @@
     "ritual_ZN8QQmlBind14setRestoreModeENS_15RestorationModeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN8QQmlBind18restoreModeChangedEv": ["nothing", "address"],
+    "ritual_ZN8QQmlBind13objectChangedEv": ["nothing", "address"],
+    "ritual_ZN8QQmlBind15propertyChangedEv": ["nothing", "address"],
+    "ritual_ZN8QQmlBind12valueChangedEv": ["nothing", "address"],
+    "ritual_ZN8QQmlBind11whenChangedEv": ["nothing", "address"],
+    "ritual_ZN8QQmlBind14delayedChangedEv": ["nothing", "address"],
     "ritual_ZN8QQmlBind9setTargetERK12QQmlProperty": [
       "nothing", "address", "address"
     ],

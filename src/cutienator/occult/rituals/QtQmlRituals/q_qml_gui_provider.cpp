@@ -22,7 +22,7 @@ typedef QString * (*CuteQQmlGuiProviderCall4)(const void *, int *);
 class CuteQQmlGuiProvider : public QQmlGuiProvider {
 public:
   using QQmlGuiProvider::QQmlGuiProvider;
-  CuteQQmlGuiProvider(const QQmlGuiProvider &other) : QQmlGuiProvider(other) {}
+  CuteQQmlGuiProvider(const QQmlGuiProvider & other) : QQmlGuiProvider(other) {}
   void *taken[5] = {};
 
   bool take(const char *key, void *call) {

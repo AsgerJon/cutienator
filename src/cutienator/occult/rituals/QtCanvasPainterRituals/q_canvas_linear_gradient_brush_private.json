@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK33QCanvasLinearGradientBrushPrivate11createPaintEP14QCanvasPainter": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK33QCanvasLinearGradientBrushPrivate20createLinearGradientE6QColorS0_i": [
+      "nothing", "address", "address", "address", "int"
+    ],
     "ritual_ZN33QCanvasLinearGradientBrushPrivate5cloneEv": [
       "address", "address"
     ],

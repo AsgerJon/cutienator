@@ -30,6 +30,15 @@ QQuickImageProviderOptions *ritual_ZN26QQuickImageProviderOptionsC1ERKS_(
   return new QQuickImageProviderOptions(*a0);
 }
 
+//  QQuickImageProviderOptions &QQuickImageProviderOptions::operator=(const
+//      QQuickImageProviderOptions &a0)
+extern "C" Q_DECL_EXPORT
+QQuickImageProviderOptions *ritual_ZN26QQuickImageProviderOptionsaSERKS_(
+    QQuickImageProviderOptions *self,
+    const QQuickImageProviderOptions *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QQuickImageProviderOptions::operator==(const
 //      QQuickImageProviderOptions &a0) const
 extern "C" Q_DECL_EXPORT

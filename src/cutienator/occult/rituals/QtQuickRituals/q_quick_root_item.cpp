@@ -784,6 +784,24 @@ const QMetaObject *ritual_ZNK14QQuickRootItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRootItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickRootItem11qt_metacastEPKc(
+    QQuickRootItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRootItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickRootItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRootItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRootItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickRootItem2trEPKcS1_i(

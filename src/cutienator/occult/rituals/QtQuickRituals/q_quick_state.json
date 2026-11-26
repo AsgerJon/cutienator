@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QQuickState10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickState11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QQuickState11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QQuickState2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QQuickStateC1EP7QObject": ["address", "address"],
     "ritual_ZN11QQuickStateD1Ev": ["nothing", "address"],
@@ -21,8 +27,12 @@
     "ritual_ZN11QQuickState10setExtendsERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN11QQuickState7changesEv": ["address", "address"],
     "ritual_ZNK11QQuickState14operationCountEv": ["int", "address"],
     "ritual_ZNK11QQuickState11operationAtEi": ["address", "address", "int"],
+    "ritual_ZN11QQuickStatelsEP20QQuickStateOperation": [
+      "address", "address", "address"
+    ],
     "ritual_ZN11QQuickState5applyEP16QQuickTransitionPS_": [
       "nothing", "address", "address", "address"
     ],
@@ -59,6 +69,7 @@
       "address", "address", "address", "text"
     ],
     "ritual_ZNK11QQuickState13isStateActiveEv": ["bool", "address"],
+    "ritual_ZN11QQuickState9completedEv": ["nothing", "address"],
     "ritual_ZN11QQuickState6d_funcEv": ["address", "address"],
     "ritual_ZNK11QQuickState6d_funcEv": ["address", "address"],
     "ritual_take_QQuickState": ["bool", "address", "chars", "address"],
@@ -66,6 +77,9 @@
     "ritual_list_add_QQuickState_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QQuickState_ptr": ["long long", "address"],
     "ritual_list_at_QQuickState_ptr": ["address", "address", "long long"],
-    "ritual_list_drop_QQuickState_ptr": ["nothing", "address"]
+    "ritual_list_drop_QQuickState_ptr": ["nothing", "address"],
+    "ritual_drop_QQuickState__QQmlListProperty_QQuickStateOperation": [
+      "nothing", "address"
+    ]
   }
 }

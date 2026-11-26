@@ -182,6 +182,24 @@ const QMetaObject *ritual_ZNK13QAudioDecoder10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAudioDecoder::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QAudioDecoder11qt_metacastEPKc(
+    QAudioDecoder *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAudioDecoder::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QAudioDecoder11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAudioDecoder *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAudioDecoder::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QAudioDecoder2trEPKcS1_i(
@@ -259,6 +277,13 @@ void ritual_ZN13QAudioDecoder14setAudioFormatERK12QAudioFormat(
   self->setAudioFormat(*format);
 }
 
+//  Error QAudioDecoder::error() const
+extern "C" Q_DECL_EXPORT
+QAudioDecoder::Error ritual_ZNK13QAudioDecoder5errorEv(
+    const QAudioDecoder *self) {
+  return self->error();
+}
+
 //  QString QAudioDecoder::errorString() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK13QAudioDecoder11errorStringEv(
@@ -301,6 +326,72 @@ void ritual_ZN13QAudioDecoder5startEv(QAudioDecoder *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QAudioDecoder4stopEv(QAudioDecoder *self) {
   self->stop();
+}
+
+//  void QAudioDecoder::bufferAvailableChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAudioDecoder22bufferAvailableChangedEb(
+    QAudioDecoder *self,
+    bool a0) {
+  self->bufferAvailableChanged(a0);
+}
+
+//  void QAudioDecoder::bufferReady()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAudioDecoder11bufferReadyEv(QAudioDecoder *self) {
+  self->bufferReady();
+}
+
+//  void QAudioDecoder::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAudioDecoder8finishedEv(QAudioDecoder *self) {
+  self->finished();
+}
+
+//  void QAudioDecoder::isDecodingChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAudioDecoder17isDecodingChangedEb(
+    QAudioDecoder *self,
+    bool a0) {
+  self->isDecodingChanged(a0);
+}
+
+//  void QAudioDecoder::formatChanged(const QAudioFormat &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAudioDecoder13formatChangedERK12QAudioFormat(
+    QAudioDecoder *self,
+    const QAudioFormat *format) {
+  self->formatChanged(*format);
+}
+
+//  void QAudioDecoder::error(QAudioDecoder::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAudioDecoder5errorENS_5ErrorE(
+    QAudioDecoder *self,
+    QAudioDecoder::Error error) {
+  self->error(error);
+}
+
+//  void QAudioDecoder::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAudioDecoder13sourceChangedEv(QAudioDecoder *self) {
+  self->sourceChanged();
+}
+
+//  void QAudioDecoder::positionChanged(qint64 position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAudioDecoder15positionChangedEx(
+    QAudioDecoder *self,
+    qint64 position) {
+  self->positionChanged(position);
+}
+
+//  void QAudioDecoder::durationChanged(qint64 duration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAudioDecoder15durationChangedEx(
+    QAudioDecoder *self,
+    qint64 duration) {
+  self->durationChanged(duration);
 }
 
 //  QAudioDecoderPrivate *QAudioDecoder::d_func()

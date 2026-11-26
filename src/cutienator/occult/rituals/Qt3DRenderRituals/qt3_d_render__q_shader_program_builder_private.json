@@ -5,11 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender28QShaderProgramBuilderPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender28QShaderProgramBuilderPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender28QShaderProgramBuilderPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender28QShaderProgramBuilderPrivate13setShaderCodeERK10QByteArrayNS_14QShaderProgram10ShaderTypeE": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_take_Qt3DRender_QShaderProgramBuilderPrivate": [
       "bool", "address", "chars", "address"

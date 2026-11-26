@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK17QQuickDragHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDragHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickDragHandler11qt_metacastEPKc(
+    QQuickDragHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDragHandler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickDragHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDragHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDragHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickDragHandler2trEPKcS1_i(
@@ -116,6 +135,21 @@ void ritual_ZN17QQuickDragHandler11setSnapModeENS_8SnapModeE(
   self->setSnapMode(mode);
 }
 
+//  void QQuickDragHandler::translationChanged(QVector2D delta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickDragHandler18translationChangedE9QVector2D(
+    QQuickDragHandler *self,
+    const QVector2D *delta) {
+  self->translationChanged(*delta);
+}
+
+//  void QQuickDragHandler::snapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickDragHandler15snapModeChangedEv(
+    QQuickDragHandler *self) {
+  self->snapModeChanged();
+}
+
 //  bool QQuickDragHandler::wantsPointerEvent(QPointerEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN17QQuickDragHandler17wantsPointerEventEP13QPointerEvent(
@@ -129,6 +163,19 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickDragHandler15onActiveChangedEv(
     QQuickDragHandler *self) {
   self->onActiveChanged();
+}
+
+//  void QQuickDragHandler::onGrabChanged(QQuickPointerHandler *grabber,
+//      QPointingDevice::GrabTransition transition, QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickDragHandler13onGrabChangedEP20QQuickPointerHandlerN15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint(
+    QQuickDragHandler *self,
+    QQuickPointerHandler *grabber,
+    QPointingDevice::GrabTransition transition,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->onGrabChanged(grabber, transition, event, *point);
 }
 
 //  void QQuickDragHandler::enforceAxisConstraints(QPointF *localPos)

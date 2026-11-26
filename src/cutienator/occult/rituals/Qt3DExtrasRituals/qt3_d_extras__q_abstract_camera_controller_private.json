@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras32QAbstractCameraControllerPrivateC1Ev": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DExtras32QAbstractCameraControllerPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras32QAbstractCameraControllerPrivate23applyInputAccelerationsEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DExtras32QAbstractCameraControllerPrivate6q_funcEv": [
       "address", "address"
     ],

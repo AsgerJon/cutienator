@@ -8,6 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qjsonobject.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -20,31 +22,32 @@ typedef QString * (*CuteQSSGAssetImporterCall1)(const void *, int *);
 typedef QString * (*CuteQSSGAssetImporterCall2)(const void *, int *);
 typedef const QJsonObject * (*CuteQSSGAssetImporterCall3)(const void *, int *);
 typedef QString * (*CuteQSSGAssetImporterCall4)(const void *, int *);
+typedef QString * (*CuteQSSGAssetImporterCall5)(const void *, const QString *, const QDir *, const QJsonObject *, QStringList *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSSGAssetImporterCall5)(const void *, QEvent *, int *);
+typedef bool (*CuteQSSGAssetImporterCall6)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSSGAssetImporterCall6)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQSSGAssetImporterCall7)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSSGAssetImporterCall7)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQSSGAssetImporterCall8)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSSGAssetImporterCall8)(const void *, QChildEvent *, int *);
+typedef void (*CuteQSSGAssetImporterCall9)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSSGAssetImporterCall9)(const void *, QEvent *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSSGAssetImporterCall10)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSSGAssetImporterCall10)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSSGAssetImporterCall11)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQSSGAssetImporterCall12)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQSSGAssetImporter : public QSSGAssetImporter {
 public:
   using QSSGAssetImporter::QSSGAssetImporter;
-  void *taken[12] = {};
+  void *taken[13] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK17QSSGAssetImporter4nameEv")) {
@@ -67,45 +70,49 @@ public:
       taken[4] = call;
       return true;
     }
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN17QSSGAssetImporter6importERK7QStringRK4QDirRK11QJsonObjectP5QListIS0_E")) {
       taken[5] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[7] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[8] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[9] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[10] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[11] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[12] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -183,12 +190,33 @@ public:
     return {};
   }
 
-#if !defined(QT_NO_QOBJECT)
-  //  bool QObject::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  QString QSSGAssetImporter::import(const QString &sourceFile, const
+  //      QDir &savePath, const QJsonObject &options, QStringList
+  //      *generatedFiles)
+  QString import(
+      const QString &sourceFile,
+      const QDir &savePath,
+      const QJsonObject &options,
+      QStringList *generatedFiles) override {
     if (taken[5]) {
       int handled = 0;
       CuteQSSGAssetImporterCall5 call = reinterpret_cast<CuteQSSGAssetImporterCall5>(taken[5]);
+      QString * given = call(this, &sourceFile, &savePath, &options, generatedFiles, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return {};
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQSSGAssetImporterCall6 call = reinterpret_cast<CuteQSSGAssetImporterCall6>(taken[6]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -199,9 +227,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQSSGAssetImporterCall6 call = reinterpret_cast<CuteQSSGAssetImporterCall6>(taken[6]);
+      CuteQSSGAssetImporterCall7 call = reinterpret_cast<CuteQSSGAssetImporterCall7>(taken[7]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -212,9 +240,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQSSGAssetImporterCall7 call = reinterpret_cast<CuteQSSGAssetImporterCall7>(taken[7]);
+      CuteQSSGAssetImporterCall8 call = reinterpret_cast<CuteQSSGAssetImporterCall8>(taken[8]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -225,9 +253,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQSSGAssetImporterCall8 call = reinterpret_cast<CuteQSSGAssetImporterCall8>(taken[8]);
+      CuteQSSGAssetImporterCall9 call = reinterpret_cast<CuteQSSGAssetImporterCall9>(taken[9]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -238,9 +266,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQSSGAssetImporterCall9 call = reinterpret_cast<CuteQSSGAssetImporterCall9>(taken[9]);
+      CuteQSSGAssetImporterCall10 call = reinterpret_cast<CuteQSSGAssetImporterCall10>(taken[10]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -251,9 +279,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQSSGAssetImporterCall10 call = reinterpret_cast<CuteQSSGAssetImporterCall10>(taken[10]);
+      CuteQSSGAssetImporterCall11 call = reinterpret_cast<CuteQSSGAssetImporterCall11>(taken[11]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -264,9 +292,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQSSGAssetImporterCall11 call = reinterpret_cast<CuteQSSGAssetImporterCall11>(taken[11]);
+      CuteQSSGAssetImporterCall12 call = reinterpret_cast<CuteQSSGAssetImporterCall12>(taken[12]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -280,6 +308,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17QSSGAssetImporter10metaObjectEv(
     const QSSGAssetImporter *self) {
   return self->metaObject();
+}
+
+//  void *QSSGAssetImporter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QSSGAssetImporter11qt_metacastEPKc(
+    QSSGAssetImporter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSSGAssetImporter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QSSGAssetImporter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSSGAssetImporter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QSSGAssetImporter::tr(const char *s, const char *c, int n)
@@ -331,6 +378,34 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK17QSSGAssetImporter15typeDescriptionEv(
     const QSSGAssetImporter *self) {
   return new QString(self->typeDescription());
+}
+
+//  QString QSSGAssetImporter::import(const QString &sourceFile, const QDir
+//      &savePath, const QJsonObject &options, QStringList *generatedFiles)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN17QSSGAssetImporter6importERK7QStringRK4QDirRK11QJsonObjectP5QListIS0_E(
+    QSSGAssetImporter *self,
+    const QString *sourceFile,
+    const QDir *savePath,
+    const QJsonObject *options,
+    QStringList *generatedFiles) {
+  return new QString(
+      self->import(
+          *sourceFile,
+          *savePath,
+          *options,
+          generatedFiles));
+}
+
+//  QString QSSGAssetImporter::import(const QUrl &url, const QJsonObject
+//      &options, QSSGSceneDesc::Scene &scene)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN17QSSGAssetImporter6importERK4QUrlRK11QJsonObjectRN13QSSGSceneDesc5SceneE(
+    QSSGAssetImporter *self,
+    const QUrl *url,
+    const QJsonObject *options,
+    QSSGSceneDesc::Scene *scene) {
+  return new QString(self->import(*url, *options, *scene));
 }
 
 //  a Python function taken by a CuteQSSGAssetImporter, for the function

@@ -9,6 +9,8 @@
 #include <QtCoap/qcoapsecurityconfiguration.h>
 #include <QtCore/qvariant.h>
 #include <QtNetwork/qnetworkinterface.h>
+#include <QtCoap/qcoapmessage.h>
+#include <QtNetwork/qhostaddress.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -184,6 +186,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK11QCoapClient10metaObjectEv(
     const QCoapClient *self) {
   return self->metaObject();
+}
+
+//  void *QCoapClient::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QCoapClient11qt_metacastEPKc(
+    QCoapClient *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCoapClient::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QCoapClient11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCoapClient *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QCoapClient::tr(const char *s, const char *c, int n)
@@ -442,6 +462,44 @@ extern "C" Q_DECL_EXPORT
 QNetworkInterface *ritual_ZNK11QCoapClient13bindInterfaceEv(
     const QCoapClient *self) {
   return new QNetworkInterface(self->bindInterface());
+}
+#endif  // QT_CONFIG(networkinterface)
+
+//  void QCoapClient::finished(QCoapReply *reply)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QCoapClient8finishedEP10QCoapReply(
+    QCoapClient *self,
+    QCoapReply *reply) {
+  self->finished(reply);
+}
+
+//  void QCoapClient::responseToMulticastReceived(QCoapReply *reply, const
+//      QCoapMessage &message, const QHostAddress &sender)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QCoapClient27responseToMulticastReceivedEP10QCoapReplyRK12QCoapMessageRK12QHostAddress(
+    QCoapClient *self,
+    QCoapReply *reply,
+    const QCoapMessage *message,
+    const QHostAddress *sender) {
+  self->responseToMulticastReceived(reply, *message, *sender);
+}
+
+//  void QCoapClient::error(QCoapReply *reply, QtCoap::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QCoapClient5errorEP10QCoapReplyN6QtCoap5ErrorE(
+    QCoapClient *self,
+    QCoapReply *reply,
+    QtCoap::Error error) {
+  self->error(reply, error);
+}
+
+#if QT_CONFIG(networkinterface)
+//  void QCoapClient::bindInterfaceChanged(const QNetworkInterface &iface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QCoapClient20bindInterfaceChangedERK17QNetworkInterface(
+    QCoapClient *self,
+    const QNetworkInterface *iface) {
+  self->bindInterfaceChanged(*iface);
 }
 #endif  // QT_CONFIG(networkinterface)
 

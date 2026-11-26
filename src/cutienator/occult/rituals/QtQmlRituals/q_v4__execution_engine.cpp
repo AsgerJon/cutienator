@@ -1,17 +1,30 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4engine_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qv4engine_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 7. Kept
+//  as it is when the generator runs again.
+#include <QtCore/qglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4engine_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qregularexpression.h>
+#include <QtCore/qurl.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4value_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetatype.h>
+#include <QtQml/qqmlerror.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QUrl>
+#include <QtCore/QMultiHash>
 
 //  Value *QV4::ExecutionEngine::jsAlloca(int nValues)
 extern "C" Q_DECL_EXPORT
@@ -575,6 +588,15 @@ QV4::FunctionObject *ritual_ZNK3QV415ExecutionEngine7throwerEv(
   return self->thrower();
 }
 
+#if QT_CONFIG(qml_network)
+//  QNetworkAccessManager *QV4::ExecutionEngine::getNetworkAccessManager()
+extern "C" Q_DECL_EXPORT
+QNetworkAccessManager *ritual_ZN3QV415ExecutionEngine23getNetworkAccessManagerEv(
+    QV4::ExecutionEngine *self) {
+  return self->getNetworkAccessManager();
+}
+#endif  // QT_CONFIG(qml_network)
+
 //  String *QV4::ExecutionEngine::id_empty() const
 extern "C" Q_DECL_EXPORT
 QV4::String *ritual_ZNK3QV415ExecutionEngine8id_emptyEv(
@@ -1009,6 +1031,19 @@ QV4::Symbol *ritual_ZNK3QV415ExecutionEngine21symbol_revokableProxyEv(
   return self->symbol_revokableProxy();
 }
 
+//  QV4::ExecutionEngine::ExecutionEngine(QJSEngine *jsEngine)
+extern "C" Q_DECL_EXPORT
+QV4::ExecutionEngine *ritual_ZN3QV415ExecutionEngineC1EP9QJSEngine(
+    QJSEngine *jsEngine) {
+  return new QV4::ExecutionEngine(jsEngine);
+}
+
+//  QV4::ExecutionEngine::~ExecutionEngine()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngineD1Ev(QV4::ExecutionEngine *self) {
+  delete self;
+}
+
 #if !(!QT_CONFIG(qml_debug))
 //  QV4::Debugging::Debugger *QV4::ExecutionEngine::debugger() const
 extern "C" Q_DECL_EXPORT
@@ -1027,11 +1062,443 @@ QV4::Profiling::Profiler *ritual_ZNK3QV415ExecutionEngine8profilerEv(
 }
 #endif  // !(!QT_CONFIG(qml_debug))
 
+#if !(!QT_CONFIG(qml_debug))
+//  void QV4::ExecutionEngine::setDebugger(Debugging::Debugger *debugger)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine11setDebuggerEPNS_9Debugging8DebuggerE(
+    QV4::ExecutionEngine *self,
+    QV4::Debugging::Debugger *debugger) {
+  self->setDebugger(debugger);
+}
+#endif  // !(!QT_CONFIG(qml_debug))
+
+#if !(!QT_CONFIG(qml_debug))
+//  void QV4::ExecutionEngine::setProfiler(Profiling::Profiler *profiler)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine11setProfilerEPNS_9Profiling8ProfilerE(
+    QV4::ExecutionEngine *self,
+    QV4::Profiling::Profiler *profiler) {
+  self->setProfiler(profiler);
+}
+#endif  // !(!QT_CONFIG(qml_debug))
+
+#if !(!QT_CONFIG(qml_debug))
+//  void QV4::ExecutionEngine::setPreviewing(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine13setPreviewingEb(bool enabled) {
+  QV4::ExecutionEngine::setPreviewing(enabled);
+}
+#endif  // !(!QT_CONFIG(qml_debug))
+
 //  quintptr QV4::ExecutionEngine::newProtoId()
 extern "C" Q_DECL_EXPORT
 quintptr ritual_ZN3QV415ExecutionEngine10newProtoIdEv(
     QV4::ExecutionEngine *self) {
   return self->newProtoId();
+}
+
+//  Heap::InternalClass *QV4::ExecutionEngine::newInternalClass(const VTable
+//      *vtable, Object *prototype)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::InternalClass *ritual_ZN3QV415ExecutionEngine16newInternalClassEPKNS_6VTableEPNS_6ObjectE(
+    QV4::ExecutionEngine *self,
+    const QV4::VTable *vtable,
+    QV4::Object *prototype) {
+  return self->newInternalClass(vtable, prototype);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newObject()
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine9newObjectEv(
+    QV4::ExecutionEngine *self) {
+  return self->newObject();
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newObject(Heap::InternalClass
+//      *internalClass)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine9newObjectEPNS_4Heap13InternalClassE(
+    QV4::ExecutionEngine *self,
+    QV4::Heap::InternalClass *internalClass) {
+  return self->newObject(internalClass);
+}
+
+//  Heap::String *QV4::ExecutionEngine::newString(char16_t c)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::String *ritual_ZN3QV415ExecutionEngine9newStringEDs(
+    QV4::ExecutionEngine *self,
+    char16_t c) {
+  return self->newString(c);
+}
+
+//  Heap::String *QV4::ExecutionEngine::newString(const QString &s)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::String *ritual_ZN3QV415ExecutionEngine9newStringERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *s) {
+  return self->newString(*s);
+}
+
+//  Heap::String *QV4::ExecutionEngine::newIdentifier(const QString &text)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::String *ritual_ZN3QV415ExecutionEngine13newIdentifierERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *text) {
+  return self->newIdentifier(*text);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newStringObject(const String *string)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine15newStringObjectEPKNS_6StringE(
+    QV4::ExecutionEngine *self,
+    const QV4::String *string) {
+  return self->newStringObject(string);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newSymbolObject(const Symbol *symbol)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine15newSymbolObjectEPKNS_6SymbolE(
+    QV4::ExecutionEngine *self,
+    const QV4::Symbol *symbol) {
+  return self->newSymbolObject(symbol);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newNumberObject(double value)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine15newNumberObjectEd(
+    QV4::ExecutionEngine *self,
+    double value) {
+  return self->newNumberObject(value);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newBooleanObject(bool b)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine16newBooleanObjectEb(
+    QV4::ExecutionEngine *self,
+    bool b) {
+  return self->newBooleanObject(b);
+}
+
+//  Heap::ArrayObject *QV4::ExecutionEngine::newArrayObject(int count)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::ArrayObject *ritual_ZN3QV415ExecutionEngine14newArrayObjectEi(
+    QV4::ExecutionEngine *self,
+    int count) {
+  return self->newArrayObject(count);
+}
+
+//  Heap::ArrayObject *QV4::ExecutionEngine::newArrayObject(const Value
+//      *values, int length)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::ArrayObject *ritual_ZN3QV415ExecutionEngine14newArrayObjectEPKNS_5ValueEi(
+    QV4::ExecutionEngine *self,
+    const QV4::Value *values,
+    int length) {
+  return self->newArrayObject(values, length);
+}
+
+//  Heap::ArrayObject *QV4::ExecutionEngine::newArrayObject(const QStringList
+//      &list)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::ArrayObject *ritual_ZN3QV415ExecutionEngine14newArrayObjectERK5QListI7QStringE(
+    QV4::ExecutionEngine *self,
+    const QList<QString> *list) {
+  return self->newArrayObject(*list);
+}
+
+//  Heap::ArrayObject
+//      *QV4::ExecutionEngine::newArrayObject(Heap::InternalClass *ic)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::ArrayObject *ritual_ZN3QV415ExecutionEngine14newArrayObjectEPNS_4Heap13InternalClassE(
+    QV4::ExecutionEngine *self,
+    QV4::Heap::InternalClass *ic) {
+  return self->newArrayObject(ic);
+}
+
+//  Heap::ArrayBuffer *QV4::ExecutionEngine::newArrayBuffer(const QByteArray
+//      &array)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::ArrayBuffer *ritual_ZN3QV415ExecutionEngine14newArrayBufferERK10QByteArray(
+    QV4::ExecutionEngine *self,
+    const QByteArray *array) {
+  return self->newArrayBuffer(*array);
+}
+
+//  Heap::ArrayBuffer *QV4::ExecutionEngine::newArrayBuffer(size_t length)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::ArrayBuffer *ritual_ZN3QV415ExecutionEngine14newArrayBufferEm(
+    QV4::ExecutionEngine *self,
+    size_t length) {
+  return self->newArrayBuffer(length);
+}
+
+//  Heap::DateObject *QV4::ExecutionEngine::newDateObject(double dateTime)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::DateObject *ritual_ZN3QV415ExecutionEngine13newDateObjectEd(
+    QV4::ExecutionEngine *self,
+    double dateTime) {
+  return self->newDateObject(dateTime);
+}
+
+//  Heap::DateObject *QV4::ExecutionEngine::newDateObject(const QDateTime
+//      &dateTime)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::DateObject *ritual_ZN3QV415ExecutionEngine13newDateObjectERK9QDateTime(
+    QV4::ExecutionEngine *self,
+    const QDateTime *dateTime) {
+  return self->newDateObject(*dateTime);
+}
+
+//  Heap::DateObject *QV4::ExecutionEngine::newDateObject(QDate date,
+//      Heap::Object *parent, int index, uint flags)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::DateObject *ritual_ZN3QV415ExecutionEngine13newDateObjectE5QDatePNS_4Heap6ObjectEij(
+    QV4::ExecutionEngine *self,
+    const QDate *date,
+    QV4::Heap::Object *parent,
+    int index,
+    uint flags) {
+  return self->newDateObject(*date, parent, index, flags);
+}
+
+//  Heap::DateObject *QV4::ExecutionEngine::newDateObject(QTime time,
+//      Heap::Object *parent, int index, uint flags)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::DateObject *ritual_ZN3QV415ExecutionEngine13newDateObjectE5QTimePNS_4Heap6ObjectEij(
+    QV4::ExecutionEngine *self,
+    const QTime *time,
+    QV4::Heap::Object *parent,
+    int index,
+    uint flags) {
+  return self->newDateObject(*time, parent, index, flags);
+}
+
+//  Heap::DateObject *QV4::ExecutionEngine::newDateObject(QDateTime dateTime,
+//      Heap::Object *parent, int index, uint flags)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::DateObject *ritual_ZN3QV415ExecutionEngine13newDateObjectE9QDateTimePNS_4Heap6ObjectEij(
+    QV4::ExecutionEngine *self,
+    const QDateTime *dateTime,
+    QV4::Heap::Object *parent,
+    int index,
+    uint flags) {
+  return self->newDateObject(*dateTime, parent, index, flags);
+}
+
+//  Heap::RegExpObject *QV4::ExecutionEngine::newRegExpObject(const QString
+//      &pattern, int flags)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::RegExpObject *ritual_ZN3QV415ExecutionEngine15newRegExpObjectERK7QStringi(
+    QV4::ExecutionEngine *self,
+    const QString *pattern,
+    int flags) {
+  return self->newRegExpObject(*pattern, flags);
+}
+
+#if QT_CONFIG(regularexpression)
+//  Heap::RegExpObject *QV4::ExecutionEngine::newRegExpObject(const
+//      QRegularExpression &re)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::RegExpObject *ritual_ZN3QV415ExecutionEngine15newRegExpObjectERK18QRegularExpression(
+    QV4::ExecutionEngine *self,
+    const QRegularExpression *re) {
+  return self->newRegExpObject(*re);
+}
+#endif  // QT_CONFIG(regularexpression)
+
+//  Heap::UrlObject *QV4::ExecutionEngine::newUrlObject()
+extern "C" Q_DECL_EXPORT
+QV4::Heap::UrlObject *ritual_ZN3QV415ExecutionEngine12newUrlObjectEv(
+    QV4::ExecutionEngine *self) {
+  return self->newUrlObject();
+}
+
+//  Heap::UrlObject *QV4::ExecutionEngine::newUrlObject(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::UrlObject *ritual_ZN3QV415ExecutionEngine12newUrlObjectERK4QUrl(
+    QV4::ExecutionEngine *self,
+    const QUrl *url) {
+  return self->newUrlObject(*url);
+}
+
+//  Heap::UrlSearchParamsObject
+//      *QV4::ExecutionEngine::newUrlSearchParamsObject()
+extern "C" Q_DECL_EXPORT
+QV4::Heap::UrlSearchParamsObject *ritual_ZN3QV415ExecutionEngine24newUrlSearchParamsObjectEv(
+    QV4::ExecutionEngine *self) {
+  return self->newUrlSearchParamsObject();
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newErrorObject(const Value &value)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine14newErrorObjectERKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    const QV4::Value *value) {
+  return self->newErrorObject(*value);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newErrorObject(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine14newErrorObjectERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->newErrorObject(*message);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newSyntaxErrorObject(const QString
+//      &message, const QString &fileName, int line, int column)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine20newSyntaxErrorObjectERK7QStringS3_ii(
+    QV4::ExecutionEngine *self,
+    const QString *message,
+    const QString *fileName,
+    int line,
+    int column) {
+  return self->newSyntaxErrorObject(*message, *fileName, line, column);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newSyntaxErrorObject(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine20newSyntaxErrorObjectERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->newSyntaxErrorObject(*message);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newReferenceErrorObject(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine23newReferenceErrorObjectERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->newReferenceErrorObject(*message);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newReferenceErrorObject(const QString
+//      &message, const QString &fileName, int line, int column)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine23newReferenceErrorObjectERK7QStringS3_ii(
+    QV4::ExecutionEngine *self,
+    const QString *message,
+    const QString *fileName,
+    int line,
+    int column) {
+  return self->newReferenceErrorObject(*message, *fileName, line, column);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newTypeErrorObject(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine18newTypeErrorObjectERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->newTypeErrorObject(*message);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newRangeErrorObject(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine19newRangeErrorObjectERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->newRangeErrorObject(*message);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newURIErrorObject(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine17newURIErrorObjectERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->newURIErrorObject(*message);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newURIErrorObject(const Value
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine17newURIErrorObjectERKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    const QV4::Value *message) {
+  return self->newURIErrorObject(*message);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newEvalErrorObject(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine18newEvalErrorObjectERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->newEvalErrorObject(*message);
+}
+
+//  Heap::PromiseObject *QV4::ExecutionEngine::newPromiseObject()
+extern "C" Q_DECL_EXPORT
+QV4::Heap::PromiseObject *ritual_ZN3QV415ExecutionEngine16newPromiseObjectEv(
+    QV4::ExecutionEngine *self) {
+  return self->newPromiseObject();
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newPromiseObject(const
+//      QV4::FunctionObject *thisObject, const QV4::PromiseCapability
+//      *capability)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine16newPromiseObjectEPKNS_14FunctionObjectEPKNS_17PromiseCapabilityE(
+    QV4::ExecutionEngine *self,
+    const QV4::FunctionObject *thisObject,
+    const QV4::PromiseCapability *capability) {
+  return self->newPromiseObject(thisObject, capability);
+}
+
+//  Promise::ReactionHandler
+//      *QV4::ExecutionEngine::getPromiseReactionHandler()
+extern "C" Q_DECL_EXPORT
+QV4::Promise::ReactionHandler *ritual_ZN3QV415ExecutionEngine25getPromiseReactionHandlerEv(
+    QV4::ExecutionEngine *self) {
+  return self->getPromiseReactionHandler();
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newVariantObject(const QMetaType
+//      type, const void *data)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine16newVariantObjectE9QMetaTypePKv(
+    QV4::ExecutionEngine *self,
+    const QMetaType *type,
+    const void *data) {
+  return self->newVariantObject(*type, data);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newForInIteratorObject(Object *o)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine22newForInIteratorObjectEPNS_6ObjectE(
+    QV4::ExecutionEngine *self,
+    QV4::Object *o) {
+  return self->newForInIteratorObject(o);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newSetIteratorObject(Object *o)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine20newSetIteratorObjectEPNS_6ObjectE(
+    QV4::ExecutionEngine *self,
+    QV4::Object *o) {
+  return self->newSetIteratorObject(o);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newMapIteratorObject(Object *o)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine20newMapIteratorObjectEPNS_6ObjectE(
+    QV4::ExecutionEngine *self,
+    QV4::Object *o) {
+  return self->newMapIteratorObject(o);
+}
+
+//  Heap::Object *QV4::ExecutionEngine::newArrayIteratorObject(Object *o)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV415ExecutionEngine22newArrayIteratorObjectEPNS_6ObjectE(
+    QV4::ExecutionEngine *self,
+    QV4::Object *o) {
+  return self->newArrayIteratorObject(o);
 }
 
 //  Heap::ExecutionContext
@@ -1047,6 +1514,192 @@ extern "C" Q_DECL_EXPORT
 QV4::Heap::QmlContext *ritual_ZNK3QV415ExecutionEngine10qmlContextEv(
     const QV4::ExecutionEngine *self) {
   return self->qmlContext();
+}
+
+//  QObject *QV4::ExecutionEngine::qmlScopeObject() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK3QV415ExecutionEngine14qmlScopeObjectEv(
+    const QV4::ExecutionEngine *self) {
+  return self->qmlScopeObject();
+}
+
+//  StackTrace QV4::ExecutionEngine::stackTrace(int frameLimit) const
+extern "C" Q_DECL_EXPORT
+QV4::StackTrace *ritual_ZNK3QV415ExecutionEngine10stackTraceEi(
+    const QV4::ExecutionEngine *self,
+    int frameLimit) {
+  return new QV4::StackTrace(self->stackTrace(frameLimit));
+}
+
+//  QUrl QV4::ExecutionEngine::resolvedUrl(const QString &file)
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZN3QV415ExecutionEngine11resolvedUrlERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *file) {
+  return new QUrl(self->resolvedUrl(*file));
+}
+
+//  void QV4::ExecutionEngine::markObjects(MarkStack *markStack)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine11markObjectsEPNS_9MarkStackE(
+    QV4::ExecutionEngine *self,
+    QV4::MarkStack *markStack) {
+  self->markObjects(markStack);
+}
+
+//  void QV4::ExecutionEngine::initRootContext()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine15initRootContextEv(
+    QV4::ExecutionEngine *self) {
+  self->initRootContext();
+}
+
+//  Heap::InternalClass *QV4::ExecutionEngine::newClass(Heap::InternalClass
+//      *other)
+extern "C" Q_DECL_EXPORT
+QV4::Heap::InternalClass *ritual_ZN3QV415ExecutionEngine8newClassEPNS_4Heap13InternalClassE(
+    QV4::ExecutionEngine *self,
+    QV4::Heap::InternalClass *other) {
+  return self->newClass(other);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwError(const Value &value)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine10throwErrorERKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    const QV4::Value *value) {
+  return self->throwError(*value);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::catchException(StackTrace *trace)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine14catchExceptionEP5QListINS_10StackFrameEE(
+    QV4::ExecutionEngine *self,
+    QV4::StackTrace *trace) {
+  return self->catchException(trace);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwError(const QString &message)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine10throwErrorERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->throwError(*message);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwSyntaxError(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine16throwSyntaxErrorERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->throwSyntaxError(*message);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwSyntaxError(const QString
+//      &message, const QString &fileName, int lineNumber, int column)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine16throwSyntaxErrorERK7QStringS3_ii(
+    QV4::ExecutionEngine *self,
+    const QString *message,
+    const QString *fileName,
+    int lineNumber,
+    int column) {
+  return self->throwSyntaxError(*message, *fileName, lineNumber, column);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwTypeError()
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine14throwTypeErrorEv(
+    QV4::ExecutionEngine *self) {
+  return self->throwTypeError();
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwTypeError(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine14throwTypeErrorERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->throwTypeError(*message);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwReferenceError(const Value
+//      &value)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine19throwReferenceErrorERKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    const QV4::Value *value) {
+  return self->throwReferenceError(*value);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwReferenceError(const QString
+//      &name)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine19throwReferenceErrorERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *name) {
+  return self->throwReferenceError(*name);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwReferenceError(const QString
+//      &value, const QString &fileName, int lineNumber, int column)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine19throwReferenceErrorERK7QStringS3_ii(
+    QV4::ExecutionEngine *self,
+    const QString *value,
+    const QString *fileName,
+    int lineNumber,
+    int column) {
+  return self->throwReferenceError(*value, *fileName, lineNumber, column);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwRangeError(const Value &value)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine15throwRangeErrorERKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    const QV4::Value *value) {
+  return self->throwRangeError(*value);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwRangeError(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine15throwRangeErrorERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->throwRangeError(*message);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwURIError(const Value &msg)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine13throwURIErrorERKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    const QV4::Value *msg) {
+  return self->throwURIError(*msg);
+}
+
+//  ReturnedValue QV4::ExecutionEngine::throwUnimplemented(const QString
+//      &message)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine18throwUnimplementedERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *message) {
+  return self->throwUnimplemented(*message);
+}
+
+//  QQmlError QV4::ExecutionEngine::catchExceptionAsQmlError()
+extern "C" Q_DECL_EXPORT
+QQmlError *ritual_ZN3QV415ExecutionEngine24catchExceptionAsQmlErrorEv(
+    QV4::ExecutionEngine *self) {
+  return new QQmlError(self->catchExceptionAsQmlError());
+}
+
+//  void QV4::ExecutionEngine::amendException()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine14amendExceptionEv(
+    QV4::ExecutionEngine *self) {
+  self->amendException();
 }
 
 //  QVariant QV4::ExecutionEngine::toVariant(const QV4::Value &value,
@@ -1109,6 +1762,118 @@ QHash<QString, QVariant> *ritual_ZN3QV415ExecutionEngine17variantHashFromJSEPKNS
           o));
 }
 
+//  bool QV4::ExecutionEngine::metaTypeFromJS(const Value &value, QMetaType
+//      type, void *data)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN3QV415ExecutionEngine14metaTypeFromJSERKNS_5ValueE9QMetaTypePv(
+    const QV4::Value *value,
+    const QMetaType *type,
+    void *data) {
+  return QV4::ExecutionEngine::metaTypeFromJS(*value, *type, data);
+}
+
+//  QV4::ReturnedValue QV4::ExecutionEngine::metaTypeToJS(QMetaType type,
+//      const void *data)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine12metaTypeToJSE9QMetaTypePKv(
+    QV4::ExecutionEngine *self,
+    const QMetaType *type,
+    const void *data) {
+  return self->metaTypeToJS(*type, data);
+}
+
+//  int QV4::ExecutionEngine::maxJSStackSize() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK3QV415ExecutionEngine14maxJSStackSizeEv(
+    const QV4::ExecutionEngine *self) {
+  return self->maxJSStackSize();
+}
+
+//  int QV4::ExecutionEngine::maxGCStackSize() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK3QV415ExecutionEngine14maxGCStackSizeEv(
+    const QV4::ExecutionEngine *self) {
+  return self->maxGCStackSize();
+}
+
+//  int QV4::ExecutionEngine::safeForAllocLength(qint64 len64)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN3QV415ExecutionEngine18safeForAllocLengthEx(
+    QV4::ExecutionEngine *self,
+    qint64 len64) {
+  return self->safeForAllocLength(len64);
+}
+
+//  QV4::ReturnedValue QV4::ExecutionEngine::global()
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine6globalEv(
+    QV4::ExecutionEngine *self) {
+  return self->global();
+}
+
+//  void QV4::ExecutionEngine::initQmlGlobalObject()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine19initQmlGlobalObjectEv(
+    QV4::ExecutionEngine *self) {
+  self->initQmlGlobalObject();
+}
+
+//  void QV4::ExecutionEngine::initializeGlobal()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine16initializeGlobalEv(
+    QV4::ExecutionEngine *self) {
+  self->initializeGlobal();
+}
+
+//  void QV4::ExecutionEngine::createQtObject()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine14createQtObjectEv(
+    QV4::ExecutionEngine *self) {
+  self->createQtObject();
+}
+
+//  void QV4::ExecutionEngine::freezeObject(const QV4::Value &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine12freezeObjectERKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    const QV4::Value *value) {
+  self->freezeObject(*value);
+}
+
+//  void QV4::ExecutionEngine::lockObject(const QV4::Value &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine10lockObjectERKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    const QV4::Value *value) {
+  self->lockObject(*value);
+}
+
+#if QT_CONFIG(qml_xml_http_request)
+//  void QV4::ExecutionEngine::setupXmlHttpRequestExtension()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine28setupXmlHttpRequestExtensionEv(
+    QV4::ExecutionEngine *self) {
+  self->setupXmlHttpRequestExtension();
+}
+#endif  // QT_CONFIG(qml_xml_http_request)
+
+#if QT_CONFIG(qml_xml_http_request)
+//  void *QV4::ExecutionEngine::xmlHttpRequestData() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK3QV415ExecutionEngine18xmlHttpRequestDataEv(
+    const QV4::ExecutionEngine *self) {
+  return self->xmlHttpRequestData();
+}
+#endif  // QT_CONFIG(qml_xml_http_request)
+
+//  void QV4::ExecutionEngine::setQmlEngine(QQmlEngine *engine)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine12setQmlEngineEP10QQmlEngine(
+    QV4::ExecutionEngine *self,
+    QQmlEngine *engine) {
+  self->setQmlEngine(engine);
+}
+
 //  void QV4::ExecutionEngine::resetQmlEngine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV415ExecutionEngine14resetQmlEngineEv(
@@ -1123,6 +1888,35 @@ QQmlDelayedCallQueue *ritual_ZN3QV415ExecutionEngine16delayedCallQueueEv(
   return self->delayedCallQueue();
 }
 
+//  void QV4::ExecutionEngine::startTimer(const QString &timerName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine10startTimerERK7QString(
+    QV4::ExecutionEngine *self,
+    const QString *timerName) {
+  self->startTimer(*timerName);
+}
+
+//  qint64 QV4::ExecutionEngine::stopTimer(const QString &timerName, bool
+//      *wasRunning)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN3QV415ExecutionEngine9stopTimerERK7QStringPb(
+    QV4::ExecutionEngine *self,
+    const QString *timerName,
+    bool *wasRunning) {
+  return self->stopTimer(*timerName, wasRunning);
+}
+
+//  int QV4::ExecutionEngine::consoleCountHelper(const QString &file, quint16
+//      line, quint16 column)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN3QV415ExecutionEngine18consoleCountHelperERK7QStringtt(
+    QV4::ExecutionEngine *self,
+    const QString *file,
+    quint16 line,
+    quint16 column) {
+  return self->consoleCountHelper(*file, line, column);
+}
+
 //  QMutex *QV4::ExecutionEngine::registrationMutex()
 extern "C" Q_DECL_EXPORT
 QMutex *ritual_ZN3QV415ExecutionEngine17registrationMutexEv() {
@@ -1135,12 +1929,155 @@ int ritual_ZN3QV415ExecutionEngine17registerExtensionEv() {
   return QV4::ExecutionEngine::registerExtension();
 }
 
+//  void QV4::ExecutionEngine::setExtensionData(int a0, Deletable *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine16setExtensionDataEiPNS0_9DeletableE(
+    QV4::ExecutionEngine *self,
+    int a0,
+    QV4::ExecutionEngine::Deletable *a1) {
+  self->setExtensionData(a0, a1);
+}
+
 //  Deletable *QV4::ExecutionEngine::extensionData(int index) const
 extern "C" Q_DECL_EXPORT
 QV4::ExecutionEngine::Deletable *ritual_ZNK3QV415ExecutionEngine13extensionDataEi(
     const QV4::ExecutionEngine *self,
     int index) {
   return self->extensionData(index);
+}
+
+//  QQmlRefPointer<ExecutableCompilationUnit>
+//      QV4::ExecutionEngine::compilationUnitForUrl(const QUrl &url) const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QV4::ExecutableCompilationUnit> *ritual_ZNK3QV415ExecutionEngine21compilationUnitForUrlERK4QUrl(
+    const QV4::ExecutionEngine *self,
+    const QUrl *url) {
+  return new QQmlRefPointer<QV4::ExecutableCompilationUnit>(
+      self->compilationUnitForUrl(
+          *url));
+}
+
+//  QQmlRefPointer<ExecutableCompilationUnit> QV4::ExecutionEngine::executabl
+//      eCompilationUnit(QQmlRefPointer<QV4::CompiledData::CompilationUnit>
+//      &&unit)
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QV4::ExecutableCompilationUnit> *ritual_ZN3QV415ExecutionEngine25executableCompilationUnitEO14QQmlRefPointerINS_12CompiledData15CompilationUnitEE(
+    QV4::ExecutionEngine *self,
+    QQmlRefPointer<QV4::CompiledData::CompilationUnit> *unit) {
+  return new QQmlRefPointer<QV4::ExecutableCompilationUnit>(
+      self->executableCompilationUnit(
+          std::move(*unit)));
+}
+
+//  QQmlRefPointer<ExecutableCompilationUnit> QV4::ExecutionEngine::insertCom
+//      pilationUnit(QQmlRefPointer<QV4::CompiledData::CompilationUnit>
+//      &&unit)
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QV4::ExecutableCompilationUnit> *ritual_ZN3QV415ExecutionEngine21insertCompilationUnitEO14QQmlRefPointerINS_12CompiledData15CompilationUnitEE(
+    QV4::ExecutionEngine *self,
+    QQmlRefPointer<QV4::CompiledData::CompilationUnit> *unit) {
+  return new QQmlRefPointer<QV4::ExecutableCompilationUnit>(
+      self->insertCompilationUnit(
+          std::move(*unit)));
+}
+
+//  QMultiHash<QUrl, QQmlRefPointer<ExecutableCompilationUnit>>
+//      QV4::ExecutionEngine::compilationUnits() const
+extern "C" Q_DECL_EXPORT
+QMultiHash<QUrl, QQmlRefPointer<QV4::ExecutableCompilationUnit>> *ritual_ZNK3QV415ExecutionEngine16compilationUnitsEv(
+    const QV4::ExecutionEngine *self) {
+  return new QMultiHash<QUrl, QQmlRefPointer<QV4::ExecutableCompilationUnit>>(
+      self->compilationUnits());
+}
+
+//  void QV4::ExecutionEngine::trimCompilationUnits()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine20trimCompilationUnitsEv(
+    QV4::ExecutionEngine *self) {
+  self->trimCompilationUnits();
+}
+
+//  void QV4::ExecutionEngine::trimCompilationUnitsForUrl(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine26trimCompilationUnitsForUrlERK4QUrl(
+    QV4::ExecutionEngine *self,
+    const QUrl *url) {
+  self->trimCompilationUnitsForUrl(*url);
+}
+
+//  Module QV4::ExecutionEngine::registerNativeModule(const QUrl &url, const
+//      QV4::Value &value)
+extern "C" Q_DECL_EXPORT
+QV4::ExecutionEngine::Module *ritual_ZN3QV415ExecutionEngine20registerNativeModuleERK4QUrlRKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    const QUrl *url,
+    const QV4::Value *value) {
+  return new QV4::ExecutionEngine::Module(
+      self->registerNativeModule(
+          *url,
+          *value));
+}
+
+//  Module QV4::ExecutionEngine::moduleForUrl(const QUrl &_url, const
+//      ExecutableCompilationUnit *referrer)
+extern "C" Q_DECL_EXPORT
+QV4::ExecutionEngine::Module *ritual_ZN3QV415ExecutionEngine12moduleForUrlERK4QUrlPKNS_25ExecutableCompilationUnitE(
+    QV4::ExecutionEngine *self,
+    const QUrl *_url,
+    const QV4::ExecutableCompilationUnit *referrer) {
+  return new QV4::ExecutionEngine::Module(
+      self->moduleForUrl(
+          *_url,
+          referrer));
+}
+
+//  DiskCacheOptions QV4::ExecutionEngine::diskCacheOptions() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK3QV415ExecutionEngine16diskCacheOptionsEv(
+    const QV4::ExecutionEngine *self) {
+  return static_cast<int>(self->diskCacheOptions().toInt());
+}
+
+//  void QV4::ExecutionEngine::callInContext(QV4::Function *function, QObject
+//      *self_, QV4::ExecutionContext *ctxt, int argc, void **args, QMetaType
+//      *types)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine13callInContextEPNS_8FunctionEP7QObjectPNS_16ExecutionContextEiPPvP9QMetaType(
+    QV4::ExecutionEngine *self,
+    QV4::Function *function,
+    QObject *self_,
+    QV4::ExecutionContext *ctxt,
+    int argc,
+    void **args,
+    QMetaType *types) {
+  self->callInContext(function, self_, ctxt, argc, args, types);
+}
+
+//  QV4::ReturnedValue QV4::ExecutionEngine::callInContext(QV4::Function
+//      *function, QObject *self_, QV4::ExecutionContext *ctxt, int argc,
+//      const QV4::Value *argv)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine13callInContextEPNS_8FunctionEP7QObjectPNS_16ExecutionContextEiPKNS_5ValueE(
+    QV4::ExecutionEngine *self,
+    QV4::Function *function,
+    QObject *self_,
+    QV4::ExecutionContext *ctxt,
+    int argc,
+    const QV4::Value *argv) {
+  return self->callInContext(function, self_, ctxt, argc, argv);
+}
+
+//  QV4::ReturnedValue QV4::ExecutionEngine::fromData(QMetaType type, const
+//      void *ptr, Heap::Object *parent, int property, uint flags)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV415ExecutionEngine8fromDataE9QMetaTypePKvPNS_4Heap6ObjectEij(
+    QV4::ExecutionEngine *self,
+    const QMetaType *type,
+    const void *ptr,
+    QV4::Heap::Object *parent,
+    int property,
+    uint flags) {
+  return self->fromData(*type, ptr, parent, property, flags);
 }
 
 //  void QV4::ExecutionEngine::setMaxCallDepth(int maxCallDepth)
@@ -1155,9 +2092,114 @@ int ritual_ZN3QV415ExecutionEngine12maxCallDepthEv() {
   return QV4::ExecutionEngine::maxCallDepth();
 }
 
+//  void QV4::ExecutionEngine::initializeStaticMembers()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV415ExecutionEngine23initializeStaticMembersEv() {
+  QV4::ExecutionEngine::initializeStaticMembers();
+}
+
+//  bool QV4::ExecutionEngine::inStack(const void *current) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK3QV415ExecutionEngine7inStackEPKv(
+    const QV4::ExecutionEngine *self,
+    const void *current) {
+  return self->inStack(current);
+}
+
 //  bool QV4::ExecutionEngine::hasJsStackOverflow() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK3QV415ExecutionEngine18hasJsStackOverflowEv(
     const QV4::ExecutionEngine *self) {
   return self->hasJsStackOverflow();
+}
+
+//  a QV4::StackTrace a ritual of QV4::ExecutionEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_ExecutionEngine__QV4_StackTrace(QV4::StackTrace *self) {
+  delete self;
+}
+
+//  a QQmlRefPointer<QV4::ExecutableCompilationUnit> a ritual of
+//      QV4::ExecutionEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_ExecutionEngine__QQmlRefPointer_QV4_ExecutableCompilationUnit(
+    QQmlRefPointer<QV4::ExecutableCompilationUnit> *self) {
+  delete self;
+}
+
+//  a QMultiHash<QUrl, QQmlRefPointer<QV4::ExecutableCompilationUnit>> a
+//      ritual of QV4::ExecutionEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_ExecutionEngine__QMultiHash_QUrl_QQmlRefPointer_QV4_ExecutableCompilationUnit(
+    QMultiHash<QUrl, QQmlRefPointer<QV4::ExecutableCompilationUnit>> *self) {
+  delete self;
+}
+
+//  a QV4::ExecutionEngine::Module a ritual of QV4::ExecutionEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_ExecutionEngine__QV4_ExecutionEngine_Module(
+    QV4::ExecutionEngine::Module *self) {
+  delete self;
+}
+
+#include <QtQml/6.12.0/QtQml/private/qv4function_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4stackframe_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4scopedvalue_p.h>
+
+//  bool QV4::ExecutionEngine::canJIT<QV4::Function>(Function *jittable)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK3QV415ExecutionEngine6canJITINS_8FunctionEEEbPT_(
+    const QV4::ExecutionEngine *self, QV4::Function *jittable) {
+  return self->canJIT<QV4::Function>(jittable);
+}
+
+//  static QJSPrimitiveValue QV4::ExecutionEngine::createPrimitive<const
+//      QV4::Value *>(const const QV4::Value * &v)
+extern "C" Q_DECL_EXPORT
+QJSPrimitiveValue *ritual_ZN3QV415ExecutionEngine15createPrimitiveIPKNS_5ValueEEE17QJSPrimitiveValueRKT_(
+    const QV4::Value *v) {
+  return new QJSPrimitiveValue(
+      QV4::ExecutionEngine::createPrimitive<const QV4::Value *>(v));
+}
+
+//  static QJSPrimitiveValue QV4::ExecutionEngine::createPrimitive<QV4::Value
+//      *>(const QV4::Value * &v)
+extern "C" Q_DECL_EXPORT
+QJSPrimitiveValue *ritual_ZN3QV415ExecutionEngine15createPrimitiveIPNS_5ValueEEE17QJSPrimitiveValueRKT_(
+    QV4::Value *v) {
+  return new QJSPrimitiveValue(
+      QV4::ExecutionEngine::createPrimitive<QV4::Value *>(v));
+}
+
+//  QV4::ExecutionContext *QV4::ExecutionEngine::currentContext<
+//      QV4::CppStackFrame>() const
+extern "C" Q_DECL_EXPORT
+QV4::ExecutionContext *ritual_ZNK3QV415ExecutionEngine14currentContextINS_13CppStackFrameEEEPNS_16ExecutionContextEv(
+    const QV4::ExecutionEngine *self) {
+  return self->currentContext<QV4::CppStackFrame>();
+}
+
+//  QV4::ExecutionContext *QV4::ExecutionEngine::currentContext<
+//      QV4::JSTypesStackFrame>() const
+extern "C" Q_DECL_EXPORT
+QV4::ExecutionContext *ritual_ZNK3QV415ExecutionEngine14currentContextINS_17JSTypesStackFrameEEEPNS_16ExecutionContextEv(
+    const QV4::ExecutionEngine *self) {
+  return self->currentContext<QV4::JSTypesStackFrame>();
+}
+
+//  QV4::ExecutionContext *QV4::ExecutionEngine::currentContext<
+//      QV4::MetaTypesStackFrame>() const
+extern "C" Q_DECL_EXPORT
+QV4::ExecutionContext *ritual_ZNK3QV415ExecutionEngine14currentContextINS_19MetaTypesStackFrameEEEPNS_16ExecutionContextEv(
+    const QV4::ExecutionEngine *self) {
+  return self->currentContext<QV4::MetaTypesStackFrame>();
+}
+
+//  QQmlTypeLoader *QV4::ExecutionEngine::typeLoader<QQmlTypeLoader>()
+extern "C" Q_DECL_EXPORT
+QQmlTypeLoader *ritual_ZN3QV415ExecutionEngine10typeLoaderI14QQmlTypeLoaderEEPT_v(
+    QV4::ExecutionEngine *self) {
+  return self->typeLoader<QQmlTypeLoader>();
 }

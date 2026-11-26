@@ -866,6 +866,25 @@ const QMetaObject *ritual_ZNK16QWindowContainer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWindowContainer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QWindowContainer11qt_metacastEPKc(
+    QWindowContainer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWindowContainer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QWindowContainer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWindowContainer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWindowContainer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QWindowContainer2trEPKcS1_i(
@@ -873,6 +892,20 @@ QString *ritual_ZN16QWindowContainer2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWindowContainer::tr(s, c, n));
+}
+
+//  QWindowContainerPrivate *QWindowContainer::d_func()
+extern "C" Q_DECL_EXPORT
+QWindowContainerPrivate *ritual_ZN16QWindowContainer6d_funcEv(
+    QWindowContainer *self) {
+  return self->d_func();
+}
+
+//  const QWindowContainerPrivate *QWindowContainer::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWindowContainerPrivate *ritual_ZNK16QWindowContainer6d_funcEv(
+    const QWindowContainer *self) {
+  return self->d_func();
 }
 
 //  QWindowContainer::QWindowContainer(QWindow *embeddedWindow, QWidget

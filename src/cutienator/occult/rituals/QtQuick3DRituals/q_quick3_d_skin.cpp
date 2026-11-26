@@ -12,6 +12,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuick3DSkin that Python can take functions over in. Every QQuick3DSkin
 //  Python makes is one. Each function below asks the Python
@@ -288,6 +289,24 @@ const QMetaObject *ritual_ZNK12QQuick3DSkin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DSkin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuick3DSkin11qt_metacastEPKc(
+    QQuick3DSkin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DSkin::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuick3DSkin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DSkin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DSkin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuick3DSkin2trEPKcS1_i(
@@ -310,6 +329,13 @@ void ritual_ZN12QQuick3DSkinD1Ev(QQuick3DSkin *self) {
   delete self;
 }
 
+//  QQmlListProperty<QQuick3DNode> QQuick3DSkin::joints()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DNode> *ritual_ZN12QQuick3DSkin6jointsEv(
+    QQuick3DSkin *self) {
+  return new QQmlListProperty<QQuick3DNode>(self->joints());
+}
+
 //  QList<QMatrix4x4> QQuick3DSkin::inverseBindPoses() const
 extern "C" Q_DECL_EXPORT
 QList<QMatrix4x4> *ritual_ZNK12QQuick3DSkin16inverseBindPosesEv(
@@ -323,6 +349,45 @@ void ritual_ZN12QQuick3DSkin19setInverseBindPosesERK5QListI10QMatrix4x4E(
     QQuick3DSkin *self,
     const QList<QMatrix4x4> *poses) {
   self->setInverseBindPoses(*poses);
+}
+
+//  void QQuick3DSkin::inverseBindPosesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DSkin23inverseBindPosesChangedEv(QQuick3DSkin *self) {
+  self->inverseBindPosesChanged();
+}
+
+//  void QQuick3DSkin::qmlAppendJoint(QQmlListProperty<QQuick3DNode> *list,
+//      QQuick3DNode *joint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DSkin14qmlAppendJointEP16QQmlListPropertyI12QQuick3DNodeEPS1_(
+    QQmlListProperty<QQuick3DNode> *list,
+    QQuick3DNode *joint) {
+  QQuick3DSkin::qmlAppendJoint(list, joint);
+}
+
+//  QQuick3DNode *QQuick3DSkin::qmlJointAt(QQmlListProperty<QQuick3DNode>
+//      *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DNode *ritual_ZN12QQuick3DSkin10qmlJointAtEP16QQmlListPropertyI12QQuick3DNodeEx(
+    QQmlListProperty<QQuick3DNode> *list,
+    qsizetype index) {
+  return QQuick3DSkin::qmlJointAt(list, index);
+}
+
+//  qsizetype QQuick3DSkin::qmlJointsCount(QQmlListProperty<QQuick3DNode>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN12QQuick3DSkin14qmlJointsCountEP16QQmlListPropertyI12QQuick3DNodeE(
+    QQmlListProperty<QQuick3DNode> *list) {
+  return QQuick3DSkin::qmlJointsCount(list);
+}
+
+//  void QQuick3DSkin::qmlClearJoints(QQmlListProperty<QQuick3DNode> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DSkin14qmlClearJointsEP16QQmlListPropertyI12QQuick3DNodeE(
+    QQmlListProperty<QQuick3DNode> *list) {
+  QQuick3DSkin::qmlClearJoints(list);
 }
 
 //  QSSGRenderGraphObject
@@ -351,4 +416,11 @@ QSSGRenderGraphObject *ritual_own_ZN12QQuick3DSkin17updateSpatialNodeEP21QSSGRen
     QQuick3DSkin *self,
     QSSGRenderGraphObject *node) {
   return self->QQuick3DSkin::updateSpatialNode(node);
+}
+
+//  a QQmlListProperty<QQuick3DNode> a ritual of QQuick3DSkin gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DSkin__QQmlListProperty_QQuick3DNode(
+    QQmlListProperty<QQuick3DNode> *self) {
+  delete self;
 }

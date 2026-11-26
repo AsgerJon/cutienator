@@ -30,11 +30,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/network/socket/qsctpserver.cpp, line 76, as _ZN18QSctpServerPrivateD2Ev
-inline QSctpServerPrivate::~QSctpServerPrivate()
-{
-}
-
 //  from src/network/socket/qsctpserver.cpp, line 82, as _ZN18QSctpServerPrivate22configureCreatedSocketEv
 inline void QSctpServerPrivate::configureCreatedSocket()
 {
@@ -42,6 +37,11 @@ inline void QSctpServerPrivate::configureCreatedSocket()
     if (socketEngine)
         socketEngine->setOption(QAbstractSocketEngine::MaxStreamsSocketOption,
                                 maximumChannelCount == -1 ? 1 : maximumChannelCount);
+}
+
+//  from src/network/socket/qsctpserver.cpp, line 76, as _ZN18QSctpServerPrivateD2Ev
+inline QSctpServerPrivate::~QSctpServerPrivate()
+{
 }
 //  -----------------------------------------------------------------------
 

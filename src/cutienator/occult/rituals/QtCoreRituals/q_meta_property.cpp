@@ -7,6 +7,7 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QMetaProperty>
 
 //  QMetaProperty::QMetaProperty()
 extern "C" Q_DECL_EXPORT
@@ -206,6 +207,15 @@ bool ritual_ZNK13QMetaProperty5writeEP7QObjectRK8QVariant(
   return self->write(obj, *value);
 }
 
+//  bool QMetaProperty::write(QObject *obj, QVariant &&value) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QMetaProperty5writeEP7QObjectO8QVariant(
+    const QMetaProperty *self,
+    QObject *obj,
+    QVariant *value) {
+  return self->write(obj, std::move(*value));
+}
+
 //  bool QMetaProperty::reset(QObject *obj) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QMetaProperty5resetEP7QObject(
@@ -220,6 +230,41 @@ QUntypedBindable *ritual_ZNK13QMetaProperty8bindableEP7QObject(
     const QMetaProperty *self,
     QObject *object) {
   return new QUntypedBindable(self->bindable(object));
+}
+
+//  QVariant QMetaProperty::readOnGadget(const void *gadget) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK13QMetaProperty12readOnGadgetEPKv(
+    const QMetaProperty *self,
+    const void *gadget) {
+  return new QVariant(self->readOnGadget(gadget));
+}
+
+//  bool QMetaProperty::writeOnGadget(void *gadget, const QVariant &value)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QMetaProperty13writeOnGadgetEPvRK8QVariant(
+    const QMetaProperty *self,
+    void *gadget,
+    const QVariant *value) {
+  return self->writeOnGadget(gadget, *value);
+}
+
+//  bool QMetaProperty::writeOnGadget(void *gadget, QVariant &&value) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QMetaProperty13writeOnGadgetEPvO8QVariant(
+    const QMetaProperty *self,
+    void *gadget,
+    QVariant *value) {
+  return self->writeOnGadget(gadget, std::move(*value));
+}
+
+//  bool QMetaProperty::resetOnGadget(void *gadget) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QMetaProperty13resetOnGadgetEPv(
+    const QMetaProperty *self,
+    void *gadget) {
+  return self->resetOnGadget(gadget);
 }
 
 //  bool QMetaProperty::hasStdCppSet() const
@@ -262,6 +307,18 @@ QMetaProperty *ritual_ZN13QMetaPropertyC1EPK11QMetaObjecti(
     const QMetaObject *mobj,
     int index) {
   return new QMetaProperty(mobj, index);
+}
+
+//  Data QMetaProperty::getMetaPropertyData(const QMetaObject *mobj, int
+//      index)
+extern "C" Q_DECL_EXPORT
+QMetaProperty::Data *ritual_ZN13QMetaProperty19getMetaPropertyDataEPK11QMetaObjecti(
+    const QMetaObject *mobj,
+    int index) {
+  return new QMetaProperty::Data(
+      QMetaProperty::getMetaPropertyData(
+          mobj,
+          index));
 }
 
 //  QMetaProperty::~QMetaProperty()
@@ -328,5 +385,12 @@ QMetaProperty *ritual_map_get_QHash_int_QMetaProperty(
 extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QHash_int_QMetaProperty(
     QHash<int, QMetaProperty> *self) {
+  delete self;
+}
+
+//  a QMetaProperty::Data a ritual of QMetaProperty gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMetaProperty__QMetaProperty_Data(
+    QMetaProperty::Data *self) {
   delete self;
 }

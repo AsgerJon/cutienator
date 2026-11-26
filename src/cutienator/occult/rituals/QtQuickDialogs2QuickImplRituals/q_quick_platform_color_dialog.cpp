@@ -286,6 +286,25 @@ const QMetaObject *ritual_ZNK25QQuickPlatformColorDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPlatformColorDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickPlatformColorDialog11qt_metacastEPKc(
+    QQuickPlatformColorDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPlatformColorDialog::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickPlatformColorDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPlatformColorDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPlatformColorDialog::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT

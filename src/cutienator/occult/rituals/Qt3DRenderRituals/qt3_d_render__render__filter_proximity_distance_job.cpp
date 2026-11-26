@@ -53,6 +53,21 @@ public:
   }
 };
 
+//  Qt3DRender::Render::FilterProximityDistanceJob::FilterProximityDistanceJo
+//      b()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::FilterProximityDistanceJob *ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJobC1Ev() {
+  return new CuteQt3DRender_Render_FilterProximityDistanceJob();
+}
+
+//  Qt3DRender::Render::FilterProximityDistanceJob::~FilterProximityDistanceJ
+//      ob()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJobD1Ev(
+    Qt3DRender::Render::FilterProximityDistanceJob *self) {
+  delete self;
+}
+
 //  void
 //      Qt3DRender::Render::FilterProximityDistanceJob::setManager(NodeManage
 //      rs *manager)
@@ -63,12 +78,60 @@ void ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob10setManagerEPNS0_1
   self->setManager(manager);
 }
 
+//  void Qt3DRender::Render::FilterProximityDistanceJob::setProximityFilterId
+//      s(const Qt3DCore::QNodeIdVector &proximityFilterIds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob21setProximityFilterIdsERK5QListIN8Qt3DCore7QNodeIdEE(
+    Qt3DRender::Render::FilterProximityDistanceJob *self,
+    const Qt3DCore::QNodeIdVector *proximityFilterIds) {
+  self->setProximityFilterIds(*proximityFilterIds);
+}
+
 //  bool Qt3DRender::Render::FilterProximityDistanceJob::hasProximityFilter()
 //      const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10Qt3DRender6Render26FilterProximityDistanceJob18hasProximityFilterEv(
     const Qt3DRender::Render::FilterProximityDistanceJob *self) {
   return self->hasProximityFilter();
+}
+
+//  void Qt3DRender::Render::FilterProximityDistanceJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob3runEv(
+    Qt3DRender::Render::FilterProximityDistanceJob *self) {
+  self->run();
+}
+
+//  const std::vector<Entity *>
+//      &Qt3DRender::Render::FilterProximityDistanceJob::filteredEntities()
+//      const
+extern "C" Q_DECL_EXPORT
+const std::vector<Qt3DRender::Render::Entity *> *ritual_ZNK10Qt3DRender6Render26FilterProximityDistanceJob16filteredEntitiesEv(
+    const Qt3DRender::Render::FilterProximityDistanceJob *self) {
+  return &(self->filteredEntities());
+}
+
+//  bool Qt3DRender::Render::FilterProximityDistanceJob::isRequired()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob10isRequiredEv(
+    Qt3DRender::Render::FilterProximityDistanceJob *self) {
+  return self->isRequired();
+}
+
+//  void Qt3DRender::Render::FilterProximityDistanceJob::selectAllEntities()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob17selectAllEntitiesEv(
+    Qt3DRender::Render::FilterProximityDistanceJob *self) {
+  self->selectAllEntities();
+}
+
+//  void Qt3DRender::Render::FilterProximityDistanceJob::filterEntities(const
+//      std::vector<Entity *> &entitiesToFilter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob14filterEntitiesERKSt6vectorIPNS0_6EntityESaIS4_EE(
+    Qt3DRender::Render::FilterProximityDistanceJob *self,
+    const std::vector<Qt3DRender::Render::Entity *> *entitiesToFilter) {
+  self->filterEntities(*entitiesToFilter);
 }
 
 //  a Python function taken by a

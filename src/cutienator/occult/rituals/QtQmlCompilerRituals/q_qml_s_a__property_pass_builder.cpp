@@ -24,6 +24,53 @@ void ritual_ZN6QQmlSA19PropertyPassBuilderD1Ev(
   delete self;
 }
 
+//  PropertyPassBuilder &QQmlSA::PropertyPassBuilder::withOnBinding(GenericPr
+//      opertyPass::OnBinding onBinding)
+extern "C" Q_DECL_EXPORT
+QQmlSA::PropertyPassBuilder *ritual_ZN6QQmlSA19PropertyPassBuilder13withOnBindingEPFvPNS_12PropertyPassERKNS_7ElementERK7QStringRKNS_7BindingES5_S5_E(
+    QQmlSA::PropertyPassBuilder *self,
+    void *onBinding) {
+  return &(
+      self->withOnBinding(
+          reinterpret_cast<QQmlSA::GenericPropertyPass::OnBinding>(onBinding)));
+}
+
+//  PropertyPassBuilder
+//      &QQmlSA::PropertyPassBuilder::withOnRead(GenericPropertyPass::OnRead
+//      onRead)
+extern "C" Q_DECL_EXPORT
+QQmlSA::PropertyPassBuilder *ritual_ZN6QQmlSA19PropertyPassBuilder10withOnReadEPFvPNS_12PropertyPassERKNS_7ElementERK7QStringS5_NS_14SourceLocationEE(
+    QQmlSA::PropertyPassBuilder *self,
+    void *onRead) {
+  return &(
+      self->withOnRead(
+          reinterpret_cast<QQmlSA::GenericPropertyPass::OnRead>(onRead)));
+}
+
+//  PropertyPassBuilder
+//      &QQmlSA::PropertyPassBuilder::withOnCall(GenericPropertyPass::OnCall
+//      onCall)
+extern "C" Q_DECL_EXPORT
+QQmlSA::PropertyPassBuilder *ritual_ZN6QQmlSA19PropertyPassBuilder10withOnCallEPFvPNS_12PropertyPassERKNS_7ElementERK7QStringS5_NS_14SourceLocationEE(
+    QQmlSA::PropertyPassBuilder *self,
+    void *onCall) {
+  return &(
+      self->withOnCall(
+          reinterpret_cast<QQmlSA::GenericPropertyPass::OnCall>(onCall)));
+}
+
+//  PropertyPassBuilder
+//      &QQmlSA::PropertyPassBuilder::withOnWrite(GenericPropertyPass::OnWrit
+//      e onWrite)
+extern "C" Q_DECL_EXPORT
+QQmlSA::PropertyPassBuilder *ritual_ZN6QQmlSA19PropertyPassBuilder11withOnWriteEPFvPNS_12PropertyPassERKNS_7ElementERK7QStringS5_S5_NS_14SourceLocationEE(
+    QQmlSA::PropertyPassBuilder *self,
+    void *onWrite) {
+  return &(
+      self->withOnWrite(
+          reinterpret_cast<QQmlSA::GenericPropertyPass::OnWrite>(onWrite)));
+}
+
 //  void QQmlSA::PropertyPassBuilder::registerOn(QAnyStringView module,
 //      QAnyStringView type, QAnyStringView property)
 extern "C" Q_DECL_EXPORT

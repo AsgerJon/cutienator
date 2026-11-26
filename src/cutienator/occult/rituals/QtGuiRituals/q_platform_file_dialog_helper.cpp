@@ -17,6 +17,25 @@ const QMetaObject *ritual_ZNK25QPlatformFileDialogHelper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformFileDialogHelper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QPlatformFileDialogHelper11qt_metacastEPKc(
+    QPlatformFileDialogHelper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformFileDialogHelper::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QPlatformFileDialogHelper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformFileDialogHelper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformFileDialogHelper::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -110,6 +129,23 @@ bool ritual_ZNK25QPlatformFileDialogHelper14isSupportedUrlERK4QUrl(
   return self->isSupportedUrl(*url);
 }
 
+//  const QSharedPointer<QFileDialogOptions>
+//      &QPlatformFileDialogHelper::options() const
+extern "C" Q_DECL_EXPORT
+const QSharedPointer<QFileDialogOptions> *ritual_ZNK25QPlatformFileDialogHelper7optionsEv(
+    const QPlatformFileDialogHelper *self) {
+  return &(self->options());
+}
+
+//  void QPlatformFileDialogHelper::setOptions(const
+//      QSharedPointer<QFileDialogOptions> &options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QPlatformFileDialogHelper10setOptionsERK14QSharedPointerI18QFileDialogOptionsE(
+    QPlatformFileDialogHelper *self,
+    const QSharedPointer<QFileDialogOptions> *options) {
+  self->setOptions(*options);
+}
+
 //  QStringList QPlatformFileDialogHelper::cleanFilterList(const QString
 //      &filter)
 extern "C" Q_DECL_EXPORT
@@ -118,6 +154,46 @@ QList<QString> *ritual_ZN25QPlatformFileDialogHelper15cleanFilterListERK7QString
   return new QList<QString>(
       QPlatformFileDialogHelper::cleanFilterList(
           *filter));
+}
+
+//  void QPlatformFileDialogHelper::fileSelected(const QUrl &file)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QPlatformFileDialogHelper12fileSelectedERK4QUrl(
+    QPlatformFileDialogHelper *self,
+    const QUrl *file) {
+  self->fileSelected(*file);
+}
+
+//  void QPlatformFileDialogHelper::filesSelected(const QList<QUrl> &files)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QPlatformFileDialogHelper13filesSelectedERK5QListI4QUrlE(
+    QPlatformFileDialogHelper *self,
+    const QList<QUrl> *files) {
+  self->filesSelected(*files);
+}
+
+//  void QPlatformFileDialogHelper::currentChanged(const QUrl &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QPlatformFileDialogHelper14currentChangedERK4QUrl(
+    QPlatformFileDialogHelper *self,
+    const QUrl *path) {
+  self->currentChanged(*path);
+}
+
+//  void QPlatformFileDialogHelper::directoryEntered(const QUrl &directory)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QPlatformFileDialogHelper16directoryEnteredERK4QUrl(
+    QPlatformFileDialogHelper *self,
+    const QUrl *directory) {
+  self->directoryEntered(*directory);
+}
+
+//  void QPlatformFileDialogHelper::filterSelected(const QString &filter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QPlatformFileDialogHelper14filterSelectedERK7QString(
+    QPlatformFileDialogHelper *self,
+    const QString *filter) {
+  self->filterSelected(*filter);
 }
 
 //  void QPlatformFileDialogHelper::selectMimeTypeFilter(const QString

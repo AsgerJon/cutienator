@@ -9,6 +9,32 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qmatrix4x4.h>
 
+//  void QSSGModelHelpers::setModelMaterials(const QSSGFrameData &frameData,
+//      QSSGRenderablesId renderablesId, QSSGNodeId model, MaterialList
+//      materials)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSSGModelHelpers17setModelMaterialsERK13QSSGFrameData17QSSGRenderablesId10QSSGNodeId5QListI14QSSGResourceIdE(
+    const QSSGFrameData *frameData,
+    QSSGRenderablesId renderablesId,
+    QSSGNodeId model,
+    const QSSGModelHelpers::MaterialList *materials) {
+  QSSGModelHelpers::setModelMaterials(
+      *frameData,
+      renderablesId,
+      model,
+      *materials);
+}
+
+//  void QSSGModelHelpers::setModelMaterials(const QSSGFrameData &frameData,
+//      QSSGRenderablesId renderablesId, MaterialList materials)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSSGModelHelpers17setModelMaterialsERK13QSSGFrameData17QSSGRenderablesId5QListI14QSSGResourceIdE(
+    const QSSGFrameData *frameData,
+    QSSGRenderablesId renderablesId,
+    const QSSGModelHelpers::MaterialList *materials) {
+  QSSGModelHelpers::setModelMaterials(*frameData, renderablesId, *materials);
+}
+
 //  QMatrix4x4 QSSGModelHelpers::getGlobalTransform(const QSSGFrameData
 //      &frameData, QSSGNodeId model, QSSGPrepContextId prepId)
 extern "C" Q_DECL_EXPORT

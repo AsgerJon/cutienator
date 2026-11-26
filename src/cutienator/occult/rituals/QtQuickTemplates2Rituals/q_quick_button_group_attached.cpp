@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK25QQuickButtonGroupAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickButtonGroupAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickButtonGroupAttached11qt_metacastEPKc(
+    QQuickButtonGroupAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickButtonGroupAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickButtonGroupAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickButtonGroupAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickButtonGroupAttached::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -45,4 +64,26 @@ void ritual_ZN25QQuickButtonGroupAttached8setGroupEP17QQuickButtonGroup(
     QQuickButtonGroupAttached *self,
     QQuickButtonGroup *group) {
   self->setGroup(group);
+}
+
+//  void QQuickButtonGroupAttached::groupChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickButtonGroupAttached12groupChangedEv(
+    QQuickButtonGroupAttached *self) {
+  self->groupChanged();
+}
+
+//  QQuickButtonGroupAttachedPrivate *QQuickButtonGroupAttached::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickButtonGroupAttachedPrivate *ritual_ZN25QQuickButtonGroupAttached6d_funcEv(
+    QQuickButtonGroupAttached *self) {
+  return self->d_func();
+}
+
+//  const QQuickButtonGroupAttachedPrivate
+//      *QQuickButtonGroupAttached::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickButtonGroupAttachedPrivate *ritual_ZNK25QQuickButtonGroupAttached6d_funcEv(
+    const QQuickButtonGroupAttached *self) {
+  return self->d_func();
 }

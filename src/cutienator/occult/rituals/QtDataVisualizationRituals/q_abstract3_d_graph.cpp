@@ -616,6 +616,25 @@ const QMetaObject *ritual_ZNK16QAbstract3DGraph10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstract3DGraph::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QAbstract3DGraph11qt_metacastEPKc(
+    QAbstract3DGraph *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstract3DGraph::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QAbstract3DGraph11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstract3DGraph *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstract3DGraph::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QAbstract3DGraph2trEPKcS1_i(
@@ -1128,6 +1147,160 @@ void ritual_ZN16QAbstract3DGraph10wheelEventEP11QWheelEvent(
   self->wheelEvent(event);
 }
 #endif  // QT_CONFIG(wheelevent)
+
+//  void QAbstract3DGraph::activeInputHandlerChanged(QAbstract3DInputHandler
+//      *inputHandler)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph25activeInputHandlerChangedEP23QAbstract3DInputHandler(
+    QAbstract3DGraph *self,
+    QAbstract3DInputHandler *inputHandler) {
+  self->activeInputHandlerChanged(inputHandler);
+}
+
+//  void QAbstract3DGraph::activeThemeChanged(Q3DTheme *theme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph18activeThemeChangedEP8Q3DTheme(
+    QAbstract3DGraph *self,
+    Q3DTheme *theme) {
+  self->activeThemeChanged(theme);
+}
+
+//  void
+//      QAbstract3DGraph::selectionModeChanged(QAbstract3DGraph::SelectionFla
+//      gs mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph20selectionModeChangedE6QFlagsINS_13SelectionFlagEE(
+    QAbstract3DGraph *self,
+    int mode) {
+  self->selectionModeChanged(
+      QFlags<QAbstract3DGraph::SelectionFlag>::fromInt(mode));
+}
+
+//  void
+//      QAbstract3DGraph::shadowQualityChanged(QAbstract3DGraph::ShadowQualit
+//      y quality)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph20shadowQualityChangedENS_13ShadowQualityE(
+    QAbstract3DGraph *self,
+    QAbstract3DGraph::ShadowQuality quality) {
+  self->shadowQualityChanged(quality);
+}
+
+//  void
+//      QAbstract3DGraph::selectedElementChanged(QAbstract3DGraph::ElementTyp
+//      e type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph22selectedElementChangedENS_11ElementTypeE(
+    QAbstract3DGraph *self,
+    QAbstract3DGraph::ElementType type) {
+  self->selectedElementChanged(type);
+}
+
+//  void QAbstract3DGraph::measureFpsChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph17measureFpsChangedEb(
+    QAbstract3DGraph *self,
+    bool enabled) {
+  self->measureFpsChanged(enabled);
+}
+
+//  void QAbstract3DGraph::currentFpsChanged(qreal fps)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph17currentFpsChangedEd(
+    QAbstract3DGraph *self,
+    qreal fps) {
+  self->currentFpsChanged(fps);
+}
+
+//  void QAbstract3DGraph::orthoProjectionChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph22orthoProjectionChangedEb(
+    QAbstract3DGraph *self,
+    bool enabled) {
+  self->orthoProjectionChanged(enabled);
+}
+
+//  void QAbstract3DGraph::aspectRatioChanged(qreal ratio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph18aspectRatioChangedEd(
+    QAbstract3DGraph *self,
+    qreal ratio) {
+  self->aspectRatioChanged(ratio);
+}
+
+//  void QAbstract3DGraph::optimizationHintsChanged(QAbstract3DGraph::Optimiz
+//      ationHints hints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph24optimizationHintsChangedE6QFlagsINS_16OptimizationHintEE(
+    QAbstract3DGraph *self,
+    int hints) {
+  self->optimizationHintsChanged(
+      QFlags<QAbstract3DGraph::OptimizationHint>::fromInt(hints));
+}
+
+//  void QAbstract3DGraph::polarChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph12polarChangedEb(
+    QAbstract3DGraph *self,
+    bool enabled) {
+  self->polarChanged(enabled);
+}
+
+//  void QAbstract3DGraph::radialLabelOffsetChanged(float offset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph24radialLabelOffsetChangedEf(
+    QAbstract3DGraph *self,
+    float offset) {
+  self->radialLabelOffsetChanged(offset);
+}
+
+//  void QAbstract3DGraph::horizontalAspectRatioChanged(qreal ratio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph28horizontalAspectRatioChangedEd(
+    QAbstract3DGraph *self,
+    qreal ratio) {
+  self->horizontalAspectRatioChanged(ratio);
+}
+
+//  void QAbstract3DGraph::reflectionChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph17reflectionChangedEb(
+    QAbstract3DGraph *self,
+    bool enabled) {
+  self->reflectionChanged(enabled);
+}
+
+//  void QAbstract3DGraph::reflectivityChanged(qreal reflectivity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph19reflectivityChangedEd(
+    QAbstract3DGraph *self,
+    qreal reflectivity) {
+  self->reflectivityChanged(reflectivity);
+}
+
+//  void QAbstract3DGraph::localeChanged(const QLocale &locale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph13localeChangedERK7QLocale(
+    QAbstract3DGraph *self,
+    const QLocale *locale) {
+  self->localeChanged(*locale);
+}
+
+//  void QAbstract3DGraph::queriedGraphPositionChanged(const QVector3D &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph27queriedGraphPositionChangedERK9QVector3D(
+    QAbstract3DGraph *self,
+    const QVector3D *data) {
+  self->queriedGraphPositionChanged(*data);
+}
+
+//  void QAbstract3DGraph::marginChanged(qreal margin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstract3DGraph13marginChangedEd(
+    QAbstract3DGraph *self,
+    qreal margin) {
+  self->marginChanged(margin);
+}
 
 //  QAbstract3DGraph as the QOpenGLFunctions it is built on
 extern "C" Q_DECL_EXPORT

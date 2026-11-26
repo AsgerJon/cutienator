@@ -296,6 +296,25 @@ const QMetaObject *ritual_ZNK22QQuick3DCustomMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DCustomMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuick3DCustomMaterial11qt_metacastEPKc(
+    QQuick3DCustomMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DCustomMaterial::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuick3DCustomMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DCustomMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DCustomMaterial::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuick3DCustomMaterial2trEPKcS1_i(
@@ -490,6 +509,83 @@ void ritual_ZN22QQuick3DCustomMaterial12setLineWidthEf(
   self->setLineWidth(width);
 }
 
+//  void QQuick3DCustomMaterial::shadingModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial18shadingModeChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->shadingModeChanged();
+}
+
+//  void QQuick3DCustomMaterial::vertexShaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial19vertexShaderChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->vertexShaderChanged();
+}
+
+//  void QQuick3DCustomMaterial::fragmentShaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial21fragmentShaderChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->fragmentShaderChanged();
+}
+
+//  void QQuick3DCustomMaterial::vertexShaderCodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial23vertexShaderCodeChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->vertexShaderCodeChanged();
+}
+
+//  void QQuick3DCustomMaterial::fragmentShaderCodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial25fragmentShaderCodeChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->fragmentShaderCodeChanged();
+}
+
+//  void QQuick3DCustomMaterial::srcBlendChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial15srcBlendChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->srcBlendChanged();
+}
+
+//  void QQuick3DCustomMaterial::dstBlendChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial15dstBlendChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->dstBlendChanged();
+}
+
+//  void QQuick3DCustomMaterial::srcAlphaBlendChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial20srcAlphaBlendChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->srcAlphaBlendChanged();
+}
+
+//  void QQuick3DCustomMaterial::dstAlphaBlendChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial20dstAlphaBlendChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->dstAlphaBlendChanged();
+}
+
+//  void QQuick3DCustomMaterial::alwaysDirtyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial18alwaysDirtyChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->alwaysDirtyChanged();
+}
+
+//  void QQuick3DCustomMaterial::lineWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial16lineWidthChangedEv(
+    QQuick3DCustomMaterial *self) {
+  self->lineWidthChanged();
+}
+
 //  QSSGRenderGraphObject
 //      *QQuick3DCustomMaterial::updateSpatialNode(QSSGRenderGraphObject
 //      *node)
@@ -515,6 +611,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuick3DCustomMaterial12markAllDirtyEv(
     QQuick3DCustomMaterial *self) {
   self->markAllDirty();
+}
+
+//  void QQuick3DCustomMaterial::markDirty(QQuick3DCustomMaterial &that,
+//      QQuick3DCustomMaterial::Dirty type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DCustomMaterial9markDirtyERS_NS_5DirtyE(
+    QQuick3DCustomMaterial *that,
+    QQuick3DCustomMaterial::Dirty type) {
+  QQuick3DCustomMaterial::markDirty(*that, type);
 }
 
 //  void QQuick3DCustomMaterial::onPropertyDirty()

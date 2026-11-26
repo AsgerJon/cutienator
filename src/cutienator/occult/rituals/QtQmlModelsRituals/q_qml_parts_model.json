@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQmlPartsModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlPartsModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQmlPartsModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQmlPartsModelD1Ev": ["nothing", "address"],
     "ritual_ZNK14QQmlPartsModel11filterGroupEv": ["text", "address"],
     "ritual_ZN14QQmlPartsModel17updateFilterGroupEv": ["nothing", "address"],
@@ -41,6 +47,9 @@
     ],
     "ritual_ZN14QQmlPartsModel17destroyingPackageEP13QQuickPackage": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlPartsModel18filterGroupChangedEv": [
+      "nothing", "address"
     ],
     "ritual_cast_QQmlPartsModel_QQmlDelegateModelGroupEmitter": [
       "address", "address"

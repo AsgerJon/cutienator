@@ -5,6 +5,30 @@
     "h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras40QNormalDiffuseSpecularMapMaterialPrivateC1Ev": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DExtras40QNormalDiffuseSpecularMapMaterialPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras40QNormalDiffuseSpecularMapMaterialPrivate20handleAmbientChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras40QNormalDiffuseSpecularMapMaterialPrivate20handleDiffuseChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras40QNormalDiffuseSpecularMapMaterialPrivate19handleNormalChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras40QNormalDiffuseSpecularMapMaterialPrivate21handleSpecularChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras40QNormalDiffuseSpecularMapMaterialPrivate22handleShininessChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras40QNormalDiffuseSpecularMapMaterialPrivate25handleTextureScaleChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DExtras40QNormalDiffuseSpecularMapMaterialPrivate6q_funcEv": [
       "address", "address"
     ],

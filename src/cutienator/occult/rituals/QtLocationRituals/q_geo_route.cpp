@@ -24,10 +24,36 @@ QGeoRoute *ritual_ZN9QGeoRouteC1ERKS_(const QGeoRoute *other) {
   return new QGeoRoute(*other);
 }
 
+//  QGeoRoute::QGeoRoute(QGeoRoute &&other)
+extern "C" Q_DECL_EXPORT
+QGeoRoute *ritual_ZN9QGeoRouteC1EOS_(QGeoRoute *other) {
+  return new QGeoRoute(std::move(*other));
+}
+
 //  QGeoRoute::~QGeoRoute()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QGeoRouteD1Ev(QGeoRoute *self) {
   delete self;
+}
+
+//  QGeoRoute &QGeoRoute::operator=(const QGeoRoute &other)
+extern "C" Q_DECL_EXPORT
+QGeoRoute *ritual_ZN9QGeoRouteaSERKS_(
+    QGeoRoute *self,
+    const QGeoRoute *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoRoute &QGeoRoute::operator=(QGeoRoute &&other)
+extern "C" Q_DECL_EXPORT
+QGeoRoute *ritual_ZN9QGeoRouteaSEOS_(QGeoRoute *self, QGeoRoute *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoRoute::swap(QGeoRoute &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGeoRoute4swapERS_(QGeoRoute *self, QGeoRoute *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoRoute &lhs, const QGeoRoute &rhs)
@@ -220,6 +246,21 @@ void ritual_ZN9QGeoRoute15setOverallRouteERKS_(
 extern "C" Q_DECL_EXPORT
 QGeoRoute *ritual_ZNK9QGeoRoute12overallRouteEv(const QGeoRoute *self) {
   return new QGeoRoute(self->overallRoute());
+}
+
+//  QExplicitlySharedDataPointer<QGeoRoutePrivate> &QGeoRoute::d()
+extern "C" Q_DECL_EXPORT
+QExplicitlySharedDataPointer<QGeoRoutePrivate> *ritual_ZN9QGeoRoute1dEv(
+    QGeoRoute *self) {
+  return &(self->d());
+}
+
+//  const QExplicitlySharedDataPointer<QGeoRoutePrivate>
+//      &QGeoRoute::const_d() const
+extern "C" Q_DECL_EXPORT
+const QExplicitlySharedDataPointer<QGeoRoutePrivate> *ritual_ZNK9QGeoRoute7const_dEv(
+    const QGeoRoute *self) {
+  return &(self->const_d());
 }
 
 //  bool QGeoRoute::isEqual(const QGeoRoute &other) const

@@ -8,14 +8,24 @@
     "ritual_ZNK23QQmlAbstractGrpcChannel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQmlAbstractGrpcChannel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQmlAbstractGrpcChannel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQmlAbstractGrpcChannel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN23QQmlAbstractGrpcChannelD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQmlAbstractGrpcChannel7channelEv": ["address", "address"],
     "ritual_ZN23QQmlAbstractGrpcChannel6d_funcEv": ["address", "address"],
     "ritual_ZNK23QQmlAbstractGrpcChannel6d_funcEv": ["address", "address"],
     "ritual_take_QQmlAbstractGrpcChannel": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQmlAbstractGrpcChannel__std_shared_ptr_QAbstractGrpcChannel": [
+      "nothing", "address"
     ]
   }
 }

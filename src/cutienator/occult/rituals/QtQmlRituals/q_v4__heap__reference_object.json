@@ -53,6 +53,12 @@
       "bool", "address"
     ],
     "ritual_ZN3QV44Heap15ReferenceObject7destroyEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap15ReferenceObject21connectToNotifySignalEP7QObjectiP10QQmlEngine": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV44Heap15ReferenceObject17connectToBindableEP7QObjectiP10QQmlEngine": [
+      "nothing", "address", "address", "int", "address"
+    ],
     "ritual_ZNK3QV44Heap15ReferenceObject7hasFlagENS1_4FlagE": [
       "bool", "address", "unsigned char"
     ],

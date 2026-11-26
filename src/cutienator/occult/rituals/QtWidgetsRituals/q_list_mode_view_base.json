@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QListModeViewBaseC1EP9QListViewP16QListViewPrivate": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK17QListModeViewBase9itemIndexERK13QListViewItem": [
       "int", "address", "address"
     ],
@@ -23,6 +26,14 @@
     ],
     "ritual_ZN17QListModeViewBase11dataChangedERK11QModelIndexS2_": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK17QListModeViewBase23horizontalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_": [
+      "int", "address", "int", "address", "bool", "bool", "address",
+      "address"
+    ],
+    "ritual_ZNK17QListModeViewBase21verticalScrollToValueEiN17QAbstractItemView10ScrollHintEbbRK5QRectS4_": [
+      "int", "address", "int", "address", "bool", "bool", "address",
+      "address"
     ],
     "ritual_ZN17QListModeViewBase16scrollContentsByEiib": [
       "nothing", "address", "int", "int", "bool"

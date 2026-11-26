@@ -5,7 +5,21 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN13QTimerPrivateC1EP6QTimer": ["address", "address"],
+    "ritual_ZN13QTimerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN13QTimerPrivate19setIntervalDurationENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZN13QTimerPrivate11setIntervalEi": ["nothing", "address", "int"],
-    "ritual_ZNK13QTimerPrivate8isActiveEv": ["bool", "address"]
+    "ritual_ZNK13QTimerPrivate8isActiveEv": ["bool", "address"],
+    "ritual_ZN13QTimerPrivate25_qt_property_inter_offsetEv": ["size_t"],
+    "ritual_ZN13QTimerPrivate36_qt_property_intervalDuration_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN13QTimerPrivate26_qt_property_single_offsetEv": ["size_t"],
+    "ritual_ZN13QTimerPrivate24_qt_property_type_offsetEv": ["size_t"],
+    "ritual_ZN13QTimerPrivate32_qt_property_isActiveData_offsetEv": [
+      "size_t"
+    ]
   }
 }

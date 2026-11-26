@@ -9,6 +9,13 @@
     "ritual_ZN13QSSGRenderRayC1ERK9QVector3DS2_": [
       "address", "address", "address"
     ],
+    "ritual_ZN13QSSGRenderRay9intersectERK9QSSGPlaneRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSSGRenderRay17triangleIntersectERKS_RK9QVector3DS4_S4_RfS5_RS2_16QSSGCullFaceMode": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address", "int"
+    ],
     "ritual_ZN13QSSGRenderRay13createRayDataERK10QMatrix4x4RKS_": [
       "address", "address", "address"
     ],
@@ -18,6 +25,27 @@
     "ritual_ZN13QSSGRenderRay19intersectWithAABBv2ERKNS_7RayDataERK11QSSGBounds3": [
       "address", "address", "address"
     ],
-    "ritual_ZN13QSSGRenderRayD1Ev": ["nothing", "address"]
+    "ritual_ZN13QSSGRenderRay16intersectWithBVHERKNS_7RayDataEPK15QSSGMeshBVHNodePK14QSSGRenderMeshR5QListINS_18IntersectionResultEE16QSSGCullFaceModei": [
+      "nothing", "address", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN13QSSGRenderRay25intersectWithBVHTrianglesERKNS_7RayDataERKSt6vectorI19QSSGMeshBVHTriangleSaIS4_EEii16QSSGCullFaceMode": [
+      "address", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK13QSSGRenderRay8relativeERK10QMatrix4x4RK11QSSGBounds321QSSGRenderBasisPlanes": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK13QSSGRenderRay10relativeXYERK10QMatrix4x4RK11QSSGBounds3": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QSSGRenderRayD1Ev": ["nothing", "address"],
+    "ritual_drop_QSSGRenderRay__std_optional_QVector3D": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGRenderRay__QVector_QSSGRenderRay_IntersectionResult": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGRenderRay__std_optional_QVector2D": [
+      "nothing", "address"
+    ]
   }
 }

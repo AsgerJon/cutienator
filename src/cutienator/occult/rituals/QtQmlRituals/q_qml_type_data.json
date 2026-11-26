@@ -13,6 +13,7 @@
     ],
     "ritual_ZNK12QQmlTypeData13typeClassNameEv": ["address", "address"],
     "ritual_ZNK12QQmlTypeData16backupSourceCodeEv": ["address", "address"],
+    "ritual_ZN12QQmlTypeData4doneEv": ["nothing", "address"],
     "ritual_ZN12QQmlTypeData12dataReceivedERKN12QQmlDataBlob14SourceCodeDataE": [
       "nothing", "address", "address"
     ],
@@ -21,6 +22,9 @@
     ],
     "ritual_ZN12QQmlTypeData19allDependenciesDoneEv": ["nothing", "address"],
     "ritual_ZNK12QQmlTypeData8stringAtEi": ["text", "address", "int"],
+    "ritual_ZN12QQmlTypeData14scriptImportedERK14QQmlRefPointerI14QQmlScriptBlobERKN3QV412CompiledData8LocationERK7QStringSC_": [
+      "nothing", "address", "address", "address", "text", "text"
+    ],
     "ritual_ZN12QQmlTypeData12checkScriptsEv": ["bool", "address"],
     "ritual_ZN12QQmlTypeData17checkDependenciesEv": ["bool", "address"],
     "ritual_ZN12QQmlTypeData11createErrorERKNS_13TypeReferenceERK7QString": [
@@ -32,6 +36,7 @@
     "ritual_ZN12QQmlTypeData24checkCompositeSingletonsEv": [
       "bool", "address"
     ],
+    "ritual_ZN12QQmlTypeData14createQQmlTypeEv": ["nothing", "address"],
     "ritual_take_QQmlTypeData": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK12QQmlTypeData8stringAtEi": ["text", "address", "int"]
   }

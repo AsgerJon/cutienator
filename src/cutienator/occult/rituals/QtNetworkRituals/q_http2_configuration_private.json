@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QHttp2ConfigurationPrivate3getER19QHttp2Configuration": [
+      "address", "address"
+    ],
     "ritual_ZN26QHttp2ConfigurationPrivate3getERK19QHttp2Configuration": [
       "address", "address"
     ],

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QItemSelectionModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QItemSelectionModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QItemSelectionModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QItemSelectionModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -49,6 +55,9 @@
     "ritual_ZNK19QItemSelectionModel9selectionEv": ["address", "address"],
     "ritual_ZNK19QItemSelectionModel5modelEv": ["address", "address"],
     "ritual_ZN19QItemSelectionModel5modelEv": ["address", "address"],
+    "ritual_ZN19QItemSelectionModel13bindableModelEv": [
+      "address", "address"
+    ],
     "ritual_ZN19QItemSelectionModel8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
     ],
@@ -69,6 +78,24 @@
     "ritual_ZN19QItemSelectionModel17clearCurrentIndexEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QItemSelectionModel16selectionChangedERK14QItemSelectionS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QItemSelectionModel14currentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QItemSelectionModel17currentRowChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QItemSelectionModel20currentColumnChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QItemSelectionModel12modelChangedEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QItemSelectionModelC1ER26QItemSelectionModelPrivateP18QAbstractItemModel": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QItemSelectionModel20emitSelectionChangedERK14QItemSelectionS2_": [
       "nothing", "address", "address", "address"
     ],
@@ -87,6 +114,9 @@
     "ritual_own_ZN19QItemSelectionModel5clearEv": ["nothing", "address"],
     "ritual_own_ZN19QItemSelectionModel5resetEv": ["nothing", "address"],
     "ritual_own_ZN19QItemSelectionModel17clearCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QItemSelectionModel__QBindable_QAbstractItemModel": [
       "nothing", "address"
     ]
   }

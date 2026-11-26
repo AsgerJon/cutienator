@@ -9,6 +9,12 @@
     "ritual_ZNK8Qt3DCore17QTransformPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore17QTransformPrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore17QTransformPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore17QTransformPrivate14setWorldMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore17QTransformPrivate6updateEv": ["nothing", "address"],
     "ritual_take_Qt3DCore_QTransformPrivate": [
       "bool", "address", "chars", "address"
     ],

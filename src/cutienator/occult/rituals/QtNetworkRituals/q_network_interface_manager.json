@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN24QNetworkInterfaceManagerC1Ev": ["address"],
-    "ritual_ZN24QNetworkInterfaceManagerD1Ev": ["nothing", "address"]
+    "ritual_ZN24QNetworkInterfaceManagerD1Ev": ["nothing", "address"],
+    "ritual_drop_QNetworkInterfaceManager__QSharedDataPointer_QNetworkInterfacePrivate": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QNetworkInterfaceManager__QList_QSharedDataPointer_QNetworkInterfacePrivate": [
+      "nothing", "address"
+    ]
   }
 }

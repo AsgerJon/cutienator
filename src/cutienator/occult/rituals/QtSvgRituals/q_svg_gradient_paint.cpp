@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtGui/qtransform.h>
+#include <QtGui/qbrush.h>
 #include <cstring>
 
 //  A QSvgGradientPaint that Python can take functions over in. Every QSvgGradientPaint
@@ -106,10 +107,29 @@ void ritual_ZN17QSvgGradientPaint19setGradientStopsSetEb(
   self->setGradientStopsSet(set);
 }
 
+//  QBrush QSvgGradientPaint::brush(QPainter *a0, const QSvgNode *a1,
+//      QSvgExtraStates &a2)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN17QSvgGradientPaint5brushEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgGradientPaint *self,
+    QPainter *a0,
+    const QSvgNode *a1,
+    QSvgExtraStates *a2) {
+  return new QBrush(self->brush(a0, a1, *a2));
+}
+
 //  void QSvgGradientPaint::resolveStops()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QSvgGradientPaint12resolveStopsEv(QSvgGradientPaint *self) {
   self->resolveStops();
+}
+
+//  void QSvgGradientPaint::resolveStops_helper(QSet<QString> &visited)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSvgGradientPaint19resolveStops_helperER4QSetI7QStringE(
+    QSvgGradientPaint *self,
+    QSet<QString> *visited) {
+  self->resolveStops_helper(*visited);
 }
 
 //  a Python function taken by a CuteQSvgGradientPaint, for the function

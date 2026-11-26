@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK26QQuickShapeConicalGradient10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShapeConicalGradient::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickShapeConicalGradient11qt_metacastEPKc(
+    QQuickShapeConicalGradient *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShapeConicalGradient::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickShapeConicalGradient11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShapeConicalGradient *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShapeConicalGradient::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -75,4 +94,25 @@ void ritual_ZN26QQuickShapeConicalGradient8setAngleEd(
     QQuickShapeConicalGradient *self,
     qreal v) {
   self->setAngle(v);
+}
+
+//  void QQuickShapeConicalGradient::centerXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickShapeConicalGradient14centerXChangedEv(
+    QQuickShapeConicalGradient *self) {
+  self->centerXChanged();
+}
+
+//  void QQuickShapeConicalGradient::centerYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickShapeConicalGradient14centerYChangedEv(
+    QQuickShapeConicalGradient *self) {
+  self->centerYChanged();
+}
+
+//  void QQuickShapeConicalGradient::angleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickShapeConicalGradient12angleChangedEv(
+    QQuickShapeConicalGradient *self) {
+  self->angleChanged();
 }

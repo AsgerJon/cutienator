@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN21QSSGRhiContextPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QSSGRhiContextPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QSSGRhiContextPrivateC1ER14QSSGRhiContextP4QRhi": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QSSGRhiContextPrivate3getEP14QSSGRhiContext": [
       "address", "address"
     ],
@@ -48,6 +51,9 @@
     "ritual_ZN21QSSGRhiContextPrivate3srbERK32QSSGRhiShaderResourceBindingList": [
       "address", "address", "address"
     ],
+    "ritual_ZN21QSSGRhiContextPrivate16releaseCachedSrbER32QSSGRhiShaderResourceBindingList": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QSSGRhiContextPrivate8pipelineERK28QSSGRhiGraphicsPipelineStateP24QRhiRenderPassDescriptorP26QRhiShaderResourceBindings": [
       "address", "address", "address", "address", "address"
     ],
@@ -60,11 +66,26 @@
     "ritual_ZN21QSSGRhiContextPrivate15computePipelineERK27QSSGComputePipelineStateKeyP26QRhiShaderResourceBindings": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN21QSSGRhiContextPrivate12drawCallDataERK22QSSGRhiDrawCallDataKey": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate19releaseDrawCallDataER19QSSGRhiDrawCallData": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QSSGRhiContextPrivate19cleanupDrawCallDataEPK15QSSGRenderModel": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN21QSSGRhiContextPrivate18instanceBufferDataEP23QSSGRenderInstanceTable": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QSSGRhiContextPrivate21releaseInstanceBufferEP23QSSGRenderInstanceTable": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate18instanceBufferDataEPK15QSSGRenderModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate12particleDataEPK21QSSGRenderGraphObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN21QSSGRhiContextPrivateD1Ev": ["nothing", "address"]
   }

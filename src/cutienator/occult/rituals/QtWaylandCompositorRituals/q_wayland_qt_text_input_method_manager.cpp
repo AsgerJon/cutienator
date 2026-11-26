@@ -42,6 +42,25 @@ const QMetaObject *ritual_ZNK32QWaylandQtTextInputMethodManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandQtTextInputMethodManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QWaylandQtTextInputMethodManager11qt_metacastEPKc(
+    QWaylandQtTextInputMethodManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQtTextInputMethodManager::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QWaylandQtTextInputMethodManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQtTextInputMethodManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandQtTextInputMethodManager::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -50,6 +69,22 @@ QString *ritual_ZN32QWaylandQtTextInputMethodManager2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandQtTextInputMethodManager::tr(s, c, n));
+}
+
+//  QWaylandQtTextInputMethodManagerPrivate
+//      *QWaylandQtTextInputMethodManager::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandQtTextInputMethodManagerPrivate *ritual_ZN32QWaylandQtTextInputMethodManager6d_funcEv(
+    QWaylandQtTextInputMethodManager *self) {
+  return self->d_func();
+}
+
+//  const QWaylandQtTextInputMethodManagerPrivate
+//      *QWaylandQtTextInputMethodManager::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandQtTextInputMethodManagerPrivate *ritual_ZNK32QWaylandQtTextInputMethodManager6d_funcEv(
+    const QWaylandQtTextInputMethodManager *self) {
+  return self->d_func();
 }
 
 //  QWaylandQtTextInputMethodManager::QWaylandQtTextInputMethodManager()
@@ -71,6 +106,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN32QWaylandQtTextInputMethodManager10initializeEv(
     QWaylandQtTextInputMethodManager *self) {
   self->initialize();
+}
+
+//  const struct wl_interface *QWaylandQtTextInputMethodManager::interface()
+extern "C" Q_DECL_EXPORT
+const struct wl_interface *ritual_ZN32QWaylandQtTextInputMethodManager9interfaceEv() {
+  return QWaylandQtTextInputMethodManager::interface();
 }
 
 //  QByteArray QWaylandQtTextInputMethodManager::interfaceName()

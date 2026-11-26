@@ -188,6 +188,24 @@ const QMetaObject *ritual_ZNK10QWebSocket10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWebSocket::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QWebSocket11qt_metacastEPKc(
+    QWebSocket *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWebSocket::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QWebSocket11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWebSocket *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWebSocket::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QWebSocket2trEPKcS1_i(
@@ -230,6 +248,13 @@ void ritual_ZN10QWebSocketD1Ev(QWebSocket *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QWebSocket5abortEv(QWebSocket *self) {
   self->abort();
+}
+
+//  QAbstractSocket::SocketError QWebSocket::error() const
+extern "C" Q_DECL_EXPORT
+QAbstractSocket::SocketError ritual_ZNK10QWebSocket5errorEv(
+    const QWebSocket *self) {
+  return self->error();
 }
 
 //  QString QWebSocket::errorString() const
@@ -594,6 +619,194 @@ void ritual_ZN10QWebSocket4pingERK10QByteArray(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QWebSocket15ignoreSslErrorsEv(QWebSocket *self) {
   self->ignoreSslErrors();
+}
+#endif  // !defined(QT_NO_SSL)
+
+//  void QWebSocket::aboutToClose()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket12aboutToCloseEv(QWebSocket *self) {
+  self->aboutToClose();
+}
+
+//  void QWebSocket::connected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket9connectedEv(QWebSocket *self) {
+  self->connected();
+}
+
+//  void QWebSocket::disconnected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket12disconnectedEv(QWebSocket *self) {
+  self->disconnected();
+}
+
+//  void QWebSocket::stateChanged(QAbstractSocket::SocketState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket12stateChangedEN15QAbstractSocket11SocketStateE(
+    QWebSocket *self,
+    QAbstractSocket::SocketState state) {
+  self->stateChanged(state);
+}
+
+#if !defined(QT_NO_NETWORKPROXY)
+//  void QWebSocket::proxyAuthenticationRequired(const QNetworkProxy &proxy,
+//      QAuthenticator *pAuthenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator(
+    QWebSocket *self,
+    const QNetworkProxy *proxy,
+    QAuthenticator *pAuthenticator) {
+  self->proxyAuthenticationRequired(*proxy, pAuthenticator);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  void QWebSocket::authenticationRequired(QAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket22authenticationRequiredEP14QAuthenticator(
+    QWebSocket *self,
+    QAuthenticator *authenticator) {
+  self->authenticationRequired(authenticator);
+}
+
+//  void QWebSocket::readChannelFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket19readChannelFinishedEv(QWebSocket *self) {
+  self->readChannelFinished();
+}
+
+//  void QWebSocket::textFrameReceived(const QString &frame, bool
+//      isLastFrame)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket17textFrameReceivedERK7QStringb(
+    QWebSocket *self,
+    const QString *frame,
+    bool isLastFrame) {
+  self->textFrameReceived(*frame, isLastFrame);
+}
+
+//  void QWebSocket::binaryFrameReceived(const QByteArray &frame, bool
+//      isLastFrame)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket19binaryFrameReceivedERK10QByteArrayb(
+    QWebSocket *self,
+    const QByteArray *frame,
+    bool isLastFrame) {
+  self->binaryFrameReceived(*frame, isLastFrame);
+}
+
+//  void QWebSocket::textMessageReceived(const QString &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket19textMessageReceivedERK7QString(
+    QWebSocket *self,
+    const QString *message) {
+  self->textMessageReceived(*message);
+}
+
+//  void QWebSocket::binaryMessageReceived(const QByteArray &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket21binaryMessageReceivedERK10QByteArray(
+    QWebSocket *self,
+    const QByteArray *message) {
+  self->binaryMessageReceived(*message);
+}
+
+#if QT_DEPRECATED_SINCE(6, 5)
+//  void QWebSocket::error(QAbstractSocket::SocketError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket5errorEN15QAbstractSocket11SocketErrorE(
+    QWebSocket *self,
+    QAbstractSocket::SocketError error) {
+  self->error(error);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 5)
+
+//  void QWebSocket::errorOccurred(QAbstractSocket::SocketError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket13errorOccurredEN15QAbstractSocket11SocketErrorE(
+    QWebSocket *self,
+    QAbstractSocket::SocketError error) {
+  self->errorOccurred(error);
+}
+
+//  void QWebSocket::pong(quint64 elapsedTime, const QByteArray &payload)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket4pongEyRK10QByteArray(
+    QWebSocket *self,
+    quint64 elapsedTime,
+    const QByteArray *payload) {
+  self->pong(elapsedTime, *payload);
+}
+
+//  void QWebSocket::bytesWritten(qint64 bytes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket12bytesWrittenEx(QWebSocket *self, qint64 bytes) {
+  self->bytesWritten(bytes);
+}
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocket::peerVerifyError(const QSslError &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket15peerVerifyErrorERK9QSslError(
+    QWebSocket *self,
+    const QSslError *error) {
+  self->peerVerifyError(*error);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocket::sslErrors(const QList<QSslError> &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket9sslErrorsERK5QListI9QSslErrorE(
+    QWebSocket *self,
+    const QList<QSslError> *errors) {
+  self->sslErrors(*errors);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocket::preSharedKeyAuthenticationRequired(QSslPreSharedKeyAuthe
+//      nticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator(
+    QWebSocket *self,
+    QSslPreSharedKeyAuthenticator *authenticator) {
+  self->preSharedKeyAuthenticationRequired(authenticator);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocket::alertSent(QSsl::AlertLevel level, QSsl::AlertType type,
+//      const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket9alertSentEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString(
+    QWebSocket *self,
+    QSsl::AlertLevel level,
+    QSsl::AlertType type,
+    const QString *description) {
+  self->alertSent(level, type, *description);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocket::alertReceived(QSsl::AlertLevel level, QSsl::AlertType
+//      type, const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket13alertReceivedEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString(
+    QWebSocket *self,
+    QSsl::AlertLevel level,
+    QSsl::AlertType type,
+    const QString *description) {
+  self->alertReceived(level, type, *description);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QWebSocket::handshakeInterruptedOnError(const QSslError &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QWebSocket27handshakeInterruptedOnErrorERK9QSslError(
+    QWebSocket *self,
+    const QSslError *error) {
+  self->handshakeInterruptedOnError(*error);
 }
 #endif  // !defined(QT_NO_SSL)
 

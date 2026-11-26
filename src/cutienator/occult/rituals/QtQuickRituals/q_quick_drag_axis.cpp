@@ -15,6 +15,24 @@ const QMetaObject *ritual_ZNK14QQuickDragAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDragAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickDragAxis11qt_metacastEPKc(
+    QQuickDragAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDragAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickDragAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDragAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDragAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickDragAxis2trEPKcS1_i(
@@ -114,4 +132,30 @@ void ritual_ZN14QQuickDragAxis11updateValueEddd(
     qreal accumulatedValue,
     qreal delta) {
   self->updateValue(activeValue, accumulatedValue, delta);
+}
+
+//  void QQuickDragAxis::minimumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDragAxis14minimumChangedEv(QQuickDragAxis *self) {
+  self->minimumChanged();
+}
+
+//  void QQuickDragAxis::maximumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDragAxis14maximumChangedEv(QQuickDragAxis *self) {
+  self->maximumChanged();
+}
+
+//  void QQuickDragAxis::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDragAxis14enabledChangedEv(QQuickDragAxis *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickDragAxis::activeValueChanged(qreal delta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickDragAxis18activeValueChangedEd(
+    QQuickDragAxis *self,
+    qreal delta) {
+  self->activeValueChanged(delta);
 }

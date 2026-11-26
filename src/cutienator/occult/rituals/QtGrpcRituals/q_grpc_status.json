@@ -9,12 +9,34 @@
     ],
     "ritual_ZN11QGrpcStatusD1Ev": ["nothing", "address"],
     "ritual_ZN11QGrpcStatusC1ERKS_": ["address", "address"],
+    "ritual_ZN11QGrpcStatusaSERKS_": ["address", "address", "address"],
+    "ritual_ZN11QGrpcStatusC1EOS_": ["address", "address"],
+    "ritual_ZN11QGrpcStatusaSEOS_": ["address", "address", "address"],
     "ritual_ZNK11QGrpcStatuscv8QVariantEv": ["address", "address"],
+    "ritual_ZN11QGrpcStatus4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK11QGrpcStatus4codeEv": ["unsigned char", "address"],
     "ritual_ZNK11QGrpcStatus4isOkEv": ["bool", "address"],
     "ritual_ZNKR11QGrpcStatus7messageEv": ["text", "address"],
+    "ritual_ZeqRK11QGrpcStatusRKN6QtGrpc10StatusCodeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK11QGrpcStatusRKN6QtGrpc10StatusCodeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRKN6QtGrpc10StatusCodeERK11QGrpcStatus": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN6QtGrpc10StatusCodeERK11QGrpcStatus": [
+      "bool", "address", "address"
+    ],
     "ritual_ZeqRK11QGrpcStatusS1_": ["bool", "address", "address"],
     "ritual_ZneRK11QGrpcStatusS1_": ["bool", "address", "address"],
-    "ritual_Zls6QDebugRK11QGrpcStatus": ["address", "address", "address"]
+    "ritual_Zls6QDebugRK11QGrpcStatus": ["address", "address", "address"],
+    "ritual_ZlsR11QDataStreamRK11QGrpcStatus": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR11QGrpcStatus": [
+      "address", "address", "address"
+    ]
   }
 }

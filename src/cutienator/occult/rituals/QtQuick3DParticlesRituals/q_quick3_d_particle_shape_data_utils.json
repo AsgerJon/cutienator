@@ -5,6 +5,24 @@
     "edatautils_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN30QQuick3DParticleShapeDataUtils9readValueER17QCborStreamReaderN9QMetaType4TypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleShapeDataUtils10readStringER17QCborStreamReader": [
+      "text", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleShapeDataUtils8readRealER17QCborStreamReader": [
+      "double", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleShapeDataUtils15readShapeHeaderER17QCborStreamReader": [
+      "int", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleShapeDataUtils16writeShapeHeaderER17QCborStreamWriteri": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleShapeDataUtils10writeValueER17QCborStreamWriterRK8QVariant": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN30QQuick3DParticleShapeDataUtilsD1Ev": ["nothing", "address"]
   }
 }

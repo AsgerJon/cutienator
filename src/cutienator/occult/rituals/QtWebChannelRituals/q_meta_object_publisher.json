@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QMetaObjectPublisher10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QMetaObjectPublisher11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QMetaObjectPublisher11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QMetaObjectPublisher2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -40,8 +46,23 @@
     "ritual_ZN20QMetaObjectPublisher16initializeClientEP28QWebChannelAbstractTransport": [
       "address", "address", "address"
     ],
+    "ritual_ZN20QMetaObjectPublisher25initializePropertyUpdatesEP7QObjectRK11QJsonObject": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN20QMetaObjectPublisher26sendPendingPropertyUpdatesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN20QMetaObjectPublisher19invokeMethod_helperEP7QObjectRK11QMetaMethodRK10QJsonArray": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QMetaObjectPublisher12invokeMethodEP7QObjectRK11QMetaMethodRK10QJsonArray": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QMetaObjectPublisher12invokeMethodEP7QObjectiRK10QJsonArray": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN20QMetaObjectPublisher12invokeMethodEP7QObjectRK10QByteArrayRK10QJsonArray": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZN20QMetaObjectPublisher11setPropertyEP7QObjectiRK10QJsonValue": [
       "nothing", "address", "address", "int", "address"
@@ -104,6 +125,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK20QMetaObjectPublisher12blockUpdatesEv": ["bool", "address"],
+    "ritual_ZN20QMetaObjectPublisher19blockUpdatesChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN20QMetaObjectPublisher13handleMessageERK11QJsonObjectP28QWebChannelAbstractTransport": [
       "nothing", "address", "address", "address"
     ],
@@ -112,6 +136,15 @@
     ],
     "ritual_ZN20QMetaObjectPublisher21onBlockUpdatesChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN20QMetaObjectPublisher16signalHandlerForEPK7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QMetaObjectPublisher38_qt_property_blockUpdatesStatus_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QMetaObjectPublisher46_qt_property_propertyUpdateIntervalTime_offsetEv": [
+      "size_t"
     ],
     "ritual_take_QMetaObjectPublisher": [
       "bool", "address", "chars", "address"

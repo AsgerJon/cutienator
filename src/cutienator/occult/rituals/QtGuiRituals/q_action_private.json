@@ -10,6 +10,7 @@
     "ritual_ZN14QActionPrivateC1Ev": ["address"],
     "ritual_ZN14QActionPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN14QActionPrivate7destroyEv": ["nothing", "address"],
+    "ritual_ZNK14QActionPrivate14contextMatcherEv": ["address", "address"],
     "ritual_ZN14QActionPrivate3getEP7QAction": ["address", "address"],
     "ritual_ZN14QActionPrivate10setEnabledEbb": [
       "bool", "address", "bool", "bool"
@@ -20,6 +21,12 @@
     "ritual_ZNK14QActionPrivate4menuEv": ["address", "address"],
     "ritual_ZN14QActionPrivate7setMenuEP7QObject": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN14QActionPrivate8redoGrabER12QShortcutMap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QActionPrivate18setShortcutEnabledEbR12QShortcutMap": [
+      "nothing", "address", "bool", "address"
     ],
     "ritual_ZN14QActionPrivate14showStatusTextEP7QObjectRK7QString": [
       "bool", "address", "address", "text"

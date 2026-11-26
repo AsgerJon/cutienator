@@ -13,11 +13,72 @@
       "address", "address"
     ],
     "ritual_ZNK3QV418QQmlContextWrapper1dEv": ["address", "address"],
+    "ritual_ZN3QV418QQmlContextWrapper14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
     "ritual_ZN3QV418QQmlContextWrapper20defaultInternalClassEPNS_10EngineBaseE": [
       "address", "address"
     ],
     "ritual_ZNK3QV418QQmlContextWrapper14getScopeObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZNK3QV418QQmlContextWrapper10getContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper18getPropertyAndBaseEPKS0_NS_11PropertyKeyEPKNS_5ValueEPbPS4_PNS_6LookupE": [
+      "unsigned long long", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper10virtualPutEPNS_7ManagedENS_11PropertyKeyERKNS_5ValueEPS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper37resolveQmlContextPropertyLookupGetterEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper12lookupScriptEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper15lookupSingletonEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper20lookupValueSingletonEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper14lookupIdObjectEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper29lookupIdObjectInParentContextEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper25lookupScopeObjectPropertyEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper23lookupScopeObjectMethodEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper27lookupScopeFallbackPropertyEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper27lookupContextObjectPropertyEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper25lookupContextObjectMethodEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper20lookupInGlobalObjectEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper30lookupInParentContextHierarchyEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV418QQmlContextWrapper10lookupTypeEPNS_6LookupEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_drop_QV4_QQmlContextWrapper__QQmlRefPointer_QQmlContextData": [
+      "nothing", "address"
     ]
   }
 }

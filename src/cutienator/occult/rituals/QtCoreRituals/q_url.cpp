@@ -2,10 +2,14 @@
 //  Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qurl.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qurlquery.h>
-#include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QString>
+#include <QtCore/QUrl>
+#include <QtCore/QByteArray>
+#include <QtCore/QList>
 
 //  QUrl::QUrl()
 extern "C" Q_DECL_EXPORT
@@ -19,6 +23,12 @@ QUrl *ritual_ZN4QUrlC1ERKS_(const QUrl *copy) {
   return new QUrl(*copy);
 }
 
+//  QUrl &QUrl::operator=(const QUrl &copy)
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZN4QUrlaSERKS_(QUrl *self, const QUrl *copy) {
+  return &(self->operator=(*copy));
+}
+
 #if !(defined(QT_NO_URL_CAST_FROM_STRING))
 //  QUrl::QUrl(const QString &url, ParsingMode mode)
 extern "C" Q_DECL_EXPORT
@@ -29,10 +39,36 @@ QUrl *ritual_ZN4QUrlC1ERK7QStringNS_11ParsingModeE(
 }
 #endif  // !(defined(QT_NO_URL_CAST_FROM_STRING))
 
+#if !(defined(QT_NO_URL_CAST_FROM_STRING))
+//  QUrl &QUrl::operator=(const QString &url)
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZN4QUrlaSERK7QString(QUrl *self, const QString *url) {
+  return &(self->operator=(*url));
+}
+#endif  // !(defined(QT_NO_URL_CAST_FROM_STRING))
+
+//  QUrl::QUrl(QUrl &&other)
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZN4QUrlC1EOS_(QUrl *other) {
+  return new QUrl(std::move(*other));
+}
+
+//  QUrl &QUrl::operator=(QUrl &&other)
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZN4QUrlaSEOS_(QUrl *self, QUrl *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QUrl::~QUrl()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN4QUrlD1Ev(QUrl *self) {
   delete self;
+}
+
+//  void QUrl::swap(QUrl &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QUrl4swapERS_(QUrl *self, QUrl *other) {
+  self->swap(*other);
 }
 
 //  void QUrl::setUrl(const QString &url, ParsingMode mode)
@@ -42,6 +78,46 @@ void ritual_ZN4QUrl6setUrlERK7QStringNS_11ParsingModeE(
     const QString *url,
     QUrl::ParsingMode mode) {
   self->setUrl(*url, mode);
+}
+
+//  QString QUrl::url(FormattingOptions options) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK4QUrl3urlE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE(
+    const QUrl *self,
+    const QUrl::FormattingOptions *options) {
+  return new QString(self->url(*options));
+}
+
+//  QString QUrl::toString(FormattingOptions options) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK4QUrl8toStringE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE(
+    const QUrl *self,
+    const QUrl::FormattingOptions *options) {
+  return new QString(self->toString(*options));
+}
+
+//  QString QUrl::toDisplayString(FormattingOptions options) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK4QUrl15toDisplayStringE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE(
+    const QUrl *self,
+    const QUrl::FormattingOptions *options) {
+  return new QString(self->toDisplayString(*options));
+}
+
+//  QUrl QUrl::adjusted(FormattingOptions options) const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK4QUrl8adjustedE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE(
+    const QUrl *self,
+    const QUrl::FormattingOptions *options) {
+  return new QUrl(self->adjusted(*options));
+}
+
+//  QByteArray QUrl::toEncoded(FormattingOptions options) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK4QUrl9toEncodedE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE(
+    const QUrl *self,
+    const QUrl::FormattingOptions *options) {
+  return new QByteArray(self->toEncoded(*options));
 }
 
 //  QUrl QUrl::fromEncoded(QByteArrayView input, ParsingMode mode)
@@ -344,6 +420,15 @@ bool ritual_ZNK4QUrl10isDetachedEv(const QUrl *self) {
   return self->isDetached();
 }
 
+//  bool QUrl::matches(const QUrl &url, FormattingOptions options) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK4QUrl7matchesERKS_12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE(
+    const QUrl *self,
+    const QUrl *url,
+    const QUrl::FormattingOptions *options) {
+  return self->matches(*url, *options);
+}
+
 //  QString QUrl::fromPercentEncoding(const QByteArray &a0)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN4QUrl19fromPercentEncodingERK10QByteArray(
@@ -389,6 +474,15 @@ QByteArray *ritual_ZN4QUrl5toAceERK7QString6QFlagsINS_19AceProcessingOptionEE(
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZN4QUrl12idnWhitelistEv() {
   return new QList<QString>(QUrl::idnWhitelist());
+}
+
+//  QStringList QUrl::toStringList(const QList<QUrl> &uris, FormattingOptions
+//      options)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN4QUrl12toStringListERK5QListIS_E12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE(
+    const QList<QUrl> *uris,
+    const QUrl::FormattingOptions *options) {
+  return new QList<QString>(QUrl::toStringList(*uris, *options));
 }
 
 //  QList<QUrl> QUrl::fromStringList(const QStringList &uris, ParsingMode
@@ -447,6 +541,12 @@ bool ritual_ZgeRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN4QUrl13detachToClearEv(QUrl *self) {
   self->detachToClear();
+}
+
+//  DataPtr &QUrl::data_ptr()
+extern "C" Q_DECL_EXPORT
+QUrl::DataPtr *ritual_ZN4QUrl8data_ptrEv(QUrl *self) {
+  return &(self->data_ptr());
 }
 
 //  QList<QUrl>::QList()

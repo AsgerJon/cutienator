@@ -20,6 +20,7 @@
 #include <QtCore/qmargins.h>
 #include <QtGui/qtransform.h>
 #include <QtCore/qrect.h>
+#include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -424,6 +425,22 @@ const QMetaObject *ritual_ZNK7QGeoMap10metaObjectEv(const QGeoMap *self) {
   return self->metaObject();
 }
 
+//  void *QGeoMap::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QGeoMap11qt_metacastEPKc(QGeoMap *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoMap::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QGeoMap11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoMap *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoMap::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QGeoMap2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -541,6 +558,13 @@ double ritual_ZNK7QGeoMap8mapWidthEv(const QGeoMap *self) {
 extern "C" Q_DECL_EXPORT
 double ritual_ZNK7QGeoMap9mapHeightEv(const QGeoMap *self) {
   return self->mapHeight();
+}
+
+//  const QGeoProjection &QGeoMap::geoProjection() const
+extern "C" Q_DECL_EXPORT
+const QGeoProjection *ritual_ZNK7QGeoMap13geoProjectionEv(
+    const QGeoMap *self) {
+  return &(self->geoProjection());
 }
 
 //  void QGeoMap::prefetchData()
@@ -672,6 +696,14 @@ QRectF *ritual_ZNK7QGeoMap11visibleAreaEv(const QGeoMap *self) {
   return new QRectF(self->visibleArea());
 }
 
+//  QGeoMap::QGeoMap(QGeoMapPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGeoMap *ritual_ZN7QGeoMapC1ER14QGeoMapPrivateP7QObject(
+    QGeoMapPrivate *dd,
+    QObject *parent) {
+  return new CuteQGeoMap(*dd, parent);
+}
+
 //  void QGeoMap::setCameraData(const QGeoCameraData &cameraData)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QGeoMap13setCameraDataERK14QGeoCameraData(
@@ -696,6 +728,65 @@ QSGNode *ritual_ZN7QGeoMap16updateSceneGraphEP7QSGNodeP12QQuickWindow(
     QSGNode *node,
     QQuickWindow *window) {
   return self->updateSceneGraph(node, window);
+}
+
+//  void QGeoMap::cameraDataChanged(const QGeoCameraData &cameraData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QGeoMap17cameraDataChangedERK14QGeoCameraData(
+    QGeoMap *self,
+    const QGeoCameraData *cameraData) {
+  self->cameraDataChanged(*cameraData);
+}
+
+//  void QGeoMap::sgNodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QGeoMap13sgNodeChangedEv(QGeoMap *self) {
+  self->sgNodeChanged();
+}
+
+//  void QGeoMap::activeMapTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QGeoMap20activeMapTypeChangedEv(QGeoMap *self) {
+  self->activeMapTypeChanged();
+}
+
+//  void QGeoMap::cameraCapabilitiesChanged(const QGeoCameraCapabilities
+//      &oldCameraCapabilities)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QGeoMap25cameraCapabilitiesChangedERK22QGeoCameraCapabilities(
+    QGeoMap *self,
+    const QGeoCameraCapabilities *oldCameraCapabilities) {
+  self->cameraCapabilitiesChanged(*oldCameraCapabilities);
+}
+
+//  void QGeoMap::copyrightsImageChanged(const QImage &copyrightsImage)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QGeoMap22copyrightsImageChangedERK6QImage(
+    QGeoMap *self,
+    const QImage *copyrightsImage) {
+  self->copyrightsImageChanged(*copyrightsImage);
+}
+
+//  void QGeoMap::copyrightsChanged(const QString &copyrightsHtml)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QGeoMap17copyrightsChangedERK7QString(
+    QGeoMap *self,
+    const QString *copyrightsHtml) {
+  self->copyrightsChanged(*copyrightsHtml);
+}
+
+//  void QGeoMap::copyrightsStyleSheetChanged(const QString &styleSheet)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QGeoMap27copyrightsStyleSheetChangedERK7QString(
+    QGeoMap *self,
+    const QString *styleSheet) {
+  self->copyrightsStyleSheetChanged(*styleSheet);
+}
+
+//  void QGeoMap::visibleAreaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QGeoMap18visibleAreaChangedEv(QGeoMap *self) {
+  self->visibleAreaChanged();
 }
 
 //  a Python function taken by a CuteQGeoMap, for the function named by the

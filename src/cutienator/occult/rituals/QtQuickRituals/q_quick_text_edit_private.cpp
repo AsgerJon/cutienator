@@ -505,6 +505,20 @@ void ritual_ZN21QQuickTextEditPrivate16handleFocusEventEP11QFocusEvent(
   self->handleFocusEvent(event);
 }
 
+//  void QQuickTextEditPrivate::addCurrentTextNodeToRoot(QQuickTextNodeEngine
+//      *a0, QSGTransformNode *a1, QSGInternalTextNode *a2, TextNodeIterator
+//      &a3, int startPos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTextEditPrivate24addCurrentTextNodeToRootEP20QQuickTextNodeEngineP16QSGTransformNodeP19QSGInternalTextNodeRN5QListINS_4NodeEE8iteratorEi(
+    QQuickTextEditPrivate *self,
+    QQuickTextNodeEngine *a0,
+    QSGTransformNode *a1,
+    QSGInternalTextNode *a2,
+    QQuickTextEditPrivate::TextNodeIterator *a3,
+    int startPos) {
+  self->addCurrentTextNodeToRoot(a0, a1, a2, *a3, startPos);
+}
+
 //  QSGInternalTextNode *QQuickTextEditPrivate::createTextNode()
 extern "C" Q_DECL_EXPORT
 QSGInternalTextNode *ritual_ZN21QQuickTextEditPrivate14createTextNodeEv(

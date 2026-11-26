@@ -11,11 +11,15 @@
     "ritual_ZNK30QQuickMenuItemIconLabelPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN30QQuickMenuItemIconLabelPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK30QQuickMenuItemIconLabelPrivate11hasShortcutEv": [
       "bool", "address"
     ],
     "ritual_ZNK30QQuickMenuItemIconLabelPrivate8shortcutEv": [
       "address", "address"
+    ],
+    "ritual_ZN30QQuickMenuItemIconLabelPrivate19createShortcutLabelEv": [
+      "bool", "address"
     ],
     "ritual_ZN30QQuickMenuItemIconLabelPrivate17syncShortcutLabelEv": [
       "nothing", "address"

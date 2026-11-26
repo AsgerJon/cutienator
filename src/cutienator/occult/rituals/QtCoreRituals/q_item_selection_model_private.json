@@ -9,6 +9,8 @@
     "ritual_ZNK26QItemSelectionModelPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN26QItemSelectionModelPrivateC1Ev": ["address"],
+    "ritual_ZN26QItemSelectionModelPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK26QItemSelectionModelPrivate15expandSelectionERK14QItemSelection6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
       "address", "address", "address", "int"
     ],
@@ -27,6 +29,9 @@
     "ritual_ZN26QItemSelectionModelPrivate14modelDestroyedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN26QItemSelectionModelPrivate6removeER5QListI19QItemSelectionRangeE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QItemSelectionModelPrivate8finalizeEv": [
       "nothing", "address"
     ],
@@ -38,6 +43,9 @@
     ],
     "ritual_ZN26QItemSelectionModelPrivate12modelChangedEP18QAbstractItemModel": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate25_qt_property_model_offsetEv": [
+      "size_t"
     ]
   }
 }

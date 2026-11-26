@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN3QV47UrlCtor10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV47UrlCtor11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV47UrlCtor1dEv": ["address", "address"]
+    "ritual_ZNK3QV47UrlCtor1dEv": ["address", "address"],
+    "ritual_ZN3QV47UrlCtor24virtualCallAsConstructorEPKNS_14FunctionObjectEPKNS_5ValueEiS6_": [
+      "unsigned long long", "address", "address", "int", "address"
+    ]
   }
 }

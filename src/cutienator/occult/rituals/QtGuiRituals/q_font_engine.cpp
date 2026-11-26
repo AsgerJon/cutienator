@@ -11,8 +11,8 @@
 #include <QtGui/6.12.0/QtGui/private/qfixed_p.h>
 #include <QtGui/6.12.0/QtGui/private/qtextengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGui/qimage.h>
 #include <QtGui/qtransform.h>
+#include <QtGui/qimage.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qfontvariableaxis.h>
 #include <QtCore/qstring.h>
@@ -70,16 +70,17 @@ typedef bool (*CuteQFontEngineCall37)(const void *, const QTransform *, int *);
 typedef int (*CuteQFontEngineCall38)(const void *, int *);
 typedef int (*CuteQFontEngineCall39)(const void *, int, int *);
 typedef void * (*CuteQFontEngineCall40)(const void *, qreal, int *);
-typedef QString * (*CuteQFontEngineCall41)(const void *, glyph_t, int *);
-typedef glyph_t (*CuteQFontEngineCall42)(const void *, const QLatin1String *, int *);
-typedef bool (*CuteQFontEngineCall43)(const void *, int *);
-typedef bool (*CuteQFontEngineCall44)(const void *, int, int *);
-typedef void (*CuteQFontEngineCall45)(const void *, int, int *);
-typedef void (*CuteQFontEngineCall46)(const void *, int *);
+typedef void * (*CuteQFontEngineCall41)(const void *, int *);
+typedef QString * (*CuteQFontEngineCall42)(const void *, glyph_t, int *);
+typedef glyph_t (*CuteQFontEngineCall43)(const void *, const QLatin1String *, int *);
+typedef bool (*CuteQFontEngineCall44)(const void *, int *);
+typedef bool (*CuteQFontEngineCall45)(const void *, int, int *);
+typedef void (*CuteQFontEngineCall46)(const void *, int, int *);
+typedef void (*CuteQFontEngineCall47)(const void *, int *);
 class CuteQFontEngine : public QFontEngine {
 public:
   using QFontEngine::QFontEngine;
-  void *taken[47] = {};
+  void *taken[48] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK11QFontEngine10propertiesEv")) {
@@ -246,28 +247,32 @@ public:
       taken[40] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine9glyphNameEj")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine6handleEv")) {
       taken[41] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine9findGlyphE13QLatin1String")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine9glyphNameEj")) {
       taken[42] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine25hasUnreliableGlyphOutlineEv")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine9findGlyphE13QLatin1String")) {
       taken[43] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine29expectsGammaCorrectedBlendingENS_11GlyphFormatE")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine25hasUnreliableGlyphOutlineEv")) {
       taken[44] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QFontEngine19setDefaultHintStyleENS_9HintStyleE")) {
+    if (!std::strcmp(key, "_ZNK11QFontEngine29expectsGammaCorrectedBlendingENS_11GlyphFormatE")) {
       taken[45] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QFontEngine23initializeHeightMetricsEv")) {
+    if (!std::strcmp(key, "_ZN11QFontEngine19setDefaultHintStyleENS_9HintStyleE")) {
       taken[46] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QFontEngine23initializeHeightMetricsEv")) {
+      taken[47] = call;
       return true;
     }
     return false;
@@ -771,11 +776,22 @@ public:
     return QFontEngine::cloneWithSize(a0);
   }
 
-  //  QString QFontEngine::glyphName(glyph_t index) const
-  QString glyphName(glyph_t index) const override {
+  //  Qt::HANDLE QFontEngine::handle() const
+  Qt::HANDLE handle() const override {
     if (taken[41]) {
       int handled = 0;
       CuteQFontEngineCall41 call = reinterpret_cast<CuteQFontEngineCall41>(taken[41]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<Qt::HANDLE>(given);
+    }
+    return QFontEngine::handle();
+  }
+
+  //  QString QFontEngine::glyphName(glyph_t index) const
+  QString glyphName(glyph_t index) const override {
+    if (taken[42]) {
+      int handled = 0;
+      CuteQFontEngineCall42 call = reinterpret_cast<CuteQFontEngineCall42>(taken[42]);
       QString * given = call(this, index, &handled);
       if (handled && given) {
         QString back(*given);
@@ -788,9 +804,9 @@ public:
 
   //  glyph_t QFontEngine::findGlyph(QLatin1StringView name) const
   glyph_t findGlyph(QLatin1StringView name) const override {
-    if (taken[42]) {
+    if (taken[43]) {
       int handled = 0;
-      CuteQFontEngineCall42 call = reinterpret_cast<CuteQFontEngineCall42>(taken[42]);
+      CuteQFontEngineCall43 call = reinterpret_cast<CuteQFontEngineCall43>(taken[43]);
       glyph_t given = call(this, &name, &handled);
       if (handled) return given;
     }
@@ -799,9 +815,9 @@ public:
 
   //  bool QFontEngine::hasUnreliableGlyphOutline() const
   bool hasUnreliableGlyphOutline() const override {
-    if (taken[43]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQFontEngineCall43 call = reinterpret_cast<CuteQFontEngineCall43>(taken[43]);
+      CuteQFontEngineCall44 call = reinterpret_cast<CuteQFontEngineCall44>(taken[44]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -813,9 +829,9 @@ public:
   //      at format) const
   bool expectsGammaCorrectedBlending(
       QFontEngine::GlyphFormat format) const override {
-    if (taken[44]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQFontEngineCall44 call = reinterpret_cast<CuteQFontEngineCall44>(taken[44]);
+      CuteQFontEngineCall45 call = reinterpret_cast<CuteQFontEngineCall45>(taken[45]);
       bool given = call(this, static_cast<int>(format), &handled);
       if (handled) return given;
     }
@@ -824,9 +840,9 @@ public:
 
   //  void QFontEngine::setDefaultHintStyle(HintStyle a0)
   void setDefaultHintStyle(QFontEngine::HintStyle a0) override {
-    if (taken[45]) {
+    if (taken[46]) {
       int handled = 0;
-      CuteQFontEngineCall45 call = reinterpret_cast<CuteQFontEngineCall45>(taken[45]);
+      CuteQFontEngineCall46 call = reinterpret_cast<CuteQFontEngineCall46>(taken[46]);
       call(this, static_cast<int>(a0), &handled);
       if (handled) return;
     }
@@ -835,9 +851,9 @@ public:
 
   //  void QFontEngine::initializeHeightMetrics() const
   void initializeHeightMetrics() const override {
-    if (taken[46]) {
+    if (taken[47]) {
       int handled = 0;
-      CuteQFontEngineCall46 call = reinterpret_cast<CuteQFontEngineCall46>(taken[46]);
+      CuteQFontEngineCall47 call = reinterpret_cast<CuteQFontEngineCall47>(taken[47]);
       call(this, &handled);
       if (handled) return;
     }
@@ -958,6 +974,12 @@ bool ritual_ZNK11QFontEngine11isColorFontEv(const QFontEngine *self) {
   return self->isColorFont();
 }
 
+//  bool QFontEngine::isIgnorableChar(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QFontEngine15isIgnorableCharEDi(char32_t ucs4) {
+  return QFontEngine::isIgnorableChar(ucs4);
+}
+
 //  int QFontEngine::maxCachedGlyphSize()
 extern "C" Q_DECL_EXPORT
 int ritual_ZN11QFontEngine18maxCachedGlyphSizeEv() {
@@ -1031,6 +1053,26 @@ void ritual_ZN11QFontEngine15addGlyphsToPathEPjP11QFixedPointiP12QPainterPath6QF
       nglyphs,
       path,
       QFlags<QTextItem::RenderFlag>::fromInt(flags));
+}
+
+//  void QFontEngine::getGlyphPositions(const QGlyphLayout &glyphs, const
+//      QTransform &matrix, QTextItem::RenderFlags flags,
+//      QVarLengthArray<glyph_t> &glyphs_out, QVarLengthArray<QFixedPoint>
+//      &positions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFontEngine17getGlyphPositionsERK12QGlyphLayoutRK10QTransform6QFlagsIN9QTextItem10RenderFlagEER15QVarLengthArrayIjLx256EERSA_I11QFixedPointLx256EE(
+    QFontEngine *self,
+    const QGlyphLayout *glyphs,
+    const QTransform *matrix,
+    int flags,
+    QVarLengthArray<glyph_t> *glyphs_out,
+    QVarLengthArray<QFixedPoint> *positions) {
+  self->getGlyphPositions(
+      *glyphs,
+      *matrix,
+      QFlags<QTextItem::RenderFlag>::fromInt(flags),
+      *glyphs_out,
+      *positions);
 }
 
 //  void QFontEngine::addOutlineToPath(qreal a0, qreal a1, const QGlyphLayout
@@ -1387,6 +1429,12 @@ QFontEngine *ritual_ZNK11QFontEngine13cloneWithSizeEd(
   return self->cloneWithSize(a0);
 }
 
+//  Qt::HANDLE QFontEngine::handle() const
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_ZNK11QFontEngine6handleEv(const QFontEngine *self) {
+  return self->handle();
+}
+
 //  QList<QFontVariableAxis> QFontEngine::variableAxes() const
 extern "C" Q_DECL_EXPORT
 QList<QFontVariableAxis> *ritual_ZNK11QFontEngine12variableAxesEv(
@@ -1408,6 +1456,18 @@ glyph_t ritual_ZNK11QFontEngine9findGlyphE13QLatin1String(
     const QFontEngine *self,
     const QLatin1String *name) {
   return self->findGlyph(*name);
+}
+
+//  void *QFontEngine::harfbuzzFont() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK11QFontEngine12harfbuzzFontEv(const QFontEngine *self) {
+  return self->harfbuzzFont();
+}
+
+//  void *QFontEngine::harfbuzzFace() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK11QFontEngine12harfbuzzFaceEv(const QFontEngine *self) {
+  return self->harfbuzzFace();
 }
 
 //  bool QFontEngine::supportsScript(QChar::Script script) const
@@ -1437,6 +1497,58 @@ int ritual_ZN11QFontEngine17getPointInOutlineEjijP6QFixedS1_Pj(
     QFixed *ypos,
     quint32 *nPoints) {
   return self->getPointInOutline(glyph, flags, point, xpos, ypos, nPoints);
+}
+
+//  void QFontEngine::clearGlyphCache(const void *key)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFontEngine15clearGlyphCacheEPKv(
+    QFontEngine *self,
+    const void *key) {
+  self->clearGlyphCache(key);
+}
+
+//  void QFontEngine::setGlyphCache(const void *key, QFontEngineGlyphCache
+//      *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFontEngine13setGlyphCacheEPKvP21QFontEngineGlyphCache(
+    QFontEngine *self,
+    const void *key,
+    QFontEngineGlyphCache *data) {
+  self->setGlyphCache(key, data);
+}
+
+//  QFontEngineGlyphCache *QFontEngine::glyphCache(const void *key,
+//      GlyphFormat format, const QTransform &transform, const QColor &color)
+//      const
+extern "C" Q_DECL_EXPORT
+QFontEngineGlyphCache *ritual_ZNK11QFontEngine10glyphCacheEPKvNS_11GlyphFormatERK10QTransformRK6QColor(
+    const QFontEngine *self,
+    const void *key,
+    QFontEngine::GlyphFormat format,
+    const QTransform *transform,
+    const QColor *color) {
+  return self->glyphCache(key, format, *transform, *color);
+}
+
+//  const uchar *QFontEngine::getCMap(const uchar *table, uint tableSize,
+//      bool *isSymbolFont, int *cmapSize)
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZN11QFontEngine7getCMapEPKhjPbPi(
+    const uchar *table,
+    uint tableSize,
+    bool *isSymbolFont,
+    int *cmapSize) {
+  return QFontEngine::getCMap(table, tableSize, isSymbolFont, cmapSize);
+}
+
+//  quint32 QFontEngine::getTrueTypeGlyphIndex(const uchar *cmap, int
+//      cmapSize, uint unicode)
+extern "C" Q_DECL_EXPORT
+quint32 ritual_ZN11QFontEngine21getTrueTypeGlyphIndexEPKhij(
+    const uchar *cmap,
+    int cmapSize,
+    uint unicode) {
+  return QFontEngine::getTrueTypeGlyphIndex(cmap, cmapSize, unicode);
 }
 
 //  QByteArray QFontEngine::convertToPostscriptFontFamilyName(const
@@ -1880,6 +1992,12 @@ QFontEngine *ritual_own_ZNK11QFontEngine13cloneWithSizeEd(
     const QFontEngine *self,
     qreal a0) {
   return self->QFontEngine::cloneWithSize(a0);
+}
+
+//  Qt::HANDLE QFontEngine::handle() const
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_own_ZNK11QFontEngine6handleEv(const QFontEngine *self) {
+  return self->QFontEngine::handle();
 }
 
 //  QString QFontEngine::glyphName(glyph_t index) const

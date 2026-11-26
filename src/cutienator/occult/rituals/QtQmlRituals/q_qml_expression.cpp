@@ -183,6 +183,24 @@ const QMetaObject *ritual_ZNK14QQmlExpression10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlExpression::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQmlExpression11qt_metacastEPKc(
+    QQmlExpression *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlExpression::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQmlExpression11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlExpression *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlExpression::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQmlExpression2trEPKcS1_i(
@@ -330,6 +348,21 @@ QVariant *ritual_ZN14QQmlExpression8evaluateEPb(
     QQmlExpression *self,
     bool *valueIsUndefined) {
   return new QVariant(self->evaluate(valueIsUndefined));
+}
+
+//  void QQmlExpression::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlExpression12valueChangedEv(QQmlExpression *self) {
+  self->valueChanged();
+}
+
+//  QQmlExpression::QQmlExpression(QQmlExpressionPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQmlExpression *ritual_ZN14QQmlExpressionC1ER21QQmlExpressionPrivateP7QObject(
+    QQmlExpressionPrivate *dd,
+    QObject *parent) {
+  return new CuteQQmlExpression(*dd, parent);
 }
 
 //  QQmlExpressionPrivate *QQmlExpression::d_func()

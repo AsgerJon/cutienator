@@ -10,6 +10,7 @@
     "ritual_ZN10QTextCodec12codecForNameEPKc": ["address", "chars"],
     "ritual_ZN10QTextCodec11codecForMibEi": ["address", "int"],
     "ritual_ZN10QTextCodec15availableCodecsEv": ["address"],
+    "ritual_ZN10QTextCodec13availableMibsEv": ["address"],
     "ritual_ZN10QTextCodec14codecForLocaleEv": ["address"],
     "ritual_ZN10QTextCodec17setCodecForLocaleEPS_": ["nothing", "address"],
     "ritual_ZN10QTextCodec10codecForTrEv": ["address"],
@@ -44,6 +45,12 @@
     "ritual_ZNK10QTextCodec11fromUnicodeE11QStringView": [
       "address", "address", "text"
     ],
+    "ritual_ZNK10QTextCodec9toUnicodeEPKciPN20QStringConverterBase5StateE": [
+      "text", "address", "chars", "int", "address"
+    ],
+    "ritual_ZNK10QTextCodec11fromUnicodeEPK5QChariPN20QStringConverterBase5StateE": [
+      "address", "address", "address", "int", "address"
+    ],
     "ritual_ZNK10QTextCodec11makeDecoderE6QFlagsIN20QStringConverterBase4FlagEE": [
       "address", "address", "int"
     ],
@@ -53,7 +60,14 @@
     "ritual_ZNK10QTextCodec4nameEv": ["address", "address"],
     "ritual_ZNK10QTextCodec7aliasesEv": ["address", "address"],
     "ritual_ZNK10QTextCodec7mibEnumEv": ["int", "address"],
+    "ritual_ZNK10QTextCodec16convertToUnicodeEPKciPN20QStringConverterBase5StateE": [
+      "text", "address", "chars", "int", "address"
+    ],
+    "ritual_ZNK10QTextCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE": [
+      "address", "address", "address", "int", "address"
+    ],
     "ritual_ZN10QTextCodecD1Ev": ["nothing", "address"],
-    "ritual_take_QTextCodec": ["bool", "address", "chars", "address"]
+    "ritual_take_QTextCodec": ["bool", "address", "chars", "address"],
+    "ritual_drop_QTextCodec__QList_int": ["nothing", "address"]
   }
 }

@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -201,6 +205,22 @@ public:
     return QQmlJS::AST::Node::asClassDefinition();
   }
 };
+
+//  QQmlJS::AST::IdentifierExpression::IdentifierExpression(QStringView n)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::IdentifierExpression *ritual_ZN6QQmlJS3AST20IdentifierExpressionC1E11QStringView(
+    QQmlJS::MemoryPool *pool,
+    const QString *n) {
+  return new (pool) CuteQQmlJS_AST_IdentifierExpression(QStringView(*n));
+}
+
+//  void QQmlJS::AST::IdentifierExpression::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST20IdentifierExpression7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::IdentifierExpression *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
 
 //  SourceLocation QQmlJS::AST::IdentifierExpression::firstSourceLocation()
 //      const

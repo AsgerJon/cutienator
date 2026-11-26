@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN8DomBrushC1Ev": ["address"],
     "ritual_ZN8DomBrushD1Ev": ["nothing", "address"],
+    "ritual_ZN8DomBrush4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8DomBrush5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK8DomBrush22hasAttributeBrushStyleEv": ["bool", "address"],
     "ritual_ZNK8DomBrush19attributeBrushStyleEv": ["text", "address"],
     "ritual_ZN8DomBrush22setAttributeBrushStyleERK7QString": [

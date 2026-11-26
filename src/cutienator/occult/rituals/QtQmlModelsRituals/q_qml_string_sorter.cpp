@@ -12,7 +12,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qlocale.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qcompare.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -228,6 +230,25 @@ const QMetaObject *ritual_ZNK16QQmlStringSorter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlStringSorter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQmlStringSorter11qt_metacastEPKc(
+    QQmlStringSorter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlStringSorter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQmlStringSorter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlStringSorter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlStringSorter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQmlStringSorter2trEPKcS1_i(
@@ -324,6 +345,33 @@ QPartialOrdering *ritual_ZNK16QQmlStringSorter7compareERK11QModelIndexS2_PK24QQm
           *sourceLeft,
           *sourceRight,
           proxyModel));
+}
+
+//  void QQmlStringSorter::caseSensitivityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlStringSorter22caseSensitivityChangedEv(
+    QQmlStringSorter *self) {
+  self->caseSensitivityChanged();
+}
+
+//  void QQmlStringSorter::ignorePunctuationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlStringSorter24ignorePunctuationChangedEv(
+    QQmlStringSorter *self) {
+  self->ignorePunctuationChanged();
+}
+
+//  void QQmlStringSorter::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlStringSorter13localeChangedEv(QQmlStringSorter *self) {
+  self->localeChanged();
+}
+
+//  void QQmlStringSorter::numericModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlStringSorter18numericModeChangedEv(
+    QQmlStringSorter *self) {
+  self->numericModeChanged();
 }
 
 //  QQmlStringSorterPrivate *QQmlStringSorter::d_func()

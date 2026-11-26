@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK31QQuick3DParticleVectorDirection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleVectorDirection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QQuick3DParticleVectorDirection11qt_metacastEPKc(
+    QQuick3DParticleVectorDirection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleVectorDirection::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QQuick3DParticleVectorDirection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleVectorDirection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleVectorDirection::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -82,6 +101,27 @@ void ritual_ZN31QQuick3DParticleVectorDirection13setNormalizedEb(
     QQuick3DParticleVectorDirection *self,
     bool normalized) {
   self->setNormalized(normalized);
+}
+
+//  void QQuick3DParticleVectorDirection::directionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DParticleVectorDirection16directionChangedEv(
+    QQuick3DParticleVectorDirection *self) {
+  self->directionChanged();
+}
+
+//  void QQuick3DParticleVectorDirection::directionVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DParticleVectorDirection25directionVariationChangedEv(
+    QQuick3DParticleVectorDirection *self) {
+  self->directionVariationChanged();
+}
+
+//  void QQuick3DParticleVectorDirection::normalizedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuick3DParticleVectorDirection17normalizedChangedEv(
+    QQuick3DParticleVectorDirection *self) {
+  self->normalizedChanged();
 }
 
 //  QVector3D QQuick3DParticleVectorDirection::sample(const

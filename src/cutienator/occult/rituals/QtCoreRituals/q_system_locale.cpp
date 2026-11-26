@@ -6,8 +6,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qlocale_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qvariant.h>
 #include <QtCore/qlocale.h>
 #include <cstring>
+#include <QtCore/QSharedDataPointer>
+#include <QtCore/QLocale>
 
 //  A QSystemLocale that Python can take functions over in. Every QSystemLocale
 //  Python makes is one. Each function below asks the Python
@@ -50,6 +53,15 @@ void ritual_ZN13QSystemLocaleD1Ev(QSystemLocale *self) {
   delete self;
 }
 
+//  QVariant QSystemLocale::query(QueryType type, QVariant &&in) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK13QSystemLocale5queryENS_9QueryTypeEO8QVariant(
+    const QSystemLocale *self,
+    QSystemLocale::QueryType type,
+    QVariant *in) {
+  return new QVariant(self->query(type, std::move(*in)));
+}
+
 //  QLocale QSystemLocale::fallbackLocale() const
 extern "C" Q_DECL_EXPORT
 QLocale *ritual_ZNK13QSystemLocale14fallbackLocaleEv(
@@ -62,6 +74,15 @@ extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK13QSystemLocale19fallbackLocaleIndexEv(
     const QSystemLocale *self) {
   return self->fallbackLocaleIndex();
+}
+
+//  const QSharedDataPointer<QLocalePrivate> QSystemLocale::localeData(const
+//      QLocale &locale) const
+extern "C" Q_DECL_EXPORT
+QSharedDataPointer<QLocalePrivate> *ritual_ZNK13QSystemLocale10localeDataERK7QLocale(
+    const QSystemLocale *self,
+    const QLocale *locale) {
+  return new QSharedDataPointer<QLocalePrivate>(self->localeData(*locale));
 }
 
 //  a Python function taken by a CuteQSystemLocale, for the function named by
@@ -79,4 +100,11 @@ extern "C" Q_DECL_EXPORT
 QLocale *ritual_own_ZNK13QSystemLocale14fallbackLocaleEv(
     const QSystemLocale *self) {
   return new QLocale(self->QSystemLocale::fallbackLocale());
+}
+
+//  a QSharedDataPointer<QLocalePrivate> a ritual of QSystemLocale gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSystemLocale__QSharedDataPointer_QLocalePrivate(
+    QSharedDataPointer<QLocalePrivate> *self) {
+  delete self;
 }

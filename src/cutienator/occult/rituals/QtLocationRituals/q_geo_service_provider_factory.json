@@ -6,6 +6,18 @@
   ],
   "rows": {
     "ritual_ZN26QGeoServiceProviderFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QGeoServiceProviderFactory28createGeocodingManagerEngineERK4QMapI7QString8QVariantEPN19QGeoServiceProvider5ErrorEPS1_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK26QGeoServiceProviderFactory26createMappingManagerEngineERK4QMapI7QString8QVariantEPN19QGeoServiceProvider5ErrorEPS1_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK26QGeoServiceProviderFactory26createRoutingManagerEngineERK4QMapI7QString8QVariantEPN19QGeoServiceProvider5ErrorEPS1_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK26QGeoServiceProviderFactory24createPlaceManagerEngineERK4QMapI7QString8QVariantEPN19QGeoServiceProvider5ErrorEPS1_": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN26QGeoServiceProviderFactory12setQmlEngineEP10QQmlEngine": [
       "nothing", "address", "address"
     ],

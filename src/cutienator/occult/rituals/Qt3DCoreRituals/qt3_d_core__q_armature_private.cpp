@@ -53,6 +53,12 @@ public:
   }
 };
 
+//  Qt3DCore::QArmaturePrivate::QArmaturePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QArmaturePrivate *ritual_ZN8Qt3DCore16QArmaturePrivateC1Ev() {
+  return new CuteQt3DCore_QArmaturePrivate();
+}
+
 //  QArmature *Qt3DCore::QArmaturePrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QArmature *ritual_ZN8Qt3DCore16QArmaturePrivate6q_funcEv(

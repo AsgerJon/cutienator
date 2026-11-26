@@ -186,6 +186,22 @@ const QMetaObject *ritual_ZNK9QPieSlice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPieSlice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QPieSlice11qt_metacastEPKc(QPieSlice *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPieSlice::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QPieSlice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPieSlice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPieSlice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QPieSlice2trEPKcS1_i(
@@ -439,6 +455,120 @@ qreal ritual_ZNK9QPieSlice9angleSpanEv(const QPieSlice *self) {
 extern "C" Q_DECL_EXPORT
 QPieSeries *ritual_ZNK9QPieSlice6seriesEv(const QPieSlice *self) {
   return self->series();
+}
+
+//  void QPieSlice::clicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice7clickedEv(QPieSlice *self) {
+  self->clicked();
+}
+
+//  void QPieSlice::hovered(bool state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice7hoveredEb(QPieSlice *self, bool state) {
+  self->hovered(state);
+}
+
+//  void QPieSlice::pressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice7pressedEv(QPieSlice *self) {
+  self->pressed();
+}
+
+//  void QPieSlice::released()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice8releasedEv(QPieSlice *self) {
+  self->released();
+}
+
+//  void QPieSlice::doubleClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice13doubleClickedEv(QPieSlice *self) {
+  self->doubleClicked();
+}
+
+//  void QPieSlice::labelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice12labelChangedEv(QPieSlice *self) {
+  self->labelChanged();
+}
+
+//  void QPieSlice::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice12valueChangedEv(QPieSlice *self) {
+  self->valueChanged();
+}
+
+//  void QPieSlice::labelVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice19labelVisibleChangedEv(QPieSlice *self) {
+  self->labelVisibleChanged();
+}
+
+//  void QPieSlice::penChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice10penChangedEv(QPieSlice *self) {
+  self->penChanged();
+}
+
+//  void QPieSlice::brushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice12brushChangedEv(QPieSlice *self) {
+  self->brushChanged();
+}
+
+//  void QPieSlice::labelBrushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice17labelBrushChangedEv(QPieSlice *self) {
+  self->labelBrushChanged();
+}
+
+//  void QPieSlice::labelFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice16labelFontChangedEv(QPieSlice *self) {
+  self->labelFontChanged();
+}
+
+//  void QPieSlice::percentageChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice17percentageChangedEv(QPieSlice *self) {
+  self->percentageChanged();
+}
+
+//  void QPieSlice::startAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice17startAngleChangedEv(QPieSlice *self) {
+  self->startAngleChanged();
+}
+
+//  void QPieSlice::angleSpanChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice16angleSpanChangedEv(QPieSlice *self) {
+  self->angleSpanChanged();
+}
+
+//  void QPieSlice::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice12colorChangedEv(QPieSlice *self) {
+  self->colorChanged();
+}
+
+//  void QPieSlice::borderColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice18borderColorChangedEv(QPieSlice *self) {
+  self->borderColorChanged();
+}
+
+//  void QPieSlice::borderWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice18borderWidthChangedEv(QPieSlice *self) {
+  self->borderWidthChanged();
+}
+
+//  void QPieSlice::labelColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice17labelColorChangedEv(QPieSlice *self) {
+  self->labelColorChanged();
 }
 
 //  QPieSlicePrivate *QPieSlice::d_func()

@@ -8,8 +8,59 @@
     "ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometryC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometryD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry17positionAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry15normalAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry14indexAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry4textEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry4fontEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry15extrusionLengthEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry8setDepthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry11textChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry11fontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry12depthChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras21QExtrudedTextGeometryC1ERNS_28QExtrudedTextGeometryPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DExtras21QExtrudedTextGeometry6d_funcEv": [
       "address", "address"

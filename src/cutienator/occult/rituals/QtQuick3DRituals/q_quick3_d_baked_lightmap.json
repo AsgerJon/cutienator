@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuick3DBakedLightmap10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuick3DBakedLightmap11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuick3DBakedLightmap11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuick3DBakedLightmap2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -22,6 +28,14 @@
     ],
     "ritual_ZN21QQuick3DBakedLightmap13setLoadPrefixERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQuick3DBakedLightmap7changedEv": ["nothing", "address"],
+    "ritual_ZN21QQuick3DBakedLightmap14enabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DBakedLightmap10keyChangedEv": ["nothing", "address"],
+    "ritual_ZN21QQuick3DBakedLightmap17loadPrefixChangedEv": [
+      "nothing", "address"
     ]
   }
 }

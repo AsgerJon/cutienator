@@ -6,7 +6,11 @@
   "rows": {
     "ritual_ZN9QGeoRouteC1Ev": ["address"],
     "ritual_ZN9QGeoRouteC1ERKS_": ["address", "address"],
+    "ritual_ZN9QGeoRouteC1EOS_": ["address", "address"],
     "ritual_ZN9QGeoRouteD1Ev": ["nothing", "address"],
+    "ritual_ZN9QGeoRouteaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QGeoRouteaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QGeoRoute4swapERS_": ["nothing", "address", "address"],
     "ritual_ZeqRK9QGeoRouteS1_": ["bool", "address", "address"],
     "ritual_ZneRK9QGeoRouteS1_": ["bool", "address", "address"],
     "ritual_ZN9QGeoRoute10setRouteIdERK7QString": [
@@ -53,6 +57,8 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK9QGeoRoute12overallRouteEv": ["address", "address"],
+    "ritual_ZN9QGeoRoute1dEv": ["address", "address"],
+    "ritual_ZNK9QGeoRoute7const_dEv": ["address", "address"],
     "ritual_ZNK9QGeoRoute7isEqualERKS_": ["bool", "address", "address"],
     "ritual_list_make_QGeoRoute": ["address"],
     "ritual_list_add_QGeoRoute": ["nothing", "address", "address"],

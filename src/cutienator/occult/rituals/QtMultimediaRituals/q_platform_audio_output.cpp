@@ -18,7 +18,7 @@ typedef void (*CuteQPlatformAudioOutputCall2)(const void *, float, int *);
 class CuteQPlatformAudioOutput : public QPlatformAudioOutput {
 public:
   using QPlatformAudioOutput::QPlatformAudioOutput;
-  CuteQPlatformAudioOutput(const QPlatformAudioOutput &other) : QPlatformAudioOutput(other) {}
+  CuteQPlatformAudioOutput(const QPlatformAudioOutput & other) : QPlatformAudioOutput(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

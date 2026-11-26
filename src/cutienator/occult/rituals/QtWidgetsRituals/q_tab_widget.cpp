@@ -999,6 +999,24 @@ const QMetaObject *ritual_ZNK10QTabWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTabWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QTabWidget11qt_metacastEPKc(
+    QTabWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTabWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QTabWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTabWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTabWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QTabWidget2trEPKcS1_i(
@@ -1402,6 +1420,34 @@ void ritual_ZN10QTabWidget16setCurrentWidgetEP7QWidget(
   self->setCurrentWidget(widget);
 }
 
+//  void QTabWidget::currentChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget14currentChangedEi(QTabWidget *self, int index) {
+  self->currentChanged(index);
+}
+
+//  void QTabWidget::tabCloseRequested(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget17tabCloseRequestedEi(
+    QTabWidget *self,
+    int index) {
+  self->tabCloseRequested(index);
+}
+
+//  void QTabWidget::tabBarClicked(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget13tabBarClickedEi(QTabWidget *self, int index) {
+  self->tabBarClicked(index);
+}
+
+//  void QTabWidget::tabBarDoubleClicked(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget19tabBarDoubleClickedEi(
+    QTabWidget *self,
+    int index) {
+  self->tabBarDoubleClicked(index);
+}
+
 //  void QTabWidget::tabInserted(int index)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QTabWidget11tabInsertedEi(QTabWidget *self, int index) {
@@ -1475,6 +1521,19 @@ void ritual_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWidgetFrame(
     const QTabWidget *self,
     QStyleOptionTabWidgetFrame *option) {
   self->initStyleOption(option);
+}
+
+//  QTabWidgetPrivate *QTabWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QTabWidgetPrivate *ritual_ZN10QTabWidget6d_funcEv(QTabWidget *self) {
+  return self->d_func();
+}
+
+//  const QTabWidgetPrivate *QTabWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTabWidgetPrivate *ritual_ZNK10QTabWidget6d_funcEv(
+    const QTabWidget *self) {
+  return self->d_func();
 }
 
 //  void QTabWidget::setUpLayout(bool a0)

@@ -17,6 +17,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <cstring>
+#include <QtGui/QVector4D>
 
 //  A QLottieStroke that Python can take functions over in. Every QLottieStroke
 //  Python makes is one. Each function below asks the Python
@@ -37,7 +38,7 @@ typedef const QSize * (*CuteQLottieStrokeCall12)(const void *, int *);
 class CuteQLottieStroke : public QLottieStroke {
 public:
   using QLottieStroke::QLottieStroke;
-  CuteQLottieStroke(const QLottieStroke &other) : QLottieStroke(other) {}
+  CuteQLottieStroke(const QLottieStroke & other) : QLottieStroke(other) {}
   void *taken[13] = {};
 
   bool take(const char *key, void *call) {
@@ -270,6 +271,14 @@ void ritual_ZN13QLottieStroke16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieStroke::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QLottieStroke6renderER15QLottieRenderer(
+    const QLottieStroke *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  int QLottieStroke::parse(const QJsonObject &definition)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN13QLottieStroke5parseERK11QJsonObject(
@@ -288,6 +297,34 @@ QPen *ritual_ZNK13QLottieStroke3penEv(const QLottieStroke *self) {
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK13QLottieStroke7opacityEv(const QLottieStroke *self) {
   return self->opacity();
+}
+
+//  QLottieProperty4D<QVector4D> QLottieStroke::colorProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty4D<QVector4D> *ritual_ZNK13QLottieStroke13colorPropertyEv(
+    const QLottieStroke *self) {
+  return new QLottieProperty4D<QVector4D>(self->colorProperty());
+}
+
+//  QLottieProperty<qreal> QLottieStroke::opacityProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK13QLottieStroke15opacityPropertyEv(
+    const QLottieStroke *self) {
+  return new QLottieProperty<qreal>(self->opacityProperty());
+}
+
+//  QLottieProperty<qreal> QLottieStroke::widthProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK13QLottieStroke13widthPropertyEv(
+    const QLottieStroke *self) {
+  return new QLottieProperty<qreal>(self->widthProperty());
+}
+
+//  QLottieProperty<qreal> QLottieStroke::dashOffsetProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK13QLottieStroke18dashOffsetPropertyEv(
+    const QLottieStroke *self) {
+  return new QLottieProperty<qreal>(self->dashOffsetProperty());
 }
 
 //  QColor QLottieStroke::getColor() const
@@ -345,4 +382,18 @@ int ritual_own_ZN13QLottieStroke5parseERK11QJsonObject(
 extern "C" Q_DECL_EXPORT
 QPen *ritual_own_ZNK13QLottieStroke3penEv(const QLottieStroke *self) {
   return new QPen(self->QLottieStroke::pen());
+}
+
+//  a QLottieProperty4D<QVector4D> a ritual of QLottieStroke gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieStroke__QLottieProperty4D_QVector4D(
+    QLottieProperty4D<QVector4D> *self) {
+  delete self;
+}
+
+//  a QLottieProperty<qreal> a ritual of QLottieStroke gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieStroke__QLottieProperty_qreal(
+    QLottieProperty<qreal> *self) {
+  delete self;
 }

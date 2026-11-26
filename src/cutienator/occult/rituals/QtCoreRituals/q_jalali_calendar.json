@@ -23,6 +23,7 @@
     "ritual_ZNK15QJalaliCalendar20localeMonthIndexDataEv": [
       "address", "address"
     ],
+    "ritual_ZNK15QJalaliCalendar15localeMonthDataEv": ["address", "address"],
     "ritual_take_QJalaliCalendar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QJalaliCalendar4nameEv": ["text", "address"],
     "ritual_own_ZNK15QJalaliCalendar11daysInMonthEii": [
@@ -38,6 +39,9 @@
       "address", "address", "long long"
     ],
     "ritual_own_ZNK15QJalaliCalendar20localeMonthIndexDataEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK15QJalaliCalendar15localeMonthDataEv": [
       "address", "address"
     ]
   }

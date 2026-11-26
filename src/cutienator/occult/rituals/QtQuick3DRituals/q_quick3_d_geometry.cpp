@@ -290,6 +290,25 @@ const QMetaObject *ritual_ZNK16QQuick3DGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuick3DGeometry11qt_metacastEPKc(
+    QQuick3DGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DGeometry::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuick3DGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuick3DGeometry2trEPKcS1_i(
@@ -591,6 +610,19 @@ void ritual_ZN16QQuick3DGeometry18addTargetAttributeERKNS_15TargetAttributeE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuick3DGeometry5clearEv(QQuick3DGeometry *self) {
   self->clear();
+}
+
+//  void QQuick3DGeometry::geometryNodeDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DGeometry17geometryNodeDirtyEv(
+    QQuick3DGeometry *self) {
+  self->geometryNodeDirty();
+}
+
+//  void QQuick3DGeometry::geometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DGeometry15geometryChangedEv(QQuick3DGeometry *self) {
+  self->geometryChanged();
 }
 
 //  QSSGRenderGraphObject

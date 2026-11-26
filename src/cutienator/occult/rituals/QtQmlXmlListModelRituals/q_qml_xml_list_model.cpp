@@ -9,7 +9,9 @@
 #include <QtQmlXmlListModel/6.12.0/QtQmlXmlListModel/private/qqmlxmllistmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qurl.h>
@@ -19,6 +21,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQmlXmlListModel that Python can take functions over in. Every QQmlXmlListModel
 //  Python makes is one. Each function below asks the Python
@@ -974,6 +977,25 @@ const QMetaObject *ritual_ZNK16QQmlXmlListModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlXmlListModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQmlXmlListModel11qt_metacastEPKc(
+    QQmlXmlListModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlXmlListModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQmlXmlListModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlXmlListModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlXmlListModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQmlXmlListModel2trEPKcS1_i(
@@ -1064,6 +1086,13 @@ void ritual_ZN16QQmlXmlListModel8setQueryERK7QString(
   self->setQuery(*a0);
 }
 
+//  QQmlListProperty<QQmlXmlListModelRole> QQmlXmlListModel::roleObjects()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQmlXmlListModelRole> *ritual_ZN16QQmlXmlListModel11roleObjectsEv(
+    QQmlXmlListModel *self) {
+  return new QQmlListProperty<QQmlXmlListModelRole>(self->roleObjects());
+}
+
 //  void QQmlXmlListModel::appendRole(QQmlXmlListModelRole *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQmlXmlListModel10appendRoleEP20QQmlXmlListModelRole(
@@ -1111,6 +1140,40 @@ void ritual_ZN16QQmlXmlListModel17componentCompleteEv(
   self->componentComplete();
 }
 
+//  void QQmlXmlListModel::statusChanged(QQmlXmlListModel::Status a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlXmlListModel13statusChangedENS_6StatusE(
+    QQmlXmlListModel *self,
+    QQmlXmlListModel::Status a0) {
+  self->statusChanged(a0);
+}
+
+//  void QQmlXmlListModel::progressChanged(qreal progress)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlXmlListModel15progressChangedEd(
+    QQmlXmlListModel *self,
+    qreal progress) {
+  self->progressChanged(progress);
+}
+
+//  void QQmlXmlListModel::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlXmlListModel12countChangedEv(QQmlXmlListModel *self) {
+  self->countChanged();
+}
+
+//  void QQmlXmlListModel::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlXmlListModel13sourceChangedEv(QQmlXmlListModel *self) {
+  self->sourceChanged();
+}
+
+//  void QQmlXmlListModel::queryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlXmlListModel12queryChangedEv(QQmlXmlListModel *self) {
+  self->queryChanged();
+}
+
 //  void QQmlXmlListModel::reload()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQmlXmlListModel6reloadEv(QQmlXmlListModel *self) {
@@ -1149,12 +1212,38 @@ void ritual_ZN16QQmlXmlListModel14queryCompletedERK27QQmlXmlListModelQueryResult
   self->queryCompleted(*a0);
 }
 
+//  void QQmlXmlListModel::queryError(void *object, const QString &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlXmlListModel10queryErrorEPvRK7QString(
+    QQmlXmlListModel *self,
+    void *object,
+    const QString *error) {
+  self->queryError(object, *error);
+}
+
 //  void QQmlXmlListModel::notifyQueryStarted(bool remoteSource)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQmlXmlListModel18notifyQueryStartedEb(
     QQmlXmlListModel *self,
     bool remoteSource) {
   self->notifyQueryStarted(remoteSource);
+}
+
+//  void QQmlXmlListModel::appendRole(QQmlListProperty<QQmlXmlListModelRole>
+//      *a0, QQmlXmlListModelRole *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlXmlListModel10appendRoleEP16QQmlListPropertyI20QQmlXmlListModelRoleEPS1_(
+    QQmlListProperty<QQmlXmlListModelRole> *a0,
+    QQmlXmlListModelRole *a1) {
+  QQmlXmlListModel::appendRole(a0, a1);
+}
+
+//  void QQmlXmlListModel::clearRole(QQmlListProperty<QQmlXmlListModelRole>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlXmlListModel9clearRoleEP16QQmlListPropertyI20QQmlXmlListModelRoleE(
+    QQmlListProperty<QQmlXmlListModelRole> *a0) {
+  QQmlXmlListModel::clearRole(a0);
 }
 
 //  void QQmlXmlListModel::tryExecuteQuery(const QByteArray &data)
@@ -1248,4 +1337,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN16QQmlXmlListModel17componentCompleteEv(
     QQmlXmlListModel *self) {
   self->QQmlXmlListModel::componentComplete();
+}
+
+//  a QQmlListProperty<QQmlXmlListModelRole> a ritual of QQmlXmlListModel
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlXmlListModel__QQmlListProperty_QQmlXmlListModelRole(
+    QQmlListProperty<QQmlXmlListModelRole> *self) {
+  delete self;
 }

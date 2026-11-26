@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN14QSSGBindBufferC1ERK10QByteArray": ["address", "address"],
     "ritual_ZN14QSSGBindBufferC1ERKS_": ["address", "address"],
+    "ritual_ZNK14QSSGBindBuffer8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QSSGBindBufferD1Ev": ["nothing", "address"]
   }
 }

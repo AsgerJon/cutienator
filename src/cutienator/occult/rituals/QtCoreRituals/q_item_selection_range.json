@@ -12,6 +12,9 @@
     "ritual_ZN19QItemSelectionRangeC1ERK11QModelIndex": [
       "address", "address"
     ],
+    "ritual_ZN19QItemSelectionRange4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QItemSelectionRange3topEv": ["int", "address"],
     "ritual_ZNK19QItemSelectionRange4leftEv": ["int", "address"],
     "ritual_ZNK19QItemSelectionRange6bottomEv": ["int", "address"],

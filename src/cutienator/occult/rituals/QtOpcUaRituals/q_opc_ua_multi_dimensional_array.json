@@ -7,19 +7,49 @@
   "rows": {
     "ritual_ZN27QOpcUaMultiDimensionalArrayC1Ev": ["address"],
     "ritual_ZN27QOpcUaMultiDimensionalArrayC1ERKS_": ["address", "address"],
+    "ritual_ZN27QOpcUaMultiDimensionalArrayaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QOpcUaMultiDimensionalArrayC1ERK5QListI8QVariantERKS0_IjE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QOpcUaMultiDimensionalArrayC1ERK5QListIjE": [
+      "address", "address"
+    ],
     "ritual_ZN27QOpcUaMultiDimensionalArrayD1Ev": ["nothing", "address"],
     "ritual_ZNK27QOpcUaMultiDimensionalArray10valueArrayEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QOpcUaMultiDimensionalArray13valueArrayRefEv": [
       "address", "address"
     ],
     "ritual_ZN27QOpcUaMultiDimensionalArray13setValueArrayERK5QListI8QVariantE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK27QOpcUaMultiDimensionalArray10arrayIndexERK5QListIjE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK27QOpcUaMultiDimensionalArray5valueERK5QListIjE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QOpcUaMultiDimensionalArray8setValueERK5QListIjERK8QVariant": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK27QOpcUaMultiDimensionalArray7isValidEv": ["bool", "address"],
+    "ritual_ZNK27QOpcUaMultiDimensionalArray15arrayDimensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QOpcUaMultiDimensionalArray18setArrayDimensionsERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK27QOpcUaMultiDimensionalArrayeqERKS_": [
       "bool", "address", "address"
     ],
     "ritual_ZNK27QOpcUaMultiDimensionalArraycv8QVariantEv": [
       "address", "address"
+    ],
+    "ritual_drop_QOpcUaMultiDimensionalArray__QList_quint32": [
+      "nothing", "address"
     ]
   }
 }

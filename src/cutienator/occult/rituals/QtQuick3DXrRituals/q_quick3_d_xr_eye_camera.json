@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuick3DXrEyeCamera10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DXrEyeCamera11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuick3DXrEyeCamera2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -38,6 +44,24 @@
     ],
     "ritual_ZN19QQuick3DXrEyeCamera13setProjectionERK10QMatrix4x4": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera18leftTangentChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera19rightTangentChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera16upTangentChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera18downTangentChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera15clipNearChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera14clipFarChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN19QQuick3DXrEyeCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuick3DMorphTarget10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DMorphTarget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuick3DMorphTarget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuick3DMorphTarget2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,10 +27,17 @@
     "ritual_ZN19QQuick3DMorphTarget13setAttributesE6QFlagsINS_20MorphTargetAttributeEE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN19QQuick3DMorphTarget13weightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DMorphTarget17attributesChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QQuick3DMorphTarget17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
     ],
     "ritual_ZN19QQuick3DMorphTarget12markAllDirtyEv": ["nothing", "address"],
+    "ritual_ZN19QQuick3DMorphTarget10numAttribsEv": ["size_t", "address"],
     "ritual_ZN19QQuick3DMorphTarget9markDirtyENS_24QSSGMorphTargetDirtyTypeE": [
       "nothing", "address", "int"
     ],

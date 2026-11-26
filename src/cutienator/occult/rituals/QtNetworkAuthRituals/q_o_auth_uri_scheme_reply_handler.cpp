@@ -1,6 +1,14 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtNetworkAuth/qoauthurischemereplyhandler.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  Written by hand on 2026-11-25 from
+//  QtNetworkAuth/qoauthurischemereplyhandler.h,
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Qt builds the class only with its feature 'urischeme_replyhandler',
+//  as the CMakeLists.txt of its oauth directory says, so the whole file
+//  stands under it. The feature is private to the part, its line is in
+//  the private config header, which comes first.
+#include <QtNetworkAuth/qoauthglobal.h>
+#include <QtNetworkAuth/6.12.0/QtNetworkAuth/private/qtnetworkauth-config_p.h>
+#if QT_CONFIG(urischeme_replyhandler)
 #include <QtNetworkAuth/qoauthurischemereplyhandler.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
@@ -352,3 +360,5 @@ QString *ritual_own_ZNK27QOAuthUriSchemeReplyHandler8callbackEv(
     const QOAuthUriSchemeReplyHandler *self) {
   return new QString(self->QOAuthUriSchemeReplyHandler::callback());
 }
+
+#endif  // QT_CONFIG(urischeme_replyhandler)

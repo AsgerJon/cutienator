@@ -8,8 +8,20 @@
     "ritual_ZNK10Qt3DRender6Render22QRenderPluginFactoryIf10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIf11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIf11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIf2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIfC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIfD1Ev": [
+      "nothing", "address"
     ],
     "ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIf6createERK7QStringRK5QListIS2_E": [
       "address", "address", "text", "address"

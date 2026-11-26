@@ -8,8 +8,17 @@
     "ritual_ZNK38QWaylandTextInputManagerQuickExtension10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN38QWaylandTextInputManagerQuickExtension11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN38QWaylandTextInputManagerQuickExtension11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN38QWaylandTextInputManagerQuickExtension2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN38QWaylandTextInputManagerQuickExtension4dataEv": [
+      "address", "address"
     ],
     "ritual_ZN38QWaylandTextInputManagerQuickExtension10classBeginEv": [
       "nothing", "address"
@@ -24,6 +33,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN38QWaylandTextInputManagerQuickExtension17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QWaylandTextInputManagerQuickExtension__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN16QDomNamedNodeMapC1Ev": ["address"],
     "ritual_ZN16QDomNamedNodeMapC1ERKS_": ["address", "address"],
+    "ritual_ZN16QDomNamedNodeMapaSERKS_": ["address", "address", "address"],
     "ritual_ZNK16QDomNamedNodeMapeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK16QDomNamedNodeMapneERKS_": ["bool", "address", "address"],
     "ritual_ZN16QDomNamedNodeMapD1Ev": ["nothing", "address"],

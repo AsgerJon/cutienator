@@ -7,6 +7,14 @@
   "rows": {
     "ritual_ZN8Qt3DCore14QBufferPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore14QBufferPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore14QBufferPrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore14QBufferPrivate3getEPNS_7QBufferE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QBufferPrivate6updateEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore14QBufferPrivate7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_Qt3DCore_QBufferPrivate": [
       "bool", "address", "chars", "address"
     ],

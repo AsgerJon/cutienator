@@ -9,6 +9,18 @@
       "address", "address"
     ],
     "ritual_ZN6QQmlSA19PropertyPassBuilderD1Ev": ["nothing", "address"],
+    "ritual_ZN6QQmlSA19PropertyPassBuilder13withOnBindingEPFvPNS_12PropertyPassERKNS_7ElementERK7QStringRKNS_7BindingES5_S5_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA19PropertyPassBuilder10withOnReadEPFvPNS_12PropertyPassERKNS_7ElementERK7QStringS5_NS_14SourceLocationEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA19PropertyPassBuilder10withOnCallEPFvPNS_12PropertyPassERKNS_7ElementERK7QStringS5_NS_14SourceLocationEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA19PropertyPassBuilder11withOnWriteEPFvPNS_12PropertyPassERKNS_7ElementERK7QStringS5_S5_NS_14SourceLocationEE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN6QQmlSA19PropertyPassBuilder10registerOnE14QAnyStringViewS1_S1_": [
       "nothing", "address", "text", "text", "text"
     ],

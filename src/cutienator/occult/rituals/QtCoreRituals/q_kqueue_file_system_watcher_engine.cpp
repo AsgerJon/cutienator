@@ -12,6 +12,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <qplatformdefs.h>
@@ -56,64 +57,109 @@ inline QKqueueFileSystemWatcherEngine *QKqueueFileSystemWatcherEngine::create(QO
     return new QKqueueFileSystemWatcherEngine(kqfd, parent);
 }
 
-//  from src/corelib/io/qfilesystemwatcher_kqueue.cpp, line 162, as _ZN30QKqueueFileSystemWatcherEngine14readFromKqueueEv
-inline void QKqueueFileSystemWatcherEngine::readFromKqueue()
+//  from src/corelib/io/qfilesystemwatcher_kqueue.cpp, line 59, as _ZN30QKqueueFileSystemWatcherEngine8addPathsERK5QListI7QStringEPS2_S5_
+inline QStringList QKqueueFileSystemWatcherEngine::addPaths(const QStringList &paths,
+                                                     QStringList *files,
+                                                     QStringList *directories)
 {
-    forever {
-        DEBUG() << "QKqueueFileSystemWatcherEngine: polling for changes";
-        int r;
-        struct kevent kev;
-        struct timespec ts = { 0, 0 }; // 0 ts, because we want to poll
-        QT_EINTR_LOOP(r, kevent(kqfd, 0, 0, &kev, 1, &ts));
-        if (r < 0) {
-            perror("QKqueueFileSystemWatcherEngine: error during kevent wait");
-            return;
-        } else if (r == 0) {
-            // polling returned no events, so stop
-            break;
-        } else {
-            int fd = kev.ident;
-
-            DEBUG() << "QKqueueFileSystemWatcherEngine: processing kevent" << kev.ident << kev.filter;
-
-            int id = fd;
-            QString path = idToPath.value(id);
-            if (path.isEmpty()) {
-                // perhaps a directory?
-                id = -id;
-                path = idToPath.value(id);
-                if (path.isEmpty()) {
-                    DEBUG() << "QKqueueFileSystemWatcherEngine: received a kevent for a file we're not watching";
-                    continue;
-                }
-            }
-            if (kev.filter != EVFILT_VNODE) {
-                DEBUG() << "QKqueueFileSystemWatcherEngine: received a kevent with the wrong filter";
-                continue;
-            }
-
-            if ((kev.fflags & (NOTE_DELETE | NOTE_REVOKE | NOTE_RENAME)) != 0) {
-                DEBUG() << path << "removed, removing watch also";
-
-                pathToID.remove(path);
-                idToPath.remove(id);
+    QStringList unhandled;
+    for (const QString &path : paths) {
+        auto sg = qScopeGuard([&]{unhandled.push_back(path);});
+        int fd;
+#if defined(O_EVTONLY)
+        fd = qt_safe_open(QFile::encodeName(path), O_EVTONLY);
+#else
+        fd = qt_safe_open(QFile::encodeName(path), O_RDONLY);
+#endif
+        if (fd == -1) {
+            perror("QKqueueFileSystemWatcherEngine::addPaths: open");
+            continue;
+        }
+        if (fd >= (int)FD_SETSIZE / 2 && fd < (int)FD_SETSIZE) {
+            int fddup = qt_safe_dup(fd, FD_SETSIZE);
+            if (fddup != -1) {
                 ::close(fd);
-
-                if (id < 0)
-                    emit directoryChanged(path, true);
-                else
-                    emit fileChanged(path, true);
-            } else {
-                DEBUG() << path << "changed";
-
-                if (id < 0)
-                    emit directoryChanged(path, false);
-                else
-                    emit fileChanged(path, false);
+                fd = fddup;
             }
         }
 
+        QT_STATBUF st;
+        if (QT_FSTAT(fd, &st) == -1) {
+            perror("QKqueueFileSystemWatcherEngine::addPaths: fstat");
+            ::close(fd);
+            continue;
+        }
+        int id = (S_ISDIR(st.st_mode)) ? -fd : fd;
+        if (id < 0) {
+            if (directories->contains(path)) {
+                ::close(fd);
+                continue;
+            }
+        } else {
+            if (files->contains(path)) {
+                ::close(fd);
+                continue;
+            }
+        }
+
+        struct kevent kev;
+        EV_SET(&kev,
+               fd,
+               EVFILT_VNODE,
+               EV_ADD | EV_ENABLE | EV_CLEAR,
+               NOTE_DELETE | NOTE_WRITE | NOTE_EXTEND | NOTE_ATTRIB | NOTE_RENAME | NOTE_REVOKE,
+               0,
+               0);
+        if (kevent(kqfd, &kev, 1, 0, 0, 0) == -1) {
+            perror("QKqueueFileSystemWatcherEngine::addPaths: kevent");
+            ::close(fd);
+            continue;
+        }
+
+        sg.dismiss();
+
+        if (id < 0) {
+            DEBUG() << "QKqueueFileSystemWatcherEngine: added directory path" << path;
+            directories->append(path);
+        } else {
+            DEBUG() << "QKqueueFileSystemWatcherEngine: added file path" << path;
+            files->append(path);
+        }
+
+        pathToID.insert(path, id);
+        idToPath.insert(id, path);
     }
+
+    return unhandled;
+}
+
+//  from src/corelib/io/qfilesystemwatcher_kqueue.cpp, line 134, as _ZN30QKqueueFileSystemWatcherEngine11removePathsERK5QListI7QStringEPS2_S5_
+inline QStringList QKqueueFileSystemWatcherEngine::removePaths(const QStringList &paths,
+                                                        QStringList *files,
+                                                        QStringList *directories)
+{
+    if (pathToID.isEmpty())
+        return paths;
+
+    QStringList unhandled;
+    for (const QString &path : paths) {
+        auto sg = qScopeGuard([&]{unhandled.push_back(path);});
+        int id = pathToID.take(path);
+        QString x = idToPath.take(id);
+        if (x.isEmpty() || x != path)
+            continue;
+
+        ::close(id < 0 ? -id : id);
+
+        sg.dismiss();
+
+        if (id < 0)
+            directories->removeAll(path);
+        else
+            files->removeAll(path);
+    }
+
+    return unhandled;
 }
 
 //  from src/corelib/io/qfilesystemwatcher_kqueue.cpp, line 40, as _ZN30QKqueueFileSystemWatcherEngineC1EiP7QObject
@@ -302,6 +348,25 @@ const QMetaObject *ritual_ZNK30QKqueueFileSystemWatcherEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QKqueueFileSystemWatcherEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QKqueueFileSystemWatcherEngine11qt_metacastEPKc(
+    QKqueueFileSystemWatcherEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QKqueueFileSystemWatcherEngine::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QKqueueFileSystemWatcherEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QKqueueFileSystemWatcherEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QKqueueFileSystemWatcherEngine::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -327,11 +392,51 @@ QKqueueFileSystemWatcherEngine *ritual_ZN30QKqueueFileSystemWatcherEngine6create
   return QKqueueFileSystemWatcherEngine::create(parent);
 }
 
+//  QStringList QKqueueFileSystemWatcherEngine::addPaths(const QStringList
+//      &paths, QStringList *files, QStringList *directories)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN30QKqueueFileSystemWatcherEngine8addPathsERK5QListI7QStringEPS2_S5_(
+    QKqueueFileSystemWatcherEngine *self,
+    const QList<QString> *paths,
+    QStringList *files,
+    QStringList *directories) {
+  return new QList<QString>(self->addPaths(*paths, files, directories));
+}
+
+//  QStringList QKqueueFileSystemWatcherEngine::removePaths(const QStringList
+//      &paths, QStringList *files, QStringList *directories)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN30QKqueueFileSystemWatcherEngine11removePathsERK5QListI7QStringEPS2_S5_(
+    QKqueueFileSystemWatcherEngine *self,
+    const QList<QString> *paths,
+    QStringList *files,
+    QStringList *directories) {
+  return new QList<QString>(self->removePaths(*paths, files, directories));
+}
+
 //  void QKqueueFileSystemWatcherEngine::readFromKqueue()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QKqueueFileSystemWatcherEngine14readFromKqueueEv(
     QKqueueFileSystemWatcherEngine *self) {
-  self->readFromKqueue();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QKqueueFileSystemWatcherEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "readFromKqueue()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "readFromKqueue()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QKqueueFileSystemWatcherEngine::QKqueueFileSystemWatcherEngine(int kqfd,

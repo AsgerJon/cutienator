@@ -186,6 +186,27 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render22QRenderPluginFactoryIf10metaOb
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::QRenderPluginFactoryIf::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIf11qt_metacastEPKc(
+    Qt3DRender::Render::QRenderPluginFactoryIf *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      Qt3DRender::Render::QRenderPluginFactoryIf::qt_metacall(QMetaObject::
+//      Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIf11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::QRenderPluginFactoryIf *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::QRenderPluginFactoryIf::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -198,6 +219,21 @@ QString *ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIf2trEPKcS3_i(
           s,
           c,
           n));
+}
+
+//  Qt3DRender::Render::QRenderPluginFactoryIf::QRenderPluginFactoryIf(QObjec
+//      t *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::QRenderPluginFactoryIf *ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIfC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_QRenderPluginFactoryIf(parent);
+}
+
+//  Qt3DRender::Render::QRenderPluginFactoryIf::~QRenderPluginFactoryIf()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render22QRenderPluginFactoryIfD1Ev(
+    Qt3DRender::Render::QRenderPluginFactoryIf *self) {
+  delete self;
 }
 
 //  QRenderPlugin *Qt3DRender::Render::QRenderPluginFactoryIf::create(const

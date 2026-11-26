@@ -24,7 +24,7 @@ typedef bool (*CuteQResourceBuilderCall4)(const void *, const QVariant *, int *)
 class CuteQResourceBuilder : public QResourceBuilder {
 public:
   using QResourceBuilder::QResourceBuilder;
-  CuteQResourceBuilder(const QResourceBuilder &other) : QResourceBuilder(other) {}
+  CuteQResourceBuilder(const QResourceBuilder & other) : QResourceBuilder(other) {}
   void *taken[5] = {};
 
   bool take(const char *key, void *call) {

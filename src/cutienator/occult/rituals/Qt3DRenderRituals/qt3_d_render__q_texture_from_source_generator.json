@@ -5,17 +5,32 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender27QTextureFromSourceGeneratorclEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender27QTextureFromSourceGeneratoreqERKNS_17QTextureGeneratorE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender27QTextureFromSourceGenerator6statusEv": [
       "int", "address"
     ],
     "ritual_ZNK10Qt3DRender27QTextureFromSourceGenerator2idEv": [
       "long long", "address"
     ],
+    "ritual_ZNK10Qt3DRender27QTextureFromSourceGenerator3urlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender27QTextureFromSourceGenerator10isMirroredEv": [
+      "bool", "address"
+    ],
     "ritual_ZN10Qt3DRender27QTextureFromSourceGeneratorD1Ev": [
       "nothing", "address"
     ],
     "ritual_own_ZNK10Qt3DRender27QTextureFromSourceGenerator2idEv": [
       "long long", "address"
+    ],
+    "ritual_drop_Qt3DRender_QTextureFromSourceGenerator__Qt3DRender_QTextureDataPtr": [
+      "nothing", "address"
     ]
   }
 }

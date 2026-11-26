@@ -5,6 +5,11 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore16SyncTaskRunnableD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore16SyncTaskRunnable10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore16SyncTaskRunnable3runEv": ["nothing", "address"],
     "ritual_ZN8Qt3DCore16SyncTaskRunnable9setPoolerEPNS_13QThreadPoolerE": [
       "nothing", "address", "address"
     ],
@@ -20,6 +25,10 @@
     "ritual_take_Qt3DCore_SyncTaskRunnable": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZNK8Qt3DCore16SyncTaskRunnable10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN8Qt3DCore16SyncTaskRunnable3runEv": ["nothing", "address"],
     "ritual_own_ZN8Qt3DCore16SyncTaskRunnable9setPoolerEPNS_13QThreadPoolerE": [
       "nothing", "address", "address"
     ],

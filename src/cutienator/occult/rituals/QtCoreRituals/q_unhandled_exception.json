@@ -4,9 +4,26 @@
     "QtCore/qexception.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QUnhandledExceptionC1ENSt15__exception_ptr13exception_ptrE": [
+      "address", "address"
+    ],
     "ritual_ZN19QUnhandledExceptionD1Ev": ["nothing", "address"],
+    "ritual_ZN19QUnhandledExceptionC1EOS_": ["address", "address"],
     "ritual_ZN19QUnhandledExceptionC1ERKS_": ["address", "address"],
+    "ritual_ZN19QUnhandledException4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QUnhandledExceptionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QUnhandledExceptionaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QUnhandledException5raiseEv": ["nothing", "address"],
-    "ritual_ZNK19QUnhandledException5cloneEv": ["address", "address"]
+    "ritual_ZNK19QUnhandledException5cloneEv": ["address", "address"],
+    "ritual_ZNK19QUnhandledException9exceptionEv": ["address", "address"],
+    "ritual_drop_QUnhandledException__std_exception_ptr": [
+      "nothing", "address"
+    ]
   }
 }

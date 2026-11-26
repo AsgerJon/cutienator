@@ -13,6 +13,7 @@
     ],
     "ritual_ZN3QV46Symbol14virtualDestroyEPNS_4Heap4BaseE": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_ZNK3QV46Symbol17descriptiveStringEv": ["text", "address"]
   }
 }

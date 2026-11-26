@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/qsimpleresource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qbrush.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
@@ -651,12 +652,160 @@ public:
   }
 };
 
+//  qdesigner_internal::QSimpleResource::QSimpleResource(QDesignerFormEditorI
+//      nterface *core)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::QSimpleResource *ritual_ZN18qdesigner_internal15QSimpleResourceC1EP28QDesignerFormEditorInterface(
+    QDesignerFormEditorInterface *core) {
+  return new Cuteqdesigner_internal_QSimpleResource(core);
+}
+
+//  qdesigner_internal::QSimpleResource::~QSimpleResource()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15QSimpleResourceD1Ev(
+    qdesigner_internal::QSimpleResource *self) {
+  delete self;
+}
+
+//  QBrush qdesigner_internal::QSimpleResource::setupBrush(DomBrush *brush)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN18qdesigner_internal15QSimpleResource10setupBrushEP8DomBrush(
+    qdesigner_internal::QSimpleResource *self,
+    DomBrush *brush) {
+  return new QBrush(self->setupBrush(brush));
+}
+
+//  DomBrush *qdesigner_internal::QSimpleResource::saveBrush(const QBrush
+//      &brush)
+extern "C" Q_DECL_EXPORT
+DomBrush *ritual_ZN18qdesigner_internal15QSimpleResource9saveBrushERK6QBrush(
+    qdesigner_internal::QSimpleResource *self,
+    const QBrush *brush) {
+  return self->saveBrush(*brush);
+}
+
 //  QDesignerFormEditorInterface *qdesigner_internal::QSimpleResource::core()
 //      const
 extern "C" Q_DECL_EXPORT
 QDesignerFormEditorInterface *ritual_ZNK18qdesigner_internal15QSimpleResource4coreEv(
     const qdesigner_internal::QSimpleResource *self) {
   return self->core();
+}
+
+//  void qdesigner_internal::QSimpleResource::addExtensionDataToDOM(QAbstract
+//      FormBuilder *afb, QDesignerFormEditorInterface *core, DomWidget
+//      *ui_widget, QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15QSimpleResource21addExtensionDataToDOMEP20QAbstractFormBuilderP28QDesignerFormEditorInterfaceP9DomWidgetP7QWidget(
+    QAbstractFormBuilder *afb,
+    QDesignerFormEditorInterface *core,
+    DomWidget *ui_widget,
+    QWidget *widget) {
+  qdesigner_internal::QSimpleResource::addExtensionDataToDOM(
+      afb,
+      core,
+      ui_widget,
+      widget);
+}
+
+//  void qdesigner_internal::QSimpleResource::applyExtensionDataFromDOM(QAbst
+//      ractFormBuilder *afb, QDesignerFormEditorInterface *core, DomWidget
+//      *ui_widget, QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15QSimpleResource25applyExtensionDataFromDOMEP20QAbstractFormBuilderP28QDesignerFormEditorInterfaceP9DomWidgetP7QWidget(
+    QAbstractFormBuilder *afb,
+    QDesignerFormEditorInterface *core,
+    DomWidget *ui_widget,
+    QWidget *widget) {
+  qdesigner_internal::QSimpleResource::applyExtensionDataFromDOM(
+      afb,
+      core,
+      ui_widget,
+      widget);
+}
+
+//  QString qdesigner_internal::QSimpleResource::customWidgetScript(QDesigner
+//      FormEditorInterface *core, QObject *object)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal15QSimpleResource18customWidgetScriptEP28QDesignerFormEditorInterfaceP7QObject(
+    QDesignerFormEditorInterface *core,
+    QObject *object) {
+  return new QString(
+      qdesigner_internal::QSimpleResource::customWidgetScript(
+          core,
+          object));
+}
+
+//  QString qdesigner_internal::QSimpleResource::customWidgetScript(QDesigner
+//      FormEditorInterface *core, const QString &className)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal15QSimpleResource18customWidgetScriptEP28QDesignerFormEditorInterfaceRK7QString(
+    QDesignerFormEditorInterface *core,
+    const QString *className) {
+  return new QString(
+      qdesigner_internal::QSimpleResource::customWidgetScript(
+          core,
+          *className));
+}
+
+//  bool qdesigner_internal::QSimpleResource::hasCustomWidgetScript(QDesigner
+//      FormEditorInterface *core, QObject *object)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal15QSimpleResource21hasCustomWidgetScriptEP28QDesignerFormEditorInterfaceP7QObject(
+    QDesignerFormEditorInterface *core,
+    QObject *object) {
+  return qdesigner_internal::QSimpleResource::hasCustomWidgetScript(
+      core,
+      object);
+}
+
+//  void qdesigner_internal::QSimpleResource::handleDomCustomWidgets(const
+//      QDesignerFormEditorInterface *core, const DomCustomWidgets
+//      *dom_custom_widgets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15QSimpleResource22handleDomCustomWidgetsEPK28QDesignerFormEditorInterfacePK16DomCustomWidgets(
+    const QDesignerFormEditorInterface *core,
+    const DomCustomWidgets *dom_custom_widgets) {
+  qdesigner_internal::QSimpleResource::handleDomCustomWidgets(
+      core,
+      dom_custom_widgets);
+}
+
+//  bool qdesigner_internal::QSimpleResource::addFakeMethods(const DomSlots
+//      *domSlots, QStringList &fakeSlots, QStringList &fakeSignals)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal15QSimpleResource14addFakeMethodsEPK8DomSlotsR5QListI7QStringES7_(
+    const DomSlots *domSlots,
+    QStringList *fakeSlots,
+    QStringList *fakeSignals) {
+  return qdesigner_internal::QSimpleResource::addFakeMethods(
+      domSlots,
+      *fakeSlots,
+      *fakeSignals);
+}
+
+//  void qdesigner_internal::QSimpleResource::addCustomWidgetsToWidgetDatabas
+//      e(const QDesignerFormEditorInterface *core, QList<DomCustomWidget *>
+//      &custom_widget_list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15QSimpleResource32addCustomWidgetsToWidgetDatabaseEPK28QDesignerFormEditorInterfaceR5QListIP15DomCustomWidgetE(
+    const QDesignerFormEditorInterface *core,
+    QList<DomCustomWidget *> *custom_widget_list) {
+  qdesigner_internal::QSimpleResource::addCustomWidgetsToWidgetDatabase(
+      core,
+      *custom_widget_list);
+}
+
+//  void
+//      qdesigner_internal::QSimpleResource::addFakeMethodsToWidgetDataBase(c
+//      onst DomCustomWidget *domCustomWidget, WidgetDataBaseItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15QSimpleResource30addFakeMethodsToWidgetDataBaseEPK15DomCustomWidgetPNS_18WidgetDataBaseItemE(
+    const DomCustomWidget *domCustomWidget,
+    qdesigner_internal::WidgetDataBaseItem *item) {
+  qdesigner_internal::QSimpleResource::addFakeMethodsToWidgetDataBase(
+      domCustomWidget,
+      item);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_QSimpleResource, for

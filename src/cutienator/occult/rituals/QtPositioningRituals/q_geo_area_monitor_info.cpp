@@ -27,10 +27,43 @@ QGeoAreaMonitorInfo *ritual_ZN19QGeoAreaMonitorInfoC1ERKS_(
   return new QGeoAreaMonitorInfo(*other);
 }
 
+//  QGeoAreaMonitorInfo::QGeoAreaMonitorInfo(QGeoAreaMonitorInfo &&other)
+extern "C" Q_DECL_EXPORT
+QGeoAreaMonitorInfo *ritual_ZN19QGeoAreaMonitorInfoC1EOS_(
+    QGeoAreaMonitorInfo *other) {
+  return new QGeoAreaMonitorInfo(std::move(*other));
+}
+
 //  QGeoAreaMonitorInfo::~QGeoAreaMonitorInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGeoAreaMonitorInfoD1Ev(QGeoAreaMonitorInfo *self) {
   delete self;
+}
+
+//  QGeoAreaMonitorInfo &QGeoAreaMonitorInfo::operator=(const
+//      QGeoAreaMonitorInfo &other)
+extern "C" Q_DECL_EXPORT
+QGeoAreaMonitorInfo *ritual_ZN19QGeoAreaMonitorInfoaSERKS_(
+    QGeoAreaMonitorInfo *self,
+    const QGeoAreaMonitorInfo *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoAreaMonitorInfo &QGeoAreaMonitorInfo::operator=(QGeoAreaMonitorInfo
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QGeoAreaMonitorInfo *ritual_ZN19QGeoAreaMonitorInfoaSEOS_(
+    QGeoAreaMonitorInfo *self,
+    QGeoAreaMonitorInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoAreaMonitorInfo::swap(QGeoAreaMonitorInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGeoAreaMonitorInfo4swapERS_(
+    QGeoAreaMonitorInfo *self,
+    QGeoAreaMonitorInfo *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoAreaMonitorInfo &lhs, const QGeoAreaMonitorInfo
@@ -155,6 +188,49 @@ bool ritual_ZN19QGeoAreaMonitorInfo6equalsERKS_S1_(
     const QGeoAreaMonitorInfo *rhs) {
   return QGeoAreaMonitorInfo::equals(*lhs, *rhs);
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &ds, const QGeoAreaMonitorInfo
+//      &monitor)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK19QGeoAreaMonitorInfo(
+    QDataStream *ds,
+    const QGeoAreaMonitorInfo *monitor) {
+  return &(operator<<(*ds, *monitor));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &ds, QGeoAreaMonitorInfo &monitor)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR19QGeoAreaMonitorInfo(
+    QDataStream *ds,
+    QGeoAreaMonitorInfo *monitor) {
+  return &(operator>>(*ds, *monitor));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoAreaMonitorInfo::dataStreamOut(QDataStream &ds, const
+//      QGeoAreaMonitorInfo &monitor)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN19QGeoAreaMonitorInfo13dataStreamOutER11QDataStreamRKS_(
+    QDataStream *ds,
+    const QGeoAreaMonitorInfo *monitor) {
+  return &(QGeoAreaMonitorInfo::dataStreamOut(*ds, *monitor));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoAreaMonitorInfo::dataStreamIn(QDataStream &ds,
+//      QGeoAreaMonitorInfo &monitor)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN19QGeoAreaMonitorInfo12dataStreamInER11QDataStreamRS_(
+    QDataStream *ds,
+    QGeoAreaMonitorInfo *monitor) {
+  return &(QGeoAreaMonitorInfo::dataStreamIn(*ds, *monitor));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 #if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug dbg, const QGeoAreaMonitorInfo &monitor)

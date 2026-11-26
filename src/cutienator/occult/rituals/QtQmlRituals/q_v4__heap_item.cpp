@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4mmdefs_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qv4mmdefs_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 4. Kept
+//  as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -40,8 +41,47 @@ void ritual_ZN3QV48HeapItem17setAllocatedSlotsEm(
   self->setAllocatedSlots(nSlots);
 }
 
+//  size_t QV4::HeapItem::size() const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK3QV48HeapItem4sizeEv(const QV4::HeapItem *self) {
+  return self->size();
+}
+
 //  QV4::HeapItem::~HeapItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV48HeapItemD1Ev(QV4::HeapItem *self) {
   delete self;
+}
+
+#include <QtQml/6.12.0/QtQml/private/qv4object_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4string_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4functionobject_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4arrayobject_p.h>
+
+//  QV4::Heap::Object *QV4::HeapItem::as<QV4::Heap::Object>()
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Object *ritual_ZN3QV48HeapItem2asINS_4Heap6ObjectEEEPT_v(
+    QV4::HeapItem *self) {
+  return self->as<QV4::Heap::Object>();
+}
+
+//  QV4::Heap::String *QV4::HeapItem::as<QV4::Heap::String>()
+extern "C" Q_DECL_EXPORT
+QV4::Heap::String *ritual_ZN3QV48HeapItem2asINS_4Heap6StringEEEPT_v(
+    QV4::HeapItem *self) {
+  return self->as<QV4::Heap::String>();
+}
+
+//  QV4::Heap::FunctionObject *QV4::HeapItem::as<QV4::Heap::FunctionObject>()
+extern "C" Q_DECL_EXPORT
+QV4::Heap::FunctionObject *ritual_ZN3QV48HeapItem2asINS_4Heap14FunctionObjectEEEPT_v(
+    QV4::HeapItem *self) {
+  return self->as<QV4::Heap::FunctionObject>();
+}
+
+//  QV4::Heap::ArrayObject *QV4::HeapItem::as<QV4::Heap::ArrayObject>()
+extern "C" Q_DECL_EXPORT
+QV4::Heap::ArrayObject *ritual_ZN3QV48HeapItem2asINS_4Heap11ArrayObjectEEEPT_v(
+    QV4::HeapItem *self) {
+  return self->as<QV4::Heap::ArrayObject>();
 }

@@ -12,7 +12,17 @@
     "ritual_ZN29QOpcUaHistoryReadEventRequestC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequestC1EOS_": ["address", "address"],
+    "ritual_ZN29QOpcUaHistoryReadEventRequestaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequestaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN29QOpcUaHistoryReadEventRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN29QOpcUaHistoryReadEventRequest4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK29QOpcUaHistoryReadEventRequest14startTimestampEv": [
       "address", "address"
     ],

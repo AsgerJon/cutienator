@@ -7,10 +7,19 @@
   "rows": {
     "ritual_ZN6QQmlSA14BindingPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK6QQmlSA14BindingPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA14BindingPrivateC1EPNS_7BindingE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14BindingPrivateC1EPNS_7BindingERKS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN6QQmlSA14BindingPrivate3getEPNS_7BindingE": [
       "address", "address"
     ],
     "ritual_ZN6QQmlSA14BindingPrivate3getEPKNS_7BindingE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14BindingPrivate13createBindingERK25QQmlJSMetaPropertyBinding": [
       "address", "address"
     ],
     "ritual_ZN6QQmlSA14BindingPrivate15setPropertyNameE7QString": [

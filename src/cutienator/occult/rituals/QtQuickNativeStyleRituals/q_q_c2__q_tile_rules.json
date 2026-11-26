@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qqc2qdrawutil_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
+  ],
+  "rows": {
+    "ritual_ZN4QQC210QTileRulesC1EN2Qt8TileRuleES2_": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN4QQC210QTileRulesC1EN2Qt8TileRuleE": ["address", "int"],
+    "ritual_ZN4QQC210QTileRulesD1Ev": ["nothing", "address"]
+  }
+}

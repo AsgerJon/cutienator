@@ -1079,6 +1079,24 @@ const QMetaObject *ritual_ZNK11QScrollArea10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScrollArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QScrollArea11qt_metacastEPKc(
+    QScrollArea *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScrollArea::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QScrollArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScrollArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScrollArea::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QScrollArea2trEPKcS1_i(
@@ -1182,6 +1200,14 @@ void ritual_ZN11QScrollArea19ensureWidgetVisibleEP7QWidgetii(
     int xmargin,
     int ymargin) {
   self->ensureWidgetVisible(childWidget, xmargin, ymargin);
+}
+
+//  QScrollArea::QScrollArea(QScrollAreaPrivate &dd, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QScrollArea *ritual_ZN11QScrollAreaC1ER18QScrollAreaPrivateP7QWidget(
+    QScrollAreaPrivate *dd,
+    QWidget *parent) {
+  return new CuteQScrollArea(*dd, parent);
 }
 
 //  bool QScrollArea::event(QEvent *a0)

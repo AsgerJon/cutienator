@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQmlSettingsLabs10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlSettingsLabs11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQmlSettingsLabs11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQmlSettingsLabs2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,8 @@
     "ritual_ZN16QQmlSettingsLabs17componentCompleteEv": [
       "nothing", "address"
     ],
+    "ritual_ZN16QQmlSettingsLabs6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQmlSettingsLabs6d_funcEv": ["address", "address"],
     "ritual_cast_QQmlSettingsLabs_QQmlParserStatus": ["address", "address"],
     "ritual_take_QQmlSettingsLabs": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QQmlSettingsLabs10timerEventEP11QTimerEvent": [

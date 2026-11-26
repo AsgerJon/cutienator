@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK20QQuickItemGrabResult10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickItemGrabResult::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickItemGrabResult11qt_metacastEPKc(
+    QQuickItemGrabResult *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickItemGrabResult::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickItemGrabResult11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickItemGrabResult *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickItemGrabResult::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickItemGrabResult2trEPKcS1_i(
@@ -26,6 +45,20 @@ QString *ritual_ZN20QQuickItemGrabResult2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickItemGrabResult::tr(s, c, n));
+}
+
+//  QQuickItemGrabResultPrivate *QQuickItemGrabResult::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickItemGrabResultPrivate *ritual_ZN20QQuickItemGrabResult6d_funcEv(
+    QQuickItemGrabResult *self) {
+  return self->d_func();
+}
+
+//  const QQuickItemGrabResultPrivate *QQuickItemGrabResult::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickItemGrabResultPrivate *ritual_ZNK20QQuickItemGrabResult6d_funcEv(
+    const QQuickItemGrabResult *self) {
+  return self->d_func();
 }
 
 //  void QQuickItemGrabResult::qt_qmlMarker_anonymous()
@@ -71,6 +104,12 @@ bool ritual_ZN20QQuickItemGrabResult5eventEP6QEvent(
     QQuickItemGrabResult *self,
     QEvent *a0) {
   return self->event(a0);
+}
+
+//  void QQuickItemGrabResult::ready()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickItemGrabResult5readyEv(QQuickItemGrabResult *self) {
+  self->ready();
 }
 
 //  void QQuickItemGrabResult::setup()

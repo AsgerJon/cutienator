@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore17QAbstractSkeleton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QAbstractSkeleton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore17QAbstractSkeleton11qt_metacastEPKc(
+    Qt3DCore::QAbstractSkeleton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QAbstractSkeleton::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore17QAbstractSkeleton11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QAbstractSkeleton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QAbstractSkeleton::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,37 @@ QString *ritual_ZN8Qt3DCore17QAbstractSkeleton2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QAbstractSkeleton::tr(s, c, n));
+}
+
+//  Qt3DCore::QAbstractSkeleton::~QAbstractSkeleton()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QAbstractSkeletonD1Ev(
+    Qt3DCore::QAbstractSkeleton *self) {
+  delete self;
+}
+
+//  int Qt3DCore::QAbstractSkeleton::jointCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK8Qt3DCore17QAbstractSkeleton10jointCountEv(
+    const Qt3DCore::QAbstractSkeleton *self) {
+  return self->jointCount();
+}
+
+//  void Qt3DCore::QAbstractSkeleton::jointCountChanged(int jointCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QAbstractSkeleton17jointCountChangedEi(
+    Qt3DCore::QAbstractSkeleton *self,
+    int jointCount) {
+  self->jointCountChanged(jointCount);
+}
+
+//  Qt3DCore::QAbstractSkeleton::QAbstractSkeleton(QAbstractSkeletonPrivate
+//      &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractSkeleton *ritual_ZN8Qt3DCore17QAbstractSkeletonC1ERNS_24QAbstractSkeletonPrivateEPNS_5QNodeE(
+    Qt3DCore::QAbstractSkeletonPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QAbstractSkeleton(*dd, parent);
 }
 
 //  QAbstractSkeletonPrivate *Qt3DCore::QAbstractSkeleton::d_func()

@@ -8,6 +8,9 @@
     "ritual_ZN26QSSGDepthTextureAttachmentC1ERK10QByteArray": [
       "address", "address"
     ],
+    "ritual_ZNK26QSSGDepthTextureAttachment8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QSSGDepthTextureAttachmentD1Ev": ["nothing", "address"]
   }
 }

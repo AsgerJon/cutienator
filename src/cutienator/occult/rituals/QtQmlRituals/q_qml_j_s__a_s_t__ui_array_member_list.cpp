@@ -201,6 +201,32 @@ public:
   }
 };
 
+//  QQmlJS::AST::UiArrayMemberList::UiArrayMemberList(UiObjectMember *member)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiArrayMemberList *ritual_ZN6QQmlJS3AST17UiArrayMemberListC1EPNS0_14UiObjectMemberE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiObjectMember *member) {
+  return new (pool) CuteQQmlJS_AST_UiArrayMemberList(member);
+}
+
+//  QQmlJS::AST::UiArrayMemberList::UiArrayMemberList(UiArrayMemberList
+//      *previous, UiObjectMember *member)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiArrayMemberList *ritual_ZN6QQmlJS3AST17UiArrayMemberListC1EPS1_PNS0_14UiObjectMemberE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiArrayMemberList *previous,
+    QQmlJS::AST::UiObjectMember *member) {
+  return new (pool) CuteQQmlJS_AST_UiArrayMemberList(previous, member);
+}
+
+//  void QQmlJS::AST::UiArrayMemberList::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST17UiArrayMemberList7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiArrayMemberList *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::UiArrayMemberList::firstSourceLocation()
 //      const
 extern "C" Q_DECL_EXPORT

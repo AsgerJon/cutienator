@@ -50,6 +50,11 @@ inline QMqttConnection::~QMqttConnection()
     m_transport = nullptr;
 }
 
+//  from ../qtmqtt/src/mqtt/qmqttclient.cpp, line 1099, as _ZN18QMqttClientPrivateD1Ev
+inline QMqttClientPrivate::~QMqttClientPrivate()
+{
+}
+
 //  from ../qtmqtt/src/mqtt/qmqttconnection.cpp, line 716, as _ZN15QMqttConnection21sendControlDisconnectEv
 inline bool QMqttConnection::sendControlDisconnect()
 {
@@ -77,11 +82,6 @@ inline bool QMqttConnection::sendControlDisconnect()
         return true;
     }
     return false;
-}
-
-//  from ../qtmqtt/src/mqtt/qmqttclient.cpp, line 1099, as _ZN18QMqttClientPrivateD1Ev
-inline QMqttClientPrivate::~QMqttClientPrivate()
-{
 }
 
 //  from ../qtmqtt/src/mqtt/qmqttclient.cpp, line 1103, as _ZN18QMqttClientPrivate16setStateAndErrorEN11QMqttClient11ClientStateENS0_11ClientErrorE

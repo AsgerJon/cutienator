@@ -12,25 +12,6 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtBluetooth/private/qleadvertiser_bluezdbus_p.h>
-#include <QtCore/QtMinMax>
-#include <QtCore/QLoggingCategory>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-
-//  Qt's own code, from here to the line of dashes: taken from
-//  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it where Qt did not write it.
-
-//  from ../qtconnectivity/src/bluetooth/qleadvertiser_bluezdbus.cpp, line 73, as _ZN17QLeDBusAdvertiserD1Ev
-inline QLeDBusAdvertiser::~QLeDBusAdvertiser()
-{
-    stopAdvertising();
-}
-//  -----------------------------------------------------------------------
 
 //  A QLeDBusAdvertiser that Python can take functions over in. Every QLeDBusAdvertiser
 //  Python makes is one. Each function below asks the Python
@@ -206,10 +187,77 @@ const QMetaObject *ritual_ZNK17QLeDBusAdvertiser10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLeDBusAdvertiser::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QLeDBusAdvertiser11qt_metacastEPKc(
+    QLeDBusAdvertiser *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLeDBusAdvertiser::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QLeDBusAdvertiser11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLeDBusAdvertiser *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QLeDBusAdvertiser::~QLeDBusAdvertiser()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QLeDBusAdvertiserD1Ev(QLeDBusAdvertiser *self) {
   delete self;
+}
+
+//  void QLeDBusAdvertiser::Release()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QLeDBusAdvertiser7ReleaseEv(QLeDBusAdvertiser *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLeDBusAdvertiser")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "Release()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "Release()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QLeDBusAdvertiser::errorOccurred()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QLeDBusAdvertiser13errorOccurredEv(QLeDBusAdvertiser *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QLeDBusAdvertiser")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "errorOccurred()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "errorOccurred()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQLeDBusAdvertiser, for the function

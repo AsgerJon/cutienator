@@ -15,6 +15,9 @@
     "ritual_ZNK26QQuickSwipeDelegatePrivate14getPressedItemEP10QQuickItemP11QMouseEvent": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN26QQuickSwipeDelegatePrivate13resizeContentEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN26QQuickSwipeDelegatePrivate16resizeBackgroundEv": [
       "nothing", "address"
     ],

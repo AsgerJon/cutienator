@@ -249,6 +249,25 @@ const QMetaObject *ritual_ZNK25QRemoteObjectRegistryHost10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRemoteObjectRegistryHost::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QRemoteObjectRegistryHost11qt_metacastEPKc(
+    QRemoteObjectRegistryHost *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRemoteObjectRegistryHost::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QRemoteObjectRegistryHost11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRemoteObjectRegistryHost *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRemoteObjectRegistryHost::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -281,6 +300,15 @@ bool ritual_ZN25QRemoteObjectRegistryHost14setRegistryUrlERK4QUrl(
     QRemoteObjectRegistryHost *self,
     const QUrl *registryUrl) {
   return self->setRegistryUrl(*registryUrl);
+}
+
+//  QRemoteObjectRegistryHost::QRemoteObjectRegistryHost(QRemoteObjectRegistr
+//      yHostPrivate &a0, QObject *a1)
+extern "C" Q_DECL_EXPORT
+QRemoteObjectRegistryHost *ritual_ZN25QRemoteObjectRegistryHostC1ER32QRemoteObjectRegistryHostPrivateP7QObject(
+    QRemoteObjectRegistryHostPrivate *a0,
+    QObject *a1) {
+  return new CuteQRemoteObjectRegistryHost(*a0, a1);
 }
 
 //  QRemoteObjectRegistryHostPrivate *QRemoteObjectRegistryHost::d_func()

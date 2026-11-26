@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by hand on 2026-11-26 from",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qprintengine_mac_p.h,",
+    "Qt 6.12.0, from Qt's source: Objective-C++, built on Apple's",
+    "systems only. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN22QMacPrintEnginePrivateC1Ev": ["address"],
+    "ritual_ZN22QMacPrintEnginePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QMacPrintEnginePrivate10initializeEv": ["nothing", "address"],
+    "ritual_ZN22QMacPrintEnginePrivate14releaseSessionEv": ["nothing", "address"],
+    "ritual_ZN22QMacPrintEnginePrivate14newPage_helperEv": ["bool", "address"],
+    "ritual_ZN22QMacPrintEnginePrivate11setPageSizeERK9QPageSize": ["nothing", "address", "address"],
+    "ritual_ZNK22QMacPrintEnginePrivate25isPrintSessionInitializedEv": ["bool", "address"],
+    "ritual_ZNK22QMacPrintEnginePrivate6formatEv": ["address", "address"],
+    "ritual_ZNK22QMacPrintEnginePrivate7sessionEv": ["address", "address"],
+    "ritual_ZNK22QMacPrintEnginePrivate8settingsEv": ["address", "address"],
+    "ritual_ZN22QMacPrintEnginePrivate15aggregateEngineEv": ["address", "address"],
+    "ritual_ZN22QMacPrintEnginePrivate12nativeHandleEv": ["address", "address"]
+  }
+}

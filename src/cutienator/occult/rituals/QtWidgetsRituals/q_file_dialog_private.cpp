@@ -81,6 +81,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/dialogs/qfiledialog.cpp, line 624, as _ZN18QFileDialogPrivate17updateLookInLabelEv
 inline void QFileDialogPrivate::updateLookInLabel()
 {
@@ -818,6 +820,16 @@ bool ritual_ZN18QFileDialogPrivate19restoreFromSettingsEv(
 }
 #endif  // QT_CONFIG(settings)
 
+//  bool QFileDialogPrivate::restoreWidgetState(QStringList &history, int
+//      splitterPosition)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QFileDialogPrivate18restoreWidgetStateER5QListI7QStringEi(
+    QFileDialogPrivate *self,
+    QStringList *history,
+    int splitterPosition) {
+  return self->restoreWidgetState(*history, splitterPosition);
+}
+
 //  void QFileDialogPrivate::setLastVisitedDirectory(const QUrl &dir)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFileDialogPrivate23setLastVisitedDirectoryERK4QUrl(
@@ -866,6 +878,14 @@ void ritual_ZN18QFileDialogPrivate11pathChangedERK7QString(
     QFileDialogPrivate *self,
     const QString *a0) {
   self->pathChanged(*a0);
+}
+
+//  void QFileDialogPrivate::navigate(HistoryItem &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFileDialogPrivate8navigateERNS_11HistoryItemE(
+    QFileDialogPrivate *self,
+    QFileDialogPrivate::HistoryItem *a0) {
+  self->navigate(*a0);
 }
 
 //  void QFileDialogPrivate::navigateBackward()

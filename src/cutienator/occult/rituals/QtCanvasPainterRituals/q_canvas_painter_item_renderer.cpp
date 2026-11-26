@@ -262,11 +262,36 @@ void ritual_ZN26QCanvasPainterItemRenderer11synchronizeEP13QQuickRhiItem(
   self->synchronize(item);
 }
 
+//  void
+//      QCanvasPainterItemRenderer::beginCanvasPainting(QCanvasOffscreenCanva
+//      s &canvas)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QCanvasPainterItemRenderer19beginCanvasPaintingER22QCanvasOffscreenCanvas(
+    QCanvasPainterItemRenderer *self,
+    QCanvasOffscreenCanvas *canvas) {
+  self->beginCanvasPainting(*canvas);
+}
+
 //  void QCanvasPainterItemRenderer::endCanvasPainting()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QCanvasPainterItemRenderer17endCanvasPaintingEv(
     QCanvasPainterItemRenderer *self) {
   self->endCanvasPainting();
+}
+
+//  QCanvasPainterItemRendererPrivate *QCanvasPainterItemRenderer::d_func()
+extern "C" Q_DECL_EXPORT
+QCanvasPainterItemRendererPrivate *ritual_ZN26QCanvasPainterItemRenderer6d_funcEv(
+    QCanvasPainterItemRenderer *self) {
+  return self->d_func();
+}
+
+//  const QCanvasPainterItemRendererPrivate
+//      *QCanvasPainterItemRenderer::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCanvasPainterItemRendererPrivate *ritual_ZNK26QCanvasPainterItemRenderer6d_funcEv(
+    const QCanvasPainterItemRenderer *self) {
+  return self->d_func();
 }
 
 //  void QCanvasPainterItemRenderer::grabCanvasImpl(const

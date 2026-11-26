@@ -8,6 +8,12 @@
     "ritual_ZNK22QQmlWebChannelAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQmlWebChannelAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQmlWebChannelAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQmlWebChannelAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,6 +24,9 @@
     "ritual_ZN22QQmlWebChannelAttachedD1Ev": ["nothing", "address"],
     "ritual_ZNK22QQmlWebChannelAttached2idEv": ["text", "address"],
     "ritual_ZN22QQmlWebChannelAttached5setIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QQmlWebChannelAttached9idChangedERK7QString": [
       "nothing", "address", "text"
     ],
     "ritual_take_QQmlWebChannelAttached": [

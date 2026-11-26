@@ -33,10 +33,34 @@ QNetworkProxy *ritual_ZN13QNetworkProxyC1ERKS_(const QNetworkProxy *other) {
   return new QNetworkProxy(*other);
 }
 
+//  QNetworkProxy &QNetworkProxy::operator=(QNetworkProxy &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkProxy *ritual_ZN13QNetworkProxyaSEOS_(
+    QNetworkProxy *self,
+    QNetworkProxy *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QNetworkProxy &QNetworkProxy::operator=(const QNetworkProxy &other)
+extern "C" Q_DECL_EXPORT
+QNetworkProxy *ritual_ZN13QNetworkProxyaSERKS_(
+    QNetworkProxy *self,
+    const QNetworkProxy *other) {
+  return &(self->operator=(*other));
+}
+
 //  QNetworkProxy::~QNetworkProxy()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QNetworkProxyD1Ev(QNetworkProxy *self) {
   delete self;
+}
+
+//  void QNetworkProxy::swap(QNetworkProxy &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkProxy4swapERS_(
+    QNetworkProxy *self,
+    QNetworkProxy *other) {
+  self->swap(*other);
 }
 
 //  bool QNetworkProxy::operator==(const QNetworkProxy &other) const
@@ -177,6 +201,14 @@ void ritual_ZN13QNetworkProxy10setHeadersERK12QHttpHeaders(
     QNetworkProxy *self,
     const QHttpHeaders *newHeaders) {
   self->setHeaders(*newHeaders);
+}
+
+//  void QNetworkProxy::setHeaders(QHttpHeaders &&newHeaders)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkProxy10setHeadersEO12QHttpHeaders(
+    QNetworkProxy *self,
+    QHttpHeaders *newHeaders) {
+  self->setHeaders(std::move(*newHeaders));
 }
 
 //  QVariant QNetworkProxy::header(QNetworkRequest::KnownHeaders header)

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QDynamicRigidBody10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QDynamicRigidBody11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QDynamicRigidBody11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QDynamicRigidBody2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -62,10 +68,14 @@
     "ritual_ZN17QDynamicRigidBody5resetERK9QVector3DS2_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN17QDynamicRigidBody12commandQueueEv": ["address", "address"],
     "ritual_ZN17QDynamicRigidBody20updateDefaultDensityEf": [
       "nothing", "address", "float"
     ],
     "ritual_ZNK17QDynamicRigidBody8massModeEv": ["int", "address"],
+    "ritual_ZN17QDynamicRigidBody11setMassModeENS_8MassModeE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QDynamicRigidBody13inertiaTensorEv": ["address", "address"],
     "ritual_ZN17QDynamicRigidBody16setInertiaTensorERK9QVector3D": [
       "nothing", "address", "address"
@@ -82,6 +92,13 @@
     "ritual_ZN17QDynamicRigidBody23setCenterOfMassRotationERK11QQuaternion": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK17QDynamicRigidBody17readInertiaMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody16setInertiaMatrixERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDynamicRigidBody13inertiaMatrixEv": ["address", "address"],
     "ritual_ZN17QDynamicRigidBody20setKinematicPositionERK9QVector3D": [
       "nothing", "address", "address"
     ],
@@ -110,6 +127,57 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK17QDynamicRigidBody10isSleepingEv": ["bool", "address"],
+    "ritual_ZN17QDynamicRigidBody18createPhysXBackendEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody11massChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17QDynamicRigidBody14densityChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17QDynamicRigidBody18isKinematicChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QDynamicRigidBody21linearAxisLockChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody22angularAxisLockChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody21gravityEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody15massModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody20inertiaTensorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody27centerOfMassPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody27centerOfMassRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody20inertiaMatrixChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody24kinematicPositionChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody24kinematicRotationChangedERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody29kinematicEulerRotationChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody21kinematicPivotChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody17isSleepingChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_QDynamicRigidBody": ["bool", "address", "chars", "address"]
   }
 }

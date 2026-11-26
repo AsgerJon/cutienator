@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK29QWaylandQuickShellEventFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandQuickShellEventFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QWaylandQuickShellEventFilter11qt_metacastEPKc(
+    QWaylandQuickShellEventFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQuickShellEventFilter::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QWaylandQuickShellEventFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQuickShellEventFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandQuickShellEventFilter::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -32,6 +51,15 @@ QString *ritual_ZN29QWaylandQuickShellEventFilter2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandQuickShellEventFilter::tr(s, c, n));
+}
+
+//  void QWaylandQuickShellEventFilter::startFilter(QWaylandClient *client,
+//      CallbackFunction closePopupCallback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QWaylandQuickShellEventFilter11startFilterEP14QWaylandClientSt8functionIFvvEE(
+    QWaylandClient *client,
+    const QWaylandQuickShellEventFilter::CallbackFunction *closePopupCallback) {
+  QWaylandQuickShellEventFilter::startFilter(client, *closePopupCallback);
 }
 
 //  void QWaylandQuickShellEventFilter::cancelFilter()

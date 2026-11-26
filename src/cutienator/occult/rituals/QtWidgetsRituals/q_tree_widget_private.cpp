@@ -93,6 +93,16 @@
 #include <QtWidgets/private/qtreewidgetitemiterator_p.h>
 #include <QtCore/private/qduplicatetracker_p.h>
 #include <algorithm>
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -101,6 +111,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 3594, as _ZN24QAbstractItemViewPrivate11rowsRemovedERK11QModelIndexii
 inline void QAbstractItemViewPrivate::rowsRemoved(const QModelIndex &index, int start, int end)
@@ -569,6 +581,41 @@ inline QItemViewPaintPairs QAbstractItemViewPrivate::draggablePaintPairs(const Q
     rect.setLeft(clipped.left());
     rect.setRight(clipped.right());
     return ret;
+}
+
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1368, as _ZNK26QAbstractScrollAreaPrivate14contentsOffsetEv
+#if QT_CONFIG(scrollarea)
+inline QPoint QAbstractScrollAreaPrivate::contentsOffset() const
+{
+    Q_Q(const QAbstractScrollArea);
+    QPoint offset;
+    if (vbar->isVisible())
+        offset.setY(vbar->value());
+    if (hbar->isVisible()) {
+        if (q->isRightToLeft())
+            offset.setX(hbar->maximum() - hbar->value());
+        else
+            offset.setX(hbar->value());
+    }
+    return offset;
+}
+#endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
+inline QFramePrivate::QFramePrivate()
+    : frect(0, 0, 0, 0),
+      frameStyle(QFrame::NoFrame | QFrame::Plain),
+      lineWidth(1),
+      midLineWidth(0),
+      frameWidth(0),
+      leftFrameWidth(0), rightFrameWidth(0),
+      topFrameWidth(0), bottomFrameWidth(0)
+{
+}
+
+//  from src/widgets/widgets/qframe.cpp, line 30, as _ZN13QFramePrivateD2Ev
+inline QFramePrivate::~QFramePrivate()
+{
 }
 
 //  from src/widgets/itemviews/qtreewidget.cpp, line 2293, as _ZN18QTreeWidgetPrivate16clearConnectionsEv

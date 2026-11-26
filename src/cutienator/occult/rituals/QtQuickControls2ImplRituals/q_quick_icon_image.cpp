@@ -28,6 +28,24 @@ const QMetaObject *ritual_ZNK15QQuickIconImage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickIconImage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickIconImage11qt_metacastEPKc(
+    QQuickIconImage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickIconImage::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickIconImage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickIconImage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickIconImage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickIconImage2trEPKcS1_i(
@@ -86,6 +104,18 @@ void ritual_ZN15QQuickIconImage14snapPositionToE7QPointF(
     QQuickIconImage *self,
     const QPointF *pos) {
   self->snapPositionTo(*pos);
+}
+
+//  void QQuickIconImage::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickIconImage11nameChangedEv(QQuickIconImage *self) {
+  self->nameChanged();
+}
+
+//  void QQuickIconImage::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickIconImage12colorChangedEv(QQuickIconImage *self) {
+  self->colorChanged();
 }
 
 //  void QQuickIconImage::componentComplete()

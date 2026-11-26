@@ -89,6 +89,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qwidgettextcontrol.cpp, line 3457, as local:qwidgettextcontrol.cpp:supportedMimeTypes
+#if !defined(QT_NO_TEXTCONTROL)
+static constexpr auto supportedMimeTypes = qOffsetStringArray(
+    "text/plain",
+    "text/html"
+#if QT_CONFIG(textmarkdownwriter)
+    , "text/markdown"
+#endif
+#if QT_CONFIG(textodfwriter)
+    , "application/vnd.oasis.opendocument.text"
+#endif
+);
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
 //  from src/widgets/widgets/qwidgettextcontrol.cpp, line 3503, as _ZNK17QTextEditMimeData12retrieveDataERK7QString9QMetaType
 #if !defined(QT_NO_TEXTCONTROL)
 inline QVariant QTextEditMimeData::retrieveData(const QString &mimeType, QMetaType type) const
@@ -98,13 +114,52 @@ inline QVariant QTextEditMimeData::retrieveData(const QString &mimeType, QMetaTy
     return QMimeData::retrieveData(mimeType, type);
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from src/widgets/widgets/qwidgettextcontrol.cpp, line 3510, as _ZNK17QTextEditMimeData5setupEv
+#if !defined(QT_NO_TEXTCONTROL)
+inline void QTextEditMimeData::setup() const
+{
+    QTextEditMimeData *that = const_cast<QTextEditMimeData *>(this);
+#ifndef QT_NO_TEXTHTMLPARSER
+    that->setData("text/html"_L1, fragment.toHtml().toUtf8());
+#endif
+#if QT_CONFIG(textmarkdownwriter)
+    that->setData("text/markdown"_L1, fragment.toMarkdown().toUtf8());
+#endif
+#ifndef QT_NO_TEXTODFWRITER
+    {
+        QBuffer buffer;
+        QTextDocumentWriter writer(&buffer, "ODF");
+        writer.write(fragment);
+        buffer.close();
+        that->setData("application/vnd.oasis.opendocument.text"_L1, buffer.data());
+    }
+#endif
+    that->setText(fragment.toPlainText());
+    fragment = QTextDocumentFragment();
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
 //  -----------------------------------------------------------------------
+
+//  Only a class built on QTextEditMimeData may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQTextEditMimeData : QTextEditMimeData {
+  using QTextEditMimeData::retrieveData;
+};
 
 //  QStringList QTextEditMimeData::formats() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK17QTextEditMimeData7formatsEv(
     const QTextEditMimeData *self) {
   return new QList<QString>(self->formats());
+}
+
+//  bool QTextEditMimeData::hasFormat(const QString &format) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QTextEditMimeData9hasFormatERK7QString(
+    const QTextEditMimeData *self,
+    const QString *format) {
+  return self->hasFormat(*format);
 }
 
 //  QVariant QTextEditMimeData::retrieveData(const QString &mimeType,
@@ -116,6 +171,29 @@ QVariant *ritual_ZNK17QTextEditMimeData12retrieveDataERK7QString9QMetaType(
     const QMetaType *type) {
   return new QVariant(self->retrieveData(*mimeType, *type));
 }
+
+#if !defined(QT_NO_TEXTCONTROL)
+//  void QTextEditMimeData::setup() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QTextEditMimeData5setupEv(const QTextEditMimeData *self) {
+  self->setup();
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+#if !defined(QT_NO_TEXTCONTROL)
+//  QVariant QTextEditMimeData::retrieveData(const QString &mimeType,
+//      QMetaType type) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK17QTextEditMimeData12retrieveDataERK7QString9QMetaType(
+    const QTextEditMimeData *self,
+    const QString *mimeType,
+    const QMetaType *type) {
+  return new QVariant(
+      static_cast<const OwnQTextEditMimeData *>(self)->OwnQTextEditMimeData::retrieveData(
+          *mimeType,
+          *type));
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
 
 #endif  // QT_CONFIG(widgettextcontrol)
 #endif  // QT_CONFIG(widgettextcontrol)

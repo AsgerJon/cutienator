@@ -29,6 +29,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <functional>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/private/qquicktableview_p.h>
 #include <QtQuick/private/qquicktableview_p_p.h>
@@ -1008,6 +1009,37 @@ void ritual_ZN22QQuickTableViewPrivate12updatePolishEv(
   self->updatePolish();
 }
 
+//  void QQuickTableViewPrivate::fixup(AxisData &data, qreal minExtent, qreal
+//      maxExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTableViewPrivate5fixupERN22QQuickFlickablePrivate8AxisDataEdd(
+    QQuickTableViewPrivate *self,
+    QQuickFlickablePrivate::AxisData *data,
+    qreal minExtent,
+    qreal maxExtent) {
+  self->fixup(*data, minExtent, maxExtent);
+}
+
+//  std::vector<SectionData>
+//      &QQuickTableViewPrivate::visualIndicesForOrientation(Qt::Orientation
+//      orientation)
+extern "C" Q_DECL_EXPORT
+std::vector<QQuickTableViewPrivate::SectionData> *ritual_ZN22QQuickTableViewPrivate27visualIndicesForOrientationEN2Qt11OrientationE(
+    QQuickTableViewPrivate *self,
+    Qt::Orientation orientation) {
+  return &(self->visualIndicesForOrientation(orientation));
+}
+
+//  std::vector<SectionData>
+//      &QQuickTableViewPrivate::logicalIndicesForOrientation(Qt::Orientation
+//      orientation)
+extern "C" Q_DECL_EXPORT
+std::vector<QQuickTableViewPrivate::SectionData> *ritual_ZN22QQuickTableViewPrivate28logicalIndicesForOrientationEN2Qt11OrientationE(
+    QQuickTableViewPrivate *self,
+    Qt::Orientation orientation) {
+  return &(self->logicalIndicesForOrientation(orientation));
+}
+
 //  void QQuickTableViewPrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickTableViewPrivate4initEv(QQuickTableViewPrivate *self) {
@@ -1476,6 +1508,25 @@ FxTableItem *ritual_ZN22QQuickTableViewPrivate15loadFxTableItemERK6QPointN13QQml
   return self->loadFxTableItem(*cell, incubationMode);
 }
 
+//  void QQuickTableViewPrivate::releaseItem(FxTableItem *fxTableItem,
+//      QQmlTableInstanceModel::ReusableFlag reusableFlag)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTableViewPrivate11releaseItemEP11FxTableItemN17QQmlInstanceModel12ReusableFlagE(
+    QQuickTableViewPrivate *self,
+    FxTableItem *fxTableItem,
+    const QQmlTableInstanceModel::ReusableFlag *reusableFlag) {
+  self->releaseItem(fxTableItem, *reusableFlag);
+}
+
+//  void QQuickTableViewPrivate::releaseLoadedItems(QQmlTableInstanceModel::R
+//      eusableFlag reusableFlag)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTableViewPrivate18releaseLoadedItemsEN17QQmlInstanceModel12ReusableFlagE(
+    QQuickTableViewPrivate *self,
+    const QQmlTableInstanceModel::ReusableFlag *reusableFlag) {
+  self->releaseLoadedItems(*reusableFlag);
+}
+
 //  void QQuickTableViewPrivate::unloadItem(const QPoint &cell)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickTableViewPrivate10unloadItemERK6QPoint(
@@ -1537,6 +1588,16 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN22QQuickTableViewPrivate22moveToNextRebuildStateEv(
     QQuickTableViewPrivate *self) {
   return self->moveToNextRebuildState();
+}
+
+//  void QQuickTableViewPrivate::calculateTopLeft(QPoint &topLeft, QPointF
+//      &topLeftPos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTableViewPrivate16calculateTopLeftER6QPointR7QPointF(
+    QQuickTableViewPrivate *self,
+    QPoint *topLeft,
+    QPointF *topLeftPos) {
+  self->calculateTopLeft(*topLeft, *topLeftPos);
 }
 
 //  void QQuickTableViewPrivate::loadInitialTable()
@@ -1863,6 +1924,17 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickTableViewPrivate18modelResetCallbackEv(
     QQuickTableViewPrivate *self) {
   self->modelResetCallback();
+}
+
+//  void QQuickTableViewPrivate::dataChangedCallback(const QModelIndex
+//      &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTableViewPrivate19dataChangedCallbackERK11QModelIndexS2_RK5QListIiE(
+    QQuickTableViewPrivate *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->dataChangedCallback(*topLeft, *bottomRight, *roles);
 }
 
 //  void QQuickTableViewPrivate::positionViewAtRow(int row, Qt::Alignment
@@ -2215,6 +2287,15 @@ QSizeF *ritual_ZN22QQuickTableViewPrivate18scrollTowardsPointERK7QPointFRK6QSize
     const QPointF *pos,
     const QSizeF *step) {
   return new QSizeF(self->scrollTowardsPoint(*pos, *step));
+}
+
+//  void QQuickTableViewPrivate::setCallback(std::function<void
+//      (CallBackFlag)> func)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTableViewPrivate11setCallbackESt8functionIFvN16QQuickSelectable12CallBackFlagEEE(
+    QQuickTableViewPrivate *self,
+    const std::function<void (QQuickSelectable::CallBackFlag)> *func) {
+  self->setCallback(*func);
 }
 
 //  void QQuickTableViewPrivate::cancelSelectionTracking()

@@ -266,6 +266,24 @@ const QMetaObject *ritual_ZNK12QWaylandView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QWaylandView11qt_metacastEPKc(
+    QWaylandView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QWaylandView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QWaylandView2trEPKcS1_i(
@@ -411,6 +429,44 @@ void ritual_ZN12QWaylandView10setPrimaryEv(QWaylandView *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QWaylandView9isPrimaryEv(const QWaylandView *self) {
   return self->isPrimary();
+}
+
+//  struct wl_resource *QWaylandView::surfaceResource() const
+extern "C" Q_DECL_EXPORT
+struct wl_resource *ritual_ZNK12QWaylandView15surfaceResourceEv(
+    const QWaylandView *self) {
+  return self->surfaceResource();
+}
+
+//  void QWaylandView::surfaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandView14surfaceChangedEv(QWaylandView *self) {
+  self->surfaceChanged();
+}
+
+//  void QWaylandView::surfaceDestroyed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandView16surfaceDestroyedEv(QWaylandView *self) {
+  self->surfaceDestroyed();
+}
+
+//  void QWaylandView::outputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandView13outputChangedEv(QWaylandView *self) {
+  self->outputChanged();
+}
+
+//  void QWaylandView::bufferLockedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandView19bufferLockedChangedEv(QWaylandView *self) {
+  self->bufferLockedChanged();
+}
+
+//  void QWaylandView::allowDiscardFrontBufferChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandView30allowDiscardFrontBufferChangedEv(
+    QWaylandView *self) {
+  self->allowDiscardFrontBufferChanged();
 }
 
 //  a Python function taken by a CuteQWaylandView, for the function named by

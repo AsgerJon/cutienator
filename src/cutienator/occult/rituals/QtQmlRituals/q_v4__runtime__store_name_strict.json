@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV47Runtime15StoreNameStrict4callEPNS_15ExecutionEngineEiRKNS_5ValueE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN3QV47Runtime15StoreNameStrictD1Ev": ["nothing", "address"]
   }
 }

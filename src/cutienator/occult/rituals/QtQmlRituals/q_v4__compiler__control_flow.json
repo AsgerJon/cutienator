@@ -18,6 +18,9 @@
       "bool", "address"
     ],
     "ritual_ZNK3QV48Compiler11ControlFlow9loopLabelEv": ["text", "address"],
+    "ritual_ZNK3QV48Compiler11ControlFlow9generatorEv": [
+      "address", "address"
+    ],
     "ritual_take_QV4_Compiler_ControlFlow": [
       "bool", "address", "chars", "address"
     ],

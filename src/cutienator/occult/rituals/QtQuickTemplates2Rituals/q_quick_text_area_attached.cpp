@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK22QQuickTextAreaAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTextAreaAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickTextAreaAttached11qt_metacastEPKc(
+    QQuickTextAreaAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTextAreaAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickTextAreaAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTextAreaAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTextAreaAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickTextAreaAttached2trEPKcS1_i(
@@ -44,4 +63,26 @@ void ritual_ZN22QQuickTextAreaAttached12setFlickableEP14QQuickTextArea(
     QQuickTextAreaAttached *self,
     QQuickTextArea *control) {
   self->setFlickable(control);
+}
+
+//  void QQuickTextAreaAttached::flickableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickTextAreaAttached16flickableChangedEv(
+    QQuickTextAreaAttached *self) {
+  self->flickableChanged();
+}
+
+//  QQuickTextAreaAttachedPrivate *QQuickTextAreaAttached::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickTextAreaAttachedPrivate *ritual_ZN22QQuickTextAreaAttached6d_funcEv(
+    QQuickTextAreaAttached *self) {
+  return self->d_func();
+}
+
+//  const QQuickTextAreaAttachedPrivate *QQuickTextAreaAttached::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QQuickTextAreaAttachedPrivate *ritual_ZNK22QQuickTextAreaAttached6d_funcEv(
+    const QQuickTextAreaAttached *self) {
+  return self->d_func();
 }

@@ -17,6 +17,7 @@
     "ritual_ZN20QQuickGridLayoutItem18setCachedSizeHintsEP6QSizeF": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QQuickGridLayoutItem10invalidateEv": ["nothing", "address"],
     "ritual_ZNK20QQuickGridLayoutItem10sizePolicyEN2Qt11OrientationE": [
       "int", "address", "int"
     ],

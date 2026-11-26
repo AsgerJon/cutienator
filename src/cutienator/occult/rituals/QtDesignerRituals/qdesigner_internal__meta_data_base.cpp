@@ -7,7 +7,9 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/metadatabase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qobject.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A qdesigner_internal::MetaDataBase that Python can take functions over in. Every qdesigner_internal::MetaDataBase
@@ -269,6 +271,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal12MetaDataBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::MetaDataBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal12MetaDataBase11qt_metacastEPKc(
+    qdesigner_internal::MetaDataBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::MetaDataBase::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal12MetaDataBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::MetaDataBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::MetaDataBase::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -277,6 +298,30 @@ QString *ritual_ZN18qdesigner_internal12MetaDataBase2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::MetaDataBase::tr(s, c, n));
+}
+
+//  qdesigner_internal::MetaDataBase::MetaDataBase(QDesignerFormEditorInterfa
+//      ce *core, QObject *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::MetaDataBase *ritual_ZN18qdesigner_internal12MetaDataBaseC1EP28QDesignerFormEditorInterfaceP7QObject(
+    QDesignerFormEditorInterface *core,
+    QObject *parent) {
+  return new Cuteqdesigner_internal_MetaDataBase(core, parent);
+}
+
+//  qdesigner_internal::MetaDataBase::~MetaDataBase()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12MetaDataBaseD1Ev(
+    qdesigner_internal::MetaDataBase *self) {
+  delete self;
+}
+
+//  QDesignerFormEditorInterface *qdesigner_internal::MetaDataBase::core()
+//      const
+extern "C" Q_DECL_EXPORT
+QDesignerFormEditorInterface *ritual_ZNK18qdesigner_internal12MetaDataBase4coreEv(
+    const qdesigner_internal::MetaDataBase *self) {
+  return self->core();
 }
 
 //  QDesignerMetaDataBaseItemInterface
@@ -296,6 +341,37 @@ qdesigner_internal::MetaDataBaseItem *ritual_ZNK18qdesigner_internal12MetaDataBa
     const qdesigner_internal::MetaDataBase *self,
     QObject *object) {
   return self->metaDataBaseItem(object);
+}
+
+//  void qdesigner_internal::MetaDataBase::add(QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12MetaDataBase3addEP7QObject(
+    qdesigner_internal::MetaDataBase *self,
+    QObject *object) {
+  self->add(object);
+}
+
+//  void qdesigner_internal::MetaDataBase::remove(QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12MetaDataBase6removeEP7QObject(
+    qdesigner_internal::MetaDataBase *self,
+    QObject *object) {
+  self->remove(object);
+}
+
+//  QObjectList qdesigner_internal::MetaDataBase::objects() const
+extern "C" Q_DECL_EXPORT
+QList<QObject *> *ritual_ZNK18qdesigner_internal12MetaDataBase7objectsEv(
+    const qdesigner_internal::MetaDataBase *self) {
+  return new QList<QObject *>(self->objects());
+}
+
+//  void qdesigner_internal::MetaDataBase::slotDestroyed(QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12MetaDataBase13slotDestroyedEP7QObject(
+    qdesigner_internal::MetaDataBase *self,
+    QObject *object) {
+  self->slotDestroyed(object);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_MetaDataBase, for the

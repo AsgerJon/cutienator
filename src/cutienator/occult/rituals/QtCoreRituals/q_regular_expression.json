@@ -14,7 +14,15 @@
       "address", "text", "int"
     ],
     "ritual_ZN18QRegularExpressionC1ERKS_": ["address", "address"],
+    "ritual_ZN18QRegularExpressionC1EOS_": ["address", "address"],
     "ritual_ZN18QRegularExpressionD1Ev": ["nothing", "address"],
+    "ritual_ZN18QRegularExpressionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QRegularExpressionaSEOS_": ["address", "address", "address"],
+    "ritual_ZN18QRegularExpression4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QRegularExpression7patternEv": ["text", "address"],
     "ritual_ZN18QRegularExpression10setPatternERK7QString": [
       "nothing", "address", "text"
@@ -65,6 +73,9 @@
       "address", "text", "int", "int"
     ],
     "ritual_ZeqRK18QRegularExpressionS1_": ["bool", "address", "address"],
-    "ritual_ZneRK18QRegularExpressionS1_": ["bool", "address", "address"]
+    "ritual_ZneRK18QRegularExpressionS1_": ["bool", "address", "address"],
+    "ritual_ZN18QRegularExpressionC1ER25QRegularExpressionPrivate": [
+      "address", "address"
+    ]
   }
 }

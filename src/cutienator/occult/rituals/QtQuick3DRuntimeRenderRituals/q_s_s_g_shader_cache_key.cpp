@@ -22,6 +22,24 @@ QSSGShaderCacheKey *ritual_ZN18QSSGShaderCacheKeyC1ERKS_(
   return new QSSGShaderCacheKey(*other);
 }
 
+//  QSSGShaderCacheKey &QSSGShaderCacheKey::operator=(const
+//      QSSGShaderCacheKey &other)
+extern "C" Q_DECL_EXPORT
+QSSGShaderCacheKey *ritual_ZN18QSSGShaderCacheKeyaSERKS_(
+    QSSGShaderCacheKey *self,
+    const QSSGShaderCacheKey *other) {
+  return &(self->operator=(*other));
+}
+
+//  size_t QSSGShaderCacheKey::generateHashCode(const QByteArray &key,
+//      QSSGShaderFeatures features)
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN18QSSGShaderCacheKey16generateHashCodeERK10QByteArray18QSSGShaderFeatures(
+    const QByteArray *key,
+    const QSSGShaderFeatures *features) {
+  return QSSGShaderCacheKey::generateHashCode(*key, *features);
+}
+
 //  void QSSGShaderCacheKey::updateHashCode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QSSGShaderCacheKey14updateHashCodeEv(

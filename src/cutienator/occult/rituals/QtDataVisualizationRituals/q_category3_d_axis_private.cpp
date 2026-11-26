@@ -191,15 +191,6 @@ inline QAbstract3DAxisPrivate::QAbstract3DAxisPrivate(QAbstract3DAxis *q, QAbstr
 {
 }
 
-//  from ../qtdatavis3d/src/datavisualization/axis/qcategory3daxis.cpp, line 120, as _ZN22QCategory3DAxisPrivate13setDataLabelsERK5QListI7QStringE
-inline void QCategory3DAxisPrivate::setDataLabels(const QStringList &labels)
-{
-    if (!m_labelsExplicitlySet && m_labels != labels) {
-        m_labels = labels;
-        emit qptr()->labelsChanged();
-    }
-}
-
 //  from ../qtdatavis3d/src/datavisualization/axis/qcategory3daxis.cpp, line 128, as _ZN22QCategory3DAxisPrivate9allowZeroEv
 inline bool QCategory3DAxisPrivate::allowZero()
 {
@@ -216,6 +207,15 @@ inline bool QCategory3DAxisPrivate::allowNegatives()
 inline bool QCategory3DAxisPrivate::allowMinMaxSame()
 {
     return true;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qcategory3daxis.cpp, line 120, as _ZN22QCategory3DAxisPrivate13setDataLabelsERK5QListI7QStringE
+inline void QCategory3DAxisPrivate::setDataLabels(const QStringList &labels)
+{
+    if (!m_labelsExplicitlySet && m_labels != labels) {
+        m_labels = labels;
+        emit qptr()->labelsChanged();
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/axis/qcategory3daxis.cpp, line 143, as _ZN22QCategory3DAxisPrivate4qptrEv
@@ -518,6 +518,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QCategory3DAxisPrivate10metaObjectEv(
     const QCategory3DAxisPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QCategory3DAxisPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QCategory3DAxisPrivate11qt_metacastEPKc(
+    QCategory3DAxisPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCategory3DAxisPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QCategory3DAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCategory3DAxisPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QCategory3DAxisPrivate::~QCategory3DAxisPrivate()

@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender18QPickTriangleEvent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QPickTriangleEvent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender18QPickTriangleEvent11qt_metacastEPKc(
+    Qt3DRender::QPickTriangleEvent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QPickTriangleEvent::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender18QPickTriangleEvent11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QPickTriangleEvent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QPickTriangleEvent::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -254,6 +273,48 @@ Qt3DRender::QPickTriangleEvent *ritual_ZN10Qt3DRender18QPickTriangleEventC1ERK7Q
       buttons,
       modifiers,
       *uvw);
+}
+
+//  Qt3DRender::QPickTriangleEvent::~QPickTriangleEvent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QPickTriangleEventD1Ev(
+    Qt3DRender::QPickTriangleEvent *self) {
+  delete self;
+}
+
+//  uint Qt3DRender::QPickTriangleEvent::triangleIndex() const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK10Qt3DRender18QPickTriangleEvent13triangleIndexEv(
+    const Qt3DRender::QPickTriangleEvent *self) {
+  return self->triangleIndex();
+}
+
+//  uint Qt3DRender::QPickTriangleEvent::vertex1Index() const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK10Qt3DRender18QPickTriangleEvent12vertex1IndexEv(
+    const Qt3DRender::QPickTriangleEvent *self) {
+  return self->vertex1Index();
+}
+
+//  uint Qt3DRender::QPickTriangleEvent::vertex2Index() const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK10Qt3DRender18QPickTriangleEvent12vertex2IndexEv(
+    const Qt3DRender::QPickTriangleEvent *self) {
+  return self->vertex2Index();
+}
+
+//  uint Qt3DRender::QPickTriangleEvent::vertex3Index() const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK10Qt3DRender18QPickTriangleEvent12vertex3IndexEv(
+    const Qt3DRender::QPickTriangleEvent *self) {
+  return self->vertex3Index();
+}
+
+//  QVector3D Qt3DRender::QPickTriangleEvent::uvw() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK10Qt3DRender18QPickTriangleEvent3uvwEv(
+    const Qt3DRender::QPickTriangleEvent *self) {
+  return new QVector3D(self->uvw());
 }
 
 //  QPickTriangleEventPrivate *Qt3DRender::QPickTriangleEvent::d_func()

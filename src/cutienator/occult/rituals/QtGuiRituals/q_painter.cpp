@@ -133,6 +133,12 @@ void ritual_ZN8QPainter6setPenERK4QPen(QPainter *self, const QPen *pen) {
   self->setPen(*pen);
 }
 
+//  void QPainter::setPen(QPen &&pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter6setPenEO4QPen(QPainter *self, QPen *pen) {
+  self->setPen(std::move(*pen));
+}
+
 //  void QPainter::setPen(Qt::PenStyle style)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPainter6setPenEN2Qt8PenStyleE(
@@ -153,6 +159,12 @@ void ritual_ZN8QPainter8setBrushERK6QBrush(
     QPainter *self,
     const QBrush *brush) {
   self->setBrush(*brush);
+}
+
+//  void QPainter::setBrush(QBrush &&brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter8setBrushEO6QBrush(QPainter *self, QBrush *brush) {
+  self->setBrush(std::move(*brush));
 }
 
 //  void QPainter::setBrush(Qt::BrushStyle style)

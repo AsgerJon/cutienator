@@ -9,6 +9,11 @@
     "ritual_ZN13QDirEntryInfoC1EPK27QAbstractFileEngineIterator": [
       "address", "address"
     ],
+    "ritual_ZN13QDirEntryInfoC1EO16QFileSystemEntryO19QFileSystemMetaData": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QDirEntryInfoC1EO9QFileInfo": ["address", "address"],
+    "ritual_ZN13QDirEntryInfo8fileNameEv": ["text", "address"],
     "ritual_ZN13QDirEntryInfo8filePathEv": ["text", "address"],
     "ritual_ZN13QDirEntryInfoD1Ev": ["nothing", "address"]
   }

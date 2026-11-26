@@ -21,6 +21,24 @@ void ritual_ZN10DomIncludeD1Ev(DomInclude *self) {
   delete self;
 }
 
+//  void DomInclude::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10DomInclude4readER16QXmlStreamReader(
+    DomInclude *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomInclude::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10DomInclude5writeER16QXmlStreamWriterRK7QString(
+    const DomInclude *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  QString DomInclude::text() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK10DomInclude4textEv(const DomInclude *self) {

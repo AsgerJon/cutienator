@@ -20,6 +20,25 @@ const QMetaObject *ritual_ZNK24QQuickHeaderViewDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickHeaderViewDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickHeaderViewDelegate11qt_metacastEPKc(
+    QQuickHeaderViewDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickHeaderViewDelegate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickHeaderViewDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickHeaderViewDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickHeaderViewDelegate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuickHeaderViewDelegate2trEPKcS1_i(
@@ -72,6 +91,42 @@ void ritual_ZN24QQuickHeaderViewDelegate8setModelERK8QVariant(
     QQuickHeaderViewDelegate *self,
     const QVariant *model) {
   self->setModel(*model);
+}
+
+//  void QQuickHeaderViewDelegate::headerViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickHeaderViewDelegate17headerViewChangedEv(
+    QQuickHeaderViewDelegate *self) {
+  self->headerViewChanged();
+}
+
+//  void QQuickHeaderViewDelegate::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickHeaderViewDelegate12modelChangedEv(
+    QQuickHeaderViewDelegate *self) {
+  self->modelChanged();
+}
+
+//  void QQuickHeaderViewDelegate::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickHeaderViewDelegate18orientationChangedEv(
+    QQuickHeaderViewDelegate *self) {
+  self->orientationChanged();
+}
+
+//  QQuickHeaderViewDelegatePrivate *QQuickHeaderViewDelegate::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickHeaderViewDelegatePrivate *ritual_ZN24QQuickHeaderViewDelegate6d_funcEv(
+    QQuickHeaderViewDelegate *self) {
+  return self->d_func();
+}
+
+//  const QQuickHeaderViewDelegatePrivate *QQuickHeaderViewDelegate::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QQuickHeaderViewDelegatePrivate *ritual_ZNK24QQuickHeaderViewDelegate6d_funcEv(
+    const QQuickHeaderViewDelegate *self) {
+  return self->d_func();
 }
 
 #endif  // QT_CONFIG(quick_tableview)

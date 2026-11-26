@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal20SignalSlotDialogData5clearEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN18qdesigner_internal20SignalSlotDialogDataD1Ev": [
       "nothing", "address"
     ]

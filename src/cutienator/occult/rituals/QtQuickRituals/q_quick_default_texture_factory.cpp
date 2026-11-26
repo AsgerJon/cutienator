@@ -49,6 +49,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::Literals::StringLiterals;
+
 //  from ../qtdeclarative/src/quick/util/qquickpixmapcache.cpp, line 136, as _ZNK27QQuickDefaultTextureFactory13createTextureEP12QQuickWindow
 inline QSGTexture *QQuickDefaultTextureFactory::createTexture(QQuickWindow *window) const
 {
@@ -65,6 +67,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK27QQuickDefaultTextureFactory10metaObjectEv(
     const QQuickDefaultTextureFactory *self) {
   return self->metaObject();
+}
+
+//  void *QQuickDefaultTextureFactory::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuickDefaultTextureFactory11qt_metacastEPKc(
+    QQuickDefaultTextureFactory *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDefaultTextureFactory::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuickDefaultTextureFactory11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDefaultTextureFactory *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QSGTexture *QQuickDefaultTextureFactory::createTexture(QQuickWindow

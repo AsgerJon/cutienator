@@ -7,6 +7,9 @@
     "ritual_ZN18QMessageLogContextC1Ev": ["address"],
     "ritual_ZN18QMessageLogContextC1EPKciS1_S1_": [
       "address", "chars", "int", "chars", "chars"
+    ],
+    "ritual_ZN18QMessageLogContext15copyContextFromERKS_": [
+      "address", "address", "address"
     ]
   }
 }

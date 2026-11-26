@@ -8,8 +8,56 @@
     "ritual_ZNK10Qt3DExtras21QCylinderGeometryView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras21QCylinderGeometryView2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryViewC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryViewD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QCylinderGeometryView5ringsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QCylinderGeometryView6slicesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QCylinderGeometryView6radiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras21QCylinderGeometryView6lengthEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView8setRingsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView9setSlicesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView9setRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView9setLengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView13radiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView12ringsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView13slicesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras21QCylinderGeometryView13lengthChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_take_Qt3DExtras_QCylinderGeometryView": [
       "bool", "address", "chars", "address"

@@ -33,7 +33,7 @@ typedef void * (*CuteQLottieRootCall6)(const void *, const QString *, int *);
 class CuteQLottieRoot : public QLottieRoot {
 public:
   using QLottieRoot::QLottieRoot;
-  CuteQLottieRoot(const QLottieRoot &other) : QLottieRoot(other) {}
+  CuteQLottieRoot(const QLottieRoot & other) : QLottieRoot(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
@@ -229,6 +229,16 @@ extern "C" Q_DECL_EXPORT
 QMap<QString, QLottiePrecomposition *> *ritual_ZNK11QLottieRoot15precompositionsEv(
     const QLottieRoot *self) {
   return new QMap<QString, QLottiePrecomposition *>(self->precompositions());
+}
+
+//  bool QLottieRoot::resolvePrecompLayers(QLottieBase *element,
+//      QStack<QString> *visitedIds)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QLottieRoot20resolvePrecompLayersEP11QLottieBaseP6QStackI7QStringE(
+    QLottieRoot *self,
+    QLottieBase *element,
+    QStack<QString> *visitedIds) {
+  return self->resolvePrecompLayers(element, visitedIds);
 }
 
 //  a Python function taken by a CuteQLottieRoot, for the function named by

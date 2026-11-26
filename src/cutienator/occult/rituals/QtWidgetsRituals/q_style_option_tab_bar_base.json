@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN22QStyleOptionTabBarBaseC1Ev": ["address"],
     "ritual_ZN22QStyleOptionTabBarBaseC1ERKS_": ["address", "address"],
+    "ritual_ZN22QStyleOptionTabBarBaseaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QStyleOptionTabBarBaseC1Ei": ["address", "int"],
     "ritual_ZN22QStyleOptionTabBarBaseD1Ev": ["nothing", "address"]
   }

@@ -13,6 +13,24 @@ const QMetaObject *ritual_ZNK15QSessionManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSessionManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QSessionManager11qt_metacastEPKc(
+    QSessionManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSessionManager::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QSessionManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSessionManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSessionManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QSessionManager2trEPKcS1_i(
@@ -34,6 +52,16 @@ extern "C" Q_DECL_EXPORT
 const QSessionManagerPrivate *ritual_ZNK15QSessionManager6d_funcEv(
     const QSessionManager *self) {
   return self->d_func();
+}
+
+//  QSessionManager::QSessionManager(QGuiApplication *app, QString &id,
+//      QString &key)
+extern "C" Q_DECL_EXPORT
+QSessionManager *ritual_ZN15QSessionManagerC1EP15QGuiApplicationR7QStringS3_(
+    QGuiApplication *app,
+    QString *id,
+    QString *key) {
+  return new QSessionManager(app, *id, *key);
 }
 
 //  QSessionManager::~QSessionManager()

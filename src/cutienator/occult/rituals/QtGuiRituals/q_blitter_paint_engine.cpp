@@ -9,14 +9,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qpaintengine_blitter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qrect.h>
 #include <QtGui/qbrush.h>
+#include <QtCore/qrect.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qpixmap.h>
 #include <QtGui/qpainterpath.h>
 #include <QtGui/qimage.h>
 #include <QtGui/qpaintengine.h>
+#include <QtGui/qpen.h>
 #include <QtGui/qregion.h>
 #include <QtGui/qtransform.h>
 #include <QtCore/qsize.h>
@@ -112,31 +113,34 @@ typedef void (*CuteQBlitterPaintEngineCall27)(const void *, const QPoint *, int,
 #if !defined(QT_NO_BLITTABLE)
 typedef void (*CuteQBlitterPaintEngineCall28)(const void *, QStaticTextItem *, int *);
 #endif  // !defined(QT_NO_BLITTABLE)
-typedef void (*CuteQBlitterPaintEngineCall29)(const void *, int *);
-typedef void * (*CuteQBlitterPaintEngineCall30)(const void *, QPainterState *, int *);
-typedef void (*CuteQBlitterPaintEngineCall31)(const void *, const QLine *, int, int *);
-typedef void (*CuteQBlitterPaintEngineCall32)(const void *, const QLineF *, int, int *);
-typedef void (*CuteQBlitterPaintEngineCall33)(const void *, const QRect *, int, int *);
-typedef void (*CuteQBlitterPaintEngineCall34)(const void *, const QRegion *, int, int *);
-typedef const QPoint * (*CuteQBlitterPaintEngineCall35)(const void *, int *);
-typedef bool (*CuteQBlitterPaintEngineCall36)(const void *, QFontEngine *, const QTransform *, int *);
+#if !defined(QT_NO_BLITTABLE)
+typedef bool (*CuteQBlitterPaintEngineCall29)(const void *, int, const glyph_t *, const QFixedPoint *, QFontEngine *, int *);
+#endif  // !defined(QT_NO_BLITTABLE)
+typedef void (*CuteQBlitterPaintEngineCall30)(const void *, int *);
+typedef void * (*CuteQBlitterPaintEngineCall31)(const void *, QPainterState *, int *);
+typedef void (*CuteQBlitterPaintEngineCall32)(const void *, const QLine *, int, int *);
+typedef void (*CuteQBlitterPaintEngineCall33)(const void *, const QLineF *, int, int *);
+typedef void (*CuteQBlitterPaintEngineCall34)(const void *, const QRect *, int, int *);
+typedef void (*CuteQBlitterPaintEngineCall35)(const void *, const QRegion *, int, int *);
+typedef const QPoint * (*CuteQBlitterPaintEngineCall36)(const void *, int *);
 typedef bool (*CuteQBlitterPaintEngineCall37)(const void *, QFontEngine *, const QTransform *, int *);
-typedef void (*CuteQBlitterPaintEngineCall38)(const void *, const QPainterPath *, int, int *);
-typedef void (*CuteQBlitterPaintEngineCall39)(const void *, const QRectF *, qreal, qreal, int, int *);
-typedef void (*CuteQBlitterPaintEngineCall40)(const void *, const QRect *, int *);
-typedef void (*CuteQBlitterPaintEngineCall41)(const void *, const QPainterPath *, int *);
-typedef void (*CuteQBlitterPaintEngineCall42)(const void *, const QPainter::PixmapFragment *, int, const QPixmap *, int, int *);
-typedef void (*CuteQBlitterPaintEngineCall43)(const void *, const QPaintEngineState *, int *);
-typedef void (*CuteQBlitterPaintEngineCall44)(const void *, int *);
+typedef bool (*CuteQBlitterPaintEngineCall38)(const void *, QFontEngine *, const QTransform *, int *);
+typedef void (*CuteQBlitterPaintEngineCall39)(const void *, const QPainterPath *, int, int *);
+typedef void (*CuteQBlitterPaintEngineCall40)(const void *, const QRectF *, qreal, qreal, int, int *);
+typedef void (*CuteQBlitterPaintEngineCall41)(const void *, const QRect *, int *);
+typedef void (*CuteQBlitterPaintEngineCall42)(const void *, const QPainterPath *, int *);
+typedef void (*CuteQBlitterPaintEngineCall43)(const void *, const QPainter::PixmapFragment *, int, const QPixmap *, int, int *);
+typedef void (*CuteQBlitterPaintEngineCall44)(const void *, const QPaintEngineState *, int *);
 typedef void (*CuteQBlitterPaintEngineCall45)(const void *, int *);
 typedef void (*CuteQBlitterPaintEngineCall46)(const void *, int *);
-typedef uint (*CuteQBlitterPaintEngineCall47)(const void *, int *);
-typedef const QPixmap * (*CuteQBlitterPaintEngineCall48)(const void *, const QSize *, int *);
-typedef const QPixmap * (*CuteQBlitterPaintEngineCall49)(const void *, const QImage *, int, int *);
+typedef void (*CuteQBlitterPaintEngineCall47)(const void *, int *);
+typedef uint (*CuteQBlitterPaintEngineCall48)(const void *, int *);
+typedef const QPixmap * (*CuteQBlitterPaintEngineCall49)(const void *, const QSize *, int *);
+typedef const QPixmap * (*CuteQBlitterPaintEngineCall50)(const void *, const QImage *, int, int *);
 class CuteQBlitterPaintEngine : public QBlitterPaintEngine {
 public:
   using QBlitterPaintEngine::QBlitterPaintEngine;
-  void *taken[50] = {};
+  void *taken[51] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_BLITTABLE)
@@ -313,88 +317,94 @@ public:
       return true;
     }
 #endif  // !defined(QT_NO_BLITTABLE)
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx18brushOriginChangedEv")) {
+#if !defined(QT_NO_BLITTABLE)
+    if (!std::strcmp(key, "_ZN18QRasterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine")) {
       taken[29] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK14QPaintEngineEx11createStateEP13QPainterState")) {
+#endif  // !defined(QT_NO_BLITTABLE)
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx18brushOriginChangedEv")) {
       taken[30] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine9drawLinesEPK5QLinei")) {
+    if (!std::strcmp(key, "_ZNK14QPaintEngineEx11createStateEP13QPainterState")) {
       taken[31] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine9drawLinesEPK6QLineFi")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine9drawLinesEPK5QLinei")) {
       taken[32] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx4clipERK5QRectN2Qt13ClipOperationE")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine9drawLinesEPK6QLineFi")) {
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx4clipERK7QRegionN2Qt13ClipOperationE")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx4clipERK5QRectN2Qt13ClipOperationE")) {
       taken[34] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintEngine16coordinateOffsetEv")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx4clipERK7QRegionN2Qt13ClipOperationE")) {
       taken[35] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK14QPaintEngineEx36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform")) {
+    if (!std::strcmp(key, "_ZNK12QPaintEngine16coordinateOffsetEv")) {
       taken[36] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK14QPaintEngineEx22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform")) {
+    if (!std::strcmp(key, "_ZNK14QPaintEngineEx36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform")) {
       taken[37] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx4clipERK12QPainterPathN2Qt13ClipOperationE")) {
+    if (!std::strcmp(key, "_ZNK14QPaintEngineEx22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform")) {
       taken[38] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx15drawRoundedRectERK6QRectFddN2Qt8SizeModeE")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx4clipERK12QPainterPathN2Qt13ClipOperationE")) {
       taken[39] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine11drawEllipseERK5QRect")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx15drawRoundedRectERK6QRectFddN2Qt8SizeModeE")) {
       taken[40] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine8drawPathERK12QPainterPath")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine11drawEllipseERK5QRect")) {
       taken[41] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx19drawPixmapFragmentsEPKN8QPainter14PixmapFragmentEiRK7QPixmap6QFlagsINS0_18PixmapFragmentHintEE")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine8drawPathERK12QPainterPath")) {
       taken[42] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine11updateStateERK17QPaintEngineState")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx19drawPixmapFragmentsEPKN8QPainter14PixmapFragmentEiRK7QPixmap6QFlagsINS0_18PixmapFragmentHintEE")) {
       taken[43] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx4syncEv")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine11updateStateERK17QPaintEngineState")) {
       taken[44] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx19beginNativePaintingEv")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx4syncEv")) {
       taken[45] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx17endNativePaintingEv")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx19beginNativePaintingEv")) {
       taken[46] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK14QPaintEngineEx5flagsEv")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx17endNativePaintingEv")) {
       taken[47] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine12createPixmapE5QSize")) {
+    if (!std::strcmp(key, "_ZNK14QPaintEngineEx5flagsEv")) {
       taken[48] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine12createPixmapE5QSize")) {
       taken[49] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE")) {
+      taken[50] = call;
       return true;
     }
     return false;
@@ -812,11 +822,30 @@ public:
   }
 #endif  // !defined(QT_NO_BLITTABLE)
 
-  //  void QRasterPaintEngine::brushOriginChanged()
-  void brushOriginChanged() override {
+#if !defined(QT_NO_BLITTABLE)
+  //  bool QBlitterPaintEngine::drawCachedGlyphs(int numGlyphs, const
+  //      glyph_t *glyphs, const QFixedPoint *positions, QFontEngine
+  //      *fontEngine)
+  bool drawCachedGlyphs(
+      int numGlyphs,
+      const glyph_t *glyphs,
+      const QFixedPoint *positions,
+      QFontEngine *fontEngine) override {
     if (taken[29]) {
       int handled = 0;
       CuteQBlitterPaintEngineCall29 call = reinterpret_cast<CuteQBlitterPaintEngineCall29>(taken[29]);
+      bool given = call(this, numGlyphs, glyphs, positions, fontEngine, &handled);
+      if (handled) return given;
+    }
+    return QBlitterPaintEngine::drawCachedGlyphs(numGlyphs, glyphs, positions, fontEngine);
+  }
+#endif  // !defined(QT_NO_BLITTABLE)
+
+  //  void QRasterPaintEngine::brushOriginChanged()
+  void brushOriginChanged() override {
+    if (taken[30]) {
+      int handled = 0;
+      CuteQBlitterPaintEngineCall30 call = reinterpret_cast<CuteQBlitterPaintEngineCall30>(taken[30]);
       call(this, &handled);
       if (handled) return;
     }
@@ -826,9 +855,9 @@ public:
   //  QPainterState *QRasterPaintEngine::createState(QPainterState *orig)
   //      const
   QPainterState *createState(QPainterState *orig) const override {
-    if (taken[30]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall30 call = reinterpret_cast<CuteQBlitterPaintEngineCall30>(taken[30]);
+      CuteQBlitterPaintEngineCall31 call = reinterpret_cast<CuteQBlitterPaintEngineCall31>(taken[31]);
       void * given = call(this, orig, &handled);
       if (handled) return static_cast<QPainterState *>(given);
     }
@@ -837,17 +866,6 @@ public:
 
   //  void QRasterPaintEngine::drawLines(const QLine *line, int lineCount)
   void drawLines(const QLine *line, int lineCount) override {
-    if (taken[31]) {
-      int handled = 0;
-      CuteQBlitterPaintEngineCall31 call = reinterpret_cast<CuteQBlitterPaintEngineCall31>(taken[31]);
-      call(this, line, lineCount, &handled);
-      if (handled) return;
-    }
-    QRasterPaintEngine::drawLines(line, lineCount);
-  }
-
-  //  void QRasterPaintEngine::drawLines(const QLineF *line, int lineCount)
-  void drawLines(const QLineF *line, int lineCount) override {
     if (taken[32]) {
       int handled = 0;
       CuteQBlitterPaintEngineCall32 call = reinterpret_cast<CuteQBlitterPaintEngineCall32>(taken[32]);
@@ -857,12 +875,23 @@ public:
     QRasterPaintEngine::drawLines(line, lineCount);
   }
 
-  //  void QRasterPaintEngine::clip(const QRect &rect, Qt::ClipOperation
-  //      op)
-  void clip(const QRect &rect, Qt::ClipOperation op) override {
+  //  void QRasterPaintEngine::drawLines(const QLineF *line, int lineCount)
+  void drawLines(const QLineF *line, int lineCount) override {
     if (taken[33]) {
       int handled = 0;
       CuteQBlitterPaintEngineCall33 call = reinterpret_cast<CuteQBlitterPaintEngineCall33>(taken[33]);
+      call(this, line, lineCount, &handled);
+      if (handled) return;
+    }
+    QRasterPaintEngine::drawLines(line, lineCount);
+  }
+
+  //  void QRasterPaintEngine::clip(const QRect &rect, Qt::ClipOperation
+  //      op)
+  void clip(const QRect &rect, Qt::ClipOperation op) override {
+    if (taken[34]) {
+      int handled = 0;
+      CuteQBlitterPaintEngineCall34 call = reinterpret_cast<CuteQBlitterPaintEngineCall34>(taken[34]);
       call(this, &rect, static_cast<int>(op), &handled);
       if (handled) return;
     }
@@ -872,9 +901,9 @@ public:
   //  void QRasterPaintEngine::clip(const QRegion &region,
   //      Qt::ClipOperation op)
   void clip(const QRegion &region, Qt::ClipOperation op) override {
-    if (taken[34]) {
+    if (taken[35]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall34 call = reinterpret_cast<CuteQBlitterPaintEngineCall34>(taken[34]);
+      CuteQBlitterPaintEngineCall35 call = reinterpret_cast<CuteQBlitterPaintEngineCall35>(taken[35]);
       call(this, &region, static_cast<int>(op), &handled);
       if (handled) return;
     }
@@ -883,9 +912,9 @@ public:
 
   //  QPoint QRasterPaintEngine::coordinateOffset() const
   QPoint coordinateOffset() const override {
-    if (taken[35]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall35 call = reinterpret_cast<CuteQBlitterPaintEngineCall35>(taken[35]);
+      CuteQBlitterPaintEngineCall36 call = reinterpret_cast<CuteQBlitterPaintEngineCall36>(taken[36]);
       const QPoint * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -898,9 +927,9 @@ public:
   bool requiresPretransformedGlyphPositions(
       QFontEngine *fontEngine,
       const QTransform &m) const override {
-    if (taken[36]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall36 call = reinterpret_cast<CuteQBlitterPaintEngineCall36>(taken[36]);
+      CuteQBlitterPaintEngineCall37 call = reinterpret_cast<CuteQBlitterPaintEngineCall37>(taken[37]);
       bool given = call(this, fontEngine, &m, &handled);
       if (handled) return given;
     }
@@ -912,9 +941,9 @@ public:
   bool shouldDrawCachedGlyphs(
       QFontEngine *fontEngine,
       const QTransform &m) const override {
-    if (taken[37]) {
+    if (taken[38]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall37 call = reinterpret_cast<CuteQBlitterPaintEngineCall37>(taken[37]);
+      CuteQBlitterPaintEngineCall38 call = reinterpret_cast<CuteQBlitterPaintEngineCall38>(taken[38]);
       bool given = call(this, fontEngine, &m, &handled);
       if (handled) return given;
     }
@@ -924,9 +953,9 @@ public:
   //  void QPaintEngineEx::clip(const QPainterPath &path, Qt::ClipOperation
   //      op)
   void clip(const QPainterPath &path, Qt::ClipOperation op) override {
-    if (taken[38]) {
+    if (taken[39]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall38 call = reinterpret_cast<CuteQBlitterPaintEngineCall38>(taken[38]);
+      CuteQBlitterPaintEngineCall39 call = reinterpret_cast<CuteQBlitterPaintEngineCall39>(taken[39]);
       call(this, &path, static_cast<int>(op), &handled);
       if (handled) return;
     }
@@ -940,9 +969,9 @@ public:
       qreal xrad,
       qreal yrad,
       Qt::SizeMode mode) override {
-    if (taken[39]) {
+    if (taken[40]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall39 call = reinterpret_cast<CuteQBlitterPaintEngineCall39>(taken[39]);
+      CuteQBlitterPaintEngineCall40 call = reinterpret_cast<CuteQBlitterPaintEngineCall40>(taken[40]);
       call(this, &rect, xrad, yrad, static_cast<int>(mode), &handled);
       if (handled) return;
     }
@@ -951,9 +980,9 @@ public:
 
   //  void QPaintEngineEx::drawEllipse(const QRect &r)
   void drawEllipse(const QRect &r) override {
-    if (taken[40]) {
+    if (taken[41]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall40 call = reinterpret_cast<CuteQBlitterPaintEngineCall40>(taken[40]);
+      CuteQBlitterPaintEngineCall41 call = reinterpret_cast<CuteQBlitterPaintEngineCall41>(taken[41]);
       call(this, &r, &handled);
       if (handled) return;
     }
@@ -962,9 +991,9 @@ public:
 
   //  void QPaintEngineEx::drawPath(const QPainterPath &path)
   void drawPath(const QPainterPath &path) override {
-    if (taken[41]) {
+    if (taken[42]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall41 call = reinterpret_cast<CuteQBlitterPaintEngineCall41>(taken[41]);
+      CuteQBlitterPaintEngineCall42 call = reinterpret_cast<CuteQBlitterPaintEngineCall42>(taken[42]);
       call(this, &path, &handled);
       if (handled) return;
     }
@@ -979,9 +1008,9 @@ public:
       int fragmentCount,
       const QPixmap &pixmap,
       QFlags<QPainter::PixmapFragmentHint> hints) override {
-    if (taken[42]) {
+    if (taken[43]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall42 call = reinterpret_cast<CuteQBlitterPaintEngineCall42>(taken[42]);
+      CuteQBlitterPaintEngineCall43 call = reinterpret_cast<CuteQBlitterPaintEngineCall43>(taken[43]);
       call(this, fragments, fragmentCount, &pixmap, static_cast<int>(hints.toInt()), &handled);
       if (handled) return;
     }
@@ -990,9 +1019,9 @@ public:
 
   //  void QPaintEngineEx::updateState(const QPaintEngineState &state)
   void updateState(const QPaintEngineState &state) override {
-    if (taken[43]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall43 call = reinterpret_cast<CuteQBlitterPaintEngineCall43>(taken[43]);
+      CuteQBlitterPaintEngineCall44 call = reinterpret_cast<CuteQBlitterPaintEngineCall44>(taken[44]);
       call(this, &state, &handled);
       if (handled) return;
     }
@@ -1001,9 +1030,9 @@ public:
 
   //  void QPaintEngineEx::sync()
   void sync() override {
-    if (taken[44]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall44 call = reinterpret_cast<CuteQBlitterPaintEngineCall44>(taken[44]);
+      CuteQBlitterPaintEngineCall45 call = reinterpret_cast<CuteQBlitterPaintEngineCall45>(taken[45]);
       call(this, &handled);
       if (handled) return;
     }
@@ -1012,9 +1041,9 @@ public:
 
   //  void QPaintEngineEx::beginNativePainting()
   void beginNativePainting() override {
-    if (taken[45]) {
+    if (taken[46]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall45 call = reinterpret_cast<CuteQBlitterPaintEngineCall45>(taken[45]);
+      CuteQBlitterPaintEngineCall46 call = reinterpret_cast<CuteQBlitterPaintEngineCall46>(taken[46]);
       call(this, &handled);
       if (handled) return;
     }
@@ -1023,9 +1052,9 @@ public:
 
   //  void QPaintEngineEx::endNativePainting()
   void endNativePainting() override {
-    if (taken[46]) {
+    if (taken[47]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall46 call = reinterpret_cast<CuteQBlitterPaintEngineCall46>(taken[46]);
+      CuteQBlitterPaintEngineCall47 call = reinterpret_cast<CuteQBlitterPaintEngineCall47>(taken[47]);
       call(this, &handled);
       if (handled) return;
     }
@@ -1034,9 +1063,9 @@ public:
 
   //  uint QPaintEngineEx::flags() const
   uint flags() const override {
-    if (taken[47]) {
+    if (taken[48]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall47 call = reinterpret_cast<CuteQBlitterPaintEngineCall47>(taken[47]);
+      CuteQBlitterPaintEngineCall48 call = reinterpret_cast<CuteQBlitterPaintEngineCall48>(taken[48]);
       uint given = call(this, &handled);
       if (handled) return given;
     }
@@ -1045,9 +1074,9 @@ public:
 
   //  QPixmap QPaintEngine::createPixmap(QSize size)
   QPixmap createPixmap(QSize size) override {
-    if (taken[48]) {
+    if (taken[49]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall48 call = reinterpret_cast<CuteQBlitterPaintEngineCall48>(taken[48]);
+      CuteQBlitterPaintEngineCall49 call = reinterpret_cast<CuteQBlitterPaintEngineCall49>(taken[49]);
       const QPixmap * given = call(this, &size, &handled);
       if (handled && given) return *given;
     }
@@ -1059,15 +1088,29 @@ public:
   QPixmap createPixmapFromImage(
       QImage image,
       Qt::ImageConversionFlags flags) override {
-    if (taken[49]) {
+    if (taken[50]) {
       int handled = 0;
-      CuteQBlitterPaintEngineCall49 call = reinterpret_cast<CuteQBlitterPaintEngineCall49>(taken[49]);
+      CuteQBlitterPaintEngineCall50 call = reinterpret_cast<CuteQBlitterPaintEngineCall50>(taken[50]);
       const QPixmap * given = call(this, &image, static_cast<int>(flags.toInt()), &handled);
       if (handled && given) return *given;
     }
     return QPaintEngine::createPixmapFromImage(image, flags);
   }
 };
+
+//  QBlitterPaintEnginePrivate *QBlitterPaintEngine::d_func()
+extern "C" Q_DECL_EXPORT
+QBlitterPaintEnginePrivate *ritual_ZN19QBlitterPaintEngine6d_funcEv(
+    QBlitterPaintEngine *self) {
+  return self->d_func();
+}
+
+//  const QBlitterPaintEnginePrivate *QBlitterPaintEngine::d_func() const
+extern "C" Q_DECL_EXPORT
+const QBlitterPaintEnginePrivate *ritual_ZNK19QBlitterPaintEngine6d_funcEv(
+    const QBlitterPaintEngine *self) {
+  return self->d_func();
+}
 
 //  QBlitterPaintEngine::QBlitterPaintEngine(QBlittablePlatformPixmap *p)
 extern "C" Q_DECL_EXPORT
@@ -1095,6 +1138,16 @@ bool ritual_ZN19QBlitterPaintEngine5beginEP12QPaintDevice(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN19QBlitterPaintEngine3endEv(QBlitterPaintEngine *self) {
   return self->end();
+}
+
+//  void QBlitterPaintEngine::fill(const QVectorPath &path, const QBrush
+//      &brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBlitterPaintEngine4fillERK11QVectorPathRK6QBrush(
+    QBlitterPaintEngine *self,
+    const QVectorPath *path,
+    const QBrush *brush) {
+  self->fill(*path, *brush);
 }
 
 //  void QBlitterPaintEngine::fillRect(const QRectF &rect, const QBrush
@@ -1329,12 +1382,34 @@ void ritual_ZN19QBlitterPaintEngine10drawPointsEPK6QPointi(
   self->drawPoints(points, pointCount);
 }
 
+//  void QBlitterPaintEngine::stroke(const QVectorPath &path, const QPen
+//      &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBlitterPaintEngine6strokeERK11QVectorPathRK4QPen(
+    QBlitterPaintEngine *self,
+    const QVectorPath *path,
+    const QPen *pen) {
+  self->stroke(*path, *pen);
+}
+
 //  void QBlitterPaintEngine::drawStaticTextItem(QStaticTextItem *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QBlitterPaintEngine18drawStaticTextItemEP15QStaticTextItem(
     QBlitterPaintEngine *self,
     QStaticTextItem *a0) {
   self->drawStaticTextItem(a0);
+}
+
+//  bool QBlitterPaintEngine::drawCachedGlyphs(int numGlyphs, const glyph_t
+//      *glyphs, const QFixedPoint *positions, QFontEngine *fontEngine)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QBlitterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine(
+    QBlitterPaintEngine *self,
+    int numGlyphs,
+    const glyph_t *glyphs,
+    const QFixedPoint *positions,
+    QFontEngine *fontEngine) {
+  return self->drawCachedGlyphs(numGlyphs, glyphs, positions, fontEngine);
 }
 
 //  a Python function taken by a CuteQBlitterPaintEngine, for the function
@@ -1606,6 +1681,22 @@ void ritual_own_ZN19QBlitterPaintEngine18drawStaticTextItemEP15QStaticTextItem(
     QBlitterPaintEngine *self,
     QStaticTextItem *a0) {
   self->QBlitterPaintEngine::drawStaticTextItem(a0);
+}
+
+//  bool QBlitterPaintEngine::drawCachedGlyphs(int numGlyphs, const glyph_t
+//      *glyphs, const QFixedPoint *positions, QFontEngine *fontEngine)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN19QBlitterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine(
+    QBlitterPaintEngine *self,
+    int numGlyphs,
+    const glyph_t *glyphs,
+    const QFixedPoint *positions,
+    QFontEngine *fontEngine) {
+  return self->QBlitterPaintEngine::drawCachedGlyphs(
+      numGlyphs,
+      glyphs,
+      positions,
+      fontEngine);
 }
 
 #endif  // !defined(QT_NO_BLITTABLE)

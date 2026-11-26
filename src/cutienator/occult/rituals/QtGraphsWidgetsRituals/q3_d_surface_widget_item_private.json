@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtGraph",
+    "sWidgets/6.12.0/QtGraphsWidgets/private/q3dsurfacewidgetitem_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphsWidgets", "QtGraphs", "QtQuickWidgets", "QtCore", "QtGui",
+    "QtQuick", "QtQml", "QtWidgets", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN27Q3DSurfaceWidgetItemPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27Q3DSurfaceWidgetItemPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27Q3DSurfaceWidgetItemPrivateC1Ev": ["address"]
+  }
+}

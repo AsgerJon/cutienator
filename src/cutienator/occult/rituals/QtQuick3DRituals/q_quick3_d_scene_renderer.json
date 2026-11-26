@@ -5,7 +5,13 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QQuick3DSceneRendererC1ERKSt10shared_ptrI26QSSGRenderContextInterfaceE": [
+      "address", "address"
+    ],
     "ritual_ZN21QQuick3DSceneRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuick3DSceneRenderer14getTonemapModeERK24QQuick3DSceneEnvironment": [
+      "unsigned char", "address"
+    ],
     "ritual_ZN21QQuick3DSceneRenderer10beginFrameEv": ["nothing", "address"],
     "ritual_ZN21QQuick3DSceneRenderer8endFrameEv": ["nothing", "address"],
     "ritual_ZN21QQuick3DSceneRenderer10rhiPrepareERK5QRectd": [
@@ -21,6 +27,27 @@
     "ritual_ZN21QQuick3DSceneRenderer22releaseCachedResourcesEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QQuick3DSceneRenderer21getRayFromViewportPosERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer8syncPickERK13QSSGRenderRay": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer11syncPickOneERK13QSSGRenderRayP14QSSGRenderNode": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer14syncPickSubsetERK13QSSGRenderRay15QVarLengthArrayIP14QSSGRenderNodeLx256EE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer11syncPickAllERK13QSSGRenderRay": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer20syncPickClosestPointERK9QVector3DfP14QSSGRenderNode": [
+      "address", "address", "address", "float", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer17syncPickInFrustumERK11QSSGFrustum": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QQuick3DSceneRenderer23setGlobalPickingEnabledEb": [
       "nothing", "address", "bool"
     ],
@@ -30,11 +57,29 @@
     "ritual_ZN21QQuick3DSceneRenderer30releaseAaDependentRhiResourcesEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QQuick3DSceneRenderer15updateLayerNodeER15QSSGRenderLayerRK16QQuick3DViewportRK5QListIP21QSSGRenderGraphObjectE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN21QQuick3DSceneRenderer14addNodeToLayerEP14QSSGRenderNode": [
       "nothing", "address", "address"
     ],
     "ritual_ZN21QQuick3DSceneRenderer19removeNodeFromLayerEP14QSSGRenderNode": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer24maybeSetupLightmapBakingEP16QQuick3DViewport": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_QQuick3DSceneRenderer__std_optional_QSSGRenderRay": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DSceneRenderer__QQuick3DSceneRenderer_PickResultList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DSceneRenderer__std_optional_QSSGRenderPickResult": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DSceneRenderer__QList_const_QSSGRenderNode": [
+      "nothing", "address"
     ]
   }
 }

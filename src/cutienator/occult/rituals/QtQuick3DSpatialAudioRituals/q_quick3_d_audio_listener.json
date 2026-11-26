@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuick3DAudioListener10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuick3DAudioListener11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuick3DAudioListener11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuick3DAudioListenerD1Ev": ["nothing", "address"],
     "ritual_ZN21QQuick3DAudioListener8listenerEv": ["address", "address"],
     "ritual_ZN21QQuick3DAudioListener17updateSpatialNodeEP21QSSGRenderGraphObject": [

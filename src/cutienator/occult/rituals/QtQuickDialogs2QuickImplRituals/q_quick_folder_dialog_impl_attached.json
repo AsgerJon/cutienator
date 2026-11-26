@@ -8,6 +8,12 @@
     "ritual_ZNK30QQuickFolderDialogImplAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QQuickFolderDialogImplAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QQuickFolderDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QQuickFolderDialogImplAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,6 +31,12 @@
     ],
     "ritual_ZN30QQuickFolderDialogImplAttached16setBreadcrumbBarEP25QQuickFolderBreadcrumbBar": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickFolderDialogImplAttached27folderDialogListViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickFolderDialogImplAttached20breadcrumbBarChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN30QQuickFolderDialogImplAttached6d_funcEv": [
       "address", "address"

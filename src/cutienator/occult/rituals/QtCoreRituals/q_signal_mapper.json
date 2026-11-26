@@ -5,7 +5,15 @@
   ],
   "rows": {
     "ritual_ZNK13QSignalMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QSignalMapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QSignalMapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QSignalMapper2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QSignalMapper6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QSignalMapper6d_funcEv": ["address", "address"],
     "ritual_ZN13QSignalMapperC1EP7QObject": ["address", "address"],
     "ritual_ZN13QSignalMapperD1Ev": ["nothing", "address"],
     "ritual_ZN13QSignalMapper10setMappingEP7QObjecti": [
@@ -26,6 +34,13 @@
     ],
     "ritual_ZNK13QSignalMapper7mappingEP7QObject": [
       "address", "address", "address"
+    ],
+    "ritual_ZN13QSignalMapper9mappedIntEi": ["nothing", "address", "int"],
+    "ritual_ZN13QSignalMapper12mappedStringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QSignalMapper12mappedObjectEP7QObject": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN13QSignalMapper3mapEv": ["nothing", "address"],
     "ritual_ZN13QSignalMapper3mapEP7QObject": [

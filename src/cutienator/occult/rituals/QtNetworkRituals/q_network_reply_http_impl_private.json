@@ -1,0 +1,104 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN28QNetworkReplyHttpImplPrivate7convertEN15QNetworkRequest8PriorityE": [
+      "int", "int"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate21_q_bufferOutgoingDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate29_q_bufferOutgoingDataFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate30_q_cacheSaveDeviceAboutToCloseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate11_q_finishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate8finishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate5errorEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate8_q_errorEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate18_q_metaDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate21maybeDropUploadDeviceERK15QNetworkRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate22createUploadByteDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate11createCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate17completeCacheSaveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate17setCachingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QNetworkReplyHttpImplPrivate16isCachingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QNetworkReplyHttpImplPrivate16isCachingAllowedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate15setResumeOffsetEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate15invalidateCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate20getRedirectOperationEN21QNetworkAccessManager9OperationEi": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate21createRedirectRequestERK15QNetworkRequestRK4QUrli": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK28QNetworkReplyHttpImplPrivate22isHttpRedirectResponseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate13replyFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate9httpErrorEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate14replyEncryptedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate14replySslErrorsERK5QListI9QSslErrorEPbPS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate28replySslConfigurationChangedERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate43replyPreSharedKeyAuthenticationRequiredSlotEP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate19resetUploadDataSlotEPb": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate18sentUploadDataSlotExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN28QNetworkReplyHttpImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QNetworkReplyHttpImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QNetworkReplyHttpImplPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qcustom3dlabel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qcustom3dlabel.h>
 #include <QtCore/qstring.h>
@@ -186,6 +186,24 @@ const QMetaObject *ritual_ZNK14QCustom3DLabel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCustom3DLabel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QCustom3DLabel11qt_metacastEPKc(
+    QCustom3DLabel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCustom3DLabel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QCustom3DLabel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCustom3DLabel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCustom3DLabel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QCustom3DLabel2trEPKcS1_i(
@@ -343,6 +361,62 @@ bool ritual_ZNK14QCustom3DLabel14isFacingCameraEv(
   return self->isFacingCamera();
 }
 
+//  void QCustom3DLabel::textChanged(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel11textChangedERK7QString(
+    QCustom3DLabel *self,
+    const QString *text) {
+  self->textChanged(*text);
+}
+
+//  void QCustom3DLabel::fontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel11fontChangedERK5QFont(
+    QCustom3DLabel *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+
+//  void QCustom3DLabel::textColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel16textColorChangedE6QColor(
+    QCustom3DLabel *self,
+    const QColor *color) {
+  self->textColorChanged(*color);
+}
+
+//  void QCustom3DLabel::backgroundColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel22backgroundColorChangedE6QColor(
+    QCustom3DLabel *self,
+    const QColor *color) {
+  self->backgroundColorChanged(*color);
+}
+
+//  void QCustom3DLabel::borderVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel20borderVisibleChangedEb(
+    QCustom3DLabel *self,
+    bool visible) {
+  self->borderVisibleChanged(visible);
+}
+
+//  void QCustom3DLabel::backgroundVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel24backgroundVisibleChangedEb(
+    QCustom3DLabel *self,
+    bool visible) {
+  self->backgroundVisibleChanged(visible);
+}
+
+//  void QCustom3DLabel::facingCameraChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel19facingCameraChangedEb(
+    QCustom3DLabel *self,
+    bool enabled) {
+  self->facingCameraChanged(enabled);
+}
+
 //  a Python function taken by a CuteQCustom3DLabel, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -353,4 +427,4 @@ bool ritual_take_QCustom3DLabel(
   return static_cast<CuteQCustom3DLabel *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

@@ -9,10 +9,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qqnxaudiodevices_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qlatin1stringview.h>
 #include <QtMultimedia/qaudiodevice.h>
 #include <QtMultimedia/qaudioformat.h>
+#include <QtCore/qlatin1stringview.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QQnxAudioDevices that Python can take functions over in. Every QQnxAudioDevices
@@ -254,11 +255,47 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  QPlatformAudioSource *QQnxAudioDevices::createAudioSource(const
+//      QAudioDevice &a0, const QAudioFormat &a1, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSource *ritual_ZN16QQnxAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject(
+    QQnxAudioDevices *self,
+    const QAudioDevice *a0,
+    const QAudioFormat *a1,
+    QObject *parent) {
+  return self->createAudioSource(*a0, *a1, parent);
+}
+
+//  QPlatformAudioSink *QQnxAudioDevices::createAudioSink(const QAudioDevice
+//      &a0, const QAudioFormat &a1, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSink *ritual_ZN16QQnxAudioDevices15createAudioSinkERK12QAudioDeviceRK12QAudioFormatP7QObject(
+    QQnxAudioDevices *self,
+    const QAudioDevice *a0,
+    const QAudioFormat *a1,
+    QObject *parent) {
+  return self->createAudioSink(*a0, *a1, parent);
+}
+
 //  QLatin1String QQnxAudioDevices::backendName() const
 extern "C" Q_DECL_EXPORT
 QLatin1String *ritual_ZNK16QQnxAudioDevices11backendNameEv(
     const QQnxAudioDevices *self) {
   return new QLatin1String(self->backendName());
+}
+
+//  QList<QAudioDevice> QQnxAudioDevices::findAudioInputs() const
+extern "C" Q_DECL_EXPORT
+QList<QAudioDevice> *ritual_ZNK16QQnxAudioDevices15findAudioInputsEv(
+    const QQnxAudioDevices *self) {
+  return new QList<QAudioDevice>(self->findAudioInputs());
+}
+
+//  QList<QAudioDevice> QQnxAudioDevices::findAudioOutputs() const
+extern "C" Q_DECL_EXPORT
+QList<QAudioDevice> *ritual_ZNK16QQnxAudioDevices16findAudioOutputsEv(
+    const QQnxAudioDevices *self) {
+  return new QList<QAudioDevice>(self->findAudioOutputs());
 }
 
 //  a Python function taken by a CuteQQnxAudioDevices, for the function named

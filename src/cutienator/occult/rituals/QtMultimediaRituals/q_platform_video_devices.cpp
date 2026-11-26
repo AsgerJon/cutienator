@@ -186,6 +186,25 @@ const QMetaObject *ritual_ZNK21QPlatformVideoDevices10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformVideoDevices::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QPlatformVideoDevices11qt_metacastEPKc(
+    QPlatformVideoDevices *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformVideoDevices::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QPlatformVideoDevices11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformVideoDevices *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformVideoDevices::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QPlatformVideoDevices2trEPKcS1_i(
@@ -227,6 +246,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QPlatformVideoDevices22updateVideoInputsCacheEv(
     QPlatformVideoDevices *self) {
   self->updateVideoInputsCache();
+}
+
+//  void QPlatformVideoDevices::videoInputsChanged(PrivateTag a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlatformVideoDevices18videoInputsChangedENS_10PrivateTagE(
+    QPlatformVideoDevices *self,
+    const QPlatformVideoDevices::PrivateTag *a0) {
+  self->videoInputsChanged(*a0);
 }
 
 //  a Python function taken by a CuteQPlatformVideoDevices, for the function

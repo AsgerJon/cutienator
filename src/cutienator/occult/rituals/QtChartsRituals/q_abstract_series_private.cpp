@@ -316,6 +316,25 @@ const QMetaObject *ritual_ZNK22QAbstractSeriesPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QAbstractSeriesPrivate11qt_metacastEPKc(
+    QAbstractSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QAbstractSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractSeriesPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QAbstractSeriesPrivate2trEPKcS1_i(
@@ -362,6 +381,21 @@ void ritual_ZN22QAbstractSeriesPrivate18initializeGraphicsEP13QGraphicsItem(
     QAbstractSeriesPrivate *self,
     QGraphicsItem *parent) {
   self->initializeGraphics(parent);
+}
+
+//  void
+//      QAbstractSeriesPrivate::initializeAnimations(QChart::AnimationOptions
+//      options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QAbstractSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QAbstractSeriesPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
 }
 
 //  QList<QLegendMarker *>
@@ -441,6 +475,13 @@ void ritual_ZN22QAbstractSeriesPrivate14setBlockOpenGLEb(
     QAbstractSeriesPrivate *self,
     bool enable) {
   self->setBlockOpenGL(enable);
+}
+
+//  void QAbstractSeriesPrivate::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QAbstractSeriesPrivate12countChangedEv(
+    QAbstractSeriesPrivate *self) {
+  self->countChanged();
 }
 
 //  a Python function taken by a CuteQAbstractSeriesPrivate, for the function

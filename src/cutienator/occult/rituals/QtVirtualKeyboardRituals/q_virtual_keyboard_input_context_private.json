@@ -8,6 +8,12 @@
     "ritual_ZNK35QVirtualKeyboardInputContextPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN35QVirtualKeyboardInputContextPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -86,6 +92,30 @@
     "ritual_ZNK35QVirtualKeyboardInputContextPrivate19keyboardFunctionKeyEN17QtVirtualKeyboard16KeyboardFunctionE": [
       "unsigned int", "address", "int"
     ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate12focusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate24keyboardRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate23previewRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate21previewVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate13localeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate16inputItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate20navigationKeyPressedEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate21navigationKeyReleasedEib": [
+      "nothing", "address", "int", "bool"
+    ],
     "ritual_ZN35QVirtualKeyboardInputContextPrivate14hideInputPanelEv": [
       "nothing", "address"
     ],
@@ -97,6 +127,9 @@
     ],
     "ritual_ZN35QVirtualKeyboardInputContextPrivate18onInputItemChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate11sendPreeditERK7QStringRK5QListIN17QInputMethodEvent9AttributeEEii": [
+      "nothing", "address", "text", "address", "int", "int"
     ],
     "ritual_ZN35QVirtualKeyboardInputContextPrivate20sendInputMethodEventEP17QInputMethodEvent": [
       "nothing", "address", "address"
@@ -117,6 +150,24 @@
       "nothing", "address"
     ],
     "ritual_ZN35QVirtualKeyboardInputContextPrivate11filterEventEPK6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate21addSelectionAttributeER5QListIN17QInputMethodEvent9AttributeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate13testAttributeERK5QListIN17QInputMethodEvent9AttributeEENS1_13AttributeTypeE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate13findAttributeERK5QListIN17QInputMethodEvent9AttributeEENS1_13AttributeTypeE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate8setStateERKNS_5StateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate10clearStateERKNS_5StateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate9testStateERKNS_5StateE": [
       "bool", "address", "address"
     ],
     "ritual_ZNK35QVirtualKeyboardInputContextPrivate12isEmptyStateEv": [

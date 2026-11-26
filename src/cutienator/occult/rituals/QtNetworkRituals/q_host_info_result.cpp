@@ -9,50 +9,6 @@
 #include <QtNetwork/qhostinfo.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtNetwork/qhostinfo.h>
-#include <QtNetwork/private/qhostinfo_p.h>
-#include <qplatformdefs.h>
-#include "QtCore/qapplicationstatic.h"
-#include <QtCore/qabstracteventdispatcher.h>
-#include <QtCore/qcoreapplication.h>
-#include <QtCore/qmetaobject.h>
-#include <QtCore/qscopeguard.h>
-#include <QtCore/qstringlist.h>
-#include <QtCore/qthread.h>
-#include <QtCore/qurl.h>
-#include <QtCore/private/qobject_p.h>
-#include <algorithm>
-#ifdef Q_OS_UNIX
-#  include <unistd.h>
-#  include <netdb.h>
-#  include <netinet/in.h>
-#elif defined Q_OS_WIN
-#  include <ws2tcpip.h>
-#endif
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-
-//  Qt's own code, from here to the line of dashes: taken from
-//  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it where Qt did not write it.
-
-//  from src/network/kernel/qhostinfo.cpp, line 122, as _ZN15QHostInfoResult24finalizePostResultsReadyERK9QHostInfo
-inline void QHostInfoResult::finalizePostResultsReady(const QHostInfo &info)
-{
-    Q_ASSERT(slotObj);
-
-    // we used to have a context object, but it's already destroyed
-    if (receiver) {
-        void *args[] = { nullptr, const_cast<QHostInfo *>(&info) };
-        slotObj->call(const_cast<QObject *>(receiver.data()), args);
-    }
-
-    deleteLater();
-}
-//  -----------------------------------------------------------------------
 
 //  A QHostInfoResult that Python can take functions over in. Every QHostInfoResult
 //  Python makes is one. Each function below asks the Python
@@ -228,12 +184,82 @@ const QMetaObject *ritual_ZNK15QHostInfoResult10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHostInfoResult::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QHostInfoResult11qt_metacastEPKc(
+    QHostInfoResult *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHostInfoResult::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QHostInfoResult11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHostInfoResult *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QHostInfoResult::~QHostInfoResult()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHostInfoResultD1Ev(QHostInfoResult *self) {
+  delete self;
+}
+
+//  void QHostInfoResult::resultsReady(const QHostInfo &info)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHostInfoResult12resultsReadyERK9QHostInfo(
+    QHostInfoResult *self,
+    const QHostInfo *info) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHostInfoResult")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "resultsReady(const QHostInfo &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "resultsReady(const QHostInfo &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(info)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QHostInfoResult::finalizePostResultsReady(const QHostInfo &info)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QHostInfoResult24finalizePostResultsReadyERK9QHostInfo(
     QHostInfoResult *self,
     const QHostInfo *info) {
-  self->finalizePostResultsReady(*info);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHostInfoResult")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "finalizePostResultsReady(const QHostInfo &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "finalizePostResultsReady(const QHostInfo &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(info)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQHostInfoResult, for the function named

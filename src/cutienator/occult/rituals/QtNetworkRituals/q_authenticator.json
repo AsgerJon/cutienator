@@ -7,6 +7,7 @@
     "ritual_ZN14QAuthenticatorC1Ev": ["address"],
     "ritual_ZN14QAuthenticatorD1Ev": ["nothing", "address"],
     "ritual_ZN14QAuthenticatorC1ERKS_": ["address", "address"],
+    "ritual_ZN14QAuthenticatoraSERKS_": ["address", "address", "address"],
     "ritual_ZNK14QAuthenticatoreqERKS_": ["bool", "address", "address"],
     "ritual_ZNK14QAuthenticatorneERKS_": ["bool", "address", "address"],
     "ritual_ZNK14QAuthenticator4userEv": ["text", "address"],

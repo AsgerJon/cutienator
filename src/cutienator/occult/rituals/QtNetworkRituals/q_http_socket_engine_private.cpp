@@ -7,10 +7,12 @@
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttpsocketengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/private/qabstractsocketengine_p.h>
 #include <QtNetwork/private/qnativesocketengine_p.h>
@@ -35,6 +37,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/network/socket/qabstractsocketengine.cpp, line 40, as _ZN28QAbstractSocketEnginePrivateC2Ev
 inline QAbstractSocketEnginePrivate::QAbstractSocketEnginePrivate()

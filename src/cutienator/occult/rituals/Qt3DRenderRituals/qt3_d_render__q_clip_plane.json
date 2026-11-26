@@ -7,8 +7,39 @@
     "ritual_ZNK10Qt3DRender10QClipPlane10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QClipPlane11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QClipPlane11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QClipPlane2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QClipPlaneC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QClipPlaneD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender10QClipPlane10planeIndexEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender10QClipPlane6normalEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender10QClipPlane8distanceEv": ["float", "address"],
+    "ritual_ZN10Qt3DRender10QClipPlane13setPlaneIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QClipPlane9setNormalE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QClipPlane11setDistanceEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QClipPlane17planeIndexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QClipPlane13normalChangedE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QClipPlane15distanceChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN10Qt3DRender10QClipPlane6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender10QClipPlane6d_funcEv": ["address", "address"],

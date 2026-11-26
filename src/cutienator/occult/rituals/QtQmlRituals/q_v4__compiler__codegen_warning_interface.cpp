@@ -21,7 +21,7 @@ typedef void * (*CuteQV4_Compiler_CodegenWarningInterfaceCall2)(const void *, in
 class CuteQV4_Compiler_CodegenWarningInterface : public QV4::Compiler::CodegenWarningInterface {
 public:
   using QV4::Compiler::CodegenWarningInterface::CodegenWarningInterface;
-  CuteQV4_Compiler_CodegenWarningInterface(const QV4::Compiler::CodegenWarningInterface &other) : QV4::Compiler::CodegenWarningInterface(other) {}
+  CuteQV4_Compiler_CodegenWarningInterface(const QV4::Compiler::CodegenWarningInterface & other) : QV4::Compiler::CodegenWarningInterface(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

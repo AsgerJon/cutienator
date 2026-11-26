@@ -6,6 +6,18 @@
   ],
   "rows": {
     "ritual_ZN28QSSGShaderKeyVertexAttributeC1EPKc": ["address", "chars"],
+    "ritual_ZNK28QSSGShaderKeyVertexAttribute11getBitValueENS_19VertexAttributeBitsE12QSSGDataViewIjE": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK28QSSGShaderKeyVertexAttribute11setBitValueENS_19VertexAttributeBitsE11QSSGDataRefIjEb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZNK28QSSGShaderKeyVertexAttribute8toStringER10QByteArray12QSSGDataViewIjE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QSSGShaderKeyVertexAttribute10fromStringERK10QByteArray11QSSGDataRefIjE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN28QSSGShaderKeyVertexAttributeD1Ev": ["nothing", "address"]
   }
 }

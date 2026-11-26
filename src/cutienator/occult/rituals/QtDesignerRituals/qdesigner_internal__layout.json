@@ -8,9 +8,22 @@
     "ritual_ZNK18qdesigner_internal6Layout10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal6Layout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal6Layout2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18qdesigner_internal6LayoutC1ERK5QListIP7QWidgetES3_P28QDesignerFormWindowInterfaceS3_NS_10LayoutInfo4TypeE": [
+      "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout12createLayoutERK5QListIP7QWidgetES3_P28QDesignerFormWindowInterfaceS3_NS_10LayoutInfo4TypeE": [
+      "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal6LayoutD1Ev": ["nothing", "address"],
     "ritual_ZN18qdesigner_internal6Layout4sortEv": ["nothing", "address"],
     "ritual_ZN18qdesigner_internal6Layout8doLayoutEv": [
       "nothing", "address"
@@ -45,6 +58,15 @@
     ],
     "ritual_ZN18qdesigner_internal6Layout10setWidgetsERK5QListIP7QWidgetE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout12createLayoutEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout20reparentToLayoutBaseEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout15widgetDestroyedEv": [
+      "nothing", "address"
     ],
     "ritual_take_qdesigner_internal_Layout": [
       "bool", "address", "chars", "address"

@@ -8,6 +8,12 @@
     "ritual_ZNK31QQuickLabsPlatformStandardPaths10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QQuickLabsPlatformStandardPaths22qt_qmlMarker_singletonEv": [
       "nothing", "address"
     ],
@@ -24,6 +30,9 @@
       "address", "text", "address"
     ],
     "ritual_ZN31QQuickLabsPlatformStandardPaths6locateEN14QStandardPaths16StandardLocationERK7QString6QFlagsINS0_12LocateOptionEE": [
+      "address", "int", "text", "int"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths9locateAllEN14QStandardPaths16StandardLocationERK7QString6QFlagsINS0_12LocateOptionEE": [
       "address", "int", "text", "int"
     ],
     "ritual_ZN31QQuickLabsPlatformStandardPaths18setTestModeEnabledEb": [

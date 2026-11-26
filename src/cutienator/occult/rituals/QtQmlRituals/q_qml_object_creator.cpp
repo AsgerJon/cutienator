@@ -22,6 +22,26 @@ QString *ritual_ZN17QQmlObjectCreator2trEPKcS1_i(
   return new QString(QQmlObjectCreator::tr(sourceText, disambiguation, n));
 }
 
+//  QQmlObjectCreator::QQmlObjectCreator(const
+//      QQmlRefPointer<QQmlContextData> &parentContext, const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &compilationUnit,
+//      const QQmlRefPointer<QQmlContextData> &creationContext, const QString
+//      &inlineComponentName, QQmlIncubatorPrivate *incubator)
+extern "C" Q_DECL_EXPORT
+QQmlObjectCreator *ritual_ZN17QQmlObjectCreatorC1ERK14QQmlRefPointerI15QQmlContextDataERKS0_IN3QV425ExecutableCompilationUnitEES4_RK7QStringP20QQmlIncubatorPrivate(
+    const QQmlRefPointer<QQmlContextData> *parentContext,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *compilationUnit,
+    const QQmlRefPointer<QQmlContextData> *creationContext,
+    const QString *inlineComponentName,
+    QQmlIncubatorPrivate *incubator) {
+  return new QQmlObjectCreator(
+      *parentContext,
+      *compilationUnit,
+      *creationContext,
+      *inlineComponentName,
+      incubator);
+}
+
 //  QQmlObjectCreator::~QQmlObjectCreator()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQmlObjectCreatorD1Ev(QQmlObjectCreator *self) {
@@ -48,6 +68,15 @@ bool ritual_ZN17QQmlObjectCreator26populateDeferredPropertiesEP7QObjectPKN8QQmlD
     QObject *instance,
     const QQmlData::DeferredData *deferredData) {
   return self->populateDeferredProperties(instance, deferredData);
+}
+
+//  void QQmlObjectCreator::beginPopulateDeferred(const
+//      QQmlRefPointer<QQmlContextData> &context)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlObjectCreator21beginPopulateDeferredERK14QQmlRefPointerI15QQmlContextDataE(
+    QQmlObjectCreator *self,
+    const QQmlRefPointer<QQmlContextData> *context) {
+  self->beginPopulateDeferred(*context);
 }
 
 //  void QQmlObjectCreator::populateDeferredBinding(const QQmlProperty
@@ -93,10 +122,59 @@ void ritual_ZN17QQmlObjectCreator24finalizePopulateDeferredEv(
   self->finalizePopulateDeferred();
 }
 
+//  bool QQmlObjectCreator::finalize(QQmlInstantiationInterrupt &interrupt)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QQmlObjectCreator8finalizeER26QQmlInstantiationInterrupt(
+    QQmlObjectCreator *self,
+    QQmlInstantiationInterrupt *interrupt) {
+  return self->finalize(*interrupt);
+}
+
 //  void QQmlObjectCreator::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQmlObjectCreator5clearEv(QQmlObjectCreator *self) {
   self->clear();
+}
+
+//  QObject *QQmlObjectCreator::createObjectInContext(int objectIndex,
+//      QObject *parent, const QQmlRefPointer<QQmlContextData>
+//      &existingContext)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN17QQmlObjectCreator21createObjectInContextEiP7QObjectRK14QQmlRefPointerI15QQmlContextDataE(
+    QQmlObjectCreator *self,
+    int objectIndex,
+    QObject *parent,
+    const QQmlRefPointer<QQmlContextData> *existingContext) {
+  return self->createObjectInContext(objectIndex, parent, *existingContext);
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlObjectCreator::rootContext() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZNK17QQmlObjectCreator11rootContextEv(
+    const QQmlObjectCreator *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->rootContext());
+}
+
+//  QQmlComponentAttached **QQmlObjectCreator::componentAttachment()
+extern "C" Q_DECL_EXPORT
+QQmlComponentAttached **ritual_ZN17QQmlObjectCreator19componentAttachmentEv(
+    QQmlObjectCreator *self) {
+  return self->componentAttachment();
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlObjectCreator::parentContextData()
+//      const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZNK17QQmlObjectCreator17parentContextDataEv(
+    const QQmlObjectCreator *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->parentContextData());
+}
+
+//  std::vector<QQmlGuard<QObject>> &QQmlObjectCreator::allCreatedObjects()
+extern "C" Q_DECL_EXPORT
+std::vector<QQmlGuard<QObject>> *ritual_ZN17QQmlObjectCreator17allCreatedObjectsEv(
+    QQmlObjectCreator *self) {
+  return &(self->allCreatedObjects());
 }
 
 //  RequiredProperties *QQmlObjectCreator::requiredProperties()
@@ -113,6 +191,24 @@ bool ritual_ZNK17QQmlObjectCreator38componentHadTopLevelRequiredPropertiesEv(
   return self->componentHadTopLevelRequiredProperties();
 }
 
+//  QQmlComponent *QQmlObjectCreator::createComponent(QQmlEngine *engine,
+//      QV4::ExecutableCompilationUnit *compilationUnit, int index, QObject
+//      *parent, const QQmlRefPointer<QQmlContextData> &context)
+extern "C" Q_DECL_EXPORT
+QQmlComponent *ritual_ZN17QQmlObjectCreator15createComponentEP10QQmlEnginePN3QV425ExecutableCompilationUnitEiP7QObjectRK14QQmlRefPointerI15QQmlContextDataE(
+    QQmlEngine *engine,
+    QV4::ExecutableCompilationUnit *compilationUnit,
+    int index,
+    QObject *parent,
+    const QQmlRefPointer<QQmlContextData> *context) {
+  return QQmlObjectCreator::createComponent(
+      engine,
+      compilationUnit,
+      index,
+      parent,
+      *context);
+}
+
 //  void QQmlObjectCreator::removePendingBinding(QObject *target, int
 //      propertyIndex) const
 extern "C" Q_DECL_EXPORT
@@ -121,6 +217,52 @@ void ritual_ZNK17QQmlObjectCreator20removePendingBindingEP7QObjecti(
     QObject *target,
     int propertyIndex) {
   self->removePendingBinding(target, propertyIndex);
+}
+
+//  void QQmlObjectCreator::repopulateBindings(int index, QObject *instance,
+//      const QQmlRefPointer<QQmlContextData> &instanceContext, InitFlags
+//      flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlObjectCreator18repopulateBindingsEiP7QObjectRK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS_8InitFlagEE(
+    QQmlObjectCreator *self,
+    int index,
+    QObject *instance,
+    const QQmlRefPointer<QQmlContextData> *instanceContext,
+    int flags) {
+  self->repopulateBindings(
+      index,
+      instance,
+      *instanceContext,
+      QFlags<QQmlObjectCreator::InitFlag>::fromInt(flags));
+}
+
+//  QQmlObjectCreator::QQmlObjectCreator(const
+//      QQmlRefPointer<QQmlContextData> &contextData, const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &compilationUnit,
+//      const QString inlineComponentName, QQmlObjectCreatorSharedState
+//      *inheritedSharedState, bool isContextObject)
+extern "C" Q_DECL_EXPORT
+QQmlObjectCreator *ritual_ZN17QQmlObjectCreatorC1ERK14QQmlRefPointerI15QQmlContextDataERKS0_IN3QV425ExecutableCompilationUnitEE7QStringP28QQmlObjectCreatorSharedStateb(
+    const QQmlRefPointer<QQmlContextData> *contextData,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *compilationUnit,
+    const QString *inlineComponentName,
+    QQmlObjectCreatorSharedState *inheritedSharedState,
+    bool isContextObject) {
+  return new QQmlObjectCreator(
+      *contextData,
+      *compilationUnit,
+      *inlineComponentName,
+      inheritedSharedState,
+      isContextObject);
+}
+
+//  void QQmlObjectCreator::init(const QQmlRefPointer<QQmlContextData>
+//      &parentContext)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlObjectCreator4initERK14QQmlRefPointerI15QQmlContextDataE(
+    QQmlObjectCreator *self,
+    const QQmlRefPointer<QQmlContextData> *parentContext) {
+  self->init(*parentContext);
 }
 
 //  void QQmlObjectCreator::initializeDData(const QV4::CompiledData::Object
@@ -368,4 +510,11 @@ void ritual_ZN17QQmlObjectCreator33registerPostHocRequiredPropertiesEPKN3QV412Co
     QQmlObjectCreator *self,
     const QV4::CompiledData::Binding *binding) {
   self->registerPostHocRequiredProperties(binding);
+}
+
+//  a QQmlRefPointer<QQmlContextData> a ritual of QQmlObjectCreator gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlObjectCreator__QQmlRefPointer_QQmlContextData(
+    QQmlRefPointer<QQmlContextData> *self) {
+  delete self;
 }

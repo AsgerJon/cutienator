@@ -91,6 +91,12 @@ public:
 #endif  // QT_CONFIG(accessibility)
 };
 
+//  QAccessibleImageInterface::QAccessibleImageInterface()
+extern "C" Q_DECL_EXPORT
+QAccessibleImageInterface *ritual_ZN25QAccessibleImageInterfaceC1Ev() {
+  return new CuteQAccessibleImageInterface();
+}
+
 //  QAccessibleImageInterface::~QAccessibleImageInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QAccessibleImageInterfaceD1Ev(

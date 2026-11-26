@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QQuickPinch10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickPinch11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QQuickPinch11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QQuickPinch2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QQuickPinchC1Ev": ["address"],
     "ritual_ZNK11QQuickPinch6targetEv": ["address", "address"],
@@ -42,6 +48,21 @@
     "ritual_ZNK11QQuickPinch4ymaxEv": ["double", "address"],
     "ritual_ZN11QQuickPinch7setYmaxEd": ["nothing", "address", "double"],
     "ritual_ZNK11QQuickPinch6activeEv": ["bool", "address"],
-    "ritual_ZN11QQuickPinch9setActiveEb": ["nothing", "address", "bool"]
+    "ritual_ZN11QQuickPinch9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QQuickPinch13targetChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPinch19minimumScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPinch19maximumScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPinch22minimumRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPinch22maximumRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickPinch15dragAxisChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPinch15minimumXChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPinch15maximumXChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPinch15minimumYChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPinch15maximumYChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickPinch13activeChangedEv": ["nothing", "address"]
   }
 }

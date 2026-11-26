@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidgetrepaintmanager_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: added by hand, instances of templates of
+//  the class: 2. Kept as it is when the generator runs again.
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -240,4 +241,36 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QWidgetRepaintManager24updateStaticContentsSizeEv(
     QWidgetRepaintManager *self) {
   self->updateStaticContentsSize();
+}
+
+//  void QWidgetRepaintManager::markDirty<QRect>(const QRect &r,
+//      QWidget *widget, UpdateTime updateTime, BufferState bufferState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QWidgetRepaintManager9markDirtyI5QRectEEvRKT_P7QWidgetNS_10UpdateTimeENS_11BufferStateE(
+    QWidgetRepaintManager *self,
+    const QRect *r,
+    QWidget *widget,
+    int updateTime,
+    int bufferState) {
+  self->markDirty<QRect>(
+      *r,
+      widget,
+      static_cast<QWidgetRepaintManager::UpdateTime>(updateTime),
+      static_cast<QWidgetRepaintManager::BufferState>(bufferState));
+}
+
+//  void QWidgetRepaintManager::markDirty<QRegion>(const QRegion &r,
+//      QWidget *widget, UpdateTime updateTime, BufferState bufferState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QWidgetRepaintManager9markDirtyI7QRegionEEvRKT_P7QWidgetNS_10UpdateTimeENS_11BufferStateE(
+    QWidgetRepaintManager *self,
+    const QRegion *r,
+    QWidget *widget,
+    int updateTime,
+    int bufferState) {
+  self->markDirty<QRegion>(
+      *r,
+      widget,
+      static_cast<QWidgetRepaintManager::UpdateTime>(updateTime),
+      static_cast<QWidgetRepaintManager::BufferState>(bufferState));
 }

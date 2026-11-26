@@ -290,6 +290,25 @@ const QMetaObject *ritual_ZNK29QQmlAbstractDelegateComponent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlAbstractDelegateComponent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQmlAbstractDelegateComponent11qt_metacastEPKc(
+    QQmlAbstractDelegateComponent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlAbstractDelegateComponent::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQmlAbstractDelegateComponent11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlAbstractDelegateComponent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlAbstractDelegateComponent::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -305,6 +324,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN29QQmlAbstractDelegateComponent24qt_qmlMarker_uncreatableEv(
     QQmlAbstractDelegateComponent *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QQmlAbstractDelegateComponent::QQmlAbstractDelegateComponent(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQmlAbstractDelegateComponent *ritual_ZN29QQmlAbstractDelegateComponentC1EP7QObject(
+    QObject *parent) {
+  return new CuteQQmlAbstractDelegateComponent(parent);
 }
 
 //  QQmlAbstractDelegateComponent::~QQmlAbstractDelegateComponent()
@@ -330,6 +357,13 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK29QQmlAbstractDelegateComponent4roleEv(
     const QQmlAbstractDelegateComponent *self) {
   return new QString(self->role());
+}
+
+//  void QQmlAbstractDelegateComponent::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQmlAbstractDelegateComponent15delegateChangedEv(
+    QQmlAbstractDelegateComponent *self) {
+  self->delegateChanged();
 }
 
 //  QVariant QQmlAbstractDelegateComponent::value(QQmlAdaptorModel

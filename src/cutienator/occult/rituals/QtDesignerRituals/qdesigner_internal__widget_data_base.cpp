@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -325,6 +326,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal14WidgetDataBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::WidgetDataBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal14WidgetDataBase11qt_metacastEPKc(
+    qdesigner_internal::WidgetDataBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::WidgetDataBase::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal14WidgetDataBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::WidgetDataBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::WidgetDataBase::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -333,6 +353,62 @@ QString *ritual_ZN18qdesigner_internal14WidgetDataBase2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::WidgetDataBase::tr(s, c, n));
+}
+
+//  qdesigner_internal::WidgetDataBase::WidgetDataBase(QDesignerFormEditorInt
+//      erface *core, QObject *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::WidgetDataBase *ritual_ZN18qdesigner_internal14WidgetDataBaseC1EP28QDesignerFormEditorInterfaceP7QObject(
+    QDesignerFormEditorInterface *core,
+    QObject *parent) {
+  return new Cuteqdesigner_internal_WidgetDataBase(core, parent);
+}
+
+//  qdesigner_internal::WidgetDataBase::~WidgetDataBase()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14WidgetDataBaseD1Ev(
+    qdesigner_internal::WidgetDataBase *self) {
+  delete self;
+}
+
+//  QDesignerFormEditorInterface *qdesigner_internal::WidgetDataBase::core()
+//      const
+extern "C" Q_DECL_EXPORT
+QDesignerFormEditorInterface *ritual_ZNK18qdesigner_internal14WidgetDataBase4coreEv(
+    const qdesigner_internal::WidgetDataBase *self) {
+  return self->core();
+}
+
+//  int qdesigner_internal::WidgetDataBase::indexOfObject(QObject *o, bool
+//      resolveName) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18qdesigner_internal14WidgetDataBase13indexOfObjectEP7QObjectb(
+    const qdesigner_internal::WidgetDataBase *self,
+    QObject *o,
+    bool resolveName) {
+  return self->indexOfObject(o, resolveName);
+}
+
+//  void qdesigner_internal::WidgetDataBase::remove(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14WidgetDataBase6removeEi(
+    qdesigner_internal::WidgetDataBase *self,
+    int index) {
+  self->remove(index);
+}
+
+//  void qdesigner_internal::WidgetDataBase::grabDefaultPropertyValues()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14WidgetDataBase25grabDefaultPropertyValuesEv(
+    qdesigner_internal::WidgetDataBase *self) {
+  self->grabDefaultPropertyValues();
+}
+
+//  void qdesigner_internal::WidgetDataBase::grabStandardWidgetBoxIcons()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14WidgetDataBase26grabStandardWidgetBoxIconsEv(
+    qdesigner_internal::WidgetDataBase *self) {
+  self->grabStandardWidgetBoxIcons();
 }
 
 //  QStringList qdesigner_internal::WidgetDataBase::formWidgetClasses(const
@@ -383,6 +459,23 @@ QString *ritual_ZN18qdesigner_internal14WidgetDataBase17scaleFormTemplateERK7QSt
           *xml,
           *size,
           fixed));
+}
+
+//  void qdesigner_internal::WidgetDataBase::loadPlugins()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14WidgetDataBase11loadPluginsEv(
+    qdesigner_internal::WidgetDataBase *self) {
+  self->loadPlugins();
+}
+
+//  QList<QVariant>
+//      qdesigner_internal::WidgetDataBase::defaultPropertyValues(const
+//      QString &name)
+extern "C" Q_DECL_EXPORT
+QList<QVariant> *ritual_ZN18qdesigner_internal14WidgetDataBase21defaultPropertyValuesERK7QString(
+    qdesigner_internal::WidgetDataBase *self,
+    const QString *name) {
+  return new QList<QVariant>(self->defaultPropertyValues(*name));
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_WidgetDataBase, for

@@ -29,6 +29,12 @@ QGeoMapType *ritual_ZN11QGeoMapTypeC1ERKS_(const QGeoMapType *other) {
   return new QGeoMapType(*other);
 }
 
+//  QGeoMapType::QGeoMapType(QGeoMapType &&other)
+extern "C" Q_DECL_EXPORT
+QGeoMapType *ritual_ZN11QGeoMapTypeC1EOS_(QGeoMapType *other) {
+  return new QGeoMapType(std::move(*other));
+}
+
 //  QGeoMapType::QGeoMapType(MapStyle style, const QString &name, const
 //      QString &description, bool mobile, bool night, int mapId, const
 //      QByteArray &pluginName, const QGeoCameraCapabilities
@@ -60,6 +66,28 @@ QGeoMapType *ritual_ZN11QGeoMapTypeC1ENS_8MapStyleERK7QStringS3_bbiRK10QByteArra
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QGeoMapTypeD1Ev(QGeoMapType *self) {
   delete self;
+}
+
+//  QGeoMapType &QGeoMapType::operator=(const QGeoMapType &other)
+extern "C" Q_DECL_EXPORT
+QGeoMapType *ritual_ZN11QGeoMapTypeaSERKS_(
+    QGeoMapType *self,
+    const QGeoMapType *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoMapType &QGeoMapType::operator=(QGeoMapType &&other)
+extern "C" Q_DECL_EXPORT
+QGeoMapType *ritual_ZN11QGeoMapTypeaSEOS_(
+    QGeoMapType *self,
+    QGeoMapType *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoMapType::swap(QGeoMapType &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGeoMapType4swapERS_(QGeoMapType *self, QGeoMapType *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoMapType &lhs, const QGeoMapType &rhs)

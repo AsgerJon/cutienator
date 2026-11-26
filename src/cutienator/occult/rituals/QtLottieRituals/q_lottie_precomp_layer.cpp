@@ -38,6 +38,14 @@ void ritual_ZN19QLottiePrecompLayer16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottiePrecompLayer::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK19QLottiePrecompLayer6renderER15QLottieRenderer(
+    const QLottiePrecompLayer *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  int QLottiePrecompLayer::parse(const QJsonObject &definition)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN19QLottiePrecompLayer5parseERK11QJsonObject(
@@ -51,6 +59,13 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK19QLottiePrecompLayer5refIdEv(
     const QLottiePrecompLayer *self) {
   return new QString(self->refId());
+}
+
+//  QLottieProperty<qreal> QLottiePrecompLayer::timeRemapProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK19QLottiePrecompLayer17timeRemapPropertyEv(
+    const QLottiePrecompLayer *self) {
+  return new QLottieProperty<qreal>(self->timeRemapProperty());
 }
 
 //  QLottiePrecompLayer::~QLottiePrecompLayer()
@@ -80,4 +95,11 @@ int ritual_own_ZN19QLottiePrecompLayer5parseERK11QJsonObject(
     QLottiePrecompLayer *self,
     const QJsonObject *definition) {
   return self->QLottiePrecompLayer::parse(*definition);
+}
+
+//  a QLottieProperty<qreal> a ritual of QLottiePrecompLayer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottiePrecompLayer__QLottieProperty_qreal(
+    QLottieProperty<qreal> *self) {
+  delete self;
 }

@@ -353,6 +353,25 @@ const QMetaObject *ritual_ZNK18QPlatformVideoSink10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformVideoSink::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QPlatformVideoSink11qt_metacastEPKc(
+    QPlatformVideoSink *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformVideoSink::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QPlatformVideoSink11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformVideoSink *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformVideoSink::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QPlatformVideoSink2trEPKcS1_i(
@@ -505,6 +524,12 @@ void ritual_ZN18QPlatformVideoSink19onVideoFrameChangedERK11QVideoFrame(
     QPlatformVideoSink *self,
     const QVideoFrame *a0) {
   self->onVideoFrameChanged(*a0);
+}
+
+//  void QPlatformVideoSink::rhiChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QPlatformVideoSink10rhiChangedEv(QPlatformVideoSink *self) {
+  self->rhiChanged();
 }
 
 //  a Python function taken by a CuteQPlatformVideoSink, for the function

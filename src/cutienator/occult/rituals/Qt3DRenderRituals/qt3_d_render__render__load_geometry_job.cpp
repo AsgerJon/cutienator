@@ -1,6 +1,9 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DRender/6.12.0/Qt3DRender/private/loadgeometryjob_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  Qt3DRender/6.12.0/Qt3DRender/private/loadgeometryjob_p.h, Qt 6.12.0,
+//  from Qt's source. Kept as it is when the generator runs again. Left
+//  out: d_func() (the private class is only declared where the header is
+//  read, so it cannot be named). Left out: setNodeManagers is inline and
+//  written; run() is protected, so only its own ritual is written.
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qt3drender_global_p.h>
 #include <Qt3DRender/Qt3DRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,15 +11,17 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 
-//  Only a class built on Qt3DRender::Render::LoadGeometryJob may call these functions of it.
-//  This one is, and makes them free for the rituals to call.
+//  Only a class built on Qt3DRender::Render::LoadGeometryJob may call these
+//      functions of it. This one is, and makes them free for the rituals to
+//      call.
 struct OwnQt3DRender_Render_LoadGeometryJob : Qt3DRender::Render::LoadGeometryJob {
   using Qt3DRender::Render::LoadGeometryJob::run;
 };
 
-//  A Qt3DRender::Render::LoadGeometryJob that Python can take functions over in. Every Qt3DRender::Render::LoadGeometryJob
-//  Python makes is one. Each function below asks the Python
-//  function handed over for it, and runs Qt's own without one.
+//  A Qt3DRender::Render::LoadGeometryJob that Python can take functions over
+//      in. Every Qt3DRender::Render::LoadGeometryJob Python makes is one.
+//      Each function below asks the Python function handed over for it, and
+//      runs Qt's own without one.
 typedef void (*CuteQt3DRender_Render_LoadGeometryJobCall0)(const void *, int *);
 typedef void (*CuteQt3DRender_Render_LoadGeometryJobCall1)(const void *, Qt3DCore::QAspectEngine *, int *);
 typedef bool (*CuteQt3DRender_Render_LoadGeometryJobCall2)(const void *, int *);
@@ -74,6 +79,21 @@ public:
     return Qt3DCore::QAspectJob::isRequired();
   }
 };
+
+//  Qt3DRender::Render::LoadGeometryJob::LoadGeometryJob(const
+//      HGeometryRenderer &handle)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::LoadGeometryJob *ritual_ZN10Qt3DRender6Render15LoadGeometryJobC1ERKN8Qt3DCore7QHandleINS0_16GeometryRendererEEE(
+    const Qt3DRender::Render::HGeometryRenderer *handle) {
+  return new CuteQt3DRender_Render_LoadGeometryJob(*handle);
+}
+
+//  Qt3DRender::Render::LoadGeometryJob::~LoadGeometryJob()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15LoadGeometryJobD1Ev(
+    Qt3DRender::Render::LoadGeometryJob *self) {
+  delete self;
+}
 
 //  void Qt3DRender::Render::LoadGeometryJob::setNodeManagers(NodeManagers
 //      *nodeManagers)

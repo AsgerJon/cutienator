@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput16QAnalogAxisInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QAnalogAxisInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput16QAnalogAxisInput11qt_metacastEPKc(
+    Qt3DInput::QAnalogAxisInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QAnalogAxisInput::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput16QAnalogAxisInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QAnalogAxisInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QAnalogAxisInput::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,43 @@ QString *ritual_ZN9Qt3DInput16QAnalogAxisInput2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QAnalogAxisInput::tr(s, c, n));
+}
+
+//  Qt3DInput::QAnalogAxisInput::QAnalogAxisInput(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAnalogAxisInput *ritual_ZN9Qt3DInput16QAnalogAxisInputC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QAnalogAxisInput(parent);
+}
+
+//  Qt3DInput::QAnalogAxisInput::~QAnalogAxisInput()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAnalogAxisInputD1Ev(
+    Qt3DInput::QAnalogAxisInput *self) {
+  delete self;
+}
+
+//  int Qt3DInput::QAnalogAxisInput::axis() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput16QAnalogAxisInput4axisEv(
+    const Qt3DInput::QAnalogAxisInput *self) {
+  return self->axis();
+}
+
+//  void Qt3DInput::QAnalogAxisInput::setAxis(int axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAnalogAxisInput7setAxisEi(
+    Qt3DInput::QAnalogAxisInput *self,
+    int axis) {
+  self->setAxis(axis);
+}
+
+//  void Qt3DInput::QAnalogAxisInput::axisChanged(int axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAnalogAxisInput11axisChangedEi(
+    Qt3DInput::QAnalogAxisInput *self,
+    int axis) {
+  self->axisChanged(axis);
 }
 
 //  QAnalogAxisInputPrivate *Qt3DInput::QAnalogAxisInput::d_func()

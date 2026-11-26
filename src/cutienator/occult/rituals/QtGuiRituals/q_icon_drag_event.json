@@ -4,6 +4,8 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN14QIconDragEventC1ERKS_": ["address", "address"],
+    "ritual_ZN14QIconDragEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK14QIconDragEvent5cloneEv": ["address", "address"],
     "ritual_ZN14QIconDragEventD1Ev": ["nothing", "address"],
     "ritual_ZN14QIconDragEventC1Ev": ["address"],

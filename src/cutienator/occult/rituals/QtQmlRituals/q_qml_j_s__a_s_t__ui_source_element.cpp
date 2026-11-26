@@ -201,6 +201,14 @@ public:
   }
 };
 
+//  QQmlJS::AST::UiSourceElement::UiSourceElement(Node *sourceElement)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiSourceElement *ritual_ZN6QQmlJS3AST15UiSourceElementC1EPNS0_4NodeE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::Node *sourceElement) {
+  return new (pool) CuteQQmlJS_AST_UiSourceElement(sourceElement);
+}
+
 //  SourceLocation QQmlJS::AST::UiSourceElement::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST15UiSourceElement19firstSourceLocationEv(
@@ -213,6 +221,14 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST15UiSourceElement18lastSourceLocationEv(
     const QQmlJS::AST::UiSourceElement *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  void QQmlJS::AST::UiSourceElement::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST15UiSourceElement7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiSourceElement *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_UiSourceElement, for the

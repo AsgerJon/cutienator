@@ -1,20 +1,27 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qstringview.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qstringview.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN11QStringView19lengthHelperPointerEPK5QChar": [
       "long long", "address"
     ],
+    "ritual_ZN11QStringView10castHelperEPKDs": ["address", "address"],
     "ritual_ZN11QStringViewC1Ev": ["address"],
+    "ritual_ZN11QStringViewC1EDn": ["address"],
     "ritual_ZNK11QStringView8toStringEv": ["text", "address"],
     "ritual_ZN11QStringView7maxSizeEv": ["long long"],
     "ritual_ZNK11QStringView4sizeEv": ["long long", "address"],
+    "ritual_ZNK11QStringView4dataEv": ["address", "address"],
+    "ritual_ZNK11QStringView9constDataEv": ["address", "address"],
+    "ritual_ZNK11QStringView5utf16Ev": ["address", "address"],
     "ritual_ZNK11QStringViewixEx": ["address", "address", "long long"],
     "ritual_ZNK11QStringView8toLatin1Ev": ["address", "address"],
     "ritual_ZNK11QStringView6toUtf8Ev": ["address", "address"],
     "ritual_ZNK11QStringView11toLocal8BitEv": ["address", "address"],
+    "ritual_ZNK11QStringView6toUcs4Ev": ["address", "address"],
     "ritual_ZNK11QStringView2atEx": ["address", "address", "long long"],
     "ritual_ZNK11QStringView3midExx": [
       "text", "address", "long long", "long long"
@@ -31,10 +38,17 @@
     "ritual_ZN11QStringView8truncateEx": ["nothing", "address", "long long"],
     "ritual_ZN11QStringView4chopEx": ["nothing", "address", "long long"],
     "ritual_ZNK11QStringView7trimmedEv": ["text", "address"],
+    "ritual_ZN11QStringView5sliceEx": ["address", "address", "long long"],
+    "ritual_ZN11QStringView5sliceExx": [
+      "address", "address", "long long", "long long"
+    ],
     "ritual_ZNK11QStringView7compareES_N2Qt15CaseSensitivityE": [
       "int", "address", "text", "int"
     ],
     "ritual_ZNK11QStringView7compareE13QLatin1StringN2Qt15CaseSensitivityE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView7compareE20QBasicUtf8StringViewILb0EEN2Qt15CaseSensitivityE": [
       "int", "address", "address", "int"
     ],
     "ritual_ZNK11QStringView7compareE5QChar": ["int", "address", "address"],
@@ -155,6 +169,9 @@
     ],
     "ritual_ZNK11QStringView7toFloatEPb": ["float", "address", "address"],
     "ritual_ZNK11QStringView8toDoubleEPb": ["double", "address", "address"],
+    "ritual_ZNK11QStringView12toWCharArrayEPw": [
+      "long long", "address", "address"
+    ],
     "ritual_ZNK11QStringView5splitES_6QFlagsIN2Qt18SplitBehaviorFlagsEENS1_15CaseSensitivityE": [
       "address", "address", "text", "int", "int"
     ],
@@ -182,10 +199,23 @@
     "ritual_ZgtRK5QCharRK11QStringView": ["bool", "address", "text"],
     "ritual_ZleRK5QCharRK11QStringView": ["bool", "address", "text"],
     "ritual_ZgeRK5QCharRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZNK11QStringView5beginEv": ["address", "address"],
+    "ritual_ZNK11QStringView3endEv": ["address", "address"],
+    "ritual_ZNK11QStringView6cbeginEv": ["address", "address"],
+    "ritual_ZNK11QStringView4cendEv": ["address", "address"],
+    "ritual_ZNK11QStringView6rbeginEv": ["address", "address"],
+    "ritual_ZNK11QStringView4rendEv": ["address", "address"],
+    "ritual_ZNK11QStringView7crbeginEv": ["address", "address"],
+    "ritual_ZNK11QStringView5crendEv": ["address", "address"],
     "ritual_ZNK11QStringView5emptyEv": ["bool", "address"],
     "ritual_ZNK11QStringView5frontEv": ["address", "address"],
     "ritual_ZNK11QStringView4backEv": ["address", "address"],
+    "ritual_ZNK11QStringViewcvSt17basic_string_viewIDsSt11char_traitsIDsEEEv": [
+      "address", "address"
+    ],
     "ritual_ZNK11QStringView8max_sizeEv": ["long long", "address"],
+    "ritual_ZNK11QStringView10constBeginEv": ["address", "address"],
+    "ritual_ZNK11QStringView8constEndEv": ["address", "address"],
     "ritual_ZNK11QStringView6isNullEv": ["bool", "address"],
     "ritual_ZNK11QStringView7isEmptyEv": ["bool", "address"],
     "ritual_ZNK11QStringView6lengthEv": ["long long", "address"],
@@ -251,11 +281,39 @@
     "ritual_ZgtRK10QByteArrayRK11QStringView": ["bool", "address", "text"],
     "ritual_ZleRK10QByteArrayRK11QStringView": ["bool", "address", "text"],
     "ritual_ZgeRK10QByteArrayRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZeqRK11QStringViewRKPKc": ["bool", "text", "address"],
+    "ritual_ZneRK11QStringViewRKPKc": ["bool", "text", "address"],
+    "ritual_ZltRK11QStringViewRKPKc": ["bool", "text", "address"],
+    "ritual_ZgtRK11QStringViewRKPKc": ["bool", "text", "address"],
+    "ritual_ZleRK11QStringViewRKPKc": ["bool", "text", "address"],
+    "ritual_ZgeRK11QStringViewRKPKc": ["bool", "text", "address"],
+    "ritual_ZeqRKPKcRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZneRKPKcRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZltRKPKcRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZgtRKPKcRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZleRKPKcRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZgeRKPKcRK11QStringView": ["bool", "address", "text"],
     "ritual_ZN11QStringViewD1Ev": ["nothing", "address"],
     "ritual_list_make_QStringView": ["address"],
     "ritual_list_add_QStringView": ["nothing", "address", "address"],
     "ritual_list_size_QStringView": ["long long", "address"],
     "ritual_list_at_QStringView": ["address", "address", "long long"],
-    "ritual_list_drop_QStringView": ["nothing", "address"]
+    "ritual_list_drop_QStringView": ["nothing", "address"],
+    "ritual_drop_QStringView__QList_uint": ["nothing", "address"],
+    "ritual_drop_QStringView__QStringView_const_reverse_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QStringView__std_u16string_view": ["nothing", "address"],
+    "ritual_ZN11QStringViewC1IDsLb1EEEPKT_x": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN11QStringViewC1IDsLb1EEEPKT_S3_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QStringViewC1IPKDsLb1EEERKT_": ["address", "address"],
+    "ritual_ZN11QStringViewC1I7QStringLb1EEERKT_": ["address", "address"],
+    "ritual_ZNK11QStringView11lastIndexOfI23QRegularExpressionMatchLb0EEExRK18QRegularExpressionPT_": [
+      "long long", "address", "address", "address"
+    ]
   }
 }

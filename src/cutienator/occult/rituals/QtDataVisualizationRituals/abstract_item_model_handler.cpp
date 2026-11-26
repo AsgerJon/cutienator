@@ -591,6 +591,25 @@ const QMetaObject *ritual_ZNK24AbstractItemModelHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *AbstractItemModelHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24AbstractItemModelHandler11qt_metacastEPKc(
+    AbstractItemModelHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int AbstractItemModelHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24AbstractItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    AbstractItemModelHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  AbstractItemModelHandler::~AbstractItemModelHandler()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24AbstractItemModelHandlerD1Ev(
@@ -653,6 +672,17 @@ void ritual_ZN24AbstractItemModelHandler20handleColumnsRemovedERK11QModelIndexii
     int start,
     int end) {
   self->handleColumnsRemoved(*parent, start, end);
+}
+
+//  void AbstractItemModelHandler::handleDataChanged(const QModelIndex
+//      &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24AbstractItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE(
+    AbstractItemModelHandler *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->handleDataChanged(*topLeft, *bottomRight, *roles);
 }
 
 //  void AbstractItemModelHandler::handleLayoutChanged(const
@@ -726,6 +756,34 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24AbstractItemModelHandler20handlePendingResolveEv(
     AbstractItemModelHandler *self) {
   self->handlePendingResolve();
+}
+
+//  void AbstractItemModelHandler::itemModelChanged(const QAbstractItemModel
+//      *itemModel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24AbstractItemModelHandler16itemModelChangedEPK18QAbstractItemModel(
+    AbstractItemModelHandler *self,
+    const QAbstractItemModel *itemModel) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AbstractItemModelHandler")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "itemModelChanged(const QAbstractItemModel *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "itemModelChanged(const QAbstractItemModel *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&itemModel)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void AbstractItemModelHandler::resolveModel()

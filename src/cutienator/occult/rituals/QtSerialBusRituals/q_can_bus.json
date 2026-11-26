@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK7QCanBus10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QCanBus11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QCanBus11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QCanBus2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QCanBus8instanceEv": ["address"],
     "ritual_ZNK7QCanBus7pluginsEv": ["address", "address"],

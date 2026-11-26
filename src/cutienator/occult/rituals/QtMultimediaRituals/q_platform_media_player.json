@@ -68,7 +68,13 @@
     "ritual_ZN20QPlatformMediaPlayer14setActiveTrackENS_9TrackTypeEi": [
       "nothing", "address", "unsigned char", "int"
     ],
+    "ritual_ZN20QPlatformMediaPlayer15durationChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZN20QPlatformMediaPlayer15durationChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer15positionChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
       "nothing", "address", "long long"
     ],
     "ritual_ZN20QPlatformMediaPlayer15positionChangedEx": [
@@ -131,6 +137,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK20QPlatformMediaPlayer15playbackOptionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayerC1EP12QMediaPlayer": [
       "address", "address"
     ],
     "ritual_take_QPlatformMediaPlayer": [

@@ -759,6 +759,24 @@ const QMetaObject *ritual_ZNK12QFusionStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFusionStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QFusionStyle11qt_metacastEPKc(
+    QFusionStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFusionStyle::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QFusionStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFusionStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFusionStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QFusionStyle2trEPKcS1_i(
@@ -1003,6 +1021,14 @@ void ritual_ZN12QFusionStyle6polishEP12QApplication(
   self->polish(app);
 }
 
+//  void QFusionStyle::polish(QPalette &pal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QFusionStyle6polishER8QPalette(
+    QFusionStyle *self,
+    QPalette *pal) {
+  self->polish(*pal);
+}
+
 //  void QFusionStyle::unpolish(QWidget *widget)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QFusionStyle8unpolishEP7QWidget(
@@ -1017,6 +1043,13 @@ void ritual_ZN12QFusionStyle8unpolishEP12QApplication(
     QFusionStyle *self,
     QApplication *app) {
   self->unpolish(app);
+}
+
+//  QFusionStyle::QFusionStyle(QFusionStylePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QFusionStyle *ritual_ZN12QFusionStyleC1ER19QFusionStylePrivate(
+    QFusionStylePrivate *dd) {
+  return new CuteQFusionStyle(*dd);
 }
 
 //  bool QFusionStyle::isHighContrast() const

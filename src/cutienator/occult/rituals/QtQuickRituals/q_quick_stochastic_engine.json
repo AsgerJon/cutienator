@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickStochasticEngine10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickStochasticEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickStochasticEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickStochasticEngine2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,7 @@
       "address", "address", "address"
     ],
     "ritual_ZN22QQuickStochasticEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQuickStochasticEngine6statesEv": ["address", "address"],
     "ritual_ZNK22QQuickStochasticEngine10globalGoalEv": ["text", "address"],
     "ritual_ZNK22QQuickStochasticEngine5countEv": ["int", "address"],
     "ritual_ZN22QQuickStochasticEngine8setCountEi": [
@@ -49,6 +56,12 @@
       "int", "address", "text"
     ],
     "ritual_ZN22QQuickStochasticEngine10stateCountEv": ["int", "address"],
+    "ritual_ZN22QQuickStochasticEngine17globalGoalChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QQuickStochasticEngine12stateChangedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN22QQuickStochasticEngine13setGlobalGoalERK7QString": [
       "nothing", "address", "text"
     ],
@@ -72,6 +85,9 @@
     ],
     "ritual_own_ZN22QQuickStochasticEngine7advanceEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_drop_QQuickStochasticEngine__QQmlListProperty_QQuickStochasticState": [
+      "nothing", "address"
     ]
   }
 }

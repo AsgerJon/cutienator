@@ -8,14 +8,77 @@
     "ritual_ZNK13Qt3DAnimation21QVertexBlendAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimationC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation21QVertexBlendAnimation15targetPositionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation21QVertexBlendAnimation12interpolatorEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation21QVertexBlendAnimation6targetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation21QVertexBlendAnimation10targetNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation15setMorphTargetsERK5QListIPNS_12QMorphTargetEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation14addMorphTargetEPNS_12QMorphTargetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation17removeMorphTargetEPNS_12QMorphTargetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation15morphTargetListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation18setTargetPositionsERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation9setTargetEPN10Qt3DRender17QGeometryRendererE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation13setTargetNameE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation22targetPositionsChangedERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation19interpolatorChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation13targetChangedEPN10Qt3DRender17QGeometryRendererE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation17targetNameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation15updateAnimationEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN13Qt3DAnimation21QVertexBlendAnimation6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation21QVertexBlendAnimation6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QVertexBlendAnimation__QList_float": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QVertexBlendAnimation__QList_Qt3DAnimation_QMorphTarget": [
+      "nothing", "address"
     ]
   }
 }

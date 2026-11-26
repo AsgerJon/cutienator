@@ -189,6 +189,24 @@ const QMetaObject *ritual_ZNK12ChartDataSet10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ChartDataSet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12ChartDataSet11qt_metacastEPKc(
+    ChartDataSet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ChartDataSet::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12ChartDataSet11qt_metacallEN11QMetaObject4CallEiPPv(
+    ChartDataSet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ChartDataSet::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12ChartDataSet2trEPKcS1_i(
@@ -363,6 +381,38 @@ AbstractDomain *ritual_ZNK12ChartDataSet15domainForSeriesEP15QAbstractSeries(
     const ChartDataSet *self,
     QAbstractSeries *series) {
   return self->domainForSeries(series);
+}
+
+//  void ChartDataSet::axisAdded(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ChartDataSet9axisAddedEP13QAbstractAxis(
+    ChartDataSet *self,
+    QAbstractAxis *axis) {
+  self->axisAdded(axis);
+}
+
+//  void ChartDataSet::axisRemoved(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ChartDataSet11axisRemovedEP13QAbstractAxis(
+    ChartDataSet *self,
+    QAbstractAxis *axis) {
+  self->axisRemoved(axis);
+}
+
+//  void ChartDataSet::seriesAdded(QAbstractSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ChartDataSet11seriesAddedEP15QAbstractSeries(
+    ChartDataSet *self,
+    QAbstractSeries *series) {
+  self->seriesAdded(series);
+}
+
+//  void ChartDataSet::seriesRemoved(QAbstractSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ChartDataSet13seriesRemovedEP15QAbstractSeries(
+    ChartDataSet *self,
+    QAbstractSeries *series) {
+  self->seriesRemoved(series);
 }
 
 //  void ChartDataSet::reverseChanged()

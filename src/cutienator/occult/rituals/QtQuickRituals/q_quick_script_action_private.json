@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN25QQuickScriptActionPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QQuickScriptActionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QQuickScriptActionPrivateC1Ev": ["address"],
     "ritual_ZN25QQuickScriptActionPrivate7executeEv": ["nothing", "address"],
     "ritual_ZN25QQuickScriptActionPrivate12createActionEv": [
       "address", "address"

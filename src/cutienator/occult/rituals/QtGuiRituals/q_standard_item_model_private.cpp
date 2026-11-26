@@ -84,6 +84,28 @@ inline void QStandardItemModelPrivate::init()
     roleNames = QAbstractItemModelPrivate::defaultRoleNames();
 }
 
+//  from src/gui/itemmodels/qstandarditemmodel.cpp, line 551, as _ZN25QStandardItemModelPrivate11itemChangedEP13QStandardItemRK5QListIiE
+inline void QStandardItemModelPrivate::itemChanged(QStandardItem *item, const QList<int> &roles)
+{
+    Q_Q(QStandardItemModel);
+    Q_ASSERT(item);
+    if (item->d_func()->parent == nullptr) {
+        // Header item
+        int idx = columnHeaderItems.indexOf(item);
+        if (idx != -1) {
+            emit q->headerDataChanged(Qt::Horizontal, idx, idx);
+        } else {
+            idx = rowHeaderItems.indexOf(item);
+            if (idx != -1)
+                emit q->headerDataChanged(Qt::Vertical, idx, idx);
+        }
+    } else {
+        // Normal item
+        const QModelIndex index = q->indexFromItem(item);
+        emit q->dataChanged(index, index, roles);
+    }
+}
+
 //  from src/gui/itemmodels/qstandarditemmodel.cpp, line 575, as _ZN25QStandardItemModelPrivate21rowsAboutToBeInsertedEP13QStandardItemii
 inline void QStandardItemModelPrivate::rowsAboutToBeInserted(QStandardItem *parent,
                                                       int start, int end)
@@ -188,6 +210,24 @@ inline void QStandardItemModelPrivate::_q_emitItemChanged(const QModelIndex &top
         }
     }
 }
+
+//  from src/gui/itemmodels/qstandarditemmodel.cpp, line 3179, as _ZN25QStandardItemModelPrivate19decodeDataRecursiveER11QDataStreamP13QStandardItem
+inline void QStandardItemModelPrivate::decodeDataRecursive(QDataStream &stream, QStandardItem *item)
+{
+    int colCount, childCount;
+    stream >> *item;
+    stream >> colCount >> childCount;
+    item->setColumnCount(colCount);
+
+    int childPos = childCount;
+
+    while(childPos > 0) {
+        childPos--;
+        QStandardItem *child = createItem();
+        decodeDataRecursive(stream, child);
+        item->setChild( childPos / colCount, childPos % colCount, child);
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  A QStandardItemModelPrivate that Python can take functions over in. Every QStandardItemModelPrivate
@@ -273,6 +313,16 @@ QStandardItem *ritual_ZNK25QStandardItemModelPrivate13itemFromIndexERK11QModelIn
     const QStandardItemModelPrivate *self,
     const QModelIndex *index) {
   return self->itemFromIndex(*index);
+}
+
+//  void QStandardItemModelPrivate::itemChanged(QStandardItem *item, const
+//      QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QStandardItemModelPrivate11itemChangedEP13QStandardItemRK5QListIiE(
+    QStandardItemModelPrivate *self,
+    QStandardItem *item,
+    const QList<int> *roles) {
+  self->itemChanged(item, *roles);
 }
 
 //  void QStandardItemModelPrivate::rowsAboutToBeInserted(QStandardItem
@@ -371,6 +421,22 @@ void ritual_ZN25QStandardItemModelPrivate18_q_emitItemChangedERK11QModelIndexS2_
     const QModelIndex *topLeft,
     const QModelIndex *bottomRight) {
   self->_q_emitItemChanged(*topLeft, *bottomRight);
+}
+
+//  void QStandardItemModelPrivate::decodeDataRecursive(QDataStream &stream,
+//      QStandardItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QStandardItemModelPrivate19decodeDataRecursiveER11QDataStreamP13QStandardItem(
+    QStandardItemModelPrivate *self,
+    QDataStream *stream,
+    QStandardItem *item) {
+  self->decodeDataRecursive(*stream, item);
+}
+
+//  size_t QStandardItemModelPrivate::_qt_property_sortRole_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN25QStandardItemModelPrivate28_qt_property_sortRole_offsetEv() {
+  return QStandardItemModelPrivate::_qt_property_sortRole_offset();
 }
 
 //  a Python function taken by a CuteQStandardItemModelPrivate, for the

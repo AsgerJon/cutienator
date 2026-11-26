@@ -2,10 +2,16 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickcolorgroup_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK16QQuickColorGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickColorGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickColorGroup2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -135,6 +141,54 @@
     "ritual_ZN16QQuickColorGroup11setGroupTagEN8QPalette10ColorGroupE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK16QQuickColorGroup13colorProviderEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup13colorProviderEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup16createWithParentER13QQuickPalette": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup20alternateBaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup11baseChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup17brightTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup13buttonChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup17buttonTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup11darkChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup16highlightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup22highlightedTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup12lightChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup11linkChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup18linkVisitedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup10midChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup15midlightChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup13shadowChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup11textChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup18toolTipBaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup18toolTipTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup13windowChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup17windowTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup22placeholderTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup13accentChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroup7changedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorGroupC1ER13QQuickPalette": ["address", "address"],
     "ritual_ZN16QQuickColorGroup15defaultGroupTagEv": ["int"],
     "ritual_ZNK16QQuickColorGroup17currentColorGroupEv": ["int", "address"],
     "ritual_ZNK16QQuickColorGroup5colorEN8QPalette9ColorRoleE": [
@@ -142,6 +196,12 @@
     ],
     "ritual_own_ZNK16QQuickColorGroup17currentColorGroupEv": [
       "int", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup8setColorEN8QPalette9ColorRoleE6QColorMS_FvvE": [
+      "nothing", "address", "int", "address", "chars"
+    ],
+    "ritual_ZN16QQuickColorGroup10resetColorEN8QPalette9ColorRoleEMS_FvvE": [
+      "nothing", "address", "int", "chars"
     ]
   }
 }

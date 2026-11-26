@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14ProceduralMesh10metaObjectEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14ProceduralMesh11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14ProceduralMesh2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,10 @@
     "ritual_ZNK14ProceduralMesh13primitiveModeEv": ["int", "address"],
     "ritual_ZN14ProceduralMesh16setPrimitiveModeENS_13PrimitiveModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK14ProceduralMesh7indexesEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh10setIndexesERK5QListIjE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK14ProceduralMesh7normalsEv": ["address", "address"],
     "ritual_ZN14ProceduralMesh10setNormalsERK5QListI9QVector3DE": [
@@ -50,6 +60,20 @@
     "ritual_ZN14ProceduralMesh10setWeightsERK5QListI9QVector4DE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14ProceduralMesh7subsetsEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh16positionsChangedEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh20primitiveModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14ProceduralMesh14indexesChangedEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh14normalsChangedEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh15tangentsChangedEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh16binormalsChangedEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh11uv0sChangedEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh11uv1sChangedEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh13colorsChangedEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh13jointsChangedEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh14weightsChangedEv": ["nothing", "address"],
     "ritual_ZN14ProceduralMesh13requestUpdateEv": ["nothing", "address"],
     "ritual_ZN14ProceduralMesh14updateGeometryEv": ["nothing", "address"],
     "ritual_ZN14ProceduralMesh15subsetDestroyedEP7QObject": [
@@ -57,6 +81,22 @@
     ],
     "ritual_ZNK14ProceduralMesh28supportsTriangleFanPrimitiveEv": [
       "bool", "address"
+    ],
+    "ritual_ZN14ProceduralMesh29qmlAppendProceduralMeshSubsetEP16QQmlListPropertyI20ProceduralMeshSubsetEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14ProceduralMesh25qmlProceduralMeshSubsetAtEP16QQmlListPropertyI20ProceduralMeshSubsetEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN14ProceduralMesh28qmlProceduralMeshSubsetCountEP16QQmlListPropertyI20ProceduralMeshSubsetE": [
+      "long long", "address"
+    ],
+    "ritual_ZN14ProceduralMesh28qmlClearProceduralMeshSubsetEP16QQmlListPropertyI20ProceduralMeshSubsetE": [
+      "nothing", "address"
+    ],
+    "ritual_drop_ProceduralMesh__QList_unsigned_int": ["nothing", "address"],
+    "ritual_drop_ProceduralMesh__QQmlListProperty_ProceduralMeshSubset": [
+      "nothing", "address"
     ]
   }
 }

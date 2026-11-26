@@ -46,6 +46,34 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/xml/dom/qdom.cpp, line 1480, as local:qdom.cpp:qNormalizeNode
+#if QT_CONFIG(dom)
+static void qNormalizeNode(QDomNodePrivate* n)
+{
+    QDomNodePrivate* p = n->first;
+    QDomTextPrivate* t = nullptr;
+
+    while (p) {
+        if (p->isText()) {
+            if (t) {
+                QDomNodePrivate* tmp = p->next;
+                t->appendData(p->nodeValue());
+                n->removeChild(p);
+                p = tmp;
+            } else {
+                t = static_cast<QDomTextPrivate *>(p);
+                p = p->next;
+            }
+        } else {
+            p = p->next;
+            t = nullptr;
+        }
+    }
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1454, as _ZN15QDomNodePrivate11appendChildEPS_
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomNodePrivate::appendChild(QDomNodePrivate* newChild)
@@ -404,6 +432,16 @@ inline void QDomNodePrivate::clear()
 }
 #endif  // QT_CONFIG(dom)
 
+//  from src/xml/dom/qdom.cpp, line 1502, as _ZN15QDomNodePrivate9normalizeEv
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::normalize()
+{
+    // ### This one has moved from QDomElementPrivate to this position. It is
+    // not tested.
+    qNormalizeNode(this);
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 3424, as _ZN27QDomDocumentFragmentPrivate9cloneNodeEb
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomDocumentFragmentPrivate::cloneNode(bool deep)
@@ -452,7 +490,7 @@ typedef void (*CuteQDomDocumentFragmentPrivateCall9)(const void *, int *);
 class CuteQDomDocumentFragmentPrivate : public QDomDocumentFragmentPrivate {
 public:
   using QDomDocumentFragmentPrivate::QDomDocumentFragmentPrivate;
-  CuteQDomDocumentFragmentPrivate(const QDomDocumentFragmentPrivate &other) : QDomDocumentFragmentPrivate(other) {}
+  CuteQDomDocumentFragmentPrivate(const QDomDocumentFragmentPrivate & other) : QDomDocumentFragmentPrivate(other) {}
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {

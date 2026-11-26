@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQmlComponent10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQmlComponent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQmlComponent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQmlComponent2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQmlComponent6d_funcEv": ["address", "address"],
     "ritual_ZNK13QQmlComponent6d_funcEv": ["address", "address"],
@@ -54,6 +60,9 @@
       "address", "address", "address"
     ],
     "ritual_ZN13QQmlComponent14completeCreateEv": ["nothing", "address"],
+    "ritual_ZN13QQmlComponent6createER13QQmlIncubatorP11QQmlContextS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK13QQmlComponent15creationContextEv": ["address", "address"],
     "ritual_ZNK13QQmlComponent6engineEv": ["address", "address"],
     "ritual_ZN13QQmlComponent21qmlAttachedPropertiesEP7QObject": [
@@ -70,6 +79,15 @@
     ],
     "ritual_ZN13QQmlComponent7setDataERK10QByteArrayRK4QUrl": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QQmlComponent15progressChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQmlComponentC1ER20QQmlComponentPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN13QQmlComponent12createObjectEP14QQmlV4Function": [
       "nothing", "address", "address"

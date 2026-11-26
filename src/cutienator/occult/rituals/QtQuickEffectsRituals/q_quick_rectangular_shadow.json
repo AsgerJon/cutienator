@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickRectangularShadow10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickRectangularShadow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickRectangularShadow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickRectangularShadow2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -76,6 +82,39 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN23QQuickRectangularShadow22resetBottomRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow13offsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow12colorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow11blurChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow13radiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow13spreadChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow13cachedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow15materialChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow20topLeftRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow21topRightRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow23bottomLeftRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow24bottomRightRadiusChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN23QQuickRectangularShadow17componentCompleteEv": [

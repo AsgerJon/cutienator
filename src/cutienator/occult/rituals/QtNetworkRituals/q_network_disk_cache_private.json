@@ -6,6 +6,15 @@
   ],
   "rows": {
     "ritual_ZN24QNetworkDiskCachePrivateC1Ev": ["address"],
+    "ritual_ZN24QNetworkDiskCachePrivate14uniqueFileNameERK4QUrl": [
+      "text", "address"
+    ],
+    "ritual_ZNK24QNetworkDiskCachePrivate13cacheFileNameERK4QUrl": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN24QNetworkDiskCachePrivate9storeItemEP10QCacheItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QNetworkDiskCachePrivate13prepareLayoutEv": [
       "nothing", "address"
     ],

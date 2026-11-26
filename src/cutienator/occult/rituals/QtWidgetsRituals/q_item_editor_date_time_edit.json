@@ -8,6 +8,12 @@
     "ritual_ZNK23QItemEditorDateTimeEdit10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QItemEditorDateTimeEdit11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QItemEditorDateTimeEdit11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QItemEditorDateTimeEdit21setDateTimeItemEditorERK9QDateTime": [
       "nothing", "address", "address"
     ],

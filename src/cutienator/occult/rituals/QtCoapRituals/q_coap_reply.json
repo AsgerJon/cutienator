@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QCoapReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QCoapReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QCoapReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QCoapReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QCoapReplyD1Ev": ["nothing", "address"],
     "ritual_ZNK10QCoapReply12responseCodeEv": ["unsigned char", "address"],
@@ -18,11 +24,30 @@
     "ritual_ZNK10QCoapReply9isAbortedEv": ["bool", "address"],
     "ritual_ZNK10QCoapReply12isSuccessfulEv": ["bool", "address"],
     "ritual_ZN10QCoapReply12abortRequestEv": ["nothing", "address"],
+    "ritual_ZN10QCoapReply8finishedEPS_": ["nothing", "address", "address"],
+    "ritual_ZN10QCoapReply8notifiedEPS_RK12QCoapMessage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QCoapReply5errorEPS_N6QtCoap5ErrorE": [
+      "nothing", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN10QCoapReply7abortedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QCoapReply8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN10QCoapReply9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
     "ritual_ZN10QCoapReply6d_funcEv": ["address", "address"],
     "ritual_ZNK10QCoapReply6d_funcEv": ["address", "address"],
-    "ritual_take_QCoapReply": ["bool", "address", "chars", "address"]
+    "ritual_ZN10QCoapReplyC1ER17QCoapReplyPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QCoapReply": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QCoapReply8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ]
   }
 }

@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN10Qt3DRender25QPickTriangleEventPrivateC1Ev": ["address"]
+    "ritual_ZN10Qt3DRender25QPickTriangleEventPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender25QPickTriangleEventPrivate3getEPKNS_18QPickTriangleEventE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender25QPickTriangleEventPrivate5cloneEv": [
+      "address", "address"
+    ]
   }
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK32QQuickLabsPlatformFileNameFilter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN32QQuickLabsPlatformFileNameFilter22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
@@ -20,11 +26,26 @@
     "ritual_ZNK32QQuickLabsPlatformFileNameFilter10extensionsEv": [
       "address", "address"
     ],
+    "ritual_ZNK32QQuickLabsPlatformFileNameFilter7optionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilter10setOptionsERK14QSharedPointerI18QFileDialogOptionsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilter11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilter17extensionsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK32QQuickLabsPlatformFileNameFilter11nameFiltersEv": [
       "address", "address"
     ],
     "ritual_ZNK32QQuickLabsPlatformFileNameFilter10nameFilterEi": [
       "text", "address", "int"
+    ],
+    "ritual_drop_QQuickLabsPlatformFileNameFilter__QSharedPointer_QFileDialogOptions": [
+      "nothing", "address"
     ]
   }
 }

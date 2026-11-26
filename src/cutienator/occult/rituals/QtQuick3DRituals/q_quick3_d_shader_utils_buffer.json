@@ -8,6 +8,12 @@
     "ritual_ZNK25QQuick3DShaderUtilsBuffer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuick3DShaderUtilsBuffer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -44,6 +50,7 @@
     "ritual_ZN25QQuick3DShaderUtilsBuffer22mapRenderTextureFormatEN23QSSGRenderTextureFormat6FormatE": [
       "int", "unsigned char"
     ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer7changedEv": ["nothing", "address"],
     "ritual_take_QQuick3DShaderUtilsBuffer": [
       "bool", "address", "chars", "address"
     ]

@@ -8,11 +8,20 @@
     "ritual_ZNK18qdesigner_internal24QDesignerObjectInspector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal24QDesignerObjectInspector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerObjectInspector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal24QDesignerObjectInspector2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN18qdesigner_internal24QDesignerObjectInspector12selectObjectEP7QObject": [
       "bool", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal24QDesignerObjectInspector12getSelectionERNS_9SelectionE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN18qdesigner_internal24QDesignerObjectInspector14clearSelectionEv": [
       "nothing", "address"

@@ -253,6 +253,25 @@ const QMetaObject *ritual_ZNK19QScxmlNullDataModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScxmlNullDataModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QScxmlNullDataModel11qt_metacastEPKc(
+    QScxmlNullDataModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScxmlNullDataModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QScxmlNullDataModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScxmlNullDataModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScxmlNullDataModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QScxmlNullDataModel2trEPKcS1_i(
@@ -260,6 +279,20 @@ QString *ritual_ZN19QScxmlNullDataModel2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QScxmlNullDataModel::tr(s, c, n));
+}
+
+//  QScxmlNullDataModelPrivate *QScxmlNullDataModel::d_func()
+extern "C" Q_DECL_EXPORT
+QScxmlNullDataModelPrivate *ritual_ZN19QScxmlNullDataModel6d_funcEv(
+    QScxmlNullDataModel *self) {
+  return self->d_func();
+}
+
+//  const QScxmlNullDataModelPrivate *QScxmlNullDataModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QScxmlNullDataModelPrivate *ritual_ZNK19QScxmlNullDataModel6d_funcEv(
+    const QScxmlNullDataModel *self) {
+  return self->d_func();
 }
 
 //  QScxmlNullDataModel::QScxmlNullDataModel(QObject *parent)

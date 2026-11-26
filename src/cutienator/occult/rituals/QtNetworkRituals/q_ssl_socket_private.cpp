@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNetwork/6.12.0/QtNetwork/private/qsslsocket_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtNetwork/6.12.0/QtNetwork/private/qsslsocket_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25: added by hand, rituals for functions the generator
+//  leaves out: 2. Kept as it is when the generator runs again.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(ssl)
@@ -19,83 +20,89 @@
 #include <QtNetwork/qnetworkproxy.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <memory>
 
 //  A QSslSocketPrivate that Python can take functions over in. Every QSslSocketPrivate
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef bool (*CuteQSslSocketPrivateCall0)(const void *, const QHostAddress *, quint16, int, const QNetworkInterface *, int *);
-typedef const QByteArray * (*CuteQSslSocketPrivateCall1)(const void *, qint64, int *);
-typedef bool (*CuteQSslSocketPrivateCall2)(const void *, int *);
-typedef void (*CuteQSslSocketPrivateCall3)(const void *, int *);
+typedef qint64 (*CuteQSslSocketPrivateCall1)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQSslSocketPrivateCall2)(const void *, qint64, int *);
+typedef bool (*CuteQSslSocketPrivateCall3)(const void *, int *);
 typedef void (*CuteQSslSocketPrivateCall4)(const void *, int *);
 typedef void (*CuteQSslSocketPrivateCall5)(const void *, int *);
 typedef void (*CuteQSslSocketPrivateCall6)(const void *, int *);
 typedef void (*CuteQSslSocketPrivateCall7)(const void *, int *);
+typedef void (*CuteQSslSocketPrivateCall8)(const void *, int *);
 #if !defined(QT_NO_NETWORKPROXY)
-typedef void (*CuteQSslSocketPrivateCall8)(const void *, const QNetworkProxy *, QAuthenticator *, int *);
+typedef void (*CuteQSslSocketPrivateCall9)(const void *, const QNetworkProxy *, QAuthenticator *, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
-typedef bool (*CuteQSslSocketPrivateCall9)(const void *, int *);
-typedef void (*CuteQSslSocketPrivateCall10)(const void *, int *);
-typedef bool (*CuteQSslSocketPrivateCall11)(const void *, int *);
-typedef bool (*CuteQSslSocketPrivateCall12)(const void *, char, int *);
+typedef bool (*CuteQSslSocketPrivateCall10)(const void *, int *);
+typedef void (*CuteQSslSocketPrivateCall11)(const void *, int *);
+typedef bool (*CuteQSslSocketPrivateCall12)(const void *, int *);
+typedef bool (*CuteQSslSocketPrivateCall13)(const void *, char, int *);
 class CuteQSslSocketPrivate : public QSslSocketPrivate {
 public:
   using QSslSocketPrivate::QSslSocketPrivate;
-  void *taken[13] = {};
+  void *taken[14] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN22QAbstractSocketPrivate4bindERK12QHostAddresst6QFlagsIN15QAbstractSocket8BindFlagEEPK17QNetworkInterface")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN22QAbstractSocketPrivate5flushEv")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver16readNotificationEv")) {
+    if (!std::strcmp(key, "_ZN22QAbstractSocketPrivate5flushEv")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver17writeNotificationEv")) {
+    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver16readNotificationEv")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver21exceptionNotificationEv")) {
+    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver17writeNotificationEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver17closeNotificationEv")) {
+    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver21exceptionNotificationEv")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver22connectionNotificationEv")) {
+    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver17closeNotificationEv")) {
       taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver22connectionNotificationEv")) {
+      taken[8] = call;
       return true;
     }
 #if !defined(QT_NO_NETWORKPROXY)
     if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator")) {
-      taken[8] = call;
+      taken[9] = call;
       return true;
     }
 #endif  // !defined(QT_NO_NETWORKPROXY)
     if (!std::strcmp(key, "_ZN22QAbstractSocketPrivate19canReadNotificationEv")) {
-      taken[9] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZN22QAbstractSocketPrivate22configureCreatedSocketEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN22QAbstractSocketPrivate13writeToSocketEv")) {
+    if (!std::strcmp(key, "_ZN22QAbstractSocketPrivate22configureCreatedSocketEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate13putCharHelperEc")) {
+    if (!std::strcmp(key, "_ZN22QAbstractSocketPrivate13writeToSocketEv")) {
       taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate13putCharHelperEc")) {
+      taken[13] = call;
       return true;
     }
     return false;
@@ -117,11 +124,22 @@ public:
     return QSslSocketPrivate::bind(address, a1, a2, iface);
   }
 
-  //  QByteArray QSslSocketPrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QSslSocketPrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[1]) {
       int handled = 0;
       CuteQSslSocketPrivateCall1 call = reinterpret_cast<CuteQSslSocketPrivateCall1>(taken[1]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QSslSocketPrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QSslSocketPrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQSslSocketPrivateCall2 call = reinterpret_cast<CuteQSslSocketPrivateCall2>(taken[2]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }
@@ -130,9 +148,9 @@ public:
 
   //  bool QSslSocketPrivate::flush()
   bool flush() override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall2 call = reinterpret_cast<CuteQSslSocketPrivateCall2>(taken[2]);
+      CuteQSslSocketPrivateCall3 call = reinterpret_cast<CuteQSslSocketPrivateCall3>(taken[3]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -141,9 +159,9 @@ public:
 
   //  void QAbstractSocketPrivate::readNotification()
   void readNotification() override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall3 call = reinterpret_cast<CuteQSslSocketPrivateCall3>(taken[3]);
+      CuteQSslSocketPrivateCall4 call = reinterpret_cast<CuteQSslSocketPrivateCall4>(taken[4]);
       call(this, &handled);
       if (handled) return;
     }
@@ -152,9 +170,9 @@ public:
 
   //  void QAbstractSocketPrivate::writeNotification()
   void writeNotification() override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall4 call = reinterpret_cast<CuteQSslSocketPrivateCall4>(taken[4]);
+      CuteQSslSocketPrivateCall5 call = reinterpret_cast<CuteQSslSocketPrivateCall5>(taken[5]);
       call(this, &handled);
       if (handled) return;
     }
@@ -163,9 +181,9 @@ public:
 
   //  void QAbstractSocketPrivate::exceptionNotification()
   void exceptionNotification() override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall5 call = reinterpret_cast<CuteQSslSocketPrivateCall5>(taken[5]);
+      CuteQSslSocketPrivateCall6 call = reinterpret_cast<CuteQSslSocketPrivateCall6>(taken[6]);
       call(this, &handled);
       if (handled) return;
     }
@@ -174,9 +192,9 @@ public:
 
   //  void QAbstractSocketPrivate::closeNotification()
   void closeNotification() override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall6 call = reinterpret_cast<CuteQSslSocketPrivateCall6>(taken[6]);
+      CuteQSslSocketPrivateCall7 call = reinterpret_cast<CuteQSslSocketPrivateCall7>(taken[7]);
       call(this, &handled);
       if (handled) return;
     }
@@ -185,9 +203,9 @@ public:
 
   //  void QAbstractSocketPrivate::connectionNotification()
   void connectionNotification() override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall7 call = reinterpret_cast<CuteQSslSocketPrivateCall7>(taken[7]);
+      CuteQSslSocketPrivateCall8 call = reinterpret_cast<CuteQSslSocketPrivateCall8>(taken[8]);
       call(this, &handled);
       if (handled) return;
     }
@@ -200,9 +218,9 @@ public:
   void proxyAuthenticationRequired(
       const QNetworkProxy &proxy,
       QAuthenticator *authenticator) override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall8 call = reinterpret_cast<CuteQSslSocketPrivateCall8>(taken[8]);
+      CuteQSslSocketPrivateCall9 call = reinterpret_cast<CuteQSslSocketPrivateCall9>(taken[9]);
       call(this, &proxy, authenticator, &handled);
       if (handled) return;
     }
@@ -212,9 +230,9 @@ public:
 
   //  bool QAbstractSocketPrivate::canReadNotification()
   bool canReadNotification() override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall9 call = reinterpret_cast<CuteQSslSocketPrivateCall9>(taken[9]);
+      CuteQSslSocketPrivateCall10 call = reinterpret_cast<CuteQSslSocketPrivateCall10>(taken[10]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -223,9 +241,9 @@ public:
 
   //  void QAbstractSocketPrivate::configureCreatedSocket()
   void configureCreatedSocket() override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall10 call = reinterpret_cast<CuteQSslSocketPrivateCall10>(taken[10]);
+      CuteQSslSocketPrivateCall11 call = reinterpret_cast<CuteQSslSocketPrivateCall11>(taken[11]);
       call(this, &handled);
       if (handled) return;
     }
@@ -234,9 +252,9 @@ public:
 
   //  bool QAbstractSocketPrivate::writeToSocket()
   bool writeToSocket() override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall11 call = reinterpret_cast<CuteQSslSocketPrivateCall11>(taken[11]);
+      CuteQSslSocketPrivateCall12 call = reinterpret_cast<CuteQSslSocketPrivateCall12>(taken[12]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -245,9 +263,9 @@ public:
 
   //  bool QIODevicePrivate::putCharHelper(char c)
   bool putCharHelper(char c) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQSslSocketPrivateCall12 call = reinterpret_cast<CuteQSslSocketPrivateCall12>(taken[12]);
+      CuteQSslSocketPrivateCall13 call = reinterpret_cast<CuteQSslSocketPrivateCall13>(taken[13]);
       bool given = call(this, c, &handled);
       if (handled) return given;
     }
@@ -448,6 +466,25 @@ void ritual_ZN17QSslSocketPrivate21resumeSocketNotifiersEP10QSslSocket(
   QSslSocketPrivate::resumeSocketNotifiers(a0);
 }
 
+//  void QSslSocketPrivate::checkSettingSslContext(QSslSocket *a0,
+//      std::shared_ptr<QSslContext> a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSslSocketPrivate22checkSettingSslContextEP10QSslSocketSt10shared_ptrI11QSslContextE(
+    QSslSocket *a0,
+    const std::shared_ptr<QSslContext> *a1) {
+  QSslSocketPrivate::checkSettingSslContext(a0, *a1);
+}
+
+//  std::shared_ptr<QSslContext> QSslSocketPrivate::sslContext(QSslSocket
+//      *socket)
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QSslContext> *ritual_ZN17QSslSocketPrivate10sslContextEP10QSslSocket(
+    QSslSocket *socket) {
+  return new std::shared_ptr<QSslContext>(
+      QSslSocketPrivate::sslContext(
+          socket));
+}
+
 //  bool QSslSocketPrivate::isPaused() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QSslSocketPrivate8isPausedEv(
@@ -581,6 +618,15 @@ void ritual_ZN17QSslSocketPrivate23_q_resumeImplementationEv(
 extern "C" Q_DECL_EXPORT
 QList<QByteArray> *ritual_ZN17QSslSocketPrivate23unixRootCertDirectoriesEv() {
   return new QList<QByteArray>(QSslSocketPrivate::unixRootCertDirectories());
+}
+
+//  qint64 QSslSocketPrivate::peek(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN17QSslSocketPrivate4peekEPcx(
+    QSslSocketPrivate *self,
+    char *data,
+    qint64 maxSize) {
+  return self->peek(data, maxSize);
 }
 
 //  QByteArray QSslSocketPrivate::peek(qint64 maxSize)
@@ -758,6 +804,20 @@ void ritual_ZN17QSslSocketPrivate12setEncryptedEb(
   self->setEncrypted(enc);
 }
 
+//  QRingBufferRef &QSslSocketPrivate::tlsWriteBuffer()
+extern "C" Q_DECL_EXPORT
+QIODevicePrivate::QRingBufferRef *ritual_ZN17QSslSocketPrivate14tlsWriteBufferEv(
+    QSslSocketPrivate *self) {
+  return &(self->tlsWriteBuffer());
+}
+
+//  QRingBufferRef &QSslSocketPrivate::tlsBuffer()
+extern "C" Q_DECL_EXPORT
+QIODevicePrivate::QRingBufferRef *ritual_ZN17QSslSocketPrivate9tlsBufferEv(
+    QSslSocketPrivate *self) {
+  return &(self->tlsBuffer());
+}
+
 //  bool QSslSocketPrivate::hasUndecryptedData() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QSslSocketPrivate18hasUndecryptedDataEv(
@@ -791,6 +851,15 @@ bool ritual_own_ZN17QSslSocketPrivate4bindERK12QHostAddresst6QFlagsIN15QAbstract
       iface);
 }
 
+//  qint64 QSslSocketPrivate::peek(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN17QSslSocketPrivate4peekEPcx(
+    QSslSocketPrivate *self,
+    char *data,
+    qint64 maxSize) {
+  return self->QSslSocketPrivate::peek(data, maxSize);
+}
+
 //  QByteArray QSslSocketPrivate::peek(qint64 maxSize)
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_own_ZN17QSslSocketPrivate4peekEx(
@@ -803,6 +872,27 @@ QByteArray *ritual_own_ZN17QSslSocketPrivate4peekEx(
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN17QSslSocketPrivate5flushEv(QSslSocketPrivate *self) {
   return self->QSslSocketPrivate::flush();
+}
+
+//  a std::shared_ptr<QSslContext> a ritual of QSslSocketPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSslSocketPrivate__std_shared_ptr_QSslContext(
+    std::shared_ptr<QSslContext> *self) {
+  delete self;
+}
+
+//  bool &QSslSocketPrivate::tlsEmittedBytesWritten()
+extern "C" Q_DECL_EXPORT
+bool *ritual_ZN17QSslSocketPrivate22tlsEmittedBytesWrittenEv(
+    QSslSocketPrivate *self) {
+  return &(self->tlsEmittedBytesWritten());
+}
+
+//  bool *QSslSocketPrivate::readyReadPointer()
+extern "C" Q_DECL_EXPORT
+bool *ritual_ZN17QSslSocketPrivate16readyReadPointerEv(
+    QSslSocketPrivate *self) {
+  return self->readyReadPointer();
 }
 
 #endif  // QT_CONFIG(ssl)

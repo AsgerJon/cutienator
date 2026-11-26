@@ -4,6 +4,9 @@
     "QtTaskTree/qprocesstask.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK10QtTaskTree19QProcessTaskAdapterclEP8QProcessPNS_14QTaskInterfaceE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN10QtTaskTree19QProcessTaskAdapterD1Ev": ["nothing", "address"]
   }
 }

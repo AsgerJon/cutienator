@@ -6,12 +6,21 @@
   ],
   "rows": {
     "ritual_ZN24ScatterPointBufferHelperD1Ev": ["nothing", "address"],
+    "ritual_ZN24ScatterPointBufferHelper8pointBufEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZN24ScatterPointBufferHelper8popPointEv": ["nothing", "address"],
     "ritual_ZN24ScatterPointBufferHelper9setScaleYEf": [
       "nothing", "address", "float"
     ],
     "ritual_ZN24ScatterPointBufferHelper9updateUVsEP24ScatterSeriesRenderCache": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN24ScatterPointBufferHelper22createRangeGradientUVsEP24ScatterSeriesRenderCacheR5QListI9QVector2DE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_ScatterPointBufferHelper": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

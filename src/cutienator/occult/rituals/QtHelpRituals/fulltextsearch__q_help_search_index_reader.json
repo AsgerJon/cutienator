@@ -8,6 +8,36 @@
     "ritual_ZNK14fulltextsearch22QHelpSearchIndexReader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN14fulltextsearch22QHelpSearchIndexReader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14fulltextsearch22QHelpSearchIndexReader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14fulltextsearch22QHelpSearchIndexReaderD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14fulltextsearch22QHelpSearchIndexReader15cancelSearchingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14fulltextsearch22QHelpSearchIndexReader6searchERK7QStringS3_S3_b": [
+      "nothing", "address", "text", "text", "text", "bool"
+    ],
+    "ritual_ZNK14fulltextsearch22QHelpSearchIndexReader17searchResultCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK14fulltextsearch22QHelpSearchIndexReader13searchResultsEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN14fulltextsearch22QHelpSearchIndexReader16searchingStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14fulltextsearch22QHelpSearchIndexReader17searchingFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14fulltextsearch22QHelpSearchIndexReader3runEv": [
+      "nothing", "address"
+    ],
     "ritual_take_fulltextsearch_QHelpSearchIndexReader": [
       "bool", "address", "chars", "address"
     ]

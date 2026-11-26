@@ -87,52 +87,57 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 953, as _ZNK21QAccessibleTextWidget17scrollBarPositionEv
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 735, as local:qaccessiblewidgets.cpp:AttributeFormatterRef
 #if QT_CONFIG(accessibility)
 #if !defined(QT_NO_CURSOR)
-inline QPoint QAccessibleTextWidget::scrollBarPosition() const
+namespace {
+class AttributeFormatterRef {
+    QString &string;
+    const char *key;
+    friend class AttributeFormatter;
+    AttributeFormatterRef(QString &string, const char *key) : string(string), key(key) {}
+public:
+    template <typename RHS>
+    void operator=(RHS &&rhs)
+    { string += QLatin1StringView(key) + u':' + std::forward<RHS>(rhs) + u';'; }
+};
+}  // namespace
+#endif  // !defined(QT_NO_CURSOR)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 1029, as _ZN21QAccessibleTextWidget10deleteTextEii
+#if QT_CONFIG(accessibility)
+#if !defined(QT_NO_CURSOR)
+inline void QAccessibleTextWidget::deleteText(int startOffset, int endOffset)
 {
-    return QPoint(0, 0);
+    QTextCursor cursor = textCursorForRange(startOffset, endOffset);
+    cursor.removeSelectedText();
 }
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 659, as _ZNK21QAccessibleTextWidget5stateEv
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 1035, as _ZN21QAccessibleTextWidget10insertTextEiRK7QString
 #if QT_CONFIG(accessibility)
 #if !defined(QT_NO_CURSOR)
-inline QAccessible::State QAccessibleTextWidget::state() const
+inline void QAccessibleTextWidget::insertText(int offset, const QString &text)
 {
-    QAccessible::State s = QAccessibleWidgetV2::state();
-    s.selectableText = true;
-    s.multiLine = true;
-    return s;
-}
-#endif  // !defined(QT_NO_CURSOR)
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 931, as _ZNK21QAccessibleTextWidget9selectionEiPiS0_
-#if QT_CONFIG(accessibility)
-#if !defined(QT_NO_CURSOR)
-inline void QAccessibleTextWidget::selection(int selectionIndex, int *startOffset, int *endOffset) const
-{
-    *startOffset = *endOffset = 0;
     QTextCursor cursor = textCursor();
-
-    if (selectionIndex != 0 || !cursor.hasSelection())
-        return;
-
-    *startOffset = cursor.selectionStart();
-    *endOffset = cursor.selectionEnd();
+    cursor.setPosition(offset);
+    cursor.insertText(text);
 }
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 718, as _ZNK21QAccessibleTextWidget14selectionCountEv
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 1042, as _ZN21QAccessibleTextWidget11replaceTextEiiRK7QString
 #if QT_CONFIG(accessibility)
 #if !defined(QT_NO_CURSOR)
-inline int QAccessibleTextWidget::selectionCount() const
+inline void QAccessibleTextWidget::replaceText(int startOffset, int endOffset, const QString &text)
 {
-    return textCursor().hasSelection() ? 1 : 0;
+    QTextCursor cursor = textCursorForRange(startOffset, endOffset);
+    cursor.removeSelectedText();
+    cursor.insertText(text);
 }
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
@@ -143,21 +148,6 @@ inline int QAccessibleTextWidget::selectionCount() const
 inline void QAccessibleTextWidget::addSelection(int startOffset, int endOffset)
 {
     setSelection(0, startOffset, endOffset);
-}
-#endif  // !defined(QT_NO_CURSOR)
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 992, as _ZN21QAccessibleTextWidget15removeSelectionEi
-#if QT_CONFIG(accessibility)
-#if !defined(QT_NO_CURSOR)
-inline void QAccessibleTextWidget::removeSelection(int selectionIndex)
-{
-    if (selectionIndex != 0)
-        return;
-
-    QTextCursor cursor = textCursor();
-    cursor.clearSelection();
-    setTextCursor(cursor);
 }
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
@@ -178,12 +168,17 @@ inline void QAccessibleTextWidget::setSelection(int selectionIndex, int startOff
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 926, as _ZNK21QAccessibleTextWidget14cursorPositionEv
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 992, as _ZN21QAccessibleTextWidget15removeSelectionEi
 #if QT_CONFIG(accessibility)
 #if !defined(QT_NO_CURSOR)
-inline int QAccessibleTextWidget::cursorPosition() const
+inline void QAccessibleTextWidget::removeSelection(int selectionIndex)
 {
-    return textCursor().position();
+    if (selectionIndex != 0)
+        return;
+
+    QTextCursor cursor = textCursor();
+    cursor.clearSelection();
+    setTextCursor(cursor);
 }
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
@@ -200,45 +195,6 @@ inline void QAccessibleTextWidget::setCursorPosition(int position)
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 943, as _ZNK21QAccessibleTextWidget4textEii
-#if QT_CONFIG(accessibility)
-#if !defined(QT_NO_CURSOR)
-inline QString QAccessibleTextWidget::text(int startOffset, int endOffset) const
-{
-    QTextCursor cursor(textCursor());
-
-    cursor.setPosition(startOffset, QTextCursor::MoveAnchor);
-    cursor.setPosition(endOffset, QTextCursor::KeepAnchor);
-
-    return cursor.selectedText().replace(QChar(QChar::ParagraphSeparator), u'\n');
-}
-#endif  // !defined(QT_NO_CURSOR)
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 959, as _ZNK21QAccessibleTextWidget16textBeforeOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_
-#if QT_CONFIG(accessibility)
-#if !defined(QT_NO_CURSOR)
-inline QString QAccessibleTextWidget::textBeforeOffset(int offset, QAccessible::TextBoundaryType boundaryType,
-                                                int *startOffset, int *endOffset) const
-{
-    return qt_accTextBeforeOffsetHelper(*this, textCursor(), offset, boundaryType, startOffset,
-                                        endOffset);
-}
-#endif  // !defined(QT_NO_CURSOR)
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 966, as _ZNK21QAccessibleTextWidget15textAfterOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_
-#if QT_CONFIG(accessibility)
-#if !defined(QT_NO_CURSOR)
-inline QString QAccessibleTextWidget::textAfterOffset(int offset, QAccessible::TextBoundaryType boundaryType,
-                                              int *startOffset, int *endOffset) const
-{
-    return qt_accTextAfterOffsetHelper(*this, textCursor(), offset, boundaryType, startOffset,
-                                       endOffset);
-}
-#endif  // !defined(QT_NO_CURSOR)
-#endif  // QT_CONFIG(accessibility)
-
 //  from src/widgets/accessible/qaccessiblewidgets.cpp, line 973, as _ZNK21QAccessibleTextWidget12textAtOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_
 #if QT_CONFIG(accessibility)
 #if !defined(QT_NO_CURSOR)
@@ -247,18 +203,6 @@ inline QString QAccessibleTextWidget::textAtOffset(int offset, QAccessible::Text
 {
     return qt_accTextAtOffsetHelper(*this, textCursor(), offset, boundaryType, startOffset,
                                     endOffset);
-}
-#endif  // !defined(QT_NO_CURSOR)
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 1013, as _ZNK21QAccessibleTextWidget14characterCountEv
-#if QT_CONFIG(accessibility)
-#if !defined(QT_NO_CURSOR)
-inline int QAccessibleTextWidget::characterCount() const
-{
-    QTextCursor cursor = textCursor();
-    cursor.movePosition(QTextCursor::End);
-    return cursor.position();
 }
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
@@ -324,37 +268,113 @@ inline int QAccessibleTextWidget::offsetAtPoint(const QPoint &point) const
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 1029, as _ZN21QAccessibleTextWidget10deleteTextEii
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 1013, as _ZNK21QAccessibleTextWidget14characterCountEv
 #if QT_CONFIG(accessibility)
 #if !defined(QT_NO_CURSOR)
-inline void QAccessibleTextWidget::deleteText(int startOffset, int endOffset)
-{
-    QTextCursor cursor = textCursorForRange(startOffset, endOffset);
-    cursor.removeSelectedText();
-}
-#endif  // !defined(QT_NO_CURSOR)
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 1035, as _ZN21QAccessibleTextWidget10insertTextEiRK7QString
-#if QT_CONFIG(accessibility)
-#if !defined(QT_NO_CURSOR)
-inline void QAccessibleTextWidget::insertText(int offset, const QString &text)
+inline int QAccessibleTextWidget::characterCount() const
 {
     QTextCursor cursor = textCursor();
-    cursor.setPosition(offset);
-    cursor.insertText(text);
+    cursor.movePosition(QTextCursor::End);
+    return cursor.position();
 }
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 1042, as _ZN21QAccessibleTextWidget11replaceTextEiiRK7QString
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 926, as _ZNK21QAccessibleTextWidget14cursorPositionEv
 #if QT_CONFIG(accessibility)
 #if !defined(QT_NO_CURSOR)
-inline void QAccessibleTextWidget::replaceText(int startOffset, int endOffset, const QString &text)
+inline int QAccessibleTextWidget::cursorPosition() const
 {
-    QTextCursor cursor = textCursorForRange(startOffset, endOffset);
-    cursor.removeSelectedText();
-    cursor.insertText(text);
+    return textCursor().position();
+}
+#endif  // !defined(QT_NO_CURSOR)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 718, as _ZNK21QAccessibleTextWidget14selectionCountEv
+#if QT_CONFIG(accessibility)
+#if !defined(QT_NO_CURSOR)
+inline int QAccessibleTextWidget::selectionCount() const
+{
+    return textCursor().hasSelection() ? 1 : 0;
+}
+#endif  // !defined(QT_NO_CURSOR)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 966, as _ZNK21QAccessibleTextWidget15textAfterOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_
+#if QT_CONFIG(accessibility)
+#if !defined(QT_NO_CURSOR)
+inline QString QAccessibleTextWidget::textAfterOffset(int offset, QAccessible::TextBoundaryType boundaryType,
+                                              int *startOffset, int *endOffset) const
+{
+    return qt_accTextAfterOffsetHelper(*this, textCursor(), offset, boundaryType, startOffset,
+                                       endOffset);
+}
+#endif  // !defined(QT_NO_CURSOR)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 959, as _ZNK21QAccessibleTextWidget16textBeforeOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_
+#if QT_CONFIG(accessibility)
+#if !defined(QT_NO_CURSOR)
+inline QString QAccessibleTextWidget::textBeforeOffset(int offset, QAccessible::TextBoundaryType boundaryType,
+                                                int *startOffset, int *endOffset) const
+{
+    return qt_accTextBeforeOffsetHelper(*this, textCursor(), offset, boundaryType, startOffset,
+                                        endOffset);
+}
+#endif  // !defined(QT_NO_CURSOR)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 953, as _ZNK21QAccessibleTextWidget17scrollBarPositionEv
+#if QT_CONFIG(accessibility)
+#if !defined(QT_NO_CURSOR)
+inline QPoint QAccessibleTextWidget::scrollBarPosition() const
+{
+    return QPoint(0, 0);
+}
+#endif  // !defined(QT_NO_CURSOR)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 943, as _ZNK21QAccessibleTextWidget4textEii
+#if QT_CONFIG(accessibility)
+#if !defined(QT_NO_CURSOR)
+inline QString QAccessibleTextWidget::text(int startOffset, int endOffset) const
+{
+    QTextCursor cursor(textCursor());
+
+    cursor.setPosition(startOffset, QTextCursor::MoveAnchor);
+    cursor.setPosition(endOffset, QTextCursor::KeepAnchor);
+
+    return cursor.selectedText().replace(QChar(QChar::ParagraphSeparator), u'\n');
+}
+#endif  // !defined(QT_NO_CURSOR)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 659, as _ZNK21QAccessibleTextWidget5stateEv
+#if QT_CONFIG(accessibility)
+#if !defined(QT_NO_CURSOR)
+inline QAccessible::State QAccessibleTextWidget::state() const
+{
+    QAccessible::State s = QAccessibleWidgetV2::state();
+    s.selectableText = true;
+    s.multiLine = true;
+    return s;
+}
+#endif  // !defined(QT_NO_CURSOR)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 931, as _ZNK21QAccessibleTextWidget9selectionEiPiS0_
+#if QT_CONFIG(accessibility)
+#if !defined(QT_NO_CURSOR)
+inline void QAccessibleTextWidget::selection(int selectionIndex, int *startOffset, int *endOffset) const
+{
+    *startOffset = *endOffset = 0;
+    QTextCursor cursor = textCursor();
+
+    if (selectionIndex != 0 || !cursor.hasSelection())
+        return;
+
+    *startOffset = cursor.selectionStart();
+    *endOffset = cursor.selectionEnd();
 }
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
@@ -479,69 +499,75 @@ typedef void * (*CuteQAccessibleTextWidgetCall18)(const void *, int *);
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QVariant * (*CuteQAccessibleTextWidgetCall19)(const void *, int, int *);
+typedef void * (*CuteQAccessibleTextWidgetCall19)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef bool (*CuteQAccessibleTextWidgetCall20)(const void *, int *);
+typedef const QVariant * (*CuteQAccessibleTextWidgetCall20)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleTextWidgetCall21)(const void *, int *);
+typedef bool (*CuteQAccessibleTextWidgetCall21)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleTextWidgetCall22)(const void *, int *);
+typedef void * (*CuteQAccessibleTextWidgetCall22)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleTextWidgetCall23)(const void *, const QAccessibleInterface *, int *);
+typedef int (*CuteQAccessibleTextWidgetCall23)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleTextWidgetCall24)(const void *, int *);
+typedef int (*CuteQAccessibleTextWidgetCall24)(const void *, const QAccessibleInterface *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QRect * (*CuteQAccessibleTextWidgetCall25)(const void *, int *);
+typedef void * (*CuteQAccessibleTextWidgetCall25)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleTextWidgetCall26)(const void *, int *);
+typedef const QRect * (*CuteQAccessibleTextWidgetCall26)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleTextWidgetCall27)(const void *, int, int *);
+typedef void * (*CuteQAccessibleTextWidgetCall27)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleTextWidgetCall28)(const void *, int, int *);
+typedef void * (*CuteQAccessibleTextWidgetCall28)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleTextWidgetCall29)(const void *, int *);
+typedef QString * (*CuteQAccessibleTextWidgetCall29)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QColor * (*CuteQAccessibleTextWidgetCall30)(const void *, int *);
+typedef int (*CuteQAccessibleTextWidgetCall30)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleTextWidgetCall31)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleTextWidgetCall32)(const void *, const QString *, int *);
+typedef const QColor * (*CuteQAccessibleTextWidgetCall32)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleTextWidgetCall33)(const void *, int *);
+typedef void (*CuteQAccessibleTextWidgetCall33)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleTextWidgetCall34)(const void *, int, const QString *, int *);
+typedef void * (*CuteQAccessibleTextWidgetCall34)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleTextWidgetCall35)(const void *, int, int, int *);
+typedef void (*CuteQAccessibleTextWidgetCall35)(const void *, int, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleTextWidgetCall36)(const void *, int, int, int *);
+typedef void * (*CuteQAccessibleTextWidgetCall36)(const void *, int, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleTextWidgetCall37)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleTextWidgetCall37)(const void *, int, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleTextWidgetCall38)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleTextWidgetCall38)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleTextWidgetCall39)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleTextWidgetCall40)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleTextWidget : public QAccessibleTextWidget {
 public:
   using QAccessibleTextWidget::QAccessibleTextWidget;
-  void *taken[39] = {};
+  void *taken[41] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -697,122 +723,134 @@ public:
 #endif  // !defined(QT_NO_CURSOR)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
       taken[19] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
+    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
       taken[20] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
       taken[21] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10childCountEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
       taken[22] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface12indexOfChildEPKS_")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10childCountEv")) {
       taken[23] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface12indexOfChildEPKS_")) {
       taken[24] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
       taken[25] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
       taken[26] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5childEi")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
       taken[27] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5childEi")) {
       taken[28] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
       taken[29] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
       taken[30] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
       taken[31] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[32] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
       taken[33] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
       taken[34] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
       taken[35] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN24QAccessibleTextInterface17scrollToSubstringEii")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
       taken[36] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+    if (!std::strcmp(key, "_ZN24QAccessibleTextInterface17scrollToSubstringEii")) {
       taken[37] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
       taken[38] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[39] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+      taken[40] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -1120,12 +1158,26 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
-  //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
-  //      key) const
-  QVariant attributeValue(QAccessible::Attribute key) const override {
+  //  void *QAccessibleWidgetV2::interface_cast(QAccessible::InterfaceType
+  //      t)
+  void *interface_cast(QAccessible::InterfaceType t) override {
     if (taken[19]) {
       int handled = 0;
       CuteQAccessibleTextWidgetCall19 call = reinterpret_cast<CuteQAccessibleTextWidgetCall19>(taken[19]);
+      void * given = call(this, static_cast<int>(t), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleWidgetV2::interface_cast(t);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
+  //      key) const
+  QVariant attributeValue(QAccessible::Attribute key) const override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQAccessibleTextWidgetCall20 call = reinterpret_cast<CuteQAccessibleTextWidgetCall20>(taken[20]);
       const QVariant * given = call(this, static_cast<int>(key), &handled);
       if (handled && given) return *given;
     }
@@ -1136,9 +1188,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  bool QAccessibleWidget::isValid() const
   bool isValid() const override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall20 call = reinterpret_cast<CuteQAccessibleTextWidgetCall20>(taken[20]);
+      CuteQAccessibleTextWidgetCall21 call = reinterpret_cast<CuteQAccessibleTextWidgetCall21>(taken[21]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1149,9 +1201,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QWindow *QAccessibleWidget::window() const
   QWindow *window() const override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall21 call = reinterpret_cast<CuteQAccessibleTextWidgetCall21>(taken[21]);
+      CuteQAccessibleTextWidgetCall22 call = reinterpret_cast<CuteQAccessibleTextWidgetCall22>(taken[22]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWindow *>(given);
     }
@@ -1162,9 +1214,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  int QAccessibleWidget::childCount() const
   int childCount() const override {
-    if (taken[22]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall22 call = reinterpret_cast<CuteQAccessibleTextWidgetCall22>(taken[22]);
+      CuteQAccessibleTextWidgetCall23 call = reinterpret_cast<CuteQAccessibleTextWidgetCall23>(taken[23]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -1176,9 +1228,9 @@ public:
   //  int QAccessibleWidget::indexOfChild(const QAccessibleInterface
   //      *child) const
   int indexOfChild(const QAccessibleInterface *child) const override {
-    if (taken[23]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall23 call = reinterpret_cast<CuteQAccessibleTextWidgetCall23>(taken[23]);
+      CuteQAccessibleTextWidgetCall24 call = reinterpret_cast<CuteQAccessibleTextWidgetCall24>(taken[24]);
       int given = call(this, child, &handled);
       if (handled) return given;
     }
@@ -1189,9 +1241,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::focusChild() const
   QAccessibleInterface *focusChild() const override {
-    if (taken[24]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall24 call = reinterpret_cast<CuteQAccessibleTextWidgetCall24>(taken[24]);
+      CuteQAccessibleTextWidgetCall25 call = reinterpret_cast<CuteQAccessibleTextWidgetCall25>(taken[25]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -1202,9 +1254,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QRect QAccessibleWidget::rect() const
   QRect rect() const override {
-    if (taken[25]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall25 call = reinterpret_cast<CuteQAccessibleTextWidgetCall25>(taken[25]);
+      CuteQAccessibleTextWidgetCall26 call = reinterpret_cast<CuteQAccessibleTextWidgetCall26>(taken[26]);
       const QRect * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1215,9 +1267,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::parent() const
   QAccessibleInterface *parent() const override {
-    if (taken[26]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall26 call = reinterpret_cast<CuteQAccessibleTextWidgetCall26>(taken[26]);
+      CuteQAccessibleTextWidgetCall27 call = reinterpret_cast<CuteQAccessibleTextWidgetCall27>(taken[27]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -1228,9 +1280,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::child(int index) const
   QAccessibleInterface *child(int index) const override {
-    if (taken[27]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall27 call = reinterpret_cast<CuteQAccessibleTextWidgetCall27>(taken[27]);
+      CuteQAccessibleTextWidgetCall28 call = reinterpret_cast<CuteQAccessibleTextWidgetCall28>(taken[28]);
       void * given = call(this, index, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -1241,9 +1293,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QString QAccessibleWidget::text(QAccessible::Text t) const
   QString text(QAccessible::Text t) const override {
-    if (taken[28]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall28 call = reinterpret_cast<CuteQAccessibleTextWidgetCall28>(taken[28]);
+      CuteQAccessibleTextWidgetCall29 call = reinterpret_cast<CuteQAccessibleTextWidgetCall29>(taken[29]);
       QString * given = call(this, static_cast<int>(t), &handled);
       if (handled && given) {
         QString back(*given);
@@ -1258,9 +1310,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::Role QAccessibleWidget::role() const
   QAccessible::Role role() const override {
-    if (taken[29]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall29 call = reinterpret_cast<CuteQAccessibleTextWidgetCall29>(taken[29]);
+      CuteQAccessibleTextWidgetCall30 call = reinterpret_cast<CuteQAccessibleTextWidgetCall30>(taken[30]);
       int given = call(this, &handled);
       if (handled) return static_cast<QAccessible::Role>(given);
     }
@@ -1271,9 +1323,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[30]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall30 call = reinterpret_cast<CuteQAccessibleTextWidgetCall30>(taken[30]);
+      CuteQAccessibleTextWidgetCall31 call = reinterpret_cast<CuteQAccessibleTextWidgetCall31>(taken[31]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1284,9 +1336,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[31]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall31 call = reinterpret_cast<CuteQAccessibleTextWidgetCall31>(taken[31]);
+      CuteQAccessibleTextWidgetCall32 call = reinterpret_cast<CuteQAccessibleTextWidgetCall32>(taken[32]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1297,9 +1349,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  void QAccessibleWidget::doAction(const QString &actionName)
   void doAction(const QString &actionName) override {
-    if (taken[32]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall32 call = reinterpret_cast<CuteQAccessibleTextWidgetCall32>(taken[32]);
+      CuteQAccessibleTextWidgetCall33 call = reinterpret_cast<CuteQAccessibleTextWidgetCall33>(taken[33]);
       call(this, &actionName, &handled);
       if (handled) return;
     }
@@ -1310,9 +1362,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QObject *QAccessibleObject::object() const
   QObject *object() const override {
-    if (taken[33]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall33 call = reinterpret_cast<CuteQAccessibleTextWidgetCall33>(taken[33]);
+      CuteQAccessibleTextWidgetCall34 call = reinterpret_cast<CuteQAccessibleTextWidgetCall34>(taken[34]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QObject *>(given);
     }
@@ -1324,9 +1376,9 @@ public:
   //  void QAccessibleObject::setText(QAccessible::Text t, const QString
   //      &text)
   void setText(QAccessible::Text t, const QString &text) override {
-    if (taken[34]) {
+    if (taken[35]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall34 call = reinterpret_cast<CuteQAccessibleTextWidgetCall34>(taken[34]);
+      CuteQAccessibleTextWidgetCall35 call = reinterpret_cast<CuteQAccessibleTextWidgetCall35>(taken[35]);
       call(this, static_cast<int>(t), &text, &handled);
       if (handled) return;
     }
@@ -1337,9 +1389,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const
   QAccessibleInterface *childAt(int x, int y) const override {
-    if (taken[35]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall35 call = reinterpret_cast<CuteQAccessibleTextWidgetCall35>(taken[35]);
+      CuteQAccessibleTextWidgetCall36 call = reinterpret_cast<CuteQAccessibleTextWidgetCall36>(taken[36]);
       void * given = call(this, x, y, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -1351,9 +1403,9 @@ public:
   //  void QAccessibleTextInterface::scrollToSubstring(int startIndex, int
   //      endIndex)
   void scrollToSubstring(int startIndex, int endIndex) override {
-    if (taken[36]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall36 call = reinterpret_cast<CuteQAccessibleTextWidgetCall36>(taken[36]);
+      CuteQAccessibleTextWidgetCall37 call = reinterpret_cast<CuteQAccessibleTextWidgetCall37>(taken[37]);
       call(this, startIndex, endIndex, &handled);
       if (handled) return;
     }
@@ -1361,12 +1413,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[38]) {
+      int handled = 0;
+      CuteQAccessibleTextWidgetCall38 call = reinterpret_cast<CuteQAccessibleTextWidgetCall38>(taken[38]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionName(const QString
   //      &name) const
   QString localizedActionName(const QString &name) const override {
-    if (taken[37]) {
+    if (taken[39]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall37 call = reinterpret_cast<CuteQAccessibleTextWidgetCall37>(taken[37]);
+      CuteQAccessibleTextWidgetCall39 call = reinterpret_cast<CuteQAccessibleTextWidgetCall39>(taken[39]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -1382,9 +1447,9 @@ public:
   //  QString QAccessibleActionInterface::localizedActionDescription(const
   //      QString &name) const
   QString localizedActionDescription(const QString &name) const override {
-    if (taken[38]) {
+    if (taken[40]) {
       int handled = 0;
-      CuteQAccessibleTextWidgetCall38 call = reinterpret_cast<CuteQAccessibleTextWidgetCall38>(taken[38]);
+      CuteQAccessibleTextWidgetCall40 call = reinterpret_cast<CuteQAccessibleTextWidgetCall40>(taken[40]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -1549,6 +1614,17 @@ int ritual_ZNK21QAccessibleTextWidget13offsetAtPointERK6QPoint(
     const QAccessibleTextWidget *self,
     const QPoint *point) {
   return self->offsetAtPoint(*point);
+}
+
+//  QString QAccessibleTextWidget::attributes(int offset, int *startOffset,
+//      int *endOffset) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK21QAccessibleTextWidget10attributesEiPiS0_(
+    const QAccessibleTextWidget *self,
+    int offset,
+    int *startOffset,
+    int *endOffset) {
+  return new QString(self->attributes(offset, startOffset, endOffset));
 }
 
 //  void QAccessibleTextWidget::deleteText(int startOffset, int endOffset)

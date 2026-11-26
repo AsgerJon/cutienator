@@ -64,6 +64,24 @@ const QMetaObject *ritual_ZNK14QQuickTextUtil10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTextUtil::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickTextUtil11qt_metacastEPKc(
+    QQuickTextUtil *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTextUtil::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickTextUtil11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTextUtil *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  qreal QQuickTextUtil::alignedX(qreal textWidth, qreal itemWidth, int
 //      alignment)
 extern "C" Q_DECL_EXPORT

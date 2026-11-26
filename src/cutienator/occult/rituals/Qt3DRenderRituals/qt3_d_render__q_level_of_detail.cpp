@@ -2,8 +2,11 @@
 //  Qt3DRender/qlevelofdetail.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qlevelofdetail.h>
 #include <QtCore/qstring.h>
+#include <Qt3DRender/qlevelofdetailboundingsphere.h>
+#include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A Qt3DRender::QLevelOfDetail that Python can take functions over in. Every Qt3DRender::QLevelOfDetail
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +182,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QLevelOfDetail10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QLevelOfDetail::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QLevelOfDetail11qt_metacastEPKc(
+    Qt3DRender::QLevelOfDetail *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QLevelOfDetail::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QLevelOfDetail11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QLevelOfDetail *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QLevelOfDetail::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -194,6 +216,159 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QLevelOfDetail *ritual_ZN10Qt3DRender14QLevelOfDetailC1EPN8Qt3DCore5QNodeE(
     Qt3DCore::QNode *parent) {
   return new CuteQt3DRender_QLevelOfDetail(parent);
+}
+
+//  Qt3DRender::QLevelOfDetail::~QLevelOfDetail()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetailD1Ev(
+    Qt3DRender::QLevelOfDetail *self) {
+  delete self;
+}
+
+//  QCamera *Qt3DRender::QLevelOfDetail::camera() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QCamera *ritual_ZNK10Qt3DRender14QLevelOfDetail6cameraEv(
+    const Qt3DRender::QLevelOfDetail *self) {
+  return self->camera();
+}
+
+//  int Qt3DRender::QLevelOfDetail::currentIndex() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender14QLevelOfDetail12currentIndexEv(
+    const Qt3DRender::QLevelOfDetail *self) {
+  return self->currentIndex();
+}
+
+//  ThresholdType Qt3DRender::QLevelOfDetail::thresholdType() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLevelOfDetail::ThresholdType ritual_ZNK10Qt3DRender14QLevelOfDetail13thresholdTypeEv(
+    const Qt3DRender::QLevelOfDetail *self) {
+  return self->thresholdType();
+}
+
+//  QList<qreal> Qt3DRender::QLevelOfDetail::thresholds() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK10Qt3DRender14QLevelOfDetail10thresholdsEv(
+    const Qt3DRender::QLevelOfDetail *self) {
+  return new QList<qreal>(self->thresholds());
+}
+
+//  QLevelOfDetailBoundingSphere Qt3DRender::QLevelOfDetail::volumeOverride()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLevelOfDetailBoundingSphere *ritual_ZNK10Qt3DRender14QLevelOfDetail14volumeOverrideEv(
+    const Qt3DRender::QLevelOfDetail *self) {
+  return new Qt3DRender::QLevelOfDetailBoundingSphere(
+      self->volumeOverride());
+}
+
+//  Qt3DRender::QLevelOfDetailBoundingSphere
+//      Qt3DRender::QLevelOfDetail::createBoundingSphere(const QVector3D
+//      &center, float radius)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLevelOfDetailBoundingSphere *ritual_ZN10Qt3DRender14QLevelOfDetail20createBoundingSphereERK9QVector3Df(
+    Qt3DRender::QLevelOfDetail *self,
+    const QVector3D *center,
+    float radius) {
+  return new Qt3DRender::QLevelOfDetailBoundingSphere(
+      self->createBoundingSphere(
+          *center,
+          radius));
+}
+
+//  void Qt3DRender::QLevelOfDetail::setCamera(QCamera *camera)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail9setCameraEPNS_7QCameraE(
+    Qt3DRender::QLevelOfDetail *self,
+    Qt3DRender::QCamera *camera) {
+  self->setCamera(camera);
+}
+
+//  void Qt3DRender::QLevelOfDetail::setCurrentIndex(int currentIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail15setCurrentIndexEi(
+    Qt3DRender::QLevelOfDetail *self,
+    int currentIndex) {
+  self->setCurrentIndex(currentIndex);
+}
+
+//  void Qt3DRender::QLevelOfDetail::setThresholdType(ThresholdType
+//      thresholdType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail16setThresholdTypeENS0_13ThresholdTypeE(
+    Qt3DRender::QLevelOfDetail *self,
+    Qt3DRender::QLevelOfDetail::ThresholdType thresholdType) {
+  self->setThresholdType(thresholdType);
+}
+
+//  void Qt3DRender::QLevelOfDetail::setThresholds(const QList<qreal>
+//      &thresholds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail13setThresholdsERK5QListIdE(
+    Qt3DRender::QLevelOfDetail *self,
+    const QList<qreal> *thresholds) {
+  self->setThresholds(*thresholds);
+}
+
+//  void Qt3DRender::QLevelOfDetail::setVolumeOverride(const
+//      QLevelOfDetailBoundingSphere &volumeOverride)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail17setVolumeOverrideERKNS_28QLevelOfDetailBoundingSphereE(
+    Qt3DRender::QLevelOfDetail *self,
+    const Qt3DRender::QLevelOfDetailBoundingSphere *volumeOverride) {
+  self->setVolumeOverride(*volumeOverride);
+}
+
+//  void Qt3DRender::QLevelOfDetail::cameraChanged(QCamera *camera)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail13cameraChangedEPNS_7QCameraE(
+    Qt3DRender::QLevelOfDetail *self,
+    Qt3DRender::QCamera *camera) {
+  self->cameraChanged(camera);
+}
+
+//  void Qt3DRender::QLevelOfDetail::currentIndexChanged(int currentIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail19currentIndexChangedEi(
+    Qt3DRender::QLevelOfDetail *self,
+    int currentIndex) {
+  self->currentIndexChanged(currentIndex);
+}
+
+//  void Qt3DRender::QLevelOfDetail::thresholdTypeChanged(ThresholdType
+//      thresholdType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail20thresholdTypeChangedENS0_13ThresholdTypeE(
+    Qt3DRender::QLevelOfDetail *self,
+    Qt3DRender::QLevelOfDetail::ThresholdType thresholdType) {
+  self->thresholdTypeChanged(thresholdType);
+}
+
+//  void Qt3DRender::QLevelOfDetail::thresholdsChanged(const QList<qreal>
+//      &thresholds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail17thresholdsChangedERK5QListIdE(
+    Qt3DRender::QLevelOfDetail *self,
+    const QList<qreal> *thresholds) {
+  self->thresholdsChanged(*thresholds);
+}
+
+//  void Qt3DRender::QLevelOfDetail::volumeOverrideChanged(const
+//      QLevelOfDetailBoundingSphere &volumeOverride)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QLevelOfDetail21volumeOverrideChangedERKNS_28QLevelOfDetailBoundingSphereE(
+    Qt3DRender::QLevelOfDetail *self,
+    const Qt3DRender::QLevelOfDetailBoundingSphere *volumeOverride) {
+  self->volumeOverrideChanged(*volumeOverride);
+}
+
+//  Qt3DRender::QLevelOfDetail::QLevelOfDetail(QLevelOfDetailPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLevelOfDetail *ritual_ZN10Qt3DRender14QLevelOfDetailC1ERNS_21QLevelOfDetailPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QLevelOfDetailPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QLevelOfDetail(*dd, parent);
 }
 
 //  QLevelOfDetailPrivate *Qt3DRender::QLevelOfDetail::d_func()
@@ -218,4 +393,10 @@ bool ritual_take_Qt3DRender_QLevelOfDetail(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QLevelOfDetail *>(self)->take(key, call);
+}
+
+//  a QList<qreal> a ritual of Qt3DRender::QLevelOfDetail gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QLevelOfDetail__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

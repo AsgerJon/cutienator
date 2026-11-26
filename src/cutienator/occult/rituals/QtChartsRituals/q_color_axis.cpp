@@ -196,6 +196,24 @@ const QMetaObject *ritual_ZNK10QColorAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QColorAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QColorAxis11qt_metacastEPKc(
+    QColorAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QColorAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QColorAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QColorAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QColorAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QColorAxis2trEPKcS1_i(
@@ -307,6 +325,65 @@ void ritual_ZN10QColorAxis12setAutoRangeEb(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10QColorAxis9autoRangeEv(const QColorAxis *self) {
   return self->autoRange();
+}
+
+//  void QColorAxis::minChanged(qreal min)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QColorAxis10minChangedEd(QColorAxis *self, qreal min) {
+  self->minChanged(min);
+}
+
+//  void QColorAxis::maxChanged(qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QColorAxis10maxChangedEd(QColorAxis *self, qreal max) {
+  self->maxChanged(max);
+}
+
+//  void QColorAxis::rangeChanged(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QColorAxis12rangeChangedEdd(
+    QColorAxis *self,
+    qreal min,
+    qreal max) {
+  self->rangeChanged(min, max);
+}
+
+//  void QColorAxis::tickCountChanged(int tickCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QColorAxis16tickCountChangedEi(
+    QColorAxis *self,
+    int tickCount) {
+  self->tickCountChanged(tickCount);
+}
+
+//  void QColorAxis::gradientChanged(const QLinearGradient &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QColorAxis15gradientChangedERK15QLinearGradient(
+    QColorAxis *self,
+    const QLinearGradient *gradient) {
+  self->gradientChanged(*gradient);
+}
+
+//  void QColorAxis::sizeChanged(const qreal size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QColorAxis11sizeChangedEd(QColorAxis *self, qreal size) {
+  self->sizeChanged(size);
+}
+
+//  void QColorAxis::autoRangeChanged(bool autoRange)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QColorAxis16autoRangeChangedEb(
+    QColorAxis *self,
+    bool autoRange) {
+  self->autoRangeChanged(autoRange);
+}
+
+//  QColorAxis::QColorAxis(QColorAxisPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QColorAxis *ritual_ZN10QColorAxisC1ER17QColorAxisPrivateP7QObject(
+    QColorAxisPrivate *d,
+    QObject *parent) {
+  return new CuteQColorAxis(*d, parent);
 }
 
 //  QColorAxisPrivate *QColorAxis::d_func()

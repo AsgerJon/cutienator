@@ -10,6 +10,12 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qbsptree_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QBspTree::Data::Data(void *p)
+extern "C" Q_DECL_EXPORT
+QBspTree::Data *ritual_ZN8QBspTree4DataC1EPv(void *p) {
+  return new QBspTree::Data(p);
+}
+
 //  QBspTree::Data::Data(int n)
 extern "C" Q_DECL_EXPORT
 QBspTree::Data *ritual_ZN8QBspTree4DataC1Ei(int n) {

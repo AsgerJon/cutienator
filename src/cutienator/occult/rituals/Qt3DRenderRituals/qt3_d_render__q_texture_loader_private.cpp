@@ -54,6 +54,12 @@ public:
   }
 };
 
+//  Qt3DRender::QTextureLoaderPrivate::QTextureLoaderPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureLoaderPrivate *ritual_ZN10Qt3DRender21QTextureLoaderPrivateC1Ev() {
+  return new CuteQt3DRender_QTextureLoaderPrivate();
+}
+
 //  QTextureLoader *Qt3DRender::QTextureLoaderPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QTextureLoader *ritual_ZN10Qt3DRender21QTextureLoaderPrivate6q_funcEv(
@@ -66,6 +72,21 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QTextureLoader *ritual_ZNK10Qt3DRender21QTextureLoaderPrivate6q_funcEv(
     const Qt3DRender::QTextureLoaderPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DRender::QTextureLoaderPrivate::setScene(Qt3DCore::QScene *scene)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QTextureLoaderPrivate8setSceneEPN8Qt3DCore6QSceneE(
+    Qt3DRender::QTextureLoaderPrivate *self,
+    Qt3DCore::QScene *scene) {
+  self->setScene(scene);
+}
+
+//  void Qt3DRender::QTextureLoaderPrivate::updateGenerator()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QTextureLoaderPrivate15updateGeneratorEv(
+    Qt3DRender::QTextureLoaderPrivate *self) {
+  self->updateGenerator();
 }
 
 //  a Python function taken by a CuteQt3DRender_QTextureLoaderPrivate, for

@@ -8,8 +8,23 @@
     "ritual_ZNK18qdesigner_internal14CssHighlighter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal14CssHighlighter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal14CssHighlighter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal14CssHighlighter2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14CssHighlighterC1ERKNS_18CssHighlightColorsEP13QTextDocument": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14CssHighlighter14highlightBlockERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal14CssHighlighter9highlightERK7QStringiii": [
+      "nothing", "address", "text", "int", "int", "int"
     ],
     "ritual_own_ZN18qdesigner_internal14CssHighlighter14highlightBlockERK7QString": [
       "nothing", "address", "text"

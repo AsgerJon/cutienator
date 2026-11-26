@@ -5,7 +5,34 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK28VDMAbstractItemModelDataType11notifyItemsERK15QVarLengthArrayI9QQmlGuardI27QQmlDMAbstractItemModelDataELx256EEiN17QQmlDelegateModel19DelegateModelAccessE": [
+      "nothing", "address", "address", "int", "unsigned char"
+    ],
+    "ritual_ZNK28VDMAbstractItemModelDataType19replaceWatchedRolesER16QQmlAdaptorModelRK5QListI10QByteArrayES6_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN28VDMAbstractItemModelDataType15objectDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28VDMAbstractItemModelDataType8rowCountERK16QQmlAdaptorModel": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK28VDMAbstractItemModelDataType11columnCountERK16QQmlAdaptorModel": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK28VDMAbstractItemModelDataType7cleanupER16QQmlAdaptorModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28VDMAbstractItemModelDataType16parentModelIndexERK16QQmlAdaptorModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK28VDMAbstractItemModelDataType10modelIndexERK16QQmlAdaptorModeli": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK28VDMAbstractItemModelDataType12canFetchMoreERK16QQmlAdaptorModel": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK28VDMAbstractItemModelDataType9fetchMoreER16QQmlAdaptorModel": [
       "nothing", "address", "address"
     ],
     "ritual_cast_VDMAbstractItemModelDataType_QQmlAdaptorModel_Accessors": [

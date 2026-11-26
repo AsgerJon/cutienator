@@ -2,16 +2,23 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/6.12.0/QtGui/private/qtriangulatingstroker_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN22QDashedStrokeProcessorC1Ev": ["address"],
+    "ritual_ZN22QDashedStrokeProcessor7processERK11QVectorPathRK4QPenRK6QRectF6QFlagsIN8QPainter10RenderHintEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
     "ritual_ZN22QDashedStrokeProcessor10addElementEN12QPainterPath11ElementTypeEdd": [
       "nothing", "address", "int", "double", "double"
     ],
     "ritual_ZNK22QDashedStrokeProcessor12elementCountEv": ["int", "address"],
+    "ritual_ZNK22QDashedStrokeProcessor12elementTypesEv": [
+      "address", "address"
+    ],
     "ritual_ZN22QDashedStrokeProcessor11setInvScaleEd": [
       "nothing", "address", "double"
-    ]
+    ],
+    "ritual_ZNK22QDashedStrokeProcessor6pointsEv": ["address", "address"]
   }
 }

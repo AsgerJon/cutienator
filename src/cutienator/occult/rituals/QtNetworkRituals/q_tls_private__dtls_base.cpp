@@ -11,7 +11,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtNetwork/qsslconfiguration.h>
+#if QT_CONFIG(dtls) && QT_CONFIG(ssl)
 #include <QtNetwork/qdtls.h>
+#endif
 #include <cstring>
 
 //  A QTlsPrivate::DtlsBase that Python can take functions over in. Every QTlsPrivate::DtlsBase

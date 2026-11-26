@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN15QProcessPrivate7Channel5clearEv": ["nothing", "address"],
+    "ritual_ZN15QProcessPrivate7ChannelaSERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZN15QProcessPrivate7Channel6pipeToEPS_": [
       "nothing", "address", "address"
     ],

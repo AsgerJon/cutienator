@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZNK19QAccessibleGroupBox5stateEv": ["address", "address"],
     "ritual_ZNK19QAccessibleGroupBox4roleEv": ["int", "address"],
+    "ritual_ZNK19QAccessibleGroupBox4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK19QAccessibleGroupBox9relationsE6QFlagsIN11QAccessible12RelationFlagEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK19QAccessibleGroupBox11actionNamesEv": ["address", "address"],
     "ritual_ZN19QAccessibleGroupBox8doActionERK7QString": [
       "nothing", "address", "text"
@@ -19,6 +25,9 @@
     "ritual_own_ZNK19QAccessibleGroupBox4roleEv": ["int", "address"],
     "ritual_own_ZN19QAccessibleGroupBox8doActionERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_drop_QAccessibleGroupBox__QList_std_pair_QAccessibleInterface_QAccessible_Relation": [
+      "nothing", "address"
     ]
   }
 }

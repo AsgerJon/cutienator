@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK24QQuickSelectionRectangle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSelectionRectangle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickSelectionRectangle11qt_metacastEPKc(
+    QQuickSelectionRectangle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSelectionRectangle::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickSelectionRectangle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSelectionRectangle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSelectionRectangle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuickSelectionRectangle2trEPKcS1_i(
@@ -125,6 +144,48 @@ extern "C" Q_DECL_EXPORT
 QQuickSelectionRectangleAttached *ritual_ZN24QQuickSelectionRectangle21qmlAttachedPropertiesEP7QObject(
     QObject *obj) {
   return QQuickSelectionRectangle::qmlAttachedProperties(obj);
+}
+
+//  void QQuickSelectionRectangle::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSelectionRectangle13targetChangedEv(
+    QQuickSelectionRectangle *self) {
+  self->targetChanged();
+}
+
+//  void QQuickSelectionRectangle::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSelectionRectangle13activeChangedEv(
+    QQuickSelectionRectangle *self) {
+  self->activeChanged();
+}
+
+//  void QQuickSelectionRectangle::draggingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSelectionRectangle15draggingChangedEv(
+    QQuickSelectionRectangle *self) {
+  self->draggingChanged();
+}
+
+//  void QQuickSelectionRectangle::topLeftHandleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSelectionRectangle20topLeftHandleChangedEv(
+    QQuickSelectionRectangle *self) {
+  self->topLeftHandleChanged();
+}
+
+//  void QQuickSelectionRectangle::bottomRightHandleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSelectionRectangle24bottomRightHandleChangedEv(
+    QQuickSelectionRectangle *self) {
+  self->bottomRightHandleChanged();
+}
+
+//  void QQuickSelectionRectangle::selectionModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickSelectionRectangle20selectionModeChangedEv(
+    QQuickSelectionRectangle *self) {
+  self->selectionModeChanged();
 }
 
 //  QQuickSelectionRectanglePrivate *QQuickSelectionRectangle::d_func()

@@ -6,6 +6,18 @@
   ],
   "rows": {
     "ritual_ZN21QSvgFeFilterPrimitiveD1Ev": ["nothing", "address"],
+    "ritual_ZN21QSvgFeFilterPrimitive11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK21QSvgFeFilterPrimitive14shouldDrawNodeEP8QPainterR15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK21QSvgFeFilterPrimitive18internalFastBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK21QSvgFeFilterPrimitive14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK21QSvgFeFilterPrimitive14localSubRegionERK6QRectFS2_N5QtSvg9UnitTypesES4_": [
       "address", "address", "address", "address", "unsigned int",
       "unsigned int"

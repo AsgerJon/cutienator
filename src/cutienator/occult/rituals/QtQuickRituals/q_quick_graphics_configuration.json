@@ -8,6 +8,9 @@
     "ritual_ZN27QQuickGraphicsConfigurationC1Ev": ["address"],
     "ritual_ZN27QQuickGraphicsConfigurationD1Ev": ["nothing", "address"],
     "ritual_ZN27QQuickGraphicsConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN27QQuickGraphicsConfigurationaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN27QQuickGraphicsConfiguration27preferredInstanceExtensionsEv": [
       "address"
     ],

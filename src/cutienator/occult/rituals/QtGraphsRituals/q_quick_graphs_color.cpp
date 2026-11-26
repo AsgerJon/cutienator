@@ -202,11 +202,63 @@ const QMetaObject *ritual_ZNK17QQuickGraphsColor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGraphsColor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickGraphsColor11qt_metacastEPKc(
+    QQuickGraphsColor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGraphsColor::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickGraphsColor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGraphsColor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QQuickGraphsColor::~QQuickGraphsColor()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickGraphsColorD1Ev(QQuickGraphsColor *self) {
+  delete self;
+}
+
 //  QColor QQuickGraphsColor::color() const
 extern "C" Q_DECL_EXPORT
 QColor *ritual_ZNK17QQuickGraphsColor5colorEv(
     const QQuickGraphsColor *self) {
   return new QColor(self->color());
+}
+
+//  void QQuickGraphsColor::colorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickGraphsColor12colorChangedE6QColor(
+    QQuickGraphsColor *self,
+    const QColor *color) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickGraphsColor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "colorChanged(QColor)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "colorChanged(QColor)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(color)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuickGraphsColor, for the function

@@ -5,6 +5,10 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation25QKeyframeAnimationPrivateC1Ev": ["address"],
+    "ritual_ZN13Qt3DAnimation25QKeyframeAnimationPrivate14calculateFrameEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZN13Qt3DAnimation25QKeyframeAnimationPrivate6q_funcEv": [
       "address", "address"
     ],

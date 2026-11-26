@@ -18,6 +18,15 @@
     "ritual_ZN16QSGAreaAllocator9serializeEv": ["address", "address"],
     "ritual_ZN16QSGAreaAllocator11deserializeEPKci": [
       "chars", "address", "chars", "int"
+    ],
+    "ritual_ZN16QSGAreaAllocator14allocateInNodeERK5QSizeR6QPointRK5QRectP20QSGAreaAllocatorNode": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGAreaAllocator16deallocateInNodeERK6QPointP20QSGAreaAllocatorNode": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGAreaAllocator22mergeNodeWithNeighborsEP20QSGAreaAllocatorNode": [
+      "nothing", "address", "address"
     ]
   }
 }

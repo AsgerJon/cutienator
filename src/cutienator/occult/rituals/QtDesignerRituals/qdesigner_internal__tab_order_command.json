@@ -5,11 +5,23 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal15TabOrderCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15TabOrderCommand4initERK5QListIP7QWidgetE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18qdesigner_internal15TabOrderCommand11oldTabOrderEv": [
       "address", "address"
     ],
     "ritual_ZNK18qdesigner_internal15TabOrderCommand11newTabOrderEv": [
       "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15TabOrderCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15TabOrderCommand4undoEv": [
+      "nothing", "address"
     ],
     "ritual_own_ZN18qdesigner_internal15TabOrderCommand4redoEv": [
       "nothing", "address"

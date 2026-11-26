@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtGui/qcolor.h>
+#include <QtCore/qbytearray.h>
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -288,6 +289,25 @@ const QMetaObject *ritual_ZNK24ProceduralSkyTextureData10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ProceduralSkyTextureData::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24ProceduralSkyTextureData11qt_metacastEPKc(
+    ProceduralSkyTextureData *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ProceduralSkyTextureData::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24ProceduralSkyTextureData11qt_metacallEN11QMetaObject4CallEiPPv(
+    ProceduralSkyTextureData *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ProceduralSkyTextureData::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24ProceduralSkyTextureData2trEPKcS1_i(
@@ -558,6 +578,155 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24ProceduralSkyTextureData22generateRGBA16FTextureEv(
     ProceduralSkyTextureData *self) {
   self->generateRGBA16FTexture();
+}
+
+//  void ProceduralSkyTextureData::skyTopColorChanged(QColor skyTopColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData18skyTopColorChangedE6QColor(
+    ProceduralSkyTextureData *self,
+    const QColor *skyTopColor) {
+  self->skyTopColorChanged(*skyTopColor);
+}
+
+//  void ProceduralSkyTextureData::skyHorizonColorChanged(QColor
+//      skyHorizonColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData22skyHorizonColorChangedE6QColor(
+    ProceduralSkyTextureData *self,
+    const QColor *skyHorizonColor) {
+  self->skyHorizonColorChanged(*skyHorizonColor);
+}
+
+//  void ProceduralSkyTextureData::skyCurveChanged(float skyCurve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData15skyCurveChangedEf(
+    ProceduralSkyTextureData *self,
+    float skyCurve) {
+  self->skyCurveChanged(skyCurve);
+}
+
+//  void ProceduralSkyTextureData::skyEnergyChanged(float skyEnergy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData16skyEnergyChangedEf(
+    ProceduralSkyTextureData *self,
+    float skyEnergy) {
+  self->skyEnergyChanged(skyEnergy);
+}
+
+//  void ProceduralSkyTextureData::groundBottomColorChanged(QColor
+//      groundBottomColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData24groundBottomColorChangedE6QColor(
+    ProceduralSkyTextureData *self,
+    const QColor *groundBottomColor) {
+  self->groundBottomColorChanged(*groundBottomColor);
+}
+
+//  void ProceduralSkyTextureData::groundHorizonColorChanged(QColor
+//      groundHorizonColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData25groundHorizonColorChangedE6QColor(
+    ProceduralSkyTextureData *self,
+    const QColor *groundHorizonColor) {
+  self->groundHorizonColorChanged(*groundHorizonColor);
+}
+
+//  void ProceduralSkyTextureData::groundCurveChanged(float groundCurve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData18groundCurveChangedEf(
+    ProceduralSkyTextureData *self,
+    float groundCurve) {
+  self->groundCurveChanged(groundCurve);
+}
+
+//  void ProceduralSkyTextureData::groundEnergyChanged(float groundEnergy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData19groundEnergyChangedEf(
+    ProceduralSkyTextureData *self,
+    float groundEnergy) {
+  self->groundEnergyChanged(groundEnergy);
+}
+
+//  void ProceduralSkyTextureData::sunColorChanged(QColor sunColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData15sunColorChangedE6QColor(
+    ProceduralSkyTextureData *self,
+    const QColor *sunColor) {
+  self->sunColorChanged(*sunColor);
+}
+
+//  void ProceduralSkyTextureData::sunLatitudeChanged(float sunLatitude)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData18sunLatitudeChangedEf(
+    ProceduralSkyTextureData *self,
+    float sunLatitude) {
+  self->sunLatitudeChanged(sunLatitude);
+}
+
+//  void ProceduralSkyTextureData::sunLongitudeChanged(float sunLongitude)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData19sunLongitudeChangedEf(
+    ProceduralSkyTextureData *self,
+    float sunLongitude) {
+  self->sunLongitudeChanged(sunLongitude);
+}
+
+//  void ProceduralSkyTextureData::sunAngleMinChanged(float sunAngleMin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData18sunAngleMinChangedEf(
+    ProceduralSkyTextureData *self,
+    float sunAngleMin) {
+  self->sunAngleMinChanged(sunAngleMin);
+}
+
+//  void ProceduralSkyTextureData::sunAngleMaxChanged(float sunAngleMax)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData18sunAngleMaxChangedEf(
+    ProceduralSkyTextureData *self,
+    float sunAngleMax) {
+  self->sunAngleMaxChanged(sunAngleMax);
+}
+
+//  void ProceduralSkyTextureData::sunCurveChanged(float sunCurve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData15sunCurveChangedEf(
+    ProceduralSkyTextureData *self,
+    float sunCurve) {
+  self->sunCurveChanged(sunCurve);
+}
+
+//  void ProceduralSkyTextureData::sunEnergyChanged(float sunEnergy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData16sunEnergyChangedEf(
+    ProceduralSkyTextureData *self,
+    float sunEnergy) {
+  self->sunEnergyChanged(sunEnergy);
+}
+
+//  void ProceduralSkyTextureData::textureQualityChanged(SkyTextureQuality
+//      textureQuality)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ProceduralSkyTextureData21textureQualityChangedENS_17SkyTextureQualityE(
+    ProceduralSkyTextureData *self,
+    ProceduralSkyTextureData::SkyTextureQuality textureQuality) {
+  self->textureQualityChanged(textureQuality);
+}
+
+//  QByteArray ProceduralSkyTextureData::generateSkyTexture(int width, int
+//      height, QByteArray &imageData, bool isRGBE) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK24ProceduralSkyTextureData18generateSkyTextureEiiR10QByteArrayb(
+    const ProceduralSkyTextureData *self,
+    int width,
+    int height,
+    QByteArray *imageData,
+    bool isRGBE) {
+  return new QByteArray(
+      self->generateSkyTexture(
+          width,
+          height,
+          *imageData,
+          isRGBE));
 }
 
 //  void ProceduralSkyTextureData::scheduleTextureUpdate()

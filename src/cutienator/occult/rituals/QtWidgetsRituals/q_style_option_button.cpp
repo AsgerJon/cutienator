@@ -15,6 +15,15 @@ QStyleOptionButton *ritual_ZN18QStyleOptionButtonC1ERKS_(
   return new QStyleOptionButton(*other);
 }
 
+//  QStyleOptionButton &QStyleOptionButton::operator=(const
+//      QStyleOptionButton &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionButton *ritual_ZN18QStyleOptionButtonaSERKS_(
+    QStyleOptionButton *self,
+    const QStyleOptionButton *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionButton::QStyleOptionButton(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionButton *ritual_ZN18QStyleOptionButtonC1Ei(int version) {

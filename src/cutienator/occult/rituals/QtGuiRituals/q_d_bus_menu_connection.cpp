@@ -36,17 +36,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 25, as local:qdbusmenuconnection.cpp:StatusNotifierWatcherService
+const QString StatusNotifierWatcherService = "org.kde.StatusNotifierWatcher"_L1;
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 27, as local:qdbusmenuconnection.cpp:StatusNotifierItemPath
+const QString StatusNotifierItemPath = "/StatusNotifierItem"_L1;
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 28, as local:qdbusmenuconnection.cpp:MenuBarPath
+const QString MenuBarPath = "/MenuBar"_L1;
+
 //  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 53, as _ZN19QDBusMenuConnectionD1Ev
 inline QDBusMenuConnection::~QDBusMenuConnection()
 {
   if (!m_serviceName.isEmpty() && m_connection.isConnected())
       QDBusConnection::disconnectFromBus(m_serviceName);
-}
-
-//  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 59, as _ZN19QDBusMenuConnection9dbusErrorERK10QDBusError
-inline void QDBusMenuConnection::dbusError(const QDBusError &error)
-{
-    qWarning() << "QDBusTrayIcon encountered a D-Bus error:" << error;
 }
 //  -----------------------------------------------------------------------
 
@@ -224,6 +229,25 @@ const QMetaObject *ritual_ZNK19QDBusMenuConnection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDBusMenuConnection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QDBusMenuConnection11qt_metacastEPKc(
+    QDBusMenuConnection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusMenuConnection::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QDBusMenuConnection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusMenuConnection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QDBusMenuConnection::~QDBusMenuConnection()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QDBusMenuConnectionD1Ev(QDBusMenuConnection *self) {
@@ -251,12 +275,58 @@ bool ritual_ZNK19QDBusMenuConnection19isWatcherRegisteredEv(
   return self->isWatcherRegistered();
 }
 
+#if !defined(QT_NO_SYSTEMTRAYICON)
+//  void QDBusMenuConnection::trayIconRegistered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QDBusMenuConnection18trayIconRegisteredEv(
+    QDBusMenuConnection *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusMenuConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "trayIconRegistered()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "trayIconRegistered()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
 //  void QDBusMenuConnection::dbusError(const QDBusError &error)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QDBusMenuConnection9dbusErrorERK10QDBusError(
     QDBusMenuConnection *self,
     const QDBusError *error) {
-  self->dbusError(*error);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusMenuConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "dbusError(const QDBusError &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "dbusError(const QDBusError &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(error)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQDBusMenuConnection, for the function

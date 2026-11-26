@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QScatter3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QScatter3DSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QScatter3DSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QScatter3DSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -27,6 +33,15 @@
       "nothing", "address", "float"
     ],
     "ritual_ZNK16QScatter3DSeries8itemSizeEv": ["float", "address"],
+    "ritual_ZN16QScatter3DSeries16dataProxyChangedEP17QScatterDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries19selectedItemChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QScatter3DSeries15itemSizeChangedEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZN16QScatter3DSeriesC1EP23QScatter3DSeriesPrivateP7QObject": [
       "address", "address", "address"
     ],

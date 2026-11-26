@@ -9,7 +9,16 @@
       "address", "address", "address", "int"
     ],
     "ritual_ZN29QSGRhiDistanceFieldGlyphCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN29QSGRhiDistanceFieldGlyphCache13requestGlyphsERK4QSetIjE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN29QSGRhiDistanceFieldGlyphCache11storeGlyphsERK5QListI14QDistanceFieldE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QSGRhiDistanceFieldGlyphCache15referenceGlyphsERK4QSetIjE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QSGRhiDistanceFieldGlyphCache13releaseGlyphsERK4QSetIjE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK29QSGRhiDistanceFieldGlyphCache26useTextureResizeWorkaroundEv": [
@@ -41,6 +50,18 @@
     ],
     "ritual_ZN29QSGRhiDistanceFieldGlyphCache21loadPregeneratedCacheERK8QRawFont": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN29QSGRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEiiPKv": [
+      "nothing", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN29QSGRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN29QSGRhiDistanceFieldGlyphCache13resizeTextureEPNS_11TextureInfoEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN29QSGRhiDistanceFieldGlyphCache11textureInfoEi": [
+      "address", "address", "int"
     ],
     "ritual_take_QSGRhiDistanceFieldGlyphCache": [
       "bool", "address", "chars", "address"

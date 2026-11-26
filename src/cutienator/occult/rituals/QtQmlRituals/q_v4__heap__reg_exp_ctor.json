@@ -8,6 +8,12 @@
     "ritual_ZN3QV44Heap10RegExpCtor11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap10RegExpCtor4initEPNS_15ExecutionEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap10RegExpCtor14clearLastMatchEv": [
+      "nothing", "address"
+    ],
     "ritual_cast_QV4_Heap_RegExpCtor_QV4_Heap_RegExpCtorData": [
       "address", "address"
     ]

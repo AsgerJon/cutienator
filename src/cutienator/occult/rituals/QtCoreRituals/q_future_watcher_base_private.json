@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN25QFutureWatcherBasePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QFutureWatcherBasePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QFutureWatcherBasePrivate16postCallOutEventERK19QFutureCallOutEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN25QFutureWatcherBasePrivate28callOutInterfaceDisconnectedEv": [
       "nothing", "address"
     ],

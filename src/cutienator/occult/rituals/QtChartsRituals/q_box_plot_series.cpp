@@ -4,7 +4,9 @@
 #if QT_CONFIG(charts_boxplot_chart)
 #include <QtCharts/qboxplotseries.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(charts_boxplot_chart)
 #include <QtCharts/qboxset.h>
+#endif
 #include <QtGui/qbrush.h>
 #include <QtGui/qpen.h>
 #include <QtCore/qmetaobject.h>
@@ -201,6 +203,24 @@ const QMetaObject *ritual_ZNK14QBoxPlotSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBoxPlotSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QBoxPlotSeries11qt_metacastEPKc(
+    QBoxPlotSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBoxPlotSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QBoxPlotSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBoxPlotSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBoxPlotSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QBoxPlotSeries2trEPKcS1_i(
@@ -343,6 +363,94 @@ void ritual_ZN14QBoxPlotSeries6setPenERK4QPen(
 extern "C" Q_DECL_EXPORT
 QPen *ritual_ZNK14QBoxPlotSeries3penEv(const QBoxPlotSeries *self) {
   return new QPen(self->pen());
+}
+
+//  void QBoxPlotSeries::clicked(QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries7clickedEP7QBoxSet(
+    QBoxPlotSeries *self,
+    QBoxSet *boxset) {
+  self->clicked(boxset);
+}
+
+//  void QBoxPlotSeries::hovered(bool status, QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries7hoveredEbP7QBoxSet(
+    QBoxPlotSeries *self,
+    bool status,
+    QBoxSet *boxset) {
+  self->hovered(status, boxset);
+}
+
+//  void QBoxPlotSeries::pressed(QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries7pressedEP7QBoxSet(
+    QBoxPlotSeries *self,
+    QBoxSet *boxset) {
+  self->pressed(boxset);
+}
+
+//  void QBoxPlotSeries::released(QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries8releasedEP7QBoxSet(
+    QBoxPlotSeries *self,
+    QBoxSet *boxset) {
+  self->released(boxset);
+}
+
+//  void QBoxPlotSeries::doubleClicked(QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries13doubleClickedEP7QBoxSet(
+    QBoxPlotSeries *self,
+    QBoxSet *boxset) {
+  self->doubleClicked(boxset);
+}
+
+//  void QBoxPlotSeries::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries12countChangedEv(QBoxPlotSeries *self) {
+  self->countChanged();
+}
+
+//  void QBoxPlotSeries::penChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries10penChangedEv(QBoxPlotSeries *self) {
+  self->penChanged();
+}
+
+//  void QBoxPlotSeries::brushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries12brushChangedEv(QBoxPlotSeries *self) {
+  self->brushChanged();
+}
+
+//  void QBoxPlotSeries::boxOutlineVisibilityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries27boxOutlineVisibilityChangedEv(
+    QBoxPlotSeries *self) {
+  self->boxOutlineVisibilityChanged();
+}
+
+//  void QBoxPlotSeries::boxWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries15boxWidthChangedEv(QBoxPlotSeries *self) {
+  self->boxWidthChanged();
+}
+
+//  void QBoxPlotSeries::boxsetsAdded(const QList<QBoxSet *> &sets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries12boxsetsAddedERK5QListIP7QBoxSetE(
+    QBoxPlotSeries *self,
+    const QList<QBoxSet *> *sets) {
+  self->boxsetsAdded(*sets);
+}
+
+//  void QBoxPlotSeries::boxsetsRemoved(const QList<QBoxSet *> &sets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxPlotSeries14boxsetsRemovedERK5QListIP7QBoxSetE(
+    QBoxPlotSeries *self,
+    const QList<QBoxSet *> *sets) {
+  self->boxsetsRemoved(*sets);
 }
 
 //  QBoxPlotSeriesPrivate *QBoxPlotSeries::d_func()

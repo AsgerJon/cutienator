@@ -8,6 +8,9 @@
     "ritual_ZN20QSSGApplyBufferValueC1ERK10QByteArrayS2_": [
       "address", "address", "address"
     ],
+    "ritual_ZNK20QSSGApplyBufferValue8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QSSGApplyBufferValueC1ERKS_": ["address", "address"],
     "ritual_ZN20QSSGApplyBufferValueD1Ev": ["nothing", "address"]
   }

@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QHttpMultiPartIODeviceD1Ev": ["nothing", "address"],
     "ritual_ZNK22QHttpMultiPartIODevice5atEndEv": ["bool", "address"],
     "ritual_ZNK22QHttpMultiPartIODevice14bytesAvailableEv": [
       "long long", "address"
@@ -18,6 +19,9 @@
       "bool", "address"
     ],
     "ritual_ZN22QHttpMultiPartIODevice5resetEv": ["bool", "address"],
+    "ritual_ZN22QHttpMultiPartIODevice8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN22QHttpMultiPartIODevice9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
@@ -38,6 +42,9 @@
     "ritual_own_ZNK22QHttpMultiPartIODevice12isSequentialEv": [
       "bool", "address"
     ],
-    "ritual_own_ZN22QHttpMultiPartIODevice5resetEv": ["bool", "address"]
+    "ritual_own_ZN22QHttpMultiPartIODevice5resetEv": ["bool", "address"],
+    "ritual_own_ZN22QHttpMultiPartIODevice8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ]
   }
 }

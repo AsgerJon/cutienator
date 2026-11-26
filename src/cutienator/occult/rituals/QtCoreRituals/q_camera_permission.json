@@ -6,6 +6,12 @@
   "rows": {
     "ritual_ZN17QCameraPermissionC1Ev": ["address"],
     "ritual_ZN17QCameraPermissionC1ERKS_": ["address", "address"],
-    "ritual_ZN17QCameraPermissionD1Ev": ["nothing", "address"]
+    "ritual_ZN17QCameraPermissionC1EOS_": ["address", "address"],
+    "ritual_ZN17QCameraPermissionD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCameraPermissionaSERKS_": ["address", "address", "address"],
+    "ritual_ZN17QCameraPermissionaSEOS_": ["address", "address", "address"],
+    "ritual_ZN17QCameraPermission4swapERS_": [
+      "nothing", "address", "address"
+    ]
   }
 }

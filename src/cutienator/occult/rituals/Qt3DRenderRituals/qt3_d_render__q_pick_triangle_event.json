@@ -8,6 +8,12 @@
     "ritual_ZNK10Qt3DRender18QPickTriangleEvent10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender18QPickTriangleEvent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender18QPickTriangleEvent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender18QPickTriangleEvent2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,6 +26,22 @@
       "address", "address", "address", "address", "float", "unsigned int",
       "unsigned int", "unsigned int", "unsigned int", "int", "int", "int",
       "address"
+    ],
+    "ritual_ZN10Qt3DRender18QPickTriangleEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender18QPickTriangleEvent13triangleIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QPickTriangleEvent12vertex1IndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QPickTriangleEvent12vertex2IndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QPickTriangleEvent12vertex3IndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QPickTriangleEvent3uvwEv": [
+      "address", "address"
     ],
     "ritual_ZN10Qt3DRender18QPickTriangleEvent6d_funcEv": [
       "address", "address"

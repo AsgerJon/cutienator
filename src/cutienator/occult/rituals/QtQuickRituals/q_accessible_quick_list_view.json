@@ -24,6 +24,9 @@
     "ritual_ZNK24QAccessibleQuickListView8listViewEv": [
       "address", "address"
     ],
+    "ritual_ZN24QAccessibleQuickListView14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_cast_QAccessibleQuickListView_QAccessibleViewportInterface": [
       "address", "address"
     ],
@@ -44,6 +47,9 @@
     ],
     "ritual_own_ZN24QAccessibleQuickListView11setPositionE7QPointF": [
       "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QAccessibleQuickListView14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
     ]
   }
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QCandlestickSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QCandlestickSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QCandlestickSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QCandlestickSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -83,6 +89,54 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK18QCandlestickSeries3penEv": ["address", "address"],
+    "ritual_ZN18QCandlestickSeries7clickedEP15QCandlestickSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries7hoveredEbP15QCandlestickSet": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries7pressedEP15QCandlestickSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries8releasedEP15QCandlestickSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries13doubleClickedEP15QCandlestickSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries20candlestickSetsAddedERK5QListIP15QCandlestickSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries22candlestickSetsRemovedERK5QListIP15QCandlestickSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries12countChangedEv": ["nothing", "address"],
+    "ritual_ZN18QCandlestickSeries25maximumColumnWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries25minimumColumnWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries16bodyWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries28bodyOutlineVisibilityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries16capsWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries21capsVisibilityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries22increasingColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries22decreasingColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QCandlestickSeries12brushChangedEv": ["nothing", "address"],
+    "ritual_ZN18QCandlestickSeries10penChangedEv": ["nothing", "address"],
     "ritual_ZN18QCandlestickSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK18QCandlestickSeries6d_funcEv": ["address", "address"],
     "ritual_take_QCandlestickSeries": [

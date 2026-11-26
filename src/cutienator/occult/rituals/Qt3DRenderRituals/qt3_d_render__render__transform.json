@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render9Transform13hasViewMatrixEv": [
+      "bool",
+      "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9Transform10viewMatrixEv": [
+      "address",
+      "address"
+    ]
+  }
+}

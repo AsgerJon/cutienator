@@ -13,6 +13,9 @@
       "address", "address", "unsigned int"
     ],
     "ritual_ZN25QOpcUaRelativePathElementC1ERKS_": ["address", "address"],
+    "ritual_ZN25QOpcUaRelativePathElementaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN25QOpcUaRelativePathElementD1Ev": ["nothing", "address"],
     "ritual_ZNK25QOpcUaRelativePathElement15referenceTypeIdEv": [
       "text", "address"

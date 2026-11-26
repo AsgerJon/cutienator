@@ -155,6 +155,14 @@ int ritual_ZNK25QAbstractFileIconProvider7optionsEv(
   return static_cast<int>(self->options().toInt());
 }
 
+//  QAbstractFileIconProvider::QAbstractFileIconProvider(QAbstractFileIconPro
+//      viderPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QAbstractFileIconProvider *ritual_ZN25QAbstractFileIconProviderC1ER32QAbstractFileIconProviderPrivate(
+    QAbstractFileIconProviderPrivate *dd) {
+  return new CuteQAbstractFileIconProvider(*dd);
+}
+
 //  QAbstractFileIconProviderPrivate *QAbstractFileIconProvider::d_func()
 extern "C" Q_DECL_EXPORT
 QAbstractFileIconProviderPrivate *ritual_ZN25QAbstractFileIconProvider6d_funcEv(

@@ -11,11 +11,17 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlfiltercompositor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)
+#include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlfilterbase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qlist.h>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQmlFilterCompositor may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -28,6 +34,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QQmlFilterCompositor10metaObjectEv(
     const QQmlFilterCompositor *self) {
   return self->metaObject();
+}
+
+//  void *QQmlFilterCompositor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQmlFilterCompositor11qt_metacastEPKc(
+    QQmlFilterCompositor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlFilterCompositor::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQmlFilterCompositor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlFilterCompositor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQmlFilterCompositor::tr(const char *s, const char *c, int n)
@@ -60,6 +85,14 @@ QList<QQmlFilterBase *> *ritual_ZN20QQmlFilterCompositor7filtersEv(
   return new QList<QQmlFilterBase *>(self->filters());
 }
 
+//  QQmlListProperty<QQmlFilterBase>
+//      QQmlFilterCompositor::filtersListProperty()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQmlFilterBase> *ritual_ZN20QQmlFilterCompositor19filtersListPropertyEv(
+    QQmlFilterCompositor *self) {
+  return new QQmlListProperty<QQmlFilterBase>(self->filtersListProperty());
+}
+
 //  bool QQmlFilterCompositor::filterAcceptsRowInternal(int a0, const
 //      QModelIndex &a1, const QQmlSortFilterProxyModel *a2) const
 extern "C" Q_DECL_EXPORT
@@ -87,6 +120,40 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlFilterCompositor13updateFiltersEv(
     QQmlFilterCompositor *self) {
   self->updateFilters();
+}
+
+//  void QQmlFilterCompositor::append(QQmlListProperty<QQmlFilterBase>
+//      *filterComp, QQmlFilterBase *filter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlFilterCompositor6appendEP16QQmlListPropertyI14QQmlFilterBaseEPS1_(
+    QQmlListProperty<QQmlFilterBase> *filterComp,
+    QQmlFilterBase *filter) {
+  QQmlFilterCompositor::append(filterComp, filter);
+}
+
+//  qsizetype QQmlFilterCompositor::count(QQmlListProperty<QQmlFilterBase>
+//      *filterComp)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN20QQmlFilterCompositor5countEP16QQmlListPropertyI14QQmlFilterBaseE(
+    QQmlListProperty<QQmlFilterBase> *filterComp) {
+  return QQmlFilterCompositor::count(filterComp);
+}
+
+//  QQmlFilterBase *QQmlFilterCompositor::at(QQmlListProperty<QQmlFilterBase>
+//      *filterComp, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQmlFilterBase *ritual_ZN20QQmlFilterCompositor2atEP16QQmlListPropertyI14QQmlFilterBaseEx(
+    QQmlListProperty<QQmlFilterBase> *filterComp,
+    qsizetype index) {
+  return QQmlFilterCompositor::at(filterComp, index);
+}
+
+//  void QQmlFilterCompositor::clear(QQmlListProperty<QQmlFilterBase>
+//      *filterComp)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlFilterCompositor5clearEP16QQmlListPropertyI14QQmlFilterBaseE(
+    QQmlListProperty<QQmlFilterBase> *filterComp) {
+  QQmlFilterCompositor::clear(filterComp);
 }
 
 //  void QQmlFilterCompositor::append(QQmlFilterBase *a0)
@@ -178,6 +245,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN20QQmlFilterCompositor12refreshCacheEv(
     QQmlFilterCompositor *self) {
   static_cast<OwnQQmlFilterCompositor *>(self)->OwnQQmlFilterCompositor::refreshCache();
+}
+
+//  a QQmlListProperty<QQmlFilterBase> a ritual of QQmlFilterCompositor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlFilterCompositor__QQmlListProperty_QQmlFilterBase(
+    QQmlListProperty<QQmlFilterBase> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)

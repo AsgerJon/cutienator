@@ -22,9 +22,18 @@
       "address", "address"
     ],
     "ritual_ZNK21QSGStyledTextMaterial4typeEv": ["address", "address"],
+    "ritual_ZNK21QSGStyledTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QSGStyledTextMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
     "ritual_take_QSGStyledTextMaterial": [
       "bool", "address", "chars", "address"
     ],
-    "ritual_own_ZNK21QSGStyledTextMaterial4typeEv": ["address", "address"]
+    "ritual_own_ZNK21QSGStyledTextMaterial4typeEv": ["address", "address"],
+    "ritual_own_ZNK21QSGStyledTextMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ]
   }
 }

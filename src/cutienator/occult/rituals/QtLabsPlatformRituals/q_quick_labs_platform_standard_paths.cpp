@@ -26,6 +26,18 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformstandardpaths.cpp, line 37, as local:qquicklabsplatformstandardpaths.cpp:toUrlList
+#if QT_DEPRECATED_SINCE(6, 4)
+static QList<QUrl> toUrlList(const QStringList &paths)
+{
+    QList<QUrl> urls;
+    urls.reserve(paths.size());
+    for (const QString &path : paths)
+        urls += QUrl::fromLocalFile(path);
+    return urls;
+}
+#endif  // QT_DEPRECATED_SINCE(6, 4)
+
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformstandardpaths.cpp, line 64, as _ZN31QQuickLabsPlatformStandardPaths11displayNameEN14QStandardPaths16StandardLocationE
 #if QT_DEPRECATED_SINCE(6, 4)
 inline QString QQuickLabsPlatformStandardPaths::displayName(QStandardPaths::StandardLocation type)
@@ -47,6 +59,14 @@ inline QUrl QQuickLabsPlatformStandardPaths::findExecutable(const QString &execu
 inline QUrl QQuickLabsPlatformStandardPaths::locate(QStandardPaths::StandardLocation type, const QString &fileName, QStandardPaths::LocateOptions options)
 {
     return QUrl::fromLocalFile(QStandardPaths::locate(type, fileName, options));
+}
+#endif  // QT_DEPRECATED_SINCE(6, 4)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformstandardpaths.cpp, line 100, as _ZN31QQuickLabsPlatformStandardPaths9locateAllEN14QStandardPaths16StandardLocationERK7QString6QFlagsINS0_12LocateOptionEE
+#if QT_DEPRECATED_SINCE(6, 4)
+inline QList<QUrl> QQuickLabsPlatformStandardPaths::locateAll(QStandardPaths::StandardLocation type, const QString &fileName, QStandardPaths::LocateOptions options)
+{
+    return toUrlList(QStandardPaths::locateAll(type, fileName, options));
 }
 #endif  // QT_DEPRECATED_SINCE(6, 4)
 
@@ -72,6 +92,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK31QQuickLabsPlatformStandardPaths10metaObjectEv(
     const QQuickLabsPlatformStandardPaths *self) {
   return self->metaObject();
+}
+
+//  void *QQuickLabsPlatformStandardPaths::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QQuickLabsPlatformStandardPaths11qt_metacastEPKc(
+    QQuickLabsPlatformStandardPaths *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformStandardPaths::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QQuickLabsPlatformStandardPaths11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformStandardPaths *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  void QQuickLabsPlatformStandardPaths::qt_qmlMarker_singleton()
@@ -131,6 +170,23 @@ QUrl *ritual_ZN31QQuickLabsPlatformStandardPaths6locateEN14QStandardPaths16Stand
     int options) {
   return new QUrl(
       QQuickLabsPlatformStandardPaths::locate(
+          type,
+          *fileName,
+          QFlags<QStandardPaths::LocateOption>::fromInt(options)));
+}
+#endif  // QT_DEPRECATED_SINCE(6, 4)
+
+#if QT_DEPRECATED_SINCE(6, 4)
+//  QList<QUrl> QQuickLabsPlatformStandardPaths::locateAll(QStandardPaths::St
+//      andardLocation type, const QString &fileName,
+//      QStandardPaths::LocateOptions options)
+extern "C" Q_DECL_EXPORT
+QList<QUrl> *ritual_ZN31QQuickLabsPlatformStandardPaths9locateAllEN14QStandardPaths16StandardLocationERK7QString6QFlagsINS0_12LocateOptionEE(
+    QStandardPaths::StandardLocation type,
+    const QString *fileName,
+    int options) {
+  return new QList<QUrl>(
+      QQuickLabsPlatformStandardPaths::locateAll(
           type,
           *fileName,
           QFlags<QStandardPaths::LocateOption>::fromInt(options)));

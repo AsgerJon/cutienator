@@ -923,6 +923,25 @@ const QMetaObject *ritual_ZNK27QDeclarativePolylineMapItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativePolylineMapItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QDeclarativePolylineMapItem11qt_metacastEPKc(
+    QDeclarativePolylineMapItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativePolylineMapItem::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QDeclarativePolylineMapItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativePolylineMapItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativePolylineMapItem::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -1090,6 +1109,13 @@ extern "C" Q_DECL_EXPORT
 QDeclarativeMapLineProperties *ritual_ZN27QDeclarativePolylineMapItem4lineEv(
     QDeclarativePolylineMapItem *self) {
   return self->line();
+}
+
+//  void QDeclarativePolylineMapItem::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativePolylineMapItem11pathChangedEv(
+    QDeclarativePolylineMapItem *self) {
+  self->pathChanged();
 }
 
 //  void QDeclarativePolylineMapItem::updateAfterLinePropertiesChanged()

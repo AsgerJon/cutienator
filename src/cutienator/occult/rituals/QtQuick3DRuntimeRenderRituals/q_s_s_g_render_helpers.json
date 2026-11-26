@@ -5,9 +5,19 @@
     "s.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QSSGRenderHelpers17createRenderablesERK13QSSGFrameData17QSSGPrepContextIdRK5QListI10QSSGNodeIdE6QFlagsINS_10CreateFlagEE": [
+      "unsigned long long", "address", "unsigned long long", "address", "int"
+    ],
+    "ritual_ZN17QSSGRenderHelpers16prepareForRenderERK13QSSGFrameDataRK19QSSGRenderExtension12QSSGCameraIdj": [
+      "unsigned long long", "address", "address", "unsigned long long",
+      "unsigned int"
+    ],
     "ritual_ZN17QSSGRenderHelpers6commitERK13QSSGFrameData17QSSGPrepContextId17QSSGRenderablesIdf": [
       "unsigned long long", "address", "unsigned long long",
       "unsigned long long", "float"
+    ],
+    "ritual_ZN17QSSGRenderHelpers18prepareRenderablesERK13QSSGFrameData16QSSGPrepResultIdP24QRhiRenderPassDescriptorR28QSSGRhiGraphicsPipelineState6QFlagsI21QSSGRenderablesFilterE": [
+      "nothing", "address", "unsigned long long", "address", "address", "int"
     ],
     "ritual_ZN17QSSGRenderHelpers17renderRenderablesERK13QSSGFrameData16QSSGPrepResultId": [
       "nothing", "address", "unsigned long long"

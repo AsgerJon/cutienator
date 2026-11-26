@@ -2,6 +2,7 @@
 //  Qt3DExtras/qextrudedtextmesh.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qextrudedtextmesh.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qfont.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras17QExtrudedTextMesh10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QExtrudedTextMesh::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras17QExtrudedTextMesh11qt_metacastEPKc(
+    Qt3DExtras::QExtrudedTextMesh *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QExtrudedTextMesh::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras17QExtrudedTextMesh11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QExtrudedTextMesh *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QExtrudedTextMesh::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,89 @@ QString *ritual_ZN10Qt3DExtras17QExtrudedTextMesh2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QExtrudedTextMesh::tr(s, c, n));
+}
+
+//  Qt3DExtras::QExtrudedTextMesh::QExtrudedTextMesh(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QExtrudedTextMesh *ritual_ZN10Qt3DExtras17QExtrudedTextMeshC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QExtrudedTextMesh(parent);
+}
+
+//  Qt3DExtras::QExtrudedTextMesh::~QExtrudedTextMesh()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QExtrudedTextMeshD1Ev(
+    Qt3DExtras::QExtrudedTextMesh *self) {
+  delete self;
+}
+
+//  QString Qt3DExtras::QExtrudedTextMesh::text() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DExtras17QExtrudedTextMesh4textEv(
+    const Qt3DExtras::QExtrudedTextMesh *self) {
+  return new QString(self->text());
+}
+
+//  QFont Qt3DExtras::QExtrudedTextMesh::font() const
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZNK10Qt3DExtras17QExtrudedTextMesh4fontEv(
+    const Qt3DExtras::QExtrudedTextMesh *self) {
+  return new QFont(self->font());
+}
+
+//  float Qt3DExtras::QExtrudedTextMesh::depth() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras17QExtrudedTextMesh5depthEv(
+    const Qt3DExtras::QExtrudedTextMesh *self) {
+  return self->depth();
+}
+
+//  void Qt3DExtras::QExtrudedTextMesh::setText(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QExtrudedTextMesh7setTextERK7QString(
+    Qt3DExtras::QExtrudedTextMesh *self,
+    const QString *text) {
+  self->setText(*text);
+}
+
+//  void Qt3DExtras::QExtrudedTextMesh::setFont(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QExtrudedTextMesh7setFontERK5QFont(
+    Qt3DExtras::QExtrudedTextMesh *self,
+    const QFont *font) {
+  self->setFont(*font);
+}
+
+//  void Qt3DExtras::QExtrudedTextMesh::setDepth(float depth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QExtrudedTextMesh8setDepthEf(
+    Qt3DExtras::QExtrudedTextMesh *self,
+    float depth) {
+  self->setDepth(depth);
+}
+
+//  void Qt3DExtras::QExtrudedTextMesh::textChanged(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QExtrudedTextMesh11textChangedERK7QString(
+    Qt3DExtras::QExtrudedTextMesh *self,
+    const QString *text) {
+  self->textChanged(*text);
+}
+
+//  void Qt3DExtras::QExtrudedTextMesh::fontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QExtrudedTextMesh11fontChangedERK5QFont(
+    Qt3DExtras::QExtrudedTextMesh *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+
+//  void Qt3DExtras::QExtrudedTextMesh::depthChanged(float depth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras17QExtrudedTextMesh12depthChangedEf(
+    Qt3DExtras::QExtrudedTextMesh *self,
+    float depth) {
+  self->depthChanged(depth);
 }
 
 //  a Python function taken by a CuteQt3DExtras_QExtrudedTextMesh, for the

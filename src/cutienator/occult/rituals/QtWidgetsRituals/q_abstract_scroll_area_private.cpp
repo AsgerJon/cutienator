@@ -82,6 +82,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
 inline QFramePrivate::QFramePrivate()
     : frect(0, 0, 0, 0),
@@ -131,6 +133,21 @@ inline bool QAbstractScrollAreaPrivate::canStartScrollingAt(const QPoint &startP
 }
 #endif  // QT_CONFIG(scrollarea)
 
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 145, as _ZN37QAbstractScrollAreaScrollBarContainerC1EN2Qt11OrientationEP7QWidget
+#if QT_CONFIG(scrollarea)
+inline QAbstractScrollAreaScrollBarContainer::QAbstractScrollAreaScrollBarContainer(Qt::Orientation orientation, QWidget *parent)
+    :QWidget(parent), scrollBar(new QScrollBar(orientation, this)),
+     layout(new QBoxLayout(orientation == Qt::Horizontal ? QBoxLayout::LeftToRight : QBoxLayout::TopToBottom)),
+     orientation(orientation)
+{
+    setLayout(layout);
+    layout->setContentsMargins(QMargins());
+    layout->setSpacing(0);
+    layout->addWidget(scrollBar);
+    layout->setSizeConstraint(QLayout::SetMaximumSize);
+}
+#endif  // QT_CONFIG(scrollarea)
+
 //  from src/widgets/widgets/qscrollbar.cpp, line 200, as _ZN17QScrollBarPrivate12setTransientEb
 inline void QScrollBarPrivate::setTransient(bool value)
 {
@@ -147,6 +164,17 @@ inline void QScrollBarPrivate::setTransient(bool value)
         }
     }
 }
+
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 133, as _ZN26QAbstractScrollAreaPrivateC1Ev
+#if QT_CONFIG(scrollarea)
+inline QAbstractScrollAreaPrivate::QAbstractScrollAreaPrivate()
+    :hbar(nullptr), vbar(nullptr), vbarpolicy(Qt::ScrollBarAsNeeded), hbarpolicy(Qt::ScrollBarAsNeeded),
+     shownOnce(false), inResize(false), sizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored),
+     viewport(nullptr), cornerWidget(nullptr), left(0), top(0), right(0), bottom(0),
+     xoffset(0), yoffset(0), viewportFilter(nullptr)
+{
+}
+#endif  // QT_CONFIG(scrollarea)
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 141, as _ZN26QAbstractScrollAreaPrivateD1Ev
 #if QT_CONFIG(scrollarea)
@@ -751,6 +779,14 @@ const QAbstractScrollArea *ritual_ZNK26QAbstractScrollAreaPrivate6q_funcEv(
     const QAbstractScrollAreaPrivate *self) {
   return self->q_func();
 }
+
+#if QT_CONFIG(scrollarea)
+//  QAbstractScrollAreaPrivate::QAbstractScrollAreaPrivate()
+extern "C" Q_DECL_EXPORT
+QAbstractScrollAreaPrivate *ritual_ZN26QAbstractScrollAreaPrivateC1Ev() {
+  return new CuteQAbstractScrollAreaPrivate();
+}
+#endif  // QT_CONFIG(scrollarea)
 
 //  QAbstractScrollAreaPrivate::~QAbstractScrollAreaPrivate()
 extern "C" Q_DECL_EXPORT

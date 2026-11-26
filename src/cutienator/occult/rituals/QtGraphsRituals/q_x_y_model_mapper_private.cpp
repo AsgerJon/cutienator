@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qxymodelmapper.h>
@@ -24,6 +24,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/xychart/qxymodelmapper.cpp, line 461, as _ZN21QXYModelMapperPrivateD1Ev
+inline QXYModelMapperPrivate::~QXYModelMapperPrivate() {}
+
+//  from ../qtgraphs/src/graphs2d/xychart/qxymodelmapper.cpp, line 459, as _ZN21QXYModelMapperPrivateC1Ev
+inline QXYModelMapperPrivate::QXYModelMapperPrivate() {}
 
 //  from ../qtgraphs/src/graphs2d/xychart/qxymodelmapper.cpp, line 637, as _ZN21QXYModelMapperPrivate16onModelRowsAddedE11QModelIndexxx
 inline void QXYModelMapperPrivate::onModelRowsAdded(QModelIndex parent, qsizetype start, qsizetype end)
@@ -252,6 +258,18 @@ const QXYModelMapper *ritual_ZNK21QXYModelMapperPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QXYModelMapperPrivate::QXYModelMapperPrivate()
+extern "C" Q_DECL_EXPORT
+QXYModelMapperPrivate *ritual_ZN21QXYModelMapperPrivateC1Ev() {
+  return new QXYModelMapperPrivate();
+}
+
+//  QXYModelMapperPrivate::~QXYModelMapperPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QXYModelMapperPrivateD1Ev(QXYModelMapperPrivate *self) {
+  delete self;
+}
+
 //  void QXYModelMapperPrivate::onModelRowsAdded(QModelIndex parent,
 //      qsizetype start, qsizetype end)
 extern "C" Q_DECL_EXPORT
@@ -394,4 +412,4 @@ void ritual_ZN21QXYModelMapperPrivate15setValueToModelE11QModelIndexd(
   self->setValueToModel(*index, value);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))

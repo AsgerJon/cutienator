@@ -34,12 +34,6 @@
 #if QT_CONFIG(systemtrayicon)
 #include <QtLabsPlatform/private/qquicklabsplatformsystemtrayicon_p.h>
 #endif
-#include <QtLabsPlatform/private/qquicklabsplatformiconloader_p.h>
-#include <QtCore/qobject.h>
-#include <QtCore/qmetaobject.h>
-#include <QtQml/qqml.h>
-#include <QtLabsPlatform/private/qquicklabsplatformmenuitemgroup_p.h>
-#include <QtLabsPlatform/private/qquicklabsplatformmenuitem_p.h>
 #include <QtLabsPlatform/private/qquicklabsplatformmenuitem_p.h>
 #include <QtLabsPlatform/private/qquicklabsplatformmenu_p.h>
 #include <QtLabsPlatform/private/qquicklabsplatformmenuitemgroup_p.h>
@@ -51,6 +45,12 @@
 #include <QtGui/qpa/qplatformtheme.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtQuickTemplates2/private/qquickshortcutcontext_p_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformiconloader_p.h>
+#include <QtCore/qobject.h>
+#include <QtCore/qmetaobject.h>
+#include <QtQml/qqml.h>
+#include <QtLabsPlatform/private/qquicklabsplatformmenuitemgroup_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformmenuitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -72,6 +72,11 @@ inline void QQuickLabsPlatformMenu::removeItem(QQuickLabsPlatformMenuItem *item)
     item->setMenu(nullptr);
     sync();
     emit itemsChanged();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 553, as _ZN26QQuickLabsPlatformMenuItem10classBeginEv
+inline void QQuickLabsPlatformMenuItem::classBegin()
+{
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenu.cpp, line 233, as _ZN22QQuickLabsPlatformMenu4syncEv
@@ -137,12 +142,42 @@ inline QQuickLabsPlatformIcon QQuickLabsPlatformIconLoader::icon() const
     return m_icon;
 }
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformiconloader.cpp, line 26, as _ZN28QQuickLabsPlatformIconLoader10setEnabledEb
-inline void QQuickLabsPlatformIconLoader::setEnabled(bool enabled)
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 557, as _ZN26QQuickLabsPlatformMenuItem17componentCompleteEv
+inline void QQuickLabsPlatformMenuItem::componentComplete()
 {
-    m_enabled = enabled;
-    if (m_enabled)
-        loadIcon();
+    if (m_iconLoader)
+        m_iconLoader->setEnabled(true);
+    m_complete = true;
+    sync();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 459, as _ZN26QQuickLabsPlatformMenuItem5eventEP6QEvent
+inline bool QQuickLabsPlatformMenuItem::event(QEvent *e)
+{
+#if QT_CONFIG(shortcut)
+    if (e->type() == QEvent::Shortcut) {
+        QShortcutEvent *se = static_cast<QShortcutEvent *>(e);
+        if (se->shortcutId() == m_shortcutId) {
+            activate();
+            return true;
+        }
+    }
+#endif
+    return QObject::event(e);
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 576, as _ZN26QQuickLabsPlatformMenuItem8activateEv
+inline void QQuickLabsPlatformMenuItem::activate()
+{
+    toggle();
+    emit triggered();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 547, as _ZN26QQuickLabsPlatformMenuItem6toggleEv
+inline void QQuickLabsPlatformMenuItem::toggle()
+{
+    if (m_checkable)
+        setChecked(!m_checked);
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 89, as _ZN26QQuickLabsPlatformMenuItemD1Ev
@@ -244,35 +279,6 @@ inline QQuickLabsPlatformIcon QQuickLabsPlatformMenuItem::icon() const
         return QQuickLabsPlatformIcon();
 
     return m_iconLoader->icon();
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 553, as _ZN26QQuickLabsPlatformMenuItem10classBeginEv
-inline void QQuickLabsPlatformMenuItem::classBegin()
-{
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 557, as _ZN26QQuickLabsPlatformMenuItem17componentCompleteEv
-inline void QQuickLabsPlatformMenuItem::componentComplete()
-{
-    if (m_iconLoader)
-        m_iconLoader->setEnabled(true);
-    m_complete = true;
-    sync();
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 459, as _ZN26QQuickLabsPlatformMenuItem5eventEP6QEvent
-inline bool QQuickLabsPlatformMenuItem::event(QEvent *e)
-{
-#if QT_CONFIG(shortcut)
-    if (e->type() == QEvent::Shortcut) {
-        QShortcutEvent *se = static_cast<QShortcutEvent *>(e);
-        if (se->shortcutId() == m_shortcutId) {
-            activate();
-            return true;
-        }
-    }
-#endif
-    return QObject::event(e);
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenuitem.cpp, line 587, as _ZN26QQuickLabsPlatformMenuItem11addShortcutEv
@@ -526,6 +532,25 @@ const QMetaObject *ritual_ZNK26QQuickLabsPlatformMenuItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLabsPlatformMenuItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickLabsPlatformMenuItem11qt_metacastEPKc(
+    QQuickLabsPlatformMenuItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformMenuItem::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickLabsPlatformMenuItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformMenuItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const QMetaObject *QQuickLabsPlatformMenuItem::qmlExtendedNamespace()
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZN26QQuickLabsPlatformMenuItem20qmlExtendedNamespaceEv() {
@@ -645,6 +670,406 @@ QQuickLabsPlatformIcon *ritual_ZNK26QQuickLabsPlatformMenuItem4iconEv(
   return new QQuickLabsPlatformIcon(self->icon());
 }
 
+//  void QQuickLabsPlatformMenuItem::toggle()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem6toggleEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "toggle()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "toggle()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::triggered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem9triggeredEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "triggered()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "triggered()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::hovered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem7hoveredEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "hovered()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "hovered()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::menuChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem11menuChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "menuChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "menuChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::subMenuChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem14subMenuChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "subMenuChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "subMenuChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::groupChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem12groupChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "groupChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "groupChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem14enabledChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "enabledChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "enabledChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem14visibleChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "visibleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "visibleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::separatorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem16separatorChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "separatorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "separatorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::checkableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem16checkableChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "checkableChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "checkableChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::checkedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem14checkedChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "checkedChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "checkedChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::roleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem11roleChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "roleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "roleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem11textChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "textChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "textChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::shortcutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem15shortcutChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "shortcutChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "shortcutChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem11fontChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fontChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fontChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::iconChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem11iconChangedEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "iconChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "iconChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuickLabsPlatformMenuItem::classBegin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QQuickLabsPlatformMenuItem10classBeginEv(
@@ -665,6 +1090,56 @@ bool ritual_ZN26QQuickLabsPlatformMenuItem5eventEP6QEvent(
     QQuickLabsPlatformMenuItem *self,
     QEvent *e) {
   return self->event(e);
+}
+
+//  void QQuickLabsPlatformMenuItem::activate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem8activateEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "activate()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "activate()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuItem::updateIcon()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickLabsPlatformMenuItem10updateIconEv(
+    QQuickLabsPlatformMenuItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateIcon()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateIcon()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuickLabsPlatformMenuItem::addShortcut()

@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qnetworkfile_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -50,38 +51,40 @@ typedef bool (*CuteQNetworkFileCall7)(const void *, int *);
 typedef qint64 (*CuteQNetworkFileCall8)(const void *, int *);
 typedef bool (*CuteQNetworkFileCall9)(const void *, qint64, int *);
 typedef bool (*CuteQNetworkFileCall10)(const void *, int *);
-typedef bool (*CuteQNetworkFileCall11)(const void *, int *);
-typedef qint64 (*CuteQNetworkFileCall12)(const void *, int *);
-typedef qint64 (*CuteQNetworkFileCall13)(const void *, int *);
-typedef bool (*CuteQNetworkFileCall14)(const void *, int *);
-typedef bool (*CuteQNetworkFileCall15)(const void *, int, int *);
-typedef bool (*CuteQNetworkFileCall16)(const void *, int, int *);
-typedef qint64 (*CuteQNetworkFileCall17)(const void *, qint64, int *);
+typedef qint64 (*CuteQNetworkFileCall11)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQNetworkFileCall12)(const void *, char *, qint64, int *);
+typedef bool (*CuteQNetworkFileCall13)(const void *, int *);
+typedef qint64 (*CuteQNetworkFileCall14)(const void *, int *);
+typedef qint64 (*CuteQNetworkFileCall15)(const void *, int *);
+typedef bool (*CuteQNetworkFileCall16)(const void *, int *);
+typedef bool (*CuteQNetworkFileCall17)(const void *, int, int *);
+typedef bool (*CuteQNetworkFileCall18)(const void *, int, int *);
+typedef qint64 (*CuteQNetworkFileCall19)(const void *, qint64, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQNetworkFileCall18)(const void *, QEvent *, int *);
+typedef bool (*CuteQNetworkFileCall20)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQNetworkFileCall19)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQNetworkFileCall21)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkFileCall20)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQNetworkFileCall22)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkFileCall21)(const void *, QChildEvent *, int *);
+typedef void (*CuteQNetworkFileCall23)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkFileCall22)(const void *, QEvent *, int *);
+typedef void (*CuteQNetworkFileCall24)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkFileCall23)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQNetworkFileCall25)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkFileCall24)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQNetworkFileCall26)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQNetworkFile : public QNetworkFile {
 public:
   using QNetworkFile::QNetworkFile;
-  void *taken[25] = {};
+  void *taken[27] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
@@ -128,73 +131,81 @@ public:
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice8readDataEPcx")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice12readLineDataEPcx")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
       taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+      taken[19] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[18] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[19] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[20] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[21] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[22] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[23] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[24] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[25] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[26] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -326,11 +337,33 @@ public:
     return QFileDevice::atEnd();
   }
 
-  //  bool QIODevice::reset()
-  bool reset() override {
+  //  qint64 QFileDevice::readData(char *data, qint64 maxlen)
+  qint64 readData(char *data, qint64 maxlen) override {
     if (taken[11]) {
       int handled = 0;
       CuteQNetworkFileCall11 call = reinterpret_cast<CuteQNetworkFileCall11>(taken[11]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QFileDevice::readData(data, maxlen);
+  }
+
+  //  qint64 QFileDevice::readLineData(char *data, qint64 maxlen)
+  qint64 readLineData(char *data, qint64 maxlen) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQNetworkFileCall12 call = reinterpret_cast<CuteQNetworkFileCall12>(taken[12]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QFileDevice::readLineData(data, maxlen);
+  }
+
+  //  bool QIODevice::reset()
+  bool reset() override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQNetworkFileCall13 call = reinterpret_cast<CuteQNetworkFileCall13>(taken[13]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -339,9 +372,9 @@ public:
 
   //  qint64 QIODevice::bytesAvailable() const
   qint64 bytesAvailable() const override {
-    if (taken[12]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQNetworkFileCall12 call = reinterpret_cast<CuteQNetworkFileCall12>(taken[12]);
+      CuteQNetworkFileCall14 call = reinterpret_cast<CuteQNetworkFileCall14>(taken[14]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -350,9 +383,9 @@ public:
 
   //  qint64 QIODevice::bytesToWrite() const
   qint64 bytesToWrite() const override {
-    if (taken[13]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQNetworkFileCall13 call = reinterpret_cast<CuteQNetworkFileCall13>(taken[13]);
+      CuteQNetworkFileCall15 call = reinterpret_cast<CuteQNetworkFileCall15>(taken[15]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -361,9 +394,9 @@ public:
 
   //  bool QIODevice::canReadLine() const
   bool canReadLine() const override {
-    if (taken[14]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQNetworkFileCall14 call = reinterpret_cast<CuteQNetworkFileCall14>(taken[14]);
+      CuteQNetworkFileCall16 call = reinterpret_cast<CuteQNetworkFileCall16>(taken[16]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -372,9 +405,9 @@ public:
 
   //  bool QIODevice::waitForReadyRead(int msecs)
   bool waitForReadyRead(int msecs) override {
-    if (taken[15]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQNetworkFileCall15 call = reinterpret_cast<CuteQNetworkFileCall15>(taken[15]);
+      CuteQNetworkFileCall17 call = reinterpret_cast<CuteQNetworkFileCall17>(taken[17]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -383,9 +416,9 @@ public:
 
   //  bool QIODevice::waitForBytesWritten(int msecs)
   bool waitForBytesWritten(int msecs) override {
-    if (taken[16]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQNetworkFileCall16 call = reinterpret_cast<CuteQNetworkFileCall16>(taken[16]);
+      CuteQNetworkFileCall18 call = reinterpret_cast<CuteQNetworkFileCall18>(taken[18]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -394,9 +427,9 @@ public:
 
   //  qint64 QIODevice::skipData(qint64 maxSize)
   qint64 skipData(qint64 maxSize) override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQNetworkFileCall17 call = reinterpret_cast<CuteQNetworkFileCall17>(taken[17]);
+      CuteQNetworkFileCall19 call = reinterpret_cast<CuteQNetworkFileCall19>(taken[19]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -406,9 +439,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQNetworkFileCall18 call = reinterpret_cast<CuteQNetworkFileCall18>(taken[18]);
+      CuteQNetworkFileCall20 call = reinterpret_cast<CuteQNetworkFileCall20>(taken[20]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -419,9 +452,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQNetworkFileCall19 call = reinterpret_cast<CuteQNetworkFileCall19>(taken[19]);
+      CuteQNetworkFileCall21 call = reinterpret_cast<CuteQNetworkFileCall21>(taken[21]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -432,9 +465,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQNetworkFileCall20 call = reinterpret_cast<CuteQNetworkFileCall20>(taken[20]);
+      CuteQNetworkFileCall22 call = reinterpret_cast<CuteQNetworkFileCall22>(taken[22]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -445,9 +478,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[21]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQNetworkFileCall21 call = reinterpret_cast<CuteQNetworkFileCall21>(taken[21]);
+      CuteQNetworkFileCall23 call = reinterpret_cast<CuteQNetworkFileCall23>(taken[23]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -458,9 +491,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[22]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQNetworkFileCall22 call = reinterpret_cast<CuteQNetworkFileCall22>(taken[22]);
+      CuteQNetworkFileCall24 call = reinterpret_cast<CuteQNetworkFileCall24>(taken[24]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -471,9 +504,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[23]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQNetworkFileCall23 call = reinterpret_cast<CuteQNetworkFileCall23>(taken[23]);
+      CuteQNetworkFileCall25 call = reinterpret_cast<CuteQNetworkFileCall25>(taken[25]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -484,9 +517,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[24]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQNetworkFileCall24 call = reinterpret_cast<CuteQNetworkFileCall24>(taken[24]);
+      CuteQNetworkFileCall26 call = reinterpret_cast<CuteQNetworkFileCall26>(taken[26]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -502,10 +535,137 @@ const QMetaObject *ritual_ZNK12QNetworkFile10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNetworkFile::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QNetworkFile11qt_metacastEPKc(
+    QNetworkFile *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNetworkFile::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QNetworkFile11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNetworkFile *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QNetworkFile::open()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QNetworkFile4openEv(QNetworkFile *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNetworkFile")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "open()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "open()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QNetworkFile::close()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QNetworkFile5closeEv(QNetworkFile *self) {
   self->close();
+}
+
+//  void QNetworkFile::finished(bool ok)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QNetworkFile8finishedEb(QNetworkFile *self, bool ok) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNetworkFile")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "finished(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "finished(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&ok)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QNetworkFile::headerRead(QHttpHeaders::WellKnownHeader a0, const
+//      QByteArray &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QNetworkFile10headerReadEN12QHttpHeaders15WellKnownHeaderERK10QByteArray(
+    QNetworkFile *self,
+    QHttpHeaders::WellKnownHeader a0,
+    const QByteArray *value) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNetworkFile")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "headerRead(QHttpHeaders::WellKnownHeader,const QByteArray &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "headerRead(QHttpHeaders::WellKnownHeader,const QByteArray &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+      const_cast<void *>(static_cast<const void *>(value)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QNetworkFile::networkError(QNetworkReply::NetworkError error, const
+//      QString &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QNetworkFile12networkErrorEN13QNetworkReply12NetworkErrorERK7QString(
+    QNetworkFile *self,
+    QNetworkReply::NetworkError error,
+    const QString *message) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNetworkFile")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "networkError(QNetworkReply::NetworkError,const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "networkError(QNetworkReply::NetworkError,const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&error)),
+      const_cast<void *>(static_cast<const void *>(message)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQNetworkFile, for the function named by

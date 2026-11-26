@@ -90,6 +90,12 @@ inline QHttpHeaders QHttpNetworkHeaderPrivate::headers() const
 {
     return parser.headers();
 }
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 68, as _ZNK25QHttpNetworkHeaderPrivateeqERKS_
+inline bool QHttpNetworkHeaderPrivate::operator==(const QHttpNetworkHeaderPrivate &other) const
+{
+   return (url == other.url);
+}
 //  -----------------------------------------------------------------------
 
 //  QHttpNetworkHeaderPrivate::QHttpNetworkHeaderPrivate(const QUrl &newUrl)
@@ -174,6 +180,15 @@ extern "C" Q_DECL_EXPORT
 QHttpHeaders *ritual_ZNK25QHttpNetworkHeaderPrivate7headersEv(
     const QHttpNetworkHeaderPrivate *self) {
   return new QHttpHeaders(self->headers());
+}
+
+//  bool QHttpNetworkHeaderPrivate::operator==(const
+//      QHttpNetworkHeaderPrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK25QHttpNetworkHeaderPrivateeqERKS_(
+    const QHttpNetworkHeaderPrivate *self,
+    const QHttpNetworkHeaderPrivate *other) {
+  return self->operator==(*other);
 }
 
 //  QHttpNetworkHeaderPrivate::~QHttpNetworkHeaderPrivate()

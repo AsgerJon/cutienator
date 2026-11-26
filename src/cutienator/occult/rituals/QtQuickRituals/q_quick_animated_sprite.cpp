@@ -29,6 +29,25 @@ const QMetaObject *ritual_ZNK20QQuickAnimatedSprite10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnimatedSprite::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickAnimatedSprite11qt_metacastEPKc(
+    QQuickAnimatedSprite *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnimatedSprite::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickAnimatedSprite11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnimatedSprite *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnimatedSprite::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickAnimatedSprite2trEPKcS1_i(
@@ -163,6 +182,141 @@ void ritual_ZN20QQuickAnimatedSprite17setFinishBehaviorENS_14FinishBehaviorE(
     QQuickAnimatedSprite *self,
     QQuickAnimatedSprite::FinishBehavior arg) {
   self->setFinishBehavior(arg);
+}
+
+//  void QQuickAnimatedSprite::pausedChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite13pausedChangedEb(
+    QQuickAnimatedSprite *self,
+    bool arg) {
+  self->pausedChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::runningChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite14runningChangedEb(
+    QQuickAnimatedSprite *self,
+    bool arg) {
+  self->runningChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::interpolateChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite18interpolateChangedEb(
+    QQuickAnimatedSprite *self,
+    bool arg) {
+  self->interpolateChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::sourceChanged(const QUrl &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite13sourceChangedERK4QUrl(
+    QQuickAnimatedSprite *self,
+    const QUrl *arg) {
+  self->sourceChanged(*arg);
+}
+
+//  void QQuickAnimatedSprite::reverseChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite14reverseChangedEb(
+    QQuickAnimatedSprite *self,
+    bool arg) {
+  self->reverseChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::frameSyncChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite16frameSyncChangedEb(
+    QQuickAnimatedSprite *self,
+    bool arg) {
+  self->frameSyncChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::frameCountChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite17frameCountChangedEi(
+    QQuickAnimatedSprite *self,
+    int arg) {
+  self->frameCountChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::frameHeightChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite18frameHeightChangedEi(
+    QQuickAnimatedSprite *self,
+    int arg) {
+  self->frameHeightChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::frameWidthChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite17frameWidthChangedEi(
+    QQuickAnimatedSprite *self,
+    int arg) {
+  self->frameWidthChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::frameXChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite13frameXChangedEi(
+    QQuickAnimatedSprite *self,
+    int arg) {
+  self->frameXChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::frameYChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite13frameYChangedEi(
+    QQuickAnimatedSprite *self,
+    int arg) {
+  self->frameYChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::frameRateChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite16frameRateChangedEd(
+    QQuickAnimatedSprite *self,
+    qreal arg) {
+  self->frameRateChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::frameDurationChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite20frameDurationChangedEi(
+    QQuickAnimatedSprite *self,
+    int arg) {
+  self->frameDurationChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::loopsChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite12loopsChangedEi(
+    QQuickAnimatedSprite *self,
+    int arg) {
+  self->loopsChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::currentFrameChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite19currentFrameChangedEi(
+    QQuickAnimatedSprite *self,
+    int arg) {
+  self->currentFrameChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::finishBehaviorChanged(QQuickAnimatedSprite::Fi
+//      nishBehavior arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite21finishBehaviorChangedENS_14FinishBehaviorE(
+    QQuickAnimatedSprite *self,
+    QQuickAnimatedSprite::FinishBehavior arg) {
+  self->finishBehaviorChanged(arg);
+}
+
+//  void QQuickAnimatedSprite::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnimatedSprite8finishedEv(QQuickAnimatedSprite *self) {
+  self->finished();
 }
 
 //  void QQuickAnimatedSprite::start()

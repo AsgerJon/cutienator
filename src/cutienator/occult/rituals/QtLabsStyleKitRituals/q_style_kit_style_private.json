@@ -35,6 +35,9 @@
     "ritual_ZNK21QStyleKitStylePrivate22ensureSubElementReaderEv": [
       "address", "address"
     ],
+    "ritual_ZN21QStyleKitStylePrivate22subElementKeyForOptionEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK21QStyleKitStylePrivate18cleanupSubElementsEPK7QWidget": [
       "nothing", "address", "address"
     ],
@@ -56,6 +59,18 @@
     "ritual_ZNK21QStyleKitStylePrivate25getAlignedRectInContainerERK5QRectRK5QSizejRK8QMarginsS8_": [
       "address", "address", "address", "address", "unsigned int", "address",
       "address"
+    ],
+    "ritual_drop_QStyleKitStylePrivate__QStyleKitStylePrivate_SubElementKey": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QStyleKitStylePrivate__QStyleKitStylePrivate_QQStyleKitResolved": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QStyleKitStylePrivate__QStyleKitStylePrivate_QQStyleKitLayoutResolved": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QStyleKitStylePrivate__QStyleKitStylePrivate_ControlMetrics": [
+      "nothing", "address"
     ]
   }
 }

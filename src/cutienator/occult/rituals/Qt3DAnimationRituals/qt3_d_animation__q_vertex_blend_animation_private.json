@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation28QVertexBlendAnimationPrivateC1Ev": [
+      "address"
+    ],
+    "ritual_ZN13Qt3DAnimation28QVertexBlendAnimationPrivate23getAttributesInPositionEfPiS1_Pf": [
+      "nothing", "address", "float", "address", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation28QVertexBlendAnimationPrivate15updateAnimationEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZN13Qt3DAnimation28QVertexBlendAnimationPrivate6q_funcEv": [
       "address", "address"
     ],

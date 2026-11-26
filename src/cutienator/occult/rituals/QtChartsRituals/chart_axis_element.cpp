@@ -23,6 +23,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A ChartAxisElement that Python can take functions over in. Every ChartAxisElement
 //  Python makes is one. Each function below asks the Python
@@ -1275,6 +1276,25 @@ const QMetaObject *ritual_ZNK16ChartAxisElement10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ChartAxisElement::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16ChartAxisElement11qt_metacastEPKc(
+    ChartAxisElement *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ChartAxisElement::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16ChartAxisElement11qt_metacallEN11QMetaObject4CallEiPPv(
+    ChartAxisElement *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ChartAxisElement::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16ChartAxisElement2trEPKcS1_i(
@@ -1333,6 +1353,36 @@ extern "C" Q_DECL_EXPORT
 QAbstractAxis *ritual_ZNK16ChartAxisElement4axisEv(
     const ChartAxisElement *self) {
   return self->axis();
+}
+
+//  void ChartAxisElement::setLayout(const QList<qreal> &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16ChartAxisElement9setLayoutERK5QListIdE(
+    ChartAxisElement *self,
+    const QList<qreal> *layout) {
+  self->setLayout(*layout);
+}
+
+//  QList<qreal> &ChartAxisElement::layout()
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZN16ChartAxisElement6layoutEv(ChartAxisElement *self) {
+  return &(self->layout());
+}
+
+//  void ChartAxisElement::setDynamicMinorTickLayout(const QList<qreal>
+//      &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16ChartAxisElement25setDynamicMinorTickLayoutERK5QListIdE(
+    ChartAxisElement *self,
+    const QList<qreal> *layout) {
+  self->setDynamicMinorTickLayout(*layout);
+}
+
+//  QList<qreal> &ChartAxisElement::dynamicMinorTicklayout()
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZN16ChartAxisElement22dynamicMinorTicklayoutEv(
+    ChartAxisElement *self) {
+  return &(self->dynamicMinorTicklayout());
 }
 
 //  qreal ChartAxisElement::labelPadding() const
@@ -1534,6 +1584,21 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16ChartAxisElement13labelsVisibleEv(
     const ChartAxisElement *self) {
   return self->labelsVisible();
+}
+
+//  QList<qreal> ChartAxisElement::calculateLayout() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK16ChartAxisElement15calculateLayoutEv(
+    const ChartAxisElement *self) {
+  return new QList<qreal>(self->calculateLayout());
+}
+
+//  void ChartAxisElement::updateLayout(const QList<qreal> &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16ChartAxisElement12updateLayoutERK5QListIdE(
+    ChartAxisElement *self,
+    const QList<qreal> *layout) {
+  self->updateLayout(*layout);
 }
 
 //  QList<QGraphicsItem *> ChartAxisElement::gridItems()
@@ -1885,6 +1950,12 @@ void ritual_ZN16ChartAxisElement19dateTimeLabelEditedERK9QDateTimeS2_(
   self->dateTimeLabelEdited(*oldTime, *newTime);
 }
 
+//  void ChartAxisElement::clicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16ChartAxisElement7clickedEv(ChartAxisElement *self) {
+  self->clicked();
+}
+
 //  void ChartAxisElement::connectSlots()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16ChartAxisElement12connectSlotsEv(ChartAxisElement *self) {
@@ -1988,5 +2059,11 @@ ChartAxisElement *ritual_list_at_ChartAxisElement_ptr(
 //  QList<ChartAxisElement *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_ChartAxisElement_ptr(QList<ChartAxisElement *> *self) {
+  delete self;
+}
+
+//  a QList<qreal> a ritual of ChartAxisElement gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_ChartAxisElement__QList_qreal(QList<qreal> *self) {
   delete self;
 }

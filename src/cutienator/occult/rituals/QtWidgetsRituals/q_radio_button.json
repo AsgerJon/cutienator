@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QRadioButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QRadioButton11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QRadioButton11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QRadioButton2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QRadioButtonC1EP7QWidget": ["address", "address"],
     "ritual_ZN12QRadioButtonC1ERK7QStringP7QWidget": [
@@ -26,6 +32,8 @@
     "ritual_ZNK12QRadioButton15initStyleOptionEP18QStyleOptionButton": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN12QRadioButton6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QRadioButton6d_funcEv": ["address", "address"],
     "ritual_take_QRadioButton": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK12QRadioButton8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK12QRadioButton15minimumSizeHintEv": [

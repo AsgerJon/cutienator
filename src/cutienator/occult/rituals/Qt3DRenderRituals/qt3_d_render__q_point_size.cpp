@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QPointSize10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QPointSize::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QPointSize11qt_metacastEPKc(
+    Qt3DRender::QPointSize *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QPointSize::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QPointSize11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QPointSize *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QPointSize::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QPointSize2trEPKcS2_i(
@@ -186,6 +205,65 @@ QString *ritual_ZN10Qt3DRender10QPointSize2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QPointSize::tr(s, c, n));
+}
+
+//  Qt3DRender::QPointSize::QPointSize(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPointSize *ritual_ZN10Qt3DRender10QPointSizeC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QPointSize(parent);
+}
+
+//  Qt3DRender::QPointSize::~QPointSize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QPointSizeD1Ev(Qt3DRender::QPointSize *self) {
+  delete self;
+}
+
+//  SizeMode Qt3DRender::QPointSize::sizeMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPointSize::SizeMode ritual_ZNK10Qt3DRender10QPointSize8sizeModeEv(
+    const Qt3DRender::QPointSize *self) {
+  return self->sizeMode();
+}
+
+//  float Qt3DRender::QPointSize::value() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender10QPointSize5valueEv(
+    const Qt3DRender::QPointSize *self) {
+  return self->value();
+}
+
+//  void Qt3DRender::QPointSize::setSizeMode(SizeMode sizeMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QPointSize11setSizeModeENS0_8SizeModeE(
+    Qt3DRender::QPointSize *self,
+    Qt3DRender::QPointSize::SizeMode sizeMode) {
+  self->setSizeMode(sizeMode);
+}
+
+//  void Qt3DRender::QPointSize::setValue(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QPointSize8setValueEf(
+    Qt3DRender::QPointSize *self,
+    float value) {
+  self->setValue(value);
+}
+
+//  void Qt3DRender::QPointSize::sizeModeChanged(SizeMode sizeMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QPointSize15sizeModeChangedENS0_8SizeModeE(
+    Qt3DRender::QPointSize *self,
+    Qt3DRender::QPointSize::SizeMode sizeMode) {
+  self->sizeModeChanged(sizeMode);
+}
+
+//  void Qt3DRender::QPointSize::valueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QPointSize12valueChangedEf(
+    Qt3DRender::QPointSize *self,
+    float value) {
+  self->valueChanged(value);
 }
 
 //  QPointSizePrivate *Qt3DRender::QPointSize::d_func()

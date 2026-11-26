@@ -246,6 +246,29 @@ const QMetaObject *ritual_ZNK16QCoreApplication10metaObjectEv(
 #endif  // !defined(QT_NO_QOBJECT)
 
 #if !defined(QT_NO_QOBJECT)
+//  void *QCoreApplication::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QCoreApplication11qt_metacastEPKc(
+    QCoreApplication *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+//  int QCoreApplication::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QCoreApplication11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCoreApplication *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
 //  QString QCoreApplication::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QCoreApplication2trEPKcS1_i(
@@ -621,6 +644,16 @@ QString *ritual_ZN16QCoreApplication9translateEPKcS1_S1_i(
           n));
 }
 
+//  void *QCoreApplication::resolveInterface(const char *name, int revision)
+//      const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK16QCoreApplication16resolveInterfaceEPKci(
+    const QCoreApplication *self,
+    const char *name,
+    int revision) {
+  return self->resolveInterface(name, revision);
+}
+
 #if !defined(QT_NO_QOBJECT)
 //  void
 //      QCoreApplication::installNativeEventFilter(QAbstractNativeEventFilter
@@ -677,6 +710,51 @@ void ritual_ZN16QCoreApplication4exitEi(int retcode) {
 #endif  // !defined(QT_NO_QOBJECT)
 
 #if !defined(QT_NO_QOBJECT)
+//  void QCoreApplication::aboutToQuit(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCoreApplication11aboutToQuitENS_14QPrivateSignalE(
+    QCoreApplication *self) {
+  self->aboutToQuit(QCoreApplication::QPrivateSignal());
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+//  void QCoreApplication::organizationNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCoreApplication23organizationNameChangedEv(
+    QCoreApplication *self) {
+  self->organizationNameChanged();
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+//  void QCoreApplication::organizationDomainChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCoreApplication25organizationDomainChangedEv(
+    QCoreApplication *self) {
+  self->organizationDomainChanged();
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+//  void QCoreApplication::applicationNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCoreApplication22applicationNameChangedEv(
+    QCoreApplication *self) {
+  self->applicationNameChanged();
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+//  void QCoreApplication::applicationVersionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCoreApplication25applicationVersionChangedEv(
+    QCoreApplication *self) {
+  self->applicationVersionChanged();
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
 //  bool QCoreApplication::event(QEvent *a0)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN16QCoreApplication5eventEP6QEvent(
@@ -700,6 +778,13 @@ bool ritual_ZN16QCoreApplication13compressEventEP6QEventP7QObjectP14QPostEventLi
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 #endif  // !defined(QT_NO_QOBJECT)
+
+//  QCoreApplication::QCoreApplication(QCoreApplicationPrivate &p)
+extern "C" Q_DECL_EXPORT
+QCoreApplication *ritual_ZN16QCoreApplicationC1ER23QCoreApplicationPrivate(
+    QCoreApplicationPrivate *p) {
+  return new CuteQCoreApplication(*p);
+}
 
 #if !defined(QT_NO_QOBJECT)
 //  bool QCoreApplication::sendSpontaneousEvent(QObject *receiver, QEvent

@@ -8,6 +8,18 @@
     "ritual_ZNK18qdesigner_internal14SignatureModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal14SignatureModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal14SignatureModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14SignatureModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14SignatureModel14checkSignatureERK7QStringPb": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_take_qdesigner_internal_SignatureModel": [
       "bool", "address", "chars", "address"
     ]

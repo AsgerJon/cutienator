@@ -2,10 +2,16 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qqmlvmemetaobject_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN17QQmlVMEMetaObjectC1EPN3QV415ExecutionEngineEP7QObjectRKN17QQmlPropertyCache8ConstPtrERK14QQmlRefPointerINS0_25ExecutableCompilationUnitEEi": [
+      "address", "address", "address", "address", "address", "int"
+    ],
     "ritual_ZN17QQmlVMEMetaObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject11aliasTargetEiPP7QObjectPiS3_": [
+      "bool", "address", "int", "address", "address", "address"
+    ],
     "ritual_ZNK17QQmlVMEMetaObject9vmeMethodEi": [
       "unsigned long long", "address", "int"
     ],
@@ -30,6 +36,18 @@
     ],
     "ritual_ZN17QQmlVMEMetaObject12getForSignalEP7QObjecti": [
       "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject11list_appendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject10list_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject20list_append_nosignalEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject19list_clear_nosignalEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
     ],
     "ritual_ZNK17QQmlVMEMetaObject10propOffsetEv": ["int", "address"],
     "ritual_ZNK17QQmlVMEMetaObject9propCountEv": ["int", "address"],
@@ -126,17 +144,54 @@
     "ritual_ZN17QQmlVMEMetaObject22setParentVMEMetaObjectEPS_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QQmlVMEMetaObject8activateEP7QObjectiPPv": [
+      "nothing", "address", "address", "int", "address"
+    ],
     "ritual_ZNK17QQmlVMEMetaObject26getQObjectGuardForPropertyEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK17QQmlVMEMetaObject11contextDataEv": ["address", "address"],
     "ritual_ZNK17QQmlVMEMetaObject6engineEv": ["address", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject15compilationUnitEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject18setCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QQmlVMEMetaObject11qmlObjectIdEv": ["int", "address"],
+    "ritual_ZN17QQmlVMEMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv": [
+      "int", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject15getListPropertyEiP16QQmlListPropertyI7QObjectE": [
+      "bool", "address", "int", "address"
+    ],
     "ritual_ZNK17QQmlVMEMetaObject18findCompiledObjectEv": [
       "address", "address"
     ],
     "ritual_ZN17QQmlVMEMetaObject21writeKnownVarPropertyEiRK8QVariant": [
       "nothing", "address", "int", "address"
     ],
-    "ritual_take_QQmlVMEMetaObject": ["bool", "address", "chars", "address"]
+    "ritual_take_QQmlVMEMetaObject": ["bool", "address", "chars", "address"],
+    "ritual_drop_QQmlVMEMetaObject__QQmlRefPointer_QQmlContextData": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlVMEMetaObject__QQmlRefPointer_QV4_ExecutableCompilationUnit": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyI4QUrlEEviRKT_": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyI9QDateTimeEEviRKT_": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyI6QPointEEviRKT_": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyI5QSizeEEviRKT_": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyI5QRectEEviRKT_": [
+      "nothing", "address", "int", "address"
+    ]
   }
 }

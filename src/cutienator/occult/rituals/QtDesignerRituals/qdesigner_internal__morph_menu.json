@@ -8,8 +8,29 @@
     "ritual_ZNK18qdesigner_internal9MorphMenu10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal9MorphMenu11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal9MorphMenu11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal9MorphMenu2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal9MorphMenuC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal9MorphMenu8populateEP7QWidgetP28QDesignerFormWindowInterfaceR5QListIP7QActionE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal9MorphMenu8populateEP7QWidgetP28QDesignerFormWindowInterfaceR5QMenu": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal9MorphMenu9slotMorphERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal9MorphMenu12populateMenuEP7QWidgetP28QDesignerFormWindowInterface": [
+      "bool", "address", "address", "address"
     ]
   }
 }

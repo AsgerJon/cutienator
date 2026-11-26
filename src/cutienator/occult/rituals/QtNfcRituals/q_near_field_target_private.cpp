@@ -434,6 +434,25 @@ const QMetaObject *ritual_ZNK23QNearFieldTargetPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNearFieldTargetPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QNearFieldTargetPrivate11qt_metacastEPKc(
+    QNearFieldTargetPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNearFieldTargetPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QNearFieldTargetPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNearFieldTargetPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QNearFieldTargetPrivate::~QNearFieldTargetPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QNearFieldTargetPrivateD1Ev(QNearFieldTargetPrivate *self) {
@@ -516,6 +535,117 @@ QVariant *ritual_ZNK23QNearFieldTargetPrivate15requestResponseERKN16QNearFieldTa
     const QNearFieldTargetPrivate *self,
     const QNearFieldTarget::RequestId *id) {
   return new QVariant(self->requestResponse(*id));
+}
+
+//  void QNearFieldTargetPrivate::disconnected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QNearFieldTargetPrivate12disconnectedEv(
+    QNearFieldTargetPrivate *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNearFieldTargetPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "disconnected()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "disconnected()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QNearFieldTargetPrivate::ndefMessageRead(const QNdefMessage
+//      &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QNearFieldTargetPrivate15ndefMessageReadERK12QNdefMessage(
+    QNearFieldTargetPrivate *self,
+    const QNdefMessage *message) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNearFieldTargetPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "ndefMessageRead(const QNdefMessage &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "ndefMessageRead(const QNdefMessage &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(message)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QNearFieldTargetPrivate::requestCompleted(const
+//      QNearFieldTarget::RequestId &id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QNearFieldTargetPrivate16requestCompletedERKN16QNearFieldTarget9RequestIdE(
+    QNearFieldTargetPrivate *self,
+    const QNearFieldTarget::RequestId *id) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNearFieldTargetPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "requestCompleted(const QNearFieldTarget::RequestId &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "requestCompleted(const QNearFieldTarget::RequestId &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(id)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QNearFieldTargetPrivate::error(QNearFieldTarget::Error error, const
+//      QNearFieldTarget::RequestId &id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QNearFieldTargetPrivate5errorEN16QNearFieldTarget5ErrorERKNS0_9RequestIdE(
+    QNearFieldTargetPrivate *self,
+    QNearFieldTarget::Error error,
+    const QNearFieldTarget::RequestId *id) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNearFieldTargetPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "error(QNearFieldTarget::Error,const QNearFieldTarget::RequestId &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "error(QNearFieldTarget::Error,const QNearFieldTarget::RequestId &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&error)),
+      const_cast<void *>(static_cast<const void *>(id)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QNearFieldTargetPrivate::setResponseForRequest(const

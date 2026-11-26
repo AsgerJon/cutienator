@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput21QInputSequencePrivateC1Ev": ["address"],
     "ritual_take_Qt3DInput_QInputSequencePrivate": [
       "bool", "address", "chars", "address"
     ]

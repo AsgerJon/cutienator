@@ -8,14 +8,29 @@
     "ritual_ZNK9Qt3DInput5Input5Quick11Quick3DAxis10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxis2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxisC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK9Qt3DInput5Input5Quick11Quick3DAxis10parentAxisEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxis13qmlAxisInputsEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DInput_Input_Quick_Quick3DAxis": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DInput_Input_Quick_Quick3DAxis__QQmlListProperty_Qt3DInput_QAbstractAxisInput": [
+      "nothing", "address"
     ]
   }
 }

@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore13QCoreSettings10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QCoreSettings::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore13QCoreSettings11qt_metacastEPKc(
+    Qt3DCore::QCoreSettings *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QCoreSettings::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore13QCoreSettings11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QCoreSettings *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QCoreSettings::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore13QCoreSettings2trEPKcS2_i(
@@ -186,6 +205,44 @@ QString *ritual_ZN8Qt3DCore13QCoreSettings2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QCoreSettings::tr(s, c, n));
+}
+
+//  Qt3DCore::QCoreSettings::QCoreSettings(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QCoreSettings *ritual_ZN8Qt3DCore13QCoreSettingsC1EPNS_5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QCoreSettings(parent);
+}
+
+//  Qt3DCore::QCoreSettings::~QCoreSettings()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QCoreSettingsD1Ev(Qt3DCore::QCoreSettings *self) {
+  delete self;
+}
+
+//  bool Qt3DCore::QCoreSettings::boundingVolumesEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore13QCoreSettings22boundingVolumesEnabledEv(
+    const Qt3DCore::QCoreSettings *self) {
+  return self->boundingVolumesEnabled();
+}
+
+//  void Qt3DCore::QCoreSettings::setBoundingVolumesEnabled(bool
+//      boundingVolumesEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QCoreSettings25setBoundingVolumesEnabledEb(
+    Qt3DCore::QCoreSettings *self,
+    bool boundingVolumesEnabled) {
+  self->setBoundingVolumesEnabled(boundingVolumesEnabled);
+}
+
+//  void Qt3DCore::QCoreSettings::boundingVolumesEnabledChanged(bool
+//      boundingVolumesEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QCoreSettings29boundingVolumesEnabledChangedEb(
+    Qt3DCore::QCoreSettings *self,
+    bool boundingVolumesEnabled) {
+  self->boundingVolumesEnabledChanged(boundingVolumesEnabled);
 }
 
 //  QCoreSettingsPrivate *Qt3DCore::QCoreSettings::d_func()

@@ -13,7 +13,6 @@
     "ritual_ZN25QQuickDragAttachedPrivate3getEP18QQuickDragAttached": [
       "address", "address"
     ],
-    "ritual_ZN25QQuickDragAttachedPrivateC1Ev": ["address"],
     "ritual_ZN25QQuickDragAttachedPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
       "nothing", "address", "address", "address", "address"
     ],
@@ -37,6 +36,12 @@
     ],
     "ritual_ZN25QQuickDragAttachedPrivate12deliverEventEP12QQuickWindowP6QEvent": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate9startDragE6QFlagsIN2Qt10DropActionEE7QPixmap": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZNK25QQuickDragAttachedPrivate14createMimeDataEv": [
+      "address", "address"
     ],
     "ritual_ZN25QQuickDragAttachedPrivate10loadPixmapEv": [
       "nothing", "address"

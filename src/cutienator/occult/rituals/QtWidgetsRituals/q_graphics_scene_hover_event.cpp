@@ -172,6 +172,21 @@ void ritual_ZN24QGraphicsSceneHoverEvent12setModifiersE6QFlagsIN2Qt16KeyboardMod
   self->setModifiers(QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
 }
 
+//  QGraphicsSceneHoverEventPrivate *QGraphicsSceneHoverEvent::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneHoverEventPrivate *ritual_ZN24QGraphicsSceneHoverEvent6d_funcEv(
+    QGraphicsSceneHoverEvent *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneHoverEventPrivate *QGraphicsSceneHoverEvent::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneHoverEventPrivate *ritual_ZNK24QGraphicsSceneHoverEvent6d_funcEv(
+    const QGraphicsSceneHoverEvent *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSceneHoverEvent, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

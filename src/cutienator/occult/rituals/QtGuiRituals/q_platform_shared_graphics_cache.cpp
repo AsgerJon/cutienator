@@ -8,7 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtGui/qimage.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QPlatformSharedGraphicsCache that Python can take functions over in. Every QPlatformSharedGraphicsCache
@@ -18,31 +22,36 @@ typedef void (*CuteQPlatformSharedGraphicsCacheCall0)(const void *, int *);
 typedef void (*CuteQPlatformSharedGraphicsCacheCall1)(const void *, const QByteArray *, int, int, int *);
 typedef void (*CuteQPlatformSharedGraphicsCacheCall2)(const void *, int *);
 typedef bool (*CuteQPlatformSharedGraphicsCacheCall3)(const void *, int *);
+typedef uint (*CuteQPlatformSharedGraphicsCacheCall4)(const void *, void *, int *);
+typedef void (*CuteQPlatformSharedGraphicsCacheCall5)(const void *, void *, int *);
+typedef bool (*CuteQPlatformSharedGraphicsCacheCall6)(const void *, void *, int *);
+typedef const QSize * (*CuteQPlatformSharedGraphicsCacheCall7)(const void *, void *, int *);
+typedef void * (*CuteQPlatformSharedGraphicsCacheCall8)(const void *, void *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQPlatformSharedGraphicsCacheCall4)(const void *, QEvent *, int *);
+typedef bool (*CuteQPlatformSharedGraphicsCacheCall9)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQPlatformSharedGraphicsCacheCall5)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQPlatformSharedGraphicsCacheCall10)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQPlatformSharedGraphicsCacheCall6)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQPlatformSharedGraphicsCacheCall11)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQPlatformSharedGraphicsCacheCall7)(const void *, QChildEvent *, int *);
+typedef void (*CuteQPlatformSharedGraphicsCacheCall12)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQPlatformSharedGraphicsCacheCall8)(const void *, QEvent *, int *);
+typedef void (*CuteQPlatformSharedGraphicsCacheCall13)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQPlatformSharedGraphicsCacheCall9)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQPlatformSharedGraphicsCacheCall14)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQPlatformSharedGraphicsCacheCall10)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQPlatformSharedGraphicsCacheCall15)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQPlatformSharedGraphicsCache : public QPlatformSharedGraphicsCache {
 public:
   using QPlatformSharedGraphicsCache::QPlatformSharedGraphicsCache;
-  void *taken[11] = {};
+  void *taken[16] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN28QPlatformSharedGraphicsCache17beginRequestBatchEv")) {
@@ -61,45 +70,65 @@ public:
       taken[3] = call;
       return true;
     }
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN28QPlatformSharedGraphicsCache18textureIdForBufferEPv")) {
       taken[4] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN28QPlatformSharedGraphicsCache15referenceBufferEPv")) {
       taken[5] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN28QPlatformSharedGraphicsCache17dereferenceBufferEPv")) {
       taken[6] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN28QPlatformSharedGraphicsCache12sizeOfBufferEPv")) {
       taken[7] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN28QPlatformSharedGraphicsCache17eglImageForBufferEPv")) {
       taken[8] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[9] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[10] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[11] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[12] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[13] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[14] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[15] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -152,12 +181,66 @@ public:
     return {};
   }
 
-#if !defined(QT_NO_QOBJECT)
-  //  bool QObject::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  uint QPlatformSharedGraphicsCache::textureIdForBuffer(void *bufferId)
+  uint textureIdForBuffer(void *bufferId) override {
     if (taken[4]) {
       int handled = 0;
       CuteQPlatformSharedGraphicsCacheCall4 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall4>(taken[4]);
+      uint given = call(this, bufferId, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  void QPlatformSharedGraphicsCache::referenceBuffer(void *bufferId)
+  void referenceBuffer(void *bufferId) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQPlatformSharedGraphicsCacheCall5 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall5>(taken[5]);
+      call(this, bufferId, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  bool QPlatformSharedGraphicsCache::dereferenceBuffer(void *bufferId)
+  bool dereferenceBuffer(void *bufferId) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQPlatformSharedGraphicsCacheCall6 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall6>(taken[6]);
+      bool given = call(this, bufferId, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  QSize QPlatformSharedGraphicsCache::sizeOfBuffer(void *bufferId)
+  QSize sizeOfBuffer(void *bufferId) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQPlatformSharedGraphicsCacheCall7 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall7>(taken[7]);
+      const QSize * given = call(this, bufferId, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  void *QPlatformSharedGraphicsCache::eglImageForBuffer(void *bufferId)
+  void *eglImageForBuffer(void *bufferId) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQPlatformSharedGraphicsCacheCall8 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall8>(taken[8]);
+      void * given = call(this, bufferId, &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return {};
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQPlatformSharedGraphicsCacheCall9 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall9>(taken[9]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -168,9 +251,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[5]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQPlatformSharedGraphicsCacheCall5 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall5>(taken[5]);
+      CuteQPlatformSharedGraphicsCacheCall10 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall10>(taken[10]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -181,9 +264,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[6]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQPlatformSharedGraphicsCacheCall6 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall6>(taken[6]);
+      CuteQPlatformSharedGraphicsCacheCall11 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall11>(taken[11]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -194,9 +277,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[7]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQPlatformSharedGraphicsCacheCall7 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall7>(taken[7]);
+      CuteQPlatformSharedGraphicsCacheCall12 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall12>(taken[12]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -207,9 +290,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[8]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQPlatformSharedGraphicsCacheCall8 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall8>(taken[8]);
+      CuteQPlatformSharedGraphicsCacheCall13 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall13>(taken[13]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -220,9 +303,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[9]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQPlatformSharedGraphicsCacheCall9 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall9>(taken[9]);
+      CuteQPlatformSharedGraphicsCacheCall14 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall14>(taken[14]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -233,9 +316,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[10]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQPlatformSharedGraphicsCacheCall10 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall10>(taken[10]);
+      CuteQPlatformSharedGraphicsCacheCall15 call = reinterpret_cast<CuteQPlatformSharedGraphicsCacheCall15>(taken[15]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -249,6 +332,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK28QPlatformSharedGraphicsCache10metaObjectEv(
     const QPlatformSharedGraphicsCache *self) {
   return self->metaObject();
+}
+
+//  void *QPlatformSharedGraphicsCache::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QPlatformSharedGraphicsCache11qt_metacastEPKc(
+    QPlatformSharedGraphicsCache *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformSharedGraphicsCache::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QPlatformSharedGraphicsCache11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformSharedGraphicsCache *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QPlatformSharedGraphicsCache::tr(const char *s, const char *c,
@@ -279,6 +381,37 @@ void ritual_ZN28QPlatformSharedGraphicsCache22ensureCacheInitializedERK10QByteAr
   self->ensureCacheInitialized(*cacheId, bufferType, pixelFormat);
 }
 
+//  void QPlatformSharedGraphicsCache::requestItems(const QByteArray
+//      &cacheId, const QList<quint32> &itemIds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QPlatformSharedGraphicsCache12requestItemsERK10QByteArrayRK5QListIjE(
+    QPlatformSharedGraphicsCache *self,
+    const QByteArray *cacheId,
+    const QList<quint32> *itemIds) {
+  self->requestItems(*cacheId, *itemIds);
+}
+
+//  void QPlatformSharedGraphicsCache::insertItems(const QByteArray &cacheId,
+//      const QList<quint32> &itemIds, const QList<QImage> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QPlatformSharedGraphicsCache11insertItemsERK10QByteArrayRK5QListIjERKS3_I6QImageE(
+    QPlatformSharedGraphicsCache *self,
+    const QByteArray *cacheId,
+    const QList<quint32> *itemIds,
+    const QList<QImage> *items) {
+  self->insertItems(*cacheId, *itemIds, *items);
+}
+
+//  void QPlatformSharedGraphicsCache::releaseItems(const QByteArray
+//      &cacheId, const QList<quint32> &itemIds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QPlatformSharedGraphicsCache12releaseItemsERK10QByteArrayRK5QListIjE(
+    QPlatformSharedGraphicsCache *self,
+    const QByteArray *cacheId,
+    const QList<quint32> *itemIds) {
+  self->releaseItems(*cacheId, *itemIds);
+}
+
 //  void QPlatformSharedGraphicsCache::endRequestBatch()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QPlatformSharedGraphicsCache15endRequestBatchEv(
@@ -291,6 +424,92 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK28QPlatformSharedGraphicsCache19requestBatchStartedEv(
     const QPlatformSharedGraphicsCache *self) {
   return self->requestBatchStarted();
+}
+
+//  uint QPlatformSharedGraphicsCache::textureIdForBuffer(void *bufferId)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN28QPlatformSharedGraphicsCache18textureIdForBufferEPv(
+    QPlatformSharedGraphicsCache *self,
+    void *bufferId) {
+  return self->textureIdForBuffer(bufferId);
+}
+
+//  void QPlatformSharedGraphicsCache::referenceBuffer(void *bufferId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QPlatformSharedGraphicsCache15referenceBufferEPv(
+    QPlatformSharedGraphicsCache *self,
+    void *bufferId) {
+  self->referenceBuffer(bufferId);
+}
+
+//  bool QPlatformSharedGraphicsCache::dereferenceBuffer(void *bufferId)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN28QPlatformSharedGraphicsCache17dereferenceBufferEPv(
+    QPlatformSharedGraphicsCache *self,
+    void *bufferId) {
+  return self->dereferenceBuffer(bufferId);
+}
+
+//  QSize QPlatformSharedGraphicsCache::sizeOfBuffer(void *bufferId)
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZN28QPlatformSharedGraphicsCache12sizeOfBufferEPv(
+    QPlatformSharedGraphicsCache *self,
+    void *bufferId) {
+  return new QSize(self->sizeOfBuffer(bufferId));
+}
+
+//  void *QPlatformSharedGraphicsCache::eglImageForBuffer(void *bufferId)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QPlatformSharedGraphicsCache17eglImageForBufferEPv(
+    QPlatformSharedGraphicsCache *self,
+    void *bufferId) {
+  return self->eglImageForBuffer(bufferId);
+}
+
+//  void QPlatformSharedGraphicsCache::itemsMissing(const QByteArray
+//      &cacheId, const QList<quint32> &itemIds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QPlatformSharedGraphicsCache12itemsMissingERK10QByteArrayRK5QListIjE(
+    QPlatformSharedGraphicsCache *self,
+    const QByteArray *cacheId,
+    const QList<quint32> *itemIds) {
+  self->itemsMissing(*cacheId, *itemIds);
+}
+
+//  void QPlatformSharedGraphicsCache::itemsAvailable(const QByteArray
+//      &cacheId, void *bufferId, const QList<quint32> &itemIds, const
+//      QList<QPoint> &positionsInBuffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QPlatformSharedGraphicsCache14itemsAvailableERK10QByteArrayPvRK5QListIjERKS4_I6QPointE(
+    QPlatformSharedGraphicsCache *self,
+    const QByteArray *cacheId,
+    void *bufferId,
+    const QList<quint32> *itemIds,
+    const QList<QPoint> *positionsInBuffer) {
+  self->itemsAvailable(*cacheId, bufferId, *itemIds, *positionsInBuffer);
+}
+
+//  void QPlatformSharedGraphicsCache::itemsInvalidated(const QByteArray
+//      &cacheId, const QList<quint32> &itemIds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QPlatformSharedGraphicsCache16itemsInvalidatedERK10QByteArrayRK5QListIjE(
+    QPlatformSharedGraphicsCache *self,
+    const QByteArray *cacheId,
+    const QList<quint32> *itemIds) {
+  self->itemsInvalidated(*cacheId, *itemIds);
+}
+
+//  void QPlatformSharedGraphicsCache::itemsUpdated(const QByteArray
+//      &cacheId, void *bufferId, const QList<quint32> &itemIds, const
+//      QList<QPoint> &positionsInBuffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QPlatformSharedGraphicsCache12itemsUpdatedERK10QByteArrayPvRK5QListIjERKS4_I6QPointE(
+    QPlatformSharedGraphicsCache *self,
+    const QByteArray *cacheId,
+    void *bufferId,
+    const QList<quint32> *itemIds,
+    const QList<QPoint> *positionsInBuffer) {
+  self->itemsUpdated(*cacheId, bufferId, *itemIds, *positionsInBuffer);
 }
 
 //  a Python function taken by a CuteQPlatformSharedGraphicsCache, for the

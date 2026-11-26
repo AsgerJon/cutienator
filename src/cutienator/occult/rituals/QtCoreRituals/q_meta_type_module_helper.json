@@ -5,9 +5,5 @@
     "made here are lost."
   ],
   "rows": {
-    "ritual_ZN21QMetaTypeModuleHelper22interfaceForType_dummyEi": [
-      "address", "int"
-    ],
-    "ritual_ZN21QMetaTypeModuleHelperD1Ev": ["nothing", "address"]
   }
 }

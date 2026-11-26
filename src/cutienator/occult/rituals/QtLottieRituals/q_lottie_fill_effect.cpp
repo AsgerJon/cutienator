@@ -26,7 +26,7 @@ typedef const QSize * (*CuteQLottieFillEffectCall6)(const void *, int *);
 class CuteQLottieFillEffect : public QLottieFillEffect {
 public:
   using QLottieFillEffect::QLottieFillEffect;
-  CuteQLottieFillEffect(const QLottieFillEffect &other) : QLottieFillEffect(other) {}
+  CuteQLottieFillEffect(const QLottieFillEffect & other) : QLottieFillEffect(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
@@ -176,6 +176,14 @@ void ritual_ZN17QLottieFillEffect16updatePropertiesEi(
     QLottieFillEffect *self,
     int frame) {
   self->updateProperties(frame);
+}
+
+//  void QLottieFillEffect::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QLottieFillEffect6renderER15QLottieRenderer(
+    const QLottieFillEffect *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
 }
 
 //  QColor QLottieFillEffect::color() const

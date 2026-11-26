@@ -11,6 +11,7 @@
     "ritual_ZNK27QGraphicsProxyWidgetPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivateC1Ev": ["address"],
     "ritual_ZN27QGraphicsProxyWidgetPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN27QGraphicsProxyWidgetPrivate4initEv": ["nothing", "address"],
     "ritual_ZN27QGraphicsProxyWidgetPrivate20sendWidgetMouseEventEP24QGraphicsSceneMouseEvent": [

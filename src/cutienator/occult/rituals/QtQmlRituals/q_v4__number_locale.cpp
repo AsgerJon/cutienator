@@ -6,6 +6,41 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4numberobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/private/qv4numberobject_p.h>
+#include <QtQml/private/qv4runtime_p.h>
+#include <QtCore/qnumeric.h>
+#include <QtCore/qmath.h>
+#include <QtCore/QDebug>
+#include <cassert>
+#include <limits>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4numberobject.cpp, line 28, as _ZN3QV412NumberLocaleC1Ev
+namespace QV4 {
+inline NumberLocale::NumberLocale() : QLocale(QLocale::C),
+    // -128 means shortest string that can accurately represent the number.
+    defaultDoublePrecision(0xffffff80)
+{
+    setNumberOptions(QLocale::OmitGroupSeparator |
+                     QLocale::OmitLeadingZeroInExponent |
+                     QLocale::IncludeTrailingZeroesAfterDot);
+}
+}  // namespace QV4
+//  -----------------------------------------------------------------------
+
+//  QV4::NumberLocale::NumberLocale()
+extern "C" Q_DECL_EXPORT
+QV4::NumberLocale *ritual_ZN3QV412NumberLocaleC1Ev() {
+  return new QV4::NumberLocale();
+}
 
 //  QV4::NumberLocale::~NumberLocale()
 extern "C" Q_DECL_EXPORT

@@ -189,6 +189,25 @@ const QMetaObject *ritual_ZNK18QGeoMappingManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoMappingManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QGeoMappingManager11qt_metacastEPKc(
+    QGeoMappingManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoMappingManager::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QGeoMappingManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoMappingManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoMappingManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QGeoMappingManager2trEPKcS1_i(
@@ -253,6 +272,19 @@ extern "C" Q_DECL_EXPORT
 QLocale *ritual_ZNK18QGeoMappingManager6localeEv(
     const QGeoMappingManager *self) {
   return new QLocale(self->locale());
+}
+
+//  void QGeoMappingManager::initialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QGeoMappingManager11initializedEv(QGeoMappingManager *self) {
+  self->initialized();
+}
+
+//  void QGeoMappingManager::supportedMapTypesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QGeoMappingManager24supportedMapTypesChangedEv(
+    QGeoMappingManager *self) {
+  self->supportedMapTypesChanged();
 }
 
 //  QGeoMappingManager::QGeoMappingManager(QGeoMappingManagerEngine *engine,

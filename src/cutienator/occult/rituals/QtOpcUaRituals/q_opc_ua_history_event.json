@@ -8,13 +8,22 @@
     "ritual_ZN18QOpcUaHistoryEventC1Ev": ["address"],
     "ritual_ZN18QOpcUaHistoryEventC1ERK7QString": ["address", "text"],
     "ritual_ZN18QOpcUaHistoryEventC1ERKS_": ["address", "address"],
+    "ritual_ZN18QOpcUaHistoryEventaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QOpcUaHistoryEventC1EOS_": ["address", "address"],
+    "ritual_ZN18QOpcUaHistoryEventaSEOS_": ["address", "address", "address"],
     "ritual_ZN18QOpcUaHistoryEventD1Ev": ["nothing", "address"],
+    "ritual_ZN18QOpcUaHistoryEvent4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QOpcUaHistoryEvent10statusCodeEv": [
       "unsigned int", "address"
     ],
     "ritual_ZN18QOpcUaHistoryEvent13setStatusCodeEN6QOpcUa12UaStatusCodeE": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZNK18QOpcUaHistoryEvent6eventsEv": ["address", "address"],
     "ritual_ZNK18QOpcUaHistoryEvent5countEv": ["int", "address"],
     "ritual_ZN18QOpcUaHistoryEvent8addEventERK5QListI8QVariantE": [
       "nothing", "address", "address"
@@ -29,6 +38,9 @@
     "ritual_list_add_QOpcUaHistoryEvent": ["nothing", "address", "address"],
     "ritual_list_size_QOpcUaHistoryEvent": ["long long", "address"],
     "ritual_list_at_QOpcUaHistoryEvent": ["address", "address", "long long"],
-    "ritual_list_drop_QOpcUaHistoryEvent": ["nothing", "address"]
+    "ritual_list_drop_QOpcUaHistoryEvent": ["nothing", "address"],
+    "ritual_drop_QOpcUaHistoryEvent__QList_QVariantList": [
+      "nothing", "address"
+    ]
   }
 }

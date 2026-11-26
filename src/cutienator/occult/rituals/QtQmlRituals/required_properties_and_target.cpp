@@ -22,6 +22,33 @@ RequiredPropertiesAndTarget *ritual_ZN27RequiredPropertiesAndTargetC1ERKS_(
   return new RequiredPropertiesAndTarget(*a0);
 }
 
+//  RequiredPropertiesAndTarget::RequiredPropertiesAndTarget(RequiredProperti
+//      esAndTarget &&a0)
+extern "C" Q_DECL_EXPORT
+RequiredPropertiesAndTarget *ritual_ZN27RequiredPropertiesAndTargetC1EOS_(
+    RequiredPropertiesAndTarget *a0) {
+  return new RequiredPropertiesAndTarget(std::move(*a0));
+}
+
+//  RequiredPropertiesAndTarget &RequiredPropertiesAndTarget::operator=(const
+//      RequiredPropertiesAndTarget &a0)
+extern "C" Q_DECL_EXPORT
+RequiredPropertiesAndTarget *ritual_ZN27RequiredPropertiesAndTargetaSERKS_(
+    RequiredPropertiesAndTarget *self,
+    const RequiredPropertiesAndTarget *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  RequiredPropertiesAndTarget
+//      &RequiredPropertiesAndTarget::operator=(RequiredPropertiesAndTarget
+//      &&a0)
+extern "C" Q_DECL_EXPORT
+RequiredPropertiesAndTarget *ritual_ZN27RequiredPropertiesAndTargetaSEOS_(
+    RequiredPropertiesAndTarget *self,
+    RequiredPropertiesAndTarget *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  RequiredPropertiesAndTarget::~RequiredPropertiesAndTarget()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27RequiredPropertiesAndTargetD1Ev(

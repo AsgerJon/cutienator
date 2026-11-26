@@ -21,145 +21,157 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcareaallocator.cpp, line 10, as local:qcareaallocator.cpp:QCAreaAllocatorNode
+struct QCAreaAllocatorNode
+{
+    enum class SplitType { VerticalSplit, HorizontalSplit };
+
+    QCAreaAllocatorNode(QCAreaAllocatorNode *parent);
+    ~QCAreaAllocatorNode();
+    inline bool isLeaf();
+
+    QCAreaAllocatorNode *parent = nullptr;
+    QCAreaAllocatorNode *left = nullptr;
+    QCAreaAllocatorNode *right = nullptr;
+    int split; // only valid for inner nodes.
+    SplitType splitType;
+    bool isOccupied = false; // only valid for leaf nodes.
+};
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcareaallocator.cpp, line 26, as local:qcareaallocator.cpp:QCAreaAllocatorNode::QCAreaAllocatorNode
+inline QCAreaAllocatorNode::QCAreaAllocatorNode(QCAreaAllocatorNode *parent)
+    : parent(parent)
+{}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcareaallocator.cpp, line 30, as local:qcareaallocator.cpp:QCAreaAllocatorNode::~QCAreaAllocatorNode
+inline QCAreaAllocatorNode::~QCAreaAllocatorNode()
+{
+    delete left;
+    delete right;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcareaallocator.cpp, line 36, as local:qcareaallocator.cpp:QCAreaAllocatorNode::isLeaf
+inline bool QCAreaAllocatorNode::isLeaf()
+{
+    Q_ASSERT((left != nullptr) == (right != nullptr));
+    return !left;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 11, as local:qcrhidistancefieldglyphcache.cpp:RHI_DISTANCEFIELD_GLYPH_CACHE_PADDING
+#define RHI_DISTANCEFIELD_GLYPH_CACHE_PADDING 2
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 18, as local:qcrhidistancefieldglyphcache.cpp:QC_SOLID_TILE_SIZE
+static constexpr int QC_SOLID_TILE_SIZE = 4;
+
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcareaallocator.cpp, line 48, as _ZN15QCAreaAllocatorD1Ev
 inline QCAreaAllocator::~QCAreaAllocator()
 {
     delete m_root;
 }
 
-//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 149, as _ZN28QCRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEiiPKv
-inline void QCRhiDistanceFieldGlyphCache::createTexture(
-    TextureInfo *texInfo, int width, int height, const void *pixels)
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcareaallocator.cpp, line 60, as _ZN15QCAreaAllocator10deallocateE5QRect
+inline bool QCAreaAllocator::deallocate(QRect rect)
 {
-    Q_ASSERT(m_batch);
-    if (useTextureResizeWorkaround() && texInfo->image.isNull()) {
-        texInfo->image = QDistanceField(width, height);
-        memcpy(texInfo->image.bits(), pixels, width * height);
-    }
-
-    texInfo->texture = m_rhi->newTexture(
-        QRhiTexture::RED_OR_ALPHA8, QSize(width, height), 1, QRhiTexture::UsedAsTransferSource);
-    texInfo->texture->setName("QCDistanceFieldAtlas");
-
-    if (texInfo->texture->create()) {
-        QRhiTextureSubresourceUploadDescription subresDesc(pixels, width * height);
-        subresDesc.setSourceSize(QSize(width, height));
-        m_batch->uploadTexture(texInfo->texture, QRhiTextureUploadEntry(0, 0, subresDesc));
-    } else {
-        qWarning("Failed to create distance field glyph cache");
-    }
-
-    texInfo->size = QSize(width, height);
+    return deallocateInNode(rect.topLeft(), m_root);
 }
 
-//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 212, as _ZN28QCRhiDistanceFieldGlyphCache15setGlyphTextureERK5QListIjERKNS_11TextureInfoE
-inline void QCRhiDistanceFieldGlyphCache::setGlyphTexture(
-    const QList<glyph_t> &glyphs, const TextureInfo &tex)
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcareaallocator.cpp, line 53, as _ZN15QCAreaAllocator8allocateE5QSize
+inline QRect QCAreaAllocator::allocate(QSize size)
 {
-    int i = m_textures.indexOf(tex);
-    if (i == -1) {
-        m_textures.append(tex);
-        i = m_textures.size() - 1;
-    } else {
-        m_textures[i].size = tex.size;
-    }
-    TextureInfo *texture = &(m_textures[i]);
-
-    int count = glyphs.size();
-
-    for (int j = 0; j < count; ++j) {
-        glyph_t glyphIndex = glyphs.at(j);
-        GlyphData &gd = glyphData(glyphIndex);
-        gd.texture = texture;
-    }
+    QPoint point;
+    bool result = allocateInNode(size, point, QRect(QPoint(0, 0), m_size), m_root);
+    return result ? QRect(point, size) : QRect();
 }
 
-//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 688, as _ZN28QCRhiDistanceFieldGlyphCache9glyphDataEj
-inline QCRhiDistanceFieldGlyphCache::GlyphData &QCRhiDistanceFieldGlyphCache::glyphData(glyph_t glyph)
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcareaallocator.cpp, line 42, as _ZN15QCAreaAllocatorC1E5QSize
+inline QCAreaAllocator::QCAreaAllocator(QSize size)
+    : m_size(size)
 {
-    auto data = m_glyphsData.find(glyph);
-    if (data == m_glyphsData.end()) {
-        GlyphData &gd = emptyData(glyph);
-        gd.path = m_currentReferenceFont.mutatedFont.pathForGlyph(glyph);
-        // need bounding rect in base font size scale
-        qreal scaleFactor = qreal(1) / QT_DISTANCEFIELD_SCALE(m_currentReferenceFont.doubleGlyphResolution);
-        QTransform scaleDown;
-        scaleDown.scale(scaleFactor, scaleFactor);
-        gd.boundingRect = scaleDown.mapRect(gd.path.boundingRect());
-        return gd;
-    }
-    return data.value();
+    m_root = new QCAreaAllocatorNode(nullptr);
 }
 
-//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 405, as _ZN28QCRhiDistanceFieldGlyphCache8populateERK5QListIjE
-inline bool QCRhiDistanceFieldGlyphCache::populate(const QList<glyph_t> &glyphs)
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 63, as _ZN28QCRhiDistanceFieldGlyphCache15ensureSolidTileEv
+inline void QCRhiDistanceFieldGlyphCache::ensureSolidTile()
 {
-    QVarLengthArray<glyph_t, 16> referencedGlyphs;
-    QVarLengthArray<glyph_t, 16> newGlyphs;
-    int count = glyphs.size();
+    if (m_solidTileTexCoord.isValid())
+        return;
+    if (!ensureUpdateBatch())
+        return;
 
-    const auto glyphCount = m_currentReferenceFont.glyphCount;
+    if (m_areaAllocator == nullptr)
+        m_areaAllocator = new QCAreaAllocator(
+            QSize(maxTextureSize(), m_maxTextureCount * maxTextureSize()));
 
-    for (int i = 0; i < count; ++i) {
-        glyph_t glyphIndex = glyphs.at(i);
-        if ((int) glyphIndex >= glyphCount && glyphCount > 0) {
-            qWarning("Warning: distance-field glyph is not available with index %d", glyphIndex);
-            continue;
+    QRect alloc = m_areaAllocator->allocate(QSize(QC_SOLID_TILE_SIZE, QC_SOLID_TILE_SIZE));
+    if (alloc.isNull())
+        return;
+
+    TextureInfo *tex = textureInfo(alloc.y() / maxTextureSize());
+    alloc = QRect(alloc.x(), alloc.y() % maxTextureSize(), alloc.width(), alloc.height());
+    tex->allocatedArea |= alloc;
+    if (tex->padding < 0)
+        tex->padding = RHI_DISTANCEFIELD_GLYPH_CACHE_PADDING;
+
+    m_solidTileTexCoord.x = alloc.x();
+    m_solidTileTexCoord.y = alloc.y();
+    m_solidTileTexCoord.width = alloc.width();
+    m_solidTileTexCoord.height = alloc.height();
+    m_solidTileTexture = tex;
+    m_solidTileUploadPending = true;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcareaallocator.cpp, line 65, as _ZN15QCAreaAllocator14allocateInNodeE5QSizeR6QPoint5QRectP19QCAreaAllocatorNode
+inline bool QCAreaAllocator::allocateInNode(
+    QSize size, QPoint &result, QRect currentRect, QCAreaAllocatorNode *node)
+{
+    if (size.width() > currentRect.width() || size.height() > currentRect.height())
+        return false;
+
+    if (node->isLeaf()) {
+        if (node->isOccupied)
+            return false;
+        const int maxMargin = 2;
+        if (size.width() + maxMargin >= currentRect.width()
+            && size.height() + maxMargin >= currentRect.height()) {
+            // Snug fit, occupy entire rectangle.
+            node->isOccupied = true;
+            result = currentRect.topLeft();
+            return true;
         }
-
-        GlyphData &gd = glyphData(glyphIndex);
-        if (!m_referencedThisFrame.contains(glyphIndex)) {
-            ++gd.ref;
-            m_referencedThisFrame.insert(glyphIndex);
-        }
-        referencedGlyphs.append(glyphIndex);
-
-        if (gd.texCoord.isValid() || m_populatingGlyphs.contains(glyphIndex))
-            continue;
-
-        m_populatingGlyphs.insert(glyphIndex);
-
-        if (gd.boundingRect.isEmpty()) {
-            gd.texCoord.width = 0;
-            gd.texCoord.height = 0;
+        // TODO: Reuse nodes.
+        // Split node.
+        node->left = new QCAreaAllocatorNode(node);
+        node->right = new QCAreaAllocatorNode(node);
+        QRect splitRect = currentRect;
+        if ((currentRect.width() - size.width()) * currentRect.height()
+            < (currentRect.height() - size.height()) * currentRect.width()) {
+            node->splitType = QCAreaAllocatorNode::SplitType::HorizontalSplit;
+            node->split = currentRect.top() + size.height();
+            splitRect.setHeight(size.height());
         } else {
-            newGlyphs.append(glyphIndex);
+            node->splitType = QCAreaAllocatorNode::SplitType::VerticalSplit;
+            node->split = currentRect.left() + size.width();
+            splitRect.setWidth(size.width());
         }
+        return allocateInNode(size, result, splitRect, node->left);
+    } else {
+        // TODO: avoid unnecessary recursion.
+        //  has been split.
+        QRect leftRect = currentRect;
+        QRect rightRect = currentRect;
+        if (node->splitType == QCAreaAllocatorNode::SplitType::HorizontalSplit) {
+            leftRect.setHeight(node->split - leftRect.top());
+            rightRect.setTop(node->split);
+        } else {
+            leftRect.setWidth(node->split - leftRect.left());
+            rightRect.setLeft(node->split);
+        }
+        if (allocateInNode(size, result, leftRect, node->left))
+            return true;
+        if (allocateInNode(size, result, rightRect, node->right))
+            return true;
+        return false;
     }
-
-    referenceGlyphs(referencedGlyphs);
-    if (!newGlyphs.isEmpty())
-        requestGlyphs(newGlyphs);
-
-    return newGlyphs.size() > 0;
-}
-
-//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 611, as _ZN28QCRhiDistanceFieldGlyphCache13releaseGlyphsERK4QSetIjE
-inline void QCRhiDistanceFieldGlyphCache::releaseGlyphs(const QSet<glyph_t> &glyphs)
-{
-    for (glyph_t glyph : glyphs) {
-        auto it = m_glyphsData.find(glyph);
-        if (it == m_glyphsData.end())
-            continue;
-        if (it->ref > 0 && --it->ref == 0)
-            m_unusedGlyphs.insert(glyph);
-    }
-}
-
-//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 351, as _ZN28QCRhiDistanceFieldGlyphCache9emptyDataEj
-inline QCRhiDistanceFieldGlyphCache::GlyphData &QCRhiDistanceFieldGlyphCache::emptyData(glyph_t glyph)
-{
-    GlyphData gd;
-    gd.texture = &s_emptyTexture;
-    auto it = m_glyphsData.insert(glyph, gd);
-    return it.value();
-}
-
-//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 605, as _ZN28QCRhiDistanceFieldGlyphCache15referenceGlyphsERK15QVarLengthArrayIjLx16EE
-inline void QCRhiDistanceFieldGlyphCache::referenceGlyphs(const QVarLengthArray<glyph_t, 16> &glyphs)
-{
-    for (glyph_t glyph : glyphs)
-        m_unusedGlyphs.remove(glyph);
 }
 
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 22, as _ZN28QCRhiDistanceFieldGlyphCacheC1EP4QRhi
@@ -224,6 +236,31 @@ inline void QCRhiDistanceFieldGlyphCache::createTexture(TextureInfo *texInfo, in
     createTexture(texInfo, width, height, zeroBuf.constData());
 }
 
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 149, as _ZN28QCRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEiiPKv
+inline void QCRhiDistanceFieldGlyphCache::createTexture(
+    TextureInfo *texInfo, int width, int height, const void *pixels)
+{
+    Q_ASSERT(m_batch);
+    if (useTextureResizeWorkaround() && texInfo->image.isNull()) {
+        texInfo->image = QDistanceField(width, height);
+        memcpy(texInfo->image.bits(), pixels, width * height);
+    }
+
+    texInfo->texture = m_rhi->newTexture(
+        QRhiTexture::RED_OR_ALPHA8, QSize(width, height), 1, QRhiTexture::UsedAsTransferSource);
+    texInfo->texture->setName("QCDistanceFieldAtlas");
+
+    if (texInfo->texture->create()) {
+        QRhiTextureSubresourceUploadDescription subresDesc(pixels, width * height);
+        subresDesc.setSourceSize(QSize(width, height));
+        m_batch->uploadTexture(texInfo->texture, QRhiTextureUploadEntry(0, 0, subresDesc));
+    } else {
+        qWarning("Failed to create distance field glyph cache");
+    }
+
+    texInfo->size = QSize(width, height);
+}
+
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 173, as _ZN28QCRhiDistanceFieldGlyphCache13resizeTextureEPNS_11TextureInfoEii
 inline void QCRhiDistanceFieldGlyphCache::resizeTexture(TextureInfo *texInfo, int width, int height)
 {
@@ -256,6 +293,13 @@ inline void QCRhiDistanceFieldGlyphCache::resizeTexture(TextureInfo *texInfo, in
     oldTexture->deleteLater();
 }
 
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 605, as _ZN28QCRhiDistanceFieldGlyphCache15referenceGlyphsERK15QVarLengthArrayIjLx16EE
+inline void QCRhiDistanceFieldGlyphCache::referenceGlyphs(const QVarLengthArray<glyph_t, 16> &glyphs)
+{
+    for (glyph_t glyph : glyphs)
+        m_unusedGlyphs.remove(glyph);
+}
+
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 622, as _ZN28QCRhiDistanceFieldGlyphCache22optimizeAfterRenderingEv
 inline void QCRhiDistanceFieldGlyphCache::optimizeAfterRendering()
 {
@@ -273,6 +317,25 @@ inline void QCRhiDistanceFieldGlyphCache::commitResourceUpdate(QRhiResourceUpdat
     batch->merge(m_batch);
     m_batch->release();
     m_batch = nullptr;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 125, as _ZN28QCRhiDistanceFieldGlyphCache22ensureSolidTileTextureEv
+inline void QCRhiDistanceFieldGlyphCache::ensureSolidTileTexture()
+{
+    if (!ensureUpdateBatch())
+        return;
+    ensureSolidTile();
+    if (!m_solidTileTexture)
+        return;
+
+    // When real glyphs were stored, storeGlyphs() already created the atlas
+    // texture; otherwise it does not exist yet, so create it sized to the
+    // reserved tile area. The 0xFF texels are flushed by uploadSolidTileIfNeeded().
+    if (!m_solidTileTexture->texture) {
+        const QRect area = m_solidTileTexture->allocatedArea;
+        createTexture(m_solidTileTexture, area.width(), area.height());
+    }
+    uploadSolidTileIfNeeded();
 }
 
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 92, as _ZN28QCRhiDistanceFieldGlyphCache23uploadSolidTileIfNeededEv
@@ -313,6 +376,26 @@ inline void QCRhiDistanceFieldGlyphCache::uploadSolidTileIfNeeded()
 inline int QCRhiDistanceFieldGlyphCache::maxTextureSize() const
 {
     return m_maxTextureSize;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 359, as _ZN28QCRhiDistanceFieldGlyphCache18markGlyphsToRenderERK5QListIjE
+inline void QCRhiDistanceFieldGlyphCache::markGlyphsToRender(const QList<glyph_t> &glyphs)
+{
+    int count = glyphs.size();
+    for (int i = 0; i < count; ++i)
+        m_pendingGlyphs.add(glyphs.at(i));
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 611, as _ZN28QCRhiDistanceFieldGlyphCache13releaseGlyphsERK4QSetIjE
+inline void QCRhiDistanceFieldGlyphCache::releaseGlyphs(const QSet<glyph_t> &glyphs)
+{
+    for (glyph_t glyph : glyphs) {
+        auto it = m_glyphsData.find(glyph);
+        if (it == m_glyphsData.end())
+            continue;
+        if (it->ref > 0 && --it->ref == 0)
+            m_unusedGlyphs.insert(glyph);
+    }
 }
 
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcrhidistancefieldglyphcache.cpp, line 366, as _ZNK28QCRhiDistanceFieldGlyphCache26useTextureResizeWorkaroundEv
@@ -402,6 +485,18 @@ void ritual_ZN28QCRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEii
   self->createTexture(texInfo, width, height);
 }
 
+//  void QCRhiDistanceFieldGlyphCache::createTexture(TextureInfo *texInfo,
+//      int width, int height, const void *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QCRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEiiPKv(
+    QCRhiDistanceFieldGlyphCache *self,
+    QCRhiDistanceFieldGlyphCache::TextureInfo *texInfo,
+    int width,
+    int height,
+    const void *pixels) {
+  self->createTexture(texInfo, width, height, pixels);
+}
+
 //  void QCRhiDistanceFieldGlyphCache::resizeTexture(TextureInfo *texInfo,
 //      int width, int height)
 extern "C" Q_DECL_EXPORT
@@ -411,6 +506,15 @@ void ritual_ZN28QCRhiDistanceFieldGlyphCache13resizeTextureEPNS_11TextureInfoEii
     int width,
     int height) {
   self->resizeTexture(texInfo, width, height);
+}
+
+//  void QCRhiDistanceFieldGlyphCache::referenceGlyphs(const
+//      QVarLengthArray<glyph_t, 16> &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QCRhiDistanceFieldGlyphCache15referenceGlyphsERK15QVarLengthArrayIjLx16EE(
+    QCRhiDistanceFieldGlyphCache *self,
+    const QVarLengthArray<glyph_t, 16> *glyphs) {
+  self->referenceGlyphs(*glyphs);
 }
 
 //  void QCRhiDistanceFieldGlyphCache::optimizeAfterRendering()
@@ -429,12 +533,34 @@ void ritual_ZN28QCRhiDistanceFieldGlyphCache20commitResourceUpdateEP23QRhiResour
   self->commitResourceUpdate(batch);
 }
 
+//  QList<TextureInfo> &QCRhiDistanceFieldGlyphCache::getTextures()
+extern "C" Q_DECL_EXPORT
+QList<QCRhiDistanceFieldGlyphCache::TextureInfo> *ritual_ZN28QCRhiDistanceFieldGlyphCache11getTexturesEv(
+    QCRhiDistanceFieldGlyphCache *self) {
+  return &(self->getTextures());
+}
+
+//  const QList<TextureInfo> &QCRhiDistanceFieldGlyphCache::getTextures()
+//      const
+extern "C" Q_DECL_EXPORT
+const QList<QCRhiDistanceFieldGlyphCache::TextureInfo> *ritual_ZNK28QCRhiDistanceFieldGlyphCache11getTexturesEv(
+    const QCRhiDistanceFieldGlyphCache *self) {
+  return &(self->getTextures());
+}
+
 //  TexCoord QCRhiDistanceFieldGlyphCache::solidTileTexCoord() const
 extern "C" Q_DECL_EXPORT
 QCRhiDistanceFieldGlyphCache::TexCoord *ritual_ZNK28QCRhiDistanceFieldGlyphCache17solidTileTexCoordEv(
     const QCRhiDistanceFieldGlyphCache *self) {
   return new QCRhiDistanceFieldGlyphCache::TexCoord(
       self->solidTileTexCoord());
+}
+
+//  void QCRhiDistanceFieldGlyphCache::ensureSolidTileTexture()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QCRhiDistanceFieldGlyphCache22ensureSolidTileTextureEv(
+    QCRhiDistanceFieldGlyphCache *self) {
+  self->ensureSolidTileTexture();
 }
 
 //  void QCRhiDistanceFieldGlyphCache::uploadSolidTileIfNeeded()
@@ -449,6 +575,24 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK28QCRhiDistanceFieldGlyphCache14maxTextureSizeEv(
     const QCRhiDistanceFieldGlyphCache *self) {
   return self->maxTextureSize();
+}
+
+//  void QCRhiDistanceFieldGlyphCache::markGlyphsToRender(const
+//      QList<glyph_t> &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QCRhiDistanceFieldGlyphCache18markGlyphsToRenderERK5QListIjE(
+    QCRhiDistanceFieldGlyphCache *self,
+    const QList<glyph_t> *glyphs) {
+  self->markGlyphsToRender(*glyphs);
+}
+
+//  void QCRhiDistanceFieldGlyphCache::releaseGlyphs(const QSet<glyph_t>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QCRhiDistanceFieldGlyphCache13releaseGlyphsERK4QSetIjE(
+    QCRhiDistanceFieldGlyphCache *self,
+    const QSet<glyph_t> *glyphs) {
+  self->releaseGlyphs(*glyphs);
 }
 
 //  bool QCRhiDistanceFieldGlyphCache::useTextureResizeWorkaround() const

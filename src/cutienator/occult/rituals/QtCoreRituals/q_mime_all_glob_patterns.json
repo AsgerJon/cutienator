@@ -5,8 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QMimeAllGlobPatterns7addGlobERK16QMimeGlobPattern": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QMimeAllGlobPatterns14removeMimeTypeERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QMimeAllGlobPatterns13matchingGlobsERK7QStringR20QMimeGlobMatchResultRKSt8functionIFbS2_EE": [
+      "nothing", "address", "text", "address", "address"
     ],
     "ritual_ZN20QMimeAllGlobPatterns5clearEv": ["nothing", "address"],
     "ritual_ZN20QMimeAllGlobPatternsD1Ev": ["nothing", "address"]

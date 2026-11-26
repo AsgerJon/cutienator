@@ -43,14 +43,309 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 507, as _ZN29QSGSoftwareThreadedRenderLoop9windowForEP12QQuickWindow
-inline QSGSoftwareThreadedRenderLoop::WindowData *QSGSoftwareThreadedRenderLoop::windowFor(QQuickWindow *window)
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 35, as local:qsgsoftwarethreadedrenderloop.cpp:QSGSoftwareWindowEvent
+Q_STATIC_LOGGING_CATEGORY(QSG_RASTER_LOG_RENDERLOOP,          "qt.scenegraph.renderloop")
+
+class QSGSoftwareWindowEvent : public QEvent
 {
-    for (const auto &t : std::as_const(m_windows)) {
-        if (t.window == window)
-            return const_cast<WindowData *>(&t);
+public:
+    QSGSoftwareWindowEvent(QQuickWindow *c, QEvent::Type type) : QEvent(type), window(c) { }
+    QQuickWindow *window;
+};
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 44, as local:qsgsoftwarethreadedrenderloop.cpp:QSGSoftwareTryReleaseEvent
+class QSGSoftwareTryReleaseEvent : public QSGSoftwareWindowEvent
+{
+public:
+    QSGSoftwareTryReleaseEvent(QQuickWindow *win, bool destroy)
+        : QSGSoftwareWindowEvent(win, QEvent::Type(WM_TryRelease)), destroying(destroy) { }
+    bool destroying;
+};
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 67, as local:qsgsoftwarethreadedrenderloop.cpp:QSGSoftwareGrabEvent
+class QSGSoftwareGrabEvent : public QSGSoftwareWindowEvent
+{
+public:
+    QSGSoftwareGrabEvent(QQuickWindow *c, QImage *result)
+        : QSGSoftwareWindowEvent(c, QEvent::Type(WM_Grab)), image(result) { }
+    QImage *image;
+};
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 75, as local:qsgsoftwarethreadedrenderloop.cpp:QSGSoftwareJobEvent
+class QSGSoftwareJobEvent : public QSGSoftwareWindowEvent
+{
+public:
+    QSGSoftwareJobEvent(QQuickWindow *c, QRunnable *postedJob)
+        : QSGSoftwareWindowEvent(c, QEvent::Type(WM_PostJob)), job(postedJob) { }
+    ~QSGSoftwareJobEvent() { delete job; }
+    QRunnable *job;
+};
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 84, as local:qsgsoftwarethreadedrenderloop.cpp:QSGSoftwareEventQueue
+class QSGSoftwareEventQueue : public QQueue<QEvent *>
+{
+public:
+    void addEvent(QEvent *e) {
+        mutex.lock();
+        enqueue(e);
+        if (waiting)
+            condition.wakeOne();
+        mutex.unlock();
     }
-    return nullptr;
+
+    QEvent *takeEvent(bool wait) {
+        mutex.lock();
+        if (isEmpty() && wait) {
+            waiting = true;
+            condition.wait(&mutex);
+            waiting = false;
+        }
+        QEvent *e = dequeue();
+        mutex.unlock();
+        return e;
+    }
+
+    bool hasMoreEvents() {
+        mutex.lock();
+        bool has = !isEmpty();
+        mutex.unlock();
+        return has;
+    }
+
+private:
+    QMutex mutex;
+    QWaitCondition condition;
+    bool waiting = false;
+};
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 120, as local:qsgsoftwarethreadedrenderloop.cpp:qsgrl_animation_interval
+static inline int qsgrl_animation_interval()
+{
+    const qreal refreshRate = QGuiApplication::primaryScreen() ? QGuiApplication::primaryScreen()->refreshRate() : 0;
+    return refreshRate < 1 ? 16 : int(1000 / refreshRate);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 126, as local:qsgsoftwarethreadedrenderloop.cpp:QSGSoftwareRenderThread
+class QSGSoftwareRenderThread : public QThread
+{
+    Q_OBJECT
+public:
+    QSGSoftwareRenderThread(QSGSoftwareThreadedRenderLoop *rl, QSGRenderContext *renderContext)
+        : renderLoop(rl)
+    {
+        rc = static_cast<QSGSoftwareRenderContext *>(renderContext);
+        vsyncDelta = qsgrl_animation_interval();
+    }
+
+    ~QSGSoftwareRenderThread()
+    {
+        delete rc;
+    }
+
+    bool event(QEvent *e) override;
+    void run() override;
+
+    void syncAndRender();
+    void sync(bool inExpose);
+
+    void requestRepaint()
+    {
+        if (sleeping)
+            stopEventProcessing = true;
+        if (exposedWindow)
+            pendingUpdate |= RepaintRequest;
+    }
+
+    void processEventsAndWaitForMore();
+    void processEvents();
+    void postEvent(QEvent *e);
+
+    enum UpdateRequest {
+        SyncRequest         = 0x01,
+        RepaintRequest      = 0x02,
+        ExposeRequest       = 0x04 | RepaintRequest | SyncRequest
+    };
+
+    QSGSoftwareThreadedRenderLoop *renderLoop;
+    QSGSoftwareRenderContext *rc;
+    QAnimationDriver *rtAnim = nullptr;
+    volatile bool active = false;
+    uint pendingUpdate = 0;
+    bool sleeping = false;
+    bool syncResultedInChanges = false;
+    float vsyncDelta;
+    QMutex mutex;
+    QWaitCondition waitCondition;
+    QQuickWindow *exposedWindow = nullptr;
+    QBackingStore *backingStore = nullptr;
+    bool stopEventProcessing = false;
+    QSGSoftwareEventQueue eventQueue;
+    QElapsedTimer renderThrottleTimer;
+    qint64 syncTime;
+    qint64 renderTime;
+    qint64 sinceLastTime;
+
+public slots:
+    void onSceneGraphChanged() {
+        syncResultedInChanges = true;
+    }
+};
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 314, as local:qsgsoftwarethreadedrenderloop.cpp:QSGSoftwareRenderThread::postEvent
+inline void QSGSoftwareRenderThread::postEvent(QEvent *e)
+{
+    eventQueue.addEvent(e);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 319, as local:qsgsoftwarethreadedrenderloop.cpp:QSGSoftwareRenderThread::processEvents
+inline void QSGSoftwareRenderThread::processEvents()
+{
+    while (eventQueue.hasMoreEvents()) {
+        QEvent *e = eventQueue.takeEvent(false);
+        event(e);
+        delete e;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 328, as local:qsgsoftwarethreadedrenderloop.cpp:QSGSoftwareRenderThread::processEventsAndWaitForMore
+inline void QSGSoftwareRenderThread::processEventsAndWaitForMore()
+{
+    stopEventProcessing = false;
+    while (!stopEventProcessing) {
+        QEvent *e = eventQueue.takeEvent(true);
+        event(e);
+        delete e;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 533, as _ZN29QSGSoftwareThreadedRenderLoop4showEP12QQuickWindow
+inline void QSGSoftwareThreadedRenderLoop::show(QQuickWindow *window)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "show" << window;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 538, as _ZN29QSGSoftwareThreadedRenderLoop4hideEP12QQuickWindow
+inline void QSGSoftwareThreadedRenderLoop::hide(QQuickWindow *window)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "hide" << window;
+
+    if (window->isExposed())
+        handleObscurity(windowFor(window));
+
+    releaseResources(window);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 548, as _ZN29QSGSoftwareThreadedRenderLoop6resizeEP12QQuickWindow
+inline void QSGSoftwareThreadedRenderLoop::resize(QQuickWindow *window)
+{
+    if (!window->isExposed() || window->size().isEmpty())
+        return;
+
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "resize" << window << window->size();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 556, as _ZN29QSGSoftwareThreadedRenderLoop15windowDestroyedEP12QQuickWindow
+inline void QSGSoftwareThreadedRenderLoop::windowDestroyed(QQuickWindow *window)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "window destroyed" << window;
+
+    WindowData *w = windowFor(window);
+    if (!w)
+        return;
+
+    handleObscurity(w);
+    handleResourceRelease(w, true);
+
+    QSGSoftwareRenderThread *thread = w->thread;
+    while (thread->isRunning())
+        QThread::yieldCurrentThread();
+
+    Q_ASSERT(thread->thread() == QThread::currentThread());
+    delete thread;
+
+    for (int i = 0; i < m_windows.size(); ++i) {
+        if (m_windows.at(i).window == window) {
+            m_windows.removeAt(i);
+            break;
+        }
+    }
+
+    // Now that we altered the window list, we may need to stop the animation
+    // timer even if we didn't via handleObscurity. This covers the case where
+    // we destroy a visible & exposed QQuickWindow.
+    startOrStopAnimationTimer();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 587, as _ZN29QSGSoftwareThreadedRenderLoop15exposureChangedEP12QQuickWindow
+inline void QSGSoftwareThreadedRenderLoop::exposureChanged(QQuickWindow *window)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "exposure changed" << window;
+
+    if (window->isExposed()) {
+        handleExposure(window);
+    } else {
+        WindowData *w = windowFor(window);
+        if (w)
+            handleObscurity(w);
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 600, as _ZN29QSGSoftwareThreadedRenderLoop4grabEP12QQuickWindow
+inline QImage QSGSoftwareThreadedRenderLoop::grab(QQuickWindow *window)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "grab" << window;
+
+    WindowData *w = windowFor(window);
+    // Have to support invisible (but created()'ed) windows as well.
+    // Unlike with GL, leaving that case for QQuickWindow to handle is not feasible.
+    const bool tempExpose = !w;
+    if (tempExpose) {
+        handleExposure(window);
+        w = windowFor(window);
+        Q_ASSERT(w);
+    }
+
+    if (!w->thread->isRunning())
+        return QImage();
+
+    if (!window->handle())
+        window->create();
+
+    QQuickWindowPrivate *wd = QQuickWindowPrivate::get(window);
+    wd->polishItems();
+
+    QImage result;
+    w->thread->mutex.lock();
+    lockedForSync = true;
+    w->thread->postEvent(new QSGSoftwareGrabEvent(window, &result));
+    w->thread->waitCondition.wait(&w->thread->mutex);
+    lockedForSync = false;
+    w->thread->mutex.unlock();
+
+    result.setDevicePixelRatio(window->effectiveDevicePixelRatio());
+
+    if (tempExpose)
+        handleObscurity(w);
+
+    return result;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 639, as _ZN29QSGSoftwareThreadedRenderLoop6updateEP12QQuickWindow
+inline void QSGSoftwareThreadedRenderLoop::update(QQuickWindow *window)
+{
+    WindowData *w = windowFor(window);
+    if (!w)
+        return;
+
+    if (w->thread == QThread::currentThread()) {
+        w->thread->requestRepaint();
+        return;
+    }
+
+    // We set forceRenderPass because we want to make sure the QQuickWindow
+    // actually does a full render pass after the next sync.
+    w->forceRenderPass = true;
+    scheduleUpdate(w);
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 656, as _ZN29QSGSoftwareThreadedRenderLoop11maybeUpdateEP12QQuickWindow
@@ -59,6 +354,16 @@ inline void QSGSoftwareThreadedRenderLoop::maybeUpdate(QQuickWindow *window)
     WindowData *w = windowFor(window);
     if (w)
         scheduleUpdate(w);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 663, as _ZN29QSGSoftwareThreadedRenderLoop19handleUpdateRequestEP12QQuickWindow
+inline void QSGSoftwareThreadedRenderLoop::handleUpdateRequest(QQuickWindow *window)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "handleUpdateRequest" << window;
+
+    WindowData *w = windowFor(window);
+    if (w)
+        polishAndSync(w, false);
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 672, as _ZNK29QSGSoftwareThreadedRenderLoop15animationDriverEv
@@ -77,6 +382,26 @@ inline QSGContext *QSGSoftwareThreadedRenderLoop::sceneGraphContext() const
 inline QSGRenderContext *QSGSoftwareThreadedRenderLoop::createRenderContext(QSGContext *) const
 {
     return m_sg->createRenderContext();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 687, as _ZN29QSGSoftwareThreadedRenderLoop16releaseResourcesEP12QQuickWindow
+inline void QSGSoftwareThreadedRenderLoop::releaseResources(QQuickWindow *window)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "releaseResources" << window;
+
+    WindowData *w = windowFor(window);
+    if (w)
+        handleResourceRelease(w, false);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 696, as _ZN29QSGSoftwareThreadedRenderLoop7postJobEP12QQuickWindowP9QRunnable
+inline void QSGSoftwareThreadedRenderLoop::postJob(QQuickWindow *window, QRunnable *job)
+{
+    WindowData *w = windowFor(window);
+    if (w && w->thread && w->thread->exposedWindow)
+        w->thread->postEvent(new QSGSoftwareJobEvent(window, job));
+    else
+        delete job;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 705, as _ZNK29QSGSoftwareThreadedRenderLoop17windowSurfaceTypeEv
@@ -117,6 +442,166 @@ inline bool QSGSoftwareThreadedRenderLoop::event(QEvent *e)
     }
 
     return QObject::event(e);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 836, as _ZN29QSGSoftwareThreadedRenderLoop15handleObscurityEPNS_10WindowDataE
+inline void QSGSoftwareThreadedRenderLoop::handleObscurity(QSGSoftwareThreadedRenderLoop::WindowData *w)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "handleObscurity" << w->window;
+
+    if (w->thread->isRunning()) {
+        w->thread->mutex.lock();
+        w->thread->postEvent(new QSGSoftwareWindowEvent(w->window, QEvent::Type(WM_Obscure)));
+        w->thread->waitCondition.wait(&w->thread->mutex);
+        w->thread->mutex.unlock();
+    }
+
+    startOrStopAnimationTimer();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 872, as _ZN29QSGSoftwareThreadedRenderLoop21handleResourceReleaseEPNS_10WindowDataEb
+inline void QSGSoftwareThreadedRenderLoop::handleResourceRelease(QSGSoftwareThreadedRenderLoop::WindowData *w, bool destroying)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "handleResourceRelease" << (destroying ? "destroying" : "hide/releaseResources") << w->window;
+
+    w->thread->mutex.lock();
+    if (w->thread->isRunning() && w->thread->active) {
+        QQuickWindow *window = w->window;
+
+        // Note that window->handle() is typically null by this time because
+        // the platform window is already destroyed. This should not be a
+        // problem for the D3D cleanup.
+
+        w->thread->postEvent(new QSGSoftwareTryReleaseEvent(window, destroying));
+        w->thread->waitCondition.wait(&w->thread->mutex);
+
+        // Avoid a shutdown race condition.
+        // If SG is invalidated and 'active' becomes false, the thread's run()
+        // method will exit. handleExposure() relies on QThread::isRunning() (because it
+        // potentially needs to start the thread again) and our mutex cannot be used to
+        // track the thread stopping, so we wait a few nanoseconds extra so the thread
+        // can exit properly.
+        if (!w->thread->active)
+            w->thread->wait();
+    }
+    w->thread->mutex.unlock();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 778, as _ZN29QSGSoftwareThreadedRenderLoop14handleExposureEP12QQuickWindow
+inline void QSGSoftwareThreadedRenderLoop::handleExposure(QQuickWindow *window)
+{
+    qCDebug(QSG_RASTER_LOG_RENDERLOOP) << "handleExposure" << window;
+
+    WindowData *w = windowFor(window);
+    if (!w) {
+        qCDebug(QSG_RASTER_LOG_RENDERLOOP, "adding window to list");
+        WindowData win;
+        win.window = window;
+        QSGRenderContext *rc = QQuickWindowPrivate::get(window)->context; // will transfer ownership
+        win.thread = new QSGSoftwareRenderThread(this, rc);
+        win.updateDuringSync = false;
+        win.forceRenderPass = true; // also covered by polishAndSync(inExpose=true), but doesn't hurt
+        m_windows.append(win);
+        w = &m_windows.last();
+    }
+
+    // set this early as we'll be rendering shortly anyway and this avoids
+    // special casing exposure in polishAndSync.
+    w->thread->exposedWindow = window;
+
+    if (w->window->size().isEmpty()
+        || (w->window->isTopLevel() && !w->window->geometry().intersects(w->window->screen()->availableGeometry()))) {
+#ifndef QT_NO_DEBUG
+        qWarning().noquote().nospace() << "QSGSotwareThreadedRenderLoop: expose event received for window "
+            << w->window << " with invalid geometry: " << w->window->geometry()
+            << " on " << w->window->screen();
+#endif
+    }
+
+    if (!w->window->handle())
+        w->window->create();
+
+    // Start render thread if it is not running
+    if (!w->thread->isRunning()) {
+        qCDebug(QSG_RASTER_LOG_RENDERLOOP, "starting render thread");
+        // Push a few things to the render thread.
+        QQuickAnimatorController *controller
+                = QQuickWindowPrivate::get(w->window)->animationController.get();
+        if (controller->thread() != w->thread)
+            controller->moveToThread(w->thread);
+        if (w->thread->thread() == QThread::currentThread()) {
+            w->thread->rc->moveToThread(w->thread);
+            w->thread->moveToThread(w->thread);
+        }
+
+        w->thread->active = true;
+        w->thread->start();
+
+        if (!w->thread->isRunning())
+            qFatal("Render thread failed to start, aborting application.");
+    }
+
+    polishAndSync(w, true);
+
+    startOrStopAnimationTimer();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 850, as _ZN29QSGSoftwareThreadedRenderLoop14scheduleUpdateEPNS_10WindowDataE
+inline void QSGSoftwareThreadedRenderLoop::scheduleUpdate(QSGSoftwareThreadedRenderLoop::WindowData *w)
+{
+    if (!QCoreApplication::instance())
+        return;
+
+    if (!w || !w->thread->isRunning())
+        return;
+
+    QThread *current = QThread::currentThread();
+    if (current != QCoreApplication::instance()->thread() && (current != w->thread || !lockedForSync)) {
+        qWarning() << "Updates can only be scheduled from GUI thread or from QQuickItem::updatePaintNode()";
+        return;
+    }
+
+    if (current == w->thread) {
+        w->updateDuringSync = true;
+        return;
+    }
+
+    w->window->requestUpdate();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 507, as _ZN29QSGSoftwareThreadedRenderLoop9windowForEP12QQuickWindow
+inline QSGSoftwareThreadedRenderLoop::WindowData *QSGSoftwareThreadedRenderLoop::windowFor(QQuickWindow *window)
+{
+    for (const auto &t : std::as_const(m_windows)) {
+        if (t.window == window)
+            return const_cast<WindowData *>(&t);
+    }
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarethreadedrenderloop.cpp, line 754, as _ZN29QSGSoftwareThreadedRenderLoop25startOrStopAnimationTimerEv
+inline void QSGSoftwareThreadedRenderLoop::startOrStopAnimationTimer()
+{
+    int exposedWindowCount = 0;
+    const WindowData *exposed = nullptr;
+
+    for (int i = 0; i < m_windows.size(); ++i) {
+        const WindowData &w(m_windows[i]);
+        if (w.window->isVisible() && w.window->isExposed()) {
+            ++exposedWindowCount;
+            exposed = &w;
+        }
+    }
+
+    if (animationTimer && (exposedWindowCount == 1 || !m_anim->isRunning())) {
+        killTimer(animationTimer);
+        animationTimer = 0;
+        // If animations are running, make sure we keep on animating
+        if (m_anim->isRunning())
+            exposed->window->requestUpdate();
+    } else if (!animationTimer && exposedWindowCount != 1 && m_anim->isRunning()) {
+        animationTimer = startTimer(qsgrl_animation_interval());
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -575,12 +1060,96 @@ const QMetaObject *ritual_ZNK29QSGSoftwareThreadedRenderLoop10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGSoftwareThreadedRenderLoop::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QSGSoftwareThreadedRenderLoop11qt_metacastEPKc(
+    QSGSoftwareThreadedRenderLoop *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGSoftwareThreadedRenderLoop::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QSGSoftwareThreadedRenderLoop11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGSoftwareThreadedRenderLoop *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::show(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop4showEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->show(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::hide(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop4hideEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->hide(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::resize(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop6resizeEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->resize(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::windowDestroyed(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop15windowDestroyedEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->windowDestroyed(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::exposureChanged(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop15exposureChangedEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->exposureChanged(window);
+}
+
+//  QImage QSGSoftwareThreadedRenderLoop::grab(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN29QSGSoftwareThreadedRenderLoop4grabEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  return new QImage(self->grab(window));
+}
+
+//  void QSGSoftwareThreadedRenderLoop::update(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop6updateEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->update(window);
+}
+
 //  void QSGSoftwareThreadedRenderLoop::maybeUpdate(QQuickWindow *window)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QSGSoftwareThreadedRenderLoop11maybeUpdateEP12QQuickWindow(
     QSGSoftwareThreadedRenderLoop *self,
     QQuickWindow *window) {
   self->maybeUpdate(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::handleUpdateRequest(QQuickWindow
+//      *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop19handleUpdateRequestEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->handleUpdateRequest(window);
 }
 
 //  QAnimationDriver *QSGSoftwareThreadedRenderLoop::animationDriver() const
@@ -605,6 +1174,25 @@ QSGRenderContext *ritual_ZNK29QSGSoftwareThreadedRenderLoop19createRenderContext
     const QSGSoftwareThreadedRenderLoop *self,
     QSGContext *a0) {
   return self->createRenderContext(a0);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::releaseResources(QQuickWindow
+//      *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop16releaseResourcesEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->releaseResources(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::postJob(QQuickWindow *window,
+//      QRunnable *job)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop7postJobEP12QQuickWindowP9QRunnable(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window,
+    QRunnable *job) {
+  self->postJob(window, job);
 }
 
 //  QSurface::SurfaceType QSGSoftwareThreadedRenderLoop::windowSurfaceType()
@@ -637,6 +1225,72 @@ bool ritual_ZN29QSGSoftwareThreadedRenderLoop5eventEP6QEvent(
   return self->event(e);
 }
 
+//  void QSGSoftwareThreadedRenderLoop::onAnimationStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop18onAnimationStartedEv(
+    QSGSoftwareThreadedRenderLoop *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSGSoftwareThreadedRenderLoop")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onAnimationStarted()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onAnimationStarted()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::onAnimationStopped()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop18onAnimationStoppedEv(
+    QSGSoftwareThreadedRenderLoop *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSGSoftwareThreadedRenderLoop")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onAnimationStopped()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onAnimationStopped()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  WindowData *QSGSoftwareThreadedRenderLoop::windowFor(QQuickWindow
+//      *window)
+extern "C" Q_DECL_EXPORT
+QSGSoftwareThreadedRenderLoop::WindowData *ritual_ZN29QSGSoftwareThreadedRenderLoop9windowForEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  return self->windowFor(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::startOrStopAnimationTimer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGSoftwareThreadedRenderLoop25startOrStopAnimationTimerEv(
+    QSGSoftwareThreadedRenderLoop *self) {
+  self->startOrStopAnimationTimer();
+}
+
 //  a Python function taken by a CuteQSGSoftwareThreadedRenderLoop, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -645,6 +1299,54 @@ bool ritual_take_QSGSoftwareThreadedRenderLoop(
     const char *key,
     void *call) {
   return static_cast<CuteQSGSoftwareThreadedRenderLoop *>(self)->take(key, call);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::show(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QSGSoftwareThreadedRenderLoop4showEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->QSGSoftwareThreadedRenderLoop::show(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::hide(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QSGSoftwareThreadedRenderLoop4hideEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->QSGSoftwareThreadedRenderLoop::hide(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::resize(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QSGSoftwareThreadedRenderLoop6resizeEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->QSGSoftwareThreadedRenderLoop::resize(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::windowDestroyed(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QSGSoftwareThreadedRenderLoop15windowDestroyedEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->QSGSoftwareThreadedRenderLoop::windowDestroyed(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::update(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QSGSoftwareThreadedRenderLoop6updateEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->QSGSoftwareThreadedRenderLoop::update(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::maybeUpdate(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QSGSoftwareThreadedRenderLoop11maybeUpdateEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->QSGSoftwareThreadedRenderLoop::maybeUpdate(window);
 }
 
 //  QAnimationDriver *QSGSoftwareThreadedRenderLoop::animationDriver() const
@@ -669,6 +1371,25 @@ QSGRenderContext *ritual_own_ZNK29QSGSoftwareThreadedRenderLoop19createRenderCon
     const QSGSoftwareThreadedRenderLoop *self,
     QSGContext *a0) {
   return self->QSGSoftwareThreadedRenderLoop::createRenderContext(a0);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::releaseResources(QQuickWindow
+//      *window)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QSGSoftwareThreadedRenderLoop16releaseResourcesEP12QQuickWindow(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window) {
+  self->QSGSoftwareThreadedRenderLoop::releaseResources(window);
+}
+
+//  void QSGSoftwareThreadedRenderLoop::postJob(QQuickWindow *window,
+//      QRunnable *job)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QSGSoftwareThreadedRenderLoop7postJobEP12QQuickWindowP9QRunnable(
+    QSGSoftwareThreadedRenderLoop *self,
+    QQuickWindow *window,
+    QRunnable *job) {
+  self->QSGSoftwareThreadedRenderLoop::postJob(window, job);
 }
 
 //  QSurface::SurfaceType QSGSoftwareThreadedRenderLoop::windowSurfaceType()

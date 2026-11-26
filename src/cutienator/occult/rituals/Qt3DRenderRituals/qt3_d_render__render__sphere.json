@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render6SphereC1EN8Qt3DCore7QNodeIdE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6SphereC1ERK9QVector3DfN8Qt3DCore7QNodeIdE": [
+      "address", "address", "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Sphere9setCenterERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Sphere6centerEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender6Render6Sphere6isNullEv": ["bool", "address"],
+    "ritual_ZN10Qt3DRender6Render6Sphere9setRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Sphere6radiusEv": ["float", "address"],
+    "ritual_ZN10Qt3DRender6Render6Sphere5clearEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render6Sphere9transformERK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6SphereD1Ev": ["nothing", "address"],
+    "ritual_own_ZNK10Qt3DRender6Render6Sphere6centerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render6Sphere6radiusEv": ["float", "address"]
+  }
+}

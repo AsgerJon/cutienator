@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/qsgtexture.h, Qt 6.12.0. Changes made here are lost.
+//  QtQuick/qsgtexture.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 5. Kept as it is when the
+//  generator runs again.
 #include <QtQuick/QtQuick>
 #include <QtQuick/qsgtexture.h>
 #include <QtCore/qstring.h>
@@ -7,6 +9,7 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQuick/qsgtexture_platform.h>
 
 //  A QSGTexture that Python can take functions over in. Every QSGTexture
 //  Python makes is one. Each function below asks the Python
@@ -331,6 +334,24 @@ const QMetaObject *ritual_ZNK10QSGTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QSGTexture11qt_metacastEPKc(
+    QSGTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGTexture::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QSGTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGTexture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QSGTexture2trEPKcS1_i(
@@ -351,6 +372,12 @@ extern "C" Q_DECL_EXPORT
 const QSGTexturePrivate *ritual_ZNK10QSGTexture6d_funcEv(
     const QSGTexture *self) {
   return self->d_func();
+}
+
+//  QSGTexture::QSGTexture()
+extern "C" Q_DECL_EXPORT
+QSGTexture *ritual_ZN10QSGTextureC1Ev() {
+  return new CuteQSGTexture();
 }
 
 //  QSGTexture::~QSGTexture()
@@ -505,6 +532,22 @@ QRectF *ritual_ZNK10QSGTexture29convertToNormalizedSourceRectERK6QRectF(
   return new QRectF(self->convertToNormalizedSourceRect(*rect));
 }
 
+//  void *QSGTexture::resolveInterface(const char *name, int revision) const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK10QSGTexture16resolveInterfaceEPKci(
+    const QSGTexture *self,
+    const char *name,
+    int revision) {
+  return self->resolveInterface(name, revision);
+}
+
+//  QSGTexture::QSGTexture(QSGTexturePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QSGTexture *ritual_ZN10QSGTextureC1ER17QSGTexturePrivate(
+    QSGTexturePrivate *dd) {
+  return new CuteQSGTexture(*dd);
+}
+
 //  a Python function taken by a CuteQSGTexture, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -550,3 +593,48 @@ void ritual_own_ZN10QSGTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpd
     QRhiResourceUpdateBatch *resourceUpdates) {
   self->QSGTexture::commitTextureOperations(rhi, resourceUpdates);
 }
+
+#if QT_CONFIG(opengl)
+//  QNativeInterface::QSGOpenGLTexture *QSGTexture::nativeInterface<
+//      QNativeInterface::QSGOpenGLTexture>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QSGOpenGLTexture * ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface16QSGOpenGLTextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(const QSGTexture *self) {
+  return self->nativeInterface<QNativeInterface::QSGOpenGLTexture>();
+}
+#endif  // QT_CONFIG(opengl)
+
+#if QT_CONFIG(vulkan)
+//  QNativeInterface::QSGVulkanTexture *QSGTexture::nativeInterface<
+//      QNativeInterface::QSGVulkanTexture>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QSGVulkanTexture * ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface16QSGVulkanTextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(const QSGTexture *self) {
+  return self->nativeInterface<QNativeInterface::QSGVulkanTexture>();
+}
+#endif  // QT_CONFIG(vulkan)
+
+#if defined(Q_OS_WIN)
+//  QNativeInterface::QSGD3D11Texture *QSGTexture::nativeInterface<
+//      QNativeInterface::QSGD3D11Texture>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QSGD3D11Texture * ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface15QSGD3D11TextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(const QSGTexture *self) {
+  return self->nativeInterface<QNativeInterface::QSGD3D11Texture>();
+}
+#endif  // defined(Q_OS_WIN)
+
+#if defined(Q_OS_WIN)
+//  QNativeInterface::QSGD3D12Texture *QSGTexture::nativeInterface<
+//      QNativeInterface::QSGD3D12Texture>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QSGD3D12Texture * ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface15QSGD3D12TextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(const QSGTexture *self) {
+  return self->nativeInterface<QNativeInterface::QSGD3D12Texture>();
+}
+#endif  // defined(Q_OS_WIN)
+
+#if QT_CONFIG(metal)
+//  QNativeInterface::QSGMetalTexture *QSGTexture::nativeInterface<
+//      QNativeInterface::QSGMetalTexture>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QSGMetalTexture * ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface15QSGMetalTextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(const QSGTexture *self) {
+  return self->nativeInterface<QNativeInterface::QSGMetalTexture>();
+}
+#endif  // QT_CONFIG(metal)

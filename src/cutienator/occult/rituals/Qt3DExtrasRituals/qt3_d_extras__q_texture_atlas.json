@@ -8,6 +8,37 @@
     "ritual_ZNK10Qt3DExtras13QTextureAtlas10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras13QTextureAtlas11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras13QTextureAtlas11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras13QTextureAtlasD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras13QTextureAtlas11pixelFormatEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras13QTextureAtlas14setPixelFormatEN14QOpenGLTexture11PixelFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras13QTextureAtlas11removeImageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DExtras13QTextureAtlas10imageCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras13QTextureAtlas8hasImageEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DExtras13QTextureAtlas13imagePositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DExtras13QTextureAtlas14imageTexCoordsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DExtras13QTextureAtlas12imagePaddingEi": [
+      "int", "address", "int"
+    ],
     "ritual_ZN10Qt3DExtras13QTextureAtlas6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DExtras13QTextureAtlas6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DExtras_QTextureAtlas": [

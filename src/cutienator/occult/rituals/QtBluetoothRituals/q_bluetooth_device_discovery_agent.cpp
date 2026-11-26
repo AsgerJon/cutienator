@@ -183,6 +183,25 @@ const QMetaObject *ritual_ZNK30QBluetoothDeviceDiscoveryAgent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBluetoothDeviceDiscoveryAgent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QBluetoothDeviceDiscoveryAgent11qt_metacastEPKc(
+    QBluetoothDeviceDiscoveryAgent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBluetoothDeviceDiscoveryAgent::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QBluetoothDeviceDiscoveryAgent11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBluetoothDeviceDiscoveryAgent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBluetoothDeviceDiscoveryAgent::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -291,6 +310,67 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN30QBluetoothDeviceDiscoveryAgent4stopEv(
     QBluetoothDeviceDiscoveryAgent *self) {
   self->stop();
+}
+
+//  void QBluetoothDeviceDiscoveryAgent::deviceDiscovered(const
+//      QBluetoothDeviceInfo &info)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QBluetoothDeviceDiscoveryAgent16deviceDiscoveredERK20QBluetoothDeviceInfo(
+    QBluetoothDeviceDiscoveryAgent *self,
+    const QBluetoothDeviceInfo *info) {
+  self->deviceDiscovered(*info);
+}
+
+//  void QBluetoothDeviceDiscoveryAgent::deviceUpdated(const
+//      QBluetoothDeviceInfo &info, QBluetoothDeviceInfo::Fields
+//      updatedFields)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QBluetoothDeviceDiscoveryAgent13deviceUpdatedERK20QBluetoothDeviceInfo6QFlagsINS0_5FieldEE(
+    QBluetoothDeviceDiscoveryAgent *self,
+    const QBluetoothDeviceInfo *info,
+    int updatedFields) {
+  self->deviceUpdated(
+      *info,
+      QFlags<QBluetoothDeviceInfo::Field>::fromInt(updatedFields));
+}
+
+//  void QBluetoothDeviceDiscoveryAgent::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QBluetoothDeviceDiscoveryAgent8finishedEv(
+    QBluetoothDeviceDiscoveryAgent *self) {
+  self->finished();
+}
+
+//  void QBluetoothDeviceDiscoveryAgent::errorOccurred(QBluetoothDeviceDiscov
+//      eryAgent::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QBluetoothDeviceDiscoveryAgent13errorOccurredENS_5ErrorE(
+    QBluetoothDeviceDiscoveryAgent *self,
+    QBluetoothDeviceDiscoveryAgent::Error error) {
+  self->errorOccurred(error);
+}
+
+//  void QBluetoothDeviceDiscoveryAgent::canceled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QBluetoothDeviceDiscoveryAgent8canceledEv(
+    QBluetoothDeviceDiscoveryAgent *self) {
+  self->canceled();
+}
+
+//  QBluetoothDeviceDiscoveryAgentPrivate
+//      *QBluetoothDeviceDiscoveryAgent::d_func()
+extern "C" Q_DECL_EXPORT
+QBluetoothDeviceDiscoveryAgentPrivate *ritual_ZN30QBluetoothDeviceDiscoveryAgent6d_funcEv(
+    QBluetoothDeviceDiscoveryAgent *self) {
+  return self->d_func();
+}
+
+//  const QBluetoothDeviceDiscoveryAgentPrivate
+//      *QBluetoothDeviceDiscoveryAgent::d_func() const
+extern "C" Q_DECL_EXPORT
+const QBluetoothDeviceDiscoveryAgentPrivate *ritual_ZNK30QBluetoothDeviceDiscoveryAgent6d_funcEv(
+    const QBluetoothDeviceDiscoveryAgent *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQBluetoothDeviceDiscoveryAgent, for the

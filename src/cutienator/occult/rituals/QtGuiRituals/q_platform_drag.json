@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN13QPlatformDrag6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QPlatformDrag6d_funcEv": ["address", "address"],
+    "ritual_ZN13QPlatformDragC1Ev": ["address"],
     "ritual_ZN13QPlatformDragD1Ev": ["nothing", "address"],
     "ritual_ZNK13QPlatformDrag11currentDragEv": ["address", "address"],
     "ritual_ZN13QPlatformDrag4dragEP5QDrag": ["int", "address", "address"],

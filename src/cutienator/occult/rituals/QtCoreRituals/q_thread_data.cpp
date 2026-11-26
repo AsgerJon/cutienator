@@ -23,6 +23,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/corelib/thread/qthread.cpp, line 74, as _ZN11QThreadData11clearEventsEv
 inline void QThreadData::clearEvents()
 {

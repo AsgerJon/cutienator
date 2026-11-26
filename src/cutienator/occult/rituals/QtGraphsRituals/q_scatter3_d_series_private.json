@@ -20,6 +20,9 @@
     "ritual_ZN23QScatter3DSeriesPrivate15createItemLabelEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QScatter3DSeriesPrivate15setSelectedItemEx": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZN23QScatter3DSeriesPrivate11setItemSizeEf": [
       "nothing", "address", "float"
     ],

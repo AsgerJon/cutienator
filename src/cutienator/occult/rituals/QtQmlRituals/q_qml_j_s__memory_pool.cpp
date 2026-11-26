@@ -21,6 +21,14 @@ void ritual_ZN6QQmlJS10MemoryPoolD1Ev(QQmlJS::MemoryPool *self) {
   delete self;
 }
 
+//  void *QQmlJS::MemoryPool::allocate(size_t size)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6QQmlJS10MemoryPool8allocateEm(
+    QQmlJS::MemoryPool *self,
+    size_t size) {
+  return self->allocate(size);
+}
+
 //  void QQmlJS::MemoryPool::reset()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QQmlJS10MemoryPool5resetEv(QQmlJS::MemoryPool *self) {
@@ -33,4 +41,12 @@ QString *ritual_ZN6QQmlJS10MemoryPool9newStringE7QString(
     QQmlJS::MemoryPool *self,
     const QString *string) {
   return new QString(self->newString(*string).toString());
+}
+
+//  void *QQmlJS::MemoryPool::allocate_helper(size_t size)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6QQmlJS10MemoryPool15allocate_helperEm(
+    QQmlJS::MemoryPool *self,
+    size_t size) {
+  return self->allocate_helper(size);
 }

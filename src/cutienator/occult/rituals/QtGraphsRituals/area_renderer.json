@@ -9,14 +9,30 @@
   ],
   "rows": {
     "ritual_ZNK12AreaRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12AreaRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12AreaRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12AreaRendererD1Ev": ["nothing", "address"],
     "ritual_ZN12AreaRenderer19resetShapePathCountEv": ["nothing", "address"],
+    "ritual_ZNK12AreaRenderer13paintSnapshotEv": ["address", "address"],
     "ritual_ZN12AreaRenderer15synchronizeDataEv": ["nothing", "address"],
+    "ritual_ZN12AreaRenderer13paintSnapshotERK5QListINS_13AreaPaintDataEEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12AreaRenderer11afterUpdateER5QListIP15QAbstractSeriesE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12AreaRenderer12updateSeriesEP11QAreaSeries": [
       "nothing", "address", "address"
     ],
     "ritual_ZN12AreaRenderer22seriesAboutToBeRemovedEP15QAbstractSeries": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN12AreaRenderer14getSeriesStyleEPNS_10PointGroupE": [
+      "address", "address", "address"
     ],
     "ritual_ZNK12AreaRenderer26calculateRenderCoordinatesEP11QAreaSeriesddPdS2_": [
       "nothing", "address", "address", "double", "double", "address",
@@ -26,6 +42,12 @@
       "nothing", "address", "address", "double", "double", "address",
       "address"
     ],
-    "ritual_take_AreaRenderer": ["bool", "address", "chars", "address"]
+    "ritual_take_AreaRenderer": ["bool", "address", "chars", "address"],
+    "ritual_drop_AreaRenderer__AreaRenderer_PaintSnapshot": [
+      "nothing", "address"
+    ],
+    "ritual_drop_AreaRenderer__AreaRenderer_SeriesStyle": [
+      "nothing", "address"
+    ]
   }
 }

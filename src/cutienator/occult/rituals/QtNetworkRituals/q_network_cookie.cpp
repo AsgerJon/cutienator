@@ -30,6 +30,30 @@ void ritual_ZN14QNetworkCookieD1Ev(QNetworkCookie *self) {
   delete self;
 }
 
+//  QNetworkCookie &QNetworkCookie::operator=(QNetworkCookie &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkCookie *ritual_ZN14QNetworkCookieaSEOS_(
+    QNetworkCookie *self,
+    QNetworkCookie *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QNetworkCookie &QNetworkCookie::operator=(const QNetworkCookie &other)
+extern "C" Q_DECL_EXPORT
+QNetworkCookie *ritual_ZN14QNetworkCookieaSERKS_(
+    QNetworkCookie *self,
+    const QNetworkCookie *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QNetworkCookie::swap(QNetworkCookie &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QNetworkCookie4swapERS_(
+    QNetworkCookie *self,
+    QNetworkCookie *other) {
+  self->swap(*other);
+}
+
 //  bool QNetworkCookie::operator==(const QNetworkCookie &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14QNetworkCookieeqERKS_(

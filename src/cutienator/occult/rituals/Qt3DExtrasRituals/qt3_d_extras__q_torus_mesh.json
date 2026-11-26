@@ -7,8 +7,48 @@
     "ritual_ZNK10Qt3DExtras10QTorusMesh10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras10QTorusMesh2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMeshC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMeshD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras10QTorusMesh5ringsEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras10QTorusMesh6slicesEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras10QTorusMesh6radiusEv": ["float", "address"],
+    "ritual_ZNK10Qt3DExtras10QTorusMesh11minorRadiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh8setRingsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh9setSlicesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh9setRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh14setMinorRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh13radiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh12ringsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh13slicesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh18minorRadiusChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_take_Qt3DExtras_QTorusMesh": [
       "bool", "address", "chars", "address"

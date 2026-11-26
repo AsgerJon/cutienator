@@ -5,7 +5,13 @@
   ],
   "rows": {
     "ritual_ZN16QCollatorSortKeyC1ERKS_": ["address", "address"],
+    "ritual_ZN16QCollatorSortKeyC1EOS_": ["address", "address"],
     "ritual_ZN16QCollatorSortKeyD1Ev": ["nothing", "address"],
+    "ritual_ZN16QCollatorSortKeyaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QCollatorSortKeyaSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QCollatorSortKey4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK16QCollatorSortKey7compareERKS_": [
       "int", "address", "address"
     ],

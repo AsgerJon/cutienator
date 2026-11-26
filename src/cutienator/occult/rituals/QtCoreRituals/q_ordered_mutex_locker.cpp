@@ -19,6 +19,30 @@ QOrderedMutexLocker *ritual_ZN19QOrderedMutexLockerC1EP11QBasicMutexS1_(
   return new QOrderedMutexLocker(m1, m2);
 }
 
+//  void QOrderedMutexLocker::swap(QOrderedMutexLocker &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QOrderedMutexLocker4swapERS_(
+    QOrderedMutexLocker *self,
+    QOrderedMutexLocker *other) {
+  self->swap(*other);
+}
+
+//  QOrderedMutexLocker &QOrderedMutexLocker::operator=(QOrderedMutexLocker
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QOrderedMutexLocker *ritual_ZN19QOrderedMutexLockeraSEOS_(
+    QOrderedMutexLocker *self,
+    QOrderedMutexLocker *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QOrderedMutexLocker::QOrderedMutexLocker(QOrderedMutexLocker &&other)
+extern "C" Q_DECL_EXPORT
+QOrderedMutexLocker *ritual_ZN19QOrderedMutexLockerC1EOS_(
+    QOrderedMutexLocker *other) {
+  return new QOrderedMutexLocker(std::move(*other));
+}
+
 //  QOrderedMutexLocker::~QOrderedMutexLocker()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QOrderedMutexLockerD1Ev(QOrderedMutexLocker *self) {

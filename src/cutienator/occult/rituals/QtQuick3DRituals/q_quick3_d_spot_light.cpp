@@ -293,6 +293,25 @@ const QMetaObject *ritual_ZNK17QQuick3DSpotLight10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DSpotLight::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuick3DSpotLight11qt_metacastEPKc(
+    QQuick3DSpotLight *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DSpotLight::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuick3DSpotLight11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DSpotLight *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DSpotLight::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuick3DSpotLight2trEPKcS1_i(
@@ -388,6 +407,41 @@ void ritual_ZN17QQuick3DSpotLight17setInnerConeAngleEf(
     QQuick3DSpotLight *self,
     float innerConeAngle) {
   self->setInnerConeAngle(innerConeAngle);
+}
+
+//  void QQuick3DSpotLight::constantFadeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DSpotLight19constantFadeChangedEv(
+    QQuick3DSpotLight *self) {
+  self->constantFadeChanged();
+}
+
+//  void QQuick3DSpotLight::linearFadeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DSpotLight17linearFadeChangedEv(
+    QQuick3DSpotLight *self) {
+  self->linearFadeChanged();
+}
+
+//  void QQuick3DSpotLight::quadraticFadeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DSpotLight20quadraticFadeChangedEv(
+    QQuick3DSpotLight *self) {
+  self->quadraticFadeChanged();
+}
+
+//  void QQuick3DSpotLight::coneAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DSpotLight16coneAngleChangedEv(
+    QQuick3DSpotLight *self) {
+  self->coneAngleChanged();
+}
+
+//  void QQuick3DSpotLight::innerConeAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DSpotLight21innerConeAngleChangedEv(
+    QQuick3DSpotLight *self) {
+  self->innerConeAngleChanged();
 }
 
 //  QSSGRenderGraphObject

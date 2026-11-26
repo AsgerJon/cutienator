@@ -4,6 +4,8 @@
     "QtCore/qcoreevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN6QEventC1ERKS_": ["address", "address"],
+    "ritual_ZN6QEventaSERKS_": ["address", "address", "address"],
     "ritual_ZN6QEventC1ENS_4TypeE": ["address", "int"],
     "ritual_ZN6QEventD1Ev": ["nothing", "address"],
     "ritual_ZNK6QEvent4typeEv": ["int", "address"],
@@ -17,6 +19,15 @@
     "ritual_ZNK6QEvent18isSinglePointEventEv": ["bool", "address"],
     "ritual_ZN6QEvent17registerEventTypeEi": ["int", "int"],
     "ritual_ZNK6QEvent5cloneEv": ["address", "address"],
+    "ritual_ZN6QEventC1ENS_4TypeENS_13InputEventTagE": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN6QEventC1ENS_4TypeENS_15PointerEventTagE": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN6QEventC1ENS_4TypeENS_19SinglePointEventTagE": [
+      "address", "int", "address"
+    ],
     "ritual_ZN6QEvent14setSpontaneousEv": ["nothing", "address"],
     "ritual_take_QEvent": ["bool", "address", "chars", "address"],
     "ritual_own_ZN6QEvent11setAcceptedEb": ["nothing", "address", "bool"],

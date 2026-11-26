@@ -103,6 +103,21 @@ public:
   }
 };
 
+//  QSvgVideo::~QSvgVideo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSvgVideoD1Ev(QSvgVideo *self) {
+  delete self;
+}
+
+//  void QSvgVideo::drawCommand(QPainter *a0, QSvgExtraStates &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSvgVideo11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgVideo *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  self->drawCommand(a0, *a1);
+}
+
 //  Type QSvgVideo::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK9QSvgVideo4typeEv(const QSvgVideo *self) {

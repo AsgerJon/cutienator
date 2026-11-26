@@ -12,6 +12,9 @@
     "ritual_ZN14QObjectPrivate9ExtraData20nameChangedForwarderERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN14QObjectPrivate9ExtraData30_qt_property_objectName_offsetEv": [
+      "size_t"
+    ],
     "ritual_ZN14QObjectPrivate9ExtraDataD1Ev": ["nothing", "address"]
   }
 }

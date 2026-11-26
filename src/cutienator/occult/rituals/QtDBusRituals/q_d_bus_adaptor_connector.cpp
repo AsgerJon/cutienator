@@ -9,7 +9,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDBus/6.12.0/QtDBus/private/qdbusabstractadaptor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qobjectdefs.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDBus/qdbusabstractadaptor.h>
@@ -30,52 +33,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from src/dbus/qdbusabstractadaptor.cpp, line 251, as _ZN21QDBusAdaptorConnector5relayEP7QObjectiPPv
-#if !defined(QT_NO_DBUS)
-inline void QDBusAdaptorConnector::relay(QObject *senderObj, int lastSignalIdx, void **argv)
-{
-    if (lastSignalIdx < QObject::staticMetaObject.methodCount())
-        // QObject signal (destroyed(QObject *)) -- ignore
-        return;
-
-    QMetaMethod mm = senderObj->metaObject()->method(lastSignalIdx);
-    const QMetaObject *senderMetaObject = mm.enclosingMetaObject();
-
-    QObject *realObject = senderObj;
-    if (qobject_cast<QDBusAbstractAdaptor *>(senderObj))
-        // it's an adaptor, so the real object is in fact its parent
-        realObject = realObject->parent();
-
-    // break down the parameter list
-    QList<QMetaType> types;
-    QString errorMsg;
-    int inputCount = qDBusParametersForMethod(mm, types, errorMsg);
-    if (inputCount == -1) {
-        // invalid signal signature
-        qWarning("QDBusAbstractAdaptor: Cannot relay signal %s::%s: %s",
-                 senderMetaObject->className(), mm.methodSignature().constData(),
-                 qPrintable(errorMsg));
-        return;
-    }
-    if (inputCount + 1 != types.size() ||
-        types.at(inputCount) == QDBusMetaTypeId::message()) {
-        // invalid signal signature
-        qWarning("QDBusAbstractAdaptor: Cannot relay signal %s::%s",
-                 senderMetaObject->className(), mm.methodSignature().constData());
-        return;
-    }
-
-    QVariantList args;
-    const int numTypes = types.size();
-    args.reserve(numTypes - 1);
-    for (int i = 1; i < numTypes; ++i)
-        args << QVariant(QMetaType(types.at(i)), argv[i]);
-
-    // now emit the signal with all the information
-    emit relaySignal(realObject, senderMetaObject, lastSignalIdx, args);
-}
-#endif  // !defined(QT_NO_DBUS)
 
 //  from src/dbus/qdbusabstractadaptor.cpp, line 173, as _ZN21QDBusAdaptorConnectorD1Ev
 #if !defined(QT_NO_DBUS)
@@ -259,10 +216,114 @@ const QMetaObject *ritual_ZNK21QDBusAdaptorConnector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDBusAdaptorConnector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QDBusAdaptorConnector11qt_metacastEPKc(
+    QDBusAdaptorConnector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusAdaptorConnector::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QDBusAdaptorConnector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusAdaptorConnector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QDBusAdaptorConnector::~QDBusAdaptorConnector()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QDBusAdaptorConnectorD1Ev(QDBusAdaptorConnector *self) {
   delete self;
+}
+
+//  void QDBusAdaptorConnector::relaySlot(QMethodRawArguments a)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QDBusAdaptorConnector9relaySlotE19QMethodRawArguments(
+    QDBusAdaptorConnector *self,
+    const QMethodRawArguments *a) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusAdaptorConnector")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "relaySlot(QMethodRawArguments)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "relaySlot(QMethodRawArguments)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(a)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusAdaptorConnector::polish()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QDBusAdaptorConnector6polishEv(QDBusAdaptorConnector *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusAdaptorConnector")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "polish()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "polish()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusAdaptorConnector::relaySignal(QObject *obj, const QMetaObject
+//      *metaObject, int sid, const QVariantList &args)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QDBusAdaptorConnector11relaySignalEP7QObjectPK11QMetaObjectiRK5QListI8QVariantE(
+    QDBusAdaptorConnector *self,
+    QObject *obj,
+    const QMetaObject *metaObject,
+    int sid,
+    const QList<QVariant> *args) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusAdaptorConnector")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "relaySignal(QObject *,const QMetaObject *,int,const QVariantList &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "relaySignal(QObject *,const QMetaObject *,int,const QVariantList &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&obj)),
+      const_cast<void *>(static_cast<const void *>(&metaObject)),
+      const_cast<void *>(static_cast<const void *>(&sid)),
+      const_cast<void *>(static_cast<const void *>(args)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQDBusAdaptorConnector, for the function

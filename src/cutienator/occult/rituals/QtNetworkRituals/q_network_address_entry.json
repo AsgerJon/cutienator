@@ -7,7 +7,16 @@
   "rows": {
     "ritual_ZN20QNetworkAddressEntryC1Ev": ["address"],
     "ritual_ZN20QNetworkAddressEntryC1ERKS_": ["address", "address"],
+    "ritual_ZN20QNetworkAddressEntryaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QNetworkAddressEntryaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QNetworkAddressEntryD1Ev": ["nothing", "address"],
+    "ritual_ZN20QNetworkAddressEntry4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QNetworkAddressEntryeqERKS_": [
       "bool", "address", "address"
     ],

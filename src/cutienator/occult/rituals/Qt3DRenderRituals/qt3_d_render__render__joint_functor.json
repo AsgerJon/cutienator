@@ -5,6 +5,18 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12JointFunctorC1EPNS0_16AbstractRendererEPNS0_12JointManagerEPNS0_15SkeletonManagerE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12JointFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12JointFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12JointFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render12JointFunctorD1Ev": ["nothing", "address"]
   }
 }

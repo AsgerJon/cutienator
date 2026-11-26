@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV412FunctionDataC1EPNS_10EngineBaseEPNS_25ExecutableCompilationUnitE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN3QV412FunctionDataD1Ev": ["nothing", "address"]
   }
 }

@@ -5,7 +5,17 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras17QTextureAtlasDataC1EiiN6QImage6FormatE": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QTextureAtlasDataD1Ev": ["nothing", "address"],
     "ritual_ZNK10Qt3DExtras17QTextureAtlasData5widthEv": ["int", "address"],
-    "ritual_ZNK10Qt3DExtras17QTextureAtlasData6heightEv": ["int", "address"]
+    "ritual_ZNK10Qt3DExtras17QTextureAtlasData6heightEv": ["int", "address"],
+    "ritual_ZN10Qt3DExtras17QTextureAtlasData8addImageERKNS_12AtlasTextureERK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras17QTextureAtlasData22createUpdatedImageDataEv": [
+      "address", "address"
+    ]
   }
 }

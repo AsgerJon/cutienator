@@ -8,6 +8,12 @@
     "ritual_ZNK22QHttpNetworkConnection10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QHttpNetworkConnection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QHttpNetworkConnection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QHttpNetworkConnection2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -67,6 +73,12 @@
     "ritual_ZN22QHttpNetworkConnection15ignoreSslErrorsERK5QListI9QSslErrorEi": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZNK22QHttpNetworkConnection10sslContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QHttpNetworkConnection13setSslContextESt10shared_ptrI11QSslContextE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QHttpNetworkConnection18preConnectFinishedEv": [
       "nothing", "address"
     ],
@@ -83,6 +95,9 @@
     "ritual_ZNK22QHttpNetworkConnection6d_funcEv": ["address", "address"],
     "ritual_take_QHttpNetworkConnection": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QHttpNetworkConnection__std_shared_ptr_QSslContext": [
+      "nothing", "address"
     ]
   }
 }

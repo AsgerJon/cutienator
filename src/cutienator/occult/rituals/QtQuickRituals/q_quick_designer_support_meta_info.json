@@ -8,6 +8,9 @@
     "ritual_ZN29QQuickDesignerSupportMetaInfo12isSubclassOfEP7QObjectRK10QByteArray": [
       "bool", "address", "address"
     ],
+    "ritual_ZN29QQuickDesignerSupportMetaInfo36registerNotifyPropertyChangeCallBackEPFvP7QObjectRK10QByteArrayE": [
+      "nothing", "address"
+    ],
     "ritual_ZN29QQuickDesignerSupportMetaInfo20registerMockupObjectEPKciiS1_": [
       "nothing", "chars", "int", "int", "chars"
     ],

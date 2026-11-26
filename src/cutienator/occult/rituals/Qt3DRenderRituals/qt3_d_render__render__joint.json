@@ -5,6 +5,11 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render5JointC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render5Joint7cleanupEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render5Joint16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render5Joint9localPoseEv": [
       "address", "address"
     ],
@@ -12,11 +17,20 @@
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render5Joint4nameEv": ["text", "address"],
+    "ritual_ZNK10Qt3DRender6Render5Joint13childJointIdsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render5Joint11translationEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render5Joint8rotationEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender6Render5Joint5scaleEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender6Render5Joint17setOwningSkeletonEN8Qt3DCore7QHandleINS0_8SkeletonEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render5Joint14owningSkeletonEv": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render5Joint15setJointManagerEPNS0_12JointManagerE": [
       "nothing", "address", "address"
     ],
@@ -31,6 +45,12 @@
     ],
     "ritual_own_ZN10Qt3DRender6Render5Joint16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_Joint__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Joint__Qt3DRender_Render_HSkeleton": [
+      "nothing", "address"
     ]
   }
 }

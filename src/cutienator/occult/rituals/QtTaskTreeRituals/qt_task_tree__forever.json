@@ -4,6 +4,13 @@
     "QtTaskTree/qtasktree.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QtTaskTree7ForeverC1ERK5QListINS_9GroupItemEE": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree7ForeverC1ESt16initializer_listINS_9GroupItemEE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QtTaskTree7ForevercvNS_5GroupEEv": ["address", "address"],
     "ritual_ZN10QtTaskTree7ForeverD1Ev": ["nothing", "address"]
   }
 }

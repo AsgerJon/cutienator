@@ -888,6 +888,25 @@ const QMetaObject *ritual_ZNK33QDesignerObjectInspectorInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerObjectInspectorInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN33QDesignerObjectInspectorInterface11qt_metacastEPKc(
+    QDesignerObjectInspectorInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerObjectInspectorInterface::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN33QDesignerObjectInspectorInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerObjectInspectorInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerObjectInspectorInterface::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -896,6 +915,17 @@ QString *ritual_ZN33QDesignerObjectInspectorInterface2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QDesignerObjectInspectorInterface::tr(s, c, n));
+}
+
+//  QDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface(QWid
+//      get *parent, Qt::WindowFlags flags)
+extern "C" Q_DECL_EXPORT
+QDesignerObjectInspectorInterface *ritual_ZN33QDesignerObjectInspectorInterfaceC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE(
+    QWidget *parent,
+    int flags) {
+  return new CuteQDesignerObjectInspectorInterface(
+      parent,
+      QFlags<Qt::WindowType>::fromInt(flags));
 }
 
 //  QDesignerObjectInspectorInterface::~QDesignerObjectInspectorInterface()

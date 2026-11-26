@@ -34,6 +34,32 @@ void ritual_ZN19QProcessEnvironmentD1Ev(QProcessEnvironment *self) {
   delete self;
 }
 
+//  QProcessEnvironment &QProcessEnvironment::operator=(QProcessEnvironment
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QProcessEnvironment *ritual_ZN19QProcessEnvironmentaSEOS_(
+    QProcessEnvironment *self,
+    QProcessEnvironment *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QProcessEnvironment &QProcessEnvironment::operator=(const
+//      QProcessEnvironment &other)
+extern "C" Q_DECL_EXPORT
+QProcessEnvironment *ritual_ZN19QProcessEnvironmentaSERKS_(
+    QProcessEnvironment *self,
+    const QProcessEnvironment *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QProcessEnvironment::swap(QProcessEnvironment &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QProcessEnvironment4swapERS_(
+    QProcessEnvironment *self,
+    QProcessEnvironment *other) {
+  self->swap(*other);
+}
+
 //  bool QProcessEnvironment::isEmpty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QProcessEnvironment7isEmptyEv(

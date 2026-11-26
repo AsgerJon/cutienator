@@ -3,6 +3,9 @@
 #include <QtNetwork/qhostaddress.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
+#include <utility>
+#include <QtNetwork/QHostAddress>
+#include <QtCore/QString>
 
 //  QHostAddress::QHostAddress()
 extern "C" Q_DECL_EXPORT
@@ -16,11 +19,24 @@ QHostAddress *ritual_ZN12QHostAddressC1Ej(quint32 ip4Addr) {
   return new QHostAddress(ip4Addr);
 }
 
+//  QHostAddress::QHostAddress(const quint8 *ip6Addr)
+extern "C" Q_DECL_EXPORT
+QHostAddress *ritual_ZN12QHostAddressC1EPKh(const quint8 *ip6Addr) {
+  return new QHostAddress(ip6Addr);
+}
+
 //  QHostAddress::QHostAddress(const Q_IPV6ADDR &ip6Addr)
 extern "C" Q_DECL_EXPORT
 QHostAddress *ritual_ZN12QHostAddressC1ERK12QIPv6Address(
     const QIPv6Address *ip6Addr) {
   return new QHostAddress(*ip6Addr);
+}
+
+//  QHostAddress::QHostAddress(const sockaddr *address)
+extern "C" Q_DECL_EXPORT
+QHostAddress *ritual_ZN12QHostAddressC1EPK8sockaddr(
+    const sockaddr *address) {
+  return new QHostAddress(address);
 }
 
 //  QHostAddress::QHostAddress(const QString &address)
@@ -33,6 +49,12 @@ QHostAddress *ritual_ZN12QHostAddressC1ERK7QString(const QString *address) {
 extern "C" Q_DECL_EXPORT
 QHostAddress *ritual_ZN12QHostAddressC1ERKS_(const QHostAddress *copy) {
   return new QHostAddress(*copy);
+}
+
+//  QHostAddress::QHostAddress(QHostAddress &&other)
+extern "C" Q_DECL_EXPORT
+QHostAddress *ritual_ZN12QHostAddressC1EOS_(QHostAddress *other) {
+  return new QHostAddress(std::move(*other));
 }
 
 //  QHostAddress::QHostAddress(SpecialAddress address)
@@ -48,6 +70,38 @@ void ritual_ZN12QHostAddressD1Ev(QHostAddress *self) {
   delete self;
 }
 
+//  QHostAddress &QHostAddress::operator=(QHostAddress &&other)
+extern "C" Q_DECL_EXPORT
+QHostAddress *ritual_ZN12QHostAddressaSEOS_(
+    QHostAddress *self,
+    QHostAddress *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QHostAddress &QHostAddress::operator=(const QHostAddress &other)
+extern "C" Q_DECL_EXPORT
+QHostAddress *ritual_ZN12QHostAddressaSERKS_(
+    QHostAddress *self,
+    const QHostAddress *other) {
+  return &(self->operator=(*other));
+}
+
+//  QHostAddress &QHostAddress::operator=(SpecialAddress address)
+extern "C" Q_DECL_EXPORT
+QHostAddress *ritual_ZN12QHostAddressaSENS_14SpecialAddressE(
+    QHostAddress *self,
+    QHostAddress::SpecialAddress address) {
+  return &(self->operator=(address));
+}
+
+//  void QHostAddress::swap(QHostAddress &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHostAddress4swapERS_(
+    QHostAddress *self,
+    QHostAddress *other) {
+  self->swap(*other);
+}
+
 //  void QHostAddress::setAddress(quint32 ip4Addr)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QHostAddress10setAddressEj(
@@ -56,12 +110,28 @@ void ritual_ZN12QHostAddress10setAddressEj(
   self->setAddress(ip4Addr);
 }
 
+//  void QHostAddress::setAddress(const quint8 *ip6Addr)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHostAddress10setAddressEPKh(
+    QHostAddress *self,
+    const quint8 *ip6Addr) {
+  self->setAddress(ip6Addr);
+}
+
 //  void QHostAddress::setAddress(const Q_IPV6ADDR &ip6Addr)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QHostAddress10setAddressERK12QIPv6Address(
     QHostAddress *self,
     const QIPv6Address *ip6Addr) {
   self->setAddress(*ip6Addr);
+}
+
+//  void QHostAddress::setAddress(const sockaddr *address)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHostAddress10setAddressEPK8sockaddr(
+    QHostAddress *self,
+    const sockaddr *address) {
+  self->setAddress(address);
 }
 
 //  bool QHostAddress::setAddress(const QString &address)
@@ -188,6 +258,15 @@ bool ritual_ZNK12QHostAddress10isInSubnetERKS_i(
   return self->isInSubnet(*subnet, netmask);
 }
 
+//  bool QHostAddress::isInSubnet(const std::pair<QHostAddress, int> &subnet)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK12QHostAddress10isInSubnetERKSt4pairIS_iE(
+    const QHostAddress *self,
+    const std::pair<QHostAddress, int> *subnet) {
+  return self->isInSubnet(*subnet);
+}
+
 //  bool QHostAddress::isLoopback() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QHostAddress10isLoopbackEv(const QHostAddress *self) {
@@ -235,6 +314,16 @@ bool ritual_ZNK12QHostAddress11isBroadcastEv(const QHostAddress *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QHostAddress12isPrivateUseEv(const QHostAddress *self) {
   return self->isPrivateUse();
+}
+
+//  std::pair<QHostAddress, int> QHostAddress::parseSubnet(const QString
+//      &subnet)
+extern "C" Q_DECL_EXPORT
+std::pair<QHostAddress, int> *ritual_ZN12QHostAddress11parseSubnetERK7QString(
+    const QString *subnet) {
+  return new std::pair<QHostAddress, int>(
+      QHostAddress::parseSubnet(
+          *subnet));
 }
 
 //  bool operator==(QHostAddress::SpecialAddress lhs, const QHostAddress
@@ -286,5 +375,12 @@ QHostAddress *ritual_list_at_QHostAddress(
 //  QList<QHostAddress>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QHostAddress(QList<QHostAddress> *self) {
+  delete self;
+}
+
+//  a std::pair<QHostAddress, int> a ritual of QHostAddress gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHostAddress__std_pair_QHostAddress_int(
+    std::pair<QHostAddress, int> *self) {
   delete self;
 }

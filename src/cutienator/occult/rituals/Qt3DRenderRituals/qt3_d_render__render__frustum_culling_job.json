@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render17FrustumCullingJobnwEm": [
+      "address", "size_t"
+    ],
+    "ritual_ZN10Qt3DRender6Render17FrustumCullingJobdlEPv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render17FrustumCullingJob7setRootEPNS0_6EntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render17FrustumCullingJob11setManagersEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render17FrustumCullingJob9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render17FrustumCullingJob8isActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render17FrustumCullingJob17setViewProjectionERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render17FrustumCullingJob14viewProjectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render17FrustumCullingJob15visibleEntitiesEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_Render_FrustumCullingJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render17FrustumCullingJob10isRequiredEv": [
+      "bool", "address"
+    ]
+  }
+}

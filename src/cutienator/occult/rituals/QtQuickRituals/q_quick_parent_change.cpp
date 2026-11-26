@@ -447,6 +447,25 @@ const QMetaObject *ritual_ZNK18QQuickParentChange10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickParentChange::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickParentChange11qt_metacastEPKc(
+    QQuickParentChange *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickParentChange::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickParentChange11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickParentChange *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickParentChange::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickParentChange2trEPKcS1_i(
@@ -454,6 +473,20 @@ QString *ritual_ZN18QQuickParentChange2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickParentChange::tr(s, c, n));
+}
+
+//  QQuickParentChangePrivate *QQuickParentChange::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickParentChangePrivate *ritual_ZN18QQuickParentChange6d_funcEv(
+    QQuickParentChange *self) {
+  return self->d_func();
+}
+
+//  const QQuickParentChangePrivate *QQuickParentChange::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickParentChangePrivate *ritual_ZNK18QQuickParentChange6d_funcEv(
+    const QQuickParentChange *self) {
+  return self->d_func();
 }
 
 //  QQuickParentChange::QQuickParentChange(QObject *parent)

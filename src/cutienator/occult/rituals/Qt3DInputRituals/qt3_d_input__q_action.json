@@ -5,11 +5,35 @@
   ],
   "rows": {
     "ritual_ZNK9Qt3DInput7QAction10metaObjectEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput7QAction11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput7QAction11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput7QAction2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9Qt3DInput7QActionC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput7QActionD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput7QAction8isActiveEv": ["bool", "address"],
+    "ritual_ZN9Qt3DInput7QAction8addInputEPNS_20QAbstractActionInputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput7QAction11removeInputEPNS_20QAbstractActionInputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput7QAction6inputsEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput7QAction13activeChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN9Qt3DInput7QAction6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput7QAction6d_funcEv": ["address", "address"],
-    "ritual_take_Qt3DInput_QAction": ["bool", "address", "chars", "address"]
+    "ritual_take_Qt3DInput_QAction": ["bool", "address", "chars", "address"],
+    "ritual_drop_Qt3DInput_QAction__QList_Qt3DInput_QAbstractActionInput": [
+      "nothing", "address"
+    ]
   }
 }

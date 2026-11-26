@@ -5,6 +5,8 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QOpenGLCustomShaderStage6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QOpenGLCustomShaderStage6d_funcEv": ["address", "address"],
     "ritual_ZN24QOpenGLCustomShaderStageC1Ev": ["address"],
     "ritual_ZN24QOpenGLCustomShaderStageD1Ev": ["nothing", "address"],
     "ritual_ZN24QOpenGLCustomShaderStage11setUniformsEP20QOpenGLShaderProgram": [

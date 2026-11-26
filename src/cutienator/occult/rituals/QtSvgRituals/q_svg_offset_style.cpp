@@ -17,7 +17,7 @@ typedef bool (*CuteQSvgOffsetStyleCall1)(const void *, int *);
 class CuteQSvgOffsetStyle : public QSvgOffsetStyle {
 public:
   using QSvgOffsetStyle::QSvgOffsetStyle;
-  CuteQSvgOffsetStyle(const QSvgOffsetStyle &other) : QSvgOffsetStyle(other) {}
+  CuteQSvgOffsetStyle(const QSvgOffsetStyle & other) : QSvgOffsetStyle(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -65,6 +65,26 @@ QSvgOffsetStyle *ritual_ZN15QSvgOffsetStyleC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QSvgOffsetStyleD1Ev(QSvgOffsetStyle *self) {
   delete self;
+}
+
+//  void QSvgOffsetStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgOffsetStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgOffsetStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgOffsetStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgOffsetStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgOffsetStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
 }
 
 //  Type QSvgOffsetStyle::type() const

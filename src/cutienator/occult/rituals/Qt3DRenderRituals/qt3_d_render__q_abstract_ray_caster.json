@@ -8,8 +8,54 @@
     "ritual_ZNK10Qt3DRender18QAbstractRayCaster10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCaster11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCaster11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender18QAbstractRayCaster2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCasterC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCasterD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender18QAbstractRayCaster7runModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QAbstractRayCaster10filterModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QAbstractRayCaster4hitsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCaster8addLayerEPNS_6QLayerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCaster11removeLayerEPNS_6QLayerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QAbstractRayCaster6layersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCaster10setRunModeENS0_7RunModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCaster13setFilterModeENS0_10FilterModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCaster14runModeChangedENS0_7RunModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCaster11hitsChangedERK5QListINS_13QRayCasterHitEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCaster17filterModeChangedENS0_10FilterModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QAbstractRayCasterC1ERNS_25QAbstractRayCasterPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender18QAbstractRayCaster6d_funcEv": [
       "address", "address"
@@ -19,6 +65,12 @@
     ],
     "ritual_take_Qt3DRender_QAbstractRayCaster": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QAbstractRayCaster__Qt3DRender_QAbstractRayCaster_Hits": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_QAbstractRayCaster__QList_Qt3DRender_QLayer": [
+      "nothing", "address"
     ]
   }
 }

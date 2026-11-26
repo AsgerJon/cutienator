@@ -1,14 +1,15 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGraphs/qscatterdataproxy.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "Edited by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
   "rows": {
     "ritual_ZNK17QScatterDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QScatterDataProxy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_ZN17QScatterDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -54,6 +55,22 @@
     ],
     "ritual_ZN17QScatterDataProxy11removeItemsExx": [
       "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QScatterDataProxy10arrayResetEv": ["nothing", "address"],
+    "ritual_ZN17QScatterDataProxy10itemsAddedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QScatterDataProxy12itemsChangedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QScatterDataProxy12itemsRemovedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QScatterDataProxy13itemsInsertedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QScatterDataProxyC1ER24QScatterDataProxyPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QScatterDataProxy": ["bool", "address", "chars", "address"]
   }

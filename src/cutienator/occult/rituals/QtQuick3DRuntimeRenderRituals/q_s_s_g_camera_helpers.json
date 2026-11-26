@@ -5,6 +5,9 @@
     "s.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QSSGCameraHelpers23getViewProjectionMatrixE12QSSGCameraIdPK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
     "ritual_ZN17QSSGCameraHelpersD1Ev": ["nothing", "address"]
   }
 }

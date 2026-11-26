@@ -7,7 +7,9 @@
 #if QT_CONFIG(action)
 #if QT_CONFIG(action)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(action)
 #include <QtWidgets/qwidgetaction.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwidgetaction_p.h>

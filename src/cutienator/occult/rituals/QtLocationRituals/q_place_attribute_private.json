@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK22QPlaceAttributePrivateeqERKS_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK22QPlaceAttributePrivate7isEmptyEv": ["bool", "address"],
     "ritual_ZN22QPlaceAttributePrivateD1Ev": ["nothing", "address"]
   }

@@ -187,6 +187,24 @@ const QMetaObject *ritual_ZNK14QBoxSetPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBoxSetPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QBoxSetPrivate11qt_metacastEPKc(
+    QBoxSetPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBoxSetPrivate::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QBoxSetPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBoxSetPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBoxSetPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QBoxSetPrivate2trEPKcS1_i(
@@ -216,6 +234,14 @@ bool ritual_ZN14QBoxSetPrivate6appendEd(QBoxSetPrivate *self, qreal value) {
   return self->append(value);
 }
 
+//  bool QBoxSetPrivate::append(const QList<qreal> &values)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QBoxSetPrivate6appendERK5QListIdE(
+    QBoxSetPrivate *self,
+    const QList<qreal> *values) {
+  return self->append(*values);
+}
+
 //  void QBoxSetPrivate::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QBoxSetPrivate5clearEv(QBoxSetPrivate *self) {
@@ -235,6 +261,24 @@ void ritual_ZN14QBoxSetPrivate8setValueEid(
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZN14QBoxSetPrivate5valueEi(QBoxSetPrivate *self, int index) {
   return self->value(index);
+}
+
+//  void QBoxSetPrivate::restructuredBox()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxSetPrivate15restructuredBoxEv(QBoxSetPrivate *self) {
+  self->restructuredBox();
+}
+
+//  void QBoxSetPrivate::updatedBox()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxSetPrivate10updatedBoxEv(QBoxSetPrivate *self) {
+  self->updatedBox();
+}
+
+//  void QBoxSetPrivate::updatedLayout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBoxSetPrivate13updatedLayoutEv(QBoxSetPrivate *self) {
+  self->updatedLayout();
 }
 
 //  a Python function taken by a CuteQBoxSetPrivate, for the function named

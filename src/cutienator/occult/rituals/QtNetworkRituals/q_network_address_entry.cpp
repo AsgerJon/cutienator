@@ -21,10 +21,36 @@ QNetworkAddressEntry *ritual_ZN20QNetworkAddressEntryC1ERKS_(
   return new QNetworkAddressEntry(*other);
 }
 
+//  QNetworkAddressEntry
+//      &QNetworkAddressEntry::operator=(QNetworkAddressEntry &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkAddressEntry *ritual_ZN20QNetworkAddressEntryaSEOS_(
+    QNetworkAddressEntry *self,
+    QNetworkAddressEntry *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QNetworkAddressEntry &QNetworkAddressEntry::operator=(const
+//      QNetworkAddressEntry &other)
+extern "C" Q_DECL_EXPORT
+QNetworkAddressEntry *ritual_ZN20QNetworkAddressEntryaSERKS_(
+    QNetworkAddressEntry *self,
+    const QNetworkAddressEntry *other) {
+  return &(self->operator=(*other));
+}
+
 //  QNetworkAddressEntry::~QNetworkAddressEntry()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QNetworkAddressEntryD1Ev(QNetworkAddressEntry *self) {
   delete self;
+}
+
+//  void QNetworkAddressEntry::swap(QNetworkAddressEntry &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QNetworkAddressEntry4swapERS_(
+    QNetworkAddressEntry *self,
+    QNetworkAddressEntry *other) {
+  self->swap(*other);
 }
 
 //  bool QNetworkAddressEntry::operator==(const QNetworkAddressEntry &other)

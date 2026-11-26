@@ -5,8 +5,26 @@
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore9QArmature10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore9QArmature11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore9QArmature11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore9QArmature2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore9QArmatureC1EPNS_5QNodeE": ["address", "address"],
+    "ritual_ZN8Qt3DCore9QArmatureD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore9QArmature8skeletonEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore9QArmature11setSkeletonEPNS_17QAbstractSkeletonE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore9QArmature15skeletonChangedEPNS_17QAbstractSkeletonE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore9QArmatureC1ERNS_16QArmaturePrivateEPNS_5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN8Qt3DCore9QArmature6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore9QArmature6d_funcEv": ["address", "address"],

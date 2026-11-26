@@ -4,6 +4,7 @@
     "QtQml/qqmlparserstatus.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN16QQmlParserStatusC1Ev": ["address"],
     "ritual_ZN16QQmlParserStatusD1Ev": ["nothing", "address"],
     "ritual_ZN16QQmlParserStatus10classBeginEv": ["nothing", "address"],
     "ritual_ZN16QQmlParserStatus17componentCompleteEv": [

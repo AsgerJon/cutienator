@@ -27,3 +27,11 @@ void ritual_ZN12QStyleOption8initFromEPK7QWidget(
     const QWidget *w) {
   self->initFrom(w);
 }
+
+//  QStyleOption &QStyleOption::operator=(const QStyleOption &other)
+extern "C" Q_DECL_EXPORT
+QStyleOption *ritual_ZN12QStyleOptionaSERKS_(
+    QStyleOption *self,
+    const QStyleOption *other) {
+  return &(self->operator=(*other));
+}

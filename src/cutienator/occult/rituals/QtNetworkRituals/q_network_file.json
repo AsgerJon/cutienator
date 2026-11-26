@@ -6,7 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK12QNetworkFile10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QNetworkFile11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QNetworkFile11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN12QNetworkFile4openEv": ["nothing", "address"],
     "ritual_ZN12QNetworkFile5closeEv": ["nothing", "address"],
+    "ritual_ZN12QNetworkFile8finishedEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QNetworkFile10headerReadEN12QHttpHeaders15WellKnownHeaderERK10QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QNetworkFile12networkErrorEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
     "ritual_take_QNetworkFile": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QNetworkFile5closeEv": ["nothing", "address"]
   }

@@ -1,16 +1,102 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4mm_p.h, Qt 6.12.0. Changes made here",
-    "are lost."
+    "QtQml/6.12.0/QtQml/private/qv4mm_p.h, Qt 6.12.0. Edited by hand:",
+    "see the ritual file."
   ],
   "rows": {
+    "ritual_ZN3QV413MemoryManagerC1EPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV413MemoryManager5alignEm": ["size_t", "size_t"],
+    "ritual_ZN3QV413MemoryManager5runGCEv": ["nothing", "address"],
+    "ritual_ZN3QV413MemoryManager20tryForceGCCompletionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager9runFullGCEv": ["nothing", "address"],
+    "ritual_ZNK3QV413MemoryManager9dumpStatsEv": ["nothing", "address"],
+    "ritual_ZNK3QV413MemoryManager18getRegularItemsMemEv": [
+      "size_t", "address"
+    ],
+    "ritual_ZNK3QV413MemoryManager15getAllocatedMemEv": [
+      "size_t", "address"
+    ],
+    "ritual_ZNK3QV413MemoryManager16getLargeItemsMemEv": [
+      "size_t", "address"
+    ],
     "ritual_ZN3QV413MemoryManager28changeUnmanagedHeapSizeUsageEx": [
       "nothing", "address", "long long"
     ],
+    "ritual_ZN3QV413MemoryManager30updateUnmanagedHeapSizeGCLimitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager15registerWeakMapEPNS_4Heap9MapObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager15registerWeakSetEPNS_4Heap9SetObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager11onEventLoopEv": ["nothing", "address"],
+    "ritual_ZN3QV413MemoryManager14setGCTimeLimitEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN3QV413MemoryManager9markStackEv": ["address", "address"],
+    "ritual_ZN3QV413MemoryManager30findObjectsForCompilationUnitsEOSt6vectorI14QQmlRefPointerINS_12CompiledData15CompilationUnitEESaIS5_EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager11allocStringEm": [
+      "address", "address", "size_t"
+    ],
+    "ritual_ZN3QV413MemoryManager9allocDataEm": [
+      "address", "address", "size_t"
+    ],
+    "ritual_ZN3QV413MemoryManager25allocObjectWithMemberDataEPKNS_6VTableEj": [
+      "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV413MemoryManager18collectFromJSStackEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager5sweepEb": ["nothing", "address", "bool"],
+    "ritual_ZN3QV413MemoryManager36cleanupDeletedQObjectWrappersInSweepEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN3QV413MemoryManager25isAboveUnmanagedHeapLimitEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK3QV413MemoryManager11shouldRunGCEv": ["bool", "address"],
+    "ritual_drop_QV4_MemoryManager__std_vector_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager12allocManagedINS_6ObjectEEEPNT_4DataEmPNS_4Heap13InternalClassE": [
+      "address", "address", "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager12allocManagedINS_6ObjectEEEPNT_4DataEPNS_4Heap13InternalClassE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager12allocManagedINS_6ObjectEEEPNT_4DataEmPNS_13InternalClassE": [
+      "address", "address", "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager12allocManagedINS_6ObjectEEEPNT_4DataEPNS_13InternalClassE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager12allocManagedINS_6ObjectEEEPNT_4DataEm": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV413MemoryManager12allocManagedINS_6ObjectEEEPNT_4DataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager14allocateObjectINS_6ObjectEEEPNT_4DataEPNS_4Heap13InternalClassE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager14allocateObjectINS_6ObjectEEEPNT_4DataEPNS_13InternalClassE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager14allocateObjectINS_6ObjectEEEPNT_4DataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV413MemoryManager19allocWithStringDataINS_6StringERK7QStringEEPNT_4DataEmOT0_": [
+      "address", "address", "unsigned long long", "text"
     ]
   }
 }

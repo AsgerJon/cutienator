@@ -35,10 +35,32 @@ QPageLayout *ritual_ZN11QPageLayoutC1ERKS_(const QPageLayout *other) {
   return new QPageLayout(*other);
 }
 
+//  QPageLayout &QPageLayout::operator=(QPageLayout &&other)
+extern "C" Q_DECL_EXPORT
+QPageLayout *ritual_ZN11QPageLayoutaSEOS_(
+    QPageLayout *self,
+    QPageLayout *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QPageLayout &QPageLayout::operator=(const QPageLayout &other)
+extern "C" Q_DECL_EXPORT
+QPageLayout *ritual_ZN11QPageLayoutaSERKS_(
+    QPageLayout *self,
+    const QPageLayout *other) {
+  return &(self->operator=(*other));
+}
+
 //  QPageLayout::~QPageLayout()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QPageLayoutD1Ev(QPageLayout *self) {
   delete self;
+}
+
+//  void QPageLayout::swap(QPageLayout &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPageLayout4swapERS_(QPageLayout *self, QPageLayout *other) {
+  self->swap(*other);
 }
 
 //  bool QPageLayout::isEquivalentTo(const QPageLayout &other) const

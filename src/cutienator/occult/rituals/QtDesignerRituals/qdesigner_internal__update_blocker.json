@@ -5,5 +5,11 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal13UpdateBlockerC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13UpdateBlockerD1Ev": [
+      "nothing", "address"
+    ]
   }
 }

@@ -43,6 +43,25 @@ const QMetaObject *ritual_ZNK28QQuick3DXrSimpleHapticEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrSimpleHapticEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuick3DXrSimpleHapticEffect11qt_metacastEPKc(
+    QQuick3DXrSimpleHapticEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrSimpleHapticEffect::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuick3DXrSimpleHapticEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrSimpleHapticEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  float QQuick3DXrSimpleHapticEffect::amplitude()
 extern "C" Q_DECL_EXPORT
 float ritual_ZN28QQuick3DXrSimpleHapticEffect9amplitudeEv(
@@ -62,4 +81,79 @@ extern "C" Q_DECL_EXPORT
 float ritual_ZN28QQuick3DXrSimpleHapticEffect9frequencyEv(
     QQuick3DXrSimpleHapticEffect *self) {
   return self->frequency();
+}
+
+//  void QQuick3DXrSimpleHapticEffect::amplitudeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DXrSimpleHapticEffect16amplitudeChangedEv(
+    QQuick3DXrSimpleHapticEffect *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSimpleHapticEffect")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "amplitudeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "amplitudeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSimpleHapticEffect::durationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DXrSimpleHapticEffect15durationChangedEv(
+    QQuick3DXrSimpleHapticEffect *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSimpleHapticEffect")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "durationChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "durationChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSimpleHapticEffect::frequencyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DXrSimpleHapticEffect16frequencyChangedEv(
+    QQuick3DXrSimpleHapticEffect *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSimpleHapticEffect")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "frequencyChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "frequencyChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }

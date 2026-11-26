@@ -3,6 +3,7 @@
 #include <QtCore/qoperatingsystemversion.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qversionnumber.h>
+#include <QtCore/QOperatingSystemVersionBase>
 
 //  QOperatingSystemVersionBase::QOperatingSystemVersionBase(OSType osType,
 //      int vmajor, int vminor, int vmicro)
@@ -28,6 +29,16 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZN27QOperatingSystemVersionBase4nameES_(
     const QOperatingSystemVersionBase *osversion) {
   return new QString(QOperatingSystemVersionBase::name(*osversion));
+}
+
+//  bool
+//      QOperatingSystemVersionBase::isAnyOfType(std::initializer_list<OSType
+//      > types, OSType type)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN27QOperatingSystemVersionBase11isAnyOfTypeESt16initializer_listINS_6OSTypeEES1_(
+    const std::initializer_list<QOperatingSystemVersionBase::OSType> *types,
+    QOperatingSystemVersionBase::OSType type) {
+  return QOperatingSystemVersionBase::isAnyOfType(*types, type);
 }
 
 //  OSType QOperatingSystemVersionBase::currentType()
@@ -69,6 +80,16 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK27QOperatingSystemVersionBase12segmentCountEv(
     const QOperatingSystemVersionBase *self) {
   return self->segmentCount();
+}
+
+//  bool
+//      QOperatingSystemVersionBase::isAnyOfType(std::initializer_list<OSType
+//      > types) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK27QOperatingSystemVersionBase11isAnyOfTypeESt16initializer_listINS_6OSTypeEE(
+    const QOperatingSystemVersionBase *self,
+    const std::initializer_list<QOperatingSystemVersionBase::OSType> *types) {
+  return self->isAnyOfType(*types);
 }
 
 //  OSType QOperatingSystemVersionBase::type() const

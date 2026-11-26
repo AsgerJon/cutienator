@@ -9,6 +9,9 @@
     "ritual_ZN17QPermissionPlugin15checkPermissionERK11QPermission": [
       "int", "address", "address"
     ],
+    "ritual_ZN17QPermissionPlugin17requestPermissionERK11QPermissionRKSt8functionIFvN2Qt16PermissionStatusEEE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_take_QPermissionPlugin": ["bool", "address", "chars", "address"]
   }
 }

@@ -37,6 +37,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quicktemplates/qquickmenuitem.cpp, line 143, as local:qquickmenuitem.cpp:arrowName
+static inline QString arrowName() { return QStringLiteral("arrow"); }
+
+//  from ../qtdeclarative/src/quicktemplates/qquickmenuitem.cpp, line 163, as _ZNK21QQuickMenuItemPrivate14acceptKeyClickEN2Qt3KeyE
+inline bool QQuickMenuItemPrivate::acceptKeyClick(Qt::Key key) const
+{
+    return key == Qt::Key_Return || key == Qt::Key_Enter
+            || QQuickAbstractButtonPrivate::acceptKeyClick(key);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickmenuitem.cpp, line 169, as _ZNK21QQuickMenuItemPrivate14defaultPaletteEv
+inline QPalette QQuickMenuItemPrivate::defaultPalette() const
+{
+    return QQuickTheme::palette(QQuickTheme::Menu);
+}
+
 //  from ../qtdeclarative/src/quicktemplates/qquickmenuitem.cpp, line 99, as _ZN21QQuickMenuItemPrivate7setMenuEP10QQuickMenu
 inline void QQuickMenuItemPrivate::setMenu(QQuickMenu *newMenu)
 {
@@ -84,17 +100,11 @@ inline void QQuickMenuItemPrivate::updateEnabled()
     q->setEnabled(subMenu && subMenu->isEnabled());
 }
 
-//  from ../qtdeclarative/src/quicktemplates/qquickmenuitem.cpp, line 163, as _ZNK21QQuickMenuItemPrivate14acceptKeyClickEN2Qt3KeyE
-inline bool QQuickMenuItemPrivate::acceptKeyClick(Qt::Key key) const
+//  from ../qtdeclarative/src/quicktemplates/qquickmenuitem.cpp, line 145, as _ZN21QQuickMenuItemPrivate11cancelArrowEv
+inline void QQuickMenuItemPrivate::cancelArrow()
 {
-    return key == Qt::Key_Return || key == Qt::Key_Enter
-            || QQuickAbstractButtonPrivate::acceptKeyClick(key);
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickmenuitem.cpp, line 169, as _ZNK21QQuickMenuItemPrivate14defaultPaletteEv
-inline QPalette QQuickMenuItemPrivate::defaultPalette() const
-{
-    return QQuickTheme::palette(QQuickTheme::Menu);
+    Q_Q(QQuickAbstractButton);
+    quickCancelDeferred(q, arrowName());
 }
 //  -----------------------------------------------------------------------
 
@@ -884,6 +894,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickMenuItemPrivate13updateEnabledEv(
     QQuickMenuItemPrivate *self) {
   self->updateEnabled();
+}
+
+//  void QQuickMenuItemPrivate::cancelArrow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickMenuItemPrivate11cancelArrowEv(
+    QQuickMenuItemPrivate *self) {
+  self->cancelArrow();
 }
 
 //  bool QQuickMenuItemPrivate::acceptKeyClick(Qt::Key key) const

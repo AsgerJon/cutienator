@@ -1,12 +1,116 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qresultstore.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qresultstore.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
+    "ritual_ZN9QtPrivate15ResultStoreBaseC1Ev": ["address"],
+    "ritual_ZN9QtPrivate15ResultStoreBase13setFilterModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QtPrivate15ResultStoreBase10filterModeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase9addResultEiPKv": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase10addResultsEiPKvii": [
+      "int", "address", "int", "address", "int", "int"
+    ],
+    "ritual_ZNK9QtPrivate15ResultStoreBase5beginEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate15ResultStoreBase3endEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate15ResultStoreBase13hasNextResultEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QtPrivate15ResultStoreBase8resultAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9QtPrivate15ResultStoreBase8containsEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK9QtPrivate15ResultStoreBase5countEv": ["int", "address"],
     "ritual_ZN9QtPrivate15ResultStoreBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN9QtPrivate15ResultStoreBase16insertResultItemEiRNS_10ResultItemE": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase23insertResultItemIfValidEiRNS_10ResultItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK9QtPrivate15ResultStoreBase23containsValidResultItemEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase18syncPendingResultsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase15syncResultCountEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase17updateInsertIndexEii": [
+      "int", "address", "int", "int"
+    ],
     "ritual_ZN9QtPrivate15ResultStoreBase17addCanceledResultEi": [
       "int", "address", "int"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase18addCanceledResultsIiEEiii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase9addResultIiEEiiPKT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase10moveResultIiEEiiOT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase5clearIiEEvv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase18addCanceledResultsIdEEiii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase9addResultIdEEiiPKT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase10moveResultIdEEiiOT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase5clearIdEEvv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase18addCanceledResultsIbEEiii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase9addResultIbEEiiPKT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase10moveResultIbEEiiOT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase5clearIbEEvv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase18addCanceledResultsI7QStringEEiii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase9addResultI7QStringEEiiPKT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase10moveResultI7QStringEEiiOT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase5clearI7QStringEEvv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase18addCanceledResultsI8QVariantEEiii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase9addResultI8QVariantEEiiPKT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase10moveResultI8QVariantEEiiOT_": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZN9QtPrivate15ResultStoreBase5clearI8QVariantEEvv": [
+      "nothing", "address"
     ]
   }
 }

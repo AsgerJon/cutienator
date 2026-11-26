@@ -5,7 +5,13 @@
   ],
   "rows": {
     "ritual_ZNK9QUndoView10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QUndoView11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QUndoView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QUndoView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QUndoView6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QUndoView6d_funcEv": ["address", "address"],
     "ritual_ZN9QUndoViewC1EP7QWidget": ["address", "address"],
     "ritual_ZN9QUndoViewC1EP10QUndoStackP7QWidget": [
       "address", "address", "address"

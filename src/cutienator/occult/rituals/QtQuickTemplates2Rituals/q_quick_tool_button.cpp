@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK16QQuickToolButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickToolButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickToolButton11qt_metacastEPKc(
+    QQuickToolButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickToolButton::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickToolButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickToolButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickToolButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickToolButton2trEPKcS1_i(
@@ -43,6 +62,20 @@ extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK16QQuickToolButton11defaultFontEv(
     const QQuickToolButton *self) {
   return new QFont(self->defaultFont());
+}
+
+//  QQuickToolButtonPrivate *QQuickToolButton::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickToolButtonPrivate *ritual_ZN16QQuickToolButton6d_funcEv(
+    QQuickToolButton *self) {
+  return self->d_func();
+}
+
+//  const QQuickToolButtonPrivate *QQuickToolButton::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickToolButtonPrivate *ritual_ZNK16QQuickToolButton6d_funcEv(
+    const QQuickToolButton *self) {
+  return self->d_func();
 }
 
 //  QFont QQuickToolButton::defaultFont() const

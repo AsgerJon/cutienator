@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickPropertyAction10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickPropertyAction11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickPropertyAction11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickPropertyAction2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,12 +31,32 @@
     "ritual_ZN20QQuickPropertyAction13setPropertiesERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN20QQuickPropertyAction7targetsEv": ["address", "address"],
+    "ritual_ZN20QQuickPropertyAction7excludeEv": ["address", "address"],
     "ritual_ZNK20QQuickPropertyAction5valueEv": ["address", "address"],
     "ritual_ZN20QQuickPropertyAction8setValueERK8QVariant": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QQuickPropertyAction12valueChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickPropertyAction17propertiesChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickPropertyAction13targetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPropertyAction15propertyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPropertyAction10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
+    ],
     "ritual_take_QQuickPropertyAction": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQuickPropertyAction__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

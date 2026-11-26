@@ -45,6 +45,7 @@
     "ritual_ZN18QMetaMethodBuilderC1EPK18QMetaObjectBuilderiN11QMetaMethod10MethodTypeE": [
       "address", "address", "int", "int"
     ],
+    "ritual_ZNK18QMetaMethodBuilder6d_funcEv": ["address", "address"],
     "ritual_ZN18QMetaMethodBuilderD1Ev": ["nothing", "address"]
   }
 }

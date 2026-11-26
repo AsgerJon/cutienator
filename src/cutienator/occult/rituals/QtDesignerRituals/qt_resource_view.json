@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QtResourceView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QtResourceView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QtResourceView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QtResourceView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -38,9 +44,23 @@
     "ritual_ZN14QtResourceView14encodeMimeDataENS_12ResourceTypeERK7QString": [
       "text", "int", "text"
     ],
+    "ritual_ZN14QtResourceView14decodeMimeDataEPK9QMimeDataPNS_12ResourceTypeEP7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14QtResourceView14decodeMimeDataERK7QStringPNS_12ResourceTypeEPS0_": [
+      "bool", "text", "address", "address"
+    ],
+    "ritual_ZN14QtResourceView16resourceSelectedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QtResourceView17resourceActivatedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN14QtResourceView5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN14QtResourceView6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QtResourceView6d_funcEv": ["address", "address"],
     "ritual_take_QtResourceView": ["bool", "address", "chars", "address"],
     "ritual_own_ZN14QtResourceView5eventEP6QEvent": [
       "bool", "address", "address"

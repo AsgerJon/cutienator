@@ -6,11 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickFlickable10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickFlickable11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickFlickable11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickFlickable2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN15QQuickFlickableC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN15QQuickFlickableD1Ev": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable13flickableDataEv": ["address", "address"],
+    "ritual_ZN15QQuickFlickable17flickableChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZNK15QQuickFlickable14boundsBehaviorEv": ["int", "address"],
     "ritual_ZN15QQuickFlickable17setBoundsBehaviorE6QFlagsINS_18BoundsBehaviorFlagEE": [
       "nothing", "address", "int"
@@ -144,6 +154,107 @@
     "ritual_ZN15QQuickFlickable7flickToERK7QPointF": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QQuickFlickable19contentWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable20contentHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable15contentXChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable15contentYChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable16topMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable19bottomMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable17leftMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable18rightMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable14originYChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable14originXChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable13movingChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable25movingHorizontallyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable23movingVerticallyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable15flickingChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable27flickingHorizontallyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable25flickingVerticallyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable15draggingChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable27draggingHorizontallyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable25draggingVerticallyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable25horizontalVelocityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable23verticalVelocityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable19isAtBoundaryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable25flickableDirectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable18interactiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable21boundsBehaviorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable21boundsMovementChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable14reboundChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable27maximumFlickVelocityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable24flickDecelerationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable17pressDelayChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable15movementStartedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable13movementEndedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable12flickStartedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable10flickEndedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable11dragStartedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable9dragEndedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable19pixelAlignedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable22synchronousDragChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable26horizontalOvershootChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable24verticalOvershootChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable13atXEndChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable13atYEndChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickFlickable19atXBeginningChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable19atYBeginningChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickFlickable22acceptedButtonsChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN15QQuickFlickable21childMouseEventFilterEP10QQuickItemP6QEvent": [
       "bool", "address", "address", "address"
     ],
@@ -201,6 +312,9 @@
     "ritual_ZNK15QQuickFlickable15computePositionE7QPointF6QRectF6QFlagsINS_16PositionModeFlagEERKS0_": [
       "address", "address", "address", "address", "int", "address"
     ],
+    "ritual_ZN15QQuickFlickableC1ER22QQuickFlickablePrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN15QQuickFlickable6d_funcEv": ["address", "address"],
     "ritual_ZNK15QQuickFlickable6d_funcEv": ["address", "address"],
     "ritual_take_QQuickFlickable": ["bool", "address", "chars", "address"],
@@ -247,6 +361,12 @@
       "nothing", "address", "address", "address"
     ],
     "ritual_own_ZN15QQuickFlickable16mouseUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickFlickable__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickFlickable__QQmlListProperty_QQuickItem": [
       "nothing", "address"
     ]
   }

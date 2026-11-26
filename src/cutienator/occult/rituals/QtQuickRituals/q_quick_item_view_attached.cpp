@@ -188,6 +188,25 @@ const QMetaObject *ritual_ZNK22QQuickItemViewAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickItemViewAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickItemViewAttached11qt_metacastEPKc(
+    QQuickItemViewAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickItemViewAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickItemViewAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickItemViewAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickItemViewAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickItemViewAttached2trEPKcS1_i(
@@ -308,6 +327,75 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickItemViewAttached10emitRemoveEv(
     QQuickItemViewAttached *self) {
   self->emitRemove();
+}
+
+//  void QQuickItemViewAttached::viewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached11viewChangedEv(
+    QQuickItemViewAttached *self) {
+  self->viewChanged();
+}
+
+//  void QQuickItemViewAttached::currentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached18currentItemChangedEv(
+    QQuickItemViewAttached *self) {
+  self->currentItemChanged();
+}
+
+//  void QQuickItemViewAttached::delayRemoveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached18delayRemoveChangedEv(
+    QQuickItemViewAttached *self) {
+  self->delayRemoveChanged();
+}
+
+//  void QQuickItemViewAttached::add()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached3addEv(QQuickItemViewAttached *self) {
+  self->add();
+}
+
+//  void QQuickItemViewAttached::remove()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached6removeEv(
+    QQuickItemViewAttached *self) {
+  self->remove();
+}
+
+//  void QQuickItemViewAttached::sectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached14sectionChangedEv(
+    QQuickItemViewAttached *self) {
+  self->sectionChanged();
+}
+
+//  void QQuickItemViewAttached::prevSectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached18prevSectionChangedEv(
+    QQuickItemViewAttached *self) {
+  self->prevSectionChanged();
+}
+
+//  void QQuickItemViewAttached::nextSectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached18nextSectionChangedEv(
+    QQuickItemViewAttached *self) {
+  self->nextSectionChanged();
+}
+
+//  void QQuickItemViewAttached::pooled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached6pooledEv(
+    QQuickItemViewAttached *self) {
+  self->pooled();
+}
+
+//  void QQuickItemViewAttached::reused()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickItemViewAttached6reusedEv(
+    QQuickItemViewAttached *self) {
+  self->reused();
 }
 
 //  a Python function taken by a CuteQQuickItemViewAttached, for the function

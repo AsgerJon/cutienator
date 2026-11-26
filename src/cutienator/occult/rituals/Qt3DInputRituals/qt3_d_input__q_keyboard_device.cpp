@@ -3,6 +3,7 @@
 #include <Qt3DInput/qkeyboarddevice.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A Qt3DInput::QKeyboardDevice that Python can take functions over in. Every Qt3DInput::QKeyboardDevice
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput15QKeyboardDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QKeyboardDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput15QKeyboardDevice11qt_metacastEPKc(
+    Qt3DInput::QKeyboardDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QKeyboardDevice::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput15QKeyboardDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QKeyboardDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QKeyboardDevice::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,90 @@ QString *ritual_ZN9Qt3DInput15QKeyboardDevice2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QKeyboardDevice::tr(s, c, n));
+}
+
+//  Qt3DInput::QKeyboardDevice::QKeyboardDevice(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QKeyboardDevice *ritual_ZN9Qt3DInput15QKeyboardDeviceC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QKeyboardDevice(parent);
+}
+
+//  Qt3DInput::QKeyboardDevice::~QKeyboardDevice()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput15QKeyboardDeviceD1Ev(
+    Qt3DInput::QKeyboardDevice *self) {
+  delete self;
+}
+
+//  QKeyboardHandler *Qt3DInput::QKeyboardDevice::activeInput() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QKeyboardHandler *ritual_ZNK9Qt3DInput15QKeyboardDevice11activeInputEv(
+    const Qt3DInput::QKeyboardDevice *self) {
+  return self->activeInput();
+}
+
+//  int Qt3DInput::QKeyboardDevice::axisCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput15QKeyboardDevice9axisCountEv(
+    const Qt3DInput::QKeyboardDevice *self) {
+  return self->axisCount();
+}
+
+//  int Qt3DInput::QKeyboardDevice::buttonCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput15QKeyboardDevice11buttonCountEv(
+    const Qt3DInput::QKeyboardDevice *self) {
+  return self->buttonCount();
+}
+
+//  QStringList Qt3DInput::QKeyboardDevice::axisNames() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9Qt3DInput15QKeyboardDevice9axisNamesEv(
+    const Qt3DInput::QKeyboardDevice *self) {
+  return new QList<QString>(self->axisNames());
+}
+
+//  QStringList Qt3DInput::QKeyboardDevice::buttonNames() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9Qt3DInput15QKeyboardDevice11buttonNamesEv(
+    const Qt3DInput::QKeyboardDevice *self) {
+  return new QList<QString>(self->buttonNames());
+}
+
+//  int Qt3DInput::QKeyboardDevice::axisIdentifier(const QString &name) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput15QKeyboardDevice14axisIdentifierERK7QString(
+    const Qt3DInput::QKeyboardDevice *self,
+    const QString *name) {
+  return self->axisIdentifier(*name);
+}
+
+//  int Qt3DInput::QKeyboardDevice::buttonIdentifier(const QString &name)
+//      const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput15QKeyboardDevice16buttonIdentifierERK7QString(
+    const Qt3DInput::QKeyboardDevice *self,
+    const QString *name) {
+  return self->buttonIdentifier(*name);
+}
+
+//  Qt3DInput::QKeyboardDevice::QKeyboardDevice(QKeyboardDevicePrivate &dd,
+//      QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QKeyboardDevice *ritual_ZN9Qt3DInput15QKeyboardDeviceC1ERNS_22QKeyboardDevicePrivateEPN8Qt3DCore5QNodeE(
+    Qt3DInput::QKeyboardDevicePrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QKeyboardDevice(*dd, parent);
+}
+
+//  void Qt3DInput::QKeyboardDevice::activeInputChanged(QKeyboardHandler
+//      *activeInput)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput15QKeyboardDevice18activeInputChangedEPNS_16QKeyboardHandlerE(
+    Qt3DInput::QKeyboardDevice *self,
+    Qt3DInput::QKeyboardHandler *activeInput) {
+  self->activeInputChanged(activeInput);
 }
 
 //  QKeyboardDevicePrivate *Qt3DInput::QKeyboardDevice::d_func()
@@ -201,6 +305,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DInput::QKeyboardDevicePrivate *ritual_ZNK9Qt3DInput15QKeyboardDevice6d_funcEv(
     const Qt3DInput::QKeyboardDevice *self) {
   return self->d_func();
+}
+
+//  void Qt3DInput::QKeyboardDevice::setActiveInput(QKeyboardHandler
+//      *activeInput)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput15QKeyboardDevice14setActiveInputEPNS_16QKeyboardHandlerE(
+    Qt3DInput::QKeyboardDevice *self,
+    Qt3DInput::QKeyboardHandler *activeInput) {
+  self->setActiveInput(activeInput);
 }
 
 //  a Python function taken by a CuteQt3DInput_QKeyboardDevice, for the

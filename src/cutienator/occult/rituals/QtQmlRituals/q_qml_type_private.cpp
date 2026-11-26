@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmltype_p_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qqmltype_p_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 9. Kept
+//  as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,6 +13,7 @@
 #include <QtQml/6.12.0/QtQml/private/qqmlpropertycache_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/private/qqmlcomponentandaliasresolver_p.h>
 #include <QtQml/private/qqmlengine_p.h>
@@ -37,6 +39,7 @@
 #include <QtQml/private/qqmlmetatypedata_p.h>
 #include <QtQml/private/qqmlpropertycache_p.h>
 #include <QtQml/private/qqmltypedata_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -46,41 +49,16 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qml/qml/qqmltype.cpp, line 171, as local:qqmltype.cpp:isPropertyRevisioned
+static bool isPropertyRevisioned(const QMetaObject *mo, int index)
+{
+    return mo->property(index).revision();
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmltypedata.cpp, line 50, as _ZNK12QQmlTypeData15compilationUnitEv
 inline QV4::CompiledData::CompilationUnit *QQmlTypeData::compilationUnit() const
 {
     return m_compiledData.data();
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmltype.cpp, line 370, as _ZNK15QQmlTypePrivate36createListOfPossibleConflictingItemsEPK11QMetaObjectR5QListINS_8EnumInfoEES3_I7QStringE
-inline void QQmlTypePrivate::createListOfPossibleConflictingItems(const QMetaObject *metaObject, QList<EnumInfo> &enumInfoList, QStringList path) const
-{
-    path.append(QString::fromUtf8(metaObject->className()));
-
-    if (metaObject->d.relatedMetaObjects) {
-        const auto *related = metaObject->d.relatedMetaObjects;
-        if (related) {
-            while (*related)
-                createListOfPossibleConflictingItems(*related++, enumInfoList, path);
-        }
-    }
-
-    for (int ii = 0; ii < metaObject->enumeratorCount(); ++ii) {
-        const auto e = metaObject->enumerator(ii);
-
-        for (int jj = 0; jj < e.keyCount(); ++jj) {
-            const QString key = QString::fromUtf8(e.key(jj));
-
-            EnumInfo enumInfo;
-            enumInfo.metaObjectName = QString::fromUtf8(metaObject->className());
-            enumInfo.enumName = QString::fromUtf8(e.name());
-            enumInfo.enumKey = key;
-            enumInfo.scoped = e.isScoped();
-            enumInfo.path = path;
-            enumInfo.metaEnumScope = QString::fromUtf8(e.scope());
-            enumInfoList.append(enumInfo);
-        }
-    }
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmltype.cpp, line 20, as _ZN15QQmlTypePrivateC1EN8QQmlType16RegistrationTypeE
@@ -129,6 +107,89 @@ inline QQmlTypePrivate::QQmlTypePrivate(QQmlType::RegistrationType type)
         break;
     default: qFatal("QQmlTypePrivate Internal Error.");
     }
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltype.cpp, line 176, as _ZNK15QQmlTypePrivate4initEv
+inline const QQmlTypePrivate::ProxyMetaObjects *QQmlTypePrivate::init() const
+{
+    if (const ProxyMetaObjects *result = proxyMetaObjects.loadRelaxed())
+        return result;
+
+    ProxyMetaObjects *proxies = new ProxyMetaObjects;
+    auto finalize = [this, proxies]() -> const ProxyMetaObjects *{
+        const ProxyMetaObjects *concurrentModification;
+        if (proxyMetaObjects.testAndSetOrdered(nullptr, proxies, concurrentModification))
+            return proxies;
+
+        delete proxies;
+        return concurrentModification;
+    };
+
+    const QMetaObject *mo = baseMetaObject;
+    if (!mo) {
+        // version 0 singleton type without metaobject information
+        return finalize();
+    }
+
+    QList<QQmlProxyMetaObject::ProxyData> metaObjects;
+
+    auto setupExtendedMetaObject = [&](const QMetaObject *extMetaObject,
+                                       QObject *(*extFunc)(QObject *)) {
+        if (!extMetaObject)
+            return;
+
+        // XXX - very inefficient
+        QMetaObjectBuilder builder;
+        QQmlMetaType::clone(builder, extMetaObject, extMetaObject, extMetaObject,
+                            extFunc ? QQmlMetaType::CloneAll : QQmlMetaType::CloneEnumsOnly);
+        QMetaObject *mmo = builder.toMetaObject();
+        mmo->d.superdata = mo;
+        QQmlProxyMetaObject::ProxyData data = { mmo, extFunc, 0, 0 };
+        metaObjects << data;
+        QQmlMetaType::registerMetaObjectForType(mmo, this);
+    };
+
+    if (regType == QQmlType::SingletonType)
+        setupExtendedMetaObject(extraData.singletonTypeData->extMetaObject, extraData.singletonTypeData->extFunc);
+    else if (regType == QQmlType::CppType)
+        setupExtendedMetaObject(extraData.cppTypeData->extMetaObject, extraData.cppTypeData->extFunc);
+
+    metaObjects.append(QQmlMetaType::proxyData(
+            mo, baseMetaObject, metaObjects.isEmpty() ? nullptr
+                                                      : metaObjects.constLast().metaObject));
+
+    for (int ii = 0; ii < metaObjects.size(); ++ii) {
+        metaObjects[ii].propertyOffset =
+                metaObjects.at(ii).metaObject->propertyOffset();
+        metaObjects[ii].methodOffset =
+                metaObjects.at(ii).metaObject->methodOffset();
+    }
+
+    bool containsRevisionedAttributes = false;
+
+    // Check for revisioned details
+    {
+        const QMetaObject *mo = nullptr;
+        if (metaObjects.isEmpty())
+            mo = baseMetaObject;
+        else
+            mo = metaObjects.constFirst().metaObject;
+
+        for (int ii = 0; !containsRevisionedAttributes && ii < mo->propertyCount(); ++ii) {
+            if (isPropertyRevisioned(mo, ii))
+                containsRevisionedAttributes = true;
+        }
+
+        for (int ii = 0; !containsRevisionedAttributes && ii < mo->methodCount(); ++ii) {
+            if (mo->method(ii).revision() != 0)
+                containsRevisionedAttributes = true;
+        }
+    }
+
+    proxies->data = std::move(metaObjects);
+    proxies->containsRevisionedAttributes = containsRevisionedAttributes;
+
+    return finalize();
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmltype.cpp, line 143, as _ZNK15QQmlTypePrivate24resolveCompositeBaseTypeEP14QQmlTypeLoader
@@ -200,6 +261,42 @@ inline QQmlTypePrivate::~QQmlTypePrivate()
     default: //Also InterfaceType, because it has no extra data
         break;
     }
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltype.cpp, line 258, as _ZNK15QQmlTypePrivate9initEnumsEP14QQmlTypeLoader
+inline const QQmlTypePrivate::Enums *QQmlTypePrivate::initEnums(QQmlTypeLoader *typeLoader) const
+{
+    if (const Enums *result = enums.loadRelaxed())
+        return result;
+
+    QQmlPropertyCache::ConstPtr cache;
+    if (isComposite()) {
+        cache = compositePropertyCache(typeLoader);
+        if (!cache)
+            return nullptr; // Composite type not ready, yet.
+    }
+
+    Enums *newEnums = new Enums;
+
+    // beware: It could be a singleton type without metaobject
+
+    if (cache)
+        insertEnumsFromPropertyCache(newEnums, cache);
+
+    if (baseMetaObject) {
+        // init() can add to the metaObjects list. Therefore, check proxies->data only below
+        const ProxyMetaObjects *proxies = init();
+        insertEnums(
+                newEnums,
+                proxies->data.isEmpty() ? baseMetaObject : proxies->data.constFirst().metaObject);
+    }
+
+    const Enums *concurrentModification;
+    if (enums.testAndSetOrdered(nullptr, newEnums, concurrentModification))
+        return newEnums;
+
+    delete newEnums;
+    return concurrentModification;
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmltype.cpp, line 293, as _ZNK15QQmlTypePrivate11insertEnumsEPNS_5EnumsEPK11QMetaObject
@@ -307,6 +404,37 @@ inline void QQmlTypePrivate::insertEnumsFromPropertyCache(
     insertEnums(enums, cppMetaObject);
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmltype.cpp, line 370, as _ZNK15QQmlTypePrivate36createListOfPossibleConflictingItemsEPK11QMetaObjectR5QListINS_8EnumInfoEES3_I7QStringE
+inline void QQmlTypePrivate::createListOfPossibleConflictingItems(const QMetaObject *metaObject, QList<EnumInfo> &enumInfoList, QStringList path) const
+{
+    path.append(QString::fromUtf8(metaObject->className()));
+
+    if (metaObject->d.relatedMetaObjects) {
+        const auto *related = metaObject->d.relatedMetaObjects;
+        if (related) {
+            while (*related)
+                createListOfPossibleConflictingItems(*related++, enumInfoList, path);
+        }
+    }
+
+    for (int ii = 0; ii < metaObject->enumeratorCount(); ++ii) {
+        const auto e = metaObject->enumerator(ii);
+
+        for (int jj = 0; jj < e.keyCount(); ++jj) {
+            const QString key = QString::fromUtf8(e.key(jj));
+
+            EnumInfo enumInfo;
+            enumInfo.metaObjectName = QString::fromUtf8(metaObject->className());
+            enumInfo.enumName = QString::fromUtf8(e.name());
+            enumInfo.enumKey = key;
+            enumInfo.scoped = e.isScoped();
+            enumInfo.path = path;
+            enumInfo.metaEnumScope = QString::fromUtf8(e.scope());
+            enumInfoList.append(enumInfo);
+        }
+    }
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmltype.cpp, line 400, as _ZNK15QQmlTypePrivate24createEnumConflictReportEPK11QMetaObjectRK7QString
 inline void QQmlTypePrivate::createEnumConflictReport(const QMetaObject *metaObject, const QString &conflictingKey) const
 {
@@ -337,6 +465,13 @@ extern "C" Q_DECL_EXPORT
 QQmlTypePrivate *ritual_ZN15QQmlTypePrivateC1EN8QQmlType16RegistrationTypeE(
     QQmlType::RegistrationType type) {
   return new QQmlTypePrivate(type);
+}
+
+//  const ProxyMetaObjects *QQmlTypePrivate::init() const
+extern "C" Q_DECL_EXPORT
+const QQmlTypePrivate::ProxyMetaObjects *ritual_ZNK15QQmlTypePrivate4initEv(
+    const QQmlTypePrivate *self) {
+  return self->init();
 }
 
 //  QUrl QQmlTypePrivate::sourceUrl() const
@@ -399,11 +534,33 @@ void ritual_ZN15QQmlTypePrivate7setNameERK7QStringS2_(
   self->setName(*uri, *element);
 }
 
+//  const QMetaObject *QQmlTypePrivate::metaObject() const
+extern "C" Q_DECL_EXPORT
+const QMetaObject *ritual_ZNK15QQmlTypePrivate10metaObjectEv(
+    const QQmlTypePrivate *self) {
+  return self->metaObject();
+}
+
 //  const QMetaObject *QQmlTypePrivate::metaObjectForValueType() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK15QQmlTypePrivate22metaObjectForValueTypeEv(
     const QQmlTypePrivate *self) {
   return self->metaObjectForValueType();
+}
+
+//  QQmlType QQmlTypePrivate::visibleQmlTypeByName(const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &unit, const
+//      QString &elementName, QQmlTypeLoader *typeLoader)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN15QQmlTypePrivate20visibleQmlTypeByNameERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEERK7QStringP14QQmlTypeLoader(
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *unit,
+    const QString *elementName,
+    QQmlTypeLoader *typeLoader) {
+  return new QQmlType(
+      QQmlTypePrivate::visibleQmlTypeByName(
+          *unit,
+          *elementName,
+          typeLoader));
 }
 
 //  QQmlType QQmlTypePrivate::visibleQmlTypeByName(const
@@ -427,6 +584,14 @@ void ritual_ZN15QQmlTypePrivateD1Ev(QQmlTypePrivate *self) {
   delete self;
 }
 
+//  const Enums *QQmlTypePrivate::initEnums(QQmlTypeLoader *typeLoader) const
+extern "C" Q_DECL_EXPORT
+const QQmlTypePrivate::Enums *ritual_ZNK15QQmlTypePrivate9initEnumsEP14QQmlTypeLoader(
+    const QQmlTypePrivate *self,
+    QQmlTypeLoader *typeLoader) {
+  return self->initEnums(typeLoader);
+}
+
 //  void QQmlTypePrivate::insertEnums(Enums *enums, const QMetaObject
 //      *metaObject) const
 extern "C" Q_DECL_EXPORT
@@ -447,6 +612,21 @@ void ritual_ZNK15QQmlTypePrivate28insertEnumsFromPropertyCacheEPNS_5EnumsERKN17Q
   self->insertEnumsFromPropertyCache(enums, *cache);
 }
 
+//  void QQmlTypePrivate::createListOfPossibleConflictingItems(const
+//      QMetaObject *metaObject, QList<EnumInfo> &enumInfoList, QStringList
+//      path) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QQmlTypePrivate36createListOfPossibleConflictingItemsEPK11QMetaObjectR5QListINS_8EnumInfoEES3_I7QStringE(
+    const QQmlTypePrivate *self,
+    const QMetaObject *metaObject,
+    QList<QQmlTypePrivate::EnumInfo> *enumInfoList,
+    const QList<QString> *path) {
+  self->createListOfPossibleConflictingItems(
+      metaObject,
+      *enumInfoList,
+      *path);
+}
+
 //  void QQmlTypePrivate::createEnumConflictReport(const QMetaObject
 //      *metaObject, const QString &conflictingKey) const
 extern "C" Q_DECL_EXPORT
@@ -455,4 +635,138 @@ void ritual_ZNK15QQmlTypePrivate24createEnumConflictReportEPK11QMetaObjectRK7QSt
     const QMetaObject *metaObject,
     const QString *conflictingKey) {
   self->createEnumConflictReport(metaObject, *conflictingKey);
+}
+
+//  static int QQmlTypePrivate::enumValue<QString>(
+//      const QQmlRefPointer<const QQmlTypePrivate> &d,
+//      QQmlTypeLoader *typeLoader, const QString &name, bool *ok)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlTypePrivate9enumValueI7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT_Pb(
+    const QQmlRefPointer<const QQmlTypePrivate> *d,
+    QQmlTypeLoader *typeLoader,
+    const QString *name,
+    bool *ok) {
+  return QQmlTypePrivate::enumValue<QString>(*d, typeLoader, *name, ok);
+}
+
+//  static int QQmlTypePrivate::enumIndex<Enums::Scoped, QString>(
+//      const QQmlRefPointer<const QQmlTypePrivate> &d,
+//      QQmlTypeLoader *typeLoader, const QString &name, bool *ok)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlTypePrivate9enumIndexILNS_5Enums7ScopingE0E7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT0_Pb(
+    const QQmlRefPointer<const QQmlTypePrivate> *d,
+    QQmlTypeLoader *typeLoader,
+    const QString *name,
+    bool *ok) {
+  return QQmlTypePrivate::enumIndex<
+      QQmlTypePrivate::Enums::Scoped, QString>(
+          *d, typeLoader, *name, ok);
+}
+
+//  static int QQmlTypePrivate::enumIndex<Enums::Unscoped, QString>(
+//      const QQmlRefPointer<const QQmlTypePrivate> &d,
+//      QQmlTypeLoader *typeLoader, const QString &name, bool *ok)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlTypePrivate9enumIndexILNS_5Enums7ScopingE1E7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT0_Pb(
+    const QQmlRefPointer<const QQmlTypePrivate> *d,
+    QQmlTypeLoader *typeLoader,
+    const QString *name,
+    bool *ok) {
+  return QQmlTypePrivate::enumIndex<
+      QQmlTypePrivate::Enums::Unscoped, QString>(
+          *d, typeLoader, *name, ok);
+}
+
+//  static int QQmlTypePrivate::enumValue<Enums::Scoped, QString>(
+//      const QQmlRefPointer<const QQmlTypePrivate> &d,
+//      QQmlTypeLoader *typeLoader, int index, const QString &name,
+//      bool *ok)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlTypePrivate9enumValueILNS_5Enums7ScopingE0E7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderiRKT0_Pb(
+    const QQmlRefPointer<const QQmlTypePrivate> *d,
+    QQmlTypeLoader *typeLoader,
+    int index,
+    const QString *name,
+    bool *ok) {
+  return QQmlTypePrivate::enumValue<
+      QQmlTypePrivate::Enums::Scoped, QString>(
+          *d, typeLoader, index, *name, ok);
+}
+
+//  static int QQmlTypePrivate::enumValue<Enums::Unscoped, QString>(
+//      const QQmlRefPointer<const QQmlTypePrivate> &d,
+//      QQmlTypeLoader *typeLoader, int index, const QString &name,
+//      bool *ok)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlTypePrivate9enumValueILNS_5Enums7ScopingE1E7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderiRKT0_Pb(
+    const QQmlRefPointer<const QQmlTypePrivate> *d,
+    QQmlTypeLoader *typeLoader,
+    int index,
+    const QString *name,
+    bool *ok) {
+  return QQmlTypePrivate::enumValue<
+      QQmlTypePrivate::Enums::Unscoped, QString>(
+          *d, typeLoader, index, *name, ok);
+}
+
+//  static int QQmlTypePrivate::enumValue<Enums::Scoped, QString,
+//      QString>(const QQmlRefPointer<const QQmlTypePrivate> &d,
+//      QQmlTypeLoader *typeLoader, const QString &scopedEnumName,
+//      const QString &name, bool *ok)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlTypePrivate9enumValueILNS_5Enums7ScopingE0E7QStringS3_EEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT0_RKT1_Pb(
+    const QQmlRefPointer<const QQmlTypePrivate> *d,
+    QQmlTypeLoader *typeLoader,
+    const QString *scopedEnumName,
+    const QString *name,
+    bool *ok) {
+  return QQmlTypePrivate::enumValue<
+      QQmlTypePrivate::Enums::Scoped, QString, QString>(
+          *d, typeLoader, *scopedEnumName, *name, ok);
+}
+
+//  static int QQmlTypePrivate::enumValue<Enums::Unscoped, QString,
+//      QString>(const QQmlRefPointer<const QQmlTypePrivate> &d,
+//      QQmlTypeLoader *typeLoader, const QString &scopedEnumName,
+//      const QString &name, bool *ok)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlTypePrivate9enumValueILNS_5Enums7ScopingE1E7QStringS3_EEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT0_RKT1_Pb(
+    const QQmlRefPointer<const QQmlTypePrivate> *d,
+    QQmlTypeLoader *typeLoader,
+    const QString *scopedEnumName,
+    const QString *name,
+    bool *ok) {
+  return QQmlTypePrivate::enumValue<
+      QQmlTypePrivate::Enums::Unscoped, QString, QString>(
+          *d, typeLoader, *scopedEnumName, *name, ok);
+}
+
+//  static QString QQmlTypePrivate::enumKey<Enums::Scoped>(
+//      const QQmlRefPointer<const QQmlTypePrivate> &d,
+//      QQmlTypeLoader *typeLoader, int index, int value, bool *ok)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN15QQmlTypePrivate7enumKeyILNS_5Enums7ScopingE0EEE7QStringRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderiiPb(
+    const QQmlRefPointer<const QQmlTypePrivate> *d,
+    QQmlTypeLoader *typeLoader,
+    int index,
+    int value,
+    bool *ok) {
+  return new QString(QQmlTypePrivate::enumKey<
+      QQmlTypePrivate::Enums::Scoped>(
+          *d, typeLoader, index, value, ok));
+}
+
+//  static QString QQmlTypePrivate::enumKey<Enums::Unscoped>(
+//      const QQmlRefPointer<const QQmlTypePrivate> &d,
+//      QQmlTypeLoader *typeLoader, int index, int value, bool *ok)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN15QQmlTypePrivate7enumKeyILNS_5Enums7ScopingE1EEE7QStringRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderiiPb(
+    const QQmlRefPointer<const QQmlTypePrivate> *d,
+    QQmlTypeLoader *typeLoader,
+    int index,
+    int value,
+    bool *ok) {
+  return new QString(QQmlTypePrivate::enumKey<
+      QQmlTypePrivate::Enums::Unscoped>(
+          *d, typeLoader, index, value, ok));
 }

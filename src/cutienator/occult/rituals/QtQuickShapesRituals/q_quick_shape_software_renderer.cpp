@@ -24,15 +24,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quickshapes/qquickshapesoftwarerenderer.cpp, line 10, as _ZN27QQuickShapeSoftwareRenderer9beginSyncEiPb
-inline void QQuickShapeSoftwareRenderer::beginSync(int totalCount, bool *countChanged)
+//  from ../qtdeclarative/src/quickshapes/qquickshapesoftwarerenderer.cpp, line 109, as local:qquickshapesoftwarerenderer.cpp:setupPainterGradient
+static inline void setupPainterGradient(QGradient *painterGradient, const QQuickShapeGradient &g)
 {
-    if (m_sp.size() != totalCount) {
-        m_sp.resize(totalCount);
-        m_accDirty |= DirtyList;
-        *countChanged = true;
-    } else {
-        *countChanged = false;
+    painterGradient->setStops(g.gradientStops()); // sorted
+    switch (g.spread()) {
+    case QQuickShapeGradient::PadSpread:
+        painterGradient->setSpread(QGradient::PadSpread);
+        break;
+    case QQuickShapeGradient::RepeatSpread:
+        painterGradient->setSpread(QGradient::RepeatSpread);
+        break;
+    case QQuickShapeGradient::ReflectSpread:
+        painterGradient->setSpread(QGradient::ReflectSpread);
+        break;
+    default:
+        break;
     }
 }
 
@@ -297,6 +304,39 @@ void ritual_ZN27QQuickShapeSoftwareRenderer11setCapStyleEiN15QQuickShapePath8Cap
     int index,
     QQuickShapePath::CapStyle capStyle) {
   self->setCapStyle(index, capStyle);
+}
+
+//  void QQuickShapeSoftwareRenderer::setStrokeStyle(int index,
+//      QQuickShapePath::StrokeStyle strokeStyle, qreal dashOffset, const
+//      QList<qreal> &dashPattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickShapeSoftwareRenderer14setStrokeStyleEiN15QQuickShapePath11StrokeStyleEdRK5QListIdE(
+    QQuickShapeSoftwareRenderer *self,
+    int index,
+    QQuickShapePath::StrokeStyle strokeStyle,
+    qreal dashOffset,
+    const QList<qreal> *dashPattern) {
+  self->setStrokeStyle(index, strokeStyle, dashOffset, *dashPattern);
+}
+
+//  void QQuickShapeSoftwareRenderer::setFillGradient(int index,
+//      QQuickShapeGradient *gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickShapeSoftwareRenderer15setFillGradientEiP19QQuickShapeGradient(
+    QQuickShapeSoftwareRenderer *self,
+    int index,
+    QQuickShapeGradient *gradient) {
+  self->setFillGradient(index, gradient);
+}
+
+//  void QQuickShapeSoftwareRenderer::setStrokeGradient(int index,
+//      QQuickShapeGradient *gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickShapeSoftwareRenderer17setStrokeGradientEiP19QQuickShapeGradient(
+    QQuickShapeSoftwareRenderer *self,
+    int index,
+    QQuickShapeGradient *gradient) {
+  self->setStrokeGradient(index, gradient);
 }
 
 //  void QQuickShapeSoftwareRenderer::setFillTextureProvider(int index,

@@ -7,7 +7,9 @@
   "rows": {
     "ritual_ZN12QPrinterInfoC1Ev": ["address"],
     "ritual_ZN12QPrinterInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN12QPrinterInfoC1ERK8QPrinter": ["address", "address"],
     "ritual_ZN12QPrinterInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN12QPrinterInfoaSERKS_": ["address", "address", "address"],
     "ritual_ZNK12QPrinterInfo11printerNameEv": ["text", "address"],
     "ritual_ZNK12QPrinterInfo11descriptionEv": ["text", "address"],
     "ritual_ZNK12QPrinterInfo8locationEv": ["text", "address"],
@@ -27,8 +29,17 @@
     "ritual_ZNK12QPrinterInfo23maximumPhysicalPageSizeEv": [
       "address", "address"
     ],
+    "ritual_ZNK12QPrinterInfo20supportedResolutionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK12QPrinterInfo17defaultDuplexModeEv": ["int", "address"],
+    "ritual_ZNK12QPrinterInfo20supportedDuplexModesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK12QPrinterInfo16defaultColorModeEv": ["int", "address"],
+    "ritual_ZNK12QPrinterInfo19supportedColorModesEv": [
+      "address", "address"
+    ],
     "ritual_ZN12QPrinterInfo21availablePrinterNamesEv": ["address"],
     "ritual_ZN12QPrinterInfo17availablePrintersEv": ["address"],
     "ritual_ZN12QPrinterInfo18defaultPrinterNameEv": ["text"],
@@ -36,10 +47,19 @@
     "ritual_ZN12QPrinterInfo11printerInfoERK7QString": ["address", "text"],
     "ritual_ZN12QPrinterInfoC1ERK7QString": ["address", "text"],
     "ritual_Zls6QDebugRK12QPrinterInfo": ["address", "address", "address"],
+    "ritual_ZN12QPrinterInfo6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QPrinterInfo6d_funcEv": ["address", "address"],
     "ritual_list_make_QPrinterInfo": ["address"],
     "ritual_list_add_QPrinterInfo": ["nothing", "address", "address"],
     "ritual_list_size_QPrinterInfo": ["long long", "address"],
     "ritual_list_at_QPrinterInfo": ["address", "address", "long long"],
-    "ritual_list_drop_QPrinterInfo": ["nothing", "address"]
+    "ritual_list_drop_QPrinterInfo": ["nothing", "address"],
+    "ritual_drop_QPrinterInfo__QList_int": ["nothing", "address"],
+    "ritual_drop_QPrinterInfo__QList_QPrinter_DuplexMode": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPrinterInfo__QList_QPrinter_ColorMode": [
+      "nothing", "address"
+    ]
   }
 }

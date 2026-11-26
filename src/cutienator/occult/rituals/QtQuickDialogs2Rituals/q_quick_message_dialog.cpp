@@ -23,6 +23,25 @@ const QMetaObject *ritual_ZNK19QQuickMessageDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMessageDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickMessageDialog11qt_metacastEPKc(
+    QQuickMessageDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMessageDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickMessageDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMessageDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMessageDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickMessageDialog2trEPKcS1_i(
@@ -114,6 +133,45 @@ void ritual_ZN19QQuickMessageDialog10setButtonsE6QFlagsIN21QPlatformDialogHelper
     int buttons) {
   self->setButtons(
       QFlags<QPlatformDialogHelper::StandardButton>::fromInt(buttons));
+}
+
+//  void QQuickMessageDialog::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMessageDialog11textChangedEv(
+    QQuickMessageDialog *self) {
+  self->textChanged();
+}
+
+//  void QQuickMessageDialog::informativeTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMessageDialog22informativeTextChangedEv(
+    QQuickMessageDialog *self) {
+  self->informativeTextChanged();
+}
+
+//  void QQuickMessageDialog::detailedTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMessageDialog19detailedTextChangedEv(
+    QQuickMessageDialog *self) {
+  self->detailedTextChanged();
+}
+
+//  void QQuickMessageDialog::buttonsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMessageDialog14buttonsChangedEv(
+    QQuickMessageDialog *self) {
+  self->buttonsChanged();
+}
+
+//  void
+//      QQuickMessageDialog::buttonClicked(QPlatformDialogHelper::StandardBut
+//      ton button, QPlatformDialogHelper::ButtonRole role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickMessageDialog13buttonClickedEN21QPlatformDialogHelper14StandardButtonENS0_10ButtonRoleE(
+    QQuickMessageDialog *self,
+    QPlatformDialogHelper::StandardButton button,
+    QPlatformDialogHelper::ButtonRole role) {
+  self->buttonClicked(button, role);
 }
 
 //  void

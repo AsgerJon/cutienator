@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN3QV427VariantAssociationPrototype16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV427VariantAssociationPrototype15fromQVariantMapEPNS_15ExecutionEngineERK4QMapI7QString8QVariantEPNS_4Heap6ObjectEi6QFlagsINS9_15ReferenceObject4FlagEE": [
+      "unsigned long long", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN3QV427VariantAssociationPrototype16fromQVariantHashEPNS_15ExecutionEngineERK5QHashI7QString8QVariantEPNS_4Heap6ObjectEi6QFlagsINS9_15ReferenceObject4FlagEE": [
+      "unsigned long long", "address", "address", "address", "int", "int"
     ]
   }
 }

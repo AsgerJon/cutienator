@@ -11,6 +11,12 @@
     "ritual_ZNK27QStaticByteArrayMatcherBase9indexOfInEPKcmS1_xx": [
       "long long", "address", "chars", "size_t", "chars", "long long",
       "long long"
+    ],
+    "ritual_ZN27QStaticByteArrayMatcherBase8generateEPKcm": [
+      "address", "chars", "size_t"
+    ],
+    "ritual_drop_QStaticByteArrayMatcherBase__QStaticByteArrayMatcherBase_Skiptable": [
+      "nothing", "address"
     ]
   }
 }

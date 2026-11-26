@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN17QHostInfoRunnableD1Ev": ["nothing", "address"],
+    "ritual_ZN17QHostInfoRunnable3runEv": ["nothing", "address"],
     "ritual_take_QHostInfoRunnable": ["bool", "address", "chars", "address"]
   }
 }

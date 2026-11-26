@@ -8,6 +8,12 @@
     "ritual_ZNK24QQmlMicrophonePermission10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQmlMicrophonePermission11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQmlMicrophonePermission11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK24QQmlMicrophonePermission6statusEv": ["int", "address"],
     "ritual_take_QQmlMicrophonePermission": [
       "bool", "address", "chars", "address"

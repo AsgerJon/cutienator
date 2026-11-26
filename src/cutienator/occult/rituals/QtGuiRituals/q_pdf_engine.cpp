@@ -511,6 +511,13 @@ QPdfEngine *ritual_ZN10QPdfEngineC1Ev() {
   return new CuteQPdfEngine();
 }
 
+//  QPdfEngine::QPdfEngine(QPdfEnginePrivate &d)
+extern "C" Q_DECL_EXPORT
+QPdfEngine *ritual_ZN10QPdfEngineC1ER17QPdfEnginePrivate(
+    QPdfEnginePrivate *d) {
+  return new CuteQPdfEngine(*d);
+}
+
 //  QPdfEngine::~QPdfEngine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QPdfEngineD1Ev(QPdfEngine *self) {

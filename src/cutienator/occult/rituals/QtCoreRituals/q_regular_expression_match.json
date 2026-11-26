@@ -8,6 +8,16 @@
     "ritual_ZN23QRegularExpressionMatchC1Ev": ["address"],
     "ritual_ZN23QRegularExpressionMatchD1Ev": ["nothing", "address"],
     "ritual_ZN23QRegularExpressionMatchC1ERKS_": ["address", "address"],
+    "ritual_ZN23QRegularExpressionMatchC1EOS_": ["address", "address"],
+    "ritual_ZN23QRegularExpressionMatchaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QRegularExpressionMatchaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QRegularExpressionMatch4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK23QRegularExpressionMatch17regularExpressionEv": [
       "address", "address"
     ],
@@ -61,6 +71,9 @@
     ],
     "ritual_ZNK23QRegularExpressionMatch11capturedEndE14QAnyStringView": [
       "long long", "address", "text"
+    ],
+    "ritual_ZN23QRegularExpressionMatchC1ER30QRegularExpressionMatchPrivate": [
+      "address", "address"
     ]
   }
 }

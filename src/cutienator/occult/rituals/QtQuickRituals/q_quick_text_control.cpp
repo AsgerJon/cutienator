@@ -9,9 +9,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qtextobject.h>
-#include <QtCore/qrect.h>
+#include <QtGui/qtextformat.h>
 #include <QtGui/qtransform.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -59,6 +60,24 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 43, as local:qquicktextcontrol.cpp:textCursorWidth
+#if !defined(QT_NO_TEXTCONTROL)
+const int textCursorWidth = 1;
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 779, as _ZN17QQuickTextControl10timerEventEP11QTimerEvent
+#if !defined(QT_NO_TEXTCONTROL)
+inline void QQuickTextControl::timerEvent(QTimerEvent *e)
+{
+    Q_D(QQuickTextControl);
+    if (e->timerId() == d->cursorBlinkTimer.timerId()) {
+        d->cursorOn = !d->cursorOn;
+
+        d->repaintCursor();
+    }
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
 //  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 439, as _ZN24QQuickTextControlPrivate24setBlinkingCursorEnabledEb
 #if !defined(QT_NO_TEXTCONTROL)
 inline void QQuickTextControlPrivate::setBlinkingCursorEnabled(bool enable)
@@ -76,84 +95,54 @@ inline void QQuickTextControlPrivate::setBlinkingCursorEnabled(bool enable)
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 975, as _ZNK24QQuickTextControlPrivate15rectForPositionEi
+#if !defined(QT_NO_TEXTCONTROL)
+inline QRectF QQuickTextControlPrivate::rectForPosition(int position) const
+{
+    Q_Q(const QQuickTextControl);
+    const QTextBlock block = doc->findBlock(position);
+    if (!block.isValid())
+        return QRectF();
+    const QTextLayout *layout = block.layout();
+    const QPointF layoutPos = q->blockBoundingRect(block).topLeft();
+    int relativePos = position - block.position();
+#if QT_CONFIG(im)
+    if (preeditCursor != 0) {
+        int preeditPos = layout->preeditAreaPosition();
+        if (relativePos == preeditPos)
+            relativePos += preeditCursor;
+        else if (relativePos > preeditPos)
+            relativePos += layout->preeditAreaText().size();
+    }
+#endif
+    QTextLine line = layout->lineForTextPosition(relativePos);
+
+    QRectF r;
+
+    if (line.isValid()) {
+        qreal x = line.cursorToX(relativePos);
+        qreal w = 0;
+        if (overwriteMode) {
+            if (relativePos < line.textLength() - line.textStart())
+                w = line.cursorToX(relativePos + 1) - x;
+            else
+                w = QFontMetrics(block.layout()->font()).horizontalAdvance(QLatin1Char(' ')); // in sync with QTextLine::draw()
+        }
+        r = QRectF(layoutPos.x() + x, layoutPos.y() + line.y(), textCursorWidth + w, line.height());
+    } else {
+        r = QRectF(layoutPos.x(), layoutPos.y(), textCursorWidth, 10); // #### correct height
+    }
+
+    return r;
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
 //  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 343, as _ZN24QQuickTextControlPrivate13repaintCursorEv
 #if !defined(QT_NO_TEXTCONTROL)
 inline void QQuickTextControlPrivate::repaintCursor()
 {
     Q_Q(QQuickTextControl);
     emit q->updateCursorRequest();
-}
-#endif  // !defined(QT_NO_TEXTCONTROL)
-
-//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 255, as _ZN24QQuickTextControlPrivate10setContentEN2Qt10TextFormatERK7QString
-#if !defined(QT_NO_TEXTCONTROL)
-inline void QQuickTextControlPrivate::setContent(Qt::TextFormat format, const QString &text)
-{
-    Q_Q(QQuickTextControl);
-
-#if QT_CONFIG(im)
-    cancelPreedit();
-#endif
-
-    // for use when called from setPlainText. we may want to re-use the currently
-    // set char format then.
-    const QTextCharFormat charFormatForInsertion = cursor.charFormat();
-
-    bool previousUndoRedoState = doc->isUndoRedoEnabled();
-    doc->setUndoRedoEnabled(false);
-
-    const int oldCursorPos = cursor.position();
-
-    // avoid multiple textChanged() signals being emitted
-    QObject::disconnect(doc, &QTextDocument::contentsChanged, q, &QQuickTextControl::textChanged);
-
-    if (!text.isEmpty()) {
-        // clear 'our' cursor for insertion to prevent
-        // the emission of the cursorPositionChanged() signal.
-        // instead we emit it only once at the end instead of
-        // at the end of the document after loading and when
-        // positioning the cursor again to the start of the
-        // document.
-        cursor = QTextCursor();
-        if (format == Qt::PlainText) {
-            QTextCursor formatCursor(doc);
-            // put the setPlainText and the setCharFormat into one edit block,
-            // so that the syntax highlight triggers only /once/ for the entire
-            // document, not twice.
-            formatCursor.beginEditBlock();
-            doc->setPlainText(text);
-            doc->setUndoRedoEnabled(false);
-            formatCursor.select(QTextCursor::Document);
-            formatCursor.setCharFormat(charFormatForInsertion);
-            formatCursor.endEditBlock();
-#if QT_CONFIG(textmarkdownreader)
-        } else if (format == Qt::MarkdownText) {
-            doc->setBaseUrl(doc->baseUrl().adjusted(QUrl::RemoveFilename));
-            doc->setMarkdown(text);
-#endif
-        } else {
-#if QT_CONFIG(texthtmlparser)
-            doc->setHtml(text);
-#else
-            doc->setPlainText(text);
-#endif
-            doc->setUndoRedoEnabled(false);
-        }
-        cursor = QTextCursor(doc);
-    } else {
-        doc->clear();
-    }
-    cursor.setCharFormat(charFormatForInsertion);
-
-    QObject::connect(doc, &QTextDocument::contentsChanged, q, &QQuickTextControl::textChanged);
-    emit q->textChanged();
-    doc->setUndoRedoEnabled(previousUndoRedoState);
-    _q_updateCurrentCharFormatAndSelection();
-    doc->setModified(false);
-
-    q->updateCursorRectangle(true);
-    if (cursor.position() != oldCursorPos)
-        emit q->cursorPositionChanged();
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
@@ -247,6 +236,39 @@ inline void QQuickTextControl::insertFromMimeData(const QMimeData *source)
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 768, as _ZN17QQuickTextControl5eventEP6QEvent
+#if !defined(QT_NO_TEXTCONTROL)
+inline bool QQuickTextControl::event(QEvent *e)
+{
+    return QObject::event(e);
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 1902, as _ZNK22QQuickTextEditMimeData7formatsEv
+#if !defined(QT_NO_TEXTCONTROL)
+inline QStringList QQuickTextEditMimeData::formats() const
+{
+    if (!fragment.isEmpty())
+        return QStringList() << QString::fromLatin1("text/plain") << QString::fromLatin1("text/html")
+#if QT_CONFIG(textodfwriter)
+            << QString::fromLatin1("application/vnd.oasis.opendocument.text")
+#endif
+        ;
+    else
+        return QMimeData::formats();
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 1914, as _ZNK22QQuickTextEditMimeData12retrieveDataERK7QString9QMetaType
+#if !defined(QT_NO_TEXTCONTROL)
+inline QVariant QQuickTextEditMimeData::retrieveData(const QString &mimeType, QMetaType type) const
+{
+    if (!fragment.isEmpty())
+        setup();
+    return QMimeData::retrieveData(mimeType, type);
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
 //  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 632, as _ZN17QQuickTextControl21updateCursorRectangleEb
 #if !defined(QT_NO_TEXTCONTROL)
 inline void QQuickTextControl::updateCursorRectangle(bool force)
@@ -256,6 +278,28 @@ inline void QQuickTextControl::updateCursorRectangle(bool force)
     d->cursorRectangleChanged = false;
     if (update)
         emit cursorRectangleChanged();
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 1921, as _ZNK22QQuickTextEditMimeData5setupEv
+#if !defined(QT_NO_TEXTCONTROL)
+inline void QQuickTextEditMimeData::setup() const
+{
+    QQuickTextEditMimeData *that = const_cast<QQuickTextEditMimeData *>(this);
+#if QT_CONFIG(texthtmlparser)
+    that->setData(QLatin1String("text/html"), fragment.toHtml().toUtf8());
+#endif
+#if QT_CONFIG(textodfwriter)
+    {
+        QBuffer buffer;
+        QTextDocumentWriter writer(&buffer, "ODF");
+        writer.write(fragment);
+        buffer.close();
+        that->setData(QLatin1String("application/vnd.oasis.opendocument.text"), buffer.data());
+    }
+#endif
+    that->setText(fragment.toPlainText());
+    fragment = QTextDocumentFragment();
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
@@ -338,6 +382,41 @@ inline bool QQuickTextControl::cursorVisible() const
 {
     Q_D(const QQuickTextControl);
     return d->cursorVisible;
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 1581, as _ZNK17QQuickTextControl10anchorRectEv
+#if !defined(QT_NO_TEXTCONTROL)
+inline QRectF QQuickTextControl::anchorRect() const
+{
+    Q_D(const QQuickTextControl);
+    QRectF rect;
+    QTextCursor cursor = d->cursor;
+    if (!cursor.isNull()) {
+        rect = d->rectForPosition(cursor.anchor());
+    }
+    return rect;
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 1592, as _ZNK17QQuickTextControl10cursorRectERK11QTextCursor
+#if !defined(QT_NO_TEXTCONTROL)
+inline QRectF QQuickTextControl::cursorRect(const QTextCursor &cursor) const
+{
+    Q_D(const QQuickTextControl);
+    if (cursor.isNull())
+        return QRectF();
+
+    return d->rectForPosition(cursor.position());
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 1601, as _ZNK17QQuickTextControl10cursorRectEv
+#if !defined(QT_NO_TEXTCONTROL)
+inline QRectF QQuickTextControl::cursorRect() const
+{
+    Q_D(const QQuickTextControl);
+    return cursorRect(d->cursor);
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
@@ -429,56 +508,6 @@ inline QString QQuickTextControl::preeditText() const
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
-//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 667, as _ZN17QQuickTextControl3cutEv
-#if !defined(QT_NO_TEXTCONTROL)
-#if QT_CONFIG(clipboard)
-inline void QQuickTextControl::cut()
-{
-    Q_D(QQuickTextControl);
-    if (!(d->interactionFlags & Qt::TextEditable) || !d->cursor.hasSelection())
-        return;
-    copy();
-    d->cursor.removeSelectedText();
-}
-#endif  // QT_CONFIG(clipboard)
-#endif  // !defined(QT_NO_TEXTCONTROL)
-
-//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 676, as _ZN17QQuickTextControl4copyEv
-#if !defined(QT_NO_TEXTCONTROL)
-#if QT_CONFIG(clipboard)
-inline void QQuickTextControl::copy()
-{
-    Q_D(QQuickTextControl);
-    if (!d->cursor.hasSelection())
-        return;
-    QMimeData *data = createMimeDataFromSelection();
-    QGuiApplication::clipboard()->setMimeData(data);
-}
-#endif  // QT_CONFIG(clipboard)
-#endif  // !defined(QT_NO_TEXTCONTROL)
-
-//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 685, as _ZN17QQuickTextControl5pasteEN10QClipboard4ModeE
-#if !defined(QT_NO_TEXTCONTROL)
-#if QT_CONFIG(clipboard)
-inline void QQuickTextControl::paste(QClipboard::Mode mode)
-{
-    const QMimeData *md = QGuiApplication::clipboard()->mimeData(mode);
-    if (md)
-        insertFromMimeData(md);
-}
-#endif  // QT_CONFIG(clipboard)
-#endif  // !defined(QT_NO_TEXTCONTROL)
-
-//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 578, as _ZN17QQuickTextControl5clearEv
-#if !defined(QT_NO_TEXTCONTROL)
-inline void QQuickTextControl::clear()
-{
-    Q_D(QQuickTextControl);
-    d->cursor.select(QTextCursor::Document);
-    d->cursor.removeSelectedText();
-}
-#endif  // !defined(QT_NO_TEXTCONTROL)
-
 //  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 703, as _ZN17QQuickTextControl12processEventEP6QEventRK7QPointF
 #if !defined(QT_NO_TEXTCONTROL)
 inline void QQuickTextControl::processEvent(QEvent *e, const QPointF &coordinateOffset)
@@ -487,6 +516,87 @@ inline void QQuickTextControl::processEvent(QEvent *e, const QPointF &coordinate
     t.translate(coordinateOffset.x(), coordinateOffset.y());
     processEvent(e, t);
 }
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 1424, as _ZNK17QQuickTextControl16inputMethodQueryEN2Qt16InputMethodQueryERK8QVariant
+#if !defined(QT_NO_TEXTCONTROL)
+#if QT_CONFIG(im)
+inline QVariant QQuickTextControl::inputMethodQuery(Qt::InputMethodQuery property, const QVariant &argument) const
+{
+    Q_D(const QQuickTextControl);
+    QTextBlock block = d->cursor.block();
+    switch (property) {
+    case Qt::ImCursorRectangle:
+        return cursorRect();
+    case Qt::ImAnchorRectangle:
+        return anchorRect();
+    case Qt::ImFont:
+        return QVariant(d->cursor.charFormat().font());
+    case Qt::ImCursorPosition: {
+        const QPointF pt = argument.toPointF();
+        if (!pt.isNull())
+            return QVariant(d->doc->documentLayout()->hitTest(pt, Qt::FuzzyHit) - block.position());
+        return QVariant(d->cursor.position() - block.position());
+    }
+    case Qt::ImSurroundingText:
+        return QVariant(block.text());
+    case Qt::ImCurrentSelection: {
+        QMimeData *mimeData = createMimeDataFromSelection();
+        mimeData->deleteLater();
+        return QInputControl::selectionWrapper(mimeData);
+    }
+    case Qt::ImMaximumTextLength:
+        return QVariant(); // No limit.
+    case Qt::ImAnchorPosition:
+        return QVariant(d->cursor.anchor() - block.position());
+    case Qt::ImAbsolutePosition:
+        return QVariant(d->cursor.position());
+    case Qt::ImTextAfterCursor:
+    {
+        int maxLength = argument.isValid() ? argument.toInt() : 1024;
+        QTextCursor tmpCursor = d->cursor;
+        int localPos = d->cursor.position() - block.position();
+        QString result = block.text().mid(localPos);
+        while (result.size() < maxLength) {
+            int currentBlock = tmpCursor.blockNumber();
+            tmpCursor.movePosition(QTextCursor::NextBlock);
+            if (tmpCursor.blockNumber() == currentBlock)
+                break;
+            result += QLatin1Char('\n') + tmpCursor.block().text();
+        }
+        return QVariant(result);
+    }
+    case Qt::ImTextBeforeCursor:
+    {
+        int maxLength = argument.isValid() ? argument.toInt() : 1024;
+        QTextCursor tmpCursor = d->cursor;
+        int localPos = d->cursor.position() - block.position();
+        int numBlocks = 0;
+        int resultLen = localPos;
+        while (resultLen < maxLength) {
+            int currentBlock = tmpCursor.blockNumber();
+            tmpCursor.movePosition(QTextCursor::PreviousBlock);
+            if (tmpCursor.blockNumber() == currentBlock)
+                break;
+            numBlocks++;
+            resultLen += tmpCursor.block().length();
+        }
+        QString result;
+        while (numBlocks) {
+            result += tmpCursor.block().text() + QLatin1Char('\n');
+            tmpCursor.movePosition(QTextCursor::NextBlock);
+            --numBlocks;
+        }
+        result += QStringView{block.text()}.mid(0,localPos);
+        return QVariant(result);
+    }
+    case Qt::ImReadOnly:
+        return QVariant(!d->interactionFlags.testFlag(Qt::TextEditable));
+    default:
+        return QVariant();
+    }
+}
+#endif  // QT_CONFIG(im)
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
 //  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 1869, as _ZNK17QQuickTextControl8cursorOnEv
@@ -504,27 +614,6 @@ inline bool QQuickTextControl::isBeingEdited()
 {
     Q_D(QQuickTextControl);
     return d->beingEdited;
-}
-#endif  // !defined(QT_NO_TEXTCONTROL)
-
-//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 779, as _ZN17QQuickTextControl10timerEventEP11QTimerEvent
-#if !defined(QT_NO_TEXTCONTROL)
-inline void QQuickTextControl::timerEvent(QTimerEvent *e)
-{
-    Q_D(QQuickTextControl);
-    if (e->timerId() == d->cursorBlinkTimer.timerId()) {
-        d->cursorOn = !d->cursorOn;
-
-        d->repaintCursor();
-    }
-}
-#endif  // !defined(QT_NO_TEXTCONTROL)
-
-//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 768, as _ZN17QQuickTextControl5eventEP6QEvent
-#if !defined(QT_NO_TEXTCONTROL)
-inline bool QQuickTextControl::event(QEvent *e)
-{
-    return QObject::event(e);
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 //  -----------------------------------------------------------------------
@@ -834,6 +923,25 @@ const QMetaObject *ritual_ZNK17QQuickTextControl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTextControl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickTextControl11qt_metacastEPKc(
+    QQuickTextControl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTextControl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickTextControl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTextControl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickTextControlPrivate *QQuickTextControl::d_func()
 extern "C" Q_DECL_EXPORT
 QQuickTextControlPrivate *ritual_ZN17QQuickTextControl6d_funcEv(
@@ -940,6 +1048,34 @@ bool ritual_ZNK17QQuickTextControl13cursorVisibleEv(
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
 #if !defined(QT_NO_TEXTCONTROL)
+//  QRectF QQuickTextControl::anchorRect() const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK17QQuickTextControl10anchorRectEv(
+    const QQuickTextControl *self) {
+  return new QRectF(self->anchorRect());
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+#if !defined(QT_NO_TEXTCONTROL)
+//  QRectF QQuickTextControl::cursorRect(const QTextCursor &cursor) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK17QQuickTextControl10cursorRectERK11QTextCursor(
+    const QQuickTextControl *self,
+    const QTextCursor *cursor) {
+  return new QRectF(self->cursorRect(*cursor));
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+#if !defined(QT_NO_TEXTCONTROL)
+//  QRectF QQuickTextControl::cursorRect() const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK17QQuickTextControl10cursorRectEv(
+    const QQuickTextControl *self) {
+  return new QRectF(self->cursorRect());
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+#if !defined(QT_NO_TEXTCONTROL)
 //  QString QQuickTextControl::hoveredLink() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK17QQuickTextControl11hoveredLinkEv(
@@ -1037,45 +1173,709 @@ QString *ritual_ZNK17QQuickTextControl11preeditTextEv(
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
+//  void QQuickTextControl::setPlainText(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl12setPlainTextERK7QString(
+    QQuickTextControl *self,
+    const QString *text) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setPlainText(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setPlainText(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(text)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::setMarkdownText(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl15setMarkdownTextERK7QString(
+    QQuickTextControl *self,
+    const QString *text) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setMarkdownText(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setMarkdownText(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(text)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::setHtml(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl7setHtmlERK7QString(
+    QQuickTextControl *self,
+    const QString *text) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setHtml(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setHtml(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(text)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 #if QT_CONFIG(clipboard)
-#if !defined(QT_NO_TEXTCONTROL)
 //  void QQuickTextControl::cut()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickTextControl3cutEv(QQuickTextControl *self) {
-  self->cut();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "cut()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "cut()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_TEXTCONTROL)
 #endif  // QT_CONFIG(clipboard)
 
 #if QT_CONFIG(clipboard)
-#if !defined(QT_NO_TEXTCONTROL)
 //  void QQuickTextControl::copy()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickTextControl4copyEv(QQuickTextControl *self) {
-  self->copy();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "copy()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "copy()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_TEXTCONTROL)
 #endif  // QT_CONFIG(clipboard)
 
 #if QT_CONFIG(clipboard)
-#if !defined(QT_NO_TEXTCONTROL)
 //  void QQuickTextControl::paste(QClipboard::Mode mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickTextControl5pasteEN10QClipboard4ModeE(
     QQuickTextControl *self,
     QClipboard::Mode mode) {
-  self->paste(mode);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "paste(QClipboard::Mode)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "paste(QClipboard::Mode)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&mode)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_TEXTCONTROL)
 #endif  // QT_CONFIG(clipboard)
 
-#if !defined(QT_NO_TEXTCONTROL)
+//  void QQuickTextControl::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl4undoEv(QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "undo()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "undo()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl4redoEv(QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "redo()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "redo()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuickTextControl::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickTextControl5clearEv(QQuickTextControl *self) {
-  self->clear();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "clear()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "clear()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  void QQuickTextControl::selectAll()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl9selectAllEv(QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "selectAll()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "selectAll()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl11textChangedEv(QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "textChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "textChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::preeditTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl18preeditTextChangedEv(
+    QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "preeditTextChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "preeditTextChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::contentsChange(int from, int charsRemoved, int
+//      charsAdded)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl14contentsChangeEiii(
+    QQuickTextControl *self,
+    int from,
+    int charsRemoved,
+    int charsAdded) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "contentsChange(int,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "contentsChange(int,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&from)),
+      const_cast<void *>(static_cast<const void *>(&charsRemoved)),
+      const_cast<void *>(static_cast<const void *>(&charsAdded)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::undoAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl13undoAvailableEb(
+    QQuickTextControl *self,
+    bool b) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "undoAvailable(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "undoAvailable(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&b)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::redoAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl13redoAvailableEb(
+    QQuickTextControl *self,
+    bool b) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "redoAvailable(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "redoAvailable(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&b)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::currentCharFormatChanged(const QTextCharFormat
+//      &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl24currentCharFormatChangedERK15QTextCharFormat(
+    QQuickTextControl *self,
+    const QTextCharFormat *format) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "currentCharFormatChanged(const QTextCharFormat &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "currentCharFormatChanged(const QTextCharFormat &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(format)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::copyAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl13copyAvailableEb(
+    QQuickTextControl *self,
+    bool b) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "copyAvailable(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "copyAvailable(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&b)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl16selectionChangedEv(
+    QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "selectionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "selectionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::cursorPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl21cursorPositionChangedEv(
+    QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "cursorPositionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "cursorPositionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::overwriteModeChanged(bool overwriteMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl20overwriteModeChangedEb(
+    QQuickTextControl *self,
+    bool overwriteMode) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "overwriteModeChanged(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "overwriteModeChanged(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&overwriteMode)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::updateCursorRequest()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl19updateCursorRequestEv(
+    QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateCursorRequest()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateCursorRequest()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::updateRequest()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl13updateRequestEv(QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateRequest()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateRequest()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::cursorRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl22cursorRectangleChangedEv(
+    QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "cursorRectangleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "cursorRectangleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::linkActivated(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl13linkActivatedERK7QString(
+    QQuickTextControl *self,
+    const QString *link) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "linkActivated(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "linkActivated(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(link)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::linkHovered(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl11linkHoveredERK7QString(
+    QQuickTextControl *self,
+    const QString *link) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "linkHovered(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "linkHovered(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(link)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::markerClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl13markerClickedEv(QQuickTextControl *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "markerClicked()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "markerClicked()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickTextControl::markerHovered(bool marker)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextControl13markerHoveredEb(
+    QQuickTextControl *self,
+    bool marker) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickTextControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "markerHovered(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "markerHovered(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&marker)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
 
 //  void QQuickTextControl::processEvent(QEvent *e, const QTransform
 //      &transform)
@@ -1108,6 +1908,20 @@ QVariant *ritual_ZNK17QQuickTextControl16inputMethodQueryEN2Qt16InputMethodQuery
     Qt::InputMethodQuery property) {
   return new QVariant(self->inputMethodQuery(property));
 }
+#endif  // QT_CONFIG(im)
+
+#if QT_CONFIG(im)
+#if !defined(QT_NO_TEXTCONTROL)
+//  QVariant QQuickTextControl::inputMethodQuery(Qt::InputMethodQuery query,
+//      const QVariant &argument) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK17QQuickTextControl16inputMethodQueryEN2Qt16InputMethodQueryERK8QVariant(
+    const QQuickTextControl *self,
+    Qt::InputMethodQuery query,
+    const QVariant *argument) {
+  return new QVariant(self->inputMethodQuery(query, *argument));
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
 #endif  // QT_CONFIG(im)
 
 //  QMimeData *QQuickTextControl::createMimeDataFromSelection() const
@@ -1197,6 +2011,28 @@ QRectF *ritual_own_ZNK17QQuickTextControl17blockBoundingRectERK10QTextBlock(
     const QQuickTextControl *self,
     const QTextBlock *block) {
   return new QRectF(self->QQuickTextControl::blockBoundingRect(*block));
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+#if QT_CONFIG(im)
+#if !defined(QT_NO_TEXTCONTROL)
+//  QVariant QQuickTextControl::inputMethodQuery(Qt::InputMethodQuery
+//      property) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK17QQuickTextControl16inputMethodQueryEN2Qt16InputMethodQueryE(
+    const QQuickTextControl *self,
+    Qt::InputMethodQuery property) {
+  return new QVariant(self->QQuickTextControl::inputMethodQuery(property));
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+#endif  // QT_CONFIG(im)
+
+#if !defined(QT_NO_TEXTCONTROL)
+//  QMimeData *QQuickTextControl::createMimeDataFromSelection() const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_own_ZNK17QQuickTextControl27createMimeDataFromSelectionEv(
+    const QQuickTextControl *self) {
+  return self->QQuickTextControl::createMimeDataFromSelection();
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 

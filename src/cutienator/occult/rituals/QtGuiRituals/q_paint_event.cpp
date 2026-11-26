@@ -13,6 +13,7 @@ typedef void (*CuteQPaintEventCall1)(const void *, bool, int *);
 class CuteQPaintEvent : public QPaintEvent {
 public:
   using QPaintEvent::QPaintEvent;
+  CuteQPaintEvent(const QPaintEvent & other) : QPaintEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -49,6 +50,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QPaintEvent::QPaintEvent(const QPaintEvent &a0)
+extern "C" Q_DECL_EXPORT
+QPaintEvent *ritual_ZN11QPaintEventC1ERKS_(const QPaintEvent *a0) {
+  return new CuteQPaintEvent(*a0);
+}
+
+//  QPaintEvent &QPaintEvent::operator=(const QPaintEvent &other)
+extern "C" Q_DECL_EXPORT
+QPaintEvent *ritual_ZN11QPaintEventaSERKS_(
+    QPaintEvent *self,
+    const QPaintEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QPaintEvent *QPaintEvent::clone() const
 extern "C" Q_DECL_EXPORT

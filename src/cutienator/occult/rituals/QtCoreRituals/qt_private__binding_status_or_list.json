@@ -9,6 +9,9 @@
     "ritual_ZN9QtPrivate19BindingStatusOrListC1EP14QBindingStatus": [
       "address", "address"
     ],
+    "ritual_ZN9QtPrivate19BindingStatusOrListC1EPSt6vectorIP7QObjectSaIS3_EE": [
+      "address", "address"
+    ],
     "ritual_ZN9QtPrivate19BindingStatusOrListD1Ev": ["nothing", "address"],
     "ritual_ZN9QtPrivate19BindingStatusOrList28addObjectUnlessAlreadyStatusEP7QObject": [
       "address", "address", "address"
@@ -31,7 +34,16 @@
     "ritual_ZNK9QtPrivate19BindingStatusOrList13bindingStatusEv": [
       "address", "address"
     ],
+    "ritual_ZNK9QtPrivate19BindingStatusOrList4listEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate19BindingStatusOrList10decodeListEy": [
+      "address", "unsigned long long"
+    ],
     "ritual_ZN9QtPrivate19BindingStatusOrList19encodeBindingStatusEP14QBindingStatus": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN9QtPrivate19BindingStatusOrList10encodeListEPSt6vectorIP7QObjectSaIS3_EE": [
       "unsigned long long", "address"
     ]
   }

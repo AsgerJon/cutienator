@@ -6,11 +6,20 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlDelayedCallQueue10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlDelayedCallQueue11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlDelayedCallQueue11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQmlDelayedCallQueueD1Ev": ["nothing", "address"],
     "ritual_ZN20QQmlDelayedCallQueue26addUniquelyAndExecuteLaterEPN3QV415ExecutionEngineEP14QQmlV4Function": [
       "unsigned long long", "address", "address"
     ],
     "ritual_ZN20QQmlDelayedCallQueue6tickedEv": ["nothing", "address"],
+    "ritual_ZN20QQmlDelayedCallQueue17storeAnyArgumentsERNS_19DelayedFunctionCallEP14QQmlV4FunctioniPN3QV415ExecutionEngineE": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
     "ritual_ZN20QQmlDelayedCallQueue23executeAllExpired_LaterEv": [
       "nothing", "address"
     ],

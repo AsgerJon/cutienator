@@ -6,9 +6,29 @@
   ],
   "rows": {
     "ritual_ZN14QQsbCollectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQsbCollection16availableEntriesEv": ["address", "address"],
     "ritual_ZN14QQsbCollection8addEntryERK10QByteArrayRKNS_9EntryDescE": [
       "address", "address", "address", "address"
     ],
-    "ritual_take_QQsbCollection": ["bool", "address", "chars", "address"]
+    "ritual_ZN14QQsbCollection12extractEntryENS_5EntryERNS_9EntryDescE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14QQsbCollection13readEndHeaderER11QDataStreamPxPh": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQsbCollection14writeEndHeaderER11QDataStreamxhy": [
+      "nothing", "address", "address", "long long", "unsigned char",
+      "unsigned long long"
+    ],
+    "ritual_ZN14QQsbCollection13readEndHeaderEP9QIODeviceP4QSetINS_5EntryEEPh": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQsbCollection14writeEndHeaderEP9QIODeviceRK4QSetINS_5EntryEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QQsbCollection": ["bool", "address", "chars", "address"],
+    "ritual_drop_QQsbCollection__QQsbCollection_EntryMap": [
+      "nothing", "address"
+    ]
   }
 }

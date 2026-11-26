@@ -8,6 +8,12 @@
     "ritual_ZNK22QGraphicsItemAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QGraphicsItemAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QGraphicsItemAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QGraphicsItemAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,7 @@
     "ritual_ZNK22QGraphicsItemAnimation5posAtEd": [
       "address", "address", "double"
     ],
+    "ritual_ZNK22QGraphicsItemAnimation7posListEv": ["address", "address"],
     "ritual_ZN22QGraphicsItemAnimation8setPosAtEdRK7QPointF": [
       "nothing", "address", "double", "address"
     ],
@@ -32,6 +39,9 @@
     ],
     "ritual_ZNK22QGraphicsItemAnimation10rotationAtEd": [
       "double", "address", "double"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation12rotationListEv": [
+      "address", "address"
     ],
     "ritual_ZN22QGraphicsItemAnimation13setRotationAtEdd": [
       "nothing", "address", "double", "double"
@@ -42,6 +52,9 @@
     "ritual_ZNK22QGraphicsItemAnimation14yTranslationAtEd": [
       "double", "address", "double"
     ],
+    "ritual_ZNK22QGraphicsItemAnimation15translationListEv": [
+      "address", "address"
+    ],
     "ritual_ZN22QGraphicsItemAnimation16setTranslationAtEddd": [
       "nothing", "address", "double", "double", "double"
     ],
@@ -51,6 +64,7 @@
     "ritual_ZNK22QGraphicsItemAnimation17horizontalScaleAtEd": [
       "double", "address", "double"
     ],
+    "ritual_ZNK22QGraphicsItemAnimation9scaleListEv": ["address", "address"],
     "ritual_ZN22QGraphicsItemAnimation10setScaleAtEddd": [
       "nothing", "address", "double", "double", "double"
     ],
@@ -60,6 +74,7 @@
     "ritual_ZNK22QGraphicsItemAnimation17horizontalShearAtEd": [
       "double", "address", "double"
     ],
+    "ritual_ZNK22QGraphicsItemAnimation9shearListEv": ["address", "address"],
     "ritual_ZN22QGraphicsItemAnimation10setShearAtEddd": [
       "nothing", "address", "double", "double", "double"
     ],
@@ -81,6 +96,12 @@
     ],
     "ritual_own_ZN22QGraphicsItemAnimation18afterAnimationStepEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_drop_QGraphicsItemAnimation__QList_std_pair_qreal_QPointF": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGraphicsItemAnimation__QList_std_pair_qreal_qreal": [
+      "nothing", "address"
     ]
   }
 }

@@ -5,9 +5,42 @@
 #include <Qt3DRender/Qt3DRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/parameter_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/uniform_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
+
+//  Qt3DRender::Render::Parameter::Parameter()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Parameter *ritual_ZN10Qt3DRender6Render9ParameterC1Ev() {
+  return new Qt3DRender::Render::Parameter();
+}
+
+//  void Qt3DRender::Render::Parameter::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9Parameter7cleanupEv(
+    Qt3DRender::Render::Parameter *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::Parameter::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9Parameter16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::Parameter *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  QString Qt3DRender::Render::Parameter::name() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DRender6Render9Parameter4nameEv(
+    const Qt3DRender::Render::Parameter *self) {
+  return new QString(self->name());
+}
 
 //  int Qt3DRender::Render::Parameter::nameId() const
 extern "C" Q_DECL_EXPORT

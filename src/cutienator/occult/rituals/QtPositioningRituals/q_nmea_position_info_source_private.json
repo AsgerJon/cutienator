@@ -8,6 +8,12 @@
     "ritual_ZNK30QNmeaPositionInfoSourcePrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QNmeaPositionInfoSourcePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN30QNmeaPositionInfoSourcePrivate11stopUpdatesEv": [
       "nothing", "address"

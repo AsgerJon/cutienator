@@ -13,6 +13,9 @@
     "ritual_ZN10QTransformC1Edddddd": [
       "address", "double", "double", "double", "double", "double", "double"
     ],
+    "ritual_ZN10QTransformaSEOS_": ["address", "address", "address"],
+    "ritual_ZN10QTransformaSERKS_": ["address", "address", "address"],
+    "ritual_ZN10QTransformC1EOS_": ["address", "address"],
     "ritual_ZN10QTransformC1ERKS_": ["address", "address"],
     "ritual_ZNK10QTransform8isAffineEv": ["bool", "address"],
     "ritual_ZNK10QTransform10isIdentityEv": ["bool", "address"],
@@ -40,6 +43,36 @@
     "ritual_ZNK10QTransform8invertedEPb": ["address", "address", "address"],
     "ritual_ZNK10QTransform7adjointEv": ["address", "address"],
     "ritual_ZNK10QTransform10transposedEv": ["address", "address"],
+    "ritual_ZN10QTransform9translateEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZN10QTransform5scaleEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZN10QTransform5shearEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZN10QTransform6rotateEdN2Qt4AxisEd": [
+      "address", "address", "double", "int", "double"
+    ],
+    "ritual_ZN10QTransform6rotateEdN2Qt4AxisE": [
+      "address", "address", "double", "int"
+    ],
+    "ritual_ZN10QTransform13rotateRadiansEdN2Qt4AxisEd": [
+      "address", "address", "double", "int", "double"
+    ],
+    "ritual_ZN10QTransform13rotateRadiansEdN2Qt4AxisE": [
+      "address", "address", "double", "int"
+    ],
+    "ritual_ZN10QTransform12squareToQuadERK9QPolygonFRS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QTransform12quadToSquareERK9QPolygonFRS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QTransform10quadToQuadERK9QPolygonFS2_RS_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK10QTransformeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK10QTransformneERKS_": ["bool", "address", "address"],
     "ritual_ZN10QTransformmLERKS_": ["nothing", "address", "address"],
@@ -91,10 +124,18 @@
       "address", "double", "double"
     ],
     "ritual_ZN10QTransform9fromScaleEdd": ["address", "double", "double"],
+    "ritual_ZN10QTransform14asAffineMatrixEv": ["address", "address"],
+    "ritual_ZrsR11QDataStreamRN10QTransform6AffineE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRKN10QTransform6AffineE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK10QTransform11inline_typeEv": ["int", "address"],
     "ritual_ZNK10QTransform6do_mapEddRdS0_": [
       "nothing", "address", "double", "double", "address", "address"
     ],
-    "ritual_ZN10QTransformD1Ev": ["nothing", "address"]
+    "ritual_ZN10QTransformD1Ev": ["nothing", "address"],
+    "ritual_drop_QTransform__QTransform_Affine": ["nothing", "address"]
   }
 }

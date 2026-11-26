@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QGyroscope10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QGyroscope11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QGyroscope11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QGyroscope2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QGyroscopeC1EP7QObject": ["address", "address"],
     "ritual_ZN10QGyroscopeD1Ev": ["nothing", "address"],

@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 
 //  DomUrl::DomUrl()
 extern "C" Q_DECL_EXPORT
@@ -17,6 +18,24 @@ DomUrl *ritual_ZN6DomUrlC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6DomUrlD1Ev(DomUrl *self) {
   delete self;
+}
+
+//  void DomUrl::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6DomUrl4readER16QXmlStreamReader(
+    DomUrl *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomUrl::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK6DomUrl5writeER16QXmlStreamWriterRK7QString(
+    const DomUrl *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  DomString *DomUrl::elementString() const

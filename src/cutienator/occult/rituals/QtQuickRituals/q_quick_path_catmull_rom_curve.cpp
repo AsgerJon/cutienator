@@ -188,6 +188,25 @@ const QMetaObject *ritual_ZNK25QQuickPathCatmullRomCurve10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathCatmullRomCurve::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickPathCatmullRomCurve11qt_metacastEPKc(
+    QQuickPathCatmullRomCurve *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathCatmullRomCurve::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickPathCatmullRomCurve11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathCatmullRomCurve *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathCatmullRomCurve::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -203,6 +222,16 @@ extern "C" Q_DECL_EXPORT
 QQuickPathCatmullRomCurve *ritual_ZN25QQuickPathCatmullRomCurveC1EP7QObject(
     QObject *parent) {
   return new CuteQQuickPathCatmullRomCurve(parent);
+}
+
+//  void QQuickPathCatmullRomCurve::addToPath(QPainterPath &path, const
+//      QQuickPathData &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickPathCatmullRomCurve9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickPathCatmullRomCurve *self,
+    QPainterPath *path,
+    const QQuickPathData *a1) {
+  self->addToPath(*path, *a1);
 }
 
 //  a Python function taken by a CuteQQuickPathCatmullRomCurve, for the

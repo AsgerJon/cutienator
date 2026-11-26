@@ -15,6 +15,7 @@
     "ritual_ZN8QSimplex12setObjectiveEP18QSimplexConstraint": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8QSimplex10dumpMatrixEv": ["nothing", "address"],
     "ritual_ZN8QSimplex7valueAtEii": ["double", "address", "int", "int"],
     "ritual_ZN8QSimplex10setValueAtEiid": [
       "nothing", "address", "int", "int", "double"
@@ -25,6 +26,9 @@
     ],
     "ritual_ZN8QSimplex11combineRowsEiid": [
       "nothing", "address", "int", "int", "double"
+    ],
+    "ritual_ZN8QSimplex19simplifyConstraintsEP5QListIP18QSimplexConstraintE": [
+      "bool", "address", "address"
     ],
     "ritual_ZN8QSimplex15findPivotColumnEv": ["int", "address"],
     "ritual_ZN8QSimplex17pivotRowForColumnEi": ["int", "address", "int"],

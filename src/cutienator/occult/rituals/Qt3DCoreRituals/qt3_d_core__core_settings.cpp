@@ -7,12 +7,28 @@
 #include <Qt3DCore/6.12.0/Qt3DCore/private/coresettings_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  Qt3DCore::CoreSettings::CoreSettings()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::CoreSettings *ritual_ZN8Qt3DCore12CoreSettingsC1Ev() {
+  return new Qt3DCore::CoreSettings();
+}
+
 //  void Qt3DCore::CoreSettings::setAspect(QCoreAspect *aspect)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore12CoreSettings9setAspectEPNS_11QCoreAspectE(
     Qt3DCore::CoreSettings *self,
     Qt3DCore::QCoreAspect *aspect) {
   self->setAspect(aspect);
+}
+
+//  void Qt3DCore::CoreSettings::syncFromFrontEnd(const Qt3DCore::QNode
+//      *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore12CoreSettings16syncFromFrontEndEPKNS_5QNodeEb(
+    Qt3DCore::CoreSettings *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
 }
 
 //  void Qt3DCore::CoreSettings::syncFromFrontEnd(const Qt3DCore::QNode

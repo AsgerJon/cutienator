@@ -9,7 +9,14 @@
       "address", "int"
     ],
     "ritual_ZN15QSvgCompOpStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSvgCompOpStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QSvgCompOpStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK15QSvgCompOpStyle4typeEv": ["unsigned char", "address"],
+    "ritual_ZNK15QSvgCompOpStyle6compOpEv": ["address", "address"],
     "ritual_take_QSvgCompOpStyle": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QSvgCompOpStyle4typeEv": ["unsigned char", "address"]
   }

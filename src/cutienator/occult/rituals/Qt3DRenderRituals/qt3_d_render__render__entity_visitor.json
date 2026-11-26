@@ -11,8 +11,20 @@
     "ritual_ZN10Qt3DRender6Render13EntityVisitor5visitEPNS0_6EntityE": [
       "int", "address", "address"
     ],
+    "ritual_ZNK10Qt3DRender6Render13EntityVisitor13pruneDisabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13EntityVisitor16setPruneDisabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render13EntityVisitor5applyEPNS0_6EntityE": [
+      "bool", "address", "address"
+    ],
     "ritual_take_Qt3DRender_Render_EntityVisitor": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render13EntityVisitor5visitEPNS0_6EntityE": [
+      "int", "address", "address"
     ]
   }
 }

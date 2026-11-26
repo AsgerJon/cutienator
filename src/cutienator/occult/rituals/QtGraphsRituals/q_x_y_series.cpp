@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qxyseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qxyseries.h>
 #include <QtCore/qstring.h>
@@ -11,6 +11,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QXYSeries that Python can take functions over in. Every QXYSeries
 //  Python makes is one. Each function below asks the Python
@@ -234,6 +235,22 @@ const QMetaObject *ritual_ZNK9QXYSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QXYSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QXYSeries11qt_metacastEPKc(QXYSeries *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QXYSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QXYSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QXYSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QXYSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QXYSeries2trEPKcS1_i(
@@ -241,6 +258,14 @@ QString *ritual_ZN9QXYSeries2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QXYSeries::tr(s, c, n));
+}
+
+//  QXYSeries::QXYSeries(QXYSeriesPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QXYSeries *ritual_ZN9QXYSeriesC1ER16QXYSeriesPrivateP7QObject(
+    QXYSeriesPrivate *dd,
+    QObject *parent) {
+  return new CuteQXYSeries(*dd, parent);
 }
 
 //  void QXYSeries::append(qreal x, qreal y)
@@ -390,6 +415,22 @@ QList<QPointF> *ritual_ZNK9QXYSeries6pointsEv(const QXYSeries *self) {
   return new QList<QPointF>(self->points());
 }
 
+//  QXYSeries &QXYSeries::operator<<(QPointF point)
+extern "C" Q_DECL_EXPORT
+QXYSeries *ritual_ZN9QXYSerieslsE7QPointF(
+    QXYSeries *self,
+    const QPointF *point) {
+  return &(self->operator<<(*point));
+}
+
+//  QXYSeries &QXYSeries::operator<<(const QList<QPointF> &points)
+extern "C" Q_DECL_EXPORT
+QXYSeries *ritual_ZN9QXYSerieslsERK5QListI7QPointFE(
+    QXYSeries *self,
+    const QList<QPointF> *points) {
+  return &(self->operator<<(*points));
+}
+
 //  void QXYSeries::setColor(QColor newColor)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QXYSeries8setColorE6QColor(
@@ -479,6 +520,37 @@ void ritual_ZN9QXYSeries17deselectAllPointsEv(QXYSeries *self) {
   self->deselectAllPoints();
 }
 
+//  void QXYSeries::selectPoints(const QList<qsizetype> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries12selectPointsERK5QListIxE(
+    QXYSeries *self,
+    const QList<qsizetype> *indexes) {
+  self->selectPoints(*indexes);
+}
+
+//  void QXYSeries::deselectPoints(const QList<qsizetype> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries14deselectPointsERK5QListIxE(
+    QXYSeries *self,
+    const QList<qsizetype> *indexes) {
+  self->deselectPoints(*indexes);
+}
+
+//  void QXYSeries::toggleSelection(const QList<qsizetype> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries15toggleSelectionERK5QListIxE(
+    QXYSeries *self,
+    const QList<qsizetype> *indexes) {
+  self->toggleSelection(*indexes);
+}
+
+//  QList<qsizetype> QXYSeries::selectedPoints() const
+extern "C" Q_DECL_EXPORT
+QList<qsizetype> *ritual_ZNK9QXYSeries14selectedPointsEv(
+    const QXYSeries *self) {
+  return new QList<qsizetype>(self->selectedPoints());
+}
+
 //  QQmlComponent *QXYSeries::pointDelegate() const
 extern "C" Q_DECL_EXPORT
 QQmlComponent *ritual_ZNK9QXYSeries13pointDelegateEv(const QXYSeries *self) {
@@ -552,6 +624,156 @@ void ritual_ZN9QXYSeries11setStepSizeEd(QXYSeries *self, qreal stepSize) {
   self->setStepSize(stepSize);
 }
 
+//  void QXYSeries::pointReplaced(qsizetype index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries13pointReplacedEx(QXYSeries *self, qsizetype index) {
+  self->pointReplaced(index);
+}
+
+//  void QXYSeries::pointRemoved(qsizetype index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries12pointRemovedEx(QXYSeries *self, qsizetype index) {
+  self->pointRemoved(index);
+}
+
+//  void QXYSeries::pointAdded(qsizetype index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries10pointAddedEx(QXYSeries *self, qsizetype index) {
+  self->pointAdded(index);
+}
+
+//  void QXYSeries::pointsAdded(qsizetype start, qsizetype end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries11pointsAddedExx(
+    QXYSeries *self,
+    qsizetype start,
+    qsizetype end) {
+  self->pointsAdded(start, end);
+}
+
+//  void QXYSeries::colorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries12colorChangedE6QColor(
+    QXYSeries *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QXYSeries::selectedColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries20selectedColorChangedE6QColor(
+    QXYSeries *self,
+    const QColor *color) {
+  self->selectedColorChanged(*color);
+}
+
+//  void QXYSeries::pointsReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries14pointsReplacedEv(QXYSeries *self) {
+  self->pointsReplaced();
+}
+
+//  void QXYSeries::pointsRemoved(qsizetype index, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries13pointsRemovedExx(
+    QXYSeries *self,
+    qsizetype index,
+    qsizetype count) {
+  self->pointsRemoved(index, count);
+}
+
+//  void QXYSeries::selectedPointsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries21selectedPointsChangedEv(QXYSeries *self) {
+  self->selectedPointsChanged();
+}
+
+//  void QXYSeries::pointDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries20pointDelegateChangedEv(QXYSeries *self) {
+  self->pointDelegateChanged();
+}
+
+//  void QXYSeries::draggableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries16draggableChangedEv(QXYSeries *self) {
+  self->draggableChanged();
+}
+
+//  void QXYSeries::seriesUpdated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries13seriesUpdatedEv(QXYSeries *self) {
+  self->seriesUpdated();
+}
+
+//  void QXYSeries::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries12countChangedEv(QXYSeries *self) {
+  self->countChanged();
+}
+
+//  void QXYSeries::clicked(QPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries7clickedE6QPoint(
+    QXYSeries *self,
+    const QPoint *point) {
+  self->clicked(*point);
+}
+
+//  void QXYSeries::doubleClicked(QPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries13doubleClickedE6QPoint(
+    QXYSeries *self,
+    const QPoint *point) {
+  self->doubleClicked(*point);
+}
+
+//  void QXYSeries::pressed(QPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries7pressedE6QPoint(
+    QXYSeries *self,
+    const QPoint *point) {
+  self->pressed(*point);
+}
+
+//  void QXYSeries::released(QPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries8releasedE6QPoint(
+    QXYSeries *self,
+    const QPoint *point) {
+  self->released(*point);
+}
+
+//  void QXYSeries::valuesChanged(const QVariantList &values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries13valuesChangedERK5QListI8QVariantE(
+    QXYSeries *self,
+    const QList<QVariant> *values) {
+  self->valuesChanged(*values);
+}
+
+//  void QXYSeries::valueMappingChanged(QXYSeries::ValueMapping newHint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries19valueMappingChangedENS_12ValueMappingE(
+    QXYSeries *self,
+    QXYSeries::ValueMapping newHint) {
+  self->valueMappingChanged(newHint);
+}
+
+//  void QXYSeries::valueMinChanged(qreal newMin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries15valueMinChangedEd(QXYSeries *self, qreal newMin) {
+  self->valueMinChanged(newMin);
+}
+
+//  void QXYSeries::stepSizeChanged(qreal newStepSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries15stepSizeChangedEd(
+    QXYSeries *self,
+    qreal newStepSize) {
+  self->stepSizeChanged(newStepSize);
+}
+
 //  QXYSeriesPrivate *QXYSeries::d_func()
 extern "C" Q_DECL_EXPORT
 QXYSeriesPrivate *ritual_ZN9QXYSeries6d_funcEv(QXYSeries *self) {
@@ -572,4 +794,10 @@ bool ritual_take_QXYSeries(QXYSeries *self, const char *key, void *call) {
   return static_cast<CuteQXYSeries *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+//  a QList<qsizetype> a ritual of QXYSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXYSeries__QList_qsizetype(QList<qsizetype> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))

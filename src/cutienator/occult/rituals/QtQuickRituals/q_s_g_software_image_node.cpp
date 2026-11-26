@@ -23,25 +23,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepublicnodes.cpp, line 25, as _ZN20QSGSoftwareImageNodeC1Ev
-inline QSGSoftwareImageNode::QSGSoftwareImageNode()
-    : m_texture(nullptr),
-      m_owns(false),
-      m_filtering(QSGTexture::None),
-      m_transformMode(NoTransform),
-      m_cachedMirroredPixmapIsDirty(false)
-{
-    setMaterial((QSGMaterial*)1);
-    setGeometry((QSGGeometry*)1);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepublicnodes.cpp, line 36, as _ZN20QSGSoftwareImageNodeD1Ev
-inline QSGSoftwareImageNode::~QSGSoftwareImageNode()
-{
-    if (m_owns)
-        delete m_texture;
-}
-
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepublicnodes.cpp, line 42, as _ZN20QSGSoftwareImageNode10setTextureEP10QSGTexture
 inline void QSGSoftwareImageNode::setTexture(QSGTexture *texture)
 {
@@ -62,6 +43,25 @@ inline void QSGSoftwareImageNode::setTextureCoordinatesTransform(QSGImageNode::T
     m_cachedMirroredPixmapIsDirty = true;
 
     markDirty(DirtyGeometry);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepublicnodes.cpp, line 25, as _ZN20QSGSoftwareImageNodeC1Ev
+inline QSGSoftwareImageNode::QSGSoftwareImageNode()
+    : m_texture(nullptr),
+      m_owns(false),
+      m_filtering(QSGTexture::None),
+      m_transformMode(NoTransform),
+      m_cachedMirroredPixmapIsDirty(false)
+{
+    setMaterial((QSGMaterial*)1);
+    setGeometry((QSGGeometry*)1);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepublicnodes.cpp, line 36, as _ZN20QSGSoftwareImageNodeD1Ev
+inline QSGSoftwareImageNode::~QSGSoftwareImageNode()
+{
+    if (m_owns)
+        delete m_texture;
 }
 //  -----------------------------------------------------------------------
 

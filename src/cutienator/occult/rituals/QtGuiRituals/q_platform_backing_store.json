@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QPlatformBackingStoreC1EP7QWindow": ["address", "address"],
     "ritual_ZN21QPlatformBackingStoreD1Ev": ["nothing", "address"],
     "ritual_ZNK21QPlatformBackingStore6windowEv": ["address", "address"],
     "ritual_ZNK21QPlatformBackingStore12backingStoreEv": [
@@ -21,6 +22,9 @@
       "bool", "double"
     ],
     "ritual_ZNK21QPlatformBackingStore7toImageEv": ["address", "address"],
+    "ritual_ZNK21QPlatformBackingStore9toTextureEP23QRhiResourceUpdateBatchRK7QRegionP6QFlagsINS_11TextureFlagEE": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK21QPlatformBackingStore14graphicsBufferEv": [
       "address", "address"
     ],
@@ -58,6 +62,9 @@
     ],
     "ritual_own_ZNK21QPlatformBackingStore7toImageEv": [
       "address", "address"
+    ],
+    "ritual_own_ZNK21QPlatformBackingStore9toTextureEP23QRhiResourceUpdateBatchRK7QRegionP6QFlagsINS_11TextureFlagEE": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_own_ZNK21QPlatformBackingStore14graphicsBufferEv": [
       "address", "address"

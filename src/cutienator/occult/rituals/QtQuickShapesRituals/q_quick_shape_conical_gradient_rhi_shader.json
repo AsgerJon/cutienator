@@ -5,5 +5,12 @@
     ", Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN35QQuickShapeConicalGradientRhiShaderC1Ei": ["address", "int"],
+    "ritual_ZN35QQuickShapeConicalGradientRhiShader17updateUniformDataERN17QSGMaterialShader11RenderStateEP11QSGMaterialS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN35QQuickShapeConicalGradientRhiShader18updateSampledImageERN17QSGMaterialShader11RenderStateEiPP10QSGTextureP11QSGMaterialS7_": [
+      "nothing", "address", "address", "int", "address", "address", "address"
+    ]
   }
 }

@@ -240,6 +240,25 @@ const QMetaObject *ritual_ZNK17QPixmapBlurFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPixmapBlurFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QPixmapBlurFilter11qt_metacastEPKc(
+    QPixmapBlurFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPixmapBlurFilter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QPixmapBlurFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPixmapBlurFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPixmapBlurFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QPixmapBlurFilter2trEPKcS1_i(
@@ -247,6 +266,20 @@ QString *ritual_ZN17QPixmapBlurFilter2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPixmapBlurFilter::tr(s, c, n));
+}
+
+//  QPixmapBlurFilterPrivate *QPixmapBlurFilter::d_func()
+extern "C" Q_DECL_EXPORT
+QPixmapBlurFilterPrivate *ritual_ZN17QPixmapBlurFilter6d_funcEv(
+    QPixmapBlurFilter *self) {
+  return self->d_func();
+}
+
+//  const QPixmapBlurFilterPrivate *QPixmapBlurFilter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPixmapBlurFilterPrivate *ritual_ZNK17QPixmapBlurFilter6d_funcEv(
+    const QPixmapBlurFilter *self) {
+  return self->d_func();
 }
 
 //  QPixmapBlurFilter::QPixmapBlurFilter(QObject *parent)

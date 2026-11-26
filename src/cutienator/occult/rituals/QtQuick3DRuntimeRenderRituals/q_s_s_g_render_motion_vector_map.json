@@ -5,15 +5,28 @@
     "tionvectormap_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN25QSSGRenderMotionVectorMapC1ERK26QSSGRenderContextInterface": [
+      "address", "address"
+    ],
     "ritual_ZN25QSSGRenderMotionVectorMapD1Ev": ["nothing", "address"],
     "ritual_ZN25QSSGRenderMotionVectorMap8endFrameEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QSSGRenderMotionVectorMap15trackMotionDataEPKvRK10QMatrix4x4S4_S4_P21QSSGRenderTextureDataP23QSSGRenderInstanceTableRK5QListIfE": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address"
     ],
     "ritual_ZN25QSSGRenderMotionVectorMap22releaseCachedResourcesEv": [
       "nothing", "address"
     ],
     "ritual_ZN25QSSGRenderMotionVectorMap19cleanupStaleEntriesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QSSGRenderMotionVectorMap21releaseEntryResourcesERNS_15MotionStoreDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSSGRenderMotionVectorMap22loadAndReleaseIfNeededERKSt10shared_ptrI21QSSGRenderTextureDataE5QSize": [
+      "address", "address", "address", "address"
     ]
   }
 }

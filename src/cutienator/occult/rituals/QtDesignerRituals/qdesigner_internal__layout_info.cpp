@@ -26,6 +26,17 @@ qdesigner_internal::LayoutInfo::Type ritual_ZN18qdesigner_internal10LayoutInfo10
   return qdesigner_internal::LayoutInfo::layoutType(core, w);
 }
 
+//  Type qdesigner_internal::LayoutInfo::managedLayoutType(const
+//      QDesignerFormEditorInterface *core, const QWidget *w, QLayout
+//      **layout)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::LayoutInfo::Type ritual_ZN18qdesigner_internal10LayoutInfo17managedLayoutTypeEPK28QDesignerFormEditorInterfacePK7QWidgetPP7QLayout(
+    const QDesignerFormEditorInterface *core,
+    const QWidget *w,
+    QLayout **layout) {
+  return qdesigner_internal::LayoutInfo::managedLayoutType(core, w, layout);
+}
+
 //  Type qdesigner_internal::LayoutInfo::layoutType(const
 //      QDesignerFormEditorInterface *core, const QLayout *layout)
 extern "C" Q_DECL_EXPORT
@@ -40,6 +51,38 @@ extern "C" Q_DECL_EXPORT
 qdesigner_internal::LayoutInfo::Type ritual_ZN18qdesigner_internal10LayoutInfo10layoutTypeERK7QString(
     const QString *typeName) {
   return qdesigner_internal::LayoutInfo::layoutType(*typeName);
+}
+
+//  QString qdesigner_internal::LayoutInfo::layoutName(Type t)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal10LayoutInfo10layoutNameENS0_4TypeE(
+    qdesigner_internal::LayoutInfo::Type t) {
+  return new QString(qdesigner_internal::LayoutInfo::layoutName(t));
+}
+
+//  QWidget *qdesigner_internal::LayoutInfo::layoutParent(const
+//      QDesignerFormEditorInterface *core, QLayout *layout)
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZN18qdesigner_internal10LayoutInfo12layoutParentEPK28QDesignerFormEditorInterfaceP7QLayout(
+    const QDesignerFormEditorInterface *core,
+    QLayout *layout) {
+  return qdesigner_internal::LayoutInfo::layoutParent(core, layout);
+}
+
+//  Type qdesigner_internal::LayoutInfo::laidoutWidgetType(const
+//      QDesignerFormEditorInterface *core, QWidget *widget, bool *isManaged,
+//      QLayout **layout)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::LayoutInfo::Type ritual_ZN18qdesigner_internal10LayoutInfo17laidoutWidgetTypeEPK28QDesignerFormEditorInterfaceP7QWidgetPbPP7QLayout(
+    const QDesignerFormEditorInterface *core,
+    QWidget *widget,
+    bool *isManaged,
+    QLayout **layout) {
+  return qdesigner_internal::LayoutInfo::laidoutWidgetType(
+      core,
+      widget,
+      isManaged,
+      layout);
 }
 
 //  bool qdesigner_internal::LayoutInfo::isWidgetLaidout(const

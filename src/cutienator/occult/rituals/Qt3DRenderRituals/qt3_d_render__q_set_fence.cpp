@@ -2,6 +2,7 @@
 //  Qt3DRender/qsetfence.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qsetfence.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender9QSetFence10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QSetFence::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender9QSetFence11qt_metacastEPKc(
+    Qt3DRender::QSetFence *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QSetFence::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender9QSetFence11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QSetFence *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QSetFence::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender9QSetFence2trEPKcS2_i(
@@ -186,6 +206,58 @@ QString *ritual_ZN10Qt3DRender9QSetFence2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QSetFence::tr(s, c, n));
+}
+
+//  Qt3DRender::QSetFence::QSetFence(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSetFence *ritual_ZN10Qt3DRender9QSetFenceC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QSetFence(parent);
+}
+
+//  Qt3DRender::QSetFence::~QSetFence()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QSetFenceD1Ev(Qt3DRender::QSetFence *self) {
+  delete self;
+}
+
+//  HandleType Qt3DRender::QSetFence::handleType() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSetFence::HandleType ritual_ZNK10Qt3DRender9QSetFence10handleTypeEv(
+    const Qt3DRender::QSetFence *self) {
+  return self->handleType();
+}
+
+//  QVariant Qt3DRender::QSetFence::handle() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DRender9QSetFence6handleEv(
+    const Qt3DRender::QSetFence *self) {
+  return new QVariant(self->handle());
+}
+
+//  void Qt3DRender::QSetFence::handleTypeChanged(HandleType handleType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QSetFence17handleTypeChangedENS0_10HandleTypeE(
+    Qt3DRender::QSetFence *self,
+    Qt3DRender::QSetFence::HandleType handleType) {
+  self->handleTypeChanged(handleType);
+}
+
+//  void Qt3DRender::QSetFence::handleChanged(QVariant handle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QSetFence13handleChangedE8QVariant(
+    Qt3DRender::QSetFence *self,
+    const QVariant *handle) {
+  self->handleChanged(*handle);
+}
+
+//  Qt3DRender::QSetFence::QSetFence(QSetFencePrivate &dd, Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSetFence *ritual_ZN10Qt3DRender9QSetFenceC1ERNS_16QSetFencePrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QSetFencePrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QSetFence(*dd, parent);
 }
 
 //  QSetFencePrivate *Qt3DRender::QSetFence::d_func()

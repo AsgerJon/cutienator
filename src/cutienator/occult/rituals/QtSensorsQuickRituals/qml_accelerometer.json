@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QmlAccelerometer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QmlAccelerometer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QmlAccelerometer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QmlAccelerometer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK16QmlAccelerometer6sensorEv": ["address", "address"],
+    "ritual_ZN16QmlAccelerometer23accelerationModeChangedENS_16AccelerationModeE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK16QmlAccelerometer13createReadingEv": ["address", "address"],
     "ritual_take_QmlAccelerometer": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK16QmlAccelerometer6sensorEv": ["address", "address"],

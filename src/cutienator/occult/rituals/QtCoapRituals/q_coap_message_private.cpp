@@ -7,6 +7,8 @@
 #include <QtCoap/6.12.0/QtCoap/private/qcoapmessage_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCoap/QCoapOption>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCoap/private/qcoapmessage_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -27,6 +29,15 @@ inline QCoapMessagePrivate::~QCoapMessagePrivate()
 inline QCoapMessagePrivate *QCoapMessagePrivate::clone() const
 {
     return new QCoapMessagePrivate(*this);
+}
+
+//  from ../qtcoap/src/coap/qcoapmessage.cpp, line 260, as _ZNK19QCoapMessagePrivate10findOptionEN11QCoapOption10OptionNameE
+inline QList<QCoapOption>::const_iterator
+QCoapMessagePrivate::findOption(QCoapOption::OptionName name) const
+{
+    return std::find_if(options.begin(), options.end(), [name](const QCoapOption &option) {
+        return option.name() == name;
+    });
 }
 //  -----------------------------------------------------------------------
 
@@ -72,6 +83,15 @@ QCoapMessagePrivate *ritual_ZNK19QCoapMessagePrivate5cloneEv(
   return self->clone();
 }
 
+//  QList<QCoapOption>::const_iterator
+//      QCoapMessagePrivate::findOption(QCoapOption::OptionName name) const
+extern "C" Q_DECL_EXPORT
+QList<QCoapOption>::const_iterator *ritual_ZNK19QCoapMessagePrivate10findOptionEN11QCoapOption10OptionNameE(
+    const QCoapMessagePrivate *self,
+    QCoapOption::OptionName name) {
+  return new QList<QCoapOption>::const_iterator(self->findOption(name));
+}
+
 //  a Python function taken by a CuteQCoapMessagePrivate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -80,4 +100,11 @@ bool ritual_take_QCoapMessagePrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQCoapMessagePrivate *>(self)->take(key, call);
+}
+
+//  a QList<QCoapOption>::const_iterator a ritual of QCoapMessagePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCoapMessagePrivate__QList_QCoapOption_const_iterator(
+    QList<QCoapOption>::const_iterator *self) {
+  delete self;
 }

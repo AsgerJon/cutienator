@@ -14,7 +14,10 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
 #include <QtWidgets/qstyleoption.h>
+#include <QtGui/qicon.h>
 #include <cstring>
+#include <QtGui/QIcon>
+#include <QtWidgets/QCommonStyle>
 
 //  A QCommonStylePrivate that Python can take functions over in. Every QCommonStylePrivate
 //  Python makes is one. Each function below asks the Python
@@ -237,6 +240,68 @@ void ritual_ZNK19QCommonStylePrivate15removeAnimationEPK7QObject(
   self->removeAnimation(target);
 }
 #endif  // QT_CONFIG(animation)
+
+//  QIcon
+//      QCommonStylePrivate::iconFromWindowsTheme(QCommonStyle::StandardPixma
+//      p standardIcon, const QStyleOption *option, const QWidget *widget)
+//      const
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_ZNK19QCommonStylePrivate20iconFromWindowsThemeEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(
+    const QCommonStylePrivate *self,
+    const QCommonStyle::StandardPixmap *standardIcon,
+    const QStyleOption *option,
+    const QWidget *widget) {
+  return new QIcon(
+      self->iconFromWindowsTheme(
+          *standardIcon,
+          option,
+          widget));
+}
+
+//  QIcon QCommonStylePrivate::iconFromMacTheme(QCommonStyle::StandardPixmap
+//      standardIcon, const QStyleOption *option, const QWidget *widget)
+//      const
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_ZNK19QCommonStylePrivate16iconFromMacThemeEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(
+    const QCommonStylePrivate *self,
+    const QCommonStyle::StandardPixmap *standardIcon,
+    const QStyleOption *option,
+    const QWidget *widget) {
+  return new QIcon(self->iconFromMacTheme(*standardIcon, option, widget));
+}
+
+//  QIcon QCommonStylePrivate::iconFromApplicationTheme(QCommonStyle::Standar
+//      dPixmap standardIcon, const QStyleOption *option, const QWidget
+//      *widget) const
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_ZNK19QCommonStylePrivate24iconFromApplicationThemeEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(
+    const QCommonStylePrivate *self,
+    const QCommonStyle::StandardPixmap *standardIcon,
+    const QStyleOption *option,
+    const QWidget *widget) {
+  return new QIcon(
+      self->iconFromApplicationTheme(
+          *standardIcon,
+          option,
+          widget));
+}
+
+//  QIcon
+//      QCommonStylePrivate::iconFromResourceTheme(QCommonStyle::StandardPixm
+//      ap standardIcon, const QStyleOption *option, const QWidget *widget)
+//      const
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_ZNK19QCommonStylePrivate21iconFromResourceThemeEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(
+    const QCommonStylePrivate *self,
+    const QCommonStyle::StandardPixmap *standardIcon,
+    const QStyleOption *option,
+    const QWidget *widget) {
+  return new QIcon(
+      self->iconFromResourceTheme(
+          *standardIcon,
+          option,
+          widget));
+}
 
 //  bool QCommonStylePrivate::rtl(const QStyleOption *option)
 extern "C" Q_DECL_EXPORT

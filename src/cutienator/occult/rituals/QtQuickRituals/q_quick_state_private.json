@@ -8,6 +8,24 @@
     "ritual_ZN18QQuickStatePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QQuickStatePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN18QQuickStatePrivateC1Ev": ["address"],
+    "ritual_ZN18QQuickStatePrivate17operations_appendEP16QQmlListPropertyI20QQuickStateOperationEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickStatePrivate16operations_clearEP16QQmlListPropertyI20QQuickStateOperationE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickStatePrivate16operations_countEP16QQmlListPropertyI20QQuickStateOperationE": [
+      "long long", "address"
+    ],
+    "ritual_ZN18QQuickStatePrivate13operations_atEP16QQmlListPropertyI20QQuickStateOperationEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QQuickStatePrivate18operations_replaceEP16QQmlListPropertyI20QQuickStateOperationExPS1_": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN18QQuickStatePrivate21operations_removeLastEP16QQmlListPropertyI20QQuickStateOperationE": [
+      "nothing", "address"
+    ],
     "ritual_ZNK18QQuickStatePrivate18generateActionListEv": [
       "address", "address"
     ],

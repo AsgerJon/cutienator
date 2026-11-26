@@ -7,11 +7,24 @@
   "rows": {
     "ritual_ZN24QQmlDelegateModelPointerC1Ev": ["address"],
     "ritual_ZN24QQmlDelegateModelPointerC1ERKS_": ["address", "address"],
+    "ritual_ZN24QQmlDelegateModelPointerC1EOS_": ["address", "address"],
+    "ritual_ZN24QQmlDelegateModelPointeraSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPointeraSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN24QQmlDelegateModelPointerC1EP17QQmlInstanceModel": [
       "address", "address"
     ],
     "ritual_ZN24QQmlDelegateModelPointerC1EP17QQmlDelegateModel": [
       "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPointeraSEP17QQmlInstanceModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPointeraSEP17QQmlDelegateModel": [
+      "address", "address", "address"
     ],
     "ritual_ZN24QQmlDelegateModelPointer13delegateModelEv": [
       "address", "address"

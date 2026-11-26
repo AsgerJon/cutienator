@@ -7,11 +7,77 @@
     "ritual_ZN16QGrpcCallOptionsC1Ev": ["address"],
     "ritual_ZN16QGrpcCallOptionsD1Ev": ["nothing", "address"],
     "ritual_ZN16QGrpcCallOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZN16QGrpcCallOptionsaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QGrpcCallOptionsC1EOS_": ["address", "address"],
+    "ritual_ZN16QGrpcCallOptionsaSEOS_": ["address", "address", "address"],
     "ritual_ZNK16QGrpcCallOptionscv8QVariantEv": ["address", "address"],
+    "ritual_ZN16QGrpcCallOptions4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGrpcCallOptions15deadlineTimeoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions18setDeadlineTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNKR16QGrpcCallOptions8metadataEv": ["address", "address"],
+    "ritual_ZN16QGrpcCallOptions11setMetadataERK5QHashI10QByteArrayS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions11setMetadataEO5QHashI10QByteArrayS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNKR16QGrpcCallOptions8metadataEN6QtGrpc12MultiValue_tE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions11setMetadataERK10QMultiHashI10QByteArrayS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions11setMetadataEO10QMultiHashI10QByteArrayS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions11setMetadataESt16initializer_listISt4pairI10QByteArrayS2_EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions11addMetadataE14QByteArrayViewS0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QGrpcCallOptions20filterServerMetadataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions23setFilterServerMetadataEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK16QGrpcCallOptions25maximumReceiveMessageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions28setMaximumReceiveMessageSizeEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK16QGrpcCallOptions18requestCompressionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions21setRequestCompressionEN6QtGrpc20CompressionAlgorithmE": [
+      "address", "address", "unsigned int"
+    ],
     "ritual_ZeqRK16QGrpcCallOptionsS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QGrpcCallOptionsS1_": ["bool", "address", "address"],
     "ritual_Zls6QDebugRK16QGrpcCallOptions": [
       "address", "address", "address"
+    ],
+    "ritual_ZN16QGrpcCallOptions6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QGrpcCallOptions6d_funcEv": ["address", "address"],
+    "ritual_drop_QGrpcCallOptions__std_optional_std_chrono_milliseconds": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcCallOptions__std_optional_bool": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcCallOptions__std_optional_quint64": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcCallOptions__std_optional_QtGrpc_CompressionAlgorithm": [
+      "nothing", "address"
     ]
   }
 }

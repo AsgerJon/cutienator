@@ -41,26 +41,17 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 24, as _ZN22QQuickIconLabelPrivate17completeComponentEP10QQuickItem
-inline void QQuickIconLabelPrivate::completeComponent(QQuickItem *item)
-{
-    if (QQmlParserStatus *parserStatus = qobject_cast<QQmlParserStatus *>(item))
-        parserStatus->componentComplete();
-}
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 312, as local:qquickiconlabel.cpp:itemChangeTypes
+static const QQuickItemPrivate::ChangeTypes itemChangeTypes =
+    QQuickItemPrivate::ImplicitWidth
+    | QQuickItemPrivate::ImplicitHeight
+    | QQuickItemPrivate::Destroyed;
 
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 270, as _ZN23QQuickMenuItemIconLabelD1Ev
-inline QQuickMenuItemIconLabel::~QQuickMenuItemIconLabel()
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 323, as _ZN22QQuickIconLabelPrivate14unwatchChangesEP10QQuickItem
+inline void QQuickIconLabelPrivate::unwatchChanges(QQuickItem* item)
 {
-    Q_D(QQuickMenuItemIconLabel);
-    if (d->shortcutLabel)
-        d->unwatchChanges(d->shortcutLabel);
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 282, as _ZNK23QQuickMenuItemIconLabel8menuItemEv
-inline QQuickMenuItem *QQuickMenuItemIconLabel::menuItem() const
-{
-    Q_D(const QQuickMenuItemIconLabel);
-    return d->menuItem;
+    QQuickItemPrivate *itemPrivate = QQuickItemPrivate::get(item);
+    itemPrivate->removeItemChangeListener(this, itemChangeTypes);
 }
 
 //  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 299, as _ZN23QQuickMenuItemIconLabel17componentCompleteEv
@@ -83,6 +74,28 @@ inline void QQuickMenuItemIconLabel::componentComplete()
         if (d->shortcutLabel)
             d->shortcutLabel->stackBefore(bottomMostFosterChild);
     }
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 24, as _ZN22QQuickIconLabelPrivate17completeComponentEP10QQuickItem
+inline void QQuickIconLabelPrivate::completeComponent(QQuickItem *item)
+{
+    if (QQmlParserStatus *parserStatus = qobject_cast<QQmlParserStatus *>(item))
+        parserStatus->componentComplete();
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 270, as _ZN23QQuickMenuItemIconLabelD1Ev
+inline QQuickMenuItemIconLabel::~QQuickMenuItemIconLabel()
+{
+    Q_D(QQuickMenuItemIconLabel);
+    if (d->shortcutLabel)
+        d->unwatchChanges(d->shortcutLabel);
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickmenuitemiconlabel.cpp, line 282, as _ZNK23QQuickMenuItemIconLabel8menuItemEv
+inline QQuickMenuItem *QQuickMenuItemIconLabel::menuItem() const
+{
+    Q_D(const QQuickMenuItemIconLabel);
+    return d->menuItem;
 }
 //  -----------------------------------------------------------------------
 
@@ -861,6 +874,25 @@ const QMetaObject *ritual_ZNK23QQuickMenuItemIconLabel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMenuItemIconLabel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickMenuItemIconLabel11qt_metacastEPKc(
+    QQuickMenuItemIconLabel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMenuItemIconLabel::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickMenuItemIconLabel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMenuItemIconLabel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickMenuItemIconLabel::~QQuickMenuItemIconLabel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuickMenuItemIconLabelD1Ev(QQuickMenuItemIconLabel *self) {
@@ -872,6 +904,31 @@ extern "C" Q_DECL_EXPORT
 QQuickMenuItem *ritual_ZNK23QQuickMenuItemIconLabel8menuItemEv(
     const QQuickMenuItemIconLabel *self) {
   return self->menuItem();
+}
+
+//  void QQuickMenuItemIconLabel::menuItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickMenuItemIconLabel15menuItemChangedEv(
+    QQuickMenuItemIconLabel *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMenuItemIconLabel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "menuItemChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "menuItemChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuickMenuItemIconLabel::componentComplete()

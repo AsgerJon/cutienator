@@ -185,6 +185,26 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick16Quick3DParameter10metaOb
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::Quick::Quick3DParameter::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick16Quick3DParameter11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::Quick3DParameter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Render::Quick::Quick3DParameter::qt_metacall(QMetaObject:
+//      :Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick16Quick3DParameter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::Quick3DParameter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::Quick3DParameter::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -197,6 +217,14 @@ QString *ritual_ZN10Qt3DRender6Render5Quick16Quick3DParameter2trEPKcS4_i(
           s,
           c,
           n));
+}
+
+//  Qt3DRender::Render::Quick::Quick3DParameter::Quick3DParameter(QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DParameter *ritual_ZN10Qt3DRender6Render5Quick16Quick3DParameterC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DParameter(parent);
 }
 
 //  Quick3DParameterPrivate
@@ -213,6 +241,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::Render::Quick::Quick3DParameterPrivate *ritual_ZNK10Qt3DRender6Render5Quick16Quick3DParameter6d_funcEv(
     const Qt3DRender::Render::Quick::Quick3DParameter *self) {
   return self->d_func();
+}
+
+//  Qt3DRender::Render::Quick::Quick3DParameter::Quick3DParameter(Quick3DPara
+//      meterPrivate &dd, QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DParameter *ritual_ZN10Qt3DRender6Render5Quick16Quick3DParameterC1ERNS1_23Quick3DParameterPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::Render::Quick::Quick3DParameterPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DParameter(*dd, parent);
 }
 
 //  a Python function taken by a

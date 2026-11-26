@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qvariant.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qvariant.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 34. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qvariant.h>
+#include <QtCore/qmetatype.h>
 #include <QtCore/qchar.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qbitarray.h>
@@ -21,13 +24,13 @@
 #include <QtCore/qeasingcurve.h>
 #include <QtCore/qjsondocument.h>
 #include <QtCore/qlatin1stringview.h>
-#include <QtCore/qmetatype.h>
 #include <QtCore/qcompare.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QMetaType>
 
 //  QVariant::QVariant()
 extern "C" Q_DECL_EXPORT
@@ -39,6 +42,14 @@ QVariant *ritual_ZN8QVariantC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QVariantD1Ev(QVariant *self) {
   delete self;
+}
+
+//  QVariant::QVariant(QMetaType type, const void *copy)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1E9QMetaTypePKv(
+    const QMetaType *type,
+    const void *copy) {
+  return new QVariant(*type, copy);
 }
 
 //  QVariant::QVariant(const QVariant &other)
@@ -113,16 +124,34 @@ QVariant *ritual_ZN8QVariantC1ERK9QBitArray(const QBitArray *bitarray) {
   return new QVariant(*bitarray);
 }
 
+//  QVariant::QVariant(QBitArray &&bitarray)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO9QBitArray(QBitArray *bitarray) {
+  return new QVariant(std::move(*bitarray));
+}
+
 //  QVariant::QVariant(const QByteArray &bytearray)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK10QByteArray(const QByteArray *bytearray) {
   return new QVariant(*bytearray);
 }
 
+//  QVariant::QVariant(QByteArray &&bytearray)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO10QByteArray(QByteArray *bytearray) {
+  return new QVariant(std::move(*bytearray));
+}
+
 //  QVariant::QVariant(const QDateTime &datetime)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK9QDateTime(const QDateTime *datetime) {
   return new QVariant(*datetime);
+}
+
+//  QVariant::QVariant(QDateTime &&datetime)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO9QDateTime(QDateTime *datetime) {
+  return new QVariant(std::move(*datetime));
 }
 
 //  QVariant::QVariant(const QHash<QString, QVariant> &hash)
@@ -132,10 +161,23 @@ QVariant *ritual_ZN8QVariantC1ERK5QHashI7QStringS_E(
   return new QVariant(*hash);
 }
 
+//  QVariant::QVariant(QHash<QString, QVariant> &&hash)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO5QHashI7QStringS_E(
+    QHash<QString, QVariant> *hash) {
+  return new QVariant(std::move(*hash));
+}
+
 //  QVariant::QVariant(const QJsonArray &jsonArray)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK10QJsonArray(const QJsonArray *jsonArray) {
   return new QVariant(*jsonArray);
+}
+
+//  QVariant::QVariant(QJsonArray &&jsonArray)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO10QJsonArray(QJsonArray *jsonArray) {
+  return new QVariant(std::move(*jsonArray));
 }
 
 //  QVariant::QVariant(const QJsonObject &jsonObject)
@@ -145,16 +187,34 @@ QVariant *ritual_ZN8QVariantC1ERK11QJsonObject(
   return new QVariant(*jsonObject);
 }
 
+//  QVariant::QVariant(QJsonObject &&jsonObject)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO11QJsonObject(QJsonObject *jsonObject) {
+  return new QVariant(std::move(*jsonObject));
+}
+
 //  QVariant::QVariant(const QList<QVariant> &list)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK5QListIS_E(const QList<QVariant> *list) {
   return new QVariant(*list);
 }
 
+//  QVariant::QVariant(QList<QVariant> &&list)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO5QListIS_E(QList<QVariant> *list) {
+  return new QVariant(std::move(*list));
+}
+
 //  QVariant::QVariant(const QLocale &locale)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK7QLocale(const QLocale *locale) {
   return new QVariant(*locale);
+}
+
+//  QVariant::QVariant(QLocale &&locale)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO7QLocale(QLocale *locale) {
+  return new QVariant(std::move(*locale));
 }
 
 //  QVariant::QVariant(const QMap<QString, QVariant> &map)
@@ -164,6 +224,13 @@ QVariant *ritual_ZN8QVariantC1ERK4QMapI7QStringS_E(
   return new QVariant(*map);
 }
 
+//  QVariant::QVariant(QMap<QString, QVariant> &&map)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO4QMapI7QStringS_E(
+    QMap<QString, QVariant> *map) {
+  return new QVariant(std::move(*map));
+}
+
 //  QVariant::QVariant(const QRegularExpression &re)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK18QRegularExpression(
@@ -171,10 +238,23 @@ QVariant *ritual_ZN8QVariantC1ERK18QRegularExpression(
   return new QVariant(*re);
 }
 
+//  QVariant::QVariant(QRegularExpression &&re)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO18QRegularExpression(
+    QRegularExpression *re) {
+  return new QVariant(std::move(*re));
+}
+
 //  QVariant::QVariant(const QString &string)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK7QString(const QString *string) {
   return new QVariant(*string);
+}
+
+//  QVariant::QVariant(QString &&string)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO7QString(QString *string) {
+  return new QVariant(std::move(*string));
 }
 
 //  QVariant::QVariant(const QStringList &stringlist)
@@ -184,16 +264,34 @@ QVariant *ritual_ZN8QVariantC1ERK5QListI7QStringE(
   return new QVariant(*stringlist);
 }
 
+//  QVariant::QVariant(QStringList &&stringlist)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO5QListI7QStringE(QStringList *stringlist) {
+  return new QVariant(std::move(*stringlist));
+}
+
 //  QVariant::QVariant(const QUrl &url)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK4QUrl(const QUrl *url) {
   return new QVariant(*url);
 }
 
+//  QVariant::QVariant(QUrl &&url)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO4QUrl(QUrl *url) {
+  return new QVariant(std::move(*url));
+}
+
 //  QVariant::QVariant(const QJsonValue &jsonValue)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK10QJsonValue(const QJsonValue *jsonValue) {
   return new QVariant(*jsonValue);
+}
+
+//  QVariant::QVariant(QJsonValue &&jsonValue)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO10QJsonValue(QJsonValue *jsonValue) {
+  return new QVariant(std::move(*jsonValue));
 }
 
 //  QVariant::QVariant(const QModelIndex &modelIndex)
@@ -263,6 +361,12 @@ QVariant *ritual_ZN8QVariantC1ERK12QEasingCurve(const QEasingCurve *easing) {
   return new QVariant(*easing);
 }
 
+//  QVariant::QVariant(QEasingCurve &&easing)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO12QEasingCurve(QEasingCurve *easing) {
+  return new QVariant(std::move(*easing));
+}
+
 //  QVariant::QVariant(const QJsonDocument &jsonDocument)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK13QJsonDocument(
@@ -270,11 +374,25 @@ QVariant *ritual_ZN8QVariantC1ERK13QJsonDocument(
   return new QVariant(*jsonDocument);
 }
 
+//  QVariant::QVariant(QJsonDocument &&jsonDocument)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO13QJsonDocument(
+    QJsonDocument *jsonDocument) {
+  return new QVariant(std::move(*jsonDocument));
+}
+
 //  QVariant::QVariant(const QPersistentModelIndex &modelIndex)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK21QPersistentModelIndex(
     const QPersistentModelIndex *modelIndex) {
   return new QVariant(*modelIndex);
+}
+
+//  QVariant::QVariant(QPersistentModelIndex &&modelIndex)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EO21QPersistentModelIndex(
+    QPersistentModelIndex *modelIndex) {
+  return new QVariant(std::move(*modelIndex));
 }
 
 #if !defined(QT_NO_CAST_FROM_ASCII)
@@ -289,6 +407,30 @@ QVariant *ritual_ZN8QVariantC1EPKc(const char *str) {
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1E13QLatin1String(const QLatin1String *string) {
   return new QVariant(*string);
+}
+
+//  QVariant &QVariant::operator=(const QVariant &other)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantaSERKS_(QVariant *self, const QVariant *other) {
+  return &(self->operator=(*other));
+}
+
+//  QVariant::QVariant(QVariant &&other)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1EOS_(QVariant *other) {
+  return new QVariant(std::move(*other));
+}
+
+//  QVariant &QVariant::operator=(QVariant &&other)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantaSEOS_(QVariant *self, QVariant *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QVariant::swap(QVariant &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QVariant4swapERS_(QVariant *self, QVariant *other) {
+  self->swap(*other);
 }
 
 //  int QVariant::userType() const
@@ -630,6 +772,26 @@ QPersistentModelIndex *ritual_ZNK8QVariant22toPersistentModelIndexEv(
 }
 #endif  // QT_CONFIG(itemmodel)
 
+#if !defined(QT_NO_DATASTREAM)
+//  void QVariant::load(QDataStream &ds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QVariant4loadER11QDataStream(
+    QVariant *self,
+    QDataStream *ds) {
+  self->load(*ds);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QVariant::save(QDataStream &ds) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QVariant4saveER11QDataStream(
+    const QVariant *self,
+    QDataStream *ds) {
+  self->save(*ds);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 #if QT_DEPRECATED_SINCE(6, 0)
 //  QVariant::QVariant(Type type)
 extern "C" Q_DECL_EXPORT
@@ -662,12 +824,44 @@ QVariant::Type ritual_ZN8QVariant10nameToTypeEPKc(const char *name) {
 }
 #endif  // QT_DEPRECATED_SINCE(6, 0)
 
+//  void *QVariant::data()
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QVariant4dataEv(QVariant *self) {
+  return self->data();
+}
+
+//  const void *QVariant::constData() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK8QVariant9constDataEv(const QVariant *self) {
+  return self->constData();
+}
+
+//  const void *QVariant::data() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK8QVariant4dataEv(const QVariant *self) {
+  return self->data();
+}
+
 //  void QVariant::setValue(const QVariant &avalue)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QVariant8setValueERKS_(
     QVariant *self,
     const QVariant *avalue) {
   self->setValue(*avalue);
+}
+
+//  void QVariant::setValue(QVariant &&avalue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QVariant8setValueEOS_(QVariant *self, QVariant *avalue) {
+  self->setValue(std::move(*avalue));
+}
+
+//  QVariant QVariant::fromMetaType(QMetaType type, const void *copy)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariant12fromMetaTypeE9QMetaTypePKv(
+    const QMetaType *type,
+    const void *copy) {
+  return new QVariant(QVariant::fromMetaType(*type, copy));
 }
 
 //  QPartialOrdering QVariant::compare(const QVariant &lhs, const QVariant
@@ -701,12 +895,98 @@ QDebug *ritual_ZNK8QVariant12qdebugHelperE6QDebug(
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
 
+//  QVariant QVariant::moveConstruct(QMetaType type, void *data)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariant13moveConstructE9QMetaTypePv(
+    const QMetaType *type,
+    void *data) {
+  return new QVariant(QVariant::moveConstruct(*type, data));
+}
+
+//  QVariant QVariant::copyConstruct(QMetaType type, const void *data)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariant13copyConstructE9QMetaTypePKv(
+    const QMetaType *type,
+    const void *data) {
+  return new QVariant(QVariant::copyConstruct(*type, data));
+}
+
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 16)
+//  void QVariant::create(int type, const void *copy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QVariant6createEiPKv(
+    QVariant *self,
+    int type,
+    const void *copy) {
+  self->create(type, copy);
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 16)
+
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 16)
+//  void QVariant::create(QMetaType type, const void *copy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QVariant6createE9QMetaTypePKv(
+    QVariant *self,
+    const QMetaType *type,
+    const void *copy) {
+  self->create(*type, copy);
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 16)
+
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 16)
+//  bool QVariant::convert(int type, void *ptr) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant7convertEiPv(
+    const QVariant *self,
+    int type,
+    void *ptr) {
+  return self->convert(type, ptr);
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 16)
+
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 16)
+//  bool QVariant::view(int type, void *ptr)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QVariant4viewEiPv(QVariant *self, int type, void *ptr) {
+  return self->view(type, ptr);
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 16)
+
 //  bool QVariant::equals(const QVariant &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8QVariant6equalsERKS_(
     const QVariant *self,
     const QVariant *other) {
   return self->equals(*other);
+}
+
+//  QVariant::QVariant(std::in_place_t a0, QMetaType type)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1ESt10in_place_t9QMetaType(
+    const std::in_place_t *a0,
+    const QMetaType *type) {
+  return new QVariant(*a0, *type);
+}
+
+//  void *QVariant::prepareForEmplace(QMetaType type)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QVariant17prepareForEmplaceE9QMetaType(
+    QVariant *self,
+    const QMetaType *type) {
+  return self->prepareForEmplace(*type);
+}
+
+//  DataPtr &QVariant::data_ptr()
+extern "C" Q_DECL_EXPORT
+QVariant::DataPtr *ritual_ZN8QVariant8data_ptrEv(QVariant *self) {
+  return &(self->data_ptr());
+}
+
+//  const DataPtr &QVariant::data_ptr() const
+extern "C" Q_DECL_EXPORT
+const QVariant::DataPtr *ritual_ZNK8QVariant8data_ptrEv(
+    const QVariant *self) {
+  return &(self->data_ptr());
 }
 
 //  QList<QVariant>::QList()
@@ -921,4 +1201,208 @@ QVariant *ritual_map_get_QMap_int_QVariant(
 extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QMap_int_QVariant(QMap<int, QVariant> *self) {
   delete self;
+}
+
+//  bool QVariant::canConvert<int>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant10canConvertIiEEbv(const QVariant *self) {
+  return self->canConvert<int>();
+}
+
+//  bool QVariant::canConvert<double>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant10canConvertIdEEbv(const QVariant *self) {
+  return self->canConvert<double>();
+}
+
+//  bool QVariant::canConvert<bool>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant10canConvertIbEEbv(const QVariant *self) {
+  return self->canConvert<bool>();
+}
+
+//  bool QVariant::canConvert<QString>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant10canConvertI7QStringEEbv(const QVariant *self) {
+  return self->canConvert<QString>();
+}
+
+//  bool QVariant::canView<int>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant7canViewIiEEbv(const QVariant *self) {
+  return self->canView<int>();
+}
+
+//  bool QVariant::canView<double>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant7canViewIdEEbv(const QVariant *self) {
+  return self->canView<double>();
+}
+
+//  bool QVariant::canView<bool>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant7canViewIbEEbv(const QVariant *self) {
+  return self->canView<bool>();
+}
+
+//  bool QVariant::canView<QString>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant7canViewI7QStringEEbv(const QVariant *self) {
+  return self->canView<QString>();
+}
+
+//  static QVariant QVariant::fromValue<int>(const int &value)
+extern "C" Q_DECL_EXPORT
+QVariant * ritual_ZN8QVariant9fromValueIiEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS2_EES_E4typeERKS2_(int value) {
+  return new QVariant(QVariant::fromValue<int>(value));
+}
+
+//  static QVariant QVariant::fromValue<double>(const double &value)
+extern "C" Q_DECL_EXPORT
+QVariant * ritual_ZN8QVariant9fromValueIdEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS2_EES_E4typeERKS2_(double value) {
+  return new QVariant(QVariant::fromValue<double>(value));
+}
+
+//  static QVariant QVariant::fromValue<bool>(const bool &value)
+extern "C" Q_DECL_EXPORT
+QVariant * ritual_ZN8QVariant9fromValueIbEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS2_EES_E4typeERKS2_(bool value) {
+  return new QVariant(QVariant::fromValue<bool>(value));
+}
+
+//  static QVariant QVariant::fromValue<QString>(const QString &value)
+extern "C" Q_DECL_EXPORT
+QVariant * ritual_ZN8QVariant9fromValueI7QStringEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS3_EES_E4typeERKS3_(const QString * value) {
+  return new QVariant(QVariant::fromValue<QString>(*value));
+}
+
+//  static QVariant QVariant::fromValue<QByteArray>(const QByteArray &value)
+extern "C" Q_DECL_EXPORT
+QVariant * ritual_ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS3_EES_E4typeERKS3_(const QByteArray * value) {
+  return new QVariant(QVariant::fromValue<QByteArray>(*value));
+}
+
+//  void QVariant::setValue<int, void>(int &&avalue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QVariant8setValueIivEEvOT_(QVariant *self, int value) {
+  self->setValue<int>(int(value));
+}
+
+//  void QVariant::setValue<double, void>(double &&avalue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QVariant8setValueIdvEEvOT_(QVariant *self, double value) {
+  self->setValue<double>(double(value));
+}
+
+//  void QVariant::setValue<bool, void>(bool &&avalue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QVariant8setValueIbvEEvOT_(QVariant *self, bool value) {
+  self->setValue<bool>(bool(value));
+}
+
+//  void QVariant::setValue<QString, void>(QString &&avalue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QVariant8setValueI7QStringvEEvOT_(QVariant *self, const QString * value) {
+  self->setValue<QString>(QString(*value));
+}
+
+//  int *QVariant::typedData<int>()
+extern "C" Q_DECL_EXPORT
+int * ritual_ZN8QVariant9typedDataIiEEPT_v(QVariant *self) {
+  return self->typedData<int>();
+}
+
+//  double *QVariant::typedData<double>()
+extern "C" Q_DECL_EXPORT
+double * ritual_ZN8QVariant9typedDataIdEEPT_v(QVariant *self) {
+  return self->typedData<double>();
+}
+
+//  bool *QVariant::typedData<bool>()
+extern "C" Q_DECL_EXPORT
+bool * ritual_ZN8QVariant9typedDataIbEEPT_v(QVariant *self) {
+  return self->typedData<bool>();
+}
+
+//  QString *QVariant::typedData<QString>()
+extern "C" Q_DECL_EXPORT
+QString * ritual_ZN8QVariant9typedDataI7QStringEEPT_v(QVariant *self) {
+  return self->typedData<QString>();
+}
+
+//  const int *QVariant::typedData<int>() const
+extern "C" Q_DECL_EXPORT
+const int * ritual_ZNK8QVariant9typedDataIiEEPKT_v(const QVariant *self) {
+  return self->typedData<int>();
+}
+
+//  const double *QVariant::typedData<double>() const
+extern "C" Q_DECL_EXPORT
+const double * ritual_ZNK8QVariant9typedDataIdEEPKT_v(const QVariant *self) {
+  return self->typedData<double>();
+}
+
+//  const bool *QVariant::typedData<bool>() const
+extern "C" Q_DECL_EXPORT
+const bool * ritual_ZNK8QVariant9typedDataIbEEPKT_v(const QVariant *self) {
+  return self->typedData<bool>();
+}
+
+//  const QString *QVariant::typedData<QString>() const
+extern "C" Q_DECL_EXPORT
+const QString * ritual_ZNK8QVariant9typedDataI7QStringEEPKT_v(const QVariant *self) {
+  return self->typedData<QString>();
+}
+
+//  int QVariant::value<int>() const &
+extern "C" Q_DECL_EXPORT
+int ritual_ZNKR8QVariant5valueIiEET_v(const QVariant *self) {
+  return self->value<int>();
+}
+
+//  double QVariant::value<double>() const &
+extern "C" Q_DECL_EXPORT
+double ritual_ZNKR8QVariant5valueIdEET_v(const QVariant *self) {
+  return self->value<double>();
+}
+
+//  bool QVariant::value<bool>() const &
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNKR8QVariant5valueIbEET_v(const QVariant *self) {
+  return self->value<bool>();
+}
+
+//  QString QVariant::value<QString>() const &
+extern "C" Q_DECL_EXPORT
+QString * ritual_ZNKR8QVariant5valueI7QStringEET_v(const QVariant *self) {
+  return new QString(self->value<QString>());
+}
+
+//  QByteArray QVariant::value<QByteArray>() const &
+extern "C" Q_DECL_EXPORT
+QByteArray * ritual_ZNKR8QVariant5valueI10QByteArrayEET_v(const QVariant *self) {
+  return new QByteArray(self->value<QByteArray>());
+}
+
+//  int QVariant::view<int>()
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QVariant4viewIiEET_v(QVariant *self) {
+  return self->view<int>();
+}
+
+//  double QVariant::view<double>()
+extern "C" Q_DECL_EXPORT
+double ritual_ZN8QVariant4viewIdEET_v(QVariant *self) {
+  return self->view<double>();
+}
+
+//  bool QVariant::view<bool>()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QVariant4viewIbEET_v(QVariant *self) {
+  return self->view<bool>();
+}
+
+//  QString QVariant::view<QString>()
+extern "C" Q_DECL_EXPORT
+QString * ritual_ZN8QVariant4viewI7QStringEET_v(QVariant *self) {
+  return new QString(self->view<QString>());
 }

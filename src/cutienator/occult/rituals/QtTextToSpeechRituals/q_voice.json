@@ -7,8 +7,14 @@
     "ritual_ZN6QVoiceC1Ev": ["address"],
     "ritual_ZN6QVoiceD1Ev": ["nothing", "address"],
     "ritual_ZN6QVoiceC1ERKS_": ["address", "address"],
+    "ritual_ZN6QVoiceaSERKS_": ["address", "address", "address"],
+    "ritual_ZN6QVoiceC1EOS_": ["address", "address"],
+    "ritual_ZN6QVoiceaSEOS_": ["address", "address", "address"],
+    "ritual_ZN6QVoice4swapERS_": ["nothing", "address", "address"],
     "ritual_ZeqRK6QVoiceS1_": ["bool", "address", "address"],
     "ritual_ZneRK6QVoiceS1_": ["bool", "address", "address"],
+    "ritual_ZlsR11QDataStreamRK6QVoice": ["address", "address", "address"],
+    "ritual_ZrsR11QDataStreamR6QVoice": ["address", "address", "address"],
     "ritual_ZNK6QVoice4nameEv": ["text", "address"],
     "ritual_ZNK6QVoice6localeEv": ["address", "address"],
     "ritual_ZNK6QVoice6genderEv": ["int", "address"],
@@ -20,6 +26,12 @@
       "address", "text", "address", "int", "int", "address"
     ],
     "ritual_ZNK6QVoice7isEqualERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QVoice7writeToER11QDataStream": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QVoice8readFromER11QDataStream": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK6QVoice4dataEv": ["address", "address"],
     "ritual_Zls6QDebugRK6QVoice": ["address", "address", "address"],
     "ritual_list_make_QVoice": ["address"],

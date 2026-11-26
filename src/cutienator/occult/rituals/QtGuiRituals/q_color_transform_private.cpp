@@ -44,6 +44,26 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/painting/qcolorspace.cpp, line 1324, as local:qcolorspace.cpp:compareElements
+template<typename T>
+static bool compareElements(const T &element, const QColorSpacePrivate::Element &other)
+{
+    return compareElement(element, std::get<T>(other));
+}
+
+//  from src/gui/painting/qcolortransform.cpp, line 1689, as local:qcolortransform.cpp:visitElement
+static void visitElement(const QColorSpacePrivate::TransferElement &element, QColorVector *buffer, const qsizetype len)
+{
+    const bool doW = element.trc[3].isValid();
+    for (qsizetype i = 0; i < len; ++i) {
+        buffer[i].x = element.trc[0].apply(buffer[i].x);
+        buffer[i].y = element.trc[1].apply(buffer[i].y);
+        buffer[i].z = element.trc[2].apply(buffer[i].z);
+        if (doW)
+            buffer[i].w = element.trc[3].apply(buffer[i].w);
+    }
+}
+
 //  from src/gui/painting/qcolorspace.cpp, line 514, as _ZNK18QColorSpacePrivate22isThreeComponentMatrixEv
 inline bool QColorSpacePrivate::isThreeComponentMatrix() const
 {

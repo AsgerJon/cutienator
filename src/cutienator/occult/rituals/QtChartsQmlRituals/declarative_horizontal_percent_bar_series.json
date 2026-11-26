@@ -8,6 +8,12 @@
     "ritual_ZNK37DeclarativeHorizontalPercentBarSeries10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN37DeclarativeHorizontalPercentBarSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN37DeclarativeHorizontalPercentBarSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN37DeclarativeHorizontalPercentBarSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -38,6 +44,9 @@
     "ritual_ZN37DeclarativeHorizontalPercentBarSeries13setAxisYRightEP13QAbstractAxis": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN37DeclarativeHorizontalPercentBarSeries14seriesChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZN37DeclarativeHorizontalPercentBarSeries2atEi": [
       "address", "address", "int"
     ],
@@ -59,6 +68,21 @@
     "ritual_ZN37DeclarativeHorizontalPercentBarSeries17componentCompleteEv": [
       "nothing", "address"
     ],
+    "ritual_ZN37DeclarativeHorizontalPercentBarSeries12axisXChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN37DeclarativeHorizontalPercentBarSeries12axisYChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN37DeclarativeHorizontalPercentBarSeries15axisXTopChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN37DeclarativeHorizontalPercentBarSeries17axisYRightChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN37DeclarativeHorizontalPercentBarSeries20appendSeriesChildrenEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_DeclarativeHorizontalPercentBarSeries_QQmlParserStatus": [
       "address", "address"
     ],
@@ -69,6 +93,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN37DeclarativeHorizontalPercentBarSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_DeclarativeHorizontalPercentBarSeries__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

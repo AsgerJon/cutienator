@@ -175,6 +175,22 @@ const QSGDistanceFieldGlyphCache::Texture *ritual_ZN26QSGDistanceFieldGlyphCache
   return self->glyphTexture(glyph);
 }
 
+//  void QSGDistanceFieldGlyphCache::populate(const QList<glyph_t> &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QSGDistanceFieldGlyphCache8populateERK5QListIjE(
+    QSGDistanceFieldGlyphCache *self,
+    const QList<glyph_t> *glyphs) {
+  self->populate(*glyphs);
+}
+
+//  void QSGDistanceFieldGlyphCache::release(const QList<glyph_t> &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QSGDistanceFieldGlyphCache7releaseERK5QListIjE(
+    QSGDistanceFieldGlyphCache *self,
+    const QList<glyph_t> *glyphs) {
+  self->release(*glyphs);
+}
+
 //  void QSGDistanceFieldGlyphCache::update()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QSGDistanceFieldGlyphCache6updateEv(
@@ -228,6 +244,15 @@ bool ritual_ZNK26QSGDistanceFieldGlyphCache8isActiveEv(
   return self->isActive();
 }
 
+//  void QSGDistanceFieldGlyphCache::requestGlyphs(const QSet<glyph_t>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QSGDistanceFieldGlyphCache13requestGlyphsERK4QSetIjE(
+    QSGDistanceFieldGlyphCache *self,
+    const QSet<glyph_t> *glyphs) {
+  self->requestGlyphs(*glyphs);
+}
+
 //  void QSGDistanceFieldGlyphCache::storeGlyphs(const QList<QDistanceField>
 //      &glyphs)
 extern "C" Q_DECL_EXPORT
@@ -235,6 +260,52 @@ void ritual_ZN26QSGDistanceFieldGlyphCache11storeGlyphsERK5QListI14QDistanceFiel
     QSGDistanceFieldGlyphCache *self,
     const QList<QDistanceField> *glyphs) {
   self->storeGlyphs(*glyphs);
+}
+
+//  void QSGDistanceFieldGlyphCache::referenceGlyphs(const QSet<glyph_t>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QSGDistanceFieldGlyphCache15referenceGlyphsERK4QSetIjE(
+    QSGDistanceFieldGlyphCache *self,
+    const QSet<glyph_t> *glyphs) {
+  self->referenceGlyphs(*glyphs);
+}
+
+//  void QSGDistanceFieldGlyphCache::releaseGlyphs(const QSet<glyph_t>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QSGDistanceFieldGlyphCache13releaseGlyphsERK4QSetIjE(
+    QSGDistanceFieldGlyphCache *self,
+    const QSet<glyph_t> *glyphs) {
+  self->releaseGlyphs(*glyphs);
+}
+
+//  void QSGDistanceFieldGlyphCache::setGlyphsPosition(const
+//      QList<GlyphPosition> &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QSGDistanceFieldGlyphCache17setGlyphsPositionERK5QListINS_13GlyphPositionEE(
+    QSGDistanceFieldGlyphCache *self,
+    const QList<QSGDistanceFieldGlyphCache::GlyphPosition> *glyphs) {
+  self->setGlyphsPosition(*glyphs);
+}
+
+//  void QSGDistanceFieldGlyphCache::setGlyphsTexture(const QList<glyph_t>
+//      &glyphs, const Texture &tex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QSGDistanceFieldGlyphCache16setGlyphsTextureERK5QListIjERKNS_7TextureE(
+    QSGDistanceFieldGlyphCache *self,
+    const QList<glyph_t> *glyphs,
+    const QSGDistanceFieldGlyphCache::Texture *tex) {
+  self->setGlyphsTexture(*glyphs, *tex);
+}
+
+//  void QSGDistanceFieldGlyphCache::markGlyphsToRender(const QList<glyph_t>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QSGDistanceFieldGlyphCache18markGlyphsToRenderERK5QListIjE(
+    QSGDistanceFieldGlyphCache *self,
+    const QList<glyph_t> *glyphs) {
+  self->markGlyphsToRender(*glyphs);
 }
 
 //  void QSGDistanceFieldGlyphCache::removeGlyph(glyph_t glyph)
@@ -262,6 +333,22 @@ bool ritual_ZN26QSGDistanceFieldGlyphCache13containsGlyphEj(
     QSGDistanceFieldGlyphCache *self,
     glyph_t glyph) {
   return self->containsGlyph(glyph);
+}
+
+//  GlyphData &QSGDistanceFieldGlyphCache::glyphData(glyph_t glyph)
+extern "C" Q_DECL_EXPORT
+QSGDistanceFieldGlyphCache::GlyphData *ritual_ZN26QSGDistanceFieldGlyphCache9glyphDataEj(
+    QSGDistanceFieldGlyphCache *self,
+    glyph_t glyph) {
+  return &(self->glyphData(glyph));
+}
+
+//  GlyphData &QSGDistanceFieldGlyphCache::emptyData(glyph_t glyph)
+extern "C" Q_DECL_EXPORT
+QSGDistanceFieldGlyphCache::GlyphData *ritual_ZN26QSGDistanceFieldGlyphCache9emptyDataEj(
+    QSGDistanceFieldGlyphCache *self,
+    glyph_t glyph) {
+  return &(self->emptyData(glyph));
 }
 
 //  int QSGDistanceFieldGlyphCache::baseFontSize() const

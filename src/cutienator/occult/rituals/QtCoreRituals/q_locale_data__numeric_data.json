@@ -17,6 +17,9 @@
     "ritual_ZNK11QLocaleData11NumericData7isValidENS_10NumberModeE": [
       "bool", "address", "int"
     ],
+    "ritual_ZNK11QLocaleData11NumericData10digitValueEDi": [
+      "signed char", "address", "unsigned int"
+    ],
     "ritual_ZNK11QLocaleData11NumericData17fractionalIsGroupEv": [
       "bool", "address"
     ],

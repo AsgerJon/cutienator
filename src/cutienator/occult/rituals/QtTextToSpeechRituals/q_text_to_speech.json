@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QTextToSpeech10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QTextToSpeech11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QTextToSpeech11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QTextToSpeech2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QTextToSpeech6d_funcEv": ["address", "address"],
     "ritual_ZNK13QTextToSpeech6d_funcEv": ["address", "address"],
@@ -54,6 +60,36 @@
     "ritual_ZN13QTextToSpeech9setVolumeEd": ["nothing", "address", "double"],
     "ritual_ZN13QTextToSpeech8setVoiceERK6QVoice": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextToSpeech13engineChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QTextToSpeech12stateChangedENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QTextToSpeech13errorOccurredENS_11ErrorReasonERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN13QTextToSpeech13localeChangedERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextToSpeech11rateChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QTextToSpeech12pitchChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QTextToSpeech13volumeChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QTextToSpeech12voiceChangedERK6QVoice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextToSpeech10sayingWordERK7QStringxxx": [
+      "nothing", "address", "text", "long long", "long long", "long long"
+    ],
+    "ritual_ZN13QTextToSpeech17aboutToSynthesizeEx": [
+      "nothing", "address", "long long"
     ],
     "ritual_ZNK13QTextToSpeech9allVoicesEPK7QLocale": [
       "address", "address", "address"

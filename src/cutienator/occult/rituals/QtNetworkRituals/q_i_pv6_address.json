@@ -1,10 +1,12 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtNetwork/qhostaddress.h, Qt 6.12.0. Changes made here are lost."
+    "QtNetwork/qhostaddress.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZNK12QIPv6AddressixEi": ["unsigned char", "address", "int"],
-    "ritual_ZN12QIPv6AddressD1Ev": ["nothing", "address"]
+    "ritual_ZN12QIPv6AddressD1Ev": ["nothing", "address"],
+    "ritual_ZN12QIPv6AddressixEi": ["address", "address", "int"]
   }
 }

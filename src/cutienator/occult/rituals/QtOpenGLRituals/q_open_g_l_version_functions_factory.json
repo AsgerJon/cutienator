@@ -1,13 +1,28 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtOpenGL/qopenglversionfunctionsfactory.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtOpenGL/qopenglversionfunctionsfactory.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN30QOpenGLVersionFunctionsFactory3getERK21QOpenGLVersionProfileP14QOpenGLContext": [
       "address", "address", "address"
     ],
-    "ritual_ZN30QOpenGLVersionFunctionsFactoryD1Ev": ["nothing", "address"]
+    "ritual_ZN30QOpenGLVersionFunctionsFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZN30QOpenGLVersionFunctionsFactory3getI20QOpenGLFunctions_2_0EEPT_P14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN30QOpenGLVersionFunctionsFactory3getI25QOpenGLFunctions_3_3_CoreEEPT_P14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN30QOpenGLVersionFunctionsFactory3getI25QOpenGLFunctions_4_1_CoreEEPT_P14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN30QOpenGLVersionFunctionsFactory3getI25QOpenGLFunctions_4_5_CoreEEPT_P14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN30QOpenGLVersionFunctionsFactory3getI34QOpenGLFunctions_4_5_CompatibilityEEPT_P14QOpenGLContext": [
+      "address", "address"
+    ]
   }
 }

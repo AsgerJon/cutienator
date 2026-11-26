@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN16QDomDocumentTypeC1Ev": ["address"],
     "ritual_ZN16QDomDocumentTypeC1ERKS_": ["address", "address"],
+    "ritual_ZN16QDomDocumentTypeaSERKS_": ["address", "address", "address"],
     "ritual_ZNK16QDomDocumentType4nameEv": ["text", "address"],
     "ritual_ZNK16QDomDocumentType8entitiesEv": ["address", "address"],
     "ritual_ZNK16QDomDocumentType9notationsEv": ["address", "address"],

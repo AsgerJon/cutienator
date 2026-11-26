@@ -246,6 +246,25 @@ const QMetaObject *ritual_ZNK27QQuickContext2DRenderThread10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickContext2DRenderThread::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuickContext2DRenderThread11qt_metacastEPKc(
+    QQuickContext2DRenderThread *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickContext2DRenderThread::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuickContext2DRenderThread11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickContext2DRenderThread *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickContext2DRenderThread::~QQuickContext2DRenderThread()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QQuickContext2DRenderThreadD1Ev(

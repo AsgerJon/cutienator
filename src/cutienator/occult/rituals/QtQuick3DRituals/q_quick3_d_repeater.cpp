@@ -315,6 +315,25 @@ const QMetaObject *ritual_ZNK16QQuick3DRepeater10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DRepeater::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuick3DRepeater11qt_metacastEPKc(
+    QQuick3DRepeater *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DRepeater::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuick3DRepeater11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DRepeater *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DRepeater::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuick3DRepeater2trEPKcS1_i(
@@ -396,6 +415,49 @@ void ritual_ZN16QQuick3DRepeater22setDelegateModelAccessEN17QQmlDelegateModel19D
     QQuick3DRepeater *self,
     QQmlDelegateModel::DelegateModelAccess delegateModelAccess) {
   self->setDelegateModelAccess(delegateModelAccess);
+}
+
+//  void QQuick3DRepeater::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DRepeater12modelChangedEv(QQuick3DRepeater *self) {
+  self->modelChanged();
+}
+
+//  void QQuick3DRepeater::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DRepeater15delegateChangedEv(QQuick3DRepeater *self) {
+  self->delegateChanged();
+}
+
+//  void QQuick3DRepeater::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DRepeater12countChangedEv(QQuick3DRepeater *self) {
+  self->countChanged();
+}
+
+//  void QQuick3DRepeater::objectAdded(int index, QQuick3DObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DRepeater11objectAddedEiP14QQuick3DObject(
+    QQuick3DRepeater *self,
+    int index,
+    QQuick3DObject *object) {
+  self->objectAdded(index, object);
+}
+
+//  void QQuick3DRepeater::objectRemoved(int index, QQuick3DObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DRepeater13objectRemovedEiP14QQuick3DObject(
+    QQuick3DRepeater *self,
+    int index,
+    QQuick3DObject *object) {
+  self->objectRemoved(index, object);
+}
+
+//  void QQuick3DRepeater::delegateModelAccessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DRepeater26delegateModelAccessChangedEv(
+    QQuick3DRepeater *self) {
+  self->delegateModelAccessChanged();
 }
 
 //  void QQuick3DRepeater::clear()

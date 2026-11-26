@@ -8,6 +8,12 @@
     "ritual_ZNK32QQuick3DShaderUtilsSubRenderPass10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPass11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPass11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN32QQuick3DShaderUtilsSubRenderPass2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -23,6 +29,9 @@
     ],
     "ritual_ZN32QQuick3DShaderUtilsSubRenderPass12cloneCommandEv": [
       "address", "address"
+    ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPass17renderPassChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN32QQuick3DShaderUtilsSubRenderPass17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

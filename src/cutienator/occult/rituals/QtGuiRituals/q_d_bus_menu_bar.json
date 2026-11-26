@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QDBusMenuBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QDBusMenuBar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QDBusMenuBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QDBusMenuBarD1Ev": ["nothing", "address"],
     "ritual_ZN12QDBusMenuBar10insertMenuEP13QPlatformMenuS1_": [
       "nothing", "address", "address", "address"

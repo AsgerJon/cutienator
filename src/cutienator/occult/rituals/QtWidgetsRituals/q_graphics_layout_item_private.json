@@ -10,6 +10,9 @@
       "address", "address"
     ],
     "ritual_ZN26QGraphicsLayoutItemPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN26QGraphicsLayoutItemPrivateC1EP19QGraphicsLayoutItemb": [
+      "address", "address", "bool"
+    ],
     "ritual_ZN26QGraphicsLayoutItemPrivate3getEP19QGraphicsLayoutItem": [
       "address", "address"
     ],

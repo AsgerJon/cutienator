@@ -16,8 +16,14 @@
       "address", "address"
     ],
     "ritual_ZNK3QV414FunctionObject15canBeTailCalledEv": ["bool", "address"],
+    "ritual_ZNK3QV414FunctionObject4nameEv": [
+      "unsigned long long", "address"
+    ],
     "ritual_ZN3QV414FunctionObject7setNameEPNS_6StringE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV414FunctionObject30createDefaultPrototypePropertyEj": [
+      "nothing", "address", "unsigned int"
     ],
     "ritual_ZNK3QV414FunctionObject17callAsConstructorEPKNS_5ValueEiS3_": [
       "unsigned long long", "address", "address", "int", "address"
@@ -25,16 +31,40 @@
     "ritual_ZNK3QV414FunctionObject4callEPKNS_5ValueES3_i": [
       "unsigned long long", "address", "address", "address", "int"
     ],
+    "ritual_ZNK3QV414FunctionObject4callEP7QObjectPPvPK9QMetaTypei": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
     "ritual_ZNK3QV414FunctionObject17callAsConstructorERKNS_10JSCallDataE": [
       "unsigned long long", "address", "address"
     ],
     "ritual_ZNK3QV414FunctionObject4callERKNS_10JSCallDataE": [
       "unsigned long long", "address", "address"
     ],
+    "ritual_ZNK3QV414FunctionObject8failCallEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK3QV414FunctionObject21failCallAsConstructorEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV414FunctionObject21virtualConvertAndCallEPKS0_P7QObjectPPvPK9QMetaTypei": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
     "ritual_ZN3QV414FunctionObject20createScriptFunctionEPNS_16ExecutionContextEPNS_8FunctionE": [
       "address", "address", "address"
     ],
+    "ritual_ZN3QV414FunctionObject25createConstructorFunctionEPNS_16ExecutionContextEPNS_8FunctionEPNS_6ObjectEb": [
+      "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN3QV414FunctionObject20createMemberFunctionEPNS_16ExecutionContextEPNS_8FunctionEPNS_6ObjectEPNS_6StringE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV414FunctionObject21createBuiltinFunctionEPNS_15ExecutionEngineEPNS_14StringOrSymbolEPFyPKS0_PKNS_5ValueES9_iEi": [
+      "address", "address", "address", "address", "int"
+    ],
     "ritual_ZNK3QV414FunctionObject13isConstructorEv": ["bool", "address"],
+    "ritual_ZNK3QV414FunctionObject13getHomeObjectEv": [
+      "unsigned long long", "address"
+    ],
     "ritual_ZNK3QV414FunctionObject13protoPropertyEv": [
       "unsigned long long", "address"
     ],

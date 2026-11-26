@@ -6,7 +6,9 @@
 #if QT_CONFIG(regularexpression)
 #include <QtGui/qvalidator.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -184,6 +186,25 @@ const QMetaObject *ritual_ZNK27QRegularExpressionValidator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRegularExpressionValidator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QRegularExpressionValidator11qt_metacastEPKc(
+    QRegularExpressionValidator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRegularExpressionValidator::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QRegularExpressionValidator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRegularExpressionValidator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRegularExpressionValidator::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -217,6 +238,16 @@ void ritual_ZN27QRegularExpressionValidatorD1Ev(
   delete self;
 }
 
+//  QValidator::State QRegularExpressionValidator::validate(QString &input,
+//      int &pos) const
+extern "C" Q_DECL_EXPORT
+QValidator::State ritual_ZNK27QRegularExpressionValidator8validateER7QStringRi(
+    const QRegularExpressionValidator *self,
+    QString *input,
+    int *pos) {
+  return self->validate(*input, *pos);
+}
+
 //  QRegularExpression QRegularExpressionValidator::regularExpression() const
 extern "C" Q_DECL_EXPORT
 QRegularExpression *ritual_ZNK27QRegularExpressionValidator17regularExpressionEv(
@@ -231,6 +262,30 @@ void ritual_ZN27QRegularExpressionValidator20setRegularExpressionERK18QRegularEx
     QRegularExpressionValidator *self,
     const QRegularExpression *re) {
   self->setRegularExpression(*re);
+}
+
+//  void QRegularExpressionValidator::regularExpressionChanged(const
+//      QRegularExpression &re)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QRegularExpressionValidator24regularExpressionChangedERK18QRegularExpression(
+    QRegularExpressionValidator *self,
+    const QRegularExpression *re) {
+  self->regularExpressionChanged(*re);
+}
+
+//  QRegularExpressionValidatorPrivate *QRegularExpressionValidator::d_func()
+extern "C" Q_DECL_EXPORT
+QRegularExpressionValidatorPrivate *ritual_ZN27QRegularExpressionValidator6d_funcEv(
+    QRegularExpressionValidator *self) {
+  return self->d_func();
+}
+
+//  const QRegularExpressionValidatorPrivate
+//      *QRegularExpressionValidator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QRegularExpressionValidatorPrivate *ritual_ZNK27QRegularExpressionValidator6d_funcEv(
+    const QRegularExpressionValidator *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQRegularExpressionValidator, for the

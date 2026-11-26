@@ -8,8 +8,23 @@
     "ritual_ZNK8Qt3DCore25PropertyChangeHandlerBase10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore25PropertyChangeHandlerBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore25PropertyChangeHandlerBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore25PropertyChangeHandlerBase2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore25PropertyChangeHandlerBaseC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore25PropertyChangeHandlerBase23connectToPropertyChangeEPK7QObjecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore25PropertyChangeHandlerBase28disconnectFromPropertyChangeEPK7QObjecti": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_take_Qt3DCore_PropertyChangeHandlerBase": [
       "bool", "address", "chars", "address"

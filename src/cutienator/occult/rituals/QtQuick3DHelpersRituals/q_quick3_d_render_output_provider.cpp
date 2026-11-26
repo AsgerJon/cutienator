@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK28QQuick3DRenderOutputProvider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DRenderOutputProvider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuick3DRenderOutputProvider11qt_metacastEPKc(
+    QQuick3DRenderOutputProvider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DRenderOutputProvider::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuick3DRenderOutputProvider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DRenderOutputProvider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DRenderOutputProvider::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -88,6 +107,27 @@ void ritual_ZN28QQuick3DRenderOutputProvider21setAttachmentSelectorENS_18Attachm
     QQuick3DRenderOutputProvider *self,
     QQuick3DRenderOutputProvider::AttachmentSelector newAttachmentSelector) {
   self->setAttachmentSelector(newAttachmentSelector);
+}
+
+//  void QQuick3DRenderOutputProvider::textureSourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DRenderOutputProvider20textureSourceChangedEv(
+    QQuick3DRenderOutputProvider *self) {
+  self->textureSourceChanged();
+}
+
+//  void QQuick3DRenderOutputProvider::renderPassChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DRenderOutputProvider17renderPassChangedEv(
+    QQuick3DRenderOutputProvider *self) {
+  self->renderPassChanged();
+}
+
+//  void QQuick3DRenderOutputProvider::attachmentSelectorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DRenderOutputProvider25attachmentSelectorChangedEv(
+    QQuick3DRenderOutputProvider *self) {
+  self->attachmentSelectorChanged();
 }
 
 //  QSSGRenderGraphObject

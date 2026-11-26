@@ -12,6 +12,8 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtQuick/QQuickItem>
 
 //  A QQuickKeysAttached that Python can take functions over in. Every QQuickKeysAttached
 //  Python makes is one. Each function below asks the Python
@@ -297,6 +299,25 @@ const QMetaObject *ritual_ZNK18QQuickKeysAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickKeysAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickKeysAttached11qt_metacastEPKc(
+    QQuickKeysAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickKeysAttached::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickKeysAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickKeysAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickKeysAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickKeysAttached2trEPKcS1_i(
@@ -377,6 +398,13 @@ void ritual_ZN18QQuickKeysAttached11setPriorityENS_8PriorityE(
   self->setPriority(a0);
 }
 
+//  QQmlListProperty<QQuickItem> QQuickKeysAttached::forwardTo()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickItem> *ritual_ZN18QQuickKeysAttached9forwardToEv(
+    QQuickKeysAttached *self) {
+  return new QQmlListProperty<QQuickItem>(self->forwardTo());
+}
+
 //  void QQuickKeysAttached::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickKeysAttached17componentCompleteEv(
@@ -390,6 +418,348 @@ extern "C" Q_DECL_EXPORT
 QQuickKeysAttached *ritual_ZN18QQuickKeysAttached21qmlAttachedPropertiesEP7QObject(
     QObject *a0) {
   return QQuickKeysAttached::qmlAttachedProperties(a0);
+}
+
+//  void QQuickKeysAttached::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached14enabledChangedEv(
+    QQuickKeysAttached *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickKeysAttached::priorityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached15priorityChangedEv(
+    QQuickKeysAttached *self) {
+  self->priorityChanged();
+}
+
+//  void QQuickKeysAttached::pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached7pressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->pressed(event);
+}
+
+//  void QQuickKeysAttached::released(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached8releasedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->released(event);
+}
+
+//  void QQuickKeysAttached::shortcutOverride(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached16shortcutOverrideEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->shortcutOverride(event);
+}
+
+//  void QQuickKeysAttached::digit0Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit0PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit0Pressed(event);
+}
+
+//  void QQuickKeysAttached::digit1Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit1PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit1Pressed(event);
+}
+
+//  void QQuickKeysAttached::digit2Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit2PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit2Pressed(event);
+}
+
+//  void QQuickKeysAttached::digit3Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit3PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit3Pressed(event);
+}
+
+//  void QQuickKeysAttached::digit4Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit4PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit4Pressed(event);
+}
+
+//  void QQuickKeysAttached::digit5Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit5PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit5Pressed(event);
+}
+
+//  void QQuickKeysAttached::digit6Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit6PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit6Pressed(event);
+}
+
+//  void QQuickKeysAttached::digit7Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit7PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit7Pressed(event);
+}
+
+//  void QQuickKeysAttached::digit8Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit8PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit8Pressed(event);
+}
+
+//  void QQuickKeysAttached::digit9Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13digit9PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->digit9Pressed(event);
+}
+
+//  void QQuickKeysAttached::leftPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached11leftPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->leftPressed(event);
+}
+
+//  void QQuickKeysAttached::rightPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached12rightPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->rightPressed(event);
+}
+
+//  void QQuickKeysAttached::upPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached9upPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->upPressed(event);
+}
+
+//  void QQuickKeysAttached::downPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached11downPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->downPressed(event);
+}
+
+//  void QQuickKeysAttached::tabPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached10tabPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->tabPressed(event);
+}
+
+//  void QQuickKeysAttached::backtabPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached14backtabPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->backtabPressed(event);
+}
+
+//  void QQuickKeysAttached::asteriskPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached15asteriskPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->asteriskPressed(event);
+}
+
+//  void QQuickKeysAttached::numberSignPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached17numberSignPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->numberSignPressed(event);
+}
+
+//  void QQuickKeysAttached::escapePressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13escapePressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->escapePressed(event);
+}
+
+//  void QQuickKeysAttached::returnPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13returnPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->returnPressed(event);
+}
+
+//  void QQuickKeysAttached::enterPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached12enterPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->enterPressed(event);
+}
+
+//  void QQuickKeysAttached::deletePressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13deletePressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->deletePressed(event);
+}
+
+//  void QQuickKeysAttached::spacePressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached12spacePressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->spacePressed(event);
+}
+
+//  void QQuickKeysAttached::backPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached11backPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->backPressed(event);
+}
+
+//  void QQuickKeysAttached::cancelPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13cancelPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->cancelPressed(event);
+}
+
+//  void QQuickKeysAttached::selectPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13selectPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->selectPressed(event);
+}
+
+//  void QQuickKeysAttached::yesPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached10yesPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->yesPressed(event);
+}
+
+//  void QQuickKeysAttached::noPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached9noPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->noPressed(event);
+}
+
+//  void QQuickKeysAttached::context1Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached15context1PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->context1Pressed(event);
+}
+
+//  void QQuickKeysAttached::context2Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached15context2PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->context2Pressed(event);
+}
+
+//  void QQuickKeysAttached::context3Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached15context3PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->context3Pressed(event);
+}
+
+//  void QQuickKeysAttached::context4Pressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached15context4PressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->context4Pressed(event);
+}
+
+//  void QQuickKeysAttached::callPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached11callPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->callPressed(event);
+}
+
+//  void QQuickKeysAttached::hangupPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached13hangupPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->hangupPressed(event);
+}
+
+//  void QQuickKeysAttached::flipPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached11flipPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->flipPressed(event);
+}
+
+//  void QQuickKeysAttached::menuPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached11menuPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->menuPressed(event);
+}
+
+//  void QQuickKeysAttached::volumeUpPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached15volumeUpPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->volumeUpPressed(event);
+}
+
+//  void QQuickKeysAttached::volumeDownPressed(QQuickKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickKeysAttached17volumeDownPressedEP14QQuickKeyEvent(
+    QQuickKeysAttached *self,
+    QQuickKeyEvent *event) {
+  self->volumeDownPressed(event);
 }
 
 //  void QQuickKeysAttached::keyPressed(QKeyEvent *event, bool post)
@@ -526,4 +896,11 @@ void ritual_own_ZN18QQuickKeysAttached21shortcutOverrideEventEP9QKeyEvent(
     QQuickKeysAttached *self,
     QKeyEvent *event) {
   self->QQuickKeysAttached::shortcutOverrideEvent(event);
+}
+
+//  a QQmlListProperty<QQuickItem> a ritual of QQuickKeysAttached gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickKeysAttached__QQmlListProperty_QQuickItem(
+    QQmlListProperty<QQuickItem> *self) {
+  delete self;
 }

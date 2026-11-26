@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN21QRhiVertexInputLayoutC1Ev": ["address"],
+    "ritual_ZN21QRhiVertexInputLayout11setBindingsESt16initializer_listI22QRhiVertexInputBindingE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QRhiVertexInputLayout14cbeginBindingsEv": [
       "address", "address"
     ],
@@ -17,6 +20,9 @@
     ],
     "ritual_ZNK21QRhiVertexInputLayout12bindingCountEv": [
       "long long", "address"
+    ],
+    "ritual_ZN21QRhiVertexInputLayout13setAttributesESt16initializer_listI24QRhiVertexInputAttributeE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK21QRhiVertexInputLayout16cbeginAttributesEv": [
       "address", "address"

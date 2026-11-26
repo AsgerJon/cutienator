@@ -8,6 +8,12 @@
     "ritual_ZNK21DeclarativeAreaSeries10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21DeclarativeAreaSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21DeclarativeAreaSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -66,6 +72,33 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK21DeclarativeAreaSeries5brushEv": ["address", "address"],
+    "ritual_ZN21DeclarativeAreaSeries12axisXChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries12axisYChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries18borderWidthChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries15axisXTopChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries17axisYRightChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries18axisAngularChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries17axisRadialChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries12brushChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries20brushFilenameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN21DeclarativeAreaSeries18handleBrushChangedEv": [
       "nothing", "address"
     ]

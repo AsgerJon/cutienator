@@ -7,6 +7,16 @@
   "rows": {
     "ritual_ZN24QSGTexturePlatformVulkanC1EP10QSGTexture": [
       "address", "address"
+    ],
+    "ritual_ZNK24QSGTexturePlatformVulkan11nativeImageEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QSGTexturePlatformVulkan17nativeImageLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_drop_QSGTexturePlatformVulkan__VkImage": ["nothing", "address"],
+    "ritual_drop_QSGTexturePlatformVulkan__VkImageLayout": [
+      "nothing", "address"
     ]
   }
 }

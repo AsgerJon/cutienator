@@ -943,6 +943,24 @@ const QMetaObject *ritual_ZNK15QGraphicsObject10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QGraphicsObject11qt_metacastEPKc(
+    QGraphicsObject *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsObject::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QGraphicsObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsObject::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QGraphicsObject2trEPKcS1_i(
@@ -950,6 +968,13 @@ QString *ritual_ZN15QGraphicsObject2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QGraphicsObject::tr(s, c, n));
+}
+
+//  QGraphicsObject::QGraphicsObject(QGraphicsItem *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsObject *ritual_ZN15QGraphicsObjectC1EP13QGraphicsItem(
+    QGraphicsItem *parent) {
+  return new CuteQGraphicsObject(parent);
 }
 
 //  QGraphicsObject::~QGraphicsObject()
@@ -984,6 +1009,87 @@ void ritual_ZN15QGraphicsObject13ungrabGestureEN2Qt11GestureTypeE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsObject16updateMicroFocusEv(QGraphicsObject *self) {
   self->updateMicroFocus();
+}
+
+//  void QGraphicsObject::parentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject13parentChangedEv(QGraphicsObject *self) {
+  self->parentChanged();
+}
+
+//  void QGraphicsObject::opacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject14opacityChangedEv(QGraphicsObject *self) {
+  self->opacityChanged();
+}
+
+//  void QGraphicsObject::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject14visibleChangedEv(QGraphicsObject *self) {
+  self->visibleChanged();
+}
+
+//  void QGraphicsObject::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject14enabledChangedEv(QGraphicsObject *self) {
+  self->enabledChanged();
+}
+
+//  void QGraphicsObject::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject8xChangedEv(QGraphicsObject *self) {
+  self->xChanged();
+}
+
+//  void QGraphicsObject::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject8yChangedEv(QGraphicsObject *self) {
+  self->yChanged();
+}
+
+//  void QGraphicsObject::zChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject8zChangedEv(QGraphicsObject *self) {
+  self->zChanged();
+}
+
+//  void QGraphicsObject::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject15rotationChangedEv(QGraphicsObject *self) {
+  self->rotationChanged();
+}
+
+//  void QGraphicsObject::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject12scaleChangedEv(QGraphicsObject *self) {
+  self->scaleChanged();
+}
+
+//  void QGraphicsObject::childrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject15childrenChangedEv(QGraphicsObject *self) {
+  self->childrenChanged();
+}
+
+//  void QGraphicsObject::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject12widthChangedEv(QGraphicsObject *self) {
+  self->widthChanged();
+}
+
+//  void QGraphicsObject::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject13heightChangedEv(QGraphicsObject *self) {
+  self->heightChanged();
+}
+
+//  QGraphicsObject::QGraphicsObject(QGraphicsItemPrivate &dd, QGraphicsItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsObject *ritual_ZN15QGraphicsObjectC1ER20QGraphicsItemPrivateP13QGraphicsItem(
+    QGraphicsItemPrivate *dd,
+    QGraphicsItem *parent) {
+  return new CuteQGraphicsObject(*dd, parent);
 }
 
 //  bool QGraphicsObject::event(QEvent *ev)

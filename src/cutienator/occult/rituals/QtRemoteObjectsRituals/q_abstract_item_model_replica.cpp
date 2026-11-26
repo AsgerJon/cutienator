@@ -4,7 +4,9 @@
 #include <QtCore/qglobal.h>
 #include <QtRemoteObjects/qremoteobjectabstractitemmodelreplica.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qsize.h>
@@ -13,6 +15,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QAbstractItemModelReplica that Python can take functions over in. Every QAbstractItemModelReplica
 //  Python makes is one. Each function below asks the Python
@@ -916,6 +919,25 @@ const QMetaObject *ritual_ZNK25QAbstractItemModelReplica10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractItemModelReplica::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QAbstractItemModelReplica11qt_metacastEPKc(
+    QAbstractItemModelReplica *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractItemModelReplica::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QAbstractItemModelReplica11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractItemModelReplica *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractItemModelReplica::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -1037,6 +1059,13 @@ int ritual_ZNK25QAbstractItemModelReplica5flagsERK11QModelIndex(
   return static_cast<int>(self->flags(*index).toInt());
 }
 
+//  QList<int> QAbstractItemModelReplica::availableRoles() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK25QAbstractItemModelReplica14availableRolesEv(
+    const QAbstractItemModelReplica *self) {
+  return new QList<int>(self->availableRoles());
+}
+
 //  QHash<int, QByteArray> QAbstractItemModelReplica::roleNames() const
 extern "C" Q_DECL_EXPORT
 QHash<int, QByteArray> *ritual_ZNK25QAbstractItemModelReplica9roleNamesEv(
@@ -1061,12 +1090,37 @@ bool ritual_ZNK25QAbstractItemModelReplica7hasDataERK11QModelIndexi(
   return self->hasData(*index, role);
 }
 
+//  size_t QAbstractItemModelReplica::rootCacheSize() const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK25QAbstractItemModelReplica13rootCacheSizeEv(
+    const QAbstractItemModelReplica *self) {
+  return self->rootCacheSize();
+}
+
 //  void QAbstractItemModelReplica::setRootCacheSize(size_t rootCacheSize)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QAbstractItemModelReplica16setRootCacheSizeEm(
     QAbstractItemModelReplica *self,
     size_t rootCacheSize) {
   self->setRootCacheSize(rootCacheSize);
+}
+
+//  void QAbstractItemModelReplica::initialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractItemModelReplica11initializedEv(
+    QAbstractItemModelReplica *self) {
+  self->initialized();
+}
+
+//  QAbstractItemModelReplica::QAbstractItemModelReplica(QAbstractItemModelRe
+//      plicaImplementation *rep, QtRemoteObjects::InitialAction action,
+//      const QList<int> &rolesHint)
+extern "C" Q_DECL_EXPORT
+QAbstractItemModelReplica *ritual_ZN25QAbstractItemModelReplicaC1EP39QAbstractItemModelReplicaImplementationN15QtRemoteObjects13InitialActionERK5QListIiE(
+    QAbstractItemModelReplicaImplementation *rep,
+    QtRemoteObjects::InitialAction action,
+    const QList<int> *rolesHint) {
+  return new CuteQAbstractItemModelReplica(rep, action, *rolesHint);
 }
 
 //  a Python function taken by a CuteQAbstractItemModelReplica, for the
@@ -1174,4 +1228,10 @@ int ritual_own_ZNK25QAbstractItemModelReplica5flagsERK11QModelIndex(
   return static_cast<int>(
       self->QAbstractItemModelReplica::flags(
           *index).toInt());
+}
+
+//  a QList<int> a ritual of QAbstractItemModelReplica gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractItemModelReplica__QList_int(QList<int> *self) {
+  delete self;
 }

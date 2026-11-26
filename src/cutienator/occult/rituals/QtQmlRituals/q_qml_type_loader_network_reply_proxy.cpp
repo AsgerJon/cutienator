@@ -10,44 +10,6 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmltypeloadernetworkreplyproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQml/private/qqmltypeloadernetworkreplyproxy_p.h>
-#include <QtQml/private/qqmltypeloader_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-
-//  Qt's own code, from here to the line of dashes: taken from
-//  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it where Qt did not write it.
-
-//  from ../qtdeclarative/src/qml/qml/qqmltypeloadernetworkreplyproxy.cpp, line 16, as _ZN31QQmlTypeLoaderNetworkReplyProxy8finishedEv
-inline void QQmlTypeLoaderNetworkReplyProxy::finished()
-{
-    Q_ASSERT(sender());
-    Q_ASSERT(qobject_cast<QNetworkReply *>(sender()));
-    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
-    l->networkReplyFinished(reply);
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmltypeloadernetworkreplyproxy.cpp, line 24, as _ZN31QQmlTypeLoaderNetworkReplyProxy16downloadProgressExx
-inline void QQmlTypeLoaderNetworkReplyProxy::downloadProgress(qint64 bytesReceived, qint64 bytesTotal)
-{
-    Q_ASSERT(sender());
-    Q_ASSERT(qobject_cast<QNetworkReply *>(sender()));
-    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
-    l->networkReplyProgress(reply, bytesReceived, bytesTotal);
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmltypeloadernetworkreplyproxy.cpp, line 33, as _ZN31QQmlTypeLoaderNetworkReplyProxy14manualFinishedEP13QNetworkReply
-inline void QQmlTypeLoaderNetworkReplyProxy::manualFinished(QNetworkReply *reply)
-{
-    qint64 replySize = reply->size();
-    l->networkReplyProgress(reply, replySize, replySize);
-    l->networkReplyFinished(reply);
-}
-//  -----------------------------------------------------------------------
 
 //  const QMetaObject *QQmlTypeLoaderNetworkReplyProxy::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -56,11 +18,48 @@ const QMetaObject *ritual_ZNK31QQmlTypeLoaderNetworkReplyProxy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlTypeLoaderNetworkReplyProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QQmlTypeLoaderNetworkReplyProxy11qt_metacastEPKc(
+    QQmlTypeLoaderNetworkReplyProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlTypeLoaderNetworkReplyProxy::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QQmlTypeLoaderNetworkReplyProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlTypeLoaderNetworkReplyProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQmlTypeLoaderNetworkReplyProxy::finished()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QQmlTypeLoaderNetworkReplyProxy8finishedEv(
     QQmlTypeLoaderNetworkReplyProxy *self) {
-  self->finished();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlTypeLoaderNetworkReplyProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "finished()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "finished()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQmlTypeLoaderNetworkReplyProxy::downloadProgress(qint64 a0, qint64
@@ -70,7 +69,27 @@ void ritual_ZN31QQmlTypeLoaderNetworkReplyProxy16downloadProgressExx(
     QQmlTypeLoaderNetworkReplyProxy *self,
     qint64 a0,
     qint64 a1) {
-  self->downloadProgress(a0, a1);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlTypeLoaderNetworkReplyProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "downloadProgress(qint64,qint64)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "downloadProgress(qint64,qint64)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+      const_cast<void *>(static_cast<const void *>(&a1)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQmlTypeLoaderNetworkReplyProxy::manualFinished(QNetworkReply *a0)
@@ -78,7 +97,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN31QQmlTypeLoaderNetworkReplyProxy14manualFinishedEP13QNetworkReply(
     QQmlTypeLoaderNetworkReplyProxy *self,
     QNetworkReply *a0) {
-  self->manualFinished(a0);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlTypeLoaderNetworkReplyProxy")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "manualFinished(QNetworkReply *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "manualFinished(QNetworkReply *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 #endif  // QT_CONFIG(qml_network)

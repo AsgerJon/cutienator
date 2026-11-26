@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN16QHelpSearchQueryC1Ev": ["address"],
+    "ritual_ZN16QHelpSearchQueryC1ENS_9FieldNameERK5QListI7QStringE": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN16QHelpSearchQueryD1Ev": ["nothing", "address"],
+    "ritual_list_make_QHelpSearchQuery": ["address"],
+    "ritual_list_add_QHelpSearchQuery": ["nothing", "address", "address"],
+    "ritual_list_size_QHelpSearchQuery": ["long long", "address"],
+    "ritual_list_at_QHelpSearchQuery": ["address", "address", "long long"],
+    "ritual_list_drop_QHelpSearchQuery": ["nothing", "address"]
+  }
+}

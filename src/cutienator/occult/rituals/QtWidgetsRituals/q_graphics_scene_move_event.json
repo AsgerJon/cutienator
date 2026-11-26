@@ -5,6 +5,8 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN23QGraphicsSceneMoveEvent6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QGraphicsSceneMoveEvent6d_funcEv": ["address", "address"],
     "ritual_ZN23QGraphicsSceneMoveEventC1Ev": ["address"],
     "ritual_ZN23QGraphicsSceneMoveEventD1Ev": ["nothing", "address"],
     "ritual_ZNK23QGraphicsSceneMoveEvent6oldPosEv": ["address", "address"],

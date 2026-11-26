@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16Bars3DController10metaObjectEv": ["address", "address"],
+    "ritual_ZN16Bars3DController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16Bars3DController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16Bars3DController2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,6 +38,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN16Bars3DController15barSeriesMarginEv": ["address", "address"],
+    "ritual_ZN16Bars3DController12barThicknessEv": ["float", "address"],
     "ritual_ZN16Bars3DController10barSpacingEv": ["address", "address"],
     "ritual_ZN16Bars3DController17isBarSpecRelativeEv": ["bool", "address"],
     "ritual_ZN16Bars3DController13setFloorLevelEf": [
@@ -109,8 +116,17 @@
     "ritual_ZN16Bars3DController22handleRowColorsChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN16Bars3DController20primarySeriesChangedEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16Bars3DController21selectedSeriesChangedEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16Bars3DController17createDefaultAxisEN15QAbstract3DAxis15AxisOrientationE": [
       "address", "address", "int"
+    ],
+    "ritual_ZN16Bars3DController23adjustSelectionPositionER6QPointPK12QBar3DSeries": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_Bars3DController": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16Bars3DController16initializeOpenGLEv": [

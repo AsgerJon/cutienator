@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK5QMenu10metaObjectEv": ["address", "address"],
+    "ritual_ZN5QMenu11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN5QMenu11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN5QMenu2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN5QMenu6d_funcEv": ["address", "address"],
     "ritual_ZNK5QMenu6d_funcEv": ["address", "address"],
@@ -91,6 +95,10 @@
     ],
     "ritual_ZNK5QMenu15toolTipsVisibleEv": ["bool", "address"],
     "ritual_ZN5QMenu18setToolTipsVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN5QMenu11aboutToShowEv": ["nothing", "address"],
+    "ritual_ZN5QMenu11aboutToHideEv": ["nothing", "address"],
+    "ritual_ZN5QMenu9triggeredEP7QAction": ["nothing", "address", "address"],
+    "ritual_ZN5QMenu7hoveredEP7QAction": ["nothing", "address", "address"],
     "ritual_ZNK5QMenu11columnCountEv": ["int", "address"],
     "ritual_ZN5QMenu11changeEventEP6QEvent": [
       "nothing", "address", "address"
@@ -134,6 +142,9 @@
       "nothing", "address", "address", "address"
     ],
     "ritual_ZN5QMenu20internalDelayedPopupEv": ["nothing", "address"],
+    "ritual_ZN5QMenuC1ER12QMenuPrivateP7QWidget": [
+      "address", "address", "address"
+    ],
     "ritual_take_QMenu": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK5QMenu8sizeHintEv": ["address", "address"],
     "ritual_own_ZN5QMenu11changeEventEP6QEvent": [

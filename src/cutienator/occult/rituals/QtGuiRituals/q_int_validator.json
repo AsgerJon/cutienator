@@ -5,12 +5,24 @@
   ],
   "rows": {
     "ritual_ZNK13QIntValidator10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QIntValidator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QIntValidator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QIntValidator2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QIntValidatorC1EP7QObject": ["address", "address"],
     "ritual_ZN13QIntValidatorC1EiiP7QObject": [
       "address", "int", "int", "address"
     ],
     "ritual_ZN13QIntValidatorD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QIntValidator8validateER7QStringRi": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK13QIntValidator5fixupER7QString": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13QIntValidator9setBottomEi": ["nothing", "address", "int"],
     "ritual_ZN13QIntValidator6setTopEi": ["nothing", "address", "int"],
     "ritual_ZN13QIntValidator8setRangeEii": [
@@ -18,6 +30,10 @@
     ],
     "ritual_ZNK13QIntValidator6bottomEv": ["int", "address"],
     "ritual_ZNK13QIntValidator3topEv": ["int", "address"],
+    "ritual_ZN13QIntValidator13bottomChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QIntValidator10topChangedEi": ["nothing", "address", "int"],
     "ritual_take_QIntValidator": ["bool", "address", "chars", "address"]
   }
 }

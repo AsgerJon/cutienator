@@ -12,6 +12,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK20QQmlSslConfiguration7ciphersEv": ["text", "address"],
+    "ritual_ZNK20QQmlSslConfiguration10sslOptionsEv": ["address", "address"],
     "ritual_ZNK20QQmlSslConfiguration8protocolEv": ["int", "address"],
     "ritual_ZNK20QQmlSslConfiguration14peerVerifyModeEv": ["int", "address"],
     "ritual_ZNK20QQmlSslConfiguration15peerVerifyDepthEv": [
@@ -36,6 +37,9 @@
     "ritual_ZN20QQmlSslConfiguration10setCiphersERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN20QQmlSslConfiguration13setSslOptionsERK5QListIN4QSsl9SslOptionEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QQmlSslConfiguration16setSessionTicketERK10QByteArray": [
       "nothing", "address", "address"
     ],
@@ -50,6 +54,9 @@
     "ritual_ZN20QQmlSslConfiguration14setCiphersListERK17QSslConfiguration": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN20QQmlSslConfigurationD1Ev": ["nothing", "address"]
+    "ritual_ZN20QQmlSslConfigurationD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlSslConfiguration__QList_QSsl_SslOption": [
+      "nothing", "address"
+    ]
   }
 }

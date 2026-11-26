@@ -14,3 +14,17 @@ QV4::Object *ritual_ZN3QV420ReferenceErrorObject16defaultPrototypeEPNS_15Executi
     QV4::ExecutionEngine *e) {
   return QV4::ReferenceErrorObject::defaultPrototype(e);
 }
+
+//  const Data *QV4::ReferenceErrorObject::d() const
+extern "C" Q_DECL_EXPORT
+const QV4::ReferenceErrorObject::Data *ritual_ZNK3QV420ReferenceErrorObject1dEv(
+    const QV4::ReferenceErrorObject *self) {
+  return self->d();
+}
+
+//  Data *QV4::ReferenceErrorObject::d()
+extern "C" Q_DECL_EXPORT
+QV4::ReferenceErrorObject::Data *ritual_ZN3QV420ReferenceErrorObject1dEv(
+    QV4::ReferenceErrorObject *self) {
+  return self->d();
+}

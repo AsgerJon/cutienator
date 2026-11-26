@@ -9,12 +9,24 @@
   ],
   "rows": {
     "ritual_ZNK20QGraphPointAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QGraphPointAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QGraphPointAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QGraphPointAnimationD1Ev": ["nothing", "address"],
     "ritual_ZN20QGraphPointAnimation13animationTypeEv": ["int", "address"],
     "ritual_ZN20QGraphPointAnimation17setAnimatingValueERK8QVariantS2_": [
       "nothing", "address", "address", "address"
     ],
     "ritual_ZNK20QGraphPointAnimation12interpolatedERK8QVariantS2_d": [
       "address", "address", "address", "address", "double"
+    ],
+    "ritual_ZN20QGraphPointAnimation7animateEv": ["nothing", "address"],
+    "ritual_ZN20QGraphPointAnimation3endEv": ["nothing", "address"],
+    "ritual_ZN20QGraphPointAnimation12valueUpdatedERK8QVariant": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QGraphPointAnimation": [
       "bool", "address", "chars", "address"

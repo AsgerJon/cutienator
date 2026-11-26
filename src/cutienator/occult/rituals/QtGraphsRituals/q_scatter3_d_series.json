@@ -9,6 +9,12 @@
   ],
   "rows": {
     "ritual_ZNK16QScatter3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QScatter3DSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QScatter3DSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QScatter3DSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -60,6 +66,33 @@
     "ritual_ZN16QScatter3DSeries10resetAxisXEv": ["nothing", "address"],
     "ritual_ZN16QScatter3DSeries10resetAxisYEv": ["nothing", "address"],
     "ritual_ZN16QScatter3DSeries10resetAxisZEv": ["nothing", "address"],
+    "ritual_ZN16QScatter3DSeries16dataProxyChangedEP17QScatterDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries19selectedItemChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QScatter3DSeries15itemSizeChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QScatter3DSeries16dataArrayChangedERK5QListI16QScatterDataItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries17scaleArrayChangedERK5QListI9QVector3DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries12axisXChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries12axisYChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries12axisZChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeriesC1ER23QScatter3DSeriesPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QScatter3DSeries": ["bool", "address", "chars", "address"],
     "ritual_list_make_QScatter3DSeries_ptr": ["address"],
     "ritual_list_add_QScatter3DSeries_ptr": [

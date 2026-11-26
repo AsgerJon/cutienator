@@ -11,6 +11,7 @@ typedef void (*CuteQModbusPduCall0)(const void *, int, int *);
 class CuteQModbusPdu : public QModbusPdu {
 public:
   using QModbusPdu::QModbusPdu;
+  CuteQModbusPdu(const QModbusPdu & other) : QModbusPdu(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -111,6 +112,20 @@ QModbusPdu *ritual_ZN10QModbusPduC1ENS_12FunctionCodeERK10QByteArray(
     QModbusPdu::FunctionCode code,
     const QByteArray *newData) {
   return new CuteQModbusPdu(code, *newData);
+}
+
+//  QModbusPdu::QModbusPdu(const QModbusPdu &a0)
+extern "C" Q_DECL_EXPORT
+QModbusPdu *ritual_ZN10QModbusPduC1ERKS_(const QModbusPdu *a0) {
+  return new CuteQModbusPdu(*a0);
+}
+
+//  QModbusPdu &QModbusPdu::operator=(const QModbusPdu &a0)
+extern "C" Q_DECL_EXPORT
+QModbusPdu *ritual_ZN10QModbusPduaSERKS_(
+    QModbusPdu *self,
+    const QModbusPdu *a0) {
+  return &(self->operator=(*a0));
 }
 
 //  a Python function taken by a CuteQModbusPdu, for the function named by

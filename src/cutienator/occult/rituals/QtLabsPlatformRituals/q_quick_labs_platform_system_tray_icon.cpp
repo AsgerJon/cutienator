@@ -42,13 +42,13 @@
 #if QT_CONFIG(systemtrayicon)
 #include <QtLabsPlatform/private/qquicklabsplatformsystemtrayicon_p.h>
 #endif
-#include <QtLabsPlatform/private/qquicklabsplatformicon_p.h>
 #include <QtLabsPlatform/private/qquicklabsplatformsystemtrayicon_p.h>
 #include <QtLabsPlatform/private/qquicklabsplatformmenu_p.h>
 #include <QtLabsPlatform/private/qquicklabsplatformiconloader_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtGui/qpa/qplatformtheme.h>
 #include <QtGui/private/qguiapplication_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformicon_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -106,6 +106,19 @@ inline QQuickLabsPlatformIconLoader::QQuickLabsPlatformIconLoader(int slot, QObj
 inline QPlatformMenu *QQuickLabsPlatformMenu::handle() const
 {
     return m_handle;
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformsystemtrayicon.cpp, line 379, as _ZN32QQuickLabsPlatformSystemTrayIcon10classBeginEv
+inline void QQuickLabsPlatformSystemTrayIcon::classBegin()
+{
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformsystemtrayicon.cpp, line 383, as _ZN32QQuickLabsPlatformSystemTrayIcon17componentCompleteEv
+inline void QQuickLabsPlatformSystemTrayIcon::componentComplete()
+{
+    m_complete = true;
+    if (m_visible)
+        init();
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformiconloader.cpp, line 53, as _ZN28QQuickLabsPlatformIconLoader8loadIconEv
@@ -194,13 +207,6 @@ inline QQuickLabsPlatformIcon QQuickLabsPlatformSystemTrayIcon::icon() const
     return m_iconLoader->icon();
 }
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformsystemtrayicon.cpp, line 352, as _ZN32QQuickLabsPlatformSystemTrayIcon11showMessageERK7QStringS2_N23QPlatformSystemTrayIcon11MessageIconEi
-inline void QQuickLabsPlatformSystemTrayIcon::showMessage(const QString &title, const QString &msg, QPlatformSystemTrayIcon::MessageIcon icon, int msecs)
-{
-    if (m_handle)
-        m_handle->showMessage(title, msg, QIcon(), icon, msecs);
-}
-
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformsystemtrayicon.cpp, line 371, as _ZN32QQuickLabsPlatformSystemTrayIcon7cleanupEv
 inline void QQuickLabsPlatformSystemTrayIcon::cleanup()
 {
@@ -208,19 +214,6 @@ inline void QQuickLabsPlatformSystemTrayIcon::cleanup()
         m_handle->cleanup();
     if (m_iconLoader)
         m_iconLoader->setEnabled(false);
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformsystemtrayicon.cpp, line 379, as _ZN32QQuickLabsPlatformSystemTrayIcon10classBeginEv
-inline void QQuickLabsPlatformSystemTrayIcon::classBegin()
-{
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformsystemtrayicon.cpp, line 383, as _ZN32QQuickLabsPlatformSystemTrayIcon17componentCompleteEv
-inline void QQuickLabsPlatformSystemTrayIcon::componentComplete()
-{
-    m_complete = true;
-    if (m_visible)
-        init();
 }
 //  -----------------------------------------------------------------------
 
@@ -448,6 +441,25 @@ const QMetaObject *ritual_ZNK32QQuickLabsPlatformSystemTrayIcon10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLabsPlatformSystemTrayIcon::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QQuickLabsPlatformSystemTrayIcon11qt_metacastEPKc(
+    QQuickLabsPlatformSystemTrayIcon *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformSystemTrayIcon::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QQuickLabsPlatformSystemTrayIcon11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformSystemTrayIcon *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const QMetaObject
 //      *QQuickLabsPlatformSystemTrayIcon::qmlExtendedNamespace()
 extern "C" Q_DECL_EXPORT
@@ -525,6 +537,56 @@ QQuickLabsPlatformIcon *ritual_ZNK32QQuickLabsPlatformSystemTrayIcon4iconEv(
   return new QQuickLabsPlatformIcon(self->icon());
 }
 
+//  void QQuickLabsPlatformSystemTrayIcon::show()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon4showEv(
+    QQuickLabsPlatformSystemTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "show()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "show()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformSystemTrayIcon::hide()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon4hideEv(
+    QQuickLabsPlatformSystemTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "hide()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "hide()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuickLabsPlatformSystemTrayIcon::showMessage(const QString &title,
 //      const QString &message, QPlatformSystemTrayIcon::MessageIcon
 //      iconType, int msecs)
@@ -535,7 +597,207 @@ void ritual_ZN32QQuickLabsPlatformSystemTrayIcon11showMessageERK7QStringS2_N23QP
     const QString *message,
     QPlatformSystemTrayIcon::MessageIcon iconType,
     int msecs) {
-  self->showMessage(*title, *message, iconType, msecs);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "showMessage(const QString &,const QString &,QPlatformSystemTrayIcon::MessageIcon,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "showMessage(const QString &,const QString &,QPlatformSystemTrayIcon::MessageIcon,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(title)),
+      const_cast<void *>(static_cast<const void *>(message)),
+      const_cast<void *>(static_cast<const void *>(&iconType)),
+      const_cast<void *>(static_cast<const void *>(&msecs)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformSystemTrayIcon::activated(QPlatformSystemTrayIcon:
+//      :ActivationReason reason)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon9activatedEN23QPlatformSystemTrayIcon16ActivationReasonE(
+    QQuickLabsPlatformSystemTrayIcon *self,
+    QPlatformSystemTrayIcon::ActivationReason reason) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "activated(QPlatformSystemTrayIcon::ActivationReason)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "activated(QPlatformSystemTrayIcon::ActivationReason)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&reason)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformSystemTrayIcon::messageClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon14messageClickedEv(
+    QQuickLabsPlatformSystemTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "messageClicked()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "messageClicked()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformSystemTrayIcon::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon14visibleChangedEv(
+    QQuickLabsPlatformSystemTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "visibleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "visibleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformSystemTrayIcon::tooltipChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon14tooltipChangedEv(
+    QQuickLabsPlatformSystemTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "tooltipChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "tooltipChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformSystemTrayIcon::menuChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon11menuChangedEv(
+    QQuickLabsPlatformSystemTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "menuChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "menuChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformSystemTrayIcon::geometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon15geometryChangedEv(
+    QQuickLabsPlatformSystemTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "geometryChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "geometryChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformSystemTrayIcon::iconChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon11iconChangedEv(
+    QQuickLabsPlatformSystemTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "iconChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "iconChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuickLabsPlatformSystemTrayIcon::cleanup()
@@ -557,6 +819,31 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN32QQuickLabsPlatformSystemTrayIcon17componentCompleteEv(
     QQuickLabsPlatformSystemTrayIcon *self) {
   self->componentComplete();
+}
+
+//  void QQuickLabsPlatformSystemTrayIcon::updateIcon()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickLabsPlatformSystemTrayIcon10updateIconEv(
+    QQuickLabsPlatformSystemTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformSystemTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateIcon()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateIcon()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QQuickLabsPlatformSystemTrayIcon as the QQmlParserStatus it is built on

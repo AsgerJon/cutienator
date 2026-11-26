@@ -22,6 +22,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtWidgets/QListWidgetItem>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qlistwidget.h>
 #include <QtWidgets/private/qlistview_p.h>
@@ -37,30 +39,190 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 379, as _ZN10QListModel23sortedInsertionIteratorERKN5QListIP15QListWidgetItemE8iteratorES6_N2Qt9SortOrderES2_
-inline QList<QListWidgetItem*>::iterator QListModel::sortedInsertionIterator(
-    const QList<QListWidgetItem*>::iterator &begin,
-    const QList<QListWidgetItem*>::iterator &end,
-    Qt::SortOrder order, QListWidgetItem *item)
+//  from src/widgets/itemviews/qlistwidget.cpp, line 221, as _ZN10QListModel10insertRowsEiiRK11QModelIndex
+inline bool QListModel::insertRows(int row, int count, const QModelIndex &parent)
 {
-    if (order == Qt::AscendingOrder)
-        return std::lower_bound(begin, end, item, QListModelLessThan());
-    return std::lower_bound(begin, end, item, QListModelGreaterThan());
+    if (count < 1 || row < 0 || row > rowCount() || parent.isValid())
+        return false;
+
+    beginInsertRows(QModelIndex(), row, row + count - 1);
+    QListWidget *view = this->view();
+    QListWidgetItem *itm = nullptr;
+
+    for (int r = row; r < row + count; ++r) {
+        itm = new QListWidgetItem;
+        itm->view = view;
+        itm->d->theid = r;
+        items.insert(r, itm);
+    }
+
+    endInsertRows();
+    return true;
 }
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 367, as _ZN10QListModel12itemLessThanERKSt4pairIP15QListWidgetItemiES5_
-inline bool QListModel::itemLessThan(const std::pair<QListWidgetItem*,int> &left,
-                              const std::pair<QListWidgetItem*,int> &right)
+//  from src/widgets/itemviews/qlistwidget.cpp, line 241, as _ZN10QListModel10removeRowsEiiRK11QModelIndex
+inline bool QListModel::removeRows(int row, int count, const QModelIndex &parent)
 {
-    return (*left.first) < (*right.first);
+    if (count < 1 || row < 0 || (row + count) > rowCount() || parent.isValid())
+        return false;
+
+    beginRemoveRows(QModelIndex(), row, row + count - 1);
+    QListWidgetItem *itm = nullptr;
+    for (int r = row; r < row + count; ++r) {
+        itm = items.takeAt(row);
+        itm->view = nullptr;
+        itm->d->theid = -1;
+        delete itm;
+    }
+    endRemoveRows();
+    return true;
 }
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 373, as _ZN10QListModel15itemGreaterThanERKSt4pairIP15QListWidgetItemiES5_
-inline bool QListModel::itemGreaterThan(const std::pair<QListWidgetItem*,int> &left,
-                                 const std::pair<QListWidgetItem*,int> &right)
+//  from src/widgets/itemviews/qlistwidget.cpp, line 148, as _ZNK10QListModel8rowCountERK11QModelIndex
+inline int QListModel::rowCount(const QModelIndex &parent) const
 {
-    return (*right.first) < (*left.first);
+    return parent.isValid() ? 0 : items.size();
 }
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 172, as _ZNK10QListModel5indexEiiRK11QModelIndex
+inline QModelIndex QListModel::index(int row, int column, const QModelIndex &parent) const
+{
+    if (hasIndex(row, column, parent))
+        return createIndex(row, column, items.at(row));
+    return QModelIndex();
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 179, as _ZNK10QListModel4dataERK11QModelIndexi
+inline QVariant QListModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid() || index.row() >= items.size())
+        return QVariant();
+    return items.at(index.row())->data(role);
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 186, as _ZN10QListModel7setDataERK11QModelIndexRK8QVarianti
+inline bool QListModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (!index.isValid() || index.row() >= items.size())
+        return false;
+    items.at(index.row())->setData(role, value);
+    return true;
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 194, as _ZN10QListModel13clearItemDataERK11QModelIndex
+inline bool QListModel::clearItemData(const QModelIndex &index)
+{
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid))
+        return false;
+    QListWidgetItem *item = items.at(index.row());
+    const auto beginIter = item->d->values.cbegin();
+    const auto endIter = item->d->values.cend();
+    if (std::all_of(beginIter, endIter, [](const QWidgetItemData& data) -> bool { return !data.value.isValid(); }))
+        return true; //it's already cleared
+    item->d->values.clear();
+    emit dataChanged(index, index, QList<int> {});
+    return true;
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 268, as _ZN10QListModel8moveRowsERK11QModelIndexiiS2_i
+inline bool QListModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild)
+{
+    if (sourceRow < 0
+        || sourceRow + count - 1 >= rowCount(sourceParent)
+        || destinationChild < 0
+        || destinationChild > rowCount(destinationParent)
+        || sourceRow == destinationChild
+        || sourceRow == destinationChild - 1
+        || count <= 0
+        || sourceParent.isValid()
+        || destinationParent.isValid()) {
+        return false;
+    }
+    if (!beginMoveRows(QModelIndex(), sourceRow, sourceRow + count - 1, QModelIndex(), destinationChild))
+        return false;
+
+    int fromRow = sourceRow;
+    if (destinationChild < sourceRow)
+        fromRow += count - 1;
+    else
+        destinationChild--;
+    while (count--)
+        items.move(fromRow, destinationChild);
+    endMoveRows();
+    return true;
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 295, as _ZNK10QListModel5flagsERK11QModelIndex
+inline Qt::ItemFlags QListModel::flags(const QModelIndex &index) const
+{
+    if (!index.isValid() || index.row() >= items.size() || index.model() != this)
+        return Qt::ItemIsDropEnabled; // we allow drops outside the items
+    return items.at(index.row())->flags();
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 302, as _ZN10QListModel4sortEiN2Qt9SortOrderE
+inline void QListModel::sort(int column, Qt::SortOrder order)
+{
+    if (column != 0)
+        return;
+
+    emit layoutAboutToBeChanged({}, QAbstractItemModel::VerticalSortHint);
+
+    QList<std::pair<QListWidgetItem *, int>> sorting(items.size());
+    for (int i = 0; i < items.size(); ++i) {
+        QListWidgetItem *item = items.at(i);
+        sorting[i].first = item;
+        sorting[i].second = i;
+    }
+
+    const auto compare = (order == Qt::AscendingOrder ? &itemLessThan : &itemGreaterThan);
+    std::stable_sort(sorting.begin(), sorting.end(), compare);
+    QModelIndexList fromIndexes;
+    QModelIndexList toIndexes;
+    const int sortingCount = sorting.size();
+    fromIndexes.reserve(sortingCount);
+    toIndexes.reserve(sortingCount);
+    for (int r = 0; r < sortingCount; ++r) {
+        QListWidgetItem *item = sorting.at(r).first;
+        toIndexes.append(createIndex(r, 0, item));
+        fromIndexes.append(createIndex(sorting.at(r).second, 0, sorting.at(r).first));
+        items[r] = sorting.at(r).first;
+    }
+    changePersistentIndexList(fromIndexes, toIndexes);
+
+    emit layoutChanged({}, QAbstractItemModel::VerticalSortHint);
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 423, as _ZN10QListModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QListModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
+                              int row, int column, const QModelIndex &index)
+{
+    Q_UNUSED(column);
+    if (index.isValid())
+        row = index.row();
+    else if (row == -1)
+        row = items.size();
+
+    return view()->dropMimeData(row, data, action);
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 435, as _ZNK10QListModel20supportedDropActionsEv
+#if QT_CONFIG(draganddrop)
+inline Qt::DropActions QListModel::supportedDropActions() const
+{
+    return view()->supportedDropActions();
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 440, as _ZNK10QListModel20supportedDragActionsEv
+#if QT_CONFIG(draganddrop)
+inline Qt::DropActions QListModel::supportedDragActions() const
+{
+    return view()->supportedDragActions();
+}
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 31, as _ZN10QListModelD1Ev
 inline QListModel::~QListModel()
@@ -187,12 +349,6 @@ inline void QListModel::move(int srcRow, int dstRow)
     endMoveRows();
 }
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 148, as _ZNK10QListModel8rowCountERK11QModelIndex
-inline int QListModel::rowCount(const QModelIndex &parent) const
-{
-    return parent.isValid() ? 0 : items.size();
-}
-
 //  from src/widgets/itemviews/qlistwidget.cpp, line 153, as _ZNK10QListModel5indexEPK15QListWidgetItem
 inline QModelIndex QListModel::index(const QListWidgetItem *item_) const
 {
@@ -211,168 +367,6 @@ inline QModelIndex QListModel::index(const QListWidgetItem *item_) const
         item->d->theid = row;
     }
     return createIndex(row, 0, item);
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 172, as _ZNK10QListModel5indexEiiRK11QModelIndex
-inline QModelIndex QListModel::index(int row, int column, const QModelIndex &parent) const
-{
-    if (hasIndex(row, column, parent))
-        return createIndex(row, column, items.at(row));
-    return QModelIndex();
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 179, as _ZNK10QListModel4dataERK11QModelIndexi
-inline QVariant QListModel::data(const QModelIndex &index, int role) const
-{
-    if (!index.isValid() || index.row() >= items.size())
-        return QVariant();
-    return items.at(index.row())->data(role);
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 186, as _ZN10QListModel7setDataERK11QModelIndexRK8QVarianti
-inline bool QListModel::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-    if (!index.isValid() || index.row() >= items.size())
-        return false;
-    items.at(index.row())->setData(role, value);
-    return true;
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 194, as _ZN10QListModel13clearItemDataERK11QModelIndex
-inline bool QListModel::clearItemData(const QModelIndex &index)
-{
-    if (!checkIndex(index, CheckIndexOption::IndexIsValid))
-        return false;
-    QListWidgetItem *item = items.at(index.row());
-    const auto beginIter = item->d->values.cbegin();
-    const auto endIter = item->d->values.cend();
-    if (std::all_of(beginIter, endIter, [](const QWidgetItemData& data) -> bool { return !data.value.isValid(); }))
-        return true; //it's already cleared
-    item->d->values.clear();
-    emit dataChanged(index, index, QList<int> {});
-    return true;
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 208, as _ZNK10QListModel8itemDataERK11QModelIndex
-inline QMap<int, QVariant> QListModel::itemData(const QModelIndex &index) const
-{
-    QMap<int, QVariant> roles;
-    if (!index.isValid() || index.row() >= items.size())
-        return roles;
-    QListWidgetItem *itm = items.at(index.row());
-    for (int i = 0; i < itm->d->values.size(); ++i) {
-        roles.insert(itm->d->values.at(i).role,
-                     itm->d->values.at(i).value);
-    }
-    return roles;
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 221, as _ZN10QListModel10insertRowsEiiRK11QModelIndex
-inline bool QListModel::insertRows(int row, int count, const QModelIndex &parent)
-{
-    if (count < 1 || row < 0 || row > rowCount() || parent.isValid())
-        return false;
-
-    beginInsertRows(QModelIndex(), row, row + count - 1);
-    QListWidget *view = this->view();
-    QListWidgetItem *itm = nullptr;
-
-    for (int r = row; r < row + count; ++r) {
-        itm = new QListWidgetItem;
-        itm->view = view;
-        itm->d->theid = r;
-        items.insert(r, itm);
-    }
-
-    endInsertRows();
-    return true;
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 241, as _ZN10QListModel10removeRowsEiiRK11QModelIndex
-inline bool QListModel::removeRows(int row, int count, const QModelIndex &parent)
-{
-    if (count < 1 || row < 0 || (row + count) > rowCount() || parent.isValid())
-        return false;
-
-    beginRemoveRows(QModelIndex(), row, row + count - 1);
-    QListWidgetItem *itm = nullptr;
-    for (int r = row; r < row + count; ++r) {
-        itm = items.takeAt(row);
-        itm->view = nullptr;
-        itm->d->theid = -1;
-        delete itm;
-    }
-    endRemoveRows();
-    return true;
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 268, as _ZN10QListModel8moveRowsERK11QModelIndexiiS2_i
-inline bool QListModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild)
-{
-    if (sourceRow < 0
-        || sourceRow + count - 1 >= rowCount(sourceParent)
-        || destinationChild < 0
-        || destinationChild > rowCount(destinationParent)
-        || sourceRow == destinationChild
-        || sourceRow == destinationChild - 1
-        || count <= 0
-        || sourceParent.isValid()
-        || destinationParent.isValid()) {
-        return false;
-    }
-    if (!beginMoveRows(QModelIndex(), sourceRow, sourceRow + count - 1, QModelIndex(), destinationChild))
-        return false;
-
-    int fromRow = sourceRow;
-    if (destinationChild < sourceRow)
-        fromRow += count - 1;
-    else
-        destinationChild--;
-    while (count--)
-        items.move(fromRow, destinationChild);
-    endMoveRows();
-    return true;
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 295, as _ZNK10QListModel5flagsERK11QModelIndex
-inline Qt::ItemFlags QListModel::flags(const QModelIndex &index) const
-{
-    if (!index.isValid() || index.row() >= items.size() || index.model() != this)
-        return Qt::ItemIsDropEnabled; // we allow drops outside the items
-    return items.at(index.row())->flags();
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 302, as _ZN10QListModel4sortEiN2Qt9SortOrderE
-inline void QListModel::sort(int column, Qt::SortOrder order)
-{
-    if (column != 0)
-        return;
-
-    emit layoutAboutToBeChanged({}, QAbstractItemModel::VerticalSortHint);
-
-    QList<std::pair<QListWidgetItem *, int>> sorting(items.size());
-    for (int i = 0; i < items.size(); ++i) {
-        QListWidgetItem *item = items.at(i);
-        sorting[i].first = item;
-        sorting[i].second = i;
-    }
-
-    const auto compare = (order == Qt::AscendingOrder ? &itemLessThan : &itemGreaterThan);
-    std::stable_sort(sorting.begin(), sorting.end(), compare);
-    QModelIndexList fromIndexes;
-    QModelIndexList toIndexes;
-    const int sortingCount = sorting.size();
-    fromIndexes.reserve(sortingCount);
-    toIndexes.reserve(sortingCount);
-    for (int r = 0; r < sortingCount; ++r) {
-        QListWidgetItem *item = sorting.at(r).first;
-        toIndexes.append(createIndex(r, 0, item));
-        fromIndexes.append(createIndex(sorting.at(r).second, 0, sorting.at(r).first));
-        items[r] = sorting.at(r).first;
-    }
-    changePersistentIndexList(fromIndexes, toIndexes);
-
-    emit layoutChanged({}, QAbstractItemModel::VerticalSortHint);
 }
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 338, as _ZN10QListModel12ensureSortedEiN2Qt9SortOrderEii
@@ -405,60 +399,37 @@ inline void QListModel::ensureSorted(int column, Qt::SortOrder order, int start,
         sort(column, order);
 }
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 395, as _ZNK10QListModel9mimeTypesEv
-inline QStringList QListModel::mimeTypes() const
+//  from src/widgets/itemviews/qlistwidget.cpp, line 367, as _ZN10QListModel12itemLessThanERKSt4pairIP15QListWidgetItemiES5_
+inline bool QListModel::itemLessThan(const std::pair<QListWidgetItem*,int> &left,
+                              const std::pair<QListWidgetItem*,int> &right)
 {
-    const QListWidget *view = this->view();
-    if (view)
-        return view->mimeTypes();
-    return {};
+    return (*left.first) < (*right.first);
 }
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 408, as _ZNK10QListModel8mimeDataERK5QListI11QModelIndexE
-inline QMimeData *QListModel::mimeData(const QModelIndexList &indexes) const
+//  from src/widgets/itemviews/qlistwidget.cpp, line 373, as _ZN10QListModel15itemGreaterThanERKSt4pairIP15QListWidgetItemiES5_
+inline bool QListModel::itemGreaterThan(const std::pair<QListWidgetItem*,int> &left,
+                                 const std::pair<QListWidgetItem*,int> &right)
 {
-    QList<QListWidgetItem*> itemlist;
-    const int indexesCount = indexes.size();
-    itemlist.reserve(indexesCount);
-    for (int i = 0; i < indexesCount; ++i)
-        itemlist << at(indexes.at(i).row());
-
-    cachedIndexes = indexes;
-    QMimeData *mimeData = view()->mimeData(itemlist);
-    cachedIndexes.clear();
-    return mimeData;
+    return (*right.first) < (*left.first);
 }
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 423, as _ZN10QListModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
-#if QT_CONFIG(draganddrop)
-inline bool QListModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
-                              int row, int column, const QModelIndex &index)
+//  from src/widgets/itemviews/qlistwidget.cpp, line 379, as _ZN10QListModel23sortedInsertionIteratorERKN5QListIP15QListWidgetItemE8iteratorES6_N2Qt9SortOrderES2_
+inline QList<QListWidgetItem*>::iterator QListModel::sortedInsertionIterator(
+    const QList<QListWidgetItem*>::iterator &begin,
+    const QList<QListWidgetItem*>::iterator &end,
+    Qt::SortOrder order, QListWidgetItem *item)
 {
-    Q_UNUSED(column);
-    if (index.isValid())
-        row = index.row();
-    else if (row == -1)
-        row = items.size();
-
-    return view()->dropMimeData(row, data, action);
+    if (order == Qt::AscendingOrder)
+        return std::lower_bound(begin, end, item, QListModelLessThan());
+    return std::lower_bound(begin, end, item, QListModelGreaterThan());
 }
-#endif  // QT_CONFIG(draganddrop)
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 435, as _ZNK10QListModel20supportedDropActionsEv
-#if QT_CONFIG(draganddrop)
-inline Qt::DropActions QListModel::supportedDropActions() const
+//  from src/widgets/itemviews/qlistwidget.cpp, line 389, as _ZN10QListModel11itemChangedEP15QListWidgetItemRK5QListIiE
+inline void QListModel::itemChanged(QListWidgetItem *item, const QList<int> &roles)
 {
-    return view()->supportedDropActions();
+    const QModelIndex idx = index(item);
+    emit dataChanged(idx, idx, roles);
 }
-#endif  // QT_CONFIG(draganddrop)
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 440, as _ZNK10QListModel20supportedDragActionsEv
-#if QT_CONFIG(draganddrop)
-inline Qt::DropActions QListModel::supportedDragActions() const
-{
-    return view()->supportedDragActions();
-}
-#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 403, as _ZNK10QListModel16internalMimeDataEv
 inline QMimeData *QListModel::internalMimeData()  const
@@ -1482,6 +1453,24 @@ const QMetaObject *ritual_ZNK10QListModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QListModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QListModel11qt_metacastEPKc(
+    QListModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QListModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QListModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QListModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QListModel::~QListModel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QListModelD1Ev(QListModel *self) {
@@ -1682,6 +1671,52 @@ void ritual_ZN10QListModel12ensureSortedEiN2Qt9SortOrderEii(
   self->ensureSorted(column, order, start, end);
 }
 
+//  bool QListModel::itemLessThan(const std::pair<QListWidgetItem *, int>
+//      &left, const std::pair<QListWidgetItem *, int> &right)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QListModel12itemLessThanERKSt4pairIP15QListWidgetItemiES5_(
+    const std::pair<QListWidgetItem *, int> *left,
+    const std::pair<QListWidgetItem *, int> *right) {
+  return QListModel::itemLessThan(*left, *right);
+}
+
+//  bool QListModel::itemGreaterThan(const std::pair<QListWidgetItem *, int>
+//      &left, const std::pair<QListWidgetItem *, int> &right)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QListModel15itemGreaterThanERKSt4pairIP15QListWidgetItemiES5_(
+    const std::pair<QListWidgetItem *, int> *left,
+    const std::pair<QListWidgetItem *, int> *right) {
+  return QListModel::itemGreaterThan(*left, *right);
+}
+
+//  QList<QListWidgetItem *>::iterator
+//      QListModel::sortedInsertionIterator(const QList<QListWidgetItem
+//      *>::iterator &begin, const QList<QListWidgetItem *>::iterator &end,
+//      Qt::SortOrder order, QListWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+QList<QListWidgetItem *>::iterator *ritual_ZN10QListModel23sortedInsertionIteratorERKN5QListIP15QListWidgetItemE8iteratorES6_N2Qt9SortOrderES2_(
+    const QList<QListWidgetItem *>::iterator *begin,
+    const QList<QListWidgetItem *>::iterator *end,
+    Qt::SortOrder order,
+    QListWidgetItem *item) {
+  return new QList<QListWidgetItem *>::iterator(
+      QListModel::sortedInsertionIterator(
+          *begin,
+          *end,
+          order,
+          item));
+}
+
+//  void QListModel::itemChanged(QListWidgetItem *item, const QList<int>
+//      &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QListModel11itemChangedEP15QListWidgetItemRK5QListIiE(
+    QListModel *self,
+    QListWidgetItem *item,
+    const QList<int> *roles) {
+  self->itemChanged(item, *roles);
+}
+
 //  QStringList QListModel::mimeTypes() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK10QListModel9mimeTypesEv(const QListModel *self) {
@@ -1878,6 +1913,13 @@ int ritual_own_ZNK10QListModel20supportedDragActionsEv(
   return static_cast<int>(self->QListModel::supportedDragActions().toInt());
 }
 #endif  // QT_CONFIG(draganddrop)
+
+//  a QList<QListWidgetItem *>::iterator a ritual of QListModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QListModel__QList_QListWidgetItem_iterator(
+    QList<QListWidgetItem *>::iterator *self) {
+  delete self;
+}
 
 #endif  // QT_CONFIG(listwidget)
 #endif  // QT_CONFIG(listwidget)

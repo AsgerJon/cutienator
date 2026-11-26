@@ -3,6 +3,7 @@
 #include <QtCore/qdirlisting.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QDirListing>
 
 //  QDirListing::QDirListing(const QString &path, IteratorFlags flags)
 extern "C" Q_DECL_EXPORT
@@ -25,6 +26,26 @@ QDirListing *ritual_ZN11QDirListingC1ERK7QStringRK5QListIS0_E6QFlagsINS_12Iterat
       *path,
       *nameFilters,
       QFlags<QDirListing::IteratorFlag>::fromInt(flags));
+}
+
+//  QDirListing::QDirListing(QDirListing &&other)
+extern "C" Q_DECL_EXPORT
+QDirListing *ritual_ZN11QDirListingC1EOS_(QDirListing *other) {
+  return new QDirListing(std::move(*other));
+}
+
+//  QDirListing &QDirListing::operator=(QDirListing &&other)
+extern "C" Q_DECL_EXPORT
+QDirListing *ritual_ZN11QDirListingaSEOS_(
+    QDirListing *self,
+    QDirListing *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QDirListing::swap(QDirListing &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDirListing4swapERS_(QDirListing *self, QDirListing *other) {
+  self->swap(*other);
 }
 
 //  QDirListing::~QDirListing()
@@ -52,6 +73,20 @@ QList<QString> *ritual_ZNK11QDirListing11nameFiltersEv(
   return new QList<QString>(self->nameFilters());
 }
 
+//  const_iterator QDirListing::begin() const
+extern "C" Q_DECL_EXPORT
+QDirListing::const_iterator *ritual_ZNK11QDirListing5beginEv(
+    const QDirListing *self) {
+  return new QDirListing::const_iterator(self->begin());
+}
+
+//  const_iterator QDirListing::cbegin() const
+extern "C" Q_DECL_EXPORT
+QDirListing::const_iterator *ritual_ZNK11QDirListing6cbeginEv(
+    const QDirListing *self) {
+  return new QDirListing::const_iterator(self->cbegin());
+}
+
 //  sentinel QDirListing::end() const
 extern "C" Q_DECL_EXPORT
 QDirListing::sentinel *ritual_ZNK11QDirListing3endEv(
@@ -66,6 +101,13 @@ QDirListing::sentinel *ritual_ZNK11QDirListing4cendEv(
   return new QDirListing::sentinel(self->cend());
 }
 
+//  const_iterator QDirListing::constBegin() const
+extern "C" Q_DECL_EXPORT
+QDirListing::const_iterator *ritual_ZNK11QDirListing10constBeginEv(
+    const QDirListing *self) {
+  return new QDirListing::const_iterator(self->constBegin());
+}
+
 //  sentinel QDirListing::constEnd() const
 extern "C" Q_DECL_EXPORT
 QDirListing::sentinel *ritual_ZNK11QDirListing8constEndEv(
@@ -78,4 +120,11 @@ extern "C" Q_DECL_EXPORT
 QDirListing::DirEntry *ritual_ZN11QDirListing4nextENS_8DirEntryE(
     const QDirListing::DirEntry *a0) {
   return new QDirListing::DirEntry(QDirListing::next(*a0));
+}
+
+//  a QDirListing::const_iterator a ritual of QDirListing gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDirListing__QDirListing_const_iterator(
+    QDirListing::const_iterator *self) {
+  delete self;
 }

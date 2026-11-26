@@ -9,6 +9,7 @@
     "ritual_ZN9QColormap8instanceEi": ["address", "int"],
     "ritual_ZN9QColormapC1ERKS_": ["address", "address"],
     "ritual_ZN9QColormapD1Ev": ["nothing", "address"],
+    "ritual_ZN9QColormapaSERKS_": ["address", "address", "address"],
     "ritual_ZNK9QColormap4modeEv": ["int", "address"],
     "ritual_ZNK9QColormap5depthEv": ["int", "address"],
     "ritual_ZNK9QColormap4sizeEv": ["int", "address"],

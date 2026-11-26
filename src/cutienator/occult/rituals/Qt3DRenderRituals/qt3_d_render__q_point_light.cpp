@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender11QPointLight10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QPointLight::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender11QPointLight11qt_metacastEPKc(
+    Qt3DRender::QPointLight *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QPointLight::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender11QPointLight11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QPointLight *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QPointLight::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender11QPointLight2trEPKcS2_i(
@@ -195,6 +214,84 @@ Qt3DRender::QPointLight *ritual_ZN10Qt3DRender11QPointLightC1EPN8Qt3DCore5QNodeE
   return new CuteQt3DRender_QPointLight(parent);
 }
 
+//  Qt3DRender::QPointLight::~QPointLight()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QPointLightD1Ev(Qt3DRender::QPointLight *self) {
+  delete self;
+}
+
+//  float Qt3DRender::QPointLight::constantAttenuation() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender11QPointLight19constantAttenuationEv(
+    const Qt3DRender::QPointLight *self) {
+  return self->constantAttenuation();
+}
+
+//  float Qt3DRender::QPointLight::linearAttenuation() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender11QPointLight17linearAttenuationEv(
+    const Qt3DRender::QPointLight *self) {
+  return self->linearAttenuation();
+}
+
+//  float Qt3DRender::QPointLight::quadraticAttenuation() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender11QPointLight20quadraticAttenuationEv(
+    const Qt3DRender::QPointLight *self) {
+  return self->quadraticAttenuation();
+}
+
+//  void Qt3DRender::QPointLight::setConstantAttenuation(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QPointLight22setConstantAttenuationEf(
+    Qt3DRender::QPointLight *self,
+    float value) {
+  self->setConstantAttenuation(value);
+}
+
+//  void Qt3DRender::QPointLight::setLinearAttenuation(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QPointLight20setLinearAttenuationEf(
+    Qt3DRender::QPointLight *self,
+    float value) {
+  self->setLinearAttenuation(value);
+}
+
+//  void Qt3DRender::QPointLight::setQuadraticAttenuation(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QPointLight23setQuadraticAttenuationEf(
+    Qt3DRender::QPointLight *self,
+    float value) {
+  self->setQuadraticAttenuation(value);
+}
+
+//  void Qt3DRender::QPointLight::constantAttenuationChanged(float
+//      constantAttenuation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QPointLight26constantAttenuationChangedEf(
+    Qt3DRender::QPointLight *self,
+    float constantAttenuation) {
+  self->constantAttenuationChanged(constantAttenuation);
+}
+
+//  void Qt3DRender::QPointLight::linearAttenuationChanged(float
+//      linearAttenuation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QPointLight24linearAttenuationChangedEf(
+    Qt3DRender::QPointLight *self,
+    float linearAttenuation) {
+  self->linearAttenuationChanged(linearAttenuation);
+}
+
+//  void Qt3DRender::QPointLight::quadraticAttenuationChanged(float
+//      quadraticAttenuation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QPointLight27quadraticAttenuationChangedEf(
+    Qt3DRender::QPointLight *self,
+    float quadraticAttenuation) {
+  self->quadraticAttenuationChanged(quadraticAttenuation);
+}
+
 //  QPointLightPrivate *Qt3DRender::QPointLight::d_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QPointLightPrivate *ritual_ZN10Qt3DRender11QPointLight6d_funcEv(
@@ -207,6 +304,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QPointLightPrivate *ritual_ZNK10Qt3DRender11QPointLight6d_funcEv(
     const Qt3DRender::QPointLight *self) {
   return self->d_func();
+}
+
+//  Qt3DRender::QPointLight::QPointLight(QPointLightPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPointLight *ritual_ZN10Qt3DRender11QPointLightC1ERNS_18QPointLightPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QPointLightPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QPointLight(*dd, parent);
 }
 
 //  a Python function taken by a CuteQt3DRender_QPointLight, for the function

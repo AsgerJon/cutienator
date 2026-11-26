@@ -19,6 +19,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <cstring>
+#include <QtCore/QPointF>
 
 //  A QLottieBasicTransform that Python can take functions over in. Every QLottieBasicTransform
 //  Python makes is one. Each function below asks the Python
@@ -39,7 +40,7 @@ typedef const QSize * (*CuteQLottieBasicTransformCall12)(const void *, int *);
 class CuteQLottieBasicTransform : public QLottieBasicTransform {
 public:
   using QLottieBasicTransform::QLottieBasicTransform;
-  CuteQLottieBasicTransform(const QLottieBasicTransform &other) : QLottieBasicTransform(other) {}
+  CuteQLottieBasicTransform(const QLottieBasicTransform & other) : QLottieBasicTransform(other) {}
   void *taken[13] = {};
 
   bool take(const char *key, void *call) {
@@ -283,6 +284,14 @@ void ritual_ZN21QLottieBasicTransform16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieBasicTransform::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK21QLottieBasicTransform6renderER15QLottieRenderer(
+    const QLottieBasicTransform *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  QPointF QLottieBasicTransform::anchorPoint() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK21QLottieBasicTransform11anchorPointEv(
@@ -325,6 +334,20 @@ bool ritual_ZNK21QLottieBasicTransform13splitPositionEv(
   return self->splitPosition();
 }
 
+//  QLottieProperty<qreal> QLottieBasicTransform::xPosProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK21QLottieBasicTransform12xPosPropertyEv(
+    const QLottieBasicTransform *self) {
+  return new QLottieProperty<qreal>(self->xPosProperty());
+}
+
+//  QLottieProperty<qreal> QLottieBasicTransform::yPosProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK21QLottieBasicTransform12yPosPropertyEv(
+    const QLottieBasicTransform *self) {
+  return new QLottieProperty<qreal>(self->yPosProperty());
+}
+
 //  QLottieSpatialProperty QLottieBasicTransform::anchorPointProperty() const
 extern "C" Q_DECL_EXPORT
 QLottieSpatialProperty *ritual_ZNK21QLottieBasicTransform19anchorPointPropertyEv(
@@ -337,6 +360,27 @@ extern "C" Q_DECL_EXPORT
 QLottieSpatialProperty *ritual_ZNK21QLottieBasicTransform16positionPropertyEv(
     const QLottieBasicTransform *self) {
   return new QLottieSpatialProperty(self->positionProperty());
+}
+
+//  QLottieProperty2D<QPointF> QLottieBasicTransform::scaleProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty2D<QPointF> *ritual_ZNK21QLottieBasicTransform13scalePropertyEv(
+    const QLottieBasicTransform *self) {
+  return new QLottieProperty2D<QPointF>(self->scaleProperty());
+}
+
+//  QLottieProperty<qreal> QLottieBasicTransform::rotationProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK21QLottieBasicTransform16rotationPropertyEv(
+    const QLottieBasicTransform *self) {
+  return new QLottieProperty<qreal>(self->rotationProperty());
+}
+
+//  QLottieProperty<qreal> QLottieBasicTransform::opacityProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK21QLottieBasicTransform15opacityPropertyEv(
+    const QLottieBasicTransform *self) {
+  return new QLottieProperty<qreal>(self->opacityProperty());
 }
 
 //  bool QLottieBasicTransform::hasLinkedLayerTransform() const
@@ -399,4 +443,18 @@ extern "C" Q_DECL_EXPORT
 QPointF *ritual_own_ZNK21QLottieBasicTransform8positionEv(
     const QLottieBasicTransform *self) {
   return new QPointF(self->QLottieBasicTransform::position());
+}
+
+//  a QLottieProperty<qreal> a ritual of QLottieBasicTransform gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieBasicTransform__QLottieProperty_qreal(
+    QLottieProperty<qreal> *self) {
+  delete self;
+}
+
+//  a QLottieProperty2D<QPointF> a ritual of QLottieBasicTransform gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieBasicTransform__QLottieProperty2D_QPointF(
+    QLottieProperty2D<QPointF> *self) {
+  delete self;
 }

@@ -7,8 +7,126 @@
     "ritual_ZNK10Qt3DRender11QCameraLens10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender11QCameraLens11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender11QCameraLens2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLensC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLensD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender11QCameraLens14projectionTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QCameraLens9nearPlaneEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender11QCameraLens8farPlaneEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender11QCameraLens11fieldOfViewEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QCameraLens11aspectRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QCameraLens4leftEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender11QCameraLens5rightEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender11QCameraLens6bottomEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender11QCameraLens3topEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender11QCameraLens16projectionMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens25setOrthographicProjectionEffffff": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens20setFrustumProjectionEffffff": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens24setPerspectiveProjectionEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZNK10Qt3DRender11QCameraLens8exposureEv": ["float", "address"],
+    "ritual_ZN10Qt3DRender11QCameraLens7viewAllEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens10viewEntityEN8Qt3DCore7QNodeIdES2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens17setProjectionTypeENS0_14ProjectionTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens12setNearPlaneEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens11setFarPlaneEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens14setFieldOfViewEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens14setAspectRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens7setLeftEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens8setRightEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens9setBottomEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens6setTopEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens19setProjectionMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens11setExposureEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens21projectionTypeChangedENS0_14ProjectionTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens16nearPlaneChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens15farPlaneChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens18fieldOfViewChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens18aspectRatioChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens11leftChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens12rightChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens13bottomChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens10topChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens23projectionMatrixChangedERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens15exposureChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLens10viewSphereERK9QVector3Df": [
+      "nothing", "address", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender11QCameraLensC1ERNS_18QCameraLensPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender11QCameraLens6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender11QCameraLens6d_funcEv": ["address", "address"],

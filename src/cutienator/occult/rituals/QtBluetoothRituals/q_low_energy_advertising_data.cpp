@@ -28,6 +28,15 @@ void ritual_ZN25QLowEnergyAdvertisingDataD1Ev(
   delete self;
 }
 
+//  QLowEnergyAdvertisingData &QLowEnergyAdvertisingData::operator=(const
+//      QLowEnergyAdvertisingData &other)
+extern "C" Q_DECL_EXPORT
+QLowEnergyAdvertisingData *ritual_ZN25QLowEnergyAdvertisingDataaSERKS_(
+    QLowEnergyAdvertisingData *self,
+    const QLowEnergyAdvertisingData *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool operator==(const QLowEnergyAdvertisingData &a, const
 //      QLowEnergyAdvertisingData &b)
 extern "C" Q_DECL_EXPORT
@@ -150,6 +159,14 @@ extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK25QLowEnergyAdvertisingData7rawDataEv(
     const QLowEnergyAdvertisingData *self) {
   return new QByteArray(self->rawData());
+}
+
+//  void QLowEnergyAdvertisingData::swap(QLowEnergyAdvertisingData &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QLowEnergyAdvertisingData4swapERS_(
+    QLowEnergyAdvertisingData *self,
+    QLowEnergyAdvertisingData *other) {
+  self->swap(*other);
 }
 
 //  bool QLowEnergyAdvertisingData::equals(const QLowEnergyAdvertisingData

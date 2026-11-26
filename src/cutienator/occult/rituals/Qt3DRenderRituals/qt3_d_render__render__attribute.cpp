@@ -42,6 +42,36 @@ public:
   }
 };
 
+//  Qt3DRender::Render::Attribute::Attribute()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Attribute *ritual_ZN10Qt3DRender6Render9AttributeC1Ev() {
+  return new CuteQt3DRender_Render_Attribute();
+}
+
+//  Qt3DRender::Render::Attribute::~Attribute()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9AttributeD1Ev(
+    Qt3DRender::Render::Attribute *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::Attribute::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9Attribute7cleanupEv(
+    Qt3DRender::Render::Attribute *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::Attribute::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9Attribute16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::Attribute *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  Qt3DCore::QNodeId Qt3DRender::Render::Attribute::bufferId() const
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QNodeId *ritual_ZNK10Qt3DRender6Render9Attribute8bufferIdEv(
@@ -119,6 +149,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10Qt3DRender6Render9Attribute7isDirtyEv(
     const Qt3DRender::Render::Attribute *self) {
   return self->isDirty();
+}
+
+//  void Qt3DRender::Render::Attribute::unsetDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9Attribute10unsetDirtyEv(
+    Qt3DRender::Render::Attribute *self) {
+  self->unsetDirty();
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_Attribute, for the

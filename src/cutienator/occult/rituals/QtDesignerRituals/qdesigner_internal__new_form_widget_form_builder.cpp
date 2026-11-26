@@ -5,6 +5,7 @@
 #include <QtDesigner/QtDesigner>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_formbuilder_p.h>
+#include <QtDesigner/6.12.0/QtDesigner/private/deviceprofile_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
@@ -737,6 +738,26 @@ public:
     return QAbstractFormBuilder::createProperty(object, propertyName, value);
   }
 };
+
+//  qdesigner_internal::NewFormWidgetFormBuilder::NewFormWidgetFormBuilder(QD
+//      esignerFormEditorInterface *core, const DeviceProfile &deviceProfile)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::NewFormWidgetFormBuilder *ritual_ZN18qdesigner_internal24NewFormWidgetFormBuilderC1EP28QDesignerFormEditorInterfaceRKNS_13DeviceProfileE(
+    QDesignerFormEditorInterface *core,
+    const qdesigner_internal::DeviceProfile *deviceProfile) {
+  return new Cuteqdesigner_internal_NewFormWidgetFormBuilder(
+      core,
+      *deviceProfile);
+}
+
+//  void qdesigner_internal::NewFormWidgetFormBuilder::createCustomWidgets(Do
+//      mCustomWidgets *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal24NewFormWidgetFormBuilder19createCustomWidgetsEP16DomCustomWidgets(
+    qdesigner_internal::NewFormWidgetFormBuilder *self,
+    DomCustomWidgets *a0) {
+  self->createCustomWidgets(a0);
+}
 
 //  a Python function taken by a
 //      Cuteqdesigner_internal_NewFormWidgetFormBuilder, for the function

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtDesigner/6.12.0/QtDesigner/private/newformwidget_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  QtDesigner/6.12.0/QtDesigner/private/newformwidget_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-25: added by hand, rituals for functions the generator
+//  leaves out: 2. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtDesigner/QtDesigner>
@@ -8,6 +9,11 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/newformwidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDesigner/6.12.0/QtDesigner/private/deviceprofile_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qimage.h>
+#include <QtGui/qpixmap.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -896,6 +902,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal13NewFormWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::NewFormWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal13NewFormWidget11qt_metacastEPKc(
+    qdesigner_internal::NewFormWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::NewFormWidget::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal13NewFormWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::NewFormWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::NewFormWidget::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -904,6 +929,193 @@ QString *ritual_ZN18qdesigner_internal13NewFormWidget2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::NewFormWidget::tr(s, c, n));
+}
+
+//  qdesigner_internal::NewFormWidget::NewFormWidget(QDesignerFormEditorInter
+//      face *core, QWidget *parentWidget)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::NewFormWidget *ritual_ZN18qdesigner_internal13NewFormWidgetC1EP28QDesignerFormEditorInterfaceP7QWidget(
+    QDesignerFormEditorInterface *core,
+    QWidget *parentWidget) {
+  return new Cuteqdesigner_internal_NewFormWidget(core, parentWidget);
+}
+
+//  qdesigner_internal::NewFormWidget::~NewFormWidget()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13NewFormWidgetD1Ev(
+    qdesigner_internal::NewFormWidget *self) {
+  delete self;
+}
+
+//  bool qdesigner_internal::NewFormWidget::hasCurrentTemplate() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal13NewFormWidget18hasCurrentTemplateEv(
+    const qdesigner_internal::NewFormWidget *self) {
+  return self->hasCurrentTemplate();
+}
+
+//  QString qdesigner_internal::NewFormWidget::currentTemplate(QString
+//      *errorMessage)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal13NewFormWidget15currentTemplateEP7QString(
+    qdesigner_internal::NewFormWidget *self,
+    QString *errorMessage) {
+  return new QString(self->currentTemplate(errorMessage));
+}
+
+//  bool qdesigner_internal::NewFormWidget::isEmbeddedGroupBoxVisible() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal13NewFormWidget25isEmbeddedGroupBoxVisibleEv(
+    const qdesigner_internal::NewFormWidget *self) {
+  return self->isEmbeddedGroupBoxVisible();
+}
+
+//  void qdesigner_internal::NewFormWidget::setEmbeddedGroupBoxVisible(bool
+//      v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13NewFormWidget26setEmbeddedGroupBoxVisibleEb(
+    qdesigner_internal::NewFormWidget *self,
+    bool v) {
+  self->setEmbeddedGroupBoxVisible(v);
+}
+
+//  QImage
+//      qdesigner_internal::NewFormWidget::grabForm(QDesignerFormEditorInterf
+//      ace *core, QIODevice &file, const QString &workingDir, const
+//      qdesigner_internal::DeviceProfile &dp)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN18qdesigner_internal13NewFormWidget8grabFormEP28QDesignerFormEditorInterfaceR9QIODeviceRK7QStringRKNS_13DeviceProfileE(
+    QDesignerFormEditorInterface *core,
+    QIODevice *file,
+    const QString *workingDir,
+    const qdesigner_internal::DeviceProfile *dp) {
+  return new QImage(
+      qdesigner_internal::NewFormWidget::grabForm(
+          core,
+          *file,
+          *workingDir,
+          *dp));
+}
+
+//  void qdesigner_internal::NewFormWidget::treeWidgetItemActivated(QTreeWidg
+//      etItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13NewFormWidget23treeWidgetItemActivatedEP15QTreeWidgetItem(
+    qdesigner_internal::NewFormWidget *self,
+    QTreeWidgetItem *item) {
+  self->treeWidgetItemActivated(item);
+}
+
+//  void qdesigner_internal::NewFormWidget::treeWidgetCurrentItemChanged(QTre
+//      eWidgetItem *current)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13NewFormWidget28treeWidgetCurrentItemChangedEP15QTreeWidgetItem(
+    qdesigner_internal::NewFormWidget *self,
+    QTreeWidgetItem *current) {
+  self->treeWidgetCurrentItemChanged(current);
+}
+
+//  void
+//      qdesigner_internal::NewFormWidget::treeWidgetItemPressed(QTreeWidgetI
+//      tem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13NewFormWidget21treeWidgetItemPressedEP15QTreeWidgetItem(
+    qdesigner_internal::NewFormWidget *self,
+    QTreeWidgetItem *item) {
+  self->treeWidgetItemPressed(item);
+}
+
+//  void qdesigner_internal::NewFormWidget::slotDeviceProfileIndexChanged(int
+//      idx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13NewFormWidget29slotDeviceProfileIndexChangedEi(
+    qdesigner_internal::NewFormWidget *self,
+    int idx) {
+  self->slotDeviceProfileIndexChanged(idx);
+}
+
+//  QPixmap qdesigner_internal::NewFormWidget::formPreviewPixmap(const
+//      QString &fileName) const
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZNK18qdesigner_internal13NewFormWidget17formPreviewPixmapERK7QString(
+    const qdesigner_internal::NewFormWidget *self,
+    const QString *fileName) {
+  return new QPixmap(self->formPreviewPixmap(*fileName));
+}
+
+//  QPixmap qdesigner_internal::NewFormWidget::formPreviewPixmap(QIODevice
+//      &file, const QString &workingDir) const
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZNK18qdesigner_internal13NewFormWidget17formPreviewPixmapER9QIODeviceRK7QString(
+    const qdesigner_internal::NewFormWidget *self,
+    QIODevice *file,
+    const QString *workingDir) {
+  return new QPixmap(self->formPreviewPixmap(*file, *workingDir));
+}
+
+//  QPixmap qdesigner_internal::NewFormWidget::formPreviewPixmap(const
+//      QTreeWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN18qdesigner_internal13NewFormWidget17formPreviewPixmapEPK15QTreeWidgetItem(
+    qdesigner_internal::NewFormWidget *self,
+    const QTreeWidgetItem *item) {
+  return new QPixmap(self->formPreviewPixmap(item));
+}
+
+//  QString qdesigner_internal::NewFormWidget::itemToTemplate(const
+//      QTreeWidgetItem *item, QString *errorMessage) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal13NewFormWidget14itemToTemplateEPK15QTreeWidgetItemP7QString(
+    const qdesigner_internal::NewFormWidget *self,
+    const QTreeWidgetItem *item,
+    QString *errorMessage) {
+  return new QString(self->itemToTemplate(item, errorMessage));
+}
+
+//  QString qdesigner_internal::NewFormWidget::currentTemplateI(QString
+//      *ptrToErrorMessage)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal13NewFormWidget16currentTemplateIEP7QString(
+    qdesigner_internal::NewFormWidget *self,
+    QString *ptrToErrorMessage) {
+  return new QString(self->currentTemplateI(ptrToErrorMessage));
+}
+
+//  QSize qdesigner_internal::NewFormWidget::templateSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK18qdesigner_internal13NewFormWidget12templateSizeEv(
+    const qdesigner_internal::NewFormWidget *self) {
+  return new QSize(self->templateSize());
+}
+
+//  void qdesigner_internal::NewFormWidget::setTemplateSize(const QSize &s)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13NewFormWidget15setTemplateSizeERK5QSize(
+    qdesigner_internal::NewFormWidget *self,
+    const QSize *s) {
+  self->setTemplateSize(*s);
+}
+
+//  int qdesigner_internal::NewFormWidget::profileComboIndex() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18qdesigner_internal13NewFormWidget17profileComboIndexEv(
+    const qdesigner_internal::NewFormWidget *self) {
+  return self->profileComboIndex();
+}
+
+//  qdesigner_internal::DeviceProfile
+//      qdesigner_internal::NewFormWidget::currentDeviceProfile() const
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::DeviceProfile *ritual_ZNK18qdesigner_internal13NewFormWidget20currentDeviceProfileEv(
+    const qdesigner_internal::NewFormWidget *self) {
+  return new qdesigner_internal::DeviceProfile(self->currentDeviceProfile());
+}
+
+//  bool qdesigner_internal::NewFormWidget::showCurrentItemPixmap()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal13NewFormWidget21showCurrentItemPixmapEv(
+    qdesigner_internal::NewFormWidget *self) {
+  return self->showCurrentItemPixmap();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_NewFormWidget, for
@@ -932,4 +1144,33 @@ QString *ritual_own_ZN18qdesigner_internal13NewFormWidget15currentTemplateEP7QSt
   return new QString(
       self->qdesigner_internal::NewFormWidget::currentTemplate(
           errorMessage));
+}
+
+//  void qdesigner_internal::NewFormWidget::loadFrom(const QString &path,
+//      bool resourceFile, const QString &uiExtension, const QString
+//      &selectedItem, QTreeWidgetItem *&selectedItemFound)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13NewFormWidget8loadFromERK7QStringbS3_S3_RP15QTreeWidgetItem(
+    qdesigner_internal::NewFormWidget *self,
+    const QString *path,
+    bool resourceFile,
+    const QString *uiExtension,
+    const QString *selectedItem,
+    QTreeWidgetItem **selectedItemFound) {
+  self->loadFrom(
+      *path, resourceFile, *uiExtension, *selectedItem,
+      *selectedItemFound);
+}
+
+//  void qdesigner_internal::NewFormWidget::loadFrom(const QString &title,
+//      const QStringList &nameList, const QString &selectedItem,
+//      QTreeWidgetItem *&selectedItemFound)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13NewFormWidget8loadFromERK7QStringRK5QListIS1_ES3_RP15QTreeWidgetItem(
+    qdesigner_internal::NewFormWidget *self,
+    const QString *title,
+    const QStringList *nameList,
+    const QString *selectedItem,
+    QTreeWidgetItem **selectedItemFound) {
+  self->loadFrom(*title, *nameList, *selectedItem, *selectedItemFound);
 }

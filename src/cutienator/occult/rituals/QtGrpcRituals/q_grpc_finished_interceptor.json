@@ -4,6 +4,9 @@
     "QtGrpc/qgrpcinterceptor.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN24QGrpcFinishedInterceptorD1Ev": ["nothing", "address"]
+    "ritual_ZN24QGrpcFinishedInterceptorD1Ev": ["nothing", "address"],
+    "ritual_ZN24QGrpcFinishedInterceptor10onFinishedER24QGrpcInterceptionContextR11QGrpcStatus": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

@@ -42,6 +42,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/gui/image/qiconloader.cpp, line 970, as _ZN13ScalableEntry6pixmapERK5QSizeN5QIcon4ModeENS3_5StateEd
 #if !defined(QT_NO_ICON)
 inline QPixmap ScalableEntry::pixmap(const QSize &size, QIcon::Mode mode, QIcon::State state, qreal scale)

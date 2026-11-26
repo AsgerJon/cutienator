@@ -8,6 +8,9 @@
     "ritual_ZN11QEdidParser5parseERK10QByteArray": [
       "bool", "address", "address"
     ],
+    "ritual_ZN11QEdidParser15parseEdidStringEPKh": [
+      "text", "address", "address"
+    ],
     "ritual_ZN11QEdidParserD1Ev": ["nothing", "address"]
   }
 }

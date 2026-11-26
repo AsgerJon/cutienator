@@ -8,6 +8,12 @@
     "ritual_ZNK27QQStyleKitControlProperties10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQStyleKitControlProperties11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QQStyleKitControlProperties2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,6 +25,9 @@
     ],
     "ritual_ZN27QQStyleKitControlProperties32emitChangedForAllStylePropertiesE6QFlagsIN23QQStyleKitPropertyGroup8EmitFlagEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties19forEachUsedDelegateESt8functionIFvP28QQStyleKitDelegatePropertiesN4QQSK8DelegateERK7QStringEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK27QQStyleKitControlProperties5styleEv": [
       "address", "address"
@@ -81,6 +90,39 @@
     ],
     "ritual_ZNK27QQStyleKitControlProperties9indicatorEv": [
       "address", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties17backgroundChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties13handleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties16indicatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties14spacingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties14paddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties18leftPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties19rightPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties17topPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties20bottomPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties17transitionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties11textChangedEv": [
+      "nothing", "address"
     ]
   }
 }

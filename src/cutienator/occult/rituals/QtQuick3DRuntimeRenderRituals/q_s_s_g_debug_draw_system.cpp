@@ -11,6 +11,7 @@
 #include <QtQuick3DUtils/QtQuick3DUtils>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgbounds3_p.h>
+#include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendermesh_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  QSSGDebugDrawSystem::QSSGDebugDrawSystem()
@@ -104,6 +105,28 @@ bool ritual_ZNK19QSSGDebugDrawSystem9isEnabledEv(
   return self->isEnabled();
 }
 
+//  void QSSGDebugDrawSystem::generateLine(const LineData &line,
+//      QVector<VertexData> &vertexArray, QVector<quint32> &indexArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSSGDebugDrawSystem12generateLineERKNS_8LineDataER5QListINS_10VertexDataEERS3_IjE(
+    QSSGDebugDrawSystem *self,
+    const QSSGDebugDrawSystem::LineData *line,
+    QVector<QSSGDebugDrawSystem::VertexData> *vertexArray,
+    QVector<quint32> *indexArray) {
+  self->generateLine(*line, *vertexArray, *indexArray);
+}
+
+//  void QSSGDebugDrawSystem::generateBox(const BoundsData &bounds,
+//      QVector<VertexData> &vertexArray, QVector<quint32> &indexArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSSGDebugDrawSystem11generateBoxERKNS_10BoundsDataER5QListINS_10VertexDataEERS3_IjE(
+    QSSGDebugDrawSystem *self,
+    const QSSGDebugDrawSystem::BoundsData *bounds,
+    QVector<QSSGDebugDrawSystem::VertexData> *vertexArray,
+    QVector<quint32> *indexArray) {
+  self->generateBox(*bounds, *vertexArray, *indexArray);
+}
+
 //  bool QSSGDebugDrawSystem::isEnabled(Mode mode) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QSSGDebugDrawSystem9isEnabledENS_4ModeE(
@@ -116,4 +139,23 @@ bool ritual_ZNK19QSSGDebugDrawSystem9isEnabledENS_4ModeE(
 extern "C" Q_DECL_EXPORT
 QColor *ritual_ZN19QSSGDebugDrawSystem18levelOfDetailColorEj(quint32 lod) {
   return new QColor(QSSGDebugDrawSystem::levelOfDetailColor(lod));
+}
+
+//  void QSSGDebugDrawSystem::debugNormals(QSSGBufferManager &bufferManager,
+//      const QSSGModelContext &theModelContext, const QSSGRenderSubset
+//      &theSubset, quint32 subsetLevelOfDetail, float lineLength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSSGDebugDrawSystem12debugNormalsER17QSSGBufferManagerRK16QSSGModelContextRK16QSSGRenderSubsetjf(
+    QSSGDebugDrawSystem *self,
+    QSSGBufferManager *bufferManager,
+    const QSSGModelContext *theModelContext,
+    const QSSGRenderSubset *theSubset,
+    quint32 subsetLevelOfDetail,
+    float lineLength) {
+  self->debugNormals(
+      *bufferManager,
+      *theModelContext,
+      *theSubset,
+      subsetLevelOfDetail,
+      lineLength);
 }

@@ -14,15 +14,6 @@
 #include <QtCore/qfiledevice.h>
 #include <QtCore/private/qfiledevice_p.h>
 #include <QtCore/private/qfsfileengine_p.h>
-#include <QtCore/private/qfilesystemengine_p.h>
-#include <QtCore/qdir.h>
-#include <QtCore/qset.h>
-#include <QtCore/qstringbuilder.h>
-#include <QtCore/private/qabstractfileengine_p.h>
-#ifdef QT_BUILD_CORE_LIB
-#include <QtCore/private/qresource_p.h>
-#endif
-#include <QtCore/private/qduplicatetracker_p.h>
 #include "qplatformdefs.h"
 #include <QtCore/qdebug.h>
 #include <QtCore/qfile.h>
@@ -40,6 +31,15 @@
 #if defined(QT_BUILD_CORE_LIB)
 # include <QtCore/qcoreapplication.h>
 #endif
+#include <QtCore/private/qfilesystemengine_p.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qset.h>
+#include <QtCore/qstringbuilder.h>
+#include <QtCore/private/qabstractfileengine_p.h>
+#ifdef QT_BUILD_CORE_LIB
+#include <QtCore/private/qresource_p.h>
+#endif
+#include <QtCore/private/qduplicatetracker_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -48,6 +48,11 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/io/qfiledevice.cpp, line 17, as local:qfiledevice.cpp:QFILE_WRITEBUFFER_SIZE
+#define QFILE_WRITEBUFFER_SIZE 16384
 
 //  from src/corelib/io/qfiledevice.cpp, line 507, as _ZN18QFileDevicePrivate13putCharHelperEc
 #if defined(Q_OS_LINUX)
@@ -117,6 +122,50 @@ inline bool QFileDevicePrivate::setPermissions(QFileDevice::Permissions perms)
     return false;
 }
 
+//  from src/corelib/io/qfiledevice.cpp, line 20, as _ZN18QFileDevicePrivateC2Ev
+inline QFileDevicePrivate::QFileDevicePrivate()
+    : cachedSize(0),
+      error(QFile::NoError), lastWasWrite(false)
+{
+    writeBufferChunkSize = QFILE_WRITEBUFFER_SIZE;
+}
+
+//  from src/corelib/io/qfiledevice.cpp, line 27, as _ZN18QFileDevicePrivateD2Ev
+inline QFileDevicePrivate::~QFileDevicePrivate() = default;
+
+//  from src/corelib/io/qfile.cpp, line 1423, as _ZNK12QFilePrivate18writeToDebugStreamER6QDebug
+#if !defined(QT_NO_DEBUG_STREAM)
+inline void QFilePrivate::writeToDebugStream(QDebug &dbg) const
+{
+    Q_Q(const QFile);
+    dbg.nospace();
+    dbg << "QFile(" << q->fileName() << ')';
+}
+#endif  // !defined(QT_NO_DEBUG_STREAM)
+
+//  from src/corelib/io/qfile.cpp, line 78, as _ZNK12QFilePrivate6engineEv
+inline QAbstractFileEngine *QFilePrivate::engine() const
+{
+    if (!fileEngine)
+        fileEngine = QAbstractFileEngine::create(fileName);
+    return fileEngine.get();
+}
+
+//  from src/corelib/io/qfiledevice.cpp, line 36, as _ZNK18QFileDevicePrivate11permissionsEv
+inline QFileDevice::Permissions QFileDevicePrivate::permissions() const
+{
+    QAbstractFileEngine::FileFlags perms = engine()->fileFlags(QAbstractFileEngine::PermsMask) & QAbstractFileEngine::PermsMask;
+    return QFile::Permissions::fromInt(perms.toInt()); //ewww
+}
+
+//  from src/corelib/io/qfiledevice.cpp, line 29, as _ZNK18QFileDevicePrivate6engineEv
+inline QAbstractFileEngine *QFileDevicePrivate::engine() const
+{
+    if (!fileEngine)
+        fileEngine = std::make_unique<QFSFileEngine>();
+    return fileEngine.get();
+}
+
 //  from src/corelib/io/qfilesystemengine.cpp, line 204, as _ZN17QFileSystemEngine18createLegacyEngineERK7QString
 inline std::unique_ptr<QAbstractFileEngine>
 QFileSystemEngine::createLegacyEngine(const QString &fileName)
@@ -124,6 +173,13 @@ QFileSystemEngine::createLegacyEngine(const QString &fileName)
     QFileSystemEntry entry(fileName);
     QFileSystemMetaData metaData;
     return createLegacyEngine(entry, metaData);
+}
+
+//  from src/corelib/io/qfiledevice.cpp, line 52, as _ZN18QFileDevicePrivate8setErrorEN11QFileDevice9FileErrorE
+inline void QFileDevicePrivate::setError(QFileDevice::FileError err)
+{
+    error = err;
+    errorString.clear();
 }
 
 //  from src/corelib/io/qfile.cpp, line 44, as _ZN12QFilePrivateD1Ev
@@ -147,12 +203,20 @@ QFilePrivate::openExternalFile(QIODevice::OpenMode flags, int fd, QFile::FileHan
 #endif
 }
 
-//  from src/corelib/io/qfile.cpp, line 78, as _ZNK12QFilePrivate6engineEv
-inline QAbstractFileEngine *QFilePrivate::engine() const
+//  from src/corelib/io/qfile.cpp, line 63, as _ZN12QFilePrivate16openExternalFileE6QFlagsIN13QIODeviceBase12OpenModeFlagEEP8_IO_FILES0_IN11QFileDevice14FileHandleFlagEE
+inline bool
+QFilePrivate::openExternalFile(QIODevice::OpenMode flags, FILE *fh, QFile::FileHandleFlags handleFlags)
 {
-    if (!fileEngine)
-        fileEngine = QAbstractFileEngine::create(fileName);
-    return fileEngine.get();
+#ifdef QT_NO_FSFILEENGINE
+    Q_UNUSED(flags);
+    Q_UNUSED(fh);
+    return false;
+#else
+    auto fs = std::make_unique<QFSFileEngine>();
+    auto fe = fs.get();
+    fileEngine = std::move(fs);
+    return fe->open(flags, fh, handleFlags);
+#endif
 }
 //  -----------------------------------------------------------------------
 
@@ -169,11 +233,12 @@ typedef void * (*CuteQFilePrivateCall0)(const void *, int *);
 typedef int (*CuteQFilePrivateCall1)(const void *, int *);
 typedef bool (*CuteQFilePrivateCall2)(const void *, int, int *);
 typedef bool (*CuteQFilePrivateCall3)(const void *, char, int *);
-typedef const QByteArray * (*CuteQFilePrivateCall4)(const void *, qint64, int *);
+typedef qint64 (*CuteQFilePrivateCall4)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQFilePrivateCall5)(const void *, qint64, int *);
 class CuteQFilePrivate : public QFilePrivate {
 public:
   using QFilePrivate::QFilePrivate;
-  void *taken[5] = {};
+  void *taken[6] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK18QFileDevicePrivate6engineEv")) {
@@ -192,8 +257,12 @@ public:
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[5] = call;
       return true;
     }
     return false;
@@ -244,11 +313,22 @@ public:
     return QFileDevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[4]) {
       int handled = 0;
       CuteQFilePrivateCall4 call = reinterpret_cast<CuteQFilePrivateCall4>(taken[4]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQFilePrivateCall5 call = reinterpret_cast<CuteQFilePrivateCall5>(taken[5]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }
@@ -288,12 +368,36 @@ bool ritual_ZN12QFilePrivate16openExternalFileE6QFlagsIN13QIODeviceBase12OpenMod
       QFlags<QFileDevice::FileHandleFlag>::fromInt(handleFlags));
 }
 
+//  bool QFilePrivate::openExternalFile(QIODevice::OpenMode flags, FILE *fh,
+//      QFile::FileHandleFlags handleFlags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QFilePrivate16openExternalFileE6QFlagsIN13QIODeviceBase12OpenModeFlagEEP8_IO_FILES0_IN11QFileDevice14FileHandleFlagEE(
+    QFilePrivate *self,
+    int flags,
+    FILE *fh,
+    int handleFlags) {
+  return self->openExternalFile(
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(flags),
+      fh,
+      QFlags<QFileDevice::FileHandleFlag>::fromInt(handleFlags));
+}
+
 //  QAbstractFileEngine *QFilePrivate::engine() const
 extern "C" Q_DECL_EXPORT
 QAbstractFileEngine *ritual_ZNK12QFilePrivate6engineEv(
     const QFilePrivate *self) {
   return self->engine();
 }
+
+#if !defined(QT_NO_DEBUG_STREAM)
+//  void QFilePrivate::writeToDebugStream(QDebug &a0) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QFilePrivate18writeToDebugStreamER6QDebug(
+    const QFilePrivate *self,
+    QDebug *a0) {
+  self->writeToDebugStream(*a0);
+}
+#endif  // !defined(QT_NO_DEBUG_STREAM)
 
 //  a Python function taken by a CuteQFilePrivate, for the function named by
 //      the key

@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DInput/6.12.0/Qt3DInput/private/qabstractphysicaldeviceproxy_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <cstring>
 
 //  A Qt3DInput::QAbstractPhysicalDeviceProxyPrivate that Python can take functions over in. Every Qt3DInput::QAbstractPhysicalDeviceProxyPrivate
@@ -53,6 +54,22 @@ public:
   }
 };
 
+//  Qt3DInput::QAbstractPhysicalDeviceProxyPrivate::QAbstractPhysicalDevicePr
+//      oxyPrivate(const QString &deviceName)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractPhysicalDeviceProxyPrivate *ritual_ZN9Qt3DInput35QAbstractPhysicalDeviceProxyPrivateC1ERK7QString(
+    const QString *deviceName) {
+  return new CuteQt3DInput_QAbstractPhysicalDeviceProxyPrivate(*deviceName);
+}
+
+//  Qt3DInput::QAbstractPhysicalDeviceProxyPrivate::~QAbstractPhysicalDeviceP
+//      roxyPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput35QAbstractPhysicalDeviceProxyPrivateD1Ev(
+    Qt3DInput::QAbstractPhysicalDeviceProxyPrivate *self) {
+  delete self;
+}
+
 //  QAbstractPhysicalDeviceProxy
 //      *Qt3DInput::QAbstractPhysicalDeviceProxyPrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -67,6 +84,33 @@ extern "C" Q_DECL_EXPORT
 const Qt3DInput::QAbstractPhysicalDeviceProxy *ritual_ZNK9Qt3DInput35QAbstractPhysicalDeviceProxyPrivate6q_funcEv(
     const Qt3DInput::QAbstractPhysicalDeviceProxyPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DInput::QAbstractPhysicalDeviceProxyPrivate::setDevice(QAbstractP
+//      hysicalDevice *device)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput35QAbstractPhysicalDeviceProxyPrivate9setDeviceEPNS_23QAbstractPhysicalDeviceE(
+    Qt3DInput::QAbstractPhysicalDeviceProxyPrivate *self,
+    Qt3DInput::QAbstractPhysicalDevice *device) {
+  self->setDevice(device);
+}
+
+//  void Qt3DInput::QAbstractPhysicalDeviceProxyPrivate::resetDevice(QAbstrac
+//      tPhysicalDevice *device)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput35QAbstractPhysicalDeviceProxyPrivate11resetDeviceEPNS_23QAbstractPhysicalDeviceE(
+    Qt3DInput::QAbstractPhysicalDeviceProxyPrivate *self,
+    Qt3DInput::QAbstractPhysicalDevice *device) {
+  self->resetDevice(device);
+}
+
+//  void Qt3DInput::QAbstractPhysicalDeviceProxyPrivate::setStatus(QAbstractP
+//      hysicalDeviceProxy::DeviceStatus status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput35QAbstractPhysicalDeviceProxyPrivate9setStatusENS_28QAbstractPhysicalDeviceProxy12DeviceStatusE(
+    Qt3DInput::QAbstractPhysicalDeviceProxyPrivate *self,
+    Qt3DInput::QAbstractPhysicalDeviceProxy::DeviceStatus status) {
+  self->setStatus(status);
 }
 
 //  a Python function taken by a

@@ -8,6 +8,9 @@
     "ritual_ZN25QOpcUaApplicationIdentityC1Ev": ["address"],
     "ritual_ZN25QOpcUaApplicationIdentityD1Ev": ["nothing", "address"],
     "ritual_ZN25QOpcUaApplicationIdentityC1ERKS_": ["address", "address"],
+    "ritual_ZN25QOpcUaApplicationIdentityaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK25QOpcUaApplicationIdentity14applicationUriEv": [
       "text", "address"
     ],

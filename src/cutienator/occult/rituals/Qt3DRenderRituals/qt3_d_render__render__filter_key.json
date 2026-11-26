@@ -5,10 +5,27 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render9FilterKeyC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render9FilterKeyD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render9FilterKey7cleanupEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render9FilterKey5valueEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render9FilterKey4nameEv": ["text", "address"],
+    "ritual_ZN10Qt3DRender6Render9FilterKey16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6RendereqERKNS0_9FilterKeyES3_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6RenderneERKNS0_9FilterKeyES3_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9FilterKey6equalsERKS1_": [
+      "bool", "address", "address"
+    ],
     "ritual_take_Qt3DRender_Render_FilterKey": [
       "bool", "address", "chars", "address"
     ],

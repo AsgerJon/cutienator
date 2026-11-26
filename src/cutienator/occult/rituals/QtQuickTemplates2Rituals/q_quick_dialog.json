@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QQuickDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuickDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuickDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuickDialog20qmlExtendedNamespaceEv": ["address"],
     "ritual_ZN12QQuickDialog30qt_qmlMarker_extendedNamespaceEv": [
@@ -48,6 +54,34 @@
     "ritual_ZN12QQuickDialog6acceptEv": ["nothing", "address"],
     "ritual_ZN12QQuickDialog6rejectEv": ["nothing", "address"],
     "ritual_ZN12QQuickDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_ZN12QQuickDialog8acceptedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog8rejectedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog12titleChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog13headerChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog13footerChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog22standardButtonsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickDialog7appliedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog5resetEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog9discardedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog13helpRequestedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog13resultChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog26implicitHeaderWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickDialog27implicitHeaderHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickDialog26implicitFooterWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickDialog27implicitFooterHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickDialogC1ER19QQuickDialogPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN12QQuickDialog10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
     ],

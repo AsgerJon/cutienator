@@ -16,6 +16,24 @@ const QMetaObject *ritual_ZNK11QQuick3DFog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DFog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuick3DFog11qt_metacastEPKc(
+    QQuick3DFog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DFog::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuick3DFog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DFog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DFog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuick3DFog2trEPKcS1_i(
@@ -205,4 +223,88 @@ void ritual_ZN11QQuick3DFog16setTransmitCurveEf(
     QQuick3DFog *self,
     float newTransmitCurve) {
   self->setTransmitCurve(newTransmitCurve);
+}
+
+//  void QQuick3DFog::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog7changedEv(QQuick3DFog *self) {
+  self->changed();
+}
+
+//  void QQuick3DFog::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog14enabledChangedEv(QQuick3DFog *self) {
+  self->enabledChanged();
+}
+
+//  void QQuick3DFog::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog12colorChangedEv(QQuick3DFog *self) {
+  self->colorChanged();
+}
+
+//  void QQuick3DFog::densityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog14densityChangedEv(QQuick3DFog *self) {
+  self->densityChanged();
+}
+
+//  void QQuick3DFog::depthEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog19depthEnabledChangedEv(QQuick3DFog *self) {
+  self->depthEnabledChanged();
+}
+
+//  void QQuick3DFog::depthNearChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog16depthNearChangedEv(QQuick3DFog *self) {
+  self->depthNearChanged();
+}
+
+//  void QQuick3DFog::depthFarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog15depthFarChangedEv(QQuick3DFog *self) {
+  self->depthFarChanged();
+}
+
+//  void QQuick3DFog::depthCurveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog17depthCurveChangedEv(QQuick3DFog *self) {
+  self->depthCurveChanged();
+}
+
+//  void QQuick3DFog::heightEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog20heightEnabledChangedEv(QQuick3DFog *self) {
+  self->heightEnabledChanged();
+}
+
+//  void QQuick3DFog::leastIntenseYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog20leastIntenseYChangedEv(QQuick3DFog *self) {
+  self->leastIntenseYChanged();
+}
+
+//  void QQuick3DFog::mostIntenseYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog19mostIntenseYChangedEv(QQuick3DFog *self) {
+  self->mostIntenseYChanged();
+}
+
+//  void QQuick3DFog::heightCurveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog18heightCurveChangedEv(QQuick3DFog *self) {
+  self->heightCurveChanged();
+}
+
+//  void QQuick3DFog::transmitEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog22transmitEnabledChangedEv(QQuick3DFog *self) {
+  self->transmitEnabledChanged();
+}
+
+//  void QQuick3DFog::transmitCurveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuick3DFog20transmitCurveChangedEv(QQuick3DFog *self) {
+  self->transmitCurveChanged();
 }

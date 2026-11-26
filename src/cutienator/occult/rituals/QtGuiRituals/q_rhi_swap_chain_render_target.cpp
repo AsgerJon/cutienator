@@ -114,6 +114,15 @@ QRhiSwapChain *ritual_ZNK25QRhiSwapChainRenderTarget9swapChainEv(
   return self->swapChain();
 }
 
+//  QRhiSwapChainRenderTarget::QRhiSwapChainRenderTarget(QRhiImplementation
+//      *rhi, QRhiSwapChain *swapchain_)
+extern "C" Q_DECL_EXPORT
+QRhiSwapChainRenderTarget *ritual_ZN25QRhiSwapChainRenderTargetC1EP18QRhiImplementationP13QRhiSwapChain(
+    QRhiImplementation *rhi,
+    QRhiSwapChain *swapchain_) {
+  return new CuteQRhiSwapChainRenderTarget(rhi, swapchain_);
+}
+
 //  a Python function taken by a CuteQRhiSwapChainRenderTarget, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

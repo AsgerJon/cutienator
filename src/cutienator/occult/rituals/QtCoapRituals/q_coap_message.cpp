@@ -41,6 +41,30 @@ void ritual_ZN12QCoapMessageD1Ev(QCoapMessage *self) {
   delete self;
 }
 
+//  void QCoapMessage::swap(QCoapMessage &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QCoapMessage4swapERS_(
+    QCoapMessage *self,
+    QCoapMessage *other) {
+  self->swap(*other);
+}
+
+//  QCoapMessage &QCoapMessage::operator=(const QCoapMessage &other)
+extern "C" Q_DECL_EXPORT
+QCoapMessage *ritual_ZN12QCoapMessageaSERKS_(
+    QCoapMessage *self,
+    const QCoapMessage *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCoapMessage &QCoapMessage::operator=(QCoapMessage &&other)
+extern "C" Q_DECL_EXPORT
+QCoapMessage *ritual_ZN12QCoapMessageaSEOS_(
+    QCoapMessage *self,
+    QCoapMessage *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  quint8 QCoapMessage::version() const
 extern "C" Q_DECL_EXPORT
 quint8 ritual_ZNK12QCoapMessage7versionEv(const QCoapMessage *self) {
@@ -84,6 +108,14 @@ void ritual_ZN12QCoapMessage10setVersionEh(
     QCoapMessage *self,
     quint8 version) {
   self->setVersion(version);
+}
+
+//  void QCoapMessage::setType(const Type &type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QCoapMessage7setTypeERKNS_4TypeE(
+    QCoapMessage *self,
+    const QCoapMessage::Type *type) {
+  self->setType(*type);
 }
 
 //  void QCoapMessage::setToken(const QByteArray &token)
@@ -202,6 +234,13 @@ void ritual_ZN12QCoapMessage12removeOptionEN11QCoapOption10OptionNameE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QCoapMessage12clearOptionsEv(QCoapMessage *self) {
   self->clearOptions();
+}
+
+//  QCoapMessage::QCoapMessage(QCoapMessagePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QCoapMessage *ritual_ZN12QCoapMessageC1ER19QCoapMessagePrivate(
+    QCoapMessagePrivate *dd) {
+  return new QCoapMessage(*dd);
 }
 
 //  QCoapMessagePrivate *QCoapMessage::d_func()

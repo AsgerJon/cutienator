@@ -49,6 +49,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/network/access/qnetworkrequest.cpp, line 1669, as _ZNK22QNetworkHeadersPrivate7headersEv
 inline QHttpHeaders QNetworkHeadersPrivate::headers() const
 {
@@ -67,6 +69,41 @@ inline qint64 QHttpPartPrivate::bytesAvailable() const
     }
     // the device might have closed etc., so make sure we do not return a negative value
     return qMax(bytesAvailable, (qint64) 0);
+}
+
+//  from src/network/access/qhttpmultipart.cpp, line 330, as _ZN16QHttpPartPrivate8readDataEPcx
+inline qint64 QHttpPartPrivate::readData(char *data, qint64 maxSize)
+{
+    checkHeaderCreated();
+    qint64 bytesRead = 0;
+    qint64 headerDataCount = header.size();
+
+    // read header if it has not been read yet
+    if (readPointer < headerDataCount) {
+        bytesRead = qMin(headerDataCount - readPointer, maxSize);
+        const char *headerData = header.constData();
+        memcpy(data, headerData + readPointer, bytesRead);
+        readPointer += bytesRead;
+    }
+    // read content if there is still space
+    if (bytesRead < maxSize) {
+        if (bodyDevice) {
+            qint64 dataBytesRead = bodyDevice->read(data + bytesRead, maxSize - bytesRead);
+            if (dataBytesRead == -1)
+                return -1;
+            bytesRead += dataBytesRead;
+            readPointer += dataBytesRead;
+        } else {
+            qint64 contentBytesRead = qMin(body.size() - readPointer + headerDataCount, maxSize - bytesRead);
+            const char *contentData = body.constData();
+            // if this method is called several times, we need to find the
+            // right offset in the content ourselves:
+            memcpy(data + bytesRead, contentData + readPointer - headerDataCount, contentBytesRead);
+            bytesRead += contentBytesRead;
+            readPointer += contentBytesRead;
+        }
+    }
+    return bytesRead;
 }
 
 //  from src/network/access/qhttpmultipart.cpp, line 364, as _ZNK16QHttpPartPrivate4sizeEv
@@ -158,6 +195,15 @@ extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK16QHttpPartPrivate14bytesAvailableEv(
     const QHttpPartPrivate *self) {
   return self->bytesAvailable();
+}
+
+//  qint64 QHttpPartPrivate::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN16QHttpPartPrivate8readDataEPcx(
+    QHttpPartPrivate *self,
+    char *data,
+    qint64 maxSize) {
+  return self->readData(data, maxSize);
 }
 
 //  qint64 QHttpPartPrivate::size() const

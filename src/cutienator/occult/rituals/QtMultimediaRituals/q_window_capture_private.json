@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QWindowCapturePrivate3getER14QWindowCapture": [
+      "address", "address"
+    ],
     "ritual_ZN21QWindowCapturePrivate15setIgnoreCursorEb": [
       "nothing", "address", "bool"
     ],

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QMediaCaptureSession10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QMediaCaptureSession11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QMediaCaptureSession11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QMediaCaptureSession2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -77,6 +83,39 @@
     ],
     "ritual_ZNK20QMediaCaptureSession15platformSessionEv": [
       "address", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession17audioInputChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession23audioBufferInputChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession13cameraChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession24nativeVideoSourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession20screenCaptureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession20windowCaptureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession22videoFrameInputChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession19imageCaptureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession15recorderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession18videoOutputChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMediaCaptureSession18audioOutputChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN20QMediaCaptureSession6d_funcEv": ["address", "address"],
     "ritual_ZNK20QMediaCaptureSession6d_funcEv": ["address", "address"],

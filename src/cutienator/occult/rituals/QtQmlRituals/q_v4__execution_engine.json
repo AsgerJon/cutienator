@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4engine_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4engine_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV415ExecutionEngine8jsAllocaEi": [
@@ -207,6 +207,9 @@
       "address", "address"
     ],
     "ritual_ZNK3QV415ExecutionEngine7throwerEv": ["address", "address"],
+    "ritual_ZN3QV415ExecutionEngine23getNetworkAccessManagerEv": [
+      "address", "address"
+    ],
     "ritual_ZNK3QV415ExecutionEngine8id_emptyEv": ["address", "address"],
     "ritual_ZNK3QV415ExecutionEngine12id_undefinedEv": [
       "address", "address"
@@ -319,15 +322,221 @@
     "ritual_ZNK3QV415ExecutionEngine21symbol_revokableProxyEv": [
       "address", "address"
     ],
+    "ritual_ZN3QV415ExecutionEngineC1EP9QJSEngine": ["address", "address"],
+    "ritual_ZN3QV415ExecutionEngineD1Ev": ["nothing", "address"],
     "ritual_ZNK3QV415ExecutionEngine8debuggerEv": ["address", "address"],
     "ritual_ZNK3QV415ExecutionEngine8profilerEv": ["address", "address"],
+    "ritual_ZN3QV415ExecutionEngine11setDebuggerEPNS_9Debugging8DebuggerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine11setProfilerEPNS_9Profiling8ProfilerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13setPreviewingEb": ["nothing", "bool"],
     "ritual_ZN3QV415ExecutionEngine10newProtoIdEv": [
       "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16newInternalClassEPKNS_6VTableEPNS_6ObjectE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine9newObjectEv": ["address", "address"],
+    "ritual_ZN3QV415ExecutionEngine9newObjectEPNS_4Heap13InternalClassE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine9newStringEDs": [
+      "address", "address", "unsigned short"
+    ],
+    "ritual_ZN3QV415ExecutionEngine9newStringERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13newIdentifierERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15newStringObjectEPKNS_6StringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15newSymbolObjectEPKNS_6SymbolE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15newNumberObjectEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16newBooleanObjectEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14newArrayObjectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14newArrayObjectEPKNS_5ValueEi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14newArrayObjectERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14newArrayObjectEPNS_4Heap13InternalClassE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14newArrayBufferERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14newArrayBufferEm": [
+      "address", "address", "size_t"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13newDateObjectEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13newDateObjectERK9QDateTime": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13newDateObjectE5QDatePNS_4Heap6ObjectEij": [
+      "address", "address", "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13newDateObjectE5QTimePNS_4Heap6ObjectEij": [
+      "address", "address", "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13newDateObjectE9QDateTimePNS_4Heap6ObjectEij": [
+      "address", "address", "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15newRegExpObjectERK7QStringi": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15newRegExpObjectERK18QRegularExpression": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine12newUrlObjectEv": ["address", "address"],
+    "ritual_ZN3QV415ExecutionEngine12newUrlObjectERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine24newUrlSearchParamsObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14newErrorObjectERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14newErrorObjectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine20newSyntaxErrorObjectERK7QStringS3_ii": [
+      "address", "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine20newSyntaxErrorObjectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine23newReferenceErrorObjectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine23newReferenceErrorObjectERK7QStringS3_ii": [
+      "address", "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine18newTypeErrorObjectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine19newRangeErrorObjectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine17newURIErrorObjectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine17newURIErrorObjectERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine18newEvalErrorObjectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16newPromiseObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16newPromiseObjectEPKNS_14FunctionObjectEPKNS_17PromiseCapabilityE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine25getPromiseReactionHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16newVariantObjectE9QMetaTypePKv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine22newForInIteratorObjectEPNS_6ObjectE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine20newSetIteratorObjectEPNS_6ObjectE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine20newMapIteratorObjectEPNS_6ObjectE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine22newArrayIteratorObjectEPNS_6ObjectE": [
+      "address", "address", "address"
     ],
     "ritual_ZN3QV415ExecutionEngine10qmlContextEPNS_4Heap16ExecutionContextE": [
       "address", "address"
     ],
     "ritual_ZNK3QV415ExecutionEngine10qmlContextEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine14qmlScopeObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine10stackTraceEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine11resolvedUrlERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine11markObjectsEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15initRootContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine8newClassEPNS_4Heap13InternalClassE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine10throwErrorERKNS_5ValueE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14catchExceptionEP5QListINS_10StackFrameEE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine10throwErrorERK7QString": [
+      "unsigned long long", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16throwSyntaxErrorERK7QString": [
+      "unsigned long long", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16throwSyntaxErrorERK7QStringS3_ii": [
+      "unsigned long long", "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14throwTypeErrorEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14throwTypeErrorERK7QString": [
+      "unsigned long long", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine19throwReferenceErrorERKNS_5ValueE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine19throwReferenceErrorERK7QString": [
+      "unsigned long long", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine19throwReferenceErrorERK7QStringS3_ii": [
+      "unsigned long long", "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15throwRangeErrorERKNS_5ValueE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15throwRangeErrorERK7QString": [
+      "unsigned long long", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13throwURIErrorERKNS_5ValueE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine18throwUnimplementedERK7QString": [
+      "unsigned long long", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine24catchExceptionAsQmlErrorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14amendExceptionEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN3QV415ExecutionEngine9toVariantERKNS_5ValueE9QMetaTypeb": [
       "address", "address", "address", "bool"
     ],
@@ -347,21 +556,147 @@
     "ritual_ZN3QV415ExecutionEngine17variantHashFromJSEPKNS_6ObjectE": [
       "address", "address"
     ],
+    "ritual_ZN3QV415ExecutionEngine14metaTypeFromJSERKNS_5ValueE9QMetaTypePv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine12metaTypeToJSE9QMetaTypePKv": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14maxJSStackSizeEv": ["int", "address"],
+    "ritual_ZNK3QV415ExecutionEngine14maxGCStackSizeEv": ["int", "address"],
+    "ritual_ZN3QV415ExecutionEngine18safeForAllocLengthEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZN3QV415ExecutionEngine6globalEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine19initQmlGlobalObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16initializeGlobalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14createQtObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine12freezeObjectERKNS_5ValueE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine10lockObjectERKNS_5ValueE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine28setupXmlHttpRequestExtensionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine18xmlHttpRequestDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine12setQmlEngineEP10QQmlEngine": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN3QV415ExecutionEngine14resetQmlEngineEv": [
       "nothing", "address"
     ],
     "ritual_ZN3QV415ExecutionEngine16delayedCallQueueEv": [
       "address", "address"
     ],
+    "ritual_ZN3QV415ExecutionEngine10startTimerERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN3QV415ExecutionEngine9stopTimerERK7QStringPb": [
+      "long long", "address", "text", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine18consoleCountHelperERK7QStringtt": [
+      "int", "address", "text", "unsigned short", "unsigned short"
+    ],
     "ritual_ZN3QV415ExecutionEngine17registrationMutexEv": ["address"],
     "ritual_ZN3QV415ExecutionEngine17registerExtensionEv": ["int"],
+    "ritual_ZN3QV415ExecutionEngine16setExtensionDataEiPNS0_9DeletableE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZNK3QV415ExecutionEngine13extensionDataEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK3QV415ExecutionEngine21compilationUnitForUrlERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine25executableCompilationUnitEO14QQmlRefPointerINS_12CompiledData15CompilationUnitEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine21insertCompilationUnitEO14QQmlRefPointerINS_12CompiledData15CompilationUnitEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16compilationUnitsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine20trimCompilationUnitsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine26trimCompilationUnitsForUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine20registerNativeModuleERK4QUrlRKNS_5ValueE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine12moduleForUrlERK4QUrlPKNS_25ExecutableCompilationUnitE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16diskCacheOptionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13callInContextEPNS_8FunctionEP7QObjectPNS_16ExecutionContextEiPPvP9QMetaType": [
+      "nothing", "address", "address", "address", "address", "int",
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine13callInContextEPNS_8FunctionEP7QObjectPNS_16ExecutionContextEiPKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address", "address",
+      "int", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine8fromDataE9QMetaTypePKvPNS_4Heap6ObjectEij": [
+      "unsigned long long", "address", "address", "address", "address",
+      "int", "unsigned int"
+    ],
     "ritual_ZN3QV415ExecutionEngine15setMaxCallDepthEi": ["nothing", "int"],
     "ritual_ZN3QV415ExecutionEngine12maxCallDepthEv": ["int"],
+    "ritual_ZN3QV415ExecutionEngine23initializeStaticMembersEv": ["nothing"],
+    "ritual_ZNK3QV415ExecutionEngine7inStackEPKv": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK3QV415ExecutionEngine18hasJsStackOverflowEv": [
       "bool", "address"
+    ],
+    "ritual_drop_QV4_ExecutionEngine__QV4_StackTrace": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QV4_ExecutionEngine__QQmlRefPointer_QV4_ExecutableCompilationUnit": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QV4_ExecutionEngine__QMultiHash_QUrl_QQmlRefPointer_QV4_ExecutableCompilationUnit": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QV4_ExecutionEngine__QV4_ExecutionEngine_Module": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine6canJITINS_8FunctionEEEbPT_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15createPrimitiveIPKNS_5ValueEEE17QJSPrimitiveValueRKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15createPrimitiveIPNS_5ValueEEE17QJSPrimitiveValueRKT_": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14currentContextINS_13CppStackFrameEEEPNS_16ExecutionContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14currentContextINS_17JSTypesStackFrameEEEPNS_16ExecutionContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14currentContextINS_19MetaTypesStackFrameEEEPNS_16ExecutionContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine10typeLoaderI14QQmlTypeLoaderEEPT_v": [
+      "address", "address"
     ]
   }
 }

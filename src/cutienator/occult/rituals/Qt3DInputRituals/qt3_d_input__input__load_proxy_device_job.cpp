@@ -1,64 +1,29 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DInput/6.12.0/Qt3DInput/private/loadproxydevicejob_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  Qt3DInput/6.12.0/Qt3DInput/private/loadproxydevicejob_p.h,
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Qt does not export this class (Q_AUTOTEST_EXPORT is empty outside Qt's
+//  own tests): only its inline and virtual functions are called, through the
+//  object. Not written: the constructor, 'setProxiesToLoad',
+//  'setInputHandler', 'inputHandler' (declared, not inline) and 'proxies'
+//  (it gives a QList).
+//  'run' is 'final' in the class, which would make the compiler call Qt's
+//  unexported function directly: its ritual takes 'self' as the
+//  Qt3DCore::QAspectJob that declares it, so the call stays virtual.
 #include <Qt3DInput/6.12.0/Qt3DInput/private/qt3dinput_global_p.h>
 #include <Qt3DInput/Qt3DInput>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DInput/6.12.0/Qt3DInput/private/loadproxydevicejob_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <cstring>
 
-//  A Qt3DInput::Input::LoadProxyDeviceJob that Python can take functions over in. Every Qt3DInput::Input::LoadProxyDeviceJob
-//  Python makes is one. Each function below asks the Python
-//  function handed over for it, and runs Qt's own without one.
-typedef void (*CuteQt3DInput_Input_LoadProxyDeviceJobCall0)(const void *, Qt3DCore::QAspectEngine *, int *);
-typedef bool (*CuteQt3DInput_Input_LoadProxyDeviceJobCall1)(const void *, int *);
-class CuteQt3DInput_Input_LoadProxyDeviceJob : public Qt3DInput::Input::LoadProxyDeviceJob {
-public:
-  using Qt3DInput::Input::LoadProxyDeviceJob::LoadProxyDeviceJob;
-  void *taken[2] = {};
-
-  bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZN8Qt3DCore10QAspectJob9postFrameEPNS_13QAspectEngineE")) {
-      taken[0] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZN8Qt3DCore10QAspectJob10isRequiredEv")) {
-      taken[1] = call;
-      return true;
-    }
-    return false;
-  }
-
-  //  void Qt3DCore::QAspectJob::postFrame(QAspectEngine *aspectEngine)
-  void postFrame(Qt3DCore::QAspectEngine *aspectEngine) override {
-    if (taken[0]) {
-      int handled = 0;
-      CuteQt3DInput_Input_LoadProxyDeviceJobCall0 call = reinterpret_cast<CuteQt3DInput_Input_LoadProxyDeviceJobCall0>(taken[0]);
-      call(this, aspectEngine, &handled);
-      if (handled) return;
-    }
-    Qt3DCore::QAspectJob::postFrame(aspectEngine);
-  }
-
-  //  bool Qt3DCore::QAspectJob::isRequired()
-  bool isRequired() override {
-    if (taken[1]) {
-      int handled = 0;
-      CuteQt3DInput_Input_LoadProxyDeviceJobCall1 call = reinterpret_cast<CuteQt3DInput_Input_LoadProxyDeviceJobCall1>(taken[1]);
-      bool given = call(this, &handled);
-      if (handled) return given;
-    }
-    return Qt3DCore::QAspectJob::isRequired();
-  }
-};
-
-//  a Python function taken by a CuteQt3DInput_Input_LoadProxyDeviceJob, for
-//      the function named by the key
+//  Qt3DInput::Input::LoadProxyDeviceJob::~LoadProxyDeviceJob()
 extern "C" Q_DECL_EXPORT
-bool ritual_take_Qt3DInput_Input_LoadProxyDeviceJob(
-    Qt3DInput::Input::LoadProxyDeviceJob *self,
-    const char *key,
-    void *call) {
-  return static_cast<CuteQt3DInput_Input_LoadProxyDeviceJob *>(self)->take(key, call);
+void ritual_ZN9Qt3DInput5Input18LoadProxyDeviceJobD1Ev(
+    Qt3DInput::Input::LoadProxyDeviceJob *self) {
+  delete self;
+}
+
+//  void Qt3DInput::Input::LoadProxyDeviceJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput5Input18LoadProxyDeviceJob3runEv(
+    Qt3DCore::QAspectJob *self) {
+  self->run();
 }

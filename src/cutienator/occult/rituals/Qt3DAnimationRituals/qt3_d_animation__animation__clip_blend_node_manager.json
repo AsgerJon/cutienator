@@ -5,5 +5,23 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation20ClipBlendNodeManagerC1Ev": [
+      "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation20ClipBlendNodeManagerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation20ClipBlendNodeManager12containsNodeEN8Qt3DCore7QNodeIdE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation20ClipBlendNodeManager10appendNodeEN8Qt3DCore7QNodeIdEPNS0_13ClipBlendNodeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation20ClipBlendNodeManager10lookupNodeEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation20ClipBlendNodeManager11releaseNodeEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ]
   }
 }

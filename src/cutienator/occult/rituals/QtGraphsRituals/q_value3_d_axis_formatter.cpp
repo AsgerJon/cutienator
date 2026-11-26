@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qvalue3daxisformatter.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qvalue3daxisformatter.h>
 #include <QtCore/qstring.h>
@@ -9,6 +9,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QValue3DAxisFormatter may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -280,6 +281,25 @@ const QMetaObject *ritual_ZNK21QValue3DAxisFormatter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QValue3DAxisFormatter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QValue3DAxisFormatter11qt_metacastEPKc(
+    QValue3DAxisFormatter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QValue3DAxisFormatter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QValue3DAxisFormatter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QValue3DAxisFormatter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QValue3DAxisFormatter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QValue3DAxisFormatter2trEPKcS1_i(
@@ -301,6 +321,15 @@ extern "C" Q_DECL_EXPORT
 const QValue3DAxisFormatterPrivate *ritual_ZNK21QValue3DAxisFormatter6d_funcEv(
     const QValue3DAxisFormatter *self) {
   return self->d_func();
+}
+
+//  QValue3DAxisFormatter::QValue3DAxisFormatter(QValue3DAxisFormatterPrivate
+//      &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QValue3DAxisFormatter *ritual_ZN21QValue3DAxisFormatterC1ER28QValue3DAxisFormatterPrivateP7QObject(
+    QValue3DAxisFormatterPrivate *d,
+    QObject *parent) {
+  return new CuteQValue3DAxisFormatter(*d, parent);
 }
 
 //  QValue3DAxisFormatter::QValue3DAxisFormatter(QObject *parent)
@@ -401,6 +430,14 @@ float ritual_ZNK21QValue3DAxisFormatter7valueAtEf(
   return self->valueAt(position);
 }
 
+//  void QValue3DAxisFormatter::populateCopy(QValue3DAxisFormatter &copy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QValue3DAxisFormatter12populateCopyERS_(
+    QValue3DAxisFormatter *self,
+    QValue3DAxisFormatter *copy) {
+  self->populateCopy(*copy);
+}
+
 //  void QValue3DAxisFormatter::markDirty(bool labelsChange)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QValue3DAxisFormatter9markDirtyEb(
@@ -414,6 +451,53 @@ extern "C" Q_DECL_EXPORT
 QValue3DAxis *ritual_ZNK21QValue3DAxisFormatter4axisEv(
     const QValue3DAxisFormatter *self) {
   return self->axis();
+}
+
+//  const QList<float> &QValue3DAxisFormatter::gridPositions() const
+extern "C" Q_DECL_EXPORT
+const QList<float> *ritual_ZNKR21QValue3DAxisFormatter13gridPositionsEv(
+    const QValue3DAxisFormatter *self) {
+  return &(self->gridPositions());
+}
+
+//  void QValue3DAxisFormatter::setGridPoitions(QList<float> gridPositions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QValue3DAxisFormatter15setGridPoitionsE5QListIfE(
+    QValue3DAxisFormatter *self,
+    const QList<float> *gridPositions) {
+  self->setGridPoitions(*gridPositions);
+}
+
+//  const QList<float> &QValue3DAxisFormatter::subGridPositions() const
+extern "C" Q_DECL_EXPORT
+const QList<float> *ritual_ZNKR21QValue3DAxisFormatter16subGridPositionsEv(
+    const QValue3DAxisFormatter *self) {
+  return &(self->subGridPositions());
+}
+
+//  void QValue3DAxisFormatter::setSubGridPositions(QList<float>
+//      subGridPositions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QValue3DAxisFormatter19setSubGridPositionsE5QListIfE(
+    QValue3DAxisFormatter *self,
+    const QList<float> *subGridPositions) {
+  self->setSubGridPositions(*subGridPositions);
+}
+
+//  const QList<float> &QValue3DAxisFormatter::labelPositions() const
+extern "C" Q_DECL_EXPORT
+const QList<float> *ritual_ZNKR21QValue3DAxisFormatter14labelPositionsEv(
+    const QValue3DAxisFormatter *self) {
+  return &(self->labelPositions());
+}
+
+//  void QValue3DAxisFormatter::setlabelPositions(QList<float>
+//      labelPositions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QValue3DAxisFormatter17setlabelPositionsE5QListIfE(
+    QValue3DAxisFormatter *self,
+    const QList<float> *labelPositions) {
+  self->setlabelPositions(*labelPositions);
 }
 
 //  const QStringList &QValue3DAxisFormatter::labelStrings() const
@@ -501,4 +585,4 @@ float ritual_own_ZNK21QValue3DAxisFormatter7valueAtEf(
       position);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

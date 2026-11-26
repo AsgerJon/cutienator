@@ -6,8 +6,18 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtHelp/6.12.0/QtHelp/private/qhelpdbreader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qversionnumber.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QStringList>
+#include <QtCore/QMultiMap>
+#include <QtCore/QString>
+#include <QtCore/QByteArray>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtHelp/private/qhelpdbreader_p.h>
 #include <QtHelp/qhelp_global.h>
@@ -27,11 +37,304 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 100, as local:qhelpdbreader.cpp:VersionData
+struct VersionData
+{
+    QString tail;
+    int major = -1;
+    int minor = -1;
+    int patch = -1;
+};
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 108, as local:qhelpdbreader.cpp:getVersionData
+static VersionData getVersionData(const QString &nameSpace)
+{
+    VersionData result;
+    if (!nameSpace.startsWith("org.qt-project."_L1))
+        return result;
+
+    // We take the namespace tail, starting from the last letter in namespace name.
+    // We drop any non digit characters.
+    const QChar dot(u'.');
+    QString &tail = result.tail;
+    for (int i = nameSpace.size(); i > 0; --i) {
+        const QChar c = nameSpace.at(i - 1);
+        if (c.isDigit() || c == dot)
+            tail.prepend(c);
+
+        if (c.isLetter())
+            break;
+    }
+
+    if (!tail.startsWith(dot) && tail.count(dot) == 1) {
+        // The org.qt-project.qtquickcontrols2.5120 case,
+        // tail = 2.5120 here. We need to cut "2." here.
+        const int dotIndex = tail.indexOf(dot);
+        if (dotIndex > 0)
+            tail = tail.mid(dotIndex);
+    }
+
+    // Drop beginning dots
+    while (tail.startsWith(dot))
+        tail = tail.mid(1);
+
+    // Drop ending dots
+    while (tail.endsWith(dot))
+        tail.chop(1);
+
+    if (tail.size() >= 3 && tail.size() <= 5 && tail.count(dot) == 0) {
+        // When we have 3 digits, we split it like: ABC -> A.B.C
+        // When we have 4 digits, we split it like: ABCD -> A.BC.D
+        // When we have 5 digits, we split it like: ABCDE -> A.BC.DE
+        QStringView tail{result.tail};
+        result.major = tail.left(1).toInt();
+        result.minor = tail.size() == 3 ? tail.mid(1, 1).toInt() : tail.mid(1, 2).toInt();
+        result.patch = tail.size() == 5 ? tail.right(2).toInt() : tail.right(1).toInt();
+    }
+    return result;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 170, as local:qhelpdbreader.cpp:isAttributeUsed
+static bool isAttributeUsed(QSqlQuery *query, const QString &tableName, int attributeId)
+{
+    query->prepare(QString::fromLatin1("SELECT FilterAttributeId "
+                                       "FROM %1 "
+                                       "WHERE FilterAttributeId = ? "
+                                       "LIMIT 1").arg(tableName));
+    query->bindValue(0, attributeId);
+    query->exec();
+    return query->next(); // if we got a result it means it was used
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 155, as _ZNK13QHelpDBReader18qtVersionHeuristicEv
+inline QString QHelpDBReader::qtVersionHeuristic() const
+{
+    VersionData version = getVersionData(namespaceName());
+    return version.major >= 0
+            ? QString::number(version.major) + u'.' + QString::number(version.minor) + u'.' + QString::number(version.patch)
+            : version.tail;
+}
+
 //  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 31, as _ZN13QHelpDBReaderD1Ev
 inline QHelpDBReader::~QHelpDBReader()
 {
     if (m_initDone)
         QSqlDatabase::removeDatabase(m_uniqueId);
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 70, as _ZNK13QHelpDBReader13namespaceNameEv
+inline QString QHelpDBReader::namespaceName() const
+{
+    if (!m_namespace.isEmpty())
+        return m_namespace;
+    if (m_query) {
+        m_query->exec("SELECT Name FROM NamespaceTable"_L1);
+        if (m_query->next())
+            m_namespace = m_query->value(0).toString();
+    }
+    return m_namespace;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 82, as _ZNK13QHelpDBReader13virtualFolderEv
+inline QString QHelpDBReader::virtualFolder() const
+{
+    if (m_query) {
+        m_query->exec("SELECT Name FROM FolderTable WHERE Id=1"_L1);
+        if (m_query->next())
+            return m_query->value(0).toString();
+    }
+    return {};
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 92, as _ZNK13QHelpDBReader7versionEv
+inline QString QHelpDBReader::version() const
+{
+    const QString versionString = metaData("version"_L1).toString();
+    if (versionString.isEmpty())
+        return qtVersionHeuristic();
+    return versionString;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 357, as _ZNK13QHelpDBReader19filterAttributeSetsEv
+inline QList<QStringList> QHelpDBReader::filterAttributeSets() const
+{
+    QList<QStringList> result;
+    if (m_query) {
+        m_query->exec(
+            "SELECT "
+                "FileAttributeSetTable.Id, "
+                "FilterAttributeTable.Name "
+            "FROM "
+                "FileAttributeSetTable, "
+                "FilterAttributeTable "
+            "WHERE FileAttributeSetTable.FilterAttributeId = FilterAttributeTable.Id "
+            "ORDER BY FileAttributeSetTable.Id"_L1);
+        int oldId = -1;
+        while (m_query->next()) {
+            const int id = m_query->value(0).toInt();
+            if (id != oldId) {
+                result.append(QStringList());
+                oldId = id;
+            }
+            result.last().append(m_query->value(1).toString());
+        }
+    }
+    return result;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 452, as _ZNK13QHelpDBReader9filesDataERK5QListI7QStringERKS1_
+inline QMultiMap<QString, QByteArray> QHelpDBReader::filesData(const QStringList &filterAttributes,
+                                                        const QString &extensionFilter) const
+{
+    if (!m_query)
+        return {};
+
+    QString query;
+    QString extension;
+    if (!extensionFilter.isEmpty())
+        extension = "AND FileNameTable.Name LIKE \'%.%1\'"_L1.arg(extensionFilter);
+
+    if (filterAttributes.isEmpty()) {
+        query =
+            "SELECT "
+                "FileNameTable.Name, "
+                "FileDataTable.Data "
+            "FROM "
+                "FolderTable, "
+                "FileNameTable, "
+                "FileDataTable "
+            "WHERE FileDataTable.Id = FileNameTable.FileId "
+            "AND FileNameTable.FolderId = FolderTable.Id %1"_L1.arg(extension);
+    } else {
+        for (int i = 0; i < filterAttributes.size(); ++i) {
+            if (i > 0)
+                query.append(" INTERSECT "_L1);
+            query.append(
+                "SELECT "
+                    "FileNameTable.Name, "
+                    "FileDataTable.Data "
+                "FROM "
+                    "FolderTable, "
+                    "FileNameTable, "
+                    "FileDataTable, "
+                    "FileFilterTable, "
+                    "FilterAttributeTable "
+                "WHERE FileDataTable.Id = FileNameTable.FileId "
+                "AND FileNameTable.FolderId = FolderTable.Id "
+                "AND FileNameTable.FileId = FileFilterTable.FileId "
+                "AND FileFilterTable.FilterAttributeId = FilterAttributeTable.Id "
+                "AND FilterAttributeTable.Name = \'%1\' %2"_L1
+                            .arg(quote(filterAttributes.at(i)), extension));
+        }
+    }
+    m_query->exec(query);
+    QMultiMap<QString, QByteArray> result;
+    while (m_query->next())
+        result.insert(m_query->value(0).toString(), qUncompress(m_query->value(1).toByteArray()));
+    return result;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 383, as _ZNK13QHelpDBReader8fileDataERK7QStringS2_
+inline QByteArray QHelpDBReader::fileData(const QString &virtualFolder,
+                                   const QString &filePath) const
+{
+    QByteArray ba;
+    if (virtualFolder.isEmpty() || filePath.isEmpty() || !m_query)
+        return ba;
+
+    namespaceName();
+    m_query->prepare(
+        "SELECT "
+            "FileDataTable.Data "
+        "FROM "
+            "FileDataTable, "
+            "FileNameTable, "
+            "FolderTable, "
+            "NamespaceTable "
+        "WHERE FileDataTable.Id = FileNameTable.FileId "
+        "AND (FileNameTable.Name = ? OR FileNameTable.Name = ?) "
+        "AND FileNameTable.FolderId = FolderTable.Id "
+        "AND FolderTable.Name = ? "
+        "AND FolderTable.NamespaceId = NamespaceTable.Id "
+        "AND NamespaceTable.Name = ?"_L1);
+    m_query->bindValue(0, filePath);
+    m_query->bindValue(1, QString("./"_L1 + filePath));
+    m_query->bindValue(2, virtualFolder);
+    m_query->bindValue(3, m_namespace);
+    m_query->exec();
+    if (m_query->next() && m_query->isValid())
+        ba = qUncompress(m_query->value(0).toByteArray());
+    return ba;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 415, as _ZNK13QHelpDBReader13customFiltersEv
+inline QStringList QHelpDBReader::customFilters() const
+{
+    QStringList lst;
+    if (m_query) {
+        m_query->exec("SELECT Name FROM FilterNameTable"_L1);
+        while (m_query->next())
+            lst.append(m_query->value(0).toString());
+    }
+    return lst;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 426, as _ZNK13QHelpDBReader16filterAttributesERK7QString
+inline QStringList QHelpDBReader::filterAttributes(const QString &filterName) const
+{
+    QStringList lst;
+    if (m_query) {
+        if (filterName.isEmpty()) {
+            m_query->prepare("SELECT Name FROM FilterAttributeTable"_L1);
+        } else {
+            m_query->prepare(
+                 "SELECT "
+                     "FilterAttributeTable.Name "
+                 "FROM "
+                     "FilterAttributeTable, "
+                     "FilterTable, "
+                     "FilterNameTable "
+                 "WHERE FilterNameTable.Name = ? "
+                "AND FilterNameTable.Id = FilterTable.NameId "
+                "AND FilterTable.FilterAttributeId = FilterAttributeTable.Id"_L1);
+            m_query->bindValue(0, filterName);
+        }
+        m_query->exec();
+        while (m_query->next())
+            lst.append(m_query->value(0).toString());
+    }
+    return lst;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 503, as _ZNK13QHelpDBReader8metaDataERK7QString
+inline QVariant QHelpDBReader::metaData(const QString &name) const
+{
+    if (!m_query)
+        return {};
+
+    m_query->prepare("SELECT COUNT(Value), Value FROM MetaDataTable WHERE Name=?"_L1);
+    m_query->bindValue(0, name);
+    if (m_query->exec() && m_query->next() && m_query->value(0).toInt() == 1)
+        return m_query->value(1);
+    return {};
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 163, as _ZN13QHelpDBReader16versionHeuristicERK7QString
+inline QVersionNumber QHelpDBReader::versionHeuristic(const QString &namespaceName)
+{
+    VersionData version = getVersionData(namespaceName);
+    return version.major >= 0 ? QVersionNumber{version.major, version.minor, version.patch}
+                              : QVersionNumber::fromString(version.tail);
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 515, as _ZNK13QHelpDBReader5quoteERK7QString
+inline QString QHelpDBReader::quote(const QString &string) const
+{
+    QString s = string;
+    s.replace(u'\'', "\'\'"_L1);
+    return s;
 }
 //  -----------------------------------------------------------------------
 
@@ -209,10 +512,118 @@ const QMetaObject *ritual_ZNK13QHelpDBReader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHelpDBReader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QHelpDBReader11qt_metacastEPKc(
+    QHelpDBReader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHelpDBReader::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QHelpDBReader11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHelpDBReader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QHelpDBReader::~QHelpDBReader()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QHelpDBReaderD1Ev(QHelpDBReader *self) {
   delete self;
+}
+
+//  QString QHelpDBReader::namespaceName() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK13QHelpDBReader13namespaceNameEv(
+    const QHelpDBReader *self) {
+  return new QString(self->namespaceName());
+}
+
+//  QString QHelpDBReader::virtualFolder() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK13QHelpDBReader13virtualFolderEv(
+    const QHelpDBReader *self) {
+  return new QString(self->virtualFolder());
+}
+
+//  QString QHelpDBReader::version() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK13QHelpDBReader7versionEv(const QHelpDBReader *self) {
+  return new QString(self->version());
+}
+
+//  QList<QStringList> QHelpDBReader::filterAttributeSets() const
+extern "C" Q_DECL_EXPORT
+QList<QStringList> *ritual_ZNK13QHelpDBReader19filterAttributeSetsEv(
+    const QHelpDBReader *self) {
+  return new QList<QStringList>(self->filterAttributeSets());
+}
+
+//  QMultiMap<QString, QByteArray> QHelpDBReader::filesData(const QStringList
+//      &filterAttributes, const QString &extensionFilter) const
+extern "C" Q_DECL_EXPORT
+QMultiMap<QString, QByteArray> *ritual_ZNK13QHelpDBReader9filesDataERK5QListI7QStringERKS1_(
+    const QHelpDBReader *self,
+    const QList<QString> *filterAttributes,
+    const QString *extensionFilter) {
+  return new QMultiMap<QString, QByteArray>(
+      self->filesData(
+          *filterAttributes,
+          *extensionFilter));
+}
+
+//  QByteArray QHelpDBReader::fileData(const QString &virtualFolder, const
+//      QString &filePath) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK13QHelpDBReader8fileDataERK7QStringS2_(
+    const QHelpDBReader *self,
+    const QString *virtualFolder,
+    const QString *filePath) {
+  return new QByteArray(self->fileData(*virtualFolder, *filePath));
+}
+
+//  QStringList QHelpDBReader::customFilters() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK13QHelpDBReader13customFiltersEv(
+    const QHelpDBReader *self) {
+  return new QList<QString>(self->customFilters());
+}
+
+//  QStringList QHelpDBReader::filterAttributes(const QString &filterName)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK13QHelpDBReader16filterAttributesERK7QString(
+    const QHelpDBReader *self,
+    const QString *filterName) {
+  return new QList<QString>(self->filterAttributes(*filterName));
+}
+
+//  QVariant QHelpDBReader::metaData(const QString &name) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK13QHelpDBReader8metaDataERK7QString(
+    const QHelpDBReader *self,
+    const QString *name) {
+  return new QVariant(self->metaData(*name));
+}
+
+//  QVersionNumber QHelpDBReader::versionHeuristic(const QString
+//      &namespaceName)
+extern "C" Q_DECL_EXPORT
+QVersionNumber *ritual_ZN13QHelpDBReader16versionHeuristicERK7QString(
+    const QString *namespaceName) {
+  return new QVersionNumber(QHelpDBReader::versionHeuristic(*namespaceName));
+}
+
+//  QString QHelpDBReader::quote(const QString &string) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK13QHelpDBReader5quoteERK7QString(
+    const QHelpDBReader *self,
+    const QString *string) {
+  return new QString(self->quote(*string));
 }
 
 //  a Python function taken by a CuteQHelpDBReader, for the function named by
@@ -223,4 +634,17 @@ bool ritual_take_QHelpDBReader(
     const char *key,
     void *call) {
   return static_cast<CuteQHelpDBReader *>(self)->take(key, call);
+}
+
+//  a QList<QStringList> a ritual of QHelpDBReader gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHelpDBReader__QList_QStringList(QList<QStringList> *self) {
+  delete self;
+}
+
+//  a QMultiMap<QString, QByteArray> a ritual of QHelpDBReader gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHelpDBReader__QMultiMap_QString_QByteArray(
+    QMultiMap<QString, QByteArray> *self) {
+  delete self;
 }

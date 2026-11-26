@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender18QPointLightPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender18QPointLightPrivate6q_funcEv": [
       "address", "address"
     ],

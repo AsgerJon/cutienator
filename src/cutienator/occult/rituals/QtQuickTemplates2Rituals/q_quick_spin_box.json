@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickSpinBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickSpinBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickSpinBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickSpinBox2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickSpinBoxC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN13QQuickSpinBoxD1Ev": ["nothing", "address"],
@@ -20,6 +26,28 @@
     "ritual_ZN13QQuickSpinBox7setWrapEb": ["nothing", "address", "bool"],
     "ritual_ZN13QQuickSpinBox8increaseEv": ["nothing", "address"],
     "ritual_ZN13QQuickSpinBox8decreaseEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox11fromChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox9toChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox12valueChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox15stepSizeChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox15editableChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox11liveChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox16validatorChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox20textFromValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickSpinBox20valueFromTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickSpinBox13valueModifiedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox23inputMethodHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickSpinBox27inputMethodComposingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickSpinBox11wrapChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSpinBox18displayTextChangedEv": ["nothing", "address"],
     "ritual_ZN13QQuickSpinBox12focusInEventEP11QFocusEvent": [
       "nothing", "address", "address"
     ],
@@ -60,6 +88,8 @@
     "ritual_ZN13QQuickSpinBox26accessibilityActiveChangedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN13QQuickSpinBox6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQuickSpinBox6d_funcEv": ["address", "address"],
     "ritual_ZN13QQuickSpinBox11d_base_funcEv": ["address", "address"],
     "ritual_ZNK13QQuickSpinBox11d_base_funcEv": ["address", "address"],
     "ritual_take_QQuickSpinBox": ["bool", "address", "chars", "address"],

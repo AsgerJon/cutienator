@@ -1,8 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNfc/qndeffilter.h, Qt 6.12.0. Changes made here are lost.
+//  QtNfc/qndeffilter.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 3. Kept as it is when the
+//  generator runs again.
 #include <QtNfc/qndeffilter.h>
 #include <QtCore/qbytearray.h>
 #include <QtNfc/qndefmessage.h>
+#include <QtNfc/qndefnfctextrecord.h>
+#include <QtNfc/qndefnfcurirecord.h>
+#include <QtNfc/qndefnfcsmartposterrecord.h>
 
 //  QNdefFilter::QNdefFilter()
 extern "C" Q_DECL_EXPORT
@@ -75,10 +80,42 @@ QNdefFilter::Record *ritual_ZNK11QNdefFilter8recordAtEx(
   return new QNdefFilter::Record(self->recordAt(i));
 }
 
+//  QNdefFilter &QNdefFilter::operator=(const QNdefFilter &other)
+extern "C" Q_DECL_EXPORT
+QNdefFilter *ritual_ZN11QNdefFilteraSERKS_(
+    QNdefFilter *self,
+    const QNdefFilter *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QNdefFilter::match(const QNdefMessage &message) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QNdefFilter5matchERK12QNdefMessage(
     const QNdefFilter *self,
     const QNdefMessage *message) {
   return self->match(*message);
+}
+
+//  bool QNdefFilter::appendRecord<QNdefNfcTextRecord>(unsigned int min,
+//          unsigned int max)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QNdefFilter12appendRecordI18QNdefNfcTextRecordEEbjj(QNdefFilter *self, unsigned int min,
+    unsigned int max) {
+  return self->appendRecord<QNdefNfcTextRecord>(min, max);
+}
+
+//  bool QNdefFilter::appendRecord<QNdefNfcUriRecord>(unsigned int min,
+//          unsigned int max)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QNdefFilter12appendRecordI17QNdefNfcUriRecordEEbjj(QNdefFilter *self, unsigned int min,
+    unsigned int max) {
+  return self->appendRecord<QNdefNfcUriRecord>(min, max);
+}
+
+//  bool QNdefFilter::appendRecord<QNdefNfcSmartPosterRecord>(unsigned int min,
+//          unsigned int max)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QNdefFilter12appendRecordI25QNdefNfcSmartPosterRecordEEbjj(QNdefFilter *self, unsigned int min,
+    unsigned int max) {
+  return self->appendRecord<QNdefNfcSmartPosterRecord>(min, max);
 }

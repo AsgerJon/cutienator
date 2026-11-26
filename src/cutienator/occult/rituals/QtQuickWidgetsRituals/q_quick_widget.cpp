@@ -915,6 +915,24 @@ const QMetaObject *ritual_ZNK12QQuickWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickWidget11qt_metacastEPKc(
+    QQuickWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickWidget2trEPKcS1_i(
@@ -1104,6 +1122,24 @@ void ritual_ZN12QQuickWidget14loadFromModuleE14QAnyStringViewS0_(
     const QString *uri,
     const QString *typeName) {
   self->loadFromModule(QAnyStringView(*uri), QAnyStringView(*typeName));
+}
+
+//  void QQuickWidget::statusChanged(QQuickWidget::Status a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWidget13statusChangedENS_6StatusE(
+    QQuickWidget *self,
+    QQuickWidget::Status a0) {
+  self->statusChanged(a0);
+}
+
+//  void QQuickWidget::sceneGraphError(QQuickWindow::SceneGraphError error,
+//      const QString &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickWidget15sceneGraphErrorEN12QQuickWindow15SceneGraphErrorERK7QString(
+    QQuickWidget *self,
+    QQuickWindow::SceneGraphError error,
+    const QString *message) {
+  self->sceneGraphError(error, *message);
 }
 
 //  void QQuickWidget::continueExecute()

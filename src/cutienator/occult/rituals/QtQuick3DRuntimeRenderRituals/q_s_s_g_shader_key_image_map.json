@@ -6,6 +6,57 @@
   ],
   "rows": {
     "ritual_ZN21QSSGShaderKeyImageMapC1EPKc": ["address", "chars"],
+    "ritual_ZNK21QSSGShaderKeyImageMap11getBitValueENS_12ImageMapBitsE12QSSGDataViewIjE": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN21QSSGShaderKeyImageMap11setBitValueENS_12ImageMapBitsEb11QSSGDataRefIjE": [
+      "nothing", "address", "int", "bool", "address"
+    ],
+    "ritual_ZNK21QSSGShaderKeyImageMap9isEnabledE12QSSGDataViewIjE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QSSGShaderKeyImageMap10setEnabledE11QSSGDataRefIjEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK21QSSGShaderKeyImageMap8isEnvMapE12QSSGDataViewIjE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QSSGShaderKeyImageMap9setEnvMapE11QSSGDataRefIjEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK21QSSGShaderKeyImageMap12isLightProbeE12QSSGDataViewIjE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QSSGShaderKeyImageMap13setLightProbeE11QSSGDataRefIjEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK21QSSGShaderKeyImageMap19isIdentityTransformE12QSSGDataViewIjE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QSSGShaderKeyImageMap20setIdentityTransformE11QSSGDataRefIjEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK21QSSGShaderKeyImageMap10isUsingUV1E12QSSGDataViewIjE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QSSGShaderKeyImageMap10setUsesUV1E11QSSGDataRefIjEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK21QSSGShaderKeyImageMap8isLinearE12QSSGDataViewIjE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QSSGShaderKeyImageMap9setLinearE11QSSGDataRefIjEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK21QSSGShaderKeyImageMap20isPreMultipliedAlphaE12QSSGDataViewIjE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QSSGShaderKeyImageMap21setPreMultipliedAlphaE11QSSGDataRefIjEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK21QSSGShaderKeyImageMap8toStringER10QByteArray12QSSGDataViewIjE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN21QSSGShaderKeyImageMapD1Ev": ["nothing", "address"]
   }
 }

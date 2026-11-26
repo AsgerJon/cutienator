@@ -6,14 +6,23 @@
   ],
   "rows": {
     "ritual_ZNK18QWaylandViewporter10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWaylandViewporter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QWaylandViewporter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QWaylandViewporter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18QWaylandViewporter6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QWaylandViewporter6d_funcEv": ["address", "address"],
     "ritual_ZN18QWaylandViewporterC1Ev": ["address"],
     "ritual_ZN18QWaylandViewporterC1EP18QWaylandCompositor": [
       "address", "address"
     ],
     "ritual_ZN18QWaylandViewporter10initializeEv": ["nothing", "address"],
+    "ritual_ZN18QWaylandViewporter9interfaceEv": ["address"],
     "ritual_take_QWaylandViewporter": [
       "bool", "address", "chars", "address"
     ],

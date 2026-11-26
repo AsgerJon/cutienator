@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN12QDomNotationC1Ev": ["address"],
     "ritual_ZN12QDomNotationC1ERKS_": ["address", "address"],
+    "ritual_ZN12QDomNotationaSERKS_": ["address", "address", "address"],
     "ritual_ZNK12QDomNotation8publicIdEv": ["text", "address"],
     "ritual_ZNK12QDomNotation8systemIdEv": ["text", "address"],
     "ritual_ZNK12QDomNotation8nodeTypeEv": ["int", "address"],

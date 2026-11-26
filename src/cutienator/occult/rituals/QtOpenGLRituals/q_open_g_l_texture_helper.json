@@ -5,13 +5,24 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QOpenGLTextureHelperC1EP14QOpenGLContext": [
+      "address", "address"
+    ],
     "ritual_ZN20QOpenGLTextureHelper19glTextureParameteriEjjjji": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "unsigned int", "int"
     ],
+    "ritual_ZN20QOpenGLTextureHelper20glTextureParameterivEjjjjPKi": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int", "address"
+    ],
     "ritual_ZN20QOpenGLTextureHelper19glTextureParameterfEjjjjf": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper20glTextureParameterfvEjjjjPKf": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int", "address"
     ],
     "ritual_ZN20QOpenGLTextureHelper23glGenerateTextureMipmapEjjj": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
@@ -36,6 +47,36 @@
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "int", "unsigned int", "int", "int", "unsigned char"
     ],
+    "ritual_ZN20QOpenGLTextureHelper16glTextureImage3DEjjjijiiiijjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "int", "unsigned int",
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper16glTextureImage2DEjjjijiiijjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "unsigned int",
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper16glTextureImage1DEjjjijiijjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "unsigned int", "unsigned int",
+      "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper19glTextureSubImage3DEjjjiiiiiiijjPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "int", "int", "int", "int", "unsigned int",
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper19glTextureSubImage2DEjjjiiiiijjPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "int", "int", "unsigned int", "unsigned int",
+      "address", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper19glTextureSubImage1DEjjjiiijjPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "unsigned int", "unsigned int", "address",
+      "address"
+    ],
     "ritual_ZN20QOpenGLTextureHelper27glTextureImage3DMultisampleEjjjiiiiih": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "int", "int", "int", "int", "int", "unsigned char"
@@ -44,13 +85,48 @@
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "int", "int", "int", "int", "unsigned char"
     ],
+    "ritual_ZN20QOpenGLTextureHelper29glCompressedTextureSubImage1DEjjjiiijiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "unsigned int", "int", "address", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper29glCompressedTextureSubImage2DEjjjiiiiijiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "int", "int", "unsigned int", "int", "address",
+      "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper29glCompressedTextureSubImage3DEjjjiiiiiiijiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "int", "int", "int", "int", "unsigned int", "int",
+      "address", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper26glCompressedTextureImage1DEjjjijiiiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper26glCompressedTextureImage2DEjjjijiiiiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper26glCompressedTextureImage3DEjjjijiiiiiPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "int", "int", "address",
+      "address"
+    ],
     "ritual_ZN20QOpenGLTextureHelper21dsa_TextureParameteriEjjjji": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "unsigned int", "int"
     ],
+    "ritual_ZN20QOpenGLTextureHelper22dsa_TextureParameterivEjjjjPKi": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int", "address"
+    ],
     "ritual_ZN20QOpenGLTextureHelper21dsa_TextureParameterfEjjjjf": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper22dsa_TextureParameterfvEjjjjPKf": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int", "address"
     ],
     "ritual_ZN20QOpenGLTextureHelper25dsa_GenerateTextureMipmapEjjj": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
@@ -75,6 +151,35 @@
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "int", "unsigned int", "int", "int", "unsigned char"
     ],
+    "ritual_ZN20QOpenGLTextureHelper18dsa_TextureImage3DEjjjijiiiijjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "int", "unsigned int",
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper18dsa_TextureImage2DEjjjijiiijjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "unsigned int",
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper18dsa_TextureImage1DEjjjijiijjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "unsigned int", "unsigned int",
+      "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper21dsa_TextureSubImage3DEjjjiiiiiiijjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "int", "int", "int", "int", "unsigned int",
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper21dsa_TextureSubImage2DEjjjiiiiijjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "int", "int", "unsigned int", "unsigned int",
+      "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper21dsa_TextureSubImage1DEjjjiiijjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "unsigned int", "unsigned int", "address"
+    ],
     "ritual_ZN20QOpenGLTextureHelper29dsa_TextureImage3DMultisampleEjjjiiiiih": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "int", "int", "int", "int", "int", "unsigned char"
@@ -82,6 +187,78 @@
     "ritual_ZN20QOpenGLTextureHelper29dsa_TextureImage2DMultisampleEjjjiiiih": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "int", "int", "int", "int", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper31dsa_CompressedTextureSubImage1DEjjjiiijiPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper31dsa_CompressedTextureSubImage2DEjjjiiiiijiPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "int", "int", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper31dsa_CompressedTextureSubImage3DEjjjiiiiiiijiPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "int", "int", "int", "int", "int", "int", "unsigned int", "int",
+      "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper28dsa_CompressedTextureImage1DEjjjijiiiPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper28dsa_CompressedTextureImage2DEjjjijiiiiPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper28dsa_CompressedTextureImage3DEjjjijiiiiiPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "int", "int", "int", "int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper20qt_TextureParameteriEjjjji": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper12glTexImage1DEjiiiijjPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper15glTexSubImage1DEjiiijjPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int",
+      "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper12glTexImage3DEjiiiiiijjPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "int", "int", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper15glTexSubImage3DEjiiiiiiijjPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "int", "int", "int", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper23glGetCompressedTexImageEjiPv": [
+      "nothing", "address", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper25glCompressedTexSubImage1DEjiiijiPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int",
+      "unsigned int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper25glCompressedTexSubImage2DEjiiiiijiPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "int", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper25glCompressedTexSubImage3DEjiiiiiiijiPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "int", "int", "int", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper22glCompressedTexImage1DEjijiiiPKv": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "int",
+      "int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper22glCompressedTexImage2DEjijiiiiPKv": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "int",
+      "int", "int", "int", "address"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper22glCompressedTexImage3DEjijiiiiiPKv": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "int",
+      "int", "int", "int", "int", "address"
     ],
     "ritual_ZN20QOpenGLTextureHelper15glActiveTextureEj": [
       "nothing", "address", "unsigned int"
@@ -115,6 +292,10 @@
     "ritual_ZN20QOpenGLTextureHelper25glTexStorage2DMultisampleEjijiih": [
       "nothing", "address", "unsigned int", "int", "unsigned int", "int",
       "int", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLTextureHelper16glTexBufferRangeEjjjll": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "long long", "long long"
     ],
     "ritual_ZN20QOpenGLTextureHelper13glTextureViewEjjjjjjjj": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",

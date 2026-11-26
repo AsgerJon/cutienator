@@ -6,9 +6,14 @@
 #if QT_CONFIG(graphs_3d_scatter3d)
 #include <QtGraphsWidgets/q3dscatterwidgetitem.h>
 #include <QtCore/qstring.h>
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qscatter3dseries.h>
+#endif
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qvalue3daxis.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -193,6 +198,25 @@ const QMetaObject *ritual_ZNK20Q3DScatterWidgetItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DScatterWidgetItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20Q3DScatterWidgetItem11qt_metacastEPKc(
+    Q3DScatterWidgetItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DScatterWidgetItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20Q3DScatterWidgetItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DScatterWidgetItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DScatterWidgetItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20Q3DScatterWidgetItem2trEPKcS1_i(
@@ -319,6 +343,39 @@ bool ritual_ZN20Q3DScatterWidgetItem5eventEP6QEvent(
     Q3DScatterWidgetItem *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  void Q3DScatterWidgetItem::axisXChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DScatterWidgetItem12axisXChangedEP12QValue3DAxis(
+    Q3DScatterWidgetItem *self,
+    QValue3DAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void Q3DScatterWidgetItem::axisYChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DScatterWidgetItem12axisYChangedEP12QValue3DAxis(
+    Q3DScatterWidgetItem *self,
+    QValue3DAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void Q3DScatterWidgetItem::axisZChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DScatterWidgetItem12axisZChangedEP12QValue3DAxis(
+    Q3DScatterWidgetItem *self,
+    QValue3DAxis *axis) {
+  self->axisZChanged(axis);
+}
+
+//  void Q3DScatterWidgetItem::selectedSeriesChanged(QScatter3DSeries
+//      *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DScatterWidgetItem21selectedSeriesChangedEP16QScatter3DSeries(
+    Q3DScatterWidgetItem *self,
+    QScatter3DSeries *series) {
+  self->selectedSeriesChanged(series);
 }
 
 //  Q3DScatterWidgetItemPrivate *Q3DScatterWidgetItem::d_func()

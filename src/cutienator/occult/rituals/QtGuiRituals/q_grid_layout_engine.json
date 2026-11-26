@@ -133,8 +133,15 @@
     "ritual_ZN17QGridLayoutEngine18insertOrRemoveRowsEiiN2Qt11OrientationE": [
       "nothing", "address", "int", "int", "int"
     ],
+    "ritual_ZNK17QGridLayoutEngine11fillRowDataEP18QGridLayoutRowDataPKdS3_N2Qt11OrientationEPK24QAbstractLayoutStyleInfo": [
+      "nothing", "address", "address", "address", "address", "int", "address"
+    ],
     "ritual_ZNK17QGridLayoutEngine31ensureEffectiveFirstAndLastRowsEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK17QGridLayoutEngine22ensureColumnAndRowDataEP18QGridLayoutRowDataP14QGridLayoutBoxPKdS5_N2Qt11OrientationEPK24QAbstractLayoutStyleInfo": [
+      "nothing", "address", "address", "address", "address", "address",
+      "int", "address"
     ],
     "ritual_ZNK17QGridLayoutEngine16ensureGeometriesERK6QSizeFPK24QAbstractLayoutStyleInfo": [
       "nothing", "address", "address", "address"

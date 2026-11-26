@@ -5,6 +5,18 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal20StackedWidgetCommandD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20StackedWidgetCommand4initEP14QStackedWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20StackedWidgetCommand10removePageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20StackedWidgetCommand7addPageEv": [
+      "nothing", "address"
+    ],
     "ritual_take_qdesigner_internal_StackedWidgetCommand": [
       "bool", "address", "chars", "address"
     ]

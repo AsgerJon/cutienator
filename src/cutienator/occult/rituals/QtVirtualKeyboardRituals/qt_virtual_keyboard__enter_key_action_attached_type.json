@@ -8,10 +8,46 @@
     "ritual_ZNK17QtVirtualKeyboard26EnterKeyActionAttachedType10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedTypeC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard26EnterKeyActionAttachedType8actionIdEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType11setActionIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard26EnterKeyActionAttachedType5labelEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType8setLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard26EnterKeyActionAttachedType7enabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType15actionIdChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType12labelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType14enabledChangedEv": [
       "nothing", "address"
     ]
   }

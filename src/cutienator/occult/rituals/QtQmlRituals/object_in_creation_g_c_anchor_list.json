@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN28ObjectInCreationGCAnchorListC1Ev": ["address"],
+    "ritual_ZN28ObjectInCreationGCAnchorListC1ERKN3QV45ScopeE": [
+      "address", "address"
+    ],
     "ritual_ZN28ObjectInCreationGCAnchorList11trackObjectEPN3QV415ExecutionEngineEP7QObject": [
       "nothing", "address", "address", "address"
     ],

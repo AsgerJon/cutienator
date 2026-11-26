@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK3Bar10metaObjectEv": ["address", "address"],
+    "ritual_ZN3Bar11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN3Bar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN3Bar2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN3BarC1EP7QBarSetP13QGraphicsItem": [
       "address", "address", "address"
@@ -41,6 +45,21 @@
     "ritual_ZNK3Bar5indexEv": ["int", "address"],
     "ritual_ZN3Bar14setLayoutIndexEi": ["nothing", "address", "int"],
     "ritual_ZNK3Bar11layoutIndexEv": ["int", "address"],
+    "ritual_ZN3Bar7clickedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN3Bar7hoveredEbiP7QBarSet": [
+      "nothing", "address", "bool", "int", "address"
+    ],
+    "ritual_ZN3Bar7pressedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN3Bar8releasedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN3Bar13doubleClickedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_cast_Bar_QGraphicsRectItem": ["address", "address"],
     "ritual_take_Bar": ["bool", "address", "chars", "address"],
     "ritual_own_ZN3Bar15mousePressEventEP24QGraphicsSceneMouseEvent": [

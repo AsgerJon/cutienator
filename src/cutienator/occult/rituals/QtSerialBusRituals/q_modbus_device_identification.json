@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN27QModbusDeviceIdentificationC1Ev": ["address"],
     "ritual_ZNK27QModbusDeviceIdentification7isValidEv": ["bool", "address"],
+    "ritual_ZNK27QModbusDeviceIdentification9objectIdsEv": [
+      "address", "address"
+    ],
     "ritual_ZN27QModbusDeviceIdentification6removeEj": [
       "nothing", "address", "unsigned int"
     ],
@@ -28,6 +31,9 @@
     "ritual_ZN27QModbusDeviceIdentification13fromByteArrayERK10QByteArray": [
       "address", "address"
     ],
-    "ritual_ZN27QModbusDeviceIdentificationD1Ev": ["nothing", "address"]
+    "ritual_ZN27QModbusDeviceIdentificationD1Ev": ["nothing", "address"],
+    "ritual_drop_QModbusDeviceIdentification__QList_int": [
+      "nothing", "address"
+    ]
   }
 }

@@ -18,7 +18,7 @@ typedef void (*CuteQQmlJS_DirectivesCall2)(const void *, const QString *, const 
 class CuteQQmlJS_Directives : public QQmlJS::Directives {
 public:
   using QQmlJS::Directives::Directives;
-  CuteQQmlJS_Directives(const QQmlJS::Directives &other) : QQmlJS::Directives(other) {}
+  CuteQQmlJS_Directives(const QQmlJS::Directives & other) : QQmlJS::Directives(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

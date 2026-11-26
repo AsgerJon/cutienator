@@ -8,7 +8,25 @@
     "ritual_ZN3QV44Heap13QObjectMethod11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap13QObjectMethod4initEPNS_15ExecutionEngineEPNS0_6ObjectEi": [
+      "nothing", "address", "address", "address", "int"
+    ],
     "ritual_ZN3QV44Heap13QObjectMethod7destroyEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap13QObjectMethod18ensureMethodsCacheEPK11QMetaObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap13QObjectMethod4nameEv": ["text", "address"],
+    "ritual_ZNK3QV44Heap13QObjectMethod10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap13QObjectMethod6objectEv": ["address", "address"],
+    "ritual_ZNK3QV44Heap13QObjectMethod10isDetachedEv": ["bool", "address"],
+    "ritual_ZNK3QV44Heap13QObjectMethod12isAttachedToEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap13QObjectMethod15checkThisObjectEPK11QMetaObject": [
+      "int", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_QObjectMethod_QV4_Heap_QObjectMethodData": [
       "address", "address"
     ]

@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV47Runtime17GetTemplateObject4callEPNS_8FunctionEi": [
+      "unsigned long long", "address", "int"
+    ],
     "ritual_ZN3QV47Runtime17GetTemplateObjectD1Ev": ["nothing", "address"]
   }
 }

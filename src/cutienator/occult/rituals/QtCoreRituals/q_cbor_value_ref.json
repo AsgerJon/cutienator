@@ -5,6 +5,14 @@
   ],
   "rows": {
     "ritual_ZN13QCborValueRefC1ERKS_": ["address", "address"],
+    "ritual_ZN13QCborValueRefC1EOS_": ["address", "address"],
+    "ritual_ZN13QCborValueRefaSERK10QCborValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QCborValueRefaSEO10QCborValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QCborValueRefaSERKS_": ["address", "address", "address"],
     "ritual_ZN13QCborValueRefixEx": ["address", "address", "long long"],
     "ritual_ZN13QCborValueRefixE13QLatin1String": [
       "address", "address", "address"
@@ -87,6 +95,9 @@
     "ritual_ZN13QCborValueRef6toCborE6QFlagsIN10QCborValue14EncodingOptionEE": [
       "address", "address", "int"
     ],
+    "ritual_ZN13QCborValueRef6toCborER17QCborStreamWriter6QFlagsIN10QCborValue14EncodingOptionEE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN13QCborValueRef20toDiagnosticNotationE6QFlagsIN10QCborValue24DiagnosticNotationOptionEE": [
       "text", "address", "int"
     ],
@@ -99,6 +110,9 @@
       "address", "address", "long long"
     ],
     "ritual_ZN13QCborValueRef6assignES_RK10QCborValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCborValueRef6assignES_O10QCborValue": [
       "nothing", "address", "address"
     ],
     "ritual_ZN13QCborValueRef6assignES_S_": [

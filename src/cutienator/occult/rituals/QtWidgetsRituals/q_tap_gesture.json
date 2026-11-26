@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QTapGesture10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QTapGesture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QTapGesture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QTapGesture2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QTapGesture6d_funcEv": ["address", "address"],
     "ritual_ZNK11QTapGesture6d_funcEv": ["address", "address"],

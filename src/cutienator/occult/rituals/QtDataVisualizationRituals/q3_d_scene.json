@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK8Q3DScene10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Q3DScene11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8Q3DScene11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Q3DScene2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8Q3DSceneC1EP7QObject": ["address", "address"],
     "ritual_ZN8Q3DSceneD1Ev": ["nothing", "address"],
@@ -50,6 +54,36 @@
     "ritual_ZNK8Q3DScene16devicePixelRatioEv": ["float", "address"],
     "ritual_ZN8Q3DScene19setDevicePixelRatioEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN8Q3DScene15viewportChangedERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DScene25primarySubViewportChangedERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DScene27secondarySubViewportChangedERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DScene28secondarySubviewOnTopChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Q3DScene20slicingActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Q3DScene19activeCameraChangedEP9Q3DCamera": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DScene18activeLightChangedEP8Q3DLight": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DScene23devicePixelRatioChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Q3DScene29selectionQueryPositionChangedERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DScene25graphPositionQueryChangedERK6QPoint": [
+      "nothing", "address", "address"
     ],
     "ritual_take_Q3DScene": ["bool", "address", "chars", "address"]
   }

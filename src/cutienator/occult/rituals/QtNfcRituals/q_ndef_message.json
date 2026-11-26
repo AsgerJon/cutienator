@@ -10,6 +10,8 @@
     "ritual_ZN12QNdefMessageC1ERK5QListI11QNdefRecordE": [
       "address", "address"
     ],
+    "ritual_ZN12QNdefMessageaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QNdefMessageaSEOS_": ["address", "address", "address"],
     "ritual_ZNK12QNdefMessageeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QNdefMessage11toByteArrayEv": ["address", "address"],
     "ritual_ZN12QNdefMessage13fromByteArrayERK10QByteArray": [

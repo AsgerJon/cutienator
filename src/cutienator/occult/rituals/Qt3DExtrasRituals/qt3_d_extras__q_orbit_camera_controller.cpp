@@ -3,6 +3,7 @@
 //  lost.
 #include <Qt3DExtras/qorbitcameracontroller.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
 #include <Qt3DExtras/qabstractcameracontroller.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -200,6 +201,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras22QOrbitCameraController10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QOrbitCameraController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras22QOrbitCameraController11qt_metacastEPKc(
+    Qt3DExtras::QOrbitCameraController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QOrbitCameraController::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras22QOrbitCameraController11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QOrbitCameraController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QOrbitCameraController::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -208,6 +228,212 @@ QString *ritual_ZN10Qt3DExtras22QOrbitCameraController2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QOrbitCameraController::tr(s, c, n));
+}
+
+//  Qt3DExtras::QOrbitCameraController::QOrbitCameraController(Qt3DCore::QNod
+//      e *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QOrbitCameraController *ritual_ZN10Qt3DExtras22QOrbitCameraControllerC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QOrbitCameraController(parent);
+}
+
+//  Qt3DExtras::QOrbitCameraController::~QOrbitCameraController()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraControllerD1Ev(
+    Qt3DExtras::QOrbitCameraController *self) {
+  delete self;
+}
+
+//  float Qt3DExtras::QOrbitCameraController::zoomInLimit() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras22QOrbitCameraController11zoomInLimitEv(
+    const Qt3DExtras::QOrbitCameraController *self) {
+  return self->zoomInLimit();
+}
+
+//  QVector3D Qt3DExtras::QOrbitCameraController::upVector() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK10Qt3DExtras22QOrbitCameraController8upVectorEv(
+    const Qt3DExtras::QOrbitCameraController *self) {
+  return new QVector3D(self->upVector());
+}
+
+//  bool Qt3DExtras::QOrbitCameraController::inverseXTranslate() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras22QOrbitCameraController17inverseXTranslateEv(
+    const Qt3DExtras::QOrbitCameraController *self) {
+  return self->inverseXTranslate();
+}
+
+//  bool Qt3DExtras::QOrbitCameraController::inverseYTranslate() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras22QOrbitCameraController17inverseYTranslateEv(
+    const Qt3DExtras::QOrbitCameraController *self) {
+  return self->inverseYTranslate();
+}
+
+//  bool Qt3DExtras::QOrbitCameraController::inversePan() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras22QOrbitCameraController10inversePanEv(
+    const Qt3DExtras::QOrbitCameraController *self) {
+  return self->inversePan();
+}
+
+//  bool Qt3DExtras::QOrbitCameraController::inverseTilt() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras22QOrbitCameraController11inverseTiltEv(
+    const Qt3DExtras::QOrbitCameraController *self) {
+  return self->inverseTilt();
+}
+
+//  bool Qt3DExtras::QOrbitCameraController::zoomTranslateViewCenter() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras22QOrbitCameraController23zoomTranslateViewCenterEv(
+    const Qt3DExtras::QOrbitCameraController *self) {
+  return self->zoomTranslateViewCenter();
+}
+
+//  void Qt3DExtras::QOrbitCameraController::setZoomInLimit(float
+//      zoomInLimit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController14setZoomInLimitEf(
+    Qt3DExtras::QOrbitCameraController *self,
+    float zoomInLimit) {
+  self->setZoomInLimit(zoomInLimit);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::setUpVector(const QVector3D
+//      &upVector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController11setUpVectorERK9QVector3D(
+    Qt3DExtras::QOrbitCameraController *self,
+    const QVector3D *upVector) {
+  self->setUpVector(*upVector);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::setInverseXTranslate(bool
+//      isInverse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController20setInverseXTranslateEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isInverse) {
+  self->setInverseXTranslate(isInverse);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::setInverseYTranslate(bool
+//      isInverse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController20setInverseYTranslateEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isInverse) {
+  self->setInverseYTranslate(isInverse);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::setInversePan(bool isInverse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController13setInversePanEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isInverse) {
+  self->setInversePan(isInverse);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::setInverseTilt(bool isInverse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController14setInverseTiltEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isInverse) {
+  self->setInverseTilt(isInverse);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::setZoomTranslateViewCenter(bool
+//      isTranslate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController26setZoomTranslateViewCenterEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isTranslate) {
+  self->setZoomTranslateViewCenter(isTranslate);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::zoomInLimitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController18zoomInLimitChangedEv(
+    Qt3DExtras::QOrbitCameraController *self) {
+  self->zoomInLimitChanged();
+}
+
+//  void Qt3DExtras::QOrbitCameraController::upVectorChanged(const QVector3D
+//      &upVector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController15upVectorChangedERK9QVector3D(
+    Qt3DExtras::QOrbitCameraController *self,
+    const QVector3D *upVector) {
+  self->upVectorChanged(*upVector);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::inverseXTranslateChanged(bool
+//      isInverse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController24inverseXTranslateChangedEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isInverse) {
+  self->inverseXTranslateChanged(isInverse);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::inverseYTranslateChanged(bool
+//      isInverse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController24inverseYTranslateChangedEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isInverse) {
+  self->inverseYTranslateChanged(isInverse);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::inversePanChanged(bool
+//      isInverse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController17inversePanChangedEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isInverse) {
+  self->inversePanChanged(isInverse);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::inverseTiltChanged(bool
+//      isInverse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController18inverseTiltChangedEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isInverse) {
+  self->inverseTiltChanged(isInverse);
+}
+
+//  void
+//      Qt3DExtras::QOrbitCameraController::zoomTranslateViewCenterChanged(bo
+//      ol isTranslate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController30zoomTranslateViewCenterChangedEb(
+    Qt3DExtras::QOrbitCameraController *self,
+    bool isTranslate) {
+  self->zoomTranslateViewCenterChanged(isTranslate);
+}
+
+//  Qt3DExtras::QOrbitCameraController::QOrbitCameraController(QOrbitCameraCo
+//      ntrollerPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QOrbitCameraController *ritual_ZN10Qt3DExtras22QOrbitCameraControllerC1ERNS_29QOrbitCameraControllerPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QOrbitCameraControllerPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QOrbitCameraController(*dd, parent);
+}
+
+//  void Qt3DExtras::QOrbitCameraController::moveCamera(const
+//      QAbstractCameraController::InputState &state, float dt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras22QOrbitCameraController10moveCameraERKNS_25QAbstractCameraController10InputStateEf(
+    Qt3DExtras::QOrbitCameraController *self,
+    const Qt3DExtras::QAbstractCameraController::InputState *state,
+    float dt) {
+  self->moveCamera(*state, dt);
 }
 
 //  QOrbitCameraControllerPrivate

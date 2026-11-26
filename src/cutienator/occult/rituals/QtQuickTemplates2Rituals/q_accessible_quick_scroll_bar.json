@@ -5,6 +5,9 @@
     "bar_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK25QAccessibleQuickScrollBar13attributeKeysEv": [
+      "address", "address"
+    ],
     "ritual_ZNK25QAccessibleQuickScrollBar14attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
     ],
@@ -52,6 +55,9 @@
     ],
     "ritual_own_ZNK25QAccessibleQuickScrollBar15minimumStepSizeEv": [
       "address", "address"
+    ],
+    "ritual_drop_QAccessibleQuickScrollBar__QList_QAccessible_Attribute": [
+      "nothing", "address"
     ]
   }
 }

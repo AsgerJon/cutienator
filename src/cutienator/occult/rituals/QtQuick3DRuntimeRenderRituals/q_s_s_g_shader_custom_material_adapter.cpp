@@ -7,6 +7,15 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgshadermaterialadapter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qvectornd.h>
+#include <QtCore/qbytearray.h>
+
+//  QSSGShaderCustomMaterialAdapter::QSSGShaderCustomMaterialAdapter(const
+//      QSSGRenderCustomMaterial &material)
+extern "C" Q_DECL_EXPORT
+QSSGShaderCustomMaterialAdapter *ritual_ZN31QSSGShaderCustomMaterialAdapterC1ERK24QSSGRenderCustomMaterial(
+    const QSSGRenderCustomMaterial *material) {
+  return new QSSGShaderCustomMaterialAdapter(*material);
+}
 
 //  bool QSSGShaderCustomMaterialAdapter::isPrincipled()
 extern "C" Q_DECL_EXPORT
@@ -411,11 +420,106 @@ bool ritual_ZN31QSSGShaderCustomMaterialAdapter22hasCustomShaderSnippetEN15QSSGS
   return self->hasCustomShaderSnippet(type);
 }
 
+//  QByteArray QSSGShaderCustomMaterialAdapter::customShaderSnippet(QSSGShade
+//      rCache::ShaderType type, QSSGShaderLibraryManager
+//      &shaderLibraryManager, bool multiViewCompatible)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN31QSSGShaderCustomMaterialAdapter19customShaderSnippetEN15QSSGShaderCache10ShaderTypeER24QSSGShaderLibraryManagerb(
+    QSSGShaderCustomMaterialAdapter *self,
+    QSSGShaderCache::ShaderType type,
+    QSSGShaderLibraryManager *shaderLibraryManager,
+    bool multiViewCompatible) {
+  return new QByteArray(
+      self->customShaderSnippet(
+          type,
+          *shaderLibraryManager,
+          multiViewCompatible));
+}
+
+//  bool QSSGShaderCustomMaterialAdapter::hasCustomShaderFunction(QSSGShaderC
+//      ache::ShaderType shaderType, const QByteArray &funcName,
+//      QSSGShaderLibraryManager &shaderLibraryManager)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN31QSSGShaderCustomMaterialAdapter23hasCustomShaderFunctionEN15QSSGShaderCache10ShaderTypeERK10QByteArrayR24QSSGShaderLibraryManager(
+    QSSGShaderCustomMaterialAdapter *self,
+    QSSGShaderCache::ShaderType shaderType,
+    const QByteArray *funcName,
+    QSSGShaderLibraryManager *shaderLibraryManager) {
+  return self->hasCustomShaderFunction(
+      shaderType,
+      *funcName,
+      *shaderLibraryManager);
+}
+
+//  void QSSGShaderCustomMaterialAdapter::setCustomPropertyUniforms(char
+//      *ubufData, QSSGRhiShaderPipeline &shaderPipeline, const
+//      QSSGRenderContextInterface &context)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QSSGShaderCustomMaterialAdapter25setCustomPropertyUniformsEPcR21QSSGRhiShaderPipelineRK26QSSGRenderContextInterface(
+    QSSGShaderCustomMaterialAdapter *self,
+    char *ubufData,
+    QSSGRhiShaderPipeline *shaderPipeline,
+    const QSSGRenderContextInterface *context) {
+  self->setCustomPropertyUniforms(ubufData, *shaderPipeline, *context);
+}
+
 //  bool QSSGShaderCustomMaterialAdapter::usesSharedVariables()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN31QSSGShaderCustomMaterialAdapter19usesSharedVariablesEv(
     QSSGShaderCustomMaterialAdapter *self) {
   return self->usesSharedVariables();
+}
+
+//  void QSSGShaderCustomMaterialAdapter::beginPrepareCustomShader(CustomShad
+//      erPrepWorkData *workData, ShaderCodeAndMetaData *codeAndMetaData,
+//      const QByteArray &shaderCode, QSSGShaderCache::ShaderType type, bool
+//      multiViewCompatible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QSSGShaderCustomMaterialAdapter24beginPrepareCustomShaderEPNS_24CustomShaderPrepWorkDataEPSt4pairI10QByteArray24QSSGCustomShaderMetaDataERKS3_N15QSSGShaderCache10ShaderTypeEb(
+    QSSGShaderCustomMaterialAdapter::CustomShaderPrepWorkData *workData,
+    QSSGShaderCustomMaterialAdapter::ShaderCodeAndMetaData *codeAndMetaData,
+    const QByteArray *shaderCode,
+    QSSGShaderCache::ShaderType type,
+    bool multiViewCompatible) {
+  QSSGShaderCustomMaterialAdapter::beginPrepareCustomShader(
+      workData,
+      codeAndMetaData,
+      *shaderCode,
+      type,
+      multiViewCompatible);
+}
+
+//  void
+//      QSSGShaderCustomMaterialAdapter::finishPrepareCustomShader(QByteArray
+//      *dst, const CustomShaderPrepWorkData &workData, const
+//      ShaderCodeAndMetaData &codeAndMetaData, QSSGShaderCache::ShaderType
+//      type, bool multiViewCompatible, const StringPairList &baseUniforms,
+//      const StringPairList &baseInputs, const StringPairList &baseOutputs,
+//      const StringPairList &multiViewDependentSamplers, const
+//      StringPairList &multiViewDependentUniforms)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QSSGShaderCustomMaterialAdapter25finishPrepareCustomShaderEP10QByteArrayRKNS_24CustomShaderPrepWorkDataERKSt4pairIS0_24QSSGCustomShaderMetaDataEN15QSSGShaderCache10ShaderTypeEbRK15QVarLengthArrayIS5_IS0_S0_ELx16EESG_SG_SG_SG_(
+    QByteArray *dst,
+    const QSSGShaderCustomMaterialAdapter::CustomShaderPrepWorkData *workData,
+    const QSSGShaderCustomMaterialAdapter::ShaderCodeAndMetaData *codeAndMetaData,
+    QSSGShaderCache::ShaderType type,
+    bool multiViewCompatible,
+    const QSSGShaderCustomMaterialAdapter::StringPairList *baseUniforms,
+    const QSSGShaderCustomMaterialAdapter::StringPairList *baseInputs,
+    const QSSGShaderCustomMaterialAdapter::StringPairList *baseOutputs,
+    const QSSGShaderCustomMaterialAdapter::StringPairList *multiViewDependentSamplers,
+    const QSSGShaderCustomMaterialAdapter::StringPairList *multiViewDependentUniforms) {
+  QSSGShaderCustomMaterialAdapter::finishPrepareCustomShader(
+      dst,
+      *workData,
+      *codeAndMetaData,
+      type,
+      multiViewCompatible,
+      *baseUniforms,
+      *baseInputs,
+      *baseOutputs,
+      *multiViewDependentSamplers,
+      *multiViewDependentUniforms);
 }
 
 //  QSSGShaderCustomMaterialAdapter::~QSSGShaderCustomMaterialAdapter()

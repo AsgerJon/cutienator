@@ -376,6 +376,14 @@ void ritual_ZN18QQuickImagePrivate8setImageERK6QImage(
   self->setImage(*img);
 }
 
+//  void QQuickImagePrivate::setPixmap(const QQuickPixmap &pixmap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickImagePrivate9setPixmapERK12QQuickPixmap(
+    QQuickImagePrivate *self,
+    const QQuickPixmap *pixmap) {
+  self->setPixmap(*pixmap);
+}
+
 //  a Python function taken by a CuteQQuickImagePrivate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

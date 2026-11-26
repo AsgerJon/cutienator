@@ -282,6 +282,25 @@ const QMetaObject *ritual_ZNK21QQuickNumberAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickNumberAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickNumberAnimation11qt_metacastEPKc(
+    QQuickNumberAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickNumberAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickNumberAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickNumberAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickNumberAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickNumberAnimation2trEPKcS1_i(
@@ -347,6 +366,15 @@ void ritual_ZN21QQuickNumberAnimation5setToEd(
     QQuickNumberAnimation *self,
     qreal a0) {
   self->setTo(a0);
+}
+
+//  QQuickNumberAnimation::QQuickNumberAnimation(QQuickPropertyAnimationPriva
+//      te &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickNumberAnimation *ritual_ZN21QQuickNumberAnimationC1ER30QQuickPropertyAnimationPrivateP7QObject(
+    QQuickPropertyAnimationPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickNumberAnimation(*dd, parent);
 }
 
 //  void QQuickNumberAnimation::init()

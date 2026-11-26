@@ -11,19 +11,28 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkconnection_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(http)
+#include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkrequest_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtNetwork/qnetworkproxy.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/qhttp2configuration.h>
+#endif
+#if QT_CONFIG(http)
+#include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qtcpkeepaliveconfiguration_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtNetwork/qsslconfiguration.h>
 #include <QtNetwork/qsslerror.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <memory>
 
 //  A QHttpNetworkConnection that Python can take functions over in. Every QHttpNetworkConnection
 //  Python makes is one. Each function below asks the Python
@@ -197,6 +206,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QHttpNetworkConnection10metaObjectEv(
     const QHttpNetworkConnection *self) {
   return self->metaObject();
+}
+
+//  void *QHttpNetworkConnection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QHttpNetworkConnection11qt_metacastEPKc(
+    QHttpNetworkConnection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHttpNetworkConnection::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QHttpNetworkConnection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHttpNetworkConnection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QHttpNetworkConnection::tr(const char *s, const char *c, int n)
@@ -401,6 +429,26 @@ void ritual_ZN22QHttpNetworkConnection15ignoreSslErrorsERK5QListI9QSslErrorEi(
 }
 #endif  // !defined(QT_NO_SSL)
 
+#if !defined(QT_NO_SSL)
+//  std::shared_ptr<QSslContext> QHttpNetworkConnection::sslContext() const
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QSslContext> *ritual_ZNK22QHttpNetworkConnection10sslContextEv(
+    const QHttpNetworkConnection *self) {
+  return new std::shared_ptr<QSslContext>(self->sslContext());
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QHttpNetworkConnection::setSslContext(std::shared_ptr<QSslContext>
+//      context)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QHttpNetworkConnection13setSslContextESt10shared_ptrI11QSslContextE(
+    QHttpNetworkConnection *self,
+    const std::shared_ptr<QSslContext> *context) {
+  self->setSslContext(*context);
+}
+#endif  // !defined(QT_NO_SSL)
+
 //  void QHttpNetworkConnection::preConnectFinished()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QHttpNetworkConnection18preConnectFinishedEv(
@@ -454,6 +502,13 @@ bool ritual_take_QHttpNetworkConnection(
     const char *key,
     void *call) {
   return static_cast<CuteQHttpNetworkConnection *>(self)->take(key, call);
+}
+
+//  a std::shared_ptr<QSslContext> a ritual of QHttpNetworkConnection gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHttpNetworkConnection__std_shared_ptr_QSslContext(
+    std::shared_ptr<QSslContext> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(http)

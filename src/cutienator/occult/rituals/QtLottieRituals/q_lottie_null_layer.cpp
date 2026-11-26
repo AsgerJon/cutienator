@@ -27,7 +27,7 @@ typedef bool (*CuteQLottieNullLayerCall8)(const void *, int, const QVariant *, i
 class CuteQLottieNullLayer : public QLottieNullLayer {
 public:
   using QLottieNullLayer::QLottieNullLayer;
-  CuteQLottieNullLayer(const QLottieNullLayer &other) : QLottieNullLayer(other) {}
+  CuteQLottieNullLayer(const QLottieNullLayer & other) : QLottieNullLayer(other) {}
   void *taken[9] = {};
 
   bool take(const char *key, void *call) {
@@ -191,6 +191,14 @@ extern "C" Q_DECL_EXPORT
 QLottieBase *ritual_ZNK16QLottieNullLayer5cloneEv(
     const QLottieNullLayer *self) {
   return self->clone();
+}
+
+//  void QLottieNullLayer::render(QLottieRenderer &render) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QLottieNullLayer6renderER15QLottieRenderer(
+    const QLottieNullLayer *self,
+    QLottieRenderer *render) {
+  self->render(*render);
 }
 
 //  int QLottieNullLayer::parse(const QJsonObject &definition)

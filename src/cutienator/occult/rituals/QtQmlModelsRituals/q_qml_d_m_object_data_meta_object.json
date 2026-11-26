@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN26QQmlDMObjectDataMetaObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN26QQmlDMObjectDataMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv": [
+      "int", "address", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQmlDMObjectDataMetaObject14createPropertyEPKcS1_": [
       "int", "address", "chars", "chars"
     ],

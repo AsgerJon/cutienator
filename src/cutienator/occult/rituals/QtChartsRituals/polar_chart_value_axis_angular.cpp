@@ -18,6 +18,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A PolarChartValueAxisAngular that Python can take functions over in. Every PolarChartValueAxisAngular
 //  Python makes is one. Each function below asks the Python
@@ -1330,6 +1331,25 @@ const QMetaObject *ritual_ZNK26PolarChartValueAxisAngular10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PolarChartValueAxisAngular::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26PolarChartValueAxisAngular11qt_metacastEPKc(
+    PolarChartValueAxisAngular *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PolarChartValueAxisAngular::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26PolarChartValueAxisAngular11qt_metacallEN11QMetaObject4CallEiPPv(
+    PolarChartValueAxisAngular *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString PolarChartValueAxisAngular::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -1354,6 +1374,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26PolarChartValueAxisAngularD1Ev(
     PolarChartValueAxisAngular *self) {
   delete self;
+}
+
+//  QList<qreal> PolarChartValueAxisAngular::calculateLayout() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK26PolarChartValueAxisAngular15calculateLayoutEv(
+    const PolarChartValueAxisAngular *self) {
+  return new QList<qreal>(self->calculateLayout());
+}
+
+//  void PolarChartValueAxisAngular::createAxisLabels(const QList<qreal>
+//      &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26PolarChartValueAxisAngular16createAxisLabelsERK5QListIdE(
+    PolarChartValueAxisAngular *self,
+    const QList<qreal> *layout) {
+  self->createAxisLabels(*layout);
 }
 
 //  void PolarChartValueAxisAngular::handleTickCountChanged(int tick)
@@ -1389,4 +1425,11 @@ bool ritual_take_PolarChartValueAxisAngular(
     const char *key,
     void *call) {
   return static_cast<CutePolarChartValueAxisAngular *>(self)->take(key, call);
+}
+
+//  a QList<qreal> a ritual of PolarChartValueAxisAngular gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_PolarChartValueAxisAngular__QList_qreal(
+    QList<qreal> *self) {
+  delete self;
 }

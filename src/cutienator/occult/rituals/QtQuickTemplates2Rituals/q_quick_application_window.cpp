@@ -631,6 +631,25 @@ const QMetaObject *ritual_ZNK23QQuickApplicationWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickApplicationWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickApplicationWindow11qt_metacastEPKc(
+    QQuickApplicationWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickApplicationWindow::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickApplicationWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickApplicationWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickApplicationWindow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickApplicationWindow2trEPKcS1_i(
@@ -784,6 +803,83 @@ void ritual_ZN23QQuickApplicationWindow10setMenuBarEP10QQuickItem(
     QQuickApplicationWindow *self,
     QQuickItem *menuBar) {
   self->setMenuBar(menuBar);
+}
+
+//  void QQuickApplicationWindow::backgroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow17backgroundChangedEv(
+    QQuickApplicationWindow *self) {
+  self->backgroundChanged();
+}
+
+//  void QQuickApplicationWindow::activeFocusControlChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow25activeFocusControlChangedEv(
+    QQuickApplicationWindow *self) {
+  self->activeFocusControlChanged();
+}
+
+//  void QQuickApplicationWindow::headerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow13headerChangedEv(
+    QQuickApplicationWindow *self) {
+  self->headerChanged();
+}
+
+//  void QQuickApplicationWindow::footerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow13footerChangedEv(
+    QQuickApplicationWindow *self) {
+  self->footerChanged();
+}
+
+//  void QQuickApplicationWindow::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow11fontChangedEv(
+    QQuickApplicationWindow *self) {
+  self->fontChanged();
+}
+
+//  void QQuickApplicationWindow::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow13localeChangedEv(
+    QQuickApplicationWindow *self) {
+  self->localeChanged();
+}
+
+//  void QQuickApplicationWindow::menuBarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow14menuBarChangedEv(
+    QQuickApplicationWindow *self) {
+  self->menuBarChanged();
+}
+
+//  void QQuickApplicationWindow::topPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow17topPaddingChangedEv(
+    QQuickApplicationWindow *self) {
+  self->topPaddingChanged();
+}
+
+//  void QQuickApplicationWindow::leftPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow18leftPaddingChangedEv(
+    QQuickApplicationWindow *self) {
+  self->leftPaddingChanged();
+}
+
+//  void QQuickApplicationWindow::rightPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow19rightPaddingChangedEv(
+    QQuickApplicationWindow *self) {
+  self->rightPaddingChanged();
+}
+
+//  void QQuickApplicationWindow::bottomPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickApplicationWindow20bottomPaddingChangedEv(
+    QQuickApplicationWindow *self) {
+  self->bottomPaddingChanged();
 }
 
 //  bool QQuickApplicationWindow::isComponentComplete() const

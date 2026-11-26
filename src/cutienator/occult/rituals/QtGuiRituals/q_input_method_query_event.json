@@ -4,6 +4,10 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QInputMethodQueryEventC1ERKS_": ["address", "address"],
+    "ritual_ZN22QInputMethodQueryEventaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK22QInputMethodQueryEvent5cloneEv": ["address", "address"],
     "ritual_ZN22QInputMethodQueryEventD1Ev": ["nothing", "address"],
     "ritual_ZN22QInputMethodQueryEventC1E6QFlagsIN2Qt16InputMethodQueryEE": [

@@ -32,6 +32,9 @@
     "ritual_ZNK24QHttpServerRequestFilter17isBodySizeAllowedEx": [
       "bool", "address", "long long"
     ],
+    "ritual_ZN24QHttpServerRequestFilter18cleanIpInfoGarbageEN5QHashI12QHostAddressNS_6IpInfoEE8iteratorEx": [
+      "nothing", "address", "address", "long long"
+    ],
     "ritual_ZNK24QHttpServerRequestFilter19maxRequestPerPeriodEv": [
       "unsigned int", "address"
     ],

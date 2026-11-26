@@ -7,6 +7,9 @@
     "ritual_ZN12QCoapMessageC1Ev": ["address"],
     "ritual_ZN12QCoapMessageC1ERKS_": ["address", "address"],
     "ritual_ZN12QCoapMessageD1Ev": ["nothing", "address"],
+    "ritual_ZN12QCoapMessage4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN12QCoapMessageaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QCoapMessageaSEOS_": ["address", "address", "address"],
     "ritual_ZNK12QCoapMessage7versionEv": ["unsigned char", "address"],
     "ritual_ZNK12QCoapMessage4typeEv": ["unsigned char", "address"],
     "ritual_ZNK12QCoapMessage5tokenEv": ["address", "address"],
@@ -15,6 +18,9 @@
     "ritual_ZNK12QCoapMessage7payloadEv": ["address", "address"],
     "ritual_ZN12QCoapMessage10setVersionEh": [
       "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN12QCoapMessage7setTypeERKNS_4TypeE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN12QCoapMessage8setTokenERK10QByteArray": [
       "nothing", "address", "address"
@@ -53,6 +59,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN12QCoapMessage12clearOptionsEv": ["nothing", "address"],
+    "ritual_ZN12QCoapMessageC1ER19QCoapMessagePrivate": [
+      "address", "address"
+    ],
     "ritual_ZN12QCoapMessage6d_funcEv": ["address", "address"],
     "ritual_ZNK12QCoapMessage6d_funcEv": ["address", "address"]
   }

@@ -8,6 +8,16 @@
     "ritual_ZN3QV44Heap13PromiseObject11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap13PromiseObject4initEPNS_15ExecutionEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap13PromiseObject8setStateENS1_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK3QV44Heap13PromiseObject9isSettledEv": ["bool", "address"],
+    "ritual_ZNK3QV44Heap13PromiseObject9isPendingEv": ["bool", "address"],
+    "ritual_ZNK3QV44Heap13PromiseObject11isFulfilledEv": ["bool", "address"],
+    "ritual_ZNK3QV44Heap13PromiseObject10isRejectedEv": ["bool", "address"],
     "ritual_cast_QV4_Heap_PromiseObject_QV4_Heap_PromiseObjectData": [
       "address", "address"
     ]

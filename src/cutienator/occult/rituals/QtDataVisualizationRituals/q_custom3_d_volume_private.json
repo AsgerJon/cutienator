@@ -8,6 +8,12 @@
     "ritual_ZNK22QCustom3DVolumePrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QCustom3DVolumePrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QCustom3DVolumePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QCustom3DVolumePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QCustom3DVolumePrivate14resetDirtyBitsEv": [
       "nothing", "address"

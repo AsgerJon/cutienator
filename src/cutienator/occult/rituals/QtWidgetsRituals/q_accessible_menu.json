@@ -6,10 +6,15 @@
   ],
   "rows": {
     "ritual_ZNK15QAccessibleMenu10childCountEv": ["int", "address"],
+    "ritual_ZNK15QAccessibleMenu7childAtEii": [
+      "address", "address", "int", "int"
+    ],
     "ritual_ZNK15QAccessibleMenu4textEN11QAccessible4TextE": [
       "text", "address", "int"
     ],
     "ritual_ZNK15QAccessibleMenu4roleEv": ["int", "address"],
+    "ritual_ZNK15QAccessibleMenu5childEi": ["address", "address", "int"],
+    "ritual_ZNK15QAccessibleMenu6parentEv": ["address", "address"],
     "ritual_ZNK15QAccessibleMenu12indexOfChildEPK20QAccessibleInterface": [
       "int", "address", "address"
     ],

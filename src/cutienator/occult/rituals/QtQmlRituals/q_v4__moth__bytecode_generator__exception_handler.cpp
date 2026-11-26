@@ -36,6 +36,33 @@ QV4::Moth::BytecodeGenerator::ExceptionHandler *ritual_ZN3QV44Moth17BytecodeGene
   return new QV4::Moth::BytecodeGenerator::ExceptionHandler(*a0);
 }
 
+//  QV4::Moth::BytecodeGenerator::ExceptionHandler::ExceptionHandler(Exceptio
+//      nHandler &&a0)
+extern "C" Q_DECL_EXPORT
+QV4::Moth::BytecodeGenerator::ExceptionHandler *ritual_ZN3QV44Moth17BytecodeGenerator16ExceptionHandlerC1EOS2_(
+    QV4::Moth::BytecodeGenerator::ExceptionHandler *a0) {
+  return new QV4::Moth::BytecodeGenerator::ExceptionHandler(std::move(*a0));
+}
+
+//  ExceptionHandler
+//      &QV4::Moth::BytecodeGenerator::ExceptionHandler::operator=(const
+//      ExceptionHandler &a0)
+extern "C" Q_DECL_EXPORT
+QV4::Moth::BytecodeGenerator::ExceptionHandler *ritual_ZN3QV44Moth17BytecodeGenerator16ExceptionHandleraSERKS2_(
+    QV4::Moth::BytecodeGenerator::ExceptionHandler *self,
+    const QV4::Moth::BytecodeGenerator::ExceptionHandler *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  ExceptionHandler &QV4::Moth::BytecodeGenerator::ExceptionHandler::operato
+//      r=(ExceptionHandler &&a0)
+extern "C" Q_DECL_EXPORT
+QV4::Moth::BytecodeGenerator::ExceptionHandler *ritual_ZN3QV44Moth17BytecodeGenerator16ExceptionHandleraSEOS2_(
+    QV4::Moth::BytecodeGenerator::ExceptionHandler *self,
+    QV4::Moth::BytecodeGenerator::ExceptionHandler *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  bool QV4::Moth::BytecodeGenerator::ExceptionHandler::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK3QV44Moth17BytecodeGenerator16ExceptionHandler7isValidEv(

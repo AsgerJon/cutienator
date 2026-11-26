@@ -1,16 +1,19 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qmatrix4x4.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qmatrix4x4.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN10QMatrix4x4C1Ev": ["address"],
     "ritual_ZN10QMatrix4x4C1EN2Qt14InitializationE": ["address", "int"],
+    "ritual_ZN10QMatrix4x4C1EPKf": ["address", "address"],
     "ritual_ZN10QMatrix4x4C1Effffffffffffffff": [
       "address", "float", "float", "float", "float", "float", "float",
       "float", "float", "float", "float", "float", "float", "float", "float",
       "float", "float"
     ],
+    "ritual_ZN10QMatrix4x4C1EPKfii": ["address", "address", "int", "int"],
     "ritual_ZN10QMatrix4x4C1ERK10QTransform": ["address", "address"],
     "ritual_ZNK10QMatrix4x4clEii": ["float", "address", "int", "int"],
     "ritual_ZNK10QMatrix4x46columnEi": ["address", "address", "int"],
@@ -28,6 +31,7 @@
     "ritual_ZNK10QMatrix4x411determinantEv": ["double", "address"],
     "ritual_ZNK10QMatrix4x48invertedEPb": ["address", "address", "address"],
     "ritual_ZNK10QMatrix4x410transposedEv": ["address", "address"],
+    "ritual_ZNK10QMatrix4x412normalMatrixEv": ["address", "address"],
     "ritual_ZN10QMatrix4x4pLERKS_": ["nothing", "address", "address"],
     "ritual_ZN10QMatrix4x4mIERKS_": ["nothing", "address", "address"],
     "ritual_ZN10QMatrix4x4mLERKS_": ["nothing", "address", "address"],
@@ -134,6 +138,8 @@
     "ritual_ZNK10QMatrix4x47mapRectERK6QRectF": [
       "address", "address", "address"
     ],
+    "ritual_ZNK10QMatrix4x44dataEv": ["address", "address"],
+    "ritual_ZNK10QMatrix4x49constDataEv": ["address", "address"],
     "ritual_ZN10QMatrix4x48optimizeEv": ["nothing", "address"],
     "ritual_ZNK10QMatrix4x4cv8QVariantEv": ["address", "address"],
     "ritual_Zls6QDebugRK10QMatrix4x4": ["address", "address", "address"],
@@ -153,6 +159,39 @@
     "ritual_list_add_QMatrix4x4": ["nothing", "address", "address"],
     "ritual_list_size_QMatrix4x4": ["long long", "address"],
     "ritual_list_at_QMatrix4x4": ["address", "address", "long long"],
-    "ritual_list_drop_QMatrix4x4": ["nothing", "address"]
+    "ritual_list_drop_QMatrix4x4": ["nothing", "address"],
+    "ritual_drop_QMatrix4x4__QMatrix3x3": ["nothing", "address"],
+    "ritual_ZN10QMatrix4x4C2ILi2ELi2EEERK14QGenericMatrixIXT_EXT0_EfE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x415toGenericMatrixILi2ELi2EEE14QGenericMatrixIXT_EXT0_EfEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x4C2ILi3ELi3EEERK14QGenericMatrixIXT_EXT0_EfE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x415toGenericMatrixILi3ELi3EEE14QGenericMatrixIXT_EXT0_EfEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x4C2ILi4ELi4EEERK14QGenericMatrixIXT_EXT0_EfE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x415toGenericMatrixILi4ELi4EEE14QGenericMatrixIXT_EXT0_EfEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x4C2ILi3ELi4EEERK14QGenericMatrixIXT_EXT0_EfE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x415toGenericMatrixILi3ELi4EEE14QGenericMatrixIXT_EXT0_EfEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x4C2ILi4ELi3EEERK14QGenericMatrixIXT_EXT0_EfE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x415toGenericMatrixILi4ELi3EEE14QGenericMatrixIXT_EXT0_EfEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x4clEii": ["address", "address", "int", "int"],
+    "ritual_ZN10QMatrix4x44dataEv": ["address", "address"]
   }
 }

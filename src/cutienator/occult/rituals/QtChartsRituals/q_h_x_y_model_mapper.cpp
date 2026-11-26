@@ -179,6 +179,24 @@ const QMetaObject *ritual_ZNK15QHXYModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHXYModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QHXYModelMapper11qt_metacastEPKc(
+    QHXYModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHXYModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QHXYModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHXYModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHXYModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QHXYModelMapper2trEPKcS1_i(
@@ -274,6 +292,44 @@ void ritual_ZN15QHXYModelMapper14setColumnCountEi(
     QHXYModelMapper *self,
     int columnCount) {
   self->setColumnCount(columnCount);
+}
+
+//  void QHXYModelMapper::seriesReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHXYModelMapper14seriesReplacedEv(QHXYModelMapper *self) {
+  self->seriesReplaced();
+}
+
+//  void QHXYModelMapper::modelReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHXYModelMapper13modelReplacedEv(QHXYModelMapper *self) {
+  self->modelReplaced();
+}
+
+//  void QHXYModelMapper::xRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHXYModelMapper11xRowChangedEv(QHXYModelMapper *self) {
+  self->xRowChanged();
+}
+
+//  void QHXYModelMapper::yRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHXYModelMapper11yRowChangedEv(QHXYModelMapper *self) {
+  self->yRowChanged();
+}
+
+//  void QHXYModelMapper::firstColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHXYModelMapper18firstColumnChangedEv(
+    QHXYModelMapper *self) {
+  self->firstColumnChanged();
+}
+
+//  void QHXYModelMapper::columnCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHXYModelMapper18columnCountChangedEv(
+    QHXYModelMapper *self) {
+  self->columnCountChanged();
 }
 
 //  a Python function taken by a CuteQHXYModelMapper, for the function named

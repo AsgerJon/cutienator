@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16DeclarativeChart10metaObjectEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16DeclarativeChart11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16DeclarativeChart2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -111,6 +117,19 @@
     "ritual_ZN16DeclarativeChart16doInitializeAxesEP15QAbstractSeriesP15DeclarativeAxes": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN16DeclarativeChart4axesEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart14axesAppendFuncEP16QQmlListPropertyI13QAbstractAxisEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart13axesCountFuncEP16QQmlListPropertyI13QAbstractAxisE": [
+      "long long", "address"
+    ],
+    "ritual_ZN16DeclarativeChart10axesAtFuncEP16QQmlListPropertyI13QAbstractAxisEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN16DeclarativeChart13axesClearFuncEP16QQmlListPropertyI13QAbstractAxisE": [
+      "nothing", "address"
+    ],
     "ritual_ZN16DeclarativeChart6seriesEi": ["address", "address", "int"],
     "ritual_ZN16DeclarativeChart6seriesE7QString": [
       "address", "address", "text"
@@ -159,6 +178,48 @@
     ],
     "ritual_ZN16DeclarativeChart13mapToPositionERK7QPointFP15QAbstractSeries": [
       "address", "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart17axisLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16DeclarativeChart17titleColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart22backgroundColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16DeclarativeChart24dropShadowEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16DeclarativeChart14marginsChangedEv": ["nothing", "address"],
+    "ritual_ZN16DeclarativeChart15plotAreaChangedE6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart11seriesAddedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart13seriesRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart20plotAreaColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16DeclarativeChart26backgroundRoundnessChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16DeclarativeChart22localizeNumbersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16DeclarativeChart13localeChangedEv": ["nothing", "address"],
+    "ritual_ZN16DeclarativeChart24animationDurationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16DeclarativeChart27animationEasingCurveChangedE12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart10needRenderEv": ["nothing", "address"],
+    "ritual_ZN16DeclarativeChart36pendingRenderNodeMouseEventResponsesEv": [
+      "nothing", "address"
     ],
     "ritual_ZN16DeclarativeChart13changeMarginsEiiii": [
       "nothing", "address", "int", "int", "int", "int"
@@ -217,6 +278,9 @@
     ],
     "ritual_own_ZN16DeclarativeChart21mouseDoubleClickEventEP11QMouseEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_DeclarativeChart__QQmlListProperty_QAbstractAxis": [
+      "nothing", "address"
     ]
   }
 }

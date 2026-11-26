@@ -29,6 +29,29 @@
 #include <QtQuick/private/qquicktransition_p.h>
 #include <QtQml/QQmlInfo>
 #include "qplatformdefs.h"
+#include <QtQuick/private/qquickflickable_p.h>
+#include <QtQuick/private/qquickflickable_p_p.h>
+#include <QtQuick/private/qquickflickablebehavior_p.h>
+#include <QtQuick/qquickwindow.h>
+#include <QtQuick/private/qquickwindow_p.h>
+#include <QtQuick/private/qquickmousearea_p.h>
+#if QT_CONFIG(quick_draganddrop)
+#include <QtQuick/private/qquickdrag_p.h>
+#endif
+#include <QtQuick/private/qquickpointerhandler_p.h>
+#include <QtQuick/private/qquicktransition_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qguiapplication.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/private/qeventpoint_p.h>
+#include <QtGui/qstylehints.h>
+#include <QtGui/qaccessible.h>
+#include <QtCore/qmath.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <math.h>
+#include <cmath>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -38,31 +61,188 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2463, as _ZN21QQuickItemViewPrivate24prepareRemoveTransitionsEP10QMultiHashIN13QQmlChangeSet7MoveKeyEP10FxViewItemE
-#if QT_CONFIG(quick_viewtransitions)
-inline void QQuickItemViewPrivate::prepareRemoveTransitions(QMultiHash<QQmlChangeSet::MoveKey, FxViewItem *> *removedItems)
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 19, as local:qquickitemview.cpp:QML_VIEW_DEFAULTCACHEBUFFER
+#define QML_VIEW_DEFAULTCACHEBUFFER 320
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 22, as local:qquickitemview.cpp:itemChangeListenerTypes
+constexpr QQuickItemPrivate::ChangeTypes itemChangeListenerTypes = QQuickItemPrivate::Destroyed;
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2649, as _ZN21QQuickItemViewPrivate11releaseItemEP10FxViewItemN17QQmlInstanceModel12ReusableFlagE
+inline bool QQuickItemViewPrivate::releaseItem(FxViewItem *item, QQmlInstanceModel::ReusableFlag reusableFlag)
 {
-    if (!transitioner)
+    Q_Q(QQuickItemView);
+    if (!item)
+        return true;
+    if (trackedItem == item)
+        trackedItem = nullptr;
+    item->trackGeometry(false);
+
+    QQmlInstanceModel::ReleaseFlags flags = {};
+    bool removeItemChangeListener = true;
+    if (QPointer<QQuickItem> quickItem = item->item) {
+        if (model) {
+            flags = model->release(quickItem, reusableFlag);
+            if (!flags) {
+                // item was not destroyed, and we no longer reference it.
+                if (quickItem->parentItem() == contentItem) {
+                    // Only cull the item if its parent item is still our contentItem.
+                    // One case where this can happen is moving an item out of one ObjectModel and into another.
+                    QQuickItemPrivate::get(quickItem)->setCulled(true);
+                }
+                // If deleteLater was called, the item isn't long for this world and so we shouldn't store references to it.
+                // This can happen when a Repeater is used to populate items in SwipeView's ListView contentItem.
+                if (!isClearing && !QObjectPrivate::get(quickItem)->deleteLaterCalled) {
+                    unrequestedItems.insert(quickItem, model->indexOf(quickItem, q));
+                    QQuickItemPrivate::get(quickItem)->updateOrAddItemChangeListener(this, itemChangeListenerTypes);
+                    removeItemChangeListener = false;
+                }
+            } else if (flags & QQmlInstanceModel::Destroyed) {
+                quickItem->setParentItem(nullptr);
+            } else if (flags & QQmlInstanceModel::Pooled) {
+                item->setVisible(false);
+            }
+        }
+
+        if (removeItemChangeListener)
+            QQuickItemPrivate::get(quickItem)->removeItemChangeListener(this, itemChangeListenerTypes);
+#if QT_CONFIG(quick_viewtransitions)
+        delete item->transitionableItem;
+        item->transitionableItem = nullptr;
+#endif
+    }
+
+    delete item;
+    return flags != QQmlInstanceModel::Referenced;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1896, as _ZN21QQuickItemViewPrivate12mirrorChangeEv
+inline void QQuickItemViewPrivate::mirrorChange()
+{
+    Q_Q(QQuickItemView);
+    regenerate();
+    emit q->effectiveLayoutDirectionChanged();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2705, as _ZN21QQuickItemViewPrivate13itemDestroyedEP10QQuickItem
+inline void QQuickItemViewPrivate::itemDestroyed(QQuickItem *item)
+{
+    // We can't check model->indexOf(item, q_func()) here, because the item
+    // may not exist there, so we instead check visibleItems.
+    FxViewItem *visibleFxItem = nullptr;
+    const int indexOfItem = -1;
+    for (auto *fxItem : std::as_const(visibleItems)) {
+        if (fxItem->item == item) {
+            visibleFxItem = fxItem;
+            break;
+        }
+    }
+
+    // Make sure that we don't try to clean up the same FxViewItem twice,
+    // as apparently there can be two FxViewItems for the same QQuickItem.
+    if (currentItem && visibleFxItem)
+        Q_ASSERT(currentItem != visibleFxItem);
+
+    if (visibleFxItem) {
+        qCDebug(lcItemViewDelegateLifecycle) << "removing deleted item"
+            << item << visibleFxItem << "at index" << indexOfItem << "without running transitions";
+        // We need to remove it from visibleItems manually, as we don't want to call
+        // removeNonVisibleItems since it won't remove items with transitions.
+        const bool removedVisibleFxItem = visibleItems.removeOne(visibleFxItem);
+        Q_ASSERT(removedVisibleFxItem);
+        releaseItem(visibleFxItem, QQmlDelegateModel::NotReusable);
+    }
+
+    if (currentItem && currentItem->item == item) {
+        releaseItem(currentItem, QQmlDelegateModel::NotReusable);
+        currentItem = nullptr;
+    }
+
+    unrequestedItems.remove(item);
+
+    // Update the positioning of the items.
+    forceLayoutPolish();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2007, as _ZN21QQuickItemViewPrivate14updateViewportEv
+inline void QQuickItemViewPrivate::updateViewport()
+{
+    Q_Q(QQuickItemView);
+    qreal extra = headerSize() + footerSize();
+    qreal contentSize = isValid() || !visibleItems.isEmpty() ? (endPosition() - startPosition()) : 0.0;
+    if (layoutOrientation() == Qt::Vertical)
+        q->setContentHeight(contentSize + extra);
+    else
+        q->setContentWidth(contentSize + extra);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1903, as _ZN21QQuickItemViewPrivate17animationFinishedEP21QAbstractAnimationJob
+inline void QQuickItemViewPrivate::animationFinished(QAbstractAnimationJob *)
+{
+    Q_Q(QQuickItemView);
+    fillCacheBuffer = true;
+    q->polish();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1285, as _ZN21QQuickItemViewPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
+inline void QQuickItemViewPrivate::itemGeometryChanged(QQuickItem *item, QQuickGeometryChange change,
+                                                const QRectF &oldGeometry)
+{
+    Q_Q(QQuickItemView);
+    QQuickFlickablePrivate::itemGeometryChanged(item, change, oldGeometry);
+    if (!q->isComponentComplete())
         return;
 
-    if (transitioner->canTransition(QQuickItemViewTransitioner::RemoveTransition, true)
-            || transitioner->canTransition(QQuickItemViewTransitioner::RemoveTransition, false)) {
-        for (auto it = removedItems->begin(); it != removedItems->end(); ) {
-            bool isRemove = it.key().moveId < 0;
-            if (isRemove) {
-                FxViewItem *item = *it;
-                item->trackGeometry(false);
-                item->releaseAfterTransition = true;
-                releasePendingTransition.append(item);
-                item->transitionNextReposition(transitioner, QQuickItemViewTransitioner::RemoveTransition, true);
-                it = removedItems->erase(it);
-            } else {
-                ++it;
-            }
+    if (header && header->item == item) {
+        updateHeader();
+        markExtentsDirty();
+        updateViewport();
+        if (!q->isMoving() && !q->isFlicking())
+            fixupPosition();
+    } else if (footer && footer->item == item) {
+        updateFooter();
+        markExtentsDirty();
+        updateViewport();
+        if (!q->isMoving() && !q->isFlicking())
+            fixupPosition();
+    }
+
+    if (currentItem && currentItem->item == item) {
+        // don't allow item movement transitions to trigger a re-layout and
+        // start new transitions
+        bool prevInLayout = inLayout;
+#if QT_CONFIG(quick_viewtransitions)
+        if (!inLayout) {
+            FxViewItem *actualItem = transitioner ? visibleItem(currentIndex) : nullptr;
+            if (actualItem && actualItem->transitionRunning())
+                inLayout = true;
+        }
+#endif
+        updateHighlight();
+        inLayout = prevInLayout;
+    }
+
+    if (trackedItem && trackedItem->item == item)
+        q->trackedPositionChanged();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2509, as _ZN21QQuickItemViewPrivate26viewItemTransitionFinishedEP32QQuickItemViewTransitionableItem
+#if QT_CONFIG(quick_viewtransitions)
+inline void QQuickItemViewPrivate::viewItemTransitionFinished(QQuickItemViewTransitionableItem *item)
+{
+    for (int i=0; i<releasePendingTransition.size(); i++) {
+        if (releasePendingTransition.at(i)->transitionableItem == item) {
+            releaseItem(releasePendingTransition.takeAt(i), reusableFlag);
+            return;
         }
     }
 }
 #endif  // QT_CONFIG(quick_viewtransitions)
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2397, as _ZN21QQuickItemViewPrivate33updateSizeChangesBeforeVisiblePosEP10FxViewItemPNS_12ChangeResultE
+inline void QQuickItemViewPrivate::updateSizeChangesBeforeVisiblePos(FxViewItem *item, ChangeResult *removeResult)
+{
+    removeResult->sizeChangesBeforeVisiblePos += item->size();
+}
 
 //  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1800, as _ZN21QQuickItemViewPrivate4initEv
 inline void QQuickItemViewPrivate::init()
@@ -114,16 +294,10 @@ inline void QQuickItemViewPrivate::clear(bool onDestruction)
     itemCount = 0;
 }
 
-//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2007, as _ZN21QQuickItemViewPrivate14updateViewportEv
-inline void QQuickItemViewPrivate::updateViewport()
+//  from ../qtdeclarative/src/quick/items/qquickflickable.cpp, line 203, as _ZN22QQuickFlickablePrivate8AxisDataD1Ev
+inline QQuickFlickablePrivate::AxisData::~AxisData()
 {
-    Q_Q(QQuickItemView);
-    qreal extra = headerSize() + footerSize();
-    qreal contentSize = isValid() || !visibleItems.isEmpty() ? (endPosition() - startPosition()) : 0.0;
-    if (layoutOrientation() == Qt::Vertical)
-        q->setContentHeight(contentSize + extra);
-    else
-        q->setContentWidth(contentSize + extra);
+    delete transitionToBounds;
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2796, as _ZNK21QQuickItemViewPrivate23initializeComponentItemEP10QQuickItem
@@ -132,10 +306,11 @@ inline void QQuickItemViewPrivate::initializeComponentItem(QQuickItem *item) con
     Q_UNUSED(item);
 }
 
-//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2397, as _ZN21QQuickItemViewPrivate33updateSizeChangesBeforeVisiblePosEP10FxViewItemPNS_12ChangeResultE
-inline void QQuickItemViewPrivate::updateSizeChangesBeforeVisiblePos(FxViewItem *item, ChangeResult *removeResult)
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 14, as _Z27lcItemViewDelegateLifecyclev
+inline const QLoggingCategory &lcItemViewDelegateLifecycle()
 {
-    removeResult->sizeChangesBeforeVisiblePos += item->size();
+    static const QLoggingCategory category("qt.quick.itemview.lifecycle");
+    return category;
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1689, as _ZN21QQuickItemViewPrivateD1Ev
@@ -209,6 +384,28 @@ inline int QQuickItemViewPrivate::findLastVisibleIndex(int defaultValue) const
     return defaultValue;
 }
 
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1752, as _ZNK21QQuickItemViewPrivate11visibleItemEi
+inline FxViewItem *QQuickItemViewPrivate::visibleItem(int modelIndex) const {
+    if (modelIndex >= visibleIndex && modelIndex < visibleIndex + visibleItems.size()) {
+        for (int i = modelIndex - visibleIndex; i < visibleItems.size(); ++i) {
+            FxViewItem *item = visibleItems.at(i);
+            if (item->index == modelIndex)
+                return item;
+        }
+    }
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1763, as _ZNK21QQuickItemViewPrivate15firstItemInViewEv
+inline FxViewItem *QQuickItemViewPrivate::firstItemInView() const {
+    const qreal pos = isContentFlowReversed() ? -position()-size() : position();
+    for (FxViewItem *item : visibleItems) {
+        if (item->index != -1 && item->endPosition() > pos)
+            return item;
+    }
+    return visibleItems.size() ? visibleItems.first() : 0;
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1772, as _ZNK21QQuickItemViewPrivate19findLastIndexInViewEv
 inline int QQuickItemViewPrivate::findLastIndexInView() const
 {
@@ -236,60 +433,70 @@ inline int QQuickItemViewPrivate::mapFromModel(int modelIndex) const
     return -1; // Not in visibleList
 }
 
-//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1903, as _ZN21QQuickItemViewPrivate17animationFinishedEP21QAbstractAnimationJob
-inline void QQuickItemViewPrivate::animationFinished(QAbstractAnimationJob *)
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2525, as _ZN21QQuickItemViewPrivate10createItemEiN13QQmlIncubator14IncubationModeE
+inline FxViewItem *QQuickItemViewPrivate::createItem(int modelIndex, QQmlIncubator::IncubationMode incubationMode)
 {
     Q_Q(QQuickItemView);
-    fillCacheBuffer = true;
-    q->polish();
-}
 
-//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1896, as _ZN21QQuickItemViewPrivate12mirrorChangeEv
-inline void QQuickItemViewPrivate::mirrorChange()
-{
-    Q_Q(QQuickItemView);
-    regenerate();
-    emit q->effectiveLayoutDirectionChanged();
-}
+    if (requestedIndex == modelIndex && incubationMode == QQmlIncubator::Asynchronous)
+        return nullptr;
 
-//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2705, as _ZN21QQuickItemViewPrivate13itemDestroyedEP10QQuickItem
-inline void QQuickItemViewPrivate::itemDestroyed(QQuickItem *item)
-{
-    // We can't check model->indexOf(item, q_func()) here, because the item
-    // may not exist there, so we instead check visibleItems.
-    FxViewItem *visibleFxItem = nullptr;
-    const int indexOfItem = -1;
-    for (auto *fxItem : std::as_const(visibleItems)) {
-        if (fxItem->item == item) {
-            visibleFxItem = fxItem;
-            break;
+#if QT_CONFIG(quick_viewtransitions)
+    for (int i=0; i<releasePendingTransition.size(); i++) {
+        if (releasePendingTransition.at(i)->index == modelIndex
+                && !releasePendingTransition.at(i)->isPendingRemoval()) {
+            releasePendingTransition[i]->releaseAfterTransition = false;
+            return releasePendingTransition.takeAt(i);
         }
     }
+#endif
 
-    // Make sure that we don't try to clean up the same FxViewItem twice,
-    // as apparently there can be two FxViewItems for the same QQuickItem.
-    if (currentItem && visibleFxItem)
-        Q_ASSERT(currentItem != visibleFxItem);
+    inRequest = true;
 
-    if (visibleFxItem) {
-        qCDebug(lcItemViewDelegateLifecycle) << "removing deleted item"
-            << item << visibleFxItem << "at index" << indexOfItem << "without running transitions";
-        // We need to remove it from visibleItems manually, as we don't want to call
-        // removeNonVisibleItems since it won't remove items with transitions.
-        const bool removedVisibleFxItem = visibleItems.removeOne(visibleFxItem);
-        Q_ASSERT(removedVisibleFxItem);
-        releaseItem(visibleFxItem, QQmlDelegateModel::NotReusable);
+    // The model will run this same range check internally but produce a warning and return nullptr.
+    // Since we handle this result graciously in our code, we preempt this warning by checking the range ourselves.
+    QObject* object = modelIndex < model->count() ? model->object(modelIndex, incubationMode) : nullptr;
+    QQuickItem *item = qmlobject_cast<QQuickItem*>(object);
+
+    if (!item) {
+        if (!object) {
+            if (requestedIndex == -1 && model->incubationStatus(modelIndex) == QQmlIncubator::Loading) {
+                // The reason we didn't receive an item is because it's incubating async. We keep track
+                // of this by assigning the index we're waiting for to 'requestedIndex'. This will e.g. let
+                // the view avoid unnecessary layout calls until the item has been loaded.
+                requestedIndex = modelIndex;
+            }
+        } else {
+            model->release(object);
+            if (!delegateValidated) {
+                delegateValidated = true;
+                QObject* delegate = q->delegate();
+                qmlWarning(delegate ? delegate : q) << QQuickItemView::tr("Delegate must be of Item type");
+            }
+        }
+        inRequest = false;
+        return nullptr;
+    } else {
+        // Container removes and instantly deletes items created within ObjectModels.
+        // We need to account for this to avoid having references to deleted items.
+        // itemDestroyed is called as a result of adding this listener.
+        if (qobject_cast<QQmlObjectModel *>(model))
+            QQuickItemPrivate::get(item)->updateOrAddItemChangeListener(this, itemChangeListenerTypes);
+
+        item->setParentItem(q->contentItem());
+        if (requestedIndex == modelIndex)
+            requestedIndex = -1;
+        FxViewItem *viewItem = newViewItem(modelIndex, item);
+        if (viewItem) {
+            viewItem->index = modelIndex;
+            // do other set up for the new item that should not happen
+            // until after bindings are evaluated
+            initializeViewItem(viewItem);
+            unrequestedItems.remove(item);
+        }
+        inRequest = false;
+        return viewItem;
     }
-
-    if (currentItem && currentItem->item == item) {
-        releaseItem(currentItem, QQmlDelegateModel::NotReusable);
-        currentItem = nullptr;
-    }
-
-    unrequestedItems.remove(item);
-
-    // Update the positioning of the items.
-    forceLayoutPolish();
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2744, as _ZN21QQuickItemViewPrivate19createHighlightItemEv
@@ -378,6 +585,91 @@ inline void QQuickItemViewPrivate::updateVisibleIndex()
             break;
         }
     }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1037, as _ZNK21QQuickItemViewPrivate16minExtentForAxisERKN22QQuickFlickablePrivate8AxisDataEb
+inline qreal QQuickItemViewPrivate::minExtentForAxis(const AxisData &axisData, bool forXAxis) const
+{
+    Q_Q(const QQuickItemView);
+
+    qreal highlightStart;
+    qreal highlightEnd;
+    qreal endPositionFirstItem = 0;
+    qreal extent = -startPosition() + axisData.startMargin;
+    if (isContentFlowReversed()) {
+        if (model && model->count())
+            endPositionFirstItem = positionAt(model->count()-1);
+        else
+            extent += headerSize();
+        highlightStart = highlightRangeEndValid ? size() - highlightRangeEnd : size();
+        highlightEnd = highlightRangeStartValid ? size() - highlightRangeStart : size();
+        extent += footerSize();
+        qreal maxExtentAlongAxis = forXAxis ? q->maxXExtent() : q->maxYExtent();
+        if (extent < maxExtentAlongAxis)
+            extent = maxExtentAlongAxis;
+    } else {
+        endPositionFirstItem = endPositionAt(0);
+        highlightStart = highlightRangeStart;
+        highlightEnd = highlightRangeEnd;
+        extent += headerSize();
+    }
+    if (haveHighlightRange && highlightRange == QQuickItemView::StrictlyEnforceRange) {
+        extent += highlightStart;
+        FxViewItem *firstItem = visibleItem(0);
+        if (firstItem)
+            extent -= firstItem->sectionSize();
+        extent = isContentFlowReversed()
+                            ? qMin(extent, endPositionFirstItem + highlightEnd)
+                            : qMax(extent, -(endPositionFirstItem - highlightEnd));
+    }
+    return extent;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1074, as _ZNK21QQuickItemViewPrivate16maxExtentForAxisERKN22QQuickFlickablePrivate8AxisDataEb
+inline qreal QQuickItemViewPrivate::maxExtentForAxis(const AxisData &axisData, bool forXAxis) const
+{
+    Q_Q(const QQuickItemView);
+
+    qreal highlightStart;
+    qreal highlightEnd;
+    qreal lastItemPosition = 0;
+    qreal extent = 0;
+    if (isContentFlowReversed()) {
+        highlightStart = highlightRangeEndValid ? size() - highlightRangeEnd : size();
+        highlightEnd = highlightRangeStartValid ? size() - highlightRangeStart : size();
+        lastItemPosition = endPosition();
+    } else {
+        highlightStart = highlightRangeStart;
+        highlightEnd = highlightRangeEnd;
+        if (model && model->count())
+            lastItemPosition = positionAt(model->count()-1);
+    }
+    if (!model || !model->count()) {
+        if (!isContentFlowReversed())
+            maxExtent = header ? -headerSize() : 0;
+        extent += forXAxis ? q->width() : q->height();
+    } else if (haveHighlightRange && highlightRange == QQuickItemView::StrictlyEnforceRange) {
+        extent = -(lastItemPosition - highlightStart);
+        if (highlightEnd != highlightStart) {
+            extent = isContentFlowReversed()
+                    ? qMax(extent, -(endPosition() - highlightEnd))
+                    : qMin(extent, -(endPosition() - highlightEnd));
+        }
+    } else {
+        extent = -(endPosition() - (forXAxis ? q->width() : q->height()));
+    }
+    if (isContentFlowReversed()) {
+        extent -= headerSize();
+        extent -= axisData.endMargin;
+    } else {
+        extent -= footerSize();
+        extent -= axisData.endMargin;
+        qreal minExtentAlongAxis = forXAxis ? q->minXExtent() : q->minYExtent();
+        if (extent > minExtentAlongAxis)
+            extent = minExtentAlongAxis;
+    }
+
+    return extent;
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1120, as _ZNK21QQuickItemViewPrivate19calculatedMinExtentEv
@@ -547,6 +839,32 @@ inline void QQuickItemViewPrivate::prepareVisibleItemTransitions()
 }
 #endif  // QT_CONFIG(quick_viewtransitions)
 
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2463, as _ZN21QQuickItemViewPrivate24prepareRemoveTransitionsEP10QMultiHashIN13QQmlChangeSet7MoveKeyEP10FxViewItemE
+#if QT_CONFIG(quick_viewtransitions)
+inline void QQuickItemViewPrivate::prepareRemoveTransitions(QMultiHash<QQmlChangeSet::MoveKey, FxViewItem *> *removedItems)
+{
+    if (!transitioner)
+        return;
+
+    if (transitioner->canTransition(QQuickItemViewTransitioner::RemoveTransition, true)
+            || transitioner->canTransition(QQuickItemViewTransitioner::RemoveTransition, false)) {
+        for (auto it = removedItems->begin(); it != removedItems->end(); ) {
+            bool isRemove = it.key().moveId < 0;
+            if (isRemove) {
+                FxViewItem *item = *it;
+                item->trackGeometry(false);
+                item->releaseAfterTransition = true;
+                releasePendingTransition.append(item);
+                item->transitionNextReposition(transitioner, QQuickItemViewTransitioner::RemoveTransition, true);
+                it = removedItems->erase(it);
+            } else {
+                ++it;
+            }
+        }
+    }
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
 //  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2486, as _ZN21QQuickItemViewPrivate31prepareNonVisibleItemTransitionEP10FxViewItemRK6QRectF
 #if QT_CONFIG(quick_viewtransitions)
 inline bool QQuickItemViewPrivate::prepareNonVisibleItemTransition(FxViewItem *item, const QRectF &viewBounds)
@@ -573,18 +891,17 @@ inline bool QQuickItemViewPrivate::prepareNonVisibleItemTransition(FxViewItem *i
 }
 #endif  // QT_CONFIG(quick_viewtransitions)
 
-//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 2509, as _ZN21QQuickItemViewPrivate26viewItemTransitionFinishedEP32QQuickItemViewTransitionableItem
-#if QT_CONFIG(quick_viewtransitions)
-inline void QQuickItemViewPrivate::viewItemTransitionFinished(QQuickItemViewTransitionableItem *item)
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1026, as _ZNK21QQuickItemViewPrivate16findMoveKeyIndexEN13QQmlChangeSet7MoveKeyERK5QListINS0_6ChangeEE
+inline int QQuickItemViewPrivate::findMoveKeyIndex(QQmlChangeSet::MoveKey key, const QList<QQmlChangeSet::Change> &changes) const
 {
-    for (int i=0; i<releasePendingTransition.size(); i++) {
-        if (releasePendingTransition.at(i)->transitionableItem == item) {
-            releaseItem(releasePendingTransition.takeAt(i), reusableFlag);
-            return;
+    for (int i=0; i<changes.size(); i++) {
+        for (int j=changes[i].index; j<changes[i].index + changes[i].count; j++) {
+            if (changes[i].moveKey(j) == key)
+                return j;
         }
     }
+    return -1;
 }
-#endif  // QT_CONFIG(quick_viewtransitions)
 
 //  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1253, as _ZNK21QQuickItemViewPrivate12checkVisibleEv
 inline void QQuickItemViewPrivate::checkVisible() const
@@ -610,48 +927,6 @@ inline void QQuickItemViewPrivate::showVisibleItems() const
                  << item->position();
     }
 }
-
-//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 1285, as _ZN21QQuickItemViewPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
-inline void QQuickItemViewPrivate::itemGeometryChanged(QQuickItem *item, QQuickGeometryChange change,
-                                                const QRectF &oldGeometry)
-{
-    Q_Q(QQuickItemView);
-    QQuickFlickablePrivate::itemGeometryChanged(item, change, oldGeometry);
-    if (!q->isComponentComplete())
-        return;
-
-    if (header && header->item == item) {
-        updateHeader();
-        markExtentsDirty();
-        updateViewport();
-        if (!q->isMoving() && !q->isFlicking())
-            fixupPosition();
-    } else if (footer && footer->item == item) {
-        updateFooter();
-        markExtentsDirty();
-        updateViewport();
-        if (!q->isMoving() && !q->isFlicking())
-            fixupPosition();
-    }
-
-    if (currentItem && currentItem->item == item) {
-        // don't allow item movement transitions to trigger a re-layout and
-        // start new transitions
-        bool prevInLayout = inLayout;
-#if QT_CONFIG(quick_viewtransitions)
-        if (!inLayout) {
-            FxViewItem *actualItem = transitioner ? visibleItem(currentIndex) : nullptr;
-            if (actualItem && actualItem->transitionRunning())
-                inLayout = true;
-        }
-#endif
-        updateHighlight();
-        inLayout = prevInLayout;
-    }
-
-    if (trackedItem && trackedItem->item == item)
-        q->trackedPositionChanged();
-}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickItemViewPrivate may call these functions of it.
@@ -666,6 +941,7 @@ struct OwnQQuickItemViewPrivate : QQuickItemViewPrivate {
   using QQuickItemViewPrivate::initializeCurrentItem;
   using QQuickItemViewPrivate::updateSectionCriteria;
   using QQuickItemViewPrivate::updateSections;
+  using QQuickItemViewPrivate::itemGeometryChanged;
 };
 
 //  A QQuickItemViewPrivate that Python can take functions over in. Every QQuickItemViewPrivate
@@ -799,18 +1075,18 @@ typedef void (*CuteQQuickItemViewPrivateCall39)(const void *, int, int *);
 typedef void (*CuteQQuickItemViewPrivateCall40)(const void *, int, int *);
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
-typedef bool (*CuteQQuickItemViewPrivateCall41)(const void *, int, int *);
+typedef bool (*CuteQQuickItemViewPrivateCall41)(const void *, const QQmlChangeSet::Change *, QQuickItemViewPrivate::ChangeResult *, QList<FxViewItem *> *, QList<QQuickItemViewPrivate::MovedItem> *, int *);
+#endif  // QT_CONFIG(quick_itemview)
+#if QT_CONFIG(quick_itemview)
+typedef bool (*CuteQQuickItemViewPrivateCall42)(const void *, int, int *);
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_viewtransitions)
-typedef void (*CuteQQuickItemViewPrivateCall42)(const void *, int, const QQuickItemViewPrivate::ChangeResult *, const QQuickItemViewPrivate::ChangeResult *, int *);
+typedef void (*CuteQQuickItemViewPrivateCall43)(const void *, int, const QQuickItemViewPrivate::ChangeResult *, const QQuickItemViewPrivate::ChangeResult *, int *);
 #endif  // QT_CONFIG(quick_viewtransitions)
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
-typedef void (*CuteQQuickItemViewPrivateCall43)(const void *, FxViewItem *, int *);
-#endif  // QT_CONFIG(quick_itemview)
-#if QT_CONFIG(quick_itemview)
-typedef void (*CuteQQuickItemViewPrivateCall44)(const void *, int *);
+typedef void (*CuteQQuickItemViewPrivateCall44)(const void *, FxViewItem *, int *);
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
 typedef void (*CuteQQuickItemViewPrivateCall45)(const void *, int *);
@@ -819,43 +1095,46 @@ typedef void (*CuteQQuickItemViewPrivateCall45)(const void *, int *);
 typedef void (*CuteQQuickItemViewPrivateCall46)(const void *, int *);
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
-typedef void (*CuteQQuickItemViewPrivateCall47)(const void *, QQuickItem *, const QQuickGeometryChange *, const QRectF *, int *);
+typedef void (*CuteQQuickItemViewPrivateCall47)(const void *, int *);
 #endif  // QT_CONFIG(quick_itemview)
-typedef void (*CuteQQuickItemViewPrivateCall48)(const void *, QQuickPointerHandler *, int *);
-typedef bool (*CuteQQuickItemViewPrivateCall49)(const void *, const QPointerEvent *, int *);
-typedef void (*CuteQQuickItemViewPrivateCall50)(const void *, QQuickPointerHandler *, int *);
-typedef void * (*CuteQQuickItemViewPrivateCall51)(const void *, const QMetaObject *, int *);
-typedef void (*CuteQQuickItemViewPrivateCall52)(const void *, QQuickItem *, bool, int *);
-typedef bool (*CuteQQuickItemViewPrivateCall53)(const void *, int, int *);
-typedef qreal (*CuteQQuickItemViewPrivateCall54)(const void *, int *);
+#if QT_CONFIG(quick_itemview)
+typedef void (*CuteQQuickItemViewPrivateCall48)(const void *, QQuickItem *, const QQuickGeometryChange *, const QRectF *, int *);
+#endif  // QT_CONFIG(quick_itemview)
+typedef void (*CuteQQuickItemViewPrivateCall49)(const void *, QQuickPointerHandler *, int *);
+typedef bool (*CuteQQuickItemViewPrivateCall50)(const void *, const QPointerEvent *, int *);
+typedef void (*CuteQQuickItemViewPrivateCall51)(const void *, QQuickPointerHandler *, int *);
+typedef void * (*CuteQQuickItemViewPrivateCall52)(const void *, const QMetaObject *, int *);
+typedef void (*CuteQQuickItemViewPrivateCall53)(const void *, QQuickItem *, bool, int *);
+typedef bool (*CuteQQuickItemViewPrivateCall54)(const void *, int, int *);
 typedef qreal (*CuteQQuickItemViewPrivateCall55)(const void *, int *);
-typedef void (*CuteQQuickItemViewPrivateCall56)(const void *, int *);
+typedef qreal (*CuteQQuickItemViewPrivateCall56)(const void *, int *);
 typedef void (*CuteQQuickItemViewPrivateCall57)(const void *, int *);
+typedef void (*CuteQQuickItemViewPrivateCall58)(const void *, int *);
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQQuickItemViewPrivateCall58)(const void *, int *);
+typedef int (*CuteQQuickItemViewPrivateCall59)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
-typedef bool (*CuteQQuickItemViewPrivateCall59)(const void *, QQuickItem *, int *);
-typedef bool (*CuteQQuickItemViewPrivateCall60)(const void *, QPointerEvent *, bool, int *);
+typedef bool (*CuteQQuickItemViewPrivateCall60)(const void *, QQuickItem *, int *);
+typedef bool (*CuteQQuickItemViewPrivateCall61)(const void *, QPointerEvent *, bool, int *);
 #if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
-typedef bool (*CuteQQuickItemViewPrivateCall61)(const void *, QContextMenuEvent *, int *);
+typedef bool (*CuteQQuickItemViewPrivateCall62)(const void *, QContextMenuEvent *, int *);
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
-typedef void (*CuteQQuickItemViewPrivateCall62)(const void *, bool, int *);
-typedef void * (*CuteQQuickItemViewPrivateCall63)(const void *, int *);
-typedef void (*CuteQQuickItemViewPrivateCall64)(const void *, int *);
-typedef void (*CuteQQuickItemViewPrivateCall65)(const void *, int, int *);
+typedef void (*CuteQQuickItemViewPrivateCall63)(const void *, bool, int *);
+typedef void * (*CuteQQuickItemViewPrivateCall64)(const void *, int *);
+typedef void (*CuteQQuickItemViewPrivateCall65)(const void *, int *);
+typedef void (*CuteQQuickItemViewPrivateCall66)(const void *, int, int *);
 #if QT_CONFIG(qml_animation)
-typedef void (*CuteQQuickItemViewPrivateCall66)(const void *, QAbstractAnimationJob *, int, int, int *);
+typedef void (*CuteQQuickItemViewPrivateCall67)(const void *, QAbstractAnimationJob *, int, int, int *);
 #endif  // QT_CONFIG(qml_animation)
 #if QT_CONFIG(qml_animation)
-typedef void (*CuteQQuickItemViewPrivateCall67)(const void *, QAbstractAnimationJob *, int *);
+typedef void (*CuteQQuickItemViewPrivateCall68)(const void *, QAbstractAnimationJob *, int *);
 #endif  // QT_CONFIG(qml_animation)
 #if QT_CONFIG(qml_animation)
-typedef void (*CuteQQuickItemViewPrivateCall68)(const void *, QAbstractAnimationJob *, int, int *);
+typedef void (*CuteQQuickItemViewPrivateCall69)(const void *, QAbstractAnimationJob *, int, int *);
 #endif  // QT_CONFIG(qml_animation)
 class CuteQQuickItemViewPrivate : public QQuickItemViewPrivate {
 public:
   using QQuickItemViewPrivate::QQuickItemViewPrivate;
-  void *taken[69] = {};
+  void *taken[70] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(quick_itemview)
@@ -1109,140 +1388,146 @@ public:
     }
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
-    if (!std::strcmp(key, "_ZNK21QQuickItemViewPrivate33needsRefillForAddedOrRemovedIndexEi")) {
+    if (!std::strcmp(key, "_ZN21QQuickItemViewPrivate20applyInsertionChangeERKN13QQmlChangeSet6ChangeEPNS_12ChangeResultEP5QListIP10FxViewItemEPS6_INS_9MovedItemEE")) {
       taken[41] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(quick_itemview)
+#if QT_CONFIG(quick_itemview)
+    if (!std::strcmp(key, "_ZNK21QQuickItemViewPrivate33needsRefillForAddedOrRemovedIndexEi")) {
+      taken[42] = call;
       return true;
     }
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_viewtransitions)
     if (!std::strcmp(key, "_ZN21QQuickItemViewPrivate32translateAndTransitionItemsAfterEiRKNS_12ChangeResultES2_")) {
-      taken[42] = call;
+      taken[43] = call;
       return true;
     }
 #endif  // QT_CONFIG(quick_viewtransitions)
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
     if (!std::strcmp(key, "_ZN21QQuickItemViewPrivate18initializeViewItemEP10FxViewItem")) {
-      taken[43] = call;
-      return true;
-    }
-#endif  // QT_CONFIG(quick_itemview)
-#if QT_CONFIG(quick_itemview)
-    if (!std::strcmp(key, "_ZN21QQuickItemViewPrivate21initializeCurrentItemEv")) {
       taken[44] = call;
       return true;
     }
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
-    if (!std::strcmp(key, "_ZN21QQuickItemViewPrivate21updateSectionCriteriaEv")) {
+    if (!std::strcmp(key, "_ZN21QQuickItemViewPrivate21initializeCurrentItemEv")) {
       taken[45] = call;
       return true;
     }
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
-    if (!std::strcmp(key, "_ZN21QQuickItemViewPrivate14updateSectionsEv")) {
+    if (!std::strcmp(key, "_ZN21QQuickItemViewPrivate21updateSectionCriteriaEv")) {
       taken[46] = call;
       return true;
     }
 #endif  // QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
-    if (!std::strcmp(key, "_ZN22QQuickFlickablePrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF")) {
+    if (!std::strcmp(key, "_ZN21QQuickItemViewPrivate14updateSectionsEv")) {
       taken[47] = call;
       return true;
     }
 #endif  // QT_CONFIG(quick_itemview)
-    if (!std::strcmp(key, "_ZN17QQuickItemPrivate17addPointerHandlerEP20QQuickPointerHandler")) {
+#if QT_CONFIG(quick_itemview)
+    if (!std::strcmp(key, "_ZN22QQuickFlickablePrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF")) {
       taken[48] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN22QQuickFlickablePrivate17wantsPointerEventEPK13QPointerEvent")) {
+#endif  // QT_CONFIG(quick_itemview)
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate17addPointerHandlerEP20QQuickPointerHandler")) {
       taken[49] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QQuickItemPrivate20removePointerHandlerEP20QQuickPointerHandler")) {
+    if (!std::strcmp(key, "_ZN22QQuickFlickablePrivate17wantsPointerEventEPK13QPointerEvent")) {
       taken[50] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QQuickItemPrivate33attachedPropertyPropagator_parentEPK11QMetaObject")) {
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate20removePointerHandlerEP20QQuickPointerHandler")) {
       taken[51] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QQuickItemPrivate25registerAsContainmentMaskEP10QQuickItemb")) {
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate33attachedPropertyPropagator_parentEPK11QMetaObject")) {
       taken[52] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QQuickItemPrivate24setLastFocusChangeReasonEN2Qt11FocusReasonE")) {
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate25registerAsContainmentMaskEP10QQuickItemb")) {
       taken[53] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate16getImplicitWidthEv")) {
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate24setLastFocusChangeReasonEN2Qt11FocusReasonE")) {
       taken[54] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate17getImplicitHeightEv")) {
+    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate16getImplicitWidthEv")) {
       taken[55] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QQuickItemPrivate20implicitWidthChangedEv")) {
+    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate17getImplicitHeightEv")) {
       taken[56] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QQuickItemPrivate21implicitHeightChangedEv")) {
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate20implicitWidthChangedEv")) {
       taken[57] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate21implicitHeightChangedEv")) {
+      taken[58] = call;
       return true;
     }
 #if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK17QQuickItemPrivate14accessibleRoleEv")) {
-      taken[58] = call;
+      taken[59] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN17QQuickItemPrivate16transformChangedEP10QQuickItem")) {
-      taken[59] = call;
+      taken[60] = call;
       return true;
     }
     if (!std::strcmp(key, "_ZN17QQuickItemPrivate18handlePointerEventEP13QPointerEventb")) {
-      taken[60] = call;
+      taken[61] = call;
       return true;
     }
 #if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
     if (!std::strcmp(key, "_ZN17QQuickItemPrivate22handleContextMenuEventEP17QContextMenuEvent")) {
-      taken[61] = call;
+      taken[62] = call;
       return true;
     }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
     if (!std::strcmp(key, "_ZN17QQuickItemPrivate10setVisibleEb")) {
-      taken[62] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZN17QQuickItemPrivate19createTransformNodeEv")) {
       taken[63] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QQuickItemPrivate12updatePolishEv")) {
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate19createTransformNodeEv")) {
       taken[64] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate12dumpItemTreeEi")) {
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate12updatePolishEv")) {
       taken[65] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate12dumpItemTreeEi")) {
+      taken[66] = call;
       return true;
     }
 #if QT_CONFIG(qml_animation)
     if (!std::strcmp(key, "_ZN27QAnimationJobChangeListener21animationStateChangedEP21QAbstractAnimationJobNS0_5StateES2_")) {
-      taken[66] = call;
-      return true;
-    }
-#endif  // QT_CONFIG(qml_animation)
-#if QT_CONFIG(qml_animation)
-    if (!std::strcmp(key, "_ZN27QAnimationJobChangeListener27animationCurrentLoopChangedEP21QAbstractAnimationJob")) {
       taken[67] = call;
       return true;
     }
 #endif  // QT_CONFIG(qml_animation)
 #if QT_CONFIG(qml_animation)
-    if (!std::strcmp(key, "_ZN27QAnimationJobChangeListener27animationCurrentTimeChangedEP21QAbstractAnimationJobi")) {
+    if (!std::strcmp(key, "_ZN27QAnimationJobChangeListener27animationCurrentLoopChangedEP21QAbstractAnimationJob")) {
       taken[68] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(qml_animation)
+#if QT_CONFIG(qml_animation)
+    if (!std::strcmp(key, "_ZN27QAnimationJobChangeListener27animationCurrentTimeChangedEP21QAbstractAnimationJobi")) {
+      taken[69] = call;
       return true;
     }
 #endif  // QT_CONFIG(qml_animation)
@@ -1805,12 +2090,31 @@ public:
 #endif  // QT_CONFIG(quick_itemview)
 
 #if QT_CONFIG(quick_itemview)
-  //  bool QQuickItemViewPrivate::needsRefillForAddedOrRemovedIndex(int a0)
-  //      const
-  bool needsRefillForAddedOrRemovedIndex(int a0) const override {
+  //  bool QQuickItemViewPrivate::applyInsertionChange(const
+  //      QQmlChangeSet::Change &insert, ChangeResult *changeResult,
+  //      QList<FxViewItem *> *newItems, QList<MovedItem> *movingIntoView)
+  bool applyInsertionChange(
+      const QQmlChangeSet::Change &insert,
+      QQuickItemViewPrivate::ChangeResult *changeResult,
+      QList<FxViewItem *> *newItems,
+      QList<QQuickItemViewPrivate::MovedItem> *movingIntoView) override {
     if (taken[41]) {
       int handled = 0;
       CuteQQuickItemViewPrivateCall41 call = reinterpret_cast<CuteQQuickItemViewPrivateCall41>(taken[41]);
+      bool given = call(this, &insert, changeResult, newItems, movingIntoView, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+#endif  // QT_CONFIG(quick_itemview)
+
+#if QT_CONFIG(quick_itemview)
+  //  bool QQuickItemViewPrivate::needsRefillForAddedOrRemovedIndex(int a0)
+  //      const
+  bool needsRefillForAddedOrRemovedIndex(int a0) const override {
+    if (taken[42]) {
+      int handled = 0;
+      CuteQQuickItemViewPrivateCall42 call = reinterpret_cast<CuteQQuickItemViewPrivateCall42>(taken[42]);
       bool given = call(this, a0, &handled);
       if (handled) return given;
     }
@@ -1827,9 +2131,9 @@ public:
       int afterIndex,
       const QQuickItemViewPrivate::ChangeResult &insertionResult,
       const QQuickItemViewPrivate::ChangeResult &removalResult) override {
-    if (taken[42]) {
+    if (taken[43]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall42 call = reinterpret_cast<CuteQQuickItemViewPrivateCall42>(taken[42]);
+      CuteQQuickItemViewPrivateCall43 call = reinterpret_cast<CuteQQuickItemViewPrivateCall43>(taken[43]);
       call(this, afterIndex, &insertionResult, &removalResult, &handled);
       if (handled) return;
     }
@@ -1840,9 +2144,9 @@ public:
 #if QT_CONFIG(quick_itemview)
   //  void QQuickItemViewPrivate::initializeViewItem(FxViewItem *a0)
   void initializeViewItem(FxViewItem *a0) override {
-    if (taken[43]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall43 call = reinterpret_cast<CuteQQuickItemViewPrivateCall43>(taken[43]);
+      CuteQQuickItemViewPrivateCall44 call = reinterpret_cast<CuteQQuickItemViewPrivateCall44>(taken[44]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -1853,9 +2157,9 @@ public:
 #if QT_CONFIG(quick_itemview)
   //  void QQuickItemViewPrivate::initializeCurrentItem()
   void initializeCurrentItem() override {
-    if (taken[44]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall44 call = reinterpret_cast<CuteQQuickItemViewPrivateCall44>(taken[44]);
+      CuteQQuickItemViewPrivateCall45 call = reinterpret_cast<CuteQQuickItemViewPrivateCall45>(taken[45]);
       call(this, &handled);
       if (handled) return;
     }
@@ -1866,9 +2170,9 @@ public:
 #if QT_CONFIG(quick_itemview)
   //  void QQuickItemViewPrivate::updateSectionCriteria()
   void updateSectionCriteria() override {
-    if (taken[45]) {
+    if (taken[46]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall45 call = reinterpret_cast<CuteQQuickItemViewPrivateCall45>(taken[45]);
+      CuteQQuickItemViewPrivateCall46 call = reinterpret_cast<CuteQQuickItemViewPrivateCall46>(taken[46]);
       call(this, &handled);
       if (handled) return;
     }
@@ -1879,9 +2183,9 @@ public:
 #if QT_CONFIG(quick_itemview)
   //  void QQuickItemViewPrivate::updateSections()
   void updateSections() override {
-    if (taken[46]) {
+    if (taken[47]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall46 call = reinterpret_cast<CuteQQuickItemViewPrivateCall46>(taken[46]);
+      CuteQQuickItemViewPrivateCall47 call = reinterpret_cast<CuteQQuickItemViewPrivateCall47>(taken[47]);
       call(this, &handled);
       if (handled) return;
     }
@@ -1896,9 +2200,9 @@ public:
       QQuickItem *item,
       QQuickGeometryChange change,
       const QRectF &a2) override {
-    if (taken[47]) {
+    if (taken[48]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall47 call = reinterpret_cast<CuteQQuickItemViewPrivateCall47>(taken[47]);
+      CuteQQuickItemViewPrivateCall48 call = reinterpret_cast<CuteQQuickItemViewPrivateCall48>(taken[48]);
       call(this, item, &change, &a2, &handled);
       if (handled) return;
     }
@@ -1909,9 +2213,9 @@ public:
   //  void QQuickFlickablePrivate::addPointerHandler(QQuickPointerHandler
   //      *h)
   void addPointerHandler(QQuickPointerHandler *h) override {
-    if (taken[48]) {
+    if (taken[49]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall48 call = reinterpret_cast<CuteQQuickItemViewPrivateCall48>(taken[48]);
+      CuteQQuickItemViewPrivateCall49 call = reinterpret_cast<CuteQQuickItemViewPrivateCall49>(taken[49]);
       call(this, h, &handled);
       if (handled) return;
     }
@@ -1921,9 +2225,9 @@ public:
   //  bool QQuickFlickablePrivate::wantsPointerEvent(const QPointerEvent
   //      *a0)
   bool wantsPointerEvent(const QPointerEvent *a0) override {
-    if (taken[49]) {
+    if (taken[50]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall49 call = reinterpret_cast<CuteQQuickItemViewPrivateCall49>(taken[49]);
+      CuteQQuickItemViewPrivateCall50 call = reinterpret_cast<CuteQQuickItemViewPrivateCall50>(taken[50]);
       bool given = call(this, a0, &handled);
       if (handled) return given;
     }
@@ -1932,9 +2236,9 @@ public:
 
   //  void QQuickItemPrivate::removePointerHandler(QQuickPointerHandler *h)
   void removePointerHandler(QQuickPointerHandler *h) override {
-    if (taken[50]) {
+    if (taken[51]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall50 call = reinterpret_cast<CuteQQuickItemViewPrivateCall50>(taken[50]);
+      CuteQQuickItemViewPrivateCall51 call = reinterpret_cast<CuteQQuickItemViewPrivateCall51>(taken[51]);
       call(this, h, &handled);
       if (handled) return;
     }
@@ -1946,9 +2250,9 @@ public:
   //      QMetaObject *attachedType)
   QtPrivate::QQuickAttachedPropertyPropagator *attachedPropertyPropagator_parent(
       const QMetaObject *attachedType) override {
-    if (taken[51]) {
+    if (taken[52]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall51 call = reinterpret_cast<CuteQQuickItemViewPrivateCall51>(taken[51]);
+      CuteQQuickItemViewPrivateCall52 call = reinterpret_cast<CuteQQuickItemViewPrivateCall52>(taken[52]);
       void * given = call(this, attachedType, &handled);
       if (handled) return static_cast<QtPrivate::QQuickAttachedPropertyPropagator *>(given);
     }
@@ -1958,9 +2262,9 @@ public:
   //  void QQuickItemPrivate::registerAsContainmentMask(QQuickItem *a0,
   //      bool a1)
   void registerAsContainmentMask(QQuickItem *a0, bool a1) override {
-    if (taken[52]) {
+    if (taken[53]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall52 call = reinterpret_cast<CuteQQuickItemViewPrivateCall52>(taken[52]);
+      CuteQQuickItemViewPrivateCall53 call = reinterpret_cast<CuteQQuickItemViewPrivateCall53>(taken[53]);
       call(this, a0, a1, &handled);
       if (handled) return;
     }
@@ -1970,9 +2274,9 @@ public:
   //  bool QQuickItemPrivate::setLastFocusChangeReason(Qt::FocusReason
   //      reason)
   bool setLastFocusChangeReason(Qt::FocusReason reason) override {
-    if (taken[53]) {
+    if (taken[54]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall53 call = reinterpret_cast<CuteQQuickItemViewPrivateCall53>(taken[53]);
+      CuteQQuickItemViewPrivateCall54 call = reinterpret_cast<CuteQQuickItemViewPrivateCall54>(taken[54]);
       bool given = call(this, static_cast<int>(reason), &handled);
       if (handled) return given;
     }
@@ -1981,9 +2285,9 @@ public:
 
   //  qreal QQuickItemPrivate::getImplicitWidth() const
   qreal getImplicitWidth() const override {
-    if (taken[54]) {
+    if (taken[55]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall54 call = reinterpret_cast<CuteQQuickItemViewPrivateCall54>(taken[54]);
+      CuteQQuickItemViewPrivateCall55 call = reinterpret_cast<CuteQQuickItemViewPrivateCall55>(taken[55]);
       qreal given = call(this, &handled);
       if (handled) return given;
     }
@@ -1992,9 +2296,9 @@ public:
 
   //  qreal QQuickItemPrivate::getImplicitHeight() const
   qreal getImplicitHeight() const override {
-    if (taken[55]) {
+    if (taken[56]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall55 call = reinterpret_cast<CuteQQuickItemViewPrivateCall55>(taken[55]);
+      CuteQQuickItemViewPrivateCall56 call = reinterpret_cast<CuteQQuickItemViewPrivateCall56>(taken[56]);
       qreal given = call(this, &handled);
       if (handled) return given;
     }
@@ -2003,9 +2307,9 @@ public:
 
   //  void QQuickItemPrivate::implicitWidthChanged()
   void implicitWidthChanged() override {
-    if (taken[56]) {
+    if (taken[57]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall56 call = reinterpret_cast<CuteQQuickItemViewPrivateCall56>(taken[56]);
+      CuteQQuickItemViewPrivateCall57 call = reinterpret_cast<CuteQQuickItemViewPrivateCall57>(taken[57]);
       call(this, &handled);
       if (handled) return;
     }
@@ -2014,9 +2318,9 @@ public:
 
   //  void QQuickItemPrivate::implicitHeightChanged()
   void implicitHeightChanged() override {
-    if (taken[57]) {
+    if (taken[58]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall57 call = reinterpret_cast<CuteQQuickItemViewPrivateCall57>(taken[57]);
+      CuteQQuickItemViewPrivateCall58 call = reinterpret_cast<CuteQQuickItemViewPrivateCall58>(taken[58]);
       call(this, &handled);
       if (handled) return;
     }
@@ -2026,9 +2330,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::Role QQuickItemPrivate::accessibleRole() const
   QAccessible::Role accessibleRole() const override {
-    if (taken[58]) {
+    if (taken[59]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall58 call = reinterpret_cast<CuteQQuickItemViewPrivateCall58>(taken[58]);
+      CuteQQuickItemViewPrivateCall59 call = reinterpret_cast<CuteQQuickItemViewPrivateCall59>(taken[59]);
       int given = call(this, &handled);
       if (handled) return static_cast<QAccessible::Role>(given);
     }
@@ -2038,9 +2342,9 @@ public:
 
   //  bool QQuickItemPrivate::transformChanged(QQuickItem *transformedItem)
   bool transformChanged(QQuickItem *transformedItem) override {
-    if (taken[59]) {
+    if (taken[60]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall59 call = reinterpret_cast<CuteQQuickItemViewPrivateCall59>(taken[59]);
+      CuteQQuickItemViewPrivateCall60 call = reinterpret_cast<CuteQQuickItemViewPrivateCall60>(taken[60]);
       bool given = call(this, transformedItem, &handled);
       if (handled) return given;
     }
@@ -2050,9 +2354,9 @@ public:
   //  bool QQuickItemPrivate::handlePointerEvent(QPointerEvent *a0, bool
   //      avoidGrabbers)
   bool handlePointerEvent(QPointerEvent *a0, bool avoidGrabbers) override {
-    if (taken[60]) {
+    if (taken[61]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall60 call = reinterpret_cast<CuteQQuickItemViewPrivateCall60>(taken[60]);
+      CuteQQuickItemViewPrivateCall61 call = reinterpret_cast<CuteQQuickItemViewPrivateCall61>(taken[61]);
       bool given = call(this, a0, avoidGrabbers, &handled);
       if (handled) return given;
     }
@@ -2063,9 +2367,9 @@ public:
   //  bool QQuickItemPrivate::handleContextMenuEvent(QContextMenuEvent
   //      *event)
   bool handleContextMenuEvent(QContextMenuEvent *event) override {
-    if (taken[61]) {
+    if (taken[62]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall61 call = reinterpret_cast<CuteQQuickItemViewPrivateCall61>(taken[61]);
+      CuteQQuickItemViewPrivateCall62 call = reinterpret_cast<CuteQQuickItemViewPrivateCall62>(taken[62]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -2075,9 +2379,9 @@ public:
 
   //  void QQuickItemPrivate::setVisible(bool visible)
   void setVisible(bool visible) override {
-    if (taken[62]) {
+    if (taken[63]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall62 call = reinterpret_cast<CuteQQuickItemViewPrivateCall62>(taken[62]);
+      CuteQQuickItemViewPrivateCall63 call = reinterpret_cast<CuteQQuickItemViewPrivateCall63>(taken[63]);
       call(this, visible, &handled);
       if (handled) return;
     }
@@ -2086,9 +2390,9 @@ public:
 
   //  QSGTransformNode *QQuickItemPrivate::createTransformNode()
   QSGTransformNode *createTransformNode() override {
-    if (taken[63]) {
+    if (taken[64]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall63 call = reinterpret_cast<CuteQQuickItemViewPrivateCall63>(taken[63]);
+      CuteQQuickItemViewPrivateCall64 call = reinterpret_cast<CuteQQuickItemViewPrivateCall64>(taken[64]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QSGTransformNode *>(given);
     }
@@ -2097,9 +2401,9 @@ public:
 
   //  void QQuickItemPrivate::updatePolish()
   void updatePolish() override {
-    if (taken[64]) {
+    if (taken[65]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall64 call = reinterpret_cast<CuteQQuickItemViewPrivateCall64>(taken[64]);
+      CuteQQuickItemViewPrivateCall65 call = reinterpret_cast<CuteQQuickItemViewPrivateCall65>(taken[65]);
       call(this, &handled);
       if (handled) return;
     }
@@ -2108,9 +2412,9 @@ public:
 
   //  void QQuickItemPrivate::dumpItemTree(int indent) const
   void dumpItemTree(int indent) const override {
-    if (taken[65]) {
+    if (taken[66]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall65 call = reinterpret_cast<CuteQQuickItemViewPrivateCall65>(taken[65]);
+      CuteQQuickItemViewPrivateCall66 call = reinterpret_cast<CuteQQuickItemViewPrivateCall66>(taken[66]);
       call(this, indent, &handled);
       if (handled) return;
     }
@@ -2125,9 +2429,9 @@ public:
       QAbstractAnimationJob *a0,
       QAbstractAnimationJob::State a1,
       QAbstractAnimationJob::State a2) override {
-    if (taken[66]) {
+    if (taken[67]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall66 call = reinterpret_cast<CuteQQuickItemViewPrivateCall66>(taken[66]);
+      CuteQQuickItemViewPrivateCall67 call = reinterpret_cast<CuteQQuickItemViewPrivateCall67>(taken[67]);
       call(this, a0, static_cast<int>(a1), static_cast<int>(a2), &handled);
       if (handled) return;
     }
@@ -2139,9 +2443,9 @@ public:
   //  void QAnimationJobChangeListener::animationCurrentLoopChanged(QAbstra
   //      ctAnimationJob *a0)
   void animationCurrentLoopChanged(QAbstractAnimationJob *a0) override {
-    if (taken[67]) {
+    if (taken[68]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall67 call = reinterpret_cast<CuteQQuickItemViewPrivateCall67>(taken[67]);
+      CuteQQuickItemViewPrivateCall68 call = reinterpret_cast<CuteQQuickItemViewPrivateCall68>(taken[68]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -2155,9 +2459,9 @@ public:
   void animationCurrentTimeChanged(
       QAbstractAnimationJob *a0,
       int a1) override {
-    if (taken[68]) {
+    if (taken[69]) {
       int handled = 0;
-      CuteQQuickItemViewPrivateCall68 call = reinterpret_cast<CuteQQuickItemViewPrivateCall68>(taken[68]);
+      CuteQQuickItemViewPrivateCall69 call = reinterpret_cast<CuteQQuickItemViewPrivateCall69>(taken[69]);
       call(this, a0, a1, &handled);
       if (handled) return;
     }
@@ -2243,6 +2547,21 @@ int ritual_ZNK21QQuickItemViewPrivate20findLastVisibleIndexEi(
   return self->findLastVisibleIndex(defaultValue);
 }
 
+//  FxViewItem *QQuickItemViewPrivate::visibleItem(int modelIndex) const
+extern "C" Q_DECL_EXPORT
+FxViewItem *ritual_ZNK21QQuickItemViewPrivate11visibleItemEi(
+    const QQuickItemViewPrivate *self,
+    int modelIndex) {
+  return self->visibleItem(modelIndex);
+}
+
+//  FxViewItem *QQuickItemViewPrivate::firstItemInView() const
+extern "C" Q_DECL_EXPORT
+FxViewItem *ritual_ZNK21QQuickItemViewPrivate15firstItemInViewEv(
+    const QQuickItemViewPrivate *self) {
+  return self->firstItemInView();
+}
+
 //  int QQuickItemViewPrivate::findLastIndexInView() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QQuickItemViewPrivate19findLastIndexInViewEv(
@@ -2292,6 +2611,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickItemViewPrivate12mirrorChangeEv(
     QQuickItemViewPrivate *self) {
   self->mirrorChange();
+}
+
+//  FxViewItem *QQuickItemViewPrivate::createItem(int modelIndex,
+//      QQmlIncubator::IncubationMode incubationMode)
+extern "C" Q_DECL_EXPORT
+FxViewItem *ritual_ZN21QQuickItemViewPrivate10createItemEiN13QQmlIncubator14IncubationModeE(
+    QQuickItemViewPrivate *self,
+    int modelIndex,
+    QQmlIncubator::IncubationMode incubationMode) {
+  return self->createItem(modelIndex, incubationMode);
 }
 
 //  bool
@@ -2374,6 +2703,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickItemViewPrivate18updateVisibleIndexEv(
     QQuickItemViewPrivate *self) {
   self->updateVisibleIndex();
+}
+
+//  qreal QQuickItemViewPrivate::minExtentForAxis(const AxisData &axisData,
+//      bool forXAxis) const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK21QQuickItemViewPrivate16minExtentForAxisERKN22QQuickFlickablePrivate8AxisDataEb(
+    const QQuickItemViewPrivate *self,
+    const QQuickFlickablePrivate::AxisData *axisData,
+    bool forXAxis) {
+  return self->minExtentForAxis(*axisData, forXAxis);
+}
+
+//  qreal QQuickItemViewPrivate::maxExtentForAxis(const AxisData &axisData,
+//      bool forXAxis) const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK21QQuickItemViewPrivate16maxExtentForAxisERKN22QQuickFlickablePrivate8AxisDataEb(
+    const QQuickItemViewPrivate *self,
+    const QQuickFlickablePrivate::AxisData *axisData,
+    bool forXAxis) {
+  return self->maxExtentForAxis(*axisData, forXAxis);
 }
 
 //  qreal QQuickItemViewPrivate::calculatedMinExtent() const
@@ -2469,6 +2818,17 @@ void ritual_ZN21QQuickItemViewPrivate29prepareVisibleItemTransitionsEv(
 #endif  // QT_CONFIG(quick_viewtransitions)
 
 #if QT_CONFIG(quick_viewtransitions)
+//  void QQuickItemViewPrivate::prepareRemoveTransitions(QMultiHash<QQmlChang
+//      eSet::MoveKey, FxViewItem *> *removedItems)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickItemViewPrivate24prepareRemoveTransitionsEP10QMultiHashIN13QQmlChangeSet7MoveKeyEP10FxViewItemE(
+    QQuickItemViewPrivate *self,
+    QMultiHash<QQmlChangeSet::MoveKey, FxViewItem *> *removedItems) {
+  self->prepareRemoveTransitions(removedItems);
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+#if QT_CONFIG(quick_viewtransitions)
 //  bool QQuickItemViewPrivate::prepareNonVisibleItemTransition(FxViewItem
 //      *item, const QRectF &viewBounds)
 extern "C" Q_DECL_EXPORT
@@ -2490,6 +2850,16 @@ void ritual_ZN21QQuickItemViewPrivate26viewItemTransitionFinishedEP32QQuickItemV
   self->viewItemTransitionFinished(item);
 }
 #endif  // QT_CONFIG(quick_viewtransitions)
+
+//  int QQuickItemViewPrivate::findMoveKeyIndex(QQmlChangeSet::MoveKey key,
+//      const QList<QQmlChangeSet::Change> &changes) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK21QQuickItemViewPrivate16findMoveKeyIndexEN13QQmlChangeSet7MoveKeyERK5QListINS0_6ChangeEE(
+    const QQuickItemViewPrivate *self,
+    const QQmlChangeSet::MoveKey *key,
+    const QList<QQmlChangeSet::Change> *changes) {
+  return self->findMoveKeyIndex(*key, *changes);
+}
 
 //  void QQuickItemViewPrivate::checkVisible() const
 extern "C" Q_DECL_EXPORT
@@ -2798,6 +3168,23 @@ void ritual_ZN21QQuickItemViewPrivate19changedVisibleIndexEi(
   self->changedVisibleIndex(newIndex);
 }
 
+//  bool QQuickItemViewPrivate::applyInsertionChange(const
+//      QQmlChangeSet::Change &insert, ChangeResult *changeResult,
+//      QList<FxViewItem *> *newItems, QList<MovedItem> *movingIntoView)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QQuickItemViewPrivate20applyInsertionChangeERKN13QQmlChangeSet6ChangeEPNS_12ChangeResultEP5QListIP10FxViewItemEPS6_INS_9MovedItemEE(
+    QQuickItemViewPrivate *self,
+    const QQmlChangeSet::Change *insert,
+    QQuickItemViewPrivate::ChangeResult *changeResult,
+    QList<FxViewItem *> *newItems,
+    QList<QQuickItemViewPrivate::MovedItem> *movingIntoView) {
+  return self->applyInsertionChange(
+      *insert,
+      changeResult,
+      newItems,
+      movingIntoView);
+}
+
 //  bool QQuickItemViewPrivate::needsRefillForAddedOrRemovedIndex(int a0)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -2919,6 +3306,24 @@ void ritual_own_ZN21QQuickItemViewPrivate17animationFinishedEP21QAbstractAnimati
   self->QQuickItemViewPrivate::animationFinished(a0);
 }
 
+//  bool QQuickItemViewPrivate::releaseItem(FxViewItem *item,
+//      QQmlInstanceModel::ReusableFlag reusableFlag)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN21QQuickItemViewPrivate11releaseItemEP10FxViewItemN17QQmlInstanceModel12ReusableFlagE(
+    QQuickItemViewPrivate *self,
+    FxViewItem *item,
+    QQmlInstanceModel::ReusableFlag reusableFlag) {
+  return self->QQuickItemViewPrivate::releaseItem(item, reusableFlag);
+}
+
+//  void QQuickItemViewPrivate::itemDestroyed(QQuickItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN21QQuickItemViewPrivate13itemDestroyedEP10QQuickItem(
+    QQuickItemViewPrivate *self,
+    QQuickItem *item) {
+  self->QQuickItemViewPrivate::itemDestroyed(item);
+}
+
 //  void QQuickItemViewPrivate::initializeComponentItem(QQuickItem *a0) const
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZNK21QQuickItemViewPrivate23initializeComponentItemEP10QQuickItem(
@@ -3025,6 +3430,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN21QQuickItemViewPrivate14updateSectionsEv(
     QQuickItemViewPrivate *self) {
   static_cast<OwnQQuickItemViewPrivate *>(self)->OwnQQuickItemViewPrivate::updateSections();
+}
+
+//  void QQuickItemViewPrivate::itemGeometryChanged(QQuickItem *item,
+//      QQuickGeometryChange change, const QRectF &a2)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN21QQuickItemViewPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF(
+    QQuickItemViewPrivate *self,
+    QQuickItem *item,
+    const QQuickGeometryChange *change,
+    const QRectF *a2) {
+  static_cast<OwnQQuickItemViewPrivate *>(self)->OwnQQuickItemViewPrivate::itemGeometryChanged(
+      item,
+      *change,
+      *a2);
 }
 
 #endif  // QT_CONFIG(quick_itemview)

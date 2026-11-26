@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QHttpNetworkReplyPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN24QHttpNetworkReplyPrivate10readStatusEP9QIODevice": [
       "long long", "address", "address"
     ],
@@ -21,6 +22,9 @@
       "nothing", "address", "address", "address"
     ],
     "ritual_ZN24QHttpNetworkReplyPrivate8readBodyEP9QIODeviceP15QByteDataBuffer": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate16readBodyVeryFastEP9QIODevicePc": [
       "long long", "address", "address", "address"
     ],
     "ritual_ZN24QHttpNetworkReplyPrivate12readBodyFastEP9QIODeviceP15QByteDataBuffer": [

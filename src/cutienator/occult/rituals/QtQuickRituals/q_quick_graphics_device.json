@@ -8,9 +8,21 @@
     "ritual_ZN20QQuickGraphicsDeviceC1Ev": ["address"],
     "ritual_ZN20QQuickGraphicsDeviceD1Ev": ["nothing", "address"],
     "ritual_ZN20QQuickGraphicsDeviceC1ERKS_": ["address", "address"],
+    "ritual_ZN20QQuickGraphicsDeviceaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK20QQuickGraphicsDevice6isNullEv": ["bool", "address"],
     "ritual_ZN20QQuickGraphicsDevice17fromOpenGLContextEP14QOpenGLContext": [
       "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphicsDevice25fromDeviceAndCommandQueueEP9MTLDeviceP15MTLCommandQueue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphicsDevice18fromPhysicalDeviceEP18VkPhysicalDevice_T": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphicsDevice17fromDeviceObjectsEP18VkPhysicalDevice_TP10VkDevice_Tii": [
+      "address", "address", "address", "int", "int"
     ],
     "ritual_ZN20QQuickGraphicsDevice7fromRhiEP4QRhi": ["address", "address"],
     "ritual_ZN20QQuickGraphicsDevice14fromRhiAdapterEP11QRhiAdapter": [

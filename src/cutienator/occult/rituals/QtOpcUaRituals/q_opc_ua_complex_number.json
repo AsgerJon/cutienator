@@ -8,6 +8,9 @@
     "ritual_ZN19QOpcUaComplexNumberC1Ev": ["address"],
     "ritual_ZN19QOpcUaComplexNumberC1ERKS_": ["address", "address"],
     "ritual_ZN19QOpcUaComplexNumberC1Eff": ["address", "float", "float"],
+    "ritual_ZN19QOpcUaComplexNumberaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QOpcUaComplexNumbereqERKS_": ["bool", "address", "address"],
     "ritual_ZNK19QOpcUaComplexNumbercv8QVariantEv": ["address", "address"],
     "ritual_ZN19QOpcUaComplexNumberD1Ev": ["nothing", "address"],

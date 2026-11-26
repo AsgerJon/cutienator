@@ -9,7 +9,10 @@
       "address", "address", "int", "address", "int", "address"
     ],
     "ritual_ZN11QPageLayoutC1ERKS_": ["address", "address"],
+    "ritual_ZN11QPageLayoutaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QPageLayoutaSERKS_": ["address", "address", "address"],
     "ritual_ZN11QPageLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN11QPageLayout4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK11QPageLayout14isEquivalentToERKS_": [
       "bool", "address", "address"
     ],

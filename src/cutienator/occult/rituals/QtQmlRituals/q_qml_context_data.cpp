@@ -11,6 +11,105 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4value_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/private/qv4identifierhash_p.h>
+#include <QtQml/private/qv4identifiertable_p.h>
+#include <QtQml/private/qv4string_p.h>
+#include <QtQml/private/qv4identifierhashdata_p.h>
+#include <QtQml/private/qprimefornumbits_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4identifierhash.cpp, line 120, as _ZN3QV414IdentifierHashD1Ev
+inline QV4::IdentifierHash::~IdentifierHash()
+{
+    if (d && !d->refCount.deref())
+        delete d;
+}
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4identifierhash.cpp, line 89, as _ZNK3QV414IdentifierHash13reverseLookupEi
+namespace QV4 {
+inline PropertyKey IdentifierHash::reverseLookup(int value) const
+{
+    IdentifierHashEntry *e = d->entries;
+    IdentifierHashEntry *end = e + d->alloc;
+    while (e < end) {
+        if (e->identifier.isValid() && e->value == value)
+            return e->identifier;
+        ++e;
+    }
+    return PropertyKey::invalid();
+}
+}  // namespace QV4
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4identifierhash.cpp, line 21, as _ZN3QV414IdentifierHash8addEntryENS_11PropertyKeyEi
+namespace QV4 {
+inline void IdentifierHash::addEntry(PropertyKey identifier, int value)
+{
+    Q_ASSERT(identifier.isStringOrSymbol());
+
+    // fill up to max 50%
+    bool grow = (d->alloc <= d->size*2);
+
+    if (grow) {
+        ++d->numBits;
+        int newAlloc = qPrimeForNumBits(d->numBits);
+        IdentifierHashEntry *newEntries = (IdentifierHashEntry *)malloc(newAlloc * sizeof(IdentifierHashEntry));
+        memset(newEntries, 0, newAlloc*sizeof(IdentifierHashEntry));
+        for (int i = 0; i < d->alloc; ++i) {
+            const IdentifierHashEntry &e = d->entries[i];
+            if (!e.identifier.isValid())
+                continue;
+            uint idx = e.identifier.id() % newAlloc;
+            while (newEntries[idx].identifier.isValid()) {
+                ++idx;
+                idx %= newAlloc;
+            }
+            newEntries[idx] = e;
+        }
+        free(d->entries);
+        d->entries = newEntries;
+        d->alloc = newAlloc;
+    }
+
+    uint idx = identifier.id() % d->alloc;
+    while (d->entries[idx].identifier.isValid()) {
+        Q_ASSERT(d->entries[idx].identifier != identifier);
+        ++idx;
+        idx %= d->alloc;
+    }
+    d->entries[idx].identifier = identifier;
+    ++d->size;
+    (d->entries + idx)->value = value;
+}
+}  // namespace QV4
+//  -----------------------------------------------------------------------
+
+//  QQmlRefPointer<QQmlContextData> QQmlContextData::createRefCounted(const
+//      QQmlRefPointer<QQmlContextData> &parent)
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZN15QQmlContextData16createRefCountedERK14QQmlRefPointerIS_E(
+    const QQmlRefPointer<QQmlContextData> *parent) {
+  return new QQmlRefPointer<QQmlContextData>(
+      QQmlContextData::createRefCounted(
+          *parent));
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlContextData::createChild(const
+//      QQmlRefPointer<QQmlContextData> &parent)
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZN15QQmlContextData11createChildERK14QQmlRefPointerIS_E(
+    const QQmlRefPointer<QQmlContextData> *parent) {
+  return new QQmlRefPointer<QQmlContextData>(
+      QQmlContextData::createChild(
+          *parent));
+}
 
 //  void QQmlContextData::addref() const
 extern "C" Q_DECL_EXPORT
@@ -34,6 +133,43 @@ int ritual_ZNK15QQmlContextData5countEv(const QQmlContextData *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QQmlContextData8refCountEv(const QQmlContextData *self) {
   return self->refCount();
+}
+
+//  QQmlRefPointer<QV4::ExecutableCompilationUnit>
+//      QQmlContextData::typeCompilationUnit() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QV4::ExecutableCompilationUnit> *ritual_ZNK15QQmlContextData19typeCompilationUnitEv(
+    const QQmlContextData *self) {
+  return new QQmlRefPointer<QV4::ExecutableCompilationUnit>(
+      self->typeCompilationUnit());
+}
+
+//  void QQmlContextData::setTypeCompilationUnit(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &unit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlContextData22setTypeCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEE(
+    QQmlContextData *self,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *unit) {
+  self->setTypeCompilationUnit(*unit);
+}
+
+//  void QQmlContextData::initFromTypeCompilationUnit(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &unit, int
+//      subComponentIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlContextData27initFromTypeCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEi(
+    QQmlContextData *self,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *unit,
+    int subComponentIndex) {
+  self->initFromTypeCompilationUnit(*unit, subComponentIndex);
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlContextData::get(QQmlContext
+//      *context)
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZN15QQmlContextData3getEP11QQmlContext(
+    QQmlContext *context) {
+  return new QQmlRefPointer<QQmlContextData>(QQmlContextData::get(context));
 }
 
 //  void QQmlContextData::emitDestruction()
@@ -142,6 +278,13 @@ void ritual_ZN15QQmlContextData23setPragmaLibraryContextEb(
     QQmlContextData *self,
     bool library) {
   self->setPragmaLibraryContext(library);
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlContextData::parent() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZNK15QQmlContextData6parentEv(
+    const QQmlContextData *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->parent());
 }
 
 //  void QQmlContextData::clearParent()
@@ -286,6 +429,36 @@ QQmlJavaScriptExpression *ritual_ZN15QQmlContextData15takeExpressionsEv(
   return self->takeExpressions();
 }
 
+//  void QQmlContextData::setChildContexts(const
+//      QQmlRefPointer<QQmlContextData> &childContexts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlContextData16setChildContextsERK14QQmlRefPointerIS_E(
+    QQmlContextData *self,
+    const QQmlRefPointer<QQmlContextData> *childContexts) {
+  self->setChildContexts(*childContexts);
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlContextData::childContexts() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZNK15QQmlContextData13childContextsEv(
+    const QQmlContextData *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->childContexts());
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlContextData::takeChildContexts()
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZN15QQmlContextData17takeChildContextsEv(
+    QQmlContextData *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->takeChildContexts());
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlContextData::nextChild() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZNK15QQmlContextData9nextChildEv(
+    const QQmlContextData *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->nextChild());
+}
+
 //  int QQmlContextData::numIdValues() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QQmlContextData11numIdValuesEv(const QQmlContextData *self) {
@@ -375,6 +548,22 @@ QUrl *ritual_ZNK15QQmlContextData7baseUrlEv(const QQmlContextData *self) {
   return new QUrl(self->baseUrl());
 }
 
+//  QQmlRefPointer<QQmlTypeNameCache> QQmlContextData::imports() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlTypeNameCache> *ritual_ZNK15QQmlContextData7importsEv(
+    const QQmlContextData *self) {
+  return new QQmlRefPointer<QQmlTypeNameCache>(self->imports());
+}
+
+//  void QQmlContextData::setImports(const QQmlRefPointer<QQmlTypeNameCache>
+//      &imports)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlContextData10setImportsERK14QQmlRefPointerI17QQmlTypeNameCacheE(
+    QQmlContextData *self,
+    const QQmlRefPointer<QQmlTypeNameCache> *imports) {
+  self->setImports(*imports);
+}
+
 //  QQmlIncubatorPrivate *QQmlContextData::incubator() const
 extern "C" Q_DECL_EXPORT
 QQmlIncubatorPrivate *ritual_ZNK15QQmlContextData9incubatorEv(
@@ -447,6 +636,22 @@ void ritual_ZN15QQmlContextData18setImportedScriptsEPN3QV415ExecutionEngineEy(
   self->setImportedScripts(engine, scripts);
 }
 
+//  QQmlRefPointer<QQmlContextData> QQmlContextData::linkedContext() const
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZNK15QQmlContextData13linkedContextEv(
+    const QQmlContextData *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->linkedContext());
+}
+
+//  void QQmlContextData::setLinkedContext(const
+//      QQmlRefPointer<QQmlContextData> &context)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlContextData16setLinkedContextERK14QQmlRefPointerIS_E(
+    QQmlContextData *self,
+    const QQmlRefPointer<QQmlContextData> *context) {
+  self->setLinkedContext(*context);
+}
+
 //  bool QQmlContextData::hasUnresolvedNames() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QQmlContextData18hasUnresolvedNamesEv(
@@ -500,6 +705,18 @@ bool ritual_ZNK15QQmlContextData23valueTypesAreAssertableEv(
   return self->valueTypesAreAssertable();
 }
 
+//  QQmlContextData::QQmlContextData(Ownership ownership, QQmlContext
+//      *publicContext, const QQmlRefPointer<QQmlContextData> &parent,
+//      QQmlEngine *engine)
+extern "C" Q_DECL_EXPORT
+QQmlContextData *ritual_ZN15QQmlContextDataC1ENS_9OwnershipEP11QQmlContextRK14QQmlRefPointerIS_EP10QQmlEngine(
+    QQmlContextData::Ownership ownership,
+    QQmlContext *publicContext,
+    const QQmlRefPointer<QQmlContextData> *parent,
+    QQmlEngine *engine) {
+  return new QQmlContextData(ownership, publicContext, *parent, engine);
+}
+
 //  QQmlContextData::~QQmlContextData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQmlContextDataD1Ev(QQmlContextData *self) {
@@ -544,4 +761,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZNK15QQmlContextData19ensurePropertyNamesEv(
     const QQmlContextData *self) {
   self->ensurePropertyNames();
+}
+
+//  a QQmlRefPointer<QQmlContextData> a ritual of QQmlContextData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlContextData__QQmlRefPointer_QQmlContextData(
+    QQmlRefPointer<QQmlContextData> *self) {
+  delete self;
+}
+
+//  a QQmlRefPointer<QV4::ExecutableCompilationUnit> a ritual of
+//      QQmlContextData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlContextData__QQmlRefPointer_QV4_ExecutableCompilationUnit(
+    QQmlRefPointer<QV4::ExecutableCompilationUnit> *self) {
+  delete self;
+}
+
+//  a QQmlRefPointer<QQmlTypeNameCache> a ritual of QQmlContextData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlContextData__QQmlRefPointer_QQmlTypeNameCache(
+    QQmlRefPointer<QQmlTypeNameCache> *self) {
+  delete self;
 }

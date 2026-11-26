@@ -5,11 +5,21 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN25QQmlBoundSignalExpressionC1EPK7QObjectiRK14QQmlRefPointerI15QQmlContextDataEPS0_RK7QStringSB_ttSB_SB_": [
+      "address", "address", "int", "address", "address", "text", "text",
+      "unsigned short", "unsigned short", "text", "text"
+    ],
+    "ritual_ZN25QQmlBoundSignalExpressionC1EPK7QObjectiRK14QQmlRefPointerI15QQmlContextDataEPS0_PN3QV48FunctionEPNS9_16ExecutionContextE": [
+      "address", "address", "int", "address", "address", "address", "address"
+    ],
     "ritual_ZNK25QQmlBoundSignalExpression20expressionIdentifierEv": [
       "text", "address"
     ],
     "ritual_ZN25QQmlBoundSignalExpression17expressionChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QQmlBoundSignalExpression8evaluateEPPv": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK25QQmlBoundSignalExpression27mustCaptureBindablePropertyEv": [
       "bool", "address"
@@ -19,6 +29,9 @@
     ],
     "ritual_ZNK25QQmlBoundSignalExpression6targetEv": ["address", "address"],
     "ritual_ZN25QQmlBoundSignalExpressionD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQmlBoundSignalExpression4initERK14QQmlRefPointerI15QQmlContextDataEP7QObject": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK25QQmlBoundSignalExpression23expressionFunctionValidEv": [
       "bool", "address"
     ]

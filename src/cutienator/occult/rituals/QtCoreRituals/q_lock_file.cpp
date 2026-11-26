@@ -51,6 +51,29 @@ int ritual_ZNK9QLockFile13staleLockTimeEv(const QLockFile *self) {
   return self->staleLockTime();
 }
 
+//  bool QLockFile::tryLock(std::chrono::milliseconds timeout)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QLockFile7tryLockENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QLockFile *self,
+    long long timeout) {
+  return self->tryLock(std::chrono::milliseconds(timeout));
+}
+
+//  void QLockFile::setStaleLockTime(std::chrono::milliseconds value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLockFile16setStaleLockTimeENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QLockFile *self,
+    long long value) {
+  self->setStaleLockTime(std::chrono::milliseconds(value));
+}
+
+//  std::chrono::milliseconds QLockFile::staleLockTimeAsDuration() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK9QLockFile23staleLockTimeAsDurationEv(
+    const QLockFile *self) {
+  return static_cast<long long>(self->staleLockTimeAsDuration().count());
+}
+
 //  bool QLockFile::isLocked() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QLockFile8isLockedEv(const QLockFile *self) {

@@ -19,11 +19,17 @@
     "ritual_ZN13QClipperUtils14addClipPolygonERK5QListI15QDoubleVector2DE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QClipperUtils7executeENS_9OperationENS_12PolyFillTypeES1_": [
+      "address", "address", "int", "int", "int"
+    ],
     "ritual_ZN13QClipperUtils10setPolygonERK5QListI15QDoubleVector2DE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK13QClipperUtils14pointInPolygonERK15QDoubleVector2D": [
       "int", "address", "address"
+    ],
+    "ritual_drop_QClipperUtils__QList_QList_QDoubleVector2D": [
+      "nothing", "address"
     ]
   }
 }

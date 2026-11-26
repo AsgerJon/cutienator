@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN3QV45Proxy10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV45Proxy11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV45Proxy1dEv": ["address", "address"]
+    "ritual_ZNK3QV45Proxy1dEv": ["address", "address"],
+    "ritual_ZN3QV45Proxy11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV45Proxy13method_revokeEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

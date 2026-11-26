@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN14QDBusSlotCache4Data4swapERS0_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QDBusSlotCache4DataD1Ev": ["nothing", "address"]
   }
 }

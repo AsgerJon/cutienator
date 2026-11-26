@@ -21,10 +21,12 @@ typedef void * (*CuteQIconEngineCall6)(const void *, int *);
 typedef QString * (*CuteQIconEngineCall7)(const void *, int *);
 typedef bool (*CuteQIconEngineCall8)(const void *, int *);
 typedef const QPixmap * (*CuteQIconEngineCall9)(const void *, const QSize *, int, int, qreal, int *);
+typedef void (*CuteQIconEngineCall10)(const void *, int, void *, int *);
 class CuteQIconEngine : public QIconEngine {
 public:
   using QIconEngine::QIconEngine;
-  void *taken[10] = {};
+  CuteQIconEngine(const QIconEngine & other) : QIconEngine(other) {}
+  void *taken[11] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN11QIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE")) {
@@ -65,6 +67,10 @@ public:
     }
     if (!std::strcmp(key, "_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd")) {
       taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QIconEngine12virtual_hookEiPv")) {
+      taken[10] = call;
       return true;
     }
     return false;
@@ -213,7 +219,24 @@ public:
     }
     return QIconEngine::scaledPixmap(size, mode, state, scale);
   }
+
+  //  void QIconEngine::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQIconEngineCall10 call = reinterpret_cast<CuteQIconEngineCall10>(taken[10]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QIconEngine::virtual_hook(id, data);
+  }
 };
+
+//  QIconEngine::QIconEngine()
+extern "C" Q_DECL_EXPORT
+QIconEngine *ritual_ZN11QIconEngineC1Ev() {
+  return new CuteQIconEngine();
+}
 
 //  QIconEngine::~QIconEngine()
 extern "C" Q_DECL_EXPORT
@@ -290,6 +313,22 @@ QIconEngine *ritual_ZNK11QIconEngine5cloneEv(const QIconEngine *self) {
   return self->clone();
 }
 
+//  bool QIconEngine::read(QDataStream &in)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QIconEngine4readER11QDataStream(
+    QIconEngine *self,
+    QDataStream *in) {
+  return self->read(*in);
+}
+
+//  bool QIconEngine::write(QDataStream &out) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QIconEngine5writeER11QDataStream(
+    const QIconEngine *self,
+    QDataStream *out) {
+  return self->write(*out);
+}
+
 //  QList<QSize> QIconEngine::availableSizes(QIcon::Mode mode, QIcon::State
 //      state)
 extern "C" Q_DECL_EXPORT
@@ -322,6 +361,21 @@ QPixmap *ritual_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd(
     QIcon::State state,
     qreal scale) {
   return new QPixmap(self->scaledPixmap(*size, mode, state, scale));
+}
+
+//  void QIconEngine::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QIconEngine12virtual_hookEiPv(
+    QIconEngine *self,
+    int id,
+    void *data) {
+  self->virtual_hook(id, data);
+}
+
+//  QIconEngine::QIconEngine(const QIconEngine &other)
+extern "C" Q_DECL_EXPORT
+QIconEngine *ritual_ZN11QIconEngineC1ERKS_(const QIconEngine *other) {
+  return new CuteQIconEngine(*other);
 }
 
 //  a Python function taken by a CuteQIconEngine, for the function named by
@@ -412,4 +466,13 @@ QPixmap *ritual_own_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5Stat
           mode,
           state,
           scale));
+}
+
+//  void QIconEngine::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN11QIconEngine12virtual_hookEiPv(
+    QIconEngine *self,
+    int id,
+    void *data) {
+  self->QIconEngine::virtual_hook(id, data);
 }

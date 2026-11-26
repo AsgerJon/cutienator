@@ -8,8 +8,17 @@
     "ritual_ZNK29QPlatformPrinterSupportPlugin10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QPlatformPrinterSupportPlugin11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QPlatformPrinterSupportPlugin11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QPlatformPrinterSupportPlugin2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QPlatformPrinterSupportPluginC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN29QPlatformPrinterSupportPluginD1Ev": ["nothing", "address"],
     "ritual_ZN29QPlatformPrinterSupportPlugin6createERK7QString": [

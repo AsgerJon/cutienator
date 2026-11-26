@@ -8,6 +8,9 @@
     "ritual_ZN20QLowEnergyDescriptorC1Ev": ["address"],
     "ritual_ZN20QLowEnergyDescriptorC1ERKS_": ["address", "address"],
     "ritual_ZN20QLowEnergyDescriptorD1Ev": ["nothing", "address"],
+    "ritual_ZN20QLowEnergyDescriptoraSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK20QLowEnergyDescriptorS1_": ["bool", "address", "address"],
     "ritual_ZneRK20QLowEnergyDescriptorS1_": ["bool", "address", "address"],
     "ritual_ZNK20QLowEnergyDescriptor7isValidEv": ["bool", "address"],
@@ -20,6 +23,9 @@
     ],
     "ritual_ZNK20QLowEnergyDescriptor20characteristicHandleEv": [
       "unsigned short", "address"
+    ],
+    "ritual_ZN20QLowEnergyDescriptorC1E14QSharedPointerI24QLowEnergyServicePrivateEtt": [
+      "address", "address", "unsigned short", "unsigned short"
     ],
     "ritual_ZN20QLowEnergyDescriptor6equalsERKS_S1_": [
       "bool", "address", "address"

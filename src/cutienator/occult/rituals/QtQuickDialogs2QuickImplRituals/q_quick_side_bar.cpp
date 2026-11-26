@@ -26,6 +26,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QStandardPaths>
 
 //  Only a class built on QQuickSideBar may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1154,6 +1156,24 @@ const QMetaObject *ritual_ZNK13QQuickSideBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSideBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickSideBar11qt_metacastEPKc(
+    QQuickSideBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSideBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickSideBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSideBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSideBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickSideBar2trEPKcS1_i(
@@ -1187,6 +1207,32 @@ void ritual_ZN13QQuickSideBar9setDialogEP12QQuickDialog(
     QQuickSideBar *self,
     QQuickDialog *dialog) {
   self->setDialog(dialog);
+}
+
+//  QList<QStandardPaths::StandardLocation> QQuickSideBar::folderPaths()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QStandardPaths::StandardLocation> *ritual_ZNK13QQuickSideBar11folderPathsEv(
+    const QQuickSideBar *self) {
+  return new QList<QStandardPaths::StandardLocation>(self->folderPaths());
+}
+
+//  void QQuickSideBar::setFolderPaths(const
+//      QList<QStandardPaths::StandardLocation> &folderPaths)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSideBar14setFolderPathsERK5QListIN14QStandardPaths16StandardLocationEE(
+    QQuickSideBar *self,
+    const QList<QStandardPaths::StandardLocation> *folderPaths) {
+  self->setFolderPaths(*folderPaths);
+}
+
+//  QList<QStandardPaths::StandardLocation>
+//      QQuickSideBar::effectiveFolderPaths() const
+extern "C" Q_DECL_EXPORT
+QList<QStandardPaths::StandardLocation> *ritual_ZNK13QQuickSideBar20effectiveFolderPathsEv(
+    const QQuickSideBar *self) {
+  return new QList<QStandardPaths::StandardLocation>(
+      self->effectiveFolderPaths());
 }
 
 //  QList<QUrl> QQuickSideBar::favoritePaths() const
@@ -1241,6 +1287,51 @@ void ritual_ZN13QQuickSideBar22setAddFavoriteDelegateEP13QQmlComponent(
   self->setAddFavoriteDelegate(delegate);
 }
 
+//  void QQuickSideBar::dialogChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSideBar13dialogChangedEv(QQuickSideBar *self) {
+  self->dialogChanged();
+}
+
+//  void QQuickSideBar::folderPathsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSideBar18folderPathsChangedEv(QQuickSideBar *self) {
+  self->folderPathsChanged();
+}
+
+//  void QQuickSideBar::effectiveFolderPathsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSideBar27effectiveFolderPathsChangedEv(
+    QQuickSideBar *self) {
+  self->effectiveFolderPathsChanged();
+}
+
+//  void QQuickSideBar::favoritePathsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSideBar20favoritePathsChangedEv(QQuickSideBar *self) {
+  self->favoritePathsChanged();
+}
+
+//  void QQuickSideBar::buttonDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSideBar21buttonDelegateChangedEv(QQuickSideBar *self) {
+  self->buttonDelegateChanged();
+}
+
+//  void QQuickSideBar::separatorDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSideBar24separatorDelegateChangedEv(
+    QQuickSideBar *self) {
+  self->separatorDelegateChanged();
+}
+
+//  void QQuickSideBar::addFavoriteDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSideBar26addFavoriteDelegateChangedEv(
+    QQuickSideBar *self) {
+  self->addFavoriteDelegateChanged();
+}
+
 //  void QQuickSideBar::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQuickSideBar17componentCompleteEv(QQuickSideBar *self) {
@@ -1283,6 +1374,13 @@ bool ritual_take_QQuickSideBar(
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN13QQuickSideBar17componentCompleteEv(QQuickSideBar *self) {
   static_cast<OwnQQuickSideBar *>(self)->OwnQQuickSideBar::componentComplete();
+}
+
+//  a QList<QStandardPaths::StandardLocation> a ritual of QQuickSideBar gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickSideBar__QList_QStandardPaths_StandardLocation(
+    QList<QStandardPaths::StandardLocation> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_listview) && QT_CONFIG(quick_draganddrop)

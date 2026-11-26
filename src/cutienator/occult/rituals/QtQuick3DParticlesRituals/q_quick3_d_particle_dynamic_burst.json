@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuick3DParticleDynamicBurst10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuick3DParticleDynamicBurst11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuick3DParticleDynamicBurst11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuick3DParticleDynamicBurst2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,15 @@
     ],
     "ritual_ZN28QQuick3DParticleDynamicBurst14setTriggerModeENS_11TriggerModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleDynamicBurst14enabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleDynamicBurst22amountVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleDynamicBurst18triggerModeChangedEv": [
+      "nothing", "address"
     ]
   }
 }

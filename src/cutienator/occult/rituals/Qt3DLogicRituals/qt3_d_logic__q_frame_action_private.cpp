@@ -7,6 +7,26 @@
 #include <Qt3DLogic/6.12.0/Qt3DLogic/private/qframeaction_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DLogic/qframeaction.h>
+#include <Qt3DLogic/private/qframeaction_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/logic/qframeaction.cpp, line 12, as _ZN9Qt3DLogic19QFrameActionPrivateC1Ev
+namespace Qt3DLogic {
+inline QFrameActionPrivate::QFrameActionPrivate()
+    : QComponentPrivate()
+{
+}
+}  // namespace Qt3DLogic
+//  -----------------------------------------------------------------------
 
 //  A Qt3DLogic::QFrameActionPrivate that Python can take functions over in. Every Qt3DLogic::QFrameActionPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +72,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DLogic::QFrameActionPrivate::QFrameActionPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DLogic::QFrameActionPrivate *ritual_ZN9Qt3DLogic19QFrameActionPrivateC1Ev() {
+  return new CuteQt3DLogic_QFrameActionPrivate();
+}
 
 //  QFrameAction *Qt3DLogic::QFrameActionPrivate::q_func()
 extern "C" Q_DECL_EXPORT

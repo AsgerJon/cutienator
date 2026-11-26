@@ -15,10 +15,18 @@
     "ritual_ZN3QV412RegExpObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
     ],
+    "ritual_ZN3QV412RegExpObject14initPropertiesEv": ["nothing", "address"],
     "ritual_ZNK3QV412RegExpObject9lastIndexEv": ["int", "address"],
     "ritual_ZN3QV412RegExpObject12setLastIndexEi": [
       "nothing", "address", "int"
     ],
-    "ritual_ZNK3QV412RegExpObject6sourceEv": ["text", "address"]
+    "ritual_ZNK3QV412RegExpObject20toQRegularExpressionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412RegExpObject8toStringEv": ["text", "address"],
+    "ritual_ZNK3QV412RegExpObject6sourceEv": ["text", "address"],
+    "ritual_ZN3QV412RegExpObject11builtinExecEPNS_15ExecutionEngineEPKNS_6StringE": [
+      "unsigned long long", "address", "address", "address"
+    ]
   }
 }

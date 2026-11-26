@@ -230,6 +230,24 @@ const QMetaObject *ritual_ZNK12QQmlSettings10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlSettings::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQmlSettings11qt_metacastEPKc(
+    QQmlSettings *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlSettings::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQmlSettings11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlSettings *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlSettings::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQmlSettings2trEPKcS1_i(
@@ -237,6 +255,19 @@ QString *ritual_ZN12QQmlSettings2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQmlSettings::tr(s, c, n));
+}
+
+//  QQmlSettingsPrivate *QQmlSettings::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlSettingsPrivate *ritual_ZN12QQmlSettings6d_funcEv(QQmlSettings *self) {
+  return self->d_func();
+}
+
+//  const QQmlSettingsPrivate *QQmlSettings::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlSettingsPrivate *ritual_ZNK12QQmlSettings6d_funcEv(
+    const QQmlSettings *self) {
+  return self->d_func();
 }
 
 //  QQmlSettings::QQmlSettings(QObject *parent)
@@ -302,6 +333,22 @@ void ritual_ZN12QQmlSettings8setValueERK7QStringRK8QVariant(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQmlSettings4syncEv(QQmlSettings *self) {
   self->sync();
+}
+
+//  void QQmlSettings::categoryChanged(const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlSettings15categoryChangedERK7QString(
+    QQmlSettings *self,
+    const QString *arg) {
+  self->categoryChanged(*arg);
+}
+
+//  void QQmlSettings::locationChanged(const QUrl &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlSettings15locationChangedERK4QUrl(
+    QQmlSettings *self,
+    const QUrl *arg) {
+  self->locationChanged(*arg);
 }
 
 //  void QQmlSettings::timerEvent(QTimerEvent *event)

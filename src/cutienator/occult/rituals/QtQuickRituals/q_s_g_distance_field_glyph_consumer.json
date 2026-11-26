@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN29QSGDistanceFieldGlyphConsumerD1Ev": ["nothing", "address"]
+    "ritual_ZN29QSGDistanceFieldGlyphConsumerD1Ev": ["nothing", "address"],
+    "ritual_ZN29QSGDistanceFieldGlyphConsumer16invalidateGlyphsERK5QListIjE": [
+      "nothing", "address", "address"
+    ]
   }
 }

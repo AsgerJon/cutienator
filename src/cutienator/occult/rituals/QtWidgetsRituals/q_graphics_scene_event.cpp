@@ -94,6 +94,29 @@ void ritual_ZN19QGraphicsSceneEvent12setTimestampEy(
   self->setTimestamp(ts);
 }
 
+//  QGraphicsSceneEvent::QGraphicsSceneEvent(QGraphicsSceneEventPrivate &dd,
+//      Type type)
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneEvent *ritual_ZN19QGraphicsSceneEventC1ER26QGraphicsSceneEventPrivateN6QEvent4TypeE(
+    QGraphicsSceneEventPrivate *dd,
+    QEvent::Type type) {
+  return new CuteQGraphicsSceneEvent(*dd, type);
+}
+
+//  QGraphicsSceneEventPrivate *QGraphicsSceneEvent::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneEventPrivate *ritual_ZN19QGraphicsSceneEvent6d_funcEv(
+    QGraphicsSceneEvent *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneEventPrivate *QGraphicsSceneEvent::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneEventPrivate *ritual_ZNK19QGraphicsSceneEvent6d_funcEv(
+    const QGraphicsSceneEvent *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSceneEvent, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

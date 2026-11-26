@@ -54,10 +54,32 @@ QTextCursor *ritual_ZN11QTextCursorC1ERKS_(const QTextCursor *cursor) {
   return new QTextCursor(*cursor);
 }
 
+//  QTextCursor &QTextCursor::operator=(QTextCursor &&other)
+extern "C" Q_DECL_EXPORT
+QTextCursor *ritual_ZN11QTextCursoraSEOS_(
+    QTextCursor *self,
+    QTextCursor *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QTextCursor &QTextCursor::operator=(const QTextCursor &other)
+extern "C" Q_DECL_EXPORT
+QTextCursor *ritual_ZN11QTextCursoraSERKS_(
+    QTextCursor *self,
+    const QTextCursor *other) {
+  return &(self->operator=(*other));
+}
+
 //  QTextCursor::~QTextCursor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextCursorD1Ev(QTextCursor *self) {
   delete self;
+}
+
+//  void QTextCursor::swap(QTextCursor &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextCursor4swapERS_(QTextCursor *self, QTextCursor *other) {
+  self->swap(*other);
 }
 
 //  bool QTextCursor::isNull() const

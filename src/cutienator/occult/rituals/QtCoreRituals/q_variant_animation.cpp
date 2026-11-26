@@ -6,9 +6,14 @@
 #include <QtCore/qvariantanimation.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QVariantAnimation>
+#include <QtCore/QBindable>
+#include <QtCore/QEasingCurve>
 
 //  Only a class built on QVariantAnimation may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -341,6 +346,25 @@ const QMetaObject *ritual_ZNK17QVariantAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVariantAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QVariantAnimation11qt_metacastEPKc(
+    QVariantAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVariantAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QVariantAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVariantAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVariantAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QVariantAnimation2trEPKcS1_i(
@@ -410,6 +434,21 @@ void ritual_ZN17QVariantAnimation13setKeyValueAtEdRK8QVariant(
   self->setKeyValueAt(step, *value);
 }
 
+//  KeyValues QVariantAnimation::keyValues() const
+extern "C" Q_DECL_EXPORT
+QVariantAnimation::KeyValues *ritual_ZNK17QVariantAnimation9keyValuesEv(
+    const QVariantAnimation *self) {
+  return new QVariantAnimation::KeyValues(self->keyValues());
+}
+
+//  void QVariantAnimation::setKeyValues(const KeyValues &values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QVariantAnimation12setKeyValuesERK5QListISt4pairId8QVariantEE(
+    QVariantAnimation *self,
+    const QVariantAnimation::KeyValues *values) {
+  self->setKeyValues(*values);
+}
+
 //  QVariant QVariantAnimation::currentValue() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK17QVariantAnimation12currentValueEv(
@@ -431,6 +470,13 @@ void ritual_ZN17QVariantAnimation11setDurationEi(
   self->setDuration(msecs);
 }
 
+//  QBindable<int> QVariantAnimation::bindableDuration()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN17QVariantAnimation16bindableDurationEv(
+    QVariantAnimation *self) {
+  return new QBindable<int>(self->bindableDuration());
+}
+
 //  QEasingCurve QVariantAnimation::easingCurve() const
 extern "C" Q_DECL_EXPORT
 QEasingCurve *ritual_ZNK17QVariantAnimation11easingCurveEv(
@@ -444,6 +490,30 @@ void ritual_ZN17QVariantAnimation14setEasingCurveERK12QEasingCurve(
     QVariantAnimation *self,
     const QEasingCurve *easing) {
   self->setEasingCurve(*easing);
+}
+
+//  QBindable<QEasingCurve> QVariantAnimation::bindableEasingCurve()
+extern "C" Q_DECL_EXPORT
+QBindable<QEasingCurve> *ritual_ZN17QVariantAnimation19bindableEasingCurveEv(
+    QVariantAnimation *self) {
+  return new QBindable<QEasingCurve>(self->bindableEasingCurve());
+}
+
+//  void QVariantAnimation::valueChanged(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QVariantAnimation12valueChangedERK8QVariant(
+    QVariantAnimation *self,
+    const QVariant *value) {
+  self->valueChanged(*value);
+}
+
+//  QVariantAnimation::QVariantAnimation(QVariantAnimationPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QVariantAnimation *ritual_ZN17QVariantAnimationC1ER24QVariantAnimationPrivateP7QObject(
+    QVariantAnimationPrivate *dd,
+    QObject *parent) {
+  return new CuteQVariantAnimation(*dd, parent);
 }
 
 //  bool QVariantAnimation::event(QEvent *event)
@@ -489,6 +559,17 @@ QVariant *ritual_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d(
     const QVariant *to,
     qreal progress) {
   return new QVariant(self->interpolated(*from, *to, progress));
+}
+
+//  void QVariantAnimation::registerInterpolator(Interpolator func, int
+//      interpolationType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QVariantAnimation20registerInterpolatorEPF8QVariantPKvS2_dEi(
+    void *func,
+    int interpolationType) {
+  QVariantAnimation::registerInterpolator(
+      reinterpret_cast<QVariantAnimation::Interpolator>(func),
+      interpolationType);
 }
 
 //  QVariantAnimationPrivate *QVariantAnimation::d_func()
@@ -574,6 +655,26 @@ QVariant *ritual_own_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d(
           *from,
           *to,
           progress));
+}
+
+//  a QVariantAnimation::KeyValues a ritual of QVariantAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVariantAnimation__QVariantAnimation_KeyValues(
+    QVariantAnimation::KeyValues *self) {
+  delete self;
+}
+
+//  a QBindable<int> a ritual of QVariantAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVariantAnimation__QBindable_int(QBindable<int> *self) {
+  delete self;
+}
+
+//  a QBindable<QEasingCurve> a ritual of QVariantAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVariantAnimation__QBindable_QEasingCurve(
+    QBindable<QEasingCurve> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(animation)

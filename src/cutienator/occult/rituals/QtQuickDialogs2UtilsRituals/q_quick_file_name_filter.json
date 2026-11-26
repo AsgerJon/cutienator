@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickFileNameFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickFileNameFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickFileNameFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickFileNameFilter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,14 +23,33 @@
     "ritual_ZNK20QQuickFileNameFilter4nameEv": ["text", "address"],
     "ritual_ZNK20QQuickFileNameFilter10extensionsEv": ["address", "address"],
     "ritual_ZNK20QQuickFileNameFilter5globsEv": ["address", "address"],
+    "ritual_ZNK20QQuickFileNameFilter7optionsEv": ["address", "address"],
+    "ritual_ZN20QQuickFileNameFilter10setOptionsERK14QSharedPointerI18QFileDialogOptionsE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QQuickFileNameFilter6updateERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickFileNameFilter12indexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickFileNameFilter11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickFileNameFilter17extensionsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickFileNameFilter12globsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK20QQuickFileNameFilter11nameFiltersEv": [
       "address", "address"
     ],
     "ritual_ZNK20QQuickFileNameFilter10nameFilterEi": [
       "text", "address", "int"
+    ],
+    "ritual_drop_QQuickFileNameFilter__QSharedPointer_QFileDialogOptions": [
+      "nothing", "address"
     ]
   }
 }

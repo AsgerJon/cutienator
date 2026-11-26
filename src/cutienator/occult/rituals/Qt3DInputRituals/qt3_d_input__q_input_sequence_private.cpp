@@ -7,6 +7,31 @@
 #include <Qt3DInput/6.12.0/Qt3DInput/private/qinputsequence_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DInput/qinputsequence.h>
+#include <Qt3DInput/private/qinputsequence_p.h>
+#include <Qt3DInput/qabstractactioninput.h>
+#include <Qt3DInput/qabstractphysicaldevice.h>
+#include <Qt3DCore/private/qnode_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/input/frontend/qinputsequence.cpp, line 15, as _ZN9Qt3DInput21QInputSequencePrivateC1Ev
+namespace Qt3DInput {
+inline QInputSequencePrivate::QInputSequencePrivate()
+    : QAbstractActionInputPrivate(),
+      m_timeout(0),
+      m_buttonInterval(0)
+{
+}
+}  // namespace Qt3DInput
+//  -----------------------------------------------------------------------
 
 //  A Qt3DInput::QInputSequencePrivate that Python can take functions over in. Every Qt3DInput::QInputSequencePrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +77,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DInput::QInputSequencePrivate::QInputSequencePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QInputSequencePrivate *ritual_ZN9Qt3DInput21QInputSequencePrivateC1Ev() {
+  return new CuteQt3DInput_QInputSequencePrivate();
+}
 
 //  a Python function taken by a CuteQt3DInput_QInputSequencePrivate, for the
 //      function named by the key

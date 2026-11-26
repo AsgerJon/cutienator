@@ -14,8 +14,14 @@
       "address", "address"
     ],
     "ritual_ZN21QHttpServerRouterRuleD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QHttpServerRouterRule4execERK18QHttpServerRequestR20QHttpServerResponder": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK21QHttpServerRouterRule15hasValidMethodsEv": [
       "bool", "address"
+    ],
+    "ritual_ZN21QHttpServerRouterRule16createPathRegexpESt16initializer_listI9QMetaTypeERK5QHashIS1_7QStringE": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZNK21QHttpServerRouterRule7matchesERK18QHttpServerRequestP23QRegularExpressionMatch": [
       "bool", "address", "address", "address"

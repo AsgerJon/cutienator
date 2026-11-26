@@ -8,6 +8,12 @@
     "ritual_ZNK24QQmlListModelWorkerAgent10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQmlListModelWorkerAgent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQmlListModelWorkerAgent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQmlListModelWorkerAgent22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
@@ -29,17 +35,15 @@
     "ritual_ZNK24QQmlListModelWorkerAgent3getEi": [
       "address", "address", "int"
     ],
-    "ritual_ZN24QQmlListModelWorkerAgent3setEiRK8QJSValue": [
-      "nothing", "address", "int", "address"
-    ],
-    "ritual_ZN24QQmlListModelWorkerAgent11setPropertyEiRK7QStringRK8QVariant": [
-      "nothing", "address", "int", "text", "address"
-    ],
     "ritual_ZN24QQmlListModelWorkerAgent4moveEiii": [
       "nothing", "address", "int", "int", "int"
     ],
+    "ritual_ZN24QQmlListModelWorkerAgent4syncEv": ["nothing", "address"],
     "ritual_ZN24QQmlListModelWorkerAgent14modelDestroyedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN24QQmlListModelWorkerAgent13engineChangedEPN3QV415ExecutionEngineE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24QQmlListModelWorkerAgent5eventEP6QEvent": [
       "bool", "address", "address"

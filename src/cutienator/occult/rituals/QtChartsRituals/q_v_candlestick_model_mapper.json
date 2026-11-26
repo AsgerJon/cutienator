@@ -8,6 +8,12 @@
     "ritual_ZNK24QVCandlestickModelMapper10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QVCandlestickModelMapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QVCandlestickModelMapper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -50,6 +56,27 @@
     ],
     "ritual_ZNK24QVCandlestickModelMapper13lastSetColumnEv": [
       "int", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper19timestampRowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper14openRowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper14highRowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper13lowRowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper15closeRowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper21firstSetColumnChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper20lastSetColumnChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QVCandlestickModelMapper": [
       "bool", "address", "chars", "address"

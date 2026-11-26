@@ -199,6 +199,29 @@ public:
   }
 };
 
+//  QQmlJS::AST::ExportClause::ExportClause()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ExportClause *ritual_ZN6QQmlJS3AST12ExportClauseC1Ev(
+    QQmlJS::MemoryPool *pool) {
+  return new (pool) CuteQQmlJS_AST_ExportClause();
+}
+
+//  QQmlJS::AST::ExportClause::ExportClause(ExportsList *exportsList)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ExportClause *ritual_ZN6QQmlJS3AST12ExportClauseC1EPNS0_11ExportsListE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::ExportsList *exportsList) {
+  return new (pool) CuteQQmlJS_AST_ExportClause(exportsList);
+}
+
+//  void QQmlJS::AST::ExportClause::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST12ExportClause7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ExportClause *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::ExportClause::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST12ExportClause19firstSourceLocationEv(

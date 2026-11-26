@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK15QAbstractSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QAbstractSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QAbstractSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,9 @@
     "ritual_ZNK15QAbstractSeries6d_funcEv": ["address", "address"],
     "ritual_ZN15QAbstractSeries22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN15QAbstractSeriesC1ER22QAbstractSeriesPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QAbstractSeries10classBeginEv": ["nothing", "address"],
     "ritual_ZN15QAbstractSeries17componentCompleteEv": [
@@ -49,6 +58,7 @@
     "ritual_ZNK15QAbstractSeries10legendDataEv": ["address", "address"],
     "ritual_ZN15QAbstractSeries4showEv": ["nothing", "address"],
     "ritual_ZN15QAbstractSeries4hideEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries14seriesChildrenEv": ["address", "address"],
     "ritual_ZNK15QAbstractSeries11isHoverableEv": ["bool", "address"],
     "ritual_ZN15QAbstractSeries12setHoverableEb": [
       "nothing", "address", "bool"
@@ -68,10 +78,48 @@
     ],
     "ritual_ZNK15QAbstractSeries6zValueEv": ["int", "address"],
     "ritual_ZN15QAbstractSeries9setZValueEi": ["nothing", "address", "int"],
+    "ritual_ZN15QAbstractSeries6updateEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries11nameChangedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries14visibleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries17selectableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QAbstractSeries16hoverableChangedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries14opacityChangedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries23valuesMultiplierChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QAbstractSeries17legendDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QAbstractSeries10hoverEnterERK7QString7QPointFS3_": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSeries9hoverExitERK7QString7QPointF": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN15QAbstractSeries5hoverERK7QString7QPointFS3_": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSeries14hoveredChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QAbstractSeries12axisXChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSeries12axisYChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSeries13zValueChangedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_cast_QAbstractSeries_QQmlParserStatus": ["address", "address"],
     "ritual_take_QAbstractSeries": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QAbstractSeries10classBeginEv": ["nothing", "address"],
     "ritual_own_ZN15QAbstractSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractSeries__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

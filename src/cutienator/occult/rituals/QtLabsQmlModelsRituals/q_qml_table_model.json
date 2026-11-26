@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQmlTableModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlTableModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQmlTableModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQmlTableModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -44,6 +50,7 @@
     "ritual_ZNK14QQmlTableModel6parentERK11QModelIndex": [
       "address", "address", "address"
     ],
+    "ritual_ZN14QQmlTableModel15rowCountChangedEv": ["nothing", "address"],
     "ritual_ZNK14QQmlTableModel8firstRowEv": ["address", "address"],
     "ritual_ZN14QQmlTableModel14setInitialRowsEv": ["nothing", "address"],
     "ritual_ZN14QQmlTableModel14setRowsPrivateERK5QListI8QVariantE": [

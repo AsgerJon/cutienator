@@ -21,6 +21,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtGui/QVector3D>
 
 //  A QQuick3DXrView that Python can take functions over in. Every QQuick3DXrView
 //  Python makes is one. Each function below asks the Python
@@ -295,6 +296,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK14QQuick3DXrView10metaObjectEv(
     const QQuick3DXrView *self) {
   return self->metaObject();
+}
+
+//  void *QQuick3DXrView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuick3DXrView11qt_metacastEPKc(
+    QQuick3DXrView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuick3DXrView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuick3DXrView::tr(const char *s, const char *c, int n)
@@ -592,11 +611,100 @@ bool ritual_ZN14QQuick3DXrView4initEv(QQuick3DXrView *self) {
   return self->init();
 }
 
+//  void QQuick3DXrView::initializeFailed(const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView16initializeFailedERK7QString(
+    QQuick3DXrView *self,
+    const QString *errorString) {
+  self->initializeFailed(*errorString);
+}
+
+//  void QQuick3DXrView::sessionEnded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView12sessionEndedEv(QQuick3DXrView *self) {
+  self->sessionEnded();
+}
+
+//  void QQuick3DXrView::xrOriginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView15xrOriginChangedEv(QQuick3DXrView *self) {
+  self->xrOriginChanged();
+}
+
+//  void QQuick3DXrView::environmentChanged(QQuick3DSceneEnvironment
+//      *environment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView18environmentChangedEP24QQuick3DSceneEnvironment(
+    QQuick3DXrView *self,
+    QQuick3DSceneEnvironment *environment) {
+  self->environmentChanged(environment);
+}
+
+//  void QQuick3DXrView::passthroughEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView25passthroughEnabledChangedEv(
+    QQuick3DXrView *self) {
+  self->passthroughEnabledChanged();
+}
+
+//  void QQuick3DXrView::quitOnSessionEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView23quitOnSessionEndChangedEv(
+    QQuick3DXrView *self) {
+  self->quitOnSessionEndChanged();
+}
+
+//  void QQuick3DXrView::fixedFoveationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView21fixedFoveationChangedEv(
+    QQuick3DXrView *self) {
+  self->fixedFoveationChanged();
+}
+
+//  void QQuick3DXrView::frameReady()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView10frameReadyEv(QQuick3DXrView *self) {
+  self->frameReady();
+}
+
+//  void QQuick3DXrView::referenceSpaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView21referenceSpaceChangedEv(
+    QQuick3DXrView *self) {
+  self->referenceSpaceChanged();
+}
+
+//  void QQuick3DXrView::depthSubmissionEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView29depthSubmissionEnabledChangedEv(
+    QQuick3DXrView *self) {
+  self->depthSubmissionEnabledChanged();
+}
+
+//  void QQuick3DXrView::multiViewRenderingEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DXrView32multiViewRenderingEnabledChangedEv(
+    QQuick3DXrView *self) {
+  self->multiViewRenderingEnabledChanged();
+}
+
 //  QQuick3DViewport *QQuick3DXrView::view3d() const
 extern "C" Q_DECL_EXPORT
 QQuick3DViewport *ritual_ZNK14QQuick3DXrView6view3dEv(
     const QQuick3DXrView *self) {
   return self->view3d();
+}
+
+//  bool QQuick3DXrView::handleVirtualTouch(TouchTarget target, const
+//      QVector3D &pos, TouchState *touchState, QVector3D *offset)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QQuick3DXrView18handleVirtualTouchESt7variantIJSt9monostateP14QQuick3DXrItemP13QQuick3DModelEERK9QVector3DPNS_10TouchStateEPS7_(
+    QQuick3DXrView *self,
+    const QQuick3DXrView::TouchTarget *target,
+    const QVector3D *pos,
+    QQuick3DXrView::TouchState *touchState,
+    QVector3D *offset) {
+  return self->handleVirtualTouch(*target, *pos, touchState, offset);
 }
 
 //  a Python function taken by a CuteQQuick3DXrView, for the function named

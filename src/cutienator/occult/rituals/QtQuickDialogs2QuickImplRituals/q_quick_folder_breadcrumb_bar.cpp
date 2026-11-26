@@ -36,6 +36,25 @@ const QMetaObject *ritual_ZNK25QQuickFolderBreadcrumbBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFolderBreadcrumbBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickFolderBreadcrumbBar11qt_metacastEPKc(
+    QQuickFolderBreadcrumbBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFolderBreadcrumbBar::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickFolderBreadcrumbBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFolderBreadcrumbBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFolderBreadcrumbBar::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -144,6 +163,48 @@ void ritual_ZN25QQuickFolderBreadcrumbBar12setTextFieldEP15QQuickTextField(
     QQuickFolderBreadcrumbBar *self,
     QQuickTextField *textField) {
   self->setTextField(textField);
+}
+
+//  void QQuickFolderBreadcrumbBar::dialogChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickFolderBreadcrumbBar13dialogChangedEv(
+    QQuickFolderBreadcrumbBar *self) {
+  self->dialogChanged();
+}
+
+//  void QQuickFolderBreadcrumbBar::buttonDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickFolderBreadcrumbBar21buttonDelegateChangedEv(
+    QQuickFolderBreadcrumbBar *self) {
+  self->buttonDelegateChanged();
+}
+
+//  void QQuickFolderBreadcrumbBar::separatorDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickFolderBreadcrumbBar24separatorDelegateChangedEv(
+    QQuickFolderBreadcrumbBar *self) {
+  self->separatorDelegateChanged();
+}
+
+//  void QQuickFolderBreadcrumbBar::upButtonChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickFolderBreadcrumbBar15upButtonChangedEv(
+    QQuickFolderBreadcrumbBar *self) {
+  self->upButtonChanged();
+}
+
+//  void QQuickFolderBreadcrumbBar::upButtonSpacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickFolderBreadcrumbBar22upButtonSpacingChangedEv(
+    QQuickFolderBreadcrumbBar *self) {
+  self->upButtonSpacingChanged();
+}
+
+//  void QQuickFolderBreadcrumbBar::textFieldChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickFolderBreadcrumbBar16textFieldChangedEv(
+    QQuickFolderBreadcrumbBar *self) {
+  self->textFieldChanged();
 }
 
 //  bool QQuickFolderBreadcrumbBar::event(QEvent *event)

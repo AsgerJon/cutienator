@@ -14,6 +14,15 @@ QQmlInstantiationInterrupt *ritual_ZN26QQmlInstantiationInterruptC1Ev() {
   return new QQmlInstantiationInterrupt();
 }
 
+//  QQmlInstantiationInterrupt::QQmlInstantiationInterrupt(std::atomic<bool>
+//      *runWhile, QDeadlineTimer deadline)
+extern "C" Q_DECL_EXPORT
+QQmlInstantiationInterrupt *ritual_ZN26QQmlInstantiationInterruptC1EPSt6atomicIbE14QDeadlineTimer(
+    std::atomic<bool> *runWhile,
+    const QDeadlineTimer *deadline) {
+  return new QQmlInstantiationInterrupt(runWhile, *deadline);
+}
+
 //  QQmlInstantiationInterrupt::QQmlInstantiationInterrupt(QDeadlineTimer
 //      deadline)
 extern "C" Q_DECL_EXPORT

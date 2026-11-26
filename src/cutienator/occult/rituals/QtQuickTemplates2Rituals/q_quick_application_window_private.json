@@ -14,6 +14,9 @@
     "ritual_ZN30QQuickApplicationWindowPrivate3getEP23QQuickApplicationWindow": [
       "address", "address"
     ],
+    "ritual_ZN30QQuickApplicationWindowPrivate11contentDataEv": [
+      "address", "address"
+    ],
     "ritual_ZN30QQuickApplicationWindowPrivate24updateHasBackgroundFlagsEv": [
       "nothing", "address"
     ],
@@ -48,6 +51,9 @@
       "nothing", "address"
     ],
     "ritual_ZN30QQuickApplicationWindowPrivate21setActiveFocusControlEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate18contentData_appendEP16QQmlListPropertyI7QObjectEPS1_": [
       "nothing", "address", "address"
     ],
     "ritual_ZN30QQuickApplicationWindowPrivate16cancelBackgroundEv": [
@@ -85,6 +91,9 @@
     ],
     "ritual_own_ZN30QQuickApplicationWindowPrivate22updateChildrenPalettesERK8QPalette": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QQuickApplicationWindowPrivate__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

@@ -8,6 +8,9 @@
     "ritual_ZN23QScxmlExecutableContent10StateTable5Array14const_iteratorC1ERKS1_i": [
       "address", "address", "int"
     ],
+    "ritual_ZN23QScxmlExecutableContent10StateTable5Array14const_iteratorppEv": [
+      "address", "address"
+    ],
     "ritual_ZNK23QScxmlExecutableContent10StateTable5Array14const_iteratoreqERKS2_": [
       "bool", "address", "address"
     ],

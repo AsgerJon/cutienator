@@ -26,14 +26,56 @@
     "ritual_ZNK5QmlIR6Object30requiredPropertyExtraDataCountEv": [
       "int", "address"
     ],
+    "ritual_ZN5QmlIR6Object26simplifyRequiredPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN5QmlIR6Object21sortAliasDependenciesEPKNS_8DocumentEP5QListIN6QQmlJS17DiagnosticMessageEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN5QmlIR6Object4initEPN6QQmlJS10MemoryPoolEiiRKN3QV412CompiledData8LocationE": [
+      "nothing", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN5QmlIR6Object10appendEnumEPNS_4EnumE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN5QmlIR6Object12appendSignalEPNS_6SignalE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN5QmlIR6Object14appendPropertyEPNS_8PropertyERK7QStringbRKN6QQmlJS14SourceLocationEPS7_": [
+      "text", "address", "address", "text", "bool", "address", "address"
+    ],
+    "ritual_ZN5QmlIR6Object11appendAliasEPNS_5AliasERK7QStringbRKN6QQmlJS14SourceLocationEPS7_": [
+      "text", "address", "address", "text", "bool", "address", "address"
+    ],
     "ritual_ZN5QmlIR6Object13setFirstAliasEPNS_5AliasE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN5QmlIR6Object14appendFunctionEPNS_8FunctionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QmlIR6Object21appendInlineComponentEPNS_15InlineComponentE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QmlIR6Object31appendRequiredPropertyExtraDataEPNS_25RequiredPropertyExtraDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QmlIR6Object13appendBindingEPNS_7BindingEb": [
+      "text", "address", "address", "bool"
+    ],
+    "ritual_ZNK5QmlIR6Object11findBindingEj": [
+      "address", "address", "unsigned int"
     ],
     "ritual_ZN5QmlIR6Object13unlinkBindingEPNS_7BindingES2_": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZNK5QmlIR6Object15bindingAsStringEPNS_8DocumentEi": [
+      "text", "address", "address", "int"
+    ],
     "ritual_ZNK5QmlIR6Object28namedObjectsInComponentCountEv": [
       "int", "address"
+    ],
+    "ritual_ZNK5QmlIR6Object28namedObjectsInComponentTableEv": [
+      "address", "address"
     ],
     "ritual_ZNK5QmlIR6Object7hasFlagEN3QV412CompiledData6Object4FlagE": [
       "bool", "address", "unsigned int"

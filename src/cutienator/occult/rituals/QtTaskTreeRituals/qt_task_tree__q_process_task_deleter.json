@@ -4,6 +4,10 @@
     "QtTaskTree/qprocesstask.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QtTaskTree19QProcessTaskDeleter7syncAllEv": ["nothing"],
+    "ritual_ZNK10QtTaskTree19QProcessTaskDeleterclEP8QProcess": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QtTaskTree19QProcessTaskDeleterD1Ev": ["nothing", "address"]
   }
 }

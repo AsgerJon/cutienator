@@ -68,6 +68,26 @@ QSSGRenderContextInterface *ritual_ZNK13QSSGFrameData16contextInterfaceEv(
   return self->contextInterface();
 }
 
+//  QSSGNodeIdList QSSGFrameData::getLayerNodes(quint32 layerMask, TypeMask
+//      typeMask) const
+extern "C" Q_DECL_EXPORT
+QSSGNodeIdList *ritual_ZNK13QSSGFrameData13getLayerNodesEjj(
+    const QSSGFrameData *self,
+    quint32 layerMask,
+    QSSGFrameData::TypeMask typeMask) {
+  return new QSSGNodeIdList(self->getLayerNodes(layerMask, typeMask));
+}
+
+//  QSSGNodeIdList QSSGFrameData::getLayerNodes(QSSGCameraId cameraId,
+//      TypeMask typeMask) const
+extern "C" Q_DECL_EXPORT
+QSSGNodeIdList *ritual_ZNK13QSSGFrameData13getLayerNodesE12QSSGCameraIdj(
+    const QSSGFrameData *self,
+    QSSGCameraId cameraId,
+    QSSGFrameData::TypeMask typeMask) {
+  return new QSSGNodeIdList(self->getLayerNodes(cameraId, typeMask));
+}
+
 //  void QSSGFrameData::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSSGFrameData5clearEv(QSSGFrameData *self) {
@@ -106,5 +126,11 @@ QSSGFrameData *ritual_ZN13QSSGFrameDataC1EP26QSSGRenderContextInterface(
 //  QSSGFrameData::~QSSGFrameData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSSGFrameDataD1Ev(QSSGFrameData *self) {
+  delete self;
+}
+
+//  a QSSGNodeIdList a ritual of QSSGFrameData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGFrameData__QSSGNodeIdList(QSSGNodeIdList *self) {
   delete self;
 }

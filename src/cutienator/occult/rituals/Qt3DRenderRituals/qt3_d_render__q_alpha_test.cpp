@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QAlphaTest10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QAlphaTest::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QAlphaTest11qt_metacastEPKc(
+    Qt3DRender::QAlphaTest *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QAlphaTest::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QAlphaTest11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QAlphaTest *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QAlphaTest::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QAlphaTest2trEPKcS2_i(
@@ -186,6 +205,67 @@ QString *ritual_ZN10Qt3DRender10QAlphaTest2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QAlphaTest::tr(s, c, n));
+}
+
+//  Qt3DRender::QAlphaTest::QAlphaTest(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAlphaTest *ritual_ZN10Qt3DRender10QAlphaTestC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QAlphaTest(parent);
+}
+
+//  Qt3DRender::QAlphaTest::~QAlphaTest()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QAlphaTestD1Ev(Qt3DRender::QAlphaTest *self) {
+  delete self;
+}
+
+//  AlphaFunction Qt3DRender::QAlphaTest::alphaFunction() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAlphaTest::AlphaFunction ritual_ZNK10Qt3DRender10QAlphaTest13alphaFunctionEv(
+    const Qt3DRender::QAlphaTest *self) {
+  return self->alphaFunction();
+}
+
+//  float Qt3DRender::QAlphaTest::referenceValue() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender10QAlphaTest14referenceValueEv(
+    const Qt3DRender::QAlphaTest *self) {
+  return self->referenceValue();
+}
+
+//  void Qt3DRender::QAlphaTest::setAlphaFunction(AlphaFunction
+//      alphaFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QAlphaTest16setAlphaFunctionENS0_13AlphaFunctionE(
+    Qt3DRender::QAlphaTest *self,
+    Qt3DRender::QAlphaTest::AlphaFunction alphaFunction) {
+  self->setAlphaFunction(alphaFunction);
+}
+
+//  void Qt3DRender::QAlphaTest::setReferenceValue(float referenceValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QAlphaTest17setReferenceValueEf(
+    Qt3DRender::QAlphaTest *self,
+    float referenceValue) {
+  self->setReferenceValue(referenceValue);
+}
+
+//  void Qt3DRender::QAlphaTest::alphaFunctionChanged(AlphaFunction
+//      alphaFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QAlphaTest20alphaFunctionChangedENS0_13AlphaFunctionE(
+    Qt3DRender::QAlphaTest *self,
+    Qt3DRender::QAlphaTest::AlphaFunction alphaFunction) {
+  self->alphaFunctionChanged(alphaFunction);
+}
+
+//  void Qt3DRender::QAlphaTest::referenceValueChanged(float referenceValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QAlphaTest21referenceValueChangedEf(
+    Qt3DRender::QAlphaTest *self,
+    float referenceValue) {
+  self->referenceValueChanged(referenceValue);
 }
 
 //  QAlphaTestPrivate *Qt3DRender::QAlphaTest::d_func()

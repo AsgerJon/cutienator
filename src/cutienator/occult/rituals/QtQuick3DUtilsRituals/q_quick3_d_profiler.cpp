@@ -14,6 +14,9 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qelapsedtimer.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A QQuick3DProfiler that Python can take functions over in. Every QQuick3DProfiler
@@ -190,6 +193,25 @@ const QMetaObject *ritual_ZNK16QQuick3DProfiler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DProfiler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuick3DProfiler11qt_metacastEPKc(
+    QQuick3DProfiler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DProfiler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuick3DProfiler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DProfiler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DProfiler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuick3DProfiler2trEPKcS1_i(
@@ -229,6 +251,16 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZN16QQuick3DProfiler14registerStringERK10QByteArray(
     const QByteArray *string) {
   return QQuick3DProfiler::registerString(*string);
+}
+
+//  void QQuick3DProfiler::dataReady(const QVector<QQuick3DProfilerData>
+//      &data, const QHash<int, QByteArray> &eventData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DProfiler9dataReadyERK5QListI20QQuick3DProfilerDataERK5QHashIi10QByteArrayE(
+    QQuick3DProfiler *self,
+    const QVector<QQuick3DProfilerData> *data,
+    const QHash<int, QByteArray> *eventData) {
+  self->dataReady(*data, *eventData);
 }
 
 //  QQuick3DProfiler::QQuick3DProfiler(QObject *parent)

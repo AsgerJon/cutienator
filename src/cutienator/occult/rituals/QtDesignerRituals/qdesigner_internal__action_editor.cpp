@@ -8,9 +8,16 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/actioneditor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
+#include <QtCore/qitemselectionmodel.h>
+#endif
+#if QT_CONFIG(action)
+#include <QtGui/qaction.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A qdesigner_internal::ActionEditor that Python can take functions over in. Every qdesigner_internal::ActionEditor
@@ -926,6 +933,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal12ActionEditor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::ActionEditor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal12ActionEditor11qt_metacastEPKc(
+    qdesigner_internal::ActionEditor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::ActionEditor::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal12ActionEditor11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::ActionEditor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::ActionEditor::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -934,6 +960,88 @@ QString *ritual_ZN18qdesigner_internal12ActionEditor2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::ActionEditor::tr(s, c, n));
+}
+
+//  qdesigner_internal::ActionEditor::ActionEditor(QDesignerFormEditorInterfa
+//      ce *core, QWidget *parent, Qt::WindowFlags flags)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ActionEditor *ritual_ZN18qdesigner_internal12ActionEditorC1EP28QDesignerFormEditorInterfaceP7QWidget6QFlagsIN2Qt10WindowTypeEE(
+    QDesignerFormEditorInterface *core,
+    QWidget *parent,
+    int flags) {
+  return new Cuteqdesigner_internal_ActionEditor(
+      core,
+      parent,
+      QFlags<Qt::WindowType>::fromInt(flags));
+}
+
+//  qdesigner_internal::ActionEditor::~ActionEditor()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditorD1Ev(
+    qdesigner_internal::ActionEditor *self) {
+  delete self;
+}
+
+//  QDesignerFormWindowInterface
+//      *qdesigner_internal::ActionEditor::formWindow() const
+extern "C" Q_DECL_EXPORT
+QDesignerFormWindowInterface *ritual_ZNK18qdesigner_internal12ActionEditor10formWindowEv(
+    const qdesigner_internal::ActionEditor *self) {
+  return self->formWindow();
+}
+
+//  void qdesigner_internal::ActionEditor::setFormWindow(QDesignerFormWindowI
+//      nterface *formWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor13setFormWindowEP28QDesignerFormWindowInterface(
+    qdesigner_internal::ActionEditor *self,
+    QDesignerFormWindowInterface *formWindow) {
+  self->setFormWindow(formWindow);
+}
+
+//  QDesignerFormEditorInterface *qdesigner_internal::ActionEditor::core()
+//      const
+extern "C" Q_DECL_EXPORT
+QDesignerFormEditorInterface *ritual_ZNK18qdesigner_internal12ActionEditor4coreEv(
+    const qdesigner_internal::ActionEditor *self) {
+  return self->core();
+}
+
+//  QAction *qdesigner_internal::ActionEditor::actionNew() const
+extern "C" Q_DECL_EXPORT
+QAction *ritual_ZNK18qdesigner_internal12ActionEditor9actionNewEv(
+    const qdesigner_internal::ActionEditor *self) {
+  return self->actionNew();
+}
+
+//  QAction *qdesigner_internal::ActionEditor::actionDelete() const
+extern "C" Q_DECL_EXPORT
+QAction *ritual_ZNK18qdesigner_internal12ActionEditor12actionDeleteEv(
+    const qdesigner_internal::ActionEditor *self) {
+  return self->actionDelete();
+}
+
+//  QString qdesigner_internal::ActionEditor::filter() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal12ActionEditor6filterEv(
+    const qdesigner_internal::ActionEditor *self) {
+  return new QString(self->filter());
+}
+
+//  void qdesigner_internal::ActionEditor::manageAction(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor12manageActionEP7QAction(
+    qdesigner_internal::ActionEditor *self,
+    QAction *action) {
+  self->manageAction(action);
+}
+
+//  void qdesigner_internal::ActionEditor::unmanageAction(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor14unmanageActionEP7QAction(
+    qdesigner_internal::ActionEditor *self,
+    QAction *action) {
+  self->unmanageAction(action);
 }
 
 //  ObjectNamingMode qdesigner_internal::ActionEditor::objectNamingMode()
@@ -949,6 +1057,251 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18qdesigner_internal12ActionEditor19setObjectNamingModeENS_16ObjectNamingModeE(
     qdesigner_internal::ObjectNamingMode n) {
   qdesigner_internal::ActionEditor::setObjectNamingMode(n);
+}
+
+//  QString qdesigner_internal::ActionEditor::actionTextToName(const QString
+//      &text, const QString &prefix)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal12ActionEditor16actionTextToNameERK7QStringS3_(
+    const QString *text,
+    const QString *prefix) {
+  return new QString(
+      qdesigner_internal::ActionEditor::actionTextToName(
+          *text,
+          *prefix));
+}
+
+//  QToolButton
+//      *qdesigner_internal::ActionEditor::createConfigureMenuButton(const
+//      QString &t, QMenu **ptrToMenu)
+extern "C" Q_DECL_EXPORT
+QToolButton *ritual_ZN18qdesigner_internal12ActionEditor25createConfigureMenuButtonERK7QStringPP5QMenu(
+    const QString *t,
+    QMenu **ptrToMenu) {
+  return qdesigner_internal::ActionEditor::createConfigureMenuButton(
+      *t,
+      ptrToMenu);
+}
+
+//  void qdesigner_internal::ActionEditor::setFilter(const QString &filter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor9setFilterERK7QString(
+    qdesigner_internal::ActionEditor *self,
+    const QString *filter) {
+  self->setFilter(*filter);
+}
+
+//  void qdesigner_internal::ActionEditor::mainContainerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor20mainContainerChangedEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->mainContainerChanged();
+}
+
+//  void qdesigner_internal::ActionEditor::clearSelection()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor14clearSelectionEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->clearSelection();
+}
+
+//  void qdesigner_internal::ActionEditor::selectAction(QAction *a)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor12selectActionEP7QAction(
+    qdesigner_internal::ActionEditor *self,
+    QAction *a) {
+  self->selectAction(a);
+}
+
+//  void qdesigner_internal::ActionEditor::slotCurrentItemChanged(QAction
+//      *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor22slotCurrentItemChangedEP7QAction(
+    qdesigner_internal::ActionEditor *self,
+    QAction *item) {
+  self->slotCurrentItemChanged(item);
+}
+
+//  void qdesigner_internal::ActionEditor::slotSelectionChanged(const
+//      QItemSelection &selected, const QItemSelection &deselected)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor20slotSelectionChangedERK14QItemSelectionS3_(
+    qdesigner_internal::ActionEditor *self,
+    const QItemSelection *selected,
+    const QItemSelection *deselected) {
+  self->slotSelectionChanged(*selected, *deselected);
+}
+
+//  void qdesigner_internal::ActionEditor::editAction(QAction *item, int
+//      column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor10editActionEP7QActioni(
+    qdesigner_internal::ActionEditor *self,
+    QAction *item,
+    int column) {
+  self->editAction(item, column);
+}
+
+//  void qdesigner_internal::ActionEditor::editCurrentAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor17editCurrentActionEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->editCurrentAction();
+}
+
+//  void qdesigner_internal::ActionEditor::navigateToSlotCurrentAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor27navigateToSlotCurrentActionEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->navigateToSlotCurrentAction();
+}
+
+//  void qdesigner_internal::ActionEditor::slotActionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor17slotActionChangedEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->slotActionChanged();
+}
+
+//  void qdesigner_internal::ActionEditor::slotNewAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor13slotNewActionEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->slotNewAction();
+}
+
+//  void qdesigner_internal::ActionEditor::slotDelete()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor10slotDeleteEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->slotDelete();
+}
+
+//  void qdesigner_internal::ActionEditor::resourceImageDropped(const QString
+//      &path, QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor20resourceImageDroppedERK7QStringP7QAction(
+    qdesigner_internal::ActionEditor *self,
+    const QString *path,
+    QAction *action) {
+  self->resourceImageDropped(*path, action);
+}
+
+//  void qdesigner_internal::ActionEditor::slotContextMenuRequested(QContextM
+//      enuEvent *a0, QAction *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor24slotContextMenuRequestedEP17QContextMenuEventP7QAction(
+    qdesigner_internal::ActionEditor *self,
+    QContextMenuEvent *a0,
+    QAction *a1) {
+  self->slotContextMenuRequested(a0, a1);
+}
+
+//  void qdesigner_internal::ActionEditor::slotViewMode(QAction *a)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor12slotViewModeEP7QAction(
+    qdesigner_internal::ActionEditor *self,
+    QAction *a) {
+  self->slotViewMode(a);
+}
+
+//  void qdesigner_internal::ActionEditor::slotSelectAssociatedWidget(QWidget
+//      *w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor26slotSelectAssociatedWidgetEP7QWidget(
+    qdesigner_internal::ActionEditor *self,
+    QWidget *w) {
+  self->slotSelectAssociatedWidget(w);
+}
+
+#if QT_CONFIG(clipboard)
+//  void qdesigner_internal::ActionEditor::slotCopy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor8slotCopyEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->slotCopy();
+}
+#endif  // QT_CONFIG(clipboard)
+
+#if QT_CONFIG(clipboard)
+//  void qdesigner_internal::ActionEditor::slotCut()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor7slotCutEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->slotCut();
+}
+#endif  // QT_CONFIG(clipboard)
+
+#if QT_CONFIG(clipboard)
+//  void qdesigner_internal::ActionEditor::slotPaste()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor9slotPasteEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->slotPaste();
+}
+#endif  // QT_CONFIG(clipboard)
+
+//  void qdesigner_internal::ActionEditor::itemActivated(QAction *item, int
+//      column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor13itemActivatedEP7QActioni(
+    qdesigner_internal::ActionEditor *self,
+    QAction *item,
+    int column) {
+  self->itemActivated(item, column);
+}
+
+//  void qdesigner_internal::ActionEditor::contextMenuRequested(QMenu *menu,
+//      QAction *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor20contextMenuRequestedEP5QMenuP7QAction(
+    qdesigner_internal::ActionEditor *self,
+    QMenu *menu,
+    QAction *item) {
+  self->contextMenuRequested(menu, item);
+}
+
+//  void qdesigner_internal::ActionEditor::deleteActions(QDesignerFormWindowI
+//      nterface *formWindow, const ActionList &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor13deleteActionsEP28QDesignerFormWindowInterfaceRK5QListIP7QActionE(
+    qdesigner_internal::ActionEditor *self,
+    QDesignerFormWindowInterface *formWindow,
+    const QList<QAction *> *a1) {
+  self->deleteActions(formWindow, *a1);
+}
+
+#if QT_CONFIG(clipboard)
+//  void qdesigner_internal::ActionEditor::copyActions(QDesignerFormWindowInt
+//      erface *formWindow, const ActionList &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor11copyActionsEP28QDesignerFormWindowInterfaceRK5QListIP7QActionE(
+    qdesigner_internal::ActionEditor *self,
+    QDesignerFormWindowInterface *formWindow,
+    const QList<QAction *> *a1) {
+  self->copyActions(formWindow, *a1);
+}
+#endif  // QT_CONFIG(clipboard)
+
+//  void qdesigner_internal::ActionEditor::restoreSettings()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor15restoreSettingsEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->restoreSettings();
+}
+
+//  void qdesigner_internal::ActionEditor::saveSettings()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor12saveSettingsEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->saveSettings();
+}
+
+//  void qdesigner_internal::ActionEditor::updateViewModeActions()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12ActionEditor21updateViewModeActionsEv(
+    qdesigner_internal::ActionEditor *self) {
+  self->updateViewModeActions();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_ActionEditor, for the

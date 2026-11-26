@@ -7,6 +7,42 @@
   "rows": {
     "ritual_ZNK18qdesigner_internal24QDesignerPromotionDialog10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog14baseClassNamesEPK27QDesignerPromotionInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog24selectedBaseClassChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog10slotRemoveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog19slotAcceptPromoteToEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog20slotSelectionChangedERK14QItemSelectionS3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog22slotIncludeFileChangedEP36QDesignerWidgetDataBaseItemInterfaceRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog20slotClassNameChangedEP36QDesignerWidgetDataBaseItemInterfaceRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog28slotUpdateFromWidgetDatabaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog23slotTreeViewContextMenuERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerPromotionDialog20slotEditSignalsSlotsEv": [
+      "nothing", "address"
     ]
   }
 }

@@ -34,3 +34,14 @@ void ritual_ZN15QStringHashData12rehashToSizeEi(
     int size) {
   self->rehashToSize(size);
 }
+
+//  void QStringHashData::rehashNode(QStringHashNode **newBuckets, int nb,
+//      QStringHashNode *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QStringHashData10rehashNodeEPP15QStringHashNodeiS1_(
+    QStringHashData *self,
+    QStringHashNode **newBuckets,
+    int nb,
+    QStringHashNode *node) {
+  self->rehashNode(newBuckets, nb, node);
+}

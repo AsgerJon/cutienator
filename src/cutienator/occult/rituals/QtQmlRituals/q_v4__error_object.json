@@ -17,6 +17,12 @@
     "ritual_ZN3QV411ErrorObject14virtualDestroyEPNS_4Heap4BaseE": [
       "nothing", "address"
     ],
-    "ritual_ZN3QV411ErrorObject13asSyntaxErrorEv": ["address", "address"]
+    "ritual_ZN3QV411ErrorObject13asSyntaxErrorEv": ["address", "address"],
+    "ritual_ZN3QV411ErrorObject9classNameENS_4Heap11ErrorObject9ErrorTypeE": [
+      "chars", "int"
+    ],
+    "ritual_ZN3QV411ErrorObject16method_get_stackEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

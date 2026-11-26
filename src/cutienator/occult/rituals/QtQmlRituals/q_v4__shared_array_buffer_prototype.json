@@ -5,5 +5,17 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV426SharedArrayBufferPrototype4initEPNS_15ExecutionEngineEPNS_6ObjectE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV426SharedArrayBufferPrototype21method_get_byteLengthEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV426SharedArrayBufferPrototype12method_sliceEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV426SharedArrayBufferPrototype5sliceEPKNS_14FunctionObjectEPKNS_5ValueES6_ib": [
+      "unsigned long long", "address", "address", "address", "int", "bool"
+    ]
   }
 }

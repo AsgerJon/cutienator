@@ -5,5 +5,15 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal22QDesignerIntrospectionC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal22QDesignerIntrospectionD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22QDesignerIntrospection10metaObjectEPK7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22QDesignerIntrospection24metaObjectForQMetaObjectEPK11QMetaObject": [
+      "address", "address", "address"
+    ]
   }
 }

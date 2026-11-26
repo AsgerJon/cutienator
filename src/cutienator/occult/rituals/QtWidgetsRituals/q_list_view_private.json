@@ -66,6 +66,12 @@
     "ritual_ZNK16QListViewPrivate16selectionAllowedERK11QModelIndex": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK16QListViewPrivate23horizontalScrollToValueERK11QModelIndexRK5QRectN17QAbstractItemView10ScrollHintE": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate21verticalScrollToValueERK11QModelIndexRK5QRectN17QAbstractItemView10ScrollHintE": [
+      "int", "address", "address", "address", "address"
+    ],
     "ritual_ZNK16QListViewPrivate9selectionERK5QRect": [
       "address", "address", "address"
     ],
@@ -103,8 +109,12 @@
       "address", "address", "int"
     ],
     "ritual_ZNK16QListViewPrivate8isHiddenEi": ["bool", "address", "int"],
+    "ritual_ZNK16QListViewPrivate12hiddenRowIdsEv": ["address", "address"],
     "ritual_ZNK16QListViewPrivate18isHiddenOrDisabledEi": [
       "bool", "address", "int"
+    ],
+    "ritual_ZNK16QListViewPrivate24removeCurrentAndDisabledEP5QListI11QModelIndexERKS1_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN16QListViewPrivate19scrollElasticBandByEii": [
       "nothing", "address", "int", "int"
@@ -124,6 +134,7 @@
     ],
     "ritual_own_ZNK16QListViewPrivate20accessibleChildIndexERK11QModelIndex": [
       "int", "address", "address"
-    ]
+    ],
+    "ritual_drop_QListViewPrivate__QList_int": ["nothing", "address"]
   }
 }

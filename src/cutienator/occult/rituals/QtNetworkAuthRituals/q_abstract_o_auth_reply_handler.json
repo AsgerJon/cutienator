@@ -8,13 +8,40 @@
     "ritual_ZNK26QAbstractOAuthReplyHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QAbstractOAuthReplyHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QAbstractOAuthReplyHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandlerC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN26QAbstractOAuthReplyHandlerD1Ev": ["nothing", "address"],
     "ritual_ZNK26QAbstractOAuthReplyHandler8callbackEv": ["text", "address"],
     "ritual_ZN26QAbstractOAuthReplyHandler20networkReplyFinishedEP13QNetworkReply": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandler16callbackReceivedERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandler14tokensReceivedERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandler25tokenRequestErrorOccurredEN14QAbstractOAuth5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandler17replyDataReceivedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandler20callbackDataReceivedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandlerC1ER14QObjectPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QAbstractOAuthReplyHandler": [
       "bool", "address", "chars", "address"

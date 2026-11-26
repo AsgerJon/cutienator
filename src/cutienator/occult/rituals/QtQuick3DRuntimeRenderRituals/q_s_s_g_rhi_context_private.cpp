@@ -26,6 +26,15 @@ const QSSGRhiContext *ritual_ZNK21QSSGRhiContextPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QSSGRhiContextPrivate::QSSGRhiContextPrivate(QSSGRhiContext &rhiCtx, QRhi
+//      *rhi_)
+extern "C" Q_DECL_EXPORT
+QSSGRhiContextPrivate *ritual_ZN21QSSGRhiContextPrivateC1ER14QSSGRhiContextP4QRhi(
+    QSSGRhiContext *rhiCtx,
+    QRhi *rhi_) {
+  return new QSSGRhiContextPrivate(*rhiCtx, rhi_);
+}
+
 //  QSSGRhiContextPrivate *QSSGRhiContextPrivate::get(QSSGRhiContext *q)
 extern "C" Q_DECL_EXPORT
 QSSGRhiContextPrivate *ritual_ZN21QSSGRhiContextPrivate3getEP14QSSGRhiContext(
@@ -142,6 +151,16 @@ QRhiShaderResourceBindings *ritual_ZN21QSSGRhiContextPrivate3srbERK32QSSGRhiShad
   return self->srb(*bindings);
 }
 
+//  void
+//      QSSGRhiContextPrivate::releaseCachedSrb(QSSGRhiShaderResourceBindingL
+//      ist &bindings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSSGRhiContextPrivate16releaseCachedSrbER32QSSGRhiShaderResourceBindingList(
+    QSSGRhiContextPrivate *self,
+    QSSGRhiShaderResourceBindingList *bindings) {
+  self->releaseCachedSrb(*bindings);
+}
+
 //  QRhiGraphicsPipeline *QSSGRhiContextPrivate::pipeline(const
 //      QSSGRhiGraphicsPipelineState &ps, QRhiRenderPassDescriptor *rpDesc,
 //      QRhiShaderResourceBindings *srb)
@@ -186,6 +205,23 @@ QRhiComputePipeline *ritual_ZN21QSSGRhiContextPrivate15computePipelineERK27QSSGC
   return self->computePipeline(*key, srb);
 }
 
+//  QSSGRhiDrawCallData &QSSGRhiContextPrivate::drawCallData(const
+//      QSSGRhiDrawCallDataKey &key)
+extern "C" Q_DECL_EXPORT
+QSSGRhiDrawCallData *ritual_ZN21QSSGRhiContextPrivate12drawCallDataERK22QSSGRhiDrawCallDataKey(
+    QSSGRhiContextPrivate *self,
+    const QSSGRhiDrawCallDataKey *key) {
+  return &(self->drawCallData(*key));
+}
+
+//  void QSSGRhiContextPrivate::releaseDrawCallData(QSSGRhiDrawCallData &dcd)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSSGRhiContextPrivate19releaseDrawCallDataER19QSSGRhiDrawCallData(
+    QSSGRhiContextPrivate *self,
+    QSSGRhiDrawCallData *dcd) {
+  self->releaseDrawCallData(*dcd);
+}
+
 //  void QSSGRhiContextPrivate::cleanupDrawCallData(const QSSGRenderModel
 //      *model)
 extern "C" Q_DECL_EXPORT
@@ -195,6 +231,16 @@ void ritual_ZN21QSSGRhiContextPrivate19cleanupDrawCallDataEPK15QSSGRenderModel(
   self->cleanupDrawCallData(model);
 }
 
+//  QSSGRhiInstanceBufferData
+//      &QSSGRhiContextPrivate::instanceBufferData(QSSGRenderInstanceTable
+//      *instanceTable)
+extern "C" Q_DECL_EXPORT
+QSSGRhiInstanceBufferData *ritual_ZN21QSSGRhiContextPrivate18instanceBufferDataEP23QSSGRenderInstanceTable(
+    QSSGRhiContextPrivate *self,
+    QSSGRenderInstanceTable *instanceTable) {
+  return &(self->instanceBufferData(instanceTable));
+}
+
 //  void QSSGRhiContextPrivate::releaseInstanceBuffer(QSSGRenderInstanceTable
 //      *instanceTable)
 extern "C" Q_DECL_EXPORT
@@ -202,6 +248,25 @@ void ritual_ZN21QSSGRhiContextPrivate21releaseInstanceBufferEP23QSSGRenderInstan
     QSSGRhiContextPrivate *self,
     QSSGRenderInstanceTable *instanceTable) {
   self->releaseInstanceBuffer(instanceTable);
+}
+
+//  QSSGRhiInstanceBufferData
+//      &QSSGRhiContextPrivate::instanceBufferData(const QSSGRenderModel
+//      *model)
+extern "C" Q_DECL_EXPORT
+QSSGRhiInstanceBufferData *ritual_ZN21QSSGRhiContextPrivate18instanceBufferDataEPK15QSSGRenderModel(
+    QSSGRhiContextPrivate *self,
+    const QSSGRenderModel *model) {
+  return &(self->instanceBufferData(model));
+}
+
+//  QSSGRhiParticleData &QSSGRhiContextPrivate::particleData(const
+//      QSSGRenderGraphObject *particlesOrModel)
+extern "C" Q_DECL_EXPORT
+QSSGRhiParticleData *ritual_ZN21QSSGRhiContextPrivate12particleDataEPK21QSSGRenderGraphObject(
+    QSSGRhiContextPrivate *self,
+    const QSSGRenderGraphObject *particlesOrModel) {
+  return &(self->particleData(particlesOrModel));
 }
 
 //  QSSGRhiContextPrivate::~QSSGRhiContextPrivate()

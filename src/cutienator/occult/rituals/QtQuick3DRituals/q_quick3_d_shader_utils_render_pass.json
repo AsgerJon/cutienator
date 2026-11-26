@@ -8,13 +8,58 @@
     "ritual_ZNK29QQuick3DShaderUtilsRenderPass10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QQuick3DShaderUtilsRenderPass2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN29QQuick3DShaderUtilsRenderPassC1Ev": ["address"],
     "ritual_ZN29QQuick3DShaderUtilsRenderPassD1Ev": ["nothing", "address"],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass16qmlAppendCommandEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass12qmlCommandAtEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass15qmlCommandCountEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandE": [
+      "long long", "address"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass15qmlCommandClearEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass15qmlAppendShaderEP16QQmlListPropertyI25QQuick3DShaderUtilsShaderEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass11qmlShaderAtEP16QQmlListPropertyI25QQuick3DShaderUtilsShaderEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass14qmlShaderCountEP16QQmlListPropertyI25QQuick3DShaderUtilsShaderE": [
+      "long long", "address"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass14qmlShaderClearEP16QQmlListPropertyI25QQuick3DShaderUtilsShaderE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass8commandsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass7shadersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass7changedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuick3DShaderUtilsRenderPass": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQuick3DShaderUtilsRenderPass__QQmlListProperty_QQuick3DShaderUtilsRenderCommand": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DShaderUtilsRenderPass__QQmlListProperty_QQuick3DShaderUtilsShader": [
+      "nothing", "address"
     ]
   }
 }

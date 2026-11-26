@@ -6,7 +6,9 @@
 #if QT_CONFIG(splitter)
 #if QT_CONFIG(splitter)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(splitter)
 #include <QtWidgets/qsplitter.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qsplitter_p.h>

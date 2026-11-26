@@ -22,6 +22,9 @@
     "ritual_ZNK26QQuickItemViewTransitioner16transitionObjectENS_14TransitionTypeEb": [
       "address", "address", "int", "bool"
     ],
+    "ritual_ZNK26QQuickItemViewTransitioner13targetIndexesENS_14TransitionTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK26QQuickItemViewTransitioner11targetItemsENS_14TransitionTypeE": [
       "address", "address", "int"
     ],
@@ -33,6 +36,9 @@
     ],
     "ritual_ZN26QQuickItemViewTransitioner17setChangeListenerEP38QQuickItemViewTransitionChangeListener": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickItemViewTransitioner18finishedTransitionEP27QQuickItemViewTransitionJobP32QQuickItemViewTransitionableItem": [
+      "nothing", "address", "address", "address"
     ]
   }
 }

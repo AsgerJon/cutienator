@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK22QQuickFrictionAffector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFrictionAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickFrictionAffector11qt_metacastEPKc(
+    QQuickFrictionAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFrictionAffector::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickFrictionAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFrictionAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFrictionAffector::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickFrictionAffector2trEPKcS1_i(
@@ -59,6 +78,22 @@ bool ritual_ZN22QQuickFrictionAffector14affectParticleEP18QQuickParticleDatad(
     QQuickParticleData *d,
     qreal dt) {
   return self->affectParticle(d, dt);
+}
+
+//  void QQuickFrictionAffector::factorChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFrictionAffector13factorChangedEd(
+    QQuickFrictionAffector *self,
+    qreal arg) {
+  self->factorChanged(arg);
+}
+
+//  void QQuickFrictionAffector::thresholdChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFrictionAffector16thresholdChangedEd(
+    QQuickFrictionAffector *self,
+    qreal arg) {
+  self->thresholdChanged(arg);
 }
 
 //  void QQuickFrictionAffector::setFactor(qreal arg)

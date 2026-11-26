@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK23QHelpSearchResultWidget10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QHelpSearchResultWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QHelpSearchResultWidget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QHelpSearchResultWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZN23QHelpSearchResultWidget6linkAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QHelpSearchResultWidget15requestShowLinkERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QHelpSearchResultWidgetC1EP17QHelpSearchEngine": [
+      "address", "address"
+    ],
+    "ritual_ZN23QHelpSearchResultWidget11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QHelpSearchResultWidget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QHelpSearchResultWidget11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

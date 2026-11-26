@@ -7,6 +7,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_command2_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <cstring>
 
 //  A qdesigner_internal::MorphLayoutCommand that Python can take functions over in. Every qdesigner_internal::MorphLayoutCommand
@@ -109,6 +110,76 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::MorphLayoutCommand::MorphLayoutCommand(QDesignerFormW
+//      indowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::MorphLayoutCommand *ritual_ZN18qdesigner_internal18MorphLayoutCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_MorphLayoutCommand(formWindow);
+}
+
+//  qdesigner_internal::MorphLayoutCommand::~MorphLayoutCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18MorphLayoutCommandD1Ev(
+    qdesigner_internal::MorphLayoutCommand *self) {
+  delete self;
+}
+
+//  bool qdesigner_internal::MorphLayoutCommand::init(QWidget *w, int
+//      newType)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal18MorphLayoutCommand4initEP7QWidgeti(
+    qdesigner_internal::MorphLayoutCommand *self,
+    QWidget *w,
+    int newType) {
+  return self->init(w, newType);
+}
+
+//  bool qdesigner_internal::MorphLayoutCommand::canMorph(const
+//      QDesignerFormWindowInterface *formWindow, QWidget *w, int
+//      *ptrToCurrentType)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal18MorphLayoutCommand8canMorphEPK28QDesignerFormWindowInterfaceP7QWidgetPi(
+    const QDesignerFormWindowInterface *formWindow,
+    QWidget *w,
+    int *ptrToCurrentType) {
+  return qdesigner_internal::MorphLayoutCommand::canMorph(
+      formWindow,
+      w,
+      ptrToCurrentType);
+}
+
+//  void qdesigner_internal::MorphLayoutCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18MorphLayoutCommand4redoEv(
+    qdesigner_internal::MorphLayoutCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::MorphLayoutCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18MorphLayoutCommand4undoEv(
+    qdesigner_internal::MorphLayoutCommand *self) {
+  self->undo();
+}
+
+//  QString qdesigner_internal::MorphLayoutCommand::formatDescription(QDesign
+//      erFormEditorInterface *core, const QWidget *w, int oldType, int
+//      newType)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal18MorphLayoutCommand17formatDescriptionEP28QDesignerFormEditorInterfacePK7QWidgetii(
+    QDesignerFormEditorInterface *core,
+    const QWidget *w,
+    int oldType,
+    int newType) {
+  return new QString(
+      qdesigner_internal::MorphLayoutCommand::formatDescription(
+          core,
+          w,
+          oldType,
+          newType));
+}
 
 //  a Python function taken by a Cuteqdesigner_internal_MorphLayoutCommand,
 //      for the function named by the key

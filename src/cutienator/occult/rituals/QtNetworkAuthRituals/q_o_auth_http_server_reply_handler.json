@@ -8,6 +8,12 @@
     "ritual_ZNK28QOAuthHttpServerReplyHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QOAuthHttpServerReplyHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

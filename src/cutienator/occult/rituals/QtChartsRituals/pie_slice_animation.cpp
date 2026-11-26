@@ -9,8 +9,13 @@
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/piesliceanimation_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(charts_pie_chart)
+#include <QtCharts/QtCharts>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/pieslicedata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>

@@ -85,6 +85,24 @@ void ritual_ZN5QSvgGD1Ev(QSvgG *self) {
   delete self;
 }
 
+//  void QSvgG::drawCommand(QPainter *a0, QSvgExtraStates &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QSvgG11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgG *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  self->drawCommand(a0, *a1);
+}
+
+//  bool QSvgG::shouldDrawNode(QPainter *p, QSvgExtraStates &states) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK5QSvgG14shouldDrawNodeEP8QPainterR15QSvgExtraStates(
+    const QSvgG *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return self->shouldDrawNode(p, *states);
+}
+
 //  Type QSvgG::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK5QSvgG4typeEv(const QSvgG *self) {

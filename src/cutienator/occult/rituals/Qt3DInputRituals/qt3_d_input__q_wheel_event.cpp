@@ -183,6 +183,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput11QWheelEvent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QWheelEvent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput11QWheelEvent11qt_metacastEPKc(
+    Qt3DInput::QWheelEvent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QWheelEvent::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput11QWheelEvent11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QWheelEvent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QWheelEvent::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DInput11QWheelEvent2trEPKcS2_i(
@@ -190,6 +209,12 @@ QString *ritual_ZN9Qt3DInput11QWheelEvent2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QWheelEvent::tr(s, c, n));
+}
+
+//  Qt3DInput::QWheelEvent::~QWheelEvent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput11QWheelEventD1Ev(Qt3DInput::QWheelEvent *self) {
+  delete self;
 }
 
 //  int Qt3DInput::QWheelEvent::x() const
@@ -211,6 +236,20 @@ extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK9Qt3DInput11QWheelEvent10angleDeltaEv(
     const Qt3DInput::QWheelEvent *self) {
   return new QPoint(self->angleDelta());
+}
+
+//  int Qt3DInput::QWheelEvent::buttons() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput11QWheelEvent7buttonsEv(
+    const Qt3DInput::QWheelEvent *self) {
+  return self->buttons();
+}
+
+//  Modifiers Qt3DInput::QWheelEvent::modifiers() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QWheelEvent::Modifiers ritual_ZNK9Qt3DInput11QWheelEvent9modifiersEv(
+    const Qt3DInput::QWheelEvent *self) {
+  return self->modifiers();
 }
 
 //  bool Qt3DInput::QWheelEvent::isAccepted() const

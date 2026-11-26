@@ -183,6 +183,25 @@ const QMetaObject *ritual_ZNK18QFileSystemWatcher10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFileSystemWatcher::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QFileSystemWatcher11qt_metacastEPKc(
+    QFileSystemWatcher *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFileSystemWatcher::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QFileSystemWatcher11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFileSystemWatcher *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFileSystemWatcher::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QFileSystemWatcher2trEPKcS1_i(
@@ -272,6 +291,24 @@ extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK18QFileSystemWatcher11directoriesEv(
     const QFileSystemWatcher *self) {
   return new QList<QString>(self->directories());
+}
+
+//  void QFileSystemWatcher::fileChanged(const QString &path, QPrivateSignal
+//      a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFileSystemWatcher11fileChangedERK7QStringNS_14QPrivateSignalE(
+    QFileSystemWatcher *self,
+    const QString *path) {
+  self->fileChanged(*path, QFileSystemWatcher::QPrivateSignal());
+}
+
+//  void QFileSystemWatcher::directoryChanged(const QString &path,
+//      QPrivateSignal a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFileSystemWatcher16directoryChangedERK7QStringNS_14QPrivateSignalE(
+    QFileSystemWatcher *self,
+    const QString *path) {
+  self->directoryChanged(*path, QFileSystemWatcher::QPrivateSignal());
 }
 
 //  a Python function taken by a CuteQFileSystemWatcher, for the function

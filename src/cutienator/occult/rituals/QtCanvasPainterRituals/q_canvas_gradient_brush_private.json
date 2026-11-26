@@ -2,11 +2,35 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtCanva",
     "sPainter/6.12.0/QtCanvasPainter/private/qcanvasgradient_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZNK27QCanvasGradientBrushPrivate6equalsERK19QCanvasBrushPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK27QCanvasGradientBrushPrivate19generateGradientKeyEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN27QCanvasGradientBrushPrivate3getERK15QCanvasGradient": [
+      "address", "address"
+    ],
+    "ritual_ZN27QCanvasGradientBrushPrivate3getER15QCanvasGradient": [
+      "address", "address"
+    ],
     "ritual_take_QCanvasGradientBrushPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_ZN27QCanvasGradientBrushPrivate6createI21QCanvasLinearGradientEET_RK12QCanvasBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN27QCanvasGradientBrushPrivate6createI21QCanvasRadialGradientEET_RK12QCanvasBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN27QCanvasGradientBrushPrivate6createI22QCanvasConicalGradientEET_RK12QCanvasBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN27QCanvasGradientBrushPrivate6createI18QCanvasBoxGradientEET_RK12QCanvasBrush": [
+      "address", "address"
     ]
   }
 }

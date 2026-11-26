@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QFontDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QFontDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QFontDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QFontDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QFontDialog6d_funcEv": ["address", "address"],
     "ritual_ZNK11QFontDialog6d_funcEv": ["address", "address"],
@@ -37,6 +43,12 @@
     ],
     "ritual_ZN11QFontDialog7getFontEPbRK5QFontP7QWidgetRK7QString6QFlagsINS_16FontDialogOptionEE": [
       "address", "address", "address", "address", "text", "int"
+    ],
+    "ritual_ZN11QFontDialog18currentFontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QFontDialog12fontSelectedERK5QFont": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN11QFontDialog11changeEventEP6QEvent": [
       "nothing", "address", "address"

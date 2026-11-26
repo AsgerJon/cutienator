@@ -20,7 +20,7 @@ typedef void (*CuteQMemoryVideoBufferCall2)(const void *, int *);
 class CuteQMemoryVideoBuffer : public QMemoryVideoBuffer {
 public:
   using QMemoryVideoBuffer::QMemoryVideoBuffer;
-  CuteQMemoryVideoBuffer(const QMemoryVideoBuffer &other) : QMemoryVideoBuffer(other) {}
+  CuteQMemoryVideoBuffer(const QMemoryVideoBuffer & other) : QMemoryVideoBuffer(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

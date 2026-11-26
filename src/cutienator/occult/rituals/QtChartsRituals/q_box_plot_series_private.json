@@ -8,6 +8,12 @@
     "ritual_ZNK21QBoxPlotSeriesPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QBoxPlotSeriesPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QBoxPlotSeriesPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -23,6 +29,9 @@
     ],
     "ritual_ZN21QBoxPlotSeriesPrivate14initializeAxesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve": [
+      "nothing", "address", "int", "int", "address"
     ],
     "ritual_ZN21QBoxPlotSeriesPrivate15initializeThemeEiP10ChartThemeb": [
       "nothing", "address", "int", "address", "bool"
@@ -58,6 +67,28 @@
     "ritual_ZN21QBoxPlotSeriesPrivate3minEv": ["double", "address"],
     "ritual_ZN21QBoxPlotSeriesPrivate18populateCategoriesEP16QBarCategoryAxis": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate7updatedEv": ["nothing", "address"],
+    "ritual_ZN21QBoxPlotSeriesPrivate7clickedEiP7QBoxSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate7pressedEiP7QBoxSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate8releasedEiP7QBoxSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate13doubleClickedEiP7QBoxSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate12updatedBoxesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate13updatedLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate17restructuredBoxesEv": [
+      "nothing", "address"
     ],
     "ritual_ZN21QBoxPlotSeriesPrivate18handleSeriesChangeEP15QAbstractSeries": [
       "nothing", "address", "address"

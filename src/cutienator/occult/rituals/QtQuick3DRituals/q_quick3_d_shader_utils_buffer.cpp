@@ -286,6 +286,25 @@ const QMetaObject *ritual_ZNK25QQuick3DShaderUtilsBuffer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsBuffer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuick3DShaderUtilsBuffer11qt_metacastEPKc(
+    QQuick3DShaderUtilsBuffer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsBuffer::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuick3DShaderUtilsBuffer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsBuffer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsBuffer::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -396,6 +415,13 @@ extern "C" Q_DECL_EXPORT
 QQuick3DShaderUtilsBuffer::TextureFormat ritual_ZN25QQuick3DShaderUtilsBuffer22mapRenderTextureFormatEN23QSSGRenderTextureFormat6FormatE(
     QSSGRenderTextureFormat::Format fmt) {
   return QQuick3DShaderUtilsBuffer::mapRenderTextureFormat(fmt);
+}
+
+//  void QQuick3DShaderUtilsBuffer::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DShaderUtilsBuffer7changedEv(
+    QQuick3DShaderUtilsBuffer *self) {
+  self->changed();
 }
 
 //  a Python function taken by a CuteQQuick3DShaderUtilsBuffer, for the

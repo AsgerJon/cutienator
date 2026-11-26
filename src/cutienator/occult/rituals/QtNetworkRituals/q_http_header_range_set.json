@@ -4,13 +4,38 @@
     "QtNetwork/qhttpheaders.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QHttpHeaderRangeSet6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QHttpHeaderRangeSet6d_funcEv": ["address", "address"],
     "ritual_ZN19QHttpHeaderRangeSetC1Ev": ["address"],
     "ritual_ZN19QHttpHeaderRangeSetC1ERKS_": ["address", "address"],
+    "ritual_ZN19QHttpHeaderRangeSetC1EOS_": ["address", "address"],
+    "ritual_ZN19QHttpHeaderRangeSetC1E5QSpanIK20QHttpHeaderRangeSpecLm18446744073709551615EE": [
+      "address", "address"
+    ],
+    "ritual_ZN19QHttpHeaderRangeSetC1ESt16initializer_listI20QHttpHeaderRangeSpecE": [
+      "address", "address"
+    ],
+    "ritual_ZN19QHttpHeaderRangeSetaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpHeaderRangeSetaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QHttpHeaderRangeSetD1Ev": ["nothing", "address"],
+    "ritual_ZN19QHttpHeaderRangeSet4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QHttpHeaderRangeSet6rangesEv": ["address", "address"],
+    "ritual_ZN19QHttpHeaderRangeSet9setRangesE5QSpanIK20QHttpHeaderRangeSpecLm18446744073709551615EE": [
+      "nothing", "address", "address"
+    ],
     "ritual_Zls6QDebugRK19QHttpHeaderRangeSet": [
       "address", "address", "address"
     ],
     "ritual_ZeqRK19QHttpHeaderRangeSetS1_": ["bool", "address", "address"],
-    "ritual_ZneRK19QHttpHeaderRangeSetS1_": ["bool", "address", "address"]
+    "ritual_ZneRK19QHttpHeaderRangeSetS1_": ["bool", "address", "address"],
+    "ritual_drop_QHttpHeaderRangeSet__QSpan_const_QHttpHeaderRangeSpec": [
+      "nothing", "address"
+    ]
   }
 }

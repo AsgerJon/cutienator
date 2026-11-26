@@ -1,6 +1,11 @@
+//  Edited by hand on 2026-11-25: the ritual of 'QChar
+//  *QUtf8::convertToUnicode(QChar *, QByteArrayView, State *)' is taken out
+//  with its row, as that function is inline and calls the 'char16_t *' one
+//  with a state, which Qt declares but its library does not offer (undefined
+//  reference when linking). Kept as it is when the generator runs again.
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qstringconverter_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qstringconverter_p.h, Qt 6.12.0. Also added
+//  by hand on 2026-11-25, rituals for functions the generator leaves out: 1.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -117,11 +122,45 @@ QString *ritual_ZN5QUtf816convertToUnicodeE14QByteArrayView(
   return new QString(QUtf8::convertToUnicode(*in));
 }
 
+//  QString QUtf8::convertToUnicode(QByteArrayView in,
+//      QStringConverter::State *state)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QUtf816convertToUnicodeE14QByteArrayViewPN20QStringConverterBase5StateE(
+    const QByteArrayView *in,
+    QStringConverter::State *state) {
+  return new QString(QUtf8::convertToUnicode(*in, state));
+}
+
+//  char *QUtf8::convertFromUnicode(char *dst, QStringView in)
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN5QUtf818convertFromUnicodeEPc11QStringView(
+    char *dst,
+    const QString *in) {
+  return QUtf8::convertFromUnicode(dst, QStringView(*in));
+}
+
 //  QByteArray QUtf8::convertFromUnicode(QStringView in)
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN5QUtf818convertFromUnicodeE11QStringView(
     const QString *in) {
   return new QByteArray(QUtf8::convertFromUnicode(QStringView(*in)));
+}
+
+//  QByteArray QUtf8::convertFromUnicode(QStringView in,
+//      QStringConverter::State *state)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN5QUtf818convertFromUnicodeE11QStringViewPN20QStringConverterBase5StateE(
+    const QString *in,
+    QStringConverter::State *state) {
+  return new QByteArray(QUtf8::convertFromUnicode(QStringView(*in), state));
+}
+
+//  char *QUtf8::convertFromLatin1(char *out, QLatin1StringView in)
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN5QUtf817convertFromLatin1EPc13QLatin1String(
+    char *out,
+    const QLatin1String *in) {
+  return QUtf8::convertFromLatin1(out, *in);
 }
 
 //  int QUtf8::compareUtf8(QByteArrayView utf8, QLatin1StringView s,
@@ -138,4 +177,13 @@ int ritual_ZN5QUtf811compareUtf8E14QByteArrayView13QLatin1StringN2Qt15CaseSensit
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QUtf8D1Ev(QUtf8 *self) {
   delete self;
+}
+
+//  static char16_t *QUtf8::convertToUnicode(char16_t *dst, QByteArrayView
+//      in)
+extern "C" Q_DECL_EXPORT
+char16_t *ritual_ZN5QUtf816convertToUnicodeEPDs14QByteArrayView(
+    char16_t *dst,
+    const QByteArrayView *in) {
+  return QUtf8::convertToUnicode(dst, *in);
 }

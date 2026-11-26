@@ -8,6 +8,12 @@
     "ritual_ZNK21DeclarativeLineSeries10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21DeclarativeLineSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21DeclarativeLineSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21DeclarativeLineSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -51,6 +57,9 @@
     "ritual_ZN21DeclarativeLineSeries11setCapStyleEN2Qt11PenCapStyleE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN21DeclarativeLineSeries19declarativeChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZN21DeclarativeLineSeries10classBeginEv": ["nothing", "address"],
     "ritual_ZN21DeclarativeLineSeries17componentCompleteEv": [
       "nothing", "address"
@@ -78,8 +87,41 @@
     ],
     "ritual_ZN21DeclarativeLineSeries5clearEv": ["nothing", "address"],
     "ritual_ZN21DeclarativeLineSeries2atEi": ["address", "address", "int"],
+    "ritual_ZN21DeclarativeLineSeries12countChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21DeclarativeLineSeries12axisXChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries12axisYChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries15axisXTopChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries17axisYRightChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries18axisAngularChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries17axisRadialChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries12widthChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21DeclarativeLineSeries12styleChangedEN2Qt8PenStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21DeclarativeLineSeries15capStyleChangedEN2Qt11PenCapStyleE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN21DeclarativeLineSeries18handleCountChangedEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN21DeclarativeLineSeries25appendDeclarativeChildrenEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
     ],
     "ritual_cast_DeclarativeLineSeries_DeclarativeXySeries": [
       "address", "address"
@@ -97,6 +139,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN21DeclarativeLineSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_DeclarativeLineSeries__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

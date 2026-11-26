@@ -448,6 +448,24 @@ int ritual_ZN18QMetaObjectBuilder16indexOfClassInfoERK10QByteArray(
   return self->indexOfClassInfo(*name);
 }
 
+//  QMetaObjectBuilder::StaticMetacallFunction
+//      QMetaObjectBuilder::staticMetacallFunction() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK18QMetaObjectBuilder22staticMetacallFunctionEv(
+    const QMetaObjectBuilder *self) {
+  return reinterpret_cast<void *>(self->staticMetacallFunction());
+}
+
+//  void QMetaObjectBuilder::setStaticMetacallFunction(QMetaObjectBuilder::St
+//      aticMetacallFunction value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QMetaObjectBuilder25setStaticMetacallFunctionEPFvP7QObjectN11QMetaObject4CallEiPPvE(
+    QMetaObjectBuilder *self,
+    void *value) {
+  self->setStaticMetacallFunction(
+      reinterpret_cast<QMetaObjectBuilder::StaticMetacallFunction>(value));
+}
+
 //  QMetaObject *QMetaObjectBuilder::toMetaObject() const
 extern "C" Q_DECL_EXPORT
 QMetaObject *ritual_ZNK18QMetaObjectBuilder12toMetaObjectEv(

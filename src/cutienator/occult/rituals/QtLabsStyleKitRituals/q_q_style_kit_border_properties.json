@@ -8,6 +8,12 @@
     "ritual_ZNK26QQStyleKitBorderProperties10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQStyleKitBorderProperties11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQStyleKitBorderProperties11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQStyleKitBorderProperties2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,12 @@
     "ritual_ZNK26QQStyleKitBorderProperties5colorEv": ["address", "address"],
     "ritual_ZN26QQStyleKitBorderProperties8setColorERK6QColor": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQStyleKitBorderProperties12widthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitBorderProperties12colorChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQStyleKitBorderProperties": [
       "bool", "address", "chars", "address"

@@ -16,6 +16,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/private/qqmlsortercompositor_p.h>
 #include <QtQmlModels/private/qqmlsortfilterproxymodel_p_p.h>
@@ -28,6 +29,28 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 155, as _ZN20QQmlSorterCompositor11updateCacheEv
+inline void QQmlSorterCompositor::updateCache()
+{
+    Q_D(QQmlSorterCompositor);
+    // Clear the existing cache
+    d->m_effectiveSorters.clear();
+    if (d->m_sfpmModel && d->m_sfpmModel->sourceModel()) {
+        // Sort the filter according to their priority
+        QList<QQmlSorterBase *> sorters = d->m_sorters;
+        std::stable_sort(sorters.begin(), sorters.end(),
+                [](QQmlSorterBase *sorterLeft, QQmlSorterBase *sorterRight) {
+                        return sorterLeft->priority() < sorterRight->priority();
+                });
+        // Cache only the filters that are need to be evaluated (in order)
+        std::copy_if(sorters.begin(), sorters.end(), std::back_inserter(d->m_effectiveSorters),
+                [](QQmlSorterBase *sorter) { return sorter->enabled(); });
+        // If there is no primary sorter set by the user explicitly, reset the
+        // primary sorter according to the sorters in the lists
+        d->resetPrimarySorter();
+    }
+}
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 210, as _ZN27QQmlSorterCompositorPrivate18resetPrimarySorterEv
 inline void QQmlSorterCompositorPrivate::resetPrimarySorter()
@@ -47,17 +70,32 @@ inline void QQmlSorterCompositorPrivate::resetPrimarySorter()
     }
 }
 
-//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 25, as _ZN20QQmlSorterCompositorD1Ev
-inline QQmlSorterCompositor::~QQmlSorterCompositor()
-{
-
-}
-
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 109, as _ZN20QQmlSorterCompositor7sortersEv
 inline QList<QQmlSorterBase *> QQmlSorterCompositor::sorters()
 {
     Q_D(QQmlSorterCompositor);
     return d->m_sorters;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 42, as _ZN20QQmlSorterCompositor5countEP16QQmlListPropertyI14QQmlSorterBaseE
+inline qsizetype QQmlSorterCompositor::count(QQmlListProperty<QQmlSorterBase> *sorterComp)
+{
+    auto *sorterCompositor = reinterpret_cast<QQmlSorterCompositor *> (sorterComp->object);
+    return sorterCompositor->count();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 48, as _ZN20QQmlSorterCompositor2atEP16QQmlListPropertyI14QQmlSorterBaseEx
+inline QQmlSorterBase *QQmlSorterCompositor::at(QQmlListProperty<QQmlSorterBase> *sorterComp, qsizetype index)
+{
+    auto *sorterCompositor = reinterpret_cast<QQmlSorterCompositor *> (sorterComp->object);
+    return sorterCompositor->at(index);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 54, as _ZN20QQmlSorterCompositor5clearEP16QQmlListPropertyI14QQmlSorterBaseE
+inline void QQmlSorterCompositor::clear(QQmlListProperty<QQmlSorterBase> *sorterComp)
+{
+    auto *sorterCompositor = reinterpret_cast<QQmlSorterCompositor *> (sorterComp->object);
+    sorterCompositor->clear();
 }
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 176, as _ZNK20QQmlSorterCompositor8lessThanERK11QModelIndexS2_PK24QQmlSortFilterProxyModel
@@ -135,28 +173,6 @@ inline void QQmlSorterCompositor::clear()
     d->m_sorters.clear();
     // Emit the filter changed signal as we cleared the filter list
     emit d->m_sfpmModel->sortersChanged();
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 155, as _ZN20QQmlSorterCompositor11updateCacheEv
-inline void QQmlSorterCompositor::updateCache()
-{
-    Q_D(QQmlSorterCompositor);
-    // Clear the existing cache
-    d->m_effectiveSorters.clear();
-    if (d->m_sfpmModel && d->m_sfpmModel->sourceModel()) {
-        // Sort the filter according to their priority
-        QList<QQmlSorterBase *> sorters = d->m_sorters;
-        std::stable_sort(sorters.begin(), sorters.end(),
-                [](QQmlSorterBase *sorterLeft, QQmlSorterBase *sorterRight) {
-                        return sorterLeft->priority() < sorterRight->priority();
-                });
-        // Cache only the filters that are need to be evaluated (in order)
-        std::copy_if(sorters.begin(), sorters.end(), std::back_inserter(d->m_effectiveSorters),
-                [](QQmlSorterBase *sorter) { return sorter->enabled(); });
-        // If there is no primary sorter set by the user explicitly, reset the
-        // primary sorter according to the sorters in the lists
-        d->resetPrimarySorter();
-    }
 }
 //  -----------------------------------------------------------------------
 
@@ -370,6 +386,25 @@ const QMetaObject *ritual_ZNK20QQmlSorterCompositor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlSorterCompositor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQmlSorterCompositor11qt_metacastEPKc(
+    QQmlSorterCompositor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlSorterCompositor::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQmlSorterCompositor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlSorterCompositor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQmlSorterCompositor::qt_qmlMarker_anonymous()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlSorterCompositor22qt_qmlMarker_anonymousEv(
@@ -388,6 +423,31 @@ extern "C" Q_DECL_EXPORT
 QList<QQmlSorterBase *> *ritual_ZN20QQmlSorterCompositor7sortersEv(
     QQmlSorterCompositor *self) {
   return new QList<QQmlSorterBase *>(self->sorters());
+}
+
+//  qsizetype QQmlSorterCompositor::count(QQmlListProperty<QQmlSorterBase>
+//      *sorterComp)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN20QQmlSorterCompositor5countEP16QQmlListPropertyI14QQmlSorterBaseE(
+    QQmlListProperty<QQmlSorterBase> *sorterComp) {
+  return QQmlSorterCompositor::count(sorterComp);
+}
+
+//  QQmlSorterBase *QQmlSorterCompositor::at(QQmlListProperty<QQmlSorterBase>
+//      *sorterComp, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQmlSorterBase *ritual_ZN20QQmlSorterCompositor2atEP16QQmlListPropertyI14QQmlSorterBaseEx(
+    QQmlListProperty<QQmlSorterBase> *sorterComp,
+    qsizetype index) {
+  return QQmlSorterCompositor::at(sorterComp, index);
+}
+
+//  void QQmlSorterCompositor::clear(QQmlListProperty<QQmlSorterBase>
+//      *sorterComp)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlSorterCompositor5clearEP16QQmlListPropertyI14QQmlSorterBaseE(
+    QQmlListProperty<QQmlSorterBase> *sorterComp) {
+  QQmlSorterCompositor::clear(sorterComp);
 }
 
 //  QPartialOrdering QQmlSorterCompositor::compare(const QModelIndex &a0,
@@ -452,7 +512,25 @@ void ritual_ZN20QQmlSorterCompositor5clearEv(QQmlSorterCompositor *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlSorterCompositor11updateCacheEv(
     QQmlSorterCompositor *self) {
-  self->updateCache();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlSorterCompositor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateCache()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateCache()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QQmlSorterCompositorPrivate *QQmlSorterCompositor::d_func()
@@ -492,6 +570,13 @@ QPartialOrdering *ritual_own_ZNK20QQmlSorterCompositor7compareERK11QModelIndexS2
           *a0,
           *a1,
           a2));
+}
+
+//  a QQmlListProperty<QQmlSorterBase> a ritual of QQmlSorterCompositor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlSorterCompositor__QQmlListProperty_QQmlSorterBase(
+    QQmlListProperty<QQmlSorterBase> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)

@@ -292,6 +292,24 @@ const QMetaObject *ritual_ZNK14QQuick3DObject10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuick3DObject11qt_metacastEPKc(
+    QQuick3DObject *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DObject::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuick3DObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DObject::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuick3DObject2trEPKcS1_i(
@@ -376,6 +394,24 @@ void ritual_ZN14QQuick3DObject13setParentItemEPS_(
   self->setParentItem(parentItem);
 }
 
+//  void QQuick3DObject::parentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DObject13parentChangedEv(QQuick3DObject *self) {
+  self->parentChanged();
+}
+
+//  void QQuick3DObject::childrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DObject15childrenChangedEv(QQuick3DObject *self) {
+  self->childrenChanged();
+}
+
+//  void QQuick3DObject::stateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DObject12stateChangedEv(QQuick3DObject *self) {
+  self->stateChanged();
+}
+
 //  QSSGRenderGraphObject
 //      *QQuick3DObject::updateSpatialNode(QSSGRenderGraphObject *node)
 extern "C" Q_DECL_EXPORT
@@ -398,6 +434,15 @@ void ritual_ZN14QQuick3DObject10itemChangeENS_10ItemChangeERKNS_14ItemChangeData
     QQuick3DObject::ItemChange a0,
     const QQuick3DObject::ItemChangeData *a1) {
   self->itemChange(a0, *a1);
+}
+
+//  QQuick3DObject::QQuick3DObject(QQuick3DObjectPrivate &dd, QQuick3DObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DObject *ritual_ZN14QQuick3DObjectC1ER21QQuick3DObjectPrivatePS_(
+    QQuick3DObjectPrivate *dd,
+    QQuick3DObject *parent) {
+  return new CuteQQuick3DObject(*dd, parent);
 }
 
 //  void QQuick3DObject::classBegin()

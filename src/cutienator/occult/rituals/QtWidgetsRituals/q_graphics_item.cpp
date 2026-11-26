@@ -10,7 +10,9 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qtransform.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicstransform.h>
+#endif
 #include <QtGui/qpainterpath.h>
 #include <QtGui/qregion.h>
 #include <QtGui/qpolygon.h>
@@ -804,6 +806,12 @@ public:
 #endif  // QT_CONFIG(graphicsview)
 };
 
+//  QGraphicsItem::QGraphicsItem(QGraphicsItem *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsItem *ritual_ZN13QGraphicsItemC1EPS_(QGraphicsItem *parent) {
+  return new CuteQGraphicsItem(parent);
+}
+
 //  QGraphicsItem::~QGraphicsItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QGraphicsItemD1Ev(QGraphicsItem *self) {
@@ -979,6 +987,15 @@ void ritual_ZN13QGraphicsItem16setPanelModalityENS_13PanelModalityE(
     QGraphicsItem *self,
     QGraphicsItem::PanelModality panelModality) {
   self->setPanelModality(panelModality);
+}
+
+//  bool QGraphicsItem::isBlockedByModalPanel(QGraphicsItem **blockingPanel)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QGraphicsItem21isBlockedByModalPanelEPPS_(
+    const QGraphicsItem *self,
+    QGraphicsItem **blockingPanel) {
+  return self->isBlockedByModalPanel(blockingPanel);
 }
 
 #if QT_CONFIG(tooltip)
@@ -2467,6 +2484,15 @@ QVariant *ritual_ZNK13QGraphicsItem9extensionERK8QVariant(
     const QGraphicsItem *self,
     const QVariant *variant) {
   return new QVariant(self->extension(*variant));
+}
+
+//  QGraphicsItem::QGraphicsItem(QGraphicsItemPrivate &dd, QGraphicsItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsItem *ritual_ZN13QGraphicsItemC1ER20QGraphicsItemPrivatePS_(
+    QGraphicsItemPrivate *dd,
+    QGraphicsItem *parent) {
+  return new CuteQGraphicsItem(*dd, parent);
 }
 
 //  void QGraphicsItem::addToIndex()

@@ -16,11 +16,20 @@
     "ritual_ZN21QLottieShapeTransform16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK21QLottieShapeTransform6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QLottieShapeTransform4skewEv": ["double", "address"],
     "ritual_ZNK21QLottieShapeTransform8skewAxisEv": ["double", "address"],
     "ritual_ZNK21QLottieShapeTransform6shearXEv": ["double", "address"],
     "ritual_ZNK21QLottieShapeTransform6shearYEv": ["double", "address"],
     "ritual_ZNK21QLottieShapeTransform10shearAngleEv": ["double", "address"],
+    "ritual_ZNK21QLottieShapeTransform12skewPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieShapeTransform16skewAxisPropertyEv": [
+      "address", "address"
+    ],
     "ritual_ZN21QLottieShapeTransformD1Ev": ["nothing", "address"],
     "ritual_take_QLottieShapeTransform": [
       "bool", "address", "chars", "address"
@@ -31,6 +40,9 @@
     ],
     "ritual_own_ZN21QLottieShapeTransform16updatePropertiesEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_drop_QLottieShapeTransform__QLottieProperty_qreal": [
+      "nothing", "address"
     ]
   }
 }

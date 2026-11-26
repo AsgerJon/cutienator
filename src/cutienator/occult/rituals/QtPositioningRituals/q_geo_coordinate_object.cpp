@@ -10,6 +10,8 @@
 #include <QtPositioning/qgeocoordinate.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtPositioning/QGeoCoordinate>
 
 //  A QGeoCoordinateObject that Python can take functions over in. Every QGeoCoordinateObject
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,25 @@ const QMetaObject *ritual_ZNK20QGeoCoordinateObject10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoCoordinateObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QGeoCoordinateObject11qt_metacastEPKc(
+    QGeoCoordinateObject *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoCoordinateObject::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QGeoCoordinateObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoCoordinateObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoCoordinateObject::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QGeoCoordinateObject2trEPKcS1_i(
@@ -224,11 +245,29 @@ bool ritual_ZNK20QGeoCoordinateObjecteqERK14QGeoCoordinate(
   return self->operator==(*other);
 }
 
+//  bool QGeoCoordinateObject::operator==(const QGeoCoordinateObject &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QGeoCoordinateObjecteqERKS_(
+    const QGeoCoordinateObject *self,
+    const QGeoCoordinateObject *other) {
+  return self->operator==(*other);
+}
+
 //  bool QGeoCoordinateObject::operator!=(const QGeoCoordinate &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QGeoCoordinateObjectneERK14QGeoCoordinate(
     const QGeoCoordinateObject *self,
     const QGeoCoordinate *other) {
+  return self->operator!=(*other);
+}
+
+//  bool QGeoCoordinateObject::operator!=(const QGeoCoordinateObject &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QGeoCoordinateObjectneERKS_(
+    const QGeoCoordinateObject *self,
+    const QGeoCoordinateObject *other) {
   return self->operator!=(*other);
 }
 
@@ -247,6 +286,26 @@ void ritual_ZN20QGeoCoordinateObject13setCoordinateERK14QGeoCoordinate(
   self->setCoordinate(*c);
 }
 
+//  QBindable<QGeoCoordinate> QGeoCoordinateObject::bindableCoordinate()
+extern "C" Q_DECL_EXPORT
+QBindable<QGeoCoordinate> *ritual_ZN20QGeoCoordinateObject18bindableCoordinateEv(
+    QGeoCoordinateObject *self) {
+  return new QBindable<QGeoCoordinate>(self->bindableCoordinate());
+}
+
+//  void QGeoCoordinateObject::coordinateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGeoCoordinateObject17coordinateChangedEv(
+    QGeoCoordinateObject *self) {
+  self->coordinateChanged();
+}
+
+//  size_t QGeoCoordinateObject::_qt_property_m_coordinate_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN20QGeoCoordinateObject32_qt_property_m_coordinate_offsetEv() {
+  return QGeoCoordinateObject::_qt_property_m_coordinate_offset();
+}
+
 //  a Python function taken by a CuteQGeoCoordinateObject, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -255,4 +314,11 @@ bool ritual_take_QGeoCoordinateObject(
     const char *key,
     void *call) {
   return static_cast<CuteQGeoCoordinateObject *>(self)->take(key, call);
+}
+
+//  a QBindable<QGeoCoordinate> a ritual of QGeoCoordinateObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoCoordinateObject__QBindable_QGeoCoordinate(
+    QBindable<QGeoCoordinate> *self) {
+  delete self;
 }

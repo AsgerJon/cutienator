@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qcoloroutput_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN12QColorOutputC1Ev": ["address"],
@@ -25,6 +25,9 @@
       "text", "address", "text", "int"
     ],
     "ritual_ZN12QColorOutput11flushBufferEv": ["nothing", "address"],
-    "ritual_ZN12QColorOutput13discardBufferEv": ["nothing", "address"]
+    "ritual_ZN12QColorOutput13discardBufferEv": ["nothing", "address"],
+    "ritual_ZN12QColorOutput5writeIvEEvRK7QStringi": [
+      "nothing", "address", "address", "int"
+    ]
   }
 }

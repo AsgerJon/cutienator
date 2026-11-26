@@ -153,6 +153,116 @@ inline qreal QGraphicsWidgetPrivate::height() const
     return q->geometry().height();
 }
 
+//  from src/widgets/graphicsview/qgraphicsproxywidget.cpp, line 489, as _ZNK27QGraphicsProxyWidgetPrivate13isProxyWidgetEv
+inline bool QGraphicsProxyWidgetPrivate::isProxyWidget() const
+{
+    return true;
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 227, as _ZN22QGraphicsWidgetPrivate10updateFontERK5QFont
+inline void QGraphicsWidgetPrivate::updateFont(const QFont &font)
+{
+    Q_Q(QGraphicsWidget);
+    // Update the local font setting.
+    this->font = font;
+
+    // Calculate new mask.
+    if (q->isWindow() && !q->testAttribute(Qt::WA_WindowPropagation))
+        inheritedFontResolveMask = 0;
+    int mask = font.resolveMask() | inheritedFontResolveMask;
+
+    // Propagate to children.
+    for (int i = 0; i < children.size(); ++i) {
+        QGraphicsItem *item = children.at(i);
+        if (item->isWidget()) {
+            QGraphicsWidget *w = static_cast<QGraphicsWidget *>(item);
+            if (!w->isWindow() || w->testAttribute(Qt::WA_WindowPropagation))
+                w->d_func()->resolveFont(mask);
+        } else {
+            item->d_ptr->resolveFont(mask);
+        }
+    }
+
+    if (!polished)
+        return;
+    // Notify change.
+    QEvent event(QEvent::FontChange);
+    QCoreApplication::sendEvent(q, &event);
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 129, as _ZN22QGraphicsWidgetPrivate13updatePaletteERK8QPalette
+inline void QGraphicsWidgetPrivate::updatePalette(const QPalette &palette)
+{
+    Q_Q(QGraphicsWidget);
+    // Update local palette setting.
+    this->palette = palette;
+
+    // Calculate new mask.
+    if (q->isWindow() && !q->testAttribute(Qt::WA_WindowPropagation))
+        inheritedPaletteResolveMask = 0;
+    int mask = palette.resolveMask() | inheritedPaletteResolveMask;
+
+    // Propagate to children.
+    for (int i = 0; i < children.size(); ++i) {
+        QGraphicsItem *item = children.at(i);
+        if (item->isWidget()) {
+            QGraphicsWidget *w = static_cast<QGraphicsWidget *>(item);
+            if (!w->isWindow() || w->testAttribute(Qt::WA_WindowPropagation))
+                w->d_func()->resolvePalette(mask);
+        } else {
+            item->d_ptr->resolvePalette(mask);
+        }
+    }
+
+    // Notify change.
+    QEvent event(QEvent::PaletteChange);
+    QCoreApplication::sendEvent(q, &event);
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 257, as _ZNK22QGraphicsWidgetPrivate17naturalWidgetFontEv
+inline QFont QGraphicsWidgetPrivate::naturalWidgetFont() const
+{
+    Q_Q(const QGraphicsWidget);
+    QFont naturalFont; // ### no application font support
+    if (QGraphicsWidget *parent = q->parentWidget()) {
+        naturalFont = parent->font();
+    } else if (scene) {
+        naturalFont = scene->font();
+    }
+    naturalFont.setResolveMask(0);
+    return naturalFont;
+}
+
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 196, as _ZNK22QGraphicsWidgetPrivate20naturalWidgetPaletteEv
+inline QPalette QGraphicsWidgetPrivate::naturalWidgetPalette() const
+{
+    Q_Q(const QGraphicsWidget);
+    QPalette palette;
+    if (QGraphicsWidget *parent = q->parentWidget()) {
+        palette = parent->palette();
+    } else if (scene) {
+        palette = scene->palette();
+    }
+    palette.setResolveMask(0);
+    return palette;
+}
+
+//  from src/widgets/graphicsview/qgraphicsproxywidget.cpp, line 165, as _ZN27QGraphicsProxyWidgetPrivateC1Ev
+inline QGraphicsProxyWidgetPrivate::QGraphicsProxyWidgetPrivate()
+    : QGraphicsWidgetPrivate(),
+      dragDropWidget(nullptr),
+      posChangeMode(NoMode),
+      sizeChangeMode(NoMode),
+      visibleChangeMode(NoMode),
+      enabledChangeMode(NoMode),
+      styleChangeMode(NoMode),
+      paletteChangeMode(NoMode),
+      tooltipChangeMode(NoMode),
+      focusFromWidgetToProxy(false),
+      proxyIsGivingFocus(false)
+{
+}
+
 //  from src/widgets/graphicsview/qgraphicsproxywidget.cpp, line 183, as _ZN27QGraphicsProxyWidgetPrivateD1Ev
 inline QGraphicsProxyWidgetPrivate::~QGraphicsProxyWidgetPrivate()
 {
@@ -478,12 +588,6 @@ inline void QGraphicsProxyWidgetPrivate::unembedSubWindow(QWidget *subWin)
             }
         }
     }
-}
-
-//  from src/widgets/graphicsview/qgraphicsproxywidget.cpp, line 489, as _ZNK27QGraphicsProxyWidgetPrivate13isProxyWidgetEv
-inline bool QGraphicsProxyWidgetPrivate::isProxyWidget() const
-{
-    return true;
 }
 
 //  from src/widgets/graphicsview/qgraphicsproxywidget.cpp, line 396, as _ZN27QGraphicsProxyWidgetPrivate29updateWidgetGeometryFromProxyEv
@@ -906,6 +1010,12 @@ extern "C" Q_DECL_EXPORT
 const QGraphicsProxyWidget *ritual_ZNK27QGraphicsProxyWidgetPrivate6q_funcEv(
     const QGraphicsProxyWidgetPrivate *self) {
   return self->q_func();
+}
+
+//  QGraphicsProxyWidgetPrivate::QGraphicsProxyWidgetPrivate()
+extern "C" Q_DECL_EXPORT
+QGraphicsProxyWidgetPrivate *ritual_ZN27QGraphicsProxyWidgetPrivateC1Ev() {
+  return new CuteQGraphicsProxyWidgetPrivate();
 }
 
 //  QGraphicsProxyWidgetPrivate::~QGraphicsProxyWidgetPrivate()

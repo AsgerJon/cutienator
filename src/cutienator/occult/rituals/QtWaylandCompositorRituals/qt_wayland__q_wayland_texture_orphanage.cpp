@@ -189,6 +189,25 @@ const QMetaObject *ritual_ZNK9QtWayland24QWaylandTextureOrphanage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtWayland::QWaylandTextureOrphanage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QtWayland24QWaylandTextureOrphanage11qt_metacastEPKc(
+    QtWayland::QWaylandTextureOrphanage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtWayland::QWaylandTextureOrphanage::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QtWayland24QWaylandTextureOrphanage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtWayland::QWaylandTextureOrphanage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtWayland::QWaylandTextureOrphanage::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -203,6 +222,54 @@ QString *ritual_ZN9QtWayland24QWaylandTextureOrphanage2trEPKcS2_i(
 extern "C" Q_DECL_EXPORT
 QtWayland::QWaylandTextureOrphanage *ritual_ZN9QtWayland24QWaylandTextureOrphanageC1Ev() {
   return new CuteQtWayland_QWaylandTextureOrphanage();
+}
+
+//  QtWayland::QWaylandTextureOrphanage::~QWaylandTextureOrphanage()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland24QWaylandTextureOrphanageD1Ev(
+    QtWayland::QWaylandTextureOrphanage *self) {
+  delete self;
+}
+
+//  QWaylandTextureOrphanage *QtWayland::QWaylandTextureOrphanage::instance()
+extern "C" Q_DECL_EXPORT
+QtWayland::QWaylandTextureOrphanage *ritual_ZN9QtWayland24QWaylandTextureOrphanage8instanceEv() {
+  return QtWayland::QWaylandTextureOrphanage::instance();
+}
+
+//  void QtWayland::QWaylandTextureOrphanage::admitTexture(QOpenGLTexture
+//      *tex, QOpenGLContext *ctx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland24QWaylandTextureOrphanage12admitTextureEP14QOpenGLTextureP14QOpenGLContext(
+    QtWayland::QWaylandTextureOrphanage *self,
+    QOpenGLTexture *tex,
+    QOpenGLContext *ctx) {
+  self->admitTexture(tex, ctx);
+}
+
+//  void QtWayland::QWaylandTextureOrphanage::deleteTextures()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland24QWaylandTextureOrphanage14deleteTexturesEv(
+    QtWayland::QWaylandTextureOrphanage *self) {
+  self->deleteTextures();
+}
+
+//  void QtWayland::QWaylandTextureOrphanage::onContextAboutToBeDestroyed(QOp
+//      enGLContext *ctx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland24QWaylandTextureOrphanage27onContextAboutToBeDestroyedEP14QOpenGLContext(
+    QtWayland::QWaylandTextureOrphanage *self,
+    QOpenGLContext *ctx) {
+  self->onContextAboutToBeDestroyed(ctx);
+}
+
+//  void QtWayland::QWaylandTextureOrphanage::deleteTexturesByContext(QOpenGL
+//      Context *ctx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland24QWaylandTextureOrphanage23deleteTexturesByContextEP14QOpenGLContext(
+    QtWayland::QWaylandTextureOrphanage *self,
+    QOpenGLContext *ctx) {
+  self->deleteTexturesByContext(ctx);
 }
 
 //  a Python function taken by a CuteQtWayland_QWaylandTextureOrphanage, for

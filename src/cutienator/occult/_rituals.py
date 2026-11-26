@@ -75,7 +75,7 @@ class Rituals:
   -------------
 
   - 'getRitualFolder': the folder 'rituals' beside this module.
-  - 'getRitualFiles': every C++ file in that folder.
+  - 'getRitualFiles': every C++ and Objective-C++ file in that folder.
   - 'getRowsFiles': the rows file of each of them.
   - 'getRows': every row of the rows files of a part, under the name
     of its ritual.
@@ -276,9 +276,11 @@ class Rituals:
     Gives every ritual file of the package. 'summon' compiles those of
     the parts the Qt of this machine has; see 'getBuiltRitualFiles'.
 
-    Found for you: every file ending in '.cpp' in the folder of a part
-    of Qt in the ritual folder, part by part and in alphabetical order.
-    Putting a file there is all it takes.
+    Found for you: every file ending in '.cpp', and in '.mm' for one of
+    Objective-C++, in the folder of a part of Qt in the ritual folder,
+    in alphabetical order. Putting a file there is all it takes. One of
+    Objective-C++ is compiled only where 'System.buildsObjectiveC'
+    says so; its rows are read everywhere.
 
     Returns
     -------
@@ -286,8 +288,11 @@ class Rituals:
     Paths
       A 'Tuple[str, ...]' of full paths.
     """
-    pattern = os.path.join(cls.getRitualFolder(), '*Rituals', '*.cpp')
-    return (*sorted(glob.glob(pattern)),)
+    folder = os.path.join(cls.getRitualFolder(), '*Rituals')
+    found = [
+        *glob.glob(os.path.join(folder, '*.cpp')),
+        *glob.glob(os.path.join(folder, '*.mm'))]
+    return (*sorted(found),)
 
   @classmethod
   def getBuiltRitualFiles(cls) -> Paths:
@@ -308,8 +313,21 @@ class Rituals:
     """Gives the ritual files of one part of Qt, as those of
     'getRitualFiles' in the folder 'QtCoreRituals' for 'QtCore', in
     alphabetical order. A part with no such folder has none."""
-    pattern = os.path.join(cls.getPartFolder(partName), '*.cpp')
-    return (*sorted(glob.glob(pattern)),)
+    folder = cls.getPartFolder(partName)
+    found = [
+        *glob.glob(os.path.join(folder, '*.cpp')),
+        *glob.glob(os.path.join(folder, '*.mm'))]
+    return (*sorted(found),)
+
+  @classmethod
+  def getPartCompiledFiles(cls, partName: str) -> Paths:
+    """Gives the ritual files of one part that this machine compiles:
+    those of 'getPartRitualFiles', but for those of Objective-C++ where
+    the system builds none; see 'System.buildsObjectiveC'."""
+    objective = System.getHere().buildsObjectiveC()
+    return (*(
+        path for path in cls.getPartRitualFiles(partName)
+        if objective or not path.endswith('.mm')),)
 
   @staticmethod
   def _getPartOf(ritualFile: str) -> str:
@@ -781,7 +799,7 @@ class Rituals:
       if not os.path.isfile(target):
         return True
       made = os.path.getmtime(target)
-      for ritualFile in cls.getPartRitualFiles(partName):
+      for ritualFile in cls.getPartCompiledFiles(partName):
         if os.path.getmtime(ritualFile) > made:
           return True
     return False
@@ -1325,7 +1343,7 @@ class Rituals:
       The part has no ritual files.
     """
     build = Summon()
-    build.setRitualFiles(*cls.getPartRitualFiles(partName))
+    build.setRitualFiles(*cls.getPartCompiledFiles(partName))
     build.setTargetFile(cls.getTargetFile(partName))
     build.setQtSharedObjects(*cls.getPartSharedObjects(partName))
     build.setStaticDependencies(*cls.getPartStaticDependencies(partName))

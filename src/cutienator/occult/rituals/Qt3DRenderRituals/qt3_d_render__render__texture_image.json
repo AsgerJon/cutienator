@@ -5,6 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12TextureImageC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render12TextureImageD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render12TextureImage7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12TextureImage16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render12TextureImage5layerEv": [
       "int", "address"
     ],
@@ -12,14 +20,23 @@
       "int", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render12TextureImage4faceEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender6Render12TextureImage13dataGeneratorEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render12TextureImage7isDirtyEv": [
       "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12TextureImage10unsetDirtyEv": [
+      "nothing", "address"
     ],
     "ritual_take_Qt3DRender_Render_TextureImage": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render12TextureImage16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_TextureImage__Qt3DRender_QTextureImageDataGeneratorPtr": [
+      "nothing", "address"
     ]
   }
 }

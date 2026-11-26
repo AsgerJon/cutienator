@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN13DomLayoutItemC1Ev": ["address"],
     "ritual_ZN13DomLayoutItemD1Ev": ["nothing", "address"],
+    "ritual_ZN13DomLayoutItem4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13DomLayoutItem5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK13DomLayoutItem15hasAttributeRowEv": ["bool", "address"],
     "ritual_ZNK13DomLayoutItem12attributeRowEv": ["int", "address"],
     "ritual_ZN13DomLayoutItem15setAttributeRowEi": [

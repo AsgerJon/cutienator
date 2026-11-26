@@ -5,7 +5,9 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_scatter_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_scatter_chart)
 #include <QtCharts/qscatterseries.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qscatterseries_p.h>
@@ -35,6 +37,20 @@ void ritual_ZN21QScatterSeriesPrivate15initializeThemeEiP10ChartThemeb(
     ChartTheme *theme,
     bool forced) {
   self->initializeTheme(index, theme, forced);
+}
+
+//  void QScatterSeriesPrivate::initializeAnimations(QChart::AnimationOptions
+//      options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QScatterSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QScatterSeriesPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
 }
 
 //  QScatterSeries *QScatterSeriesPrivate::q_func()

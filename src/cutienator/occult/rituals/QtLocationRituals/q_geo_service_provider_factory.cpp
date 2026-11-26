@@ -2,6 +2,10 @@
 //  QtLocation/qgeoserviceproviderfactory.h, Qt 6.12.0. Changes made here are
 //  lost.
 #include <QtLocation/qgeoserviceproviderfactory.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A QGeoServiceProviderFactory that Python can take functions over in. Every QGeoServiceProviderFactory
@@ -11,7 +15,7 @@ typedef void (*CuteQGeoServiceProviderFactoryCall0)(const void *, QQmlEngine *, 
 class CuteQGeoServiceProviderFactory : public QGeoServiceProviderFactory {
 public:
   using QGeoServiceProviderFactory::QGeoServiceProviderFactory;
-  CuteQGeoServiceProviderFactory(const QGeoServiceProviderFactory &other) : QGeoServiceProviderFactory(other) {}
+  CuteQGeoServiceProviderFactory(const QGeoServiceProviderFactory & other) : QGeoServiceProviderFactory(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -39,6 +43,58 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QGeoServiceProviderFactoryD1Ev(
     QGeoServiceProviderFactory *self) {
   delete self;
+}
+
+//  QGeoCodingManagerEngine
+//      *QGeoServiceProviderFactory::createGeocodingManagerEngine(const
+//      QVariantMap &parameters, QGeoServiceProvider::Error *error, QString
+//      *errorString) const
+extern "C" Q_DECL_EXPORT
+QGeoCodingManagerEngine *ritual_ZNK26QGeoServiceProviderFactory28createGeocodingManagerEngineERK4QMapI7QString8QVariantEPN19QGeoServiceProvider5ErrorEPS1_(
+    const QGeoServiceProviderFactory *self,
+    const QMap<QString, QVariant> *parameters,
+    QGeoServiceProvider::Error *error,
+    QString *errorString) {
+  return self->createGeocodingManagerEngine(*parameters, error, errorString);
+}
+
+//  QGeoMappingManagerEngine
+//      *QGeoServiceProviderFactory::createMappingManagerEngine(const
+//      QVariantMap &parameters, QGeoServiceProvider::Error *error, QString
+//      *errorString) const
+extern "C" Q_DECL_EXPORT
+QGeoMappingManagerEngine *ritual_ZNK26QGeoServiceProviderFactory26createMappingManagerEngineERK4QMapI7QString8QVariantEPN19QGeoServiceProvider5ErrorEPS1_(
+    const QGeoServiceProviderFactory *self,
+    const QMap<QString, QVariant> *parameters,
+    QGeoServiceProvider::Error *error,
+    QString *errorString) {
+  return self->createMappingManagerEngine(*parameters, error, errorString);
+}
+
+//  QGeoRoutingManagerEngine
+//      *QGeoServiceProviderFactory::createRoutingManagerEngine(const
+//      QVariantMap &parameters, QGeoServiceProvider::Error *error, QString
+//      *errorString) const
+extern "C" Q_DECL_EXPORT
+QGeoRoutingManagerEngine *ritual_ZNK26QGeoServiceProviderFactory26createRoutingManagerEngineERK4QMapI7QString8QVariantEPN19QGeoServiceProvider5ErrorEPS1_(
+    const QGeoServiceProviderFactory *self,
+    const QMap<QString, QVariant> *parameters,
+    QGeoServiceProvider::Error *error,
+    QString *errorString) {
+  return self->createRoutingManagerEngine(*parameters, error, errorString);
+}
+
+//  QPlaceManagerEngine
+//      *QGeoServiceProviderFactory::createPlaceManagerEngine(const
+//      QVariantMap &parameters, QGeoServiceProvider::Error *error, QString
+//      *errorString) const
+extern "C" Q_DECL_EXPORT
+QPlaceManagerEngine *ritual_ZNK26QGeoServiceProviderFactory24createPlaceManagerEngineERK4QMapI7QString8QVariantEPN19QGeoServiceProvider5ErrorEPS1_(
+    const QGeoServiceProviderFactory *self,
+    const QMap<QString, QVariant> *parameters,
+    QGeoServiceProvider::Error *error,
+    QString *errorString) {
+  return self->createPlaceManagerEngine(*parameters, error, errorString);
 }
 
 //  void QGeoServiceProviderFactory::setQmlEngine(QQmlEngine *engine)

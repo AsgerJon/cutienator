@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK16QPhysicsMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPhysicsMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QPhysicsMaterial11qt_metacastEPKc(
+    QPhysicsMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPhysicsMaterial::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QPhysicsMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPhysicsMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPhysicsMaterial::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QPhysicsMaterial2trEPKcS1_i(
@@ -73,4 +92,25 @@ void ritual_ZN16QPhysicsMaterial14setRestitutionEf(
     QPhysicsMaterial *self,
     float restitution) {
   self->setRestitution(restitution);
+}
+
+//  void QPhysicsMaterial::staticFrictionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPhysicsMaterial21staticFrictionChangedEv(
+    QPhysicsMaterial *self) {
+  self->staticFrictionChanged();
+}
+
+//  void QPhysicsMaterial::dynamicFrictionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPhysicsMaterial22dynamicFrictionChangedEv(
+    QPhysicsMaterial *self) {
+  self->dynamicFrictionChanged();
+}
+
+//  void QPhysicsMaterial::restitutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPhysicsMaterial18restitutionChangedEv(
+    QPhysicsMaterial *self) {
+  self->restitutionChanged();
 }

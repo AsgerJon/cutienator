@@ -20,9 +20,15 @@
 #include <QtPositioning/qgeocoordinate.h>
 #include <QtCore/qpoint.h>
 #include <QtPositioning/qgeoshape.h>
+#include <QtPositioning/qgeorectangle.h>
+#include <QtCore/qmargins.h>
 #include <QtGui/qtransform.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QPair>
+#include <QtPositioning/QGeoCoordinate>
+#include <QtPositioning/QGeoRectangle>
+#include <QtCore/QMargins>
 
 //  A QGeoProjectionWebMercator that Python can take functions over in. Every QGeoProjectionWebMercator
 //  Python makes is one. Each function below asks the Python
@@ -712,6 +718,20 @@ QList<QDoubleVector2D> *ritual_ZNK25QGeoProjectionWebMercator19projectableGeomet
   return new QList<QDoubleVector2D>(self->projectableGeometry());
 }
 
+//  QPair<QGeoCoordinate, qreal>
+//      QGeoProjectionWebMercator::fitViewportToGeoRectangle(const
+//      QGeoRectangle &rectangle, const QMargins &margins) const
+extern "C" Q_DECL_EXPORT
+QPair<QGeoCoordinate, qreal> *ritual_ZNK25QGeoProjectionWebMercator25fitViewportToGeoRectangleERK13QGeoRectangleRK8QMargins(
+    const QGeoProjectionWebMercator *self,
+    const QGeoRectangle *rectangle,
+    const QMargins *margins) {
+  return new QPair<QGeoCoordinate, qreal>(
+      self->fitViewportToGeoRectangle(
+          *rectangle,
+          *margins));
+}
+
 //  void QGeoProjectionWebMercator::setupCamera()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QGeoProjectionWebMercator11setupCameraEv(
@@ -905,4 +925,11 @@ extern "C" Q_DECL_EXPORT
 QGeoShape *ritual_own_ZNK25QGeoProjectionWebMercator13visibleRegionEv(
     const QGeoProjectionWebMercator *self) {
   return new QGeoShape(self->QGeoProjectionWebMercator::visibleRegion());
+}
+
+//  a QPair<QGeoCoordinate, qreal> a ritual of QGeoProjectionWebMercator gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoProjectionWebMercator__QPair_QGeoCoordinate_qreal(
+    QPair<QGeoCoordinate, qreal> *self) {
+  delete self;
 }

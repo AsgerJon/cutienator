@@ -8,8 +8,17 @@
     "ritual_ZNK18qdesigner_internal14QLayoutSupport10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal14QLayoutSupport2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupportD1Ev": [
+      "nothing", "address"
     ],
     "ritual_ZNK18qdesigner_internal14QLayoutSupport10formWindowEv": [
       "address", "address"
@@ -23,6 +32,48 @@
     "ritual_ZNK18qdesigner_internal14QLayoutSupport17currentInsertModeEv": [
       "int", "address"
     ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport11currentCellEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport10findItemAtERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport7indexOfEP7QWidget": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport7indexOfEP11QLayoutItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport15adjustIndicatorERK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport7widgetsEP7QLayout": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport16createEmptyCellsEP11QGridLayout": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport16removeEmptyCellsEP11QGridLayoutRK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport16createEmptyCellsEP11QFormLayout": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport16removeEmptyCellsEP11QFormLayoutRK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport10findItemAtEP11QGridLayoutii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport21canSimplifyQuickCheckEPK11QGridLayout": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport21canSimplifyQuickCheckEPK11QFormLayout": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport19createLayoutSupportEP28QDesignerFormWindowInterfaceP7QWidgetP7QObject": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal14QLayoutSupport38setCurrentCellFromIndicatorOnEmptyCellEi": [
       "nothing", "address", "int"
     ],
@@ -35,8 +86,29 @@
     "ritual_ZNK18qdesigner_internal14QLayoutSupport28supportsIndicatorOrientationEN2Qt11OrientationE": [
       "bool", "address", "int"
     ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport8itemInfoEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport6layoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport10gridLayoutEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18qdesigner_internal14QLayoutSupport6widgetEv": [
       "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport13setInsertModeEN34QDesignerLayoutDecorationExtension10InsertModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport14setCurrentCellERKSt4pairIiiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport13hideIndicatorENS0_9IndicatorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport13showIndicatorENS0_9IndicatorERK5QRectRK8QPalette": [
+      "nothing", "address", "int", "address", "address"
     ],
     "ritual_cast_qdesigner_internal_QLayoutSupport_QDesignerLayoutDecorationExtension": [
       "address", "address"
@@ -64,6 +136,9 @@
     ],
     "ritual_own_ZNK18qdesigner_internal14QLayoutSupport8itemInfoEi": [
       "address", "address", "int"
+    ],
+    "ritual_drop_qdesigner_internal_QLayoutSupport__std_pair_int_int": [
+      "nothing", "address"
     ]
   }
 }

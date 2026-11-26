@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qvectornd.h>
 #include <QtGui/qquaternion.h>
+#include <QtGui/QMatrix3x3>
 
 //  RotationData::RotationData()
 extern "C" Q_DECL_EXPORT
@@ -26,6 +27,22 @@ extern "C" Q_DECL_EXPORT
 RotationData *ritual_ZN12RotationDataC1ERK11QQuaternion(
     const QQuaternion *r) {
   return new RotationData(*r);
+}
+
+//  RotationData &RotationData::operator=(const QVector3D &r)
+extern "C" Q_DECL_EXPORT
+RotationData *ritual_ZN12RotationDataaSERK9QVector3D(
+    RotationData *self,
+    const QVector3D *r) {
+  return &(self->operator=(*r));
+}
+
+//  RotationData &RotationData::operator=(const QQuaternion &r)
+extern "C" Q_DECL_EXPORT
+RotationData *ritual_ZN12RotationDataaSERK11QQuaternion(
+    RotationData *self,
+    const QQuaternion *r) {
+  return &(self->operator=(*r));
 }
 
 //  bool operator==(const RotationData &a, const RotationData &b)
@@ -122,6 +139,13 @@ QQuaternion *ritual_ZNK12RotationData12toQuaternionEv(
   return new QQuaternion(self->toQuaternion());
 }
 
+//  QMatrix3x3 RotationData::toRotationMatrix() const
+extern "C" Q_DECL_EXPORT
+QMatrix3x3 *ritual_ZNK12RotationData16toRotationMatrixEv(
+    const RotationData *self) {
+  return new QMatrix3x3(self->toRotationMatrix());
+}
+
 //  double RotationData::dotProduct(const QQuaternion &q1, const QQuaternion
 //      &q2)
 extern "C" Q_DECL_EXPORT
@@ -143,5 +167,11 @@ bool ritual_ZN12RotationData22fuzzyQuaternionCompareERK11QQuaternionS2_(
 //  RotationData::~RotationData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12RotationDataD1Ev(RotationData *self) {
+  delete self;
+}
+
+//  a QMatrix3x3 a ritual of RotationData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_RotationData__QMatrix3x3(QMatrix3x3 *self) {
   delete self;
 }

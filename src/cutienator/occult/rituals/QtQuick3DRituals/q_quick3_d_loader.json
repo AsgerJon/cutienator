@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuick3DLoader10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuick3DLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuick3DLoader2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,6 +40,18 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK14QQuick3DLoader4itemEv": ["address", "address"],
+    "ritual_ZN14QQuick3DLoader11itemChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader22sourceComponentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DLoader13statusChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader15progressChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader6loadedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QQuick3DLoader17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN14QQuick3DLoader12sourceLoadedEv": ["nothing", "address"],
     "ritual_ZN14QQuick3DLoader9setSourceERK4QUrlb": [

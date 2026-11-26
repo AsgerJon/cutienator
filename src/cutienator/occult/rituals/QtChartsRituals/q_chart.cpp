@@ -8,7 +8,9 @@
 #include <QtGui/qfont.h>
 #include <QtGui/qbrush.h>
 #include <QtGui/qpen.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qmargins.h>
 #include <QtCore/qlocale.h>
@@ -1420,6 +1422,22 @@ const QMetaObject *ritual_ZNK6QChart10metaObjectEv(const QChart *self) {
   return self->metaObject();
 }
 
+//  void *QChart::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6QChart11qt_metacastEPKc(QChart *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QChart::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6QChart11qt_metacallEN11QMetaObject4CallEiPPv(
+    QChart *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QChart::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN6QChart2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1869,6 +1887,14 @@ QPointF *ritual_ZN6QChart13mapToPositionERK7QPointFP15QAbstractSeries(
 extern "C" Q_DECL_EXPORT
 QChart::ChartType ritual_ZNK6QChart9chartTypeEv(const QChart *self) {
   return self->chartType();
+}
+
+//  void QChart::plotAreaChanged(const QRectF &plotArea)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QChart15plotAreaChangedERK6QRectF(
+    QChart *self,
+    const QRectF *plotArea) {
+  self->plotAreaChanged(*plotArea);
 }
 
 //  QChart::QChart(QChart::ChartType type, QGraphicsItem *parent,

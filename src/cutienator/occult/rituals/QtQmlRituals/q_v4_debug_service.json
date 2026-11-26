@@ -6,12 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK15QV4DebugService10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QV4DebugService11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QV4DebugService11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QV4DebugService2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN15QV4DebugServiceD1Ev": ["nothing", "address"],
     "ritual_ZN15QV4DebugService13signalEmittedERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN15QV4DebugServiceC1EfP7QObject": [
+      "address", "float", "address"
     ],
     "ritual_take_QV4DebugService": ["bool", "address", "chars", "address"]
   }

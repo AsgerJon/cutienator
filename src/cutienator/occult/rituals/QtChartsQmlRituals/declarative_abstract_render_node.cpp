@@ -143,6 +143,16 @@ void ritual_ZN29DeclarativeAbstractRenderNode7setRectERK6QRectF(
   self->setRect(*rect);
 }
 
+//  void DeclarativeAbstractRenderNode::setSeriesData(bool mapDirty, const
+//      GLXYDataMap &dataMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29DeclarativeAbstractRenderNode13setSeriesDataEbRK5QHashIPK9QXYSeriesP14GLXYSeriesDataE(
+    DeclarativeAbstractRenderNode *self,
+    bool mapDirty,
+    const GLXYDataMap *dataMap) {
+  self->setSeriesData(mapDirty, *dataMap);
+}
+
 //  void DeclarativeAbstractRenderNode::setAntialiasing(bool enable)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29DeclarativeAbstractRenderNode15setAntialiasingEb(
@@ -158,6 +168,15 @@ void ritual_ZN29DeclarativeAbstractRenderNode14addMouseEventsERK5QListIP11QMouse
     DeclarativeAbstractRenderNode *self,
     const QList<QMouseEvent *> *events) {
   self->addMouseEvents(*events);
+}
+
+//  void DeclarativeAbstractRenderNode::takeMouseEventResponses(QList<MouseEv
+//      entResponse> &responses)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29DeclarativeAbstractRenderNode23takeMouseEventResponsesER5QListI18MouseEventResponseE(
+    DeclarativeAbstractRenderNode *self,
+    QList<MouseEventResponse> *responses) {
+  self->takeMouseEventResponses(*responses);
 }
 
 //  a Python function taken by a CuteDeclarativeAbstractRenderNode, for the

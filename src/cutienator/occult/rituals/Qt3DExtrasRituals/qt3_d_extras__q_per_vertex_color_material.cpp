@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras23QPerVertexColorMaterial10metaObjectEv
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QPerVertexColorMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras23QPerVertexColorMaterial11qt_metacastEPKc(
+    Qt3DExtras::QPerVertexColorMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QPerVertexColorMaterial::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras23QPerVertexColorMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QPerVertexColorMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QPerVertexColorMaterial::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +208,21 @@ QString *ritual_ZN10Qt3DExtras23QPerVertexColorMaterial2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QPerVertexColorMaterial::tr(s, c, n));
+}
+
+//  Qt3DExtras::QPerVertexColorMaterial::QPerVertexColorMaterial(Qt3DCore::QN
+//      ode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QPerVertexColorMaterial *ritual_ZN10Qt3DExtras23QPerVertexColorMaterialC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QPerVertexColorMaterial(parent);
+}
+
+//  Qt3DExtras::QPerVertexColorMaterial::~QPerVertexColorMaterial()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras23QPerVertexColorMaterialD1Ev(
+    Qt3DExtras::QPerVertexColorMaterial *self) {
+  delete self;
 }
 
 //  QPerVertexColorMaterialPrivate

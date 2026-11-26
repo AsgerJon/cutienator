@@ -11,6 +11,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qmetatype.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDBus/private/qdbusargument_p.h>
 #include <QtDBus/qdbusconnection.h>
@@ -24,6 +25,19 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/dbus/qdbusmarshaller.cpp, line 16, as local:qdbusmarshaller.cpp:qIterAppend
+#if !defined(QT_NO_DBUS)
+static void qIterAppend(DBusMessageIter *it, QByteArray *ba, int type, const void *arg)
+{
+    if (ba)
+        *ba += char(type);
+    else
+        q_dbus_message_iter_append_basic(it, type, arg);
+}
+#endif  // !defined(QT_NO_DBUS)
 
 //  from src/dbus/qdbusmarshaller.cpp, line 336, as _ZN15QDBusMarshaller5errorERK7QString
 #if !defined(QT_NO_DBUS)
@@ -46,6 +60,19 @@ inline bool QDBusMarshaller::appendRegisteredType(const QVariant &arg)
     return QDBusMetaType::marshall(self, arg.metaType(), arg.constData());
 }
 #endif  // !defined(QT_NO_DBUS)
+
+//  from src/dbus/qdbusmarshaller.cpp, line 29, as _ZN15QDBusMarshaller21unregisteredTypeErrorE9QMetaType
+#if !defined(QT_NO_DBUS)
+inline void QDBusMarshaller::unregisteredTypeError(QMetaType id)
+{
+    const char *name = id.name();
+    qWarning("QDBusMarshaller: type '%s' (%d) is not registered with D-Bus. "
+             "Use qDBusRegisterMetaType to register it",
+             name ? name : "", id.id());
+    error("Unregistered type %1 passed in arguments"_L1
+          .arg(QLatin1StringView(id.name())));
+}
+#endif  // !defined(QT_NO_DBUS)
 //  -----------------------------------------------------------------------
 
 #if !defined(QT_NO_DBUS)
@@ -65,6 +92,16 @@ bool ritual_ZN15QDBusMarshaller20appendRegisteredTypeERK8QVariant(
     QDBusMarshaller *self,
     const QVariant *arg) {
   return self->appendRegisteredType(*arg);
+}
+#endif  // !defined(QT_NO_DBUS)
+
+#if !defined(QT_NO_DBUS)
+//  void QDBusMarshaller::unregisteredTypeError(QMetaType t)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QDBusMarshaller21unregisteredTypeErrorE9QMetaType(
+    QDBusMarshaller *self,
+    const QMetaType *t) {
+  self->unregisteredTypeError(*t);
 }
 #endif  // !defined(QT_NO_DBUS)
 

@@ -15,6 +15,13 @@ QQsbInMemoryCollection *ritual_ZN22QQsbInMemoryCollectionC1Ev() {
   return new QQsbInMemoryCollection();
 }
 
+//  EntryMap QQsbInMemoryCollection::availableEntries() const
+extern "C" Q_DECL_EXPORT
+QQsbCollection::EntryMap *ritual_ZNK22QQsbInMemoryCollection16availableEntriesEv(
+    const QQsbInMemoryCollection *self) {
+  return new QQsbCollection::EntryMap(self->availableEntries());
+}
+
 //  Entry QQsbInMemoryCollection::addEntry(const QByteArray &key, const
 //      EntryDesc &entryDesc)
 extern "C" Q_DECL_EXPORT
@@ -23,6 +30,16 @@ QQsbCollection::Entry *ritual_ZN22QQsbInMemoryCollection8addEntryERK10QByteArray
     const QByteArray *key,
     const QQsbCollection::EntryDesc *entryDesc) {
   return new QQsbCollection::Entry(self->addEntry(*key, *entryDesc));
+}
+
+//  bool QQsbInMemoryCollection::extractEntry(Entry entry, EntryDesc
+//      &entryDesc)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQsbInMemoryCollection12extractEntryEN14QQsbCollection5EntryERNS0_9EntryDescE(
+    QQsbInMemoryCollection *self,
+    const QQsbCollection::Entry *entry,
+    QQsbCollection::EntryDesc *entryDesc) {
+  return self->extractEntry(*entry, *entryDesc);
 }
 
 //  void QQsbInMemoryCollection::clear()
@@ -59,4 +76,11 @@ QQsbCollection::Entry *ritual_own_ZN22QQsbInMemoryCollection8addEntryERK10QByteA
       self->QQsbInMemoryCollection::addEntry(
           *key,
           *entryDesc));
+}
+
+//  a QQsbCollection::EntryMap a ritual of QQsbInMemoryCollection gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQsbInMemoryCollection__QQsbCollection_EntryMap(
+    QQsbCollection::EntryMap *self) {
+  delete self;
 }

@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK12QWaveDecoder10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QWaveDecoder11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QWaveDecoder2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QWaveDecoderC1EP9QIODeviceP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QWaveDecoderC1EP9QIODeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QWaveDecoderD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QWaveDecoder11audioFormatEv": ["address", "address"],
+    "ritual_ZN12QWaveDecoder9getDeviceEv": ["address", "address"],
+    "ritual_ZNK12QWaveDecoder8durationEv": ["int", "address"],
+    "ritual_ZN12QWaveDecoder12headerLengthEv": ["long long"],
+    "ritual_ZN12QWaveDecoder4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QWaveDecoder5closeEv": ["nothing", "address"],
+    "ritual_ZN12QWaveDecoder4seekEx": ["bool", "address", "long long"],
+    "ritual_ZNK12QWaveDecoder3posEv": ["long long", "address"],
+    "ritual_ZN12QWaveDecoder11setIODeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QWaveDecoder4sizeEv": ["long long", "address"],
+    "ritual_ZNK12QWaveDecoder12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK12QWaveDecoder14bytesAvailableEv": ["long long", "address"],
+    "ritual_ZN12QWaveDecoder10handleDataEv": ["nothing", "address"],
+    "ritual_ZN12QWaveDecoder8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN12QWaveDecoder9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN12QWaveDecoder11writeHeaderEv": ["bool", "address"],
+    "ritual_ZN12QWaveDecoder15writeDataLengthEv": ["bool", "address"],
+    "ritual_ZN12QWaveDecoder13parsingFailedEv": ["nothing", "address"],
+    "ritual_take_QWaveDecoder": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QWaveDecoder4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN12QWaveDecoder5closeEv": ["nothing", "address"],
+    "ritual_own_ZN12QWaveDecoder4seekEx": ["bool", "address", "long long"],
+    "ritual_own_ZNK12QWaveDecoder3posEv": ["long long", "address"],
+    "ritual_own_ZNK12QWaveDecoder4sizeEv": ["long long", "address"],
+    "ritual_own_ZNK12QWaveDecoder12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZNK12QWaveDecoder14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN12QWaveDecoder8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ]
+  }
+}

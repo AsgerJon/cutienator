@@ -5,8 +5,17 @@
   ],
   "rows": {
     "ritual_ZNK17QHelpFilterEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QHelpFilterEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QHelpFilterEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QHelpFilterEngine2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK17QHelpFilterEngine20namespaceToComponentEv": [
+      "address", "address"
     ],
     "ritual_ZNK17QHelpFilterEngine18namespaceToVersionEv": [
       "address", "address"
@@ -38,6 +47,9 @@
     "ritual_ZNK17QHelpFilterEngine7indicesERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZN17QHelpFilterEngine15filterActivatedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN17QHelpFilterEngineC1EP15QHelpEngineCore": [
       "address", "address"
     ],
@@ -45,6 +57,9 @@
     "ritual_ZN17QHelpFilterEngine20setCollectionHandlerEP22QHelpCollectionHandler": [
       "nothing", "address", "address"
     ],
-    "ritual_take_QHelpFilterEngine": ["bool", "address", "chars", "address"]
+    "ritual_take_QHelpFilterEngine": ["bool", "address", "chars", "address"],
+    "ritual_drop_QHelpFilterEngine__QMap_QString_QString": [
+      "nothing", "address"
+    ]
   }
 }

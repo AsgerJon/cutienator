@@ -308,6 +308,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal13WidgetFactory10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::WidgetFactory::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal13WidgetFactory11qt_metacastEPKc(
+    qdesigner_internal::WidgetFactory *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::WidgetFactory::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal13WidgetFactory11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::WidgetFactory *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::WidgetFactory::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -316,6 +335,114 @@ QString *ritual_ZN18qdesigner_internal13WidgetFactory2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::WidgetFactory::tr(s, c, n));
+}
+
+//  qdesigner_internal::WidgetFactory::WidgetFactory(QDesignerFormEditorInter
+//      face *core, QObject *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::WidgetFactory *ritual_ZN18qdesigner_internal13WidgetFactoryC1EP28QDesignerFormEditorInterfaceP7QObject(
+    QDesignerFormEditorInterface *core,
+    QObject *parent) {
+  return new Cuteqdesigner_internal_WidgetFactory(core, parent);
+}
+
+//  qdesigner_internal::WidgetFactory::~WidgetFactory()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13WidgetFactoryD1Ev(
+    qdesigner_internal::WidgetFactory *self) {
+  delete self;
+}
+
+//  QWidget *qdesigner_internal::WidgetFactory::containerOfWidget(QWidget
+//      *widget) const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK18qdesigner_internal13WidgetFactory17containerOfWidgetEP7QWidget(
+    const qdesigner_internal::WidgetFactory *self,
+    QWidget *widget) {
+  return self->containerOfWidget(widget);
+}
+
+//  QWidget *qdesigner_internal::WidgetFactory::widgetOfContainer(QWidget
+//      *widget) const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK18qdesigner_internal13WidgetFactory17widgetOfContainerEP7QWidget(
+    const qdesigner_internal::WidgetFactory *self,
+    QWidget *widget) {
+  return self->widgetOfContainer(widget);
+}
+
+//  QObject *qdesigner_internal::WidgetFactory::createObject(const QString
+//      &className, QObject *parent) const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK18qdesigner_internal13WidgetFactory12createObjectERK7QStringP7QObject(
+    const qdesigner_internal::WidgetFactory *self,
+    const QString *className,
+    QObject *parent) {
+  return self->createObject(*className, parent);
+}
+
+//  QWidget *qdesigner_internal::WidgetFactory::createWidget(const QString
+//      &className, QWidget *parentWidget) const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK18qdesigner_internal13WidgetFactory12createWidgetERK7QStringP7QWidget(
+    const qdesigner_internal::WidgetFactory *self,
+    const QString *className,
+    QWidget *parentWidget) {
+  return self->createWidget(*className, parentWidget);
+}
+
+//  QLayout *qdesigner_internal::WidgetFactory::createLayout(QWidget *widget,
+//      QLayout *layout, int type) const
+extern "C" Q_DECL_EXPORT
+QLayout *ritual_ZNK18qdesigner_internal13WidgetFactory12createLayoutEP7QWidgetP7QLayouti(
+    const qdesigner_internal::WidgetFactory *self,
+    QWidget *widget,
+    QLayout *layout,
+    int type) {
+  return self->createLayout(widget, layout, type);
+}
+
+//  bool qdesigner_internal::WidgetFactory::isPassiveInteractor(QWidget
+//      *widget)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal13WidgetFactory19isPassiveInteractorEP7QWidget(
+    qdesigner_internal::WidgetFactory *self,
+    QWidget *widget) {
+  return self->isPassiveInteractor(widget);
+}
+
+//  void qdesigner_internal::WidgetFactory::initialize(QObject *object) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal13WidgetFactory10initializeEP7QObject(
+    const qdesigner_internal::WidgetFactory *self,
+    QObject *object) {
+  self->initialize(object);
+}
+
+//  void qdesigner_internal::WidgetFactory::initializeCommon(QWidget *object)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal13WidgetFactory16initializeCommonEP7QWidget(
+    const qdesigner_internal::WidgetFactory *self,
+    QWidget *object) {
+  self->initializeCommon(object);
+}
+
+//  void qdesigner_internal::WidgetFactory::initializePreview(QWidget
+//      *object) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal13WidgetFactory17initializePreviewEP7QWidget(
+    const qdesigner_internal::WidgetFactory *self,
+    QWidget *object) {
+  self->initializePreview(object);
+}
+
+//  QDesignerFormEditorInterface *qdesigner_internal::WidgetFactory::core()
+//      const
+extern "C" Q_DECL_EXPORT
+QDesignerFormEditorInterface *ritual_ZNK18qdesigner_internal13WidgetFactory4coreEv(
+    const qdesigner_internal::WidgetFactory *self) {
+  return self->core();
 }
 
 //  QString qdesigner_internal::WidgetFactory::classNameOf(QDesignerFormEdito
@@ -330,12 +457,128 @@ QString *ritual_ZN18qdesigner_internal13WidgetFactory11classNameOfEP28QDesignerF
           o));
 }
 
+//  QDesignerFormWindowInterface *qdesigner_internal::WidgetFactory::currentF
+//      ormWindow(QDesignerFormWindowInterface *fw)
+extern "C" Q_DECL_EXPORT
+QDesignerFormWindowInterface *ritual_ZN18qdesigner_internal13WidgetFactory17currentFormWindowEP28QDesignerFormWindowInterface(
+    qdesigner_internal::WidgetFactory *self,
+    QDesignerFormWindowInterface *fw) {
+  return self->currentFormWindow(fw);
+}
+
+//  QLayout *qdesigner_internal::WidgetFactory::createUnmanagedLayout(QWidget
+//      *parentWidget, int type)
+extern "C" Q_DECL_EXPORT
+QLayout *ritual_ZN18qdesigner_internal13WidgetFactory21createUnmanagedLayoutEP7QWidgeti(
+    QWidget *parentWidget,
+    int type) {
+  return qdesigner_internal::WidgetFactory::createUnmanagedLayout(
+      parentWidget,
+      type);
+}
+
+//  QString qdesigner_internal::WidgetFactory::styleName() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal13WidgetFactory9styleNameEv(
+    const qdesigner_internal::WidgetFactory *self) {
+  return new QString(self->styleName());
+}
+
+//  void qdesigner_internal::WidgetFactory::setStyleName(const QString
+//      &styleName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13WidgetFactory12setStyleNameERK7QString(
+    qdesigner_internal::WidgetFactory *self,
+    const QString *styleName) {
+  self->setStyleName(*styleName);
+}
+
+//  QStyle *qdesigner_internal::WidgetFactory::getStyle(const QString
+//      &styleName)
+extern "C" Q_DECL_EXPORT
+QStyle *ritual_ZN18qdesigner_internal13WidgetFactory8getStyleERK7QString(
+    qdesigner_internal::WidgetFactory *self,
+    const QString *styleName) {
+  return self->getStyle(*styleName);
+}
+
+//  QStyle *qdesigner_internal::WidgetFactory::style() const
+extern "C" Q_DECL_EXPORT
+QStyle *ritual_ZNK18qdesigner_internal13WidgetFactory5styleEv(
+    const qdesigner_internal::WidgetFactory *self) {
+  return self->style();
+}
+
+//  void qdesigner_internal::WidgetFactory::applyStyleTopLevel(const QString
+//      &styleName, QWidget *w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13WidgetFactory18applyStyleTopLevelERK7QStringP7QWidget(
+    qdesigner_internal::WidgetFactory *self,
+    const QString *styleName,
+    QWidget *w) {
+  self->applyStyleTopLevel(*styleName, w);
+}
+
+//  void qdesigner_internal::WidgetFactory::applyStyleToTopLevel(QStyle
+//      *style, QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13WidgetFactory20applyStyleToTopLevelEP6QStyleP7QWidget(
+    QStyle *style,
+    QWidget *widget) {
+  qdesigner_internal::WidgetFactory::applyStyleToTopLevel(style, widget);
+}
+
 //  bool qdesigner_internal::WidgetFactory::isFormEditorObject(const QObject
 //      *o)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18qdesigner_internal13WidgetFactory18isFormEditorObjectEPK7QObject(
     const QObject *o) {
   return qdesigner_internal::WidgetFactory::isFormEditorObject(o);
+}
+
+//  void qdesigner_internal::WidgetFactory::loadPlugins()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13WidgetFactory11loadPluginsEv(
+    qdesigner_internal::WidgetFactory *self) {
+  self->loadPlugins();
+}
+
+//  void qdesigner_internal::WidgetFactory::activeFormWindowChanged(QDesigner
+//      FormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13WidgetFactory23activeFormWindowChangedEP28QDesignerFormWindowInterface(
+    qdesigner_internal::WidgetFactory *self,
+    QDesignerFormWindowInterface *formWindow) {
+  self->activeFormWindowChanged(formWindow);
+}
+
+//  void qdesigner_internal::WidgetFactory::formWindowAdded(QDesignerFormWind
+//      owInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13WidgetFactory15formWindowAddedEP28QDesignerFormWindowInterface(
+    qdesigner_internal::WidgetFactory *self,
+    QDesignerFormWindowInterface *formWindow) {
+  self->formWindowAdded(formWindow);
+}
+
+//  QWidget *qdesigner_internal::WidgetFactory::createCustomWidget(const
+//      QString &className, QWidget *parentWidget, bool *creationError) const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK18qdesigner_internal13WidgetFactory18createCustomWidgetERK7QStringP7QWidgetPb(
+    const qdesigner_internal::WidgetFactory *self,
+    const QString *className,
+    QWidget *parentWidget,
+    bool *creationError) {
+  return self->createCustomWidget(*className, parentWidget, creationError);
+}
+
+//  void qdesigner_internal::WidgetFactory::setFormWindowStyle(QDesignerFormW
+//      indowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13WidgetFactory18setFormWindowStyleEP28QDesignerFormWindowInterface(
+    qdesigner_internal::WidgetFactory *self,
+    QDesignerFormWindowInterface *formWindow) {
+  self->setFormWindowStyle(formWindow);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_WidgetFactory, for

@@ -25,6 +25,12 @@ void ritual_ZN3QV414GCStateMachine5resetEv(QV4::GCStateMachine *self) {
   self->reset();
 }
 
+//  void QV4::GCStateMachine::transition()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV414GCStateMachine10transitionEv(QV4::GCStateMachine *self) {
+  self->transition();
+}
+
 //  void QV4::GCStateMachine::handleTimeout(GCState state)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV414GCStateMachine13handleTimeoutENS0_7GCStateE(

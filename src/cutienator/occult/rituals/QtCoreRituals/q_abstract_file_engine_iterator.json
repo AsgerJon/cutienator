@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QAbstractFileEngineIteratorC1ERK7QString6QFlagsIN4QDir6FilterEERK5QListIS0_E": [
+      "address", "text", "int", "address"
+    ],
+    "ritual_ZN27QAbstractFileEngineIteratorC1ERK7QString6QFlagsIN11QDirListing12IteratorFlagEERK5QListIS0_E": [
+      "address", "text", "int", "address"
+    ],
     "ritual_ZN27QAbstractFileEngineIteratorD1Ev": ["nothing", "address"],
     "ritual_ZN27QAbstractFileEngineIterator7advanceEv": ["bool", "address"],
     "ritual_ZNK27QAbstractFileEngineIterator4pathEv": ["text", "address"],

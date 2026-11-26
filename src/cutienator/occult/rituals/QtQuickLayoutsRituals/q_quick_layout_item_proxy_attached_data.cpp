@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickLayouts/private/qquicklayoutitemproxy_p.h>
 #include <QtQuickLayouts/private/qquicklayout_p.h>
@@ -20,28 +21,23 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 329, as _ZN21QQuickLayoutItemProxy11clearTargetEv
-inline void QQuickLayoutItemProxy::clearTarget()
-{
-    setTarget(nullptr);
-}
-
-//  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 420, as _ZN33QQuickLayoutItemProxyAttachedDataD1Ev
-inline QQuickLayoutItemProxyAttachedData::~QQuickLayoutItemProxyAttachedData()
-{
-    if (QObject *par = parent())
-        par->setProperty("QQuickLayoutItemProxyAttachedData", QVariant());
-
-    // If this is destroyed, so is the target. Clear the target from the
-    // proxies so they do not try to access a destroyed object
-    for (auto &proxy: std::as_const(proxies))
-        proxy->clearTarget();
-}
-
 //  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 518, as _ZNK33QQuickLayoutItemProxyAttachedData19getControllingProxyEv
 inline QQuickLayoutItemProxy *QQuickLayoutItemProxyAttachedData::getControllingProxy() const
 {
     return controllingProxy;
+}
+
+//  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 527, as _ZN33QQuickLayoutItemProxyAttachedData10getProxiesEv
+inline QQmlListProperty<QQuickLayoutItemProxy> QQuickLayoutItemProxyAttachedData::getProxies()
+{
+    using Type = QQuickLayoutItemProxy;
+    using Property = QQmlListProperty<Type>;
+
+    return Property(
+        this, &proxies,
+        [](Property *p) { return static_cast<QList<Type *> *>(p->data)->size(); },
+        [](Property *p, qsizetype i) { return static_cast<QList<Type *> *>(p->data)->at(i); }
+    );
 }
 
 //  from ../qtdeclarative/src/quicklayouts/qquicklayoutitemproxy.cpp, line 543, as _ZNK33QQuickLayoutItemProxyAttachedData15proxyHasControlEv
@@ -225,6 +221,25 @@ const QMetaObject *ritual_ZNK33QQuickLayoutItemProxyAttachedData10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLayoutItemProxyAttachedData::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN33QQuickLayoutItemProxyAttachedData11qt_metacastEPKc(
+    QQuickLayoutItemProxyAttachedData *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLayoutItemProxyAttachedData::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN33QQuickLayoutItemProxyAttachedData11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLayoutItemProxyAttachedData *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuickLayoutItemProxyAttachedData::qt_qmlMarker_anonymous()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN33QQuickLayoutItemProxyAttachedData22qt_qmlMarker_anonymousEv(
@@ -247,11 +262,119 @@ QQuickLayoutItemProxy *ritual_ZNK33QQuickLayoutItemProxyAttachedData19getControl
   return self->getControllingProxy();
 }
 
+//  QQmlListProperty<QQuickLayoutItemProxy>
+//      QQuickLayoutItemProxyAttachedData::getProxies()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickLayoutItemProxy> *ritual_ZN33QQuickLayoutItemProxyAttachedData10getProxiesEv(
+    QQuickLayoutItemProxyAttachedData *self) {
+  return new QQmlListProperty<QQuickLayoutItemProxy>(self->getProxies());
+}
+
 //  bool QQuickLayoutItemProxyAttachedData::proxyHasControl() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK33QQuickLayoutItemProxyAttachedData15proxyHasControlEv(
     const QQuickLayoutItemProxyAttachedData *self) {
   return self->proxyHasControl();
+}
+
+//  void QQuickLayoutItemProxyAttachedData::controlTaken()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QQuickLayoutItemProxyAttachedData12controlTakenEv(
+    QQuickLayoutItemProxyAttachedData *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxyAttachedData")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controlTaken()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controlTaken()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxyAttachedData::controlReleased()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QQuickLayoutItemProxyAttachedData15controlReleasedEv(
+    QQuickLayoutItemProxyAttachedData *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxyAttachedData")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controlReleased()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controlReleased()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxyAttachedData::controllingProxyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QQuickLayoutItemProxyAttachedData23controllingProxyChangedEv(
+    QQuickLayoutItemProxyAttachedData *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxyAttachedData")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controllingProxyChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controllingProxyChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutItemProxyAttachedData::proxiesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QQuickLayoutItemProxyAttachedData14proxiesChangedEv(
+    QQuickLayoutItemProxyAttachedData *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutItemProxyAttachedData")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxiesChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxiesChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuickLayoutItemProxyAttachedData, for
@@ -262,4 +385,12 @@ bool ritual_take_QQuickLayoutItemProxyAttachedData(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickLayoutItemProxyAttachedData *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QQuickLayoutItemProxy> a ritual of
+//      QQuickLayoutItemProxyAttachedData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickLayoutItemProxyAttachedData__QQmlListProperty_QQuickLayoutItemProxy(
+    QQmlListProperty<QQuickLayoutItemProxy> *self) {
+  delete self;
 }

@@ -36,7 +36,7 @@ typedef const QSize * (*CuteQLottieShapeTransformCall12)(const void *, int *);
 class CuteQLottieShapeTransform : public QLottieShapeTransform {
 public:
   using QLottieShapeTransform::QLottieShapeTransform;
-  CuteQLottieShapeTransform(const QLottieShapeTransform &other) : QLottieShapeTransform(other) {}
+  CuteQLottieShapeTransform(const QLottieShapeTransform & other) : QLottieShapeTransform(other) {}
   void *taken[13] = {};
 
   bool take(const char *key, void *call) {
@@ -280,6 +280,14 @@ void ritual_ZN21QLottieShapeTransform16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieShapeTransform::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK21QLottieShapeTransform6renderER15QLottieRenderer(
+    const QLottieShapeTransform *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  qreal QLottieShapeTransform::skew() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK21QLottieShapeTransform4skewEv(
@@ -313,6 +321,20 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK21QLottieShapeTransform10shearAngleEv(
     const QLottieShapeTransform *self) {
   return self->shearAngle();
+}
+
+//  QLottieProperty<qreal> QLottieShapeTransform::skewProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK21QLottieShapeTransform12skewPropertyEv(
+    const QLottieShapeTransform *self) {
+  return new QLottieProperty<qreal>(self->skewProperty());
+}
+
+//  QLottieProperty<qreal> QLottieShapeTransform::skewAxisProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK21QLottieShapeTransform16skewAxisPropertyEv(
+    const QLottieShapeTransform *self) {
+  return new QLottieProperty<qreal>(self->skewAxisProperty());
 }
 
 //  QLottieShapeTransform::~QLottieShapeTransform()
@@ -352,4 +374,11 @@ void ritual_own_ZN21QLottieShapeTransform16updatePropertiesEi(
     QLottieShapeTransform *self,
     int frame) {
   self->QLottieShapeTransform::updateProperties(frame);
+}
+
+//  a QLottieProperty<qreal> a ritual of QLottieShapeTransform gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieShapeTransform__QLottieProperty_qreal(
+    QLottieProperty<qreal> *self) {
+  delete self;
 }

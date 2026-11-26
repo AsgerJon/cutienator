@@ -6,7 +6,13 @@
   ],
   "rows": {
     "ritual_ZNK9QQmlTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QQmlTimer11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QQmlTimer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QQmlTimer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QQmlTimer6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QQmlTimer6d_funcEv": ["address", "address"],
     "ritual_ZN9QQmlTimerC1EP7QObject": ["address", "address"],
     "ritual_ZN9QQmlTimer11setIntervalEi": ["nothing", "address", "int"],
     "ritual_ZNK9QQmlTimer8intervalEv": ["int", "address"],
@@ -24,6 +30,11 @@
     "ritual_ZN9QQmlTimer5startEv": ["nothing", "address"],
     "ritual_ZN9QQmlTimer4stopEv": ["nothing", "address"],
     "ritual_ZN9QQmlTimer7restartEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer9triggeredEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer14runningChangedEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer15intervalChangedEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer13repeatChangedEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer23triggeredOnStartChangedEv": ["nothing", "address"],
     "ritual_ZN9QQmlTimer6updateEv": ["nothing", "address"],
     "ritual_ZN9QQmlTimer6tickedEv": ["nothing", "address"],
     "ritual_cast_QQmlTimer_QQmlParserStatus": ["address", "address"],

@@ -6,10 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK12QPixmapStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QPixmapStyle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QPixmapStyle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QPixmapStyle2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QPixmapStyleC1Ev": ["address"],
     "ritual_ZN12QPixmapStyleD1Ev": ["nothing", "address"],
     "ritual_ZN12QPixmapStyle6polishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPixmapStyle6polishER8QPalette": [
       "nothing", "address", "address"
     ],
     "ritual_ZN12QPixmapStyle6polishEP7QWidget": [
@@ -119,6 +128,15 @@
     ],
     "ritual_ZNK12QPixmapStyle24itemViewSizeFromContentsEPK12QStyleOptionRK5QSizePK7QWidget": [
       "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK12QPixmapStyle22comboBoxSubControlRectEPK19QStyleOptionComplexN6QStyle10SubControlEPK7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK12QPixmapStyle23scrollBarSubControlRectEPK19QStyleOptionComplexN6QStyle10SubControlEPK7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QPixmapStyleC1ER19QPixmapStylePrivate": [
+      "address", "address"
     ],
     "ritual_ZN12QPixmapStyle6d_funcEv": ["address", "address"],
     "ritual_ZNK12QPixmapStyle6d_funcEv": ["address", "address"],

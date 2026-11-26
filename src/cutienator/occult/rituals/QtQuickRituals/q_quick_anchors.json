@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickAnchors10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickAnchors11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickAnchors2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickAnchors22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
@@ -112,6 +118,38 @@
     ],
     "ritual_ZN13QQuickAnchors10classBeginEv": ["nothing", "address"],
     "ritual_ZN13QQuickAnchors17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors11leftChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors12rightChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors10topChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors13bottomChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors21verticalCenterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickAnchors23horizontalCenterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickAnchors15baselineChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors11fillChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors15centerInChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors17leftMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors18rightMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors16topMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors19bottomMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickAnchors14marginsChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors27verticalCenterOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickAnchors29horizontalCenterOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickAnchors21baselineOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickAnchors20centerAlignedChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN13QQuickAnchors6d_funcEv": ["address", "address"],
     "ritual_ZNK13QQuickAnchors6d_funcEv": ["address", "address"],
     "ritual_take_QQuickAnchors": ["bool", "address", "chars", "address"]

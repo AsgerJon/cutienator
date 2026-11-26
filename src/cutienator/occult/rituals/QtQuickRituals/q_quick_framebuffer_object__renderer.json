@@ -5,6 +5,7 @@
     "are lost."
   ],
   "rows": {
+    "ritual_ZN23QQuickFramebufferObject8RendererC1Ev": ["address"],
     "ritual_ZN23QQuickFramebufferObject8RendererD1Ev": [
       "nothing", "address"
     ],

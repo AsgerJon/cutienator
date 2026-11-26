@@ -15,6 +15,11 @@
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <utility>
+#include <QtGui/QAccessibleInterface>
+#include <QtGui/QAccessible>
+#include <QtCore/QFlags>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/private/simplewidgets_p.h>
 #if QT_CONFIG(abstractbutton)
@@ -81,6 +86,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/accessible/simplewidgets.cpp, line 601, as _ZNK19QAccessibleGroupBox5stateEv
 #if QT_CONFIG(accessibility)
@@ -168,6 +175,25 @@ QAccessible::Role ritual_ZNK19QAccessibleGroupBox4roleEv(
   return self->role();
 }
 
+//  QString QAccessibleGroupBox::text(QAccessible::Text t) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK19QAccessibleGroupBox4textEN11QAccessible4TextE(
+    const QAccessibleGroupBox *self,
+    QAccessible::Text t) {
+  return new QString(self->text(t));
+}
+
+//  QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>
+//      QAccessibleGroupBox::relations(QAccessible::Relation match) const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> *ritual_ZNK19QAccessibleGroupBox9relationsE6QFlagsIN11QAccessible12RelationFlagEE(
+    const QAccessibleGroupBox *self,
+    int match) {
+  return new QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>(
+      self->relations(
+          QFlags<QAccessible::RelationFlag>::fromInt(match)));
+}
+
 //  QStringList QAccessibleGroupBox::actionNames() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK19QAccessibleGroupBox11actionNamesEv(
@@ -236,6 +262,14 @@ void ritual_own_ZN19QAccessibleGroupBox8doActionERK7QString(
 }
 #endif  // QT_CONFIG(groupbox)
 #endif  // QT_CONFIG(accessibility)
+
+//  a QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> a
+//      ritual of QAccessibleGroupBox gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessibleGroupBox__QList_std_pair_QAccessibleInterface_QAccessible_Relation(
+    QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> *self) {
+  delete self;
+}
 
 #endif  // QT_CONFIG(groupbox)
 #endif  // QT_CONFIG(accessibility)

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12PieSliceItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN12PieSliceItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12PieSliceItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12PieSliceItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12PieSliceItemC1EP13QGraphicsItem": ["address", "address"],
     "ritual_ZN12PieSliceItemD1Ev": ["nothing", "address"],
@@ -34,6 +40,19 @@
     ],
     "ritual_ZN12PieSliceItem11sliceCenterE7QPointFdP9QPieSlice": [
       "address", "address", "double", "address"
+    ],
+    "ritual_ZN12PieSliceItem7clickedE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12PieSliceItem7hoveredEb": ["nothing", "address", "bool"],
+    "ritual_ZN12PieSliceItem7pressedE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12PieSliceItem8releasedE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12PieSliceItem13doubleClickedE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN12PieSliceItem14updateGeometryEv": ["nothing", "address"],
     "ritual_ZN12PieSliceItem9slicePathE7QPointFdddPdPS0_": [

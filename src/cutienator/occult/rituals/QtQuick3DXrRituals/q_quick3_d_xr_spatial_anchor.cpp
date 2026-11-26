@@ -13,6 +13,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QSet>
+#include <QtCore/QUuid>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DXr/private/qquick3dxrspatialanchor_p.h>
 #if defined(Q_OS_VISIONOS)
@@ -27,11 +29,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrspatialanchor.cpp, line 134, as _ZN23QQuick3DXrSpatialAnchorD1Ev
-inline QQuick3DXrSpatialAnchor::~QQuick3DXrSpatialAnchor()
-{
-}
 
 //  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrspatialanchor.cpp, line 148, as _ZNK23QQuick3DXrSpatialAnchor8offset3DEv
 inline QVector3D QQuick3DXrSpatialAnchor::offset3D() const
@@ -97,6 +94,30 @@ inline QVector2D QQuick3DXrSpatialAnchor::extent2D() const
 inline QString QQuick3DXrSpatialAnchor::identifier() const
 {
     return QString::fromLatin1(m_uuid.toRfc4122());
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrspatialanchor.cpp, line 395, as _ZNK23QQuick3DXrSpatialAnchor15roomLayoutUuidsEv
+inline QSet<QUuid> QQuick3DXrSpatialAnchor::roomLayoutUuids() const
+{
+    return m_roomLayoutUuids;
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrspatialanchor.cpp, line 400, as _ZN23QQuick3DXrSpatialAnchor18setRoomLayoutUuidsERK4QSetI5QUuidE
+inline void QQuick3DXrSpatialAnchor::setRoomLayoutUuids(const QSet<QUuid> &newRoomLayoutUuids)
+{
+    m_roomLayoutUuids = newRoomLayoutUuids;
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrspatialanchor.cpp, line 405, as _ZNK23QQuick3DXrSpatialAnchor19spaceContainerUuidsEv
+inline QSet<QUuid> QQuick3DXrSpatialAnchor::spaceContainerUuids() const
+{
+    return m_spaceContainerUuids;
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrspatialanchor.cpp, line 410, as _ZN23QQuick3DXrSpatialAnchor22setSpaceContainerUuidsERK4QSetI5QUuidE
+inline void QQuick3DXrSpatialAnchor::setSpaceContainerUuids(const QSet<QUuid> &newSpaceContainerUuids)
+{
+    m_spaceContainerUuids = newSpaceContainerUuids;
 }
 //  -----------------------------------------------------------------------
 
@@ -274,6 +295,25 @@ const QMetaObject *ritual_ZNK23QQuick3DXrSpatialAnchor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrSpatialAnchor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuick3DXrSpatialAnchor11qt_metacastEPKc(
+    QQuick3DXrSpatialAnchor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrSpatialAnchor::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuick3DXrSpatialAnchor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrSpatialAnchor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuick3DXrSpatialAnchor::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuick3DXrSpatialAnchor24qt_qmlMarker_uncreatableEv(
@@ -364,11 +404,293 @@ QString *ritual_ZNK23QQuick3DXrSpatialAnchor10identifierEv(
   return new QString(self->identifier());
 }
 
+//  QSet<QUuid> QQuick3DXrSpatialAnchor::roomLayoutUuids() const
+extern "C" Q_DECL_EXPORT
+QSet<QUuid> *ritual_ZNK23QQuick3DXrSpatialAnchor15roomLayoutUuidsEv(
+    const QQuick3DXrSpatialAnchor *self) {
+  return new QSet<QUuid>(self->roomLayoutUuids());
+}
+
+//  void QQuick3DXrSpatialAnchor::setRoomLayoutUuids(const QSet<QUuid>
+//      &newRoomLayoutUuids)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor18setRoomLayoutUuidsERK4QSetI5QUuidE(
+    QQuick3DXrSpatialAnchor *self,
+    const QSet<QUuid> *newRoomLayoutUuids) {
+  self->setRoomLayoutUuids(*newRoomLayoutUuids);
+}
+
+//  QSet<QUuid> QQuick3DXrSpatialAnchor::spaceContainerUuids() const
+extern "C" Q_DECL_EXPORT
+QSet<QUuid> *ritual_ZNK23QQuick3DXrSpatialAnchor19spaceContainerUuidsEv(
+    const QQuick3DXrSpatialAnchor *self) {
+  return new QSet<QUuid>(self->spaceContainerUuids());
+}
+
+//  void QQuick3DXrSpatialAnchor::setSpaceContainerUuids(const QSet<QUuid>
+//      &newSpaceContainerUuids)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor22setSpaceContainerUuidsERK4QSetI5QUuidE(
+    QQuick3DXrSpatialAnchor *self,
+    const QSet<QUuid> *newSpaceContainerUuids) {
+  self->setSpaceContainerUuids(*newSpaceContainerUuids);
+}
+
 //  QtQuick3DXr::XrSpaceId QQuick3DXrSpatialAnchor::space() const
 extern "C" Q_DECL_EXPORT
 QtQuick3DXr::XrSpaceId ritual_ZNK23QQuick3DXrSpatialAnchor5spaceEv(
     const QQuick3DXrSpatialAnchor *self) {
   return self->space();
+}
+
+//  void QQuick3DXrSpatialAnchor::offset3DChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor15offset3DChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "offset3DChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "offset3DChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSpatialAnchor::extent3DChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor15extent3DChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "extent3DChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "extent3DChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSpatialAnchor::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor15positionChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "positionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "positionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSpatialAnchor::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor15rotationChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "rotationChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "rotationChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSpatialAnchor::classificationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor21classificationChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "classificationChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "classificationChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSpatialAnchor::classificationStringChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor27classificationStringChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "classificationStringChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "classificationStringChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSpatialAnchor::has2DBoundsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor18has2DBoundsChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "has2DBoundsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "has2DBoundsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSpatialAnchor::has3DBoundsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor18has3DBoundsChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "has3DBoundsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "has3DBoundsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSpatialAnchor::offset2DChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor15offset2DChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "offset2DChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "offset2DChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrSpatialAnchor::extent2DChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DXrSpatialAnchor15extent2DChangedEv(
+    QQuick3DXrSpatialAnchor *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrSpatialAnchor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "extent2DChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "extent2DChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QUuid QQuick3DXrSpatialAnchor::uuid() const
@@ -423,5 +745,11 @@ QQuick3DXrSpatialAnchor *ritual_list_at_QQuick3DXrSpatialAnchor_ptr(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQuick3DXrSpatialAnchor_ptr(
     QList<QQuick3DXrSpatialAnchor *> *self) {
+  delete self;
+}
+
+//  a QSet<QUuid> a ritual of QQuick3DXrSpatialAnchor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DXrSpatialAnchor__QSet_QUuid(QSet<QUuid> *self) {
   delete self;
 }

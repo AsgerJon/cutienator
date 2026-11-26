@@ -10,6 +10,7 @@
 #include <QtGui/6.12.0/QtGui/private/qrhimetal_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <QtCore/QVector>
 
 //  A QMetalRenderPassDescriptor that Python can take functions over in. Every QMetalRenderPassDescriptor
 //  Python makes is one. Each function below asks the Python
@@ -107,6 +108,38 @@ public:
   }
 };
 
+//  void QMetalRenderPassDescriptor::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QMetalRenderPassDescriptor7destroyEv(
+    QMetalRenderPassDescriptor *self) {
+  self->destroy();
+}
+
+//  bool QMetalRenderPassDescriptor::isCompatible(const
+//      QRhiRenderPassDescriptor *other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK26QMetalRenderPassDescriptor12isCompatibleEPK24QRhiRenderPassDescriptor(
+    const QMetalRenderPassDescriptor *self,
+    const QRhiRenderPassDescriptor *other) {
+  return self->isCompatible(other);
+}
+
+//  QRhiRenderPassDescriptor
+//      *QMetalRenderPassDescriptor::newCompatibleRenderPassDescriptor()
+//      const
+extern "C" Q_DECL_EXPORT
+QRhiRenderPassDescriptor *ritual_ZNK26QMetalRenderPassDescriptor33newCompatibleRenderPassDescriptorEv(
+    const QMetalRenderPassDescriptor *self) {
+  return self->newCompatibleRenderPassDescriptor();
+}
+
+//  QVector<quint32> QMetalRenderPassDescriptor::serializedFormat() const
+extern "C" Q_DECL_EXPORT
+QVector<quint32> *ritual_ZNK26QMetalRenderPassDescriptor16serializedFormatEv(
+    const QMetalRenderPassDescriptor *self) {
+  return new QVector<quint32>(self->serializedFormat());
+}
+
 //  a Python function taken by a CuteQMetalRenderPassDescriptor, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -115,6 +148,13 @@ bool ritual_take_QMetalRenderPassDescriptor(
     const char *key,
     void *call) {
   return static_cast<CuteQMetalRenderPassDescriptor *>(self)->take(key, call);
+}
+
+//  a QVector<quint32> a ritual of QMetalRenderPassDescriptor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMetalRenderPassDescriptor__QVector_quint32(
+    QVector<quint32> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(metal)

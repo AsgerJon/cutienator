@@ -8,6 +8,7 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
 
 //  QGlyphRun::QGlyphRun()
 extern "C" Q_DECL_EXPORT
@@ -21,10 +22,30 @@ QGlyphRun *ritual_ZN9QGlyphRunC1ERKS_(const QGlyphRun *other) {
   return new QGlyphRun(*other);
 }
 
+//  QGlyphRun &QGlyphRun::operator=(QGlyphRun &&other)
+extern "C" Q_DECL_EXPORT
+QGlyphRun *ritual_ZN9QGlyphRunaSEOS_(QGlyphRun *self, QGlyphRun *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QGlyphRun &QGlyphRun::operator=(const QGlyphRun &other)
+extern "C" Q_DECL_EXPORT
+QGlyphRun *ritual_ZN9QGlyphRunaSERKS_(
+    QGlyphRun *self,
+    const QGlyphRun *other) {
+  return &(self->operator=(*other));
+}
+
 //  QGlyphRun::~QGlyphRun()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QGlyphRunD1Ev(QGlyphRun *self) {
   delete self;
+}
+
+//  void QGlyphRun::swap(QGlyphRun &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGlyphRun4swapERS_(QGlyphRun *self, QGlyphRun *other) {
+  self->swap(*other);
 }
 
 //  QRawFont QGlyphRun::rawFont() const
@@ -39,6 +60,31 @@ void ritual_ZN9QGlyphRun10setRawFontERK8QRawFont(
     QGlyphRun *self,
     const QRawFont *rawFont) {
   self->setRawFont(*rawFont);
+}
+
+//  void QGlyphRun::setRawData(const quint32 *glyphIndexArray, const QPointF
+//      *glyphPositionArray, int size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGlyphRun10setRawDataEPKjPK7QPointFi(
+    QGlyphRun *self,
+    const quint32 *glyphIndexArray,
+    const QPointF *glyphPositionArray,
+    int size) {
+  self->setRawData(glyphIndexArray, glyphPositionArray, size);
+}
+
+//  QList<quint32> QGlyphRun::glyphIndexes() const
+extern "C" Q_DECL_EXPORT
+QList<quint32> *ritual_ZNK9QGlyphRun12glyphIndexesEv(const QGlyphRun *self) {
+  return new QList<quint32>(self->glyphIndexes());
+}
+
+//  void QGlyphRun::setGlyphIndexes(const QList<quint32> &glyphIndexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGlyphRun15setGlyphIndexesERK5QListIjE(
+    QGlyphRun *self,
+    const QList<quint32> *glyphIndexes) {
+  self->setGlyphIndexes(*glyphIndexes);
 }
 
 //  QList<QPointF> QGlyphRun::positions() const
@@ -162,6 +208,21 @@ QRectF *ritual_ZNK9QGlyphRun12boundingRectEv(const QGlyphRun *self) {
   return new QRectF(self->boundingRect());
 }
 
+//  QList<qsizetype> QGlyphRun::stringIndexes() const
+extern "C" Q_DECL_EXPORT
+QList<qsizetype> *ritual_ZNK9QGlyphRun13stringIndexesEv(
+    const QGlyphRun *self) {
+  return new QList<qsizetype>(self->stringIndexes());
+}
+
+//  void QGlyphRun::setStringIndexes(const QList<qsizetype> &stringIndexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGlyphRun16setStringIndexesERK5QListIxE(
+    QGlyphRun *self,
+    const QList<qsizetype> *stringIndexes) {
+  self->setStringIndexes(*stringIndexes);
+}
+
 //  void QGlyphRun::setSourceString(const QString &sourceString)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QGlyphRun15setSourceStringERK7QString(
@@ -219,6 +280,18 @@ QGlyphRun *ritual_list_at_QGlyphRun(
 //  QList<QGlyphRun>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QGlyphRun(QList<QGlyphRun> *self) {
+  delete self;
+}
+
+//  a QList<quint32> a ritual of QGlyphRun gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGlyphRun__QList_quint32(QList<quint32> *self) {
+  delete self;
+}
+
+//  a QList<qsizetype> a ritual of QGlyphRun gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGlyphRun__QList_qsizetype(QList<qsizetype> *self) {
   delete self;
 }
 

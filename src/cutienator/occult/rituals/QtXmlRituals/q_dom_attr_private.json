@@ -11,6 +11,9 @@
     ],
     "ritual_ZN15QDomAttrPrivate9cloneNodeEb": ["address", "address", "bool"],
     "ritual_ZNK15QDomAttrPrivate8nodeTypeEv": ["int", "address"],
+    "ritual_ZNK15QDomAttrPrivate4saveER11QTextStreamii": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZN15QDomAttrPrivateD1Ev": ["nothing", "address"],
     "ritual_take_QDomAttrPrivate": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QDomAttrPrivate8nodeTypeEv": ["int", "address"]

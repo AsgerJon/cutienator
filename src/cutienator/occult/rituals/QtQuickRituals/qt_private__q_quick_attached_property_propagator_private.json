@@ -14,11 +14,47 @@
     "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate3getEPNS_32QQuickAttachedPropertyPropagatorE": [
       "address", "address"
     ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate8attachToEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate10detachFromEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate17setAttachedParentEPNS_32QQuickAttachedPropertyPropagatorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate17itemWindowChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate28transientParentWindowChangedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate17itemParentChangedEP10QQuickItemS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate18firstCppMetaObjectEPNS_32QQuickAttachedPropertyPropagatorE": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate18findAttachedParentEPK11QMetaObjectP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate20findAttachedChildrenEPK11QMetaObjectP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate16findAttachedItemEP7QObject": [
+      "address", "address"
+    ],
     "ritual_take_QtPrivate_QQuickAttachedPropertyPropagatorPrivate": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate17itemParentChangedEP10QQuickItemS2_": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_drop_QtPrivate_QQuickAttachedPropertyPropagatorPrivate__QList_QtPrivate_QQuickAttachedPropertyPropagator": [
+      "nothing", "address"
     ]
   }
 }

@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render8SkeletonC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render8Skeleton18setSkeletonManagerEPNS0_15SkeletonManagerE": [
       "nothing", "address", "address"
     ],
@@ -16,6 +17,15 @@
     ],
     "ritual_ZNK10Qt3DRender6Render8Skeleton12jointManagerEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton9setStatusEN8Qt3DCore15QSkeletonLoader6StatusE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZNK10Qt3DRender6Render8Skeleton6statusEv": ["int", "address"],
     "ritual_ZNK10Qt3DRender6Render8Skeleton6sourceEv": [
@@ -32,8 +42,29 @@
     "ritual_ZNK10Qt3DRender6Render8Skeleton10jointCountEv": [
       "long long", "address"
     ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton6jointsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton10jointNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton10localPosesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render8Skeleton11rootJointIdEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton12setLocalPoseEN8Qt3DCore7QHandleINS0_5JointEEERKNS2_3SqtE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton30calculateSkinningMatrixPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton9clearDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton15setSkeletonDataERKNS0_12SkeletonDataE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render8Skeleton12skeletonDataEv": [
       "address", "address"
@@ -43,6 +74,18 @@
     ],
     "ritual_own_ZN10Qt3DRender6Render8Skeleton16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_Skeleton__QVector_Qt3DRender_Render_JointInfo": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Skeleton__QVector_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Skeleton__QVector_Qt3DCore_Sqt": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_Skeleton__QVector_QMatrix4x4": [
+      "nothing", "address"
     ]
   }
 }

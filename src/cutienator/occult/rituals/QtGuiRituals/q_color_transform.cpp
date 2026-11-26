@@ -23,6 +23,37 @@ QColorTransform *ritual_ZN15QColorTransformC1ERKS_(
   return new QColorTransform(*colorTransform);
 }
 
+//  QColorTransform::QColorTransform(QColorTransform &&colorTransform)
+extern "C" Q_DECL_EXPORT
+QColorTransform *ritual_ZN15QColorTransformC1EOS_(
+    QColorTransform *colorTransform) {
+  return new QColorTransform(std::move(*colorTransform));
+}
+
+//  QColorTransform &QColorTransform::operator=(const QColorTransform &other)
+extern "C" Q_DECL_EXPORT
+QColorTransform *ritual_ZN15QColorTransformaSERKS_(
+    QColorTransform *self,
+    const QColorTransform *other) {
+  return &(self->operator=(*other));
+}
+
+//  QColorTransform &QColorTransform::operator=(QColorTransform &&other)
+extern "C" Q_DECL_EXPORT
+QColorTransform *ritual_ZN15QColorTransformaSEOS_(
+    QColorTransform *self,
+    QColorTransform *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QColorTransform::swap(QColorTransform &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QColorTransform4swapERS_(
+    QColorTransform *self,
+    QColorTransform *other) {
+  self->swap(*other);
+}
+
 //  bool QColorTransform::isIdentity() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QColorTransform10isIdentityEv(const QColorTransform *self) {

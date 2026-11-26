@@ -5,5 +5,11 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN16QSGBatchRenderer7Updater20updateRootTransformsEPNS_4NodeES2_RK10QMatrix4x4": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer7Updater12updateStatesEP7QSGNode": [
+      "nothing", "address", "address"
+    ]
   }
 }

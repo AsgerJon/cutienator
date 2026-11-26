@@ -212,6 +212,25 @@ const QMetaObject *ritual_ZNK21QQmlImageProviderBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlImageProviderBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQmlImageProviderBase11qt_metacastEPKc(
+    QQmlImageProviderBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlImageProviderBase::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQmlImageProviderBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlImageProviderBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlImageProviderBase::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQmlImageProviderBase2trEPKcS1_i(
@@ -239,6 +258,12 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QQmlImageProviderBase5flagsEv(
     const QQmlImageProviderBase *self) {
   return static_cast<int>(self->flags().toInt());
+}
+
+//  QQmlImageProviderBase::QQmlImageProviderBase()
+extern "C" Q_DECL_EXPORT
+QQmlImageProviderBase *ritual_ZN21QQmlImageProviderBaseC1Ev() {
+  return new CuteQQmlImageProviderBase();
 }
 
 //  a Python function taken by a CuteQQmlImageProviderBase, for the function

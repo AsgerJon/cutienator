@@ -49,10 +49,36 @@ QNetworkProxyQuery *ritual_ZN18QNetworkProxyQueryC1ERKS_(
   return new QNetworkProxyQuery(*other);
 }
 
+//  QNetworkProxyQuery &QNetworkProxyQuery::operator=(QNetworkProxyQuery
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkProxyQuery *ritual_ZN18QNetworkProxyQueryaSEOS_(
+    QNetworkProxyQuery *self,
+    QNetworkProxyQuery *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QNetworkProxyQuery &QNetworkProxyQuery::operator=(const
+//      QNetworkProxyQuery &other)
+extern "C" Q_DECL_EXPORT
+QNetworkProxyQuery *ritual_ZN18QNetworkProxyQueryaSERKS_(
+    QNetworkProxyQuery *self,
+    const QNetworkProxyQuery *other) {
+  return &(self->operator=(*other));
+}
+
 //  QNetworkProxyQuery::~QNetworkProxyQuery()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QNetworkProxyQueryD1Ev(QNetworkProxyQuery *self) {
   delete self;
+}
+
+//  void QNetworkProxyQuery::swap(QNetworkProxyQuery &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QNetworkProxyQuery4swapERS_(
+    QNetworkProxyQuery *self,
+    QNetworkProxyQuery *other) {
+  self->swap(*other);
 }
 
 //  bool QNetworkProxyQuery::operator==(const QNetworkProxyQuery &other)

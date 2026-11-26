@@ -8,11 +8,32 @@
     "ritual_ZNK18qdesigner_internal16PropertyLineEdit10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal16PropertyLineEdit11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal16PropertyLineEdit11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal16PropertyLineEdit14setWantNewLineEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZNK18qdesigner_internal16PropertyLineEdit11wantNewLineEv": [
       "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16PropertyLineEdit5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16PropertyLineEdit16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16PropertyLineEdit13insertNewLineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16PropertyLineEdit10insertTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN18qdesigner_internal16PropertyLineEdit5eventEP6QEvent": [
+      "bool", "address", "address"
     ]
   }
 }

@@ -57,6 +57,21 @@ inline void QGraphicsSceneBspTree::clear()
     leaves.clear();
 }
 
+//  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 55, as _ZN21QGraphicsSceneBspTree11removeItemsERK4QSetIP13QGraphicsItemE
+inline void QGraphicsSceneBspTree::removeItems(const QSet<QGraphicsItem *> &items)
+{
+    for (int i = 0; i < leaves.size(); ++i) {
+        QList<QGraphicsItem *> newItemList;
+        const QList<QGraphicsItem *> &oldItemList = leaves[i];
+        for (int j = 0; j < oldItemList.size(); ++j) {
+            QGraphicsItem *item = oldItemList.at(j);
+            if (!items.contains(item))
+                newItemList << item;
+        }
+        leaves[i] = newItemList;
+    }
+}
+
 //  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 89, as _ZNK21QGraphicsSceneBspTree9leafCountEv
 inline int QGraphicsSceneBspTree::leafCount() const
 {
@@ -187,6 +202,15 @@ void ritual_ZN21QGraphicsSceneBspTree10initializeERK6QRectFi(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QGraphicsSceneBspTree5clearEv(QGraphicsSceneBspTree *self) {
   self->clear();
+}
+
+//  void QGraphicsSceneBspTree::removeItems(const QSet<QGraphicsItem *>
+//      &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGraphicsSceneBspTree11removeItemsERK4QSetIP13QGraphicsItemE(
+    QGraphicsSceneBspTree *self,
+    const QSet<QGraphicsItem *> *items) {
+  self->removeItems(*items);
 }
 
 //  int QGraphicsSceneBspTree::leafCount() const

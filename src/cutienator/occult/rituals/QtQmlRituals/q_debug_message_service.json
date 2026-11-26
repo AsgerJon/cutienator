@@ -6,12 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK20QDebugMessageService10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QDebugMessageService11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QDebugMessageService11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QDebugMessageService2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN20QDebugMessageServiceD1Ev": ["nothing", "address"],
     "ritual_ZN20QDebugMessageService15synchronizeTimeERK13QElapsedTimer": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN20QDebugMessageServiceC1EfP7QObject": [
+      "address", "float", "address"
     ],
     "ritual_take_QDebugMessageService": [
       "bool", "address", "chars", "address"

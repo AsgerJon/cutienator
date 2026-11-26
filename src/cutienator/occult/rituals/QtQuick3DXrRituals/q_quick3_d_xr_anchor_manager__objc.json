@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from QtQuick3DXr/6.12.0/QtQuick3DXr/",
+    "private/qquick3dxranchormanager_visionos_p.h, Qt 6.12.0, from Qt's",
+    "source: Objective-C++, built on Apple's systems only. Kept as it",
+    "is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN23QQuick3DXrAnchorManager19populateAnchorsListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrAnchorManager17initAnchorManagerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrAnchorManager12removeAnchorE5QUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DXrAnchorManager12updateAnchorEP23QQuick3DXrSpatialAnchor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DXrAnchorManager20prepareAnchorManagerEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DXrAnchorManager18planeUpdateHandlerEPvS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

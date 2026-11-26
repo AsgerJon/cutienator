@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN20QStyleOptionComboBoxC1Ev": ["address"],
     "ritual_ZN20QStyleOptionComboBoxC1ERKS_": ["address", "address"],
+    "ritual_ZN20QStyleOptionComboBoxaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QStyleOptionComboBoxC1Ei": ["address", "int"],
     "ritual_ZN20QStyleOptionComboBoxD1Ev": ["nothing", "address"]
   }

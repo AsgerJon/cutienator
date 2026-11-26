@@ -5,7 +5,11 @@
     "ss_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15SkyMaterialPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK15SkyMaterialPass8passTypeEv": ["int", "address"],
+    "ritual_ZN15SkyMaterialPass13resetForFrameEv": ["nothing", "address"],
     "ritual_ZN15SkyMaterialPassD1Ev": ["nothing", "address"]
   }
 }

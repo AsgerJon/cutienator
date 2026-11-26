@@ -8,6 +8,9 @@
     "ritual_ZN14QMqttTopicNameC1ERK13QLatin1String": ["address", "address"],
     "ritual_ZN14QMqttTopicNameC1ERKS_": ["address", "address"],
     "ritual_ZN14QMqttTopicNameD1Ev": ["nothing", "address"],
+    "ritual_ZN14QMqttTopicNameaSERKS_": ["address", "address", "address"],
+    "ritual_ZN14QMqttTopicNameaSEOS_": ["address", "address", "address"],
+    "ritual_ZN14QMqttTopicName4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK14QMqttTopicName4nameEv": ["text", "address"],
     "ritual_ZN14QMqttTopicName7setNameERK7QString": [
       "nothing", "address", "text"

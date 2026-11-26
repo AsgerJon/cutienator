@@ -20,10 +20,38 @@ QPlaceIcon *ritual_ZN10QPlaceIconC1ERKS_(const QPlaceIcon *other) {
   return new QPlaceIcon(*other);
 }
 
+//  QPlaceIcon::QPlaceIcon(QPlaceIcon &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceIcon *ritual_ZN10QPlaceIconC1EOS_(QPlaceIcon *other) {
+  return new QPlaceIcon(std::move(*other));
+}
+
 //  QPlaceIcon::~QPlaceIcon()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QPlaceIconD1Ev(QPlaceIcon *self) {
   delete self;
+}
+
+//  QPlaceIcon &QPlaceIcon::operator=(const QPlaceIcon &other)
+extern "C" Q_DECL_EXPORT
+QPlaceIcon *ritual_ZN10QPlaceIconaSERKS_(
+    QPlaceIcon *self,
+    const QPlaceIcon *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlaceIcon &QPlaceIcon::operator=(QPlaceIcon &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceIcon *ritual_ZN10QPlaceIconaSEOS_(
+    QPlaceIcon *self,
+    QPlaceIcon *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlaceIcon::swap(QPlaceIcon &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPlaceIcon4swapERS_(QPlaceIcon *self, QPlaceIcon *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPlaceIcon &lhs, const QPlaceIcon &rhs)

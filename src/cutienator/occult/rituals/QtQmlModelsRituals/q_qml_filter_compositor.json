@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlFilterCompositor10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlFilterCompositor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlFilterCompositor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQmlFilterCompositor2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -14,6 +20,9 @@
     ],
     "ritual_ZN20QQmlFilterCompositorC1EP7QObject": ["address", "address"],
     "ritual_ZN20QQmlFilterCompositor7filtersEv": ["address", "address"],
+    "ritual_ZN20QQmlFilterCompositor19filtersListPropertyEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QQmlFilterCompositor24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
       "bool", "address", "int", "address", "address"
     ],
@@ -21,6 +30,18 @@
       "bool", "address", "int", "address", "address"
     ],
     "ritual_ZN20QQmlFilterCompositor13updateFiltersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlFilterCompositor6appendEP16QQmlListPropertyI14QQmlFilterBaseEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlFilterCompositor5countEP16QQmlListPropertyI14QQmlFilterBaseE": [
+      "long long", "address"
+    ],
+    "ritual_ZN20QQmlFilterCompositor2atEP16QQmlListPropertyI14QQmlFilterBaseEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN20QQmlFilterCompositor5clearEP16QQmlListPropertyI14QQmlFilterBaseE": [
       "nothing", "address"
     ],
     "ritual_ZN20QQmlFilterCompositor6appendEP14QQmlFilterBase": [
@@ -46,6 +67,9 @@
       "bool", "address", "int", "address", "address"
     ],
     "ritual_own_ZN20QQmlFilterCompositor12refreshCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlFilterCompositor__QQmlListProperty_QQmlFilterBase": [
       "nothing", "address"
     ]
   }

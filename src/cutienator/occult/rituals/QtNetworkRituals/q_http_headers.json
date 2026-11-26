@@ -7,6 +7,10 @@
     "ritual_ZN12QHttpHeadersC1Ev": ["address"],
     "ritual_ZN12QHttpHeadersD1Ev": ["nothing", "address"],
     "ritual_ZN12QHttpHeadersC1ERKS_": ["address", "address"],
+    "ritual_ZN12QHttpHeadersC1EOS_": ["address", "address"],
+    "ritual_ZN12QHttpHeadersaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QHttpHeadersaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QHttpHeaders4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN12QHttpHeaders6appendE14QAnyStringViewS0_": [
       "bool", "address", "text", "text"
     ],
@@ -69,12 +73,43 @@
     "ritual_ZNK12QHttpHeaders13combinedValueENS_15WellKnownHeaderE": [
       "address", "address", "int"
     ],
+    "ritual_ZNK12QHttpHeaders8intValueE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QHttpHeaders8intValueENS_15WellKnownHeaderE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QHttpHeaders9intValuesE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QHttpHeaders9intValuesENS_15WellKnownHeaderE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QHttpHeaders10intValueAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK12QHttpHeaders13dateTimeValueE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QHttpHeaders13dateTimeValueENS_15WellKnownHeaderE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QHttpHeaders14dateTimeValuesE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QHttpHeaders14dateTimeValuesENS_15WellKnownHeaderE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QHttpHeaders15dateTimeValueAtEx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN12QHttpHeaders16setDateTimeValueE14QAnyStringViewRK9QDateTime": [
       "nothing", "address", "text", "address"
     ],
     "ritual_ZN12QHttpHeaders16setDateTimeValueENS_15WellKnownHeaderERK9QDateTime": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZNK12QHttpHeaders11rangeValuesEv": ["address", "address"],
     "ritual_ZN12QHttpHeaders14setRangeValuesERK19QHttpHeaderRangeSet": [
       "nothing", "address", "address"
     ],
@@ -84,9 +119,49 @@
     "ritual_ZN12QHttpHeaders19wellKnownHeaderNameENS_15WellKnownHeaderE": [
       "address", "int"
     ],
+    "ritual_ZN12QHttpHeaders15fromListOfPairsERK5QListISt4pairI10QByteArrayS2_EE": [
+      "address", "address"
+    ],
+    "ritual_ZN12QHttpHeaders12fromMultiMapERK9QMultiMapI10QByteArrayS1_E": [
+      "address", "address"
+    ],
+    "ritual_ZN12QHttpHeaders13fromMultiHashERK10QMultiHashI10QByteArrayS1_E": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QHttpHeaders13toListOfPairsEv": ["address", "address"],
+    "ritual_ZNK12QHttpHeaders10toMultiMapEv": ["address", "address"],
+    "ritual_ZNK12QHttpHeaders11toMultiHashEv": ["address", "address"],
     "ritual_Zls6QDebugRK12QHttpHeaders": ["address", "address", "address"],
+    "ritual_ZlsR11QDataStreamRK12QHttpHeaders": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR12QHttpHeaders": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK12QHttpHeaders6verifyExx": [
       "nothing", "address", "long long", "long long"
+    ],
+    "ritual_drop_QHttpHeaders__std_optional_qint64": ["nothing", "address"],
+    "ritual_drop_QHttpHeaders__std_optional_QList_qint64": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHttpHeaders__std_optional_QDateTime": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHttpHeaders__std_optional_QList_QDateTime": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHttpHeaders__std_optional_QHttpHeaderRangeSet": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHttpHeaders__QList_std_pair_QByteArray_QByteArray": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHttpHeaders__QMultiMap_QByteArray_QByteArray": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHttpHeaders__QMultiHash_QByteArray_QByteArray": [
+      "nothing", "address"
     ]
   }
 }

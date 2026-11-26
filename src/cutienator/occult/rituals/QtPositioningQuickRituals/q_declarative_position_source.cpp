@@ -14,6 +14,10 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QBindable>
+#include <QtCore/QString>
+#include <QtPositioning/QGeoPositionInfoSource>
 
 //  A QDeclarativePositionSource that Python can take functions over in. Every QDeclarativePositionSource
 //  Python makes is one. Each function below asks the Python
@@ -221,6 +225,25 @@ const QMetaObject *ritual_ZNK26QDeclarativePositionSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativePositionSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QDeclarativePositionSource11qt_metacastEPKc(
+    QDeclarativePositionSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativePositionSource::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QDeclarativePositionSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativePositionSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativePositionSource::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -344,6 +367,15 @@ QGeoPositionInfoSource *ritual_ZNK26QDeclarativePositionSource14positionSourceEv
   return self->positionSource();
 }
 
+//  QQmlListProperty<QDeclarativePluginParameter>
+//      QDeclarativePositionSource::parameters()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QDeclarativePluginParameter> *ritual_ZN26QDeclarativePositionSource10parametersEv(
+    QDeclarativePositionSource *self) {
+  return new QQmlListProperty<QDeclarativePluginParameter>(
+      self->parameters());
+}
+
 //  QVariantMap QDeclarativePositionSource::parameterMap() const
 extern "C" Q_DECL_EXPORT
 QMap<QString, QVariant> *ritual_ZNK26QDeclarativePositionSource12parameterMapEv(
@@ -384,6 +416,54 @@ QVariant *ritual_ZNK26QDeclarativePositionSource15backendPropertyERK7QString(
   return new QVariant(self->backendProperty(*name));
 }
 
+//  QBindable<PositioningMethods>
+//      QDeclarativePositionSource::bindableSupportedPositioningMethods()
+//      const
+extern "C" Q_DECL_EXPORT
+QBindable<QDeclarativePositionSource::PositioningMethods> *ritual_ZNK26QDeclarativePositionSource35bindableSupportedPositioningMethodsEv(
+    const QDeclarativePositionSource *self) {
+  return new QBindable<QDeclarativePositionSource::PositioningMethods>(
+      self->bindableSupportedPositioningMethods());
+}
+
+//  QBindable<SourceError> QDeclarativePositionSource::bindableSourceError()
+//      const
+extern "C" Q_DECL_EXPORT
+QBindable<QDeclarativePositionSource::SourceError> *ritual_ZNK26QDeclarativePositionSource19bindableSourceErrorEv(
+    const QDeclarativePositionSource *self) {
+  return new QBindable<QDeclarativePositionSource::SourceError>(
+      self->bindableSourceError());
+}
+
+//  QBindable<bool> QDeclarativePositionSource::bindableIsValid() const
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZNK26QDeclarativePositionSource15bindableIsValidEv(
+    const QDeclarativePositionSource *self) {
+  return new QBindable<bool>(self->bindableIsValid());
+}
+
+//  QBindable<QString> QDeclarativePositionSource::bindableName()
+extern "C" Q_DECL_EXPORT
+QBindable<QString> *ritual_ZN26QDeclarativePositionSource12bindableNameEv(
+    QDeclarativePositionSource *self) {
+  return new QBindable<QString>(self->bindableName());
+}
+
+//  QBindable<QDeclarativePosition *>
+//      QDeclarativePositionSource::bindablePosition() const
+extern "C" Q_DECL_EXPORT
+QBindable<QDeclarativePosition *> *ritual_ZNK26QDeclarativePositionSource16bindablePositionEv(
+    const QDeclarativePositionSource *self) {
+  return new QBindable<QDeclarativePosition *>(self->bindablePosition());
+}
+
+//  QBindable<bool> QDeclarativePositionSource::bindableActive()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN26QDeclarativePositionSource14bindableActiveEv(
+    QDeclarativePositionSource *self) {
+  return new QBindable<bool>(self->bindableActive());
+}
+
 //  void QDeclarativePositionSource::update(int timeout)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QDeclarativePositionSource6updateEi(
@@ -406,6 +486,62 @@ void ritual_ZN26QDeclarativePositionSource4stopEv(
   self->stop();
 }
 
+//  void QDeclarativePositionSource::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource15positionChangedEv(
+    QDeclarativePositionSource *self) {
+  self->positionChanged();
+}
+
+//  void QDeclarativePositionSource::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource13activeChangedEv(
+    QDeclarativePositionSource *self) {
+  self->activeChanged();
+}
+
+//  void QDeclarativePositionSource::updateIntervalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource21updateIntervalChangedEv(
+    QDeclarativePositionSource *self) {
+  self->updateIntervalChanged();
+}
+
+//  void QDeclarativePositionSource::supportedPositioningMethodsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource34supportedPositioningMethodsChangedEv(
+    QDeclarativePositionSource *self) {
+  self->supportedPositioningMethodsChanged();
+}
+
+//  void QDeclarativePositionSource::preferredPositioningMethodsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource34preferredPositioningMethodsChangedEv(
+    QDeclarativePositionSource *self) {
+  self->preferredPositioningMethodsChanged();
+}
+
+//  void QDeclarativePositionSource::sourceErrorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource18sourceErrorChangedEv(
+    QDeclarativePositionSource *self) {
+  self->sourceErrorChanged();
+}
+
+//  void QDeclarativePositionSource::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource11nameChangedEv(
+    QDeclarativePositionSource *self) {
+  self->nameChanged();
+}
+
+//  void QDeclarativePositionSource::validityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource15validityChangedEv(
+    QDeclarativePositionSource *self) {
+  self->validityChanged();
+}
+
 //  void QDeclarativePositionSource::positionUpdateReceived(const
 //      QGeoPositionInfo &update)
 extern "C" Q_DECL_EXPORT
@@ -413,6 +549,15 @@ void ritual_ZN26QDeclarativePositionSource22positionUpdateReceivedERK16QGeoPosit
     QDeclarativePositionSource *self,
     const QGeoPositionInfo *update) {
   self->positionUpdateReceived(*update);
+}
+
+//  void QDeclarativePositionSource::sourceErrorReceived(const
+//      QGeoPositionInfoSource::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource19sourceErrorReceivedEN22QGeoPositionInfoSource5ErrorE(
+    QDeclarativePositionSource *self,
+    const QGeoPositionInfoSource::Error *error) {
+  self->sourceErrorReceived(*error);
 }
 
 //  void QDeclarativePositionSource::onParameterInitialized()
@@ -465,6 +610,40 @@ void ritual_ZN26QDeclarativePositionSource9tryAttachERK7QStringb(
   self->tryAttach(*name, useFallback);
 }
 
+//  void QDeclarativePositionSource::parameter_append(QQmlListProperty<QDecla
+//      rativePluginParameter> *prop, QDeclarativePluginParameter *mapObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource16parameter_appendEP16QQmlListPropertyI27QDeclarativePluginParameterEPS1_(
+    QQmlListProperty<QDeclarativePluginParameter> *prop,
+    QDeclarativePluginParameter *mapObject) {
+  QDeclarativePositionSource::parameter_append(prop, mapObject);
+}
+
+//  qsizetype QDeclarativePositionSource::parameter_count(QQmlListProperty<QD
+//      eclarativePluginParameter> *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN26QDeclarativePositionSource15parameter_countEP16QQmlListPropertyI27QDeclarativePluginParameterE(
+    QQmlListProperty<QDeclarativePluginParameter> *prop) {
+  return QDeclarativePositionSource::parameter_count(prop);
+}
+
+//  QDeclarativePluginParameter *QDeclarativePositionSource::parameter_at(QQm
+//      lListProperty<QDeclarativePluginParameter> *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QDeclarativePluginParameter *ritual_ZN26QDeclarativePositionSource12parameter_atEP16QQmlListPropertyI27QDeclarativePluginParameterEx(
+    QQmlListProperty<QDeclarativePluginParameter> *prop,
+    qsizetype index) {
+  return QDeclarativePositionSource::parameter_at(prop, index);
+}
+
+//  void QDeclarativePositionSource::parameter_clear(QQmlListProperty<QDeclar
+//      ativePluginParameter> *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativePositionSource15parameter_clearEP16QQmlListPropertyI27QDeclarativePluginParameterE(
+    QQmlListProperty<QDeclarativePluginParameter> *prop) {
+  QDeclarativePositionSource::parameter_clear(prop);
+}
+
 //  bool QDeclarativePositionSource::isValidActualComputation() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK26QDeclarativePositionSource24isValidActualComputationEv(
@@ -485,6 +664,43 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QDeclarativePositionSource12executeStartEv(
     QDeclarativePositionSource *self) {
   self->executeStart();
+}
+
+//  size_t QDeclarativePositionSource::_qt_property_m_sourceName_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN26QDeclarativePositionSource32_qt_property_m_sourceName_offsetEv() {
+  return QDeclarativePositionSource::_qt_property_m_sourceName_offset();
+}
+
+//  size_t QDeclarativePositionSource::_qt_property_m_active_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN26QDeclarativePositionSource28_qt_property_m_active_offsetEv() {
+  return QDeclarativePositionSource::_qt_property_m_active_offset();
+}
+
+//  size_t QDeclarativePositionSource::_qt_property_m_position_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN26QDeclarativePositionSource30_qt_property_m_position_offsetEv() {
+  return QDeclarativePositionSource::_qt_property_m_position_offset();
+}
+
+//  size_t QDeclarativePositionSource::_qt_property_m_sourceError_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN26QDeclarativePositionSource33_qt_property_m_sourceError_offsetEv() {
+  return QDeclarativePositionSource::_qt_property_m_sourceError_offset();
+}
+
+//  size_t QDeclarativePositionSource::_qt_property_m_supportedPositioningMet
+//      hods_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN26QDeclarativePositionSource49_qt_property_m_supportedPositioningMethods_offsetEv() {
+  return QDeclarativePositionSource::_qt_property_m_supportedPositioningMethods_offset();
+}
+
+//  size_t QDeclarativePositionSource::_qt_property_m_isValid_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN26QDeclarativePositionSource29_qt_property_m_isValid_offsetEv() {
+  return QDeclarativePositionSource::_qt_property_m_isValid_offset();
 }
 
 //  QDeclarativePositionSource as the QQmlParserStatus it is built on
@@ -516,4 +732,50 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN26QDeclarativePositionSource17componentCompleteEv(
     QDeclarativePositionSource *self) {
   self->QDeclarativePositionSource::componentComplete();
+}
+
+//  a QQmlListProperty<QDeclarativePluginParameter> a ritual of
+//      QDeclarativePositionSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativePositionSource__QQmlListProperty_QDeclarativePluginParameter(
+    QQmlListProperty<QDeclarativePluginParameter> *self) {
+  delete self;
+}
+
+//  a QBindable<QDeclarativePositionSource::PositioningMethods> a ritual of
+//      QDeclarativePositionSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativePositionSource__QBindable_QDeclarativePositionSource_PositioningMethods(
+    QBindable<QDeclarativePositionSource::PositioningMethods> *self) {
+  delete self;
+}
+
+//  a QBindable<QDeclarativePositionSource::SourceError> a ritual of
+//      QDeclarativePositionSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativePositionSource__QBindable_QDeclarativePositionSource_SourceError(
+    QBindable<QDeclarativePositionSource::SourceError> *self) {
+  delete self;
+}
+
+//  a QBindable<bool> a ritual of QDeclarativePositionSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativePositionSource__QBindable_bool(
+    QBindable<bool> *self) {
+  delete self;
+}
+
+//  a QBindable<QString> a ritual of QDeclarativePositionSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativePositionSource__QBindable_QString(
+    QBindable<QString> *self) {
+  delete self;
+}
+
+//  a QBindable<QDeclarativePosition *> a ritual of
+//      QDeclarativePositionSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativePositionSource__QBindable_QDeclarativePosition(
+    QBindable<QDeclarativePosition *> *self) {
+  delete self;
 }

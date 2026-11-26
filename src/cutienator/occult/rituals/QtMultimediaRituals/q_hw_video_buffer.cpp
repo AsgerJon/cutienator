@@ -120,6 +120,13 @@ public:
   }
 };
 
+//  QHwVideoBuffer::QHwVideoBuffer(QVideoFrame::HandleType type)
+extern "C" Q_DECL_EXPORT
+QHwVideoBuffer *ritual_ZN14QHwVideoBufferC1EN11QVideoFrame10HandleTypeE(
+    QVideoFrame::HandleType type) {
+  return new CuteQHwVideoBuffer(type);
+}
+
 //  QHwVideoBuffer::~QHwVideoBuffer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QHwVideoBufferD1Ev(QHwVideoBuffer *self) {
@@ -152,6 +159,24 @@ extern "C" Q_DECL_EXPORT
 QMatrix4x4 *ritual_ZNK14QHwVideoBuffer21externalTextureMatrixEv(
     const QHwVideoBuffer *self) {
   return new QMatrix4x4(self->externalTextureMatrix());
+}
+
+//  QVideoFrameTexturesUPtr QHwVideoBuffer::mapTextures(QRhi &a0,
+//      QVideoFrameTexturesUPtr &a1)
+extern "C" Q_DECL_EXPORT
+QVideoFrameTexturesUPtr *ritual_ZN14QHwVideoBuffer11mapTexturesER4QRhiRSt10unique_ptrI19QVideoFrameTexturesSt14default_deleteIS3_EE(
+    QHwVideoBuffer *self,
+    QRhi *a0,
+    QVideoFrameTexturesUPtr *a1) {
+  return new QVideoFrameTexturesUPtr(self->mapTextures(*a0, *a1));
+}
+
+//  void QHwVideoBuffer::initTextureConverter(QRhi &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QHwVideoBuffer20initTextureConverterER4QRhi(
+    QHwVideoBuffer *self,
+    QRhi *a0) {
+  self->initTextureConverter(*a0);
 }
 
 //  bool QHwVideoBuffer::isDmaBuf() const
@@ -202,4 +227,11 @@ QMatrix4x4 *ritual_own_ZNK14QHwVideoBuffer21externalTextureMatrixEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK14QHwVideoBuffer8isDmaBufEv(const QHwVideoBuffer *self) {
   return self->QHwVideoBuffer::isDmaBuf();
+}
+
+//  a QVideoFrameTexturesUPtr a ritual of QHwVideoBuffer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHwVideoBuffer__QVideoFrameTexturesUPtr(
+    QVideoFrameTexturesUPtr *self) {
+  delete self;
 }

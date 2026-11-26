@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtScxml/qscxmltabledata.h, Qt 6.12.0. Changes made here are lost.
+//  QtScxml/qscxmltabledata.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, rituals for functions the generator leaves out: 2. Kept as it is
+//  when the generator runs again.
 #include <QtScxml/qscxmltabledata.h>
 #include <QtCore/qstring.h>
 #include <QtScxml/qscxmlexecutablecontent.h>
@@ -14,11 +16,12 @@ typedef const QScxmlExecutableContent::AssignmentInfo * (*CuteQScxmlTableDataCal
 typedef const QScxmlExecutableContent::ForeachInfo * (*CuteQScxmlTableDataCall3)(const void *, QScxmlExecutableContent::EvaluatorId, int *);
 typedef QScxmlExecutableContent::ContainerId (*CuteQScxmlTableDataCall4)(const void *, int *);
 typedef QString * (*CuteQScxmlTableDataCall5)(const void *, int *);
-typedef void * (*CuteQScxmlTableDataCall6)(const void *, int, int *);
+typedef void * (*CuteQScxmlTableDataCall6)(const void *, int *);
+typedef void * (*CuteQScxmlTableDataCall7)(const void *, int, int *);
 class CuteQScxmlTableData : public QScxmlTableData {
 public:
   using QScxmlTableData::QScxmlTableData;
-  void *taken[7] = {};
+  void *taken[8] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK15QScxmlTableData6stringEi")) {
@@ -45,8 +48,12 @@ public:
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK15QScxmlTableData14serviceFactoryEi")) {
+    if (!std::strcmp(key, "_ZNK15QScxmlTableData17stateMachineTableEv")) {
       taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK15QScxmlTableData14serviceFactoryEi")) {
+      taken[7] = call;
       return true;
     }
     return false;
@@ -137,12 +144,23 @@ public:
     return {};
   }
 
-  //  QScxmlInvokableServiceFactory *QScxmlTableData::serviceFactory(int
-  //      id) const
-  QScxmlInvokableServiceFactory *serviceFactory(int id) const override {
+  //  const qint32 *QScxmlTableData::stateMachineTable() const
+  const qint32 *stateMachineTable() const override {
     if (taken[6]) {
       int handled = 0;
       CuteQScxmlTableDataCall6 call = reinterpret_cast<CuteQScxmlTableDataCall6>(taken[6]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<const qint32 *>(given);
+    }
+    return {};
+  }
+
+  //  QScxmlInvokableServiceFactory *QScxmlTableData::serviceFactory(int
+  //      id) const
+  QScxmlInvokableServiceFactory *serviceFactory(int id) const override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQScxmlTableDataCall7 call = reinterpret_cast<CuteQScxmlTableDataCall7>(taken[7]);
       void * given = call(this, id, &handled);
       if (handled) return static_cast<QScxmlInvokableServiceFactory *>(given);
     }
@@ -215,6 +233,13 @@ QString *ritual_ZNK15QScxmlTableData4nameEv(const QScxmlTableData *self) {
   return new QString(self->name());
 }
 
+//  const qint32 *QScxmlTableData::stateMachineTable() const
+extern "C" Q_DECL_EXPORT
+const qint32 *ritual_ZNK15QScxmlTableData17stateMachineTableEv(
+    const QScxmlTableData *self) {
+  return self->stateMachineTable();
+}
+
 //  QScxmlInvokableServiceFactory *QScxmlTableData::serviceFactory(int id)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -232,4 +257,21 @@ bool ritual_take_QScxmlTableData(
     const char *key,
     void *call) {
   return static_cast<CuteQScxmlTableData *>(self)->take(key, call);
+}
+
+//  QScxmlExecutableContent::InstructionId *QScxmlTableData::instructions()
+//      const
+extern "C" Q_DECL_EXPORT
+QScxmlExecutableContent::InstructionId *ritual_ZNK15QScxmlTableData12instructionsEv(
+    const QScxmlTableData *self) {
+  return self->instructions();
+}
+
+//  QScxmlExecutableContent::StringId *QScxmlTableData::dataNames(int *count)
+//      const
+extern "C" Q_DECL_EXPORT
+QScxmlExecutableContent::StringId *ritual_ZNK15QScxmlTableData9dataNamesEPi(
+    const QScxmlTableData *self,
+    int *count) {
+  return self->dataNames(count);
 }

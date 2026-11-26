@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap18QMetaObjectWrapper4initEPK11QMetaObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap18QMetaObjectWrapper7destroyEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK3QV44Heap18QMetaObjectWrapper10metaObjectEv": [
       "address", "address"
     ],

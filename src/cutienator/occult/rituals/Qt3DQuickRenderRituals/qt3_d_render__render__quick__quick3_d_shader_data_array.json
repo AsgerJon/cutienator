@@ -1,8 +1,9 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of Qt3DQui",
-    "ckRender/6.12.0/Qt3DQuickRender/private/quick3dshaderdataarray_p.h",
-    ", Qt 6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "Qt3DQuickRender/6.12.0/Qt3DQuickRender/private/quick3dshaderdataarray_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
   ],
   "rows": {
     "ritual_ZNK10Qt3DRender6Render5Quick22Quick3DShaderDataArray10metaObjectEv": [
@@ -10,6 +11,12 @@
     ],
     "ritual_ZN10Qt3DRender6Render5Quick22Quick3DShaderDataArray2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick22Quick3DShaderDataArrayC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_Render_Quick_Quick3DShaderDataArray": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

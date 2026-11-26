@@ -8,11 +8,62 @@
     "ritual_ZNK31QAbstractItemModelSourceAdapter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK31QAbstractItemModelSourceAdapter14selectionModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QAbstractItemModelSourceAdapter14availableRolesEv": [
       "address", "address"
     ],
     "ritual_ZNK31QAbstractItemModelSourceAdapter9roleNamesEv": [
       "address", "address"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter18replicaSizeRequestE5QListIN9QtPrivate10ModelIndexEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter17replicaRowRequestE5QListIN9QtPrivate10ModelIndexEES3_S0_IiE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter20replicaHeaderRequestE5QListIN2Qt11OrientationEES0_IiES4_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter19replicaCacheRequestEmRK5QListIiE": [
+      "address", "address", "size_t", "address"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter18sourceRowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter21sourceColumnsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter17sourceRowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter20sourceCurrentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter19sourceLayoutChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter21availableRolesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter14currentChangedE5QListIN9QtPrivate10ModelIndexEES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN31QAbstractItemModelSourceAdapter13layoutChangedE5QListIN9QtPrivate10ModelIndexEEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_drop_QAbstractItemModelSourceAdapter__QList_int": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractItemModelSourceAdapter__QList_QtPrivate_IndexValuePair": [
+      "nothing", "address"
     ]
   }
 }

@@ -154,6 +154,60 @@ bool ritual_ZN19QQmlPropertyPrivate17writeEnumPropertyERK13QMetaPropertyiP7QObje
       flags);
 }
 
+//  bool QQmlPropertyPrivate::writeValueProperty(QObject *a0, const
+//      QQmlPropertyData &a1, const QQmlPropertyData &valueTypeData, const
+//      QVariant &a3, const QQmlRefPointer<QQmlContextData> &a4,
+//      QQmlPropertyData::WriteFlags flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQmlPropertyPrivate18writeValuePropertyEP7QObjectRK16QQmlPropertyDataS4_RK8QVariantRK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS2_9WriteFlagEE(
+    QObject *a0,
+    const QQmlPropertyData *a1,
+    const QQmlPropertyData *valueTypeData,
+    const QVariant *a3,
+    const QQmlRefPointer<QQmlContextData> *a4,
+    int flags) {
+  return QQmlPropertyPrivate::writeValueProperty(
+      a0,
+      *a1,
+      *valueTypeData,
+      *a3,
+      *a4,
+      QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags));
+}
+
+//  bool QQmlPropertyPrivate::resetValueProperty(QObject *a0, const
+//      QQmlPropertyData &a1, const QQmlPropertyData &valueTypeData, const
+//      QQmlRefPointer<QQmlContextData> &a3, QQmlPropertyData::WriteFlags
+//      flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQmlPropertyPrivate18resetValuePropertyEP7QObjectRK16QQmlPropertyDataS4_RK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS2_9WriteFlagEE(
+    QObject *a0,
+    const QQmlPropertyData *a1,
+    const QQmlPropertyData *valueTypeData,
+    const QQmlRefPointer<QQmlContextData> *a3,
+    int flags) {
+  return QQmlPropertyPrivate::resetValueProperty(
+      a0,
+      *a1,
+      *valueTypeData,
+      *a3,
+      QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags));
+}
+
+//  ListCopyResult
+//      QQmlPropertyPrivate::convertToQQmlListProperty(QQmlListProperty<QObje
+//      ct> *listProperty, QMetaType actualListType, const QVariant &value)
+extern "C" Q_DECL_EXPORT
+QQmlPropertyPrivate::ListCopyResult ritual_ZN19QQmlPropertyPrivate25convertToQQmlListPropertyEP16QQmlListPropertyI7QObjectE9QMetaTypeRK8QVariant(
+    QQmlListProperty<QObject> *listProperty,
+    const QMetaType *actualListType,
+    const QVariant *value) {
+  return QQmlPropertyPrivate::convertToQQmlListProperty(
+      listProperty,
+      *actualListType,
+      *value);
+}
+
 //  QVariant QQmlPropertyPrivate::convertToWriteTargetType(const QVariant
 //      &value, QMetaType targetMetaType)
 extern "C" Q_DECL_EXPORT
@@ -164,6 +218,24 @@ QVariant *ritual_ZN19QQmlPropertyPrivate24convertToWriteTargetTypeERK8QVariant9Q
       QQmlPropertyPrivate::convertToWriteTargetType(
           *value,
           *targetMetaType));
+}
+
+//  bool QQmlPropertyPrivate::write(QObject *a0, const QQmlPropertyData &a1,
+//      const QVariant &a2, const QQmlRefPointer<QQmlContextData> &a3,
+//      QQmlPropertyData::WriteFlags flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQmlPropertyPrivate5writeEP7QObjectRK16QQmlPropertyDataRK8QVariantRK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS2_9WriteFlagEE(
+    QObject *a0,
+    const QQmlPropertyData *a1,
+    const QVariant *a2,
+    const QQmlRefPointer<QQmlContextData> *a3,
+    int flags) {
+  return QQmlPropertyPrivate::write(
+      a0,
+      *a1,
+      *a2,
+      *a3,
+      QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags));
 }
 
 //  bool QQmlPropertyPrivate::reset(QObject *a0, const QQmlPropertyData &a1,
@@ -177,6 +249,17 @@ bool ritual_ZN19QQmlPropertyPrivate5resetEP7QObjectRK16QQmlPropertyData6QFlagsIN
       a0,
       *a1,
       QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags));
+}
+
+//  void QQmlPropertyPrivate::findAliasTarget(QObject *a0, QQmlPropertyIndex
+//      a1, QObject **a2, QQmlPropertyIndex *a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlPropertyPrivate15findAliasTargetEP7QObject17QQmlPropertyIndexPS1_PS2_(
+    QObject *a0,
+    const QQmlPropertyIndex *a1,
+    QObject **a2,
+    QQmlPropertyIndex *a3) {
+  QQmlPropertyPrivate::findAliasTarget(a0, *a1, a2, a3);
 }
 
 //  ResolvedAlias QQmlPropertyPrivate::findAliasTarget(QObject *baseObject,
@@ -246,6 +329,18 @@ QQmlAbstractBinding *ritual_ZN19QQmlPropertyPrivate7bindingEP7QObject17QQmlPrope
     QObject *a0,
     const QQmlPropertyIndex *index) {
   return QQmlPropertyPrivate::binding(a0, *index);
+}
+
+//  QQmlProperty QQmlPropertyPrivate::restore(QObject *a0, const
+//      QQmlPropertyData &a1, const QQmlPropertyData *a2, const
+//      QQmlRefPointer<QQmlContextData> &a3)
+extern "C" Q_DECL_EXPORT
+QQmlProperty *ritual_ZN19QQmlPropertyPrivate7restoreEP7QObjectRK16QQmlPropertyDataPS3_RK14QQmlRefPointerI15QQmlContextDataE(
+    QObject *a0,
+    const QQmlPropertyData *a1,
+    const QQmlPropertyData *a2,
+    const QQmlRefPointer<QQmlContextData> *a3) {
+  return new QQmlProperty(QQmlPropertyPrivate::restore(a0, *a1, a2, *a3));
 }
 
 //  int QQmlPropertyPrivate::signalIndex() const
@@ -378,4 +473,30 @@ extern "C" Q_DECL_EXPORT
 QList<QUrl> *ritual_ZN19QQmlPropertyPrivate11urlSequenceERK8QVariant(
     const QVariant *value) {
   return new QList<QUrl>(QQmlPropertyPrivate::urlSequence(*value));
+}
+
+//  QList<QUrl> QQmlPropertyPrivate::urlSequence(const QVariant &value, const
+//      QQmlRefPointer<QQmlContextData> &ctxt)
+extern "C" Q_DECL_EXPORT
+QList<QUrl> *ritual_ZN19QQmlPropertyPrivate11urlSequenceERK8QVariantRK14QQmlRefPointerI15QQmlContextDataE(
+    const QVariant *value,
+    const QQmlRefPointer<QQmlContextData> *ctxt) {
+  return new QList<QUrl>(QQmlPropertyPrivate::urlSequence(*value, *ctxt));
+}
+
+//  QQmlProperty QQmlPropertyPrivate::create(QObject *target, const QString
+//      &propertyName, const QQmlRefPointer<QQmlContextData> &context,
+//      QQmlPropertyPrivate::InitFlags flags)
+extern "C" Q_DECL_EXPORT
+QQmlProperty *ritual_ZN19QQmlPropertyPrivate6createEP7QObjectRK7QStringRK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS_8InitFlagEE(
+    QObject *target,
+    const QString *propertyName,
+    const QQmlRefPointer<QQmlContextData> *context,
+    int flags) {
+  return new QQmlProperty(
+      QQmlPropertyPrivate::create(
+          target,
+          *propertyName,
+          *context,
+          QFlags<QQmlPropertyPrivate::InitFlag>::fromInt(flags)));
 }

@@ -420,6 +420,25 @@ const QMetaObject *ritual_ZNK35QDesignerFormWindowManagerInterface10metaObjectEv
   return self->metaObject();
 }
 
+//  void *QDesignerFormWindowManagerInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN35QDesignerFormWindowManagerInterface11qt_metacastEPKc(
+    QDesignerFormWindowManagerInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerFormWindowManagerInterface::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN35QDesignerFormWindowManagerInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerFormWindowManagerInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerFormWindowManagerInterface::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -651,6 +670,42 @@ extern "C" Q_DECL_EXPORT
 QPixmap *ritual_ZNK35QDesignerFormWindowManagerInterface19createPreviewPixmapEv(
     const QDesignerFormWindowManagerInterface *self) {
   return new QPixmap(self->createPreviewPixmap());
+}
+
+//  void QDesignerFormWindowManagerInterface::formWindowAdded(QDesignerFormWi
+//      ndowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QDesignerFormWindowManagerInterface15formWindowAddedEP28QDesignerFormWindowInterface(
+    QDesignerFormWindowManagerInterface *self,
+    QDesignerFormWindowInterface *formWindow) {
+  self->formWindowAdded(formWindow);
+}
+
+//  void QDesignerFormWindowManagerInterface::formWindowRemoved(QDesignerForm
+//      WindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QDesignerFormWindowManagerInterface17formWindowRemovedEP28QDesignerFormWindowInterface(
+    QDesignerFormWindowManagerInterface *self,
+    QDesignerFormWindowInterface *formWindow) {
+  self->formWindowRemoved(formWindow);
+}
+
+//  void QDesignerFormWindowManagerInterface::activeFormWindowChanged(QDesign
+//      erFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QDesignerFormWindowManagerInterface23activeFormWindowChangedEP28QDesignerFormWindowInterface(
+    QDesignerFormWindowManagerInterface *self,
+    QDesignerFormWindowInterface *formWindow) {
+  self->activeFormWindowChanged(formWindow);
+}
+
+//  void QDesignerFormWindowManagerInterface::formWindowSettingsChanged(QDesi
+//      gnerFormWindowInterface *fw)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QDesignerFormWindowManagerInterface25formWindowSettingsChangedEP28QDesignerFormWindowInterface(
+    QDesignerFormWindowManagerInterface *self,
+    QDesignerFormWindowInterface *fw) {
+  self->formWindowSettingsChanged(fw);
 }
 
 //  void QDesignerFormWindowManagerInterface::addFormWindow(QDesignerFormWind

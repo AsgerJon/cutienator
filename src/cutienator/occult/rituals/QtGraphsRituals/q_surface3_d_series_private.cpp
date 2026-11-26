@@ -3,26 +3,29 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qsurface3dseries.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qsurface3dseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qpoint.h>
 #include <QtGui/qimage.h>
 #include <QtGui/qcolor.h>
 #include <cstring>
+#include <QtGraphs/QSurface3DSeries>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGraphs/private/qabstract3dseries_p.h>
-#include <QtGraphs/private/qabstractdataproxy_p.h>
-#include <QtGraphs/private/qquickgraphsitem_p.h>
-#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #include <QtGraphs/qcategory3daxis.h>
 #include <QtGraphs/private/qquickgraphssurface_p.h>
 #include <QtGraphs/private/qsurface3dseries_p.h>
 #include <QtGraphs/qvalue3daxis.h>
 #include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtGraphs/private/qabstract3dseries_p.h>
+#include <QtGraphs/private/qabstractdataproxy_p.h>
+#include <QtGraphs/private/qquickgraphsitem_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -31,39 +34,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 902, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
-inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
-{
-    Q_Q(QAbstract3DSeries);
-    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_func()->series());
-
-    delete m_dataProxy;
-    m_dataProxy = proxy;
-
-    proxy->d_func()->setSeries(q); // also sets parent
-
-    if (m_graph) {
-        connectGraphAndProxy(m_graph);
-        m_graph->markDataDirty();
-    }
-}
-
-//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 918, as _ZN24QAbstract3DSeriesPrivate8setGraphEP16QQuickGraphsItem
-inline void QAbstract3DSeriesPrivate::setGraph(QQuickGraphsItem *graph)
-{
-    Q_Q(QAbstract3DSeries);
-    m_graph = graph;
-    q->setParent(graph);
-    connectGraphAndProxy(graph);
-    markItemLabelDirty();
-}
-
-//  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 752, as _ZN23QSurface3DSeriesPrivateD1Ev
-inline QSurface3DSeriesPrivate::~QSurface3DSeriesPrivate()
-{
-    clearArray();
-}
 
 //  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 757, as _ZN23QSurface3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
 inline void QSurface3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
@@ -74,52 +44,6 @@ inline void QSurface3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
     QAbstract3DSeriesPrivate::setDataProxy(proxy);
 
     emit q->dataProxyChanged(static_cast<QSurfaceDataProxy *>(proxy));
-}
-
-//  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 767, as _ZN23QSurface3DSeriesPrivate20connectGraphAndProxyEP16QQuickGraphsItem
-inline void QSurface3DSeriesPrivate::connectGraphAndProxy(QQuickGraphsItem *newGraph)
-{
-    Q_Q(QSurface3DSeries);
-    QSurfaceDataProxy *surfaceDataProxy = static_cast<QSurfaceDataProxy *>(m_dataProxy);
-
-    if (m_graph && surfaceDataProxy) {
-        // Disconnect old graph/old proxy
-        QObject::disconnect(surfaceDataProxy, 0, m_graph, 0);
-        QObject::disconnect(q, 0, m_graph, 0);
-    }
-
-    if (newGraph && surfaceDataProxy) {
-        QQuickGraphsSurface *graph = static_cast<QQuickGraphsSurface *>(newGraph);
-
-        QObject::connect(surfaceDataProxy,
-                         &QSurfaceDataProxy::arrayReset,
-                         graph,
-                         &QQuickGraphsSurface::handleArrayReset);
-        QObject::connect(surfaceDataProxy,
-                         &QSurfaceDataProxy::rowsAdded,
-                         graph,
-                         &QQuickGraphsSurface::handleRowsAdded);
-        QObject::connect(surfaceDataProxy,
-                         &QSurfaceDataProxy::rowsChanged,
-                         graph,
-                         &QQuickGraphsSurface::handleRowsChanged);
-        QObject::connect(surfaceDataProxy,
-                         &QSurfaceDataProxy::rowsRemoved,
-                         graph,
-                         &QQuickGraphsSurface::handleRowsRemoved);
-        QObject::connect(surfaceDataProxy,
-                         &QSurfaceDataProxy::rowsInserted,
-                         graph,
-                         &QQuickGraphsSurface::handleRowsInserted);
-        QObject::connect(surfaceDataProxy,
-                         &QSurfaceDataProxy::itemChanged,
-                         graph,
-                         &QQuickGraphsSurface::handleItemChanged);
-        QObject::connect(q,
-                         &QSurface3DSeries::dataProxyChanged,
-                         graph,
-                         &QQuickGraphsSurface::handleArrayReset);
-    }
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 812, as _ZN23QSurface3DSeriesPrivate15createItemLabelEv
@@ -169,6 +93,161 @@ inline void QSurface3DSeriesPrivate::createItemLabel()
     m_itemLabel.replace(seriesNameTag, m_name);
 }
 
+//  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 767, as _ZN23QSurface3DSeriesPrivate20connectGraphAndProxyEP16QQuickGraphsItem
+inline void QSurface3DSeriesPrivate::connectGraphAndProxy(QQuickGraphsItem *newGraph)
+{
+    Q_Q(QSurface3DSeries);
+    QSurfaceDataProxy *surfaceDataProxy = static_cast<QSurfaceDataProxy *>(m_dataProxy);
+
+    if (m_graph && surfaceDataProxy) {
+        // Disconnect old graph/old proxy
+        QObject::disconnect(surfaceDataProxy, 0, m_graph, 0);
+        QObject::disconnect(q, 0, m_graph, 0);
+    }
+
+    if (newGraph && surfaceDataProxy) {
+        QQuickGraphsSurface *graph = static_cast<QQuickGraphsSurface *>(newGraph);
+
+        QObject::connect(surfaceDataProxy,
+                         &QSurfaceDataProxy::arrayReset,
+                         graph,
+                         &QQuickGraphsSurface::handleArrayReset);
+        QObject::connect(surfaceDataProxy,
+                         &QSurfaceDataProxy::rowsAdded,
+                         graph,
+                         &QQuickGraphsSurface::handleRowsAdded);
+        QObject::connect(surfaceDataProxy,
+                         &QSurfaceDataProxy::rowsChanged,
+                         graph,
+                         &QQuickGraphsSurface::handleRowsChanged);
+        QObject::connect(surfaceDataProxy,
+                         &QSurfaceDataProxy::rowsRemoved,
+                         graph,
+                         &QQuickGraphsSurface::handleRowsRemoved);
+        QObject::connect(surfaceDataProxy,
+                         &QSurfaceDataProxy::rowsInserted,
+                         graph,
+                         &QQuickGraphsSurface::handleRowsInserted);
+        QObject::connect(surfaceDataProxy,
+                         &QSurfaceDataProxy::itemChanged,
+                         graph,
+                         &QQuickGraphsSurface::handleItemChanged);
+        QObject::connect(q,
+                         &QSurface3DSeries::dataProxyChanged,
+                         graph,
+                         &QQuickGraphsSurface::handleArrayReset);
+    }
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 752, as _ZN23QSurface3DSeriesPrivateD2Ev
+inline QSurface3DSeriesPrivate::~QSurface3DSeriesPrivate()
+{
+    clearArray();
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 918, as _ZN24QAbstract3DSeriesPrivate8setGraphEP16QQuickGraphsItem
+inline void QAbstract3DSeriesPrivate::setGraph(QQuickGraphsItem *graph)
+{
+    Q_Q(QAbstract3DSeries);
+    m_graph = graph;
+    q->setParent(graph);
+    connectGraphAndProxy(graph);
+    markItemLabelDirty();
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 879, as _ZN24QAbstract3DSeriesPrivateC2EN17QAbstract3DSeries10SeriesTypeE
+inline QAbstract3DSeriesPrivate::QAbstract3DSeriesPrivate(QAbstract3DSeries::SeriesType type)
+    : m_type(type)
+    , m_dataProxy(0)
+    , m_visible(true)
+    , m_graph(0)
+    , m_mesh(QAbstract3DSeries::Mesh::Cube)
+    , m_meshSmooth(false)
+    , m_colorStyle(QGraphsTheme::ColorStyle::Uniform)
+    , m_baseColor(Qt::black)
+    , m_singleHighlightColor(Qt::black)
+    , m_multiHighlightColor(Qt::black)
+    , m_itemLabelDirty(true)
+    , m_itemLabelVisible(true)
+    , m_lightingMode(QAbstract3DSeries::LightingMode::Shaded)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 895, as _ZN24QAbstract3DSeriesPrivateD2Ev
+inline QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/utils/qgraphs3dlogging.cpp, line 13, as _Z14lcProperties3Dv
+inline const QLoggingCategory &lcProperties3D()
+{
+    static const QLoggingCategory category("qt.graphs3d.properties");
+    return category;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 1117, as _ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv
+inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
+{
+    m_itemLabelDirty = true;
+    m_changeTracker.itemLabelChanged = true;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 902, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
+inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
+{
+    Q_Q(QAbstract3DSeries);
+    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_func()->series());
+
+    delete m_dataProxy;
+    m_dataProxy = proxy;
+
+    proxy->d_func()->setSeries(q); // also sets parent
+
+    if (m_graph) {
+        connectGraphAndProxy(m_graph);
+        m_graph->markDataDirty();
+    }
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 858, as _ZN23QSurface3DSeriesPrivate16setSelectedPointE6QPoint
+inline void QSurface3DSeriesPrivate::setSelectedPoint(QPoint position)
+{
+    Q_Q(QSurface3DSeries);
+    if (position == m_selectedPoint) {
+        qCDebug(lcProperties3D) << __FUNCTION__
+            << "value is already set to:" << position;
+        return;
+    }
+    markItemLabelDirty();
+    m_selectedPoint = position;
+    emit q->selectedPointChanged(m_selectedPoint);
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 871, as _ZN23QSurface3DSeriesPrivate10setShadingEN16QSurface3DSeries7ShadingE
+inline void QSurface3DSeriesPrivate::setShading(const QSurface3DSeries::Shading shading)
+{
+    m_shading = shading;
+    if (m_graph)
+        m_graph->markSeriesVisualsDirty();
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 878, as _ZN23QSurface3DSeriesPrivate11setDrawModeE6QFlagsIN16QSurface3DSeries8DrawFlagEE
+inline void QSurface3DSeriesPrivate::setDrawMode(QSurface3DSeries::DrawFlags mode)
+{
+    if (mode.testFlag(QSurface3DSeries::DrawFilledSurface)
+        && !mode.testFlag(QSurface3DSeries::DrawSurface)) {
+        qCWarning(lcProperties3D, "%s drawSurface was not set and is needed for DrawFilledSurface."
+                 " Setting it automatically", qUtf8Printable(QLatin1String(__FUNCTION__)));
+        mode |= QSurface3DSeries::DrawSurface;
+    }
+    if (mode.testFlag(QSurface3DSeries::DrawWireframe)
+        || mode.testFlag(QSurface3DSeries::DrawSurface)) {
+        m_drawMode = mode;
+        if (m_graph)
+            m_graph->markSeriesVisualsDirty();
+    } else {
+        qCWarning(lcProperties3D, "%s drawWireframe or DrawSurface must be set. Mode not changed.",
+                  qUtf8Printable(QLatin1String(__FUNCTION__)));
+    }
+}
+
 //  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 897, as _ZN23QSurface3DSeriesPrivate10setTextureERK6QImage
 inline void QSurface3DSeriesPrivate::setTexture(const QImage &texture)
 {
@@ -194,6 +273,12 @@ inline void QSurface3DSeriesPrivate::setRowsSanitized(bool enabled)
     m_rowsSanitized = enabled;
     if (m_graph)
         m_graph->markDataDirty();
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 921, as _ZN23QSurface3DSeriesPrivate12setDataArrayERK5QListIS0_I16QSurfaceDataItemEE
+inline void QSurface3DSeriesPrivate::setDataArray(const QSurfaceDataArray &newDataArray)
+{
+    m_dataArray = newDataArray;
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 926, as _ZN23QSurface3DSeriesPrivate8clearRowEx
@@ -367,6 +452,32 @@ void ritual_ZN23QSurface3DSeriesPrivate15createItemLabelEv(
   self->createItemLabel();
 }
 
+//  void QSurface3DSeriesPrivate::setSelectedPoint(QPoint position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QSurface3DSeriesPrivate16setSelectedPointE6QPoint(
+    QSurface3DSeriesPrivate *self,
+    const QPoint *position) {
+  self->setSelectedPoint(*position);
+}
+
+//  void QSurface3DSeriesPrivate::setShading(const QSurface3DSeries::Shading
+//      shading)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QSurface3DSeriesPrivate10setShadingEN16QSurface3DSeries7ShadingE(
+    QSurface3DSeriesPrivate *self,
+    const QSurface3DSeries::Shading *shading) {
+  self->setShading(*shading);
+}
+
+//  void QSurface3DSeriesPrivate::setDrawMode(QSurface3DSeries::DrawFlags
+//      mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QSurface3DSeriesPrivate11setDrawModeE6QFlagsIN16QSurface3DSeries8DrawFlagEE(
+    QSurface3DSeriesPrivate *self,
+    int mode) {
+  self->setDrawMode(QFlags<QSurface3DSeries::DrawFlag>::fromInt(mode));
+}
+
 //  void QSurface3DSeriesPrivate::setTexture(const QImage &texture)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QSurface3DSeriesPrivate10setTextureERK6QImage(
@@ -389,6 +500,15 @@ void ritual_ZN23QSurface3DSeriesPrivate16setRowsSanitizedEb(
     QSurface3DSeriesPrivate *self,
     bool enabled) {
   self->setRowsSanitized(enabled);
+}
+
+//  void QSurface3DSeriesPrivate::setDataArray(const QSurfaceDataArray
+//      &newDataArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QSurface3DSeriesPrivate12setDataArrayERK5QListIS0_I16QSurfaceDataItemEE(
+    QSurface3DSeriesPrivate *self,
+    const QSurfaceDataArray *newDataArray) {
+  self->setDataArray(*newDataArray);
 }
 
 //  void QSurface3DSeriesPrivate::clearRow(qsizetype rowIndex)
@@ -485,4 +605,4 @@ void ritual_own_ZN23QSurface3DSeriesPrivate15createItemLabelEv(
   self->QSurface3DSeriesPrivate::createItemLabel();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))

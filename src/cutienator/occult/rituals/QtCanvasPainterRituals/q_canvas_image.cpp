@@ -59,6 +59,36 @@ void ritual_ZN12QCanvasImageD1Ev(QCanvasImage *self) {
   delete self;
 }
 
+//  QCanvasImage &QCanvasImage::operator=(const QCanvasImage &image)
+extern "C" Q_DECL_EXPORT
+QCanvasImage *ritual_ZN12QCanvasImageaSERKS_(
+    QCanvasImage *self,
+    const QCanvasImage *image) {
+  return &(self->operator=(*image));
+}
+
+//  QCanvasImage::QCanvasImage(QCanvasImage &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasImage *ritual_ZN12QCanvasImageC1EOS_(QCanvasImage *other) {
+  return new QCanvasImage(std::move(*other));
+}
+
+//  QCanvasImage &QCanvasImage::operator=(QCanvasImage &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasImage *ritual_ZN12QCanvasImageaSEOS_(
+    QCanvasImage *self,
+    QCanvasImage *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCanvasImage::swap(QCanvasImage &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QCanvasImage4swapERS_(
+    QCanvasImage *self,
+    QCanvasImage *other) {
+  self->swap(*other);
+}
+
 //  QVariant QCanvasImage::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK12QCanvasImagecv8QVariantEv(const QCanvasImage *self) {

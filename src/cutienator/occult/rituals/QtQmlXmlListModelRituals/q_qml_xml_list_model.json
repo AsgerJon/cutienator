@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQmlXmlListModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlXmlListModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQmlXmlListModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQmlXmlListModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,7 @@
     "ritual_ZN16QQmlXmlListModel8setQueryERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN16QQmlXmlListModel11roleObjectsEv": ["address", "address"],
     "ritual_ZN16QQmlXmlListModel10appendRoleEP20QQmlXmlListModelRole": [
       "nothing", "address", "address"
     ],
@@ -41,6 +48,15 @@
     "ritual_ZN16QQmlXmlListModel17componentCompleteEv": [
       "nothing", "address"
     ],
+    "ritual_ZN16QQmlXmlListModel13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQmlXmlListModel15progressChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QQmlXmlListModel12countChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlXmlListModel13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlXmlListModel12queryChangedEv": ["nothing", "address"],
     "ritual_ZN16QQmlXmlListModel6reloadEv": ["nothing", "address"],
     "ritual_ZN16QQmlXmlListModel15requestFinishedEv": ["nothing", "address"],
     "ritual_ZN16QQmlXmlListModel15requestProgressExx": [
@@ -50,8 +66,17 @@
     "ritual_ZN16QQmlXmlListModel14queryCompletedERK27QQmlXmlListModelQueryResult": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN16QQmlXmlListModel10queryErrorEPvRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZN16QQmlXmlListModel18notifyQueryStartedEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQmlXmlListModel10appendRoleEP16QQmlListPropertyI20QQmlXmlListModelRoleEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlXmlListModel9clearRoleEP16QQmlListPropertyI20QQmlXmlListModelRoleE": [
+      "nothing", "address"
     ],
     "ritual_ZN16QQmlXmlListModel15tryExecuteQueryERK10QByteArray": [
       "nothing", "address", "address"
@@ -74,6 +99,9 @@
     ],
     "ritual_own_ZN16QQmlXmlListModel10classBeginEv": ["nothing", "address"],
     "ritual_own_ZN16QQmlXmlListModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlXmlListModel__QQmlListProperty_QQmlXmlListModelRole": [
       "nothing", "address"
     ]
   }

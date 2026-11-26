@@ -201,10 +201,81 @@ const QMetaObject *ritual_ZNK22Q3DInputHandlerPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DInputHandlerPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22Q3DInputHandlerPrivate11qt_metacastEPKc(
+    Q3DInputHandlerPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DInputHandlerPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22Q3DInputHandlerPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DInputHandlerPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  Q3DInputHandlerPrivate::~Q3DInputHandlerPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22Q3DInputHandlerPrivateD1Ev(Q3DInputHandlerPrivate *self) {
   delete self;
+}
+
+//  void Q3DInputHandlerPrivate::handleSceneChange(Q3DScene *scene)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22Q3DInputHandlerPrivate17handleSceneChangeEP8Q3DScene(
+    Q3DInputHandlerPrivate *self,
+    Q3DScene *scene) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Q3DInputHandlerPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handleSceneChange(Q3DScene *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handleSceneChange(Q3DScene *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&scene)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Q3DInputHandlerPrivate::handleQueriedGraphPositionChange()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22Q3DInputHandlerPrivate32handleQueriedGraphPositionChangeEv(
+    Q3DInputHandlerPrivate *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Q3DInputHandlerPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handleQueriedGraphPositionChange()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handleQueriedGraphPositionChange()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQ3DInputHandlerPrivate, for the function

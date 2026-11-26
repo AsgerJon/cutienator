@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from QtQuickNativeStyle/6.12.0/",
+    "QtQuickNativeStyle/private/qquickstyleconstants_p.h, Qt 6.12.0, from",
+    "Qt's source: Objective-C++, built on Apple's systems only. Kept as",
+    "it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickStyleConstantsC1Ev": [
+      "address"
+    ],
+    "ritual_ZNK20QQuickStyleConstants22runningWithLiquidGlassEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickStyleConstants24secondarySystemFillColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickStyleConstants23tertiarySystemFillColorEv": [
+      "address", "address"
+    ]
+  }
+}

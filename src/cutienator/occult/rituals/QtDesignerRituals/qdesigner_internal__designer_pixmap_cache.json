@@ -8,8 +8,26 @@
     "ritual_ZNK18qdesigner_internal19DesignerPixmapCache10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal19DesignerPixmapCache11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal19DesignerPixmapCache11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal19DesignerPixmapCache2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal19DesignerPixmapCacheC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal19DesignerPixmapCache6pixmapERKNS_24PropertySheetPixmapValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19DesignerPixmapCache5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19DesignerPixmapCache8reloadedEv": [
+      "nothing", "address"
     ]
   }
 }

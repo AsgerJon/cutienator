@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmldirparser_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qqmldirparser_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN13QQmlDirParser5clearEv": ["nothing", "address"],
@@ -14,6 +14,9 @@
     "ritual_ZN13QQmlDirParser8setErrorERKN6QQmlJS17DiagnosticMessageE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK13QQmlDirParser6errorsERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK13QQmlDirParser16hasTypeNamespaceEv": ["bool", "address"],
     "ritual_ZNK13QQmlDirParser13typeNamespaceEv": ["text", "address"],
     "ritual_ZN13QQmlDirParser16setTypeNamespaceERK7QString": [
@@ -22,6 +25,11 @@
     "ritual_ZN13QQmlDirParser16checkNonRelativeEPKcRK7QStringS4_": [
       "nothing", "chars", "text", "text"
     ],
+    "ritual_ZNK13QQmlDirParser10componentsEv": ["address", "address"],
+    "ritual_ZNK13QQmlDirParser12dependenciesEv": ["address", "address"],
+    "ritual_ZNK13QQmlDirParser7importsEv": ["address", "address"],
+    "ritual_ZNK13QQmlDirParser7scriptsEv": ["address", "address"],
+    "ritual_ZNK13QQmlDirParser7pluginsEv": ["address", "address"],
     "ritual_ZNK13QQmlDirParser17designerSupportedEv": ["bool", "address"],
     "ritual_ZNK13QQmlDirParser14isStaticModuleEv": ["bool", "address"],
     "ritual_ZNK13QQmlDirParser14isSystemModuleEv": ["bool", "address"],
@@ -35,6 +43,24 @@
     "ritual_ZN13QQmlDirParser23insertComponentOrScriptERK7QStringS2_13QTypeRevision": [
       "nothing", "address", "text", "text", "address"
     ],
-    "ritual_ZN13QQmlDirParserD1Ev": ["nothing", "address"]
+    "ritual_ZN13QQmlDirParserD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlDirParser__QList_QQmlJS_DiagnosticMessage": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlDirParser__QMultiHash_QString_QQmlDirParser_Component": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlDirParser__QList_QQmlDirParser_Import": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlDirParser__QList_QQmlDirParser_Script": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlDirParser__QList_QQmlDirParser_Plugin": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQmlDirParser14scanQuotedWordERPK5QChartt": [
+      "text", "address", "address", "unsigned short", "unsigned short"
+    ]
   }
 }

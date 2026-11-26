@@ -13,6 +13,8 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSpan>
+#include <cstddef>
 
 //  A QRandomAccessAsyncFile that Python can take functions over in. Every QRandomAccessAsyncFile
 //  Python makes is one. Each function below asks the Python
@@ -188,6 +190,25 @@ const QMetaObject *ritual_ZNK22QRandomAccessAsyncFile10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRandomAccessAsyncFile::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QRandomAccessAsyncFile11qt_metacastEPKc(
+    QRandomAccessAsyncFile *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRandomAccessAsyncFile::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QRandomAccessAsyncFile11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRandomAccessAsyncFile *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRandomAccessAsyncFile::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QRandomAccessAsyncFile2trEPKcS1_i(
@@ -261,6 +282,56 @@ QIOWriteOperation *ritual_ZN22QRandomAccessAsyncFile5writeExRK10QByteArray(
     qint64 offset,
     const QByteArray *data) {
   return self->write(offset, *data);
+}
+
+//  QIOWriteOperation *QRandomAccessAsyncFile::write(qint64 offset,
+//      QByteArray &&data)
+extern "C" Q_DECL_EXPORT
+QIOWriteOperation *ritual_ZN22QRandomAccessAsyncFile5writeExO10QByteArray(
+    QRandomAccessAsyncFile *self,
+    qint64 offset,
+    QByteArray *data) {
+  return self->write(offset, std::move(*data));
+}
+
+//  QIOVectoredReadOperation *QRandomAccessAsyncFile::readInto(qint64 offset,
+//      QSpan<std::byte> buffer)
+extern "C" Q_DECL_EXPORT
+QIOVectoredReadOperation *ritual_ZN22QRandomAccessAsyncFile8readIntoEx5QSpanISt4byteLm18446744073709551615EE(
+    QRandomAccessAsyncFile *self,
+    qint64 offset,
+    const QSpan<std::byte> *buffer) {
+  return self->readInto(offset, *buffer);
+}
+
+//  QIOVectoredWriteOperation *QRandomAccessAsyncFile::writeFrom(qint64
+//      offset, QSpan<const std::byte> buffer)
+extern "C" Q_DECL_EXPORT
+QIOVectoredWriteOperation *ritual_ZN22QRandomAccessAsyncFile9writeFromEx5QSpanIKSt4byteLm18446744073709551615EE(
+    QRandomAccessAsyncFile *self,
+    qint64 offset,
+    const QSpan<const std::byte> *buffer) {
+  return self->writeFrom(offset, *buffer);
+}
+
+//  QIOVectoredReadOperation *QRandomAccessAsyncFile::readInto(qint64 offset,
+//      QSpan<const QSpan<std::byte>> buffers)
+extern "C" Q_DECL_EXPORT
+QIOVectoredReadOperation *ritual_ZN22QRandomAccessAsyncFile8readIntoEx5QSpanIKS0_ISt4byteLm18446744073709551615EELm18446744073709551615EE(
+    QRandomAccessAsyncFile *self,
+    qint64 offset,
+    const QSpan<const QSpan<std::byte>> *buffers) {
+  return self->readInto(offset, *buffers);
+}
+
+//  QIOVectoredWriteOperation *QRandomAccessAsyncFile::writeFrom(qint64
+//      offset, QSpan<const QSpan<const std::byte>> buffers)
+extern "C" Q_DECL_EXPORT
+QIOVectoredWriteOperation *ritual_ZN22QRandomAccessAsyncFile9writeFromEx5QSpanIKS0_IKSt4byteLm18446744073709551615EELm18446744073709551615EE(
+    QRandomAccessAsyncFile *self,
+    qint64 offset,
+    const QSpan<const QSpan<const std::byte>> *buffers) {
+  return self->writeFrom(offset, *buffers);
 }
 
 //  QRandomAccessAsyncFilePrivate *QRandomAccessAsyncFile::d_func()

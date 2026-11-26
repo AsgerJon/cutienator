@@ -296,6 +296,25 @@ const QMetaObject *ritual_ZNK30QQuick3DSpecularGlossyMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DSpecularGlossyMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QQuick3DSpecularGlossyMaterial11qt_metacastEPKc(
+    QQuick3DSpecularGlossyMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DSpecularGlossyMaterial::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QQuick3DSpecularGlossyMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DSpecularGlossyMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DSpecularGlossyMaterial::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1372,6 +1391,482 @@ void ritual_ZN30QQuick3DSpecularGlossyMaterial23setVertexColorAlphaMaskE6QFlagsI
     int vertexColorAlphaMask) {
   self->setVertexColorAlphaMask(
       QFlags<QQuick3DSpecularGlossyMaterial::VertexColorMask>::fromInt(vertexColorAlphaMask));
+}
+
+//  void QQuick3DSpecularGlossyMaterial::lightingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial15lightingChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->lightingChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::blendModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial16blendModeChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->blendModeChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::albedoColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial18albedoColorChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->albedoColorChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::albedoMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial16albedoMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->albedoMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::albedoSingleChannelEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial33albedoSingleChannelEnabledChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->albedoSingleChannelEnabledChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::albedoChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial20albedoChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->albedoChannelChanged();
+}
+
+//  void
+//      QQuick3DSpecularGlossyMaterial::specularSingleChannelEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial35specularSingleChannelEnabledChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->specularSingleChannelEnabledChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::specularChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial22specularChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->specularChannelChanged();
+}
+
+//  void
+//      QQuick3DSpecularGlossyMaterial::emissiveSingleChannelEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial35emissiveSingleChannelEnabledChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->emissiveSingleChannelEnabledChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::emissiveChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial22emissiveChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->emissiveChannelChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::emissiveMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial18emissiveMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->emissiveMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::emissiveFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial21emissiveFactorChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->emissiveFactorChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::glossinessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial17glossinessChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->glossinessChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::glossinessMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial20glossinessMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->glossinessMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::invertOpacityMapValueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial28invertOpacityMapValueChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->invertOpacityMapValueChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::opacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial14opacityChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->opacityChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::opacityMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial17opacityMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->opacityMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::normalMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial16normalMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->normalMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::specularColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial20specularColorChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->specularColorChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::specularMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial18specularMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->specularMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::normalStrengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial21normalStrengthChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->normalStrengthChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::occlusionMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial19occlusionMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->occlusionMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::occlusionAmountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial22occlusionAmountChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->occlusionAmountChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::alphaModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial16alphaModeChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->alphaModeChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::alphaCutoffChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial18alphaCutoffChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->alphaCutoffChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::glossinessChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial24glossinessChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->glossinessChannelChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::opacityChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial21opacityChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->opacityChannelChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::occlusionChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial23occlusionChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->occlusionChannelChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::pointSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial16pointSizeChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->pointSizeChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::lineWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial16lineWidthChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->lineWidthChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::heightMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial16heightMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->heightMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::heightChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial20heightChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->heightChannelChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::heightAmountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial19heightAmountChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->heightAmountChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::minHeightMapSamplesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial26minHeightMapSamplesChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->minHeightMapSamplesChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::maxHeightMapSamplesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial26maxHeightMapSamplesChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->maxHeightMapSamplesChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatAmountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial22clearcoatAmountChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->clearcoatAmountChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial19clearcoatMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->clearcoatMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial23clearcoatChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->clearcoatChannelChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatRoughnessAmountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial31clearcoatRoughnessAmountChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->clearcoatRoughnessAmountChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatRoughnessChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial32clearcoatRoughnessChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->clearcoatRoughnessChannelChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatRoughnessMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial28clearcoatRoughnessMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->clearcoatRoughnessMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatNormalMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial25clearcoatNormalMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->clearcoatNormalMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatNormalStrengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial30clearcoatNormalStrengthChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->clearcoatNormalStrengthChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::transmissionFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial25transmissionFactorChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->transmissionFactorChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::transmissionMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial22transmissionMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->transmissionMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::transmissionChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial26transmissionChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->transmissionChannelChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::thicknessFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial22thicknessFactorChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->thicknessFactorChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::thicknessMapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial19thicknessMapChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->thicknessMapChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::thicknessChannelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial23thicknessChannelChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->thicknessChannelChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::attenuationDistanceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial26attenuationDistanceChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->attenuationDistanceChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::attenuationColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial23attenuationColorChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->attenuationColorChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::vertexColorsEnabledChanged(bool
+//      vertexColorsEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial26vertexColorsEnabledChangedEb(
+    QQuick3DSpecularGlossyMaterial *self,
+    bool vertexColorsEnabled) {
+  self->vertexColorsEnabledChanged(vertexColorsEnabled);
+}
+
+//  void QQuick3DSpecularGlossyMaterial::fresnelScaleBiasEnabledChanged(bool
+//      fresnelScaleBiasEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial30fresnelScaleBiasEnabledChangedEb(
+    QQuick3DSpecularGlossyMaterial *self,
+    bool fresnelScaleBiasEnabled) {
+  self->fresnelScaleBiasEnabledChanged(fresnelScaleBiasEnabled);
+}
+
+//  void QQuick3DSpecularGlossyMaterial::fresnelScaleChanged(float
+//      fresnelScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial19fresnelScaleChangedEf(
+    QQuick3DSpecularGlossyMaterial *self,
+    float fresnelScale) {
+  self->fresnelScaleChanged(fresnelScale);
+}
+
+//  void QQuick3DSpecularGlossyMaterial::fresnelBiasChanged(float
+//      fresnelBias)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial18fresnelBiasChangedEf(
+    QQuick3DSpecularGlossyMaterial *self,
+    float fresnelBias) {
+  self->fresnelBiasChanged(fresnelBias);
+}
+
+//  void QQuick3DSpecularGlossyMaterial::fresnelPowerChanged(float
+//      fresnelPower)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial19fresnelPowerChangedEf(
+    QQuick3DSpecularGlossyMaterial *self,
+    float fresnelPower) {
+  self->fresnelPowerChanged(fresnelPower);
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatFresnelScaleBiasEnabledChan
+//      ged(bool clearcoatFresnelScaleBiasEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial39clearcoatFresnelScaleBiasEnabledChangedEb(
+    QQuick3DSpecularGlossyMaterial *self,
+    bool clearcoatFresnelScaleBiasEnabled) {
+  self->clearcoatFresnelScaleBiasEnabledChanged(
+      clearcoatFresnelScaleBiasEnabled);
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatFresnelScaleChanged(float
+//      clearcoatFresnelScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial28clearcoatFresnelScaleChangedEf(
+    QQuick3DSpecularGlossyMaterial *self,
+    float clearcoatFresnelScale) {
+  self->clearcoatFresnelScaleChanged(clearcoatFresnelScale);
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatFresnelBiasChanged(float
+//      clearcoatFresnelBias)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial27clearcoatFresnelBiasChangedEf(
+    QQuick3DSpecularGlossyMaterial *self,
+    float clearcoatFresnelBias) {
+  self->clearcoatFresnelBiasChanged(clearcoatFresnelBias);
+}
+
+//  void QQuick3DSpecularGlossyMaterial::clearcoatFresnelPowerChanged(float
+//      clearcoatFresnelPower)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial28clearcoatFresnelPowerChangedEf(
+    QQuick3DSpecularGlossyMaterial *self,
+    float clearcoatFresnelPower) {
+  self->clearcoatFresnelPowerChanged(clearcoatFresnelPower);
+}
+
+//  void QQuick3DSpecularGlossyMaterial::vertexColorsMaskEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial30vertexColorsMaskEnabledChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->vertexColorsMaskEnabledChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::vertexColorRedMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial25vertexColorRedMaskChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->vertexColorRedMaskChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::vertexColorGreenMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial27vertexColorGreenMaskChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->vertexColorGreenMaskChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::vertexColorBlueMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial26vertexColorBlueMaskChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->vertexColorBlueMaskChanged();
+}
+
+//  void QQuick3DSpecularGlossyMaterial::vertexColorAlphaMaskChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DSpecularGlossyMaterial27vertexColorAlphaMaskChangedEv(
+    QQuick3DSpecularGlossyMaterial *self) {
+  self->vertexColorAlphaMaskChanged();
 }
 
 //  QSSGRenderGraphObject

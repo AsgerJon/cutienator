@@ -225,6 +225,22 @@ const QMetaObject *ritual_ZNK9QMimeData10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMimeData::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QMimeData11qt_metacastEPKc(QMimeData *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMimeData::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QMimeData11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMimeData *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMimeData::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QMimeData2trEPKcS1_i(
@@ -399,6 +415,19 @@ QVariant *ritual_ZNK9QMimeData12retrieveDataERK7QString9QMetaType(
     const QString *mimetype,
     const QMetaType *preferredType) {
   return new QVariant(self->retrieveData(*mimetype, *preferredType));
+}
+
+//  QMimeDataPrivate *QMimeData::d_func()
+extern "C" Q_DECL_EXPORT
+QMimeDataPrivate *ritual_ZN9QMimeData6d_funcEv(QMimeData *self) {
+  return self->d_func();
+}
+
+//  const QMimeDataPrivate *QMimeData::d_func() const
+extern "C" Q_DECL_EXPORT
+const QMimeDataPrivate *ritual_ZNK9QMimeData6d_funcEv(
+    const QMimeData *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQMimeData, for the function named by the

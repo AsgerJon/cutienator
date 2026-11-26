@@ -22,7 +22,7 @@ typedef void (*CuteQMutableTouchEventCall5)(const void *, bool, int *);
 class CuteQMutableTouchEvent : public QMutableTouchEvent {
 public:
   using QMutableTouchEvent::QMutableTouchEvent;
-  CuteQMutableTouchEvent(const QMutableTouchEvent &other) : QMutableTouchEvent(other) {}
+  CuteQMutableTouchEvent(const QMutableTouchEvent & other) : QMutableTouchEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {

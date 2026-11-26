@@ -8,6 +8,12 @@
     "ritual_ZNK22QQmlDMListAccessorData10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQmlDMListAccessorData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQmlDMListAccessorData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQmlDMListAccessorDataD1Ev": ["nothing", "address"],
     "ritual_ZNK22QQmlDMListAccessorData9modelDataEv": ["address", "address"],
     "ritual_ZN22QQmlDMListAccessorData3getEv": [
@@ -15,6 +21,12 @@
     ],
     "ritual_ZN22QQmlDMListAccessorData8setValueERK7QStringRK8QVariant": [
       "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN22QQmlDMListAccessorData12resolveIndexERK16QQmlAdaptorModeli": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlDMListAccessorData16modelDataChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQmlDMListAccessorData": [
       "bool", "address", "chars", "address"

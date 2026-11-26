@@ -5,9 +5,18 @@
   ],
   "rows": {
     "ritual_ZNK13QCategoryAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCategoryAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QCategoryAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QCategoryAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QCategoryAxisC1EP7QObject": ["address", "address"],
     "ritual_ZN13QCategoryAxisD1Ev": ["nothing", "address"],
+    "ritual_ZN13QCategoryAxisC1ER20QCategoryAxisPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK13QCategoryAxis4typeEv": ["int", "address"],
     "ritual_ZN13QCategoryAxis6appendERK7QStringd": [
       "nothing", "address", "text", "double"
@@ -31,6 +40,10 @@
     "ritual_ZNK13QCategoryAxis5countEv": ["int", "address"],
     "ritual_ZNK13QCategoryAxis14labelsPositionEv": ["int", "address"],
     "ritual_ZN13QCategoryAxis17setLabelsPositionENS_18AxisLabelsPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QCategoryAxis17categoriesChangedEv": ["nothing", "address"],
+    "ritual_ZN13QCategoryAxis21labelsPositionChangedENS_18AxisLabelsPositionE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN13QCategoryAxis6d_funcEv": ["address", "address"],

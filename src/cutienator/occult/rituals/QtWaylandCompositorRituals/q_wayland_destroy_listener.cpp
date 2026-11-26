@@ -180,6 +180,25 @@ const QMetaObject *ritual_ZNK23QWaylandDestroyListener10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandDestroyListener::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QWaylandDestroyListener11qt_metacastEPKc(
+    QWaylandDestroyListener *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandDestroyListener::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QWaylandDestroyListener11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandDestroyListener *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandDestroyListener::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QWaylandDestroyListener2trEPKcS1_i(
@@ -189,6 +208,21 @@ QString *ritual_ZN23QWaylandDestroyListener2trEPKcS1_i(
   return new QString(QWaylandDestroyListener::tr(s, c, n));
 }
 
+//  QWaylandDestroyListenerPrivate *QWaylandDestroyListener::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandDestroyListenerPrivate *ritual_ZN23QWaylandDestroyListener6d_funcEv(
+    QWaylandDestroyListener *self) {
+  return self->d_func();
+}
+
+//  const QWaylandDestroyListenerPrivate *QWaylandDestroyListener::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QWaylandDestroyListenerPrivate *ritual_ZNK23QWaylandDestroyListener6d_funcEv(
+    const QWaylandDestroyListener *self) {
+  return self->d_func();
+}
+
 //  QWaylandDestroyListener::QWaylandDestroyListener(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QWaylandDestroyListener *ritual_ZN23QWaylandDestroyListenerC1EP7QObject(
@@ -196,11 +230,28 @@ QWaylandDestroyListener *ritual_ZN23QWaylandDestroyListenerC1EP7QObject(
   return new CuteQWaylandDestroyListener(parent);
 }
 
+//  void QWaylandDestroyListener::listenForDestruction(struct wl_resource
+//      *resource)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWaylandDestroyListener20listenForDestructionEP11wl_resource(
+    QWaylandDestroyListener *self,
+    struct wl_resource *resource) {
+  self->listenForDestruction(resource);
+}
+
 //  void QWaylandDestroyListener::reset()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QWaylandDestroyListener5resetEv(
     QWaylandDestroyListener *self) {
   self->reset();
+}
+
+//  void QWaylandDestroyListener::fired(void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWaylandDestroyListener5firedEPv(
+    QWaylandDestroyListener *self,
+    void *data) {
+  self->fired(data);
 }
 
 //  a Python function taken by a CuteQWaylandDestroyListener, for the

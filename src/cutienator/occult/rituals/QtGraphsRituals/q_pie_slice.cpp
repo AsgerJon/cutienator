@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qpieslice.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qpieslice.h>
 #include <QtCore/qstring.h>
@@ -10,6 +10,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtGraphs/QPieSlice>
 
 //  A QPieSlice that Python can take functions over in. Every QPieSlice
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,22 @@ const QMetaObject *ritual_ZNK9QPieSlice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPieSlice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QPieSlice11qt_metacastEPKc(QPieSlice *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPieSlice::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QPieSlice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPieSlice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPieSlice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QPieSlice2trEPKcS1_i(
@@ -213,6 +231,13 @@ QPieSlice *ritual_ZN9QPieSliceC1ERK7QStringdP7QObject(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QPieSliceD1Ev(QPieSlice *self) {
   delete self;
+}
+
+//  QQmlListProperty<QPieSlice> QPieSlice::sliceChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QPieSlice> *ritual_ZN9QPieSlice13sliceChildrenEv(
+    QPieSlice *self) {
+  return new QQmlListProperty<QPieSlice>(self->sliceChildren());
 }
 
 //  void QPieSlice::setLabel(const QString &label)
@@ -547,6 +572,148 @@ qreal ritual_ZNK9QPieSlice14subSlicesRatioEv(const QPieSlice *self) {
   return self->subSlicesRatio();
 }
 
+//  void QPieSlice::labelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice12labelChangedEv(QPieSlice *self) {
+  self->labelChanged();
+}
+
+//  void QPieSlice::labelVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice19labelVisibleChangedEv(QPieSlice *self) {
+  self->labelVisibleChanged();
+}
+
+//  void QPieSlice::labelFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice16labelFontChangedEv(QPieSlice *self) {
+  self->labelFontChanged();
+}
+
+//  void QPieSlice::labelColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice17labelColorChangedEv(QPieSlice *self) {
+  self->labelColorChanged();
+}
+
+//  void QPieSlice::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice12valueChangedEv(QPieSlice *self) {
+  self->valueChanged();
+}
+
+//  void QPieSlice::explodedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice15explodedChangedEv(QPieSlice *self) {
+  self->explodedChanged();
+}
+
+//  void QPieSlice::explodeDistanceFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice28explodeDistanceFactorChangedEv(QPieSlice *self) {
+  self->explodeDistanceFactorChanged();
+}
+
+//  void QPieSlice::percentageChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice17percentageChangedEv(QPieSlice *self) {
+  self->percentageChanged();
+}
+
+//  void QPieSlice::startAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice17startAngleChangedEv(QPieSlice *self) {
+  self->startAngleChanged();
+}
+
+//  void QPieSlice::angleSpanChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice16angleSpanChangedEv(QPieSlice *self) {
+  self->angleSpanChanged();
+}
+
+//  void QPieSlice::sliceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice12sliceChangedEv(QPieSlice *self) {
+  self->sliceChanged();
+}
+
+//  void QPieSlice::labelPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice20labelPositionChangedEv(QPieSlice *self) {
+  self->labelPositionChanged();
+}
+
+//  void QPieSlice::labelArmLengthFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice27labelArmLengthFactorChangedEv(QPieSlice *self) {
+  self->labelArmLengthFactorChanged();
+}
+
+//  void QPieSlice::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice12colorChangedEv(QPieSlice *self) {
+  self->colorChanged();
+}
+
+//  void QPieSlice::borderColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice18borderColorChangedEv(QPieSlice *self) {
+  self->borderColorChanged();
+}
+
+//  void QPieSlice::borderWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice18borderWidthChangedEv(QPieSlice *self) {
+  self->borderWidthChanged();
+}
+
+//  void QPieSlice::subSlicesAdded(const QList<QPieSlice *> &slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice14subSlicesAddedERK5QListIPS_E(
+    QPieSlice *self,
+    const QList<QPieSlice *> *slices) {
+  self->subSlicesAdded(*slices);
+}
+
+//  void QPieSlice::subSlicesRemoved(const QList<QPieSlice *> &slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice16subSlicesRemovedERK5QListIPS_E(
+    QPieSlice *self,
+    const QList<QPieSlice *> *slices) {
+  self->subSlicesRemoved(*slices);
+}
+
+//  void QPieSlice::subSlicesReplaced(const QList<QPieSlice *> &slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice17subSlicesReplacedERK5QListIPS_E(
+    QPieSlice *self,
+    const QList<QPieSlice *> *slices) {
+  self->subSlicesReplaced(*slices);
+}
+
+//  void QPieSlice::subSlicesCountChanged(qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice21subSlicesCountChangedEx(
+    QPieSlice *self,
+    qsizetype count) {
+  self->subSlicesCountChanged(count);
+}
+
+//  void QPieSlice::subSlicesSumChanged(qreal sum)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice19subSlicesSumChangedEd(QPieSlice *self, qreal sum) {
+  self->subSlicesSumChanged(sum);
+}
+
+//  void QPieSlice::subSlicesRatioChanged(qreal newSubSlicesRatio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QPieSlice21subSlicesRatioChangedEd(
+    QPieSlice *self,
+    qreal newSubSlicesRatio) {
+  self->subSlicesRatioChanged(newSubSlicesRatio);
+}
+
 //  QPieSlicePrivate *QPieSlice::d_func()
 extern "C" Q_DECL_EXPORT
 QPieSlicePrivate *ritual_ZN9QPieSlice6d_funcEv(QPieSlice *self) {
@@ -601,4 +768,11 @@ void ritual_list_drop_QPieSlice_ptr(QList<QPieSlice *> *self) {
   delete self;
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))
+//  a QQmlListProperty<QPieSlice> a ritual of QPieSlice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPieSlice__QQmlListProperty_QPieSlice(
+    QQmlListProperty<QPieSlice> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_donut_pie))

@@ -7,14 +7,23 @@
     "ritual_ZNK9Qt3DInput11QWheelEvent10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput11QWheelEvent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput11QWheelEvent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput11QWheelEvent2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9Qt3DInput11QWheelEventD1Ev": ["nothing", "address"],
     "ritual_ZNK9Qt3DInput11QWheelEvent1xEv": ["int", "address"],
     "ritual_ZNK9Qt3DInput11QWheelEvent1yEv": ["int", "address"],
     "ritual_ZNK9Qt3DInput11QWheelEvent10angleDeltaEv": [
       "address", "address"
     ],
+    "ritual_ZNK9Qt3DInput11QWheelEvent7buttonsEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput11QWheelEvent9modifiersEv": ["int", "address"],
     "ritual_ZNK9Qt3DInput11QWheelEvent10isAcceptedEv": ["bool", "address"],
     "ritual_ZN9Qt3DInput11QWheelEvent11setAcceptedEb": [
       "nothing", "address", "bool"

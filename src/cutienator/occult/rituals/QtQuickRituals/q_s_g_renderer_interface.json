@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN20QSGRendererInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK20QSGRendererInterface11graphicsApiEv": ["int", "address"],
+    "ritual_ZNK20QSGRendererInterface11getResourceEP12QQuickWindowNS_8ResourceE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK20QSGRendererInterface11getResourceEP12QQuickWindowPKc": [
+      "address", "address", "address", "chars"
+    ],
     "ritual_ZNK20QSGRendererInterface10shaderTypeEv": ["int", "address"],
     "ritual_ZNK20QSGRendererInterface21shaderCompilationTypeEv": [
       "int", "address"
@@ -19,6 +25,9 @@
     ],
     "ritual_take_QSGRendererInterface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QSGRendererInterface11getResourceEP12QQuickWindowNS_8ResourceE": [
+      "address", "address", "address", "int"
     ]
   }
 }

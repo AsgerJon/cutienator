@@ -20,6 +20,15 @@
     "ritual_ZN23QSurface3DSeriesPrivate15createItemLabelEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QSurface3DSeriesPrivate16setSelectedPointE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QSurface3DSeriesPrivate10setShadingEN16QSurface3DSeries7ShadingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QSurface3DSeriesPrivate11setDrawModeE6QFlagsIN16QSurface3DSeries8DrawFlagEE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN23QSurface3DSeriesPrivate10setTextureERK6QImage": [
       "nothing", "address", "address"
     ],
@@ -28,6 +37,9 @@
     ],
     "ritual_ZN23QSurface3DSeriesPrivate16setRowsSanitizedEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QSurface3DSeriesPrivate12setDataArrayERK5QListIS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN23QSurface3DSeriesPrivate8clearRowEx": [
       "nothing", "address", "long long"

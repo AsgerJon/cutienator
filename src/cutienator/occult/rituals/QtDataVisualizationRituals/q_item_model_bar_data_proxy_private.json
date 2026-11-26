@@ -8,6 +8,12 @@
     "ritual_ZNK29QItemModelBarDataProxyPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QItemModelBarDataProxyPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QItemModelBarDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QItemModelBarDataProxyPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN29QItemModelBarDataProxyPrivate4qptrEv": [
       "address", "address"

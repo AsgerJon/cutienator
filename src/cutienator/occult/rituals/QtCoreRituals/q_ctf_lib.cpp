@@ -20,31 +20,32 @@
 typedef bool (*CuteQCtfLibCall0)(const void *, const QCtfTracePointEvent *, int *);
 typedef void (*CuteQCtfLibCall1)(const void *, const QCtfTracePointEvent *, const QByteArray *, int *);
 typedef bool (*CuteQCtfLibCall2)(const void *, int *);
+typedef void * (*CuteQCtfLibCall3)(const void *, const QCtfTracePointEvent *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQCtfLibCall3)(const void *, QEvent *, int *);
+typedef bool (*CuteQCtfLibCall4)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQCtfLibCall4)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQCtfLibCall5)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCtfLibCall5)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQCtfLibCall6)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCtfLibCall6)(const void *, QChildEvent *, int *);
+typedef void (*CuteQCtfLibCall7)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCtfLibCall7)(const void *, QEvent *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCtfLibCall8)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQCtfLibCall8)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQCtfLibCall9)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQCtfLibCall10)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQCtfLib : public QCtfLib {
 public:
   using QCtfLib::QCtfLib;
-  void *taken[10] = {};
+  void *taken[11] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN7QCtfLib17tracepointEnabledERK19QCtfTracePointEvent")) {
@@ -59,45 +60,49 @@ public:
       taken[2] = call;
       return true;
     }
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QCtfLib20initializeTracepointERK19QCtfTracePointEvent")) {
       taken[3] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[5] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[6] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[7] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[8] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[9] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[10] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -139,12 +144,25 @@ public:
     return {};
   }
 
-#if !defined(QT_NO_QOBJECT)
-  //  bool QObject::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  QCtfTracePointPrivate *QCtfLib::initializeTracepoint(const
+  //      QCtfTracePointEvent &point)
+  QCtfTracePointPrivate *initializeTracepoint(
+      const QCtfTracePointEvent &point) override {
     if (taken[3]) {
       int handled = 0;
       CuteQCtfLibCall3 call = reinterpret_cast<CuteQCtfLibCall3>(taken[3]);
+      void * given = call(this, &point, &handled);
+      if (handled) return static_cast<QCtfTracePointPrivate *>(given);
+    }
+    return {};
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQCtfLibCall4 call = reinterpret_cast<CuteQCtfLibCall4>(taken[4]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -155,9 +173,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQCtfLibCall4 call = reinterpret_cast<CuteQCtfLibCall4>(taken[4]);
+      CuteQCtfLibCall5 call = reinterpret_cast<CuteQCtfLibCall5>(taken[5]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -168,9 +186,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQCtfLibCall5 call = reinterpret_cast<CuteQCtfLibCall5>(taken[5]);
+      CuteQCtfLibCall6 call = reinterpret_cast<CuteQCtfLibCall6>(taken[6]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -181,9 +199,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQCtfLibCall6 call = reinterpret_cast<CuteQCtfLibCall6>(taken[6]);
+      CuteQCtfLibCall7 call = reinterpret_cast<CuteQCtfLibCall7>(taken[7]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -194,9 +212,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQCtfLibCall7 call = reinterpret_cast<CuteQCtfLibCall7>(taken[7]);
+      CuteQCtfLibCall8 call = reinterpret_cast<CuteQCtfLibCall8>(taken[8]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -207,9 +225,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQCtfLibCall8 call = reinterpret_cast<CuteQCtfLibCall8>(taken[8]);
+      CuteQCtfLibCall9 call = reinterpret_cast<CuteQCtfLibCall9>(taken[9]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -220,9 +238,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQCtfLibCall9 call = reinterpret_cast<CuteQCtfLibCall9>(taken[9]);
+      CuteQCtfLibCall10 call = reinterpret_cast<CuteQCtfLibCall10>(taken[10]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -235,6 +253,22 @@ public:
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK7QCtfLib10metaObjectEv(const QCtfLib *self) {
   return self->metaObject();
+}
+
+//  void *QCtfLib::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QCtfLib11qt_metacastEPKc(QCtfLib *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCtfLib::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QCtfLib11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCtfLib *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QCtfLib::tr(const char *s, const char *c, int n)
@@ -271,6 +305,15 @@ void ritual_ZN7QCtfLib12doTracepointERK19QCtfTracePointEventRK10QByteArray(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN7QCtfLib14sessionEnabledEv(QCtfLib *self) {
   return self->sessionEnabled();
+}
+
+//  QCtfTracePointPrivate *QCtfLib::initializeTracepoint(const
+//      QCtfTracePointEvent &point)
+extern "C" Q_DECL_EXPORT
+QCtfTracePointPrivate *ritual_ZN7QCtfLib20initializeTracepointERK19QCtfTracePointEvent(
+    QCtfLib *self,
+    const QCtfTracePointEvent *point) {
+  return self->initializeTracepoint(*point);
 }
 
 //  void QCtfLib::shutdown(bool *shutdown)

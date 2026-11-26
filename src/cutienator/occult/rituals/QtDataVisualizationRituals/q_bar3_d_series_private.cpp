@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qbar3dseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qquaternion.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
@@ -28,6 +29,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 236, as local:qbar3dseries.cpp:quaternionAngle
+static inline float quaternionAngle(const QQuaternion &rotation)
+{
+    return qRadiansToDegrees(qAcos(rotation.scalar())) * 2.f;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 865, as _ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv
 inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
 {
@@ -35,22 +42,6 @@ inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
     m_changeTracker.itemLabelChanged = true;
     if (m_controller)
         m_controller->markSeriesVisualsDirty();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 665, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
-inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
-{
-    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_ptr->series());
-
-    delete m_dataProxy;
-    m_dataProxy = proxy;
-
-    proxy->d_ptr->setSeries(q_ptr); // also sets parent
-
-    if (m_controller) {
-        connectControllerAndProxy(m_controller);
-        m_controller->markDataDirty();
-    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 329, as _ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
@@ -152,6 +143,28 @@ inline void QBar3DSeriesPrivate::createItemLabel()
     }
 
     m_itemLabel.replace(seriesNameTag, m_name);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 665, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
+inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
+{
+    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_ptr->series());
+
+    delete m_dataProxy;
+    m_dataProxy = proxy;
+
+    proxy->d_ptr->setSeries(q_ptr); // also sets parent
+
+    if (m_controller) {
+        connectControllerAndProxy(m_controller);
+        m_controller->markDataDirty();
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 427, as _ZN19QBar3DSeriesPrivate25handleMeshRotationChangedERK11QQuaternion
+inline void QBar3DSeriesPrivate::handleMeshRotationChanged(const QQuaternion &rotation)
+{
+    emit qptr()->meshAngleChanged(quaternionAngle(rotation));
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 432, as _ZN19QBar3DSeriesPrivate14setSelectedBarERK6QPoint
@@ -422,6 +435,25 @@ const QMetaObject *ritual_ZNK19QBar3DSeriesPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBar3DSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QBar3DSeriesPrivate11qt_metacastEPKc(
+    QBar3DSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBar3DSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QBar3DSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBar3DSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QBar3DSeriesPrivate::~QBar3DSeriesPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QBar3DSeriesPrivateD1Ev(QBar3DSeriesPrivate *self) {
@@ -450,6 +482,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QBar3DSeriesPrivate15createItemLabelEv(
     QBar3DSeriesPrivate *self) {
   self->createItemLabel();
+}
+
+//  void QBar3DSeriesPrivate::handleMeshRotationChanged(const QQuaternion
+//      &rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBar3DSeriesPrivate25handleMeshRotationChangedERK11QQuaternion(
+    QBar3DSeriesPrivate *self,
+    const QQuaternion *rotation) {
+  self->handleMeshRotationChanged(*rotation);
 }
 
 //  void QBar3DSeriesPrivate::setSelectedBar(const QPoint &position)

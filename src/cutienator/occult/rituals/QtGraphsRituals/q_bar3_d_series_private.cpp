@@ -3,21 +3,19 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbar3dseries.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qbar3dseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qpoint.h>
+#include <QtGui/qcolor.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGraphs/private/qabstract3dseries_p.h>
-#include <QtGraphs/private/qabstractdataproxy_p.h>
-#include <QtGraphs/private/qquickgraphsitem_p.h>
-#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #include <QtCore/qmath.h>
 #include <QtGraphs/private/qabstract3daxis_p.h>
 #include <QtGraphs/private/qbar3dseries_p.h>
@@ -26,6 +24,11 @@
 #include <QtGraphs/private/qvalue3daxis_p.h>
 #include <QtGraphs/private/qgraphs3dlogging_p.h>
 #include <QtGui/qquaternion.h>
+#include <QtGraphs/private/qabstract3dseries_p.h>
+#include <QtGraphs/private/qabstractdataproxy_p.h>
+#include <QtGraphs/private/qquickgraphsitem_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -34,23 +37,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 902, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
-inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
-{
-    Q_Q(QAbstract3DSeries);
-    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_func()->series());
-
-    delete m_dataProxy;
-    m_dataProxy = proxy;
-
-    proxy->d_func()->setSeries(q); // also sets parent
-
-    if (m_graph) {
-        connectGraphAndProxy(m_graph);
-        m_graph->markDataDirty();
-    }
-}
 
 //  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 828, as _ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
 inline void QBar3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
@@ -61,6 +47,64 @@ inline void QBar3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
     QAbstract3DSeriesPrivate::setDataProxy(proxy);
 
     emit q->dataProxyChanged(static_cast<QBarDataProxy *>(proxy));
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 894, as _ZN19QBar3DSeriesPrivate15createItemLabelEv
+inline void QBar3DSeriesPrivate::createItemLabel()
+{
+    Q_Q(QBar3DSeries);
+    static const QString rowIndexTag(QStringLiteral("@rowIdx"));
+    static const QString rowLabelTag(QStringLiteral("@rowLabel"));
+    static const QString rowTitleTag(QStringLiteral("@rowTitle"));
+    static const QString colIndexTag(QStringLiteral("@colIdx"));
+    static const QString colLabelTag(QStringLiteral("@colLabel"));
+    static const QString colTitleTag(QStringLiteral("@colTitle"));
+    static const QString valueTitleTag(QStringLiteral("@valueTitle"));
+    static const QString valueLabelTag(QStringLiteral("@valueLabel"));
+    static const QString seriesNameTag(QStringLiteral("@seriesName"));
+
+    if (m_selectedBar == QBar3DSeries::invalidSelectionPosition()) {
+        m_itemLabel = QString(hiddenLabelTag);
+        return;
+    }
+
+    QLocale locale(QLocale::c());
+    if (m_graph)
+        locale = m_graph->locale();
+    else
+        return;
+
+    QCategory3DAxis *categoryAxisZ = static_cast<QCategory3DAxis *>(m_graph->axisZ());
+    QCategory3DAxis *categoryAxisX = static_cast<QCategory3DAxis *>(m_graph->axisX());
+    QValue3DAxis *valueAxis = static_cast<QValue3DAxis *>(m_graph->axisY());
+    qreal selectedBarValue = qreal(q->dataProxy()->itemAt(m_selectedBar).value());
+
+    // Custom format expects printf format specifier. There is no tag for it.
+    m_itemLabel = valueAxis->formatter()->stringForValue(selectedBarValue, m_itemLabelFormat);
+
+    int selBarPosRow = m_selectedBar.x();
+    int selBarPosCol = m_selectedBar.y();
+    m_itemLabel.replace(rowIndexTag, locale.toString(selBarPosRow));
+    if (categoryAxisZ->labels().size() > selBarPosRow)
+        m_itemLabel.replace(rowLabelTag, categoryAxisZ->labels().at(selBarPosRow));
+    else
+        m_itemLabel.replace(rowLabelTag, QString());
+    m_itemLabel.replace(rowTitleTag, categoryAxisZ->title());
+    m_itemLabel.replace(colIndexTag, locale.toString(selBarPosCol));
+    if (categoryAxisX->labels().size() > selBarPosCol)
+        m_itemLabel.replace(colLabelTag, categoryAxisX->labels().at(selBarPosCol));
+    else
+        m_itemLabel.replace(colLabelTag, QString());
+    m_itemLabel.replace(colTitleTag, categoryAxisX->title());
+    m_itemLabel.replace(valueTitleTag, valueAxis->title());
+
+    if (m_itemLabel.contains(valueLabelTag)) {
+        QString valueLabelText = valueAxis->formatter()->stringForValue(selectedBarValue,
+                                                                        valueAxis->labelFormat());
+        m_itemLabel.replace(valueLabelTag, valueLabelText);
+    }
+
+    m_itemLabel.replace(seriesNameTag, m_name);
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 838, as _ZN19QBar3DSeriesPrivate20connectGraphAndProxyEP16QQuickGraphsItem
@@ -120,62 +164,116 @@ inline void QBar3DSeriesPrivate::connectGraphAndProxy(QQuickGraphsItem *newGraph
     }
 }
 
-//  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 894, as _ZN19QBar3DSeriesPrivate15createItemLabelEv
-inline void QBar3DSeriesPrivate::createItemLabel()
+//  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 757, as _ZN19QBar3DSeriesPrivateD2Ev
+inline QBar3DSeriesPrivate::~QBar3DSeriesPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 918, as _ZN24QAbstract3DSeriesPrivate8setGraphEP16QQuickGraphsItem
+inline void QAbstract3DSeriesPrivate::setGraph(QQuickGraphsItem *graph)
+{
+    Q_Q(QAbstract3DSeries);
+    m_graph = graph;
+    q->setParent(graph);
+    connectGraphAndProxy(graph);
+    markItemLabelDirty();
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 879, as _ZN24QAbstract3DSeriesPrivateC2EN17QAbstract3DSeries10SeriesTypeE
+inline QAbstract3DSeriesPrivate::QAbstract3DSeriesPrivate(QAbstract3DSeries::SeriesType type)
+    : m_type(type)
+    , m_dataProxy(0)
+    , m_visible(true)
+    , m_graph(0)
+    , m_mesh(QAbstract3DSeries::Mesh::Cube)
+    , m_meshSmooth(false)
+    , m_colorStyle(QGraphsTheme::ColorStyle::Uniform)
+    , m_baseColor(Qt::black)
+    , m_singleHighlightColor(Qt::black)
+    , m_multiHighlightColor(Qt::black)
+    , m_itemLabelDirty(true)
+    , m_itemLabelVisible(true)
+    , m_lightingMode(QAbstract3DSeries::LightingMode::Shaded)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 895, as _ZN24QAbstract3DSeriesPrivateD2Ev
+inline QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/utils/qgraphs3dlogging.cpp, line 13, as _Z14lcProperties3Dv
+inline const QLoggingCategory &lcProperties3D()
+{
+    static const QLoggingCategory category("qt.graphs3d.properties");
+    return category;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 1117, as _ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv
+inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
+{
+    m_itemLabelDirty = true;
+    m_changeTracker.itemLabelChanged = true;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 902, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
+inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
+{
+    Q_Q(QAbstract3DSeries);
+    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_func()->series());
+
+    delete m_dataProxy;
+    m_dataProxy = proxy;
+
+    proxy->d_func()->setSeries(q); // also sets parent
+
+    if (m_graph) {
+        connectGraphAndProxy(m_graph);
+        m_graph->markDataDirty();
+    }
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 951, as _ZN19QBar3DSeriesPrivate14setSelectedBarE6QPoint
+inline void QBar3DSeriesPrivate::setSelectedBar(QPoint position)
 {
     Q_Q(QBar3DSeries);
-    static const QString rowIndexTag(QStringLiteral("@rowIdx"));
-    static const QString rowLabelTag(QStringLiteral("@rowLabel"));
-    static const QString rowTitleTag(QStringLiteral("@rowTitle"));
-    static const QString colIndexTag(QStringLiteral("@colIdx"));
-    static const QString colLabelTag(QStringLiteral("@colLabel"));
-    static const QString colTitleTag(QStringLiteral("@colTitle"));
-    static const QString valueTitleTag(QStringLiteral("@valueTitle"));
-    static const QString valueLabelTag(QStringLiteral("@valueLabel"));
-    static const QString seriesNameTag(QStringLiteral("@seriesName"));
-
-    if (m_selectedBar == QBar3DSeries::invalidSelectionPosition()) {
-        m_itemLabel = QString(hiddenLabelTag);
+    if (position == m_selectedBar) {
+        qCDebug(lcProperties3D, "%s value is already set to: %d %d",
+                qUtf8Printable(QLatin1String(__FUNCTION__)), position.x(), position.y());
         return;
     }
 
-    QLocale locale(QLocale::c());
-    if (m_graph)
-        locale = m_graph->locale();
-    else
+    markItemLabelDirty();
+    m_selectedBar = position;
+    emit q->selectedBarChanged(m_selectedBar);
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 965, as _ZN19QBar3DSeriesPrivate12setRowColorsERK5QListI6QColorE
+inline void QBar3DSeriesPrivate::setRowColors(const QList<QColor> &colors)
+{
+    Q_Q(QBar3DSeries);
+    if (m_rowColors == colors) {
+        qCDebug(lcProperties3D) << __FUNCTION__
+            << "value is already set to:" << colors;
         return;
-
-    QCategory3DAxis *categoryAxisZ = static_cast<QCategory3DAxis *>(m_graph->axisZ());
-    QCategory3DAxis *categoryAxisX = static_cast<QCategory3DAxis *>(m_graph->axisX());
-    QValue3DAxis *valueAxis = static_cast<QValue3DAxis *>(m_graph->axisY());
-    qreal selectedBarValue = qreal(q->dataProxy()->itemAt(m_selectedBar).value());
-
-    // Custom format expects printf format specifier. There is no tag for it.
-    m_itemLabel = valueAxis->formatter()->stringForValue(selectedBarValue, m_itemLabelFormat);
-
-    int selBarPosRow = m_selectedBar.x();
-    int selBarPosCol = m_selectedBar.y();
-    m_itemLabel.replace(rowIndexTag, locale.toString(selBarPosRow));
-    if (categoryAxisZ->labels().size() > selBarPosRow)
-        m_itemLabel.replace(rowLabelTag, categoryAxisZ->labels().at(selBarPosRow));
-    else
-        m_itemLabel.replace(rowLabelTag, QString());
-    m_itemLabel.replace(rowTitleTag, categoryAxisZ->title());
-    m_itemLabel.replace(colIndexTag, locale.toString(selBarPosCol));
-    if (categoryAxisX->labels().size() > selBarPosCol)
-        m_itemLabel.replace(colLabelTag, categoryAxisX->labels().at(selBarPosCol));
-    else
-        m_itemLabel.replace(colLabelTag, QString());
-    m_itemLabel.replace(colTitleTag, categoryAxisX->title());
-    m_itemLabel.replace(valueTitleTag, valueAxis->title());
-
-    if (m_itemLabel.contains(valueLabelTag)) {
-        QString valueLabelText = valueAxis->formatter()->stringForValue(selectedBarValue,
-                                                                        valueAxis->labelFormat());
-        m_itemLabel.replace(valueLabelTag, valueLabelText);
     }
 
-    m_itemLabel.replace(seriesNameTag, m_name);
+    m_rowColors = colors;
+    emit q->rowColorsChanged(m_rowColors);
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 978, as _ZN19QBar3DSeriesPrivate23setValueColoringEnabledEb
+inline void QBar3DSeriesPrivate::setValueColoringEnabled(bool enabled)
+{
+    Q_Q(QBar3DSeries);
+    if (m_valueColoring == enabled) {
+        qCDebug(lcProperties3D) << __FUNCTION__
+            << "value is already set to:" << enabled;
+        return;
+    }
+    m_valueColoring = enabled;
+    emit q->valueColoringEnabledChanged(enabled);
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 990, as _ZN19QBar3DSeriesPrivate12setDataArrayERK5QListIS0_I12QBarDataItemEE
+inline void QBar3DSeriesPrivate::setDataArray(const QBarDataArray &newDataArray)
+{
+    m_dataArray = newDataArray;
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 995, as _ZN19QBar3DSeriesPrivate8clearRowEx
@@ -420,6 +518,12 @@ QBar3DSeriesPrivate *ritual_ZN19QBar3DSeriesPrivate3getEP12QBar3DSeries(
   return QBar3DSeriesPrivate::get(item);
 }
 
+//  QBar3DSeriesPrivate::~QBar3DSeriesPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBar3DSeriesPrivateD1Ev(QBar3DSeriesPrivate *self) {
+  delete self;
+}
+
 //  void QBar3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy(
@@ -442,6 +546,38 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QBar3DSeriesPrivate15createItemLabelEv(
     QBar3DSeriesPrivate *self) {
   self->createItemLabel();
+}
+
+//  void QBar3DSeriesPrivate::setSelectedBar(QPoint position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBar3DSeriesPrivate14setSelectedBarE6QPoint(
+    QBar3DSeriesPrivate *self,
+    const QPoint *position) {
+  self->setSelectedBar(*position);
+}
+
+//  void QBar3DSeriesPrivate::setRowColors(const QList<QColor> &colors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBar3DSeriesPrivate12setRowColorsERK5QListI6QColorE(
+    QBar3DSeriesPrivate *self,
+    const QList<QColor> *colors) {
+  self->setRowColors(*colors);
+}
+
+//  void QBar3DSeriesPrivate::setValueColoringEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBar3DSeriesPrivate23setValueColoringEnabledEb(
+    QBar3DSeriesPrivate *self,
+    bool enabled) {
+  self->setValueColoringEnabled(enabled);
+}
+
+//  void QBar3DSeriesPrivate::setDataArray(const QBarDataArray &newDataArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBar3DSeriesPrivate12setDataArrayERK5QListIS0_I12QBarDataItemEE(
+    QBar3DSeriesPrivate *self,
+    const QBarDataArray *newDataArray) {
+  self->setDataArray(*newDataArray);
 }
 
 //  void QBar3DSeriesPrivate::clearRow(qsizetype rowIndex)
@@ -583,4 +719,4 @@ void ritual_own_ZN19QBar3DSeriesPrivate15createItemLabelEv(
   self->QBar3DSeriesPrivate::createItemLabel();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))

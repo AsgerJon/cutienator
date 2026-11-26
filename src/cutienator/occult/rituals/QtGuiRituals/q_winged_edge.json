@@ -19,6 +19,10 @@
     "ritual_ZNK11QWingedEdge4nextERKNS_15TraversalStatusE": [
       "address", "address", "address"
     ],
+    "ritual_ZN11QWingedEdge7addEdgeERK7QPointFS2_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN11QWingedEdge7addEdgeEii": ["int", "address", "int", "int"],
     "ritual_ZNK11QWingedEdge8isInsideEdd": [
       "bool", "address", "double", "double"
     ],

@@ -5,12 +5,21 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap14QmlListWrapper4initEP7QObjecti9QMetaType": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV44Heap14QmlListWrapper4initEP7QObjectRK16QQmlListPropertyIS2_E9QMetaType": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap14QmlListWrapper7destroyEv": ["nothing", "address"],
     "ritual_ZNK3QV44Heap14QmlListWrapper6objectEv": ["address", "address"],
     "ritual_ZNK3QV44Heap14QmlListWrapper12propertyTypeEv": [
       "address", "address"
     ],
     "ritual_ZNK3QV44Heap14QmlListWrapper11elementTypeEv": [
       "address", "address"
-    ]
+    ],
+    "ritual_ZNK3QV44Heap14QmlListWrapper8propertyEv": ["address", "address"],
+    "ritual_ZN3QV44Heap14QmlListWrapper8propertyEv": ["address", "address"]
   }
 }

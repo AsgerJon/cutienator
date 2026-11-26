@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
 //  DomGradientStop::DomGradientStop()
@@ -18,6 +19,24 @@ DomGradientStop *ritual_ZN15DomGradientStopC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15DomGradientStopD1Ev(DomGradientStop *self) {
   delete self;
+}
+
+//  void DomGradientStop::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15DomGradientStop4readER16QXmlStreamReader(
+    DomGradientStop *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomGradientStop::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15DomGradientStop5writeER16QXmlStreamWriterRK7QString(
+    const DomGradientStop *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  bool DomGradientStop::hasAttributePosition() const

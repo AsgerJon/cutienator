@@ -5,6 +5,21 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN15QMetalSwapChain7destroyEv": ["nothing", "address"],
+    "ritual_ZN15QMetalSwapChain25currentFrameCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QMetalSwapChain24currentFrameRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QMetalSwapChain16surfacePixelSizeEv": ["address", "address"],
+    "ritual_ZN15QMetalSwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN15QMetalSwapChain33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QMetalSwapChain14createOrResizeEv": ["bool", "address"],
     "ritual_ZN15QMetalSwapChain7hdrInfoEv": ["address", "address"],
     "ritual_take_QMetalSwapChain": ["bool", "address", "chars", "address"]
   }

@@ -5,7 +5,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -23,6 +23,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  Only a class built on QGraphsView may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -804,6 +806,24 @@ const QMetaObject *ritual_ZNK11QGraphsView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphsView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QGraphsView11qt_metacastEPKc(
+    QGraphsView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphsView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QGraphsView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphsView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphsView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QGraphsView2trEPKcS1_i(
@@ -882,6 +902,45 @@ QPointF *ritual_ZN11QGraphsView23getDataPointCoordinatesEP15QAbstractSeriesdd(
     qreal x,
     qreal y) {
   return new QPointF(self->getDataPointCoordinates(series, x, y));
+}
+
+//  QQmlListProperty<QObject> QGraphsView::seriesList()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN11QGraphsView10seriesListEv(
+    QGraphsView *self) {
+  return new QQmlListProperty<QObject>(self->seriesList());
+}
+
+//  void QGraphsView::appendSeriesFunc(QQmlListProperty<QObject> *list,
+//      QObject *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView16appendSeriesFuncEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *series) {
+  QGraphsView::appendSeriesFunc(list, series);
+}
+
+//  qsizetype QGraphsView::countSeriesFunc(QQmlListProperty<QObject> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN11QGraphsView15countSeriesFuncEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  return QGraphsView::countSeriesFunc(list);
+}
+
+//  QObject *QGraphsView::atSeriesFunc(QQmlListProperty<QObject> *list,
+//      qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN11QGraphsView12atSeriesFuncEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *list,
+    qsizetype index) {
+  return QGraphsView::atSeriesFunc(list, index);
+}
+
+//  void QGraphsView::clearSeriesFunc(QQmlListProperty<QObject> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView15clearSeriesFuncEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  QGraphsView::clearSeriesFunc(list);
 }
 
 //  QGraphsTheme *QGraphsView::theme() const
@@ -1468,6 +1527,194 @@ void ritual_ZN11QGraphsView12updatePolishEv(QGraphsView *self) {
   self->updatePolish();
 }
 
+//  void QGraphsView::themeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView12themeChangedEv(QGraphsView *self) {
+  self->themeChanged();
+}
+
+//  void QGraphsView::marginTopChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView16marginTopChangedEv(QGraphsView *self) {
+  self->marginTopChanged();
+}
+
+//  void QGraphsView::marginBottomChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView19marginBottomChangedEv(QGraphsView *self) {
+  self->marginBottomChanged();
+}
+
+//  void QGraphsView::marginLeftChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView17marginLeftChangedEv(QGraphsView *self) {
+  self->marginLeftChanged();
+}
+
+//  void QGraphsView::marginRightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView18marginRightChangedEv(QGraphsView *self) {
+  self->marginRightChanged();
+}
+
+//  void QGraphsView::clipPlotAreaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView19clipPlotAreaChangedEv(QGraphsView *self) {
+  self->clipPlotAreaChanged();
+}
+
+//  void QGraphsView::plotAreaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView15plotAreaChangedEv(QGraphsView *self) {
+  self->plotAreaChanged();
+}
+
+//  void QGraphsView::hoverEnter(const QString &seriesName, QPointF position,
+//      QPointF value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView10hoverEnterERK7QString7QPointFS3_(
+    QGraphsView *self,
+    const QString *seriesName,
+    const QPointF *position,
+    const QPointF *value) {
+  self->hoverEnter(*seriesName, *position, *value);
+}
+
+//  void QGraphsView::hoverExit(const QString &seriesName, QPointF position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView9hoverExitERK7QString7QPointF(
+    QGraphsView *self,
+    const QString *seriesName,
+    const QPointF *position) {
+  self->hoverExit(*seriesName, *position);
+}
+
+//  void QGraphsView::hover(const QString &seriesName, QPointF position,
+//      QPointF value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView5hoverERK7QString7QPointFS3_(
+    QGraphsView *self,
+    const QString *seriesName,
+    const QPointF *position,
+    const QPointF *value) {
+  self->hover(*seriesName, *position, *value);
+}
+
+//  void QGraphsView::axisXSmoothingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView21axisXSmoothingChangedEv(QGraphsView *self) {
+  self->axisXSmoothingChanged();
+}
+
+//  void QGraphsView::axisYSmoothingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView21axisYSmoothingChangedEv(QGraphsView *self) {
+  self->axisYSmoothingChanged();
+}
+
+//  void QGraphsView::gridSmoothingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView20gridSmoothingChangedEv(QGraphsView *self) {
+  self->gridSmoothingChanged();
+}
+
+//  void QGraphsView::shadowVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView20shadowVisibleChangedEv(QGraphsView *self) {
+  self->shadowVisibleChanged();
+}
+
+//  void QGraphsView::shadowColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView18shadowColorChangedEv(QGraphsView *self) {
+  self->shadowColorChanged();
+}
+
+//  void QGraphsView::shadowBarWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView21shadowBarWidthChangedEv(QGraphsView *self) {
+  self->shadowBarWidthChanged();
+}
+
+//  void QGraphsView::shadowXOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView20shadowXOffsetChangedEv(QGraphsView *self) {
+  self->shadowXOffsetChanged();
+}
+
+//  void QGraphsView::shadowYOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView20shadowYOffsetChangedEv(QGraphsView *self) {
+  self->shadowYOffsetChanged();
+}
+
+//  void QGraphsView::shadowSmoothingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView22shadowSmoothingChangedEv(QGraphsView *self) {
+  self->shadowSmoothingChanged();
+}
+
+//  void QGraphsView::axisXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView12axisXChangedEv(QGraphsView *self) {
+  self->axisXChanged();
+}
+
+//  void QGraphsView::axisYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView12axisYChangedEv(QGraphsView *self) {
+  self->axisYChanged();
+}
+
+//  void QGraphsView::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView18orientationChangedEv(QGraphsView *self) {
+  self->orientationChanged();
+}
+
+//  void QGraphsView::zoomStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView16zoomStyleChangedEv(QGraphsView *self) {
+  self->zoomStyleChanged();
+}
+
+//  void QGraphsView::panStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView15panStyleChangedEv(QGraphsView *self) {
+  self->panStyleChanged();
+}
+
+//  void QGraphsView::zoomAreaEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView22zoomAreaEnabledChangedEv(QGraphsView *self) {
+  self->zoomAreaEnabledChanged();
+}
+
+//  void QGraphsView::zoomAreaDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView23zoomAreaDelegateChangedEv(QGraphsView *self) {
+  self->zoomAreaDelegateChanged();
+}
+
+//  void QGraphsView::zoomSensitivityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView22zoomSensitivityChangedEv(QGraphsView *self) {
+  self->zoomSensitivityChanged();
+}
+
+//  void QGraphsView::useCanvasPainterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView23useCanvasPainterChangedEv(QGraphsView *self) {
+  self->useCanvasPainterChanged();
+}
+
+//  void QGraphsView::dynamicLabelMarginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsView26dynamicLabelMarginsChangedEv(
+    QGraphsView *self) {
+  self->dynamicLabelMarginsChanged();
+}
+
 //  void QGraphsView::polishAndUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QGraphsView15polishAndUpdateEv(QGraphsView *self) {
@@ -1562,4 +1809,11 @@ void ritual_own_ZN11QGraphsView12updatePolishEv(QGraphsView *self) {
   static_cast<OwnQGraphsView *>(self)->OwnQGraphsView::updatePolish();
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+//  a QQmlListProperty<QObject> a ritual of QGraphsView gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGraphsView__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

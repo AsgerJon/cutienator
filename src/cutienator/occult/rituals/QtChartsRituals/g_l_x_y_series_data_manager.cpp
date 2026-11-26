@@ -186,6 +186,25 @@ const QMetaObject *ritual_ZNK21GLXYSeriesDataManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *GLXYSeriesDataManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21GLXYSeriesDataManager11qt_metacastEPKc(
+    GLXYSeriesDataManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int GLXYSeriesDataManager::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21GLXYSeriesDataManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    GLXYSeriesDataManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString GLXYSeriesDataManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21GLXYSeriesDataManager2trEPKcS1_i(
@@ -224,6 +243,13 @@ void ritual_ZN21GLXYSeriesDataManager12removeSeriesEPK9QXYSeries(
     GLXYSeriesDataManager *self,
     const QXYSeries *series) {
   self->removeSeries(series);
+}
+
+//  GLXYDataMap &GLXYSeriesDataManager::dataMap()
+extern "C" Q_DECL_EXPORT
+GLXYDataMap *ritual_ZN21GLXYSeriesDataManager7dataMapEv(
+    GLXYSeriesDataManager *self) {
+  return &(self->dataMap());
 }
 
 //  bool GLXYSeriesDataManager::mapDirty() const
@@ -294,6 +320,14 @@ void ritual_ZN21GLXYSeriesDataManager29handleScatterMarkerSizeChangeEv(
   self->handleScatterMarkerSizeChange();
 }
 #endif  // QT_CONFIG(charts_scatter_chart)
+
+//  void GLXYSeriesDataManager::seriesRemoved(const QXYSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21GLXYSeriesDataManager13seriesRemovedEPK9QXYSeries(
+    GLXYSeriesDataManager *self,
+    const QXYSeries *series) {
+  self->seriesRemoved(series);
+}
 
 //  a Python function taken by a CuteGLXYSeriesDataManager, for the function
 //      named by the key

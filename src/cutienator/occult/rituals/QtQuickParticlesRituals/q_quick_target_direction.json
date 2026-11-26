@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickTargetDirection10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickTargetDirection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickTargetDirection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickTargetDirection2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -29,6 +35,27 @@
     ],
     "ritual_ZNK21QQuickTargetDirection10targetItemEv": [
       "address", "address"
+    ],
+    "ritual_ZN21QQuickTargetDirection14targetXChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection14targetYChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection22targetVariationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection16magnitudeChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection28proprotionalMagnitudeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickTargetDirection25magnitudeVariationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection17targetItemChangedEP10QQuickItem": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN21QQuickTargetDirection10setTargetXEd": [
       "nothing", "address", "double"

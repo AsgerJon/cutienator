@@ -9,6 +9,7 @@
     "ritual_ZN16CustomRenderItem10setTextureEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZNK16CustomRenderItem7textureEv": ["unsigned int", "address"],
     "ritual_ZNK16CustomRenderItem4meshEv": ["address", "address"],
     "ritual_ZN16CustomRenderItem10setScalingERK9QVector3D": [
       "nothing", "address", "address"
@@ -81,6 +82,9 @@
     "ritual_ZNK16CustomRenderItem12textureDepthEv": ["int", "address"],
     "ritual_ZNK16CustomRenderItem11textureSizeEv": ["int", "address"],
     "ritual_ZN16CustomRenderItem13setColorTableERK5QListI9QVector4DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16CustomRenderItem13setColorTableERK5QListIjE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK16CustomRenderItem10colorTableEv": ["address", "address"],

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QHistoryState10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QHistoryState11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QHistoryState11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QHistoryState2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QHistoryStateC1EP6QState": ["address", "address"],
     "ritual_ZN13QHistoryStateC1ENS_11HistoryTypeEP6QState": [
@@ -16,6 +22,9 @@
     "ritual_ZN13QHistoryState20setDefaultTransitionEP19QAbstractTransition": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QHistoryState25bindableDefaultTransitionEv": [
+      "address", "address"
+    ],
     "ritual_ZNK13QHistoryState12defaultStateEv": ["address", "address"],
     "ritual_ZN13QHistoryState15setDefaultStateEP14QAbstractState": [
       "nothing", "address", "address"
@@ -23,6 +32,18 @@
     "ritual_ZNK13QHistoryState11historyTypeEv": ["int", "address"],
     "ritual_ZN13QHistoryState14setHistoryTypeENS_11HistoryTypeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN13QHistoryState19bindableHistoryTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QHistoryState24defaultTransitionChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QHistoryState19defaultStateChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QHistoryState18historyTypeChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
     ],
     "ritual_ZN13QHistoryState7onEntryEP6QEvent": [
       "nothing", "address", "address"
@@ -33,6 +54,8 @@
     "ritual_ZN13QHistoryState5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN13QHistoryState6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QHistoryState6d_funcEv": ["address", "address"],
     "ritual_take_QHistoryState": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QHistoryState7onEntryEP6QEvent": [
       "nothing", "address", "address"
@@ -42,6 +65,12 @@
     ],
     "ritual_own_ZN13QHistoryState5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QHistoryState__QBindable_QAbstractTransition": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHistoryState__QBindable_QHistoryState_HistoryType": [
+      "nothing", "address"
     ]
   }
 }

@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qmdiarea_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qrect.h>
 #include <cstring>
 
 //  A QMdi::Rearranger that Python can take functions over in. Every QMdi::Rearranger
@@ -46,6 +47,16 @@ public:
   }
 #endif  // QT_CONFIG(mdiarea)
 };
+
+//  void QMdi::Rearranger::rearrange(QList<QWidget *> &widgets, const QRect
+//      &domain) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK4QMdi10Rearranger9rearrangeER5QListIP7QWidgetERK5QRect(
+    const QMdi::Rearranger *self,
+    QList<QWidget *> *widgets,
+    const QRect *domain) {
+  self->rearrange(*widgets, *domain);
+}
 
 //  Type QMdi::Rearranger::type() const
 extern "C" Q_DECL_EXPORT

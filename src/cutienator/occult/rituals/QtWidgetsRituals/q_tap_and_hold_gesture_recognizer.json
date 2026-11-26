@@ -8,6 +8,9 @@
     "ritual_ZN28QTapAndHoldGestureRecognizer6createEP7QObject": [
       "address", "address", "address"
     ],
+    "ritual_ZN28QTapAndHoldGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent": [
+      "int", "address", "address", "address", "address"
+    ],
     "ritual_ZN28QTapAndHoldGestureRecognizer5resetEP8QGesture": [
       "nothing", "address", "address"
     ],

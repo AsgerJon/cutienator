@@ -16,10 +16,19 @@
     "ritual_ZN20QQuickOverlayPrivate9startDragEP6QEventRK7QPointF": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN20QQuickOverlayPrivate11handlePressEP10QQuickItemP6QEventP11QQuickPopup": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN20QQuickOverlayPrivate10handleMoveEP10QQuickItemP6QEventP11QQuickPopup": [
       "bool", "address", "address", "address", "address"
     ],
+    "ritual_ZN20QQuickOverlayPrivate16handleMouseEventEP10QQuickItemP11QMouseEventP11QQuickPopup": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN20QQuickOverlayPrivate16handleHoverEventEP10QQuickItemP11QHoverEventP11QQuickPopup": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate16handleTouchEventEP10QQuickItemP11QTouchEventP11QQuickPopup": [
       "bool", "address", "address", "address", "address"
     ],
     "ritual_ZN20QQuickOverlayPrivate8addPopupEP11QQuickPopup": [

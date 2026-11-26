@@ -26,6 +26,19 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/opengl/qopenglgradientcache.cpp, line 56, as _ZN21QOpenGL2GradientCache12freeResourceEP14QOpenGLContext
+inline void QOpenGL2GradientCache::freeResource(QOpenGLContext *)
+{
+    cleanCache();
+}
+
+//  from src/opengl/qopenglgradientcache.cpp, line 50, as _ZN21QOpenGL2GradientCache18invalidateResourceEv
+inline void QOpenGL2GradientCache::invalidateResource()
+{
+    QMutexLocker lock(&m_mutex);
+    cache.clear();
+}
+
 //  from src/opengl/qopenglgradientcache.cpp, line 35, as _ZN21QOpenGL2GradientCacheC1EP14QOpenGLContext
 inline QOpenGL2GradientCache::QOpenGL2GradientCache(QOpenGLContext *ctx)
     : QOpenGLSharedResource(ctx->shareGroup())
@@ -38,17 +51,33 @@ inline QOpenGL2GradientCache::~QOpenGL2GradientCache()
     cache.clear();
 }
 
-//  from src/opengl/qopenglgradientcache.cpp, line 50, as _ZN21QOpenGL2GradientCache18invalidateResourceEv
-inline void QOpenGL2GradientCache::invalidateResource()
+//  from src/opengl/qopenglgradientcache.cpp, line 73, as _ZN21QOpenGL2GradientCache9getBufferERK9QGradientd
+inline GLuint QOpenGL2GradientCache::getBuffer(const QGradient &gradient, qreal opacity)
 {
-    QMutexLocker lock(&m_mutex);
-    cache.clear();
-}
+    quint64 hash_val = 0;
 
-//  from src/opengl/qopenglgradientcache.cpp, line 56, as _ZN21QOpenGL2GradientCache12freeResourceEP14QOpenGLContext
-inline void QOpenGL2GradientCache::freeResource(QOpenGLContext *)
-{
-    cleanCache();
+    const QGradientStops stops = gradient.stops();
+    for (int i = 0; i < stops.size() && i <= 2; i++)
+        hash_val += stops[i].second.rgba();
+
+    const QMutexLocker lock(&m_mutex);
+    QOpenGLGradientColorTableHash::const_iterator it = cache.constFind(hash_val);
+
+    if (it == cache.constEnd())
+        return addCacheElement(hash_val, gradient, opacity);
+    else {
+        do {
+            const CacheInfo &cache_info = it.value();
+            if (cache_info.stops == stops && cache_info.opacity == opacity
+                && cache_info.interpolationMode == gradient.interpolationMode())
+            {
+                return cache_info.texId;
+            }
+            ++it;
+        } while (it != cache.constEnd() && it.key() == hash_val);
+        // an exact match for these stops and opacity was not found, create new cache
+        return addCacheElement(hash_val, gradient, opacity);
+    }
 }
 
 //  from src/opengl/qopenglgradientcache.cpp, line 137, as _ZNK21QOpenGL2GradientCache26generateGradientColorTableERK9QGradientP7QRgba64id
@@ -158,6 +187,40 @@ inline void QOpenGL2GradientCache::generateGradientColorTable(const QGradient& g
     colorTable[size-1] = last_color;
 }
 
+//  from src/opengl/qopenglgradientcache.cpp, line 102, as _ZN21QOpenGL2GradientCache15addCacheElementEyRK9QGradientd
+inline GLuint QOpenGL2GradientCache::addCacheElement(quint64 hash_val, const QGradient &gradient, qreal opacity)
+{
+    QOpenGLFunctions *funcs = QOpenGLContext::currentContext()->functions();
+    if (cache.size() == maxCacheSize()) {
+        int elem_to_remove = QRandomGenerator::global()->bounded(maxCacheSize());
+        const QList<quint64> keys = cache.keys();
+        quint64 key = keys[elem_to_remove];
+
+        // need to call glDeleteTextures on each removed cache entry:
+        QOpenGLGradientColorTableHash::const_iterator it = cache.constFind(key);
+        do {
+            funcs->glDeleteTextures(1, &it.value().texId);
+        } while (++it != cache.constEnd() && it.key() == key);
+        cache.remove(key); // may remove more than 1, but OK
+    }
+
+    CacheInfo cache_entry(gradient.stops(), opacity, gradient.interpolationMode());
+    funcs->glGenTextures(1, &cache_entry.texId);
+    funcs->glBindTexture(GL_TEXTURE_2D, cache_entry.texId);
+    if (static_cast<QOpenGLExtensions *>(funcs)->hasOpenGLExtension(QOpenGLExtensions::Sized16Formats)) {
+        QRgba64 buffer[1024];
+        generateGradientColorTable(gradient, buffer, paletteSize(), opacity);
+        funcs->glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16, paletteSize(), 1,
+                            0, GL_RGBA, GL_UNSIGNED_SHORT, buffer);
+    } else {
+        uint buffer[1024];
+        generateGradientColorTable(gradient, buffer, paletteSize(), opacity);
+        funcs->glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, paletteSize(), 1,
+                            0, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+    }
+    return cache.insert(hash_val, cache_entry).value().texId;
+}
+
 //  from src/opengl/qopenglgradientcache.cpp, line 61, as _ZN21QOpenGL2GradientCache10cleanCacheEv
 inline void QOpenGL2GradientCache::cleanCache()
 {
@@ -242,6 +305,16 @@ void ritual_ZN21QOpenGL2GradientCacheD1Ev(QOpenGL2GradientCache *self) {
   delete self;
 }
 
+//  GLuint QOpenGL2GradientCache::getBuffer(const QGradient &gradient, qreal
+//      opacity)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN21QOpenGL2GradientCache9getBufferERK9QGradientd(
+    QOpenGL2GradientCache *self,
+    const QGradient *gradient,
+    qreal opacity) {
+  return self->getBuffer(*gradient, opacity);
+}
+
 //  int QOpenGL2GradientCache::paletteSize() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QOpenGL2GradientCache11paletteSizeEv(
@@ -293,6 +366,17 @@ void ritual_ZNK21QOpenGL2GradientCache26generateGradientColorTableERK9QGradientP
     int size,
     qreal opacity) {
   self->generateGradientColorTable(*gradient, colorTable, size, opacity);
+}
+
+//  GLuint QOpenGL2GradientCache::addCacheElement(quint64 hash_val, const
+//      QGradient &gradient, qreal opacity)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN21QOpenGL2GradientCache15addCacheElementEyRK9QGradientd(
+    QOpenGL2GradientCache *self,
+    quint64 hash_val,
+    const QGradient *gradient,
+    qreal opacity) {
+  return self->addCacheElement(hash_val, *gradient, opacity);
 }
 
 //  void QOpenGL2GradientCache::cleanCache()

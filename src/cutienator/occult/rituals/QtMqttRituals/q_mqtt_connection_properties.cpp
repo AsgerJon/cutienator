@@ -20,6 +20,15 @@ QMqttConnectionProperties *ritual_ZN25QMqttConnectionPropertiesC1ERKS_(
   return new QMqttConnectionProperties(*a0);
 }
 
+//  QMqttConnectionProperties &QMqttConnectionProperties::operator=(const
+//      QMqttConnectionProperties &a0)
+extern "C" Q_DECL_EXPORT
+QMqttConnectionProperties *ritual_ZN25QMqttConnectionPropertiesaSERKS_(
+    QMqttConnectionProperties *self,
+    const QMqttConnectionProperties *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QMqttConnectionProperties::~QMqttConnectionProperties()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QMqttConnectionPropertiesD1Ev(

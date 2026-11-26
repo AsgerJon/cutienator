@@ -5,6 +5,8 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render6NoDrawC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render6NoDrawD1Ev": ["nothing", "address"],
     "ritual_take_Qt3DRender_Render_NoDraw": [
       "bool", "address", "chars", "address"
     ]

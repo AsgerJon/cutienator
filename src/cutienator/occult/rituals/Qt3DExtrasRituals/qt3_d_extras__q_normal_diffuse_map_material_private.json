@@ -8,6 +8,24 @@
     "ritual_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate4initEv": [
       "nothing", "address"
     ],
+    "ritual_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate20handleAmbientChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate20handleDiffuseChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate19handleNormalChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate21handleSpecularChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate22handleShininessChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate25handleTextureScaleChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate6q_funcEv": [
       "address", "address"
     ],
@@ -16,6 +34,9 @@
     ],
     "ritual_take_Qt3DExtras_QNormalDiffuseMapMaterialPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate4initEv": [
+      "nothing", "address"
     ]
   }
 }

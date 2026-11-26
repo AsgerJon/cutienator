@@ -21,6 +21,24 @@ void ritual_ZN12DomActionRefD1Ev(DomActionRef *self) {
   delete self;
 }
 
+//  void DomActionRef::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12DomActionRef4readER16QXmlStreamReader(
+    DomActionRef *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomActionRef::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12DomActionRef5writeER16QXmlStreamWriterRK7QString(
+    const DomActionRef *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomActionRef::hasAttributeName() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12DomActionRef16hasAttributeNameEv(const DomActionRef *self) {

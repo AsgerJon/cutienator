@@ -8,6 +8,12 @@
     "ritual_ZNK21QValue3DAxisFormatter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QValue3DAxisFormatter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QValue3DAxisFormatter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -41,10 +47,25 @@
     "ritual_ZNK21QValue3DAxisFormatter7valueAtEf": [
       "float", "address", "float"
     ],
+    "ritual_ZNK21QValue3DAxisFormatter12populateCopyERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QValue3DAxisFormatter9markDirtyEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZNK21QValue3DAxisFormatter4axisEv": ["address", "address"],
+    "ritual_ZNK21QValue3DAxisFormatter13gridPositionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter16subGridPositionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter14labelPositionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter12labelStringsEv": [
+      "address", "address"
+    ],
     "ritual_ZN21QValue3DAxisFormatter9setLocaleERK7QLocale": [
       "nothing", "address", "address"
     ],

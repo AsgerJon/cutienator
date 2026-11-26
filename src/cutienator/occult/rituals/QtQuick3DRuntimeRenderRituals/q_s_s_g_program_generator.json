@@ -14,11 +14,21 @@
     "ritual_ZNK20QSSGProgramGenerator16getEnabledStagesEv": [
       "int", "address"
     ],
+    "ritual_ZN20QSSGProgramGenerator16internalGetStageE24QSSGShaderGeneratorStage": [
+      "address", "address", "int"
+    ],
     "ritual_ZN20QSSGProgramGenerator8getStageE24QSSGShaderGeneratorStage": [
       "address", "address", "int"
     ],
     "ritual_ZN20QSSGProgramGenerator32registerShaderMetaDataFromSourceEP30QSSGShaderResourceMergeContextRK10QByteArray24QSSGShaderGeneratorStage": [
       "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QSSGProgramGenerator25compileGeneratedRhiShaderERK10QByteArrayRK18QSSGShaderFeaturesR24QSSGShaderLibraryManagerR15QSSGShaderCache6QFlagsIN21QSSGRhiShaderPipeline9StageFlagEERK26QSSGUserShaderAugmentationib": [
+      "address", "address", "address", "address", "address", "address",
+      "int", "address", "int", "bool"
+    ],
+    "ritual_drop_QSSGProgramGenerator__QSSGRhiShaderPipelinePtr": [
+      "nothing", "address"
     ]
   }
 }

@@ -8,6 +8,18 @@
     "ritual_ZN28QGrpcInterceptorChainPrivate5EntryC1Ev": ["address"],
     "ritual_ZN28QGrpcInterceptorChainPrivate5EntryD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN28QGrpcInterceptorChainPrivate5EntryC1EPvPFvS1_ESt6vectorIN13QtGrpcPrivate28InterceptorCapabilityBindingESaIS6_EE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN28QGrpcInterceptorChainPrivate5EntryC1EOS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN28QGrpcInterceptorChainPrivate5EntryaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN28QGrpcInterceptorChainPrivate5Entry4swapERS0_": [
+      "nothing", "address", "address"
     ]
   }
 }

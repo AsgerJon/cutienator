@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZNK10QHstsCache11isKnownHostERK4QUrl": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN10QHstsCache5clearEv": ["nothing", "address"],
     "ritual_ZNK10QHstsCache8policiesEv": ["address", "address"],
     "ritual_ZN10QHstsCacheD1Ev": ["nothing", "address"]

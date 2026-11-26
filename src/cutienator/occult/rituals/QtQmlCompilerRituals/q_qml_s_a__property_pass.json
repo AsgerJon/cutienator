@@ -4,6 +4,9 @@
     "QtQmlCompiler/qqmlsa.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlSA12PropertyPassC1EPNS_11PassManagerE": [
+      "address", "address"
+    ],
     "ritual_ZN6QQmlSA12PropertyPass9onBindingERKNS_7ElementERK7QStringRKNS_7BindingES3_S3_": [
       "nothing", "address", "address", "text", "address", "address",
       "address"

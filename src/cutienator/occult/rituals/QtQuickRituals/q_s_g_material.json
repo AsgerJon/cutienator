@@ -4,6 +4,7 @@
     "QtQuick/qsgmaterial.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QSGMaterialC1Ev": ["address"],
     "ritual_ZN11QSGMaterialD1Ev": ["nothing", "address"],
     "ritual_ZNK11QSGMaterial4typeEv": ["address", "address"],
     "ritual_ZNK11QSGMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [

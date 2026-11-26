@@ -197,6 +197,24 @@ const QMetaObject *ritual_ZNK10QBarSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBarSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QBarSeries11qt_metacastEPKc(
+    QBarSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QBarSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBarSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QBarSeries2trEPKcS1_i(

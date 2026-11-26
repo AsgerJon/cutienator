@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QWizardPage10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QWizardPage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QWizardPage11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QWizardPage2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QWizardPageC1EP7QWidget": ["address", "address"],
     "ritual_ZN11QWizardPageD1Ev": ["nothing", "address"],
@@ -39,6 +45,7 @@
     "ritual_ZN11QWizardPage12validatePageEv": ["bool", "address"],
     "ritual_ZNK11QWizardPage10isCompleteEv": ["bool", "address"],
     "ritual_ZNK11QWizardPage6nextIdEv": ["int", "address"],
+    "ritual_ZN11QWizardPage15completeChangedEv": ["nothing", "address"],
     "ritual_ZN11QWizardPage8setFieldERK7QStringRK8QVariant": [
       "nothing", "address", "text", "address"
     ],
@@ -49,6 +56,8 @@
       "nothing", "address", "text", "address", "chars", "chars"
     ],
     "ritual_ZNK11QWizardPage6wizardEv": ["address", "address"],
+    "ritual_ZN11QWizardPage6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QWizardPage6d_funcEv": ["address", "address"],
     "ritual_take_QWizardPage": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QWizardPage14initializePageEv": ["nothing", "address"],
     "ritual_own_ZN11QWizardPage11cleanupPageEv": ["nothing", "address"],

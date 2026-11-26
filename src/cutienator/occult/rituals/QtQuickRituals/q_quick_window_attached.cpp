@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK20QQuickWindowAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWindowAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickWindowAttached11qt_metacastEPKc(
+    QQuickWindowAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWindowAttached::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickWindowAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWindowAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWindowAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickWindowAttached2trEPKcS1_i(
@@ -85,6 +104,55 @@ extern "C" Q_DECL_EXPORT
 QQuickWindow *ritual_ZNK20QQuickWindowAttached6windowEv(
     const QQuickWindowAttached *self) {
   return self->window();
+}
+
+//  void QQuickWindowAttached::visibilityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWindowAttached17visibilityChangedEv(
+    QQuickWindowAttached *self) {
+  self->visibilityChanged();
+}
+
+//  void QQuickWindowAttached::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWindowAttached13activeChangedEv(
+    QQuickWindowAttached *self) {
+  self->activeChanged();
+}
+
+//  void QQuickWindowAttached::activeFocusItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWindowAttached22activeFocusItemChangedEv(
+    QQuickWindowAttached *self) {
+  self->activeFocusItemChanged();
+}
+
+//  void QQuickWindowAttached::contentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWindowAttached18contentItemChangedEv(
+    QQuickWindowAttached *self) {
+  self->contentItemChanged();
+}
+
+//  void QQuickWindowAttached::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWindowAttached12widthChangedEv(
+    QQuickWindowAttached *self) {
+  self->widthChanged();
+}
+
+//  void QQuickWindowAttached::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWindowAttached13heightChangedEv(
+    QQuickWindowAttached *self) {
+  self->heightChanged();
+}
+
+//  void QQuickWindowAttached::windowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickWindowAttached13windowChangedEv(
+    QQuickWindowAttached *self) {
+  self->windowChanged();
 }
 
 //  void QQuickWindowAttached::windowChange(QQuickWindow *a0)

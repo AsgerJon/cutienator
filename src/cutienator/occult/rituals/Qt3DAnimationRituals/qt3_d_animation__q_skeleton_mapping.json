@@ -8,8 +8,30 @@
     "ritual_ZNK13Qt3DAnimation16QSkeletonMapping10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation16QSkeletonMapping11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation16QSkeletonMapping11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation16QSkeletonMapping2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation16QSkeletonMappingC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation16QSkeletonMappingD1Ev": ["nothing", "address"],
+    "ritual_ZNK13Qt3DAnimation16QSkeletonMapping8skeletonEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation16QSkeletonMapping11setSkeletonEPN8Qt3DCore17QAbstractSkeletonE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation16QSkeletonMapping15skeletonChangedEPN8Qt3DCore17QAbstractSkeletonE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation16QSkeletonMappingC1ERNS_23QSkeletonMappingPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation16QSkeletonMapping6d_funcEv": [
       "address", "address"

@@ -10,6 +10,16 @@
     "ritual_ZN27QSSGMaterialShaderGenerator14getSamplerNameEN19QSSGRenderableImage4TypeE": [
       "chars", "unsigned char"
     ],
+    "ritual_ZN27QSSGMaterialShaderGenerator25generateMaterialRhiShaderERK10QByteArrayR26QSSGMaterialVertexPipelineRK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EERKS6_RK18QSSGShaderFeaturesRK21QSSGRenderGraphObjectR24QSSGShaderLibraryManagerR15QSSGShaderCacheRK26QSSGUserShaderAugmentation": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator24setRhiMaterialPropertiesERK26QSSGRenderContextInterfaceR21QSSGRhiShaderPipelinePcP28QSSGRhiGraphicsPipelineStateRK21QSSGRenderGraphObjectRK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EERKSC_RK15QVarLengthArrayIP16QSSGRenderCameraLx2EERKSt5arrayI10QMatrix4x4Lm2EERK14QGenericMatrixILi3ELi3EfERKSP_SY_SY_SY_RK12QSSGDataViewIfEP19QSSGRenderableImagefRK19QSSGLayerRenderDataRKSZ_I15QSSGShaderLightERK25QSSGShaderReflectionProbebbPK9QVector2DP11QRhiTexture": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "float",
+      "address", "address", "address", "bool", "bool", "address", "address"
+    ],
     "ritual_ZN27QSSGMaterialShaderGenerator37directionalLightProcessorArgumentListEv": [
       "chars"
     ],
@@ -39,6 +49,9 @@
     ],
     "ritual_ZN27QSSGMaterialShaderGenerator31vertexInstancedMainArgumentListEv": [
       "chars"
+    ],
+    "ritual_drop_QSSGMaterialShaderGenerator__QSSGRhiShaderPipelinePtr": [
+      "nothing", "address"
     ]
   }
 }

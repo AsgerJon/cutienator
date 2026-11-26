@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickPathView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickPathView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickPathView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickPathView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -122,6 +128,65 @@
       "nothing", "address"
     ],
     "ritual_ZN14QQuickPathView21decrementCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView19currentIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView18currentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView13offsetChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView12modelChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView12countChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView11pathChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView30preferredHighlightBeginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView28preferredHighlightEndChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView25highlightRangeModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView17dragMarginChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView19snapPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView15delegateChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView20pathItemCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView27maximumFlickVelocityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView24flickDecelerationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView18interactiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView13movingChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView15flickingChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView15draggingChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView16highlightChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView20highlightItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView28highlightMoveDurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView15movementStartedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView13movementEndedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView24movementDirectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickPathView12flickStartedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView10flickEndedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView11dragStartedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView9dragEndedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView15snapModeChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathView21cacheItemCountChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN14QQuickPathView12updatePolishEv": ["nothing", "address"],

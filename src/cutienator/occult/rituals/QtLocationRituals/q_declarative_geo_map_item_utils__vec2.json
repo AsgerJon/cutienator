@@ -9,6 +9,12 @@
       "address", "address"
     ],
     "ritual_ZN27QDeclarativeGeoMapItemUtils4vec2C1Ev": ["address"],
+    "ritual_ZN27QDeclarativeGeoMapItemUtils4vec2aSERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapItemUtils4vec2aSERK15QDoubleVector2D": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK27QDeclarativeGeoMapItemUtils4vec216toDoubleVector2DEv": [
       "address", "address"
     ],

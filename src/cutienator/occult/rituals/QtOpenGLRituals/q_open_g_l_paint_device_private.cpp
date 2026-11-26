@@ -17,7 +17,7 @@ typedef void (*CuteQOpenGLPaintDevicePrivateCall1)(const void *, int *);
 class CuteQOpenGLPaintDevicePrivate : public QOpenGLPaintDevicePrivate {
 public:
   using QOpenGLPaintDevicePrivate::QOpenGLPaintDevicePrivate;
-  CuteQOpenGLPaintDevicePrivate(const QOpenGLPaintDevicePrivate &other) : QOpenGLPaintDevicePrivate(other) {}
+  CuteQOpenGLPaintDevicePrivate(const QOpenGLPaintDevicePrivate & other) : QOpenGLPaintDevicePrivate(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

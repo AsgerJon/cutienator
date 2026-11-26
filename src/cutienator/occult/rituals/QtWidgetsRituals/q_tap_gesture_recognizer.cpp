@@ -127,7 +127,7 @@ typedef void (*CuteQTapGestureRecognizerCall2)(const void *, QGesture *, int *);
 class CuteQTapGestureRecognizer : public QTapGestureRecognizer {
 public:
   using QTapGestureRecognizer::QTapGestureRecognizer;
-  CuteQTapGestureRecognizer(const QTapGestureRecognizer &other) : QTapGestureRecognizer(other) {}
+  CuteQTapGestureRecognizer(const QTapGestureRecognizer & other) : QTapGestureRecognizer(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

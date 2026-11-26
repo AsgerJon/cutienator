@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN10QSvgSwitchC1EP8QSvgNode": ["address", "address"],
     "ritual_ZN10QSvgSwitchD1Ev": ["nothing", "address"],
+    "ritual_ZN10QSvgSwitch11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK10QSvgSwitch4typeEv": ["int", "address"],
     "ritual_ZNK10QSvgSwitch13childToRenderEv": ["address", "address"],
     "ritual_ZN10QSvgSwitch4initEv": ["nothing", "address"],

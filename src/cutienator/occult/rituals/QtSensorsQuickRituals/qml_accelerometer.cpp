@@ -248,6 +248,25 @@ const QMetaObject *ritual_ZNK16QmlAccelerometer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlAccelerometer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QmlAccelerometer11qt_metacastEPKc(
+    QmlAccelerometer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlAccelerometer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QmlAccelerometer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlAccelerometer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlAccelerometer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QmlAccelerometer2trEPKcS1_i(
@@ -290,6 +309,15 @@ extern "C" Q_DECL_EXPORT
 QSensor *ritual_ZNK16QmlAccelerometer6sensorEv(
     const QmlAccelerometer *self) {
   return self->sensor();
+}
+
+//  void QmlAccelerometer::accelerationModeChanged(AccelerationMode
+//      accelerationMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QmlAccelerometer23accelerationModeChangedENS_16AccelerationModeE(
+    QmlAccelerometer *self,
+    QmlAccelerometer::AccelerationMode accelerationMode) {
+  self->accelerationModeChanged(accelerationMode);
 }
 
 //  QmlSensorReading *QmlAccelerometer::createReading() const

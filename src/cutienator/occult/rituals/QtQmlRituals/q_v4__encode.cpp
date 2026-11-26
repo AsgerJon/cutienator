@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4staticvalue_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qv4staticvalue_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: added by hand, instances of templates of the class: 3.
+//  Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -78,4 +79,28 @@ QV4::ReturnedValue ritual_ZNK3QV46EncodecvyEv(const QV4::Encode *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV46EncodeD1Ev(QV4::Encode *self) {
   delete self;
+}
+
+#include <QtQml/6.12.0/QtQml/private/qv4value_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4object_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4string_p.h>
+
+//  QV4::Encode::Encode<QV4::Heap::Base>(QV4::Heap::Base *o)
+extern "C" Q_DECL_EXPORT
+QV4::Encode *ritual_ZN3QV46EncodeC2INS_4Heap4BaseEEEPT_(QV4::Heap::Base *o) {
+  return new QV4::Encode(o);
+}
+
+//  QV4::Encode::Encode<QV4::Heap::Object>(QV4::Heap::Object *o)
+extern "C" Q_DECL_EXPORT
+QV4::Encode *ritual_ZN3QV46EncodeC2INS_4Heap6ObjectEEEPT_(
+    QV4::Heap::Object *o) {
+  return new QV4::Encode(o);
+}
+
+//  QV4::Encode::Encode<QV4::Heap::String>(QV4::Heap::String *o)
+extern "C" Q_DECL_EXPORT
+QV4::Encode *ritual_ZN3QV46EncodeC2INS_4Heap6StringEEEPT_(
+    QV4::Heap::String *o) {
+  return new QV4::Encode(o);
 }

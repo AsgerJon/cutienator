@@ -5,6 +5,13 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore22QSkeletonLoaderPrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore22QSkeletonLoaderPrivate9setStatusENS_15QSkeletonLoader6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore22QSkeletonLoaderPrivate12setRootJointEPNS_6QJointE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore22QSkeletonLoaderPrivate6q_funcEv": [
       "address", "address"
     ],

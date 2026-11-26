@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN13QCameraFormatC1Ev": ["address"],
     "ritual_ZN13QCameraFormatC1ERKS_": ["address", "address"],
+    "ritual_ZN13QCameraFormataSERKS_": ["address", "address", "address"],
     "ritual_ZN13QCameraFormatD1Ev": ["nothing", "address"],
     "ritual_ZNK13QCameraFormat11pixelFormatEv": ["int", "address"],
     "ritual_ZNK13QCameraFormat10resolutionEv": ["address", "address"],

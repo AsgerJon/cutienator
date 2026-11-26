@@ -10,6 +10,9 @@
       "bool", "address"
     ],
     "ritual_ZNK13TcpServerImpl7addressEv": ["address", "address"],
+    "ritual_ZN13TcpServerImpl6listenERK4QUrl": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK13TcpServerImpl11serverErrorEv": ["int", "address"],
     "ritual_ZN13TcpServerImpl5closeEv": ["nothing", "address"]
   }

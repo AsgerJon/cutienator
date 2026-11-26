@@ -14,7 +14,13 @@
     "ritual_ZN16QLoggingRegistry38registerEnvironmentOverrideForCategoryEPKcS1_": [
       "nothing", "address", "chars", "chars"
     ],
+    "ritual_ZN16QLoggingRegistry13installFilterEPFvP16QLoggingCategoryE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN16QLoggingRegistry8instanceEv": ["address"],
-    "ritual_ZN16QLoggingRegistry11updateRulesEv": ["nothing", "address"]
+    "ritual_ZN16QLoggingRegistry11updateRulesEv": ["nothing", "address"],
+    "ritual_ZN16QLoggingRegistry21defaultCategoryFilterEP16QLoggingCategory": [
+      "nothing", "address"
+    ]
   }
 }

@@ -6,7 +6,14 @@
   ],
   "rows": {
     "ritual_ZNK7XYChart10metaObjectEv": ["address", "address"],
+    "ritual_ZN7XYChart11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7XYChart11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7XYChart2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7XYChartC1EP9QXYSeriesP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN7XYChartD1Ev": ["nothing", "address"],
     "ritual_ZN7XYChart17setGeometryPointsERK5QListI7QPointFE": [
       "nothing", "address", "address"
@@ -19,6 +26,7 @@
     "ritual_ZN7XYChart14updateGeometryEv": ["nothing", "address"],
     "ritual_ZNK7XYChart7isDirtyEv": ["bool", "address"],
     "ritual_ZN7XYChart8setDirtyEb": ["nothing", "address", "bool"],
+    "ritual_ZN7XYChart19offGridStatusVectorEv": ["address", "address"],
     "ritual_ZN7XYChart16handlePointAddedEi": ["nothing", "address", "int"],
     "ritual_ZN7XYChart18handlePointRemovedEi": ["nothing", "address", "int"],
     "ritual_ZN7XYChart19handlePointsRemovedEii": [
@@ -30,6 +38,21 @@
     "ritual_ZN7XYChart20handlePointsReplacedEv": ["nothing", "address"],
     "ritual_ZN7XYChart19handleDomainUpdatedEv": ["nothing", "address"],
     "ritual_ZN7XYChart19handleSeriesUpdatedEv": ["nothing", "address"],
+    "ritual_ZN7XYChart7clickedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7XYChart7hoveredERK7QPointFb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN7XYChart7pressedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7XYChart8releasedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7XYChart13doubleClickedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN7XYChart11updateChartERK5QListI7QPointFES4_i": [
       "nothing", "address", "address", "address", "int"
     ],
@@ -50,6 +73,7 @@
     "ritual_own_ZN7XYChart19handleDomainUpdatedEv": ["nothing", "address"],
     "ritual_own_ZN7XYChart19handleSeriesUpdatedEv": ["nothing", "address"],
     "ritual_own_ZN7XYChart13updateGlChartEv": ["nothing", "address"],
-    "ritual_own_ZN7XYChart14refreshGlChartEv": ["nothing", "address"]
+    "ritual_own_ZN7XYChart14refreshGlChartEv": ["nothing", "address"],
+    "ritual_drop_XYChart__QList_bool": ["nothing", "address"]
   }
 }

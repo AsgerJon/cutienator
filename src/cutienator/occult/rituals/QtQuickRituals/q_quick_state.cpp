@@ -15,6 +15,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuickState that Python can take functions over in. Every QQuickState
 //  Python makes is one. Each function below asks the Python
@@ -190,6 +191,24 @@ const QMetaObject *ritual_ZNK11QQuickState10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickState::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickState11qt_metacastEPKc(
+    QQuickState *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickState::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickState11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickState *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickState::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickState2trEPKcS1_i(
@@ -263,6 +282,13 @@ void ritual_ZN11QQuickState10setExtendsERK7QString(
   self->setExtends(*a0);
 }
 
+//  QQmlListProperty<QQuickStateOperation> QQuickState::changes()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickStateOperation> *ritual_ZN11QQuickState7changesEv(
+    QQuickState *self) {
+  return new QQmlListProperty<QQuickStateOperation>(self->changes());
+}
+
 //  int QQuickState::operationCount() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QQuickState14operationCountEv(const QQuickState *self) {
@@ -275,6 +301,14 @@ QQuickStateOperation *ritual_ZNK11QQuickState11operationAtEi(
     const QQuickState *self,
     int a0) {
   return self->operationAt(a0);
+}
+
+//  QQuickState &QQuickState::operator<<(QQuickStateOperation *a0)
+extern "C" Q_DECL_EXPORT
+QQuickState *ritual_ZN11QQuickStatelsEP20QQuickStateOperation(
+    QQuickState *self,
+    QQuickStateOperation *a0) {
+  return &(self->operator<<(a0));
 }
 
 //  void QQuickState::apply(QQuickTransition *a0, QQuickState *revert)
@@ -400,6 +434,12 @@ bool ritual_ZNK11QQuickState13isStateActiveEv(const QQuickState *self) {
   return self->isStateActive();
 }
 
+//  void QQuickState::completed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickState9completedEv(QQuickState *self) {
+  self->completed();
+}
+
 //  QQuickStatePrivate *QQuickState::d_func()
 extern "C" Q_DECL_EXPORT
 QQuickStatePrivate *ritual_ZN11QQuickState6d_funcEv(QQuickState *self) {
@@ -455,5 +495,12 @@ QQuickState *ritual_list_at_QQuickState_ptr(
 //  QList<QQuickState *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQuickState_ptr(QList<QQuickState *> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickStateOperation> a ritual of QQuickState gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickState__QQmlListProperty_QQuickStateOperation(
+    QQmlListProperty<QQuickStateOperation> *self) {
   delete self;
 }

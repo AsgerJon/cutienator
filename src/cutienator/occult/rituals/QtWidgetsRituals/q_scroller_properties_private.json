@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK26QScrollerPropertiesPrivateeqERKS_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN26QScrollerPropertiesPrivateD1Ev": ["nothing", "address"]
   }
 }

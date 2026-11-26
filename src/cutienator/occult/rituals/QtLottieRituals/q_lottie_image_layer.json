@@ -8,6 +8,9 @@
     "ritual_ZN17QLottieImageLayerC1Ev": ["address"],
     "ritual_ZN17QLottieImageLayerC1ERKS_": ["address", "address"],
     "ritual_ZNK17QLottieImageLayer5cloneEv": ["address", "address"],
+    "ritual_ZNK17QLottieImageLayer6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QLottieImageLayer5parseERK11QJsonObject": [
       "int", "address", "address"
     ],

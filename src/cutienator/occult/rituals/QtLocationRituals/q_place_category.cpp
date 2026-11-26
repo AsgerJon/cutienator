@@ -18,10 +18,40 @@ QPlaceCategory *ritual_ZN14QPlaceCategoryC1ERKS_(
   return new QPlaceCategory(*other);
 }
 
+//  QPlaceCategory::QPlaceCategory(QPlaceCategory &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceCategory *ritual_ZN14QPlaceCategoryC1EOS_(QPlaceCategory *other) {
+  return new QPlaceCategory(std::move(*other));
+}
+
 //  QPlaceCategory::~QPlaceCategory()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QPlaceCategoryD1Ev(QPlaceCategory *self) {
   delete self;
+}
+
+//  QPlaceCategory &QPlaceCategory::operator=(const QPlaceCategory &other)
+extern "C" Q_DECL_EXPORT
+QPlaceCategory *ritual_ZN14QPlaceCategoryaSERKS_(
+    QPlaceCategory *self,
+    const QPlaceCategory *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlaceCategory &QPlaceCategory::operator=(QPlaceCategory &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceCategory *ritual_ZN14QPlaceCategoryaSEOS_(
+    QPlaceCategory *self,
+    QPlaceCategory *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlaceCategory::swap(QPlaceCategory &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlaceCategory4swapERS_(
+    QPlaceCategory *self,
+    QPlaceCategory *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPlaceCategory &lhs, const QPlaceCategory &rhs)

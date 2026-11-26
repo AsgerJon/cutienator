@@ -5,10 +5,14 @@
 #if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QAbstractItemModel>
 
 //  A QItemSelectionModel that Python can take functions over in. Every QItemSelectionModel
 //  Python makes is one. Each function below asks the Python
@@ -325,6 +329,25 @@ const QMetaObject *ritual_ZNK19QItemSelectionModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QItemSelectionModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QItemSelectionModel11qt_metacastEPKc(
+    QItemSelectionModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QItemSelectionModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QItemSelectionModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QItemSelectionModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QItemSelectionModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QItemSelectionModel2trEPKcS1_i(
@@ -476,6 +499,13 @@ QAbstractItemModel *ritual_ZN19QItemSelectionModel5modelEv(
   return self->model();
 }
 
+//  QBindable<QAbstractItemModel *> QItemSelectionModel::bindableModel()
+extern "C" Q_DECL_EXPORT
+QBindable<QAbstractItemModel *> *ritual_ZN19QItemSelectionModel13bindableModelEv(
+    QItemSelectionModel *self) {
+  return new QBindable<QAbstractItemModel *>(self->bindableModel());
+}
+
 //  void QItemSelectionModel::setModel(QAbstractItemModel *model)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QItemSelectionModel8setModelEP18QAbstractItemModel(
@@ -544,6 +574,63 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QItemSelectionModel17clearCurrentIndexEv(
     QItemSelectionModel *self) {
   self->clearCurrentIndex();
+}
+
+//  void QItemSelectionModel::selectionChanged(const QItemSelection
+//      &selected, const QItemSelection &deselected)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QItemSelectionModel16selectionChangedERK14QItemSelectionS2_(
+    QItemSelectionModel *self,
+    const QItemSelection *selected,
+    const QItemSelection *deselected) {
+  self->selectionChanged(*selected, *deselected);
+}
+
+//  void QItemSelectionModel::currentChanged(const QModelIndex &current,
+//      const QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QItemSelectionModel14currentChangedERK11QModelIndexS2_(
+    QItemSelectionModel *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  self->currentChanged(*current, *previous);
+}
+
+//  void QItemSelectionModel::currentRowChanged(const QModelIndex &current,
+//      const QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QItemSelectionModel17currentRowChangedERK11QModelIndexS2_(
+    QItemSelectionModel *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  self->currentRowChanged(*current, *previous);
+}
+
+//  void QItemSelectionModel::currentColumnChanged(const QModelIndex
+//      &current, const QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QItemSelectionModel20currentColumnChangedERK11QModelIndexS2_(
+    QItemSelectionModel *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  self->currentColumnChanged(*current, *previous);
+}
+
+//  void QItemSelectionModel::modelChanged(QAbstractItemModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QItemSelectionModel12modelChangedEP18QAbstractItemModel(
+    QItemSelectionModel *self,
+    QAbstractItemModel *model) {
+  self->modelChanged(model);
+}
+
+//  QItemSelectionModel::QItemSelectionModel(QItemSelectionModelPrivate &dd,
+//      QAbstractItemModel *model)
+extern "C" Q_DECL_EXPORT
+QItemSelectionModel *ritual_ZN19QItemSelectionModelC1ER26QItemSelectionModelPrivateP18QAbstractItemModel(
+    QItemSelectionModelPrivate *dd,
+    QAbstractItemModel *model) {
+  return new CuteQItemSelectionModel(*dd, model);
 }
 
 //  void QItemSelectionModel::emitSelectionChanged(const QItemSelection
@@ -619,6 +706,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QItemSelectionModel17clearCurrentIndexEv(
     QItemSelectionModel *self) {
   self->QItemSelectionModel::clearCurrentIndex();
+}
+
+//  a QBindable<QAbstractItemModel *> a ritual of QItemSelectionModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QItemSelectionModel__QBindable_QAbstractItemModel(
+    QBindable<QAbstractItemModel *> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(itemmodel)

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickTextField10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickTextField11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickTextField11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickTextField2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -70,6 +76,52 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN15QQuickTextField16resetBottomInsetEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTextField11fontChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTextField21implicitWidthChanged3Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField22implicitHeightChanged3Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField17backgroundChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField22placeholderTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField18focusReasonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField12pressAndHoldEP16QQuickMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField7pressedEP16QQuickMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField8releasedEP16QQuickMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField14hoveredChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTextField19hoverEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField27placeholderTextColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField30implicitBackgroundWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField31implicitBackgroundHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField15topInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTextField16leftInsetChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTextField17rightInsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField18bottomInsetChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN15QQuickTextField10classBeginEv": ["nothing", "address"],
     "ritual_ZN15QQuickTextField17componentCompleteEv": [
       "nothing", "address"

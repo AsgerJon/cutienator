@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN18QProxyStylePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QProxyStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QProxyStylePrivate15ensureBaseStyleEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN18QProxyStylePrivateC1Ev": ["address"]
   }
 }

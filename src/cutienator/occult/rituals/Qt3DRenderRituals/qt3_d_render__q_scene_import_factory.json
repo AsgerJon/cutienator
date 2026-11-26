@@ -5,6 +5,10 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender19QSceneImportFactory4keysEv": ["address"],
+    "ritual_ZN10Qt3DRender19QSceneImportFactory6createERK7QStringRK5QListIS1_E": [
+      "address", "text", "address"
+    ],
     "ritual_ZN10Qt3DRender19QSceneImportFactoryD1Ev": ["nothing", "address"]
   }
 }

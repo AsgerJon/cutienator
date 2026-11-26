@@ -5,6 +5,36 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal18QDesignerPromotionC1EP28QDesignerFormEditorInterface": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal18QDesignerPromotion15promotedClassesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal18QDesignerPromotion28referencedPromotedClassNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerPromotion16addPromotedClassERK7QStringS3_S3_PS1_": [
+      "bool", "address", "text", "text", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerPromotion19removePromotedClassERK7QStringPS1_": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerPromotion23changePromotedClassNameERK7QStringS3_PS1_": [
+      "bool", "address", "text", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerPromotion27setPromotedClassIncludeFileERK7QStringS3_PS1_": [
+      "bool", "address", "text", "text", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal18QDesignerPromotion20promotionBaseClassesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal18QDesignerPromotion13canBePromotedEPK36QDesignerWidgetDataBaseItemInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerPromotion22refreshObjectInspectorEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN18qdesigner_internal18QDesignerPromotion16addPromotedClassERK7QStringS3_S3_PS1_": [
       "bool", "address", "text", "text", "text", "address"
     ],
@@ -16,6 +46,12 @@
     ],
     "ritual_own_ZN18qdesigner_internal18QDesignerPromotion27setPromotedClassIncludeFileERK7QStringS3_PS1_": [
       "bool", "address", "text", "text", "address"
+    ],
+    "ritual_drop_qdesigner_internal_QDesignerPromotion__QDesignerPromotionInterface_PromotedClasses": [
+      "nothing", "address"
+    ],
+    "ritual_drop_qdesigner_internal_QDesignerPromotion__QSet_QString": [
+      "nothing", "address"
     ]
   }
 }

@@ -28,6 +28,15 @@ QOpcUaQualifiedName *ritual_ZN19QOpcUaQualifiedNameC1EtRK7QString(
   return new QOpcUaQualifiedName(namespaceIndex, *name);
 }
 
+//  QOpcUaQualifiedName &QOpcUaQualifiedName::operator=(const
+//      QOpcUaQualifiedName &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaQualifiedName *ritual_ZN19QOpcUaQualifiedNameaSERKS_(
+    QOpcUaQualifiedName *self,
+    const QOpcUaQualifiedName *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaQualifiedName::operator==(const QOpcUaQualifiedName &rhs)
 //      const
 extern "C" Q_DECL_EXPORT

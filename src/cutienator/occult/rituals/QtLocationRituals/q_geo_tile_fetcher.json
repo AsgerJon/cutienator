@@ -6,14 +6,38 @@
   ],
   "rows": {
     "ritual_ZNK15QGeoTileFetcher10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGeoTileFetcher11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QGeoTileFetcher11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QGeoTileFetcher2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN15QGeoTileFetcher6d_funcEv": ["address", "address"],
     "ritual_ZNK15QGeoTileFetcher6d_funcEv": ["address", "address"],
+    "ritual_ZN15QGeoTileFetcherC1EP24QGeoMappingManagerEngine": [
+      "address", "address"
+    ],
     "ritual_ZN15QGeoTileFetcherD1Ev": ["nothing", "address"],
+    "ritual_ZN15QGeoTileFetcher18updateTileRequestsERK4QSetI12QGeoTileSpecES4_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QGeoTileFetcher18cancelTileRequestsERK4QSetI12QGeoTileSpecE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QGeoTileFetcher15requestNextTileEv": ["nothing", "address"],
     "ritual_ZN15QGeoTileFetcher8finishedEv": ["nothing", "address"],
+    "ritual_ZN15QGeoTileFetcher12tileFinishedERK12QGeoTileSpecRK10QByteArrayRK7QString": [
+      "nothing", "address", "address", "address", "text"
+    ],
+    "ritual_ZN15QGeoTileFetcher9tileErrorERK12QGeoTileSpecRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN15QGeoTileFetcherC1ER22QGeoTileFetcherPrivateP24QGeoMappingManagerEngine": [
+      "address", "address", "address"
+    ],
     "ritual_ZN15QGeoTileFetcher10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],

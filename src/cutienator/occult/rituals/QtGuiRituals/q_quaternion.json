@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qquaternion.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qquaternion.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN11QQuaternionC1Ev": ["address"],
@@ -77,6 +78,10 @@
     "ritual_ZN11QQuaternion15fromEulerAnglesEfff": [
       "address", "float", "float", "float"
     ],
+    "ritual_ZNK11QQuaternion16toRotationMatrixEv": ["address", "address"],
+    "ritual_ZN11QQuaternion18fromRotationMatrixERK14QGenericMatrixILi3ELi3EfE": [
+      "address", "address"
+    ],
     "ritual_ZNK11QQuaternion6toAxesEv": ["address", "address"],
     "ritual_ZN11QQuaternion8fromAxesENS_4AxesE": ["address", "address"],
     "ritual_ZNK11QQuaternion7getAxesEP9QVector3DS1_S1_": [
@@ -102,6 +107,10 @@
     "ritual_list_add_QQuaternion": ["nothing", "address", "address"],
     "ritual_list_size_QQuaternion": ["long long", "address"],
     "ritual_list_at_QQuaternion": ["address", "address", "long long"],
-    "ritual_list_drop_QQuaternion": ["nothing", "address"]
+    "ritual_list_drop_QQuaternion": ["nothing", "address"],
+    "ritual_drop_QQuaternion__QMatrix3x3": ["nothing", "address"],
+    "ritual_ZN11QQuaternion15fromEulerAnglesENS_11EulerAnglesIfEE": [
+      "address", "address"
+    ]
   }
 }

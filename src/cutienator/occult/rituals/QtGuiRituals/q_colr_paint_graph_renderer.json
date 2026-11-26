@@ -18,6 +18,49 @@
     "ritual_ZNK23QColrPaintGraphRenderer11currentPathEv": [
       "address", "address"
     ],
+    "ritual_ZN23QColrPaintGraphRenderer4saveEv": ["nothing", "address"],
+    "ritual_ZN23QColrPaintGraphRenderer7restoreEv": ["nothing", "address"],
+    "ritual_ZN23QColrPaintGraphRenderer10appendPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer7setPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer16prependTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer13setSolidColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer17setRadialGradientE7QPointFdS0_dN9QGradient6SpreadERK5QListISt4pairId6QColorEE": [
+      "nothing", "address", "address", "double", "address", "double", "int",
+      "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer17setLinearGradientE7QPointFS0_S0_N9QGradient6SpreadERK5QListISt4pairId6QColorEE": [
+      "nothing", "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer18setConicalGradientE7QPointFddN9QGradient6SpreadERK5QListISt4pairId6QColorEE": [
+      "nothing", "address", "address", "double", "double", "int", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer18setCompositionModeEN8QPainter15CompositionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer15drawCurrentPathEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer9drawImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer7setClipE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer25beginCalculateBoundingBoxEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer11beginRenderEdRK10QTransform": [
+      "nothing", "address", "double", "address"
+    ],
+    "ritual_ZN23QColrPaintGraphRenderer9endRenderEv": ["address", "address"],
     "ritual_ZNK23QColrPaintGraphRenderer11isRenderingEv": ["bool", "address"]
   }
 }

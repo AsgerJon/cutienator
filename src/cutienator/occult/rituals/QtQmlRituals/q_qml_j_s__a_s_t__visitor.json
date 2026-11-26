@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST7VisitorC1Et": ["address", "unsigned short"],
     "ritual_ZN6QQmlJS3AST7Visitor8preVisitEPNS0_4NodeE": [
       "bool", "address", "address"
     ],

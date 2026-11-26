@@ -1,0 +1,106 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0, from Qt's",
+    "source. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS3AST4Node14expressionCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node20binaryExpressionCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node13statementCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node18uiObjectMemberCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node26leftHandSideExpressionCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node11patternCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node20asFunctionDefinitionEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node17asClassDefinitionEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST4Node20ignoreRecursionDepthEv": [
+      "bool",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node6acceptEPNS0_11BaseVisitorE": [
+      "nothing",
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node6acceptEPS1_PNS0_11BaseVisitorE": [
+      "nothing",
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST4Node7accept0EPNS0_11BaseVisitorE": [
+      "nothing",
+      "address",
+      "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST4Node19firstSourceLocationEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST4Node18lastSourceLocationEv": [
+      "address",
+      "address"
+    ],
+    "ritual_take_QQmlJS_AST_Node": [
+      "bool",
+      "address",
+      "chars",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST4Node14expressionCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST4Node20binaryExpressionCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST4Node13statementCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST4Node18uiObjectMemberCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST4Node26leftHandSideExpressionCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST4Node11patternCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST4Node20asFunctionDefinitionEv": [
+      "address",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST4Node17asClassDefinitionEv": [
+      "address",
+      "address"
+    ]
+  }
+}

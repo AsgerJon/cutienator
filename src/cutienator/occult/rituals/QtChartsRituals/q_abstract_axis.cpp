@@ -201,6 +201,24 @@ const QMetaObject *ritual_ZNK13QAbstractAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QAbstractAxis11qt_metacastEPKc(
+    QAbstractAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QAbstractAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QAbstractAxis2trEPKcS1_i(
@@ -208,6 +226,14 @@ QString *ritual_ZN13QAbstractAxis2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractAxis::tr(s, c, n));
+}
+
+//  QAbstractAxis::QAbstractAxis(QAbstractAxisPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractAxis *ritual_ZN13QAbstractAxisC1ER20QAbstractAxisPrivateP7QObject(
+    QAbstractAxisPrivate *d,
+    QObject *parent) {
+  return new CuteQAbstractAxis(*d, parent);
 }
 
 //  QAbstractAxis::~QAbstractAxis()
@@ -661,6 +687,230 @@ void ritual_ZN13QAbstractAxis17setTruncateLabelsEb(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QAbstractAxis14truncateLabelsEv(const QAbstractAxis *self) {
   return self->truncateLabels();
+}
+
+//  void QAbstractAxis::visibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis14visibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->visibleChanged(visible);
+}
+
+//  void QAbstractAxis::linePenChanged(const QPen &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis14linePenChangedERK4QPen(
+    QAbstractAxis *self,
+    const QPen *pen) {
+  self->linePenChanged(*pen);
+}
+
+//  void QAbstractAxis::lineVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18lineVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->lineVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::labelsVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis20labelsVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->labelsVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::labelsBrushChanged(const QBrush &brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18labelsBrushChangedERK6QBrush(
+    QAbstractAxis *self,
+    const QBrush *brush) {
+  self->labelsBrushChanged(*brush);
+}
+
+//  void QAbstractAxis::labelsFontChanged(const QFont &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis17labelsFontChangedERK5QFont(
+    QAbstractAxis *self,
+    const QFont *pen) {
+  self->labelsFontChanged(*pen);
+}
+
+//  void QAbstractAxis::labelsAngleChanged(int angle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18labelsAngleChangedEi(
+    QAbstractAxis *self,
+    int angle) {
+  self->labelsAngleChanged(angle);
+}
+
+//  void QAbstractAxis::gridLinePenChanged(const QPen &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18gridLinePenChangedERK4QPen(
+    QAbstractAxis *self,
+    const QPen *pen) {
+  self->gridLinePenChanged(*pen);
+}
+
+//  void QAbstractAxis::gridVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18gridVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->gridVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::minorGridVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis23minorGridVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->minorGridVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::minorGridLinePenChanged(const QPen &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis23minorGridLinePenChangedERK4QPen(
+    QAbstractAxis *self,
+    const QPen *pen) {
+  self->minorGridLinePenChanged(*pen);
+}
+
+//  void QAbstractAxis::gridLineColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis20gridLineColorChangedERK6QColor(
+    QAbstractAxis *self,
+    const QColor *color) {
+  self->gridLineColorChanged(*color);
+}
+
+//  void QAbstractAxis::minorGridLineColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis25minorGridLineColorChangedERK6QColor(
+    QAbstractAxis *self,
+    const QColor *color) {
+  self->minorGridLineColorChanged(*color);
+}
+
+//  void QAbstractAxis::colorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis12colorChangedE6QColor(
+    QAbstractAxis *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QAbstractAxis::labelsColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18labelsColorChangedE6QColor(
+    QAbstractAxis *self,
+    const QColor *color) {
+  self->labelsColorChanged(*color);
+}
+
+//  void QAbstractAxis::titleTextChanged(const QString &title)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis16titleTextChangedERK7QString(
+    QAbstractAxis *self,
+    const QString *title) {
+  self->titleTextChanged(*title);
+}
+
+//  void QAbstractAxis::titleBrushChanged(const QBrush &brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis17titleBrushChangedERK6QBrush(
+    QAbstractAxis *self,
+    const QBrush *brush) {
+  self->titleBrushChanged(*brush);
+}
+
+//  void QAbstractAxis::titleVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis19titleVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->titleVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::titleFontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis16titleFontChangedERK5QFont(
+    QAbstractAxis *self,
+    const QFont *font) {
+  self->titleFontChanged(*font);
+}
+
+//  void QAbstractAxis::shadesVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis20shadesVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->shadesVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::shadesColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18shadesColorChangedE6QColor(
+    QAbstractAxis *self,
+    const QColor *color) {
+  self->shadesColorChanged(*color);
+}
+
+//  void QAbstractAxis::shadesBorderColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis24shadesBorderColorChangedE6QColor(
+    QAbstractAxis *self,
+    const QColor *color) {
+  self->shadesBorderColorChanged(*color);
+}
+
+//  void QAbstractAxis::shadesPenChanged(const QPen &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis16shadesPenChangedERK4QPen(
+    QAbstractAxis *self,
+    const QPen *pen) {
+  self->shadesPenChanged(*pen);
+}
+
+//  void QAbstractAxis::shadesBrushChanged(const QBrush &brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18shadesBrushChangedERK6QBrush(
+    QAbstractAxis *self,
+    const QBrush *brush) {
+  self->shadesBrushChanged(*brush);
+}
+
+//  void QAbstractAxis::reverseChanged(bool reverse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis14reverseChangedEb(
+    QAbstractAxis *self,
+    bool reverse) {
+  self->reverseChanged(reverse);
+}
+
+//  void QAbstractAxis::labelsEditableChanged(bool editable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis21labelsEditableChangedEb(
+    QAbstractAxis *self,
+    bool editable) {
+  self->labelsEditableChanged(editable);
+}
+
+//  void QAbstractAxis::labelsTruncatedChanged(bool labelsTruncated)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis22labelsTruncatedChangedEb(
+    QAbstractAxis *self,
+    bool labelsTruncated) {
+  self->labelsTruncatedChanged(labelsTruncated);
+}
+
+//  void QAbstractAxis::truncateLabelsChanged(bool truncateLabels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis21truncateLabelsChangedEb(
+    QAbstractAxis *self,
+    bool truncateLabels) {
+  self->truncateLabelsChanged(truncateLabels);
 }
 
 //  a Python function taken by a CuteQAbstractAxis, for the function named by

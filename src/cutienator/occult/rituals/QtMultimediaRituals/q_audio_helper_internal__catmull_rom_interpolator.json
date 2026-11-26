@@ -5,7 +5,16 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QAudioHelperInternal22CatmullRomInterpolatorC1Eiii": [
+      "address", "int", "int", "int"
+    ],
     "ritual_ZN20QAudioHelperInternal22CatmullRomInterpolatorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QAudioHelperInternal22CatmullRomInterpolator5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QAudioHelperInternal22CatmullRomInterpolator15advancePositionEv": [
       "nothing", "address"
     ]
   }

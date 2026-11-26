@@ -18,6 +18,12 @@ QDomNode *ritual_ZN8QDomNodeC1ERKS_(const QDomNode *node) {
   return new QDomNode(*node);
 }
 
+//  QDomNode &QDomNode::operator=(const QDomNode &other)
+extern "C" Q_DECL_EXPORT
+QDomNode *ritual_ZN8QDomNodeaSERKS_(QDomNode *self, const QDomNode *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QDomNode::operator==(const QDomNode &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8QDomNodeeqERKS_(
@@ -400,6 +406,16 @@ QDomCharacterData *ritual_ZNK8QDomNode15toCharacterDataEv(
 extern "C" Q_DECL_EXPORT
 QDomComment *ritual_ZNK8QDomNode9toCommentEv(const QDomNode *self) {
   return new QDomComment(self->toComment());
+}
+
+//  void QDomNode::save(QTextStream &a0, int a1, EncodingPolicy a2) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QDomNode4saveER11QTextStreamiNS_14EncodingPolicyE(
+    const QDomNode *self,
+    QTextStream *a0,
+    int a1,
+    QDomNode::EncodingPolicy a2) {
+  self->save(*a0, a1, a2);
 }
 
 //  QDomElement QDomNode::firstChildElement(const QString &tagName, const

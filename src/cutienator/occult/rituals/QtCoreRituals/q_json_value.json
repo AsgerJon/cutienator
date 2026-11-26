@@ -13,9 +13,15 @@
     "ritual_ZN10QJsonValueC1E13QLatin1String": ["address", "address"],
     "ritual_ZN10QJsonValueC1EPKc": ["address", "chars"],
     "ritual_ZN10QJsonValueC1ERK10QJsonArray": ["address", "address"],
+    "ritual_ZN10QJsonValueC1EO10QJsonArray": ["address", "address"],
     "ritual_ZN10QJsonValueC1ERK11QJsonObject": ["address", "address"],
+    "ritual_ZN10QJsonValueC1EO11QJsonObject": ["address", "address"],
     "ritual_ZN10QJsonValueD1Ev": ["nothing", "address"],
     "ritual_ZN10QJsonValueC1ERKS_": ["address", "address"],
+    "ritual_ZN10QJsonValueaSERKS_": ["address", "address", "address"],
+    "ritual_ZN10QJsonValueC1EOS_": ["address", "address"],
+    "ritual_ZN10QJsonValueaSEOS_": ["address", "address", "address"],
+    "ritual_ZN10QJsonValue4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN10QJsonValue11fromVariantERK8QVariant": ["address", "address"],
     "ritual_ZNK10QJsonValue9toVariantEv": ["address", "address"],
     "ritual_ZN10QJsonValue8fromJsonE14QByteArrayViewP15QJsonParseError": [
@@ -61,6 +67,9 @@
     "ritual_ZNK10QJsonValueixEx": ["address", "address", "long long"],
     "ritual_ZeqRK10QJsonValueS1_": ["bool", "address", "address"],
     "ritual_ZneRK10QJsonValueS1_": ["bool", "address", "address"],
-    "ritual_Zls6QDebugRK10QJsonValue": ["address", "address", "address"]
+    "ritual_Zls6QDebugRK10QJsonValue": ["address", "address", "address"],
+    "ritual_ZlsR11QDataStreamRK10QJsonValue": [
+      "address", "address", "address"
+    ]
   }
 }

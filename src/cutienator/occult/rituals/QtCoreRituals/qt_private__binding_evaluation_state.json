@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN9QtPrivate22BindingEvaluationStateC1EP23QPropertyBindingPrivateP14QBindingStatus": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QtPrivate22BindingEvaluationStateD1Ev": ["nothing", "address"]
   }
 }

@@ -9,6 +9,9 @@
     "ritual_ZN31QOpenGLFramebufferObjectPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK31QOpenGLFramebufferObjectPrivate22checkFramebufferStatusEP14QOpenGLContext": [
       "bool", "address", "address"
+    ],
+    "ritual_ZNK31QOpenGLFramebufferObjectPrivate3fboEv": [
+      "unsigned int", "address"
     ]
   }
 }

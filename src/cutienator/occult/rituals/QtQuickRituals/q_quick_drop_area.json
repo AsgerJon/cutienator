@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickDropArea10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickDropArea11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickDropArea11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickDropArea2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,21 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN14QQuickDropArea4dragEv": ["address", "address"],
+    "ritual_ZN14QQuickDropArea19containsDragChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickDropArea11keysChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickDropArea13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickDropArea7enteredEP15QQuickDragEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickDropArea6exitedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickDropArea15positionChangedEP15QQuickDragEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickDropArea7droppedEP15QQuickDragEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QQuickDropArea13dragMoveEventEP14QDragMoveEvent": [
       "nothing", "address", "address"
     ],
@@ -29,6 +50,8 @@
     "ritual_ZN14QQuickDropArea9dropEventEP10QDropEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QQuickDropArea6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickDropArea6d_funcEv": ["address", "address"],
     "ritual_take_QQuickDropArea": ["bool", "address", "chars", "address"],
     "ritual_own_ZN14QQuickDropArea13dragMoveEventEP14QDragMoveEvent": [
       "nothing", "address", "address"

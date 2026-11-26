@@ -7,6 +7,7 @@
     "ritual_ZN16QQmlScriptStringC1Ev": ["address"],
     "ritual_ZN16QQmlScriptStringC1ERKS_": ["address", "address"],
     "ritual_ZN16QQmlScriptStringD1Ev": ["nothing", "address"],
+    "ritual_ZN16QQmlScriptStringaSERKS_": ["address", "address", "address"],
     "ritual_ZNK16QQmlScriptStringeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK16QQmlScriptStringneERKS_": ["bool", "address", "address"],
     "ritual_ZNK16QQmlScriptString7isEmptyEv": ["bool", "address"],

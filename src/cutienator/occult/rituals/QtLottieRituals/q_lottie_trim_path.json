@@ -14,6 +14,9 @@
     "ritual_ZN15QLottieTrimPath16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK15QLottieTrimPath6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QLottieTrimPath11acceptsTrimEv": ["bool", "address"],
     "ritual_ZN15QLottieTrimPath9applyTrimERKS_": [
       "nothing", "address", "address"
@@ -25,6 +28,9 @@
     "ritual_ZNK15QLottieTrimPath4trimERK12QPainterPath": [
       "address", "address", "address"
     ],
+    "ritual_ZNK15QLottieTrimPath13startPropertyEv": ["address", "address"],
+    "ritual_ZNK15QLottieTrimPath11endPropertyEv": ["address", "address"],
+    "ritual_ZNK15QLottieTrimPath14offsetPropertyEv": ["address", "address"],
     "ritual_ZN15QLottieTrimPathD1Ev": ["nothing", "address"],
     "ritual_take_QLottieTrimPath": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QLottieTrimPath5cloneEv": ["address", "address"],
@@ -37,6 +43,9 @@
     "ritual_own_ZNK15QLottieTrimPath11acceptsTrimEv": ["bool", "address"],
     "ritual_own_ZN15QLottieTrimPath9applyTrimERKS_": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QLottieTrimPath__QLottieProperty_qreal": [
+      "nothing", "address"
     ]
   }
 }

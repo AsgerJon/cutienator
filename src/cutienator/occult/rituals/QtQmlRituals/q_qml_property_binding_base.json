@@ -24,6 +24,13 @@
     ],
     "ritual_ZN23QQmlPropertyBindingBase14setIsUndefinedEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQmlPropertyBindingBase10kindOffsetEv": ["size_t"],
+    "ritual_ZN23QQmlPropertyBindingBase10targetDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQmlPropertyBindingBase10targetDataEv": [
+      "address", "address"
     ]
   }
 }

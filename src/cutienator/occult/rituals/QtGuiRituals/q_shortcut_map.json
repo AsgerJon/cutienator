@@ -5,8 +5,13 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QShortcutMap6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QShortcutMap6d_funcEv": ["address", "address"],
     "ritual_ZN12QShortcutMapC1Ev": ["address"],
     "ritual_ZN12QShortcutMapD1Ev": ["nothing", "address"],
+    "ritual_ZN12QShortcutMap11addShortcutEP7QObjectRK12QKeySequenceN2Qt15ShortcutContextEPFbS1_S6_E": [
+      "int", "address", "address", "address", "int", "address"
+    ],
     "ritual_ZN12QShortcutMap14removeShortcutEiP7QObjectRK12QKeySequence": [
       "int", "address", "int", "address", "address"
     ],
@@ -36,8 +41,18 @@
     "ritual_ZN12QShortcutMap4findEP9QKeyEventi": [
       "int", "address", "address", "int"
     ],
+    "ritual_ZNK12QShortcutMap7matchesEv": ["address", "address"],
+    "ritual_ZN12QShortcutMap18createNewSequencesEP9QKeyEventR5QListI12QKeySequenceEi": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN12QShortcutMap13clearSequenceER5QListI12QKeySequenceE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QShortcutMap18translateModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
       "int", "address", "int"
+    ],
+    "ritual_drop_QShortcutMap__QList_const_QShortcutEntry": [
+      "nothing", "address"
     ]
   }
 }

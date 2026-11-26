@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QSGSoftwareLayer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSGSoftwareLayer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QSGSoftwareLayer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QSGSoftwareLayerD1Ev": ["nothing", "address"],
     "ritual_ZNK16QSGSoftwareLayer6pixmapEv": ["address", "address"],
     "ritual_ZNK16QSGSoftwareLayer13comparisonKeyEv": [

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuick3DParticle10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DParticle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuick3DParticle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuick3DParticle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -74,8 +80,44 @@
     "ritual_ZN16QQuick3DParticle11setSortModeENS_8SortModeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN16QQuick3DParticle13systemChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DParticle16maxAmountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle12colorChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DParticle21colorVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle28unifiedColorVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle19fadeInEffectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle20fadeOutEffectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle21fadeInDurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle22fadeOutDurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle16alignModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle26alignTargetPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle22hasTransparencyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle15sortModeChangedEv": ["nothing", "address"],
     "ritual_ZN16QQuick3DParticle17componentCompleteEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticleC1ER21QQuick3DObjectPrivateP12QQuick3DNode": [
+      "address", "address", "address"
     ],
     "ritual_ZN16QQuick3DParticle5resetEv": ["nothing", "address"],
     "ritual_ZN16QQuick3DParticle14doSetMaxAmountEi": [

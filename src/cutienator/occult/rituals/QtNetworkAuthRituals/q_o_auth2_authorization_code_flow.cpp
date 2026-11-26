@@ -324,6 +324,25 @@ const QMetaObject *ritual_ZNK28QOAuth2AuthorizationCodeFlow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOAuth2AuthorizationCodeFlow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QOAuth2AuthorizationCodeFlow11qt_metacastEPKc(
+    QOAuth2AuthorizationCodeFlow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOAuth2AuthorizationCodeFlow::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QOAuth2AuthorizationCodeFlow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOAuth2AuthorizationCodeFlow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOAuth2AuthorizationCodeFlow::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -465,6 +484,15 @@ void ritual_ZN28QOAuth2AuthorizationCodeFlow27refreshTokensImplementationEv(
   self->refreshTokensImplementation();
 }
 
+//  QUrl QOAuth2AuthorizationCodeFlow::buildAuthenticateUrl(const
+//      QMultiMap<QString, QVariant> &parameters)
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZN28QOAuth2AuthorizationCodeFlow20buildAuthenticateUrlERK9QMultiMapI7QString8QVariantE(
+    QOAuth2AuthorizationCodeFlow *self,
+    const QMultiMap<QString, QVariant> *parameters) {
+  return new QUrl(self->buildAuthenticateUrl(*parameters));
+}
+
 //  void QOAuth2AuthorizationCodeFlow::requestAccessToken(const QString
 //      &code)
 extern "C" Q_DECL_EXPORT
@@ -473,6 +501,27 @@ void ritual_ZN28QOAuth2AuthorizationCodeFlow18requestAccessTokenERK7QString(
     const QString *code) {
   self->requestAccessToken(*code);
 }
+
+//  void QOAuth2AuthorizationCodeFlow::resourceOwnerAuthorization(const QUrl
+//      &url, const QMultiMap<QString, QVariant> &parameters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QOAuth2AuthorizationCodeFlow26resourceOwnerAuthorizationERK4QUrlRK9QMultiMapI7QString8QVariantE(
+    QOAuth2AuthorizationCodeFlow *self,
+    const QUrl *url,
+    const QMultiMap<QString, QVariant> *parameters) {
+  self->resourceOwnerAuthorization(*url, *parameters);
+}
+
+#if QT_DEPRECATED_SINCE(6, 13)
+//  void QOAuth2AuthorizationCodeFlow::accessTokenUrlChanged(const QUrl
+//      &accessTokenUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QOAuth2AuthorizationCodeFlow21accessTokenUrlChangedERK4QUrl(
+    QOAuth2AuthorizationCodeFlow *self,
+    const QUrl *accessTokenUrl) {
+  self->accessTokenUrlChanged(*accessTokenUrl);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 13)
 
 //  QOAuth2AuthorizationCodeFlowPrivate
 //      *QOAuth2AuthorizationCodeFlow::d_func()

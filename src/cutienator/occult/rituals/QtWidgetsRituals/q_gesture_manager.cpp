@@ -169,6 +169,53 @@ inline void QGestureManager::cleanupGesturesForRemovedRecognizer(QGesture *gestu
     }
 }
 #endif  // !defined(QT_NO_GESTURES)
+
+//  from src/widgets/kernel/qgesturemanager.cpp, line 562, as _ZN15QGestureManager17getGestureTargetsERK4QSetIP8QGestureEP5QHashIP7QWidget5QListIS2_EESC_
+#if !defined(QT_NO_GESTURES)
+inline void QGestureManager::getGestureTargets(const QSet<QGesture*> &gestures,
+    QHash<QWidget *, QList<QGesture *> > *conflicts,
+    QHash<QWidget *, QList<QGesture *> > *normal)
+{
+    typedef QHash<Qt::GestureType, QHash<QWidget *, QGesture *> > GestureByTypes;
+    GestureByTypes gestureByTypes;
+
+    // sort gestures by types
+    for (QGesture *gesture : gestures) {
+        QWidget *receiver = m_gestureTargets.value(gesture, nullptr);
+        Q_ASSERT(receiver);
+        if (receiver)
+            gestureByTypes[gesture->gestureType()].insert(receiver, gesture);
+    }
+
+    // for each gesture type
+    for (GestureByTypes::const_iterator git = gestureByTypes.cbegin(), gend = gestureByTypes.cend(); git != gend; ++git) {
+        const QHash<QWidget *, QGesture *> &gestures = git.value();
+        for (QHash<QWidget *, QGesture *>::const_iterator wit = gestures.cbegin(), wend = gestures.cend(); wit != wend; ++wit) {
+            QWidget *widget = wit.key();
+            QWidget *w = widget->parentWidget();
+            while (w) {
+                QMap<Qt::GestureType, Qt::GestureFlags>::const_iterator it
+                        = w->d_func()->gestureContext.constFind(git.key());
+                if (it != w->d_func()->gestureContext.constEnd()) {
+                    // i.e. 'w' listens to gesture 'type'
+                    if (!(it.value() & Qt::DontStartGestureOnChildren) && w != widget) {
+                        // conflicting gesture!
+                        (*conflicts)[widget].append(wit.value());
+                        break;
+                    }
+                }
+                if (w->isWindow()) {
+                    w = nullptr;
+                    break;
+                }
+                w = w->parentWidget();
+            }
+            if (!w)
+                (*normal)[widget].append(wit.value());
+        }
+    }
+}
+#endif  // !defined(QT_NO_GESTURES)
 //  -----------------------------------------------------------------------
 
 //  A QGestureManager that Python can take functions over in. Every QGestureManager
@@ -345,6 +392,24 @@ const QMetaObject *ritual_ZNK15QGestureManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGestureManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QGestureManager11qt_metacastEPKc(
+    QGestureManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGestureManager::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QGestureManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGestureManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QGestureManager::~QGestureManager()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGestureManagerD1Ev(QGestureManager *self) {
@@ -403,6 +468,20 @@ void ritual_ZN15QGestureManager35cleanupGesturesForRemovedRecognizerEP8QGesture(
     QGestureManager *self,
     QGesture *gesture) {
   self->cleanupGesturesForRemovedRecognizer(gesture);
+}
+#endif  // !defined(QT_NO_GESTURES)
+
+#if !defined(QT_NO_GESTURES)
+//  void QGestureManager::getGestureTargets(const QSet<QGesture *> &gestures,
+//      QHash<QWidget *, QList<QGesture *>> *conflicts, QHash<QWidget *,
+//      QList<QGesture *>> *normal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGestureManager17getGestureTargetsERK4QSetIP8QGestureEP5QHashIP7QWidget5QListIS2_EESC_(
+    QGestureManager *self,
+    const QSet<QGesture *> *gestures,
+    QHash<QWidget *, QList<QGesture *>> *conflicts,
+    QHash<QWidget *, QList<QGesture *>> *normal) {
+  self->getGestureTargets(*gestures, conflicts, normal);
 }
 #endif  // !defined(QT_NO_GESTURES)
 

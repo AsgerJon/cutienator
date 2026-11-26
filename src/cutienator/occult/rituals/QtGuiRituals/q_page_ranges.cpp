@@ -2,6 +2,8 @@
 //  QtGui/qpageranges.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qpageranges.h>
 #include <QtCore/qstring.h>
+#include <QtCore/QList>
+#include <QtGui/QPageRanges>
 
 //  QPageRanges::QPageRanges()
 extern "C" Q_DECL_EXPORT
@@ -19,6 +21,34 @@ void ritual_ZN11QPageRangesD1Ev(QPageRanges *self) {
 extern "C" Q_DECL_EXPORT
 QPageRanges *ritual_ZN11QPageRangesC1ERKS_(const QPageRanges *other) {
   return new QPageRanges(*other);
+}
+
+//  QPageRanges &QPageRanges::operator=(const QPageRanges &other)
+extern "C" Q_DECL_EXPORT
+QPageRanges *ritual_ZN11QPageRangesaSERKS_(
+    QPageRanges *self,
+    const QPageRanges *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPageRanges::QPageRanges(QPageRanges &&other)
+extern "C" Q_DECL_EXPORT
+QPageRanges *ritual_ZN11QPageRangesC1EOS_(QPageRanges *other) {
+  return new QPageRanges(std::move(*other));
+}
+
+//  QPageRanges &QPageRanges::operator=(QPageRanges &&other)
+extern "C" Q_DECL_EXPORT
+QPageRanges *ritual_ZN11QPageRangesaSEOS_(
+    QPageRanges *self,
+    QPageRanges *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPageRanges::swap(QPageRanges &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPageRanges4swapERS_(QPageRanges *self, QPageRanges *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPageRanges &lhs, const QPageRanges &rhs)
@@ -50,6 +80,13 @@ void ritual_ZN11QPageRanges8addRangeEii(
     int from,
     int to) {
   self->addRange(from, to);
+}
+
+//  QList<Range> QPageRanges::toRangeList() const
+extern "C" Q_DECL_EXPORT
+QList<QPageRanges::Range> *ritual_ZNK11QPageRanges11toRangeListEv(
+    const QPageRanges *self) {
+  return new QList<QPageRanges::Range>(self->toRangeList());
 }
 
 //  void QPageRanges::clear()
@@ -109,4 +146,11 @@ bool ritual_ZNK11QPageRanges7isEqualERKS_(
     const QPageRanges *self,
     const QPageRanges *other) {
   return self->isEqual(*other);
+}
+
+//  a QList<QPageRanges::Range> a ritual of QPageRanges gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPageRanges__QList_QPageRanges_Range(
+    QList<QPageRanges::Range> *self) {
+  delete self;
 }

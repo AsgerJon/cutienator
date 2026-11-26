@@ -10,6 +10,9 @@
     ],
     "ritual_ZNK28QGrpcOperationContextPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN28QGrpcOperationContextPrivateC1EON6QtGrpc13RpcDescriptorE16QGrpcCallOptionsOSt10shared_ptrI27QAbstractProtobufSerializerEy": [
+      "address", "address", "address", "address", "unsigned long long"
     ]
   }
 }

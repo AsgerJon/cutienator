@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput11QMouseEvent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QMouseEvent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput11QMouseEvent11qt_metacastEPKc(
+    Qt3DInput::QMouseEvent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QMouseEvent::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput11QMouseEvent11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QMouseEvent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QMouseEvent::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DInput11QMouseEvent2trEPKcS2_i(
@@ -186,6 +205,12 @@ QString *ritual_ZN9Qt3DInput11QMouseEvent2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QMouseEvent::tr(s, c, n));
+}
+
+//  Qt3DInput::QMouseEvent::~QMouseEvent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput11QMouseEventD1Ev(Qt3DInput::QMouseEvent *self) {
+  delete self;
 }
 
 //  int Qt3DInput::QMouseEvent::x() const
@@ -207,6 +232,27 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9Qt3DInput11QMouseEvent7wasHeldEv(
     const Qt3DInput::QMouseEvent *self) {
   return self->wasHeld();
+}
+
+//  Buttons Qt3DInput::QMouseEvent::button() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QMouseEvent::Buttons ritual_ZNK9Qt3DInput11QMouseEvent6buttonEv(
+    const Qt3DInput::QMouseEvent *self) {
+  return self->button();
+}
+
+//  int Qt3DInput::QMouseEvent::buttons() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput11QMouseEvent7buttonsEv(
+    const Qt3DInput::QMouseEvent *self) {
+  return self->buttons();
+}
+
+//  Modifiers Qt3DInput::QMouseEvent::modifiers() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QMouseEvent::Modifiers ritual_ZNK9Qt3DInput11QMouseEvent9modifiersEv(
+    const Qt3DInput::QMouseEvent *self) {
+  return self->modifiers();
 }
 
 //  bool Qt3DInput::QMouseEvent::isAccepted() const

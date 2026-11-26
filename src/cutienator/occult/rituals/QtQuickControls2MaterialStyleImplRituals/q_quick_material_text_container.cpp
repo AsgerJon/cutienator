@@ -22,126 +22,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 38, as _ZNK27QQuickMaterialTextContainer8isFilledEv
-inline bool QQuickMaterialTextContainer::isFilled() const
-{
-    return m_filled;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 43, as _ZN27QQuickMaterialTextContainer9setFilledEb
-inline void QQuickMaterialTextContainer::setFilled(bool filled)
-{
-    if (filled == m_filled)
-        return;
-
-    m_filled = filled;
-    update();
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 52, as _ZNK27QQuickMaterialTextContainer9fillColorEv
-inline QColor QQuickMaterialTextContainer::fillColor() const
-{
-    return m_fillColor;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 57, as _ZN27QQuickMaterialTextContainer12setFillColorERK6QColor
-inline void QQuickMaterialTextContainer::setFillColor(const QColor &fillColor)
-{
-    if (fillColor == m_fillColor)
-        return;
-
-    m_fillColor = fillColor;
-    update();
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 66, as _ZNK27QQuickMaterialTextContainer12outlineColorEv
-inline QColor QQuickMaterialTextContainer::outlineColor() const
-{
-    return m_outlineColor;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 71, as _ZN27QQuickMaterialTextContainer15setOutlineColorERK6QColor
-inline void QQuickMaterialTextContainer::setOutlineColor(const QColor &outlineColor)
-{
-    if (outlineColor == m_outlineColor)
-        return;
-
-    m_outlineColor = outlineColor;
-    update();
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 80, as _ZNK27QQuickMaterialTextContainer19focusedOutlineColorEv
-inline QColor QQuickMaterialTextContainer::focusedOutlineColor() const
-{
-    return m_outlineColor;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 85, as _ZN27QQuickMaterialTextContainer22setFocusedOutlineColorERK6QColor
-inline void QQuickMaterialTextContainer::setFocusedOutlineColor(const QColor &focusedOutlineColor)
-{
-    if (focusedOutlineColor == m_focusedOutlineColor)
-        return;
-
-    m_focusedOutlineColor = focusedOutlineColor;
-    update();
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 94, as _ZNK27QQuickMaterialTextContainer22focusAnimationProgressEv
-inline qreal QQuickMaterialTextContainer::focusAnimationProgress() const
-{
-    return m_focusAnimationProgress;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 99, as _ZN27QQuickMaterialTextContainer25setFocusAnimationProgressEd
-inline void QQuickMaterialTextContainer::setFocusAnimationProgress(qreal progress)
-{
-    if (qFuzzyCompare(progress, m_focusAnimationProgress))
-        return;
-
-    m_focusAnimationProgress = progress;
-    update();
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 108, as _ZNK27QQuickMaterialTextContainer20placeholderTextWidthEv
-inline qreal QQuickMaterialTextContainer::placeholderTextWidth() const
-{
-    return m_placeholderTextWidth;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 113, as _ZN27QQuickMaterialTextContainer23setPlaceholderTextWidthEd
-inline void QQuickMaterialTextContainer::setPlaceholderTextWidth(qreal placeholderTextWidth)
-{
-    if (qFuzzyCompare(placeholderTextWidth, m_placeholderTextWidth))
-        return;
-
-    m_placeholderTextWidth = placeholderTextWidth;
-    update();
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 136, as _ZNK27QQuickMaterialTextContainer21controlHasActiveFocusEv
-inline bool QQuickMaterialTextContainer::controlHasActiveFocus() const
-{
-    return m_controlHasActiveFocus;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 154, as _ZNK27QQuickMaterialTextContainer14controlHasTextEv
-inline bool QQuickMaterialTextContainer::controlHasText() const
-{
-    return m_controlHasText;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 172, as _ZNK27QQuickMaterialTextContainer18placeholderHasTextEv
-inline bool QQuickMaterialTextContainer::placeholderHasText() const
-{
-    return m_placeholderHasText;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 188, as _ZNK27QQuickMaterialTextContainer17horizontalPaddingEv
-inline int QQuickMaterialTextContainer::horizontalPadding() const
-{
-    return m_horizontalPadding;
-}
-
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 210, as _ZN27QQuickMaterialTextContainer5paintEP8QPainter
 inline void QQuickMaterialTextContainer::paint(QPainter *painter)
 {
@@ -269,6 +149,137 @@ inline void QQuickMaterialTextContainer::paint(QPainter *painter)
     }
 }
 
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 429, as _ZN27QQuickMaterialTextContainer17componentCompleteEv
+inline void QQuickMaterialTextContainer::componentComplete()
+{
+    QQuickPaintedItem::componentComplete();
+
+    if (!parentItem())
+        qmlWarning(this) << "Expected parent item by component completion!";
+
+    updateFocusAnimation();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 38, as _ZNK27QQuickMaterialTextContainer8isFilledEv
+inline bool QQuickMaterialTextContainer::isFilled() const
+{
+    return m_filled;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 43, as _ZN27QQuickMaterialTextContainer9setFilledEb
+inline void QQuickMaterialTextContainer::setFilled(bool filled)
+{
+    if (filled == m_filled)
+        return;
+
+    m_filled = filled;
+    update();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 52, as _ZNK27QQuickMaterialTextContainer9fillColorEv
+inline QColor QQuickMaterialTextContainer::fillColor() const
+{
+    return m_fillColor;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 57, as _ZN27QQuickMaterialTextContainer12setFillColorERK6QColor
+inline void QQuickMaterialTextContainer::setFillColor(const QColor &fillColor)
+{
+    if (fillColor == m_fillColor)
+        return;
+
+    m_fillColor = fillColor;
+    update();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 66, as _ZNK27QQuickMaterialTextContainer12outlineColorEv
+inline QColor QQuickMaterialTextContainer::outlineColor() const
+{
+    return m_outlineColor;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 71, as _ZN27QQuickMaterialTextContainer15setOutlineColorERK6QColor
+inline void QQuickMaterialTextContainer::setOutlineColor(const QColor &outlineColor)
+{
+    if (outlineColor == m_outlineColor)
+        return;
+
+    m_outlineColor = outlineColor;
+    update();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 80, as _ZNK27QQuickMaterialTextContainer19focusedOutlineColorEv
+inline QColor QQuickMaterialTextContainer::focusedOutlineColor() const
+{
+    return m_outlineColor;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 85, as _ZN27QQuickMaterialTextContainer22setFocusedOutlineColorERK6QColor
+inline void QQuickMaterialTextContainer::setFocusedOutlineColor(const QColor &focusedOutlineColor)
+{
+    if (focusedOutlineColor == m_focusedOutlineColor)
+        return;
+
+    m_focusedOutlineColor = focusedOutlineColor;
+    update();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 94, as _ZNK27QQuickMaterialTextContainer22focusAnimationProgressEv
+inline qreal QQuickMaterialTextContainer::focusAnimationProgress() const
+{
+    return m_focusAnimationProgress;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 99, as _ZN27QQuickMaterialTextContainer25setFocusAnimationProgressEd
+inline void QQuickMaterialTextContainer::setFocusAnimationProgress(qreal progress)
+{
+    if (qFuzzyCompare(progress, m_focusAnimationProgress))
+        return;
+
+    m_focusAnimationProgress = progress;
+    update();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 108, as _ZNK27QQuickMaterialTextContainer20placeholderTextWidthEv
+inline qreal QQuickMaterialTextContainer::placeholderTextWidth() const
+{
+    return m_placeholderTextWidth;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 113, as _ZN27QQuickMaterialTextContainer23setPlaceholderTextWidthEd
+inline void QQuickMaterialTextContainer::setPlaceholderTextWidth(qreal placeholderTextWidth)
+{
+    if (qFuzzyCompare(placeholderTextWidth, m_placeholderTextWidth))
+        return;
+
+    m_placeholderTextWidth = placeholderTextWidth;
+    update();
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 136, as _ZNK27QQuickMaterialTextContainer21controlHasActiveFocusEv
+inline bool QQuickMaterialTextContainer::controlHasActiveFocus() const
+{
+    return m_controlHasActiveFocus;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 154, as _ZNK27QQuickMaterialTextContainer14controlHasTextEv
+inline bool QQuickMaterialTextContainer::controlHasText() const
+{
+    return m_controlHasText;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 172, as _ZNK27QQuickMaterialTextContainer18placeholderHasTextEv
+inline bool QQuickMaterialTextContainer::placeholderHasText() const
+{
+    return m_placeholderHasText;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 188, as _ZNK27QQuickMaterialTextContainer17horizontalPaddingEv
+inline int QQuickMaterialTextContainer::horizontalPadding() const
+{
+    return m_horizontalPadding;
+}
+
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 122, as _ZNK27QQuickMaterialTextContainer21placeholderTextHAlignEv
 inline QQuickMaterialTextContainer::PlaceHolderHAlignment QQuickMaterialTextContainer::placeholderTextHAlign() const
 {
@@ -377,17 +388,6 @@ inline void QQuickMaterialTextContainer::updateFocusAnimation(bool createIfNeede
         setFocusAnimationProgress(focusAnimationProgressValue);
     }
 }
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialtextcontainer.cpp, line 429, as _ZN27QQuickMaterialTextContainer17componentCompleteEv
-inline void QQuickMaterialTextContainer::componentComplete()
-{
-    QQuickPaintedItem::componentComplete();
-
-    if (!parentItem())
-        qmlWarning(this) << "Expected parent item by component completion!";
-
-    updateFocusAnimation();
-}
 //  -----------------------------------------------------------------------
 
 //  const QMetaObject *QQuickMaterialTextContainer::metaObject() const
@@ -395,6 +395,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK27QQuickMaterialTextContainer10metaObjectEv(
     const QQuickMaterialTextContainer *self) {
   return self->metaObject();
+}
+
+//  void *QQuickMaterialTextContainer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuickMaterialTextContainer11qt_metacastEPKc(
+    QQuickMaterialTextContainer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMaterialTextContainer::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuickMaterialTextContainer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMaterialTextContainer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  bool QQuickMaterialTextContainer::isFilled() const
@@ -542,6 +561,131 @@ void ritual_ZN27QQuickMaterialTextContainer24setPlaceholderTextHAlignENS_21Place
     QQuickMaterialTextContainer *self,
     QQuickMaterialTextContainer::PlaceHolderHAlignment placeHolderTextHAlign) {
   self->setPlaceholderTextHAlign(placeHolderTextHAlign);
+}
+
+//  void QQuickMaterialTextContainer::animateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickMaterialTextContainer14animateChangedEv(
+    QQuickMaterialTextContainer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialTextContainer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "animateChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "animateChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickMaterialTextContainer::controlHasActiveFocusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickMaterialTextContainer28controlHasActiveFocusChangedEv(
+    QQuickMaterialTextContainer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialTextContainer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controlHasActiveFocusChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controlHasActiveFocusChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickMaterialTextContainer::controlHasTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickMaterialTextContainer21controlHasTextChangedEv(
+    QQuickMaterialTextContainer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialTextContainer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controlHasTextChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controlHasTextChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickMaterialTextContainer::placeholderHasTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickMaterialTextContainer25placeholderHasTextChangedEv(
+    QQuickMaterialTextContainer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialTextContainer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "placeholderHasTextChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "placeholderHasTextChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickMaterialTextContainer::horizontalPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickMaterialTextContainer24horizontalPaddingChangedEv(
+    QQuickMaterialTextContainer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialTextContainer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "horizontalPaddingChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "horizontalPaddingChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  bool QQuickMaterialTextContainer::shouldAnimateOutline() const

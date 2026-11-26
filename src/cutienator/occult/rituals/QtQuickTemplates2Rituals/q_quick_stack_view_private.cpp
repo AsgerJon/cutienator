@@ -10,6 +10,9 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickstackview_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickstackelement_p_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4value_p.h>
@@ -22,6 +25,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtGui/qpalette.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/private/qquickstackelement_p_p.h>
@@ -35,6 +39,9 @@
 #include <QtQml/private/qqmlcomponent_p.h>
 #include <QtQml/private/qqmlengine_p.h>
 #include <QtQml/private/qqmlincubator_p.h>
+#include <QtQuickTemplates2/private/qquickstacktransition_p_p.h>
+#include <QtQuickTemplates2/private/qquickstackelement_p_p.h>
+#include <QtQuickTemplates2/private/qquickstackview_p_p.h>
 #include <QtQuickTemplates2/private/qquickstackview_p_p.h>
 #include <QtQuickTemplates2/private/qquickstackelement_p_p.h>
 #if QT_CONFIG(quick_viewtransitions)
@@ -57,6 +64,123 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 21, as local:qquickstackelement.cpp:attachedStackObject
+#if QT_CONFIG(quick_viewtransitions)
+static QQuickStackViewAttached *attachedStackObject(QQuickStackElement *element)
+{
+    QQuickStackViewAttached *attached = qobject_cast<QQuickStackViewAttached *>(qmlAttachedPropertiesObject<QQuickStackView>(element->item, false));
+    if (attached)
+        QQuickStackViewAttachedPrivate::get(attached)->element = element;
+    return attached;
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 30, as local:qquickstackelement.cpp:QQuickStackIncubator
+class QQuickStackIncubator : public QQmlIncubator
+{
+public:
+    QQuickStackIncubator(QQuickStackElement *element)
+        : QQmlIncubator(Synchronous),
+          element(element)
+    {
+    }
+
+protected:
+    void setInitialState(QObject *object) override
+    {
+        auto privIncubator = QQmlIncubatorPrivate::get(this);
+        if (QQmlEnginePrivate *enginePriv = privIncubator->enginePriv) {
+            element->incubate(enginePriv->v4Engine.get(), object,
+                              privIncubator->requiredProperties());
+        }
+    }
+
+private:
+    QQuickStackElement *element;
+};
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstacktransition.cpp, line 11, as local:qquickstacktransition.cpp:exitTransition
+static QQuickStackTransition exitTransition(QQuickStackView::Operation operation, QQuickStackElement *element, QQuickStackView *view)
+{
+    QQuickStackTransition st;
+    st.status = QQuickStackView::Deactivating;
+    st.element = element;
+
+    const QQuickItemViewTransitioner *transitioner = QQuickStackViewPrivate::get(view)->transitioner;
+
+    switch (operation) {
+    case QQuickStackView::PushTransition:
+        st.type = QQuickItemViewTransitioner::AddTransition;
+        if (transitioner)
+            st.transition = transitioner->addDisplacedTransition;
+        break;
+    case QQuickStackView::ReplaceTransition:
+        st.type = QQuickItemViewTransitioner::MoveTransition;
+        if (transitioner)
+            st.transition = transitioner->moveDisplacedTransition;
+        break;
+    case QQuickStackView::PopTransition:
+        st.target = true;
+        st.type = QQuickItemViewTransitioner::RemoveTransition;
+        st.viewBounds = view->boundingRect();
+        if (transitioner)
+            st.transition = transitioner->removeTransition;
+        break;
+    default:
+        Q_UNREACHABLE();
+        break;
+    }
+
+    return st;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstacktransition.cpp, line 81, as local:qquickstacktransition.cpp:operationTransition
+static QQuickStackView::Operation operationTransition(QQuickStackView::Operation operation, QQuickStackView::Operation transition)
+{
+    if (operation == QQuickStackView::Immediate || operation == QQuickStackView::Transition)
+        return transition;
+    return operation;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 53, as local:qquickstackview_p.cpp:initProperties
+static bool initProperties(QQuickStackElement *element, const QV4::Value &props, QQmlV4FunctionPtr args)
+{
+    if (props.isObject()) {
+        const QV4::QObjectWrapper *wrapper = props.as<QV4::QObjectWrapper>();
+        if (!wrapper) {
+            QV4::ExecutionEngine *v4 = args->v4engine();
+            element->properties.set(v4, props);
+            element->qmlCallingContext.set(v4, v4->qmlContext());
+            return true;
+        }
+    }
+    return false;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 173, as local:qquickstackview_p.cpp:resolvedUrl
+static QUrl resolvedUrl(const QUrl &url, const QQmlRefPointer<QQmlContextData> &context)
+{
+    if (url.isRelative())
+        return context->resolvedUrl(url);
+    return url;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 305, as _ZN18QQuickStackElement10setVisibleEb
+inline void QQuickStackElement::setVisible(bool visible)
+{
+#if QT_CONFIG(quick_viewtransitions)
+    QQuickStackViewAttached *attached = attachedStackObject(this);
+#endif
+    if (!item
+#if QT_CONFIG(quick_viewtransitions)
+            || (attached && QQuickStackViewAttachedPrivate::get(attached)->explicitVisible)
+#endif
+            )
+        return;
+
+    item->setVisible(visible);
+}
 
 //  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 135, as _ZN18QQuickStackElement16fromStackViewArgEP10QQmlEngineP15QQuickStackView18QQuickStackViewArg
 inline QQuickStackElement *QQuickStackElement::fromStackViewArg(
@@ -83,6 +207,41 @@ inline QQuickStackElement *QQuickStackElement::fromStackViewArg(
         qFatal("No Item, Component or URL set on arg passed to fromStrictArg");
     }
     return element;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 161, as _ZN18QQuickStackElement4loadEPN3QV415ExecutionEngineEP15QQuickStackView
+inline bool QQuickStackElement::load(QV4::ExecutionEngine *v4, QQuickStackView *parent)
+{
+    setView(parent);
+    if (init)
+        return item;
+
+    if (!item) {
+        ownItem = true;
+
+        if (component->isLoading()) {
+            QObject::connect(component, &QQmlComponent::statusChanged, component,
+                             [this](QQmlComponent::Status status) {
+                if (status == QQmlComponent::Ready)
+                    load(component->engine()->handle(), view);
+                else if (status == QQmlComponent::Error)
+                    QQuickStackViewPrivate::get(view)->warn(component->errorString().trimmed());
+            });
+            return true;
+        }
+
+        QQmlContext *context = component->creationContext();
+        if (!context)
+            context = qmlContext(parent);
+
+        QQuickStackIncubator incubator(this);
+        component->create(incubator, context);
+        if (component->isError())
+            QQuickStackViewPrivate::get(parent)->warn(component->errorString().trimmed());
+    } else {
+        initialize(v4, /*required properties=*/nullptr);
+    }
+    return item;
 }
 
 //  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 346, as _ZN18QQuickStackElement15startTransitionEP26QQuickItemViewTransitionerN15QQuickStackView6StatusE
@@ -134,61 +293,11 @@ inline void QQuickStackElement::transitionNextReposition(QQuickItemViewTransitio
 }
 #endif  // QT_CONFIG(quick_viewtransitions)
 
-//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 53, as _ZN18QQuickStackElementC1Ev
-inline QQuickStackElement::QQuickStackElement()
-#if QT_CONFIG(quick_viewtransitions)
-    : QQuickItemViewTransitionableItem(nullptr)
-#endif
+//  from ../qtdeclarative/src/quicktemplates/qquickstacktransition.cpp, line 88, as _ZN21QQuickStackTransition7popExitEN15QQuickStackView9OperationEP18QQuickStackElementPS0_
+inline QQuickStackTransition QQuickStackTransition::popExit(QQuickStackView::Operation operation, QQuickStackElement *element, QQuickStackView *view)
 {
+    return exitTransition(operationTransition(operation, QQuickStackView::PopTransition), element, view);
 }
-
-//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 23, as _ZN22QQuickStackViewPrivate4warnERK7QString
-inline void QQuickStackViewPrivate::warn(const QString &error)
-{
-    Q_Q(QQuickStackView);
-    if (operation.isEmpty())
-        qmlWarning(q) << error;
-    else
-        qmlWarning(q) << operation << ": " << error;
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 32, as _ZN22QQuickStackViewPrivate18warnOfInterruptionERK7QString
-inline void QQuickStackViewPrivate::warnOfInterruption(const QString &attemptedOperation)
-{
-    Q_Q(QQuickStackView);
-    qmlWarning(q) << "cannot " << attemptedOperation << " while already in the process of completing a " << operation;
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 155, as _ZNK22QQuickStackViewPrivate11findElementEP10QQuickItem
-inline QQuickStackElement *QQuickStackViewPrivate::findElement(QQuickItem *item) const
-{
-    if (item) {
-        for (QQuickStackElement *e : std::as_const(elements)) {
-            if (e->item == item)
-                return e;
-        }
-    }
-    return nullptr;
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 166, as _ZNK22QQuickStackViewPrivate11findElementERKN3QV45ValueE
-inline QQuickStackElement *QQuickStackViewPrivate::findElement(const QV4::Value &value) const
-{
-    if (const QV4::QObjectWrapper *o = value.as<QV4::QObjectWrapper>())
-        return findElement(qobject_cast<QQuickItem *>(o->object()));
-    return nullptr;
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 336, as _ZN22QQuickStackViewPrivate18ensureTransitionerEv
-#if QT_CONFIG(quick_viewtransitions)
-inline void QQuickStackViewPrivate::ensureTransitioner()
-{
-    if (!transitioner) {
-        transitioner = new QQuickItemViewTransitioner;
-        transitioner->setChangeListener(this);
-    }
-}
-#endif  // QT_CONFIG(quick_viewtransitions)
 
 //  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 395, as _ZN22QQuickStackViewPrivate26viewItemTransitionFinishedEP32QQuickItemViewTransitionableItem
 #if QT_CONFIG(quick_viewtransitions)
@@ -229,6 +338,246 @@ inline void QQuickStackViewPrivate::viewItemTransitionFinished(QQuickItemViewTra
     }
 
     removing.remove(element);
+}
+#endif  // QT_CONFIG(quick_viewtransitions)
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 53, as _ZN18QQuickStackElementC1Ev
+inline QQuickStackElement::QQuickStackElement()
+#if QT_CONFIG(quick_viewtransitions)
+    : QQuickItemViewTransitionableItem(nullptr)
+#endif
+{
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 206, as _ZN18QQuickStackElement10initializeEPN3QV415ExecutionEngineEP18RequiredProperties
+inline void QQuickStackElement::initialize(
+        QV4::ExecutionEngine *v4, RequiredProperties *requiredProperties)
+{
+    if (!item || init)
+        return;
+
+    QQuickItemPrivate *p = QQuickItemPrivate::get(item);
+    if (!(widthValid = p->widthValid()))
+        item->setWidth(view->width());
+    if (!(heightValid = p->heightValid()))
+        item->setHeight(view->height());
+    item->setParentItem(view);
+
+    if (!properties.isUndefined()) {
+        QV4::Scope scope(v4);
+        Q_ASSERT(scope.engine);
+        QV4::ScopedValue ipv(scope, properties.value());
+        QV4::Scoped<QV4::QmlContext> qmlContext(scope, qmlCallingContext.value());
+        QV4::ScopedValue qmlObject(scope, QV4::QObjectWrapper::wrap(scope.engine, item));
+        QQmlComponentPrivate::setInitialProperties(
+            scope.engine, qmlContext, qmlObject, ipv, requiredProperties, item,
+            component ? QQmlComponentPrivate::get(component)->creator() : nullptr);
+        properties.clear();
+    }
+
+    if (requiredProperties && !requiredProperties->empty()) {
+        QString error;
+        for (const auto &property: *requiredProperties) {
+            error += QLatin1String("Property %1 was marked as required but not set.\n")
+                    .arg(property.propertyName);
+        }
+        QQuickStackViewPrivate::get(view)->warn(error);
+        item = nullptr;
+    } else {
+        p->addItemChangeListener(this, QQuickItemPrivate::Destroyed);
+    }
+
+    init = true;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 259, as _ZN18QQuickStackElement7setViewEP15QQuickStackView
+inline void QQuickStackElement::setView(QQuickStackView *value)
+{
+    if (view == value)
+        return;
+
+    view = value;
+#if QT_CONFIG(quick_viewtransitions)
+    QQuickStackViewAttached *attached = attachedStackObject(this);
+    if (attached)
+        emit attached->viewChanged();
+#endif
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 195, as _ZN18QQuickStackElement8incubateEPN3QV415ExecutionEngineEP7QObjectP18RequiredProperties
+inline void QQuickStackElement::incubate(
+        QV4::ExecutionEngine *v4, QObject *object, RequiredProperties *requiredProperties)
+{
+    item = qmlobject_cast<QQuickItem *>(object);
+    if (item) {
+        QQmlEngine::setObjectOwnership(item, QQmlEngine::CppOwnership);
+        item->setParent(view);
+        initialize(v4, requiredProperties);
+    }
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 60, as _ZN18QQuickStackElementD1Ev
+inline QQuickStackElement::~QQuickStackElement()
+{
+#if QT_CONFIG(quick_viewtransitions)
+    if (item)
+        QQuickItemPrivate::get(item)->removeItemChangeListener(this, QQuickItemPrivate::Destroyed);
+#endif
+
+    if (ownComponent)
+        delete component;
+
+#if QT_CONFIG(quick_viewtransitions)
+    QQuickStackViewAttached *attached = attachedStackObject(this);
+    if (item) {
+        if (ownItem) {
+            item->setParentItem(nullptr);
+            item->deleteLater();
+            item = nullptr;
+        } else {
+            setVisible(false);
+            if (!widthValid)
+                item->resetWidth();
+            if (!heightValid)
+                item->resetHeight();
+            if (item->parentItem() != originalParent) {
+                item->setParentItem(originalParent);
+            } else {
+                if (attached)
+                    QQuickStackViewAttachedPrivate::get(attached)->itemParentChanged(item, nullptr);
+            }
+        }
+    }
+
+    if (attached)
+        emit attached->removed();
+#endif
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackelement.cpp, line 359, as _ZN18QQuickStackElement13itemDestroyedEP10QQuickItem
+inline void QQuickStackElement::itemDestroyed(QQuickItem *)
+{
+#if QT_CONFIG(quick_viewtransitions)
+    item = nullptr;
+#endif
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 23, as _ZN22QQuickStackViewPrivate4warnERK7QString
+inline void QQuickStackViewPrivate::warn(const QString &error)
+{
+    Q_Q(QQuickStackView);
+    if (operation.isEmpty())
+        qmlWarning(q) << error;
+    else
+        qmlWarning(q) << operation << ": " << error;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 32, as _ZN22QQuickStackViewPrivate18warnOfInterruptionERK7QString
+inline void QQuickStackViewPrivate::warnOfInterruption(const QString &attemptedOperation)
+{
+    Q_Q(QQuickStackView);
+    qmlWarning(q) << "cannot " << attemptedOperation << " while already in the process of completing a " << operation;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 38, as _ZN22QQuickStackViewPrivate14setCurrentItemEP18QQuickStackElement
+inline void QQuickStackViewPrivate::setCurrentItem(QQuickStackElement *element)
+{
+    Q_Q(QQuickStackView);
+    QQuickItem *item = element ? element->item : nullptr;
+    if (currentItem == item)
+        return;
+
+    currentItem = item;
+    if (element)
+        element->setVisible(true);
+    if (item)
+        item->setFocus(true);
+    emit q->currentItemChanged();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 113, as _ZN22QQuickStackViewPrivate13parseElementsEP10QQmlEngineRK5QListI18QQuickStackViewArgE
+inline QList<QQuickStackElement *> QQuickStackViewPrivate::parseElements(
+        QQmlEngine *engine, const QList<QQuickStackViewArg> &args)
+{
+    Q_Q(QQuickStackView);
+    QList<QQuickStackElement *> stackElements;
+    for (int i = 0; i < args.size(); ++i) {
+        const QQuickStackViewArg &arg = args.at(i);
+        QVariantMap properties;
+        // Look ahead at the next arg in case it contains properties for this
+        // Item/Component/URL.
+        if (i < args.size() - 1) {
+            const QQuickStackViewArg &nextArg = args.at(i + 1);
+            // If mProperties isn't empty, the user passed properties.
+            // If it is empty, but mItem, mComponent and mUrl also are,
+            // then they passed an empty property map.
+            if (!nextArg.mProperties.isEmpty()
+                    || (!nextArg.mItem && !nextArg.mComponent && !nextArg.mUrl.isValid())) {
+                properties = nextArg.mProperties;
+                ++i;
+            }
+        }
+
+        // Remove any items that are already in the stack, as they can't be in two places at once.
+        if (findElement(arg.mItem))
+            continue;
+
+        // We look ahead one index for each Item/Component/URL, so if this arg is
+        // a property map, the user has passed two or more in a row.
+        if (!arg.mProperties.isEmpty()) {
+            qmlWarning(q) << "Properties must come after an Item, Component or URL";
+            return {};
+        }
+
+        QQuickStackElement *element = QQuickStackElement::fromStackViewArg(engine, q, arg);
+        QV4::ExecutionEngine *v4Engine = engine->handle();
+        element->properties.set(v4Engine, v4Engine->fromVariant(properties));
+        element->qmlCallingContext.set(v4Engine, v4Engine->qmlContext());
+        stackElements.append(element);
+    }
+    return stackElements;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 155, as _ZNK22QQuickStackViewPrivate11findElementEP10QQuickItem
+inline QQuickStackElement *QQuickStackViewPrivate::findElement(QQuickItem *item) const
+{
+    if (item) {
+        for (QQuickStackElement *e : std::as_const(elements)) {
+            if (e->item == item)
+                return e;
+        }
+    }
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 166, as _ZNK22QQuickStackViewPrivate11findElementERKN3QV45ValueE
+inline QQuickStackElement *QQuickStackViewPrivate::findElement(const QV4::Value &value) const
+{
+    if (const QV4::QObjectWrapper *o = value.as<QV4::QObjectWrapper>())
+        return findElement(qobject_cast<QQuickItem *>(o->object()));
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 234, as _ZN22QQuickStackViewPrivate11popElementsEPN3QV415ExecutionEngineEP18QQuickStackElement
+inline bool QQuickStackViewPrivate::popElements(QV4::ExecutionEngine *v4, QQuickStackElement *element)
+{
+    Q_Q(QQuickStackView);
+    while (elements.size() > 1 && elements.top() != element) {
+        delete elements.pop();
+        if (!element)
+            break;
+    }
+    return elements.top()->load(v4, q);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickstackview_p.cpp, line 336, as _ZN22QQuickStackViewPrivate18ensureTransitionerEv
+#if QT_CONFIG(quick_viewtransitions)
+inline void QQuickStackViewPrivate::ensureTransitioner()
+{
+    if (!transitioner) {
+        transitioner = new QQuickItemViewTransitioner;
+        transitioner->setChangeListener(this);
+    }
 }
 #endif  // QT_CONFIG(quick_viewtransitions)
 
@@ -1014,6 +1363,25 @@ void ritual_ZN22QQuickStackViewPrivate18warnOfInterruptionERK7QString(
   self->warnOfInterruption(*attemptedOperation);
 }
 
+//  void QQuickStackViewPrivate::setCurrentItem(QQuickStackElement *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickStackViewPrivate14setCurrentItemEP18QQuickStackElement(
+    QQuickStackViewPrivate *self,
+    QQuickStackElement *element) {
+  self->setCurrentItem(element);
+}
+
+//  QList<QQuickStackElement *>
+//      QQuickStackViewPrivate::parseElements(QQmlEngine *engine, const
+//      QList<QQuickStackViewArg> &args)
+extern "C" Q_DECL_EXPORT
+QList<QQuickStackElement *> *ritual_ZN22QQuickStackViewPrivate13parseElementsEP10QQmlEngineRK5QListI18QQuickStackViewArgE(
+    QQuickStackViewPrivate *self,
+    QQmlEngine *engine,
+    const QList<QQuickStackViewArg> *args) {
+  return new QList<QQuickStackElement *>(self->parseElements(engine, *args));
+}
+
 //  QQuickStackElement *QQuickStackViewPrivate::findElement(QQuickItem *item)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -1030,6 +1398,16 @@ QQuickStackElement *ritual_ZNK22QQuickStackViewPrivate11findElementERKN3QV45Valu
     const QQuickStackViewPrivate *self,
     const QV4::Value *value) {
   return self->findElement(*value);
+}
+
+//  bool QQuickStackViewPrivate::popElements(QV4::ExecutionEngine *v4,
+//      QQuickStackElement *element)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQuickStackViewPrivate11popElementsEPN3QV415ExecutionEngineEP18QQuickStackElement(
+    QQuickStackViewPrivate *self,
+    QV4::ExecutionEngine *v4,
+    QQuickStackElement *element) {
+  return self->popElements(v4, element);
 }
 
 #if QT_CONFIG(quick_viewtransitions)

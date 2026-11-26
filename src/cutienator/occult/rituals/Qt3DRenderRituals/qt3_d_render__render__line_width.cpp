@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_LineWidthCall0)(const void *, const Qt3DRen
 class CuteQt3DRender_Render_LineWidth : public Qt3DRender::Render::LineWidth {
 public:
   using Qt3DRender::Render::LineWidth::LineWidth;
-  CuteQt3DRender_Render_LineWidth(const Qt3DRender::Render::LineWidth &other) : Qt3DRender::Render::LineWidth(other) {}
+  CuteQt3DRender_Render_LineWidth(const Qt3DRender::Render::LineWidth & other) : Qt3DRender::Render::LineWidth(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::LineWidth::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::LineWidth::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9LineWidth16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::LineWidth *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::LineWidth::~LineWidth()
 extern "C" Q_DECL_EXPORT

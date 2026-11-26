@@ -12,6 +12,7 @@ typedef void (*CuteQScrollEventCall1)(const void *, bool, int *);
 class CuteQScrollEvent : public QScrollEvent {
 public:
   using QScrollEvent::QScrollEvent;
+  CuteQScrollEvent(const QScrollEvent & other) : QScrollEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -48,6 +49,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QScrollEvent::QScrollEvent(const QScrollEvent &a0)
+extern "C" Q_DECL_EXPORT
+QScrollEvent *ritual_ZN12QScrollEventC1ERKS_(const QScrollEvent *a0) {
+  return new CuteQScrollEvent(*a0);
+}
+
+//  QScrollEvent &QScrollEvent::operator=(const QScrollEvent &other)
+extern "C" Q_DECL_EXPORT
+QScrollEvent *ritual_ZN12QScrollEventaSERKS_(
+    QScrollEvent *self,
+    const QScrollEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QScrollEvent *QScrollEvent::clone() const
 extern "C" Q_DECL_EXPORT

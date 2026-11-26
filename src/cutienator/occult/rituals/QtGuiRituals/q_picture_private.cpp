@@ -35,6 +35,26 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/image/qpicture.cpp, line 96, as local:qpicture.cpp:mfhdr_maj
+#if !defined(QT_NO_PICTURE)
+static const quint16 mfhdr_maj = QDataStream::Qt_DefaultCompiledVersion;
+#endif  // !defined(QT_NO_PICTURE)
+
+//  from src/gui/image/qpicture.cpp, line 97, as local:qpicture.cpp:mfhdr_min
+#if !defined(QT_NO_PICTURE)
+static const quint16 mfhdr_min = 0;
+#endif  // !defined(QT_NO_PICTURE)
+
+//  from src/gui/image/qpicture.cpp, line 1006, as _ZN15QPicturePrivate11resetFormatEv
+#if !defined(QT_NO_PICTURE)
+inline void QPicturePrivate::resetFormat()
+{
+    formatOk = false;
+    formatMajor = mfhdr_maj;
+    formatMinor = mfhdr_min;
+}
+#endif  // !defined(QT_NO_PICTURE)
+
 //  from src/gui/image/qpicture.cpp, line 973, as _ZN15QPicturePrivateC1Ev
 #if !defined(QT_NO_PICTURE)
 inline QPicturePrivate::QPicturePrivate()

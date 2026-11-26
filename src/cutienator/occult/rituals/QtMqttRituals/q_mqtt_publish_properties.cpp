@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtMqtt/qmqtttype.h>
+#include <QtCore/QList>
 
 //  QMqttPublishProperties::QMqttPublishProperties()
 extern "C" Q_DECL_EXPORT
@@ -17,6 +18,15 @@ extern "C" Q_DECL_EXPORT
 QMqttPublishProperties *ritual_ZN22QMqttPublishPropertiesC1ERKS_(
     const QMqttPublishProperties *a0) {
   return new QMqttPublishProperties(*a0);
+}
+
+//  QMqttPublishProperties &QMqttPublishProperties::operator=(const
+//      QMqttPublishProperties &a0)
+extern "C" Q_DECL_EXPORT
+QMqttPublishProperties *ritual_ZN22QMqttPublishPropertiesaSERKS_(
+    QMqttPublishProperties *self,
+    const QMqttPublishProperties *a0) {
+  return &(self->operator=(*a0));
 }
 
 //  QMqttPublishProperties::~QMqttPublishProperties()
@@ -127,6 +137,22 @@ void ritual_ZN22QMqttPublishProperties17setUserPropertiesERK19QMqttUserPropertie
   self->setUserProperties(*properties);
 }
 
+//  QList<quint32> QMqttPublishProperties::subscriptionIdentifiers() const
+extern "C" Q_DECL_EXPORT
+QList<quint32> *ritual_ZNK22QMqttPublishProperties23subscriptionIdentifiersEv(
+    const QMqttPublishProperties *self) {
+  return new QList<quint32>(self->subscriptionIdentifiers());
+}
+
+//  void QMqttPublishProperties::setSubscriptionIdentifiers(const
+//      QList<quint32> &ids)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QMqttPublishProperties26setSubscriptionIdentifiersERK5QListIjE(
+    QMqttPublishProperties *self,
+    const QList<quint32> *ids) {
+  self->setSubscriptionIdentifiers(*ids);
+}
+
 //  QString QMqttPublishProperties::contentType() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK22QMqttPublishProperties11contentTypeEv(
@@ -140,4 +166,11 @@ void ritual_ZN22QMqttPublishProperties14setContentTypeERK7QString(
     QMqttPublishProperties *self,
     const QString *type) {
   self->setContentType(*type);
+}
+
+//  a QList<quint32> a ritual of QMqttPublishProperties gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMqttPublishProperties__QList_quint32(
+    QList<quint32> *self) {
+  delete self;
 }

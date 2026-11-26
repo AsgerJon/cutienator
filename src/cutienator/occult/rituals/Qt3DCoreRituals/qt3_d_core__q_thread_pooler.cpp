@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QFuture>
 
 //  A Qt3DCore::QThreadPooler that Python can take functions over in. Every Qt3DCore::QThreadPooler
 //  Python makes is one. Each function below asks the Python
@@ -184,6 +185,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore13QThreadPooler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QThreadPooler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore13QThreadPooler11qt_metacastEPKc(
+    Qt3DCore::QThreadPooler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QThreadPooler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore13QThreadPooler11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QThreadPooler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QThreadPooler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore13QThreadPooler2trEPKcS2_i(
@@ -191,6 +211,98 @@ QString *ritual_ZN8Qt3DCore13QThreadPooler2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QThreadPooler::tr(s, c, n));
+}
+
+//  Qt3DCore::QThreadPooler::QThreadPooler(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QThreadPooler *ritual_ZN8Qt3DCore13QThreadPoolerC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DCore_QThreadPooler(parent);
+}
+
+//  Qt3DCore::QThreadPooler::~QThreadPooler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QThreadPoolerD1Ev(Qt3DCore::QThreadPooler *self) {
+  delete self;
+}
+
+//  QFuture<void>
+//      Qt3DCore::QThreadPooler::mapDependables(QList<RunnableInterface *>
+//      &taskQueue)
+extern "C" Q_DECL_EXPORT
+QFuture<void> *ritual_ZN8Qt3DCore13QThreadPooler14mapDependablesER5QListIPNS_17RunnableInterfaceEE(
+    Qt3DCore::QThreadPooler *self,
+    QList<Qt3DCore::RunnableInterface *> *taskQueue) {
+  return new QFuture<void>(self->mapDependables(*taskQueue));
+}
+
+//  int Qt3DCore::QThreadPooler::waitForAllJobs()
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore13QThreadPooler14waitForAllJobsEv(
+    Qt3DCore::QThreadPooler *self) {
+  return self->waitForAllJobs();
+}
+
+//  void Qt3DCore::QThreadPooler::taskFinished(RunnableInterface *task)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QThreadPooler12taskFinishedEPNS_17RunnableInterfaceE(
+    Qt3DCore::QThreadPooler *self,
+    Qt3DCore::RunnableInterface *task) {
+  self->taskFinished(task);
+}
+
+//  QFuture<void> Qt3DCore::QThreadPooler::future()
+extern "C" Q_DECL_EXPORT
+QFuture<void> *ritual_ZN8Qt3DCore13QThreadPooler6futureEv(
+    Qt3DCore::QThreadPooler *self) {
+  return new QFuture<void>(self->future());
+}
+
+//  void Qt3DCore::QThreadPooler::enqueueTasks(const QList<RunnableInterface
+//      *> &tasks)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QThreadPooler12enqueueTasksERK5QListIPNS_17RunnableInterfaceEE(
+    Qt3DCore::QThreadPooler *self,
+    const QList<Qt3DCore::RunnableInterface *> *tasks) {
+  self->enqueueTasks(*tasks);
+}
+
+//  void Qt3DCore::QThreadPooler::skipTask(RunnableInterface *task)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QThreadPooler8skipTaskEPNS_17RunnableInterfaceE(
+    Qt3DCore::QThreadPooler *self,
+    Qt3DCore::RunnableInterface *task) {
+  self->skipTask(task);
+}
+
+//  void Qt3DCore::QThreadPooler::enqueueDepencies(RunnableInterface *task)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QThreadPooler16enqueueDepenciesEPNS_17RunnableInterfaceE(
+    Qt3DCore::QThreadPooler *self,
+    Qt3DCore::RunnableInterface *task) {
+  self->enqueueDepencies(task);
+}
+
+//  void Qt3DCore::QThreadPooler::acquire(int add)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QThreadPooler7acquireEi(
+    Qt3DCore::QThreadPooler *self,
+    int add) {
+  self->acquire(add);
+}
+
+//  void Qt3DCore::QThreadPooler::release()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore13QThreadPooler7releaseEv(
+    Qt3DCore::QThreadPooler *self) {
+  self->release();
+}
+
+//  int Qt3DCore::QThreadPooler::currentCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK8Qt3DCore13QThreadPooler12currentCountEv(
+    const Qt3DCore::QThreadPooler *self) {
+  return self->currentCount();
 }
 
 //  a Python function taken by a CuteQt3DCore_QThreadPooler, for the function
@@ -201,4 +313,10 @@ bool ritual_take_Qt3DCore_QThreadPooler(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DCore_QThreadPooler *>(self)->take(key, call);
+}
+
+//  a QFuture<void> a ritual of Qt3DCore::QThreadPooler gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QThreadPooler__QFuture_void(QFuture<void> *self) {
+  delete self;
 }

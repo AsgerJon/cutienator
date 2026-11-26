@@ -5,7 +5,37 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN12QtConcurrent16ThreadEngineBaseC1EP11QThreadPool": [
+      "address", "address"
+    ],
     "ritual_ZN12QtConcurrent16ThreadEngineBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase19startSingleThreadedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase11startThreadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase10isCanceledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase13waitForResumeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase26isProgressReportingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase16setProgressValueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase16setProgressRangeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase23acquireBarrierSemaphoreEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK12QtConcurrent16ThreadEngineBase22reportIfSuspensionDoneEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN12QtConcurrent16ThreadEngineBase5startEv": [
       "nothing", "address"
     ],
@@ -21,8 +51,26 @@
     "ritual_ZN12QtConcurrent16ThreadEngineBase20shouldThrottleThreadEv": [
       "bool", "address"
     ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase19startThreadInternalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase12startThreadsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase10threadExitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase18threadThrottleExitEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase3runEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN12QtConcurrent16ThreadEngineBase18asynchronousFinishEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase15handleExceptionERK10QException": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QtConcurrent_ThreadEngineBase": [
       "bool", "address", "chars", "address"

@@ -49,6 +49,12 @@
     "ritual_ZN14QLocationUtils18getPosInfoFromNmeaE14QByteArrayViewP16QGeoPositionInfodPb": [
       "bool", "address", "address", "double", "address"
     ],
+    "ritual_ZN14QLocationUtils18getSatInfoFromNmeaE14QByteArrayViewR5QListI17QGeoSatelliteInfoERNS2_15SatelliteSystemE": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN14QLocationUtils19getSatInUseFromNmeaE14QByteArrayViewR5QListIiE": [
+      "int", "address", "address"
+    ],
     "ritual_ZN14QLocationUtils20hasValidNmeaChecksumE14QByteArrayView": [
       "bool", "address"
     ],

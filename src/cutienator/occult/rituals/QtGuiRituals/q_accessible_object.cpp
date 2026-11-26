@@ -6,7 +6,9 @@
 #include <QtGui/qaccessibleobject.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
+#endif
 #include <QtGui/qcolor.h>
 #include <cstring>
 
@@ -61,10 +63,16 @@ typedef const QColor * (*CuteQAccessibleObjectCall14)(const void *, int *);
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleObjectCall15)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef void (*CuteQAccessibleObjectCall16)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef void * (*CuteQAccessibleObjectCall17)(const void *, int, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleObject : public QAccessibleObject {
 public:
   using QAccessibleObject::QAccessibleObject;
-  void *taken[16] = {};
+  void *taken[18] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -160,6 +168,18 @@ public:
 #if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[15] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
+      taken[16] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
+      taken[17] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -379,7 +399,41 @@ public:
     return QAccessibleInterface::backgroundColor();
   }
 #endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQAccessibleObjectCall16 call = reinterpret_cast<CuteQAccessibleObjectCall16>(taken[16]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  void *QAccessibleInterface::interface_cast(QAccessible::InterfaceType
+  //      a0)
+  void *interface_cast(QAccessible::InterfaceType a0) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQAccessibleObjectCall17 call = reinterpret_cast<CuteQAccessibleObjectCall17>(taken[17]);
+      void * given = call(this, static_cast<int>(a0), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleInterface::interface_cast(a0);
+  }
+#endif  // QT_CONFIG(accessibility)
 };
+
+//  QAccessibleObject::QAccessibleObject(QObject *object)
+extern "C" Q_DECL_EXPORT
+QAccessibleObject *ritual_ZN17QAccessibleObjectC1EP7QObject(
+    QObject *object) {
+  return new CuteQAccessibleObject(object);
+}
 
 //  bool QAccessibleObject::isValid() const
 extern "C" Q_DECL_EXPORT

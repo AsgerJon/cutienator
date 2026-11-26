@@ -15,6 +15,12 @@
     "ritual_ZNK29QSvgAnimatedPropertyTransform14transformCountEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZN29QSvgAnimatedPropertyTransform16appendComponentsERK5QListINS_18TransformComponentEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QSvgAnimatedPropertyTransform10componentsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK29QSvgAnimatedPropertyTransform11interpolateEjd": [
       "nothing", "address", "unsigned int", "double"
     ],
@@ -23,6 +29,9 @@
     ],
     "ritual_own_ZNK29QSvgAnimatedPropertyTransform11interpolateEjd": [
       "nothing", "address", "unsigned int", "double"
+    ],
+    "ritual_drop_QSvgAnimatedPropertyTransform__QList_QSvgAnimatedPropertyTransform_TransformComponent": [
+      "nothing", "address"
     ]
   }
 }

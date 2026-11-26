@@ -15,7 +15,13 @@
     "ritual_ZN27QQmlSorterCompositorPrivate16setPrimarySorterEP14QQmlSorterBase": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK27QQmlSorterCompositorPrivate13primarySorterEv": [
+      "address", "address"
+    ],
     "ritual_ZN27QQmlSorterCompositorPrivate18resetPrimarySorterEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlSorterCompositorPrivate__QPointer_QQmlSorterBase": [
       "nothing", "address"
     ]
   }

@@ -7,7 +7,9 @@
 #if QT_CONFIG(printdialog)
 #if QT_CONFIG(printdialog)
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
+#if QT_CONFIG(printdialog)
 #include <QtPrintSupport/qpagesetupdialog.h>
+#endif
 #include <QtPrintSupport/QtPrintSupport>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qpagesetupdialog_p.h>

@@ -11,6 +11,72 @@
     "ritual_ZN8Qt3DCore5Quick25QQuick3DVector4DValueType21qt_qmlMarker_extendedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN8Qt3DCore5Quick25QQuick3DVector4DValueType6createERK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType8toStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType1xEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType1yEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType1zEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType1wEv": [
+      "double", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick25QQuick3DVector4DValueType4setXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick25QQuick3DVector4DValueType4setYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick25QQuick3DVector4DValueType4setZEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick25QQuick3DVector4DValueType4setWEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType10dotProductERK9QVector4D": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType5timesERK9QVector4D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType5timesERK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType5timesEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType4plusERK9QVector4D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType5minusERK9QVector4D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType10normalizedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType6lengthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType10toVector2dEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType10toVector3dEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType11fuzzyEqualsERK9QVector4Dd": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick25QQuick3DVector4DValueType11fuzzyEqualsERK9QVector4D": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore5Quick25QQuick3DVector4DValueTypeD1Ev": [
       "nothing", "address"
     ]

@@ -11,7 +11,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickicon_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -196,6 +198,24 @@ const QMetaObject *ritual_ZNK12QQuickAction10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAction::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickAction11qt_metacastEPKc(
+    QQuickAction *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAction::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickAction11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAction *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAction::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickAction2trEPKcS1_i(
@@ -327,6 +347,72 @@ void ritual_ZN12QQuickAction7triggerEP7QObject(
   self->trigger(source);
 }
 
+//  void QQuickAction::textChanged(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickAction11textChangedERK7QString(
+    QQuickAction *self,
+    const QString *text) {
+  self->textChanged(*text);
+}
+
+//  void QQuickAction::iconChanged(const QQuickIcon &icon)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickAction11iconChangedERK10QQuickIcon(
+    QQuickAction *self,
+    const QQuickIcon *icon) {
+  self->iconChanged(*icon);
+}
+
+//  void QQuickAction::enabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickAction14enabledChangedEb(
+    QQuickAction *self,
+    bool enabled) {
+  self->enabledChanged(enabled);
+}
+
+//  void QQuickAction::checkedChanged(bool checked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickAction14checkedChangedEb(
+    QQuickAction *self,
+    bool checked) {
+  self->checkedChanged(checked);
+}
+
+//  void QQuickAction::checkableChanged(bool checkable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickAction16checkableChangedEb(
+    QQuickAction *self,
+    bool checkable) {
+  self->checkableChanged(checkable);
+}
+
+#if QT_CONFIG(shortcut)
+//  void QQuickAction::shortcutChanged(const QKeySequence &shortcut)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickAction15shortcutChangedERK12QKeySequence(
+    QQuickAction *self,
+    const QKeySequence *shortcut) {
+  self->shortcutChanged(*shortcut);
+}
+#endif  // QT_CONFIG(shortcut)
+
+//  void QQuickAction::toggled(QObject *source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickAction7toggledEP7QObject(
+    QQuickAction *self,
+    QObject *source) {
+  self->toggled(source);
+}
+
+//  void QQuickAction::triggered(QObject *source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickAction9triggeredEP7QObject(
+    QQuickAction *self,
+    QObject *source) {
+  self->triggered(source);
+}
+
 //  bool QQuickAction::event(QEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN12QQuickAction5eventEP6QEvent(
@@ -342,6 +428,19 @@ bool ritual_ZN12QQuickAction11eventFilterEP7QObjectP6QEvent(
     QObject *object,
     QEvent *event) {
   return self->eventFilter(object, event);
+}
+
+//  QQuickActionPrivate *QQuickAction::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickActionPrivate *ritual_ZN12QQuickAction6d_funcEv(QQuickAction *self) {
+  return self->d_func();
+}
+
+//  const QQuickActionPrivate *QQuickAction::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickActionPrivate *ritual_ZNK12QQuickAction6d_funcEv(
+    const QQuickAction *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQuickAction, for the function named by

@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QLocal8Bit16convertToUnicodeE14QByteArrayViewPN20QStringConverterBase5StateE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN10QLocal8Bit18convertFromUnicodeE11QStringViewPN20QStringConverterBase5StateE": [
+      "address", "text", "address"
+    ],
     "ritual_ZN10QLocal8BitD1Ev": ["nothing", "address"]
   }
 }

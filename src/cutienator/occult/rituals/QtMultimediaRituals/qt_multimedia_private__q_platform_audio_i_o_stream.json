@@ -5,8 +5,35 @@
     "port_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QtMultimediaPrivate22QPlatformAudioIOStream21inferRingbufferFramesERKSt8optionalIiERKS1_INS_18NativePeriodFramesEERK12QAudioFormat": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate22QPlatformAudioIOStream20inferRingbufferBytesERKSt8optionalIiERKS1_INS_18NativePeriodFramesEERK12QAudioFormat": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate22QPlatformAudioIOStreamC1E12QAudioDevice12QAudioFormatSt8optionalIiES3_INS_18NativePeriodFramesEEf": [
+      "address", "address", "address", "address", "address", "float"
+    ],
+    "ritual_ZN19QtMultimediaPrivate22QPlatformAudioIOStreamD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate22QPlatformAudioIOStream9setVolumeEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZNK19QtMultimediaPrivate22QPlatformAudioIOStream6volumeEv": [
       "float", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate22QPlatformAudioIOStream17prepareRingbufferESt8optionalIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate22QPlatformAudioIOStream21ringbufferSizeInBytesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate22QPlatformAudioIOStream11requestStopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate22QPlatformAudioIOStream15isStopRequestedESt12memory_order": [
+      "bool", "address", "address"
     ]
   }
 }

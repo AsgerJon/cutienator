@@ -7,9 +7,11 @@
 #include <QtCore5Compat/6.12.0/QtCore5Compat/private/qbinaryjsonvalue_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qjsonvalue.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore5Compat/6.12.0/QtCore5Compat/private/qbinaryjson_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QJsonValue>
 
 //  QBinaryJsonValue::QBinaryJsonValue(QJsonValue::Type type)
 extern "C" Q_DECL_EXPORT
@@ -36,10 +38,46 @@ QBinaryJsonValue *ritual_ZN16QBinaryJsonValueC1E7QString(const QString *s) {
   return new QBinaryJsonValue(*s);
 }
 
+//  QBinaryJsonValue::QBinaryJsonValue(const QBinaryJsonArray &a)
+extern "C" Q_DECL_EXPORT
+QBinaryJsonValue *ritual_ZN16QBinaryJsonValueC1ERK16QBinaryJsonArray(
+    const QBinaryJsonArray *a) {
+  return new QBinaryJsonValue(*a);
+}
+
+//  QBinaryJsonValue::QBinaryJsonValue(const QBinaryJsonObject &o)
+extern "C" Q_DECL_EXPORT
+QBinaryJsonValue *ritual_ZN16QBinaryJsonValueC1ERK17QBinaryJsonObject(
+    const QBinaryJsonObject *o) {
+  return new QBinaryJsonValue(*o);
+}
+
 //  QBinaryJsonValue::~QBinaryJsonValue()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QBinaryJsonValueD1Ev(QBinaryJsonValue *self) {
   delete self;
+}
+
+//  QBinaryJsonValue::QBinaryJsonValue(QBinaryJsonValue &&other)
+extern "C" Q_DECL_EXPORT
+QBinaryJsonValue *ritual_ZN16QBinaryJsonValueC1EOS_(
+    QBinaryJsonValue *other) {
+  return new QBinaryJsonValue(std::move(*other));
+}
+
+//  QBinaryJsonValue &QBinaryJsonValue::operator=(QBinaryJsonValue &&other)
+extern "C" Q_DECL_EXPORT
+QBinaryJsonValue *ritual_ZN16QBinaryJsonValueaSEOS_(
+    QBinaryJsonValue *self,
+    QBinaryJsonValue *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QBinaryJsonValue QBinaryJsonValue::fromJsonValue(const QJsonValue &json)
+extern "C" Q_DECL_EXPORT
+QBinaryJsonValue *ritual_ZN16QBinaryJsonValue13fromJsonValueERK10QJsonValue(
+    const QJsonValue *json) {
+  return new QBinaryJsonValue(QBinaryJsonValue::fromJsonValue(*json));
 }
 
 //  QJsonValue::Type QBinaryJsonValue::type() const
@@ -77,4 +115,10 @@ QBinaryJsonValue *ritual_ZN16QBinaryJsonValueC1EPN18QBinaryJsonPrivate11MutableD
     QBinaryJsonPrivate::Base *parent,
     const QBinaryJsonPrivate::Value *v) {
   return new QBinaryJsonValue(d, parent, *v);
+}
+
+//  a QBinaryJsonValue a ritual of QBinaryJsonValue gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QBinaryJsonValue__QBinaryJsonValue(QBinaryJsonValue *self) {
+  delete self;
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK24QDeclarativeGeocodeModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QDeclarativeGeocodeModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QDeclarativeGeocodeModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -67,6 +73,36 @@
     ],
     "ritual_ZN24QDeclarativeGeocodeModel5resetEv": ["nothing", "address"],
     "ritual_ZN24QDeclarativeGeocodeModel6cancelEv": ["nothing", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel12countChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel13pluginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel13statusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel12errorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel16locationsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel17autoUpdateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel13boundsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel12queryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel12limitChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel13offsetChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN24QDeclarativeGeocodeModel6updateEv": ["nothing", "address"],
     "ritual_ZN24QDeclarativeGeocodeModel19queryContentChangedEv": [
       "nothing", "address"

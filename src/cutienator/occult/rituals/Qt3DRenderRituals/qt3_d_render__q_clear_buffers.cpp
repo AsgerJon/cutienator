@@ -2,6 +2,7 @@
 //  Qt3DRender/qclearbuffers.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qclearbuffers.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender13QClearBuffers10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QClearBuffers::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender13QClearBuffers11qt_metacastEPKc(
+    Qt3DRender::QClearBuffers *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QClearBuffers::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender13QClearBuffers11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QClearBuffers *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QClearBuffers::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,149 @@ QString *ritual_ZN10Qt3DRender13QClearBuffers2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QClearBuffers::tr(s, c, n));
+}
+
+//  Qt3DRender::QClearBuffers::QClearBuffers(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QClearBuffers *ritual_ZN10Qt3DRender13QClearBuffersC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QClearBuffers(parent);
+}
+
+//  Qt3DRender::QClearBuffers::~QClearBuffers()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffersD1Ev(
+    Qt3DRender::QClearBuffers *self) {
+  delete self;
+}
+
+//  BufferType Qt3DRender::QClearBuffers::buffers() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QClearBuffers::BufferType ritual_ZNK10Qt3DRender13QClearBuffers7buffersEv(
+    const Qt3DRender::QClearBuffers *self) {
+  return self->buffers();
+}
+
+//  QColor Qt3DRender::QClearBuffers::clearColor() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DRender13QClearBuffers10clearColorEv(
+    const Qt3DRender::QClearBuffers *self) {
+  return new QColor(self->clearColor());
+}
+
+//  float Qt3DRender::QClearBuffers::clearDepthValue() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender13QClearBuffers15clearDepthValueEv(
+    const Qt3DRender::QClearBuffers *self) {
+  return self->clearDepthValue();
+}
+
+//  int Qt3DRender::QClearBuffers::clearStencilValue() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender13QClearBuffers17clearStencilValueEv(
+    const Qt3DRender::QClearBuffers *self) {
+  return self->clearStencilValue();
+}
+
+//  QRenderTargetOutput *Qt3DRender::QClearBuffers::colorBuffer() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderTargetOutput *ritual_ZNK10Qt3DRender13QClearBuffers11colorBufferEv(
+    const Qt3DRender::QClearBuffers *self) {
+  return self->colorBuffer();
+}
+
+//  void Qt3DRender::QClearBuffers::setBuffers(BufferType buffers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers10setBuffersENS0_10BufferTypeE(
+    Qt3DRender::QClearBuffers *self,
+    Qt3DRender::QClearBuffers::BufferType buffers) {
+  self->setBuffers(buffers);
+}
+
+//  void Qt3DRender::QClearBuffers::setClearColor(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers13setClearColorERK6QColor(
+    Qt3DRender::QClearBuffers *self,
+    const QColor *color) {
+  self->setClearColor(*color);
+}
+
+//  void Qt3DRender::QClearBuffers::setClearDepthValue(float clearDepthValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers18setClearDepthValueEf(
+    Qt3DRender::QClearBuffers *self,
+    float clearDepthValue) {
+  self->setClearDepthValue(clearDepthValue);
+}
+
+//  void Qt3DRender::QClearBuffers::setClearStencilValue(int
+//      clearStencilValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers20setClearStencilValueEi(
+    Qt3DRender::QClearBuffers *self,
+    int clearStencilValue) {
+  self->setClearStencilValue(clearStencilValue);
+}
+
+//  void Qt3DRender::QClearBuffers::setColorBuffer(QRenderTargetOutput
+//      *buffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers14setColorBufferEPNS_19QRenderTargetOutputE(
+    Qt3DRender::QClearBuffers *self,
+    Qt3DRender::QRenderTargetOutput *buffer) {
+  self->setColorBuffer(buffer);
+}
+
+//  void Qt3DRender::QClearBuffers::buffersChanged(BufferType buffers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers14buffersChangedENS0_10BufferTypeE(
+    Qt3DRender::QClearBuffers *self,
+    Qt3DRender::QClearBuffers::BufferType buffers) {
+  self->buffersChanged(buffers);
+}
+
+//  void Qt3DRender::QClearBuffers::clearColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers17clearColorChangedERK6QColor(
+    Qt3DRender::QClearBuffers *self,
+    const QColor *color) {
+  self->clearColorChanged(*color);
+}
+
+//  void Qt3DRender::QClearBuffers::clearDepthValueChanged(float
+//      clearDepthValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers22clearDepthValueChangedEf(
+    Qt3DRender::QClearBuffers *self,
+    float clearDepthValue) {
+  self->clearDepthValueChanged(clearDepthValue);
+}
+
+//  void Qt3DRender::QClearBuffers::clearStencilValueChanged(int
+//      clearStencilValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers24clearStencilValueChangedEi(
+    Qt3DRender::QClearBuffers *self,
+    int clearStencilValue) {
+  self->clearStencilValueChanged(clearStencilValue);
+}
+
+//  void Qt3DRender::QClearBuffers::colorBufferChanged(QRenderTargetOutput
+//      *buffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QClearBuffers18colorBufferChangedEPNS_19QRenderTargetOutputE(
+    Qt3DRender::QClearBuffers *self,
+    Qt3DRender::QRenderTargetOutput *buffer) {
+  self->colorBufferChanged(buffer);
+}
+
+//  Qt3DRender::QClearBuffers::QClearBuffers(QClearBuffersPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QClearBuffers *ritual_ZN10Qt3DRender13QClearBuffersC1ERNS_20QClearBuffersPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QClearBuffersPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QClearBuffers(*dd, parent);
 }
 
 //  QClearBuffersPrivate *Qt3DRender::QClearBuffers::d_func()

@@ -5,7 +5,11 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QGeoSatelliteInfoPrivateC1Ev": ["address"],
     "ritual_ZN24QGeoSatelliteInfoPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QGeoSatelliteInfoPrivateeqERKS_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN24QGeoSatelliteInfoPrivate3getERK17QGeoSatelliteInfo": [
       "address", "address"
     ]

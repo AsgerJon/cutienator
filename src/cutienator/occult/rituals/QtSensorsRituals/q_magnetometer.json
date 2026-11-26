@@ -5,12 +5,21 @@
   ],
   "rows": {
     "ritual_ZNK13QMagnetometer10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QMagnetometer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QMagnetometer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QMagnetometer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QMagnetometerC1EP7QObject": ["address", "address"],
     "ritual_ZN13QMagnetometerD1Ev": ["nothing", "address"],
     "ritual_ZNK13QMagnetometer7readingEv": ["address", "address"],
     "ritual_ZNK13QMagnetometer15returnGeoValuesEv": ["bool", "address"],
     "ritual_ZN13QMagnetometer18setReturnGeoValuesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QMagnetometer22returnGeoValuesChangedEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZN13QMagnetometer6d_funcEv": ["address", "address"],

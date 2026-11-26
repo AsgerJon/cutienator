@@ -5,6 +5,18 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal29DemoteFromCustomWidgetCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29DemoteFromCustomWidgetCommand4initERK5QListI8QPointerI7QWidgetEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29DemoteFromCustomWidgetCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29DemoteFromCustomWidgetCommand4undoEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN18qdesigner_internal29DemoteFromCustomWidgetCommand4redoEv": [
       "nothing", "address"
     ],

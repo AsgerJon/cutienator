@@ -15,10 +15,24 @@
 #include <QtNetwork/qhostaddress.h>
 #include <QtCore/qstring.h>
 #include <QtNetwork/qnetworkinterface.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtNetwork/6.12.0/QtNetwork/private/qnetworkdatagram_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdeadlinetimer.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtNetwork/private/qhttpsocketengine_p.h>
+#include <QtNetwork/qtcpsocket.h>
+#include <QtNetwork/qhostaddress.h>
+#include <QtCore/qurl.h>
+#include <QtNetwork/private/qhttpnetworkreply_p.h>
+#include <QtCore/private/qiodevice_p.h>
+#include <QtCore/qdeadlinetimer.h>
+#include <QtNetwork/qnetworkinterface.h>
+#if !defined(QT_NO_NETWORKPROXY)
+#include <QtCore/qdebug.h>
+#endif
 #include <QtNetwork/private/qabstractsocketengine_p.h>
 #include <QtNetwork/private/qnativesocketengine_p.h>
 #include <QtCore/qmutex.h>
@@ -32,17 +46,6 @@
 #endif
 #include <QtNetwork/private/qdecompresshelper_p.h>
 #include <QtNetwork/private/qhttpnetworkheader_p.h>
-#include <QtNetwork/private/qhttpsocketengine_p.h>
-#include <QtNetwork/qtcpsocket.h>
-#include <QtNetwork/qhostaddress.h>
-#include <QtCore/qurl.h>
-#include <QtNetwork/private/qhttpnetworkreply_p.h>
-#include <QtCore/private/qiodevice_p.h>
-#include <QtCore/qdeadlinetimer.h>
-#include <QtNetwork/qnetworkinterface.h>
-#if !defined(QT_NO_NETWORKPROXY)
-#include <QtCore/qdebug.h>
-#endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -52,25 +55,178 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/network/socket/qabstractsocketengine.cpp, line 120, as _ZN21QAbstractSocketEngine16readNotificationEv
-inline void QAbstractSocketEngine::readNotification()
-{
-    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
-        receiver->readNotification();
-}
+using namespace Qt::StringLiterals;
 
-//  from src/network/socket/qabstractsocketengine.cpp, line 126, as _ZN21QAbstractSocketEngine17writeNotificationEv
-inline void QAbstractSocketEngine::writeNotification()
+//  from src/network/socket/qhttpsocketengine.cpp, line 505, as _ZN17QHttpSocketEngine26slotSocketReadNotificationEv
+#if !defined(QT_NO_NETWORKPROXY)
+inline void QHttpSocketEngine::slotSocketReadNotification()
 {
-    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
-        receiver->writeNotification();
-}
+    Q_D(QHttpSocketEngine);
+    if (d->state != Connected && d->socket->bytesAvailable() == 0)
+        return;
 
-//  from src/network/socket/qabstractsocketengine.cpp, line 144, as _ZN21QAbstractSocketEngine22connectionNotificationEv
-inline void QAbstractSocketEngine::connectionNotification()
+    if (d->state == Connected) {
+        // Forward as a read notification.
+        if (d->readNotificationEnabled)
+            emitReadNotification();
+        return;
+    }
+
+    if (d->state == ConnectSent) {
+        d->reply->d_func()->state = QHttpNetworkReplyPrivate::NothingDoneState;
+        d->state = ReadResponseHeader;
+    }
+
+    if (d->state == ReadResponseHeader) {
+        bool ok = readHttpHeader();
+        if (!ok) {
+            // protocol error, this isn't HTTP
+            d->socket->close();
+            setState(QAbstractSocket::UnconnectedState);
+            setError(QAbstractSocket::ProxyProtocolError, tr("Did not receive HTTP response from proxy"));
+            emitConnectionNotification();
+            return;
+        }
+        if (d->state == ReadResponseHeader)
+            return; // readHttpHeader() was not done yet, need to wait for more header data
+    }
+
+    if (d->state == ReadResponseContent) {
+        qint64 skipped = d->socket->skip(d->pendingResponseData);
+        if (skipped == -1) {
+            d->socket->disconnectFromHost();
+            emitWriteNotification();
+            return;
+        }
+        d->pendingResponseData -= uint(skipped);
+        if (d->pendingResponseData > 0)
+            return;
+        if (d->reply->statusCode() == 407)
+            d->state = SendAuthentication;
+    }
+
+    int statusCode = d->reply->statusCode();
+    QAuthenticatorPrivate *priv = nullptr;
+    if (statusCode == 200) {
+        d->state = Connected;
+        setLocalAddress(d->socket->localAddress());
+        setLocalPort(d->socket->localPort());
+        d->inboundStreamCount = d->outboundStreamCount = 1;
+        setState(QAbstractSocket::ConnectedState);
+        d->authenticator.detach();
+        priv = QAuthenticatorPrivate::getPrivate(d->authenticator);
+        priv->hasFailed = false;
+    } else if (statusCode == 407) {
+        if (d->authenticator.isNull())
+            d->authenticator.detach();
+        priv = QAuthenticatorPrivate::getPrivate(d->authenticator);
+
+        const auto headers = d->reply->header();
+        priv->parseHttpResponse(headers, true, d->proxy.hostName());
+
+        if (priv->phase == QAuthenticatorPrivate::Invalid) {
+            // problem parsing the reply
+            d->socket->close();
+            setState(QAbstractSocket::UnconnectedState);
+            setError(QAbstractSocket::ProxyProtocolError, tr("Error parsing authentication request from proxy"));
+            emitConnectionNotification();
+            return;
+        }
+
+        if (priv->phase == QAuthenticatorPrivate::Done
+            || (priv->phase == QAuthenticatorPrivate::Start
+                && (priv->method == QAuthenticatorPrivate::Ntlm
+                    || priv->method == QAuthenticatorPrivate::Negotiate))) {
+            if (priv->phase == QAuthenticatorPrivate::Start)
+                priv->phase = QAuthenticatorPrivate::Phase1;
+            bool credentialsWasSent = d->credentialsSent;
+            if (d->credentialsSent) {
+                // Remember that (e.g.) NTLM is two-phase, so only reset when the authentication is
+                // not currently in progress. 407 response again means the provided
+                // username/password were invalid.
+                d->authenticator.detach();
+                priv = QAuthenticatorPrivate::getPrivate(d->authenticator);
+                priv->hasFailed = true;
+                d->credentialsSent = false;
+                priv->phase = QAuthenticatorPrivate::Done;
+            }
+            if ((priv->method != QAuthenticatorPrivate::Ntlm
+                 && priv->method != QAuthenticatorPrivate::Negotiate)
+                || credentialsWasSent)
+                proxyAuthenticationRequired(d->proxy, &d->authenticator);
+        }
+
+        bool willClose;
+        QByteArray proxyConnectionHeader = d->reply->headerField("Proxy-Connection");
+        // Although most proxies use the unofficial Proxy-Connection header, the Connection header
+        // from http spec is also allowed.
+        if (proxyConnectionHeader.isEmpty())
+            proxyConnectionHeader = d->reply->headerField("Connection");
+        if (proxyConnectionHeader.compare("close", Qt::CaseInsensitive) == 0) {
+            willClose = true;
+        } else if (proxyConnectionHeader.compare("keep-alive", Qt::CaseInsensitive) == 0) {
+            willClose = false;
+        } else {
+            // no Proxy-Connection header, so use the default
+            // HTTP 1.1's default behaviour is to keep persistent connections
+            // HTTP 1.0 or earlier, so we expect the server to close
+            willClose = (d->reply->majorVersion() * 0x100 + d->reply->minorVersion()) <= 0x0100;
+        }
+
+        if (willClose) {
+            // the server will disconnect, so let's avoid receiving an error
+            // especially since the signal below may trigger a new event loop
+            d->socket->disconnectFromHost();
+            d->socket->readAll();
+            //We're done with the reply and need to reset it for the next connection
+            delete d->reply;
+            d->reply = new QHttpNetworkReply(QUrl(), this);
+        }
+
+        if (priv->phase == QAuthenticatorPrivate::Done) {
+            d->authenticator = QAuthenticator();
+            setError(QAbstractSocket::ProxyAuthenticationRequiredError, tr("Authentication required"));
+            d->socket->disconnectFromHost();
+        } else {
+            // close the connection if it isn't already and reconnect using the chosen authentication method
+            d->state = SendAuthentication;
+            if (willClose) {
+                d->socket->connectToHost(d->proxy.hostName(), d->proxy.port());
+            } else {
+                // send the HTTP CONNECT again
+                slotSocketConnected();
+            }
+            return;
+        }
+    } else {
+        d->socket->close();
+        setState(QAbstractSocket::UnconnectedState);
+        if (statusCode == 403 || statusCode == 405) {
+            // 403 Forbidden
+            // 405 Method Not Allowed
+            setError(QAbstractSocket::SocketAccessError, tr("Proxy denied connection"));
+        } else if (statusCode == 404) {
+            // 404 Not Found: host lookup error
+            setError(QAbstractSocket::HostNotFoundError, QAbstractSocket::tr("Host not found"));
+        } else if (statusCode == 503) {
+            // 503 Service Unavailable: Connection Refused
+            setError(QAbstractSocket::ConnectionRefusedError, QAbstractSocket::tr("Connection refused"));
+        } else {
+            // Some other reply
+            //qWarning("UNEXPECTED RESPONSE: [%s]", responseHeader.toString().toLatin1().data());
+            setError(QAbstractSocket::ProxyProtocolError, tr("Error communicating with HTTP proxy"));
+        }
+    }
+
+    // The handshake is done; notify that we're connected (or failed to connect)
+    emitConnectionNotification();
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 164, as _ZN21QAbstractSocketEngine8setStateEN15QAbstractSocket11SocketStateE
+inline void QAbstractSocketEngine::setState(QAbstractSocket::SocketState state)
 {
-    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
-        receiver->connectionNotification();
+    d_func()->socketState = state;
 }
 
 //  from src/network/access/qhttpnetworkreply.cpp, line 436, as _ZN24QHttpNetworkReplyPrivate10readHeaderEP9QIODevice
@@ -200,130 +356,6 @@ inline void QHttpNetworkReplyPrivate::clearHttpLayerInformation()
     parser.clear();
 }
 
-//  from src/network/socket/qabstractsocketengine.cpp, line 184, as _ZN21QAbstractSocketEngine11setProtocolEN15QAbstractSocket20NetworkLayerProtocolE
-inline void QAbstractSocketEngine::setProtocol(QAbstractSocket::NetworkLayerProtocol protocol)
-{
-    d_func()->socketProtocol = protocol;
-}
-
-//  from src/network/socket/qabstractsocketengine.cpp, line 174, as _ZN21QAbstractSocketEngine13setSocketTypeEN15QAbstractSocket10SocketTypeE
-inline void QAbstractSocketEngine::setSocketType(QAbstractSocket::SocketType socketType)
-{
-    d_func()->socketType = socketType;
-}
-
-//  from src/network/access/qhttpnetworkreply.cpp, line 498, as _ZN24QHttpNetworkReplyPrivate11parseHeaderE14QByteArrayView
-inline void QHttpNetworkReplyPrivate::parseHeader(QByteArrayView header)
-{
-    parser.parseHeaders(header);
-}
-
-//  from src/network/access/qhttpnetworkreply.cpp, line 431, as _ZN24QHttpNetworkReplyPrivate11parseStatusE14QByteArrayView
-inline bool QHttpNetworkReplyPrivate::parseStatus(QByteArrayView status)
-{
-    return parser.parseStatus(status);
-}
-
-//  from src/network/access/qhttpnetworkheader.cpp, line 34, as _ZNK25QHttpNetworkHeaderPrivate11headerFieldE14QByteArrayViewRK10QByteArray
-inline QByteArray QHttpNetworkHeaderPrivate::headerField(QByteArrayView name, const QByteArray &defaultValue) const
-{
-    QList<QByteArray> allValues = headerFieldValues(name);
-    if (allValues.isEmpty())
-        return defaultValue;
-    else
-        return allValues.join(", ");
-}
-
-//  from src/network/access/qhttpnetworkheader.cpp, line 17, as _ZNK25QHttpNetworkHeaderPrivate13contentLengthEv
-inline qint64 QHttpNetworkHeaderPrivate::contentLength() const
-{
-    bool ok = false;
-    // We are not using the headerField() method here because servers might send us multiple content-length
-    // headers which is crap (see QTBUG-15311). Therefore just take the first content-length header field.
-    QByteArray value = parser.firstHeaderField("content-length");
-    qint64 length = value.toULongLong(&ok);
-    if (ok)
-        return length;
-    return -1; // the header field is not set
-}
-
-//  from src/network/access/qhttpnetworkheader.cpp, line 43, as _ZNK25QHttpNetworkHeaderPrivate17headerFieldValuesE14QByteArrayView
-inline QList<QByteArray> QHttpNetworkHeaderPrivate::headerFieldValues(QByteArrayView name) const
-{
-    return parser.headerFieldValues(name);
-}
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 28, as _ZN17QHttpSocketEngineD1Ev
-#if !defined(QT_NO_NETWORKPROXY)
-inline QHttpSocketEngine::~QHttpSocketEngine()
-{
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 32, as _ZN17QHttpSocketEngine10initializeEN15QAbstractSocket10SocketTypeENS0_20NetworkLayerProtocolE
-#if !defined(QT_NO_NETWORKPROXY)
-inline bool QHttpSocketEngine::initialize(QAbstractSocket::SocketType type, QAbstractSocket::NetworkLayerProtocol protocol)
-{
-    Q_D(QHttpSocketEngine);
-    if (type != QAbstractSocket::TcpSocket)
-        return false;
-
-    setProtocol(protocol);
-    setSocketType(type);
-    d->socket = new QTcpSocket(this);
-    d->reply = new QHttpNetworkReply(QUrl(), this);
-
-    // Explicitly disable proxying on the proxy socket itself to avoid
-    // unwanted recursion.
-    d->socket->setProxy(QNetworkProxy::NoProxy);
-
-    // Intercept all the signals.
-    connect(d->socket, SIGNAL(connected()),
-            this, SLOT(slotSocketConnected()),
-            Qt::DirectConnection);
-    connect(d->socket, SIGNAL(disconnected()),
-            this, SLOT(slotSocketDisconnected()),
-            Qt::DirectConnection);
-    connect(d->socket, SIGNAL(readyRead()),
-            this, SLOT(slotSocketReadNotification()),
-            Qt::DirectConnection);
-    connect(d->socket, SIGNAL(bytesWritten(qint64)),
-            this, SLOT(slotSocketBytesWritten()),
-            Qt::DirectConnection);
-    connect(d->socket, SIGNAL(errorOccurred(QAbstractSocket::SocketError)),
-            this, SLOT(slotSocketError(QAbstractSocket::SocketError)),
-            Qt::DirectConnection);
-    connect(d->socket, SIGNAL(stateChanged(QAbstractSocket::SocketState)),
-            this, SLOT(slotSocketStateChanged(QAbstractSocket::SocketState)),
-            Qt::DirectConnection);
-
-    return true;
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 70, as _ZN17QHttpSocketEngine10initializeExN15QAbstractSocket11SocketStateE
-#if !defined(QT_NO_NETWORKPROXY)
-inline bool QHttpSocketEngine::initialize(qintptr, QAbstractSocket::SocketState)
-{
-    return false;
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 75, as _ZN17QHttpSocketEngine8setProxyERK13QNetworkProxy
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QHttpSocketEngine::setProxy(const QNetworkProxy &proxy)
-{
-    Q_D(QHttpSocketEngine);
-    d->proxy = proxy;
-    QString user = proxy.user();
-    if (!user.isEmpty())
-        d->authenticator.setUser(user);
-    QString password = proxy.password();
-    if (!password.isEmpty())
-        d->authenticator.setPassword(password);
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
 //  from src/network/socket/qhttpsocketengine.cpp, line 87, as _ZNK17QHttpSocketEngine16socketDescriptorEv
 #if !defined(QT_NO_NETWORKPROXY)
 inline qintptr QHttpSocketEngine::socketDescriptor() const
@@ -370,6 +402,37 @@ inline bool QHttpSocketEngine::connectToHostByName(const QString &hostname, quin
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
+//  from src/network/socket/qhttpsocketengine.cpp, line 153, as _ZN17QHttpSocketEngine4bindERK12QHostAddresst
+#if !defined(QT_NO_NETWORKPROXY)
+inline bool QHttpSocketEngine::bind(const QHostAddress &, quint16)
+{
+    qWarning("Operation is not supported");
+    setError(QAbstractSocket::UnsupportedSocketOperationError, "Unsupported socket operation"_L1);
+    return false;
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  from src/network/socket/qhttpsocketengine.cpp, line 160, as _ZN17QHttpSocketEngine6listenEi
+#if !defined(QT_NO_NETWORKPROXY)
+inline bool QHttpSocketEngine::listen(int backlog)
+{
+    Q_UNUSED(backlog);
+    qWarning("Operation is not supported");
+    setError(QAbstractSocket::UnsupportedSocketOperationError, "Unsupported socket operation"_L1);
+    return false;
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  from src/network/socket/qhttpsocketengine.cpp, line 168, as _ZN17QHttpSocketEngine6acceptEv
+#if !defined(QT_NO_NETWORKPROXY)
+inline qintptr QHttpSocketEngine::accept()
+{
+    qWarning("Operation is not supported");
+    setError(QAbstractSocket::UnsupportedSocketOperationError, "Unsupported socket operation"_L1);
+    return -1;
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
 //  from src/network/socket/qhttpsocketengine.cpp, line 175, as _ZN17QHttpSocketEngine5closeEv
 #if !defined(QT_NO_NETWORKPROXY)
 inline void QHttpSocketEngine::close()
@@ -392,13 +455,59 @@ inline qint64 QHttpSocketEngine::bytesAvailable() const
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
-//  from src/network/socket/qhttpsocketengine.cpp, line 213, as _ZN17QHttpSocketEngine5writeEPKcx
+//  from src/network/socket/qhttpsocketengine.cpp, line 191, as _ZN17QHttpSocketEngine4readEPcx
 #if !defined(QT_NO_NETWORKPROXY)
-inline qint64 QHttpSocketEngine::write(const char *data, qint64 len)
+inline qint64 QHttpSocketEngine::read(char *data, qint64 maxlen)
 {
     Q_D(QHttpSocketEngine);
-    return d->socket->write(data, len);
+    qint64 bytesRead = d->socket->read(data, maxlen);
+
+    if (d->socket->state() == QAbstractSocket::UnconnectedState
+        && d->socket->bytesAvailable() == 0) {
+        emitReadNotification();
+    }
+
+    if (bytesRead == -1) {
+        // If nothing has been read so far, and the direct socket read
+        // failed, return the socket's error. Otherwise, fall through and
+        // return as much as we read so far.
+        close();
+        setError(QAbstractSocket::RemoteHostClosedError, "Remote host closed"_L1);
+        setState(QAbstractSocket::UnconnectedState);
+        return -1;
+    }
+    return bytesRead;
 }
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  from src/network/socket/qhttpsocketengine.cpp, line 221, as _ZN17QHttpSocketEngine18joinMulticastGroupERK12QHostAddressRK17QNetworkInterface
+#if !defined(QT_NO_NETWORKPROXY)
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+inline bool QHttpSocketEngine::joinMulticastGroup(const QHostAddress &,
+                                           const QNetworkInterface &)
+{
+    qWarning("Operation is not supported");
+    setError(QAbstractSocket::UnsupportedSocketOperationError, "Unsupported socket operation"_L1);
+    return false;
+}
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  from src/network/socket/qhttpsocketengine.cpp, line 229, as _ZN17QHttpSocketEngine19leaveMulticastGroupERK12QHostAddressRK17QNetworkInterface
+#if !defined(QT_NO_NETWORKPROXY)
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+inline bool QHttpSocketEngine::leaveMulticastGroup(const QHostAddress &,
+                                            const QNetworkInterface &)
+{
+    qWarning("Operation is not supported");
+    setError(QAbstractSocket::UnsupportedSocketOperationError, "Unsupported socket operation"_L1);
+    return false;
+}
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
 //  from src/network/socket/qhttpsocketengine.cpp, line 237, as _ZNK17QHttpSocketEngine18multicastInterfaceEv
@@ -408,6 +517,20 @@ inline qint64 QHttpSocketEngine::write(const char *data, qint64 len)
 inline QNetworkInterface QHttpSocketEngine::multicastInterface() const
 {
     return QNetworkInterface();
+}
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  from src/network/socket/qhttpsocketengine.cpp, line 242, as _ZN17QHttpSocketEngine21setMulticastInterfaceERK17QNetworkInterface
+#if !defined(QT_NO_NETWORKPROXY)
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+inline bool QHttpSocketEngine::setMulticastInterface(const QNetworkInterface &)
+{
+    qWarning("Operation is not supported");
+    setError(QAbstractSocket::UnsupportedSocketOperationError, "Unsupported socket operation"_L1);
+    return false;
 }
 #endif  // !defined(QT_NO_NETWORKINTERFACE)
 #endif  // !defined(QT_NO_UDPSOCKET)
@@ -433,6 +556,16 @@ inline qint64 QHttpSocketEngine::pendingDatagramSize() const
     return -1;
 }
 #endif  // !defined(QT_NO_UDPSOCKET)
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  from src/network/socket/qhttpsocketengine.cpp, line 263, as _ZN17QHttpSocketEngine12readDatagramEPcxP15QIpPacketHeader6QFlagsIN21QAbstractSocketEngine18PacketHeaderOptionEE
+#if !defined(QT_NO_NETWORKPROXY)
+inline qint64 QHttpSocketEngine::readDatagram(char *, qint64, QIpPacketHeader *, PacketHeaderOptions)
+{
+    qWarning("Operation is not supported");
+    setError(QAbstractSocket::UnsupportedSocketOperationError, "Unsupported socket operation"_L1);
+    return -1;
+}
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
 //  from src/network/socket/qhttpsocketengine.cpp, line 277, as _ZNK17QHttpSocketEngine12bytesToWriteEv
@@ -478,110 +611,6 @@ inline bool QHttpSocketEngine::setOption(SocketOption option, int value)
         return true;
     }
     return false;
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 314, as _ZN17QHttpSocketEngine11waitForReadE14QDeadlineTimerPb
-#if !defined(QT_NO_NETWORKPROXY)
-inline bool QHttpSocketEngine::waitForRead(QDeadlineTimer deadline, bool *timedOut)
-{
-    Q_D(const QHttpSocketEngine);
-
-    if (!d->socket || d->socket->state() == QAbstractSocket::UnconnectedState)
-        return false;
-
-    // Wait for more data if nothing is available.
-    if (!d->socket->bytesAvailable()) {
-        if (!d->socket->waitForReadyRead(deadline.remainingTime())) {
-            if (d->socket->state() == QAbstractSocket::UnconnectedState)
-                return true;
-            setError(d->socket->error(), d->socket->errorString());
-            if (timedOut && d->socket->error() == QAbstractSocket::SocketTimeoutError)
-                *timedOut = true;
-            return false;
-        }
-    }
-
-    waitForProtocolHandshake(deadline);
-
-    // Report any error that may occur.
-    if (d->state != Connected) {
-        setError(d->socket->error(), d->socket->errorString());
-        if (timedOut && d->socket->error() == QAbstractSocket::SocketTimeoutError)
-            *timedOut = true;
-        return false;
-    }
-    return true;
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 345, as _ZN17QHttpSocketEngine12waitForWriteE14QDeadlineTimerPb
-#if !defined(QT_NO_NETWORKPROXY)
-inline bool QHttpSocketEngine::waitForWrite(QDeadlineTimer deadline, bool *timedOut)
-{
-    Q_D(const QHttpSocketEngine);
-
-    // If we're connected, just forward the call.
-    if (d->state == Connected) {
-        if (d->socket->bytesToWrite()) {
-            if (!d->socket->waitForBytesWritten(deadline.remainingTime())) {
-                if (d->socket->error() == QAbstractSocket::SocketTimeoutError && timedOut)
-                    *timedOut = true;
-                return false;
-            }
-        }
-        return true;
-    }
-
-    waitForProtocolHandshake(deadline);
-
-    // Report any error that may occur.
-    if (d->state != Connected) {
-//        setError(d->socket->error(), d->socket->errorString());
-        if (timedOut && d->socket->error() == QAbstractSocket::SocketTimeoutError)
-            *timedOut = true;
-    }
-
-    return true;
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 373, as _ZN17QHttpSocketEngine18waitForReadOrWriteEPbS0_bb14QDeadlineTimerS0_
-#if !defined(QT_NO_NETWORKPROXY)
-inline bool QHttpSocketEngine::waitForReadOrWrite(bool *readyToRead, bool *readyToWrite,
-                                           bool checkRead, bool checkWrite,
-                                           QDeadlineTimer deadline, bool *timedOut)
-{
-    Q_UNUSED(checkRead);
-
-    if (!checkWrite) {
-        // Not interested in writing? Then we wait for read notifications.
-        bool canRead = waitForRead(deadline, timedOut);
-        if (readyToRead)
-            *readyToRead = canRead;
-        return canRead;
-    }
-
-    // Interested in writing? Then we wait for write notifications.
-    bool canWrite = waitForWrite(deadline, timedOut);
-    if (readyToWrite)
-        *readyToWrite = canWrite;
-    return canWrite;
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 394, as _ZNK17QHttpSocketEngine24waitForProtocolHandshakeE14QDeadlineTimer
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QHttpSocketEngine::waitForProtocolHandshake(QDeadlineTimer deadline) const
-{
-    Q_D(const QHttpSocketEngine);
-
-    // If we're not connected yet, wait until we are (and until bytes have
-    // been received, i.e. the socket has connected, we have sent the
-    // greeting, and then received the response), or until an error occurs.
-    while (d->state != Connected && d->socket->waitForReadyRead(deadline.remainingTime())) {
-        // Loop while the protocol handshake is taking place.
-    }
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
@@ -659,102 +688,89 @@ inline void QHttpSocketEngine::setExceptionNotificationEnabled(bool enable)
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
-//  from src/network/socket/qhttpsocketengine.cpp, line 462, as _ZN17QHttpSocketEngine19slotSocketConnectedEv
+//  from src/network/access/qhttpnetworkreply.cpp, line 498, as _ZN24QHttpNetworkReplyPrivate11parseHeaderE14QByteArrayView
+inline void QHttpNetworkReplyPrivate::parseHeader(QByteArrayView header)
+{
+    parser.parseHeaders(header);
+}
+
+//  from src/network/access/qhttpnetworkreply.cpp, line 431, as _ZN24QHttpNetworkReplyPrivate11parseStatusE14QByteArrayView
+inline bool QHttpNetworkReplyPrivate::parseStatus(QByteArrayView status)
+{
+    return parser.parseStatus(status);
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 34, as _ZNK25QHttpNetworkHeaderPrivate11headerFieldE14QByteArrayViewRK10QByteArray
+inline QByteArray QHttpNetworkHeaderPrivate::headerField(QByteArrayView name, const QByteArray &defaultValue) const
+{
+    QList<QByteArray> allValues = headerFieldValues(name);
+    if (allValues.isEmpty())
+        return defaultValue;
+    else
+        return allValues.join(", ");
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 17, as _ZNK25QHttpNetworkHeaderPrivate13contentLengthEv
+inline qint64 QHttpNetworkHeaderPrivate::contentLength() const
+{
+    bool ok = false;
+    // We are not using the headerField() method here because servers might send us multiple content-length
+    // headers which is crap (see QTBUG-15311). Therefore just take the first content-length header field.
+    QByteArray value = parser.firstHeaderField("content-length");
+    qint64 length = value.toULongLong(&ok);
+    if (ok)
+        return length;
+    return -1; // the header field is not set
+}
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 108, as _ZNK21QAbstractSocketEngine8setErrorEN15QAbstractSocket11SocketErrorERK7QString
+inline void QAbstractSocketEngine::setError(QAbstractSocket::SocketError error, const QString &errorString) const
+{
+    Q_D(const QAbstractSocketEngine);
+    d->socketError = error;
+    d->socketErrorString = errorString;
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 43, as _ZNK25QHttpNetworkHeaderPrivate17headerFieldValuesE14QByteArrayView
+inline QList<QByteArray> QHttpNetworkHeaderPrivate::headerFieldValues(QByteArrayView name) const
+{
+    return parser.headerFieldValues(name);
+}
+
+//  from src/network/socket/qhttpsocketengine.cpp, line 28, as _ZN17QHttpSocketEngineD1Ev
 #if !defined(QT_NO_NETWORKPROXY)
-inline void QHttpSocketEngine::slotSocketConnected()
+inline QHttpSocketEngine::~QHttpSocketEngine()
+{
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  from src/network/socket/qhttpsocketengine.cpp, line 75, as _ZN17QHttpSocketEngine8setProxyERK13QNetworkProxy
+#if !defined(QT_NO_NETWORKPROXY)
+inline void QHttpSocketEngine::setProxy(const QNetworkProxy &proxy)
 {
     Q_D(QHttpSocketEngine);
+    d->proxy = proxy;
+    QString user = proxy.user();
+    if (!user.isEmpty())
+        d->authenticator.setUser(user);
+    QString password = proxy.password();
+    if (!password.isEmpty())
+        d->authenticator.setPassword(password);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
 
-    // Send the greeting.
-    const char method[] = "CONNECT";
-    QByteArray peerAddress = d->peerName.isEmpty() ?
-                             d->peerAddress.toString().toLatin1() :
-                             QUrl::toAce(d->peerName);
-    QByteArray path = peerAddress + ':' + QByteArray::number(d->peerPort);
-    QByteArray data = method;
-    data += ' ';
-    data += path;
-    data += " HTTP/1.1\r\n";
-    data += "Proxy-Connection: keep-alive\r\n";
-    data += "Host: " + peerAddress + "\r\n";
-    const auto headers = d->proxy.headers();
-    if (!headers.contains(QHttpHeaders::WellKnownHeader::UserAgent))
-        data += "User-Agent: Mozilla/5.0\r\n";
-    for (qsizetype i = 0; i < headers.size(); ++i) {
-        const auto name = headers.nameAt(i);
-        data += QByteArrayView(name.data(), name.size()) + ": "
-                + headers.valueAt(i) + "\r\n";
+//  from src/network/socket/qhttpsocketengine.cpp, line 394, as _ZNK17QHttpSocketEngine24waitForProtocolHandshakeE14QDeadlineTimer
+#if !defined(QT_NO_NETWORKPROXY)
+inline void QHttpSocketEngine::waitForProtocolHandshake(QDeadlineTimer deadline) const
+{
+    Q_D(const QHttpSocketEngine);
+
+    // If we're not connected yet, wait until we are (and until bytes have
+    // been received, i.e. the socket has connected, we have sent the
+    // greeting, and then received the response), or until an error occurs.
+    while (d->state != Connected && d->socket->waitForReadyRead(deadline.remainingTime())) {
+        // Loop while the protocol handshake is taking place.
     }
-    QAuthenticatorPrivate *priv = QAuthenticatorPrivate::getPrivate(d->authenticator);
-    //qDebug() << "slotSocketConnected: priv=" << priv << (priv ? (int)priv->method : -1);
-    if (priv && priv->method != QAuthenticatorPrivate::None) {
-        d->credentialsSent = true;
-        data += "Proxy-Authorization: " + priv->calculateResponse(method, path, d->proxy.hostName());
-        data += "\r\n";
-    }
-    data += "\r\n";
-//     qDebug() << ">>>>>>>> sending request" << this;
-//     qDebug() << data;
-//     qDebug(">>>>>>>");
-    d->socket->write(data);
-    d->state = ConnectSent;
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 501, as _ZN17QHttpSocketEngine22slotSocketDisconnectedEv
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QHttpSocketEngine::slotSocketDisconnected()
-{
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 701, as _ZN17QHttpSocketEngine22slotSocketBytesWrittenEv
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QHttpSocketEngine::slotSocketBytesWritten()
-{
-    Q_D(QHttpSocketEngine);
-    if (d->state == Connected && d->writeNotificationEnabled)
-        emitWriteNotification();
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 740, as _ZN17QHttpSocketEngine22slotSocketStateChangedEN15QAbstractSocket11SocketStateE
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QHttpSocketEngine::slotSocketStateChanged(QAbstractSocket::SocketState state)
-{
-    Q_UNUSED(state);
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 745, as _ZN17QHttpSocketEngine27emitPendingReadNotificationEv
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QHttpSocketEngine::emitPendingReadNotification()
-{
-    Q_D(QHttpSocketEngine);
-    d->readNotificationPending = false;
-    if (d->readNotificationEnabled)
-        readNotification();
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 753, as _ZN17QHttpSocketEngine28emitPendingWriteNotificationEv
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QHttpSocketEngine::emitPendingWriteNotification()
-{
-    Q_D(QHttpSocketEngine);
-    d->writeNotificationPending = false;
-    if (d->writeNotificationEnabled)
-        writeNotification();
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from src/network/socket/qhttpsocketengine.cpp, line 761, as _ZN17QHttpSocketEngine33emitPendingConnectionNotificationEv
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QHttpSocketEngine::emitPendingConnectionNotification()
-{
-    Q_D(QHttpSocketEngine);
-    d->connectionNotificationPending = false;
-    connectionNotification();
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
@@ -892,15 +908,11 @@ typedef void (*CuteQHttpSocketEngineCall9)(const void *, int *);
 typedef qint64 (*CuteQHttpSocketEngineCall10)(const void *, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
-#if !defined(QT_NO_UDPSOCKET)
-#if !defined(QT_NO_NETWORKINTERFACE)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-typedef bool (*CuteQHttpSocketEngineCall11)(const void *, const QHostAddress *, const QNetworkInterface *, int *);
+typedef qint64 (*CuteQHttpSocketEngineCall11)(const void *, char *, qint64, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
-#endif  // !defined(QT_NO_NETWORKINTERFACE)
-#endif  // !defined(QT_NO_UDPSOCKET)
 #if !defined(QT_NO_UDPSOCKET)
 #if !defined(QT_NO_NETWORKINTERFACE)
 #if QT_CONFIG(http)
@@ -914,7 +926,7 @@ typedef bool (*CuteQHttpSocketEngineCall12)(const void *, const QHostAddress *, 
 #if !defined(QT_NO_NETWORKINTERFACE)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-typedef const QNetworkInterface * (*CuteQHttpSocketEngineCall13)(const void *, int *);
+typedef bool (*CuteQHttpSocketEngineCall13)(const void *, const QHostAddress *, const QNetworkInterface *, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 #endif  // !defined(QT_NO_NETWORKINTERFACE)
@@ -923,7 +935,16 @@ typedef const QNetworkInterface * (*CuteQHttpSocketEngineCall13)(const void *, i
 #if !defined(QT_NO_NETWORKINTERFACE)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-typedef bool (*CuteQHttpSocketEngineCall14)(const void *, const QNetworkInterface *, int *);
+typedef const QNetworkInterface * (*CuteQHttpSocketEngineCall14)(const void *, int *);
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+#if QT_CONFIG(http)
+#if !defined(QT_NO_NETWORKPROXY)
+typedef bool (*CuteQHttpSocketEngineCall15)(const void *, const QNetworkInterface *, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 #endif  // !defined(QT_NO_NETWORKINTERFACE)
@@ -931,40 +952,35 @@ typedef bool (*CuteQHttpSocketEngineCall14)(const void *, const QNetworkInterfac
 #if !defined(QT_NO_UDPSOCKET)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-typedef bool (*CuteQHttpSocketEngineCall15)(const void *, int *);
+typedef bool (*CuteQHttpSocketEngineCall16)(const void *, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 #endif  // !defined(QT_NO_UDPSOCKET)
 #if !defined(QT_NO_UDPSOCKET)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-typedef qint64 (*CuteQHttpSocketEngineCall16)(const void *, int *);
+typedef qint64 (*CuteQHttpSocketEngineCall17)(const void *, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 #endif  // !defined(QT_NO_UDPSOCKET)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-typedef qint64 (*CuteQHttpSocketEngineCall17)(const void *, int *);
+typedef qint64 (*CuteQHttpSocketEngineCall18)(const void *, char *, qint64, QIpPacketHeader *, int, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-typedef int (*CuteQHttpSocketEngineCall18)(const void *, int, int *);
+typedef qint64 (*CuteQHttpSocketEngineCall19)(const void *, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-typedef bool (*CuteQHttpSocketEngineCall19)(const void *, int, int, int *);
+typedef int (*CuteQHttpSocketEngineCall20)(const void *, int, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-typedef bool (*CuteQHttpSocketEngineCall20)(const void *, int *);
-#endif  // !defined(QT_NO_NETWORKPROXY)
-#endif  // QT_CONFIG(http)
-#if QT_CONFIG(http)
-#if !defined(QT_NO_NETWORKPROXY)
-typedef void (*CuteQHttpSocketEngineCall21)(const void *, bool, int *);
+typedef bool (*CuteQHttpSocketEngineCall21)(const void *, int, int, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
@@ -987,31 +1003,41 @@ typedef bool (*CuteQHttpSocketEngineCall24)(const void *, int *);
 typedef void (*CuteQHttpSocketEngineCall25)(const void *, bool, int *);
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
+#if QT_CONFIG(http)
+#if !defined(QT_NO_NETWORKPROXY)
+typedef bool (*CuteQHttpSocketEngineCall26)(const void *, int *);
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
+#if QT_CONFIG(http)
+#if !defined(QT_NO_NETWORKPROXY)
+typedef void (*CuteQHttpSocketEngineCall27)(const void *, bool, int *);
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQHttpSocketEngineCall26)(const void *, QEvent *, int *);
+typedef bool (*CuteQHttpSocketEngineCall28)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQHttpSocketEngineCall27)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQHttpSocketEngineCall29)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpSocketEngineCall28)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQHttpSocketEngineCall30)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpSocketEngineCall29)(const void *, QChildEvent *, int *);
+typedef void (*CuteQHttpSocketEngineCall31)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpSocketEngineCall30)(const void *, QEvent *, int *);
+typedef void (*CuteQHttpSocketEngineCall32)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpSocketEngineCall31)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQHttpSocketEngineCall33)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpSocketEngineCall32)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQHttpSocketEngineCall34)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQHttpSocketEngine : public QHttpSocketEngine {
 public:
   using QHttpSocketEngine::QHttpSocketEngine;
-  void *taken[33] = {};
+  void *taken[35] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(http)
@@ -1102,23 +1128,19 @@ public:
     }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
-#if !defined(QT_NO_UDPSOCKET)
-#if !defined(QT_NO_NETWORKINTERFACE)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine18joinMulticastGroupERK12QHostAddressRK17QNetworkInterface")) {
+    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine4readEPcx")) {
       taken[11] = call;
       return true;
     }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
-#endif  // !defined(QT_NO_NETWORKINTERFACE)
-#endif  // !defined(QT_NO_UDPSOCKET)
 #if !defined(QT_NO_UDPSOCKET)
 #if !defined(QT_NO_NETWORKINTERFACE)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine19leaveMulticastGroupERK12QHostAddressRK17QNetworkInterface")) {
+    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine18joinMulticastGroupERK12QHostAddressRK17QNetworkInterface")) {
       taken[12] = call;
       return true;
     }
@@ -1130,7 +1152,7 @@ public:
 #if !defined(QT_NO_NETWORKINTERFACE)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine18multicastInterfaceEv")) {
+    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine19leaveMulticastGroupERK12QHostAddressRK17QNetworkInterface")) {
       taken[13] = call;
       return true;
     }
@@ -1142,8 +1164,20 @@ public:
 #if !defined(QT_NO_NETWORKINTERFACE)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine21setMulticastInterfaceERK17QNetworkInterface")) {
+    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine18multicastInterfaceEv")) {
       taken[14] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+#if QT_CONFIG(http)
+#if !defined(QT_NO_NETWORKPROXY)
+    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine21setMulticastInterfaceERK17QNetworkInterface")) {
+      taken[15] = call;
       return true;
     }
 #endif  // !defined(QT_NO_NETWORKPROXY)
@@ -1154,7 +1188,7 @@ public:
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
     if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine19hasPendingDatagramsEv")) {
-      taken[15] = call;
+      taken[16] = call;
       return true;
     }
 #endif  // !defined(QT_NO_NETWORKPROXY)
@@ -1164,7 +1198,7 @@ public:
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
     if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine19pendingDatagramSizeEv")) {
-      taken[16] = call;
+      taken[17] = call;
       return true;
     }
 #endif  // !defined(QT_NO_NETWORKPROXY)
@@ -1172,15 +1206,7 @@ public:
 #endif  // !defined(QT_NO_UDPSOCKET)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine12bytesToWriteEv")) {
-      taken[17] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_NETWORKPROXY)
-#endif  // QT_CONFIG(http)
-#if QT_CONFIG(http)
-#if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine6optionENS_12SocketOptionE")) {
+    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine12readDatagramEPcxP15QIpPacketHeader6QFlagsINS_18PacketHeaderOptionEE")) {
       taken[18] = call;
       return true;
     }
@@ -1188,7 +1214,7 @@ public:
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine9setOptionENS_12SocketOptionEi")) {
+    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine12bytesToWriteEv")) {
       taken[19] = call;
       return true;
     }
@@ -1196,7 +1222,7 @@ public:
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine25isReadNotificationEnabledEv")) {
+    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine6optionENS_12SocketOptionE")) {
       taken[20] = call;
       return true;
     }
@@ -1204,7 +1230,7 @@ public:
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine26setReadNotificationEnabledEb")) {
+    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine9setOptionENS_12SocketOptionEi")) {
       taken[21] = call;
       return true;
     }
@@ -1212,7 +1238,7 @@ public:
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine26isWriteNotificationEnabledEv")) {
+    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine25isReadNotificationEnabledEv")) {
       taken[22] = call;
       return true;
     }
@@ -1220,7 +1246,7 @@ public:
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine27setWriteNotificationEnabledEb")) {
+    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine26setReadNotificationEnabledEb")) {
       taken[23] = call;
       return true;
     }
@@ -1228,7 +1254,7 @@ public:
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine30isExceptionNotificationEnabledEv")) {
+    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine26isWriteNotificationEnabledEv")) {
       taken[24] = call;
       return true;
     }
@@ -1236,51 +1262,67 @@ public:
 #endif  // QT_CONFIG(http)
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
-    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine31setExceptionNotificationEnabledEb")) {
+    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine27setWriteNotificationEnabledEb")) {
       taken[25] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
+#if QT_CONFIG(http)
+#if !defined(QT_NO_NETWORKPROXY)
+    if (!std::strcmp(key, "_ZNK21QAbstractSocketEngine30isExceptionNotificationEnabledEv")) {
+      taken[26] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
+#if QT_CONFIG(http)
+#if !defined(QT_NO_NETWORKPROXY)
+    if (!std::strcmp(key, "_ZN21QAbstractSocketEngine31setExceptionNotificationEnabledEb")) {
+      taken[27] = call;
       return true;
     }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[26] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[27] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[28] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[29] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[30] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[31] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[32] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[33] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[34] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -1461,6 +1503,21 @@ public:
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // QT_CONFIG(http)
 
+#if QT_CONFIG(http)
+#if !defined(QT_NO_NETWORKPROXY)
+  //  qint64 QHttpSocketEngine::read(char *data, qint64 maxlen)
+  qint64 read(char *data, qint64 maxlen) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQHttpSocketEngineCall11 call = reinterpret_cast<CuteQHttpSocketEngineCall11>(taken[11]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QHttpSocketEngine::read(data, maxlen);
+  }
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
+
 #if !defined(QT_NO_UDPSOCKET)
 #if !defined(QT_NO_NETWORKINTERFACE)
 #if QT_CONFIG(http)
@@ -1470,9 +1527,9 @@ public:
   bool joinMulticastGroup(
       const QHostAddress &groupAddress,
       const QNetworkInterface &iface) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall11 call = reinterpret_cast<CuteQHttpSocketEngineCall11>(taken[11]);
+      CuteQHttpSocketEngineCall12 call = reinterpret_cast<CuteQHttpSocketEngineCall12>(taken[12]);
       bool given = call(this, &groupAddress, &iface, &handled);
       if (handled) return given;
     }
@@ -1492,9 +1549,9 @@ public:
   bool leaveMulticastGroup(
       const QHostAddress &groupAddress,
       const QNetworkInterface &iface) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall12 call = reinterpret_cast<CuteQHttpSocketEngineCall12>(taken[12]);
+      CuteQHttpSocketEngineCall13 call = reinterpret_cast<CuteQHttpSocketEngineCall13>(taken[13]);
       bool given = call(this, &groupAddress, &iface, &handled);
       if (handled) return given;
     }
@@ -1511,9 +1568,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  QNetworkInterface QHttpSocketEngine::multicastInterface() const
   QNetworkInterface multicastInterface() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall13 call = reinterpret_cast<CuteQHttpSocketEngineCall13>(taken[13]);
+      CuteQHttpSocketEngineCall14 call = reinterpret_cast<CuteQHttpSocketEngineCall14>(taken[14]);
       const QNetworkInterface * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1531,9 +1588,9 @@ public:
   //  bool QHttpSocketEngine::setMulticastInterface(const QNetworkInterface
   //      &iface)
   bool setMulticastInterface(const QNetworkInterface &iface) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall14 call = reinterpret_cast<CuteQHttpSocketEngineCall14>(taken[14]);
+      CuteQHttpSocketEngineCall15 call = reinterpret_cast<CuteQHttpSocketEngineCall15>(taken[15]);
       bool given = call(this, &iface, &handled);
       if (handled) return given;
     }
@@ -1549,9 +1606,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  bool QHttpSocketEngine::hasPendingDatagrams() const
   bool hasPendingDatagrams() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall15 call = reinterpret_cast<CuteQHttpSocketEngineCall15>(taken[15]);
+      CuteQHttpSocketEngineCall16 call = reinterpret_cast<CuteQHttpSocketEngineCall16>(taken[16]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1566,9 +1623,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  qint64 QHttpSocketEngine::pendingDatagramSize() const
   qint64 pendingDatagramSize() const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall16 call = reinterpret_cast<CuteQHttpSocketEngineCall16>(taken[16]);
+      CuteQHttpSocketEngineCall17 call = reinterpret_cast<CuteQHttpSocketEngineCall17>(taken[17]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -1580,11 +1637,31 @@ public:
 
 #if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
+  //  qint64 QHttpSocketEngine::readDatagram(char *data, qint64 maxlen,
+  //      QIpPacketHeader *a2, PacketHeaderOptions a3)
+  qint64 readDatagram(
+      char *data,
+      qint64 maxlen,
+      QIpPacketHeader *a2,
+      QAbstractSocketEngine::PacketHeaderOptions a3) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQHttpSocketEngineCall18 call = reinterpret_cast<CuteQHttpSocketEngineCall18>(taken[18]);
+      qint64 given = call(this, data, maxlen, a2, static_cast<int>(a3.toInt()), &handled);
+      if (handled) return given;
+    }
+    return QHttpSocketEngine::readDatagram(data, maxlen, a2, a3);
+  }
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
+
+#if QT_CONFIG(http)
+#if !defined(QT_NO_NETWORKPROXY)
   //  qint64 QHttpSocketEngine::bytesToWrite() const
   qint64 bytesToWrite() const override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall17 call = reinterpret_cast<CuteQHttpSocketEngineCall17>(taken[17]);
+      CuteQHttpSocketEngineCall19 call = reinterpret_cast<CuteQHttpSocketEngineCall19>(taken[19]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -1597,9 +1674,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  int QHttpSocketEngine::option(SocketOption option) const
   int option(QAbstractSocketEngine::SocketOption option) const override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall18 call = reinterpret_cast<CuteQHttpSocketEngineCall18>(taken[18]);
+      CuteQHttpSocketEngineCall20 call = reinterpret_cast<CuteQHttpSocketEngineCall20>(taken[20]);
       int given = call(this, static_cast<int>(option), &handled);
       if (handled) return given;
     }
@@ -1614,9 +1691,9 @@ public:
   bool setOption(
       QAbstractSocketEngine::SocketOption option,
       int value) override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall19 call = reinterpret_cast<CuteQHttpSocketEngineCall19>(taken[19]);
+      CuteQHttpSocketEngineCall21 call = reinterpret_cast<CuteQHttpSocketEngineCall21>(taken[21]);
       bool given = call(this, static_cast<int>(option), value, &handled);
       if (handled) return given;
     }
@@ -1629,9 +1706,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  bool QHttpSocketEngine::isReadNotificationEnabled() const
   bool isReadNotificationEnabled() const override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall20 call = reinterpret_cast<CuteQHttpSocketEngineCall20>(taken[20]);
+      CuteQHttpSocketEngineCall22 call = reinterpret_cast<CuteQHttpSocketEngineCall22>(taken[22]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1644,9 +1721,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  void QHttpSocketEngine::setReadNotificationEnabled(bool enable)
   void setReadNotificationEnabled(bool enable) override {
-    if (taken[21]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall21 call = reinterpret_cast<CuteQHttpSocketEngineCall21>(taken[21]);
+      CuteQHttpSocketEngineCall23 call = reinterpret_cast<CuteQHttpSocketEngineCall23>(taken[23]);
       call(this, enable, &handled);
       if (handled) return;
     }
@@ -1659,9 +1736,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  bool QHttpSocketEngine::isWriteNotificationEnabled() const
   bool isWriteNotificationEnabled() const override {
-    if (taken[22]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall22 call = reinterpret_cast<CuteQHttpSocketEngineCall22>(taken[22]);
+      CuteQHttpSocketEngineCall24 call = reinterpret_cast<CuteQHttpSocketEngineCall24>(taken[24]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1674,9 +1751,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  void QHttpSocketEngine::setWriteNotificationEnabled(bool enable)
   void setWriteNotificationEnabled(bool enable) override {
-    if (taken[23]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall23 call = reinterpret_cast<CuteQHttpSocketEngineCall23>(taken[23]);
+      CuteQHttpSocketEngineCall25 call = reinterpret_cast<CuteQHttpSocketEngineCall25>(taken[25]);
       call(this, enable, &handled);
       if (handled) return;
     }
@@ -1689,9 +1766,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  bool QHttpSocketEngine::isExceptionNotificationEnabled() const
   bool isExceptionNotificationEnabled() const override {
-    if (taken[24]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall24 call = reinterpret_cast<CuteQHttpSocketEngineCall24>(taken[24]);
+      CuteQHttpSocketEngineCall26 call = reinterpret_cast<CuteQHttpSocketEngineCall26>(taken[26]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1704,9 +1781,9 @@ public:
 #if !defined(QT_NO_NETWORKPROXY)
   //  void QHttpSocketEngine::setExceptionNotificationEnabled(bool enable)
   void setExceptionNotificationEnabled(bool enable) override {
-    if (taken[25]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall25 call = reinterpret_cast<CuteQHttpSocketEngineCall25>(taken[25]);
+      CuteQHttpSocketEngineCall27 call = reinterpret_cast<CuteQHttpSocketEngineCall27>(taken[27]);
       call(this, enable, &handled);
       if (handled) return;
     }
@@ -1718,9 +1795,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[26]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall26 call = reinterpret_cast<CuteQHttpSocketEngineCall26>(taken[26]);
+      CuteQHttpSocketEngineCall28 call = reinterpret_cast<CuteQHttpSocketEngineCall28>(taken[28]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -1731,9 +1808,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[27]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall27 call = reinterpret_cast<CuteQHttpSocketEngineCall27>(taken[27]);
+      CuteQHttpSocketEngineCall29 call = reinterpret_cast<CuteQHttpSocketEngineCall29>(taken[29]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -1744,9 +1821,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[28]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall28 call = reinterpret_cast<CuteQHttpSocketEngineCall28>(taken[28]);
+      CuteQHttpSocketEngineCall30 call = reinterpret_cast<CuteQHttpSocketEngineCall30>(taken[30]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1757,9 +1834,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[29]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall29 call = reinterpret_cast<CuteQHttpSocketEngineCall29>(taken[29]);
+      CuteQHttpSocketEngineCall31 call = reinterpret_cast<CuteQHttpSocketEngineCall31>(taken[31]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1770,9 +1847,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[30]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall30 call = reinterpret_cast<CuteQHttpSocketEngineCall30>(taken[30]);
+      CuteQHttpSocketEngineCall32 call = reinterpret_cast<CuteQHttpSocketEngineCall32>(taken[32]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1783,9 +1860,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[31]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall31 call = reinterpret_cast<CuteQHttpSocketEngineCall31>(taken[31]);
+      CuteQHttpSocketEngineCall33 call = reinterpret_cast<CuteQHttpSocketEngineCall33>(taken[33]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1796,9 +1873,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[32]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQHttpSocketEngineCall32 call = reinterpret_cast<CuteQHttpSocketEngineCall32>(taken[32]);
+      CuteQHttpSocketEngineCall34 call = reinterpret_cast<CuteQHttpSocketEngineCall34>(taken[34]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1812,6 +1889,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17QHttpSocketEngine10metaObjectEv(
     const QHttpSocketEngine *self) {
   return self->metaObject();
+}
+
+//  void *QHttpSocketEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QHttpSocketEngine11qt_metacastEPKc(
+    QHttpSocketEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHttpSocketEngine::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QHttpSocketEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHttpSocketEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QHttpSocketEngine::~QHttpSocketEngine()
@@ -1883,6 +1979,29 @@ bool ritual_ZN17QHttpSocketEngine19connectToHostByNameERK7QStringt(
   return self->connectToHostByName(*name, port);
 }
 
+//  bool QHttpSocketEngine::bind(const QHostAddress &address, quint16 port)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QHttpSocketEngine4bindERK12QHostAddresst(
+    QHttpSocketEngine *self,
+    const QHostAddress *address,
+    quint16 port) {
+  return self->bind(*address, port);
+}
+
+//  bool QHttpSocketEngine::listen(int backlog)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QHttpSocketEngine6listenEi(
+    QHttpSocketEngine *self,
+    int backlog) {
+  return self->listen(backlog);
+}
+
+//  qintptr QHttpSocketEngine::accept()
+extern "C" Q_DECL_EXPORT
+qintptr ritual_ZN17QHttpSocketEngine6acceptEv(QHttpSocketEngine *self) {
+  return self->accept();
+}
+
 //  void QHttpSocketEngine::close()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpSocketEngine5closeEv(QHttpSocketEngine *self) {
@@ -1896,6 +2015,15 @@ qint64 ritual_ZNK17QHttpSocketEngine14bytesAvailableEv(
   return self->bytesAvailable();
 }
 
+//  qint64 QHttpSocketEngine::read(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN17QHttpSocketEngine4readEPcx(
+    QHttpSocketEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->read(data, maxlen);
+}
+
 //  qint64 QHttpSocketEngine::write(const char *data, qint64 len)
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZN17QHttpSocketEngine5writeEPKcx(
@@ -1907,11 +2035,52 @@ qint64 ritual_ZN17QHttpSocketEngine5writeEPKcx(
 
 #if !defined(QT_NO_UDPSOCKET)
 #if !defined(QT_NO_NETWORKINTERFACE)
+//  bool QHttpSocketEngine::joinMulticastGroup(const QHostAddress
+//      &groupAddress, const QNetworkInterface &iface)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QHttpSocketEngine18joinMulticastGroupERK12QHostAddressRK17QNetworkInterface(
+    QHttpSocketEngine *self,
+    const QHostAddress *groupAddress,
+    const QNetworkInterface *iface) {
+  return self->joinMulticastGroup(*groupAddress, *iface);
+}
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+//  bool QHttpSocketEngine::leaveMulticastGroup(const QHostAddress
+//      &groupAddress, const QNetworkInterface &iface)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QHttpSocketEngine19leaveMulticastGroupERK12QHostAddressRK17QNetworkInterface(
+    QHttpSocketEngine *self,
+    const QHostAddress *groupAddress,
+    const QNetworkInterface *iface) {
+  return self->leaveMulticastGroup(*groupAddress, *iface);
+}
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
 //  QNetworkInterface QHttpSocketEngine::multicastInterface() const
 extern "C" Q_DECL_EXPORT
 QNetworkInterface *ritual_ZNK17QHttpSocketEngine18multicastInterfaceEv(
     const QHttpSocketEngine *self) {
   return new QNetworkInterface(self->multicastInterface());
+}
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+//  bool QHttpSocketEngine::setMulticastInterface(const QNetworkInterface
+//      &iface)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QHttpSocketEngine21setMulticastInterfaceERK17QNetworkInterface(
+    QHttpSocketEngine *self,
+    const QNetworkInterface *iface) {
+  return self->setMulticastInterface(*iface);
 }
 #endif  // !defined(QT_NO_NETWORKINTERFACE)
 #endif  // !defined(QT_NO_UDPSOCKET)
@@ -1933,6 +2102,33 @@ qint64 ritual_ZNK17QHttpSocketEngine19pendingDatagramSizeEv(
   return self->pendingDatagramSize();
 }
 #endif  // !defined(QT_NO_UDPSOCKET)
+
+//  qint64 QHttpSocketEngine::readDatagram(char *data, qint64 maxlen,
+//      QIpPacketHeader *a2, PacketHeaderOptions a3)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN17QHttpSocketEngine12readDatagramEPcxP15QIpPacketHeader6QFlagsIN21QAbstractSocketEngine18PacketHeaderOptionEE(
+    QHttpSocketEngine *self,
+    char *data,
+    qint64 maxlen,
+    QIpPacketHeader *a2,
+    int a3) {
+  return self->readDatagram(
+      data,
+      maxlen,
+      a2,
+      QFlags<QAbstractSocketEngine::PacketHeaderOption>::fromInt(a3));
+}
+
+//  qint64 QHttpSocketEngine::writeDatagram(const char *data, qint64 len,
+//      const QIpPacketHeader &a2)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN17QHttpSocketEngine13writeDatagramEPKcxRK15QIpPacketHeader(
+    QHttpSocketEngine *self,
+    const char *data,
+    qint64 len,
+    const QIpPacketHeader *a2) {
+  return self->writeDatagram(data, len, *a2);
+}
 
 //  qint64 QHttpSocketEngine::bytesToWrite() const
 extern "C" Q_DECL_EXPORT
@@ -2055,34 +2251,134 @@ void ritual_ZN17QHttpSocketEngine31setExceptionNotificationEnabledEb(
   self->setExceptionNotificationEnabled(enable);
 }
 
-#if !defined(QT_NO_NETWORKPROXY)
 //  void QHttpSocketEngine::slotSocketConnected()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpSocketEngine19slotSocketConnectedEv(
     QHttpSocketEngine *self) {
-  self->slotSocketConnected();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHttpSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "slotSocketConnected()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "slotSocketConnected()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_NETWORKPROXY)
 
-#if !defined(QT_NO_NETWORKPROXY)
 //  void QHttpSocketEngine::slotSocketDisconnected()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpSocketEngine22slotSocketDisconnectedEv(
     QHttpSocketEngine *self) {
-  self->slotSocketDisconnected();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHttpSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "slotSocketDisconnected()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "slotSocketDisconnected()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_NETWORKPROXY)
 
-#if !defined(QT_NO_NETWORKPROXY)
+//  void QHttpSocketEngine::slotSocketReadNotification()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpSocketEngine26slotSocketReadNotificationEv(
+    QHttpSocketEngine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHttpSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "slotSocketReadNotification()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "slotSocketReadNotification()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QHttpSocketEngine::slotSocketBytesWritten()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpSocketEngine22slotSocketBytesWrittenEv(
     QHttpSocketEngine *self) {
-  self->slotSocketBytesWritten();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHttpSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "slotSocketBytesWritten()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "slotSocketBytesWritten()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_NETWORKPROXY)
 
-#if !defined(QT_NO_NETWORKPROXY)
+//  void QHttpSocketEngine::slotSocketError(QAbstractSocket::SocketError
+//      error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpSocketEngine15slotSocketErrorEN15QAbstractSocket11SocketErrorE(
+    QHttpSocketEngine *self,
+    QAbstractSocket::SocketError error) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHttpSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "slotSocketError(QAbstractSocket::SocketError)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "slotSocketError(QAbstractSocket::SocketError)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&error)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void
 //      QHttpSocketEngine::slotSocketStateChanged(QAbstractSocket::SocketStat
 //      e state)
@@ -2090,36 +2386,102 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpSocketEngine22slotSocketStateChangedEN15QAbstractSocket11SocketStateE(
     QHttpSocketEngine *self,
     QAbstractSocket::SocketState state) {
-  self->slotSocketStateChanged(state);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHttpSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "slotSocketStateChanged(QAbstractSocket::SocketState)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "slotSocketStateChanged(QAbstractSocket::SocketState)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&state)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_NETWORKPROXY)
 
-#if !defined(QT_NO_NETWORKPROXY)
 //  void QHttpSocketEngine::emitPendingReadNotification()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpSocketEngine27emitPendingReadNotificationEv(
     QHttpSocketEngine *self) {
-  self->emitPendingReadNotification();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHttpSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "emitPendingReadNotification()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "emitPendingReadNotification()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_NETWORKPROXY)
 
-#if !defined(QT_NO_NETWORKPROXY)
 //  void QHttpSocketEngine::emitPendingWriteNotification()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpSocketEngine28emitPendingWriteNotificationEv(
     QHttpSocketEngine *self) {
-  self->emitPendingWriteNotification();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHttpSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "emitPendingWriteNotification()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "emitPendingWriteNotification()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_NETWORKPROXY)
 
-#if !defined(QT_NO_NETWORKPROXY)
 //  void QHttpSocketEngine::emitPendingConnectionNotification()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpSocketEngine33emitPendingConnectionNotificationEv(
     QHttpSocketEngine *self) {
-  self->emitPendingConnectionNotification();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QHttpSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "emitPendingConnectionNotification()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "emitPendingConnectionNotification()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_NETWORKPROXY)
 
 #if !defined(QT_NO_NETWORKPROXY)
 //  void QHttpSocketEngine::emitReadNotification()
@@ -2182,30 +2544,6 @@ bool ritual_take_QHttpSocketEngine(
 }
 
 #if !defined(QT_NO_NETWORKPROXY)
-//  bool QHttpSocketEngine::initialize(QAbstractSocket::SocketType type,
-//      QAbstractSocket::NetworkLayerProtocol protocol)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN17QHttpSocketEngine10initializeEN15QAbstractSocket10SocketTypeENS0_20NetworkLayerProtocolE(
-    QHttpSocketEngine *self,
-    QAbstractSocket::SocketType type,
-    QAbstractSocket::NetworkLayerProtocol protocol) {
-  return self->QHttpSocketEngine::initialize(type, protocol);
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-#if !defined(QT_NO_NETWORKPROXY)
-//  bool QHttpSocketEngine::initialize(qintptr socketDescriptor,
-//      QAbstractSocket::SocketState socketState)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN17QHttpSocketEngine10initializeExN15QAbstractSocket11SocketStateE(
-    QHttpSocketEngine *self,
-    qintptr socketDescriptor,
-    QAbstractSocket::SocketState socketState) {
-  return self->QHttpSocketEngine::initialize(socketDescriptor, socketState);
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-#if !defined(QT_NO_NETWORKPROXY)
 //  qintptr QHttpSocketEngine::socketDescriptor() const
 extern "C" Q_DECL_EXPORT
 qintptr ritual_own_ZNK17QHttpSocketEngine16socketDescriptorEv(
@@ -2220,6 +2558,35 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK17QHttpSocketEngine7isValidEv(
     const QHttpSocketEngine *self) {
   return self->QHttpSocketEngine::isValid();
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+#if !defined(QT_NO_NETWORKPROXY)
+//  bool QHttpSocketEngine::bind(const QHostAddress &address, quint16 port)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN17QHttpSocketEngine4bindERK12QHostAddresst(
+    QHttpSocketEngine *self,
+    const QHostAddress *address,
+    quint16 port) {
+  return self->QHttpSocketEngine::bind(*address, port);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+#if !defined(QT_NO_NETWORKPROXY)
+//  bool QHttpSocketEngine::listen(int backlog)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN17QHttpSocketEngine6listenEi(
+    QHttpSocketEngine *self,
+    int backlog) {
+  return self->QHttpSocketEngine::listen(backlog);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+#if !defined(QT_NO_NETWORKPROXY)
+//  qintptr QHttpSocketEngine::accept()
+extern "C" Q_DECL_EXPORT
+qintptr ritual_own_ZN17QHttpSocketEngine6acceptEv(QHttpSocketEngine *self) {
+  return self->QHttpSocketEngine::accept();
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
@@ -2240,6 +2607,49 @@ qint64 ritual_own_ZNK17QHttpSocketEngine14bytesAvailableEv(
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
+#if !defined(QT_NO_NETWORKPROXY)
+//  qint64 QHttpSocketEngine::read(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN17QHttpSocketEngine4readEPcx(
+    QHttpSocketEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->QHttpSocketEngine::read(data, maxlen);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+#if !defined(QT_NO_NETWORKPROXY)
+//  bool QHttpSocketEngine::joinMulticastGroup(const QHostAddress
+//      &groupAddress, const QNetworkInterface &iface)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN17QHttpSocketEngine18joinMulticastGroupERK12QHostAddressRK17QNetworkInterface(
+    QHttpSocketEngine *self,
+    const QHostAddress *groupAddress,
+    const QNetworkInterface *iface) {
+  return self->QHttpSocketEngine::joinMulticastGroup(*groupAddress, *iface);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+#if !defined(QT_NO_NETWORKPROXY)
+//  bool QHttpSocketEngine::leaveMulticastGroup(const QHostAddress
+//      &groupAddress, const QNetworkInterface &iface)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN17QHttpSocketEngine19leaveMulticastGroupERK12QHostAddressRK17QNetworkInterface(
+    QHttpSocketEngine *self,
+    const QHostAddress *groupAddress,
+    const QNetworkInterface *iface) {
+  return self->QHttpSocketEngine::leaveMulticastGroup(*groupAddress, *iface);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+
 #if !defined(QT_NO_UDPSOCKET)
 #if !defined(QT_NO_NETWORKINTERFACE)
 #if !defined(QT_NO_NETWORKPROXY)
@@ -2249,6 +2659,21 @@ QNetworkInterface *ritual_own_ZNK17QHttpSocketEngine18multicastInterfaceEv(
     const QHttpSocketEngine *self) {
   return new QNetworkInterface(
       self->QHttpSocketEngine::multicastInterface());
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
+#endif  // !defined(QT_NO_UDPSOCKET)
+
+#if !defined(QT_NO_UDPSOCKET)
+#if !defined(QT_NO_NETWORKINTERFACE)
+#if !defined(QT_NO_NETWORKPROXY)
+//  bool QHttpSocketEngine::setMulticastInterface(const QNetworkInterface
+//      &iface)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN17QHttpSocketEngine21setMulticastInterfaceERK17QNetworkInterface(
+    QHttpSocketEngine *self,
+    const QNetworkInterface *iface) {
+  return self->QHttpSocketEngine::setMulticastInterface(*iface);
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // !defined(QT_NO_NETWORKINTERFACE)
@@ -2275,6 +2700,24 @@ qint64 ritual_own_ZNK17QHttpSocketEngine19pendingDatagramSizeEv(
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 #endif  // !defined(QT_NO_UDPSOCKET)
+
+#if !defined(QT_NO_NETWORKPROXY)
+//  qint64 QHttpSocketEngine::readDatagram(char *data, qint64 maxlen,
+//      QIpPacketHeader *a2, PacketHeaderOptions a3)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN17QHttpSocketEngine12readDatagramEPcxP15QIpPacketHeader6QFlagsIN21QAbstractSocketEngine18PacketHeaderOptionEE(
+    QHttpSocketEngine *self,
+    char *data,
+    qint64 maxlen,
+    QIpPacketHeader *a2,
+    int a3) {
+  return self->QHttpSocketEngine::readDatagram(
+      data,
+      maxlen,
+      a2,
+      QFlags<QAbstractSocketEngine::PacketHeaderOption>::fromInt(a3));
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
 
 #if !defined(QT_NO_NETWORKPROXY)
 //  qint64 QHttpSocketEngine::bytesToWrite() const

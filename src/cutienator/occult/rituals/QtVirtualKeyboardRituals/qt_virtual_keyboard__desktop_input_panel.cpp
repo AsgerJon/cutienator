@@ -1,6 +1,8 @@
-//  Written by dev_tooling.RitualGenerator from the records of
+//  Written by hand on 2026-11-25 from
 //  QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/desktopinputpanel_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Left out: nothing.
 #include <QtVirtualKeyboard/qvirtualkeyboard_global.h>
 #include <QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/qvirtualkeyboard_global_p.h>
 #if QT_CONFIG(vkb_desktop)
@@ -294,6 +296,92 @@ QString *ritual_ZN17QtVirtualKeyboard17DesktopInputPanel2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtVirtualKeyboard::DesktopInputPanel::tr(s, c, n));
+}
+
+//  QtVirtualKeyboard::DesktopInputPanel::DesktopInputPanel(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::DesktopInputPanel *ritual_ZN17QtVirtualKeyboard17DesktopInputPanelC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtVirtualKeyboard_DesktopInputPanel(parent);
+}
+
+//  QtVirtualKeyboard::DesktopInputPanel::~DesktopInputPanel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard17DesktopInputPanelD1Ev(
+    QtVirtualKeyboard::DesktopInputPanel *self) {
+  delete self;
+}
+
+//  void QtVirtualKeyboard::DesktopInputPanel::repositionView(const QRect
+//      &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard17DesktopInputPanel14repositionViewERK5QRect(
+    QtVirtualKeyboard::DesktopInputPanel *self,
+    const QRect *rect) {
+  self->repositionView(*rect);
+}
+
+//  void QtVirtualKeyboard::DesktopInputPanel::focusWindowChanged(QWindow
+//      *focusWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard17DesktopInputPanel18focusWindowChangedEP7QWindow(
+    QtVirtualKeyboard::DesktopInputPanel *self,
+    QWindow *focusWindow) {
+  self->focusWindowChanged(focusWindow);
+}
+
+//  void QtVirtualKeyboard::DesktopInputPanel::focusWindowVisibleChanged(bool
+//      visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard17DesktopInputPanel25focusWindowVisibleChangedEb(
+    QtVirtualKeyboard::DesktopInputPanel *self,
+    bool visible) {
+  self->focusWindowVisibleChanged(visible);
+}
+
+//  void QtVirtualKeyboard::DesktopInputPanel::previewRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard17DesktopInputPanel23previewRectangleChangedEv(
+    QtVirtualKeyboard::DesktopInputPanel *self) {
+  self->previewRectangleChanged();
+}
+
+//  void QtVirtualKeyboard::DesktopInputPanel::previewVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard17DesktopInputPanel21previewVisibleChangedEv(
+    QtVirtualKeyboard::DesktopInputPanel *self) {
+  self->previewVisibleChanged();
+}
+
+//  void QtVirtualKeyboard::DesktopInputPanel::screenChanged(QScreen *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard17DesktopInputPanel13screenChangedEP7QScreen(
+    QtVirtualKeyboard::DesktopInputPanel *self,
+    QScreen *a0) {
+  self->screenChanged(a0);
+}
+
+//  void QtVirtualKeyboard::DesktopInputPanel::updateInputRegion()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard17DesktopInputPanel17updateInputRegionEv(
+    QtVirtualKeyboard::DesktopInputPanel *self) {
+  self->updateInputRegion();
+}
+
+//  QtVirtualKeyboard::DesktopInputPanelPrivate
+//      *QtVirtualKeyboard::DesktopInputPanel::d_func()
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::DesktopInputPanelPrivate *ritual_ZN17QtVirtualKeyboard17DesktopInputPanel6d_funcEv(
+    QtVirtualKeyboard::DesktopInputPanel *self) {
+  return self->d_func();
+}
+
+//  const QtVirtualKeyboard::DesktopInputPanelPrivate
+//      *QtVirtualKeyboard::DesktopInputPanel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QtVirtualKeyboard::DesktopInputPanelPrivate *ritual_ZNK17QtVirtualKeyboard17DesktopInputPanel6d_funcEv(
+    const QtVirtualKeyboard::DesktopInputPanel *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQtVirtualKeyboard_DesktopInputPanel, for

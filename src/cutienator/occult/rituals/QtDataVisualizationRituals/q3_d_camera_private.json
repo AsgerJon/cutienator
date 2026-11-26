@@ -6,7 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK16Q3DCameraPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN16Q3DCameraPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16Q3DCameraPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16Q3DCameraPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16Q3DCameraPrivate4syncER9Q3DCamera": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16Q3DCameraPrivate12setXRotationEf": [
       "nothing", "address", "float"
     ],
@@ -26,6 +35,24 @@
     ],
     "ritual_ZNK16Q3DCameraPrivate33calculatePositionRelativeToCameraERK9QVector3Dff": [
       "address", "address", "address", "float", "float"
+    ],
+    "ritual_ZN16Q3DCameraPrivate19minXRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16Q3DCameraPrivate19minYRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16Q3DCameraPrivate19maxXRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16Q3DCameraPrivate19maxYRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16Q3DCameraPrivate17viewMatrixChangedERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16Q3DCameraPrivate27viewMatrixAutoUpdateChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_take_Q3DCameraPrivate": ["bool", "address", "chars", "address"]
   }

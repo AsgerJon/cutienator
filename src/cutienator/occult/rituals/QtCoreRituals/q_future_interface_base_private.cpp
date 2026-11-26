@@ -30,6 +30,24 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/corelib/thread/qfutureinterface.cpp, line 44, as local:qfutureinterface.cpp:suspendingOrSuspended
+namespace {
+const auto suspendingOrSuspended =
+        QFutureInterfaceBase::Suspending | QFutureInterfaceBase::Suspended;
+}  // namespace
+
+//  from src/corelib/thread/qfutureinterface.cpp, line 97, as local:qfutureinterface.cpp:switch_on
+static inline int switch_on(QAtomicInt &a, int which)
+{
+    return a.fetchAndOrRelaxed(which) | which;
+}
+
+//  from src/corelib/thread/qfutureinterface.cpp, line 102, as local:qfutureinterface.cpp:switch_off
+static inline int switch_off(QAtomicInt &a, int which)
+{
+    return a.fetchAndAndRelaxed(~which) & ~which;
+}
+
 //  from src/corelib/thread/qfutureinterface.cpp, line 714, as _ZN27QFutureInterfaceBasePrivateC1EN20QFutureInterfaceBase5StateE
 inline QFutureInterfaceBasePrivate::QFutureInterfaceBasePrivate(QFutureInterfaceBase::State initialState)
     : state(initialState)
@@ -73,6 +91,48 @@ inline bool QFutureInterfaceBasePrivate::internal_waitForNextResult()
 
     return !(state.loadRelaxed() & QFutureInterfaceBase::Canceled)
             && data.m_results.hasNextResult();
+}
+
+//  from src/corelib/thread/qfutureinterface.cpp, line 789, as _ZN27QFutureInterfaceBasePrivate21internal_setThrottledEb
+inline void QFutureInterfaceBasePrivate::internal_setThrottled(bool enable)
+{
+    // bail out if we are not changing the state
+    if ((enable && (state.loadRelaxed() & QFutureInterfaceBase::Throttled))
+        || (!enable && !(state.loadRelaxed() & QFutureInterfaceBase::Throttled)))
+        return;
+
+    // change the state
+    if (enable) {
+        switch_on(state, QFutureInterfaceBase::Throttled);
+    } else {
+        switch_off(state, QFutureInterfaceBase::Throttled);
+        if (!(state.loadRelaxed() & suspendingOrSuspended))
+            pausedWaitCondition.wakeAll();
+    }
+}
+
+//  from src/corelib/thread/qfutureinterface.cpp, line 806, as _ZN27QFutureInterfaceBasePrivate11sendCallOutERK19QFutureCallOutEvent
+inline void QFutureInterfaceBasePrivate::sendCallOut(const QFutureCallOutEvent &callOutEvent)
+{
+    if (outputConnections.isEmpty())
+        return;
+
+    for (int i = 0; i < outputConnections.size(); ++i)
+        outputConnections.at(i)->postCallOutEvent(callOutEvent);
+}
+
+//  from src/corelib/thread/qfutureinterface.cpp, line 815, as _ZN27QFutureInterfaceBasePrivate12sendCallOutsERK19QFutureCallOutEventS2_
+inline void QFutureInterfaceBasePrivate::sendCallOuts(const QFutureCallOutEvent &callOutEvent1,
+                                     const QFutureCallOutEvent &callOutEvent2)
+{
+    if (outputConnections.isEmpty())
+        return;
+
+    for (int i = 0; i < outputConnections.size(); ++i) {
+        QFutureCallOutInterface *iface = outputConnections.at(i);
+        iface->postCallOutEvent(callOutEvent1);
+        iface->postCallOutEvent(callOutEvent2);
+    }
 }
 
 //  from src/corelib/thread/qfutureinterface.cpp, line 831, as _ZN27QFutureInterfaceBasePrivate22connectOutputInterfaceEP23QFutureCallOutInterface
@@ -188,6 +248,33 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN27QFutureInterfaceBasePrivate26internal_waitForNextResultEv(
     QFutureInterfaceBasePrivate *self) {
   return self->internal_waitForNextResult();
+}
+
+//  void QFutureInterfaceBasePrivate::internal_setThrottled(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QFutureInterfaceBasePrivate21internal_setThrottledEb(
+    QFutureInterfaceBasePrivate *self,
+    bool enable) {
+  self->internal_setThrottled(enable);
+}
+
+//  void QFutureInterfaceBasePrivate::sendCallOut(const QFutureCallOutEvent
+//      &callOut)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QFutureInterfaceBasePrivate11sendCallOutERK19QFutureCallOutEvent(
+    QFutureInterfaceBasePrivate *self,
+    const QFutureCallOutEvent *callOut) {
+  self->sendCallOut(*callOut);
+}
+
+//  void QFutureInterfaceBasePrivate::sendCallOuts(const QFutureCallOutEvent
+//      &callOut1, const QFutureCallOutEvent &callOut2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QFutureInterfaceBasePrivate12sendCallOutsERK19QFutureCallOutEventS2_(
+    QFutureInterfaceBasePrivate *self,
+    const QFutureCallOutEvent *callOut1,
+    const QFutureCallOutEvent *callOut2) {
+  self->sendCallOuts(*callOut1, *callOut2);
 }
 
 //  void QFutureInterfaceBasePrivate::connectOutputInterface(QFutureCallOutIn

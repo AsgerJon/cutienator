@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -198,6 +202,64 @@ public:
     return QQmlJS::AST::Node::asClassDefinition();
   }
 };
+
+//  QQmlJS::AST::ImportClause::ImportClause(QStringView
+//      importedDefaultBinding)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ImportClause *ritual_ZN6QQmlJS3AST12ImportClauseC1E11QStringView(
+    QQmlJS::MemoryPool *pool,
+    const QString *importedDefaultBinding) {
+  return new (pool) CuteQQmlJS_AST_ImportClause(
+      QStringView(*importedDefaultBinding));
+}
+
+//  QQmlJS::AST::ImportClause::ImportClause(NameSpaceImport *nameSpaceImport)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ImportClause *ritual_ZN6QQmlJS3AST12ImportClauseC1EPNS0_15NameSpaceImportE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::NameSpaceImport *nameSpaceImport) {
+  return new (pool) CuteQQmlJS_AST_ImportClause(nameSpaceImport);
+}
+
+//  QQmlJS::AST::ImportClause::ImportClause(NamedImports *namedImports)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ImportClause *ritual_ZN6QQmlJS3AST12ImportClauseC1EPNS0_12NamedImportsE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::NamedImports *namedImports) {
+  return new (pool) CuteQQmlJS_AST_ImportClause(namedImports);
+}
+
+//  QQmlJS::AST::ImportClause::ImportClause(QStringView
+//      importedDefaultBinding, NameSpaceImport *nameSpaceImport)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ImportClause *ritual_ZN6QQmlJS3AST12ImportClauseC1E11QStringViewPNS0_15NameSpaceImportE(
+    QQmlJS::MemoryPool *pool,
+    const QString *importedDefaultBinding,
+    QQmlJS::AST::NameSpaceImport *nameSpaceImport) {
+  return new (pool) CuteQQmlJS_AST_ImportClause(
+      QStringView(*importedDefaultBinding),
+      nameSpaceImport);
+}
+
+//  QQmlJS::AST::ImportClause::ImportClause(QStringView
+//      importedDefaultBinding, NamedImports *namedImports)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ImportClause *ritual_ZN6QQmlJS3AST12ImportClauseC1E11QStringViewPNS0_12NamedImportsE(
+    QQmlJS::MemoryPool *pool,
+    const QString *importedDefaultBinding,
+    QQmlJS::AST::NamedImports *namedImports) {
+  return new (pool) CuteQQmlJS_AST_ImportClause(
+      QStringView(*importedDefaultBinding),
+      namedImports);
+}
+
+//  void QQmlJS::AST::ImportClause::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST12ImportClause7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ImportClause *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
 
 //  SourceLocation QQmlJS::AST::ImportClause::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT

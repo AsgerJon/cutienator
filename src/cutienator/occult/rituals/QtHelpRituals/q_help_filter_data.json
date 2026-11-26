@@ -6,8 +6,12 @@
   "rows": {
     "ritual_ZN15QHelpFilterDataC1Ev": ["address"],
     "ritual_ZN15QHelpFilterDataC1ERKS_": ["address", "address"],
+    "ritual_ZN15QHelpFilterDataC1EOS_": ["address", "address"],
     "ritual_ZN15QHelpFilterDataD1Ev": ["nothing", "address"],
+    "ritual_ZN15QHelpFilterDataaSERKS_": ["address", "address", "address"],
+    "ritual_ZN15QHelpFilterDataaSEOS_": ["address", "address", "address"],
     "ritual_ZNK15QHelpFilterDataeqERKS_": ["bool", "address", "address"],
+    "ritual_ZN15QHelpFilterData4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN15QHelpFilterData13setComponentsERK5QListI7QStringE": [
       "nothing", "address", "address"
     ],

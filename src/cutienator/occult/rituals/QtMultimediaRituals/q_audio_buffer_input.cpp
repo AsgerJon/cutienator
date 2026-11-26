@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK17QAudioBufferInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAudioBufferInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QAudioBufferInput11qt_metacastEPKc(
+    QAudioBufferInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAudioBufferInput::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QAudioBufferInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAudioBufferInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAudioBufferInput::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QAudioBufferInput2trEPKcS1_i(
@@ -234,6 +253,13 @@ QMediaCaptureSession *ritual_ZNK17QAudioBufferInput14captureSessionEv(
   return self->captureSession();
 }
 
+//  void QAudioBufferInput::readyToSendAudioBuffer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAudioBufferInput22readyToSendAudioBufferEv(
+    QAudioBufferInput *self) {
+  self->readyToSendAudioBuffer();
+}
+
 //  void QAudioBufferInput::setCaptureSession(QMediaCaptureSession
 //      *captureSession)
 extern "C" Q_DECL_EXPORT
@@ -249,6 +275,20 @@ extern "C" Q_DECL_EXPORT
 QPlatformAudioBufferInput *ritual_ZNK17QAudioBufferInput24platformAudioBufferInputEv(
     const QAudioBufferInput *self) {
   return self->platformAudioBufferInput();
+}
+
+//  QAudioBufferInputPrivate *QAudioBufferInput::d_func()
+extern "C" Q_DECL_EXPORT
+QAudioBufferInputPrivate *ritual_ZN17QAudioBufferInput6d_funcEv(
+    QAudioBufferInput *self) {
+  return self->d_func();
+}
+
+//  const QAudioBufferInputPrivate *QAudioBufferInput::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAudioBufferInputPrivate *ritual_ZNK17QAudioBufferInput6d_funcEv(
+    const QAudioBufferInput *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQAudioBufferInput, for the function

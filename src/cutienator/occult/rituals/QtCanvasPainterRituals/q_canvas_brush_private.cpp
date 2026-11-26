@@ -77,10 +77,25 @@ QCPaint *ritual_ZNK19QCanvasBrushPrivate11createPaintEP14QCanvasPainter(
   return new QCPaint(self->createPaint(painter));
 }
 
+//  bool QCanvasBrushPrivate::equals(const QCanvasBrushPrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK19QCanvasBrushPrivate6equalsERKS_(
+    const QCanvasBrushPrivate *self,
+    const QCanvasBrushPrivate *other) {
+  return self->equals(*other);
+}
+
 //  QCanvasBrushPrivate *QCanvasBrushPrivate::get(const QCanvasBrush &brush)
 extern "C" Q_DECL_EXPORT
 QCanvasBrushPrivate *ritual_ZN19QCanvasBrushPrivate3getERK12QCanvasBrush(
     const QCanvasBrush *brush) {
+  return QCanvasBrushPrivate::get(*brush);
+}
+
+//  QCanvasBrushPrivate *QCanvasBrushPrivate::get(QCanvasBrush &brush)
+extern "C" Q_DECL_EXPORT
+QCanvasBrushPrivate *ritual_ZN19QCanvasBrushPrivate3getER12QCanvasBrush(
+    QCanvasBrush *brush) {
   return QCanvasBrushPrivate::get(*brush);
 }
 

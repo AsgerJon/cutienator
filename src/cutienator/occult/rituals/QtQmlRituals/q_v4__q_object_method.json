@@ -22,6 +22,45 @@
       "unsigned long long", "address", "address", "address", "address"
     ],
     "ritual_ZNK3QV413QObjectMethod11methodIndexEv": ["int", "address"],
-    "ritual_ZNK3QV413QObjectMethod6objectEv": ["address", "address"]
+    "ritual_ZNK3QV413QObjectMethod6objectEv": ["address", "address"],
+    "ritual_ZNK3QV413QObjectMethod15method_toStringEPNS_15ExecutionEngineEP7QObject": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV413QObjectMethod14method_destroyEPNS_15ExecutionEngineEP7QObjectPKNS_5ValueEi": [
+      "unsigned long long", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK3QV413QObjectMethod14method_destroyEPNS_15ExecutionEngineEP7QObjecti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413QObjectMethod11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413QObjectMethod24virtualCallWithMetaTypesEPKNS_14FunctionObjectEP7QObjectPPvPK9QMetaTypei": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK3QV413QObjectMethod12callInternalEPKNS_5ValueES3_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK3QV413QObjectMethod25callInternalWithMetaTypesEP7QObjectPPvPK9QMetaTypei": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413QObjectMethod15extractQtMethodEPKNS_14FunctionObjectE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV413QObjectMethod12isExactMatchERK11QMetaMethodPPviPK9QMetaType": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV413QObjectMethod17resolveOverloadedERK18QQmlObjectOrGadgetPK16QQmlPropertyDataiPNS_15ExecutionEngineEPNS_8CallDataE": [
+      "address", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN3QV413QObjectMethod17resolveOverloadedEPK16QQmlPropertyDataiPPviPK9QMetaType": [
+      "address", "address", "int", "address", "int", "address"
+    ],
+    "ritual_ZN3QV413QObjectMethod11callPreciseERK18QQmlObjectOrGadgetRK16QQmlPropertyDataPNS_15ExecutionEngineEPNS_8CallDataEN11QMetaObject4CallE": [
+      "unsigned long long", "address", "address", "address", "address", "int"
+    ],
+    "ritual_drop_QV4_QObjectMethod__std_pair_QObject_int": [
+      "nothing", "address"
+    ]
   }
 }

@@ -5,6 +5,10 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render20QRenderPluginFactory4keysEv": ["address"],
+    "ritual_ZN10Qt3DRender6Render20QRenderPluginFactory6createERK7QStringRK5QListIS2_E": [
+      "address", "text", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render20QRenderPluginFactoryD1Ev": [
       "nothing", "address"
     ]

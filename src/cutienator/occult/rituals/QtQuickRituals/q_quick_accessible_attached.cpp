@@ -190,6 +190,25 @@ const QMetaObject *ritual_ZNK24QQuickAccessibleAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAccessibleAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickAccessibleAttached11qt_metacastEPKc(
+    QQuickAccessibleAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAccessibleAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickAccessibleAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAccessibleAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAccessibleAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuickAccessibleAttached2trEPKcS1_i(
@@ -695,6 +714,15 @@ bool ritual_ZN24QQuickAccessibleAttached8doActionERK7QString(
   return self->doAction(*actionName);
 }
 
+//  void QQuickAccessibleAttached::availableActions(QStringList *actions)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK24QQuickAccessibleAttached16availableActionsEP5QListI7QStringE(
+    const QQuickAccessibleAttached *self,
+    QStringList *actions) {
+  self->availableActions(actions);
+}
+
 //  QString QQuickAccessibleAttached::stripHtml(const QString &html)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuickAccessibleAttached9stripHtmlERK7QString(
@@ -741,6 +769,132 @@ void ritual_ZN24QQuickAccessibleAttached10setIgnoredEb(
     QQuickAccessibleAttached *self,
     bool ignored) {
   self->setIgnored(ignored);
+}
+
+//  void QQuickAccessibleAttached::roleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached11roleChangedEv(
+    QQuickAccessibleAttached *self) {
+  self->roleChanged();
+}
+
+//  void QQuickAccessibleAttached::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached11nameChangedEv(
+    QQuickAccessibleAttached *self) {
+  self->nameChanged();
+}
+
+//  void QQuickAccessibleAttached::descriptionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached18descriptionChangedEv(
+    QQuickAccessibleAttached *self) {
+  self->descriptionChanged();
+}
+
+//  void QQuickAccessibleAttached::idChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached9idChangedEv(
+    QQuickAccessibleAttached *self) {
+  self->idChanged();
+}
+
+//  void QQuickAccessibleAttached::ignoredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached14ignoredChangedEv(
+    QQuickAccessibleAttached *self) {
+  self->ignoredChanged();
+}
+
+//  void QQuickAccessibleAttached::labelledByChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached17labelledByChangedEv(
+    QQuickAccessibleAttached *self) {
+  self->labelledByChanged();
+}
+
+//  void QQuickAccessibleAttached::labelForChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached15labelForChangedEv(
+    QQuickAccessibleAttached *self) {
+  self->labelForChanged();
+}
+
+//  void QQuickAccessibleAttached::pressAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached11pressActionEv(
+    QQuickAccessibleAttached *self) {
+  self->pressAction();
+}
+
+//  void QQuickAccessibleAttached::toggleAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached12toggleActionEv(
+    QQuickAccessibleAttached *self) {
+  self->toggleAction();
+}
+
+//  void QQuickAccessibleAttached::increaseAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached14increaseActionEv(
+    QQuickAccessibleAttached *self) {
+  self->increaseAction();
+}
+
+//  void QQuickAccessibleAttached::decreaseAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached14decreaseActionEv(
+    QQuickAccessibleAttached *self) {
+  self->decreaseAction();
+}
+
+//  void QQuickAccessibleAttached::showOnScreenAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached18showOnScreenActionEv(
+    QQuickAccessibleAttached *self) {
+  self->showOnScreenAction();
+}
+
+//  void QQuickAccessibleAttached::scrollUpAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached14scrollUpActionEv(
+    QQuickAccessibleAttached *self) {
+  self->scrollUpAction();
+}
+
+//  void QQuickAccessibleAttached::scrollDownAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached16scrollDownActionEv(
+    QQuickAccessibleAttached *self) {
+  self->scrollDownAction();
+}
+
+//  void QQuickAccessibleAttached::scrollLeftAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached16scrollLeftActionEv(
+    QQuickAccessibleAttached *self) {
+  self->scrollLeftAction();
+}
+
+//  void QQuickAccessibleAttached::scrollRightAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached17scrollRightActionEv(
+    QQuickAccessibleAttached *self) {
+  self->scrollRightAction();
+}
+
+//  void QQuickAccessibleAttached::previousPageAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached18previousPageActionEv(
+    QQuickAccessibleAttached *self) {
+  self->previousPageAction();
+}
+
+//  void QQuickAccessibleAttached::nextPageAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickAccessibleAttached14nextPageActionEv(
+    QQuickAccessibleAttached *self) {
+  self->nextPageAction();
 }
 
 //  QQuickItem *QQuickAccessibleAttached::findRelation(QAccessible::Relation

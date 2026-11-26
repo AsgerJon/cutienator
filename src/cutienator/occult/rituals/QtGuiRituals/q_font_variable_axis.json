@@ -4,9 +4,17 @@
     "QtGui/qfontvariableaxis.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QFontVariableAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QFontVariableAxis6d_funcEv": ["address", "address"],
     "ritual_ZN17QFontVariableAxisC1Ev": ["address"],
+    "ritual_ZN17QFontVariableAxisC1EOS_": ["address", "address"],
     "ritual_ZN17QFontVariableAxisC1ERKS_": ["address", "address"],
     "ritual_ZN17QFontVariableAxisD1Ev": ["nothing", "address"],
+    "ritual_ZN17QFontVariableAxisaSEOS_": ["address", "address", "address"],
+    "ritual_ZN17QFontVariableAxis4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QFontVariableAxisaSERKS_": ["address", "address", "address"],
     "ritual_ZNK17QFontVariableAxis3tagEv": ["address", "address"],
     "ritual_ZN17QFontVariableAxis6setTagEN5QFont3TagE": [
       "nothing", "address", "address"
@@ -28,6 +36,7 @@
       "nothing", "address", "double"
     ],
     "ritual_ZNK17QFontVariableAxis9tagStringEv": ["address", "address"],
+    "ritual_ZN17QFontVariableAxis6detachEv": ["nothing", "address"],
     "ritual_Zls6QDebugRK17QFontVariableAxis": [
       "address", "address", "address"
     ],

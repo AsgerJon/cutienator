@@ -6,10 +6,14 @@
 #if QT_CONFIG(tableview)
 #include <QtWidgets/qtableview.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtGui/qregion.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
@@ -2098,6 +2102,24 @@ const QMetaObject *ritual_ZNK10QTableView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTableView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QTableView11qt_metacastEPKc(
+    QTableView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTableView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QTableView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTableView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTableView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QTableView2trEPKcS1_i(
@@ -2532,6 +2554,14 @@ void ritual_ZN10QTableView18columnCountChangedEii(
     int oldCount,
     int newCount) {
   self->columnCountChanged(oldCount, newCount);
+}
+
+//  QTableView::QTableView(QTableViewPrivate &a0, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QTableView *ritual_ZN10QTableViewC1ER17QTableViewPrivateP7QWidget(
+    QTableViewPrivate *a0,
+    QWidget *parent) {
+  return new CuteQTableView(*a0, parent);
 }
 
 //  void QTableView::scrollContentsBy(int dx, int dy)

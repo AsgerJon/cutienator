@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuick3DDebugSettings10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuick3DDebugSettings11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuick3DDebugSettings2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -70,6 +76,37 @@
     "ritual_ZN21QQuick3DDebugSettings20setDrawCulledObjectsEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN21QQuick3DDebugSettings23materialOverrideChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings23wireframeEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings38drawDirectionalLightShadowBoxesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings32drawPointLightShadowBoxesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings30drawShadowCastingBoundsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings32drawShadowReceivingBoundsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings19drawCascadesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings35drawSceneCascadeIntersectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings32disableShadowCameraUpdateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings24drawCulledObjectsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings7changedEv": ["nothing", "address"],
     "ritual_ZN21QQuick3DDebugSettings6updateEv": ["nothing", "address"]
   }
 }

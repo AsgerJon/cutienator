@@ -8,6 +8,12 @@
     "ritual_ZNK28QDesignerFormEditorInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QDesignerFormEditorInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QDesignerFormEditorInterface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -69,6 +75,9 @@
     "ritual_ZNK28QDesignerFormEditorInterface13resourceModelEv": [
       "address", "address"
     ],
+    "ritual_ZNK28QDesignerFormEditorInterface15gradientManagerEv": [
+      "address", "address"
+    ],
     "ritual_ZNK28QDesignerFormEditorInterface12optionsPagesEv": [
       "address", "address"
     ],
@@ -103,6 +112,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN28QDesignerFormEditorInterface16setResourceModelEP15QtResourceModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface18setGradientManagerEP17QtGradientManager": [
       "nothing", "address", "address"
     ],
     "ritual_ZN28QDesignerFormEditorInterface15setOptionsPagesERK5QListIP29QDesignerOptionsPageInterfaceE": [

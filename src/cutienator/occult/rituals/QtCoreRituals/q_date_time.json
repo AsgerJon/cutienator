@@ -15,7 +15,11 @@
       "address", "address", "address", "int"
     ],
     "ritual_ZN9QDateTimeC1ERKS_": ["address", "address"],
+    "ritual_ZN9QDateTimeC1EOS_": ["address", "address"],
     "ritual_ZN9QDateTimeD1Ev": ["nothing", "address"],
+    "ritual_ZN9QDateTimeaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QDateTimeaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QDateTime4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QDateTime6isNullEv": ["bool", "address"],
     "ritual_ZNK9QDateTime7isValidEv": ["bool", "address"],
     "ritual_ZNK9QDateTime4dateEv": ["address", "address"],
@@ -65,6 +69,9 @@
     "ritual_ZNK9QDateTime8addYearsEi": ["address", "address", "int"],
     "ritual_ZNK9QDateTime7addSecsEx": ["address", "address", "long long"],
     "ritual_ZNK9QDateTime8addMSecsEx": ["address", "address", "long long"],
+    "ritual_ZNK9QDateTime11addDurationENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "address", "address", "long long"
+    ],
     "ritual_ZNK9QDateTime10toTimeSpecEN2Qt8TimeSpecE": [
       "address", "address", "int"
     ],
@@ -131,6 +138,25 @@
     "ritual_ZN9QDateTime18fromSecsSinceEpochEx": ["address", "long long"],
     "ritual_ZN9QDateTime22currentMSecsSinceEpochEv": ["long long"],
     "ritual_ZN9QDateTime21currentSecsSinceEpochEv": ["long long"],
+    "ritual_ZN9QDateTime16fromStdTimePointENSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000EEEEEE": [
+      "address", "address"
+    ],
+    "ritual_ZmiRK9QDateTimeS1_": ["long long", "address", "address"],
+    "ritual_ZplRK9QDateTimeNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZplNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERK9QDateTime": [
+      "address", "long long", "address"
+    ],
+    "ritual_ZN9QDateTimepLENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZmiRK9QDateTimeNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN9QDateTimemIENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZNK9QDateTime6equalsERKS_": ["bool", "address", "address"],
     "ritual_ZeqRK9QDateTimeS1_": ["bool", "address", "address"],
     "ritual_ZneRK9QDateTimeS1_": ["bool", "address", "address"],
@@ -138,6 +164,10 @@
     "ritual_ZgtRK9QDateTimeS1_": ["bool", "address", "address"],
     "ritual_ZleRK9QDateTimeS1_": ["bool", "address", "address"],
     "ritual_ZgeRK9QDateTimeS1_": ["bool", "address", "address"],
+    "ritual_ZlsR11QDataStreamRK9QDateTime": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR9QDateTime": ["address", "address", "address"],
     "ritual_Zls6QDebugRK9QDateTime": ["address", "address", "address"]
   }
 }

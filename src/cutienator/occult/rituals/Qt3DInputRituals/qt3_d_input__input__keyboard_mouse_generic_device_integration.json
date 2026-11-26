@@ -8,8 +8,38 @@
     "ritual_ZNK9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration13jobsToExecuteEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration20createPhysicalDeviceERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration15physicalDevicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration14physicalDeviceEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration12onInitializeEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DInput_Input_KeyboardMouseGenericDeviceIntegration": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DInput_Input_KeyboardMouseGenericDeviceIntegration__std_vector_Qt3DCore_QAspectJobPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DInput_Input_KeyboardMouseGenericDeviceIntegration__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

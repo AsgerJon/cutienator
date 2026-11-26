@@ -92,10 +92,13 @@ typedef const QByteArray * (*CuteQUtf16LECodecCall0)(const void *, int *);
 #if QT_CONFIG(textcodec)
 typedef int (*CuteQUtf16LECodecCall1)(const void *, int *);
 #endif  // QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
+typedef const QByteArray * (*CuteQUtf16LECodecCall2)(const void *, const QChar *, int, QTextCodec::ConverterState *, int *);
+#endif  // QT_CONFIG(textcodec)
 class CuteQUtf16LECodec : public QUtf16LECodec {
 public:
   using QUtf16LECodec::QUtf16LECodec;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(textcodec)
@@ -107,6 +110,12 @@ public:
 #if QT_CONFIG(textcodec)
     if (!std::strcmp(key, "_ZNK10QTextCodec7mibEnumEv")) {
       taken[1] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
+    if (!std::strcmp(key, "_ZNK10QTextCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE")) {
+      taken[2] = call;
       return true;
     }
 #endif  // QT_CONFIG(textcodec)
@@ -136,6 +145,23 @@ public:
       if (handled) return given;
     }
     return QUtf16LECodec::mibEnum();
+  }
+#endif  // QT_CONFIG(textcodec)
+
+#if QT_CONFIG(textcodec)
+  //  QByteArray QUtf16Codec::convertFromUnicode(const QChar *a0, int a1,
+  //      ConverterState *a2) const
+  QByteArray convertFromUnicode(
+      const QChar *a0,
+      int a1,
+      QTextCodec::ConverterState *a2) const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQUtf16LECodecCall2 call = reinterpret_cast<CuteQUtf16LECodecCall2>(taken[2]);
+      const QByteArray * given = call(this, a0, a1, a2, &handled);
+      if (handled && given) return *given;
+    }
+    return QUtf16Codec::convertFromUnicode(a0, a1, a2);
   }
 #endif  // QT_CONFIG(textcodec)
 };

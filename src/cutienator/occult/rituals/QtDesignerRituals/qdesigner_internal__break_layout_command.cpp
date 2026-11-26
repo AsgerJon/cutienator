@@ -112,11 +112,66 @@ public:
 #endif  // QT_CONFIG(undocommand)
 };
 
+//  qdesigner_internal::BreakLayoutCommand::BreakLayoutCommand(QDesignerFormW
+//      indowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::BreakLayoutCommand *ritual_ZN18qdesigner_internal18BreakLayoutCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_BreakLayoutCommand(formWindow);
+}
+
+//  qdesigner_internal::BreakLayoutCommand::~BreakLayoutCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18BreakLayoutCommandD1Ev(
+    qdesigner_internal::BreakLayoutCommand *self) {
+  delete self;
+}
+
 //  QWidgetList qdesigner_internal::BreakLayoutCommand::widgets() const
 extern "C" Q_DECL_EXPORT
 QList<QWidget *> *ritual_ZNK18qdesigner_internal18BreakLayoutCommand7widgetsEv(
     const qdesigner_internal::BreakLayoutCommand *self) {
   return new QList<QWidget *>(self->widgets());
+}
+
+//  void qdesigner_internal::BreakLayoutCommand::init(const QWidgetList
+//      &widgets, QWidget *layoutBase, bool reparentLayoutWidget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18BreakLayoutCommand4initERK5QListIP7QWidgetES3_b(
+    qdesigner_internal::BreakLayoutCommand *self,
+    const QList<QWidget *> *widgets,
+    QWidget *layoutBase,
+    bool reparentLayoutWidget) {
+  self->init(*widgets, layoutBase, reparentLayoutWidget);
+}
+
+//  void qdesigner_internal::BreakLayoutCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18BreakLayoutCommand4redoEv(
+    qdesigner_internal::BreakLayoutCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::BreakLayoutCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18BreakLayoutCommand4undoEv(
+    qdesigner_internal::BreakLayoutCommand *self) {
+  self->undo();
+}
+
+//  const LayoutProperties
+//      *qdesigner_internal::BreakLayoutCommand::layoutProperties() const
+extern "C" Q_DECL_EXPORT
+const qdesigner_internal::LayoutProperties *ritual_ZNK18qdesigner_internal18BreakLayoutCommand16layoutPropertiesEv(
+    const qdesigner_internal::BreakLayoutCommand *self) {
+  return self->layoutProperties();
+}
+
+//  int qdesigner_internal::BreakLayoutCommand::propertyMask() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18qdesigner_internal18BreakLayoutCommand12propertyMaskEv(
+    const qdesigner_internal::BreakLayoutCommand *self) {
+  return self->propertyMask();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_BreakLayoutCommand,

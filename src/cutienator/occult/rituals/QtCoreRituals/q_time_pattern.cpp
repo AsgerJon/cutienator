@@ -11,9 +11,18 @@
 #include <QtCore/6.12.0/QtCore/private/qttemporalpattern_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlocale.h>
-#include <QtCore/qdatetime.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/QTime>
+#include <QtCore/QStringView>
+
+//  QTimePattern::QTimePattern(const QList<Field> &fs)
+extern "C" Q_DECL_EXPORT
+QTimePattern *ritual_ZN12QTimePatternC1ERK5QListIN17QtTemporalPattern13TemporalFieldEE(
+    const QList<QTimePattern::Field> *fs) {
+  return new QTimePattern(*fs);
+}
 
 //  QtTemporalPattern::SupportType QTimePattern::timeSupport() const
 extern "C" Q_DECL_EXPORT
@@ -40,6 +49,19 @@ void ritual_ZN12QTimePattern9setLocaleERK7QLocale(
 extern "C" Q_DECL_EXPORT
 QLocale *ritual_ZNK12QTimePattern6localeEv(const QTimePattern *self) {
   return new QLocale(self->locale());
+}
+
+//  QtTemporalPattern::ParseResult<QTime> QTimePattern::parse(QStringView
+//      text, QTime defaults) const
+extern "C" Q_DECL_EXPORT
+QtTemporalPattern::ParseResult<QTime> *ritual_ZNK12QTimePattern5parseE11QStringView5QTime(
+    const QTimePattern *self,
+    const QString *text,
+    const QTime *defaults) {
+  return new QtTemporalPattern::ParseResult<QTime>(
+      self->parse(
+          QStringView(*text),
+          *defaults));
 }
 
 //  QString QTimePattern::serialize(const QTime &time) const
@@ -69,6 +91,13 @@ QTimePattern *ritual_ZN12QTimePattern9forLocaleERK7QLocaleNS0_10FormatTypeE(
 //  QTimePattern::~QTimePattern()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QTimePatternD1Ev(QTimePattern *self) {
+  delete self;
+}
+
+//  a QtTemporalPattern::ParseResult<QTime> a ritual of QTimePattern gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTimePattern__QtTemporalPattern_ParseResult_QTime(
+    QtTemporalPattern::ParseResult<QTime> *self) {
   delete self;
 }
 

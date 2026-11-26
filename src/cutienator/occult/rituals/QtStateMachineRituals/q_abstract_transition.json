@@ -6,9 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK19QAbstractTransition10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QAbstractTransition11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QAbstractTransition11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QAbstractTransition2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN19QAbstractTransitionC1EP6QState": ["address", "address"],
     "ritual_ZN19QAbstractTransitionD1Ev": ["nothing", "address"],
     "ritual_ZNK19QAbstractTransition11sourceStateEv": ["address", "address"],
     "ritual_ZNK19QAbstractTransition11targetStateEv": ["address", "address"],
@@ -25,6 +32,9 @@
     "ritual_ZN19QAbstractTransition17setTransitionTypeENS_14TransitionTypeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN19QAbstractTransition22bindableTransitionTypeEv": [
+      "address", "address"
+    ],
     "ritual_ZNK19QAbstractTransition7machineEv": ["address", "address"],
     "ritual_ZN19QAbstractTransition12addAnimationEP18QAbstractAnimation": [
       "nothing", "address", "address"
@@ -33,6 +43,15 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK19QAbstractTransition10animationsEv": ["address", "address"],
+    "ritual_ZN19QAbstractTransition9triggeredENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QAbstractTransition18targetStateChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QAbstractTransition19targetStatesChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QAbstractTransition9eventTestEP6QEvent": [
       "bool", "address", "address"
     ],
@@ -42,6 +61,11 @@
     "ritual_ZN19QAbstractTransition5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN19QAbstractTransitionC1ER26QAbstractTransitionPrivateP6QState": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QAbstractTransition6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QAbstractTransition6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractTransition": [
       "bool", "address", "chars", "address"
     ],
@@ -56,6 +80,9 @@
     "ritual_list_at_QAbstractTransition_ptr": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QAbstractTransition_ptr": ["nothing", "address"]
+    "ritual_list_drop_QAbstractTransition_ptr": ["nothing", "address"],
+    "ritual_drop_QAbstractTransition__QBindable_QAbstractTransition_TransitionType": [
+      "nothing", "address"
+    ]
   }
 }

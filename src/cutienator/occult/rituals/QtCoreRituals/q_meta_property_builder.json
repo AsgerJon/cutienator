@@ -92,6 +92,7 @@
     "ritual_ZN20QMetaPropertyBuilderC1EPK18QMetaObjectBuilderi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK20QMetaPropertyBuilder6d_funcEv": ["address", "address"],
     "ritual_ZN20QMetaPropertyBuilderD1Ev": ["nothing", "address"]
   }
 }

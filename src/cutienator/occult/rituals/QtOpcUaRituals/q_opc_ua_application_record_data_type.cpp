@@ -21,6 +21,16 @@ QOpcUaApplicationRecordDataType *ritual_ZN31QOpcUaApplicationRecordDataTypeC1ERK
   return new QOpcUaApplicationRecordDataType(*a0);
 }
 
+//  QOpcUaApplicationRecordDataType
+//      &QOpcUaApplicationRecordDataType::operator=(const
+//      QOpcUaApplicationRecordDataType &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaApplicationRecordDataType *ritual_ZN31QOpcUaApplicationRecordDataTypeaSERKS_(
+    QOpcUaApplicationRecordDataType *self,
+    const QOpcUaApplicationRecordDataType *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaApplicationRecordDataType::operator==(const
 //      QOpcUaApplicationRecordDataType &rhs) const
 extern "C" Q_DECL_EXPORT

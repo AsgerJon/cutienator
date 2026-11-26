@@ -8,6 +8,12 @@
     "ritual_ZNK29QWaylandQuickShellSurfaceItem10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QWaylandQuickShellSurfaceItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -50,6 +56,24 @@
     ],
     "ritual_ZN29QWaylandQuickShellSurfaceItem16setStaysOnBottomEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem19shellSurfaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem15moveItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem27autoCreatePopupItemsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem17staysOnTopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem20staysOnBottomChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItemC1ER36QWaylandQuickShellSurfaceItemPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_take_QWaylandQuickShellSurfaceItem": [
       "bool", "address", "chars", "address"

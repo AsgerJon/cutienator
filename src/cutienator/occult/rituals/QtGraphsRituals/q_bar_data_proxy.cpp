@@ -185,6 +185,14 @@ const QMetaObject *ritual_ZNK13QBarDataProxy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBarDataProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QBarDataProxy11qt_metacastEPKc(
+    QBarDataProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString QBarDataProxy::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QBarDataProxy2trEPKcS1_i(
@@ -363,6 +371,66 @@ void ritual_ZN13QBarDataProxy10removeRowsExxNS_12RemoveLabelsE(
     qsizetype removeCount,
     QBarDataProxy::RemoveLabels removeLabels) {
   self->removeRows(rowIndex, removeCount, removeLabels);
+}
+
+//  void QBarDataProxy::arrayReset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy10arrayResetEv(QBarDataProxy *self) {
+  self->arrayReset();
+}
+
+//  void QBarDataProxy::rowsAdded(qsizetype startIndex, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy9rowsAddedExx(
+    QBarDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->rowsAdded(startIndex, count);
+}
+
+//  void QBarDataProxy::rowsChanged(qsizetype startIndex, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy11rowsChangedExx(
+    QBarDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->rowsChanged(startIndex, count);
+}
+
+//  void QBarDataProxy::rowsRemoved(qsizetype startIndex, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy11rowsRemovedExx(
+    QBarDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->rowsRemoved(startIndex, count);
+}
+
+//  void QBarDataProxy::rowsInserted(qsizetype startIndex, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy12rowsInsertedExx(
+    QBarDataProxy *self,
+    qsizetype startIndex,
+    qsizetype count) {
+  self->rowsInserted(startIndex, count);
+}
+
+//  void QBarDataProxy::itemChanged(qsizetype rowIndex, qsizetype
+//      columnIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy11itemChangedExx(
+    QBarDataProxy *self,
+    qsizetype rowIndex,
+    qsizetype columnIndex) {
+  self->itemChanged(rowIndex, columnIndex);
+}
+
+//  QBarDataProxy::QBarDataProxy(QBarDataProxyPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QBarDataProxy *ritual_ZN13QBarDataProxyC1ER20QBarDataProxyPrivateP7QObject(
+    QBarDataProxyPrivate *d,
+    QObject *parent) {
+  return new CuteQBarDataProxy(*d, parent);
 }
 
 //  a Python function taken by a CuteQBarDataProxy, for the function named by

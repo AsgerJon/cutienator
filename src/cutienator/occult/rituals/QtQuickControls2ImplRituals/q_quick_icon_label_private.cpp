@@ -30,6 +30,19 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 312, as local:qquickiconlabel.cpp:itemChangeTypes
+static const QQuickItemPrivate::ChangeTypes itemChangeTypes =
+    QQuickItemPrivate::ImplicitWidth
+    | QQuickItemPrivate::ImplicitHeight
+    | QQuickItemPrivate::Destroyed;
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 323, as _ZN22QQuickIconLabelPrivate14unwatchChangesEP10QQuickItem
+inline void QQuickIconLabelPrivate::unwatchChanges(QQuickItem* item)
+{
+    QQuickItemPrivate *itemPrivate = QQuickItemPrivate::get(item);
+    itemPrivate->removeItemChangeListener(this, itemChangeTypes);
+}
+
 //  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 172, as _ZN22QQuickIconLabelPrivate18updateImplicitSizeEv
 inline void QQuickIconLabelPrivate::updateImplicitSize()
 {
@@ -152,55 +165,6 @@ inline void QQuickIconLabelPrivate::layout()
     q->setBaselineOffset(label ? label->y() + label->baselineOffset() : 0);
 }
 
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 350, as _ZN22QQuickIconLabelPrivate10textChangeEv
-inline void QQuickIconLabelPrivate::textChange()
-{
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 354, as _ZN22QQuickIconLabelPrivate13displayChangeEv
-inline void QQuickIconLabelPrivate::displayChange()
-{
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 32, as _ZNK22QQuickIconLabelPrivate7hasIconEv
-inline bool QQuickIconLabelPrivate::hasIcon() const
-{
-    return display != QQuickIconLabel::TextOnly && !icon.isEmpty();
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 37, as _ZNK22QQuickIconLabelPrivate7hasTextEv
-inline bool QQuickIconLabelPrivate::hasText() const
-{
-    return display != QQuickIconLabel::IconOnly && !text.isEmpty();
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 82, as _ZN22QQuickIconLabelPrivate9syncImageEv
-inline void QQuickIconLabelPrivate::syncImage()
-{
-    if (!image || icon.isEmpty())
-        return;
-
-    image->setName(icon.name());
-    image->setSource(icon.resolvedSource());
-    image->setSourceSize(QSize(icon.width(), icon.height()));
-    const bool explicitColor = QQuickIconPrivate::isResolved(icon, QQuickIconPrivate::ColorResolved);
-    image->setColor(explicitColor ? icon.color() : defaultIconColor);
-    image->setCache(icon.cache());
-    const int valign = alignment & Qt::AlignVertical_Mask;
-    image->setVerticalAlignment(static_cast<QQuickImage::VAlignment>(valign));
-    const int halign = alignment & Qt::AlignHorizontal_Mask;
-    image->setHorizontalAlignment(static_cast<QQuickImage::HAlignment>(halign));
-}
-
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 152, as _ZN22QQuickIconLabelPrivate9syncLabelEv
-inline void QQuickIconLabelPrivate::syncLabel()
-{
-    if (!label)
-        return;
-
-    label->setText(text);
-}
-
 //  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 329, as _ZN22QQuickIconLabelPrivate24itemImplicitWidthChangedEP10QQuickItem
 inline void QQuickIconLabelPrivate::itemImplicitWidthChanged(QQuickItem *)
 {
@@ -223,6 +187,175 @@ inline void QQuickIconLabelPrivate::itemDestroyed(QQuickItem *item)
         image = nullptr;
     else if (item == label)
         label = nullptr;
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 350, as _ZN22QQuickIconLabelPrivate10textChangeEv
+inline void QQuickIconLabelPrivate::textChange()
+{
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 354, as _ZN22QQuickIconLabelPrivate13displayChangeEv
+inline void QQuickIconLabelPrivate::displayChange()
+{
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 32, as _ZNK22QQuickIconLabelPrivate7hasIconEv
+inline bool QQuickIconLabelPrivate::hasIcon() const
+{
+    return display != QQuickIconLabel::TextOnly && !icon.isEmpty();
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 37, as _ZNK22QQuickIconLabelPrivate7hasTextEv
+inline bool QQuickIconLabelPrivate::hasText() const
+{
+    return display != QQuickIconLabel::IconOnly && !text.isEmpty();
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 42, as _ZN22QQuickIconLabelPrivate11createImageEv
+inline bool QQuickIconLabelPrivate::createImage()
+{
+    Q_Q(QQuickIconLabel);
+    if (image)
+        return false;
+
+    image = new QQuickIconImage(q);
+    watchChanges(image);
+    beginClass(image);
+    image->setObjectName(QStringLiteral("image"));
+    image->setName(icon.name());
+    image->setSource(icon.resolvedSource());
+    image->setSourceSize(QSize(icon.width(), icon.height()));
+    const bool explicitColor = QQuickIconPrivate::isResolved(icon, QQuickIconPrivate::ColorResolved);
+    image->setColor(explicitColor ? icon.color() : defaultIconColor);
+    image->setCache(icon.cache());
+    QQmlEngine::setContextForObject(image, qmlContext(q));
+    if (componentComplete)
+        completeComponent(image);
+    return true;
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 64, as _ZN22QQuickIconLabelPrivate12destroyImageEv
+inline bool QQuickIconLabelPrivate::destroyImage()
+{
+    if (!image)
+        return false;
+
+    unwatchChanges(image);
+    delete image;
+    image = nullptr;
+    return true;
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 75, as _ZN22QQuickIconLabelPrivate11updateImageEv
+inline bool QQuickIconLabelPrivate::updateImage()
+{
+    if (!hasIcon())
+        return destroyImage();
+    return createImage();
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 82, as _ZN22QQuickIconLabelPrivate9syncImageEv
+inline void QQuickIconLabelPrivate::syncImage()
+{
+    if (!image || icon.isEmpty())
+        return;
+
+    image->setName(icon.name());
+    image->setSource(icon.resolvedSource());
+    image->setSourceSize(QSize(icon.width(), icon.height()));
+    const bool explicitColor = QQuickIconPrivate::isResolved(icon, QQuickIconPrivate::ColorResolved);
+    image->setColor(explicitColor ? icon.color() : defaultIconColor);
+    image->setCache(icon.cache());
+    const int valign = alignment & Qt::AlignVertical_Mask;
+    image->setVerticalAlignment(static_cast<QQuickImage::VAlignment>(valign));
+    const int halign = alignment & Qt::AlignHorizontal_Mask;
+    image->setHorizontalAlignment(static_cast<QQuickImage::HAlignment>(halign));
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 99, as _ZN22QQuickIconLabelPrivate17updateOrSyncImageEv
+inline void QQuickIconLabelPrivate::updateOrSyncImage()
+{
+    if (updateImage()) {
+        if (componentComplete) {
+            updateImplicitSize();
+            layout();
+        }
+    } else {
+        syncImage();
+    }
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 111, as _ZN22QQuickIconLabelPrivate11createLabelEv
+inline bool QQuickIconLabelPrivate::createLabel()
+{
+    Q_Q(QQuickIconLabel);
+    if (label)
+        return false;
+
+    label = new QQuickMnemonicLabel(q);
+    watchChanges(label);
+    beginClass(label);
+    label->setObjectName(QStringLiteral("label"));
+    label->setFont(font);
+    label->setColor(color);
+    label->setElideMode(QQuickText::ElideRight);
+    const int valign = alignment & Qt::AlignVertical_Mask;
+    label->setVAlign(static_cast<QQuickText::VAlignment>(valign));
+    const int halign = alignment & Qt::AlignHorizontal_Mask;
+    label->setHAlign(static_cast<QQuickText::HAlignment>(halign));
+    label->setText(text);
+    if (componentComplete)
+        completeComponent(label);
+    return true;
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 134, as _ZN22QQuickIconLabelPrivate12destroyLabelEv
+inline bool QQuickIconLabelPrivate::destroyLabel()
+{
+    if (!label)
+        return false;
+
+    unwatchChanges(label);
+    delete label;
+    label = nullptr;
+    return true;
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 145, as _ZN22QQuickIconLabelPrivate11updateLabelEv
+inline bool QQuickIconLabelPrivate::updateLabel()
+{
+    if (!hasText())
+        return destroyLabel();
+    return createLabel();
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 152, as _ZN22QQuickIconLabelPrivate9syncLabelEv
+inline void QQuickIconLabelPrivate::syncLabel()
+{
+    if (!label)
+        return;
+
+    label->setText(text);
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 160, as _ZN22QQuickIconLabelPrivate17updateOrSyncLabelEv
+inline void QQuickIconLabelPrivate::updateOrSyncLabel()
+{
+    if (updateLabel()) {
+        if (componentComplete) {
+            updateImplicitSize();
+            layout();
+        }
+    } else {
+        syncLabel();
+    }
+}
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 317, as _ZN22QQuickIconLabelPrivate12watchChangesEP10QQuickItem
+inline void QQuickIconLabelPrivate::watchChanges(QQuickItem *item)
+{
+    QQuickItemPrivate *itemPrivate = QQuickItemPrivate::get(item);
+    itemPrivate->addItemChangeListener(this, itemChangeTypes);
 }
 
 //  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 18, as _ZN22QQuickIconLabelPrivate10beginClassEP10QQuickItem
@@ -707,6 +840,12 @@ const QQuickIconLabel *ritual_ZNK22QQuickIconLabelPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QQuickIconLabelPrivate::~QQuickIconLabelPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickIconLabelPrivateD1Ev(QQuickIconLabelPrivate *self) {
+  delete self;
+}
+
 //  bool QQuickIconLabelPrivate::hasIcon() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK22QQuickIconLabelPrivate7hasIconEv(
@@ -721,6 +860,27 @@ bool ritual_ZNK22QQuickIconLabelPrivate7hasTextEv(
   return self->hasText();
 }
 
+//  bool QQuickIconLabelPrivate::createImage()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQuickIconLabelPrivate11createImageEv(
+    QQuickIconLabelPrivate *self) {
+  return self->createImage();
+}
+
+//  bool QQuickIconLabelPrivate::destroyImage()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQuickIconLabelPrivate12destroyImageEv(
+    QQuickIconLabelPrivate *self) {
+  return self->destroyImage();
+}
+
+//  bool QQuickIconLabelPrivate::updateImage()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQuickIconLabelPrivate11updateImageEv(
+    QQuickIconLabelPrivate *self) {
+  return self->updateImage();
+}
+
 //  void QQuickIconLabelPrivate::syncImage()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickIconLabelPrivate9syncImageEv(
@@ -728,11 +888,46 @@ void ritual_ZN22QQuickIconLabelPrivate9syncImageEv(
   self->syncImage();
 }
 
+//  void QQuickIconLabelPrivate::updateOrSyncImage()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickIconLabelPrivate17updateOrSyncImageEv(
+    QQuickIconLabelPrivate *self) {
+  self->updateOrSyncImage();
+}
+
+//  bool QQuickIconLabelPrivate::createLabel()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQuickIconLabelPrivate11createLabelEv(
+    QQuickIconLabelPrivate *self) {
+  return self->createLabel();
+}
+
+//  bool QQuickIconLabelPrivate::destroyLabel()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQuickIconLabelPrivate12destroyLabelEv(
+    QQuickIconLabelPrivate *self) {
+  return self->destroyLabel();
+}
+
+//  bool QQuickIconLabelPrivate::updateLabel()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQuickIconLabelPrivate11updateLabelEv(
+    QQuickIconLabelPrivate *self) {
+  return self->updateLabel();
+}
+
 //  void QQuickIconLabelPrivate::syncLabel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickIconLabelPrivate9syncLabelEv(
     QQuickIconLabelPrivate *self) {
   self->syncLabel();
+}
+
+//  void QQuickIconLabelPrivate::updateOrSyncLabel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickIconLabelPrivate17updateOrSyncLabelEv(
+    QQuickIconLabelPrivate *self) {
+  self->updateOrSyncLabel();
 }
 
 //  void QQuickIconLabelPrivate::updateImplicitSize()
@@ -747,6 +942,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickIconLabelPrivate6layoutEv(
     QQuickIconLabelPrivate *self) {
   self->layout();
+}
+
+//  void QQuickIconLabelPrivate::watchChanges(QQuickItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickIconLabelPrivate12watchChangesEP10QQuickItem(
+    QQuickIconLabelPrivate *self,
+    QQuickItem *item) {
+  self->watchChanges(item);
 }
 
 //  void QQuickIconLabelPrivate::itemImplicitWidthChanged(QQuickItem *a0)
@@ -855,6 +1058,14 @@ void ritual_own_ZN22QQuickIconLabelPrivate25itemImplicitHeightChangedEP10QQuickI
     QQuickIconLabelPrivate *self,
     QQuickItem *a0) {
   self->QQuickIconLabelPrivate::itemImplicitHeightChanged(a0);
+}
+
+//  void QQuickIconLabelPrivate::itemDestroyed(QQuickItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN22QQuickIconLabelPrivate13itemDestroyedEP10QQuickItem(
+    QQuickIconLabelPrivate *self,
+    QQuickItem *item) {
+  self->QQuickIconLabelPrivate::itemDestroyed(item);
 }
 
 //  void QQuickIconLabelPrivate::textChange()

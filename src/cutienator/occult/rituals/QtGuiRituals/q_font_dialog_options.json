@@ -5,7 +5,12 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QFontDialogOptionsC1EP25QFontDialogOptionsPrivate": [
+      "address", "address"
+    ],
     "ritual_ZN18QFontDialogOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN18QFontDialogOptions6createEv": ["address"],
+    "ritual_ZNK18QFontDialogOptions5cloneEv": ["address", "address"],
     "ritual_ZNK18QFontDialogOptions11windowTitleEv": ["text", "address"],
     "ritual_ZN18QFontDialogOptions14setWindowTitleERK7QString": [
       "nothing", "address", "text"
@@ -19,6 +24,9 @@
     "ritual_ZN18QFontDialogOptions10setOptionsE6QFlagsINS_16FontDialogOptionEE": [
       "nothing", "address", "int"
     ],
-    "ritual_ZNK18QFontDialogOptions7optionsEv": ["int", "address"]
+    "ritual_ZNK18QFontDialogOptions7optionsEv": ["int", "address"],
+    "ritual_drop_QFontDialogOptions__QSharedPointer_QFontDialogOptions": [
+      "nothing", "address"
+    ]
   }
 }

@@ -5,7 +5,14 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV419MetaTypesStackFrame4initEPNS_8FunctionEP7QObjectPNS_16ExecutionContextEPPvPK9QMetaTypei": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "int"
+    ],
     "ritual_ZNK3QV419MetaTypesStackFrame10returnTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV419MetaTypesStackFrame11returnValueEv": [
       "address", "address"
     ],
     "ritual_ZNK3QV419MetaTypesStackFrame22isReturnValueUndefinedEv": [
@@ -15,7 +22,11 @@
       "nothing", "address"
     ],
     "ritual_ZNK3QV419MetaTypesStackFrame8argTypesEv": ["address", "address"],
+    "ritual_ZNK3QV419MetaTypesStackFrame4argvEv": ["address", "address"],
     "ritual_ZNK3QV419MetaTypesStackFrame17returnAndArgTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV419MetaTypesStackFrame18returnAndArgValuesEv": [
       "address", "address"
     ],
     "ritual_ZNK3QV419MetaTypesStackFrame10thisObjectEv": [

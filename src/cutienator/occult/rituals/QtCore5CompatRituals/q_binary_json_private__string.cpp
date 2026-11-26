@@ -31,6 +31,14 @@ bool ritual_ZNK18QBinaryJsonPrivate6String7isValidEj(
   return self->isValid(maxSize);
 }
 
+//  void QBinaryJsonPrivate::String::copy(char *dest, QStringView str)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QBinaryJsonPrivate6String4copyEPc11QStringView(
+    char *dest,
+    const QString *str) {
+  QBinaryJsonPrivate::String::copy(dest, QStringView(*str));
+}
+
 //  void QBinaryJsonPrivate::String::fillTrailingZeros(Data *data)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QBinaryJsonPrivate6String17fillTrailingZerosEPNS0_4DataE(

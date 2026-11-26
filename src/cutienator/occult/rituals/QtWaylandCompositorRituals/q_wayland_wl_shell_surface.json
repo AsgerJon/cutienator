@@ -8,8 +8,29 @@
     "ritual_ZNK22QWaylandWlShellSurface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QWaylandWlShellSurface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QWaylandWlShellSurface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QWaylandWlShellSurface6d_funcEv": ["address", "address"],
+    "ritual_ZN22QWaylandWlShellSurface4dataEv": ["address", "address"],
+    "ritual_ZN22QWaylandWlShellSurface14appendFunctionEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface13countFunctionEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface10atFunctionEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface13clearFunctionEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
     ],
     "ritual_ZN22QWaylandWlShellSurfaceC1Ev": ["address"],
     "ritual_ZN22QWaylandWlShellSurfaceC1EP15QWaylandWlShellP15QWaylandSurfaceRK16QWaylandResource": [
@@ -24,8 +45,12 @@
     "ritual_ZNK22QWaylandWlShellSurface7surfaceEv": ["address", "address"],
     "ritual_ZNK22QWaylandWlShellSurface5shellEv": ["address", "address"],
     "ritual_ZNK22QWaylandWlShellSurface10windowTypeEv": ["int", "address"],
+    "ritual_ZN22QWaylandWlShellSurface9interfaceEv": ["address"],
     "ritual_ZN22QWaylandWlShellSurface13interfaceNameEv": ["address"],
     "ritual_ZN22QWaylandWlShellSurface4roleEv": ["address"],
+    "ritual_ZN22QWaylandWlShellSurface12fromResourceEP11wl_resource": [
+      "address", "address"
+    ],
     "ritual_ZN22QWaylandWlShellSurface13sizeForResizeERK6QSizeFRK7QPointFNS_10ResizeEdgeE": [
       "address", "address", "address", "address", "int"
     ],
@@ -39,6 +64,40 @@
       "address", "address", "address"
     ],
     "ritual_ZN22QWaylandWlShellSurface4pingEv": ["nothing", "address"],
+    "ritual_ZN22QWaylandWlShellSurface14surfaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface12shellChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface12titleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface16classNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface4pongEv": ["nothing", "address"],
+    "ritual_ZN22QWaylandWlShellSurface9startMoveEP12QWaylandSeat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface11startResizeEP12QWaylandSeatNS_10ResizeEdgeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface18setDefaultToplevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface12setTransientEP15QWaylandSurfaceRK6QPointb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface13setFullScreenENS_16FullScreenMethodEjP14QWaylandOutput": [
+      "nothing", "address", "int", "unsigned int", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface8setPopupEP12QWaylandSeatP15QWaylandSurfaceRK6QPoint": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface12setMaximizedEP14QWaylandOutput": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QWaylandWlShellSurface10initializeEv": [
       "nothing", "address"
     ],
@@ -62,6 +121,9 @@
     "ritual_list_at_QWaylandWlShellSurface_ptr": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QWaylandWlShellSurface_ptr": ["nothing", "address"]
+    "ritual_list_drop_QWaylandWlShellSurface_ptr": ["nothing", "address"],
+    "ritual_drop_QWaylandWlShellSurface__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

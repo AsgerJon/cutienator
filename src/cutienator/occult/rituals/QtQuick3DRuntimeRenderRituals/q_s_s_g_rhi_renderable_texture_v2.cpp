@@ -111,6 +111,15 @@ inline void QSSGRhiRenderableTextureV2::invalidate()
 }
 //  -----------------------------------------------------------------------
 
+//  QSSGRhiRenderableTextureV2::QSSGRhiRenderableTextureV2(const
+//      std::shared_ptr<QSSGUserRenderPassManager> &manager, Private a1)
+extern "C" Q_DECL_EXPORT
+QSSGRhiRenderableTextureV2 *ritual_ZN26QSSGRhiRenderableTextureV2C1ERKSt10shared_ptrI25QSSGUserRenderPassManagerENS_7PrivateE(
+    const std::shared_ptr<QSSGUserRenderPassManager> *manager,
+    QSSGRhiRenderableTextureV2::Private a1) {
+  return new QSSGRhiRenderableTextureV2(*manager, a1);
+}
+
 //  QSSGRhiRenderableTextureV2::~QSSGRhiRenderableTextureV2()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QSSGRhiRenderableTextureV2D1Ev(
@@ -146,6 +155,54 @@ extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK26QSSGRhiRenderableTextureV27getNameEv(
     const QSSGRhiRenderableTextureV2 *self) {
   return new QByteArray(self->getName());
+}
+
+//  const QSSGManagedRhiTexturePtr
+//      &QSSGRhiRenderableTextureV2::getDepthTexture() const
+extern "C" Q_DECL_EXPORT
+const QSSGManagedRhiTexturePtr *ritual_ZNK26QSSGRhiRenderableTextureV215getDepthTextureEv(
+    const QSSGRhiRenderableTextureV2 *self) {
+  return &(self->getDepthTexture());
+}
+
+//  const std::unique_ptr<QRhiRenderBuffer>
+//      &QSSGRhiRenderableTextureV2::getDepthStencil() const
+extern "C" Q_DECL_EXPORT
+const std::unique_ptr<QRhiRenderBuffer> *ritual_ZNK26QSSGRhiRenderableTextureV215getDepthStencilEv(
+    const QSSGRhiRenderableTextureV2 *self) {
+  return &(self->getDepthStencil());
+}
+
+//  const std::unique_ptr<QRhiRenderPassDescriptor>
+//      &QSSGRhiRenderableTextureV2::getRenderPassDescriptor() const
+extern "C" Q_DECL_EXPORT
+const std::unique_ptr<QRhiRenderPassDescriptor> *ritual_ZNK26QSSGRhiRenderableTextureV223getRenderPassDescriptorEv(
+    const QSSGRhiRenderableTextureV2 *self) {
+  return &(self->getRenderPassDescriptor());
+}
+
+//  const std::unique_ptr<QRhiTextureRenderTarget>
+//      &QSSGRhiRenderableTextureV2::getRenderTarget() const
+extern "C" Q_DECL_EXPORT
+const std::unique_ptr<QRhiTextureRenderTarget> *ritual_ZNK26QSSGRhiRenderableTextureV215getRenderTargetEv(
+    const QSSGRhiRenderableTextureV2 *self) {
+  return &(self->getRenderTarget());
+}
+
+//  size_t QSSGRhiRenderableTextureV2::colorAttachmentCount() const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK26QSSGRhiRenderableTextureV220colorAttachmentCountEv(
+    const QSSGRhiRenderableTextureV2 *self) {
+  return self->colorAttachmentCount();
+}
+
+//  const QSSGManagedRhiTexturePtr
+//      &QSSGRhiRenderableTextureV2::getColorTexture(int index) const
+extern "C" Q_DECL_EXPORT
+const QSSGManagedRhiTexturePtr *ritual_ZNK26QSSGRhiRenderableTextureV215getColorTextureEi(
+    const QSSGRhiRenderableTextureV2 *self,
+    int index) {
+  return &(self->getColorTexture(index));
 }
 
 //  bool QSSGRhiRenderableTextureV2::isValid() const

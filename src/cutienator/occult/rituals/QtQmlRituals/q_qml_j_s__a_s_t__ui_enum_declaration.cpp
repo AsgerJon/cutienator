@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -201,6 +205,18 @@ public:
   }
 };
 
+//  QQmlJS::AST::UiEnumDeclaration::UiEnumDeclaration(QStringView name,
+//      UiEnumMemberList *members)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiEnumDeclaration *ritual_ZN6QQmlJS3AST17UiEnumDeclarationC1E11QStringViewPNS0_16UiEnumMemberListE(
+    QQmlJS::MemoryPool *pool,
+    const QString *name,
+    QQmlJS::AST::UiEnumMemberList *members) {
+  return new (pool) CuteQQmlJS_AST_UiEnumDeclaration(
+      QStringView(*name),
+      members);
+}
+
 //  SourceLocation QQmlJS::AST::UiEnumDeclaration::firstSourceLocation()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -214,6 +230,14 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST17UiEnumDeclaration18lastSourceLocationEv(
     const QQmlJS::AST::UiEnumDeclaration *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  void QQmlJS::AST::UiEnumDeclaration::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST17UiEnumDeclaration7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiEnumDeclaration *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_UiEnumDeclaration, for the

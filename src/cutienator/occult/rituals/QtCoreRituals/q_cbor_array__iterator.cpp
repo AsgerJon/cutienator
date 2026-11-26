@@ -25,6 +25,14 @@ QCborArray::Iterator *ritual_ZN10QCborArray8IteratorC1ERKS0_(
   return new QCborArray::Iterator(*a0);
 }
 
+//  Iterator &QCborArray::Iterator::operator=(const Iterator &other)
+extern "C" Q_DECL_EXPORT
+QCborArray::Iterator *ritual_ZN10QCborArray8IteratoraSERKS0_(
+    QCborArray::Iterator *self,
+    const QCborArray::Iterator *other) {
+  return &(self->operator=(*other));
+}
+
 //  QCborValueRef QCborArray::Iterator::operator*() const
 extern "C" Q_DECL_EXPORT
 QCborValueRef *ritual_ZNK10QCborArray8IteratordeEv(
@@ -54,12 +62,26 @@ QCborValueRef *ritual_ZNK10QCborArray8IteratorixEx(
   return new QCborValueRef(self->operator[](j));
 }
 
+//  Iterator &QCborArray::Iterator::operator++()
+extern "C" Q_DECL_EXPORT
+QCborArray::Iterator *ritual_ZN10QCborArray8IteratorppEv(
+    QCborArray::Iterator *self) {
+  return &(self->operator++());
+}
+
 //  Iterator QCborArray::Iterator::operator++(int a0)
 extern "C" Q_DECL_EXPORT
 QCborArray::Iterator *ritual_ZN10QCborArray8IteratorppEi(
     QCborArray::Iterator *self,
     int a0) {
   return new QCborArray::Iterator(self->operator++(a0));
+}
+
+//  Iterator &QCborArray::Iterator::operator--()
+extern "C" Q_DECL_EXPORT
+QCborArray::Iterator *ritual_ZN10QCborArray8IteratormmEv(
+    QCborArray::Iterator *self) {
+  return &(self->operator--());
 }
 
 //  Iterator QCborArray::Iterator::operator--(int a0)

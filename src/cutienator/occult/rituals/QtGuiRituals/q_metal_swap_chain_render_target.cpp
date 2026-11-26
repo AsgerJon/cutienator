@@ -105,6 +105,34 @@ public:
   }
 };
 
+//  void QMetalSwapChainRenderTarget::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QMetalSwapChainRenderTarget7destroyEv(
+    QMetalSwapChainRenderTarget *self) {
+  self->destroy();
+}
+
+//  QSize QMetalSwapChainRenderTarget::pixelSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK27QMetalSwapChainRenderTarget9pixelSizeEv(
+    const QMetalSwapChainRenderTarget *self) {
+  return new QSize(self->pixelSize());
+}
+
+//  float QMetalSwapChainRenderTarget::devicePixelRatio() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK27QMetalSwapChainRenderTarget16devicePixelRatioEv(
+    const QMetalSwapChainRenderTarget *self) {
+  return self->devicePixelRatio();
+}
+
+//  int QMetalSwapChainRenderTarget::sampleCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK27QMetalSwapChainRenderTarget11sampleCountEv(
+    const QMetalSwapChainRenderTarget *self) {
+  return self->sampleCount();
+}
+
 //  a Python function taken by a CuteQMetalSwapChainRenderTarget, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

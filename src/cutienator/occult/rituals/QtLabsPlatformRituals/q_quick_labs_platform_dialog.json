@@ -8,11 +8,18 @@
     "ritual_ZNK24QQuickLabsPlatformDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickLabsPlatformDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickLabsPlatformDialog24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN24QQuickLabsPlatformDialogD1Ev": ["nothing", "address"],
     "ritual_ZNK24QQuickLabsPlatformDialog6handleEv": ["address", "address"],
+    "ritual_ZN24QQuickLabsPlatformDialog4dataEv": ["address", "address"],
     "ritual_ZNK24QQuickLabsPlatformDialog12parentWindowEv": [
       "address", "address"
     ],
@@ -21,10 +28,32 @@
     "ritual_ZNK24QQuickLabsPlatformDialog8modalityEv": ["int", "address"],
     "ritual_ZNK24QQuickLabsPlatformDialog9isVisibleEv": ["bool", "address"],
     "ritual_ZNK24QQuickLabsPlatformDialog6resultEv": ["int", "address"],
+    "ritual_ZN24QQuickLabsPlatformDialog4openEv": ["nothing", "address"],
+    "ritual_ZN24QQuickLabsPlatformDialog5closeEv": ["nothing", "address"],
     "ritual_ZN24QQuickLabsPlatformDialog6acceptEv": ["nothing", "address"],
     "ritual_ZN24QQuickLabsPlatformDialog6rejectEv": ["nothing", "address"],
     "ritual_ZN24QQuickLabsPlatformDialog4doneEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog8acceptedEv": ["nothing", "address"],
+    "ritual_ZN24QQuickLabsPlatformDialog8rejectedEv": ["nothing", "address"],
+    "ritual_ZN24QQuickLabsPlatformDialog19parentWindowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog12titleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog12flagsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog15modalityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog13resultChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN24QQuickLabsPlatformDialog10classBeginEv": [
       "nothing", "address"
@@ -74,6 +103,9 @@
     ],
     "ritual_own_ZN24QQuickLabsPlatformDialog6onHideEP21QPlatformDialogHelper": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QQuickLabsPlatformDialog__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

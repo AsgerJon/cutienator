@@ -5,6 +5,8 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QPlatformOpenGLContext6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QPlatformOpenGLContext6d_funcEv": ["address", "address"],
     "ritual_ZN22QPlatformOpenGLContextD1Ev": ["nothing", "address"],
     "ritual_ZN22QPlatformOpenGLContext10initializeEv": [
       "nothing", "address"
@@ -12,6 +14,9 @@
     "ritual_ZNK22QPlatformOpenGLContext6formatEv": ["address", "address"],
     "ritual_ZN22QPlatformOpenGLContext11swapBuffersEP16QPlatformSurface": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QPlatformOpenGLContext24defaultFramebufferObjectEP16QPlatformSurface": [
+      "unsigned int", "address", "address"
     ],
     "ritual_ZN22QPlatformOpenGLContext11makeCurrentEP16QPlatformSurface": [
       "bool", "address", "address"
@@ -25,6 +30,9 @@
     "ritual_ZN22QPlatformOpenGLContext8endFrameEv": ["nothing", "address"],
     "ritual_ZNK22QPlatformOpenGLContext9isSharingEv": ["bool", "address"],
     "ritual_ZNK22QPlatformOpenGLContext7isValidEv": ["bool", "address"],
+    "ritual_ZN22QPlatformOpenGLContext14getProcAddressEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_ZNK22QPlatformOpenGLContext7contextEv": ["address", "address"],
     "ritual_ZN22QPlatformOpenGLContext18parseOpenGLVersionERK10QByteArrayRiS3_": [
       "bool", "address", "address", "address"
@@ -37,6 +45,9 @@
     ],
     "ritual_own_ZN22QPlatformOpenGLContext10initializeEv": [
       "nothing", "address"
+    ],
+    "ritual_own_ZNK22QPlatformOpenGLContext24defaultFramebufferObjectEP16QPlatformSurface": [
+      "unsigned int", "address", "address"
     ],
     "ritual_own_ZN22QPlatformOpenGLContext10beginFrameEv": [
       "nothing", "address"

@@ -8,6 +8,12 @@
     "ritual_ZNK31QBluetoothServiceDiscoveryAgent10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QBluetoothServiceDiscoveryAgent2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -59,6 +65,18 @@
     ],
     "ritual_ZN31QBluetoothServiceDiscoveryAgent5clearEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent17serviceDiscoveredERK21QBluetoothServiceInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent8finishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent8canceledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent13errorOccurredENS_5ErrorE": [
+      "nothing", "address", "int"
     ],
     "ritual_take_QBluetoothServiceDiscoveryAgent": [
       "bool", "address", "chars", "address"

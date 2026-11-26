@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal18QEditorFormBuilderC1EP28QDesignerFormEditorInterface": [
+      "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal18QEditorFormBuilder4copyEP9QIODeviceRKNS_20FormBuilderClipboardE": [
       "bool", "address", "address", "address"
     ],

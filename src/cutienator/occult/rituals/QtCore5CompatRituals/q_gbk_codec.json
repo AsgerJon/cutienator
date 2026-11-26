@@ -12,8 +12,17 @@
     "ritual_ZNK9QGbkCodec4nameEv": ["address", "address"],
     "ritual_ZNK9QGbkCodec7aliasesEv": ["address", "address"],
     "ritual_ZNK9QGbkCodec7mibEnumEv": ["int", "address"],
+    "ritual_ZNK9QGbkCodec16convertToUnicodeEPKciPN20QStringConverterBase5StateE": [
+      "text", "address", "chars", "int", "address"
+    ],
+    "ritual_ZNK9QGbkCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE": [
+      "address", "address", "address", "int", "address"
+    ],
     "ritual_take_QGbkCodec": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QGbkCodec4nameEv": ["address", "address"],
-    "ritual_own_ZNK9QGbkCodec7mibEnumEv": ["int", "address"]
+    "ritual_own_ZNK9QGbkCodec7mibEnumEv": ["int", "address"],
+    "ritual_own_ZNK9QGbkCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE": [
+      "address", "address", "address", "int", "address"
+    ]
   }
 }

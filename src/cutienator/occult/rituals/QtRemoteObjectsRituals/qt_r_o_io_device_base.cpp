@@ -6,6 +6,8 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSet>
+#include <QtCore/QString>
 
 //  A QtROIoDeviceBase that Python can take functions over in. Every QtROIoDeviceBase
 //  Python makes is one. Each function below asks the Python
@@ -312,6 +314,25 @@ const QMetaObject *ritual_ZNK16QtROIoDeviceBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtROIoDeviceBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QtROIoDeviceBase11qt_metacastEPKc(
+    QtROIoDeviceBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtROIoDeviceBase::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QtROIoDeviceBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtROIoDeviceBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtROIoDeviceBase::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QtROIoDeviceBase2trEPKcS1_i(
@@ -321,10 +342,26 @@ QString *ritual_ZN16QtROIoDeviceBase2trEPKcS1_i(
   return new QString(QtROIoDeviceBase::tr(s, c, n));
 }
 
+//  QtROIoDeviceBase::QtROIoDeviceBase(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtROIoDeviceBase *ritual_ZN16QtROIoDeviceBaseC1EP7QObject(QObject *parent) {
+  return new CuteQtROIoDeviceBase(parent);
+}
+
 //  QtROIoDeviceBase::~QtROIoDeviceBase()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QtROIoDeviceBaseD1Ev(QtROIoDeviceBase *self) {
   delete self;
+}
+
+//  bool QtROIoDeviceBase::read(QtRemoteObjects::QRemoteObjectPacketTypeEnum
+//      &a0, QString &a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QtROIoDeviceBase4readERN15QtRemoteObjects27QRemoteObjectPacketTypeEnumER7QString(
+    QtROIoDeviceBase *self,
+    QtRemoteObjects::QRemoteObjectPacketTypeEnum *a0,
+    QString *a1) {
+  return self->read(*a0, *a1);
 }
 
 //  void QtROIoDeviceBase::write(const QByteArray &data)
@@ -399,6 +436,34 @@ void ritual_ZN16QtROIoDeviceBase12removeSourceERK7QString(
   self->removeSource(*a0);
 }
 
+//  QSet<QString> QtROIoDeviceBase::remoteObjects() const
+extern "C" Q_DECL_EXPORT
+QSet<QString> *ritual_ZNK16QtROIoDeviceBase13remoteObjectsEv(
+    const QtROIoDeviceBase *self) {
+  return new QSet<QString>(self->remoteObjects());
+}
+
+//  void QtROIoDeviceBase::readyRead()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QtROIoDeviceBase9readyReadEv(QtROIoDeviceBase *self) {
+  self->readyRead();
+}
+
+//  void QtROIoDeviceBase::disconnected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QtROIoDeviceBase12disconnectedEv(QtROIoDeviceBase *self) {
+  self->disconnected();
+}
+
+//  QtROIoDeviceBase::QtROIoDeviceBase(QtROIoDeviceBasePrivate &a0, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QtROIoDeviceBase *ritual_ZN16QtROIoDeviceBaseC1ER23QtROIoDeviceBasePrivateP7QObject(
+    QtROIoDeviceBasePrivate *a0,
+    QObject *parent) {
+  return new CuteQtROIoDeviceBase(*a0, parent);
+}
+
 //  QString QtROIoDeviceBase::deviceType() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK16QtROIoDeviceBase10deviceTypeEv(
@@ -471,4 +536,10 @@ extern "C" Q_DECL_EXPORT
 qint64 ritual_own_ZNK16QtROIoDeviceBase14bytesAvailableEv(
     const QtROIoDeviceBase *self) {
   return self->QtROIoDeviceBase::bytesAvailable();
+}
+
+//  a QSet<QString> a ritual of QtROIoDeviceBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtROIoDeviceBase__QSet_QString(QSet<QString> *self) {
+  delete self;
 }

@@ -1,10 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtMultimedia/qaudioinput.h, Qt 6.12.0. Changes made here are lost.
+//  QtMultimedia/qaudioinput.h, Qt 6.12.0. Edited by hand on 2026-11-25:
+//  added by hand: 'ritual_callback_ZN11QAudioInput21setDisconnectFunctionESt
+//  8functionIFvvEE'. Kept as it is when the generator runs again.
 #include <QtMultimedia/qaudioinput.h>
 #include <QtCore/qstring.h>
 #include <QtMultimedia/qaudiodevice.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <functional>
 
 //  A QAudioInput that Python can take functions over in. Every QAudioInput
 //  Python makes is one. Each function below asks the Python
@@ -180,6 +183,24 @@ const QMetaObject *ritual_ZNK11QAudioInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAudioInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QAudioInput11qt_metacastEPKc(
+    QAudioInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAudioInput::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QAudioInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAudioInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAudioInput::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QAudioInput2trEPKcS1_i(
@@ -247,11 +268,40 @@ void ritual_ZN11QAudioInput8setMutedEb(QAudioInput *self, bool muted) {
   self->setMuted(muted);
 }
 
+//  void QAudioInput::deviceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAudioInput13deviceChangedEv(QAudioInput *self) {
+  self->deviceChanged();
+}
+
+//  void QAudioInput::volumeChanged(float volume)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAudioInput13volumeChangedEf(
+    QAudioInput *self,
+    float volume) {
+  self->volumeChanged(volume);
+}
+
+//  void QAudioInput::mutedChanged(bool muted)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAudioInput12mutedChangedEb(QAudioInput *self, bool muted) {
+  self->mutedChanged(muted);
+}
+
 //  QPlatformAudioInput *QAudioInput::handle() const
 extern "C" Q_DECL_EXPORT
 QPlatformAudioInput *ritual_ZNK11QAudioInput6handleEv(
     const QAudioInput *self) {
   return self->handle();
+}
+
+//  void QAudioInput::setDisconnectFunction(std::function<void ()>
+//      disconnectFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAudioInput21setDisconnectFunctionESt8functionIFvvEE(
+    QAudioInput *self,
+    const std::function<void ()> *disconnectFunction) {
+  self->setDisconnectFunction(*disconnectFunction);
 }
 
 //  a Python function taken by a CuteQAudioInput, for the function named by
@@ -262,4 +312,17 @@ bool ritual_take_QAudioInput(
     const char *key,
     void *call) {
   return static_cast<CuteQAudioInput *>(self)->take(key, call);
+}
+
+//  void QAudioInput::setDisconnectFunction(std::function<void ()>
+//      disconnectFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_callback_ZN11QAudioInput21setDisconnectFunctionESt8functionIFvvEE(
+    QAudioInput *self,
+    void *call,
+    void *context) {
+  auto function = reinterpret_cast<void (*)(void *)>(call);
+  self->setDisconnectFunction([function, context]() {
+    function(context);
+  });
 }

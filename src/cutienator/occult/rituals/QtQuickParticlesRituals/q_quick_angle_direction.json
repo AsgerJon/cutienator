@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickAngleDirection10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickAngleDirection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickAngleDirection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickAngleDirection2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,6 +26,18 @@
     ],
     "ritual_ZNK20QQuickAngleDirection18magnitudeVariationEv": [
       "double", "address"
+    ],
+    "ritual_ZN20QQuickAngleDirection12angleChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAngleDirection16magnitudeChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAngleDirection21angleVariationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAngleDirection25magnitudeVariationChangedEd": [
+      "nothing", "address", "double"
     ],
     "ritual_ZN20QQuickAngleDirection8setAngleEd": [
       "nothing", "address", "double"

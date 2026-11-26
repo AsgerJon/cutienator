@@ -179,6 +179,26 @@ void ritual_ZN12QCanBusFrame12setLocalEchoEb(
   self->setLocalEcho(localEcho);
 }
 
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QCanBusFrame &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK12QCanBusFrame(
+    QDataStream *a0,
+    const QCanBusFrame *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QCanBusFrame &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR12QCanBusFrame(
+    QDataStream *a0,
+    QCanBusFrame *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 //  QCanBusFrame::~QCanBusFrame()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QCanBusFrameD1Ev(QCanBusFrame *self) {

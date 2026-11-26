@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK7QTabBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QTabBar11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QTabBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QTabBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QTabBarC1EP7QWidget": ["address", "address"],
     "ritual_ZN7QTabBarD1Ev": ["nothing", "address"],
@@ -103,6 +107,13 @@
       "nothing", "address", "int", "text"
     ],
     "ritual_ZN7QTabBar15setCurrentIndexEi": ["nothing", "address", "int"],
+    "ritual_ZN7QTabBar14currentChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QTabBar17tabCloseRequestedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QTabBar8tabMovedEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN7QTabBar13tabBarClickedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QTabBar19tabBarDoubleClickedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK7QTabBar11tabSizeHintEi": ["address", "address", "int"],
     "ritual_ZNK7QTabBar18minimumTabSizeHintEi": [
       "address", "address", "int"

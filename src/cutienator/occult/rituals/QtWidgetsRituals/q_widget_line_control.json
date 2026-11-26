@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QWidgetLineControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWidgetLineControl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QWidgetLineControl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QWidgetLineControl2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -252,6 +258,9 @@
     "ritual_ZN18QWidgetLineControl20advanceToEnabledItemEi": [
       "bool", "address", "int"
     ],
+    "ritual_ZN18QWidgetLineControl10addCommandERKNS_7CommandE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QWidgetLineControl8separateEv": ["nothing", "address"],
     "ritual_ZN18QWidgetLineControl14parseInputMaskERK7QString": [
       "nothing", "address", "text"
@@ -278,6 +287,35 @@
       "nothing", "address"
     ],
     "ritual_ZNK18QWidgetLineControl14redoTextLayoutEv": ["int", "address"],
+    "ritual_ZN18QWidgetLineControl21cursorPositionChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl16selectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl18displayTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetLineControl11textChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetLineControl10textEditedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetLineControl17resetInputContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl16updateMicroFocusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl8acceptedEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl15editingFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl12updateNeededERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl13inputRejectedEv": ["nothing", "address"],
     "ritual_ZN18QWidgetLineControl10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],

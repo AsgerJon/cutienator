@@ -8,6 +8,21 @@
     "ritual_ZNK23QtBluezDiscoveryManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QtBluezDiscoveryManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QtBluezDiscoveryManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23QtBluezDiscoveryManager20discoveryInterruptedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QtBluezDiscoveryManager17InterfacesRemovedERK15QDBusObjectPathRK5QListI7QStringE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QtBluezDiscoveryManager17PropertiesChangedERK7QStringRK4QMapIS0_8QVariantERK5QListIS0_ERK12QDBusMessage": [
+      "nothing", "address", "text", "address", "address", "address"
+    ],
     "ritual_take_QtBluezDiscoveryManager": [
       "bool", "address", "chars", "address"
     ]

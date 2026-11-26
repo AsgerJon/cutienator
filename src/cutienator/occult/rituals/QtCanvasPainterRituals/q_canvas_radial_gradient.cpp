@@ -82,10 +82,43 @@ QCanvasRadialGradient *ritual_ZN21QCanvasRadialGradientC1ERKS_(
   return new QCanvasRadialGradient(*a0);
 }
 
+//  QCanvasRadialGradient &QCanvasRadialGradient::operator=(const
+//      QCanvasRadialGradient &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasRadialGradient *ritual_ZN21QCanvasRadialGradientaSERKS_(
+    QCanvasRadialGradient *self,
+    const QCanvasRadialGradient *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QCanvasRadialGradient::QCanvasRadialGradient(QCanvasRadialGradient &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasRadialGradient *ritual_ZN21QCanvasRadialGradientC1EOS_(
+    QCanvasRadialGradient *a0) {
+  return new QCanvasRadialGradient(std::move(*a0));
+}
+
+//  QCanvasRadialGradient
+//      &QCanvasRadialGradient::operator=(QCanvasRadialGradient &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasRadialGradient *ritual_ZN21QCanvasRadialGradientaSEOS_(
+    QCanvasRadialGradient *self,
+    QCanvasRadialGradient *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QCanvasRadialGradient::~QCanvasRadialGradient()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QCanvasRadialGradientD1Ev(QCanvasRadialGradient *self) {
   delete self;
+}
+
+//  void QCanvasRadialGradient::swap(QCanvasRadialGradient &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCanvasRadialGradient4swapERS_(
+    QCanvasRadialGradient *self,
+    QCanvasRadialGradient *other) {
+  self->swap(*other);
 }
 
 //  QPointF QCanvasRadialGradient::centerPosition() const

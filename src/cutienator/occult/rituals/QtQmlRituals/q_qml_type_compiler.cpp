@@ -67,6 +67,19 @@ inline QQmlType QQmlTypeData::qmlType(const QString &inlineComponentName) const
     return m_inlineComponentData[inlineComponentName].qmlType;
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 30, as _ZN16QQmlTypeCompilerC1EP14QQmlTypeLoaderP12QQmlTypeDataPN5QmlIR8DocumentEPN3QV412CompiledData24ResolvedTypeReferenceMapERKSt8functionIF10QByteArrayvEE
+inline QQmlTypeCompiler::QQmlTypeCompiler(
+        QQmlTypeLoader *typeLoader, QQmlTypeData *typeData, QmlIR::Document *parsedQML,
+        QV4::CompiledData::ResolvedTypeReferenceMap *resolvedTypeCache,
+        const QV4::CompiledData::DependentTypesHasher &dependencyHasher)
+    : resolvedTypes(resolvedTypeCache)
+    , loader(typeLoader)
+    , dependencyHasher(dependencyHasher)
+    , document(parsedQML)
+    , typeData(typeData)
+{
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 184, as _ZNK16QQmlTypeCompiler13resolvedIndexEi
 inline int QQmlTypeCompiler::resolvedIndex(int index) const
 {
@@ -149,6 +162,12 @@ inline const QQmlImports *QQmlTypeCompiler::imports() const
     return typeData->imports();
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 219, as _ZNK16QQmlTypeCompiler10qmlObjectsEv
+inline QList<QmlIR::Object *> *QQmlTypeCompiler::qmlObjects() const
+{
+    return &document->objects;
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 224, as _ZN16QQmlTypeCompiler14propertyCachesEv
 inline QQmlPropertyCacheVector *QQmlTypeCompiler::propertyCaches()
 {
@@ -224,6 +243,25 @@ QString *ritual_ZN16QQmlTypeCompiler2trEPKcS1_i(
   return new QString(QQmlTypeCompiler::tr(sourceText, disambiguation, n));
 }
 
+//  QQmlTypeCompiler::QQmlTypeCompiler(QQmlTypeLoader *typeLoader,
+//      QQmlTypeData *typeData, QmlIR::Document *document,
+//      QV4::CompiledData::ResolvedTypeReferenceMap *resolvedTypeCache, const
+//      QV4::CompiledData::DependentTypesHasher &dependencyHasher)
+extern "C" Q_DECL_EXPORT
+QQmlTypeCompiler *ritual_ZN16QQmlTypeCompilerC1EP14QQmlTypeLoaderP12QQmlTypeDataPN5QmlIR8DocumentEPN3QV412CompiledData24ResolvedTypeReferenceMapERKSt8functionIF10QByteArrayvEE(
+    QQmlTypeLoader *typeLoader,
+    QQmlTypeData *typeData,
+    QmlIR::Document *document,
+    QV4::CompiledData::ResolvedTypeReferenceMap *resolvedTypeCache,
+    const QV4::CompiledData::DependentTypesHasher *dependencyHasher) {
+  return new QQmlTypeCompiler(
+      typeLoader,
+      typeData,
+      document,
+      resolvedTypeCache,
+      *dependencyHasher);
+}
+
 //  const QmlIR::Object *QQmlTypeCompiler::objectAt(int index) const
 extern "C" Q_DECL_EXPORT
 const QmlIR::Object *ritual_ZNK16QQmlTypeCompiler8objectAtEi(
@@ -269,6 +307,30 @@ QString *ritual_ZNK16QQmlTypeCompiler8stringAtEi(
     const QQmlTypeCompiler *self,
     int idx) {
   return new QString(self->stringAt(idx));
+}
+
+//  QmlIR::PoolList<QmlIR::Function>::Iterator
+//      QQmlTypeCompiler::objectFunctionsBegin(const QmlIR::Object *object)
+//      const
+extern "C" Q_DECL_EXPORT
+QmlIR::PoolList<QmlIR::Function>::Iterator *ritual_ZNK16QQmlTypeCompiler20objectFunctionsBeginEPKN5QmlIR6ObjectE(
+    const QQmlTypeCompiler *self,
+    const QmlIR::Object *object) {
+  return new QmlIR::PoolList<QmlIR::Function>::Iterator(
+      self->objectFunctionsBegin(
+          object));
+}
+
+//  QmlIR::PoolList<QmlIR::Function>::Iterator
+//      QQmlTypeCompiler::objectFunctionsEnd(const QmlIR::Object *object)
+//      const
+extern "C" Q_DECL_EXPORT
+QmlIR::PoolList<QmlIR::Function>::Iterator *ritual_ZNK16QQmlTypeCompiler18objectFunctionsEndEPKN5QmlIR6ObjectE(
+    const QQmlTypeCompiler *self,
+    const QmlIR::Object *object) {
+  return new QmlIR::PoolList<QmlIR::Function>::Iterator(
+      self->objectFunctionsEnd(
+          object));
 }
 
 //  ListPropertyAssignBehavior QQmlTypeCompiler::listPropertyAssignBehavior()
@@ -354,6 +416,13 @@ extern "C" Q_DECL_EXPORT
 const QQmlImports *ritual_ZNK16QQmlTypeCompiler7importsEv(
     const QQmlTypeCompiler *self) {
   return self->imports();
+}
+
+//  QList<QmlIR::Object *> *QQmlTypeCompiler::qmlObjects() const
+extern "C" Q_DECL_EXPORT
+QList<QmlIR::Object *> *ritual_ZNK16QQmlTypeCompiler10qmlObjectsEv(
+    const QQmlTypeCompiler *self) {
+  return self->qmlObjects();
 }
 
 //  QQmlPropertyCacheVector *QQmlTypeCompiler::propertyCaches()
@@ -446,4 +515,20 @@ QQmlType *ritual_ZNK16QQmlTypeCompiler19qmlTypeForComponentERK7QString(
     const QQmlTypeCompiler *self,
     const QString *inlineComponentName) {
   return new QQmlType(self->qmlTypeForComponent(*inlineComponentName));
+}
+
+//  a QmlIR::PoolList<QmlIR::Function>::Iterator a ritual of QQmlTypeCompiler
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTypeCompiler__QmlIR_PoolList_QmlIR_Function_Iterator(
+    QmlIR::PoolList<QmlIR::Function>::Iterator *self) {
+  delete self;
+}
+
+//  a QQmlRefPointer<QV4::CompiledData::CompilationUnit> a ritual of
+//      QQmlTypeCompiler gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTypeCompiler__QQmlRefPointer_QV4_CompiledData_CompilationUnit(
+    QQmlRefPointer<QV4::CompiledData::CompilationUnit> *self) {
+  delete self;
 }

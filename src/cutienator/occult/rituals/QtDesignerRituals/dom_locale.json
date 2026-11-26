@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN9DomLocaleC1Ev": ["address"],
     "ritual_ZN9DomLocaleD1Ev": ["nothing", "address"],
+    "ritual_ZN9DomLocale4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomLocale5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK9DomLocale20hasAttributeLanguageEv": ["bool", "address"],
     "ritual_ZNK9DomLocale17attributeLanguageEv": ["text", "address"],
     "ritual_ZN9DomLocale20setAttributeLanguageERK7QString": [

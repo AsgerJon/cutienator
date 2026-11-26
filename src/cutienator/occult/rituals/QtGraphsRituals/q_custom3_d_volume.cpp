@@ -1,15 +1,19 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qcustom3dvolume.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qcustom3dvolume.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
+#include <QtGui/qquaternion.h>
 #include <QtGui/qimage.h>
 #include <QtGui/qcolor.h>
-#include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtGui/QRgb>
 
 //  A QCustom3DVolume that Python can take functions over in. Every QCustom3DVolume
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +189,24 @@ const QMetaObject *ritual_ZNK15QCustom3DVolume10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCustom3DVolume::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QCustom3DVolume11qt_metacastEPKc(
+    QCustom3DVolume *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCustom3DVolume::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QCustom3DVolume11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCustom3DVolume *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCustom3DVolume::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QCustom3DVolume2trEPKcS1_i(
@@ -212,6 +234,35 @@ const QCustom3DVolumePrivate *ritual_ZNK15QCustom3DVolume6d_funcEv(
 extern "C" Q_DECL_EXPORT
 QCustom3DVolume *ritual_ZN15QCustom3DVolumeC1EP7QObject(QObject *parent) {
   return new CuteQCustom3DVolume(parent);
+}
+
+//  QCustom3DVolume::QCustom3DVolume(QVector3D position, QVector3D scaling,
+//      const QQuaternion &rotation, int textureWidth, int textureHeight, int
+//      textureDepth, QList<uchar> *textureData, QImage::Format
+//      textureFormat, const QList<QRgb> &colorTable, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCustom3DVolume *ritual_ZN15QCustom3DVolumeC1E9QVector3DS0_RK11QQuaternioniiiP5QListIhEN6QImage6FormatERKS4_IjEP7QObject(
+    const QVector3D *position,
+    const QVector3D *scaling,
+    const QQuaternion *rotation,
+    int textureWidth,
+    int textureHeight,
+    int textureDepth,
+    QList<uchar> *textureData,
+    QImage::Format textureFormat,
+    const QList<QRgb> *colorTable,
+    QObject *parent) {
+  return new CuteQCustom3DVolume(
+      *position,
+      *scaling,
+      *rotation,
+      textureWidth,
+      textureHeight,
+      textureDepth,
+      textureData,
+      textureFormat,
+      *colorTable,
+      parent);
 }
 
 //  QCustom3DVolume::~QCustom3DVolume()
@@ -333,6 +384,56 @@ void ritual_ZN15QCustom3DVolume15setSliceIndicesEiii(
     int y,
     int z) {
   self->setSliceIndices(x, y, z);
+}
+
+//  void QCustom3DVolume::setColorTable(const QList<QRgb> &colors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume13setColorTableERK5QListIjE(
+    QCustom3DVolume *self,
+    const QList<QRgb> *colors) {
+  self->setColorTable(*colors);
+}
+
+//  QList<QRgb> QCustom3DVolume::colorTable() const
+extern "C" Q_DECL_EXPORT
+QList<QRgb> *ritual_ZNK15QCustom3DVolume10colorTableEv(
+    const QCustom3DVolume *self) {
+  return new QList<QRgb>(self->colorTable());
+}
+
+//  void QCustom3DVolume::setTextureData(QList<uchar> *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume14setTextureDataEP5QListIhE(
+    QCustom3DVolume *self,
+    QList<uchar> *data) {
+  self->setTextureData(data);
+}
+
+//  QList<uchar> *QCustom3DVolume::createTextureData(const QList<QImage *>
+//      &images)
+extern "C" Q_DECL_EXPORT
+QList<uchar> *ritual_ZN15QCustom3DVolume17createTextureDataERK5QListIP6QImageE(
+    QCustom3DVolume *self,
+    const QList<QImage *> *images) {
+  return self->createTextureData(*images);
+}
+
+//  QList<uchar> *QCustom3DVolume::textureData() const
+extern "C" Q_DECL_EXPORT
+QList<uchar> *ritual_ZNK15QCustom3DVolume11textureDataEv(
+    const QCustom3DVolume *self) {
+  return self->textureData();
+}
+
+//  void QCustom3DVolume::setSubTextureData(Qt::Axis axis, int index, const
+//      uchar *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume17setSubTextureDataEN2Qt4AxisEiPKh(
+    QCustom3DVolume *self,
+    Qt::Axis axis,
+    int index,
+    const uchar *data) {
+  self->setSubTextureData(axis, index, data);
 }
 
 //  void QCustom3DVolume::setSubTextureData(Qt::Axis axis, int index, const
@@ -504,6 +605,148 @@ QImage *ritual_ZN15QCustom3DVolume11renderSliceEN2Qt4AxisEi(
   return new QImage(self->renderSlice(axis, index));
 }
 
+//  void QCustom3DVolume::textureWidthChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume19textureWidthChangedEi(
+    QCustom3DVolume *self,
+    int value) {
+  self->textureWidthChanged(value);
+}
+
+//  void QCustom3DVolume::textureHeightChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume20textureHeightChangedEi(
+    QCustom3DVolume *self,
+    int value) {
+  self->textureHeightChanged(value);
+}
+
+//  void QCustom3DVolume::textureDepthChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume19textureDepthChangedEi(
+    QCustom3DVolume *self,
+    int value) {
+  self->textureDepthChanged(value);
+}
+
+//  void QCustom3DVolume::sliceIndexXChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume18sliceIndexXChangedEi(
+    QCustom3DVolume *self,
+    int value) {
+  self->sliceIndexXChanged(value);
+}
+
+//  void QCustom3DVolume::sliceIndexYChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume18sliceIndexYChangedEi(
+    QCustom3DVolume *self,
+    int value) {
+  self->sliceIndexYChanged(value);
+}
+
+//  void QCustom3DVolume::sliceIndexZChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume18sliceIndexZChangedEi(
+    QCustom3DVolume *self,
+    int value) {
+  self->sliceIndexZChanged(value);
+}
+
+//  void QCustom3DVolume::colorTableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume17colorTableChangedEv(QCustom3DVolume *self) {
+  self->colorTableChanged();
+}
+
+//  void QCustom3DVolume::textureDataChanged(QList<uchar> *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume18textureDataChangedEP5QListIhE(
+    QCustom3DVolume *self,
+    QList<uchar> *data) {
+  self->textureDataChanged(data);
+}
+
+//  void QCustom3DVolume::textureFormatChanged(QImage::Format format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume20textureFormatChangedEN6QImage6FormatE(
+    QCustom3DVolume *self,
+    QImage::Format format) {
+  self->textureFormatChanged(format);
+}
+
+//  void QCustom3DVolume::alphaMultiplierChanged(float mult)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume22alphaMultiplierChangedEf(
+    QCustom3DVolume *self,
+    float mult) {
+  self->alphaMultiplierChanged(mult);
+}
+
+//  void QCustom3DVolume::preserveOpacityChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume22preserveOpacityChangedEb(
+    QCustom3DVolume *self,
+    bool enabled) {
+  self->preserveOpacityChanged(enabled);
+}
+
+//  void QCustom3DVolume::useHighDefShaderChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume23useHighDefShaderChangedEb(
+    QCustom3DVolume *self,
+    bool enabled) {
+  self->useHighDefShaderChanged(enabled);
+}
+
+//  void QCustom3DVolume::drawSlicesChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume17drawSlicesChangedEb(
+    QCustom3DVolume *self,
+    bool enabled) {
+  self->drawSlicesChanged(enabled);
+}
+
+//  void QCustom3DVolume::drawSliceFramesChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume22drawSliceFramesChangedEb(
+    QCustom3DVolume *self,
+    bool enabled) {
+  self->drawSliceFramesChanged(enabled);
+}
+
+//  void QCustom3DVolume::sliceFrameColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume22sliceFrameColorChangedE6QColor(
+    QCustom3DVolume *self,
+    const QColor *color) {
+  self->sliceFrameColorChanged(*color);
+}
+
+//  void QCustom3DVolume::sliceFrameWidthsChanged(QVector3D values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume23sliceFrameWidthsChangedE9QVector3D(
+    QCustom3DVolume *self,
+    const QVector3D *values) {
+  self->sliceFrameWidthsChanged(*values);
+}
+
+//  void QCustom3DVolume::sliceFrameGapsChanged(QVector3D values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume21sliceFrameGapsChangedE9QVector3D(
+    QCustom3DVolume *self,
+    const QVector3D *values) {
+  self->sliceFrameGapsChanged(*values);
+}
+
+//  void QCustom3DVolume::sliceFrameThicknessesChanged(QVector3D values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCustom3DVolume28sliceFrameThicknessesChangedE9QVector3D(
+    QCustom3DVolume *self,
+    const QVector3D *values) {
+  self->sliceFrameThicknessesChanged(*values);
+}
+
 //  a Python function taken by a CuteQCustom3DVolume, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -514,4 +757,10 @@ bool ritual_take_QCustom3DVolume(
   return static_cast<CuteQCustom3DVolume *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+//  a QList<QRgb> a ritual of QCustom3DVolume gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCustom3DVolume__QList_QRgb(QList<QRgb> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

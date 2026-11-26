@@ -6,11 +6,20 @@
   ],
   "rows": {
     "ritual_ZNK19QDBusMenuConnection10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QDBusMenuConnection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QDBusMenuConnection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QDBusMenuConnectionD1Ev": ["nothing", "address"],
     "ritual_ZNK19QDBusMenuConnection10connectionEv": ["address", "address"],
     "ritual_ZNK19QDBusMenuConnection11dbusWatcherEv": ["address", "address"],
     "ritual_ZNK19QDBusMenuConnection19isWatcherRegisteredEv": [
       "bool", "address"
+    ],
+    "ritual_ZN19QDBusMenuConnection18trayIconRegisteredEv": [
+      "nothing", "address"
     ],
     "ritual_ZN19QDBusMenuConnection9dbusErrorERK10QDBusError": [
       "nothing", "address", "address"

@@ -79,6 +79,9 @@ inline void QQmlDelegateModelPrivate::setGroups(
     emitChanges();
 }
 
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 2734, as _ZN25QQmlDelegateModelAttachedD1Ev
+inline QQmlDelegateModelAttached::~QQmlDelegateModelAttached() = default;
+
 //  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 2756, as _ZNK25QQmlDelegateModelAttached16inPersistedItemsEv
 inline bool QQmlDelegateModelAttached::inPersistedItems() const
 {
@@ -318,6 +321,32 @@ const QMetaObject *ritual_ZNK25QQmlDelegateModelAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDelegateModelAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQmlDelegateModelAttached11qt_metacastEPKc(
+    QQmlDelegateModelAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDelegateModelAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQmlDelegateModelAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDelegateModelAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QQmlDelegateModelAttached::~QQmlDelegateModelAttached()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlDelegateModelAttachedD1Ev(
+    QQmlDelegateModelAttached *self) {
+  delete self;
+}
+
 //  bool QQmlDelegateModelAttached::inPersistedItems() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK25QQmlDelegateModelAttached16inPersistedItemsEv(
@@ -365,6 +394,56 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK25QQmlDelegateModelAttached12isUnresolvedEv(
     const QQmlDelegateModelAttached *self) {
   return self->isUnresolved();
+}
+
+//  void QQmlDelegateModelAttached::groupsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlDelegateModelAttached13groupsChangedEv(
+    QQmlDelegateModelAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlDelegateModelAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "groupsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "groupsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQmlDelegateModelAttached::unresolvedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlDelegateModelAttached17unresolvedChangedEv(
+    QQmlDelegateModelAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlDelegateModelAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "unresolvedChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "unresolvedChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQmlDelegateModelAttached, for the

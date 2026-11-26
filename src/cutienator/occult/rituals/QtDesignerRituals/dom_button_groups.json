@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN15DomButtonGroupsC1Ev": ["address"],
     "ritual_ZN15DomButtonGroupsD1Ev": ["nothing", "address"],
+    "ritual_ZN15DomButtonGroups4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomButtonGroups5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK15DomButtonGroups18elementButtonGroupEv": [
       "address", "address"
     ],

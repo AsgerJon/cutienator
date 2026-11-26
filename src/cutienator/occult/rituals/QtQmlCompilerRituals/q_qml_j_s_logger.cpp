@@ -13,6 +13,23 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QList>
+#include <QtCore/QString>
+#include <optional>
+#include <QtCore/QSpan>
+
+//  QList<QQmlJS::LoggerCategory> QQmlJSLogger::categories() const
+extern "C" Q_DECL_EXPORT
+QList<QQmlJS::LoggerCategory> *ritual_ZNK12QQmlJSLogger10categoriesEv(
+    const QQmlJSLogger *self) {
+  return new QList<QQmlJS::LoggerCategory>(self->categories());
+}
+
+//  const QList<QQmlJS::LoggerCategory> &QQmlJSLogger::builtinCategories()
+extern "C" Q_DECL_EXPORT
+const QList<QQmlJS::LoggerCategory> *ritual_ZN12QQmlJSLogger17builtinCategoriesEv() {
+  return &(QQmlJSLogger::builtinCategories());
+}
 
 //  void QQmlJSLogger::registerCategory(const QQmlJS::LoggerCategory
 //      &category)
@@ -132,6 +149,30 @@ void ritual_ZN12QQmlJSLogger20setCompileSkipPrefixERK7QString(
   self->setCompileSkipPrefix(*prefix);
 }
 
+//  void QQmlJSLogger::log(const QString &message, QQmlJS::LoggerWarningId
+//      id, const QQmlJS::SourceLocation &srcLocation, bool showContext, bool
+//      showFileName, const std::optional<QQmlJSFixSuggestion> &suggestion,
+//      std::optional<quint32> customLineForDisabling)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlJSLogger3logERK7QStringN6QQmlSA15LoggerWarningIdERKN6QQmlJS14SourceLocationEbbRKSt8optionalI19QQmlJSFixSuggestionES9_IjE(
+    QQmlJSLogger *self,
+    const QString *message,
+    const QQmlSA::LoggerWarningId *id,
+    const QQmlJS::SourceLocation *srcLocation,
+    bool showContext,
+    bool showFileName,
+    const std::optional<QQmlJSFixSuggestion> *suggestion,
+    const std::optional<quint32> *customLineForDisabling) {
+  self->log(
+      *message,
+      *id,
+      *srcLocation,
+      showContext,
+      showFileName,
+      *suggestion,
+      *customLineForDisabling);
+}
+
 //  void QQmlJSLogger::logCompileError(const QString &message, const
 //      QQmlJS::SourceLocation &srcLocation)
 extern "C" Q_DECL_EXPORT
@@ -150,6 +191,28 @@ void ritual_ZN12QQmlJSLogger14logCompileSkipERK7QStringRKN6QQmlJS14SourceLocatio
     const QString *message,
     const QQmlJS::SourceLocation *srcLocation) {
   self->logCompileSkip(*message, *srcLocation);
+}
+
+//  void QQmlJSLogger::processMessages(QSpan<const QQmlJS::DiagnosticMessage>
+//      messages, const QQmlJS::LoggerWarningId id, const
+//      QQmlJS::SourceLocation &sourceLocation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlJSLogger15processMessagesE5QSpanIKN6QQmlJS17DiagnosticMessageELm18446744073709551615EEN6QQmlSA15LoggerWarningIdERKNS1_14SourceLocationE(
+    QQmlJSLogger *self,
+    const QSpan<const QQmlJS::DiagnosticMessage> *messages,
+    const QQmlSA::LoggerWarningId *id,
+    const QQmlJS::SourceLocation *sourceLocation) {
+  self->processMessages(*messages, *id, *sourceLocation);
+}
+
+//  void QQmlJSLogger::ignoreWarnings(uint32_t line, const QSet<QString>
+//      &categories)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlJSLogger14ignoreWarningsEjRK4QSetI7QStringE(
+    QQmlJSLogger *self,
+    uint32_t line,
+    const QSet<QString> *categories) {
+  self->ignoreWarnings(line, *categories);
 }
 
 //  void QQmlJSLogger::setSilent(bool silent)
@@ -301,10 +364,28 @@ void ritual_ZN12QQmlJSLogger8printFixERK19QQmlJSFixSuggestion(
   self->printFix(*fix);
 }
 
+//  void QQmlJSLogger::log(Message &&diagMsg, bool showContext, bool
+//      showFileName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlJSLogger3logEO7Messagebb(
+    QQmlJSLogger *self,
+    Message *diagMsg,
+    bool showContext,
+    bool showFileName) {
+  self->log(std::move(*diagMsg), showContext, showFileName);
+}
+
 //  void QQmlJSLogger::countMessage(const Message &message)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQmlJSLogger12countMessageERK7Message(
     QQmlJSLogger *self,
     const Message *message) {
   self->countMessage(*message);
+}
+
+//  a QList<QQmlJS::LoggerCategory> a ritual of QQmlJSLogger gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSLogger__QList_QQmlJS_LoggerCategory(
+    QList<QQmlJS::LoggerCategory> *self) {
+  delete self;
 }

@@ -5,5 +5,11 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QtMultimediaPrivate19QTlsfMemoryResourceC1EmPNSt3pmr15memory_resourceE": [
+      "address", "size_t", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate19QTlsfMemoryResourceD1Ev": [
+      "nothing", "address"
+    ]
   }
 }

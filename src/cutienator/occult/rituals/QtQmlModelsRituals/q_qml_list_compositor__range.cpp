@@ -16,6 +16,18 @@ QQmlListCompositor::Range *ritual_ZN18QQmlListCompositor5RangeC1Ev() {
   return new QQmlListCompositor::Range();
 }
 
+//  QQmlListCompositor::Range::Range(Range *next, void *list, int index, int
+//      count, uint flags)
+extern "C" Q_DECL_EXPORT
+QQmlListCompositor::Range *ritual_ZN18QQmlListCompositor5RangeC1EPS0_Pviij(
+    QQmlListCompositor::Range *next,
+    void *list,
+    int index,
+    int count,
+    uint flags) {
+  return new QQmlListCompositor::Range(next, list, index, count, flags);
+}
+
 //  int QQmlListCompositor::Range::start() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QQmlListCompositor5Range5startEv(

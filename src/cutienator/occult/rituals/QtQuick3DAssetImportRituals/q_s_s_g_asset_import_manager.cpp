@@ -9,12 +9,16 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qdir.h>
 #include <QtCore/qjsonobject.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QHash>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
 
 //  A QSSGAssetImportManager that Python can take functions over in. Every QSSGAssetImportManager
 //  Python makes is one. Each function below asks the Python
@@ -190,6 +194,25 @@ const QMetaObject *ritual_ZNK22QSSGAssetImportManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSSGAssetImportManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QSSGAssetImportManager11qt_metacastEPKc(
+    QSSGAssetImportManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSSGAssetImportManager::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QSSGAssetImportManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSSGAssetImportManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSSGAssetImportManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QSSGAssetImportManager2trEPKcS1_i(
@@ -235,6 +258,30 @@ QSSGAssetImportManager::ImportState ritual_ZN22QSSGAssetImportManager10importFil
   return self->importFile(*filename, *outputPath, *options, error);
 }
 
+//  ImportState QSSGAssetImportManager::importFile(const QUrl &url,
+//      QSSGSceneDesc::Scene &scene, QString *error)
+extern "C" Q_DECL_EXPORT
+QSSGAssetImportManager::ImportState ritual_ZN22QSSGAssetImportManager10importFileERK4QUrlRN13QSSGSceneDesc5SceneEP7QString(
+    QSSGAssetImportManager *self,
+    const QUrl *url,
+    QSSGSceneDesc::Scene *scene,
+    QString *error) {
+  return self->importFile(*url, *scene, error);
+}
+
+//  ImportState QSSGAssetImportManager::importFile(const QUrl &url,
+//      QSSGSceneDesc::Scene &scene, const QJsonObject &options, QString
+//      *error)
+extern "C" Q_DECL_EXPORT
+QSSGAssetImportManager::ImportState ritual_ZN22QSSGAssetImportManager10importFileERK4QUrlRN13QSSGSceneDesc5SceneERK11QJsonObjectP7QString(
+    QSSGAssetImportManager *self,
+    const QUrl *url,
+    QSSGSceneDesc::Scene *scene,
+    const QJsonObject *options,
+    QString *error) {
+  return self->importFile(*url, *scene, *options, error);
+}
+
 //  QJsonObject QSSGAssetImportManager::getOptionsForFile(const QString
 //      &filename)
 extern "C" Q_DECL_EXPORT
@@ -249,6 +296,14 @@ extern "C" Q_DECL_EXPORT
 QHash<QString, QJsonObject> *ritual_ZNK22QSSGAssetImportManager13getAllOptionsEv(
     const QSSGAssetImportManager *self) {
   return new QHash<QString, QJsonObject>(self->getAllOptions());
+}
+
+//  QHash<QString, QStringList>
+//      QSSGAssetImportManager::getSupportedExtensions() const
+extern "C" Q_DECL_EXPORT
+QHash<QString, QStringList> *ritual_ZNK22QSSGAssetImportManager22getSupportedExtensionsEv(
+    const QSSGAssetImportManager *self) {
+  return new QHash<QString, QStringList>(self->getSupportedExtensions());
 }
 
 //  QList<QSSGAssetImporterPluginInfo>
@@ -268,4 +323,11 @@ bool ritual_take_QSSGAssetImportManager(
     const char *key,
     void *call) {
   return static_cast<CuteQSSGAssetImportManager *>(self)->take(key, call);
+}
+
+//  a QHash<QString, QStringList> a ritual of QSSGAssetImportManager gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGAssetImportManager__QHash_QString_QStringList(
+    QHash<QString, QStringList> *self) {
+  delete self;
 }

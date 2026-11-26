@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN8Qt3DCore7QNodeIdC1Ey": ["address", "unsigned long long"],
     "ritual_ZN8Qt3DCore7QNodeIdC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore7QNodeId8createIdEv": ["address"],
     "ritual_ZNK8Qt3DCore7QNodeId6isNullEv": ["bool", "address"],
     "ritual_ZNK8Qt3DCore7QNodeIdeqES0_": ["bool", "address", "address"],
     "ritual_ZNK8Qt3DCore7QNodeIdneES0_": ["bool", "address", "address"],

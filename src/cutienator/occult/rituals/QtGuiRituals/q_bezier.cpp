@@ -11,6 +11,7 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qtransform.h>
 #include <QtCore/qline.h>
+#include <utility>
 
 //  QBezier QBezier::fromPoints(const QPointF &p1, const QPointF &p2, const
 //      QPointF &p3, const QPointF &p4)
@@ -77,6 +78,16 @@ void ritual_ZNK7QBezier12addToPolygonEP9QPolygonFd(
     QPolygonF *p,
     qreal bezier_flattening_threshold) {
   self->addToPolygon(p, bezier_flattening_threshold);
+}
+
+//  void QBezier::addToPolygon(QDataBuffer<QPointF> &polygon, qreal
+//      bezier_flattening_threshold) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK7QBezier12addToPolygonER11QDataBufferI7QPointFEd(
+    const QBezier *self,
+    QDataBuffer<QPointF> *polygon,
+    qreal bezier_flattening_threshold) {
+  self->addToPolygon(*polygon, bezier_flattening_threshold);
 }
 
 //  QRectF QBezier::bounds() const
@@ -190,6 +201,13 @@ void ritual_ZN7QBezier18parameterSplitLeftEdPS_(
   self->parameterSplitLeft(t, left);
 }
 
+//  std::pair<QBezier, QBezier> QBezier::split() const
+extern "C" Q_DECL_EXPORT
+std::pair<QBezier, QBezier> *ritual_ZNK7QBezier5splitEv(
+    const QBezier *self) {
+  return new std::pair<QBezier, QBezier>(self->split());
+}
+
 //  int QBezier::shifted(QBezier *curveSegments, int maxSegmets, qreal
 //      offset, float threshold) const
 extern "C" Q_DECL_EXPORT
@@ -223,5 +241,12 @@ QBezier *ritual_ZNK7QBezier11getSubRangeEdd(
 //  QBezier::~QBezier()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QBezierD1Ev(QBezier *self) {
+  delete self;
+}
+
+//  a std::pair<QBezier, QBezier> a ritual of QBezier gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QBezier__std_pair_QBezier_QBezier(
+    std::pair<QBezier, QBezier> *self) {
   delete self;
 }

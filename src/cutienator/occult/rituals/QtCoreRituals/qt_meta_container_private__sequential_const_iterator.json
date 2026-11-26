@@ -4,13 +4,22 @@
     "QtCore/qmetasequence.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QtMetaContainerPrivate23SequentialConstIteratorC1EO14QConstIteratorI13QMetaSequenceE": [
+      "address", "address"
+    ],
     "ritual_ZNK22QtMetaContainerPrivate23SequentialConstIteratordeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate23SequentialConstIteratorptEv": [
       "address", "address"
     ],
     "ritual_ZNK22QtMetaContainerPrivate23SequentialConstIteratorixEx": [
       "address", "address", "long long"
     ],
     "ritual_ZN22QtMetaContainerPrivate23SequentialConstIteratorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtMetaContainerPrivate_SequentialConstIterator__QtMetaContainerPrivate_SequentialConstIterator_pointer": [
       "nothing", "address"
     ]
   }

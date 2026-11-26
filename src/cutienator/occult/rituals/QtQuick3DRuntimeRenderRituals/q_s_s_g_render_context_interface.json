@@ -7,10 +7,37 @@
   "rows": {
     "ritual_ZN26QSSGRenderContextInterfaceC1EP4QRhi": ["address", "address"],
     "ritual_ZN26QSSGRenderContextInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QSSGRenderContextInterface8rendererEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRenderContextInterface13bufferManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRenderContextInterface10rhiContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRenderContextInterface11shaderCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRenderContextInterface20shaderLibraryManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRenderContextInterface20customMaterialSystemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRenderContextInterface22shaderProgramGeneratorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRenderContextInterface15debugDrawSystemEv": [
+      "address", "address"
+    ],
     "ritual_ZNK26QSSGRenderContextInterface3rhiEv": ["address", "address"],
     "ritual_ZN26QSSGRenderContextInterface4initEv": ["nothing", "address"],
     "ritual_ZN26QSSGRenderContextInterface22releaseCachedResourcesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK26QSSGRenderContextInterface17perFrameAllocatorEv": [
+      "address", "address"
     ]
   }
 }

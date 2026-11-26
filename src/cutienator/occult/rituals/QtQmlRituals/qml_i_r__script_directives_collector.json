@@ -5,6 +5,18 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN5QmlIR25ScriptDirectivesCollectorC1EPNS_8DocumentE": [
+      "address", "address"
+    ],
+    "ritual_ZN5QmlIR25ScriptDirectivesCollector13pragmaLibraryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN5QmlIR25ScriptDirectivesCollector10importFileERK7QStringS3_ii": [
+      "nothing", "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN5QmlIR25ScriptDirectivesCollector12importModuleERK7QStringS3_S3_ii": [
+      "nothing", "address", "text", "text", "text", "int", "int"
+    ],
     "ritual_ZN5QmlIR25ScriptDirectivesCollectorD1Ev": ["nothing", "address"],
     "ritual_take_QmlIR_ScriptDirectivesCollector": [
       "bool", "address", "chars", "address"

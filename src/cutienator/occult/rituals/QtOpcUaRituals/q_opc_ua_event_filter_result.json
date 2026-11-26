@@ -7,13 +7,31 @@
   "rows": {
     "ritual_ZN23QOpcUaEventFilterResultC1Ev": ["address"],
     "ritual_ZN23QOpcUaEventFilterResultC1ERKS_": ["address", "address"],
+    "ritual_ZN23QOpcUaEventFilterResultaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QOpcUaEventFilterResultD1Ev": ["nothing", "address"],
     "ritual_ZNK23QOpcUaEventFilterResult6isGoodEv": ["bool", "address"],
+    "ritual_ZNK23QOpcUaEventFilterResult19selectClauseResultsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QOpcUaEventFilterResult22selectClauseResultsRefEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QOpcUaEventFilterResult22setSelectClauseResultsERK5QListIN6QOpcUa12UaStatusCodeEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK23QOpcUaEventFilterResult18whereClauseResultsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QOpcUaEventFilterResult21whereClauseResultsRefEv": [
       "address", "address"
     ],
     "ritual_ZN23QOpcUaEventFilterResult21setWhereClauseResultsERK5QListI32QOpcUaContentFilterElementResultE": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QOpcUaEventFilterResult__QList_QOpcUa_UaStatusCode": [
+      "nothing", "address"
     ]
   }
 }

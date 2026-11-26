@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput14QInputSettings10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QInputSettings::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput14QInputSettings11qt_metacastEPKc(
+    Qt3DInput::QInputSettings *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QInputSettings::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput14QInputSettings11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QInputSettings *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QInputSettings::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,43 @@ QString *ritual_ZN9Qt3DInput14QInputSettings2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QInputSettings::tr(s, c, n));
+}
+
+//  Qt3DInput::QInputSettings::QInputSettings(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QInputSettings *ritual_ZN9Qt3DInput14QInputSettingsC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QInputSettings(parent);
+}
+
+//  Qt3DInput::QInputSettings::~QInputSettings()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSettingsD1Ev(
+    Qt3DInput::QInputSettings *self) {
+  delete self;
+}
+
+//  QObject *Qt3DInput::QInputSettings::eventSource() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK9Qt3DInput14QInputSettings11eventSourceEv(
+    const Qt3DInput::QInputSettings *self) {
+  return self->eventSource();
+}
+
+//  void Qt3DInput::QInputSettings::setEventSource(QObject *eventSource)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSettings14setEventSourceEP7QObject(
+    Qt3DInput::QInputSettings *self,
+    QObject *eventSource) {
+  self->setEventSource(eventSource);
+}
+
+//  void Qt3DInput::QInputSettings::eventSourceChanged(QObject *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSettings18eventSourceChangedEP7QObject(
+    Qt3DInput::QInputSettings *self,
+    QObject *a0) {
+  self->eventSourceChanged(a0);
 }
 
 //  QInputSettingsPrivate *Qt3DInput::QInputSettings::d_func()
@@ -201,6 +257,13 @@ extern "C" Q_DECL_EXPORT
 const Qt3DInput::QInputSettingsPrivate *ritual_ZNK9Qt3DInput14QInputSettings6d_funcEv(
     const Qt3DInput::QInputSettings *self) {
   return self->d_func();
+}
+
+//  void Qt3DInput::QInputSettings::eventSourceDestroyed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSettings20eventSourceDestroyedEv(
+    Qt3DInput::QInputSettings *self) {
+  self->eventSourceDestroyed();
 }
 
 //  a Python function taken by a CuteQt3DInput_QInputSettings, for the

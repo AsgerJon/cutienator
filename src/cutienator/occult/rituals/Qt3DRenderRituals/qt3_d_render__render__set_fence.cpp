@@ -40,6 +40,19 @@ public:
   }
 };
 
+//  Qt3DRender::Render::SetFence::SetFence()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::SetFence *ritual_ZN10Qt3DRender6Render8SetFenceC1Ev() {
+  return new CuteQt3DRender_Render_SetFence();
+}
+
+//  Qt3DRender::Render::SetFence::~SetFence()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render8SetFenceD1Ev(
+    Qt3DRender::Render::SetFence *self) {
+  delete self;
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_SetFence, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN11QBasicTimerC1Ev": ["address"],
     "ritual_ZN11QBasicTimerD1Ev": ["nothing", "address"],
+    "ritual_ZN11QBasicTimerC1EOS_": ["address", "address"],
+    "ritual_ZN11QBasicTimeraSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QBasicTimer4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK11QBasicTimer8isActiveEv": ["bool", "address"],
     "ritual_ZNK11QBasicTimer7timerIdEv": ["int", "address"],
     "ritual_ZNK11QBasicTimer2idEv": ["int", "address"],
@@ -14,6 +17,12 @@
     ],
     "ritual_ZN11QBasicTimer5startEiN2Qt9TimerTypeEP7QObject": [
       "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN11QBasicTimer5startENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEP7QObject": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN11QBasicTimer5startENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEP7QObject": [
+      "nothing", "address", "long long", "int", "address"
     ],
     "ritual_ZN11QBasicTimer4stopEv": ["nothing", "address"]
   }

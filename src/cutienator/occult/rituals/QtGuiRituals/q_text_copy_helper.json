@@ -5,9 +5,6 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN15QTextCopyHelperC1ERK11QTextCursorS2_bRK15QTextCharFormat": [
-      "address", "address", "address", "bool", "address"
-    ],
     "ritual_ZN15QTextCopyHelper4copyEv": ["nothing", "address"],
     "ritual_ZN15QTextCopyHelper15appendFragmentsEii": [
       "nothing", "address", "int", "int"

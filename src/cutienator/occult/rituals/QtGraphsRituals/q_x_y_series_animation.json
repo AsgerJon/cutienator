@@ -9,8 +9,23 @@
   ],
   "rows": {
     "ritual_ZNK18QXYSeriesAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QXYSeriesAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QXYSeriesAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QXYSeriesAnimationD1Ev": ["nothing", "address"],
     "ritual_ZN18QXYSeriesAnimation13updateCurrentEN16QGraphTransition14TransitionTypeEi7QPointF": [
       "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QXYSeriesAnimation17setAnimatingValueERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QXYSeriesAnimation7animateEv": ["nothing", "address"],
+    "ritual_ZN18QXYSeriesAnimation3endEv": ["nothing", "address"],
+    "ritual_ZN18QXYSeriesAnimation12valueUpdatedERK8QVariant": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QXYSeriesAnimation": ["bool", "address", "chars", "address"]
   }

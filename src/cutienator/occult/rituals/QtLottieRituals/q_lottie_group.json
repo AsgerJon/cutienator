@@ -10,6 +10,9 @@
     "ritual_ZN12QLottieGroup16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK12QLottieGroup6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QLottieGroup5parseERK11QJsonObject": [
       "int", "address", "address"
     ],

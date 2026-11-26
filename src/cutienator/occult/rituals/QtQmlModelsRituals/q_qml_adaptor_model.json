@@ -30,7 +30,13 @@
     "ritual_ZNK16QQmlAdaptorModel5valueEiRK7QString": [
       "address", "address", "int", "text"
     ],
+    "ritual_ZN16QQmlAdaptorModel10createItemERK14QQmlRefPointerI29QQmlDelegateModelItemMetaTypeEi": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK16QQmlAdaptorModel14hasProxyObjectEv": ["bool", "address"],
+    "ritual_ZNK16QQmlAdaptorModel6notifyERK5QListIP21QQmlDelegateModelItemEiiRKS0_IiE": [
+      "bool", "address", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQmlAdaptorModel19replaceWatchedRolesERK5QListI10QByteArrayES4_": [
       "nothing", "address", "address", "address"
     ],

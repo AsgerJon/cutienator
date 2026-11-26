@@ -46,6 +46,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 145, as _ZN37QAbstractScrollAreaScrollBarContainerC1EN2Qt11OrientationEP7QWidget
 #if QT_CONFIG(scrollarea)
 inline QAbstractScrollAreaScrollBarContainer::QAbstractScrollAreaScrollBarContainer(Qt::Orientation orientation, QWidget *parent)

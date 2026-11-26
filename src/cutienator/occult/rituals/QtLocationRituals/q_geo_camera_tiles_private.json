@@ -17,12 +17,30 @@
     "ritual_ZNK22QGeoCameraTilesPrivate16frustumFootprintERK7Frustum": [
       "address", "address", "address"
     ],
+    "ritual_ZNK22QGeoCameraTilesPrivate23splitPolygonAtAxisValueERK5QListI15QDoubleVector3DEid": [
+      "address", "address", "address", "int", "double"
+    ],
     "ritual_ZNK22QGeoCameraTilesPrivate18clipFootprintToMapERK5QListI15QDoubleVector3DE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QGeoCameraTilesPrivate17tileIntersectionsEdidi": [
+      "address", "address", "double", "int", "double", "int"
+    ],
+    "ritual_ZNK22QGeoCameraTilesPrivate16tilesFromPolygonERK5QListI15QDoubleVector3DE": [
       "address", "address", "address"
     ],
     "ritual_ZN22QGeoCameraTilesPrivate3getEP15QGeoCameraTiles": [
       "address", "address"
     ],
-    "ritual_ZN22QGeoCameraTilesPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN22QGeoCameraTilesPrivateD1Ev": ["nothing", "address"],
+    "ritual_drop_QGeoCameraTilesPrivate__QPair_PolygonVector_PolygonVector": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGeoCameraTilesPrivate__QList_QPair_double_int": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGeoCameraTilesPrivate__QSet_QGeoTileSpec": [
+      "nothing", "address"
+    ]
   }
 }

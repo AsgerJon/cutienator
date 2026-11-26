@@ -8,11 +8,19 @@
     "ritual_ZN19QVideoWindowPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK19QVideoWindowPrivate9canRenderEv": ["bool", "address"],
     "ritual_ZNK19QVideoWindowPrivate3rhiEv": ["address", "address"],
+    "ritual_ZN19QVideoWindowPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN19QVideoWindowPrivate6renderEv": ["nothing", "address"],
     "ritual_ZN19QVideoWindowPrivate15resizeSwapChainEv": [
       "nothing", "address"
     ],
     "ritual_ZN19QVideoWindowPrivate16releaseSwapChainEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QVideoWindowPrivate14updateTexturesEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QVideoWindowPrivate14updateSubtitleEP23QRhiResourceUpdateBatchRK5QSize": [
+      "nothing", "address", "address", "address"
     ]
   }
 }

@@ -10,6 +10,9 @@
     ],
     "ritual_ZN22QSSGApplyInstanceValueC1Ev": ["address"],
     "ritual_ZN22QSSGApplyInstanceValueC1ERKS_": ["address", "address"],
+    "ritual_ZNK22QSSGApplyInstanceValue8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QSSGApplyInstanceValueD1Ev": ["nothing", "address"]
   }
 }

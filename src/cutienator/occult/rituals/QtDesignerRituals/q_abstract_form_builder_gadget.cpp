@@ -858,6 +858,25 @@ const QMetaObject *ritual_ZNK26QAbstractFormBuilderGadget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractFormBuilderGadget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QAbstractFormBuilderGadget11qt_metacastEPKc(
+    QAbstractFormBuilderGadget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractFormBuilderGadget::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QAbstractFormBuilderGadget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractFormBuilderGadget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  Qt::Orientation QAbstractFormBuilderGadget::fakeOrientation() const
 extern "C" Q_DECL_EXPORT
 Qt::Orientation ritual_ZNK26QAbstractFormBuilderGadget15fakeOrientationEv(

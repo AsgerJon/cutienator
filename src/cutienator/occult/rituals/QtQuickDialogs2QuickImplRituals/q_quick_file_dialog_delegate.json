@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuickFileDialogDelegate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickFileDialogDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickFileDialogDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickFileDialogDelegate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,12 @@
     "ritual_ZNK24QQuickFileDialogDelegate4fileEv": ["address", "address"],
     "ritual_ZN24QQuickFileDialogDelegate7setFileERK4QUrl": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickFileDialogDelegate13dialogChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickFileDialogDelegate11fileChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN24QQuickFileDialogDelegate15keyReleaseEventEP9QKeyEvent": [
       "nothing", "address", "address"

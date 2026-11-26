@@ -81,6 +81,13 @@ QPlatformScreen *ritual_ZNK16QPlatformSurface6screenEv(
   return self->screen();
 }
 
+//  QPlatformSurface::QPlatformSurface(QSurface *surface)
+extern "C" Q_DECL_EXPORT
+QPlatformSurface *ritual_ZN16QPlatformSurfaceC1EP8QSurface(
+    QSurface *surface) {
+  return new CuteQPlatformSurface(surface);
+}
+
 //  a Python function taken by a CuteQPlatformSurface, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

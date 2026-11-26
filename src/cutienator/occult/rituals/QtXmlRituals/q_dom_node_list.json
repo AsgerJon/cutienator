@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN12QDomNodeListC1Ev": ["address"],
     "ritual_ZN12QDomNodeListC1ERKS_": ["address", "address"],
+    "ritual_ZN12QDomNodeListaSERKS_": ["address", "address", "address"],
     "ritual_ZN12QDomNodeListD1Ev": ["nothing", "address"],
     "ritual_ZNK12QDomNodeList4itemEi": ["address", "address", "int"],
     "ritual_ZNK12QDomNodeList2atEi": ["address", "address", "int"],
@@ -16,8 +17,24 @@
     "ritual_ZeqRK12QDomNodeListS1_": ["bool", "address", "address"],
     "ritual_ZneRK12QDomNodeListS1_": ["bool", "address", "address"],
     "ritual_ZNK12QDomNodeList14noexceptLengthEv": ["int", "address"],
+    "ritual_ZNK12QDomNodeList5beginEv": ["address", "address"],
+    "ritual_ZNK12QDomNodeList3endEv": ["address", "address"],
+    "ritual_ZNK12QDomNodeList6cbeginEv": ["address", "address"],
+    "ritual_ZNK12QDomNodeList4cendEv": ["address", "address"],
+    "ritual_ZNK12QDomNodeList6rbeginEv": ["address", "address"],
+    "ritual_ZNK12QDomNodeList4rendEv": ["address", "address"],
+    "ritual_ZNK12QDomNodeList7crbeginEv": ["address", "address"],
+    "ritual_ZNK12QDomNodeList5crendEv": ["address", "address"],
+    "ritual_ZNK12QDomNodeList10constBeginEv": ["address", "address"],
+    "ritual_ZNK12QDomNodeList8constEndEv": ["address", "address"],
     "ritual_ZN12QDomNodeListC1EP19QDomNodeListPrivate": [
       "address", "address"
+    ],
+    "ritual_drop_QDomNodeList__QDomNodeList_const_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDomNodeList__QDomNodeList_const_reverse_iterator": [
+      "nothing", "address"
     ]
   }
 }

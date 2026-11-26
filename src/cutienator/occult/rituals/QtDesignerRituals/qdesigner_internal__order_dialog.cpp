@@ -1026,6 +1026,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal11OrderDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::OrderDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal11OrderDialog11qt_metacastEPKc(
+    qdesigner_internal::OrderDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::OrderDialog::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal11OrderDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::OrderDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::OrderDialog::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1034,6 +1053,20 @@ QString *ritual_ZN18qdesigner_internal11OrderDialog2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::OrderDialog::tr(s, c, n));
+}
+
+//  qdesigner_internal::OrderDialog::OrderDialog(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::OrderDialog *ritual_ZN18qdesigner_internal11OrderDialogC1EP7QWidget(
+    QWidget *parent) {
+  return new Cuteqdesigner_internal_OrderDialog(parent);
+}
+
+//  qdesigner_internal::OrderDialog::~OrderDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialogD1Ev(
+    qdesigner_internal::OrderDialog *self) {
+  delete self;
 }
 
 //  QWidgetList qdesigner_internal::OrderDialog::pagesOfContainer(const
@@ -1046,6 +1079,30 @@ QList<QWidget *> *ritual_ZN18qdesigner_internal11OrderDialog16pagesOfContainerEP
       qdesigner_internal::OrderDialog::pagesOfContainer(
           core,
           container));
+}
+
+//  void qdesigner_internal::OrderDialog::setPageList(const QWidgetList
+//      &pages)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialog11setPageListERK5QListIP7QWidgetE(
+    qdesigner_internal::OrderDialog *self,
+    const QList<QWidget *> *pages) {
+  self->setPageList(*pages);
+}
+
+//  QWidgetList qdesigner_internal::OrderDialog::pageList() const
+extern "C" Q_DECL_EXPORT
+QList<QWidget *> *ritual_ZNK18qdesigner_internal11OrderDialog8pageListEv(
+    const qdesigner_internal::OrderDialog *self) {
+  return new QList<QWidget *>(self->pageList());
+}
+
+//  void qdesigner_internal::OrderDialog::setDescription(const QString &d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialog14setDescriptionERK7QString(
+    qdesigner_internal::OrderDialog *self,
+    const QString *d) {
+  self->setDescription(*d);
 }
 
 //  void qdesigner_internal::OrderDialog::setFormat(Format f)
@@ -1061,6 +1118,57 @@ extern "C" Q_DECL_EXPORT
 qdesigner_internal::OrderDialog::Format ritual_ZNK18qdesigner_internal11OrderDialog6formatEv(
     const qdesigner_internal::OrderDialog *self) {
   return self->format();
+}
+
+//  void qdesigner_internal::OrderDialog::upButtonClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialog15upButtonClickedEv(
+    qdesigner_internal::OrderDialog *self) {
+  self->upButtonClicked();
+}
+
+//  void qdesigner_internal::OrderDialog::downButtonClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialog17downButtonClickedEv(
+    qdesigner_internal::OrderDialog *self) {
+  self->downButtonClicked();
+}
+
+//  void qdesigner_internal::OrderDialog::pageListCurrentRowChanged(int row)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialog25pageListCurrentRowChangedEi(
+    qdesigner_internal::OrderDialog *self,
+    int row) {
+  self->pageListCurrentRowChanged(row);
+}
+
+//  void qdesigner_internal::OrderDialog::slotEnableButtonsAfterDnD()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialog25slotEnableButtonsAfterDnDEv(
+    qdesigner_internal::OrderDialog *self) {
+  self->slotEnableButtonsAfterDnD();
+}
+
+//  void qdesigner_internal::OrderDialog::slotReset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialog9slotResetEv(
+    qdesigner_internal::OrderDialog *self) {
+  self->slotReset();
+}
+
+//  void qdesigner_internal::OrderDialog::buildList()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialog9buildListEv(
+    qdesigner_internal::OrderDialog *self) {
+  self->buildList();
+}
+
+//  void qdesigner_internal::OrderDialog::enableButtons(int r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal11OrderDialog13enableButtonsEi(
+    qdesigner_internal::OrderDialog *self,
+    int r) {
+  self->enableButtons(r);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_OrderDialog, for the

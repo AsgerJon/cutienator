@@ -6,7 +6,9 @@
 #if QT_CONFIG(filesystemmodel)
 #include <QtGui/qfilesystemmodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qdir.h>
@@ -21,6 +23,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QFile>
+#include <QtCore/QModelIndex>
 
 //  Only a class built on QFileSystemModel may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1050,6 +1054,25 @@ const QMetaObject *ritual_ZNK16QFileSystemModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFileSystemModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QFileSystemModel11qt_metacastEPKc(
+    QFileSystemModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFileSystemModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QFileSystemModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFileSystemModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFileSystemModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QFileSystemModel2trEPKcS1_i(
@@ -1057,6 +1080,33 @@ QString *ritual_ZN16QFileSystemModel2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QFileSystemModel::tr(s, c, n));
+}
+
+//  void QFileSystemModel::rootPathChanged(const QString &newPath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QFileSystemModel15rootPathChangedERK7QString(
+    QFileSystemModel *self,
+    const QString *newPath) {
+  self->rootPathChanged(*newPath);
+}
+
+//  void QFileSystemModel::fileRenamed(const QString &path, const QString
+//      &oldName, const QString &newName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QFileSystemModel11fileRenamedERK7QStringS2_S2_(
+    QFileSystemModel *self,
+    const QString *path,
+    const QString *oldName,
+    const QString *newName) {
+  self->fileRenamed(*path, *oldName, *newName);
+}
+
+//  void QFileSystemModel::directoryLoaded(const QString &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QFileSystemModel15directoryLoadedERK7QString(
+    QFileSystemModel *self,
+    const QString *path) {
+  self->directoryLoaded(*path);
 }
 
 //  QFileSystemModel::QFileSystemModel(QObject *parent)
@@ -1477,6 +1527,15 @@ QIcon *ritual_ZNK16QFileSystemModel8fileIconERK11QModelIndex(
   return new QIcon(self->fileIcon(*index));
 }
 
+//  QFile::Permissions QFileSystemModel::permissions(const QModelIndex
+//      &index) const
+extern "C" Q_DECL_EXPORT
+QFile::Permissions *ritual_ZNK16QFileSystemModel11permissionsERK11QModelIndex(
+    const QFileSystemModel *self,
+    const QModelIndex *index) {
+  return new QFile::Permissions(self->permissions(*index));
+}
+
 //  QFileInfo QFileSystemModel::fileInfo(const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
 QFileInfo *ritual_ZNK16QFileSystemModel8fileInfoERK11QModelIndex(
@@ -1491,6 +1550,15 @@ bool ritual_ZN16QFileSystemModel6removeERK11QModelIndex(
     QFileSystemModel *self,
     const QModelIndex *index) {
   return self->remove(*index);
+}
+
+//  QFileSystemModel::QFileSystemModel(QFileSystemModelPrivate &a0, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QFileSystemModel *ritual_ZN16QFileSystemModelC1ER23QFileSystemModelPrivateP7QObject(
+    QFileSystemModelPrivate *a0,
+    QObject *parent) {
+  return new CuteQFileSystemModel(*a0, parent);
 }
 
 //  void QFileSystemModel::timerEvent(QTimerEvent *event)
@@ -1701,6 +1769,13 @@ bool ritual_own_ZN16QFileSystemModel5eventEP6QEvent(
     QEvent *event) {
   return static_cast<OwnQFileSystemModel *>(self)->OwnQFileSystemModel::event(
       event);
+}
+
+//  a QFile::Permissions a ritual of QFileSystemModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFileSystemModel__QFile_Permissions(
+    QFile::Permissions *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(filesystemmodel)

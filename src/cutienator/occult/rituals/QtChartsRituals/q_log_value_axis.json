@@ -5,9 +5,18 @@
   ],
   "rows": {
     "ritual_ZNK13QLogValueAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QLogValueAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QLogValueAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QLogValueAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QLogValueAxisC1EP7QObject": ["address", "address"],
     "ritual_ZN13QLogValueAxisD1Ev": ["nothing", "address"],
+    "ritual_ZN13QLogValueAxisC1ER20QLogValueAxisPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK13QLogValueAxis4typeEv": ["int", "address"],
     "ritual_ZN13QLogValueAxis6setMinEd": ["nothing", "address", "double"],
     "ritual_ZNK13QLogValueAxis3minEv": ["double", "address"],
@@ -27,6 +36,27 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK13QLogValueAxis14minorTickCountEv": ["int", "address"],
+    "ritual_ZN13QLogValueAxis10minChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QLogValueAxis10maxChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QLogValueAxis12rangeChangedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN13QLogValueAxis18labelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QLogValueAxis11baseChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QLogValueAxis16tickCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QLogValueAxis21minorTickCountChangedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN13QLogValueAxis6d_funcEv": ["address", "address"],
     "ritual_ZNK13QLogValueAxis6d_funcEv": ["address", "address"],
     "ritual_take_QLogValueAxis": ["bool", "address", "chars", "address"],

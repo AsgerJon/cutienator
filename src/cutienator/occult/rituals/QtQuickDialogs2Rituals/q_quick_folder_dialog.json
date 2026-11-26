@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickFolderDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickFolderDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickFolderDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickFolderDialog2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -43,6 +49,21 @@
       "nothing", "address", "text"
     ],
     "ritual_ZN18QQuickFolderDialog16resetRejectLabelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickFolderDialog20currentFolderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickFolderDialog21selectedFolderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickFolderDialog14optionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickFolderDialog18acceptLabelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickFolderDialog18rejectLabelChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZNK18QQuickFolderDialog15useNativeDialogEv": ["bool", "address"],

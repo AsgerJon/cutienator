@@ -20,6 +20,25 @@ const QMetaObject *ritual_ZNK30QQuickFolderDialogImplAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFolderDialogImplAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QQuickFolderDialogImplAttached11qt_metacastEPKc(
+    QQuickFolderDialogImplAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFolderDialogImplAttached::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QQuickFolderDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFolderDialogImplAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFolderDialogImplAttached::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -71,6 +90,20 @@ void ritual_ZN30QQuickFolderDialogImplAttached16setBreadcrumbBarEP25QQuickFolder
     QQuickFolderDialogImplAttached *self,
     QQuickFolderBreadcrumbBar *breadcrumbBar) {
   self->setBreadcrumbBar(breadcrumbBar);
+}
+
+//  void QQuickFolderDialogImplAttached::folderDialogListViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickFolderDialogImplAttached27folderDialogListViewChangedEv(
+    QQuickFolderDialogImplAttached *self) {
+  self->folderDialogListViewChanged();
+}
+
+//  void QQuickFolderDialogImplAttached::breadcrumbBarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickFolderDialogImplAttached20breadcrumbBarChangedEv(
+    QQuickFolderDialogImplAttached *self) {
+  self->breadcrumbBarChanged();
 }
 
 //  QQuickFolderDialogImplAttachedPrivate

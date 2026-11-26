@@ -8,6 +8,12 @@
     "ritual_ZNK25QDeclarativeGeoRouteModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QDeclarativeGeoRouteModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QDeclarativeGeoRouteModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -60,6 +66,33 @@
     ],
     "ritual_ZN25QDeclarativeGeoRouteModel5resetEv": ["nothing", "address"],
     "ritual_ZN25QDeclarativeGeoRouteModel6cancelEv": ["nothing", "address"],
+    "ritual_ZN25QDeclarativeGeoRouteModel12countChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteModel13pluginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteModel12queryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteModel17autoUpdateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteModel13statusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteModel12errorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteModel13routesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteModel24measurementSystemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteModel14abortRequestedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN25QDeclarativeGeoRouteModel6updateEv": ["nothing", "address"],
     "ritual_ZN25QDeclarativeGeoRouteModel15routingFinishedEP14QGeoRouteReply": [
       "nothing", "address", "address"

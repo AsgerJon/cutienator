@@ -6,11 +6,18 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlGrpcHttp2Channel10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlGrpcHttp2Channel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlGrpcHttp2Channel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQmlGrpcHttp2Channel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN20QQmlGrpcHttp2ChannelC1EP7QObject": ["address", "address"],
     "ritual_ZN20QQmlGrpcHttp2ChannelD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQmlGrpcHttp2Channel7channelEv": ["address", "address"],
     "ritual_ZNK20QQmlGrpcHttp2Channel7optionsEv": ["address", "address"],
     "ritual_ZN20QQmlGrpcHttp2Channel10setOptionsEP22QQmlGrpcChannelOptions": [
       "nothing", "address", "address"
@@ -19,11 +26,25 @@
     "ritual_ZN20QQmlGrpcHttp2Channel10setHostUriERK4QUrl": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QQmlGrpcHttp2Channel14optionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlGrpcHttp2Channel14channelUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlGrpcHttp2Channel14hostUriChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN20QQmlGrpcHttp2Channel13updateChannelEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QQmlGrpcHttp2Channel6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQmlGrpcHttp2Channel6d_funcEv": ["address", "address"],
     "ritual_take_QQmlGrpcHttp2Channel": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQmlGrpcHttp2Channel__std_shared_ptr_QAbstractGrpcChannel": [
+      "nothing", "address"
     ]
   }
 }

@@ -5,10 +5,18 @@
   ],
   "rows": {
     "ritual_ZN18QSemaphoreReleaserC1Ev": ["address"],
+    "ritual_ZN18QSemaphoreReleaserC1ER10QSemaphorei": [
+      "address", "address", "int"
+    ],
     "ritual_ZN18QSemaphoreReleaserC1EP10QSemaphorei": [
       "address", "address", "int"
     ],
+    "ritual_ZN18QSemaphoreReleaserC1EOS_": ["address", "address"],
+    "ritual_ZN18QSemaphoreReleaseraSEOS_": ["address", "address", "address"],
     "ritual_ZN18QSemaphoreReleaserD1Ev": ["nothing", "address"],
+    "ritual_ZN18QSemaphoreReleaser4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QSemaphoreReleaser9semaphoreEv": ["address", "address"],
     "ritual_ZN18QSemaphoreReleaser6cancelEv": ["address", "address"]
   }

@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QQuick3DObjectPrivate9ExtraDataC1Ev": ["address"],
     "ritual_ZN21QQuick3DObjectPrivate9ExtraDataD1Ev": ["nothing", "address"]
   }
 }

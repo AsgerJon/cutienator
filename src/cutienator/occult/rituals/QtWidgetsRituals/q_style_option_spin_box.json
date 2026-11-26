@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN19QStyleOptionSpinBoxC1Ev": ["address"],
     "ritual_ZN19QStyleOptionSpinBoxC1ERKS_": ["address", "address"],
+    "ritual_ZN19QStyleOptionSpinBoxaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QStyleOptionSpinBoxC1Ei": ["address", "int"],
     "ritual_ZN19QStyleOptionSpinBoxD1Ev": ["nothing", "address"]
   }

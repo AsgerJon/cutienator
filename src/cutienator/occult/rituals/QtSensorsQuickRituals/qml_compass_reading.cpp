@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlCompassReading that Python can take functions over in. Every QmlCompassReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK17QmlCompassReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlCompassReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QmlCompassReading11qt_metacastEPKc(
+    QmlCompassReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlCompassReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QmlCompassReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlCompassReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlCompassReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QmlCompassReading2trEPKcS1_i(
@@ -252,11 +272,39 @@ qreal ritual_ZNK17QmlCompassReading7azimuthEv(
   return self->azimuth();
 }
 
+//  QBindable<qreal> QmlCompassReading::bindableAzimuth() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK17QmlCompassReading15bindableAzimuthEv(
+    const QmlCompassReading *self) {
+  return new QBindable<qreal>(self->bindableAzimuth());
+}
+
 //  qreal QmlCompassReading::calibrationLevel() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK17QmlCompassReading16calibrationLevelEv(
     const QmlCompassReading *self) {
   return self->calibrationLevel();
+}
+
+//  QBindable<qreal> QmlCompassReading::bindableCalibrationLevel() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK17QmlCompassReading24bindableCalibrationLevelEv(
+    const QmlCompassReading *self) {
+  return new QBindable<qreal>(self->bindableCalibrationLevel());
+}
+
+//  void QmlCompassReading::azimuthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QmlCompassReading14azimuthChangedEv(
+    QmlCompassReading *self) {
+  self->azimuthChanged();
+}
+
+//  void QmlCompassReading::calibrationLevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QmlCompassReading23calibrationLevelChangedEv(
+    QmlCompassReading *self) {
+  self->calibrationLevelChanged();
 }
 
 //  QSensorReading *QmlCompassReading::reading() const
@@ -270,6 +318,18 @@ QSensorReading *ritual_ZNK17QmlCompassReading7readingEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QmlCompassReading13readingUpdateEv(QmlCompassReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlCompassReading::_qt_property_m_azimuth_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QmlCompassReading29_qt_property_m_azimuth_offsetEv() {
+  return QmlCompassReading::_qt_property_m_azimuth_offset();
+}
+
+//  size_t QmlCompassReading::_qt_property_m_calibrationLevel_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QmlCompassReading38_qt_property_m_calibrationLevel_offsetEv() {
+  return QmlCompassReading::_qt_property_m_calibrationLevel_offset();
 }
 
 //  a Python function taken by a CuteQmlCompassReading, for the function
@@ -294,4 +354,10 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QmlCompassReading13readingUpdateEv(
     QmlCompassReading *self) {
   self->QmlCompassReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlCompassReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlCompassReading__QBindable_qreal(QBindable<qreal> *self) {
+  delete self;
 }

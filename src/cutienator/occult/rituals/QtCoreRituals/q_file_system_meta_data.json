@@ -1,8 +1,6 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/6.12.0/QtCore/private/qfilesystemmetadata_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN19QFileSystemMetaDataC1Ev": ["address"],
@@ -48,6 +46,9 @@
     "ritual_ZNK19QFileSystemMetaData10isReadableEv": ["bool", "address"],
     "ritual_ZNK19QFileSystemMetaData10isWritableEv": ["bool", "address"],
     "ritual_ZNK19QFileSystemMetaData12isExecutableEv": ["bool", "address"],
+    "ritual_ZN19QFileSystemMetaData14fillFromDirEntERK8dirent64": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QFileSystemMetaDataD1Ev": ["nothing", "address"]
   }
 }

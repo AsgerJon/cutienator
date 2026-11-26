@@ -2,6 +2,7 @@
 //  QtWidgets/qsizepolicy.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qsizepolicy.h>
 #include <QtCore/qvariant.h>
+#include <QtWidgets/QSizePolicy>
 
 //  QSizePolicy::QSizePolicy()
 extern "C" Q_DECL_EXPORT
@@ -171,10 +172,36 @@ QSizePolicy *ritual_ZNK11QSizePolicy10transposedEv(const QSizePolicy *self) {
   return new QSizePolicy(self->transposed());
 }
 
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QSizePolicy &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK11QSizePolicy(
+    QDataStream *a0,
+    const QSizePolicy *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QSizePolicy &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR11QSizePolicy(
+    QDataStream *a0,
+    QSizePolicy *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 //  QSizePolicy::QSizePolicy(int i)
 extern "C" Q_DECL_EXPORT
 QSizePolicy *ritual_ZN11QSizePolicyC1Ei(int i) {
   return new QSizePolicy(i);
+}
+
+//  QSizePolicy::QSizePolicy(Bits b)
+extern "C" Q_DECL_EXPORT
+QSizePolicy *ritual_ZN11QSizePolicyC1ENS_4BitsE(const QSizePolicy::Bits *b) {
+  return new QSizePolicy(*b);
 }
 
 //  quint32 QSizePolicy::toControlTypeFieldValue(ControlType type)

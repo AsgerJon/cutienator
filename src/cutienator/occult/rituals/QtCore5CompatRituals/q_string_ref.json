@@ -113,6 +113,7 @@
     ],
     "ritual_ZNK10QStringRefcv11QStringViewEv": ["text", "address"],
     "ritual_ZNK10QStringRefcv14QAnyStringViewEv": ["text", "address"],
+    "ritual_ZN10QStringRefaSEPK7QString": ["address", "address", "address"],
     "ritual_ZNK10QStringRef7unicodeEv": ["address", "address"],
     "ritual_ZNK10QStringRef4dataEv": ["address", "address"],
     "ritual_ZNK10QStringRef9constDataEv": ["address", "address"],
@@ -122,9 +123,14 @@
     "ritual_ZNK10QStringRef3endEv": ["address", "address"],
     "ritual_ZNK10QStringRef4cendEv": ["address", "address"],
     "ritual_ZNK10QStringRef8constEndEv": ["address", "address"],
+    "ritual_ZNK10QStringRef6rbeginEv": ["address", "address"],
+    "ritual_ZNK10QStringRef7crbeginEv": ["address", "address"],
+    "ritual_ZNK10QStringRef4rendEv": ["address", "address"],
+    "ritual_ZNK10QStringRef5crendEv": ["address", "address"],
     "ritual_ZNK10QStringRef8toLatin1Ev": ["address", "address"],
     "ritual_ZNK10QStringRef6toUtf8Ev": ["address", "address"],
     "ritual_ZNK10QStringRef11toLocal8BitEv": ["address", "address"],
+    "ritual_ZNK10QStringRef6toUcs4Ev": ["address", "address"],
     "ritual_ZN10QStringRef5clearEv": ["nothing", "address"],
     "ritual_ZNK10QStringRef8toStringEv": ["text", "address"],
     "ritual_ZNK10QStringRef7isEmptyEv": ["bool", "address"],
@@ -226,6 +232,10 @@
     "ritual_list_add_QStringRef": ["nothing", "address", "address"],
     "ritual_list_size_QStringRef": ["long long", "address"],
     "ritual_list_at_QStringRef": ["address", "address", "long long"],
-    "ritual_list_drop_QStringRef": ["nothing", "address"]
+    "ritual_list_drop_QStringRef": ["nothing", "address"],
+    "ritual_drop_QStringRef__QStringRef_const_reverse_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QStringRef__QList_uint": ["nothing", "address"]
   }
 }

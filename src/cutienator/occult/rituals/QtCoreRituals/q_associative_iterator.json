@@ -5,6 +5,18 @@
     "lost."
   ],
   "rows": {
-    "ritual_ZNK20QAssociativeIterator3keyEv": ["address", "address"]
+    "ritual_ZN20QAssociativeIteratorC1EO9QIteratorI16QMetaAssociationE": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAssociativeIterator3keyEv": ["address", "address"],
+    "ritual_ZNK20QAssociativeIterator5valueEv": ["address", "address"],
+    "ritual_ZNK20QAssociativeIteratordeEv": ["address", "address"],
+    "ritual_ZNK20QAssociativeIteratorptEv": ["address", "address"],
+    "ritual_drop_QAssociativeIterator__QVariantRef_QAssociativeIterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAssociativeIterator__QVariantPointer_QAssociativeIterator": [
+      "nothing", "address"
+    ]
   }
 }

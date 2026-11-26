@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK17QNearFieldManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNearFieldManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QNearFieldManager11qt_metacastEPKc(
+    QNearFieldManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNearFieldManager::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QNearFieldManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNearFieldManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QNearFieldManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QNearFieldManager2trEPKcS1_i(
@@ -264,6 +283,39 @@ void ritual_ZN17QNearFieldManager18setUserInformationERK7QString(
     QNearFieldManager *self,
     const QString *message) {
   self->setUserInformation(*message);
+}
+
+//  void
+//      QNearFieldManager::adapterStateChanged(QNearFieldManager::AdapterStat
+//      e state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QNearFieldManager19adapterStateChangedENS_12AdapterStateE(
+    QNearFieldManager *self,
+    QNearFieldManager::AdapterState state) {
+  self->adapterStateChanged(state);
+}
+
+//  void QNearFieldManager::targetDetectionStopped()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QNearFieldManager22targetDetectionStoppedEv(
+    QNearFieldManager *self) {
+  self->targetDetectionStopped();
+}
+
+//  void QNearFieldManager::targetDetected(QNearFieldTarget *target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QNearFieldManager14targetDetectedEP16QNearFieldTarget(
+    QNearFieldManager *self,
+    QNearFieldTarget *target) {
+  self->targetDetected(target);
+}
+
+//  void QNearFieldManager::targetLost(QNearFieldTarget *target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QNearFieldManager10targetLostEP16QNearFieldTarget(
+    QNearFieldManager *self,
+    QNearFieldTarget *target) {
+  self->targetLost(target);
 }
 
 //  a Python function taken by a CuteQNearFieldManager, for the function

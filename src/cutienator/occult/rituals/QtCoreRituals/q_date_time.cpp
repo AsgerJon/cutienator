@@ -6,6 +6,8 @@
 #include <QtCore/qcalendar.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/QDateTime>
+#include <chrono>
 
 //  QDateTime::QDateTime()
 extern "C" Q_DECL_EXPORT
@@ -53,10 +55,36 @@ QDateTime *ritual_ZN9QDateTimeC1ERKS_(const QDateTime *other) {
   return new QDateTime(*other);
 }
 
+//  QDateTime::QDateTime(QDateTime &&other)
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZN9QDateTimeC1EOS_(QDateTime *other) {
+  return new QDateTime(std::move(*other));
+}
+
 //  QDateTime::~QDateTime()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QDateTimeD1Ev(QDateTime *self) {
   delete self;
+}
+
+//  QDateTime &QDateTime::operator=(QDateTime &&other)
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZN9QDateTimeaSEOS_(QDateTime *self, QDateTime *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDateTime &QDateTime::operator=(const QDateTime &other)
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZN9QDateTimeaSERKS_(
+    QDateTime *self,
+    const QDateTime *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QDateTime::swap(QDateTime &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QDateTime4swapERS_(QDateTime *self, QDateTime *other) {
+  self->swap(*other);
 }
 
 //  bool QDateTime::isNull() const
@@ -287,6 +315,14 @@ QDateTime *ritual_ZNK9QDateTime8addMSecsEx(
     const QDateTime *self,
     qint64 msecs) {
   return new QDateTime(self->addMSecs(msecs));
+}
+
+//  QDateTime QDateTime::addDuration(std::chrono::milliseconds msecs) const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK9QDateTime11addDurationENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    const QDateTime *self,
+    long long msecs) {
+  return new QDateTime(self->addDuration(std::chrono::milliseconds(msecs)));
 }
 
 #if QT_DEPRECATED_SINCE(6, 9)
@@ -608,6 +644,75 @@ qint64 ritual_ZN9QDateTime21currentSecsSinceEpochEv() {
   return QDateTime::currentSecsSinceEpoch();
 }
 
+//  QDateTime QDateTime::fromStdTimePoint(std::chrono::time_point<std::chrono
+//      ::system_clock, std::chrono::milliseconds> time)
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZN9QDateTime16fromStdTimePointENSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000EEEEEE(
+    const std::chrono::time_point<std::chrono::system_clock, std::chrono::milliseconds> *time) {
+  return new QDateTime(QDateTime::fromStdTimePoint(*time));
+}
+
+//  std::chrono::milliseconds operator-(const QDateTime &lhs, const QDateTime
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+long long ritual_ZmiRK9QDateTimeS1_(
+    const QDateTime *lhs,
+    const QDateTime *rhs) {
+  return static_cast<long long>(operator-(*lhs, *rhs).count());
+}
+
+//  QDateTime operator+(const QDateTime &dateTime, std::chrono::milliseconds
+//      duration)
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZplRK9QDateTimeNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    const QDateTime *dateTime,
+    long long duration) {
+  return new QDateTime(
+      operator+(
+          *dateTime,
+          std::chrono::milliseconds(duration)));
+}
+
+//  QDateTime operator+(std::chrono::milliseconds duration, const QDateTime
+//      &dateTime)
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZplNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERK9QDateTime(
+    long long duration,
+    const QDateTime *dateTime) {
+  return new QDateTime(
+      operator+(
+          std::chrono::milliseconds(duration),
+          *dateTime));
+}
+
+//  QDateTime &QDateTime::operator+=(std::chrono::milliseconds duration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QDateTimepLENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QDateTime *self,
+    long long duration) {
+  self->operator+=(std::chrono::milliseconds(duration));
+}
+
+//  QDateTime operator-(const QDateTime &dateTime, std::chrono::milliseconds
+//      duration)
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZmiRK9QDateTimeNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    const QDateTime *dateTime,
+    long long duration) {
+  return new QDateTime(
+      operator-(
+          *dateTime,
+          std::chrono::milliseconds(duration)));
+}
+
+//  QDateTime &QDateTime::operator-=(std::chrono::milliseconds duration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QDateTimemIENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QDateTime *self,
+    long long duration) {
+  self->operator-=(std::chrono::milliseconds(duration));
+}
+
 //  bool QDateTime::equals(const QDateTime &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QDateTime6equalsERKS_(
@@ -651,6 +756,26 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK9QDateTimeS1_(const QDateTime *lhs, const QDateTime *rhs) {
   return operator>=(*lhs, *rhs);
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QDateTime &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK9QDateTime(
+    QDataStream *a0,
+    const QDateTime *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QDateTime &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR9QDateTime(
+    QDataStream *a0,
+    QDateTime *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 #if !defined(QT_NO_DEBUG_STREAM) && QT_CONFIG(datestring)
 //  QDebug operator<<(QDebug a0, const QDateTime &a1)

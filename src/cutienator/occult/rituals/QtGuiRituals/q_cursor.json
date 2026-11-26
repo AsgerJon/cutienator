@@ -12,6 +12,10 @@
     "ritual_ZN7QCursorC1ERK7QPixmapii": ["address", "address", "int", "int"],
     "ritual_ZN7QCursorC1ERKS_": ["address", "address"],
     "ritual_ZN7QCursorD1Ev": ["nothing", "address"],
+    "ritual_ZN7QCursoraSERKS_": ["address", "address", "address"],
+    "ritual_ZN7QCursorC1EOS_": ["address", "address"],
+    "ritual_ZN7QCursoraSEOS_": ["address", "address", "address"],
+    "ritual_ZN7QCursor4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK7QCursorcv8QVariantEv": ["address", "address"],
     "ritual_ZNK7QCursor5shapeEv": ["int", "address"],
     "ritual_ZN7QCursor8setShapeEN2Qt11CursorShapeE": [

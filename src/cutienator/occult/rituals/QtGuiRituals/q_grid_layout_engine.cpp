@@ -458,11 +458,47 @@ void ritual_ZN17QGridLayoutEngine18insertOrRemoveRowsEiiN2Qt11OrientationE(
   self->insertOrRemoveRows(row, delta, orientation);
 }
 
+//  void QGridLayoutEngine::fillRowData(QGridLayoutRowData *rowData, const
+//      qreal *colPositions, const qreal *colSizes, Qt::Orientation
+//      orientation, const QAbstractLayoutStyleInfo *styleInfo) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QGridLayoutEngine11fillRowDataEP18QGridLayoutRowDataPKdS3_N2Qt11OrientationEPK24QAbstractLayoutStyleInfo(
+    const QGridLayoutEngine *self,
+    QGridLayoutRowData *rowData,
+    const qreal *colPositions,
+    const qreal *colSizes,
+    Qt::Orientation orientation,
+    const QAbstractLayoutStyleInfo *styleInfo) {
+  self->fillRowData(rowData, colPositions, colSizes, orientation, styleInfo);
+}
+
 //  void QGridLayoutEngine::ensureEffectiveFirstAndLastRows() const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK17QGridLayoutEngine31ensureEffectiveFirstAndLastRowsEv(
     const QGridLayoutEngine *self) {
   self->ensureEffectiveFirstAndLastRows();
+}
+
+//  void QGridLayoutEngine::ensureColumnAndRowData(QGridLayoutRowData
+//      *rowData, QGridLayoutBox *totalBox, const qreal *colPositions, const
+//      qreal *colSizes, Qt::Orientation orientation, const
+//      QAbstractLayoutStyleInfo *styleInfo) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QGridLayoutEngine22ensureColumnAndRowDataEP18QGridLayoutRowDataP14QGridLayoutBoxPKdS5_N2Qt11OrientationEPK24QAbstractLayoutStyleInfo(
+    const QGridLayoutEngine *self,
+    QGridLayoutRowData *rowData,
+    QGridLayoutBox *totalBox,
+    const qreal *colPositions,
+    const qreal *colSizes,
+    Qt::Orientation orientation,
+    const QAbstractLayoutStyleInfo *styleInfo) {
+  self->ensureColumnAndRowData(
+      rowData,
+      totalBox,
+      colPositions,
+      colSizes,
+      orientation,
+      styleInfo);
 }
 
 //  void QGridLayoutEngine::ensureGeometries(const QSizeF &size, const

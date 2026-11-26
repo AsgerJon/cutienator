@@ -182,6 +182,25 @@ const QMetaObject *ritual_ZNK33QVirtualKeyboardDictionaryManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVirtualKeyboardDictionaryManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN33QVirtualKeyboardDictionaryManager11qt_metacastEPKc(
+    QVirtualKeyboardDictionaryManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVirtualKeyboardDictionaryManager::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN33QVirtualKeyboardDictionaryManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVirtualKeyboardDictionaryManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVirtualKeyboardDictionaryManager::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -190,6 +209,22 @@ QString *ritual_ZN33QVirtualKeyboardDictionaryManager2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QVirtualKeyboardDictionaryManager::tr(s, c, n));
+}
+
+//  QVirtualKeyboardDictionaryManagerPrivate
+//      *QVirtualKeyboardDictionaryManager::d_func()
+extern "C" Q_DECL_EXPORT
+QVirtualKeyboardDictionaryManagerPrivate *ritual_ZN33QVirtualKeyboardDictionaryManager6d_funcEv(
+    QVirtualKeyboardDictionaryManager *self) {
+  return self->d_func();
+}
+
+//  const QVirtualKeyboardDictionaryManagerPrivate
+//      *QVirtualKeyboardDictionaryManager::d_func() const
+extern "C" Q_DECL_EXPORT
+const QVirtualKeyboardDictionaryManagerPrivate *ritual_ZNK33QVirtualKeyboardDictionaryManager6d_funcEv(
+    const QVirtualKeyboardDictionaryManager *self) {
+  return self->d_func();
 }
 
 //  QVirtualKeyboardDictionaryManager::QVirtualKeyboardDictionaryManager(QObj
@@ -272,6 +307,34 @@ QVirtualKeyboardDictionary *ritual_ZNK33QVirtualKeyboardDictionaryManager10dicti
     const QVirtualKeyboardDictionaryManager *self,
     const QString *name) {
   return self->dictionary(*name);
+}
+
+//  void QVirtualKeyboardDictionaryManager::availableDictionariesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QVirtualKeyboardDictionaryManager28availableDictionariesChangedEv(
+    QVirtualKeyboardDictionaryManager *self) {
+  self->availableDictionariesChanged();
+}
+
+//  void QVirtualKeyboardDictionaryManager::baseDictionariesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QVirtualKeyboardDictionaryManager23baseDictionariesChangedEv(
+    QVirtualKeyboardDictionaryManager *self) {
+  self->baseDictionariesChanged();
+}
+
+//  void QVirtualKeyboardDictionaryManager::extraDictionariesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QVirtualKeyboardDictionaryManager24extraDictionariesChangedEv(
+    QVirtualKeyboardDictionaryManager *self) {
+  self->extraDictionariesChanged();
+}
+
+//  void QVirtualKeyboardDictionaryManager::activeDictionariesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QVirtualKeyboardDictionaryManager25activeDictionariesChangedEv(
+    QVirtualKeyboardDictionaryManager *self) {
+  self->activeDictionariesChanged();
 }
 
 //  a Python function taken by a CuteQVirtualKeyboardDictionaryManager, for

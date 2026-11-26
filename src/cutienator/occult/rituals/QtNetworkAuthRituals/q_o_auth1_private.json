@@ -7,8 +7,17 @@
   "rows": {
     "ritual_ZN14QOAuth1Private6q_funcEv": ["address", "address"],
     "ritual_ZNK14QOAuth1Private6q_funcEv": ["address", "address"],
+    "ritual_ZN14QOAuth1PrivateC1ERKSt4pairI7QStringS1_EP21QNetworkAccessManager": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK14QOAuth1Private21signatureMethodStringEv": [
       "text", "address"
+    ],
+    "ritual_ZNK14QOAuth1Private17generateSignatureERK9QMultiMapI7QString8QVariantERK4QUrlN21QNetworkAccessManager9OperationE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QOAuth1Private17generateSignatureERK9QMultiMapI7QString8QVariantERK4QUrlRK10QByteArray": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZNK14QOAuth1Private15formatSignatureERK16QOAuth1Signature": [
       "address", "address", "address"

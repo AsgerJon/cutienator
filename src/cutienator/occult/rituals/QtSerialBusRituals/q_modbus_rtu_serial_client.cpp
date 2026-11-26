@@ -260,6 +260,25 @@ const QMetaObject *ritual_ZNK22QModbusRtuSerialClient10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QModbusRtuSerialClient::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QModbusRtuSerialClient11qt_metacastEPKc(
+    QModbusRtuSerialClient *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QModbusRtuSerialClient::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QModbusRtuSerialClient11qt_metacallEN11QMetaObject4CallEiPPv(
+    QModbusRtuSerialClient *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QModbusRtuSerialClient::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QModbusRtuSerialClient2trEPKcS1_i(
@@ -325,6 +344,15 @@ void ritual_ZN22QModbusRtuSerialClient18setTurnaroundDelayEi(
     QModbusRtuSerialClient *self,
     int turnaroundDelay) {
   self->setTurnaroundDelay(turnaroundDelay);
+}
+
+//  QModbusRtuSerialClient::QModbusRtuSerialClient(QModbusRtuSerialClientPriv
+//      ate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QModbusRtuSerialClient *ritual_ZN22QModbusRtuSerialClientC1ER29QModbusRtuSerialClientPrivateP7QObject(
+    QModbusRtuSerialClientPrivate *dd,
+    QObject *parent) {
+  return new CuteQModbusRtuSerialClient(*dd, parent);
 }
 
 //  void QModbusRtuSerialClient::close()

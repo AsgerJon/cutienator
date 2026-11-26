@@ -29,6 +29,10 @@
 #include <QtGui/qimage.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QModelIndex>
+#include <QtCore/QRect>
+#include <QtWidgets/QListView>
+#include <QtCore/QList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qlistview.h>
 #include <QtWidgets/qabstractitemdelegate.h>
@@ -122,59 +126,54 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/itemviews/qlistview.cpp, line 2216, as _ZN17QListModeViewBase6dropOnEP10QDropEventPiS2_P11QModelIndex
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/itemviews/qlistview.cpp, line 1932, as _ZN16QListViewPrivate6dropOnEP10QDropEventPiS2_P11QModelIndex
 #if QT_CONFIG(draganddrop)
-inline bool QListModeViewBase::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
+inline bool QListViewPrivate::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
 {
-    if (event->isAccepted())
-        return false;
-
-    QModelIndex index;
-    if (dd->viewport->rect().contains(event->position().toPoint())) {
-        // can't use indexAt, doesn't account for spacing.
-        QPoint p = event->position().toPoint();
-        QRect rect(p.x() + horizontalOffset(), p.y() + verticalOffset(), 1, 1);
-        rect.adjust(-dd->spacing(), -dd->spacing(), dd->spacing(), dd->spacing());
-        const QList<QModelIndex> intersectVector = dd->intersectingSet(rect);
-        index = intersectVector.size() > 0
-            ? intersectVector.last() : QModelIndex();
-        if (!index.isValid())
-            index = dd->root;
-    }
-
-    // If we are allowed to do the drop
-    if (dd->model->supportedDropActions() & event->dropAction()) {
-        int row = -1;
-        int col = -1;
-        if (index != dd->root) {
-            dd->dropIndicatorPosition = position(event->position().toPoint(), qq->visualRect(index), index);
-            switch (dd->dropIndicatorPosition) {
-            case QAbstractItemView::AboveItem:
-                row = index.row();
-                col = index.column();
-                index = index.parent();
-                break;
-            case QAbstractItemView::BelowItem:
-                row = index.row() + 1;
-                col = index.column();
-                index = index.parent();
-                break;
-            case QAbstractItemView::OnItem:
-            case QAbstractItemView::OnViewport:
-                break;
-            }
-        } else {
-            dd->dropIndicatorPosition = QAbstractItemView::OnViewport;
-        }
-        *dropIndex = index;
-        *dropRow = row;
-        *dropCol = col;
-        if (!dd->droppingOnItself(event, index))
-            return true;
-    }
-    return false;
+    if (viewMode == QListView::ListMode && flow == QListView::LeftToRight)
+        return static_cast<QListModeViewBase *>(commonListView)->dropOn(event, dropRow, dropCol, dropIndex);
+    else
+        return QAbstractItemViewPrivate::dropOn(event, dropRow, dropCol, dropIndex);
 }
 #endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qlistview.cpp, line 575, as _ZN16QListViewPrivate9selectAllE6QFlagsIN19QItemSelectionModel13SelectionFlagEE
+inline void QListViewPrivate::selectAll(QItemSelectionModel::SelectionFlags command)
+{
+    if (!selectionModel)
+        return;
+
+    QItemSelection selection;
+    QModelIndex topLeft;
+    int row = 0;
+    const int colCount = model->columnCount(root);
+    const int rowCount = model->rowCount(root);
+    for ( ; row < rowCount; ++row) {
+        if (isHidden(row)) {
+            //it might be the end of a selection range
+            if (topLeft.isValid()) {
+                QModelIndex bottomRight = model->index(row - 1, colCount - 1, root);
+                selection.append(QItemSelectionRange(topLeft, bottomRight));
+                topLeft = QModelIndex();
+            }
+            continue;
+        }
+
+        if (!topLeft.isValid()) //start of a new selection range
+            topLeft = model->index(row, 0, root);
+    }
+
+    if (topLeft.isValid()) {
+        //last selected range
+        QModelIndex bottomRight = model->index(row - 1, colCount - 1, root);
+        selection.append(QItemSelectionRange(topLeft, bottomRight));
+    }
+
+    if (!selection.isEmpty())
+        selectionModel->select(selection, command);
+}
 
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 3594, as _ZN24QAbstractItemViewPrivate11rowsRemovedERK11QModelIndexii
 inline void QAbstractItemViewPrivate::rowsRemoved(const QModelIndex &index, int start, int end)
@@ -286,56 +285,6 @@ inline void QAbstractItemViewPrivate::columnsInserted(const QModelIndex &index, 
     updateGeometry();
 }
 
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 2247, as _ZN24QAbstractItemViewPrivate6dropOnEP10QDropEventPiS2_P11QModelIndex
-#if QT_CONFIG(draganddrop)
-inline bool QAbstractItemViewPrivate::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
-{
-    Q_Q(QAbstractItemView);
-    if (event->isAccepted())
-        return false;
-
-    QModelIndex index;
-    // rootIndex() (i.e. the viewport) might be a valid index
-    if (viewport->rect().contains(event->position().toPoint())) {
-        index = q->indexAt(event->position().toPoint());
-        if (!index.isValid())
-            index = root;
-    }
-
-    // If we are allowed to do the drop
-    if (model->supportedDropActions() & event->dropAction()) {
-        int row = -1;
-        int col = -1;
-        if (index != root) {
-            dropIndicatorPosition = position(event->position().toPoint(), q->visualRect(index), index);
-            switch (dropIndicatorPosition) {
-            case QAbstractItemView::AboveItem:
-                row = index.row();
-                col = index.column();
-                index = index.parent();
-                break;
-            case QAbstractItemView::BelowItem:
-                row = index.row() + 1;
-                col = index.column();
-                index = index.parent();
-                break;
-            case QAbstractItemView::OnItem:
-            case QAbstractItemView::OnViewport:
-                break;
-            }
-        } else {
-            dropIndicatorPosition = QAbstractItemView::OnViewport;
-        }
-        *dropIndex = index;
-        *dropRow = row;
-        *dropCol = col;
-        if (!droppingOnItself(event, index))
-            return true;
-    }
-    return false;
-}
-#endif  // QT_CONFIG(draganddrop)
-
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 3781, as _ZN24QAbstractItemViewPrivate9rowsMovedERK11QModelIndexiiS2_i
 inline void QAbstractItemViewPrivate::rowsMoved(const QModelIndex &, int, int, const QModelIndex &, int)
 {
@@ -398,32 +347,48 @@ inline QAbstractItemViewPrivate::~QAbstractItemViewPrivate()
 {
 }
 
-//  from src/widgets/itemviews/qlistview.cpp, line 2109, as _ZNK17QListModeViewBase8positionERK6QPointRK5QRectRK11QModelIndex
-#if QT_CONFIG(draganddrop)
-inline QAbstractItemView::DropIndicatorPosition QListModeViewBase::position(const QPoint &pos, const QRect &rect, const QModelIndex &index) const
+//  from src/widgets/itemviews/qlistview.cpp, line 622, as _ZNK16QListViewPrivate19draggablePaintPairsERK5QListI11QModelIndexEP5QRect
+inline QItemViewPaintPairs QListViewPrivate::draggablePaintPairs(const QModelIndexList &indexes, QRect *r) const
 {
-    QAbstractItemView::DropIndicatorPosition r = QAbstractItemView::OnViewport;
-    if (!dd->overwrite) {
-        const int margin = 2;
-        if (pos.x() - rect.left() < margin) {
-            r = QAbstractItemView::AboveItem;   // Visually, on the left
-        } else if (rect.right() - pos.x() < margin) {
-            r = QAbstractItemView::BelowItem;   // Visually, on the right
-        } else if (rect.contains(pos, true)) {
-            r = QAbstractItemView::OnItem;
-        }
-    } else {
-        QRect touchingRect = rect;
-        touchingRect.adjust(-1, -1, 1, 1);
-        if (touchingRect.contains(pos, false)) {
-            r = QAbstractItemView::OnItem;
+    Q_ASSERT(r);
+    Q_Q(const QListView);
+    QRect &rect = *r;
+    const QRect viewportRect = viewport->rect();
+    QItemViewPaintPairs ret;
+    QList<QModelIndex> visibleIndexes =
+            intersectingSet(viewportRect.translated(q->horizontalOffset(), q->verticalOffset()));
+    std::sort(visibleIndexes.begin(), visibleIndexes.end());
+    for (const auto &index : indexes) {
+        if (std::binary_search(visibleIndexes.cbegin(), visibleIndexes.cend(), index)) {
+            const QRect current = q->visualRect(index);
+            ret.append({current, index});
+            rect |= current;
         }
     }
+    QRect clipped = rect & viewportRect;
+    rect.setLeft(clipped.left());
+    rect.setRight(clipped.right());
+    return ret;
+}
 
-    if (r == QAbstractItemView::OnItem && (!(dd->model->flags(index) & Qt::ItemIsDropEnabled)))
-        r = pos.x() < rect.center().x() ? QAbstractItemView::AboveItem : QAbstractItemView::BelowItem;
+//  from src/widgets/itemviews/qlistview.cpp, line 1942, as _ZNK16QListViewPrivate20accessibleChildIndexERK11QModelIndex
+#if QT_CONFIG(accessibility)
+inline int QListViewPrivate::accessibleChildIndex(const QModelIndex &index) const
+{
+    Q_Q(const QListView);
+    Q_ASSERT(index.isValid());
+    return q->visualIndex(index);
+}
+#endif  // QT_CONFIG(accessibility)
 
-    return r;
+//  from src/widgets/itemviews/qlistview.cpp, line 1924, as _ZNK16QListViewPrivate8positionERK6QPointRK5QRectRK11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline QAbstractItemView::DropIndicatorPosition QListViewPrivate::position(const QPoint &pos, const QRect &rect, const QModelIndex &idx) const
+{
+    if (viewMode == QListView::ListMode && flow == QListView::LeftToRight)
+        return static_cast<QListModeViewBase *>(commonListView)->position(pos, rect, idx);
+    else
+        return QAbstractItemViewPrivate::position(pos, rect, idx);
 }
 #endif  // QT_CONFIG(draganddrop)
 
@@ -441,11 +406,85 @@ inline QRect QAbstractItemViewPrivate::intersectedRect(const QRect rect, const Q
     return rect.intersected(updateRect);
 }
 
-//  from src/widgets/itemviews/qabstractitemview.cpp, line 4452, as _ZNK24QAbstractItemViewPrivate27interruptDelayedItemsLayoutEv
-inline void QAbstractItemViewPrivate::interruptDelayedItemsLayout() const
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1315, as _ZNK26QAbstractScrollAreaPrivate19canStartScrollingAtERK6QPoint
+#if QT_CONFIG(scrollarea)
+inline bool QAbstractScrollAreaPrivate::canStartScrollingAt(const QPoint &startPos) const
 {
-    delayedLayout.stop();
-    delayedPendingLayout = false;
+    Q_Q(const QAbstractScrollArea);
+
+    // don't start scrolling on a QAbstractSlider
+    if (qobject_cast<QAbstractSlider *>(q->viewport()->childAt(startPos)))
+        return false;
+
+    return true;
+}
+#endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 2247, as _ZN24QAbstractItemViewPrivate6dropOnEP10QDropEventPiS2_P11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QAbstractItemViewPrivate::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
+{
+    Q_Q(QAbstractItemView);
+    if (event->isAccepted())
+        return false;
+
+    QModelIndex index;
+    // rootIndex() (i.e. the viewport) might be a valid index
+    if (viewport->rect().contains(event->position().toPoint())) {
+        index = q->indexAt(event->position().toPoint());
+        if (!index.isValid())
+            index = root;
+    }
+
+    // If we are allowed to do the drop
+    if (model->supportedDropActions() & event->dropAction()) {
+        int row = -1;
+        int col = -1;
+        if (index != root) {
+            dropIndicatorPosition = position(event->position().toPoint(), q->visualRect(index), index);
+            switch (dropIndicatorPosition) {
+            case QAbstractItemView::AboveItem:
+                row = index.row();
+                col = index.column();
+                index = index.parent();
+                break;
+            case QAbstractItemView::BelowItem:
+                row = index.row() + 1;
+                col = index.column();
+                index = index.parent();
+                break;
+            case QAbstractItemView::OnItem:
+            case QAbstractItemView::OnViewport:
+                break;
+            }
+        } else {
+            dropIndicatorPosition = QAbstractItemView::OnViewport;
+        }
+        *dropIndex = index;
+        *dropRow = row;
+        *dropCol = col;
+        if (!droppingOnItself(event, index))
+            return true;
+    }
+    return false;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4748, as _ZN24QAbstractItemViewPrivate9selectAllE6QFlagsIN19QItemSelectionModel13SelectionFlagEE
+inline void QAbstractItemViewPrivate::selectAll(QItemSelectionModel::SelectionFlags command)
+{
+    if (!selectionModel)
+        return;
+    if (!model->hasChildren(root))
+        return;
+
+    QItemSelection selection;
+    QModelIndex tl = model->index(0, 0, root);
+    QModelIndex br = model->index(model->rowCount(root) - 1,
+                                  model->columnCount(root) - 1,
+                                  root);
+    selection.append(QItemSelectionRange(tl, br));
+    selectionModel->select(selection, command);
 }
 
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 2294, as _ZNK24QAbstractItemViewPrivate8positionERK6QPointRK5QRectRK11QModelIndex
@@ -478,19 +517,26 @@ QAbstractItemViewPrivate::position(const QPoint &pos, const QRect &rect, const Q
 }
 #endif  // QT_CONFIG(draganddrop)
 
-//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1315, as _ZNK26QAbstractScrollAreaPrivate19canStartScrollingAtERK6QPoint
-#if QT_CONFIG(scrollarea)
-inline bool QAbstractScrollAreaPrivate::canStartScrollingAt(const QPoint &startPos) const
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4699, as _ZNK24QAbstractItemViewPrivate19draggablePaintPairsERK5QListI11QModelIndexEP5QRect
+inline QItemViewPaintPairs QAbstractItemViewPrivate::draggablePaintPairs(const QModelIndexList &indexes, QRect *r) const
 {
-    Q_Q(const QAbstractScrollArea);
-
-    // don't start scrolling on a QAbstractSlider
-    if (qobject_cast<QAbstractSlider *>(q->viewport()->childAt(startPos)))
-        return false;
-
-    return true;
+    Q_ASSERT(r);
+    Q_Q(const QAbstractItemView);
+    QRect &rect = *r;
+    const QRect viewportRect = viewport->rect();
+    QItemViewPaintPairs ret;
+    for (const auto &index : indexes) {
+        const QRect current = q->visualRect(index);
+        if (current.intersects(viewportRect)) {
+            ret.append({current, index});
+            rect |= current;
+        }
+    }
+    QRect clipped = rect & viewportRect;
+    rect.setLeft(clipped.left());
+    rect.setRight(clipped.right());
+    return ret;
 }
-#endif  // QT_CONFIG(scrollarea)
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 288, as _ZN26QAbstractScrollAreaPrivate14layoutChildrenEv
 #if QT_CONFIG(scrollarea)
@@ -505,6 +551,109 @@ inline void QAbstractScrollAreaPrivate::layoutChildren()
         layoutChildren_helper(&needH, &needV);
 }
 #endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4452, as _ZNK24QAbstractItemViewPrivate27interruptDelayedItemsLayoutEv
+inline void QAbstractItemViewPrivate::interruptDelayedItemsLayout() const
+{
+    delayedLayout.stop();
+    delayedPendingLayout = false;
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2216, as _ZN17QListModeViewBase6dropOnEP10QDropEventPiS2_P11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QListModeViewBase::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
+{
+    if (event->isAccepted())
+        return false;
+
+    QModelIndex index;
+    if (dd->viewport->rect().contains(event->position().toPoint())) {
+        // can't use indexAt, doesn't account for spacing.
+        QPoint p = event->position().toPoint();
+        QRect rect(p.x() + horizontalOffset(), p.y() + verticalOffset(), 1, 1);
+        rect.adjust(-dd->spacing(), -dd->spacing(), dd->spacing(), dd->spacing());
+        const QList<QModelIndex> intersectVector = dd->intersectingSet(rect);
+        index = intersectVector.size() > 0
+            ? intersectVector.last() : QModelIndex();
+        if (!index.isValid())
+            index = dd->root;
+    }
+
+    // If we are allowed to do the drop
+    if (dd->model->supportedDropActions() & event->dropAction()) {
+        int row = -1;
+        int col = -1;
+        if (index != dd->root) {
+            dd->dropIndicatorPosition = position(event->position().toPoint(), qq->visualRect(index), index);
+            switch (dd->dropIndicatorPosition) {
+            case QAbstractItemView::AboveItem:
+                row = index.row();
+                col = index.column();
+                index = index.parent();
+                break;
+            case QAbstractItemView::BelowItem:
+                row = index.row() + 1;
+                col = index.column();
+                index = index.parent();
+                break;
+            case QAbstractItemView::OnItem:
+            case QAbstractItemView::OnViewport:
+                break;
+            }
+        } else {
+            dd->dropIndicatorPosition = QAbstractItemView::OnViewport;
+        }
+        *dropIndex = index;
+        *dropRow = row;
+        *dropCol = col;
+        if (!dd->droppingOnItself(event, index))
+            return true;
+    }
+    return false;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4458, as _ZN24QAbstractItemViewPrivate14updateGeometryEv
+inline void QAbstractItemViewPrivate::updateGeometry()
+{
+    Q_Q(QAbstractItemView);
+    if (sizeAdjustPolicy == QAbstractScrollArea::AdjustIgnored)
+        return;
+    if (sizeAdjustPolicy == QAbstractScrollArea::AdjustToContents || !shownOnce)
+        q->updateGeometry();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 2167, as _ZN24QAbstractItemViewPrivate16droppingOnItselfEP10QDropEventRK11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QAbstractItemViewPrivate::droppingOnItself(QDropEvent *event, const QModelIndex &index)
+{
+    Q_Q(QAbstractItemView);
+    Qt::DropAction dropAction = event->dropAction();
+    if (q->dragDropMode() == QAbstractItemView::InternalMove)
+        dropAction = Qt::MoveAction;
+    if (event->source() == q
+        && event->possibleActions() & Qt::MoveAction
+        && dropAction == Qt::MoveAction) {
+        QModelIndexList selectedIndexes = q->selectedIndexes();
+        QModelIndex child = index;
+        while (child.isValid() && child != root) {
+            if (selectedIndexes.contains(child))
+                return true;
+            child = child.parent();
+        }
+    }
+    return false;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4444, as _ZN24QAbstractItemViewPrivate20doDelayedItemsLayoutEi
+inline void QAbstractItemViewPrivate::doDelayedItemsLayout(int delay)
+{
+    if (!delayedPendingLayout) {
+        delayedPendingLayout = true;
+        delayedLayout.start(delay, q_func());
+    }
+}
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 299, as _ZN26QAbstractScrollAreaPrivate21layoutChildren_helperEPbS0_
 #if QT_CONFIG(scrollarea)
@@ -788,6 +937,32 @@ inline QSize QListViewPrivate::itemSize(const QStyleOptionViewItem &option, cons
     return cachedItemSize;
 }
 
+//  from src/widgets/itemviews/qlistview.cpp, line 551, as _ZNK16QListViewPrivate23horizontalScrollToValueERK11QModelIndexRK5QRectN17QAbstractItemView10ScrollHintE
+inline int QListViewPrivate::horizontalScrollToValue(const QModelIndex &index, const QRect &rect,
+                                              QListView::ScrollHint hint) const
+{
+    Q_Q(const QListView);
+    const QRect area = viewport->rect();
+    const bool leftOf = q->isRightToLeft()
+                        ? (rect.left() < area.left()) && (rect.right() < area.right())
+                        : rect.left() < area.left();
+    const bool rightOf = q->isRightToLeft()
+                         ? rect.right() > area.right()
+                         : (rect.right() > area.right()) && (rect.left() > area.left());
+    return commonListView->horizontalScrollToValue(q->visualIndex(index), hint, leftOf, rightOf, area, rect);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 565, as _ZNK16QListViewPrivate21verticalScrollToValueERK11QModelIndexRK5QRectN17QAbstractItemView10ScrollHintE
+inline int QListViewPrivate::verticalScrollToValue(const QModelIndex &index, const QRect &rect,
+                                            QListView::ScrollHint hint) const
+{
+    Q_Q(const QListView);
+    const QRect area = viewport->rect();
+    const bool above = (hint == QListView::EnsureVisible && rect.top() < area.top());
+    const bool below = (hint == QListView::EnsureVisible && rect.bottom() > area.bottom());
+    return commonListView->verticalScrollToValue(q->visualIndex(index), hint, above, below, area, rect);
+}
+
 //  from src/widgets/itemviews/qlistview.cpp, line 1894, as _ZNK16QListViewPrivate9selectionERK5QRect
 inline QItemSelection QListViewPrivate::selection(const QRect &rect) const
 {
@@ -818,73 +993,15 @@ inline QItemSelection QListViewPrivate::selection(const QRect &rect) const
     return selection;
 }
 
-//  from src/widgets/itemviews/qlistview.cpp, line 575, as _ZN16QListViewPrivate9selectAllE6QFlagsIN19QItemSelectionModel13SelectionFlagEE
-inline void QListViewPrivate::selectAll(QItemSelectionModel::SelectionFlags command)
+//  from src/widgets/itemviews/qlistview.cpp, line 1950, as _ZNK16QListViewPrivate24removeCurrentAndDisabledEP5QListI11QModelIndexERKS1_
+inline void QListViewPrivate::removeCurrentAndDisabled(QList<QModelIndex> *indexes,
+                                                const QModelIndex &current) const
 {
-    if (!selectionModel)
-        return;
-
-    QItemSelection selection;
-    QModelIndex topLeft;
-    int row = 0;
-    const int colCount = model->columnCount(root);
-    const int rowCount = model->rowCount(root);
-    for ( ; row < rowCount; ++row) {
-        if (isHidden(row)) {
-            //it might be the end of a selection range
-            if (topLeft.isValid()) {
-                QModelIndex bottomRight = model->index(row - 1, colCount - 1, root);
-                selection.append(QItemSelectionRange(topLeft, bottomRight));
-                topLeft = QModelIndex();
-            }
-            continue;
-        }
-
-        if (!topLeft.isValid()) //start of a new selection range
-            topLeft = model->index(row, 0, root);
-    }
-
-    if (topLeft.isValid()) {
-        //last selected range
-        QModelIndex bottomRight = model->index(row - 1, colCount - 1, root);
-        selection.append(QItemSelectionRange(topLeft, bottomRight));
-    }
-
-    if (!selection.isEmpty())
-        selectionModel->select(selection, command);
+    auto isCurrentOrDisabled = [this, current](const QModelIndex &index) {
+        return !isIndexEnabled(index) || index == current;
+    };
+    indexes->removeIf(isCurrentOrDisabled);
 }
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1924, as _ZNK16QListViewPrivate8positionERK6QPointRK5QRectRK11QModelIndex
-#if QT_CONFIG(draganddrop)
-inline QAbstractItemView::DropIndicatorPosition QListViewPrivate::position(const QPoint &pos, const QRect &rect, const QModelIndex &idx) const
-{
-    if (viewMode == QListView::ListMode && flow == QListView::LeftToRight)
-        return static_cast<QListModeViewBase *>(commonListView)->position(pos, rect, idx);
-    else
-        return QAbstractItemViewPrivate::position(pos, rect, idx);
-}
-#endif  // QT_CONFIG(draganddrop)
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1932, as _ZN16QListViewPrivate6dropOnEP10QDropEventPiS2_P11QModelIndex
-#if QT_CONFIG(draganddrop)
-inline bool QListViewPrivate::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
-{
-    if (viewMode == QListView::ListMode && flow == QListView::LeftToRight)
-        return static_cast<QListModeViewBase *>(commonListView)->dropOn(event, dropRow, dropCol, dropIndex);
-    else
-        return QAbstractItemViewPrivate::dropOn(event, dropRow, dropCol, dropIndex);
-}
-#endif  // QT_CONFIG(draganddrop)
-
-//  from src/widgets/itemviews/qlistview.cpp, line 1942, as _ZNK16QListViewPrivate20accessibleChildIndexERK11QModelIndex
-#if QT_CONFIG(accessibility)
-inline int QListViewPrivate::accessibleChildIndex(const QModelIndex &index) const
-{
-    Q_Q(const QListView);
-    Q_ASSERT(index.isValid());
-    return q->visualIndex(index);
-}
-#endif  // QT_CONFIG(accessibility)
 
 //  from src/widgets/itemviews/qlistview.cpp, line 3354, as _ZN16QListViewPrivate19scrollElasticBandByEii
 inline void QListViewPrivate::scrollElasticBandBy(int dx, int dy)
@@ -897,30 +1014,6 @@ inline void QListViewPrivate::scrollElasticBandBy(int dx, int dy)
         elasticBand.moveBottom(elasticBand.bottom() + dy);
     else if (dy < 0) // up
         elasticBand.moveTop(elasticBand.top() - dy);
-}
-
-//  from src/widgets/itemviews/qlistview.cpp, line 622, as _ZNK16QListViewPrivate19draggablePaintPairsERK5QListI11QModelIndexEP5QRect
-inline QItemViewPaintPairs QListViewPrivate::draggablePaintPairs(const QModelIndexList &indexes, QRect *r) const
-{
-    Q_ASSERT(r);
-    Q_Q(const QListView);
-    QRect &rect = *r;
-    const QRect viewportRect = viewport->rect();
-    QItemViewPaintPairs ret;
-    QList<QModelIndex> visibleIndexes =
-            intersectingSet(viewportRect.translated(q->horizontalOffset(), q->verticalOffset()));
-    std::sort(visibleIndexes.begin(), visibleIndexes.end());
-    for (const auto &index : indexes) {
-        if (std::binary_search(visibleIndexes.cbegin(), visibleIndexes.cend(), index)) {
-            const QRect current = q->visualRect(index);
-            ret.append({current, index});
-            rect |= current;
-        }
-    }
-    QRect clipped = rect & viewportRect;
-    rect.setLeft(clipped.left());
-    rect.setRight(clipped.right());
-    return ret;
 }
 //  -----------------------------------------------------------------------
 
@@ -1896,6 +1989,28 @@ bool ritual_ZNK16QListViewPrivate16selectionAllowedERK11QModelIndex(
   return self->selectionAllowed(*index);
 }
 
+//  int QListViewPrivate::horizontalScrollToValue(const QModelIndex &index,
+//      const QRect &rect, QListView::ScrollHint hint) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK16QListViewPrivate23horizontalScrollToValueERK11QModelIndexRK5QRectN17QAbstractItemView10ScrollHintE(
+    const QListViewPrivate *self,
+    const QModelIndex *index,
+    const QRect *rect,
+    const QListView::ScrollHint *hint) {
+  return self->horizontalScrollToValue(*index, *rect, *hint);
+}
+
+//  int QListViewPrivate::verticalScrollToValue(const QModelIndex &index,
+//      const QRect &rect, QListView::ScrollHint hint) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK16QListViewPrivate21verticalScrollToValueERK11QModelIndexRK5QRectN17QAbstractItemView10ScrollHintE(
+    const QListViewPrivate *self,
+    const QModelIndex *index,
+    const QRect *rect,
+    const QListView::ScrollHint *hint) {
+  return self->verticalScrollToValue(*index, *rect, *hint);
+}
+
 //  QItemSelection QListViewPrivate::selection(const QRect &rect) const
 extern "C" Q_DECL_EXPORT
 QItemSelection *ritual_ZNK16QListViewPrivate9selectionERK5QRect(
@@ -2027,12 +2142,29 @@ bool ritual_ZNK16QListViewPrivate8isHiddenEi(
   return self->isHidden(row);
 }
 
+//  QList<int> QListViewPrivate::hiddenRowIds() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK16QListViewPrivate12hiddenRowIdsEv(
+    const QListViewPrivate *self) {
+  return new QList<int>(self->hiddenRowIds());
+}
+
 //  bool QListViewPrivate::isHiddenOrDisabled(int row) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QListViewPrivate18isHiddenOrDisabledEi(
     const QListViewPrivate *self,
     int row) {
   return self->isHiddenOrDisabled(row);
+}
+
+//  void QListViewPrivate::removeCurrentAndDisabled(QList<QModelIndex>
+//      *indexes, const QModelIndex &current) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QListViewPrivate24removeCurrentAndDisabledEP5QListI11QModelIndexERKS1_(
+    const QListViewPrivate *self,
+    QList<QModelIndex> *indexes,
+    const QModelIndex *current) {
+  self->removeCurrentAndDisabled(indexes, *current);
 }
 
 //  void QListViewPrivate::scrollElasticBandBy(int dx, int dy)
@@ -2103,6 +2235,12 @@ int ritual_own_ZNK16QListViewPrivate20accessibleChildIndexERK11QModelIndex(
   return self->QListViewPrivate::accessibleChildIndex(*index);
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  a QList<int> a ritual of QListViewPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QListViewPrivate__QList_int(QList<int> *self) {
+  delete self;
+}
 
 #endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(listview)

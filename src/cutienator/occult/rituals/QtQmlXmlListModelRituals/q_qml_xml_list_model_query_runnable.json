@@ -5,6 +5,24 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN29QQmlXmlListModelQueryRunnable3runEv": ["nothing", "address"]
+    "ritual_ZN29QQmlXmlListModelQueryRunnableC1EO24QQmlXmlListModelQueryJob": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQmlXmlListModelQueryRunnable3runEv": ["nothing", "address"],
+    "ritual_ZNK29QQmlXmlListModelQueryRunnable6futureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQmlXmlListModelQueryRunnable10doQueryJobEP27QQmlXmlListModelQueryResult": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQmlXmlListModelQueryRunnable14processElementEP27QQmlXmlListModelQueryResultRK7QStringR16QXmlStreamReader": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_own_ZN29QQmlXmlListModelQueryRunnable3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlXmlListModelQueryRunnable__QFuture_QQmlXmlListModelQueryResult": [
+      "nothing", "address"
+    ]
   }
 }

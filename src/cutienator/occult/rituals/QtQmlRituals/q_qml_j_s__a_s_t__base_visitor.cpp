@@ -3634,6 +3634,13 @@ public:
   }
 };
 
+//  QQmlJS::AST::BaseVisitor::BaseVisitor(quint16 parentRecursionDepth)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::BaseVisitor *ritual_ZN6QQmlJS3AST11BaseVisitorC1Et(
+    quint16 parentRecursionDepth) {
+  return new CuteQQmlJS_AST_BaseVisitor(parentRecursionDepth);
+}
+
 //  QQmlJS::AST::BaseVisitor::~BaseVisitor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QQmlJS3AST11BaseVisitorD1Ev(QQmlJS::AST::BaseVisitor *self) {

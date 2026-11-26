@@ -224,6 +224,25 @@ const QMetaObject *ritual_ZNK17QFileInfoGatherer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFileInfoGatherer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QFileInfoGatherer11qt_metacastEPKc(
+    QFileInfoGatherer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFileInfoGatherer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QFileInfoGatherer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFileInfoGatherer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFileInfoGatherer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QFileInfoGatherer2trEPKcS1_i(
@@ -231,6 +250,44 @@ QString *ritual_ZN17QFileInfoGatherer2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QFileInfoGatherer::tr(s, c, n));
+}
+
+//  void QFileInfoGatherer::updates(const QString &directory, const
+//      QList<std::pair<QString, QFileInfo>> &updates)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QFileInfoGatherer7updatesERK7QStringRK5QListISt4pairIS0_9QFileInfoEE(
+    QFileInfoGatherer *self,
+    const QString *directory,
+    const QList<std::pair<QString, QFileInfo>> *updates) {
+  self->updates(*directory, *updates);
+}
+
+//  void QFileInfoGatherer::newListOfFiles(const QString &directory, const
+//      QStringList &listOfFiles) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QFileInfoGatherer14newListOfFilesERK7QStringRK5QListIS0_E(
+    const QFileInfoGatherer *self,
+    const QString *directory,
+    const QList<QString> *listOfFiles) {
+  self->newListOfFiles(*directory, *listOfFiles);
+}
+
+//  void QFileInfoGatherer::nameResolved(const QString &fileName, const
+//      QString &resolvedName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QFileInfoGatherer12nameResolvedERK7QStringS2_(
+    const QFileInfoGatherer *self,
+    const QString *fileName,
+    const QString *resolvedName) {
+  self->nameResolved(*fileName, *resolvedName);
+}
+
+//  void QFileInfoGatherer::directoryLoaded(const QString &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QFileInfoGatherer15directoryLoadedERK7QString(
+    QFileInfoGatherer *self,
+    const QString *path) {
+  self->directoryLoaded(*path);
 }
 
 //  QFileInfoGatherer::QFileInfoGatherer(QObject *parent)
@@ -411,6 +468,20 @@ void ritual_ZN17QFileInfoGatherer12getFileInfosERK7QStringRK5QListIS0_E(
     const QString *path,
     const QList<QString> *files) {
   self->getFileInfos(*path, *files);
+}
+
+//  void QFileInfoGatherer::fetch(const QFileInfo &info, QElapsedTimer &base,
+//      bool &firstTime, QList<std::pair<QString, QFileInfo>> &updatedFiles,
+//      const QString &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QFileInfoGatherer5fetchERK9QFileInfoR13QElapsedTimerRbR5QListISt4pairI7QStringS0_EERKS8_(
+    QFileInfoGatherer *self,
+    const QFileInfo *info,
+    QElapsedTimer *base,
+    bool *firstTime,
+    QList<std::pair<QString, QFileInfo>> *updatedFiles,
+    const QString *path) {
+  self->fetch(*info, *base, *firstTime, *updatedFiles, *path);
 }
 
 //  void QFileInfoGatherer::createWatcher()

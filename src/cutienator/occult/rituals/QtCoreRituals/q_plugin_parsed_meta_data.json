@@ -9,8 +9,14 @@
       "bool", "address", "text"
     ],
     "ritual_ZN21QPluginParsedMetaDataC1Ev": ["address"],
+    "ritual_ZN21QPluginParsedMetaDataC1E14QByteArrayView": [
+      "address", "address"
+    ],
     "ritual_ZNK21QPluginParsedMetaData7isErrorEv": ["bool", "address"],
     "ritual_ZNK21QPluginParsedMetaData11errorStringEv": ["text", "address"],
+    "ritual_ZN21QPluginParsedMetaData5parseE15QPluginMetaData": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK21QPluginParsedMetaData6toJsonEv": ["address", "address"],
     "ritual_ZNK21QPluginParsedMetaData6toCborEv": ["address", "address"],
     "ritual_ZNK21QPluginParsedMetaData5valueE20QtPluginMetaDataKeys": [

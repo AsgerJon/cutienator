@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK20QQuick3DSceneManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DSceneManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuick3DSceneManager11qt_metacastEPKc(
+    QQuick3DSceneManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DSceneManager::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuick3DSceneManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DSceneManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DSceneManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuick3DSceneManager2trEPKcS1_i(
@@ -323,6 +342,14 @@ void ritual_ZN20QQuick3DSceneManager22updateDirtySpatialNodeEP12QQuick3DNode(
   self->updateDirtySpatialNode(spatialNode);
 }
 
+//  void QQuick3DSceneManager::updateBoundingBoxes(QSSGBufferManager &mgr)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSceneManager19updateBoundingBoxesER17QSSGBufferManager(
+    QQuick3DSceneManager *self,
+    QSSGBufferManager *mgr) {
+  self->updateBoundingBoxes(*mgr);
+}
+
 //  QQuick3DObject *QQuick3DSceneManager::lookUpNode(const
 //      QSSGRenderGraphObject *node) const
 extern "C" Q_DECL_EXPORT
@@ -330,6 +357,80 @@ QQuick3DObject *ritual_ZNK20QQuick3DSceneManager10lookUpNodeEPK21QSSGRenderGraph
     const QQuick3DSceneManager *self,
     const QSSGRenderGraphObject *node) {
   return self->lookUpNode(node);
+}
+
+//  size_t
+//      QQuick3DSceneManager::resourceListIndex(QSSGRenderGraphObject::Type
+//      type)
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN20QQuick3DSceneManager17resourceListIndexEN21QSSGRenderGraphObject4TypeE(
+    QSSGRenderGraphObject::Type type) {
+  return QQuick3DSceneManager::resourceListIndex(type);
+}
+
+//  size_t QQuick3DSceneManager::nodeListIndex(QSSGRenderGraphObject::Type
+//      type)
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN20QQuick3DSceneManager13nodeListIndexEN21QSSGRenderGraphObject4TypeE(
+    QSSGRenderGraphObject::Type type) {
+  return QQuick3DSceneManager::nodeListIndex(type);
+}
+
+//  size_t
+//      QQuick3DSceneManager::extensionListIndex(QSSGRenderGraphObject::Type
+//      type)
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN20QQuick3DSceneManager18extensionListIndexEN21QSSGRenderGraphObject4TypeE(
+    QSSGRenderGraphObject::Type type) {
+  return QQuick3DSceneManager::extensionListIndex(type);
+}
+
+//  QQuick3DWindowAttachment
+//      *QQuick3DSceneManager::getOrSetWindowAttachment(QQuickWindow &window)
+extern "C" Q_DECL_EXPORT
+QQuick3DWindowAttachment *ritual_ZN20QQuick3DSceneManager24getOrSetWindowAttachmentER12QQuickWindow(
+    QQuickWindow *window) {
+  return QQuick3DSceneManager::getOrSetWindowAttachment(*window);
+}
+
+//  void QQuick3DSceneManager::needsUpdate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSceneManager11needsUpdateEv(
+    QQuick3DSceneManager *self) {
+  self->needsUpdate();
+}
+
+//  void QQuick3DSceneManager::windowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSceneManager13windowChangedEv(
+    QQuick3DSceneManager *self) {
+  self->windowChanged();
+}
+
+//  SyncResult QQuick3DSceneManager::updateResources(QQuick3DObject
+//      **listHead)
+extern "C" Q_DECL_EXPORT
+QQuick3DSceneManager::SyncResult ritual_ZN20QQuick3DSceneManager15updateResourcesEPP14QQuick3DObject(
+    QQuick3DSceneManager *self,
+    QQuick3DObject **listHead) {
+  return self->updateResources(listHead);
+}
+
+//  void QQuick3DSceneManager::updateNodes(QQuick3DObject **listHead)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSceneManager11updateNodesEPP14QQuick3DObject(
+    QQuick3DSceneManager *self,
+    QQuick3DObject **listHead) {
+  self->updateNodes(listHead);
+}
+
+//  SyncResult QQuick3DSceneManager::updateExtensions(QQuick3DObject
+//      **listHead)
+extern "C" Q_DECL_EXPORT
+QQuick3DSceneManager::SyncResult ritual_ZN20QQuick3DSceneManager16updateExtensionsEPP14QQuick3DObject(
+    QQuick3DSceneManager *self,
+    QQuick3DObject **listHead) {
+  return self->updateExtensions(listHead);
 }
 
 //  a Python function taken by a CuteQQuick3DSceneManager, for the function

@@ -26,6 +26,32 @@ QPropertyBindingError *ritual_ZN21QPropertyBindingErrorC1ERKS_(
   return new QPropertyBindingError(*other);
 }
 
+//  QPropertyBindingError &QPropertyBindingError::operator=(const
+//      QPropertyBindingError &other)
+extern "C" Q_DECL_EXPORT
+QPropertyBindingError *ritual_ZN21QPropertyBindingErroraSERKS_(
+    QPropertyBindingError *self,
+    const QPropertyBindingError *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPropertyBindingError::QPropertyBindingError(QPropertyBindingError
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QPropertyBindingError *ritual_ZN21QPropertyBindingErrorC1EOS_(
+    QPropertyBindingError *other) {
+  return new QPropertyBindingError(std::move(*other));
+}
+
+//  QPropertyBindingError
+//      &QPropertyBindingError::operator=(QPropertyBindingError &&other)
+extern "C" Q_DECL_EXPORT
+QPropertyBindingError *ritual_ZN21QPropertyBindingErroraSEOS_(
+    QPropertyBindingError *self,
+    QPropertyBindingError *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QPropertyBindingError::~QPropertyBindingError()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QPropertyBindingErrorD1Ev(QPropertyBindingError *self) {

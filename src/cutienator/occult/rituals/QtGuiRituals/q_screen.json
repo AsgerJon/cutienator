@@ -1,10 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qscreen.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qscreen.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK7QScreen10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QScreen11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QScreen11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QScreen2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QScreen6d_funcEv": ["address", "address"],
     "ritual_ZNK7QScreen6d_funcEv": ["address", "address"],
@@ -57,12 +61,54 @@
       "address", "address", "unsigned long long", "int", "int", "int", "int"
     ],
     "ritual_ZNK7QScreen11refreshRateEv": ["double", "address"],
+    "ritual_ZNK7QScreen16resolveInterfaceEPKci": [
+      "address", "address", "chars", "int"
+    ],
+    "ritual_ZN7QScreen15geometryChangedERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QScreen24availableGeometryChangedERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QScreen19physicalSizeChangedERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QScreen26physicalDotsPerInchChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN7QScreen25logicalDotsPerInchChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN7QScreen22virtualGeometryChangedERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QScreen25primaryOrientationChangedEN2Qt17ScreenOrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QScreen18orientationChangedEN2Qt17ScreenOrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QScreen18refreshRateChangedEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZN7QScreenC1EP15QPlatformScreen": ["address", "address"],
     "ritual_take_QScreen": ["bool", "address", "chars", "address"],
     "ritual_list_make_QScreen_ptr": ["address"],
     "ritual_list_add_QScreen_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QScreen_ptr": ["long long", "address"],
     "ritual_list_at_QScreen_ptr": ["address", "address", "long long"],
-    "ritual_list_drop_QScreen_ptr": ["nothing", "address"]
+    "ritual_list_drop_QScreen_ptr": ["nothing", "address"],
+    "ritual_ZNK7QScreen15nativeInterfaceIN16QNativeInterface14QWindowsScreenENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK7QScreen15nativeInterfaceIN16QNativeInterface14QWaylandScreenENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK7QScreen15nativeInterfaceIN16QNativeInterface14QAndroidScreenENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK7QScreen15nativeInterfaceIN16QNativeInterface12QCocoaScreenENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ]
   }
 }

@@ -5,6 +5,15 @@
     "ationwindow_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN33QAccessibleQuickApplicationWindowC1EP23QQuickApplicationWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN33QAccessibleQuickApplicationWindow14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK33QAccessibleQuickApplicationWindow13attributeKeysEv": [
+      "address", "address"
+    ],
     "ritual_ZNK33QAccessibleQuickApplicationWindow14attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
     ],
@@ -14,8 +23,14 @@
     "ritual_cast_QAccessibleQuickApplicationWindow_QAccessibleAttributesInterface": [
       "address", "address"
     ],
+    "ritual_own_ZN33QAccessibleQuickApplicationWindow14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_own_ZNK33QAccessibleQuickApplicationWindow14attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
+    ],
+    "ritual_drop_QAccessibleQuickApplicationWindow__QList_QAccessible_Attribute": [
+      "nothing", "address"
     ]
   }
 }

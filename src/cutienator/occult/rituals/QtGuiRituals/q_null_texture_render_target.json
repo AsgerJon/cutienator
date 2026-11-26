@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN24QNullTextureRenderTargetC1EP18QRhiImplementationRK34QRhiTextureRenderTargetDescription6QFlagsIN23QRhiTextureRenderTarget4FlagEE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZN24QNullTextureRenderTargetD1Ev": ["nothing", "address"],
     "ritual_ZN24QNullTextureRenderTarget7destroyEv": ["nothing", "address"],
     "ritual_ZNK24QNullTextureRenderTarget9pixelSizeEv": [

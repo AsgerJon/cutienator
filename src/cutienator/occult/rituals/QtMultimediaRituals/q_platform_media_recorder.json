@@ -10,6 +10,9 @@
       "bool", "address", "address"
     ],
     "ritual_ZNK22QPlatformMediaRecorder5stateEv": ["int", "address"],
+    "ritual_ZN22QPlatformMediaRecorder6recordER21QMediaEncoderSettings": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QPlatformMediaRecorder5pauseEv": ["nothing", "address"],
     "ritual_ZN22QPlatformMediaRecorder6resumeEv": ["nothing", "address"],
     "ritual_ZN22QPlatformMediaRecorder4stopEv": ["nothing", "address"],

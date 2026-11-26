@@ -8,6 +8,9 @@
     "ritual_ZN22QGeoRouteParserPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QGeoRouteParserPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN22QGeoRouteParserPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QGeoRouteParserPrivate10parseReplyER5QListI9QGeoRouteER7QStringRK10QByteArray": [
+      "int", "address", "address", "address", "address"
+    ],
     "ritual_ZNK22QGeoRouteParserPrivate10requestUrlERK16QGeoRouteRequestRK7QString": [
       "address", "address", "address", "text"
     ],

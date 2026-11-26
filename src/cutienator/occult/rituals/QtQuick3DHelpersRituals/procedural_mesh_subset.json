@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20ProceduralMeshSubset10metaObjectEv": ["address", "address"],
+    "ritual_ZN20ProceduralMeshSubset11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20ProceduralMeshSubset11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20ProceduralMeshSubset2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,6 +26,14 @@
     "ritual_ZNK20ProceduralMeshSubset4nameEv": ["text", "address"],
     "ritual_ZN20ProceduralMeshSubset7setNameERK7QString": [
       "nothing", "address", "text"
-    ]
+    ],
+    "ritual_ZN20ProceduralMeshSubset13offsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20ProceduralMeshSubset12countChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20ProceduralMeshSubset11nameChangedEv": ["nothing", "address"],
+    "ritual_ZN20ProceduralMeshSubset7isDirtyEv": ["nothing", "address"]
   }
 }

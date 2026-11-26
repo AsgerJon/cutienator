@@ -8,14 +8,101 @@
     "ritual_ZNK13Qt3DAnimation18QMorphingAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation18QMorphingAnimation2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimationC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QMorphingAnimation15targetPositionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QMorphingAnimation12interpolatorEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QMorphingAnimation6targetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QMorphingAnimation10targetNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QMorphingAnimation6methodEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QMorphingAnimation6easingEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation15setMorphTargetsERK5QListIPNS_12QMorphTargetEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation14addMorphTargetEPNS_12QMorphTargetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation17removeMorphTargetEPNS_12QMorphTargetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation10setWeightsEiRK5QListIfE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation10getWeightsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation15morphTargetListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation18setTargetPositionsERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation9setTargetEPN10Qt3DRender17QGeometryRendererE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation13setTargetNameE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation9setMethodENS0_6MethodE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation9setEasingERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation22targetPositionsChangedERK5QListIfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation19interpolatorChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation13targetChangedEPN10Qt3DRender17QGeometryRendererE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation17targetNameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation13methodChangedENS0_6MethodE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation13easingChangedERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QMorphingAnimation15updateAnimationEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN13Qt3DAnimation18QMorphingAnimation6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation18QMorphingAnimation6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QMorphingAnimation__QVector_float": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QMorphingAnimation__QVector_Qt3DAnimation_QMorphTarget": [
+      "nothing", "address"
     ]
   }
 }

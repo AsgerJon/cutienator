@@ -8,6 +8,15 @@
     "ritual_ZNK18qdesigner_internal18MenuActionLineEdit10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal18MenuActionLineEdit11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal18MenuActionLineEdit11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18MenuActionLineEdit8focusOutEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN18qdesigner_internal18MenuActionLineEdit13focusOutEventEP11QFocusEvent": [
       "nothing", "address", "address"
     ],

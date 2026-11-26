@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QGeoTiledMapReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGeoTiledMapReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QGeoTiledMapReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QGeoTiledMapReply2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,11 @@
     "ritual_ZNK17QGeoTiledMapReply12mapImageDataEv": ["address", "address"],
     "ritual_ZNK17QGeoTiledMapReply14mapImageFormatEv": ["text", "address"],
     "ritual_ZN17QGeoTiledMapReply5abortEv": ["nothing", "address"],
+    "ritual_ZN17QGeoTiledMapReply8finishedEv": ["nothing", "address"],
+    "ritual_ZN17QGeoTiledMapReply7abortedEv": ["nothing", "address"],
+    "ritual_ZN17QGeoTiledMapReply13errorOccurredENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
     "ritual_ZN17QGeoTiledMapReply8setErrorENS_5ErrorERK7QString": [
       "nothing", "address", "int", "text"
     ],

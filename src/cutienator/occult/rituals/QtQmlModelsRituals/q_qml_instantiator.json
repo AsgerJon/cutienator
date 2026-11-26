@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQmlInstantiator10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlInstantiator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQmlInstantiator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQmlInstantiator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -36,6 +42,23 @@
     "ritual_ZNK16QQmlInstantiator8objectAtEi": ["address", "address", "int"],
     "ritual_ZN16QQmlInstantiator10classBeginEv": ["nothing", "address"],
     "ritual_ZN16QQmlInstantiator17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQmlInstantiator12modelChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlInstantiator15delegateChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlInstantiator12countChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlInstantiator13objectChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlInstantiator13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlInstantiator19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQmlInstantiator11objectAddedEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQmlInstantiator13objectRemovedEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQmlInstantiator26delegateModelAccessChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN16QQmlInstantiator6d_funcEv": ["address", "address"],

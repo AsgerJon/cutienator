@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QWindowsStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QWindowsStyle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QWindowsStyle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QWindowsStyle2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QWindowsStyleC1Ev": ["address"],
     "ritual_ZN13QWindowsStyleD1Ev": ["nothing", "address"],
@@ -19,6 +25,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN13QWindowsStyle8unpolishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWindowsStyle6polishER8QPalette": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK13QWindowsStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget": [
@@ -50,6 +59,9 @@
     ],
     "ritual_ZN13QWindowsStyle11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QWindowsStyleC1ER20QWindowsStylePrivate": [
+      "address", "address"
     ],
     "ritual_ZN13QWindowsStyle6d_funcEv": ["address", "address"],
     "ritual_ZNK13QWindowsStyle6d_funcEv": ["address", "address"],

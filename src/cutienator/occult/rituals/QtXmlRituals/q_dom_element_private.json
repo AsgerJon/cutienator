@@ -36,11 +36,18 @@
     "ritual_ZNK18QDomElementPrivate14hasAttributeNSERK7QStringS2_": [
       "bool", "address", "text", "text"
     ],
+    "ritual_ZNK18QDomElementPrivate4textEv": ["text", "address"],
     "ritual_ZN18QDomElementPrivate10attributesEv": ["address", "address"],
     "ritual_ZNK18QDomElementPrivate13hasAttributesEv": ["bool", "address"],
     "ritual_ZNK18QDomElementPrivate8nodeTypeEv": ["int", "address"],
     "ritual_ZN18QDomElementPrivate9cloneNodeEb": [
       "address", "address", "bool"
+    ],
+    "ritual_ZNK18QDomElementPrivate4saveER11QTextStreamii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK18QDomElementPrivate9afterSaveER11QTextStreamii": [
+      "nothing", "address", "address", "int", "int"
     ],
     "ritual_take_QDomElementPrivate": [
       "bool", "address", "chars", "address"

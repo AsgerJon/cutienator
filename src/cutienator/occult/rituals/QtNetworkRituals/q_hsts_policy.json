@@ -9,7 +9,10 @@
       "address", "address", "int", "text", "int"
     ],
     "ritual_ZN11QHstsPolicyC1ERKS_": ["address", "address"],
+    "ritual_ZN11QHstsPolicyaSERKS_": ["address", "address", "address"],
+    "ritual_ZN11QHstsPolicyaSEOS_": ["address", "address", "address"],
     "ritual_ZN11QHstsPolicyD1Ev": ["nothing", "address"],
+    "ritual_ZN11QHstsPolicy4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN11QHstsPolicy7setHostERK7QStringN4QUrl11ParsingModeE": [
       "nothing", "address", "text", "int"
     ],

@@ -8,6 +8,7 @@
     "ritual_ZN16QNativeInterface7Private15QEvdevKeyMapperD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN16QNativeInterface7Private15QEvdevKeyMapperC1Ev": ["address"],
     "ritual_ZN16QNativeInterface7Private15QEvdevKeyMapper10loadKeymapERK7QString": [
       "nothing", "address", "text"
     ],

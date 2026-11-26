@@ -219,6 +219,13 @@ public:
   }
 };
 
+//  QQmlJS::AST::PropertyName::PropertyName()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::PropertyName *ritual_ZN6QQmlJS3AST12PropertyNameC1Ev(
+    QQmlJS::MemoryPool *pool) {
+  return new (pool) CuteQQmlJS_AST_PropertyName();
+}
+
 //  SourceLocation QQmlJS::AST::PropertyName::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST12PropertyName19firstSourceLocationEv(

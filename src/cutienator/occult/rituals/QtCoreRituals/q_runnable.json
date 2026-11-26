@@ -5,6 +5,7 @@
   ],
   "rows": {
     "ritual_ZN9QRunnable3runEv": ["nothing", "address"],
+    "ritual_ZN9QRunnableC1Ev": ["address"],
     "ritual_ZN9QRunnableD1Ev": ["nothing", "address"],
     "ritual_ZNK9QRunnable10autoDeleteEv": ["bool", "address"],
     "ritual_ZN9QRunnable13setAutoDeleteEb": ["nothing", "address", "bool"],

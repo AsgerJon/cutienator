@@ -6,7 +6,9 @@
 #include <QtWidgets/qscroller.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
+#if QT_CONFIG(scroller)
 #include <QtWidgets/qscrollerproperties.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qlist.h>
 
@@ -15,6 +17,22 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK9QScroller10metaObjectEv(
     const QScroller *self) {
   return self->metaObject();
+}
+
+//  void *QScroller::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QScroller11qt_metacastEPKc(QScroller *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScroller::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QScroller11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScroller *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QScroller::tr(const char *s, const char *c, int n)
@@ -133,6 +151,14 @@ QScrollerProperties *ritual_ZNK9QScroller18scrollerPropertiesEv(
   return new QScrollerProperties(self->scrollerProperties());
 }
 
+//  void QScroller::setSnapPositionsX(const QList<qreal> &positions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QScroller17setSnapPositionsXERK5QListIdE(
+    QScroller *self,
+    const QList<qreal> *positions) {
+  self->setSnapPositionsX(*positions);
+}
+
 //  void QScroller::setSnapPositionsX(qreal first, qreal interval)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QScroller17setSnapPositionsXEdd(
@@ -140,6 +166,14 @@ void ritual_ZN9QScroller17setSnapPositionsXEdd(
     qreal first,
     qreal interval) {
   self->setSnapPositionsX(first, interval);
+}
+
+//  void QScroller::setSnapPositionsY(const QList<qreal> &positions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QScroller17setSnapPositionsYERK5QListIdE(
+    QScroller *self,
+    const QList<qreal> *positions) {
+  self->setSnapPositionsY(*positions);
 }
 
 //  void QScroller::setSnapPositionsY(qreal first, qreal interval)
@@ -203,6 +237,22 @@ void ritual_ZN9QScroller13ensureVisibleERK6QRectFddi(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QScroller18resendPrepareEventEv(QScroller *self) {
   self->resendPrepareEvent();
+}
+
+//  void QScroller::stateChanged(QScroller::State newstate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QScroller12stateChangedENS_5StateE(
+    QScroller *self,
+    QScroller::State newstate) {
+  self->stateChanged(newstate);
+}
+
+//  void QScroller::scrollerPropertiesChanged(const QScrollerProperties &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QScroller25scrollerPropertiesChangedERK19QScrollerProperties(
+    QScroller *self,
+    const QScrollerProperties *a0) {
+  self->scrollerPropertiesChanged(*a0);
 }
 
 //  QScroller::QScroller(QObject *target)

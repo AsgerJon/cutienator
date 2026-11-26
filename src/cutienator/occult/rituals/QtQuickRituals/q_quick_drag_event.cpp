@@ -23,6 +23,24 @@ const QMetaObject *ritual_ZNK15QQuickDragEvent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDragEvent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickDragEvent11qt_metacastEPKc(
+    QQuickDragEvent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDragEvent::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickDragEvent11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDragEvent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDragEvent::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickDragEvent2trEPKcS1_i(
@@ -37,6 +55,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickDragEvent24qt_qmlMarker_uncreatableEv(
     QQuickDragEvent *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QQuickDragEvent::QQuickDragEvent(QQuickDropAreaPrivate *d, QDropEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+QQuickDragEvent *ritual_ZN15QQuickDragEventC1EP21QQuickDropAreaPrivateP10QDropEvent(
+    QQuickDropAreaPrivate *d,
+    QDropEvent *event) {
+  return new QQuickDragEvent(d, event);
 }
 
 //  qreal QQuickDragEvent::x() const

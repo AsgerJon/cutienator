@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN28QDesignerMetaObjectInterfaceC1Ev": ["address"],
     "ritual_ZN28QDesignerMetaObjectInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK28QDesignerMetaObjectInterface9classNameEv": [
       "text", "address"

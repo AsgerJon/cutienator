@@ -13,6 +13,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtQuick3D/qquick3dobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuick3DParticleAffector that Python can take functions over in. Every QQuick3DParticleAffector
 //  Python makes is one. Each function below asks the Python
@@ -325,6 +326,25 @@ const QMetaObject *ritual_ZNK24QQuick3DParticleAffector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuick3DParticleAffector11qt_metacastEPKc(
+    QQuick3DParticleAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleAffector::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuick3DParticleAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleAffector::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuick3DParticleAffector2trEPKcS1_i(
@@ -339,6 +359,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuick3DParticleAffector24qt_qmlMarker_uncreatableEv(
     QQuick3DParticleAffector *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QQuick3DParticleAffector::QQuick3DParticleAffector(QQuick3DNode *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DParticleAffector *ritual_ZN24QQuick3DParticleAffectorC1EP12QQuick3DNode(
+    QQuick3DNode *parent) {
+  return new CuteQQuick3DParticleAffector(parent);
 }
 
 //  QQuick3DParticleAffector::~QQuick3DParticleAffector()
@@ -360,6 +387,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK24QQuick3DParticleAffector7enabledEv(
     const QQuick3DParticleAffector *self) {
   return self->enabled();
+}
+
+//  QQmlListProperty<QQuick3DParticle> QQuick3DParticleAffector::particles()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DParticle> *ritual_ZN24QQuick3DParticleAffector9particlesEv(
+    QQuick3DParticleAffector *self) {
+  return new QQmlListProperty<QQuick3DParticle>(self->particles());
 }
 
 //  void QQuick3DParticleAffector::appendParticle(QQuick3DParticle *a0)
@@ -425,6 +459,27 @@ void ritual_ZN24QQuick3DParticleAffector10setEnabledEb(
   self->setEnabled(enabled);
 }
 
+//  void QQuick3DParticleAffector::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleAffector6updateEv(
+    QQuick3DParticleAffector *self) {
+  self->update();
+}
+
+//  void QQuick3DParticleAffector::systemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleAffector13systemChangedEv(
+    QQuick3DParticleAffector *self) {
+  self->systemChanged();
+}
+
+//  void QQuick3DParticleAffector::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleAffector14enabledChangedEv(
+    QQuick3DParticleAffector *self) {
+  self->enabledChanged();
+}
+
 //  void QQuick3DParticleAffector::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuick3DParticleAffector17componentCompleteEv(
@@ -450,6 +505,59 @@ void ritual_ZN24QQuick3DParticleAffector14affectParticleERK20QQuick3DParticleDat
   self->affectParticle(*sd, d, time);
 }
 
+//  void QQuick3DParticleAffector::appendParticle(QQmlListProperty<QQuick3DPa
+//      rticle> *a0, QQuick3DParticle *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleAffector14appendParticleEP16QQmlListPropertyI16QQuick3DParticleEPS1_(
+    QQmlListProperty<QQuick3DParticle> *a0,
+    QQuick3DParticle *a1) {
+  QQuick3DParticleAffector::appendParticle(a0, a1);
+}
+
+//  qsizetype QQuick3DParticleAffector::particleCount(QQmlListProperty<QQuick
+//      3DParticle> *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN24QQuick3DParticleAffector13particleCountEP16QQmlListPropertyI16QQuick3DParticleE(
+    QQmlListProperty<QQuick3DParticle> *a0) {
+  return QQuick3DParticleAffector::particleCount(a0);
+}
+
+//  QQuick3DParticle
+//      *QQuick3DParticleAffector::particle(QQmlListProperty<QQuick3DParticle
+//      > *a0, qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QQuick3DParticle *ritual_ZN24QQuick3DParticleAffector8particleEP16QQmlListPropertyI16QQuick3DParticleEx(
+    QQmlListProperty<QQuick3DParticle> *a0,
+    qsizetype a1) {
+  return QQuick3DParticleAffector::particle(a0, a1);
+}
+
+//  void QQuick3DParticleAffector::clearParticles(QQmlListProperty<QQuick3DPa
+//      rticle> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleAffector14clearParticlesEP16QQmlListPropertyI16QQuick3DParticleE(
+    QQmlListProperty<QQuick3DParticle> *a0) {
+  QQuick3DParticleAffector::clearParticles(a0);
+}
+
+//  void QQuick3DParticleAffector::replaceParticle(QQmlListProperty<QQuick3DP
+//      article> *a0, qsizetype a1, QQuick3DParticle *a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleAffector15replaceParticleEP16QQmlListPropertyI16QQuick3DParticleExPS1_(
+    QQmlListProperty<QQuick3DParticle> *a0,
+    qsizetype a1,
+    QQuick3DParticle *a2) {
+  QQuick3DParticleAffector::replaceParticle(a0, a1, a2);
+}
+
+//  void QQuick3DParticleAffector::removeLastParticle(QQmlListProperty<QQuick
+//      3DParticle> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleAffector18removeLastParticleEP16QQmlListPropertyI16QQuick3DParticleE(
+    QQmlListProperty<QQuick3DParticle> *a0) {
+  QQuick3DParticleAffector::removeLastParticle(a0);
+}
+
 //  a Python function taken by a CuteQQuick3DParticleAffector, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -472,4 +580,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN24QQuick3DParticleAffector15prepareToAffectEv(
     QQuick3DParticleAffector *self) {
   self->QQuick3DParticleAffector::prepareToAffect();
+}
+
+//  a QQmlListProperty<QQuick3DParticle> a ritual of QQuick3DParticleAffector
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DParticleAffector__QQmlListProperty_QQuick3DParticle(
+    QQmlListProperty<QQuick3DParticle> *self) {
+  delete self;
 }

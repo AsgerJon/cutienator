@@ -5,18 +5,38 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV46Script10precompileEPNS_8Compiler6ModuleEPN6QQmlJS6EngineEPNS1_15JSUnitGeneratorERK7QStringSB_P5QListI9QQmlErrorENS1_11ContextTypeENS0_14InheritContextE": [
+      "address", "address", "address", "address", "text", "text", "address",
+      "int", "int"
+    ],
     "ritual_ZN3QV46ScriptC1EPNS_16ExecutionContextENS_8Compiler11ContextTypeERK7QStringS7_i": [
       "address", "address", "int", "text", "text", "int"
     ],
     "ritual_ZN3QV46ScriptC1EPNS_15ExecutionEngineEPNS_10QmlContextEbRK7QStringS7_i": [
       "address", "address", "address", "bool", "text", "text", "int"
     ],
+    "ritual_ZN3QV46ScriptC1EPNS_15ExecutionEngineEPNS_10QmlContextERK14QQmlRefPointerINS_25ExecutableCompilationUnitEE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46ScriptD1Ev": ["nothing", "address"],
     "ritual_ZN3QV46Script13setStrictModeEb": ["nothing", "address", "bool"],
     "ritual_ZN3QV46Script17setInheritContextEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZN3QV46Script17setParseAsBindingEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV46Script15compilationUnitEv": ["address", "address"],
+    "ritual_ZN3QV46Script5parseEv": ["nothing", "address"],
+    "ritual_ZN3QV46Script3runEPKNS_5ValueE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV46Script8functionEv": ["address", "address"],
+    "ritual_drop_QV4_Script__QQmlRefPointer_QV4_CompiledData_CompilationUnit": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QV4_Script__QQmlRefPointer_QV4_ExecutableCompilationUnit": [
+      "nothing", "address"
     ]
   }
 }

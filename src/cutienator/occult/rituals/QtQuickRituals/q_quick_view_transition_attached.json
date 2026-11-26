@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuickViewTransitionAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickViewTransitionAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuickViewTransitionAttached24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -20,6 +26,33 @@
     ],
     "ritual_ZNK28QQuickViewTransitionAttached11destinationEv": [
       "address", "address"
+    ],
+    "ritual_ZNK28QQuickViewTransitionAttached13targetIndexesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached11targetItemsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached12indexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached11itemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached18destinationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached20targetIndexesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached18targetItemsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickViewTransitionAttached__QList_int": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickViewTransitionAttached__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

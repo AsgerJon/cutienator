@@ -59,6 +59,8 @@
     "ritual_ZN24QGraphicsSceneWheelEvent11setInvertedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN24QGraphicsSceneWheelEvent6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QGraphicsSceneWheelEvent6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsSceneWheelEvent": [
       "bool", "address", "chars", "address"
     ]

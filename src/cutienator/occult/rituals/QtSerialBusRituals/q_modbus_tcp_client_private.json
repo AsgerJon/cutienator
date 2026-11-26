@@ -7,10 +7,16 @@
   "rows": {
     "ritual_ZN23QModbusTcpClientPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK23QModbusTcpClientPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QModbusTcpClientPrivate14setupTcpSocketEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN23QModbusTcpClientPrivate14enqueueRequestERK14QModbusRequestiRK15QModbusDataUnitN12QModbusReply9ReplyTypeE": [
       "address", "address", "address", "int", "address", "int"
     ],
     "ritual_ZNK23QModbusTcpClientPrivate6isOpenEv": ["bool", "address"],
+    "ritual_ZN23QModbusTcpClientPrivate23cleanupTransactionStoreEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN23QModbusTcpClientPrivate22incrementTransactionIdEv": [
       "nothing", "address"
     ],
@@ -18,6 +24,9 @@
       "int", "address"
     ],
     "ritual_ZNK23QModbusTcpClientPrivate6deviceEv": ["address", "address"],
+    "ritual_own_ZN23QModbusTcpClientPrivate14enqueueRequestERK14QModbusRequestiRK15QModbusDataUnitN12QModbusReply9ReplyTypeE": [
+      "address", "address", "address", "int", "address", "int"
+    ],
     "ritual_own_ZNK23QModbusTcpClientPrivate6isOpenEv": ["bool", "address"],
     "ritual_own_ZNK23QModbusTcpClientPrivate6deviceEv": [
       "address", "address"

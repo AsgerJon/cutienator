@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QCustom3DItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCustom3DItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QCustom3DItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QCustom3DItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QCustom3DItemC1EP7QObject": ["address", "address"],
     "ritual_ZN13QCustom3DItemC1ERK7QStringRK9QVector3DS5_RK11QQuaternionRK6QImageP7QObject": [
@@ -52,6 +58,33 @@
     ],
     "ritual_ZN13QCustom3DItem15setTextureImageERK6QImage": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItem15meshFileChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QCustom3DItem18textureFileChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QCustom3DItem15positionChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItem23positionAbsoluteChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QCustom3DItem14scalingChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItem15rotationChangedERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItem14visibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QCustom3DItem20shadowCastingChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QCustom3DItem22scalingAbsoluteChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN13QCustom3DItemC1EP20QCustom3DItemPrivateP7QObject": [
       "address", "address", "address"

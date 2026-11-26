@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN23QFutureCallOutInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN23QFutureCallOutInterface16postCallOutEventERK19QFutureCallOutEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN23QFutureCallOutInterface28callOutInterfaceDisconnectedEv": [
       "nothing", "address"
     ],

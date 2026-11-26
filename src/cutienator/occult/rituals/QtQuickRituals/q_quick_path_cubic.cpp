@@ -19,6 +19,24 @@ const QMetaObject *ritual_ZNK15QQuickPathCubic10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathCubic::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickPathCubic11qt_metacastEPKc(
+    QQuickPathCubic *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathCubic::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickPathCubic11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathCubic *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathCubic::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickPathCubic2trEPKcS1_i(
@@ -176,6 +194,68 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QQuickPathCubic20hasRelativeControl2YEv(
     QQuickPathCubic *self) {
   return self->hasRelativeControl2Y();
+}
+
+//  void QQuickPathCubic::addToPath(QPainterPath &path, const QQuickPathData
+//      &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPathCubic9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickPathCubic *self,
+    QPainterPath *path,
+    const QQuickPathData *a1) {
+  self->addToPath(*path, *a1);
+}
+
+//  void QQuickPathCubic::control1XChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPathCubic16control1XChangedEv(QQuickPathCubic *self) {
+  self->control1XChanged();
+}
+
+//  void QQuickPathCubic::control1YChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPathCubic16control1YChangedEv(QQuickPathCubic *self) {
+  self->control1YChanged();
+}
+
+//  void QQuickPathCubic::control2XChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPathCubic16control2XChangedEv(QQuickPathCubic *self) {
+  self->control2XChanged();
+}
+
+//  void QQuickPathCubic::control2YChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPathCubic16control2YChangedEv(QQuickPathCubic *self) {
+  self->control2YChanged();
+}
+
+//  void QQuickPathCubic::relativeControl1XChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPathCubic24relativeControl1XChangedEv(
+    QQuickPathCubic *self) {
+  self->relativeControl1XChanged();
+}
+
+//  void QQuickPathCubic::relativeControl1YChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPathCubic24relativeControl1YChangedEv(
+    QQuickPathCubic *self) {
+  self->relativeControl1YChanged();
+}
+
+//  void QQuickPathCubic::relativeControl2XChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPathCubic24relativeControl2XChangedEv(
+    QQuickPathCubic *self) {
+  self->relativeControl2XChanged();
+}
+
+//  void QQuickPathCubic::relativeControl2YChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPathCubic24relativeControl2YChangedEv(
+    QQuickPathCubic *self) {
+  self->relativeControl2YChanged();
 }
 
 #endif  // QT_CONFIG(quick_path)

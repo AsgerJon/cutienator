@@ -997,6 +997,24 @@ const QMetaObject *ritual_ZNK14ValueAxisLabel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ValueAxisLabel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14ValueAxisLabel11qt_metacastEPKc(
+    ValueAxisLabel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ValueAxisLabel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14ValueAxisLabel11qt_metacallEN11QMetaObject4CallEiPPv(
+    ValueAxisLabel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ValueAxisLabel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14ValueAxisLabel2trEPKcS1_i(
@@ -1052,6 +1070,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14ValueAxisLabel20resetBeforeEditValueEv(
     ValueAxisLabel *self) {
   self->resetBeforeEditValue();
+}
+
+//  void ValueAxisLabel::valueChanged(qreal oldValue, qreal newValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14ValueAxisLabel12valueChangedEdd(
+    ValueAxisLabel *self,
+    qreal oldValue,
+    qreal newValue) {
+  self->valueChanged(oldValue, newValue);
 }
 
 //  a Python function taken by a CuteValueAxisLabel, for the function named

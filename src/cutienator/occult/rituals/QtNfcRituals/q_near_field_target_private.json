@@ -8,6 +8,12 @@
     "ritual_ZNK23QNearFieldTargetPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QNearFieldTargetPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QNearFieldTargetPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QNearFieldTargetPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK23QNearFieldTargetPrivate3uidEv": ["address", "address"],
     "ritual_ZNK23QNearFieldTargetPrivate4typeEv": ["int", "address"],
@@ -32,6 +38,18 @@
     ],
     "ritual_ZNK23QNearFieldTargetPrivate15requestResponseERKN16QNearFieldTarget9RequestIdE": [
       "address", "address", "address"
+    ],
+    "ritual_ZN23QNearFieldTargetPrivate12disconnectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QNearFieldTargetPrivate15ndefMessageReadERK12QNdefMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QNearFieldTargetPrivate16requestCompletedERKN16QNearFieldTarget9RequestIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QNearFieldTargetPrivate5errorEN16QNearFieldTarget5ErrorERKNS0_9RequestIdE": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_ZN23QNearFieldTargetPrivate21setResponseForRequestERKN16QNearFieldTarget9RequestIdERK8QVariantb": [
       "nothing", "address", "address", "address", "bool"

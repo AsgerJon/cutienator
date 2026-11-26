@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickPalette10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickPalette11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickPalette11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickPalette2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickPaletteC1EP7QObject": ["address", "address"],
     "ritual_ZNK13QQuickPalette6activeEv": ["address", "address"],
@@ -39,10 +45,25 @@
     "ritual_ZN13QQuickPalette11setDisabledEP16QQuickColorGroup": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QQuickPalette13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickPalette15inactiveChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickPalette15disabledChangedEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickPalette10colorGroupEN8QPalette10ColorGroupE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QQuickPalette14findColorGroupEN8QPalette10ColorGroupE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN13QQuickPalette18registerColorGroupEP16QQuickColorGroupN8QPalette10ColorGroupE": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZNK13QQuickPalette17isValidColorGroupEN8QPalette10ColorGroupERK8QPointerI16QQuickColorGroupE": [
+      "bool", "address", "int", "address"
+    ],
     "ritual_ZN13QQuickPalette19defaultCurrentGroupEv": ["int"],
-    "ritual_own_ZNK13QQuickPalette17currentColorGroupEv": ["int", "address"]
+    "ritual_own_ZNK13QQuickPalette17currentColorGroupEv": ["int", "address"],
+    "ritual_drop_QQuickPalette__QQuickColorGroup_GroupPtr": [
+      "nothing", "address"
+    ]
   }
 }

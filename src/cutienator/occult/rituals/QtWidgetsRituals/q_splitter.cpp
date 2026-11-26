@@ -11,6 +11,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QSplitter may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -942,6 +943,22 @@ const QMetaObject *ritual_ZNK9QSplitter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSplitter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QSplitter11qt_metacastEPKc(QSplitter *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSplitter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QSplitter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSplitter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSplitter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QSplitter2trEPKcS1_i(
@@ -1072,6 +1089,20 @@ QSize *ritual_ZNK9QSplitter15minimumSizeHintEv(const QSplitter *self) {
   return new QSize(self->minimumSizeHint());
 }
 
+//  QList<int> QSplitter::sizes() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK9QSplitter5sizesEv(const QSplitter *self) {
+  return new QList<int>(self->sizes());
+}
+
+//  void QSplitter::setSizes(const QList<int> &list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSplitter8setSizesERK5QListIiE(
+    QSplitter *self,
+    const QList<int> *list) {
+  self->setSizes(*list);
+}
+
 //  QByteArray QSplitter::saveState() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK9QSplitter9saveStateEv(const QSplitter *self) {
@@ -1143,6 +1174,15 @@ void ritual_ZN9QSplitter16setStretchFactorEii(
     int index,
     int stretch) {
   self->setStretchFactor(index, stretch);
+}
+
+//  void QSplitter::splitterMoved(int pos, int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSplitter13splitterMovedEii(
+    QSplitter *self,
+    int pos,
+    int index) {
+  self->splitterMoved(pos, index);
 }
 
 //  QSplitterHandle *QSplitter::createHandle()
@@ -1269,6 +1309,12 @@ void ritual_own_ZN9QSplitter11changeEventEP6QEvent(
     QSplitter *self,
     QEvent *a0) {
   static_cast<OwnQSplitter *>(self)->OwnQSplitter::changeEvent(a0);
+}
+
+//  a QList<int> a ritual of QSplitter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSplitter__QList_int(QList<int> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(splitter)

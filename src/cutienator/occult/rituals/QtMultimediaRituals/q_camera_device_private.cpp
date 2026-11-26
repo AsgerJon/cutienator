@@ -16,6 +16,13 @@ const QCameraDevicePrivate *ritual_ZN20QCameraDevicePrivate6handleERK13QCameraDe
   return QCameraDevicePrivate::handle(*device);
 }
 
+//  QCameraDevicePrivate *QCameraDevicePrivate::handle(QCameraDevice &device)
+extern "C" Q_DECL_EXPORT
+QCameraDevicePrivate *ritual_ZN20QCameraDevicePrivate6handleER13QCameraDevice(
+    QCameraDevice *device) {
+  return QCameraDevicePrivate::handle(*device);
+}
+
 //  bool QCameraDevicePrivate::operator==(const QCameraDevicePrivate &other)
 //      const
 extern "C" Q_DECL_EXPORT

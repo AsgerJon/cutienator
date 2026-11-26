@@ -13,6 +13,11 @@
       "address", "double", "double", "double", "double"
     ],
     "ritual_ZN18QCanvasGridPatternC1ERKS_": ["address", "address"],
+    "ritual_ZN18QCanvasGridPatternaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QCanvasGridPatternC1EOS_": ["address", "address"],
+    "ritual_ZN18QCanvasGridPatternaSEOS_": ["address", "address", "address"],
     "ritual_ZN18QCanvasGridPatternD1Ev": ["nothing", "address"],
     "ritual_ZNK18QCanvasGridPatterncv12QCanvasBrushEv": [
       "address", "address"
@@ -56,10 +61,20 @@
     "ritual_ZN18QCanvasGridPattern18setBackgroundColorE6QColor": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QCanvasGridPattern4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK18QCanvasGridPatternS1_": ["bool", "address", "address"],
     "ritual_ZneRK18QCanvasGridPatternS1_": ["bool", "address", "address"],
+    "ritual_ZN18QCanvasGridPattern6detachEv": ["nothing", "address"],
     "ritual_ZN18QCanvasGridPatternC1EP25QCanvasGridPatternPrivate": [
       "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK18QCanvasGridPattern": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR18QCanvasGridPattern": [
+      "address", "address", "address"
     ],
     "ritual_Zls6QDebugRK18QCanvasGridPattern": [
       "address", "address", "address"

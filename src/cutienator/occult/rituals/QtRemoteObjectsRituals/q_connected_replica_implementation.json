@@ -8,6 +8,9 @@
     "ritual_ZNK31QConnectedReplicaImplementation11getPropertyEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN31QConnectedReplicaImplementation13setPropertiesEO5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN31QConnectedReplicaImplementation11setPropertyEiRK8QVariant": [
       "nothing", "address", "int", "address"
     ],
@@ -20,11 +23,20 @@
     "ritual_ZN31QConnectedReplicaImplementation13waitForSourceEi": [
       "bool", "address", "int"
     ],
+    "ritual_ZNK31QConnectedReplicaImplementation12childIndicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QConnectedReplicaImplementation16configurePrivateEP20QRemoteObjectReplica": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN31QConnectedReplicaImplementation15setDisconnectedEv": [
       "nothing", "address"
     ],
     "ritual_ZN31QConnectedReplicaImplementation20setDynamicMetaObjectEPK11QMetaObject": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QConnectedReplicaImplementation__QList_int": [
+      "nothing", "address"
     ]
   }
 }

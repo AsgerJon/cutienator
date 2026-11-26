@@ -17,6 +17,9 @@
     "ritual_ZN15QLottieRepeater16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK15QLottieRepeater6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QLottieRepeater6copiesEv": ["int", "address"],
     "ritual_ZNK15QLottieRepeater6offsetEv": ["double", "address"],
     "ritual_ZNK15QLottieRepeater9transformEv": ["address", "address"],

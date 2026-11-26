@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4propertykey_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qv4propertykey_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: added by hand, instances of templates of the class: 6.
+//  Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,6 +15,7 @@
 #include <QtQml/private/qv4engine_p.h>
 #include <QtQml/private/qv4scopedvalue_p.h>
 #include <QtQml/private/qv4mm_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4symbol_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -22,6 +24,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::Literals::StringLiterals;
 
 //  from ../qtdeclarative/src/qml/jsruntime/qv4propertykey.cpp, line 32, as _ZNK3QV411PropertyKey29isCanonicalNumericIndexStringEv
 inline bool QV4::PropertyKey::isCanonicalNumericIndexString() const
@@ -48,6 +52,27 @@ inline QV4::Heap::StringOrSymbol *QV4::PropertyKey::toStringOrSymbol(QV4::Execut
     if (isArrayIndex())
         return Value::fromUInt32(asArrayIndex()).toString(e);
     return asStringOrSymbol();
+}
+
+//  from ../qtdeclarative/src/qml/jsruntime/qv4propertykey.cpp, line 59, as _ZNK3QV411PropertyKey14asFunctionNameEPNS_15ExecutionEngineENS0_18FunctionNamePrefixE
+inline QV4::Heap::String *QV4::PropertyKey::asFunctionName(ExecutionEngine *engine, FunctionNamePrefix prefix) const
+{
+    QString n;
+    if (prefix == Getter)
+        n += "get "_L1;
+    else if (prefix == Setter)
+        n += "set "_L1;
+    if (isArrayIndex())
+        n += QString::number(asArrayIndex());
+    else {
+        Heap::StringOrSymbol *s = asStringOrSymbol();
+        QString str = s->toQString();
+        if (s->internalClass->vtable->isString)
+            n += s->toQString();
+        else if (str.size() > 1)
+            n += QChar::fromLatin1('[') + QStringView{str}.mid(1) + QChar::fromLatin1(']');
+    }
+    return engine->newString(n);
 }
 //  -----------------------------------------------------------------------
 
@@ -149,6 +174,16 @@ QV4::PropertyKey *ritual_ZN3QV411PropertyKey6fromIdEy(quint64 id) {
   return new QV4::PropertyKey(QV4::PropertyKey::fromId(id));
 }
 
+//  Heap::String *QV4::PropertyKey::asFunctionName(ExecutionEngine *e,
+//      FunctionNamePrefix prefix) const
+extern "C" Q_DECL_EXPORT
+QV4::Heap::String *ritual_ZNK3QV411PropertyKey14asFunctionNameEPNS_15ExecutionEngineENS0_18FunctionNamePrefixE(
+    const QV4::PropertyKey *self,
+    QV4::ExecutionEngine *e,
+    QV4::PropertyKey::FunctionNamePrefix prefix) {
+  return self->asFunctionName(e, prefix);
+}
+
 //  bool QV4::PropertyKey::operator==(const PropertyKey &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK3QV411PropertyKeyeqERKS0_(
@@ -177,4 +212,66 @@ bool ritual_ZNK3QV411PropertyKeyltERKS0_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV411PropertyKeyD1Ev(QV4::PropertyKey *self) {
   delete self;
+}
+
+//  QV4::Heap::StringOrSymbol
+//      *QV4::PropertyKey::asStringOrSymbol<QV4::Heap::StringOrSymbol>()
+//      const
+extern "C" Q_DECL_EXPORT
+QV4::Heap::StringOrSymbol * ritual_ZNK3QV411PropertyKey16asStringOrSymbolINS_4Heap14StringOrSymbolEEEPT_v(
+    const QV4::PropertyKey *self) {
+  return self->asStringOrSymbol<QV4::Heap::StringOrSymbol>();
+}
+
+//  QV4::Heap::String
+//      *QV4::PropertyKey::asStringOrSymbol<QV4::Heap::String>() const
+extern "C" Q_DECL_EXPORT
+QV4::Heap::String * ritual_ZNK3QV411PropertyKey16asStringOrSymbolINS_4Heap6StringEEEPT_v(
+    const QV4::PropertyKey *self) {
+  return self->asStringOrSymbol<QV4::Heap::String>();
+}
+
+//  QV4::Heap::Symbol
+//      *QV4::PropertyKey::asStringOrSymbol<QV4::Heap::Symbol>() const
+extern "C" Q_DECL_EXPORT
+QV4::Heap::Symbol * ritual_ZNK3QV411PropertyKey16asStringOrSymbolINS_4Heap6SymbolEEEPT_v(
+    const QV4::PropertyKey *self) {
+  return self->asStringOrSymbol<QV4::Heap::Symbol>();
+}
+
+//  static QV4::PropertyKey
+//      QV4::PropertyKey::fromStringOrSymbol<QV4::Heap::StringOrSymbol,
+//      QV4::EngineBase>(QV4::EngineBase *engine, QV4::Heap::StringOrSymbol
+//      *b)
+extern "C" Q_DECL_EXPORT
+QV4::PropertyKey * ritual_ZN3QV411PropertyKey18fromStringOrSymbolINS_4Heap14StringOrSymbolENS_10EngineBaseEEES0_PT0_PT_(
+    QV4::EngineBase *engine,
+    QV4::Heap::StringOrSymbol *b) {
+  return new QV4::PropertyKey(
+      QV4::PropertyKey::fromStringOrSymbol<QV4::Heap::StringOrSymbol, QV4::EngineBase>(
+          engine, b));
+}
+
+//  static QV4::PropertyKey
+//      QV4::PropertyKey::fromStringOrSymbol<QV4::Heap::String,
+//      QV4::EngineBase>(QV4::EngineBase *engine, QV4::Heap::String *b)
+extern "C" Q_DECL_EXPORT
+QV4::PropertyKey * ritual_ZN3QV411PropertyKey18fromStringOrSymbolINS_4Heap6StringENS_10EngineBaseEEES0_PT0_PT_(
+    QV4::EngineBase *engine,
+    QV4::Heap::String *b) {
+  return new QV4::PropertyKey(
+      QV4::PropertyKey::fromStringOrSymbol<QV4::Heap::String, QV4::EngineBase>(
+          engine, b));
+}
+
+//  static QV4::PropertyKey
+//      QV4::PropertyKey::fromStringOrSymbol<QV4::Heap::Symbol,
+//      QV4::EngineBase>(QV4::EngineBase *engine, QV4::Heap::Symbol *b)
+extern "C" Q_DECL_EXPORT
+QV4::PropertyKey * ritual_ZN3QV411PropertyKey18fromStringOrSymbolINS_4Heap6SymbolENS_10EngineBaseEEES0_PT0_PT_(
+    QV4::EngineBase *engine,
+    QV4::Heap::Symbol *b) {
+  return new QV4::PropertyKey(
+      QV4::PropertyKey::fromStringOrSymbol<QV4::Heap::Symbol, QV4::EngineBase>(
+          engine, b));
 }

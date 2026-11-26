@@ -66,6 +66,39 @@ inline QOpenGLVersionFunctionsStorage::QOpenGLVersionFunctionsStorage()
     : backends(nullptr)
 {
 }
+
+//  from src/opengl/qopenglversionfunctions.cpp, line 23, as _ZN25QOpenGLContextVersionDataD1Ev
+inline QOpenGLContextVersionData::~QOpenGLContextVersionData()
+{
+    for (auto *f : std::as_const(externalFunctions)) {
+        auto *fp = QAbstractOpenGLFunctionsPrivate::get(f);
+        fp->owningContext = nullptr;
+        fp->initialized = false;
+    }
+    externalFunctions.clear();
+    qDeleteAll(functions);
+    functions.clear();
+}
+
+//  from src/opengl/qopenglversionfunctions.cpp, line 63, as _ZN30QOpenGLVersionFunctionsStorageD1Ev
+inline QOpenGLVersionFunctionsStorage::~QOpenGLVersionFunctionsStorage()
+{
+#if !QT_CONFIG(opengles2)
+    if (backends) {
+
+        int i = 0;
+
+#define DELETE_BACKEND(X) \
+        if (backends[i] && !--backends[i]->refs) \
+            delete static_cast<QOpenGLFunctions_##X##Backend*>(backends[i]); \
+        ++i;
+
+        QT_OPENGL_VERSIONS(DELETE_BACKEND)
+#undef DELETE_BACKEND
+        delete[] backends;
+    }
+#endif
+}
 //  -----------------------------------------------------------------------
 
 //  QAbstractOpenGLFunctionsPrivate::QAbstractOpenGLFunctionsPrivate()

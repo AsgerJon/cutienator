@@ -22,6 +22,14 @@ QSSGBindBuffer *ritual_ZN14QSSGBindBufferC1ERKS_(
   return new QSSGBindBuffer(*command);
 }
 
+//  void QSSGBindBuffer::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QSSGBindBuffer8addDebugER6QDebug(
+    const QSSGBindBuffer *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGBindBuffer::~QSSGBindBuffer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSSGBindBufferD1Ev(QSSGBindBuffer *self) {

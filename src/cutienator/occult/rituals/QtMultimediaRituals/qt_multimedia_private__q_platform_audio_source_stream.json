@@ -5,8 +5,47 @@
     "port_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStreamC1E12QAudioDeviceRK12QAudioFormatSt8optionalIiES5_INS_18NativePeriodFramesEEf": [
+      "address", "address", "address", "address", "address", "float"
+    ],
+    "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStreamD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate26QPlatformAudioSourceStream10bytesReadyEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate26QPlatformAudioSourceStream17processedDurationEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStream12setQIODeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStream26createQIODeviceConnectionsEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStream30disconnectQIODeviceConnectionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStream28createRingbufferReaderDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStream14pushToIODeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate26QPlatformAudioSourceStream24deviceIsRingbufferReaderEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStream17finalizeQIODeviceENS_22QPlatformAudioIOStream14ShutdownPolicyE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStream15emptyRingbufferEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QtMultimediaPrivate26QPlatformAudioSourceStream16updateStreamIdleEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate26QPlatformAudioSourceStream6threadEv": [
+      "address", "address"
     ],
     "ritual_take_QtMultimediaPrivate_QPlatformAudioSourceStream": [
       "bool", "address", "chars", "address"

@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qjsondocument.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qjsondocument.h>
 #include <QtCore/qjsonobject.h>
 #include <QtCore/qjsonarray.h>
@@ -10,6 +11,48 @@
 #include <QtCore/qstringview.h>
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qcborvalue.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qjsondocument.h>
+#include <QtCore/qjsonobject.h>
+#include <QtCore/qjsonvalue.h>
+#include <QtCore/qjsonarray.h>
+#include <QtCore/qstringlist.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qcbormap.h>
+#include <QtCore/qcborarray.h>
+#include <QtCore/private/qjsonparser_p.h>
+#include <QtCore/private/qjson_p.h>
+#include <QtCore/qdatastream.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/corelib/serialization/qjsondocument.cpp, line 52, as local:qjsondocument.cpp:QJsonDocumentPrivate
+class QJsonDocumentPrivate
+{
+    Q_DISABLE_COPY_MOVE(QJsonDocumentPrivate);
+public:
+    QJsonDocumentPrivate() = default;
+    QJsonDocumentPrivate(QCborValue data) : value(std::move(data)) {}
+
+    QCborValue value;
+};
+
+//  from src/corelib/serialization/qjsondocument.cpp, line 110, as _ZN13QJsonDocumentC1E10QCborValue
+inline QJsonDocument::QJsonDocument(QCborValue data)
+    : d(new QJsonDocumentPrivate(std::move(data)))
+{
+}
+//  -----------------------------------------------------------------------
 
 //  QJsonDocument::QJsonDocument()
 extern "C" Q_DECL_EXPORT
@@ -24,11 +67,24 @@ QJsonDocument *ritual_ZN13QJsonDocumentC1ERK11QJsonObject(
   return new QJsonDocument(*object);
 }
 
+//  QJsonDocument::QJsonDocument(QJsonObject &&object)
+extern "C" Q_DECL_EXPORT
+QJsonDocument *ritual_ZN13QJsonDocumentC1EO11QJsonObject(
+    QJsonObject *object) {
+  return new QJsonDocument(std::move(*object));
+}
+
 //  QJsonDocument::QJsonDocument(const QJsonArray &array)
 extern "C" Q_DECL_EXPORT
 QJsonDocument *ritual_ZN13QJsonDocumentC1ERK10QJsonArray(
     const QJsonArray *array) {
   return new QJsonDocument(*array);
+}
+
+//  QJsonDocument::QJsonDocument(QJsonArray &&array)
+extern "C" Q_DECL_EXPORT
+QJsonDocument *ritual_ZN13QJsonDocumentC1EO10QJsonArray(QJsonArray *array) {
+  return new QJsonDocument(std::move(*array));
 }
 
 //  QJsonDocument::~QJsonDocument()
@@ -41,6 +97,36 @@ void ritual_ZN13QJsonDocumentD1Ev(QJsonDocument *self) {
 extern "C" Q_DECL_EXPORT
 QJsonDocument *ritual_ZN13QJsonDocumentC1ERKS_(const QJsonDocument *other) {
   return new QJsonDocument(*other);
+}
+
+//  QJsonDocument &QJsonDocument::operator=(const QJsonDocument &other)
+extern "C" Q_DECL_EXPORT
+QJsonDocument *ritual_ZN13QJsonDocumentaSERKS_(
+    QJsonDocument *self,
+    const QJsonDocument *other) {
+  return &(self->operator=(*other));
+}
+
+//  QJsonDocument::QJsonDocument(QJsonDocument &&other)
+extern "C" Q_DECL_EXPORT
+QJsonDocument *ritual_ZN13QJsonDocumentC1EOS_(QJsonDocument *other) {
+  return new QJsonDocument(std::move(*other));
+}
+
+//  QJsonDocument &QJsonDocument::operator=(QJsonDocument &&other)
+extern "C" Q_DECL_EXPORT
+QJsonDocument *ritual_ZN13QJsonDocumentaSEOS_(
+    QJsonDocument *self,
+    QJsonDocument *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QJsonDocument::swap(QJsonDocument &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QJsonDocument4swapERS_(
+    QJsonDocument *self,
+    QJsonDocument *other) {
+  self->swap(*other);
 }
 
 //  QJsonDocument QJsonDocument::fromVariant(const QVariant &variant)
@@ -179,4 +265,11 @@ bool ritual_ZneRK13QJsonDocumentS1_(
     const QJsonDocument *lhs,
     const QJsonDocument *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QJsonDocument::QJsonDocument(QCborValue data)
+extern "C" Q_DECL_EXPORT
+QJsonDocument *ritual_ZN13QJsonDocumentC1E10QCborValue(
+    const QCborValue *data) {
+  return new QJsonDocument(*data);
 }

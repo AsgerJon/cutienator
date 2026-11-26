@@ -6,7 +6,41 @@
   "rows": {
     "ritual_ZN13QDBusArgumentC1Ev": ["address"],
     "ritual_ZN13QDBusArgumentC1ERKS_": ["address", "address"],
+    "ritual_ZN13QDBusArgumentC1EOS_": ["address", "address"],
+    "ritual_ZN13QDBusArgumentaSEOS_": ["address", "address", "address"],
+    "ritual_ZN13QDBusArgumentaSERKS_": ["address", "address", "address"],
     "ritual_ZN13QDBusArgumentD1Ev": ["nothing", "address"],
+    "ritual_ZN13QDBusArgument4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN13QDBusArgumentlsEh": ["address", "address", "unsigned char"],
+    "ritual_ZN13QDBusArgumentlsEb": ["address", "address", "bool"],
+    "ritual_ZN13QDBusArgumentlsEs": ["address", "address", "short"],
+    "ritual_ZN13QDBusArgumentlsEt": ["address", "address", "unsigned short"],
+    "ritual_ZN13QDBusArgumentlsEi": ["address", "address", "int"],
+    "ritual_ZN13QDBusArgumentlsEj": ["address", "address", "unsigned int"],
+    "ritual_ZN13QDBusArgumentlsEx": ["address", "address", "long long"],
+    "ritual_ZN13QDBusArgumentlsEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN13QDBusArgumentlsEd": ["address", "address", "double"],
+    "ritual_ZN13QDBusArgumentlsERK7QString": ["address", "address", "text"],
+    "ritual_ZN13QDBusArgumentlsERK12QDBusVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QDBusArgumentlsERK15QDBusObjectPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QDBusArgumentlsERK14QDBusSignature": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QDBusArgumentlsERK23QDBusUnixFileDescriptor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QDBusArgumentlsERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QDBusArgumentlsERK10QByteArray": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QDBusArgument14beginStructureEv": ["nothing", "address"],
     "ritual_ZN13QDBusArgument12endStructureEv": ["nothing", "address"],
     "ritual_ZN13QDBusArgument10beginArrayEi": ["nothing", "address", "int"],
@@ -37,6 +71,27 @@
     "ritual_ZNK13QDBusArgumentrsERx": ["address", "address", "address"],
     "ritual_ZNK13QDBusArgumentrsERy": ["address", "address", "address"],
     "ritual_ZNK13QDBusArgumentrsERd": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgumentrsER7QString": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QDBusArgumentrsER12QDBusVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QDBusArgumentrsER15QDBusObjectPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QDBusArgumentrsER14QDBusSignature": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QDBusArgumentrsER23QDBusUnixFileDescriptor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QDBusArgumentrsER5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QDBusArgumentrsER10QByteArray": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK13QDBusArgument14beginStructureEv": ["nothing", "address"],
     "ritual_ZNK13QDBusArgument12endStructureEv": ["nothing", "address"],
     "ritual_ZNK13QDBusArgument10beginArrayEv": ["nothing", "address"],

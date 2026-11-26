@@ -1,10 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/qqmlpropertymap.h, Qt 6.12.0. Changes made here are lost."
+    "QtQml/qqmlpropertymap.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZNK15QQmlPropertyMap10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlPropertyMap11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQmlPropertyMap11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQmlPropertyMap2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,8 +41,14 @@
     "ritual_ZNK15QQmlPropertyMap8containsERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN15QQmlPropertyMapixERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK15QQmlPropertyMapixERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_ZN15QQmlPropertyMap12valueChangedERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
     ],
     "ritual_ZN15QQmlPropertyMap11updateValueERK7QStringRK8QVariant": [
       "address", "address", "text", "address"
@@ -43,9 +56,14 @@
     "ritual_ZN15QQmlPropertyMapC1EPK11QMetaObjectP7QObject": [
       "address", "address", "address"
     ],
+    "ritual_ZN15QQmlPropertyMap6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQmlPropertyMap6d_funcEv": ["address", "address"],
     "ritual_take_QQmlPropertyMap": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QQmlPropertyMap11updateValueERK7QStringRK8QVariant": [
       "address", "address", "text", "address"
+    ],
+    "ritual_ZN15QQmlPropertyMapC2IS_EEPT_P7QObject": [
+      "address", "address", "address"
     ]
   }
 }

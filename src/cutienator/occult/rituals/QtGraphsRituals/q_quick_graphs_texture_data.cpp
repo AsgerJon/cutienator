@@ -3,7 +3,7 @@
 //  Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -25,6 +25,9 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs3d/qml/qquickgraphstexturedata.cpp, line 26, as _ZN23QQuickGraphsTextureDataD1Ev
+inline QQuickGraphsTextureData::~QQuickGraphsTextureData() {}
 
 //  from ../qtgraphs/src/graphs3d/qml/qquickgraphstexturedata.cpp, line 71, as _ZN23QQuickGraphsTextureData17linearInterpolateE6QColorS0_f
 inline QColor QQuickGraphsTextureData::linearInterpolate(QColor startColor, QColor endColor, float value)
@@ -316,6 +319,31 @@ const QMetaObject *ritual_ZNK23QQuickGraphsTextureData10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGraphsTextureData::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickGraphsTextureData11qt_metacastEPKc(
+    QQuickGraphsTextureData *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGraphsTextureData::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickGraphsTextureData11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGraphsTextureData *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QQuickGraphsTextureData::~QQuickGraphsTextureData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGraphsTextureDataD1Ev(QQuickGraphsTextureData *self) {
+  delete self;
+}
+
 //  QColor QQuickGraphsTextureData::linearInterpolate(QColor startColor,
 //      QColor endColor, float value)
 extern "C" Q_DECL_EXPORT
@@ -337,4 +365,4 @@ bool ritual_take_QQuickGraphsTextureData(
   return static_cast<CuteQQuickGraphsTextureData *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

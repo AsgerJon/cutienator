@@ -7,6 +7,8 @@
   "rows": {
     "ritual_ZN17QEventLoopPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QEventLoopPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QEventLoopPrivateC1Ev": ["address"],
+    "ritual_ZN17QEventLoopPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN17QEventLoopPrivate3refEv": ["nothing", "address"],
     "ritual_ZN17QEventLoopPrivate5derefEv": ["nothing", "address"]
   }

@@ -27,13 +27,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1173, as _ZN35QQuickShapeConicalGradientRhiShaderC1Ei
-inline QQuickShapeConicalGradientRhiShader::QQuickShapeConicalGradientRhiShader(int viewCount)
-{
-    setShaderFileName(VertexStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/conicalgradient.vert.qsb"), viewCount);
-    setShaderFileName(FragmentStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/conicalgradient.frag.qsb"), viewCount);
-}
-
 //  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1245, as _ZNK34QQuickShapeConicalGradientMaterial4typeEv
 inline QSGMaterialType *QQuickShapeConicalGradientMaterial::type() const
 {
@@ -86,7 +79,90 @@ inline QSGMaterialShader *QQuickShapeConicalGradientMaterial::createShader(QSGRe
     Q_UNUSED(renderMode);
     return new QQuickShapeConicalGradientRhiShader(viewCount());
 }
+
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1173, as _ZN35QQuickShapeConicalGradientRhiShaderC1Ei
+inline QQuickShapeConicalGradientRhiShader::QQuickShapeConicalGradientRhiShader(int viewCount)
+{
+    setShaderFileName(VertexStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/conicalgradient.vert.qsb"), viewCount);
+    setShaderFileName(FragmentStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/conicalgradient.frag.qsb"), viewCount);
+}
+
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1179, as _ZN35QQuickShapeConicalGradientRhiShader17updateUniformDataERN17QSGMaterialShader11RenderStateEP11QSGMaterialS4_
+inline bool QQuickShapeConicalGradientRhiShader::updateUniformData(RenderState &state,
+                                                            QSGMaterial *newMaterial, QSGMaterial *oldMaterial)
+{
+    Q_ASSERT(oldMaterial == nullptr || newMaterial->type() == oldMaterial->type());
+    QQuickShapeConicalGradientMaterial *m = static_cast<QQuickShapeConicalGradientMaterial *>(newMaterial);
+    bool changed = false;
+    QByteArray *buf = state.uniformData();
+    Q_ASSERT(buf->size() >= 80 + 64);
+    const int shaderMatrixCount = newMaterial->viewCount();
+    const int matrixCount = qMin(state.projectionMatrixCount(), shaderMatrixCount);
+
+    if (state.isMatrixDirty()) {
+        for (int viewIndex = 0; viewIndex < matrixCount; ++viewIndex) {
+            const QMatrix4x4 m = state.combinedMatrix();
+            memcpy(buf->data() + 64 * viewIndex, m.constData(), 64);
+            changed = true;
+        }
+    }
+
+    QQuickShapeGenericStrokeFillNode *node = m->node();
+
+    if (!oldMaterial || m_fillTransform != node->m_fillTransform) {
+        memcpy(buf->data() + 64 * shaderMatrixCount, node->m_fillTransform.invertedData(), 64);
+        m_fillTransform = node->m_fillTransform;
+        changed = true;
+    }
+
+    const QPointF centerPoint = node->m_gradient.a;
+    const float angle = -qDegreesToRadians(node->m_gradient.v0);
+
+    if (!oldMaterial || m_centerPoint.x() != centerPoint.x() || m_centerPoint.y() != centerPoint.y()) {
+        m_centerPoint = QVector2D(centerPoint.x(), centerPoint.y());
+        Q_ASSERT(sizeof(m_centerPoint) == 8);
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64, &m_centerPoint, 8);
+        changed = true;
+    }
+
+    if (!oldMaterial || m_angle != angle) {
+        m_angle = angle;
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64 + 8, &m_angle, 4);
+        changed = true;
+    }
+
+    if (state.isOpacityDirty()) {
+        const float opacity = state.opacity();
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64 + 8 + 4, &opacity, 4);
+        changed = true;
+    }
+
+    return changed;
+}
+
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1231, as _ZN35QQuickShapeConicalGradientRhiShader18updateSampledImageERN17QSGMaterialShader11RenderStateEiPP10QSGTextureP11QSGMaterialS7_
+inline void QQuickShapeConicalGradientRhiShader::updateSampledImage(RenderState &state, int binding, QSGTexture **texture,
+                                                             QSGMaterial *newMaterial, QSGMaterial *)
+{
+    if (binding != 1)
+        return;
+
+    QQuickShapeConicalGradientMaterial *m = static_cast<QQuickShapeConicalGradientMaterial *>(newMaterial);
+    QQuickShapeGenericStrokeFillNode *node = m->node();
+    const QSGGradientCacheKey cacheKey(node->m_gradient.stops, QGradient::Spread(node->m_gradient.spread));
+    QSGTexture *t = QSGGradientCache::cacheForRhi(state.rhi())->get(cacheKey);
+    t->commitTextureOperations(state.rhi(), state.resourceUpdateBatch());
+    *texture = t;
+}
 //  -----------------------------------------------------------------------
+
+//  QQuickShapeConicalGradientMaterial::QQuickShapeConicalGradientMaterial(QQ
+//      uickShapeGenericStrokeFillNode *node)
+extern "C" Q_DECL_EXPORT
+QQuickShapeConicalGradientMaterial *ritual_ZN34QQuickShapeConicalGradientMaterialC1EP32QQuickShapeGenericStrokeFillNode(
+    QQuickShapeGenericStrokeFillNode *node) {
+  return new QQuickShapeConicalGradientMaterial(node);
+}
 
 //  QSGMaterialType *QQuickShapeConicalGradientMaterial::type() const
 extern "C" Q_DECL_EXPORT

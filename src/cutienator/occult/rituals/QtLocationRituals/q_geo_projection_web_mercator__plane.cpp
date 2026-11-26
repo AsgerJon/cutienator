@@ -35,6 +35,10 @@ inline QGeoProjectionWebMercator::Plane::Plane()
 
 }
 
+//  from ../qtlocation/src/location/maps/qgeoprojection.cpp, line 852, as _ZN25QGeoProjectionWebMercator5PlaneC1ERK15QDoubleVector3DS3_
+inline QGeoProjectionWebMercator::Plane::Plane(const QDoubleVector3D &planePoint, const QDoubleVector3D &planeNormal)
+    :   m_point(planePoint), m_normal(planeNormal.normalized()) { }
+
 //  from ../qtlocation/src/location/maps/qgeoprojection.cpp, line 855, as _ZNK25QGeoProjectionWebMercator5Plane16lineIntersectionERK15QDoubleVector3DS3_
 inline QDoubleVector3D QGeoProjectionWebMercator::Plane::lineIntersection(const QDoubleVector3D &linePoint, const QDoubleVector3D &lineDirection) const
 {
@@ -62,6 +66,15 @@ inline bool QGeoProjectionWebMercator::Plane::isValid() const
 extern "C" Q_DECL_EXPORT
 QGeoProjectionWebMercator::Plane *ritual_ZN25QGeoProjectionWebMercator5PlaneC1Ev() {
   return new QGeoProjectionWebMercator::Plane();
+}
+
+//  QGeoProjectionWebMercator::Plane::Plane(const QDoubleVector3D
+//      &planePoint, const QDoubleVector3D &planeNormal)
+extern "C" Q_DECL_EXPORT
+QGeoProjectionWebMercator::Plane *ritual_ZN25QGeoProjectionWebMercator5PlaneC1ERK15QDoubleVector3DS3_(
+    const QDoubleVector3D *planePoint,
+    const QDoubleVector3D *planeNormal) {
+  return new QGeoProjectionWebMercator::Plane(*planePoint, *planeNormal);
 }
 
 //  QDoubleVector3D QGeoProjectionWebMercator::Plane::lineIntersection(const

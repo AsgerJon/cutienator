@@ -223,6 +223,24 @@ const QMetaObject *ritual_ZNK15QQmlConnections10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlConnections::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQmlConnections11qt_metacastEPKc(
+    QQmlConnections *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlConnections::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlConnections11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlConnections *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlConnections::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQmlConnections2trEPKcS1_i(
@@ -230,6 +248,20 @@ QString *ritual_ZN15QQmlConnections2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQmlConnections::tr(s, c, n));
+}
+
+//  QQmlConnectionsPrivate *QQmlConnections::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlConnectionsPrivate *ritual_ZN15QQmlConnections6d_funcEv(
+    QQmlConnections *self) {
+  return self->d_func();
+}
+
+//  const QQmlConnectionsPrivate *QQmlConnections::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlConnectionsPrivate *ritual_ZNK15QQmlConnections6d_funcEv(
+    const QQmlConnections *self) {
+  return self->d_func();
 }
 
 //  QQmlConnections::QQmlConnections(QObject *parent)
@@ -297,6 +329,18 @@ void ritual_ZN15QQmlConnections10classBeginEv(QQmlConnections *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQmlConnections17componentCompleteEv(QQmlConnections *self) {
   self->componentComplete();
+}
+
+//  void QQmlConnections::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlConnections13targetChangedEv(QQmlConnections *self) {
+  self->targetChanged();
+}
+
+//  void QQmlConnections::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlConnections14enabledChangedEv(QQmlConnections *self) {
+  self->enabledChanged();
 }
 
 //  void QQmlConnections::connectSignals()

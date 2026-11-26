@@ -8,13 +8,71 @@
     "ritual_ZNK24QDBusConnectionInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QDBusConnectionInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QDBusConnectionInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QDBusConnectionInterface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN24QDBusConnectionInterface19staticInterfaceNameEv": ["chars"],
     "ritual_ZN24QDBusConnectionInterfaceC1ERK15QDBusConnectionP7QObject": [
       "address", "address", "address"
     ],
     "ritual_ZN24QDBusConnectionInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QDBusConnectionInterface22registeredServiceNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QDBusConnectionInterface23activatableServiceNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QDBusConnectionInterface19isServiceRegisteredERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK24QDBusConnectionInterface12serviceOwnerERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN24QDBusConnectionInterface17unregisterServiceERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN24QDBusConnectionInterface15registerServiceERK7QStringNS_19ServiceQueueOptionsENS_25ServiceReplacementOptionsE": [
+      "address", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK24QDBusConnectionInterface10servicePidERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK24QDBusConnectionInterface10serviceUidERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK24QDBusConnectionInterface18serviceCredentialsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN24QDBusConnectionInterface12startServiceERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN24QDBusConnectionInterface17serviceRegisteredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QDBusConnectionInterface19serviceUnregisteredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QDBusConnectionInterface19serviceOwnerChangedERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN24QDBusConnectionInterface22callWithCallbackFailedERK10QDBusErrorRK12QDBusMessage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QDBusConnectionInterface12NameAcquiredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QDBusConnectionInterface8NameLostERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QDBusConnectionInterface16NameOwnerChangedERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
     "ritual_ZN24QDBusConnectionInterface13connectNotifyERK11QMetaMethod": [
       "nothing", "address", "address"
     ],
@@ -26,6 +84,27 @@
     ],
     "ritual_own_ZN24QDBusConnectionInterface16disconnectNotifyERK11QMetaMethod": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QDBusConnectionInterface__QDBusReply_QStringList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusConnectionInterface__QDBusReply_bool": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusConnectionInterface__QDBusReply_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusConnectionInterface__QDBusReply_QDBusConnectionInterface_RegisterServiceReply": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusConnectionInterface__QDBusReply_uint": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusConnectionInterface__QDBusReply_QVariantMap": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusConnectionInterface__QDBusReply_void": [
+      "nothing", "address"
     ]
   }
 }

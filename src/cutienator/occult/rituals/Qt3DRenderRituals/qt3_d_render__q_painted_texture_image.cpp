@@ -2,8 +2,11 @@
 //  Qt3DRender/qpaintedtextureimage.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qpaintedtextureimage.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QPaintedTextureImage that Python can take functions over in. Every Qt3DRender::QPaintedTextureImage
 //  Python makes is one. Each function below asks the Python
@@ -194,6 +197,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender20QPaintedTextureImage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QPaintedTextureImage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender20QPaintedTextureImage11qt_metacastEPKc(
+    Qt3DRender::QPaintedTextureImage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QPaintedTextureImage::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender20QPaintedTextureImage11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QPaintedTextureImage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QPaintedTextureImage::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -202,6 +224,98 @@ QString *ritual_ZN10Qt3DRender20QPaintedTextureImage2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QPaintedTextureImage::tr(s, c, n));
+}
+
+//  Qt3DRender::QPaintedTextureImage::QPaintedTextureImage(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPaintedTextureImage *ritual_ZN10Qt3DRender20QPaintedTextureImageC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QPaintedTextureImage(parent);
+}
+
+//  Qt3DRender::QPaintedTextureImage::~QPaintedTextureImage()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPaintedTextureImageD1Ev(
+    Qt3DRender::QPaintedTextureImage *self) {
+  delete self;
+}
+
+//  int Qt3DRender::QPaintedTextureImage::width() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender20QPaintedTextureImage5widthEv(
+    const Qt3DRender::QPaintedTextureImage *self) {
+  return self->width();
+}
+
+//  int Qt3DRender::QPaintedTextureImage::height() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender20QPaintedTextureImage6heightEv(
+    const Qt3DRender::QPaintedTextureImage *self) {
+  return self->height();
+}
+
+//  QSize Qt3DRender::QPaintedTextureImage::size() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DRender20QPaintedTextureImage4sizeEv(
+    const Qt3DRender::QPaintedTextureImage *self) {
+  return new QSize(self->size());
+}
+
+//  void Qt3DRender::QPaintedTextureImage::update(const QRect &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPaintedTextureImage6updateERK5QRect(
+    Qt3DRender::QPaintedTextureImage *self,
+    const QRect *rect) {
+  self->update(*rect);
+}
+
+//  void Qt3DRender::QPaintedTextureImage::setWidth(int w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPaintedTextureImage8setWidthEi(
+    Qt3DRender::QPaintedTextureImage *self,
+    int w) {
+  self->setWidth(w);
+}
+
+//  void Qt3DRender::QPaintedTextureImage::setHeight(int h)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPaintedTextureImage9setHeightEi(
+    Qt3DRender::QPaintedTextureImage *self,
+    int h) {
+  self->setHeight(h);
+}
+
+//  void Qt3DRender::QPaintedTextureImage::setSize(QSize size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPaintedTextureImage7setSizeE5QSize(
+    Qt3DRender::QPaintedTextureImage *self,
+    const QSize *size) {
+  self->setSize(*size);
+}
+
+//  void Qt3DRender::QPaintedTextureImage::widthChanged(int w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPaintedTextureImage12widthChangedEi(
+    Qt3DRender::QPaintedTextureImage *self,
+    int w) {
+  self->widthChanged(w);
+}
+
+//  void Qt3DRender::QPaintedTextureImage::heightChanged(int w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPaintedTextureImage13heightChangedEi(
+    Qt3DRender::QPaintedTextureImage *self,
+    int w) {
+  self->heightChanged(w);
+}
+
+//  void Qt3DRender::QPaintedTextureImage::sizeChanged(QSize size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QPaintedTextureImage11sizeChangedE5QSize(
+    Qt3DRender::QPaintedTextureImage *self,
+    const QSize *size) {
+  self->sizeChanged(*size);
 }
 
 //  void Qt3DRender::QPaintedTextureImage::paint(QPainter *painter)
@@ -227,6 +341,15 @@ const Qt3DRender::QPaintedTextureImagePrivate *ritual_ZNK10Qt3DRender20QPaintedT
   return self->d_func();
 }
 
+//  QTextureImageDataGeneratorPtr
+//      Qt3DRender::QPaintedTextureImage::dataGenerator() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureImageDataGeneratorPtr *ritual_ZNK10Qt3DRender20QPaintedTextureImage13dataGeneratorEv(
+    const Qt3DRender::QPaintedTextureImage *self) {
+  return new Qt3DRender::QTextureImageDataGeneratorPtr(
+      self->dataGenerator());
+}
+
 //  a Python function taken by a CuteQt3DRender_QPaintedTextureImage, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -235,4 +358,12 @@ bool ritual_take_Qt3DRender_QPaintedTextureImage(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QPaintedTextureImage *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QTextureImageDataGeneratorPtr a ritual of
+//      Qt3DRender::QPaintedTextureImage gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QPaintedTextureImage__Qt3DRender_QTextureImageDataGeneratorPtr(
+    Qt3DRender::QTextureImageDataGeneratorPtr *self) {
+  delete self;
 }

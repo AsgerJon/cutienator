@@ -25,6 +25,15 @@ void ritual_ZN17QWaylandBufferRefD1Ev(QWaylandBufferRef *self) {
   delete self;
 }
 
+//  QWaylandBufferRef &QWaylandBufferRef::operator=(const QWaylandBufferRef
+//      &ref)
+extern "C" Q_DECL_EXPORT
+QWaylandBufferRef *ritual_ZN17QWaylandBufferRefaSERKS_(
+    QWaylandBufferRef *self,
+    const QWaylandBufferRef *ref) {
+  return &(self->operator=(*ref));
+}
+
 //  bool QWaylandBufferRef::isNull() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QWaylandBufferRef6isNullEv(const QWaylandBufferRef *self) {
@@ -57,6 +66,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QWaylandBufferRef11isDestroyedEv(
     const QWaylandBufferRef *self) {
   return self->isDestroyed();
+}
+
+//  struct wl_resource *QWaylandBufferRef::wl_buffer() const
+extern "C" Q_DECL_EXPORT
+struct wl_resource *ritual_ZNK17QWaylandBufferRef9wl_bufferEv(
+    const QWaylandBufferRef *self) {
+  return self->wl_buffer();
 }
 
 //  QSize QWaylandBufferRef::size() const
@@ -123,6 +139,20 @@ void ritual_ZN17QWaylandBufferRef18unlockNativeBufferEy(
     QWaylandBufferRef *self,
     quintptr handle) {
   self->unlockNativeBuffer(handle);
+}
+
+//  QWaylandBufferRef::QWaylandBufferRef(QtWayland::ClientBuffer *buffer)
+extern "C" Q_DECL_EXPORT
+QWaylandBufferRef *ritual_ZN17QWaylandBufferRefC1EPN9QtWayland12ClientBufferE(
+    QtWayland::ClientBuffer *buffer) {
+  return new QWaylandBufferRef(buffer);
+}
+
+//  QtWayland::ClientBuffer *QWaylandBufferRef::buffer() const
+extern "C" Q_DECL_EXPORT
+QtWayland::ClientBuffer *ritual_ZNK17QWaylandBufferRef6bufferEv(
+    const QWaylandBufferRef *self) {
+  return self->buffer();
 }
 
 //  bool operator==(const QWaylandBufferRef &lhs, const QWaylandBufferRef

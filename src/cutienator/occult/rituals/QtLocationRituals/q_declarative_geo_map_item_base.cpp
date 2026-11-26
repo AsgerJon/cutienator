@@ -916,6 +916,25 @@ const QMetaObject *ritual_ZNK26QDeclarativeGeoMapItemBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoMapItemBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QDeclarativeGeoMapItemBase11qt_metacastEPKc(
+    QDeclarativeGeoMapItemBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoMapItemBase::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QDeclarativeGeoMapItemBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoMapItemBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoMapItemBase::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -931,6 +950,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QDeclarativeGeoMapItemBase24qt_qmlMarker_uncreatableEv(
     QDeclarativeGeoMapItemBase *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QDeclarativeGeoMapItemBase::QDeclarativeGeoMapItemBase(QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QDeclarativeGeoMapItemBase *ritual_ZN26QDeclarativeGeoMapItemBaseC1EP10QQuickItem(
+    QQuickItem *parent) {
+  return new CuteQDeclarativeGeoMapItemBase(parent);
 }
 
 //  QDeclarativeGeoMapItemBase::~QDeclarativeGeoMapItemBase()
@@ -1078,6 +1105,16 @@ qreal ritual_ZNK26QDeclarativeGeoMapItemBase14mapItemOpacityEv(
   return self->mapItemOpacity();
 }
 
+//  void
+//      QDeclarativeGeoMapItemBase::setParentGroup(QDeclarativeGeoMapItemGrou
+//      p &parentGroup)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemBase14setParentGroupER27QDeclarativeGeoMapItemGroup(
+    QDeclarativeGeoMapItemBase *self,
+    QDeclarativeGeoMapItemGroup *parentGroup) {
+  self->setParentGroup(*parentGroup);
+}
+
 //  void QDeclarativeGeoMapItemBase::setShapeTriangulationScale(QQuickShape
 //      *shape, qreal maxCoord) const
 extern "C" Q_DECL_EXPORT
@@ -1086,6 +1123,41 @@ void ritual_ZNK26QDeclarativeGeoMapItemBase26setShapeTriangulationScaleEP11QQuic
     QQuickShape *shape,
     qreal maxCoord) {
   self->setShapeTriangulationScale(shape, maxCoord);
+}
+
+//  void QDeclarativeGeoMapItemBase::mapItemOpacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemBase21mapItemOpacityChangedEv(
+    QDeclarativeGeoMapItemBase *self) {
+  self->mapItemOpacityChanged();
+}
+
+//  void QDeclarativeGeoMapItemBase::addTransitionFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemBase21addTransitionFinishedEv(
+    QDeclarativeGeoMapItemBase *self) {
+  self->addTransitionFinished();
+}
+
+//  void QDeclarativeGeoMapItemBase::removeTransitionFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemBase24removeTransitionFinishedEv(
+    QDeclarativeGeoMapItemBase *self) {
+  self->removeTransitionFinished();
+}
+
+//  void QDeclarativeGeoMapItemBase::referenceSurfaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemBase23referenceSurfaceChangedEv(
+    QDeclarativeGeoMapItemBase *self) {
+  self->referenceSurfaceChanged();
+}
+
+//  void QDeclarativeGeoMapItemBase::lodThresholdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemBase19lodThresholdChangedEv(
+    QDeclarativeGeoMapItemBase *self) {
+  self->lodThresholdChanged();
 }
 
 //  void QDeclarativeGeoMapItemBase::afterChildrenChanged()

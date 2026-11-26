@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QImageCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QImageCapture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QImageCapture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QImageCapture2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QImageCaptureC1EP7QObject": ["address", "address"],
     "ritual_ZN13QImageCaptureD1Ev": ["nothing", "address"],
@@ -18,6 +24,7 @@
     "ritual_ZN13QImageCapture13setFileFormatENS_10FileFormatE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN13QImageCapture16supportedFormatsEv": ["address"],
     "ritual_ZN13QImageCapture14fileFormatNameENS_10FileFormatE": [
       "text", "int"
     ],
@@ -46,9 +53,43 @@
       "int", "address", "text"
     ],
     "ritual_ZN13QImageCapture7captureEv": ["int", "address"],
+    "ritual_ZN13QImageCapture12errorChangedEv": ["nothing", "address"],
+    "ritual_ZN13QImageCapture13errorOccurredEiNS_5ErrorERK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ],
+    "ritual_ZN13QImageCapture22readyForCaptureChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QImageCapture15metaDataChangedEv": ["nothing", "address"],
+    "ritual_ZN13QImageCapture17fileFormatChangedEv": ["nothing", "address"],
+    "ritual_ZN13QImageCapture14qualityChangedEv": ["nothing", "address"],
+    "ritual_ZN13QImageCapture17resolutionChangedEv": ["nothing", "address"],
+    "ritual_ZN13QImageCapture12imageExposedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QImageCapture13imageCapturedEiRK6QImage": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QImageCapture22imageMetadataAvailableEiRK14QMediaMetaData": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QImageCapture14imageAvailableEiRK11QVideoFrame": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QImageCapture10imageSavedEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN13QImageCapture20platformImageCaptureEv": [
+      "address", "address"
+    ],
     "ritual_ZN13QImageCapture17setCaptureSessionEP20QMediaCaptureSession": [
       "nothing", "address", "address"
     ],
-    "ritual_take_QImageCapture": ["bool", "address", "chars", "address"]
+    "ritual_ZN13QImageCapture6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QImageCapture6d_funcEv": ["address", "address"],
+    "ritual_take_QImageCapture": ["bool", "address", "chars", "address"],
+    "ritual_drop_QImageCapture__QList_QImageCapture_FileFormat": [
+      "nothing", "address"
+    ]
   }
 }

@@ -596,6 +596,22 @@ const QMetaObject *ritual_ZNK7Q3DBars10metaObjectEv(const Q3DBars *self) {
   return self->metaObject();
 }
 
+//  void *Q3DBars::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7Q3DBars11qt_metacastEPKc(Q3DBars *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DBars::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7Q3DBars11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DBars *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DBars::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7Q3DBars2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -812,6 +828,92 @@ void ritual_ZN7Q3DBars13setFloorLevelEf(Q3DBars *self, float level) {
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK7Q3DBars10floorLevelEv(const Q3DBars *self) {
   return self->floorLevel();
+}
+
+//  void Q3DBars::multiSeriesUniformChanged(bool uniform)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars25multiSeriesUniformChangedEb(
+    Q3DBars *self,
+    bool uniform) {
+  self->multiSeriesUniformChanged(uniform);
+}
+
+//  void Q3DBars::barThicknessChanged(float thicknessRatio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars19barThicknessChangedEf(
+    Q3DBars *self,
+    float thicknessRatio) {
+  self->barThicknessChanged(thicknessRatio);
+}
+
+//  void Q3DBars::barSpacingChanged(const QSizeF &spacing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars17barSpacingChangedERK6QSizeF(
+    Q3DBars *self,
+    const QSizeF *spacing) {
+  self->barSpacingChanged(*spacing);
+}
+
+//  void Q3DBars::barSpacingRelativeChanged(bool relative)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars25barSpacingRelativeChangedEb(
+    Q3DBars *self,
+    bool relative) {
+  self->barSpacingRelativeChanged(relative);
+}
+
+//  void Q3DBars::barSeriesMarginChanged(const QSizeF &margin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars22barSeriesMarginChangedERK6QSizeF(
+    Q3DBars *self,
+    const QSizeF *margin) {
+  self->barSeriesMarginChanged(*margin);
+}
+
+//  void Q3DBars::rowAxisChanged(QCategory3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars14rowAxisChangedEP15QCategory3DAxis(
+    Q3DBars *self,
+    QCategory3DAxis *axis) {
+  self->rowAxisChanged(axis);
+}
+
+//  void Q3DBars::columnAxisChanged(QCategory3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars17columnAxisChangedEP15QCategory3DAxis(
+    Q3DBars *self,
+    QCategory3DAxis *axis) {
+  self->columnAxisChanged(axis);
+}
+
+//  void Q3DBars::valueAxisChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars16valueAxisChangedEP12QValue3DAxis(
+    Q3DBars *self,
+    QValue3DAxis *axis) {
+  self->valueAxisChanged(axis);
+}
+
+//  void Q3DBars::primarySeriesChanged(QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars20primarySeriesChangedEP12QBar3DSeries(
+    Q3DBars *self,
+    QBar3DSeries *series) {
+  self->primarySeriesChanged(series);
+}
+
+//  void Q3DBars::selectedSeriesChanged(QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars21selectedSeriesChangedEP12QBar3DSeries(
+    Q3DBars *self,
+    QBar3DSeries *series) {
+  self->selectedSeriesChanged(series);
+}
+
+//  void Q3DBars::floorLevelChanged(float level)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7Q3DBars17floorLevelChangedEf(Q3DBars *self, float level) {
+  self->floorLevelChanged(level);
 }
 
 //  Q3DBarsPrivate *Q3DBars::dptr()

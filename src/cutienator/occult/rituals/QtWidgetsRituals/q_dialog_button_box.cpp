@@ -7,8 +7,12 @@
 #if QT_CONFIG(dialogbuttonbox)
 #include <QtWidgets/qdialogbuttonbox.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(abstractbutton)
 #include <QtWidgets/qabstractbutton.h>
+#endif
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -880,6 +884,25 @@ const QMetaObject *ritual_ZNK16QDialogButtonBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDialogButtonBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QDialogButtonBox11qt_metacastEPKc(
+    QDialogButtonBox *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDialogButtonBox::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QDialogButtonBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDialogButtonBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDialogButtonBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QDialogButtonBox2trEPKcS1_i(
@@ -1070,6 +1093,32 @@ QKeySequence *ritual_ZN16QDialogButtonBox22standardButtonShortcutENS_14StandardB
   return new QKeySequence(QDialogButtonBox::standardButtonShortcut(button));
 }
 #endif  // QT_CONFIG(shortcut)
+
+//  void QDialogButtonBox::clicked(QAbstractButton *button)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QDialogButtonBox7clickedEP15QAbstractButton(
+    QDialogButtonBox *self,
+    QAbstractButton *button) {
+  self->clicked(button);
+}
+
+//  void QDialogButtonBox::accepted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QDialogButtonBox8acceptedEv(QDialogButtonBox *self) {
+  self->accepted();
+}
+
+//  void QDialogButtonBox::helpRequested()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QDialogButtonBox13helpRequestedEv(QDialogButtonBox *self) {
+  self->helpRequested();
+}
+
+//  void QDialogButtonBox::rejected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QDialogButtonBox8rejectedEv(QDialogButtonBox *self) {
+  self->rejected();
+}
 
 //  void QDialogButtonBox::changeEvent(QEvent *event)
 extern "C" Q_DECL_EXPORT

@@ -29,10 +29,24 @@ QTextFormat *ritual_ZN11QTextFormatC1ERKS_(const QTextFormat *rhs) {
   return new QTextFormat(*rhs);
 }
 
+//  QTextFormat &QTextFormat::operator=(const QTextFormat &rhs)
+extern "C" Q_DECL_EXPORT
+QTextFormat *ritual_ZN11QTextFormataSERKS_(
+    QTextFormat *self,
+    const QTextFormat *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QTextFormat::~QTextFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextFormatD1Ev(QTextFormat *self) {
   delete self;
+}
+
+//  void QTextFormat::swap(QTextFormat &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextFormat4swapERS_(QTextFormat *self, QTextFormat *other) {
+  self->swap(*other);
 }
 
 //  void QTextFormat::merge(const QTextFormat &other)
@@ -382,6 +396,22 @@ QBrush *ritual_ZNK11QTextFormat10foregroundEv(const QTextFormat *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextFormat15clearForegroundEv(QTextFormat *self) {
   self->clearForeground();
+}
+
+//  QDataStream &operator<<(QDataStream &a0, const QTextFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK11QTextFormat(
+    QDataStream *a0,
+    const QTextFormat *a1) {
+  return &(operator<<(*a0, *a1));
+}
+
+//  QDataStream &operator>>(QDataStream &a0, QTextFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR11QTextFormat(
+    QDataStream *a0,
+    QTextFormat *a1) {
+  return &(operator>>(*a0, *a1));
 }
 
 //  QList<QTextFormat>::QList()

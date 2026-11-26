@@ -1,9 +1,23 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of QtProto",
-    "buf/6.12.0/QtProtobuf/private/qprotobufpropertyorderingbuilder_p.h",
-    ", Qt 6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtProtobuf/6.12.0/QtProtobuf/private/qprotobufpropertyorderingbuilder_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
   ],
   "rows": {
+    "ritual_ZN17QtProtobufPrivate32QProtobufPropertyOrderingBuilderC1E10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate32QProtobufPropertyOrderingBuilderD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate32QProtobufPropertyOrderingBuilder10addV0FieldE10QByteArrayjj6QFlagsINS_9FieldFlagEE": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "int"
+    ],
+    "ritual_ZNK17QtProtobufPrivate32QProtobufPropertyOrderingBuilder5buildEv": [
+      "address", "address"
+    ]
   }
 }

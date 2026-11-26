@@ -5,8 +5,29 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render18RenderSceneFunctorC1EPNS0_16AbstractRendererEPNS0_12SceneManagerE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18RenderSceneFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18RenderSceneFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18RenderSceneFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render18RenderSceneFunctorD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render18RenderSceneFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render18RenderSceneFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render18RenderSceneFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
     ]
   }
 }

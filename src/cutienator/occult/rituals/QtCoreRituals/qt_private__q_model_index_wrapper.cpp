@@ -10,7 +10,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qabstractitemmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 
 //  QtPrivate::QModelIndexWrapper::QModelIndexWrapper(const QModelIndex &i)
 extern "C" Q_DECL_EXPORT

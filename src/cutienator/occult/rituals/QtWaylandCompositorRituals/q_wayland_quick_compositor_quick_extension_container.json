@@ -8,8 +8,38 @@
     "ritual_ZNK46QWaylandQuickCompositorQuickExtensionContainer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN46QWaylandQuickCompositorQuickExtensionContainer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN46QWaylandQuickCompositorQuickExtensionContainer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN46QWaylandQuickCompositorQuickExtensionContainer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN46QWaylandQuickCompositorQuickExtensionContainer4dataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN46QWaylandQuickCompositorQuickExtensionContainer10extensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN46QWaylandQuickCompositorQuickExtensionContainer13countFunctionEP16QQmlListPropertyI27QWaylandCompositorExtensionE": [
+      "long long", "address"
+    ],
+    "ritual_ZN46QWaylandQuickCompositorQuickExtensionContainer10atFunctionEP16QQmlListPropertyI27QWaylandCompositorExtensionEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN46QWaylandQuickCompositorQuickExtensionContainer16append_extensionEP16QQmlListPropertyI27QWaylandCompositorExtensionEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN46QWaylandQuickCompositorQuickExtensionContainer13clearFunctionEP16QQmlListPropertyI27QWaylandCompositorExtensionE": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QWaylandQuickCompositorQuickExtensionContainer__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QWaylandQuickCompositorQuickExtensionContainer__QQmlListProperty_QWaylandCompositorExtension": [
+      "nothing", "address"
     ]
   }
 }

@@ -550,6 +550,17 @@ void ritual_ZN17QAlphaPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF
   self->drawTiledPixmap(*r, *pixmap, *s);
 }
 
+//  QAlphaPaintEngine::QAlphaPaintEngine(QAlphaPaintEnginePrivate &data,
+//      PaintEngineFeatures devcaps)
+extern "C" Q_DECL_EXPORT
+QAlphaPaintEngine *ritual_ZN17QAlphaPaintEngineC1ER24QAlphaPaintEnginePrivate6QFlagsIN12QPaintEngine18PaintEngineFeatureEE(
+    QAlphaPaintEnginePrivate *data,
+    int devcaps) {
+  return new CuteQAlphaPaintEngine(
+      *data,
+      QFlags<QPaintEngine::PaintEngineFeature>::fromInt(devcaps));
+}
+
 //  QRegion QAlphaPaintEngine::alphaClipping() const
 extern "C" Q_DECL_EXPORT
 QRegion *ritual_ZNK17QAlphaPaintEngine13alphaClippingEv(

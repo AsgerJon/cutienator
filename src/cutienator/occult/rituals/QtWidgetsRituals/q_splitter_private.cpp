@@ -59,6 +59,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
 inline QFramePrivate::QFramePrivate()
     : frect(0, 0, 0, 0),
@@ -423,6 +425,56 @@ inline QSplitterLayoutStruct *QSplitterPrivate::findWidget(QWidget *w) const
     return nullptr;
 }
 
+//  from src/widgets/widgets/qsplitter.cpp, line 806, as _ZN16QSplitterPrivate19insertWidget_helperEiP7QWidgetb
+inline void QSplitterPrivate::insertWidget_helper(int index, QWidget *widget, bool show)
+{
+    Q_Q(QSplitter);
+    QScopedValueRollback b(blockChildAdd, true);
+    const bool needShow = show && shouldShowWidget(widget);
+    if (widget->parentWidget() != q)
+        widget->setParent(q);
+    if (needShow)
+        widget->show();
+    insertWidget(index, widget);
+    recalc(q->isVisible());
+}
+
+//  from src/widgets/widgets/qsplitter.cpp, line 825, as _ZN16QSplitterPrivate12insertWidgetEiP7QWidget
+inline QSplitterLayoutStruct *QSplitterPrivate::insertWidget(int index, QWidget *w)
+{
+    Q_Q(QSplitter);
+    QSplitterLayoutStruct *sls = nullptr;
+    int i;
+    int last = list.size();
+    for (i = 0; i < list.size(); ++i) {
+        QSplitterLayoutStruct *s = list.at(i);
+        if (s->widget == w) {
+            sls = s;
+            --last;
+            break;
+        }
+    }
+    if (index < 0 || index > last)
+        index = last;
+
+    if (sls) {
+        list.move(i,index);
+    } else {
+        sls = new QSplitterLayoutStruct;
+        QSplitterHandle *newHandle = q->createHandle();
+        newHandle->setObjectName("qt_splithandle_"_L1 + w->objectName());
+        sls->handle = newHandle;
+        sls->widget = w;
+        w->lower();
+        list.insert(index,sls);
+
+        if (newHandle && q->isVisible())
+            newHandle->show(); // will trigger sending of post events
+
+    }
+    return sls;
+}
+
 //  from src/widgets/widgets/qsplitter.cpp, line 757, as _ZN16QSplitterPrivate6doMoveEbiiibPiS0_
 inline void QSplitterPrivate::doMove(bool backwards, int hPos, int index, int delta, bool mayCollapse,
                               int *positions, int *widths)
@@ -526,6 +578,35 @@ inline void QSplitterPrivate::updateHandles()
 {
     Q_Q(QSplitter);
     recalc(q->isVisible());
+}
+
+//  from src/widgets/widgets/qsplitter.cpp, line 676, as _ZN16QSplitterPrivate15setSizes_helperERK5QListIiEb
+inline void QSplitterPrivate::setSizes_helper(const QList<int> &sizes, bool clampNegativeSize)
+{
+    int j = 0;
+
+    for (int i = 0; i < list.size(); ++i) {
+        QSplitterLayoutStruct *s = list.at(i);
+
+        s->collapsed = false;
+        s->sizer = sizes.value(j++);
+        if (clampNegativeSize && s->sizer < 0)
+            s->sizer = 0;
+        int smartMinSize = pick(qSmartMinSize(s->widget));
+
+        // Make sure that we reset the collapsed state.
+        if (s->sizer == 0) {
+            if (collapsible(s) && smartMinSize > 0) {
+                s->collapsed = true;
+            } else {
+                s->sizer = smartMinSize;
+            }
+        } else {
+            if (s->sizer < smartMinSize)
+                s->sizer = smartMinSize;
+        }
+    }
+    doResize();
 }
 
 //  from src/widgets/widgets/qsplitter.cpp, line 709, as _ZNK16QSplitterPrivate16shouldShowWidgetEPK7QWidget
@@ -850,6 +931,12 @@ const QSplitter *ritual_ZNK16QSplitterPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QSplitterPrivate::QSplitterPrivate()
+extern "C" Q_DECL_EXPORT
+QSplitterPrivate *ritual_ZN16QSplitterPrivateC1Ev() {
+  return new CuteQSplitterPrivate();
+}
+
 //  QSplitterPrivate::~QSplitterPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSplitterPrivateD1Ev(QSplitterPrivate *self) {
@@ -977,6 +1064,27 @@ QSplitterLayoutStruct *ritual_ZNK16QSplitterPrivate10findWidgetEP7QWidget(
   return self->findWidget(a0);
 }
 
+//  void QSplitterPrivate::insertWidget_helper(int index, QWidget *widget,
+//      bool show)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSplitterPrivate19insertWidget_helperEiP7QWidgetb(
+    QSplitterPrivate *self,
+    int index,
+    QWidget *widget,
+    bool show) {
+  self->insertWidget_helper(index, widget, show);
+}
+
+//  QSplitterLayoutStruct *QSplitterPrivate::insertWidget(int index, QWidget
+//      *a1)
+extern "C" Q_DECL_EXPORT
+QSplitterLayoutStruct *ritual_ZN16QSplitterPrivate12insertWidgetEiP7QWidget(
+    QSplitterPrivate *self,
+    int index,
+    QWidget *a1) {
+  return self->insertWidget(index, a1);
+}
+
 //  void QSplitterPrivate::doMove(bool backwards, int pos, int index, int
 //      delta, bool mayCollapse, int *positions, int *widths)
 extern "C" Q_DECL_EXPORT
@@ -1022,6 +1130,16 @@ int ritual_ZNK16QSplitterPrivate31findWidgetJustBeforeOrJustAfterEiiRi(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSplitterPrivate13updateHandlesEv(QSplitterPrivate *self) {
   self->updateHandles();
+}
+
+//  void QSplitterPrivate::setSizes_helper(const QList<int> &sizes, bool
+//      clampNegativeSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSplitterPrivate15setSizes_helperERK5QListIiEb(
+    QSplitterPrivate *self,
+    const QList<int> *sizes,
+    bool clampNegativeSize) {
+  self->setSizes_helper(*sizes, clampNegativeSize);
 }
 
 //  bool QSplitterPrivate::shouldShowWidget(const QWidget *w) const

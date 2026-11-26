@@ -8,6 +8,9 @@
     "ritual_ZNK11QTextStream6d_funcEv": ["address", "address"],
     "ritual_ZN11QTextStreamC1Ev": ["address"],
     "ritual_ZN11QTextStreamC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN11QTextStreamC1EP8_IO_FILE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN11QTextStreamC1EP7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "address", "address", "int"
     ],
@@ -85,6 +88,49 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK11QTextStream19realNumberPrecisionEv": ["int", "address"],
+    "ritual_ZN11QTextStreamrsER5QChar": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERc": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERDs": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERs": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERt": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERi": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERj": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERl": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERm": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERx": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERy": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERf": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsERd": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsER7QString": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamrsER10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QTextStreamrsEPc": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamlsE5QChar": ["address", "address", "address"],
+    "ritual_ZN11QTextStreamlsEc": ["address", "address", "char"],
+    "ritual_ZN11QTextStreamlsEDs": ["address", "address", "unsigned short"],
+    "ritual_ZN11QTextStreamlsEs": ["address", "address", "short"],
+    "ritual_ZN11QTextStreamlsEt": ["address", "address", "unsigned short"],
+    "ritual_ZN11QTextStreamlsEi": ["address", "address", "int"],
+    "ritual_ZN11QTextStreamlsEj": ["address", "address", "unsigned int"],
+    "ritual_ZN11QTextStreamlsEl": ["address", "address", "long"],
+    "ritual_ZN11QTextStreamlsEm": ["address", "address", "unsigned long"],
+    "ritual_ZN11QTextStreamlsEx": ["address", "address", "long long"],
+    "ritual_ZN11QTextStreamlsEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN11QTextStreamlsEf": ["address", "address", "float"],
+    "ritual_ZN11QTextStreamlsEd": ["address", "address", "double"],
+    "ritual_ZN11QTextStreamlsERK7QString": ["address", "address", "text"],
+    "ritual_ZN11QTextStreamlsE11QStringView": ["address", "address", "text"],
+    "ritual_ZN11QTextStreamlsE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QTextStreamlsERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QTextStreamlsEPKc": ["address", "address", "chars"],
+    "ritual_ZN11QTextStreamlsEPKv": ["address", "address", "address"],
     "ritual_ZNK11QTextStreamcvbEv": ["bool", "address"]
   }
 }

@@ -2,11 +2,63 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qv4qobjectwrapper_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK3QV425MultiplyWrappedQObjectMap10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK3QV425MultiplyWrappedQObjectMap5beginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap5beginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV425MultiplyWrappedQObjectMap3endEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap3endEv": ["address", "address"],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap5eraseEN5QHashI10QBiPointerI7QObjectKS3_ENS_9WeakValueEE8iteratorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap21removeDestroyedObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_QV4_MultiplyWrappedQObjectMap__QV4_MultiplyWrappedQObjectMap_ConstIterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QV4_MultiplyWrappedQObjectMap__QV4_MultiplyWrappedQObjectMap_Iterator": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap6insertIP7QObjectEEvT_PNS_4Heap6ObjectE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV425MultiplyWrappedQObjectMap5valueIP7QObjectEEyT_": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap6removeIP7QObjectEEvT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap4markIP7QObjectEEvT_PNS_9MarkStackE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap6insertIPK7QObjectEEvT_PNS_4Heap6ObjectE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV425MultiplyWrappedQObjectMap5valueIPK7QObjectEEyT_": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap6removeIPK7QObjectEEvT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV425MultiplyWrappedQObjectMap4markIPK7QObjectEEvT_PNS_9MarkStackE": [
+      "nothing", "address", "address", "address"
     ]
   }
 }

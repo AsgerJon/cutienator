@@ -59,11 +59,12 @@ typedef glyph_t (*CuteQFontIconEngineCall9)(const void *, int *);
 #endif  // !defined(QT_NO_ICON)
 typedef void (*CuteQFontIconEngineCall10)(const void *, const QPixmap *, int, int, int *);
 typedef void (*CuteQFontIconEngineCall11)(const void *, const QString *, const QSize *, int, int, int *);
+typedef void (*CuteQFontIconEngineCall12)(const void *, int, void *, int *);
 class CuteQFontIconEngine : public QFontIconEngine {
 public:
   using QFontIconEngine::QFontIconEngine;
-  CuteQFontIconEngine(const QFontIconEngine &other) : QFontIconEngine(other) {}
-  void *taken[12] = {};
+  CuteQFontIconEngine(const QFontIconEngine & other) : QFontIconEngine(other) {}
+  void *taken[13] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_ICON)
@@ -132,6 +133,10 @@ public:
     }
     if (!std::strcmp(key, "_ZN11QIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_5StateE")) {
       taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QIconEngine12virtual_hookEiPv")) {
+      taken[12] = call;
       return true;
     }
     return false;
@@ -326,6 +331,17 @@ public:
       if (handled) return;
     }
     QIconEngine::addFile(fileName, size, mode, state);
+  }
+
+  //  void QIconEngine::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQFontIconEngineCall12 call = reinterpret_cast<CuteQFontIconEngineCall12>(taken[12]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QIconEngine::virtual_hook(id, data);
   }
 };
 

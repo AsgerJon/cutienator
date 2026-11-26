@@ -10,6 +10,8 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qglyphrun.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtGui/QTextLayout>
 
 //  QTextLayout::QTextLayout()
 extern "C" Q_DECL_EXPORT
@@ -117,6 +119,21 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK11QTextLayout15preeditAreaTextEv(
     const QTextLayout *self) {
   return new QString(self->preeditAreaText());
+}
+
+//  void QTextLayout::setFormats(const QList<FormatRange> &overrides)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextLayout10setFormatsERK5QListINS_11FormatRangeEE(
+    QTextLayout *self,
+    const QList<QTextLayout::FormatRange> *overrides) {
+  self->setFormats(*overrides);
+}
+
+//  QList<FormatRange> QTextLayout::formats() const
+extern "C" Q_DECL_EXPORT
+QList<QTextLayout::FormatRange> *ritual_ZNK11QTextLayout7formatsEv(
+    const QTextLayout *self) {
+  return new QList<QTextLayout::FormatRange>(self->formats());
 }
 
 //  void QTextLayout::clearFormats()
@@ -241,6 +258,18 @@ int ritual_ZNK11QTextLayout19rightCursorPositionEi(
   return self->rightCursorPosition(oldPos);
 }
 
+//  void QTextLayout::draw(QPainter *p, const QPointF &pos, const
+//      QList<FormatRange> &selections, const QRectF &clip) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QTextLayout4drawEP8QPainterRK7QPointFRK5QListINS_11FormatRangeEERK6QRectF(
+    const QTextLayout *self,
+    QPainter *p,
+    const QPointF *pos,
+    const QList<QTextLayout::FormatRange> *selections,
+    const QRectF *clip) {
+  self->draw(p, *pos, *selections, *clip);
+}
+
 //  void QTextLayout::drawCursor(QPainter *p, const QPointF &pos, int
 //      cursorPosition) const
 extern "C" Q_DECL_EXPORT
@@ -344,4 +373,11 @@ void ritual_ZN11QTextLayout8setFlagsEi(QTextLayout *self, int flags) {
 extern "C" Q_DECL_EXPORT
 QTextLayout *ritual_ZN11QTextLayoutC1EP11QTextEngine(QTextEngine *e) {
   return new QTextLayout(e);
+}
+
+//  a QList<QTextLayout::FormatRange> a ritual of QTextLayout gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextLayout__QList_QTextLayout_FormatRange(
+    QList<QTextLayout::FormatRange> *self) {
+  delete self;
 }

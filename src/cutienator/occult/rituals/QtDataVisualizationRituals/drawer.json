@@ -6,12 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK6Drawer10metaObjectEv": ["address", "address"],
+    "ritual_ZN6Drawer11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN6Drawer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN6DrawerD1Ev": ["nothing", "address"],
     "ritual_ZNK6Drawer5themeEv": ["address", "address"],
     "ritual_ZNK6Drawer4fontEv": ["address", "address"],
+    "ritual_ZNK6Drawer14scaledFontSizeEv": ["float", "address"],
     "ritual_ZN6Drawer19drawSelectionObjectEP12ShaderHelperP20AbstractObjectHelper": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN6Drawer8drawLineEP12ShaderHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6Drawer13drawerChangedEv": ["nothing", "address"],
     "ritual_cast_Drawer_QOpenGLFunctions": ["address", "address"],
     "ritual_take_Drawer": ["bool", "address", "chars", "address"]
   }

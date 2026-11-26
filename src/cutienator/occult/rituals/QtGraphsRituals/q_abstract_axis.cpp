@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qabstractaxis.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qabstractaxis.h>
 #include <QtCore/qstring.h>
@@ -201,6 +201,24 @@ const QMetaObject *ritual_ZNK13QAbstractAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QAbstractAxis11qt_metacastEPKc(
+    QAbstractAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QAbstractAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QAbstractAxis2trEPKcS1_i(
@@ -235,6 +253,14 @@ extern "C" Q_DECL_EXPORT
 const QAbstractAxisPrivate *ritual_ZNK13QAbstractAxis6d_funcEv(
     const QAbstractAxis *self) {
   return self->d_func();
+}
+
+//  QAbstractAxis::QAbstractAxis(QAbstractAxisPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractAxis *ritual_ZN13QAbstractAxisC1ER20QAbstractAxisPrivateP7QObject(
+    QAbstractAxisPrivate *dd,
+    QObject *parent) {
+  return new CuteQAbstractAxis(*dd, parent);
 }
 
 //  QAbstractAxis::~QAbstractAxis()
@@ -500,6 +526,139 @@ void ritual_ZN13QAbstractAxis8setRangeERK8QVariantS2_(
   self->setRange(*min, *max);
 }
 
+//  void QAbstractAxis::visibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis14visibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->visibleChanged(visible);
+}
+
+//  void QAbstractAxis::lineVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18lineVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->lineVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::labelsVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis20labelsVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->labelsVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::labelsAngleChanged(qreal angle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18labelsAngleChangedEd(
+    QAbstractAxis *self,
+    qreal angle) {
+  self->labelsAngleChanged(angle);
+}
+
+//  void QAbstractAxis::labelDelegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis20labelDelegateChangedEv(QAbstractAxis *self) {
+  self->labelDelegateChanged();
+}
+
+//  void QAbstractAxis::gridVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis18gridVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->gridVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::subGridVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis21subGridVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->subGridVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::titleTextChanged(const QString &title)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis16titleTextChangedERK7QString(
+    QAbstractAxis *self,
+    const QString *title) {
+  self->titleTextChanged(*title);
+}
+
+//  void QAbstractAxis::titleColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis17titleColorChangedE6QColor(
+    QAbstractAxis *self,
+    const QColor *color) {
+  self->titleColorChanged(*color);
+}
+
+//  void QAbstractAxis::titleVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis19titleVisibleChangedEb(
+    QAbstractAxis *self,
+    bool visible) {
+  self->titleVisibleChanged(visible);
+}
+
+//  void QAbstractAxis::titleFontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis16titleFontChangedERK5QFont(
+    QAbstractAxis *self,
+    const QFont *font) {
+  self->titleFontChanged(*font);
+}
+
+//  void QAbstractAxis::alignmentChanged(Qt::Alignment alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis16alignmentChangedE6QFlagsIN2Qt13AlignmentFlagEE(
+    QAbstractAxis *self,
+    int alignment) {
+  self->alignmentChanged(QFlags<Qt::AlignmentFlag>::fromInt(alignment));
+}
+
+//  void QAbstractAxis::textElideModeChanged(Qt::TextElideMode elideMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis20textElideModeChangedEN2Qt13TextElideModeE(
+    QAbstractAxis *self,
+    Qt::TextElideMode elideMode) {
+  self->textElideModeChanged(elideMode);
+}
+
+//  void QAbstractAxis::subColorChanged(QColor newColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis15subColorChangedE6QColor(
+    QAbstractAxis *self,
+    const QColor *newColor) {
+  self->subColorChanged(*newColor);
+}
+
+//  void QAbstractAxis::colorChanged(QColor newColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis12colorChangedE6QColor(
+    QAbstractAxis *self,
+    const QColor *newColor) {
+  self->colorChanged(*newColor);
+}
+
+//  void QAbstractAxis::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis6updateEv(QAbstractAxis *self) {
+  self->update();
+}
+
+//  void QAbstractAxis::rangeChanged(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAbstractAxis12rangeChangedEdd(
+    QAbstractAxis *self,
+    qreal min,
+    qreal max) {
+  self->rangeChanged(min, max);
+}
+
 //  a Python function taken by a CuteQAbstractAxis, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -510,4 +669,4 @@ bool ritual_take_QAbstractAxis(
   return static_cast<CuteQAbstractAxis *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

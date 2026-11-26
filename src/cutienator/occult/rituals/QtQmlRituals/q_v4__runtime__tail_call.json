@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV47Runtime8TailCall4callEPNS_17JSTypesStackFrameEPNS_15ExecutionEngineE": [
+      "unsigned long long", "address", "address"
+    ],
     "ritual_ZN3QV47Runtime8TailCallD1Ev": ["nothing", "address"]
   }
 }

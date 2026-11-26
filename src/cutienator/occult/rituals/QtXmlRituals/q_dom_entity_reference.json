@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN19QDomEntityReferenceC1Ev": ["address"],
     "ritual_ZN19QDomEntityReferenceC1ERKS_": ["address", "address"],
+    "ritual_ZN19QDomEntityReferenceaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QDomEntityReference8nodeTypeEv": ["int", "address"],
     "ritual_ZN19QDomEntityReferenceC1EP26QDomEntityReferencePrivate": [
       "address", "address"

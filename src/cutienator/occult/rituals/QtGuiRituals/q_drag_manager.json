@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QDragManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QDragManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QDragManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QDragManager2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QDragManagerC1Ev": ["address"],
     "ritual_ZN12QDragManagerD1Ev": ["nothing", "address"],
@@ -15,7 +21,9 @@
       "nothing", "address", "address", "bool"
     ],
     "ritual_ZNK12QDragManager13currentTargetEv": ["address", "address"],
+    "ritual_ZNK12QDragManager6objectEv": ["address", "address"],
     "ritual_ZNK12QDragManager6sourceEv": ["address", "address"],
-    "ritual_take_QDragManager": ["bool", "address", "chars", "address"]
+    "ritual_take_QDragManager": ["bool", "address", "chars", "address"],
+    "ritual_drop_QDragManager__QPointer_QDrag": ["nothing", "address"]
   }
 }

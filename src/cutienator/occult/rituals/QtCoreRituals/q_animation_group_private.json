@@ -22,9 +22,6 @@
     "ritual_ZN22QAnimationGroupPrivate28connectUncontrolledAnimationEP18QAbstractAnimation": [
       "nothing", "address", "address"
     ],
-    "ritual_take_QAnimationGroupPrivate": [
-      "bool", "address", "chars", "address"
-    ],
     "ritual_own_ZN22QAnimationGroupPrivate19animationInsertedAtEx": [
       "nothing", "address", "long long"
     ],

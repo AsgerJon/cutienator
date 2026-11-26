@@ -8,8 +8,24 @@
     "ritual_ZNK10QtPipeWire16QPipeWireCapture10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10QtPipeWire16QPipeWireCapture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QtPipeWire16QPipeWireCapture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QtPipeWire16QPipeWireCapture2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10QtPipeWire16QPipeWireCaptureD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QtPipeWire16QPipeWireCapture11frameFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtPipeWire16QPipeWireCapture6createESt7variantIJ8QPointerI7QScreenE17QCapturableWindowEE": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtPipeWire16QPipeWireCapture17setActiveInternalEb": [
+      "bool", "address", "bool"
     ],
     "ritual_take_QtPipeWire_QPipeWireCapture": [
       "bool", "address", "chars", "address"
@@ -19,6 +35,9 @@
     ],
     "ritual_own_ZN10QtPipeWire16QPipeWireCapture17setActiveInternalEb": [
       "bool", "address", "bool"
+    ],
+    "ritual_drop_QtPipeWire_QPipeWireCapture__std_unique_ptr_QtPipeWire_QPipeWireCapture": [
+      "nothing", "address"
     ]
   }
 }

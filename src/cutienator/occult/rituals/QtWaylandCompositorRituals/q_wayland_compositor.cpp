@@ -11,6 +11,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QVector>
+#include <QtWaylandCompositor/QWaylandCompositor>
 
 //  Only a class built on QWaylandCompositor may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -315,6 +317,25 @@ const QMetaObject *ritual_ZNK18QWaylandCompositor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandCompositor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QWaylandCompositor11qt_metacastEPKc(
+    QWaylandCompositor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandCompositor::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QWaylandCompositor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandCompositor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandCompositor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QWaylandCompositor2trEPKcS1_i(
@@ -322,6 +343,20 @@ QString *ritual_ZN18QWaylandCompositor2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandCompositor::tr(s, c, n));
+}
+
+//  QWaylandCompositorPrivate *QWaylandCompositor::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandCompositorPrivate *ritual_ZN18QWaylandCompositor6d_funcEv(
+    QWaylandCompositor *self) {
+  return self->d_func();
+}
+
+//  const QWaylandCompositorPrivate *QWaylandCompositor::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandCompositorPrivate *ritual_ZNK18QWaylandCompositor6d_funcEv(
+    const QWaylandCompositor *self) {
+  return self->d_func();
 }
 
 //  void QWaylandCompositor::qt_qmlMarker_uncreatable()
@@ -378,6 +413,20 @@ void ritual_ZN18QWaylandCompositor19addSocketDescriptorEi(
     QWaylandCompositor *self,
     int fd) {
   self->addSocketDescriptor(fd);
+}
+
+//  ::wl_display *QWaylandCompositor::display() const
+extern "C" Q_DECL_EXPORT
+::wl_display *ritual_ZNK18QWaylandCompositor7displayEv(
+    const QWaylandCompositor *self) {
+  return self->display();
+}
+
+//  uint32_t QWaylandCompositor::nextSerial()
+extern "C" Q_DECL_EXPORT
+uint32_t ritual_ZN18QWaylandCompositor10nextSerialEv(
+    QWaylandCompositor *self) {
+  return self->nextSerial();
 }
 
 //  QList<QWaylandClient *> QWaylandCompositor::clients() const
@@ -510,6 +559,23 @@ void ritual_ZN18QWaylandCompositor34setUseHardwareIntegrationExtensionEb(
   self->setUseHardwareIntegrationExtension(use);
 }
 
+//  QVector<ShmFormat> QWaylandCompositor::additionalShmFormats() const
+extern "C" Q_DECL_EXPORT
+QVector<QWaylandCompositor::ShmFormat> *ritual_ZNK18QWaylandCompositor20additionalShmFormatsEv(
+    const QWaylandCompositor *self) {
+  return new QVector<QWaylandCompositor::ShmFormat>(
+      self->additionalShmFormats());
+}
+
+//  void QWaylandCompositor::setAdditionalShmFormats(const QVector<ShmFormat>
+//      &additionalShmFormats)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor23setAdditionalShmFormatsERK5QListINS_9ShmFormatEE(
+    QWaylandCompositor *self,
+    const QVector<QWaylandCompositor::ShmFormat> *additionalShmFormats) {
+  self->setAdditionalShmFormats(*additionalShmFormats);
+}
+
 //  void QWaylandCompositor::grabSurface(QWaylandSurfaceGrabber *grabber,
 //      const QWaylandBufferRef &buffer)
 extern "C" Q_DECL_EXPORT
@@ -534,6 +600,114 @@ void ritual_ZN18QWaylandCompositor23applicationStateChangedEN2Qt16ApplicationSta
     QWaylandCompositor *self,
     Qt::ApplicationState state) {
   self->applicationStateChanged(state);
+}
+
+//  void QWaylandCompositor::createdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor14createdChangedEv(
+    QWaylandCompositor *self) {
+  self->createdChanged();
+}
+
+//  void QWaylandCompositor::socketNameChanged(const QByteArray &socketName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor17socketNameChangedERK10QByteArray(
+    QWaylandCompositor *self,
+    const QByteArray *socketName) {
+  self->socketNameChanged(*socketName);
+}
+
+//  void QWaylandCompositor::retainedSelectionChanged(bool retainedSelection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor24retainedSelectionChangedEb(
+    QWaylandCompositor *self,
+    bool retainedSelection) {
+  self->retainedSelectionChanged(retainedSelection);
+}
+
+//  void QWaylandCompositor::surfaceRequested(QWaylandClient *client, uint
+//      id, int version)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor16surfaceRequestedEP14QWaylandClientji(
+    QWaylandCompositor *self,
+    QWaylandClient *client,
+    uint id,
+    int version) {
+  self->surfaceRequested(client, id, version);
+}
+
+//  void QWaylandCompositor::surfaceCreated(QWaylandSurface *surface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor14surfaceCreatedEP15QWaylandSurface(
+    QWaylandCompositor *self,
+    QWaylandSurface *surface) {
+  self->surfaceCreated(surface);
+}
+
+//  void QWaylandCompositor::surfaceAboutToBeDestroyed(QWaylandSurface
+//      *surface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor25surfaceAboutToBeDestroyedEP15QWaylandSurface(
+    QWaylandCompositor *self,
+    QWaylandSurface *surface) {
+  self->surfaceAboutToBeDestroyed(surface);
+}
+
+//  void QWaylandCompositor::subsurfaceChanged(QWaylandSurface *child,
+//      QWaylandSurface *parent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor17subsurfaceChangedEP15QWaylandSurfaceS1_(
+    QWaylandCompositor *self,
+    QWaylandSurface *child,
+    QWaylandSurface *parent) {
+  self->subsurfaceChanged(child, parent);
+}
+
+//  void QWaylandCompositor::defaultOutputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor20defaultOutputChangedEv(
+    QWaylandCompositor *self) {
+  self->defaultOutputChanged();
+}
+
+//  void QWaylandCompositor::defaultSeatChanged(QWaylandSeat *newDevice,
+//      QWaylandSeat *oldDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor18defaultSeatChangedEP12QWaylandSeatS1_(
+    QWaylandCompositor *self,
+    QWaylandSeat *newDevice,
+    QWaylandSeat *oldDevice) {
+  self->defaultSeatChanged(newDevice, oldDevice);
+}
+
+//  void QWaylandCompositor::useHardwareIntegrationExtensionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor38useHardwareIntegrationExtensionChangedEv(
+    QWaylandCompositor *self) {
+  self->useHardwareIntegrationExtensionChanged();
+}
+
+//  void QWaylandCompositor::outputAdded(QWaylandOutput *output)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor11outputAddedEP14QWaylandOutput(
+    QWaylandCompositor *self,
+    QWaylandOutput *output) {
+  self->outputAdded(output);
+}
+
+//  void QWaylandCompositor::outputRemoved(QWaylandOutput *output)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor13outputRemovedEP14QWaylandOutput(
+    QWaylandCompositor *self,
+    QWaylandOutput *output) {
+  self->outputRemoved(output);
+}
+
+//  void QWaylandCompositor::additionalShmFormatsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWaylandCompositor27additionalShmFormatsChangedEv(
+    QWaylandCompositor *self) {
+  self->additionalShmFormatsChanged();
 }
 
 //  void QWaylandCompositor::retainedSelectionReceived(QMimeData *mimeData)
@@ -575,6 +749,15 @@ QWaylandTouch *ritual_ZN18QWaylandCompositor17createTouchDeviceEP12QWaylandSeat(
     QWaylandCompositor *self,
     QWaylandSeat *seat) {
   return self->createTouchDevice(seat);
+}
+
+//  QWaylandCompositor::QWaylandCompositor(QWaylandCompositorPrivate &dptr,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QWaylandCompositor *ritual_ZN18QWaylandCompositorC1ER25QWaylandCompositorPrivateP7QObject(
+    QWaylandCompositorPrivate *dptr,
+    QObject *parent) {
+  return new CuteQWaylandCompositor(*dptr, parent);
 }
 
 //  a Python function taken by a CuteQWaylandCompositor, for the function
@@ -646,4 +829,12 @@ QWaylandTouch *ritual_own_ZN18QWaylandCompositor17createTouchDeviceEP12QWaylandS
     QWaylandSeat *seat) {
   return static_cast<OwnQWaylandCompositor *>(self)->OwnQWaylandCompositor::createTouchDevice(
       seat);
+}
+
+//  a QVector<QWaylandCompositor::ShmFormat> a ritual of QWaylandCompositor
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWaylandCompositor__QVector_QWaylandCompositor_ShmFormat(
+    QVector<QWaylandCompositor::ShmFormat> *self) {
+  delete self;
 }

@@ -20,6 +20,17 @@ bool ritual_ZN29QQuickDesignerSupportMetaInfo12isSubclassOfEP7QObjectRK10QByteAr
   return QQuickDesignerSupportMetaInfo::isSubclassOf(object, *superTypeName);
 }
 
+//  void
+//      QQuickDesignerSupportMetaInfo::registerNotifyPropertyChangeCallBack(v
+//      oid (*)(QObject *, const QQuickDesignerSupport::PropertyName &)
+//      callback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickDesignerSupportMetaInfo36registerNotifyPropertyChangeCallBackEPFvP7QObjectRK10QByteArrayE(
+    void *callback) {
+  QQuickDesignerSupportMetaInfo::registerNotifyPropertyChangeCallBack(
+      reinterpret_cast<void (*)(QObject *, const QQuickDesignerSupport::PropertyName &)>(callback));
+}
+
 //  void QQuickDesignerSupportMetaInfo::registerMockupObject(const char *uri,
 //      int versionMajor, int versionMinor, const char *qmlName)
 extern "C" Q_DECL_EXPORT

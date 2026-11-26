@@ -250,6 +250,25 @@ const QMetaObject *ritual_ZNK21QQuickParentAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickParentAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickParentAnimation11qt_metacastEPKc(
+    QQuickParentAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickParentAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickParentAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickParentAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickParentAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickParentAnimation2trEPKcS1_i(
@@ -323,6 +342,41 @@ void ritual_ZN21QQuickParentAnimation6setViaEP10QQuickItem(
     QQuickParentAnimation *self,
     QQuickItem *a0) {
   self->setVia(a0);
+}
+
+//  void QQuickParentAnimation::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParentAnimation13targetChangedEv(
+    QQuickParentAnimation *self) {
+  self->targetChanged();
+}
+
+//  void QQuickParentAnimation::newParentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParentAnimation16newParentChangedEv(
+    QQuickParentAnimation *self) {
+  self->newParentChanged();
+}
+
+//  void QQuickParentAnimation::viaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParentAnimation10viaChangedEv(
+    QQuickParentAnimation *self) {
+  self->viaChanged();
+}
+
+//  QAbstractAnimationJob
+//      *QQuickParentAnimation::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN21QQuickParentAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickParentAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
 }
 
 //  a Python function taken by a CuteQQuickParentAnimation, for the function

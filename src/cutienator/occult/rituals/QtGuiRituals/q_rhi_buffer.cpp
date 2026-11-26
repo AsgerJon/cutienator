@@ -13,12 +13,14 @@
 typedef int (*CuteQRhiBufferCall0)(const void *, int *);
 typedef bool (*CuteQRhiBufferCall1)(const void *, int *);
 typedef const QRhiBuffer::NativeBuffer * (*CuteQRhiBufferCall2)(const void *, int *);
-typedef void (*CuteQRhiBufferCall3)(const void *, int *);
+typedef void * (*CuteQRhiBufferCall3)(const void *, int *);
 typedef void (*CuteQRhiBufferCall4)(const void *, int *);
+typedef void (*CuteQRhiBufferCall5)(const void *, const void *, quint32, int *);
+typedef void (*CuteQRhiBufferCall6)(const void *, int *);
 class CuteQRhiBuffer : public QRhiBuffer {
 public:
   using QRhiBuffer::QRhiBuffer;
-  void *taken[5] = {};
+  void *taken[7] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK12QRhiResource12resourceTypeEv")) {
@@ -33,12 +35,20 @@ public:
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv")) {
+    if (!std::strcmp(key, "_ZN10QRhiBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QRhiResource7destroyEv")) {
+    if (!std::strcmp(key, "_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv")) {
       taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN10QRhiBuffer38fullDynamicBufferUpdateForCurrentFrameEPKvj")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN12QRhiResource7destroyEv")) {
+      taken[6] = call;
       return true;
     }
     return false;
@@ -77,22 +87,47 @@ public:
     return QRhiBuffer::nativeBuffer();
   }
 
-  //  void QRhiBuffer::endFullDynamicBufferUpdateForCurrentFrame()
-  void endFullDynamicBufferUpdateForCurrentFrame() override {
+  //  char *QRhiBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
+  char *beginFullDynamicBufferUpdateForCurrentFrame() override {
     if (taken[3]) {
       int handled = 0;
       CuteQRhiBufferCall3 call = reinterpret_cast<CuteQRhiBufferCall3>(taken[3]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<char *>(given);
+    }
+    return QRhiBuffer::beginFullDynamicBufferUpdateForCurrentFrame();
+  }
+
+  //  void QRhiBuffer::endFullDynamicBufferUpdateForCurrentFrame()
+  void endFullDynamicBufferUpdateForCurrentFrame() override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQRhiBufferCall4 call = reinterpret_cast<CuteQRhiBufferCall4>(taken[4]);
       call(this, &handled);
       if (handled) return;
     }
     QRhiBuffer::endFullDynamicBufferUpdateForCurrentFrame();
   }
 
+  //  void QRhiBuffer::fullDynamicBufferUpdateForCurrentFrame(const void
+  //      *data, quint32 size)
+  void fullDynamicBufferUpdateForCurrentFrame(
+      const void *data,
+      quint32 size) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQRhiBufferCall5 call = reinterpret_cast<CuteQRhiBufferCall5>(taken[5]);
+      call(this, data, size, &handled);
+      if (handled) return;
+    }
+    QRhiBuffer::fullDynamicBufferUpdateForCurrentFrame(data, size);
+  }
+
   //  void QRhiResource::destroy()
   void destroy() override {
-    if (taken[4]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQRhiBufferCall4 call = reinterpret_cast<CuteQRhiBufferCall4>(taken[4]);
+      CuteQRhiBufferCall6 call = reinterpret_cast<CuteQRhiBufferCall6>(taken[6]);
       call(this, &handled);
       if (handled) return;
     }
@@ -159,11 +194,43 @@ QRhiBuffer::NativeBuffer *ritual_ZN10QRhiBuffer12nativeBufferEv(
   return new QRhiBuffer::NativeBuffer(self->nativeBuffer());
 }
 
+//  char *QRhiBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN10QRhiBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv(
+    QRhiBuffer *self) {
+  return self->beginFullDynamicBufferUpdateForCurrentFrame();
+}
+
 //  void QRhiBuffer::endFullDynamicBufferUpdateForCurrentFrame()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv(
     QRhiBuffer *self) {
   self->endFullDynamicBufferUpdateForCurrentFrame();
+}
+
+//  void QRhiBuffer::fullDynamicBufferUpdateForCurrentFrame(const void *data,
+//      quint32 size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiBuffer38fullDynamicBufferUpdateForCurrentFrameEPKvj(
+    QRhiBuffer *self,
+    const void *data,
+    quint32 size) {
+  self->fullDynamicBufferUpdateForCurrentFrame(data, size);
+}
+
+//  QRhiBuffer::QRhiBuffer(QRhiImplementation *rhi, Type type_, UsageFlags
+//      usage_, quint32 size_)
+extern "C" Q_DECL_EXPORT
+QRhiBuffer *ritual_ZN10QRhiBufferC1EP18QRhiImplementationNS_4TypeE6QFlagsINS_9UsageFlagEEj(
+    QRhiImplementation *rhi,
+    QRhiBuffer::Type type_,
+    int usage_,
+    quint32 size_) {
+  return new CuteQRhiBuffer(
+      rhi,
+      type_,
+      QFlags<QRhiBuffer::UsageFlag>::fromInt(usage_),
+      size_);
 }
 
 //  a Python function taken by a CuteQRhiBuffer, for the function named by
@@ -187,9 +254,26 @@ QRhiBuffer::NativeBuffer *ritual_own_ZN10QRhiBuffer12nativeBufferEv(
   return new QRhiBuffer::NativeBuffer(self->QRhiBuffer::nativeBuffer());
 }
 
+//  char *QRhiBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
+extern "C" Q_DECL_EXPORT
+char *ritual_own_ZN10QRhiBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv(
+    QRhiBuffer *self) {
+  return self->QRhiBuffer::beginFullDynamicBufferUpdateForCurrentFrame();
+}
+
 //  void QRhiBuffer::endFullDynamicBufferUpdateForCurrentFrame()
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv(
     QRhiBuffer *self) {
   self->QRhiBuffer::endFullDynamicBufferUpdateForCurrentFrame();
+}
+
+//  void QRhiBuffer::fullDynamicBufferUpdateForCurrentFrame(const void *data,
+//      quint32 size)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN10QRhiBuffer38fullDynamicBufferUpdateForCurrentFrameEPKvj(
+    QRhiBuffer *self,
+    const void *data,
+    quint32 size) {
+  self->QRhiBuffer::fullDynamicBufferUpdateForCurrentFrame(data, size);
 }

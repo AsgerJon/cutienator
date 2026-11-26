@@ -3,10 +3,12 @@
 //  here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/q3dscene.h>
+#endif
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/q3dscene_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -36,6 +38,14 @@ Q3DScenePrivate *ritual_ZN15Q3DScenePrivateC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15Q3DScenePrivateD1Ev(Q3DScenePrivate *self) {
   delete self;
+}
+
+//  void Q3DScenePrivate::sync(Q3DScenePrivate &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15Q3DScenePrivate4syncERS_(
+    Q3DScenePrivate *self,
+    Q3DScenePrivate *other) {
+  self->sync(*other);
 }
 
 //  void Q3DScenePrivate::setViewport(const QRect viewport)
@@ -93,4 +103,4 @@ bool ritual_ZNK15Q3DScenePrivate8isInAreaE5QRectii(
   return self->isInArea(*area, x, y);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

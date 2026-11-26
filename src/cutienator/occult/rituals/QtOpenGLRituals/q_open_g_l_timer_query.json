@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QOpenGLTimerQuery10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QOpenGLTimerQuery11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QOpenGLTimerQuery11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QOpenGLTimerQuery2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -14,14 +20,23 @@
     "ritual_ZN17QOpenGLTimerQuery6createEv": ["bool", "address"],
     "ritual_ZN17QOpenGLTimerQuery7destroyEv": ["nothing", "address"],
     "ritual_ZNK17QOpenGLTimerQuery9isCreatedEv": ["bool", "address"],
+    "ritual_ZNK17QOpenGLTimerQuery8objectIdEv": ["unsigned int", "address"],
     "ritual_ZN17QOpenGLTimerQuery5beginEv": ["nothing", "address"],
     "ritual_ZN17QOpenGLTimerQuery3endEv": ["nothing", "address"],
+    "ritual_ZNK17QOpenGLTimerQuery16waitForTimestampEv": [
+      "unsigned long long", "address"
+    ],
     "ritual_ZN17QOpenGLTimerQuery15recordTimestampEv": [
       "nothing", "address"
     ],
     "ritual_ZNK17QOpenGLTimerQuery17isResultAvailableEv": [
       "bool", "address"
     ],
+    "ritual_ZNK17QOpenGLTimerQuery13waitForResultEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN17QOpenGLTimerQuery6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QOpenGLTimerQuery6d_funcEv": ["address", "address"],
     "ritual_take_QOpenGLTimerQuery": ["bool", "address", "chars", "address"]
   }
 }

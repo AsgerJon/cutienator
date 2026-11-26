@@ -8,6 +8,12 @@
     "ritual_ZNK22QRandomAccessAsyncFile10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QRandomAccessAsyncFile11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFile11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QRandomAccessAsyncFile2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -23,6 +29,21 @@
       "address", "address", "long long", "long long"
     ],
     "ritual_ZN22QRandomAccessAsyncFile5writeExRK10QByteArray": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFile5writeExO10QByteArray": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFile8readIntoEx5QSpanISt4byteLm18446744073709551615EE": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFile9writeFromEx5QSpanIKSt4byteLm18446744073709551615EE": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFile8readIntoEx5QSpanIKS0_ISt4byteLm18446744073709551615EELm18446744073709551615EE": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFile9writeFromEx5QSpanIKS0_IKSt4byteLm18446744073709551615EELm18446744073709551615EE": [
       "address", "address", "long long", "address"
     ],
     "ritual_ZN22QRandomAccessAsyncFile6d_funcEv": ["address", "address"],

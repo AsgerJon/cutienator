@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 
 //  DomDateTime::DomDateTime()
 extern "C" Q_DECL_EXPORT
@@ -17,6 +18,24 @@ DomDateTime *ritual_ZN11DomDateTimeC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11DomDateTimeD1Ev(DomDateTime *self) {
   delete self;
+}
+
+//  void DomDateTime::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11DomDateTime4readER16QXmlStreamReader(
+    DomDateTime *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomDateTime::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11DomDateTime5writeER16QXmlStreamWriterRK7QString(
+    const DomDateTime *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  int DomDateTime::elementHour() const

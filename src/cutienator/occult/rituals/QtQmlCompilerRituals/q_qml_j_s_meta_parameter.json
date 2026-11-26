@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QQmlJSMetaParameterC1E7QStringS0_NS_9ConstnessE12QWeakPointerIK11QQmlJSScopeE": [
+      "address", "text", "text", "int", "address"
+    ],
     "ritual_ZNK19QQmlJSMetaParameter4nameEv": ["text", "address"],
     "ritual_ZN19QQmlJSMetaParameter7setNameERK7QString": [
       "nothing", "address", "text"
@@ -12,6 +15,10 @@
     "ritual_ZNK19QQmlJSMetaParameter8typeNameEv": ["text", "address"],
     "ritual_ZN19QQmlJSMetaParameter11setTypeNameERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQmlJSMetaParameter4typeEv": ["address", "address"],
+    "ritual_ZN19QQmlJSMetaParameter7setTypeE12QWeakPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK19QQmlJSMetaParameter13typeQualifierEv": ["int", "address"],
     "ritual_ZN19QQmlJSMetaParameter16setTypeQualifierENS_9ConstnessE": [
@@ -34,6 +41,9 @@
     "ritual_list_at_QQmlJSMetaParameter": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QQmlJSMetaParameter": ["nothing", "address"]
+    "ritual_list_drop_QQmlJSMetaParameter": ["nothing", "address"],
+    "ritual_drop_QQmlJSMetaParameter__QSharedPointer_const_QQmlJSScope": [
+      "nothing", "address"
+    ]
   }
 }

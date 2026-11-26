@@ -15,6 +15,22 @@ QJsonValueRef *ritual_ZN13QJsonValueRefC1ERKS_(const QJsonValueRef *a0) {
   return new QJsonValueRef(*a0);
 }
 
+//  QJsonValueRef &QJsonValueRef::operator=(const QJsonValue &val)
+extern "C" Q_DECL_EXPORT
+QJsonValueRef *ritual_ZN13QJsonValueRefaSERK10QJsonValue(
+    QJsonValueRef *self,
+    const QJsonValue *val) {
+  return &(self->operator=(*val));
+}
+
+//  QJsonValueRef &QJsonValueRef::operator=(const QJsonValueRef &val)
+extern "C" Q_DECL_EXPORT
+QJsonValueRef *ritual_ZN13QJsonValueRefaSERKS_(
+    QJsonValueRef *self,
+    const QJsonValueRef *val) {
+  return &(self->operator=(*val));
+}
+
 #if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED)
 //  QJsonValueRef::QJsonValueRef(QJsonArray *array, qsizetype idx)
 extern "C" Q_DECL_EXPORT

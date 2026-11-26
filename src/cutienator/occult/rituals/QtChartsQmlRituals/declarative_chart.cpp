@@ -10,7 +10,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtGui/qfont.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qlocale.h>
@@ -21,6 +23,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCharts/QAbstractAxis>
 
 //  Only a class built on DeclarativeChart may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -800,6 +804,25 @@ const QMetaObject *ritual_ZNK16DeclarativeChart10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeChart::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16DeclarativeChart11qt_metacastEPKc(
+    DeclarativeChart *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeChart::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16DeclarativeChart11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeChart *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeChart::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16DeclarativeChart2trEPKcS1_i(
@@ -1158,6 +1181,48 @@ void ritual_ZN16DeclarativeChart16doInitializeAxesEP15QAbstractSeriesP15Declarat
   self->doInitializeAxes(series, axes);
 }
 
+//  QQmlListProperty<QAbstractAxis> DeclarativeChart::axes()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QAbstractAxis> *ritual_ZN16DeclarativeChart4axesEv(
+    DeclarativeChart *self) {
+  return new QQmlListProperty<QAbstractAxis>(self->axes());
+}
+
+//  void DeclarativeChart::axesAppendFunc(QQmlListProperty<QAbstractAxis>
+//      *list, QAbstractAxis *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart14axesAppendFuncEP16QQmlListPropertyI13QAbstractAxisEPS1_(
+    QQmlListProperty<QAbstractAxis> *list,
+    QAbstractAxis *element) {
+  DeclarativeChart::axesAppendFunc(list, element);
+}
+
+//  qsizetype DeclarativeChart::axesCountFunc(QQmlListProperty<QAbstractAxis>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN16DeclarativeChart13axesCountFuncEP16QQmlListPropertyI13QAbstractAxisE(
+    QQmlListProperty<QAbstractAxis> *list) {
+  return DeclarativeChart::axesCountFunc(list);
+}
+
+//  QAbstractAxis
+//      *DeclarativeChart::axesAtFunc(QQmlListProperty<QAbstractAxis> *list,
+//      qsizetype index)
+extern "C" Q_DECL_EXPORT
+QAbstractAxis *ritual_ZN16DeclarativeChart10axesAtFuncEP16QQmlListPropertyI13QAbstractAxisEx(
+    QQmlListProperty<QAbstractAxis> *list,
+    qsizetype index) {
+  return DeclarativeChart::axesAtFunc(list, index);
+}
+
+//  void DeclarativeChart::axesClearFunc(QQmlListProperty<QAbstractAxis>
+//      *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart13axesClearFuncEP16QQmlListPropertyI13QAbstractAxisE(
+    QQmlListProperty<QAbstractAxis> *list) {
+  DeclarativeChart::axesClearFunc(list);
+}
+
 //  QAbstractSeries *DeclarativeChart::series(int index)
 extern "C" Q_DECL_EXPORT
 QAbstractSeries *ritual_ZN16DeclarativeChart6seriesEi(
@@ -1326,6 +1391,123 @@ QPointF *ritual_ZN16DeclarativeChart13mapToPositionERK7QPointFP15QAbstractSeries
     const QPointF *value,
     QAbstractSeries *series) {
   return new QPointF(self->mapToPosition(*value, series));
+}
+
+//  void DeclarativeChart::axisLabelsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart17axisLabelsChangedEv(
+    DeclarativeChart *self) {
+  self->axisLabelsChanged();
+}
+
+//  void DeclarativeChart::titleColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart17titleColorChangedE6QColor(
+    DeclarativeChart *self,
+    const QColor *color) {
+  self->titleColorChanged(*color);
+}
+
+//  void DeclarativeChart::backgroundColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart22backgroundColorChangedEv(
+    DeclarativeChart *self) {
+  self->backgroundColorChanged();
+}
+
+//  void DeclarativeChart::dropShadowEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart24dropShadowEnabledChangedEb(
+    DeclarativeChart *self,
+    bool enabled) {
+  self->dropShadowEnabledChanged(enabled);
+}
+
+//  void DeclarativeChart::marginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart14marginsChangedEv(DeclarativeChart *self) {
+  self->marginsChanged();
+}
+
+//  void DeclarativeChart::plotAreaChanged(QRectF plotArea)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart15plotAreaChangedE6QRectF(
+    DeclarativeChart *self,
+    const QRectF *plotArea) {
+  self->plotAreaChanged(*plotArea);
+}
+
+//  void DeclarativeChart::seriesAdded(QAbstractSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart11seriesAddedEP15QAbstractSeries(
+    DeclarativeChart *self,
+    QAbstractSeries *series) {
+  self->seriesAdded(series);
+}
+
+//  void DeclarativeChart::seriesRemoved(QAbstractSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart13seriesRemovedEP15QAbstractSeries(
+    DeclarativeChart *self,
+    QAbstractSeries *series) {
+  self->seriesRemoved(series);
+}
+
+//  void DeclarativeChart::plotAreaColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart20plotAreaColorChangedEv(
+    DeclarativeChart *self) {
+  self->plotAreaColorChanged();
+}
+
+//  void DeclarativeChart::backgroundRoundnessChanged(qreal diameter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart26backgroundRoundnessChangedEd(
+    DeclarativeChart *self,
+    qreal diameter) {
+  self->backgroundRoundnessChanged(diameter);
+}
+
+//  void DeclarativeChart::localizeNumbersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart22localizeNumbersChangedEv(
+    DeclarativeChart *self) {
+  self->localizeNumbersChanged();
+}
+
+//  void DeclarativeChart::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart13localeChangedEv(DeclarativeChart *self) {
+  self->localeChanged();
+}
+
+//  void DeclarativeChart::animationDurationChanged(int msecs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart24animationDurationChangedEi(
+    DeclarativeChart *self,
+    int msecs) {
+  self->animationDurationChanged(msecs);
+}
+
+//  void DeclarativeChart::animationEasingCurveChanged(QEasingCurve curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart27animationEasingCurveChangedE12QEasingCurve(
+    DeclarativeChart *self,
+    const QEasingCurve *curve) {
+  self->animationEasingCurveChanged(*curve);
+}
+
+//  void DeclarativeChart::needRender()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart10needRenderEv(DeclarativeChart *self) {
+  self->needRender();
+}
+
+//  void DeclarativeChart::pendingRenderNodeMouseEventResponses()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16DeclarativeChart36pendingRenderNodeMouseEventResponsesEv(
+    DeclarativeChart *self) {
+  self->pendingRenderNodeMouseEventResponses();
 }
 
 //  void DeclarativeChart::changeMargins(int top, int bottom, int left, int
@@ -1516,4 +1698,11 @@ void ritual_own_ZN16DeclarativeChart21mouseDoubleClickEventEP11QMouseEvent(
     QMouseEvent *event) {
   static_cast<OwnDeclarativeChart *>(self)->OwnDeclarativeChart::mouseDoubleClickEvent(
       event);
+}
+
+//  a QQmlListProperty<QAbstractAxis> a ritual of DeclarativeChart gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeChart__QQmlListProperty_QAbstractAxis(
+    QQmlListProperty<QAbstractAxis> *self) {
+  delete self;
 }

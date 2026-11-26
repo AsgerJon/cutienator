@@ -189,6 +189,25 @@ const QMetaObject *ritual_ZNK21QQmlApplicationEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlApplicationEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQmlApplicationEngine11qt_metacastEPKc(
+    QQmlApplicationEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlApplicationEngine::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQmlApplicationEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlApplicationEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlApplicationEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQmlApplicationEngine2trEPKcS1_i(
@@ -301,6 +320,24 @@ void ritual_ZN21QQmlApplicationEngine8loadDataERK10QByteArrayRK4QUrl(
     const QByteArray *data,
     const QUrl *url) {
   self->loadData(*data, *url);
+}
+
+//  void QQmlApplicationEngine::objectCreated(QObject *object, const QUrl
+//      &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlApplicationEngine13objectCreatedEP7QObjectRK4QUrl(
+    QQmlApplicationEngine *self,
+    QObject *object,
+    const QUrl *url) {
+  self->objectCreated(object, *url);
+}
+
+//  void QQmlApplicationEngine::objectCreationFailed(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlApplicationEngine20objectCreationFailedERK4QUrl(
+    QQmlApplicationEngine *self,
+    const QUrl *url) {
+  self->objectCreationFailed(*url);
 }
 
 //  QQmlApplicationEnginePrivate *QQmlApplicationEngine::d_func()

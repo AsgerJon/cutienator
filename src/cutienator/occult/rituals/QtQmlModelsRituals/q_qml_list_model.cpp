@@ -12,7 +12,9 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmllistmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtQml/QtQml>
@@ -970,6 +972,24 @@ const QMetaObject *ritual_ZNK13QQmlListModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlListModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQmlListModel11qt_metacastEPKc(
+    QQmlListModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlListModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQmlListModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlListModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlListModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQmlListModel2trEPKcS1_i(
@@ -1153,6 +1173,12 @@ ListModel *ritual_ZNK13QQmlListModel9listModelEv(const QQmlListModel *self) {
   return self->listModel();
 }
 
+//  void QQmlListModel::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlListModel12countChangedEv(QQmlListModel *self) {
+  self->countChanged();
+}
+
 //  QQmlListModel::QQmlListModel(QQmlListModel *orig,
 //      QQmlListModelWorkerAgent *agent)
 extern "C" Q_DECL_EXPORT
@@ -1203,6 +1229,17 @@ extern "C" Q_DECL_EXPORT
 QQmlListModel *ritual_ZN13QQmlListModel15createWithOwnerEPS_(
     QQmlListModel *newOwner) {
   return QQmlListModel::createWithOwner(newOwner);
+}
+
+//  void QQmlListModel::emitItemsChanged(int index, int count, const
+//      QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQmlListModel16emitItemsChangedEiiRK5QListIiE(
+    QQmlListModel *self,
+    int index,
+    int count,
+    const QList<int> *roles) {
+  self->emitItemsChanged(index, count, *roles);
 }
 
 //  void QQmlListModel::emitItemsAboutToBeInserted(int index, int count)

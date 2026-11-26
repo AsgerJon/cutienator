@@ -338,6 +338,16 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  SplineAnimation::SplineAnimation(SplineChartItem *item, int duration,
+//      QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+SplineAnimation *ritual_ZN15SplineAnimationC1EP15SplineChartItemiR12QEasingCurve(
+    SplineChartItem *item,
+    int duration,
+    QEasingCurve *curve) {
+  return new CuteSplineAnimation(item, duration, *curve);
+}
+
 //  SplineAnimation::~SplineAnimation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15SplineAnimationD1Ev(SplineAnimation *self) {

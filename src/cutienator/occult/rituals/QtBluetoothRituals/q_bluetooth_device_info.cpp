@@ -7,6 +7,10 @@
 #include <QtBluetooth/qbluetoothuuid.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtCore/QMultiHash>
+#include <QtCore/QByteArray>
+#include <QtBluetooth/QBluetoothUuid>
 
 //  QBluetoothDeviceInfo::QBluetoothDeviceInfo()
 extern "C" Q_DECL_EXPORT
@@ -68,6 +72,15 @@ void ritual_ZN20QBluetoothDeviceInfo9setCachedEb(
     QBluetoothDeviceInfo *self,
     bool cached) {
   self->setCached(cached);
+}
+
+//  QBluetoothDeviceInfo &QBluetoothDeviceInfo::operator=(const
+//      QBluetoothDeviceInfo &other)
+extern "C" Q_DECL_EXPORT
+QBluetoothDeviceInfo *ritual_ZN20QBluetoothDeviceInfoaSERKS_(
+    QBluetoothDeviceInfo *self,
+    const QBluetoothDeviceInfo *other) {
+  return &(self->operator=(*other));
 }
 
 //  bool operator==(const QBluetoothDeviceInfo &a, const QBluetoothDeviceInfo
@@ -162,6 +175,13 @@ void ritual_ZN20QBluetoothDeviceInfo15setServiceUuidsERK5QListI14QBluetoothUuidE
   self->setServiceUuids(*uuids);
 }
 
+//  QList<quint16> QBluetoothDeviceInfo::manufacturerIds() const
+extern "C" Q_DECL_EXPORT
+QList<quint16> *ritual_ZNK20QBluetoothDeviceInfo15manufacturerIdsEv(
+    const QBluetoothDeviceInfo *self) {
+  return new QList<quint16>(self->manufacturerIds());
+}
+
 //  QByteArray QBluetoothDeviceInfo::manufacturerData(quint16 manufacturerId)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -179,6 +199,14 @@ bool ritual_ZN20QBluetoothDeviceInfo19setManufacturerDataEtRK10QByteArray(
     quint16 manufacturerId,
     const QByteArray *data) {
   return self->setManufacturerData(manufacturerId, *data);
+}
+
+//  QMultiHash<quint16, QByteArray> QBluetoothDeviceInfo::manufacturerData()
+//      const
+extern "C" Q_DECL_EXPORT
+QMultiHash<quint16, QByteArray> *ritual_ZNK20QBluetoothDeviceInfo16manufacturerDataEv(
+    const QBluetoothDeviceInfo *self) {
+  return new QMultiHash<quint16, QByteArray>(self->manufacturerData());
 }
 
 //  QList<QBluetoothUuid> QBluetoothDeviceInfo::serviceIds() const
@@ -205,6 +233,14 @@ bool ritual_ZN20QBluetoothDeviceInfo14setServiceDataERK14QBluetoothUuidRK10QByte
     const QBluetoothUuid *serviceId,
     const QByteArray *data) {
   return self->setServiceData(*serviceId, *data);
+}
+
+//  QMultiHash<QBluetoothUuid, QByteArray>
+//      QBluetoothDeviceInfo::serviceData() const
+extern "C" Q_DECL_EXPORT
+QMultiHash<QBluetoothUuid, QByteArray> *ritual_ZNK20QBluetoothDeviceInfo11serviceDataEv(
+    const QBluetoothDeviceInfo *self) {
+  return new QMultiHash<QBluetoothUuid, QByteArray>(self->serviceData());
 }
 
 //  void QBluetoothDeviceInfo::setCoreConfigurations(QBluetoothDeviceInfo::Co
@@ -298,5 +334,26 @@ QBluetoothDeviceInfo *ritual_list_at_QBluetoothDeviceInfo(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QBluetoothDeviceInfo(
     QList<QBluetoothDeviceInfo> *self) {
+  delete self;
+}
+
+//  a QList<quint16> a ritual of QBluetoothDeviceInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QBluetoothDeviceInfo__QList_quint16(QList<quint16> *self) {
+  delete self;
+}
+
+//  a QMultiHash<quint16, QByteArray> a ritual of QBluetoothDeviceInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QBluetoothDeviceInfo__QMultiHash_quint16_QByteArray(
+    QMultiHash<quint16, QByteArray> *self) {
+  delete self;
+}
+
+//  a QMultiHash<QBluetoothUuid, QByteArray> a ritual of QBluetoothDeviceInfo
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QBluetoothDeviceInfo__QMultiHash_QBluetoothUuid_QByteArray(
+    QMultiHash<QBluetoothUuid, QByteArray> *self) {
   delete self;
 }

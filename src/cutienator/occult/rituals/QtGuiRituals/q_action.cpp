@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qaction.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qaction.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  instances of templates of the class: 3. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(action)
@@ -198,6 +200,22 @@ public:
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK7QAction10metaObjectEv(const QAction *self) {
   return self->metaObject();
+}
+
+//  void *QAction::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QAction11qt_metacastEPKc(QAction *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAction::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QAction11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAction *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QAction::tr(const char *s, const char *c, int n)
@@ -576,6 +594,14 @@ bool ritual_ZN7QAction5eventEP6QEvent(QAction *self, QEvent *a0) {
   return self->event(a0);
 }
 
+//  QAction::QAction(QActionPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAction *ritual_ZN7QActionC1ER14QActionPrivateP7QObject(
+    QActionPrivate *dd,
+    QObject *parent) {
+  return new CuteQAction(*dd, parent);
+}
+
 //  void QAction::trigger()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction7triggerEv(QAction *self) {
@@ -622,6 +648,48 @@ void ritual_ZN7QAction11setDisabledEb(QAction *self, bool b) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction10setVisibleEb(QAction *self, bool a0) {
   self->setVisible(a0);
+}
+
+//  void QAction::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction7changedEv(QAction *self) {
+  self->changed();
+}
+
+//  void QAction::enabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction14enabledChangedEb(QAction *self, bool enabled) {
+  self->enabledChanged(enabled);
+}
+
+//  void QAction::checkableChanged(bool checkable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction16checkableChangedEb(QAction *self, bool checkable) {
+  self->checkableChanged(checkable);
+}
+
+//  void QAction::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction14visibleChangedEv(QAction *self) {
+  self->visibleChanged();
+}
+
+//  void QAction::triggered(bool checked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction9triggeredEb(QAction *self, bool checked) {
+  self->triggered(checked);
+}
+
+//  void QAction::hovered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction7hoveredEv(QAction *self) {
+  self->hovered();
+}
+
+//  void QAction::toggled(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction7toggledEb(QAction *self, bool a0) {
+  self->toggled(a0);
 }
 
 //  QObject *QAction::menuObject() const
@@ -682,6 +750,27 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QAction_ptr(QList<QAction *> *self) {
   delete self;
 }
+
+//  QObject *QAction::menu<QObject *>() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK7QAction4menuIP7QObjectEET_v(const QAction *self) {
+  return self->menu<QObject *>();
+}
+
+//  void QAction::setMenu<QObject *>(QObject *m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction7setMenuIP7QObjectEEvT_(QAction *self, QObject *m) {
+  self->setMenu<QObject *>(m);
+}
+
+#if QT_DEPRECATED_SINCE(6, 0)
+//  QObject *QAction::parentWidget<QObject *>() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK7QAction12parentWidgetIP7QObjectEET_v(
+    const QAction *self) {
+  return self->parentWidget<QObject *>();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 #endif  // QT_CONFIG(action)
 #endif  // QT_CONFIG(action)

@@ -8,12 +8,24 @@
     "ritual_ZNK27QQStyleKitStyleAndThemeBase10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQStyleKitStyleAndThemeBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQStyleKitStyleAndThemeBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QQStyleKitStyleAndThemeBase24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN27QQStyleKitStyleAndThemeBase5fontsEv": ["address", "address"],
     "ritual_ZN27QQStyleKitStyleAndThemeBase8palettesEv": [
       "address", "address"
+    ],
+    "ritual_ZN27QQStyleKitStyleAndThemeBase12fontsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitStyleAndThemeBase15palettesChangedEv": [
+      "nothing", "address"
     ]
   }
 }

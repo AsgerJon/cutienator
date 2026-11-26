@@ -18,14 +18,29 @@
     ],
     "ritual_ZN10QRhiBuffer6createEv": ["bool", "address"],
     "ritual_ZN10QRhiBuffer12nativeBufferEv": ["address", "address"],
+    "ritual_ZN10QRhiBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv": [
+      "address", "address"
+    ],
     "ritual_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN10QRhiBuffer38fullDynamicBufferUpdateForCurrentFrameEPKvj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN10QRhiBufferC1EP18QRhiImplementationNS_4TypeE6QFlagsINS_9UsageFlagEEj": [
+      "address", "address", "int", "int", "unsigned int"
     ],
     "ritual_take_QRhiBuffer": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QRhiBuffer12resourceTypeEv": ["int", "address"],
     "ritual_own_ZN10QRhiBuffer12nativeBufferEv": ["address", "address"],
+    "ritual_own_ZN10QRhiBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv": [
+      "address", "address"
+    ],
     "ritual_own_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv": [
       "nothing", "address"
+    ],
+    "ritual_own_ZN10QRhiBuffer38fullDynamicBufferUpdateForCurrentFrameEPKvj": [
+      "nothing", "address", "address", "unsigned int"
     ]
   }
 }

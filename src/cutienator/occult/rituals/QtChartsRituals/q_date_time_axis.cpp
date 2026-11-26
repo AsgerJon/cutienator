@@ -198,6 +198,24 @@ const QMetaObject *ritual_ZNK13QDateTimeAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDateTimeAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QDateTimeAxis11qt_metacastEPKc(
+    QDateTimeAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDateTimeAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QDateTimeAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDateTimeAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDateTimeAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QDateTimeAxis2trEPKcS1_i(
@@ -217,6 +235,14 @@ QDateTimeAxis *ritual_ZN13QDateTimeAxisC1EP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QDateTimeAxisD1Ev(QDateTimeAxis *self) {
   delete self;
+}
+
+//  QDateTimeAxis::QDateTimeAxis(QDateTimeAxisPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QDateTimeAxis *ritual_ZN13QDateTimeAxisC1ER20QDateTimeAxisPrivateP7QObject(
+    QDateTimeAxisPrivate *d,
+    QObject *parent) {
+  return new CuteQDateTimeAxis(*d, parent);
 }
 
 //  AxisType QDateTimeAxis::type() const
@@ -289,6 +315,47 @@ void ritual_ZN13QDateTimeAxis12setTickCountEi(
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK13QDateTimeAxis9tickCountEv(const QDateTimeAxis *self) {
   return self->tickCount();
+}
+
+//  void QDateTimeAxis::minChanged(QDateTime min)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis10minChangedE9QDateTime(
+    QDateTimeAxis *self,
+    const QDateTime *min) {
+  self->minChanged(*min);
+}
+
+//  void QDateTimeAxis::maxChanged(QDateTime max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis10maxChangedE9QDateTime(
+    QDateTimeAxis *self,
+    const QDateTime *max) {
+  self->maxChanged(*max);
+}
+
+//  void QDateTimeAxis::rangeChanged(QDateTime min, QDateTime max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis12rangeChangedE9QDateTimeS0_(
+    QDateTimeAxis *self,
+    const QDateTime *min,
+    const QDateTime *max) {
+  self->rangeChanged(*min, *max);
+}
+
+//  void QDateTimeAxis::formatChanged(QString format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis13formatChangedE7QString(
+    QDateTimeAxis *self,
+    const QString *format) {
+  self->formatChanged(*format);
+}
+
+//  void QDateTimeAxis::tickCountChanged(int tick)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis16tickCountChangedEi(
+    QDateTimeAxis *self,
+    int tick) {
+  self->tickCountChanged(tick);
 }
 
 //  QDateTimeAxisPrivate *QDateTimeAxis::d_func()

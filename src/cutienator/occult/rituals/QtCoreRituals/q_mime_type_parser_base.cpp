@@ -9,13 +9,64 @@
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qmimetypeparser_p.h>
-#include <QtCore/6.12.0/QtCore/private/qmimeglobpattern_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/6.12.0/QtCore/private/qmimeglobpattern_p.h>
 #include <QtCore/6.12.0/QtCore/private/qmimemagicrulematcher_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/private/qmimetypeparser_p.h>
+#include <QtCore/private/qmimetype_p.h>
+#include <QtCore/private/qmimemagicrulematcher_p.h>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDebug>
+#include <QtCore/QDir>
+#include <QtCore/QXmlStreamReader>
+#include <QtCore/QXmlStreamWriter>
+#include <QtCore/QStack>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/mimetypes/qmimetypeparser.cpp, line 24, as local:qmimetypeparser.cpp:mimeInfoTagC
+static const char mimeInfoTagC[] = "mime-info";
+
+//  from src/corelib/mimetypes/qmimetypeparser.cpp, line 25, as local:qmimetypeparser.cpp:mimeTypeTagC
+static const char mimeTypeTagC[] = "mime-type";
+
+//  from src/corelib/mimetypes/qmimetypeparser.cpp, line 26, as local:qmimetypeparser.cpp:mimeTypeAttributeC
+static const char mimeTypeAttributeC[] = "type";
+
+//  from src/corelib/mimetypes/qmimetypeparser.cpp, line 31, as local:qmimetypeparser.cpp:nameAttributeC
+static const char nameAttributeC[] = "name";
+
+//  from src/corelib/mimetypes/qmimetypeparser.cpp, line 76, as _ZN19QMimeTypeParserBaseD2Ev
+inline QMimeTypeParserBase::~QMimeTypeParserBase()
+    = default;
+
+//  from src/corelib/mimetypes/qmimetypeparser.cpp, line 137, as _ZN19QMimeTypeParserBase11parseNumberE11QStringViewPiP7QString
+inline bool QMimeTypeParserBase::parseNumber(QStringView n, int *target, QString *errorMessage)
+{
+    bool ok;
+    *target = n.toInt(&ok);
+    if (Q_UNLIKELY(!ok)) {
+        if (errorMessage)
+            *errorMessage = "Not a number '"_L1 + n + "'."_L1;
+        return false;
+    }
+    return true;
+}
+//  -----------------------------------------------------------------------
 
 //  A QMimeTypeParserBase that Python can take functions over in. Every QMimeTypeParserBase
 //  Python makes is one. Each function below asks the Python
@@ -146,6 +197,19 @@ public:
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QMimeTypeParserBaseD1Ev(QMimeTypeParserBase *self) {
   delete self;
+}
+
+//  bool QMimeTypeParserBase::parseNumber(QStringView n, int *target, QString
+//      *errorMessage)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QMimeTypeParserBase11parseNumberE11QStringViewPiP7QString(
+    const QString *n,
+    int *target,
+    QString *errorMessage) {
+  return QMimeTypeParserBase::parseNumber(
+      QStringView(*n),
+      target,
+      errorMessage);
 }
 
 //  bool QMimeTypeParserBase::process(const QMimeTypeXMLData &t, QString

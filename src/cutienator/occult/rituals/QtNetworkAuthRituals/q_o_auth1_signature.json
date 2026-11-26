@@ -5,7 +5,14 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN16QOAuth1SignatureC1ERK4QUrlNS_17HttpRequestMethodERK9QMultiMapI7QString8QVariantE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN16QOAuth1SignatureC1ERK4QUrlRK7QStringS5_NS_17HttpRequestMethodERK9QMultiMapIS3_8QVariantE": [
+      "address", "address", "text", "text", "int", "address"
+    ],
     "ritual_ZN16QOAuth1SignatureC1ERKS_": ["address", "address"],
+    "ritual_ZN16QOAuth1SignatureC1EOS_": ["address", "address"],
     "ritual_ZN16QOAuth1SignatureD1Ev": ["nothing", "address"],
     "ritual_ZNK16QOAuth1Signature17httpRequestMethodEv": ["int", "address"],
     "ritual_ZN16QOAuth1Signature20setHttpRequestMethodENS_17HttpRequestMethodE": [
@@ -19,6 +26,10 @@
     ],
     "ritual_ZNK16QOAuth1Signature3urlEv": ["address", "address"],
     "ritual_ZN16QOAuth1Signature6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QOAuth1Signature10parametersEv": ["address", "address"],
+    "ritual_ZN16QOAuth1Signature13setParametersERK9QMultiMapI7QString8QVariantE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN16QOAuth1Signature14addRequestBodyERK9QUrlQuery": [
@@ -47,6 +58,14 @@
     "ritual_ZNK16QOAuth1Signature9plainTextEv": ["address", "address"],
     "ritual_ZN16QOAuth1Signature9plainTextERK7QStringS2_": [
       "address", "text", "text"
+    ],
+    "ritual_ZN16QOAuth1Signature4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QOAuth1SignatureaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QOAuth1SignatureaSEOS_": ["address", "address", "address"],
+    "ritual_drop_QOAuth1Signature__QMultiMap_QString_QVariant": [
+      "nothing", "address"
     ]
   }
 }

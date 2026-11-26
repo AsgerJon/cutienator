@@ -8,6 +8,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
+#include <QtRemoteObjects/QIOQnxSource>
 
 //  A QQnxNativeServer that Python can take functions over in. Every QQnxNativeServer
 //  Python makes is one. Each function below asks the Python
@@ -183,6 +185,25 @@ const QMetaObject *ritual_ZNK16QQnxNativeServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQnxNativeServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQnxNativeServer11qt_metacastEPKc(
+    QQnxNativeServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQnxNativeServer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQnxNativeServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQnxNativeServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQnxNativeServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQnxNativeServer2trEPKcS1_i(
@@ -190,6 +211,26 @@ QString *ritual_ZN16QQnxNativeServer2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQnxNativeServer::tr(s, c, n));
+}
+
+//  QQnxNativeServerPrivate *QQnxNativeServer::d_func()
+extern "C" Q_DECL_EXPORT
+QQnxNativeServerPrivate *ritual_ZN16QQnxNativeServer6d_funcEv(
+    QQnxNativeServer *self) {
+  return self->d_func();
+}
+
+//  const QQnxNativeServerPrivate *QQnxNativeServer::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQnxNativeServerPrivate *ritual_ZNK16QQnxNativeServer6d_funcEv(
+    const QQnxNativeServer *self) {
+  return self->d_func();
+}
+
+//  void QQnxNativeServer::newConnection()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQnxNativeServer13newConnectionEv(QQnxNativeServer *self) {
+  self->newConnection();
 }
 
 //  QQnxNativeServer::QQnxNativeServer(QObject *parent)
@@ -232,6 +273,13 @@ bool ritual_ZN16QQnxNativeServer6listenERK7QString(
   return self->listen(*name);
 }
 
+//  QSharedPointer<QIOQnxSource> QQnxNativeServer::nextPendingConnection()
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QIOQnxSource> *ritual_ZN16QQnxNativeServer21nextPendingConnectionEv(
+    QQnxNativeServer *self) {
+  return new QSharedPointer<QIOQnxSource>(self->nextPendingConnection());
+}
+
 //  QString QQnxNativeServer::serverName() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK16QQnxNativeServer10serverNameEv(
@@ -262,6 +310,13 @@ bool ritual_take_QQnxNativeServer(
     const char *key,
     void *call) {
   return static_cast<CuteQQnxNativeServer *>(self)->take(key, call);
+}
+
+//  a QSharedPointer<QIOQnxSource> a ritual of QQnxNativeServer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQnxNativeServer__QSharedPointer_QIOQnxSource(
+    QSharedPointer<QIOQnxSource> *self) {
+  delete self;
 }
 
 #endif  // defined(Q_OS_QNX)

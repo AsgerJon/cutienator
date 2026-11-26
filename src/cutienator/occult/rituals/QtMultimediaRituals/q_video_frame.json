@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtMultimedia/qvideoframe.h, Qt 6.12.0. Changes made here are lost."
+    "QtMultimedia/qvideoframe.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZN11QVideoFrameC1Ev": ["address"],
@@ -9,6 +10,10 @@
     "ritual_ZN11QVideoFrameC1ERK6QImage": ["address", "address"],
     "ritual_ZN11QVideoFrameC1ERKS_": ["address", "address"],
     "ritual_ZN11QVideoFrameD1Ev": ["nothing", "address"],
+    "ritual_ZN11QVideoFrameC1EOS_": ["address", "address"],
+    "ritual_ZN11QVideoFrameaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QVideoFrame4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN11QVideoFrameaSERKS_": ["address", "address", "address"],
     "ritual_ZNK11QVideoFrameeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK11QVideoFrameneERKS_": ["bool", "address", "address"],
     "ritual_ZNK11QVideoFrame7isValidEv": ["bool", "address"],
@@ -25,6 +30,7 @@
     "ritual_ZN11QVideoFrame3mapENS_7MapModeE": ["bool", "address", "int"],
     "ritual_ZN11QVideoFrame5unmapEv": ["nothing", "address"],
     "ritual_ZNK11QVideoFrame12bytesPerLineEi": ["int", "address", "int"],
+    "ritual_ZNK11QVideoFrame4bitsEi": ["address", "address", "int"],
     "ritual_ZNK11QVideoFrame11mappedBytesEi": ["int", "address", "int"],
     "ritual_ZNK11QVideoFrame10planeCountEv": ["int", "address"],
     "ritual_ZNK11QVideoFrame9startTimeEv": ["long long", "address"],
@@ -60,6 +66,7 @@
     "ritual_ZN11QVideoFrameC1EP20QAbstractVideoBufferRK17QVideoFrameFormat": [
       "address", "address", "address"
     ],
-    "ritual_ZNK11QVideoFrame11videoBufferEv": ["address", "address"]
+    "ritual_ZNK11QVideoFrame11videoBufferEv": ["address", "address"],
+    "ritual_ZN11QVideoFrame4bitsEi": ["address", "address", "int"]
   }
 }

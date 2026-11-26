@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV49MarkStackC1EPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
     "ritual_ZN3QV49MarkStackD1Ev": ["nothing", "address"],
     "ritual_ZN3QV49MarkStack4pushEPNS_4Heap4BaseE": [
       "nothing", "address", "address"
@@ -14,6 +17,13 @@
       "long long", "address"
     ],
     "ritual_ZNK3QV49MarkStack6engineEv": ["address", "address"],
+    "ritual_ZN3QV49MarkStack5drainEv": ["nothing", "address"],
+    "ritual_ZN3QV49MarkStack5drainE14QDeadlineTimer": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN3QV49MarkStack12setSoftLimitEm": [
+      "nothing", "address", "size_t"
+    ],
     "ritual_ZN3QV49MarkStack3popEv": ["address", "address"]
   }
 }

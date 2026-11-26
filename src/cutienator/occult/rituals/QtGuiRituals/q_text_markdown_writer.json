@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QTextMarkdownWriterC1ER11QTextStream6QFlagsIN13QTextDocument15MarkdownFeatureEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN19QTextMarkdownWriter8writeAllEPK13QTextDocument": [
       "bool", "address", "address"
     ],
@@ -20,9 +23,15 @@
     "ritual_ZN19QTextMarkdownWriter16writeFrontMatterERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN19QTextMarkdownWriter8listInfoEP9QTextList": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QTextMarkdownWriter26setLinePrefixForBlockQuoteEi": [
       "nothing", "address", "int"
     ],
-    "ritual_ZN19QTextMarkdownWriterD1Ev": ["nothing", "address"]
+    "ritual_ZN19QTextMarkdownWriterD1Ev": ["nothing", "address"],
+    "ritual_drop_QTextMarkdownWriter__QTextMarkdownWriter_ListInfo": [
+      "nothing", "address"
+    ]
   }
 }

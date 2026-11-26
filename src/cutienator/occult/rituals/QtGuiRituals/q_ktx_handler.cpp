@@ -5,9 +5,15 @@
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qktxhandler_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qtexturefiledata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <optional>
+#include <QtCore/QMap>
+#include <QtCore/QByteArray>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qktxhandler_p.h>
 #include <QtGui/private/qtexturefiledata_p.h>
@@ -29,6 +35,30 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/gui/util/qktxhandler.cpp, line 23, as local:qktxhandler.cpp:KTX_IDENTIFIER_LENGTH
+#define KTX_IDENTIFIER_LENGTH 12
+
+//  from src/gui/util/qktxhandler.cpp, line 24, as local:qktxhandler.cpp:ktxIdentifier
+static const char ktxIdentifier[KTX_IDENTIFIER_LENGTH] = { '\xAB', 'K', 'T', 'X', ' ', '1', '1', '\xBB', '\r', '\n', '\x1A', '\n' };
+
+//  from src/gui/util/qktxhandler.cpp, line 87, as local:qktxhandler.cpp:safeView
+static QByteArrayView safeView(QByteArrayView view, quint32 start, quint32 length)
+{
+    quint32 end = 0;
+    if (qAddOverflow(start, length, &end) || end > quint32(view.length()))
+        return {};
+    return view.sliced(start, length);
+}
+
+//  from src/gui/util/qktxhandler.cpp, line 97, as _ZN11QKtxHandler7canReadERK10QByteArrayS2_
+inline bool QKtxHandler::canRead(const QByteArray &suffix, const QByteArray &block)
+{
+    Q_UNUSED(suffix);
+    return block.startsWith(ktxIdentifier);
+}
+
 //  from src/gui/util/qktxhandler.cpp, line 352, as _ZNK11QKtxHandler6decodeEj
 inline quint32 QKtxHandler::decode(quint32 val) const
 {
@@ -43,7 +73,7 @@ typedef const QTextureFileData * (*CuteQKtxHandlerCall0)(const void *, int *);
 class CuteQKtxHandler : public QKtxHandler {
 public:
   using QKtxHandler::QKtxHandler;
-  CuteQKtxHandler(const QKtxHandler &other) : QKtxHandler(other) {}
+  CuteQKtxHandler(const QKtxHandler & other) : QKtxHandler(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -66,6 +96,27 @@ public:
   }
 };
 
+//  QKtxHandler::~QKtxHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QKtxHandlerD1Ev(QKtxHandler *self) {
+  delete self;
+}
+
+//  bool QKtxHandler::canRead(const QByteArray &suffix, const QByteArray
+//      &block)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QKtxHandler7canReadERK10QByteArrayS2_(
+    const QByteArray *suffix,
+    const QByteArray *block) {
+  return QKtxHandler::canRead(*suffix, *block);
+}
+
+//  QTextureFileData QKtxHandler::read()
+extern "C" Q_DECL_EXPORT
+QTextureFileData *ritual_ZN11QKtxHandler4readEv(QKtxHandler *self) {
+  return new QTextureFileData(self->read());
+}
+
 //  quint32 QKtxHandler::decode(quint32 val) const
 extern "C" Q_DECL_EXPORT
 quint32 ritual_ZNK11QKtxHandler6decodeEj(
@@ -82,4 +133,12 @@ bool ritual_take_QKtxHandler(
     const char *key,
     void *call) {
   return static_cast<CuteQKtxHandler *>(self)->take(key, call);
+}
+
+//  a std::optional<QMap<QByteArray, QByteArray>> a ritual of QKtxHandler
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QKtxHandler__std_optional_QMap_QByteArray_QByteArray(
+    std::optional<QMap<QByteArray, QByteArray>> *self) {
+  delete self;
 }

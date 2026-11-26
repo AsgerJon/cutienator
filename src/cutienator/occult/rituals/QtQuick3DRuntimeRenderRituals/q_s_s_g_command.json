@@ -8,6 +8,9 @@
     "ritual_ZN11QSSGCommandC1E11CommandType": ["address", "int"],
     "ritual_ZN11QSSGCommandD1Ev": ["nothing", "address"],
     "ritual_ZNK11QSSGCommand12typeAsStringEv": ["chars", "address"],
-    "ritual_ZNK11QSSGCommand11debugStringEv": ["text", "address"]
+    "ritual_ZNK11QSSGCommand11debugStringEv": ["text", "address"],
+    "ritual_ZNK11QSSGCommand8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ]
   }
 }

@@ -14,6 +14,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuickStochasticEngine that Python can take functions over in. Every QQuickStochasticEngine
 //  Python makes is one. Each function below asks the Python
@@ -233,6 +234,25 @@ const QMetaObject *ritual_ZNK22QQuickStochasticEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStochasticEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickStochasticEngine11qt_metacastEPKc(
+    QQuickStochasticEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStochasticEngine::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickStochasticEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStochasticEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStochasticEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickStochasticEngine2trEPKcS1_i(
@@ -262,6 +282,13 @@ QQuickStochasticEngine *ritual_ZN22QQuickStochasticEngineC1ERK5QListIP21QQuickSt
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickStochasticEngineD1Ev(QQuickStochasticEngine *self) {
   delete self;
+}
+
+//  QQmlListProperty<QQuickStochasticState> QQuickStochasticEngine::states()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickStochasticState> *ritual_ZN22QQuickStochasticEngine6statesEv(
+    QQuickStochasticEngine *self) {
+  return new QQmlListProperty<QQuickStochasticState>(self->states());
 }
 
 //  QString QQuickStochasticEngine::globalGoal() const
@@ -368,6 +395,22 @@ int ritual_ZN22QQuickStochasticEngine10stateCountEv(
   return self->stateCount();
 }
 
+//  void QQuickStochasticEngine::globalGoalChanged(const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickStochasticEngine17globalGoalChangedERK7QString(
+    QQuickStochasticEngine *self,
+    const QString *arg) {
+  self->globalGoalChanged(*arg);
+}
+
+//  void QQuickStochasticEngine::stateChanged(int idx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickStochasticEngine12stateChangedEi(
+    QQuickStochasticEngine *self,
+    int idx) {
+  self->stateChanged(idx);
+}
+
 //  void QQuickStochasticEngine::setGlobalGoal(const QString &arg)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickStochasticEngine13setGlobalGoalERK7QString(
@@ -436,6 +479,14 @@ void ritual_own_ZN22QQuickStochasticEngine7advanceEi(
     QQuickStochasticEngine *self,
     int index) {
   self->QQuickStochasticEngine::advance(index);
+}
+
+//  a QQmlListProperty<QQuickStochasticState> a ritual of
+//      QQuickStochasticEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickStochasticEngine__QQmlListProperty_QQuickStochasticState(
+    QQmlListProperty<QQuickStochasticState> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_sprite)

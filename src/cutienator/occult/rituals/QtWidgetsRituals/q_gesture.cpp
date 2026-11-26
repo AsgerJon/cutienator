@@ -182,6 +182,22 @@ const QMetaObject *ritual_ZNK8QGesture10metaObjectEv(const QGesture *self) {
   return self->metaObject();
 }
 
+//  void *QGesture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QGesture11qt_metacastEPKc(QGesture *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGesture::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QGesture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGesture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGesture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QGesture2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -263,6 +279,14 @@ extern "C" Q_DECL_EXPORT
 QGesture::GestureCancelPolicy ritual_ZNK8QGesture19gestureCancelPolicyEv(
     const QGesture *self) {
   return self->gestureCancelPolicy();
+}
+
+//  QGesture::QGesture(QGesturePrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGesture *ritual_ZN8QGestureC1ER15QGesturePrivateP7QObject(
+    QGesturePrivate *dd,
+    QObject *parent) {
+  return new CuteQGesture(*dd, parent);
 }
 
 //  a Python function taken by a CuteQGesture, for the function named by the

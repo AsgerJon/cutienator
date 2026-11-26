@@ -37,10 +37,38 @@ QSqlQuery *ritual_ZN9QSqlQueryC1ERKS_(const QSqlQuery *other) {
 }
 #endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 2)
 
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 2)
+//  QSqlQuery &QSqlQuery::operator=(const QSqlQuery &other)
+extern "C" Q_DECL_EXPORT
+QSqlQuery *ritual_ZN9QSqlQueryaSERKS_(
+    QSqlQuery *self,
+    const QSqlQuery *other) {
+  return &(self->operator=(*other));
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 2)
+
+//  QSqlQuery::QSqlQuery(QSqlQuery &&other)
+extern "C" Q_DECL_EXPORT
+QSqlQuery *ritual_ZN9QSqlQueryC1EOS_(QSqlQuery *other) {
+  return new QSqlQuery(std::move(*other));
+}
+
+//  QSqlQuery &QSqlQuery::operator=(QSqlQuery &&other)
+extern "C" Q_DECL_EXPORT
+QSqlQuery *ritual_ZN9QSqlQueryaSEOS_(QSqlQuery *self, QSqlQuery *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QSqlQuery::~QSqlQuery()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QSqlQueryD1Ev(QSqlQuery *self) {
   delete self;
+}
+
+//  void QSqlQuery::swap(QSqlQuery &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSqlQuery4swapERS_(QSqlQuery *self, QSqlQuery *other) {
+  self->swap(*other);
 }
 
 //  bool QSqlQuery::isValid() const

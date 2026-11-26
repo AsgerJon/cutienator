@@ -23,6 +23,30 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 1613, as _ZN17UserExtensionPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData
+inline void UserExtensionPass::renderPrep(QSSGRenderer &renderer, QSSGLayerRenderData &data)
+{
+    Q_UNUSED(renderer);
+    auto &frameData = data.getFrameData();
+    for (const auto &p : std::as_const(extensions)) {
+        p->prepareRender(frameData);
+        if (p->mode() == QSSGRenderExtension::RenderMode::Standalone)
+            p->render(frameData);
+    }
+}
+
+//  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 1624, as _ZN17UserExtensionPass10renderPassER12QSSGRenderer
+inline void UserExtensionPass::renderPass(QSSGRenderer &renderer)
+{
+    auto *data = QSSGLayerRenderData::getCurrent(renderer);
+    QSSG_ASSERT(data, return);
+    auto &frameData = data->getFrameData();
+    for (const auto &p : std::as_const(extensions)) {
+        if (p->mode() == QSSGRenderExtension::RenderMode::Main)
+            p->render(frameData);
+    }
+}
+
 //  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 1635, as _ZN17UserExtensionPass13resetForFrameEv
 inline void UserExtensionPass::resetForFrame()
 {
@@ -33,6 +57,24 @@ inline void UserExtensionPass::resetForFrame()
     extensions.clear();
 }
 //  -----------------------------------------------------------------------
+
+//  void UserExtensionPass::renderPrep(QSSGRenderer &renderer,
+//      QSSGLayerRenderData &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17UserExtensionPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData(
+    UserExtensionPass *self,
+    QSSGRenderer *renderer,
+    QSSGLayerRenderData *data) {
+  self->renderPrep(*renderer, *data);
+}
+
+//  void UserExtensionPass::renderPass(QSSGRenderer &renderer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17UserExtensionPass10renderPassER12QSSGRenderer(
+    UserExtensionPass *self,
+    QSSGRenderer *renderer) {
+  self->renderPass(*renderer);
+}
 
 //  Type UserExtensionPass::passType() const
 extern "C" Q_DECL_EXPORT

@@ -22,6 +22,15 @@ QSupportedWritingSystems *ritual_ZN24QSupportedWritingSystemsC1ERKS_(
   return new QSupportedWritingSystems(*other);
 }
 
+//  QSupportedWritingSystems &QSupportedWritingSystems::operator=(const
+//      QSupportedWritingSystems &other)
+extern "C" Q_DECL_EXPORT
+QSupportedWritingSystems *ritual_ZN24QSupportedWritingSystemsaSERKS_(
+    QSupportedWritingSystems *self,
+    const QSupportedWritingSystems *other) {
+  return &(self->operator=(*other));
+}
+
 //  QSupportedWritingSystems::~QSupportedWritingSystems()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QSupportedWritingSystemsD1Ev(

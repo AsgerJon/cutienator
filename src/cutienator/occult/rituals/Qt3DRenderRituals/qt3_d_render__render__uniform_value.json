@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/uniform_p.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1Ei": ["address", "int"],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1Ej": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1Ef": ["address", "float"],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1Ed": ["address", "double"],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1Eb": ["address", "bool"],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1ERK9QVector2D": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1ERK9QVector3D": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1ERKN8Qt3DCore12Vector3D_SSEE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1ERK9QVector4D": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1ERKN8Qt3DCore12Vector4D_SSEE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1ERK14QGenericMatrixILi3ELi3EfE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1ERK10QMatrix4x4": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1ERKN8Qt3DCore13Matrix4x4_SSEE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1EiNS1_9ValueTypeE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueC1EN8Qt3DCore7QNodeIdE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12UniformValue9valueTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12UniformValue10storedTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12UniformValue8byteSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12UniformValue12elementCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12UniformValue15elementByteSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12UniformValueeqERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12UniformValueneERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValueD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender6Render12UniformValue9constDataIfEEPKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValue4dataIfEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12UniformValue9constDataIiEEPKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValue4dataIiEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12UniformValue9constDataIjEEPKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12UniformValue4dataIjEEPT_v": [
+      "address", "address"
+    ]
+  }
+}

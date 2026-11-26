@@ -6,7 +6,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DQuick/6.12.0/Qt3DQuick/private/qt3dquickvaluetypes_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/QtQml>
+#include <QtQml/qjsvalue.h>
+#include <QtCore/qvariant.h>
 #include <QtGui/qvectornd.h>
+#include <QtGui/qmatrix4x4.h>
 
 //  void Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::qt_qmlMarker_foreign()
 extern "C" Q_DECL_EXPORT
@@ -20,6 +24,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType21qt_qmlMarker_extendedEv(
     Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self) {
   self->qt_qmlMarker_extended();
+}
+
+//  QVariant Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::create(const
+//      QJSValue &params)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType6createERK8QJSValue(
+    const QJSValue *params) {
+  return new QVariant(
+      Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::create(
+          *params));
 }
 
 //  qreal Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::m11() const
@@ -318,6 +332,118 @@ void ritual_ZN8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType6lookAtERK9QVector3DS4_
     const QVector3D *center,
     const QVector3D *up) {
   self->lookAt(*eye, *center, *up);
+}
+
+//  QMatrix4x4 Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::times(const
+//      QMatrix4x4 &m) const
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType5timesERK10QMatrix4x4(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    const QMatrix4x4 *m) {
+  return new QMatrix4x4(self->times(*m));
+}
+
+//  QVector4D Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::times(const
+//      QVector4D &vec) const
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType5timesERK9QVector4D(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    const QVector4D *vec) {
+  return new QVector4D(self->times(*vec));
+}
+
+//  QVector3D Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::times(const
+//      QVector3D &vec) const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType5timesERK9QVector3D(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    const QVector3D *vec) {
+  return new QVector3D(self->times(*vec));
+}
+
+//  QMatrix4x4 Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::times(qreal
+//      factor) const
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType5timesEd(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    qreal factor) {
+  return new QMatrix4x4(self->times(factor));
+}
+
+//  QMatrix4x4 Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::plus(const
+//      QMatrix4x4 &m) const
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType4plusERK10QMatrix4x4(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    const QMatrix4x4 *m) {
+  return new QMatrix4x4(self->plus(*m));
+}
+
+//  QMatrix4x4 Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::minus(const
+//      QMatrix4x4 &m) const
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType5minusERK10QMatrix4x4(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    const QMatrix4x4 *m) {
+  return new QMatrix4x4(self->minus(*m));
+}
+
+//  QVector4D Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::row(int n) const
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType3rowEi(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    int n) {
+  return new QVector4D(self->row(n));
+}
+
+//  QVector4D Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::column(int m)
+//      const
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType6columnEi(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    int m) {
+  return new QVector4D(self->column(m));
+}
+
+//  qreal Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::determinant() const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType11determinantEv(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self) {
+  return self->determinant();
+}
+
+//  QMatrix4x4 Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::inverted() const
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType8invertedEv(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self) {
+  return new QMatrix4x4(self->inverted());
+}
+
+//  QMatrix4x4 Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::transposed()
+//      const
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType10transposedEv(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self) {
+  return new QMatrix4x4(self->transposed());
+}
+
+//  bool Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::fuzzyEquals(const
+//      QMatrix4x4 &m, qreal epsilon) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType11fuzzyEqualsERK10QMatrix4x4d(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    const QMatrix4x4 *m,
+    qreal epsilon) {
+  return self->fuzzyEquals(*m, epsilon);
+}
+
+//  bool Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::fuzzyEquals(const
+//      QMatrix4x4 &m) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore5Quick26QQuick3DMatrix4x4ValueType11fuzzyEqualsERK10QMatrix4x4(
+    const Qt3DCore::Quick::QQuick3DMatrix4x4ValueType *self,
+    const QMatrix4x4 *m) {
+  return self->fuzzyEquals(*m);
 }
 
 //  Qt3DCore::Quick::QQuick3DMatrix4x4ValueType::~QQuick3DMatrix4x4ValueType(

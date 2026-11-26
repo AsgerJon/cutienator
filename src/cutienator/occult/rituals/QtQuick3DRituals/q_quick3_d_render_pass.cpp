@@ -11,6 +11,7 @@
 #include <QtCore/qurl.h>
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qmetaobject.h>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuick3DRenderPass may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -27,6 +28,25 @@ const QMetaObject *ritual_ZNK18QQuick3DRenderPass10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DRenderPass::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuick3DRenderPass11qt_metacastEPKc(
+    QQuick3DRenderPass *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DRenderPass::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuick3DRenderPass11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DRenderPass *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DRenderPass::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuick3DRenderPass2trEPKcS1_i(
@@ -41,6 +61,15 @@ extern "C" Q_DECL_EXPORT
 QQuick3DRenderPass *ritual_ZN18QQuick3DRenderPassC1EP14QQuick3DObject(
     QQuick3DObject *parent) {
   return new QQuick3DRenderPass(parent);
+}
+
+//  QQmlListProperty<QQuick3DShaderUtilsRenderCommand>
+//      QQuick3DRenderPass::commands()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *ritual_ZN18QQuick3DRenderPass8commandsEv(
+    QQuick3DRenderPass *self) {
+  return new QQmlListProperty<QQuick3DShaderUtilsRenderCommand>(
+      self->commands());
 }
 
 //  QColor QQuick3DRenderPass::clearColor() const
@@ -174,6 +203,69 @@ void ritual_ZN18QQuick3DRenderPass20setRenderTargetFlagsE6QFlagsINS_16RenderTarg
       QFlags<QQuick3DRenderPass::RenderTargetFlag>::fromInt(newRenderTargetFlags));
 }
 
+//  void QQuick3DRenderPass::outputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass13outputChangedEv(
+    QQuick3DRenderPass *self) {
+  self->outputChanged();
+}
+
+//  void QQuick3DRenderPass::materialModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass19materialModeChangedEv(
+    QQuick3DRenderPass *self) {
+  self->materialModeChanged();
+}
+
+//  void QQuick3DRenderPass::clearColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass17clearColorChangedEv(
+    QQuick3DRenderPass *self) {
+  self->clearColorChanged();
+}
+
+//  void QQuick3DRenderPass::overrideMaterialChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass23overrideMaterialChangedEv(
+    QQuick3DRenderPass *self) {
+  self->overrideMaterialChanged();
+}
+
+//  void QQuick3DRenderPass::augmentShaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass20augmentShaderChangedEv(
+    QQuick3DRenderPass *self) {
+  self->augmentShaderChanged();
+}
+
+//  void QQuick3DRenderPass::passModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass15passModeChangedEv(
+    QQuick3DRenderPass *self) {
+  self->passModeChanged();
+}
+
+//  void QQuick3DRenderPass::depthClearValueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass22depthClearValueChangedEv(
+    QQuick3DRenderPass *self) {
+  self->depthClearValueChanged();
+}
+
+//  void QQuick3DRenderPass::stencilClearValueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass24stencilClearValueChangedEv(
+    QQuick3DRenderPass *self) {
+  self->stencilClearValueChanged();
+}
+
+//  void QQuick3DRenderPass::renderTargetFlagsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass24renderTargetFlagsChangedEv(
+    QQuick3DRenderPass *self) {
+  self->renderTargetFlagsChanged();
+}
+
 //  QSSGRenderGraphObject
 //      *QQuick3DRenderPass::updateSpatialNode(QSSGRenderGraphObject *node)
 extern "C" Q_DECL_EXPORT
@@ -216,6 +308,40 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuick3DRenderPass16onCommandChangedEv(
     QQuick3DRenderPass *self) {
   self->onCommandChanged();
+}
+
+//  void QQuick3DRenderPass::qmlAppendCommand(QQmlListProperty<QQuick3DShader
+//      UtilsRenderCommand> *list, QQuick3DShaderUtilsRenderCommand *command)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass16qmlAppendCommandEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandEPS1_(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *list,
+    QQuick3DShaderUtilsRenderCommand *command) {
+  QQuick3DRenderPass::qmlAppendCommand(list, command);
+}
+
+//  QQuick3DShaderUtilsRenderCommand *QQuick3DRenderPass::qmlCommandAt(QQmlLi
+//      stProperty<QQuick3DShaderUtilsRenderCommand> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DShaderUtilsRenderCommand *ritual_ZN18QQuick3DRenderPass12qmlCommandAtEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandEx(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *list,
+    qsizetype index) {
+  return QQuick3DRenderPass::qmlCommandAt(list, index);
+}
+
+//  qsizetype QQuick3DRenderPass::qmlCommandCount(QQmlListProperty<QQuick3DSh
+//      aderUtilsRenderCommand> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN18QQuick3DRenderPass15qmlCommandCountEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandE(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *list) {
+  return QQuick3DRenderPass::qmlCommandCount(list);
+}
+
+//  void QQuick3DRenderPass::qmlCommandClear(QQmlListProperty<QQuick3DShaderU
+//      tilsRenderCommand> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuick3DRenderPass15qmlCommandClearEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandE(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *list) {
+  QQuick3DRenderPass::qmlCommandClear(list);
 }
 
 //  void QQuick3DRenderPass::updateSceneManager(QQuick3DSceneManager
@@ -291,4 +417,12 @@ void ritual_own_ZN18QQuick3DRenderPass24markTrackedPropertyDirtyE13QMetaProperty
   static_cast<OwnQQuick3DRenderPass *>(self)->OwnQQuick3DRenderPass::markTrackedPropertyDirty(
       *property,
       hint);
+}
+
+//  a QQmlListProperty<QQuick3DShaderUtilsRenderCommand> a ritual of
+//      QQuick3DRenderPass gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DRenderPass__QQmlListProperty_QQuick3DShaderUtilsRenderCommand(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *self) {
+  delete self;
 }

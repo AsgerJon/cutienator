@@ -7,6 +7,7 @@
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvasgradient_p.h>
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcpaint_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasgradient.h>
@@ -24,6 +25,9 @@
 #include <limits>
 #include <QtGui/private/qtguiglobal_p.h> // for qpixellayout_p.h's QT_CONFIG(raster_fp) check
 #include <QtGui/private/qpixellayout_p.h>
+#include <QtCanvasPainter/qcanvasboxgradient.h>
+#include <QtCanvasPainter/private/qcanvasgradient_p.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -32,6 +36,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxgradient.cpp, line 54, as local:qcanvasboxgradient.cpp:DECONST
+#define DECONST(d) const_cast<QCanvasBoxGradientBrushPrivate *>(d)
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasgradient.cpp, line 66, as local:qcanvasgradient.cpp:QCPAINTER_GRADIENT_SIZE
+#define QCPAINTER_GRADIENT_SIZE 256
 
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvasgradient.cpp, line 549, as _ZN27QCanvasGradientBrushPrivateC2EN12QCanvasBrush9BrushTypeE
 inline QCanvasGradientBrushPrivate::QCanvasGradientBrushPrivate(QCanvasBrush::BrushType type)
@@ -56,6 +66,65 @@ inline bool QCanvasGradientBrushPrivate::equals(const QCanvasBrushPrivate &other
            && imageId == pd.imageId
            && imageY == pd.imageY;
 }
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxgradient.cpp, line 185, as _ZNK30QCanvasBoxGradientBrushPrivate11createPaintEP14QCanvasPainter
+inline QCPaint QCanvasBoxGradientBrushPrivate::createPaint(QCanvasPainter *painter) const
+{
+    auto *d = this;
+    if (d->dirty) {
+        if (d->gradientStops.size() == 0) {
+            QColor icol = { 0, 0, 0, 0 };
+            QColor ocol = { 0, 0, 0, 0 };
+            // Note: Without stops, custom image might be used.
+            createBoxGradient(icol, ocol, d->imageId);
+        } else if (d->gradientStops.size() == 1) {
+            QColor c = d->gradientStops.first().color;
+            createBoxGradient(c, c, 0);
+        } else if (d->gradientStops.size() == 2) {
+            QColor ic = d->gradientStops.first().color;
+            QColor oc = d->gradientStops.last().color;
+            createBoxGradient(ic, oc, 0);
+        } else {
+            DECONST(d)->updateGradientTexture(painter);
+            QColor col = { 255, 255, 255, 255 };
+            createBoxGradient(col, col, d->textureId);
+        }
+        DECONST(d)->dirty = {};
+    }
+    if (d->paint.imageId > 0) {
+        auto *painterPriv = QCanvasPainterPrivate::get(painter);
+        painterPriv->markTextureIdUsed(d->paint.imageId);
+    }
+    return d->paint;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxgradient.cpp, line 215, as _ZNK30QCanvasBoxGradientBrushPrivate17createBoxGradientE6QColorS0_i
+inline void QCanvasBoxGradientBrushPrivate::createBoxGradient(QColor iColor, QColor oColor,
+                                      int imageId) const
+{
+    auto *d = this;
+    const auto dd = d->data.box;
+    QCPaint &p = DECONST(d)->paint;
+    p.brushType = BrushBoxGradient;
+    p.transform = QTransform::fromTranslate(dd.x + (dd.width * 0.5), dd.y + (dd.height * 0.5));
+
+    p.extent[0] = float(dd.width * 0.5);
+    p.extent[1] = float(dd.height * 0.5);
+
+    p.radius = float(qMin(dd.radius, qMin(dd.width, dd.height) * 0.5));
+    constexpr qreal small = 0.0001;
+    p.feather = float(qMax(small, dd.feather));
+    if (imageId != 0) {
+        // Multistop gradient
+        p.imageId = imageId;
+        p.innerColor.a = float(d->imageY);
+    } else {
+        // 2 stops gradient
+        p.innerColor = { iColor.redF(), iColor.greenF(), iColor.blueF(), iColor.alphaF() };
+        p.outerColor = { oColor.redF(), oColor.greenF(), oColor.blueF(), oColor.alphaF() };
+        p.imageId = 0;
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  A QCanvasBoxGradientBrushPrivate that Python can take functions over in. Every QCanvasBoxGradientBrushPrivate
@@ -66,7 +135,7 @@ typedef void * (*CuteQCanvasBoxGradientBrushPrivateCall1)(const void *, int *);
 class CuteQCanvasBoxGradientBrushPrivate : public QCanvasBoxGradientBrushPrivate {
 public:
   using QCanvasBoxGradientBrushPrivate::QCanvasBoxGradientBrushPrivate;
-  CuteQCanvasBoxGradientBrushPrivate(const QCanvasBoxGradientBrushPrivate &other) : QCanvasBoxGradientBrushPrivate(other) {}
+  CuteQCanvasBoxGradientBrushPrivate(const QCanvasBoxGradientBrushPrivate & other) : QCanvasBoxGradientBrushPrivate(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -104,6 +173,26 @@ public:
     return QCanvasBoxGradientBrushPrivate::clone();
   }
 };
+
+//  QCPaint QCanvasBoxGradientBrushPrivate::createPaint(QCanvasPainter
+//      *painter) const
+extern "C" Q_DECL_EXPORT
+QCPaint *ritual_ZNK30QCanvasBoxGradientBrushPrivate11createPaintEP14QCanvasPainter(
+    const QCanvasBoxGradientBrushPrivate *self,
+    QCanvasPainter *painter) {
+  return new QCPaint(self->createPaint(painter));
+}
+
+//  void QCanvasBoxGradientBrushPrivate::createBoxGradient(QColor iColor,
+//      QColor oColor, int imageId) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK30QCanvasBoxGradientBrushPrivate17createBoxGradientE6QColorS0_i(
+    const QCanvasBoxGradientBrushPrivate *self,
+    const QColor *iColor,
+    const QColor *oColor,
+    int imageId) {
+  self->createBoxGradient(*iColor, *oColor, imageId);
+}
 
 //  QCanvasBrushPrivate *QCanvasBoxGradientBrushPrivate::clone()
 extern "C" Q_DECL_EXPORT

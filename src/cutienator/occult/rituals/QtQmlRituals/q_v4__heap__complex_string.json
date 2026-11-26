@@ -5,5 +5,11 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap13ComplexString4initEPNS0_6StringES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap13ComplexString4initEPNS0_6StringEii": [
+      "nothing", "address", "address", "int", "int"
+    ]
   }
 }

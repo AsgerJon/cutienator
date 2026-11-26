@@ -15,6 +15,7 @@ typedef void (*CuteQKeyEventCall2)(const void *, bool, int *);
 class CuteQKeyEvent : public QKeyEvent {
 public:
   using QKeyEvent::QKeyEvent;
+  CuteQKeyEvent(const QKeyEvent & other) : QKeyEvent(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -66,6 +67,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QKeyEvent::QKeyEvent(const QKeyEvent &a0)
+extern "C" Q_DECL_EXPORT
+QKeyEvent *ritual_ZN9QKeyEventC1ERKS_(const QKeyEvent *a0) {
+  return new CuteQKeyEvent(*a0);
+}
+
+//  QKeyEvent &QKeyEvent::operator=(const QKeyEvent &other)
+extern "C" Q_DECL_EXPORT
+QKeyEvent *ritual_ZN9QKeyEventaSERKS_(
+    QKeyEvent *self,
+    const QKeyEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QKeyEvent *QKeyEvent::clone() const
 extern "C" Q_DECL_EXPORT

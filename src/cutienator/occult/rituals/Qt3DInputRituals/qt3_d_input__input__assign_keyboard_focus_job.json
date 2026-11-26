@@ -1,9 +1,10 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DInput/6.12.0/Qt3DInput/private/assignkeyboardfocusjob_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "Qt3DInput/6.12.0/Qt3DInput/private/assignkeyboardfocusjob_p.h,",
+    "Qt 6.12.0, from Qt's source."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input22AssignKeyboardFocusJob3runEv": ["nothing", "address"]
   }
 }

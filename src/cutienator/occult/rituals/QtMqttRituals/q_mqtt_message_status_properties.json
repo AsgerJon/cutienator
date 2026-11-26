@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN28QMqttMessageStatusPropertiesC1Ev": ["address"],
     "ritual_ZN28QMqttMessageStatusPropertiesC1ERKS_": ["address", "address"],
+    "ritual_ZN28QMqttMessageStatusPropertiesaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN28QMqttMessageStatusPropertiesD1Ev": ["nothing", "address"],
     "ritual_ZNK28QMqttMessageStatusProperties10reasonCodeEv": [
       "unsigned char", "address"

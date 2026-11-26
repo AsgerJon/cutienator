@@ -12,8 +12,35 @@
 #include <QtDBus/qdbusextratypes.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
+#include <QtDBus/QDBusPendingReply>
+#include <QtCore/QByteArray>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QVariant>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtBluetooth/private/gattdesc1_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtconnectivity/src/bluetooth/bluez/gattdesc1.cpp, line 25, as _ZN18QtBluetoothPrivate32OrgBluezGattDescriptor1InterfaceD1Ev
+namespace QtBluetoothPrivate {
+inline OrgBluezGattDescriptor1Interface::~OrgBluezGattDescriptor1Interface()
+{
+}
+}  // namespace QtBluetoothPrivate
+//  -----------------------------------------------------------------------
 
 //  A QtBluetoothPrivate::OrgBluezGattDescriptor1Interface that Python can take functions over in. Every QtBluetoothPrivate::OrgBluezGattDescriptor1Interface
 //  Python makes is one. Each function below asks the Python
@@ -204,11 +231,40 @@ const QMetaObject *ritual_ZNK18QtBluetoothPrivate32OrgBluezGattDescriptor1Interf
   return self->metaObject();
 }
 
+//  void
+//      *QtBluetoothPrivate::OrgBluezGattDescriptor1Interface::qt_metacast(co
+//      nst char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface11qt_metacastEPKc(
+    QtBluetoothPrivate::OrgBluezGattDescriptor1Interface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtBluetoothPrivate::OrgBluezGattDescriptor1Interface::qt_metacall(QMe
+//      taObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtBluetoothPrivate::OrgBluezGattDescriptor1Interface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const char *QtBluetoothPrivate::OrgBluezGattDescriptor1Interface::staticI
 //      nterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface19staticInterfaceNameEv() {
   return QtBluetoothPrivate::OrgBluezGattDescriptor1Interface::staticInterfaceName();
+}
+
+//  QtBluetoothPrivate::OrgBluezGattDescriptor1Interface::~OrgBluezGattDescri
+//      ptor1Interface()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate32OrgBluezGattDescriptor1InterfaceD1Ev(
+    QtBluetoothPrivate::OrgBluezGattDescriptor1Interface *self) {
+  delete self;
 }
 
 //  QDBusObjectPath
@@ -236,6 +292,27 @@ QByteArray *ritual_ZNK18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface5val
   return new QByteArray(self->value());
 }
 
+//  QDBusPendingReply<QByteArray>
+//      QtBluetoothPrivate::OrgBluezGattDescriptor1Interface::ReadValue(const
+//      QVariantMap &options)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<QByteArray> *ritual_ZN18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface9ReadValueERK4QMapI7QString8QVariantE(
+    QtBluetoothPrivate::OrgBluezGattDescriptor1Interface *self,
+    const QMap<QString, QVariant> *options) {
+  return new QDBusPendingReply<QByteArray>(self->ReadValue(*options));
+}
+
+//  QDBusPendingReply<>
+//      QtBluetoothPrivate::OrgBluezGattDescriptor1Interface::WriteValue(cons
+//      t QByteArray &value, const QVariantMap &options)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface10WriteValueERK10QByteArrayRK4QMapI7QString8QVariantE(
+    QtBluetoothPrivate::OrgBluezGattDescriptor1Interface *self,
+    const QByteArray *value,
+    const QMap<QString, QVariant> *options) {
+  return new QDBusPendingReply<>(self->WriteValue(*value, *options));
+}
+
 //  a Python function taken by a
 //      CuteQtBluetoothPrivate_OrgBluezGattDescriptor1Interface, for the
 //      function named by the key
@@ -245,6 +322,22 @@ bool ritual_take_QtBluetoothPrivate_OrgBluezGattDescriptor1Interface(
     const char *key,
     void *call) {
   return static_cast<CuteQtBluetoothPrivate_OrgBluezGattDescriptor1Interface *>(self)->take(key, call);
+}
+
+//  a QDBusPendingReply<QByteArray> a ritual of
+//      QtBluetoothPrivate::OrgBluezGattDescriptor1Interface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtBluetoothPrivate_OrgBluezGattDescriptor1Interface__QDBusPendingReply_QByteArray(
+    QDBusPendingReply<QByteArray> *self) {
+  delete self;
+}
+
+//  a QDBusPendingReply<> a ritual of
+//      QtBluetoothPrivate::OrgBluezGattDescriptor1Interface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtBluetoothPrivate_OrgBluezGattDescriptor1Interface__QDBusPendingReply(
+    QDBusPendingReply<> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(bluez)

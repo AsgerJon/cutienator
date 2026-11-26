@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuick3DRenderOutputProvider10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuick3DRenderOutputProvider11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuick3DRenderOutputProvider2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,15 @@
     ],
     "ritual_ZN28QQuick3DRenderOutputProvider21setAttachmentSelectorENS_18AttachmentSelectorE": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider20textureSourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider17renderPassChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider25attachmentSelectorChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN28QQuick3DRenderOutputProvider17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

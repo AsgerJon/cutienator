@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemscrollbar_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when"
+  ],
+  "rows": {
+    "ritual_ZNK24QQuickStyleItemScrollBar10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickStyleItemScrollBarD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QQuickStyleItemScrollBar9styleFontEP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickStyleItemScrollBar16connectToControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QQuickStyleItemScrollBar10paintEventEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickStyleItemScrollBar17calculateGeometryEv": [
+      "address", "address"
+    ]
+  }
+}

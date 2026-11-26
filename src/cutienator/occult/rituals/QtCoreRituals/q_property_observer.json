@@ -5,7 +5,15 @@
   ],
   "rows": {
     "ritual_ZN17QPropertyObserverC1Ev": ["address"],
+    "ritual_ZN17QPropertyObserverC1EOS_": ["address", "address"],
+    "ritual_ZN17QPropertyObserveraSEOS_": ["address", "address", "address"],
     "ritual_ZN17QPropertyObserverD1Ev": ["nothing", "address"],
+    "ritual_ZN17QPropertyObserver9setSourceERKN9QtPrivate20QPropertyBindingDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPropertyObserverC1EPFvPS_P20QUntypedPropertyDataE": [
+      "address", "address"
+    ],
     "ritual_ZN17QPropertyObserverC1EP20QUntypedPropertyData": [
       "address", "address"
     ],

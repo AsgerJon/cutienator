@@ -8,8 +8,56 @@
     "ritual_ZNK10Qt3DExtras5Quick15Qt3DQuickWindow10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindowC1EP7QWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindowD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow14registerAspectEPN8Qt3DCore15QAbstractAspectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow14registerAspectERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras5Quick15Qt3DQuickWindow6engineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow24setCameraAspectRatioModeENS1_21CameraAspectRatioModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DExtras5Quick15Qt3DQuickWindow21cameraAspectRatioModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow28cameraAspectRatioModeChangedENS1_21CameraAspectRatioModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow14onSceneCreatedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow16setWindowSurfaceEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow25setCameraAspectModeHelperEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow23updateCameraAspectRatioEv": [
+      "nothing", "address"
     ],
     "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow6d_funcEv": [
       "address", "address"

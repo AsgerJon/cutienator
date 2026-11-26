@@ -6,6 +6,18 @@
   ],
   "rows": {
     "ritual_ZN24QCanDbcFileParserPrivate5resetEv": ["nothing", "address"],
+    "ritual_ZN24QCanDbcFileParserPrivate9parseFileERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN24QCanDbcFileParserPrivate14extractMessageERK23QRegularExpressionMatch": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QCanDbcFileParserPrivate11parseSignalE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN24QCanDbcFileParserPrivate10addWarningEO7QString": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QCanDbcFileParserPrivate17addCurrentMessageEv": [
       "nothing", "address"
     ],

@@ -8,14 +8,29 @@
     "ritual_ZNK13Qt3DAnimation5Quick25QQuick3DMorphingAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation5Quick25QQuick3DMorphingAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation5Quick25QQuick3DMorphingAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation5Quick25QQuick3DMorphingAnimation2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation5Quick25QQuick3DMorphingAnimationC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation5Quick25QQuick3DMorphingAnimation23parentMorphingAnimationEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation5Quick25QQuick3DMorphingAnimation12morphTargetsEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DAnimation_Quick_QQuick3DMorphingAnimation": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Quick_QQuick3DMorphingAnimation__QQmlListProperty_Qt3DAnimation_QMorphTarget": [
+      "nothing", "address"
     ]
   }
 }

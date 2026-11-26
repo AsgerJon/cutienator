@@ -264,6 +264,25 @@ const QMetaObject *ritual_ZNK24QNonContiguousByteDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNonContiguousByteDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QNonContiguousByteDevice11qt_metacastEPKc(
+    QNonContiguousByteDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNonContiguousByteDevice::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QNonContiguousByteDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNonContiguousByteDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QNonContiguousByteDevice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QNonContiguousByteDevice2trEPKcS1_i(
@@ -324,6 +343,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QNonContiguousByteDeviceD1Ev(
     QNonContiguousByteDevice *self) {
   delete self;
+}
+
+//  void QNonContiguousByteDevice::readyRead()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNonContiguousByteDevice9readyReadEv(
+    QNonContiguousByteDevice *self) {
+  self->readyRead();
+}
+
+//  void QNonContiguousByteDevice::readProgress(qint64 current, qint64 total)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNonContiguousByteDevice12readProgressExx(
+    QNonContiguousByteDevice *self,
+    qint64 current,
+    qint64 total) {
+  self->readProgress(current, total);
 }
 
 //  a Python function taken by a CuteQNonContiguousByteDevice, for the

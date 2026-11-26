@@ -17,10 +17,50 @@ QGeoSatelliteInfo *ritual_ZN17QGeoSatelliteInfoC1ERKS_(
   return new QGeoSatelliteInfo(*other);
 }
 
+//  QGeoSatelliteInfo::QGeoSatelliteInfo(QGeoSatelliteInfoPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfo *ritual_ZN17QGeoSatelliteInfoC1ER24QGeoSatelliteInfoPrivate(
+    QGeoSatelliteInfoPrivate *dd) {
+  return new QGeoSatelliteInfo(*dd);
+}
+
+//  QGeoSatelliteInfo::QGeoSatelliteInfo(QGeoSatelliteInfo &&other)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfo *ritual_ZN17QGeoSatelliteInfoC1EOS_(
+    QGeoSatelliteInfo *other) {
+  return new QGeoSatelliteInfo(std::move(*other));
+}
+
 //  QGeoSatelliteInfo::~QGeoSatelliteInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QGeoSatelliteInfoD1Ev(QGeoSatelliteInfo *self) {
   delete self;
+}
+
+//  QGeoSatelliteInfo &QGeoSatelliteInfo::operator=(const QGeoSatelliteInfo
+//      &other)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfo *ritual_ZN17QGeoSatelliteInfoaSERKS_(
+    QGeoSatelliteInfo *self,
+    const QGeoSatelliteInfo *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoSatelliteInfo &QGeoSatelliteInfo::operator=(QGeoSatelliteInfo
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfo *ritual_ZN17QGeoSatelliteInfoaSEOS_(
+    QGeoSatelliteInfo *self,
+    QGeoSatelliteInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoSatelliteInfo::swap(QGeoSatelliteInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGeoSatelliteInfo4swapERS_(
+    QGeoSatelliteInfo *self,
+    QGeoSatelliteInfo *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoSatelliteInfo &lhs, const QGeoSatelliteInfo
@@ -154,6 +194,49 @@ QDebug *ritual_ZN17QGeoSatelliteInfo14debugStreamingE6QDebugRKS_(
   return new QDebug(QGeoSatelliteInfo::debugStreaming(*dbg, *info));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &stream, const QGeoSatelliteInfo
+//      &info)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK17QGeoSatelliteInfo(
+    QDataStream *stream,
+    const QGeoSatelliteInfo *info) {
+  return &(operator<<(*stream, *info));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &stream, QGeoSatelliteInfo &info)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR17QGeoSatelliteInfo(
+    QDataStream *stream,
+    QGeoSatelliteInfo *info) {
+  return &(operator>>(*stream, *info));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoSatelliteInfo::dataStreamOut(QDataStream &stream, const
+//      QGeoSatelliteInfo &info)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN17QGeoSatelliteInfo13dataStreamOutER11QDataStreamRKS_(
+    QDataStream *stream,
+    const QGeoSatelliteInfo *info) {
+  return &(QGeoSatelliteInfo::dataStreamOut(*stream, *info));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoSatelliteInfo::dataStreamIn(QDataStream &stream,
+//      QGeoSatelliteInfo &info)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN17QGeoSatelliteInfo12dataStreamInER11QDataStreamRS_(
+    QDataStream *stream,
+    QGeoSatelliteInfo *info) {
+  return &(QGeoSatelliteInfo::dataStreamIn(*stream, *info));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 //  QList<QGeoSatelliteInfo>::QList()
 extern "C" Q_DECL_EXPORT

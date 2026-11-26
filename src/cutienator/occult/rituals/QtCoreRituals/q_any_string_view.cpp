@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qanystringview.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qanystringview.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, instances of templates of the class: 5. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qanystringview.h>
 #include <QtCore/qchar.h>
 #include <QtCore/qbytearray.h>
@@ -7,6 +9,7 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qutf8stringview.h>
 
 //  QChar QAnyStringView::toQChar(char ch)
 extern "C" Q_DECL_EXPORT
@@ -27,10 +30,26 @@ QChar *ritual_ZN14QAnyStringView7toQCharE11QLatin1Char(
   return new QChar(QAnyStringView::toQChar(*ch));
 }
 
+//  QAnyStringView::QAnyStringView(const void *d, qsizetype n, std::size_t
+//      sizeAndType)
+extern "C" Q_DECL_EXPORT
+QAnyStringView *ritual_ZN14QAnyStringViewC1EPKvxm(
+    const void *d,
+    qsizetype n,
+    std::size_t sizeAndType) {
+  return new QAnyStringView(d, n, sizeAndType);
+}
+
 //  QAnyStringView::QAnyStringView()
 extern "C" Q_DECL_EXPORT
 QAnyStringView *ritual_ZN14QAnyStringViewC1Ev() {
   return new QAnyStringView();
+}
+
+//  QAnyStringView::QAnyStringView(std::nullptr_t a0)
+extern "C" Q_DECL_EXPORT
+QAnyStringView *ritual_ZN14QAnyStringViewC1EDn() {
+  return new QAnyStringView(nullptr);
 }
 
 //  QAnyStringView::QAnyStringView(const QByteArray &str)
@@ -125,6 +144,23 @@ QString *ritual_ZNK14QAnyStringView7choppedEx(
   return new QString(self->chopped(n).toString());
 }
 
+//  QAnyStringView &QAnyStringView::slice(qsizetype pos)
+extern "C" Q_DECL_EXPORT
+QAnyStringView *ritual_ZN14QAnyStringView5sliceEx(
+    QAnyStringView *self,
+    qsizetype pos) {
+  return &(self->slice(pos));
+}
+
+//  QAnyStringView &QAnyStringView::slice(qsizetype pos, qsizetype n)
+extern "C" Q_DECL_EXPORT
+QAnyStringView *ritual_ZN14QAnyStringView5sliceExx(
+    QAnyStringView *self,
+    qsizetype pos,
+    qsizetype n) {
+  return &(self->slice(pos, n));
+}
+
 //  void QAnyStringView::truncate(qsizetype n)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QAnyStringView8truncateEx(
@@ -149,6 +185,12 @@ QString *ritual_ZNK14QAnyStringView8toStringEv(const QAnyStringView *self) {
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK14QAnyStringView4sizeEv(const QAnyStringView *self) {
   return self->size();
+}
+
+//  const void *QAnyStringView::data() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK14QAnyStringView4dataEv(const QAnyStringView *self) {
+  return self->data();
 }
 
 //  int QAnyStringView::compare(QAnyStringView lhs, QAnyStringView rhs,
@@ -311,11 +353,24 @@ QString *ritual_ZNK14QAnyStringView12asStringViewEv(
   return new QString(self->asStringView().toString());
 }
 
+//  q_no_char8_t::QUtf8StringView QAnyStringView::asUtf8StringView() const
+extern "C" Q_DECL_EXPORT
+q_no_char8_t::QUtf8StringView *ritual_ZNK14QAnyStringView16asUtf8StringViewEv(
+    const QAnyStringView *self) {
+  return new q_no_char8_t::QUtf8StringView(self->asUtf8StringView());
+}
+
 //  QLatin1StringView QAnyStringView::asLatin1StringView() const
 extern "C" Q_DECL_EXPORT
 QLatin1String *ritual_ZNK14QAnyStringView18asLatin1StringViewEv(
     const QAnyStringView *self) {
   return new QLatin1String(self->asLatin1StringView());
+}
+
+//  size_t QAnyStringView::charSize() const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK14QAnyStringView8charSizeEv(const QAnyStringView *self) {
+  return self->charSize();
 }
 
 //  void QAnyStringView::setSize(qsizetype sz)
@@ -355,4 +410,52 @@ void ritual_ZNK14QAnyStringView6verifyExx(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QAnyStringViewD1Ev(QAnyStringView *self) {
   delete self;
+}
+
+//  a q_no_char8_t::QUtf8StringView a ritual of QAnyStringView gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAnyStringView__q_no_char8_t_QUtf8StringView(
+    q_no_char8_t::QUtf8StringView *self) {
+  delete self;
+}
+
+//  QAnyStringView::QAnyStringView<char, true>(const char *str, qsizetype
+//      len)
+extern "C" Q_DECL_EXPORT
+QAnyStringView * ritual_ZN14QAnyStringViewC1IcLb1EEEPKcx(
+    const char *str,
+    qsizetype len) {
+  return new QAnyStringView(str, len);
+}
+
+//  QAnyStringView::QAnyStringView<char16_t, true>(const char16_t *str,
+//      qsizetype len)
+extern "C" Q_DECL_EXPORT
+QAnyStringView * ritual_ZN14QAnyStringViewC1IDsLb1EEEPKDsx(
+    const char16_t *str,
+    qsizetype len) {
+  return new QAnyStringView(str, len);
+}
+
+//  QAnyStringView::QAnyStringView<const char *, true>(const char * const
+//      &str)
+extern "C" Q_DECL_EXPORT
+QAnyStringView * ritual_ZN14QAnyStringViewC1IPKcLb1EEERKT_(
+    const char *str) {
+  return new QAnyStringView(str);
+}
+
+//  QAnyStringView::QAnyStringView<const char16_t *, true>(const char16_t *
+//      const &str)
+extern "C" Q_DECL_EXPORT
+QAnyStringView * ritual_ZN14QAnyStringViewC1IPKDsLb1EEERKT_(
+    const char16_t *str) {
+  return new QAnyStringView(str);
+}
+
+//  QAnyStringView::QAnyStringView<false>(QBasicUtf8StringView<false> v)
+extern "C" Q_DECL_EXPORT
+QAnyStringView * ritual_ZN14QAnyStringViewC2ILb0EEE20QBasicUtf8StringViewIXT_EE(
+    const QBasicUtf8StringView<false> *v) {
+  return new QAnyStringView(*v);
 }

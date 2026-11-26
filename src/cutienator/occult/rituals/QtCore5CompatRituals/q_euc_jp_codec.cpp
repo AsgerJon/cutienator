@@ -11,6 +11,7 @@
 #include <QtCore5Compat/6.12.0/QtCore5Compat/private/qeucjpcodec_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -34,6 +35,151 @@ inline QByteArray QEucJpCodec::_name()
 inline int QEucJpCodec::_mibEnum()
 {
     return 18;
+}
+
+//  from ../qt5compat/src/core5/codecs/qeucjpcodec.cpp, line 115, as _ZNK11QEucJpCodec16convertToUnicodeEPKciPN20QStringConverterBase5StateE
+inline QString QEucJpCodec::convertToUnicode(const char* chars, int len, ConverterState *state) const
+{
+    uchar buf[2] = {0, 0};
+    int nbuf = 0;
+    QChar replacement = QChar::ReplacementCharacter;
+    if (state) {
+        if (state->flags & ConvertInvalidToNull)
+            replacement = QChar::Null;
+        nbuf = state->remainingChars;
+        buf[0] = state->state_data[0];
+        buf[1] = state->state_data[1];
+    }
+    int invalid = 0;
+
+    QString result;
+    for (int i=0; i<len; i++) {
+        uchar ch = chars[i];
+        switch (nbuf) {
+        case 0:
+            if (ch < 0x80) {
+                // ASCII
+                result += QLatin1Char(ch);
+            } else if (ch == Ss2 || ch == Ss3) {
+                // JIS X 0201 Kana or JIS X 0212
+                buf[0] = ch;
+                nbuf = 1;
+            } else if (IsEucChar(ch)) {
+                // JIS X 0208
+                buf[0] = ch;
+                nbuf = 1;
+            } else {
+                // Invalid
+                result += replacement;
+                ++invalid;
+            }
+            break;
+        case 1:
+            if (buf[0] == Ss2) {
+                // JIS X 0201 Kana
+                if (IsKana(ch)) {
+                    uint u = conv->jisx0201ToUnicode(ch);
+                    result += QValidChar(u);
+                } else {
+                    result += replacement;
+                    ++invalid;
+                }
+                nbuf = 0;
+            } else if (buf[0] == Ss3) {
+                // JIS X 0212-1990
+                if (IsEucChar(ch)) {
+                    buf[1] = ch;
+                    nbuf = 2;
+                } else {
+                    // Error
+                    result += replacement;
+                    ++invalid;
+                    nbuf = 0;
+                }
+            } else {
+                // JIS X 0208-1990
+                if (IsEucChar(ch)) {
+                    uint u = conv->jisx0208ToUnicode(buf[0] & 0x7f, ch & 0x7f);
+                    result += QValidChar(u);
+                } else {
+                    // Error
+                    result += replacement;
+                    ++invalid;
+                }
+                nbuf = 0;
+            }
+            break;
+        case 2:
+            // JIS X 0212
+            if (IsEucChar(ch)) {
+                uint u = conv->jisx0212ToUnicode(buf[1] & 0x7f, ch & 0x7f);
+                result += QValidChar(u);
+            } else {
+                result += replacement;
+                ++invalid;
+            }
+            nbuf = 0;
+        }
+    }
+    if (state) {
+        state->remainingChars = nbuf;
+        state->state_data[0] = buf[0];
+        state->state_data[1] = buf[1];
+        state->invalidChars += invalid;
+    }
+    return result;
+}
+
+//  from ../qt5compat/src/core5/codecs/qeucjpcodec.cpp, line 63, as _ZNK11QEucJpCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE
+inline QByteArray QEucJpCodec::convertFromUnicode(const QChar *uc, int len, ConverterState *state) const
+{
+    char replacement = '?';
+    if (state) {
+        if (state->flags & ConvertInvalidToNull)
+            replacement = 0;
+    }
+    int invalid = 0;
+
+    int rlen = 3*len + 1;
+    QByteArray rstr;
+    rstr.resize(rlen);
+    uchar* cursor = (uchar*)rstr.data();
+    for (int i = 0; i < len; i++) {
+        QChar ch = uc[i];
+        uint j;
+        if (ch.unicode() < 0x80) {
+            // ASCII
+            *cursor++ = ch.cell();
+        } else if ((j = conv->unicodeToJisx0201(ch.row(), ch.cell())) != 0) {
+            if (j < 0x80) {
+                // JIS X 0201 Latin ?
+                *cursor++ = j;
+            } else {
+                // JIS X 0201 Kana
+                *cursor++ = Ss2;
+                *cursor++ = j;
+            }
+        } else if ((j = conv->unicodeToJisx0208(ch.row(), ch.cell())) != 0) {
+            // JIS X 0208
+            *cursor++ = (j >> 8)   | 0x80;
+            *cursor++ = (j & 0xff) | 0x80;
+        } else if ((j = conv->unicodeToJisx0212(ch.row(), ch.cell())) != 0) {
+            // JIS X 0212
+            *cursor++ = Ss3;
+            *cursor++ = (j >> 8)   | 0x80;
+            *cursor++ = (j & 0xff) | 0x80;
+        } else {
+            // Error
+            *cursor++ = replacement;
+            ++invalid;
+        }
+    }
+    rstr.resize(cursor - (const uchar*)rstr.constData());
+
+    if (state) {
+        state->invalidChars += invalid;
+    }
+    return rstr;
 }
 
 //  from ../qt5compat/src/core5/codecs/qeucjpcodec.cpp, line 50, as _ZN11QEucJpCodecC1Ev
@@ -62,10 +208,15 @@ typedef const QByteArray * (*CuteQEucJpCodecCall0)(const void *, int *);
 typedef int (*CuteQEucJpCodecCall1)(const void *, int *);
 #endif  // QT_CONFIG(big_codecs)
 #endif  // QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
+#if QT_CONFIG(big_codecs)
+typedef const QByteArray * (*CuteQEucJpCodecCall2)(const void *, const QChar *, int, QTextCodec::ConverterState *, int *);
+#endif  // QT_CONFIG(big_codecs)
+#endif  // QT_CONFIG(textcodec)
 class CuteQEucJpCodec : public QEucJpCodec {
 public:
   using QEucJpCodec::QEucJpCodec;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(textcodec)
@@ -80,6 +231,14 @@ public:
 #if QT_CONFIG(big_codecs)
     if (!std::strcmp(key, "_ZNK10QTextCodec7mibEnumEv")) {
       taken[1] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(big_codecs)
+#endif  // QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
+#if QT_CONFIG(big_codecs)
+    if (!std::strcmp(key, "_ZNK10QTextCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE")) {
+      taken[2] = call;
       return true;
     }
 #endif  // QT_CONFIG(big_codecs)
@@ -113,6 +272,25 @@ public:
       if (handled) return given;
     }
     return QEucJpCodec::mibEnum();
+  }
+#endif  // QT_CONFIG(big_codecs)
+#endif  // QT_CONFIG(textcodec)
+
+#if QT_CONFIG(textcodec)
+#if QT_CONFIG(big_codecs)
+  //  QByteArray QEucJpCodec::convertFromUnicode(const QChar *a0, int a1,
+  //      ConverterState *a2) const
+  QByteArray convertFromUnicode(
+      const QChar *a0,
+      int a1,
+      QTextCodec::ConverterState *a2) const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQEucJpCodecCall2 call = reinterpret_cast<CuteQEucJpCodecCall2>(taken[2]);
+      const QByteArray * given = call(this, a0, a1, a2, &handled);
+      if (handled && given) return *given;
+    }
+    return QEucJpCodec::convertFromUnicode(a0, a1, a2);
   }
 #endif  // QT_CONFIG(big_codecs)
 #endif  // QT_CONFIG(textcodec)
@@ -155,6 +333,28 @@ int ritual_ZNK11QEucJpCodec7mibEnumEv(const QEucJpCodec *self) {
   return self->mibEnum();
 }
 
+//  QString QEucJpCodec::convertToUnicode(const char *a0, int a1,
+//      ConverterState *a2) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK11QEucJpCodec16convertToUnicodeEPKciPN20QStringConverterBase5StateE(
+    const QEucJpCodec *self,
+    const char *a0,
+    int a1,
+    QTextCodec::ConverterState *a2) {
+  return new QString(self->convertToUnicode(a0, a1, a2));
+}
+
+//  QByteArray QEucJpCodec::convertFromUnicode(const QChar *a0, int a1,
+//      ConverterState *a2) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK11QEucJpCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE(
+    const QEucJpCodec *self,
+    const QChar *a0,
+    int a1,
+    QTextCodec::ConverterState *a2) {
+  return new QByteArray(self->convertFromUnicode(a0, a1, a2));
+}
+
 //  QEucJpCodec::QEucJpCodec()
 extern "C" Q_DECL_EXPORT
 QEucJpCodec *ritual_ZN11QEucJpCodecC1Ev() {
@@ -187,6 +387,17 @@ QByteArray *ritual_own_ZNK11QEucJpCodec4nameEv(const QEucJpCodec *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK11QEucJpCodec7mibEnumEv(const QEucJpCodec *self) {
   return self->QEucJpCodec::mibEnum();
+}
+
+//  QByteArray QEucJpCodec::convertFromUnicode(const QChar *a0, int a1,
+//      ConverterState *a2) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_own_ZNK11QEucJpCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE(
+    const QEucJpCodec *self,
+    const QChar *a0,
+    int a1,
+    QTextCodec::ConverterState *a2) {
+  return new QByteArray(self->QEucJpCodec::convertFromUnicode(a0, a1, a2));
 }
 
 #endif  // QT_CONFIG(big_codecs)

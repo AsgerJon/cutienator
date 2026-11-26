@@ -14,6 +14,9 @@
     "ritual_ZNK23QScxmlExecutableContent20InstructionSequences4sizeEv": [
       "int", "address"
     ],
+    "ritual_ZNK23QScxmlExecutableContent20InstructionSequences2atEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN23QScxmlExecutableContent20InstructionSequencesD1Ev": [
       "nothing", "address"
     ]

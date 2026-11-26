@@ -1,16 +1,18 @@
-//  Written by dev_tooling.RitualGenerator from the records of QtWaylandCompo
-//  sitor/6.12.0/QtWaylandCompositor/private/qwlclientbufferintegrationplugin
-//  _p.h, Qt 6.12.0. Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwlclientbufferintegrationplugin_p.h,
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Qt builds the class under QT_CONFIG(opengl), as its CMakeLists.txt
+//  says.
+//  The Cute class takes over 'create' too, which is pure: the class
+//  would be abstract without it. Without a Python function handed over
+//  for it, 'create' gives a null pointer.
 #include <QtGui/qtguiglobal.h>
 #include <QtWaylandCompositor/qtwaylandcompositorglobal.h>
-#include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
 #if QT_CONFIG(opengl)
-#include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
-#include <QtWaylandCompositor/QtWaylandCompositor>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwlclientbufferintegrationplugin_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -38,10 +40,11 @@ typedef void (*CuteQtWayland_ClientBufferIntegrationPluginCall5)(const void *, c
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQtWayland_ClientBufferIntegrationPluginCall6)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+typedef QtWayland::ClientBufferIntegration *(*CuteQtWayland_ClientBufferIntegrationPluginCall7)(const void *, const QString *, const QList<QString> *, int *);
 class CuteQtWayland_ClientBufferIntegrationPlugin : public QtWayland::ClientBufferIntegrationPlugin {
 public:
   using QtWayland::ClientBufferIntegrationPlugin::ClientBufferIntegrationPlugin;
-  void *taken[7] = {};
+  void *taken[8] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_QOBJECT)
@@ -86,6 +89,10 @@ public:
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN9QtWayland29ClientBufferIntegrationPlugin6createERK7QStringRK5QListIS1_E")) {
+      taken[7] = call;
+      return true;
+    }
     return false;
   }
 
@@ -179,6 +186,20 @@ public:
     QObject::disconnectNotify(signal);
   }
 #endif  // !defined(QT_NO_QOBJECT)
+
+  //  ClientBufferIntegration
+  //      *QtWayland::ClientBufferIntegrationPlugin::create(const QString
+  //      &key, const QStringList &paramList)
+  QtWayland::ClientBufferIntegration *create(
+      const QString &key, const QStringList &paramList) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQtWayland_ClientBufferIntegrationPluginCall7 call = reinterpret_cast<CuteQtWayland_ClientBufferIntegrationPluginCall7>(taken[7]);
+      QtWayland::ClientBufferIntegration *given = call(this, &key, &paramList, &handled);
+      if (handled) return given;
+    }
+    return nullptr;
+  }
 };
 
 //  const QMetaObject *QtWayland::ClientBufferIntegrationPlugin::metaObject()
@@ -197,6 +218,32 @@ QString *ritual_ZN9QtWayland29ClientBufferIntegrationPlugin2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtWayland::ClientBufferIntegrationPlugin::tr(s, c, n));
+}
+
+//  ClientBufferIntegration
+//      *QtWayland::ClientBufferIntegrationPlugin::create(const QString
+//      &key, const QStringList &paramList)
+extern "C" Q_DECL_EXPORT
+QtWayland::ClientBufferIntegration *ritual_ZN9QtWayland29ClientBufferIntegrationPlugin6createERK7QStringRK5QListIS1_E(
+    QtWayland::ClientBufferIntegrationPlugin *self,
+    const QString *key,
+    const QList<QString> *paramList) {
+  return self->create(*key, *paramList);
+}
+
+//  QtWayland::ClientBufferIntegrationPlugin::ClientBufferIntegrationPlugin(
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtWayland::ClientBufferIntegrationPlugin *ritual_ZN9QtWayland29ClientBufferIntegrationPluginC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtWayland_ClientBufferIntegrationPlugin(parent);
+}
+
+//  QtWayland::ClientBufferIntegrationPlugin::~ClientBufferIntegrationPlugin()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland29ClientBufferIntegrationPluginD1Ev(
+    QtWayland::ClientBufferIntegrationPlugin *self) {
+  delete self;
 }
 
 //  a Python function taken by a CuteQtWayland_ClientBufferIntegrationPlugin,

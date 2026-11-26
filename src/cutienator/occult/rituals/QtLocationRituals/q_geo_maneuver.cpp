@@ -20,10 +20,40 @@ QGeoManeuver *ritual_ZN12QGeoManeuverC1ERKS_(const QGeoManeuver *other) {
   return new QGeoManeuver(*other);
 }
 
+//  QGeoManeuver::QGeoManeuver(QGeoManeuver &&other)
+extern "C" Q_DECL_EXPORT
+QGeoManeuver *ritual_ZN12QGeoManeuverC1EOS_(QGeoManeuver *other) {
+  return new QGeoManeuver(std::move(*other));
+}
+
 //  QGeoManeuver::~QGeoManeuver()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QGeoManeuverD1Ev(QGeoManeuver *self) {
   delete self;
+}
+
+//  QGeoManeuver &QGeoManeuver::operator=(const QGeoManeuver &other)
+extern "C" Q_DECL_EXPORT
+QGeoManeuver *ritual_ZN12QGeoManeuveraSERKS_(
+    QGeoManeuver *self,
+    const QGeoManeuver *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoManeuver &QGeoManeuver::operator=(QGeoManeuver &&other)
+extern "C" Q_DECL_EXPORT
+QGeoManeuver *ritual_ZN12QGeoManeuveraSEOS_(
+    QGeoManeuver *self,
+    QGeoManeuver *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoManeuver::swap(QGeoManeuver &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGeoManeuver4swapERS_(
+    QGeoManeuver *self,
+    QGeoManeuver *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoManeuver &lhs, const QGeoManeuver &rhs)

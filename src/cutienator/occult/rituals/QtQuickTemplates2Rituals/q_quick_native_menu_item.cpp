@@ -187,6 +187,25 @@ const QMetaObject *ritual_ZNK20QQuickNativeMenuItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickNativeMenuItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickNativeMenuItem11qt_metacastEPKc(
+    QQuickNativeMenuItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickNativeMenuItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickNativeMenuItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickNativeMenuItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickNativeMenuItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickNativeMenuItem2trEPKcS1_i(

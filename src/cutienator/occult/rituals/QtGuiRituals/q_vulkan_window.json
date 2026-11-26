@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QVulkanWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QVulkanWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QVulkanWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QVulkanWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QVulkanWindow6d_funcEv": ["address", "address"],
     "ritual_ZNK13QVulkanWindow6d_funcEv": ["address", "address"],
@@ -14,19 +20,69 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK13QVulkanWindow5flagsEv": ["int", "address"],
+    "ritual_ZN13QVulkanWindow24availablePhysicalDevicesEv": [
+      "address", "address"
+    ],
     "ritual_ZN13QVulkanWindow22setPhysicalDeviceIndexEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN13QVulkanWindow25supportedDeviceExtensionsEv": [
+      "address", "address"
     ],
     "ritual_ZN13QVulkanWindow19setDeviceExtensionsERK5QListI10QByteArrayE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QVulkanWindow26setEnabledFeaturesModifierERKSt8functionIFvR24VkPhysicalDeviceFeaturesEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QVulkanWindow26setEnabledFeaturesModifierESt8functionIFvR25VkPhysicalDeviceFeatures2EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QVulkanWindow24setPreferredColorFormatsERK5QListI8VkFormatE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QVulkanWindow21supportedSampleCountsEv": [
+      "address", "address"
+    ],
     "ritual_ZN13QVulkanWindow14setSampleCountEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN13QVulkanWindow26setQueueCreateInfoModifierERKSt8functionIFvPK23VkQueueFamilyPropertiesjR5QListI23VkDeviceQueueCreateInfoEEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK13QVulkanWindow7isValidEv": ["bool", "address"],
     "ritual_ZN13QVulkanWindow14createRendererEv": ["address", "address"],
     "ritual_ZN13QVulkanWindow10frameReadyEv": ["nothing", "address"],
+    "ritual_ZNK13QVulkanWindow14physicalDeviceEv": ["address", "address"],
+    "ritual_ZNK13QVulkanWindow24physicalDevicePropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow6deviceEv": ["address", "address"],
+    "ritual_ZNK13QVulkanWindow13graphicsQueueEv": ["address", "address"],
+    "ritual_ZNK13QVulkanWindow24graphicsQueueFamilyIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow19graphicsCommandPoolEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow22hostVisibleMemoryIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow22deviceLocalMemoryIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow17defaultRenderPassEv": ["address", "address"],
+    "ritual_ZNK13QVulkanWindow11colorFormatEv": ["address", "address"],
+    "ritual_ZNK13QVulkanWindow18depthStencilFormatEv": [
+      "address", "address"
+    ],
     "ritual_ZNK13QVulkanWindow18swapChainImageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow20currentCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow18currentFramebufferEv": [
       "address", "address"
     ],
     "ritual_ZNK13QVulkanWindow12currentFrameEv": ["int", "address"],
@@ -35,10 +91,32 @@
     "ritual_ZNK13QVulkanWindow26currentSwapChainImageIndexEv": [
       "int", "address"
     ],
+    "ritual_ZNK13QVulkanWindow14swapChainImageEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QVulkanWindow18swapChainImageViewEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QVulkanWindow17depthStencilImageEv": ["address", "address"],
+    "ritual_ZNK13QVulkanWindow21depthStencilImageViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow19sampleCountFlagBitsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow14msaaColorImageEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QVulkanWindow18msaaColorImageViewEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK13QVulkanWindow12supportsGrabEv": ["bool", "address"],
     "ritual_ZN13QVulkanWindow4grabEv": ["address", "address"],
     "ritual_ZN13QVulkanWindow20clipCorrectionMatrixEv": [
       "address", "address"
+    ],
+    "ritual_ZN13QVulkanWindow12frameGrabbedERK6QImage": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN13QVulkanWindow11exposeEventEP12QExposeEvent": [
       "nothing", "address", "address"
@@ -59,6 +137,26 @@
     ],
     "ritual_own_ZN13QVulkanWindow5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QVulkanWindow__QList_VkPhysicalDeviceProperties": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QVulkanWindow__QVulkanInfoVector_QVulkanExtension": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QVulkanWindow__QList_int": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkPhysicalDevice": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkDevice": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkQueue": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkCommandPool": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkRenderPass": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkFormat": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkCommandBuffer": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkFramebuffer": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkImage": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkImageView": ["nothing", "address"],
+    "ritual_drop_QVulkanWindow__VkSampleCountFlagBits": [
+      "nothing", "address"
     ]
   }
 }

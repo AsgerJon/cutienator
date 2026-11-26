@@ -7,11 +7,20 @@
   "rows": {
     "ritual_ZN26QCoapQUdpConnectionPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN26QCoapQUdpConnectionPrivate4bindEv": ["bool", "address"],
+    "ritual_ZN26QCoapQUdpConnectionPrivate13writeToSocketERK10QByteArrayRK7QStringt": [
+      "nothing", "address", "address", "text", "unsigned short"
+    ],
     "ritual_ZNK26QCoapQUdpConnectionPrivate6socketEv": [
       "address", "address"
     ],
+    "ritual_ZN26QCoapQUdpConnectionPrivate24setSecurityConfigurationERK26QCoapSecurityConfiguration": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK26QCoapQUdpConnectionPrivate31datagramMatchesNetworkInterfaceERK16QNetworkDatagram": [
       "bool", "address", "address"
+    ],
+    "ritual_ZNK26QCoapQUdpConnectionPrivate24receiveDatagramDecryptedEv": [
+      "address", "address"
     ],
     "ritual_ZN26QCoapQUdpConnectionPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK26QCoapQUdpConnectionPrivate6q_funcEv": [
@@ -20,6 +29,9 @@
     "ritual_take_QCoapQUdpConnectionPrivate": [
       "bool", "address", "chars", "address"
     ],
-    "ritual_own_ZN26QCoapQUdpConnectionPrivate4bindEv": ["bool", "address"]
+    "ritual_own_ZN26QCoapQUdpConnectionPrivate4bindEv": ["bool", "address"],
+    "ritual_drop_QCoapQUdpConnectionPrivate__std_optional_QNetworkDatagram": [
+      "nothing", "address"
+    ]
   }
 }

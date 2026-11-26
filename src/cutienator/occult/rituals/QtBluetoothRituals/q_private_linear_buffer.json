@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtBluetooth/6.12.0/QtBluetooth/private/qprivatelinearbuffer_p.h,",
+    "Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZN20QPrivateLinearBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN20QPrivateLinearBuffer5clearEv": ["nothing", "address"],
+    "ritual_ZNK20QPrivateLinearBuffer4sizeEv": ["long long", "address"],
+    "ritual_ZNK20QPrivateLinearBuffer7isEmptyEv": ["bool", "address"],
+    "ritual_ZN20QPrivateLinearBuffer4skipEx": ["nothing", "address", "long long"],
+    "ritual_ZN20QPrivateLinearBuffer7getCharEv": ["int", "address"],
+    "ritual_ZN20QPrivateLinearBuffer4readEPcx": ["long long", "address", "address", "long long"],
+    "ritual_ZN20QPrivateLinearBuffer7reserveEx": ["address", "address", "long long"],
+    "ritual_ZN20QPrivateLinearBuffer4chopEx": ["nothing", "address", "long long"],
+    "ritual_ZN20QPrivateLinearBuffer7readAllEv": ["address", "address"],
+    "ritual_ZN20QPrivateLinearBuffer8readLineEPcx": ["long long", "address", "address", "long long"],
+    "ritual_ZNK20QPrivateLinearBuffer11canReadLineEv": ["bool", "address"],
+    "ritual_ZN20QPrivateLinearBuffer9ungetCharEc": ["nothing", "address", "char"],
+    "ritual_ZN20QPrivateLinearBuffer10ungetBlockEPKcx": ["nothing", "address", "chars", "long long"]
+  }
+}

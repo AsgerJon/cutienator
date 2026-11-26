@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN12_GLOBAL__N_1eqENS_23DecodedArchRequirementsES0_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN023DecodedArchRequirementsD1Ev": ["nothing", "address"]
   }
 }

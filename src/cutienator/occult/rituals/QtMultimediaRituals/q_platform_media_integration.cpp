@@ -4,17 +4,25 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
 #include <QtMultimedia/QtMultimedia>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtMultimedia/6.12.0/QtMultimedia/private/qplatformaudioresampler_p.h>
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qplatformmediaintegration_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qlatin1stringview.h>
+#include <QtMultimedia/qaudioformat.h>
 #include <QtMultimedia/qcapturablewindow.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qcapturablewindow_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtMultimedia/qvideoframeformat.h>
+#include <QtMultimedia/qvideoframe.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QString>
+#include <memory>
+#include <QtMultimedia/QAudioFormat>
+#include <QtMultimedia/QCapturableWindow>
 
 //  Only a class built on QPlatformMediaIntegration may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -318,6 +326,25 @@ const QMetaObject *ritual_ZNK25QPlatformMediaIntegration10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformMediaIntegration::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QPlatformMediaIntegration11qt_metacastEPKc(
+    QPlatformMediaIntegration *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformMediaIntegration::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QPlatformMediaIntegration11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformMediaIntegration *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformMediaIntegration::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -355,6 +382,17 @@ const QPlatformMediaFormatInfo *ritual_ZN25QPlatformMediaIntegration10formatInfo
   return self->formatInfo();
 }
 
+//  q23::expected<QPlatformCamera *, QString>
+//      QPlatformMediaIntegration::createCamera(QCamera *a0)
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformCamera *, QString> *ritual_ZN25QPlatformMediaIntegration12createCameraEP7QCamera(
+    QPlatformMediaIntegration *self,
+    QCamera *a0) {
+  return new q23::expected<QPlatformCamera *, QString>(
+      self->createCamera(
+          a0));
+}
+
 //  QPlatformSurfaceCapture
 //      *QPlatformMediaIntegration::createScreenCapture(QScreenCapture *a0)
 extern "C" Q_DECL_EXPORT
@@ -373,6 +411,106 @@ QPlatformSurfaceCapture *ritual_ZN25QPlatformMediaIntegration19createWindowCaptu
   return self->createWindowCapture(a0);
 }
 
+//  q23::expected<QPlatformAudioDecoder *, QString>
+//      QPlatformMediaIntegration::createAudioDecoder(QAudioDecoder *a0)
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformAudioDecoder *, QString> *ritual_ZN25QPlatformMediaIntegration18createAudioDecoderEP13QAudioDecoder(
+    QPlatformMediaIntegration *self,
+    QAudioDecoder *a0) {
+  return new q23::expected<QPlatformAudioDecoder *, QString>(
+      self->createAudioDecoder(
+          a0));
+}
+
+//  q23::expected<std::unique_ptr<QPlatformAudioResampler>, QString>
+//      QPlatformMediaIntegration::createAudioResampler(const QAudioFormat
+//      &a0, const QAudioFormat &a1)
+extern "C" Q_DECL_EXPORT
+q23::expected<std::unique_ptr<QPlatformAudioResampler>, QString> *ritual_ZN25QPlatformMediaIntegration20createAudioResamplerERK12QAudioFormatS2_(
+    QPlatformMediaIntegration *self,
+    const QAudioFormat *a0,
+    const QAudioFormat *a1) {
+  return new q23::expected<std::unique_ptr<QPlatformAudioResampler>, QString>(
+      self->createAudioResampler(
+          *a0,
+          *a1));
+}
+
+//  q23::expected<QPlatformMediaCaptureSession *, QString>
+//      QPlatformMediaIntegration::createCaptureSession()
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformMediaCaptureSession *, QString> *ritual_ZN25QPlatformMediaIntegration20createCaptureSessionEv(
+    QPlatformMediaIntegration *self) {
+  return new q23::expected<QPlatformMediaCaptureSession *, QString>(
+      self->createCaptureSession());
+}
+
+//  q23::expected<QPlatformMediaPlayer *, QString>
+//      QPlatformMediaIntegration::createPlayer(QMediaPlayer *a0)
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformMediaPlayer *, QString> *ritual_ZN25QPlatformMediaIntegration12createPlayerEP12QMediaPlayer(
+    QPlatformMediaIntegration *self,
+    QMediaPlayer *a0) {
+  return new q23::expected<QPlatformMediaPlayer *, QString>(
+      self->createPlayer(
+          a0));
+}
+
+//  q23::expected<QPlatformMediaRecorder *, QString>
+//      QPlatformMediaIntegration::createRecorder(QMediaRecorder *a0)
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformMediaRecorder *, QString> *ritual_ZN25QPlatformMediaIntegration14createRecorderEP14QMediaRecorder(
+    QPlatformMediaIntegration *self,
+    QMediaRecorder *a0) {
+  return new q23::expected<QPlatformMediaRecorder *, QString>(
+      self->createRecorder(
+          a0));
+}
+
+//  q23::expected<QPlatformImageCapture *, QString>
+//      QPlatformMediaIntegration::createImageCapture(QImageCapture *a0)
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformImageCapture *, QString> *ritual_ZN25QPlatformMediaIntegration18createImageCaptureEP13QImageCapture(
+    QPlatformMediaIntegration *self,
+    QImageCapture *a0) {
+  return new q23::expected<QPlatformImageCapture *, QString>(
+      self->createImageCapture(
+          a0));
+}
+
+//  q23::expected<QPlatformAudioInput *, QString>
+//      QPlatformMediaIntegration::createAudioInput(QAudioInput *a0)
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformAudioInput *, QString> *ritual_ZN25QPlatformMediaIntegration16createAudioInputEP11QAudioInput(
+    QPlatformMediaIntegration *self,
+    QAudioInput *a0) {
+  return new q23::expected<QPlatformAudioInput *, QString>(
+      self->createAudioInput(
+          a0));
+}
+
+//  q23::expected<QPlatformAudioOutput *, QString>
+//      QPlatformMediaIntegration::createAudioOutput(QAudioOutput *a0)
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformAudioOutput *, QString> *ritual_ZN25QPlatformMediaIntegration17createAudioOutputEP12QAudioOutput(
+    QPlatformMediaIntegration *self,
+    QAudioOutput *a0) {
+  return new q23::expected<QPlatformAudioOutput *, QString>(
+      self->createAudioOutput(
+          a0));
+}
+
+//  q23::expected<QPlatformVideoSink *, QString>
+//      QPlatformMediaIntegration::createVideoSink(QVideoSink *a0)
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformVideoSink *, QString> *ritual_ZN25QPlatformMediaIntegration15createVideoSinkEP10QVideoSink(
+    QPlatformMediaIntegration *self,
+    QVideoSink *a0) {
+  return new q23::expected<QPlatformVideoSink *, QString>(
+      self->createVideoSink(
+          a0));
+}
+
 //  QList<QCapturableWindow>
 //      QPlatformMediaIntegration::capturableWindowsList()
 extern "C" Q_DECL_EXPORT
@@ -388,6 +526,17 @@ bool ritual_ZN25QPlatformMediaIntegration23isCapturableWindowValidERK24QCapturab
     QPlatformMediaIntegration *self,
     const QCapturableWindowPrivate *a0) {
   return self->isCapturableWindowValid(*a0);
+}
+
+//  q23::expected<QCapturableWindow, QString>
+//      QPlatformMediaIntegration::capturableWindowFromQWindow(QWindow *a0)
+extern "C" Q_DECL_EXPORT
+q23::expected<QCapturableWindow, QString> *ritual_ZN25QPlatformMediaIntegration27capturableWindowFromQWindowEP7QWindow(
+    QPlatformMediaIntegration *self,
+    QWindow *a0) {
+  return new q23::expected<QCapturableWindow, QString>(
+      self->capturableWindowFromQWindow(
+          a0));
 }
 
 //  QPlatformVideoDevices *QPlatformMediaIntegration::videoDevices()
@@ -438,6 +587,16 @@ QLatin1String *ritual_ZN25QPlatformMediaIntegration4nameEv(
   return new QLatin1String(self->name());
 }
 
+//  QVideoFrame QPlatformMediaIntegration::convertVideoFrame(QVideoFrame &a0,
+//      const QVideoFrameFormat &a1)
+extern "C" Q_DECL_EXPORT
+QVideoFrame *ritual_ZN25QPlatformMediaIntegration17convertVideoFrameER11QVideoFrameRK17QVideoFrameFormat(
+    QPlatformMediaIntegration *self,
+    QVideoFrame *a0,
+    const QVideoFrameFormat *a1) {
+  return new QVideoFrame(self->convertVideoFrame(*a0, *a1));
+}
+
 //  QLatin1String QPlatformMediaIntegration::audioBackendName()
 extern "C" Q_DECL_EXPORT
 QLatin1String *ritual_ZN25QPlatformMediaIntegration16audioBackendNameEv() {
@@ -451,6 +610,20 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK25QPlatformMediaIntegration41isCameraSwitchingDuringRecordingSupportedEv(
     const QPlatformMediaIntegration *self) {
   return self->isCameraSwitchingDuringRecordingSupported();
+}
+
+//  q23::expected<QPlatformCamera *, QString> QPlatformMediaIntegration::crea
+//      teGStreamerVideoSource(QGStreamerVideoSource *a0, const
+//      GstElementOrDescription &a1)
+extern "C" Q_DECL_EXPORT
+q23::expected<QPlatformCamera *, QString> *ritual_ZN25QPlatformMediaIntegration26createGStreamerVideoSourceEP21QGStreamerVideoSourceRKSt7variantIJ7QStringP11_GstElementEE(
+    QPlatformMediaIntegration *self,
+    QGStreamerVideoSource *a0,
+    const GstElementOrDescription *a1) {
+  return new q23::expected<QPlatformCamera *, QString>(
+      self->createGStreamerVideoSource(
+          a0,
+          *a1));
 }
 
 //  QGStreamerInterface *QPlatformMediaIntegration::gstreamerInterface()
@@ -553,4 +726,92 @@ extern "C" Q_DECL_EXPORT
 QPlatformCapturableWindows *ritual_own_ZN25QPlatformMediaIntegration23createCapturableWindowsEv(
     QPlatformMediaIntegration *self) {
   return static_cast<OwnQPlatformMediaIntegration *>(self)->OwnQPlatformMediaIntegration::createCapturableWindows();
+}
+
+//  a q23::expected<QPlatformCamera *, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformCamera_QString(
+    q23::expected<QPlatformCamera *, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<QPlatformAudioDecoder *, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformAudioDecoder_QString(
+    q23::expected<QPlatformAudioDecoder *, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<std::unique_ptr<QPlatformAudioResampler>, QString> a
+//      ritual of QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_std_unique_ptr_QPlatformAudioResampler_QString(
+    q23::expected<std::unique_ptr<QPlatformAudioResampler>, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<QPlatformMediaCaptureSession *, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformMediaCaptureSession_QString(
+    q23::expected<QPlatformMediaCaptureSession *, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<QPlatformMediaPlayer *, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformMediaPlayer_QString(
+    q23::expected<QPlatformMediaPlayer *, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<QPlatformMediaRecorder *, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformMediaRecorder_QString(
+    q23::expected<QPlatformMediaRecorder *, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<QPlatformImageCapture *, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformImageCapture_QString(
+    q23::expected<QPlatformImageCapture *, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<QPlatformAudioInput *, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformAudioInput_QString(
+    q23::expected<QPlatformAudioInput *, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<QPlatformAudioOutput *, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformAudioOutput_QString(
+    q23::expected<QPlatformAudioOutput *, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<QPlatformVideoSink *, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QPlatformVideoSink_QString(
+    q23::expected<QPlatformVideoSink *, QString> *self) {
+  delete self;
+}
+
+//  a q23::expected<QCapturableWindow, QString> a ritual of
+//      QPlatformMediaIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformMediaIntegration__q23_expected_QCapturableWindow_QString(
+    q23::expected<QCapturableWindow, QString> *self) {
+  delete self;
 }

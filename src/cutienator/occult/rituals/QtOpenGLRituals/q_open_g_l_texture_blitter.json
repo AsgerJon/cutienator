@@ -29,8 +29,17 @@
     "ritual_ZN21QOpenGLTextureBlitter4blitEjRK10QMatrix4x4NS_6OriginE": [
       "nothing", "address", "unsigned int", "address", "int"
     ],
+    "ritual_ZN21QOpenGLTextureBlitter4blitEjRK10QMatrix4x4RK14QGenericMatrixILi3ELi3EfE": [
+      "nothing", "address", "unsigned int", "address", "address"
+    ],
     "ritual_ZN21QOpenGLTextureBlitter15targetTransformERK6QRectFRK5QRect": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_ZN21QOpenGLTextureBlitter15sourceTransformERK6QRectFRK5QSizeNS_6OriginE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN21QOpenGLTextureBlitter6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QOpenGLTextureBlitter6d_funcEv": ["address", "address"],
+    "ritual_drop_QOpenGLTextureBlitter__QMatrix3x3": ["nothing", "address"]
   }
 }

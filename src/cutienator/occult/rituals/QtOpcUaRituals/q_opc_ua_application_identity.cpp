@@ -25,6 +25,15 @@ QOpcUaApplicationIdentity *ritual_ZN25QOpcUaApplicationIdentityC1ERKS_(
   return new QOpcUaApplicationIdentity(*other);
 }
 
+//  QOpcUaApplicationIdentity &QOpcUaApplicationIdentity::operator=(const
+//      QOpcUaApplicationIdentity &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaApplicationIdentity *ritual_ZN25QOpcUaApplicationIdentityaSERKS_(
+    QOpcUaApplicationIdentity *self,
+    const QOpcUaApplicationIdentity *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QString QOpcUaApplicationIdentity::applicationUri() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK25QOpcUaApplicationIdentity14applicationUriEv(

@@ -18,6 +18,25 @@ const QMetaObject *ritual_ZNK17QQuickStackLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStackLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickStackLayout11qt_metacastEPKc(
+    QQuickStackLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStackLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickStackLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStackLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStackLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickStackLayout2trEPKcS1_i(
@@ -170,6 +189,19 @@ QQuickStackLayoutAttached *ritual_ZN17QQuickStackLayout21qmlAttachedPropertiesEP
   return QQuickStackLayout::qmlAttachedProperties(object);
 }
 
+//  void QQuickStackLayout::currentIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickStackLayout19currentIndexChangedEv(
+    QQuickStackLayout *self) {
+  self->currentIndexChanged();
+}
+
+//  void QQuickStackLayout::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickStackLayout12countChangedEv(QQuickStackLayout *self) {
+  self->countChanged();
+}
+
 //  void QQuickStackLayout::collectItemSizeHints(QQuickItem *item, QSizeF
 //      *sizeHints)
 extern "C" Q_DECL_EXPORT
@@ -208,6 +240,14 @@ extern "C" Q_DECL_EXPORT
 const QQuickStackLayoutPrivate *ritual_ZNK17QQuickStackLayout6d_funcEv(
     const QQuickStackLayout *self) {
   return self->d_func();
+}
+
+//  SizeHints &QQuickStackLayout::cachedItemSizeHints(int index) const
+extern "C" Q_DECL_EXPORT
+QQuickStackLayout::SizeHints *ritual_ZNK17QQuickStackLayout19cachedItemSizeHintsEi(
+    const QQuickStackLayout *self,
+    int index) {
+  return &(self->cachedItemSizeHints(index));
 }
 
 //  void QQuickStackLayout::componentComplete()

@@ -182,6 +182,25 @@ const QMetaObject *ritual_ZNK18QOpenGLDebugLogger10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLDebugLogger::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QOpenGLDebugLogger11qt_metacastEPKc(
+    QOpenGLDebugLogger *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLDebugLogger::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QOpenGLDebugLogger11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLDebugLogger *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLDebugLogger::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QOpenGLDebugLogger2trEPKcS1_i(
@@ -263,6 +282,21 @@ void ritual_ZN18QOpenGLDebugLogger14enableMessagesE6QFlagsIN19QOpenGLDebugMessag
       QFlags<QOpenGLDebugMessage::Severity>::fromInt(severities));
 }
 
+//  void QOpenGLDebugLogger::enableMessages(const QList<GLuint> &ids,
+//      QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types
+//      types)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QOpenGLDebugLogger14enableMessagesERK5QListIjE6QFlagsIN19QOpenGLDebugMessage6SourceEES4_INS5_4TypeEE(
+    QOpenGLDebugLogger *self,
+    const QList<GLuint> *ids,
+    int sources,
+    int types) {
+  self->enableMessages(
+      *ids,
+      QFlags<QOpenGLDebugMessage::Source>::fromInt(sources),
+      QFlags<QOpenGLDebugMessage::Type>::fromInt(types));
+}
+
 //  void QOpenGLDebugLogger::disableMessages(QOpenGLDebugMessage::Sources
 //      sources, QOpenGLDebugMessage::Types types,
 //      QOpenGLDebugMessage::Severities severities)
@@ -276,6 +310,21 @@ void ritual_ZN18QOpenGLDebugLogger15disableMessagesE6QFlagsIN19QOpenGLDebugMessa
       QFlags<QOpenGLDebugMessage::Source>::fromInt(sources),
       QFlags<QOpenGLDebugMessage::Type>::fromInt(types),
       QFlags<QOpenGLDebugMessage::Severity>::fromInt(severities));
+}
+
+//  void QOpenGLDebugLogger::disableMessages(const QList<GLuint> &ids,
+//      QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types
+//      types)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QOpenGLDebugLogger15disableMessagesERK5QListIjE6QFlagsIN19QOpenGLDebugMessage6SourceEES4_INS5_4TypeEE(
+    QOpenGLDebugLogger *self,
+    const QList<GLuint> *ids,
+    int sources,
+    int types) {
+  self->disableMessages(
+      *ids,
+      QFlags<QOpenGLDebugMessage::Source>::fromInt(sources),
+      QFlags<QOpenGLDebugMessage::Type>::fromInt(types));
 }
 
 //  QList<QOpenGLDebugMessage> QOpenGLDebugLogger::loggedMessages() const
@@ -306,6 +355,29 @@ void ritual_ZN18QOpenGLDebugLogger12startLoggingENS_11LoggingModeE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QOpenGLDebugLogger11stopLoggingEv(QOpenGLDebugLogger *self) {
   self->stopLogging();
+}
+
+//  void QOpenGLDebugLogger::messageLogged(const QOpenGLDebugMessage
+//      &debugMessage)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QOpenGLDebugLogger13messageLoggedERK19QOpenGLDebugMessage(
+    QOpenGLDebugLogger *self,
+    const QOpenGLDebugMessage *debugMessage) {
+  self->messageLogged(*debugMessage);
+}
+
+//  QOpenGLDebugLoggerPrivate *QOpenGLDebugLogger::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLDebugLoggerPrivate *ritual_ZN18QOpenGLDebugLogger6d_funcEv(
+    QOpenGLDebugLogger *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLDebugLoggerPrivate *QOpenGLDebugLogger::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOpenGLDebugLoggerPrivate *ritual_ZNK18QOpenGLDebugLogger6d_funcEv(
+    const QOpenGLDebugLogger *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQOpenGLDebugLogger, for the function

@@ -10,7 +10,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qfilesystemwatcher_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QFileSystemWatcherEngine that Python can take functions over in. Every QFileSystemWatcherEngine
@@ -185,6 +187,107 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK24QFileSystemWatcherEngine10metaObjectEv(
     const QFileSystemWatcherEngine *self) {
   return self->metaObject();
+}
+
+//  void *QFileSystemWatcherEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QFileSystemWatcherEngine11qt_metacastEPKc(
+    QFileSystemWatcherEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFileSystemWatcherEngine::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QFileSystemWatcherEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFileSystemWatcherEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QStringList QFileSystemWatcherEngine::addPaths(const QStringList &paths,
+//      QStringList *files, QStringList *directories)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN24QFileSystemWatcherEngine8addPathsERK5QListI7QStringEPS2_S5_(
+    QFileSystemWatcherEngine *self,
+    const QList<QString> *paths,
+    QStringList *files,
+    QStringList *directories) {
+  return new QList<QString>(self->addPaths(*paths, files, directories));
+}
+
+//  QStringList QFileSystemWatcherEngine::removePaths(const QStringList
+//      &paths, QStringList *files, QStringList *directories)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN24QFileSystemWatcherEngine11removePathsERK5QListI7QStringEPS2_S5_(
+    QFileSystemWatcherEngine *self,
+    const QList<QString> *paths,
+    QStringList *files,
+    QStringList *directories) {
+  return new QList<QString>(self->removePaths(*paths, files, directories));
+}
+
+//  void QFileSystemWatcherEngine::fileChanged(const QString &path, bool
+//      removed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QFileSystemWatcherEngine11fileChangedERK7QStringb(
+    QFileSystemWatcherEngine *self,
+    const QString *path,
+    bool removed) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QFileSystemWatcherEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fileChanged(const QString &,bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fileChanged(const QString &,bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(path)),
+      const_cast<void *>(static_cast<const void *>(&removed)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QFileSystemWatcherEngine::directoryChanged(const QString &path, bool
+//      removed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QFileSystemWatcherEngine16directoryChangedERK7QStringb(
+    QFileSystemWatcherEngine *self,
+    const QString *path,
+    bool removed) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QFileSystemWatcherEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "directoryChanged(const QString &,bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "directoryChanged(const QString &,bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(path)),
+      const_cast<void *>(static_cast<const void *>(&removed)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQFileSystemWatcherEngine, for the

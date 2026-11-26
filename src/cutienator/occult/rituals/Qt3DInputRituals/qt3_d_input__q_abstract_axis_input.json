@@ -8,8 +8,27 @@
     "ritual_ZNK9Qt3DInput18QAbstractAxisInput10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput18QAbstractAxisInput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput18QAbstractAxisInput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput18QAbstractAxisInput2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput18QAbstractAxisInputD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput18QAbstractAxisInput12sourceDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput18QAbstractAxisInput15setSourceDeviceEPNS_23QAbstractPhysicalDeviceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput18QAbstractAxisInput19sourceDeviceChangedEPNS_23QAbstractPhysicalDeviceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput18QAbstractAxisInputC1ERNS_25QAbstractAxisInputPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN9Qt3DInput18QAbstractAxisInput6d_funcEv": [
       "address", "address"

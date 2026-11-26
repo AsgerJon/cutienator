@@ -13,7 +13,10 @@
     "ritual_ZN11QTextCursorC1EP10QTextFrame": ["address", "address"],
     "ritual_ZN11QTextCursorC1ERK10QTextBlock": ["address", "address"],
     "ritual_ZN11QTextCursorC1ERKS_": ["address", "address"],
+    "ritual_ZN11QTextCursoraSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QTextCursoraSERKS_": ["address", "address", "address"],
     "ritual_ZN11QTextCursorD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTextCursor4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK11QTextCursor6isNullEv": ["bool", "address"],
     "ritual_ZN11QTextCursor11setPositionEiNS_8MoveModeE": [
       "nothing", "address", "int", "int"

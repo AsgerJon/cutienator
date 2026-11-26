@@ -8,12 +8,25 @@
     "ritual_ZNK26QQmlGrpcClientStreamSender10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQmlGrpcClientStreamSender11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQmlGrpcClientStreamSender11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQmlGrpcClientStreamSender2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN26QQmlGrpcClientStreamSenderD1Ev": ["nothing", "address"],
     "ritual_ZN26QQmlGrpcClientStreamSenderC1EP17QGrpcClientStreamP7QObject": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK26QQmlGrpcClientStreamSender16writeMessageImplERK16QProtobufMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQmlGrpcClientStreamSender6d_funcEv": ["address", "address"],
+    "ritual_ZNK26QQmlGrpcClientStreamSender6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_QQmlGrpcClientStreamSender": [
       "bool", "address", "chars", "address"

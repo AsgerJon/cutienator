@@ -6,7 +6,19 @@
   "rows": {
     "ritual_ZN6QQmlSA6Method6d_funcEv": ["address", "address"],
     "ritual_ZNK6QQmlSA6Method6d_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA6MethodC1Ev": ["address"],
+    "ritual_ZN6QQmlSA6MethodC1ERKS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA6MethodC1EOS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA6MethodaSERKS0_": ["address", "address", "address"],
+    "ritual_ZN6QQmlSA6MethodaSEOS0_": ["address", "address", "address"],
+    "ritual_ZN6QQmlSA6MethodD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA6Method10methodNameEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA6Method14sourceLocationEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA6Method10methodTypeEv": ["int", "address"],
     "ritual_ZN6QQmlSAeqERKNS_6MethodES2_": ["bool", "address", "address"],
-    "ritual_ZN6QQmlSAneERKNS_6MethodES2_": ["bool", "address", "address"]
+    "ritual_ZN6QQmlSAneERKNS_6MethodES2_": ["bool", "address", "address"],
+    "ritual_ZN6QQmlSA6Method18operatorEqualsImplERKS0_S2_": [
+      "bool", "address", "address"
+    ]
   }
 }

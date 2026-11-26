@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN29QNetworkRequestFactoryPrivateC1Ev": ["address"],
     "ritual_ZN29QNetworkRequestFactoryPrivateC1ERK4QUrl": [
       "address", "address"
     ],

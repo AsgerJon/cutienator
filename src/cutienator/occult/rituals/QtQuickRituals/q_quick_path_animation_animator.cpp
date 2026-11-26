@@ -107,6 +107,14 @@ inline void QQuickBulkValueAnimator::debugAnimation(QDebug d) const
     }
 }
 
+//  from ../qtdeclarative/src/quick/items/qquickitemanimation.cpp, line 989, as _ZN27QQuickPathAnimationAnimatorC1EP26QQuickPathAnimationPrivate
+#if QT_CONFIG(quick_path)
+inline QQuickPathAnimationAnimator::QQuickPathAnimationAnimator(QQuickPathAnimationPrivate *priv)
+    : animationTemplate(priv)
+{
+}
+#endif  // QT_CONFIG(quick_path)
+
 //  from ../qtdeclarative/src/quick/items/qquickitemanimation.cpp, line 994, as _ZN27QQuickPathAnimationAnimatorD1Ev
 #if QT_CONFIG(quick_path)
 inline QQuickPathAnimationAnimator::~QQuickPathAnimationAnimator()
@@ -290,6 +298,14 @@ public:
   }
 #endif  // QT_CONFIG(qml_animation)
 };
+
+//  QQuickPathAnimationAnimator::QQuickPathAnimationAnimator(QQuickPathAnimat
+//      ionPrivate *a0)
+extern "C" Q_DECL_EXPORT
+QQuickPathAnimationAnimator *ritual_ZN27QQuickPathAnimationAnimatorC1EP26QQuickPathAnimationPrivate(
+    QQuickPathAnimationPrivate *a0) {
+  return new CuteQQuickPathAnimationAnimator(a0);
+}
 
 //  QQuickPathAnimationAnimator::~QQuickPathAnimationAnimator()
 extern "C" Q_DECL_EXPORT

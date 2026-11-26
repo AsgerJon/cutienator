@@ -59,6 +59,22 @@ Qt3DRender::QStencilOperationPrivate *ritual_ZN10Qt3DRender24QStencilOperationPr
   return new CuteQt3DRender_QStencilOperationPrivate();
 }
 
+//  Qt3DRender::QStencilOperationPrivate::~QStencilOperationPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender24QStencilOperationPrivateD1Ev(
+    Qt3DRender::QStencilOperationPrivate *self) {
+  delete self;
+}
+
+//  void Qt3DRender::QStencilOperationPrivate::fillData(QStencilOperationData
+//      &data) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10Qt3DRender24QStencilOperationPrivate8fillDataERNS_21QStencilOperationDataE(
+    const Qt3DRender::QStencilOperationPrivate *self,
+    Qt3DRender::QStencilOperationData *data) {
+  self->fillData(*data);
+}
+
 //  a Python function taken by a CuteQt3DRender_QStencilOperationPrivate, for
 //      the function named by the key
 extern "C" Q_DECL_EXPORT

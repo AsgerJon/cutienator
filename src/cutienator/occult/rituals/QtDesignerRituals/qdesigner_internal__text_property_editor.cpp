@@ -867,6 +867,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal18TextPropertyEditor10metaObjec
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::TextPropertyEditor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal18TextPropertyEditor11qt_metacastEPKc(
+    qdesigner_internal::TextPropertyEditor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::TextPropertyEditor::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal18TextPropertyEditor11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::TextPropertyEditor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::TextPropertyEditor::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -877,6 +896,27 @@ QString *ritual_ZN18qdesigner_internal18TextPropertyEditor2trEPKcS2_i(
   return new QString(qdesigner_internal::TextPropertyEditor::tr(s, c, n));
 }
 
+//  qdesigner_internal::TextPropertyEditor::TextPropertyEditor(QWidget
+//      *parent, EmbeddingMode embeddingMode, TextPropertyValidationMode
+//      validationMode)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::TextPropertyEditor *ritual_ZN18qdesigner_internal18TextPropertyEditorC1EP7QWidgetNS0_13EmbeddingModeENS_26TextPropertyValidationModeE(
+    QWidget *parent,
+    qdesigner_internal::TextPropertyEditor::EmbeddingMode embeddingMode,
+    qdesigner_internal::TextPropertyValidationMode validationMode) {
+  return new Cuteqdesigner_internal_TextPropertyEditor(
+      parent,
+      embeddingMode,
+      validationMode);
+}
+
+//  qdesigner_internal::TextPropertyEditor::~TextPropertyEditor()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditorD1Ev(
+    qdesigner_internal::TextPropertyEditor *self) {
+  delete self;
+}
+
 //  TextPropertyValidationMode
 //      qdesigner_internal::TextPropertyEditor::textPropertyValidationMode()
 //      const
@@ -884,6 +924,15 @@ extern "C" Q_DECL_EXPORT
 qdesigner_internal::TextPropertyValidationMode ritual_ZNK18qdesigner_internal18TextPropertyEditor26textPropertyValidationModeEv(
     const qdesigner_internal::TextPropertyEditor *self) {
   return self->textPropertyValidationMode();
+}
+
+//  void qdesigner_internal::TextPropertyEditor::setTextPropertyValidationMod
+//      e(TextPropertyValidationMode vm)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor29setTextPropertyValidationModeENS_26TextPropertyValidationModeE(
+    qdesigner_internal::TextPropertyEditor *self,
+    qdesigner_internal::TextPropertyValidationMode vm) {
+  self->setTextPropertyValidationMode(vm);
 }
 
 //  UpdateMode qdesigner_internal::TextPropertyEditor::updateMode() const
@@ -901,6 +950,65 @@ void ritual_ZN18qdesigner_internal18TextPropertyEditor13setUpdateModeENS0_10Upda
   self->setUpdateMode(um);
 }
 
+//  QString qdesigner_internal::TextPropertyEditor::text() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal18TextPropertyEditor4textEv(
+    const qdesigner_internal::TextPropertyEditor *self) {
+  return new QString(self->text());
+}
+
+//  QSize qdesigner_internal::TextPropertyEditor::sizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK18qdesigner_internal18TextPropertyEditor8sizeHintEv(
+    const qdesigner_internal::TextPropertyEditor *self) {
+  return new QSize(self->sizeHint());
+}
+
+//  QSize qdesigner_internal::TextPropertyEditor::minimumSizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK18qdesigner_internal18TextPropertyEditor15minimumSizeHintEv(
+    const qdesigner_internal::TextPropertyEditor *self) {
+  return new QSize(self->minimumSizeHint());
+}
+
+//  void qdesigner_internal::TextPropertyEditor::setAlignment(Qt::Alignment
+//      alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE(
+    qdesigner_internal::TextPropertyEditor *self,
+    int alignment) {
+  self->setAlignment(QFlags<Qt::AlignmentFlag>::fromInt(alignment));
+}
+
+//  bool qdesigner_internal::TextPropertyEditor::hasAcceptableInput() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal18TextPropertyEditor18hasAcceptableInputEv(
+    const qdesigner_internal::TextPropertyEditor *self) {
+  return self->hasAcceptableInput();
+}
+
+//  void qdesigner_internal::TextPropertyEditor::installEventFilter(QObject
+//      *filterObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor18installEventFilterEP7QObject(
+    qdesigner_internal::TextPropertyEditor *self,
+    QObject *filterObject) {
+  self->installEventFilter(filterObject);
+}
+
+//  QString
+//      qdesigner_internal::TextPropertyEditor::stringToEditorString(const
+//      QString &s, TextPropertyValidationMode validationMode)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal18TextPropertyEditor20stringToEditorStringERK7QStringNS_26TextPropertyValidationModeE(
+    const QString *s,
+    qdesigner_internal::TextPropertyValidationMode validationMode) {
+  return new QString(
+      qdesigner_internal::TextPropertyEditor::stringToEditorString(
+          *s,
+          validationMode));
+}
+
 //  QString
 //      qdesigner_internal::TextPropertyEditor::editorStringToString(const
 //      QString &s, TextPropertyValidationMode validationMode)
@@ -912,6 +1020,100 @@ QString *ritual_ZN18qdesigner_internal18TextPropertyEditor20editorStringToString
       qdesigner_internal::TextPropertyEditor::editorStringToString(
           *s,
           validationMode));
+}
+
+//  bool qdesigner_internal::TextPropertyEditor::multiLine(TextPropertyValida
+//      tionMode validationMode)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal18TextPropertyEditor9multiLineENS_26TextPropertyValidationModeE(
+    qdesigner_internal::TextPropertyValidationMode validationMode) {
+  return qdesigner_internal::TextPropertyEditor::multiLine(validationMode);
+}
+
+//  void qdesigner_internal::TextPropertyEditor::textChanged(const QString
+//      &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor11textChangedERK7QString(
+    qdesigner_internal::TextPropertyEditor *self,
+    const QString *text) {
+  self->textChanged(*text);
+}
+
+//  void qdesigner_internal::TextPropertyEditor::editingFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor15editingFinishedEv(
+    qdesigner_internal::TextPropertyEditor *self) {
+  self->editingFinished();
+}
+
+//  void qdesigner_internal::TextPropertyEditor::setText(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor7setTextERK7QString(
+    qdesigner_internal::TextPropertyEditor *self,
+    const QString *text) {
+  self->setText(*text);
+}
+
+//  void qdesigner_internal::TextPropertyEditor::selectAll()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor9selectAllEv(
+    qdesigner_internal::TextPropertyEditor *self) {
+  self->selectAll();
+}
+
+//  void qdesigner_internal::TextPropertyEditor::clear()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor5clearEv(
+    qdesigner_internal::TextPropertyEditor *self) {
+  self->clear();
+}
+
+//  void qdesigner_internal::TextPropertyEditor::resizeEvent(QResizeEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor11resizeEventEP12QResizeEvent(
+    qdesigner_internal::TextPropertyEditor *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void qdesigner_internal::TextPropertyEditor::slotTextChanged(const
+//      QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor15slotTextChangedERK7QString(
+    qdesigner_internal::TextPropertyEditor *self,
+    const QString *text) {
+  self->slotTextChanged(*text);
+}
+
+//  void qdesigner_internal::TextPropertyEditor::slotTextEdited()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor14slotTextEditedEv(
+    qdesigner_internal::TextPropertyEditor *self) {
+  self->slotTextEdited();
+}
+
+//  void qdesigner_internal::TextPropertyEditor::slotEditingFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor19slotEditingFinishedEv(
+    qdesigner_internal::TextPropertyEditor *self) {
+  self->slotEditingFinished();
+}
+
+//  void qdesigner_internal::TextPropertyEditor::setRegularExpressionValidato
+//      r(const QString &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor29setRegularExpressionValidatorERK7QString(
+    qdesigner_internal::TextPropertyEditor *self,
+    const QString *pattern) {
+  self->setRegularExpressionValidator(*pattern);
+}
+
+//  void qdesigner_internal::TextPropertyEditor::markIntermediateState()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18TextPropertyEditor21markIntermediateStateEv(
+    qdesigner_internal::TextPropertyEditor *self) {
+  self->markIntermediateState();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_TextPropertyEditor,

@@ -211,6 +211,24 @@ const QMetaObject *ritual_ZNK13QModbusDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QModbusDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QModbusDevice11qt_metacastEPKc(
+    QModbusDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QModbusDevice::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QModbusDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QModbusDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QModbusDevice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QModbusDevice2trEPKcS1_i(
@@ -232,6 +250,12 @@ extern "C" Q_DECL_EXPORT
 const QModbusDevicePrivate *ritual_ZNK13QModbusDevice6d_funcEv(
     const QModbusDevice *self) {
   return self->d_func();
+}
+
+//  QModbusDevice::QModbusDevice(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QModbusDevice *ritual_ZN13QModbusDeviceC1EP7QObject(QObject *parent) {
+  return new CuteQModbusDevice(parent);
 }
 
 //  QModbusDevice::~QModbusDevice()
@@ -296,6 +320,30 @@ QString *ritual_ZNK13QModbusDevice11errorStringEv(
 extern "C" Q_DECL_EXPORT
 QIODevice *ritual_ZNK13QModbusDevice6deviceEv(const QModbusDevice *self) {
   return self->device();
+}
+
+//  void QModbusDevice::errorOccurred(QModbusDevice::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QModbusDevice13errorOccurredENS_5ErrorE(
+    QModbusDevice *self,
+    QModbusDevice::Error error) {
+  self->errorOccurred(error);
+}
+
+//  void QModbusDevice::stateChanged(QModbusDevice::State state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QModbusDevice12stateChangedENS_5StateE(
+    QModbusDevice *self,
+    QModbusDevice::State state) {
+  self->stateChanged(state);
+}
+
+//  QModbusDevice::QModbusDevice(QModbusDevicePrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QModbusDevice *ritual_ZN13QModbusDeviceC1ER20QModbusDevicePrivateP7QObject(
+    QModbusDevicePrivate *dd,
+    QObject *parent) {
+  return new CuteQModbusDevice(*dd, parent);
 }
 
 //  void QModbusDevice::setState(QModbusDevice::State newState)

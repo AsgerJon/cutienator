@@ -6,7 +6,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/effect_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DCore/qnodeid.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DRender::Render::Effect that Python can take functions over in. Every Qt3DRender::Render::Effect
 //  Python makes is one. Each function below asks the Python
@@ -40,6 +43,59 @@ public:
   }
 };
 
+//  Qt3DRender::Render::Effect::Effect()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Effect *ritual_ZN10Qt3DRender6Render6EffectC1Ev() {
+  return new CuteQt3DRender_Render_Effect();
+}
+
+//  Qt3DRender::Render::Effect::~Effect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6EffectD1Ev(
+    Qt3DRender::Render::Effect *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::Effect::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Effect7cleanupEv(
+    Qt3DRender::Render::Effect *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::Effect::syncFromFrontEnd(const Qt3DCore::QNode
+//      *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Effect16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::Effect *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  void Qt3DRender::Render::Effect::appendRenderTechnique(Qt3DCore::QNodeId
+//      t)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Effect21appendRenderTechniqueEN8Qt3DCore7QNodeIdE(
+    Qt3DRender::Render::Effect *self,
+    const Qt3DCore::QNodeId *t) {
+  self->appendRenderTechnique(*t);
+}
+
+//  QList<Qt3DCore::QNodeId> Qt3DRender::Render::Effect::techniques() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QNodeId> *ritual_ZNK10Qt3DRender6Render6Effect10techniquesEv(
+    const Qt3DRender::Render::Effect *self) {
+  return new QList<Qt3DCore::QNodeId>(self->techniques());
+}
+
+//  QList<Qt3DCore::QNodeId> Qt3DRender::Render::Effect::parameters() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QNodeId> *ritual_ZNK10Qt3DRender6Render6Effect10parametersEv(
+    const Qt3DRender::Render::Effect *self) {
+  return new QList<Qt3DCore::QNodeId>(self->parameters());
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_Effect, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -58,4 +114,11 @@ void ritual_own_ZN10Qt3DRender6Render6Effect16syncFromFrontEndEPKN8Qt3DCore5QNod
     const Qt3DCore::QNode *frontEnd,
     bool firstTime) {
   self->Qt3DRender::Render::Effect::syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  a QList<Qt3DCore::QNodeId> a ritual of Qt3DRender::Render::Effect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Effect__QList_Qt3DCore_QNodeId(
+    QList<Qt3DCore::QNodeId> *self) {
+  delete self;
 }

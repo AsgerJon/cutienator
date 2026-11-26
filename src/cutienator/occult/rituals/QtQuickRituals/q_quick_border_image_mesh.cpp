@@ -15,6 +15,12 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qquickshadereffectmesh_p.h>
+#include <QtQuick/qsggeometry.h>
+#include <QtQuick/private/qquickshadereffect_p.h>
+#include <QtQuick/private/qquickscalegrid_p_p.h>
+#include <QtQuick/private/qquickborderimage_p_p.h>
+#include <QtQuick/private/qsgbasicinternalimagenode_p.h>
 #include <QtQuick/private/qquickborderimage_p.h>
 #include <QtQuick/private/qquickborderimage_p_p.h>
 #include <QtQml/qqmlinfo.h>
@@ -28,12 +34,6 @@
 #include <QtGui/qguiapplication.h>
 #include <QtQml/private/qqmlglobal_p.h>
 #include <QtQuick/private/qsgadaptationlayer_p.h>
-#include <QtQuick/private/qquickshadereffectmesh_p.h>
-#include <QtQuick/qsggeometry.h>
-#include <QtQuick/private/qquickshadereffect_p.h>
-#include <QtQuick/private/qquickscalegrid_p_p.h>
-#include <QtQuick/private/qquickborderimage_p_p.h>
-#include <QtQuick/private/qsgbasicinternalimagenode_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -42,6 +42,33 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/items/qquickshadereffectmesh.cpp, line 296, as _ZN21QQuickBorderImageMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_
+inline QSGGeometry *QQuickBorderImageMesh::updateGeometry(QSGGeometry *geometry, int attrCount, int posIndex,
+                                                   const QRectF &srcRect, const QRectF &rect)
+{
+    Q_UNUSED(attrCount);
+    Q_UNUSED(posIndex);
+
+    QRectF innerSourceRect;
+    QRectF targetRect;
+    QRectF innerTargetRect;
+    QRectF subSourceRect;
+
+    QQuickBorderImagePrivate::calculateRects(m_border, m_size, rect.size(), m_horizontalTileMode, m_verticalTileMode,
+                                             1, &targetRect, &innerTargetRect, &innerSourceRect, &subSourceRect);
+
+    QRectF sourceRect = srcRect;
+    QRectF modifiedInnerSourceRect(sourceRect.x() + innerSourceRect.x() * sourceRect.width(),
+                                   sourceRect.y() + innerSourceRect.y() * sourceRect.height(),
+                                   innerSourceRect.width() * sourceRect.width(),
+                                   innerSourceRect.height() * sourceRect.height());
+
+    geometry = QSGBasicInternalImageNode::updateGeometry(targetRect, innerTargetRect, sourceRect,
+                                                         modifiedInnerSourceRect, subSourceRect, geometry);
+
+    return geometry;
+}
 
 //  from ../qtdeclarative/src/quick/items/qquickborderimage.cpp, line 465, as _ZN24QQuickBorderImagePrivate14calculateRectsEPK15QQuickScaleGridRK5QSizeRK6QSizeFiidP6QRectFSA_SA_SA_
 inline void QQuickBorderImagePrivate::calculateRects(const QQuickScaleGrid *border,
@@ -99,41 +126,6 @@ inline void QQuickBorderImagePrivate::calculateRects(const QQuickScaleGrid *bord
     *subSourceRect = QRectF(0, 0, hTiles, vTiles);
 }
 
-//  from ../qtdeclarative/src/quick/items/qquickshadereffectmesh.cpp, line 289, as _ZN21QQuickBorderImageMesh18validateAttributesERK5QListI10QByteArrayEPi
-inline bool QQuickBorderImageMesh::validateAttributes(const QList<QByteArray> &attributes, int *posIndex)
-{
-    Q_UNUSED(attributes);
-    Q_UNUSED(posIndex);
-    return true;
-}
-
-//  from ../qtdeclarative/src/quick/items/qquickshadereffectmesh.cpp, line 296, as _ZN21QQuickBorderImageMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_
-inline QSGGeometry *QQuickBorderImageMesh::updateGeometry(QSGGeometry *geometry, int attrCount, int posIndex,
-                                                   const QRectF &srcRect, const QRectF &rect)
-{
-    Q_UNUSED(attrCount);
-    Q_UNUSED(posIndex);
-
-    QRectF innerSourceRect;
-    QRectF targetRect;
-    QRectF innerTargetRect;
-    QRectF subSourceRect;
-
-    QQuickBorderImagePrivate::calculateRects(m_border, m_size, rect.size(), m_horizontalTileMode, m_verticalTileMode,
-                                             1, &targetRect, &innerTargetRect, &innerSourceRect, &subSourceRect);
-
-    QRectF sourceRect = srcRect;
-    QRectF modifiedInnerSourceRect(sourceRect.x() + innerSourceRect.x() * sourceRect.width(),
-                                   sourceRect.y() + innerSourceRect.y() * sourceRect.height(),
-                                   innerSourceRect.width() * sourceRect.width(),
-                                   innerSourceRect.height() * sourceRect.height());
-
-    geometry = QSGBasicInternalImageNode::updateGeometry(targetRect, innerTargetRect, sourceRect,
-                                                         modifiedInnerSourceRect, subSourceRect, geometry);
-
-    return geometry;
-}
-
 //  from ../qtdeclarative/src/quick/items/qquickshadereffectmesh.cpp, line 349, as _ZNK21QQuickBorderImageMesh6borderEv
 inline QQuickScaleGrid *QQuickBorderImageMesh::border() const
 {
@@ -164,6 +156,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK21QQuickBorderImageMesh10metaObjectEv(
     const QQuickBorderImageMesh *self) {
   return self->metaObject();
+}
+
+//  void *QQuickBorderImageMesh::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickBorderImageMesh11qt_metacastEPKc(
+    QQuickBorderImageMesh *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickBorderImageMesh::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickBorderImageMesh11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickBorderImageMesh *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  bool QQuickBorderImageMesh::validateAttributes(const QList<QByteArray>
@@ -221,6 +232,81 @@ extern "C" Q_DECL_EXPORT
 QQuickBorderImageMesh::TileMode ritual_ZNK21QQuickBorderImageMesh16verticalTileModeEv(
     const QQuickBorderImageMesh *self) {
   return self->verticalTileMode();
+}
+
+//  void QQuickBorderImageMesh::sizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickBorderImageMesh11sizeChangedEv(
+    QQuickBorderImageMesh *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickBorderImageMesh")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sizeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sizeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickBorderImageMesh::horizontalTileModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickBorderImageMesh25horizontalTileModeChangedEv(
+    QQuickBorderImageMesh *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickBorderImageMesh")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "horizontalTileModeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "horizontalTileModeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickBorderImageMesh::verticalTileModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickBorderImageMesh23verticalTileModeChangedEv(
+    QQuickBorderImageMesh *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickBorderImageMesh")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "verticalTileModeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "verticalTileModeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QSGGeometry *QQuickBorderImageMesh::updateGeometry(QSGGeometry *geometry,

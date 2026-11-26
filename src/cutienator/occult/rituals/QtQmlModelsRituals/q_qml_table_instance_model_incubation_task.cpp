@@ -6,6 +6,10 @@
 #if QT_CONFIG(qml_table_model)
 #if QT_CONFIG(qml_table_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#include <QtQml/QtQml>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmlpropertytopropertybinding_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmltableinstancemodel_p.h>

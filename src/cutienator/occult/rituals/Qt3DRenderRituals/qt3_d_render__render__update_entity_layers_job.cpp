@@ -7,6 +7,12 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/updateentitylayersjob_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  Qt3DRender::Render::UpdateEntityLayersJob::UpdateEntityLayersJob()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::UpdateEntityLayersJob *ritual_ZN10Qt3DRender6Render21UpdateEntityLayersJobC1Ev() {
+  return new Qt3DRender::Render::UpdateEntityLayersJob();
+}
+
 //  void Qt3DRender::Render::UpdateEntityLayersJob::setManager(NodeManagers
 //      *manager)
 extern "C" Q_DECL_EXPORT
@@ -21,4 +27,11 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::Render::NodeManagers *ritual_ZNK10Qt3DRender6Render21UpdateEntityLayersJob7managerEv(
     const Qt3DRender::Render::UpdateEntityLayersJob *self) {
   return self->manager();
+}
+
+//  void Qt3DRender::Render::UpdateEntityLayersJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render21UpdateEntityLayersJob3runEv(
+    Qt3DRender::Render::UpdateEntityLayersJob *self) {
+  self->run();
 }

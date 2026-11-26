@@ -5,6 +5,33 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowCommandC1ERK7QStringP28QDesignerFormWindowInterfaceP12QUndoCommand": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowCommand4undoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowCommand13updateBuddiesEP28QDesignerFormWindowInterfaceRK7QStringS5_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal26QDesignerFormWindowCommand10formWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal26QDesignerFormWindowCommand4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal26QDesignerFormWindowCommand13propertySheetEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowCommand11cheapUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowCommand21selectUnmanagedObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZN18qdesigner_internal26QDesignerFormWindowCommand4undoEv": [
       "nothing", "address"
     ],

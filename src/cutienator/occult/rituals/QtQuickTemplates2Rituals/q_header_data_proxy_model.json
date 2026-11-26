@@ -8,6 +8,12 @@
     "ritual_ZNK21QHeaderDataProxyModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QHeaderDataProxyModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QHeaderDataProxyModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QHeaderDataProxyModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,9 @@
     "ritual_ZN21QHeaderDataProxyModelD1Ev": ["nothing", "address"],
     "ritual_ZN21QHeaderDataProxyModel14setSourceModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel11sourceModelEv": [
+      "address", "address"
     ],
     "ritual_ZNK21QHeaderDataProxyModel5indexEiiRK11QModelIndex": [
       "address", "address", "int", "int", "address"
@@ -80,6 +89,9 @@
     ],
     "ritual_own_ZNK21QHeaderDataProxyModel11hasChildrenERK11QModelIndex": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QHeaderDataProxyModel__QPointer_QAbstractItemModel": [
+      "nothing", "address"
     ]
   }
 }

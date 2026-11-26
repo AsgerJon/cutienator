@@ -8,9 +8,16 @@
     "ritual_ZNK26QNetworkInformationBackend10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QNetworkInformationBackend11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QNetworkInformationBackend11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QNetworkInformationBackend2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN26QNetworkInformationBackendC1Ev": ["address"],
     "ritual_ZN26QNetworkInformationBackendD1Ev": ["nothing", "address"],
     "ritual_ZNK26QNetworkInformationBackend4nameEv": ["text", "address"],
     "ritual_ZNK26QNetworkInformationBackend17featuresSupportedEv": [
@@ -27,6 +34,18 @@
     ],
     "ritual_ZNK26QNetworkInformationBackend9isMeteredEv": [
       "bool", "address"
+    ],
+    "ritual_ZN26QNetworkInformationBackend19reachabilityChangedEN19QNetworkInformation12ReachabilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QNetworkInformationBackend26behindCaptivePortalChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QNetworkInformationBackend22transportMediumChangedEN19QNetworkInformation15TransportMediumE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QNetworkInformationBackend16isMeteredChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN26QNetworkInformationBackend15setReachabilityEN19QNetworkInformation12ReachabilityE": [
       "nothing", "address", "int"

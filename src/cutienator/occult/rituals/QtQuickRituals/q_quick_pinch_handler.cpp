@@ -25,6 +25,25 @@ const QMetaObject *ritual_ZNK18QQuickPinchHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPinchHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickPinchHandler11qt_metacastEPKc(
+    QQuickPinchHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPinchHandler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickPinchHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPinchHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPinchHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickPinchHandler2trEPKcS1_i(
@@ -252,6 +271,64 @@ void ritual_ZN18QQuickPinchHandler21setPersistentRotationEd(
     QQuickPinchHandler *self,
     qreal rot) {
   self->setPersistentRotation(rot);
+}
+
+//  void QQuickPinchHandler::minimumScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPinchHandler19minimumScaleChangedEv(
+    QQuickPinchHandler *self) {
+  self->minimumScaleChanged();
+}
+
+//  void QQuickPinchHandler::maximumScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPinchHandler19maximumScaleChangedEv(
+    QQuickPinchHandler *self) {
+  self->maximumScaleChanged();
+}
+
+//  void QQuickPinchHandler::minimumRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPinchHandler22minimumRotationChangedEv(
+    QQuickPinchHandler *self) {
+  self->minimumRotationChanged();
+}
+
+//  void QQuickPinchHandler::maximumRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPinchHandler22maximumRotationChangedEv(
+    QQuickPinchHandler *self) {
+  self->maximumRotationChanged();
+}
+
+//  void QQuickPinchHandler::updated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPinchHandler7updatedEv(QQuickPinchHandler *self) {
+  self->updated();
+}
+
+//  void QQuickPinchHandler::scaleChanged(qreal delta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPinchHandler12scaleChangedEd(
+    QQuickPinchHandler *self,
+    qreal delta) {
+  self->scaleChanged(delta);
+}
+
+//  void QQuickPinchHandler::rotationChanged(qreal delta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPinchHandler15rotationChangedEd(
+    QQuickPinchHandler *self,
+    qreal delta) {
+  self->rotationChanged(delta);
+}
+
+//  void QQuickPinchHandler::translationChanged(QVector2D delta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickPinchHandler18translationChangedE9QVector2D(
+    QQuickPinchHandler *self,
+    const QVector2D *delta) {
+  self->translationChanged(*delta);
 }
 
 //  bool QQuickPinchHandler::wantsPointerEvent(QPointerEvent *event)

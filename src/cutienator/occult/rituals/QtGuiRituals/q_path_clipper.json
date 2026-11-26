@@ -18,6 +18,12 @@
     ],
     "ritual_ZN12QPathClipper9intersectERK12QPainterPathRK6QRectF": [
       "address", "address", "address"
+    ],
+    "ritual_ZN12QPathClipper19handleCrossingEdgesER11QWingedEdgedNS_11ClipperModeE": [
+      "bool", "address", "address", "double", "int"
+    ],
+    "ritual_ZN12QPathClipper6doClipER11QWingedEdgeNS_11ClipperModeE": [
+      "bool", "address", "address", "int"
     ]
   }
 }

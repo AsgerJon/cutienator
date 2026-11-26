@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN21QSvgViewportFillStyleC1ERK6QBrush": ["address", "address"],
     "ritual_ZN21QSvgViewportFillStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN21QSvgViewportFillStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QSvgViewportFillStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK21QSvgViewportFillStyle4typeEv": ["unsigned char", "address"],
     "ritual_ZNK21QSvgViewportFillStyle6qbrushEv": ["address", "address"],
     "ritual_take_QSvgViewportFillStyle": [

@@ -6,9 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK15QGraphicsEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGraphicsEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QGraphicsEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QGraphicsEffect2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QGraphicsEffectC1EP7QObject": ["address", "address"],
     "ritual_ZN15QGraphicsEffectD1Ev": ["nothing", "address"],
     "ritual_ZNK15QGraphicsEffect15boundingRectForERK6QRectF": [
       "address", "address", "address"
@@ -19,6 +26,12 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZN15QGraphicsEffect6updateEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsEffect14enabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QGraphicsEffectC1ER22QGraphicsEffectPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN15QGraphicsEffect4drawEP8QPainter": [
       "nothing", "address", "address"
     ],

@@ -25,6 +25,49 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 113, as local:qquickmaterialplaceholdertext.cpp:controlTopInset
+inline qreal controlTopInset(QQuickItem *textControl)
+{
+    if (const auto textArea = qobject_cast<QQuickTextArea *>(textControl))
+        return textArea->topInset();
+
+    if (const auto textField = qobject_cast<QQuickTextField *>(textControl))
+        return textField->topInset();
+
+    return 0;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 143, as _ZNK29QQuickMaterialPlaceholderText15floatingTargetYEv
+inline qreal QQuickMaterialPlaceholderText::floatingTargetY() const
+{
+    // For filled text fields, the placeholder text sits just above
+    // the text when floating.
+    if (m_filled)
+        return m_verticalPadding;
+
+    // Outlined text fields have the placeaholder vertically centered
+    // along the outline at the top.
+    return (-m_largestHeight / 2.0) + controlTopInset(textControl());
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 322, as _ZN29QQuickMaterialPlaceholderText17componentCompleteEv
+inline void QQuickMaterialPlaceholderText::componentComplete()
+{
+    QQuickPlaceholderText::componentComplete();
+
+    adjustTransformOrigin();
+
+    m_largestHeight = implicitHeight();
+    if (m_largestHeight > 0) {
+        emit largestHeightChanged();
+    } else {
+        qmlWarning(this) << "Expected implicitHeight of placeholder text" << text()
+            << "to be greater than 0 by component completion!";
+    }
+
+    updateFocusAnimation();
+}
+
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 37, as _ZNK29QQuickMaterialPlaceholderText8isFilledEv
 inline bool QQuickMaterialPlaceholderText::isFilled() const
 {
@@ -78,24 +121,6 @@ inline qreal QQuickMaterialPlaceholderText::verticalPadding() const
     return m_verticalPadding;
 }
 
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 247, as _ZN29QQuickMaterialPlaceholderText21adjustTransformOriginEv
-inline void QQuickMaterialPlaceholderText::adjustTransformOrigin()
-{
-    switch (effectiveHAlign()) {
-    case QQuickText::AlignLeft:
-        Q_FALLTHROUGH();
-    case QQuickText::AlignJustify:
-        setTransformOrigin(QQuickItem::Left);
-        break;
-    case QQuickText::AlignRight:
-        setTransformOrigin(QQuickItem::Right);
-        break;
-    case QQuickText::AlignHCenter:
-        setTransformOrigin(QQuickItem::Center);
-        break;
-    }
-}
-
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 88, as _ZNK29QQuickMaterialPlaceholderText11shouldFloatEv
 inline bool QQuickMaterialPlaceholderText::shouldFloat() const
 {
@@ -113,10 +138,36 @@ inline bool QQuickMaterialPlaceholderText::shouldAnimate() const
         : !m_controlHasText && !text().isEmpty();
 }
 
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 103, as _ZN29QQuickMaterialPlaceholderText7updateYEv
+inline void QQuickMaterialPlaceholderText::updateY()
+{
+    setY(shouldFloat() ? floatingTargetY() : normalTargetY());
+}
+
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 108, as _ZN29QQuickMaterialPlaceholderText7updateXEv
 inline void QQuickMaterialPlaceholderText::updateX()
 {
     setX(shouldFloat() ? floatingTargetX() : normalTargetX());
+}
+
+//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 124, as _ZNK29QQuickMaterialPlaceholderText13normalTargetYEv
+inline qreal QQuickMaterialPlaceholderText::normalTargetY() const
+{
+    auto *textArea = qobject_cast<QQuickTextArea *>(textControl());
+    if (textArea && m_controlHeight >= textArea->implicitHeight()) {
+        // TextArea can be multiple lines in height, and we want the
+        // placeholder text to sit in the middle of its default-height
+        // (one-line) if its explicit height is greater than or equal to its
+        // implicit height - i.e. if it has room for it. If it doesn't have
+        // room, just do what TextField does.
+        // We should also account for any topInset the user might have specified,
+        // which is useful to ensure that the text doesn't get clipped.
+        return ((m_controlImplicitBackgroundHeight - m_largestHeight) / 2.0)
+            + controlTopInset(textControl());
+    }
+
+    // When the placeholder text shouldn't float, it should sit in the middle of the TextField.
+    return (m_controlHeight - height()) / 2.0;
 }
 
 //  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 155, as _ZNK29QQuickMaterialPlaceholderText13normalTargetXEv
@@ -130,24 +181,6 @@ inline qreal QQuickMaterialPlaceholderText::floatingTargetX() const
 {
     return m_floatingLeftPadding;
 }
-
-//  from ../qtdeclarative/src/quickcontrols/material/impl/qquickmaterialplaceholdertext.cpp, line 322, as _ZN29QQuickMaterialPlaceholderText17componentCompleteEv
-inline void QQuickMaterialPlaceholderText::componentComplete()
-{
-    QQuickPlaceholderText::componentComplete();
-
-    adjustTransformOrigin();
-
-    m_largestHeight = implicitHeight();
-    if (m_largestHeight > 0) {
-        emit largestHeightChanged();
-    } else {
-        qmlWarning(this) << "Expected implicitHeight of placeholder text" << text()
-            << "to be greater than 0 by component completion!";
-    }
-
-    updateFocusAnimation();
-}
 //  -----------------------------------------------------------------------
 
 //  const QMetaObject *QQuickMaterialPlaceholderText::metaObject() const
@@ -155,6 +188,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK29QQuickMaterialPlaceholderText10metaObjectEv(
     const QQuickMaterialPlaceholderText *self) {
   return self->metaObject();
+}
+
+//  void *QQuickMaterialPlaceholderText::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuickMaterialPlaceholderText11qt_metacastEPKc(
+    QQuickMaterialPlaceholderText *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMaterialPlaceholderText::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuickMaterialPlaceholderText11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMaterialPlaceholderText *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  bool QQuickMaterialPlaceholderText::isFilled() const
@@ -215,11 +267,181 @@ qreal ritual_ZNK29QQuickMaterialPlaceholderText15verticalPaddingEv(
   return self->verticalPadding();
 }
 
+//  void QQuickMaterialPlaceholderText::filledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickMaterialPlaceholderText13filledChangedEv(
+    QQuickMaterialPlaceholderText *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialPlaceholderText")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "filledChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "filledChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickMaterialPlaceholderText::largestHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickMaterialPlaceholderText20largestHeightChangedEv(
+    QQuickMaterialPlaceholderText *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialPlaceholderText")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "largestHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "largestHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickMaterialPlaceholderText::controlHasActiveFocusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickMaterialPlaceholderText28controlHasActiveFocusChangedEv(
+    QQuickMaterialPlaceholderText *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialPlaceholderText")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controlHasActiveFocusChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controlHasActiveFocusChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickMaterialPlaceholderText::controlHasTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickMaterialPlaceholderText21controlHasTextChangedEv(
+    QQuickMaterialPlaceholderText *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialPlaceholderText")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controlHasTextChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controlHasTextChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QQuickMaterialPlaceholderText::controlImplicitBackgroundHeightChanged
+//      ()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickMaterialPlaceholderText38controlImplicitBackgroundHeightChangedEv(
+    QQuickMaterialPlaceholderText *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialPlaceholderText")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controlImplicitBackgroundHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controlImplicitBackgroundHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickMaterialPlaceholderText::verticalPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickMaterialPlaceholderText22verticalPaddingChangedEv(
+    QQuickMaterialPlaceholderText *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialPlaceholderText")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "verticalPaddingChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "verticalPaddingChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuickMaterialPlaceholderText::adjustTransformOrigin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QQuickMaterialPlaceholderText21adjustTransformOriginEv(
     QQuickMaterialPlaceholderText *self) {
-  self->adjustTransformOrigin();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickMaterialPlaceholderText")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "adjustTransformOrigin()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "adjustTransformOrigin()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  bool QQuickMaterialPlaceholderText::shouldFloat() const
@@ -236,11 +458,25 @@ bool ritual_ZNK29QQuickMaterialPlaceholderText13shouldAnimateEv(
   return self->shouldAnimate();
 }
 
+//  void QQuickMaterialPlaceholderText::updateY()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickMaterialPlaceholderText7updateYEv(
+    QQuickMaterialPlaceholderText *self) {
+  self->updateY();
+}
+
 //  void QQuickMaterialPlaceholderText::updateX()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QQuickMaterialPlaceholderText7updateXEv(
     QQuickMaterialPlaceholderText *self) {
   self->updateX();
+}
+
+//  qreal QQuickMaterialPlaceholderText::normalTargetY() const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK29QQuickMaterialPlaceholderText13normalTargetYEv(
+    const QQuickMaterialPlaceholderText *self) {
+  return self->normalTargetY();
 }
 
 //  qreal QQuickMaterialPlaceholderText::normalTargetX() const

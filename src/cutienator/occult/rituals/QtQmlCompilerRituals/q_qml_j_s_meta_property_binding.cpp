@@ -17,6 +17,7 @@
 #include <QtQml/6.12.0/QtQml/private/qqmltranslation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
+#include <QtCore/QSharedPointer>
 
 //  void QQmlJSMetaPropertyBinding::ensureSetBindingTypeOnce()
 extern "C" Q_DECL_EXPORT
@@ -129,6 +130,24 @@ void ritual_ZN25QQmlJSMetaPropertyBinding16setScriptBindingEN16QQmlJSMetaMethod2
   self->setScriptBinding(value, kind, valueType);
 }
 
+//  void QQmlJSMetaPropertyBinding::setGroupBinding(const
+//      QSharedPointer<const QQmlJSScope> &groupScope)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlJSMetaPropertyBinding15setGroupBindingERK14QSharedPointerIK11QQmlJSScopeE(
+    QQmlJSMetaPropertyBinding *self,
+    const QSharedPointer<const QQmlJSScope> *groupScope) {
+  self->setGroupBinding(*groupScope);
+}
+
+//  void QQmlJSMetaPropertyBinding::setAttachedBinding(const
+//      QSharedPointer<const QQmlJSScope> &attachingScope)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlJSMetaPropertyBinding18setAttachedBindingERK14QSharedPointerIK11QQmlJSScopeE(
+    QQmlJSMetaPropertyBinding *self,
+    const QSharedPointer<const QQmlJSScope> *attachingScope) {
+  self->setAttachedBinding(*attachingScope);
+}
+
 //  void QQmlJSMetaPropertyBinding::setBoolLiteral(bool value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QQmlJSMetaPropertyBinding14setBoolLiteralEb(
@@ -186,6 +205,36 @@ void ritual_ZN25QQmlJSMetaPropertyBinding16setTranslationIdE11QStringViewi(
   self->setTranslationId(QStringView(*id), number);
 }
 
+//  void QQmlJSMetaPropertyBinding::setObject(const QString &typeName, const
+//      QSharedPointer<const QQmlJSScope> &type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlJSMetaPropertyBinding9setObjectERK7QStringRK14QSharedPointerIK11QQmlJSScopeE(
+    QQmlJSMetaPropertyBinding *self,
+    const QString *typeName,
+    const QSharedPointer<const QQmlJSScope> *type) {
+  self->setObject(*typeName, *type);
+}
+
+//  void QQmlJSMetaPropertyBinding::setInterceptor(const QString &typeName,
+//      const QSharedPointer<const QQmlJSScope> &type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlJSMetaPropertyBinding14setInterceptorERK7QStringRK14QSharedPointerIK11QQmlJSScopeE(
+    QQmlJSMetaPropertyBinding *self,
+    const QString *typeName,
+    const QSharedPointer<const QQmlJSScope> *type) {
+  self->setInterceptor(*typeName, *type);
+}
+
+//  void QQmlJSMetaPropertyBinding::setValueSource(const QString &typeName,
+//      const QSharedPointer<const QQmlJSScope> &type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQmlJSMetaPropertyBinding14setValueSourceERK7QStringRK14QSharedPointerIK11QQmlJSScopeE(
+    QQmlJSMetaPropertyBinding *self,
+    const QString *typeName,
+    const QSharedPointer<const QQmlJSScope> *type) {
+  self->setValueSource(*typeName, *type);
+}
+
 //  bool QQmlJSMetaPropertyBinding::boolValue() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK25QQmlJSMetaPropertyBinding9boolValueEv(
@@ -225,6 +274,16 @@ QQmlTranslation *ritual_ZNK25QQmlJSMetaPropertyBinding20translationDataValueE7QS
           *qmlFileNameForContext));
 }
 
+//  QSharedPointer<const QQmlJSScope>
+//      QQmlJSMetaPropertyBinding::literalType(const QQmlJSTypeResolver
+//      *resolver) const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK25QQmlJSMetaPropertyBinding11literalTypeEPK18QQmlJSTypeResolver(
+    const QQmlJSMetaPropertyBinding *self,
+    const QQmlJSTypeResolver *resolver) {
+  return new QSharedPointer<const QQmlJSScope>(self->literalType(resolver));
+}
+
 //  QQmlJSMetaMethod::RelativeFunctionIndex
 //      QQmlJSMetaPropertyBinding::scriptIndex() const
 extern "C" Q_DECL_EXPORT
@@ -254,6 +313,14 @@ QString *ritual_ZNK25QQmlJSMetaPropertyBinding14objectTypeNameEv(
   return new QString(self->objectTypeName());
 }
 
+//  QSharedPointer<const QQmlJSScope> QQmlJSMetaPropertyBinding::objectType()
+//      const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK25QQmlJSMetaPropertyBinding10objectTypeEv(
+    const QQmlJSMetaPropertyBinding *self) {
+  return new QSharedPointer<const QQmlJSScope>(self->objectType());
+}
+
 //  QString QQmlJSMetaPropertyBinding::interceptorTypeName() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK25QQmlJSMetaPropertyBinding19interceptorTypeNameEv(
@@ -261,11 +328,43 @@ QString *ritual_ZNK25QQmlJSMetaPropertyBinding19interceptorTypeNameEv(
   return new QString(self->interceptorTypeName());
 }
 
+//  QSharedPointer<const QQmlJSScope>
+//      QQmlJSMetaPropertyBinding::interceptorType() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK25QQmlJSMetaPropertyBinding15interceptorTypeEv(
+    const QQmlJSMetaPropertyBinding *self) {
+  return new QSharedPointer<const QQmlJSScope>(self->interceptorType());
+}
+
 //  QString QQmlJSMetaPropertyBinding::valueSourceTypeName() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK25QQmlJSMetaPropertyBinding19valueSourceTypeNameEv(
     const QQmlJSMetaPropertyBinding *self) {
   return new QString(self->valueSourceTypeName());
+}
+
+//  QSharedPointer<const QQmlJSScope>
+//      QQmlJSMetaPropertyBinding::valueSourceType() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK25QQmlJSMetaPropertyBinding15valueSourceTypeEv(
+    const QQmlJSMetaPropertyBinding *self) {
+  return new QSharedPointer<const QQmlJSScope>(self->valueSourceType());
+}
+
+//  QSharedPointer<const QQmlJSScope> QQmlJSMetaPropertyBinding::groupType()
+//      const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK25QQmlJSMetaPropertyBinding9groupTypeEv(
+    const QQmlJSMetaPropertyBinding *self) {
+  return new QSharedPointer<const QQmlJSScope>(self->groupType());
+}
+
+//  QSharedPointer<const QQmlJSScope>
+//      QQmlJSMetaPropertyBinding::attachedType() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK25QQmlJSMetaPropertyBinding12attachedTypeEv(
+    const QQmlJSMetaPropertyBinding *self) {
+  return new QSharedPointer<const QQmlJSScope>(self->attachedType());
 }
 
 //  bool QQmlJSMetaPropertyBinding::hasLiteral() const
@@ -356,5 +455,13 @@ QQmlJSMetaPropertyBinding *ritual_list_at_QQmlJSMetaPropertyBinding(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQmlJSMetaPropertyBinding(
     QList<QQmlJSMetaPropertyBinding> *self) {
+  delete self;
+}
+
+//  a QSharedPointer<const QQmlJSScope> a ritual of QQmlJSMetaPropertyBinding
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSMetaPropertyBinding__QSharedPointer_const_QQmlJSScope(
+    QSharedPointer<const QQmlJSScope> *self) {
   delete self;
 }

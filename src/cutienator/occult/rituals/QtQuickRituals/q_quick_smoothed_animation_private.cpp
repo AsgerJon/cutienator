@@ -28,6 +28,20 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 20, as local:qquicksmoothedanimation.cpp:DELAY_STOP_TIMER_INTERVAL
+#define DELAY_STOP_TIMER_INTERVAL 32
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 41, as _ZN18QSmoothedAnimationC1EP30QQuickSmoothedAnimationPrivate
+inline QSmoothedAnimation::QSmoothedAnimation(QQuickSmoothedAnimationPrivate *priv)
+    : QAbstractAnimationJob(), to(0), velocity(200), userDuration(-1), maximumEasingTime(-1),
+      reversingMode(QQuickSmoothedAnimation::Eased), initialVelocity(0),
+      trackVelocity(0), initialValue(0), invert(false), finalDuration(-1), lastTime(0),
+      skipUpdate(false), delayedStopTimer(new QSmoothedAnimationTimer(this)), animationTemplate(priv)
+{
+    delayedStopTimer->setInterval(DELAY_STOP_TIMER_INTERVAL);
+    delayedStopTimer->setSingleShot(true);
+}
+
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 224, as _ZN18QSmoothedAnimation4initEv
 inline void QSmoothedAnimation::init()
 {
@@ -80,6 +94,76 @@ inline void QSmoothedAnimation::init()
         stop();
         return;
     }
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 25, as _ZN23QSmoothedAnimationTimerC1EP18QSmoothedAnimationP7QObject
+inline QSmoothedAnimationTimer::QSmoothedAnimationTimer(QSmoothedAnimation *animation, QObject *parent)
+    : QTimer(parent)
+    , m_animation(animation)
+{
+    connect(this, SIGNAL(timeout()), this, SLOT(stopAnimation()));
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 51, as _ZN18QSmoothedAnimationD1Ev
+inline QSmoothedAnimation::~QSmoothedAnimation()
+{
+    delete delayedStopTimer;
+    if (animationTemplate) {
+        if (target.object()) {
+            auto it = animationTemplate->activeAnimations.constFind(target);
+            if (it != animationTemplate->activeAnimations.cend() && it.value() == this)
+                animationTemplate->activeAnimations.erase(it);
+        } else {
+            //target is no longer valid, need to search linearly
+            for (auto it = animationTemplate->activeAnimations.cbegin(); it != animationTemplate->activeAnimations.cend(); ++it) {
+                if (it.value() == this) {
+                    animationTemplate->activeAnimations.erase(it);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 106, as _ZNK18QSmoothedAnimation8durationEv
+inline int QSmoothedAnimation::duration() const
+{
+    return -1;
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 205, as _ZN18QSmoothedAnimation17updateCurrentTimeEi
+inline void QSmoothedAnimation::updateCurrentTime(int t)
+{
+    if (skipUpdate) {
+        skipUpdate = false;
+        return;
+    }
+
+    if (!isRunning() && !isPaused()) // This can happen if init() stops the animation in some cases
+        return;
+
+    qreal time_seconds = qreal(t - lastTime) / 1000.;
+
+    qreal value = easeFollow(time_seconds);
+    value *= (invert? -1.0: 1.0);
+    QQmlPropertyPrivate::write(target, initialValue + value,
+                                       QQmlPropertyData::BypassInterceptor
+                                       | QQmlPropertyData::DontRemoveBinding);
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 94, as _ZN18QSmoothedAnimation11updateStateEN21QAbstractAnimationJob5StateES1_
+inline void QSmoothedAnimation::updateState(QAbstractAnimationJob::State newState, QAbstractAnimationJob::State /*oldState*/)
+{
+    if (newState == QAbstractAnimationJob::Running)
+        init();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 277, as _ZNK18QSmoothedAnimation14debugAnimationE6QDebug
+inline void QSmoothedAnimation::debugAnimation(QDebug d) const
+{
+    d << "SmoothedAnimationJob(" << Qt::hex << (const void *) this << Qt::dec << ")" << "duration:" << userDuration
+      << "velocity:" << velocity << "target:" << target.object() << "property:" << target.name()
+      << "to:" << to << "current velocity:" << trackVelocity;
 }
 
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 111, as _ZN18QSmoothedAnimation6recalcEv
@@ -151,6 +235,31 @@ inline bool QSmoothedAnimation::recalc()
         sd = sp1;
     }
     return true;
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 181, as _ZN18QSmoothedAnimation10easeFollowEd
+inline qreal QSmoothedAnimation::easeFollow(qreal time_seconds)
+{
+    qreal value;
+    if (time_seconds < tp) {
+        trackVelocity = vi + time_seconds * a;
+        value = 0.5 * a * time_seconds * time_seconds + vi * time_seconds;
+    } else if (time_seconds < td) {
+        time_seconds -= tp;
+        trackVelocity = vp;
+        value = sp + time_seconds * vp;
+    } else if (time_seconds < tf) {
+        time_seconds -= td;
+        trackVelocity = vp - time_seconds * a;
+        value = sd - 0.5 * d * time_seconds * time_seconds + vp * time_seconds;
+    } else {
+        trackVelocity = 0;
+        value = s;
+        delayedStop();
+    }
+
+    // to normalize 's' between [0..1], divide 'value' by 's'
+    return value;
 }
 
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 342, as _ZN30QQuickSmoothedAnimationPrivateD1Ev

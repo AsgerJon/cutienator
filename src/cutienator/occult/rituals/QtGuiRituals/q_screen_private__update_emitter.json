@@ -8,6 +8,7 @@
     "ritual_ZN14QScreenPrivate13UpdateEmitterC1EP7QScreen": [
       "address", "address"
     ],
-    "ritual_ZN14QScreenPrivate13UpdateEmitterD1Ev": ["nothing", "address"]
+    "ritual_ZN14QScreenPrivate13UpdateEmitterD1Ev": ["nothing", "address"],
+    "ritual_ZN14QScreenPrivate13UpdateEmitterC1EOS0_": ["address", "address"]
   }
 }

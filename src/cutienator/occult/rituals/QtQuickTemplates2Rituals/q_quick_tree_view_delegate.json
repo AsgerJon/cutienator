@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickTreeViewDelegate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickTreeViewDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickTreeViewDelegate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -64,6 +70,42 @@
     "ritual_ZN22QQuickTreeViewDelegate14setRightMarginEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZN22QQuickTreeViewDelegate16indicatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate18indentationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate17isTreeNodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate18hasChildrenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate15expandedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate12depthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate15treeviewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate17leftMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate18rightMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate14currentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate15selectedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate14editingChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK22QQuickTreeViewDelegate11defaultFontEv": [
       "address", "address"
     ],
@@ -76,6 +118,8 @@
     "ritual_ZN22QQuickTreeViewDelegate15mousePressEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QQuickTreeViewDelegate6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickTreeViewDelegate6d_funcEv": ["address", "address"],
     "ritual_own_ZNK22QQuickTreeViewDelegate11defaultFontEv": [
       "address", "address"
     ],

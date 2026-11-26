@@ -14,6 +14,9 @@
     "ritual_ZNK37QAccessibleQuickWidgetOffscreenWindow12indexOfChildEPK20QAccessibleInterface": [
       "int", "address", "address"
     ],
+    "ritual_ZNK37QAccessibleQuickWidgetOffscreenWindow7childAtEii": [
+      "address", "address", "int", "int"
+    ],
     "ritual_take_QAccessibleQuickWidgetOffscreenWindow": [
       "bool", "address", "chars", "address"
     ],

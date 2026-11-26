@@ -22,11 +22,46 @@ QDnsTlsAssociationRecord *ritual_ZN24QDnsTlsAssociationRecordC1ERKS_(
   return new QDnsTlsAssociationRecord(*other);
 }
 
+//  QDnsTlsAssociationRecord::QDnsTlsAssociationRecord(QDnsTlsAssociationReco
+//      rd &&other)
+extern "C" Q_DECL_EXPORT
+QDnsTlsAssociationRecord *ritual_ZN24QDnsTlsAssociationRecordC1EOS_(
+    QDnsTlsAssociationRecord *other) {
+  return new QDnsTlsAssociationRecord(std::move(*other));
+}
+
+//  QDnsTlsAssociationRecord
+//      &QDnsTlsAssociationRecord::operator=(QDnsTlsAssociationRecord
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QDnsTlsAssociationRecord *ritual_ZN24QDnsTlsAssociationRecordaSEOS_(
+    QDnsTlsAssociationRecord *self,
+    QDnsTlsAssociationRecord *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDnsTlsAssociationRecord &QDnsTlsAssociationRecord::operator=(const
+//      QDnsTlsAssociationRecord &other)
+extern "C" Q_DECL_EXPORT
+QDnsTlsAssociationRecord *ritual_ZN24QDnsTlsAssociationRecordaSERKS_(
+    QDnsTlsAssociationRecord *self,
+    const QDnsTlsAssociationRecord *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDnsTlsAssociationRecord::~QDnsTlsAssociationRecord()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QDnsTlsAssociationRecordD1Ev(
     QDnsTlsAssociationRecord *self) {
   delete self;
+}
+
+//  void QDnsTlsAssociationRecord::swap(QDnsTlsAssociationRecord &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDnsTlsAssociationRecord4swapERS_(
+    QDnsTlsAssociationRecord *self,
+    QDnsTlsAssociationRecord *other) {
+  self->swap(*other);
 }
 
 //  QString QDnsTlsAssociationRecord::name() const

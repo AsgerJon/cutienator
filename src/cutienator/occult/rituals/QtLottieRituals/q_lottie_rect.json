@@ -14,6 +14,9 @@
     "ritual_ZN11QLottieRect16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK11QLottieRect6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK11QLottieRect11acceptsTrimEv": ["bool", "address"],
     "ritual_ZN11QLottieRect5parseERK11QJsonObject": [
       "int", "address", "address"
@@ -23,6 +26,7 @@
     "ritual_ZNK11QLottieRect9roundnessEv": ["double", "address"],
     "ritual_ZNK11QLottieRect10isAnimatedEv": ["bool", "address"],
     "ritual_ZNK11QLottieRect12fallbackPathEv": ["address", "address"],
+    "ritual_ZNK11QLottieRect12sizePropertyEv": ["address", "address"],
     "ritual_ZNK11QLottieRect16positionPropertyEv": ["address", "address"],
     "ritual_ZN11QLottieRectD1Ev": ["nothing", "address"],
     "ritual_take_QLottieRect": ["bool", "address", "chars", "address"],

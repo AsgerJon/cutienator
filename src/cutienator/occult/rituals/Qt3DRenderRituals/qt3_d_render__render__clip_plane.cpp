@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_ClipPlaneCall0)(const void *, const Qt3DRen
 class CuteQt3DRender_Render_ClipPlane : public Qt3DRender::Render::ClipPlane {
 public:
   using Qt3DRender::Render::ClipPlane::ClipPlane;
-  CuteQt3DRender_Render_ClipPlane(const Qt3DRender::Render::ClipPlane &other) : Qt3DRender::Render::ClipPlane(other) {}
+  CuteQt3DRender_Render_ClipPlane(const Qt3DRender::Render::ClipPlane & other) : Qt3DRender::Render::ClipPlane(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::ClipPlane::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::ClipPlane::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9ClipPlane16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::ClipPlane *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::ClipPlane::~ClipPlane()
 extern "C" Q_DECL_EXPORT

@@ -142,14 +142,6 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qdebug.h>
 #include <QtGui/private/qdrawhelper_p.h>
-#include <QtCore/qdebug.h>
-#include <QtWidgets/qgraphicsscene.h>
-#include <QtWidgets/private/qgraphicsitem_p.h>
-#include <QtWidgets/private/qgraphicsscene_p.h>
-#include <QtWidgets/qgraphicswidget.h>
-#include <QtWidgets/private/qgraphicssceneindex_p.h>
-#include <QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
-#include <QtGui/qpainterpath.h>
 #include <QtWidgets/qgraphicsscene.h>
 #include <QtWidgets/qgraphicsitem.h>
 #include <QtWidgets/private/qgraphicsitem_p.h>
@@ -198,6 +190,48 @@
 #include <QtWidgets/private/qgesturemanager_p.h>
 #include <QtGui/private/qpathclipper_p.h>
 #include <QtCore/qpointer.h>
+#include <QtWidgets/qgraphicsitem.h>
+#include <QtWidgets/qgraphicsscene.h>
+#include <QtWidgets/private/qgraphicsscene_p.h>
+#include <QtWidgets/qgraphicssceneevent.h>
+#include <QtWidgets/qgraphicsview.h>
+#include <QtWidgets/qgraphicswidget.h>
+#include <QtWidgets/qgraphicsproxywidget.h>
+#include <QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
+#include <QtCore/qbitarray.h>
+#include <QtCore/qpoint.h>
+#include <QtCore/qstack.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/qnumeric.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qbitmap.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qpainterpath.h>
+#include <QtGui/qpixmapcache.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qinputmethod.h>
+#if QT_CONFIG(graphicseffect)
+#include <QtWidgets/qgraphicseffect.h>
+#endif
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtWidgets/private/qgraphicswidget_p.h>
+#include <QtWidgets/private/qwidgettextcontrol_p.h>
+#include <QtGui/private/qtextdocumentlayout_p.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qgesturemanager_p.h>
+#include <QtCore/private/qdebug_p.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qgraphicsscene.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtWidgets/private/qgraphicsscene_p.h>
+#include <QtWidgets/qgraphicswidget.h>
+#include <QtWidgets/private/qgraphicssceneindex_p.h>
+#include <QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
+#include <QtGui/qpainterpath.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -206,6 +240,189 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 223, as local:qgraphicsscene.cpp:DEBUG
+#if !defined(GESTURE_DEBUG)
+# define DEBUG if (0) qDebug
+#endif  // !defined(GESTURE_DEBUG)
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4188, as local:qgraphicsscene.cpp:_q_paintItem
+static void _q_paintItem(QGraphicsItem *item, QPainter *painter,
+                         const QStyleOptionGraphicsItem *option, QWidget *widget,
+                         bool useWindowOpacity, bool painterStateProtection)
+{
+    if (!item->isWidget()) {
+        item->paint(painter, option, widget);
+        return;
+    }
+    QGraphicsWidget *widgetItem = static_cast<QGraphicsWidget *>(item);
+    QGraphicsProxyWidget *proxy = qobject_cast<QGraphicsProxyWidget *>(widgetItem);
+    const qreal windowOpacity = (proxy && proxy->widget() && useWindowOpacity)
+                                ? proxy->widget()->windowOpacity() : 1.0;
+    const qreal oldPainterOpacity = painter->opacity();
+
+    if (qFuzzyIsNull(windowOpacity))
+        return;
+    // Set new painter opacity.
+    if (windowOpacity < 1.0)
+        painter->setOpacity(oldPainterOpacity * windowOpacity);
+
+    // set layoutdirection on the painter
+    Qt::LayoutDirection oldLayoutDirection = painter->layoutDirection();
+    painter->setLayoutDirection(widgetItem->layoutDirection());
+
+    if (widgetItem->isWindow() && widgetItem->windowType() != Qt::Popup && widgetItem->windowType() != Qt::ToolTip
+        && !(widgetItem->windowFlags() & Qt::FramelessWindowHint)) {
+        if (painterStateProtection)
+            painter->save();
+        widgetItem->paintWindowFrame(painter, option, widget);
+        if (painterStateProtection)
+            painter->restore();
+    } else if (widgetItem->autoFillBackground()) {
+        painter->fillRect(option->exposedRect, widgetItem->palette().window());
+    }
+
+    widgetItem->paint(painter, option, widget);
+
+    // Restore layoutdirection on the painter.
+    painter->setLayoutDirection(oldLayoutDirection);
+    // Restore painter opacity.
+    if (windowOpacity < 1.0)
+        painter->setOpacity(oldPainterOpacity);
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4232, as local:qgraphicsscene.cpp:_q_paintIntoCache
+static void _q_paintIntoCache(QPixmap *pix, QGraphicsItem *item, const QRegion &pixmapExposed,
+                              const QTransform &itemToPixmap, QPainter::RenderHints renderHints,
+                              const QStyleOptionGraphicsItem *option, bool painterStateProtection)
+{
+    QPixmap subPix;
+    QPainter pixmapPainter;
+    QRect br = pixmapExposed.boundingRect();
+
+    // Don't use subpixmap if we get a full update.
+    if (pixmapExposed.isEmpty() || (pixmapExposed.rectCount() == 1 && br.contains(pix->rect()))) {
+        pix->fill(Qt::transparent);
+        pixmapPainter.begin(pix);
+    } else {
+        subPix = QPixmap(br.size() * pix->devicePixelRatio());
+        subPix.setDevicePixelRatio(pix->devicePixelRatio());
+        subPix.fill(Qt::transparent);
+        pixmapPainter.begin(&subPix);
+        pixmapPainter.translate(-br.topLeft());
+        if (!pixmapExposed.isEmpty()) {
+            // Applied to subPix; paint is adjusted to the coordinate space is
+            // correct.
+            pixmapPainter.setClipRegion(pixmapExposed);
+        }
+    }
+
+    pixmapPainter.setRenderHints(pixmapPainter.renderHints(), false);
+    pixmapPainter.setRenderHints(renderHints, true);
+    pixmapPainter.setWorldTransform(itemToPixmap, true);
+
+    // Render.
+    _q_paintItem(item, &pixmapPainter, option, nullptr, false, painterStateProtection);
+    pixmapPainter.end();
+
+    if (!subPix.isNull()) {
+        // Blit the subpixmap into the main pixmap.
+        pixmapPainter.begin(pix);
+        pixmapPainter.setCompositionMode(QPainter::CompositionMode_Source);
+        pixmapPainter.setClipRegion(pixmapExposed);
+        pixmapPainter.drawPixmap(br.topLeft(), subPix);
+        pixmapPainter.end();
+    }
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4277, as local:qgraphicsscene.cpp:transformIsSimple
+static inline bool transformIsSimple(const QTransform& transform)
+{
+    QTransform::TransformationType type = transform.type();
+    if (type <= QTransform::TxScale) {
+        return true;
+    } else if (type == QTransform::TxRotate) {
+        // Check for 90, and 270 degree rotations.
+        qreal m11 = transform.m11();
+        qreal m12 = transform.m12();
+        qreal m21 = transform.m21();
+        qreal m22 = transform.m22();
+        if (m11 == 0.0f && m22 == 0.0f) {
+            if (m12 == 1.0f && m21 == -1.0f)
+                return true; // 90 degrees.
+            else if (m12 == -1.0f && m21 == 1.0f)
+                return true; // 270 degrees.
+            else if (m12 == -1.0f && m21 == -1.0f)
+                return true; // 90 degrees inverted y.
+            else if (m12 == 1.0f && m21 == 1.0f)
+                return true; // 270 degrees inverted y.
+        }
+    }
+    return false;
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4772, as local:qgraphicsscene.cpp:setClip
+static inline void setClip(QPainter *painter, QGraphicsItem *item)
+{
+    painter->save();
+    QRectF clipRect;
+    const QPainterPath clipPath(item->shape());
+    if (QPathClipper::pathToRect(clipPath, &clipRect))
+        painter->setClipRect(clipRect.normalized(), Qt::IntersectClip);
+    else
+        painter->setClipPath(clipPath, Qt::IntersectClip);
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4783, as local:qgraphicsscene.cpp:setWorldTransform
+static inline void setWorldTransform(QPainter *painter, const QTransform *const transformPtr,
+                                     const QTransform *effectTransform)
+{
+    Q_ASSERT(transformPtr);
+    if (effectTransform)
+        painter->setWorldTransform(*transformPtr * *effectTransform);
+    else
+        painter->setWorldTransform(*transformPtr);
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 5016, as local:qgraphicsscene.cpp:updateHelper
+static inline bool updateHelper(QGraphicsViewPrivate *view, QGraphicsItemPrivate *item,
+                                const QRectF &rect, bool itemIsUntransformable)
+{
+    Q_ASSERT(view);
+    Q_ASSERT(item);
+
+    QGraphicsItem *itemq = static_cast<QGraphicsItem *>(item->q_ptr);
+    QGraphicsView *viewq = static_cast<QGraphicsView *>(view->q_ptr);
+
+    if (itemIsUntransformable) {
+        const QTransform xform = itemq->deviceTransform(viewq->viewportTransform());
+        if (!item->hasBoundingRegionGranularity)
+            return view->updateRectF(xform.mapRect(rect));
+        return view->updateRegion(rect, xform);
+    }
+
+    if (item->sceneTransformTranslateOnly && view->identityMatrix) {
+        const qreal dx = item->sceneTransform.dx();
+        const qreal dy = item->sceneTransform.dy();
+        QRectF r(rect);
+        r.translate(dx - view->horizontalScroll(), dy - view->verticalScroll());
+        return view->updateRectF(r);
+    }
+
+    if (!viewq->isTransformed()) {
+        if (!item->hasBoundingRegionGranularity)
+            return view->updateRectF(item->sceneTransform.mapRect(rect));
+        return view->updateRegion(rect, item->sceneTransform);
+    }
+
+    QTransform xform = item->sceneTransform;
+    xform *= viewq->viewportTransform();
+    if (!item->hasBoundingRegionGranularity)
+        return view->updateRectF(xform.mapRect(rect));
+    return view->updateRegion(rect, xform);
+}
 
 //  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 412, as _ZN26QGraphicsSceneBspTreeIndexC1EP14QGraphicsScene
 inline QGraphicsSceneBspTreeIndex::QGraphicsSceneBspTreeIndex(QGraphicsScene *scene)
@@ -333,6 +550,172 @@ inline void QGraphicsEffectSourcePrivate::invalidateCache(InvalidateReason reaso
     QPixmapCache::remove(m_cacheKey);
 }
 
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4793, as _ZN21QGraphicsScenePrivate4drawEP13QGraphicsItemP8QPainterPK10QTransformS6_P7QRegionP7QWidgetdS6_bb
+inline void QGraphicsScenePrivate::draw(QGraphicsItem *item, QPainter *painter, const QTransform *const viewTransform,
+                                 const QTransform *const transformPtr, QRegion *exposedRegion, QWidget *widget,
+                                 qreal opacity, const QTransform *effectTransform,
+                                 bool wasDirtyParentSceneTransform, bool drawItem)
+{
+    const auto &children = item->d_ptr->children;
+
+    const bool itemIsFullyTransparent = QGraphicsItemPrivate::isOpacityNull(opacity);
+    const bool itemClipsChildrenToShape = (item->d_ptr->flags & QGraphicsItem::ItemClipsChildrenToShape);
+    const bool itemHasChildren = !children.isEmpty();
+    bool setChildClip = itemClipsChildrenToShape;
+    bool itemHasChildrenStackedBehind = false;
+
+    int i = 0;
+    if (itemHasChildren) {
+        if (itemClipsChildrenToShape)
+            setWorldTransform(painter, transformPtr, effectTransform);
+
+        item->d_ptr->ensureSortedChildren();
+        // Items with the 'ItemStacksBehindParent' flag are put in front of the list
+        // so all we have to do is to check the first item.
+        itemHasChildrenStackedBehind = (children.at(0)->d_ptr->flags
+                                        & QGraphicsItem::ItemStacksBehindParent);
+
+        if (itemHasChildrenStackedBehind) {
+            if (itemClipsChildrenToShape) {
+                setClip(painter, item);
+                setChildClip = false;
+            }
+
+            // Draw children behind
+            for (i = 0; i < children.size(); ++i) {
+                QGraphicsItem *child = children.at(i);
+                if (wasDirtyParentSceneTransform)
+                    child->d_ptr->dirtySceneTransform = 1;
+                if (!(child->d_ptr->flags & QGraphicsItem::ItemStacksBehindParent))
+                    break;
+                if (itemIsFullyTransparent && !(child->d_ptr->flags & QGraphicsItem::ItemIgnoresParentOpacity))
+                    continue;
+                drawSubtreeRecursive(child, painter, viewTransform, exposedRegion, widget, opacity, effectTransform);
+            }
+        }
+    }
+
+    // Draw item
+    if (drawItem) {
+        Q_ASSERT(!itemIsFullyTransparent);
+        Q_ASSERT(!(item->d_ptr->flags & QGraphicsItem::ItemHasNoContents));
+        Q_ASSERT(transformPtr);
+        item->d_ptr->initStyleOption(&styleOptionTmp, *transformPtr, exposedRegion
+                                     ? *exposedRegion : QRegion(), exposedRegion == nullptr);
+
+        const bool itemClipsToShape = item->d_ptr->flags & QGraphicsItem::ItemClipsToShape;
+        bool restorePainterClip = false;
+
+        if (!itemHasChildren || !itemClipsChildrenToShape) {
+            // Item does not have children or clip children to shape.
+            setWorldTransform(painter, transformPtr, effectTransform);
+            if ((restorePainterClip = itemClipsToShape))
+                setClip(painter, item);
+        } else if (itemHasChildrenStackedBehind){
+            // Item clips children to shape and has children stacked behind, which means
+            // the painter is already clipped to the item's shape.
+            if (itemClipsToShape) {
+                // The clip is already correct. Ensure correct world transform.
+                setWorldTransform(painter, transformPtr, effectTransform);
+            } else {
+                // Remove clip (this also ensures correct world transform).
+                painter->restore();
+                setChildClip = true;
+            }
+        } else if (itemClipsToShape) {
+            // Item clips children and itself to shape. It does not have hildren stacked
+            // behind, which means the clip has not yet been set. We set it now and re-use it
+            // for the children.
+            setClip(painter, item);
+            setChildClip = false;
+        }
+
+        if (painterStateProtection && !restorePainterClip)
+            painter->save();
+
+        painter->setOpacity(opacity);
+        if (!item->d_ptr->cacheMode && !item->d_ptr->isWidget)
+            item->paint(painter, &styleOptionTmp, widget);
+        else
+            drawItemHelper(item, painter, &styleOptionTmp, widget, painterStateProtection);
+
+        if (painterStateProtection || restorePainterClip)
+            painter->restore();
+
+        static int drawRect = qEnvironmentVariableIntValue("QT_DRAW_SCENE_ITEM_RECTS");
+        if (drawRect) {
+            QPen oldPen = painter->pen();
+            QBrush oldBrush = painter->brush();
+            quintptr ptr = reinterpret_cast<quintptr>(item);
+            const QColor color = QColor::fromHsv(ptr % 255, 255, 255);
+            painter->setPen(color);
+            painter->setBrush(Qt::NoBrush);
+            painter->drawRect(adjustedItemBoundingRect(item));
+            painter->setPen(oldPen);
+            painter->setBrush(oldBrush);
+        }
+    }
+
+    // Draw children in front
+    if (itemHasChildren) {
+        if (setChildClip)
+            setClip(painter, item);
+
+        for (; i < children.size(); ++i) {
+            QGraphicsItem *child = children.at(i);
+            if (wasDirtyParentSceneTransform)
+                child->d_ptr->dirtySceneTransform = 1;
+            if (itemIsFullyTransparent && !(child->d_ptr->flags & QGraphicsItem::ItemIgnoresParentOpacity))
+                continue;
+            drawSubtreeRecursive(child, painter, viewTransform, exposedRegion, widget, opacity, effectTransform);
+        }
+
+        // Restore child clip
+        if (itemClipsChildrenToShape)
+            painter->restore();
+    }
+}
+
+//  from src/widgets/effects/qgraphicseffect.cpp, line 350, as _ZN28QGraphicsEffectSourcePrivate15setCachedOffsetERK6QPoint
+inline void QGraphicsEffectSourcePrivate::setCachedOffset(const QPoint &offset)
+{
+    m_cachedOffset = offset;
+}
+
+//  from src/widgets/graphicsview/qgraphicsitem.cpp, line 11062, as _ZNK32QGraphicsItemEffectSourcePrivate16paddedEffectRectEN2Qt16CoordinateSystemEN15QGraphicsEffect13PixmapPadModeERK6QRectFPb
+#if QT_CONFIG(graphicseffect)
+inline QRectF QGraphicsItemEffectSourcePrivate::paddedEffectRect(Qt::CoordinateSystem system, QGraphicsEffect::PixmapPadMode mode, const QRectF &sourceRect, bool *unpadded) const
+{
+    QRectF effectRectF;
+
+    if (unpadded)
+        *unpadded = false;
+
+    if (mode == QGraphicsEffect::PadToEffectiveBoundingRect) {
+        if (info) {
+            QRectF deviceRect = system == Qt::DeviceCoordinates ? sourceRect : info->painter->worldTransform().mapRect(sourceRect);
+            effectRectF = item->graphicsEffect()->boundingRectFor(deviceRect);
+            if (unpadded)
+                *unpadded = (effectRectF.size() == sourceRect.size());
+            if (info && system == Qt::LogicalCoordinates)
+                effectRectF = info->painter->worldTransform().inverted().mapRect(effectRectF);
+        } else {
+            // no choice but to send a logical coordinate bounding rect to boundingRectFor
+            effectRectF = item->graphicsEffect()->boundingRectFor(sourceRect);
+        }
+    } else if (mode == QGraphicsEffect::PadToTransparentBorder) {
+        // adjust by 1.5 to account for cosmetic pens
+        effectRectF = sourceRect.adjusted(-1.5, -1.5, 1.5, 1.5);
+    } else {
+        effectRectF = sourceRect;
+        if (unpadded)
+            *unpadded = true;
+    }
+
+    return effectRectF;
+}
+#endif  // QT_CONFIG(graphicseffect)
+
 //  from src/widgets/graphicsview/qgraphicssceneindex.cpp, line 327, as _ZN19QGraphicsSceneIndexC2ER26QGraphicsSceneIndexPrivateP14QGraphicsScene
 inline QGraphicsSceneIndex::QGraphicsSceneIndex(QGraphicsSceneIndexPrivate &dd, QGraphicsScene *scene)
     : QObject(dd, scene)
@@ -351,6 +734,313 @@ inline QGraphicsSceneBspTreeIndexPrivate::QGraphicsSceneBspTreeIndexPrivate(QGra
     sortCacheEnabled(false),
     updatingSortCache(false)
 {
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4307, as _ZN21QGraphicsScenePrivate14drawItemHelperEP13QGraphicsItemP8QPainterPK24QStyleOptionGraphicsItemP7QWidgetb
+inline void QGraphicsScenePrivate::drawItemHelper(QGraphicsItem *item, QPainter *painter,
+                                           const QStyleOptionGraphicsItem *option, QWidget *widget,
+                                           bool painterStateProtection)
+{
+    QGraphicsItemPrivate *itemd = item->d_ptr.data();
+    QGraphicsItem::CacheMode cacheMode = QGraphicsItem::CacheMode(itemd->cacheMode);
+
+    // Render directly, using no cache.
+    if (cacheMode == QGraphicsItem::NoCache) {
+        _q_paintItem(static_cast<QGraphicsWidget *>(item), painter, option, widget, true, painterStateProtection);
+        return;
+    }
+
+    const qreal devicePixelRatio = painter->device()->devicePixelRatio();
+    const qreal oldPainterOpacity = painter->opacity();
+    qreal newPainterOpacity = oldPainterOpacity;
+    QGraphicsProxyWidget *proxy = item->isWidget() ? qobject_cast<QGraphicsProxyWidget *>(static_cast<QGraphicsWidget *>(item)) : 0;
+    if (proxy && proxy->widget()) {
+        const qreal windowOpacity = proxy->widget()->windowOpacity();
+        if (windowOpacity < 1.0)
+            newPainterOpacity *= windowOpacity;
+    }
+
+    // Item's (local) bounding rect
+    QRectF brect = item->boundingRect();
+    QRectF adjustedBrect(brect);
+    _q_adjustRect(&adjustedBrect);
+    if (adjustedBrect.isEmpty())
+        return;
+
+    // Fetch the off-screen transparent buffer and exposed area info.
+    QPixmapCache::Key pixmapKey;
+    QPixmap pix;
+
+    bool pixmapFound;
+    QGraphicsItemCache *itemCache = itemd->extraItemCache();
+    if (cacheMode == QGraphicsItem::ItemCoordinateCache) {
+        pixmapKey = itemCache->key;
+    } else {
+        pixmapKey = itemCache->deviceData.value(widget).key;
+    }
+
+    // Find pixmap in cache.
+    pixmapFound = QPixmapCache::find(pixmapKey, &pix);
+
+    // Render using item coordinate cache mode.
+    if (cacheMode == QGraphicsItem::ItemCoordinateCache) {
+        QSize pixmapSize;
+        bool fixedCacheSize = itemCache->fixedSize.isValid();
+        QRect br = brect.toAlignedRect();
+        if (fixedCacheSize) {
+            pixmapSize = itemCache->fixedSize;
+        } else {
+            pixmapSize = br.size();
+        }
+
+        pixmapSize *= devicePixelRatio;
+
+        // Create or recreate the pixmap.
+        int adjust = itemCache->fixedSize.isValid() ? 0 : 2;
+        QSize adjustSize(adjust*2, adjust*2);
+        br.adjust(-adjust / devicePixelRatio, -adjust / devicePixelRatio, adjust / devicePixelRatio, adjust / devicePixelRatio);
+        if (pix.isNull() || (!fixedCacheSize && (pixmapSize + adjustSize) != pix.size())) {
+            pix = QPixmap(pixmapSize + adjustSize);
+            itemCache->boundingRect = br;
+            itemCache->exposed.clear();
+            itemCache->allExposed = true;
+        } else if (itemCache->boundingRect != br) {
+            itemCache->boundingRect = br;
+            itemCache->exposed.clear();
+            itemCache->allExposed = true;
+        }
+
+        // Redraw any newly exposed areas.
+        if (itemCache->allExposed || !itemCache->exposed.isEmpty()) {
+
+            //We know that we will modify the pixmap, removing it from the cache
+            //will detach the one we have and avoid a deep copy
+            if (pixmapFound)
+                QPixmapCache::remove(pixmapKey);
+
+            // Fit the item's bounding rect into the pixmap's coordinates.
+            QTransform itemToPixmap;
+            if (fixedCacheSize) {
+                const QPointF scale((pixmapSize.width() / devicePixelRatio) / brect.width(),
+                                    (pixmapSize.height() / devicePixelRatio) / brect.height());
+                itemToPixmap.scale(scale.x(), scale.y());
+            }
+            itemToPixmap.translate(-br.x(), -br.y());
+
+            // Generate the item's exposedRect and map its list of expose
+            // rects to device coordinates.
+            styleOptionTmp = *option;
+            QRegion pixmapExposed;
+            QRectF exposedRect;
+            if (!itemCache->allExposed) {
+                for (const auto &rect : std::as_const(itemCache->exposed)) {
+                    exposedRect |= rect;
+                    pixmapExposed += itemToPixmap.mapRect(rect).toAlignedRect();
+                }
+            } else {
+                exposedRect = brect;
+            }
+            styleOptionTmp.exposedRect = exposedRect;
+
+            // Render.
+            pix.setDevicePixelRatio(devicePixelRatio);
+            _q_paintIntoCache(&pix, item, pixmapExposed, itemToPixmap, painter->renderHints(),
+                              &styleOptionTmp, painterStateProtection);
+
+            // insert this pixmap into the cache.
+            itemCache->key = QPixmapCache::insert(pix);
+
+            // Reset expose data.
+            itemCache->allExposed = false;
+            itemCache->exposed.clear();
+        }
+
+        // Redraw the exposed area using the transformed painter. Depending on
+        // the hardware, this may be a server-side operation, or an expensive
+        // qpixmap-image-transform-pixmap roundtrip.
+        if (newPainterOpacity != oldPainterOpacity) {
+            painter->setOpacity(newPainterOpacity);
+            painter->drawPixmap(br.topLeft(), pix);
+            painter->setOpacity(oldPainterOpacity);
+        } else {
+            painter->drawPixmap(br.topLeft(), pix);
+        }
+        return;
+    }
+
+    // Render using device coordinate cache mode.
+    if (cacheMode == QGraphicsItem::DeviceCoordinateCache) {
+        // Find the item's bounds in device coordinates.
+        QRectF deviceBounds = painter->worldTransform().mapRect(brect);
+        QRect deviceRect = deviceBounds.toRect().adjusted(-1, -1, 1, 1);
+        if (deviceRect.isEmpty())
+            return;
+        QRect viewRect = widget ? widget->rect() : QRect();
+        if (widget && !viewRect.intersects(deviceRect))
+            return;
+
+        // Resort to direct rendering if the device rect exceeds the
+        // (optional) maximum bounds. (QGraphicsSvgItem uses this).
+        QSize maximumCacheSize =
+            itemd->extra(QGraphicsItemPrivate::ExtraMaxDeviceCoordCacheSize).toSize();
+        if (!maximumCacheSize.isEmpty()
+            && (deviceRect.width() > maximumCacheSize.width()
+                || deviceRect.height() > maximumCacheSize.height())) {
+            _q_paintItem(static_cast<QGraphicsWidget *>(item), painter, option, widget,
+                         oldPainterOpacity != newPainterOpacity, painterStateProtection);
+            return;
+        }
+
+        // Create or reuse offscreen pixmap, possibly scroll/blit from the old one.
+        // If the world transform is rotated we always recreate the cache to avoid
+        // wrong blending.
+        bool pixModified = false;
+        QGraphicsItemCache::DeviceData *deviceData = &itemCache->deviceData[widget];
+        bool invertable = true;
+        QTransform diff = deviceData->lastTransform.inverted(&invertable);
+        if (invertable)
+            diff *= painter->worldTransform();
+        deviceData->lastTransform = painter->worldTransform();
+        bool allowPartialCacheExposure = false;
+        bool simpleTransform = invertable && diff.type() <= QTransform::TxTranslate
+                               && transformIsSimple(painter->worldTransform());
+        if (!simpleTransform) {
+            pixModified = true;
+            itemCache->allExposed = true;
+            itemCache->exposed.clear();
+            deviceData->cacheIndent = QPoint();
+            pix = QPixmap();
+        } else if (!viewRect.isNull()) {
+            allowPartialCacheExposure = deviceData->cacheIndent != QPoint();
+        }
+
+        // Allow partial cache exposure if the device rect isn't fully contained and
+        // deviceRect is 20% taller or wider than the viewRect.
+        if (!allowPartialCacheExposure && !viewRect.isNull() && !viewRect.contains(deviceRect)) {
+            allowPartialCacheExposure = (viewRect.width() * 1.2 < deviceRect.width())
+                                         || (viewRect.height() * 1.2 < deviceRect.height());
+        }
+
+        QRegion scrollExposure;
+        if (allowPartialCacheExposure) {
+            // Part of pixmap is drawn. Either device contains viewrect (big
+            // item covers whole screen) or parts of device are outside the
+            // viewport. In either case the device rect must be the intersect
+            // between the two.
+            int dx = deviceRect.left() < viewRect.left() ? viewRect.left() - deviceRect.left() : 0;
+            int dy = deviceRect.top() < viewRect.top() ? viewRect.top() - deviceRect.top() : 0;
+            QPoint newCacheIndent(dx, dy);
+            deviceRect &= viewRect;
+
+            if (pix.isNull()) {
+                deviceData->cacheIndent = QPoint();
+                itemCache->allExposed = true;
+                itemCache->exposed.clear();
+                pixModified = true;
+            }
+
+            // Copy / "scroll" the old pixmap onto the new ole and calculate
+            // scrolled exposure.
+            if (newCacheIndent != deviceData->cacheIndent || deviceRect.size() != pix.size() / devicePixelRatio) {
+                QPoint diff = newCacheIndent - deviceData->cacheIndent;
+                QPixmap newPix(deviceRect.size() * devicePixelRatio);
+                // ### Investigate removing this fill (test with Plasma and
+                // graphicssystem raster).
+                newPix.fill(Qt::transparent);
+                if (!pix.isNull()) {
+                    newPix.setDevicePixelRatio(devicePixelRatio);
+                    QPainter newPixPainter(&newPix);
+                    newPixPainter.drawPixmap(-diff, pix);
+                    newPixPainter.end();
+                }
+                QRegion exposed;
+                exposed += QRect(QPoint(0,0), newPix.size() / devicePixelRatio);
+                if (!pix.isNull())
+                    exposed -= QRect(-diff, pix.size() / devicePixelRatio);
+                scrollExposure = exposed;
+
+                pix = newPix;
+                pixModified = true;
+            }
+            deviceData->cacheIndent = newCacheIndent;
+        } else {
+            // Full pixmap is drawn.
+            deviceData->cacheIndent = QPoint();
+
+            // Auto-adjust the pixmap size.
+            if (deviceRect.size() != pix.size() / devicePixelRatio) {
+                // exposed needs to cover the whole pixmap
+                pix = QPixmap(deviceRect.size() * devicePixelRatio);
+                pixModified = true;
+                itemCache->allExposed = true;
+                itemCache->exposed.clear();
+            }
+        }
+
+        // Check for newly invalidated areas.
+        if (itemCache->allExposed || !itemCache->exposed.isEmpty() || !scrollExposure.isEmpty()) {
+            //We know that we will modify the pixmap, removing it from the cache
+            //will detach the one we have and avoid a deep copy
+            if (pixmapFound)
+                QPixmapCache::remove(pixmapKey);
+
+            // Construct an item-to-pixmap transform.
+            QPointF p = deviceRect.topLeft();
+            QTransform itemToPixmap = painter->worldTransform();
+            if (!p.isNull())
+                itemToPixmap *= QTransform::fromTranslate(-p.x(), -p.y());
+
+            // Map the item's logical expose to pixmap coordinates.
+            QRegion pixmapExposed = scrollExposure;
+            if (!itemCache->allExposed) {
+                for (const auto &rect : std::as_const(itemCache->exposed))
+                    pixmapExposed += itemToPixmap.mapRect(rect).toRect().adjusted(-1, -1, 1, 1);
+            }
+
+            // Calculate the style option's exposedRect.
+            QRectF br;
+            if (itemCache->allExposed) {
+                br = item->boundingRect();
+            } else {
+                for (const auto &rect : std::as_const(itemCache->exposed))
+                    br |= rect;
+                QTransform pixmapToItem = itemToPixmap.inverted();
+                for (const QRect &r : std::as_const(scrollExposure))
+                    br |= pixmapToItem.mapRect(r);
+            }
+            styleOptionTmp = *option;
+            styleOptionTmp.exposedRect = br.adjusted(-1, -1, 1, 1);
+
+            // Render the exposed areas.
+            pix.setDevicePixelRatio(devicePixelRatio);
+            _q_paintIntoCache(&pix, item, pixmapExposed, itemToPixmap, painter->renderHints(),
+                              &styleOptionTmp, painterStateProtection);
+
+            // Reset expose data.
+            pixModified = true;
+            itemCache->allExposed = false;
+            itemCache->exposed.clear();
+        }
+
+        if (pixModified) {
+            // Insert this pixmap into the cache.
+            deviceData->key = QPixmapCache::insert(pix);
+        }
+
+        // Redraw the exposed area using an untransformed painter. This
+        // effectively becomes a bitblit that does not transform the cache.
+        QTransform restoreTransform = painter->worldTransform();
+        painter->setWorldTransform(QTransform());
+        if (newPainterOpacity != oldPainterOpacity) {
+            painter->setOpacity(newPainterOpacity);
+            painter->drawPixmap(deviceRect.topLeft(), pix);
+            painter->setOpacity(oldPainterOpacity);
+        } else {
+            painter->drawPixmap(deviceRect.topLeft(), pix);
+        }
+        painter->setWorldTransform(restoreTransform);
+        return;
+    }
 }
 
 //  from src/widgets/graphicsview/qgraphicsscene.cpp, line 248, as _ZN21QGraphicsScenePrivateC1Ev
@@ -520,6 +1210,49 @@ inline void QGraphicsScenePrivate::_q_polishItems()
         unpolishedItems.squeeze();
         QMetaObject::invokeMethod(q_ptr, "_q_polishItems", Qt::QueuedConnection);
     }
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 445, as _ZN21QGraphicsScenePrivate20_q_processDirtyItemsEv
+inline void QGraphicsScenePrivate::_q_processDirtyItems()
+{
+    processDirtyItemsEmitted = false;
+
+    if (updateAll) {
+        Q_ASSERT(calledEmitUpdated);
+        // No need for further processing (except resetting the dirty states).
+        // The growingItemsBoundingRect is updated in _q_emitUpdated.
+        for (auto topLevelItem : std::as_const(topLevelItems))
+            resetDirtyItem(topLevelItem, /*recursive=*/true);
+        return;
+    }
+
+    const bool wasPendingSceneUpdate = calledEmitUpdated;
+    const QRectF oldGrowingItemsBoundingRect = growingItemsBoundingRect;
+
+    // Process items recursively.
+    for (auto topLevelItem : std::as_const(topLevelItems))
+        processDirtyItemsRecursive(topLevelItem);
+
+    dirtyGrowingItemsBoundingRect = false;
+    if (!hasSceneRect && oldGrowingItemsBoundingRect != growingItemsBoundingRect)
+        emit q_func()->sceneRectChanged(growingItemsBoundingRect);
+
+    if (wasPendingSceneUpdate)
+        return;
+
+    for (auto view : std::as_const(views))
+        view->d_func()->processPendingUpdates();
+
+    if (calledEmitUpdated) {
+        // We did a compatibility QGraphicsScene::update in processDirtyItemsRecursive
+        // and we cannot wait for the control to reach the eventloop before the
+        // changed signal is emitted, so we emit it now.
+        _q_emitUpdated();
+    }
+
+    // Immediately dispatch all pending update requests on the views.
+    for (auto view : std::as_const(views))
+        view->d_func()->dispatchPendingUpdateRequests();
 }
 
 //  from src/widgets/graphicsview/qgraphicsscene.cpp, line 490, as _ZN21QGraphicsScenePrivate22setScenePosItemEnabledEP13QGraphicsItemb
@@ -713,6 +1446,167 @@ inline void QGraphicsScenePrivate::cloneDragDropEvent(QGraphicsSceneDragDropEven
     dest->setMimeData(source->mimeData());
 }
 
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4613, as _ZN21QGraphicsScenePrivate9drawItemsEP8QPainterPK10QTransformP7QRegionP7QWidget
+inline void QGraphicsScenePrivate::drawItems(QPainter *painter, const QTransform *const viewTransform,
+                                      QRegion *exposedRegion, QWidget *widget)
+{
+    // Make sure we don't have unpolished items before we draw.
+    if (!unpolishedItems.isEmpty())
+        _q_polishItems();
+
+    updateAll = false;
+    QRectF exposedSceneRect;
+    if (exposedRegion && indexMethod != QGraphicsScene::NoIndex) {
+        exposedSceneRect = exposedRegion->boundingRect().adjusted(-1, -1, 1, 1);
+        if (viewTransform)
+            exposedSceneRect = viewTransform->inverted().mapRect(exposedSceneRect);
+    }
+    const QList<QGraphicsItem *> tli = index->estimateTopLevelItems(exposedSceneRect, Qt::AscendingOrder);
+    for (const auto subTree : tli)
+        drawSubtreeRecursive(subTree, painter, viewTransform, exposedRegion, widget);
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4632, as _ZN21QGraphicsScenePrivate20drawSubtreeRecursiveEP13QGraphicsItemP8QPainterPK10QTransformP7QRegionP7QWidgetdS6_
+inline void QGraphicsScenePrivate::drawSubtreeRecursive(QGraphicsItem *item, QPainter *painter,
+                                                 const QTransform *const viewTransform,
+                                                 QRegion *exposedRegion, QWidget *widget,
+                                                 qreal parentOpacity, const QTransform *const effectTransform)
+{
+    Q_ASSERT(item);
+
+    if (!item->d_ptr->visible)
+        return;
+
+    const bool itemHasContents = !(item->d_ptr->flags & QGraphicsItem::ItemHasNoContents);
+    const bool itemHasChildren = !item->d_ptr->children.isEmpty();
+    if (!itemHasContents && !itemHasChildren)
+        return; // Item has neither contents nor children!(?)
+
+    const qreal opacity = item->d_ptr->combineOpacityFromParent(parentOpacity);
+    const bool itemIsFullyTransparent = QGraphicsItemPrivate::isOpacityNull(opacity);
+    if (itemIsFullyTransparent && (!itemHasChildren || item->d_ptr->childrenCombineOpacity()))
+        return;
+
+    QTransform transform(Qt::Uninitialized);
+    QTransform *transformPtr = nullptr;
+    bool translateOnlyTransform = false;
+#define ENSURE_TRANSFORM_PTR \
+    if (!transformPtr) { \
+        Q_ASSERT(!itemIsUntransformable); \
+        if (viewTransform) { \
+            transform = item->d_ptr->sceneTransform; \
+            transform *= *viewTransform; \
+            transformPtr = &transform; \
+        } else { \
+            transformPtr = &item->d_ptr->sceneTransform; \
+            translateOnlyTransform = item->d_ptr->sceneTransformTranslateOnly; \
+        } \
+    }
+
+    // Update the item's scene transform if the item is transformable;
+    // otherwise calculate the full transform,
+    bool wasDirtyParentSceneTransform = false;
+    const bool itemIsUntransformable = item->d_ptr->itemIsUntransformable();
+    if (itemIsUntransformable) {
+        transform = item->deviceTransform(viewTransform ? *viewTransform : QTransform());
+        transformPtr = &transform;
+    } else if (item->d_ptr->dirtySceneTransform) {
+        item->d_ptr->updateSceneTransformFromParent();
+        Q_ASSERT(!item->d_ptr->dirtySceneTransform);
+        wasDirtyParentSceneTransform = true;
+    }
+
+    const bool itemClipsChildrenToShape = (item->d_ptr->flags & QGraphicsItem::ItemClipsChildrenToShape
+                                           || item->d_ptr->flags & QGraphicsItem::ItemContainsChildrenInShape);
+    bool drawItem = itemHasContents && !itemIsFullyTransparent;
+    if (drawItem || minimumRenderSize > 0.0) {
+        const QRectF brect = adjustedItemEffectiveBoundingRect(item);
+        ENSURE_TRANSFORM_PTR
+        QRectF preciseViewBoundingRect = translateOnlyTransform ? brect.translated(transformPtr->dx(), transformPtr->dy())
+                                                                : transformPtr->mapRect(brect);
+
+        bool itemIsTooSmallToRender = false;
+        if (minimumRenderSize > 0.0
+            && (preciseViewBoundingRect.width() < minimumRenderSize
+                || preciseViewBoundingRect.height() < minimumRenderSize)) {
+           itemIsTooSmallToRender = true;
+           drawItem = false;
+        }
+
+        bool itemIsOutsideVisibleRect = false;
+        if (drawItem) {
+            QRect viewBoundingRect = preciseViewBoundingRect.toAlignedRect();
+            viewBoundingRect.adjust(-int(rectAdjust), -int(rectAdjust), rectAdjust, rectAdjust);
+            if (widget)
+                item->d_ptr->paintedViewBoundingRects.insert(widget, viewBoundingRect);
+            drawItem = exposedRegion ? exposedRegion->intersects(viewBoundingRect)
+                                     : !viewBoundingRect.normalized().isEmpty();
+            itemIsOutsideVisibleRect = !drawItem;
+        }
+
+        if (itemIsTooSmallToRender || itemIsOutsideVisibleRect) {
+            // We cannot simply use !drawItem here. If we did it is possible
+            // to enter the outer if statement with drawItem == false and minimumRenderSize > 0
+            // and finally end up inside this inner if, even though none of the above two
+            // conditions are met. In that case we should not return from this function
+            // but call draw() instead.
+            if (!itemHasChildren)
+                return;
+            if (itemClipsChildrenToShape) {
+                if (wasDirtyParentSceneTransform)
+                    item->d_ptr->invalidateChildrenSceneTransform();
+                return;
+            }
+        }
+    } // else we know for sure this item has children we must process.
+
+    if (itemHasChildren && itemClipsChildrenToShape)
+        ENSURE_TRANSFORM_PTR;
+
+#if QT_CONFIG(graphicseffect)
+    if (item->d_ptr->graphicsEffect && item->d_ptr->graphicsEffect->isEnabled()) {
+        ENSURE_TRANSFORM_PTR;
+        QGraphicsItemPaintInfo info(viewTransform, transformPtr, effectTransform, exposedRegion, widget, &styleOptionTmp,
+                                    painter, opacity, wasDirtyParentSceneTransform, itemHasContents && !itemIsFullyTransparent);
+        QGraphicsEffectSource *source = item->d_ptr->graphicsEffect->d_func()->source;
+        QGraphicsItemEffectSourcePrivate *sourced = static_cast<QGraphicsItemEffectSourcePrivate *>
+                                                    (source->d_func());
+        sourced->info = &info;
+        const QTransform restoreTransform = painter->worldTransform();
+        if (effectTransform)
+            painter->setWorldTransform(*transformPtr * *effectTransform);
+        else
+            painter->setWorldTransform(*transformPtr);
+        painter->setOpacity(opacity);
+
+        if (sourced->currentCachedSystem() != Qt::LogicalCoordinates
+            && sourced->lastEffectTransform != painter->worldTransform())
+        {
+            if (sourced->lastEffectTransform.type() <= QTransform::TxTranslate
+                && painter->worldTransform().type() <= QTransform::TxTranslate)
+            {
+                QRectF sourceRect = sourced->boundingRect(Qt::DeviceCoordinates);
+                QRect effectRect = sourced->paddedEffectRect(Qt::DeviceCoordinates, sourced->currentCachedMode(), sourceRect).toAlignedRect();
+
+                sourced->setCachedOffset(effectRect.topLeft());
+            } else {
+                sourced->invalidateCache(QGraphicsEffectSourcePrivate::TransformChanged);
+            }
+
+            sourced->lastEffectTransform = painter->worldTransform();
+        }
+
+        item->d_ptr->graphicsEffect->draw(painter);
+        painter->setWorldTransform(restoreTransform);
+        sourced->info = nullptr;
+    } else
+#endif // QT_CONFIG(graphicseffect)
+    {
+        draw(item, painter, viewTransform, transformPtr, exposedRegion, widget, opacity,
+             effectTransform, wasDirtyParentSceneTransform, drawItem);
+    }
+}
+
 //  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4918, as _ZN21QGraphicsScenePrivate9markDirtyEP13QGraphicsItemRK6QRectFbbbbb
 inline void QGraphicsScenePrivate::markDirty(QGraphicsItem *item, const QRectF &rect, bool invalidateChildren,
                                       bool force, bool ignoreOpacity, bool removingItemFromScene,
@@ -810,6 +1704,190 @@ inline void QGraphicsScenePrivate::markDirty(QGraphicsItem *item, const QRectF &
 
     if (!updateBoundingRect)
         item->d_ptr->markParentDirty();
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 5053, as _ZN21QGraphicsScenePrivate26processDirtyItemsRecursiveEP13QGraphicsItembd
+inline void QGraphicsScenePrivate::processDirtyItemsRecursive(QGraphicsItem *item, bool dirtyAncestorContainsChildren,
+                                                       qreal parentOpacity)
+{
+    Q_Q(QGraphicsScene);
+    Q_ASSERT(item);
+    Q_ASSERT(!updateAll);
+
+    if (!item->d_ptr->dirty && !item->d_ptr->dirtyChildren) {
+        resetDirtyItem(item);
+        return;
+    }
+
+    const bool itemIsHidden = !item->d_ptr->ignoreVisible && !item->d_ptr->visible;
+    if (itemIsHidden) {
+        resetDirtyItem(item, /*recursive=*/true);
+        return;
+    }
+
+    bool itemHasContents = !(item->d_ptr->flags & QGraphicsItem::ItemHasNoContents);
+    const bool itemHasChildren = !item->d_ptr->children.isEmpty();
+    if (!itemHasContents) {
+        if (!itemHasChildren) {
+            resetDirtyItem(item);
+            return; // Item has neither contents nor children!(?)
+        }
+        if (item->d_ptr->graphicsEffect)
+            itemHasContents = true;
+    }
+
+    const qreal opacity = item->d_ptr->combineOpacityFromParent(parentOpacity);
+    const bool itemIsFullyTransparent = !item->d_ptr->ignoreOpacity
+                                        && QGraphicsItemPrivate::isOpacityNull(opacity);
+    if (itemIsFullyTransparent && (!itemHasChildren || item->d_ptr->childrenCombineOpacity())) {
+        resetDirtyItem(item, /*recursive=*/itemHasChildren);
+        return;
+    }
+
+    bool wasDirtyParentSceneTransform = item->d_ptr->dirtySceneTransform;
+    const bool itemIsUntransformable = item->d_ptr->itemIsUntransformable();
+    if (wasDirtyParentSceneTransform && !itemIsUntransformable) {
+        item->d_ptr->updateSceneTransformFromParent();
+        Q_ASSERT(!item->d_ptr->dirtySceneTransform);
+    }
+
+    const bool wasDirtyParentViewBoundingRects = item->d_ptr->paintedViewBoundingRectsNeedRepaint;
+    if (itemIsFullyTransparent || !itemHasContents || dirtyAncestorContainsChildren) {
+        // Make sure we don't process invisible items or items with no content.
+        item->d_ptr->dirty = 0;
+        item->d_ptr->fullUpdatePending = 0;
+        // Might have a dirty view bounding rect otherwise.
+        if (itemIsFullyTransparent || !itemHasContents)
+            item->d_ptr->paintedViewBoundingRectsNeedRepaint = 0;
+    }
+
+    if (!hasSceneRect && item->d_ptr->geometryChanged && item->d_ptr->visible) {
+        // Update growingItemsBoundingRect.
+        if (item->d_ptr->sceneTransformTranslateOnly) {
+            growingItemsBoundingRect |= item->boundingRect().translated(item->d_ptr->sceneTransform.dx(),
+                                                                        item->d_ptr->sceneTransform.dy());
+        } else {
+            growingItemsBoundingRect |= item->d_ptr->sceneTransform.mapRect(item->boundingRect());
+        }
+    }
+
+    // Process item.
+    if (item->d_ptr->dirty || item->d_ptr->paintedViewBoundingRectsNeedRepaint) {
+        const bool useCompatUpdate = views.isEmpty() || isSignalConnected(changedSignalIndex);
+        const QRectF itemBoundingRect = adjustedItemEffectiveBoundingRect(item);
+
+        if (useCompatUpdate && !itemIsUntransformable && qFuzzyIsNull(item->boundingRegionGranularity())) {
+            // This block of code is kept for compatibility. Since 4.5, by default
+            // QGraphicsView does not connect the signal and we use the below
+            // method of delivering updates.
+            if (item->d_ptr->sceneTransformTranslateOnly) {
+                q->update(itemBoundingRect.translated(item->d_ptr->sceneTransform.dx(),
+                                                      item->d_ptr->sceneTransform.dy()));
+            } else {
+                QRectF rect = item->d_ptr->sceneTransform.mapRect(itemBoundingRect);
+                if (!rect.isEmpty())
+                    q->update(rect);
+            }
+        } else {
+            QRectF dirtyRect;
+            bool uninitializedDirtyRect = true;
+
+            for (auto view : std::as_const(views)) {
+                QGraphicsViewPrivate *viewPrivate = view->d_func();
+                QRect &paintedViewBoundingRect = item->d_ptr->paintedViewBoundingRects[viewPrivate->viewport];
+                if (viewPrivate->fullUpdatePending
+                    || viewPrivate->viewportUpdateMode == QGraphicsView::NoViewportUpdate) {
+                    // Okay, if we have a full update pending or no viewport update, this item's
+                    // paintedViewBoundingRect  will be updated correctly in the next paintEvent if
+                    // it is inside the viewport, but for now we can pretend that it is outside.
+                    paintedViewBoundingRect = QRect(-1, -1, -1, -1);
+                    continue;
+                }
+
+                if (item->d_ptr->paintedViewBoundingRectsNeedRepaint) {
+                    paintedViewBoundingRect.translate(viewPrivate->dirtyScrollOffset);
+                    if (!viewPrivate->updateRect(paintedViewBoundingRect))
+                        paintedViewBoundingRect = QRect(-1, -1, -1, -1); // Outside viewport.
+                }
+
+                if (!item->d_ptr->dirty)
+                    continue;
+
+                if (!item->d_ptr->paintedViewBoundingRectsNeedRepaint
+                    && paintedViewBoundingRect.x() == -1 && paintedViewBoundingRect.y() == -1
+                    && paintedViewBoundingRect.width() == -1 && paintedViewBoundingRect.height() == -1) {
+                    continue; // Outside viewport.
+                }
+
+                if (uninitializedDirtyRect) {
+                    dirtyRect = itemBoundingRect;
+                    if (!item->d_ptr->fullUpdatePending) {
+                        _q_adjustRect(&item->d_ptr->needsRepaint);
+                        dirtyRect &= item->d_ptr->needsRepaint;
+                    }
+                    uninitializedDirtyRect = false;
+                }
+
+                if (dirtyRect.isEmpty())
+                    continue; // Discard updates outside the bounding rect.
+
+                if (!updateHelper(viewPrivate, item->d_ptr.data(), dirtyRect, itemIsUntransformable)
+                    && item->d_ptr->paintedViewBoundingRectsNeedRepaint) {
+                    paintedViewBoundingRect = QRect(-1, -1, -1, -1); // Outside viewport.
+                }
+            }
+        }
+    }
+
+    // Process children.
+    if (itemHasChildren && item->d_ptr->dirtyChildren) {
+        const bool itemClipsChildrenToShape = item->d_ptr->flags & QGraphicsItem::ItemClipsChildrenToShape
+                                              || item->d_ptr->flags & QGraphicsItem::ItemContainsChildrenInShape;
+        // Items with no content are threated as 'dummy' items which means they are never drawn and
+        // 'processed', so the painted view bounding rect is never up-to-date. This means that whenever
+        // such an item changes geometry, its children have to take care of the update regardless
+        // of whether the item clips children to shape or not.
+        const bool bypassUpdateClip = !itemHasContents && wasDirtyParentViewBoundingRects;
+        if (itemClipsChildrenToShape && !bypassUpdateClip) {
+            // Make sure child updates are clipped to the item's bounding rect.
+            for (auto view : std::as_const(views))
+                view->d_func()->setUpdateClip(item);
+        }
+        if (!dirtyAncestorContainsChildren) {
+            dirtyAncestorContainsChildren = item->d_ptr->fullUpdatePending
+                                            && itemClipsChildrenToShape;
+        }
+        const bool allChildrenDirty = item->d_ptr->allChildrenDirty;
+        const bool parentIgnoresVisible = item->d_ptr->ignoreVisible;
+        const bool parentIgnoresOpacity = item->d_ptr->ignoreOpacity;
+        for (auto child : std::as_const(item->d_ptr->children)) {
+            if (wasDirtyParentSceneTransform)
+                child->d_ptr->dirtySceneTransform = 1;
+            if (wasDirtyParentViewBoundingRects)
+                child->d_ptr->paintedViewBoundingRectsNeedRepaint = 1;
+            if (parentIgnoresVisible)
+                child->d_ptr->ignoreVisible = 1;
+            if (parentIgnoresOpacity)
+                child->d_ptr->ignoreOpacity = 1;
+            if (allChildrenDirty) {
+                child->d_ptr->dirty = 1;
+                child->d_ptr->fullUpdatePending = 1;
+                child->d_ptr->dirtyChildren = 1;
+                child->d_ptr->allChildrenDirty = 1;
+            }
+            processDirtyItemsRecursive(child, dirtyAncestorContainsChildren, opacity);
+        }
+
+        if (itemClipsChildrenToShape) {
+            // Reset updateClip.
+            for (auto view : std::as_const(views))
+                view->d_func()->setUpdateClip(nullptr);
+        }
+    } else if (wasDirtyParentSceneTransform) {
+        item->d_ptr->invalidateChildrenSceneTransform();
+    }
+
+    resetDirtyItem(item);
 }
 
 //  from src/widgets/graphicsview/qgraphicsscene.cpp, line 1486, as _ZN21QGraphicsScenePrivate38ensureSequentialTopLevelSiblingIndexesEv
@@ -945,6 +2023,56 @@ inline void QGraphicsScenePrivate::enableTouchEventsOnViews()
         view->viewport()->setAttribute(Qt::WA_AcceptTouchEvents, true);
 }
 
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 6138, as _ZN21QGraphicsScenePrivate24gestureTargetsAtHotSpotsERK4QSetIP8QGestureEN2Qt11GestureFlagEP5QHashIP15QGraphicsObjectS3_EPS0_ISA_EPS3_SF_
+#if !defined(QT_NO_GESTURES)
+inline void QGraphicsScenePrivate::gestureTargetsAtHotSpots(const QSet<QGesture *> &gestures,
+                                              Qt::GestureFlag flag,
+                                              QHash<QGraphicsObject *, QSet<QGesture *> > *targets,
+                                              QSet<QGraphicsObject *> *itemsSet,
+                                              QSet<QGesture *> *normal,
+                                              QSet<QGesture *> *conflicts)
+{
+    QSet<QGesture *> normalGestures; // that are not in conflicted state.
+    for (QGesture *gesture : gestures) {
+        if (!gesture->hasHotSpot())
+            continue;
+        const Qt::GestureType gestureType = gesture->gestureType();
+        const QList<QGraphicsItem *> items = itemsAtPosition(QPoint(), gesture->d_func()->sceneHotSpot, nullptr);
+        for (int j = 0; j < items.size(); ++j) {
+            QGraphicsItem *item = items.at(j);
+
+            // Check if the item is blocked by a modal panel and use it as
+            // a target instead of this item.
+            (void) item->isBlockedByModalPanel(&item);
+
+            if (QGraphicsObject *itemobj = item->toGraphicsObject()) {
+                QGraphicsItemPrivate *d = item->QGraphicsItem::d_func();
+                QMap<Qt::GestureType, Qt::GestureFlags>::const_iterator it =
+                        d->gestureContext.constFind(gestureType);
+                if (it != d->gestureContext.constEnd() && (!flag || (it.value() & flag))) {
+                    if (normalGestures.contains(gesture)) {
+                        normalGestures.remove(gesture);
+                        if (conflicts)
+                            conflicts->insert(gesture);
+                    } else {
+                        normalGestures.insert(gesture);
+                    }
+                    if (targets)
+                        (*targets)[itemobj].insert(gesture);
+                    if (itemsSet)
+                        (*itemsSet).insert(itemobj);
+                }
+            }
+            // Don't propagate through panels.
+            if (item->isPanel())
+                break;
+        }
+    }
+    if (normal)
+        *normal = normalGestures;
+}
+#endif  // !defined(QT_NO_GESTURES)
+
 //  from src/widgets/graphicsview/qgraphicsscene.cpp, line 6039, as _ZN21QGraphicsScenePrivate35updateInputMethodSensitivityInViewsEv
 inline void QGraphicsScenePrivate::updateInputMethodSensitivityInViews()
 {
@@ -1008,6 +2136,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QGraphicsScenePrivate14_q_polishItemsEv(
     QGraphicsScenePrivate *self) {
   self->_q_polishItems();
+}
+
+//  void QGraphicsScenePrivate::_q_processDirtyItems()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGraphicsScenePrivate20_q_processDirtyItemsEv(
+    QGraphicsScenePrivate *self) {
+  self->_q_processDirtyItems();
 }
 
 //  void QGraphicsScenePrivate::setScenePosItemEnabled(QGraphicsItem *item,
@@ -1157,6 +2292,46 @@ void ritual_ZN21QGraphicsScenePrivate18cloneDragDropEventEP27QGraphicsSceneDragD
   self->cloneDragDropEvent(dest, source);
 }
 
+#if QT_CONFIG(graphicseffect)
+//  void QGraphicsScenePrivate::drawItems(QPainter *painter, const QTransform
+//      *const viewTransform, QRegion *exposedRegion, QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGraphicsScenePrivate9drawItemsEP8QPainterPK10QTransformP7QRegionP7QWidget(
+    QGraphicsScenePrivate *self,
+    QPainter *painter,
+    const QTransform *const viewTransform,
+    QRegion *exposedRegion,
+    QWidget *widget) {
+  self->drawItems(painter, viewTransform, exposedRegion, widget);
+}
+#endif  // QT_CONFIG(graphicseffect)
+
+#if QT_CONFIG(graphicseffect)
+//  void QGraphicsScenePrivate::drawSubtreeRecursive(QGraphicsItem *item,
+//      QPainter *painter, const QTransform *const a2, QRegion
+//      *exposedRegion, QWidget *widget, qreal parentOpacity, const
+//      QTransform *const effectTransform)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGraphicsScenePrivate20drawSubtreeRecursiveEP13QGraphicsItemP8QPainterPK10QTransformP7QRegionP7QWidgetdS6_(
+    QGraphicsScenePrivate *self,
+    QGraphicsItem *item,
+    QPainter *painter,
+    const QTransform *const a2,
+    QRegion *exposedRegion,
+    QWidget *widget,
+    qreal parentOpacity,
+    const QTransform *const effectTransform) {
+  self->drawSubtreeRecursive(
+      item,
+      painter,
+      a2,
+      exposedRegion,
+      widget,
+      parentOpacity,
+      effectTransform);
+}
+#endif  // QT_CONFIG(graphicseffect)
+
 //  void QGraphicsScenePrivate::markDirty(QGraphicsItem *item, const QRectF
 //      &rect, bool invalidateChildren, bool force, bool ignoreOpacity, bool
 //      removingItemFromScene, bool updateBoundingRect)
@@ -1178,6 +2353,20 @@ void ritual_ZN21QGraphicsScenePrivate9markDirtyEP13QGraphicsItemRK6QRectFbbbbb(
       ignoreOpacity,
       removingItemFromScene,
       updateBoundingRect);
+}
+
+//  void QGraphicsScenePrivate::processDirtyItemsRecursive(QGraphicsItem
+//      *item, bool dirtyAncestorContainsChildren, qreal parentOpacity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGraphicsScenePrivate26processDirtyItemsRecursiveEP13QGraphicsItembd(
+    QGraphicsScenePrivate *self,
+    QGraphicsItem *item,
+    bool dirtyAncestorContainsChildren,
+    qreal parentOpacity) {
+  self->processDirtyItemsRecursive(
+      item,
+      dirtyAncestorContainsChildren,
+      parentOpacity);
 }
 
 //  void QGraphicsScenePrivate::resetDirtyItem(QGraphicsItem *item, bool
@@ -1274,6 +2463,30 @@ void ritual_ZN21QGraphicsScenePrivate24enableTouchEventsOnViewsEv(
     QGraphicsScenePrivate *self) {
   self->enableTouchEventsOnViews();
 }
+
+#if !defined(QT_NO_GESTURES)
+//  void QGraphicsScenePrivate::gestureTargetsAtHotSpots(const QSet<QGesture
+//      *> &gestures, Qt::GestureFlag flag, QHash<QGraphicsObject *,
+//      QSet<QGesture *>> *targets, QSet<QGraphicsObject *> *itemsSet,
+//      QSet<QGesture *> *normal, QSet<QGesture *> *conflicts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGraphicsScenePrivate24gestureTargetsAtHotSpotsERK4QSetIP8QGestureEN2Qt11GestureFlagEP5QHashIP15QGraphicsObjectS3_EPS0_ISA_EPS3_SF_(
+    QGraphicsScenePrivate *self,
+    const QSet<QGesture *> *gestures,
+    Qt::GestureFlag flag,
+    QHash<QGraphicsObject *, QSet<QGesture *>> *targets,
+    QSet<QGraphicsObject *> *itemsSet,
+    QSet<QGesture *> *normal,
+    QSet<QGesture *> *conflicts) {
+  self->gestureTargetsAtHotSpots(
+      *gestures,
+      flag,
+      targets,
+      itemsSet,
+      normal,
+      conflicts);
+}
+#endif  // !defined(QT_NO_GESTURES)
 
 //  void QGraphicsScenePrivate::updateInputMethodSensitivityInViews()
 extern "C" Q_DECL_EXPORT

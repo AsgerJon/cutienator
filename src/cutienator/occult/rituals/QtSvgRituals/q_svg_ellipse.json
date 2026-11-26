@@ -12,7 +12,19 @@
     "ritual_ZNK11QSvgEllipse18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN11QSvgEllipse11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK11QSvgEllipse4typeEv": ["int", "address"],
+    "ritual_ZNK11QSvgEllipse18internalFastBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QSvgEllipse14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QSvgEllipse23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK11QSvgEllipse4rectEv": ["address", "address"],
     "ritual_take_QSvgEllipse": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QSvgEllipse18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [

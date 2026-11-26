@@ -290,6 +290,24 @@ const QMetaObject *ritual_ZNK15Q3DInputHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DInputHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15Q3DInputHandler11qt_metacastEPKc(
+    Q3DInputHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DInputHandler::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15Q3DInputHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DInputHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DInputHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15Q3DInputHandler2trEPKcS1_i(
@@ -410,6 +428,38 @@ void ritual_ZN15Q3DInputHandler10wheelEventEP11QWheelEvent(
   self->wheelEvent(event);
 }
 #endif  // QT_CONFIG(wheelevent)
+
+//  void Q3DInputHandler::rotationEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15Q3DInputHandler22rotationEnabledChangedEb(
+    Q3DInputHandler *self,
+    bool enable) {
+  self->rotationEnabledChanged(enable);
+}
+
+//  void Q3DInputHandler::zoomEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15Q3DInputHandler18zoomEnabledChangedEb(
+    Q3DInputHandler *self,
+    bool enable) {
+  self->zoomEnabledChanged(enable);
+}
+
+//  void Q3DInputHandler::selectionEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15Q3DInputHandler23selectionEnabledChangedEb(
+    Q3DInputHandler *self,
+    bool enable) {
+  self->selectionEnabledChanged(enable);
+}
+
+//  void Q3DInputHandler::zoomAtTargetEnabledChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15Q3DInputHandler26zoomAtTargetEnabledChangedEb(
+    Q3DInputHandler *self,
+    bool enable) {
+  self->zoomAtTargetEnabledChanged(enable);
+}
 
 //  a Python function taken by a CuteQ3DInputHandler, for the function named
 //      by the key

@@ -136,7 +136,7 @@ typedef void (*CuteQQuickItemKeyFilterCall5)(const void *, int *);
 class CuteQQuickItemKeyFilter : public QQuickItemKeyFilter {
 public:
   using QQuickItemKeyFilter::QQuickItemKeyFilter;
-  CuteQQuickItemKeyFilter(const QQuickItemKeyFilter &other) : QQuickItemKeyFilter(other) {}
+  CuteQQuickItemKeyFilter(const QQuickItemKeyFilter & other) : QQuickItemKeyFilter(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {

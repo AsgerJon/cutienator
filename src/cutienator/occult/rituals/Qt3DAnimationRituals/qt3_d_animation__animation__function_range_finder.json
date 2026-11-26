@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation19FunctionRangeFinderC1EP5QListIfE": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19FunctionRangeFinder14findLowerBoundEf": [
+      "int", "address", "float"
+    ],
     "ritual_ZNK13Qt3DAnimation9Animation19FunctionRangeFinder9rangeSizeEv": [
       "int", "address"
     ],
@@ -22,6 +28,12 @@
     ],
     "ritual_ZN13Qt3DAnimation9Animation19FunctionRangeFinder35updateAutomaticCorrelationThresholdEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19FunctionRangeFinder6locateEf": [
+      "int", "address", "float"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19FunctionRangeFinder4huntEf": [
+      "int", "address", "float"
     ],
     "ritual_ZN13Qt3DAnimation9Animation19FunctionRangeFinderD1Ev": [
       "nothing", "address"

@@ -28,6 +28,35 @@ QSslPreSharedKeyAuthenticator *ritual_ZN29QSslPreSharedKeyAuthenticatorC1ERKS_(
   return new QSslPreSharedKeyAuthenticator(*authenticator);
 }
 
+//  QSslPreSharedKeyAuthenticator
+//      &QSslPreSharedKeyAuthenticator::operator=(const
+//      QSslPreSharedKeyAuthenticator &authenticator)
+extern "C" Q_DECL_EXPORT
+QSslPreSharedKeyAuthenticator *ritual_ZN29QSslPreSharedKeyAuthenticatoraSERKS_(
+    QSslPreSharedKeyAuthenticator *self,
+    const QSslPreSharedKeyAuthenticator *authenticator) {
+  return &(self->operator=(*authenticator));
+}
+
+//  QSslPreSharedKeyAuthenticator
+//      &QSslPreSharedKeyAuthenticator::operator=(QSslPreSharedKeyAuthenticat
+//      or &&other)
+extern "C" Q_DECL_EXPORT
+QSslPreSharedKeyAuthenticator *ritual_ZN29QSslPreSharedKeyAuthenticatoraSEOS_(
+    QSslPreSharedKeyAuthenticator *self,
+    QSslPreSharedKeyAuthenticator *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QSslPreSharedKeyAuthenticator::swap(QSslPreSharedKeyAuthenticator
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSslPreSharedKeyAuthenticator4swapERS_(
+    QSslPreSharedKeyAuthenticator *self,
+    QSslPreSharedKeyAuthenticator *other) {
+  self->swap(*other);
+}
+
 //  QByteArray QSslPreSharedKeyAuthenticator::identityHint() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK29QSslPreSharedKeyAuthenticator12identityHintEv(

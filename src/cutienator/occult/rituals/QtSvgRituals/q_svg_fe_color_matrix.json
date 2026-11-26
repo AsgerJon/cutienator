@@ -5,13 +5,21 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN17QSvgFeColorMatrixC1EP8QSvgNodeRK7QStringS4_RK9QSvgRectFNS_14ColorShiftTypeERK14QGenericMatrixILi5ELi5EdE": [
+      "address", "address", "text", "text", "address", "unsigned char",
+      "address"
+    ],
     "ritual_ZN17QSvgFeColorMatrixD1Ev": ["nothing", "address"],
     "ritual_ZNK17QSvgFeColorMatrix4typeEv": ["int", "address"],
     "ritual_ZNK17QSvgFeColorMatrix5applyERK4QMapI7QString6QImageEP8QPainterRK6QRectFSA_N5QtSvg9UnitTypesESC_": [
       "address", "address", "address", "address", "address", "address",
       "unsigned int", "unsigned int"
     ],
+    "ritual_ZNK17QSvgFeColorMatrix6matrixEv": ["address", "address"],
     "ritual_take_QSvgFeColorMatrix": ["bool", "address", "chars", "address"],
-    "ritual_own_ZNK17QSvgFeColorMatrix4typeEv": ["int", "address"]
+    "ritual_own_ZNK17QSvgFeColorMatrix4typeEv": ["int", "address"],
+    "ritual_drop_QSvgFeColorMatrix__QSvgFeColorMatrix_Matrix": [
+      "nothing", "address"
+    ]
   }
 }

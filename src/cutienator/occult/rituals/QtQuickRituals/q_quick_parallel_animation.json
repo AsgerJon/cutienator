@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickParallelAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickParallelAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickParallelAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickParallelAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,9 @@
     "ritual_ZN23QQuickParallelAnimationD1Ev": ["nothing", "address"],
     "ritual_ZNK23QQuickParallelAnimation14threadingModelEv": [
       "int", "address"
+    ],
+    "ritual_ZN23QQuickParallelAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
     ],
     "ritual_take_QQuickParallelAnimation": [
       "bool", "address", "chars", "address"

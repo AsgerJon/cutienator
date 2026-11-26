@@ -8,14 +8,18 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/qqmlscriptstring.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qmetatype.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmltranslation_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmlglobal_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/qqmlproperty.h>
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQml/6.12.0/QtQml/private/qqmlglobal_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmljavascriptexpression_p.h>
 #include <QtQml/6.12.0/QtQml/private/qv4value_p.h>
 #include <QtQml/6.12.0/QtQml/private/qqmlpropertydata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qmetatype.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 
@@ -30,11 +34,12 @@ typedef void (*CuteQQmlBindingCall4)(const void *, int *);
 typedef const QQmlSourceLocation * (*CuteQQmlBindingCall5)(const void *, int *);
 typedef bool (*CuteQQmlBindingCall6)(const void *, int *);
 typedef bool (*CuteQQmlBindingCall7)(const void *, const QV4::Value *, bool, int, int *);
-typedef QString * (*CuteQQmlBindingCall8)(const void *, int *);
+typedef bool (*CuteQQmlBindingCall8)(const void *, void *, const QMetaType *, bool, int, int *);
+typedef QString * (*CuteQQmlBindingCall9)(const void *, int *);
 class CuteQQmlBinding : public QQmlBinding {
 public:
   using QQmlBinding::QQmlBinding;
-  void *taken[9] = {};
+  void *taken[10] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN24QQmlJavaScriptExpression7refreshEv")) {
@@ -69,8 +74,12 @@ public:
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK24QQmlJavaScriptExpression20expressionIdentifierEv")) {
+    if (!std::strcmp(key, "_ZN11QQmlBinding5writeEPv9QMetaTypeb6QFlagsIN16QQmlPropertyData9WriteFlagEE")) {
       taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK24QQmlJavaScriptExpression20expressionIdentifierEv")) {
+      taken[9] = call;
       return true;
     }
     return false;
@@ -173,11 +182,27 @@ public:
     return {};
   }
 
-  //  QString QQmlJavaScriptExpression::expressionIdentifier() const
-  QString expressionIdentifier() const override {
+  //  bool QQmlBinding::write(void *result, QMetaType type, bool
+  //      isUndefined, QQmlPropertyData::WriteFlags flags)
+  bool write(
+      void *result,
+      QMetaType type,
+      bool isUndefined,
+      QQmlPropertyData::WriteFlags flags) override {
     if (taken[8]) {
       int handled = 0;
       CuteQQmlBindingCall8 call = reinterpret_cast<CuteQQmlBindingCall8>(taken[8]);
+      bool given = call(this, result, &type, isUndefined, static_cast<int>(flags.toInt()), &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  QString QQmlJavaScriptExpression::expressionIdentifier() const
+  QString expressionIdentifier() const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQQmlBindingCall9 call = reinterpret_cast<CuteQQmlBindingCall9>(taken[9]);
       QString * given = call(this, &handled);
       if (handled && given) {
         QString back(*given);
@@ -198,6 +223,81 @@ QQmlBinding *ritual_ZN11QQmlBinding6createEPK16QQmlPropertyDataRK16QQmlScriptStr
     QObject *a2,
     QQmlContext *a3) {
   return QQmlBinding::create(a0, *a1, a2, a3);
+}
+
+//  QQmlBinding *QQmlBinding::create(const QQmlPropertyData *a0, const
+//      QString &a1, QObject *a2, const QQmlRefPointer<QQmlContextData> &a3,
+//      const QString &url, quint16 lineNumber)
+extern "C" Q_DECL_EXPORT
+QQmlBinding *ritual_ZN11QQmlBinding6createEPK16QQmlPropertyDataRK7QStringP7QObjectRK14QQmlRefPointerI15QQmlContextDataES5_t(
+    const QQmlPropertyData *a0,
+    const QString *a1,
+    QObject *a2,
+    const QQmlRefPointer<QQmlContextData> *a3,
+    const QString *url,
+    quint16 lineNumber) {
+  return QQmlBinding::create(a0, *a1, a2, *a3, *url, lineNumber);
+}
+
+//  QQmlBinding *QQmlBinding::create(const QQmlPropertyData *property,
+//      QV4::Function *function, QObject *obj, const
+//      QQmlRefPointer<QQmlContextData> &ctxt, QV4::ExecutionContext *scope)
+extern "C" Q_DECL_EXPORT
+QQmlBinding *ritual_ZN11QQmlBinding6createEPK16QQmlPropertyDataPN3QV48FunctionEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS3_16ExecutionContextE(
+    const QQmlPropertyData *property,
+    QV4::Function *function,
+    QObject *obj,
+    const QQmlRefPointer<QQmlContextData> *ctxt,
+    QV4::ExecutionContext *scope) {
+  return QQmlBinding::create(property, function, obj, *ctxt, scope);
+}
+
+//  QQmlBinding *QQmlBinding::create(QMetaType propertyType, QV4::Function
+//      *function, QObject *obj, const QQmlRefPointer<QQmlContextData> &ctxt,
+//      QV4::ExecutionContext *scope)
+extern "C" Q_DECL_EXPORT
+QQmlBinding *ritual_ZN11QQmlBinding6createE9QMetaTypePN3QV48FunctionEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS1_16ExecutionContextE(
+    const QMetaType *propertyType,
+    QV4::Function *function,
+    QObject *obj,
+    const QQmlRefPointer<QQmlContextData> *ctxt,
+    QV4::ExecutionContext *scope) {
+  return QQmlBinding::create(*propertyType, function, obj, *ctxt, scope);
+}
+
+//  QQmlBinding *QQmlBinding::createTranslationBinding(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &unit, const
+//      QV4::CompiledData::Binding *binding, QObject *obj, const
+//      QQmlRefPointer<QQmlContextData> &ctxt)
+extern "C" Q_DECL_EXPORT
+QQmlBinding *ritual_ZN11QQmlBinding24createTranslationBindingERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEPKNS1_12CompiledData7BindingEP7QObjectRKS0_I15QQmlContextDataE(
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *unit,
+    const QV4::CompiledData::Binding *binding,
+    QObject *obj,
+    const QQmlRefPointer<QQmlContextData> *ctxt) {
+  return QQmlBinding::createTranslationBinding(*unit, binding, obj, *ctxt);
+}
+
+//  QQmlBinding *QQmlBinding::createTranslationBinding(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &unit, const
+//      QQmlRefPointer<QQmlContextData> &ctxt, const QString &propertyName,
+//      const QQmlTranslation &translationData, const QQmlSourceLocation
+//      &location, QObject *obj)
+extern "C" Q_DECL_EXPORT
+QQmlBinding *ritual_ZN11QQmlBinding24createTranslationBindingERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERKS0_I15QQmlContextDataERK7QStringRK15QQmlTranslationRK18QQmlSourceLocationP7QObject(
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *unit,
+    const QQmlRefPointer<QQmlContextData> *ctxt,
+    const QString *propertyName,
+    const QQmlTranslation *translationData,
+    const QQmlSourceLocation *location,
+    QObject *obj) {
+  return QQmlBinding::createTranslationBinding(
+      *unit,
+      *ctxt,
+      *propertyName,
+      *translationData,
+      *location,
+      obj);
 }
 
 //  Kind QQmlBinding::kind() const
@@ -263,6 +363,15 @@ QVariant *ritual_ZN11QQmlBinding8evaluateEv(QQmlBinding *self) {
   return new QVariant(self->evaluate());
 }
 
+//  bool QQmlBinding::evaluate(void *result, QMetaType type)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QQmlBinding8evaluateEPv9QMetaType(
+    QQmlBinding *self,
+    void *result,
+    const QMetaType *type) {
+  return self->evaluate(result, *type);
+}
+
 //  void QQmlBinding::expressionChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQmlBinding17expressionChangedEv(QQmlBinding *self) {
@@ -311,6 +420,20 @@ bool ritual_ZNK11QQmlBinding15hasDependenciesEv(const QQmlBinding *self) {
   return self->hasDependencies();
 }
 
+//  void QQmlBinding::doUpdate(const DeleteWatcher &watcher,
+//      QQmlPropertyData::WriteFlags flags, QV4::Scope &scope)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQmlBinding8doUpdateERKN24QQmlJavaScriptExpression13DeleteWatcherE6QFlagsIN16QQmlPropertyData9WriteFlagEERN3QV45ScopeE(
+    QQmlBinding *self,
+    const QQmlJavaScriptExpression::DeleteWatcher *watcher,
+    int flags,
+    QV4::Scope *scope) {
+  self->doUpdate(
+      *watcher,
+      QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags),
+      *scope);
+}
+
 //  bool QQmlBinding::write(const QV4::Value &result, bool isUndefined,
 //      QQmlPropertyData::WriteFlags flags)
 extern "C" Q_DECL_EXPORT
@@ -321,6 +444,22 @@ bool ritual_ZN11QQmlBinding5writeERKN3QV45ValueEb6QFlagsIN16QQmlPropertyData9Wri
     int flags) {
   return self->write(
       *result,
+      isUndefined,
+      QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags));
+}
+
+//  bool QQmlBinding::write(void *result, QMetaType type, bool isUndefined,
+//      QQmlPropertyData::WriteFlags flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QQmlBinding5writeEPv9QMetaTypeb6QFlagsIN16QQmlPropertyData9WriteFlagEE(
+    QQmlBinding *self,
+    void *result,
+    const QMetaType *type,
+    bool isUndefined,
+    int flags) {
+  return self->write(
+      result,
+      *type,
       isUndefined,
       QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags));
 }
@@ -340,6 +479,27 @@ bool ritual_ZN11QQmlBinding9slowWriteERK16QQmlPropertyDataS2_RKN3QV45ValueEb6QFl
       *core,
       *valueTypeData,
       *result,
+      isUndefined,
+      QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags));
+}
+
+//  bool QQmlBinding::slowWrite(const QQmlPropertyData &core, const
+//      QQmlPropertyData &valueTypeData, const void *result, QMetaType
+//      resultType, bool isUndefined, QQmlPropertyData::WriteFlags flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QQmlBinding9slowWriteERK16QQmlPropertyDataS2_PKv9QMetaTypeb6QFlagsINS0_9WriteFlagEE(
+    QQmlBinding *self,
+    const QQmlPropertyData *core,
+    const QQmlPropertyData *valueTypeData,
+    const void *result,
+    const QMetaType *resultType,
+    bool isUndefined,
+    int flags) {
+  return self->slowWrite(
+      *core,
+      *valueTypeData,
+      result,
+      *resultType,
       isUndefined,
       QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags));
 }
@@ -364,6 +524,17 @@ extern "C" Q_DECL_EXPORT
 QQmlBinding *ritual_ZN11QQmlBinding10newBindingE9QMetaType(
     const QMetaType *propertyType) {
   return QQmlBinding::newBinding(*propertyType);
+}
+
+//  void QQmlBinding::handleWriteError(const void *result, QMetaType
+//      resultType, QMetaType metaType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQmlBinding16handleWriteErrorEPKv9QMetaTypeS2_(
+    QQmlBinding *self,
+    const void *result,
+    const QMetaType *resultType,
+    const QMetaType *metaType) {
+  self->handleWriteError(result, *resultType, *metaType);
 }
 
 //  QQmlBinding as the QQmlAbstractBinding it is built on

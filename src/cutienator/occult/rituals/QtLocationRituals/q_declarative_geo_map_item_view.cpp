@@ -791,6 +791,25 @@ const QMetaObject *ritual_ZNK26QDeclarativeGeoMapItemView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoMapItemView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QDeclarativeGeoMapItemView11qt_metacastEPKc(
+    QDeclarativeGeoMapItemView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoMapItemView::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QDeclarativeGeoMapItemView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoMapItemView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoMapItemView::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -935,6 +954,41 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QDeclarativeGeoMapItemView10classBeginEv(
     QDeclarativeGeoMapItemView *self) {
   self->classBegin();
+}
+
+//  void QDeclarativeGeoMapItemView::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemView12modelChangedEv(
+    QDeclarativeGeoMapItemView *self) {
+  self->modelChanged();
+}
+
+//  void QDeclarativeGeoMapItemView::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemView15delegateChangedEv(
+    QDeclarativeGeoMapItemView *self) {
+  self->delegateChanged();
+}
+
+//  void QDeclarativeGeoMapItemView::autoFitViewportChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemView22autoFitViewportChangedEv(
+    QDeclarativeGeoMapItemView *self) {
+  self->autoFitViewportChanged();
+}
+
+//  void QDeclarativeGeoMapItemView::incubateDelegatesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemView24incubateDelegatesChangedEv(
+    QDeclarativeGeoMapItemView *self) {
+  self->incubateDelegatesChanged();
+}
+
+//  void QDeclarativeGeoMapItemView::delegateModelAccessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QDeclarativeGeoMapItemView26delegateModelAccessChangedEv(
+    QDeclarativeGeoMapItemView *self) {
+  self->delegateModelAccessChanged();
 }
 
 //  void QDeclarativeGeoMapItemView::destroyingItem(QObject *object)

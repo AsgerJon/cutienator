@@ -9,13 +9,18 @@
       "address", "address", "long long"
     ],
     "ritual_ZN10QJsonArray8iteratorC1ERKS0_": ["address", "address"],
+    "ritual_ZN10QJsonArray8iteratoraSERKS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK10QJsonArray8iteratordeEv": ["address", "address"],
     "ritual_ZNK10QJsonArray8iteratorptEv": ["address", "address"],
     "ritual_ZN10QJsonArray8iteratorptEv": ["address", "address"],
     "ritual_ZNK10QJsonArray8iteratorixEx": [
       "address", "address", "long long"
     ],
+    "ritual_ZN10QJsonArray8iteratorppEv": ["address", "address"],
     "ritual_ZN10QJsonArray8iteratorppEi": ["address", "address", "int"],
+    "ritual_ZN10QJsonArray8iteratormmEv": ["address", "address"],
     "ritual_ZN10QJsonArray8iteratormmEi": ["address", "address", "int"],
     "ritual_ZN10QJsonArray8iteratorpLEx": [
       "nothing", "address", "long long"

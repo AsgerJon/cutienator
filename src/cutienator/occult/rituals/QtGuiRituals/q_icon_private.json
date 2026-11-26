@@ -5,6 +5,7 @@
     "are lost."
   ],
   "rows": {
+    "ritual_ZN12QIconPrivateC1EP11QIconEngine": ["address", "address"],
     "ritual_ZN12QIconPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN12QIconPrivate3getEP5QIcon": ["address", "address"],
     "ritual_ZN12QIconPrivate3getEPK5QIcon": ["address", "address"],

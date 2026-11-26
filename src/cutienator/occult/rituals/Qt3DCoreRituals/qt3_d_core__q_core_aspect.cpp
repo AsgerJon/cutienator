@@ -2,8 +2,12 @@
 //  Qt3DCore/qcoreaspect.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DCore/qcoreaspect.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <Qt3DCore/Qt3DCore>
+#include <vector>
 
 //  A Qt3DCore::QCoreAspect that Python can take functions over in. Every Qt3DCore::QCoreAspect
 //  Python makes is one. Each function below asks the Python
@@ -275,6 +279,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore11QCoreAspect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QCoreAspect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore11QCoreAspect11qt_metacastEPKc(
+    Qt3DCore::QCoreAspect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QCoreAspect::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore11QCoreAspect11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QCoreAspect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QCoreAspect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore11QCoreAspect2trEPKcS2_i(
@@ -282,6 +305,26 @@ QString *ritual_ZN8Qt3DCore11QCoreAspect2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QCoreAspect::tr(s, c, n));
+}
+
+//  Qt3DCore::QCoreAspect::QCoreAspect(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QCoreAspect *ritual_ZN8Qt3DCore11QCoreAspectC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DCore_QCoreAspect(parent);
+}
+
+//  Qt3DCore::QCoreAspect::~QCoreAspect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore11QCoreAspectD1Ev(Qt3DCore::QCoreAspect *self) {
+  delete self;
+}
+
+//  QAspectJobPtr Qt3DCore::QCoreAspect::calculateBoundingVolumeJob() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAspectJobPtr *ritual_ZNK8Qt3DCore11QCoreAspect26calculateBoundingVolumeJobEv(
+    const Qt3DCore::QCoreAspect *self) {
+  return new Qt3DCore::QAspectJobPtr(self->calculateBoundingVolumeJob());
 }
 
 //  QCoreAspectPrivate *Qt3DCore::QCoreAspect::d_func()
@@ -296,6 +339,51 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QCoreAspectPrivate *ritual_ZNK8Qt3DCore11QCoreAspect6d_funcEv(
     const Qt3DCore::QCoreAspect *self) {
   return self->d_func();
+}
+
+//  std::vector<Qt3DCore::QAspectJobPtr>
+//      Qt3DCore::QCoreAspect::jobsToExecute(qint64 time)
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZN8Qt3DCore11QCoreAspect13jobsToExecuteEx(
+    Qt3DCore::QCoreAspect *self,
+    qint64 time) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(self->jobsToExecute(time));
+}
+
+//  QVariant Qt3DCore::QCoreAspect::executeCommand(const QStringList &args)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8Qt3DCore11QCoreAspect14executeCommandERK5QListI7QStringE(
+    Qt3DCore::QCoreAspect *self,
+    const QList<QString> *args) {
+  return new QVariant(self->executeCommand(*args));
+}
+
+//  void Qt3DCore::QCoreAspect::onRegistered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore11QCoreAspect12onRegisteredEv(
+    Qt3DCore::QCoreAspect *self) {
+  self->onRegistered();
+}
+
+//  void Qt3DCore::QCoreAspect::onUnregistered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore11QCoreAspect14onUnregisteredEv(
+    Qt3DCore::QCoreAspect *self) {
+  self->onUnregistered();
+}
+
+//  void Qt3DCore::QCoreAspect::onEngineStartup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore11QCoreAspect15onEngineStartupEv(
+    Qt3DCore::QCoreAspect *self) {
+  self->onEngineStartup();
+}
+
+//  void Qt3DCore::QCoreAspect::frameDone()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore11QCoreAspect9frameDoneEv(
+    Qt3DCore::QCoreAspect *self) {
+  self->frameDone();
 }
 
 //  a Python function taken by a CuteQt3DCore_QCoreAspect, for the function
@@ -334,4 +422,19 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN8Qt3DCore11QCoreAspect9frameDoneEv(
     Qt3DCore::QCoreAspect *self) {
   self->Qt3DCore::QCoreAspect::frameDone();
+}
+
+//  a Qt3DCore::QAspectJobPtr a ritual of Qt3DCore::QCoreAspect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QCoreAspect__Qt3DCore_QAspectJobPtr(
+    Qt3DCore::QAspectJobPtr *self) {
+  delete self;
+}
+
+//  a std::vector<Qt3DCore::QAspectJobPtr> a ritual of Qt3DCore::QCoreAspect
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QCoreAspect__std_vector_Qt3DCore_QAspectJobPtr(
+    std::vector<Qt3DCore::QAspectJobPtr> *self) {
+  delete self;
 }

@@ -10,9 +10,6 @@
       "nothing", "address"
     ],
     "ritual_ZNK23SGFramebufferObjectNode7textureEv": ["address", "address"],
-    "ritual_ZN23SGFramebufferObjectNode18handleScreenChangeEv": [
-      "nothing", "address"
-    ],
     "ritual_cast_SGFramebufferObjectNode_QSGSimpleTextureNode": [
       "address", "address"
     ]

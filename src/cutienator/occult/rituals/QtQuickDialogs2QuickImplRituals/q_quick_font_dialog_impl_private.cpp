@@ -41,6 +41,9 @@ inline void QQuickFontDialogImplPrivate::handleClick(QQuickAbstractButton *butto
         QQuickDialogPrivate::handleClick(button);
     }
 }
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfontdialogimpl.cpp, line 33, as _ZN27QQuickFontDialogImplPrivate12handleAcceptEv
+inline void QQuickFontDialogImplPrivate::handleAccept() { }
 //  -----------------------------------------------------------------------
 
 //  A QQuickFontDialogImplPrivate that Python can take functions over in. Every QQuickFontDialogImplPrivate
@@ -469,6 +472,13 @@ QQuickFontDialogImplPrivate *ritual_ZN27QQuickFontDialogImplPrivate3getEP20QQuic
   return QQuickFontDialogImplPrivate::get(dialog);
 }
 
+//  void QQuickFontDialogImplPrivate::handleAccept()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickFontDialogImplPrivate12handleAcceptEv(
+    QQuickFontDialogImplPrivate *self) {
+  self->handleAccept();
+}
+
 //  void QQuickFontDialogImplPrivate::handleClick(QQuickAbstractButton
 //      *button)
 extern "C" Q_DECL_EXPORT
@@ -486,6 +496,13 @@ bool ritual_take_QQuickFontDialogImplPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickFontDialogImplPrivate *>(self)->take(key, call);
+}
+
+//  void QQuickFontDialogImplPrivate::handleAccept()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN27QQuickFontDialogImplPrivate12handleAcceptEv(
+    QQuickFontDialogImplPrivate *self) {
+  self->QQuickFontDialogImplPrivate::handleAccept();
 }
 
 //  void QQuickFontDialogImplPrivate::handleClick(QQuickAbstractButton

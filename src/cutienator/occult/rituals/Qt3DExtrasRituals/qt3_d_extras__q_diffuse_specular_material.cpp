@@ -3,6 +3,8 @@
 //  lost.
 #include <Qt3DExtras/qdiffusespecularmaterial.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -181,6 +183,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial10metaObjectE
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QDiffuseSpecularMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial11qt_metacastEPKc(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QDiffuseSpecularMaterial::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QDiffuseSpecularMaterial::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +210,196 @@ QString *ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QDiffuseSpecularMaterial::tr(s, c, n));
+}
+
+//  Qt3DExtras::QDiffuseSpecularMaterial::QDiffuseSpecularMaterial(Qt3DCore::
+//      QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QDiffuseSpecularMaterial *ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterialC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QDiffuseSpecularMaterial(parent);
+}
+
+//  Qt3DExtras::QDiffuseSpecularMaterial::~QDiffuseSpecularMaterial()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterialD1Ev(
+    Qt3DExtras::QDiffuseSpecularMaterial *self) {
+  delete self;
+}
+
+//  QColor Qt3DExtras::QDiffuseSpecularMaterial::ambient() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial7ambientEv(
+    const Qt3DExtras::QDiffuseSpecularMaterial *self) {
+  return new QColor(self->ambient());
+}
+
+//  QVariant Qt3DExtras::QDiffuseSpecularMaterial::diffuse() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial7diffuseEv(
+    const Qt3DExtras::QDiffuseSpecularMaterial *self) {
+  return new QVariant(self->diffuse());
+}
+
+//  QVariant Qt3DExtras::QDiffuseSpecularMaterial::specular() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial8specularEv(
+    const Qt3DExtras::QDiffuseSpecularMaterial *self) {
+  return new QVariant(self->specular());
+}
+
+//  float Qt3DExtras::QDiffuseSpecularMaterial::shininess() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial9shininessEv(
+    const Qt3DExtras::QDiffuseSpecularMaterial *self) {
+  return self->shininess();
+}
+
+//  QVariant Qt3DExtras::QDiffuseSpecularMaterial::normal() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial6normalEv(
+    const Qt3DExtras::QDiffuseSpecularMaterial *self) {
+  return new QVariant(self->normal());
+}
+
+//  float Qt3DExtras::QDiffuseSpecularMaterial::textureScale() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial12textureScaleEv(
+    const Qt3DExtras::QDiffuseSpecularMaterial *self) {
+  return self->textureScale();
+}
+
+//  bool Qt3DExtras::QDiffuseSpecularMaterial::isAlphaBlendingEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial22isAlphaBlendingEnabledEv(
+    const Qt3DExtras::QDiffuseSpecularMaterial *self) {
+  return self->isAlphaBlendingEnabled();
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::setAmbient(const QColor
+//      &ambient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial10setAmbientERK6QColor(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    const QColor *ambient) {
+  self->setAmbient(*ambient);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::setDiffuse(const QVariant
+//      &diffuse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial10setDiffuseERK8QVariant(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    const QVariant *diffuse) {
+  self->setDiffuse(*diffuse);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::setSpecular(const QVariant
+//      &specular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial11setSpecularERK8QVariant(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    const QVariant *specular) {
+  self->setSpecular(*specular);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::setShininess(float shininess)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial12setShininessEf(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    float shininess) {
+  self->setShininess(shininess);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::setNormal(const QVariant
+//      &normal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial9setNormalERK8QVariant(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    const QVariant *normal) {
+  self->setNormal(*normal);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::setTextureScale(float
+//      textureScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial15setTextureScaleEf(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    float textureScale) {
+  self->setTextureScale(textureScale);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::setAlphaBlendingEnabled(bool
+//      enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial23setAlphaBlendingEnabledEb(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    bool enabled) {
+  self->setAlphaBlendingEnabled(enabled);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::ambientChanged(const QColor
+//      &ambient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial14ambientChangedERK6QColor(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    const QColor *ambient) {
+  self->ambientChanged(*ambient);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::diffuseChanged(const QVariant
+//      &diffuse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial14diffuseChangedERK8QVariant(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    const QVariant *diffuse) {
+  self->diffuseChanged(*diffuse);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::specularChanged(const QVariant
+//      &specular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial15specularChangedERK8QVariant(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    const QVariant *specular) {
+  self->specularChanged(*specular);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::shininessChanged(float
+//      shininess)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial16shininessChangedEf(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    float shininess) {
+  self->shininessChanged(shininess);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::normalChanged(const QVariant
+//      &normal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial13normalChangedERK8QVariant(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    const QVariant *normal) {
+  self->normalChanged(*normal);
+}
+
+//  void Qt3DExtras::QDiffuseSpecularMaterial::textureScaleChanged(float
+//      textureScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial19textureScaleChangedEf(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    float textureScale) {
+  self->textureScaleChanged(textureScale);
+}
+
+//  void
+//      Qt3DExtras::QDiffuseSpecularMaterial::alphaBlendingEnabledChanged(boo
+//      l enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial27alphaBlendingEnabledChangedEb(
+    Qt3DExtras::QDiffuseSpecularMaterial *self,
+    bool enabled) {
+  self->alphaBlendingEnabledChanged(enabled);
 }
 
 //  QDiffuseSpecularMaterialPrivate

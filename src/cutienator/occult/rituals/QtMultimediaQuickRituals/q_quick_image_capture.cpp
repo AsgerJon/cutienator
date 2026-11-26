@@ -7,7 +7,7 @@
 #include <QtMultimediaQuick/6.12.0/QtMultimediaQuick/private/qquickimagecapture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
-#include <QtCore/qurl.h>
+#include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -23,22 +23,10 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtmultimedia/src/multimediaquick/qquickimagecapture.cpp, line 63, as _ZN18QQuickImageCaptureD1Ev
-inline QQuickImageCapture::~QQuickImageCapture()
-{
-    QQuickImagePreviewProvider::cleanupInstance(m_instanceId);
-}
-
 //  from ../qtmultimedia/src/multimediaquick/qquickimagecapture.cpp, line 129, as _ZNK18QQuickImageCapture7previewEv
 inline QString QQuickImageCapture::preview() const
 {
     return m_capturedImagePath;
-}
-
-//  from ../qtmultimedia/src/multimediaquick/qquickimagecapture.cpp, line 141, as _ZNK18QQuickImageCapture10saveToFileERK4QUrl
-inline void QQuickImageCapture::saveToFile(const QUrl &location) const
-{
-    m_lastImage.save(location.toLocalFile());
 }
 //  -----------------------------------------------------------------------
 
@@ -216,6 +204,25 @@ const QMetaObject *ritual_ZNK18QQuickImageCapture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickImageCapture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickImageCapture11qt_metacastEPKc(
+    QQuickImageCapture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickImageCapture::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickImageCapture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickImageCapture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickImageCapture::~QQuickImageCapture()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickImageCaptureD1Ev(QQuickImageCapture *self) {
@@ -229,12 +236,58 @@ QString *ritual_ZNK18QQuickImageCapture7previewEv(
   return new QString(self->preview());
 }
 
-//  void QQuickImageCapture::saveToFile(const QUrl &location) const
+//  void QQuickImageCapture::previewChanged()
 extern "C" Q_DECL_EXPORT
-void ritual_ZNK18QQuickImageCapture10saveToFileERK4QUrl(
-    const QQuickImageCapture *self,
-    const QUrl *location) {
-  self->saveToFile(*location);
+void ritual_ZN18QQuickImageCapture14previewChangedEv(
+    QQuickImageCapture *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickImageCapture")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "previewChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "previewChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickImageCapture::_q_imageCaptured(int a0, const QImage &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickImageCapture16_q_imageCapturedEiRK6QImage(
+    QQuickImageCapture *self,
+    int a0,
+    const QImage *a1) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickImageCapture")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "_q_imageCaptured(int,const QImage &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "_q_imageCaptured(int,const QImage &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+      const_cast<void *>(static_cast<const void *>(a1)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuickImageCapture, for the function

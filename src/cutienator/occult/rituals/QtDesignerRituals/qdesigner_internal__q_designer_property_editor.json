@@ -8,13 +8,49 @@
     "ritual_ZNK18qdesigner_internal23QDesignerPropertyEditor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor26textPropertyValidationModeEP28QDesignerFormEditorInterfacePK7QObjectRK7QStringb": [
+      "address", "address", "address", "text", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor20propertyValueChangedERK7QStringRK8QVariantb": [
+      "nothing", "address", "text", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor13resetPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor18addDynamicPropertyERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor21removeDynamicPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor12editorOpenedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor12editorClosedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor19updatePropertySheetEv": [
       "nothing", "address"
     ],
     "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor24reloadResourcePropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor19slotPropertyChangedERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerPropertyEditor24emitPropertyValueChangedERK7QStringRK8QVariantb": [
+      "nothing", "address", "text", "address", "bool"
+    ],
+    "ritual_drop_qdesigner_internal_QDesignerPropertyEditor__qdesigner_internal_QDesignerPropertyEditor_StringPropertyParameters": [
       "nothing", "address"
     ]
   }

@@ -5,6 +5,15 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input13MovingAverageC1Ej": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN9Qt3DInput5Input13MovingAverage9addSampleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK9Qt3DInput5Input13MovingAverage7averageEv": [
+      "float", "address"
+    ],
     "ritual_ZN9Qt3DInput5Input13MovingAverageD1Ev": ["nothing", "address"]
   }
 }

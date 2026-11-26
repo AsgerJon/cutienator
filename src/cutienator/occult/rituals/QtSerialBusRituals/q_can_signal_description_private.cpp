@@ -6,7 +6,18 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSerialBus/6.12.0/QtSerialBus/private/qcansignaldescription_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qvariant.h>
 #include <QtSerialBus/qcansignaldescription.h>
+
+//  bool QCanSignalDescriptionPrivate::muxValueInRange(const QVariant &value,
+//      const QCanSignalDescription::MultiplexValues &ranges) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK28QCanSignalDescriptionPrivate15muxValueInRangeERK8QVariantRK5QListIN21QCanSignalDescription19MultiplexValueRangeEE(
+    const QCanSignalDescriptionPrivate *self,
+    const QVariant *value,
+    const QCanSignalDescription::MultiplexValues *ranges) {
+  return self->muxValueInRange(*value, *ranges);
+}
 
 //  bool QCanSignalDescriptionPrivate::isShared() const
 extern "C" Q_DECL_EXPORT

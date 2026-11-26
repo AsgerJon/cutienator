@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN17QCtfTraceMetadataC1ER22QCtfTracePointProviderRK7QStringS4_": [
+      "address", "address", "text", "text"
+    ],
     "ritual_ZN17QCtfTraceMetadataD1Ev": ["nothing", "address"]
   }
 }

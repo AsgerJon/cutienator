@@ -915,6 +915,22 @@ const QMetaObject *ritual_ZNK8QToolBar10metaObjectEv(const QToolBar *self) {
   return self->metaObject();
 }
 
+//  void *QToolBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QToolBar11qt_metacastEPKc(QToolBar *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QToolBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QToolBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QToolBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QToolBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QToolBar2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1110,6 +1126,65 @@ void ritual_ZN8QToolBar18setToolButtonStyleEN2Qt15ToolButtonStyleE(
     QToolBar *self,
     Qt::ToolButtonStyle toolButtonStyle) {
   self->setToolButtonStyle(toolButtonStyle);
+}
+
+//  void QToolBar::actionTriggered(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar15actionTriggeredEP7QAction(
+    QToolBar *self,
+    QAction *action) {
+  self->actionTriggered(action);
+}
+
+//  void QToolBar::movableChanged(bool movable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar14movableChangedEb(QToolBar *self, bool movable) {
+  self->movableChanged(movable);
+}
+
+//  void QToolBar::allowedAreasChanged(Qt::ToolBarAreas allowedAreas)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar19allowedAreasChangedE6QFlagsIN2Qt11ToolBarAreaEE(
+    QToolBar *self,
+    int allowedAreas) {
+  self->allowedAreasChanged(QFlags<Qt::ToolBarArea>::fromInt(allowedAreas));
+}
+
+//  void QToolBar::orientationChanged(Qt::Orientation orientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar18orientationChangedEN2Qt11OrientationE(
+    QToolBar *self,
+    Qt::Orientation orientation) {
+  self->orientationChanged(orientation);
+}
+
+//  void QToolBar::iconSizeChanged(const QSize &iconSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar15iconSizeChangedERK5QSize(
+    QToolBar *self,
+    const QSize *iconSize) {
+  self->iconSizeChanged(*iconSize);
+}
+
+//  void QToolBar::toolButtonStyleChanged(Qt::ToolButtonStyle
+//      toolButtonStyle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar22toolButtonStyleChangedEN2Qt15ToolButtonStyleE(
+    QToolBar *self,
+    Qt::ToolButtonStyle toolButtonStyle) {
+  self->toolButtonStyleChanged(toolButtonStyle);
+}
+
+//  void QToolBar::topLevelChanged(bool topLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar15topLevelChangedEb(QToolBar *self, bool topLevel) {
+  self->topLevelChanged(topLevel);
+}
+
+//  void QToolBar::visibilityChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar17visibilityChangedEb(QToolBar *self, bool visible) {
+  self->visibilityChanged(visible);
 }
 
 //  void QToolBar::actionEvent(QActionEvent *event)

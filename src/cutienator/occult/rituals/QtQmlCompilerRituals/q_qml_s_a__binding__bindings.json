@@ -5,6 +5,18 @@
   ],
   "rows": {
     "ritual_ZN6QQmlSA7Binding8Bindings6d_funcEv": ["address", "address"],
-    "ritual_ZNK6QQmlSA7Binding8Bindings6d_funcEv": ["address", "address"]
+    "ritual_ZNK6QQmlSA7Binding8Bindings6d_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA7Binding8BindingsC1Ev": ["address"],
+    "ritual_ZN6QQmlSA7Binding8BindingsC1ERKS1_": ["address", "address"],
+    "ritual_ZN6QQmlSA7Binding8BindingsD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA7Binding8Bindings5beginEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Binding8Bindings3endEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Binding8Bindings10constBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA7Binding8Bindings8constEndEv": ["address", "address"],
+    "ritual_drop_QQmlSA_Binding_Bindings__QMultiHash_QString_QQmlSA_Binding_const_iterator": [
+      "nothing", "address"
+    ]
   }
 }

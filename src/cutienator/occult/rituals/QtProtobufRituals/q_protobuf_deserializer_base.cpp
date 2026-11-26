@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
+#include <QtProtobuf/qprotobufpropertyordering.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtProtobuf/private/qtprotobufserializerhelpers_p.h>
@@ -53,6 +54,10 @@ QtProtobufSerializerHelpers::messageProperty(const QProtobufMessage *message,
     QVariant propertyValue = metaProperty.readOnGadget(message);
     return propertyValue;
 }
+
+//  from ../qtgrpc/src/protobuf/qprotobufdeserializerbase.cpp, line 15, as _ZN25QProtobufDeserializerBaseD1Ev
+inline QProtobufDeserializerBase::~QProtobufDeserializerBase()
+    = default;
 
 //  from ../qtgrpc/src/protobuf/qprotobufdeserializerbase.cpp, line 18, as _ZN25QProtobufDeserializerBase23deserializeMessageFieldEP16QProtobufMessage
 inline bool QProtobufDeserializerBase::deserializeMessageField(QProtobufMessage *message)
@@ -261,12 +266,32 @@ bool ritual_ZN25QProtobufDeserializerBase23deserializeMessageFieldEP16QProtobufM
   return self->deserializeMessageField(message);
 }
 
+//  bool QProtobufDeserializerBase::deserializeEnum(QVariant &value, const
+//      QtProtobufPrivate::QProtobufFieldInfo &fieldInfo)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QProtobufDeserializerBase15deserializeEnumER8QVariantRKN17QtProtobufPrivate18QProtobufFieldInfoE(
+    QProtobufDeserializerBase *self,
+    QVariant *value,
+    const QtProtobufPrivate::QProtobufFieldInfo *fieldInfo) {
+  return self->deserializeEnum(*value, *fieldInfo);
+}
+
 //  int QProtobufDeserializerBase::nextFieldIndex(QProtobufMessage *message)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN25QProtobufDeserializerBase14nextFieldIndexEP16QProtobufMessage(
     QProtobufDeserializerBase *self,
     QProtobufMessage *message) {
   return self->nextFieldIndex(message);
+}
+
+//  bool QProtobufDeserializerBase::deserializeScalarField(QVariant &value,
+//      const QtProtobufPrivate::QProtobufFieldInfo &fieldInfo)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QProtobufDeserializerBase22deserializeScalarFieldER8QVariantRKN17QtProtobufPrivate18QProtobufFieldInfoE(
+    QProtobufDeserializerBase *self,
+    QVariant *value,
+    const QtProtobufPrivate::QProtobufFieldInfo *fieldInfo) {
+  return self->deserializeScalarField(*value, *fieldInfo);
 }
 
 //  a Python function taken by a CuteQProtobufDeserializerBase, for the

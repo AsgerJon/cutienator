@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QSystemTrayIcon10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QSystemTrayIcon11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QSystemTrayIcon11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QSystemTrayIcon2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -41,6 +47,10 @@
     "ritual_ZN15QSystemTrayIcon11showMessageERK7QStringS2_NS_11MessageIconEi": [
       "nothing", "address", "text", "text", "int", "int"
     ],
+    "ritual_ZN15QSystemTrayIcon9activatedENS_16ActivationReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QSystemTrayIcon14messageClickedEv": ["nothing", "address"],
     "ritual_ZN15QSystemTrayIcon5eventEP6QEvent": [
       "bool", "address", "address"
     ],

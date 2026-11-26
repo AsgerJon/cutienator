@@ -7,8 +7,60 @@
     "ritual_ZNK10Qt3DRender12QShaderImage10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender12QShaderImage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender12QShaderImage2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImageC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImageD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender12QShaderImage7textureEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender12QShaderImage7layeredEv": ["bool", "address"],
+    "ritual_ZNK10Qt3DRender12QShaderImage8mipLevelEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender12QShaderImage5layerEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender12QShaderImage6accessEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender12QShaderImage6formatEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender12QShaderImage10setTextureEPNS_16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage10setLayeredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage11setMipLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage8setLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage9setAccessENS0_6AccessE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage9setFormatENS0_11ImageFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage14textureChangedEPNS_16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage14layeredChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage15mipLevelChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage12layerChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage13accessChangedENS0_6AccessE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QShaderImage13formatChangedENS0_11ImageFormatE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN10Qt3DRender12QShaderImage6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender12QShaderImage6d_funcEv": ["address", "address"],

@@ -7,13 +7,40 @@
     "ritual_ZNK9Qt3DInput11QInputChord10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput11QInputChord11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput11QInputChord11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput11QInputChord2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput11QInputChordC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput11QInputChordD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput11QInputChord7timeoutEv": ["int", "address"],
+    "ritual_ZN9Qt3DInput11QInputChord8addChordEPNS_20QAbstractActionInputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput11QInputChord11removeChordEPNS_20QAbstractActionInputE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput11QInputChord6chordsEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput11QInputChord10setTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput11QInputChord14timeoutChangedEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN9Qt3DInput11QInputChord6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput11QInputChord6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DInput_QInputChord": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DInput_QInputChord__QList_Qt3DInput_QAbstractActionInput": [
+      "nothing", "address"
     ]
   }
 }

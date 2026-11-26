@@ -1055,6 +1055,24 @@ const QMetaObject *ritual_ZNK12QQuickSlider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSlider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickSlider11qt_metacastEPKc(
+    QQuickSlider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSlider::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickSlider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSlider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSlider::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickSlider2trEPKcS1_i(
@@ -1273,6 +1291,99 @@ void ritual_ZN12QQuickSlider8decreaseEv(QQuickSlider *self) {
   self->decrease();
 }
 
+//  void QQuickSlider::fromChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider11fromChangedEv(QQuickSlider *self) {
+  self->fromChanged();
+}
+
+//  void QQuickSlider::toChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider9toChangedEv(QQuickSlider *self) {
+  self->toChanged();
+}
+
+//  void QQuickSlider::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider12valueChangedEv(QQuickSlider *self) {
+  self->valueChanged();
+}
+
+//  void QQuickSlider::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider15positionChangedEv(QQuickSlider *self) {
+  self->positionChanged();
+}
+
+//  void QQuickSlider::visualPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider21visualPositionChangedEv(QQuickSlider *self) {
+  self->visualPositionChanged();
+}
+
+//  void QQuickSlider::stepSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider15stepSizeChangedEv(QQuickSlider *self) {
+  self->stepSizeChanged();
+}
+
+//  void QQuickSlider::snapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider15snapModeChangedEv(QQuickSlider *self) {
+  self->snapModeChanged();
+}
+
+//  void QQuickSlider::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider14pressedChangedEv(QQuickSlider *self) {
+  self->pressedChanged();
+}
+
+//  void QQuickSlider::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider18orientationChangedEv(QQuickSlider *self) {
+  self->orientationChanged();
+}
+
+//  void QQuickSlider::handleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider13handleChangedEv(QQuickSlider *self) {
+  self->handleChanged();
+}
+
+//  void QQuickSlider::moved()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider5movedEv(QQuickSlider *self) {
+  self->moved();
+}
+
+//  void QQuickSlider::liveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider11liveChangedEv(QQuickSlider *self) {
+  self->liveChanged();
+}
+
+//  void QQuickSlider::touchDragThresholdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider25touchDragThresholdChangedEv(
+    QQuickSlider *self) {
+  self->touchDragThresholdChanged();
+}
+
+//  void QQuickSlider::implicitHandleWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider26implicitHandleWidthChangedEv(
+    QQuickSlider *self) {
+  self->implicitHandleWidthChanged();
+}
+
+//  void QQuickSlider::implicitHandleHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSlider27implicitHandleHeightChangedEv(
+    QQuickSlider *self) {
+  self->implicitHandleHeightChanged();
+}
+
 //  void QQuickSlider::keyPressEvent(QKeyEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQuickSlider13keyPressEventEP9QKeyEvent(
@@ -1347,6 +1458,19 @@ QAccessible::Role ritual_ZNK12QQuickSlider14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickSliderPrivate *QQuickSlider::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSliderPrivate *ritual_ZN12QQuickSlider6d_funcEv(QQuickSlider *self) {
+  return self->d_func();
+}
+
+//  const QQuickSliderPrivate *QQuickSlider::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSliderPrivate *ritual_ZNK12QQuickSlider6d_funcEv(
+    const QQuickSlider *self) {
+  return self->d_func();
+}
 
 //  a Python function taken by a CuteQQuickSlider, for the function named by
 //      the key

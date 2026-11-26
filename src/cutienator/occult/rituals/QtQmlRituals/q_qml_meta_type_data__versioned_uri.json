@@ -9,6 +9,9 @@
     "ritual_ZN16QQmlMetaTypeData12VersionedUriC1ERK7QString13QTypeRevision": [
       "address", "text", "address"
     ],
+    "ritual_ZN16QQmlMetaTypeData12VersionedUriC1ERKSt10unique_ptrI14QQmlTypeModuleSt14default_deleteIS2_EE": [
+      "address", "address"
+    ],
     "ritual_ZeqRKN16QQmlMetaTypeData12VersionedUriES2_": [
       "bool", "address", "address"
     ],

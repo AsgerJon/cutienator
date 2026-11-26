@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QBluetoothServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QBluetoothServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QBluetoothServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QBluetoothServer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -43,6 +49,10 @@
     "ritual_ZNK16QBluetoothServer13securityFlagsEv": ["int", "address"],
     "ritual_ZNK16QBluetoothServer10serverTypeEv": ["int", "address"],
     "ritual_ZNK16QBluetoothServer5errorEv": ["int", "address"],
+    "ritual_ZN16QBluetoothServer13newConnectionEv": ["nothing", "address"],
+    "ritual_ZN16QBluetoothServer13errorOccurredENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN16QBluetoothServer6d_funcEv": ["address", "address"],
     "ritual_ZNK16QBluetoothServer6d_funcEv": ["address", "address"],
     "ritual_take_QBluetoothServer": ["bool", "address", "chars", "address"]

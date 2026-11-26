@@ -5,5 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QRestReplyPrivateC1Ev": ["address"],
+    "ritual_ZN17QRestReplyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QRestReplyPrivate14contentCharsetEPK13QNetworkReply": [
+      "address", "address"
+    ]
   }
 }

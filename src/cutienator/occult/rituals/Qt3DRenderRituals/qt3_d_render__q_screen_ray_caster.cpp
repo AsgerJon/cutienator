@@ -2,8 +2,11 @@
 //  Qt3DRender/qscreenraycaster.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qscreenraycaster.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <Qt3DRender/Qt3DRender>
+#include <QtCore/QPoint>
 
 //  A Qt3DRender::QScreenRayCaster that Python can take functions over in. Every Qt3DRender::QScreenRayCaster
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +182,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender16QScreenRayCaster10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QScreenRayCaster::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender16QScreenRayCaster11qt_metacastEPKc(
+    Qt3DRender::QScreenRayCaster *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QScreenRayCaster::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender16QScreenRayCaster11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QScreenRayCaster *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QScreenRayCaster::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +211,77 @@ QString *ritual_ZN10Qt3DRender16QScreenRayCaster2trEPKcS2_i(
   return new QString(Qt3DRender::QScreenRayCaster::tr(s, c, n));
 }
 
+//  Qt3DRender::QScreenRayCaster::QScreenRayCaster(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QScreenRayCaster *ritual_ZN10Qt3DRender16QScreenRayCasterC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QScreenRayCaster(parent);
+}
+
+//  Qt3DRender::QScreenRayCaster::~QScreenRayCaster()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QScreenRayCasterD1Ev(
+    Qt3DRender::QScreenRayCaster *self) {
+  delete self;
+}
+
+//  QPoint Qt3DRender::QScreenRayCaster::position() const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZNK10Qt3DRender16QScreenRayCaster8positionEv(
+    const Qt3DRender::QScreenRayCaster *self) {
+  return new QPoint(self->position());
+}
+
+//  void Qt3DRender::QScreenRayCaster::setPosition(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QScreenRayCaster11setPositionERK6QPoint(
+    Qt3DRender::QScreenRayCaster *self,
+    const QPoint *position) {
+  self->setPosition(*position);
+}
+
+//  void Qt3DRender::QScreenRayCaster::trigger()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QScreenRayCaster7triggerEv(
+    Qt3DRender::QScreenRayCaster *self) {
+  self->trigger();
+}
+
+//  void Qt3DRender::QScreenRayCaster::trigger(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QScreenRayCaster7triggerERK6QPoint(
+    Qt3DRender::QScreenRayCaster *self,
+    const QPoint *position) {
+  self->trigger(*position);
+}
+
+//  Qt3DRender::QAbstractRayCaster::Hits
+//      Qt3DRender::QScreenRayCaster::pick(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCaster::Hits *ritual_ZN10Qt3DRender16QScreenRayCaster4pickERK6QPoint(
+    Qt3DRender::QScreenRayCaster *self,
+    const QPoint *position) {
+  return new Qt3DRender::QAbstractRayCaster::Hits(self->pick(*position));
+}
+
+//  void Qt3DRender::QScreenRayCaster::positionChanged(const QPoint
+//      &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QScreenRayCaster15positionChangedERK6QPoint(
+    Qt3DRender::QScreenRayCaster *self,
+    const QPoint *position) {
+  self->positionChanged(*position);
+}
+
+//  Qt3DRender::QScreenRayCaster::QScreenRayCaster(QAbstractRayCasterPrivate
+//      &dd, QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QScreenRayCaster *ritual_ZN10Qt3DRender16QScreenRayCasterC1ERNS_25QAbstractRayCasterPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QAbstractRayCasterPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QScreenRayCaster(*dd, parent);
+}
+
 //  a Python function taken by a CuteQt3DRender_QScreenRayCaster, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -197,4 +290,12 @@ bool ritual_take_Qt3DRender_QScreenRayCaster(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QScreenRayCaster *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QAbstractRayCaster::Hits a ritual of
+//      Qt3DRender::QScreenRayCaster gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QScreenRayCaster__Qt3DRender_QAbstractRayCaster_Hits(
+    Qt3DRender::QAbstractRayCaster::Hits *self) {
+  delete self;
 }

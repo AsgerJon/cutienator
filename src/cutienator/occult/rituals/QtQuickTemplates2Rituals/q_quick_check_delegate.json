@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickCheckDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickCheckDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickCheckDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickCheckDelegate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,6 +24,15 @@
     "ritual_ZN19QQuickCheckDelegate13setCheckStateEN2Qt10CheckStateE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN19QQuickCheckDelegate15tristateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickCheckDelegate17checkStateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickCheckDelegate21nextCheckStateChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK19QQuickCheckDelegate11defaultFontEv": ["address", "address"],
     "ritual_ZN19QQuickCheckDelegate12buttonChangeEN20QQuickAbstractButton12ButtonChangeE": [
       "nothing", "address", "int"
@@ -26,6 +41,8 @@
       "nothing", "address"
     ],
     "ritual_ZNK19QQuickCheckDelegate14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN19QQuickCheckDelegate6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickCheckDelegate6d_funcEv": ["address", "address"],
     "ritual_own_ZNK19QQuickCheckDelegate11defaultFontEv": [
       "address", "address"
     ],

@@ -10,6 +10,9 @@
     "ritual_ZNK3QV49MapObject1dEv": ["address", "address"],
     "ritual_ZN3QV49MapObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV49MapObject14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
     ]
   }
 }

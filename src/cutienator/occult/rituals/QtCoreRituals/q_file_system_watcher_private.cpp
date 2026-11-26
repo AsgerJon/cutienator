@@ -40,6 +40,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/corelib/io/qfilesystemwatcher.cpp, line 38, as _ZN25QFileSystemWatcherPrivate18createNativeEngineEP7QObject
 #if defined(Q_OS_LINUX)
 inline QFileSystemWatcherEngine *QFileSystemWatcherPrivate::createNativeEngine(QObject *parent)

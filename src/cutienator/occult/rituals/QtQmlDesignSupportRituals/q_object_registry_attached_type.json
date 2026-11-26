@@ -8,6 +8,12 @@
     "ritual_ZNK27QObjectRegistryAttachedType10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QObjectRegistryAttachedType11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QObjectRegistryAttachedType11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QObjectRegistryAttachedType2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,9 @@
       "nothing", "address"
     ],
     "ritual_ZN27QObjectRegistryAttachedType17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QObjectRegistryAttachedType10keyChangedEv": [
       "nothing", "address"
     ],
     "ritual_cast_QObjectRegistryAttachedType_QQmlParserStatus": [

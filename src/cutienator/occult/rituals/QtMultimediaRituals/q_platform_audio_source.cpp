@@ -7,9 +7,11 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qaudiosystem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtMultimedia/qaudiodevice.h>
 #include <QtMultimedia/qaudioformat.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <optional>
 
 //  A QPlatformAudioSource that Python can take functions over in. Every QPlatformAudioSource
 //  Python makes is one. Each function below asks the Python
@@ -420,6 +422,25 @@ const QMetaObject *ritual_ZNK20QPlatformAudioSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformAudioSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QPlatformAudioSource11qt_metacastEPKc(
+    QPlatformAudioSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformAudioSource::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QPlatformAudioSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformAudioSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformAudioSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QPlatformAudioSource2trEPKcS1_i(
@@ -427,6 +448,16 @@ QString *ritual_ZN20QPlatformAudioSource2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPlatformAudioSource::tr(s, c, n));
+}
+
+//  QPlatformAudioSource::QPlatformAudioSource(QAudioDevice a0, const
+//      QAudioFormat &a1, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSource *ritual_ZN20QPlatformAudioSourceC1E12QAudioDeviceRK12QAudioFormatP7QObject(
+    const QAudioDevice *a0,
+    const QAudioFormat *a1,
+    QObject *parent) {
+  return new CuteQPlatformAudioSource(*a0, *a1, parent);
 }
 
 //  QPlatformAudioSource::~QPlatformAudioSource()
@@ -489,6 +520,24 @@ void ritual_ZN20QPlatformAudioSource13setBufferSizeEx(
   self->setBufferSize(value);
 }
 
+//  void QPlatformAudioSource::setNativePeriodFrames(std::optional<NativePeri
+//      odFrames> a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformAudioSource21setNativePeriodFramesESt8optionalIN19QtMultimediaPrivate18NativePeriodFramesEE(
+    QPlatformAudioSource *self,
+    const std::optional<QPlatformAudioEndpointBase::NativePeriodFrames> *a0) {
+  self->setNativePeriodFrames(*a0);
+}
+
+//  std::optional<NativePeriodFrames>
+//      QPlatformAudioSource::nativePeriodFrames()
+extern "C" Q_DECL_EXPORT
+std::optional<QPlatformAudioEndpointBase::NativePeriodFrames> *ritual_ZN20QPlatformAudioSource18nativePeriodFramesEv(
+    QPlatformAudioSource *self) {
+  return new std::optional<QPlatformAudioEndpointBase::NativePeriodFrames>(
+      self->nativePeriodFrames());
+}
+
 //  qsizetype QPlatformAudioSource::bufferSize() const
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK20QPlatformAudioSource10bufferSizeEv(
@@ -503,11 +552,26 @@ qint64 ritual_ZNK20QPlatformAudioSource14processedUSecsEv(
   return self->processedUSecs();
 }
 
+//  void QPlatformAudioSource::start(AudioCallback &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformAudioSource5startEOSt7variantIJSt8functionIFv5QSpanIKfLm18446744073709551615EEEES1_IFvS2_IKhLm18446744073709551615EEEES1_IFvS2_IKsLm18446744073709551615EEEES1_IFvS2_IKiLm18446744073709551615EEEEEE(
+    QPlatformAudioSource *self,
+    QPlatformAudioSource::AudioCallback *a0) {
+  self->start(std::move(*a0));
+}
+
 //  bool QPlatformAudioSource::hasCallbackAPI()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QPlatformAudioSource14hasCallbackAPIEv(
     QPlatformAudioSource *self) {
   return self->hasCallbackAPI();
+}
+
+//  QPlatformAudioSource *QPlatformAudioSource::get(const QAudioSource &a0)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSource *ritual_ZN20QPlatformAudioSource3getERK12QAudioSource(
+    const QAudioSource *a0) {
+  return QPlatformAudioSource::get(*a0);
 }
 
 //  a Python function taken by a CuteQPlatformAudioSource, for the function
@@ -525,4 +589,12 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN20QPlatformAudioSource14hasCallbackAPIEv(
     QPlatformAudioSource *self) {
   return self->QPlatformAudioSource::hasCallbackAPI();
+}
+
+//  a std::optional<QPlatformAudioEndpointBase::NativePeriodFrames> a ritual
+//      of QPlatformAudioSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformAudioSource__std_optional_QPlatformAudioEndpointBase_NativePeriodFrames(
+    std::optional<QPlatformAudioEndpointBase::NativePeriodFrames> *self) {
+  delete self;
 }

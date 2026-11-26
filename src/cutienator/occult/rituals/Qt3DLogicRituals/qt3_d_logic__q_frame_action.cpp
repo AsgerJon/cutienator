@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK9Qt3DLogic12QFrameAction10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DLogic::QFrameAction::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DLogic12QFrameAction11qt_metacastEPKc(
+    Qt3DLogic::QFrameAction *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DLogic::QFrameAction::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DLogic12QFrameAction11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DLogic::QFrameAction *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DLogic::QFrameAction::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DLogic12QFrameAction2trEPKcS2_i(
@@ -186,6 +205,36 @@ QString *ritual_ZN9Qt3DLogic12QFrameAction2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DLogic::QFrameAction::tr(s, c, n));
+}
+
+//  Qt3DLogic::QFrameAction::QFrameAction(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DLogic::QFrameAction *ritual_ZN9Qt3DLogic12QFrameActionC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DLogic_QFrameAction(parent);
+}
+
+//  Qt3DLogic::QFrameAction::~QFrameAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DLogic12QFrameActionD1Ev(Qt3DLogic::QFrameAction *self) {
+  delete self;
+}
+
+//  Qt3DLogic::QFrameAction::QFrameAction(QFrameActionPrivate &dd, QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DLogic::QFrameAction *ritual_ZN9Qt3DLogic12QFrameActionC1ERNS_19QFrameActionPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DLogic::QFrameActionPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DLogic_QFrameAction(*dd, parent);
+}
+
+//  void Qt3DLogic::QFrameAction::triggered(float dt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DLogic12QFrameAction9triggeredEf(
+    Qt3DLogic::QFrameAction *self,
+    float dt) {
+  self->triggered(dt);
 }
 
 //  QFrameActionPrivate *Qt3DLogic::QFrameAction::d_func()
@@ -200,6 +249,14 @@ extern "C" Q_DECL_EXPORT
 const Qt3DLogic::QFrameActionPrivate *ritual_ZNK9Qt3DLogic12QFrameAction6d_funcEv(
     const Qt3DLogic::QFrameAction *self) {
   return self->d_func();
+}
+
+//  void Qt3DLogic::QFrameAction::onTriggered(float dt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DLogic12QFrameAction11onTriggeredEf(
+    Qt3DLogic::QFrameAction *self,
+    float dt) {
+  self->onTriggered(dt);
 }
 
 //  a Python function taken by a CuteQt3DLogic_QFrameAction, for the function

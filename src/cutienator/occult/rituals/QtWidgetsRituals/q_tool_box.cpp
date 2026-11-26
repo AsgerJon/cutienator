@@ -945,6 +945,22 @@ const QMetaObject *ritual_ZNK8QToolBox10metaObjectEv(const QToolBox *self) {
   return self->metaObject();
 }
 
+//  void *QToolBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QToolBox11qt_metacastEPKc(QToolBox *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QToolBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QToolBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QToolBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QToolBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QToolBox2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1125,6 +1141,12 @@ void ritual_ZN8QToolBox16setCurrentWidgetEP7QWidget(
   self->setCurrentWidget(widget);
 }
 
+//  void QToolBox::currentChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBox14currentChangedEi(QToolBox *self, int index) {
+  self->currentChanged(index);
+}
+
 //  bool QToolBox::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN8QToolBox5eventEP6QEvent(QToolBox *self, QEvent *e) {
@@ -1155,6 +1177,18 @@ void ritual_ZN8QToolBox9showEventEP10QShowEvent(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QToolBox11changeEventEP6QEvent(QToolBox *self, QEvent *a0) {
   self->changeEvent(a0);
+}
+
+//  QToolBoxPrivate *QToolBox::d_func()
+extern "C" Q_DECL_EXPORT
+QToolBoxPrivate *ritual_ZN8QToolBox6d_funcEv(QToolBox *self) {
+  return self->d_func();
+}
+
+//  const QToolBoxPrivate *QToolBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QToolBoxPrivate *ritual_ZNK8QToolBox6d_funcEv(const QToolBox *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQToolBox, for the function named by the

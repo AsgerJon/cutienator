@@ -9,10 +9,42 @@ QCollatorSortKey *ritual_ZN16QCollatorSortKeyC1ERKS_(
   return new QCollatorSortKey(*other);
 }
 
+//  QCollatorSortKey::QCollatorSortKey(QCollatorSortKey &&other)
+extern "C" Q_DECL_EXPORT
+QCollatorSortKey *ritual_ZN16QCollatorSortKeyC1EOS_(
+    QCollatorSortKey *other) {
+  return new QCollatorSortKey(std::move(*other));
+}
+
 //  QCollatorSortKey::~QCollatorSortKey()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QCollatorSortKeyD1Ev(QCollatorSortKey *self) {
   delete self;
+}
+
+//  QCollatorSortKey &QCollatorSortKey::operator=(const QCollatorSortKey
+//      &other)
+extern "C" Q_DECL_EXPORT
+QCollatorSortKey *ritual_ZN16QCollatorSortKeyaSERKS_(
+    QCollatorSortKey *self,
+    const QCollatorSortKey *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCollatorSortKey &QCollatorSortKey::operator=(QCollatorSortKey &&other)
+extern "C" Q_DECL_EXPORT
+QCollatorSortKey *ritual_ZN16QCollatorSortKeyaSEOS_(
+    QCollatorSortKey *self,
+    QCollatorSortKey *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCollatorSortKey::swap(QCollatorSortKey &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCollatorSortKey4swapERS_(
+    QCollatorSortKey *self,
+    QCollatorSortKey *other) {
+  self->swap(*other);
 }
 
 //  int QCollatorSortKey::compare(const QCollatorSortKey &key) const

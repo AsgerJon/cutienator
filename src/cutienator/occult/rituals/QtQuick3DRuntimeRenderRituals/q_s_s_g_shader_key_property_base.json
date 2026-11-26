@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQuick",
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersh",
-    "aderkeys_p.h, Qt 6.12.0. Changes made here are lost."
+    "aderkeys_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN25QSSGShaderKeyPropertyBaseC1EPKc": ["address", "chars"],
@@ -15,9 +15,27 @@
     "ritual_ZNK25QSSGShaderKeyPropertyBase6getIdxEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZNK25QSSGShaderKeyPropertyBase16internalToStringER10QByteArrayRK14QByteArrayView": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QSSGShaderKeyPropertyBase16internalToStringER10QByteArrayRK14QByteArrayViewb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZN25QSSGShaderKeyPropertyBase12getBoolValueERK10QByteArrayRK14QByteArrayView": [
       "bool", "address", "address"
     ],
-    "ritual_ZN25QSSGShaderKeyPropertyBaseD1Ev": ["nothing", "address"]
+    "ritual_ZN25QSSGShaderKeyPropertyBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QSSGShaderKeyPropertyBase15getMaskTemplateILj1EEjv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK25QSSGShaderKeyPropertyBase15getMaskTemplateILj2EEjv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK25QSSGShaderKeyPropertyBase15getMaskTemplateILj7EEjv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK25QSSGShaderKeyPropertyBase15getMaskTemplateILj9EEjv": [
+      "unsigned int", "address"
+    ]
   }
 }

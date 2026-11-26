@@ -55,6 +55,9 @@
     "ritual_ZN21QQuickTextEditPrivate16handleFocusEventEP11QFocusEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN21QQuickTextEditPrivate24addCurrentTextNodeToRootEP20QQuickTextNodeEngineP16QSGTransformNodeP19QSGInternalTextNodeRN5QListINS_4NodeEE8iteratorEi": [
+      "nothing", "address", "address", "address", "address", "address", "int"
+    ],
     "ritual_ZN21QQuickTextEditPrivate14createTextNodeEv": [
       "address", "address"
     ],

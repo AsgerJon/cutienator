@@ -20,6 +20,15 @@ QDomProcessingInstruction *ritual_ZN25QDomProcessingInstructionC1ERKS_(
   return new QDomProcessingInstruction(*processingInstruction);
 }
 
+//  QDomProcessingInstruction &QDomProcessingInstruction::operator=(const
+//      QDomProcessingInstruction &other)
+extern "C" Q_DECL_EXPORT
+QDomProcessingInstruction *ritual_ZN25QDomProcessingInstructionaSERKS_(
+    QDomProcessingInstruction *self,
+    const QDomProcessingInstruction *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QDomProcessingInstruction::target() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK25QDomProcessingInstruction6targetEv(

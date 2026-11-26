@@ -182,6 +182,24 @@ const QMetaObject *ritual_ZNK10QValidator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QValidator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QValidator11qt_metacastEPKc(
+    QValidator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QValidator::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QValidator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QValidator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QValidator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QValidator2trEPKcS1_i(
@@ -209,6 +227,42 @@ void ritual_ZN10QValidator9setLocaleERK7QLocale(
 extern "C" Q_DECL_EXPORT
 QLocale *ritual_ZNK10QValidator6localeEv(const QValidator *self) {
   return new QLocale(self->locale());
+}
+
+//  State QValidator::validate(QString &a0, int &a1) const
+extern "C" Q_DECL_EXPORT
+QValidator::State ritual_ZNK10QValidator8validateER7QStringRi(
+    const QValidator *self,
+    QString *a0,
+    int *a1) {
+  return self->validate(*a0, *a1);
+}
+
+//  void QValidator::fixup(QString &a0) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QValidator5fixupER7QString(
+    const QValidator *self,
+    QString *a0) {
+  self->fixup(*a0);
+}
+
+//  void QValidator::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QValidator7changedEv(QValidator *self) {
+  self->changed();
+}
+
+//  QValidatorPrivate *QValidator::d_func()
+extern "C" Q_DECL_EXPORT
+QValidatorPrivate *ritual_ZN10QValidator6d_funcEv(QValidator *self) {
+  return self->d_func();
+}
+
+//  const QValidatorPrivate *QValidator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QValidatorPrivate *ritual_ZNK10QValidator6d_funcEv(
+    const QValidator *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQValidator, for the function named by

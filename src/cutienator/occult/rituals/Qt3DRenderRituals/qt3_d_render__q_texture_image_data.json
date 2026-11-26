@@ -5,6 +5,84 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender17QTextureImageDataC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender17QTextureImageDataD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender17QTextureImageDataaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QTextureImageData12isCompressedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QTextureImageData5widthEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender17QTextureImageData6heightEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender17QTextureImageData5depthEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender17QTextureImageData6layersEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender17QTextureImageData9mipLevelsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QTextureImageData5facesEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender17QTextureImageData8setWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData9setHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData8setDepthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData9setLayersEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData12setMipLevelsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData8setFacesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender17QTextureImageData9alignmentEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData12setAlignmentEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender17QTextureImageData6targetEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender17QTextureImageData6formatEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender17QTextureImageData11pixelFormatEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QTextureImageData9pixelTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData9setTargetEN14QOpenGLTexture6TargetE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData9setFormatEN14QOpenGLTexture13TextureFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData14setPixelFormatEN14QOpenGLTexture11PixelFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData12setPixelTypeEN14QOpenGLTexture9PixelTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData8setImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData7setDataERK10QByteArrayib": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageData7setDataERK10QByteArraySt8functionIFS1_S1_iiiEEb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender17QTextureImageData4dataEiii": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QTextureImageDataC1ERNS_24QTextureImageDataPrivateE": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender17QTextureImageData6d_funcEv": [
       "address", "address"
     ],

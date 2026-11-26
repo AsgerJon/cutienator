@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QScroller10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QScroller11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QScroller11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QScroller2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QScroller11hasScrollerEP7QObject": ["bool", "address"],
     "ritual_ZN9QScroller8scrollerEP7QObject": ["address", "address"],
@@ -25,8 +29,14 @@
     "ritual_ZNK9QScroller13finalPositionEv": ["address", "address"],
     "ritual_ZNK9QScroller13pixelPerMeterEv": ["address", "address"],
     "ritual_ZNK9QScroller18scrollerPropertiesEv": ["address", "address"],
+    "ritual_ZN9QScroller17setSnapPositionsXERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QScroller17setSnapPositionsXEdd": [
       "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN9QScroller17setSnapPositionsYERK5QListIdE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN9QScroller17setSnapPositionsYEdd": [
       "nothing", "address", "double", "double"
@@ -47,6 +57,12 @@
       "nothing", "address", "address", "double", "double", "int"
     ],
     "ritual_ZN9QScroller18resendPrepareEventEv": ["nothing", "address"],
+    "ritual_ZN9QScroller12stateChangedENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QScroller25scrollerPropertiesChangedERK19QScrollerProperties": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QScrollerC1EP7QObject": ["address", "address"],
     "ritual_ZN9QScrollerD1Ev": ["nothing", "address"],
     "ritual_ZN9QScroller6d_funcEv": ["address", "address"],

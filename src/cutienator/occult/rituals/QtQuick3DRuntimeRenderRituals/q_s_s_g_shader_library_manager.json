@@ -10,11 +10,17 @@
     ],
     "ritual_ZN24QSSGShaderLibraryManagerC1Ev": ["address"],
     "ritual_ZN24QSSGShaderLibraryManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QSSGShaderLibraryManager24getParticleShaderEntriesEv": [
+      "address", "address"
+    ],
     "ritual_ZN24QSSGShaderLibraryManager15setShaderSourceERK10QByteArrayN15QSSGShaderCache10ShaderTypeES2_RK24QSSGCustomShaderMetaData": [
       "nothing", "address", "address", "int", "address", "address"
     ],
     "ritual_ZN24QSSGShaderLibraryManager26loadPregeneratedShaderInfoEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN24QSSGShaderLibraryManager19resolveIncludeFilesER10QByteArrayRKS0_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN24QSSGShaderLibraryManager18getIncludeContentsERK10QByteArray": [
       "address", "address", "address"
@@ -24,6 +30,12 @@
     ],
     "ritual_ZN24QSSGShaderLibraryManager17getShaderMetaDataERK10QByteArrayN15QSSGShaderCache10ShaderTypeE": [
       "address", "address", "address", "int"
+    ],
+    "ritual_ZN24QSSGShaderLibraryManager7compareERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EES4_": [
+      "bool", "address", "address"
+    ],
+    "ritual_drop_QSSGShaderLibraryManager__QQsbCollection_EntryMap": [
+      "nothing", "address"
     ]
   }
 }

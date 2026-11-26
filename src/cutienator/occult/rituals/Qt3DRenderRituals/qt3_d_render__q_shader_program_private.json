@@ -5,10 +5,29 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender21QShaderProgramPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender21QShaderProgramPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender21QShaderProgramPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramPrivate6setLogERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramPrivate9setStatusENS_14QShaderProgram6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramPrivate11deincludifyERK10QByteArrayRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramPrivate11deincludifyERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramPrivate25resolveAutoBindingIndicesERK10QByteArrayRiS4_S4_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramPrivate25resolveAutoBindingIndicesERK10QByteArray": [
       "address", "address"
     ],
     "ritual_take_Qt3DRender_QShaderProgramPrivate": [

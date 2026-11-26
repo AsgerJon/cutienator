@@ -12,6 +12,7 @@ typedef void (*CuteQMoveEventCall1)(const void *, bool, int *);
 class CuteQMoveEvent : public QMoveEvent {
 public:
   using QMoveEvent::QMoveEvent;
+  CuteQMoveEvent(const QMoveEvent & other) : QMoveEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -48,6 +49,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QMoveEvent::QMoveEvent(const QMoveEvent &a0)
+extern "C" Q_DECL_EXPORT
+QMoveEvent *ritual_ZN10QMoveEventC1ERKS_(const QMoveEvent *a0) {
+  return new CuteQMoveEvent(*a0);
+}
+
+//  QMoveEvent &QMoveEvent::operator=(const QMoveEvent &other)
+extern "C" Q_DECL_EXPORT
+QMoveEvent *ritual_ZN10QMoveEventaSERKS_(
+    QMoveEvent *self,
+    const QMoveEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QMoveEvent *QMoveEvent::clone() const
 extern "C" Q_DECL_EXPORT

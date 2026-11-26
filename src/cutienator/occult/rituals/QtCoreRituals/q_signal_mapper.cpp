@@ -179,6 +179,24 @@ const QMetaObject *ritual_ZNK13QSignalMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSignalMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QSignalMapper11qt_metacastEPKc(
+    QSignalMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSignalMapper::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QSignalMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSignalMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSignalMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QSignalMapper2trEPKcS1_i(
@@ -186,6 +204,20 @@ QString *ritual_ZN13QSignalMapper2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSignalMapper::tr(s, c, n));
+}
+
+//  QSignalMapperPrivate *QSignalMapper::d_func()
+extern "C" Q_DECL_EXPORT
+QSignalMapperPrivate *ritual_ZN13QSignalMapper6d_funcEv(
+    QSignalMapper *self) {
+  return self->d_func();
+}
+
+//  const QSignalMapperPrivate *QSignalMapper::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSignalMapperPrivate *ritual_ZNK13QSignalMapper6d_funcEv(
+    const QSignalMapper *self) {
+  return self->d_func();
 }
 
 //  QSignalMapper::QSignalMapper(QObject *parent)
@@ -257,6 +289,28 @@ QObject *ritual_ZNK13QSignalMapper7mappingEP7QObject(
     const QSignalMapper *self,
     QObject *object) {
   return self->mapping(object);
+}
+
+//  void QSignalMapper::mappedInt(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSignalMapper9mappedIntEi(QSignalMapper *self, int a0) {
+  self->mappedInt(a0);
+}
+
+//  void QSignalMapper::mappedString(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSignalMapper12mappedStringERK7QString(
+    QSignalMapper *self,
+    const QString *a0) {
+  self->mappedString(*a0);
+}
+
+//  void QSignalMapper::mappedObject(QObject *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSignalMapper12mappedObjectEP7QObject(
+    QSignalMapper *self,
+    QObject *a0) {
+  self->mappedObject(a0);
 }
 
 //  void QSignalMapper::map()

@@ -6,6 +6,10 @@
   "rows": {
     "ritual_ZN15QOpcUaEnumFieldC1Ev": ["address"],
     "ritual_ZN15QOpcUaEnumFieldC1ERKS_": ["address", "address"],
+    "ritual_ZN15QOpcUaEnumField4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN15QOpcUaEnumFieldaSEOS_": ["address", "address", "address"],
+    "ritual_ZN15QOpcUaEnumFieldC1EOS_": ["address", "address"],
+    "ritual_ZN15QOpcUaEnumFieldaSERKS_": ["address", "address", "address"],
     "ritual_ZNK15QOpcUaEnumFieldcv8QVariantEv": ["address", "address"],
     "ritual_ZN15QOpcUaEnumFieldD1Ev": ["nothing", "address"],
     "ritual_ZNK15QOpcUaEnumField5valueEv": ["long long", "address"],

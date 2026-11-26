@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap16QmlSignalHandler4initEP7QObjecti": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN3QV44Heap16QmlSignalHandler7destroyEv": ["nothing", "address"],
     "ritual_ZNK3QV44Heap16QmlSignalHandler6objectEv": ["address", "address"],
     "ritual_ZN3QV44Heap16QmlSignalHandler9setObjectEP7QObject": [

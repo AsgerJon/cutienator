@@ -1,11 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4managed_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qv4managed_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 8. Kept
+//  as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4managed_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 
 //  const QV4::VTable *QV4::Managed::staticVTable()
 extern "C" Q_DECL_EXPORT
@@ -30,6 +32,13 @@ QV4::Heap::Base *ritual_ZNK3QV47Managed11d_uncheckedEv(
 extern "C" Q_DECL_EXPORT
 QV4::Heap::Base *ritual_ZNK3QV47Managed1dEv(const QV4::Managed *self) {
   return self->d();
+}
+
+//  QString QV4::Managed::typeToString(Type a0)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN3QV47Managed12typeToStringENS0_4TypeE(
+    QV4::Managed::Type a0) {
+  return new QString(QV4::Managed::typeToString(a0));
 }
 
 //  Heap::InternalClass *QV4::Managed::internalClass() const
@@ -96,6 +105,12 @@ bool ritual_ZNK3QV47Managed14isSymbolObjectEv(const QV4::Managed *self) {
   return self->isSymbolObject();
 }
 
+//  QString QV4::Managed::className() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK3QV47Managed9classNameEv(const QV4::Managed *self) {
+  return new QString(self->className());
+}
+
 //  bool QV4::Managed::isEqualTo(const Managed *other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK3QV47Managed9isEqualToEPKS0_(
@@ -131,8 +146,79 @@ QV4::Heap::Base *ritual_ZNK3QV47Managed10heapObjectEv(
   return self->heapObject();
 }
 
+//  bool QV4::Managed::virtualIsEqualTo(Managed *m, Managed *other)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN3QV47Managed16virtualIsEqualToEPS0_S1_(
+    QV4::Managed *m,
+    QV4::Managed *other) {
+  return QV4::Managed::virtualIsEqualTo(m, other);
+}
+
 //  QV4::Managed as the QV4::VTableBase it is built on
 extern "C" Q_DECL_EXPORT
 QV4::VTableBase *ritual_cast_QV4_Managed_QV4_VTableBase(QV4::Managed *self) {
   return static_cast<QV4::VTableBase *>(self);
+}
+
+#include <QtQml/6.12.0/QtQml/private/qv4object_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4string_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4functionobject_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4arrayobject_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4errorobject_p.h>
+
+//  QV4::Object *QV4::Managed::cast<QV4::Object>()
+extern "C" Q_DECL_EXPORT
+QV4::Object *ritual_ZN3QV47Managed4castINS_6ObjectEEEPT_v(
+    QV4::Managed *self) {
+  return self->cast<QV4::Object>();
+}
+
+//  QV4::FunctionObject *QV4::Managed::cast<QV4::FunctionObject>()
+extern "C" Q_DECL_EXPORT
+QV4::FunctionObject *ritual_ZN3QV47Managed4castINS_14FunctionObjectEEEPT_v(
+    QV4::Managed *self) {
+  return self->cast<QV4::FunctionObject>();
+}
+
+//  QV4::String *QV4::Managed::cast<QV4::String>()
+extern "C" Q_DECL_EXPORT
+QV4::String *ritual_ZN3QV47Managed4castINS_6StringEEEPT_v(
+    QV4::Managed *self) {
+  return self->cast<QV4::String>();
+}
+
+//  QV4::ArrayObject *QV4::Managed::cast<QV4::ArrayObject>()
+extern "C" Q_DECL_EXPORT
+QV4::ArrayObject *ritual_ZN3QV47Managed4castINS_11ArrayObjectEEEPT_v(
+    QV4::Managed *self) {
+  return self->cast<QV4::ArrayObject>();
+}
+
+//  QV4::ErrorObject *QV4::Managed::cast<QV4::ErrorObject>()
+extern "C" Q_DECL_EXPORT
+QV4::ErrorObject *ritual_ZN3QV47Managed4castINS_11ErrorObjectEEEPT_v(
+    QV4::Managed *self) {
+  return self->cast<QV4::ErrorObject>();
+}
+
+//  const QV4::Object *QV4::Managed::cast<QV4::Object>() const
+extern "C" Q_DECL_EXPORT
+const QV4::Object *ritual_ZNK3QV47Managed4castINS_6ObjectEEEPKT_v(
+    const QV4::Managed *self) {
+  return self->cast<QV4::Object>();
+}
+
+//  const QV4::FunctionObject *QV4::Managed::cast<QV4::FunctionObject>()
+//      const
+extern "C" Q_DECL_EXPORT
+const QV4::FunctionObject *ritual_ZNK3QV47Managed4castINS_14FunctionObjectEEEPKT_v(
+    const QV4::Managed *self) {
+  return self->cast<QV4::FunctionObject>();
+}
+
+//  const QV4::String *QV4::Managed::cast<QV4::String>() const
+extern "C" Q_DECL_EXPORT
+const QV4::String *ritual_ZNK3QV47Managed4castINS_6StringEEEPKT_v(
+    const QV4::Managed *self) {
+  return self->cast<QV4::String>();
 }

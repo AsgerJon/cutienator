@@ -9,8 +9,12 @@
     "ritual_ZN10QCacheItemD1Ev": ["nothing", "address"],
     "ritual_ZNK10QCacheItem4sizeEv": ["long long", "address"],
     "ritual_ZN10QCacheItem5resetEv": ["nothing", "address"],
+    "ritual_ZNK10QCacheItem11writeHeaderEP11QFileDevice": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK10QCacheItem19writeCompressedDataEP11QFileDevice": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_ZNK10QCacheItem11canCompressEv": ["bool", "address"]
   }
 }

@@ -32,6 +32,20 @@ QDBusSignature *ritual_ZN14QDBusSignatureC1ERK7QString(
   return new QDBusSignature(*signature);
 }
 
+//  QDBusSignature::QDBusSignature(QString &&sig)
+extern "C" Q_DECL_EXPORT
+QDBusSignature *ritual_ZN14QDBusSignatureC1EO7QString(QString *sig) {
+  return new QDBusSignature(std::move(*sig));
+}
+
+//  void QDBusSignature::swap(QDBusSignature &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QDBusSignature4swapERS_(
+    QDBusSignature *self,
+    QDBusSignature *other) {
+  self->swap(*other);
+}
+
 //  void QDBusSignature::setSignature(const QString &signature)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QDBusSignature12setSignatureERK7QString(

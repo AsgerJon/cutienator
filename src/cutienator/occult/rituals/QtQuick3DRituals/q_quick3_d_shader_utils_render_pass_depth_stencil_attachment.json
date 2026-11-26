@@ -8,6 +8,12 @@
     "ritual_ZNK51QQuick3DShaderUtilsRenderPassDepthStencilAttachment10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN51QQuick3DShaderUtilsRenderPassDepthStencilAttachment11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN51QQuick3DShaderUtilsRenderPassDepthStencilAttachment11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN51QQuick3DShaderUtilsRenderPassDepthStencilAttachment2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

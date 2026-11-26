@@ -14,6 +14,24 @@ const QMetaObject *ritual_ZNK12QInputMethod10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QInputMethod::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QInputMethod11qt_metacastEPKc(
+    QInputMethod *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QInputMethod::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QInputMethod11qt_metacallEN11QMetaObject4CallEiPPv(
+    QInputMethod *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QInputMethod::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QInputMethod2trEPKcS1_i(
@@ -175,6 +193,59 @@ void ritual_ZN12QInputMethod12invokeActionENS_6ActionEi(
     QInputMethod::Action a,
     int cursorPosition) {
   self->invokeAction(a, cursorPosition);
+}
+
+//  void QInputMethod::cursorRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputMethod22cursorRectangleChangedEv(QInputMethod *self) {
+  self->cursorRectangleChanged();
+}
+
+//  void QInputMethod::anchorRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputMethod22anchorRectangleChangedEv(QInputMethod *self) {
+  self->anchorRectangleChanged();
+}
+
+//  void QInputMethod::keyboardRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputMethod24keyboardRectangleChangedEv(
+    QInputMethod *self) {
+  self->keyboardRectangleChanged();
+}
+
+//  void QInputMethod::inputItemClipRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputMethod29inputItemClipRectangleChangedEv(
+    QInputMethod *self) {
+  self->inputItemClipRectangleChanged();
+}
+
+//  void QInputMethod::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputMethod14visibleChangedEv(QInputMethod *self) {
+  self->visibleChanged();
+}
+
+//  void QInputMethod::animatingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputMethod16animatingChangedEv(QInputMethod *self) {
+  self->animatingChanged();
+}
+
+//  void QInputMethod::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputMethod13localeChangedEv(QInputMethod *self) {
+  self->localeChanged();
+}
+
+//  void QInputMethod::inputDirectionChanged(Qt::LayoutDirection
+//      newDirection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputMethod21inputDirectionChangedEN2Qt15LayoutDirectionE(
+    QInputMethod *self,
+    Qt::LayoutDirection newDirection) {
+  self->inputDirectionChanged(newDirection);
 }
 
 //  QInputMethod::QInputMethod()

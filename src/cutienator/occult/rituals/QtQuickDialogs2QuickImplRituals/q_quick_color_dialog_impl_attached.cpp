@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK29QQuickColorDialogImplAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickColorDialogImplAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuickColorDialogImplAttached11qt_metacastEPKc(
+    QQuickColorDialogImplAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickColorDialogImplAttached::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuickColorDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickColorDialogImplAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickColorDialogImplAttached::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -115,6 +134,41 @@ void ritual_ZN29QQuickColorDialogImplAttached14setAlphaSliderEP12QQuickSlider(
     QQuickColorDialogImplAttached *self,
     QQuickSlider *alphaSlider) {
   self->setAlphaSlider(alphaSlider);
+}
+
+//  void QQuickColorDialogImplAttached::buttonBoxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickColorDialogImplAttached16buttonBoxChangedEv(
+    QQuickColorDialogImplAttached *self) {
+  self->buttonBoxChanged();
+}
+
+//  void QQuickColorDialogImplAttached::eyeDropperButtonChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickColorDialogImplAttached23eyeDropperButtonChangedEv(
+    QQuickColorDialogImplAttached *self) {
+  self->eyeDropperButtonChanged();
+}
+
+//  void QQuickColorDialogImplAttached::colorPickerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickColorDialogImplAttached18colorPickerChangedEv(
+    QQuickColorDialogImplAttached *self) {
+  self->colorPickerChanged();
+}
+
+//  void QQuickColorDialogImplAttached::colorInputsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickColorDialogImplAttached18colorInputsChangedEv(
+    QQuickColorDialogImplAttached *self) {
+  self->colorInputsChanged();
+}
+
+//  void QQuickColorDialogImplAttached::alphaSliderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickColorDialogImplAttached18alphaSliderChangedEv(
+    QQuickColorDialogImplAttached *self) {
+  self->alphaSliderChanged();
 }
 
 //  QQuickColorDialogImplAttachedPrivate

@@ -8,8 +8,27 @@
     "ritual_ZNK10Qt3DRender15QFrameGraphNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender15QFrameGraphNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender15QFrameGraphNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender15QFrameGraphNode2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender15QFrameGraphNodeC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender15QFrameGraphNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender15QFrameGraphNode20parentFrameGraphNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender15QFrameGraphNodeC1ERNS_22QFrameGraphNodePrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender15QFrameGraphNode15onParentChangedEP7QObject": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN10Qt3DRender15QFrameGraphNode6d_funcEv": [
       "address", "address"

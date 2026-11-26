@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickImageBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickImageBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickImageBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickImageBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -68,6 +74,41 @@
     "ritual_ZN15QQuickImageBase28emitAutoTransformBaseChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN15QQuickImageBase13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickImageBase17sourceSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QQuickImageBase15progressChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickImageBase19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase12cacheChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickImageBase13mirrorChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickImageBase19currentFrameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase17frameCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase21sourceClipRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase17colorSpaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase23mirrorVerticallyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase25retainWhileLoadingChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN15QQuickImageBase12loadEmptyUrlEv": ["nothing", "address"],
     "ritual_ZN15QQuickImageBase10loadPixmapERK4QUrl6QFlagsINS_16LoadPixmapOptionEE": [
       "nothing", "address", "address", "int"
@@ -79,6 +120,9 @@
     "ritual_ZN15QQuickImageBase12pixmapChangeEv": ["nothing", "address"],
     "ritual_ZN15QQuickImageBase10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickImageBaseC1ER22QQuickImageBasePrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QQuickImageBase15requestFinishedEv": ["nothing", "address"],
     "ritual_ZN15QQuickImageBase15requestProgressExx": [

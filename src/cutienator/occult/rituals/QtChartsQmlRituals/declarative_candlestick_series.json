@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK28DeclarativeCandlestickSeries10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries5axisXEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries5axisYEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries11setAxisXTopEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries8axisXTopEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries13setAxisYRightEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries10axisYRightEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28DeclarativeCandlestickSeries13brushFilenameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries2atEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries6appendEP25DeclarativeCandlestickSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries6removeEP25DeclarativeCandlestickSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries6appendEddddd": [
+      "bool", "address", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries6removeEd": [
+      "bool", "address", "double"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries6insertEiP25DeclarativeCandlestickSet": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28DeclarativeCandlestickSeries20appendSeriesChildrenEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_DeclarativeCandlestickSeries_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN28DeclarativeCandlestickSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN28DeclarativeCandlestickSeries17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

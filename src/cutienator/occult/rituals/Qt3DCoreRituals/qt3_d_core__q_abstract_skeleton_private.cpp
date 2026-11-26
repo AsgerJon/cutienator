@@ -53,6 +53,20 @@ public:
   }
 };
 
+//  Qt3DCore::QAbstractSkeletonPrivate::QAbstractSkeletonPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractSkeletonPrivate *ritual_ZN8Qt3DCore24QAbstractSkeletonPrivateC1Ev() {
+  return new CuteQt3DCore_QAbstractSkeletonPrivate();
+}
+
+//  void Qt3DCore::QAbstractSkeletonPrivate::setJointCount(int jointCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore24QAbstractSkeletonPrivate13setJointCountEi(
+    Qt3DCore::QAbstractSkeletonPrivate *self,
+    int jointCount) {
+  self->setJointCount(jointCount);
+}
+
 //  QAbstractSkeleton *Qt3DCore::QAbstractSkeletonPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QAbstractSkeleton *ritual_ZN8Qt3DCore24QAbstractSkeletonPrivate6q_funcEv(
@@ -66,6 +80,22 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QAbstractSkeleton *ritual_ZNK8Qt3DCore24QAbstractSkeletonPrivate6q_funcEv(
     const Qt3DCore::QAbstractSkeletonPrivate *self) {
   return self->q_func();
+}
+
+//  const QAbstractSkeletonPrivate
+//      *Qt3DCore::QAbstractSkeletonPrivate::get(const QAbstractSkeleton *q)
+extern "C" Q_DECL_EXPORT
+const Qt3DCore::QAbstractSkeletonPrivate *ritual_ZN8Qt3DCore24QAbstractSkeletonPrivate3getEPKNS_17QAbstractSkeletonE(
+    const Qt3DCore::QAbstractSkeleton *q) {
+  return Qt3DCore::QAbstractSkeletonPrivate::get(q);
+}
+
+//  QAbstractSkeletonPrivate
+//      *Qt3DCore::QAbstractSkeletonPrivate::get(QAbstractSkeleton *q)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractSkeletonPrivate *ritual_ZN8Qt3DCore24QAbstractSkeletonPrivate3getEPNS_17QAbstractSkeletonE(
+    Qt3DCore::QAbstractSkeleton *q) {
+  return Qt3DCore::QAbstractSkeletonPrivate::get(q);
 }
 
 //  a Python function taken by a CuteQt3DCore_QAbstractSkeletonPrivate, for

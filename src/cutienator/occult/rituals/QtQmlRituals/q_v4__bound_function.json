@@ -10,6 +10,9 @@
     "ritual_ZNK3QV413BoundFunction1dEv": ["address", "address"],
     "ritual_ZNK3QV413BoundFunction6targetEv": ["address", "address"],
     "ritual_ZNK3QV413BoundFunction9boundThisEv": ["address", "address"],
-    "ritual_ZNK3QV413BoundFunction9boundArgsEv": ["address", "address"]
+    "ritual_ZNK3QV413BoundFunction9boundArgsEv": ["address", "address"],
+    "ritual_ZN3QV413BoundFunction11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

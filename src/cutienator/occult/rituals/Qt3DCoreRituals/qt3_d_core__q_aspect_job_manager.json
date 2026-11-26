@@ -8,9 +8,32 @@
     "ritual_ZNK8Qt3DCore17QAspectJobManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore17QAspectJobManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore17QAspectJobManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore17QAspectJobManager2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore17QAspectJobManagerC1EPNS_14QAspectManagerE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore17QAspectJobManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore17QAspectJobManager10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore17QAspectJobManager11enqueueJobsERKSt6vectorI14QSharedPointerINS_10QAspectJobEESaIS4_EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore17QAspectJobManager14waitForAllJobsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore17QAspectJobManager24waitForPerThreadFunctionEPFvPvES1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore17QAspectJobManager16idealThreadCountEv": ["int"],
     "ritual_take_Qt3DCore_QAspectJobManager": [
       "bool", "address", "chars", "address"
     ],

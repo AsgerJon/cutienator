@@ -9,6 +9,22 @@
       "address", "address", "address"
     ],
     "ritual_ZN17QGrpcHttp2ChannelD1Ev": ["nothing", "address"],
-    "ritual_ZNK17QGrpcHttp2Channel7hostUriEv": ["address", "address"]
+    "ritual_ZNK17QGrpcHttp2Channel7hostUriEv": ["address", "address"],
+    "ritual_ZN17QGrpcHttp2Channel4callEP21QGrpcOperationContextO10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QGrpcHttp2Channel12serverStreamEP21QGrpcOperationContextO10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QGrpcHttp2Channel12clientStreamEP21QGrpcOperationContextO10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QGrpcHttp2Channel10bidiStreamEP21QGrpcOperationContextO10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK17QGrpcHttp2Channel10serializerEv": ["address", "address"],
+    "ritual_drop_QGrpcHttp2Channel__std_shared_ptr_QAbstractProtobufSerializer": [
+      "nothing", "address"
+    ]
   }
 }

@@ -6,7 +6,15 @@
   ],
   "rows": {
     "ritual_ZNK12QWaylandSeat10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QWaylandSeat11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QWaylandSeat11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QWaylandSeat2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QWaylandSeat6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QWaylandSeat6d_funcEv": ["address", "address"],
     "ritual_ZN12QWaylandSeat24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -84,6 +92,21 @@
     "ritual_ZNK12QWaylandSeat12capabilitiesEv": ["int", "address"],
     "ritual_ZNK12QWaylandSeat7isOwnerEP11QInputEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat16fromSeatResourceEP11wl_resource": [
+      "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat17mouseFocusChangedEP12QWaylandViewS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat20keyboardFocusChangedEP15QWaylandSurfaceS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat20cursorSurfaceRequestEP15QWaylandSurfaceii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN12QWaylandSeat22cursorSurfaceRequestedEP15QWaylandSurfaceiiP14QWaylandClient": [
+      "nothing", "address", "address", "int", "int", "address"
     ],
     "ritual_ZN12QWaylandSeat19sendUnicodeKeyEventEjN6QEvent4TypeE": [
       "nothing", "address", "unsigned int", "int"

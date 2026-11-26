@@ -181,6 +181,22 @@ const QMetaObject *ritual_ZNK8QLibrary10metaObjectEv(const QLibrary *self) {
   return self->metaObject();
 }
 
+//  void *QLibrary::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QLibrary11qt_metacastEPKc(QLibrary *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLibrary::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QLibrary11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLibrary *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLibrary::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QLibrary2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -224,6 +240,49 @@ QLibrary *ritual_ZN8QLibraryC1ERK7QStringS2_P7QObject(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QLibraryD1Ev(QLibrary *self) {
   delete self;
+}
+
+//  QFunctionPointer QLibrary::resolve(const char *symbol)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QLibrary7resolveEPKc(QLibrary *self, const char *symbol) {
+  return reinterpret_cast<void *>(self->resolve(symbol));
+}
+
+//  QFunctionPointer QLibrary::resolve(const QString &fileName, const char
+//      *symbol)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QLibrary7resolveERK7QStringPKc(
+    const QString *fileName,
+    const char *symbol) {
+  return reinterpret_cast<void *>(QLibrary::resolve(*fileName, symbol));
+}
+
+//  QFunctionPointer QLibrary::resolve(const QString &fileName, int verNum,
+//      const char *symbol)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QLibrary7resolveERK7QStringiPKc(
+    const QString *fileName,
+    int verNum,
+    const char *symbol) {
+  return reinterpret_cast<void *>(
+      QLibrary::resolve(
+          *fileName,
+          verNum,
+          symbol));
+}
+
+//  QFunctionPointer QLibrary::resolve(const QString &fileName, const QString
+//      &version, const char *symbol)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QLibrary7resolveERK7QStringS2_PKc(
+    const QString *fileName,
+    const QString *version,
+    const char *symbol) {
+  return reinterpret_cast<void *>(
+      QLibrary::resolve(
+          *fileName,
+          *version,
+          symbol));
 }
 
 //  bool QLibrary::load()

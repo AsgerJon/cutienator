@@ -7,11 +7,56 @@
     "ritual_ZNK8Qt3DCore15QSkeletonLoader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore15QSkeletonLoader2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoaderC1EPNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoaderC1ERK4QUrlPNS_5QNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore15QSkeletonLoader6sourceEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore15QSkeletonLoader6statusEv": ["int", "address"],
+    "ritual_ZNK8Qt3DCore15QSkeletonLoader21isCreateJointsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK8Qt3DCore15QSkeletonLoader9rootJointEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoader9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoader22setCreateJointsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoader13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoader13statusChangedENS0_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoader26createJointsEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoader16rootJointChangedEPNS_6QJointE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QSkeletonLoaderC1ERNS_22QSkeletonLoaderPrivateEPNS_5QNodeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore15QSkeletonLoader6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore15QSkeletonLoader6d_funcEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore15QSkeletonLoader12setRootJointEPNS_6QJointE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_Qt3DCore_QSkeletonLoader": [
       "bool", "address", "chars", "address"
     ]

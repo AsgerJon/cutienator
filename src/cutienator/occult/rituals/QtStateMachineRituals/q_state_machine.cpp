@@ -3,10 +3,17 @@
 #include <QtCore/qglobal.h>
 #include <QtStateMachine/qstatemachine.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(animation)
 #include <QtCore/qabstractanimation.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QString>
+#include <QtStateMachine/QState>
+#include <QtCore/QSet>
+#include <QtStateMachine/QAbstractState>
 
 //  Only a class built on QStateMachine may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -290,6 +297,24 @@ const QMetaObject *ritual_ZNK13QStateMachine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStateMachine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QStateMachine11qt_metacastEPKc(
+    QStateMachine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStateMachine::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QStateMachine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStateMachine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStateMachine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QStateMachine2trEPKcS1_i(
@@ -356,6 +381,13 @@ void ritual_ZN13QStateMachine10clearErrorEv(QStateMachine *self) {
   self->clearError();
 }
 
+//  QBindable<QString> QStateMachine::bindableErrorString() const
+extern "C" Q_DECL_EXPORT
+QBindable<QString> *ritual_ZNK13QStateMachine19bindableErrorStringEv(
+    const QStateMachine *self) {
+  return new QBindable<QString>(self->bindableErrorString());
+}
+
 //  bool QStateMachine::isRunning() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QStateMachine9isRunningEv(const QStateMachine *self) {
@@ -377,6 +409,15 @@ void ritual_ZN13QStateMachine11setAnimatedEb(
     QStateMachine *self,
     bool enabled) {
   self->setAnimated(enabled);
+}
+#endif  // QT_CONFIG(animation)
+
+#if QT_CONFIG(animation)
+//  QBindable<bool> QStateMachine::bindableAnimated()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN13QStateMachine16bindableAnimatedEv(
+    QStateMachine *self) {
+  return new QBindable<bool>(self->bindableAnimated());
 }
 #endif  // QT_CONFIG(animation)
 
@@ -425,6 +466,15 @@ void ritual_ZN13QStateMachine22setGlobalRestorePolicyEN6QState13RestorePolicyE(
   self->setGlobalRestorePolicy(restorePolicy);
 }
 
+//  QBindable<QState::RestorePolicy>
+//      QStateMachine::bindableGlobalRestorePolicy()
+extern "C" Q_DECL_EXPORT
+QBindable<QState::RestorePolicy> *ritual_ZN13QStateMachine27bindableGlobalRestorePolicyEv(
+    QStateMachine *self) {
+  return new QBindable<QState::RestorePolicy>(
+      self->bindableGlobalRestorePolicy());
+}
+
 //  void QStateMachine::postEvent(QEvent *event, EventPriority priority)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QStateMachine9postEventEP6QEventNS_13EventPriorityE(
@@ -451,6 +501,13 @@ bool ritual_ZN13QStateMachine18cancelDelayedEventEi(
   return self->cancelDelayedEvent(id);
 }
 
+//  QSet<QAbstractState *> QStateMachine::configuration() const
+extern "C" Q_DECL_EXPORT
+QSet<QAbstractState *> *ritual_ZNK13QStateMachine13configurationEv(
+    const QStateMachine *self) {
+  return new QSet<QAbstractState *>(self->configuration());
+}
+
 //  bool QStateMachine::eventFilter(QObject *watched, QEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN13QStateMachine11eventFilterEP7QObjectP6QEvent(
@@ -459,6 +516,18 @@ bool ritual_ZN13QStateMachine11eventFilterEP7QObjectP6QEvent(
     QEvent *event) {
   return self->eventFilter(watched, event);
 }
+
+#if __has_include(<chrono>) || defined(Q_QDOC)
+//  int QStateMachine::postDelayedEvent(QEvent *event,
+//      std::chrono::milliseconds delay)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QStateMachine16postDelayedEventEP6QEventNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QStateMachine *self,
+    QEvent *event,
+    long long delay) {
+  return self->postDelayedEvent(event, std::chrono::milliseconds(delay));
+}
+#endif  // __has_include(<chrono>) || defined(Q_QDOC)
 
 //  void QStateMachine::start()
 extern "C" Q_DECL_EXPORT
@@ -478,6 +547,28 @@ void ritual_ZN13QStateMachine10setRunningEb(
     QStateMachine *self,
     bool running) {
   self->setRunning(running);
+}
+
+//  void QStateMachine::started(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStateMachine7startedENS_14QPrivateSignalE(
+    QStateMachine *self) {
+  self->started(QStateMachine::QPrivateSignal());
+}
+
+//  void QStateMachine::stopped(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStateMachine7stoppedENS_14QPrivateSignalE(
+    QStateMachine *self) {
+  self->stopped(QStateMachine::QPrivateSignal());
+}
+
+//  void QStateMachine::runningChanged(bool running)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStateMachine14runningChangedEb(
+    QStateMachine *self,
+    bool running) {
+  self->runningChanged(running);
 }
 
 //  void QStateMachine::onEntry(QEvent *event)
@@ -534,6 +625,28 @@ bool ritual_ZN13QStateMachine5eventEP6QEvent(
     QStateMachine *self,
     QEvent *e) {
   return self->event(e);
+}
+
+//  QStateMachine::QStateMachine(QStateMachinePrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QStateMachine *ritual_ZN13QStateMachineC1ER20QStateMachinePrivateP7QObject(
+    QStateMachinePrivate *dd,
+    QObject *parent) {
+  return new CuteQStateMachine(*dd, parent);
+}
+
+//  QStateMachinePrivate *QStateMachine::d_func()
+extern "C" Q_DECL_EXPORT
+QStateMachinePrivate *ritual_ZN13QStateMachine6d_funcEv(
+    QStateMachine *self) {
+  return self->d_func();
+}
+
+//  const QStateMachinePrivate *QStateMachine::d_func() const
+extern "C" Q_DECL_EXPORT
+const QStateMachinePrivate *ritual_ZNK13QStateMachine6d_funcEv(
+    const QStateMachine *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQStateMachine, for the function named by
@@ -613,4 +726,30 @@ bool ritual_own_ZN13QStateMachine5eventEP6QEvent(
     QStateMachine *self,
     QEvent *e) {
   return static_cast<OwnQStateMachine *>(self)->OwnQStateMachine::event(e);
+}
+
+//  a QBindable<QString> a ritual of QStateMachine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStateMachine__QBindable_QString(QBindable<QString> *self) {
+  delete self;
+}
+
+//  a QBindable<bool> a ritual of QStateMachine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStateMachine__QBindable_bool(QBindable<bool> *self) {
+  delete self;
+}
+
+//  a QBindable<QState::RestorePolicy> a ritual of QStateMachine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStateMachine__QBindable_QState_RestorePolicy(
+    QBindable<QState::RestorePolicy> *self) {
+  delete self;
+}
+
+//  a QSet<QAbstractState *> a ritual of QStateMachine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStateMachine__QSet_QAbstractState(
+    QSet<QAbstractState *> *self) {
+  delete self;
 }

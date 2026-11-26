@@ -4,6 +4,8 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QInputEventC1ERKS_": ["address", "address"],
+    "ritual_ZN11QInputEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK11QInputEvent5cloneEv": ["address", "address"],
     "ritual_ZN11QInputEventD1Ev": ["nothing", "address"],
     "ritual_ZN11QInputEventC1EN6QEvent4TypeEPK12QInputDevice6QFlagsIN2Qt16KeyboardModifierEE": [
@@ -18,6 +20,12 @@
     "ritual_ZNK11QInputEvent9timestampEv": ["unsigned long long", "address"],
     "ritual_ZN11QInputEvent12setTimestampEy": [
       "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN11QInputEventC1EN6QEvent4TypeENS0_15PointerEventTagEPK12QInputDevice6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "int", "address", "address", "int"
+    ],
+    "ritual_ZN11QInputEventC1EN6QEvent4TypeENS0_19SinglePointEventTagEPK12QInputDevice6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "int", "address", "address", "int"
     ],
     "ritual_take_QInputEvent": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QInputEvent5cloneEv": ["address", "address"],

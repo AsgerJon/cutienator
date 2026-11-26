@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickMaterialStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickMaterialStyle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickMaterialStyle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickMaterialStyle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -286,6 +292,46 @@
     "ritual_ZNK19QQuickMaterialStyle13tooltipHeightEv": ["int", "address"],
     "ritual_ZN19QQuickMaterialStyle11initGlobalsEv": ["nothing"],
     "ritual_ZN19QQuickMaterialStyle7variantEv": ["int"],
+    "ritual_ZN19QQuickMaterialStyle12themeChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickMaterialStyle14primaryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle13accentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle17foregroundChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle17backgroundChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle16elevationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle20themeOrAccentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle34primaryHighlightedTextColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle18dialogColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle19tooltipColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle19toolBarColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle20toolTextColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle19roundedScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle21containerStyleChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QQuickMaterialStyle20attachedParentChangeEP32QQuickAttachedPropertyPropagatorS1_": [
       "nothing", "address", "address", "address"
     ],

@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK8QLibrary10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QLibrary11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QLibrary11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QLibrary2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QLibraryC1EP7QObject": ["address", "address"],
     "ritual_ZN8QLibraryC1ERK7QStringP7QObject": [
@@ -17,6 +21,14 @@
       "address", "text", "text", "address"
     ],
     "ritual_ZN8QLibraryD1Ev": ["nothing", "address"],
+    "ritual_ZN8QLibrary7resolveEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QLibrary7resolveERK7QStringPKc": ["address", "text", "chars"],
+    "ritual_ZN8QLibrary7resolveERK7QStringiPKc": [
+      "address", "text", "int", "chars"
+    ],
+    "ritual_ZN8QLibrary7resolveERK7QStringS2_PKc": [
+      "address", "text", "text", "chars"
+    ],
     "ritual_ZN8QLibrary4loadEv": ["bool", "address"],
     "ritual_ZN8QLibrary6unloadEv": ["bool", "address"],
     "ritual_ZNK8QLibrary8isLoadedEv": ["bool", "address"],

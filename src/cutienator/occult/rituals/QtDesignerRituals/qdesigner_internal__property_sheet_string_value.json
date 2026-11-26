@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal24PropertySheetStringValueC1ERK7QStringbS3_S3_": [
+      "address", "text", "bool", "text", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal24PropertySheetStringValue5valueEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24PropertySheetStringValue8setValueERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN18qdesigner_internaleqERKNS_24PropertySheetStringValueES2_": [
       "bool", "address", "address"
     ],

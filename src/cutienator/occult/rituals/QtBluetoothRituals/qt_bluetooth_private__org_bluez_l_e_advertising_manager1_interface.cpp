@@ -10,9 +10,37 @@
 #include <QtBluetooth/6.12.0/QtBluetooth/private/leadvertisingmanager1_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtDBus/qdbusextratypes.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
+#include <QtDBus/QDBusPendingReply>
+#include <QtDBus/QDBusObjectPath>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QVariant>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtBluetooth/private/leadvertisingmanager1_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtconnectivity/src/bluetooth/bluez/leadvertisingmanager1.cpp, line 25, as _ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceD1Ev
+namespace QtBluetoothPrivate {
+inline OrgBluezLEAdvertisingManager1Interface::~OrgBluezLEAdvertisingManager1Interface()
+{
+}
+}  // namespace QtBluetoothPrivate
+//  -----------------------------------------------------------------------
 
 //  A QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface that Python can take functions over in. Every QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface
 //  Python makes is one. Each function below asks the Python
@@ -203,11 +231,39 @@ const QMetaObject *ritual_ZNK18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1
   return self->metaObject();
 }
 
+//  void *QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::qt_meta
+//      cast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface11qt_metacastEPKc(
+    QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::qt_metaca
+//      ll(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const char *QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::s
 //      taticInterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface19staticInterfaceNameEv() {
   return QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::staticInterfaceName();
+}
+
+//  QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::~OrgBluezLEAd
+//      vertisingManager1Interface()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceD1Ev(
+    QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface *self) {
+  delete self;
 }
 
 //  uchar QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::activeI
@@ -234,6 +290,31 @@ uchar ritual_ZNK18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface18su
   return self->supportedInstances();
 }
 
+//  QDBusPendingReply<> QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Inte
+//      rface::RegisterAdvertisement(const QDBusObjectPath &advertisement,
+//      const QVariantMap &options)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface21RegisterAdvertisementERK15QDBusObjectPathRK4QMapI7QString8QVariantE(
+    QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface *self,
+    const QDBusObjectPath *advertisement,
+    const QMap<QString, QVariant> *options) {
+  return new QDBusPendingReply<>(
+      self->RegisterAdvertisement(
+          *advertisement,
+          *options));
+}
+
+//  QDBusPendingReply<> QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Inte
+//      rface::UnregisterAdvertisement(const QDBusObjectPath &advertisement)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface23UnregisterAdvertisementERK15QDBusObjectPath(
+    QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface *self,
+    const QDBusObjectPath *advertisement) {
+  return new QDBusPendingReply<>(
+      self->UnregisterAdvertisement(
+          *advertisement));
+}
+
 //  a Python function taken by a
 //      CuteQtBluetoothPrivate_OrgBluezLEAdvertisingManager1Interface, for
 //      the function named by the key
@@ -243,6 +324,14 @@ bool ritual_take_QtBluetoothPrivate_OrgBluezLEAdvertisingManager1Interface(
     const char *key,
     void *call) {
   return static_cast<CuteQtBluetoothPrivate_OrgBluezLEAdvertisingManager1Interface *>(self)->take(key, call);
+}
+
+//  a QDBusPendingReply<> a ritual of
+//      QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtBluetoothPrivate_OrgBluezLEAdvertisingManager1Interface__QDBusPendingReply(
+    QDBusPendingReply<> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(bluez)

@@ -69,6 +69,25 @@ const QMetaObject *ritual_ZNK20QtROExternalIoDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtROExternalIoDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QtROExternalIoDevice11qt_metacastEPKc(
+    QtROExternalIoDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtROExternalIoDevice::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QtROExternalIoDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtROExternalIoDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QIODevice *QtROExternalIoDevice::connection() const
 extern "C" Q_DECL_EXPORT
 QIODevice *ritual_ZNK20QtROExternalIoDevice10connectionEv(

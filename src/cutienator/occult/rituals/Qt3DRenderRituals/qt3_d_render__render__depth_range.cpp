@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_DepthRangeCall0)(const void *, const Qt3DRe
 class CuteQt3DRender_Render_DepthRange : public Qt3DRender::Render::DepthRange {
 public:
   using Qt3DRender::Render::DepthRange::DepthRange;
-  CuteQt3DRender_Render_DepthRange(const Qt3DRender::Render::DepthRange &other) : Qt3DRender::Render::DepthRange(other) {}
+  CuteQt3DRender_Render_DepthRange(const Qt3DRender::Render::DepthRange & other) : Qt3DRender::Render::DepthRange(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::DepthRange::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::DepthRange::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render10DepthRange16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::DepthRange *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::DepthRange::~DepthRange()
 extern "C" Q_DECL_EXPORT

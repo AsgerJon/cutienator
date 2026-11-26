@@ -4,6 +4,12 @@
     "QtCore/qvariant.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9QtPrivate19QVariantTypeCoercer7convertERK8QVariantRK9QMetaType": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate19QVariantTypeCoercer6coerceERK8QVariantRK9QMetaType": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN9QtPrivate19QVariantTypeCoercerD1Ev": ["nothing", "address"]
   }
 }

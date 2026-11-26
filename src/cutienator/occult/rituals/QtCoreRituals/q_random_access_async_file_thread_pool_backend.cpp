@@ -13,6 +13,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <cstring>
+#include <QtCore/QSpan>
+#include <cstddef>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/private/qiooperation_p.h>
 #include <QtCore/private/qiooperation_p_p.h>
@@ -32,6 +34,33 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from src/corelib/io/qrandomaccessasyncfile_threadpool.cpp, line 281, as local:qrandomaccessasyncfile_threadpool.cpp:executeRead
+#if QT_CONFIG(thread)
+#if QT_CONFIG(future)
+static QRandomAccessAsyncFileThreadPoolBackend::OperationResult
+executeRead(QFSFileEngine *engine, QBasicMutex *mutex, qint64 offset, char *buffer, qint64 maxSize)
+{
+    QRandomAccessAsyncFileThreadPoolBackend::OperationResult result{0, QIOOperation::Error::None};
+
+    QMutexLocker locker(mutex);
+    if (engine) {
+        if (engine->seek(offset)) {
+            qint64 bytesRead = engine->read(buffer, maxSize);
+            if (bytesRead >= 0)
+                result.bytesProcessed = bytesRead;
+            else
+                result.error = QIOOperation::Error::Read;
+        } else {
+            result.error = QIOOperation::Error::IncorrectOffset;
+        }
+    } else {
+        result.error = QIOOperation::Error::FileNotOpen;
+    }
+    return result;
+}
+#endif  // QT_CONFIG(future)
+#endif  // QT_CONFIG(thread)
 
 //  from src/corelib/io/qiooperation.cpp, line 28, as _ZN19QIOOperationPrivate17operationCompleteEN12QIOOperation5ErrorE
 inline void QIOOperationPrivate::operationComplete(QIOOperation::Error err)
@@ -61,13 +90,6 @@ inline void QIOOperationPrivate::setError(QIOOperation::Error err)
         Q_EMIT q->errorOccurred(err);
         Q_EMIT q->finished();
     }
-}
-
-//  from src/corelib/io/qiooperation.cpp, line 13, as _ZN19QIOOperationPrivateC1EPN9QtPrivate23QIOOperationDataStorageE
-inline QIOOperationPrivate::QIOOperationPrivate(QtPrivate::QIOOperationDataStorage *storage)
-    : dataStorage(storage)
-{
-    Q_ASSERT(storage);
 }
 
 //  from src/corelib/io/qrandomaccessasyncfile_threadpool.cpp, line 78, as _ZN39QRandomAccessAsyncFileThreadPoolBackend4initEv
@@ -216,25 +238,12 @@ inline QIOReadOperation *QRandomAccessAsyncFileThreadPoolBackend::read(qint64 of
 #endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(thread)
 
-//  from src/corelib/io/qrandomaccessasyncfile_threadpool.cpp, line 189, as _ZN39QRandomAccessAsyncFileThreadPoolBackend5writeExRK10QByteArray
-#if QT_CONFIG(thread)
-#if QT_CONFIG(future)
-inline QIOWriteOperation *
-QRandomAccessAsyncFileThreadPoolBackend::write(qint64 offset, const QByteArray &data)
+//  from src/corelib/io/qiooperation.cpp, line 13, as _ZN19QIOOperationPrivateC1EPN9QtPrivate23QIOOperationDataStorageE
+inline QIOOperationPrivate::QIOOperationPrivate(QtPrivate::QIOOperationDataStorage *storage)
+    : dataStorage(storage)
 {
-    auto *dataStorage = new QtPrivate::QIOOperationDataStorage(data);
-
-    auto *priv = new QIOOperationPrivate(dataStorage);
-    priv->offset = offset;
-    priv->type = QIOOperation::Type::Write;
-
-    auto *op = new QIOWriteOperation(*priv, m_owner);
-    m_operations.append(op);
-    executeNextOperation();
-    return op;
+    Q_ASSERT(storage);
 }
-#endif  // QT_CONFIG(future)
-#endif  // QT_CONFIG(thread)
 //  -----------------------------------------------------------------------
 
 //  A QRandomAccessAsyncFileThreadPoolBackend that Python can take functions over in. Every QRandomAccessAsyncFileThreadPoolBackend
@@ -502,6 +511,60 @@ QIOWriteOperation *ritual_ZN39QRandomAccessAsyncFileThreadPoolBackend5writeExRK1
     qint64 offset,
     const QByteArray *data) {
   return self->write(offset, *data);
+}
+
+//  QIOWriteOperation *QRandomAccessAsyncFileThreadPoolBackend::write(qint64
+//      offset, QByteArray &&data)
+extern "C" Q_DECL_EXPORT
+QIOWriteOperation *ritual_ZN39QRandomAccessAsyncFileThreadPoolBackend5writeExO10QByteArray(
+    QRandomAccessAsyncFileThreadPoolBackend *self,
+    qint64 offset,
+    QByteArray *data) {
+  return self->write(offset, std::move(*data));
+}
+
+//  QIOVectoredReadOperation
+//      *QRandomAccessAsyncFileThreadPoolBackend::readInto(qint64 offset,
+//      QSpan<std::byte> buffer)
+extern "C" Q_DECL_EXPORT
+QIOVectoredReadOperation *ritual_ZN39QRandomAccessAsyncFileThreadPoolBackend8readIntoEx5QSpanISt4byteLm18446744073709551615EE(
+    QRandomAccessAsyncFileThreadPoolBackend *self,
+    qint64 offset,
+    const QSpan<std::byte> *buffer) {
+  return self->readInto(offset, *buffer);
+}
+
+//  QIOVectoredWriteOperation
+//      *QRandomAccessAsyncFileThreadPoolBackend::writeFrom(qint64 offset,
+//      QSpan<const std::byte> buffer)
+extern "C" Q_DECL_EXPORT
+QIOVectoredWriteOperation *ritual_ZN39QRandomAccessAsyncFileThreadPoolBackend9writeFromEx5QSpanIKSt4byteLm18446744073709551615EE(
+    QRandomAccessAsyncFileThreadPoolBackend *self,
+    qint64 offset,
+    const QSpan<const std::byte> *buffer) {
+  return self->writeFrom(offset, *buffer);
+}
+
+//  QIOVectoredReadOperation
+//      *QRandomAccessAsyncFileThreadPoolBackend::readInto(qint64 offset,
+//      QSpan<const QSpan<std::byte>> buffers)
+extern "C" Q_DECL_EXPORT
+QIOVectoredReadOperation *ritual_ZN39QRandomAccessAsyncFileThreadPoolBackend8readIntoEx5QSpanIKS0_ISt4byteLm18446744073709551615EELm18446744073709551615EE(
+    QRandomAccessAsyncFileThreadPoolBackend *self,
+    qint64 offset,
+    const QSpan<const QSpan<std::byte>> *buffers) {
+  return self->readInto(offset, *buffers);
+}
+
+//  QIOVectoredWriteOperation
+//      *QRandomAccessAsyncFileThreadPoolBackend::writeFrom(qint64 offset,
+//      QSpan<const QSpan<const std::byte>> buffers)
+extern "C" Q_DECL_EXPORT
+QIOVectoredWriteOperation *ritual_ZN39QRandomAccessAsyncFileThreadPoolBackend9writeFromEx5QSpanIKS0_IKSt4byteLm18446744073709551615EELm18446744073709551615EE(
+    QRandomAccessAsyncFileThreadPoolBackend *self,
+    qint64 offset,
+    const QSpan<const QSpan<const std::byte>> *buffers) {
+  return self->writeFrom(offset, *buffers);
 }
 
 //  a Python function taken by a CuteQRandomAccessAsyncFileThreadPoolBackend,

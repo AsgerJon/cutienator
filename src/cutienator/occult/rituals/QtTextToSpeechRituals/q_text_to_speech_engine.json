@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QTextToSpeechEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QTextToSpeechEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QTextToSpeechEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QTextToSpeechEngine2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -58,6 +64,18 @@
     ],
     "ritual_ZN19QTextToSpeechEngine9voiceDataERK6QVoice": [
       "address", "address"
+    ],
+    "ritual_ZN19QTextToSpeechEngine12stateChangedEN13QTextToSpeech5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QTextToSpeechEngine13errorOccurredEN13QTextToSpeech11ErrorReasonERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN19QTextToSpeechEngine10sayingWordERK7QStringxx": [
+      "nothing", "address", "text", "long long", "long long"
+    ],
+    "ritual_ZN19QTextToSpeechEngine11synthesizedERK12QAudioFormatRK10QByteArray": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_QTextToSpeechEngine": [
       "bool", "address", "chars", "address"

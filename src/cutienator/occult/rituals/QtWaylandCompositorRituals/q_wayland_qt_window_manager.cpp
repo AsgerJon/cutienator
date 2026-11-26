@@ -4,6 +4,7 @@
 #include <QtWaylandCompositor/qwaylandqtwindowmanager.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qurl.h>
 #include <cstring>
 
 //  A QWaylandQtWindowManager that Python can take functions over in. Every QWaylandQtWindowManager
@@ -42,6 +43,25 @@ const QMetaObject *ritual_ZNK23QWaylandQtWindowManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandQtWindowManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QWaylandQtWindowManager11qt_metacastEPKc(
+    QWaylandQtWindowManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQtWindowManager::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QWaylandQtWindowManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQtWindowManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandQtWindowManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QWaylandQtWindowManager2trEPKcS1_i(
@@ -49,6 +69,21 @@ QString *ritual_ZN23QWaylandQtWindowManager2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandQtWindowManager::tr(s, c, n));
+}
+
+//  QWaylandQtWindowManagerPrivate *QWaylandQtWindowManager::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandQtWindowManagerPrivate *ritual_ZN23QWaylandQtWindowManager6d_funcEv(
+    QWaylandQtWindowManager *self) {
+  return self->d_func();
+}
+
+//  const QWaylandQtWindowManagerPrivate *QWaylandQtWindowManager::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QWaylandQtWindowManagerPrivate *ritual_ZNK23QWaylandQtWindowManager6d_funcEv(
+    const QWaylandQtWindowManager *self) {
+  return self->d_func();
 }
 
 //  QWaylandQtWindowManager::QWaylandQtWindowManager()
@@ -95,10 +130,33 @@ void ritual_ZN23QWaylandQtWindowManager10initializeEv(
   self->initialize();
 }
 
+//  const struct wl_interface *QWaylandQtWindowManager::interface()
+extern "C" Q_DECL_EXPORT
+const struct wl_interface *ritual_ZN23QWaylandQtWindowManager9interfaceEv() {
+  return QWaylandQtWindowManager::interface();
+}
+
 //  QByteArray QWaylandQtWindowManager::interfaceName()
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN23QWaylandQtWindowManager13interfaceNameEv() {
   return new QByteArray(QWaylandQtWindowManager::interfaceName());
+}
+
+//  void QWaylandQtWindowManager::showIsFullScreenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWaylandQtWindowManager23showIsFullScreenChangedEv(
+    QWaylandQtWindowManager *self) {
+  self->showIsFullScreenChanged();
+}
+
+//  void QWaylandQtWindowManager::openUrl(QWaylandClient *client, const QUrl
+//      &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QWaylandQtWindowManager7openUrlEP14QWaylandClientRK4QUrl(
+    QWaylandQtWindowManager *self,
+    QWaylandClient *client,
+    const QUrl *url) {
+  self->openUrl(client, *url);
 }
 
 //  a Python function taken by a CuteQWaylandQtWindowManager, for the

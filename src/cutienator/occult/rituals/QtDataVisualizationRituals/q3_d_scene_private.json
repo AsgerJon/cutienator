@@ -6,11 +6,18 @@
   ],
   "rows": {
     "ritual_ZNK15Q3DScenePrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN15Q3DScenePrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15Q3DScenePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15Q3DScenePrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN15Q3DScenePrivateC1EP8Q3DScene": ["address", "address"],
     "ritual_ZN15Q3DScenePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN15Q3DScenePrivate4syncERS_": ["nothing", "address", "address"],
     "ritual_ZN15Q3DScenePrivate11setViewportERK5QRect": [
       "nothing", "address", "address"
     ],
@@ -42,6 +49,7 @@
     "ritual_ZNK15Q3DScenePrivate8isInAreaERK5QRectii": [
       "bool", "address", "address", "int", "int"
     ],
+    "ritual_ZN15Q3DScenePrivate10needRenderEv": ["nothing", "address"],
     "ritual_take_Q3DScenePrivate": ["bool", "address", "chars", "address"]
   }
 }

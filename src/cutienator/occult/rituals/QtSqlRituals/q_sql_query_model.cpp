@@ -6,7 +6,9 @@
 #if QT_CONFIG(sqlmodel)
 #include <QtSql/qsqlquerymodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtSql/qsqlrecord.h>
 #include <QtCore/qvariant.h>
 #include <QtSql/qsqlquery.h>
@@ -1071,6 +1073,24 @@ const QMetaObject *ritual_ZNK14QSqlQueryModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSqlQueryModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QSqlQueryModel11qt_metacastEPKc(
+    QSqlQueryModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSqlQueryModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QSqlQueryModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSqlQueryModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSqlQueryModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QSqlQueryModel2trEPKcS1_i(
@@ -1199,6 +1219,14 @@ void ritual_ZN14QSqlQueryModel8setQueryERK9QSqlQuery(
   self->setQuery(*query);
 }
 #endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 2)
+
+//  void QSqlQueryModel::setQuery(QSqlQuery &&query)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSqlQueryModel8setQueryEO9QSqlQuery(
+    QSqlQueryModel *self,
+    QSqlQuery *query) {
+  self->setQuery(std::move(*query));
+}
 
 //  void QSqlQueryModel::setQuery(const QString &query, const QSqlDatabase
 //      &db)
@@ -1360,6 +1388,15 @@ void ritual_ZN14QSqlQueryModel12setLastErrorERK9QSqlError(
     QSqlQueryModel *self,
     const QSqlError *error) {
   self->setLastError(*error);
+}
+
+//  QSqlQueryModel::QSqlQueryModel(QSqlQueryModelPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QSqlQueryModel *ritual_ZN14QSqlQueryModelC1ER21QSqlQueryModelPrivateP7QObject(
+    QSqlQueryModelPrivate *dd,
+    QObject *parent) {
+  return new CuteQSqlQueryModel(*dd, parent);
 }
 
 //  a Python function taken by a CuteQSqlQueryModel, for the function named

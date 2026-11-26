@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QSerialPort10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QSerialPort11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QSerialPort11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QSerialPort2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QSerialPort6d_funcEv": ["address", "address"],
     "ritual_ZNK11QSerialPort6d_funcEv": ["address", "address"],
@@ -37,18 +43,24 @@
       "bool", "address", "int"
     ],
     "ritual_ZNK11QSerialPort8dataBitsEv": ["int", "address"],
+    "ritual_ZN11QSerialPort16bindableDataBitsEv": ["address", "address"],
     "ritual_ZN11QSerialPort9setParityENS_6ParityE": [
       "bool", "address", "int"
     ],
     "ritual_ZNK11QSerialPort6parityEv": ["int", "address"],
+    "ritual_ZN11QSerialPort14bindableParityEv": ["address", "address"],
     "ritual_ZN11QSerialPort11setStopBitsENS_8StopBitsE": [
       "bool", "address", "int"
     ],
     "ritual_ZNK11QSerialPort8stopBitsEv": ["int", "address"],
+    "ritual_ZN11QSerialPort16bindableStopBitsEN2Qt15Disambiguated_tE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN11QSerialPort14setFlowControlENS_11FlowControlE": [
       "bool", "address", "int"
     ],
     "ritual_ZNK11QSerialPort11flowControlEv": ["int", "address"],
+    "ritual_ZN11QSerialPort19bindableFlowControlEv": ["address", "address"],
     "ritual_ZN11QSerialPort20setDataTerminalReadyEb": [
       "bool", "address", "bool"
     ],
@@ -64,6 +76,7 @@
     ],
     "ritual_ZNK11QSerialPort5errorEv": ["int", "address"],
     "ritual_ZN11QSerialPort10clearErrorEv": ["nothing", "address"],
+    "ritual_ZNK11QSerialPort13bindableErrorEv": ["address", "address"],
     "ritual_ZNK11QSerialPort14readBufferSizeEv": ["long long", "address"],
     "ritual_ZN11QSerialPort17setReadBufferSizeEx": [
       "nothing", "address", "long long"
@@ -82,6 +95,9 @@
     ],
     "ritual_ZN11QSerialPort15setBreakEnabledEb": ["bool", "address", "bool"],
     "ritual_ZNK11QSerialPort14isBreakEnabledEv": ["bool", "address"],
+    "ritual_ZN11QSerialPort22bindableIsBreakEnabledEv": [
+      "address", "address"
+    ],
     "ritual_ZNK11QSerialPort23settingsRestoredOnCloseEv": [
       "bool", "address"
     ],
@@ -89,6 +105,42 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK11QSerialPort6handleEv": ["int", "address"],
+    "ritual_ZN11QSerialPort15baudRateChangedEi6QFlagsINS_9DirectionEE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QSerialPort15dataBitsChangedENS_8DataBitsE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSerialPort13parityChangedENS_6ParityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSerialPort15stopBitsChangedENS_8StopBitsE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSerialPort18flowControlChangedENS_11FlowControlE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSerialPort24dataTerminalReadyChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QSerialPort20requestToSendChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QSerialPort13errorOccurredENS_15SerialPortErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSerialPort19breakEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QSerialPort30settingsRestoredOnCloseChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QSerialPort8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN11QSerialPort12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN11QSerialPort9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
@@ -108,6 +160,28 @@
     ],
     "ritual_own_ZN11QSerialPort19waitForBytesWrittenEi": [
       "bool", "address", "int"
-    ]
+    ],
+    "ritual_own_ZN11QSerialPort8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_own_ZN11QSerialPort12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_drop_QSerialPort__QBindable_QSerialPort_DataBits": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSerialPort__QBindable_QSerialPort_Parity": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSerialPort__QBindable_QSerialPort_StopBits": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSerialPort__QBindable_QSerialPort_FlowControl": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSerialPort__QBindable_QSerialPort_SerialPortError": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSerialPort__QBindable_bool": ["nothing", "address"]
   }
 }

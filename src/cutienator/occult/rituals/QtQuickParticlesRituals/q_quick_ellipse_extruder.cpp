@@ -17,6 +17,25 @@ const QMetaObject *ritual_ZNK21QQuickEllipseExtruder10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickEllipseExtruder::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickEllipseExtruder11qt_metacastEPKc(
+    QQuickEllipseExtruder *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickEllipseExtruder::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickEllipseExtruder11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickEllipseExtruder *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickEllipseExtruder::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickEllipseExtruder2trEPKcS1_i(
@@ -56,6 +75,14 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QQuickEllipseExtruder4fillEv(
     const QQuickEllipseExtruder *self) {
   return self->fill();
+}
+
+//  void QQuickEllipseExtruder::fillChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickEllipseExtruder11fillChangedEb(
+    QQuickEllipseExtruder *self,
+    bool arg) {
+  self->fillChanged(arg);
 }
 
 //  void QQuickEllipseExtruder::setFill(bool arg)

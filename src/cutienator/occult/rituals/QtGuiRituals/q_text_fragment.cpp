@@ -28,6 +28,14 @@ QTextFragment *ritual_ZN13QTextFragmentC1ERKS_(const QTextFragment *o) {
   return new QTextFragment(*o);
 }
 
+//  QTextFragment &QTextFragment::operator=(const QTextFragment &o)
+extern "C" Q_DECL_EXPORT
+QTextFragment *ritual_ZN13QTextFragmentaSERKS_(
+    QTextFragment *self,
+    const QTextFragment *o) {
+  return &(self->operator=(*o));
+}
+
 //  bool QTextFragment::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QTextFragment7isValidEv(const QTextFragment *self) {

@@ -13,6 +13,9 @@
       "address", "address"
     ],
     "ritual_ZN21QTextDocumentFragmentC1ERKS_": ["address", "address"],
+    "ritual_ZN21QTextDocumentFragmentaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QTextDocumentFragmentD1Ev": ["nothing", "address"],
     "ritual_ZNK21QTextDocumentFragment7isEmptyEv": ["bool", "address"],
     "ritual_ZNK21QTextDocumentFragment11toPlainTextEv": ["text", "address"],

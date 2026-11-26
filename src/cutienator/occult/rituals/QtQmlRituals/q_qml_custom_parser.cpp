@@ -34,6 +34,29 @@ int ritual_ZNK16QQmlCustomParser5flagsEv(const QQmlCustomParser *self) {
   return static_cast<int>(self->flags().toInt());
 }
 
+//  void QQmlCustomParser::verifyBindings(const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &a0, const
+//      QList<const QV4::CompiledData::Binding *> &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlCustomParser14verifyBindingsERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEERK5QListIPKNS2_7BindingEE(
+    QQmlCustomParser *self,
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *a0,
+    const QList<const QV4::CompiledData::Binding *> *a1) {
+  self->verifyBindings(*a0, *a1);
+}
+
+//  void QQmlCustomParser::applyBindings(QObject *a0, const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &a1, const QList<const
+//      QV4::CompiledData::Binding *> &a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlCustomParser13applyBindingsEP7QObjectRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERK5QListIPKNS3_12CompiledData7BindingEE(
+    QQmlCustomParser *self,
+    QObject *a0,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *a1,
+    const QList<const QV4::CompiledData::Binding *> *a2) {
+  self->applyBindings(a0, *a1, *a2);
+}
+
 //  QList<QQmlError> QQmlCustomParser::errors() const
 extern "C" Q_DECL_EXPORT
 QList<QQmlError> *ritual_ZNK16QQmlCustomParser6errorsEv(

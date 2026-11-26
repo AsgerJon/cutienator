@@ -5,6 +5,8 @@
 #include <QtGui/qaccessible.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtGui/QAccessible>
 
 //  A QAccessibleAttributesInterface that Python can take functions over in. Every QAccessibleAttributesInterface
 //  Python makes is one. Each function below asks the Python
@@ -50,6 +52,14 @@ void ritual_ZN30QAccessibleAttributesInterfaceD1Ev(
   delete self;
 }
 
+//  QList<QAccessible::Attribute>
+//      QAccessibleAttributesInterface::attributeKeys() const
+extern "C" Q_DECL_EXPORT
+QList<QAccessible::Attribute> *ritual_ZNK30QAccessibleAttributesInterface13attributeKeysEv(
+    const QAccessibleAttributesInterface *self) {
+  return new QList<QAccessible::Attribute>(self->attributeKeys());
+}
+
 //  QVariant
 //      QAccessibleAttributesInterface::attributeValue(QAccessible::Attribute
 //      key) const
@@ -68,6 +78,14 @@ bool ritual_take_QAccessibleAttributesInterface(
     const char *key,
     void *call) {
   return static_cast<CuteQAccessibleAttributesInterface *>(self)->take(key, call);
+}
+
+//  a QList<QAccessible::Attribute> a ritual of
+//      QAccessibleAttributesInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessibleAttributesInterface__QList_QAccessible_Attribute(
+    QList<QAccessible::Attribute> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(accessibility)

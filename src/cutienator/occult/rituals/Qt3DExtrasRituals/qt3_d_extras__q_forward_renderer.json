@@ -8,8 +8,97 @@
     "ritual_ZNK10Qt3DExtras16QForwardRenderer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras16QForwardRenderer2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRendererC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRendererD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras16QForwardRenderer12viewportRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras16QForwardRenderer10clearColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras16QForwardRenderer14buffersToClearEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras16QForwardRenderer6cameraEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras16QForwardRenderer7surfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras16QForwardRenderer24externalRenderTargetSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras16QForwardRenderer23isFrustumCullingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras16QForwardRenderer5gammaEv": ["float", "address"],
+    "ritual_ZNK10Qt3DExtras16QForwardRenderer16showDebugOverlayEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer15setViewportRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer13setClearColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer17setBuffersToClearEN10Qt3DRender13QClearBuffers10BufferTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer9setCameraEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer10setSurfaceEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer27setExternalRenderTargetSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer24setFrustumCullingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer8setGammaEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer19setShowDebugOverlayEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer19viewportRectChangedERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer17clearColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer21buffersToClearChangedEN10Qt3DRender13QClearBuffers10BufferTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer13cameraChangedEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer14surfaceChangedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer31externalRenderTargetSizeChangedERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer28frustumCullingEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer12gammaChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras16QForwardRenderer23showDebugOverlayChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN10Qt3DExtras16QForwardRenderer6d_funcEv": [
       "address", "address"

@@ -12,6 +12,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPrintSupport/qprinterinfo.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/QList>
+#include <QtGui/QPicture>
 
 //  QPrinter *QPrinterPrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -85,6 +87,15 @@ void ritual_ZN15QPrinterPrivate13changeEnginesEN8QPrinter12OutputFormatERK12QPri
 }
 
 #if QT_CONFIG(printpreviewwidget)
+//  QList<const QPicture *> QPrinterPrivate::previewPages() const
+extern "C" Q_DECL_EXPORT
+QList<const QPicture *> *ritual_ZNK15QPrinterPrivate12previewPagesEv(
+    const QPrinterPrivate *self) {
+  return new QList<const QPicture *>(self->previewPages());
+}
+#endif  // QT_CONFIG(printpreviewwidget)
+
+#if QT_CONFIG(printpreviewwidget)
 //  void QPrinterPrivate::setPreviewMode(bool a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QPrinterPrivate14setPreviewModeEb(
@@ -111,6 +122,13 @@ void ritual_ZN15QPrinterPrivate11setPropertyEN12QPrintEngine22PrintEnginePropert
     QPrintEngine::PrintEnginePropertyKey key,
     const QVariant *value) {
   self->setProperty(key, *value);
+}
+
+//  a QList<const QPicture *> a ritual of QPrinterPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPrinterPrivate__QList_const_QPicture(
+    QList<const QPicture *> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_PRINTER)

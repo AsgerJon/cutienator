@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qrect.h>
 #include <cstring>
 
 //  A QSvgPolyline that Python can take functions over in. Every QSvgPolyline
@@ -100,10 +101,49 @@ bool ritual_ZNK12QSvgPolyline18separateFillStrokeEPK8QPainterRK15QSvgExtraStates
   return self->separateFillStroke(a0, *a1);
 }
 
+//  void QSvgPolyline::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QSvgPolyline11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgPolyline *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
 //  Type QSvgPolyline::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK12QSvgPolyline4typeEv(const QSvgPolyline *self) {
   return self->type();
+}
+
+//  QRectF QSvgPolyline::internalFastBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK12QSvgPolyline18internalFastBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgPolyline *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalFastBounds(p, *states));
+}
+
+//  QRectF QSvgPolyline::internalBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK12QSvgPolyline14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgPolyline *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
+}
+
+//  QRectF QSvgPolyline::decoratedInternalBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK12QSvgPolyline23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgPolyline *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedInternalBounds(p, *states));
 }
 
 //  bool QSvgPolyline::requiresGroupRendering() const
@@ -117,6 +157,17 @@ bool ritual_ZNK12QSvgPolyline22requiresGroupRenderingEv(
 extern "C" Q_DECL_EXPORT
 QPolygonF *ritual_ZNK12QSvgPolyline7polygonEv(const QSvgPolyline *self) {
   return new QPolygonF(self->polygon());
+}
+
+//  QRectF QSvgPolyline::internalBounds(QPainter *p, QSvgExtraStates &states,
+//      BoundsMode mode) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK12QSvgPolyline14internalBoundsEP8QPainterR15QSvgExtraStatesN8QSvgNode10BoundsModeE(
+    const QSvgPolyline *self,
+    QPainter *p,
+    QSvgExtraStates *states,
+    QSvgNode::BoundsMode mode) {
+  return new QRectF(self->internalBounds(p, *states, mode));
 }
 
 //  a Python function taken by a CuteQSvgPolyline, for the function named by

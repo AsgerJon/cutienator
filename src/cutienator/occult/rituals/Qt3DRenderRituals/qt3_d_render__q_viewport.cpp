@@ -2,6 +2,7 @@
 //  Qt3DRender/qviewport.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qviewport.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender9QViewport10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QViewport::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender9QViewport11qt_metacastEPKc(
+    Qt3DRender::QViewport *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QViewport::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender9QViewport11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QViewport *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QViewport::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender9QViewport2trEPKcS2_i(
@@ -186,6 +206,76 @@ QString *ritual_ZN10Qt3DRender9QViewport2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QViewport::tr(s, c, n));
+}
+
+//  Qt3DRender::QViewport::QViewport(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QViewport *ritual_ZN10Qt3DRender9QViewportC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QViewport(parent);
+}
+
+//  Qt3DRender::QViewport::~QViewport()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QViewportD1Ev(Qt3DRender::QViewport *self) {
+  delete self;
+}
+
+//  QRectF Qt3DRender::QViewport::normalizedRect() const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK10Qt3DRender9QViewport14normalizedRectEv(
+    const Qt3DRender::QViewport *self) {
+  return new QRectF(self->normalizedRect());
+}
+
+//  float Qt3DRender::QViewport::gamma() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender9QViewport5gammaEv(
+    const Qt3DRender::QViewport *self) {
+  return self->gamma();
+}
+
+//  void Qt3DRender::QViewport::setNormalizedRect(const QRectF
+//      &normalizedRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QViewport17setNormalizedRectERK6QRectF(
+    Qt3DRender::QViewport *self,
+    const QRectF *normalizedRect) {
+  self->setNormalizedRect(*normalizedRect);
+}
+
+//  void Qt3DRender::QViewport::setGamma(float gamma)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QViewport8setGammaEf(
+    Qt3DRender::QViewport *self,
+    float gamma) {
+  self->setGamma(gamma);
+}
+
+//  void Qt3DRender::QViewport::normalizedRectChanged(const QRectF
+//      &normalizedRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QViewport21normalizedRectChangedERK6QRectF(
+    Qt3DRender::QViewport *self,
+    const QRectF *normalizedRect) {
+  self->normalizedRectChanged(*normalizedRect);
+}
+
+//  void Qt3DRender::QViewport::gammaChanged(float gamma)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QViewport12gammaChangedEf(
+    Qt3DRender::QViewport *self,
+    float gamma) {
+  self->gammaChanged(gamma);
+}
+
+//  Qt3DRender::QViewport::QViewport(QViewportPrivate &dd, Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QViewport *ritual_ZN10Qt3DRender9QViewportC1ERNS_16QViewportPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QViewportPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QViewport(*dd, parent);
 }
 
 //  QViewportPrivate *Qt3DRender::QViewport::d_func()

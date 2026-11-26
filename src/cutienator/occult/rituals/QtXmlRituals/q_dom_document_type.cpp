@@ -19,6 +19,15 @@ QDomDocumentType *ritual_ZN16QDomDocumentTypeC1ERKS_(
   return new QDomDocumentType(*documentType);
 }
 
+//  QDomDocumentType &QDomDocumentType::operator=(const QDomDocumentType
+//      &other)
+extern "C" Q_DECL_EXPORT
+QDomDocumentType *ritual_ZN16QDomDocumentTypeaSERKS_(
+    QDomDocumentType *self,
+    const QDomDocumentType *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QDomDocumentType::name() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK16QDomDocumentType4nameEv(const QDomDocumentType *self) {

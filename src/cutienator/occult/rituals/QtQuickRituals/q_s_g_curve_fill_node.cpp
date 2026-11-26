@@ -14,12 +14,35 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qvectornd.h>
 #include <QtQuick/qsggeometry.h>
+#include <functional>
+#include <QtGui/QVector3D>
+#include <QtGui/QVector2D>
+#include <QtCore/QList>
 
 //  const QMetaObject *QSGCurveFillNode::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QSGCurveFillNode10metaObjectEv(
     const QSGCurveFillNode *self) {
   return self->metaObject();
+}
+
+//  void *QSGCurveFillNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QSGCurveFillNode11qt_metacastEPKc(
+    QSGCurveFillNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGCurveFillNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QSGCurveFillNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGCurveFillNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QSGCurveFillNode::tr(const char *s, const char *c, int n)
@@ -128,6 +151,18 @@ void ritual_ZN16QSGCurveFillNode8setDebugEf(
   self->setDebug(newDebug);
 }
 
+//  void QSGCurveFillNode::appendTriangle(const std::array<QVector2D, 3> &v,
+//      const std::array<QVector2D, 3> &n, std::function<QVector3D
+//      (QVector2D)> uvForPoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGCurveFillNode14appendTriangleERKSt5arrayI9QVector2DLm3EES4_St8functionIF9QVector3DS1_EE(
+    QSGCurveFillNode *self,
+    const std::array<QVector2D, 3> *v,
+    const std::array<QVector2D, 3> *n,
+    const std::function<QVector3D (QVector2D)> *uvForPoint) {
+  self->appendTriangle(*v, *n, *uvForPoint);
+}
+
 //  void QSGCurveFillNode::appendTriangle(const QVector2D &v1, const
 //      QVector2D &v2, const QVector2D &v3, const QVector3D &uv1, const
 //      QVector3D &uv2, const QVector3D &uv3, const QVector2D &n1, const
@@ -159,6 +194,26 @@ void ritual_ZN16QSGCurveFillNode14appendTriangleERK9QVector2DS2_S2_RK9QVector3DS
       *n3,
       *duvdx,
       *duvdy);
+}
+
+//  void QSGCurveFillNode::appendTriangle(const QVector2D &v1, const
+//      QVector2D &v2, const QVector2D &v3, std::function<QVector3D
+//      (QVector2D)> uvForPoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGCurveFillNode14appendTriangleERK9QVector2DS2_S2_St8functionIF9QVector3DS0_EE(
+    QSGCurveFillNode *self,
+    const QVector2D *v1,
+    const QVector2D *v2,
+    const QVector2D *v3,
+    const std::function<QVector3D (QVector2D)> *uvForPoint) {
+  self->appendTriangle(*v1, *v2, *v3, *uvForPoint);
+}
+
+//  QList<quint32> QSGCurveFillNode::uncookedIndexes() const
+extern "C" Q_DECL_EXPORT
+QList<quint32> *ritual_ZNK16QSGCurveFillNode15uncookedIndexesEv(
+    const QSGCurveFillNode *self) {
+  return new QList<quint32>(self->uncookedIndexes());
 }
 
 //  void QSGCurveFillNode::cookGeometry()
@@ -273,4 +328,10 @@ void ritual_own_ZN16QSGCurveFillNode25setUseStandardDerivativesEb(
     QSGCurveFillNode *self,
     bool useStandardDerivatives) {
   self->QSGCurveFillNode::setUseStandardDerivatives(useStandardDerivatives);
+}
+
+//  a QList<quint32> a ritual of QSGCurveFillNode gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSGCurveFillNode__QList_quint32(QList<quint32> *self) {
+  delete self;
 }

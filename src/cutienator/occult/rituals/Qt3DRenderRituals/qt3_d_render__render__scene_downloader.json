@@ -5,7 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render15SceneDownloaderC1ERK4QUrlN8Qt3DCore7QNodeIdEPNS0_12SceneManagerE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15SceneDownloader11onCompletedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render15SceneDownloaderD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render15SceneDownloader11onCompletedEv": [
       "nothing", "address"
     ]
   }

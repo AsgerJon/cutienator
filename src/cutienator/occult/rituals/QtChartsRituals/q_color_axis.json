@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QColorAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QColorAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QColorAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QColorAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QColorAxisC1EP7QObject": ["address", "address"],
     "ritual_ZN10QColorAxisD1Ev": ["nothing", "address"],
@@ -26,6 +32,24 @@
     "ritual_ZNK10QColorAxis8gradientEv": ["address", "address"],
     "ritual_ZN10QColorAxis12setAutoRangeEb": ["nothing", "address", "bool"],
     "ritual_ZNK10QColorAxis9autoRangeEv": ["bool", "address"],
+    "ritual_ZN10QColorAxis10minChangedEd": ["nothing", "address", "double"],
+    "ritual_ZN10QColorAxis10maxChangedEd": ["nothing", "address", "double"],
+    "ritual_ZN10QColorAxis12rangeChangedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN10QColorAxis16tickCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QColorAxis15gradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QColorAxis11sizeChangedEd": ["nothing", "address", "double"],
+    "ritual_ZN10QColorAxis16autoRangeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QColorAxisC1ER17QColorAxisPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10QColorAxis6d_funcEv": ["address", "address"],
     "ritual_ZNK10QColorAxis6d_funcEv": ["address", "address"],
     "ritual_take_QColorAxis": ["bool", "address", "chars", "address"],

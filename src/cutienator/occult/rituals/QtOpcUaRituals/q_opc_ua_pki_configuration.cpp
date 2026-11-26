@@ -24,6 +24,15 @@ QOpcUaPkiConfiguration *ritual_ZN22QOpcUaPkiConfigurationC1ERKS_(
   return new QOpcUaPkiConfiguration(*other);
 }
 
+//  QOpcUaPkiConfiguration &QOpcUaPkiConfiguration::operator=(const
+//      QOpcUaPkiConfiguration &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaPkiConfiguration *ritual_ZN22QOpcUaPkiConfigurationaSERKS_(
+    QOpcUaPkiConfiguration *self,
+    const QOpcUaPkiConfiguration *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QString QOpcUaPkiConfiguration::clientCertificateFile() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK22QOpcUaPkiConfiguration21clientCertificateFileEv(

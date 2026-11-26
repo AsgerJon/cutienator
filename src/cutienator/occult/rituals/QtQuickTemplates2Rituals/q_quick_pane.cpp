@@ -1070,6 +1070,24 @@ const QMetaObject *ritual_ZNK10QQuickPane10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPane::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickPane11qt_metacastEPKc(
+    QQuickPane *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPane::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQuickPane11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPane *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPane::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQuickPane2trEPKcS1_i(
@@ -1129,6 +1147,32 @@ void ritual_ZN10QQuickPane16setContentHeightEd(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickPane18resetContentHeightEv(QQuickPane *self) {
   self->resetContentHeight();
+}
+
+//  void QQuickPane::contentWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPane19contentWidthChangedEv(QQuickPane *self) {
+  self->contentWidthChanged();
+}
+
+//  void QQuickPane::contentHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPane20contentHeightChangedEv(QQuickPane *self) {
+  self->contentHeightChanged();
+}
+
+//  void QQuickPane::contentChildrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPane22contentChildrenChangedEv(QQuickPane *self) {
+  self->contentChildrenChanged();
+}
+
+//  QQuickPane::QQuickPane(QQuickPanePrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPane *ritual_ZN10QQuickPaneC1ER17QQuickPanePrivateP10QQuickItem(
+    QQuickPanePrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickPane(*dd, parent);
 }
 
 //  void QQuickPane::componentComplete()

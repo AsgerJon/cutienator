@@ -1163,6 +1163,24 @@ const QMetaObject *ritual_ZNK14QQuickComboBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickComboBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickComboBox11qt_metacastEPKc(
+    QQuickComboBox *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickComboBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickComboBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickComboBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickComboBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickComboBox2trEPKcS1_i(
@@ -1589,6 +1607,200 @@ void ritual_ZN14QQuickComboBox9selectAllEv(QQuickComboBox *self) {
   self->selectAll();
 }
 
+//  void QQuickComboBox::activated(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox9activatedEi(QQuickComboBox *self, int index) {
+  self->activated(index);
+}
+
+//  void QQuickComboBox::highlighted(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox11highlightedEi(
+    QQuickComboBox *self,
+    int index) {
+  self->highlighted(index);
+}
+
+//  void QQuickComboBox::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox12countChangedEv(QQuickComboBox *self) {
+  self->countChanged();
+}
+
+//  void QQuickComboBox::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox12modelChangedEv(QQuickComboBox *self) {
+  self->modelChanged();
+}
+
+//  void QQuickComboBox::delegateModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox20delegateModelChangedEv(
+    QQuickComboBox *self) {
+  self->delegateModelChanged();
+}
+
+//  void QQuickComboBox::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox14pressedChangedEv(QQuickComboBox *self) {
+  self->pressedChanged();
+}
+
+//  void QQuickComboBox::highlightedIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox23highlightedIndexChangedEv(
+    QQuickComboBox *self) {
+  self->highlightedIndexChanged();
+}
+
+//  void QQuickComboBox::currentIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox19currentIndexChangedEv(QQuickComboBox *self) {
+  self->currentIndexChanged();
+}
+
+//  void QQuickComboBox::currentTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox18currentTextChangedEv(QQuickComboBox *self) {
+  self->currentTextChanged();
+}
+
+//  void QQuickComboBox::displayTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox18displayTextChangedEv(QQuickComboBox *self) {
+  self->displayTextChanged();
+}
+
+//  void QQuickComboBox::textRoleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox15textRoleChangedEv(QQuickComboBox *self) {
+  self->textRoleChanged();
+}
+
+//  void QQuickComboBox::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox15delegateChangedEv(QQuickComboBox *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickComboBox::indicatorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox16indicatorChangedEv(QQuickComboBox *self) {
+  self->indicatorChanged();
+}
+
+//  void QQuickComboBox::popupChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox12popupChangedEv(QQuickComboBox *self) {
+  self->popupChanged();
+}
+
+//  void QQuickComboBox::flatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox11flatChangedEv(QQuickComboBox *self) {
+  self->flatChanged();
+}
+
+//  void QQuickComboBox::accepted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox8acceptedEv(QQuickComboBox *self) {
+  self->accepted();
+}
+
+//  void QQuickComboBox::downChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox11downChangedEv(QQuickComboBox *self) {
+  self->downChanged();
+}
+
+//  void QQuickComboBox::editableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox15editableChangedEv(QQuickComboBox *self) {
+  self->editableChanged();
+}
+
+//  void QQuickComboBox::editTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox15editTextChangedEv(QQuickComboBox *self) {
+  self->editTextChanged();
+}
+
+#if QT_CONFIG(validator)
+//  void QQuickComboBox::validatorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox16validatorChangedEv(QQuickComboBox *self) {
+  self->validatorChanged();
+}
+#endif  // QT_CONFIG(validator)
+
+//  void QQuickComboBox::inputMethodHintsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox23inputMethodHintsChangedEv(
+    QQuickComboBox *self) {
+  self->inputMethodHintsChanged();
+}
+
+//  void QQuickComboBox::inputMethodComposingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox27inputMethodComposingChangedEv(
+    QQuickComboBox *self) {
+  self->inputMethodComposingChanged();
+}
+
+//  void QQuickComboBox::acceptableInputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox22acceptableInputChangedEv(
+    QQuickComboBox *self) {
+  self->acceptableInputChanged();
+}
+
+//  void QQuickComboBox::implicitIndicatorWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox29implicitIndicatorWidthChangedEv(
+    QQuickComboBox *self) {
+  self->implicitIndicatorWidthChanged();
+}
+
+//  void QQuickComboBox::implicitIndicatorHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox30implicitIndicatorHeightChangedEv(
+    QQuickComboBox *self) {
+  self->implicitIndicatorHeightChanged();
+}
+
+//  void QQuickComboBox::valueRoleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox16valueRoleChangedEv(QQuickComboBox *self) {
+  self->valueRoleChanged();
+}
+
+//  void QQuickComboBox::currentValueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox19currentValueChangedEv(QQuickComboBox *self) {
+  self->currentValueChanged();
+}
+
+//  void QQuickComboBox::selectTextByMouseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox24selectTextByMouseChangedEv(
+    QQuickComboBox *self) {
+  self->selectTextByMouseChanged();
+}
+
+//  void QQuickComboBox::implicitContentWidthPolicyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox33implicitContentWidthPolicyChangedEv(
+    QQuickComboBox *self) {
+  self->implicitContentWidthPolicyChanged();
+}
+
+//  void QQuickComboBox::highlightOnHoverChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickComboBox23highlightOnHoverChangedEv(
+    QQuickComboBox *self) {
+  self->highlightOnHoverChanged();
+}
+
 //  bool QQuickComboBox::eventFilter(QObject *object, QEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN14QQuickComboBox11eventFilterEP7QObjectP6QEvent(
@@ -1729,6 +1941,20 @@ void ritual_ZN14QQuickComboBox26accessibilityActiveChangedEb(
   self->accessibilityActiveChanged(active);
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickComboBoxPrivate *QQuickComboBox::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickComboBoxPrivate *ritual_ZN14QQuickComboBox6d_funcEv(
+    QQuickComboBox *self) {
+  return self->d_func();
+}
+
+//  const QQuickComboBoxPrivate *QQuickComboBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickComboBoxPrivate *ritual_ZNK14QQuickComboBox6d_funcEv(
+    const QQuickComboBox *self) {
+  return self->d_func();
+}
 
 //  a Python function taken by a CuteQQuickComboBox, for the function named
 //      by the key

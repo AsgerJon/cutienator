@@ -27,6 +27,25 @@ const QMetaObject *ritual_ZNK16QQuickFileDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFileDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickFileDialog11qt_metacastEPKc(
+    QQuickFileDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFileDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickFileDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFileDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFileDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickFileDialog2trEPKcS1_i(
@@ -252,6 +271,81 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickFileDialog16resetRejectLabelEv(
     QQuickFileDialog *self) {
   self->resetRejectLabel();
+}
+
+//  void QQuickFileDialog::fileModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog15fileModeChangedEv(QQuickFileDialog *self) {
+  self->fileModeChanged();
+}
+
+//  void QQuickFileDialog::selectedFileChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog19selectedFileChangedEv(
+    QQuickFileDialog *self) {
+  self->selectedFileChanged();
+}
+
+//  void QQuickFileDialog::selectedFilesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog20selectedFilesChangedEv(
+    QQuickFileDialog *self) {
+  self->selectedFilesChanged();
+}
+
+//  void QQuickFileDialog::currentFileChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog18currentFileChangedEv(
+    QQuickFileDialog *self) {
+  self->currentFileChanged();
+}
+
+//  void QQuickFileDialog::currentFilesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog19currentFilesChangedEv(
+    QQuickFileDialog *self) {
+  self->currentFilesChanged();
+}
+
+//  void QQuickFileDialog::currentFolderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog20currentFolderChangedEv(
+    QQuickFileDialog *self) {
+  self->currentFolderChanged();
+}
+
+//  void QQuickFileDialog::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog14optionsChangedEv(QQuickFileDialog *self) {
+  self->optionsChanged();
+}
+
+//  void QQuickFileDialog::nameFiltersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog18nameFiltersChangedEv(
+    QQuickFileDialog *self) {
+  self->nameFiltersChanged();
+}
+
+//  void QQuickFileDialog::defaultSuffixChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog20defaultSuffixChangedEv(
+    QQuickFileDialog *self) {
+  self->defaultSuffixChanged();
+}
+
+//  void QQuickFileDialog::acceptLabelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog18acceptLabelChangedEv(
+    QQuickFileDialog *self) {
+  self->acceptLabelChanged();
+}
+
+//  void QQuickFileDialog::rejectLabelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFileDialog18rejectLabelChangedEv(
+    QQuickFileDialog *self) {
+  self->rejectLabelChanged();
 }
 
 //  bool QQuickFileDialog::useNativeDialog() const

@@ -6,8 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK20QPlatformAudioSource10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QPlatformAudioSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QPlatformAudioSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QPlatformAudioSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QPlatformAudioSourceC1E12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZN20QPlatformAudioSourceD1Ev": ["nothing", "address"],
     "ritual_ZN20QPlatformAudioSource5startEP9QIODevice": [
@@ -24,18 +33,33 @@
     "ritual_ZN20QPlatformAudioSource13setBufferSizeEx": [
       "nothing", "address", "long long"
     ],
+    "ritual_ZN20QPlatformAudioSource21setNativePeriodFramesESt8optionalIN19QtMultimediaPrivate18NativePeriodFramesEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QPlatformAudioSource18nativePeriodFramesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QPlatformAudioSource10bufferSizeEv": [
       "long long", "address"
     ],
     "ritual_ZNK20QPlatformAudioSource14processedUSecsEv": [
       "long long", "address"
     ],
+    "ritual_ZN20QPlatformAudioSource5startEOSt7variantIJSt8functionIFv5QSpanIKfLm18446744073709551615EEEES1_IFvS2_IKhLm18446744073709551615EEEES1_IFvS2_IKsLm18446744073709551615EEEES1_IFvS2_IKiLm18446744073709551615EEEEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QPlatformAudioSource14hasCallbackAPIEv": ["bool", "address"],
+    "ritual_ZN20QPlatformAudioSource3getERK12QAudioSource": [
+      "address", "address"
+    ],
     "ritual_take_QPlatformAudioSource": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN20QPlatformAudioSource14hasCallbackAPIEv": [
       "bool", "address"
+    ],
+    "ritual_drop_QPlatformAudioSource__std_optional_QPlatformAudioEndpointBase_NativePeriodFrames": [
+      "nothing", "address"
     ]
   }
 }

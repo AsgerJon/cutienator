@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QCalendarWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QCalendarWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QCalendarWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QCalendarWidget2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -66,6 +72,7 @@
     "ritual_ZN15QCalendarWidget20setWeekdayTextFormatEN2Qt9DayOfWeekERK15QTextCharFormat": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZNK15QCalendarWidget14dateTextFormatEv": ["address", "address"],
     "ritual_ZNK15QCalendarWidget14dateTextFormatE5QDate": [
       "address", "address", "address"
     ],
@@ -125,6 +132,18 @@
     "ritual_ZN15QCalendarWidget16showPreviousYearEv": ["nothing", "address"],
     "ritual_ZN15QCalendarWidget16showSelectedDateEv": ["nothing", "address"],
     "ritual_ZN15QCalendarWidget9showTodayEv": ["nothing", "address"],
+    "ritual_ZN15QCalendarWidget16selectionChangedEv": ["nothing", "address"],
+    "ritual_ZN15QCalendarWidget7clickedE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget9activatedE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget18currentPageChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QCalendarWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QCalendarWidget6d_funcEv": ["address", "address"],
     "ritual_take_QCalendarWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QCalendarWidget8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK15QCalendarWidget15minimumSizeHintEv": [
@@ -147,6 +166,9 @@
     ],
     "ritual_own_ZNK15QCalendarWidget9paintCellEP8QPainterRK5QRect5QDate": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_drop_QCalendarWidget__QMap_QDate_QTextCharFormat": [
+      "nothing", "address"
     ]
   }
 }

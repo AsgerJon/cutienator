@@ -200,6 +200,9 @@
     "ritual_ZN20QAbstractFormBuilder11propertyMapERK5QListIP11DomPropertyE": [
       "address", "address"
     ],
+    "ritual_ZN20QAbstractFormBuilder15setupColorGroupER8QPaletteNS0_10ColorGroupEP13DomColorGroup": [
+      "nothing", "address", "address", "int", "address"
+    ],
     "ritual_ZN20QAbstractFormBuilder14saveColorGroupERK8QPalette": [
       "address", "address", "address"
     ],
@@ -214,6 +217,12 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN20QAbstractFormBuilder19toolBarAreaMetaEnumEv": ["address"],
+    "ritual_ZNK20QAbstractFormBuilder15setIconPropertyER11DomPropertyRKSt4pairI7QStringS3_E": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QAbstractFormBuilder17setPixmapPropertyER11DomPropertyRKSt4pairI7QStringS3_E": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN20QAbstractFormBuilder9domPixmapEPK11DomProperty": [
       "address", "address"
     ],

@@ -121,6 +121,12 @@ void ritual_ZN16QNativeInterface7Private10QXcbWindowD1Ev(
   delete self;
 }
 
+//  QNativeInterface::Private::QXcbWindow::QXcbWindow()
+extern "C" Q_DECL_EXPORT
+QNativeInterface::Private::QXcbWindow *ritual_ZN16QNativeInterface7Private10QXcbWindowC1Ev() {
+  return new CuteQNativeInterface_Private_QXcbWindow();
+}
+
 //  void QNativeInterface::Private::QXcbWindow::setWindowType(WindowTypes
 //      type)
 extern "C" Q_DECL_EXPORT

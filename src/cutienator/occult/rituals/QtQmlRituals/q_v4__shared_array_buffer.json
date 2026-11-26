@@ -20,6 +20,7 @@
     "ritual_ZNK3QV417SharedArrayBuffer15arrayDataLengthEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZN3QV417SharedArrayBuffer9arrayDataEv": ["address", "address"],
     "ritual_ZNK3QV417SharedArrayBuffer14constArrayDataEv": [
       "chars", "address"
     ],

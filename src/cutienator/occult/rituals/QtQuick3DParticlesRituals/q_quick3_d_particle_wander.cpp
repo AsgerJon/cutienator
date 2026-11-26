@@ -25,6 +25,25 @@ const QMetaObject *ritual_ZNK22QQuick3DParticleWander10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleWander::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuick3DParticleWander11qt_metacastEPKc(
+    QQuick3DParticleWander *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleWander::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuick3DParticleWander11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleWander *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleWander::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuick3DParticleWander2trEPKcS1_i(
@@ -179,6 +198,69 @@ void ritual_ZN22QQuick3DParticleWander18setFadeOutDurationEi(
     QQuick3DParticleWander *self,
     int fadeOutDuration) {
   self->setFadeOutDuration(fadeOutDuration);
+}
+
+//  void QQuick3DParticleWander::globalAmountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleWander19globalAmountChangedEv(
+    QQuick3DParticleWander *self) {
+  self->globalAmountChanged();
+}
+
+//  void QQuick3DParticleWander::globalPaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleWander17globalPaceChangedEv(
+    QQuick3DParticleWander *self) {
+  self->globalPaceChanged();
+}
+
+//  void QQuick3DParticleWander::globalPaceStartChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleWander22globalPaceStartChangedEv(
+    QQuick3DParticleWander *self) {
+  self->globalPaceStartChanged();
+}
+
+//  void QQuick3DParticleWander::uniqueAmountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleWander19uniqueAmountChangedEv(
+    QQuick3DParticleWander *self) {
+  self->uniqueAmountChanged();
+}
+
+//  void QQuick3DParticleWander::uniquePaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleWander17uniquePaceChangedEv(
+    QQuick3DParticleWander *self) {
+  self->uniquePaceChanged();
+}
+
+//  void QQuick3DParticleWander::uniqueAmountVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleWander28uniqueAmountVariationChangedEv(
+    QQuick3DParticleWander *self) {
+  self->uniqueAmountVariationChanged();
+}
+
+//  void QQuick3DParticleWander::uniquePaceVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleWander26uniquePaceVariationChangedEv(
+    QQuick3DParticleWander *self) {
+  self->uniquePaceVariationChanged();
+}
+
+//  void QQuick3DParticleWander::fadeInDurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleWander21fadeInDurationChangedEv(
+    QQuick3DParticleWander *self) {
+  self->fadeInDurationChanged();
+}
+
+//  void QQuick3DParticleWander::fadeOutDurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DParticleWander22fadeOutDurationChangedEv(
+    QQuick3DParticleWander *self) {
+  self->fadeOutDurationChanged();
 }
 
 //  void QQuick3DParticleWander::affectParticle(const QQuick3DParticleData

@@ -8,8 +8,26 @@
     "ritual_ZNK14QScxmlInternal13EventLoopHook10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN14QScxmlInternal13EventLoopHook11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QScxmlInternal13EventLoopHook11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QScxmlInternal13EventLoopHook18queueProcessEventsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QScxmlInternal13EventLoopHook15doProcessEventsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QScxmlInternal13EventLoopHook10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QScxmlInternal_EventLoopHook": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN14QScxmlInternal13EventLoopHook10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
     ]
   }
 }

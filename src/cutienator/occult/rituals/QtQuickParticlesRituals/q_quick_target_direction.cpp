@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK21QQuickTargetDirection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTargetDirection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickTargetDirection11qt_metacastEPKc(
+    QQuickTargetDirection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTargetDirection::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickTargetDirection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTargetDirection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTargetDirection::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickTargetDirection2trEPKcS1_i(
@@ -87,6 +106,62 @@ extern "C" Q_DECL_EXPORT
 QQuickItem *ritual_ZNK21QQuickTargetDirection10targetItemEv(
     const QQuickTargetDirection *self) {
   return self->targetItem();
+}
+
+//  void QQuickTargetDirection::targetXChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTargetDirection14targetXChangedEd(
+    QQuickTargetDirection *self,
+    qreal arg) {
+  self->targetXChanged(arg);
+}
+
+//  void QQuickTargetDirection::targetYChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTargetDirection14targetYChangedEd(
+    QQuickTargetDirection *self,
+    qreal arg) {
+  self->targetYChanged(arg);
+}
+
+//  void QQuickTargetDirection::targetVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTargetDirection22targetVariationChangedEd(
+    QQuickTargetDirection *self,
+    qreal arg) {
+  self->targetVariationChanged(arg);
+}
+
+//  void QQuickTargetDirection::magnitudeChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTargetDirection16magnitudeChangedEd(
+    QQuickTargetDirection *self,
+    qreal arg) {
+  self->magnitudeChanged(arg);
+}
+
+//  void QQuickTargetDirection::proprotionalMagnitudeChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTargetDirection28proprotionalMagnitudeChangedEb(
+    QQuickTargetDirection *self,
+    bool arg) {
+  self->proprotionalMagnitudeChanged(arg);
+}
+
+//  void QQuickTargetDirection::magnitudeVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTargetDirection25magnitudeVariationChangedEd(
+    QQuickTargetDirection *self,
+    qreal arg) {
+  self->magnitudeVariationChanged(arg);
+}
+
+//  void QQuickTargetDirection::targetItemChanged(QQuickItem *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTargetDirection17targetItemChangedEP10QQuickItem(
+    QQuickTargetDirection *self,
+    QQuickItem *arg) {
+  self->targetItemChanged(arg);
 }
 
 //  void QQuickTargetDirection::setTargetX(qreal arg)

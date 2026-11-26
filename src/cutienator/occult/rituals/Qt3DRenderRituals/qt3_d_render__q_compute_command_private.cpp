@@ -53,6 +53,20 @@ public:
   }
 };
 
+//  Qt3DRender::QComputeCommandPrivate::QComputeCommandPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QComputeCommandPrivate *ritual_ZN10Qt3DRender22QComputeCommandPrivateC1Ev() {
+  return new CuteQt3DRender_QComputeCommandPrivate();
+}
+
+//  void Qt3DRender::QComputeCommandPrivate::setFrameCount(int frameCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QComputeCommandPrivate13setFrameCountEi(
+    Qt3DRender::QComputeCommandPrivate *self,
+    int frameCount) {
+  self->setFrameCount(frameCount);
+}
+
 //  a Python function taken by a CuteQt3DRender_QComputeCommandPrivate, for
 //      the function named by the key
 extern "C" Q_DECL_EXPORT

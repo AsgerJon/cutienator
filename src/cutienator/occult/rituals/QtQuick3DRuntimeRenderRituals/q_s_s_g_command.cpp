@@ -32,3 +32,11 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK11QSSGCommand11debugStringEv(const QSSGCommand *self) {
   return new QString(self->debugString());
 }
+
+//  void QSSGCommand::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QSSGCommand8addDebugER6QDebug(
+    const QSSGCommand *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}

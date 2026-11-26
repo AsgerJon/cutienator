@@ -22,7 +22,9 @@
     "ritual_ZNK10QTextFrame8iteratorneERKS0_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN10QTextFrame8iteratorppEv": ["address", "address"],
     "ritual_ZN10QTextFrame8iteratorppEi": ["address", "address", "int"],
+    "ritual_ZN10QTextFrame8iteratormmEv": ["address", "address"],
     "ritual_ZN10QTextFrame8iteratormmEi": ["address", "address", "int"],
     "ritual_ZN10QTextFrame8iteratorD1Ev": ["nothing", "address"]
   }

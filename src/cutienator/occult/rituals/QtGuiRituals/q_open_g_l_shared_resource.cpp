@@ -68,6 +68,13 @@ public:
 #endif  // !defined(QT_NO_OPENGL)
 };
 
+//  QOpenGLSharedResource::QOpenGLSharedResource(QOpenGLContextGroup *group)
+extern "C" Q_DECL_EXPORT
+QOpenGLSharedResource *ritual_ZN21QOpenGLSharedResourceC1EP19QOpenGLContextGroup(
+    QOpenGLContextGroup *group) {
+  return new CuteQOpenGLSharedResource(group);
+}
+
 //  QOpenGLSharedResource::~QOpenGLSharedResource()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QOpenGLSharedResourceD1Ev(QOpenGLSharedResource *self) {

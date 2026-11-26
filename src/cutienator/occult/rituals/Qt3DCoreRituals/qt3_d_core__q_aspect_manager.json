@@ -8,15 +8,91 @@
     "ritual_ZNK8Qt3DCore14QAspectManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore14QAspectManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore14QAspectManager2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore14QAspectManagerC1EPNS_13QAspectEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManagerD1Ev": ["nothing", "address"],
     "ritual_ZNK8Qt3DCore14QAspectManager6engineEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore14QAspectManager9schedulerEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore14QAspectManager10setRunModeENS_13QAspectEngine7RunModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager19enterSimulationLoopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager18exitSimulationLoopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager14isShuttingDownEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager8shutdownEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore14QAspectManager12processFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager13setRootEntityEPNS_7QEntityERK5QListIPNS_5QNodeEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager8addNodesERK5QListIPNS_5QNodeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager11removeNodesERK5QListIPNS_5QNodeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager14registerAspectEPNS_15QAbstractAspectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager16unregisterAspectEPNS_15QAbstractAspectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager7aspectsEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore14QAspectManager6aspectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager6aspectEPK11QMetaObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager10jobManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager13changeArbiterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager14serviceLocatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager22setPostConstructorInitEPNS_23NodePostConstructorInitE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager10lookupNodeENS_7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager11lookupNodesERK5QListINS_7QNodeIdEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager5sceneEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore14QAspectManager15jobsInLastFrameEv": [
       "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager19dumpJobsOnNextFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager16requestNextFrameEv": [
+      "nothing", "address"
     ],
     "ritual_cast_Qt3DCore_QAspectManager_Qt3DCore_QAbstractFrontEndNodeManager": [
       "address", "address"
@@ -26,6 +102,9 @@
     ],
     "ritual_own_ZNK8Qt3DCore14QAspectManager10lookupNodeENS_7QNodeIdE": [
       "address", "address", "address"
+    ],
+    "ritual_drop_Qt3DCore_QAspectManager__QList_Qt3DCore_QNode": [
+      "nothing", "address"
     ]
   }
 }

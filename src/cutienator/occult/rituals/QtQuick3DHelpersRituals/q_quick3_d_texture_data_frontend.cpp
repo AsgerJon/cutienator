@@ -288,6 +288,25 @@ const QMetaObject *ritual_ZNK27QQuick3DTextureDataFrontend10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DTextureDataFrontend::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuick3DTextureDataFrontend11qt_metacastEPKc(
+    QQuick3DTextureDataFrontend *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DTextureDataFrontend::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuick3DTextureDataFrontend11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DTextureDataFrontend *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DTextureDataFrontend::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -309,6 +328,15 @@ extern "C" Q_DECL_EXPORT
 QQuick3DTextureData::Format ritual_ZNK27QQuick3DTextureDataFrontend6formatEv(
     const QQuick3DTextureDataFrontend *self) {
   return self->format();
+}
+
+//  void QQuick3DTextureDataFrontend::setFormat(const
+//      QQuick3DTextureData::Format &newFormat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DTextureDataFrontend9setFormatERKN19QQuick3DTextureData6FormatE(
+    QQuick3DTextureDataFrontend *self,
+    const QQuick3DTextureData::Format *newFormat) {
+  self->setFormat(*newFormat);
 }
 
 //  int QQuick3DTextureDataFrontend::depth() const
@@ -386,6 +414,48 @@ void ritual_ZN27QQuick3DTextureDataFrontend9setHeightEi(
     QQuick3DTextureDataFrontend *self,
     int newHeight) {
   self->setHeight(newHeight);
+}
+
+//  void QQuick3DTextureDataFrontend::formatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DTextureDataFrontend13formatChangedEv(
+    QQuick3DTextureDataFrontend *self) {
+  self->formatChanged();
+}
+
+//  void QQuick3DTextureDataFrontend::depthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DTextureDataFrontend12depthChangedEv(
+    QQuick3DTextureDataFrontend *self) {
+  self->depthChanged();
+}
+
+//  void QQuick3DTextureDataFrontend::hasTransparencyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DTextureDataFrontend22hasTransparencyChangedEv(
+    QQuick3DTextureDataFrontend *self) {
+  self->hasTransparencyChanged();
+}
+
+//  void QQuick3DTextureDataFrontend::textureDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DTextureDataFrontend18textureDataChangedEv(
+    QQuick3DTextureDataFrontend *self) {
+  self->textureDataChanged();
+}
+
+//  void QQuick3DTextureDataFrontend::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DTextureDataFrontend12widthChangedEv(
+    QQuick3DTextureDataFrontend *self) {
+  self->widthChanged();
+}
+
+//  void QQuick3DTextureDataFrontend::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DTextureDataFrontend13heightChangedEv(
+    QQuick3DTextureDataFrontend *self) {
+  self->heightChanged();
 }
 
 //  a Python function taken by a CuteQQuick3DTextureDataFrontend, for the

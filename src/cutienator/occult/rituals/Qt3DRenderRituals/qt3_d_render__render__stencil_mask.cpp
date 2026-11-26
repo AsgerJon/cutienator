@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_StencilMaskCall0)(const void *, const Qt3DR
 class CuteQt3DRender_Render_StencilMask : public Qt3DRender::Render::StencilMask {
 public:
   using Qt3DRender::Render::StencilMask::StencilMask;
-  CuteQt3DRender_Render_StencilMask(const Qt3DRender::Render::StencilMask &other) : Qt3DRender::Render::StencilMask(other) {}
+  CuteQt3DRender_Render_StencilMask(const Qt3DRender::Render::StencilMask & other) : Qt3DRender::Render::StencilMask(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::StencilMask::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::StencilMask::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render11StencilMask16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::StencilMask *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::StencilMask::~StencilMask()
 extern "C" Q_DECL_EXPORT

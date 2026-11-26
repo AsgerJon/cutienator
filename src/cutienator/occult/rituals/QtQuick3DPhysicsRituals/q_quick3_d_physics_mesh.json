@@ -11,6 +11,9 @@
     ],
     "ritual_ZN19QQuick3DPhysicsMeshD1Ev": ["nothing", "address"],
     "ritual_ZN19QQuick3DPhysicsMesh3refEv": ["nothing", "address"],
-    "ritual_ZN19QQuick3DPhysicsMesh5derefEv": ["int", "address"]
+    "ritual_ZN19QQuick3DPhysicsMesh5derefEv": ["int", "address"],
+    "ritual_drop_QQuick3DPhysicsMesh__QPair_QVector3D_QVector3D": [
+      "nothing", "address"
+    ]
   }
 }

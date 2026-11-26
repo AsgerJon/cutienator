@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation22QAbstractClipBlendNode10metaObject
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QAbstractClipBlendNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation22QAbstractClipBlendNode11qt_metacastEPKc(
+    Qt3DAnimation::QAbstractClipBlendNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QAbstractClipBlendNode::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation22QAbstractClipBlendNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QAbstractClipBlendNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QAbstractClipBlendNode::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +208,30 @@ QString *ritual_ZN13Qt3DAnimation22QAbstractClipBlendNode2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QAbstractClipBlendNode::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QAbstractClipBlendNode::~QAbstractClipBlendNode()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation22QAbstractClipBlendNodeD1Ev(
+    Qt3DAnimation::QAbstractClipBlendNode *self) {
+  delete self;
+}
+
+//  Qt3DAnimation::QAbstractClipBlendNode::QAbstractClipBlendNode(Qt3DCore::Q
+//      Node *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractClipBlendNode *ritual_ZN13Qt3DAnimation22QAbstractClipBlendNodeC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAbstractClipBlendNode(parent);
+}
+
+//  Qt3DAnimation::QAbstractClipBlendNode::QAbstractClipBlendNode(QAbstractCl
+//      ipBlendNodePrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractClipBlendNode *ritual_ZN13Qt3DAnimation22QAbstractClipBlendNodeC1ERNS_29QAbstractClipBlendNodePrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QAbstractClipBlendNodePrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAbstractClipBlendNode(*dd, parent);
 }
 
 //  QAbstractClipBlendNodePrivate

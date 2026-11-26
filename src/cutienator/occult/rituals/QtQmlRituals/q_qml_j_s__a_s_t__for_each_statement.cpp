@@ -201,6 +201,36 @@ public:
   }
 };
 
+//  QQmlJS::AST::ForEachStatement::ForEachStatement(ExpressionNode *i,
+//      ExpressionNode *e, Statement *stmt)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ForEachStatement *ritual_ZN6QQmlJS3AST16ForEachStatementC1EPNS0_14ExpressionNodeES3_PNS0_9StatementE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::ExpressionNode *i,
+    QQmlJS::AST::ExpressionNode *e,
+    QQmlJS::AST::Statement *stmt) {
+  return new (pool) CuteQQmlJS_AST_ForEachStatement(i, e, stmt);
+}
+
+//  QQmlJS::AST::ForEachStatement::ForEachStatement(PatternElement *v,
+//      ExpressionNode *e, Statement *stmt)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ForEachStatement *ritual_ZN6QQmlJS3AST16ForEachStatementC1EPNS0_14PatternElementEPNS0_14ExpressionNodeEPNS0_9StatementE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::PatternElement *v,
+    QQmlJS::AST::ExpressionNode *e,
+    QQmlJS::AST::Statement *stmt) {
+  return new (pool) CuteQQmlJS_AST_ForEachStatement(v, e, stmt);
+}
+
+//  void QQmlJS::AST::ForEachStatement::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST16ForEachStatement7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ForEachStatement *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::ForEachStatement::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST16ForEachStatement19firstSourceLocationEv(

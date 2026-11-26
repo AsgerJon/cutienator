@@ -52,61 +52,6 @@ inline QPlatformDialogHelper *QQuickLabsPlatformDialog::handle() const
     return m_handle;
 }
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 342, as _ZNK24QQuickLabsPlatformDialog15useNativeDialogEv
-inline bool QQuickLabsPlatformDialog::useNativeDialog() const
-{
-    return !QCoreApplication::testAttribute(Qt::AA_DontUseNativeDialogs)
-            && QGuiApplicationPrivate::platformTheme()->usePlatformNativeDialog(m_type);
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 122, as _ZNK24QQuickLabsPlatformDialog5titleEv
-inline QString QQuickLabsPlatformDialog::title() const
-{
-    return m_title;
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 268, as _ZN24QQuickLabsPlatformDialog6acceptEv
-inline void QQuickLabsPlatformDialog::accept()
-{
-    done(Accepted);
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 83, as _ZNK28QQuickLabsPlatformFontDialog4fontEv
-#if QT_DEPRECATED_SINCE(6, 9)
-inline QFont QQuickLabsPlatformFontDialog::font() const
-{
-    return m_font;
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 109, as _ZNK28QQuickLabsPlatformFontDialog11currentFontEv
-#if QT_DEPRECATED_SINCE(6, 9)
-inline QFont QQuickLabsPlatformFontDialog::currentFont() const
-{
-    if (QPlatformFontDialogHelper *fontDialog = qobject_cast<QPlatformFontDialogHelper *>(handle()))
-        return fontDialog->currentFont();
-    return m_currentFont;
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 116, as _ZN28QQuickLabsPlatformFontDialog14setCurrentFontERK5QFont
-#if QT_DEPRECATED_SINCE(6, 9)
-inline void QQuickLabsPlatformFontDialog::setCurrentFont(const QFont &font)
-{
-    if (QPlatformFontDialogHelper *fontDialog = qobject_cast<QPlatformFontDialogHelper *>(handle()))
-        fontDialog->setCurrentFont(font);
-    m_currentFont = font;
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 141, as _ZNK28QQuickLabsPlatformFontDialog7optionsEv
-#if QT_DEPRECATED_SINCE(6, 9)
-inline QFontDialogOptions::FontDialogOptions QQuickLabsPlatformFontDialog::options() const
-{
-    return m_options->options();
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 155, as _ZNK28QQuickLabsPlatformFontDialog15useNativeDialogEv
 #if QT_DEPRECATED_SINCE(6, 9)
 inline bool QQuickLabsPlatformFontDialog::useNativeDialog() const
@@ -145,6 +90,74 @@ inline void QQuickLabsPlatformFontDialog::accept()
     QQuickLabsPlatformDialog::accept();
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 342, as _ZNK24QQuickLabsPlatformDialog15useNativeDialogEv
+inline bool QQuickLabsPlatformDialog::useNativeDialog() const
+{
+    return !QCoreApplication::testAttribute(Qt::AA_DontUseNativeDialogs)
+            && QGuiApplicationPrivate::platformTheme()->usePlatformNativeDialog(m_type);
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 122, as _ZNK24QQuickLabsPlatformDialog5titleEv
+inline QString QQuickLabsPlatformDialog::title() const
+{
+    return m_title;
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 268, as _ZN24QQuickLabsPlatformDialog6acceptEv
+inline void QQuickLabsPlatformDialog::accept()
+{
+    done(Accepted);
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 88, as _ZN28QQuickLabsPlatformFontDialog7setFontERK5QFont
+#if QT_DEPRECATED_SINCE(6, 9)
+inline void QQuickLabsPlatformFontDialog::setFont(const QFont &font)
+{
+    if (m_font == font)
+        return;
+
+    m_font = font;
+    setCurrentFont(font);
+    emit fontChanged();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 83, as _ZNK28QQuickLabsPlatformFontDialog4fontEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline QFont QQuickLabsPlatformFontDialog::font() const
+{
+    return m_font;
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 109, as _ZNK28QQuickLabsPlatformFontDialog11currentFontEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline QFont QQuickLabsPlatformFontDialog::currentFont() const
+{
+    if (QPlatformFontDialogHelper *fontDialog = qobject_cast<QPlatformFontDialogHelper *>(handle()))
+        return fontDialog->currentFont();
+    return m_currentFont;
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 116, as _ZN28QQuickLabsPlatformFontDialog14setCurrentFontERK5QFont
+#if QT_DEPRECATED_SINCE(6, 9)
+inline void QQuickLabsPlatformFontDialog::setCurrentFont(const QFont &font)
+{
+    if (QPlatformFontDialogHelper *fontDialog = qobject_cast<QPlatformFontDialogHelper *>(handle()))
+        fontDialog->setCurrentFont(font);
+    m_currentFont = font;
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfontdialog.cpp, line 141, as _ZNK28QQuickLabsPlatformFontDialog7optionsEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline QFontDialogOptions::FontDialogOptions QQuickLabsPlatformFontDialog::options() const
+{
+    return m_options->options();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickLabsPlatformFontDialog may call these functions of it.
@@ -159,6 +172,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK28QQuickLabsPlatformFontDialog10metaObjectEv(
     const QQuickLabsPlatformFontDialog *self) {
   return self->metaObject();
+}
+
+//  void *QQuickLabsPlatformFontDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuickLabsPlatformFontDialog11qt_metacastEPKc(
+    QQuickLabsPlatformFontDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformFontDialog::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuickLabsPlatformFontDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformFontDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  const QMetaObject *QQuickLabsPlatformFontDialog::qmlExtendedNamespace()
@@ -211,6 +243,81 @@ int ritual_ZNK28QQuickLabsPlatformFontDialog7optionsEv(
   return static_cast<int>(self->options().toInt());
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  void QQuickLabsPlatformFontDialog::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickLabsPlatformFontDialog11fontChangedEv(
+    QQuickLabsPlatformFontDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformFontDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fontChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fontChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformFontDialog::currentFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickLabsPlatformFontDialog18currentFontChangedEv(
+    QQuickLabsPlatformFontDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformFontDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "currentFontChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "currentFontChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformFontDialog::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickLabsPlatformFontDialog14optionsChangedEv(
+    QQuickLabsPlatformFontDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformFontDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "optionsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "optionsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
 
 //  bool QQuickLabsPlatformFontDialog::useNativeDialog() const
 extern "C" Q_DECL_EXPORT

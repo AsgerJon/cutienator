@@ -6,7 +6,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/material_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DCore/qnodeid.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DRender::Render::Material that Python can take functions over in. Every Qt3DRender::Render::Material
 //  Python makes is one. Each function below asks the Python
@@ -40,6 +43,50 @@ public:
   }
 };
 
+//  Qt3DRender::Render::Material::Material()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Material *ritual_ZN10Qt3DRender6Render8MaterialC1Ev() {
+  return new CuteQt3DRender_Render_Material();
+}
+
+//  Qt3DRender::Render::Material::~Material()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render8MaterialD1Ev(
+    Qt3DRender::Render::Material *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::Material::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render8Material7cleanupEv(
+    Qt3DRender::Render::Material *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::Material::syncFromFrontEnd(const Qt3DCore::QNode
+//      *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render8Material16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::Material *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  QList<Qt3DCore::QNodeId> Qt3DRender::Render::Material::parameters() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QNodeId> *ritual_ZNK10Qt3DRender6Render8Material10parametersEv(
+    const Qt3DRender::Render::Material *self) {
+  return new QList<Qt3DCore::QNodeId>(self->parameters());
+}
+
+//  Qt3DCore::QNodeId Qt3DRender::Render::Material::effect() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QNodeId *ritual_ZNK10Qt3DRender6Render8Material6effectEv(
+    const Qt3DRender::Render::Material *self) {
+  return new Qt3DCore::QNodeId(self->effect());
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_Material, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -58,4 +105,11 @@ void ritual_own_ZN10Qt3DRender6Render8Material16syncFromFrontEndEPKN8Qt3DCore5QN
     const Qt3DCore::QNode *frontEnd,
     bool firstTime) {
   self->Qt3DRender::Render::Material::syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  a QList<Qt3DCore::QNodeId> a ritual of Qt3DRender::Render::Material gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Material__QList_Qt3DCore_QNodeId(
+    QList<Qt3DCore::QNodeId> *self) {
+  delete self;
 }

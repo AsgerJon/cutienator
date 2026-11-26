@@ -10,14 +10,20 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttp2connection_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/qhttp2configuration.h>
+#endif
 #include <QtCore/qurl.h>
 #include <QtCore/qbytearrayview.h>
+#if QT_CONFIG(http)
+#include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/http2frames_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <optional>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/private/qhttp2connection_p.h>
 #include <QtNetwork/private/qhttp2configuration_p.h>
@@ -39,6 +45,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/network/access/qhttp2connection.cpp, line 1417, as _ZNK16QHttp2Connection15streamIsIgnoredEj
 inline bool QHttp2Connection::streamIsIgnored(quint32 streamID) const noexcept
@@ -222,6 +230,25 @@ const QMetaObject *ritual_ZNK16QHttp2Connection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHttp2Connection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QHttp2Connection11qt_metacastEPKc(
+    QHttp2Connection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHttp2Connection::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QHttp2Connection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHttp2Connection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHttp2Connection::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QHttp2Connection2trEPKcS1_i(
@@ -265,6 +292,26 @@ void ritual_ZN16QHttp2ConnectionD1Ev(QHttp2Connection *self) {
   delete self;
 }
 
+//  QH2Expected<QHttp2Stream *, CreateStreamError>
+//      QHttp2Connection::createStream()
+extern "C" Q_DECL_EXPORT
+QH2Expected<QHttp2Stream *, QHttp2Connection::CreateStreamError> *ritual_ZN16QHttp2Connection12createStreamEv(
+    QHttp2Connection *self) {
+  return new QH2Expected<QHttp2Stream *, QHttp2Connection::CreateStreamError>(
+      self->createStream());
+}
+
+//  QH2Expected<QHttp2Stream *, CreateStreamError>
+//      QHttp2Connection::createStream(QHttp2Stream::Configuration config)
+extern "C" Q_DECL_EXPORT
+QH2Expected<QHttp2Stream *, QHttp2Connection::CreateStreamError> *ritual_ZN16QHttp2Connection12createStreamEN12QHttp2Stream13ConfigurationE(
+    QHttp2Connection *self,
+    const QHttp2Stream::Configuration *config) {
+  return new QH2Expected<QHttp2Stream *, QHttp2Connection::CreateStreamError>(
+      self->createStream(
+          *config));
+}
+
 //  QHttp2Stream *QHttp2Connection::getStream(quint32 streamId) const
 extern "C" Q_DECL_EXPORT
 QHttp2Stream *ritual_ZNK16QHttp2Connection9getStreamEj(
@@ -297,6 +344,13 @@ bool ritual_ZNK16QHttp2Connection11isGoingAwayEv(
   return self->isGoingAway();
 }
 
+//  std::optional<quint32> QHttp2Connection::lastGoAwayStreamID() const
+extern "C" Q_DECL_EXPORT
+std::optional<quint32> *ritual_ZNK16QHttp2Connection18lastGoAwayStreamIDEv(
+    const QHttp2Connection *self) {
+  return new std::optional<quint32>(self->lastGoAwayStreamID());
+}
+
 //  quint32 QHttp2Connection::maxConcurrentStreams() const
 extern "C" Q_DECL_EXPORT
 quint32 ritual_ZNK16QHttp2Connection20maxConcurrentStreamsEv(
@@ -323,6 +377,88 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QHttp2Connection20isUpgradedConnectionEv(
     const QHttp2Connection *self) {
   return self->isUpgradedConnection();
+}
+
+//  void QHttp2Connection::newIncomingStream(QHttp2Stream *stream)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection17newIncomingStreamEP12QHttp2Stream(
+    QHttp2Connection *self,
+    QHttp2Stream *stream) {
+  self->newIncomingStream(stream);
+}
+
+//  void QHttp2Connection::newPromisedStream(QHttp2Stream *stream)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection17newPromisedStreamEP12QHttp2Stream(
+    QHttp2Connection *self,
+    QHttp2Stream *stream) {
+  self->newPromisedStream(stream);
+}
+
+//  void QHttp2Connection::errorReceived()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection13errorReceivedEv(QHttp2Connection *self) {
+  self->errorReceived();
+}
+
+//  void QHttp2Connection::connectionClosed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection16connectionClosedEv(
+    QHttp2Connection *self) {
+  self->connectionClosed();
+}
+
+//  void QHttp2Connection::settingsFrameReceived()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection21settingsFrameReceivedEv(
+    QHttp2Connection *self) {
+  self->settingsFrameReceived();
+}
+
+//  void QHttp2Connection::pingFrameReceived(QHttp2Connection::PingState
+//      state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection17pingFrameReceivedENS_9PingStateE(
+    QHttp2Connection *self,
+    QHttp2Connection::PingState state) {
+  self->pingFrameReceived(state);
+}
+
+//  void QHttp2Connection::errorOccurred(Http2::Http2Error errorCode, const
+//      QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection13errorOccurredEN5Http210Http2ErrorERK7QString(
+    QHttp2Connection *self,
+    Http2::Http2Error errorCode,
+    const QString *errorString) {
+  self->errorOccurred(errorCode, *errorString);
+}
+
+//  void QHttp2Connection::receivedGOAWAY(Http2::Http2Error errorCode,
+//      quint32 lastStreamID)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection14receivedGOAWAYEN5Http210Http2ErrorEj(
+    QHttp2Connection *self,
+    Http2::Http2Error errorCode,
+    quint32 lastStreamID) {
+  self->receivedGOAWAY(errorCode, lastStreamID);
+}
+
+//  void QHttp2Connection::receivedEND_STREAM(quint32 streamID)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection18receivedEND_STREAMEj(
+    QHttp2Connection *self,
+    quint32 streamID) {
+  self->receivedEND_STREAM(streamID);
+}
+
+//  void QHttp2Connection::incomingStreamErrorOccured(CreateStreamError
+//      error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttp2Connection26incomingStreamErrorOccuredENS_17CreateStreamErrorE(
+    QHttp2Connection *self,
+    QHttp2Connection::CreateStreamError error) {
+  self->incomingStreamErrorOccured(error);
 }
 
 //  bool QHttp2Connection::sendPing()
@@ -357,6 +493,18 @@ extern "C" Q_DECL_EXPORT
 QIODevice *ritual_ZNK16QHttp2Connection9getSocketEv(
     const QHttp2Connection *self) {
   return self->getSocket();
+}
+
+//  QH2Expected<QHttp2Stream *, QHttp2Connection::CreateStreamError>
+//      QHttp2Connection::createLocalStreamInternal(QHttp2Stream::Configurati
+//      on a0)
+extern "C" Q_DECL_EXPORT
+QH2Expected<QHttp2Stream *, QHttp2Connection::CreateStreamError> *ritual_ZN16QHttp2Connection25createLocalStreamInternalEN12QHttp2Stream13ConfigurationE(
+    QHttp2Connection *self,
+    const QHttp2Stream::Configuration *a0) {
+  return new QH2Expected<QHttp2Stream *, QHttp2Connection::CreateStreamError>(
+      self->createLocalStreamInternal(
+          *a0));
 }
 
 //  QHttp2Stream *QHttp2Connection::createStreamInternal_impl(quint32
@@ -640,6 +788,21 @@ bool ritual_take_QHttp2Connection(
     const char *key,
     void *call) {
   return static_cast<CuteQHttp2Connection *>(self)->take(key, call);
+}
+
+//  a QH2Expected<QHttp2Stream *, QHttp2Connection::CreateStreamError> a
+//      ritual of QHttp2Connection gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHttp2Connection__QH2Expected_QHttp2Stream_QHttp2Connection_CreateStreamError(
+    QH2Expected<QHttp2Stream *, QHttp2Connection::CreateStreamError> *self) {
+  delete self;
+}
+
+//  a std::optional<quint32> a ritual of QHttp2Connection gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHttp2Connection__std_optional_quint32(
+    std::optional<quint32> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(http)

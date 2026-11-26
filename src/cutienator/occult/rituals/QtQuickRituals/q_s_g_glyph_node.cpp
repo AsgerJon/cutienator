@@ -245,6 +245,13 @@ public:
   }
 };
 
+//  QSGGlyphNode::QSGGlyphNode(QSGTextNode::RenderType renderType)
+extern "C" Q_DECL_EXPORT
+QSGGlyphNode *ritual_ZN12QSGGlyphNodeC1EN11QSGTextNode10RenderTypeE(
+    QSGTextNode::RenderType renderType) {
+  return new CuteQSGGlyphNode(renderType);
+}
+
 //  QSGGlyphNode::~QSGGlyphNode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QSGGlyphNodeD1Ev(QSGGlyphNode *self) {

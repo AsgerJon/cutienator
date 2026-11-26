@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuickFontDialogImplAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickFontDialogImplAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuickFontDialogImplAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -79,6 +85,39 @@
     ],
     "ritual_ZN28QQuickFontDialogImplAttached11setSizeEditEP15QQuickTextField": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached16buttonBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached21familyListViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached20styleListViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached19sizeListViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached17sampleEditChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached28writingSystemComboBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached24underlineCheckBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached24strikeoutCheckBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached17familyEditChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached16styleEditChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached15sizeEditChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN28QQuickFontDialogImplAttached12searchFamilyERK7QString": [
       "nothing", "address", "text"

@@ -6,13 +6,28 @@
   ],
   "rows": {
     "ritual_ZNK5State10metaObjectEv": ["address", "address"],
+    "ritual_ZN5State11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN5State11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN5State2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN5StateC1EP6QState": ["address", "address"],
     "ritual_ZN5State10classBeginEv": ["nothing", "address"],
     "ritual_ZN5State17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN5State8childrenEv": ["address", "address"],
+    "ritual_ZNK5State16bindableChildrenEv": ["address", "address"],
+    "ritual_ZN5State15childrenChangedEv": ["nothing", "address"],
     "ritual_ZN5State22childrenContentChangedEv": ["nothing", "address"],
+    "ritual_ZNK5State25childrenActualCalculationEv": ["address", "address"],
+    "ritual_ZN5State46_qt_property_m_childrenComputedProperty_offsetEv": [
+      "size_t"
+    ],
     "ritual_cast_State_QQmlParserStatus": ["address", "address"],
     "ritual_own_ZN5State10classBeginEv": ["nothing", "address"],
-    "ritual_own_ZN5State17componentCompleteEv": ["nothing", "address"]
+    "ritual_own_ZN5State17componentCompleteEv": ["nothing", "address"],
+    "ritual_drop_State__QQmlListProperty_QObject": ["nothing", "address"],
+    "ritual_drop_State__QBindable_QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

@@ -8,6 +8,9 @@
     "ritual_ZN16QQmlTypeCompiler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QQmlTypeCompilerC1EP14QQmlTypeLoaderP12QQmlTypeDataPN5QmlIR8DocumentEPN3QV412CompiledData24ResolvedTypeReferenceMapERKSt8functionIF10QByteArrayvEE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK16QQmlTypeCompiler8objectAtEi": ["address", "address", "int"],
     "ritual_ZN16QQmlTypeCompiler8objectAtEi": ["address", "address", "int"],
     "ritual_ZNK16QQmlTypeCompiler11objectCountEv": ["int", "address"],
@@ -18,6 +21,12 @@
       "int", "address", "int"
     ],
     "ritual_ZNK16QQmlTypeCompiler8stringAtEi": ["text", "address", "int"],
+    "ritual_ZNK16QQmlTypeCompiler20objectFunctionsBeginEPKN5QmlIR6ObjectE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler18objectFunctionsEndEPKN5QmlIR6ObjectE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK16QQmlTypeCompiler26listPropertyAssignBehaviorEv": [
       "int", "address"
     ],
@@ -43,6 +52,7 @@
     "ritual_ZNK16QQmlTypeCompiler3urlEv": ["address", "address"],
     "ritual_ZNK16QQmlTypeCompiler10typeLoaderEv": ["address", "address"],
     "ritual_ZNK16QQmlTypeCompiler7importsEv": ["address", "address"],
+    "ritual_ZNK16QQmlTypeCompiler10qmlObjectsEv": ["address", "address"],
     "ritual_ZN16QQmlTypeCompiler14propertyCachesEv": ["address", "address"],
     "ritual_ZNK16QQmlTypeCompiler14propertyCachesEv": ["address", "address"],
     "ritual_ZN16QQmlTypeCompiler10memoryPoolEv": ["address", "address"],
@@ -67,6 +77,12 @@
     ],
     "ritual_ZNK16QQmlTypeCompiler19qmlTypeForComponentERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_drop_QQmlTypeCompiler__QmlIR_PoolList_QmlIR_Function_Iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlTypeCompiler__QQmlRefPointer_QV4_CompiledData_CompilationUnit": [
+      "nothing", "address"
     ]
   }
 }

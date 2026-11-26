@@ -11,6 +11,9 @@
       "address", "text", "int"
     ],
     "ritual_ZN21QOpcUaExtensionObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN21QOpcUaExtensionObjectaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK21QOpcUaExtensionObjecteqERKS_": [
       "bool", "address", "address"
     ],
@@ -22,6 +25,9 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK21QOpcUaExtensionObject11encodedBodyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QOpcUaExtensionObject14encodedBodyRefEv": [
       "address", "address"
     ],
     "ritual_ZN21QOpcUaExtensionObject14setEncodedBodyERK10QByteArray": [

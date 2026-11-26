@@ -43,6 +43,8 @@
     "ritual_ZNK20QGraphicsPolygonItem9extensionERK8QVariant": [
       "address", "address", "address"
     ],
+    "ritual_ZN20QGraphicsPolygonItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QGraphicsPolygonItem6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsPolygonItem": [
       "bool", "address", "chars", "address"
     ],

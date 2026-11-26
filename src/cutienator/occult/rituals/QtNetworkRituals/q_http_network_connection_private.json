@@ -24,6 +24,12 @@
     "ritual_ZNK29QHttpNetworkConnectionPrivate7indexOfEP9QIODevice": [
       "int", "address", "address"
     ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate14prepareRequestERSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate13updateChannelEiRKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZNK29QHttpNetworkConnectionPrivate24predictNextRequestsReplyEv": [
       "address", "address"
     ],
@@ -35,6 +41,18 @@
     ],
     "ritual_ZN29QHttpNetworkConnectionPrivate20networkLayerDetectedEN15QAbstractSocket20NetworkLayerProtocolE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate19createAuthorizationEP9QIODeviceR19QHttpNetworkRequest": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate11errorDetailEN13QNetworkReply12NetworkErrorEP9QIODeviceRK7QString": [
+      "text", "address", "int", "address", "text"
+    ],
+    "ritual_ZNK29QHttpNetworkConnectionPrivate26uncompressedBytesAvailableERK17QHttpNetworkReply": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZNK29QHttpNetworkConnectionPrivate35uncompressedBytesAvailableNextBlockERK17QHttpNetworkReply": [
+      "long long", "address", "address"
     ],
     "ritual_ZN29QHttpNetworkConnectionPrivate31emitProxyAuthenticationRequiredEPK29QHttpNetworkConnectionChannelRK13QNetworkProxyP14QAuthenticator": [
       "nothing", "address", "address", "address", "address"

@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QDockAreaLayoutInfoC1Ev": ["address"],
+    "ritual_ZN19QDockAreaLayoutInfoC1EPKiN9QInternal12DockPositionEN2Qt11OrientationEiP11QMainWindow": [
+      "address", "address", "int", "int", "int", "address"
+    ],
     "ritual_ZNK19QDockAreaLayoutInfo4sizeEv": ["address", "address"],
     "ritual_ZN19QDockAreaLayoutInfo4infoEP7QWidget": [
       "address", "address", "address"
@@ -15,18 +19,33 @@
     "ritual_ZNK19QDockAreaLayoutInfo13separatorRectEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK19QDockAreaLayoutInfo13separatorRectERK5QListIiE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QDockAreaLayoutInfo5clearEv": ["nothing", "address"],
     "ritual_ZNK19QDockAreaLayoutInfo7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK19QDockAreaLayoutInfo10hasGapItemERK5QListIiE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK19QDockAreaLayoutInfo19onlyHasPlaceholdersEv": [
       "bool", "address"
     ],
     "ritual_ZNK19QDockAreaLayoutInfo4nextEi": ["int", "address", "int"],
     "ritual_ZNK19QDockAreaLayoutInfo4prevEi": ["int", "address", "int"],
+    "ritual_ZNK19QDockAreaLayoutInfo7indexOfEPK7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QDockAreaLayoutInfo18indexOfPlaceHolderERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK19QDockAreaLayoutInfo15separatorRegionEv": [
       "address", "address"
     ],
     "ritual_ZNK19QDockAreaLayoutInfo6itemAtEPii": [
       "address", "address", "address", "int"
+    ],
+    "ritual_ZNK19QDockAreaLayoutInfo20usedSeparatorWidgetsEv": [
+      "address", "address"
     ],
     "ritual_ZNK19QDockAreaLayoutInfo12currentTabIdEv": [
       "unsigned long long", "address"
@@ -37,6 +56,12 @@
     "ritual_ZN19QDockAreaLayoutInfo15setCurrentTabIdEy": [
       "nothing", "address", "unsigned long long"
     ],
-    "ritual_ZN19QDockAreaLayoutInfoD1Ev": ["nothing", "address"]
+    "ritual_ZN19QDockAreaLayoutInfoD1Ev": ["nothing", "address"],
+    "ritual_drop_QDockAreaLayoutInfo__QList_int": ["nothing", "address"],
+    "ritual_drop_QDockAreaLayoutInfo__std_unique_ptr_QLayoutItem": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDockAreaLayoutInfo__QSet_QWidget": ["nothing", "address"],
+    "ritual_drop_QDockAreaLayoutInfo__QSet_QTabBar": ["nothing", "address"]
   }
 }

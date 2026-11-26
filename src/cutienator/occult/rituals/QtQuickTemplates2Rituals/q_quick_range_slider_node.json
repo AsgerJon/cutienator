@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickRangeSliderNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickRangeSliderNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickRangeSliderNode2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -46,9 +52,36 @@
     ],
     "ritual_ZN21QQuickRangeSliderNode8increaseEv": ["nothing", "address"],
     "ritual_ZN21QQuickRangeSliderNode8decreaseEv": ["nothing", "address"],
+    "ritual_ZN21QQuickRangeSliderNode12valueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode21visualPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode13handleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode14pressedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode14hoveredChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode5movedEv": ["nothing", "address"],
+    "ritual_ZN21QQuickRangeSliderNode26implicitHandleWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode27implicitHandleHeightChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN21QQuickRangeSliderNode20updateHandleCrossingEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QQuickRangeSliderNode6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickRangeSliderNode6d_funcEv": ["address", "address"],
     "ritual_take_QQuickRangeSliderNode": [
       "bool", "address", "chars", "address"
     ]

@@ -19,9 +19,17 @@
     "ritual_ZNK16QLoggingCategory16isWarningEnabledEv": ["bool", "address"],
     "ritual_ZNK16QLoggingCategory17isCriticalEnabledEv": ["bool", "address"],
     "ritual_ZNK16QLoggingCategory12categoryNameEv": ["chars", "address"],
+    "ritual_ZN16QLoggingCategoryclEv": ["address", "address"],
+    "ritual_ZNK16QLoggingCategoryclEv": ["address", "address"],
     "ritual_ZN16QLoggingCategory15defaultCategoryEv": ["address"],
+    "ritual_ZN16QLoggingCategory13installFilterEPFvPS_E": [
+      "address", "address"
+    ],
     "ritual_ZN16QLoggingCategory14setFilterRulesERK7QString": [
       "nothing", "text"
+    ],
+    "ritual_ZN16QLoggingCategoryC1ENS_26UnregisteredInitializationEPKc": [
+      "address", "address", "chars"
     ]
   }
 }

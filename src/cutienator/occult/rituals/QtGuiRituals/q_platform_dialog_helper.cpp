@@ -251,6 +251,25 @@ const QMetaObject *ritual_ZNK21QPlatformDialogHelper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformDialogHelper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QPlatformDialogHelper11qt_metacastEPKc(
+    QPlatformDialogHelper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformDialogHelper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QPlatformDialogHelper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformDialogHelper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformDialogHelper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QPlatformDialogHelper2trEPKcS1_i(
@@ -258,6 +277,12 @@ QString *ritual_ZN21QPlatformDialogHelper2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPlatformDialogHelper::tr(s, c, n));
+}
+
+//  QPlatformDialogHelper::QPlatformDialogHelper()
+extern "C" Q_DECL_EXPORT
+QPlatformDialogHelper *ritual_ZN21QPlatformDialogHelperC1Ev() {
+  return new CuteQPlatformDialogHelper();
 }
 
 //  QPlatformDialogHelper::~QPlatformDialogHelper()
@@ -309,11 +334,32 @@ QVariant *ritual_ZN21QPlatformDialogHelper16defaultStyleHintENS_9StyleHintE(
   return new QVariant(QPlatformDialogHelper::defaultStyleHint(hint));
 }
 
+//  const int *QPlatformDialogHelper::buttonLayout(Qt::Orientation
+//      orientation, ButtonLayout policy)
+extern "C" Q_DECL_EXPORT
+const int *ritual_ZN21QPlatformDialogHelper12buttonLayoutEN2Qt11OrientationENS_12ButtonLayoutE(
+    Qt::Orientation orientation,
+    QPlatformDialogHelper::ButtonLayout policy) {
+  return QPlatformDialogHelper::buttonLayout(orientation, policy);
+}
+
 //  ButtonRole QPlatformDialogHelper::buttonRole(StandardButton button)
 extern "C" Q_DECL_EXPORT
 QPlatformDialogHelper::ButtonRole ritual_ZN21QPlatformDialogHelper10buttonRoleENS_14StandardButtonE(
     QPlatformDialogHelper::StandardButton button) {
   return QPlatformDialogHelper::buttonRole(button);
+}
+
+//  void QPlatformDialogHelper::accept()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlatformDialogHelper6acceptEv(QPlatformDialogHelper *self) {
+  self->accept();
+}
+
+//  void QPlatformDialogHelper::reject()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlatformDialogHelper6rejectEv(QPlatformDialogHelper *self) {
+  self->reject();
 }
 
 //  a Python function taken by a CuteQPlatformDialogHelper, for the function

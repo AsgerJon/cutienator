@@ -6,8 +6,32 @@
   ],
   "rows": {
     "ritual_ZNK16QDBusMenuAdaptor10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QDBusMenuAdaptor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QDBusMenuAdaptor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QDBusMenuAdaptorD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QDBusMenuAdaptor6statusEv": ["text", "address"],
+    "ritual_ZNK16QDBusMenuAdaptor13textDirectionEv": ["text", "address"],
     "ritual_ZNK16QDBusMenuAdaptor7versionEv": ["unsigned int", "address"],
-    "ritual_take_QDBusMenuAdaptor": ["bool", "address", "chars", "address"]
+    "ritual_ZN16QDBusMenuAdaptor5EventEiRK7QStringRK12QDBusVariantj": [
+      "nothing", "address", "int", "text", "address", "unsigned int"
+    ],
+    "ritual_ZN16QDBusMenuAdaptor11GetPropertyEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN16QDBusMenuAdaptor23ItemActivationRequestedEij": [
+      "nothing", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN16QDBusMenuAdaptor22ItemsPropertiesUpdatedERK5QListI13QDBusMenuItemERKS0_I17QDBusMenuItemKeysE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QDBusMenuAdaptor13LayoutUpdatedEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_take_QDBusMenuAdaptor": ["bool", "address", "chars", "address"],
+    "ritual_drop_QDBusMenuAdaptor__QList_int": ["nothing", "address"]
   }
 }

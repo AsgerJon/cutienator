@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qcborarray.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qcborarray.h>
 #include <QtCore/qcborvalue.h>
 #include <QtCore/qstring.h>
@@ -7,6 +8,43 @@
 #include <QtCore/qjsonarray.h>
 #include <QtCore/qcompare.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QCborValue>
+#include <QtCore/QCborArray>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qcborvalue.h>
+#include <QtCore/private/qcborvalue_p.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qcborarray.h>
+#include <QtCore/qcbormap.h>
+#if QT_CONFIG(cborstreamreader)
+#include <QtCore/qcborstreamreader.h>
+#endif
+#if QT_CONFIG(cborstreamwriter)
+#include <QtCore/qcborstreamwriter.h>
+#endif
+#include <QtCore/qdebug.h>
+#include <QtCore/qendian.h>
+#include <QtCore/qlocale.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qtimezone.h>
+#include <QtCore/private/qnumeric_p.h>
+#include <QtCore/private/qsimd_p.h>
+#include <new>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/corelib/serialization/qcborvalue.cpp, line 3223, as _ZN10QCborArrayC1ER21QCborContainerPrivate
+inline QCborArray::QCborArray(QCborContainerPrivate &dd) noexcept
+    : d(&dd)
+{
+}
+//  -----------------------------------------------------------------------
 
 //  QCborArray::QCborArray()
 extern "C" Q_DECL_EXPORT
@@ -20,10 +58,45 @@ QCborArray *ritual_ZN10QCborArrayC1ERKS_(const QCborArray *other) {
   return new QCborArray(*other);
 }
 
+//  QCborArray::QCborArray(QCborArray &&other)
+extern "C" Q_DECL_EXPORT
+QCborArray *ritual_ZN10QCborArrayC1EOS_(QCborArray *other) {
+  return new QCborArray(std::move(*other));
+}
+
+//  QCborArray &QCborArray::operator=(const QCborArray &other)
+extern "C" Q_DECL_EXPORT
+QCborArray *ritual_ZN10QCborArrayaSERKS_(
+    QCborArray *self,
+    const QCborArray *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCborArray &QCborArray::operator=(QCborArray &&other)
+extern "C" Q_DECL_EXPORT
+QCborArray *ritual_ZN10QCborArrayaSEOS_(
+    QCborArray *self,
+    QCborArray *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QCborArray::QCborArray(std::initializer_list<QCborValue> args)
+extern "C" Q_DECL_EXPORT
+QCborArray *ritual_ZN10QCborArrayC1ESt16initializer_listI10QCborValueE(
+    const std::initializer_list<QCborValue> *args) {
+  return new QCborArray(*args);
+}
+
 //  QCborArray::~QCborArray()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QCborArrayD1Ev(QCborArray *self) {
   delete self;
+}
+
+//  void QCborArray::swap(QCborArray &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCborArray4swapERS_(QCborArray *self, QCborArray *other) {
+  self->swap(*other);
 }
 
 //  QCborValue QCborArray::toCborValue() const
@@ -103,6 +176,15 @@ void ritual_ZN10QCborArray6insertExRK10QCborValue(
   self->insert(i, *value);
 }
 
+//  void QCborArray::insert(qsizetype i, QCborValue &&value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCborArray6insertExO10QCborValue(
+    QCborArray *self,
+    qsizetype i,
+    QCborValue *value) {
+  self->insert(i, std::move(*value));
+}
+
 //  void QCborArray::prepend(const QCborValue &value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QCborArray7prependERK10QCborValue(
@@ -111,12 +193,28 @@ void ritual_ZN10QCborArray7prependERK10QCborValue(
   self->prepend(*value);
 }
 
+//  void QCborArray::prepend(QCborValue &&value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCborArray7prependEO10QCborValue(
+    QCborArray *self,
+    QCborValue *value) {
+  self->prepend(std::move(*value));
+}
+
 //  void QCborArray::append(const QCborValue &value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QCborArray6appendERK10QCborValue(
     QCborArray *self,
     const QCborValue *value) {
   self->append(*value);
+}
+
+//  void QCborArray::append(QCborValue &&value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCborArray6appendEO10QCborValue(
+    QCborArray *self,
+    QCborValue *value) {
+  self->append(std::move(*value));
 }
 
 //  QCborValue QCborArray::extract(ConstIterator it)
@@ -187,6 +285,95 @@ int ritual_ZNK10QCborArray7compareERKS_(
   return self->compare(*other);
 }
 
+//  iterator QCborArray::begin()
+extern "C" Q_DECL_EXPORT
+QCborArray::iterator *ritual_ZN10QCborArray5beginEv(QCborArray *self) {
+  return new QCborArray::iterator(self->begin());
+}
+
+//  const_iterator QCborArray::constBegin() const
+extern "C" Q_DECL_EXPORT
+QCborArray::const_iterator *ritual_ZNK10QCborArray10constBeginEv(
+    const QCborArray *self) {
+  return new QCborArray::const_iterator(self->constBegin());
+}
+
+//  const_iterator QCborArray::begin() const
+extern "C" Q_DECL_EXPORT
+QCborArray::const_iterator *ritual_ZNK10QCborArray5beginEv(
+    const QCborArray *self) {
+  return new QCborArray::const_iterator(self->begin());
+}
+
+//  const_iterator QCborArray::cbegin() const
+extern "C" Q_DECL_EXPORT
+QCborArray::const_iterator *ritual_ZNK10QCborArray6cbeginEv(
+    const QCborArray *self) {
+  return new QCborArray::const_iterator(self->cbegin());
+}
+
+//  iterator QCborArray::end()
+extern "C" Q_DECL_EXPORT
+QCborArray::iterator *ritual_ZN10QCborArray3endEv(QCborArray *self) {
+  return new QCborArray::iterator(self->end());
+}
+
+//  const_iterator QCborArray::constEnd() const
+extern "C" Q_DECL_EXPORT
+QCborArray::const_iterator *ritual_ZNK10QCborArray8constEndEv(
+    const QCborArray *self) {
+  return new QCborArray::const_iterator(self->constEnd());
+}
+
+//  const_iterator QCborArray::end() const
+extern "C" Q_DECL_EXPORT
+QCborArray::const_iterator *ritual_ZNK10QCborArray3endEv(
+    const QCborArray *self) {
+  return new QCborArray::const_iterator(self->end());
+}
+
+//  const_iterator QCborArray::cend() const
+extern "C" Q_DECL_EXPORT
+QCborArray::const_iterator *ritual_ZNK10QCborArray4cendEv(
+    const QCborArray *self) {
+  return new QCborArray::const_iterator(self->cend());
+}
+
+//  iterator QCborArray::insert(iterator before, const QCborValue &value)
+extern "C" Q_DECL_EXPORT
+QCborArray::iterator *ritual_ZN10QCborArray6insertENS_8IteratorERK10QCborValue(
+    QCborArray *self,
+    const QCborArray::Iterator *before,
+    const QCborValue *value) {
+  return new QCborArray::iterator(self->insert(*before, *value));
+}
+
+//  iterator QCborArray::insert(const_iterator before, const QCborValue
+//      &value)
+extern "C" Q_DECL_EXPORT
+QCborArray::iterator *ritual_ZN10QCborArray6insertENS_13ConstIteratorERK10QCborValue(
+    QCborArray *self,
+    const QCborArray::ConstIterator *before,
+    const QCborValue *value) {
+  return new QCborArray::iterator(self->insert(*before, *value));
+}
+
+//  iterator QCborArray::erase(iterator it)
+extern "C" Q_DECL_EXPORT
+QCborArray::iterator *ritual_ZN10QCborArray5eraseENS_8IteratorE(
+    QCborArray *self,
+    const QCborArray::Iterator *it) {
+  return new QCborArray::iterator(self->erase(*it));
+}
+
+//  iterator QCborArray::erase(const_iterator it)
+extern "C" Q_DECL_EXPORT
+QCborArray::iterator *ritual_ZN10QCborArray5eraseENS_13ConstIteratorE(
+    QCborArray *self,
+    const QCborArray::ConstIterator *it) {
+  return new QCborArray::iterator(self->erase(*it));
+}
+
 //  void QCborArray::push_back(const QCborValue &t)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QCborArray9push_backERK10QCborValue(
@@ -237,6 +424,14 @@ void ritual_ZN10QCborArraypLERK10QCborValue(
   self->operator+=(*v);
 }
 
+//  QCborArray &QCborArray::operator<<(const QCborValue &v)
+extern "C" Q_DECL_EXPORT
+QCborArray *ritual_ZN10QCborArraylsERK10QCborValue(
+    QCborArray *self,
+    const QCborValue *v) {
+  return &(self->operator<<(*v));
+}
+
 //  QCborArray QCborArray::fromStringList(const QStringList &list)
 extern "C" Q_DECL_EXPORT
 QCborArray *ritual_ZN10QCborArray14fromStringListERK5QListI7QStringE(
@@ -256,6 +451,13 @@ extern "C" Q_DECL_EXPORT
 QCborArray *ritual_ZN10QCborArray13fromJsonArrayERK10QJsonArray(
     const QJsonArray *array) {
   return new QCborArray(QCborArray::fromJsonArray(*array));
+}
+
+//  QCborArray QCborArray::fromJsonArray(QJsonArray &&array)
+extern "C" Q_DECL_EXPORT
+QCborArray *ritual_ZN10QCborArray13fromJsonArrayEO10QJsonArray(
+    QJsonArray *array) {
+  return new QCborArray(QCborArray::fromJsonArray(std::move(*array)));
 }
 
 //  QVariantList QCborArray::toVariantList() const
@@ -559,6 +761,13 @@ void ritual_ZN10QCborArray6detachEx(QCborArray *self, qsizetype reserve) {
   self->detach(reserve);
 }
 
+//  QCborArray::QCborArray(QCborContainerPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QCborArray *ritual_ZN10QCborArrayC1ER21QCborContainerPrivate(
+    QCborContainerPrivate *dd) {
+  return new QCborArray(*dd);
+}
+
 //  QList<QCborArray>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QCborArray> *ritual_list_make_QCborArray() {
@@ -590,5 +799,19 @@ QCborArray *ritual_list_at_QCborArray(
 //  QList<QCborArray>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QCborArray(QList<QCborArray> *self) {
+  delete self;
+}
+
+//  a QCborArray::iterator a ritual of QCborArray gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborArray__QCborArray_iterator(
+    QCborArray::iterator *self) {
+  delete self;
+}
+
+//  a QCborArray::const_iterator a ritual of QCborArray gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborArray__QCborArray_const_iterator(
+    QCborArray::const_iterator *self) {
   delete self;
 }

@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN11DomDateTimeC1Ev": ["address"],
     "ritual_ZN11DomDateTimeD1Ev": ["nothing", "address"],
+    "ritual_ZN11DomDateTime4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomDateTime5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK11DomDateTime11elementHourEv": ["int", "address"],
     "ritual_ZN11DomDateTime14setElementHourEi": [
       "nothing", "address", "int"

@@ -38,13 +38,14 @@ typedef void (*CuteQSGBasicInternalRectangleNodeCall15)(const void *, bool, int 
 typedef void (*CuteQSGBasicInternalRectangleNodeCall16)(const void *, int *);
 typedef bool (*CuteQSGBasicInternalRectangleNodeCall17)(const void *, int *);
 typedef void (*CuteQSGBasicInternalRectangleNodeCall18)(const void *, int *);
-typedef void (*CuteQSGBasicInternalRectangleNodeCall19)(const void *, QSGNodeVisitorEx *, int *);
-typedef bool (*CuteQSGBasicInternalRectangleNodeCall20)(const void *, int *);
-typedef void (*CuteQSGBasicInternalRectangleNodeCall21)(const void *, int *);
+typedef void (*CuteQSGBasicInternalRectangleNodeCall19)(const void *, QSGNode::DirtyState *, int *);
+typedef void (*CuteQSGBasicInternalRectangleNodeCall20)(const void *, QSGNodeVisitorEx *, int *);
+typedef bool (*CuteQSGBasicInternalRectangleNodeCall21)(const void *, int *);
+typedef void (*CuteQSGBasicInternalRectangleNodeCall22)(const void *, int *);
 class CuteQSGBasicInternalRectangleNode : public QSGBasicInternalRectangleNode {
 public:
   using QSGBasicInternalRectangleNode::QSGBasicInternalRectangleNode;
-  void *taken[22] = {};
+  void *taken[23] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN24QSGInternalRectangleNode7setRectERK6QRectF")) {
@@ -123,16 +124,20 @@ public:
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QSGVisitableNode6acceptEP16QSGNodeVisitorEx")) {
+    if (!std::strcmp(key, "_ZN29QSGBasicInternalRectangleNode22updateMaterialBlendingEP6QFlagsIN7QSGNode13DirtyStateBitEE")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QSGNode16isSubtreeBlockedEv")) {
+    if (!std::strcmp(key, "_ZN16QSGVisitableNode6acceptEP16QSGNodeVisitorEx")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QSGNode10preprocessEv")) {
+    if (!std::strcmp(key, "_ZNK7QSGNode16isSubtreeBlockedEv")) {
       taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QSGNode10preprocessEv")) {
+      taken[22] = call;
       return true;
     }
     return false;
@@ -349,11 +354,22 @@ public:
     }
   }
 
-  //  void QSGInternalRectangleNode::accept(QSGNodeVisitorEx *visitor)
-  void accept(QSGNodeVisitorEx *visitor) override {
+  //  void QSGBasicInternalRectangleNode::updateMaterialBlending(QSGNode::D
+  //      irtyState *state)
+  void updateMaterialBlending(QSGNode::DirtyState *state) override {
     if (taken[19]) {
       int handled = 0;
       CuteQSGBasicInternalRectangleNodeCall19 call = reinterpret_cast<CuteQSGBasicInternalRectangleNodeCall19>(taken[19]);
+      call(this, state, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QSGInternalRectangleNode::accept(QSGNodeVisitorEx *visitor)
+  void accept(QSGNodeVisitorEx *visitor) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQSGBasicInternalRectangleNodeCall20 call = reinterpret_cast<CuteQSGBasicInternalRectangleNodeCall20>(taken[20]);
       call(this, visitor, &handled);
       if (handled) return;
     }
@@ -362,9 +378,9 @@ public:
 
   //  bool QSGNode::isSubtreeBlocked() const
   bool isSubtreeBlocked() const override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQSGBasicInternalRectangleNodeCall20 call = reinterpret_cast<CuteQSGBasicInternalRectangleNodeCall20>(taken[20]);
+      CuteQSGBasicInternalRectangleNodeCall21 call = reinterpret_cast<CuteQSGBasicInternalRectangleNodeCall21>(taken[21]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -373,15 +389,21 @@ public:
 
   //  void QSGNode::preprocess()
   void preprocess() override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQSGBasicInternalRectangleNodeCall21 call = reinterpret_cast<CuteQSGBasicInternalRectangleNodeCall21>(taken[21]);
+      CuteQSGBasicInternalRectangleNodeCall22 call = reinterpret_cast<CuteQSGBasicInternalRectangleNodeCall22>(taken[22]);
       call(this, &handled);
       if (handled) return;
     }
     QSGNode::preprocess();
   }
 };
+
+//  QSGBasicInternalRectangleNode::QSGBasicInternalRectangleNode()
+extern "C" Q_DECL_EXPORT
+QSGBasicInternalRectangleNode *ritual_ZN29QSGBasicInternalRectangleNodeC1Ev() {
+  return new CuteQSGBasicInternalRectangleNode();
+}
 
 //  void QSGBasicInternalRectangleNode::setRect(const QRectF &rect)
 extern "C" Q_DECL_EXPORT
@@ -413,6 +435,15 @@ void ritual_ZN29QSGBasicInternalRectangleNode11setPenWidthEd(
     QSGBasicInternalRectangleNode *self,
     qreal width) {
   self->setPenWidth(width);
+}
+
+//  void QSGBasicInternalRectangleNode::setGradientStops(const QGradientStops
+//      &stops)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGBasicInternalRectangleNode16setGradientStopsERK5QListISt4pairId6QColorEE(
+    QSGBasicInternalRectangleNode *self,
+    const QGradientStops *stops) {
+  self->setGradientStops(*stops);
 }
 
 //  void QSGBasicInternalRectangleNode::setGradientVertical(bool vertical)
@@ -526,6 +557,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN29QSGBasicInternalRectangleNode26updateMaterialAntialiasingEv(
     QSGBasicInternalRectangleNode *self) {
   self->updateMaterialAntialiasing();
+}
+
+//  void
+//      QSGBasicInternalRectangleNode::updateMaterialBlending(QSGNode::DirtyS
+//      tate *state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGBasicInternalRectangleNode22updateMaterialBlendingEP6QFlagsIN7QSGNode13DirtyStateBitEE(
+    QSGBasicInternalRectangleNode *self,
+    QSGNode::DirtyState *state) {
+  self->updateMaterialBlending(state);
 }
 
 //  void QSGBasicInternalRectangleNode::updateGeometry()

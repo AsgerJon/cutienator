@@ -96,6 +96,33 @@ public:
   }
 };
 
+//  QAbstractFileEngineIterator::QAbstractFileEngineIterator(const QString
+//      &path, QDir::Filters filters, const QStringList &nameFilters)
+extern "C" Q_DECL_EXPORT
+QAbstractFileEngineIterator *ritual_ZN27QAbstractFileEngineIteratorC1ERK7QString6QFlagsIN4QDir6FilterEERK5QListIS0_E(
+    const QString *path,
+    int filters,
+    const QList<QString> *nameFilters) {
+  return new CuteQAbstractFileEngineIterator(
+      *path,
+      QFlags<QDir::Filter>::fromInt(filters),
+      *nameFilters);
+}
+
+//  QAbstractFileEngineIterator::QAbstractFileEngineIterator(const QString
+//      &path, QDirListing::IteratorFlags filters, const QStringList
+//      &nameFilters)
+extern "C" Q_DECL_EXPORT
+QAbstractFileEngineIterator *ritual_ZN27QAbstractFileEngineIteratorC1ERK7QString6QFlagsIN11QDirListing12IteratorFlagEERK5QListIS0_E(
+    const QString *path,
+    int filters,
+    const QList<QString> *nameFilters) {
+  return new CuteQAbstractFileEngineIterator(
+      *path,
+      QFlags<QDirListing::IteratorFlag>::fromInt(filters),
+      *nameFilters);
+}
+
 //  QAbstractFileEngineIterator::~QAbstractFileEngineIterator()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QAbstractFileEngineIteratorD1Ev(

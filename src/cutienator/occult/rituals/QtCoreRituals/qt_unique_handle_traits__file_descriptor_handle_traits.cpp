@@ -13,6 +13,13 @@ QtUniqueHandleTraits::FileDescriptorHandleTraits::Type ritual_ZN20QtUniqueHandle
   return QtUniqueHandleTraits::FileDescriptorHandleTraits::invalidValue();
 }
 
+//  bool QtUniqueHandleTraits::FileDescriptorHandleTraits::close(Type handle)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QtUniqueHandleTraits26FileDescriptorHandleTraits5closeEi(
+    QtUniqueHandleTraits::FileDescriptorHandleTraits::Type handle) {
+  return QtUniqueHandleTraits::FileDescriptorHandleTraits::close(handle);
+}
+
 //  QtUniqueHandleTraits::FileDescriptorHandleTraits::~FileDescriptorHandleTr
 //      aits()
 extern "C" Q_DECL_EXPORT

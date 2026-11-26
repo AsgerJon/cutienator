@@ -297,6 +297,25 @@ const QMetaObject *ritual_ZNK23QQuick3DReflectionProbe10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DReflectionProbe::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuick3DReflectionProbe11qt_metacastEPKc(
+    QQuick3DReflectionProbe *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DReflectionProbe::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuick3DReflectionProbe11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DReflectionProbe *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DReflectionProbe::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuick3DReflectionProbe2trEPKcS1_i(
@@ -464,6 +483,69 @@ void ritual_ZN23QQuick3DReflectionProbe10setTextureEP22QQuick3DCubeMapTexture(
     QQuick3DReflectionProbe *self,
     QQuick3DCubeMapTexture *newTexture) {
   self->setTexture(newTexture);
+}
+
+//  void QQuick3DReflectionProbe::qualityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DReflectionProbe14qualityChangedEv(
+    QQuick3DReflectionProbe *self) {
+  self->qualityChanged();
+}
+
+//  void QQuick3DReflectionProbe::clearColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DReflectionProbe17clearColorChangedEv(
+    QQuick3DReflectionProbe *self) {
+  self->clearColorChanged();
+}
+
+//  void QQuick3DReflectionProbe::refreshModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DReflectionProbe18refreshModeChangedEv(
+    QQuick3DReflectionProbe *self) {
+  self->refreshModeChanged();
+}
+
+//  void QQuick3DReflectionProbe::timeSlicingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DReflectionProbe18timeSlicingChangedEv(
+    QQuick3DReflectionProbe *self) {
+  self->timeSlicingChanged();
+}
+
+//  void QQuick3DReflectionProbe::parallaxCorrectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DReflectionProbe25parallaxCorrectionChangedEv(
+    QQuick3DReflectionProbe *self) {
+  self->parallaxCorrectionChanged();
+}
+
+//  void QQuick3DReflectionProbe::boxSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DReflectionProbe14boxSizeChangedEv(
+    QQuick3DReflectionProbe *self) {
+  self->boxSizeChanged();
+}
+
+//  void QQuick3DReflectionProbe::debugViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DReflectionProbe16debugViewChangedEv(
+    QQuick3DReflectionProbe *self) {
+  self->debugViewChanged();
+}
+
+//  void QQuick3DReflectionProbe::boxOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DReflectionProbe16boxOffsetChangedEv(
+    QQuick3DReflectionProbe *self) {
+  self->boxOffsetChanged();
+}
+
+//  void QQuick3DReflectionProbe::textureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DReflectionProbe14textureChangedEv(
+    QQuick3DReflectionProbe *self) {
+  self->textureChanged();
 }
 
 //  QSSGRenderGraphObject

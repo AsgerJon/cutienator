@@ -1,0 +1,185 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qqc2qstyle_p.h,",
+    "Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK4QQC26QStyle10metaObjectEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN4QQC26QStyle6d_funcEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle6d_funcEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN4QQC26QStyleD1Ev": [
+      "nothing",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString": [
+      "address",
+      "address",
+      "address",
+      "address",
+      "int",
+      "bool",
+      "text"
+    ],
+    "ritual_ZNK4QQC26QStyle14itemPixmapRectERK5QRectiRK7QPixmap": [
+      "address",
+      "address",
+      "address",
+      "int",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle14subElementRectENS0_10SubElementEPKNS_12QStyleOptionE": [
+      "address",
+      "address",
+      "int",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle14subControlRectENS0_14ComplexControlEPKNS_19QStyleOptionComplexENS0_10SubControlE": [
+      "address",
+      "address",
+      "int",
+      "address",
+      "int"
+    ],
+    "ritual_ZNK4QQC26QStyle16sizeFromContentsENS0_12ContentsTypeEPKNS_12QStyleOptionERK5QSize": [
+      "address",
+      "address",
+      "int",
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle4fontENS0_14ControlElementE6QFlagsINS0_9StateFlagEE": [
+      "address",
+      "address",
+      "int",
+      "int"
+    ],
+    "ritual_ZNK4QQC26QStyle16ninePatchMarginsENS0_14ControlElementEPKNS_12QStyleOptionERK5QSize": [
+      "address",
+      "address",
+      "int",
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle16ninePatchMarginsENS0_14ComplexControlEPKNS_19QStyleOptionComplexERK5QSize": [
+      "address",
+      "address",
+      "int",
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle21hitTestComplexControlENS0_14ComplexControlEPKNS_19QStyleOptionComplexERK6QPoint": [
+      "int",
+      "address",
+      "int",
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle11pixelMetricENS0_11PixelMetricEPKNS_12QStyleOptionE": [
+      "int",
+      "address",
+      "int",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle9styleHintENS0_9StyleHintEPKNS_12QStyleOptionEPNS_16QStyleHintReturnE": [
+      "int",
+      "address",
+      "int",
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS6_9ColorRoleE": [
+      "nothing",
+      "address",
+      "address",
+      "address",
+      "int",
+      "address",
+      "bool",
+      "text",
+      "int"
+    ],
+    "ritual_ZNK4QQC26QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap": [
+      "nothing",
+      "address",
+      "address",
+      "address",
+      "int",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle13drawPrimitiveENS0_16PrimitiveElementEPKNS_12QStyleOptionEP8QPainter": [
+      "nothing",
+      "address",
+      "int",
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle11drawControlENS0_14ControlElementEPKNS_12QStyleOptionEP8QPainter": [
+      "nothing",
+      "address",
+      "int",
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle18drawComplexControlENS0_14ComplexControlEPKNS_19QStyleOptionComplexEP8QPainter": [
+      "nothing",
+      "address",
+      "int",
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle15standardPaletteEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle14standardPixmapENS0_14StandardPixmapEPKNS_12QStyleOptionE": [
+      "address",
+      "address",
+      "int",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle12standardIconENS0_14StandardPixmapEPKNS_12QStyleOptionE": [
+      "address",
+      "address",
+      "int",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPKNS_12QStyleOptionE": [
+      "address",
+      "address",
+      "int",
+      "address",
+      "address"
+    ],
+    "ritual_ZN4QQC26QStyle6polishEv": [
+      "nothing",
+      "address"
+    ],
+    "ritual_ZNK4QQC26QStyle5proxyEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN4QQC26QStyle17handleThemeChangeEv": [
+      "nothing",
+      "address"
+    ],
+    "ritual_own_ZN4QQC26QStyle6polishEv": [
+      "nothing",
+      "address"
+    ],
+    "ritual_own_ZN4QQC26QStyle17handleThemeChangeEv": [
+      "nothing",
+      "address"
+    ]
+  }
+}

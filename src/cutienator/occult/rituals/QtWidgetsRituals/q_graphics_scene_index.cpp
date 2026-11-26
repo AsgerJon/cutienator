@@ -385,6 +385,25 @@ const QMetaObject *ritual_ZNK19QGraphicsSceneIndex10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsSceneIndex::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QGraphicsSceneIndex11qt_metacastEPKc(
+    QGraphicsSceneIndex *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsSceneIndex::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QGraphicsSceneIndex11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsSceneIndex *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QGraphicsSceneIndex::~QGraphicsSceneIndex()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGraphicsSceneIndexD1Ev(QGraphicsSceneIndex *self) {
@@ -545,6 +564,17 @@ void ritual_ZN19QGraphicsSceneIndex10deleteItemEP13QGraphicsItem(
     QGraphicsSceneIndex *self,
     QGraphicsItem *item) {
   self->deleteItem(item);
+}
+
+//  void QGraphicsSceneIndex::itemChange(const QGraphicsItem *item,
+//      QGraphicsItem::GraphicsItemChange a1, const void *const value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphicsSceneIndex10itemChangeEPK13QGraphicsItemNS0_18GraphicsItemChangeEPKv(
+    QGraphicsSceneIndex *self,
+    const QGraphicsItem *item,
+    QGraphicsItem::GraphicsItemChange a1,
+    const void *const value) {
+  self->itemChange(item, a1, value);
 }
 
 //  void QGraphicsSceneIndex::prepareBoundingRectChange(const QGraphicsItem

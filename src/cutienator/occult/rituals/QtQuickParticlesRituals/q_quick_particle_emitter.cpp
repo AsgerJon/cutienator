@@ -9,12 +9,16 @@
 #include <QtQuickParticles/6.12.0/QtQuickParticles/private/qquickparticleemitter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuickParticles/6.12.0/QtQuickParticles/private/qquickv4particledata_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QQuickParticleEmitter that Python can take functions over in. Every QQuickParticleEmitter
@@ -818,6 +822,25 @@ const QMetaObject *ritual_ZNK21QQuickParticleEmitter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickParticleEmitter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickParticleEmitter11qt_metacastEPKc(
+    QQuickParticleEmitter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickParticleEmitter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickParticleEmitter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickParticleEmitter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickParticleEmitter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickParticleEmitter2trEPKcS1_i(
@@ -917,6 +940,141 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickParticleEmitter17componentCompleteEv(
     QQuickParticleEmitter *self) {
   self->componentComplete();
+}
+
+//  void QQuickParticleEmitter::emitParticles(const
+//      QList<QQuickV4ParticleData> &particles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter13emitParticlesERK5QListI20QQuickV4ParticleDataE(
+    QQuickParticleEmitter *self,
+    const QList<QQuickV4ParticleData> *particles) {
+  self->emitParticles(*particles);
+}
+
+//  void QQuickParticleEmitter::particlesPerSecondChanged(qreal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter25particlesPerSecondChangedEd(
+    QQuickParticleEmitter *self,
+    qreal a0) {
+  self->particlesPerSecondChanged(a0);
+}
+
+//  void QQuickParticleEmitter::particleDurationChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter23particleDurationChangedEi(
+    QQuickParticleEmitter *self,
+    int a0) {
+  self->particleDurationChanged(a0);
+}
+
+//  void QQuickParticleEmitter::enabledChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter14enabledChangedEb(
+    QQuickParticleEmitter *self,
+    bool a0) {
+  self->enabledChanged(a0);
+}
+
+//  void QQuickParticleEmitter::systemChanged(QQuickParticleSystem *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter13systemChangedEP20QQuickParticleSystem(
+    QQuickParticleEmitter *self,
+    QQuickParticleSystem *arg) {
+  self->systemChanged(arg);
+}
+
+//  void QQuickParticleEmitter::groupChanged(const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter12groupChangedERK7QString(
+    QQuickParticleEmitter *self,
+    const QString *arg) {
+  self->groupChanged(*arg);
+}
+
+//  void QQuickParticleEmitter::particleDurationVariationChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter32particleDurationVariationChangedEi(
+    QQuickParticleEmitter *self,
+    int arg) {
+  self->particleDurationVariationChanged(arg);
+}
+
+//  void QQuickParticleEmitter::extruderChanged(QQuickParticleExtruder *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter15extruderChangedEP22QQuickParticleExtruder(
+    QQuickParticleEmitter *self,
+    QQuickParticleExtruder *arg) {
+  self->extruderChanged(arg);
+}
+
+//  void QQuickParticleEmitter::particleSizeChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter19particleSizeChangedEd(
+    QQuickParticleEmitter *self,
+    qreal arg) {
+  self->particleSizeChanged(arg);
+}
+
+//  void QQuickParticleEmitter::particleEndSizeChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter22particleEndSizeChangedEd(
+    QQuickParticleEmitter *self,
+    qreal arg) {
+  self->particleEndSizeChanged(arg);
+}
+
+//  void QQuickParticleEmitter::particleSizeVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter28particleSizeVariationChangedEd(
+    QQuickParticleEmitter *self,
+    qreal arg) {
+  self->particleSizeVariationChanged(arg);
+}
+
+//  void QQuickParticleEmitter::velocityChanged(QQuickDirection *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter15velocityChangedEP15QQuickDirection(
+    QQuickParticleEmitter *self,
+    QQuickDirection *arg) {
+  self->velocityChanged(arg);
+}
+
+//  void QQuickParticleEmitter::accelerationChanged(QQuickDirection *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter19accelerationChangedEP15QQuickDirection(
+    QQuickParticleEmitter *self,
+    QQuickDirection *arg) {
+  self->accelerationChanged(arg);
+}
+
+//  void QQuickParticleEmitter::maximumEmittedChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter21maximumEmittedChangedEi(
+    QQuickParticleEmitter *self,
+    int arg) {
+  self->maximumEmittedChanged(arg);
+}
+
+//  void QQuickParticleEmitter::particleCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter20particleCountChangedEv(
+    QQuickParticleEmitter *self) {
+  self->particleCountChanged();
+}
+
+//  void QQuickParticleEmitter::velocityFromMovementChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter27velocityFromMovementChangedEv(
+    QQuickParticleEmitter *self) {
+  self->velocityFromMovementChanged();
+}
+
+//  void QQuickParticleEmitter::startTimeChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticleEmitter16startTimeChangedEi(
+    QQuickParticleEmitter *self,
+    int arg) {
+  self->startTimeChanged(arg);
 }
 
 //  void QQuickParticleEmitter::pulse(int milliseconds)

@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK21QQuickGravityAffector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGravityAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickGravityAffector11qt_metacastEPKc(
+    QQuickGravityAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGravityAffector::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickGravityAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGravityAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGravityAffector::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickGravityAffector2trEPKcS1_i(
@@ -59,6 +78,22 @@ bool ritual_ZN21QQuickGravityAffector14affectParticleEP18QQuickParticleDatad(
     QQuickParticleData *d,
     qreal dt) {
   return self->affectParticle(d, dt);
+}
+
+//  void QQuickGravityAffector::magnitudeChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickGravityAffector16magnitudeChangedEd(
+    QQuickGravityAffector *self,
+    qreal arg) {
+  self->magnitudeChanged(arg);
+}
+
+//  void QQuickGravityAffector::angleChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickGravityAffector12angleChangedEd(
+    QQuickGravityAffector *self,
+    qreal arg) {
+  self->angleChanged(arg);
 }
 
 //  void QQuickGravityAffector::setMagnitude(qreal arg)

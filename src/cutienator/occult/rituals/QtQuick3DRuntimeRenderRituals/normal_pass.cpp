@@ -7,6 +7,24 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  void NormalPass::renderPrep(QSSGRenderer &renderer, QSSGLayerRenderData
+//      &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10NormalPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData(
+    NormalPass *self,
+    QSSGRenderer *renderer,
+    QSSGLayerRenderData *data) {
+  self->renderPrep(*renderer, *data);
+}
+
+//  void NormalPass::renderPass(QSSGRenderer &renderer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10NormalPass10renderPassER12QSSGRenderer(
+    NormalPass *self,
+    QSSGRenderer *renderer) {
+  self->renderPass(*renderer);
+}
+
 //  Type NormalPass::passType() const
 extern "C" Q_DECL_EXPORT
 QSSGRenderPass::Type ritual_ZNK10NormalPass8passTypeEv(

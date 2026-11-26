@@ -27,6 +27,173 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 13, as local:qquickanchors.cpp:readParentItem
+static Q_ALWAYS_INLINE QQuickItem *readParentItem(const QQuickItem *item)
+{
+    return QQuickItemPrivate::get(item)->parentItem;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 18, as local:qquickanchors.cpp:readX
+static Q_ALWAYS_INLINE qreal readX(const QQuickItem *item)
+{
+    return QQuickItemPrivate::get(item)->x;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 23, as local:qquickanchors.cpp:readY
+static Q_ALWAYS_INLINE qreal readY(const QQuickItem *item)
+{
+    return QQuickItemPrivate::get(item)->y;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 28, as local:qquickanchors.cpp:readWidth
+static Q_ALWAYS_INLINE qreal readWidth(const QQuickItem *item)
+{
+    return QQuickItemPrivate::get(item)->width;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 33, as local:qquickanchors.cpp:readHeight
+static Q_ALWAYS_INLINE qreal readHeight(const QQuickItem *item)
+{
+    return QQuickItemPrivate::get(item)->height;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 38, as local:qquickanchors.cpp:readBaselineOffset
+static Q_ALWAYS_INLINE qreal readBaselineOffset(const QQuickItem *item)
+{
+    return QQuickItemPrivate::get(item)->baselineOffset;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 46, as local:qquickanchors.cpp:hcenter
+static inline qreal hcenter(const QQuickItem *item)
+{
+    qreal width = readWidth(item);
+    if (QQuickAnchors *anchors = QQuickItemPrivate::get(item)->_anchors) {
+        if (!QQuickAnchorsPrivate::get(anchors)->centerAligned)
+            return width / 2;
+    }
+    return qRound(width / 2);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 56, as local:qquickanchors.cpp:vcenter
+static inline qreal vcenter(const QQuickItem *item)
+{
+    qreal height = readHeight(item);
+    if (QQuickAnchors *anchors = QQuickItemPrivate::get(item)->_anchors) {
+        if (!QQuickAnchorsPrivate::get(anchors)->centerAligned)
+            return height / 2;
+    }
+    return qRound(height / 2);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 100, as local:qquickanchors.cpp:adjustedPosition
+static inline qreal adjustedPosition(QQuickItem *item, QQuickAnchors::Anchor anchorLine)
+{
+    qreal ret = 0.0;
+    switch (anchorLine) {
+    case QQuickAnchors::LeftAnchor:
+        ret = 0.0;
+        break;
+    case QQuickAnchors::RightAnchor:
+        ret = readWidth(item);
+        break;
+    case QQuickAnchors::TopAnchor:
+        ret = 0.0;
+        break;
+    case QQuickAnchors::BottomAnchor:
+        ret = readHeight(item);
+        break;
+    case QQuickAnchors::HCenterAnchor:
+        ret = hcenter(item);
+        break;
+    case QQuickAnchors::VCenterAnchor:
+        ret = vcenter(item);
+        break;
+    case QQuickAnchors::BaselineAnchor:
+        ret = readBaselineOffset(item);
+        break;
+    default:
+        break;
+    }
+
+    return ret;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 648, as local:qquickanchors.cpp:reverseAnchorLine
+static inline QQuickAnchors::Anchor reverseAnchorLine(QQuickAnchors::Anchor anchorLine)
+{
+    if (anchorLine == QQuickAnchors::LeftAnchor) {
+        return QQuickAnchors::RightAnchor;
+    } else if (anchorLine == QQuickAnchors::RightAnchor) {
+        return QQuickAnchors::LeftAnchor;
+    } else {
+        return anchorLine;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 452, as _ZN20QQuickAnchorsPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
+inline void QQuickAnchorsPrivate::itemGeometryChanged(QQuickItem *, QQuickGeometryChange change, const QRectF &)
+{
+    if (!isItemComplete())
+        return;
+
+    if (fill) {
+        fillChanged();
+    } else if (centerIn) {
+        centerInChanged();
+    } else {
+        if ((usedAnchors & QQuickAnchors::Horizontal_Mask) && change.horizontalChange())
+            updateHorizontalAnchors();
+        if ((usedAnchors & QQuickAnchors::Vertical_Mask) && change.verticalChange())
+            updateVerticalAnchors();
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 245, as _ZNK20QQuickAnchorsPrivate19calculateDependencyEP10QQuickItem
+inline QQuickGeometryChange QQuickAnchorsPrivate::calculateDependency(QQuickItem *controlItem) const
+{
+    QQuickGeometryChange dependency;
+
+    if (!controlItem || inDestructor)
+        return dependency;
+
+    if (fill == controlItem) {
+        if (controlItem == readParentItem(item))
+            dependency.setSizeChange(true);
+        else    //sibling
+            dependency.setAllChanged(true);
+        return dependency;  //exit early
+    }
+
+    if (centerIn == controlItem) {
+        if (controlItem == readParentItem(item))
+            dependency.setSizeChange(true);
+        else    //sibling
+            dependency.setAllChanged(true);
+        return dependency;  //exit early
+    }
+
+    if ((usedAnchors & QQuickAnchors::LeftAnchor && leftAnchorItem == controlItem) ||
+        (usedAnchors & QQuickAnchors::RightAnchor && rightAnchorItem == controlItem) ||
+        (usedAnchors & QQuickAnchors::HCenterAnchor && hCenterAnchorItem == controlItem)) {
+        if (controlItem == readParentItem(item))
+            dependency.setWidthChange(true);
+        else    //sibling
+            dependency.setHorizontalChange(true);
+    }
+
+    if ((usedAnchors & QQuickAnchors::TopAnchor && topAnchorItem == controlItem) ||
+        (usedAnchors & QQuickAnchors::BottomAnchor && bottomAnchorItem == controlItem) ||
+        (usedAnchors & QQuickAnchors::VCenterAnchor && vCenterAnchorItem == controlItem) ||
+        (usedAnchors & QQuickAnchors::BaselineAnchor && baselineAnchorItem == controlItem)) {
+        if (controlItem == readParentItem(item))
+            dependency.setHeightChange(true);
+        else    //sibling
+            dependency.setVerticalChange(true);
+    }
+
+    return dependency;
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 207, as _ZN20QQuickAnchorsPrivate9clearItemEP10QQuickItem
 inline void QQuickAnchorsPrivate::clearItem(QQuickItem *item)
 {
@@ -64,6 +231,26 @@ inline void QQuickAnchorsPrivate::clearItem(QQuickItem *item)
         baselineAnchorItem = nullptr;
         usedAnchors &= ~QQuickAnchors::BaselineAnchor;
     }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 290, as _ZN20QQuickAnchorsPrivate9addDependEP10QQuickItem
+inline void QQuickAnchorsPrivate::addDepend(QQuickItem *item)
+{
+    if (!item || !componentComplete)
+        return;
+
+    QQuickItemPrivate *p = QQuickItemPrivate::get(item);
+    p->updateOrAddGeometryChangeListener(this, calculateDependency(item));
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 299, as _ZN20QQuickAnchorsPrivate9remDependEP10QQuickItem
+inline void QQuickAnchorsPrivate::remDepend(QQuickItem *item)
+{
+    if (!item || !componentComplete)
+        return;
+
+    QQuickItemPrivate *p = QQuickItemPrivate::get(item);
+    p->updateOrRemoveGeometryChangeListener(this, calculateDependency(item));
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 337, as _ZNK20QQuickAnchorsPrivate14isItemCompleteEv
@@ -118,24 +305,6 @@ inline void QQuickAnchorsPrivate::setItemSize(const QSizeF &v)
     updatingMe = true;
     item->setSize(v);
     updatingMe = false;
-}
-
-//  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 452, as _ZN20QQuickAnchorsPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
-inline void QQuickAnchorsPrivate::itemGeometryChanged(QQuickItem *, QQuickGeometryChange change, const QRectF &)
-{
-    if (!isItemComplete())
-        return;
-
-    if (fill) {
-        fillChanged();
-    } else if (centerIn) {
-        centerInChanged();
-    } else {
-        if ((usedAnchors & QQuickAnchors::Horizontal_Mask) && change.horizontalChange())
-            updateHorizontalAnchors();
-        if ((usedAnchors & QQuickAnchors::Vertical_Mask) && change.verticalChange())
-            updateVerticalAnchors();
-    }
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickanchors.cpp, line 1297, as _ZNK20QQuickAnchorsPrivate11checkHValidEv
@@ -240,6 +409,22 @@ void ritual_ZN20QQuickAnchorsPrivate9clearItemEP10QQuickItem(
     QQuickAnchorsPrivate *self,
     QQuickItem *a0) {
   self->clearItem(a0);
+}
+
+//  void QQuickAnchorsPrivate::addDepend(QQuickItem *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnchorsPrivate9addDependEP10QQuickItem(
+    QQuickAnchorsPrivate *self,
+    QQuickItem *a0) {
+  self->addDepend(a0);
+}
+
+//  void QQuickAnchorsPrivate::remDepend(QQuickItem *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickAnchorsPrivate9remDependEP10QQuickItem(
+    QQuickAnchorsPrivate *self,
+    QQuickItem *a0) {
+  self->remDepend(a0);
 }
 
 //  bool QQuickAnchorsPrivate::isItemComplete() const

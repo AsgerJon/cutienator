@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK6Spacer10metaObjectEv": ["address", "address"],
+    "ritual_ZN6Spacer11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN6Spacer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN6Spacer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN6SpacerC1EP7QWidget": ["address", "address"],
     "ritual_ZNK6Spacer8sizeHintEv": ["address", "address"],

@@ -6,15 +6,30 @@
   ],
   "rows": {
     "ritual_ZNK13QWaylandShell10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QWaylandShell11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QWaylandShell11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QWaylandShell2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QWaylandShell6d_funcEv": ["address", "address"],
     "ritual_ZNK13QWaylandShell6d_funcEv": ["address", "address"],
     "ritual_ZN13QWaylandShell24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
+    "ritual_ZN13QWaylandShellC1Ev": ["address"],
+    "ritual_ZN13QWaylandShellC1EP14QWaylandObject": ["address", "address"],
     "ritual_ZNK13QWaylandShell11focusPolicyEv": ["int", "address"],
     "ritual_ZN13QWaylandShell14setFocusPolicyENS_11FocusPolicyE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN13QWaylandShell18focusPolicyChangedEv": ["nothing", "address"],
+    "ritual_ZN13QWaylandShellC1ER20QWaylandShellPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN13QWaylandShellC1EP14QWaylandObjectR20QWaylandShellPrivate": [
+      "address", "address", "address"
     ],
     "ritual_take_QWaylandShell": ["bool", "address", "chars", "address"]
   }

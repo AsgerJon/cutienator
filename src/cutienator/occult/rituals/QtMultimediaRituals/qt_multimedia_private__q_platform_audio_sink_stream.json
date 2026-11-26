@@ -5,8 +5,50 @@
     "port_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStreamC1E12QAudioDeviceRK12QAudioFormatSt8optionalIiES5_INS_18NativePeriodFramesEEf": [
+      "address", "address", "address", "address", "address", "float"
+    ],
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStreamD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate24QPlatformAudioSinkStream9bytesFreeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate24QPlatformAudioSinkStream17processedDurationEv": [
+      "long long", "address"
+    ],
     "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream16updateStreamIdleEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream28createRingbufferWriterDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream12setQIODeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream26createQIODeviceConnectionsEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream30disconnectQIODeviceConnectionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream17pullFromQIODeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream12setIdleStateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate24QPlatformAudioSinkStream6isIdleESt12memory_order": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream17stopIdleDetectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate24QPlatformAudioSinkStream6threadEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream21pullFromQIODeviceImplEv": [
+      "nothing", "address"
     ],
     "ritual_take_QtMultimediaPrivate_QPlatformAudioSinkStream": [
       "bool", "address", "chars", "address"

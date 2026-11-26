@@ -15,9 +15,15 @@
     "ritual_ZN16QLocalUnixSocket14setSocketErrorEN15QAbstractSocket11SocketErrorE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN16QLocalUnixSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN16QLocalUnixSocket9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
-    "ritual_take_QLocalUnixSocket": ["bool", "address", "chars", "address"]
+    "ritual_take_QLocalUnixSocket": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QLocalUnixSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ]
   }
 }

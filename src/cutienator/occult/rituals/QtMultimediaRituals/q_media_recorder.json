@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QMediaRecorder10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QMediaRecorder11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QMediaRecorder11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QMediaRecorder2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -80,6 +86,49 @@
     "ritual_ZN14QMediaRecorder6recordEv": ["nothing", "address"],
     "ritual_ZN14QMediaRecorder5pauseEv": ["nothing", "address"],
     "ritual_ZN14QMediaRecorder4stopEv": ["nothing", "address"],
+    "ritual_ZN14QMediaRecorder20recorderStateChangedENS_13RecorderStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QMediaRecorder15durationChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN14QMediaRecorder21actualLocationChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QMediaRecorder22encoderSettingsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QMediaRecorder13errorOccurredENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN14QMediaRecorder12errorChangedEv": ["nothing", "address"],
+    "ritual_ZN14QMediaRecorder15metaDataChangedEv": ["nothing", "address"],
+    "ritual_ZN14QMediaRecorder18mediaFormatChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QMediaRecorder19encodingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QMediaRecorder14qualityChangedEv": ["nothing", "address"],
+    "ritual_ZN14QMediaRecorder22videoResolutionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QMediaRecorder21videoFrameRateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QMediaRecorder19videoBitRateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QMediaRecorder19audioBitRateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QMediaRecorder24audioChannelCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QMediaRecorder22audioSampleRateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QMediaRecorder15autoStopChangedEv": ["nothing", "address"],
     "ritual_ZN14QMediaRecorder17setCaptureSessionEP20QMediaCaptureSession": [
       "nothing", "address", "address"
     ],

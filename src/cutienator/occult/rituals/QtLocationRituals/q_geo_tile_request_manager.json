@@ -9,11 +9,23 @@
       "address", "address", "address"
     ],
     "ritual_ZN22QGeoTileRequestManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN22QGeoTileRequestManager12requestTilesERK4QSetI12QGeoTileSpecE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QGeoTileRequestManager9tileErrorERK12QGeoTileSpecRK7QString": [
       "nothing", "address", "address", "text"
     ],
     "ritual_ZN22QGeoTileRequestManager11tileFetchedERK12QGeoTileSpec": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGeoTileRequestManager11tileTextureERK12QGeoTileSpec": [
+      "address", "address", "address"
+    ],
+    "ritual_drop_QGeoTileRequestManager__QMap_QGeoTileSpec_QSharedPointer_QGeoTileTexture": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGeoTileRequestManager__QSharedPointer_QGeoTileTexture": [
+      "nothing", "address"
     ]
   }
 }

@@ -1,10 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qguiapplication.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qguiapplication.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZNK15QGuiApplication10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGuiApplication11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QGuiApplication11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QGuiApplication2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -71,6 +78,9 @@
     "ritual_ZN15QGuiApplication20desktopSettingsAwareEv": ["bool"],
     "ritual_ZN15QGuiApplication11inputMethodEv": ["address"],
     "ritual_ZN15QGuiApplication23platformNativeInterfaceEv": ["address"],
+    "ritual_ZN15QGuiApplication16platformFunctionERK10QByteArray": [
+      "address", "address"
+    ],
     "ritual_ZN15QGuiApplication25setQuitOnLastWindowClosedEb": [
       "nothing", "bool"
     ],
@@ -90,12 +100,58 @@
     "ritual_ZNK15QGuiApplication9sessionIdEv": ["text", "address"],
     "ritual_ZNK15QGuiApplication10sessionKeyEv": ["text", "address"],
     "ritual_ZNK15QGuiApplication15isSavingSessionEv": ["bool", "address"],
+    "ritual_ZNK15QGuiApplication16resolveInterfaceEPKci": [
+      "address", "address", "chars", "int"
+    ],
     "ritual_ZN15QGuiApplication4syncEv": ["nothing"],
+    "ritual_ZN15QGuiApplication19fontDatabaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QGuiApplication11screenAddedEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication13screenRemovedEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication20primaryScreenChangedEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication16lastWindowClosedEv": ["nothing", "address"],
+    "ritual_ZN15QGuiApplication18focusObjectChangedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication18focusWindowChangedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication23applicationStateChangedEN2Qt16ApplicationStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QGuiApplication22layoutDirectionChangedEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QGuiApplication17commitDataRequestER15QSessionManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication16saveStateRequestER15QSessionManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication29applicationDisplayNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QGuiApplication14paletteChangedERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication11fontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QGuiApplication5eventEP6QEvent": [
       "bool", "address", "address"
     ],
     "ritual_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP14QPostEventList": [
       "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplicationC1ER22QGuiApplicationPrivate": [
+      "address", "address"
     ],
     "ritual_ZN15QGuiApplication6d_funcEv": ["address", "address"],
     "ritual_ZNK15QGuiApplication6d_funcEv": ["address", "address"],
@@ -108,6 +164,12 @@
     ],
     "ritual_own_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP14QPostEventList": [
       "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK15QGuiApplication15nativeInterfaceIN16QNativeInterface15QX11ApplicationENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QGuiApplication15nativeInterfaceIN16QNativeInterface19QWaylandApplicationENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
     ]
   }
 }

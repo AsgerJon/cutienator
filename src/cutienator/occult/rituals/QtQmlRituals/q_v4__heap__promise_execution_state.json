@@ -8,6 +8,9 @@
     "ritual_ZN3QV44Heap21PromiseExecutionState11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap21PromiseExecutionState4initEv": [
+      "nothing", "address"
+    ],
     "ritual_cast_QV4_Heap_PromiseExecutionState_QV4_Heap_PromiseExecutionStateData": [
       "address", "address"
     ]

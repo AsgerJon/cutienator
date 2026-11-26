@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK25QQuick3DPerspectiveCamera10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DPerspectiveCamera::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuick3DPerspectiveCamera11qt_metacastEPKc(
+    QQuick3DPerspectiveCamera *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DPerspectiveCamera::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuick3DPerspectiveCamera11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DPerspectiveCamera *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DPerspectiveCamera::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -99,6 +118,43 @@ void ritual_ZN25QQuick3DPerspectiveCamera25setFieldOfViewOrientationENS_22FieldO
     QQuick3DPerspectiveCamera *self,
     QQuick3DPerspectiveCamera::FieldOfViewOrientation fieldOfViewOrientation) {
   self->setFieldOfViewOrientation(fieldOfViewOrientation);
+}
+
+//  void QQuick3DPerspectiveCamera::clipNearChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DPerspectiveCamera15clipNearChangedEv(
+    QQuick3DPerspectiveCamera *self) {
+  self->clipNearChanged();
+}
+
+//  void QQuick3DPerspectiveCamera::clipFarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DPerspectiveCamera14clipFarChangedEv(
+    QQuick3DPerspectiveCamera *self) {
+  self->clipFarChanged();
+}
+
+//  void QQuick3DPerspectiveCamera::fieldOfViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DPerspectiveCamera18fieldOfViewChangedEv(
+    QQuick3DPerspectiveCamera *self) {
+  self->fieldOfViewChanged();
+}
+
+//  void QQuick3DPerspectiveCamera::fieldOfViewOrientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DPerspectiveCamera29fieldOfViewOrientationChangedEv(
+    QQuick3DPerspectiveCamera *self) {
+  self->fieldOfViewOrientationChanged();
+}
+
+//  QQuick3DPerspectiveCamera::QQuick3DPerspectiveCamera(QQuick3DNodePrivate
+//      &dd, QQuick3DNode *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DPerspectiveCamera *ritual_ZN25QQuick3DPerspectiveCameraC1ER19QQuick3DNodePrivateP12QQuick3DNode(
+    QQuick3DNodePrivate *dd,
+    QQuick3DNode *parent) {
+  return new QQuick3DPerspectiveCamera(*dd, parent);
 }
 
 //  QSSGRenderGraphObject

@@ -46,6 +46,34 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/xml/dom/qdom.cpp, line 1480, as local:qdom.cpp:qNormalizeNode
+#if QT_CONFIG(dom)
+static void qNormalizeNode(QDomNodePrivate* n)
+{
+    QDomNodePrivate* p = n->first;
+    QDomTextPrivate* t = nullptr;
+
+    while (p) {
+        if (p->isText()) {
+            if (t) {
+                QDomNodePrivate* tmp = p->next;
+                t->appendData(p->nodeValue());
+                n->removeChild(p);
+                p = tmp;
+            } else {
+                t = static_cast<QDomTextPrivate *>(p);
+                p = p->next;
+            }
+        } else {
+            p = p->next;
+            t = nullptr;
+        }
+    }
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1454, as _ZN15QDomNodePrivate11appendChildEPS_
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomNodePrivate::appendChild(QDomNodePrivate* newChild)
@@ -404,6 +432,50 @@ inline void QDomNodePrivate::clear()
 }
 #endif  // QT_CONFIG(dom)
 
+//  from src/xml/dom/qdom.cpp, line 1502, as _ZN15QDomNodePrivate9normalizeEv
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::normalize()
+{
+    // ### This one has moved from QDomElementPrivate to this position. It is
+    // not tested.
+    qNormalizeNode(this);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3523, as _ZN24QDomCharacterDataPrivate9cloneNodeEb
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomCharacterDataPrivate::cloneNode(bool deep)
+{
+    QDomNodePrivate* p = new QDomCharacterDataPrivate(this, deep);
+    // We are not interested in this node
+    p->ref.deref();
+    return p;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3518, as _ZN24QDomCharacterDataPrivateC1EPS_b
+#if QT_CONFIG(dom)
+inline QDomCharacterDataPrivate::QDomCharacterDataPrivate(QDomCharacterDataPrivate* n, bool deep)
+    : QDomNodePrivate(n, deep)
+{
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1460, as _ZN15QDomNodePrivate13ownerDocumentEv
+#if QT_CONFIG(dom)
+inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()
+{
+    QDomNodePrivate* p = this;
+    while (p && !p->isDocument()) {
+        if (!p->hasParent)
+            return static_cast<QDomDocumentPrivate *>(p->ownerNode);
+        p = p->parent();
+    }
+
+    return static_cast<QDomDocumentPrivate *>(p);
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 3531, as _ZNK24QDomCharacterDataPrivate10dataLengthEv
 #if QT_CONFIG(dom)
 inline int QDomCharacterDataPrivate::dataLength() const
@@ -451,17 +523,6 @@ inline void QDomCharacterDataPrivate::replaceData(unsigned long offset, unsigned
     value.replace(offset, n, arg);
 }
 #endif  // QT_CONFIG(dom)
-
-//  from src/xml/dom/qdom.cpp, line 3523, as _ZN24QDomCharacterDataPrivate9cloneNodeEb
-#if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomCharacterDataPrivate::cloneNode(bool deep)
-{
-    QDomNodePrivate* p = new QDomCharacterDataPrivate(this, deep);
-    // We are not interested in this node
-    p->ref.deref();
-    return p;
-}
-#endif  // QT_CONFIG(dom)
 //  -----------------------------------------------------------------------
 
 //  A QDomCharacterDataPrivate that Python can take functions over in. Every QDomCharacterDataPrivate
@@ -500,7 +561,7 @@ typedef void (*CuteQDomCharacterDataPrivateCall9)(const void *, int *);
 class CuteQDomCharacterDataPrivate : public QDomCharacterDataPrivate {
 public:
   using QDomCharacterDataPrivate::QDomCharacterDataPrivate;
-  CuteQDomCharacterDataPrivate(const QDomCharacterDataPrivate &other) : QDomCharacterDataPrivate(other) {}
+  CuteQDomCharacterDataPrivate(const QDomCharacterDataPrivate & other) : QDomCharacterDataPrivate(other) {}
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {

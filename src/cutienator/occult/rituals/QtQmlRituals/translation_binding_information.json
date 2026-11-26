@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN29TranslationBindingInformation6createERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEPKNS1_12CompiledData7BindingEP7QObjectS0_I15QQmlContextDataE": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN29TranslationBindingInformationD1Ev": ["nothing", "address"]
   }
 }

@@ -31,6 +31,25 @@ const QMetaObject *ritual_ZNK17QQuickTumblerView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTumblerView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickTumblerView11qt_metacastEPKc(
+    QQuickTumblerView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTumblerView::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickTumblerView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTumblerView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTumblerView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickTumblerView2trEPKcS1_i(
@@ -90,6 +109,25 @@ void ritual_ZN17QQuickTumblerView7setPathEP10QQuickPath(
     QQuickTumblerView *self,
     QQuickPath *path) {
   self->setPath(path);
+}
+
+//  void QQuickTumblerView::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTumblerView12modelChangedEv(QQuickTumblerView *self) {
+  self->modelChanged();
+}
+
+//  void QQuickTumblerView::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTumblerView15delegateChangedEv(
+    QQuickTumblerView *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickTumblerView::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTumblerView11pathChangedEv(QQuickTumblerView *self) {
+  self->pathChanged();
 }
 
 //  void QQuickTumblerView::geometryChange(const QRectF &newGeometry, const

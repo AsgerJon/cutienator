@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickTimelineAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickTimelineAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickTimelineAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickTimelineAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,10 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK23QQuickTimelineAnimation8pingPongEv": ["bool", "address"],
+    "ritual_ZN23QQuickTimelineAnimation15pingPongChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickTimelineAnimation8finishedEv": ["nothing", "address"],
     "ritual_ZN23QQuickTimelineAnimation13handleStartedEv": [
       "nothing", "address"
     ],

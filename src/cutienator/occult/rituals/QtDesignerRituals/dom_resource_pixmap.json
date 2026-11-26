@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN17DomResourcePixmapC1Ev": ["address"],
     "ritual_ZN17DomResourcePixmapD1Ev": ["nothing", "address"],
+    "ritual_ZN17DomResourcePixmap4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17DomResourcePixmap5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK17DomResourcePixmap4textEv": ["text", "address"],
     "ritual_ZN17DomResourcePixmap7setTextERK7QString": [
       "nothing", "address", "text"

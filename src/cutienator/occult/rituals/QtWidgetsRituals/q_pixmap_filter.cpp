@@ -239,6 +239,24 @@ const QMetaObject *ritual_ZNK13QPixmapFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPixmapFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QPixmapFilter11qt_metacastEPKc(
+    QPixmapFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPixmapFilter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QPixmapFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPixmapFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPixmapFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QPixmapFilter2trEPKcS1_i(
@@ -246,6 +264,20 @@ QString *ritual_ZN13QPixmapFilter2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPixmapFilter::tr(s, c, n));
+}
+
+//  QPixmapFilterPrivate *QPixmapFilter::d_func()
+extern "C" Q_DECL_EXPORT
+QPixmapFilterPrivate *ritual_ZN13QPixmapFilter6d_funcEv(
+    QPixmapFilter *self) {
+  return self->d_func();
+}
+
+//  const QPixmapFilterPrivate *QPixmapFilter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPixmapFilterPrivate *ritual_ZNK13QPixmapFilter6d_funcEv(
+    const QPixmapFilter *self) {
+  return self->d_func();
 }
 
 //  QPixmapFilter::~QPixmapFilter()
@@ -279,6 +311,24 @@ void ritual_ZNK13QPixmapFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6QRectF(
     const QPixmap *src,
     const QRectF *srcRect) {
   self->draw(painter, *p, *src, *srcRect);
+}
+
+//  QPixmapFilter::QPixmapFilter(QPixmapFilterPrivate &d, FilterType type,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPixmapFilter *ritual_ZN13QPixmapFilterC1ER20QPixmapFilterPrivateNS_10FilterTypeEP7QObject(
+    QPixmapFilterPrivate *d,
+    QPixmapFilter::FilterType type,
+    QObject *parent) {
+  return new CuteQPixmapFilter(*d, type, parent);
+}
+
+//  QPixmapFilter::QPixmapFilter(FilterType type, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPixmapFilter *ritual_ZN13QPixmapFilterC1ENS_10FilterTypeEP7QObject(
+    QPixmapFilter::FilterType type,
+    QObject *parent) {
+  return new CuteQPixmapFilter(type, parent);
 }
 
 //  a Python function taken by a CuteQPixmapFilter, for the function named by

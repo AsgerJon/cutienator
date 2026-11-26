@@ -5,6 +5,10 @@
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qtextureglyphcache_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qtransform.h>
+#include <QtGui/qcolor.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qfixed_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qimage.h>
@@ -152,10 +156,41 @@ public:
   }
 };
 
+//  QTextureGlyphCache::QTextureGlyphCache(QFontEngine::GlyphFormat format,
+//      const QTransform &matrix, const QColor &color)
+extern "C" Q_DECL_EXPORT
+QTextureGlyphCache *ritual_ZN18QTextureGlyphCacheC1EN11QFontEngine11GlyphFormatERK10QTransformRK6QColor(
+    QFontEngine::GlyphFormat format,
+    const QTransform *matrix,
+    const QColor *color) {
+  return new CuteQTextureGlyphCache(format, *matrix, *color);
+}
+
 //  QTextureGlyphCache::~QTextureGlyphCache()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QTextureGlyphCacheD1Ev(QTextureGlyphCache *self) {
   delete self;
+}
+
+//  bool QTextureGlyphCache::populate(QFontEngine *fontEngine, qsizetype
+//      numGlyphs, const glyph_t *glyphs, const QFixedPoint *positions,
+//      QPainter::RenderHints renderHints, bool includeGlyphCacheScale)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QTextureGlyphCache8populateEP11QFontEnginexPKjPK11QFixedPoint6QFlagsIN8QPainter10RenderHintEEb(
+    QTextureGlyphCache *self,
+    QFontEngine *fontEngine,
+    qsizetype numGlyphs,
+    const glyph_t *glyphs,
+    const QFixedPoint *positions,
+    int renderHints,
+    bool includeGlyphCacheScale) {
+  return self->populate(
+      fontEngine,
+      numGlyphs,
+      glyphs,
+      positions,
+      QFlags<QPainter::RenderHint>::fromInt(renderHints),
+      includeGlyphCacheScale);
 }
 
 //  bool QTextureGlyphCache::hasPendingGlyphs() const

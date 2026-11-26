@@ -50,6 +50,15 @@ bool ritual_ZNK18QSSGRenderUserPass7isReadyEv(
   return self->isReady();
 }
 
+//  void QSSGRenderUserPass::finalizeShaders(const QSSGRenderContextInterface
+//      &ctx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSSGRenderUserPass15finalizeShadersERK26QSSGRenderContextInterface(
+    QSSGRenderUserPass *self,
+    const QSSGRenderContextInterface *ctx) {
+  self->finalizeShaders(*ctx);
+}
+
 //  void QSSGRenderUserPass::setDependencyIndex(quint32 index)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QSSGRenderUserPass18setDependencyIndexEj(

@@ -5,8 +5,29 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZNK11QLocaleData9DataRange7getDataEPKDs": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK11QLocaleData9DataRange8viewDataEPKDs": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK11QLocaleData9DataRange12getListEntryEPKDsx": [
+      "text", "address", "address", "long long"
+    ],
+    "ritual_ZNK11QLocaleData9DataRange13viewListEntryEPKDsx": [
+      "text", "address", "address", "long long"
+    ],
+    "ritual_ZNK11QLocaleData9DataRange8ucsFirstEPKDs": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK11QLocaleData9DataRange11stringStartEPKDs": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK11QLocaleData9DataRange10stringSizeEv": [
       "long long", "address"
+    ],
+    "ritual_ZNK11QLocaleData9DataRange9listEntryEPKDsx": [
+      "address", "address", "address", "long long"
     ],
     "ritual_ZN11QLocaleData9DataRangeD1Ev": ["nothing", "address"]
   }

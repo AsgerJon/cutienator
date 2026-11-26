@@ -10,6 +10,12 @@
     ],
     "ritual_ZNK13Qt3DAnimation9Animation18BuildBlendTreesJob7handlerEv": [
       "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation18BuildBlendTreesJob23setBlendedClipAnimatorsERK5QListIN8Qt3DCore7QHandleINS0_19BlendedClipAnimatorEEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation18BuildBlendTreesJob3runEv": [
+      "nothing", "address"
     ]
   }
 }

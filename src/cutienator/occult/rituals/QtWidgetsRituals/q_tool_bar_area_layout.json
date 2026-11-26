@@ -50,17 +50,54 @@
     "ritual_ZN18QToolBarAreaLayout10insertItemEP8QToolBarP11QLayoutItem": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZNK18QToolBarAreaLayout11findToolBarEPK8QToolBar": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18QToolBarAreaLayout12toolBarBreakEP8QToolBar": [
       "bool", "address", "address"
     ],
     "ritual_ZNK18QToolBarAreaLayout18getStyleOptionInfoEP19QStyleOptionToolBarP8QToolBar": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZNK18QToolBarAreaLayout7indexOfEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout8gapIndexERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout15currentGapIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout9insertGapERK5QListIiEP11QLayoutItem": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout6removeERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QToolBarAreaLayout6removeEP11QLayoutItem": [
       "nothing", "address", "address"
     ],
     "ritual_ZN18QToolBarAreaLayout5clearEv": ["nothing", "address"],
+    "ritual_ZN18QToolBarAreaLayout4itemERK5QListIiE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout8itemRectERK5QListIiE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout4plugERK5QListIiE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout6unplugERK5QListIiEPS_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout9saveStateER11QDataStream": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QToolBarAreaLayout7isEmptyEv": ["bool", "address"],
-    "ritual_ZN18QToolBarAreaLayoutD1Ev": ["nothing", "address"]
+    "ritual_ZN18QToolBarAreaLayoutD1Ev": ["nothing", "address"],
+    "ritual_drop_QToolBarAreaLayout__std_optional_QInternal_DockPosition": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QToolBarAreaLayout__QList_int": ["nothing", "address"]
   }
 }

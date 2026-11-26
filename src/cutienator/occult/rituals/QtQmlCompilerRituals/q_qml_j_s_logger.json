@@ -5,6 +5,8 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK12QQmlJSLogger10categoriesEv": ["address", "address"],
+    "ritual_ZN12QQmlJSLogger17builtinCategoriesEv": ["address"],
     "ritual_ZN12QQmlJSLogger16registerCategoryERKN6QQmlJS14LoggerCategoryE": [
       "nothing", "address", "address"
     ],
@@ -35,11 +37,21 @@
     "ritual_ZN12QQmlJSLogger20setCompileSkipPrefixERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN12QQmlJSLogger3logERK7QStringN6QQmlSA15LoggerWarningIdERKN6QQmlJS14SourceLocationEbbRKSt8optionalI19QQmlJSFixSuggestionES9_IjE": [
+      "nothing", "address", "text", "address", "address", "bool", "bool",
+      "address", "address"
+    ],
     "ritual_ZN12QQmlJSLogger15logCompileErrorERK7QStringRKN6QQmlJS14SourceLocationE": [
       "nothing", "address", "text", "address"
     ],
     "ritual_ZN12QQmlJSLogger14logCompileSkipERK7QStringRKN6QQmlJS14SourceLocationE": [
       "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN12QQmlJSLogger15processMessagesE5QSpanIKN6QQmlJS17DiagnosticMessageELm18446744073709551615EEN6QQmlSA15LoggerWarningIdERKNS1_14SourceLocationE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QQmlJSLogger14ignoreWarningsEjRK4QSetI7QStringE": [
+      "nothing", "address", "unsigned int", "address"
     ],
     "ritual_ZN12QQmlJSLogger9setSilentEb": ["nothing", "address", "bool"],
     "ritual_ZNK12QQmlJSLogger8isSilentEv": ["bool", "address"],
@@ -85,8 +97,14 @@
     "ritual_ZN12QQmlJSLogger8printFixERK19QQmlJSFixSuggestion": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN12QQmlJSLogger3logEO7Messagebb": [
+      "nothing", "address", "address", "bool", "bool"
+    ],
     "ritual_ZN12QQmlJSLogger12countMessageERK7Message": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QQmlJSLogger__QList_QQmlJS_LoggerCategory": [
+      "nothing", "address"
     ]
   }
 }

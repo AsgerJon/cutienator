@@ -238,6 +238,25 @@ const QMetaObject *ritual_ZNK22QQuickPathViewAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathViewAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickPathViewAttached11qt_metacastEPKc(
+    QQuickPathViewAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathViewAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickPathViewAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathViewAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickPathViewAttached::~QQuickPathViewAttached()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickPathViewAttachedD1Ev(QQuickPathViewAttached *self) {
@@ -281,6 +300,56 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK22QQuickPathViewAttached8isOnPathEv(
     const QQuickPathViewAttached *self) {
   return self->isOnPath();
+}
+
+//  void QQuickPathViewAttached::currentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickPathViewAttached18currentItemChangedEv(
+    QQuickPathViewAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickPathViewAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "currentItemChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "currentItemChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickPathViewAttached::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickPathViewAttached11pathChangedEv(
+    QQuickPathViewAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickPathViewAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "pathChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "pathChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuickPathViewAttached, for the function

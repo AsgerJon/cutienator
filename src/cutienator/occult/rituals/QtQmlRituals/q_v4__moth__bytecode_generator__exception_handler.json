@@ -17,6 +17,15 @@
     "ritual_ZN3QV44Moth17BytecodeGenerator16ExceptionHandlerC1ERKS2_": [
       "address", "address"
     ],
+    "ritual_ZN3QV44Moth17BytecodeGenerator16ExceptionHandlerC1EOS2_": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV44Moth17BytecodeGenerator16ExceptionHandleraSERKS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Moth17BytecodeGenerator16ExceptionHandleraSEOS2_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK3QV44Moth17BytecodeGenerator16ExceptionHandler7isValidEv": [
       "bool", "address"
     ]

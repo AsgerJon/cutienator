@@ -33,6 +33,25 @@ const QMetaObject *ritual_ZNK17QQuickMenuBarItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMenuBarItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickMenuBarItem11qt_metacastEPKc(
+    QQuickMenuBarItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMenuBarItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickMenuBarItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMenuBarItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMenuBarItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickMenuBarItem2trEPKcS1_i(
@@ -84,6 +103,32 @@ void ritual_ZN17QQuickMenuBarItem14setHighlightedEb(
     QQuickMenuBarItem *self,
     bool highlighted) {
   self->setHighlighted(highlighted);
+}
+
+//  void QQuickMenuBarItem::triggered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMenuBarItem9triggeredEv(QQuickMenuBarItem *self) {
+  self->triggered();
+}
+
+//  void QQuickMenuBarItem::menuBarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMenuBarItem14menuBarChangedEv(
+    QQuickMenuBarItem *self) {
+  self->menuBarChanged();
+}
+
+//  void QQuickMenuBarItem::menuChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMenuBarItem11menuChangedEv(QQuickMenuBarItem *self) {
+  self->menuChanged();
+}
+
+//  void QQuickMenuBarItem::highlightedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMenuBarItem18highlightedChangedEv(
+    QQuickMenuBarItem *self) {
+  self->highlightedChanged();
 }
 
 //  bool QQuickMenuBarItem::event(QEvent *event)

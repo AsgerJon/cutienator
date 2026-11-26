@@ -24,6 +24,9 @@
     "ritual_ZNK25QAccessibleQuickFlickable9flickableEv": [
       "address", "address"
     ],
+    "ritual_ZN25QAccessibleQuickFlickable14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_cast_QAccessibleQuickFlickable_QAccessibleViewportInterface": [
       "address", "address"
     ],
@@ -44,6 +47,9 @@
     ],
     "ritual_own_ZN25QAccessibleQuickFlickable11setPositionE7QPointF": [
       "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QAccessibleQuickFlickable14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
     ]
   }
 }

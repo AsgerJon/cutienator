@@ -32,6 +32,14 @@ QSSGApplyInstanceValue *ritual_ZN22QSSGApplyInstanceValueC1ERKS_(
   return new QSSGApplyInstanceValue(*command);
 }
 
+//  void QSSGApplyInstanceValue::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK22QSSGApplyInstanceValue8addDebugER6QDebug(
+    const QSSGApplyInstanceValue *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGApplyInstanceValue::~QSSGApplyInstanceValue()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSSGApplyInstanceValueD1Ev(QSSGApplyInstanceValue *self) {

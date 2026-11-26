@@ -28,6 +28,15 @@ int ritual_ZNK23QScxmlExecutableContent20InstructionSequences4sizeEv(
   return self->size();
 }
 
+//  const InstructionId
+//      *QScxmlExecutableContent::InstructionSequences::at(int pos) const
+extern "C" Q_DECL_EXPORT
+const QScxmlExecutableContent::InstructionId *ritual_ZNK23QScxmlExecutableContent20InstructionSequences2atEi(
+    const QScxmlExecutableContent::InstructionSequences *self,
+    int pos) {
+  return self->at(pos);
+}
+
 //  QScxmlExecutableContent::InstructionSequences::~InstructionSequences()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QScxmlExecutableContent20InstructionSequencesD1Ev(

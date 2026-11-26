@@ -24,6 +24,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrols.cpp, line 604, as _ZN18QQStyleKitControlsC2EP7QObject
 inline QQStyleKitControls::QQStyleKitControls(QObject *parent)
     : QObject(parent)
@@ -34,23 +36,6 @@ inline QQStyleKitControls::QQStyleKitControls(QObject *parent)
 inline QQStyleKitVariationAttached::QQStyleKitVariationAttached(QObject *parent)
     : QObject(parent)
 {
-}
-
-//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrols.cpp, line 725, as _ZN18QQStyleKitControls17componentCompleteEv
-inline void QQStyleKitControls::componentComplete()
-{
-    for (auto *obj : children()) {
-        if (auto *customControl = qobject_cast<QQStyleKitCustomControl *>(obj)) {
-            const QQStyleKitExtendableControlType type = customControl->controlType();
-            const QQStyleKitExtendableControlType reserved
-                = QQStyleKitExtendableControlType(QQStyleKitReader::ControlType::Unspecified);
-            if (type >= reserved)
-                qmlWarning(this) << "CustomControls must use a controlType less than " << reserved;
-            if (m_controls.contains(type))
-                qmlWarning(this) << "CustomControl registered more than once: " << type;
-            m_controls.insert(type, customControl);
-        }
-    }
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitvariation.cpp, line 148, as _ZN19QQStyleKitVariation17componentCompleteEv
@@ -71,6 +56,23 @@ inline void QQStyleKitVariation::componentComplete()
     }
     if (!styleOrThemeFound)
         qmlWarning(this) << "A StyleVariation needs to be a descendant of the Style it belongs to!";
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrols.cpp, line 725, as _ZN18QQStyleKitControls17componentCompleteEv
+inline void QQStyleKitControls::componentComplete()
+{
+    for (auto *obj : children()) {
+        if (auto *customControl = qobject_cast<QQStyleKitCustomControl *>(obj)) {
+            const QQStyleKitExtendableControlType type = customControl->controlType();
+            const QQStyleKitExtendableControlType reserved
+                = QQStyleKitExtendableControlType(QQStyleKitReader::ControlType::Unspecified);
+            if (type >= reserved)
+                qmlWarning(this) << "CustomControls must use a controlType less than " << reserved;
+            if (m_controls.contains(type))
+                qmlWarning(this) << "CustomControl registered more than once: " << type;
+            m_controls.insert(type, customControl);
+        }
+    }
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitvariation.cpp, line 172, as _ZNK19QQStyleKitVariation4nameEv
@@ -121,6 +123,25 @@ const QMetaObject *ritual_ZNK19QQStyleKitVariation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitVariation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQStyleKitVariation11qt_metacastEPKc(
+    QQStyleKitVariation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitVariation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQStyleKitVariation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitVariation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQStyleKitVariation::qt_qmlMarker_attached()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQStyleKitVariation21qt_qmlMarker_attachedEv(
@@ -140,6 +161,31 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK19QQStyleKitVariation4nameEv(
     const QQStyleKitVariation *self) {
   return new QString(self->name());
+}
+
+//  void QQStyleKitVariation::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQStyleKitVariation11nameChangedEv(
+    QQStyleKitVariation *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitVariation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "nameChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "nameChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQStyleKitVariation::resetVariationsForStyle(QQStyleKitStyle *style)

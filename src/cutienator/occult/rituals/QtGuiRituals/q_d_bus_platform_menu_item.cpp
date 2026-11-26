@@ -17,6 +17,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qdbusplatformmenu_p.h>
 #include <QtCore/QDateTime>
@@ -30,12 +31,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 234, as _ZN17QDBusPlatformMenu21setContainingMenuItemEP21QDBusPlatformMenuItem
-inline void QDBusPlatformMenu::setContainingMenuItem(QDBusPlatformMenuItem *item)
-{
-    m_containingMenuItem = item;
-}
 
 //  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 39, as _ZN21QDBusPlatformMenuItem7setTextERK7QString
 inline void QDBusPlatformMenuItem::setText(const QString &text)
@@ -109,6 +104,19 @@ inline void QDBusPlatformMenuItem::setShortcut(const QKeySequence &shortcut)
     m_shortcut = shortcut;
 }
 #endif  // !defined(QT_NO_SHORTCUT)
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 13, as _Z7qLcMenuv
+inline const QLoggingCategory &qLcMenu()
+{
+    static const QLoggingCategory category("qt.qpa.menu");
+    return category;
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 234, as _ZN17QDBusPlatformMenu21setContainingMenuItemEP21QDBusPlatformMenuItem
+inline void QDBusPlatformMenu::setContainingMenuItem(QDBusPlatformMenuItem *item)
+{
+    m_containingMenuItem = item;
+}
 
 //  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 105, as _ZN21QDBusPlatformMenuItem7triggerEv
 inline void QDBusPlatformMenuItem::trigger()
@@ -554,6 +562,25 @@ const QMetaObject *ritual_ZNK21QDBusPlatformMenuItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDBusPlatformMenuItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QDBusPlatformMenuItem11qt_metacastEPKc(
+    QDBusPlatformMenuItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusPlatformMenuItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QDBusPlatformMenuItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusPlatformMenuItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const QString QDBusPlatformMenuItem::text() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK21QDBusPlatformMenuItem4textEv(
@@ -764,6 +791,14 @@ bool ritual_take_QDBusPlatformMenuItem(
   return static_cast<CuteQDBusPlatformMenuItem *>(self)->take(key, call);
 }
 
+//  void QDBusPlatformMenuItem::setText(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN21QDBusPlatformMenuItem7setTextERK7QString(
+    QDBusPlatformMenuItem *self,
+    const QString *text) {
+  self->QDBusPlatformMenuItem::setText(*text);
+}
+
 //  void QDBusPlatformMenuItem::setIcon(const QIcon &icon)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN21QDBusPlatformMenuItem7setIconERK5QIcon(
@@ -907,6 +942,14 @@ QDBusPlatformMenuItem *ritual_list_at_QDBusPlatformMenuItem_ptr(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QDBusPlatformMenuItem_ptr(
     QList<QDBusPlatformMenuItem *> *self) {
+  delete self;
+}
+
+//  a QList<const QDBusPlatformMenuItem *> a ritual of QDBusPlatformMenuItem
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDBusPlatformMenuItem__QList_const_QDBusPlatformMenuItem(
+    QList<const QDBusPlatformMenuItem *> *self) {
   delete self;
 }
 

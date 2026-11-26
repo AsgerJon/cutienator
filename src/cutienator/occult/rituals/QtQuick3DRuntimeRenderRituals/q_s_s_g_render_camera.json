@@ -11,8 +11,29 @@
     "ritual_ZN16QSSGRenderCamera6lookAtERK9QVector3DS2_S2_S2_": [
       "nothing", "address", "address", "address", "address", "address"
     ],
+    "ritual_ZN16QSSGRenderCamera27calculateProjectionInternalERS_RK6QRectF29QSSGRenderCameraConfiguration": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN16QSSGRenderCamera19calculateProjectionERK6QRectF29QSSGRenderCameraConfiguration": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QSSGRenderCamera19computeFrustumOrthoE6QRectFNS_10ClipPlanesENS_13MagnificationE29QSSGRenderCameraConfigurationR10QMatrix4x4": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QSSGRenderCamera25computeFrustumPerspectiveE6QRectF27QSSGRenderCameraFieldOfViewNS_10ClipPlanesER10QMatrix4x4": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QSSGRenderCamera20computeCustomFrustumENS_7FrustumENS_10ClipPlanesER10QMatrix4x4": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QSSGRenderCamera29calculateViewProjectionMatrixERK10QMatrix4x4S2_RS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK16QSSGRenderCamera29calculateViewProjectionMatrixERK10QMatrix4x4RS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK16QSSGRenderCamera41calculateViewProjectionWithoutTranslationERK10QMatrix4x4ffRS0_": [
+      "nothing", "address", "address", "float", "float", "address"
     ],
     "ritual_ZNK16QSSGRenderCamera9unprojectERK10QMatrix4x4RK9QVector2DRK6QRectF": [
       "address", "address", "address", "address", "address"

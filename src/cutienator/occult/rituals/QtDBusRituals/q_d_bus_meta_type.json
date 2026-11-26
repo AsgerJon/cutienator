@@ -4,6 +4,15 @@
     "QtDBus/qdbusmetatype.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QDBusMetaType25registerMarshallOperatorsE9QMetaTypePFvR13QDBusArgumentPKvEPFvRKS1_PvE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QDBusMetaType8marshallER13QDBusArgument9QMetaTypePKv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QDBusMetaType10demarshallERK13QDBusArgument9QMetaTypePv": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN13QDBusMetaType18registerCustomTypeE9QMetaTypeRK10QByteArray": [
       "nothing", "address", "address"
     ],

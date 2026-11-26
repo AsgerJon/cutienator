@@ -23,8 +23,17 @@
     "ritual_ZN15QSSGRenderLayer19setProbeOrientationERK9QVector3D": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QSSGRenderLayer9addEffectER16QSSGRenderEffect": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QSSGRenderLayer9hasEffectEP16QSSGRenderEffect": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN15QSSGRenderLayer14setImportSceneER14QSSGRenderNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QSSGRenderLayer17removeImportSceneER14QSSGRenderNode": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK15QSSGRenderLayer13isMsaaEnabledEv": ["bool", "address"],
     "ritual_ZNK15QSSGRenderLayer13isSsaaEnabledEv": ["bool", "address"],

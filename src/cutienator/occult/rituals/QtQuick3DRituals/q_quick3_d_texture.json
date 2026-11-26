@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuick3DTexture10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuick3DTexture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuick3DTexture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuick3DTexture2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -101,6 +107,52 @@
     "ritual_ZN15QQuick3DTexture18setAutoOrientationEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN15QQuick3DTexture13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture17sourceItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture13scaleUChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture13scaleVChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture18mappingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture23horizontalTilingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture21verticalTilingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture18depthTilingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture17rotationUVChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture16positionUChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture16positionVChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture13pivotUChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture13pivotVChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture12flipUChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture12flipVChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture14indexUVChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture16magFilterChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture16minFilterChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture16mipFilterChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuick3DTexture18textureDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture22generateMipmapsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture22autoOrientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture22textureProviderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuick3DTexture21textureInternalChangeE29QQuick3DTextureInternalChangeNS_14QPrivateSignalE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QQuick3DTexture17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
     ],
@@ -110,6 +162,9 @@
     ],
     "ritual_ZN15QQuick3DTexture19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuick3DTextureC1ER21QQuick3DObjectPrivateP14QQuick3DObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QQuick3DTexture19sourceItemDestroyedEP7QObject": [
       "nothing", "address", "address"
@@ -122,6 +177,9 @@
     ],
     "ritual_ZN15QQuick3DTexture18trySetSourceParentEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK15QQuick3DTexture14effectiveFlipVERK15QSSGRenderImage": [
+      "bool", "address", "address"
     ],
     "ritual_cast_QQuick3DTexture_QQuickItemChangeListener": [
       "address", "address"

@@ -8,11 +8,41 @@
     "ritual_ZNK18QtBluetoothPrivate37OrgFreedesktopDBusPropertiesInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate37OrgFreedesktopDBusPropertiesInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate37OrgFreedesktopDBusPropertiesInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QtBluetoothPrivate37OrgFreedesktopDBusPropertiesInterface19staticInterfaceNameEv": [
       "chars"
     ],
+    "ritual_ZN18QtBluetoothPrivate37OrgFreedesktopDBusPropertiesInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate37OrgFreedesktopDBusPropertiesInterface3GetERK7QStringS3_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN18QtBluetoothPrivate37OrgFreedesktopDBusPropertiesInterface6GetAllERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN18QtBluetoothPrivate37OrgFreedesktopDBusPropertiesInterface3SetERK7QStringS3_RK12QDBusVariant": [
+      "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate37OrgFreedesktopDBusPropertiesInterface17PropertiesChangedERK7QStringRK4QMapIS1_8QVariantERK5QListIS1_ERK12QDBusMessage": [
+      "nothing", "address", "text", "address", "address", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgFreedesktopDBusPropertiesInterface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QtBluetoothPrivate_OrgFreedesktopDBusPropertiesInterface__QDBusPendingReply_QDBusVariant": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtBluetoothPrivate_OrgFreedesktopDBusPropertiesInterface__QDBusPendingReply_QVariantMap": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtBluetoothPrivate_OrgFreedesktopDBusPropertiesInterface__QDBusPendingReply": [
+      "nothing", "address"
     ]
   }
 }

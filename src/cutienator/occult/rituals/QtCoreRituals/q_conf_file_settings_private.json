@@ -11,6 +11,9 @@
     "ritual_ZN24QConfFileSettingsPrivate3setERK7QStringRK8QVariant": [
       "nothing", "address", "text", "address"
     ],
+    "ritual_ZNK24QConfFileSettingsPrivate3getERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK24QConfFileSettingsPrivate8childrenERK7QStringN16QSettingsPrivate9ChildSpecE": [
       "address", "address", "text", "int"
     ],
@@ -43,6 +46,9 @@
       "text", "address"
     ],
     "ritual_own_ZN24QConfFileSettingsPrivate10initAccessEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QConfFileSettingsPrivate__std_optional_QVariant": [
       "nothing", "address"
     ]
   }

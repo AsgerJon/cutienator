@@ -8,6 +8,9 @@
     "ritual_ZN24QRemoteObjectPendingCallC1Ev": ["address"],
     "ritual_ZN24QRemoteObjectPendingCallC1ERKS_": ["address", "address"],
     "ritual_ZN24QRemoteObjectPendingCallD1Ev": ["nothing", "address"],
+    "ritual_ZN24QRemoteObjectPendingCallaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK24QRemoteObjectPendingCall11returnValueEv": [
       "address", "address"
     ],

@@ -18,6 +18,16 @@ QMqttMessageStatusProperties *ritual_ZN28QMqttMessageStatusPropertiesC1ERKS_(
   return new QMqttMessageStatusProperties(*a0);
 }
 
+//  QMqttMessageStatusProperties
+//      &QMqttMessageStatusProperties::operator=(const
+//      QMqttMessageStatusProperties &a0)
+extern "C" Q_DECL_EXPORT
+QMqttMessageStatusProperties *ritual_ZN28QMqttMessageStatusPropertiesaSERKS_(
+    QMqttMessageStatusProperties *self,
+    const QMqttMessageStatusProperties *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QMqttMessageStatusProperties::~QMqttMessageStatusProperties()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QMqttMessageStatusPropertiesD1Ev(

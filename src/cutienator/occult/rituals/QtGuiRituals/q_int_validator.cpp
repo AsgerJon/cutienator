@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK13QIntValidator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QIntValidator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QIntValidator11qt_metacastEPKc(
+    QIntValidator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QIntValidator::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QIntValidator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QIntValidator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QIntValidator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QIntValidator2trEPKcS1_i(
@@ -209,6 +227,23 @@ QIntValidator *ritual_ZN13QIntValidatorC1EiiP7QObject(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QIntValidatorD1Ev(QIntValidator *self) {
   delete self;
+}
+
+//  QValidator::State QIntValidator::validate(QString &a0, int &a1) const
+extern "C" Q_DECL_EXPORT
+QValidator::State ritual_ZNK13QIntValidator8validateER7QStringRi(
+    const QIntValidator *self,
+    QString *a0,
+    int *a1) {
+  return self->validate(*a0, *a1);
+}
+
+//  void QIntValidator::fixup(QString &input) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QIntValidator5fixupER7QString(
+    const QIntValidator *self,
+    QString *input) {
+  self->fixup(*input);
 }
 
 //  void QIntValidator::setBottom(int a0)
@@ -242,6 +277,20 @@ int ritual_ZNK13QIntValidator6bottomEv(const QIntValidator *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK13QIntValidator3topEv(const QIntValidator *self) {
   return self->top();
+}
+
+//  void QIntValidator::bottomChanged(int bottom)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QIntValidator13bottomChangedEi(
+    QIntValidator *self,
+    int bottom) {
+  self->bottomChanged(bottom);
+}
+
+//  void QIntValidator::topChanged(int top)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QIntValidator10topChangedEi(QIntValidator *self, int top) {
+  self->topChanged(top);
 }
 
 //  a Python function taken by a CuteQIntValidator, for the function named by

@@ -8,6 +8,15 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrhicontext.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  void QSSGRhiGraphicsPipelineStatePrivate::setShaderPipeline(QSSGRhiGraphi
+//      csPipelineState &ps, const QSSGRhiShaderPipeline *pipeline)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QSSGRhiGraphicsPipelineStatePrivate17setShaderPipelineER28QSSGRhiGraphicsPipelineStatePK21QSSGRhiShaderPipeline(
+    QSSGRhiGraphicsPipelineState *ps,
+    const QSSGRhiShaderPipeline *pipeline) {
+  QSSGRhiGraphicsPipelineStatePrivate::setShaderPipeline(*ps, pipeline);
+}
+
 //  const QSSGRhiShaderPipeline
 //      *QSSGRhiGraphicsPipelineStatePrivate::getShaderPipeline(const
 //      QSSGRhiGraphicsPipelineState &ps)

@@ -7,11 +7,22 @@
   "rows": {
     "ritual_ZN13QSystemLocaleC1Ev": ["address"],
     "ritual_ZN13QSystemLocaleD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QSystemLocale5queryENS_9QueryTypeEO8QVariant": [
+      "address", "address", "int", "address"
+    ],
     "ritual_ZNK13QSystemLocale14fallbackLocaleEv": ["address", "address"],
     "ritual_ZNK13QSystemLocale19fallbackLocaleIndexEv": [
       "long long", "address"
     ],
+    "ritual_ZNK13QSystemLocale10localeDataERK7QLocale": [
+      "address", "address", "address"
+    ],
     "ritual_take_QSystemLocale": ["bool", "address", "chars", "address"],
-    "ritual_own_ZNK13QSystemLocale14fallbackLocaleEv": ["address", "address"]
+    "ritual_own_ZNK13QSystemLocale14fallbackLocaleEv": [
+      "address", "address"
+    ],
+    "ritual_drop_QSystemLocale__QSharedDataPointer_QLocalePrivate": [
+      "nothing", "address"
+    ]
   }
 }

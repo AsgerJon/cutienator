@@ -11,6 +11,12 @@
     "ritual_ZN17QQuickDropEventEx17setProposedActionEP10QDropEventN2Qt10DropActionE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN17QQuickDropEventEx11copyActionsERK10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickDropEventEx11copyActionsEP10QDropEventRKS0_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QQuickDropEventExD1Ev": ["nothing", "address"],
     "ritual_take_QQuickDropEventEx": ["bool", "address", "chars", "address"]
   }

@@ -14,118 +14,134 @@
 //  A QAbstractCollisionShape that Python can take functions over in. Every QAbstractCollisionShape
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef bool (*CuteQAbstractCollisionShapeCall0)(const void *, int *);
-typedef void (*CuteQAbstractCollisionShapeCall1)(const void *, int *);
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQAbstractCollisionShapeCall2)(const void *, const QMetaMethod *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
+typedef void * (*CuteQAbstractCollisionShapeCall0)(const void *, int *);
+typedef bool (*CuteQAbstractCollisionShapeCall1)(const void *, int *);
+typedef void (*CuteQAbstractCollisionShapeCall2)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractCollisionShapeCall3)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
-typedef void (*CuteQAbstractCollisionShapeCall4)(const void *, int *);
-typedef void * (*CuteQAbstractCollisionShapeCall5)(const void *, QSSGRenderGraphObject *, int *);
-typedef void (*CuteQAbstractCollisionShapeCall6)(const void *, int, const QQuick3DObject::ItemChangeData *, int *);
-typedef void (*CuteQAbstractCollisionShapeCall7)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQAbstractCollisionShapeCall4)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+typedef void (*CuteQAbstractCollisionShapeCall5)(const void *, int *);
+typedef void * (*CuteQAbstractCollisionShapeCall6)(const void *, QSSGRenderGraphObject *, int *);
+typedef void (*CuteQAbstractCollisionShapeCall7)(const void *, int, const QQuick3DObject::ItemChangeData *, int *);
 typedef void (*CuteQAbstractCollisionShapeCall8)(const void *, int *);
+typedef void (*CuteQAbstractCollisionShapeCall9)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQAbstractCollisionShapeCall9)(const void *, QEvent *, int *);
+typedef bool (*CuteQAbstractCollisionShapeCall10)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQAbstractCollisionShapeCall10)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQAbstractCollisionShapeCall11)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQAbstractCollisionShapeCall11)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQAbstractCollisionShapeCall12)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQAbstractCollisionShapeCall12)(const void *, QChildEvent *, int *);
+typedef void (*CuteQAbstractCollisionShapeCall13)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQAbstractCollisionShapeCall13)(const void *, QEvent *, int *);
+typedef void (*CuteQAbstractCollisionShapeCall14)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQAbstractCollisionShape : public QAbstractCollisionShape {
 public:
   using QAbstractCollisionShape::QAbstractCollisionShape;
-  void *taken[14] = {};
+  void *taken[15] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZNK23QAbstractCollisionShape13isStaticShapeEv")) {
+    if (!std::strcmp(key, "_ZN23QAbstractCollisionShape16getPhysXGeometryEv")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QQuick3DObject12markAllDirtyEv")) {
+    if (!std::strcmp(key, "_ZNK23QAbstractCollisionShape13isStaticShapeEv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QQuick3DObject12markAllDirtyEv")) {
+      taken[2] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
-      taken[2] = call;
+      taken[3] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
-      taken[3] = call;
+      taken[4] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN16QQmlParserStatus17componentCompleteEv")) {
-      taken[4] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZN14QQuick3DObject17updateSpatialNodeEP21QSSGRenderGraphObject")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QQuick3DObject10itemChangeENS_10ItemChangeERKNS_14ItemChangeDataE")) {
+    if (!std::strcmp(key, "_ZN14QQuick3DObject17updateSpatialNodeEP21QSSGRenderGraphObject")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QQmlParserStatus10classBeginEv")) {
+    if (!std::strcmp(key, "_ZN14QQuick3DObject10itemChangeENS_10ItemChangeERKNS_14ItemChangeDataE")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QQuick3DObject7preSyncEv")) {
+    if (!std::strcmp(key, "_ZN16QQmlParserStatus10classBeginEv")) {
       taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QQuick3DObject7preSyncEv")) {
+      taken[9] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[9] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[10] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[11] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[12] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[13] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[14] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
-  //  bool QAbstractCollisionShape::isStaticShape() const
-  bool isStaticShape() const override {
+  //  physx::PxGeometry *QAbstractCollisionShape::getPhysXGeometry()
+  physx::PxGeometry *getPhysXGeometry() override {
     if (taken[0]) {
       int handled = 0;
       CuteQAbstractCollisionShapeCall0 call = reinterpret_cast<CuteQAbstractCollisionShapeCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<physx::PxGeometry *>(given);
+    }
+    return {};
+  }
+
+  //  bool QAbstractCollisionShape::isStaticShape() const
+  bool isStaticShape() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAbstractCollisionShapeCall1 call = reinterpret_cast<CuteQAbstractCollisionShapeCall1>(taken[1]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -134,9 +150,9 @@ public:
 
   //  void QQuick3DNode::markAllDirty()
   void markAllDirty() override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall1 call = reinterpret_cast<CuteQAbstractCollisionShapeCall1>(taken[1]);
+      CuteQAbstractCollisionShapeCall2 call = reinterpret_cast<CuteQAbstractCollisionShapeCall2>(taken[2]);
       call(this, &handled);
       if (handled) return;
     }
@@ -146,9 +162,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QQuick3DNode::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall2 call = reinterpret_cast<CuteQAbstractCollisionShapeCall2>(taken[2]);
+      CuteQAbstractCollisionShapeCall3 call = reinterpret_cast<CuteQAbstractCollisionShapeCall3>(taken[3]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -159,9 +175,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QQuick3DNode::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall3 call = reinterpret_cast<CuteQAbstractCollisionShapeCall3>(taken[3]);
+      CuteQAbstractCollisionShapeCall4 call = reinterpret_cast<CuteQAbstractCollisionShapeCall4>(taken[4]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -171,9 +187,9 @@ public:
 
   //  void QQuick3DNode::componentComplete()
   void componentComplete() override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall4 call = reinterpret_cast<CuteQAbstractCollisionShapeCall4>(taken[4]);
+      CuteQAbstractCollisionShapeCall5 call = reinterpret_cast<CuteQAbstractCollisionShapeCall5>(taken[5]);
       call(this, &handled);
       if (handled) return;
     }
@@ -184,9 +200,9 @@ public:
   //      *QQuick3DNode::updateSpatialNode(QSSGRenderGraphObject *node)
   QSSGRenderGraphObject *updateSpatialNode(
       QSSGRenderGraphObject *node) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall5 call = reinterpret_cast<CuteQAbstractCollisionShapeCall5>(taken[5]);
+      CuteQAbstractCollisionShapeCall6 call = reinterpret_cast<CuteQAbstractCollisionShapeCall6>(taken[6]);
       void * given = call(this, node, &handled);
       if (handled) return static_cast<QSSGRenderGraphObject *>(given);
     }
@@ -198,9 +214,9 @@ public:
   void itemChange(
       QQuick3DObject::ItemChange a0,
       const QQuick3DObject::ItemChangeData &a1) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall6 call = reinterpret_cast<CuteQAbstractCollisionShapeCall6>(taken[6]);
+      CuteQAbstractCollisionShapeCall7 call = reinterpret_cast<CuteQAbstractCollisionShapeCall7>(taken[7]);
       call(this, static_cast<int>(a0), &a1, &handled);
       if (handled) return;
     }
@@ -209,9 +225,9 @@ public:
 
   //  void QQuick3DObject::classBegin()
   void classBegin() override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall7 call = reinterpret_cast<CuteQAbstractCollisionShapeCall7>(taken[7]);
+      CuteQAbstractCollisionShapeCall8 call = reinterpret_cast<CuteQAbstractCollisionShapeCall8>(taken[8]);
       call(this, &handled);
       if (handled) return;
     }
@@ -220,9 +236,9 @@ public:
 
   //  void QQuick3DObject::preSync()
   void preSync() override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall8 call = reinterpret_cast<CuteQAbstractCollisionShapeCall8>(taken[8]);
+      CuteQAbstractCollisionShapeCall9 call = reinterpret_cast<CuteQAbstractCollisionShapeCall9>(taken[9]);
       call(this, &handled);
       if (handled) return;
     }
@@ -232,9 +248,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall9 call = reinterpret_cast<CuteQAbstractCollisionShapeCall9>(taken[9]);
+      CuteQAbstractCollisionShapeCall10 call = reinterpret_cast<CuteQAbstractCollisionShapeCall10>(taken[10]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -245,9 +261,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall10 call = reinterpret_cast<CuteQAbstractCollisionShapeCall10>(taken[10]);
+      CuteQAbstractCollisionShapeCall11 call = reinterpret_cast<CuteQAbstractCollisionShapeCall11>(taken[11]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -258,9 +274,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall11 call = reinterpret_cast<CuteQAbstractCollisionShapeCall11>(taken[11]);
+      CuteQAbstractCollisionShapeCall12 call = reinterpret_cast<CuteQAbstractCollisionShapeCall12>(taken[12]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -271,9 +287,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall12 call = reinterpret_cast<CuteQAbstractCollisionShapeCall12>(taken[12]);
+      CuteQAbstractCollisionShapeCall13 call = reinterpret_cast<CuteQAbstractCollisionShapeCall13>(taken[13]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -284,9 +300,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAbstractCollisionShapeCall13 call = reinterpret_cast<CuteQAbstractCollisionShapeCall13>(taken[13]);
+      CuteQAbstractCollisionShapeCall14 call = reinterpret_cast<CuteQAbstractCollisionShapeCall14>(taken[14]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -300,6 +316,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK23QAbstractCollisionShape10metaObjectEv(
     const QAbstractCollisionShape *self) {
   return self->metaObject();
+}
+
+//  void *QAbstractCollisionShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QAbstractCollisionShape11qt_metacastEPKc(
+    QAbstractCollisionShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractCollisionShape::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QAbstractCollisionShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractCollisionShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QAbstractCollisionShape::tr(const char *s, const char *c, int n)
@@ -318,10 +353,24 @@ void ritual_ZN23QAbstractCollisionShape24qt_qmlMarker_uncreatableEv(
   self->qt_qmlMarker_uncreatable();
 }
 
+//  QAbstractCollisionShape::QAbstractCollisionShape(QQuick3DNode *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractCollisionShape *ritual_ZN23QAbstractCollisionShapeC1EP12QQuick3DNode(
+    QQuick3DNode *parent) {
+  return new CuteQAbstractCollisionShape(parent);
+}
+
 //  QAbstractCollisionShape::~QAbstractCollisionShape()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QAbstractCollisionShapeD1Ev(QAbstractCollisionShape *self) {
   delete self;
+}
+
+//  physx::PxGeometry *QAbstractCollisionShape::getPhysXGeometry()
+extern "C" Q_DECL_EXPORT
+physx::PxGeometry *ritual_ZN23QAbstractCollisionShape16getPhysXGeometryEv(
+    QAbstractCollisionShape *self) {
+  return self->getPhysXGeometry();
 }
 
 //  bool QAbstractCollisionShape::enableDebugDraw() const
@@ -344,6 +393,23 @@ void ritual_ZN23QAbstractCollisionShape18setEnableDebugDrawEb(
     QAbstractCollisionShape *self,
     bool enableDebugDraw) {
   self->setEnableDebugDraw(enableDebugDraw);
+}
+
+//  void QAbstractCollisionShape::enableDebugDrawChanged(bool
+//      enableDebugDraw)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QAbstractCollisionShape22enableDebugDrawChangedEb(
+    QAbstractCollisionShape *self,
+    bool enableDebugDraw) {
+  self->enableDebugDrawChanged(enableDebugDraw);
+}
+
+//  void QAbstractCollisionShape::needsRebuild(QObject *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QAbstractCollisionShape12needsRebuildEP7QObject(
+    QAbstractCollisionShape *self,
+    QObject *a0) {
+  self->needsRebuild(a0);
 }
 
 //  void QAbstractCollisionShape::handleScaleChange()

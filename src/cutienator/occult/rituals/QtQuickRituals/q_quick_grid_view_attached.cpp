@@ -187,6 +187,25 @@ const QMetaObject *ritual_ZNK22QQuickGridViewAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGridViewAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickGridViewAttached11qt_metacastEPKc(
+    QQuickGridViewAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGridViewAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickGridViewAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGridViewAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickGridViewAttached::~QQuickGridViewAttached()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickGridViewAttachedD1Ev(QQuickGridViewAttached *self) {

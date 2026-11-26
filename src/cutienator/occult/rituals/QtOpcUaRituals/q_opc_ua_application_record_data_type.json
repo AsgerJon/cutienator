@@ -9,6 +9,9 @@
     "ritual_ZN31QOpcUaApplicationRecordDataTypeC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN31QOpcUaApplicationRecordDataTypeaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK31QOpcUaApplicationRecordDataTypeeqERKS_": [
       "bool", "address", "address"
     ],

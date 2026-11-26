@@ -5,11 +5,18 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender27QPaintedTextureImagePrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender27QPaintedTextureImagePrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender27QPaintedTextureImagePrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender27QPaintedTextureImagePrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender27QPaintedTextureImagePrivate7repaintEv": [
+      "nothing", "address"
     ],
     "ritual_take_Qt3DRender_QPaintedTextureImagePrivate": [
       "bool", "address", "chars", "address"

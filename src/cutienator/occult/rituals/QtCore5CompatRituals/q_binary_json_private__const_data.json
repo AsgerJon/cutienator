@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN18QBinaryJsonPrivate9ConstDataC1EPKcj": [
       "address", "chars", "unsigned int"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate9ConstData14toJsonDocumentEv": [
+      "address", "address"
     ]
   }
 }

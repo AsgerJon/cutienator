@@ -180,6 +180,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation18QAdditiveClipBlend10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QAdditiveClipBlend::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation18QAdditiveClipBlend11qt_metacastEPKc(
+    Qt3DAnimation::QAdditiveClipBlend *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QAdditiveClipBlend::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation18QAdditiveClipBlend11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QAdditiveClipBlend *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QAdditiveClipBlend::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -188,6 +207,107 @@ QString *ritual_ZN13Qt3DAnimation18QAdditiveClipBlend2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QAdditiveClipBlend::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QAdditiveClipBlend::QAdditiveClipBlend(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAdditiveClipBlend *ritual_ZN13Qt3DAnimation18QAdditiveClipBlendC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAdditiveClipBlend(parent);
+}
+
+//  Qt3DAnimation::QAdditiveClipBlend::~QAdditiveClipBlend()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation18QAdditiveClipBlendD1Ev(
+    Qt3DAnimation::QAdditiveClipBlend *self) {
+  delete self;
+}
+
+//  float Qt3DAnimation::QAdditiveClipBlend::additiveFactor() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK13Qt3DAnimation18QAdditiveClipBlend14additiveFactorEv(
+    const Qt3DAnimation::QAdditiveClipBlend *self) {
+  return self->additiveFactor();
+}
+
+//  Qt3DAnimation::QAbstractClipBlendNode
+//      *Qt3DAnimation::QAdditiveClipBlend::baseClip() const
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractClipBlendNode *ritual_ZNK13Qt3DAnimation18QAdditiveClipBlend8baseClipEv(
+    const Qt3DAnimation::QAdditiveClipBlend *self) {
+  return self->baseClip();
+}
+
+//  Qt3DAnimation::QAbstractClipBlendNode
+//      *Qt3DAnimation::QAdditiveClipBlend::additiveClip() const
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractClipBlendNode *ritual_ZNK13Qt3DAnimation18QAdditiveClipBlend12additiveClipEv(
+    const Qt3DAnimation::QAdditiveClipBlend *self) {
+  return self->additiveClip();
+}
+
+//  void Qt3DAnimation::QAdditiveClipBlend::setAdditiveFactor(float
+//      additiveFactor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation18QAdditiveClipBlend17setAdditiveFactorEf(
+    Qt3DAnimation::QAdditiveClipBlend *self,
+    float additiveFactor) {
+  self->setAdditiveFactor(additiveFactor);
+}
+
+//  void Qt3DAnimation::QAdditiveClipBlend::setBaseClip(Qt3DAnimation::QAbstr
+//      actClipBlendNode *baseClip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation18QAdditiveClipBlend11setBaseClipEPNS_22QAbstractClipBlendNodeE(
+    Qt3DAnimation::QAdditiveClipBlend *self,
+    Qt3DAnimation::QAbstractClipBlendNode *baseClip) {
+  self->setBaseClip(baseClip);
+}
+
+//  void Qt3DAnimation::QAdditiveClipBlend::setAdditiveClip(Qt3DAnimation::QA
+//      bstractClipBlendNode *additiveClip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation18QAdditiveClipBlend15setAdditiveClipEPNS_22QAbstractClipBlendNodeE(
+    Qt3DAnimation::QAdditiveClipBlend *self,
+    Qt3DAnimation::QAbstractClipBlendNode *additiveClip) {
+  self->setAdditiveClip(additiveClip);
+}
+
+//  void Qt3DAnimation::QAdditiveClipBlend::additiveFactorChanged(float
+//      additiveFactor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation18QAdditiveClipBlend21additiveFactorChangedEf(
+    Qt3DAnimation::QAdditiveClipBlend *self,
+    float additiveFactor) {
+  self->additiveFactorChanged(additiveFactor);
+}
+
+//  void Qt3DAnimation::QAdditiveClipBlend::baseClipChanged(Qt3DAnimation::QA
+//      bstractClipBlendNode *baseClip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation18QAdditiveClipBlend15baseClipChangedEPNS_22QAbstractClipBlendNodeE(
+    Qt3DAnimation::QAdditiveClipBlend *self,
+    Qt3DAnimation::QAbstractClipBlendNode *baseClip) {
+  self->baseClipChanged(baseClip);
+}
+
+//  void Qt3DAnimation::QAdditiveClipBlend::additiveClipChanged(Qt3DAnimation
+//      ::QAbstractClipBlendNode *additiveClip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation18QAdditiveClipBlend19additiveClipChangedEPNS_22QAbstractClipBlendNodeE(
+    Qt3DAnimation::QAdditiveClipBlend *self,
+    Qt3DAnimation::QAbstractClipBlendNode *additiveClip) {
+  self->additiveClipChanged(additiveClip);
+}
+
+//  Qt3DAnimation::QAdditiveClipBlend::QAdditiveClipBlend(QAdditiveClipBlendP
+//      rivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAdditiveClipBlend *ritual_ZN13Qt3DAnimation18QAdditiveClipBlendC1ERNS_25QAdditiveClipBlendPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QAdditiveClipBlendPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAdditiveClipBlend(*dd, parent);
 }
 
 //  QAdditiveClipBlendPrivate *Qt3DAnimation::QAdditiveClipBlend::d_func()

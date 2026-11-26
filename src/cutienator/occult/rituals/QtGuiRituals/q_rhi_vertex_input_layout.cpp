@@ -13,6 +13,15 @@ QRhiVertexInputLayout *ritual_ZN21QRhiVertexInputLayoutC1Ev() {
   return new QRhiVertexInputLayout();
 }
 
+//  void QRhiVertexInputLayout::setBindings(std::initializer_list<QRhiVertexI
+//      nputBinding> list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QRhiVertexInputLayout11setBindingsESt16initializer_listI22QRhiVertexInputBindingE(
+    QRhiVertexInputLayout *self,
+    const std::initializer_list<QRhiVertexInputBinding> *list) {
+  self->setBindings(*list);
+}
+
 //  const QRhiVertexInputBinding *QRhiVertexInputLayout::cbeginBindings()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -42,6 +51,15 @@ extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK21QRhiVertexInputLayout12bindingCountEv(
     const QRhiVertexInputLayout *self) {
   return self->bindingCount();
+}
+
+//  void QRhiVertexInputLayout::setAttributes(std::initializer_list<QRhiVerte
+//      xInputAttribute> list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QRhiVertexInputLayout13setAttributesESt16initializer_listI24QRhiVertexInputAttributeE(
+    QRhiVertexInputLayout *self,
+    const std::initializer_list<QRhiVertexInputAttribute> *list) {
+  self->setAttributes(*list);
 }
 
 //  const QRhiVertexInputAttribute *QRhiVertexInputLayout::cbeginAttributes()

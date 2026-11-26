@@ -13,6 +13,13 @@
     "ritual_ZN9QColorTrcC1ERK29QColorTransferGenericFunction": [
       "address", "address"
     ],
+    "ritual_ZN9QColorTrcC1EO22QColorTransferFunction": [
+      "address", "address"
+    ],
+    "ritual_ZN9QColorTrcC1EO19QColorTransferTable": ["address", "address"],
+    "ritual_ZN9QColorTrcC1EO29QColorTransferGenericFunction": [
+      "address", "address"
+    ],
     "ritual_ZNK9QColorTrc10isIdentityEv": ["bool", "address"],
     "ritual_ZNK9QColorTrc7isValidEv": ["bool", "address"],
     "ritual_ZNK9QColorTrc5applyEf": ["float", "address", "float"],

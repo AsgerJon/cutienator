@@ -8,8 +8,17 @@
     "ritual_ZNK27QDeclarativeSearchModelBase10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QDeclarativeSearchModelBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QDeclarativeSearchModelBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBaseC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN27QDeclarativeSearchModelBaseD1Ev": ["nothing", "address"],
     "ritual_ZNK27QDeclarativeSearchModelBase6pluginEv": [
@@ -61,6 +70,24 @@
       "nothing", "address"
     ],
     "ritual_ZN27QDeclarativeSearchModelBase17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase13pluginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase17searchAreaChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase12limitChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase29previousPagesAvailableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase25nextPagesAvailableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase13statusChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN27QDeclarativeSearchModelBase16initializePluginEP30QDeclarativeGeoServiceProvider": [

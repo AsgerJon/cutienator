@@ -7,8 +7,36 @@
     "ritual_ZNK10Qt3DRender14QTextureLoader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender14QTextureLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender14QTextureLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender14QTextureLoader2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QTextureLoaderC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QTextureLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender14QTextureLoader6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QTextureLoader10isMirroredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QTextureLoader9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QTextureLoader11setMirroredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender14QTextureLoader13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QTextureLoader15mirroredChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN10Qt3DRender14QTextureLoader6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender14QTextureLoader6d_funcEv": [

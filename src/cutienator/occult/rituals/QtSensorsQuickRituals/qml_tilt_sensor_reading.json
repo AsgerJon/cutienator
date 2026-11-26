@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QmlTiltSensorReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QmlTiltSensorReading11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QmlTiltSensorReading11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QmlTiltSensorReading2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,16 +23,37 @@
     ],
     "ritual_ZN20QmlTiltSensorReadingD1Ev": ["nothing", "address"],
     "ritual_ZNK20QmlTiltSensorReading9yRotationEv": ["double", "address"],
+    "ritual_ZNK20QmlTiltSensorReading17bindableYRotationEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QmlTiltSensorReading9xRotationEv": ["double", "address"],
+    "ritual_ZNK20QmlTiltSensorReading17bindableXRotationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QmlTiltSensorReading16yRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QmlTiltSensorReading16xRotationChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK20QmlTiltSensorReading7readingEv": ["address", "address"],
     "ritual_ZN20QmlTiltSensorReading13readingUpdateEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN20QmlTiltSensorReading31_qt_property_m_yRotation_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QmlTiltSensorReading31_qt_property_m_xRotation_offsetEv": [
+      "size_t"
     ],
     "ritual_take_QmlTiltSensorReading": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZNK20QmlTiltSensorReading7readingEv": ["address", "address"],
     "ritual_own_ZN20QmlTiltSensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QmlTiltSensorReading__QBindable_qreal": [
       "nothing", "address"
     ]
   }

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK15QPauseAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QPauseAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QPauseAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QPauseAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,12 +21,15 @@
     "ritual_ZN15QPauseAnimation11setDurationEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN15QPauseAnimation16bindableDurationEv": ["address", "address"],
     "ritual_ZN15QPauseAnimation5eventEP6QEvent": [
       "bool", "address", "address"
     ],
     "ritual_ZN15QPauseAnimation17updateCurrentTimeEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN15QPauseAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QPauseAnimation6d_funcEv": ["address", "address"],
     "ritual_take_QPauseAnimation": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QPauseAnimation8durationEv": ["int", "address"],
     "ritual_own_ZN15QPauseAnimation5eventEP6QEvent": [
@@ -28,6 +37,7 @@
     ],
     "ritual_own_ZN15QPauseAnimation17updateCurrentTimeEi": [
       "nothing", "address", "int"
-    ]
+    ],
+    "ritual_drop_QPauseAnimation__QBindable_int": ["nothing", "address"]
   }
 }

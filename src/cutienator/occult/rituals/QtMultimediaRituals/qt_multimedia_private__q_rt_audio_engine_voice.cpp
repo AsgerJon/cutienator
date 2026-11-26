@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMultimedia/6.12.0/QtMultimedia/private/qrtaudioengine_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: added by hand, rituals for functions the
+//  generator leaves out: 1. Kept as it is when the generator runs again.
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
 #include <QtMultimedia/QtMultimedia>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -61,4 +62,11 @@ bool ritual_take_QtMultimediaPrivate_QRtAudioEngineVoice(
     const char *key,
     void *call) {
   return static_cast<CuteQtMultimediaPrivate_QRtAudioEngineVoice *>(self)->take(key, call);
+}
+
+//  VoiceId QtMultimediaPrivate::QRtAudioEngineVoice::voiceId() const
+extern "C" Q_DECL_EXPORT
+unsigned long long ritual_ZNK19QtMultimediaPrivate19QRtAudioEngineVoice7voiceIdEv(
+    const QtMultimediaPrivate::QRtAudioEngineVoice *self) {
+  return static_cast<unsigned long long>(self->voiceId());
 }

@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK21QQuick3DDebugSettings10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DDebugSettings::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DDebugSettings11qt_metacastEPKc(
+    QQuick3DDebugSettings *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DDebugSettings::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DDebugSettings11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DDebugSettings *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DDebugSettings::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuick3DDebugSettings2trEPKcS1_i(
@@ -188,6 +207,83 @@ void ritual_ZN21QQuick3DDebugSettings20setDrawCulledObjectsEb(
     QQuick3DDebugSettings *self,
     bool newDrawCulledObjects) {
   self->setDrawCulledObjects(newDrawCulledObjects);
+}
+
+//  void QQuick3DDebugSettings::materialOverrideChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings23materialOverrideChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->materialOverrideChanged();
+}
+
+//  void QQuick3DDebugSettings::wireframeEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings23wireframeEnabledChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->wireframeEnabledChanged();
+}
+
+//  void QQuick3DDebugSettings::drawDirectionalLightShadowBoxesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings38drawDirectionalLightShadowBoxesChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->drawDirectionalLightShadowBoxesChanged();
+}
+
+//  void QQuick3DDebugSettings::drawPointLightShadowBoxesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings32drawPointLightShadowBoxesChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->drawPointLightShadowBoxesChanged();
+}
+
+//  void QQuick3DDebugSettings::drawShadowCastingBoundsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings30drawShadowCastingBoundsChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->drawShadowCastingBoundsChanged();
+}
+
+//  void QQuick3DDebugSettings::drawShadowReceivingBoundsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings32drawShadowReceivingBoundsChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->drawShadowReceivingBoundsChanged();
+}
+
+//  void QQuick3DDebugSettings::drawCascadesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings19drawCascadesChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->drawCascadesChanged();
+}
+
+//  void QQuick3DDebugSettings::drawSceneCascadeIntersectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings35drawSceneCascadeIntersectionChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->drawSceneCascadeIntersectionChanged();
+}
+
+//  void QQuick3DDebugSettings::disableShadowCameraUpdateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings32disableShadowCameraUpdateChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->disableShadowCameraUpdateChanged();
+}
+
+//  void QQuick3DDebugSettings::drawCulledObjectsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings24drawCulledObjectsChangedEv(
+    QQuick3DDebugSettings *self) {
+  self->drawCulledObjectsChanged();
+}
+
+//  void QQuick3DDebugSettings::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DDebugSettings7changedEv(
+    QQuick3DDebugSettings *self) {
+  self->changed();
 }
 
 //  void QQuick3DDebugSettings::update()

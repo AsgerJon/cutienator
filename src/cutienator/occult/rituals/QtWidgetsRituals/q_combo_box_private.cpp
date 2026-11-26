@@ -14,6 +14,7 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
 #include <QtGui/QtGui>
@@ -103,6 +104,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/styles/qstyle.cpp, line 2475, as _ZN13QStylePrivate21useFullScreenForPopupEv
 inline bool QStylePrivate::useFullScreenForPopup()
@@ -483,6 +486,78 @@ inline int QComboBoxPrivate::computeWidthHint() const
     QSize tmp(width, 0);
     tmp = q->style()->sizeFromContents(QStyle::CT_ComboBox, &opt, tmp, q);
     return tmp.width();
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 575, as _ZNK16QComboBoxPrivate17recomputeSizeHintER5QSize
+inline QSize QComboBoxPrivate::recomputeSizeHint(QSize &sh) const
+{
+    Q_Q(const QComboBox);
+    if (!sh.isValid()) {
+        if (q->itemDelegate() && q->labelDrawingMode() == QComboBox::LabelDrawingMode::UseDelegate) {
+            QStyleOptionViewItem option;
+            initViewItemOption(&option);
+            sh = q->itemDelegate()->sizeHint(option, currentIndex);
+        }
+
+        bool hasIcon = sizeAdjustPolicy == QComboBox::AdjustToMinimumContentsLengthWithIcon;
+        int count = q->count();
+        QSize iconSize = q->iconSize();
+        const QFontMetrics &fm = q->fontMetrics();
+
+        // text width
+        if (&sh == &sizeHint || minimumContentsLength == 0) {
+            switch (sizeAdjustPolicy) {
+            case QComboBox::AdjustToContents:
+            case QComboBox::AdjustToContentsOnFirstShow:
+                if (count == 0) {
+                    sh.rwidth() = 7 * fm.horizontalAdvance(u'x');
+                } else {
+                    for (int i = 0; i < count; ++i) {
+                        if (!q->itemIcon(i).isNull()) {
+                            hasIcon = true;
+                            sh.setWidth(qMax(sh.width(), fm.boundingRect(q->itemText(i)).width() + iconSize.width() + 4));
+                        } else {
+                            sh.setWidth(qMax(sh.width(), fm.boundingRect(q->itemText(i)).width()));
+                        }
+                    }
+                }
+                break;
+            case QComboBox::AdjustToMinimumContentsLengthWithIcon:
+                ;
+            }
+        } else {
+            for (int i = 0; i < count && !hasIcon; ++i)
+                hasIcon = !q->itemIcon(i).isNull();
+        }
+        if (minimumContentsLength > 0) {
+            auto r = qint64{minimumContentsLength} * fm.horizontalAdvance(u'X');
+            if (hasIcon)
+                r += iconSize.width() + 4;
+            if (r <= QWIDGETSIZE_MAX) {
+                sh.setWidth(qMax(sh.width(), int(r)));
+            } else {
+                qWarning("QComboBox: cannot take minimumContentsLength %d into account for sizeHint(), "
+                         "since it causes the widget to be wider than QWIDGETSIZE_MAX. "
+                         "Consider setting it to a less extreme value.",
+                         minimumContentsLength);
+            }
+        }
+        if (!placeholderText.isEmpty())
+            sh.setWidth(qMax(sh.width(), fm.boundingRect(placeholderText).width()));
+
+
+        // height
+        sh.setHeight(qMax(qCeil(QFontMetricsF(fm).height()), 14) + 2);
+        if (hasIcon) {
+            sh.setHeight(qMax(sh.height(), iconSize.height() + 2));
+        }
+
+        // add style and strut values
+        QStyleOptionComboBox opt;
+        q->initStyleOption(&opt);
+        sh = q->style()->sizeFromContents(QStyle::CT_ComboBox, &opt, sh, q);
+    }
+    return sh;
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 1703, as _ZNK16QComboBoxPrivate8itemTextERK11QModelIndex
@@ -1117,6 +1192,14 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK16QComboBoxPrivate16computeWidthHintEv(
     const QComboBoxPrivate *self) {
   return self->computeWidthHint();
+}
+
+//  QSize QComboBoxPrivate::recomputeSizeHint(QSize &sh) const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK16QComboBoxPrivate17recomputeSizeHintER5QSize(
+    const QComboBoxPrivate *self,
+    QSize *sh) {
+  return new QSize(self->recomputeSizeHint(*sh));
 }
 
 //  QString QComboBoxPrivate::itemText(const QModelIndex &index) const

@@ -5,5 +5,23 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QSpatialAudioPrivate26QSpatialAudioPlaybackStateC1E12QAudioBufferbi": [
+      "address", "address", "bool", "int"
+    ],
+    "ritual_ZN20QSpatialAudioPrivate26QSpatialAudioPlaybackState9getBufferE5QSpanIfLm18446744073709551615EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSpatialAudioPrivate26QSpatialAudioPlaybackState5pauseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QSpatialAudioPrivate26QSpatialAudioPlaybackState6resumeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QSpatialAudioPrivate26QSpatialAudioPlaybackState8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QSpatialAudioPrivate26QSpatialAudioPlaybackState6formatEv": [
+      "address", "address"
+    ]
   }
 }

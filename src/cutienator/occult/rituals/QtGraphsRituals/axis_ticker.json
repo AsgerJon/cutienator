@@ -9,6 +9,13 @@
   ],
   "rows": {
     "ritual_ZNK10AxisTicker10metaObjectEv": ["address", "address"],
+    "ritual_ZN10AxisTicker11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10AxisTicker11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10AxisTickerD1Ev": ["nothing", "address"],
     "ritual_ZN10AxisTicker12setupShadersEv": ["nothing", "address"],
     "ritual_ZNK10AxisTicker11iResolutionEv": ["address", "address"],
     "ritual_ZNK10AxisTicker9smoothingEv": ["double", "address"],
@@ -30,6 +37,26 @@
     "ritual_ZN10AxisTicker14geometryChangeERK6QRectFS2_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN10AxisTicker18iResolutionChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker16smoothingChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker12origoChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker22subTicksVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10AxisTicker14spacingChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker19displacementChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker19subTickColorChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker16tickColorChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker23subTickLineWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10AxisTicker20tickLineWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker19subTickScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker20subTickLengthChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker19isHorizontalChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker14flippedChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker18logarithmicChangedEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker11baseChangedEv": ["nothing", "address"],
     "ritual_take_AxisTicker": ["bool", "address", "chars", "address"],
     "ritual_own_ZN10AxisTicker17componentCompleteEv": ["nothing", "address"]
   }

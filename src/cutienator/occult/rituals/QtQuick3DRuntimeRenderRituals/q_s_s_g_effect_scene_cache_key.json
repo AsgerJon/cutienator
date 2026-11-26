@@ -5,6 +5,9 @@
     "tsystem_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN23QSSGEffectSceneCacheKey16generateHashCodeERK10QByteArrayyi": [
+      "size_t", "address", "unsigned long long", "int"
+    ],
     "ritual_ZN23QSSGEffectSceneCacheKey14updateHashCodeEv": [
       "nothing", "address"
     ],

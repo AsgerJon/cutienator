@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QQuickMenu10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickMenu11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QQuickMenu11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QQuickMenu2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QQuickMenuC1EP7QObject": ["address", "address"],
     "ritual_ZN10QQuickMenuD1Ev": ["nothing", "address"],
@@ -23,6 +29,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK10QQuickMenu12contentModelEv": ["address", "address"],
+    "ritual_ZN10QQuickMenu11contentDataEv": ["address", "address"],
     "ritual_ZNK10QQuickMenu5titleEv": ["text", "address"],
     "ritual_ZN10QQuickMenu8setTitleERK7QString": [
       "nothing", "address", "text"
@@ -101,6 +108,22 @@
     "ritual_ZN10QQuickMenu13keyPressEventEP9QKeyEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QQuickMenu12titleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQuickMenu12countChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickMenu14cascadeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QQuickMenu14overlapChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickMenu15delegateChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickMenu19currentIndexChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickMenu11iconChangedERK10QQuickIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickMenu28separatorsCollapsibleChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN10QQuickMenu10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
@@ -127,6 +150,9 @@
       "nothing", "address", "address"
     ],
     "ritual_own_ZNK10QQuickMenu11defaultFontEv": ["address", "address"],
-    "ritual_own_ZNK10QQuickMenu14accessibleRoleEv": ["int", "address"]
+    "ritual_own_ZNK10QQuickMenu14accessibleRoleEv": ["int", "address"],
+    "ritual_drop_QQuickMenu__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

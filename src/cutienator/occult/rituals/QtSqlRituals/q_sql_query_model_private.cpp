@@ -7,7 +7,9 @@
 #if QT_CONFIG(sqlmodel)
 #if QT_CONFIG(sqlmodel)
 #include <QtSql/6.12.0/QtSql/private/qtsqlglobal_p.h>
+#if QT_CONFIG(sqlmodel)
 #include <QtSql/qsqlquerymodel.h>
+#endif
 #include <QtSql/QtSql>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSql/6.12.0/QtSql/private/qsqlquerymodel_p.h>
@@ -27,6 +29,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/sql/models/qsqlquerymodel.cpp, line 53, as _ZN21QSqlQueryModelPrivateD1Ev
 inline QSqlQueryModelPrivate::~QSqlQueryModelPrivate()

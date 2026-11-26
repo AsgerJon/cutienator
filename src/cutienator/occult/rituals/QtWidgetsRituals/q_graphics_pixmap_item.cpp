@@ -950,6 +950,20 @@ QVariant *ritual_ZNK19QGraphicsPixmapItem9extensionERK8QVariant(
   return new QVariant(self->extension(*variant));
 }
 
+//  QGraphicsPixmapItemPrivate *QGraphicsPixmapItem::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsPixmapItemPrivate *ritual_ZN19QGraphicsPixmapItem6d_funcEv(
+    QGraphicsPixmapItem *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsPixmapItemPrivate *QGraphicsPixmapItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsPixmapItemPrivate *ritual_ZNK19QGraphicsPixmapItem6d_funcEv(
+    const QGraphicsPixmapItem *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsPixmapItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

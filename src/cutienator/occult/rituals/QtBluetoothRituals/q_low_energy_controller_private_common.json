@@ -29,6 +29,19 @@
     "ritual_ZN33QLowEnergyControllerPrivateCommon23requestConnectionUpdateERK30QLowEnergyConnectionParameters": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon18readCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEt": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon14readDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEtt": [
+      "nothing", "address", "address", "unsigned short", "unsigned short"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon19writeCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEtRK10QByteArrayN17QLowEnergyService9WriteModeE": [
+      "nothing", "address", "address", "unsigned short", "address", "int"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon15writeDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEttRK10QByteArray": [
+      "nothing", "address", "address", "unsigned short", "unsigned short",
+      "address"
+    ],
     "ritual_ZN33QLowEnergyControllerPrivateCommon25addToGenericAttributeListERK21QLowEnergyServiceDatat": [
       "nothing", "address", "address", "unsigned short"
     ],

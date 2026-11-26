@@ -31,6 +31,19 @@ quintptr ritual_ZNK11QModelIndex10internalIdEv(const QModelIndex *self) {
   return self->internalId();
 }
 
+//  void *QModelIndex::internalPointer() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK11QModelIndex15internalPointerEv(const QModelIndex *self) {
+  return self->internalPointer();
+}
+
+//  const void *QModelIndex::constInternalPointer() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK11QModelIndex20constInternalPointerEv(
+    const QModelIndex *self) {
+  return self->constInternalPointer();
+}
+
 //  QModelIndex QModelIndex::parent() const
 extern "C" Q_DECL_EXPORT
 QModelIndex *ritual_ZNK11QModelIndex6parentEv(const QModelIndex *self) {
@@ -141,6 +154,17 @@ bool ritual_ZgeRK11QModelIndexS1_(
     const QModelIndex *lhs,
     const QModelIndex *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  QModelIndex::QModelIndex(int arow, int acolumn, const void *ptr, const
+//      QAbstractItemModel *amodel)
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZN11QModelIndexC1EiiPKvPK18QAbstractItemModel(
+    int arow,
+    int acolumn,
+    const void *ptr,
+    const QAbstractItemModel *amodel) {
+  return new QModelIndex(arow, acolumn, ptr, amodel);
 }
 
 //  QModelIndex::QModelIndex(int arow, int acolumn, quintptr id, const

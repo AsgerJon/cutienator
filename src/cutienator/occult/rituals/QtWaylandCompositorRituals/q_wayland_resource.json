@@ -9,6 +9,8 @@
       "nothing", "address"
     ],
     "ritual_ZN16QWaylandResourceC1Ev": ["address"],
+    "ritual_ZN16QWaylandResourceC1EP11wl_resource": ["address", "address"],
+    "ritual_ZNK16QWaylandResource8resourceEv": ["address", "address"],
     "ritual_ZN16QWaylandResourceD1Ev": ["nothing", "address"]
   }
 }

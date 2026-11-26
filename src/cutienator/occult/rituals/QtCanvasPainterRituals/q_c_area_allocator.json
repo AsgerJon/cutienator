@@ -5,7 +5,14 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QCAreaAllocatorC1E5QSize": ["address", "address"],
     "ritual_ZN15QCAreaAllocatorD1Ev": ["nothing", "address"],
+    "ritual_ZN15QCAreaAllocator8allocateE5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QCAreaAllocator10deallocateE5QRect": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK15QCAreaAllocator7isEmptyEv": ["bool", "address"],
     "ritual_ZNK15QCAreaAllocator4sizeEv": ["address", "address"]
   }

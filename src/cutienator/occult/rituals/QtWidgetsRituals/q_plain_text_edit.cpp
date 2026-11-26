@@ -9,7 +9,9 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qtextcursor.h>
 #include <QtGui/qtextformat.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/qurl.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qpoint.h>
@@ -19,6 +21,8 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtWidgets/QTextEdit>
 
 //  Only a class built on QPlainTextEdit may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1276,6 +1280,24 @@ const QMetaObject *ritual_ZNK14QPlainTextEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlainTextEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QPlainTextEdit11qt_metacastEPKc(
+    QPlainTextEdit *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlainTextEdit::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QPlainTextEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlainTextEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlainTextEdit::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QPlainTextEdit2trEPKcS1_i(
@@ -1676,6 +1698,22 @@ void ritual_ZN14QPlainTextEdit14setCursorWidthEi(
   self->setCursorWidth(width);
 }
 
+//  void QPlainTextEdit::setExtraSelections(const
+//      QList<QTextEdit::ExtraSelection> &selections)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit18setExtraSelectionsERK5QListIN9QTextEdit14ExtraSelectionEE(
+    QPlainTextEdit *self,
+    const QList<QTextEdit::ExtraSelection> *selections) {
+  self->setExtraSelections(*selections);
+}
+
+//  QList<QTextEdit::ExtraSelection> QPlainTextEdit::extraSelections() const
+extern "C" Q_DECL_EXPORT
+QList<QTextEdit::ExtraSelection> *ritual_ZNK14QPlainTextEdit15extraSelectionsEv(
+    const QPlainTextEdit *self) {
+  return new QList<QTextEdit::ExtraSelection>(self->extraSelections());
+}
+
 //  void QPlainTextEdit::moveCursor(QTextCursor::MoveOperation operation,
 //      QTextCursor::MoveMode mode)
 extern "C" Q_DECL_EXPORT
@@ -1821,6 +1859,74 @@ void ritual_ZN14QPlainTextEdit6zoomInEi(QPlainTextEdit *self, int range) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QPlainTextEdit7zoomOutEi(QPlainTextEdit *self, int range) {
   self->zoomOut(range);
+}
+
+//  void QPlainTextEdit::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit11textChangedEv(QPlainTextEdit *self) {
+  self->textChanged();
+}
+
+//  void QPlainTextEdit::undoAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit13undoAvailableEb(
+    QPlainTextEdit *self,
+    bool b) {
+  self->undoAvailable(b);
+}
+
+//  void QPlainTextEdit::redoAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit13redoAvailableEb(
+    QPlainTextEdit *self,
+    bool b) {
+  self->redoAvailable(b);
+}
+
+//  void QPlainTextEdit::copyAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit13copyAvailableEb(
+    QPlainTextEdit *self,
+    bool b) {
+  self->copyAvailable(b);
+}
+
+//  void QPlainTextEdit::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit16selectionChangedEv(QPlainTextEdit *self) {
+  self->selectionChanged();
+}
+
+//  void QPlainTextEdit::cursorPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit21cursorPositionChangedEv(
+    QPlainTextEdit *self) {
+  self->cursorPositionChanged();
+}
+
+//  void QPlainTextEdit::updateRequest(const QRect &rect, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit13updateRequestERK5QRecti(
+    QPlainTextEdit *self,
+    const QRect *rect,
+    int dy) {
+  self->updateRequest(*rect, dy);
+}
+
+//  void QPlainTextEdit::blockCountChanged(int newBlockCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit17blockCountChangedEi(
+    QPlainTextEdit *self,
+    int newBlockCount) {
+  self->blockCountChanged(newBlockCount);
+}
+
+//  void QPlainTextEdit::modificationChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit19modificationChangedEb(
+    QPlainTextEdit *self,
+    bool a0) {
+  self->modificationChanged(a0);
 }
 
 //  bool QPlainTextEdit::event(QEvent *e)
@@ -2032,6 +2138,15 @@ void ritual_ZN14QPlainTextEdit16inputMethodEventEP17QInputMethodEvent(
     QPlainTextEdit *self,
     QInputMethodEvent *a0) {
   self->inputMethodEvent(a0);
+}
+
+//  QPlainTextEdit::QPlainTextEdit(QPlainTextEditPrivate &dd, QWidget
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QPlainTextEdit *ritual_ZN14QPlainTextEditC1ER21QPlainTextEditPrivateP7QWidget(
+    QPlainTextEditPrivate *dd,
+    QWidget *parent) {
+  return new CuteQPlainTextEdit(*dd, parent);
 }
 
 //  void QPlainTextEdit::scrollContentsBy(int dx, int dy)
@@ -2369,6 +2484,13 @@ void ritual_own_ZN14QPlainTextEdit15doSetTextCursorERK11QTextCursor(
     const QTextCursor *cursor) {
   static_cast<OwnQPlainTextEdit *>(self)->OwnQPlainTextEdit::doSetTextCursor(
       *cursor);
+}
+
+//  a QList<QTextEdit::ExtraSelection> a ritual of QPlainTextEdit gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlainTextEdit__QList_QTextEdit_ExtraSelection(
+    QList<QTextEdit::ExtraSelection> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(textedit)

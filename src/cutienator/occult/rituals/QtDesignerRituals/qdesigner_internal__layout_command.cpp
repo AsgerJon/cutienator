@@ -112,11 +112,59 @@ public:
 #endif  // QT_CONFIG(undocommand)
 };
 
+//  qdesigner_internal::LayoutCommand::LayoutCommand(QDesignerFormWindowInter
+//      face *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::LayoutCommand *ritual_ZN18qdesigner_internal13LayoutCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_LayoutCommand(formWindow);
+}
+
+//  qdesigner_internal::LayoutCommand::~LayoutCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13LayoutCommandD1Ev(
+    qdesigner_internal::LayoutCommand *self) {
+  delete self;
+}
+
 //  QWidgetList qdesigner_internal::LayoutCommand::widgets() const
 extern "C" Q_DECL_EXPORT
 QList<QWidget *> *ritual_ZNK18qdesigner_internal13LayoutCommand7widgetsEv(
     const qdesigner_internal::LayoutCommand *self) {
   return new QList<QWidget *>(self->widgets());
+}
+
+//  void qdesigner_internal::LayoutCommand::init(QWidget *parentWidget, const
+//      QWidgetList &widgets, LayoutInfo::Type layoutType, QWidget
+//      *layoutBase, bool reparentLayoutWidget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13LayoutCommand4initEP7QWidgetRK5QListIS2_ENS_10LayoutInfo4TypeES2_b(
+    qdesigner_internal::LayoutCommand *self,
+    QWidget *parentWidget,
+    const QList<QWidget *> *widgets,
+    qdesigner_internal::LayoutInfo::Type layoutType,
+    QWidget *layoutBase,
+    bool reparentLayoutWidget) {
+  self->init(
+      parentWidget,
+      *widgets,
+      layoutType,
+      layoutBase,
+      reparentLayoutWidget);
+}
+
+//  void qdesigner_internal::LayoutCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13LayoutCommand4redoEv(
+    qdesigner_internal::LayoutCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::LayoutCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal13LayoutCommand4undoEv(
+    qdesigner_internal::LayoutCommand *self) {
+  self->undo();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_LayoutCommand, for

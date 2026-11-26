@@ -68,6 +68,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/dialogs/qfiledialog.cpp, line 4142, as _ZN19QFileDialogTreeView20setFileDialogPrivateEP18QFileDialogPrivate
 inline void QFileDialogTreeView::setFileDialogPrivate(QFileDialogPrivate *d_pointer)
 {

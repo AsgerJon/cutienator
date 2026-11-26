@@ -78,6 +78,12 @@ public:
   }
 };
 
+//  QQuickFramebufferObject::Renderer::Renderer()
+extern "C" Q_DECL_EXPORT
+QQuickFramebufferObject::Renderer *ritual_ZN23QQuickFramebufferObject8RendererC1Ev() {
+  return new CuteQQuickFramebufferObject_Renderer();
+}
+
 //  QQuickFramebufferObject::Renderer::~Renderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuickFramebufferObject8RendererD1Ev(

@@ -214,6 +214,12 @@ public:
   }
 };
 
+//  QDesignerLanguageExtension::QDesignerLanguageExtension()
+extern "C" Q_DECL_EXPORT
+QDesignerLanguageExtension *ritual_ZN26QDesignerLanguageExtensionC1Ev() {
+  return new CuteQDesignerLanguageExtension();
+}
+
 //  QDesignerLanguageExtension::~QDesignerLanguageExtension()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QDesignerLanguageExtensionD1Ev(

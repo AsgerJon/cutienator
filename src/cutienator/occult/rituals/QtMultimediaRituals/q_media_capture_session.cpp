@@ -180,6 +180,25 @@ const QMetaObject *ritual_ZNK20QMediaCaptureSession10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMediaCaptureSession::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QMediaCaptureSession11qt_metacastEPKc(
+    QMediaCaptureSession *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMediaCaptureSession::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QMediaCaptureSession11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMediaCaptureSession *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMediaCaptureSession::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QMediaCaptureSession2trEPKcS1_i(
@@ -390,6 +409,83 @@ extern "C" Q_DECL_EXPORT
 QPlatformMediaCaptureSession *ritual_ZNK20QMediaCaptureSession15platformSessionEv(
     const QMediaCaptureSession *self) {
   return self->platformSession();
+}
+
+//  void QMediaCaptureSession::audioInputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession17audioInputChangedEv(
+    QMediaCaptureSession *self) {
+  self->audioInputChanged();
+}
+
+//  void QMediaCaptureSession::audioBufferInputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession23audioBufferInputChangedEv(
+    QMediaCaptureSession *self) {
+  self->audioBufferInputChanged();
+}
+
+//  void QMediaCaptureSession::cameraChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession13cameraChangedEv(
+    QMediaCaptureSession *self) {
+  self->cameraChanged();
+}
+
+//  void QMediaCaptureSession::nativeVideoSourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession24nativeVideoSourceChangedEv(
+    QMediaCaptureSession *self) {
+  self->nativeVideoSourceChanged();
+}
+
+//  void QMediaCaptureSession::screenCaptureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession20screenCaptureChangedEv(
+    QMediaCaptureSession *self) {
+  self->screenCaptureChanged();
+}
+
+//  void QMediaCaptureSession::windowCaptureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession20windowCaptureChangedEv(
+    QMediaCaptureSession *self) {
+  self->windowCaptureChanged();
+}
+
+//  void QMediaCaptureSession::videoFrameInputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession22videoFrameInputChangedEv(
+    QMediaCaptureSession *self) {
+  self->videoFrameInputChanged();
+}
+
+//  void QMediaCaptureSession::imageCaptureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession19imageCaptureChangedEv(
+    QMediaCaptureSession *self) {
+  self->imageCaptureChanged();
+}
+
+//  void QMediaCaptureSession::recorderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession15recorderChangedEv(
+    QMediaCaptureSession *self) {
+  self->recorderChanged();
+}
+
+//  void QMediaCaptureSession::videoOutputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession18videoOutputChangedEv(
+    QMediaCaptureSession *self) {
+  self->videoOutputChanged();
+}
+
+//  void QMediaCaptureSession::audioOutputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QMediaCaptureSession18audioOutputChangedEv(
+    QMediaCaptureSession *self) {
+  self->audioOutputChanged();
 }
 
 //  QMediaCaptureSessionPrivate *QMediaCaptureSession::d_func()

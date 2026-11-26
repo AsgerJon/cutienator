@@ -10,7 +10,9 @@
 #include <QtQml/QtQml>
 #include <QtQml/qqmlproperty.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtCore/qproperty.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -272,6 +274,25 @@ const QMetaObject *ritual_ZNK18QQuickBoundaryRule10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickBoundaryRule::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickBoundaryRule11qt_metacastEPKc(
+    QQuickBoundaryRule *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickBoundaryRule::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickBoundaryRule11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickBoundaryRule *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickBoundaryRule::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickBoundaryRule2trEPKcS1_i(
@@ -279,6 +300,20 @@ QString *ritual_ZN18QQuickBoundaryRule2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickBoundaryRule::tr(s, c, n));
+}
+
+//  QQuickBoundaryRulePrivate *QQuickBoundaryRule::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickBoundaryRulePrivate *ritual_ZN18QQuickBoundaryRule6d_funcEv(
+    QQuickBoundaryRule *self) {
+  return self->d_func();
+}
+
+//  const QQuickBoundaryRulePrivate *QQuickBoundaryRule::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickBoundaryRulePrivate *ritual_ZNK18QQuickBoundaryRule6d_funcEv(
+    const QQuickBoundaryRule *self) {
+  return self->d_func();
 }
 
 //  QQuickBoundaryRule::QQuickBoundaryRule(QObject *parent)
@@ -478,6 +513,90 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickBoundaryRule17componentCompleteEv(
     QQuickBoundaryRule *self) {
   self->componentComplete();
+}
+
+//  void QQuickBoundaryRule::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule14enabledChangedEv(
+    QQuickBoundaryRule *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickBoundaryRule::minimumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule14minimumChangedEv(
+    QQuickBoundaryRule *self) {
+  self->minimumChanged();
+}
+
+//  void QQuickBoundaryRule::minimumOvershootChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule23minimumOvershootChangedEv(
+    QQuickBoundaryRule *self) {
+  self->minimumOvershootChanged();
+}
+
+//  void QQuickBoundaryRule::maximumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule14maximumChangedEv(
+    QQuickBoundaryRule *self) {
+  self->maximumChanged();
+}
+
+//  void QQuickBoundaryRule::maximumOvershootChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule23maximumOvershootChangedEv(
+    QQuickBoundaryRule *self) {
+  self->maximumOvershootChanged();
+}
+
+//  void QQuickBoundaryRule::overshootScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule21overshootScaleChangedEv(
+    QQuickBoundaryRule *self) {
+  self->overshootScaleChanged();
+}
+
+//  void QQuickBoundaryRule::currentOvershootChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule23currentOvershootChangedEv(
+    QQuickBoundaryRule *self) {
+  self->currentOvershootChanged();
+}
+
+//  void QQuickBoundaryRule::peakOvershootChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule20peakOvershootChangedEv(
+    QQuickBoundaryRule *self) {
+  self->peakOvershootChanged();
+}
+
+//  void QQuickBoundaryRule::overshootFilterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule22overshootFilterChangedEv(
+    QQuickBoundaryRule *self) {
+  self->overshootFilterChanged();
+}
+
+//  void QQuickBoundaryRule::easingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule13easingChangedEv(
+    QQuickBoundaryRule *self) {
+  self->easingChanged();
+}
+
+//  void QQuickBoundaryRule::returnDurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule21returnDurationChangedEv(
+    QQuickBoundaryRule *self) {
+  self->returnDurationChanged();
+}
+
+//  void QQuickBoundaryRule::returnedToBounds()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickBoundaryRule16returnedToBoundsEv(
+    QQuickBoundaryRule *self) {
+  self->returnedToBounds();
 }
 
 //  QQuickBoundaryRule as the QQmlPropertyValueInterceptor it is built on

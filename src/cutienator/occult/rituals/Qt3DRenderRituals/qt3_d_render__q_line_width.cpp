@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QLineWidth10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QLineWidth::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QLineWidth11qt_metacastEPKc(
+    Qt3DRender::QLineWidth *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QLineWidth::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QLineWidth11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QLineWidth *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QLineWidth::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QLineWidth2trEPKcS2_i(
@@ -186,6 +205,65 @@ QString *ritual_ZN10Qt3DRender10QLineWidth2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QLineWidth::tr(s, c, n));
+}
+
+//  Qt3DRender::QLineWidth::QLineWidth(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLineWidth *ritual_ZN10Qt3DRender10QLineWidthC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QLineWidth(parent);
+}
+
+//  Qt3DRender::QLineWidth::~QLineWidth()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QLineWidthD1Ev(Qt3DRender::QLineWidth *self) {
+  delete self;
+}
+
+//  float Qt3DRender::QLineWidth::value() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender10QLineWidth5valueEv(
+    const Qt3DRender::QLineWidth *self) {
+  return self->value();
+}
+
+//  bool Qt3DRender::QLineWidth::smooth() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender10QLineWidth6smoothEv(
+    const Qt3DRender::QLineWidth *self) {
+  return self->smooth();
+}
+
+//  void Qt3DRender::QLineWidth::setValue(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QLineWidth8setValueEf(
+    Qt3DRender::QLineWidth *self,
+    float value) {
+  self->setValue(value);
+}
+
+//  void Qt3DRender::QLineWidth::setSmooth(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QLineWidth9setSmoothEb(
+    Qt3DRender::QLineWidth *self,
+    bool enabled) {
+  self->setSmooth(enabled);
+}
+
+//  void Qt3DRender::QLineWidth::valueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QLineWidth12valueChangedEf(
+    Qt3DRender::QLineWidth *self,
+    float value) {
+  self->valueChanged(value);
+}
+
+//  void Qt3DRender::QLineWidth::smoothChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QLineWidth13smoothChangedEb(
+    Qt3DRender::QLineWidth *self,
+    bool enabled) {
+  self->smoothChanged(enabled);
 }
 
 //  QLineWidthPrivate *Qt3DRender::QLineWidth::d_func()

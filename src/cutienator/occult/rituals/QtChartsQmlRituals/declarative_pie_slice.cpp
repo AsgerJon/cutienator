@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK19DeclarativePieSlice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativePieSlice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19DeclarativePieSlice11qt_metacastEPKc(
+    DeclarativePieSlice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativePieSlice::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19DeclarativePieSlice11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativePieSlice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativePieSlice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19DeclarativePieSlice2trEPKcS1_i(
@@ -48,6 +67,15 @@ void ritual_ZN19DeclarativePieSlice16setBrushFilenameERK7QString(
     DeclarativePieSlice *self,
     const QString *brushFilename) {
   self->setBrushFilename(*brushFilename);
+}
+
+//  void DeclarativePieSlice::brushFilenameChanged(const QString
+//      &brushFilename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19DeclarativePieSlice20brushFilenameChangedERK7QString(
+    DeclarativePieSlice *self,
+    const QString *brushFilename) {
+  self->brushFilenameChanged(*brushFilename);
 }
 
 //  void DeclarativePieSlice::handleBrushChanged()

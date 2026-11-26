@@ -12,8 +12,18 @@
     ],
     "ritual_ZN4QPenC1ERKS_": ["address", "address"],
     "ritual_ZN4QPenD1Ev": ["nothing", "address"],
+    "ritual_ZN4QPenaSERKS_": ["address", "address", "address"],
+    "ritual_ZN4QPenC1EOS_": ["address", "address"],
+    "ritual_ZN4QPenaSEOS_": ["address", "address", "address"],
+    "ritual_ZN4QPen4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN4QPenaSE6QColor": ["address", "address", "address"],
+    "ritual_ZN4QPenaSEN2Qt8PenStyleE": ["address", "address", "int"],
     "ritual_ZNK4QPen5styleEv": ["int", "address"],
     "ritual_ZN4QPen8setStyleEN2Qt8PenStyleE": ["nothing", "address", "int"],
+    "ritual_ZNK4QPen11dashPatternEv": ["address", "address"],
+    "ritual_ZN4QPen14setDashPatternERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK4QPen10dashOffsetEv": ["double", "address"],
     "ritual_ZN4QPen13setDashOffsetEd": ["nothing", "address", "double"],
     "ritual_ZNK4QPen10miterLimitEv": ["double", "address"],
@@ -41,6 +51,8 @@
     "ritual_ZNK4QPenneERKS_": ["bool", "address", "address"],
     "ritual_ZNK4QPencv8QVariantEv": ["address", "address"],
     "ritual_ZN4QPen10isDetachedEv": ["bool", "address"],
+    "ritual_ZrsR11QDataStreamR4QPen": ["address", "address", "address"],
+    "ritual_ZlsR11QDataStreamRK4QPen": ["address", "address", "address"],
     "ritual_ZNK4QPen18isSolidDefaultLineEv": ["bool", "address"],
     "ritual_ZNK4QPen19doCompareEqualColorE6QColor": [
       "bool", "address", "address"
@@ -52,6 +64,12 @@
     "ritual_ZNK4QPen19doCompareEqualStyleEN2Qt8PenStyleE": [
       "bool", "address", "int"
     ],
-    "ritual_ZN4QPen6detachEv": ["nothing", "address"]
+    "ritual_ZeqRK4QPenRKN2Qt8PenStyleE": ["bool", "address", "address"],
+    "ritual_ZneRK4QPenRKN2Qt8PenStyleE": ["bool", "address", "address"],
+    "ritual_ZeqRKN2Qt8PenStyleERK4QPen": ["bool", "address", "address"],
+    "ritual_ZneRKN2Qt8PenStyleERK4QPen": ["bool", "address", "address"],
+    "ritual_ZN4QPen6detachEv": ["nothing", "address"],
+    "ritual_ZN4QPen8data_ptrEv": ["address", "address"],
+    "ritual_drop_QPen__QList_qreal": ["nothing", "address"]
   }
 }

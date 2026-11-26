@@ -17,6 +17,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QQuickRegularPolygonShape may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -794,6 +795,25 @@ const QMetaObject *ritual_ZNK25QQuickRegularPolygonShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRegularPolygonShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickRegularPolygonShape11qt_metacastEPKc(
+    QQuickRegularPolygonShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRegularPolygonShape::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickRegularPolygonShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRegularPolygonShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRegularPolygonShape::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -958,6 +978,21 @@ void ritual_ZN25QQuickRegularPolygonShape14setStrokeStyleEN15QQuickShapePath11St
   self->setStrokeStyle(style);
 }
 
+//  QList<qreal> QQuickRegularPolygonShape::dashPattern() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK25QQuickRegularPolygonShape11dashPatternEv(
+    const QQuickRegularPolygonShape *self) {
+  return new QList<qreal>(self->dashPattern());
+}
+
+//  void QQuickRegularPolygonShape::setDashPattern(const QList<qreal> &array)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape14setDashPatternERK5QListIdE(
+    QQuickRegularPolygonShape *self,
+    const QList<qreal> *array) {
+  self->setDashPattern(*array);
+}
+
 //  QQuickShapeGradient *QQuickRegularPolygonShape::fillGradient() const
 extern "C" Q_DECL_EXPORT
 QQuickShapeGradient *ritual_ZNK25QQuickRegularPolygonShape12fillGradientEv(
@@ -994,6 +1029,90 @@ void ritual_ZN25QQuickRegularPolygonShape11setFillItemEP10QQuickItem(
     QQuickRegularPolygonShape *self,
     QQuickItem *newFillItem) {
   self->setFillItem(newFillItem);
+}
+
+//  void QQuickRegularPolygonShape::cornerRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape19cornerRadiusChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->cornerRadiusChanged();
+}
+
+//  void QQuickRegularPolygonShape::sideCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape16sideCountChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->sideCountChanged();
+}
+
+//  void QQuickRegularPolygonShape::strokeColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape18strokeColorChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->strokeColorChanged();
+}
+
+//  void QQuickRegularPolygonShape::strokeWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape18strokeWidthChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->strokeWidthChanged();
+}
+
+//  void QQuickRegularPolygonShape::fillColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape16fillColorChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->fillColorChanged();
+}
+
+//  void QQuickRegularPolygonShape::joinStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape16joinStyleChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->joinStyleChanged();
+}
+
+//  void QQuickRegularPolygonShape::capStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape15capStyleChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->capStyleChanged();
+}
+
+//  void QQuickRegularPolygonShape::strokeStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape18strokeStyleChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->strokeStyleChanged();
+}
+
+//  void QQuickRegularPolygonShape::dashOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape17dashOffsetChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->dashOffsetChanged();
+}
+
+//  void QQuickRegularPolygonShape::dashPatternChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape18dashPatternChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->dashPatternChanged();
+}
+
+//  void QQuickRegularPolygonShape::fillGradientChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape19fillGradientChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->fillGradientChanged();
+}
+
+//  void QQuickRegularPolygonShape::fillItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickRegularPolygonShape15fillItemChangedEv(
+    QQuickRegularPolygonShape *self) {
+  self->fillItemChanged();
 }
 
 //  void QQuickRegularPolygonShape::itemChange(ItemChange change, const
@@ -1041,4 +1160,10 @@ void ritual_own_ZN25QQuickRegularPolygonShape10itemChangeEN10QQuickItem10ItemCha
   static_cast<OwnQQuickRegularPolygonShape *>(self)->OwnQQuickRegularPolygonShape::itemChange(
       change,
       *value);
+}
+
+//  a QList<qreal> a ritual of QQuickRegularPolygonShape gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickRegularPolygonShape__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

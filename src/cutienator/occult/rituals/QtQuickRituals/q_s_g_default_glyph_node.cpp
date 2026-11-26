@@ -12,6 +12,9 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgdefaultglyphnode_p.h>
+#include <QtQuick/private/qsgdefaultglyphnode_p_p.h>
+#include <QtGui/private/qrawfont_p.h>
 #include <QtQuick/private/qsgdefaultglyphnode_p_p.h>
 #include <QtQuick/private/qsgmaterialshader_p.h>
 #include <QtGui/private/qguiapplication_p.h>
@@ -26,9 +29,6 @@
 #include <QtQuick/private/qsgdefaultrendercontext_p.h>
 #include <QtGui/qrgb.h>
 #include <QtGui/private/qdrawhelper_p.h>
-#include <QtQuick/private/qsgdefaultglyphnode_p.h>
-#include <QtQuick/private/qsgdefaultglyphnode_p_p.h>
-#include <QtGui/private/qrawfont_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -37,6 +37,177 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 539, as local:qsgdefaultglyphnode_p.cpp:qsg_colorDiff
+static inline int qsg_colorDiff(const QVector4D &a, const QVector4D &b)
+{
+    if (a.x() != b.x())
+        return a.x() > b.x() ? 1 : -1;
+    if (a.y() != b.y())
+        return a.y() > b.y() ? 1 : -1;
+    if (a.z() != b.z())
+        return a.z() > b.z() ? 1 : -1;
+    if (a.w() != b.w())
+        return a.w() > b.w() ? 1 : -1;
+    return 0;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 162, as _ZN19QSGDefaultGlyphNode10preprocessEv
+inline void QSGDefaultGlyphNode::preprocess()
+{
+    qDeleteAll(m_nodesToDelete);
+    m_nodesToDelete.clear();
+
+    if (m_dirtyGeometry)
+        updateGeometry();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 87, as _ZN19QSGDefaultGlyphNode13setStyleColorERK6QColor
+inline void QSGDefaultGlyphNode::setStyleColor(const QColor &color)
+{
+    if (m_styleColor == color)
+        return;
+    m_styleColor = color;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 94, as _ZN19QSGDefaultGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE
+inline void QSGDefaultGlyphNode::setPreferredAntialiasingMode(AntialiasingMode mode)
+{
+    m_preferredAntialiasingMode = mode;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 99, as _ZN19QSGDefaultGlyphNode6updateEv
+inline void QSGDefaultGlyphNode::update()
+{
+    m_recycled = false;
+
+    QRawFont font = m_glyphs.rawFont();
+    QMargins margins(0, 0, 0, 0);
+
+    const auto *fontEngine = QRawFontPrivate::get(font)->fontEngine;
+    const bool isColorFont = fontEngine->glyphFormat == QFontEngine::Format_ARGB;
+
+    QSGTextMaskMaterial *material = nullptr;
+    if (m_style == QQuickText::Normal || isColorFont) {
+        QFontEngine::GlyphFormat glyphFormat;
+
+        // Don't try to override glyph format of color fonts
+        if (isColorFont) {
+            glyphFormat = QFontEngine::Format_None;
+        } else {
+            switch (m_preferredAntialiasingMode) {
+            case GrayAntialiasing:
+                glyphFormat = QFontEngine::Format_A8;
+                break;
+            case HighQualitySubPixelAntialiasing:
+            case LowQualitySubPixelAntialiasing:
+                glyphFormat = QFontEngine::Format_A32;
+                break;
+            default:
+                glyphFormat = QFontEngine::Format_None;
+                break;
+            }
+        }
+
+        const auto rgbColor = m_color.toRgb();
+        material = new QSGTextMaskMaterial(m_context, QVector4D(rgbColor.redF(), rgbColor.greenF(), rgbColor.blueF(), rgbColor.alphaF()), font, glyphFormat);
+    } else if (m_style == QQuickText::Outline) {
+        QSGOutlinedTextMaterial *m = new QSGOutlinedTextMaterial(m_context, font);
+        m->setStyleColor(m_styleColor);
+        margins = QMargins(1, 1, 1, 1);
+        material = m;
+    } else {
+        QSGStyledTextMaterial *m = new QSGStyledTextMaterial(m_context, font);
+        if (m_style == QQuickText::Sunken) {
+            m->setStyleShift(QVector2D(0, -1));
+            margins.setTop(1);
+        } else if (m_style == QQuickText::Raised) {
+            m->setStyleShift(QVector2D(0, 1));
+            margins.setBottom(1);
+        }
+        m->setStyleColor(m_styleColor);
+        material = m;
+    }
+
+    material->setColor(m_color);
+
+    QRectF boundingRect;
+    material->populate(m_position, m_glyphs.glyphIndexes(), m_glyphs.positions(), geometry(),
+                       &boundingRect, &m_baseLine, margins);
+    setBoundingRect(boundingRect);
+
+    setMaterial(material);
+    markDirty(DirtyGeometry);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 42, as _ZN19QSGDefaultGlyphNode7recycleEv
+inline void QSGDefaultGlyphNode::recycle()
+{
+    QSGGlyphNode::recycle();
+
+    cleanup();
+
+    m_glyphs = QGlyphRun{};
+    m_position = QPointF{};
+    m_color = QColor{};
+    m_style = QQuickText::Normal;
+    m_baseLine = QPointF{};
+    m_geometry.allocate(0, 0);
+
+    m_dirtyGeometry = true;
+    m_preferredAntialiasingMode = DefaultAntialiasing;
+    m_recycled = true;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 60, as _ZN19QSGDefaultGlyphNode8setColorERK6QColor
+inline void QSGDefaultGlyphNode::setColor(const QColor &color)
+{
+    m_color = color;
+    if (material() != nullptr && !m_recycled) {
+        static_cast<QSGTextMaskMaterial *>(material())->setColor(color);
+        markDirty(DirtyMaterial);
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 80, as _ZN19QSGDefaultGlyphNode8setStyleEN10QQuickText9TextStyleE
+inline void QSGDefaultGlyphNode::setStyle(QQuickText::TextStyle style)
+{
+    if (m_style == style)
+        return;
+    m_style = style;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 69, as _ZN19QSGDefaultGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun
+inline void QSGDefaultGlyphNode::setGlyphs(const QPointF &position, const QGlyphRun &glyphs)
+{
+    m_position = position;
+    m_glyphs = glyphs;
+    m_dirtyGeometry = true;
+
+#ifdef QSG_RUNTIME_DESCRIPTION
+    qsgnode_set_description(this, QLatin1String("glyphs"));
+#endif
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 28, as _ZN19QSGDefaultGlyphNodeD2Ev
+inline QSGDefaultGlyphNode::~QSGDefaultGlyphNode()
+{
+    cleanup();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 330, as _ZN19QSGTextMaskMaterial8setColorERK9QVector4D
+inline void QSGTextMaskMaterial::setColor(const QVector4D &color)
+{
+    if (m_color == color)
+        return;
+
+    m_color = color;
+
+    // If it is an RGB cache, then the pen color is actually part of the cache key
+    // so it has to be updated
+    if (m_glyphCache != nullptr && m_glyphCache->glyphFormat() == QFontEngine::Format_ARGB)
+        updateCache(QFontEngine::Format_ARGB);
+}
 
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 401, as _ZN19QSGTextMaskMaterial8populateERK7QPointFRK5QListIjERKS3_IS0_EP11QSGGeometryP6QRectFPS0_RK8QMargins
 inline void QSGTextMaskMaterial::populate(const QPointF &p,
@@ -137,20 +308,6 @@ inline void QSGTextMaskMaterial::populate(const QPointF &p,
     }
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 330, as _ZN19QSGTextMaskMaterial8setColorERK9QVector4D
-inline void QSGTextMaskMaterial::setColor(const QVector4D &color)
-{
-    if (m_color == color)
-        return;
-
-    m_color = color;
-
-    // If it is an RGB cache, then the pen color is actually part of the cache key
-    // so it has to be updated
-    if (m_glyphCache != nullptr && m_glyphCache->glyphFormat() == QFontEngine::Format_ARGB)
-        updateCache(QFontEngine::Format_ARGB);
-}
-
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 313, as _ZN19QSGTextMaskMaterialC1EP16QSGRenderContextRK9QVector4DRK8QRawFontN11QFontEngine11GlyphFormatE
 inline QSGTextMaskMaterial::QSGTextMaskMaterial(QSGRenderContext *rc, const QVector4D &color, const QRawFont &font, QFontEngine::GlyphFormat glyphFormat)
     : m_rc(qobject_cast<QSGDefaultRenderContext *>(rc))
@@ -172,6 +329,104 @@ inline QSGStyledTextMaterial::QSGStyledTextMaterial(QSGRenderContext *rc, const 
 inline QSGOutlinedTextMaterial::QSGOutlinedTextMaterial(QSGRenderContext *rc, const QRawFont &font)
     : QSGStyledTextMaterial(rc, font)
 {
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 171, as _ZN19QSGDefaultGlyphNode14updateGeometryEv
+inline void QSGDefaultGlyphNode::updateGeometry()
+{
+    // Remove previously created sub glyph nodes
+    // We assume all the children are sub glyph nodes
+    QSGNode *subnode = firstChild();
+    while (subnode) {
+        // We can't delete the node now as it might be in the preprocess list
+        // It will be deleted in the next preprocess
+        m_nodesToDelete.append(subnode);
+        subnode = subnode->nextSibling();
+    }
+    removeAllChildNodes();
+
+    GlyphInfo glyphInfo;
+
+    const QList<quint32> indexes = m_glyphs.glyphIndexes();
+    const QList<QPointF> positions = m_glyphs.positions();
+
+    const int maxGlyphs = (USHRT_MAX + 1) / 4; // 16384
+    const int maxVertices = maxGlyphs * 4; // 65536
+    const int maxIndexes = maxGlyphs * 6; // 98304
+
+    for (int i = 0; i < indexes.size(); ++i) {
+        const int glyphIndex = indexes.at(i);
+        const QPointF position = positions.at(i);
+
+        // As we use UNSIGNED_SHORT indexing in the geometry, we overload the
+        // "glyphsInOtherNodes" concept as overflow for if there are more than
+        // 65536 (16384 * 4) vertices to render which would otherwise exceed
+        // the maximum index size. This will cause sub-nodes to be recursively
+        // created to handle any number of glyphs.
+        if (i >= maxGlyphs) {
+            glyphInfo.indexes.append(glyphIndex);
+            glyphInfo.positions.append(position);
+            continue;
+        }
+    }
+
+    if (!glyphInfo.indexes.isEmpty()) {
+        QGlyphRun subNodeGlyphRun(m_glyphs);
+        subNodeGlyphRun.setGlyphIndexes(glyphInfo.indexes);
+        subNodeGlyphRun.setPositions(glyphInfo.positions);
+
+        QSGDefaultGlyphNode *subNode = new QSGDefaultGlyphNode(m_context);
+        subNode->setGlyphNodeType(SubGlyphNode);
+        subNode->setColor(m_color);
+        subNode->setStyle(m_style);
+        subNode->setStyleColor(m_styleColor);
+        subNode->setGlyphs(m_position, subNodeGlyphRun);
+        subNode->update();
+        subNode->updateGeometry(); // we have to explicitly call this now as preprocess won't be called before it's rendered
+        appendChildNode(subNode);
+
+        QSGGeometry *g = geometry();
+
+        QSGGeometry::TexturedPoint2D *vertexData = g->vertexDataAsTexturedPoint2D();
+        quint16 *indexData = g->indexDataAsUShort();
+
+        QList<QSGGeometry::TexturedPoint2D> tempVertexData(maxVertices);
+        QList<quint16> tempIndexData(maxIndexes);
+
+        for (int i = 0; i < maxGlyphs; i++) {
+            tempVertexData[i * 4 + 0] = vertexData[i * 4 + 0];
+            tempVertexData[i * 4 + 1] = vertexData[i * 4 + 1];
+            tempVertexData[i * 4 + 2] = vertexData[i * 4 + 2];
+            tempVertexData[i * 4 + 3] = vertexData[i * 4 + 3];
+
+            tempIndexData[i * 6 + 0] = indexData[i * 6 + 0];
+            tempIndexData[i * 6 + 1] = indexData[i * 6 + 1];
+            tempIndexData[i * 6 + 2] = indexData[i * 6 + 2];
+            tempIndexData[i * 6 + 3] = indexData[i * 6 + 3];
+            tempIndexData[i * 6 + 4] = indexData[i * 6 + 4];
+            tempIndexData[i * 6 + 5] = indexData[i * 6 + 5];
+        }
+
+        g->allocate(maxVertices, maxIndexes);
+        vertexData = g->vertexDataAsTexturedPoint2D();
+        indexData = g->indexDataAsUShort();
+
+        for (int i = 0; i < maxGlyphs; i++) {
+            vertexData[i * 4 + 0] = tempVertexData[i * 4 + 0];
+            vertexData[i * 4 + 1] = tempVertexData[i * 4 + 1];
+            vertexData[i * 4 + 2] = tempVertexData[i * 4 + 2];
+            vertexData[i * 4 + 3] = tempVertexData[i * 4 + 3];
+
+            indexData[i * 6 + 0] = tempIndexData[i * 6 + 0];
+            indexData[i * 6 + 1] = tempIndexData[i * 6 + 1];
+            indexData[i * 6 + 2] = tempIndexData[i * 6 + 2];
+            indexData[i * 6 + 3] = tempIndexData[i * 6 + 3];
+            indexData[i * 6 + 4] = tempIndexData[i * 6 + 4];
+            indexData[i * 6 + 5] = tempIndexData[i * 6 + 5];
+        }
+    }
+
+    m_dirtyGeometry = false;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 355, as _ZN19QSGTextMaskMaterial11updateCacheEN11QFontEngine11GlyphFormatE
@@ -240,6 +495,70 @@ inline QTextureGlyphCache *QSGTextMaskMaterial::glyphCache() const
     return static_cast<QTextureGlyphCache *>(m_glyphCache.data());
 }
 
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 323, as _ZN19QSGTextMaskMaterialD1Ev
+inline QSGTextMaskMaterial::~QSGTextMaskMaterial()
+{
+    if (m_retainedFontEngine != nullptr)
+        m_rc->unregisterFontengineForCleanup(m_retainedFontEngine);
+    delete m_texture;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 499, as _ZNK19QSGTextMaskMaterial4typeEv
+inline QSGMaterialType *QSGTextMaskMaterial::type() const
+{
+    static QSGMaterialType argb, rgb, gray;
+    switch (glyphCache()->glyphFormat()) {
+    case QFontEngine::Format_ARGB:
+        return &argb;
+    case QFontEngine::Format_A32:
+        return &rgb;
+    case QFontEngine::Format_A8:
+    default:
+        return &gray;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 552, as _ZNK19QSGTextMaskMaterial7compareEPK11QSGMaterial
+inline int QSGTextMaskMaterial::compare(const QSGMaterial *o) const
+{
+    Q_ASSERT(o && type() == o->type());
+    const QSGTextMaskMaterial *other = static_cast<const QSGTextMaskMaterial *>(o);
+    if (m_glyphCache != other->m_glyphCache)
+        return m_glyphCache.data() < other->m_glyphCache.data() ? -1 : 1;
+    return qsg_colorDiff(m_color, other->m_color);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 584, as _ZNK21QSGStyledTextMaterial4typeEv
+inline QSGMaterialType *QSGStyledTextMaterial::type() const
+{
+    static QSGMaterialType type;
+    return &type;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 616, as _ZNK23QSGOutlinedTextMaterial4typeEv
+inline QSGMaterialType *QSGOutlinedTextMaterial::type() const
+{
+    static QSGMaterialType type;
+    return &type;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 12, as _ZN19QSGDefaultGlyphNodeC1EP16QSGRenderContext
+inline QSGDefaultGlyphNode::QSGDefaultGlyphNode(QSGRenderContext *context)
+    : QSGGlyphNode(QSGTextNode::NativeRendering)
+    , m_context(context)
+    , m_glyphNodeType(RootGlyphNode)
+    , m_dirtyGeometry(false)
+    , m_recycled(false)
+    , m_preferredAntialiasingMode(DefaultAntialiasing)
+    , m_style(QQuickText::Normal)
+    , m_geometry(QSGGeometry::defaultAttributes_TexturedPoint2D(), 0)
+{
+    setFlag(UsePreprocess);
+    setFlag(OwnsMaterial);
+    m_geometry.setDrawingMode(QSGGeometry::DrawTriangles);
+    setGeometry(&m_geometry);
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 12, as _ZN23QSGRhiTextureGlyphCacheC1EP23QSGDefaultRenderContextN11QFontEngine11GlyphFormatERK10QTransformRK6QColor
 inline QSGRhiTextureGlyphCache::QSGRhiTextureGlyphCache(QSGDefaultRenderContext *rc,
                                                  QFontEngine::GlyphFormat format, const QTransform &matrix,
@@ -254,147 +573,208 @@ inline QSGRhiTextureGlyphCache::QSGRhiTextureGlyphCache(QSGDefaultRenderContext 
     m_resizeWithTextureCopy = m_rhi->backend() != QRhi::OpenGLES2;
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 28, as _ZN19QSGDefaultGlyphNodeD1Ev
-inline QSGDefaultGlyphNode::~QSGDefaultGlyphNode()
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 25, as _ZN23QSGRhiTextureGlyphCacheD1Ev
+inline QSGRhiTextureGlyphCache::~QSGRhiTextureGlyphCache()
 {
-    cleanup();
+    m_rc->deferredReleaseGlyphCacheTexture(m_texture);
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 69, as _ZN19QSGDefaultGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun
-inline void QSGDefaultGlyphNode::setGlyphs(const QPointF &position, const QGlyphRun &glyphs)
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 54, as _ZN23QSGRhiTextureGlyphCache17createTextureDataEii
+inline void QSGRhiTextureGlyphCache::createTextureData(int width, int height)
 {
-    m_position = position;
-    m_glyphs = glyphs;
-    m_dirtyGeometry = true;
+    width = qMax(128, width);
+    height = qMax(32, height);
 
-#ifdef QSG_RUNTIME_DESCRIPTION
-    qsgnode_set_description(this, QLatin1String("glyphs"));
-#endif
+    if (!m_resizeWithTextureCopy)
+        QImageTextureGlyphCache::createTextureData(width, height);
+
+    m_size = QSize(width, height);
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 60, as _ZN19QSGDefaultGlyphNode8setColorERK6QColor
-inline void QSGDefaultGlyphNode::setColor(const QColor &color)
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 65, as _ZN23QSGRhiTextureGlyphCache17resizeTextureDataEii
+inline void QSGRhiTextureGlyphCache::resizeTextureData(int width, int height)
 {
-    m_color = color;
-    if (material() != nullptr && !m_recycled) {
-        static_cast<QSGTextMaskMaterial *>(material())->setColor(color);
-        markDirty(DirtyMaterial);
+    width = qMax(128, width);
+    height = qMax(32, height);
+
+    if (m_size.width() >= width && m_size.height() >= height)
+        return;
+
+    m_size = QSize(width, height);
+
+    if (m_texture) {
+        QRhiTexture *t = createEmptyTexture(m_texture->format());
+        if (!t)
+            return;
+
+        QRhiResourceUpdateBatch *resourceUpdates = m_rc->glyphCacheResourceUpdates();
+        if (m_resizeWithTextureCopy) {
+            resourceUpdates->copyTexture(t, m_texture);
+        } else {
+            QImageTextureGlyphCache::resizeTextureData(width, height);
+            QImage img = image();
+            prepareGlyphImage(&img);
+            QRhiTextureSubresourceUploadDescription subresDesc(img);
+            const QSize oldSize = m_texture->pixelSize();
+            subresDesc.setSourceSize(QSize(qMin(oldSize.width(), width), qMin(oldSize.height(), height)));
+            resourceUpdates->uploadTexture(t, QRhiTextureUploadEntry(0, 0, subresDesc));
+        }
+
+        m_rc->deferredReleaseGlyphCacheTexture(m_texture);
+        m_texture = t;
     }
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 80, as _ZN19QSGDefaultGlyphNode8setStyleEN10QQuickText9TextStyleE
-inline void QSGDefaultGlyphNode::setStyle(QQuickText::TextStyle style)
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 98, as _ZN23QSGRhiTextureGlyphCache16beginFillTextureEv
+inline void QSGRhiTextureGlyphCache::beginFillTexture()
 {
-    if (m_style == style)
-        return;
-    m_style = style;
+    Q_ASSERT(m_uploads.isEmpty());
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 87, as _ZN19QSGDefaultGlyphNode13setStyleColorERK6QColor
-inline void QSGDefaultGlyphNode::setStyleColor(const QColor &color)
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 152, as _ZN23QSGRhiTextureGlyphCache11fillTextureERKN18QTextureGlyphCache5CoordEjRK11QFixedPoint
+inline void QSGRhiTextureGlyphCache::fillTexture(const Coord &c, glyph_t glyph, const QFixedPoint &subPixelPosition)
 {
-    if (m_styleColor == color)
-        return;
-    m_styleColor = color;
+    QRhiTextureSubresourceUploadDescription subresDesc;
+    QImage mask;
+
+    if (!m_resizeWithTextureCopy) {
+        QImageTextureGlyphCache::fillTexture(c, glyph, subPixelPosition);
+        // Explicitly copy() here to avoid fillTexture detaching the *entire* image() when
+        // it is still referenced by QRhiTextureSubresourceUploadDescription.
+        mask = image().copy(QRect(c.x, c.y, c.w, c.h));
+    } else {
+        mask = textureMapForGlyph(glyph, subPixelPosition);
+    }
+
+    prepareGlyphImage(&mask);
+
+    subresDesc.setImage(mask);
+    subresDesc.setDestinationTopLeft(QPoint(c.x, c.y));
+    m_uploads.append(QRhiTextureUploadEntry(0, 0, subresDesc));
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 99, as _ZN19QSGDefaultGlyphNode6updateEv
-inline void QSGDefaultGlyphNode::update()
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 173, as _ZN23QSGRhiTextureGlyphCache14endFillTextureEv
+inline void QSGRhiTextureGlyphCache::endFillTexture()
 {
-    m_recycled = false;
+    if (m_uploads.isEmpty())
+        return;
 
-    QRawFont font = m_glyphs.rawFont();
-    QMargins margins(0, 0, 0, 0);
+    if (!m_texture) {
+        QRhiTexture::Format texFormat;
+        if (m_format == QFontEngine::Format_A32 || m_format == QFontEngine::Format_ARGB)
+            texFormat = m_bgra ? QRhiTexture::BGRA8 : QRhiTexture::RGBA8;
+        else // should be R8, but there is the OpenGL ES 2.0 nonsense
+            texFormat = QRhiTexture::RED_OR_ALPHA8;
 
-    const auto *fontEngine = QRawFontPrivate::get(font)->fontEngine;
-    const bool isColorFont = fontEngine->glyphFormat == QFontEngine::Format_ARGB;
+        m_texture = createEmptyTexture(texFormat);
+        if (!m_texture)
+            return;
+    }
 
-    QSGTextMaskMaterial *material = nullptr;
-    if (m_style == QQuickText::Normal || isColorFont) {
-        QFontEngine::GlyphFormat glyphFormat;
+    QRhiResourceUpdateBatch *resourceUpdates = m_rc->glyphCacheResourceUpdates();
+    QRhiTextureUploadDescription desc;
+    desc.setEntries(m_uploads.cbegin(), m_uploads.cend());
+    resourceUpdates->uploadTexture(m_texture, desc);
+    m_uploads.clear();
+}
 
-        // Don't try to override glyph format of color fonts
-        if (isColorFont) {
-            glyphFormat = QFontEngine::Format_None;
-        } else {
-            switch (m_preferredAntialiasingMode) {
-            case GrayAntialiasing:
-                glyphFormat = QFontEngine::Format_A8;
-                break;
-            case HighQualitySubPixelAntialiasing:
-            case LowQualitySubPixelAntialiasing:
-                glyphFormat = QFontEngine::Format_A32;
-                break;
-            default:
-                glyphFormat = QFontEngine::Format_None;
-                break;
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 197, as _ZNK23QSGRhiTextureGlyphCache12glyphPaddingEv
+inline int QSGRhiTextureGlyphCache::glyphPadding() const
+{
+    if (m_format == QFontEngine::Format_Mono)
+        return 8;
+    else
+        return 1;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 205, as _ZNK23QSGRhiTextureGlyphCache15maxTextureWidthEv
+inline int QSGRhiTextureGlyphCache::maxTextureWidth() const
+{
+    return m_rhi->resourceLimit(QRhi::TextureSizeMax);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 210, as _ZNK23QSGRhiTextureGlyphCache16maxTextureHeightEv
+inline int QSGRhiTextureGlyphCache::maxTextureHeight() const
+{
+    if (!m_resizeWithTextureCopy)
+        return qMin(1024, m_rhi->resourceLimit(QRhi::TextureSizeMax));
+
+    return m_rhi->resourceLimit(QRhi::TextureSizeMax);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 103, as _ZN23QSGRhiTextureGlyphCache17prepareGlyphImageEP6QImage
+inline void QSGRhiTextureGlyphCache::prepareGlyphImage(QImage *img)
+{
+    const int maskWidth = img->width();
+    const int maskHeight = img->height();
+#if Q_BYTE_ORDER != Q_BIG_ENDIAN
+    const bool supportsBgra = m_rhi->isTextureFormatSupported(QRhiTexture::BGRA8);
+#endif
+    m_bgra = false;
+
+    if (img->format() == QImage::Format_Mono) {
+        *img = std::move(*img).convertToFormat(QImage::Format_Grayscale8);
+    } else if (img->format() == QImage::Format_RGB32 || img->format() == QImage::Format_ARGB32_Premultiplied) {
+        // We need to make the alpha component equal to the average of the RGB values.
+        // This is needed when drawing sub-pixel antialiased text on translucent targets.
+        if (img->format() == QImage::Format_RGB32
+#if Q_BYTE_ORDER != Q_BIG_ENDIAN
+            || !supportsBgra
+#endif
+        ) {
+            for (int y = 0; y < maskHeight; ++y) {
+                QRgb *src = reinterpret_cast<QRgb *>(img->scanLine(y));
+                for (int x = 0; x < maskWidth; ++x) {
+                    QRgb &rgb = src[x];
+
+                    if (img->format() == QImage::Format_RGB32) {
+                        int r = qRed(rgb);
+                        int g = qGreen(rgb);
+                        int b = qBlue(rgb);
+                        int avg = (r + g + b + 1) / 3; // "+1" for rounding.
+                        rgb = qRgba(r, g, b, avg);
+                    }
+
+#if Q_BYTE_ORDER != Q_BIG_ENDIAN
+                    if (!supportsBgra) {
+                        // swizzle the bits to accommodate for the RGBA upload.
+                        rgb = ARGB2RGBA(rgb);
+                        m_bgra = false;
+                    }
+#endif
+                }
             }
         }
+#if Q_BYTE_ORDER != Q_BIG_ENDIAN
+        if (supportsBgra)
+            m_bgra = true;
+#endif
+    }
+}
 
-        const auto rgbColor = m_color.toRgb();
-        material = new QSGTextMaskMaterial(m_context, QVector4D(rgbColor.redF(), rgbColor.greenF(), rgbColor.blueF(), rgbColor.alphaF()), font, glyphFormat);
-    } else if (m_style == QQuickText::Outline) {
-        QSGOutlinedTextMaterial *m = new QSGOutlinedTextMaterial(m_context, font);
-        m->setStyleColor(m_styleColor);
-        margins = QMargins(1, 1, 1, 1);
-        material = m;
-    } else {
-        QSGStyledTextMaterial *m = new QSGStyledTextMaterial(m_context, font);
-        if (m_style == QQuickText::Sunken) {
-            m->setStyleShift(QVector2D(0, -1));
-            margins.setTop(1);
-        } else if (m_style == QQuickText::Raised) {
-            m->setStyleShift(QVector2D(0, 1));
-            margins.setBottom(1);
-        }
-        m->setStyleColor(m_styleColor);
-        material = m;
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 30, as _ZN23QSGRhiTextureGlyphCache18createEmptyTextureEN11QRhiTexture6FormatE
+inline QRhiTexture *QSGRhiTextureGlyphCache::createEmptyTexture(QRhiTexture::Format format)
+{
+    QRhiTexture *t = m_rhi->newTexture(format, m_size, 1, QRhiTexture::UsedAsTransferSource);
+    if (!t->create()) {
+        qWarning("Failed to build new glyph cache texture of size %dx%d", m_size.width(), m_size.height());
+        return nullptr;
     }
 
-    material->setColor(m_color);
+    QRhiResourceUpdateBatch *resourceUpdates = m_rc->glyphCacheResourceUpdates();
 
-    QRectF boundingRect;
-    material->populate(m_position, m_glyphs.glyphIndexes(), m_glyphs.positions(), geometry(),
-                       &boundingRect, &m_baseLine, margins);
-    setBoundingRect(boundingRect);
+    // The new texture must be cleared to 0 always, this cannot be avoided
+    // otherwise artifacts will occur around the glyphs.
+    QByteArray data;
+    if (format == QRhiTexture::RED_OR_ALPHA8)
+        data.fill(0, m_size.width() * m_size.height());
+    else
+        data.fill(0, m_size.width() * m_size.height() * 4);
+    QRhiTextureSubresourceUploadDescription subresDesc(data.constData(), data.size());
+    subresDesc.setSourceSize(m_size);
+    resourceUpdates->uploadTexture(t, QRhiTextureUploadEntry(0, 0, subresDesc));
 
-    setMaterial(material);
-    markDirty(DirtyGeometry);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 162, as _ZN19QSGDefaultGlyphNode10preprocessEv
-inline void QSGDefaultGlyphNode::preprocess()
-{
-    qDeleteAll(m_nodesToDelete);
-    m_nodesToDelete.clear();
-
-    if (m_dirtyGeometry)
-        updateGeometry();
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 94, as _ZN19QSGDefaultGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE
-inline void QSGDefaultGlyphNode::setPreferredAntialiasingMode(AntialiasingMode mode)
-{
-    m_preferredAntialiasingMode = mode;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 42, as _ZN19QSGDefaultGlyphNode7recycleEv
-inline void QSGDefaultGlyphNode::recycle()
-{
-    QSGGlyphNode::recycle();
-
-    cleanup();
-
-    m_glyphs = QGlyphRun{};
-    m_position = QPointF{};
-    m_color = QColor{};
-    m_style = QQuickText::Normal;
-    m_baseLine = QPointF{};
-    m_geometry.allocate(0, 0);
-
-    m_dirtyGeometry = true;
-    m_preferredAntialiasingMode = DefaultAntialiasing;
-    m_recycled = true;
+    return t;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode.cpp, line 33, as _ZN19QSGDefaultGlyphNode7cleanupEv
@@ -756,6 +1136,14 @@ void ritual_own_ZN19QSGDefaultGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun(
     const QPointF *position,
     const QGlyphRun *glyphs) {
   self->QSGDefaultGlyphNode::setGlyphs(*position, *glyphs);
+}
+
+//  void QSGDefaultGlyphNode::setColor(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QSGDefaultGlyphNode8setColorERK6QColor(
+    QSGDefaultGlyphNode *self,
+    const QColor *color) {
+  self->QSGDefaultGlyphNode::setColor(*color);
 }
 
 //  void QSGDefaultGlyphNode::setStyle(QQuickText::TextStyle a0)

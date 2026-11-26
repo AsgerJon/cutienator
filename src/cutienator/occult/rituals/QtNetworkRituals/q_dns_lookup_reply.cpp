@@ -11,6 +11,15 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qdnslookup_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  void QDnsLookupReply::setError(QDnsLookup::Error err, QString &&msg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QDnsLookupReply8setErrorEN10QDnsLookup5ErrorEO7QString(
+    QDnsLookupReply *self,
+    QDnsLookup::Error err,
+    QString *msg) {
+  self->setError(err, std::move(*msg));
+}
+
 //  void QDnsLookupReply::makeResolverSystemError(int code)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QDnsLookupReply23makeResolverSystemErrorEi(
@@ -31,6 +40,14 @@ void ritual_ZN15QDnsLookupReply17makeDnsRcodeErrorEh(
     QDnsLookupReply *self,
     quint8 rcode) {
   self->makeDnsRcodeError(rcode);
+}
+
+//  void QDnsLookupReply::makeInvalidReplyError(QString &&msg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QDnsLookupReply21makeInvalidReplyErrorEO7QString(
+    QDnsLookupReply *self,
+    QString *msg) {
+  self->makeInvalidReplyError(std::move(*msg));
 }
 
 //  bool QDnsLookupReply::allAreEmpty() const

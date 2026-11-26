@@ -5,11 +5,46 @@
   ],
   "rows": {
     "ritual_ZNK10Qt3DRender7QEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender7QEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender7QEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender7QEffect2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN10Qt3DRender7QEffectC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QEffectD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender7QEffect12addParameterEPNS_10QParameterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QEffect15removeParameterEPNS_10QParameterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender7QEffect10parametersEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender7QEffect12addTechniqueEPNS_10QTechniqueE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender7QEffect15removeTechniqueEPNS_10QTechniqueE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender7QEffect10techniquesEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender7QEffectC1ERNS_14QEffectPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender7QEffect6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender7QEffect6d_funcEv": ["address", "address"],
-    "ritual_take_Qt3DRender_QEffect": ["bool", "address", "chars", "address"]
+    "ritual_take_Qt3DRender_QEffect": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QEffect__QList_Qt3DRender_QParameter": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_QEffect__QList_Qt3DRender_QTechnique": [
+      "nothing", "address"
+    ]
   }
 }

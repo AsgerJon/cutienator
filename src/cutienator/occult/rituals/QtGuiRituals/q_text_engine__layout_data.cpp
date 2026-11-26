@@ -6,6 +6,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qtextengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+
+//  QTextEngine::LayoutData::LayoutData(const QString &str, void
+//      **stack_memory, qsizetype mem_size)
+extern "C" Q_DECL_EXPORT
+QTextEngine::LayoutData *ritual_ZN11QTextEngine10LayoutDataC1ERK7QStringPPvx(
+    const QString *str,
+    void **stack_memory,
+    qsizetype mem_size) {
+  return new QTextEngine::LayoutData(*str, stack_memory, mem_size);
+}
 
 //  QTextEngine::LayoutData::LayoutData()
 extern "C" Q_DECL_EXPORT

@@ -8,16 +8,37 @@
     "ritual_ZNK21QScxmlInvokedServices10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QScxmlInvokedServices11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QScxmlInvokedServices11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QScxmlInvokedServices2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN21QScxmlInvokedServicesC1EP7QObject": ["address", "address"],
     "ritual_ZN21QScxmlInvokedServices8childrenEv": ["address", "address"],
+    "ritual_ZN21QScxmlInvokedServices16bindableChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZNK21QScxmlInvokedServices12stateMachineEv": [
       "address", "address"
     ],
     "ritual_ZN21QScxmlInvokedServices15setStateMachineEP18QScxmlStateMachine": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN21QScxmlInvokedServices20bindableStateMachineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QScxmlInvokedServices11qmlChildrenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QScxmlInvokedServices15childrenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QScxmlInvokedServices19stateMachineChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN21QScxmlInvokedServices10classBeginEv": ["nothing", "address"],
     "ritual_ZN21QScxmlInvokedServices17componentCompleteEv": [
@@ -26,6 +47,12 @@
     "ritual_ZNK21QScxmlInvokedServices25childrenActualCalculationEv": [
       "address", "address"
     ],
+    "ritual_ZN21QScxmlInvokedServices34_qt_property_m_stateMachine_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN21QScxmlInvokedServices30_qt_property_m_children_offsetEv": [
+      "size_t"
+    ],
     "ritual_cast_QScxmlInvokedServices_QQmlParserStatus": [
       "address", "address"
     ],
@@ -33,6 +60,15 @@
       "nothing", "address"
     ],
     "ritual_own_ZN21QScxmlInvokedServices17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlInvokedServices__QBindable_QVariantMap": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlInvokedServices__QBindable_QScxmlStateMachine": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlInvokedServices__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

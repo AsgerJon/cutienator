@@ -10,6 +10,14 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qsize.h>
 
+//  void QPlatformCursor::pointerEvent(const QMouseEvent &event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPlatformCursor12pointerEventERK11QMouseEvent(
+    QPlatformCursor *self,
+    const QMouseEvent *event) {
+  self->pointerEvent(*event);
+}
+
 #if !defined(QT_NO_CURSOR)
 //  void QPlatformCursor::changeCursor(QCursor *windowCursor, QWindow
 //      *window)

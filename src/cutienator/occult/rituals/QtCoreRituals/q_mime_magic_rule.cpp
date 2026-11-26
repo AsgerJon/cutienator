@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qmimemagicrule_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCore/6.12.0/QtCore/private/qmimemagicrule_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25: added by hand, instances of templates of the class:
+//  3. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(mimetype)
@@ -28,6 +29,35 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/mimetypes/qmimemagicrule.cpp, line 23, as local:qmimemagicrule.cpp:magicRuleTypes
+static constexpr auto magicRuleTypes = qOffsetStringArray(
+    "invalid",
+    "string",
+    "host16",
+    "host32",
+    "big16",
+    "big32",
+    "little16",
+    "little32",
+    "byte"
+);
+
+//  from src/corelib/mimetypes/qmimemagicrule.cpp, line 49, as _ZNK14QMimeMagicRuleeqERKS_
+inline bool QMimeMagicRule::operator==(const QMimeMagicRule &other) const
+{
+    return m_type == other.m_type &&
+           m_value == other.m_value &&
+           m_startPos == other.m_startPos &&
+           m_endPos == other.m_endPos &&
+           m_mask == other.m_mask &&
+           m_pattern == other.m_pattern &&
+           m_number == other.m_number &&
+           m_numberMask == other.m_numberMask &&
+           m_matchFunction == other.m_matchFunction;
+}
 
 //  from src/corelib/mimetypes/qmimemagicrule.cpp, line 315, as _ZNK14QMimeMagicRule4maskEv
 inline QByteArray QMimeMagicRule::mask() const
@@ -63,6 +93,16 @@ inline bool QMimeMagicRule::matches(const QByteArray &data) const
     return false;
 
 
+}
+
+//  from src/corelib/mimetypes/qmimemagicrule.cpp, line 35, as _ZN14QMimeMagicRule4typeERK10QByteArray
+inline QMimeMagicRule::Type QMimeMagicRule::type(const QByteArray &theTypeName)
+{
+    for (int i = String; i <= Byte; ++i) {
+        if (theTypeName == magicRuleTypes.viewAt(i))
+            return Type(i);
+    }
+    return Invalid;
 }
 
 //  from src/corelib/mimetypes/qmimemagicrule.cpp, line 63, as _ZN14QMimeMagicRule14matchSubstringEPKcxyyyS1_S1_
@@ -137,6 +177,22 @@ inline bool QMimeMagicRule::matchString(const QByteArray &data) const
 }
 //  -----------------------------------------------------------------------
 
+//  void QMimeMagicRule::swap(QMimeMagicRule &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMimeMagicRule4swapERS_(
+    QMimeMagicRule *self,
+    QMimeMagicRule *other) {
+  self->swap(*other);
+}
+
+//  bool QMimeMagicRule::operator==(const QMimeMagicRule &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK14QMimeMagicRuleeqERKS_(
+    const QMimeMagicRule *self,
+    const QMimeMagicRule *other) {
+  return self->operator==(*other);
+}
+
 //  Type QMimeMagicRule::type() const
 extern "C" Q_DECL_EXPORT
 QMimeMagicRule::Type ritual_ZNK14QMimeMagicRule4typeEv(
@@ -180,6 +236,13 @@ bool ritual_ZNK14QMimeMagicRule7matchesERK10QByteArray(
     const QMimeMagicRule *self,
     const QByteArray *data) {
   return self->matches(*data);
+}
+
+//  Type QMimeMagicRule::type(const QByteArray &type)
+extern "C" Q_DECL_EXPORT
+QMimeMagicRule::Type ritual_ZN14QMimeMagicRule4typeERK10QByteArray(
+    const QByteArray *type) {
+  return QMimeMagicRule::type(*type);
 }
 
 //  bool QMimeMagicRule::matchSubstring(const char *dataPtr, qsizetype
@@ -251,6 +314,58 @@ QMimeMagicRule *ritual_list_at_QMimeMagicRule(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QMimeMagicRule(QList<QMimeMagicRule> *self) {
   delete self;
+}
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source (src/corelib/mimetypes/qmimemagicrule.cpp, line 132),
+//  because Qt's library carries the template under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. It is as Qt wrote it, with the word 'inline' put before it.
+
+template <typename T>
+inline bool QMimeMagicRule::matchNumber(const QByteArray &data) const
+{
+    const T value(m_number);
+    const T mask(m_numberMask);
+
+    const char *p = data.constData() + m_startPos;
+    const char *e = data.constData() + qMin(data.size() - int(sizeof(T)), m_endPos);
+    for ( ; p <= e; ++p) {
+        if ((qFromUnaligned<T>(p) & mask) == (value & mask))
+            return true;
+    }
+
+    return false;
+}
+
+//  -----------------------------------------------------------------------
+
+//  bool QMimeMagicRule::matchNumber<quint8>(const QByteArray &data)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK14QMimeMagicRule11matchNumberIhEEbRK10QByteArray(
+    const QMimeMagicRule *self,
+    const QByteArray *data) {
+  return self->matchNumber<quint8>(*data);
+}
+
+//  bool QMimeMagicRule::matchNumber<quint16>(const QByteArray &data)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK14QMimeMagicRule11matchNumberItEEbRK10QByteArray(
+    const QMimeMagicRule *self,
+    const QByteArray *data) {
+  return self->matchNumber<quint16>(*data);
+}
+
+//  bool QMimeMagicRule::matchNumber<quint32>(const QByteArray &data)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK14QMimeMagicRule11matchNumberIjEEbRK10QByteArray(
+    const QMimeMagicRule *self,
+    const QByteArray *data) {
+  return self->matchNumber<quint32>(*data);
 }
 
 #endif  // QT_CONFIG(mimetype)

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qwindow.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qwindow.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  instances of templates of the class: 5. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qwindow.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qsurfaceformat.h>
@@ -10,9 +12,11 @@
 #include <QtCore/qpoint.h>
 #include <QtGui/qicon.h>
 #include <QtGui/qcursor.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtGui/6.12.0/QtGui/qpa/qplatformwindow_p.h>
 
 //  Only a class built on QWindow may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -605,6 +609,22 @@ public:
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK7QWindow10metaObjectEv(const QWindow *self) {
   return self->metaObject();
+}
+
+//  void *QWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QWindow11qt_metacastEPKc(QWindow *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWindow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QWindow::tr(const char *s, const char *c, int n)
@@ -1239,6 +1259,15 @@ QVulkanInstance *ritual_ZNK7QWindow14vulkanInstanceEv(const QWindow *self) {
 }
 #endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
 
+//  void *QWindow::resolveInterface(const char *name, int revision) const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK7QWindow16resolveInterfaceEPKci(
+    const QWindow *self,
+    const char *name,
+    int revision) {
+  return self->resolveInterface(name, revision);
+}
+
 //  void QWindow::requestActivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWindow15requestActivateEv(QWindow *self) {
@@ -1406,6 +1435,153 @@ void ritual_ZN7QWindow13requestUpdateEv(QWindow *self) {
   self->requestUpdate();
 }
 
+//  void QWindow::screenChanged(QScreen *screen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow13screenChangedEP7QScreen(
+    QWindow *self,
+    QScreen *screen) {
+  self->screenChanged(screen);
+}
+
+//  void QWindow::modalityChanged(Qt::WindowModality modality)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow15modalityChangedEN2Qt14WindowModalityE(
+    QWindow *self,
+    Qt::WindowModality modality) {
+  self->modalityChanged(modality);
+}
+
+//  void QWindow::flagsChanged(Qt::WindowFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow12flagsChangedE6QFlagsIN2Qt10WindowTypeEE(
+    QWindow *self,
+    int flags) {
+  self->flagsChanged(QFlags<Qt::WindowType>::fromInt(flags));
+}
+
+//  void QWindow::windowStateChanged(Qt::WindowState windowState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow18windowStateChangedEN2Qt11WindowStateE(
+    QWindow *self,
+    Qt::WindowState windowState) {
+  self->windowStateChanged(windowState);
+}
+
+//  void QWindow::windowTitleChanged(const QString &title)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow18windowTitleChangedERK7QString(
+    QWindow *self,
+    const QString *title) {
+  self->windowTitleChanged(*title);
+}
+
+//  void QWindow::xChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow8xChangedEi(QWindow *self, int arg) {
+  self->xChanged(arg);
+}
+
+//  void QWindow::yChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow8yChangedEi(QWindow *self, int arg) {
+  self->yChanged(arg);
+}
+
+//  void QWindow::widthChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow12widthChangedEi(QWindow *self, int arg) {
+  self->widthChanged(arg);
+}
+
+//  void QWindow::heightChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow13heightChangedEi(QWindow *self, int arg) {
+  self->heightChanged(arg);
+}
+
+//  void QWindow::minimumWidthChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow19minimumWidthChangedEi(QWindow *self, int arg) {
+  self->minimumWidthChanged(arg);
+}
+
+//  void QWindow::minimumHeightChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow20minimumHeightChangedEi(QWindow *self, int arg) {
+  self->minimumHeightChanged(arg);
+}
+
+//  void QWindow::maximumWidthChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow19maximumWidthChangedEi(QWindow *self, int arg) {
+  self->maximumWidthChanged(arg);
+}
+
+//  void QWindow::maximumHeightChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow20maximumHeightChangedEi(QWindow *self, int arg) {
+  self->maximumHeightChanged(arg);
+}
+
+//  void QWindow::safeAreaMarginsChanged(QMargins arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow22safeAreaMarginsChangedE8QMargins(
+    QWindow *self,
+    const QMargins *arg) {
+  self->safeAreaMarginsChanged(*arg);
+}
+
+//  void QWindow::visibleChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow14visibleChangedEb(QWindow *self, bool arg) {
+  self->visibleChanged(arg);
+}
+
+//  void QWindow::visibilityChanged(QWindow::Visibility visibility)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow17visibilityChangedENS_10VisibilityE(
+    QWindow *self,
+    QWindow::Visibility visibility) {
+  self->visibilityChanged(visibility);
+}
+
+//  void QWindow::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow13activeChangedEv(QWindow *self) {
+  self->activeChanged();
+}
+
+//  void QWindow::contentOrientationChanged(Qt::ScreenOrientation
+//      orientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow25contentOrientationChangedEN2Qt17ScreenOrientationE(
+    QWindow *self,
+    Qt::ScreenOrientation orientation) {
+  self->contentOrientationChanged(orientation);
+}
+
+//  void QWindow::focusObjectChanged(QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow18focusObjectChangedEP7QObject(
+    QWindow *self,
+    QObject *object) {
+  self->focusObjectChanged(object);
+}
+
+//  void QWindow::opacityChanged(qreal opacity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow14opacityChangedEd(QWindow *self, qreal opacity) {
+  self->opacityChanged(opacity);
+}
+
+//  void QWindow::transientParentChanged(QWindow *transientParent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow22transientParentChangedEPS_(
+    QWindow *self,
+    QWindow *transientParent) {
+  self->transientParentChanged(transientParent);
+}
+
 //  void QWindow::exposeEvent(QExposeEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWindow11exposeEventEP12QExposeEvent(
@@ -1559,6 +1735,25 @@ void ritual_ZN7QWindow11tabletEventEP12QTabletEvent(
   self->tabletEvent(a0);
 }
 #endif  // QT_CONFIG(tabletevent)
+
+//  bool QWindow::nativeEvent(const QByteArray &eventType, void *message,
+//      qintptr *result)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QWindow11nativeEventERK10QByteArrayPvPx(
+    QWindow *self,
+    const QByteArray *eventType,
+    void *message,
+    qintptr *result) {
+  return self->nativeEvent(*eventType, message, result);
+}
+
+//  QWindow::QWindow(QWindowPrivate &dd, QWindow *parent)
+extern "C" Q_DECL_EXPORT
+QWindow *ritual_ZN7QWindowC1ER14QWindowPrivatePS_(
+    QWindowPrivate *dd,
+    QWindow *parent) {
+  return new CuteQWindow(*dd, parent);
+}
 
 //  QPlatformSurface *QWindow::surfaceHandle() const
 extern "C" Q_DECL_EXPORT
@@ -1803,3 +1998,58 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QWindow_ptr(QList<QWindow *> *self) {
   delete self;
 }
+
+#if QT_CONFIG(xcb)
+//  QNativeInterface::Private::QXcbWindow *
+//      QWindow::nativeInterface<
+//      QNativeInterface::Private::QXcbWindow>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::Private::QXcbWindow *ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private10QXcbWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v(
+    const QWindow *self) {
+  return self->nativeInterface<QNativeInterface::Private::QXcbWindow>();
+}
+#endif  // QT_CONFIG(xcb)
+
+#if QT_CONFIG(wayland)
+//  QNativeInterface::Private::QWaylandWindow *
+//      QWindow::nativeInterface<
+//      QNativeInterface::Private::QWaylandWindow>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::Private::QWaylandWindow *ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private14QWaylandWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v(
+    const QWindow *self) {
+  return self->nativeInterface<QNativeInterface::Private::QWaylandWindow>();
+}
+#endif  // QT_CONFIG(wayland)
+
+#if defined(Q_OS_WIN)
+//  QNativeInterface::Private::QWindowsWindow *
+//      QWindow::nativeInterface<
+//      QNativeInterface::Private::QWindowsWindow>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::Private::QWindowsWindow *ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private14QWindowsWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v(
+    const QWindow *self) {
+  return self->nativeInterface<QNativeInterface::Private::QWindowsWindow>();
+}
+#endif  // defined(Q_OS_WIN)
+
+#if defined(Q_OS_MACOS)
+//  QNativeInterface::Private::QCocoaWindow *
+//      QWindow::nativeInterface<
+//      QNativeInterface::Private::QCocoaWindow>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::Private::QCocoaWindow *ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private12QCocoaWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v(
+    const QWindow *self) {
+  return self->nativeInterface<QNativeInterface::Private::QCocoaWindow>();
+}
+#endif  // defined(Q_OS_MACOS)
+
+#if defined(Q_OS_WASM)
+//  QNativeInterface::Private::QWasmWindow *
+//      QWindow::nativeInterface<
+//      QNativeInterface::Private::QWasmWindow>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::Private::QWasmWindow *ritual_ZNK7QWindow15nativeInterfaceIN16QNativeInterface7Private11QWasmWindowENS2_15NativeInterfaceIS3_EES_Lb1EEEPT_v(
+    const QWindow *self) {
+  return self->nativeInterface<QNativeInterface::Private::QWasmWindow>();
+}
+#endif  // defined(Q_OS_WASM)

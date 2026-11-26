@@ -18,10 +18,43 @@ QCompressedHelpInfo *ritual_ZN19QCompressedHelpInfoC1ERKS_(
   return new QCompressedHelpInfo(*other);
 }
 
+//  QCompressedHelpInfo::QCompressedHelpInfo(QCompressedHelpInfo &&other)
+extern "C" Q_DECL_EXPORT
+QCompressedHelpInfo *ritual_ZN19QCompressedHelpInfoC1EOS_(
+    QCompressedHelpInfo *other) {
+  return new QCompressedHelpInfo(std::move(*other));
+}
+
 //  QCompressedHelpInfo::~QCompressedHelpInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QCompressedHelpInfoD1Ev(QCompressedHelpInfo *self) {
   delete self;
+}
+
+//  QCompressedHelpInfo &QCompressedHelpInfo::operator=(const
+//      QCompressedHelpInfo &other)
+extern "C" Q_DECL_EXPORT
+QCompressedHelpInfo *ritual_ZN19QCompressedHelpInfoaSERKS_(
+    QCompressedHelpInfo *self,
+    const QCompressedHelpInfo *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCompressedHelpInfo &QCompressedHelpInfo::operator=(QCompressedHelpInfo
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCompressedHelpInfo *ritual_ZN19QCompressedHelpInfoaSEOS_(
+    QCompressedHelpInfo *self,
+    QCompressedHelpInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCompressedHelpInfo::swap(QCompressedHelpInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QCompressedHelpInfo4swapERS_(
+    QCompressedHelpInfo *self,
+    QCompressedHelpInfo *other) {
+  self->swap(*other);
 }
 
 //  QString QCompressedHelpInfo::namespaceName() const

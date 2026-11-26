@@ -11,6 +11,13 @@
     "ritual_ZNK23QSplineControlAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QSplineControlAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QSplineControlAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23QSplineControlAnimationD1Ev": ["nothing", "address"],
     "ritual_ZN23QSplineControlAnimation13animationTypeEv": [
       "int", "address"
     ],
@@ -19,6 +26,11 @@
     ],
     "ritual_ZNK23QSplineControlAnimation12interpolatedERK8QVariantS2_d": [
       "address", "address", "address", "address", "double"
+    ],
+    "ritual_ZN23QSplineControlAnimation7animateEv": ["nothing", "address"],
+    "ritual_ZN23QSplineControlAnimation3endEv": ["nothing", "address"],
+    "ritual_ZN23QSplineControlAnimation12valueUpdatedERK8QVariant": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QSplineControlAnimation": [
       "bool", "address", "chars", "address"

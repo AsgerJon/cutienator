@@ -183,6 +183,24 @@ const QMetaObject *ritual_ZNK13QBarDataProxy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBarDataProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QBarDataProxy11qt_metacastEPKc(
+    QBarDataProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarDataProxy::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QBarDataProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarDataProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBarDataProxy::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QBarDataProxy2trEPKcS1_i(
@@ -246,6 +264,21 @@ void ritual_ZN13QBarDataProxy15setColumnLabelsERK5QListI7QStringE(
   self->setColumnLabels(*labels);
 }
 
+//  const QBarDataArray *QBarDataProxy::array() const
+extern "C" Q_DECL_EXPORT
+const QBarDataArray *ritual_ZNK13QBarDataProxy5arrayEv(
+    const QBarDataProxy *self) {
+  return self->array();
+}
+
+//  const QBarDataRow *QBarDataProxy::rowAt(int rowIndex) const
+extern "C" Q_DECL_EXPORT
+const QBarDataRow *ritual_ZNK13QBarDataProxy5rowAtEi(
+    const QBarDataProxy *self,
+    int rowIndex) {
+  return self->rowAt(rowIndex);
+}
+
 //  const QBarDataItem *QBarDataProxy::itemAt(int rowIndex, int columnIndex)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -270,6 +303,65 @@ void ritual_ZN13QBarDataProxy10resetArrayEv(QBarDataProxy *self) {
   self->resetArray();
 }
 
+//  void QBarDataProxy::resetArray(QBarDataArray *newArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy10resetArrayEP5QListIPS0_I12QBarDataItemEE(
+    QBarDataProxy *self,
+    QBarDataArray *newArray) {
+  self->resetArray(newArray);
+}
+
+//  void QBarDataProxy::resetArray(QBarDataArray *newArray, const QStringList
+//      &rowLabels, const QStringList &columnLabels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy10resetArrayEP5QListIPS0_I12QBarDataItemEERKS0_I7QStringES9_(
+    QBarDataProxy *self,
+    QBarDataArray *newArray,
+    const QList<QString> *rowLabels,
+    const QList<QString> *columnLabels) {
+  self->resetArray(newArray, *rowLabels, *columnLabels);
+}
+
+//  void QBarDataProxy::setRow(int rowIndex, QBarDataRow *row)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy6setRowEiP5QListI12QBarDataItemE(
+    QBarDataProxy *self,
+    int rowIndex,
+    QBarDataRow *row) {
+  self->setRow(rowIndex, row);
+}
+
+//  void QBarDataProxy::setRow(int rowIndex, QBarDataRow *row, const QString
+//      &label)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy6setRowEiP5QListI12QBarDataItemERK7QString(
+    QBarDataProxy *self,
+    int rowIndex,
+    QBarDataRow *row,
+    const QString *label) {
+  self->setRow(rowIndex, row, *label);
+}
+
+//  void QBarDataProxy::setRows(int rowIndex, const QBarDataArray &rows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy7setRowsEiRK5QListIPS0_I12QBarDataItemEE(
+    QBarDataProxy *self,
+    int rowIndex,
+    const QBarDataArray *rows) {
+  self->setRows(rowIndex, *rows);
+}
+
+//  void QBarDataProxy::setRows(int rowIndex, const QBarDataArray &rows,
+//      const QStringList &labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy7setRowsEiRK5QListIPS0_I12QBarDataItemEERKS0_I7QStringE(
+    QBarDataProxy *self,
+    int rowIndex,
+    const QBarDataArray *rows,
+    const QList<QString> *labels) {
+  self->setRows(rowIndex, *rows, *labels);
+}
+
 //  void QBarDataProxy::setItem(int rowIndex, int columnIndex, const
 //      QBarDataItem &item)
 extern "C" Q_DECL_EXPORT
@@ -291,6 +383,81 @@ void ritual_ZN13QBarDataProxy7setItemERK6QPointRK12QBarDataItem(
   self->setItem(*position, *item);
 }
 
+//  int QBarDataProxy::addRow(QBarDataRow *row)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QBarDataProxy6addRowEP5QListI12QBarDataItemE(
+    QBarDataProxy *self,
+    QBarDataRow *row) {
+  return self->addRow(row);
+}
+
+//  int QBarDataProxy::addRow(QBarDataRow *row, const QString &label)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QBarDataProxy6addRowEP5QListI12QBarDataItemERK7QString(
+    QBarDataProxy *self,
+    QBarDataRow *row,
+    const QString *label) {
+  return self->addRow(row, *label);
+}
+
+//  int QBarDataProxy::addRows(const QBarDataArray &rows)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QBarDataProxy7addRowsERK5QListIPS0_I12QBarDataItemEE(
+    QBarDataProxy *self,
+    const QBarDataArray *rows) {
+  return self->addRows(*rows);
+}
+
+//  int QBarDataProxy::addRows(const QBarDataArray &rows, const QStringList
+//      &labels)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QBarDataProxy7addRowsERK5QListIPS0_I12QBarDataItemEERKS0_I7QStringE(
+    QBarDataProxy *self,
+    const QBarDataArray *rows,
+    const QList<QString> *labels) {
+  return self->addRows(*rows, *labels);
+}
+
+//  void QBarDataProxy::insertRow(int rowIndex, QBarDataRow *row)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy9insertRowEiP5QListI12QBarDataItemE(
+    QBarDataProxy *self,
+    int rowIndex,
+    QBarDataRow *row) {
+  self->insertRow(rowIndex, row);
+}
+
+//  void QBarDataProxy::insertRow(int rowIndex, QBarDataRow *row, const
+//      QString &label)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy9insertRowEiP5QListI12QBarDataItemERK7QString(
+    QBarDataProxy *self,
+    int rowIndex,
+    QBarDataRow *row,
+    const QString *label) {
+  self->insertRow(rowIndex, row, *label);
+}
+
+//  void QBarDataProxy::insertRows(int rowIndex, const QBarDataArray &rows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy10insertRowsEiRK5QListIPS0_I12QBarDataItemEE(
+    QBarDataProxy *self,
+    int rowIndex,
+    const QBarDataArray *rows) {
+  self->insertRows(rowIndex, *rows);
+}
+
+//  void QBarDataProxy::insertRows(int rowIndex, const QBarDataArray &rows,
+//      const QStringList &labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy10insertRowsEiRK5QListIPS0_I12QBarDataItemEERKS0_I7QStringE(
+    QBarDataProxy *self,
+    int rowIndex,
+    const QBarDataArray *rows,
+    const QList<QString> *labels) {
+  self->insertRows(rowIndex, *rows, *labels);
+}
+
 //  void QBarDataProxy::removeRows(int rowIndex, int removeCount, bool
 //      removeLabels)
 extern "C" Q_DECL_EXPORT
@@ -300,6 +467,85 @@ void ritual_ZN13QBarDataProxy10removeRowsEiib(
     int removeCount,
     bool removeLabels) {
   self->removeRows(rowIndex, removeCount, removeLabels);
+}
+
+//  void QBarDataProxy::arrayReset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy10arrayResetEv(QBarDataProxy *self) {
+  self->arrayReset();
+}
+
+//  void QBarDataProxy::rowsAdded(int startIndex, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy9rowsAddedEii(
+    QBarDataProxy *self,
+    int startIndex,
+    int count) {
+  self->rowsAdded(startIndex, count);
+}
+
+//  void QBarDataProxy::rowsChanged(int startIndex, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy11rowsChangedEii(
+    QBarDataProxy *self,
+    int startIndex,
+    int count) {
+  self->rowsChanged(startIndex, count);
+}
+
+//  void QBarDataProxy::rowsRemoved(int startIndex, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy11rowsRemovedEii(
+    QBarDataProxy *self,
+    int startIndex,
+    int count) {
+  self->rowsRemoved(startIndex, count);
+}
+
+//  void QBarDataProxy::rowsInserted(int startIndex, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy12rowsInsertedEii(
+    QBarDataProxy *self,
+    int startIndex,
+    int count) {
+  self->rowsInserted(startIndex, count);
+}
+
+//  void QBarDataProxy::itemChanged(int rowIndex, int columnIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy11itemChangedEii(
+    QBarDataProxy *self,
+    int rowIndex,
+    int columnIndex) {
+  self->itemChanged(rowIndex, columnIndex);
+}
+
+//  void QBarDataProxy::rowCountChanged(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy15rowCountChangedEi(
+    QBarDataProxy *self,
+    int count) {
+  self->rowCountChanged(count);
+}
+
+//  void QBarDataProxy::rowLabelsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy16rowLabelsChangedEv(QBarDataProxy *self) {
+  self->rowLabelsChanged();
+}
+
+//  void QBarDataProxy::columnLabelsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy19columnLabelsChangedEv(QBarDataProxy *self) {
+  self->columnLabelsChanged();
+}
+
+//  void QBarDataProxy::seriesChanged(QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QBarDataProxy13seriesChangedEP12QBar3DSeries(
+    QBarDataProxy *self,
+    QBar3DSeries *series) {
+  self->seriesChanged(series);
 }
 
 //  QBarDataProxy::QBarDataProxy(QBarDataProxyPrivate *d, QObject *parent)

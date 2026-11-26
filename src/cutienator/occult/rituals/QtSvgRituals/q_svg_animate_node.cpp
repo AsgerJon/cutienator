@@ -126,6 +126,18 @@ public:
   }
 };
 
+//  QSvgAnimateNode::QSvgAnimateNode()
+extern "C" Q_DECL_EXPORT
+QSvgAnimateNode *ritual_ZN15QSvgAnimateNodeC1Ev() {
+  return new CuteQSvgAnimateNode();
+}
+
+//  QSvgAnimateNode::QSvgAnimateNode(QSvgNode *parent)
+extern "C" Q_DECL_EXPORT
+QSvgAnimateNode *ritual_ZN15QSvgAnimateNodeC1EP8QSvgNode(QSvgNode *parent) {
+  return new CuteQSvgAnimateNode(parent);
+}
+
 //  QSvgAnimateNode::~QSvgAnimateNode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QSvgAnimateNodeD1Ev(QSvgAnimateNode *self) {
@@ -207,6 +219,25 @@ extern "C" Q_DECL_EXPORT
 QSvgAnimateNode::Additive ritual_ZNK15QSvgAnimateNode12additiveTypeEv(
     const QSvgAnimateNode *self) {
   return self->additiveType();
+}
+
+//  void QSvgAnimateNode::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgAnimateNode11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgAnimateNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
+//  bool QSvgAnimateNode::shouldDrawNode(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QSvgAnimateNode14shouldDrawNodeEP8QPainterR15QSvgExtraStates(
+    const QSvgAnimateNode *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return self->shouldDrawNode(p, *states);
 }
 
 //  QSvgAnimateNode as the QSvgAbstractAnimation it is built on

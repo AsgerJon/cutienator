@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuickButtonGroup may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -223,6 +224,25 @@ const QMetaObject *ritual_ZNK17QQuickButtonGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickButtonGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickButtonGroup11qt_metacastEPKc(
+    QQuickButtonGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickButtonGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickButtonGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickButtonGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickButtonGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickButtonGroup2trEPKcS1_i(
@@ -276,6 +296,13 @@ void ritual_ZN17QQuickButtonGroup16setCheckedButtonEP20QQuickAbstractButton(
   self->setCheckedButton(checkedButton);
 }
 
+//  QQmlListProperty<QQuickAbstractButton> QQuickButtonGroup::buttons()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickAbstractButton> *ritual_ZN17QQuickButtonGroup7buttonsEv(
+    QQuickButtonGroup *self) {
+  return new QQmlListProperty<QQuickAbstractButton>(self->buttons());
+}
+
 //  bool QQuickButtonGroup::isExclusive() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QQuickButtonGroup11isExclusiveEv(
@@ -322,6 +349,42 @@ void ritual_ZN17QQuickButtonGroup12removeButtonEP20QQuickAbstractButton(
   self->removeButton(button);
 }
 
+//  void QQuickButtonGroup::checkedButtonChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickButtonGroup20checkedButtonChangedEv(
+    QQuickButtonGroup *self) {
+  self->checkedButtonChanged();
+}
+
+//  void QQuickButtonGroup::buttonsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickButtonGroup14buttonsChangedEv(
+    QQuickButtonGroup *self) {
+  self->buttonsChanged();
+}
+
+//  void QQuickButtonGroup::clicked(QQuickAbstractButton *button)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickButtonGroup7clickedEP20QQuickAbstractButton(
+    QQuickButtonGroup *self,
+    QQuickAbstractButton *button) {
+  self->clicked(button);
+}
+
+//  void QQuickButtonGroup::exclusiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickButtonGroup16exclusiveChangedEv(
+    QQuickButtonGroup *self) {
+  self->exclusiveChanged();
+}
+
+//  void QQuickButtonGroup::checkStateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickButtonGroup17checkStateChangedEv(
+    QQuickButtonGroup *self) {
+  self->checkStateChanged();
+}
+
 //  void QQuickButtonGroup::classBegin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickButtonGroup10classBeginEv(QQuickButtonGroup *self) {
@@ -333,6 +396,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickButtonGroup17componentCompleteEv(
     QQuickButtonGroup *self) {
   self->componentComplete();
+}
+
+//  QQuickButtonGroupPrivate *QQuickButtonGroup::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickButtonGroupPrivate *ritual_ZN17QQuickButtonGroup6d_funcEv(
+    QQuickButtonGroup *self) {
+  return self->d_func();
+}
+
+//  const QQuickButtonGroupPrivate *QQuickButtonGroup::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickButtonGroupPrivate *ritual_ZNK17QQuickButtonGroup6d_funcEv(
+    const QQuickButtonGroup *self) {
+  return self->d_func();
 }
 
 //  QQuickButtonGroup as the QQmlParserStatus it is built on
@@ -364,4 +441,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QQuickButtonGroup17componentCompleteEv(
     QQuickButtonGroup *self) {
   static_cast<OwnQQuickButtonGroup *>(self)->OwnQQuickButtonGroup::componentComplete();
+}
+
+//  a QQmlListProperty<QQuickAbstractButton> a ritual of QQuickButtonGroup
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickButtonGroup__QQmlListProperty_QQuickAbstractButton(
+    QQmlListProperty<QQuickAbstractButton> *self) {
+  delete self;
 }

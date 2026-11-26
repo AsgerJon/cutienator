@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgpaintserver_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qbrush.h>
 #include <cstring>
 
 //  A QSvgPaintServer that Python can take functions over in. Every QSvgPaintServer
@@ -41,6 +42,17 @@ public:
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QSvgPaintServerD1Ev(QSvgPaintServer *self) {
   delete self;
+}
+
+//  QBrush QSvgPaintServer::brush(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN15QSvgPaintServer5brushEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgPaintServer *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  return new QBrush(self->brush(p, node, *states));
 }
 
 //  Type QSvgPaintServer::type() const

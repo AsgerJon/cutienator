@@ -7,8 +7,67 @@
     "ritual_ZNK10Qt3DRender13QObjectPicker10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender13QObjectPicker11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender13QObjectPicker2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPickerC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPickerD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender13QObjectPicker14isHoverEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QObjectPicker13isDragEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QObjectPicker13containsMouseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QObjectPicker9isPressedEv": ["bool", "address"],
+    "ritual_ZNK10Qt3DRender13QObjectPicker8priorityEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender13QObjectPicker15setHoverEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker14setDragEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker11setPriorityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker7pressedEPNS_10QPickEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker8releasedEPNS_10QPickEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker7clickedEPNS_10QPickEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker5movedEPNS_10QPickEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker7enteredEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender13QObjectPicker6exitedEv": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender13QObjectPicker19hoverEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker18dragEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker14pressedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker20containsMouseChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker15priorityChangedEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN10Qt3DRender13QObjectPicker6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender13QObjectPicker6d_funcEv": ["address", "address"],

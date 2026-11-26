@@ -5,7 +5,12 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QFileDialogOptionsC1EP25QFileDialogOptionsPrivate": [
+      "address", "address"
+    ],
     "ritual_ZN18QFileDialogOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN18QFileDialogOptions6createEv": ["address"],
+    "ritual_ZNK18QFileDialogOptions5cloneEv": ["address", "address"],
     "ritual_ZNK18QFileDialogOptions11windowTitleEv": ["text", "address"],
     "ritual_ZN18QFileDialogOptions14setWindowTitleERK7QString": [
       "nothing", "address", "text"
@@ -103,6 +108,9 @@
     "ritual_ZNK18QFileDialogOptions16supportedSchemesEv": [
       "address", "address"
     ],
-    "ritual_ZN18QFileDialogOptions23defaultNameFilterStringEv": ["text"]
+    "ritual_ZN18QFileDialogOptions23defaultNameFilterStringEv": ["text"],
+    "ritual_drop_QFileDialogOptions__QSharedPointer_QFileDialogOptions": [
+      "nothing", "address"
+    ]
   }
 }

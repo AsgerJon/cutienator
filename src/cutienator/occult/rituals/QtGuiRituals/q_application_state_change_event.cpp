@@ -11,6 +11,7 @@ typedef void (*CuteQApplicationStateChangeEventCall1)(const void *, bool, int *)
 class CuteQApplicationStateChangeEvent : public QApplicationStateChangeEvent {
 public:
   using QApplicationStateChangeEvent::QApplicationStateChangeEvent;
+  CuteQApplicationStateChangeEvent(const QApplicationStateChangeEvent & other) : QApplicationStateChangeEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -48,6 +49,24 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QApplicationStateChangeEvent::QApplicationStateChangeEvent(const
+//      QApplicationStateChangeEvent &a0)
+extern "C" Q_DECL_EXPORT
+QApplicationStateChangeEvent *ritual_ZN28QApplicationStateChangeEventC1ERKS_(
+    const QApplicationStateChangeEvent *a0) {
+  return new CuteQApplicationStateChangeEvent(*a0);
+}
+
+//  QApplicationStateChangeEvent
+//      &QApplicationStateChangeEvent::operator=(const
+//      QApplicationStateChangeEvent &other)
+extern "C" Q_DECL_EXPORT
+QApplicationStateChangeEvent *ritual_ZN28QApplicationStateChangeEventaSERKS_(
+    QApplicationStateChangeEvent *self,
+    const QApplicationStateChangeEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QApplicationStateChangeEvent *QApplicationStateChangeEvent::clone() const
 extern "C" Q_DECL_EXPORT

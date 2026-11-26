@@ -44,6 +44,28 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/gui/image/qicon.cpp, line 107, as local:qicon.cpp:nextSerialNumCounter
+#if !defined(QT_NO_ICON)
+static int nextSerialNumCounter()
+{
+    Q_CONSTINIT static QBasicAtomicInt serial = Q_BASIC_ATOMIC_INITIALIZER(0);
+    return 1 + serial.fetchAndAddRelaxed(1);
+}
+#endif  // !defined(QT_NO_ICON)
+
+//  from src/gui/image/qicon.cpp, line 132, as _ZN12QIconPrivateC1EP11QIconEngine
+#if !defined(QT_NO_ICON)
+inline QIconPrivate::QIconPrivate(QIconEngine *e)
+    : engine(e), ref(1),
+      serialNum(nextSerialNumCounter()),
+    detach_no(0),
+    is_mask(false)
+{
+}
+#endif  // !defined(QT_NO_ICON)
+
 //  from src/gui/image/qicon.cpp, line 156, as _ZN12QIconPrivate22pixmapDevicePixelRatioEdRK5QSizeS2_
 #if !defined(QT_NO_ICON)
 inline qreal QIconPrivate::pixmapDevicePixelRatio(qreal displayDevicePixelRatio, const QSize &requestedSize, const QSize &actualSize)
@@ -61,6 +83,12 @@ inline qreal QIconPrivate::pixmapDevicePixelRatio(qreal displayDevicePixelRatio,
 }
 #endif  // !defined(QT_NO_ICON)
 //  -----------------------------------------------------------------------
+
+//  QIconPrivate::QIconPrivate(QIconEngine *e)
+extern "C" Q_DECL_EXPORT
+QIconPrivate *ritual_ZN12QIconPrivateC1EP11QIconEngine(QIconEngine *e) {
+  return new QIconPrivate(e);
+}
 
 //  QIconPrivate::~QIconPrivate()
 extern "C" Q_DECL_EXPORT

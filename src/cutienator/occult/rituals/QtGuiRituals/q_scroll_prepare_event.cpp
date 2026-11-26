@@ -14,6 +14,7 @@ typedef void (*CuteQScrollPrepareEventCall1)(const void *, bool, int *);
 class CuteQScrollPrepareEvent : public QScrollPrepareEvent {
 public:
   using QScrollPrepareEvent::QScrollPrepareEvent;
+  CuteQScrollPrepareEvent(const QScrollPrepareEvent & other) : QScrollPrepareEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -50,6 +51,22 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QScrollPrepareEvent::QScrollPrepareEvent(const QScrollPrepareEvent &a0)
+extern "C" Q_DECL_EXPORT
+QScrollPrepareEvent *ritual_ZN19QScrollPrepareEventC1ERKS_(
+    const QScrollPrepareEvent *a0) {
+  return new CuteQScrollPrepareEvent(*a0);
+}
+
+//  QScrollPrepareEvent &QScrollPrepareEvent::operator=(const
+//      QScrollPrepareEvent &other)
+extern "C" Q_DECL_EXPORT
+QScrollPrepareEvent *ritual_ZN19QScrollPrepareEventaSERKS_(
+    QScrollPrepareEvent *self,
+    const QScrollPrepareEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QScrollPrepareEvent *QScrollPrepareEvent::clone() const
 extern "C" Q_DECL_EXPORT

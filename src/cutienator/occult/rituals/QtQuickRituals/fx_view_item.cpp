@@ -11,6 +11,30 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickitemview_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qquickitemview_p_p.h>
+#include <QtQml/qqmlcomponent.h>
+#include <QtQuick/private/qquickitemviewfxitem_p_p.h>
+#include <QtQuick/private/qquicktransition_p.h>
+#include <QtQml/QQmlInfo>
+#include "qplatformdefs.h"
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 24, as _ZN10FxViewItemC1EP10QQuickItemP14QQuickItemViewbP22QQuickItemViewAttached
+inline FxViewItem::FxViewItem(QQuickItem *i, QQuickItemView *v, bool own, QQuickItemViewAttached *attached)
+    : QQuickItemViewFxItem(i, own, QQuickItemViewPrivate::get(v))
+    , view(v)
+    , attached(attached)
+{
+}
+//  -----------------------------------------------------------------------
 
 //  A FxViewItem that Python can take functions over in. Every FxViewItem
 //  Python makes is one. Each function below asks the Python
@@ -134,6 +158,17 @@ public:
   }
 #endif  // QT_CONFIG(quick_itemview)
 };
+
+//  FxViewItem::FxViewItem(QQuickItem *a0, QQuickItemView *a1, bool own,
+//      QQuickItemViewAttached *attached)
+extern "C" Q_DECL_EXPORT
+FxViewItem *ritual_ZN10FxViewItemC1EP10QQuickItemP14QQuickItemViewbP22QQuickItemViewAttached(
+    QQuickItem *a0,
+    QQuickItemView *a1,
+    bool own,
+    QQuickItemViewAttached *attached) {
+  return new CuteFxViewItem(a0, a1, own, attached);
+}
 
 //  a Python function taken by a CuteFxViewItem, for the function named by
 //      the key

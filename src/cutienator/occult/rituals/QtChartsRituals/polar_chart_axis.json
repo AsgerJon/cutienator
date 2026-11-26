@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14PolarChartAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN14PolarChartAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14PolarChartAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14PolarChartAxis2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,8 +25,14 @@
     "ritual_ZN14PolarChartAxis9tickWidthEv": ["int", "address"],
     "ritual_ZNK14PolarChartAxis12gridGeometryEv": ["address", "address"],
     "ritual_ZNK14PolarChartAxis9emptyAxisEv": ["bool", "address"],
+    "ritual_ZN14PolarChartAxis12updateLayoutERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14PolarChartAxis11createItemsEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN14PolarChartAxis16createAxisLabelsERK5QListIdE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN14PolarChartAxis20updateMinorTickItemsEv": [
       "nothing", "address"

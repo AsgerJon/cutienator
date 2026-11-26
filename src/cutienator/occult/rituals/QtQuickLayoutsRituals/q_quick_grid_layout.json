@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickGridLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickGridLayout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickGridLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickGridLayout2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -39,6 +45,21 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZN16QQuickGridLayout17insertLayoutItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGridLayout20columnSpacingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGridLayout17rowSpacingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGridLayout14columnsChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGridLayout11rowsChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGridLayout11flowChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGridLayout24uniformCellWidthsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGridLayout25uniformCellHeightsChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN16QQuickGridLayout6d_funcEv": ["address", "address"],

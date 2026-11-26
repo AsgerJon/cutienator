@@ -6,8 +6,14 @@
   ],
   "rows": {
     "ritual_ZN22QQsbInMemoryCollectionC1Ev": ["address"],
+    "ritual_ZNK22QQsbInMemoryCollection16availableEntriesEv": [
+      "address", "address"
+    ],
     "ritual_ZN22QQsbInMemoryCollection8addEntryERK10QByteArrayRKN14QQsbCollection9EntryDescE": [
       "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QQsbInMemoryCollection12extractEntryEN14QQsbCollection5EntryERNS0_9EntryDescE": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZN22QQsbInMemoryCollection5clearEv": ["nothing", "address"],
     "ritual_ZN22QQsbInMemoryCollection4loadERK7QString": [
@@ -18,6 +24,9 @@
     ],
     "ritual_own_ZN22QQsbInMemoryCollection8addEntryERK10QByteArrayRKN14QQsbCollection9EntryDescE": [
       "address", "address", "address", "address"
+    ],
+    "ritual_drop_QQsbInMemoryCollection__QQsbCollection_EntryMap": [
+      "nothing", "address"
     ]
   }
 }

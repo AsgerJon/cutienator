@@ -6,15 +6,27 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickParticleGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickParticleGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickParticleGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickParticleGroup2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN19QQuickParticleGroupC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QQuickParticleGroup16particleChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZNK19QQuickParticleGroup6systemEv": ["address", "address"],
     "ritual_ZN19QQuickParticleGroup9setSystemEP20QQuickParticleSystem": [
       "nothing", "address", "address"
     ],
     "ritual_ZN19QQuickParticleGroup13delayRedirectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickParticleGroup13systemChangedEP20QQuickParticleSystem": [
       "nothing", "address", "address"
     ],
     "ritual_ZN19QQuickParticleGroup17componentCompleteEv": [
@@ -31,6 +43,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN19QQuickParticleGroup10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickParticleGroup__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

@@ -8,6 +8,21 @@
     "ritual_ZNK14QScxmlInternal21StateMachineInfoProxy10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN14QScxmlInternal21StateMachineInfoProxy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QScxmlInternal21StateMachineInfoProxy11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QScxmlInternal21StateMachineInfoProxy13statesEnteredERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QScxmlInternal21StateMachineInfoProxy12statesExitedERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QScxmlInternal21StateMachineInfoProxy20transitionsTriggeredERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QScxmlInternal_StateMachineInfoProxy": [
       "bool", "address", "chars", "address"
     ]

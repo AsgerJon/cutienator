@@ -7,6 +7,13 @@
 #include <QtQml/6.12.0/QtQml/private/qv4scopedvalue_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QV4::ScopedProperty::ScopedProperty(Scope &scope)
+extern "C" Q_DECL_EXPORT
+QV4::ScopedProperty *ritual_ZN3QV414ScopedPropertyC1ERNS_5ScopeE(
+    QV4::Scope *scope) {
+  return new QV4::ScopedProperty(*scope);
+}
+
 //  Property *QV4::ScopedProperty::operator->()
 extern "C" Q_DECL_EXPORT
 QV4::Property *ritual_ZN3QV414ScopedPropertyptEv(QV4::ScopedProperty *self) {

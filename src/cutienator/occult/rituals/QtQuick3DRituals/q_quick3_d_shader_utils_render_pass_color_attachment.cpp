@@ -338,6 +338,26 @@ const QMetaObject *ritual_ZNK44QQuick3DShaderUtilsRenderPassColorAttachment10met
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsRenderPassColorAttachment::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN44QQuick3DShaderUtilsRenderPassColorAttachment11qt_metacastEPKc(
+    QQuick3DShaderUtilsRenderPassColorAttachment *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsRenderPassColorAttachment::qt_metacall(QMetaObject
+//      ::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN44QQuick3DShaderUtilsRenderPassColorAttachment11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsRenderPassColorAttachment *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsRenderPassColorAttachment::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT

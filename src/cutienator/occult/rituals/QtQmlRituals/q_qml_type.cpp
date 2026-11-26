@@ -29,6 +29,24 @@ QQmlType *ritual_ZN8QQmlTypeC1ERKS_(const QQmlType *other) {
   return new QQmlType(*other);
 }
 
+//  QQmlType::QQmlType(QQmlType &&other)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN8QQmlTypeC1EOS_(QQmlType *other) {
+  return new QQmlType(std::move(*other));
+}
+
+//  QQmlType &QQmlType::operator=(const QQmlType &other)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN8QQmlTypeaSERKS_(QQmlType *self, const QQmlType *other) {
+  return &(self->operator=(*other));
+}
+
+//  QQmlType &QQmlType::operator=(QQmlType &&other)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN8QQmlTypeaSEOS_(QQmlType *self, QQmlType *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QQmlType::QQmlType(const QQmlTypePrivate *priv)
 extern "C" Q_DECL_EXPORT
 QQmlType *ritual_ZN8QQmlTypeC1EPK15QQmlTypePrivate(
@@ -96,6 +114,12 @@ bool ritual_ZNK8QQmlType18availableInVersionERK16QHashedStringRef13QTypeRevision
   return self->availableInVersion(*module, *version);
 }
 
+//  CreateValueTypeFunc QQmlType::createValueTypeFunction() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK8QQmlType23createValueTypeFunctionEv(const QQmlType *self) {
+  return reinterpret_cast<void *>(self->createValueTypeFunction());
+}
+
 //  bool QQmlType::canConstructValueType() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8QQmlType21canConstructValueTypeEv(const QQmlType *self) {
@@ -114,10 +138,25 @@ QObject *ritual_ZNK8QQmlType6createEv(const QQmlType *self) {
   return self->create();
 }
 
+//  QObject *QQmlType::create(void **a0, size_t a1) const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK8QQmlType6createEPPvm(
+    const QQmlType *self,
+    void **a0,
+    size_t a1) {
+  return self->create(a0, a1);
+}
+
 //  QObject *QQmlType::createWithQQmlData() const
 extern "C" Q_DECL_EXPORT
 QObject *ritual_ZNK8QQmlType18createWithQQmlDataEv(const QQmlType *self) {
   return self->createWithQQmlData();
+}
+
+//  CreateFunc QQmlType::createFunction() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK8QQmlType14createFunctionEv(const QQmlType *self) {
+  return reinterpret_cast<void *>(self->createFunction());
 }
 
 //  QQmlCustomParser *QQmlType::customParser() const
@@ -130,6 +169,12 @@ QQmlCustomParser *ritual_ZNK8QQmlType12customParserEv(const QQmlType *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8QQmlType11isCreatableEv(const QQmlType *self) {
   return self->isCreatable();
+}
+
+//  ExtensionFunc QQmlType::extensionFunction() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK8QQmlType17extensionFunctionEv(const QQmlType *self) {
+  return reinterpret_cast<void *>(self->extensionFunction());
 }
 
 //  const QMetaObject *QQmlType::extensionMetaObject() const
@@ -252,6 +297,18 @@ bool ritual_ZNK8QQmlType28containsRevisionedAttributesEv(
   return self->containsRevisionedAttributes();
 }
 
+//  QQmlAttachedPropertiesFunc
+//      QQmlType::attachedPropertiesFunction(QQmlTypeLoader *typeLoader)
+//      const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK8QQmlType26attachedPropertiesFunctionEP14QQmlTypeLoader(
+    const QQmlType *self,
+    QQmlTypeLoader *typeLoader) {
+  return reinterpret_cast<void *>(
+      self->attachedPropertiesFunction(
+          typeLoader));
+}
+
 //  const QMetaObject *QQmlType::attachedPropertiesType(QQmlTypeLoader
 //      *typeLoader) const
 extern "C" Q_DECL_EXPORT
@@ -302,6 +359,14 @@ int ritual_ZNK8QQmlType5indexEv(const QQmlType *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8QQmlType21isInlineComponentTypeEv(const QQmlType *self) {
   return self->isInlineComponentType();
+}
+
+//  SingletonInstanceInfo::ConstPtr QQmlType::singletonInstanceInfo() const
+extern "C" Q_DECL_EXPORT
+QQmlType::SingletonInstanceInfo::ConstPtr *ritual_ZNK8QQmlType21singletonInstanceInfoEv(
+    const QQmlType *self) {
+  return new QQmlType::SingletonInstanceInfo::ConstPtr(
+      self->singletonInstanceInfo());
 }
 
 //  QUrl QQmlType::sourceUrl() const
@@ -595,5 +660,12 @@ QQmlType *ritual_list_at_QQmlType(
 //  QList<QQmlType>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQmlType(QList<QQmlType> *self) {
+  delete self;
+}
+
+//  a QQmlType::SingletonInstanceInfo::ConstPtr a ritual of QQmlType gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlType__QQmlType_SingletonInstanceInfo_ConstPtr(
+    QQmlType::SingletonInstanceInfo::ConstPtr *self) {
   delete self;
 }

@@ -74,6 +74,16 @@ void ritual_ZN24QQmlIncubationController11incubateForEi(
   self->incubateFor(msecs);
 }
 
+//  void QQmlIncubationController::incubateWhile(std::atomic<bool> *flag, int
+//      msecs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQmlIncubationController13incubateWhileEPSt6atomicIbEi(
+    QQmlIncubationController *self,
+    std::atomic<bool> *flag,
+    int msecs) {
+  self->incubateWhile(flag, msecs);
+}
+
 //  void QQmlIncubationController::incubatingObjectCountChanged(int a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQmlIncubationController28incubatingObjectCountChangedEi(

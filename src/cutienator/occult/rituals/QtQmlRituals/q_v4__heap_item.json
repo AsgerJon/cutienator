@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4mmdefs_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4mmdefs_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV48HeapItemcvPNS_4Heap4BaseEEv": ["address", "address"],
@@ -12,6 +12,19 @@
     "ritual_ZN3QV48HeapItem17setAllocatedSlotsEm": [
       "nothing", "address", "size_t"
     ],
-    "ritual_ZN3QV48HeapItemD1Ev": ["nothing", "address"]
+    "ritual_ZNK3QV48HeapItem4sizeEv": ["size_t", "address"],
+    "ritual_ZN3QV48HeapItemD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV48HeapItem2asINS_4Heap6ObjectEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48HeapItem2asINS_4Heap6StringEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48HeapItem2asINS_4Heap14FunctionObjectEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48HeapItem2asINS_4Heap11ArrayObjectEEEPT_v": [
+      "address", "address"
+    ]
   }
 }

@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QShaderData that Python can take functions over in. Every Qt3DRender::QShaderData
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender11QShaderData10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QShaderData::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender11QShaderData11qt_metacastEPKc(
+    Qt3DRender::QShaderData *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QShaderData::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender11QShaderData11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QShaderData *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QShaderData::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender11QShaderData2trEPKcS2_i(
@@ -186,6 +206,44 @@ QString *ritual_ZN10Qt3DRender11QShaderData2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QShaderData::tr(s, c, n));
+}
+
+//  Qt3DRender::QShaderData::QShaderData(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderData *ritual_ZN10Qt3DRender11QShaderDataC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QShaderData(parent);
+}
+
+//  Qt3DRender::QShaderData::~QShaderData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QShaderDataD1Ev(Qt3DRender::QShaderData *self) {
+  delete self;
+}
+
+//  PropertyReaderInterfacePtr Qt3DRender::QShaderData::propertyReader()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::PropertyReaderInterfacePtr *ritual_ZNK10Qt3DRender11QShaderData14propertyReaderEv(
+    const Qt3DRender::QShaderData *self) {
+  return new Qt3DRender::PropertyReaderInterfacePtr(self->propertyReader());
+}
+
+//  bool Qt3DRender::QShaderData::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender11QShaderData5eventEP6QEvent(
+    Qt3DRender::QShaderData *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  Qt3DRender::QShaderData::QShaderData(QShaderDataPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderData *ritual_ZN10Qt3DRender11QShaderDataC1ERNS_18QShaderDataPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QShaderDataPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QShaderData(*dd, parent);
 }
 
 //  QShaderDataPrivate *Qt3DRender::QShaderData::d_func()
@@ -218,4 +276,12 @@ bool ritual_own_ZN10Qt3DRender11QShaderData5eventEP6QEvent(
     Qt3DRender::QShaderData *self,
     QEvent *event) {
   return self->Qt3DRender::QShaderData::event(event);
+}
+
+//  a Qt3DRender::PropertyReaderInterfacePtr a ritual of
+//      Qt3DRender::QShaderData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QShaderData__Qt3DRender_PropertyReaderInterfacePtr(
+    Qt3DRender::PropertyReaderInterfacePtr *self) {
+  delete self;
 }

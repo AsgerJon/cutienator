@@ -10,6 +10,31 @@
 #include <QtSerialBus/qmodbuspdu.h>
 #include <QtCore/qstring.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtserialbus/src/serialbus/qmodbusdevice.cpp, line 371, as _Z9QT_MODBUSv
+inline const QLoggingCategory &QT_MODBUS()
+{
+    static const QLoggingCategory category("qt.modbus");
+    return category;
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusdevice.cpp, line 372, as _Z13QT_MODBUS_LOWv
+inline const QLoggingCategory &QT_MODBUS_LOW()
+{
+    static const QLoggingCategory category("qt.modbus.lowlevel");
+    return category;
+}
+//  -----------------------------------------------------------------------
 
 //  A QModbusTcpServerPrivate that Python can take functions over in. Every QModbusTcpServerPrivate
 //  Python makes is one. Each function below asks the Python
@@ -71,6 +96,21 @@ void ritual_ZN23QModbusTcpServerPrivate12forwardErrorERK7QStringN13QModbusDevice
     const QString *errorText,
     QModbusDevice::Error error) {
   self->forwardError(*errorText, error);
+}
+
+//  bool QModbusTcpServerPrivate::matchingServerAddress(quint8 unitId) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK23QModbusTcpServerPrivate21matchingServerAddressEh(
+    const QModbusTcpServerPrivate *self,
+    quint8 unitId) {
+  return self->matchingServerAddress(unitId);
+}
+
+//  void QModbusTcpServerPrivate::setupTcpServer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QModbusTcpServerPrivate14setupTcpServerEv(
+    QModbusTcpServerPrivate *self) {
+  self->setupTcpServer();
 }
 
 //  a Python function taken by a CuteQModbusTcpServerPrivate, for the

@@ -10,6 +10,7 @@
 #include <QtMultimedia/qvideoframe.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <optional>
 
 //  Only a class built on QSurfaceCaptureGrabber may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -240,6 +241,25 @@ const QMetaObject *ritual_ZNK22QSurfaceCaptureGrabber10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSurfaceCaptureGrabber::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QSurfaceCaptureGrabber11qt_metacastEPKc(
+    QSurfaceCaptureGrabber *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSurfaceCaptureGrabber::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QSurfaceCaptureGrabber11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSurfaceCaptureGrabber *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSurfaceCaptureGrabber::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QSurfaceCaptureGrabber2trEPKcS1_i(
@@ -268,11 +288,44 @@ void ritual_ZN22QSurfaceCaptureGrabber4stopEv(QSurfaceCaptureGrabber *self) {
   self->stop();
 }
 
+//  void QSurfaceCaptureGrabber::setFrameRate(std::optional<qreal> a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QSurfaceCaptureGrabber12setFrameRateESt8optionalIdE(
+    QSurfaceCaptureGrabber *self,
+    const std::optional<qreal> *a0) {
+  self->setFrameRate(*a0);
+}
+
 //  qreal QSurfaceCaptureGrabber::frameRate() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK22QSurfaceCaptureGrabber9frameRateEv(
     const QSurfaceCaptureGrabber *self) {
   return self->frameRate();
+}
+
+//  void QSurfaceCaptureGrabber::frameGrabbed(const QVideoFrame &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QSurfaceCaptureGrabber12frameGrabbedERK11QVideoFrame(
+    QSurfaceCaptureGrabber *self,
+    const QVideoFrame *a0) {
+  self->frameGrabbed(*a0);
+}
+
+//  void QSurfaceCaptureGrabber::errorUpdated(QPlatformSurfaceCapture::Error
+//      error, const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QSurfaceCaptureGrabber12errorUpdatedEN23QPlatformSurfaceCapture5ErrorERK7QString(
+    QSurfaceCaptureGrabber *self,
+    QPlatformSurfaceCapture::Error error,
+    const QString *description) {
+  self->errorUpdated(error, *description);
+}
+
+//  QSurfaceCaptureGrabber::QSurfaceCaptureGrabber(ThreadPolicy threadPolicy)
+extern "C" Q_DECL_EXPORT
+QSurfaceCaptureGrabber *ritual_ZN22QSurfaceCaptureGrabberC1ENS_12ThreadPolicyE(
+    QSurfaceCaptureGrabber::ThreadPolicy threadPolicy) {
+  return new CuteQSurfaceCaptureGrabber(threadPolicy);
 }
 
 //  void QSurfaceCaptureGrabber::updateError(QPlatformSurfaceCapture::Error

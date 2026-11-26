@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK19QQuickMnemonicLabel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMnemonicLabel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickMnemonicLabel11qt_metacastEPKc(
+    QQuickMnemonicLabel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMnemonicLabel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickMnemonicLabel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMnemonicLabel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMnemonicLabel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickMnemonicLabel2trEPKcS1_i(

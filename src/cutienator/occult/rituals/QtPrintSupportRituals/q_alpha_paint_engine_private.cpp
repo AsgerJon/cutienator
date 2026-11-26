@@ -196,11 +196,12 @@ inline void QAlphaPaintEnginePrivate::resetState(QPainter *p)
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQAlphaPaintEnginePrivateCall0)(const void *, int *);
 typedef void * (*CuteQAlphaPaintEnginePrivateCall1)(const void *, int *);
+typedef void * (*CuteQAlphaPaintEnginePrivateCall2)(const void *, int *);
 class CuteQAlphaPaintEnginePrivate : public QAlphaPaintEnginePrivate {
 public:
   using QAlphaPaintEnginePrivate::QAlphaPaintEnginePrivate;
-  CuteQAlphaPaintEnginePrivate(const QAlphaPaintEnginePrivate &other) : QAlphaPaintEnginePrivate(other) {}
-  void *taken[2] = {};
+  CuteQAlphaPaintEnginePrivate(const QAlphaPaintEnginePrivate & other) : QAlphaPaintEnginePrivate(other) {}
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN19QPaintEnginePrivate18systemStateChangedEv")) {
@@ -209,6 +210,10 @@ public:
     }
     if (!std::strcmp(key, "_ZN19QPaintEnginePrivate15aggregateEngineEv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN19QPaintEnginePrivate12nativeHandleEv")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -234,6 +239,17 @@ public:
       if (handled) return static_cast<QPaintEngine *>(given);
     }
     return QPaintEnginePrivate::aggregateEngine();
+  }
+
+  //  Qt::HANDLE QPaintEnginePrivate::nativeHandle()
+  Qt::HANDLE nativeHandle() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQAlphaPaintEnginePrivateCall2 call = reinterpret_cast<CuteQAlphaPaintEnginePrivateCall2>(taken[2]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<Qt::HANDLE>(given);
+    }
+    return QPaintEnginePrivate::nativeHandle();
   }
 };
 

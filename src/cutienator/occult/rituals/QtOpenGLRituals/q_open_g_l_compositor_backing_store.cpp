@@ -25,14 +25,15 @@ typedef void (*CuteQOpenGLCompositorBackingStoreCall2)(const void *, QWindow *, 
 typedef void (*CuteQOpenGLCompositorBackingStoreCall3)(const void *, const QSize *, const QRegion *, int *);
 typedef const QImage * (*CuteQOpenGLCompositorBackingStoreCall4)(const void *, int *);
 typedef int (*CuteQOpenGLCompositorBackingStoreCall5)(const void *, QWindow *, qreal, const QRegion *, const QPoint *, QPlatformTextureList *, bool, qreal, int *);
-typedef void * (*CuteQOpenGLCompositorBackingStoreCall6)(const void *, int *);
-typedef bool (*CuteQOpenGLCompositorBackingStoreCall7)(const void *, const QRegion *, int, int, int *);
-typedef void (*CuteQOpenGLCompositorBackingStoreCall8)(const void *, int *);
+typedef void * (*CuteQOpenGLCompositorBackingStoreCall6)(const void *, QRhiResourceUpdateBatch *, const QRegion *, QPlatformBackingStore::TextureFlags *, int *);
+typedef void * (*CuteQOpenGLCompositorBackingStoreCall7)(const void *, int *);
+typedef bool (*CuteQOpenGLCompositorBackingStoreCall8)(const void *, const QRegion *, int, int, int *);
+typedef void (*CuteQOpenGLCompositorBackingStoreCall9)(const void *, int *);
 class CuteQOpenGLCompositorBackingStore : public QOpenGLCompositorBackingStore {
 public:
   using QOpenGLCompositorBackingStore::QOpenGLCompositorBackingStore;
-  CuteQOpenGLCompositorBackingStore(const QOpenGLCompositorBackingStore &other) : QOpenGLCompositorBackingStore(other) {}
-  void *taken[9] = {};
+  CuteQOpenGLCompositorBackingStore(const QOpenGLCompositorBackingStore & other) : QOpenGLCompositorBackingStore(other) {}
+  void *taken[10] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN21QPlatformBackingStore11paintDeviceEv")) {
@@ -59,16 +60,20 @@ public:
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QPlatformBackingStore14graphicsBufferEv")) {
+    if (!std::strcmp(key, "_ZNK21QPlatformBackingStore9toTextureEP23QRhiResourceUpdateBatchRK7QRegionP6QFlagsINS_11TextureFlagEE")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QPlatformBackingStore6scrollERK7QRegionii")) {
+    if (!std::strcmp(key, "_ZNK21QPlatformBackingStore14graphicsBufferEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QPlatformBackingStore8endPaintEv")) {
+    if (!std::strcmp(key, "_ZN21QPlatformBackingStore6scrollERK7QRegionii")) {
       taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN21QPlatformBackingStore8endPaintEv")) {
+      taken[9] = call;
       return true;
     }
     return false;
@@ -155,12 +160,28 @@ public:
     return QOpenGLCompositorBackingStore::rhiFlush(window, sourceDevicePixelRatio, region, offset, textures, translucentBackground, sourceTransformFactor);
   }
 
-  //  QPlatformGraphicsBuffer *QPlatformBackingStore::graphicsBuffer()
-  //      const
-  QPlatformGraphicsBuffer *graphicsBuffer() const override {
+  //  QRhiTexture *QPlatformBackingStore::toTexture(QRhiResourceUpdateBatch
+  //      *resourceUpdates, const QRegion &dirtyRegion, TextureFlags
+  //      *flags) const
+  QRhiTexture *toTexture(
+      QRhiResourceUpdateBatch *resourceUpdates,
+      const QRegion &dirtyRegion,
+      QPlatformBackingStore::TextureFlags *flags) const override {
     if (taken[6]) {
       int handled = 0;
       CuteQOpenGLCompositorBackingStoreCall6 call = reinterpret_cast<CuteQOpenGLCompositorBackingStoreCall6>(taken[6]);
+      void * given = call(this, resourceUpdates, &dirtyRegion, flags, &handled);
+      if (handled) return static_cast<QRhiTexture *>(given);
+    }
+    return QPlatformBackingStore::toTexture(resourceUpdates, dirtyRegion, flags);
+  }
+
+  //  QPlatformGraphicsBuffer *QPlatformBackingStore::graphicsBuffer()
+  //      const
+  QPlatformGraphicsBuffer *graphicsBuffer() const override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQOpenGLCompositorBackingStoreCall7 call = reinterpret_cast<CuteQOpenGLCompositorBackingStoreCall7>(taken[7]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPlatformGraphicsBuffer *>(given);
     }
@@ -170,9 +191,9 @@ public:
   //  bool QPlatformBackingStore::scroll(const QRegion &area, int dx, int
   //      dy)
   bool scroll(const QRegion &area, int dx, int dy) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQOpenGLCompositorBackingStoreCall7 call = reinterpret_cast<CuteQOpenGLCompositorBackingStoreCall7>(taken[7]);
+      CuteQOpenGLCompositorBackingStoreCall8 call = reinterpret_cast<CuteQOpenGLCompositorBackingStoreCall8>(taken[8]);
       bool given = call(this, &area, dx, dy, &handled);
       if (handled) return given;
     }
@@ -181,9 +202,9 @@ public:
 
   //  void QPlatformBackingStore::endPaint()
   void endPaint() override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQOpenGLCompositorBackingStoreCall8 call = reinterpret_cast<CuteQOpenGLCompositorBackingStoreCall8>(taken[8]);
+      CuteQOpenGLCompositorBackingStoreCall9 call = reinterpret_cast<CuteQOpenGLCompositorBackingStoreCall9>(taken[9]);
       call(this, &handled);
       if (handled) return;
     }

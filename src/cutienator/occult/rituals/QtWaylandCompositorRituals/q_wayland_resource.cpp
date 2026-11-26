@@ -16,6 +16,20 @@ QWaylandResource *ritual_ZN16QWaylandResourceC1Ev() {
   return new QWaylandResource();
 }
 
+//  QWaylandResource::QWaylandResource(wl_resource *resource)
+extern "C" Q_DECL_EXPORT
+QWaylandResource *ritual_ZN16QWaylandResourceC1EP11wl_resource(
+    wl_resource *resource) {
+  return new QWaylandResource(resource);
+}
+
+//  wl_resource *QWaylandResource::resource() const
+extern "C" Q_DECL_EXPORT
+wl_resource *ritual_ZNK16QWaylandResource8resourceEv(
+    const QWaylandResource *self) {
+  return self->resource();
+}
+
 //  QWaylandResource::~QWaylandResource()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QWaylandResourceD1Ev(QWaylandResource *self) {

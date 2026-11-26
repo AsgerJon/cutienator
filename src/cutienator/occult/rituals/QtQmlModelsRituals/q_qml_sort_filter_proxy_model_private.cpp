@@ -14,6 +14,10 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <utility>
+#include <QtCore/QModelIndex>
+#include <QtCore/QHash>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/private/qqmlsortercompositor_p.h>
 #include <QtQmlModels/private/qqmlsortfilterproxymodel_p_p.h>
@@ -46,6 +50,234 @@ inline QQmlSorterCompositor::QQmlSorterCompositor(QObject *parent)
             this, &QQmlSorterCompositor::updateSorters);
     connect(d->m_sfpmModel, &QQmlSortFilterProxyModel::primarySorterChanged,
             this, &QQmlSorterCompositor::updateEffectiveSorters);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1594, as _ZN31QQmlSortFilterProxyModelPrivate15beginInsertRowsERK11QModelIndexii
+inline void QQmlSortFilterProxyModelPrivate::beginInsertRows(const QModelIndex &parent, int first, int last) {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->beginInsertRows(parent, first, last);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1602, as _ZN31QQmlSortFilterProxyModelPrivate18beginInsertColumnsERK11QModelIndexii
+inline void QQmlSortFilterProxyModelPrivate::beginInsertColumns(const QModelIndex &parent, int first, int last) {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->beginInsertColumns(parent, first, last);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1610, as _ZN31QQmlSortFilterProxyModelPrivate13endInsertRowsEv
+inline void QQmlSortFilterProxyModelPrivate::endInsertRows() {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->endInsertRows();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1618, as _ZN31QQmlSortFilterProxyModelPrivate16endInsertColumnsEv
+inline void QQmlSortFilterProxyModelPrivate::endInsertColumns() {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->endInsertColumns();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1626, as _ZN31QQmlSortFilterProxyModelPrivate15beginRemoveRowsERK11QModelIndexii
+inline void QQmlSortFilterProxyModelPrivate::beginRemoveRows(const QModelIndex &parent, int first, int last) {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->beginRemoveRows(parent, first, last);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1634, as _ZN31QQmlSortFilterProxyModelPrivate18beginRemoveColumnsERK11QModelIndexii
+inline void QQmlSortFilterProxyModelPrivate::beginRemoveColumns(const QModelIndex &parent, int first, int last) {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->beginRemoveColumns(parent, first, last);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1642, as _ZN31QQmlSortFilterProxyModelPrivate13endRemoveRowsEv
+inline void QQmlSortFilterProxyModelPrivate::endRemoveRows() {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->endRemoveRows();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1650, as _ZN31QQmlSortFilterProxyModelPrivate16endRemoveColumnsEv
+inline void QQmlSortFilterProxyModelPrivate::endRemoveColumns() {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->endRemoveColumns();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1658, as _ZN31QQmlSortFilterProxyModelPrivate15beginResetModelEv
+inline void QQmlSortFilterProxyModelPrivate::beginResetModel() {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->beginResetModel();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1666, as _ZN31QQmlSortFilterProxyModelPrivate13endResetModelEv
+inline void QQmlSortFilterProxyModelPrivate::endResetModel() {
+    Q_Q(QQmlSortFilterProxyModel);
+    q->endResetModel();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1557, as _ZNK31QQmlSortFilterProxyModelPrivate24filterAcceptsRowInternalEiRK11QModelIndex
+inline bool QQmlSortFilterProxyModelPrivate::filterAcceptsRowInternal(int row, const QModelIndex &sourceIndex) const
+{
+    Q_Q(const QQmlSortFilterProxyModel);
+    const bool retVal = (q->filterAcceptsRow(row, sourceIndex) ||
+                         (m_autoAcceptChildRows && recursiveParentAcceptsRow(sourceIndex)) ||
+                         (m_recursiveFiltering && recursiveChildAcceptsRow(row, sourceIndex)));
+    return retVal;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1674, as _ZNK31QQmlSortFilterProxyModelPrivate16filterAcceptsRowEiRK11QModelIndex
+inline bool QQmlSortFilterProxyModelPrivate::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const {
+    return q_func()->filterAcceptsRow(source_row, source_parent);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1569, as _ZNK31QQmlSortFilterProxyModelPrivate27filterAcceptsColumnInternalEiRK11QModelIndex
+inline bool QQmlSortFilterProxyModelPrivate::filterAcceptsColumnInternal(int row, const QModelIndex &sourceIndex) const
+{
+    Q_Q(const QQmlSortFilterProxyModel);
+    return q->filterAcceptsColumn(row, sourceIndex);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1681, as _ZNK31QQmlSortFilterProxyModelPrivate19filterAcceptsColumnEiRK11QModelIndex
+inline bool QQmlSortFilterProxyModelPrivate::filterAcceptsColumn(int source_column, const QModelIndex &source_parent) const {
+    return q_func()->filterAcceptsColumn(source_column, source_parent);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1688, as _ZNK31QQmlSortFilterProxyModelPrivate8lessThanERK11QModelIndexS2_
+inline bool QQmlSortFilterProxyModelPrivate::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const {
+    return q_func()->lessThan(source_left, source_right);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 145, as _ZN20QQmlSorterCompositor13updateSortersEv
+inline void QQmlSorterCompositor::updateSorters()
+{
+    Q_D(QQmlSorterCompositor);
+    // Update sorters that has dependency with the model data to determine
+    // whether it needs to be included or not
+    for (auto &sorter: d->m_sorters)
+        sorter->update(d->m_sfpmModel);
+    updateCache();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1529, as _ZNK31QQmlSortFilterProxyModelPrivate29containRoleForRecursiveFilterERK5QListIiE
+inline bool QQmlSortFilterProxyModelPrivate::containRoleForRecursiveFilter(const QList<int> &roles) const
+{
+    if (!model || roles.isEmpty())
+        return false;
+    // Get role names for the provided roles (roles arg.)
+    const QHash<int, QByteArray> &roleNames = model->roleNames();
+    QList<QString> filterRoles;
+    std::for_each(roles.constBegin(), roles.constEnd(), [&roleNames, &filterRoles](const int role){
+        if (roleNames.contains(role))
+            filterRoles.append(QString::fromUtf8(roleNames[role]));
+    });
+
+    // Check if the configured role filter matches with the provided roles
+    bool filterRoleConfigured = false;
+    if (!filterRoles.isEmpty() && (m_filters && m_filters->filters().isEmpty())) {
+        const QList<QQmlFilterBase *> proxyFilters = m_filters->filters();
+        filterRoleConfigured = std::any_of(proxyFilters.constBegin(), proxyFilters.constEnd(), [&filterRoles](QQmlFilterBase* filterComp) {
+            if (const auto *roleFilter = qobject_cast<QQmlRoleFilter *>(filterComp))
+                return filterRoles.contains(roleFilter->roleName());
+            return true;
+        });
+    }
+    return m_recursiveFiltering && filterRoleConfigured;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 863, as _ZNK31QQmlSortFilterProxyModelPrivate25recursiveParentAcceptsRowERK11QModelIndex
+inline bool QQmlSortFilterProxyModelPrivate::recursiveParentAcceptsRow(const QModelIndex &source_parent) const
+{
+    Q_Q(const QQmlSortFilterProxyModel);
+    if (source_parent.isValid()) {
+        const QModelIndex index = source_parent.parent();
+        if (q->filterAcceptsRow(source_parent.row(), index))
+            return true;
+        return recursiveParentAcceptsRow(index);
+    }
+    return false;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 875, as _ZNK31QQmlSortFilterProxyModelPrivate24recursiveChildAcceptsRowEiRK11QModelIndex
+inline bool QQmlSortFilterProxyModelPrivate::recursiveChildAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    Q_Q(const QQmlSortFilterProxyModel);
+    const QModelIndex index = model->index(source_row, 0, source_parent);
+    const int count = model->rowCount(index);
+    for (int i = 0; i < count; ++i) {
+        if (q->filterAcceptsRow(i, index))
+            return true;
+        if (recursiveChildAcceptsRow(i, index))
+            return true;
+    }
+    return false;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1040, as _ZNK31QQmlSortFilterProxyModelPrivate12needsReorderERK5QListIiERK11QModelIndex
+inline bool QQmlSortFilterProxyModelPrivate::needsReorder(const QList<int> &source_rows, const QModelIndex &source_parent) const
+{
+    Q_Q(const QQmlSortFilterProxyModel);
+    Q_ASSERT(m_primarySortColumn != -1);
+    const int proxyRowCount = q->rowCount(source_to_proxy(source_parent));
+    // If any modified proxy row no longer passes lessThan(previous, current)
+    // or lessThan(current, next) then we need to reorder.
+    return std::any_of(source_rows.begin(), source_rows.end(),
+                       [this, q, proxyRowCount, source_parent](int sourceRow) -> bool {
+                           const QModelIndex sourceIndex = model->index(sourceRow, m_primarySortColumn, source_parent);
+                           const QModelIndex proxyIndex = source_to_proxy(sourceIndex);
+                           Q_ASSERT(proxyIndex.isValid()); // caller ensured source_rows were not filtered out
+                           if (proxyIndex.row() > 0) {
+                               const QModelIndex prevProxyIndex = q->sibling(proxyIndex.row() - 1, m_proxySortColumn, proxyIndex);
+                               const QModelIndex prevSourceIndex = proxy_to_source(prevProxyIndex);
+                               if (m_sortOrder == Qt::AscendingOrder ? q->lessThan(sourceIndex, prevSourceIndex) : q->lessThan(prevSourceIndex, sourceIndex))
+                                   return true;
+                           }
+                           if (proxyIndex.row() < proxyRowCount - 1) {
+                               const QModelIndex nextProxyIndex = q->sibling(proxyIndex.row() + 1, m_proxySortColumn, proxyIndex);
+                               const QModelIndex nextSourceIndex = proxy_to_source(nextProxyIndex);
+                               if (m_sortOrder == Qt::AscendingOrder ? q->lessThan(nextSourceIndex, sourceIndex) : q->lessThan(sourceIndex, nextSourceIndex))
+                                   return true;
+                           }
+                           return false;
+                       });
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 895, as _ZN31QQmlSortFilterProxyModelPrivate19updatePrimaryColumnEv
+inline bool QQmlSortFilterProxyModelPrivate::updatePrimaryColumn()
+{
+    int old_primayColumn = m_primarySortColumn;
+
+    if (m_proxySortColumn == -1) {
+        m_primarySortColumn = -1;
+    } else {
+        // We cannot use index mapping here because in case of a still-empty
+        // proxy model there's no valid proxy index we could map to source.
+        // So always use the root mapping directly instead.
+        QSortFilterProxyModelHelper::Mapping *m = create_mapping(QModelIndex()).value();
+        if (m_proxySortColumn < m->source_columns.size())
+            m_primarySortColumn = m->source_columns.at(m_proxySortColumn);
+        else
+            m_primarySortColumn = -1;
+    }
+
+    return old_primayColumn != m_primarySortColumn;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 921, as _ZNK31QQmlSortFilterProxyModelPrivate21findPrimarySortColumnEv
+inline int QQmlSortFilterProxyModelPrivate::findPrimarySortColumn() const
+{
+    if (m_proxySortColumn == -1)
+        return -1;
+
+    const QModelIndex rootIndex;
+    const int source_cols = model->columnCount();
+    int accepted_columns = -1;
+
+    Q_Q(const QQmlSortFilterProxyModel);
+    for (int i = 0; i < source_cols; ++i) {
+        if (q->filterAcceptsColumn(i, rootIndex)) {
+            if (++accepted_columns == m_proxySortColumn)
+                return i;
+        }
+    }
+
+    return -1;
 }
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1068, as _ZN31QQmlSortFilterProxyModelPrivate20_q_sourceDataChangedERK11QModelIndexS2_RK5QListIiE
@@ -195,142 +427,6 @@ inline void QQmlSortFilterProxyModelPrivate::_q_sourceDataChanged(const QModelIn
                                 source_rows_insert, source_parent, QSortFilterProxyModelHelper::Direction::Rows);
         }
     }
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 145, as _ZN20QQmlSorterCompositor13updateSortersEv
-inline void QQmlSorterCompositor::updateSorters()
-{
-    Q_D(QQmlSorterCompositor);
-    // Update sorters that has dependency with the model data to determine
-    // whether it needs to be included or not
-    for (auto &sorter: d->m_sorters)
-        sorter->update(d->m_sfpmModel);
-    updateCache();
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1040, as _ZNK31QQmlSortFilterProxyModelPrivate12needsReorderERK5QListIiERK11QModelIndex
-inline bool QQmlSortFilterProxyModelPrivate::needsReorder(const QList<int> &source_rows, const QModelIndex &source_parent) const
-{
-    Q_Q(const QQmlSortFilterProxyModel);
-    Q_ASSERT(m_primarySortColumn != -1);
-    const int proxyRowCount = q->rowCount(source_to_proxy(source_parent));
-    // If any modified proxy row no longer passes lessThan(previous, current)
-    // or lessThan(current, next) then we need to reorder.
-    return std::any_of(source_rows.begin(), source_rows.end(),
-                       [this, q, proxyRowCount, source_parent](int sourceRow) -> bool {
-                           const QModelIndex sourceIndex = model->index(sourceRow, m_primarySortColumn, source_parent);
-                           const QModelIndex proxyIndex = source_to_proxy(sourceIndex);
-                           Q_ASSERT(proxyIndex.isValid()); // caller ensured source_rows were not filtered out
-                           if (proxyIndex.row() > 0) {
-                               const QModelIndex prevProxyIndex = q->sibling(proxyIndex.row() - 1, m_proxySortColumn, proxyIndex);
-                               const QModelIndex prevSourceIndex = proxy_to_source(prevProxyIndex);
-                               if (m_sortOrder == Qt::AscendingOrder ? q->lessThan(sourceIndex, prevSourceIndex) : q->lessThan(prevSourceIndex, sourceIndex))
-                                   return true;
-                           }
-                           if (proxyIndex.row() < proxyRowCount - 1) {
-                               const QModelIndex nextProxyIndex = q->sibling(proxyIndex.row() + 1, m_proxySortColumn, proxyIndex);
-                               const QModelIndex nextSourceIndex = proxy_to_source(nextProxyIndex);
-                               if (m_sortOrder == Qt::AscendingOrder ? q->lessThan(nextSourceIndex, sourceIndex) : q->lessThan(sourceIndex, nextSourceIndex))
-                                   return true;
-                           }
-                           return false;
-                       });
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1529, as _ZNK31QQmlSortFilterProxyModelPrivate29containRoleForRecursiveFilterERK5QListIiE
-inline bool QQmlSortFilterProxyModelPrivate::containRoleForRecursiveFilter(const QList<int> &roles) const
-{
-    if (!model || roles.isEmpty())
-        return false;
-    // Get role names for the provided roles (roles arg.)
-    const QHash<int, QByteArray> &roleNames = model->roleNames();
-    QList<QString> filterRoles;
-    std::for_each(roles.constBegin(), roles.constEnd(), [&roleNames, &filterRoles](const int role){
-        if (roleNames.contains(role))
-            filterRoles.append(QString::fromUtf8(roleNames[role]));
-    });
-
-    // Check if the configured role filter matches with the provided roles
-    bool filterRoleConfigured = false;
-    if (!filterRoles.isEmpty() && (m_filters && m_filters->filters().isEmpty())) {
-        const QList<QQmlFilterBase *> proxyFilters = m_filters->filters();
-        filterRoleConfigured = std::any_of(proxyFilters.constBegin(), proxyFilters.constEnd(), [&filterRoles](QQmlFilterBase* filterComp) {
-            if (const auto *roleFilter = qobject_cast<QQmlRoleFilter *>(filterComp))
-                return filterRoles.contains(roleFilter->roleName());
-            return true;
-        });
-    }
-    return m_recursiveFiltering && filterRoleConfigured;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 863, as _ZNK31QQmlSortFilterProxyModelPrivate25recursiveParentAcceptsRowERK11QModelIndex
-inline bool QQmlSortFilterProxyModelPrivate::recursiveParentAcceptsRow(const QModelIndex &source_parent) const
-{
-    Q_Q(const QQmlSortFilterProxyModel);
-    if (source_parent.isValid()) {
-        const QModelIndex index = source_parent.parent();
-        if (q->filterAcceptsRow(source_parent.row(), index))
-            return true;
-        return recursiveParentAcceptsRow(index);
-    }
-    return false;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 875, as _ZNK31QQmlSortFilterProxyModelPrivate24recursiveChildAcceptsRowEiRK11QModelIndex
-inline bool QQmlSortFilterProxyModelPrivate::recursiveChildAcceptsRow(int source_row, const QModelIndex &source_parent) const
-{
-    Q_Q(const QQmlSortFilterProxyModel);
-    const QModelIndex index = model->index(source_row, 0, source_parent);
-    const int count = model->rowCount(index);
-    for (int i = 0; i < count; ++i) {
-        if (q->filterAcceptsRow(i, index))
-            return true;
-        if (recursiveChildAcceptsRow(i, index))
-            return true;
-    }
-    return false;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 895, as _ZN31QQmlSortFilterProxyModelPrivate19updatePrimaryColumnEv
-inline bool QQmlSortFilterProxyModelPrivate::updatePrimaryColumn()
-{
-    int old_primayColumn = m_primarySortColumn;
-
-    if (m_proxySortColumn == -1) {
-        m_primarySortColumn = -1;
-    } else {
-        // We cannot use index mapping here because in case of a still-empty
-        // proxy model there's no valid proxy index we could map to source.
-        // So always use the root mapping directly instead.
-        QSortFilterProxyModelHelper::Mapping *m = create_mapping(QModelIndex()).value();
-        if (m_proxySortColumn < m->source_columns.size())
-            m_primarySortColumn = m->source_columns.at(m_proxySortColumn);
-        else
-            m_primarySortColumn = -1;
-    }
-
-    return old_primayColumn != m_primarySortColumn;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 921, as _ZNK31QQmlSortFilterProxyModelPrivate21findPrimarySortColumnEv
-inline int QQmlSortFilterProxyModelPrivate::findPrimarySortColumn() const
-{
-    if (m_proxySortColumn == -1)
-        return -1;
-
-    const QModelIndex rootIndex;
-    const int source_cols = model->columnCount();
-    int accepted_columns = -1;
-
-    Q_Q(const QQmlSortFilterProxyModel);
-    for (int i = 0; i < source_cols; ++i) {
-        if (q->filterAcceptsColumn(i, rootIndex)) {
-            if (++accepted_columns == m_proxySortColumn)
-                return i;
-        }
-    }
-
-    return -1;
 }
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1216, as _ZN31QQmlSortFilterProxyModelPrivate26_q_sourceHeaderDataChangedEN2Qt11OrientationEii
@@ -672,23 +768,6 @@ inline void QQmlSortFilterProxyModelPrivate::_q_sourceColumnsMoved(
     if (sourceParent != destParent)
         parents << destParent;
     _q_sourceLayoutChanged(parents, QAbstractItemModel::NoLayoutChangeHint);
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1557, as _ZNK31QQmlSortFilterProxyModelPrivate24filterAcceptsRowInternalEiRK11QModelIndex
-inline bool QQmlSortFilterProxyModelPrivate::filterAcceptsRowInternal(int row, const QModelIndex &sourceIndex) const
-{
-    Q_Q(const QQmlSortFilterProxyModel);
-    const bool retVal = (q->filterAcceptsRow(row, sourceIndex) ||
-                         (m_autoAcceptChildRows && recursiveParentAcceptsRow(sourceIndex)) ||
-                         (m_recursiveFiltering && recursiveChildAcceptsRow(row, sourceIndex)));
-    return retVal;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1569, as _ZNK31QQmlSortFilterProxyModelPrivate27filterAcceptsColumnInternalEiRK11QModelIndex
-inline bool QQmlSortFilterProxyModelPrivate::filterAcceptsColumnInternal(int row, const QModelIndex &sourceIndex) const
-{
-    Q_Q(const QQmlSortFilterProxyModel);
-    return q->filterAcceptsColumn(row, sourceIndex);
 }
 //  -----------------------------------------------------------------------
 
@@ -1154,6 +1233,15 @@ const QQmlSortFilterProxyModel *ritual_ZNK31QQmlSortFilterProxyModelPrivate6q_fu
   return self->q_func();
 }
 
+//  bool QQmlSortFilterProxyModelPrivate::containRoleForRecursiveFilter(const
+//      QList<int> &roles) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK31QQmlSortFilterProxyModelPrivate29containRoleForRecursiveFilterERK5QListIiE(
+    const QQmlSortFilterProxyModelPrivate *self,
+    const QList<int> *roles) {
+  return self->containRoleForRecursiveFilter(*roles);
+}
+
 //  bool QQmlSortFilterProxyModelPrivate::recursiveParentAcceptsRow(const
 //      QModelIndex &source_parent) const
 extern "C" Q_DECL_EXPORT
@@ -1173,6 +1261,35 @@ bool ritual_ZNK31QQmlSortFilterProxyModelPrivate24recursiveChildAcceptsRowEiRK11
   return self->recursiveChildAcceptsRow(source_row, *source_parent);
 }
 
+//  QList<std::pair<int, QList<int>>> QQmlSortFilterProxyModelPrivate::proxy_
+//      intervals_for_source_items_to_add(const QList<int> &proxy_to_source,
+//      const QList<int> &source_items, const QModelIndex &source_parent,
+//      QSortFilterProxyModelHelper::Direction direction) const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<int, QList<int>>> *ritual_ZNK31QQmlSortFilterProxyModelPrivate39proxy_intervals_for_source_items_to_addERK5QListIiES3_RK11QModelIndexN27QSortFilterProxyModelHelper9DirectionE(
+    const QQmlSortFilterProxyModelPrivate *self,
+    const QList<int> *proxy_to_source,
+    const QList<int> *source_items,
+    const QModelIndex *source_parent,
+    QSortFilterProxyModelHelper::Direction direction) {
+  return new QList<std::pair<int, QList<int>>>(
+      self->proxy_intervals_for_source_items_to_add(
+          *proxy_to_source,
+          *source_items,
+          *source_parent,
+          direction));
+}
+
+//  bool QQmlSortFilterProxyModelPrivate::needsReorder(const QList<int>
+//      &source_rows, const QModelIndex &source_parent) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK31QQmlSortFilterProxyModelPrivate12needsReorderERK5QListIiERK11QModelIndex(
+    const QQmlSortFilterProxyModelPrivate *self,
+    const QList<int> *source_rows,
+    const QModelIndex *source_parent) {
+  return self->needsReorder(*source_rows, *source_parent);
+}
+
 //  bool QQmlSortFilterProxyModelPrivate::updatePrimaryColumn()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN31QQmlSortFilterProxyModelPrivate19updatePrimaryColumnEv(
@@ -1185,6 +1302,114 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK31QQmlSortFilterProxyModelPrivate21findPrimarySortColumnEv(
     const QQmlSortFilterProxyModelPrivate *self) {
   return self->findPrimarySortColumn();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::changePersistentIndexList(const
+//      QModelIndexList &from, const QModelIndexList &to)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate25changePersistentIndexListERK5QListI11QModelIndexES4_(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QList<QModelIndex> *from,
+    const QList<QModelIndex> *to) {
+  self->changePersistentIndexList(*from, *to);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginInsertRows(const QModelIndex
+//      &parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate15beginInsertRowsERK11QModelIndexii(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->beginInsertRows(*parent, first, last);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginInsertColumns(const
+//      QModelIndex &parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate18beginInsertColumnsERK11QModelIndexii(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->beginInsertColumns(*parent, first, last);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endInsertRows()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate13endInsertRowsEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->endInsertRows();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endInsertColumns()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate16endInsertColumnsEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->endInsertColumns();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginRemoveRows(const QModelIndex
+//      &parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate15beginRemoveRowsERK11QModelIndexii(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->beginRemoveRows(*parent, first, last);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginRemoveColumns(const
+//      QModelIndex &parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate18beginRemoveColumnsERK11QModelIndexii(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->beginRemoveColumns(*parent, first, last);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endRemoveRows()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate13endRemoveRowsEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->endRemoveRows();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endRemoveColumns()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate16endRemoveColumnsEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->endRemoveColumns();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginResetModel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate15beginResetModelEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->beginResetModel();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endResetModel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate13endResetModelEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->endResetModel();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::_q_sourceDataChanged(const
+//      QModelIndex &source_top_left, const QModelIndex &source_bottom_right,
+//      const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate20_q_sourceDataChangedERK11QModelIndexS2_RK5QListIiE(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *source_top_left,
+    const QModelIndex *source_bottom_right,
+    const QList<int> *roles) {
+  self->_q_sourceDataChanged(*source_top_left, *source_bottom_right, *roles);
 }
 
 //  void QQmlSortFilterProxyModelPrivate::_q_sourceHeaderDataChanged(Qt::Orie
@@ -1418,6 +1643,18 @@ const QAbstractProxyModel *ritual_ZNK31QQmlSortFilterProxyModelPrivate10proxyMod
   return self->proxyModel();
 }
 
+//  QModelIndex QQmlSortFilterProxyModelPrivate::createIndex(int row, int
+//      column, QHash<QtPrivate::QModelIndexWrapper,
+//      QSortFilterProxyModelHelper::Mapping *>::const_iterator it) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK31QQmlSortFilterProxyModelPrivate11createIndexEiiN5QHashIN9QtPrivate18QModelIndexWrapperEPN27QSortFilterProxyModelHelper7MappingEE14const_iteratorE(
+    const QQmlSortFilterProxyModelPrivate *self,
+    int row,
+    int column,
+    const QHash<QtPrivate::QModelIndexWrapper, QSortFilterProxyModelHelper::Mapping *>::const_iterator *it) {
+  return new QModelIndex(self->createIndex(row, column, *it));
+}
+
 //  bool QQmlSortFilterProxyModelPrivate::filterAcceptsRowInternal(int
 //      sourceRow, const QModelIndex &sourceIndex) const
 extern "C" Q_DECL_EXPORT
@@ -1428,6 +1665,16 @@ bool ritual_ZNK31QQmlSortFilterProxyModelPrivate24filterAcceptsRowInternalEiRK11
   return self->filterAcceptsRowInternal(sourceRow, *sourceIndex);
 }
 
+//  bool QQmlSortFilterProxyModelPrivate::filterAcceptsRow(int source_row,
+//      const QModelIndex &source_parent) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK31QQmlSortFilterProxyModelPrivate16filterAcceptsRowEiRK11QModelIndex(
+    const QQmlSortFilterProxyModelPrivate *self,
+    int source_row,
+    const QModelIndex *source_parent) {
+  return self->filterAcceptsRow(source_row, *source_parent);
+}
+
 //  bool QQmlSortFilterProxyModelPrivate::filterAcceptsColumnInternal(int
 //      sourceColumn, const QModelIndex &sourceIndex) const
 extern "C" Q_DECL_EXPORT
@@ -1436,6 +1683,36 @@ bool ritual_ZNK31QQmlSortFilterProxyModelPrivate27filterAcceptsColumnInternalEiR
     int sourceColumn,
     const QModelIndex *sourceIndex) {
   return self->filterAcceptsColumnInternal(sourceColumn, *sourceIndex);
+}
+
+//  bool QQmlSortFilterProxyModelPrivate::filterAcceptsColumn(int
+//      source_column, const QModelIndex &source_parent) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK31QQmlSortFilterProxyModelPrivate19filterAcceptsColumnEiRK11QModelIndex(
+    const QQmlSortFilterProxyModelPrivate *self,
+    int source_column,
+    const QModelIndex *source_parent) {
+  return self->filterAcceptsColumn(source_column, *source_parent);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::sort_source_rows(QList<int>
+//      &source_rows, const QModelIndex &source_parent) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK31QQmlSortFilterProxyModelPrivate16sort_source_rowsER5QListIiERK11QModelIndex(
+    const QQmlSortFilterProxyModelPrivate *self,
+    QList<int> *source_rows,
+    const QModelIndex *source_parent) {
+  self->sort_source_rows(*source_rows, *source_parent);
+}
+
+//  bool QQmlSortFilterProxyModelPrivate::lessThan(const QModelIndex
+//      &source_left, const QModelIndex &source_right) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK31QQmlSortFilterProxyModelPrivate8lessThanERK11QModelIndexS2_(
+    const QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *source_left,
+    const QModelIndex *source_right) {
+  return self->lessThan(*source_left, *source_right);
 }
 
 //  QQmlSortFilterProxyModelPrivate as the QSortFilterProxyModelHelper it is
@@ -1454,6 +1731,104 @@ bool ritual_take_QQmlSortFilterProxyModelPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQQmlSortFilterProxyModelPrivate *>(self)->take(key, call);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginInsertRows(const QModelIndex
+//      &parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate15beginInsertRowsERK11QModelIndexii(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->QQmlSortFilterProxyModelPrivate::beginInsertRows(
+      *parent,
+      first,
+      last);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginInsertColumns(const
+//      QModelIndex &parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate18beginInsertColumnsERK11QModelIndexii(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->QQmlSortFilterProxyModelPrivate::beginInsertColumns(
+      *parent,
+      first,
+      last);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endInsertRows()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate13endInsertRowsEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->QQmlSortFilterProxyModelPrivate::endInsertRows();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endInsertColumns()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate16endInsertColumnsEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->QQmlSortFilterProxyModelPrivate::endInsertColumns();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginRemoveRows(const QModelIndex
+//      &parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate15beginRemoveRowsERK11QModelIndexii(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->QQmlSortFilterProxyModelPrivate::beginRemoveRows(
+      *parent,
+      first,
+      last);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginRemoveColumns(const
+//      QModelIndex &parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate18beginRemoveColumnsERK11QModelIndexii(
+    QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->QQmlSortFilterProxyModelPrivate::beginRemoveColumns(
+      *parent,
+      first,
+      last);
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endRemoveRows()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate13endRemoveRowsEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->QQmlSortFilterProxyModelPrivate::endRemoveRows();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endRemoveColumns()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate16endRemoveColumnsEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->QQmlSortFilterProxyModelPrivate::endRemoveColumns();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::beginResetModel()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate15beginResetModelEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->QQmlSortFilterProxyModelPrivate::beginResetModel();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::endResetModel()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN31QQmlSortFilterProxyModelPrivate13endResetModelEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->QQmlSortFilterProxyModelPrivate::endResetModel();
 }
 
 //  const QAbstractProxyModel *QQmlSortFilterProxyModelPrivate::proxyModel()
@@ -1476,6 +1851,18 @@ bool ritual_own_ZNK31QQmlSortFilterProxyModelPrivate24filterAcceptsRowInternalEi
       *sourceIndex);
 }
 
+//  bool QQmlSortFilterProxyModelPrivate::filterAcceptsRow(int source_row,
+//      const QModelIndex &source_parent) const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK31QQmlSortFilterProxyModelPrivate16filterAcceptsRowEiRK11QModelIndex(
+    const QQmlSortFilterProxyModelPrivate *self,
+    int source_row,
+    const QModelIndex *source_parent) {
+  return self->QQmlSortFilterProxyModelPrivate::filterAcceptsRow(
+      source_row,
+      *source_parent);
+}
+
 //  bool QQmlSortFilterProxyModelPrivate::filterAcceptsColumnInternal(int
 //      sourceColumn, const QModelIndex &sourceIndex) const
 extern "C" Q_DECL_EXPORT
@@ -1486,6 +1873,38 @@ bool ritual_own_ZNK31QQmlSortFilterProxyModelPrivate27filterAcceptsColumnInterna
   return self->QQmlSortFilterProxyModelPrivate::filterAcceptsColumnInternal(
       sourceColumn,
       *sourceIndex);
+}
+
+//  bool QQmlSortFilterProxyModelPrivate::filterAcceptsColumn(int
+//      source_column, const QModelIndex &source_parent) const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK31QQmlSortFilterProxyModelPrivate19filterAcceptsColumnEiRK11QModelIndex(
+    const QQmlSortFilterProxyModelPrivate *self,
+    int source_column,
+    const QModelIndex *source_parent) {
+  return self->QQmlSortFilterProxyModelPrivate::filterAcceptsColumn(
+      source_column,
+      *source_parent);
+}
+
+//  bool QQmlSortFilterProxyModelPrivate::lessThan(const QModelIndex
+//      &source_left, const QModelIndex &source_right) const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK31QQmlSortFilterProxyModelPrivate8lessThanERK11QModelIndexS2_(
+    const QQmlSortFilterProxyModelPrivate *self,
+    const QModelIndex *source_left,
+    const QModelIndex *source_right) {
+  return self->QQmlSortFilterProxyModelPrivate::lessThan(
+      *source_left,
+      *source_right);
+}
+
+//  a QList<std::pair<int, QList<int>>> a ritual of
+//      QQmlSortFilterProxyModelPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlSortFilterProxyModelPrivate__QList_std_pair_int_QList_int(
+    QList<std::pair<int, QList<int>>> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)

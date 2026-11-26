@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QPieSlicePrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QPieSlicePrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QPieSlicePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QPieSlicePrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,6 +40,16 @@
     ],
     "ritual_ZN16QPieSlicePrivate12setAngleSpanEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN16QPieSlicePrivate20labelPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QPieSlicePrivate15explodedChangedEv": ["nothing", "address"],
+    "ritual_ZN16QPieSlicePrivate27labelArmLengthFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QPieSlicePrivate28explodeDistanceFactorChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN16QPieSlicePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK16QPieSlicePrivate6q_funcEv": ["address", "address"],

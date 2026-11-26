@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QQmlDataBlobC1ERK4QUrlNS_4TypeEP14QQmlTypeLoader": [
+      "address", "address", "int", "address"
+    ],
     "ritual_ZN12QQmlDataBlobD1Ev": ["nothing", "address"],
     "ritual_ZN12QQmlDataBlob12startLoadingEv": ["nothing", "address"],
     "ritual_ZNK12QQmlDataBlob10typeLoaderEv": ["address", "address"],
@@ -36,6 +39,9 @@
     "ritual_ZN12QQmlDataBlob8setErrorERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN12QQmlDataBlob13addDependencyERK14QQmlRefPointerIS_E": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QQmlDataBlob12dataReceivedERKNS_14SourceCodeDataE": [
       "nothing", "address", "address"
     ],
@@ -46,6 +52,12 @@
     "ritual_ZN12QQmlDataBlob12networkErrorEN13QNetworkReply12NetworkErrorE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN12QQmlDataBlob15dependencyErrorERK14QQmlRefPointerIS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlDataBlob18dependencyCompleteERK14QQmlRefPointerIS_E": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QQmlDataBlob19allDependenciesDoneEv": ["nothing", "address"],
     "ritual_ZN12QQmlDataBlob23downloadProgressChangedEd": [
       "nothing", "address", "double"
@@ -55,6 +67,9 @@
     "ritual_ZN12QQmlDataBlob19cancelAllWaitingForEv": ["nothing", "address"],
     "ritual_ZN12QQmlDataBlob20notifyAllWaitingOnMeEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN12QQmlDataBlob14notifyCompleteERK14QQmlRefPointerIS_E": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN12QQmlDataBlob9setStatusENS_6StatusE": [
       "bool", "address", "int"

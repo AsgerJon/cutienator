@@ -53,10 +53,43 @@ QPlaceSearchRequest *ritual_ZN19QPlaceSearchRequestC1ERKS_(
   return new QPlaceSearchRequest(*other);
 }
 
+//  QPlaceSearchRequest::QPlaceSearchRequest(QPlaceSearchRequest &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceSearchRequest *ritual_ZN19QPlaceSearchRequestC1EOS_(
+    QPlaceSearchRequest *other) {
+  return new QPlaceSearchRequest(std::move(*other));
+}
+
 //  QPlaceSearchRequest::~QPlaceSearchRequest()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QPlaceSearchRequestD1Ev(QPlaceSearchRequest *self) {
   delete self;
+}
+
+//  QPlaceSearchRequest &QPlaceSearchRequest::operator=(const
+//      QPlaceSearchRequest &other)
+extern "C" Q_DECL_EXPORT
+QPlaceSearchRequest *ritual_ZN19QPlaceSearchRequestaSERKS_(
+    QPlaceSearchRequest *self,
+    const QPlaceSearchRequest *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlaceSearchRequest &QPlaceSearchRequest::operator=(QPlaceSearchRequest
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceSearchRequest *ritual_ZN19QPlaceSearchRequestaSEOS_(
+    QPlaceSearchRequest *self,
+    QPlaceSearchRequest *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlaceSearchRequest::swap(QPlaceSearchRequest &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceSearchRequest4swapERS_(
+    QPlaceSearchRequest *self,
+    QPlaceSearchRequest *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPlaceSearchRequest &lhs, const QPlaceSearchRequest

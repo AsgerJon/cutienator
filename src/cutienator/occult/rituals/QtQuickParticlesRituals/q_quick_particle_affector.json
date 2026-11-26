@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickParticleAffector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickParticleAffector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickParticleAffector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickParticleAffector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,27 @@
     "ritual_ZNK22QQuickParticleAffector5shapeEv": ["address", "address"],
     "ritual_ZNK22QQuickParticleAffector17whenCollidingWithEv": [
       "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector13systemChangedEP20QQuickParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector13groupsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector14enabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickParticleAffector11onceChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickParticleAffector12shapeChangedEP22QQuickParticleExtruder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector8affectedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN22QQuickParticleAffector24whenCollidingWithChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN22QQuickParticleAffector9setSystemEP20QQuickParticleSystem": [
       "nothing", "address", "address"

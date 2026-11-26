@@ -8,9 +8,28 @@
     "ritual_ZNK25QQuickLabsPlatformMenuBar10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuickLabsPlatformMenuBarD1Ev": ["nothing", "address"],
     "ritual_ZNK25QQuickLabsPlatformMenuBar6handleEv": ["address", "address"],
     "ritual_ZNK25QQuickLabsPlatformMenuBar6windowEv": ["address", "address"],
+    "ritual_ZN25QQuickLabsPlatformMenuBar7addMenuEP22QQuickLabsPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar10removeMenuEP22QQuickLabsPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar5clearEv": ["nothing", "address"],
+    "ritual_ZN25QQuickLabsPlatformMenuBar12menusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar13windowChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN25QQuickLabsPlatformMenuBar10classBeginEv": [
       "nothing", "address"
     ],
@@ -20,6 +39,21 @@
     "ritual_ZNK25QQuickLabsPlatformMenuBar10findWindowEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar10data_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar7data_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar10data_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar11menus_countEP16QQmlListPropertyI22QQuickLabsPlatformMenuE": [
+      "long long", "address"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar8menus_atEP16QQmlListPropertyI22QQuickLabsPlatformMenuEx": [
+      "address", "address", "long long"
+    ],
     "ritual_cast_QQuickLabsPlatformMenuBar_QQmlParserStatus": [
       "address", "address"
     ],
@@ -27,6 +61,12 @@
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN25QQuickLabsPlatformMenuBar10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickLabsPlatformMenuBar__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickLabsPlatformMenuBar__QQmlListProperty_QQuickLabsPlatformMenu": [
       "nothing", "address"
     ]
   }

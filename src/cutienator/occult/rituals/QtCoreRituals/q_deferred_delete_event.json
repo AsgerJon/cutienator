@@ -1,14 +1,21 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/6.12.0/QtCore/private/qcoreevent_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtCore/6.12.0/QtCore/private/qcoreevent_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN20QDeferredDeleteEventaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QDeferredDeleteEvent5cloneEv": ["address", "address"],
+    "ritual_ZN20QDeferredDeleteEventD1Ev": ["nothing", "address"],
     "ritual_ZNK20QDeferredDeleteEvent9loopLevelEv": ["int", "address"],
     "ritual_ZNK20QDeferredDeleteEvent10scopeLevelEv": ["int", "address"],
     "ritual_take_QDeferredDeleteEvent": [
       "bool", "address", "chars", "address"
-    ]
+    ],
+    "ritual_own_ZNK20QDeferredDeleteEvent5cloneEv": ["address", "address"],
+    "ritual_ZN20QDeferredDeleteEventC2ERKS_": ["address", "address"]
   }
 }

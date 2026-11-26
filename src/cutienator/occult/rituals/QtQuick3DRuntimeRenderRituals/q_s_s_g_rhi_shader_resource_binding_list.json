@@ -12,6 +12,9 @@
     "ritual_ZN32QSSGRhiShaderResourceBindingListC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN32QSSGRhiShaderResourceBindingListaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN32QSSGRhiShaderResourceBindingList16addUniformBufferEi6QFlagsIN25QRhiShaderResourceBinding9StageFlagEEP10QRhiBufferiib": [
       "nothing", "address", "int", "int", "address", "int", "int", "bool"
     ],

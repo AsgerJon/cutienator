@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLabsPlatform/private/qquicklabsplatformdialog_p.h>
 #include <QtCore/qloggingcategory.h>
@@ -23,6 +25,35 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 303, as _ZN24QQuickLabsPlatformDialog10classBeginEv
+inline void QQuickLabsPlatformDialog::classBegin()
+{
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 232, as _ZN24QQuickLabsPlatformDialog4openEv
+inline void QQuickLabsPlatformDialog::open()
+{
+    if (m_visible || !create())
+        return;
+
+    onShow(m_handle);
+    m_visible = m_handle->show(m_flags, m_modality, m_parentWindow);
+    if (m_visible)
+        emit visibleChanged();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 250, as _ZN24QQuickLabsPlatformDialog5closeEv
+inline void QQuickLabsPlatformDialog::close()
+{
+    if (!m_handle || !m_visible)
+        return;
+
+    onHide(m_handle);
+    m_handle->hide();
+    m_visible = false;
+    emit visibleChanged();
+}
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 268, as _ZN24QQuickLabsPlatformDialog6acceptEv
 inline void QQuickLabsPlatformDialog::accept()
@@ -46,6 +77,14 @@ inline void QQuickLabsPlatformDialog::done(int result)
         emit accepted();
     else if (result == Rejected)
         emit rejected();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 307, as _ZN24QQuickLabsPlatformDialog17componentCompleteEv
+inline void QQuickLabsPlatformDialog::componentComplete()
+{
+    m_complete = true;
+    if (!m_parentWindow)
+        setParentWindow(findParentWindow());
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 342, as _ZNK24QQuickLabsPlatformDialog15useNativeDialogEv
@@ -73,16 +112,14 @@ inline void QQuickLabsPlatformDialog::onHide(QPlatformDialogHelper *dialog)
     Q_UNUSED(dialog);
 }
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 250, as _ZN24QQuickLabsPlatformDialog5closeEv
-inline void QQuickLabsPlatformDialog::close()
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 108, as _ZN24QQuickLabsPlatformDialog15setParentWindowEP7QWindow
+inline void QQuickLabsPlatformDialog::setParentWindow(QWindow *window)
 {
-    if (!m_handle || !m_visible)
+    if (m_parentWindow == window)
         return;
 
-    onHide(m_handle);
-    m_handle->hide();
-    m_visible = false;
-    emit visibleChanged();
+    m_parentWindow = window;
+    emit parentWindowChanged();
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 72, as _ZN24QQuickLabsPlatformDialogD1Ev
@@ -95,6 +132,12 @@ inline QQuickLabsPlatformDialog::~QQuickLabsPlatformDialog()
 inline QPlatformDialogHelper *QQuickLabsPlatformDialog::handle() const
 {
     return m_handle;
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 89, as _ZN24QQuickLabsPlatformDialog4dataEv
+inline QQmlListProperty<QObject> QQuickLabsPlatformDialog::data()
+{
+    return QQmlListProperty<QObject>(this, &m_data);
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 103, as _ZNK24QQuickLabsPlatformDialog12parentWindowEv
@@ -131,19 +174,6 @@ inline bool QQuickLabsPlatformDialog::isVisible() const
 inline int QQuickLabsPlatformDialog::result() const
 {
     return m_result;
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 303, as _ZN24QQuickLabsPlatformDialog10classBeginEv
-inline void QQuickLabsPlatformDialog::classBegin()
-{
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 307, as _ZN24QQuickLabsPlatformDialog17componentCompleteEv
-inline void QQuickLabsPlatformDialog::componentComplete()
-{
-    m_complete = true;
-    if (!m_parentWindow)
-        setParentWindow(findParentWindow());
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 336, as _ZN24QQuickLabsPlatformDialog7destroyEv
@@ -499,6 +529,25 @@ const QMetaObject *ritual_ZNK24QQuickLabsPlatformDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLabsPlatformDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickLabsPlatformDialog11qt_metacastEPKc(
+    QQuickLabsPlatformDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformDialog::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickLabsPlatformDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuickLabsPlatformDialog::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickLabsPlatformDialog24qt_qmlMarker_uncreatableEv(
@@ -518,6 +567,13 @@ extern "C" Q_DECL_EXPORT
 QPlatformDialogHelper *ritual_ZNK24QQuickLabsPlatformDialog6handleEv(
     const QQuickLabsPlatformDialog *self) {
   return self->handle();
+}
+
+//  QQmlListProperty<QObject> QQuickLabsPlatformDialog::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN24QQuickLabsPlatformDialog4dataEv(
+    QQuickLabsPlatformDialog *self) {
+  return new QQmlListProperty<QObject>(self->data());
 }
 
 //  QWindow *QQuickLabsPlatformDialog::parentWindow() const
@@ -562,6 +618,56 @@ int ritual_ZNK24QQuickLabsPlatformDialog6resultEv(
   return self->result();
 }
 
+//  void QQuickLabsPlatformDialog::open()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog4openEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "open()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "open()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformDialog::close()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog5closeEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "close()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "close()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuickLabsPlatformDialog::accept()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickLabsPlatformDialog6acceptEv(
@@ -582,6 +688,206 @@ void ritual_ZN24QQuickLabsPlatformDialog4doneEi(
     QQuickLabsPlatformDialog *self,
     int result) {
   self->done(result);
+}
+
+//  void QQuickLabsPlatformDialog::accepted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog8acceptedEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "accepted()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "accepted()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformDialog::rejected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog8rejectedEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "rejected()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "rejected()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformDialog::parentWindowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog19parentWindowChangedEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "parentWindowChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "parentWindowChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformDialog::titleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog12titleChangedEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "titleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "titleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformDialog::flagsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog12flagsChangedEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "flagsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "flagsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformDialog::modalityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog15modalityChangedEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "modalityChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "modalityChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformDialog::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog14visibleChangedEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "visibleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "visibleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformDialog::resultChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickLabsPlatformDialog13resultChangedEv(
+    QQuickLabsPlatformDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "resultChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "resultChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuickLabsPlatformDialog::classBegin()
@@ -713,4 +1019,11 @@ void ritual_own_ZN24QQuickLabsPlatformDialog6onHideEP21QPlatformDialogHelper(
     QPlatformDialogHelper *dialog) {
   static_cast<OwnQQuickLabsPlatformDialog *>(self)->OwnQQuickLabsPlatformDialog::onHide(
       dialog);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickLabsPlatformDialog gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickLabsPlatformDialog__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

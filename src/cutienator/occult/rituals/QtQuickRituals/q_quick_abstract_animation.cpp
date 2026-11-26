@@ -250,6 +250,25 @@ const QMetaObject *ritual_ZNK23QQuickAbstractAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAbstractAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickAbstractAnimation11qt_metacastEPKc(
+    QQuickAbstractAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAbstractAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickAbstractAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAbstractAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAbstractAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickAbstractAnimation2trEPKcS1_i(
@@ -443,6 +462,59 @@ QQuickAbstractAnimation::ThreadingModel ritual_ZNK23QQuickAbstractAnimation14thr
   return self->threadingModel();
 }
 
+//  void QQuickAbstractAnimation::started()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAbstractAnimation7startedEv(
+    QQuickAbstractAnimation *self) {
+  self->started();
+}
+
+//  void QQuickAbstractAnimation::stopped()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAbstractAnimation7stoppedEv(
+    QQuickAbstractAnimation *self) {
+  self->stopped();
+}
+
+//  void QQuickAbstractAnimation::runningChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAbstractAnimation14runningChangedEb(
+    QQuickAbstractAnimation *self,
+    bool a0) {
+  self->runningChanged(a0);
+}
+
+//  void QQuickAbstractAnimation::pausedChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAbstractAnimation13pausedChangedEb(
+    QQuickAbstractAnimation *self,
+    bool a0) {
+  self->pausedChanged(a0);
+}
+
+//  void QQuickAbstractAnimation::alwaysRunToEndChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAbstractAnimation21alwaysRunToEndChangedEb(
+    QQuickAbstractAnimation *self,
+    bool a0) {
+  self->alwaysRunToEndChanged(a0);
+}
+
+//  void QQuickAbstractAnimation::loopCountChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAbstractAnimation16loopCountChangedEi(
+    QQuickAbstractAnimation *self,
+    int a0) {
+  self->loopCountChanged(a0);
+}
+
+//  void QQuickAbstractAnimation::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAbstractAnimation8finishedEv(
+    QQuickAbstractAnimation *self) {
+  self->finished();
+}
+
 //  void QQuickAbstractAnimation::restart()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuickAbstractAnimation7restartEv(
@@ -485,6 +557,15 @@ void ritual_ZN23QQuickAbstractAnimation8completeEv(
   self->complete();
 }
 
+//  QQuickAbstractAnimation::QQuickAbstractAnimation(QQuickAbstractAnimationP
+//      rivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickAbstractAnimation *ritual_ZN23QQuickAbstractAnimationC1ER30QQuickAbstractAnimationPrivateP7QObject(
+    QQuickAbstractAnimationPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickAbstractAnimation(*dd, parent);
+}
+
 //  QAbstractAnimationJob
 //      *QQuickAbstractAnimation::initInstance(QAbstractAnimationJob
 //      *animation)
@@ -493,6 +574,20 @@ QAbstractAnimationJob *ritual_ZN23QQuickAbstractAnimation12initInstanceEP21QAbst
     QQuickAbstractAnimation *self,
     QAbstractAnimationJob *animation) {
   return self->initInstance(animation);
+}
+
+//  QAbstractAnimationJob
+//      *QQuickAbstractAnimation::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN23QQuickAbstractAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyENS_19TransitionDirectionEP7QObject(
+    QQuickAbstractAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
 }
 
 //  QAbstractAnimationJob *QQuickAbstractAnimation::qtAnimation()

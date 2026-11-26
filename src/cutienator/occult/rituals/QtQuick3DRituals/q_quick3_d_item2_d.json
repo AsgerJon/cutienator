@@ -6,12 +6,24 @@
   ],
   "rows": {
     "ritual_ZNK14QQuick3DItem2D10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DItem2D11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuick3DItem2D11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuick3DItem2DD1Ev": ["nothing", "address"],
     "ritual_ZNK14QQuick3DItem2D11contentItemEv": ["address", "address"],
     "ritual_ZN14QQuick3DItem2D13itemDestroyedEP10QQuickItem": [
       "nothing", "address", "address"
     ],
     "ritual_ZN14QQuick3DItem2D13updatePickingEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DItem2D11derefWindowEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DItem2D18allChildrenRemovedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QQuick3DItem2D7preSyncEv": ["nothing", "address"],
     "ritual_ZN14QQuick3DItem2D17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

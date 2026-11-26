@@ -9,10 +9,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qpipewire_audiodevices_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qlatin1stringview.h>
 #include <QtMultimedia/qaudiodevice.h>
 #include <QtMultimedia/qaudioformat.h>
+#include <QtCore/qlatin1stringview.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QtPipeWire::QAudioDevices that Python can take functions over in. Every QtPipeWire::QAudioDevices
@@ -260,6 +261,42 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN10QtPipeWire13QAudioDevicesD1Ev(
     QtPipeWire::QAudioDevices *self) {
   delete self;
+}
+
+//  QList<QAudioDevice> QtPipeWire::QAudioDevices::findAudioInputs() const
+extern "C" Q_DECL_EXPORT
+QList<QAudioDevice> *ritual_ZNK10QtPipeWire13QAudioDevices15findAudioInputsEv(
+    const QtPipeWire::QAudioDevices *self) {
+  return new QList<QAudioDevice>(self->findAudioInputs());
+}
+
+//  QList<QAudioDevice> QtPipeWire::QAudioDevices::findAudioOutputs() const
+extern "C" Q_DECL_EXPORT
+QList<QAudioDevice> *ritual_ZNK10QtPipeWire13QAudioDevices16findAudioOutputsEv(
+    const QtPipeWire::QAudioDevices *self) {
+  return new QList<QAudioDevice>(self->findAudioOutputs());
+}
+
+//  QPlatformAudioSource *QtPipeWire::QAudioDevices::createAudioSource(const
+//      QAudioDevice &a0, const QAudioFormat &a1, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSource *ritual_ZN10QtPipeWire13QAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject(
+    QtPipeWire::QAudioDevices *self,
+    const QAudioDevice *a0,
+    const QAudioFormat *a1,
+    QObject *parent) {
+  return self->createAudioSource(*a0, *a1, parent);
+}
+
+//  QPlatformAudioSink *QtPipeWire::QAudioDevices::createAudioSink(const
+//      QAudioDevice &a0, const QAudioFormat &a1, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSink *ritual_ZN10QtPipeWire13QAudioDevices15createAudioSinkERK12QAudioDeviceRK12QAudioFormatP7QObject(
+    QtPipeWire::QAudioDevices *self,
+    const QAudioDevice *a0,
+    const QAudioFormat *a1,
+    QObject *parent) {
+  return self->createAudioSink(*a0, *a1, parent);
 }
 
 //  QLatin1String QtPipeWire::QAudioDevices::backendName() const

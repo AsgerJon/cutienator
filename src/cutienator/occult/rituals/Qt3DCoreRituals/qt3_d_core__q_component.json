@@ -5,13 +5,41 @@
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore10QComponent10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QComponent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore10QComponent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore10QComponent2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore10QComponentC1EPNS_5QNodeE": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QComponentD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore10QComponent11isShareableEv": ["bool", "address"],
+    "ritual_ZNK8Qt3DCore10QComponent8entitiesEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QComponent12setShareableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore10QComponent16shareableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore10QComponent13addedToEntityEPNS_7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QComponent17removedFromEntityEPNS_7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QComponentC1ERNS_17QComponentPrivateEPNS_5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN8Qt3DCore10QComponent6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore10QComponent6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DCore_QComponent": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DCore_QComponent__QList_Qt3DCore_QEntity": [
+      "nothing", "address"
     ]
   }
 }

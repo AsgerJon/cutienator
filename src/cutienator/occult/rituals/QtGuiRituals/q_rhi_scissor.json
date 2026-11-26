@@ -7,11 +7,13 @@
   "rows": {
     "ritual_ZN11QRhiScissorC1Ev": ["address"],
     "ritual_ZN11QRhiScissorC1Eiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZNK11QRhiScissor7scissorEv": ["address", "address"],
     "ritual_ZN11QRhiScissor10setScissorEiiii": [
       "nothing", "address", "int", "int", "int", "int"
     ],
     "ritual_ZeqRK11QRhiScissorS1_": ["bool", "address", "address"],
     "ritual_ZneRK11QRhiScissorS1_": ["bool", "address", "address"],
-    "ritual_ZN11QRhiScissorD1Ev": ["nothing", "address"]
+    "ritual_ZN11QRhiScissorD1Ev": ["nothing", "address"],
+    "ritual_drop_QRhiScissor__std_array_int_4": ["nothing", "address"]
   }
 }

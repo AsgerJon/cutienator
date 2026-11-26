@@ -21,6 +21,14 @@ QOpcUaRange *ritual_ZN11QOpcUaRangeC1Edd(double low, double high) {
   return new QOpcUaRange(low, high);
 }
 
+//  QOpcUaRange &QOpcUaRange::operator=(const QOpcUaRange &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaRange *ritual_ZN11QOpcUaRangeaSERKS_(
+    QOpcUaRange *self,
+    const QOpcUaRange *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaRange::operator==(const QOpcUaRange &rhs) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QOpcUaRangeeqERKS_(

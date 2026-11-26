@@ -48,16 +48,28 @@ inline bool QNetworkReplyDataImpl::isSequential () const
     return true;
 }
 
-//  from src/network/access/qnetworkreplydataimpl.cpp, line 21, as _ZN21QNetworkReplyDataImplD1Ev
-inline QNetworkReplyDataImpl::~QNetworkReplyDataImpl()
-{
-}
-
 //  from src/network/access/qnetworkreplydataimpl.cpp, line 86, as _ZNK21QNetworkReplyDataImpl4sizeEv
 inline qint64 QNetworkReplyDataImpl::size() const
 {
     Q_D(const QNetworkReplyDataImpl);
     return d->decodedData.size();
+}
+
+//  from src/network/access/qnetworkreplydataimpl.cpp, line 95, as _ZN21QNetworkReplyDataImpl8readDataEPcx
+inline qint64 QNetworkReplyDataImpl::readData(char *data, qint64 maxlen)
+{
+    Q_D(QNetworkReplyDataImpl);
+
+    // TODO idea:
+    // Instead of decoding the whole data into new memory, we could decode on demand.
+    // Note that this might be tricky to do.
+
+    return d->decodedData.read(data, maxlen);
+}
+
+//  from src/network/access/qnetworkreplydataimpl.cpp, line 21, as _ZN21QNetworkReplyDataImplD1Ev
+inline QNetworkReplyDataImpl::~QNetworkReplyDataImpl()
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -69,46 +81,48 @@ typedef void (*CuteQNetworkReplyDataImplCall1)(const void *, int *);
 typedef qint64 (*CuteQNetworkReplyDataImplCall2)(const void *, int *);
 typedef bool (*CuteQNetworkReplyDataImplCall3)(const void *, int *);
 typedef qint64 (*CuteQNetworkReplyDataImplCall4)(const void *, int *);
-typedef void (*CuteQNetworkReplyDataImplCall5)(const void *, qint64, int *);
-typedef void (*CuteQNetworkReplyDataImplCall6)(const void *, int *);
+typedef qint64 (*CuteQNetworkReplyDataImplCall5)(const void *, char *, qint64, int *);
+typedef void (*CuteQNetworkReplyDataImplCall6)(const void *, qint64, int *);
+typedef void (*CuteQNetworkReplyDataImplCall7)(const void *, int *);
 #if QT_CONFIG(ssl)
-typedef void (*CuteQNetworkReplyDataImplCall7)(const void *, const QSslConfiguration *, int *);
+typedef void (*CuteQNetworkReplyDataImplCall8)(const void *, const QSslConfiguration *, int *);
 #endif  // QT_CONFIG(ssl)
-typedef bool (*CuteQNetworkReplyDataImplCall8)(const void *, int, int *);
-typedef qint64 (*CuteQNetworkReplyDataImplCall9)(const void *, int *);
-typedef bool (*CuteQNetworkReplyDataImplCall10)(const void *, qint64, int *);
-typedef bool (*CuteQNetworkReplyDataImplCall11)(const void *, int *);
+typedef bool (*CuteQNetworkReplyDataImplCall9)(const void *, int, int *);
+typedef qint64 (*CuteQNetworkReplyDataImplCall10)(const void *, int *);
+typedef bool (*CuteQNetworkReplyDataImplCall11)(const void *, qint64, int *);
 typedef bool (*CuteQNetworkReplyDataImplCall12)(const void *, int *);
-typedef qint64 (*CuteQNetworkReplyDataImplCall13)(const void *, int *);
-typedef bool (*CuteQNetworkReplyDataImplCall14)(const void *, int *);
-typedef bool (*CuteQNetworkReplyDataImplCall15)(const void *, int, int *);
+typedef bool (*CuteQNetworkReplyDataImplCall13)(const void *, int *);
+typedef qint64 (*CuteQNetworkReplyDataImplCall14)(const void *, int *);
+typedef bool (*CuteQNetworkReplyDataImplCall15)(const void *, int *);
 typedef bool (*CuteQNetworkReplyDataImplCall16)(const void *, int, int *);
-typedef qint64 (*CuteQNetworkReplyDataImplCall17)(const void *, qint64, int *);
+typedef bool (*CuteQNetworkReplyDataImplCall17)(const void *, int, int *);
+typedef qint64 (*CuteQNetworkReplyDataImplCall18)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQNetworkReplyDataImplCall19)(const void *, qint64, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQNetworkReplyDataImplCall18)(const void *, QEvent *, int *);
+typedef bool (*CuteQNetworkReplyDataImplCall20)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQNetworkReplyDataImplCall19)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQNetworkReplyDataImplCall21)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyDataImplCall20)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQNetworkReplyDataImplCall22)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyDataImplCall21)(const void *, QChildEvent *, int *);
+typedef void (*CuteQNetworkReplyDataImplCall23)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyDataImplCall22)(const void *, QEvent *, int *);
+typedef void (*CuteQNetworkReplyDataImplCall24)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyDataImplCall23)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQNetworkReplyDataImplCall25)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyDataImplCall24)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQNetworkReplyDataImplCall26)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQNetworkReplyDataImpl : public QNetworkReplyDataImpl {
 public:
   using QNetworkReplyDataImpl::QNetworkReplyDataImpl;
-  void *taken[25] = {};
+  void *taken[27] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN13QNetworkReply5abortEv")) {
@@ -131,99 +145,107 @@ public:
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN13QNetworkReply17setReadBufferSizeEx")) {
+    if (!std::strcmp(key, "_ZN9QIODevice8readDataEPcx")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN13QNetworkReply15ignoreSslErrorsEv")) {
+    if (!std::strcmp(key, "_ZN13QNetworkReply17setReadBufferSizeEx")) {
       taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QNetworkReply15ignoreSslErrorsEv")) {
+      taken[7] = call;
       return true;
     }
 #if QT_CONFIG(ssl)
     if (!std::strcmp(key, "_ZN13QNetworkReply33setSslConfigurationImplementationERK17QSslConfiguration")) {
-      taken[7] = call;
+      taken[8] = call;
       return true;
     }
 #endif  // QT_CONFIG(ssl)
     if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
-      taken[8] = call;
-      return true;
-    }
-    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
       taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice12readLineDataEPcx")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+      taken[19] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[18] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[19] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[20] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[21] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[22] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[23] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[24] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[25] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[26] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -285,11 +307,22 @@ public:
     return QNetworkReplyDataImpl::size();
   }
 
-  //  void QNetworkReply::setReadBufferSize(qint64 size)
-  void setReadBufferSize(qint64 size) override {
+  //  qint64 QNetworkReplyDataImpl::readData(char *data, qint64 maxlen)
+  qint64 readData(char *data, qint64 maxlen) override {
     if (taken[5]) {
       int handled = 0;
       CuteQNetworkReplyDataImplCall5 call = reinterpret_cast<CuteQNetworkReplyDataImplCall5>(taken[5]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QNetworkReplyDataImpl::readData(data, maxlen);
+  }
+
+  //  void QNetworkReply::setReadBufferSize(qint64 size)
+  void setReadBufferSize(qint64 size) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQNetworkReplyDataImplCall6 call = reinterpret_cast<CuteQNetworkReplyDataImplCall6>(taken[6]);
       call(this, size, &handled);
       if (handled) return;
     }
@@ -298,9 +331,9 @@ public:
 
   //  void QNetworkReply::ignoreSslErrors()
   void ignoreSslErrors() override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall6 call = reinterpret_cast<CuteQNetworkReplyDataImplCall6>(taken[6]);
+      CuteQNetworkReplyDataImplCall7 call = reinterpret_cast<CuteQNetworkReplyDataImplCall7>(taken[7]);
       call(this, &handled);
       if (handled) return;
     }
@@ -312,9 +345,9 @@ public:
   //      QSslConfiguration &a0)
   void setSslConfigurationImplementation(
       const QSslConfiguration &a0) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall7 call = reinterpret_cast<CuteQNetworkReplyDataImplCall7>(taken[7]);
+      CuteQNetworkReplyDataImplCall8 call = reinterpret_cast<CuteQNetworkReplyDataImplCall8>(taken[8]);
       call(this, &a0, &handled);
       if (handled) return;
     }
@@ -324,9 +357,9 @@ public:
 
   //  bool QIODevice::open(QIODeviceBase::OpenMode mode)
   bool open(QIODeviceBase::OpenMode mode) override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall8 call = reinterpret_cast<CuteQNetworkReplyDataImplCall8>(taken[8]);
+      CuteQNetworkReplyDataImplCall9 call = reinterpret_cast<CuteQNetworkReplyDataImplCall9>(taken[9]);
       bool given = call(this, static_cast<int>(mode.toInt()), &handled);
       if (handled) return given;
     }
@@ -335,9 +368,9 @@ public:
 
   //  qint64 QIODevice::pos() const
   qint64 pos() const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall9 call = reinterpret_cast<CuteQNetworkReplyDataImplCall9>(taken[9]);
+      CuteQNetworkReplyDataImplCall10 call = reinterpret_cast<CuteQNetworkReplyDataImplCall10>(taken[10]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -346,9 +379,9 @@ public:
 
   //  bool QIODevice::seek(qint64 pos)
   bool seek(qint64 pos) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall10 call = reinterpret_cast<CuteQNetworkReplyDataImplCall10>(taken[10]);
+      CuteQNetworkReplyDataImplCall11 call = reinterpret_cast<CuteQNetworkReplyDataImplCall11>(taken[11]);
       bool given = call(this, pos, &handled);
       if (handled) return given;
     }
@@ -357,9 +390,9 @@ public:
 
   //  bool QIODevice::atEnd() const
   bool atEnd() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall11 call = reinterpret_cast<CuteQNetworkReplyDataImplCall11>(taken[11]);
+      CuteQNetworkReplyDataImplCall12 call = reinterpret_cast<CuteQNetworkReplyDataImplCall12>(taken[12]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -368,9 +401,9 @@ public:
 
   //  bool QIODevice::reset()
   bool reset() override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall12 call = reinterpret_cast<CuteQNetworkReplyDataImplCall12>(taken[12]);
+      CuteQNetworkReplyDataImplCall13 call = reinterpret_cast<CuteQNetworkReplyDataImplCall13>(taken[13]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -379,9 +412,9 @@ public:
 
   //  qint64 QIODevice::bytesToWrite() const
   qint64 bytesToWrite() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall13 call = reinterpret_cast<CuteQNetworkReplyDataImplCall13>(taken[13]);
+      CuteQNetworkReplyDataImplCall14 call = reinterpret_cast<CuteQNetworkReplyDataImplCall14>(taken[14]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -390,9 +423,9 @@ public:
 
   //  bool QIODevice::canReadLine() const
   bool canReadLine() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall14 call = reinterpret_cast<CuteQNetworkReplyDataImplCall14>(taken[14]);
+      CuteQNetworkReplyDataImplCall15 call = reinterpret_cast<CuteQNetworkReplyDataImplCall15>(taken[15]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -401,9 +434,9 @@ public:
 
   //  bool QIODevice::waitForReadyRead(int msecs)
   bool waitForReadyRead(int msecs) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall15 call = reinterpret_cast<CuteQNetworkReplyDataImplCall15>(taken[15]);
+      CuteQNetworkReplyDataImplCall16 call = reinterpret_cast<CuteQNetworkReplyDataImplCall16>(taken[16]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -412,20 +445,31 @@ public:
 
   //  bool QIODevice::waitForBytesWritten(int msecs)
   bool waitForBytesWritten(int msecs) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall16 call = reinterpret_cast<CuteQNetworkReplyDataImplCall16>(taken[16]);
+      CuteQNetworkReplyDataImplCall17 call = reinterpret_cast<CuteQNetworkReplyDataImplCall17>(taken[17]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
     return QIODevice::waitForBytesWritten(msecs);
   }
 
+  //  qint64 QIODevice::readLineData(char *data, qint64 maxlen)
+  qint64 readLineData(char *data, qint64 maxlen) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQNetworkReplyDataImplCall18 call = reinterpret_cast<CuteQNetworkReplyDataImplCall18>(taken[18]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::readLineData(data, maxlen);
+  }
+
   //  qint64 QIODevice::skipData(qint64 maxSize)
   qint64 skipData(qint64 maxSize) override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall17 call = reinterpret_cast<CuteQNetworkReplyDataImplCall17>(taken[17]);
+      CuteQNetworkReplyDataImplCall19 call = reinterpret_cast<CuteQNetworkReplyDataImplCall19>(taken[19]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -435,9 +479,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall18 call = reinterpret_cast<CuteQNetworkReplyDataImplCall18>(taken[18]);
+      CuteQNetworkReplyDataImplCall20 call = reinterpret_cast<CuteQNetworkReplyDataImplCall20>(taken[20]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -448,9 +492,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall19 call = reinterpret_cast<CuteQNetworkReplyDataImplCall19>(taken[19]);
+      CuteQNetworkReplyDataImplCall21 call = reinterpret_cast<CuteQNetworkReplyDataImplCall21>(taken[21]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -461,9 +505,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall20 call = reinterpret_cast<CuteQNetworkReplyDataImplCall20>(taken[20]);
+      CuteQNetworkReplyDataImplCall22 call = reinterpret_cast<CuteQNetworkReplyDataImplCall22>(taken[22]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -474,9 +518,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[21]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall21 call = reinterpret_cast<CuteQNetworkReplyDataImplCall21>(taken[21]);
+      CuteQNetworkReplyDataImplCall23 call = reinterpret_cast<CuteQNetworkReplyDataImplCall23>(taken[23]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -487,9 +531,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[22]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall22 call = reinterpret_cast<CuteQNetworkReplyDataImplCall22>(taken[22]);
+      CuteQNetworkReplyDataImplCall24 call = reinterpret_cast<CuteQNetworkReplyDataImplCall24>(taken[24]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -500,9 +544,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[23]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall23 call = reinterpret_cast<CuteQNetworkReplyDataImplCall23>(taken[23]);
+      CuteQNetworkReplyDataImplCall25 call = reinterpret_cast<CuteQNetworkReplyDataImplCall25>(taken[25]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -513,9 +557,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[24]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQNetworkReplyDataImplCall24 call = reinterpret_cast<CuteQNetworkReplyDataImplCall24>(taken[24]);
+      CuteQNetworkReplyDataImplCall26 call = reinterpret_cast<CuteQNetworkReplyDataImplCall26>(taken[26]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -529,6 +573,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK21QNetworkReplyDataImpl10metaObjectEv(
     const QNetworkReplyDataImpl *self) {
   return self->metaObject();
+}
+
+//  void *QNetworkReplyDataImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QNetworkReplyDataImpl11qt_metacastEPKc(
+    QNetworkReplyDataImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNetworkReplyDataImpl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QNetworkReplyDataImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNetworkReplyDataImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QNetworkReplyDataImpl::~QNetworkReplyDataImpl()
@@ -568,6 +631,15 @@ extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK21QNetworkReplyDataImpl4sizeEv(
     const QNetworkReplyDataImpl *self) {
   return self->size();
+}
+
+//  qint64 QNetworkReplyDataImpl::readData(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN21QNetworkReplyDataImpl8readDataEPcx(
+    QNetworkReplyDataImpl *self,
+    char *data,
+    qint64 maxlen) {
+  return self->readData(data, maxlen);
 }
 
 //  QNetworkReplyDataImplPrivate *QNetworkReplyDataImpl::d_func()
@@ -627,4 +699,13 @@ extern "C" Q_DECL_EXPORT
 qint64 ritual_own_ZNK21QNetworkReplyDataImpl4sizeEv(
     const QNetworkReplyDataImpl *self) {
   return self->QNetworkReplyDataImpl::size();
+}
+
+//  qint64 QNetworkReplyDataImpl::readData(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN21QNetworkReplyDataImpl8readDataEPcx(
+    QNetworkReplyDataImpl *self,
+    char *data,
+    qint64 maxlen) {
+  return self->QNetworkReplyDataImpl::readData(data, maxlen);
 }

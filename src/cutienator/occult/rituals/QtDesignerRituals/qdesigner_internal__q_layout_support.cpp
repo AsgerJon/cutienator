@@ -7,10 +7,14 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/qlayout_widget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
-#include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
+#include <QtWidgets/qwidget.h>
+#include <QtCore/qrect.h>
+#include <QtGui/qpalette.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <utility>
 
 //  Only a class built on qdesigner_internal::QLayoutSupport may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -457,6 +461,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal14QLayoutSupport10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::QLayoutSupport::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal14QLayoutSupport11qt_metacastEPKc(
+    qdesigner_internal::QLayoutSupport *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::QLayoutSupport::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal14QLayoutSupport11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::QLayoutSupport *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::QLayoutSupport::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -465,6 +488,13 @@ QString *ritual_ZN18qdesigner_internal14QLayoutSupport2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::QLayoutSupport::tr(s, c, n));
+}
+
+//  qdesigner_internal::QLayoutSupport::~QLayoutSupport()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14QLayoutSupportD1Ev(
+    qdesigner_internal::QLayoutSupport *self) {
+  delete self;
 }
 
 //  QDesignerFormWindowInterface
@@ -494,6 +524,136 @@ extern "C" Q_DECL_EXPORT
 QDesignerLayoutDecorationExtension::InsertMode ritual_ZNK18qdesigner_internal14QLayoutSupport17currentInsertModeEv(
     const qdesigner_internal::QLayoutSupport *self) {
   return self->currentInsertMode();
+}
+
+//  std::pair<int, int> qdesigner_internal::QLayoutSupport::currentCell()
+//      const
+extern "C" Q_DECL_EXPORT
+std::pair<int, int> *ritual_ZNK18qdesigner_internal14QLayoutSupport11currentCellEv(
+    const qdesigner_internal::QLayoutSupport *self) {
+  return new std::pair<int, int>(self->currentCell());
+}
+
+//  int qdesigner_internal::QLayoutSupport::findItemAt(const QPoint &pos)
+//      const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18qdesigner_internal14QLayoutSupport10findItemAtERK6QPoint(
+    const qdesigner_internal::QLayoutSupport *self,
+    const QPoint *pos) {
+  return self->findItemAt(*pos);
+}
+
+//  int qdesigner_internal::QLayoutSupport::indexOf(QWidget *widget) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18qdesigner_internal14QLayoutSupport7indexOfEP7QWidget(
+    const qdesigner_internal::QLayoutSupport *self,
+    QWidget *widget) {
+  return self->indexOf(widget);
+}
+
+//  int qdesigner_internal::QLayoutSupport::indexOf(QLayoutItem *item) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18qdesigner_internal14QLayoutSupport7indexOfEP11QLayoutItem(
+    const qdesigner_internal::QLayoutSupport *self,
+    QLayoutItem *item) {
+  return self->indexOf(item);
+}
+
+//  void qdesigner_internal::QLayoutSupport::adjustIndicator(const QPoint
+//      &pos, int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14QLayoutSupport15adjustIndicatorERK6QPointi(
+    qdesigner_internal::QLayoutSupport *self,
+    const QPoint *pos,
+    int index) {
+  self->adjustIndicator(*pos, index);
+}
+
+//  QWidgetList qdesigner_internal::QLayoutSupport::widgets(QLayout *layout)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QWidget *> *ritual_ZNK18qdesigner_internal14QLayoutSupport7widgetsEP7QLayout(
+    const qdesigner_internal::QLayoutSupport *self,
+    QLayout *layout) {
+  return new QList<QWidget *>(self->widgets(layout));
+}
+
+//  void qdesigner_internal::QLayoutSupport::createEmptyCells(QGridLayout
+//      *gridLayout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14QLayoutSupport16createEmptyCellsEP11QGridLayout(
+    QGridLayout *gridLayout) {
+  qdesigner_internal::QLayoutSupport::createEmptyCells(gridLayout);
+}
+
+//  bool qdesigner_internal::QLayoutSupport::removeEmptyCells(QGridLayout
+//      *gridLayout, const QRect &area)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal14QLayoutSupport16removeEmptyCellsEP11QGridLayoutRK5QRect(
+    QGridLayout *gridLayout,
+    const QRect *area) {
+  return qdesigner_internal::QLayoutSupport::removeEmptyCells(
+      gridLayout,
+      *area);
+}
+
+//  void qdesigner_internal::QLayoutSupport::createEmptyCells(QFormLayout
+//      *formLayout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14QLayoutSupport16createEmptyCellsEP11QFormLayout(
+    QFormLayout *formLayout) {
+  qdesigner_internal::QLayoutSupport::createEmptyCells(formLayout);
+}
+
+//  bool qdesigner_internal::QLayoutSupport::removeEmptyCells(QFormLayout
+//      *formLayout, const QRect &area)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal14QLayoutSupport16removeEmptyCellsEP11QFormLayoutRK5QRect(
+    QFormLayout *formLayout,
+    const QRect *area) {
+  return qdesigner_internal::QLayoutSupport::removeEmptyCells(
+      formLayout,
+      *area);
+}
+
+//  int qdesigner_internal::QLayoutSupport::findItemAt(QGridLayout *a0, int
+//      row, int column)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal14QLayoutSupport10findItemAtEP11QGridLayoutii(
+    QGridLayout *a0,
+    int row,
+    int column) {
+  return qdesigner_internal::QLayoutSupport::findItemAt(a0, row, column);
+}
+
+//  bool qdesigner_internal::QLayoutSupport::canSimplifyQuickCheck(const
+//      QGridLayout *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal14QLayoutSupport21canSimplifyQuickCheckEPK11QGridLayout(
+    const QGridLayout *a0) {
+  return qdesigner_internal::QLayoutSupport::canSimplifyQuickCheck(a0);
+}
+
+//  bool qdesigner_internal::QLayoutSupport::canSimplifyQuickCheck(const
+//      QFormLayout *fl)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal14QLayoutSupport21canSimplifyQuickCheckEPK11QFormLayout(
+    const QFormLayout *fl) {
+  return qdesigner_internal::QLayoutSupport::canSimplifyQuickCheck(fl);
+}
+
+//  QLayoutSupport *qdesigner_internal::QLayoutSupport::createLayoutSupport(Q
+//      DesignerFormWindowInterface *formWindow, QWidget *widget, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::QLayoutSupport *ritual_ZN18qdesigner_internal14QLayoutSupport19createLayoutSupportEP28QDesignerFormWindowInterfaceP7QWidgetP7QObject(
+    QDesignerFormWindowInterface *formWindow,
+    QWidget *widget,
+    QObject *parent) {
+  return qdesigner_internal::QLayoutSupport::createLayoutSupport(
+      formWindow,
+      widget,
+      parent);
 }
 
 //  void qdesigner_internal::QLayoutSupport::setCurrentCellFromIndicatorOnEmp
@@ -534,11 +694,69 @@ bool ritual_ZNK18qdesigner_internal14QLayoutSupport28supportsIndicatorOrientatio
   return self->supportsIndicatorOrientation(indicatorOrientation);
 }
 
+//  QRect qdesigner_internal::QLayoutSupport::itemInfo(int index) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK18qdesigner_internal14QLayoutSupport8itemInfoEi(
+    const qdesigner_internal::QLayoutSupport *self,
+    int index) {
+  return new QRect(self->itemInfo(index));
+}
+
+//  QLayout *qdesigner_internal::QLayoutSupport::layout() const
+extern "C" Q_DECL_EXPORT
+QLayout *ritual_ZNK18qdesigner_internal14QLayoutSupport6layoutEv(
+    const qdesigner_internal::QLayoutSupport *self) {
+  return self->layout();
+}
+
+//  QGridLayout *qdesigner_internal::QLayoutSupport::gridLayout() const
+extern "C" Q_DECL_EXPORT
+QGridLayout *ritual_ZNK18qdesigner_internal14QLayoutSupport10gridLayoutEv(
+    const qdesigner_internal::QLayoutSupport *self) {
+  return self->gridLayout();
+}
+
 //  QWidget *qdesigner_internal::QLayoutSupport::widget() const
 extern "C" Q_DECL_EXPORT
 QWidget *ritual_ZNK18qdesigner_internal14QLayoutSupport6widgetEv(
     const qdesigner_internal::QLayoutSupport *self) {
   return self->widget();
+}
+
+//  void qdesigner_internal::QLayoutSupport::setInsertMode(InsertMode im)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14QLayoutSupport13setInsertModeEN34QDesignerLayoutDecorationExtension10InsertModeE(
+    qdesigner_internal::QLayoutSupport *self,
+    QDesignerLayoutDecorationExtension::InsertMode im) {
+  self->setInsertMode(im);
+}
+
+//  void qdesigner_internal::QLayoutSupport::setCurrentCell(const
+//      std::pair<int, int> &cell)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14QLayoutSupport14setCurrentCellERKSt4pairIiiE(
+    qdesigner_internal::QLayoutSupport *self,
+    const std::pair<int, int> *cell) {
+  self->setCurrentCell(*cell);
+}
+
+//  void qdesigner_internal::QLayoutSupport::hideIndicator(Indicator i)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14QLayoutSupport13hideIndicatorENS0_9IndicatorE(
+    qdesigner_internal::QLayoutSupport *self,
+    qdesigner_internal::QLayoutSupport::Indicator i) {
+  self->hideIndicator(i);
+}
+
+//  void qdesigner_internal::QLayoutSupport::showIndicator(Indicator i, const
+//      QRect &geometry, const QPalette &a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14QLayoutSupport13showIndicatorENS0_9IndicatorERK5QRectRK8QPalette(
+    qdesigner_internal::QLayoutSupport *self,
+    qdesigner_internal::QLayoutSupport::Indicator i,
+    const QRect *geometry,
+    const QPalette *a2) {
+  self->showIndicator(i, *geometry, *a2);
 }
 
 //  qdesigner_internal::QLayoutSupport as the
@@ -616,4 +834,11 @@ QRect *ritual_own_ZNK18qdesigner_internal14QLayoutSupport8itemInfoEi(
   return new QRect(
       static_cast<const Ownqdesigner_internal_QLayoutSupport *>(self)->Ownqdesigner_internal_QLayoutSupport::itemInfo(
           index));
+}
+
+//  a std::pair<int, int> a ritual of qdesigner_internal::QLayoutSupport gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_qdesigner_internal_QLayoutSupport__std_pair_int_int(
+    std::pair<int, int> *self) {
+  delete self;
 }

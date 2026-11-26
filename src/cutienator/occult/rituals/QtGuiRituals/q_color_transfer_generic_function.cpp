@@ -7,6 +7,17 @@
 #include <QtGui/6.12.0/QtGui/private/qcolortransfergeneric_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QColorTransferGenericFunction::QColorTransferGenericFunction(ConverterPtr
+//      toLinear, ConverterPtr fromLinear)
+extern "C" Q_DECL_EXPORT
+QColorTransferGenericFunction *ritual_ZN29QColorTransferGenericFunctionC1EPFffES1_(
+    void *toLinear,
+    void *fromLinear) {
+  return new QColorTransferGenericFunction(
+      reinterpret_cast<QColorTransferGenericFunction::ConverterPtr>(toLinear),
+      reinterpret_cast<QColorTransferGenericFunction::ConverterPtr>(fromLinear));
+}
+
 //  QColorTransferGenericFunction QColorTransferGenericFunction::hlg()
 extern "C" Q_DECL_EXPORT
 QColorTransferGenericFunction *ritual_ZN29QColorTransferGenericFunction3hlgEv() {

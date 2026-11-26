@@ -32,6 +32,9 @@
     ],
     "ritual_ZN3QV44Moth17BytecodeGenerator8setErrorEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_drop_QV4_Moth_BytecodeGenerator__QV4_Moth_BytecodeGenerator_Jump": [
+      "nothing", "address"
     ]
   }
 }

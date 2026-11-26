@@ -12,6 +12,9 @@
       "nothing", "address", "int", "text"
     ],
     "ritual_ZNK19QAccessibleLineEdit5stateEv": ["address", "address"],
+    "ritual_ZN19QAccessibleLineEdit14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN19QAccessibleLineEdit12addSelectionEii": [
       "nothing", "address", "int", "int"
     ],
@@ -80,6 +83,9 @@
       "nothing", "address", "int", "text"
     ],
     "ritual_own_ZNK19QAccessibleLineEdit5stateEv": ["address", "address"],
+    "ritual_own_ZN19QAccessibleLineEdit14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_own_ZN19QAccessibleLineEdit12addSelectionEii": [
       "nothing", "address", "int", "int"
     ],

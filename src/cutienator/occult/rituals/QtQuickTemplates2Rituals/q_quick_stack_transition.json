@@ -5,6 +5,9 @@
     "p_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QQuickStackTransition7popExitEN15QQuickStackView9OperationEP18QQuickStackElementPS0_": [
+      "address", "int", "address", "address"
+    ],
     "ritual_ZN21QQuickStackTransitionD1Ev": ["nothing", "address"]
   }
 }

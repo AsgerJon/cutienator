@@ -34,6 +34,9 @@
     "ritual_ZNK13QLatin1String7compareES_N2Qt15CaseSensitivityE": [
       "int", "address", "address", "int"
     ],
+    "ritual_ZNK13QLatin1String7compareE20QBasicUtf8StringViewILb0EEN2Qt15CaseSensitivityE": [
+      "int", "address", "address", "int"
+    ],
     "ritual_ZNK13QLatin1String7compareE5QChar": [
       "int", "address", "address"
     ],
@@ -146,6 +149,14 @@
     "ritual_ZNK13QLatin1String8toDoubleEPb": [
       "double", "address", "address"
     ],
+    "ritual_ZNK13QLatin1String5beginEv": ["address", "address"],
+    "ritual_ZNK13QLatin1String6cbeginEv": ["address", "address"],
+    "ritual_ZNK13QLatin1String3endEv": ["address", "address"],
+    "ritual_ZNK13QLatin1String4cendEv": ["address", "address"],
+    "ritual_ZNK13QLatin1String6rbeginEv": ["address", "address"],
+    "ritual_ZNK13QLatin1String7crbeginEv": ["address", "address"],
+    "ritual_ZNK13QLatin1String4rendEv": ["address", "address"],
+    "ritual_ZNK13QLatin1String5crendEv": ["address", "address"],
     "ritual_ZNK13QLatin1String8max_sizeEv": ["long long", "address"],
     "ritual_ZN13QLatin1String7maxSizeEv": ["long long"],
     "ritual_ZNK13QLatin1String3midExx": [
@@ -163,6 +174,10 @@
     "ritual_ZNK13QLatin1String4lastEx": ["address", "address", "long long"],
     "ritual_ZNK13QLatin1String7choppedEx": [
       "address", "address", "long long"
+    ],
+    "ritual_ZN13QLatin1String5sliceEx": ["address", "address", "long long"],
+    "ritual_ZN13QLatin1String5sliceExx": [
+      "address", "address", "long long", "long long"
     ],
     "ritual_ZN13QLatin1String4chopEx": ["nothing", "address", "long long"],
     "ritual_ZN13QLatin1String8truncateEx": [
@@ -295,6 +310,18 @@
     "ritual_ZgeRK10QByteArrayRK13QLatin1String": [
       "bool", "address", "address"
     ],
+    "ritual_ZeqRK13QLatin1StringRKPKc": ["bool", "address", "address"],
+    "ritual_ZneRK13QLatin1StringRKPKc": ["bool", "address", "address"],
+    "ritual_ZltRK13QLatin1StringRKPKc": ["bool", "address", "address"],
+    "ritual_ZgtRK13QLatin1StringRKPKc": ["bool", "address", "address"],
+    "ritual_ZleRK13QLatin1StringRKPKc": ["bool", "address", "address"],
+    "ritual_ZgeRK13QLatin1StringRKPKc": ["bool", "address", "address"],
+    "ritual_ZeqRKPKcRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZneRKPKcRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZltRKPKcRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZgtRKPKcRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZleRKPKcRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZgeRKPKcRK13QLatin1String": ["bool", "address", "address"],
     "ritual_ZNK13QLatin1String6verifyExx": [
       "nothing", "address", "long long", "long long"
     ],
@@ -315,6 +342,9 @@
     "ritual_list_add_QLatin1String": ["nothing", "address", "address"],
     "ritual_list_size_QLatin1String": ["long long", "address"],
     "ritual_list_at_QLatin1String": ["address", "address", "long long"],
-    "ritual_list_drop_QLatin1String": ["nothing", "address"]
+    "ritual_list_drop_QLatin1String": ["nothing", "address"],
+    "ritual_drop_QLatin1String__QLatin1String_const_reverse_iterator": [
+      "nothing", "address"
+    ]
   }
 }

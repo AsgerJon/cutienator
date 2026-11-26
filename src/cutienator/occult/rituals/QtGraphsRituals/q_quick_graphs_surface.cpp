@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/6.12.0/QtGraphs/private/qquickgraphssurface_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: added by hand, rituals for functions the
+//  generator leaves out: 1. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -2151,6 +2152,14 @@ const QMetaObject *ritual_ZNK19QQuickGraphsSurface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGraphsSurface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickGraphsSurface11qt_metacastEPKc(
+    QQuickGraphsSurface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString QQuickGraphsSurface::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickGraphsSurface2trEPKcS1_i(
@@ -2216,6 +2225,44 @@ extern "C" Q_DECL_EXPORT
 QValue3DAxis *ritual_ZNK19QQuickGraphsSurface5axisZEv(
     const QQuickGraphsSurface *self) {
   return self->axisZ();
+}
+
+//  void
+//      QQuickGraphsSurface::appendSeriesFunc(QQmlListProperty<QSurface3DSeri
+//      es> *list, QSurface3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface16appendSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesEPS1_(
+    QQmlListProperty<QSurface3DSeries> *list,
+    QSurface3DSeries *series) {
+  QQuickGraphsSurface::appendSeriesFunc(list, series);
+}
+
+//  qsizetype
+//      QQuickGraphsSurface::countSeriesFunc(QQmlListProperty<QSurface3DSerie
+//      s> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN19QQuickGraphsSurface15countSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesE(
+    QQmlListProperty<QSurface3DSeries> *list) {
+  return QQuickGraphsSurface::countSeriesFunc(list);
+}
+
+//  QSurface3DSeries
+//      *QQuickGraphsSurface::atSeriesFunc(QQmlListProperty<QSurface3DSeries>
+//      *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QSurface3DSeries *ritual_ZN19QQuickGraphsSurface12atSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesEx(
+    QQmlListProperty<QSurface3DSeries> *list,
+    qsizetype index) {
+  return QQuickGraphsSurface::atSeriesFunc(list, index);
+}
+
+//  void
+//      QQuickGraphsSurface::clearSeriesFunc(QQmlListProperty<QSurface3DSerie
+//      s> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface15clearSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesE(
+    QQmlListProperty<QSurface3DSeries> *list) {
+  QQuickGraphsSurface::clearSeriesFunc(list);
 }
 
 //  void QQuickGraphsSurface::addSeries(QSurface3DSeries *series)
@@ -2798,11 +2845,107 @@ QVector3D *ritual_ZN19QQuickGraphsSurface19getNormalizedVertexERK16QSurfaceDataI
           series));
 }
 
+//  QRect QQuickGraphsSurface::calculateSampleSpace(SurfaceModel *model,
+//      const QSurfaceDataArray &array)
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZN19QQuickGraphsSurface20calculateSampleSpaceEPNS_12SurfaceModelERK5QListIS2_I16QSurfaceDataItemEE(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model,
+    const QSurfaceDataArray *array) {
+  return new QRect(self->calculateSampleSpace(model, *array));
+}
+
+//  QPointF QQuickGraphsSurface::mapCoordsToWorldSpace(SurfaceModel *model,
+//      QPointF coords)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZN19QQuickGraphsSurface21mapCoordsToWorldSpaceEPNS_12SurfaceModelE7QPointF(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model,
+    const QPointF *coords) {
+  return new QPointF(self->mapCoordsToWorldSpace(model, *coords));
+}
+
+//  QPoint QQuickGraphsSurface::mapCoordsToSampleSpace(SurfaceModel *model,
+//      QPointF coords)
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZN19QQuickGraphsSurface22mapCoordsToSampleSpaceEPNS_12SurfaceModelE7QPointF(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model,
+    const QPointF *coords) {
+  return new QPoint(self->mapCoordsToSampleSpace(model, *coords));
+}
+
+//  void QQuickGraphsSurface::createIndices(SurfaceModel *model, qsizetype
+//      columnCount, qsizetype rowCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface13createIndicesEPNS_12SurfaceModelExx(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model,
+    qsizetype columnCount,
+    qsizetype rowCount) {
+  self->createIndices(model, columnCount, rowCount);
+}
+
+//  void QQuickGraphsSurface::createLineIndices(SurfaceModel *model,
+//      qsizetype pointCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface17createLineIndicesEPNS_12SurfaceModelEx(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model,
+    qsizetype pointCount) {
+  self->createLineIndices(model, pointCount);
+}
+
+//  void QQuickGraphsSurface::createGridlineIndices(SurfaceModel *model,
+//      qsizetype x, qsizetype y, qsizetype endX, qsizetype endY)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface21createGridlineIndicesEPNS_12SurfaceModelExxxx(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model,
+    qsizetype x,
+    qsizetype y,
+    qsizetype endX,
+    qsizetype endY) {
+  self->createGridlineIndices(model, x, y, endX, endY);
+}
+
 //  void QQuickGraphsSurface::handleChangedSeries()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickGraphsSurface19handleChangedSeriesEv(
     QQuickGraphsSurface *self) {
   self->handleChangedSeries();
+}
+
+//  void QQuickGraphsSurface::updateModel(SurfaceModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface11updateModelEPNS_12SurfaceModelE(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model) {
+  self->updateModel(model);
+}
+
+//  void QQuickGraphsSurface::updateFill(SurfaceModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface10updateFillEPNS_12SurfaceModelE(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model) {
+  self->updateFill(model);
+}
+
+//  void QQuickGraphsSurface::updateLineFill(SurfaceModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface14updateLineFillEPNS_12SurfaceModelE(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model) {
+  self->updateLineFill(model);
+}
+
+//  void QQuickGraphsSurface::updateMaterial(SurfaceModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface14updateMaterialEPNS_12SurfaceModelE(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model) {
+  self->updateMaterial(model);
 }
 
 //  void QQuickGraphsSurface::updateSelectedPoint()
@@ -2818,6 +2961,22 @@ void ritual_ZN19QQuickGraphsSurface8addModelEP16QSurface3DSeries(
     QQuickGraphsSurface *self,
     QSurface3DSeries *series) {
   self->addModel(series);
+}
+
+//  void QQuickGraphsSurface::addFillModel(SurfaceModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface12addFillModelEPNS_12SurfaceModelE(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model) {
+  self->addFillModel(model);
+}
+
+//  void QQuickGraphsSurface::addSliceModel(SurfaceModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsSurface13addSliceModelEPNS_12SurfaceModelE(
+    QQuickGraphsSurface *self,
+    QQuickGraphsSurface::SurfaceModel *model) {
+  self->addSliceModel(model);
 }
 
 //  void QQuickGraphsSurface::handleMeshTypeChanged(QAbstract3DSeries::Mesh
@@ -2885,6 +3044,17 @@ QString *ritual_ZNK19QQuickGraphsSurface15getMeshFileNameEN17QAbstract3DSeries4M
     QAbstract3DSeries::Mesh mesh,
     QSurface3DSeries *series) {
   return new QString(self->getMeshFileName(mesh, series));
+}
+
+//  QVector3D QQuickGraphsSurface::triangleIntersection(QVector3D origin,
+//      QVector3D dir, const std::array<QVector3D, 3> &triangle)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZN19QQuickGraphsSurface20triangleIntersectionE9QVector3DS0_RKSt5arrayIS0_Lm3EE(
+    QQuickGraphsSurface *self,
+    const QVector3D *origin,
+    const QVector3D *dir,
+    const std::array<QVector3D, 3> *triangle) {
+  return new QVector3D(self->triangleIntersection(*origin, *dir, *triangle));
 }
 
 //  bool QQuickGraphsSurface::intersectWithAABB(QVector3D boundMin, QVector3D
@@ -3130,6 +3300,18 @@ void ritual_own_ZN19QQuickGraphsSurface18handleAxisZChangedEP15QAbstract3DAxis(
     QQuickGraphsSurface *self,
     QAbstract3DAxis *axis) {
   self->QQuickGraphsSurface::handleAxisZChanged(axis);
+}
+
+//  QVector3D QQuickGraphsSurface::pickSurfaces(QVector3D rayOrigin,
+//      QVector3D rayDir, SurfaceModel *&pickedModel)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZN19QQuickGraphsSurface12pickSurfacesE9QVector3DS0_RPNS_12SurfaceModelE(
+    QQuickGraphsSurface *self,
+    const QVector3D *rayOrigin,
+    const QVector3D *rayDir,
+    QQuickGraphsSurface::SurfaceModel **pickedModel) {
+  return new QVector3D(
+      self->pickSurfaces(*rayOrigin, *rayDir, *pickedModel));
 }
 
 #endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))

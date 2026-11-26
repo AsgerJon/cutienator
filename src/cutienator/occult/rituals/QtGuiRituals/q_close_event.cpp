@@ -11,6 +11,7 @@ typedef void (*CuteQCloseEventCall1)(const void *, bool, int *);
 class CuteQCloseEvent : public QCloseEvent {
 public:
   using QCloseEvent::QCloseEvent;
+  CuteQCloseEvent(const QCloseEvent & other) : QCloseEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -47,6 +48,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QCloseEvent::QCloseEvent(const QCloseEvent &a0)
+extern "C" Q_DECL_EXPORT
+QCloseEvent *ritual_ZN11QCloseEventC1ERKS_(const QCloseEvent *a0) {
+  return new CuteQCloseEvent(*a0);
+}
+
+//  QCloseEvent &QCloseEvent::operator=(const QCloseEvent &other)
+extern "C" Q_DECL_EXPORT
+QCloseEvent *ritual_ZN11QCloseEventaSERKS_(
+    QCloseEvent *self,
+    const QCloseEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QCloseEvent *QCloseEvent::clone() const
 extern "C" Q_DECL_EXPORT

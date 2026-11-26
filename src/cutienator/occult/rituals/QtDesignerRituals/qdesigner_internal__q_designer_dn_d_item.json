@@ -5,6 +5,36 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal16QDesignerDnDItemC1EN25QDesignerDnDItemInterface8DropTypeEP7QWidget": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16QDesignerDnDItemD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal16QDesignerDnDItem5domUiEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal16QDesignerDnDItem10decorationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal16QDesignerDnDItem6widgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal16QDesignerDnDItem7hotSpotEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal16QDesignerDnDItem6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal16QDesignerDnDItem4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16QDesignerDnDItem8setDomUiEP5DomUI": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16QDesignerDnDItem4initEP5DomUIP7QWidgetS4_RK6QPoint": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
     "ritual_take_qdesigner_internal_QDesignerDnDItem": [
       "bool", "address", "chars", "address"
     ],

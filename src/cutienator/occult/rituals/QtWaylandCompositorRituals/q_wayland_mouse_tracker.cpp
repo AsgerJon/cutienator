@@ -800,6 +800,25 @@ const QMetaObject *ritual_ZNK20QWaylandMouseTracker10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandMouseTracker::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QWaylandMouseTracker11qt_metacastEPKc(
+    QWaylandMouseTracker *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandMouseTracker::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QWaylandMouseTracker11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandMouseTracker *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandMouseTracker::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QWaylandMouseTracker2trEPKcS1_i(
@@ -807,6 +826,20 @@ QString *ritual_ZN20QWaylandMouseTracker2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandMouseTracker::tr(s, c, n));
+}
+
+//  QWaylandMouseTrackerPrivate *QWaylandMouseTracker::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandMouseTrackerPrivate *ritual_ZN20QWaylandMouseTracker6d_funcEv(
+    QWaylandMouseTracker *self) {
+  return self->d_func();
+}
+
+//  const QWaylandMouseTrackerPrivate *QWaylandMouseTracker::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandMouseTrackerPrivate *ritual_ZNK20QWaylandMouseTracker6d_funcEv(
+    const QWaylandMouseTracker *self) {
+  return self->d_func();
 }
 
 //  QWaylandMouseTracker::QWaylandMouseTracker(QQuickItem *parent)
@@ -850,6 +883,34 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QWaylandMouseTracker7hoveredEv(
     const QWaylandMouseTracker *self) {
   return self->hovered();
+}
+
+//  void QWaylandMouseTracker::mouseXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QWaylandMouseTracker13mouseXChangedEv(
+    QWaylandMouseTracker *self) {
+  self->mouseXChanged();
+}
+
+//  void QWaylandMouseTracker::mouseYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QWaylandMouseTracker13mouseYChangedEv(
+    QWaylandMouseTracker *self) {
+  self->mouseYChanged();
+}
+
+//  void QWaylandMouseTracker::windowSystemCursorEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QWaylandMouseTracker32windowSystemCursorEnabledChangedEv(
+    QWaylandMouseTracker *self) {
+  self->windowSystemCursorEnabledChanged();
+}
+
+//  void QWaylandMouseTracker::hoveredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QWaylandMouseTracker14hoveredChangedEv(
+    QWaylandMouseTracker *self) {
+  self->hoveredChanged();
 }
 
 //  bool QWaylandMouseTracker::childMouseEventFilter(QQuickItem *item, QEvent

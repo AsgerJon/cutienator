@@ -569,6 +569,24 @@ const QMetaObject *ritual_ZNK14QStackedLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStackedLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QStackedLayout11qt_metacastEPKc(
+    QStackedLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStackedLayout::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QStackedLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStackedLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStackedLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QStackedLayout2trEPKcS1_i(
@@ -576,6 +594,20 @@ QString *ritual_ZN14QStackedLayout2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QStackedLayout::tr(s, c, n));
+}
+
+//  QStackedLayoutPrivate *QStackedLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QStackedLayoutPrivate *ritual_ZN14QStackedLayout6d_funcEv(
+    QStackedLayout *self) {
+  return self->d_func();
+}
+
+//  const QStackedLayoutPrivate *QStackedLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QStackedLayoutPrivate *ritual_ZNK14QStackedLayout6d_funcEv(
+    const QStackedLayout *self) {
+  return self->d_func();
 }
 
 //  QStackedLayout::QStackedLayout()
@@ -720,6 +752,30 @@ int ritual_ZNK14QStackedLayout14heightForWidthEi(
     const QStackedLayout *self,
     int width) {
   return self->heightForWidth(width);
+}
+
+//  void QStackedLayout::widgetRemoved(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStackedLayout13widgetRemovedEi(
+    QStackedLayout *self,
+    int index) {
+  self->widgetRemoved(index);
+}
+
+//  void QStackedLayout::currentChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStackedLayout14currentChangedEi(
+    QStackedLayout *self,
+    int index) {
+  self->currentChanged(index);
+}
+
+//  void QStackedLayout::widgetAdded(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStackedLayout11widgetAddedEi(
+    QStackedLayout *self,
+    int index) {
+  self->widgetAdded(index);
 }
 
 //  void QStackedLayout::setCurrentIndex(int index)

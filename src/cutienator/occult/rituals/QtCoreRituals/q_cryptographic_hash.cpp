@@ -3,6 +3,9 @@
 #include <QtCore/qcryptographichash.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/QByteArrayView>
+#include <QtCore/QSpan>
+#include <cstddef>
 
 //  QCryptographicHash::QCryptographicHash(Algorithm method)
 extern "C" Q_DECL_EXPORT
@@ -11,10 +14,34 @@ QCryptographicHash *ritual_ZN18QCryptographicHashC1ENS_9AlgorithmE(
   return new QCryptographicHash(method);
 }
 
+//  QCryptographicHash::QCryptographicHash(QCryptographicHash &&other)
+extern "C" Q_DECL_EXPORT
+QCryptographicHash *ritual_ZN18QCryptographicHashC1EOS_(
+    QCryptographicHash *other) {
+  return new QCryptographicHash(std::move(*other));
+}
+
 //  QCryptographicHash::~QCryptographicHash()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QCryptographicHashD1Ev(QCryptographicHash *self) {
   delete self;
+}
+
+//  QCryptographicHash &QCryptographicHash::operator=(QCryptographicHash
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCryptographicHash *ritual_ZN18QCryptographicHashaSEOS_(
+    QCryptographicHash *self,
+    QCryptographicHash *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCryptographicHash::swap(QCryptographicHash &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QCryptographicHash4swapERS_(
+    QCryptographicHash *self,
+    QCryptographicHash *other) {
+  self->swap(*other);
 }
 
 //  void QCryptographicHash::reset()
@@ -78,6 +105,90 @@ QByteArray *ritual_ZN18QCryptographicHash4hashE14QByteArrayViewNS_9AlgorithmE(
     const QByteArrayView *data,
     QCryptographicHash::Algorithm method) {
   return new QByteArray(QCryptographicHash::hash(*data, method));
+}
+
+//  QByteArrayView QCryptographicHash::hashInto(QSpan<char> buffer,
+//      QByteArrayView data, Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN18QCryptographicHash8hashIntoE5QSpanIcLm18446744073709551615EE14QByteArrayViewNS_9AlgorithmE(
+    const QSpan<char> *buffer,
+    const QByteArrayView *data,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QCryptographicHash::hashInto(
+          *buffer,
+          *data,
+          method));
+}
+
+//  QByteArrayView QCryptographicHash::hashInto(QSpan<uchar> buffer,
+//      QByteArrayView data, Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN18QCryptographicHash8hashIntoE5QSpanIhLm18446744073709551615EE14QByteArrayViewNS_9AlgorithmE(
+    const QSpan<uchar> *buffer,
+    const QByteArrayView *data,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QCryptographicHash::hashInto(
+          *buffer,
+          *data,
+          method));
+}
+
+//  QByteArrayView QCryptographicHash::hashInto(QSpan<std::byte> buffer,
+//      QByteArrayView data, Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN18QCryptographicHash8hashIntoE5QSpanISt4byteLm18446744073709551615EE14QByteArrayViewNS_9AlgorithmE(
+    const QSpan<std::byte> *buffer,
+    const QByteArrayView *data,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QCryptographicHash::hashInto(
+          *buffer,
+          *data,
+          method));
+}
+
+//  QByteArrayView QCryptographicHash::hashInto(QSpan<char> buffer,
+//      QSpan<const QByteArrayView> data, Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN18QCryptographicHash8hashIntoE5QSpanIcLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EENS_9AlgorithmE(
+    const QSpan<char> *buffer,
+    const QSpan<const QByteArrayView> *data,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QCryptographicHash::hashInto(
+          *buffer,
+          *data,
+          method));
+}
+
+//  QByteArrayView QCryptographicHash::hashInto(QSpan<uchar> buffer,
+//      QSpan<const QByteArrayView> data, Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN18QCryptographicHash8hashIntoE5QSpanIhLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EENS_9AlgorithmE(
+    const QSpan<uchar> *buffer,
+    const QSpan<const QByteArrayView> *data,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QCryptographicHash::hashInto(
+          *buffer,
+          *data,
+          method));
+}
+
+//  QByteArrayView QCryptographicHash::hashInto(QSpan<std::byte> buffer,
+//      QSpan<const QByteArrayView> data, Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN18QCryptographicHash8hashIntoE5QSpanISt4byteLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EENS_9AlgorithmE(
+    const QSpan<std::byte> *buffer,
+    const QSpan<const QByteArrayView> *data,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QCryptographicHash::hashInto(
+          *buffer,
+          *data,
+          method));
 }
 
 //  int QCryptographicHash::hashLength(Algorithm method)

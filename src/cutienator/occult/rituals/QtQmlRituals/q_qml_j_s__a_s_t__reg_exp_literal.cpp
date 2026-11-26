@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -200,6 +204,23 @@ public:
     return QQmlJS::AST::Node::asClassDefinition();
   }
 };
+
+//  QQmlJS::AST::RegExpLiteral::RegExpLiteral(QStringView p, int f)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::RegExpLiteral *ritual_ZN6QQmlJS3AST13RegExpLiteralC1E11QStringViewi(
+    QQmlJS::MemoryPool *pool,
+    const QString *p,
+    int f) {
+  return new (pool) CuteQQmlJS_AST_RegExpLiteral(QStringView(*p), f);
+}
+
+//  void QQmlJS::AST::RegExpLiteral::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST13RegExpLiteral7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::RegExpLiteral *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
 
 //  SourceLocation QQmlJS::AST::RegExpLiteral::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT

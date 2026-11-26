@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK18QTriangleMeshShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTriangleMeshShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QTriangleMeshShape11qt_metacastEPKc(
+    QTriangleMeshShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTriangleMeshShape::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QTriangleMeshShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTriangleMeshShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTriangleMeshShape::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QTriangleMeshShape2trEPKcS1_i(

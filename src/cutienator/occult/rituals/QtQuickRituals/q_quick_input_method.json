@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickInputMethod10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickInputMethod11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickInputMethod11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickInputMethod2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -44,6 +50,26 @@
       "address", "address"
     ],
     "ritual_ZNK17QQuickInputMethod6localeEv": ["address", "address"],
+    "ritual_ZN17QQuickInputMethod22anchorRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickInputMethod16animatingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickInputMethod22cursorRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickInputMethod21inputDirectionChangedEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickInputMethod29inputItemClipRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickInputMethod24keyboardRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickInputMethod13localeChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickInputMethod14visibleChangedEv": ["nothing", "address"],
     "ritual_ZN17QQuickInputMethod6commitEv": ["nothing", "address"],
     "ritual_ZN17QQuickInputMethod4hideEv": ["nothing", "address"],
     "ritual_ZN17QQuickInputMethod12invokeActionEN12QInputMethod6ActionEi": [

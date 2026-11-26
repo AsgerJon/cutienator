@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK23QQuickGroupGoalAffector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGroupGoalAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickGroupGoalAffector11qt_metacastEPKc(
+    QQuickGroupGoalAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGroupGoalAffector::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickGroupGoalAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGroupGoalAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGroupGoalAffector::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickGroupGoalAffector2trEPKcS1_i(
@@ -59,6 +78,22 @@ bool ritual_ZN23QQuickGroupGoalAffector14affectParticleEP18QQuickParticleDatad(
     QQuickParticleData *d,
     qreal dt) {
   return self->affectParticle(d, dt);
+}
+
+//  void QQuickGroupGoalAffector::goalStateChanged(const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGroupGoalAffector16goalStateChangedERK7QString(
+    QQuickGroupGoalAffector *self,
+    const QString *arg) {
+  self->goalStateChanged(*arg);
+}
+
+//  void QQuickGroupGoalAffector::jumpChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGroupGoalAffector11jumpChangedEb(
+    QQuickGroupGoalAffector *self,
+    bool arg) {
+  self->jumpChanged(arg);
 }
 
 //  void QQuickGroupGoalAffector::setGoalState(const QString &arg)

@@ -16,6 +16,9 @@
     "ritual_ZN24QLottieRepeaterTransform16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK24QLottieRepeaterTransform6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK24QLottieRepeaterTransform12startOpacityEv": [
       "double", "address"
     ],

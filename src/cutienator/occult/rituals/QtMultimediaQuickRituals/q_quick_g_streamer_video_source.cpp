@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK26QQuickGStreamerVideoSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGStreamerVideoSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickGStreamerVideoSource11qt_metacastEPKc(
+    QQuickGStreamerVideoSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGStreamerVideoSource::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickGStreamerVideoSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGStreamerVideoSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGStreamerVideoSource::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT

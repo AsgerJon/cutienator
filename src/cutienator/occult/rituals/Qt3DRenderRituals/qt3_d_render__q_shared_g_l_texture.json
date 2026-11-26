@@ -7,8 +7,27 @@
     "ritual_ZNK10Qt3DRender16QSharedGLTexture10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender16QSharedGLTexture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender16QSharedGLTexture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender16QSharedGLTexture2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QSharedGLTextureC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QSharedGLTextureD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender16QSharedGLTexture9textureIdEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QSharedGLTexture12setTextureIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QSharedGLTexture16textureIdChangedEi": [
+      "nothing", "address", "int"
     ],
     "ritual_take_Qt3DRender_QSharedGLTexture": [
       "bool", "address", "chars", "address"

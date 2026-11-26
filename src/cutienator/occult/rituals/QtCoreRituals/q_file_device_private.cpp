@@ -24,31 +24,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/io/qfiledevice.cpp, line 29, as _ZNK18QFileDevicePrivate6engineEv
-inline QAbstractFileEngine *QFileDevicePrivate::engine() const
-{
-    if (!fileEngine)
-        fileEngine = std::make_unique<QFSFileEngine>();
-    return fileEngine.get();
-}
-
-//  from src/corelib/io/qfiledevice.cpp, line 36, as _ZNK18QFileDevicePrivate11permissionsEv
-inline QFileDevice::Permissions QFileDevicePrivate::permissions() const
-{
-    QAbstractFileEngine::FileFlags perms = engine()->fileFlags(QAbstractFileEngine::PermsMask) & QAbstractFileEngine::PermsMask;
-    return QFile::Permissions::fromInt(perms.toInt()); //ewww
-}
-
-//  from src/corelib/io/qfiledevice.cpp, line 42, as _ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE
-inline bool QFileDevicePrivate::setPermissions(QFileDevice::Permissions perms)
-{
-    if (engine()->setPermissions(perms.toInt())) {
-        setError(QFileDevice::NoError);
-        return true;
-    }
-    setError(QFile::PermissionsError, fileEngine->errorString());
-    return false;
-}
+//  from src/corelib/io/qfiledevice.cpp, line 17, as local:qfiledevice.cpp:QFILE_WRITEBUFFER_SIZE
+#define QFILE_WRITEBUFFER_SIZE 16384
 
 //  from src/corelib/io/qfiledevice.cpp, line 507, as _ZN18QFileDevicePrivate13putCharHelperEc
 #if defined(Q_OS_LINUX)
@@ -107,6 +84,43 @@ inline bool QFileDevicePrivate::putCharHelper(char c)
 }
 #endif  // defined(Q_OS_LINUX)
 
+//  from src/corelib/io/qfiledevice.cpp, line 42, as _ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE
+inline bool QFileDevicePrivate::setPermissions(QFileDevice::Permissions perms)
+{
+    if (engine()->setPermissions(perms.toInt())) {
+        setError(QFileDevice::NoError);
+        return true;
+    }
+    setError(QFile::PermissionsError, fileEngine->errorString());
+    return false;
+}
+
+//  from src/corelib/io/qfiledevice.cpp, line 36, as _ZNK18QFileDevicePrivate11permissionsEv
+inline QFileDevice::Permissions QFileDevicePrivate::permissions() const
+{
+    QAbstractFileEngine::FileFlags perms = engine()->fileFlags(QAbstractFileEngine::PermsMask) & QAbstractFileEngine::PermsMask;
+    return QFile::Permissions::fromInt(perms.toInt()); //ewww
+}
+
+//  from src/corelib/io/qfiledevice.cpp, line 29, as _ZNK18QFileDevicePrivate6engineEv
+inline QAbstractFileEngine *QFileDevicePrivate::engine() const
+{
+    if (!fileEngine)
+        fileEngine = std::make_unique<QFSFileEngine>();
+    return fileEngine.get();
+}
+
+//  from src/corelib/io/qfiledevice.cpp, line 20, as _ZN18QFileDevicePrivateC1Ev
+inline QFileDevicePrivate::QFileDevicePrivate()
+    : cachedSize(0),
+      error(QFile::NoError), lastWasWrite(false)
+{
+    writeBufferChunkSize = QFILE_WRITEBUFFER_SIZE;
+}
+
+//  from src/corelib/io/qfiledevice.cpp, line 27, as _ZN18QFileDevicePrivateD1Ev
+inline QFileDevicePrivate::~QFileDevicePrivate() = default;
+
 //  from src/corelib/io/qfiledevice.cpp, line 52, as _ZN18QFileDevicePrivate8setErrorEN11QFileDevice9FileErrorE
 inline void QFileDevicePrivate::setError(QFileDevice::FileError err)
 {
@@ -142,11 +156,12 @@ typedef void * (*CuteQFileDevicePrivateCall0)(const void *, int *);
 typedef int (*CuteQFileDevicePrivateCall1)(const void *, int *);
 typedef bool (*CuteQFileDevicePrivateCall2)(const void *, int, int *);
 typedef bool (*CuteQFileDevicePrivateCall3)(const void *, char, int *);
-typedef const QByteArray * (*CuteQFileDevicePrivateCall4)(const void *, qint64, int *);
+typedef qint64 (*CuteQFileDevicePrivateCall4)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQFileDevicePrivateCall5)(const void *, qint64, int *);
 class CuteQFileDevicePrivate : public QFileDevicePrivate {
 public:
   using QFileDevicePrivate::QFileDevicePrivate;
-  void *taken[5] = {};
+  void *taken[6] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK18QFileDevicePrivate6engineEv")) {
@@ -165,8 +180,12 @@ public:
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[5] = call;
       return true;
     }
     return false;
@@ -217,11 +236,22 @@ public:
     return QFileDevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[4]) {
       int handled = 0;
       CuteQFileDevicePrivateCall4 call = reinterpret_cast<CuteQFileDevicePrivateCall4>(taken[4]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQFileDevicePrivateCall5 call = reinterpret_cast<CuteQFileDevicePrivateCall5>(taken[5]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }
@@ -241,6 +271,20 @@ extern "C" Q_DECL_EXPORT
 const QFileDevice *ritual_ZNK18QFileDevicePrivate6q_funcEv(
     const QFileDevicePrivate *self) {
   return self->q_func();
+}
+
+#if defined(Q_OS_LINUX)
+//  QFileDevicePrivate::QFileDevicePrivate()
+extern "C" Q_DECL_EXPORT
+QFileDevicePrivate *ritual_ZN18QFileDevicePrivateC1Ev() {
+  return new CuteQFileDevicePrivate();
+}
+#endif  // defined(Q_OS_LINUX)
+
+//  QFileDevicePrivate::~QFileDevicePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFileDevicePrivateD1Ev(QFileDevicePrivate *self) {
+  delete self;
 }
 
 //  QAbstractFileEngine *QFileDevicePrivate::engine() const

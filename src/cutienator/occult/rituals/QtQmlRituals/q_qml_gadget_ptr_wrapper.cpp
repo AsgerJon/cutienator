@@ -186,6 +186,25 @@ const QMetaObject *ritual_ZNK20QQmlGadgetPtrWrapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlGadgetPtrWrapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQmlGadgetPtrWrapper11qt_metacastEPKc(
+    QQmlGadgetPtrWrapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlGadgetPtrWrapper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQmlGadgetPtrWrapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlGadgetPtrWrapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlGadgetPtrWrapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQmlGadgetPtrWrapper2trEPKcS1_i(
@@ -266,6 +285,17 @@ QMetaType *ritual_ZNK20QQmlGadgetPtrWrapper8metaTypeEv(
   return new QMetaType(self->metaType());
 }
 
+//  int QQmlGadgetPtrWrapper::metaCall(QMetaObject::Call type, int id, void
+//      **argv)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQmlGadgetPtrWrapper8metaCallEN11QMetaObject4CallEiPPv(
+    QQmlGadgetPtrWrapper *self,
+    QMetaObject::Call type,
+    int id,
+    void **argv) {
+  return self->metaCall(type, id, argv);
+}
+
 //  QMetaProperty QQmlGadgetPtrWrapper::property(int index) const
 extern "C" Q_DECL_EXPORT
 QMetaProperty *ritual_ZNK20QQmlGadgetPtrWrapper8propertyEi(
@@ -291,6 +321,16 @@ void ritual_ZN20QQmlGadgetPtrWrapper13writeOnGadgetERK13QMetaPropertyRK8QVariant
     const QMetaProperty *property,
     const QVariant *value) {
   self->writeOnGadget(*property, *value);
+}
+
+//  void QQmlGadgetPtrWrapper::writeOnGadget(const QMetaProperty &property,
+//      QVariant &&value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlGadgetPtrWrapper13writeOnGadgetERK13QMetaPropertyO8QVariant(
+    QQmlGadgetPtrWrapper *self,
+    const QMetaProperty *property,
+    QVariant *value) {
+  self->writeOnGadget(*property, std::move(*value));
 }
 
 //  const QQmlValueType *QQmlGadgetPtrWrapper::valueType() const

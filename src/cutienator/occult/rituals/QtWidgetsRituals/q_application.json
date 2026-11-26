@@ -1,10 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtWidgets/qapplication.h, Qt 6.12.0. Changes made here are lost."
+    "QtWidgets/qapplication.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZNK12QApplication10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QApplication11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QApplication11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QApplication2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QApplicationC1ERiPPci": [
       "address", "address", "address", "int"
@@ -66,6 +73,12 @@
     "ritual_ZN12QApplication6notifyEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZNK12QApplication16resolveInterfaceEPKci": [
+      "address", "address", "chars", "int"
+    ],
+    "ritual_ZN12QApplication12focusChangedEP7QWidgetS1_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK12QApplication10styleSheetEv": ["text", "address"],
     "ritual_ZNK12QApplication14autoSipEnabledEv": ["bool", "address"],
     "ritual_ZN12QApplication13setStyleSheetERK7QString": [
@@ -91,6 +104,12 @@
     ],
     "ritual_own_ZN12QApplication13compressEventEP6QEventP7QObjectP14QPostEventList": [
       "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK12QApplication15nativeInterfaceIN16QNativeInterface15QX11ApplicationENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QApplication15nativeInterfaceIN16QNativeInterface19QWaylandApplicationENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
     ]
   }
 }

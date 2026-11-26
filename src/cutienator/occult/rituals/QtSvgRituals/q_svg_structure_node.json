@@ -6,8 +6,17 @@
   ],
   "rows": {
     "ritual_ZN17QSvgStructureNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QSvgStructureNode14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStructureNode23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK17QSvgStructureNode19previousSiblingNodeEP8QSvgNode": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStructureNode9renderersB5cxx11Ev": [
+      "address", "address"
     ],
     "ritual_ZN17QSvgStructureNode18releaseDescendantsEv": [
       "nothing", "address"

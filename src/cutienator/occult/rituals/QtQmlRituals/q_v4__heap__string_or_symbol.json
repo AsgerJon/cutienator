@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN3QV44Heap14StringOrSymbol4initEv": ["nothing", "address"],
+    "ritual_ZNK3QV44Heap14StringOrSymbol4textEv": ["address", "address"],
     "ritual_ZNK3QV44Heap14StringOrSymbol9toQStringEv": ["text", "address"],
     "ritual_ZNK3QV44Heap14StringOrSymbol9hashValueEv": [
       "unsigned int", "address"

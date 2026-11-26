@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuickLabsPlatformFontDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickLabsPlatformFontDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFontDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuickLabsPlatformFontDialog20qmlExtendedNamespaceEv": [
       "address"
     ],
@@ -24,6 +30,15 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK28QQuickLabsPlatformFontDialog7optionsEv": ["int", "address"],
+    "ritual_ZN28QQuickLabsPlatformFontDialog11fontChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFontDialog18currentFontChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFontDialog14optionsChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK28QQuickLabsPlatformFontDialog15useNativeDialogEv": [
       "bool", "address"
     ],

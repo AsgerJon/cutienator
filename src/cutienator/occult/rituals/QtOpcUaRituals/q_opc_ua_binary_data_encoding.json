@@ -1,11 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtOpcUa/qopcuabinarydataencoding.h, Qt 6.12.0. Changes made here",
-    "are lost."
+    "QtOpcUa/qopcuabinarydataencoding.h, Qt 6.12.0. Edited by hand: see",
+    "the ritual file."
   ],
   "rows": {
     "ritual_ZN24QOpcUaBinaryDataEncodingC1EP10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncodingC1ER21QOpcUaExtensionObject": [
       "address", "address"
     ],
     "ritual_ZNK24QOpcUaBinaryDataEncoding6offsetEv": ["int", "address"],
@@ -18,6 +21,69 @@
     "ritual_ZN24QOpcUaBinaryDataEncoding10enoughDataEi": [
       "bool", "address", "int"
     ],
-    "ritual_ZN24QOpcUaBinaryDataEncodingD1Ev": ["nothing", "address"]
+    "ritual_ZN24QOpcUaBinaryDataEncodingD1Ev": ["nothing", "address"],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6decodeIiLN6QOpcUa5TypesE4294967295EEET_Rb": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6decodeIdLN6QOpcUa5TypesE4294967295EEET_Rb": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6decodeIbLN6QOpcUa5TypesE4294967295EEET_Rb": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6decodeI7QStringLN6QOpcUa5TypesE4294967295EEET_Rb": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6decodeI10QByteArrayLN6QOpcUa5TypesE4294967295EEET_Rb": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6encodeIiLN6QOpcUa5TypesE4294967295EEEbRKT_": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6encodeIdLN6QOpcUa5TypesE4294967295EEEbRKT_": [
+      "bool", "address", "double"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6encodeIbLN6QOpcUa5TypesE4294967295EEEbRKT_": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6encodeI7QStringLN6QOpcUa5TypesE4294967295EEEbRKT_": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding6encodeI10QByteArrayLN6QOpcUa5TypesE4294967295EEEbRKT_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding24decodeValueArrayOrScalarIiLN6QOpcUa5TypesE4294967295EEE8QVariantbRb": [
+      "address", "address", "bool", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding24decodeValueArrayOrScalarIdLN6QOpcUa5TypesE4294967295EEE8QVariantbRb": [
+      "address", "address", "bool", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding24decodeValueArrayOrScalarIbLN6QOpcUa5TypesE4294967295EEE8QVariantbRb": [
+      "address", "address", "bool", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding24decodeValueArrayOrScalarI7QStringLN6QOpcUa5TypesE4294967295EEE8QVariantbRb": [
+      "address", "address", "bool", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding24encodeValueArrayOrScalarIiLN6QOpcUa5TypesE4294967295EEEbRK13QOpcUaVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding24encodeValueArrayOrScalarIdLN6QOpcUa5TypesE4294967295EEEbRK13QOpcUaVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding24encodeValueArrayOrScalarIbLN6QOpcUa5TypesE4294967295EEEbRK13QOpcUaVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding24encodeValueArrayOrScalarI7QStringLN6QOpcUa5TypesE4294967295EEEbRK13QOpcUaVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding10upperBoundIiEET_v": [
+      "int", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding10upperBoundIjEET_v": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN24QOpcUaBinaryDataEncoding10upperBoundIxEET_v": [
+      "long long", "address"
+    ]
   }
 }

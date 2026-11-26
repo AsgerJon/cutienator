@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QLowEnergyController10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QLowEnergyController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QLowEnergyController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QLowEnergyController2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -69,6 +75,31 @@
     "ritual_ZNK20QLowEnergyController4roleEv": ["int", "address"],
     "ritual_ZNK20QLowEnergyController3mtuEv": ["int", "address"],
     "ritual_ZN20QLowEnergyController8readRssiEv": ["nothing", "address"],
+    "ritual_ZN20QLowEnergyController9connectedEv": ["nothing", "address"],
+    "ritual_ZN20QLowEnergyController12disconnectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QLowEnergyController12stateChangedENS_15ControllerStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QLowEnergyController13errorOccurredENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QLowEnergyController10mtuChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QLowEnergyController8rssiReadEs": [
+      "nothing", "address", "short"
+    ],
+    "ritual_ZN20QLowEnergyController17serviceDiscoveredERK14QBluetoothUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyController17discoveryFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QLowEnergyController17connectionUpdatedERK30QLowEnergyConnectionParameters": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QLowEnergyControllerC1ERK17QBluetoothAddressP7QObject": [
       "address", "address", "address"
     ],

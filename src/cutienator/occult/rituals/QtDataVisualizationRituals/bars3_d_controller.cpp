@@ -1138,6 +1138,25 @@ const QMetaObject *ritual_ZNK16Bars3DController10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Bars3DController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16Bars3DController11qt_metacastEPKc(
+    Bars3DController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Bars3DController::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16Bars3DController11qt_metacallEN11QMetaObject4CallEiPPv(
+    Bars3DController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Bars3DController::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16Bars3DController2trEPKcS1_i(
@@ -1214,6 +1233,12 @@ extern "C" Q_DECL_EXPORT
 QSizeF *ritual_ZN16Bars3DController15barSeriesMarginEv(
     Bars3DController *self) {
   return new QSizeF(self->barSeriesMargin());
+}
+
+//  GLfloat Bars3DController::barThickness()
+extern "C" Q_DECL_EXPORT
+GLfloat ritual_ZN16Bars3DController12barThicknessEv(Bars3DController *self) {
+  return self->barThickness();
 }
 
 //  QSizeF Bars3DController::barSpacing()
@@ -1463,6 +1488,22 @@ void ritual_ZN16Bars3DController22handleRowColorsChangedEv(
   self->handleRowColorsChanged();
 }
 
+//  void Bars3DController::primarySeriesChanged(QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Bars3DController20primarySeriesChangedEP12QBar3DSeries(
+    Bars3DController *self,
+    QBar3DSeries *series) {
+  self->primarySeriesChanged(series);
+}
+
+//  void Bars3DController::selectedSeriesChanged(QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Bars3DController21selectedSeriesChangedEP12QBar3DSeries(
+    Bars3DController *self,
+    QBar3DSeries *series) {
+  self->selectedSeriesChanged(series);
+}
+
 //  QAbstract3DAxis
 //      *Bars3DController::createDefaultAxis(QAbstract3DAxis::AxisOrientation
 //      orientation)
@@ -1471,6 +1512,16 @@ QAbstract3DAxis *ritual_ZN16Bars3DController17createDefaultAxisEN15QAbstract3DAx
     Bars3DController *self,
     QAbstract3DAxis::AxisOrientation orientation) {
   return self->createDefaultAxis(orientation);
+}
+
+//  void Bars3DController::adjustSelectionPosition(QPoint &pos, const
+//      QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Bars3DController23adjustSelectionPositionER6QPointPK12QBar3DSeries(
+    Bars3DController *self,
+    QPoint *pos,
+    const QBar3DSeries *series) {
+  self->adjustSelectionPosition(*pos, series);
 }
 
 //  a Python function taken by a CuteBars3DController, for the function named

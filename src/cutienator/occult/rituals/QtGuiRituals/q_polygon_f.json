@@ -6,8 +6,10 @@
   "rows": {
     "ritual_ZN9QPolygonFC1Ev": ["address"],
     "ritual_ZN9QPolygonFC1ERK5QListI7QPointFE": ["address", "address"],
+    "ritual_ZN9QPolygonFC1EO5QListI7QPointFE": ["address", "address"],
     "ritual_ZN9QPolygonFC1ERK6QRectF": ["address", "address"],
     "ritual_ZN9QPolygonFC1ERK8QPolygon": ["address", "address"],
+    "ritual_ZN9QPolygonF4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QPolygonFcv8QVariantEv": ["address", "address"],
     "ritual_ZN9QPolygonF9translateEdd": [
       "nothing", "address", "double", "double"

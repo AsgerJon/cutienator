@@ -8,17 +8,23 @@
     "ritual_ZNK22QSGRhiShaderEffectNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QSGRhiShaderEffectNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QSGRhiShaderEffectNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QSGRhiShaderEffectNode30updateNormalizedTextureSubRectEb": [
       "address", "address", "bool"
+    ],
+    "ritual_ZN22QSGRhiShaderEffectNode12syncMaterialEPN19QSGShaderEffectNode8SyncDataE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN22QSGRhiShaderEffectNode10preprocessEv": [
       "nothing", "address"
     ],
     "ritual_ZN22QSGRhiShaderEffectNode19handleTextureChangeEv": [
       "nothing", "address"
-    ],
-    "ritual_ZN22QSGRhiShaderEffectNode30handleTextureProviderDestroyedEP7QObject": [
-      "nothing", "address", "address"
     ],
     "ritual_own_ZN22QSGRhiShaderEffectNode30updateNormalizedTextureSubRectEb": [
       "address", "address", "bool"

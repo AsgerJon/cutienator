@@ -51,6 +51,50 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/dialogs/qfontdialog.cpp, line 33, as local:qfontdialog.cpp:QFontListView
+class QFontListView : public QListView
+{
+    Q_OBJECT
+public:
+    QFontListView(QWidget *parent);
+    inline QStringListModel *model() const {
+        return static_cast<QStringListModel *>(QListView::model());
+    }
+    inline void setCurrentItem(int item) {
+        QListView::setCurrentIndex(static_cast<QAbstractListModel*>(model())->index(item));
+    }
+    inline int currentItem() const {
+        return QListView::currentIndex().row();
+    }
+    inline int count() const {
+        return model()->rowCount();
+    }
+    inline QString currentText() const {
+        int row = QListView::currentIndex().row();
+        return row < 0 ? QString() : model()->stringList().at(row);
+    }
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) override {
+        QListView::currentChanged(current, previous);
+        if (current.isValid())
+            emit highlighted(current.row());
+    }
+    QString text(int i) const {
+        return model()->stringList().at(i);
+    }
+signals:
+    void highlighted(int);
+};
+
+//  from src/widgets/dialogs/qfontdialog.cpp, line 66, as local:qfontdialog.cpp:QFontListView::QFontListView
+inline QFontListView::QFontListView(QWidget *parent)
+    : QListView(parent)
+{
+    setModel(new QStringListModel(parent));
+    setEditTriggers(NoEditTriggers);
+}
+
 //  from src/widgets/dialogs/qfontdialog.cpp, line 456, as _ZN18QFontDialogPrivate10initHelperEP21QPlatformDialogHelper
 inline void QFontDialogPrivate::initHelper(QPlatformDialogHelper *h)
 {
@@ -64,10 +108,235 @@ inline void QFontDialogPrivate::initHelper(QPlatformDialogHelper *h)
                      q, &QFontDialog::fontSelected);
 }
 
+//  from src/widgets/dialogs/qfontdialog.cpp, line 995, as _ZN18QFontDialogPrivate10setVisibleEb
+inline void QFontDialogPrivate::setVisible(bool visible)
+{
+    // Don't use Q_Q here! This function is called from ~QDialog,
+    // so Q_Q calling q_func() invokes undefined behavior (invalid cast in q_func()).
+    const auto q = static_cast<QDialog *>(q_ptr);
+
+    if (canBeNativeDialog())
+        setNativeDialogVisible(visible);
+    if (nativeDialogInUse) {
+        // Set WA_DontShowOnScreen so that QDialog::setVisible(visible) below
+        // updates the state correctly, but skips showing the non-native version:
+        q->setAttribute(Qt::WA_DontShowOnScreen, true);
+    } else {
+        q->setAttribute(Qt::WA_DontShowOnScreen, false);
+    }
+    QDialogPrivate::setVisible(visible);
+}
+
 //  from src/widgets/dialogs/qfontdialog.cpp, line 468, as _ZN18QFontDialogPrivate17helperPrepareShowEP21QPlatformDialogHelper
 inline void QFontDialogPrivate::helperPrepareShow(QPlatformDialogHelper *)
 {
     options->setWindowTitle(q_func()->windowTitle());
+}
+
+//  from src/widgets/dialogs/qfontdialog.cpp, line 1041, as _ZNK18QFontDialogPrivate17canBeNativeDialogEv
+inline bool QFontDialogPrivate::canBeNativeDialog() const
+{
+    // Don't use Q_Q here! This function is called from ~QDialog,
+    // so Q_Q calling q_func() invokes undefined behavior (invalid cast in q_func()).
+    const QDialog * const q = static_cast<const QDialog*>(q_ptr);
+    if (nativeDialogInUse)
+        return true;
+    if (QCoreApplication::testAttribute(Qt::AA_DontUseNativeDialogs)
+        || q->testAttribute(Qt::WA_DontShowOnScreen)
+        || (options->options() & QFontDialog::DontUseNativeDialog)) {
+        return false;
+    }
+
+    return strcmp(QFontDialog::staticMetaObject.className(), q->metaObject()->className()) == 0;
+}
+
+//  from src/widgets/dialogs/qfontdialog.cpp, line 478, as _ZN18QFontDialogPrivate14updateFamiliesEv
+inline void QFontDialogPrivate::updateFamilies()
+{
+    Q_Q(QFontDialog);
+
+    enum match_t { MATCH_NONE = 0, MATCH_LAST_RESORT = 1, MATCH_APP = 2, MATCH_FAMILY = 3 };
+
+    const QFontDialog::FontDialogOptions scalableMask = (QFontDialog::ScalableFonts | QFontDialog::NonScalableFonts);
+    const QFontDialog::FontDialogOptions spacingMask = (QFontDialog::ProportionalFonts | QFontDialog::MonospacedFonts);
+    const QFontDialog::FontDialogOptions options = q->options();
+
+    QStringList familyNames;
+    const auto families = QFontDatabase::families(writingSystem);
+    for (const QString &family : families) {
+        if (QFontDatabase::isPrivateFamily(family))
+            continue;
+
+        if ((options & scalableMask) && (options & scalableMask) != scalableMask) {
+            if (bool(options & QFontDialog::ScalableFonts) != QFontDatabase::isSmoothlyScalable(family))
+                continue;
+        }
+        if ((options & spacingMask) && (options & spacingMask) != spacingMask) {
+            if (bool(options & QFontDialog::MonospacedFonts) != QFontDatabase::isFixedPitch(family))
+                continue;
+        }
+        familyNames << family;
+    }
+
+    familyList->model()->setStringList(familyNames);
+
+    QString foundryName1, familyName1, foundryName2, familyName2;
+    int bestFamilyMatch = -1;
+    match_t bestFamilyType = MATCH_NONE;
+
+    QFont f;
+
+    // ##### do the right thing for a list of family names in the font.
+    QFontDatabasePrivate::parseFontName(family, foundryName1, familyName1);
+
+    QStringList::const_iterator it = familyNames.constBegin();
+    int i = 0;
+    for(; it != familyNames.constEnd(); ++it, ++i) {
+        QFontDatabasePrivate::parseFontName(*it, foundryName2, familyName2);
+
+        //try to match...
+        if (familyName1 == familyName2) {
+            bestFamilyType = MATCH_FAMILY;
+            if (foundryName1 == foundryName2) {
+                bestFamilyMatch = i;
+                break;
+            }
+            if (bestFamilyMatch < MATCH_FAMILY)
+                bestFamilyMatch = i;
+        }
+
+        //and try some fall backs
+        match_t type = MATCH_NONE;
+        if (bestFamilyType <= MATCH_NONE && familyName2 == "helvetica"_L1)
+            type = MATCH_LAST_RESORT;
+        if (bestFamilyType <= MATCH_LAST_RESORT && familyName2 == f.family())
+            type = MATCH_APP;
+        // ### add fallback for writingSystem
+        if (type != MATCH_NONE) {
+            bestFamilyType = type;
+            bestFamilyMatch = i;
+        }
+    }
+
+    if (i != -1 && bestFamilyType != MATCH_NONE)
+        familyList->setCurrentItem(bestFamilyMatch);
+    else
+        familyList->setCurrentItem(0);
+    familyEdit->setText(familyList->currentText());
+    if (q->style()->styleHint(QStyle::SH_FontDialog_SelectAssociatedText, nullptr, q)
+            && familyList->hasFocus())
+        familyEdit->selectAll();
+
+    updateStyles();
+}
+
+//  from src/widgets/dialogs/qfontdialog.cpp, line 561, as _ZN18QFontDialogPrivate12updateStylesEv
+inline void QFontDialogPrivate::updateStyles()
+{
+    Q_Q(QFontDialog);
+    QStringList styles = QFontDatabase::styles(familyList->currentText());
+    styleList->model()->setStringList(styles);
+
+    if (styles.isEmpty()) {
+        styleEdit->clear();
+        smoothScalable = false;
+    } else {
+        if (!style.isEmpty()) {
+            bool found = false;
+            bool first = true;
+            QString cstyle = style;
+
+        redo:
+            for (int i = 0; i < static_cast<int>(styleList->count()); i++) {
+                if (cstyle == styleList->text(i)) {
+                     styleList->setCurrentItem(i);
+                     found = true;
+                     break;
+                 }
+            }
+            if (!found && first) {
+                if (cstyle.contains("Italic"_L1)) {
+                    cstyle.replace("Italic"_L1, "Oblique"_L1);
+                    first = false;
+                    goto redo;
+                } else if (cstyle.contains("Oblique"_L1)) {
+                    cstyle.replace("Oblique"_L1, "Italic"_L1);
+                    first = false;
+                    goto redo;
+                } else if (cstyle.contains("Regular"_L1)) {
+                    cstyle.replace("Regular"_L1, "Normal"_L1);
+                    first = false;
+                    goto redo;
+                } else if (cstyle.contains("Normal"_L1)) {
+                    cstyle.replace("Normal"_L1, "Regular"_L1);
+                    first = false;
+                    goto redo;
+                }
+            }
+            if (!found)
+                styleList->setCurrentItem(0);
+        } else {
+            styleList->setCurrentItem(0);
+        }
+
+        styleEdit->setText(styleList->currentText());
+        if (q->style()->styleHint(QStyle::SH_FontDialog_SelectAssociatedText, nullptr, q)
+                && styleList->hasFocus())
+            styleEdit->selectAll();
+
+        smoothScalable = QFontDatabase::isSmoothlyScalable(familyList->currentText(), styleList->currentText());
+    }
+
+    updateSizes();
+}
+
+//  from src/widgets/dialogs/qfontdialog.cpp, line 626, as _ZN18QFontDialogPrivate11updateSizesEv
+inline void QFontDialogPrivate::updateSizes()
+{
+    Q_Q(QFontDialog);
+
+    if (!familyList->currentText().isEmpty()) {
+        QList<int> sizes = QFontDatabase::pointSizes(familyList->currentText(), styleList->currentText());
+
+        int i = 0;
+        int current = -1;
+        QStringList str_sizes;
+        str_sizes.reserve(sizes.size());
+        for(QList<int>::const_iterator it = sizes.constBegin(); it != sizes.constEnd(); ++it) {
+            str_sizes.append(QString::number(*it));
+            if (current == -1 && *it == size)
+                current = i;
+            ++i;
+        }
+        sizeList->model()->setStringList(str_sizes);
+        if (current != -1)
+            sizeList->setCurrentItem(current);
+
+        const QSignalBlocker blocker(sizeEdit);
+        sizeEdit->setText((smoothScalable ? QString::number(size) : sizeList->currentText()));
+        if (q->style()->styleHint(QStyle::SH_FontDialog_SelectAssociatedText, nullptr, q)
+                && sizeList->hasFocus())
+            sizeEdit->selectAll();
+    } else {
+        sizeEdit->clear();
+    }
+
+    updateSample();
+}
+
+//  from src/widgets/dialogs/qfontdialog.cpp, line 659, as _ZN18QFontDialogPrivate12updateSampleEv
+inline void QFontDialogPrivate::updateSample()
+{
+    // compute new font
+    int pSize = sizeEdit->text().toInt();
+    QFont newFont(QFontDatabase::font(familyList->currentText(), style, pSize));
+    newFont.setStrikeOut(strikeout->isChecked());
+    newFont.setUnderline(underline->isChecked());
+
+    if (familyList->currentText().isEmpty())
+        sampleEdit->clear();
+
+    updateSampleFont(newFont);
 }
 
 //  from src/widgets/dialogs/qfontdialog.cpp, line 76, as _ZN18QFontDialogPrivateC1Ev
@@ -102,6 +371,14 @@ inline QFont QFontDialogPrivate::getFont(bool *ok, const QFont &initial, QWidget
     }
 }
 
+//  from src/widgets/dialogs/qfontdialog.cpp, line 685, as _ZN18QFontDialogPrivate24writingSystemHighlightedEi
+inline void QFontDialogPrivate::writingSystemHighlighted(int index)
+{
+    writingSystem = QFontDatabase::WritingSystem(index);
+    sampleEdit->setText(QFontDatabase::writingSystemSample(writingSystem));
+    updateFamilies();
+}
+
 //  from src/widgets/dialogs/qfontdialog.cpp, line 673, as _ZN18QFontDialogPrivate16updateSampleFontERK5QFont
 inline void QFontDialogPrivate::updateSampleFont(const QFont &newFont)
 {
@@ -123,42 +400,6 @@ inline void QFontDialogPrivate::retranslateStrings()
     underline->setText(QFontDialog::tr("&Underline"));
     sample->setTitle(QFontDialog::tr("Sample"));
     writingSystemAccel->setText(QFontDialog::tr("Wr&iting System"));
-}
-
-//  from src/widgets/dialogs/qfontdialog.cpp, line 1041, as _ZNK18QFontDialogPrivate17canBeNativeDialogEv
-inline bool QFontDialogPrivate::canBeNativeDialog() const
-{
-    // Don't use Q_Q here! This function is called from ~QDialog,
-    // so Q_Q calling q_func() invokes undefined behavior (invalid cast in q_func()).
-    const QDialog * const q = static_cast<const QDialog*>(q_ptr);
-    if (nativeDialogInUse)
-        return true;
-    if (QCoreApplication::testAttribute(Qt::AA_DontUseNativeDialogs)
-        || q->testAttribute(Qt::WA_DontShowOnScreen)
-        || (options->options() & QFontDialog::DontUseNativeDialog)) {
-        return false;
-    }
-
-    return strcmp(QFontDialog::staticMetaObject.className(), q->metaObject()->className()) == 0;
-}
-
-//  from src/widgets/dialogs/qfontdialog.cpp, line 995, as _ZN18QFontDialogPrivate10setVisibleEb
-inline void QFontDialogPrivate::setVisible(bool visible)
-{
-    // Don't use Q_Q here! This function is called from ~QDialog,
-    // so Q_Q calling q_func() invokes undefined behavior (invalid cast in q_func()).
-    const auto q = static_cast<QDialog *>(q_ptr);
-
-    if (canBeNativeDialog())
-        setNativeDialogVisible(visible);
-    if (nativeDialogInUse) {
-        // Set WA_DontShowOnScreen so that QDialog::setVisible(visible) below
-        // updates the state correctly, but skips showing the non-native version:
-        q->setAttribute(Qt::WA_DontShowOnScreen, true);
-    } else {
-        q->setAttribute(Qt::WA_DontShowOnScreen, false);
-    }
-    QDialogPrivate::setVisible(visible);
 }
 //  -----------------------------------------------------------------------
 
@@ -657,6 +898,14 @@ QFont *ritual_ZN18QFontDialogPrivate7getFontEPbRK5QFontP7QWidgetRK7QString6QFlag
           parent,
           *title,
           QFlags<QFontDialog::FontDialogOption>::fromInt(options)));
+}
+
+//  void QFontDialogPrivate::writingSystemHighlighted(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFontDialogPrivate24writingSystemHighlightedEi(
+    QFontDialogPrivate *self,
+    int a0) {
+  self->writingSystemHighlighted(a0);
 }
 
 //  void QFontDialogPrivate::updateSampleFont(const QFont &newFont)

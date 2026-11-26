@@ -37,6 +37,15 @@ QQuickSimpleAction *ritual_ZN18QQuickSimpleActionC1ERKS_(
   return new QQuickSimpleAction(*other);
 }
 
+//  QQuickSimpleAction &QQuickSimpleAction::operator=(const
+//      QQuickSimpleAction &other)
+extern "C" Q_DECL_EXPORT
+QQuickSimpleAction *ritual_ZN18QQuickSimpleActionaSERKS_(
+    QQuickSimpleAction *self,
+    const QQuickSimpleAction *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QQuickSimpleAction::setProperty(const QQmlProperty &property)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickSimpleAction11setPropertyERK12QQmlProperty(

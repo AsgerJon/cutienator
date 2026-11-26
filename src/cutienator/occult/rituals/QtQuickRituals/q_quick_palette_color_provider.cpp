@@ -86,6 +86,16 @@ void ritual_ZN26QQuickPaletteColorProvider18setPaletteProviderEPK29QQuickAbstrac
   self->setPaletteProvider(paletteProvider);
 }
 
+//  bool QQuickPaletteColorProvider::copyColorGroup(QPalette::ColorGroup cg,
+//      const QQuickPaletteColorProvider &p)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN26QQuickPaletteColorProvider14copyColorGroupEN8QPalette10ColorGroupERKS_(
+    QQuickPaletteColorProvider *self,
+    QPalette::ColorGroup cg,
+    const QQuickPaletteColorProvider *p) {
+  return self->copyColorGroup(cg, *p);
+}
+
 //  bool QQuickPaletteColorProvider::reset()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN26QQuickPaletteColorProvider5resetEv(

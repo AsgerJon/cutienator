@@ -23,6 +23,25 @@ const QMetaObject *ritual_ZNK20QQuickUniversalStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickUniversalStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickUniversalStyle11qt_metacastEPKc(
+    QQuickUniversalStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickUniversalStyle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickUniversalStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickUniversalStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickUniversalStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickUniversalStyle2trEPKcS1_i(
@@ -399,6 +418,41 @@ QColor *ritual_ZNK20QQuickUniversalStyle11systemColorENS_11SystemColorE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickUniversalStyle11initGlobalsEv() {
   QQuickUniversalStyle::initGlobals();
+}
+
+//  void QQuickUniversalStyle::themeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickUniversalStyle12themeChangedEv(
+    QQuickUniversalStyle *self) {
+  self->themeChanged();
+}
+
+//  void QQuickUniversalStyle::accentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickUniversalStyle13accentChangedEv(
+    QQuickUniversalStyle *self) {
+  self->accentChanged();
+}
+
+//  void QQuickUniversalStyle::foregroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickUniversalStyle17foregroundChangedEv(
+    QQuickUniversalStyle *self) {
+  self->foregroundChanged();
+}
+
+//  void QQuickUniversalStyle::backgroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickUniversalStyle17backgroundChangedEv(
+    QQuickUniversalStyle *self) {
+  self->backgroundChanged();
+}
+
+//  void QQuickUniversalStyle::paletteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickUniversalStyle14paletteChangedEv(
+    QQuickUniversalStyle *self) {
+  self->paletteChanged();
 }
 
 //  void QQuickUniversalStyle::attachedParentChange(QQuickAttachedPropertyPro

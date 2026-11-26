@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtSensors/QOrientationReading>
 
 //  A QmlOrientationSensorReading that Python can take functions over in. Every QmlOrientationSensorReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +218,25 @@ const QMetaObject *ritual_ZNK27QmlOrientationSensorReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlOrientationSensorReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QmlOrientationSensorReading11qt_metacastEPKc(
+    QmlOrientationSensorReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlOrientationSensorReading::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QmlOrientationSensorReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlOrientationSensorReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlOrientationSensorReading::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -256,6 +277,22 @@ QOrientationReading::Orientation ritual_ZNK27QmlOrientationSensorReading11orient
   return self->orientation();
 }
 
+//  QBindable<QOrientationReading::Orientation>
+//      QmlOrientationSensorReading::bindableOrientation() const
+extern "C" Q_DECL_EXPORT
+QBindable<QOrientationReading::Orientation> *ritual_ZNK27QmlOrientationSensorReading19bindableOrientationEv(
+    const QmlOrientationSensorReading *self) {
+  return new QBindable<QOrientationReading::Orientation>(
+      self->bindableOrientation());
+}
+
+//  void QmlOrientationSensorReading::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QmlOrientationSensorReading18orientationChangedEv(
+    QmlOrientationSensorReading *self) {
+  self->orientationChanged();
+}
+
 //  QSensorReading *QmlOrientationSensorReading::reading() const
 extern "C" Q_DECL_EXPORT
 QSensorReading *ritual_ZNK27QmlOrientationSensorReading7readingEv(
@@ -268,6 +305,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN27QmlOrientationSensorReading13readingUpdateEv(
     QmlOrientationSensorReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlOrientationSensorReading::_qt_property_m_orientation_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN27QmlOrientationSensorReading33_qt_property_m_orientation_offsetEv() {
+  return QmlOrientationSensorReading::_qt_property_m_orientation_offset();
 }
 
 //  a Python function taken by a CuteQmlOrientationSensorReading, for the
@@ -292,4 +335,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN27QmlOrientationSensorReading13readingUpdateEv(
     QmlOrientationSensorReading *self) {
   self->QmlOrientationSensorReading::readingUpdate();
+}
+
+//  a QBindable<QOrientationReading::Orientation> a ritual of
+//      QmlOrientationSensorReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlOrientationSensorReading__QBindable_QOrientationReading_Orientation(
+    QBindable<QOrientationReading::Orientation> *self) {
+  delete self;
 }

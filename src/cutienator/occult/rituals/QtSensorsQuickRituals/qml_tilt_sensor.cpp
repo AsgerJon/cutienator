@@ -248,6 +248,24 @@ const QMetaObject *ritual_ZNK13QmlTiltSensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlTiltSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QmlTiltSensor11qt_metacastEPKc(
+    QmlTiltSensor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlTiltSensor::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QmlTiltSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlTiltSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlTiltSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QmlTiltSensor2trEPKcS1_i(

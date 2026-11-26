@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17Surface3DRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN17Surface3DRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17Surface3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17Surface3DRenderer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,6 +31,12 @@
     ],
     "ritual_ZN17Surface3DRenderer19updateSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN17Surface3DRenderer10updateRowsERK5QListIN19Surface3DController9ChangeRowEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer11updateItemsERK5QListIN19Surface3DController10ChangeItemEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17Surface3DRenderer11updateSceneEP8Q3DScene": [
       "nothing", "address", "address"
@@ -63,6 +75,15 @@
     "ritual_ZN17Surface3DRenderer16initializeOpenGLEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17Surface3DRenderer15fixCameraTargetER9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer20getVisibleItemBoundsER9QVector3DS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer27flatShadingSupportedChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN17Surface3DRenderer16checkFlatSupportEP24SurfaceSeriesRenderCache": [
       "nothing", "address", "address"
     ],
@@ -75,6 +96,12 @@
     "ritual_ZN17Surface3DRenderer22mapCoordsToSampleSpaceEP24SurfaceSeriesRenderCacheRK7QPointF": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN17Surface3DRenderer15findMatchingRowEfRiiR5QListIPS1_I16QSurfaceDataItemEE": [
+      "nothing", "address", "float", "address", "int", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer18findMatchingColumnEfRiiR5QListIPS1_I16QSurfaceDataItemEE": [
+      "nothing", "address", "float", "address", "int", "address"
+    ],
     "ritual_ZN17Surface3DRenderer17updateSliceObjectEP24SurfaceSeriesRenderCacheRK6QPoint": [
       "nothing", "address", "address", "address"
     ],
@@ -84,6 +111,9 @@
     "ritual_ZN17Surface3DRenderer14updateTexturesEv": ["nothing", "address"],
     "ritual_ZN17Surface3DRenderer11initShadersERK7QStringS2_": [
       "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN17Surface3DRenderer19calculateSampleRectERK5QListIPS0_I16QSurfaceDataItemEE": [
+      "address", "address", "address"
     ],
     "ritual_ZN17Surface3DRenderer18loadBackgroundMeshEv": [
       "nothing", "address"

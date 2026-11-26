@@ -18,10 +18,36 @@ QSqlIndex *ritual_ZN9QSqlIndexC1ERKS_(const QSqlIndex *other) {
   return new QSqlIndex(*other);
 }
 
+//  QSqlIndex::QSqlIndex(QSqlIndex &&other)
+extern "C" Q_DECL_EXPORT
+QSqlIndex *ritual_ZN9QSqlIndexC1EOS_(QSqlIndex *other) {
+  return new QSqlIndex(std::move(*other));
+}
+
 //  QSqlIndex::~QSqlIndex()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QSqlIndexD1Ev(QSqlIndex *self) {
   delete self;
+}
+
+//  QSqlIndex &QSqlIndex::operator=(const QSqlIndex &other)
+extern "C" Q_DECL_EXPORT
+QSqlIndex *ritual_ZN9QSqlIndexaSERKS_(
+    QSqlIndex *self,
+    const QSqlIndex *other) {
+  return &(self->operator=(*other));
+}
+
+//  QSqlIndex &QSqlIndex::operator=(QSqlIndex &&other)
+extern "C" Q_DECL_EXPORT
+QSqlIndex *ritual_ZN9QSqlIndexaSEOS_(QSqlIndex *self, QSqlIndex *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QSqlIndex::swap(QSqlIndex &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSqlIndex4swapERS_(QSqlIndex *self, QSqlIndex *other) {
+  self->swap(*other);
 }
 
 //  void QSqlIndex::setCursorName(const QString &cursorName)

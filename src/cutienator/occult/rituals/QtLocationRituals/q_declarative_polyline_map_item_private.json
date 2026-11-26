@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN34QDeclarativePolylineMapItemPrivateC1ER27QDeclarativePolylineMapItem": [
+      "address", "address"
+    ],
     "ritual_ZN34QDeclarativePolylineMapItemPrivateD1Ev": [
       "nothing", "address"
     ],

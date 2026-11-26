@@ -7,6 +7,15 @@
   "rows": {
     "ritual_ZNK9QtWayland19XdgPopupIntegration10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN9QtWayland19XdgPopupIntegration11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9QtWayland19XdgPopupIntegration11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN9QtWayland19XdgPopupIntegration21handleGeometryChangedEv": [
+      "nothing", "address"
     ]
   }
 }

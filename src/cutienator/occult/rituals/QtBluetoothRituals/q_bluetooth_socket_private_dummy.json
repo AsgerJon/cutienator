@@ -47,6 +47,9 @@
     "ritual_ZN28QBluetoothSocketPrivateDummy9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
+    "ritual_ZN28QBluetoothSocketPrivateDummy8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN28QBluetoothSocketPrivateDummy19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int", "int", "int", "int"
     ],

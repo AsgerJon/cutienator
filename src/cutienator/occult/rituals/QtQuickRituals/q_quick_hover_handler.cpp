@@ -345,6 +345,25 @@ const QMetaObject *ritual_ZNK18QQuickHoverHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickHoverHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickHoverHandler11qt_metacastEPKc(
+    QQuickHoverHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickHoverHandler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickHoverHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickHoverHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickHoverHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickHoverHandler2trEPKcS1_i(
@@ -397,6 +416,20 @@ void ritual_ZN18QQuickHoverHandler11setBlockingEb(
   self->setBlocking(blocking);
 }
 
+//  void QQuickHoverHandler::hoveredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickHoverHandler14hoveredChangedEv(
+    QQuickHoverHandler *self) {
+  self->hoveredChanged();
+}
+
+//  void QQuickHoverHandler::blockingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickHoverHandler15blockingChangedEv(
+    QQuickHoverHandler *self) {
+  self->blockingChanged();
+}
+
 //  void QQuickHoverHandler::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickHoverHandler17componentCompleteEv(
@@ -410,6 +443,30 @@ bool ritual_ZN18QQuickHoverHandler17wantsPointerEventEP13QPointerEvent(
     QQuickHoverHandler *self,
     QPointerEvent *event) {
   return self->wantsPointerEvent(event);
+}
+
+//  void QQuickHoverHandler::handleEventPoint(QPointerEvent *ev, QEventPoint
+//      &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickHoverHandler16handleEventPointEP13QPointerEventR11QEventPoint(
+    QQuickHoverHandler *self,
+    QPointerEvent *ev,
+    QEventPoint *point) {
+  self->handleEventPoint(ev, *point);
+}
+
+//  QQuickHoverHandlerPrivate *QQuickHoverHandler::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickHoverHandlerPrivate *ritual_ZN18QQuickHoverHandler6d_funcEv(
+    QQuickHoverHandler *self) {
+  return self->d_func();
+}
+
+//  const QQuickHoverHandlerPrivate *QQuickHoverHandler::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickHoverHandlerPrivate *ritual_ZNK18QQuickHoverHandler6d_funcEv(
+    const QQuickHoverHandler *self) {
+  return self->d_func();
 }
 
 //  void QQuickHoverHandler::setHovered(bool hovered)

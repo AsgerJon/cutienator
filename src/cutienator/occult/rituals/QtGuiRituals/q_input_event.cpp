@@ -2,6 +2,9 @@
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
 #include <cstring>
+#include <QtCore/QEvent>
+#include <QtCore/QFlags>
+#include <QtCore/Qt>
 
 //  A QInputEvent that Python can take functions over in. Every QInputEvent
 //  Python makes is one. Each function below asks the Python
@@ -12,6 +15,7 @@ typedef void (*CuteQInputEventCall2)(const void *, bool, int *);
 class CuteQInputEvent : public QInputEvent {
 public:
   using QInputEvent::QInputEvent;
+  CuteQInputEvent(const QInputEvent & other) : QInputEvent(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -63,6 +67,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QInputEvent::QInputEvent(const QInputEvent &a0)
+extern "C" Q_DECL_EXPORT
+QInputEvent *ritual_ZN11QInputEventC1ERKS_(const QInputEvent *a0) {
+  return new CuteQInputEvent(*a0);
+}
+
+//  QInputEvent &QInputEvent::operator=(const QInputEvent &other)
+extern "C" Q_DECL_EXPORT
+QInputEvent *ritual_ZN11QInputEventaSERKS_(
+    QInputEvent *self,
+    const QInputEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QInputEvent *QInputEvent::clone() const
 extern "C" Q_DECL_EXPORT
@@ -129,6 +147,36 @@ void ritual_ZN11QInputEvent12setTimestampEy(
     QInputEvent *self,
     quint64 timestamp) {
   self->setTimestamp(timestamp);
+}
+
+//  QInputEvent::QInputEvent(Type type, PointerEventTag a1, const
+//      QInputDevice *dev, Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+QInputEvent *ritual_ZN11QInputEventC1EN6QEvent4TypeENS0_15PointerEventTagEPK12QInputDevice6QFlagsIN2Qt16KeyboardModifierEE(
+    QEvent::Type type,
+    const QEvent::PointerEventTag *a1,
+    const QInputDevice *dev,
+    int modifiers) {
+  return new CuteQInputEvent(
+      type,
+      *a1,
+      dev,
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
+}
+
+//  QInputEvent::QInputEvent(Type type, SinglePointEventTag a1, const
+//      QInputDevice *dev, Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+QInputEvent *ritual_ZN11QInputEventC1EN6QEvent4TypeENS0_19SinglePointEventTagEPK12QInputDevice6QFlagsIN2Qt16KeyboardModifierEE(
+    QEvent::Type type,
+    const QEvent::SinglePointEventTag *a1,
+    const QInputDevice *dev,
+    int modifiers) {
+  return new CuteQInputEvent(
+      type,
+      *a1,
+      dev,
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
 }
 
 //  a Python function taken by a CuteQInputEvent, for the function named by

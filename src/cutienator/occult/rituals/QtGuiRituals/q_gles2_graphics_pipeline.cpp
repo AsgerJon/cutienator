@@ -31,10 +31,38 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/rhi/qrhigles2.cpp, line 6909, as _ZN22QGles2GraphicsPipelineD1Ev
-inline QGles2GraphicsPipeline::~QGles2GraphicsPipeline()
+//  from src/gui/rhi/qrhigles2.cpp, line 3011, as local:qrhigles2.cpp:toGlTopology
+static inline GLenum toGlTopology(QRhiGraphicsPipeline::Topology t)
 {
-    destroy();
+    switch (t) {
+    case QRhiGraphicsPipeline::Triangles:
+        return GL_TRIANGLES;
+    case QRhiGraphicsPipeline::TriangleStrip:
+        return GL_TRIANGLE_STRIP;
+    case QRhiGraphicsPipeline::TriangleFan:
+        return GL_TRIANGLE_FAN;
+    case QRhiGraphicsPipeline::Lines:
+        return GL_LINES;
+    case QRhiGraphicsPipeline::LineStrip:
+        return GL_LINE_STRIP;
+    case QRhiGraphicsPipeline::Points:
+        return GL_POINTS;
+    case QRhiGraphicsPipeline::Patches:
+        return GL_PATCHES;
+    default:
+        Q_UNREACHABLE_RETURN(GL_TRIANGLES);
+    }
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 5408, as local:qrhigles2.cpp:isGraphicsStage
+static inline bool isGraphicsStage(const QRhiShaderStage &shaderStage)
+{
+    const QRhiShaderStage::Type t = shaderStage.type();
+    return t == QRhiShaderStage::Vertex
+            || t == QRhiShaderStage::TessellationControl
+            || t == QRhiShaderStage::TessellationEvaluation
+            || t == QRhiShaderStage::Geometry
+            || t == QRhiShaderStage::Fragment;
 }
 
 //  from src/gui/rhi/qrhigles2.cpp, line 6914, as _ZN22QGles2GraphicsPipeline7destroyEv
@@ -57,6 +85,12 @@ inline void QGles2GraphicsPipeline::destroy()
         rhiD->releaseQueue.append(e);
         rhiD->unregisterResource(this);
     }
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 6909, as _ZN22QGles2GraphicsPipelineD1Ev
+inline QGles2GraphicsPipeline::~QGles2GraphicsPipeline()
+{
+    destroy();
 }
 //  -----------------------------------------------------------------------
 
@@ -132,6 +166,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QGles2GraphicsPipeline7destroyEv(
     QGles2GraphicsPipeline *self) {
   self->destroy();
+}
+
+//  bool QGles2GraphicsPipeline::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QGles2GraphicsPipeline6createEv(
+    QGles2GraphicsPipeline *self) {
+  return self->create();
 }
 
 //  a Python function taken by a CuteQGles2GraphicsPipeline, for the function

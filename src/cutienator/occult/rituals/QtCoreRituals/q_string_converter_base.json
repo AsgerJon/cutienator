@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZN20QStringConverterBaseC1Ev": ["address"],
-    "ritual_ZN20QStringConverterBaseD1Ev": ["nothing", "address"]
+    "ritual_ZN20QStringConverterBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN20QStringConverterBaseC1EOS_": ["address", "address"],
+    "ritual_ZN20QStringConverterBaseaSEOS_": [
+      "address", "address", "address"
+    ]
   }
 }

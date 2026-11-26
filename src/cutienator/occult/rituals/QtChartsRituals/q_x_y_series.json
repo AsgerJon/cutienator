@@ -5,7 +5,14 @@
   ],
   "rows": {
     "ritual_ZNK9QXYSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QXYSeries11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QXYSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QXYSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QXYSeriesC1ER16QXYSeriesPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QXYSeriesD1Ev": ["nothing", "address"],
     "ritual_ZN9QXYSeries6appendEdd": [
       "nothing", "address", "double", "double"
@@ -46,6 +53,10 @@
     "ritual_ZNK9QXYSeries6pointsEv": ["address", "address"],
     "ritual_ZNK9QXYSeries12pointsVectorEv": ["address", "address"],
     "ritual_ZNK9QXYSeries2atEi": ["address", "address", "int"],
+    "ritual_ZN9QXYSerieslsERK7QPointF": ["address", "address", "address"],
+    "ritual_ZN9QXYSerieslsERK5QListI7QPointFE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QXYSeries6setPenERK4QPen": ["nothing", "address", "address"],
     "ritual_ZNK9QXYSeries3penEv": ["address", "address"],
     "ritual_ZN9QXYSeries8setBrushERK6QBrush": [
@@ -95,6 +106,16 @@
     ],
     "ritual_ZN9QXYSeries15selectAllPointsEv": ["nothing", "address"],
     "ritual_ZN9QXYSeries17deselectAllPointsEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries12selectPointsERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries14deselectPointsERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries15toggleSelectionERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries14selectedPointsEv": ["address", "address"],
     "ritual_ZN9QXYSeries14setLightMarkerERK6QImage": [
       "nothing", "address", "address"
     ],
@@ -109,6 +130,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK9QXYSeries18bestFitLineVisibleEv": ["bool", "address"],
+    "ritual_ZNK9QXYSeries19bestFitLineEquationERb": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QXYSeries17setBestFitLinePenERK4QPen": [
       "nothing", "address", "address"
     ],
@@ -120,8 +144,101 @@
     "ritual_ZN9QXYSeries23clearPointConfigurationEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN9QXYSeries23clearPointConfigurationEiNS_18PointConfigurationE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN9QXYSeries24clearPointsConfigurationEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN9QXYSeries24clearPointsConfigurationENS_18PointConfigurationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries21setPointConfigurationEiRK5QHashINS_18PointConfigurationE8QVariantE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN9QXYSeries21setPointConfigurationEiNS_18PointConfigurationERK8QVariant": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries22setPointsConfigurationERK5QHashIiS0_INS_18PointConfigurationE8QVariantEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries18pointConfigurationEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9QXYSeries19pointsConfigurationEv": ["address", "address"],
+    "ritual_ZN9QXYSeries6sizeByERK5QListIdEdd": [
+      "nothing", "address", "address", "double", "double"
+    ],
+    "ritual_ZN9QXYSeries7colorByERK5QListIdERK15QLinearGradient": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries7clickedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries7hoveredERK7QPointFb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN9QXYSeries7pressedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries8releasedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries13doubleClickedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries13pointReplacedEi": ["nothing", "address", "int"],
+    "ritual_ZN9QXYSeries12pointRemovedEi": ["nothing", "address", "int"],
+    "ritual_ZN9QXYSeries10pointAddedEi": ["nothing", "address", "int"],
+    "ritual_ZN9QXYSeries12colorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries20selectedColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries14pointsReplacedEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries24pointLabelsFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QXYSeries28pointLabelsVisibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QXYSeries22pointLabelsFontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries23pointLabelsColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries26pointLabelsClippingChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QXYSeries13pointsRemovedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9QXYSeries10penChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries21selectedPointsChangedEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries18lightMarkerChangedERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries26selectedLightMarkerChangedERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries28bestFitLineVisibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QXYSeries21bestFitLinePenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries23bestFitLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries26pointsConfigurationChangedERK5QHashIiS0_INS_18PointConfigurationE8QVariantEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries17markerSizeChangedEd": [
+      "nothing", "address", "double"
     ],
     "ritual_ZN9QXYSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK9QXYSeries6d_funcEv": ["address", "address"],
@@ -135,6 +252,14 @@
     "ritual_own_ZN9QXYSeries8setColorERK6QColor": [
       "nothing", "address", "address"
     ],
-    "ritual_own_ZNK9QXYSeries5colorEv": ["address", "address"]
+    "ritual_own_ZNK9QXYSeries5colorEv": ["address", "address"],
+    "ritual_drop_QXYSeries__QList_int": ["nothing", "address"],
+    "ritual_drop_QXYSeries__QPair_qreal_qreal": ["nothing", "address"],
+    "ritual_drop_QXYSeries__QHash_QXYSeries_PointConfiguration_QVariant": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QXYSeries__QXYSeries_PointsConfigurationHash": [
+      "nothing", "address"
+    ]
   }
 }

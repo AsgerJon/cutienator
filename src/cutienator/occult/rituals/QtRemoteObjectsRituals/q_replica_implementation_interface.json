@@ -9,6 +9,9 @@
     "ritual_ZNK31QReplicaImplementationInterface11getPropertyEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN31QReplicaImplementationInterface13setPropertiesEO5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN31QReplicaImplementationInterface11setPropertyEiRK8QVariant": [
       "nothing", "address", "int", "address"
     ],

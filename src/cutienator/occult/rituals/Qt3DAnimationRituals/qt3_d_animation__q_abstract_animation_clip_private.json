@@ -5,11 +5,17 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation29QAbstractAnimationClipPrivateC1Ev": [
+      "address"
+    ],
     "ritual_ZN13Qt3DAnimation29QAbstractAnimationClipPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation29QAbstractAnimationClipPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation29QAbstractAnimationClipPrivate11setDurationEf": [
+      "nothing", "address", "float"
     ],
     "ritual_take_Qt3DAnimation_QAbstractAnimationClipPrivate": [
       "bool", "address", "chars", "address"

@@ -7,6 +7,21 @@
   "rows": {
     "ritual_ZN6QQmlSA13MethodPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK6QQmlSA13MethodPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA13MethodPrivateC1EPNS_6MethodE": ["address", "address"],
+    "ritual_ZN6QQmlSA13MethodPrivateC1EPNS_6MethodERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA13MethodPrivate10methodNameEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA13MethodPrivate14sourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA13MethodPrivate10methodTypeEv": ["int", "address"],
+    "ritual_ZN6QQmlSA13MethodPrivate12createMethodERK16QQmlJSMetaMethod": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA13MethodPrivate6methodERKNS_6MethodE": [
+      "address", "address"
+    ],
     "ritual_ZN6QQmlSA13MethodPrivateD1Ev": ["nothing", "address"]
   }
 }

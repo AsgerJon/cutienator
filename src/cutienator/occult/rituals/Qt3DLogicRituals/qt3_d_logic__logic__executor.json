@@ -8,8 +8,17 @@
     "ritual_ZNK9Qt3DLogic5Logic8Executor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DLogic5Logic8Executor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DLogic5Logic8Executor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DLogic5Logic8Executor8setSceneEPN8Qt3DCore6QSceneE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DLogic5Logic8Executor24processLogicFrameUpdatesERK5QListIN8Qt3DCore7QNodeIdEEf": [
+      "nothing", "address", "address", "float"
     ]
   }
 }

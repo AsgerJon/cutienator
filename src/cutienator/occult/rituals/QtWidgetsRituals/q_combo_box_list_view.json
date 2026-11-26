@@ -6,6 +6,13 @@
   ],
   "rows": {
     "ritual_ZNK17QComboBoxListView10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QComboBoxListView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QComboBoxListView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QComboBoxListViewD1Ev": ["nothing", "address"],
     "ritual_ZN17QComboBoxListView11resizeEventEP12QResizeEvent": [
       "nothing", "address", "address"
     ],

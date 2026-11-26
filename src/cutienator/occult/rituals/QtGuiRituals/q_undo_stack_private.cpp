@@ -6,7 +6,9 @@
 #if QT_CONFIG(undocommand)
 #if QT_CONFIG(undostack)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(undocommand)
 #include <QtGui/qundostack.h>
+#endif
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qundostack_p.h>
@@ -106,43 +108,6 @@ inline void QUndoStackPrivate::setPrefixedText(QAction *action, const QString &p
         else
             action->setText(prefix.arg(text));
     }
-};
-
-/*!
-    Creates an undo QAction object with the given \a parent.
-
-    Triggering this action will cause a call to undo(). The text of this action
-    is the text of the command which will be undone in the next call to undo(),
-    prefixed by the specified \a prefix. If there is no command available for undo,
-    this action will be disabled.
-
-    If \a prefix is empty, the default template "Undo %1" is used instead of prefix.
-    Before Qt 4.8, the prefix "Undo" was used by default.
-
-    \sa createRedoAction(), canUndo(), QUndoCommand::text()
-*/
-
-QAction *QUndoStack::createUndoAction(QObject *parent, const QString &prefix) const
-{
-    QAction *action = new QAction(parent);
-    action->setEnabled(canUndo());
-
-    QString effectivePrefix = prefix;
-    QString defaultText;
-    if (prefix.isEmpty()) {
-        effectivePrefix = tr("Undo %1");
-        defaultText = tr("Undo", "Default text for undo action");
-    }
-
-    QUndoStackPrivate::setPrefixedText(action, effectivePrefix, defaultText, undoText());
-
-    connect(this, &QUndoStack::canUndoChanged, action, &QAction::setEnabled);
-    connect(this, &QUndoStack::undoTextChanged, action, [=](const QString &text) {
-        QUndoStackPrivate::setPrefixedText(action, effectivePrefix, defaultText, text);
-    });
-    connect(action, &QAction::triggered, this, &QUndoStack::undo);
-
-    return action;
 }
 #endif  // !defined(QT_NO_ACTION)
 #endif  // QT_CONFIG(undostack)

@@ -16,6 +16,24 @@ const QMetaObject *ritual_ZNK13QQuickPalette10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPalette::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickPalette11qt_metacastEPKc(
+    QQuickPalette *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPalette::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickPalette11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPalette *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPalette::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickPalette2trEPKcS1_i(
@@ -155,6 +173,42 @@ void ritual_ZN13QQuickPalette11setDisabledEP16QQuickColorGroup(
   self->setDisabled(disabled);
 }
 
+//  void QQuickPalette::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPalette13activeChangedEv(QQuickPalette *self) {
+  self->activeChanged();
+}
+
+//  void QQuickPalette::inactiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPalette15inactiveChangedEv(QQuickPalette *self) {
+  self->inactiveChanged();
+}
+
+//  void QQuickPalette::disabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPalette15disabledChangedEv(QQuickPalette *self) {
+  self->disabledChanged();
+}
+
+//  QQuickColorGroup::GroupPtr QQuickPalette::colorGroup(QPalette::ColorGroup
+//      groupTag) const
+extern "C" Q_DECL_EXPORT
+QQuickColorGroup::GroupPtr *ritual_ZNK13QQuickPalette10colorGroupEN8QPalette10ColorGroupE(
+    const QQuickPalette *self,
+    QPalette::ColorGroup groupTag) {
+  return new QQuickColorGroup::GroupPtr(self->colorGroup(groupTag));
+}
+
+//  QQuickColorGroup::GroupPtr
+//      QQuickPalette::findColorGroup(QPalette::ColorGroup groupTag) const
+extern "C" Q_DECL_EXPORT
+QQuickColorGroup::GroupPtr *ritual_ZNK13QQuickPalette14findColorGroupEN8QPalette10ColorGroupE(
+    const QQuickPalette *self,
+    QPalette::ColorGroup groupTag) {
+  return new QQuickColorGroup::GroupPtr(self->findColorGroup(groupTag));
+}
+
 //  void QQuickPalette::registerColorGroup(QQuickColorGroup *group,
 //      QPalette::ColorGroup groupTag)
 extern "C" Q_DECL_EXPORT
@@ -163,6 +217,16 @@ void ritual_ZN13QQuickPalette18registerColorGroupEP16QQuickColorGroupN8QPalette1
     QQuickColorGroup *group,
     QPalette::ColorGroup groupTag) {
   self->registerColorGroup(group, groupTag);
+}
+
+//  bool QQuickPalette::isValidColorGroup(QPalette::ColorGroup groupTag,
+//      const QQuickColorGroup::GroupPtr &colorGroup) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QQuickPalette17isValidColorGroupEN8QPalette10ColorGroupERK8QPointerI16QQuickColorGroupE(
+    const QQuickPalette *self,
+    QPalette::ColorGroup groupTag,
+    const QQuickColorGroup::GroupPtr *colorGroup) {
+  return self->isValidColorGroup(groupTag, *colorGroup);
 }
 
 //  QPalette::ColorGroup QQuickPalette::defaultCurrentGroup()
@@ -176,4 +240,11 @@ extern "C" Q_DECL_EXPORT
 QPalette::ColorGroup ritual_own_ZNK13QQuickPalette17currentColorGroupEv(
     const QQuickPalette *self) {
   return self->QQuickPalette::currentColorGroup();
+}
+
+//  a QQuickColorGroup::GroupPtr a ritual of QQuickPalette gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPalette__QQuickColorGroup_GroupPtr(
+    QQuickColorGroup::GroupPtr *self) {
+  delete self;
 }

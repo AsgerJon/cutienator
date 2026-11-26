@@ -9,6 +9,23 @@
 #include <QtWidgets/qwidget.h>
 #include <QtCore/qlist.h>
 
+//  qdesigner_internal::TabOrderCommand::TabOrderCommand(QDesignerFormWindowI
+//      nterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::TabOrderCommand *ritual_ZN18qdesigner_internal15TabOrderCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new qdesigner_internal::TabOrderCommand(formWindow);
+}
+
+//  void qdesigner_internal::TabOrderCommand::init(const QWidgetList
+//      &newTabOrder)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15TabOrderCommand4initERK5QListIP7QWidgetE(
+    qdesigner_internal::TabOrderCommand *self,
+    const QList<QWidget *> *newTabOrder) {
+  self->init(*newTabOrder);
+}
+
 //  QWidgetList qdesigner_internal::TabOrderCommand::oldTabOrder() const
 extern "C" Q_DECL_EXPORT
 QList<QWidget *> *ritual_ZNK18qdesigner_internal15TabOrderCommand11oldTabOrderEv(
@@ -21,6 +38,20 @@ extern "C" Q_DECL_EXPORT
 QList<QWidget *> *ritual_ZNK18qdesigner_internal15TabOrderCommand11newTabOrderEv(
     const qdesigner_internal::TabOrderCommand *self) {
   return new QList<QWidget *>(self->newTabOrder());
+}
+
+//  void qdesigner_internal::TabOrderCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15TabOrderCommand4redoEv(
+    qdesigner_internal::TabOrderCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::TabOrderCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15TabOrderCommand4undoEv(
+    qdesigner_internal::TabOrderCommand *self) {
+  self->undo();
 }
 
 //  void qdesigner_internal::TabOrderCommand::redo()

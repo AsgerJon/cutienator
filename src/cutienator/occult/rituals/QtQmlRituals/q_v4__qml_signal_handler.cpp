@@ -62,3 +62,21 @@ QObject *ritual_ZNK3QV416QmlSignalHandler6objectEv(
     const QV4::QmlSignalHandler *self) {
   return self->object();
 }
+
+//  ReturnedValue QV4::QmlSignalHandler::call(const Value *thisObject, const
+//      Value *argv, int argc) const
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZNK3QV416QmlSignalHandler4callEPKNS_5ValueES3_i(
+    const QV4::QmlSignalHandler *self,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return self->call(thisObject, argv, argc);
+}
+
+//  void QV4::QmlSignalHandler::initProto(ExecutionEngine *v4)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV416QmlSignalHandler9initProtoEPNS_15ExecutionEngineE(
+    QV4::ExecutionEngine *v4) {
+  QV4::QmlSignalHandler::initProto(v4);
+}

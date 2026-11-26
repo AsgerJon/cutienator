@@ -8,6 +8,9 @@
     "ritual_ZN3QV48Compiler6ModuleC1ERK7QStringS4_b": [
       "address", "text", "text", "bool"
     ],
-    "ritual_ZN3QV48Compiler6ModuleD1Ev": ["nothing", "address"]
+    "ritual_ZN3QV48Compiler6ModuleD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV48Compiler6Module10newContextEPN6QQmlJS3AST4NodeEPNS0_7ContextENS0_11ContextTypeE": [
+      "address", "address", "address", "address", "int"
+    ]
   }
 }

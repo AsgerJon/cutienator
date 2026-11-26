@@ -5,11 +5,21 @@
   ],
   "rows": {
     "ritual_ZNK17QSGDynamicTexture10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QSGDynamicTexture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QSGDynamicTexture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QSGDynamicTexture2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN17QSGDynamicTextureC1Ev": ["address"],
     "ritual_ZN17QSGDynamicTextureD1Ev": ["nothing", "address"],
     "ritual_ZN17QSGDynamicTexture13updateTextureEv": ["bool", "address"],
+    "ritual_ZN17QSGDynamicTextureC1ER17QSGTexturePrivate": [
+      "address", "address"
+    ],
     "ritual_take_QSGDynamicTexture": ["bool", "address", "chars", "address"]
   }
 }

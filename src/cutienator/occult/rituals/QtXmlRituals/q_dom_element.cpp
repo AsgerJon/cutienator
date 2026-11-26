@@ -18,6 +18,14 @@ QDomElement *ritual_ZN11QDomElementC1ERKS_(const QDomElement *element) {
   return new QDomElement(*element);
 }
 
+//  QDomElement &QDomElement::operator=(const QDomElement &other)
+extern "C" Q_DECL_EXPORT
+QDomElement *ritual_ZN11QDomElementaSERKS_(
+    QDomElement *self,
+    const QDomElement *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QDomElement::attribute(const QString &name, const QString
 //      &defValue) const
 extern "C" Q_DECL_EXPORT

@@ -5,7 +5,9 @@
 #if QT_CONFIG(commandlineparser)
 #include <QtCore/qcommandlineparser.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(commandlineparser)
 #include <QtCore/qcommandlineoption.h>
+#endif
 #include <QtCore/qlist.h>
 
 //  QString QCommandLineParser::tr(const char *sourceText, const char
@@ -121,6 +123,14 @@ void ritual_ZN18QCommandLineParser7processERK5QListI7QStringE(
     QCommandLineParser *self,
     const QList<QString> *arguments) {
   self->process(*arguments);
+}
+
+//  void QCommandLineParser::process(const QCoreApplication &app)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QCommandLineParser7processERK16QCoreApplication(
+    QCommandLineParser *self,
+    const QCoreApplication *app) {
+  self->process(*app);
 }
 
 //  bool QCommandLineParser::parse(const QStringList &arguments)

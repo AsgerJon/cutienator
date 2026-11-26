@@ -31,6 +31,7 @@
 #include <QtCore/qmath.h>
 #include <QtGui/QOffscreenSurface>
 #include <QtCore/QThread>
+#include <QtDataVisualization/private/labelitem_p.h>
 #include <QtDataVisualization/private/drawer_p.h>
 #include <QtDataVisualization/private/shaderhelper_p.h>
 #include <QtDataVisualization/private/surfaceobject_p.h>
@@ -49,6 +50,13 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 30, as local:drawer.cpp:line_data
+// Vertex array buffer for line
+const GLfloat line_data[] = {
+    -1.0f, 0.0f, 0.0f,
+    1.0f, 0.0f, 0.0f,
+};
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 37, as _ZN13TextureHelperD1Ev
 inline TextureHelper::~TextureHelper()
@@ -86,45 +94,6 @@ inline GLuint AbstractObjectHelper::vertexBuf()
     if (!m_meshDataLoaded)
         qFatal("No loaded object");
     return m_vertexbuffer;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1115, as _ZN18Abstract3DRenderer14selectionLabelEv
-inline QString &Abstract3DRenderer::selectionLabel()
-{
-    return m_selectionLabel;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1101, as _ZN18Abstract3DRenderer18selectionLabelItemEv
-inline LabelItem &Abstract3DRenderer::selectionLabelItem()
-{
-    if (!m_selectionLabelItem)
-        m_selectionLabelItem = new LabelItem;
-    return *m_selectionLabelItem;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 407, as _ZN6Drawer17generateLabelItemER9LabelItemRK7QStringi
-inline void Drawer::generateLabelItem(LabelItem &item, const QString &text, int widestLabel)
-{
-    initializeOpenGL();
-
-    item.clear();
-
-    if (!text.isEmpty()) {
-        // Create labels
-        // Print label into a QImage using QPainter
-        QImage label = Utils::printTextToImage(m_theme->font(),
-                                               text,
-                                               m_theme->labelBackgroundColor(),
-                                               m_theme->labelTextColor(),
-                                               m_theme->isLabelBackgroundEnabled(),
-                                               m_theme->isLabelBorderEnabled(),
-                                               widestLabel);
-
-        // Set label size
-        item.setSize(label.size());
-        // Insert text texture into label (also deletes the old texture)
-        item.setTextureId(m_textureHelper->create2DTexture(label, true, true));
-    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 44, as _ZN13TextureHelper15create2DTextureERK6QImagebbbb
@@ -171,6 +140,50 @@ inline GLuint TextureHelper::create2DTexture(const QImage &image, bool useTrilin
     return textureId;
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1115, as _ZN18Abstract3DRenderer14selectionLabelEv
+inline QString &Abstract3DRenderer::selectionLabel()
+{
+    return m_selectionLabel;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1101, as _ZN18Abstract3DRenderer18selectionLabelItemEv
+inline LabelItem &Abstract3DRenderer::selectionLabelItem()
+{
+    if (!m_selectionLabelItem)
+        m_selectionLabelItem = new LabelItem;
+    return *m_selectionLabelItem;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 29, as _ZN9LabelItem12setTextureIdEj
+inline void LabelItem::setTextureId(GLuint textureId)
+{
+    QOpenGLContext::currentContext()->functions()->glDeleteTextures(1, &m_textureId);
+    m_textureId = textureId;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 40, as _ZN9LabelItem5clearEv
+inline void LabelItem::clear()
+{
+    if (m_textureId && QOpenGLContext::currentContext())
+        QOpenGLContext::currentContext()->functions()->glDeleteTextures(1, &m_textureId);
+    m_textureId = 0;
+    m_size = QSize(0, 0);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 19, as _ZN9LabelItem7setSizeERK5QSize
+inline void LabelItem::setSize(const QSize &size)
+{
+    m_size = size;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 334, as _ZN13TextureHelper17convertToGLFormatERK6QImage
+inline QImage TextureHelper::convertToGLFormat(const QImage &srcImage)
+{
+    QImage res(srcImage.size(), QImage::Format_ARGB32);
+    convertToGLFormatHelper(res, srcImage.convertToFormat(QImage::Format_ARGB32), GL_RGBA);
+    return res;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 45, as _ZN6DrawerD1Ev
 inline Drawer::~Drawer()
 {
@@ -203,6 +216,32 @@ inline void Drawer::drawSelectionObject(ShaderHelper *shader, AbstractObjectHelp
     glDrawElements(GL_TRIANGLES, object->indexCount(), GL_UNSIGNED_INT, (void *)0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glDisableVertexAttribArray(shader->posAtt());
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 255, as _ZN6Drawer8drawLineEP12ShaderHelper
+inline void Drawer::drawLine(ShaderHelper *shader)
+{
+    // Draw a single line
+
+    // Generate vertex buffer for line if it does not exist
+    if (!m_linebuffer) {
+        glGenBuffers(1, &m_linebuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, m_linebuffer);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(line_data), line_data, GL_STATIC_DRAW);
+    }
+
+    // 1st attribute buffer : vertices
+    glEnableVertexAttribArray(shader->posAtt());
+    glBindBuffer(GL_ARRAY_BUFFER, m_linebuffer);
+    glVertexAttribPointer(shader->posAtt(), 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
+    // Draw the line
+    glDrawArrays(GL_LINES, 0, 2);
+
+    // Free buffers
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
     glDisableVertexAttribArray(shader->posAtt());
 }
 //  -----------------------------------------------------------------------
@@ -380,6 +419,22 @@ const QMetaObject *ritual_ZNK6Drawer10metaObjectEv(const Drawer *self) {
   return self->metaObject();
 }
 
+//  void *Drawer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6Drawer11qt_metacastEPKc(Drawer *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Drawer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6Drawer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Drawer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  Drawer::~Drawer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6DrawerD1Ev(Drawer *self) {
@@ -398,6 +453,12 @@ QFont *ritual_ZNK6Drawer4fontEv(const Drawer *self) {
   return new QFont(self->font());
 }
 
+//  GLfloat Drawer::scaledFontSize() const
+extern "C" Q_DECL_EXPORT
+GLfloat ritual_ZNK6Drawer14scaledFontSizeEv(const Drawer *self) {
+  return self->scaledFontSize();
+}
+
 //  void Drawer::drawSelectionObject(ShaderHelper *shader,
 //      AbstractObjectHelper *object)
 extern "C" Q_DECL_EXPORT
@@ -406,6 +467,38 @@ void ritual_ZN6Drawer19drawSelectionObjectEP12ShaderHelperP20AbstractObjectHelpe
     ShaderHelper *shader,
     AbstractObjectHelper *object) {
   self->drawSelectionObject(shader, object);
+}
+
+//  void Drawer::drawLine(ShaderHelper *shader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6Drawer8drawLineEP12ShaderHelper(
+    Drawer *self,
+    ShaderHelper *shader) {
+  self->drawLine(shader);
+}
+
+//  void Drawer::drawerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6Drawer13drawerChangedEv(Drawer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Drawer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "drawerChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "drawerChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  Drawer as the QOpenGLFunctions it is built on

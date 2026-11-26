@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickMenuItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickMenuItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickMenuItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickMenuItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,19 @@
     ],
     "ritual_ZN14QQuickMenuItem22setImplicitTextPaddingEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickMenuItem9triggeredEv": ["nothing", "address"],
+    "ritual_ZN14QQuickMenuItem18highlightedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickMenuItem12arrowChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickMenuItem11menuChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickMenuItem14subMenuChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickMenuItem26implicitTextPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickMenuItem18textPaddingChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN14QQuickMenuItem17componentCompleteEv": ["nothing", "address"],
     "ritual_ZNK14QQuickMenuItem11defaultFontEv": ["address", "address"],

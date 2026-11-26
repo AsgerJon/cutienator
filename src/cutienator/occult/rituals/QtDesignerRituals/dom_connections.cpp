@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
 //  DomConnections::DomConnections()
@@ -18,6 +19,24 @@ DomConnections *ritual_ZN14DomConnectionsC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14DomConnectionsD1Ev(DomConnections *self) {
   delete self;
+}
+
+//  void DomConnections::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14DomConnections4readER16QXmlStreamReader(
+    DomConnections *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomConnections::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14DomConnections5writeER16QXmlStreamWriterRK7QString(
+    const DomConnections *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  QList<DomConnection *> DomConnections::elementConnection() const

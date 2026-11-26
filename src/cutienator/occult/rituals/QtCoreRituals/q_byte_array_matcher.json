@@ -12,6 +12,7 @@
     "ritual_ZN17QByteArrayMatcherC1EPKcx": ["address", "chars", "long long"],
     "ritual_ZN17QByteArrayMatcherC1ERKS_": ["address", "address"],
     "ritual_ZN17QByteArrayMatcherD1Ev": ["nothing", "address"],
+    "ritual_ZN17QByteArrayMatcheraSERKS_": ["address", "address", "address"],
     "ritual_ZN17QByteArrayMatcher10setPatternERK10QByteArray": [
       "nothing", "address", "address"
     ],

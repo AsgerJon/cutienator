@@ -973,6 +973,25 @@ const QMetaObject *ritual_ZNK32QDesignerPropertyEditorInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerPropertyEditorInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QDesignerPropertyEditorInterface11qt_metacastEPKc(
+    QDesignerPropertyEditorInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerPropertyEditorInterface::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QDesignerPropertyEditorInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerPropertyEditorInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerPropertyEditorInterface::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -981,6 +1000,17 @@ QString *ritual_ZN32QDesignerPropertyEditorInterface2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QDesignerPropertyEditorInterface::tr(s, c, n));
+}
+
+//  QDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface(QWidge
+//      t *parent, Qt::WindowFlags flags)
+extern "C" Q_DECL_EXPORT
+QDesignerPropertyEditorInterface *ritual_ZN32QDesignerPropertyEditorInterfaceC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE(
+    QWidget *parent,
+    int flags) {
+  return new CuteQDesignerPropertyEditorInterface(
+      parent,
+      QFlags<Qt::WindowType>::fromInt(flags));
 }
 
 //  QDesignerPropertyEditorInterface::~QDesignerPropertyEditorInterface()
@@ -1017,6 +1047,16 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK32QDesignerPropertyEditorInterface19currentPropertyNameEv(
     const QDesignerPropertyEditorInterface *self) {
   return new QString(self->currentPropertyName());
+}
+
+//  void QDesignerPropertyEditorInterface::propertyChanged(const QString
+//      &name, const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QDesignerPropertyEditorInterface15propertyChangedERK7QStringRK8QVariant(
+    QDesignerPropertyEditorInterface *self,
+    const QString *name,
+    const QVariant *value) {
+  self->propertyChanged(*name, *value);
 }
 
 //  void QDesignerPropertyEditorInterface::setObject(QObject *object)

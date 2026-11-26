@@ -7,6 +7,9 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <string_view>
+#include <QtCore/QByteArray>
+#include <string>
 
 //  QByteArray::QByteArray()
 extern "C" Q_DECL_EXPORT
@@ -53,6 +56,40 @@ void ritual_ZN10QByteArrayD1Ev(QByteArray *self) {
   delete self;
 }
 
+//  QByteArray &QByteArray::operator=(const QByteArray &a0)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArrayaSERKS_(
+    QByteArray *self,
+    const QByteArray *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QByteArray &QByteArray::operator=(const char *str)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArrayaSEPKc(QByteArray *self, const char *str) {
+  return &(self->operator=(str));
+}
+
+//  QByteArray::QByteArray(QByteArray &&other)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArrayC1EOS_(QByteArray *other) {
+  return new QByteArray(std::move(*other));
+}
+
+//  QByteArray &QByteArray::operator=(QByteArray &&other)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArrayaSEOS_(
+    QByteArray *self,
+    QByteArray *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QByteArray::swap(QByteArray &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QByteArray4swapERS_(QByteArray *self, QByteArray *other) {
+  self->swap(*other);
+}
+
 //  bool QByteArray::isEmpty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10QByteArray7isEmptyEv(const QByteArray *self) {
@@ -82,6 +119,15 @@ void ritual_ZN10QByteArray18resizeForOverwriteEx(
   self->resizeForOverwrite(size);
 }
 
+//  QByteArray &QByteArray::fill(char c, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray4fillEcx(
+    QByteArray *self,
+    char c,
+    qsizetype size) {
+  return &(self->fill(c, size));
+}
+
 //  qsizetype QByteArray::capacity() const
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK10QByteArray8capacityEv(const QByteArray *self) {
@@ -107,6 +153,31 @@ const char *ritual_ZNK10QByteArraycvPKcEv(const QByteArray *self) {
   return self->operator const char *();
 }
 #endif  // !defined(QT_NO_CAST_FROM_BYTEARRAY)
+
+#if !defined(QT_NO_CAST_FROM_BYTEARRAY)
+//  const void *QByteArray::operator const void *() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK10QByteArraycvPKvEv(const QByteArray *self) {
+  return self->operator const void *();
+}
+#endif  // !defined(QT_NO_CAST_FROM_BYTEARRAY)
+
+#if (!defined(Q_OS_QNX) || !defined(Q_CC_GNU_ONLY) || Q_CC_GNU_ONLY > \
+    803) && (!defined(Q_CC_GHS) || !defined(__GHS_VERSION_NUMBER) || \
+    __GHS_VERSION_NUMBER > 202214)
+//  std::string_view QByteArray::operator basic_string_view() const
+extern "C" Q_DECL_EXPORT
+std::string_view *ritual_ZNK10QByteArraycvSt17basic_string_viewIcSt11char_traitsIcEEEv(
+    const QByteArray *self) {
+  return new std::string_view(self->operator std::string_view());
+}
+#endif
+
+//  char *QByteArray::data()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN10QByteArray4dataEv(QByteArray *self) {
+  return self->data();
+}
 
 //  const char *QByteArray::data() const
 extern "C" Q_DECL_EXPORT
@@ -158,16 +229,34 @@ char ritual_ZNK10QByteArrayixEx(const QByteArray *self, qsizetype i) {
   return self->operator[](i);
 }
 
+//  char &QByteArray::operator[](qsizetype i)
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN10QByteArrayixEx(QByteArray *self, qsizetype i) {
+  return &(self->operator[](i));
+}
+
 //  char QByteArray::front() const
 extern "C" Q_DECL_EXPORT
 char ritual_ZNK10QByteArray5frontEv(const QByteArray *self) {
   return self->front();
 }
 
+//  char &QByteArray::front()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN10QByteArray5frontEv(QByteArray *self) {
+  return &(self->front());
+}
+
 //  char QByteArray::back() const
 extern "C" Q_DECL_EXPORT
 char ritual_ZNK10QByteArray4backEv(const QByteArray *self) {
   return self->back();
+}
+
+//  char &QByteArray::back()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN10QByteArray4backEv(QByteArray *self) {
+  return &(self->back());
 }
 
 //  qsizetype QByteArray::indexOf(char c, qsizetype from) const
@@ -400,6 +489,21 @@ void ritual_ZN10QByteArray4chopEx(QByteArray *self, qsizetype n) {
   self->chop(n);
 }
 
+//  QByteArray &QByteArray::slice(qsizetype pos)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray5sliceEx(QByteArray *self, qsizetype pos) {
+  return &(self->slice(pos));
+}
+
+//  QByteArray &QByteArray::slice(qsizetype pos, qsizetype n)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray5sliceExx(
+    QByteArray *self,
+    qsizetype pos,
+    qsizetype n) {
+  return &(self->slice(pos, n));
+}
+
 #if !defined(Q_QDOC)
 //  QByteArray QByteArray::toLower() const
 extern "C" Q_DECL_EXPORT
@@ -452,6 +556,267 @@ QByteArray *ritual_ZNK10QByteArray14rightJustifiedExcb(
     char fill,
     bool truncate) {
   return new QByteArray(self->rightJustified(width, fill, truncate));
+}
+
+//  QByteArray &QByteArray::prepend(char c)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7prependEc(QByteArray *self, char c) {
+  return &(self->prepend(c));
+}
+
+//  QByteArray &QByteArray::prepend(qsizetype count, char c)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7prependExc(
+    QByteArray *self,
+    qsizetype count,
+    char c) {
+  return &(self->prepend(count, c));
+}
+
+//  QByteArray &QByteArray::prepend(const char *s)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7prependEPKc(
+    QByteArray *self,
+    const char *s) {
+  return &(self->prepend(s));
+}
+
+//  QByteArray &QByteArray::prepend(const char *s, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7prependEPKcx(
+    QByteArray *self,
+    const char *s,
+    qsizetype len) {
+  return &(self->prepend(s, len));
+}
+
+//  QByteArray &QByteArray::prepend(const QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7prependERKS_(
+    QByteArray *self,
+    const QByteArray *a) {
+  return &(self->prepend(*a));
+}
+
+//  QByteArray &QByteArray::prepend(QByteArrayView a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7prependE14QByteArrayView(
+    QByteArray *self,
+    const QByteArrayView *a) {
+  return &(self->prepend(*a));
+}
+
+//  QByteArray &QByteArray::append(char c)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6appendEc(QByteArray *self, char c) {
+  return &(self->append(c));
+}
+
+//  QByteArray &QByteArray::append(qsizetype count, char c)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6appendExc(
+    QByteArray *self,
+    qsizetype count,
+    char c) {
+  return &(self->append(count, c));
+}
+
+//  QByteArray &QByteArray::append(const char *s)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6appendEPKc(
+    QByteArray *self,
+    const char *s) {
+  return &(self->append(s));
+}
+
+//  QByteArray &QByteArray::append(const char *s, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6appendEPKcx(
+    QByteArray *self,
+    const char *s,
+    qsizetype len) {
+  return &(self->append(s, len));
+}
+
+//  QByteArray &QByteArray::append(const QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6appendERKS_(
+    QByteArray *self,
+    const QByteArray *a) {
+  return &(self->append(*a));
+}
+
+//  QByteArray &QByteArray::append(QByteArrayView a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6appendE14QByteArrayView(
+    QByteArray *self,
+    const QByteArrayView *a) {
+  return &(self->append(*a));
+}
+
+//  QByteArray &QByteArray::assign(QByteArrayView v)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6assignE14QByteArrayView(
+    QByteArray *self,
+    const QByteArrayView *v) {
+  return &(self->assign(*v));
+}
+
+//  QByteArray &QByteArray::assign(qsizetype n, char c)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6assignExc(
+    QByteArray *self,
+    qsizetype n,
+    char c) {
+  return &(self->assign(n, c));
+}
+
+//  QByteArray &QByteArray::insert(qsizetype i, QByteArrayView data)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6insertEx14QByteArrayView(
+    QByteArray *self,
+    qsizetype i,
+    const QByteArrayView *data) {
+  return &(self->insert(i, *data));
+}
+
+//  QByteArray &QByteArray::insert(qsizetype i, const char *s)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6insertExPKc(
+    QByteArray *self,
+    qsizetype i,
+    const char *s) {
+  return &(self->insert(i, s));
+}
+
+//  QByteArray &QByteArray::insert(qsizetype i, const QByteArray &data)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6insertExRKS_(
+    QByteArray *self,
+    qsizetype i,
+    const QByteArray *data) {
+  return &(self->insert(i, *data));
+}
+
+//  QByteArray &QByteArray::insert(qsizetype i, qsizetype count, char c)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6insertExxc(
+    QByteArray *self,
+    qsizetype i,
+    qsizetype count,
+    char c) {
+  return &(self->insert(i, count, c));
+}
+
+//  QByteArray &QByteArray::insert(qsizetype i, char c)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6insertExc(
+    QByteArray *self,
+    qsizetype i,
+    char c) {
+  return &(self->insert(i, c));
+}
+
+//  QByteArray &QByteArray::insert(qsizetype i, const char *s, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6insertExPKcx(
+    QByteArray *self,
+    qsizetype i,
+    const char *s,
+    qsizetype len) {
+  return &(self->insert(i, s, len));
+}
+
+//  QByteArray &QByteArray::remove(qsizetype index, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6removeExx(
+    QByteArray *self,
+    qsizetype index,
+    qsizetype len) {
+  return &(self->remove(index, len));
+}
+
+//  QByteArray &QByteArray::removeAt(qsizetype pos)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray8removeAtEx(
+    QByteArray *self,
+    qsizetype pos) {
+  return &(self->removeAt(pos));
+}
+
+//  QByteArray &QByteArray::removeFirst()
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray11removeFirstEv(QByteArray *self) {
+  return &(self->removeFirst());
+}
+
+//  QByteArray &QByteArray::removeLast()
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray10removeLastEv(QByteArray *self) {
+  return &(self->removeLast());
+}
+
+//  QByteArray &QByteArray::replace(qsizetype index, qsizetype len, const
+//      char *s, qsizetype alen)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7replaceExxPKcx(
+    QByteArray *self,
+    qsizetype index,
+    qsizetype len,
+    const char *s,
+    qsizetype alen) {
+  return &(self->replace(index, len, s, alen));
+}
+
+//  QByteArray &QByteArray::replace(qsizetype index, qsizetype len,
+//      QByteArrayView s)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7replaceExx14QByteArrayView(
+    QByteArray *self,
+    qsizetype index,
+    qsizetype len,
+    const QByteArrayView *s) {
+  return &(self->replace(index, len, *s));
+}
+
+//  QByteArray &QByteArray::replace(char before, QByteArrayView after)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7replaceEc14QByteArrayView(
+    QByteArray *self,
+    char before,
+    const QByteArrayView *after) {
+  return &(self->replace(before, *after));
+}
+
+//  QByteArray &QByteArray::replace(const char *before, qsizetype bsize,
+//      const char *after, qsizetype asize)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7replaceEPKcxS1_x(
+    QByteArray *self,
+    const char *before,
+    qsizetype bsize,
+    const char *after,
+    qsizetype asize) {
+  return &(self->replace(before, bsize, after, asize));
+}
+
+//  QByteArray &QByteArray::replace(QByteArrayView before, QByteArrayView
+//      after)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7replaceE14QByteArrayViewS0_(
+    QByteArray *self,
+    const QByteArrayView *before,
+    const QByteArrayView *after) {
+  return &(self->replace(*before, *after));
+}
+
+//  QByteArray &QByteArray::replace(char before, char after)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray7replaceEcc(
+    QByteArray *self,
+    char before,
+    char after) {
+  return &(self->replace(before, after));
 }
 
 //  QByteArray &QByteArray::operator+=(char c)
@@ -623,6 +988,107 @@ QByteArray *ritual_ZNKR10QByteArray14percentDecodedEc(
 }
 #endif  // !(QT_CORE_REMOVED_SINCE(6, 11))
 
+//  QByteArray &QByteArray::setNum(short a0, int base)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumEsi(
+    QByteArray *self,
+    short a0,
+    int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QByteArray &QByteArray::setNum(ushort a0, int base)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumEti(
+    QByteArray *self,
+    ushort a0,
+    int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QByteArray &QByteArray::setNum(int a0, int base)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumEii(
+    QByteArray *self,
+    int a0,
+    int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QByteArray &QByteArray::setNum(uint a0, int base)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumEji(
+    QByteArray *self,
+    uint a0,
+    int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QByteArray &QByteArray::setNum(long a0, int base)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumEli(
+    QByteArray *self,
+    long a0,
+    int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QByteArray &QByteArray::setNum(ulong a0, int base)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumEmi(
+    QByteArray *self,
+    ulong a0,
+    int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QByteArray &QByteArray::setNum(qlonglong a0, int base)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumExi(
+    QByteArray *self,
+    qlonglong a0,
+    int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QByteArray &QByteArray::setNum(qulonglong a0, int base)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumEyi(
+    QByteArray *self,
+    qulonglong a0,
+    int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QByteArray &QByteArray::setNum(float a0, char format, int precision)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumEfci(
+    QByteArray *self,
+    float a0,
+    char format,
+    int precision) {
+  return &(self->setNum(a0, format, precision));
+}
+
+//  QByteArray &QByteArray::setNum(double a0, char format, int precision)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray6setNumEdci(
+    QByteArray *self,
+    double a0,
+    char format,
+    int precision) {
+  return &(self->setNum(a0, format, precision));
+}
+
+//  QByteArray &QByteArray::setRawData(const char *a, qsizetype n)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray10setRawDataEPKcx(
+    QByteArray *self,
+    const char *a,
+    qsizetype n) {
+  return &(self->setRawData(a, n));
+}
+
 //  QByteArray QByteArray::number(int a0, int base)
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN10QByteArray6numberEii(int a0, int base) {
@@ -676,6 +1142,18 @@ QByteArray *ritual_ZN10QByteArray11fromRawDataEPKcx(
   return new QByteArray(QByteArray::fromRawData(data, size));
 }
 
+//  FromBase64Result QByteArray::fromBase64Encoding(QByteArray &&base64,
+//      Base64Options options)
+extern "C" Q_DECL_EXPORT
+QByteArray::FromBase64Result *ritual_ZN10QByteArray18fromBase64EncodingEOS_6QFlagsINS_12Base64OptionEE(
+    QByteArray *base64,
+    int options) {
+  return new QByteArray::FromBase64Result(
+      QByteArray::fromBase64Encoding(
+          std::move(*base64),
+          QFlags<QByteArray::Base64Option>::fromInt(options)));
+}
+
 //  FromBase64Result QByteArray::fromBase64Encoding(const QByteArray &base64,
 //      Base64Options options)
 extern "C" Q_DECL_EXPORT
@@ -719,6 +1197,24 @@ QByteArray *ritual_ZN10QByteArray19fromPercentEncodingERKS_c(
           percent));
 }
 
+//  QByteArray QByteArray::fromPercentEncoding(QByteArray &&pctEncoded, char
+//      percent)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray19fromPercentEncodingEOS_c(
+    QByteArray *pctEncoded,
+    char percent) {
+  return new QByteArray(
+      QByteArray::fromPercentEncoding(
+          std::move(*pctEncoded),
+          percent));
+}
+
+//  iterator QByteArray::begin()
+extern "C" Q_DECL_EXPORT
+QByteArray::iterator ritual_ZN10QByteArray5beginEv(QByteArray *self) {
+  return self->begin();
+}
+
 //  const_iterator QByteArray::begin() const
 extern "C" Q_DECL_EXPORT
 QByteArray::const_iterator ritual_ZNK10QByteArray5beginEv(
@@ -740,6 +1236,12 @@ QByteArray::const_iterator ritual_ZNK10QByteArray10constBeginEv(
   return self->constBegin();
 }
 
+//  iterator QByteArray::end()
+extern "C" Q_DECL_EXPORT
+QByteArray::iterator ritual_ZN10QByteArray3endEv(QByteArray *self) {
+  return self->end();
+}
+
 //  const_iterator QByteArray::end() const
 extern "C" Q_DECL_EXPORT
 QByteArray::const_iterator ritual_ZNK10QByteArray3endEv(
@@ -759,6 +1261,48 @@ extern "C" Q_DECL_EXPORT
 QByteArray::const_iterator ritual_ZNK10QByteArray8constEndEv(
     const QByteArray *self) {
   return self->constEnd();
+}
+
+//  reverse_iterator QByteArray::rbegin()
+extern "C" Q_DECL_EXPORT
+QByteArray::reverse_iterator *ritual_ZN10QByteArray6rbeginEv(
+    QByteArray *self) {
+  return new QByteArray::reverse_iterator(self->rbegin());
+}
+
+//  reverse_iterator QByteArray::rend()
+extern "C" Q_DECL_EXPORT
+QByteArray::reverse_iterator *ritual_ZN10QByteArray4rendEv(
+    QByteArray *self) {
+  return new QByteArray::reverse_iterator(self->rend());
+}
+
+//  const_reverse_iterator QByteArray::rbegin() const
+extern "C" Q_DECL_EXPORT
+QByteArray::const_reverse_iterator *ritual_ZNK10QByteArray6rbeginEv(
+    const QByteArray *self) {
+  return new QByteArray::const_reverse_iterator(self->rbegin());
+}
+
+//  const_reverse_iterator QByteArray::rend() const
+extern "C" Q_DECL_EXPORT
+QByteArray::const_reverse_iterator *ritual_ZNK10QByteArray4rendEv(
+    const QByteArray *self) {
+  return new QByteArray::const_reverse_iterator(self->rend());
+}
+
+//  const_reverse_iterator QByteArray::crbegin() const
+extern "C" Q_DECL_EXPORT
+QByteArray::const_reverse_iterator *ritual_ZNK10QByteArray7crbeginEv(
+    const QByteArray *self) {
+  return new QByteArray::const_reverse_iterator(self->crbegin());
+}
+
+//  const_reverse_iterator QByteArray::crend() const
+extern "C" Q_DECL_EXPORT
+QByteArray::const_reverse_iterator *ritual_ZNK10QByteArray5crendEv(
+    const QByteArray *self) {
+  return new QByteArray::const_reverse_iterator(self->crend());
 }
 
 //  void QByteArray::push_back(char c)
@@ -823,10 +1367,41 @@ void ritual_ZN10QByteArray13shrink_to_fitEv(QByteArray *self) {
   self->shrink_to_fit();
 }
 
+//  iterator QByteArray::erase(const_iterator first, const_iterator last)
+extern "C" Q_DECL_EXPORT
+QByteArray::iterator ritual_ZN10QByteArray5eraseEPKcS1_(
+    QByteArray *self,
+    QByteArray::const_iterator first,
+    QByteArray::const_iterator last) {
+  return self->erase(first, last);
+}
+
+//  iterator QByteArray::erase(const_iterator it)
+extern "C" Q_DECL_EXPORT
+QByteArray::iterator ritual_ZN10QByteArray5eraseEPKc(
+    QByteArray *self,
+    QByteArray::const_iterator it) {
+  return self->erase(it);
+}
+
 //  qsizetype QByteArray::max_size() const
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK10QByteArray8max_sizeEv(const QByteArray *self) {
   return self->max_size();
+}
+
+//  QByteArray QByteArray::fromStdString(const std::string &s)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray13fromStdStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(
+    const std::string *s) {
+  return new QByteArray(QByteArray::fromStdString(*s));
+}
+
+//  std::string QByteArray::toStdString() const
+extern "C" Q_DECL_EXPORT
+std::string *ritual_ZNK10QByteArray11toStdStringB5cxx11Ev(
+    const QByteArray *self) {
+  return new std::string(self->toStdString());
 }
 
 //  qsizetype QByteArray::maxSize()
@@ -861,11 +1436,46 @@ bool ritual_ZNK10QByteArray6isNullEv(const QByteArray *self) {
   return self->isNull();
 }
 
+//  const DataPointer &QByteArray::data_ptr() const
+extern "C" Q_DECL_EXPORT
+const QByteArray::DataPointer *ritual_ZNK10QByteArray8data_ptrEv(
+    const QByteArray *self) {
+  return &(self->data_ptr());
+}
+
+//  DataPointer &QByteArray::data_ptr()
+extern "C" Q_DECL_EXPORT
+QByteArray::DataPointer *ritual_ZN10QByteArray8data_ptrEv(QByteArray *self) {
+  return &(self->data_ptr());
+}
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QByteArray::QByteArray(const DataPointer &dd)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArrayC1ERK17QArrayDataPointerIcE(
+    const QByteArray::DataPointer *dd) {
+  return new QByteArray(*dd);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+//  QByteArray::QByteArray(DataPointer &&dd)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArrayC1EO17QArrayDataPointerIcE(
+    QByteArray::DataPointer *dd) {
+  return new QByteArray(std::move(*dd));
+}
+
 //  QByteArray QByteArray::nullTerminated() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray14nullTerminatedEv(
     const QByteArray *self) {
   return new QByteArray(self->nullTerminated());
+}
+
+//  QByteArray &QByteArray::nullTerminate()
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray13nullTerminateEv(QByteArray *self) {
+  return &(self->nullTerminate());
 }
 
 //  bool operator==(const QByteArray &lhs, const QByteArray &rhs)
@@ -986,6 +1596,174 @@ bool ritual_ZleRKcRK10QByteArray(char lhs, const QByteArray *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRKcRK10QByteArray(char lhs, const QByteArray *rhs) {
   return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const QByteArray &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QByteArrayRKPKc(
+    const QByteArray *lhs,
+    const char *const *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QByteArray &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QByteArrayRKPKc(
+    const QByteArray *lhs,
+    const char *const *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QByteArray &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK10QByteArrayRKPKc(
+    const QByteArray *lhs,
+    const char *const *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QByteArray &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK10QByteArrayRKPKc(
+    const QByteArray *lhs,
+    const char *const *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QByteArray &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK10QByteArrayRKPKc(
+    const QByteArray *lhs,
+    const char *const *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QByteArray &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK10QByteArrayRKPKc(
+    const QByteArray *lhs,
+    const char *const *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const char *const &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKPKcRK10QByteArray(
+    const char *const *lhs,
+    const QByteArray *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const char *const &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKPKcRK10QByteArray(
+    const char *const *lhs,
+    const QByteArray *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const char *const &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKPKcRK10QByteArray(
+    const char *const *lhs,
+    const QByteArray *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const char *const &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKPKcRK10QByteArray(
+    const char *const *lhs,
+    const QByteArray *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const char *const &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKPKcRK10QByteArray(
+    const char *const *lhs,
+    const QByteArray *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const char *const &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKPKcRK10QByteArray(
+    const char *const *lhs,
+    const QByteArray *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const QByteArray &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QByteArrayRKDn(const QByteArray *lhs) {
+  return operator==(*lhs, nullptr);
+}
+
+//  bool operator!=(const QByteArray &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QByteArrayRKDn(const QByteArray *lhs) {
+  return operator!=(*lhs, nullptr);
+}
+
+//  bool operator<(const QByteArray &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK10QByteArrayRKDn(const QByteArray *lhs) {
+  return operator<(*lhs, nullptr);
+}
+
+//  bool operator>(const QByteArray &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK10QByteArrayRKDn(const QByteArray *lhs) {
+  return operator>(*lhs, nullptr);
+}
+
+//  bool operator<=(const QByteArray &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK10QByteArrayRKDn(const QByteArray *lhs) {
+  return operator<=(*lhs, nullptr);
+}
+
+//  bool operator>=(const QByteArray &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK10QByteArrayRKDn(const QByteArray *lhs) {
+  return operator>=(*lhs, nullptr);
+}
+
+//  bool operator==(const std::nullptr_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKDnRK10QByteArray(const QByteArray *rhs) {
+  return operator==(nullptr, *rhs);
+}
+
+//  bool operator!=(const std::nullptr_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKDnRK10QByteArray(const QByteArray *rhs) {
+  return operator!=(nullptr, *rhs);
+}
+
+//  bool operator<(const std::nullptr_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKDnRK10QByteArray(const QByteArray *rhs) {
+  return operator<(nullptr, *rhs);
+}
+
+//  bool operator>(const std::nullptr_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKDnRK10QByteArray(const QByteArray *rhs) {
+  return operator>(nullptr, *rhs);
+}
+
+//  bool operator<=(const std::nullptr_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKDnRK10QByteArray(const QByteArray *rhs) {
+  return operator<=(nullptr, *rhs);
+}
+
+//  bool operator>=(const std::nullptr_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKDnRK10QByteArray(const QByteArray *rhs) {
+  return operator>=(nullptr, *rhs);
 }
 
 #if !defined(QT_NO_CAST_FROM_ASCII) && \
@@ -1120,6 +1898,114 @@ bool ritual_ZgeRK5QCharRK10QByteArray(
 }
 #endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator==(const QByteArray &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QByteArrayRKDs(const QByteArray *lhs, char16_t rhs) {
+  return operator==(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator!=(const QByteArray &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QByteArrayRKDs(const QByteArray *lhs, char16_t rhs) {
+  return operator!=(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<(const QByteArray &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK10QByteArrayRKDs(const QByteArray *lhs, char16_t rhs) {
+  return operator<(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>(const QByteArray &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK10QByteArrayRKDs(const QByteArray *lhs, char16_t rhs) {
+  return operator>(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<=(const QByteArray &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK10QByteArrayRKDs(const QByteArray *lhs, char16_t rhs) {
+  return operator<=(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>=(const QByteArray &lhs, const char16_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK10QByteArrayRKDs(const QByteArray *lhs, char16_t rhs) {
+  return operator>=(*lhs, rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator==(const char16_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKDsRK10QByteArray(char16_t lhs, const QByteArray *rhs) {
+  return operator==(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator!=(const char16_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKDsRK10QByteArray(char16_t lhs, const QByteArray *rhs) {
+  return operator!=(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<(const char16_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKDsRK10QByteArray(char16_t lhs, const QByteArray *rhs) {
+  return operator<(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>(const char16_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKDsRK10QByteArray(char16_t lhs, const QByteArray *rhs) {
+  return operator>(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator<=(const char16_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKDsRK10QByteArray(char16_t lhs, const QByteArray *rhs) {
+  return operator<=(lhs, *rhs);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  bool operator>=(const char16_t &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKDsRK10QByteArray(char16_t lhs, const QByteArray *rhs) {
+  return operator>=(lhs, *rhs);
+}
+#endif
+
 //  void QByteArray::reallocData(qsizetype alloc,
 //      QArrayData::AllocationOption option)
 extern "C" Q_DECL_EXPORT
@@ -1153,9 +2039,25 @@ void ritual_ZNK10QByteArray6verifyExx(
   self->verify(pos, n);
 }
 
+//  QByteArray QByteArray::sliced_helper(QByteArray &a, qsizetype pos,
+//      qsizetype n)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray13sliced_helperERS_xx(
+    QByteArray *a,
+    qsizetype pos,
+    qsizetype n) {
+  return new QByteArray(QByteArray::sliced_helper(*a, pos, n));
+}
+
 //  QByteArray QByteArray::toLower_helper(const QByteArray &a)
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN10QByteArray14toLower_helperERKS_(const QByteArray *a) {
+  return new QByteArray(QByteArray::toLower_helper(*a));
+}
+
+//  QByteArray QByteArray::toLower_helper(QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray14toLower_helperERS_(QByteArray *a) {
   return new QByteArray(QByteArray::toLower_helper(*a));
 }
 
@@ -1165,9 +2067,21 @@ QByteArray *ritual_ZN10QByteArray14toUpper_helperERKS_(const QByteArray *a) {
   return new QByteArray(QByteArray::toUpper_helper(*a));
 }
 
+//  QByteArray QByteArray::toUpper_helper(QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray14toUpper_helperERS_(QByteArray *a) {
+  return new QByteArray(QByteArray::toUpper_helper(*a));
+}
+
 //  QByteArray QByteArray::trimmed_helper(const QByteArray &a)
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN10QByteArray14trimmed_helperERKS_(const QByteArray *a) {
+  return new QByteArray(QByteArray::trimmed_helper(*a));
+}
+
+//  QByteArray QByteArray::trimmed_helper(QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray14trimmed_helperERS_(QByteArray *a) {
   return new QByteArray(QByteArray::trimmed_helper(*a));
 }
 
@@ -1175,6 +2089,12 @@ QByteArray *ritual_ZN10QByteArray14trimmed_helperERKS_(const QByteArray *a) {
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN10QByteArray17simplified_helperERKS_(
     const QByteArray *a) {
+  return new QByteArray(QByteArray::simplified_helper(*a));
+}
+
+//  QByteArray QByteArray::simplified_helper(QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray17simplified_helperERS_(QByteArray *a) {
   return new QByteArray(QByteArray::simplified_helper(*a));
 }
 
@@ -1269,5 +2189,31 @@ QByteArray *ritual_map_get_QHash_int_QByteArray(
 //  QHash<int, QByteArray>: ~QHash()
 extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QHash_int_QByteArray(QHash<int, QByteArray> *self) {
+  delete self;
+}
+
+//  a std::string_view a ritual of QByteArray gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QByteArray__std_string_view(std::string_view *self) {
+  delete self;
+}
+
+//  a QByteArray::reverse_iterator a ritual of QByteArray gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QByteArray__QByteArray_reverse_iterator(
+    QByteArray::reverse_iterator *self) {
+  delete self;
+}
+
+//  a QByteArray::const_reverse_iterator a ritual of QByteArray gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QByteArray__QByteArray_const_reverse_iterator(
+    QByteArray::const_reverse_iterator *self) {
+  delete self;
+}
+
+//  a std::string a ritual of QByteArray gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QByteArray__std_string(std::string *self) {
   delete self;
 }

@@ -28,9 +28,70 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 26, as local:qquickdroparea.cpp:QQuickDropAreaPrivate
+class QQuickDropAreaPrivate : public QQuickItemPrivate
+{
+    Q_DECLARE_PUBLIC(QQuickDropArea)
+
+public:
+    QQuickDropAreaPrivate();
+    ~QQuickDropAreaPrivate();
+
+    bool hasMatchingKey(const QStringList &keys) const;
+
+    QStringList getKeys(const QMimeData *mimeData) const;
+
+    QStringList keys;
+    QRegularExpression keyRegExp;
+    QPointF dragPosition;
+    QQuickDropAreaDrag *drag;
+    QPointer<QObject> source;
+    bool containsDrag;
+};
+
+//  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 46, as local:qquickdroparea.cpp:QQuickDropAreaPrivate::QQuickDropAreaPrivate
+inline QQuickDropAreaPrivate::QQuickDropAreaPrivate()
+    : drag(nullptr)
+    , containsDrag(false)
+{
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 52, as local:qquickdroparea.cpp:QQuickDropAreaPrivate::~QQuickDropAreaPrivate
+inline QQuickDropAreaPrivate::~QQuickDropAreaPrivate()
+{
+    delete drag;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 199, as local:qquickdroparea.cpp:QQuickDropAreaPrivate::hasMatchingKey
+inline bool QQuickDropAreaPrivate::hasMatchingKey(const QStringList &keys) const
+{
+    if (keyRegExp.pattern().isEmpty())
+        return true;
+
+    for (const QString &key : keys) {
+        if (key.contains(keyRegExp))
+            return true;
+    }
+    return false;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 211, as local:qquickdroparea.cpp:QQuickDropAreaPrivate::getKeys
+inline QStringList QQuickDropAreaPrivate::getKeys(const QMimeData *mimeData) const
+{
+    if (const QQuickDragMimeData *dragMime = qobject_cast<const QQuickDragMimeData *>(mimeData))
+        return dragMime->keys();
+    return mimeData->formats();
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 22, as _ZN18QQuickDropAreaDragD1Ev
 inline QQuickDropAreaDrag::~QQuickDropAreaDrag()
 {
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 168, as _ZNK18QQuickDropAreaDrag1xEv
+inline qreal QQuickDropAreaDrag::x() const
+{
+    return d->dragPosition.x();
 }
 //  -----------------------------------------------------------------------
 
@@ -208,6 +269,25 @@ const QMetaObject *ritual_ZNK18QQuickDropAreaDrag10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDropAreaDrag::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickDropAreaDrag11qt_metacastEPKc(
+    QQuickDropAreaDrag *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDropAreaDrag::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickDropAreaDrag11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDropAreaDrag *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuickDropAreaDrag::qt_qmlMarker_anonymous()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickDropAreaDrag22qt_qmlMarker_anonymousEv(
@@ -219,6 +299,62 @@ void ritual_ZN18QQuickDropAreaDrag22qt_qmlMarker_anonymousEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickDropAreaDragD1Ev(QQuickDropAreaDrag *self) {
   delete self;
+}
+
+//  qreal QQuickDropAreaDrag::x() const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK18QQuickDropAreaDrag1xEv(const QQuickDropAreaDrag *self) {
+  return self->x();
+}
+
+//  void QQuickDropAreaDrag::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDropAreaDrag15positionChangedEv(
+    QQuickDropAreaDrag *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickDropAreaDrag")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "positionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "positionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickDropAreaDrag::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickDropAreaDrag13sourceChangedEv(
+    QQuickDropAreaDrag *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickDropAreaDrag")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sourceChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sourceChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuickDropAreaDrag, for the function

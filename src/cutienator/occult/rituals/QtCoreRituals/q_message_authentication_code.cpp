@@ -4,6 +4,9 @@
 #include <QtCore/qmessageauthenticationcode.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/QByteArrayView>
+#include <QtCore/QSpan>
+#include <cstddef>
 
 //  QMessageAuthenticationCode::QMessageAuthenticationCode(QCryptographicHash
 //      ::Algorithm method, QByteArrayView key)
@@ -14,11 +17,37 @@ QMessageAuthenticationCode *ritual_ZN26QMessageAuthenticationCodeC1EN18QCryptogr
   return new QMessageAuthenticationCode(method, *key);
 }
 
+//  QMessageAuthenticationCode::QMessageAuthenticationCode(QMessageAuthentica
+//      tionCode &&other)
+extern "C" Q_DECL_EXPORT
+QMessageAuthenticationCode *ritual_ZN26QMessageAuthenticationCodeC1EOS_(
+    QMessageAuthenticationCode *other) {
+  return new QMessageAuthenticationCode(std::move(*other));
+}
+
 //  QMessageAuthenticationCode::~QMessageAuthenticationCode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QMessageAuthenticationCodeD1Ev(
     QMessageAuthenticationCode *self) {
   delete self;
+}
+
+//  QMessageAuthenticationCode
+//      &QMessageAuthenticationCode::operator=(QMessageAuthenticationCode
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QMessageAuthenticationCode *ritual_ZN26QMessageAuthenticationCodeaSEOS_(
+    QMessageAuthenticationCode *self,
+    QMessageAuthenticationCode *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QMessageAuthenticationCode::swap(QMessageAuthenticationCode &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QMessageAuthenticationCode4swapERS_(
+    QMessageAuthenticationCode *self,
+    QMessageAuthenticationCode *other) {
+  self->swap(*other);
 }
 
 //  void QMessageAuthenticationCode::reset()
@@ -85,6 +114,108 @@ QByteArray *ritual_ZN26QMessageAuthenticationCode4hashE14QByteArrayViewS0_N18QCr
     QCryptographicHash::Algorithm method) {
   return new QByteArray(
       QMessageAuthenticationCode::hash(
+          *message,
+          *key,
+          method));
+}
+
+//  QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<char> buffer,
+//      QByteArrayView message, QByteArrayView key,
+//      QCryptographicHash::Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanIcLm18446744073709551615EE14QByteArrayViewS2_N18QCryptographicHash9AlgorithmE(
+    const QSpan<char> *buffer,
+    const QByteArrayView *message,
+    const QByteArrayView *key,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QMessageAuthenticationCode::hashInto(
+          *buffer,
+          *message,
+          *key,
+          method));
+}
+
+//  QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<uchar> buffer,
+//      QByteArrayView message, QByteArrayView key,
+//      QCryptographicHash::Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanIhLm18446744073709551615EE14QByteArrayViewS2_N18QCryptographicHash9AlgorithmE(
+    const QSpan<uchar> *buffer,
+    const QByteArrayView *message,
+    const QByteArrayView *key,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QMessageAuthenticationCode::hashInto(
+          *buffer,
+          *message,
+          *key,
+          method));
+}
+
+//  QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<std::byte>
+//      buffer, QByteArrayView message, QByteArrayView key,
+//      QCryptographicHash::Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanISt4byteLm18446744073709551615EE14QByteArrayViewS3_N18QCryptographicHash9AlgorithmE(
+    const QSpan<std::byte> *buffer,
+    const QByteArrayView *message,
+    const QByteArrayView *key,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QMessageAuthenticationCode::hashInto(
+          *buffer,
+          *message,
+          *key,
+          method));
+}
+
+//  QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<char> buffer,
+//      QSpan<const QByteArrayView> messageParts, QByteArrayView key,
+//      QCryptographicHash::Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanIcLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EES2_N18QCryptographicHash9AlgorithmE(
+    const QSpan<char> *buffer,
+    const QSpan<const QByteArrayView> *messageParts,
+    const QByteArrayView *key,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QMessageAuthenticationCode::hashInto(
+          *buffer,
+          *messageParts,
+          *key,
+          method));
+}
+
+//  QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<uchar> buffer,
+//      QSpan<const QByteArrayView> messageParts, QByteArrayView key,
+//      QCryptographicHash::Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanIhLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EES2_N18QCryptographicHash9AlgorithmE(
+    const QSpan<uchar> *buffer,
+    const QSpan<const QByteArrayView> *messageParts,
+    const QByteArrayView *key,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QMessageAuthenticationCode::hashInto(
+          *buffer,
+          *messageParts,
+          *key,
+          method));
+}
+
+//  QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<std::byte>
+//      buffer, QSpan<const QByteArrayView> message, QByteArrayView key,
+//      QCryptographicHash::Algorithm method)
+extern "C" Q_DECL_EXPORT
+QByteArrayView *ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanISt4byteLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EES3_N18QCryptographicHash9AlgorithmE(
+    const QSpan<std::byte> *buffer,
+    const QSpan<const QByteArrayView> *message,
+    const QByteArrayView *key,
+    QCryptographicHash::Algorithm method) {
+  return new QByteArrayView(
+      QMessageAuthenticationCode::hashInto(
+          *buffer,
           *message,
           *key,
           method));

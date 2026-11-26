@@ -18,6 +18,12 @@
       "nothing", "address"
     ],
     "ritual_ZNK3QV416QmlSignalHandler11signalIndexEv": ["int", "address"],
-    "ritual_ZNK3QV416QmlSignalHandler6objectEv": ["address", "address"]
+    "ritual_ZNK3QV416QmlSignalHandler6objectEv": ["address", "address"],
+    "ritual_ZNK3QV416QmlSignalHandler4callEPKNS_5ValueES3_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV416QmlSignalHandler9initProtoEPNS_15ExecutionEngineE": [
+      "nothing", "address"
+    ]
   }
 }

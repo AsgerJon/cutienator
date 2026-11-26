@@ -1,0 +1,98 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuagdsclient.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK15QOpcUaGdsClient10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QOpcUaGdsClient11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QOpcUaGdsClient2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QOpcUaGdsClient6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QOpcUaGdsClient6d_funcEv": ["address", "address"],
+    "ritual_ZN15QOpcUaGdsClientC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QOpcUaGdsClientD1Ev": ["nothing", "address"],
+    "ritual_ZN15QOpcUaGdsClient10setBackendERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient7backendEv": ["text", "address"],
+    "ritual_ZN15QOpcUaGdsClient11setEndpointERK25QOpcUaEndpointDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient8endpointEv": ["address", "address"],
+    "ritual_ZN15QOpcUaGdsClient19setPkiConfigurationERK22QOpcUaPkiConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient16pkiConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QOpcUaGdsClient22setApplicationIdentityERK25QOpcUaApplicationIdentity": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient19applicationIdentityEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QOpcUaGdsClient20setApplicationRecordERK31QOpcUaApplicationRecordDataType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient17applicationRecordEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient13applicationIdEv": ["text", "address"],
+    "ritual_ZN15QOpcUaGdsClient35setCertificateSigningRequestPresetsERK27QOpcUaX509DistinguishedNameRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient48distinguishedNameCertificateSigningRequestPresetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient34dnsCertificateSigningRequestPresetEv": [
+      "text", "address"
+    ],
+    "ritual_ZN15QOpcUaGdsClient27setCertificateCheckIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient24certificateCheckIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZN15QOpcUaGdsClient26setTrustListUpdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient23trustListUpdateIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK15QOpcUaGdsClient5errorEv": ["int", "address"],
+    "ritual_ZNK15QOpcUaGdsClient5stateEv": ["int", "address"],
+    "ritual_ZN15QOpcUaGdsClient5startEv": ["nothing", "address"],
+    "ritual_ZN15QOpcUaGdsClient21unregisterApplicationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QOpcUaGdsClient12stateChangedENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QOpcUaGdsClient12errorChangedENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QOpcUaGdsClient21applicationRegisteredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QOpcUaGdsClient25certificateGroupsReceivedE5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QOpcUaGdsClient25certificateUpdateRequiredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QOpcUaGdsClient18certificateUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QOpcUaGdsClient12unregisteredEv": ["nothing", "address"],
+    "ritual_ZN15QOpcUaGdsClient16trustListUpdatedEv": ["nothing", "address"],
+    "ritual_ZN15QOpcUaGdsClient22authenticationRequiredER31QOpcUaAuthenticationInformation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QOpcUaGdsClient": ["bool", "address", "chars", "address"]
+  }
+}

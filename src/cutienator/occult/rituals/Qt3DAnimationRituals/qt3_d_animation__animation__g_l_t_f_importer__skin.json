@@ -5,6 +5,10 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter4SkinC1Ev": ["address"],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter4SkinC1ERK11QJsonObject": [
+      "address", "address"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter4SkinD1Ev": [
       "nothing", "address"
     ]

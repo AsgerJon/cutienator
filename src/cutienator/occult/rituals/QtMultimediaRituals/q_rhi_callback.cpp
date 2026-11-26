@@ -12,3 +12,19 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN12QRhiCallbackD1Ev(QRhiCallback *self) {
   delete self;
 }
+
+//  void QRhiCallback::registerCallback(QRhi &rhi)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QRhiCallback16registerCallbackER4QRhi(
+    QRhiCallback *self,
+    QRhi *rhi) {
+  self->registerCallback(*rhi);
+}
+
+//  void QRhiCallback::onRhiCleanup(QRhi &rhi)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QRhiCallback12onRhiCleanupER4QRhi(
+    QRhiCallback *self,
+    QRhi *rhi) {
+  self->onRhiCleanup(*rhi);
+}

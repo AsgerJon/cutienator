@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QHttp2Stream10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QHttp2Stream11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QHttp2Stream11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QHttp2Stream2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QHttp2StreamD1Ev": ["nothing", "address"],
     "ritual_ZNK12QHttp2Stream8streamIDEv": ["unsigned int", "address"],
@@ -22,12 +28,43 @@
     "ritual_ZNK12QHttp2Stream18RST_STREAMCodeSentEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZNK12QHttp2Stream15receivedHeadersEv": ["address", "address"],
     "ritual_ZNK12QHttp2Stream14downloadBufferEv": ["address", "address"],
     "ritual_ZN12QHttp2Stream18takeDownloadBufferEv": ["address", "address"],
     "ritual_ZN12QHttp2Stream19clearDownloadBufferEv": ["nothing", "address"],
     "ritual_ZNK12QHttp2Stream13configurationEv": ["address", "address"],
+    "ritual_ZN12QHttp2Stream15headersReceivedERKSt6vectorIN5HPack11HeaderFieldESaIS2_EEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN12QHttp2Stream14headersUpdatedEv": ["nothing", "address"],
+    "ritual_ZN12QHttp2Stream13errorOccurredEN5Http210Http2ErrorERK7QString": [
+      "nothing", "address", "unsigned int", "text"
+    ],
+    "ritual_ZN12QHttp2Stream12stateChangedENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QHttp2Stream22promisedStreamReceivedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN12QHttp2Stream13uploadBlockedEv": ["nothing", "address"],
+    "ritual_ZN12QHttp2Stream12dataReceivedERK10QByteArrayb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN12QHttp2Stream16rstFrameReceivedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN12QHttp2Stream12bytesWrittenEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN12QHttp2Stream17uploadDeviceErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QHttp2Stream14uploadFinishedEv": ["nothing", "address"],
     "ritual_ZN12QHttp2Stream14sendRST_STREAMEN5Http210Http2ErrorE": [
       "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN12QHttp2Stream11sendHEADERSERKSt6vectorIN5HPack11HeaderFieldESaIS2_EEbh": [
+      "bool", "address", "address", "bool", "unsigned char"
     ],
     "ritual_ZN12QHttp2Stream8sendDATAERK10QByteArrayb": [
       "bool", "address", "address", "bool"
@@ -63,6 +100,9 @@
     "ritual_ZN12QHttp2Stream10handleDATAERKN5Http25FrameE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN12QHttp2Stream13handleHEADERSE6QFlagsIN5Http29FrameFlagEERKSt6vectorIN5HPack11HeaderFieldESaIS6_EE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN12QHttp2Stream16handleRST_STREAMERKN5Http25FrameE": [
       "nothing", "address", "address"
     ],
@@ -78,6 +118,7 @@
     "ritual_ZN12QHttp2Stream11streamErrorEN5Http210Http2ErrorERK7QString": [
       "nothing", "address", "unsigned int", "text"
     ],
-    "ritual_take_QHttp2Stream": ["bool", "address", "chars", "address"]
+    "ritual_take_QHttp2Stream": ["bool", "address", "chars", "address"],
+    "ritual_drop_QHttp2Stream__HPack_HttpHeader": ["nothing", "address"]
   }
 }

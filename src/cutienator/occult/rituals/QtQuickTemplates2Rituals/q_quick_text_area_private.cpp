@@ -41,12 +41,118 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 126, as _ZN21QQuickTextAreaPrivateC1Ev
-inline QQuickTextAreaPrivate::QQuickTextAreaPrivate()
+using namespace Qt::StringLiterals;
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 473, as _ZN21QQuickTextAreaPrivate13itemDestroyedEP10QQuickItem
+inline void QQuickTextAreaPrivate::itemDestroyed(QQuickItem *item)
 {
+    Q_Q(QQuickTextArea);
+    if (item == background) {
+        background = nullptr;
+        emit q->implicitBackgroundWidthChanged();
+        emit q->implicitBackgroundHeightChanged();
+    } else if (item == flickable) {
+        detachFlickable();
+    }
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 381, as _ZN21QQuickTextAreaPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
+inline void QQuickTextAreaPrivate::itemGeometryChanged(QQuickItem *item, QQuickGeometryChange change, const QRectF &diff)
+{
+    Q_UNUSED(diff);
+    if (!resizingBackground && item == background) {
+        QQuickItemPrivate *p = QQuickItemPrivate::get(item);
+        // Only set hasBackgroundWidth/Height if it was a width/height change,
+        // otherwise we're prevented from setting a width/height in the future.
+        if (change.widthChange())
+            extra.value().hasBackgroundWidth = p->widthValid();
+        if (change.heightChange())
+            extra.value().hasBackgroundHeight = p->heightValid();
+    }
+
+    if (flickable)
+        resizeFlickableControl();
+    else
+        resizeBackground();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 410, as _ZN21QQuickTextAreaPrivate20implicitWidthChangedEv
+inline void QQuickTextAreaPrivate::implicitWidthChanged()
+{
+    if (!initialized) {
+        QQuickTextEditPrivate::implicitWidthChanged();
+        return;
+    }
+    Q_Q(QQuickTextArea);
+    QQuickItemPrivate::implicitWidthChanged();
+    emit q->implicitWidthChanged3();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 421, as _ZN21QQuickTextAreaPrivate21implicitHeightChangedEv
+inline void QQuickTextAreaPrivate::implicitHeightChanged()
+{
+    if (!initialized) {
+        QQuickTextEditPrivate::implicitHeightChanged();
+        return;
+    }
+    Q_Q(QQuickTextArea);
+    QQuickItemPrivate::implicitHeightChanged();
+    emit q->implicitHeightChanged3();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 459, as _ZN21QQuickTextAreaPrivate24itemImplicitWidthChangedEP10QQuickItem
+inline void QQuickTextAreaPrivate::itemImplicitWidthChanged(QQuickItem *item)
+{
+    Q_Q(QQuickTextArea);
+    if (item == background)
+        emit q->implicitBackgroundWidthChanged();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 490, as _ZN21QQuickTextAreaPrivate24setLastFocusChangeReasonEN2Qt11FocusReasonE
+inline bool QQuickTextAreaPrivate::setLastFocusChangeReason(Qt::FocusReason reason)
+{
+    Q_Q(QQuickTextArea);
+    const auto focusReasonChanged = QQuickItemPrivate::setLastFocusChangeReason(reason);
+    if (focusReasonChanged)
+        emit q->focusReasonChanged();
+
+    return focusReasonChanged;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 466, as _ZN21QQuickTextAreaPrivate25itemImplicitHeightChangedEP10QQuickItem
+inline void QQuickTextAreaPrivate::itemImplicitHeightChanged(QQuickItem *item)
+{
+    Q_Q(QQuickTextArea);
+    if (item == background)
+        emit q->implicitBackgroundHeightChanged();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 433, as _ZN21QQuickTextAreaPrivate26accessibilityActiveChangedEb
 #if QT_CONFIG(accessibility)
-    setAccessible();
-#endif
+inline void QQuickTextAreaPrivate::accessibilityActiveChanged(bool active)
+{
+    QQuickTextEditPrivate::accessibilityActiveChanged(active);
+    if (QQuickAccessibleAttached *accessibleAttached = QQuickControlPrivate::accessibleAttached(q_func()))
+        accessibleAttached->setDescriptionImplicitly(placeholder);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 485, as _ZNK21QQuickTextAreaPrivate14defaultPaletteEv
+inline QPalette QQuickTextAreaPrivate::defaultPalette() const
+{
+    return QQuickTheme::palette(QQuickTheme::TextArea);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 400, as _ZNK21QQuickTextAreaPrivate16getImplicitWidthEv
+inline qreal QQuickTextAreaPrivate::getImplicitWidth() const
+{
+    return QQuickItemPrivate::getImplicitWidth();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 405, as _ZNK21QQuickTextAreaPrivate17getImplicitHeightEv
+inline qreal QQuickTextAreaPrivate::getImplicitHeight() const
+{
+    return QQuickItemPrivate::getImplicitHeight();
 }
 
 //  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 133, as _ZN21QQuickTextAreaPrivateD1Ev
@@ -299,72 +405,6 @@ inline void QQuickTextAreaPrivate::resizeFlickableContent()
     flickable->setContentHeight(q->implicitHeight());
 }
 
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 381, as _ZN21QQuickTextAreaPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
-inline void QQuickTextAreaPrivate::itemGeometryChanged(QQuickItem *item, QQuickGeometryChange change, const QRectF &diff)
-{
-    Q_UNUSED(diff);
-    if (!resizingBackground && item == background) {
-        QQuickItemPrivate *p = QQuickItemPrivate::get(item);
-        // Only set hasBackgroundWidth/Height if it was a width/height change,
-        // otherwise we're prevented from setting a width/height in the future.
-        if (change.widthChange())
-            extra.value().hasBackgroundWidth = p->widthValid();
-        if (change.heightChange())
-            extra.value().hasBackgroundHeight = p->heightValid();
-    }
-
-    if (flickable)
-        resizeFlickableControl();
-    else
-        resizeBackground();
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 400, as _ZNK21QQuickTextAreaPrivate16getImplicitWidthEv
-inline qreal QQuickTextAreaPrivate::getImplicitWidth() const
-{
-    return QQuickItemPrivate::getImplicitWidth();
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 405, as _ZNK21QQuickTextAreaPrivate17getImplicitHeightEv
-inline qreal QQuickTextAreaPrivate::getImplicitHeight() const
-{
-    return QQuickItemPrivate::getImplicitHeight();
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 410, as _ZN21QQuickTextAreaPrivate20implicitWidthChangedEv
-inline void QQuickTextAreaPrivate::implicitWidthChanged()
-{
-    if (!initialized) {
-        QQuickTextEditPrivate::implicitWidthChanged();
-        return;
-    }
-    Q_Q(QQuickTextArea);
-    QQuickItemPrivate::implicitWidthChanged();
-    emit q->implicitWidthChanged3();
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 421, as _ZN21QQuickTextAreaPrivate21implicitHeightChangedEv
-inline void QQuickTextAreaPrivate::implicitHeightChanged()
-{
-    if (!initialized) {
-        QQuickTextEditPrivate::implicitHeightChanged();
-        return;
-    }
-    Q_Q(QQuickTextArea);
-    QQuickItemPrivate::implicitHeightChanged();
-    emit q->implicitHeightChanged3();
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 433, as _ZN21QQuickTextAreaPrivate26accessibilityActiveChangedEb
-#if QT_CONFIG(accessibility)
-inline void QQuickTextAreaPrivate::accessibilityActiveChanged(bool active)
-{
-    QQuickTextEditPrivate::accessibilityActiveChanged(active);
-    if (QQuickAccessibleAttached *accessibleAttached = QQuickControlPrivate::accessibleAttached(q_func()))
-        accessibleAttached->setDescriptionImplicitly(placeholder);
-}
-#endif  // QT_CONFIG(accessibility)
-
 //  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 441, as _ZN21QQuickTextAreaPrivate16cancelBackgroundEv
 inline void QQuickTextAreaPrivate::cancelBackground()
 {
@@ -383,52 +423,6 @@ inline void QQuickTextAreaPrivate::executeBackground(bool complete)
         quickBeginDeferred(q, backgroundName(), background);
     if (complete)
         quickCompleteDeferred(q, backgroundName(), background);
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 459, as _ZN21QQuickTextAreaPrivate24itemImplicitWidthChangedEP10QQuickItem
-inline void QQuickTextAreaPrivate::itemImplicitWidthChanged(QQuickItem *item)
-{
-    Q_Q(QQuickTextArea);
-    if (item == background)
-        emit q->implicitBackgroundWidthChanged();
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 466, as _ZN21QQuickTextAreaPrivate25itemImplicitHeightChangedEP10QQuickItem
-inline void QQuickTextAreaPrivate::itemImplicitHeightChanged(QQuickItem *item)
-{
-    Q_Q(QQuickTextArea);
-    if (item == background)
-        emit q->implicitBackgroundHeightChanged();
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 473, as _ZN21QQuickTextAreaPrivate13itemDestroyedEP10QQuickItem
-inline void QQuickTextAreaPrivate::itemDestroyed(QQuickItem *item)
-{
-    Q_Q(QQuickTextArea);
-    if (item == background) {
-        background = nullptr;
-        emit q->implicitBackgroundWidthChanged();
-        emit q->implicitBackgroundHeightChanged();
-    } else if (item == flickable) {
-        detachFlickable();
-    }
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 485, as _ZNK21QQuickTextAreaPrivate14defaultPaletteEv
-inline QPalette QQuickTextAreaPrivate::defaultPalette() const
-{
-    return QQuickTheme::palette(QQuickTheme::TextArea);
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquicktextarea.cpp, line 490, as _ZN21QQuickTextAreaPrivate24setLastFocusChangeReasonEN2Qt11FocusReasonE
-inline bool QQuickTextAreaPrivate::setLastFocusChangeReason(Qt::FocusReason reason)
-{
-    Q_Q(QQuickTextArea);
-    const auto focusReasonChanged = QQuickItemPrivate::setLastFocusChangeReason(reason);
-    if (focusReasonChanged)
-        emit q->focusReasonChanged();
-
-    return focusReasonChanged;
 }
 //  -----------------------------------------------------------------------
 
@@ -874,14 +868,6 @@ const QQuickTextArea *ritual_ZNK21QQuickTextAreaPrivate6q_funcEv(
     const QQuickTextAreaPrivate *self) {
   return self->q_func();
 }
-
-#if QT_CONFIG(accessibility)
-//  QQuickTextAreaPrivate::QQuickTextAreaPrivate()
-extern "C" Q_DECL_EXPORT
-QQuickTextAreaPrivate *ritual_ZN21QQuickTextAreaPrivateC1Ev() {
-  return new CuteQQuickTextAreaPrivate();
-}
-#endif  // QT_CONFIG(accessibility)
 
 //  QQuickTextAreaPrivate::~QQuickTextAreaPrivate()
 extern "C" Q_DECL_EXPORT

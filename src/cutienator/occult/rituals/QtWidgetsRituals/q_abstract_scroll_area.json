@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QAbstractScrollArea10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QAbstractScrollArea11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QAbstractScrollArea11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QAbstractScrollArea2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -66,6 +72,9 @@
     ],
     "ritual_ZN19QAbstractScrollArea19setSizeAdjustPolicyENS_16SizeAdjustPolicyE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN19QAbstractScrollAreaC1ER26QAbstractScrollAreaPrivateP7QWidget": [
+      "address", "address", "address"
     ],
     "ritual_ZN19QAbstractScrollArea18setViewportMarginsEiiii": [
       "nothing", "address", "int", "int", "int", "int"

@@ -12,6 +12,7 @@ typedef void (*CuteQResizeEventCall1)(const void *, bool, int *);
 class CuteQResizeEvent : public QResizeEvent {
 public:
   using QResizeEvent::QResizeEvent;
+  CuteQResizeEvent(const QResizeEvent & other) : QResizeEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -48,6 +49,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QResizeEvent::QResizeEvent(const QResizeEvent &a0)
+extern "C" Q_DECL_EXPORT
+QResizeEvent *ritual_ZN12QResizeEventC1ERKS_(const QResizeEvent *a0) {
+  return new CuteQResizeEvent(*a0);
+}
+
+//  QResizeEvent &QResizeEvent::operator=(const QResizeEvent &other)
+extern "C" Q_DECL_EXPORT
+QResizeEvent *ritual_ZN12QResizeEventaSERKS_(
+    QResizeEvent *self,
+    const QResizeEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QResizeEvent *QResizeEvent::clone() const
 extern "C" Q_DECL_EXPORT

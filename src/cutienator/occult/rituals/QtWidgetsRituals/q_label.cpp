@@ -12,6 +12,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtGui/QTextDocument>
 
 //  Only a class built on QLabel may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -974,6 +975,22 @@ const QMetaObject *ritual_ZNK6QLabel10metaObjectEv(const QLabel *self) {
   return self->metaObject();
 }
 
+//  void *QLabel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6QLabel11qt_metacastEPKc(QLabel *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLabel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6QLabel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLabel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLabel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN6QLabel2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1065,6 +1082,22 @@ void ritual_ZN6QLabel13setTextFormatEN2Qt10TextFormatE(
     QLabel *self,
     Qt::TextFormat a0) {
   self->setTextFormat(a0);
+}
+
+//  QTextDocument::ResourceProvider QLabel::resourceProvider() const
+extern "C" Q_DECL_EXPORT
+QTextDocument::ResourceProvider *ritual_ZNK6QLabel16resourceProviderEv(
+    const QLabel *self) {
+  return new QTextDocument::ResourceProvider(self->resourceProvider());
+}
+
+//  void QLabel::setResourceProvider(const QTextDocument::ResourceProvider
+//      &provider)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel19setResourceProviderERKSt8functionIF8QVariantRK4QUrlEE(
+    QLabel *self,
+    const QTextDocument::ResourceProvider *provider) {
+  self->setResourceProvider(*provider);
 }
 
 //  Qt::Alignment QLabel::alignment() const
@@ -1260,6 +1293,22 @@ void ritual_ZN6QLabel6setNumEd(QLabel *self, double a0) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QLabel5clearEv(QLabel *self) {
   self->clear();
+}
+
+//  void QLabel::linkActivated(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel13linkActivatedERK7QString(
+    QLabel *self,
+    const QString *link) {
+  self->linkActivated(*link);
+}
+
+//  void QLabel::linkHovered(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel11linkHoveredERK7QString(
+    QLabel *self,
+    const QString *link) {
+  self->linkHovered(*link);
 }
 
 //  bool QLabel::event(QEvent *e)
@@ -1465,6 +1514,13 @@ void ritual_own_ZN6QLabel13focusOutEventEP11QFocusEvent(
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN6QLabel18focusNextPrevChildEb(QLabel *self, bool next) {
   return static_cast<OwnQLabel *>(self)->OwnQLabel::focusNextPrevChild(next);
+}
+
+//  a QTextDocument::ResourceProvider a ritual of QLabel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLabel__QTextDocument_ResourceProvider(
+    QTextDocument::ResourceProvider *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(label)

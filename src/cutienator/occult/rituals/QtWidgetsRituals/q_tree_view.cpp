@@ -6,10 +6,14 @@
 #if QT_CONFIG(treeview)
 #include <QtWidgets/qtreeview.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtGui/qregion.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtCore/qsize.h>
@@ -2184,6 +2188,22 @@ const QMetaObject *ritual_ZNK9QTreeView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTreeView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QTreeView11qt_metacastEPKc(QTreeView *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTreeView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QTreeView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTreeView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTreeView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QTreeView2trEPKcS1_i(
@@ -2576,10 +2596,37 @@ void ritual_ZN9QTreeView5resetEv(QTreeView *self) {
   self->reset();
 }
 
+//  void QTreeView::dataChanged(const QModelIndex &topLeft, const QModelIndex
+//      &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView11dataChangedERK11QModelIndexS2_RK5QListIiE(
+    QTreeView *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->dataChanged(*topLeft, *bottomRight, *roles);
+}
+
 //  void QTreeView::selectAll()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTreeView9selectAllEv(QTreeView *self) {
   self->selectAll();
+}
+
+//  void QTreeView::expanded(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView8expandedERK11QModelIndex(
+    QTreeView *self,
+    const QModelIndex *index) {
+  self->expanded(*index);
+}
+
+//  void QTreeView::collapsed(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView9collapsedERK11QModelIndex(
+    QTreeView *self,
+    const QModelIndex *index) {
+  self->collapsed(*index);
 }
 
 //  void QTreeView::hideColumn(int column)
@@ -2702,6 +2749,14 @@ void ritual_ZN9QTreeView29verticalScrollbarValueChangedEi(
     QTreeView *self,
     int value) {
   self->verticalScrollbarValueChanged(value);
+}
+
+//  QTreeView::QTreeView(QTreeViewPrivate &dd, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QTreeView *ritual_ZN9QTreeViewC1ER16QTreeViewPrivateP7QWidget(
+    QTreeViewPrivate *dd,
+    QWidget *parent) {
+  return new CuteQTreeView(*dd, parent);
 }
 
 //  void QTreeView::scrollContentsBy(int dx, int dy)

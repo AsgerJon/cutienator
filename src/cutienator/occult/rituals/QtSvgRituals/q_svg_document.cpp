@@ -6,14 +6,22 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgdocument_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
-#include <QtCore/qstring.h>
 #include <QtGui/qtransform.h>
+#include <QtCore/qstringview.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <memory>
+#include <QtCore/QString>
+#include <QtCore/QFlags>
+#include <QtCore/QByteArray>
+#include <QtCore/QStringView>
+#include <QtCore/QSharedPointer>
 
 //  A QSvgDocument that Python can take functions over in. Every QSvgDocument
 //  Python makes is one. Each function below asks the Python
@@ -78,6 +86,48 @@ public:
     return QSvgNode::requiresGroupRendering();
   }
 };
+
+//  std::unique_ptr<QSvgDocument> QSvgDocument::load(const QString &file,
+//      QtSvg::Options options, QtSvg::AnimatorType type)
+extern "C" Q_DECL_EXPORT
+std::unique_ptr<QSvgDocument> *ritual_ZN12QSvgDocument4loadERK7QString6QFlagsIN5QtSvg6OptionEENS4_12AnimatorTypeE(
+    const QString *file,
+    int options,
+    QtSvg::AnimatorType type) {
+  return new std::unique_ptr<QSvgDocument>(
+      QSvgDocument::load(
+          *file,
+          QFlags<QtSvg::Option>::fromInt(options),
+          type));
+}
+
+//  std::unique_ptr<QSvgDocument> QSvgDocument::load(const QByteArray
+//      &contents, QtSvg::Options options, QtSvg::AnimatorType type)
+extern "C" Q_DECL_EXPORT
+std::unique_ptr<QSvgDocument> *ritual_ZN12QSvgDocument4loadERK10QByteArray6QFlagsIN5QtSvg6OptionEENS4_12AnimatorTypeE(
+    const QByteArray *contents,
+    int options,
+    QtSvg::AnimatorType type) {
+  return new std::unique_ptr<QSvgDocument>(
+      QSvgDocument::load(
+          *contents,
+          QFlags<QtSvg::Option>::fromInt(options),
+          type));
+}
+
+//  std::unique_ptr<QSvgDocument> QSvgDocument::load(QXmlStreamReader
+//      *contents, QtSvg::Options options, QtSvg::AnimatorType type)
+extern "C" Q_DECL_EXPORT
+std::unique_ptr<QSvgDocument> *ritual_ZN12QSvgDocument4loadEP16QXmlStreamReader6QFlagsIN5QtSvg6OptionEENS3_12AnimatorTypeE(
+    QXmlStreamReader *contents,
+    int options,
+    QtSvg::AnimatorType type) {
+  return new std::unique_ptr<QSvgDocument>(
+      QSvgDocument::load(
+          contents,
+          QFlags<QtSvg::Option>::fromInt(options),
+          type));
+}
 
 //  bool QSvgDocument::isLikelySvg(QIODevice *device, bool *isCompressed)
 extern "C" Q_DECL_EXPORT
@@ -198,6 +248,15 @@ int ritual_ZNK12QSvgDocument7optionsEv(const QSvgDocument *self) {
   return static_cast<int>(self->options().toInt());
 }
 
+//  void QSvgDocument::drawCommand(QPainter *a0, QSvgExtraStates &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QSvgDocument11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgDocument *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  self->drawCommand(a0, *a1);
+}
+
 //  void QSvgDocument::draw(QPainter *p)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QSvgDocument4drawEP8QPainter(
@@ -275,6 +334,24 @@ QSvgNode *ritual_ZNK12QSvgDocument9namedNodeERK7QString(
   return self->namedNode(*id);
 }
 
+//  void QSvgDocument::addPaintServer(QSvgPaintServerSharedPtr paintServer,
+//      const QString &id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QSvgDocument14addPaintServerESt10shared_ptrI15QSvgPaintServerERK7QString(
+    QSvgDocument *self,
+    const QSvgPaintServerSharedPtr *paintServer,
+    const QString *id) {
+  self->addPaintServer(*paintServer, *id);
+}
+
+//  QSvgPaintServerSharedPtr QSvgDocument::paintServer(QStringView id) const
+extern "C" Q_DECL_EXPORT
+QSvgPaintServerSharedPtr *ritual_ZNK12QSvgDocument11paintServerE11QStringView(
+    const QSvgDocument *self,
+    const QString *id) {
+  return new QSvgPaintServerSharedPtr(self->paintServer(QStringView(*id)));
+}
+
 //  void QSvgDocument::restartAnimation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QSvgDocument16restartAnimationEv(QSvgDocument *self) {
@@ -325,6 +402,13 @@ void ritual_ZN12QSvgDocument18setFramesPerSecondEi(
   self->setFramesPerSecond(num);
 }
 
+//  QSharedPointer<QSvgAbstractAnimator> QSvgDocument::animator() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QSvgAbstractAnimator> *ritual_ZNK12QSvgDocument8animatorEv(
+    const QSvgDocument *self) {
+  return new QSharedPointer<QSvgAbstractAnimator>(self->animator());
+}
+
 //  void QSvgDocument::mapSourceToTarget(QPainter *p, const QRectF
 //      &targetRect, const QRectF &sourceRect)
 extern "C" Q_DECL_EXPORT
@@ -351,4 +435,25 @@ extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_own_ZNK12QSvgDocument4typeEv(
     const QSvgDocument *self) {
   return self->QSvgDocument::type();
+}
+
+//  a std::unique_ptr<QSvgDocument> a ritual of QSvgDocument gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSvgDocument__std_unique_ptr_QSvgDocument(
+    std::unique_ptr<QSvgDocument> *self) {
+  delete self;
+}
+
+//  a QSvgPaintServerSharedPtr a ritual of QSvgDocument gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSvgDocument__QSvgPaintServerSharedPtr(
+    QSvgPaintServerSharedPtr *self) {
+  delete self;
+}
+
+//  a QSharedPointer<QSvgAbstractAnimator> a ritual of QSvgDocument gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSvgDocument__QSharedPointer_QSvgAbstractAnimator(
+    QSharedPointer<QSvgAbstractAnimator> *self) {
+  delete self;
 }

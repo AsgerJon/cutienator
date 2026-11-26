@@ -5,6 +5,19 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN5Http211FrameReader4readER9QIODevice": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN5Http211FrameReader12inboundFrameEv": ["address", "address"],
+    "ritual_ZN5Http211FrameReader10readHeaderER9QIODevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5Http211FrameReader11readPayloadER9QIODevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5Http211FrameReader14discardPayloadER9QIODevice": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN5Http211FrameReaderD1Ev": ["nothing", "address"]
   }
 }

@@ -2,9 +2,11 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/6.12.0/QtCore/private/qxmlstreamgrammar_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
-    "ritual_ZN17QXmlStreamGrammarD1Ev": ["nothing", "address"]
+    "ritual_ZN17QXmlStreamGrammarD1Ev": ["nothing", "address"],
+    "ritual_ZN17QXmlStreamGrammar9nt_actionEii": ["int", "int", "int"],
+    "ritual_ZN17QXmlStreamGrammar8t_actionEii": ["int", "int", "int"]
   }
 }

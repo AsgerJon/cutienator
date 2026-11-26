@@ -6,6 +6,7 @@
 #include <QtGui/6.12.0/QtGui/rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <QtCore/QVector>
 
 //  A QRhiRenderPassDescriptor that Python can take functions over in. Every QRhiRenderPassDescriptor
 //  Python makes is one. Each function below asks the Python
@@ -133,6 +134,13 @@ QRhiRenderPassDescriptor *ritual_ZNK24QRhiRenderPassDescriptor33newCompatibleRen
   return self->newCompatibleRenderPassDescriptor();
 }
 
+//  QVector<quint32> QRhiRenderPassDescriptor::serializedFormat() const
+extern "C" Q_DECL_EXPORT
+QVector<quint32> *ritual_ZNK24QRhiRenderPassDescriptor16serializedFormatEv(
+    const QRhiRenderPassDescriptor *self) {
+  return new QVector<quint32>(self->serializedFormat());
+}
+
 //  a Python function taken by a CuteQRhiRenderPassDescriptor, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -155,4 +163,11 @@ extern "C" Q_DECL_EXPORT
 const QRhiNativeHandles *ritual_own_ZN24QRhiRenderPassDescriptor13nativeHandlesEv(
     QRhiRenderPassDescriptor *self) {
   return self->QRhiRenderPassDescriptor::nativeHandles();
+}
+
+//  a QVector<quint32> a ritual of QRhiRenderPassDescriptor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QRhiRenderPassDescriptor__QVector_quint32(
+    QVector<quint32> *self) {
+  delete self;
 }

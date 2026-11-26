@@ -5,8 +5,35 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12LoadSceneJobC1ERK4QUrlN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12LoadSceneJob7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render12LoadSceneJob15setNodeManagersEPNS0_12NodeManagersE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12LoadSceneJob17setSceneImportersE5QListIPNS_14QSceneImporterEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12LoadSceneJob12nodeManagersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12LoadSceneJob14sceneImportersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12LoadSceneJob6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12LoadSceneJob16sceneComponentIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12LoadSceneJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12LoadSceneJob12tryLoadSceneERNS_12QSceneLoader6StatusERK5QListI7QStringERKSt8functionIFvPNS_14QSceneImporterEEE": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender6Render12LoadSceneJob6d_funcEv": [
       "address", "address"
@@ -15,6 +42,9 @@
       "address", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render12LoadSceneJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_LoadSceneJob__QList_Qt3DRender_QSceneImporter": [
       "nothing", "address"
     ]
   }

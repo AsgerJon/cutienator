@@ -39,6 +39,19 @@ QSvgHandler *ritual_ZN11QSvgHandlerC1ERK10QByteArray6QFlagsIN5QtSvg6OptionEENS4_
       type);
 }
 
+//  QSvgHandler::QSvgHandler(QXmlStreamReader *const data, QtSvg::Options
+//      options, QtSvg::AnimatorType type)
+extern "C" Q_DECL_EXPORT
+QSvgHandler *ritual_ZN11QSvgHandlerC1EP16QXmlStreamReader6QFlagsIN5QtSvg6OptionEENS3_12AnimatorTypeE(
+    QXmlStreamReader *const data,
+    int options,
+    QtSvg::AnimatorType type) {
+  return new QSvgHandler(
+      data,
+      QFlags<QtSvg::Option>::fromInt(options),
+      type);
+}
+
 //  QSvgHandler::~QSvgHandler()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QSvgHandlerD1Ev(QSvgHandler *self) {
@@ -145,6 +158,14 @@ void ritual_ZN11QSvgHandler10setInStyleEb(QSvgHandler *self, bool b) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QSvgHandler7inStyleEv(const QSvgHandler *self) {
   return self->inStyle();
+}
+#endif  // !defined(QT_NO_CSSPARSER)
+
+#if !defined(QT_NO_CSSPARSER)
+//  QSvgCssHandler &QSvgHandler::cssHandler()
+extern "C" Q_DECL_EXPORT
+QSvgCssHandler *ritual_ZN11QSvgHandler10cssHandlerEv(QSvgHandler *self) {
+  return &(self->cssHandler());
 }
 #endif  // !defined(QT_NO_CSSPARSER)
 

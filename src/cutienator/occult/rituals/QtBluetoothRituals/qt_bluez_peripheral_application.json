@@ -8,12 +8,45 @@
     "ritual_ZNK28QtBluezPeripheralApplication10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QtBluezPeripheralApplication11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QtBluezPeripheralApplication11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QtBluezPeripheralApplicationD1Ev": ["nothing", "address"],
     "ritual_ZN28QtBluezPeripheralApplication18registrationNeededEv": [
       "bool", "address"
     ],
+    "ritual_ZN28QtBluezPeripheralApplication17GetManagedObjectsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QtBluezPeripheralApplication13errorOccurredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QtBluezPeripheralApplication10registeredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QtBluezPeripheralApplication23remoteDeviceAccessEventERK7QStringt": [
+      "nothing", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN28QtBluezPeripheralApplication34characteristicValueUpdatedByRemoteEtRK10QByteArray": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN28QtBluezPeripheralApplication30descriptorValueUpdatedByRemoteEttRK10QByteArray": [
+      "nothing", "address", "unsigned short", "unsigned short", "address"
+    ],
+    "ritual_ZN28QtBluezPeripheralApplication23handleForCharacteristicE14QBluetoothUuid14QSharedPointerI24QLowEnergyServicePrivateE": [
+      "unsigned short", "address", "address", "address"
+    ],
+    "ritual_ZN28QtBluezPeripheralApplication19handleForDescriptorE14QBluetoothUuid14QSharedPointerI24QLowEnergyServicePrivateEt": [
+      "unsigned short", "address", "address", "address", "unsigned short"
+    ],
     "ritual_take_QtBluezPeripheralApplication": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QtBluezPeripheralApplication__ManagedObjectList": [
+      "nothing", "address"
     ]
   }
 }

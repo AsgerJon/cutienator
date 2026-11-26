@@ -225,6 +225,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal17QDesignerMimeData10metaObject
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::QDesignerMimeData::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal17QDesignerMimeData11qt_metacastEPKc(
+    qdesigner_internal::QDesignerMimeData *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::QDesignerMimeData::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal17QDesignerMimeData11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::QDesignerMimeData *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::QDesignerMimeData::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -235,6 +254,13 @@ QString *ritual_ZN18qdesigner_internal17QDesignerMimeData2trEPKcS2_i(
   return new QString(qdesigner_internal::QDesignerMimeData::tr(s, c, n));
 }
 
+//  qdesigner_internal::QDesignerMimeData::~QDesignerMimeData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerMimeDataD1Ev(
+    qdesigner_internal::QDesignerMimeData *self) {
+  delete self;
+}
+
 //  const QDesignerDnDItems &qdesigner_internal::QDesignerMimeData::items()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -243,11 +269,84 @@ QList<QDesignerDnDItemInterface *> *ritual_ZNK18qdesigner_internal17QDesignerMim
   return new QList<QDesignerDnDItemInterface *>(self->items());
 }
 
+//  Qt::DropAction qdesigner_internal::QDesignerMimeData::execDrag(const
+//      QDesignerDnDItems &items, QWidget *dragSource)
+extern "C" Q_DECL_EXPORT
+Qt::DropAction ritual_ZN18qdesigner_internal17QDesignerMimeData8execDragERK5QListIP25QDesignerDnDItemInterfaceEP7QWidget(
+    const QList<QDesignerDnDItemInterface *> *items,
+    QWidget *dragSource) {
+  return qdesigner_internal::QDesignerMimeData::execDrag(*items, dragSource);
+}
+
 //  QPoint qdesigner_internal::QDesignerMimeData::hotSpot() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK18qdesigner_internal17QDesignerMimeData7hotSpotEv(
     const qdesigner_internal::QDesignerMimeData *self) {
   return new QPoint(self->hotSpot());
+}
+
+//  void qdesigner_internal::QDesignerMimeData::moveDecoration(const QPoint
+//      &globalPos) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal17QDesignerMimeData14moveDecorationERK6QPoint(
+    const qdesigner_internal::QDesignerMimeData *self,
+    const QPoint *globalPos) {
+  self->moveDecoration(*globalPos);
+}
+
+//  void qdesigner_internal::QDesignerMimeData::removeMovedWidgetsFromSourceF
+//      orm(const QDesignerDnDItems &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerMimeData32removeMovedWidgetsFromSourceFormERK5QListIP25QDesignerDnDItemInterfaceE(
+    const QList<QDesignerDnDItemInterface *> *items) {
+  qdesigner_internal::QDesignerMimeData::removeMovedWidgetsFromSourceForm(
+      *items);
+}
+
+//  void qdesigner_internal::QDesignerMimeData::acceptEvent(QDropEvent *e)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal17QDesignerMimeData11acceptEventEP10QDropEvent(
+    const qdesigner_internal::QDesignerMimeData *self,
+    QDropEvent *e) {
+  self->acceptEvent(e);
+}
+
+//  void qdesigner_internal::QDesignerMimeData::acceptEventWithAction(Qt::Dro
+//      pAction desiredAction, QDropEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerMimeData21acceptEventWithActionEN2Qt10DropActionEP10QDropEvent(
+    Qt::DropAction desiredAction,
+    QDropEvent *e) {
+  qdesigner_internal::QDesignerMimeData::acceptEventWithAction(
+      desiredAction,
+      e);
+}
+
+//  qdesigner_internal::QDesignerMimeData::QDesignerMimeData(const
+//      QDesignerDnDItems &items, QDrag *drag)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::QDesignerMimeData *ritual_ZN18qdesigner_internal17QDesignerMimeDataC1ERK5QListIP25QDesignerDnDItemInterfaceEP5QDrag(
+    const QList<QDesignerDnDItemInterface *> *items,
+    QDrag *drag) {
+  return new Cuteqdesigner_internal_QDesignerMimeData(*items, drag);
+}
+
+//  Qt::DropAction
+//      qdesigner_internal::QDesignerMimeData::proposedDropAction() const
+extern "C" Q_DECL_EXPORT
+Qt::DropAction ritual_ZNK18qdesigner_internal17QDesignerMimeData18proposedDropActionEv(
+    const qdesigner_internal::QDesignerMimeData *self) {
+  return self->proposedDropAction();
+}
+
+//  void qdesigner_internal::QDesignerMimeData::setImageTransparency(QImage
+//      &image, int alpha)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerMimeData20setImageTransparencyER6QImagei(
+    QImage *image,
+    int alpha) {
+  qdesigner_internal::QDesignerMimeData::setImageTransparency(*image, alpha);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_QDesignerMimeData,

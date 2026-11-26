@@ -20,11 +20,38 @@ QSslCertificateExtension *ritual_ZN24QSslCertificateExtensionC1ERKS_(
   return new QSslCertificateExtension(*other);
 }
 
+//  QSslCertificateExtension
+//      &QSslCertificateExtension::operator=(QSslCertificateExtension
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QSslCertificateExtension *ritual_ZN24QSslCertificateExtensionaSEOS_(
+    QSslCertificateExtension *self,
+    QSslCertificateExtension *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QSslCertificateExtension &QSslCertificateExtension::operator=(const
+//      QSslCertificateExtension &other)
+extern "C" Q_DECL_EXPORT
+QSslCertificateExtension *ritual_ZN24QSslCertificateExtensionaSERKS_(
+    QSslCertificateExtension *self,
+    const QSslCertificateExtension *other) {
+  return &(self->operator=(*other));
+}
+
 //  QSslCertificateExtension::~QSslCertificateExtension()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QSslCertificateExtensionD1Ev(
     QSslCertificateExtension *self) {
   delete self;
+}
+
+//  void QSslCertificateExtension::swap(QSslCertificateExtension &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QSslCertificateExtension4swapERS_(
+    QSslCertificateExtension *self,
+    QSslCertificateExtension *other) {
+  self->swap(*other);
 }
 
 //  QString QSslCertificateExtension::oid() const

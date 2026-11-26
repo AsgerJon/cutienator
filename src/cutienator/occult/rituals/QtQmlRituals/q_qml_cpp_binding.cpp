@@ -8,6 +8,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qproperty.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmltranslation_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmlglobal_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  QUntypedPropertyBinding QQmlCppBinding::createBindingForBindable(const
 //      QV4::ExecutableCompilationUnit *unit, QObject *thisObject, qsizetype
@@ -54,6 +58,53 @@ void ritual_ZN14QQmlCppBinding27createBindingForNonBindableEPKN3QV425ExecutableC
       metaPropertyIndex,
       valueTypePropertyIndex,
       *propertyName);
+}
+
+//  QUntypedPropertyBinding
+//      QQmlCppBinding::createTranslationBindingForBindable(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &unit, QObject
+//      *bindingTarget, int metaPropertyIndex, const QQmlTranslation
+//      &translationData, const QString &propertyName)
+extern "C" Q_DECL_EXPORT
+QUntypedPropertyBinding *ritual_ZN14QQmlCppBinding35createTranslationBindingForBindableERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEP7QObjectiRK15QQmlTranslationRK7QString(
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *unit,
+    QObject *bindingTarget,
+    int metaPropertyIndex,
+    const QQmlTranslation *translationData,
+    const QString *propertyName) {
+  return new QUntypedPropertyBinding(
+      QQmlCppBinding::createTranslationBindingForBindable(
+          *unit,
+          bindingTarget,
+          metaPropertyIndex,
+          *translationData,
+          *propertyName));
+}
+
+//  void QQmlCppBinding::createTranslationBindingForNonBindable(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &unit, const
+//      QQmlSourceLocation &location, const QQmlTranslation &translationData,
+//      QObject *thisObject, QObject *bindingTarget, int metaPropertyIndex,
+//      const QString &propertyName, int valueTypePropertyIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlCppBinding38createTranslationBindingForNonBindableERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERK18QQmlSourceLocationRK15QQmlTranslationP7QObjectSD_iRK7QStringi(
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *unit,
+    const QQmlSourceLocation *location,
+    const QQmlTranslation *translationData,
+    QObject *thisObject,
+    QObject *bindingTarget,
+    int metaPropertyIndex,
+    const QString *propertyName,
+    int valueTypePropertyIndex) {
+  QQmlCppBinding::createTranslationBindingForNonBindable(
+      *unit,
+      *location,
+      *translationData,
+      thisObject,
+      bindingTarget,
+      metaPropertyIndex,
+      *propertyName,
+      valueTypePropertyIndex);
 }
 
 //  QQmlCppBinding::~QQmlCppBinding()

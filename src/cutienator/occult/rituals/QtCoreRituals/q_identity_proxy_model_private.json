@@ -47,6 +47,9 @@
     "ritual_ZN26QIdentityProxyModelPrivate18sourceColumnsMovedERK11QModelIndexiiS2_i": [
       "nothing", "address", "address", "int", "int", "address", "int"
     ],
+    "ritual_ZN26QIdentityProxyModelPrivate17sourceDataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN26QIdentityProxyModelPrivate23sourceHeaderDataChangedEN2Qt11OrientationEii": [
       "nothing", "address", "int", "int", "int"
     ],

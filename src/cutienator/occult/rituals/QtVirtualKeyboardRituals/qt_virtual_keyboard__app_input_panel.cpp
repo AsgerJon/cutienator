@@ -282,6 +282,25 @@ const QMetaObject *ritual_ZNK17QtVirtualKeyboard13AppInputPanel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtVirtualKeyboard::AppInputPanel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QtVirtualKeyboard13AppInputPanel11qt_metacastEPKc(
+    QtVirtualKeyboard::AppInputPanel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtVirtualKeyboard::AppInputPanel::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QtVirtualKeyboard13AppInputPanel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtVirtualKeyboard::AppInputPanel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtVirtualKeyboard::AppInputPanel::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -305,6 +324,50 @@ extern "C" Q_DECL_EXPORT
 const QtVirtualKeyboard::AppInputPanelPrivate *ritual_ZNK17QtVirtualKeyboard13AppInputPanel6d_funcEv(
     const QtVirtualKeyboard::AppInputPanel *self) {
   return self->d_func();
+}
+
+//  QtVirtualKeyboard::AppInputPanel::AppInputPanel(AppInputPanelPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::AppInputPanel *ritual_ZN17QtVirtualKeyboard13AppInputPanelC1ERNS_20AppInputPanelPrivateEP7QObject(
+    QtVirtualKeyboard::AppInputPanelPrivate *dd,
+    QObject *parent) {
+  return new CuteQtVirtualKeyboard_AppInputPanel(*dd, parent);
+}
+
+//  QtVirtualKeyboard::AppInputPanel::AppInputPanel(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::AppInputPanel *ritual_ZN17QtVirtualKeyboard13AppInputPanelC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtVirtualKeyboard_AppInputPanel(parent);
+}
+
+//  QtVirtualKeyboard::AppInputPanel::~AppInputPanel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard13AppInputPanelD1Ev(
+    QtVirtualKeyboard::AppInputPanel *self) {
+  delete self;
+}
+
+//  void QtVirtualKeyboard::AppInputPanel::show()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard13AppInputPanel4showEv(
+    QtVirtualKeyboard::AppInputPanel *self) {
+  self->show();
+}
+
+//  void QtVirtualKeyboard::AppInputPanel::hide()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard13AppInputPanel4hideEv(
+    QtVirtualKeyboard::AppInputPanel *self) {
+  self->hide();
+}
+
+//  bool QtVirtualKeyboard::AppInputPanel::isVisible() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard13AppInputPanel9isVisibleEv(
+    const QtVirtualKeyboard::AppInputPanel *self) {
+  return self->isVisible();
 }
 
 //  a Python function taken by a CuteQtVirtualKeyboard_AppInputPanel, for the

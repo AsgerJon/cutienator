@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK21QQuickRangeSliderNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRangeSliderNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickRangeSliderNode11qt_metacastEPKc(
+    QQuickRangeSliderNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRangeSliderNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickRangeSliderNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRangeSliderNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRangeSliderNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickRangeSliderNode2trEPKcS1_i(
@@ -317,11 +336,87 @@ void ritual_ZN21QQuickRangeSliderNode8decreaseEv(
   self->decrease();
 }
 
+//  void QQuickRangeSliderNode::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickRangeSliderNode12valueChangedEv(
+    QQuickRangeSliderNode *self) {
+  self->valueChanged();
+}
+
+//  void QQuickRangeSliderNode::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickRangeSliderNode15positionChangedEv(
+    QQuickRangeSliderNode *self) {
+  self->positionChanged();
+}
+
+//  void QQuickRangeSliderNode::visualPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickRangeSliderNode21visualPositionChangedEv(
+    QQuickRangeSliderNode *self) {
+  self->visualPositionChanged();
+}
+
+//  void QQuickRangeSliderNode::handleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickRangeSliderNode13handleChangedEv(
+    QQuickRangeSliderNode *self) {
+  self->handleChanged();
+}
+
+//  void QQuickRangeSliderNode::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickRangeSliderNode14pressedChangedEv(
+    QQuickRangeSliderNode *self) {
+  self->pressedChanged();
+}
+
+//  void QQuickRangeSliderNode::hoveredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickRangeSliderNode14hoveredChangedEv(
+    QQuickRangeSliderNode *self) {
+  self->hoveredChanged();
+}
+
+//  void QQuickRangeSliderNode::moved()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickRangeSliderNode5movedEv(QQuickRangeSliderNode *self) {
+  self->moved();
+}
+
+//  void QQuickRangeSliderNode::implicitHandleWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickRangeSliderNode26implicitHandleWidthChangedEv(
+    QQuickRangeSliderNode *self) {
+  self->implicitHandleWidthChanged();
+}
+
+//  void QQuickRangeSliderNode::implicitHandleHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickRangeSliderNode27implicitHandleHeightChangedEv(
+    QQuickRangeSliderNode *self) {
+  self->implicitHandleHeightChanged();
+}
+
 //  void QQuickRangeSliderNode::updateHandleCrossing()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickRangeSliderNode20updateHandleCrossingEv(
     QQuickRangeSliderNode *self) {
   self->updateHandleCrossing();
+}
+
+//  QQuickRangeSliderNodePrivate *QQuickRangeSliderNode::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickRangeSliderNodePrivate *ritual_ZN21QQuickRangeSliderNode6d_funcEv(
+    QQuickRangeSliderNode *self) {
+  return self->d_func();
+}
+
+//  const QQuickRangeSliderNodePrivate *QQuickRangeSliderNode::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickRangeSliderNodePrivate *ritual_ZNK21QQuickRangeSliderNode6d_funcEv(
+    const QQuickRangeSliderNode *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQuickRangeSliderNode, for the function

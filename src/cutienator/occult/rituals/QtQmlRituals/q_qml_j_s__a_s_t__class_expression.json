@@ -5,10 +5,19 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST15ClassExpressionC1E11QStringViewPNS0_14ExpressionNodeEPNS0_16ClassElementListE": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST15ClassExpression7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK6QQmlJS3AST15ClassExpression19firstSourceLocationEv": [
       "address", "address"
     ],
     "ritual_ZNK6QQmlJS3AST15ClassExpression18lastSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST15ClassExpression17asClassDefinitionEv": [
       "address", "address"
     ],
     "ritual_take_QQmlJS_AST_ClassExpression": [

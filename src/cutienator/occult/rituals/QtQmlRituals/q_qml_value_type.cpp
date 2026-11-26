@@ -19,7 +19,7 @@ typedef void (*CuteQQmlValueTypeCall1)(const void *, QObject *, int *);
 class CuteQQmlValueType : public QQmlValueType {
 public:
   using QQmlValueType::QQmlValueType;
-  CuteQQmlValueType(const QQmlValueType &other) : QQmlValueType(other) {}
+  CuteQQmlValueType(const QQmlValueType & other) : QQmlValueType(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -82,6 +82,37 @@ void ritual_ZN13QQmlValueTypeD1Ev(QQmlValueType *self) {
   delete self;
 }
 
+//  void *QQmlValueType::create() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK13QQmlValueType6createEv(const QQmlValueType *self) {
+  return self->create();
+}
+
+//  void QQmlValueType::destroy(void *gadgetPtr) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QQmlValueType7destroyEPv(
+    const QQmlValueType *self,
+    void *gadgetPtr) {
+  self->destroy(gadgetPtr);
+}
+
+//  void QQmlValueType::construct(void *gadgetPtr, const void *copy) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QQmlValueType9constructEPvPKv(
+    const QQmlValueType *self,
+    void *gadgetPtr,
+    const void *copy) {
+  self->construct(gadgetPtr, copy);
+}
+
+//  void QQmlValueType::destruct(void *gadgetPtr) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QQmlValueType8destructEPv(
+    const QQmlValueType *self,
+    void *gadgetPtr) {
+  self->destruct(gadgetPtr);
+}
+
 //  QMetaType QQmlValueType::metaType() const
 extern "C" Q_DECL_EXPORT
 QMetaType *ritual_ZNK13QQmlValueType8metaTypeEv(const QQmlValueType *self) {
@@ -111,6 +142,18 @@ void ritual_ZN13QQmlValueType15objectDestroyedEP7QObject(
     QQmlValueType *self,
     QObject *a0) {
   self->objectDestroyed(a0);
+}
+
+//  int QQmlValueType::metaCall(QObject *obj, QMetaObject::Call type, int
+//      _id, void **argv)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQmlValueType8metaCallEP7QObjectN11QMetaObject4CallEiPPv(
+    QQmlValueType *self,
+    QObject *obj,
+    QMetaObject::Call type,
+    int _id,
+    void **argv) {
+  return self->metaCall(obj, type, _id, argv);
 }
 
 //  a Python function taken by a CuteQQmlValueType, for the function named by

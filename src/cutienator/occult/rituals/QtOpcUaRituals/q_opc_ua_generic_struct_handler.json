@@ -8,6 +8,12 @@
     "ritual_ZNK26QOpcUaGenericStructHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QOpcUaGenericStructHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QOpcUaGenericStructHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QOpcUaGenericStructHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,12 @@
     "ritual_ZN26QOpcUaGenericStructHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN26QOpcUaGenericStructHandler10initializeEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK26QOpcUaGenericStructHandler6decodeERK21QOpcUaExtensionObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaGenericStructHandler6encodeERK24QOpcUaGenericStructValue": [
+      "address", "address", "address"
     ],
     "ritual_ZN26QOpcUaGenericStructHandler33createGenericStructValueForTypeIdERK7QString": [
       "address", "address", "text"
@@ -58,8 +70,17 @@
     "ritual_ZNK26QOpcUaGenericStructHandler25typeIdForBinaryEncodingIdERK7QString": [
       "text", "address", "text"
     ],
+    "ritual_ZN26QOpcUaGenericStructHandler18initializedChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_QOpcUaGenericStructHandler": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QOpcUaGenericStructHandler__std_optional_QOpcUaGenericStructValue": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QOpcUaGenericStructHandler__std_optional_QOpcUaExtensionObject": [
+      "nothing", "address"
     ]
   }
 }

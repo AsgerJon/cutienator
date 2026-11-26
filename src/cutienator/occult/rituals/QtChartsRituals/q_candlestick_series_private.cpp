@@ -5,14 +5,18 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/qcandlestickseries.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qcandlestickseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCharts/qlegendmarker.h>
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/qcandlestickset.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -327,6 +331,25 @@ const QMetaObject *ritual_ZNK25QCandlestickSeriesPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCandlestickSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QCandlestickSeriesPrivate11qt_metacastEPKc(
+    QCandlestickSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCandlestickSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QCandlestickSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCandlestickSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCandlestickSeriesPrivate::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -385,6 +408,21 @@ void ritual_ZN25QCandlestickSeriesPrivate18initializeGraphicsEP13QGraphicsItem(
   self->initializeGraphics(parent);
 }
 
+//  void
+//      QCandlestickSeriesPrivate::initializeAnimations(QChart::AnimationOpti
+//      ons options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QCandlestickSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QCandlestickSeriesPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
+}
+
 //  QList<QLegendMarker *>
 //      QCandlestickSeriesPrivate::createLegendMarkers(QLegend *legend)
 extern "C" Q_DECL_EXPORT
@@ -439,6 +477,64 @@ bool ritual_ZN25QCandlestickSeriesPrivate6insertEiP15QCandlestickSet(
     int index,
     QCandlestickSet *set) {
   return self->insert(index, set);
+}
+
+//  void QCandlestickSeriesPrivate::clicked(int index, QCandlestickSet *set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QCandlestickSeriesPrivate7clickedEiP15QCandlestickSet(
+    QCandlestickSeriesPrivate *self,
+    int index,
+    QCandlestickSet *set) {
+  self->clicked(index, set);
+}
+
+//  void QCandlestickSeriesPrivate::pressed(int index, QCandlestickSet *set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QCandlestickSeriesPrivate7pressedEiP15QCandlestickSet(
+    QCandlestickSeriesPrivate *self,
+    int index,
+    QCandlestickSet *set) {
+  self->pressed(index, set);
+}
+
+//  void QCandlestickSeriesPrivate::released(int index, QCandlestickSet *set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QCandlestickSeriesPrivate8releasedEiP15QCandlestickSet(
+    QCandlestickSeriesPrivate *self,
+    int index,
+    QCandlestickSet *set) {
+  self->released(index, set);
+}
+
+//  void QCandlestickSeriesPrivate::doubleClicked(int index, QCandlestickSet
+//      *set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QCandlestickSeriesPrivate13doubleClickedEiP15QCandlestickSet(
+    QCandlestickSeriesPrivate *self,
+    int index,
+    QCandlestickSet *set) {
+  self->doubleClicked(index, set);
+}
+
+//  void QCandlestickSeriesPrivate::updated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QCandlestickSeriesPrivate7updatedEv(
+    QCandlestickSeriesPrivate *self) {
+  self->updated();
+}
+
+//  void QCandlestickSeriesPrivate::updatedLayout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QCandlestickSeriesPrivate13updatedLayoutEv(
+    QCandlestickSeriesPrivate *self) {
+  self->updatedLayout();
+}
+
+//  void QCandlestickSeriesPrivate::updatedCandlesticks()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QCandlestickSeriesPrivate19updatedCandlesticksEv(
+    QCandlestickSeriesPrivate *self) {
+  self->updatedCandlesticks();
 }
 
 //  void QCandlestickSeriesPrivate::handleSeriesChange(QAbstractSeries

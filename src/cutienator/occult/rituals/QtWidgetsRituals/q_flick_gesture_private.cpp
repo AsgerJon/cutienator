@@ -10,6 +10,40 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qflickgesture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/qgesture.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qwidget.h>
+#if QT_CONFIG(graphicsview)
+#include <QtWidgets/qgraphicsitem.h>
+#include <QtWidgets/qgraphicsscene.h>
+#include <QtWidgets/qgraphicssceneevent.h>
+#include <QtWidgets/qgraphicsview.h>
+#endif
+#include <QtWidgets/qscroller.h>
+#include <QtGui/qpointingdevice.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/private/qevent_p.h>
+#include <QtWidgets/private/qflickgesture_p.h>
+#include <QtCore/qbasictimer.h>
+#include <QtCore/qdebug.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/widgets/util/qflickgesture.cpp, line 281, as _ZN20QFlickGesturePrivateC1Ev
+#if !defined(QT_NO_GESTURES)
+inline QFlickGesturePrivate::QFlickGesturePrivate()
+    : receiverScroller(nullptr), button(Qt::NoButton), macIgnoreWheel(false)
+{ }
+#endif  // !defined(QT_NO_GESTURES)
+//  -----------------------------------------------------------------------
 
 //  QFlickGesture *QFlickGesturePrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -23,6 +57,12 @@ extern "C" Q_DECL_EXPORT
 const QFlickGesture *ritual_ZNK20QFlickGesturePrivate6q_funcEv(
     const QFlickGesturePrivate *self) {
   return self->q_func();
+}
+
+//  QFlickGesturePrivate::QFlickGesturePrivate()
+extern "C" Q_DECL_EXPORT
+QFlickGesturePrivate *ritual_ZN20QFlickGesturePrivateC1Ev() {
+  return new QFlickGesturePrivate();
 }
 
 #endif  // !defined(QT_NO_GESTURES)

@@ -945,6 +945,25 @@ const QMetaObject *ritual_ZNK18QAbstractItemModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractItemModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QAbstractItemModel11qt_metacastEPKc(
+    QAbstractItemModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractItemModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QAbstractItemModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractItemModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractItemModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QAbstractItemModel2trEPKcS1_i(
@@ -952,6 +971,13 @@ QString *ritual_ZN18QAbstractItemModel2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractItemModel::tr(s, c, n));
+}
+
+//  QAbstractItemModel::QAbstractItemModel(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractItemModel *ritual_ZN18QAbstractItemModelC1EP7QObject(
+    QObject *parent) {
+  return new CuteQAbstractItemModel(parent);
 }
 
 //  QAbstractItemModel::~QAbstractItemModel()
@@ -1405,6 +1431,263 @@ void ritual_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpa
   self->multiData(*index, *roleDataSpan);
 }
 
+//  void QAbstractItemModel::dataChanged(const QModelIndex &topLeft, const
+//      QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel11dataChangedERK11QModelIndexS2_RK5QListIiE(
+    QAbstractItemModel *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->dataChanged(*topLeft, *bottomRight, *roles);
+}
+
+//  void QAbstractItemModel::headerDataChanged(Qt::Orientation orientation,
+//      int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel17headerDataChangedEN2Qt11OrientationEii(
+    QAbstractItemModel *self,
+    Qt::Orientation orientation,
+    int first,
+    int last) {
+  self->headerDataChanged(orientation, first, last);
+}
+
+//  void QAbstractItemModel::layoutChanged(const QList<QPersistentModelIndex>
+//      &parents, QAbstractItemModel::LayoutChangeHint hint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel13layoutChangedERK5QListI21QPersistentModelIndexENS_16LayoutChangeHintE(
+    QAbstractItemModel *self,
+    const QList<QPersistentModelIndex> *parents,
+    QAbstractItemModel::LayoutChangeHint hint) {
+  self->layoutChanged(*parents, hint);
+}
+
+//  void QAbstractItemModel::layoutAboutToBeChanged(const
+//      QList<QPersistentModelIndex> &parents,
+//      QAbstractItemModel::LayoutChangeHint hint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel22layoutAboutToBeChangedERK5QListI21QPersistentModelIndexENS_16LayoutChangeHintE(
+    QAbstractItemModel *self,
+    const QList<QPersistentModelIndex> *parents,
+    QAbstractItemModel::LayoutChangeHint hint) {
+  self->layoutAboutToBeChanged(*parents, hint);
+}
+
+//  void QAbstractItemModel::rowsAboutToBeInserted(const QModelIndex &parent,
+//      int first, int last, QPrivateSignal a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel21rowsAboutToBeInsertedERK11QModelIndexiiNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->rowsAboutToBeInserted(
+      *parent,
+      first,
+      last,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::rowsInserted(const QModelIndex &parent, int
+//      first, int last, QPrivateSignal a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel12rowsInsertedERK11QModelIndexiiNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->rowsInserted(
+      *parent,
+      first,
+      last,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::rowsAboutToBeRemoved(const QModelIndex &parent,
+//      int first, int last, QPrivateSignal a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel20rowsAboutToBeRemovedERK11QModelIndexiiNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->rowsAboutToBeRemoved(
+      *parent,
+      first,
+      last,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::rowsRemoved(const QModelIndex &parent, int
+//      first, int last, QPrivateSignal a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel11rowsRemovedERK11QModelIndexiiNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->rowsRemoved(
+      *parent,
+      first,
+      last,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::columnsAboutToBeInserted(const QModelIndex
+//      &parent, int first, int last, QPrivateSignal a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel24columnsAboutToBeInsertedERK11QModelIndexiiNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->columnsAboutToBeInserted(
+      *parent,
+      first,
+      last,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::columnsInserted(const QModelIndex &parent, int
+//      first, int last, QPrivateSignal a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel15columnsInsertedERK11QModelIndexiiNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->columnsInserted(
+      *parent,
+      first,
+      last,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::columnsAboutToBeRemoved(const QModelIndex
+//      &parent, int first, int last, QPrivateSignal a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel23columnsAboutToBeRemovedERK11QModelIndexiiNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->columnsAboutToBeRemoved(
+      *parent,
+      first,
+      last,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::columnsRemoved(const QModelIndex &parent, int
+//      first, int last, QPrivateSignal a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel14columnsRemovedERK11QModelIndexiiNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->columnsRemoved(
+      *parent,
+      first,
+      last,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::modelAboutToBeReset(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel19modelAboutToBeResetENS_14QPrivateSignalE(
+    QAbstractItemModel *self) {
+  self->modelAboutToBeReset(QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::modelReset(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel10modelResetENS_14QPrivateSignalE(
+    QAbstractItemModel *self) {
+  self->modelReset(QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::rowsAboutToBeMoved(const QModelIndex
+//      &sourceParent, int sourceStart, int sourceEnd, const QModelIndex
+//      &destinationParent, int destinationRow, QPrivateSignal a5)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel18rowsAboutToBeMovedERK11QModelIndexiiS2_iNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *sourceParent,
+    int sourceStart,
+    int sourceEnd,
+    const QModelIndex *destinationParent,
+    int destinationRow) {
+  self->rowsAboutToBeMoved(
+      *sourceParent,
+      sourceStart,
+      sourceEnd,
+      *destinationParent,
+      destinationRow,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::rowsMoved(const QModelIndex &sourceParent, int
+//      sourceStart, int sourceEnd, const QModelIndex &destinationParent, int
+//      destinationRow, QPrivateSignal a5)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel9rowsMovedERK11QModelIndexiiS2_iNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *sourceParent,
+    int sourceStart,
+    int sourceEnd,
+    const QModelIndex *destinationParent,
+    int destinationRow) {
+  self->rowsMoved(
+      *sourceParent,
+      sourceStart,
+      sourceEnd,
+      *destinationParent,
+      destinationRow,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::columnsAboutToBeMoved(const QModelIndex
+//      &sourceParent, int sourceStart, int sourceEnd, const QModelIndex
+//      &destinationParent, int destinationColumn, QPrivateSignal a5)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel21columnsAboutToBeMovedERK11QModelIndexiiS2_iNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *sourceParent,
+    int sourceStart,
+    int sourceEnd,
+    const QModelIndex *destinationParent,
+    int destinationColumn) {
+  self->columnsAboutToBeMoved(
+      *sourceParent,
+      sourceStart,
+      sourceEnd,
+      *destinationParent,
+      destinationColumn,
+      QAbstractItemModel::QPrivateSignal());
+}
+
+//  void QAbstractItemModel::columnsMoved(const QModelIndex &sourceParent,
+//      int sourceStart, int sourceEnd, const QModelIndex &destinationParent,
+//      int destinationColumn, QPrivateSignal a5)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel12columnsMovedERK11QModelIndexiiS2_iNS_14QPrivateSignalE(
+    QAbstractItemModel *self,
+    const QModelIndex *sourceParent,
+    int sourceStart,
+    int sourceEnd,
+    const QModelIndex *destinationParent,
+    int destinationColumn) {
+  self->columnsMoved(
+      *sourceParent,
+      sourceStart,
+      sourceEnd,
+      *destinationParent,
+      destinationColumn,
+      QAbstractItemModel::QPrivateSignal());
+}
+
 //  bool QAbstractItemModel::submit()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18QAbstractItemModel6submitEv(QAbstractItemModel *self) {
@@ -1424,6 +1707,26 @@ void ritual_ZN18QAbstractItemModel17resetInternalDataEv(
   self->resetInternalData();
 }
 
+//  QAbstractItemModel::QAbstractItemModel(QAbstractItemModelPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractItemModel *ritual_ZN18QAbstractItemModelC1ER25QAbstractItemModelPrivateP7QObject(
+    QAbstractItemModelPrivate *dd,
+    QObject *parent) {
+  return new CuteQAbstractItemModel(*dd, parent);
+}
+
+//  QModelIndex QAbstractItemModel::createIndex(int row, int column, const
+//      void *data) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK18QAbstractItemModel11createIndexEiiPKv(
+    const QAbstractItemModel *self,
+    int row,
+    int column,
+    const void *data) {
+  return new QModelIndex(self->createIndex(row, column, data));
+}
+
 //  QModelIndex QAbstractItemModel::createIndex(int row, int column, quintptr
 //      id) const
 extern "C" Q_DECL_EXPORT
@@ -1433,6 +1736,28 @@ QModelIndex *ritual_ZNK18QAbstractItemModel11createIndexEiiy(
     int column,
     quintptr id) {
   return new QModelIndex(self->createIndex(row, column, id));
+}
+
+//  void QAbstractItemModel::encodeData(const QModelIndexList &indexes,
+//      QDataStream &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18QAbstractItemModel10encodeDataERK5QListI11QModelIndexER11QDataStream(
+    const QAbstractItemModel *self,
+    const QList<QModelIndex> *indexes,
+    QDataStream *stream) {
+  self->encodeData(*indexes, *stream);
+}
+
+//  bool QAbstractItemModel::decodeData(int row, int column, const
+//      QModelIndex &parent, QDataStream &stream)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QAbstractItemModel10decodeDataEiiRK11QModelIndexR11QDataStream(
+    QAbstractItemModel *self,
+    int row,
+    int column,
+    const QModelIndex *parent,
+    QDataStream *stream) {
+  return self->decodeData(row, column, *parent, *stream);
 }
 
 //  void QAbstractItemModel::beginInsertRows(const QModelIndex &parent, int

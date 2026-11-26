@@ -27,6 +27,25 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/util/qpkmhandler.cpp, line 17, as local:qpkmhandler.cpp:qpkmh_headerSize
+static const int qpkmh_headerSize = 16;
+
+//  from src/gui/util/qpkmhandler.cpp, line 19, as local:qpkmhandler.cpp:PkmType
+struct PkmType
+{
+    quint32 glFormat;
+    quint32 bytesPerBlock;
+};
+
+//  from src/gui/util/qpkmhandler.cpp, line 25, as local:qpkmhandler.cpp:typeMap
+static constexpr PkmType typeMap[5] = {
+    { 0x8D64,  8 },   // GL_ETC1_RGB8_OES
+    { 0x9274,  8 },   // GL_COMPRESSED_RGB8_ETC2
+    { 0, 0 },         // unused (obsolete)
+    { 0x9278, 16},    // GL_COMPRESSED_RGBA8_ETC2_EAC
+    { 0x9276,  8 }    // GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2
+};
+
 //  from src/gui/util/qpkmhandler.cpp, line 35, as _ZN11QPkmHandler7canReadERK10QByteArrayS2_
 inline bool QPkmHandler::canRead(const QByteArray &suffix, const QByteArray &block)
 {
@@ -43,7 +62,7 @@ typedef const QTextureFileData * (*CuteQPkmHandlerCall0)(const void *, int *);
 class CuteQPkmHandler : public QPkmHandler {
 public:
   using QPkmHandler::QPkmHandler;
-  CuteQPkmHandler(const QPkmHandler &other) : QPkmHandler(other) {}
+  CuteQPkmHandler(const QPkmHandler & other) : QPkmHandler(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -66,6 +85,12 @@ public:
   }
 };
 
+//  QPkmHandler::~QPkmHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPkmHandlerD1Ev(QPkmHandler *self) {
+  delete self;
+}
+
 //  bool QPkmHandler::canRead(const QByteArray &suffix, const QByteArray
 //      &block)
 extern "C" Q_DECL_EXPORT
@@ -73,6 +98,12 @@ bool ritual_ZN11QPkmHandler7canReadERK10QByteArrayS2_(
     const QByteArray *suffix,
     const QByteArray *block) {
   return QPkmHandler::canRead(*suffix, *block);
+}
+
+//  QTextureFileData QPkmHandler::read()
+extern "C" Q_DECL_EXPORT
+QTextureFileData *ritual_ZN11QPkmHandler4readEv(QPkmHandler *self) {
+  return new QTextureFileData(self->read());
 }
 
 //  a Python function taken by a CuteQPkmHandler, for the function named by

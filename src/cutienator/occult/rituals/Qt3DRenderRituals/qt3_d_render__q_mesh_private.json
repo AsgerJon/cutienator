@@ -5,8 +5,21 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender12QMeshPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender12QMeshPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender12QMeshPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender12QMeshPrivate3getEPNS_5QMeshE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QMeshPrivate8setSceneEPN8Qt3DCore6QSceneE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QMeshPrivate13updateFunctorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QMeshPrivate9setStatusENS_5QMesh6StatusE": [
+      "nothing", "address", "int"
+    ],
     "ritual_take_Qt3DRender_QMeshPrivate": [
       "bool", "address", "chars", "address"
     ],

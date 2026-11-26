@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK17QQuickColorInputs10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickColorInputs::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickColorInputs11qt_metacastEPKc(
+    QQuickColorInputs *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickColorInputs::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickColorInputs11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickColorInputs *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickColorInputs::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickColorInputs2trEPKcS1_i(
@@ -155,11 +174,69 @@ void ritual_ZN17QQuickColorInputs12setShowAlphaEb(
   self->setShowAlpha(showAlpha);
 }
 
+//  void QQuickColorInputs::colorChanged(const QColor &c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickColorInputs12colorChangedERK6QColor(
+    QQuickColorInputs *self,
+    const QColor *c) {
+  self->colorChanged(*c);
+}
+
+//  void QQuickColorInputs::colorModified(const QColor &c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickColorInputs13colorModifiedERK6QColor(
+    QQuickColorInputs *self,
+    const QColor *c) {
+  self->colorModified(*c);
+}
+
+//  void QQuickColorInputs::hslChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickColorInputs10hslChangedEv(QQuickColorInputs *self) {
+  self->hslChanged();
+}
+
+//  void QQuickColorInputs::showAlphaChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickColorInputs16showAlphaChangedEb(
+    QQuickColorInputs *self,
+    bool a0) {
+  self->showAlphaChanged(a0);
+}
+
+//  void QQuickColorInputs::currentModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickColorInputs18currentModeChangedEv(
+    QQuickColorInputs *self) {
+  self->currentModeChanged();
+}
+
+//  void QQuickColorInputs::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickColorInputs15delegateChangedEv(
+    QQuickColorInputs *self) {
+  self->delegateChanged();
+}
+
 //  void QQuickColorInputs::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickColorInputs17componentCompleteEv(
     QQuickColorInputs *self) {
   self->componentComplete();
+}
+
+//  QQuickColorInputsPrivate *QQuickColorInputs::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickColorInputsPrivate *ritual_ZN17QQuickColorInputs6d_funcEv(
+    QQuickColorInputs *self) {
+  return self->d_func();
+}
+
+//  const QQuickColorInputsPrivate *QQuickColorInputs::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickColorInputsPrivate *ritual_ZNK17QQuickColorInputs6d_funcEv(
+    const QQuickColorInputs *self) {
+  return self->d_func();
 }
 
 //  void QQuickColorInputs::componentComplete()

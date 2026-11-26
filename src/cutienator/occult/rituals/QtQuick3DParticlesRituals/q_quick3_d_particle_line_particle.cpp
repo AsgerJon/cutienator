@@ -459,6 +459,25 @@ const QMetaObject *ritual_ZNK28QQuick3DParticleLineParticle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleLineParticle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuick3DParticleLineParticle11qt_metacastEPKc(
+    QQuick3DParticleLineParticle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleLineParticle::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuick3DParticleLineParticle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleLineParticle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleLineParticle::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -619,6 +638,80 @@ void ritual_ZN28QQuick3DParticleLineParticle15setTexcoordModeENS_12TexcoordModeE
     QQuick3DParticleLineParticle *self,
     QQuick3DParticleLineParticle::TexcoordMode mode) {
   self->setTexcoordMode(mode);
+}
+
+//  void QQuick3DParticleLineParticle::segmentCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle19segmentCountChangedEv(
+    QQuick3DParticleLineParticle *self) {
+  self->segmentCountChanged();
+}
+
+//  void QQuick3DParticleLineParticle::alphaFadeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle16alphaFadeChangedEv(
+    QQuick3DParticleLineParticle *self) {
+  self->alphaFadeChanged();
+}
+
+//  void QQuick3DParticleLineParticle::scaleMultiplierChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle22scaleMultiplierChangedEv(
+    QQuick3DParticleLineParticle *self) {
+  self->scaleMultiplierChanged();
+}
+
+//  void QQuick3DParticleLineParticle::texcoordMultiplierChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle25texcoordMultiplierChangedEv(
+    QQuick3DParticleLineParticle *self) {
+  self->texcoordMultiplierChanged();
+}
+
+//  void QQuick3DParticleLineParticle::lengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle13lengthChangedEv(
+    QQuick3DParticleLineParticle *self) {
+  self->lengthChanged();
+}
+
+//  void QQuick3DParticleLineParticle::lengthVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle22lengthVariationChangedEv(
+    QQuick3DParticleLineParticle *self) {
+  self->lengthVariationChanged();
+}
+
+//  void QQuick3DParticleLineParticle::lengthDeltaMinChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle21lengthDeltaMinChangedEv(
+    QQuick3DParticleLineParticle *self) {
+  self->lengthDeltaMinChanged();
+}
+
+//  void QQuick3DParticleLineParticle::eolFadeOutDurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle25eolFadeOutDurationChangedEv(
+    QQuick3DParticleLineParticle *self) {
+  self->eolFadeOutDurationChanged();
+}
+
+//  void QQuick3DParticleLineParticle::texcoordModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle19texcoordModeChangedEv(
+    QQuick3DParticleLineParticle *self) {
+  self->texcoordModeChanged();
+}
+
+//  void
+//      QQuick3DParticleLineParticle::updateLineBuffer(LineParticleUpdateNode
+//      *updateNode, QSSGRenderGraphObject *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleLineParticle16updateLineBufferEPNS_22LineParticleUpdateNodeEP21QSSGRenderGraphObject(
+    QQuick3DParticleLineParticle *self,
+    QQuick3DParticleLineParticle::LineParticleUpdateNode *updateNode,
+    QSSGRenderGraphObject *node) {
+  self->updateLineBuffer(updateNode, node);
 }
 
 //  QSSGRenderGraphObject

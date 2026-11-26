@@ -50,6 +50,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/network/access/qhttpmultipart.cpp, line 451, as _ZN22QHttpMultiPartIODevice5resetEv
 inline bool QHttpMultiPartIODevice::reset()
 {
@@ -128,6 +130,23 @@ inline qint64 QHttpMultiPartIODevice::writeData(const char *data, qint64 maxSize
     return -1;
 }
 
+//  from src/network/access/qhttpmultipart.cpp, line 417, as _ZN22QHttpMultiPartIODeviceD2Ev
+inline QHttpMultiPartIODevice::~QHttpMultiPartIODevice()
+    = default;
+
+//  from src/network/access/qhttpmultipart.cpp, line 439, as _ZNK22QHttpMultiPartIODevice12isSequentialEv
+inline bool QHttpMultiPartIODevice::isSequential() const
+{
+    for (int a = 0; a < multiPart->parts.size(); a++) {
+        QIODevice *device = multiPart->parts.at(a).d->bodyDevice;
+        // we are sequential if any of the bodyDevices of our parts are sequential;
+        // when reading from a byte array, we are not sequential
+        if (device && device->isSequential())
+            return true;
+    }
+    return false;
+}
+
 //  from src/network/access/qhttpmultipart.cpp, line 420, as _ZNK22QHttpMultiPartIODevice4sizeEv
 inline qint64 QHttpMultiPartIODevice::size() const
 {
@@ -146,19 +165,6 @@ inline qint64 QHttpMultiPartIODevice::size() const
         deviceSize = currentSize;
     }
     return deviceSize;
-}
-
-//  from src/network/access/qhttpmultipart.cpp, line 439, as _ZNK22QHttpMultiPartIODevice12isSequentialEv
-inline bool QHttpMultiPartIODevice::isSequential() const
-{
-    for (int a = 0; a < multiPart->parts.size(); a++) {
-        QIODevice *device = multiPart->parts.at(a).d->bodyDevice;
-        // we are sequential if any of the bodyDevices of our parts are sequential;
-        // when reading from a byte array, we are not sequential
-        if (device && device->isSequential())
-            return true;
-    }
-    return false;
 }
 
 //  from src/network/access/qhttpmultipart.cpp, line 364, as _ZNK16QHttpPartPrivate4sizeEv
@@ -183,6 +189,41 @@ inline bool QHttpPartPrivate::reset()
             ret = false;
     readPointer = 0;
     return ret;
+}
+
+//  from src/network/access/qhttpmultipart.cpp, line 330, as _ZN16QHttpPartPrivate8readDataEPcx
+inline qint64 QHttpPartPrivate::readData(char *data, qint64 maxSize)
+{
+    checkHeaderCreated();
+    qint64 bytesRead = 0;
+    qint64 headerDataCount = header.size();
+
+    // read header if it has not been read yet
+    if (readPointer < headerDataCount) {
+        bytesRead = qMin(headerDataCount - readPointer, maxSize);
+        const char *headerData = header.constData();
+        memcpy(data, headerData + readPointer, bytesRead);
+        readPointer += bytesRead;
+    }
+    // read content if there is still space
+    if (bytesRead < maxSize) {
+        if (bodyDevice) {
+            qint64 dataBytesRead = bodyDevice->read(data + bytesRead, maxSize - bytesRead);
+            if (dataBytesRead == -1)
+                return -1;
+            bytesRead += dataBytesRead;
+            readPointer += dataBytesRead;
+        } else {
+            qint64 contentBytesRead = qMin(body.size() - readPointer + headerDataCount, maxSize - bytesRead);
+            const char *contentData = body.constData();
+            // if this method is called several times, we need to find the
+            // right offset in the content ourselves:
+            memcpy(data + bytesRead, contentData + readPointer - headerDataCount, contentBytesRead);
+            bytesRead += contentBytesRead;
+            readPointer += contentBytesRead;
+        }
+    }
+    return bytesRead;
 }
 
 //  from src/network/access/qhttpmultipart.cpp, line 385, as _ZNK16QHttpPartPrivate18checkHeaderCreatedEv
@@ -232,38 +273,42 @@ typedef bool (*CuteQHttpMultiPartIODeviceCall5)(const void *, int *);
 #if QT_CONFIG(http)
 typedef bool (*CuteQHttpMultiPartIODeviceCall6)(const void *, int *);
 #endif  // QT_CONFIG(http)
-typedef bool (*CuteQHttpMultiPartIODeviceCall7)(const void *, int, int *);
-typedef qint64 (*CuteQHttpMultiPartIODeviceCall8)(const void *, int *);
-typedef bool (*CuteQHttpMultiPartIODeviceCall9)(const void *, qint64, int *);
-typedef bool (*CuteQHttpMultiPartIODeviceCall10)(const void *, int *);
-typedef bool (*CuteQHttpMultiPartIODeviceCall11)(const void *, int, int *);
+#if QT_CONFIG(http)
+typedef qint64 (*CuteQHttpMultiPartIODeviceCall7)(const void *, char *, qint64, int *);
+#endif  // QT_CONFIG(http)
+typedef bool (*CuteQHttpMultiPartIODeviceCall8)(const void *, int, int *);
+typedef qint64 (*CuteQHttpMultiPartIODeviceCall9)(const void *, int *);
+typedef bool (*CuteQHttpMultiPartIODeviceCall10)(const void *, qint64, int *);
+typedef bool (*CuteQHttpMultiPartIODeviceCall11)(const void *, int *);
 typedef bool (*CuteQHttpMultiPartIODeviceCall12)(const void *, int, int *);
-typedef qint64 (*CuteQHttpMultiPartIODeviceCall13)(const void *, qint64, int *);
+typedef bool (*CuteQHttpMultiPartIODeviceCall13)(const void *, int, int *);
+typedef qint64 (*CuteQHttpMultiPartIODeviceCall14)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQHttpMultiPartIODeviceCall15)(const void *, qint64, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQHttpMultiPartIODeviceCall14)(const void *, QEvent *, int *);
+typedef bool (*CuteQHttpMultiPartIODeviceCall16)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQHttpMultiPartIODeviceCall15)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQHttpMultiPartIODeviceCall17)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpMultiPartIODeviceCall16)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQHttpMultiPartIODeviceCall18)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpMultiPartIODeviceCall17)(const void *, QChildEvent *, int *);
+typedef void (*CuteQHttpMultiPartIODeviceCall19)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpMultiPartIODeviceCall18)(const void *, QEvent *, int *);
+typedef void (*CuteQHttpMultiPartIODeviceCall20)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpMultiPartIODeviceCall19)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQHttpMultiPartIODeviceCall21)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQHttpMultiPartIODeviceCall20)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQHttpMultiPartIODeviceCall22)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQHttpMultiPartIODevice : public QHttpMultiPartIODevice {
 public:
   using QHttpMultiPartIODevice::QHttpMultiPartIODevice;
-  void *taken[21] = {};
+  void *taken[23] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(http)
@@ -308,73 +353,83 @@ public:
       return true;
     }
 #endif  // QT_CONFIG(http)
-    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
+#if QT_CONFIG(http)
+    if (!std::strcmp(key, "_ZN9QIODevice8readDataEPcx")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
+#endif  // QT_CONFIG(http)
+    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
       taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice12readLineDataEPcx")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+      taken[15] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[14] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[15] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[16] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[17] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[18] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[19] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[20] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[21] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[22] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -472,11 +527,24 @@ public:
   }
 #endif  // QT_CONFIG(http)
 
-  //  bool QIODevice::open(QIODeviceBase::OpenMode mode)
-  bool open(QIODeviceBase::OpenMode mode) override {
+#if QT_CONFIG(http)
+  //  qint64 QHttpMultiPartIODevice::readData(char *data, qint64 maxSize)
+  qint64 readData(char *data, qint64 maxSize) override {
     if (taken[7]) {
       int handled = 0;
       CuteQHttpMultiPartIODeviceCall7 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall7>(taken[7]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QHttpMultiPartIODevice::readData(data, maxSize);
+  }
+#endif  // QT_CONFIG(http)
+
+  //  bool QIODevice::open(QIODeviceBase::OpenMode mode)
+  bool open(QIODeviceBase::OpenMode mode) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQHttpMultiPartIODeviceCall8 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall8>(taken[8]);
       bool given = call(this, static_cast<int>(mode.toInt()), &handled);
       if (handled) return given;
     }
@@ -485,9 +553,9 @@ public:
 
   //  qint64 QIODevice::pos() const
   qint64 pos() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall8 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall8>(taken[8]);
+      CuteQHttpMultiPartIODeviceCall9 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall9>(taken[9]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -496,9 +564,9 @@ public:
 
   //  bool QIODevice::seek(qint64 pos)
   bool seek(qint64 pos) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall9 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall9>(taken[9]);
+      CuteQHttpMultiPartIODeviceCall10 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall10>(taken[10]);
       bool given = call(this, pos, &handled);
       if (handled) return given;
     }
@@ -507,9 +575,9 @@ public:
 
   //  bool QIODevice::canReadLine() const
   bool canReadLine() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall10 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall10>(taken[10]);
+      CuteQHttpMultiPartIODeviceCall11 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall11>(taken[11]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -518,9 +586,9 @@ public:
 
   //  bool QIODevice::waitForReadyRead(int msecs)
   bool waitForReadyRead(int msecs) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall11 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall11>(taken[11]);
+      CuteQHttpMultiPartIODeviceCall12 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall12>(taken[12]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -529,20 +597,31 @@ public:
 
   //  bool QIODevice::waitForBytesWritten(int msecs)
   bool waitForBytesWritten(int msecs) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall12 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall12>(taken[12]);
+      CuteQHttpMultiPartIODeviceCall13 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall13>(taken[13]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
     return QIODevice::waitForBytesWritten(msecs);
   }
 
+  //  qint64 QIODevice::readLineData(char *data, qint64 maxlen)
+  qint64 readLineData(char *data, qint64 maxlen) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQHttpMultiPartIODeviceCall14 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall14>(taken[14]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::readLineData(data, maxlen);
+  }
+
   //  qint64 QIODevice::skipData(qint64 maxSize)
   qint64 skipData(qint64 maxSize) override {
-    if (taken[13]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall13 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall13>(taken[13]);
+      CuteQHttpMultiPartIODeviceCall15 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall15>(taken[15]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -552,9 +631,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[14]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall14 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall14>(taken[14]);
+      CuteQHttpMultiPartIODeviceCall16 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall16>(taken[16]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -565,9 +644,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[15]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall15 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall15>(taken[15]);
+      CuteQHttpMultiPartIODeviceCall17 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall17>(taken[17]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -578,9 +657,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[16]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall16 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall16>(taken[16]);
+      CuteQHttpMultiPartIODeviceCall18 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall18>(taken[18]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -591,9 +670,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall17 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall17>(taken[17]);
+      CuteQHttpMultiPartIODeviceCall19 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall19>(taken[19]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -604,9 +683,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall18 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall18>(taken[18]);
+      CuteQHttpMultiPartIODeviceCall20 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall20>(taken[20]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -617,9 +696,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall19 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall19>(taken[19]);
+      CuteQHttpMultiPartIODeviceCall21 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall21>(taken[21]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -630,9 +709,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQHttpMultiPartIODeviceCall20 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall20>(taken[20]);
+      CuteQHttpMultiPartIODeviceCall22 call = reinterpret_cast<CuteQHttpMultiPartIODeviceCall22>(taken[22]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -640,6 +719,12 @@ public:
   }
 #endif  // !defined(QT_NO_QOBJECT)
 };
+
+//  QHttpMultiPartIODevice::~QHttpMultiPartIODevice()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QHttpMultiPartIODeviceD1Ev(QHttpMultiPartIODevice *self) {
+  delete self;
+}
 
 //  bool QHttpMultiPartIODevice::atEnd() const
 extern "C" Q_DECL_EXPORT
@@ -688,6 +773,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN22QHttpMultiPartIODevice5resetEv(
     QHttpMultiPartIODevice *self) {
   return self->reset();
+}
+
+//  qint64 QHttpMultiPartIODevice::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN22QHttpMultiPartIODevice8readDataEPcx(
+    QHttpMultiPartIODevice *self,
+    char *data,
+    qint64 maxSize) {
+  return self->readData(data, maxSize);
 }
 
 //  qint64 QHttpMultiPartIODevice::writeData(const char *data, qint64
@@ -757,6 +851,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN22QHttpMultiPartIODevice5resetEv(
     QHttpMultiPartIODevice *self) {
   return self->QHttpMultiPartIODevice::reset();
+}
+
+//  qint64 QHttpMultiPartIODevice::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN22QHttpMultiPartIODevice8readDataEPcx(
+    QHttpMultiPartIODevice *self,
+    char *data,
+    qint64 maxSize) {
+  return self->QHttpMultiPartIODevice::readData(data, maxSize);
 }
 
 #endif  // QT_CONFIG(http)

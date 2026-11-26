@@ -10,6 +10,8 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QBindable>
 
 //  A QmlSensor that Python can take functions over in. Every QmlSensor
 //  Python makes is one. Each function below asks the Python
@@ -249,6 +251,22 @@ const QMetaObject *ritual_ZNK9QmlSensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QmlSensor11qt_metacastEPKc(QmlSensor *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlSensor::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QmlSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QmlSensor2trEPKcS1_i(
@@ -258,10 +276,29 @@ QString *ritual_ZN9QmlSensor2trEPKcS1_i(
   return new QString(QmlSensor::tr(s, c, n));
 }
 
+//  QmlSensorPrivate *QmlSensor::d_func()
+extern "C" Q_DECL_EXPORT
+QmlSensorPrivate *ritual_ZN9QmlSensor6d_funcEv(QmlSensor *self) {
+  return self->d_func();
+}
+
+//  const QmlSensorPrivate *QmlSensor::d_func() const
+extern "C" Q_DECL_EXPORT
+const QmlSensorPrivate *ritual_ZNK9QmlSensor6d_funcEv(
+    const QmlSensor *self) {
+  return self->d_func();
+}
+
 //  void QmlSensor::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QmlSensor24qt_qmlMarker_uncreatableEv(QmlSensor *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QmlSensor::QmlSensor(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QmlSensor *ritual_ZN9QmlSensorC1EP7QObject(QObject *parent) {
+  return new CuteQmlSensor(parent);
 }
 
 //  QmlSensor::~QmlSensor()
@@ -340,6 +377,13 @@ void ritual_ZN9QmlSensor17setSkipDuplicatesEb(
   self->setSkipDuplicates(skipDuplicates);
 }
 
+//  QQmlListProperty<QmlSensorRange> QmlSensor::availableDataRates() const
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QmlSensorRange> *ritual_ZNK9QmlSensor18availableDataRatesEv(
+    const QmlSensor *self) {
+  return new QQmlListProperty<QmlSensorRange>(self->availableDataRates());
+}
+
 //  int QmlSensor::dataRate() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK9QmlSensor8dataRateEv(const QmlSensor *self) {
@@ -350,6 +394,13 @@ int ritual_ZNK9QmlSensor8dataRateEv(const QmlSensor *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QmlSensor11setDataRateEi(QmlSensor *self, int rate) {
   self->setDataRate(rate);
+}
+
+//  QQmlListProperty<QmlSensorOutputRange> QmlSensor::outputRanges() const
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QmlSensorOutputRange> *ritual_ZNK9QmlSensor12outputRangesEv(
+    const QmlSensor *self) {
+  return new QQmlListProperty<QmlSensorOutputRange>(self->outputRanges());
 }
 
 //  int QmlSensor::outputRange() const
@@ -380,6 +431,13 @@ int ritual_ZNK9QmlSensor5errorEv(const QmlSensor *self) {
 extern "C" Q_DECL_EXPORT
 QmlSensorReading *ritual_ZNK9QmlSensor7readingEv(const QmlSensor *self) {
   return self->reading();
+}
+
+//  QBindable<QmlSensorReading *> QmlSensor::bindableReading() const
+extern "C" Q_DECL_EXPORT
+QBindable<QmlSensorReading *> *ritual_ZNK9QmlSensor15bindableReadingEv(
+    const QmlSensor *self) {
+  return new QBindable<QmlSensorReading *>(self->bindableReading());
 }
 
 //  bool QmlSensor::isFeatureSupported(Feature feature) const
@@ -474,6 +532,135 @@ void ritual_ZN9QmlSensor4stopEv(QmlSensor *self) {
   self->stop();
 }
 
+//  void QmlSensor::identifierChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor17identifierChangedEv(QmlSensor *self) {
+  self->identifierChanged();
+}
+
+//  void QmlSensor::connectedToBackendChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor25connectedToBackendChangedEv(QmlSensor *self) {
+  self->connectedToBackendChanged();
+}
+
+//  void QmlSensor::availableDataRatesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor25availableDataRatesChangedEv(QmlSensor *self) {
+  self->availableDataRatesChanged();
+}
+
+//  void QmlSensor::dataRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor15dataRateChangedEv(QmlSensor *self) {
+  self->dataRateChanged();
+}
+
+//  void QmlSensor::readingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor14readingChangedEv(QmlSensor *self) {
+  self->readingChanged();
+}
+
+//  void QmlSensor::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor13activeChangedEv(QmlSensor *self) {
+  self->activeChanged();
+}
+
+//  void QmlSensor::outputRangesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor19outputRangesChangedEv(QmlSensor *self) {
+  self->outputRangesChanged();
+}
+
+//  void QmlSensor::outputRangeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor18outputRangeChangedEv(QmlSensor *self) {
+  self->outputRangeChanged();
+}
+
+//  void QmlSensor::descriptionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor18descriptionChangedEv(QmlSensor *self) {
+  self->descriptionChanged();
+}
+
+//  void QmlSensor::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor12errorChangedEv(QmlSensor *self) {
+  self->errorChanged();
+}
+
+//  void QmlSensor::alwaysOnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor15alwaysOnChangedEv(QmlSensor *self) {
+  self->alwaysOnChanged();
+}
+
+//  void QmlSensor::busyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor11busyChangedEv(QmlSensor *self) {
+  self->busyChanged();
+}
+
+//  void QmlSensor::skipDuplicatesChanged(bool skipDuplicates)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor21skipDuplicatesChangedEb(
+    QmlSensor *self,
+    bool skipDuplicates) {
+  self->skipDuplicatesChanged(skipDuplicates);
+}
+
+//  void QmlSensor::axesOrientationModeChanged(AxesOrientationMode
+//      axesOrientationMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor26axesOrientationModeChangedENS_19AxesOrientationModeE(
+    QmlSensor *self,
+    QmlSensor::AxesOrientationMode axesOrientationMode) {
+  self->axesOrientationModeChanged(axesOrientationMode);
+}
+
+//  void QmlSensor::currentOrientationChanged(int currentOrientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor25currentOrientationChangedEi(
+    QmlSensor *self,
+    int currentOrientation) {
+  self->currentOrientationChanged(currentOrientation);
+}
+
+//  void QmlSensor::userOrientationChanged(int userOrientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor22userOrientationChangedEi(
+    QmlSensor *self,
+    int userOrientation) {
+  self->userOrientationChanged(userOrientation);
+}
+
+//  void QmlSensor::maxBufferSizeChanged(int maxBufferSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor20maxBufferSizeChangedEi(
+    QmlSensor *self,
+    int maxBufferSize) {
+  self->maxBufferSizeChanged(maxBufferSize);
+}
+
+//  void QmlSensor::efficientBufferSizeChanged(int efficientBufferSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor26efficientBufferSizeChangedEi(
+    QmlSensor *self,
+    int efficientBufferSize) {
+  self->efficientBufferSizeChanged(efficientBufferSize);
+}
+
+//  void QmlSensor::bufferSizeChanged(int bufferSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QmlSensor17bufferSizeChangedEi(
+    QmlSensor *self,
+    int bufferSize) {
+  self->bufferSizeChanged(bufferSize);
+}
+
 //  QmlSensorReading *QmlSensor::createReading() const
 extern "C" Q_DECL_EXPORT
 QmlSensorReading *ritual_ZNK9QmlSensor13createReadingEv(
@@ -491,6 +678,12 @@ void ritual_ZN9QmlSensor13updateReadingEv(QmlSensor *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QmlSensor10classBeginEv(QmlSensor *self) {
   self->classBegin();
+}
+
+//  size_t QmlSensor::_qt_property_m_reading_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN9QmlSensor29_qt_property_m_reading_offsetEv() {
+  return QmlSensor::_qt_property_m_reading_offset();
 }
 
 //  QmlSensor as the QQmlParserStatus it is built on
@@ -516,4 +709,25 @@ void ritual_own_ZN9QmlSensor17componentCompleteEv(QmlSensor *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QmlSensor10classBeginEv(QmlSensor *self) {
   self->QmlSensor::classBegin();
+}
+
+//  a QQmlListProperty<QmlSensorRange> a ritual of QmlSensor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlSensor__QQmlListProperty_QmlSensorRange(
+    QQmlListProperty<QmlSensorRange> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QmlSensorOutputRange> a ritual of QmlSensor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlSensor__QQmlListProperty_QmlSensorOutputRange(
+    QQmlListProperty<QmlSensorOutputRange> *self) {
+  delete self;
+}
+
+//  a QBindable<QmlSensorReading *> a ritual of QmlSensor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlSensor__QBindable_QmlSensorReading(
+    QBindable<QmlSensorReading *> *self) {
+  delete self;
 }

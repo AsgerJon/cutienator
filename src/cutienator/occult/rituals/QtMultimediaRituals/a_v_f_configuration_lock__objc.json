@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-26 from QtMultimedia/6.12.0/QtMultimedia/",
+    "private/qavfcamerautility_p.h, Qt 6.12.0, from Qt's source:",
+    "Objective-C++, built on Apple's systems only. Kept as it is when",
+    "the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN20AVFConfigurationLockC1EP15AVCaptureDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN20AVFConfigurationLockD1Ev": ["nothing", "address"],
+    "ritual_ZNK20AVFConfigurationLockcvbEv": ["bool", "address"]
+  }
+}

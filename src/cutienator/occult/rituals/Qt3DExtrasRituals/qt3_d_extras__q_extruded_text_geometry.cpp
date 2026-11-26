@@ -3,6 +3,7 @@
 //  lost.
 #include <Qt3DExtras/qextrudedtextgeometry.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qfont.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -180,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QExtrudedTextGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras21QExtrudedTextGeometry11qt_metacastEPKc(
+    Qt3DExtras::QExtrudedTextGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QExtrudedTextGeometry::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras21QExtrudedTextGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QExtrudedTextGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QExtrudedTextGeometry::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -188,6 +208,124 @@ QString *ritual_ZN10Qt3DExtras21QExtrudedTextGeometry2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QExtrudedTextGeometry::tr(s, c, n));
+}
+
+//  Qt3DExtras::QExtrudedTextGeometry::QExtrudedTextGeometry(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QExtrudedTextGeometry *ritual_ZN10Qt3DExtras21QExtrudedTextGeometryC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QExtrudedTextGeometry(parent);
+}
+
+//  Qt3DExtras::QExtrudedTextGeometry::~QExtrudedTextGeometry()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QExtrudedTextGeometryD1Ev(
+    Qt3DExtras::QExtrudedTextGeometry *self) {
+  delete self;
+}
+
+//  Qt3DCore::QAttribute
+//      *Qt3DExtras::QExtrudedTextGeometry::positionAttribute() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry17positionAttributeEv(
+    const Qt3DExtras::QExtrudedTextGeometry *self) {
+  return self->positionAttribute();
+}
+
+//  Qt3DCore::QAttribute
+//      *Qt3DExtras::QExtrudedTextGeometry::normalAttribute() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry15normalAttributeEv(
+    const Qt3DExtras::QExtrudedTextGeometry *self) {
+  return self->normalAttribute();
+}
+
+//  Qt3DCore::QAttribute *Qt3DExtras::QExtrudedTextGeometry::indexAttribute()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAttribute *ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry14indexAttributeEv(
+    const Qt3DExtras::QExtrudedTextGeometry *self) {
+  return self->indexAttribute();
+}
+
+//  QString Qt3DExtras::QExtrudedTextGeometry::text() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry4textEv(
+    const Qt3DExtras::QExtrudedTextGeometry *self) {
+  return new QString(self->text());
+}
+
+//  QFont Qt3DExtras::QExtrudedTextGeometry::font() const
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry4fontEv(
+    const Qt3DExtras::QExtrudedTextGeometry *self) {
+  return new QFont(self->font());
+}
+
+//  float Qt3DExtras::QExtrudedTextGeometry::extrusionLength() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras21QExtrudedTextGeometry15extrusionLengthEv(
+    const Qt3DExtras::QExtrudedTextGeometry *self) {
+  return self->extrusionLength();
+}
+
+//  void Qt3DExtras::QExtrudedTextGeometry::setText(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QExtrudedTextGeometry7setTextERK7QString(
+    Qt3DExtras::QExtrudedTextGeometry *self,
+    const QString *text) {
+  self->setText(*text);
+}
+
+//  void Qt3DExtras::QExtrudedTextGeometry::setFont(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QExtrudedTextGeometry7setFontERK5QFont(
+    Qt3DExtras::QExtrudedTextGeometry *self,
+    const QFont *font) {
+  self->setFont(*font);
+}
+
+//  void Qt3DExtras::QExtrudedTextGeometry::setDepth(float extrusionLength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QExtrudedTextGeometry8setDepthEf(
+    Qt3DExtras::QExtrudedTextGeometry *self,
+    float extrusionLength) {
+  self->setDepth(extrusionLength);
+}
+
+//  void Qt3DExtras::QExtrudedTextGeometry::textChanged(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QExtrudedTextGeometry11textChangedERK7QString(
+    Qt3DExtras::QExtrudedTextGeometry *self,
+    const QString *text) {
+  self->textChanged(*text);
+}
+
+//  void Qt3DExtras::QExtrudedTextGeometry::fontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QExtrudedTextGeometry11fontChangedERK5QFont(
+    Qt3DExtras::QExtrudedTextGeometry *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+
+//  void Qt3DExtras::QExtrudedTextGeometry::depthChanged(float
+//      extrusionLength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras21QExtrudedTextGeometry12depthChangedEf(
+    Qt3DExtras::QExtrudedTextGeometry *self,
+    float extrusionLength) {
+  self->depthChanged(extrusionLength);
+}
+
+//  Qt3DExtras::QExtrudedTextGeometry::QExtrudedTextGeometry(QExtrudedTextGeo
+//      metryPrivate &dd, QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QExtrudedTextGeometry *ritual_ZN10Qt3DExtras21QExtrudedTextGeometryC1ERNS_28QExtrudedTextGeometryPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QExtrudedTextGeometryPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QExtrudedTextGeometry(*dd, parent);
 }
 
 //  QExtrudedTextGeometryPrivate *Qt3DExtras::QExtrudedTextGeometry::d_func()

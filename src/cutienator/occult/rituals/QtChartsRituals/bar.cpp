@@ -935,6 +935,22 @@ const QMetaObject *ritual_ZNK3Bar10metaObjectEv(const Bar *self) {
   return self->metaObject();
 }
 
+//  void *Bar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN3Bar11qt_metacastEPKc(Bar *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Bar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN3Bar11qt_metacallEN11QMetaObject4CallEiPPv(
+    Bar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Bar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN3Bar2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1066,6 +1082,52 @@ void ritual_ZN3Bar14setLayoutIndexEi(Bar *self, int index) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK3Bar11layoutIndexEv(const Bar *self) {
   return self->layoutIndex();
+}
+
+//  void Bar::clicked(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3Bar7clickedEiP7QBarSet(
+    Bar *self,
+    int index,
+    QBarSet *barset) {
+  self->clicked(index, barset);
+}
+
+//  void Bar::hovered(bool status, int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3Bar7hoveredEbiP7QBarSet(
+    Bar *self,
+    bool status,
+    int index,
+    QBarSet *barset) {
+  self->hovered(status, index, barset);
+}
+
+//  void Bar::pressed(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3Bar7pressedEiP7QBarSet(
+    Bar *self,
+    int index,
+    QBarSet *barset) {
+  self->pressed(index, barset);
+}
+
+//  void Bar::released(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3Bar8releasedEiP7QBarSet(
+    Bar *self,
+    int index,
+    QBarSet *barset) {
+  self->released(index, barset);
+}
+
+//  void Bar::doubleClicked(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3Bar13doubleClickedEiP7QBarSet(
+    Bar *self,
+    int index,
+    QBarSet *barset) {
+  self->doubleClicked(index, barset);
 }
 
 //  Bar as the QGraphicsRectItem it is built on

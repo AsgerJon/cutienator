@@ -23,6 +23,22 @@ void ritual_ZN13QCoapResourceD1Ev(QCoapResource *self) {
   delete self;
 }
 
+//  QCoapResource &QCoapResource::operator=(const QCoapResource &other)
+extern "C" Q_DECL_EXPORT
+QCoapResource *ritual_ZN13QCoapResourceaSERKS_(
+    QCoapResource *self,
+    const QCoapResource *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QCoapResource::swap(QCoapResource &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCoapResource4swapERS_(
+    QCoapResource *self,
+    QCoapResource *other) {
+  self->swap(*other);
+}
+
 //  QHostAddress QCoapResource::host() const
 extern "C" Q_DECL_EXPORT
 QHostAddress *ritual_ZNK13QCoapResource4hostEv(const QCoapResource *self) {

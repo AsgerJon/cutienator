@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtOpenGL/qopenglshaderprogram.h, Qt 6.12.0. Changes made here are lost.
+//  QtOpenGL/qopenglshaderprogram.h, Qt 6.12.0. Edited by hand on 2026-11-25:
+//  added by hand, rituals for functions the generator leaves out: 6. Kept as
+//  it is when the generator runs again.
 #include <QtOpenGL/qopenglshaderprogram.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
@@ -12,6 +14,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QOpenGLShaderProgram that Python can take functions over in. Every QOpenGLShaderProgram
 //  Python makes is one. Each function below asks the Python
@@ -201,6 +204,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QOpenGLShaderProgram10metaObjectEv(
     const QOpenGLShaderProgram *self) {
   return self->metaObject();
+}
+
+//  void *QOpenGLShaderProgram::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QOpenGLShaderProgram11qt_metacastEPKc(
+    QOpenGLShaderProgram *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLShaderProgram::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QOpenGLShaderProgram11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLShaderProgram *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QOpenGLShaderProgram::tr(const char *s, const char *c, int n)
@@ -393,6 +415,13 @@ bool ritual_ZN20QOpenGLShaderProgram6createEv(QOpenGLShaderProgram *self) {
   return self->create();
 }
 
+//  GLuint QOpenGLShaderProgram::programId() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK20QOpenGLShaderProgram9programIdEv(
+    const QOpenGLShaderProgram *self) {
+  return self->programId();
+}
+
 //  int QOpenGLShaderProgram::maxGeometryOutputVertices() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK20QOpenGLShaderProgram25maxGeometryOutputVerticesEv(
@@ -413,6 +442,38 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK20QOpenGLShaderProgram16patchVertexCountEv(
     const QOpenGLShaderProgram *self) {
   return self->patchVertexCount();
+}
+
+//  void QOpenGLShaderProgram::setDefaultOuterTessellationLevels(const
+//      QList<float> &levels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram33setDefaultOuterTessellationLevelsERK5QListIfE(
+    QOpenGLShaderProgram *self,
+    const QList<float> *levels) {
+  self->setDefaultOuterTessellationLevels(*levels);
+}
+
+//  QList<float> QOpenGLShaderProgram::defaultOuterTessellationLevels() const
+extern "C" Q_DECL_EXPORT
+QList<float> *ritual_ZNK20QOpenGLShaderProgram30defaultOuterTessellationLevelsEv(
+    const QOpenGLShaderProgram *self) {
+  return new QList<float>(self->defaultOuterTessellationLevels());
+}
+
+//  void QOpenGLShaderProgram::setDefaultInnerTessellationLevels(const
+//      QList<float> &levels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram33setDefaultInnerTessellationLevelsERK5QListIfE(
+    QOpenGLShaderProgram *self,
+    const QList<float> *levels) {
+  self->setDefaultInnerTessellationLevels(*levels);
+}
+
+//  QList<float> QOpenGLShaderProgram::defaultInnerTessellationLevels() const
+extern "C" Q_DECL_EXPORT
+QList<float> *ritual_ZNK20QOpenGLShaderProgram30defaultInnerTessellationLevelsEv(
+    const QOpenGLShaderProgram *self) {
+  return new QList<float>(self->defaultInnerTessellationLevels());
 }
 
 //  void QOpenGLShaderProgram::bindAttributeLocation(const char *name, int
@@ -554,6 +615,18 @@ void ritual_ZN20QOpenGLShaderProgram17setAttributeValueEiRK6QColor(
   self->setAttributeValue(location, *value);
 }
 
+//  void QOpenGLShaderProgram::setAttributeValue(int location, const GLfloat
+//      *values, int columns, int rows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram17setAttributeValueEiPKfii(
+    QOpenGLShaderProgram *self,
+    int location,
+    const GLfloat *values,
+    int columns,
+    int rows) {
+  self->setAttributeValue(location, values, columns, rows);
+}
+
 //  void QOpenGLShaderProgram::setAttributeValue(const char *name, GLfloat
 //      value)
 extern "C" Q_DECL_EXPORT
@@ -640,6 +713,30 @@ void ritual_ZN20QOpenGLShaderProgram17setAttributeValueEPKcRK6QColor(
   self->setAttributeValue(name, *value);
 }
 
+//  void QOpenGLShaderProgram::setAttributeValue(const char *name, const
+//      GLfloat *values, int columns, int rows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram17setAttributeValueEPKcPKfii(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const GLfloat *values,
+    int columns,
+    int rows) {
+  self->setAttributeValue(name, values, columns, rows);
+}
+
+//  void QOpenGLShaderProgram::setAttributeArray(int location, const GLfloat
+//      *values, int tupleSize, int stride)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEiPKfii(
+    QOpenGLShaderProgram *self,
+    int location,
+    const GLfloat *values,
+    int tupleSize,
+    int stride) {
+  self->setAttributeArray(location, values, tupleSize, stride);
+}
+
 //  void QOpenGLShaderProgram::setAttributeArray(int location, const
 //      QVector2D *values, int stride)
 extern "C" Q_DECL_EXPORT
@@ -673,6 +770,31 @@ void ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEiPK9QVector4Di(
   self->setAttributeArray(location, values, stride);
 }
 
+//  void QOpenGLShaderProgram::setAttributeArray(int location, GLenum type,
+//      const void *values, int tupleSize, int stride)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEijPKvii(
+    QOpenGLShaderProgram *self,
+    int location,
+    GLenum type,
+    const void *values,
+    int tupleSize,
+    int stride) {
+  self->setAttributeArray(location, type, values, tupleSize, stride);
+}
+
+//  void QOpenGLShaderProgram::setAttributeArray(const char *name, const
+//      GLfloat *values, int tupleSize, int stride)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEPKcPKfii(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const GLfloat *values,
+    int tupleSize,
+    int stride) {
+  self->setAttributeArray(name, values, tupleSize, stride);
+}
+
 //  void QOpenGLShaderProgram::setAttributeArray(const char *name, const
 //      QVector2D *values, int stride)
 extern "C" Q_DECL_EXPORT
@@ -704,6 +826,19 @@ void ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEPKcPK9QVector4Di(
     const QVector4D *values,
     int stride) {
   self->setAttributeArray(name, values, stride);
+}
+
+//  void QOpenGLShaderProgram::setAttributeArray(const char *name, GLenum
+//      type, const void *values, int tupleSize, int stride)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram17setAttributeArrayEPKcjPKvii(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    GLenum type,
+    const void *values,
+    int tupleSize,
+    int stride) {
+  self->setAttributeArray(name, type, values, tupleSize, stride);
 }
 
 //  void QOpenGLShaderProgram::setAttributeBuffer(int location, GLenum type,
@@ -931,6 +1066,86 @@ void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK6QSizeF(
   self->setUniformValue(location, *size);
 }
 
+//  void QOpenGLShaderProgram::setUniformValue(int location, const QMatrix2x2
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi2ELi2EfE(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix2x2 *value) {
+  self->setUniformValue(location, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const QMatrix2x3
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi2ELi3EfE(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix2x3 *value) {
+  self->setUniformValue(location, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const QMatrix2x4
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi2ELi4EfE(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix2x4 *value) {
+  self->setUniformValue(location, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const QMatrix3x2
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi3ELi2EfE(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix3x2 *value) {
+  self->setUniformValue(location, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const QMatrix3x3
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi3ELi3EfE(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix3x3 *value) {
+  self->setUniformValue(location, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const QMatrix3x4
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi3ELi4EfE(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix3x4 *value) {
+  self->setUniformValue(location, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const QMatrix4x2
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi4ELi2EfE(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix4x2 *value) {
+  self->setUniformValue(location, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const QMatrix4x3
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiRK14QGenericMatrixILi4ELi3EfE(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix4x3 *value) {
+  self->setUniformValue(location, *value);
+}
+
 //  void QOpenGLShaderProgram::setUniformValue(int location, const QMatrix4x4
 //      &value)
 extern "C" Q_DECL_EXPORT
@@ -1097,6 +1312,86 @@ void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK6QSizeF(
 }
 
 //  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      QMatrix2x2 &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi2ELi2EfE(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix2x2 *value) {
+  self->setUniformValue(name, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      QMatrix2x3 &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi2ELi3EfE(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix2x3 *value) {
+  self->setUniformValue(name, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      QMatrix2x4 &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi2ELi4EfE(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix2x4 *value) {
+  self->setUniformValue(name, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      QMatrix3x2 &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi3ELi2EfE(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix3x2 *value) {
+  self->setUniformValue(name, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      QMatrix3x3 &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi3ELi3EfE(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix3x3 *value) {
+  self->setUniformValue(name, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      QMatrix3x4 &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi3ELi4EfE(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix3x4 *value) {
+  self->setUniformValue(name, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      QMatrix4x2 &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi4ELi2EfE(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix4x2 *value) {
+  self->setUniformValue(name, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      QMatrix4x3 &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK14QGenericMatrixILi4ELi3EfE(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix4x3 *value) {
+  self->setUniformValue(name, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
 //      QMatrix4x4 &value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK10QMatrix4x4(
@@ -1114,6 +1409,40 @@ void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcRK10QTransform(
     const char *name,
     const QTransform *value) {
   self->setUniformValue(name, *value);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      GLfloat *values, int count, int tupleSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPKfii(
+    QOpenGLShaderProgram *self,
+    int location,
+    const GLfloat *values,
+    int count,
+    int tupleSize) {
+  self->setUniformValueArray(location, values, count, tupleSize);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const GLint
+//      *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPKii(
+    QOpenGLShaderProgram *self,
+    int location,
+    const GLint *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      GLuint *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPKji(
+    QOpenGLShaderProgram *self,
+    int location,
+    const GLuint *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
 }
 
 //  void QOpenGLShaderProgram::setUniformValueArray(int location, const
@@ -1150,6 +1479,94 @@ void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK9QVector4Di(
 }
 
 //  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      QMatrix2x2 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi2ELi2EfEi(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix2x2 *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      QMatrix2x3 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi2ELi3EfEi(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix2x3 *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      QMatrix2x4 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi2ELi4EfEi(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix2x4 *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      QMatrix3x2 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi3ELi2EfEi(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix3x2 *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      QMatrix3x3 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi3ELi3EfEi(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix3x3 *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      QMatrix3x4 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi3ELi4EfEi(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix3x4 *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      QMatrix4x2 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi4ELi2EfEi(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix4x2 *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
+//      QMatrix4x3 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK14QGenericMatrixILi4ELi3EfEi(
+    QOpenGLShaderProgram *self,
+    int location,
+    const QMatrix4x3 *values,
+    int count) {
+  self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(int location, const
 //      QMatrix4x4 *values, int count)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK10QMatrix4x4i(
@@ -1158,6 +1575,40 @@ void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEiPK10QMatrix4x4i(
     const QMatrix4x4 *values,
     int count) {
   self->setUniformValueArray(location, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      GLfloat *values, int count, int tupleSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPKfii(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const GLfloat *values,
+    int count,
+    int tupleSize) {
+  self->setUniformValueArray(name, values, count, tupleSize);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      GLint *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPKii(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const GLint *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      GLuint *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPKji(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const GLuint *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
 }
 
 //  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
@@ -1194,6 +1645,94 @@ void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK9QVector4Di(
 }
 
 //  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      QMatrix2x2 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi2ELi2EfEi(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix2x2 *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      QMatrix2x3 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi2ELi3EfEi(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix2x3 *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      QMatrix2x4 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi2ELi4EfEi(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix2x4 *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      QMatrix3x2 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi3ELi2EfEi(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix3x2 *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      QMatrix3x3 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi3ELi3EfEi(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix3x3 *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      QMatrix3x4 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi3ELi4EfEi(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix3x4 *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      QMatrix4x2 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi4ELi2EfEi(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix4x2 *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
+//      QMatrix4x3 *values, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK14QGenericMatrixILi4ELi3EfEi(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const QMatrix4x3 *values,
+    int count) {
+  self->setUniformValueArray(name, values, count);
+}
+
+//  void QOpenGLShaderProgram::setUniformValueArray(const char *name, const
 //      QMatrix4x4 *values, int count)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLShaderProgram20setUniformValueArrayEPKcPK10QMatrix4x4i(
@@ -1219,6 +1758,20 @@ void ritual_ZN20QOpenGLShaderProgram15shaderDestroyedEv(
   self->shaderDestroyed();
 }
 
+//  QOpenGLShaderProgramPrivate *QOpenGLShaderProgram::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLShaderProgramPrivate *ritual_ZN20QOpenGLShaderProgram6d_funcEv(
+    QOpenGLShaderProgram *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLShaderProgramPrivate *QOpenGLShaderProgram::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOpenGLShaderProgramPrivate *ritual_ZNK20QOpenGLShaderProgram6d_funcEv(
+    const QOpenGLShaderProgram *self) {
+  return self->d_func();
+}
+
 //  bool QOpenGLShaderProgram::init()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QOpenGLShaderProgram4initEv(QOpenGLShaderProgram *self) {
@@ -1239,4 +1792,76 @@ bool ritual_take_QOpenGLShaderProgram(
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN20QOpenGLShaderProgram4linkEv(QOpenGLShaderProgram *self) {
   return self->QOpenGLShaderProgram::link();
+}
+
+//  a QList<float> a ritual of QOpenGLShaderProgram gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLShaderProgram__QList_float(QList<float> *self) {
+  delete self;
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const GLfloat
+//      value[2][2])
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiPA2_Kf(
+    QOpenGLShaderProgram *self,
+    int location,
+    const GLfloat *value) {
+  self->setUniformValue(
+      location, reinterpret_cast<const GLfloat (*)[2]>(value));
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      GLfloat value[2][2])
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcPA2_Kf(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const GLfloat *value) {
+  self->setUniformValue(
+      name, reinterpret_cast<const GLfloat (*)[2]>(value));
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const GLfloat
+//      value[3][3])
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiPA3_Kf(
+    QOpenGLShaderProgram *self,
+    int location,
+    const GLfloat *value) {
+  self->setUniformValue(
+      location, reinterpret_cast<const GLfloat (*)[3]>(value));
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      GLfloat value[3][3])
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcPA3_Kf(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const GLfloat *value) {
+  self->setUniformValue(
+      name, reinterpret_cast<const GLfloat (*)[3]>(value));
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(int location, const GLfloat
+//      value[4][4])
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEiPA4_Kf(
+    QOpenGLShaderProgram *self,
+    int location,
+    const GLfloat *value) {
+  self->setUniformValue(
+      location, reinterpret_cast<const GLfloat (*)[4]>(value));
+}
+
+//  void QOpenGLShaderProgram::setUniformValue(const char *name, const
+//      GLfloat value[4][4])
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLShaderProgram15setUniformValueEPKcPA4_Kf(
+    QOpenGLShaderProgram *self,
+    const char *name,
+    const GLfloat *value) {
+  self->setUniformValue(
+      name, reinterpret_cast<const GLfloat (*)[4]>(value));
 }

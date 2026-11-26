@@ -8,6 +8,49 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DCore/private/qscheduler_p.h>
+#include <Qt3DCore/qabstractaspect.h>
+#include <Qt3DCore/private/qabstractaspect_p.h>
+#include <Qt3DCore/private/qaspectmanager_p.h>
+#include <Qt3DCore/private/qaspectjob_p.h>
+#include <Qt3DCore/private/qabstractaspectjobmanager_p.h>
+#include <Qt3DCore/private/vector_helper_p.h>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDateTime>
+#include <QtCore/QRegularExpression>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/core/qscheduler.cpp, line 64, as _ZN8Qt3DCore10QSchedulerD1Ev
+namespace Qt3DCore {
+inline QScheduler::~QScheduler()
+{
+}
+}  // namespace Qt3DCore
+
+//  from ../qt3d/src/core/qscheduler.cpp, line 68, as _ZN8Qt3DCore10QScheduler16setAspectManagerEPNS_14QAspectManagerE
+namespace Qt3DCore {
+inline void QScheduler::setAspectManager(QAspectManager *aspectManager)
+{
+    m_aspectManager = aspectManager;
+}
+}  // namespace Qt3DCore
+
+//  from ../qt3d/src/core/qscheduler.cpp, line 73, as _ZNK8Qt3DCore10QScheduler13aspectManagerEv
+namespace Qt3DCore {
+inline QAspectManager *QScheduler::aspectManager() const
+{
+    return m_aspectManager;
+}
+}  // namespace Qt3DCore
+//  -----------------------------------------------------------------------
 
 //  A Qt3DCore::QScheduler that Python can take functions over in. Every Qt3DCore::QScheduler
 //  Python makes is one. Each function below asks the Python
@@ -200,6 +243,47 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK8Qt3DCore10QScheduler10metaObjectEv(
     const Qt3DCore::QScheduler *self) {
   return self->metaObject();
+}
+
+//  void *Qt3DCore::QScheduler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore10QScheduler11qt_metacastEPKc(
+    Qt3DCore::QScheduler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QScheduler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore10QScheduler11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QScheduler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  Qt3DCore::QScheduler::~QScheduler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore10QSchedulerD1Ev(Qt3DCore::QScheduler *self) {
+  delete self;
+}
+
+//  void Qt3DCore::QScheduler::setAspectManager(QAspectManager
+//      *aspectManager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore10QScheduler16setAspectManagerEPNS_14QAspectManagerE(
+    Qt3DCore::QScheduler *self,
+    Qt3DCore::QAspectManager *aspectManager) {
+  self->setAspectManager(aspectManager);
+}
+
+//  QAspectManager *Qt3DCore::QScheduler::aspectManager() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAspectManager *ritual_ZNK8Qt3DCore10QScheduler13aspectManagerEv(
+    const Qt3DCore::QScheduler *self) {
+  return self->aspectManager();
 }
 
 //  int Qt3DCore::QScheduler::scheduleAndWaitForFrameAspectJobs(qint64 time,

@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QSGGradientCacheKeyC1ERK5QListISt4pairId6QColorEEN9QGradient6SpreadE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK19QSGGradientCacheKeyeqERKS_": ["bool", "address", "address"],
     "ritual_ZN19QSGGradientCacheKeyD1Ev": ["nothing", "address"]
   }

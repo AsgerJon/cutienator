@@ -8,6 +8,24 @@
     "ritual_ZNK28QQuickTableViewResizeHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickTableViewResizeHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuickTableViewResizeHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN28QQuickTableViewResizeHandler11updateStateER11QEventPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickTableViewResizeHandler10updateDragEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QQuickTableViewResizeHandler16handleEventPointEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QQuickTableViewResizeHandler13onGrabChangedEP20QQuickPointerHandlerN15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
     "ritual_take_QQuickTableViewResizeHandler": [
       "bool", "address", "chars", "address"
     ]

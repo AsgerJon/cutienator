@@ -27,6 +27,15 @@ QOpcUaDoubleComplexNumber *ritual_ZN25QOpcUaDoubleComplexNumberC1Edd(
   return new QOpcUaDoubleComplexNumber(real, imaginary);
 }
 
+//  QOpcUaDoubleComplexNumber &QOpcUaDoubleComplexNumber::operator=(const
+//      QOpcUaDoubleComplexNumber &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaDoubleComplexNumber *ritual_ZN25QOpcUaDoubleComplexNumberaSERKS_(
+    QOpcUaDoubleComplexNumber *self,
+    const QOpcUaDoubleComplexNumber *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaDoubleComplexNumber::operator==(const
 //      QOpcUaDoubleComplexNumber &rhs) const
 extern "C" Q_DECL_EXPORT

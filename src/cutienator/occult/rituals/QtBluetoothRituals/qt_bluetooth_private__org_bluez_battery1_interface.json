@@ -8,8 +8,17 @@
     "ritual_ZNK18QtBluetoothPrivate25OrgBluezBattery1Interface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1Interface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1Interface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1Interface19staticInterfaceNameEv": [
       "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceD1Ev": [
+      "nothing", "address"
     ],
     "ritual_ZNK18QtBluetoothPrivate25OrgBluezBattery1Interface10percentageEv": [
       "unsigned char", "address"

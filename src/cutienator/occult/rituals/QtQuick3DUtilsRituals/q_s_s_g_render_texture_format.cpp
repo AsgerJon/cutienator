@@ -56,6 +56,28 @@ qint32 ritual_ZNK23QSSGRenderTextureFormat20getNumberOfComponentEv(
   return self->getNumberOfComponent();
 }
 
+//  void QSSGRenderTextureFormat::decodeToFloat(void *inPtr, qint32 byteOfs,
+//      float *outPtr) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK23QSSGRenderTextureFormat13decodeToFloatEPviPf(
+    const QSSGRenderTextureFormat *self,
+    void *inPtr,
+    qint32 byteOfs,
+    float *outPtr) {
+  self->decodeToFloat(inPtr, byteOfs, outPtr);
+}
+
+//  void QSSGRenderTextureFormat::encodeToPixel(float *inPtr, void *outPtr,
+//      qint32 byteOfs) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK23QSSGRenderTextureFormat13encodeToPixelEPfPvi(
+    const QSSGRenderTextureFormat *self,
+    float *inPtr,
+    void *outPtr,
+    qint32 byteOfs) {
+  self->encodeToPixel(inPtr, outPtr, byteOfs);
+}
+
 //  bool QSSGRenderTextureFormat::operator==(const QSSGRenderTextureFormat
 //      &other) const
 extern "C" Q_DECL_EXPORT

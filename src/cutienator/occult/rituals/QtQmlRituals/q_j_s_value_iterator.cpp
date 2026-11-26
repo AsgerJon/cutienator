@@ -43,6 +43,14 @@ QJSValue *ritual_ZNK16QJSValueIterator5valueEv(
   return new QJSValue(self->value());
 }
 
+//  QJSValueIterator &QJSValueIterator::operator=(QJSValue &value)
+extern "C" Q_DECL_EXPORT
+QJSValueIterator *ritual_ZN16QJSValueIteratoraSER8QJSValue(
+    QJSValueIterator *self,
+    QJSValue *value) {
+  return &(self->operator=(*value));
+}
+
 //  QJSValueIteratorPrivate *QJSValueIterator::d_func()
 extern "C" Q_DECL_EXPORT
 QJSValueIteratorPrivate *ritual_ZN16QJSValueIterator6d_funcEv(

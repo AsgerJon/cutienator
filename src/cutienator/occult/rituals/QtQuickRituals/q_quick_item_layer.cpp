@@ -308,6 +308,24 @@ const QMetaObject *ritual_ZNK15QQuickItemLayer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickItemLayer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickItemLayer11qt_metacastEPKc(
+    QQuickItemLayer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickItemLayer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickItemLayer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickItemLayer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickItemLayer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickItemLayer2trEPKcS1_i(
@@ -594,6 +612,105 @@ void ritual_ZN15QQuickItemLayer13updateOpacityEv(QQuickItemLayer *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickItemLayer7updateZEv(QQuickItemLayer *self) {
   self->updateZ();
+}
+
+//  void QQuickItemLayer::enabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer14enabledChangedEb(
+    QQuickItemLayer *self,
+    bool enabled) {
+  self->enabledChanged(enabled);
+}
+
+//  void QQuickItemLayer::sizeChanged(const QSize &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer11sizeChangedERK5QSize(
+    QQuickItemLayer *self,
+    const QSize *size) {
+  self->sizeChanged(*size);
+}
+
+//  void QQuickItemLayer::mipmapChanged(bool mipmap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer13mipmapChangedEb(
+    QQuickItemLayer *self,
+    bool mipmap) {
+  self->mipmapChanged(mipmap);
+}
+
+//  void QQuickItemLayer::wrapModeChanged(QQuickShaderEffectSource::WrapMode
+//      mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer15wrapModeChangedEN24QQuickShaderEffectSource8WrapModeE(
+    QQuickItemLayer *self,
+    QQuickShaderEffectSource::WrapMode mode) {
+  self->wrapModeChanged(mode);
+}
+
+//  void QQuickItemLayer::nameChanged(const QByteArray &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer11nameChangedERK10QByteArray(
+    QQuickItemLayer *self,
+    const QByteArray *name) {
+  self->nameChanged(*name);
+}
+
+//  void QQuickItemLayer::effectChanged(QQmlComponent *component)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer13effectChangedEP13QQmlComponent(
+    QQuickItemLayer *self,
+    QQmlComponent *component) {
+  self->effectChanged(component);
+}
+
+//  void QQuickItemLayer::smoothChanged(bool smooth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer13smoothChangedEb(
+    QQuickItemLayer *self,
+    bool smooth) {
+  self->smoothChanged(smooth);
+}
+
+//  void QQuickItemLayer::liveChanged(bool live)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer11liveChangedEb(
+    QQuickItemLayer *self,
+    bool live) {
+  self->liveChanged(live);
+}
+
+//  void QQuickItemLayer::formatChanged(QQuickShaderEffectSource::Format
+//      format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer13formatChangedEN24QQuickShaderEffectSource6FormatE(
+    QQuickItemLayer *self,
+    QQuickShaderEffectSource::Format format) {
+  self->formatChanged(format);
+}
+
+//  void QQuickItemLayer::sourceRectChanged(const QRectF &sourceRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer17sourceRectChangedERK6QRectF(
+    QQuickItemLayer *self,
+    const QRectF *sourceRect) {
+  self->sourceRectChanged(*sourceRect);
+}
+
+//  void QQuickItemLayer::textureMirroringChanged(QQuickShaderEffectSource::T
+//      extureMirroring mirroring)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer23textureMirroringChangedEN24QQuickShaderEffectSource16TextureMirroringE(
+    QQuickItemLayer *self,
+    QQuickShaderEffectSource::TextureMirroring mirroring) {
+  self->textureMirroringChanged(mirroring);
+}
+
+//  void QQuickItemLayer::samplesChanged(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickItemLayer14samplesChangedEi(
+    QQuickItemLayer *self,
+    int count) {
+  self->samplesChanged(count);
 }
 
 //  void QQuickItemLayer::activate()

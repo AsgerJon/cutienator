@@ -20,6 +20,13 @@ QSSGRenderableNodeEntry *ritual_ZN23QSSGRenderableNodeEntryC1Ev() {
   return new QSSGRenderableNodeEntry();
 }
 
+//  QSSGRenderableNodeEntry::QSSGRenderableNodeEntry(QSSGRenderNode &inNode)
+extern "C" Q_DECL_EXPORT
+QSSGRenderableNodeEntry *ritual_ZN23QSSGRenderableNodeEntryC1ER14QSSGRenderNode(
+    QSSGRenderNode *inNode) {
+  return new QSSGRenderableNodeEntry(*inNode);
+}
+
 //  QSSGRenderableNodeEntry::QSSGRenderableNodeEntry(QSSGRenderNode *inNode)
 extern "C" Q_DECL_EXPORT
 QSSGRenderableNodeEntry *ritual_ZN23QSSGRenderableNodeEntryC1EP14QSSGRenderNode(

@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNfc/6.12.0/QtNfc/private/qnfctagtype4ndeffsm_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN19QNfcTagType4NdefFsm15provideResponseERK10QByteArray": [
@@ -30,6 +30,8 @@
     "ritual_own_ZN19QNfcTagType4NdefFsm17detectNdefSupportEv": [
       "int", "address"
     ],
-    "ritual_own_ZN19QNfcTagType4NdefFsm12readMessagesEv": ["int", "address"]
+    "ritual_own_ZN19QNfcTagType4NdefFsm12readMessagesEv": ["int", "address"],
+    "ritual_ZN19QNfcTagType4NdefFsm10getCommandERN14QNdefAccessFsm6ActionE": ["address", "address", "address"],
+    "ritual_ZN19QNfcTagType4NdefFsm10getMessageERN14QNdefAccessFsm6ActionE": ["address", "address", "address"]
   }
 }

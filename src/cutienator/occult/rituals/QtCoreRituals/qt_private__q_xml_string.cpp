@@ -7,6 +7,13 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
 
+//  QtPrivate::QXmlString::QXmlString(QStringPrivate &&d)
+extern "C" Q_DECL_EXPORT
+QtPrivate::QXmlString *ritual_ZN9QtPrivate10QXmlStringC1EO17QArrayDataPointerIDsE(
+    QStringPrivate *d) {
+  return new QtPrivate::QXmlString(std::move(*d));
+}
+
 //  QtPrivate::QXmlString::QXmlString(const QString &s)
 extern "C" Q_DECL_EXPORT
 QtPrivate::QXmlString *ritual_ZN9QtPrivate10QXmlStringC1ERK7QString(
@@ -14,10 +21,34 @@ QtPrivate::QXmlString *ritual_ZN9QtPrivate10QXmlStringC1ERK7QString(
   return new QtPrivate::QXmlString(*s);
 }
 
+//  QXmlString &QtPrivate::QXmlString::operator=(const QString &s)
+extern "C" Q_DECL_EXPORT
+QtPrivate::QXmlString *ritual_ZN9QtPrivate10QXmlStringaSERK7QString(
+    QtPrivate::QXmlString *self,
+    const QString *s) {
+  return &(self->operator=(*s));
+}
+
+//  QXmlString &QtPrivate::QXmlString::operator=(QString &&s)
+extern "C" Q_DECL_EXPORT
+QtPrivate::QXmlString *ritual_ZN9QtPrivate10QXmlStringaSEO7QString(
+    QtPrivate::QXmlString *self,
+    QString *s) {
+  return &(self->operator=(std::move(*s)));
+}
+
 //  QtPrivate::QXmlString::QXmlString()
 extern "C" Q_DECL_EXPORT
 QtPrivate::QXmlString *ritual_ZN9QtPrivate10QXmlStringC1Ev() {
   return new QtPrivate::QXmlString();
+}
+
+//  void QtPrivate::QXmlString::swap(QXmlString &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtPrivate10QXmlString4swapERS0_(
+    QtPrivate::QXmlString *self,
+    QtPrivate::QXmlString *other) {
+  self->swap(*other);
 }
 
 //  QStringView QtPrivate::QXmlString::operator QStringView() const

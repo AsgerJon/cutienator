@@ -217,6 +217,24 @@ const QMetaObject *ritual_ZNK13QPhysicsWorld10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPhysicsWorld::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QPhysicsWorld11qt_metacastEPKc(
+    QPhysicsWorld *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPhysicsWorld::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QPhysicsWorld11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPhysicsWorld *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPhysicsWorld::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QPhysicsWorld2trEPKcS1_i(
@@ -357,6 +375,21 @@ void ritual_ZN13QPhysicsWorld15deregisterJointEP13QPhysicsJoint(
   QPhysicsWorld::deregisterJoint(joint);
 }
 
+//  void QPhysicsWorld::registerContact(QAbstractPhysicsNode *sender,
+//      QAbstractPhysicsNode *receiver, const QVector<QVector3D> &positions,
+//      const QVector<QVector3D> &impulses, const QVector<QVector3D>
+//      &normals)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld15registerContactEP20QAbstractPhysicsNodeS1_RK5QListI9QVector3DES6_S6_(
+    QPhysicsWorld *self,
+    QAbstractPhysicsNode *sender,
+    QAbstractPhysicsNode *receiver,
+    const QVector<QVector3D> *positions,
+    const QVector<QVector3D> *impulses,
+    const QVector<QVector3D> *normals) {
+  self->registerContact(sender, receiver, *positions, *impulses, *normals);
+}
+
 //  QQuick3DNode *QPhysicsWorld::viewport() const
 extern "C" Q_DECL_EXPORT
 QQuick3DNode *ritual_ZNK13QPhysicsWorld8viewportEv(
@@ -369,6 +402,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN13QPhysicsWorld25setHasIndividualDebugDrawEv(
     QPhysicsWorld *self) {
   self->setHasIndividualDebugDraw();
+}
+
+//  physx::PxControllerManager *QPhysicsWorld::controllerManager()
+extern "C" Q_DECL_EXPORT
+physx::PxControllerManager *ritual_ZN13QPhysicsWorld17controllerManagerEv(
+    QPhysicsWorld *self) {
+  return self->controllerManager();
 }
 
 //  QQuick3DNode *QPhysicsWorld::scene() const
@@ -519,6 +559,120 @@ void ritual_ZN13QPhysicsWorld13setNumThreadsEi(
   self->setNumThreads(newNumThreads);
 }
 
+//  void QPhysicsWorld::gravityChanged(QVector3D gravity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld14gravityChangedE9QVector3D(
+    QPhysicsWorld *self,
+    const QVector3D *gravity) {
+  self->gravityChanged(*gravity);
+}
+
+//  void QPhysicsWorld::runningChanged(bool running)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld14runningChangedEb(
+    QPhysicsWorld *self,
+    bool running) {
+  self->runningChanged(running);
+}
+
+//  void QPhysicsWorld::enableCCDChanged(bool enableCCD)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld16enableCCDChangedEb(
+    QPhysicsWorld *self,
+    bool enableCCD) {
+  self->enableCCDChanged(enableCCD);
+}
+
+//  void QPhysicsWorld::forceDebugDrawChanged(bool forceDebugDraw)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld21forceDebugDrawChangedEb(
+    QPhysicsWorld *self,
+    bool forceDebugDraw) {
+  self->forceDebugDrawChanged(forceDebugDraw);
+}
+
+//  void QPhysicsWorld::typicalLengthChanged(float typicalLength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld20typicalLengthChangedEf(
+    QPhysicsWorld *self,
+    float typicalLength) {
+  self->typicalLengthChanged(typicalLength);
+}
+
+//  void QPhysicsWorld::typicalSpeedChanged(float typicalSpeed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld19typicalSpeedChangedEf(
+    QPhysicsWorld *self,
+    float typicalSpeed) {
+  self->typicalSpeedChanged(typicalSpeed);
+}
+
+//  void QPhysicsWorld::defaultDensityChanged(float defaultDensity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld21defaultDensityChangedEf(
+    QPhysicsWorld *self,
+    float defaultDensity) {
+  self->defaultDensityChanged(defaultDensity);
+}
+
+//  void QPhysicsWorld::viewportChanged(QQuick3DNode *viewport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld15viewportChangedEP12QQuick3DNode(
+    QPhysicsWorld *self,
+    QQuick3DNode *viewport) {
+  self->viewportChanged(viewport);
+}
+
+//  void QPhysicsWorld::minimumTimestepChanged(float minimumTimestep)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld22minimumTimestepChangedEf(
+    QPhysicsWorld *self,
+    float minimumTimestep) {
+  self->minimumTimestepChanged(minimumTimestep);
+}
+
+//  void QPhysicsWorld::maximumTimestepChanged(float maxTimestep)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld22maximumTimestepChangedEf(
+    QPhysicsWorld *self,
+    float maxTimestep) {
+  self->maximumTimestepChanged(maxTimestep);
+}
+
+//  void QPhysicsWorld::frameDone(float timestep)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld9frameDoneEf(
+    QPhysicsWorld *self,
+    float timestep) {
+  self->frameDone(timestep);
+}
+
+//  void QPhysicsWorld::sceneChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld12sceneChangedEv(QPhysicsWorld *self) {
+  self->sceneChanged();
+}
+
+//  void QPhysicsWorld::numThreadsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld17numThreadsChangedEv(QPhysicsWorld *self) {
+  self->numThreadsChanged();
+}
+
+//  void QPhysicsWorld::reportKinematicKinematicCollisionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld41reportKinematicKinematicCollisionsChangedEv(
+    QPhysicsWorld *self) {
+  self->reportKinematicKinematicCollisionsChanged();
+}
+
+//  void QPhysicsWorld::reportStaticKinematicCollisionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPhysicsWorld38reportStaticKinematicCollisionsChangedEv(
+    QPhysicsWorld *self) {
+  self->reportStaticKinematicCollisionsChanged();
+}
+
 //  void QPhysicsWorld::simulateFrame()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QPhysicsWorld13simulateFrameEv(QPhysicsWorld *self) {
@@ -601,6 +755,18 @@ void ritual_ZN13QPhysicsWorld16findPhysicsNodesEv(QPhysicsWorld *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QPhysicsWorld20emitContactCallbacksEv(QPhysicsWorld *self) {
   self->emitContactCallbacks();
+}
+
+//  physx::PxPhysics *QPhysicsWorld::getPhysics()
+extern "C" Q_DECL_EXPORT
+physx::PxPhysics *ritual_ZN13QPhysicsWorld10getPhysicsEv() {
+  return QPhysicsWorld::getPhysics();
+}
+
+//  physx::PxCooking *QPhysicsWorld::getCooking()
+extern "C" Q_DECL_EXPORT
+physx::PxCooking *ritual_ZN13QPhysicsWorld10getCookingEv() {
+  return QPhysicsWorld::getCooking();
 }
 
 //  QPhysicsWorld as the QQmlParserStatus it is built on

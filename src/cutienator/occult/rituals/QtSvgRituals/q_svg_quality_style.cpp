@@ -16,7 +16,7 @@ typedef bool (*CuteQSvgQualityStyleCall1)(const void *, int *);
 class CuteQSvgQualityStyle : public QSvgQualityStyle {
 public:
   using QSvgQualityStyle::QSvgQualityStyle;
-  CuteQSvgQualityStyle(const QSvgQualityStyle &other) : QSvgQualityStyle(other) {}
+  CuteQSvgQualityStyle(const QSvgQualityStyle & other) : QSvgQualityStyle(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -64,6 +64,26 @@ QSvgQualityStyle *ritual_ZN16QSvgQualityStyleC1Ei(int color) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSvgQualityStyleD1Ev(QSvgQualityStyle *self) {
   delete self;
+}
+
+//  void QSvgQualityStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSvgQualityStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgQualityStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgQualityStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSvgQualityStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgQualityStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
 }
 
 //  Type QSvgQualityStyle::type() const

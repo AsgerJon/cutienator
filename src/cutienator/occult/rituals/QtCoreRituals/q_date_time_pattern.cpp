@@ -12,9 +12,28 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlocale.h>
 #include <QtCore/qcalendar.h>
-#include <QtCore/qdatetime.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qdatetime.h>
+#include <optional>
+#include <QtCore/QDateTime>
+#include <QtCore/QStringView>
+
+//  QDateTimePattern::QDateTimePattern(const QList<Field> &fs)
+extern "C" Q_DECL_EXPORT
+QDateTimePattern *ritual_ZN16QDateTimePatternC1ERK5QListIN17QtTemporalPattern13TemporalFieldEE(
+    const QList<QDateTimePattern::Field> *fs) {
+  return new QDateTimePattern(*fs);
+}
+
+//  QDateTimePattern::QDateTimePattern(const QList<Field> &fs, int
+//      centuryStart)
+extern "C" Q_DECL_EXPORT
+QDateTimePattern *ritual_ZN16QDateTimePatternC1ERK5QListIN17QtTemporalPattern13TemporalFieldEEi(
+    const QList<QDateTimePattern::Field> *fs,
+    int centuryStart) {
+  return new QDateTimePattern(*fs, centuryStart);
+}
 
 //  QtTemporalPattern::SupportType QDateTimePattern::dateTimeSupport() const
 extern "C" Q_DECL_EXPORT
@@ -58,6 +77,13 @@ void ritual_ZN16QDateTimePattern13clearBaseYearEv(QDateTimePattern *self) {
   self->clearBaseYear();
 }
 
+//  std::optional<int> QDateTimePattern::baseYear() const
+extern "C" Q_DECL_EXPORT
+std::optional<int> *ritual_ZNK16QDateTimePattern8baseYearEv(
+    const QDateTimePattern *self) {
+  return new std::optional<int>(self->baseYear());
+}
+
 //  void QDateTimePattern::setCalendar(QCalendar cal)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QDateTimePattern11setCalendarE9QCalendar(
@@ -71,6 +97,20 @@ extern "C" Q_DECL_EXPORT
 QCalendar *ritual_ZNK16QDateTimePattern8calendarEv(
     const QDateTimePattern *self) {
   return new QCalendar(self->calendar());
+}
+
+//  QtTemporalPattern::ParseResult<QDateTime>
+//      QDateTimePattern::parse(QStringView text, const QDateTime &defaults)
+//      const
+extern "C" Q_DECL_EXPORT
+QtTemporalPattern::ParseResult<QDateTime> *ritual_ZNK16QDateTimePattern5parseE11QStringViewRK9QDateTime(
+    const QDateTimePattern *self,
+    const QString *text,
+    const QDateTime *defaults) {
+  return new QtTemporalPattern::ParseResult<QDateTime>(
+      self->parse(
+          QStringView(*text),
+          *defaults));
 }
 
 //  QString QDateTimePattern::serialize(const QDateTime &datetime) const
@@ -102,6 +142,21 @@ QDateTimePattern *ritual_ZN16QDateTimePattern9forLocaleERK7QLocaleNS0_10FormatTy
 //  QDateTimePattern::~QDateTimePattern()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QDateTimePatternD1Ev(QDateTimePattern *self) {
+  delete self;
+}
+
+//  a std::optional<int> a ritual of QDateTimePattern gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDateTimePattern__std_optional_int(
+    std::optional<int> *self) {
+  delete self;
+}
+
+//  a QtTemporalPattern::ParseResult<QDateTime> a ritual of QDateTimePattern
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDateTimePattern__QtTemporalPattern_ParseResult_QDateTime(
+    QtTemporalPattern::ParseResult<QDateTime> *self) {
   delete self;
 }
 

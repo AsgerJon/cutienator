@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN13DomSizePolicyC1Ev": ["address"],
     "ritual_ZN13DomSizePolicyD1Ev": ["nothing", "address"],
+    "ritual_ZN13DomSizePolicy4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13DomSizePolicy5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK13DomSizePolicy21hasAttributeHSizeTypeEv": [
       "bool", "address"
     ],

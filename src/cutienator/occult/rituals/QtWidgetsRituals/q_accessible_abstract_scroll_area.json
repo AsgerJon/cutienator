@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN29QAccessibleAbstractScrollAreaC1EP7QWidget": [
+      "address", "address"
+    ],
     "ritual_ZNK29QAccessibleAbstractScrollArea5childEi": [
       "address", "address", "int"
     ],
@@ -23,11 +26,29 @@
     "ritual_ZNK29QAccessibleAbstractScrollArea18abstractScrollAreaEv": [
       "address", "address"
     ],
+    "ritual_ZNK29QAccessibleAbstractScrollArea18accessibleChildrenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QAccessibleAbstractScrollArea11elementTypeEP7QWidget": [
+      "int", "address", "address"
+    ],
     "ritual_ZNK29QAccessibleAbstractScrollArea13isLeftToRightEv": [
       "bool", "address"
     ],
+    "ritual_own_ZNK29QAccessibleAbstractScrollArea5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK29QAccessibleAbstractScrollArea10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK29QAccessibleAbstractScrollArea12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
     "ritual_own_ZNK29QAccessibleAbstractScrollArea7isValidEv": [
       "bool", "address"
+    ],
+    "ritual_own_ZNK29QAccessibleAbstractScrollArea7childAtEii": [
+      "address", "address", "int", "int"
     ]
   }
 }

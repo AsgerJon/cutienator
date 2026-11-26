@@ -95,6 +95,21 @@ void ritual_ZN23QGraphicsSceneHelpEvent12setScreenPosERK6QPoint(
   self->setScreenPos(*pos);
 }
 
+//  QGraphicsSceneHelpEventPrivate *QGraphicsSceneHelpEvent::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneHelpEventPrivate *ritual_ZN23QGraphicsSceneHelpEvent6d_funcEv(
+    QGraphicsSceneHelpEvent *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneHelpEventPrivate *QGraphicsSceneHelpEvent::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneHelpEventPrivate *ritual_ZNK23QGraphicsSceneHelpEvent6d_funcEv(
+    const QGraphicsSceneHelpEvent *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSceneHelpEvent, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender23QBlendEquationArguments10metaObjectEv
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QBlendEquationArguments::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender23QBlendEquationArguments11qt_metacastEPKc(
+    Qt3DRender::QBlendEquationArguments *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QBlendEquationArguments::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender23QBlendEquationArguments11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QBlendEquationArguments *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QBlendEquationArguments::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +208,190 @@ QString *ritual_ZN10Qt3DRender23QBlendEquationArguments2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QBlendEquationArguments::tr(s, c, n));
+}
+
+//  Qt3DRender::QBlendEquationArguments::QBlendEquationArguments(Qt3DCore::QN
+//      ode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QBlendEquationArguments *ritual_ZN10Qt3DRender23QBlendEquationArgumentsC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QBlendEquationArguments(parent);
+}
+
+//  Qt3DRender::QBlendEquationArguments::~QBlendEquationArguments()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArgumentsD1Ev(
+    Qt3DRender::QBlendEquationArguments *self) {
+  delete self;
+}
+
+//  Blending Qt3DRender::QBlendEquationArguments::sourceRgb() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QBlendEquationArguments::Blending ritual_ZNK10Qt3DRender23QBlendEquationArguments9sourceRgbEv(
+    const Qt3DRender::QBlendEquationArguments *self) {
+  return self->sourceRgb();
+}
+
+//  Blending Qt3DRender::QBlendEquationArguments::destinationRgb() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QBlendEquationArguments::Blending ritual_ZNK10Qt3DRender23QBlendEquationArguments14destinationRgbEv(
+    const Qt3DRender::QBlendEquationArguments *self) {
+  return self->destinationRgb();
+}
+
+//  Blending Qt3DRender::QBlendEquationArguments::sourceAlpha() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QBlendEquationArguments::Blending ritual_ZNK10Qt3DRender23QBlendEquationArguments11sourceAlphaEv(
+    const Qt3DRender::QBlendEquationArguments *self) {
+  return self->sourceAlpha();
+}
+
+//  Blending Qt3DRender::QBlendEquationArguments::destinationAlpha() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QBlendEquationArguments::Blending ritual_ZNK10Qt3DRender23QBlendEquationArguments16destinationAlphaEv(
+    const Qt3DRender::QBlendEquationArguments *self) {
+  return self->destinationAlpha();
+}
+
+//  int Qt3DRender::QBlendEquationArguments::bufferIndex() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender23QBlendEquationArguments11bufferIndexEv(
+    const Qt3DRender::QBlendEquationArguments *self) {
+  return self->bufferIndex();
+}
+
+//  void Qt3DRender::QBlendEquationArguments::setSourceRgb(Blending
+//      sourceRgb)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments12setSourceRgbENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending sourceRgb) {
+  self->setSourceRgb(sourceRgb);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::setDestinationRgb(Blending
+//      destinationRgb)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments17setDestinationRgbENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending destinationRgb) {
+  self->setDestinationRgb(destinationRgb);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::setSourceAlpha(Blending
+//      sourceAlpha)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments14setSourceAlphaENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending sourceAlpha) {
+  self->setSourceAlpha(sourceAlpha);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::setDestinationAlpha(Blending
+//      destinationAlpha)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments19setDestinationAlphaENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending destinationAlpha) {
+  self->setDestinationAlpha(destinationAlpha);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::setSourceRgba(Blending
+//      sourceRgba)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments13setSourceRgbaENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending sourceRgba) {
+  self->setSourceRgba(sourceRgba);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::setDestinationRgba(Blending
+//      destinationRgba)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments18setDestinationRgbaENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending destinationRgba) {
+  self->setDestinationRgba(destinationRgba);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::setBufferIndex(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments14setBufferIndexEi(
+    Qt3DRender::QBlendEquationArguments *self,
+    int index) {
+  self->setBufferIndex(index);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::sourceRgbChanged(Blending
+//      sourceRgb)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments16sourceRgbChangedENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending sourceRgb) {
+  self->sourceRgbChanged(sourceRgb);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::sourceAlphaChanged(Blending
+//      sourceAlpha)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments18sourceAlphaChangedENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending sourceAlpha) {
+  self->sourceAlphaChanged(sourceAlpha);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::destinationRgbChanged(Blending
+//      destinationRgb)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments21destinationRgbChangedENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending destinationRgb) {
+  self->destinationRgbChanged(destinationRgb);
+}
+
+//  void
+//      Qt3DRender::QBlendEquationArguments::destinationAlphaChanged(Blending
+//      destinationAlpha)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments23destinationAlphaChangedENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending destinationAlpha) {
+  self->destinationAlphaChanged(destinationAlpha);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::sourceRgbaChanged(Blending
+//      sourceRgba)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments17sourceRgbaChangedENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending sourceRgba) {
+  self->sourceRgbaChanged(sourceRgba);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::destinationRgbaChanged(Blending
+//      destinationRgba)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments22destinationRgbaChangedENS0_8BlendingE(
+    Qt3DRender::QBlendEquationArguments *self,
+    Qt3DRender::QBlendEquationArguments::Blending destinationRgba) {
+  self->destinationRgbaChanged(destinationRgba);
+}
+
+//  void Qt3DRender::QBlendEquationArguments::bufferIndexChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QBlendEquationArguments18bufferIndexChangedEi(
+    Qt3DRender::QBlendEquationArguments *self,
+    int index) {
+  self->bufferIndexChanged(index);
+}
+
+//  Qt3DRender::QBlendEquationArguments::QBlendEquationArguments(QBlendEquati
+//      onArgumentsPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QBlendEquationArguments *ritual_ZN10Qt3DRender23QBlendEquationArgumentsC1ERNS_30QBlendEquationArgumentsPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QBlendEquationArgumentsPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QBlendEquationArguments(*dd, parent);
 }
 
 //  QBlendEquationArgumentsPrivate

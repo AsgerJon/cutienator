@@ -8,6 +8,16 @@
     "ritual_ZNK9QtWayland21IviSurfaceIntegration10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9QtWayland21IviSurfaceIntegration11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9QtWayland21IviSurfaceIntegration11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN9QtWayland21IviSurfaceIntegrationD1Ev": ["nothing", "address"],
+    "ritual_ZN9QtWayland21IviSurfaceIntegration25handleIviSurfaceDestroyedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QtWayland_IviSurfaceIntegration": [
       "bool", "address", "chars", "address"
     ]

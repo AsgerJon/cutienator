@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -200,6 +204,34 @@ public:
     return QQmlJS::AST::Node::asClassDefinition();
   }
 };
+
+//  QQmlJS::AST::ExportSpecifier::ExportSpecifier(QStringView identifier)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ExportSpecifier *ritual_ZN6QQmlJS3AST15ExportSpecifierC1E11QStringView(
+    QQmlJS::MemoryPool *pool,
+    const QString *identifier) {
+  return new (pool) CuteQQmlJS_AST_ExportSpecifier(QStringView(*identifier));
+}
+
+//  QQmlJS::AST::ExportSpecifier::ExportSpecifier(QStringView identifier,
+//      QStringView exportedIdentifier)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ExportSpecifier *ritual_ZN6QQmlJS3AST15ExportSpecifierC1E11QStringViewS2_(
+    QQmlJS::MemoryPool *pool,
+    const QString *identifier,
+    const QString *exportedIdentifier) {
+  return new (pool) CuteQQmlJS_AST_ExportSpecifier(
+      QStringView(*identifier),
+      QStringView(*exportedIdentifier));
+}
+
+//  void QQmlJS::AST::ExportSpecifier::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST15ExportSpecifier7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ExportSpecifier *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
 
 //  SourceLocation QQmlJS::AST::ExportSpecifier::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT

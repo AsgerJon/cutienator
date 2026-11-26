@@ -35,11 +35,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/animation/qabstractanimation.cpp, line 890, as _ZN23QDefaultAnimationDriverD1Ev
-inline QDefaultAnimationDriver::~QDefaultAnimationDriver()
+//  from src/corelib/animation/qabstractanimation.cpp, line 903, as _ZN23QDefaultAnimationDriver10startTimerEv
+inline void QDefaultAnimationDriver::startTimer()
 {
-    disconnect(this, &QAnimationDriver::started, this, &QDefaultAnimationDriver::startTimer);
-    disconnect(this, &QAnimationDriver::stopped, this, &QDefaultAnimationDriver::stopTimer);
+    // always use a precise timer to drive animations
+    m_timer.start(m_unified_timer->timingInterval, Qt::PreciseTimer, this);
 }
 
 //  from src/corelib/animation/qabstractanimation.cpp, line 896, as _ZN23QDefaultAnimationDriver10timerEventEP11QTimerEvent
@@ -48,19 +48,6 @@ inline void QDefaultAnimationDriver::timerEvent(QTimerEvent *e)
     Q_ASSERT(e->id() == m_timer.id());
     Q_UNUSED(e); // if the assertions are disabled
     advance();
-}
-
-//  from src/corelib/animation/qabstractanimation.cpp, line 903, as _ZN23QDefaultAnimationDriver10startTimerEv
-inline void QDefaultAnimationDriver::startTimer()
-{
-    // always use a precise timer to drive animations
-    m_timer.start(m_unified_timer->timingInterval, Qt::PreciseTimer, this);
-}
-
-//  from src/corelib/animation/qabstractanimation.cpp, line 909, as _ZN23QDefaultAnimationDriver9stopTimerEv
-inline void QDefaultAnimationDriver::stopTimer()
-{
-    m_timer.stop();
 }
 //  -----------------------------------------------------------------------
 
@@ -338,6 +325,25 @@ const QMetaObject *ritual_ZNK23QDefaultAnimationDriver10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDefaultAnimationDriver::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QDefaultAnimationDriver11qt_metacastEPKc(
+    QDefaultAnimationDriver *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDefaultAnimationDriver::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QDefaultAnimationDriver11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDefaultAnimationDriver *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QDefaultAnimationDriver::~QDefaultAnimationDriver()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QDefaultAnimationDriverD1Ev(QDefaultAnimationDriver *self) {
@@ -356,14 +362,50 @@ void ritual_ZN23QDefaultAnimationDriver10timerEventEP11QTimerEvent(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QDefaultAnimationDriver10startTimerEv(
     QDefaultAnimationDriver *self) {
-  self->startTimer();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDefaultAnimationDriver")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "startTimer()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "startTimer()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QDefaultAnimationDriver::stopTimer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QDefaultAnimationDriver9stopTimerEv(
     QDefaultAnimationDriver *self) {
-  self->stopTimer();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDefaultAnimationDriver")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "stopTimer()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "stopTimer()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQDefaultAnimationDriver, for the

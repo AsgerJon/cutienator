@@ -191,6 +191,32 @@ const QMetaObject *ritual_ZNK18qdesigner_internal17SpecialMenuAction10metaObject
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::SpecialMenuAction::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal17SpecialMenuAction11qt_metacastEPKc(
+    qdesigner_internal::SpecialMenuAction *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::SpecialMenuAction::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal17SpecialMenuAction11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::SpecialMenuAction *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  qdesigner_internal::SpecialMenuAction::~SpecialMenuAction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17SpecialMenuActionD1Ev(
+    qdesigner_internal::SpecialMenuAction *self) {
+  delete self;
+}
+
 //  a Python function taken by a Cuteqdesigner_internal_SpecialMenuAction,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT

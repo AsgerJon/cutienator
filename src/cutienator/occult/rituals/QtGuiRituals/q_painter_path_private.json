@@ -25,6 +25,9 @@
     "ritual_ZN19QPainterPathPrivate10elementAtTEd": [
       "int", "address", "double"
     ],
+    "ritual_ZNK19QPainterPathPrivate9bezierAtTERK12QPainterPathdPdS3_": [
+      "address", "address", "address", "double", "address", "address"
+    ],
     "ritual_ZN19QPainterPathPrivate20appendTrimmedElementEP12QPainterPathiidd": [
       "nothing", "address", "address", "int", "int", "double", "double"
     ],
@@ -39,6 +42,7 @@
     ],
     "ritual_ZN19QPainterPathPrivate18appendElementRangeEP12QPainterPathii": [
       "nothing", "address", "address", "int", "int"
-    ]
+    ],
+    "ritual_ZN19QPainterPathPrivate10vectorPathEv": ["address", "address"]
   }
 }

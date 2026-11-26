@@ -7,8 +7,17 @@
   "rows": {
     "ritual_ZN17QBinaryJsonObjectC1Ev": ["address"],
     "ritual_ZN17QBinaryJsonObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN17QBinaryJsonObjectC1EOS_": ["address", "address"],
+    "ritual_ZN17QBinaryJsonObjectaSEOS_": ["address", "address", "address"],
+    "ritual_ZNK17QBinaryJsonObject11takeRawDataEPj": [
+      "address", "address", "address"
+    ],
     "ritual_ZN17QBinaryJsonObject6detachEj": [
       "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN17QBinaryJsonObject7compactEv": ["nothing", "address"],
+    "ritual_drop_QBinaryJsonObject__QBinaryJsonObject": [
+      "nothing", "address"
     ]
   }
 }

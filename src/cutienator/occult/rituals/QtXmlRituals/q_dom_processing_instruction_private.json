@@ -11,6 +11,9 @@
     "ritual_ZNK32QDomProcessingInstructionPrivate8nodeTypeEv": [
       "int", "address"
     ],
+    "ritual_ZNK32QDomProcessingInstructionPrivate4saveER11QTextStreamii": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZN32QDomProcessingInstructionPrivateD1Ev": [
       "nothing", "address"
     ],

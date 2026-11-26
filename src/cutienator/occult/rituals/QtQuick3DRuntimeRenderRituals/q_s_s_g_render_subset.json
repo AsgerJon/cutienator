@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN16QSSGRenderSubsetC1Ev": ["address"],
     "ritual_ZN16QSSGRenderSubsetC1ERKS_": ["address", "address"],
+    "ritual_ZN16QSSGRenderSubsetaSERKS_": ["address", "address", "address"],
     "ritual_ZNK16QSSGRenderSubset8lodCountEi": [
       "unsigned int", "address", "int"
     ],

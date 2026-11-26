@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuick3DParticleRepeller10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuick3DParticleRepeller11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuick3DParticleRepeller11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuick3DParticleRepeller2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -27,6 +33,15 @@
     ],
     "ritual_ZN24QQuick3DParticleRepeller11setStrengthEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN24QQuick3DParticleRepeller13radiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DParticleRepeller18outerRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DParticleRepeller15strengthChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN24QQuick3DParticleRepeller15prepareToAffectEv": [
       "nothing", "address"

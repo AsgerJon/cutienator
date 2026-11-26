@@ -5,6 +5,10 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN28QRemoteObjectHostBasePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN28QRemoteObjectHostBasePrivate16handleNewAcquireEPK11QMetaObjectP20QRemoteObjectReplicaRK7QString": [
+      "address", "address", "address", "address", "text"
+    ],
     "ritual_ZN28QRemoteObjectHostBasePrivate6q_funcEv": [
       "address", "address"
     ],

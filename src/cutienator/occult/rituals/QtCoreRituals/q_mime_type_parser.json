@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QMimeTypeParserD1Ev": ["nothing", "address"],
     "ritual_ZN15QMimeTypeParser7processERK16QMimeTypeXMLDataP7QString": [
       "bool", "address", "address", "address"
     ],
@@ -22,6 +23,9 @@
     ],
     "ritual_take_QMimeTypeParser": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QMimeTypeParser7processERK16QMimeTypeXMLDataP7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QMimeTypeParser7processERK16QMimeGlobPatternP7QString": [
       "bool", "address", "address", "address"
     ],
     "ritual_own_ZN15QMimeTypeParser13processParentERK7QStringS2_": [

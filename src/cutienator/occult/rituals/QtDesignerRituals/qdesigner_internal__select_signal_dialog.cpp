@@ -8,10 +8,67 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/selectsignaldialog_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDesigner/private/selectsignaldialog_p.h>
+#include <QtDesigner/abstractformeditor.h>
+#include <QtDesigner/abstractpromotioninterface.h>
+#include <QtDesigner/private/abstractintrospection_p.h>
+#include <QtDesigner/private/metadatabase_p.h>
+#include <QtDesigner/private/widgetdatabase_p.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qpushbutton.h>
+#include <QtGui/qscreen.h>
+#include <QtGui/qstandarditemmodel.h>
+#include <QtCore/qitemselectionmodel.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qvariant.h>
+#include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qttools/src/designer/src/lib/shared/selectsignaldialog.cpp, line 32, as local:selectsignaldialog.cpp:MethodRole
+namespace qdesigner_internal {
+enum { MethodRole = Qt::UserRole + 1 };
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/selectsignaldialog.cpp, line 34, as local:selectsignaldialog.cpp:Methods
+namespace qdesigner_internal {
+using Methods = QList<SelectSignalDialog::Method>;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/selectsignaldialog.cpp, line 118, as local:selectsignaldialog.cpp:msgNoSignals
+namespace qdesigner_internal {
+static inline QString msgNoSignals()
+{
+    return QCoreApplication::translate("QDesignerTaskMenu", "no signals available");
+}
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/selectsignaldialog.cpp, line 63, as _ZNK18qdesigner_internal18SelectSignalDialog15methodFromIndexERK11QModelIndex
+namespace qdesigner_internal {
+inline SelectSignalDialog::Method SelectSignalDialog::methodFromIndex(const QModelIndex &index) const
+{
+    if (index.isValid()) {
+        const QStandardItem *item = m_model->itemFromIndex(index);
+        const QVariant data = item->data(MethodRole);
+        if (data.canConvert<Method>())
+            return data.value<Method>();
+    }
+    return Method();
+}
+}  // namespace qdesigner_internal
+//  -----------------------------------------------------------------------
 
 //  A qdesigner_internal::SelectSignalDialog that Python can take functions over in. Every qdesigner_internal::SelectSignalDialog
 //  Python makes is one. Each function below asks the Python
@@ -1022,6 +1079,101 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18qdesigner_internal18SelectSignalDialog10metaObjectEv(
     const qdesigner_internal::SelectSignalDialog *self) {
   return self->metaObject();
+}
+
+//  void *qdesigner_internal::SelectSignalDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal18SelectSignalDialog11qt_metacastEPKc(
+    qdesigner_internal::SelectSignalDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::SelectSignalDialog::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal18SelectSignalDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::SelectSignalDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  qdesigner_internal::SelectSignalDialog::~SelectSignalDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18SelectSignalDialogD1Ev(
+    qdesigner_internal::SelectSignalDialog *self) {
+  delete self;
+}
+
+//  void qdesigner_internal::SelectSignalDialog::currentChanged(const
+//      QModelIndex &a0, const QModelIndex &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18SelectSignalDialog14currentChangedERK11QModelIndexS3_(
+    qdesigner_internal::SelectSignalDialog *self,
+    const QModelIndex *a0,
+    const QModelIndex *a1) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::SelectSignalDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "currentChanged(const QModelIndex &,const QModelIndex &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "currentChanged(const QModelIndex &,const QModelIndex &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(a0)),
+      const_cast<void *>(static_cast<const void *>(a1)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void qdesigner_internal::SelectSignalDialog::activated(const QModelIndex
+//      &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18SelectSignalDialog9activatedERK11QModelIndex(
+    qdesigner_internal::SelectSignalDialog *self,
+    const QModelIndex *a0) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::SelectSignalDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "activated(const QModelIndex &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "activated(const QModelIndex &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(a0)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  Method qdesigner_internal::SelectSignalDialog::methodFromIndex(const
+//      QModelIndex &a0) const
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::SelectSignalDialog::Method *ritual_ZNK18qdesigner_internal18SelectSignalDialog15methodFromIndexERK11QModelIndex(
+    const qdesigner_internal::SelectSignalDialog *self,
+    const QModelIndex *a0) {
+  return new qdesigner_internal::SelectSignalDialog::Method(
+      self->methodFromIndex(
+          *a0));
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_SelectSignalDialog,

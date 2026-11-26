@@ -39,6 +39,15 @@ QOpcUaRelativePathElement *ritual_ZN25QOpcUaRelativePathElementC1ERKS_(
   return new QOpcUaRelativePathElement(*a0);
 }
 
+//  QOpcUaRelativePathElement &QOpcUaRelativePathElement::operator=(const
+//      QOpcUaRelativePathElement &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaRelativePathElement *ritual_ZN25QOpcUaRelativePathElementaSERKS_(
+    QOpcUaRelativePathElement *self,
+    const QOpcUaRelativePathElement *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QOpcUaRelativePathElement::~QOpcUaRelativePathElement()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QOpcUaRelativePathElementD1Ev(

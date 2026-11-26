@@ -9,6 +9,9 @@
     "ritual_ZN32QOpcUaContentFilterElementResultC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN32QOpcUaContentFilterElementResultaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN32QOpcUaContentFilterElementResultD1Ev": [
       "nothing", "address"
     ],
@@ -17,6 +20,15 @@
     ],
     "ritual_ZN32QOpcUaContentFilterElementResult13setStatusCodeEN6QOpcUa12UaStatusCodeE": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK32QOpcUaContentFilterElementResult18operandStatusCodesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QOpcUaContentFilterElementResult21operandStatusCodesRefEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QOpcUaContentFilterElementResult21setOperandStatusCodesERK5QListIN6QOpcUa12UaStatusCodeEE": [
+      "nothing", "address", "address"
     ],
     "ritual_list_make_QOpcUaContentFilterElementResult": ["address"],
     "ritual_list_add_QOpcUaContentFilterElementResult": [
@@ -29,6 +41,9 @@
       "address", "address", "long long"
     ],
     "ritual_list_drop_QOpcUaContentFilterElementResult": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QOpcUaContentFilterElementResult__QList_QOpcUa_UaStatusCode": [
       "nothing", "address"
     ]
   }

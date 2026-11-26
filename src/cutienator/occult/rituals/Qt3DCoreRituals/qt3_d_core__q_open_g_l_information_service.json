@@ -8,10 +8,22 @@
     "ritual_ZNK8Qt3DCore25QOpenGLInformationService10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore25QOpenGLInformationService11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore25QOpenGLInformationService11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore25QOpenGLInformationService2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZNK8Qt3DCore25QOpenGLInformationService6formatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore25QOpenGLInformationServiceC1ERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore25QOpenGLInformationServiceC1ERNS_32QOpenGLInformationServicePrivateE": [
       "address", "address"
     ],
     "ritual_take_Qt3DCore_QOpenGLInformationService": [

@@ -60,6 +60,9 @@
     "ritual_ZNK14QWindowPrivate25closestAcceptableGeometryERK6QRectF": [
       "address", "address", "address"
     ],
+    "ritual_ZN14QWindowPrivate15setMinOrMaxSizeEP5QSizeRKS0_N3qxp12function_refIJFvvEEEES7_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK14QWindowPrivate30participatesInLastWindowClosedEv": [
       "bool", "address"
     ],

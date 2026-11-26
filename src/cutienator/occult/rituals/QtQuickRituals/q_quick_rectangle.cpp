@@ -24,6 +24,24 @@ const QMetaObject *ritual_ZNK15QQuickRectangle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRectangle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickRectangle11qt_metacastEPKc(
+    QQuickRectangle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRectangle::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickRectangle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRectangle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRectangle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickRectangle2trEPKcS1_i(
@@ -187,6 +205,46 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickRectangle22resetBottomRightRadiusEv(
     QQuickRectangle *self) {
   self->resetBottomRightRadius();
+}
+
+//  void QQuickRectangle::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickRectangle12colorChangedEv(QQuickRectangle *self) {
+  self->colorChanged();
+}
+
+//  void QQuickRectangle::radiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickRectangle13radiusChangedEv(QQuickRectangle *self) {
+  self->radiusChanged();
+}
+
+//  void QQuickRectangle::topLeftRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickRectangle20topLeftRadiusChangedEv(
+    QQuickRectangle *self) {
+  self->topLeftRadiusChanged();
+}
+
+//  void QQuickRectangle::topRightRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickRectangle21topRightRadiusChangedEv(
+    QQuickRectangle *self) {
+  self->topRightRadiusChanged();
+}
+
+//  void QQuickRectangle::bottomLeftRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickRectangle23bottomLeftRadiusChangedEv(
+    QQuickRectangle *self) {
+  self->bottomLeftRadiusChanged();
+}
+
+//  void QQuickRectangle::bottomRightRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickRectangle24bottomRightRadiusChangedEv(
+    QQuickRectangle *self) {
+  self->bottomRightRadiusChanged();
 }
 
 //  QSGNode *QQuickRectangle::updatePaintNode(QSGNode *a0,

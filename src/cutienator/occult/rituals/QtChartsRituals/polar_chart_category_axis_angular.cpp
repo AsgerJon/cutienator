@@ -18,6 +18,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A PolarChartCategoryAxisAngular that Python can take functions over in. Every PolarChartCategoryAxisAngular
 //  Python makes is one. Each function below asks the Python
@@ -1330,6 +1331,25 @@ const QMetaObject *ritual_ZNK29PolarChartCategoryAxisAngular10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PolarChartCategoryAxisAngular::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29PolarChartCategoryAxisAngular11qt_metacastEPKc(
+    PolarChartCategoryAxisAngular *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PolarChartCategoryAxisAngular::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29PolarChartCategoryAxisAngular11qt_metacallEN11QMetaObject4CallEiPPv(
+    PolarChartCategoryAxisAngular *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString PolarChartCategoryAxisAngular::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1356,6 +1376,22 @@ void ritual_ZN29PolarChartCategoryAxisAngularD1Ev(
   delete self;
 }
 
+//  QList<qreal> PolarChartCategoryAxisAngular::calculateLayout() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK29PolarChartCategoryAxisAngular15calculateLayoutEv(
+    const PolarChartCategoryAxisAngular *self) {
+  return new QList<qreal>(self->calculateLayout());
+}
+
+//  void PolarChartCategoryAxisAngular::createAxisLabels(const QList<qreal>
+//      &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29PolarChartCategoryAxisAngular16createAxisLabelsERK5QListIdE(
+    PolarChartCategoryAxisAngular *self,
+    const QList<qreal> *layout) {
+  self->createAxisLabels(*layout);
+}
+
 //  void PolarChartCategoryAxisAngular::handleCategoriesChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29PolarChartCategoryAxisAngular23handleCategoriesChangedEv(
@@ -1371,4 +1407,11 @@ bool ritual_take_PolarChartCategoryAxisAngular(
     const char *key,
     void *call) {
   return static_cast<CutePolarChartCategoryAxisAngular *>(self)->take(key, call);
+}
+
+//  a QList<qreal> a ritual of PolarChartCategoryAxisAngular gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_PolarChartCategoryAxisAngular__QList_qreal(
+    QList<qreal> *self) {
+  delete self;
 }

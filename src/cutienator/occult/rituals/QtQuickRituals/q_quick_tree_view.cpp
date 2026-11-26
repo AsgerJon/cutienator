@@ -11,7 +11,9 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquicktreeview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qvariant.h>
@@ -1075,6 +1077,24 @@ const QMetaObject *ritual_ZNK14QQuickTreeView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTreeView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickTreeView11qt_metacastEPKc(
+    QQuickTreeView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTreeView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickTreeView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTreeView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTreeView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickTreeView2trEPKcS1_i(
@@ -1203,6 +1223,30 @@ QModelIndex *ritual_ZNK14QQuickTreeView10modelIndexEii(
   return new QModelIndex(self->modelIndex(row, column));
 }
 #endif  // QT_DEPRECATED_SINCE(6, 4)
+
+//  void QQuickTreeView::expanded(int row, int depth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTreeView8expandedEii(
+    QQuickTreeView *self,
+    int row,
+    int depth) {
+  self->expanded(row, depth);
+}
+
+//  void QQuickTreeView::collapsed(int row, bool recursively)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTreeView9collapsedEib(
+    QQuickTreeView *self,
+    int row,
+    bool recursively) {
+  self->collapsed(row, recursively);
+}
+
+//  void QQuickTreeView::rootIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTreeView16rootIndexChangedEv(QQuickTreeView *self) {
+  self->rootIndexChanged();
+}
 
 //  void QQuickTreeView::keyPressEvent(QKeyEvent *event)
 extern "C" Q_DECL_EXPORT

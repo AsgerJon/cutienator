@@ -6,9 +6,13 @@
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(wheelevent)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(wheelevent)
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickwheelhandler_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickwheelhandler_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -93,6 +97,13 @@ const QQuickWheelHandlerPrivate *ritual_ZN25QQuickWheelHandlerPrivate3getEPK18QQ
 extern "C" Q_DECL_EXPORT
 QQuickWheelHandlerPrivate *ritual_ZN25QQuickWheelHandlerPrivateC1Ev() {
   return new CuteQQuickWheelHandlerPrivate();
+}
+
+//  QMetaProperty &QQuickWheelHandlerPrivate::targetMetaProperty() const
+extern "C" Q_DECL_EXPORT
+QMetaProperty *ritual_ZNK25QQuickWheelHandlerPrivate18targetMetaPropertyEv(
+    const QQuickWheelHandlerPrivate *self) {
+  return &(self->targetMetaProperty());
 }
 
 //  a Python function taken by a CuteQQuickWheelHandlerPrivate, for the

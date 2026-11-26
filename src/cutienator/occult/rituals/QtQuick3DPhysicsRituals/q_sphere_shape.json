@@ -6,16 +6,29 @@
   ],
   "rows": {
     "ritual_ZNK12QSphereShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QSphereShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QSphereShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QSphereShape2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QSphereShapeC1Ev": ["address"],
     "ritual_ZN12QSphereShapeD1Ev": ["nothing", "address"],
     "ritual_ZNK12QSphereShape8diameterEv": ["float", "address"],
+    "ritual_ZN12QSphereShape16getPhysXGeometryEv": ["address", "address"],
     "ritual_ZNK12QSphereShape13isStaticShapeEv": ["bool", "address"],
     "ritual_ZN12QSphereShape11setDiameterEf": [
       "nothing", "address", "float"
     ],
+    "ritual_ZN12QSphereShape15diameterChangedEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZN12QSphereShape19updatePhysXGeometryEv": ["nothing", "address"],
     "ritual_take_QSphereShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QSphereShape16getPhysXGeometryEv": [
+      "address", "address"
+    ],
     "ritual_own_ZNK12QSphereShape13isStaticShapeEv": ["bool", "address"]
   }
 }

@@ -192,6 +192,25 @@ const QMetaObject *ritual_ZNK19QQuickSystemPalette10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSystemPalette::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickSystemPalette11qt_metacastEPKc(
+    QQuickSystemPalette *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSystemPalette::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickSystemPalette11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSystemPalette *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSystemPalette::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickSystemPalette2trEPKcS1_i(
@@ -199,6 +218,20 @@ QString *ritual_ZN19QQuickSystemPalette2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickSystemPalette::tr(s, c, n));
+}
+
+//  QQuickSystemPalettePrivate *QQuickSystemPalette::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSystemPalettePrivate *ritual_ZN19QQuickSystemPalette6d_funcEv(
+    QQuickSystemPalette *self) {
+  return self->d_func();
+}
+
+//  const QQuickSystemPalettePrivate *QQuickSystemPalette::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSystemPalettePrivate *ritual_ZNK19QQuickSystemPalette6d_funcEv(
+    const QQuickSystemPalette *self) {
+  return self->d_func();
 }
 
 //  QQuickSystemPalette::QQuickSystemPalette(QObject *parent)
@@ -343,6 +376,13 @@ bool ritual_ZN19QQuickSystemPalette11eventFilterEP7QObjectP6QEvent(
     QObject *watched,
     QEvent *event) {
   return self->eventFilter(watched, event);
+}
+
+//  void QQuickSystemPalette::paletteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickSystemPalette14paletteChangedEv(
+    QQuickSystemPalette *self) {
+  self->paletteChanged();
 }
 
 //  a Python function taken by a CuteQQuickSystemPalette, for the function

@@ -32,6 +32,15 @@
     "ritual_ZN27QQuickShapeSoftwareRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer14setStrokeStyleEiN15QQuickShapePath11StrokeStyleEdRK5QListIdE": [
+      "nothing", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer15setFillGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer17setStrokeGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN27QQuickShapeSoftwareRenderer22setFillTextureProviderEiP10QQuickItem": [
       "nothing", "address", "int", "address"
     ],

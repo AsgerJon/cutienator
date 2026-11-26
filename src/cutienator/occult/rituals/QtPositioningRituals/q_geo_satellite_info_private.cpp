@@ -22,6 +22,24 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtpositioning/src/positioning/qgeosatelliteinfo.cpp, line 387, as _ZN24QGeoSatelliteInfoPrivateD1Ev
+inline QGeoSatelliteInfoPrivate::~QGeoSatelliteInfoPrivate() {}
+
+//  from ../qtpositioning/src/positioning/qgeosatelliteinfo.cpp, line 373, as _ZN24QGeoSatelliteInfoPrivateC1Ev
+inline QGeoSatelliteInfoPrivate::QGeoSatelliteInfoPrivate() : QSharedData()
+{
+
+}
+
+//  from ../qtpositioning/src/positioning/qgeosatelliteinfo.cpp, line 389, as _ZNK24QGeoSatelliteInfoPrivateeqERKS_
+inline bool QGeoSatelliteInfoPrivate::operator==(const QGeoSatelliteInfoPrivate &other) const
+{
+    return signal == other.signal
+           && satId == other.satId
+           && system == other.system
+           && doubleAttribs == other.doubleAttribs;
+}
+
 //  from ../qtpositioning/src/positioning/qgeosatelliteinfo.cpp, line 397, as _ZN24QGeoSatelliteInfoPrivate3getERK17QGeoSatelliteInfo
 inline QGeoSatelliteInfoPrivate *QGeoSatelliteInfoPrivate::get(const QGeoSatelliteInfo &info)
 {
@@ -29,11 +47,26 @@ inline QGeoSatelliteInfoPrivate *QGeoSatelliteInfoPrivate::get(const QGeoSatelli
 }
 //  -----------------------------------------------------------------------
 
+//  QGeoSatelliteInfoPrivate::QGeoSatelliteInfoPrivate()
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfoPrivate *ritual_ZN24QGeoSatelliteInfoPrivateC1Ev() {
+  return new QGeoSatelliteInfoPrivate();
+}
+
 //  QGeoSatelliteInfoPrivate::~QGeoSatelliteInfoPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QGeoSatelliteInfoPrivateD1Ev(
     QGeoSatelliteInfoPrivate *self) {
   delete self;
+}
+
+//  bool QGeoSatelliteInfoPrivate::operator==(const QGeoSatelliteInfoPrivate
+//      &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK24QGeoSatelliteInfoPrivateeqERKS_(
+    const QGeoSatelliteInfoPrivate *self,
+    const QGeoSatelliteInfoPrivate *other) {
+  return self->operator==(*other);
 }
 
 //  QGeoSatelliteInfoPrivate *QGeoSatelliteInfoPrivate::get(const

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14ChartPresenter10metaObjectEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14ChartPresenter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14ChartPresenter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -124,6 +130,9 @@
     "ritual_ZN14ChartPresenter16textBoundingRectERK5QFontRK7QStringd": [
       "address", "address", "text", "double"
     ],
+    "ritual_ZN14ChartPresenter13truncatedTextERK5QFontRK7QStringdddR6QRectF": [
+      "text", "address", "text", "double", "double", "double", "address"
+    ],
     "ritual_ZN14ChartPresenter10textMarginEv": ["double"],
     "ritual_ZN14ChartPresenter14numberToStringEdci": [
       "text", "address", "double", "char", "int"
@@ -152,6 +161,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN14ChartPresenter17handleAxisRemovedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter15plotAreaChangedERK6QRectF": [
       "nothing", "address", "address"
     ],
     "ritual_take_ChartPresenter": ["bool", "address", "chars", "address"]

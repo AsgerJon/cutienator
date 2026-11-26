@@ -85,6 +85,15 @@ void ritual_ZN10QSvgSwitchD1Ev(QSvgSwitch *self) {
   delete self;
 }
 
+//  void QSvgSwitch::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSvgSwitch11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgSwitch *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
 //  Type QSvgSwitch::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK10QSvgSwitch4typeEv(const QSvgSwitch *self) {

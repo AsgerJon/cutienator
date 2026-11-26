@@ -8,6 +8,12 @@
     "ritual_ZNK31QQuickLabsPlatformMenuItemGroup10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QQuickLabsPlatformMenuItemGroupD1Ev": ["nothing", "address"],
     "ritual_ZNK31QQuickLabsPlatformMenuItemGroup9isEnabledEv": [
       "bool", "address"
@@ -21,11 +27,50 @@
     "ritual_ZNK31QQuickLabsPlatformMenuItemGroup11checkedItemEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup7addItemEP26QQuickLabsPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup10removeItemEP26QQuickLabsPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup9triggeredEP26QQuickLabsPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup7hoveredEP26QQuickLabsPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup14enabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup16exclusiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup18checkedItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup12itemsChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK31QQuickLabsPlatformMenuItemGroup11findCurrentEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup11items_countEP16QQmlListPropertyI26QQuickLabsPlatformMenuItemE": [
+      "long long", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroup8items_atEP16QQmlListPropertyI26QQuickLabsPlatformMenuItemEx": [
+      "address", "address", "long long"
+    ],
     "ritual_take_QQuickLabsPlatformMenuItemGroup": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQuickLabsPlatformMenuItemGroup__QQmlListProperty_QQuickLabsPlatformMenuItem": [
+      "nothing", "address"
     ]
   }
 }

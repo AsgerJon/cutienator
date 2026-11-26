@@ -233,6 +233,25 @@ const QMetaObject *ritual_ZNK18QQStyleKitAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQStyleKitAttached11qt_metacastEPKc(
+    QQStyleKitAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitAttached::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQStyleKitAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQStyleKitAttached::~QQStyleKitAttached()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQStyleKitAttachedD1Ev(QQStyleKitAttached *self) {
@@ -265,6 +284,81 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK18QQStyleKitAttached11styleLoadedEv(
     const QQStyleKitAttached *self) {
   return self->styleLoaded();
+}
+
+//  void QQStyleKitAttached::styleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQStyleKitAttached12styleChangedEv(
+    QQStyleKitAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "styleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "styleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitAttached::styleUrlChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQStyleKitAttached15styleUrlChangedEv(
+    QQStyleKitAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "styleUrlChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "styleUrlChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitAttached::transitionsEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQStyleKitAttached25transitionsEnabledChangedEv(
+    QQStyleKitAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "transitionsEnabledChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "transitionsEnabledChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQStyleKitAttached, for the function

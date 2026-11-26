@@ -2,10 +2,26 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/6.12.0/QtNetwork/private/qdnslookup_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK18QDnsLookupRunnable10metaObjectEv": ["address", "address"],
-    "ritual_cast_QDnsLookupRunnable_QRunnable": ["address", "address"]
+    "ritual_ZN18QDnsLookupRunnable11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QDnsLookupRunnable11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QDnsLookupRunnable3runEv": ["nothing", "address"],
+    "ritual_ZN18QDnsLookupRunnable8finishedERK15QDnsLookupReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QDnsLookupRunnable_QRunnable": ["address", "address"],
+    "ritual_ZN18QDnsLookupRunnable11decodeLabelI11QStringViewEE7QStringT_": [
+      "text", "text"
+    ],
+    "ritual_ZN18QDnsLookupRunnable11decodeLabelI13QLatin1StringEE7QStringT_": [
+      "text", "chars"
+    ]
   }
 }

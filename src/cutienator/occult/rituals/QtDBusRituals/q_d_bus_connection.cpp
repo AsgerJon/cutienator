@@ -24,10 +24,40 @@ QDBusConnection *ritual_ZN15QDBusConnectionC1ERKS_(
   return new QDBusConnection(*other);
 }
 
+//  QDBusConnection::QDBusConnection(QDBusConnection &&other)
+extern "C" Q_DECL_EXPORT
+QDBusConnection *ritual_ZN15QDBusConnectionC1EOS_(QDBusConnection *other) {
+  return new QDBusConnection(std::move(*other));
+}
+
+//  QDBusConnection &QDBusConnection::operator=(QDBusConnection &&other)
+extern "C" Q_DECL_EXPORT
+QDBusConnection *ritual_ZN15QDBusConnectionaSEOS_(
+    QDBusConnection *self,
+    QDBusConnection *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDBusConnection &QDBusConnection::operator=(const QDBusConnection &other)
+extern "C" Q_DECL_EXPORT
+QDBusConnection *ritual_ZN15QDBusConnectionaSERKS_(
+    QDBusConnection *self,
+    const QDBusConnection *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDBusConnection::~QDBusConnection()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QDBusConnectionD1Ev(QDBusConnection *self) {
   delete self;
+}
+
+//  void QDBusConnection::swap(QDBusConnection &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QDBusConnection4swapERS_(
+    QDBusConnection *self,
+    QDBusConnection *other) {
+  self->swap(*other);
 }
 
 //  bool QDBusConnection::isConnected() const
@@ -338,6 +368,13 @@ extern "C" Q_DECL_EXPORT
 QDBusConnectionInterface *ritual_ZNK15QDBusConnection9interfaceEv(
     const QDBusConnection *self) {
   return self->interface();
+}
+
+//  void *QDBusConnection::internalPointer() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK15QDBusConnection15internalPointerEv(
+    const QDBusConnection *self) {
+  return self->internalPointer();
 }
 
 //  QDBusConnection QDBusConnection::connectToBus(BusType type, const QString

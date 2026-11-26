@@ -182,6 +182,25 @@ const QMetaObject *ritual_ZNK24QOpenGLVertexArrayObject10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLVertexArrayObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QOpenGLVertexArrayObject11qt_metacastEPKc(
+    QOpenGLVertexArrayObject *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLVertexArrayObject::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QOpenGLVertexArrayObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLVertexArrayObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLVertexArrayObject::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QOpenGLVertexArrayObject2trEPKcS1_i(
@@ -226,6 +245,13 @@ bool ritual_ZNK24QOpenGLVertexArrayObject9isCreatedEv(
   return self->isCreated();
 }
 
+//  GLuint QOpenGLVertexArrayObject::objectId() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK24QOpenGLVertexArrayObject8objectIdEv(
+    const QOpenGLVertexArrayObject *self) {
+  return self->objectId();
+}
+
 //  void QOpenGLVertexArrayObject::bind()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QOpenGLVertexArrayObject4bindEv(
@@ -238,6 +264,29 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QOpenGLVertexArrayObject7releaseEv(
     QOpenGLVertexArrayObject *self) {
   self->release();
+}
+
+//  QOpenGLVertexArrayObjectPrivate *QOpenGLVertexArrayObject::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLVertexArrayObjectPrivate *ritual_ZN24QOpenGLVertexArrayObject6d_funcEv(
+    QOpenGLVertexArrayObject *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLVertexArrayObjectPrivate *QOpenGLVertexArrayObject::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QOpenGLVertexArrayObjectPrivate *ritual_ZNK24QOpenGLVertexArrayObject6d_funcEv(
+    const QOpenGLVertexArrayObject *self) {
+  return self->d_func();
+}
+
+//  QOpenGLVertexArrayObject::QOpenGLVertexArrayObject(QOpenGLVertexArrayObje
+//      ctPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QOpenGLVertexArrayObject *ritual_ZN24QOpenGLVertexArrayObjectC1ER31QOpenGLVertexArrayObjectPrivate(
+    QOpenGLVertexArrayObjectPrivate *dd) {
+  return new CuteQOpenGLVertexArrayObject(*dd);
 }
 
 //  a Python function taken by a CuteQOpenGLVertexArrayObject, for the

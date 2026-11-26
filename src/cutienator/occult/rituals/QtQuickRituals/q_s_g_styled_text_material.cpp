@@ -29,6 +29,20 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 539, as local:qsgdefaultglyphnode_p.cpp:qsg_colorDiff
+static inline int qsg_colorDiff(const QVector4D &a, const QVector4D &b)
+{
+    if (a.x() != b.x())
+        return a.x() > b.x() ? 1 : -1;
+    if (a.y() != b.y())
+        return a.y() > b.y() ? 1 : -1;
+    if (a.z() != b.z())
+        return a.z() > b.z() ? 1 : -1;
+    if (a.w() != b.w())
+        return a.w() > b.w() ? 1 : -1;
+    return 0;
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 313, as _ZN19QSGTextMaskMaterialC2EP16QSGRenderContextRK9QVector4DRK8QRawFontN11QFontEngine11GlyphFormatE
 inline QSGTextMaskMaterial::QSGTextMaskMaterial(QSGRenderContext *rc, const QVector4D &color, const QRawFont &font, QFontEngine::GlyphFormat glyphFormat)
     : m_rc(qobject_cast<QSGDefaultRenderContext *>(rc))
@@ -53,6 +67,30 @@ inline QSGMaterialType *QSGStyledTextMaterial::type() const
 {
     static QSGMaterialType type;
     return &type;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 597, as _ZNK21QSGStyledTextMaterial7compareEPK11QSGMaterial
+inline int QSGStyledTextMaterial::compare(const QSGMaterial *o) const
+{
+    const QSGStyledTextMaterial *other = static_cast<const QSGStyledTextMaterial *>(o);
+
+    if (m_styleShift != other->m_styleShift)
+        return m_styleShift.y() - other->m_styleShift.y();
+
+    int diff = qsg_colorDiff(m_styleColor, other->m_styleColor);
+    if (diff == 0)
+        return QSGTextMaskMaterial::compare(o);
+    return diff;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 552, as _ZNK19QSGTextMaskMaterial7compareEPK11QSGMaterial
+inline int QSGTextMaskMaterial::compare(const QSGMaterial *o) const
+{
+    Q_ASSERT(o && type() == o->type());
+    const QSGTextMaskMaterial *other = static_cast<const QSGTextMaskMaterial *>(o);
+    if (m_glyphCache != other->m_glyphCache)
+        return m_glyphCache.data() < other->m_glyphCache.data() ? -1 : 1;
+    return qsg_colorDiff(m_color, other->m_color);
 }
 //  -----------------------------------------------------------------------
 
@@ -171,6 +209,24 @@ QSGMaterialType *ritual_ZNK21QSGStyledTextMaterial4typeEv(
   return self->type();
 }
 
+//  QSGMaterialShader
+//      *QSGStyledTextMaterial::createShader(QSGRendererInterface::RenderMode
+//      renderMode) const
+extern "C" Q_DECL_EXPORT
+QSGMaterialShader *ritual_ZNK21QSGStyledTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE(
+    const QSGStyledTextMaterial *self,
+    QSGRendererInterface::RenderMode renderMode) {
+  return self->createShader(renderMode);
+}
+
+//  int QSGStyledTextMaterial::compare(const QSGMaterial *other) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK21QSGStyledTextMaterial7compareEPK11QSGMaterial(
+    const QSGStyledTextMaterial *self,
+    const QSGMaterial *other) {
+  return self->compare(other);
+}
+
 //  a Python function taken by a CuteQSGStyledTextMaterial, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -186,4 +242,12 @@ extern "C" Q_DECL_EXPORT
 QSGMaterialType *ritual_own_ZNK21QSGStyledTextMaterial4typeEv(
     const QSGStyledTextMaterial *self) {
   return self->QSGStyledTextMaterial::type();
+}
+
+//  int QSGStyledTextMaterial::compare(const QSGMaterial *other) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK21QSGStyledTextMaterial7compareEPK11QSGMaterial(
+    const QSGStyledTextMaterial *self,
+    const QSGMaterial *other) {
+  return self->QSGStyledTextMaterial::compare(other);
 }

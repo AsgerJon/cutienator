@@ -8,7 +8,11 @@
     "ritual_ZN19QGeoTileSpecPrivateC1ERK7QStringiiiii": [
       "address", "text", "int", "int", "int", "int", "int"
     ],
+    "ritual_ZNK19QGeoTileSpecPrivate4hashEm": [
+      "size_t", "address", "size_t"
+    ],
     "ritual_ZNK19QGeoTileSpecPrivateeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK19QGeoTileSpecPrivateltERKS_": ["bool", "address", "address"],
     "ritual_ZN19QGeoTileSpecPrivateD1Ev": ["nothing", "address"]
   }
 }

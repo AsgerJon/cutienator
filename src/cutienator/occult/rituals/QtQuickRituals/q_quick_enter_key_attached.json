@@ -8,12 +8,21 @@
     "ritual_ZNK22QQuickEnterKeyAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickEnterKeyAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickEnterKeyAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickEnterKeyAttached24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN22QQuickEnterKeyAttached21qt_qmlMarker_attachedEv": [
       "nothing", "address"
     ],
-    "ritual_ZNK22QQuickEnterKeyAttached4typeEv": ["int", "address"]
+    "ritual_ZNK22QQuickEnterKeyAttached4typeEv": ["int", "address"],
+    "ritual_ZN22QQuickEnterKeyAttached11typeChangedEv": [
+      "nothing", "address"
+    ]
   }
 }

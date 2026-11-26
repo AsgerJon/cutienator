@@ -7,7 +7,17 @@
   "rows": {
     "ritual_ZN19QCompressedHelpInfoC1Ev": ["address"],
     "ritual_ZN19QCompressedHelpInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN19QCompressedHelpInfoC1EOS_": ["address", "address"],
     "ritual_ZN19QCompressedHelpInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN19QCompressedHelpInfoaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QCompressedHelpInfoaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QCompressedHelpInfo4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QCompressedHelpInfo13namespaceNameEv": ["text", "address"],
     "ritual_ZNK19QCompressedHelpInfo9componentEv": ["text", "address"],
     "ritual_ZNK19QCompressedHelpInfo7versionEv": ["address", "address"],

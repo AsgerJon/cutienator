@@ -255,6 +255,25 @@ const QMetaObject *ritual_ZNK21QCustom3DLabelPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCustom3DLabelPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QCustom3DLabelPrivate11qt_metacastEPKc(
+    QCustom3DLabelPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCustom3DLabelPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QCustom3DLabelPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCustom3DLabelPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QCustom3DLabelPrivate::~QCustom3DLabelPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QCustom3DLabelPrivateD1Ev(QCustom3DLabelPrivate *self) {

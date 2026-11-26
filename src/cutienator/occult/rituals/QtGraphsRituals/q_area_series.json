@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK11QAreaSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QAreaSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QAreaSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QAreaSeriesC1EP7QObject": ["address", "address"],
     "ritual_ZN11QAreaSeriesD1Ev": ["nothing", "address"],
@@ -49,6 +55,43 @@
     "ritual_ZNK11QAreaSeries16selectedGradientEv": ["address", "address"],
     "ritual_ZN11QAreaSeries19setSelectedGradientEP19QQuickShapeGradient": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries12colorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries20selectedColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries18borderColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries26selectedBorderColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries18borderWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN11QAreaSeries15selectedChangedEv": ["nothing", "address"],
+    "ritual_ZN11QAreaSeries18upperSeriesChangedEv": ["nothing", "address"],
+    "ritual_ZN11QAreaSeries18lowerSeriesChangedEv": ["nothing", "address"],
+    "ritual_ZN11QAreaSeries15gradientChangedEP19QQuickShapeGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries23selectedGradientChangedEP19QQuickShapeGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries7clickedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries13doubleClickedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries7pressedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries8releasedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeriesC1ER18QAreaSeriesPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN11QAreaSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK11QAreaSeries6d_funcEv": ["address", "address"],

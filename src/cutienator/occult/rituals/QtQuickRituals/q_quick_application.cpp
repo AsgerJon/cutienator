@@ -10,6 +10,7 @@
 #include <QtGui/qfont.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuickApplication that Python can take functions over in. Every QQuickApplication
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +186,25 @@ const QMetaObject *ritual_ZNK17QQuickApplication10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickApplication::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickApplication11qt_metacastEPKc(
+    QQuickApplication *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickApplication::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickApplication11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickApplication *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickApplication::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickApplication2trEPKcS1_i(
@@ -247,6 +267,13 @@ QFont *ritual_ZNK17QQuickApplication4fontEv(const QQuickApplication *self) {
   return new QFont(self->font());
 }
 
+//  QQmlListProperty<QQuickScreenInfo> QQuickApplication::screens()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickScreenInfo> *ritual_ZN17QQuickApplication7screensEv(
+    QQuickApplication *self) {
+  return new QQmlListProperty<QQuickScreenInfo>(self->screens());
+}
+
 //  QString QQuickApplication::displayName() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK17QQuickApplication11displayNameEv(
@@ -269,6 +296,41 @@ QStyleHints *ritual_ZN17QQuickApplication10styleHintsEv(
   return self->styleHints();
 }
 
+//  void QQuickApplication::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickApplication13activeChangedEv(QQuickApplication *self) {
+  self->activeChanged();
+}
+
+//  void QQuickApplication::displayNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickApplication18displayNameChangedEv(
+    QQuickApplication *self) {
+  self->displayNameChanged();
+}
+
+//  void QQuickApplication::layoutDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickApplication22layoutDirectionChangedEv(
+    QQuickApplication *self) {
+  self->layoutDirectionChanged();
+}
+
+//  void QQuickApplication::stateChanged(Qt::ApplicationState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickApplication12stateChangedEN2Qt16ApplicationStateE(
+    QQuickApplication *self,
+    Qt::ApplicationState state) {
+  self->stateChanged(state);
+}
+
+//  void QQuickApplication::screensChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickApplication14screensChangedEv(
+    QQuickApplication *self) {
+  self->screensChanged();
+}
+
 //  void QQuickApplication::updateScreens()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickApplication13updateScreensEv(QQuickApplication *self) {
@@ -283,4 +345,11 @@ bool ritual_take_QQuickApplication(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickApplication *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QQuickScreenInfo> a ritual of QQuickApplication gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickApplication__QQmlListProperty_QQuickScreenInfo(
+    QQmlListProperty<QQuickScreenInfo> *self) {
+  delete self;
 }

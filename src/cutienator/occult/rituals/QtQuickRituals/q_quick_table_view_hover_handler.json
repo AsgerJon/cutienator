@@ -8,8 +8,17 @@
     "ritual_ZNK27QQuickTableViewHoverHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuickTableViewHoverHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuickTableViewHoverHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK27QQuickTableViewHoverHandler14isHoveringGridEv": [
       "bool", "address"
+    ],
+    "ritual_ZN27QQuickTableViewHoverHandler16handleEventPointEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_QQuickTableViewHoverHandler": [
       "bool", "address", "chars", "address"

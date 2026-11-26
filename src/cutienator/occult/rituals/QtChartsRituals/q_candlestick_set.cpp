@@ -184,6 +184,24 @@ const QMetaObject *ritual_ZNK15QCandlestickSet10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCandlestickSet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QCandlestickSet11qt_metacastEPKc(
+    QCandlestickSet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCandlestickSet::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QCandlestickSet11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCandlestickSet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCandlestickSet::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QCandlestickSet2trEPKcS1_i(
@@ -314,6 +332,80 @@ void ritual_ZN15QCandlestickSet6setPenERK4QPen(
 extern "C" Q_DECL_EXPORT
 QPen *ritual_ZNK15QCandlestickSet3penEv(const QCandlestickSet *self) {
   return new QPen(self->pen());
+}
+
+//  void QCandlestickSet::clicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet7clickedEv(QCandlestickSet *self) {
+  self->clicked();
+}
+
+//  void QCandlestickSet::hovered(bool status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet7hoveredEb(
+    QCandlestickSet *self,
+    bool status) {
+  self->hovered(status);
+}
+
+//  void QCandlestickSet::pressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet7pressedEv(QCandlestickSet *self) {
+  self->pressed();
+}
+
+//  void QCandlestickSet::released()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet8releasedEv(QCandlestickSet *self) {
+  self->released();
+}
+
+//  void QCandlestickSet::doubleClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet13doubleClickedEv(QCandlestickSet *self) {
+  self->doubleClicked();
+}
+
+//  void QCandlestickSet::timestampChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet16timestampChangedEv(QCandlestickSet *self) {
+  self->timestampChanged();
+}
+
+//  void QCandlestickSet::openChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet11openChangedEv(QCandlestickSet *self) {
+  self->openChanged();
+}
+
+//  void QCandlestickSet::highChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet11highChangedEv(QCandlestickSet *self) {
+  self->highChanged();
+}
+
+//  void QCandlestickSet::lowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet10lowChangedEv(QCandlestickSet *self) {
+  self->lowChanged();
+}
+
+//  void QCandlestickSet::closeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet12closeChangedEv(QCandlestickSet *self) {
+  self->closeChanged();
+}
+
+//  void QCandlestickSet::brushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet12brushChangedEv(QCandlestickSet *self) {
+  self->brushChanged();
+}
+
+//  void QCandlestickSet::penChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCandlestickSet10penChangedEv(QCandlestickSet *self) {
+  self->penChanged();
 }
 
 //  QCandlestickSetPrivate *QCandlestickSet::d_func()

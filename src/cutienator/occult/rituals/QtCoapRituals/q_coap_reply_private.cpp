@@ -136,11 +136,12 @@ inline void QCoapReplyPrivate::_q_setError(QtCoap::Error newError)
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQCoapReplyPrivateCall0)(const void *, const QHostAddress *, const QCoapMessage *, int, int *);
 typedef bool (*CuteQCoapReplyPrivateCall1)(const void *, char, int *);
-typedef const QByteArray * (*CuteQCoapReplyPrivateCall2)(const void *, qint64, int *);
+typedef qint64 (*CuteQCoapReplyPrivateCall2)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQCoapReplyPrivateCall3)(const void *, qint64, int *);
 class CuteQCoapReplyPrivate : public QCoapReplyPrivate {
 public:
   using QCoapReplyPrivate::QCoapReplyPrivate;
-  void *taken[3] = {};
+  void *taken[4] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN17QCoapReplyPrivate13_q_setContentERK12QHostAddressRK12QCoapMessageN6QtCoap12ResponseCodeE")) {
@@ -151,8 +152,12 @@ public:
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[3] = call;
       return true;
     }
     return false;
@@ -184,11 +189,22 @@ public:
     return QIODevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[2]) {
       int handled = 0;
       CuteQCoapReplyPrivateCall2 call = reinterpret_cast<CuteQCoapReplyPrivateCall2>(taken[2]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQCoapReplyPrivateCall3 call = reinterpret_cast<CuteQCoapReplyPrivateCall3>(taken[3]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }

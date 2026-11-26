@@ -11,6 +11,9 @@
     ],
     "ritual_ZN16QCanvasBoxShadowC1ERK6QRectF": ["address", "address"],
     "ritual_ZN16QCanvasBoxShadowC1ERKS_": ["address", "address"],
+    "ritual_ZN16QCanvasBoxShadowaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QCanvasBoxShadowC1EOS_": ["address", "address"],
+    "ritual_ZN16QCanvasBoxShadowaSEOS_": ["address", "address", "address"],
     "ritual_ZN16QCanvasBoxShadowD1Ev": ["nothing", "address"],
     "ritual_ZNK16QCanvasBoxShadowcv12QCanvasBrushEv": ["address", "address"],
     "ritual_ZNK16QCanvasBoxShadowcv8QVariantEv": ["address", "address"],
@@ -58,10 +61,19 @@
     "ritual_ZN16QCanvasBoxShadow20setBottomRightRadiusEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZN16QCanvasBoxShadow4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK16QCanvasBoxShadowS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QCanvasBoxShadowS1_": ["bool", "address", "address"],
     "ritual_ZN16QCanvasBoxShadowC1EP23QCanvasBoxShadowPrivate": [
       "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK16QCanvasBoxShadow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR16QCanvasBoxShadow": [
+      "address", "address", "address"
     ],
     "ritual_Zls6QDebugRK16QCanvasBoxShadow": [
       "address", "address", "address"

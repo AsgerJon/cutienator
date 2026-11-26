@@ -237,6 +237,24 @@ bool ritual_ZgeRK5QTimeS1_(const QTime *lhs, const QTime *rhs) {
   return operator>=(*lhs, *rhs);
 }
 
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, QTime a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStream5QTime(
+    QDataStream *a0,
+    const QTime *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QTime &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR5QTime(QDataStream *a0, QTime *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 //  QTime::~QTime()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QTimeD1Ev(QTime *self) {

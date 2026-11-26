@@ -183,11 +183,80 @@ const QMetaObject *ritual_ZNK26QQuickItemParticleAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickItemParticleAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickItemParticleAttached11qt_metacastEPKc(
+    QQuickItemParticleAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickItemParticleAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickItemParticleAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickItemParticleAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickItemParticle *QQuickItemParticleAttached::particle() const
 extern "C" Q_DECL_EXPORT
 QQuickItemParticle *ritual_ZNK26QQuickItemParticleAttached8particleEv(
     const QQuickItemParticleAttached *self) {
   return self->particle();
+}
+
+//  void QQuickItemParticleAttached::detached()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickItemParticleAttached8detachedEv(
+    QQuickItemParticleAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickItemParticleAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "detached()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "detached()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickItemParticleAttached::attached()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickItemParticleAttached8attachedEv(
+    QQuickItemParticleAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickItemParticleAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "attached()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "attached()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuickItemParticleAttached, for the

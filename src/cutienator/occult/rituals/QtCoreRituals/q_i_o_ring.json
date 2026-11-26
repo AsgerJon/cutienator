@@ -13,9 +13,24 @@
       "bool", "unsigned char"
     ],
     "ritual_ZN7QIORing14submitRequestsEv": ["nothing", "address"],
+    "ritual_ZN7QIORing14waitForRequestEPNS_16RequestHandleTagE14QDeadlineTimer": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK7QIORing19submissionQueueSizeEv": ["unsigned int", "address"],
     "ritual_ZNK7QIORing19completionQueueSizeEv": ["unsigned int", "address"],
     "ritual_ZN7QIORing16initializeIORingEv": ["bool", "address"],
-    "ritual_ZN7QIORing15isResultFailureEi": ["bool", "int"]
+    "ritual_ZN7QIORing20queueRequestInternalERNS_18GenericRequestTypeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN7QIORing15isResultFailureEi": ["bool", "int"],
+    "ritual_ZN7QIORing20handleReadCompletionEmP5QSpanISt4byteLm18446744073709551615EEPvN3qxp12function_refIJFxxEEEE": [
+      "bool", "size_t", "address", "address", "address"
+    ],
+    "ritual_ZN7QIORing21handleWriteCompletionEmPK5QSpanIKSt4byteLm18446744073709551615EEPvN3qxp12function_refIJFxxEEEE": [
+      "bool", "size_t", "address", "address", "address"
+    ],
+    "ritual_ZN7QIORing27finalizeReadWriteCompletionEPNS_18GenericRequestTypeENS_15ReadWriteStatusE": [
+      "nothing", "address", "address", "bool"
+    ]
   }
 }

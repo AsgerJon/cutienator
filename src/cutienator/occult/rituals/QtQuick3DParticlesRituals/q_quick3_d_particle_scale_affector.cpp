@@ -7,7 +7,9 @@
 #include <QtQuick3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlescaleaffector_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticledata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -24,6 +26,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK29QQuick3DParticleScaleAffector10metaObjectEv(
     const QQuick3DParticleScaleAffector *self) {
   return self->metaObject();
+}
+
+//  void *QQuick3DParticleScaleAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuick3DParticleScaleAffector11qt_metacastEPKc(
+    QQuick3DParticleScaleAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleScaleAffector::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuick3DParticleScaleAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleScaleAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuick3DParticleScaleAffector::tr(const char *s, const char *c,
@@ -118,6 +139,41 @@ void ritual_ZN29QQuick3DParticleScaleAffector14setEasingCurveERK12QEasingCurve(
     QQuick3DParticleScaleAffector *self,
     const QEasingCurve *curve) {
   self->setEasingCurve(*curve);
+}
+
+//  void QQuick3DParticleScaleAffector::minSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleScaleAffector14minSizeChangedEv(
+    QQuick3DParticleScaleAffector *self) {
+  self->minSizeChanged();
+}
+
+//  void QQuick3DParticleScaleAffector::maxSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleScaleAffector14maxSizeChangedEv(
+    QQuick3DParticleScaleAffector *self) {
+  self->maxSizeChanged();
+}
+
+//  void QQuick3DParticleScaleAffector::durationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleScaleAffector15durationChangedEv(
+    QQuick3DParticleScaleAffector *self) {
+  self->durationChanged();
+}
+
+//  void QQuick3DParticleScaleAffector::typeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleScaleAffector11typeChangedEv(
+    QQuick3DParticleScaleAffector *self) {
+  self->typeChanged();
+}
+
+//  void QQuick3DParticleScaleAffector::easingCurveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleScaleAffector18easingCurveChangedEv(
+    QQuick3DParticleScaleAffector *self) {
+  self->easingCurveChanged();
 }
 
 //  void QQuick3DParticleScaleAffector::prepareToAffect()

@@ -12,6 +12,18 @@
   "rows": {
     "ritual_ZNK10Qt3DRender6Render5Quick21RenderQmlEventHandler10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick21RenderQmlEventHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick21RenderQmlEventHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick21RenderQmlEventHandler5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render5Quick21RenderQmlEventHandler5eventEP6QEvent": [
+      "bool", "address", "address"
     ]
   }
 }

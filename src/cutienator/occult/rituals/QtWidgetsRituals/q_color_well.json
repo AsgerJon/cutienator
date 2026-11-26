@@ -6,6 +6,13 @@
   ],
   "rows": {
     "ritual_ZNK10QColorWell10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QColorWell11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QColorWell11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QColorWell9rgbValuesEv": ["address", "address"],
     "ritual_ZN10QColorWell17paintCellContentsEP8QPainteriiRK5QRect": [
       "nothing", "address", "address", "int", "int", "address"
     ],

@@ -68,6 +68,12 @@ public:
   }
 };
 
+//  QSGMaterial::QSGMaterial()
+extern "C" Q_DECL_EXPORT
+QSGMaterial *ritual_ZN11QSGMaterialC1Ev() {
+  return new CuteQSGMaterial();
+}
+
 //  QSGMaterial::~QSGMaterial()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QSGMaterialD1Ev(QSGMaterial *self) {

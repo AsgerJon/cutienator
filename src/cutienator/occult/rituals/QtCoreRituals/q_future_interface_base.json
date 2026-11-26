@@ -1,11 +1,19 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qfutureinterface.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qfutureinterface.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZN20QFutureInterfaceBaseC1ENS_5StateE": ["address", "int"],
     "ritual_ZN20QFutureInterfaceBaseC1ERKS_": ["address", "address"],
+    "ritual_ZN20QFutureInterfaceBaseC1EOS_": ["address", "address"],
+    "ritual_ZN20QFutureInterfaceBaseaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBaseaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QFutureInterfaceBaseD1Ev": ["nothing", "address"],
     "ritual_ZN20QFutureInterfaceBase13reportStartedEv": [
       "nothing", "address"
@@ -17,6 +25,9 @@
       "nothing", "address"
     ],
     "ritual_ZN20QFutureInterfaceBase15reportExceptionERK10QException": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase15reportExceptionENSt15__exception_ptr13exception_ptrE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN20QFutureInterfaceBase18reportResultsReadyEii": [
@@ -119,7 +130,14 @@
     "ritual_ZN20QFutureInterfaceBase18suspendIfRequestedEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK20QFutureInterfaceBase5mutexEv": ["address", "address"],
     "ritual_ZNK20QFutureInterfaceBase12hasExceptionEv": ["bool", "address"],
+    "ritual_ZN20QFutureInterfaceBase14exceptionStoreEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase15resultStoreBaseEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QFutureInterfaceBase15resultStoreBaseEv": [
       "address", "address"
     ],
@@ -129,6 +147,9 @@
     "ritual_ZNK20QFutureInterfaceBaseneERKS_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN20QFutureInterfaceBase4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QFutureInterfaceBase15isChainCanceledEv": [
       "bool", "address"
     ],
@@ -137,6 +158,12 @@
     "ritual_ZN20QFutureInterfaceBase5resetEv": ["nothing", "address"],
     "ritual_ZN20QFutureInterfaceBase24rethrowPossibleExceptionEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase15setContinuationESt8functionIFvRKS_EEPvNS_16ContinuationTypeE": [
+      "nothing", "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN20QFutureInterfaceBase15setContinuationEPK7QObjectSt8functionIFvvEERK8QVariantNS_16ContinuationTypeE": [
+      "nothing", "address", "address", "address", "address", "unsigned char"
     ],
     "ritual_ZN20QFutureInterfaceBase17cleanContinuationEv": [
       "nothing", "address"
@@ -156,6 +183,21 @@
     ],
     "ritual_ZN20QFutureInterfaceBase11cancelChainENS_10CancelModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN20QFutureInterfaceBase3getIvEES_RK7QFutureIT_E": [
+      "address", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase3getIiEES_RK7QFutureIT_E": [
+      "address", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase3getIdEES_RK7QFutureIT_E": [
+      "address", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase3getIbEES_RK7QFutureIT_E": [
+      "address", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase3getI7QStringEES_RK7QFutureIT_E": [
+      "address", "address"
     ]
   }
 }

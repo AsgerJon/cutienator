@@ -1,11 +1,17 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qfileinfo.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qfileinfo.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 3. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qdir.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qtimezone.h>
 #include <QtCore/qlist.h>
+#include <filesystem>
+#include <QtCore/QFile>
+#include <QtCore/QDateTime>
+#include <QtCore/QTimeZone>
 
 //  QFileInfo::QFileInfo(QFileInfoPrivate *d)
 extern "C" Q_DECL_EXPORT
@@ -25,6 +31,12 @@ QFileInfo *ritual_ZN9QFileInfoC1ERK7QString(const QString *file) {
   return new QFileInfo(*file);
 }
 
+//  QFileInfo::QFileInfo(const QFileDevice &file)
+extern "C" Q_DECL_EXPORT
+QFileInfo *ritual_ZN9QFileInfoC1ERK11QFileDevice(const QFileDevice *file) {
+  return new QFileInfo(*file);
+}
+
 //  QFileInfo::QFileInfo(const QDir &dir, const QString &file)
 extern "C" Q_DECL_EXPORT
 QFileInfo *ritual_ZN9QFileInfoC1ERK4QDirRK7QString(
@@ -39,10 +51,36 @@ QFileInfo *ritual_ZN9QFileInfoC1ERKS_(const QFileInfo *fileinfo) {
   return new QFileInfo(*fileinfo);
 }
 
+//  QFileInfo::QFileInfo(QFileInfo &&other)
+extern "C" Q_DECL_EXPORT
+QFileInfo *ritual_ZN9QFileInfoC1EOS_(QFileInfo *other) {
+  return new QFileInfo(std::move(*other));
+}
+
 //  QFileInfo::~QFileInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QFileInfoD1Ev(QFileInfo *self) {
   delete self;
+}
+
+//  QFileInfo &QFileInfo::operator=(const QFileInfo &fileinfo)
+extern "C" Q_DECL_EXPORT
+QFileInfo *ritual_ZN9QFileInfoaSERKS_(
+    QFileInfo *self,
+    const QFileInfo *fileinfo) {
+  return &(self->operator=(*fileinfo));
+}
+
+//  QFileInfo &QFileInfo::operator=(QFileInfo &&other)
+extern "C" Q_DECL_EXPORT
+QFileInfo *ritual_ZN9QFileInfoaSEOS_(QFileInfo *self, QFileInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QFileInfo::swap(QFileInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QFileInfo4swapERS_(QFileInfo *self, QFileInfo *other) {
+  self->swap(*other);
 }
 
 //  void QFileInfo::setFile(const QString &file)
@@ -50,6 +88,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN9QFileInfo7setFileERK7QString(
     QFileInfo *self,
     const QString *file) {
+  self->setFile(*file);
+}
+
+//  void QFileInfo::setFile(const QFileDevice &file)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QFileInfo7setFileERK11QFileDevice(
+    QFileInfo *self,
+    const QFileDevice *file) {
   self->setFile(*file);
 }
 
@@ -97,6 +143,33 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK9QFileInfo17canonicalFilePathEv(const QFileInfo *self) {
   return new QString(self->canonicalFilePath());
 }
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QFileInfo::filesystemFilePath() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK9QFileInfo18filesystemFilePathB5cxx11Ev(
+    const QFileInfo *self) {
+  return new std::filesystem::path(self->filesystemFilePath());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QFileInfo::filesystemAbsoluteFilePath() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK9QFileInfo26filesystemAbsoluteFilePathB5cxx11Ev(
+    const QFileInfo *self) {
+  return new std::filesystem::path(self->filesystemAbsoluteFilePath());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QFileInfo::filesystemCanonicalFilePath() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK9QFileInfo27filesystemCanonicalFilePathB5cxx11Ev(
+    const QFileInfo *self) {
+  return new std::filesystem::path(self->filesystemCanonicalFilePath());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
 
 //  QString QFileInfo::fileName() const
 extern "C" Q_DECL_EXPORT
@@ -151,6 +224,33 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK9QFileInfo13canonicalPathEv(const QFileInfo *self) {
   return new QString(self->canonicalPath());
 }
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QFileInfo::filesystemPath() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK9QFileInfo14filesystemPathB5cxx11Ev(
+    const QFileInfo *self) {
+  return new std::filesystem::path(self->filesystemPath());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QFileInfo::filesystemAbsolutePath() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK9QFileInfo22filesystemAbsolutePathB5cxx11Ev(
+    const QFileInfo *self) {
+  return new std::filesystem::path(self->filesystemAbsolutePath());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QFileInfo::filesystemCanonicalPath() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK9QFileInfo23filesystemCanonicalPathB5cxx11Ev(
+    const QFileInfo *self) {
+  return new std::filesystem::path(self->filesystemCanonicalPath());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
 
 //  QDir QFileInfo::dir() const
 extern "C" Q_DECL_EXPORT
@@ -290,6 +390,33 @@ QString *ritual_ZNK9QFileInfo14junctionTargetEv(const QFileInfo *self) {
   return new QString(self->junctionTarget());
 }
 
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QFileInfo::filesystemSymLinkTarget() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK9QFileInfo23filesystemSymLinkTargetB5cxx11Ev(
+    const QFileInfo *self) {
+  return new std::filesystem::path(self->filesystemSymLinkTarget());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QFileInfo::filesystemReadSymLink() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK9QFileInfo21filesystemReadSymLinkB5cxx11Ev(
+    const QFileInfo *self) {
+  return new std::filesystem::path(self->filesystemReadSymLink());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QFileInfo::filesystemJunctionTarget() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK9QFileInfo24filesystemJunctionTargetB5cxx11Ev(
+    const QFileInfo *self) {
+  return new std::filesystem::path(self->filesystemJunctionTarget());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+
 //  QString QFileInfo::owner() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK9QFileInfo5ownerEv(const QFileInfo *self) {
@@ -323,6 +450,13 @@ bool ritual_ZNK9QFileInfo10permissionE6QFlagsIN11QFileDevice10PermissionEE(
       QFlags<QFileDevice::Permission>::fromInt(permissions));
 }
 
+//  QFile::Permissions QFileInfo::permissions() const
+extern "C" Q_DECL_EXPORT
+QFile::Permissions *ritual_ZNK9QFileInfo11permissionsEv(
+    const QFileInfo *self) {
+  return new QFile::Permissions(self->permissions());
+}
+
 //  qint64 QFileInfo::size() const
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK9QFileInfo4sizeEv(const QFileInfo *self) {
@@ -352,6 +486,14 @@ QDateTime *ritual_ZNK9QFileInfo12lastModifiedEv(const QFileInfo *self) {
 extern "C" Q_DECL_EXPORT
 QDateTime *ritual_ZNK9QFileInfo8lastReadEv(const QFileInfo *self) {
   return new QDateTime(self->lastRead());
+}
+
+//  QDateTime QFileInfo::fileTime(QFile::FileTime time) const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK9QFileInfo8fileTimeEN11QFileDevice8FileTimeE(
+    const QFileInfo *self,
+    const QFile::FileTime *time) {
+  return new QDateTime(self->fileTime(*time));
 }
 
 //  QDateTime QFileInfo::birthTime(const QTimeZone &tz) const
@@ -384,6 +526,16 @@ QDateTime *ritual_ZNK9QFileInfo8lastReadERK9QTimeZone(
     const QFileInfo *self,
     const QTimeZone *tz) {
   return new QDateTime(self->lastRead(*tz));
+}
+
+//  QDateTime QFileInfo::fileTime(QFile::FileTime time, const QTimeZone &tz)
+//      const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK9QFileInfo8fileTimeEN11QFileDevice8FileTimeERK9QTimeZone(
+    const QFileInfo *self,
+    const QFile::FileTime *time,
+    const QTimeZone *tz) {
+  return new QDateTime(self->fileTime(*time, *tz));
 }
 
 //  bool QFileInfo::caching() const
@@ -462,3 +614,42 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QFileInfo(QList<QFileInfo> *self) {
   delete self;
 }
+
+//  a std::filesystem::path a ritual of QFileInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFileInfo__std_filesystem_path(
+    std::filesystem::path *self) {
+  delete self;
+}
+
+//  a QFile::Permissions a ritual of QFileInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFileInfo__QFile_Permissions(QFile::Permissions *self) {
+  delete self;
+}
+
+#if QT_CONFIG(cxx17_filesystem)
+//  QFileInfo::QFileInfo(const T &file) [T = std::filesystem::path]
+extern "C" Q_DECL_EXPORT
+QFileInfo *ritual_ZN9QFileInfoC1INSt10filesystem7__cxx114pathELi0EEERKT_(
+    const std::filesystem::path *file) {
+  return new QFileInfo(*file);
+}
+
+//  QFileInfo::QFileInfo(const QDir &dir, const T &file)
+//      [T = std::filesystem::path]
+extern "C" Q_DECL_EXPORT
+QFileInfo *ritual_ZN9QFileInfoC1INSt10filesystem7__cxx114pathELi0EEERK4QDirRKT_(
+    const QDir *dir,
+    const std::filesystem::path *file) {
+  return new QFileInfo(*dir, *file);
+}
+
+//  void QFileInfo::setFile(const T &file) [T = std::filesystem::path]
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QFileInfo7setFileINSt10filesystem7__cxx114pathELi0EEEvRKT_(
+    QFileInfo *self,
+    const std::filesystem::path *file) {
+  self->setFile<std::filesystem::path>(*file);
+}
+#endif  // QT_CONFIG(cxx17_filesystem)

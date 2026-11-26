@@ -5,11 +5,19 @@
   ],
   "rows": {
     "ritual_ZN10QDBusErrorC1Ev": ["address"],
+    "ritual_ZN10QDBusErrorC1EPK9DBusError": ["address", "address"],
     "ritual_ZN10QDBusErrorC1ERK12QDBusMessage": ["address", "address"],
     "ritual_ZN10QDBusErrorC1ENS_9ErrorTypeERK7QString": [
       "address", "int", "text"
     ],
     "ritual_ZN10QDBusErrorC1ERKS_": ["address", "address"],
+    "ritual_ZN10QDBusErrorC1EOS_": ["address", "address"],
+    "ritual_ZN10QDBusErroraSEOS_": ["address", "address", "address"],
+    "ritual_ZN10QDBusErroraSERKS_": ["address", "address", "address"],
+    "ritual_ZN10QDBusErroraSERK12QDBusMessage": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QDBusError4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK10QDBusError4typeEv": ["int", "address"],
     "ritual_ZNK10QDBusError4nameEv": ["text", "address"],
     "ritual_ZNK10QDBusError7messageEv": ["text", "address"],

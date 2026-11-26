@@ -8,6 +8,22 @@
     "ritual_ZNK18QSGRhiAtlasTexture9AtlasBase10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QSGRhiAtlasTexture9AtlasBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QSGRhiAtlasTexture9AtlasBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QSGRhiAtlasTexture9AtlasBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN18QSGRhiAtlasTexture9AtlasBase10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QSGRhiAtlasTexture9AtlasBase23commitTextureOperationsEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QSGRhiAtlasTexture9AtlasBase6removeEPNS_11TextureBaseE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QSGRhiAtlasTexture9AtlasBase13renderContextEv": [
       "address", "address"
     ],

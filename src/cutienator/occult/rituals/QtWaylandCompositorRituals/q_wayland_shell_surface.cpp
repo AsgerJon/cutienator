@@ -14,31 +14,32 @@ typedef void * (*CuteQWaylandShellSurfaceCall0)(const void *, QWaylandQuickShell
 #endif  // QT_CONFIG(wayland_compositor_quick)
 typedef int (*CuteQWaylandShellSurfaceCall1)(const void *, int *);
 typedef void (*CuteQWaylandShellSurfaceCall2)(const void *, int *);
+typedef void * (*CuteQWaylandShellSurfaceCall3)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQWaylandShellSurfaceCall3)(const void *, QEvent *, int *);
+typedef bool (*CuteQWaylandShellSurfaceCall4)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQWaylandShellSurfaceCall4)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQWaylandShellSurfaceCall5)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQWaylandShellSurfaceCall5)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQWaylandShellSurfaceCall6)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQWaylandShellSurfaceCall6)(const void *, QChildEvent *, int *);
+typedef void (*CuteQWaylandShellSurfaceCall7)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQWaylandShellSurfaceCall7)(const void *, QEvent *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQWaylandShellSurfaceCall8)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQWaylandShellSurfaceCall8)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWaylandShellSurfaceCall9)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWaylandShellSurfaceCall10)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWaylandShellSurface : public QWaylandShellSurface {
 public:
   using QWaylandShellSurface::QWaylandShellSurface;
-  void *taken[10] = {};
+  void *taken[11] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(wayland_compositor_quick)
@@ -55,45 +56,49 @@ public:
       taken[2] = call;
       return true;
     }
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK27QWaylandCompositorExtension18extensionInterfaceEv")) {
       taken[3] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[5] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[6] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[7] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[8] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[9] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[10] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -137,12 +142,24 @@ public:
     QWaylandCompositorExtension::initialize();
   }
 
-#if !defined(QT_NO_QOBJECT)
-  //  bool QWaylandCompositorExtension::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  const struct wl_interface
+  //      *QWaylandCompositorExtension::extensionInterface() const
+  const struct wl_interface *extensionInterface() const override {
     if (taken[3]) {
       int handled = 0;
       CuteQWaylandShellSurfaceCall3 call = reinterpret_cast<CuteQWaylandShellSurfaceCall3>(taken[3]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<const struct wl_interface *>(given);
+    }
+    return {};
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QWaylandCompositorExtension::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQWaylandShellSurfaceCall4 call = reinterpret_cast<CuteQWaylandShellSurfaceCall4>(taken[4]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -153,9 +170,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQWaylandShellSurfaceCall4 call = reinterpret_cast<CuteQWaylandShellSurfaceCall4>(taken[4]);
+      CuteQWaylandShellSurfaceCall5 call = reinterpret_cast<CuteQWaylandShellSurfaceCall5>(taken[5]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -166,9 +183,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQWaylandShellSurfaceCall5 call = reinterpret_cast<CuteQWaylandShellSurfaceCall5>(taken[5]);
+      CuteQWaylandShellSurfaceCall6 call = reinterpret_cast<CuteQWaylandShellSurfaceCall6>(taken[6]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -179,9 +196,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQWaylandShellSurfaceCall6 call = reinterpret_cast<CuteQWaylandShellSurfaceCall6>(taken[6]);
+      CuteQWaylandShellSurfaceCall7 call = reinterpret_cast<CuteQWaylandShellSurfaceCall7>(taken[7]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -192,9 +209,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQWaylandShellSurfaceCall7 call = reinterpret_cast<CuteQWaylandShellSurfaceCall7>(taken[7]);
+      CuteQWaylandShellSurfaceCall8 call = reinterpret_cast<CuteQWaylandShellSurfaceCall8>(taken[8]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -205,9 +222,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQWaylandShellSurfaceCall8 call = reinterpret_cast<CuteQWaylandShellSurfaceCall8>(taken[8]);
+      CuteQWaylandShellSurfaceCall9 call = reinterpret_cast<CuteQWaylandShellSurfaceCall9>(taken[9]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -218,9 +235,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQWaylandShellSurfaceCall9 call = reinterpret_cast<CuteQWaylandShellSurfaceCall9>(taken[9]);
+      CuteQWaylandShellSurfaceCall10 call = reinterpret_cast<CuteQWaylandShellSurfaceCall10>(taken[10]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -234,6 +251,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QWaylandShellSurface10metaObjectEv(
     const QWaylandShellSurface *self) {
   return self->metaObject();
+}
+
+//  void *QWaylandShellSurface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QWaylandShellSurface11qt_metacastEPKc(
+    QWaylandShellSurface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandShellSurface::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QWaylandShellSurface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandShellSurface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QWaylandShellSurface::tr(const char *s, const char *c, int n)
@@ -278,6 +314,13 @@ QWaylandQuickShellIntegration *ritual_ZN20QWaylandShellSurface17createIntegratio
 }
 #endif  // QT_CONFIG(wayland_compositor_quick)
 
+//  QWaylandShellSurface::QWaylandShellSurface(QWaylandObject *waylandObject)
+extern "C" Q_DECL_EXPORT
+QWaylandShellSurface *ritual_ZN20QWaylandShellSurfaceC1EP14QWaylandObject(
+    QWaylandObject *waylandObject) {
+  return new CuteQWaylandShellSurface(waylandObject);
+}
+
 //  Qt::WindowType QWaylandShellSurface::windowType() const
 extern "C" Q_DECL_EXPORT
 Qt::WindowType ritual_ZNK20QWaylandShellSurface10windowTypeEv(
@@ -292,12 +335,43 @@ bool ritual_ZNK20QWaylandShellSurface7isModalEv(
   return self->isModal();
 }
 
+//  QWaylandShellSurface::QWaylandShellSurface(QWaylandShellSurfacePrivate
+//      &dd)
+extern "C" Q_DECL_EXPORT
+QWaylandShellSurface *ritual_ZN20QWaylandShellSurfaceC1ER27QWaylandShellSurfacePrivate(
+    QWaylandShellSurfacePrivate *dd) {
+  return new CuteQWaylandShellSurface(*dd);
+}
+
+//  QWaylandShellSurface::QWaylandShellSurface(QWaylandObject *container,
+//      QWaylandShellSurfacePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QWaylandShellSurface *ritual_ZN20QWaylandShellSurfaceC1EP14QWaylandObjectR27QWaylandShellSurfacePrivate(
+    QWaylandObject *container,
+    QWaylandShellSurfacePrivate *dd) {
+  return new CuteQWaylandShellSurface(container, *dd);
+}
+
 //  void QWaylandShellSurface::setModal(bool newModal)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QWaylandShellSurface8setModalEb(
     QWaylandShellSurface *self,
     bool newModal) {
   self->setModal(newModal);
+}
+
+//  void QWaylandShellSurface::windowTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QWaylandShellSurface17windowTypeChangedEv(
+    QWaylandShellSurface *self) {
+  self->windowTypeChanged();
+}
+
+//  void QWaylandShellSurface::modalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QWaylandShellSurface12modalChangedEv(
+    QWaylandShellSurface *self) {
+  self->modalChanged();
 }
 
 //  a Python function taken by a CuteQWaylandShellSurface, for the function

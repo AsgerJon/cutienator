@@ -12,6 +12,9 @@
     "ritual_ZNK16QFileInfoPrivate12getFileFlagsE6QFlagsIN19QAbstractFileEngine8FileFlagEE": [
       "unsigned int", "address", "int"
     ],
+    "ritual_ZNK16QFileInfoPrivate11getFileTimeEN11QFileDevice8FileTimeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK16QFileInfoPrivate13getCachedFlagEj": [
       "bool", "address", "unsigned int"
     ],

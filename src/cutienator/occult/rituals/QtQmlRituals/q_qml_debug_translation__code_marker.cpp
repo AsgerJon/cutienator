@@ -10,6 +10,23 @@
 #include <QtQml/6.12.0/QtQml/private/qqmldebugtranslationprotocol_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QDataStream &operator>>(QDataStream &stream, CodeMarker &codeMarker)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN20QQmlDebugTranslationrsER11QDataStreamRNS_10CodeMarkerE(
+    QDataStream *stream,
+    QQmlDebugTranslation::CodeMarker *codeMarker) {
+  return &(operator>>(*stream, *codeMarker));
+}
+
+//  QDataStream &operator<<(QDataStream &stream, const CodeMarker
+//      &codeMarker)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN20QQmlDebugTranslationlsER11QDataStreamRKNS_10CodeMarkerE(
+    QDataStream *stream,
+    const QQmlDebugTranslation::CodeMarker *codeMarker) {
+  return &(operator<<(*stream, *codeMarker));
+}
+
 //  bool operator<(const CodeMarker &first, const CodeMarker &second)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QQmlDebugTranslationltERKNS_10CodeMarkerES2_(

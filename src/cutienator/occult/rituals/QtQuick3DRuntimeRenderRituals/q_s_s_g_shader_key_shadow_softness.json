@@ -6,6 +6,18 @@
   ],
   "rows": {
     "ritual_ZN27QSSGShaderKeyShadowSoftnessC1EPKc": ["address", "chars"],
+    "ritual_ZN27QSSGShaderKeyShadowSoftness17setShadowSoftnessE11QSSGDataRefIjEN15QSSGRenderLight17SoftShadowQualityE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK27QSSGShaderKeyShadowSoftness17getShadowSoftnessE12QSSGDataViewIjE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK27QSSGShaderKeyShadowSoftness8toStringER10QByteArray12QSSGDataViewIjE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QSSGShaderKeyShadowSoftness10fromStringERK10QByteArray11QSSGDataRefIjE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN27QSSGShaderKeyShadowSoftnessD1Ev": ["nothing", "address"]
   }
 }

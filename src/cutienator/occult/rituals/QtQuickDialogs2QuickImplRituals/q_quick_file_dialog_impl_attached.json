@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuickFileDialogImplAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickFileDialogImplAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuickFileDialogImplAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -73,6 +79,33 @@
     ],
     "ritual_ZN28QQuickFileDialogImplAttached10setSideBarEP13QQuickSideBar": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached16buttonBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached26nameFiltersComboBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached18filterLabelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached25fileDialogListViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached20breadcrumbBarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached20fileNameLabelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached24fileNameTextFieldChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached34overwriteConfirmationDialogChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached14sideBarChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN28QQuickFileDialogImplAttached6d_funcEv": [
       "address", "address"

@@ -2,6 +2,7 @@
 //  Qt3DExtras/qmetalroughmaterial.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qmetalroughmaterial.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras19QMetalRoughMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QMetalRoughMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras19QMetalRoughMaterial11qt_metacastEPKc(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QMetalRoughMaterial::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras19QMetalRoughMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QMetalRoughMaterial::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,178 @@ QString *ritual_ZN10Qt3DExtras19QMetalRoughMaterial2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QMetalRoughMaterial::tr(s, c, n));
+}
+
+//  Qt3DExtras::QMetalRoughMaterial::QMetalRoughMaterial(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QMetalRoughMaterial *ritual_ZN10Qt3DExtras19QMetalRoughMaterialC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QMetalRoughMaterial(parent);
+}
+
+//  Qt3DExtras::QMetalRoughMaterial::~QMetalRoughMaterial()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterialD1Ev(
+    Qt3DExtras::QMetalRoughMaterial *self) {
+  delete self;
+}
+
+//  QVariant Qt3DExtras::QMetalRoughMaterial::baseColor() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DExtras19QMetalRoughMaterial9baseColorEv(
+    const Qt3DExtras::QMetalRoughMaterial *self) {
+  return new QVariant(self->baseColor());
+}
+
+//  QVariant Qt3DExtras::QMetalRoughMaterial::metalness() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DExtras19QMetalRoughMaterial9metalnessEv(
+    const Qt3DExtras::QMetalRoughMaterial *self) {
+  return new QVariant(self->metalness());
+}
+
+//  QVariant Qt3DExtras::QMetalRoughMaterial::roughness() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DExtras19QMetalRoughMaterial9roughnessEv(
+    const Qt3DExtras::QMetalRoughMaterial *self) {
+  return new QVariant(self->roughness());
+}
+
+//  QVariant Qt3DExtras::QMetalRoughMaterial::ambientOcclusion() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DExtras19QMetalRoughMaterial16ambientOcclusionEv(
+    const Qt3DExtras::QMetalRoughMaterial *self) {
+  return new QVariant(self->ambientOcclusion());
+}
+
+//  QVariant Qt3DExtras::QMetalRoughMaterial::normal() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DExtras19QMetalRoughMaterial6normalEv(
+    const Qt3DExtras::QMetalRoughMaterial *self) {
+  return new QVariant(self->normal());
+}
+
+//  float Qt3DExtras::QMetalRoughMaterial::textureScale() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras19QMetalRoughMaterial12textureScaleEv(
+    const Qt3DExtras::QMetalRoughMaterial *self) {
+  return self->textureScale();
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::setBaseColor(const QVariant
+//      &baseColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial12setBaseColorERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *baseColor) {
+  self->setBaseColor(*baseColor);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::setMetalness(const QVariant
+//      &metalness)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial12setMetalnessERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *metalness) {
+  self->setMetalness(*metalness);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::setRoughness(const QVariant
+//      &roughness)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial12setRoughnessERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *roughness) {
+  self->setRoughness(*roughness);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::setAmbientOcclusion(const QVariant
+//      &ambientOcclusion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial19setAmbientOcclusionERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *ambientOcclusion) {
+  self->setAmbientOcclusion(*ambientOcclusion);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::setNormal(const QVariant &normal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial9setNormalERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *normal) {
+  self->setNormal(*normal);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::setTextureScale(float textureScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial15setTextureScaleEf(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    float textureScale) {
+  self->setTextureScale(textureScale);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::baseColorChanged(const QVariant
+//      &baseColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial16baseColorChangedERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *baseColor) {
+  self->baseColorChanged(*baseColor);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::metalnessChanged(const QVariant
+//      &metalness)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial16metalnessChangedERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *metalness) {
+  self->metalnessChanged(*metalness);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::roughnessChanged(const QVariant
+//      &roughness)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial16roughnessChangedERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *roughness) {
+  self->roughnessChanged(*roughness);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::ambientOcclusionChanged(const
+//      QVariant &ambientOcclusion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial23ambientOcclusionChangedERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *ambientOcclusion) {
+  self->ambientOcclusionChanged(*ambientOcclusion);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::normalChanged(const QVariant
+//      &normal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial13normalChangedERK8QVariant(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    const QVariant *normal) {
+  self->normalChanged(*normal);
+}
+
+//  void Qt3DExtras::QMetalRoughMaterial::textureScaleChanged(float
+//      textureScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras19QMetalRoughMaterial19textureScaleChangedEf(
+    Qt3DExtras::QMetalRoughMaterial *self,
+    float textureScale) {
+  self->textureScaleChanged(textureScale);
+}
+
+//  Qt3DExtras::QMetalRoughMaterial::QMetalRoughMaterial(QMetalRoughMaterialP
+//      rivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QMetalRoughMaterial *ritual_ZN10Qt3DExtras19QMetalRoughMaterialC1ERNS_26QMetalRoughMaterialPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QMetalRoughMaterialPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QMetalRoughMaterial(*dd, parent);
 }
 
 //  QMetalRoughMaterialPrivate *Qt3DExtras::QMetalRoughMaterial::d_func()

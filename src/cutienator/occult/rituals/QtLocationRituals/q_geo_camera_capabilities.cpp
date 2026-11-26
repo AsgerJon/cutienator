@@ -21,10 +21,44 @@ QGeoCameraCapabilities *ritual_ZN22QGeoCameraCapabilitiesC1ERKS_(
   return new QGeoCameraCapabilities(*other);
 }
 
+//  QGeoCameraCapabilities::QGeoCameraCapabilities(QGeoCameraCapabilities
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QGeoCameraCapabilities *ritual_ZN22QGeoCameraCapabilitiesC1EOS_(
+    QGeoCameraCapabilities *other) {
+  return new QGeoCameraCapabilities(std::move(*other));
+}
+
 //  QGeoCameraCapabilities::~QGeoCameraCapabilities()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QGeoCameraCapabilitiesD1Ev(QGeoCameraCapabilities *self) {
   delete self;
+}
+
+//  QGeoCameraCapabilities &QGeoCameraCapabilities::operator=(const
+//      QGeoCameraCapabilities &other)
+extern "C" Q_DECL_EXPORT
+QGeoCameraCapabilities *ritual_ZN22QGeoCameraCapabilitiesaSERKS_(
+    QGeoCameraCapabilities *self,
+    const QGeoCameraCapabilities *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoCameraCapabilities
+//      &QGeoCameraCapabilities::operator=(QGeoCameraCapabilities &&other)
+extern "C" Q_DECL_EXPORT
+QGeoCameraCapabilities *ritual_ZN22QGeoCameraCapabilitiesaSEOS_(
+    QGeoCameraCapabilities *self,
+    QGeoCameraCapabilities *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoCameraCapabilities::swap(QGeoCameraCapabilities &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGeoCameraCapabilities4swapERS_(
+    QGeoCameraCapabilities *self,
+    QGeoCameraCapabilities *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoCameraCapabilities &lhs, const

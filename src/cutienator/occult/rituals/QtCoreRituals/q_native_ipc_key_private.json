@@ -8,6 +8,15 @@
     "ritual_ZN20QNativeIpcKeyPrivate9legacyKeyERK13QNativeIpcKey": [
       "text", "address"
     ],
+    "ritual_ZN20QNativeIpcKeyPrivate12setLegacyKeyER13QNativeIpcKeyRK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QNativeIpcKeyPrivate22setNativeAndLegacyKeysER13QNativeIpcKeyRK7QStringS4_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN20QNativeIpcKeyPrivate12makeExtendedER13QNativeIpcKey": [
+      "address", "address"
+    ],
     "ritual_ZN20QNativeIpcKeyPrivateD1Ev": ["nothing", "address"]
   }
 }

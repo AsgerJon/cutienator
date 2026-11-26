@@ -8,8 +8,14 @@
     "ritual_ZN22QHostInfoLookupManagerC1Ev": ["address"],
     "ritual_ZN22QHostInfoLookupManagerD1Ev": ["nothing", "address"],
     "ritual_ZN22QHostInfoLookupManager5clearEv": ["nothing", "address"],
+    "ritual_ZN22QHostInfoLookupManager14scheduleLookupEP17QHostInfoRunnable": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QHostInfoLookupManager11abortLookupEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN22QHostInfoLookupManager14lookupFinishedEP17QHostInfoRunnable": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN22QHostInfoLookupManager10wasAbortedEi": [
       "bool", "address", "int"

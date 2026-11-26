@@ -30,6 +30,16 @@ void ritual_ZN22QVideoFrameTexturePool15setCurrentFrameE11QVideoFrame(
   self->setCurrentFrame(*frame);
 }
 
+//  QVideoFrameTextures *QVideoFrameTexturePool::updateTextures(QRhi &rhi,
+//      QRhiResourceUpdateBatch &rub)
+extern "C" Q_DECL_EXPORT
+QVideoFrameTextures *ritual_ZN22QVideoFrameTexturePool14updateTexturesER4QRhiR23QRhiResourceUpdateBatch(
+    QVideoFrameTexturePool *self,
+    QRhi *rhi,
+    QRhiResourceUpdateBatch *rub) {
+  return self->updateTextures(*rhi, *rub);
+}
+
 //  void QVideoFrameTexturePool::onFrameEndInvoked()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QVideoFrameTexturePool17onFrameEndInvokedEv(

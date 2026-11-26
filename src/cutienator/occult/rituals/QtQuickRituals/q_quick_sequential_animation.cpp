@@ -256,6 +256,25 @@ const QMetaObject *ritual_ZNK25QQuickSequentialAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSequentialAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickSequentialAnimation11qt_metacastEPKc(
+    QQuickSequentialAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSequentialAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickSequentialAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSequentialAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSequentialAnimation::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -300,6 +319,20 @@ extern "C" Q_DECL_EXPORT
 QQuickAbstractAnimation::ThreadingModel ritual_ZNK25QQuickSequentialAnimation14threadingModelEv(
     const QQuickSequentialAnimation *self) {
   return self->threadingModel();
+}
+
+//  QAbstractAnimationJob
+//      *QQuickSequentialAnimation::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN25QQuickSequentialAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickSequentialAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
 }
 
 //  a Python function taken by a CuteQQuickSequentialAnimation, for the

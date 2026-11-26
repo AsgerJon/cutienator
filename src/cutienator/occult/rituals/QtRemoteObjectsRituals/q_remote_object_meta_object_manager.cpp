@@ -6,7 +6,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectnode_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtCore/private/qmetaobjectbuilder_p.h>
 #include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -31,6 +33,15 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace QRemoteObjectStringLiterals;
+
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
+{
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 771, as _ZN30QRemoteObjectMetaObjectManagerD1Ev
 inline QRemoteObjectMetaObjectManager::~QRemoteObjectMetaObjectManager()
 {
@@ -40,6 +51,17 @@ inline QRemoteObjectMetaObjectManager::~QRemoteObjectMetaObjectManager()
         enumTypes.remove(mo);
         free(mo); //QMetaObjectBuilder uses malloc, not new
     }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 781, as _ZN30QRemoteObjectMetaObjectManager17metaObjectForTypeERK7QString
+inline const QMetaObject *QRemoteObjectMetaObjectManager::metaObjectForType(const QString &type)
+{
+    qCDebug(QT_REMOTEOBJECT) << "metaObjectForType: looking for" << type << "static keys:" << staticTypes.keys() << "dynamic keys:" << dynamicTypes.keys();
+    Q_ASSERT(staticTypes.contains(type) || dynamicTypes.contains(type));
+    auto it = staticTypes.constFind(type);
+    if (it != staticTypes.constEnd())
+        return it.value();
+    return dynamicTypes.value(type);
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1276, as _ZN30QRemoteObjectMetaObjectManager17addFromMetaObjectEPK11QMetaObject
@@ -66,6 +88,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN30QRemoteObjectMetaObjectManagerD1Ev(
     QRemoteObjectMetaObjectManager *self) {
   delete self;
+}
+
+//  const QMetaObject
+//      *QRemoteObjectMetaObjectManager::metaObjectForType(const QString
+//      &type)
+extern "C" Q_DECL_EXPORT
+const QMetaObject *ritual_ZN30QRemoteObjectMetaObjectManager17metaObjectForTypeERK7QString(
+    QRemoteObjectMetaObjectManager *self,
+    const QString *type) {
+  return self->metaObjectForType(*type);
 }
 
 //  void QRemoteObjectMetaObjectManager::addFromMetaObject(const QMetaObject

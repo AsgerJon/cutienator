@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK17QAbstract3DSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstract3DSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QAbstract3DSeries11qt_metacastEPKc(
+    QAbstract3DSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstract3DSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QAbstract3DSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstract3DSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstract3DSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QAbstract3DSeries2trEPKcS1_i(
@@ -458,6 +477,137 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QAbstract3DSeries18isItemLabelVisibleEv(
     const QAbstract3DSeries *self) {
   return self->isItemLabelVisible();
+}
+
+//  void QAbstract3DSeries::itemLabelFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries22itemLabelFormatChangedERK7QString(
+    QAbstract3DSeries *self,
+    const QString *format) {
+  self->itemLabelFormatChanged(*format);
+}
+
+//  void QAbstract3DSeries::visibilityChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries17visibilityChangedEb(
+    QAbstract3DSeries *self,
+    bool visible) {
+  self->visibilityChanged(visible);
+}
+
+//  void QAbstract3DSeries::meshChanged(QAbstract3DSeries::Mesh mesh)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries11meshChangedENS_4MeshE(
+    QAbstract3DSeries *self,
+    QAbstract3DSeries::Mesh mesh) {
+  self->meshChanged(mesh);
+}
+
+//  void QAbstract3DSeries::meshSmoothChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries17meshSmoothChangedEb(
+    QAbstract3DSeries *self,
+    bool enabled) {
+  self->meshSmoothChanged(enabled);
+}
+
+//  void QAbstract3DSeries::meshRotationChanged(const QQuaternion &rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries19meshRotationChangedERK11QQuaternion(
+    QAbstract3DSeries *self,
+    const QQuaternion *rotation) {
+  self->meshRotationChanged(*rotation);
+}
+
+//  void QAbstract3DSeries::userDefinedMeshChanged(const QString &fileName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries22userDefinedMeshChangedERK7QString(
+    QAbstract3DSeries *self,
+    const QString *fileName) {
+  self->userDefinedMeshChanged(*fileName);
+}
+
+//  void QAbstract3DSeries::colorStyleChanged(Q3DTheme::ColorStyle style)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries17colorStyleChangedEN8Q3DTheme10ColorStyleE(
+    QAbstract3DSeries *self,
+    Q3DTheme::ColorStyle style) {
+  self->colorStyleChanged(style);
+}
+
+//  void QAbstract3DSeries::baseColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries16baseColorChangedERK6QColor(
+    QAbstract3DSeries *self,
+    const QColor *color) {
+  self->baseColorChanged(*color);
+}
+
+//  void QAbstract3DSeries::baseGradientChanged(const QLinearGradient
+//      &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries19baseGradientChangedERK15QLinearGradient(
+    QAbstract3DSeries *self,
+    const QLinearGradient *gradient) {
+  self->baseGradientChanged(*gradient);
+}
+
+//  void QAbstract3DSeries::singleHighlightColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries27singleHighlightColorChangedERK6QColor(
+    QAbstract3DSeries *self,
+    const QColor *color) {
+  self->singleHighlightColorChanged(*color);
+}
+
+//  void QAbstract3DSeries::singleHighlightGradientChanged(const
+//      QLinearGradient &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries30singleHighlightGradientChangedERK15QLinearGradient(
+    QAbstract3DSeries *self,
+    const QLinearGradient *gradient) {
+  self->singleHighlightGradientChanged(*gradient);
+}
+
+//  void QAbstract3DSeries::multiHighlightColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries26multiHighlightColorChangedERK6QColor(
+    QAbstract3DSeries *self,
+    const QColor *color) {
+  self->multiHighlightColorChanged(*color);
+}
+
+//  void QAbstract3DSeries::multiHighlightGradientChanged(const
+//      QLinearGradient &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries29multiHighlightGradientChangedERK15QLinearGradient(
+    QAbstract3DSeries *self,
+    const QLinearGradient *gradient) {
+  self->multiHighlightGradientChanged(*gradient);
+}
+
+//  void QAbstract3DSeries::nameChanged(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries11nameChangedERK7QString(
+    QAbstract3DSeries *self,
+    const QString *name) {
+  self->nameChanged(*name);
+}
+
+//  void QAbstract3DSeries::itemLabelChanged(const QString &label)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries16itemLabelChangedERK7QString(
+    QAbstract3DSeries *self,
+    const QString *label) {
+  self->itemLabelChanged(*label);
+}
+
+//  void QAbstract3DSeries::itemLabelVisibilityChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries26itemLabelVisibilityChangedEb(
+    QAbstract3DSeries *self,
+    bool visible) {
+  self->itemLabelVisibilityChanged(visible);
 }
 
 //  a Python function taken by a CuteQAbstract3DSeries, for the function

@@ -72,3 +72,23 @@ void ritual_ZN23QQmlPropertyBindingBase14setIsUndefinedEb(
     bool isUndefined) {
   self->setIsUndefined(isUndefined);
 }
+
+//  size_t QQmlPropertyBindingBase::kindOffset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN23QQmlPropertyBindingBase10kindOffsetEv() {
+  return QQmlPropertyBindingBase::kindOffset();
+}
+
+//  TargetData *QQmlPropertyBindingBase::targetData()
+extern "C" Q_DECL_EXPORT
+QQmlPropertyBindingBase::TargetData *ritual_ZN23QQmlPropertyBindingBase10targetDataEv(
+    QQmlPropertyBindingBase *self) {
+  return self->targetData();
+}
+
+//  const TargetData *QQmlPropertyBindingBase::targetData() const
+extern "C" Q_DECL_EXPORT
+const QQmlPropertyBindingBase::TargetData *ritual_ZNK23QQmlPropertyBindingBase10targetDataEv(
+    const QQmlPropertyBindingBase *self) {
+  return self->targetData();
+}

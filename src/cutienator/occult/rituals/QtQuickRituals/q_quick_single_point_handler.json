@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuickSinglePointHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickSinglePointHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickSinglePointHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickSinglePointHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,14 +21,29 @@
       "address", "address"
     ],
     "ritual_ZNK24QQuickSinglePointHandler5pointEv": ["address", "address"],
+    "ritual_ZN24QQuickSinglePointHandler12pointChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickSinglePointHandlerC1ER31QQuickSinglePointHandlerPrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN24QQuickSinglePointHandler17wantsPointerEventEP13QPointerEvent": [
       "bool", "address", "address"
     ],
     "ritual_ZN24QQuickSinglePointHandler22handlePointerEventImplEP13QPointerEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN24QQuickSinglePointHandler16handleEventPointEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QQuickSinglePointHandler13onGrabChangedEP20QQuickPointerHandlerN15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
     "ritual_ZN24QQuickSinglePointHandler25setIgnoreAdditionalPointsEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QQuickSinglePointHandler10moveTargetE7QPointFR11QEventPoint": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN24QQuickSinglePointHandler10setPointIdEi": [
       "nothing", "address", "int"

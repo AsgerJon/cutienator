@@ -187,6 +187,24 @@ const QMetaObject *ritual_ZNK11QMqttClient10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMqttClient::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QMqttClient11qt_metacastEPKc(
+    QMqttClient *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMqttClient::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QMqttClient11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMqttClient *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMqttClient::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QMqttClient2trEPKcS1_i(
@@ -473,6 +491,193 @@ void ritual_ZN11QMqttClient12authenticateERK29QMqttAuthenticationProperties(
     QMqttClient *self,
     const QMqttAuthenticationProperties *prop) {
   self->authenticate(*prop);
+}
+
+//  void QMqttClient::connected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient9connectedEv(QMqttClient *self) {
+  self->connected();
+}
+
+//  void QMqttClient::disconnected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient12disconnectedEv(QMqttClient *self) {
+  self->disconnected();
+}
+
+//  void QMqttClient::messageReceived(const QByteArray &message, const
+//      QMqttTopicName &topic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient15messageReceivedERK10QByteArrayRK14QMqttTopicName(
+    QMqttClient *self,
+    const QByteArray *message,
+    const QMqttTopicName *topic) {
+  self->messageReceived(*message, *topic);
+}
+
+//  void QMqttClient::messageStatusChanged(qint32 id, QMqtt::MessageStatus s,
+//      const QMqttMessageStatusProperties &properties)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient20messageStatusChangedEiN5QMqtt13MessageStatusERK28QMqttMessageStatusProperties(
+    QMqttClient *self,
+    qint32 id,
+    QMqtt::MessageStatus s,
+    const QMqttMessageStatusProperties *properties) {
+  self->messageStatusChanged(id, s, *properties);
+}
+
+//  void QMqttClient::messageSent(qint32 id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient11messageSentEi(QMqttClient *self, qint32 id) {
+  self->messageSent(id);
+}
+
+//  void QMqttClient::pingResponseReceived()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient20pingResponseReceivedEv(QMqttClient *self) {
+  self->pingResponseReceived();
+}
+
+//  void QMqttClient::brokerSessionRestored()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient21brokerSessionRestoredEv(QMqttClient *self) {
+  self->brokerSessionRestored();
+}
+
+//  void QMqttClient::hostnameChanged(QString hostname)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient15hostnameChangedE7QString(
+    QMqttClient *self,
+    const QString *hostname) {
+  self->hostnameChanged(*hostname);
+}
+
+//  void QMqttClient::portChanged(quint16 port)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient11portChangedEt(QMqttClient *self, quint16 port) {
+  self->portChanged(port);
+}
+
+//  void QMqttClient::clientIdChanged(QString clientId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient15clientIdChangedE7QString(
+    QMqttClient *self,
+    const QString *clientId) {
+  self->clientIdChanged(*clientId);
+}
+
+//  void QMqttClient::keepAliveChanged(quint16 keepAlive)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient16keepAliveChangedEt(
+    QMqttClient *self,
+    quint16 keepAlive) {
+  self->keepAliveChanged(keepAlive);
+}
+
+//  void QMqttClient::protocolVersionChanged(ProtocolVersion protocolVersion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient22protocolVersionChangedENS_15ProtocolVersionE(
+    QMqttClient *self,
+    QMqttClient::ProtocolVersion protocolVersion) {
+  self->protocolVersionChanged(protocolVersion);
+}
+
+//  void QMqttClient::stateChanged(ClientState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient12stateChangedENS_11ClientStateE(
+    QMqttClient *self,
+    QMqttClient::ClientState state) {
+  self->stateChanged(state);
+}
+
+//  void QMqttClient::errorChanged(ClientError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient12errorChangedENS_11ClientErrorE(
+    QMqttClient *self,
+    QMqttClient::ClientError error) {
+  self->errorChanged(error);
+}
+
+//  void QMqttClient::usernameChanged(QString username)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient15usernameChangedE7QString(
+    QMqttClient *self,
+    const QString *username) {
+  self->usernameChanged(*username);
+}
+
+//  void QMqttClient::passwordChanged(QString password)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient15passwordChangedE7QString(
+    QMqttClient *self,
+    const QString *password) {
+  self->passwordChanged(*password);
+}
+
+//  void QMqttClient::cleanSessionChanged(bool cleanSession)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient19cleanSessionChangedEb(
+    QMqttClient *self,
+    bool cleanSession) {
+  self->cleanSessionChanged(cleanSession);
+}
+
+//  void QMqttClient::willTopicChanged(QString willTopic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient16willTopicChangedE7QString(
+    QMqttClient *self,
+    const QString *willTopic) {
+  self->willTopicChanged(*willTopic);
+}
+
+//  void QMqttClient::willQoSChanged(quint8 willQoS)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient14willQoSChangedEh(
+    QMqttClient *self,
+    quint8 willQoS) {
+  self->willQoSChanged(willQoS);
+}
+
+//  void QMqttClient::willMessageChanged(QByteArray willMessage)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient18willMessageChangedE10QByteArray(
+    QMqttClient *self,
+    const QByteArray *willMessage) {
+  self->willMessageChanged(*willMessage);
+}
+
+//  void QMqttClient::willRetainChanged(bool willRetain)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient17willRetainChangedEb(
+    QMqttClient *self,
+    bool willRetain) {
+  self->willRetainChanged(willRetain);
+}
+
+//  void QMqttClient::autoKeepAliveChanged(bool autoKeepAlive)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient20autoKeepAliveChangedEb(
+    QMqttClient *self,
+    bool autoKeepAlive) {
+  self->autoKeepAliveChanged(autoKeepAlive);
+}
+
+//  void QMqttClient::authenticationRequested(const
+//      QMqttAuthenticationProperties &p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient23authenticationRequestedERK29QMqttAuthenticationProperties(
+    QMqttClient *self,
+    const QMqttAuthenticationProperties *p) {
+  self->authenticationRequested(*p);
+}
+
+//  void QMqttClient::authenticationFinished(const
+//      QMqttAuthenticationProperties &p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMqttClient22authenticationFinishedERK29QMqttAuthenticationProperties(
+    QMqttClient *self,
+    const QMqttAuthenticationProperties *p) {
+  self->authenticationFinished(*p);
 }
 
 //  void QMqttClient::setHostname(const QString &hostname)

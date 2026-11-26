@@ -7,6 +7,10 @@
 #include <QtQml/6.12.0/QtQml/private/qqmlirbuilder_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qv4compileddata_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  QString QmlIR::Object::tr(const char *sourceText, const char
 //      *disambiguation, int n)
@@ -125,12 +129,140 @@ int ritual_ZNK5QmlIR6Object30requiredPropertyExtraDataCountEv(
   return self->requiredPropertyExtraDataCount();
 }
 
+//  void QmlIR::Object::simplifyRequiredProperties()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR6Object26simplifyRequiredPropertiesEv(
+    QmlIR::Object *self) {
+  self->simplifyRequiredProperties();
+}
+
+//  void QmlIR::Object::sortAliasDependencies(const Document *doc,
+//      QList<QQmlJS::DiagnosticMessage> *errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR6Object21sortAliasDependenciesEPKNS_8DocumentEP5QListIN6QQmlJS17DiagnosticMessageEE(
+    QmlIR::Object *self,
+    const QmlIR::Document *doc,
+    QList<QQmlJS::DiagnosticMessage> *errors) {
+  self->sortAliasDependencies(doc, errors);
+}
+
+//  void QmlIR::Object::init(QQmlJS::MemoryPool *pool, int typeNameIndex, int
+//      idIndex, const QV4::CompiledData::Location &location)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR6Object4initEPN6QQmlJS10MemoryPoolEiiRKN3QV412CompiledData8LocationE(
+    QmlIR::Object *self,
+    QQmlJS::MemoryPool *pool,
+    int typeNameIndex,
+    int idIndex,
+    const QV4::CompiledData::Location *location) {
+  self->init(pool, typeNameIndex, idIndex, *location);
+}
+
+//  QString QmlIR::Object::appendEnum(Enum *enumeration)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QmlIR6Object10appendEnumEPNS_4EnumE(
+    QmlIR::Object *self,
+    QmlIR::Enum *enumeration) {
+  return new QString(self->appendEnum(enumeration));
+}
+
+//  QString QmlIR::Object::appendSignal(Signal *signal)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QmlIR6Object12appendSignalEPNS_6SignalE(
+    QmlIR::Object *self,
+    QmlIR::Signal *signal) {
+  return new QString(self->appendSignal(signal));
+}
+
+//  QString QmlIR::Object::appendProperty(Property *prop, const QString
+//      &propertyName, bool isDefaultProperty, const QQmlJS::SourceLocation
+//      &defaultToken, QQmlJS::SourceLocation *errorLocation)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QmlIR6Object14appendPropertyEPNS_8PropertyERK7QStringbRKN6QQmlJS14SourceLocationEPS7_(
+    QmlIR::Object *self,
+    QmlIR::Property *prop,
+    const QString *propertyName,
+    bool isDefaultProperty,
+    const QQmlJS::SourceLocation *defaultToken,
+    QQmlJS::SourceLocation *errorLocation) {
+  return new QString(
+      self->appendProperty(
+          prop,
+          *propertyName,
+          isDefaultProperty,
+          *defaultToken,
+          errorLocation));
+}
+
+//  QString QmlIR::Object::appendAlias(Alias *prop, const QString &aliasName,
+//      bool isDefaultProperty, const QQmlJS::SourceLocation &defaultToken,
+//      QQmlJS::SourceLocation *errorLocation)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QmlIR6Object11appendAliasEPNS_5AliasERK7QStringbRKN6QQmlJS14SourceLocationEPS7_(
+    QmlIR::Object *self,
+    QmlIR::Alias *prop,
+    const QString *aliasName,
+    bool isDefaultProperty,
+    const QQmlJS::SourceLocation *defaultToken,
+    QQmlJS::SourceLocation *errorLocation) {
+  return new QString(
+      self->appendAlias(
+          prop,
+          *aliasName,
+          isDefaultProperty,
+          *defaultToken,
+          errorLocation));
+}
+
 //  void QmlIR::Object::setFirstAlias(Alias *alias)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QmlIR6Object13setFirstAliasEPNS_5AliasE(
     QmlIR::Object *self,
     QmlIR::Alias *alias) {
   self->setFirstAlias(alias);
+}
+
+//  void QmlIR::Object::appendFunction(QmlIR::Function *f)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR6Object14appendFunctionEPNS_8FunctionE(
+    QmlIR::Object *self,
+    QmlIR::Function *f) {
+  self->appendFunction(f);
+}
+
+//  void QmlIR::Object::appendInlineComponent(InlineComponent *ic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR6Object21appendInlineComponentEPNS_15InlineComponentE(
+    QmlIR::Object *self,
+    QmlIR::InlineComponent *ic) {
+  self->appendInlineComponent(ic);
+}
+
+//  void
+//      QmlIR::Object::appendRequiredPropertyExtraData(RequiredPropertyExtraD
+//      ata *extraData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR6Object31appendRequiredPropertyExtraDataEPNS_25RequiredPropertyExtraDataE(
+    QmlIR::Object *self,
+    QmlIR::RequiredPropertyExtraData *extraData) {
+  self->appendRequiredPropertyExtraData(extraData);
+}
+
+//  QString QmlIR::Object::appendBinding(Binding *b, bool isListBinding)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QmlIR6Object13appendBindingEPNS_7BindingEb(
+    QmlIR::Object *self,
+    QmlIR::Binding *b,
+    bool isListBinding) {
+  return new QString(self->appendBinding(b, isListBinding));
+}
+
+//  Binding *QmlIR::Object::findBinding(quint32 nameIndex) const
+extern "C" Q_DECL_EXPORT
+QmlIR::Binding *ritual_ZNK5QmlIR6Object11findBindingEj(
+    const QmlIR::Object *self,
+    quint32 nameIndex) {
+  return self->findBinding(nameIndex);
 }
 
 //  Binding *QmlIR::Object::unlinkBinding(Binding *before, Binding *binding)
@@ -142,11 +274,28 @@ QmlIR::Binding *ritual_ZN5QmlIR6Object13unlinkBindingEPNS_7BindingES2_(
   return self->unlinkBinding(before, binding);
 }
 
+//  QString QmlIR::Object::bindingAsString(Document *doc, int scriptIndex)
+//      const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK5QmlIR6Object15bindingAsStringEPNS_8DocumentEi(
+    const QmlIR::Object *self,
+    QmlIR::Document *doc,
+    int scriptIndex) {
+  return new QString(self->bindingAsString(doc, scriptIndex));
+}
+
 //  int QmlIR::Object::namedObjectsInComponentCount() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK5QmlIR6Object28namedObjectsInComponentCountEv(
     const QmlIR::Object *self) {
   return self->namedObjectsInComponentCount();
+}
+
+//  const quint32 *QmlIR::Object::namedObjectsInComponentTable() const
+extern "C" Q_DECL_EXPORT
+const quint32 *ritual_ZNK5QmlIR6Object28namedObjectsInComponentTableEv(
+    const QmlIR::Object *self) {
+  return self->namedObjectsInComponentTable();
 }
 
 //  bool QmlIR::Object::hasFlag(QV4::CompiledData::Object::Flag flag) const

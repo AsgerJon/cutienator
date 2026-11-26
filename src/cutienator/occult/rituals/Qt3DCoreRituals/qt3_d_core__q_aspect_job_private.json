@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore17QAspectJobPrivateC1Ev": ["address"],
     "ritual_ZN8Qt3DCore17QAspectJobPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN8Qt3DCore17QAspectJobPrivate3getEPNS_10QAspectJobE": [
       "address", "address"

@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK7QCtfLib10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QCtfLib11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QCtfLib11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QCtfLib2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QCtfLibD1Ev": ["nothing", "address"],
     "ritual_ZN7QCtfLib17tracepointEnabledERK19QCtfTracePointEvent": [
@@ -15,6 +19,9 @@
       "nothing", "address", "address", "address"
     ],
     "ritual_ZN7QCtfLib14sessionEnabledEv": ["bool", "address"],
+    "ritual_ZN7QCtfLib20initializeTracepointERK19QCtfTracePointEvent": [
+      "address", "address", "address"
+    ],
     "ritual_ZN7QCtfLib8shutdownEPb": ["nothing", "address", "address"],
     "ritual_take_QCtfLib": ["bool", "address", "chars", "address"]
   }

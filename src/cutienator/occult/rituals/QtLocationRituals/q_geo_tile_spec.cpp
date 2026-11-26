@@ -20,6 +20,12 @@ QGeoTileSpec *ritual_ZN12QGeoTileSpecC1ERKS_(const QGeoTileSpec *other) {
   return new QGeoTileSpec(*other);
 }
 
+//  QGeoTileSpec::QGeoTileSpec(QGeoTileSpec &&other)
+extern "C" Q_DECL_EXPORT
+QGeoTileSpec *ritual_ZN12QGeoTileSpecC1EOS_(QGeoTileSpec *other) {
+  return new QGeoTileSpec(std::move(*other));
+}
+
 //  QGeoTileSpec::QGeoTileSpec(const QString &plugin, int mapId, int zoom,
 //      int x, int y, int version)
 extern "C" Q_DECL_EXPORT
@@ -37,6 +43,30 @@ QGeoTileSpec *ritual_ZN12QGeoTileSpecC1ERK7QStringiiiii(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QGeoTileSpecD1Ev(QGeoTileSpec *self) {
   delete self;
+}
+
+//  QGeoTileSpec &QGeoTileSpec::operator=(const QGeoTileSpec &other)
+extern "C" Q_DECL_EXPORT
+QGeoTileSpec *ritual_ZN12QGeoTileSpecaSERKS_(
+    QGeoTileSpec *self,
+    const QGeoTileSpec *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoTileSpec &QGeoTileSpec::operator=(QGeoTileSpec &&other)
+extern "C" Q_DECL_EXPORT
+QGeoTileSpec *ritual_ZN12QGeoTileSpecaSEOS_(
+    QGeoTileSpec *self,
+    QGeoTileSpec *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoTileSpec::swap(QGeoTileSpec &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGeoTileSpec4swapERS_(
+    QGeoTileSpec *self,
+    QGeoTileSpec *other) {
+  self->swap(*other);
 }
 
 //  QString QGeoTileSpec::plugin() const
@@ -143,4 +173,12 @@ bool ritual_ZNK12QGeoTileSpec6isLessERKS_(
     const QGeoTileSpec *self,
     const QGeoTileSpec *rhs) {
   return self->isLess(*rhs);
+}
+
+//  size_t QGeoTileSpec::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK12QGeoTileSpec4hashEm(
+    const QGeoTileSpec *self,
+    size_t seed) {
+  return self->hash(seed);
 }

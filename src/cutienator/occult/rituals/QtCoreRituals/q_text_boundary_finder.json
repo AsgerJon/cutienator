@@ -7,7 +7,17 @@
   "rows": {
     "ritual_ZN19QTextBoundaryFinderC1Ev": ["address"],
     "ritual_ZN19QTextBoundaryFinderC1ERKS_": ["address", "address"],
+    "ritual_ZN19QTextBoundaryFinderC1EOS_": ["address", "address"],
+    "ritual_ZN19QTextBoundaryFinderaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QTextBoundaryFinderaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QTextBoundaryFinderD1Ev": ["nothing", "address"],
+    "ritual_ZN19QTextBoundaryFinder4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QTextBoundaryFinderC1ENS_12BoundaryTypeERK7QString": [
       "address", "int", "text"
     ],

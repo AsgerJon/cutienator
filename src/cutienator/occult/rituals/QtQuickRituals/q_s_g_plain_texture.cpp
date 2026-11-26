@@ -336,6 +336,24 @@ const QMetaObject *ritual_ZNK15QSGPlainTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGPlainTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QSGPlainTexture11qt_metacastEPKc(
+    QSGPlainTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGPlainTexture::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QSGPlainTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGPlainTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGPlainTexture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QSGPlainTexture2trEPKcS1_i(
@@ -497,6 +515,13 @@ extern "C" Q_DECL_EXPORT
 QSGPlainTexture *ritual_ZN15QSGPlainTexture9fromImageERK6QImage(
     const QImage *image) {
   return QSGPlainTexture::fromImage(*image);
+}
+
+//  QSGPlainTexture::QSGPlainTexture(QSGPlainTexturePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QSGPlainTexture *ritual_ZN15QSGPlainTextureC1ER22QSGPlainTexturePrivate(
+    QSGPlainTexturePrivate *dd) {
+  return new CuteQSGPlainTexture(*dd);
 }
 
 //  a Python function taken by a CuteQSGPlainTexture, for the function named

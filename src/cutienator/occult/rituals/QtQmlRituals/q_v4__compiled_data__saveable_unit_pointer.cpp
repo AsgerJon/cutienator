@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: added by hand, instances of templates of the class: 2.
+//  Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -40,9 +41,31 @@ bool ritual_ZN3QV412CompiledData19SaveableUnitPointer15writeDataToFileERK7QStrin
       errorString);
 }
 
+//  quint32_le &QV4::CompiledData::SaveableUnitPointer::mutableFlags() const
+extern "C" Q_DECL_EXPORT
+quint32_le *ritual_ZNK3QV412CompiledData19SaveableUnitPointer12mutableFlagsEv(
+    const QV4::CompiledData::SaveableUnitPointer *self) {
+  return &(self->mutableFlags());
+}
+
 //  quint32 QV4::CompiledData::SaveableUnitPointer::size() const
 extern "C" Q_DECL_EXPORT
 quint32 ritual_ZNK3QV412CompiledData19SaveableUnitPointer4sizeEv(
     const QV4::CompiledData::SaveableUnitPointer *self) {
   return self->size();
+}
+
+//  const char *QV4::CompiledData::SaveableUnitPointer::data<char>() const
+extern "C" Q_DECL_EXPORT
+const char *ritual_ZNK3QV412CompiledData19SaveableUnitPointer4dataIcEEPKT_v(
+    const QV4::CompiledData::SaveableUnitPointer *self) {
+  return self->data<char>();
+}
+
+//  const unsigned char *QV4::CompiledData::SaveableUnitPointer::
+//      data<unsigned char>() const
+extern "C" Q_DECL_EXPORT
+const unsigned char *ritual_ZNK3QV412CompiledData19SaveableUnitPointer4dataIhEEPKT_v(
+    const QV4::CompiledData::SaveableUnitPointer *self) {
+  return self->data<unsigned char>();
 }

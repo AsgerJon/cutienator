@@ -5,11 +5,43 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN8Qt3DCore20QAspectEnginePrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK8Qt3DCore20QAspectEnginePrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate8shutdownEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate18exitSimulationLoopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate12initNodeTreeEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate8initNodeEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate10initEntityEPNS_7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate7addNodeEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate10removeNodeEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore20QAspectEnginePrivate10lookupNodeENS_7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore20QAspectEnginePrivate11lookupNodesERK5QListINS_7QNodeIdEE": [
+      "address", "address", "address"
     ],
     "ritual_ZN8Qt3DCore20QAspectEnginePrivate3getEPNS_13QAspectEngineE": [
       "address", "address"
@@ -22,6 +54,9 @@
     ],
     "ritual_own_ZNK8Qt3DCore20QAspectEnginePrivate10lookupNodeENS_7QNodeIdE": [
       "address", "address", "address"
+    ],
+    "ritual_drop_Qt3DCore_QAspectEnginePrivate__QList_Qt3DCore_QNode": [
+      "nothing", "address"
     ]
   }
 }

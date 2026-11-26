@@ -5,10 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QGeoMapTypePrivateC1Ev": ["address"],
     "ritual_ZN18QGeoMapTypePrivateC1EN11QGeoMapType8MapStyleERK7QStringS4_bbiRK10QByteArrayRK22QGeoCameraCapabilitiesRK4QMapIS2_8QVariantE": [
       "address", "int", "text", "text", "bool", "bool", "int", "address",
       "address", "address"
     ],
+    "ritual_ZNK18QGeoMapTypePrivateeqERKS_": ["bool", "address", "address"],
     "ritual_ZN18QGeoMapTypePrivateD1Ev": ["nothing", "address"]
   }
 }

@@ -5,6 +5,13 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap14FunctionObject4initEPNS_15ExecutionEngineEPNS_6StringE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap14FunctionObject4initEPNS_15ExecutionEngineERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN3QV44Heap14FunctionObject4initEv": ["nothing", "address"],
     "ritual_cast_QV4_Heap_FunctionObject_QV4_Heap_FunctionObjectData": [
       "address", "address"
     ]

@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender18QShaderDataPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender18QShaderDataPrivateC1E14QSharedPointerINS_23PropertyReaderInterfaceEE": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender18QShaderDataPrivate6q_funcEv": [
       "address", "address"
     ],

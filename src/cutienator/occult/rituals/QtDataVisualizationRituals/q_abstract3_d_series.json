@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QAbstract3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QAbstract3DSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QAbstract3DSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QAbstract3DSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -87,6 +93,54 @@
     ],
     "ritual_ZNK17QAbstract3DSeries18isItemLabelVisibleEv": [
       "bool", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries22itemLabelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QAbstract3DSeries17visibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QAbstract3DSeries11meshChangedENS_4MeshE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QAbstract3DSeries17meshSmoothChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QAbstract3DSeries19meshRotationChangedERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries22userDefinedMeshChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QAbstract3DSeries17colorStyleChangedEN8Q3DTheme10ColorStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QAbstract3DSeries16baseColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries19baseGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries27singleHighlightColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries30singleHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries26multiHighlightColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries29multiHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QAbstract3DSeries16itemLabelChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QAbstract3DSeries26itemLabelVisibilityChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_take_QAbstract3DSeries": ["bool", "address", "chars", "address"],
     "ritual_list_make_QAbstract3DSeries_ptr": ["address"],

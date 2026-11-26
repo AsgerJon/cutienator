@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV47Runtime17LoadSuperProperty4callEPNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address"
+    ],
     "ritual_ZN3QV47Runtime17LoadSuperPropertyD1Ev": ["nothing", "address"]
   }
 }

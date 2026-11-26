@@ -5,8 +5,10 @@
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitglobal_p.h>
 #if 1
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitglobal_p.h>
+#if 1
 #include <QtLabsStyleKit/QtLabsStyleKit>
 #include <QtLabsStyleKit/qstylekitstyle.h>
+#endif
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qstylekitstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -94,6 +96,20 @@
 #include <QtLabsStyleKit/private/qqstylekit_p.h>
 #include <QtLabsStyleKit/private/qqstylekitcontrolproperties_p.h>
 #include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
+#include <QtLabsStyleKit/private/qqstylekittheme_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrolproperties_p.h>
+#include <QtLabsStyleKit/private/qqstylekitpropertyresolver_p.h>
+#include <QtLabsStyleKit/private/qqstylekitpropertyresolver_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrols_p.h>
+#include <QtLabsStyleKit/private/qqstylekitvariation_p.h>
+#include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
+#include <QtLabsStyleKit/private/qqstylekittheme_p.h>
+#include <QtLabsStyleKit/private/qqstylekitdebug_p.h>
+#include <QtQuickTemplates2/private/qquickcontrol_p.h>
+#include <QtCore/QScopedValueRollback>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -102,6 +118,384 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 432, as local:qstylekitstyle.cpp:paintTarget
+static QWidget *paintTarget(const QWidget *widget)
+{
+#if QT_CONFIG(scrollarea)
+    if (const auto *area = qobject_cast<const QAbstractScrollArea *>(widget))
+        return area->viewport();
+#endif
+    return const_cast<QWidget *>(widget);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 443, as local:qstylekitstyle.cpp:isSelfPaintingWidget
+static bool isSelfPaintingWidget(const QWidget *widget)
+{
+    return false
+#if QT_CONFIG(label)
+        || qobject_cast<const QLabel *>(widget)
+#endif
+#if QT_CONFIG(textedit)
+        || qobject_cast<const QTextEdit *>(widget)
+        || qobject_cast<const QPlainTextEdit *>(widget)
+#endif
+#if QT_CONFIG(lineedit)
+        || qobject_cast<const QLineEdit *>(widget)
+#endif
+        ;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 476, as local:qstylekitstyle.cpp:resolvedAlignment
+static uint resolvedAlignment(uint raw, Qt::Alignment hDefault, Qt::Alignment vDefault)
+{
+    uint result = 0;
+    const uint h = raw & Qt::AlignHorizontal_Mask;
+    const uint v = raw & Qt::AlignVertical_Mask;
+    result |= h ? h : uint(hDefault);
+    result |= v ? v : uint(vDefault);
+    return result;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 486, as local:qstylekitstyle.cpp:resolvedWidth
+static qreal resolvedWidth(const QQStyleKitDelegateProperties *element, qreal availableW)
+{
+    return qMax(0.0, element->fillWidth() ? availableW : element->width());
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 491, as local:qstylekitstyle.cpp:resolvedHeight
+static qreal resolvedHeight(const QQStyleKitDelegateProperties *element, qreal availableH)
+{
+    return qMax(0.0, element->fillHeight() ? availableH : element->height());
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 496, as local:qstylekitstyle.cpp:elementMargins
+static QMargins elementMargins(const QQStyleKitDelegateProperties *element)
+{
+    using QtPrivate::qSaturateRound;
+    return QMargins(qSaturateRound(element->leftMargin()),
+                    qSaturateRound(element->topMargin()),
+                    qSaturateRound(element->rightMargin()),
+                    qSaturateRound(element->bottomMargin()));
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 509, as local:qstylekitstyle.cpp:applyDelegateTransform
+static bool applyDelegateTransform(QPainter *painter,
+                                   const QQStyleKitDelegateProperties *element,
+                                   const QRectF &box)
+{
+    if (!element)
+        return false;
+
+    const qreal scale = element->scale();
+    if (qFuzzyIsNull(scale))
+        return false;
+
+    const qreal rotation = element->rotation();
+    if (qFuzzyIsNull(rotation) && qFuzzyCompare(scale, 1.0))
+        return true;
+
+    const QPointF center = box.center();
+    painter->translate(center);
+    if (!qFuzzyIsNull(rotation))
+        painter->rotate(rotation);
+    if (!qFuzzyCompare(scale, 1.0))
+        painter->scale(scale, scale);
+    painter->translate(-center);
+    return true;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 535, as local:qstylekitstyle.cpp:containerWidget
+static const QWidget *containerWidget(const QWidget *w)
+{
+#if QT_CONFIG(lineedit)
+    if (qobject_cast<const QLineEdit *>(w)) {
+        // if the QLineEdit is an embeddedWidget, we need the real widget
+        QWidget *parent = w->parentWidget();
+        if (false
+#  if QT_CONFIG(combobox)
+            || qobject_cast<const QComboBox *>(parent)
+#  endif
+#  if QT_CONFIG(spinbox)
+            || qobject_cast<const QAbstractSpinBox *>(parent)
+#  endif
+        ) {
+            return parent;
+        }
+    }
+#endif
+
+#if QT_CONFIG(scrollarea)
+    if (const QAbstractScrollArea *sa =
+            qobject_cast<const QAbstractScrollArea *>(w->parentWidget())) {
+        if (sa->viewport() == w)
+            return w->parentWidget();
+    }
+#endif
+
+    return w;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 570, as local:qstylekitstyle.cpp:urlFromStylePath
+static QUrl urlFromStylePath(const QString &filePath)
+{
+    return filePath.startsWith(QLatin1Char(':')) ? QUrl(QLatin1String("qrc") + filePath)
+                                                 : QUrl::fromLocalFile(filePath);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 1546, as _ZNK21QStyleKitStylePrivate16metricsForReaderEP16QQStyleKitReader
+inline QStyleKitStylePrivate::ControlMetrics
+QStyleKitStylePrivate::metricsForReader(QQStyleKitReader *reader) const
+{
+    Q_ASSERT(reader);
+    using QtPrivate::qSaturateRound;
+    const QQStyleKitControlProperties *props = reader->global();
+    ControlMetrics metrics;
+    metrics.bgImplicitSize = QSize(0, 0);
+    metrics.textPadding = QMargins(0, 0, 0, 0);
+    metrics.padding = QMargins(qSaturateRound(props->leftPadding()),
+                               qSaturateRound(props->topPadding()),
+                               qSaturateRound(props->rightPadding()),
+                               qSaturateRound(props->bottomPadding()));
+    metrics.spacing = qSaturateRound(props->spacing());
+    metrics.margins = QMargins(0, 0, 0, 0);
+    metrics.indicatorImplicitSize = QSize(0, 0);
+    metrics.indicatorMargins = QMargins(0, 0, 0, 0);
+    metrics.foregroundImplicitSize = QSize(0, 0);
+    metrics.foregroundMargins = QMargins(0, 0, 0, 0);
+    const auto *background = props->background();
+
+    // Note: scale is deliberately absent here as it should not affect layout
+    const auto elementSize = [](qreal w, qreal h) {
+        constexpr qreal zero(.0);
+        return QSizeF(std::max(zero, w), std::max(zero, h)).toSize();
+    };
+
+    if (background) {
+        metrics.bgImplicitSize = elementSize(background->width(), background->height());
+        metrics.margins = elementMargins(background);
+    }
+    const auto *textProps = props->text();
+    if (textProps) {
+        metrics.textPadding = QMargins(qSaturateRound(textProps->leftPadding()),
+                                       qSaturateRound(textProps->topPadding()),
+                                       qSaturateRound(textProps->rightPadding()),
+                                       qSaturateRound(textProps->bottomPadding()));
+    }
+    const auto *indicator = props->indicator();
+    if (indicator) {
+        metrics.indicatorMargins = elementMargins(indicator);
+        metrics.indicatorImplicitSize = elementSize(indicator->width(), indicator->height());
+
+        const auto *foreground = indicator->foreground();
+        if (foreground) {
+            metrics.foregroundMargins = elementMargins(foreground);
+            const auto foregroundW = resolvedWidth(
+                foreground,
+                std::max(.0, qreal(metrics.indicatorImplicitSize.width()
+                                    - metrics.foregroundMargins.left()
+                                    - metrics.foregroundMargins.right())));
+            const auto foregroundH = resolvedHeight(
+                foreground,
+                std::max(.0, qreal(metrics.indicatorImplicitSize.height()
+                                    - metrics.foregroundMargins.top()
+                                    - metrics.foregroundMargins.bottom())));
+            metrics.foregroundImplicitSize = elementSize(foregroundW, foregroundH);
+        }
+    }
+    const auto *handle = props->handle();
+    if (handle) {
+        metrics.handleImplicitSize = elementSize(handle->width(), handle->height());
+        metrics.handleMargins = elementMargins(handle);
+    }
+    return metrics;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 950, as _ZNK21QStyleKitStylePrivate25startSubElementTransitionERKNS_13SubElementKeyEN16QQStyleKitReader11ControlTypeE6QFlagsIN4QQSK9StateFlagEES8_P16QQuickTransition
+inline QQStyleKitReader *QStyleKitStylePrivate::startSubElementTransition(
+    const SubElementKey &key, QQStyleKitReader::ControlType type, QQSK::State fromState,
+    QQSK::State toState, QQuickTransition *transition) const
+{
+    Q_Q(const QStyleKitStyle);
+    QQStyleKitStyle *effective = effectiveStyle();
+    if (!effective)
+        return nullptr;
+
+    // Reclaim finished readers. running() is per (shared) transition object, so
+    // it turns false only once no instance of that transition animates anywhere
+    for (auto it = subElementAnimationReaders.begin(); it != subElementAnimationReaders.end();) {
+        const QQuickTransition *t = it.value()->transition();
+        if (!t || !t->running()) {
+            it.value()->deleteLater();
+            it = subElementAnimationReaders.erase(it);
+        } else {
+            ++it;
+        }
+    }
+
+
+    if (subElementAnimationReaders.size() >= kMaxSubElementAnimationReaders) {
+        const auto it = subElementAnimationReaders.begin();
+        if (const QWidget *widget = it.key().widget)
+            paintTarget(widget)->update(); // snap to end state
+        it.value()->deleteLater();
+        subElementAnimationReaders.erase(it);
+    }
+
+    auto *reader = new QQStyleKitReader(const_cast<QStyleKitStyle *>(q));
+    reader->setExplicitStyle(effective);
+    reader->setTarget(paintTarget(key.widget));
+    // just stores the fromState, doesn't start the animation yet
+    reader->setControlTypeAndState(type, fromState);
+    reader->setCompleted(true);
+    // As delegates are created lazily, a fresh reader has none,
+    // so we need to create them now so delegates can already start animating changes
+    // Only create delegates actually used by subelements, ie: background, indicators
+    reader->background();
+    auto *indicator = reader->indicator();
+    indicator->first()->foreground();
+    indicator->second()->foreground();
+    // Start the transition to the new state
+    reader->setControlTypeAndState(type, toState);
+    if (!transition || !transition->running()) {
+        reader->deleteLater();
+        return nullptr;
+    }
+    subElementAnimationReaders.insert(key, reader);
+    return reader;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1945, as _ZNK24QQStyleKitTextProperties10topPaddingEv
+inline qreal QQStyleKitTextProperties::topPadding() const
+{
+    return styleProperty<qreal>(QQSK::Property::TopPadding, QQSK::Property::Padding);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1923, as _ZNK24QQStyleKitTextProperties11leftPaddingEv
+inline qreal QQStyleKitTextProperties::leftPadding() const
+{
+    return styleProperty<qreal>(QQSK::Property::LeftPadding, QQSK::Property::Padding);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1934, as _ZNK24QQStyleKitTextProperties12rightPaddingEv
+inline qreal QQStyleKitTextProperties::rightPadding() const
+{
+    return styleProperty<qreal>(QQSK::Property::RightPadding, QQSK::Property::Padding);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1956, as _ZNK24QQStyleKitTextProperties13bottomPaddingEv
+inline qreal QQStyleKitTextProperties::bottomPadding() const
+{
+    return styleProperty<qreal>(QQSK::Property::BottomPadding, QQSK::Property::Padding);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1789, as _ZNK29QQStyleKitIndicatorProperties10foregroundEv
+inline QQStyleKitDelegateProperties *QQStyleKitIndicatorProperties::foreground() const
+{
+    return lazyCreateGroup(m_foreground, QQSK::PropertyGroup::Foreground);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1811, as _ZNK31QQStyleKitIndicatorWithSubTypes10foregroundEv
+inline QQStyleKitDelegateProperties *QQStyleKitIndicatorWithSubTypes::foreground() const
+{
+    return lazyCreateGroup(m_foreground, QQSK::PropertyGroup::Foreground);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1826, as _ZNK31QQStyleKitIndicatorWithSubTypes5firstEv
+inline QQStyleKitIndicatorProperties *QQStyleKitIndicatorWithSubTypes::first() const
+{
+    return lazyCreateGroup(m_first, QQSK::PropertyGroup::DelegateSubtype1);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1831, as _ZNK31QQStyleKitIndicatorWithSubTypes6secondEv
+inline QQStyleKitIndicatorProperties *QQStyleKitIndicatorWithSubTypes::second() const
+{
+    return lazyCreateGroup(m_second, QQSK::PropertyGroup::DelegateSubtype2);
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpropertyresolver.cpp, line 562, as _ZN26QQStyleKitPropertyResolver17readStylePropertyEPK23QQStyleKitPropertyGroupN4QQSK8PropertyES4_
+inline QVariant QQStyleKitPropertyResolver::readStyleProperty(
+    const QQStyleKitPropertyGroup *group,
+    const QQSK::Property property,
+    const QQSK::Property alternative)
+{
+    const QQStyleKitControlProperties *controlProperties = group->controlProperties();
+    const QQSK::PropertyPathFlags pathFlags = group->pathFlags();
+    const QQSK::Subclass subclass = controlProperties->subclass();
+
+    if (subclass != QQSK::Subclass::QQStyleKitReader) {
+        /* Due to propagation, we must know the reader’s state in order to resolve the value
+         * of a given property. For example, the background delegate’s color may follow a
+         * completely different lookup path—and therefore produce a different result—depending
+         * on whether the reader is a Slider or a Button, and whether it is hovered, pressed, etc.
+         * For this reason, when a property is not read via a QQStyleKitReader, propagation and
+         * fall back logic cannot be supported.
+         * However, to still allow static (i.e., non-propagating) bindings between properties
+         * _inside_ a Style, we fall back to return the value set directly on the accessed control. */
+        Q_ASSERT(subclass == QQSK::Subclass::QQStyleKitState);
+        const QQStyleKitControlState *controlState = controlProperties->asQQStyleKitState();
+        const QQStyleKitControl *control = controlState->control();
+        const PropertyPathId propertyPathId = group->propertyPathId(property, PropertyPathId::Flag::IncludeSubtype);
+        const PropertyStorageId key = propertyPathId.storageId(controlState->nestedState());
+        return control->readStyleProperty(key);
+    }
+
+    QQStyleKitStyle *style = controlProperties->style();
+    if (!style || !style->loaded()) {
+        /* No style has been set yet, or the style is still loading. The application should set
+         * a style early (e.g. at the top of main.qml) before creating any controls, to avoid
+         * premature property reads that end up here. However, some controls like the menu bar
+         * are instantiated very early and may try to read properties before a style is available. */
+        return {};
+    }
+
+    QQStyleKitDebug::groupBeingRead = group;
+    QQStyleKitReader *styleReader = controlProperties->asQQStyleKitReader();
+
+    if (s_isReadingProperty) {
+        if (!s_styleWarningsIssued) {
+            s_styleWarningsIssued = true;
+            qmlWarning(styleReader) << "The style property '" << property << "' was read "
+                                    << "before finishing the read of another style property. "
+                                    << "This is likely to cause a style glitch.";
+        }
+    }
+    QScopedValueRollback rollback(s_isReadingProperty, true);
+
+    PropertyPathIds ids;
+    ids.property = group->propertyPathId(property, PropertyPathId::Flag::ExcludeSubtype);
+    ids.alternative = group->propertyPathId(alternative, PropertyPathId::Flag::ExcludeSubtype);
+    const bool insideSubType = pathFlags &
+        (QQSK::PropertyPathFlag::DelegateSubtype1 | QQSK::PropertyPathFlag::DelegateSubtype2);
+
+    if (insideSubType) {
+        ids.subTypeProperty = group->propertyPathId(property, PropertyPathId::Flag::IncludeSubtype);
+        ids.subTypeAlternative = group->propertyPathId(alternative, PropertyPathId::Flag::IncludeSubtype);
+    } else {
+        ids.subTypeProperty = PropertyPathId();
+        ids.subTypeAlternative = PropertyPathId();
+    }
+
+    if (!pathFlags.testFlag(QQSK::PropertyPathFlag::Global)) {
+        /* A style reader can have a storage that contains local property overrides (that is,
+         * interpolated values from an ongoing transition). When searching for a property, we
+         * therefore need to check this storage first. The exception is if the property was read
+         * inside the 'global' group, which means that we should read the values directly
+         * from the style. */
+        if (insideSubType) {
+            const QVariant value = readPropertyInStorageForState(
+                ids.subTypeProperty, ids.subTypeAlternative, styleReader, QQSK::StateFlag::Normal);
+            if (value.isValid())
+                return value;
+        }
+        const QVariant value = readPropertyInStorageForState(
+            ids.property, ids.alternative, styleReader, QQSK::StateFlag::Normal);
+        if (value.isValid())
+            return value;
+    }
+
+    return readPropertyInStyle(style, ids, styleReader);
+}
 
 //  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 565, as _ZN21QStyleKitStylePrivateC1Ev
 inline QStyleKitStylePrivate::QStyleKitStylePrivate()
@@ -236,6 +630,53 @@ inline QQStyleKitReader *QStyleKitStylePrivate::ensureSubElementReader() const
     subElementReader->setExplicitStyle(effective);
     subElementReader->setCompleted(true);
     return subElementReader;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 899, as _ZN21QStyleKitStylePrivate22subElementKeyForOptionEPK12QStyleOptionPK7QWidget
+inline QStyleKitStylePrivate::SubElementKey
+QStyleKitStylePrivate::subElementKeyForOption(const QStyleOption *opt, const QWidget *widget)
+{
+    SubElementKey key;
+    if (!widget)
+        return key;
+
+#if QT_CONFIG(itemviews)
+    if (const auto *viewOpt = qstyleoption_cast<const QStyleOptionViewItem *>(opt)) {
+        const QModelIndex &idx = viewOpt->index;
+        if (!idx.isValid())
+            return key;
+        key.widget = widget;
+        key.id = SubElementKey::ItemViewCell{ idx.model(), idx.internalId(), idx.row(),
+                                              idx.column() };
+        return key;
+    }
+#endif
+#if QT_CONFIG(menu)
+    if (const auto *menuOpt = qstyleoption_cast<const QStyleOptionMenuItem *>(opt)) {
+        if (menuOpt->menuItemType == QStyleOptionMenuItem::Separator)
+            return key;
+        QAction *action = nullptr;
+        if (const auto *menu = qobject_cast<const QMenu *>(widget))
+            action = menu->actionAt(menuOpt->rect.center());
+        else if (const auto *menuBar = qobject_cast<const QMenuBar *>(widget))
+            action = menuBar->actionAt(menuOpt->rect.center());
+        if (action) {
+            key.widget = widget;
+            key.id = SubElementKey::Action{ action };
+        }
+        return key;
+    }
+#endif
+#if QT_CONFIG(tabbar)
+    if (const auto *tabOpt = qstyleoption_cast<const QStyleOptionTab *>(opt)) {
+        if (tabOpt->tabIndex < 0)
+            return key;
+        key.widget = widget;
+        key.id = SubElementKey::Tab{ tabOpt->tabIndex };
+        return key;
+    }
+#endif
+    return key;
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/widgets/qstylekitstyle.cpp, line 1006, as _ZNK21QStyleKitStylePrivate18cleanupSubElementsEPK7QWidget
@@ -564,6 +1005,18 @@ QQStyleKitReader *ritual_ZNK21QStyleKitStylePrivate22ensureSubElementReaderEv(
   return self->ensureSubElementReader();
 }
 
+//  SubElementKey QStyleKitStylePrivate::subElementKeyForOption(const
+//      QStyleOption *opt, const QWidget *widget)
+extern "C" Q_DECL_EXPORT
+QStyleKitStylePrivate::SubElementKey *ritual_ZN21QStyleKitStylePrivate22subElementKeyForOptionEPK12QStyleOptionPK7QWidget(
+    const QStyleOption *opt,
+    const QWidget *widget) {
+  return new QStyleKitStylePrivate::SubElementKey(
+      QStyleKitStylePrivate::subElementKeyForOption(
+          opt,
+          widget));
+}
+
 //  void QStyleKitStylePrivate::cleanupSubElements(const QWidget *widget)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -646,6 +1099,38 @@ QRect *ritual_ZNK21QStyleKitStylePrivate25getAlignedRectInContainerERK5QRectRK5Q
           alignment,
           *padding,
           *indicatorMargins));
+}
+
+//  a QStyleKitStylePrivate::SubElementKey a ritual of QStyleKitStylePrivate
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStyleKitStylePrivate__QStyleKitStylePrivate_SubElementKey(
+    QStyleKitStylePrivate::SubElementKey *self) {
+  delete self;
+}
+
+//  a QStyleKitStylePrivate::QQStyleKitResolved a ritual of
+//      QStyleKitStylePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStyleKitStylePrivate__QStyleKitStylePrivate_QQStyleKitResolved(
+    QStyleKitStylePrivate::QQStyleKitResolved *self) {
+  delete self;
+}
+
+//  a QStyleKitStylePrivate::QQStyleKitLayoutResolved a ritual of
+//      QStyleKitStylePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStyleKitStylePrivate__QStyleKitStylePrivate_QQStyleKitLayoutResolved(
+    QStyleKitStylePrivate::QQStyleKitLayoutResolved *self) {
+  delete self;
+}
+
+//  a QStyleKitStylePrivate::ControlMetrics a ritual of QStyleKitStylePrivate
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStyleKitStylePrivate__QStyleKitStylePrivate_ControlMetrics(
+    QStyleKitStylePrivate::ControlMetrics *self) {
+  delete self;
 }
 
 #endif  // 1

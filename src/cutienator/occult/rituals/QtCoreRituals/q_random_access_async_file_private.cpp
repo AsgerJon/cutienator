@@ -12,6 +12,26 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/QSpan>
+#include <cstddef>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/private/qrandomaccessasyncfile_p.h>
+#include <QtCore/private/qrandomaccessasyncfile_p_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/corelib/io/qrandomaccessasyncfile.cpp, line 16, as _ZN29QRandomAccessAsyncFilePrivateD1Ev
+inline QRandomAccessAsyncFilePrivate::~QRandomAccessAsyncFilePrivate() = default;
+
+//  from src/corelib/io/qrandomaccessasyncfile.cpp, line 15, as _ZN29QRandomAccessAsyncFilePrivateC1Ev
+inline QRandomAccessAsyncFilePrivate::QRandomAccessAsyncFilePrivate() = default;
+//  -----------------------------------------------------------------------
 
 //  QRandomAccessAsyncFile *QRandomAccessAsyncFilePrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -26,6 +46,19 @@ extern "C" Q_DECL_EXPORT
 const QRandomAccessAsyncFile *ritual_ZNK29QRandomAccessAsyncFilePrivate6q_funcEv(
     const QRandomAccessAsyncFilePrivate *self) {
   return self->q_func();
+}
+
+//  QRandomAccessAsyncFilePrivate::QRandomAccessAsyncFilePrivate()
+extern "C" Q_DECL_EXPORT
+QRandomAccessAsyncFilePrivate *ritual_ZN29QRandomAccessAsyncFilePrivateC1Ev() {
+  return new QRandomAccessAsyncFilePrivate();
+}
+
+//  QRandomAccessAsyncFilePrivate::~QRandomAccessAsyncFilePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QRandomAccessAsyncFilePrivateD1Ev(
+    QRandomAccessAsyncFilePrivate *self) {
+  delete self;
 }
 
 //  QRandomAccessAsyncFilePrivate
@@ -95,6 +128,58 @@ QIOWriteOperation *ritual_ZN29QRandomAccessAsyncFilePrivate5writeExRK10QByteArra
     qint64 offset,
     const QByteArray *data) {
   return self->write(offset, *data);
+}
+
+//  QIOWriteOperation *QRandomAccessAsyncFilePrivate::write(qint64 offset,
+//      QByteArray &&data)
+extern "C" Q_DECL_EXPORT
+QIOWriteOperation *ritual_ZN29QRandomAccessAsyncFilePrivate5writeExO10QByteArray(
+    QRandomAccessAsyncFilePrivate *self,
+    qint64 offset,
+    QByteArray *data) {
+  return self->write(offset, std::move(*data));
+}
+
+//  QIOVectoredReadOperation *QRandomAccessAsyncFilePrivate::readInto(qint64
+//      offset, QSpan<std::byte> buffer)
+extern "C" Q_DECL_EXPORT
+QIOVectoredReadOperation *ritual_ZN29QRandomAccessAsyncFilePrivate8readIntoEx5QSpanISt4byteLm18446744073709551615EE(
+    QRandomAccessAsyncFilePrivate *self,
+    qint64 offset,
+    const QSpan<std::byte> *buffer) {
+  return self->readInto(offset, *buffer);
+}
+
+//  QIOVectoredWriteOperation
+//      *QRandomAccessAsyncFilePrivate::writeFrom(qint64 offset, QSpan<const
+//      std::byte> buffer)
+extern "C" Q_DECL_EXPORT
+QIOVectoredWriteOperation *ritual_ZN29QRandomAccessAsyncFilePrivate9writeFromEx5QSpanIKSt4byteLm18446744073709551615EE(
+    QRandomAccessAsyncFilePrivate *self,
+    qint64 offset,
+    const QSpan<const std::byte> *buffer) {
+  return self->writeFrom(offset, *buffer);
+}
+
+//  QIOVectoredReadOperation *QRandomAccessAsyncFilePrivate::readInto(qint64
+//      offset, QSpan<const QSpan<std::byte>> buffers)
+extern "C" Q_DECL_EXPORT
+QIOVectoredReadOperation *ritual_ZN29QRandomAccessAsyncFilePrivate8readIntoEx5QSpanIKS0_ISt4byteLm18446744073709551615EELm18446744073709551615EE(
+    QRandomAccessAsyncFilePrivate *self,
+    qint64 offset,
+    const QSpan<const QSpan<std::byte>> *buffers) {
+  return self->readInto(offset, *buffers);
+}
+
+//  QIOVectoredWriteOperation
+//      *QRandomAccessAsyncFilePrivate::writeFrom(qint64 offset, QSpan<const
+//      QSpan<const std::byte>> buffers)
+extern "C" Q_DECL_EXPORT
+QIOVectoredWriteOperation *ritual_ZN29QRandomAccessAsyncFilePrivate9writeFromEx5QSpanIKS0_IKSt4byteLm18446744073709551615EELm18446744073709551615EE(
+    QRandomAccessAsyncFilePrivate *self,
+    qint64 offset,
+    const QSpan<const QSpan<const std::byte>> *buffers) {
+  return self->writeFrom(offset, *buffers);
 }
 
 //  void QRandomAccessAsyncFilePrivate::checkValid() const

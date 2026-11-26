@@ -17,9 +17,51 @@
       "bool", "address"
     ],
     "ritual_ZNK14QMetaContainer7hasSizeEv": ["bool", "address"],
+    "ritual_ZNK14QMetaContainer4sizeEPKv": [
+      "long long", "address", "address"
+    ],
     "ritual_ZNK14QMetaContainer8canClearEv": ["bool", "address"],
+    "ritual_ZNK14QMetaContainer5clearEPv": ["nothing", "address", "address"],
     "ritual_ZNK14QMetaContainer11hasIteratorEv": ["bool", "address"],
+    "ritual_ZNK14QMetaContainer5beginEPv": ["address", "address", "address"],
+    "ritual_ZNK14QMetaContainer3endEPv": ["address", "address", "address"],
+    "ritual_ZNK14QMetaContainer15destroyIteratorEPKv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QMetaContainer15compareIteratorEPKvS1_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK14QMetaContainer12copyIteratorEPvPKv": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QMetaContainer15advanceIteratorEPvx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_ZNK14QMetaContainer12diffIteratorEPKvS1_": [
+      "long long", "address", "address", "address"
+    ],
     "ritual_ZNK14QMetaContainer16hasConstIteratorEv": ["bool", "address"],
+    "ritual_ZNK14QMetaContainer10constBeginEPKv": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QMetaContainer8constEndEPKv": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QMetaContainer20destroyConstIteratorEPKv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QMetaContainer20compareConstIteratorEPKvS1_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK14QMetaContainer17copyConstIteratorEPvPKv": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QMetaContainer20advanceConstIteratorEPvx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_ZNK14QMetaContainer17diffConstIteratorEPKvS1_": [
+      "long long", "address", "address", "address"
+    ],
     "ritual_ZN14QMetaContainerD1Ev": ["nothing", "address"]
   }
 }

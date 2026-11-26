@@ -6,14 +6,24 @@
   ],
   "rows": {
     "ritual_ZNK19QAbstractProxyModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QAbstractProxyModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QAbstractProxyModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QAbstractProxyModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN19QAbstractProxyModelC1EP7QObject": ["address", "address"],
     "ritual_ZN19QAbstractProxyModelD1Ev": ["nothing", "address"],
     "ritual_ZN19QAbstractProxyModel14setSourceModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK19QAbstractProxyModel11sourceModelEv": ["address", "address"],
+    "ritual_ZN19QAbstractProxyModel19bindableSourceModelEv": [
+      "address", "address"
+    ],
     "ritual_ZNK19QAbstractProxyModel11mapToSourceERK11QModelIndex": [
       "address", "address", "address"
     ],
@@ -90,6 +100,15 @@
       "int", "address"
     ],
     "ritual_ZNK19QAbstractProxyModel9roleNamesEv": ["address", "address"],
+    "ritual_ZN19QAbstractProxyModel18sourceModelChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QAbstractProxyModel17createSourceIndexEiiPv": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN19QAbstractProxyModelC1ER26QAbstractProxyModelPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QAbstractProxyModel6d_funcEv": ["address", "address"],
     "ritual_ZNK19QAbstractProxyModel6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractProxyModel": [
@@ -156,6 +175,9 @@
     ],
     "ritual_own_ZNK19QAbstractProxyModel20supportedDropActionsEv": [
       "int", "address"
+    ],
+    "ritual_drop_QAbstractProxyModel__QBindable_QAbstractItemModel": [
+      "nothing", "address"
     ]
   }
 }

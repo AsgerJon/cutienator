@@ -7,9 +7,15 @@
   "rows": {
     "ritual_ZN25QRasterPaintEnginePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QRasterPaintEnginePrivate6q_funcEv": ["address", "address"],
-    "ritual_ZN25QRasterPaintEnginePrivateC1Ev": ["address"],
+    "ritual_ZN25QRasterPaintEnginePrivate14updateClippingEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN25QRasterPaintEnginePrivate18systemStateChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QRasterPaintEnginePrivate9drawImageERK7QPointFRK6QImagePFvPhiPKhiiiiERK5QRectiSD_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "int", "address"
     ],
     "ritual_ZN25QRasterPaintEnginePrivate9blitImageERK7QPointFRK6QImageRK5QRectS8_": [
       "nothing", "address", "address", "address", "address", "address"
@@ -25,6 +31,15 @@
     ],
     "ritual_ZNK25QRasterPaintEnginePrivate11isUnclippedERK6QRectFi": [
       "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK25QRasterPaintEnginePrivate10getPenFuncERK6QRectFPK9QSpanData": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK25QRasterPaintEnginePrivate12getBrushFuncERK5QRectPK9QSpanData": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK25QRasterPaintEnginePrivate12getBrushFuncERK6QRectFPK9QSpanData": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZNK25QRasterPaintEnginePrivate4clipEv": ["address", "address"],
     "ritual_ZN25QRasterPaintEnginePrivate21recalculateFastImagesEv": [

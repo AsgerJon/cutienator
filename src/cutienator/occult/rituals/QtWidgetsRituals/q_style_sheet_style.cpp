@@ -15,13 +15,17 @@
 #include <QtGui/qpixmap.h>
 #include <QtGui/qpalette.h>
 #include <QtCore/qstring.h>
-#include <QtGui/qfontmetrics.h>
-#include <QtGui/qfont.h>
 #include <QtCore/qpoint.h>
+#include <QtGui/qfontmetrics.h>
 #include <QtCore/qsize.h>
 #include <QtGui/qicon.h>
+#include <QtGui/qfont.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QHash>
+#include <QtWidgets/QStyle>
+#include <QtCore/QRect>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qglobal.h>
 #include <QtWidgets/private/qstylesheetstyle_p.h>
@@ -124,6 +128,177 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/styles/qstylesheetstyle.cpp, line 109, as local:qstylesheetstyle.cpp:QStyleSheetStylePrivate
+#if QT_CONFIG(style_stylesheet)
+class QStyleSheetStylePrivate : public QWindowsStylePrivate
+{
+    Q_DECLARE_PUBLIC(QStyleSheetStyle)
+public:
+    QStyleSheetStylePrivate() { }
+};
+#endif  // QT_CONFIG(style_stylesheet)
+
+//  from src/widgets/styles/qstylesheetstyle.cpp, line 163, as local:qstylesheetstyle.cpp:PseudoElement_None
+#if QT_CONFIG(style_stylesheet)
+enum PseudoElement {
+    PseudoElement_None,
+    PseudoElement_DownArrow,
+    PseudoElement_UpArrow,
+    PseudoElement_LeftArrow,
+    PseudoElement_RightArrow,
+    PseudoElement_Indicator,
+    PseudoElement_ExclusiveIndicator,
+    PseudoElement_PushButtonMenuIndicator,
+    PseudoElement_ComboBoxDropDown,
+    PseudoElement_ComboBoxArrow,
+    PseudoElement_Item,
+    PseudoElement_SpinBoxUpButton,
+    PseudoElement_SpinBoxUpArrow,
+    PseudoElement_SpinBoxDownButton,
+    PseudoElement_SpinBoxDownArrow,
+    PseudoElement_GroupBoxTitle,
+    PseudoElement_GroupBoxIndicator,
+    PseudoElement_ToolButtonMenu,
+    PseudoElement_ToolButtonMenuArrow,
+    PseudoElement_ToolButtonMenuIndicator,
+    PseudoElement_ToolBoxTab,
+    PseudoElement_ScrollBarSlider,
+    PseudoElement_ScrollBarAddPage,
+    PseudoElement_ScrollBarSubPage,
+    PseudoElement_ScrollBarAddLine,
+    PseudoElement_ScrollBarSubLine,
+    PseudoElement_ScrollBarFirst,
+    PseudoElement_ScrollBarLast,
+    PseudoElement_ScrollBarUpArrow,
+    PseudoElement_ScrollBarDownArrow,
+    PseudoElement_ScrollBarLeftArrow,
+    PseudoElement_ScrollBarRightArrow,
+    PseudoElement_SplitterHandle,
+    PseudoElement_ToolBarHandle,
+    PseudoElement_ToolBarSeparator,
+    PseudoElement_MenuScroller,
+    PseudoElement_MenuTearoff,
+    PseudoElement_MenuCheckMark,
+    PseudoElement_MenuSeparator,
+    PseudoElement_MenuIcon,
+    PseudoElement_MenuRightArrow,
+    PseudoElement_TreeViewBranch,
+    PseudoElement_HeaderViewSection,
+    PseudoElement_HeaderViewUpArrow,
+    PseudoElement_HeaderViewDownArrow,
+    PseudoElement_ProgressBarChunk,
+    PseudoElement_TabBarTab,
+    PseudoElement_TabBarScroller,
+    PseudoElement_TabBarTear,
+    PseudoElement_SliderGroove,
+    PseudoElement_SliderHandle,
+    PseudoElement_SliderAddPage,
+    PseudoElement_SliderSubPage,
+    PseudoElement_SliderTickmark,
+    PseudoElement_TabWidgetPane,
+    PseudoElement_TabWidgetTabBar,
+    PseudoElement_TabWidgetLeftCorner,
+    PseudoElement_TabWidgetRightCorner,
+    PseudoElement_DockWidgetTitle,
+    PseudoElement_DockWidgetCloseButton,
+    PseudoElement_DockWidgetFloatButton,
+    PseudoElement_DockWidgetSeparator,
+    PseudoElement_MdiCloseButton,
+    PseudoElement_MdiMinButton,
+    PseudoElement_MdiNormalButton,
+    PseudoElement_TitleBar,
+    PseudoElement_TitleBarCloseButton,
+    PseudoElement_TitleBarMinButton,
+    PseudoElement_TitleBarMaxButton,
+    PseudoElement_TitleBarShadeButton,
+    PseudoElement_TitleBarUnshadeButton,
+    PseudoElement_TitleBarNormalButton,
+    PseudoElement_TitleBarContextHelpButton,
+    PseudoElement_TitleBarSysMenu,
+    PseudoElement_ViewItem,
+    PseudoElement_ViewItemIcon,
+    PseudoElement_ViewItemText,
+    PseudoElement_ViewItemIndicator,
+    PseudoElement_ScrollAreaCorner,
+    PseudoElement_TabBarTabCloseButton,
+    NumPseudoElements
+};
+#endif  // QT_CONFIG(style_stylesheet)
+
+//  from src/widgets/styles/qstylesheetstyle.cpp, line 437, as local:qstylesheetstyle.cpp:QStyleSheetGeometryData
+#if QT_CONFIG(style_stylesheet)
+struct QStyleSheetGeometryData : public QSharedData
+{
+    QStyleSheetGeometryData(int w, int h, int minw, int minh, int maxw, int maxh)
+        : minWidth(minw), minHeight(minh), width(w), height(h), maxWidth(maxw), maxHeight(maxh) { }
+
+    int minWidth, minHeight, width, height, maxWidth, maxHeight;
+};
+#endif  // QT_CONFIG(style_stylesheet)
+
+//  from src/widgets/styles/qstylesheetstyle.cpp, line 2481, as local:qstylesheetstyle.cpp:containerWidget
+#if QT_CONFIG(style_stylesheet)
+static const QWidget *containerWidget(const QWidget *w)
+{
+#if QT_CONFIG(lineedit)
+    if (qobject_cast<const QLineEdit *>(w)) {
+        //if the QLineEdit is an embeddedWidget, we need the rule of the real widget
+#if QT_CONFIG(combobox)
+        if (qobject_cast<const QComboBox *>(w->parentWidget()))
+            return w->parentWidget();
+#endif
+#if QT_CONFIG(spinbox)
+        if (qobject_cast<const QAbstractSpinBox *>(w->parentWidget()))
+            return w->parentWidget();
+#endif
+    }
+#endif // QT_CONFIG(lineedit)
+
+#if QT_CONFIG(scrollarea)
+    if (const QAbstractScrollArea *sa = qobject_cast<const QAbstractScrollArea *>(w->parentWidget())) {
+        if (sa->viewport() == w)
+            return w->parentWidget();
+    }
+#endif
+
+    return w;
+}
+#endif  // QT_CONFIG(style_stylesheet)
+
+//  from src/widgets/styles/qstylesheetstyle.cpp, line 2510, as local:qstylesheetstyle.cpp:unstylable
+#if QT_CONFIG(style_stylesheet)
+static bool unstylable(const QWidget *w)
+{
+    if (!w->styleSheet().isEmpty())
+        return false;
+
+    if (containerWidget(w) != w)
+        return true;
+
+#ifndef QT_NO_FRAME
+    // detect QComboBoxPrivateContainer
+    else if (qobject_cast<const QFrame *>(w)) {
+        if (0
+#if QT_CONFIG(combobox)
+            || qobject_cast<const QComboBox *>(w->parentWidget())
+#endif
+           )
+            return true;
+    }
+#endif
+
+#if QT_CONFIG(tabbar)
+    if (w->metaObject() == &QWidget::staticMetaObject
+            && qobject_cast<const QTabBar*>(w->parentWidget()))
+        return true; // The moving tab of a QTabBar
+#endif
+
+    return false;
+}
+#endif  // QT_CONFIG(style_stylesheet)
+
 //  from src/widgets/styles/qstylesheetstyle.cpp, line 4563, as _ZNK16QStyleSheetStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap
 #if QT_CONFIG(style_stylesheet)
 inline void QStyleSheetStyle::drawItemPixmap(QPainter *p, const QRect &rect, int alignment, const
@@ -168,14 +343,6 @@ inline QRect QStyleSheetStyle::itemTextRect(const QFontMetrics &metrics, const Q
 }
 #endif  // QT_CONFIG(style_stylesheet)
 
-//  from src/widgets/styles/qstylesheetstyle.cpp, line 2976, as _ZN16QStyleSheetStyle6polishEP12QApplication
-#if QT_CONFIG(style_stylesheet)
-inline void QStyleSheetStyle::polish(QApplication *app)
-{
-    baseStyle()->polish(app);
-}
-#endif  // QT_CONFIG(style_stylesheet)
-
 //  from src/widgets/styles/qstylesheetstyle.cpp, line 5681, as _ZNK16QStyleSheetStyle15standardPaletteEv
 #if QT_CONFIG(style_stylesheet)
 inline QPalette QStyleSheetStyle::standardPalette() const
@@ -191,6 +358,26 @@ inline int QStyleSheetStyle::layoutSpacing(QSizePolicy::ControlType control1, QS
                           const QWidget *widget) const
 {
     return baseStyle()->layoutSpacing(control1, control2, orientation, option, widget);
+}
+#endif  // QT_CONFIG(style_stylesheet)
+
+//  from src/widgets/styles/qstylesheetstyle.cpp, line 6464, as _ZN16QStyleSheetStyle5eventEP6QEvent
+#if QT_CONFIG(style_stylesheet)
+inline bool QStyleSheetStyle::event(QEvent *e)
+{
+    return (baseStyle()->event(e) && e->isAccepted()) || ParentStyle::event(e);
+}
+#endif  // QT_CONFIG(style_stylesheet)
+
+//  from src/widgets/styles/qstylesheetstyle.cpp, line 2832, as _ZNK16QStyleSheetStyle9baseStyleEv
+#if QT_CONFIG(style_stylesheet)
+inline QStyle *QStyleSheetStyle::baseStyle() const
+{
+    if (base)
+        return base;
+    if (QStyleSheetStyle *me = qt_styleSheet(QApplication::style()))
+        return me->base;
+    return QApplication::style();
 }
 #endif  // QT_CONFIG(style_stylesheet)
 
@@ -210,14 +397,6 @@ inline void QStyleSheetStyle::clearWidgetFont(QWidget* w) const
 }
 #endif  // QT_CONFIG(style_stylesheet)
 
-//  from src/widgets/styles/qstylesheetstyle.cpp, line 6464, as _ZN16QStyleSheetStyle5eventEP6QEvent
-#if QT_CONFIG(style_stylesheet)
-inline bool QStyleSheetStyle::event(QEvent *e)
-{
-    return (baseStyle()->event(e) && e->isAccepted()) || ParentStyle::event(e);
-}
-#endif  // QT_CONFIG(style_stylesheet)
-
 //  from src/widgets/styles/qstylesheetstyle.cpp, line 6547, as _ZN16QStyleSheetStyle16resolveAlignmentEN2Qt15LayoutDirectionE6QFlagsINS0_13AlignmentFlagEE
 #if QT_CONFIG(style_stylesheet)
 inline Qt::Alignment QStyleSheetStyle::resolveAlignment(Qt::LayoutDirection layDir, Qt::Alignment src)
@@ -234,6 +413,17 @@ inline Qt::Alignment QStyleSheetStyle::resolveAlignment(Qt::LayoutDirection layD
     }
     src |= Qt::AlignAbsolute;
     return src;
+}
+#endif  // QT_CONFIG(style_stylesheet)
+
+//  from src/widgets/styles/qstylesheetstyle.cpp, line 6569, as _ZN16QStyleSheetStyle14isNaturalChildEPK7QObject
+#if QT_CONFIG(style_stylesheet)
+inline bool QStyleSheetStyle::isNaturalChild(const QObject *obj)
+{
+    if (obj->objectName().startsWith("qt_"_L1))
+        return true;
+
+    return false;
 }
 #endif  // QT_CONFIG(style_stylesheet)
 
@@ -1165,6 +1355,49 @@ const QMetaObject *ritual_ZNK16QStyleSheetStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStyleSheetStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QStyleSheetStyle11qt_metacastEPKc(
+    QStyleSheetStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStyleSheetStyle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QStyleSheetStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStyleSheetStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QStyleSheetStyle::drawComplexControl(ComplexControl cc, const
+//      QStyleOptionComplex *opt, QPainter *p, const QWidget *w) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QStyleSheetStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::ComplexControl cc,
+    const QStyleOptionComplex *opt,
+    QPainter *p,
+    const QWidget *w) {
+  self->drawComplexControl(cc, opt, p, w);
+}
+
+//  void QStyleSheetStyle::drawControl(ControlElement element, const
+//      QStyleOption *opt, QPainter *p, const QWidget *w) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QStyleSheetStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::ControlElement element,
+    const QStyleOption *opt,
+    QPainter *p,
+    const QWidget *w) {
+  self->drawControl(element, opt, p, w);
+}
+
 //  void QStyleSheetStyle::drawItemPixmap(QPainter *painter, const QRect
 //      &rect, int alignment, const QPixmap &pixmap) const
 extern "C" Q_DECL_EXPORT
@@ -1200,6 +1433,18 @@ void ritual_ZNK16QStyleSheetStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebR
       textRole);
 }
 
+//  void QStyleSheetStyle::drawPrimitive(PrimitiveElement pe, const
+//      QStyleOption *opt, QPainter *p, const QWidget *w) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QStyleSheetStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::PrimitiveElement pe,
+    const QStyleOption *opt,
+    QPainter *p,
+    const QWidget *w) {
+  self->drawPrimitive(pe, opt, p, w);
+}
+
 //  QPixmap QStyleSheetStyle::generatedIconPixmap(QIcon::Mode iconMode, const
 //      QPixmap &pixmap, const QStyleOption *option) const
 extern "C" Q_DECL_EXPORT
@@ -1209,6 +1454,19 @@ QPixmap *ritual_ZNK16QStyleSheetStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixm
     const QPixmap *pixmap,
     const QStyleOption *option) {
   return new QPixmap(self->generatedIconPixmap(iconMode, *pixmap, option));
+}
+
+//  SubControl QStyleSheetStyle::hitTestComplexControl(ComplexControl cc,
+//      const QStyleOptionComplex *opt, const QPoint &pt, const QWidget *w)
+//      const
+extern "C" Q_DECL_EXPORT
+QStyle::SubControl ritual_ZNK16QStyleSheetStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::ComplexControl cc,
+    const QStyleOptionComplex *opt,
+    const QPoint *pt,
+    const QWidget *w) {
+  return self->hitTestComplexControl(cc, opt, *pt, w);
 }
 
 //  QRect QStyleSheetStyle::itemPixmapRect(const QRect &rect, int alignment,
@@ -1241,6 +1499,25 @@ QRect *ritual_ZNK16QStyleSheetStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7Q
           *text));
 }
 
+//  int QStyleSheetStyle::pixelMetric(PixelMetric metric, const QStyleOption
+//      *option, const QWidget *widget) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK16QStyleSheetStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::PixelMetric metric,
+    const QStyleOption *option,
+    const QWidget *widget) {
+  return self->pixelMetric(metric, option, widget);
+}
+
+//  void QStyleSheetStyle::polish(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QStyleSheetStyle6polishEP7QWidget(
+    QStyleSheetStyle *self,
+    QWidget *widget) {
+  self->polish(widget);
+}
+
 //  void QStyleSheetStyle::polish(QApplication *app)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QStyleSheetStyle6polishEP12QApplication(
@@ -1249,11 +1526,54 @@ void ritual_ZN16QStyleSheetStyle6polishEP12QApplication(
   self->polish(app);
 }
 
+//  void QStyleSheetStyle::polish(QPalette &pal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QStyleSheetStyle6polishER8QPalette(
+    QStyleSheetStyle *self,
+    QPalette *pal) {
+  self->polish(*pal);
+}
+
+//  QSize QStyleSheetStyle::sizeFromContents(ContentsType ct, const
+//      QStyleOption *opt, const QSize &contentsSize, const QWidget *widget)
+//      const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK16QStyleSheetStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::ContentsType ct,
+    const QStyleOption *opt,
+    const QSize *contentsSize,
+    const QWidget *widget) {
+  return new QSize(self->sizeFromContents(ct, opt, *contentsSize, widget));
+}
+
 //  QPalette QStyleSheetStyle::standardPalette() const
 extern "C" Q_DECL_EXPORT
 QPalette *ritual_ZNK16QStyleSheetStyle15standardPaletteEv(
     const QStyleSheetStyle *self) {
   return new QPalette(self->standardPalette());
+}
+
+//  QIcon QStyleSheetStyle::standardIcon(StandardPixmap standardIcon, const
+//      QStyleOption *opt, const QWidget *widget) const
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_ZNK16QStyleSheetStyle12standardIconEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::StandardPixmap standardIcon,
+    const QStyleOption *opt,
+    const QWidget *widget) {
+  return new QIcon(self->standardIcon(standardIcon, opt, widget));
+}
+
+//  QPixmap QStyleSheetStyle::standardPixmap(StandardPixmap standardPixmap,
+//      const QStyleOption *option, const QWidget *w) const
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZNK16QStyleSheetStyle14standardPixmapEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::StandardPixmap standardPixmap,
+    const QStyleOption *option,
+    const QWidget *w) {
+  return new QPixmap(self->standardPixmap(standardPixmap, option, w));
 }
 
 //  int QStyleSheetStyle::layoutSpacing(QSizePolicy::ControlType control1,
@@ -1273,6 +1593,57 @@ int ritual_ZNK16QStyleSheetStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N
       orientation,
       option,
       widget);
+}
+
+//  int QStyleSheetStyle::styleHint(StyleHint sh, const QStyleOption *opt,
+//      const QWidget *w, QStyleHintReturn *shret) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK16QStyleSheetStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn(
+    const QStyleSheetStyle *self,
+    QStyle::StyleHint sh,
+    const QStyleOption *opt,
+    const QWidget *w,
+    QStyleHintReturn *shret) {
+  return self->styleHint(sh, opt, w, shret);
+}
+
+//  QRect QStyleSheetStyle::subElementRect(SubElement r, const QStyleOption
+//      *opt, const QWidget *widget) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK16QStyleSheetStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::SubElement r,
+    const QStyleOption *opt,
+    const QWidget *widget) {
+  return new QRect(self->subElementRect(r, opt, widget));
+}
+
+//  QRect QStyleSheetStyle::subControlRect(ComplexControl cc, const
+//      QStyleOptionComplex *opt, SubControl sc, const QWidget *w) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK16QStyleSheetStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget(
+    const QStyleSheetStyle *self,
+    QStyle::ComplexControl cc,
+    const QStyleOptionComplex *opt,
+    QStyle::SubControl sc,
+    const QWidget *w) {
+  return new QRect(self->subControlRect(cc, opt, sc, w));
+}
+
+//  void QStyleSheetStyle::unpolish(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QStyleSheetStyle8unpolishEP7QWidget(
+    QStyleSheetStyle *self,
+    QWidget *widget) {
+  self->unpolish(widget);
+}
+
+//  void QStyleSheetStyle::unpolish(QApplication *app)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QStyleSheetStyle8unpolishEP12QApplication(
+    QStyleSheetStyle *self,
+    QApplication *app) {
+  self->unpolish(app);
 }
 
 //  void QStyleSheetStyle::ref()
@@ -1332,6 +1703,15 @@ int ritual_ZN16QStyleSheetStyle16resolveAlignmentEN2Qt15LayoutDirectionE6QFlagsI
 #endif  // QT_CONFIG(style_stylesheet)
 
 #if QT_CONFIG(style_stylesheet)
+//  bool QStyleSheetStyle::isNaturalChild(const QObject *obj)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QStyleSheetStyle14isNaturalChildEPK7QObject(
+    const QObject *obj) {
+  return QStyleSheetStyle::isNaturalChild(obj);
+}
+#endif  // QT_CONFIG(style_stylesheet)
+
+#if QT_CONFIG(style_stylesheet)
 //  QPixmap QStyleSheetStyle::loadPixmap(const QString &fileName, const
 //      QObject *context)
 extern "C" Q_DECL_EXPORT
@@ -1342,6 +1722,20 @@ QPixmap *ritual_ZN16QStyleSheetStyle10loadPixmapERK7QStringPK7QObject(
 }
 #endif  // QT_CONFIG(style_stylesheet)
 
+//  QStyleSheetStylePrivate *QStyleSheetStyle::d_func()
+extern "C" Q_DECL_EXPORT
+QStyleSheetStylePrivate *ritual_ZN16QStyleSheetStyle6d_funcEv(
+    QStyleSheetStyle *self) {
+  return self->d_func();
+}
+
+//  const QStyleSheetStylePrivate *QStyleSheetStyle::d_func() const
+extern "C" Q_DECL_EXPORT
+const QStyleSheetStylePrivate *ritual_ZNK16QStyleSheetStyle6d_funcEv(
+    const QStyleSheetStyle *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQStyleSheetStyle, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -1350,6 +1744,20 @@ bool ritual_take_QStyleSheetStyle(
     const char *key,
     void *call) {
   return static_cast<CuteQStyleSheetStyle *>(self)->take(key, call);
+}
+
+//  a QList<QCss::StyleRule> a ritual of QStyleSheetStyle gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStyleSheetStyle__QList_QCss_StyleRule(
+    QList<QCss::StyleRule> *self) {
+  delete self;
+}
+
+//  a QHash<QStyle::SubControl, QRect> a ritual of QStyleSheetStyle gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStyleSheetStyle__QHash_QStyle_SubControl_QRect(
+    QHash<QStyle::SubControl, QRect> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(style_stylesheet)

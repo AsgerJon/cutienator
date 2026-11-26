@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender16QDispatchCompute10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QDispatchCompute::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender16QDispatchCompute11qt_metacastEPKc(
+    Qt3DRender::QDispatchCompute *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QDispatchCompute::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender16QDispatchCompute11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QDispatchCompute *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QDispatchCompute::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,86 @@ QString *ritual_ZN10Qt3DRender16QDispatchCompute2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QDispatchCompute::tr(s, c, n));
+}
+
+//  Qt3DRender::QDispatchCompute::QDispatchCompute(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QDispatchCompute *ritual_ZN10Qt3DRender16QDispatchComputeC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QDispatchCompute(parent);
+}
+
+//  Qt3DRender::QDispatchCompute::~QDispatchCompute()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QDispatchComputeD1Ev(
+    Qt3DRender::QDispatchCompute *self) {
+  delete self;
+}
+
+//  int Qt3DRender::QDispatchCompute::workGroupX() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender16QDispatchCompute10workGroupXEv(
+    const Qt3DRender::QDispatchCompute *self) {
+  return self->workGroupX();
+}
+
+//  int Qt3DRender::QDispatchCompute::workGroupY() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender16QDispatchCompute10workGroupYEv(
+    const Qt3DRender::QDispatchCompute *self) {
+  return self->workGroupY();
+}
+
+//  int Qt3DRender::QDispatchCompute::workGroupZ() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender16QDispatchCompute10workGroupZEv(
+    const Qt3DRender::QDispatchCompute *self) {
+  return self->workGroupZ();
+}
+
+//  void Qt3DRender::QDispatchCompute::setWorkGroupX(int workGroupX)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QDispatchCompute13setWorkGroupXEi(
+    Qt3DRender::QDispatchCompute *self,
+    int workGroupX) {
+  self->setWorkGroupX(workGroupX);
+}
+
+//  void Qt3DRender::QDispatchCompute::setWorkGroupY(int workGroupY)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QDispatchCompute13setWorkGroupYEi(
+    Qt3DRender::QDispatchCompute *self,
+    int workGroupY) {
+  self->setWorkGroupY(workGroupY);
+}
+
+//  void Qt3DRender::QDispatchCompute::setWorkGroupZ(int workGroupZ)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QDispatchCompute13setWorkGroupZEi(
+    Qt3DRender::QDispatchCompute *self,
+    int workGroupZ) {
+  self->setWorkGroupZ(workGroupZ);
+}
+
+//  void Qt3DRender::QDispatchCompute::workGroupXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QDispatchCompute17workGroupXChangedEv(
+    Qt3DRender::QDispatchCompute *self) {
+  self->workGroupXChanged();
+}
+
+//  void Qt3DRender::QDispatchCompute::workGroupYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QDispatchCompute17workGroupYChangedEv(
+    Qt3DRender::QDispatchCompute *self) {
+  self->workGroupYChanged();
+}
+
+//  void Qt3DRender::QDispatchCompute::workGroupZChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QDispatchCompute17workGroupZChangedEv(
+    Qt3DRender::QDispatchCompute *self) {
+  self->workGroupZChanged();
 }
 
 //  QDispatchComputePrivate *Qt3DRender::QDispatchCompute::d_func()

@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qsocks5socketengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/private/qsocks5socketengine_p.h>
 #include <QtNetwork/qtcpsocket.h>
@@ -41,13 +42,13 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 68, as local:qsocks5socketengine.cpp:S5_PASSWORDAUTH_VERSION
+#define S5_PASSWORDAUTH_VERSION 0x01
+
 //  from src/network/socket/qsocks5socketengine.cpp, line 389, as _ZN20QSocks5AuthenticatorC2Ev
 inline QSocks5Authenticator::QSocks5Authenticator()
-{
-}
-
-//  from src/network/socket/qsocks5socketengine.cpp, line 393, as _ZN20QSocks5AuthenticatorD2Ev
-inline QSocks5Authenticator::~QSocks5Authenticator()
 {
 }
 
@@ -56,6 +57,35 @@ inline char QSocks5PasswordAuthenticator::methodId()
 {
     return 0x02;
 }
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 444, as _ZN28QSocks5PasswordAuthenticator17beginAuthenticateEP10QTcpSocketPb
+inline bool QSocks5PasswordAuthenticator::beginAuthenticate(QTcpSocket *socket, bool *completed)
+{
+    *completed = false;
+    QByteArray uname = userName.toLatin1();
+    QByteArray passwd = password.toLatin1();
+    QByteArray dataBuf(3 + uname.size() + passwd.size(), 0);
+    char *buf = dataBuf.data();
+    int pos = 0;
+    buf[pos++] = S5_PASSWORDAUTH_VERSION;
+    buf[pos++] = uname.size();
+    memcpy(&buf[pos], uname.data(), uname.size());
+    pos += uname.size();
+    buf[pos++] = passwd.size();
+    memcpy(&buf[pos], passwd.data(), passwd.size());
+    return socket->write(dataBuf) == dataBuf.size();
+}
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 479, as _ZN28QSocks5PasswordAuthenticator11errorStringEv
+inline QString QSocks5PasswordAuthenticator::errorString()
+{
+    return "Socks5 user name or password incorrect"_L1;
+}
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 393, as _ZN20QSocks5AuthenticatorD2Ev
+inline QSocks5Authenticator::~QSocks5Authenticator()
+{
+}
 //  -----------------------------------------------------------------------
 
 //  char QSocks5PasswordAuthenticator::methodId()
@@ -63,6 +93,33 @@ extern "C" Q_DECL_EXPORT
 char ritual_ZN28QSocks5PasswordAuthenticator8methodIdEv(
     QSocks5PasswordAuthenticator *self) {
   return self->methodId();
+}
+
+//  bool QSocks5PasswordAuthenticator::beginAuthenticate(QTcpSocket *socket,
+//      bool *completed)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN28QSocks5PasswordAuthenticator17beginAuthenticateEP10QTcpSocketPb(
+    QSocks5PasswordAuthenticator *self,
+    QTcpSocket *socket,
+    bool *completed) {
+  return self->beginAuthenticate(socket, completed);
+}
+
+//  bool QSocks5PasswordAuthenticator::continueAuthenticate(QTcpSocket
+//      *socket, bool *completed)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN28QSocks5PasswordAuthenticator20continueAuthenticateEP10QTcpSocketPb(
+    QSocks5PasswordAuthenticator *self,
+    QTcpSocket *socket,
+    bool *completed) {
+  return self->continueAuthenticate(socket, completed);
+}
+
+//  QString QSocks5PasswordAuthenticator::errorString()
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN28QSocks5PasswordAuthenticator11errorStringEv(
+    QSocks5PasswordAuthenticator *self) {
+  return new QString(self->errorString());
 }
 
 //  QSocks5PasswordAuthenticator::~QSocks5PasswordAuthenticator()
@@ -77,6 +134,13 @@ extern "C" Q_DECL_EXPORT
 char ritual_own_ZN28QSocks5PasswordAuthenticator8methodIdEv(
     QSocks5PasswordAuthenticator *self) {
   return self->QSocks5PasswordAuthenticator::methodId();
+}
+
+//  QString QSocks5PasswordAuthenticator::errorString()
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZN28QSocks5PasswordAuthenticator11errorStringEv(
+    QSocks5PasswordAuthenticator *self) {
+  return new QString(self->QSocks5PasswordAuthenticator::errorString());
 }
 
 #endif  // QT_CONFIG(socks5)

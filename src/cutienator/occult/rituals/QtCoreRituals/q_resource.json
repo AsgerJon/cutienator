@@ -20,6 +20,7 @@
     "ritual_ZNK9QResource7isValidEv": ["bool", "address"],
     "ritual_ZNK9QResource20compressionAlgorithmEv": ["int", "address"],
     "ritual_ZNK9QResource4sizeEv": ["long long", "address"],
+    "ritual_ZNK9QResource4dataEv": ["address", "address"],
     "ritual_ZNK9QResource16uncompressedSizeEv": ["long long", "address"],
     "ritual_ZNK9QResource16uncompressedDataEv": ["address", "address"],
     "ritual_ZNK9QResource12lastModifiedEv": ["address", "address"],
@@ -29,8 +30,16 @@
     "ritual_ZN9QResource18unregisterResourceERK7QStringS2_": [
       "bool", "text", "text"
     ],
+    "ritual_ZN9QResource16registerResourceEPKhRK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QResource18unregisterResourceEPKhRK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK9QResource5isDirEv": ["bool", "address"],
     "ritual_ZNK9QResource6isFileEv": ["bool", "address"],
-    "ritual_ZNK9QResource8childrenEv": ["address", "address"]
+    "ritual_ZNK9QResource8childrenEv": ["address", "address"],
+    "ritual_ZN9QResource6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QResource6d_funcEv": ["address", "address"]
   }
 }

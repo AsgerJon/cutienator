@@ -6,6 +6,13 @@
   ],
   "rows": {
     "ritual_ZNK18QComboMenuDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QComboMenuDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QComboMenuDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QComboMenuDelegateD1Ev": ["nothing", "address"],
     "ritual_ZNK18QComboMenuDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
       "nothing", "address", "address", "address", "address"
     ],
@@ -15,8 +22,17 @@
     "ritual_ZN18QComboMenuDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex": [
       "bool", "address", "address", "address", "address", "address"
     ],
+    "ritual_ZNK18QComboMenuDelegate14getStyleOptionERK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address"
+    ],
     "ritual_take_QComboMenuDelegate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QComboMenuDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK18QComboMenuDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address"
     ],
     "ritual_own_ZN18QComboMenuDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex": [
       "bool", "address", "address", "address", "address", "address"

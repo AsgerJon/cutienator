@@ -10,7 +10,9 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qtransform.h>
 #include <QtCore/qpoint.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsitem.h>
+#endif
 #include <QtGui/qpolygon.h>
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qvariant.h>
@@ -1208,6 +1210,24 @@ const QMetaObject *ritual_ZNK13QGraphicsView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QGraphicsView11qt_metacastEPKc(
+    QGraphicsView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QGraphicsView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QGraphicsView2trEPKcS1_i(
@@ -1900,12 +1920,33 @@ void ritual_ZN13QGraphicsView15updateSceneRectERK6QRectF(
   self->updateSceneRect(*rect);
 }
 
+#if QT_CONFIG(rubberband)
+//  void QGraphicsView::rubberBandChanged(QRect viewportRect, QPointF
+//      fromScenePoint, QPointF toScenePoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView17rubberBandChangedE5QRect7QPointFS1_(
+    QGraphicsView *self,
+    const QRect *viewportRect,
+    const QPointF *fromScenePoint,
+    const QPointF *toScenePoint) {
+  self->rubberBandChanged(*viewportRect, *fromScenePoint, *toScenePoint);
+}
+#endif  // QT_CONFIG(rubberband)
+
 //  void QGraphicsView::setupViewport(QWidget *widget)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QGraphicsView13setupViewportEP7QWidget(
     QGraphicsView *self,
     QWidget *widget) {
   self->setupViewport(widget);
+}
+
+//  QGraphicsView::QGraphicsView(QGraphicsViewPrivate &a0, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsView *ritual_ZN13QGraphicsViewC1ER20QGraphicsViewPrivateP7QWidget(
+    QGraphicsViewPrivate *a0,
+    QWidget *parent) {
+  return new CuteQGraphicsView(*a0, parent);
 }
 
 //  bool QGraphicsView::event(QEvent *event)
@@ -2113,6 +2154,18 @@ void ritual_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF(
     QPainter *painter,
     const QRectF *rect) {
   self->drawForeground(painter, *rect);
+}
+
+//  void QGraphicsView::drawItems(QPainter *painter, int numItems,
+//      QGraphicsItem **items, const QStyleOptionGraphicsItem *options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView9drawItemsEP8QPainteriPP13QGraphicsItemPK24QStyleOptionGraphicsItem(
+    QGraphicsView *self,
+    QPainter *painter,
+    int numItems,
+    QGraphicsItem **items,
+    const QStyleOptionGraphicsItem *options) {
+  self->drawItems(painter, numItems, items, options);
 }
 
 //  QGraphicsViewPrivate *QGraphicsView::d_func()

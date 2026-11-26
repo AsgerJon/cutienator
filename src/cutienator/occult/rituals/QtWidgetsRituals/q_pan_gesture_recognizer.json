@@ -8,6 +8,9 @@
     "ritual_ZN21QPanGestureRecognizer6createEP7QObject": [
       "address", "address", "address"
     ],
+    "ritual_ZN21QPanGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent": [
+      "int", "address", "address", "address", "address"
+    ],
     "ritual_ZN21QPanGestureRecognizer5resetEP8QGesture": [
       "nothing", "address", "address"
     ],

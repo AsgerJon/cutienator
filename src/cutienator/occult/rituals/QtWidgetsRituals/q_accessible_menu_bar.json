@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK18QAccessibleMenuBar5childEi": ["address", "address", "int"],
     "ritual_ZNK18QAccessibleMenuBar10childCountEv": ["int", "address"],
     "ritual_ZNK18QAccessibleMenuBar12indexOfChildEPK20QAccessibleInterface": [
       "int", "address", "address"

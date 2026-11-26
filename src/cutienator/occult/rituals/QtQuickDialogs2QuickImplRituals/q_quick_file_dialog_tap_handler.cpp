@@ -37,12 +37,69 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::Literals::StringLiterals;
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 426, as _ZN26QQuickFileDialogTapHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint
+inline bool QQuickFileDialogTapHandler::wantsEventPoint(const QPointerEvent *event, const QEventPoint &point)
+{
+    if (!QQuickTapHandler::wantsEventPoint(event, point) || event->type() == QEvent::Type::Wheel)
+        return false;
+
+    // we only want the event point if the delegate contains a directory and not a file
+    auto *fileDialogDelegate = qobject_cast<QQuickFileDialogDelegate *>(parent());
+    QFileInfo info(fileDialogDelegate->file().toLocalFile());
+    if (info.isDir())
+        return true;
+
+    return false;
+}
+
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 203, as _ZNK26QQuickFileDialogTapHandler17getFileDialogImplEv
 inline QQuickFileDialogImpl *QQuickFileDialogTapHandler::getFileDialogImpl() const
 {
     auto *delegate = qobject_cast<QQuickFileDialogDelegate*>(parent());
     auto *delegatePrivate = QQuickFileDialogDelegatePrivate::get(delegate);
     return delegatePrivate->fileDialog;
+}
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 210, as _ZN26QQuickFileDialogTapHandler10grabFolderEv
+inline void QQuickFileDialogTapHandler::grabFolder()
+{
+    if (m_drag.isNull())
+        return;
+
+    QQuickPalette *palette = [this]() -> QQuickPalette* {
+        auto *delegate = qobject_cast<QQuickFileDialogDelegate*>(parent());
+        if (delegate) {
+            QQuickDialog *dlg = delegate->dialog();
+            if (dlg) {
+                QQuickDialogPrivate *priv = QQuickDialogPrivate::get(dlg);
+                if (priv)
+                    return priv->palette();
+            }
+        }
+        return nullptr;
+    }();
+
+    // TODO: use proper @Nx scaling
+    const auto src = ":/qt-project.org/imports/QtQuick/Dialogs/quickimpl/images/sidebar-folder.png"_L1;
+    QImage img = QImage(src).convertToFormat(QImage::Format_ARGB32);
+
+    if (!img.isNull() && palette) {
+        const QColor iconColor = palette->buttonText();
+        if (iconColor.alpha() > 0) {
+            // similar to what QQuickIconImage does
+            QPainter painter(&img);
+            painter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+            painter.fillRect(img.rect(), iconColor);
+        }
+    }
+
+    QPixmap pixmap = QPixmap::fromImage(std::move(img));
+    auto *mimeData = new QMimeData();
+    mimeData->setImageData(pixmap);
+    m_drag->setMimeData(mimeData);
+    m_drag->setPixmap(pixmap);
 }
 
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 249, as _ZNK26QQuickFileDialogTapHandler19getFolderUrlAtPressEv
@@ -133,21 +190,6 @@ inline void QQuickFileDialogTapHandler::handleContainsDragChanged()
     }
 }
 
-//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 426, as _ZN26QQuickFileDialogTapHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint
-inline bool QQuickFileDialogTapHandler::wantsEventPoint(const QPointerEvent *event, const QEventPoint &point)
-{
-    if (!QQuickTapHandler::wantsEventPoint(event, point) || event->type() == QEvent::Type::Wheel)
-        return false;
-
-    // we only want the event point if the delegate contains a directory and not a file
-    auto *fileDialogDelegate = qobject_cast<QQuickFileDialogDelegate *>(parent());
-    QFileInfo info(fileDialogDelegate->file().toLocalFile());
-    if (info.isDir())
-        return true;
-
-    return false;
-}
-
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 333, as _ZN26QQuickFileDialogTapHandler13resetDragDataEv
 inline void QQuickFileDialogTapHandler::resetDragData()
 {
@@ -181,6 +223,25 @@ const QMetaObject *ritual_ZNK26QQuickFileDialogTapHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFileDialogTapHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickFileDialogTapHandler11qt_metacastEPKc(
+    QQuickFileDialogTapHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFileDialogTapHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickFileDialogTapHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFileDialogTapHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  State QQuickFileDialogTapHandler::state()
 extern "C" Q_DECL_EXPORT
 QQuickFileDialogTapHandler::State ritual_ZN26QQuickFileDialogTapHandler5stateEv(
@@ -194,6 +255,13 @@ extern "C" Q_DECL_EXPORT
 QQuickFileDialogImpl *ritual_ZNK26QQuickFileDialogTapHandler17getFileDialogImplEv(
     const QQuickFileDialogTapHandler *self) {
   return self->getFileDialogImpl();
+}
+
+//  void QQuickFileDialogTapHandler::grabFolder()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickFileDialogTapHandler10grabFolderEv(
+    QQuickFileDialogTapHandler *self) {
+  self->grabFolder();
 }
 
 //  QUrl QQuickFileDialogTapHandler::getFolderUrlAtPress() const
@@ -224,6 +292,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QQuickFileDialogTapHandler25handleContainsDragChangedEv(
     QQuickFileDialogTapHandler *self) {
   self->handleContainsDragChanged();
+}
+
+//  void QQuickFileDialogTapHandler::handleEventPoint(QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickFileDialogTapHandler16handleEventPointEP13QPointerEventR11QEventPoint(
+    QQuickFileDialogTapHandler *self,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->handleEventPoint(event, *point);
 }
 
 //  bool QQuickFileDialogTapHandler::wantsEventPoint(const QPointerEvent

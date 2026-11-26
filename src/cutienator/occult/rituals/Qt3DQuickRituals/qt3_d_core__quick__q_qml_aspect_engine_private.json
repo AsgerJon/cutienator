@@ -5,11 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore5Quick23QQmlAspectEnginePrivateC1Ev": ["address"],
     "ritual_ZN8Qt3DCore5Quick23QQmlAspectEnginePrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK8Qt3DCore5Quick23QQmlAspectEnginePrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23QQmlAspectEnginePrivate18_q_continueExecuteEv": [
+      "nothing", "address"
     ]
   }
 }

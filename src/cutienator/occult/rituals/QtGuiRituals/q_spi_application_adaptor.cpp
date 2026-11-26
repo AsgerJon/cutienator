@@ -33,6 +33,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/gui/accessible/linux/qspiapplicationadaptor.cpp, line 45, as _ZN22QSpiApplicationAdaptor10sendEventsEb
 #if QT_CONFIG(accessibility)
 inline void QSpiApplicationAdaptor::sendEvents(bool active)
@@ -41,39 +43,6 @@ inline void QSpiApplicationAdaptor::sendEvents(bool active)
         qApp->installEventFilter(this);
     } else {
         qApp->removeEventFilter(this);
-    }
-}
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/gui/accessible/linux/qspiapplicationadaptor.cpp, line 183, as _ZN22QSpiApplicationAdaptor30notifyKeyboardListenerCallbackERK12QDBusMessage
-#if QT_CONFIG(accessibility)
-inline void QSpiApplicationAdaptor::notifyKeyboardListenerCallback(const QDBusMessage& message)
-{
-    if (!keyEvents.size()) {
-        qWarning("QSpiApplication::notifyKeyboardListenerCallback with no queued key called");
-        return;
-    }
-    Q_ASSERT(message.arguments().size() == 1);
-    if (message.arguments().at(0).toBool() == true) {
-        std::pair<QPointer<QObject>, QKeyEvent*> event = keyEvents.dequeue();
-        delete event.second;
-    } else {
-        std::pair<QPointer<QObject>, QKeyEvent*> event = keyEvents.dequeue();
-        if (event.first)
-            QCoreApplication::postEvent(event.first.data(), event.second);
-    }
-}
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/gui/accessible/linux/qspiapplicationadaptor.cpp, line 200, as _ZN22QSpiApplicationAdaptor27notifyKeyboardListenerErrorERK10QDBusErrorRK12QDBusMessage
-#if QT_CONFIG(accessibility)
-inline void QSpiApplicationAdaptor::notifyKeyboardListenerError(const QDBusError& error, const QDBusMessage& /*message*/)
-{
-    qWarning() << "QSpiApplication::keyEventError " << error.name() << error.message();
-    while (!keyEvents.isEmpty()) {
-        std::pair<QPointer<QObject>, QKeyEvent*> event = keyEvents.dequeue();
-        if (event.first)
-            QCoreApplication::postEvent(event.first.data(), event.second);
     }
 }
 #endif  // QT_CONFIG(accessibility)
@@ -269,6 +238,25 @@ const QMetaObject *ritual_ZNK22QSpiApplicationAdaptor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSpiApplicationAdaptor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QSpiApplicationAdaptor11qt_metacastEPKc(
+    QSpiApplicationAdaptor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSpiApplicationAdaptor::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QSpiApplicationAdaptor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSpiApplicationAdaptor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QSpiApplicationAdaptor::~QSpiApplicationAdaptor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSpiApplicationAdaptorD1Ev(QSpiApplicationAdaptor *self) {
@@ -285,18 +273,73 @@ void ritual_ZN22QSpiApplicationAdaptor10sendEventsEb(
 }
 #endif  // QT_CONFIG(accessibility)
 
-#if QT_CONFIG(accessibility)
+//  void QSpiApplicationAdaptor::windowActivated(QObject *window, bool
+//      active)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QSpiApplicationAdaptor15windowActivatedEP7QObjectb(
+    QSpiApplicationAdaptor *self,
+    QObject *window,
+    bool active) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSpiApplicationAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "windowActivated(QObject *,bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "windowActivated(QObject *,bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&window)),
+      const_cast<void *>(static_cast<const void *>(&active)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  bool QSpiApplicationAdaptor::eventFilter(QObject *obj, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QSpiApplicationAdaptor11eventFilterEP7QObjectP6QEvent(
+    QSpiApplicationAdaptor *self,
+    QObject *obj,
+    QEvent *event) {
+  return self->eventFilter(obj, event);
+}
+
 //  void QSpiApplicationAdaptor::notifyKeyboardListenerCallback(const
 //      QDBusMessage &message)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSpiApplicationAdaptor30notifyKeyboardListenerCallbackERK12QDBusMessage(
     QSpiApplicationAdaptor *self,
     const QDBusMessage *message) {
-  self->notifyKeyboardListenerCallback(*message);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSpiApplicationAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "notifyKeyboardListenerCallback(const QDBusMessage &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "notifyKeyboardListenerCallback(const QDBusMessage &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(message)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // QT_CONFIG(accessibility)
 
-#if QT_CONFIG(accessibility)
 //  void QSpiApplicationAdaptor::notifyKeyboardListenerError(const QDBusError
 //      &error, const QDBusMessage &message)
 extern "C" Q_DECL_EXPORT
@@ -304,9 +347,28 @@ void ritual_ZN22QSpiApplicationAdaptor27notifyKeyboardListenerErrorERK10QDBusErr
     QSpiApplicationAdaptor *self,
     const QDBusError *error,
     const QDBusMessage *message) {
-  self->notifyKeyboardListenerError(*error, *message);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSpiApplicationAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "notifyKeyboardListenerError(const QDBusError &,const QDBusMessage &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "notifyKeyboardListenerError(const QDBusError &,const QDBusMessage &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(error)),
+      const_cast<void *>(static_cast<const void *>(message)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
 //  QKeyEvent *QSpiApplicationAdaptor::copyKeyEvent(QKeyEvent *a0)

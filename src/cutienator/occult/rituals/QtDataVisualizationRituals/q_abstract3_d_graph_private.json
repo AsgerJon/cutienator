@@ -8,6 +8,12 @@
     "ritual_ZNK23QAbstract3DGraphPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QAbstract3DGraphPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QAbstract3DGraphPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QAbstract3DGraphPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN23QAbstract3DGraphPrivate28handleDevicePixelRatioChangeEv": [
       "nothing", "address"

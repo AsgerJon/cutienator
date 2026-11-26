@@ -5,7 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QDBusMetaObject16createMetaObjectERK7QStringS2_R5QHashIS0_PS_ER10QDBusError": [
+      "address", "text", "text", "address", "address"
+    ],
     "ritual_ZN15QDBusMetaObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QDBusMetaObject19inputTypesForMethodEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QDBusMetaObject20outputTypesForMethodEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK15QDBusMetaObject16propertyMetaTypeEi": [
       "int", "address", "int"
     ],

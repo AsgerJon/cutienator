@@ -6,8 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK18QPlatformAudioSink10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QPlatformAudioSink11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QPlatformAudioSink11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QPlatformAudioSink2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QPlatformAudioSinkC1E12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZN18QPlatformAudioSinkD1Ev": ["nothing", "address"],
     "ritual_ZN18QPlatformAudioSink5startEP9QIODevice": [
@@ -23,10 +32,22 @@
       "nothing", "address", "long long"
     ],
     "ritual_ZNK18QPlatformAudioSink10bufferSizeEv": ["long long", "address"],
+    "ritual_ZN18QPlatformAudioSink21setNativePeriodFramesESt8optionalIN19QtMultimediaPrivate18NativePeriodFramesEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPlatformAudioSink18nativePeriodFramesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QPlatformAudioSink14processedUSecsEv": [
       "long long", "address"
     ],
+    "ritual_ZN18QPlatformAudioSink5startEOSt7variantIJSt8functionIFv5QSpanIfLm18446744073709551615EEEES1_IFvS2_IhLm18446744073709551615EEEES1_IFvS2_IsLm18446744073709551615EEEES1_IFvS2_IiLm18446744073709551615EEEEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QPlatformAudioSink14hasCallbackAPIEv": ["bool", "address"],
+    "ritual_ZN18QPlatformAudioSink3getERK10QAudioSink": [
+      "address", "address"
+    ],
     "ritual_ZN18QPlatformAudioSink7setRoleEN19QtMultimediaPrivate17AudioEndpointRoleE": [
       "nothing", "address", "unsigned char"
     ],
@@ -38,6 +59,9 @@
     ],
     "ritual_own_ZN18QPlatformAudioSink7setRoleEN19QtMultimediaPrivate17AudioEndpointRoleE": [
       "nothing", "address", "unsigned char"
+    ],
+    "ritual_drop_QPlatformAudioSink__std_optional_QPlatformAudioEndpointBase_NativePeriodFrames": [
+      "nothing", "address"
     ]
   }
 }

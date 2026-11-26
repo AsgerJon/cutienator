@@ -9,6 +9,7 @@
 #include <QtGui/qvectornd.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/private/abstractrenderitem_p.h>
+#include <QtDataVisualization/private/scatterrenderitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -23,13 +24,32 @@ inline AbstractRenderItem::AbstractRenderItem()
 {
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/scatterrenderitem.cpp, line 21, as _ZN17ScatterRenderItemD1Ev
+inline ScatterRenderItem::~ScatterRenderItem()
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 12, as _ZN18AbstractRenderItemC2ERKS_
 inline AbstractRenderItem::AbstractRenderItem(const AbstractRenderItem &other)
 {
     m_translation = other.m_translation;
     m_rotation = other.m_rotation;
 }
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 18, as _ZN18AbstractRenderItemD2Ev
+inline AbstractRenderItem::~AbstractRenderItem()
+{
+}
 //  -----------------------------------------------------------------------
+
+//  ScatterRenderItem &ScatterRenderItem::operator=(const ScatterRenderItem
+//      &a0)
+extern "C" Q_DECL_EXPORT
+ScatterRenderItem *ritual_ZN17ScatterRenderItemaSERKS_(
+    ScatterRenderItem *self,
+    const ScatterRenderItem *a0) {
+  return &(self->operator=(*a0));
+}
 
 //  ScatterRenderItem::~ScatterRenderItem()
 extern "C" Q_DECL_EXPORT

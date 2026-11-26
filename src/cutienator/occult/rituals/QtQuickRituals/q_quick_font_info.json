@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickFontInfo10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickFontInfo11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickFontInfo11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickFontInfo2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,6 +31,7 @@
     "ritual_ZNK14QQuickFontInfo10fixedPitchEv": ["bool", "address"],
     "ritual_ZNK14QQuickFontInfo5styleEv": ["int", "address"],
     "ritual_ZNK14QQuickFontInfo12variableAxesEv": ["address", "address"],
+    "ritual_ZN14QQuickFontInfo11fontChangedEv": ["nothing", "address"],
     "ritual_take_QQuickFontInfo": ["bool", "address", "chars", "address"]
   }
 }

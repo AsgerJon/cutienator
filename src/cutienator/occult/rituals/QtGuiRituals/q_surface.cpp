@@ -127,6 +127,13 @@ QSize *ritual_ZNK8QSurface4sizeEv(const QSurface *self) {
   return new QSize(self->size());
 }
 
+//  QSurface::QSurface(SurfaceClass type)
+extern "C" Q_DECL_EXPORT
+QSurface *ritual_ZN8QSurfaceC1ENS_12SurfaceClassE(
+    QSurface::SurfaceClass type) {
+  return new CuteQSurface(type);
+}
+
 //  a Python function taken by a CuteQSurface, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

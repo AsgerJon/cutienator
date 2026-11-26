@@ -7,9 +7,13 @@
 #include <QtScxmlQml/6.12.0/QtScxmlQml/private/eventconnection_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtScxml/qscxmlevent.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QStringList>
+#include <QtScxml/QScxmlStateMachine>
 
 //  A QScxmlEventConnection that Python can take functions over in. Every QScxmlEventConnection
 //  Python makes is one. Each function below asks the Python
@@ -217,6 +221,25 @@ const QMetaObject *ritual_ZNK21QScxmlEventConnection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScxmlEventConnection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QScxmlEventConnection11qt_metacastEPKc(
+    QScxmlEventConnection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScxmlEventConnection::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QScxmlEventConnection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScxmlEventConnection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScxmlEventConnection::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QScxmlEventConnection2trEPKcS1_i(
@@ -254,6 +277,13 @@ void ritual_ZN21QScxmlEventConnection9setEventsERK5QListI7QStringE(
   self->setEvents(*events);
 }
 
+//  QBindable<QStringList> QScxmlEventConnection::bindableEvents()
+extern "C" Q_DECL_EXPORT
+QBindable<QStringList> *ritual_ZN21QScxmlEventConnection14bindableEventsEv(
+    QScxmlEventConnection *self) {
+  return new QBindable<QStringList>(self->bindableEvents());
+}
+
 //  QScxmlStateMachine *QScxmlEventConnection::stateMachine() const
 extern "C" Q_DECL_EXPORT
 QScxmlStateMachine *ritual_ZNK21QScxmlEventConnection12stateMachineEv(
@@ -268,6 +298,48 @@ void ritual_ZN21QScxmlEventConnection15setStateMachineEP18QScxmlStateMachine(
     QScxmlEventConnection *self,
     QScxmlStateMachine *stateMachine) {
   self->setStateMachine(stateMachine);
+}
+
+//  QBindable<QScxmlStateMachine *>
+//      QScxmlEventConnection::bindableStateMachine()
+extern "C" Q_DECL_EXPORT
+QBindable<QScxmlStateMachine *> *ritual_ZN21QScxmlEventConnection20bindableStateMachineEv(
+    QScxmlEventConnection *self) {
+  return new QBindable<QScxmlStateMachine *>(self->bindableStateMachine());
+}
+
+//  void QScxmlEventConnection::eventsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QScxmlEventConnection13eventsChangedEv(
+    QScxmlEventConnection *self) {
+  self->eventsChanged();
+}
+
+//  void QScxmlEventConnection::stateMachineChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QScxmlEventConnection19stateMachineChangedEv(
+    QScxmlEventConnection *self) {
+  self->stateMachineChanged();
+}
+
+//  void QScxmlEventConnection::occurred(const QScxmlEvent &event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QScxmlEventConnection8occurredERK11QScxmlEvent(
+    QScxmlEventConnection *self,
+    const QScxmlEvent *event) {
+  self->occurred(*event);
+}
+
+//  size_t QScxmlEventConnection::_qt_property_m_stateMachine_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN21QScxmlEventConnection34_qt_property_m_stateMachine_offsetEv() {
+  return QScxmlEventConnection::_qt_property_m_stateMachine_offset();
+}
+
+//  size_t QScxmlEventConnection::_qt_property_m_events_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN21QScxmlEventConnection28_qt_property_m_events_offsetEv() {
+  return QScxmlEventConnection::_qt_property_m_events_offset();
 }
 
 //  void QScxmlEventConnection::doConnect()
@@ -320,4 +392,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN21QScxmlEventConnection17componentCompleteEv(
     QScxmlEventConnection *self) {
   self->QScxmlEventConnection::componentComplete();
+}
+
+//  a QBindable<QStringList> a ritual of QScxmlEventConnection gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QScxmlEventConnection__QBindable_QStringList(
+    QBindable<QStringList> *self) {
+  delete self;
+}
+
+//  a QBindable<QScxmlStateMachine *> a ritual of QScxmlEventConnection gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QScxmlEventConnection__QBindable_QScxmlStateMachine(
+    QBindable<QScxmlStateMachine *> *self) {
+  delete self;
 }

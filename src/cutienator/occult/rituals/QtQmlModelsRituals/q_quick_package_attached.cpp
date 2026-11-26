@@ -213,6 +213,25 @@ const QMetaObject *ritual_ZNK21QQuickPackageAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPackageAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickPackageAttached11qt_metacastEPKc(
+    QQuickPackageAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPackageAttached::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickPackageAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPackageAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickPackageAttached::~QQuickPackageAttached()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickPackageAttachedD1Ev(QQuickPackageAttached *self) {

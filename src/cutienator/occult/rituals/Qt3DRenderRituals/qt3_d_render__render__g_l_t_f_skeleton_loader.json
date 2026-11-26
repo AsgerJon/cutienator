@@ -5,7 +5,50 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoaderC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoader14createSkeletonERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoader20accessorTypeFromJSONEi": [
+      "int", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoader16accessorTypeSizeEN8Qt3DCore10QAttribute14VertexBaseTypeE": [
+      "unsigned int", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoader24accessorDataSizeFromJsonERK7QString": [
+      "unsigned int", "text"
+    ],
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoader11setBasePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoader7setJSONERK13QJsonDocument": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoader7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoader17processJSONBufferERK11QJsonObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoader20setupNodeParentLinksEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18GLTFSkeletonLoader16resolveLocalDataERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18GLTFSkeletonLoader22createSkeletonFromSkinERKNS1_4SkinE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18GLTFSkeletonLoader17inverseBindMatrixERKNS1_4SkinEi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender6Render18GLTFSkeletonLoader12accessorDataEii": [
+      "address", "address", "int", "int"
+    ],
     "ritual_ZN10Qt3DRender6Render18GLTFSkeletonLoaderD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_GLTFSkeletonLoader__Qt3DRender_Render_GLTFSkeletonLoader_RawData": [
       "nothing", "address"
     ]
   }

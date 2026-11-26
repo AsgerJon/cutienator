@@ -13,8 +13,23 @@
     "ritual_ZNK8QSvgRect18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN8QSvgRect11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgRect18internalFastBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgRect14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgRect23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgRect4rectEv": ["address", "address"],
     "ritual_ZNK8QSvgRect6radiusEv": ["address", "address"],
+    "ritual_ZNK8QSvgRect14internalBoundsEP8QPainterR15QSvgExtraStatesN8QSvgNode10BoundsModeE": [
+      "address", "address", "address", "address", "int"
+    ],
     "ritual_take_QSvgRect": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8QSvgRect4typeEv": ["int", "address"],
     "ritual_own_ZNK8QSvgRect18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [

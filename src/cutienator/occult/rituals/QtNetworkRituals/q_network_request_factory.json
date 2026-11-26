@@ -9,6 +9,16 @@
     "ritual_ZN22QNetworkRequestFactoryC1ERK4QUrl": ["address", "address"],
     "ritual_ZN22QNetworkRequestFactoryD1Ev": ["nothing", "address"],
     "ritual_ZN22QNetworkRequestFactoryC1ERKS_": ["address", "address"],
+    "ritual_ZN22QNetworkRequestFactoryC1EOS_": ["address", "address"],
+    "ritual_ZN22QNetworkRequestFactoryaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactoryaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK22QNetworkRequestFactory7baseUrlEv": ["address", "address"],
     "ritual_ZN22QNetworkRequestFactory10setBaseUrlERK4QUrl": [
       "nothing", "address", "address"
@@ -62,6 +72,12 @@
     ],
     "ritual_ZN22QNetworkRequestFactory13clearPasswordEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory18setTransferTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory15transferTimeoutEv": [
+      "long long", "address"
     ],
     "ritual_ZNK22QNetworkRequestFactory15queryParametersEv": [
       "address", "address"

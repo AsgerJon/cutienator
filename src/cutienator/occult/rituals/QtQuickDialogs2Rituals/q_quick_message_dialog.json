@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickMessageDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickMessageDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickMessageDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickMessageDialog2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,19 @@
     "ritual_ZNK19QQuickMessageDialog7buttonsEv": ["int", "address"],
     "ritual_ZN19QQuickMessageDialog10setButtonsE6QFlagsIN21QPlatformDialogHelper14StandardButtonEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickMessageDialog11textChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickMessageDialog22informativeTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMessageDialog19detailedTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMessageDialog14buttonsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMessageDialog13buttonClickedEN21QPlatformDialogHelper14StandardButtonENS0_10ButtonRoleE": [
+      "nothing", "address", "int", "int"
     ],
     "ritual_ZN19QQuickMessageDialog11handleClickEN21QPlatformDialogHelper14StandardButtonENS0_10ButtonRoleE": [
       "nothing", "address", "int", "int"

@@ -7,10 +7,28 @@
   "rows": {
     "ritual_ZN26QOpcUaContentFilterElementC1Ev": ["address"],
     "ritual_ZN26QOpcUaContentFilterElementC1ERKS_": ["address", "address"],
+    "ritual_ZN26QOpcUaContentFilterElementaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK26QOpcUaContentFilterElementcv8QVariantEv": [
       "address", "address"
     ],
     "ritual_ZN26QOpcUaContentFilterElementD1Ev": ["nothing", "address"],
+    "ritual_ZN26QOpcUaContentFilterElementlsENS_14FilterOperatorE": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN26QOpcUaContentFilterElementlsERK28QOpcUaSimpleAttributeOperand": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaContentFilterElementlsERK22QOpcUaAttributeOperand": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaContentFilterElementlsERK20QOpcUaLiteralOperand": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaContentFilterElementlsERK20QOpcUaElementOperand": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK26QOpcUaContentFilterElement14filterOperatorEv": [
       "unsigned int", "address"
     ],
@@ -18,6 +36,9 @@
       "nothing", "address", "unsigned int"
     ],
     "ritual_ZNK26QOpcUaContentFilterElement14filterOperandsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaContentFilterElement17filterOperandsRefEv": [
       "address", "address"
     ],
     "ritual_ZN26QOpcUaContentFilterElement17setFilterOperandsERK5QListI8QVariantE": [

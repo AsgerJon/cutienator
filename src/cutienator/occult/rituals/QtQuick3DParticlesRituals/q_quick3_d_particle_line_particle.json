@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuick3DParticleLineParticle10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuick3DParticleLineParticle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuick3DParticleLineParticle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -68,6 +74,36 @@
     ],
     "ritual_ZN28QQuick3DParticleLineParticle15setTexcoordModeENS_12TexcoordModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle19segmentCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle16alphaFadeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle22scaleMultiplierChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle25texcoordMultiplierChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle13lengthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle22lengthVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle21lengthDeltaMinChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle25eolFadeOutDurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle19texcoordModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle16updateLineBufferEPNS_22LineParticleUpdateNodeEP21QSSGRenderGraphObject": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN28QQuick3DParticleLineParticle14updateLineNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

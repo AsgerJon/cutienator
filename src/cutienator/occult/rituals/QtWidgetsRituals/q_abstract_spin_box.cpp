@@ -1096,6 +1096,25 @@ const QMetaObject *ritual_ZNK16QAbstractSpinBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractSpinBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QAbstractSpinBox11qt_metacastEPKc(
+    QAbstractSpinBox *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractSpinBox::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QAbstractSpinBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractSpinBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractSpinBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QAbstractSpinBox2trEPKcS1_i(
@@ -1314,6 +1333,24 @@ QVariant *ritual_ZNK16QAbstractSpinBox16inputMethodQueryEN2Qt16InputMethodQueryE
   return new QVariant(self->inputMethodQuery(a0));
 }
 
+//  QValidator::State QAbstractSpinBox::validate(QString &input, int &pos)
+//      const
+extern "C" Q_DECL_EXPORT
+QValidator::State ritual_ZNK16QAbstractSpinBox8validateER7QStringRi(
+    const QAbstractSpinBox *self,
+    QString *input,
+    int *pos) {
+  return self->validate(*input, *pos);
+}
+
+//  void QAbstractSpinBox::fixup(QString &input) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QAbstractSpinBox5fixupER7QString(
+    const QAbstractSpinBox *self,
+    QString *input) {
+  self->fixup(*input);
+}
+
 //  void QAbstractSpinBox::stepBy(int steps)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QAbstractSpinBox6stepByEi(
@@ -1506,6 +1543,27 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK16QAbstractSpinBox11stepEnabledEv(
     const QAbstractSpinBox *self) {
   return static_cast<int>(self->stepEnabled().toInt());
+}
+
+//  void QAbstractSpinBox::editingFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox15editingFinishedEv(QAbstractSpinBox *self) {
+  self->editingFinished();
+}
+
+//  void QAbstractSpinBox::returnPressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox13returnPressedEv(QAbstractSpinBox *self) {
+  self->returnPressed();
+}
+
+//  QAbstractSpinBox::QAbstractSpinBox(QAbstractSpinBoxPrivate &dd, QWidget
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractSpinBox *ritual_ZN16QAbstractSpinBoxC1ER23QAbstractSpinBoxPrivateP7QWidget(
+    QAbstractSpinBoxPrivate *dd,
+    QWidget *parent) {
+  return new CuteQAbstractSpinBox(*dd, parent);
 }
 
 //  QAbstractSpinBoxPrivate *QAbstractSpinBox::d_func()

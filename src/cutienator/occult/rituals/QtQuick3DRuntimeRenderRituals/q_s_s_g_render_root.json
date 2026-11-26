@@ -16,12 +16,14 @@
     "ritual_ZN14QSSGRenderRoot10clearDirtyENS_9DirtyFlagE": [
       "nothing", "address", "unsigned char"
     ],
+    "ritual_ZNK14QSSGRenderRoot14globalNodeDataEv": ["address", "address"],
     "ritual_ZN14QSSGRenderRoot15setStartVersionEt": [
       "nothing", "address", "unsigned short"
     ],
     "ritual_ZNK14QSSGRenderRoot12startVersionEv": [
       "unsigned short", "address"
     ],
+    "ritual_ZN14QSSGRenderRoot3getEPPS_": ["address", "address"],
     "ritual_ZN14QSSGRenderRoot7reindexEv": ["nothing", "address"]
   }
 }

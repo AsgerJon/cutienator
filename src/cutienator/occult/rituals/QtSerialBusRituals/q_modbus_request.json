@@ -5,12 +5,16 @@
   ],
   "rows": {
     "ritual_ZN14QModbusRequestC1Ev": ["address"],
+    "ritual_ZN14QModbusRequestC1ERK10QModbusPdu": ["address", "address"],
     "ritual_ZN14QModbusRequestC1EN10QModbusPdu12FunctionCodeERK10QByteArray": [
       "address", "int", "address"
     ],
     "ritual_ZN14QModbusRequestD1Ev": ["nothing", "address"],
     "ritual_ZN14QModbusRequest15minimumDataSizeERKS_": ["int", "address"],
     "ritual_ZN14QModbusRequest17calculateDataSizeERKS_": ["int", "address"],
+    "ritual_ZN14QModbusRequest26registerDataSizeCalculatorEN10QModbusPdu12FunctionCodeEPFiRKS_E": [
+      "nothing", "int", "address"
+    ],
     "ritual_take_QModbusRequest": ["bool", "address", "chars", "address"]
   }
 }

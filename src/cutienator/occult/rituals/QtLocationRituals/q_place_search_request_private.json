@@ -12,6 +12,9 @@
     "ritual_ZN26QPlaceSearchRequestPrivate3getERK19QPlaceSearchRequest": [
       "address", "address"
     ],
+    "ritual_ZN26QPlaceSearchRequestPrivate3getER19QPlaceSearchRequest": [
+      "address", "address"
+    ],
     "ritual_ZN26QPlaceSearchRequestPrivateD1Ev": ["nothing", "address"]
   }
 }

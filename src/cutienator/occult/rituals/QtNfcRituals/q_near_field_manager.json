@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK17QNearFieldManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QNearFieldManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QNearFieldManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QNearFieldManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -27,6 +33,18 @@
     ],
     "ritual_ZN17QNearFieldManager18setUserInformationERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN17QNearFieldManager19adapterStateChangedENS_12AdapterStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QNearFieldManager22targetDetectionStoppedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QNearFieldManager14targetDetectedEP16QNearFieldTarget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QNearFieldManager10targetLostEP16QNearFieldTarget": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QNearFieldManager": ["bool", "address", "chars", "address"]
   }

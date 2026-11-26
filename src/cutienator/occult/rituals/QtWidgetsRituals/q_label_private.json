@@ -7,10 +7,14 @@
   "rows": {
     "ritual_ZN13QLabelPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK13QLabelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN13QLabelPrivateC1Ev": ["address"],
     "ritual_ZN13QLabelPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN13QLabelPrivate4initEv": ["nothing", "address"],
     "ritual_ZN13QLabelPrivate13clearContentsEv": ["nothing", "address"],
     "ritual_ZN13QLabelPrivate11updateLabelEv": ["nothing", "address"],
+    "ritual_ZNK13QLabelPrivate12sizeForWidthEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN13QLabelPrivate12movieUpdatedERK5QRect": [
       "nothing", "address", "address"
     ],
@@ -20,12 +24,28 @@
     "ritual_ZN13QLabelPrivate14updateShortcutEv": ["nothing", "address"],
     "ritual_ZN13QLabelPrivate12buddyDeletedEv": ["nothing", "address"],
     "ritual_ZNK13QLabelPrivate15needTextControlEv": ["bool", "address"],
+    "ritual_ZNK13QLabelPrivate19ensureTextPopulatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QLabelPrivate18ensureTextLayoutedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK13QLabelPrivate17ensureTextControlEv": ["nothing", "address"],
+    "ritual_ZN13QLabelPrivate16sendControlEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13QLabelPrivate11linkHoveredERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZNK13QLabelPrivate10layoutRectEv": ["address", "address"],
     "ritual_ZNK13QLabelPrivate12documentRectEv": ["address", "address"],
+    "ritual_ZNK13QLabelPrivate11layoutPointERK6QPoint": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK13QLabelPrivate13textDirectionEv": ["int", "address"],
+    "ritual_ZN13QLabelPrivate25createStandardContextMenuERK6QPoint": [
+      "address", "address", "address"
+    ],
     "ritual_take_QLabelPrivate": ["bool", "address", "chars", "address"]
   }
 }

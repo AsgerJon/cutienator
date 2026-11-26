@@ -41,6 +41,25 @@ const QMetaObject *ritual_ZNK18QWaylandViewporter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandViewporter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QWaylandViewporter11qt_metacastEPKc(
+    QWaylandViewporter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandViewporter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QWaylandViewporter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandViewporter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandViewporter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QWaylandViewporter2trEPKcS1_i(
@@ -48,6 +67,20 @@ QString *ritual_ZN18QWaylandViewporter2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandViewporter::tr(s, c, n));
+}
+
+//  QWaylandViewporterPrivate *QWaylandViewporter::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandViewporterPrivate *ritual_ZN18QWaylandViewporter6d_funcEv(
+    QWaylandViewporter *self) {
+  return self->d_func();
+}
+
+//  const QWaylandViewporterPrivate *QWaylandViewporter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandViewporterPrivate *ritual_ZNK18QWaylandViewporter6d_funcEv(
+    const QWaylandViewporter *self) {
+  return self->d_func();
 }
 
 //  QWaylandViewporter::QWaylandViewporter()
@@ -67,6 +100,12 @@ QWaylandViewporter *ritual_ZN18QWaylandViewporterC1EP18QWaylandCompositor(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWaylandViewporter10initializeEv(QWaylandViewporter *self) {
   self->initialize();
+}
+
+//  const struct wl_interface *QWaylandViewporter::interface()
+extern "C" Q_DECL_EXPORT
+const struct wl_interface *ritual_ZN18QWaylandViewporter9interfaceEv() {
+  return QWaylandViewporter::interface();
 }
 
 //  a Python function taken by a CuteQWaylandViewporter, for the function

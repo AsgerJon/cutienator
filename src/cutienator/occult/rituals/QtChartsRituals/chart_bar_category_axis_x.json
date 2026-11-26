@@ -8,6 +8,12 @@
     "ritual_ZNK21ChartBarCategoryAxisX10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21ChartBarCategoryAxisX11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21ChartBarCategoryAxisX11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21ChartBarCategoryAxisX2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,8 +24,14 @@
     "ritual_ZNK21ChartBarCategoryAxisX8sizeHintEN2Qt8SizeHintERK6QSizeF": [
       "address", "address", "int", "address"
     ],
+    "ritual_ZNK21ChartBarCategoryAxisX15calculateLayoutEv": [
+      "address", "address"
+    ],
     "ritual_ZN21ChartBarCategoryAxisX14updateGeometryEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK21ChartBarCategoryAxisX20createCategoryLabelsERK5QListIdE": [
+      "address", "address", "address"
     ],
     "ritual_ZN21ChartBarCategoryAxisX23handleCategoriesChangedEv": [
       "nothing", "address"
@@ -32,6 +44,7 @@
     ],
     "ritual_own_ZN21ChartBarCategoryAxisX14updateGeometryEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_drop_ChartBarCategoryAxisX__QList_qreal": ["nothing", "address"]
   }
 }

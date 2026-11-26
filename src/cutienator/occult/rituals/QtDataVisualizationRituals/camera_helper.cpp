@@ -425,6 +425,24 @@ const QMetaObject *ritual_ZNK12CameraHelper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *CameraHelper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12CameraHelper11qt_metacastEPKc(
+    CameraHelper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int CameraHelper::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12CameraHelper11qt_metacallEN11QMetaObject4CallEiPPv(
+    CameraHelper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  CameraHelper::~CameraHelper()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12CameraHelperD1Ev(CameraHelper *self) {

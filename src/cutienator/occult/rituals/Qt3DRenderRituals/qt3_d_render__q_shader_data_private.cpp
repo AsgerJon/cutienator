@@ -53,6 +53,20 @@ public:
   }
 };
 
+//  Qt3DRender::QShaderDataPrivate::QShaderDataPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderDataPrivate *ritual_ZN10Qt3DRender18QShaderDataPrivateC1Ev() {
+  return new CuteQt3DRender_QShaderDataPrivate();
+}
+
+//  Qt3DRender::QShaderDataPrivate::QShaderDataPrivate(PropertyReaderInterfac
+//      ePtr reader)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderDataPrivate *ritual_ZN10Qt3DRender18QShaderDataPrivateC1E14QSharedPointerINS_23PropertyReaderInterfaceEE(
+    const Qt3DRender::PropertyReaderInterfacePtr *reader) {
+  return new CuteQt3DRender_QShaderDataPrivate(*reader);
+}
+
 //  QShaderData *Qt3DRender::QShaderDataPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QShaderData *ritual_ZN10Qt3DRender18QShaderDataPrivate6q_funcEv(

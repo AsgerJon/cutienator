@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QToolBarExtension10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QToolBarExtension11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QToolBarExtension11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QToolBarExtension10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"
     ],

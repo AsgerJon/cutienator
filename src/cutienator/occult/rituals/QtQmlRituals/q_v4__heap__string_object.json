@@ -11,6 +11,15 @@
     "ritual_ZN3QV44Heap12StringObject4initEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN3QV44Heap12StringObject4initEPKNS_6StringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap12StringObject8getIndexEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV44Heap12StringObject6lengthEv": [
+      "unsigned int", "address"
+    ],
     "ritual_cast_QV4_Heap_StringObject_QV4_Heap_StringObjectData": [
       "address", "address"
     ]

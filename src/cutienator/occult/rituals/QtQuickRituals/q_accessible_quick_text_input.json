@@ -14,6 +14,9 @@
     "ritual_ZN25QAccessibleQuickTextInput12setSelectionEiii": [
       "nothing", "address", "int", "int", "int"
     ],
+    "ritual_ZN25QAccessibleQuickTextInput14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN25QAccessibleQuickTextInput10deleteTextEii": [
       "nothing", "address", "int", "int"
     ],
@@ -34,6 +37,9 @@
     ],
     "ritual_own_ZN25QAccessibleQuickTextInput12setSelectionEiii": [
       "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN25QAccessibleQuickTextInput14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
     ],
     "ritual_own_ZN25QAccessibleQuickTextInput10deleteTextEii": [
       "nothing", "address", "int", "int"

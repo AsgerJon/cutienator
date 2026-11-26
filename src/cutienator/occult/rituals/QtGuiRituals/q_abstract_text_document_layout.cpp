@@ -378,6 +378,25 @@ const QMetaObject *ritual_ZNK27QAbstractTextDocumentLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractTextDocumentLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QAbstractTextDocumentLayout11qt_metacastEPKc(
+    QAbstractTextDocumentLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractTextDocumentLayout::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QAbstractTextDocumentLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractTextDocumentLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractTextDocumentLayout::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -401,6 +420,14 @@ extern "C" Q_DECL_EXPORT
 const QAbstractTextDocumentLayoutPrivate *ritual_ZNK27QAbstractTextDocumentLayout6d_funcEv(
     const QAbstractTextDocumentLayout *self) {
   return self->d_func();
+}
+
+//  QAbstractTextDocumentLayout::QAbstractTextDocumentLayout(QTextDocument
+//      *doc)
+extern "C" Q_DECL_EXPORT
+QAbstractTextDocumentLayout *ritual_ZN27QAbstractTextDocumentLayoutC1EP13QTextDocument(
+    QTextDocument *doc) {
+  return new CuteQAbstractTextDocumentLayout(doc);
 }
 
 //  QAbstractTextDocumentLayout::~QAbstractTextDocumentLayout()
@@ -545,6 +572,48 @@ QTextObjectInterface *ritual_ZNK27QAbstractTextDocumentLayout16handlerForObjectE
     const QAbstractTextDocumentLayout *self,
     int objectType) {
   return self->handlerForObject(objectType);
+}
+
+//  void QAbstractTextDocumentLayout::update(const QRectF &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QAbstractTextDocumentLayout6updateERK6QRectF(
+    QAbstractTextDocumentLayout *self,
+    const QRectF *a0) {
+  self->update(*a0);
+}
+
+//  void QAbstractTextDocumentLayout::updateBlock(const QTextBlock &block)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QAbstractTextDocumentLayout11updateBlockERK10QTextBlock(
+    QAbstractTextDocumentLayout *self,
+    const QTextBlock *block) {
+  self->updateBlock(*block);
+}
+
+//  void QAbstractTextDocumentLayout::documentSizeChanged(const QSizeF
+//      &newSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QAbstractTextDocumentLayout19documentSizeChangedERK6QSizeF(
+    QAbstractTextDocumentLayout *self,
+    const QSizeF *newSize) {
+  self->documentSizeChanged(*newSize);
+}
+
+//  void QAbstractTextDocumentLayout::pageCountChanged(int newPages)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QAbstractTextDocumentLayout16pageCountChangedEi(
+    QAbstractTextDocumentLayout *self,
+    int newPages) {
+  self->pageCountChanged(newPages);
+}
+
+//  QAbstractTextDocumentLayout::QAbstractTextDocumentLayout(QAbstractTextDoc
+//      umentLayoutPrivate &a0, QTextDocument *a1)
+extern "C" Q_DECL_EXPORT
+QAbstractTextDocumentLayout *ritual_ZN27QAbstractTextDocumentLayoutC1ER34QAbstractTextDocumentLayoutPrivateP13QTextDocument(
+    QAbstractTextDocumentLayoutPrivate *a0,
+    QTextDocument *a1) {
+  return new CuteQAbstractTextDocumentLayout(*a0, a1);
 }
 
 //  void QAbstractTextDocumentLayout::documentChanged(int from, int

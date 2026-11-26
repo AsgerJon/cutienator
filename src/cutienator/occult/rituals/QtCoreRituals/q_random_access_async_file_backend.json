@@ -28,6 +28,21 @@
     "ritual_ZN29QRandomAccessAsyncFileBackend5writeExRK10QByteArray": [
       "address", "address", "long long", "address"
     ],
+    "ritual_ZN29QRandomAccessAsyncFileBackend5writeExO10QByteArray": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFileBackend8readIntoEx5QSpanISt4byteLm18446744073709551615EE": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFileBackend9writeFromEx5QSpanIKSt4byteLm18446744073709551615EE": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFileBackend8readIntoEx5QSpanIKS0_ISt4byteLm18446744073709551615EELm18446744073709551615EE": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFileBackend9writeFromEx5QSpanIKS0_IKSt4byteLm18446744073709551615EELm18446744073709551615EE": [
+      "address", "address", "long long", "address"
+    ],
     "ritual_take_QRandomAccessAsyncFileBackend": [
       "bool", "address", "chars", "address"
     ]

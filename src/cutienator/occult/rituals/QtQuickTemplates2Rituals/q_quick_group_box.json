@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickGroupBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickGroupBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickGroupBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickGroupBox2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,12 +31,22 @@
     "ritual_ZNK14QQuickGroupBox19implicitLabelHeightEv": [
       "double", "address"
     ],
+    "ritual_ZN14QQuickGroupBox12titleChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickGroupBox12labelChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickGroupBox25implicitLabelWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickGroupBox26implicitLabelHeightChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QQuickGroupBox17componentCompleteEv": ["nothing", "address"],
     "ritual_ZNK14QQuickGroupBox11defaultFontEv": ["address", "address"],
     "ritual_ZNK14QQuickGroupBox14accessibleRoleEv": ["int", "address"],
     "ritual_ZN14QQuickGroupBox26accessibilityActiveChangedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN14QQuickGroupBox6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickGroupBox6d_funcEv": ["address", "address"],
     "ritual_take_QQuickGroupBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZN14QQuickGroupBox17componentCompleteEv": [
       "nothing", "address"

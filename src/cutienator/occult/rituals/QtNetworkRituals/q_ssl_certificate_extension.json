@@ -7,7 +7,16 @@
   "rows": {
     "ritual_ZN24QSslCertificateExtensionC1Ev": ["address"],
     "ritual_ZN24QSslCertificateExtensionC1ERKS_": ["address", "address"],
+    "ritual_ZN24QSslCertificateExtensionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QSslCertificateExtensionaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN24QSslCertificateExtensionD1Ev": ["nothing", "address"],
+    "ritual_ZN24QSslCertificateExtension4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK24QSslCertificateExtension3oidEv": ["text", "address"],
     "ritual_ZNK24QSslCertificateExtension4nameEv": ["text", "address"],
     "ritual_ZNK24QSslCertificateExtension5valueEv": ["address", "address"],

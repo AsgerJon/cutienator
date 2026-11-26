@@ -2,6 +2,7 @@
 //  QtScxml/qscxmlinvokableservice.h, Qt 6.12.0. Changes made here are lost.
 #include <QtScxml/qscxmlinvokableservice.h>
 #include <QtCore/qstring.h>
+#include <QtScxml/qscxmlexecutablecontent.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -198,6 +199,25 @@ const QMetaObject *ritual_ZNK31QScxmlStaticScxmlServiceFactory10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScxmlStaticScxmlServiceFactory::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QScxmlStaticScxmlServiceFactory11qt_metacastEPKc(
+    QScxmlStaticScxmlServiceFactory *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScxmlStaticScxmlServiceFactory::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QScxmlStaticScxmlServiceFactory11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScxmlStaticScxmlServiceFactory *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScxmlStaticScxmlServiceFactory::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -222,6 +242,26 @@ extern "C" Q_DECL_EXPORT
 const QScxmlStaticScxmlServiceFactoryPrivate *ritual_ZNK31QScxmlStaticScxmlServiceFactory6d_funcEv(
     const QScxmlStaticScxmlServiceFactory *self) {
   return self->d_func();
+}
+
+//  QScxmlStaticScxmlServiceFactory::QScxmlStaticScxmlServiceFactory(const
+//      QMetaObject *metaObject, const QScxmlExecutableContent::InvokeInfo
+//      &invokeInfo, const QList<QScxmlExecutableContent::StringId>
+//      &nameList, const QList<QScxmlExecutableContent::ParameterInfo>
+//      &parameters, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QScxmlStaticScxmlServiceFactory *ritual_ZN31QScxmlStaticScxmlServiceFactoryC1EPK11QMetaObjectRKN23QScxmlExecutableContent10InvokeInfoERK5QListIiERKS7_INS3_13ParameterInfoEEP7QObject(
+    const QMetaObject *metaObject,
+    const QScxmlExecutableContent::InvokeInfo *invokeInfo,
+    const QList<QScxmlExecutableContent::StringId> *nameList,
+    const QList<QScxmlExecutableContent::ParameterInfo> *parameters,
+    QObject *parent) {
+  return new CuteQScxmlStaticScxmlServiceFactory(
+      metaObject,
+      *invokeInfo,
+      *nameList,
+      *parameters,
+      parent);
 }
 
 //  QScxmlInvokableService

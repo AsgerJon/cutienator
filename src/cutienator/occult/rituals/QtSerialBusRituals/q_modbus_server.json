@@ -6,13 +6,23 @@
   ],
   "rows": {
     "ritual_ZNK13QModbusServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QModbusServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QModbusServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QModbusServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QModbusServer6d_funcEv": ["address", "address"],
     "ritual_ZNK13QModbusServer6d_funcEv": ["address", "address"],
+    "ritual_ZN13QModbusServerC1EP7QObject": ["address", "address"],
     "ritual_ZN13QModbusServerD1Ev": ["nothing", "address"],
     "ritual_ZNK13QModbusServer13serverAddressEv": ["int", "address"],
     "ritual_ZN13QModbusServer16setServerAddressEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN13QModbusServer6setMapERK4QMapIN15QModbusDataUnit12RegisterTypeES1_E": [
+      "bool", "address", "address"
     ],
     "ritual_ZNK13QModbusServer18processesBroadcastEv": ["bool", "address"],
     "ritual_ZNK13QModbusServer5valueEi": ["address", "address", "int"],
@@ -31,11 +41,23 @@
     "ritual_ZNK13QModbusServer4dataEN15QModbusDataUnit12RegisterTypeEtPt": [
       "bool", "address", "int", "unsigned short", "address"
     ],
+    "ritual_ZN13QModbusServer11dataWrittenEN15QModbusDataUnit12RegisterTypeEii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN13QModbusServerC1ER20QModbusServerPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QModbusServer9writeDataERK15QModbusDataUnit": [
       "bool", "address", "address"
     ],
     "ritual_ZNK13QModbusServer8readDataEP15QModbusDataUnit": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN13QModbusServer14processRequestERK10QModbusPdu": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QModbusServer21processPrivateRequestERK10QModbusPdu": [
+      "address", "address", "address"
     ],
     "ritual_take_QModbusServer": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QModbusServer18processesBroadcastEv": [

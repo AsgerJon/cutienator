@@ -28,6 +28,16 @@ void ritual_ZN28QLowEnergyCharacteristicDataD1Ev(
   delete self;
 }
 
+//  QLowEnergyCharacteristicData
+//      &QLowEnergyCharacteristicData::operator=(const
+//      QLowEnergyCharacteristicData &other)
+extern "C" Q_DECL_EXPORT
+QLowEnergyCharacteristicData *ritual_ZN28QLowEnergyCharacteristicDataaSERKS_(
+    QLowEnergyCharacteristicData *self,
+    const QLowEnergyCharacteristicData *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool operator==(const QLowEnergyCharacteristicData &a, const
 //      QLowEnergyCharacteristicData &b)
 extern "C" Q_DECL_EXPORT
@@ -185,6 +195,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK28QLowEnergyCharacteristicData7isValidEv(
     const QLowEnergyCharacteristicData *self) {
   return self->isValid();
+}
+
+//  void QLowEnergyCharacteristicData::swap(QLowEnergyCharacteristicData
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QLowEnergyCharacteristicData4swapERS_(
+    QLowEnergyCharacteristicData *self,
+    QLowEnergyCharacteristicData *other) {
+  self->swap(*other);
 }
 
 //  bool QLowEnergyCharacteristicData::equals(const

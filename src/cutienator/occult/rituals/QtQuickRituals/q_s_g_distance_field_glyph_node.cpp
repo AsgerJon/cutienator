@@ -24,10 +24,103 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 37, as _ZN25QSGDistanceFieldGlyphNodeD1Ev
-inline QSGDistanceFieldGlyphNode::~QSGDistanceFieldGlyphNode()
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 165, as _ZN25QSGDistanceFieldGlyphNode10preprocessEv
+inline void QSGDistanceFieldGlyphNode::preprocess()
 {
+    if (m_dirtyGeometry)
+        updateGeometry();
+
+    setFlag(UsePreprocess, false);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 151, as _ZN25QSGDistanceFieldGlyphNode13setStyleColorERK6QColor
+inline void QSGDistanceFieldGlyphNode::setStyleColor(const QColor &color)
+{
+    if (m_styleColor == color)
+        return;
+    m_styleColor = color;
+    m_dirtyMaterial = true;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 173, as _ZN25QSGDistanceFieldGlyphNode16invalidateGlyphsERK5QListIjE
+inline void QSGDistanceFieldGlyphNode::invalidateGlyphs(const QList<quint32> &glyphs)
+{
+    if (m_dirtyGeometry)
+        return;
+
+    for (int i = 0; i < glyphs.size(); ++i) {
+        if (m_allGlyphIndexesLookup.contains(glyphs.at(i))) {
+            m_dirtyGeometry = true;
+            setFlag(UsePreprocess);
+            return;
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 88, as _ZN25QSGDistanceFieldGlyphNode20setRenderTypeQualityEi
+inline void QSGDistanceFieldGlyphNode::setRenderTypeQuality(int renderTypeQuality)
+{
+    if (renderTypeQuality == m_renderTypeQuality)
+        return;
+
+    m_renderTypeQuality = renderTypeQuality;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 96, as _ZN25QSGDistanceFieldGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE
+inline void QSGDistanceFieldGlyphNode::setPreferredAntialiasingMode(AntialiasingMode mode)
+{
+    if (mode == m_antialiasingMode)
+        return;
+    m_antialiasingMode = mode;
+    m_dirtyMaterial = true;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 159, as _ZN25QSGDistanceFieldGlyphNode6updateEv
+inline void QSGDistanceFieldGlyphNode::update()
+{
+    if (m_dirtyMaterial)
+        updateMaterial();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 58, as _ZN25QSGDistanceFieldGlyphNode7recycleEv
+inline void QSGDistanceFieldGlyphNode::recycle()
+{
+    QSGGlyphNode::recycle();
+
     cleanup();
+    m_color = QColor{};
+    m_baseLine = QPointF{};
+    m_originalPosition = QPointF{};
+    m_position = QPointF{};
+    m_glyphs = QGlyphRun{};
+    m_geometry.allocate(0, 0); // Shrink
+    m_style = QQuickText::Normal;
+    m_antialiasingMode = GrayAntialiasing;
+    m_boundingRect = QRectF{};
+    m_renderTypeQuality = -1;
+    m_dirtyGeometry = true;
+    m_dirtyMaterial = true;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 77, as _ZN25QSGDistanceFieldGlyphNode8setColorERK6QColor
+inline void QSGDistanceFieldGlyphNode::setColor(const QColor &color)
+{
+    m_color = color;
+    if (m_material != nullptr) {
+        m_material->setColor(color);
+        markDirty(DirtyMaterial);
+    } else {
+        m_dirtyMaterial = true;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 143, as _ZN25QSGDistanceFieldGlyphNode8setStyleEN10QQuickText9TextStyleE
+inline void QSGDistanceFieldGlyphNode::setStyle(QQuickText::TextStyle style)
+{
+    if (m_style == style)
+        return;
+    m_style = style;
+    m_dirtyMaterial = true;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 104, as _ZN25QSGDistanceFieldGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun
@@ -70,88 +163,17 @@ inline void QSGDistanceFieldGlyphNode::setGlyphs(const QPointF &position, const 
 #endif
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 77, as _ZN25QSGDistanceFieldGlyphNode8setColorERK6QColor
-inline void QSGDistanceFieldGlyphNode::setColor(const QColor &color)
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 11, as _Z8lcSgTextv
+inline const QLoggingCategory &lcSgText()
 {
-    m_color = color;
-    if (m_material != nullptr) {
-        m_material->setColor(color);
-        markDirty(DirtyMaterial);
-    } else {
-        m_dirtyMaterial = true;
-    }
+    static const QLoggingCategory category("qt.scenegraph.text");
+    return category;
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 96, as _ZN25QSGDistanceFieldGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE
-inline void QSGDistanceFieldGlyphNode::setPreferredAntialiasingMode(AntialiasingMode mode)
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 37, as _ZN25QSGDistanceFieldGlyphNodeD1Ev
+inline QSGDistanceFieldGlyphNode::~QSGDistanceFieldGlyphNode()
 {
-    if (mode == m_antialiasingMode)
-        return;
-    m_antialiasingMode = mode;
-    m_dirtyMaterial = true;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 88, as _ZN25QSGDistanceFieldGlyphNode20setRenderTypeQualityEi
-inline void QSGDistanceFieldGlyphNode::setRenderTypeQuality(int renderTypeQuality)
-{
-    if (renderTypeQuality == m_renderTypeQuality)
-        return;
-
-    m_renderTypeQuality = renderTypeQuality;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 143, as _ZN25QSGDistanceFieldGlyphNode8setStyleEN10QQuickText9TextStyleE
-inline void QSGDistanceFieldGlyphNode::setStyle(QQuickText::TextStyle style)
-{
-    if (m_style == style)
-        return;
-    m_style = style;
-    m_dirtyMaterial = true;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 151, as _ZN25QSGDistanceFieldGlyphNode13setStyleColorERK6QColor
-inline void QSGDistanceFieldGlyphNode::setStyleColor(const QColor &color)
-{
-    if (m_styleColor == color)
-        return;
-    m_styleColor = color;
-    m_dirtyMaterial = true;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 159, as _ZN25QSGDistanceFieldGlyphNode6updateEv
-inline void QSGDistanceFieldGlyphNode::update()
-{
-    if (m_dirtyMaterial)
-        updateMaterial();
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 165, as _ZN25QSGDistanceFieldGlyphNode10preprocessEv
-inline void QSGDistanceFieldGlyphNode::preprocess()
-{
-    if (m_dirtyGeometry)
-        updateGeometry();
-
-    setFlag(UsePreprocess, false);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 58, as _ZN25QSGDistanceFieldGlyphNode7recycleEv
-inline void QSGDistanceFieldGlyphNode::recycle()
-{
-    QSGGlyphNode::recycle();
-
     cleanup();
-    m_color = QColor{};
-    m_baseLine = QPointF{};
-    m_originalPosition = QPointF{};
-    m_position = QPointF{};
-    m_glyphs = QGlyphRun{};
-    m_geometry.allocate(0, 0); // Shrink
-    m_style = QQuickText::Normal;
-    m_antialiasingMode = GrayAntialiasing;
-    m_boundingRect = QRectF{};
-    m_renderTypeQuality = -1;
-    m_dirtyGeometry = true;
-    m_dirtyMaterial = true;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 42, as _ZN25QSGDistanceFieldGlyphNode7cleanupEv
@@ -536,6 +558,15 @@ void ritual_ZN25QSGDistanceFieldGlyphNode10preprocessEv(
   self->preprocess();
 }
 
+//  void QSGDistanceFieldGlyphNode::invalidateGlyphs(const QList<quint32>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSGDistanceFieldGlyphNode16invalidateGlyphsERK5QListIjE(
+    QSGDistanceFieldGlyphNode *self,
+    const QList<quint32> *glyphs) {
+  self->invalidateGlyphs(*glyphs);
+}
+
 //  void QSGDistanceFieldGlyphNode::recycle()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QSGDistanceFieldGlyphNode7recycleEv(
@@ -590,6 +621,16 @@ extern "C" Q_DECL_EXPORT
 QPointF *ritual_own_ZNK25QSGDistanceFieldGlyphNode8baseLineEv(
     const QSGDistanceFieldGlyphNode *self) {
   return new QPointF(self->QSGDistanceFieldGlyphNode::baseLine());
+}
+
+//  void QSGDistanceFieldGlyphNode::setGlyphs(const QPointF &position, const
+//      QGlyphRun &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN25QSGDistanceFieldGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun(
+    QSGDistanceFieldGlyphNode *self,
+    const QPointF *position,
+    const QGlyphRun *glyphs) {
+  self->QSGDistanceFieldGlyphNode::setGlyphs(*position, *glyphs);
 }
 
 //  void QSGDistanceFieldGlyphNode::setColor(const QColor &color)

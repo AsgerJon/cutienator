@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QQuick3DRenderLayerHelpers21updateLayerNodeHelperERK16QQuick3DViewportRKSt10shared_ptrI26QSSGRenderContextInterfaceER15QSSGRenderLayerRbSA_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN26QQuick3DRenderLayerHelpersD1Ev": ["nothing", "address"]
   }
 }

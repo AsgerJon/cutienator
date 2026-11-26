@@ -5,6 +5,10 @@
     "ss_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10OpaquePass4prepERK26QSSGRenderContextInterfaceR19QSSGLayerRenderDataPvR28QSSGRhiGraphicsPipelineState18QSSGShaderFeaturesP24QRhiRenderPassDescriptorRK5QListI26QSSGRenderableObjectHandleE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
     "ritual_ZNK10OpaquePass8passTypeEv": ["int", "address"],
     "ritual_ZN10OpaquePass13resetForFrameEv": ["nothing", "address"],
     "ritual_ZN10OpaquePassD1Ev": ["nothing", "address"]

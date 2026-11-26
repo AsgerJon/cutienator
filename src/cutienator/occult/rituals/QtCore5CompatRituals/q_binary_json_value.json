@@ -9,13 +9,25 @@
     "ritual_ZN16QBinaryJsonValueC1Eb": ["address", "bool"],
     "ritual_ZN16QBinaryJsonValueC1Ed": ["address", "double"],
     "ritual_ZN16QBinaryJsonValueC1E7QString": ["address", "text"],
+    "ritual_ZN16QBinaryJsonValueC1ERK16QBinaryJsonArray": [
+      "address", "address"
+    ],
+    "ritual_ZN16QBinaryJsonValueC1ERK17QBinaryJsonObject": [
+      "address", "address"
+    ],
     "ritual_ZN16QBinaryJsonValueD1Ev": ["nothing", "address"],
+    "ritual_ZN16QBinaryJsonValueC1EOS_": ["address", "address"],
+    "ritual_ZN16QBinaryJsonValueaSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QBinaryJsonValue13fromJsonValueERK10QJsonValue": [
+      "address", "address"
+    ],
     "ritual_ZNK16QBinaryJsonValue4typeEv": ["int", "address"],
     "ritual_ZNK16QBinaryJsonValue6toBoolEv": ["bool", "address"],
     "ritual_ZNK16QBinaryJsonValue8toDoubleEv": ["double", "address"],
     "ritual_ZNK16QBinaryJsonValue8toStringEv": ["text", "address"],
     "ritual_ZN16QBinaryJsonValueC1EPN18QBinaryJsonPrivate11MutableDataEPNS0_4BaseERKNS0_5ValueE": [
       "address", "address", "address", "address"
-    ]
+    ],
+    "ritual_drop_QBinaryJsonValue__QBinaryJsonValue": ["nothing", "address"]
   }
 }

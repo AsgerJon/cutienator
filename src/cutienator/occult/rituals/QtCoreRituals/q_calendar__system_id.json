@@ -8,6 +8,7 @@
     "ritual_ZN9QCalendar8SystemIdC1ENS_6SystemE": ["address", "int"],
     "ritual_ZN9QCalendar8SystemIdC1Em": ["address", "size_t"],
     "ritual_ZN9QCalendar8SystemIdC1Ev": ["address"],
+    "ritual_ZNK9QCalendar8SystemId5indexEv": ["size_t", "address"],
     "ritual_ZNK9QCalendar8SystemId7isValidEv": ["bool", "address"],
     "ritual_ZN9QCalendar8SystemIdD1Ev": ["nothing", "address"]
   }

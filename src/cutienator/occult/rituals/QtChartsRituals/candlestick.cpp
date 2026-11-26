@@ -14,9 +14,12 @@
 #include <QtGui/qcolor.h>
 #include <QtGui/qbrush.h>
 #include <QtGui/qpen.h>
+#if QT_CONFIG(charts_candlestick_chart)
+#include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/candlestickdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
 #include <QtGui/qpainterpath.h>
@@ -949,6 +952,24 @@ const QMetaObject *ritual_ZNK11Candlestick10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Candlestick::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11Candlestick11qt_metacastEPKc(
+    Candlestick *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Candlestick::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11Candlestick11qt_metacallEN11QMetaObject4CallEiPPv(
+    Candlestick *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Candlestick::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11Candlestick2trEPKcS1_i(
@@ -1125,6 +1146,47 @@ void ritual_ZN11Candlestick5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidge
     const QStyleOptionGraphicsItem *option,
     QWidget *widget) {
   self->paint(painter, option, widget);
+}
+
+//  void Candlestick::clicked(QCandlestickSet *set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11Candlestick7clickedEP15QCandlestickSet(
+    Candlestick *self,
+    QCandlestickSet *set) {
+  self->clicked(set);
+}
+
+//  void Candlestick::hovered(bool status, QCandlestickSet *set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11Candlestick7hoveredEbP15QCandlestickSet(
+    Candlestick *self,
+    bool status,
+    QCandlestickSet *set) {
+  self->hovered(status, set);
+}
+
+//  void Candlestick::pressed(QCandlestickSet *set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11Candlestick7pressedEP15QCandlestickSet(
+    Candlestick *self,
+    QCandlestickSet *set) {
+  self->pressed(set);
+}
+
+//  void Candlestick::released(QCandlestickSet *set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11Candlestick8releasedEP15QCandlestickSet(
+    Candlestick *self,
+    QCandlestickSet *set) {
+  self->released(set);
+}
+
+//  void Candlestick::doubleClicked(QCandlestickSet *set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11Candlestick13doubleClickedEP15QCandlestickSet(
+    Candlestick *self,
+    QCandlestickSet *set) {
+  self->doubleClicked(set);
 }
 
 //  void Candlestick::updateGeometry(AbstractDomain *domain)

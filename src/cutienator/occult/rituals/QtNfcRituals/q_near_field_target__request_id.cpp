@@ -68,3 +68,11 @@ bool ritual_ZNK16QNearFieldTarget9RequestIdneERKS0_(
     const QNearFieldTarget::RequestId *other) {
   return self->operator!=(*other);
 }
+
+//  RequestId &QNearFieldTarget::RequestId::operator=(const RequestId &other)
+extern "C" Q_DECL_EXPORT
+QNearFieldTarget::RequestId *ritual_ZN16QNearFieldTarget9RequestIdaSERKS0_(
+    QNearFieldTarget::RequestId *self,
+    const QNearFieldTarget::RequestId *other) {
+  return &(self->operator=(*other));
+}

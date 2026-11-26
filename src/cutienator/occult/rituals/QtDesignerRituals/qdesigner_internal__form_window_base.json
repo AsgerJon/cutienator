@@ -8,8 +8,65 @@
     "ritual_ZNK18qdesigner_internal14FormWindowBase10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal14FormWindowBase2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBaseD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase8formDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase11setFormDataERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase13checkContentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase4gridEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase7setGridERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase10hasFeatureE6QFlagsIN28QDesignerFormWindowInterface11FeatureFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase8featuresEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase11setFeaturesE6QFlagsIN28QDesignerFormWindowInterface11FeatureFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase12designerGridEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase15setDesignerGridERKNS_4GridE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase11hasFormGridEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase14setHasFormGridEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase11gridVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase20resourceFileSaveModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase23setResourceFileSaveModeEN28QDesignerFormWindowInterface20ResourceFileSaveModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase19defaultDesignerGridEv": [
+      "address"
     ],
     "ritual_ZN18qdesigner_internal14FormWindowBase22setDefaultDesignerGridERKNS_4GridE": [
       "nothing", "address"
@@ -17,14 +74,23 @@
     "ritual_ZN18qdesigner_internal14FormWindowBase19initializePopupMenuEP7QWidget": [
       "address", "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase23createExtensionTaskMenuEP28QDesignerFormWindowInterfaceP7QObjectb": [
+      "address", "address", "address", "bool"
+    ],
     "ritual_ZN18qdesigner_internal14FormWindowBase11dropWidgetsERK5QListIP25QDesignerDnDItemInterfaceEP7QWidgetRK6QPoint": [
       "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase16widgetUnderMouseERK6QPointNS0_20WidgetUnderMouseModeE": [
+      "address", "address", "address", "int"
     ],
     "ritual_ZN18qdesigner_internal14FormWindowBase8widgetAtERK6QPoint": [
       "address", "address", "address"
     ],
     "ritual_ZNK18qdesigner_internal14FormWindowBase13findContainerEP7QWidgetb": [
       "address", "address", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase16deleteWidgetListERK5QListIP7QWidgetE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN18qdesigner_internal14FormWindowBase15highlightWidgetEP7QWidgetRK6QPointNS0_13HighlightModeE": [
       "nothing", "address", "address", "address", "int"
@@ -37,6 +103,87 @@
     ],
     "ritual_ZN18qdesigner_internal14FormWindowBase21blockSelectionChangedEb": [
       "bool", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase11pixmapCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase9iconCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase11resourceSetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase14setResourceSetEP13QtResourceSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase21addReloadablePropertyEP22QDesignerPropertySheeti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase24removeReloadablePropertyEP22QDesignerPropertySheeti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase26addReloadablePropertySheetEP22QDesignerPropertySheetP7QObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase16reloadPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase17emitWidgetRemovedEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase17emitObjectRemovedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase13deviceProfileEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase9styleNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase17deviceProfileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase21setLineTerminatorModeENS0_18LineTerminatorModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase18lineTerminatorModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase22useIdBasedTranslationsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase25setUseIdBasedTranslationsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase23idBasedTranslationLabelEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase26setIdBasedTranslationLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal14FormWindowBase18connectSlotsByNameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase21setConnectSlotsByNameEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase20resourceSetActivatedEP13QtResourceSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase20triggerDefaultActionEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase14sheetDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase15syncGridFeatureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase12connectSheetEP22QDesignerPropertySheet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14FormWindowBase15disconnectSheetEP22QDesignerPropertySheet": [
+      "nothing", "address", "address"
     ],
     "ritual_take_qdesigner_internal_FormWindowBase": [
       "bool", "address", "chars", "address"

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QListWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QListWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QListWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QListWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QListWidgetC1EP7QWidget": ["address", "address"],
     "ritual_ZN11QListWidgetD1Ev": ["nothing", "address"],
@@ -108,6 +114,34 @@
       "nothing", "address", "address", "int"
     ],
     "ritual_ZN11QListWidget5clearEv": ["nothing", "address"],
+    "ritual_ZN11QListWidget11itemPressedEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget11itemClickedEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget17itemDoubleClickedEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget13itemActivatedEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget11itemEnteredEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget11itemChangedEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget18currentItemChangedEP15QListWidgetItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QListWidget18currentTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QListWidget17currentRowChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QListWidget20itemSelectionChangedEv": ["nothing", "address"],
     "ritual_ZN11QListWidget5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZNK11QListWidget9mimeTypesEv": ["address", "address"],
     "ritual_ZNK11QListWidget8mimeDataERK5QListIP15QListWidgetItemE": [

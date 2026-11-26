@@ -229,6 +229,13 @@ int ritual_ZNK24QOpenGLTextureGlyphCache16maxTextureHeightEv(
   return self->maxTextureHeight();
 }
 
+//  GLuint QOpenGLTextureGlyphCache::texture() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK24QOpenGLTextureGlyphCache7textureEv(
+    const QOpenGLTextureGlyphCache *self) {
+  return self->texture();
+}
+
 //  int QOpenGLTextureGlyphCache::width() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK24QOpenGLTextureGlyphCache5widthEv(

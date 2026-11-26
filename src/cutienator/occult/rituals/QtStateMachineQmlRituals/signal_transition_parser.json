@@ -5,6 +5,12 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22SignalTransitionParser14verifyBindingsERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEERK5QListIPKNS2_7BindingEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22SignalTransitionParser13applyBindingsEP7QObjectRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERK5QListIPKNS3_12CompiledData7BindingEE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN22SignalTransitionParserD1Ev": ["nothing", "address"]
   }
 }

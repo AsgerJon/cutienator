@@ -6,7 +6,14 @@
   ],
   "rows": {
     "ritual_ZNK17QTextEditMimeData7formatsEv": ["address", "address"],
+    "ritual_ZNK17QTextEditMimeData9hasFormatERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK17QTextEditMimeData12retrieveDataERK7QString9QMetaType": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK17QTextEditMimeData5setupEv": ["nothing", "address"],
+    "ritual_own_ZNK17QTextEditMimeData12retrieveDataERK7QString9QMetaType": [
       "address", "address", "text", "address"
     ]
   }

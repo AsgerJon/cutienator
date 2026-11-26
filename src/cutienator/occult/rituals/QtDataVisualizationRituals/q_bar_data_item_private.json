@@ -5,6 +5,7 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QBarDataItemPrivateC1Ev": ["address"],
     "ritual_ZN19QBarDataItemPrivateD1Ev": ["nothing", "address"]
   }
 }

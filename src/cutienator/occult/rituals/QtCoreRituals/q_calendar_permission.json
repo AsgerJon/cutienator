@@ -12,6 +12,16 @@
     ],
     "ritual_ZN19QCalendarPermissionC1Ev": ["address"],
     "ritual_ZN19QCalendarPermissionC1ERKS_": ["address", "address"],
-    "ritual_ZN19QCalendarPermissionD1Ev": ["nothing", "address"]
+    "ritual_ZN19QCalendarPermissionC1EOS_": ["address", "address"],
+    "ritual_ZN19QCalendarPermissionD1Ev": ["nothing", "address"],
+    "ritual_ZN19QCalendarPermissionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QCalendarPermissionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QCalendarPermission4swapERS_": [
+      "nothing", "address", "address"
+    ]
   }
 }

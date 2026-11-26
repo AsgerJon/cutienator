@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK15QBarModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QBarModelMapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QBarModelMapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QBarModelMapper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -46,6 +52,22 @@
     "ritual_ZNK15QBarModelMapper11orientationEv": ["int", "address"],
     "ritual_ZN15QBarModelMapper14setOrientationEN2Qt11OrientationE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN15QBarModelMapper13seriesChangedEv": ["nothing", "address"],
+    "ritual_ZN15QBarModelMapper12modelChangedEv": ["nothing", "address"],
+    "ritual_ZN15QBarModelMapper25firstBarSetSectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QBarModelMapper24lastBarSetSectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QBarModelMapper12firstChangedEv": ["nothing", "address"],
+    "ritual_ZN15QBarModelMapper12countChangedEv": ["nothing", "address"],
+    "ritual_ZN15QBarModelMapper18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QBarModelMapperC1ER22QBarModelMapperPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QBarModelMapper13onValuesAddedExx": [
       "nothing", "address", "long long", "long long"

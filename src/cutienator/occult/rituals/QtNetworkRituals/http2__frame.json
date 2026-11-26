@@ -5,6 +5,23 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN5Http25FrameC1Ev": ["address"],
+    "ritual_ZNK5Http25Frame4typeEv": ["unsigned char", "address"],
+    "ritual_ZNK5Http25Frame8streamIDEv": ["unsigned int", "address"],
+    "ritual_ZNK5Http25Frame5flagsEv": ["int", "address"],
+    "ritual_ZNK5Http25Frame11payloadSizeEv": ["unsigned int", "address"],
+    "ritual_ZNK5Http25Frame7paddingEv": ["unsigned char", "address"],
+    "ritual_ZNK5Http25Frame18supportsPaddedFlagEv": ["bool", "address"],
+    "ritual_ZNK5Http25Frame8isPaddedEv": ["bool", "address"],
+    "ritual_ZNK5Http25Frame8priorityEPjPh": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK5Http25Frame14validateHeaderEv": ["int", "address"],
+    "ritual_ZNK5Http25Frame15validatePayloadEv": ["int", "address"],
+    "ritual_ZNK5Http25Frame8dataSizeEv": ["unsigned int", "address"],
+    "ritual_ZNK5Http25Frame14hpackBlockSizeEv": ["unsigned int", "address"],
+    "ritual_ZNK5Http25Frame9dataBeginEv": ["address", "address"],
+    "ritual_ZNK5Http25Frame15hpackBlockBeginEv": ["address", "address"],
     "ritual_ZN5Http25FrameD1Ev": ["nothing", "address"]
   }
 }

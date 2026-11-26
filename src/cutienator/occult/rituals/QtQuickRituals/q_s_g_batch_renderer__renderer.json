@@ -5,8 +5,178 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN16QSGBatchRenderer8RendererC1EP23QSGDefaultRenderContextN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QSGBatchRenderer8RendererD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSGBatchRenderer8Renderer11nodeChangedEP7QSGNode6QFlagsINS1_13DirtyStateBitEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer6renderEv": ["nothing", "address"],
+    "ritual_ZN16QSGBatchRenderer8Renderer13prepareInlineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer12renderInlineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer17prepareRenderPassEPNS0_17RenderPassContextE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer15beginRenderPassEPNS0_17RenderPassContextE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer16recordRenderPassEPNS0_17RenderPassContextE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer13endRenderPassEPNS0_17RenderPassContextE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer24destroyGraphicsResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer3mapEPNS_6BufferEjb": [
+      "nothing", "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer5unmapEPNS_6BufferEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer27buildRenderListsFromScratchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer30buildRenderListsForTaggedRootsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer11tagSubRootsEPNS_4NodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer16buildRenderListsEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer21deleteRemovedElementsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer14cleanupBatchesEP11QDataBufferIPNS_5BatchEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer20prepareOpaqueBatchesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer12checkOverlapEiiRKNS_4RectE": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer19prepareAlphaBatchesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer41invalidateBatchAndOverlappingRenderOrdersEPNS_5BatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer11uploadBatchEPNS_5BatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer19uploadMergedElementEPNS_7ElementEiPPcS4_S4_PvPi": [
+      "nothing", "address", "address", "int", "address", "address",
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer19ensurePipelineStateEPNS_7ElementEPKNS_19ShaderManagerShaderEb": [
+      "bool", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer12dummyTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer25updateMaterialDynamicDataEPNS_19ShaderManagerShaderERN17QSGMaterialShader11RenderStateEP11QSGMaterialPKNS_5BatchEPNS_7ElementEiPc": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "int", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer24updateMaterialStaticDataEPNS_19ShaderManagerShaderERN17QSGMaterialShader11RenderStateEP11QSGMaterialPNS_5BatchEPb": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer14checkLineWidthEP11QSGGeometry": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer24prepareRenderMergedBatchEPNS_5BatchEPNS0_19PreparedRenderBatchE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer17renderMergedBatchEPNS0_19PreparedRenderBatchEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer26prepareRenderUnmergedBatchEPNS_5BatchEPNS0_19PreparedRenderBatchE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer19renderUnmergedBatchEPNS0_19PreparedRenderBatchEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer22setViewportAndScissorsEP17QRhiCommandBufferPKNS_5BatchE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer19setGraphicsPipelineEP17QRhiCommandBufferPKNS_5BatchEPNS_7ElementEb": [
+      "nothing", "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer29applyClipStateToGraphicsStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer20buildStencilPipelineEPKNS_5BatchEb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer15updateClipStateEPK11QSGClipNodePNS_5BatchE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer18enqueueStencilDrawEPKNS_5BatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer20prepareRhiRenderNodeEPNS_5BatchEPNS0_19PreparedRenderBatchE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer19renderRhiRenderNodeEPKNS_5BatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer18setActiveRhiShaderEP17QSGMaterialShaderPNS_19ShaderManagerShaderE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer15changeBatchRootEPNS_4NodeES2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer17registerBatchRootEPNS_4NodeES2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer25removeBatchRootFromParentEPNS_4NodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer20nodeChangedBatchRootEPNS_4NodeES2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer21turnNodeIntoBatchRootEPNS_4NodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer18nodeWasTransformedEPNS_4NodeEPi": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer14nodeWasRemovedEPNS_4NodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer12nodeWasAddedEP7QSGNodePNS_4NodeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer13batchRootInfoEPNS_4NodeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN16QSGBatchRenderer8Renderer8newBatchEv": [
       "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer25invalidateAndRecycleBatchEPNS_5BatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer14releaseElementEPNS_7ElementEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QSGBatchRenderer8Renderer20setVisualizationModeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSGBatchRenderer8Renderer40hasVisualizationModeWithContinuousUpdateEv": [
+      "bool", "address"
     ],
     "ritual_ZNK16QSGBatchRenderer8Renderer19mergedIndexElemSizeEv": [
       "int", "address"

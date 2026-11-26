@@ -5,7 +5,15 @@
   ],
   "rows": {
     "ritual_ZN16QRandomGeneratorC1Ej": ["address", "unsigned int"],
+    "ritual_ZN16QRandomGeneratorC1EPKjx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN16QRandomGeneratorC1ERSt8seed_seq": ["address", "address"],
+    "ritual_ZN16QRandomGeneratorC1EPKjS1_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN16QRandomGeneratorC1ERKS_": ["address", "address"],
+    "ritual_ZN16QRandomGeneratoraSERKS_": ["address", "address", "address"],
     "ritual_ZN16QRandomGeneratorD1Ev": ["nothing", "address"],
     "ritual_ZeqRK16QRandomGeneratorS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QRandomGeneratorS1_": ["bool", "address", "address"],
@@ -57,6 +65,9 @@
     "ritual_ZN16QRandomGenerator4seedEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZN16QRandomGenerator4seedERSt8seed_seq": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QRandomGenerator7discardEy": [
       "nothing", "address", "unsigned long long"
     ],
@@ -65,6 +76,9 @@
     "ritual_ZN16QRandomGenerator6systemEv": ["address"],
     "ritual_ZN16QRandomGenerator6globalEv": ["address"],
     "ritual_ZN16QRandomGenerator14securelySeededEv": ["address"],
-    "ritual_ZN16QRandomGeneratorC1ENS_6SystemE": ["address", "int"]
+    "ritual_ZN16QRandomGeneratorC1ENS_6SystemE": ["address", "int"],
+    "ritual_ZN16QRandomGenerator10_fillRangeEPvx": [
+      "unsigned long long", "address", "address", "long long"
+    ]
   }
 }

@@ -21,12 +21,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 18, as _ZN13LocalClientIoD1Ev
-inline LocalClientIo::~LocalClientIo()
-{
-    close();
-}
-
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 23, as _ZNK13LocalClientIo10connectionEv
 inline QIODevice *LocalClientIo::connection() const
 {
@@ -51,17 +45,6 @@ inline bool LocalClientIo::isOpen() const
 {
     return !isClosing() && (m_socket->state() == QLocalSocket::ConnectedState
                             || m_socket->state() == QLocalSocket::ConnectingState);
-}
-
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 85, as _ZN13LocalClientIo14onStateChangedEN12QLocalSocket16LocalSocketStateE
-inline void LocalClientIo::onStateChanged(QLocalSocket::LocalSocketState state)
-{
-    if (state == QLocalSocket::ClosingState && !isClosing()) {
-        m_socket->abort();
-        emit shouldReconnect(this);
-    }
-    if (state == QLocalSocket::ConnectedState)
-        initializeDataStream();
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 28, as _ZN13LocalClientIo7doCloseEv
@@ -427,6 +410,24 @@ const QMetaObject *ritual_ZNK13LocalClientIo10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *LocalClientIo::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13LocalClientIo11qt_metacastEPKc(
+    LocalClientIo *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int LocalClientIo::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13LocalClientIo11qt_metacallEN11QMetaObject4CallEiPPv(
+    LocalClientIo *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  LocalClientIo::~LocalClientIo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13LocalClientIoD1Ev(LocalClientIo *self) {
@@ -452,12 +453,58 @@ bool ritual_ZNK13LocalClientIo6isOpenEv(const LocalClientIo *self) {
   return self->isOpen();
 }
 
+//  void LocalClientIo::onError(QLocalSocket::LocalSocketError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13LocalClientIo7onErrorEN12QLocalSocket16LocalSocketErrorE(
+    LocalClientIo *self,
+    QLocalSocket::LocalSocketError error) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "LocalClientIo")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onError(QLocalSocket::LocalSocketError)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onError(QLocalSocket::LocalSocketError)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&error)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void LocalClientIo::onStateChanged(QLocalSocket::LocalSocketState state)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13LocalClientIo14onStateChangedEN12QLocalSocket16LocalSocketStateE(
     LocalClientIo *self,
     QLocalSocket::LocalSocketState state) {
-  self->onStateChanged(state);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "LocalClientIo")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onStateChanged(QLocalSocket::LocalSocketState)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onStateChanged(QLocalSocket::LocalSocketState)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&state)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void LocalClientIo::doClose()

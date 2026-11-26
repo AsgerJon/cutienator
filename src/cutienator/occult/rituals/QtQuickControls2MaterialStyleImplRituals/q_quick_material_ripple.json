@@ -7,6 +7,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickMaterialRipple10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickMaterialRipple11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickMaterialRipple11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK20QQuickMaterialRipple5colorEv": ["address", "address"],
     "ritual_ZN20QQuickMaterialRipple8setColorERK6QColor": [
       "nothing", "address", "address"
@@ -20,6 +26,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK20QQuickMaterialRipple9isPressedEv": ["bool", "address"],
+    "ritual_ZN20QQuickMaterialRipple10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK20QQuickMaterialRipple7triggerEv": ["int", "address"],
     "ritual_ZN20QQuickMaterialRipple10setTriggerENS_7TriggerE": [
       "nothing", "address", "int"
@@ -35,9 +44,13 @@
     "ritual_ZN20QQuickMaterialRipple10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN20QQuickMaterialRipple15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN20QQuickMaterialRipple10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QQuickMaterialRipple11prepareWaveEv": ["nothing", "address"],
     "ritual_ZN20QQuickMaterialRipple9enterWaveEv": ["nothing", "address"],
     "ritual_ZN20QQuickMaterialRipple8exitWaveEv": ["nothing", "address"],
     "ritual_own_ZN20QQuickMaterialRipple10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmlpropertydata_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qqmlpropertydata_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25: added by hand, instances of templates of the class:
+//  5. Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -592,6 +593,26 @@ void ritual_ZN16QQmlPropertyData19setMetaObjectOffsetEi(
   self->setMetaObjectOffset(off);
 }
 
+//  StaticMetaCallFunction QQmlPropertyData::staticMetaCallFunction() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK16QQmlPropertyData22staticMetaCallFunctionEv(
+    const QQmlPropertyData *self) {
+  return reinterpret_cast<void *>(self->staticMetaCallFunction());
+}
+
+//  void
+//      QQmlPropertyData::trySetStaticMetaCallFunction(StaticMetaCallFunction
+//      f, unsigned int relativePropertyIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlPropertyData28trySetStaticMetaCallFunctionEPFvP7QObjectN11QMetaObject4CallEiPPvEj(
+    QQmlPropertyData *self,
+    void *f,
+    unsigned int relativePropertyIndex) {
+  self->trySetStaticMetaCallFunction(
+      reinterpret_cast<QQmlPropertyData::StaticMetaCallFunction>(f),
+      relativePropertyIndex);
+}
+
 //  quint16 QQmlPropertyData::relativePropertyIndex() const
 extern "C" Q_DECL_EXPORT
 quint16 ritual_ZNK16QQmlPropertyData21relativePropertyIndexEv(
@@ -648,6 +669,40 @@ void ritual_ZN16QQmlPropertyData16markAsOverrideOfEPS_(
   self->markAsOverrideOf(predecessor);
 }
 
+//  void QQmlPropertyData::readProperty(QObject *target, void *property)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QQmlPropertyData12readPropertyEP7QObjectPv(
+    const QQmlPropertyData *self,
+    QObject *target,
+    void *property) {
+  self->readProperty(target, property);
+}
+
+//  void QQmlPropertyData::readPropertyWithArgs(QObject *target, void **args)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QQmlPropertyData20readPropertyWithArgsEP7QObjectPPv(
+    const QQmlPropertyData *self,
+    QObject *target,
+    void **args) {
+  self->readPropertyWithArgs(target, args);
+}
+
+//  bool QQmlPropertyData::writeProperty(QObject *target, void *value,
+//      WriteFlags flags) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QQmlPropertyData13writePropertyEP7QObjectPv6QFlagsINS_9WriteFlagEE(
+    const QQmlPropertyData *self,
+    QObject *target,
+    void *value,
+    int flags) {
+  return self->writeProperty(
+      target,
+      value,
+      QFlags<QQmlPropertyData::WriteFlag>::fromInt(flags));
+}
+
 //  bool QQmlPropertyData::resetProperty(QObject *target, WriteFlags flags)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -685,4 +740,59 @@ QQmlPropertyData::Flags *ritual_ZN16QQmlPropertyData16defaultSlotFlagsEv() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQmlPropertyDataD1Ev(QQmlPropertyData *self) {
   delete self;
+}
+
+//  void QQmlPropertyData::doMetacall<QMetaObject::InvokeMetaMethod>(QObject
+//      *object, int idx, void **argv) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE0EEEvP7QObjectiPPv(
+    const QQmlPropertyData *self,
+    QObject *object,
+    int idx,
+    void **argv) {
+  self->doMetacall<QMetaObject::InvokeMetaMethod>(object, idx, argv);
+}
+
+//  void QQmlPropertyData::doMetacall<QMetaObject::ReadProperty>(QObject
+//      *object, int idx, void **argv) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE1EEEvP7QObjectiPPv(
+    const QQmlPropertyData *self,
+    QObject *object,
+    int idx,
+    void **argv) {
+  self->doMetacall<QMetaObject::ReadProperty>(object, idx, argv);
+}
+
+//  void QQmlPropertyData::doMetacall<QMetaObject::WriteProperty>(QObject
+//      *object, int idx, void **argv) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE2EEEvP7QObjectiPPv(
+    const QQmlPropertyData *self,
+    QObject *object,
+    int idx,
+    void **argv) {
+  self->doMetacall<QMetaObject::WriteProperty>(object, idx, argv);
+}
+
+//  void QQmlPropertyData::doMetacall<QMetaObject::ResetProperty>(QObject
+//      *object, int idx, void **argv) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE3EEEvP7QObjectiPPv(
+    const QQmlPropertyData *self,
+    QObject *object,
+    int idx,
+    void **argv) {
+  self->doMetacall<QMetaObject::ResetProperty>(object, idx, argv);
+}
+
+//  void QQmlPropertyData::doMetacall<QMetaObject::BindableProperty>(QObject
+//      *object, int idx, void **argv) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QQmlPropertyData10doMetacallILN11QMetaObject4CallE8EEEvP7QObjectiPPv(
+    const QQmlPropertyData *self,
+    QObject *object,
+    int idx,
+    void **argv) {
+  self->doMetacall<QMetaObject::BindableProperty>(object, idx, argv);
 }

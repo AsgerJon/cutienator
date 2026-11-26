@@ -88,6 +88,14 @@ void ritual_ZN13QGeoRectangleD1Ev(QGeoRectangle *self) {
   delete self;
 }
 
+//  QGeoRectangle &QGeoRectangle::operator=(const QGeoRectangle &other)
+extern "C" Q_DECL_EXPORT
+QGeoRectangle *ritual_ZN13QGeoRectangleaSERKS_(
+    QGeoRectangle *self,
+    const QGeoRectangle *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QGeoRectangle::setTopLeft(const QGeoCoordinate &topLeft)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QGeoRectangle10setTopLeftERK14QGeoCoordinate(
@@ -282,6 +290,27 @@ const QGeoRectanglePrivate *ritual_ZNK13QGeoRectangle6d_funcEv(
     const QGeoRectangle *self) {
   return self->d_func();
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &stream, const QGeoRectangle
+//      &rectangle)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK13QGeoRectangle(
+    QDataStream *stream,
+    const QGeoRectangle *rectangle) {
+  return &(operator<<(*stream, *rectangle));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &stream, QGeoRectangle &rectangle)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR13QGeoRectangle(
+    QDataStream *stream,
+    QGeoRectangle *rectangle) {
+  return &(operator>>(*stream, *rectangle));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 //  QList<QGeoRectangle>::QList()
 extern "C" Q_DECL_EXPORT

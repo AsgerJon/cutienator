@@ -11,6 +11,9 @@
     "ritual_ZNK9QtPrivate14QDequeIODevice14bytesAvailableEv": [
       "long long", "address"
     ],
+    "ritual_ZN9QtPrivate14QDequeIODevice8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN9QtPrivate14QDequeIODevice9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ]

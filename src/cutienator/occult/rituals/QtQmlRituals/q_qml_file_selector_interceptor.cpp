@@ -22,7 +22,7 @@ typedef const QUrl * (*CuteQQmlFileSelectorInterceptorCall0)(const void *, const
 class CuteQQmlFileSelectorInterceptor : public QQmlFileSelectorInterceptor {
 public:
   using QQmlFileSelectorInterceptor::QQmlFileSelectorInterceptor;
-  CuteQQmlFileSelectorInterceptor(const QQmlFileSelectorInterceptor &other) : QQmlFileSelectorInterceptor(other) {}
+  CuteQQmlFileSelectorInterceptor(const QQmlFileSelectorInterceptor & other) : QQmlFileSelectorInterceptor(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {

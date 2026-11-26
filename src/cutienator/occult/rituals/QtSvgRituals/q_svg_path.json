@@ -12,7 +12,19 @@
     "ritual_ZNK8QSvgPath18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN8QSvgPath11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgPath4typeEv": ["int", "address"],
+    "ritual_ZNK8QSvgPath18internalFastBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgPath14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgPath23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgPath22requiresGroupRenderingEv": ["bool", "address"],
     "ritual_ZNK8QSvgPath4pathEv": ["address", "address"],
     "ritual_take_QSvgPath": ["bool", "address", "chars", "address"],

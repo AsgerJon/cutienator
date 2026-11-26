@@ -5,8 +5,52 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input11MouseDeviceC1Ev": ["address"],
+    "ritual_ZN9Qt3DInput5Input11MouseDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZN9Qt3DInput5Input11MouseDevice15setInputHandlerEPNS0_12InputHandlerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input11MouseDevice12inputHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input11MouseDevice9axisValueEi": [
+      "float", "address", "int"
+    ],
+    "ritual_ZNK9Qt3DInput5Input11MouseDevice15isButtonPressedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput5Input11MouseDevice19resetMouseAxisStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input11MouseDevice10mouseStateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input11MouseDevice11previousPosEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input11MouseDevice10wasPressedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input11MouseDevice11sensitivityEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input11MouseDevice22updateAxesContinuouslyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input11MouseDevice16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_take_Qt3DInput_Input_MouseDevice": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK9Qt3DInput5Input11MouseDevice9axisValueEi": [
+      "float", "address", "int"
+    ],
+    "ritual_own_ZNK9Qt3DInput5Input11MouseDevice15isButtonPressedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input11MouseDevice16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ]
   }
 }

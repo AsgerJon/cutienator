@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuick3DSceneRootNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuick3DSceneRootNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuick3DSceneRootNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuick3DSceneRootNodeD1Ev": ["nothing", "address"],
     "ritual_ZN21QQuick3DSceneRootNode6view3DEv": ["address", "address"],
     "ritual_ZN21QQuick3DSceneRootNode17updateSpatialNodeEP21QSSGRenderGraphObject": [

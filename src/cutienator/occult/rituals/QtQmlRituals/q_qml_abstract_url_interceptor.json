@@ -5,6 +5,7 @@
     "are lost."
   ],
   "rows": {
+    "ritual_ZN26QQmlAbstractUrlInterceptorC1Ev": ["address"],
     "ritual_ZN26QQmlAbstractUrlInterceptorD1Ev": ["nothing", "address"],
     "ritual_ZN26QQmlAbstractUrlInterceptor9interceptERK4QUrlNS_8DataTypeE": [
       "address", "address", "address", "int"

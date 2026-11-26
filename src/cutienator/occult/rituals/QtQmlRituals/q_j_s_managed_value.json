@@ -18,7 +18,19 @@
       "address", "text", "address"
     ],
     "ritual_ZN15QJSManagedValueD1Ev": ["nothing", "address"],
+    "ritual_ZN15QJSManagedValueC1EOS_": ["address", "address"],
+    "ritual_ZN15QJSManagedValueaSEOS_": ["address", "address", "address"],
+    "ritual_ZNK15QJSManagedValue6equalsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QJSManagedValue14strictlyEqualsERKS_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK15QJSManagedValue6engineEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue9prototypeEv": ["address", "address"],
+    "ritual_ZN15QJSManagedValue12setPrototypeERKS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QJSManagedValue4typeEv": ["int", "address"],
     "ritual_ZNK15QJSManagedValue11isUndefinedEv": ["bool", "address"],
     "ritual_ZNK15QJSManagedValue9isBooleanEv": ["bool", "address"],
@@ -93,9 +105,14 @@
     "ritual_ZNK15QJSManagedValue17callAsConstructorERK5QListI8QJSValueE": [
       "address", "address", "address"
     ],
+    "ritual_ZNK15QJSManagedValue10jsMetaTypeEv": ["address", "address"],
     "ritual_ZNK15QJSManagedValue13jsMetaMembersEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue17jsMetaInstantiateERK5QListI8QJSValueE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN15QJSManagedValueC1EPN3QV415ExecutionEngineE": [
       "address", "address"
-    ]
+    ],
+    "ritual_drop_QJSManagedValue__QJSManagedValue": ["nothing", "address"]
   }
 }

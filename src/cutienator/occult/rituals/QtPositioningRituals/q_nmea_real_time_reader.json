@@ -5,6 +5,10 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QNmeaRealTimeReaderD1Ev": ["nothing", "address"],
+    "ritual_ZN19QNmeaRealTimeReader17readAvailableDataEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QNmeaRealTimeReader15notifyNewUpdateEv": [
       "nothing", "address"
     ],

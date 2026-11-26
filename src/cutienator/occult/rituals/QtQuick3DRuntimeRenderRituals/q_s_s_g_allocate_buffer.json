@@ -11,6 +11,9 @@
       "address"
     ],
     "ritual_ZN18QSSGAllocateBufferC1ERKS_": ["address", "address"],
+    "ritual_ZNK18QSSGAllocateBuffer8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QSSGAllocateBufferD1Ev": ["nothing", "address"]
   }
 }

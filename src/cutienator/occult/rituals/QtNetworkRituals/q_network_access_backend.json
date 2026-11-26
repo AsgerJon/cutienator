@@ -8,8 +8,28 @@
     "ritual_ZNK21QNetworkAccessBackend10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QNetworkAccessBackend11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QNetworkAccessBackend11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QNetworkAccessBackend2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QNetworkAccessBackend6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QNetworkAccessBackend6d_funcEv": ["address", "address"],
+    "ritual_ZN21QNetworkAccessBackendC1E6QFlagsINS_10TargetTypeEES0_INS_15SecurityFeatureEES0_INS_9IOFeatureEE": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZN21QNetworkAccessBackendC1E6QFlagsINS_10TargetTypeEE": [
+      "address", "int"
+    ],
+    "ritual_ZN21QNetworkAccessBackendC1E6QFlagsINS_10TargetTypeEES0_INS_15SecurityFeatureEE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN21QNetworkAccessBackendC1E6QFlagsINS_10TargetTypeEES0_INS_9IOFeatureEE": [
+      "address", "int", "int"
     ],
     "ritual_ZN21QNetworkAccessBackendD1Ev": ["nothing", "address"],
     "ritual_ZNK21QNetworkAccessBackend16securityFeaturesEv": [
@@ -44,6 +64,9 @@
     "ritual_ZN21QNetworkAccessBackend18advanceReadPointerEx": [
       "nothing", "address", "long long"
     ],
+    "ritual_ZN21QNetworkAccessBackend4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN21QNetworkAccessBackend10wantToReadEv": ["bool", "address"],
     "ritual_ZNK21QNetworkAccessBackend9proxyListEv": ["address", "address"],
     "ritual_ZNK21QNetworkAccessBackend3urlEv": ["address", "address"],
@@ -64,6 +87,9 @@
     ],
     "ritual_ZNK21QNetworkAccessBackend7headersEv": ["address", "address"],
     "ritual_ZN21QNetworkAccessBackend10setHeadersERK12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend10setHeadersEO12QHttpHeaders": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK21QNetworkAccessBackend9operationEv": ["int", "address"],
@@ -132,6 +158,9 @@
     ],
     "ritual_own_ZN21QNetworkAccessBackend18advanceReadPointerEx": [
       "nothing", "address", "long long"
+    ],
+    "ritual_own_ZN21QNetworkAccessBackend4readEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_own_ZN21QNetworkAccessBackend10wantToReadEv": ["bool", "address"]
   }

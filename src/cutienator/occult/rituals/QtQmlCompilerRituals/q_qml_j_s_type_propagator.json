@@ -419,6 +419,12 @@
     "ritual_ZNK20QQmlJSTypePropagator43handleUnqualifiedAccessAndContextPropertiesERK7QStringb": [
       "nothing", "address", "text", "bool"
     ],
+    "ritual_ZNK20QQmlJSTypePropagator15checkDeprecatedE22QDeferredSharedPointerIK11QQmlJSScopeERK7QStringb": [
+      "nothing", "address", "address", "text", "bool"
+    ],
+    "ritual_ZNK20QQmlJSTypePropagator17isCallingPropertyE22QDeferredSharedPointerIK11QQmlJSScopeERK7QString": [
+      "bool", "address", "address", "text"
+    ],
     "ritual_ZN20QQmlJSTypePropagator27handleImportNamespaceLookupERK7QString": [
       "bool", "address", "text"
     ],
@@ -430,6 +436,9 @@
     ],
     "ritual_ZN20QQmlJSTypePropagator21warnAboutTypeCoercionEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQmlJSTypePropagator18propertyResolutionE22QDeferredSharedPointerIK11QQmlJSScopeERK7QString": [
+      "int", "address", "address", "text"
     ],
     "ritual_ZN20QQmlJSTypePropagator15checkConversionE21QQmlJSRegisterContentS0_": [
       "nothing", "address", "address", "address"
@@ -476,11 +485,17 @@
     "ritual_ZN20QQmlJSTypePropagator16canConvertFromToE21QQmlJSRegisterContentS0_": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN20QQmlJSTypePropagator16canConvertFromToE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK20QQmlJSTypePropagator12registerNameEi": [
       "text", "address", "int"
     ],
     "ritual_ZN20QQmlJSTypePropagator20checkedInputRegisterEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator16bestMatchForCallERK5QListI16QQmlJSMetaMethodEiiPS0_I7QStringE": [
+      "address", "address", "address", "int", "int", "address"
     ],
     "ritual_ZN20QQmlJSTypePropagator14setAccumulatorE21QQmlJSRegisterContent": [
       "nothing", "address", "address"
@@ -497,10 +512,16 @@
     "ritual_ZN20QQmlJSTypePropagator15addReadRegisterEi21QQmlJSRegisterContent": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN20QQmlJSTypePropagator15addReadRegisterEiRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN20QQmlJSTypePropagator18addReadAccumulatorEv": [
       "nothing", "address"
     ],
     "ritual_ZN20QQmlJSTypePropagator18addReadAccumulatorE21QQmlJSRegisterContent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18addReadAccumulatorERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK20QQmlJSTypePropagator20populatesAccumulatorEN3QV44Moth5Instr4TypeE": [

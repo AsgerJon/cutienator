@@ -10,10 +10,22 @@
       "unsigned char", "unsigned char", "double", "unsigned char"
     ],
     "ritual_ZN10QSvgMarkerD1Ev": ["nothing", "address"],
+    "ritual_ZN10QSvgMarker11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QSvgMarker18drawMarkersForNodeEP8QSvgNodeP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QSvgMarker20markersBoundsForNodeEPK8QSvgNodeP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK10QSvgMarker11orientationEv": ["unsigned char", "address"],
     "ritual_ZNK10QSvgMarker16orientationAngleEv": ["double", "address"],
     "ritual_ZNK10QSvgMarker11markerUnitsEv": ["unsigned char", "address"],
     "ritual_ZNK10QSvgMarker4typeEv": ["int", "address"],
+    "ritual_ZN10QSvgMarker10drawHelperEPK8QSvgNodeP8QPainterR15QSvgExtraStatesP6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_take_QSvgMarker": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QSvgMarker4typeEv": ["int", "address"]
   }

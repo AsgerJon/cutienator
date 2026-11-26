@@ -7,6 +7,8 @@
   "rows": {
     "ritual_ZN18QFileDevicePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QFileDevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QFileDevicePrivateC1Ev": ["address"],
+    "ritual_ZN18QFileDevicePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK18QFileDevicePrivate6engineEv": ["address", "address"],
     "ritual_ZNK18QFileDevicePrivate11permissionsEv": ["int", "address"],
     "ritual_ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE": [

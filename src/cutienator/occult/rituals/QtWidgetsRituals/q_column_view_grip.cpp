@@ -31,11 +31,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 50, as _ZN15QColumnViewGripD1Ev
-inline QColumnViewGrip::~QColumnViewGrip()
-{
-}
-
 //  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 85, as _ZN15QColumnViewGrip10paintEventEP11QPaintEvent
 inline void QColumnViewGrip::paintEvent(QPaintEvent *event)
 {
@@ -81,6 +76,36 @@ inline void QColumnViewGrip::mousePressEvent(QMouseEvent *event)
     Q_D(QColumnViewGrip);
     d->originalXLocation = event->globalPosition().toPoint().x();
     event->accept();
+}
+
+//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 58, as _ZN15QColumnViewGrip8moveGripEi
+inline int QColumnViewGrip::moveGrip(int offset)
+{
+    QWidget *parentWidget = (QWidget*)parent();
+
+    // first resize the parent
+    int oldWidth = parentWidget->width();
+    int newWidth = oldWidth;
+    if (isRightToLeft())
+       newWidth -= offset;
+    else
+       newWidth += offset;
+    newWidth = qMax(parentWidget->minimumWidth(), newWidth);
+    parentWidget->resize(newWidth, parentWidget->height());
+
+    // Then have the view move the widget
+    int realOffset = parentWidget->width() - oldWidth;
+    int oldX = parentWidget->x();
+    if (realOffset != 0)
+        emit gripMoved(realOffset);
+    if (isRightToLeft())
+        realOffset = -1 * (oldX - parentWidget->x());
+    return realOffset;
+}
+
+//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 50, as _ZN15QColumnViewGripD1Ev
+inline QColumnViewGrip::~QColumnViewGrip()
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -966,6 +991,51 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK15QColumnViewGrip10metaObjectEv(
     const QColumnViewGrip *self) {
   return self->metaObject();
+}
+
+//  void *QColumnViewGrip::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QColumnViewGrip11qt_metacastEPKc(
+    QColumnViewGrip *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QColumnViewGrip::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QColumnViewGrip11qt_metacallEN11QMetaObject4CallEiPPv(
+    QColumnViewGrip *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QColumnViewGrip::gripMoved(int offset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QColumnViewGrip9gripMovedEi(
+    QColumnViewGrip *self,
+    int offset) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QColumnViewGrip")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "gripMoved(int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "gripMoved(int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&offset)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QColumnViewGrip::~QColumnViewGrip()

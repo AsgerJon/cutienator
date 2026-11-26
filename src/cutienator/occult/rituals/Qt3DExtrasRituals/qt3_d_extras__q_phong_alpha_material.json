@@ -8,8 +8,108 @@
     "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterialC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial7ambientEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial7diffuseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial8specularEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial9shininessEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial5alphaEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial12sourceRgbArgEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial17destinationRgbArgEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial14sourceAlphaArgEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial19destinationAlphaArgEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QPhongAlphaMaterial16blendFunctionArgEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial10setAmbientERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial10setDiffuseERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial11setSpecularERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial12setShininessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial8setAlphaEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial15setSourceRgbArgEN10Qt3DRender23QBlendEquationArguments8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial20setDestinationRgbArgEN10Qt3DRender23QBlendEquationArguments8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial17setSourceAlphaArgEN10Qt3DRender23QBlendEquationArguments8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial22setDestinationAlphaArgEN10Qt3DRender23QBlendEquationArguments8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial19setBlendFunctionArgEN10Qt3DRender14QBlendEquation13BlendFunctionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial14ambientChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial14diffuseChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial15specularChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial16shininessChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial12alphaChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial19sourceRgbArgChangedEN10Qt3DRender23QBlendEquationArguments8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial24destinationRgbArgChangedEN10Qt3DRender23QBlendEquationArguments8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial21sourceAlphaArgChangedEN10Qt3DRender23QBlendEquationArguments8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial26destinationAlphaArgChangedEN10Qt3DRender23QBlendEquationArguments8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial23blendFunctionArgChangedEN10Qt3DRender14QBlendEquation13BlendFunctionE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN10Qt3DExtras19QPhongAlphaMaterial6d_funcEv": [
       "address", "address"

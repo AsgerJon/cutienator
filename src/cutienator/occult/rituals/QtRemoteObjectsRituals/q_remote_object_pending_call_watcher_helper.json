@@ -8,6 +8,15 @@
     "ritual_ZNK37QRemoteObjectPendingCallWatcherHelper10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN37QRemoteObjectPendingCallWatcherHelper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN37QRemoteObjectPendingCallWatcherHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN37QRemoteObjectPendingCallWatcherHelper8finishedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QRemoteObjectPendingCallWatcherHelper": [
       "bool", "address", "chars", "address"
     ]

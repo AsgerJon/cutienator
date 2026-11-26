@@ -27,6 +27,12 @@
     "ritual_ZNK20QCoapProtocolPrivate15requestForTokenERK10QByteArray": [
       "address", "address", "address"
     ],
+    "ritual_ZNK20QCoapProtocolPrivate17userReplyForTokenERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QCoapProtocolPrivate15repliesForTokenERK10QByteArray": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK20QCoapProtocolPrivate17lastReplyForTokenERK10QByteArray": [
       "address", "address", "address"
     ],
@@ -35,6 +41,9 @@
     ],
     "ritual_ZNK20QCoapProtocolPrivate22findRequestByUserReplyEPK10QCoapReply": [
       "address", "address", "address"
+    ],
+    "ritual_ZN20QCoapProtocolPrivate16registerExchangeERK10QByteArrayP10QCoapReply14QSharedPointerI20QCoapInternalRequestE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN20QCoapProtocolPrivate14forgetExchangeERK10QByteArray": [
       "bool", "address", "address"
@@ -46,6 +55,12 @@
       "bool", "address", "address"
     ],
     "ritual_ZN20QCoapProtocolPrivate6q_funcEv": ["address", "address"],
-    "ritual_ZNK20QCoapProtocolPrivate6q_funcEv": ["address", "address"]
+    "ritual_ZNK20QCoapProtocolPrivate6q_funcEv": ["address", "address"],
+    "ritual_drop_QCoapProtocolPrivate__QPointer_QCoapReply": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QCoapProtocolPrivate__QList_QSharedPointer_QCoapInternalReply": [
+      "nothing", "address"
+    ]
   }
 }

@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DRender/qpicklineevent.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "Qt3DRender/qpicklineevent.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK10Qt3DRender14QPickLineEvent10metaObjectEv": [
@@ -15,6 +15,10 @@
     "ritual_ZN10Qt3DRender14QPickLineEventC1ERK7QPointFRK9QVector3DS6_fjjjNS_10QPickEvent7ButtonsEii": [
       "address", "address", "address", "address", "float", "unsigned int",
       "unsigned int", "unsigned int", "int", "int", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QPickLineEvent6d_funcEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender14QPickLineEvent6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_Qt3DRender_QPickLineEvent": [
       "bool", "address", "chars", "address"

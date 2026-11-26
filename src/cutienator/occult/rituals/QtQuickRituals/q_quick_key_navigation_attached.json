@@ -8,6 +8,12 @@
     "ritual_ZNK27QQuickKeyNavigationAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuickKeyNavigationAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QQuickKeyNavigationAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -60,6 +66,27 @@
     ],
     "ritual_ZN27QQuickKeyNavigationAttached21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached11leftChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached12rightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached9upChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached11downChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached10tabChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached14backtabChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached15priorityChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN27QQuickKeyNavigationAttached10keyPressedEP9QKeyEventb": [
       "nothing", "address", "address", "bool"

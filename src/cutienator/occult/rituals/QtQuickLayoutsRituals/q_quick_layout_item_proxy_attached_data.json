@@ -8,6 +8,12 @@
     "ritual_ZNK33QQuickLayoutItemProxyAttachedData10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN33QQuickLayoutItemProxyAttachedData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN33QQuickLayoutItemProxyAttachedData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN33QQuickLayoutItemProxyAttachedData22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
@@ -17,11 +23,29 @@
     "ritual_ZNK33QQuickLayoutItemProxyAttachedData19getControllingProxyEv": [
       "address", "address"
     ],
+    "ritual_ZN33QQuickLayoutItemProxyAttachedData10getProxiesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK33QQuickLayoutItemProxyAttachedData15proxyHasControlEv": [
       "bool", "address"
     ],
+    "ritual_ZN33QQuickLayoutItemProxyAttachedData12controlTakenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QQuickLayoutItemProxyAttachedData15controlReleasedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QQuickLayoutItemProxyAttachedData23controllingProxyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QQuickLayoutItemProxyAttachedData14proxiesChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuickLayoutItemProxyAttachedData": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQuickLayoutItemProxyAttachedData__QQmlListProperty_QQuickLayoutItemProxy": [
+      "nothing", "address"
     ]
   }
 }

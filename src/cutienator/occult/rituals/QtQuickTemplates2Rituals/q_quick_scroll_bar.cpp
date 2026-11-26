@@ -30,6 +30,24 @@ const QMetaObject *ritual_ZNK15QQuickScrollBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScrollBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickScrollBar11qt_metacastEPKc(
+    QQuickScrollBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScrollBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickScrollBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScrollBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScrollBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickScrollBar2trEPKcS1_i(
@@ -263,6 +281,82 @@ void ritual_ZN15QQuickScrollBar11setPositionEd(
     QQuickScrollBar *self,
     qreal position) {
   self->setPosition(position);
+}
+
+//  void QQuickScrollBar::sizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar11sizeChangedEv(QQuickScrollBar *self) {
+  self->sizeChanged();
+}
+
+//  void QQuickScrollBar::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar15positionChangedEv(QQuickScrollBar *self) {
+  self->positionChanged();
+}
+
+//  void QQuickScrollBar::stepSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar15stepSizeChangedEv(QQuickScrollBar *self) {
+  self->stepSizeChanged();
+}
+
+//  void QQuickScrollBar::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar13activeChangedEv(QQuickScrollBar *self) {
+  self->activeChanged();
+}
+
+//  void QQuickScrollBar::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar14pressedChangedEv(QQuickScrollBar *self) {
+  self->pressedChanged();
+}
+
+//  void QQuickScrollBar::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar18orientationChangedEv(
+    QQuickScrollBar *self) {
+  self->orientationChanged();
+}
+
+//  void QQuickScrollBar::snapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar15snapModeChangedEv(QQuickScrollBar *self) {
+  self->snapModeChanged();
+}
+
+//  void QQuickScrollBar::interactiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar18interactiveChangedEv(
+    QQuickScrollBar *self) {
+  self->interactiveChanged();
+}
+
+//  void QQuickScrollBar::policyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar13policyChangedEv(QQuickScrollBar *self) {
+  self->policyChanged();
+}
+
+//  void QQuickScrollBar::minimumSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar18minimumSizeChangedEv(
+    QQuickScrollBar *self) {
+  self->minimumSizeChanged();
+}
+
+//  void QQuickScrollBar::visualSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar17visualSizeChangedEv(QQuickScrollBar *self) {
+  self->visualSizeChanged();
+}
+
+//  void QQuickScrollBar::visualPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickScrollBar21visualPositionChangedEv(
+    QQuickScrollBar *self) {
+  self->visualPositionChanged();
 }
 
 //  void QQuickScrollBar::mousePressEvent(QMouseEvent *event)

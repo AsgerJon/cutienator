@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QDBusTrayIcon10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QDBusTrayIcon11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QDBusTrayIcon11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QDBusTrayIconD1Ev": ["nothing", "address"],
     "ritual_ZN13QDBusTrayIcon4initEv": ["nothing", "address"],
     "ritual_ZN13QDBusTrayIcon7cleanupEv": ["nothing", "address"],
@@ -19,6 +25,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK13QDBusTrayIcon10createMenuEv": ["address", "address"],
+    "ritual_ZN13QDBusTrayIcon11showMessageERK7QStringS2_RK5QIconN23QPlatformSystemTrayIcon11MessageIconEi": [
+      "nothing", "address", "text", "text", "address", "int", "int"
+    ],
     "ritual_ZNK13QDBusTrayIcon21isSystemTrayAvailableEv": [
       "bool", "address"
     ],
@@ -38,6 +47,29 @@
     "ritual_ZNK13QDBusTrayIcon13attentionIconEv": ["address", "address"],
     "ritual_ZNK13QDBusTrayIcon10instanceIdEv": ["text", "address"],
     "ritual_ZN13QDBusTrayIcon4menuEv": ["address", "address"],
+    "ritual_ZN13QDBusTrayIcon15categoryChangedEv": ["nothing", "address"],
+    "ritual_ZN13QDBusTrayIcon13statusChangedE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QDBusTrayIcon14tooltipChangedEv": ["nothing", "address"],
+    "ritual_ZN13QDBusTrayIcon11iconChangedEv": ["nothing", "address"],
+    "ritual_ZN13QDBusTrayIcon9attentionEv": ["nothing", "address"],
+    "ritual_ZN13QDBusTrayIcon11menuChangedEv": ["nothing", "address"],
+    "ritual_ZN13QDBusTrayIcon21attentionTimerExpiredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QDBusTrayIcon13actionInvokedEjRK7QString": [
+      "nothing", "address", "unsigned int", "text"
+    ],
+    "ritual_ZN13QDBusTrayIcon18notificationClosedEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN13QDBusTrayIcon24watcherServiceRegisteredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QDBusTrayIcon8tempIconERK5QIcon": [
+      "address", "address", "address"
+    ],
     "ritual_take_QDBusTrayIcon": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QDBusTrayIcon16supportsMessagesEv": ["bool", "address"],
     "ritual_own_ZNK13QDBusTrayIcon8geometryEv": ["address", "address"]

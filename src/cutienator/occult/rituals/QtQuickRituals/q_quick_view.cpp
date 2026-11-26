@@ -606,6 +606,24 @@ const QMetaObject *ritual_ZNK10QQuickView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickView11qt_metacastEPKc(
+    QQuickView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQuickView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQuickView2trEPKcS1_i(
@@ -764,6 +782,14 @@ void ritual_ZN10QQuickView10setContentERK4QUrlP13QQmlComponentP7QObject(
     QQmlComponent *component,
     QObject *item) {
   self->setContent(*url, component, item);
+}
+
+//  void QQuickView::statusChanged(QQuickView::Status a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickView13statusChangedENS_6StatusE(
+    QQuickView *self,
+    QQuickView::Status a0) {
+  self->statusChanged(a0);
 }
 
 //  void QQuickView::continueExecute()

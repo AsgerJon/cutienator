@@ -13,6 +13,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuickStateGroup that Python can take functions over in. Every QQuickStateGroup
 //  Python makes is one. Each function below asks the Python
@@ -220,6 +221,25 @@ const QMetaObject *ritual_ZNK16QQuickStateGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStateGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickStateGroup11qt_metacastEPKc(
+    QQuickStateGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStateGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickStateGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStateGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStateGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickStateGroup2trEPKcS1_i(
@@ -227,6 +247,20 @@ QString *ritual_ZN16QQuickStateGroup2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickStateGroup::tr(s, c, n));
+}
+
+//  QQuickStateGroupPrivate *QQuickStateGroup::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickStateGroupPrivate *ritual_ZN16QQuickStateGroup6d_funcEv(
+    QQuickStateGroup *self) {
+  return self->d_func();
+}
+
+//  const QQuickStateGroupPrivate *QQuickStateGroup::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickStateGroupPrivate *ritual_ZNK16QQuickStateGroup6d_funcEv(
+    const QQuickStateGroup *self) {
+  return self->d_func();
 }
 
 //  QQuickStateGroup::QQuickStateGroup(QObject *a0)
@@ -255,11 +289,26 @@ void ritual_ZN16QQuickStateGroup8setStateERK7QString(
   self->setState(*a0);
 }
 
+//  QQmlListProperty<QQuickState> QQuickStateGroup::statesProperty()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickState> *ritual_ZN16QQuickStateGroup14statesPropertyEv(
+    QQuickStateGroup *self) {
+  return new QQmlListProperty<QQuickState>(self->statesProperty());
+}
+
 //  QList<QQuickState *> QQuickStateGroup::states() const
 extern "C" Q_DECL_EXPORT
 QList<QQuickState *> *ritual_ZNK16QQuickStateGroup6statesEv(
     const QQuickStateGroup *self) {
   return new QList<QQuickState *>(self->states());
+}
+
+//  QQmlListProperty<QQuickTransition>
+//      QQuickStateGroup::transitionsProperty()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickTransition> *ritual_ZN16QQuickStateGroup19transitionsPropertyEv(
+    QQuickStateGroup *self) {
+  return new QQmlListProperty<QQuickTransition>(self->transitionsProperty());
 }
 
 //  QQuickState *QQuickStateGroup::findState(const QString &name) const
@@ -289,6 +338,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickStateGroup17componentCompleteEv(
     QQuickStateGroup *self) {
   self->componentComplete();
+}
+
+//  void QQuickStateGroup::stateChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickStateGroup12stateChangedERK7QString(
+    QQuickStateGroup *self,
+    const QString *a0) {
+  self->stateChanged(*a0);
 }
 
 //  bool QQuickStateGroup::updateAutoState()
@@ -332,4 +389,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN16QQuickStateGroup17componentCompleteEv(
     QQuickStateGroup *self) {
   self->QQuickStateGroup::componentComplete();
+}
+
+//  a QQmlListProperty<QQuickState> a ritual of QQuickStateGroup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickStateGroup__QQmlListProperty_QQuickState(
+    QQmlListProperty<QQuickState> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickTransition> a ritual of QQuickStateGroup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickStateGroup__QQmlListProperty_QQuickTransition(
+    QQmlListProperty<QQuickTransition> *self) {
+  delete self;
 }

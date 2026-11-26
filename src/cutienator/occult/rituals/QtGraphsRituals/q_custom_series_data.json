@@ -9,6 +9,12 @@
   ],
   "rows": {
     "ritual_ZNK17QCustomSeriesData10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QCustomSeriesData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QCustomSeriesData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK17QCustomSeriesData4dataEv": ["address", "address"],
     "ritual_ZN17QCustomSeriesData7setDataERK4QMapI7QString8QVariantE": [
       "nothing", "address", "address"

@@ -255,6 +255,24 @@ const QMetaObject *ritual_ZNK14QQuickBehavior10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickBehavior::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickBehavior11qt_metacastEPKc(
+    QQuickBehavior *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickBehavior::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickBehavior11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickBehavior *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickBehavior::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickBehavior2trEPKcS1_i(
@@ -262,6 +280,20 @@ QString *ritual_ZN14QQuickBehavior2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickBehavior::tr(s, c, n));
+}
+
+//  QQuickBehaviorPrivate *QQuickBehavior::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickBehaviorPrivate *ritual_ZN14QQuickBehavior6d_funcEv(
+    QQuickBehavior *self) {
+  return self->d_func();
+}
+
+//  const QQuickBehaviorPrivate *QQuickBehavior::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickBehaviorPrivate *ritual_ZNK14QQuickBehavior6d_funcEv(
+    const QQuickBehavior *self) {
+  return self->d_func();
 }
 
 //  QQuickBehavior::QQuickBehavior(QObject *parent)
@@ -349,6 +381,25 @@ QQmlProperty *ritual_ZNK14QQuickBehavior14targetPropertyEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickBehavior18componentFinalizedEv(QQuickBehavior *self) {
   self->componentFinalized();
+}
+
+//  void QQuickBehavior::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickBehavior14enabledChangedEv(QQuickBehavior *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickBehavior::targetValueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickBehavior18targetValueChangedEv(QQuickBehavior *self) {
+  self->targetValueChanged();
+}
+
+//  void QQuickBehavior::targetPropertyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickBehavior21targetPropertyChangedEv(
+    QQuickBehavior *self) {
+  self->targetPropertyChanged();
 }
 
 //  QQuickBehavior as the QQmlPropertyValueInterceptor it is built on

@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuick3DXrAnchorManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DXrAnchorManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZNK23QQuick3DXrAnchorManager17getCurrentSpaceIdEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN23QQuick3DXrAnchorManager8teardownEv": ["nothing", "address"],
+    "ritual_ZNK23QQuick3DXrAnchorManager11anchorCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN23QQuick3DXrAnchorManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager33enumerateSpaceSupportedComponentsEP9XrSpace_TjPjP22XrSpaceComponentTypeFB": ["int", "address", "address", "unsigned int", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager23getSpaceComponentStatusEP9XrSpace_T22XrSpaceComponentTypeFBP24XrSpaceComponentStatusFB": ["int", "address", "address", "int", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager23setSpaceComponentStatusEP9XrSpace_TPK31XrSpaceComponentStatusSetInfoFBPm": ["int", "address", "address", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager12getSpaceUuidEP9XrSpace_TP6XrUuid": ["int", "address", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager11querySpacesEPK28XrSpaceQueryInfoBaseHeaderFBPm": ["int", "address", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager25retrieveSpaceQueryResultsEmP21XrSpaceQueryResultsFB": ["int", "address", "unsigned long long", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager21getSpaceBoundingBox2DEP9XrSpace_TP9XrRect2Df": ["int", "address", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager21getSpaceBoundingBox3DEP9XrSpace_TP11XrRect3DfFB": ["int", "address", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager22getSpaceSemanticLabelsEP9XrSpace_TP18XrSemanticLabelsFB": ["int", "address", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager18getSpaceBoundary2DEP9XrSpace_TP14XrBoundary2DFB": ["int", "address", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager18getSpaceRoomLayoutEP9XrSpace_TP14XrRoomLayoutFB": ["int", "address", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager17getSpaceContainerEP9XrSpace_TP18XrSpaceContainerFB": ["int", "address", "address", "address"],
+    "ritual_ZN23QQuick3DXrAnchorManager19requestSceneCaptureEPK27XrSceneCaptureRequestInfoFBPm": ["int", "address", "address", "address"]
+  }
+}

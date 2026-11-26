@@ -18,11 +18,24 @@
     "ritual_ZN22QQuickFlickablePrivate6flickYEN6QEvent4TypeEd": [
       "bool", "address", "int", "double"
     ],
+    "ritual_ZN22QQuickFlickablePrivate5flickERNS_8AxisDataEdddPFvPvEN6QEvent4TypeEd": [
+      "bool", "address", "address", "double", "double", "double", "address",
+      "int", "double"
+    ],
     "ritual_ZN22QQuickFlickablePrivate15flickingStartedEbb": [
       "nothing", "address", "bool", "bool"
     ],
     "ritual_ZN22QQuickFlickablePrivate6fixupXEv": ["nothing", "address"],
     "ritual_ZN22QQuickFlickablePrivate6fixupYEv": ["nothing", "address"],
+    "ritual_ZN22QQuickFlickablePrivate5fixupERNS_8AxisDataEdd": [
+      "nothing", "address", "address", "double", "double"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate16adjustContentPosERNS_8AxisDataEd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate13resetTimelineERNS_8AxisDataE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QQuickFlickablePrivate13clearTimelineEv": [
       "nothing", "address"
     ],
@@ -71,8 +84,17 @@
     "ritual_ZN22QQuickFlickablePrivate17wantsPointerEventEPK13QPointerEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN22QQuickFlickablePrivate15fixupY_callbackEPv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate15fixupX_callbackEPv": [
+      "nothing", "address"
+    ],
     "ritual_ZN22QQuickFlickablePrivate14updateVelocityEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate17viewportAxisMovedERNS_8AxisDataEddPFvPvE": [
+      "nothing", "address", "address", "double", "double", "address"
     ],
     "ritual_ZN22QQuickFlickablePrivate16handlePressEventEP13QPointerEvent": [
       "nothing", "address", "address"
@@ -98,6 +120,18 @@
     ],
     "ritual_ZNK22QQuickFlickablePrivate18computeCurrentTimeEP11QInputEvent": [
       "long long", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate11data_appendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate10data_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate7data_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate10data_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
     ],
     "ritual_own_ZN22QQuickFlickablePrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
       "nothing", "address", "address", "address", "address"

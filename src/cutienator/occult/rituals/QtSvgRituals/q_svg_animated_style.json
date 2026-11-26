@@ -6,6 +6,21 @@
   ],
   "rows": {
     "ritual_ZN17QSvgAnimatedStyleC1Ev": ["address"],
-    "ritual_ZN17QSvgAnimatedStyleD1Ev": ["nothing", "address"]
+    "ritual_ZN17QSvgAnimatedStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSvgAnimatedStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QSvgAnimatedStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QSvgAnimatedStyle17savePaintingStateEPK8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QSvgAnimatedStyle15fetchStyleStateEPK21QSvgAbstractAnimationR14QSvgStyleState": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QSvgAnimatedStyle10applyStyleEP8QPainterR15QSvgExtraStatesRK14QSvgStyleState": [
+      "nothing", "address", "address", "address", "address"
+    ]
   }
 }

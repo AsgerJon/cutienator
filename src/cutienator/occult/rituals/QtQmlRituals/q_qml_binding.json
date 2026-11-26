@@ -8,6 +8,23 @@
     "ritual_ZN11QQmlBinding6createEPK16QQmlPropertyDataRK16QQmlScriptStringP7QObjectP11QQmlContext": [
       "address", "address", "address", "address", "address"
     ],
+    "ritual_ZN11QQmlBinding6createEPK16QQmlPropertyDataRK7QStringP7QObjectRK14QQmlRefPointerI15QQmlContextDataES5_t": [
+      "address", "address", "text", "address", "address", "text",
+      "unsigned short"
+    ],
+    "ritual_ZN11QQmlBinding6createEPK16QQmlPropertyDataPN3QV48FunctionEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS3_16ExecutionContextE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlBinding6createE9QMetaTypePN3QV48FunctionEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS1_16ExecutionContextE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlBinding24createTranslationBindingERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEPKNS1_12CompiledData7BindingEP7QObjectRKS0_I15QQmlContextDataE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlBinding24createTranslationBindingERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERKS0_I15QQmlContextDataERK7QStringRK15QQmlTranslationRK18QQmlSourceLocationP7QObject": [
+      "address", "address", "address", "text", "address", "address",
+      "address"
+    ],
     "ritual_ZNK11QQmlBinding4kindEv": ["int", "address"],
     "ritual_ZN11QQmlBindingD1Ev": ["nothing", "address"],
     "ritual_ZNK11QQmlBinding27mustCaptureBindablePropertyEv": [
@@ -25,6 +42,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN11QQmlBinding8evaluateEv": ["address", "address"],
+    "ritual_ZN11QQmlBinding8evaluateEPv9QMetaType": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN11QQmlBinding17expressionChangedEv": ["nothing", "address"],
     "ritual_ZNK11QQmlBinding14sourceLocationEv": ["address", "address"],
     "ritual_ZN11QQmlBinding17setSourceLocationERK18QQmlSourceLocation": [
@@ -36,11 +56,21 @@
     "ritual_ZNK11QQmlBinding16hasBoundFunctionEv": ["bool", "address"],
     "ritual_ZNK11QQmlBinding12dependenciesEv": ["address", "address"],
     "ritual_ZNK11QQmlBinding15hasDependenciesEv": ["bool", "address"],
+    "ritual_ZN11QQmlBinding8doUpdateERKN24QQmlJavaScriptExpression13DeleteWatcherE6QFlagsIN16QQmlPropertyData9WriteFlagEERN3QV45ScopeE": [
+      "nothing", "address", "address", "int", "address"
+    ],
     "ritual_ZN11QQmlBinding5writeERKN3QV45ValueEb6QFlagsIN16QQmlPropertyData9WriteFlagEE": [
       "bool", "address", "address", "bool", "int"
     ],
+    "ritual_ZN11QQmlBinding5writeEPv9QMetaTypeb6QFlagsIN16QQmlPropertyData9WriteFlagEE": [
+      "bool", "address", "address", "address", "bool", "int"
+    ],
     "ritual_ZN11QQmlBinding9slowWriteERK16QQmlPropertyDataS2_RKN3QV45ValueEb6QFlagsINS0_9WriteFlagEE": [
       "bool", "address", "address", "address", "address", "bool", "int"
+    ],
+    "ritual_ZN11QQmlBinding9slowWriteERK16QQmlPropertyDataS2_PKv9QMetaTypeb6QFlagsINS0_9WriteFlagEE": [
+      "bool", "address", "address", "address", "address", "address", "bool",
+      "int"
     ],
     "ritual_ZN11QQmlBinding8evaluateEPb": [
       "unsigned long long", "address", "address"
@@ -49,6 +79,9 @@
       "address", "address"
     ],
     "ritual_ZN11QQmlBinding10newBindingE9QMetaType": ["address", "address"],
+    "ritual_ZN11QQmlBinding16handleWriteErrorEPKv9QMetaTypeS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_cast_QQmlBinding_QQmlAbstractBinding": ["address", "address"],
     "ritual_take_QQmlBinding": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QQmlBinding7refreshEv": ["nothing", "address"],

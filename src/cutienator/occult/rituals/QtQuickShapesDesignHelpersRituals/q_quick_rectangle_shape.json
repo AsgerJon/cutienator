@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickRectangleShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickRectangleShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickRectangleShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickRectangleShape2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -157,6 +163,12 @@
     "ritual_ZN20QQuickRectangleShape13setDashOffsetEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZNK20QQuickRectangleShape11dashPatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape14setDashPatternERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QQuickRectangleShape12fillGradientEv": [
       "address", "address"
     ],
@@ -176,6 +188,90 @@
     "ritual_ZNK20QQuickRectangleShape8fillItemEv": ["address", "address"],
     "ritual_ZN20QQuickRectangleShape11setFillItemEP10QQuickItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape14drawTopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape16drawRightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape17drawBottomChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape15drawLeftChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape19fillGradientChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape13radiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape20topLeftRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape21topRightRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape23bottomLeftRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape24bottomRightRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape12bevelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape19topLeftBevelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape20topRightBevelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape22bottomLeftBevelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape23bottomRightBevelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape16shapePathChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape18strokeColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape18strokeWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape16fillColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape15fillRuleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape16joinStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape17miterLimitChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape15capStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape18strokeStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape17dashOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape18dashPatternChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape17borderModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape15fillItemChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN20QQuickRectangleShape17componentCompleteEv": [
       "nothing", "address"
@@ -199,6 +295,7 @@
     ],
     "ritual_own_ZN20QQuickRectangleShape12updatePolishEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_drop_QQuickRectangleShape__QList_qreal": ["nothing", "address"]
   }
 }

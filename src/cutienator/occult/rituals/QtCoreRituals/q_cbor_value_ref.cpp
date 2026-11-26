@@ -6,7 +6,9 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qurl.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/quuid.h>
 #include <QtCore/qcborarray.h>
 #include <QtCore/qcbormap.h>
@@ -17,6 +19,36 @@
 extern "C" Q_DECL_EXPORT
 QCborValueRef *ritual_ZN13QCborValueRefC1ERKS_(const QCborValueRef *a0) {
   return new QCborValueRef(*a0);
+}
+
+//  QCborValueRef::QCborValueRef(QCborValueRef &&a0)
+extern "C" Q_DECL_EXPORT
+QCborValueRef *ritual_ZN13QCborValueRefC1EOS_(QCborValueRef *a0) {
+  return new QCborValueRef(std::move(*a0));
+}
+
+//  QCborValueRef &QCborValueRef::operator=(const QCborValue &other)
+extern "C" Q_DECL_EXPORT
+QCborValueRef *ritual_ZN13QCborValueRefaSERK10QCborValue(
+    QCborValueRef *self,
+    const QCborValue *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCborValueRef &QCborValueRef::operator=(QCborValue &&other)
+extern "C" Q_DECL_EXPORT
+QCborValueRef *ritual_ZN13QCborValueRefaSEO10QCborValue(
+    QCborValueRef *self,
+    QCborValue *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QCborValueRef &QCborValueRef::operator=(const QCborValueRef &other)
+extern "C" Q_DECL_EXPORT
+QCborValueRef *ritual_ZN13QCborValueRefaSERKS_(
+    QCborValueRef *self,
+    const QCborValueRef *other) {
+  return &(self->operator=(*other));
 }
 
 //  QCborValueRef QCborValueRef::operator[](qint64 key)
@@ -466,6 +498,20 @@ QByteArray *ritual_ZN13QCborValueRef6toCborE6QFlagsIN10QCborValue14EncodingOptio
 #endif
 
 #if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED)
+#if QT_CONFIG(cborstreamwriter)
+//  void QCborValueRef::toCbor(QCborStreamWriter &writer,
+//      QCborValue::EncodingOptions opt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCborValueRef6toCborER17QCborStreamWriter6QFlagsIN10QCborValue14EncodingOptionEE(
+    QCborValueRef *self,
+    QCborStreamWriter *writer,
+    int opt) {
+  self->toCbor(*writer, QFlags<QCborValue::EncodingOption>::fromInt(opt));
+}
+#endif  // QT_CONFIG(cborstreamwriter)
+#endif
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED)
 //  QString
 //      QCborValueRef::toDiagnosticNotation(QCborValue::DiagnosticNotationOpt
 //      ions opt)
@@ -537,6 +583,14 @@ void ritual_ZN13QCborValueRef6assignES_RK10QCborValue(
     const QCborValueRef *that,
     const QCborValue *other) {
   QCborValueRef::assign(*that, *other);
+}
+
+//  void QCborValueRef::assign(QCborValueRef that, QCborValue &&other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCborValueRef6assignES_O10QCborValue(
+    const QCborValueRef *that,
+    QCborValue *other) {
+  QCborValueRef::assign(*that, std::move(*other));
 }
 
 //  void QCborValueRef::assign(QCborValueRef that, const QCborValueRef other)

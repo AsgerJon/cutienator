@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qbitarray.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qbitarray.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, rituals for functions the generator leaves out: 1. Kept as it is
+//  when the generator runs again.
 #include <QtCore/qbitarray.h>
 
 //  QBitArray operator&(const QBitArray &a1, const QBitArray &a2)
@@ -10,12 +12,48 @@ QBitArray *ritual_ZanRK9QBitArrayS1_(
   return new QBitArray(operator&(*a1, *a2));
 }
 
+//  QBitArray operator&(QBitArray &&a1, const QBitArray &a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZanO9QBitArrayRKS_(QBitArray *a1, const QBitArray *a2) {
+  return new QBitArray(operator&(std::move(*a1), *a2));
+}
+
+//  QBitArray operator&(const QBitArray &a1, QBitArray &&a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZanRK9QBitArrayOS_(const QBitArray *a1, QBitArray *a2) {
+  return new QBitArray(operator&(*a1, std::move(*a2)));
+}
+
+//  QBitArray operator&(QBitArray &&a1, QBitArray &&a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZanO9QBitArrayS0_(QBitArray *a1, QBitArray *a2) {
+  return new QBitArray(operator&(std::move(*a1), std::move(*a2)));
+}
+
 //  QBitArray operator|(const QBitArray &a1, const QBitArray &a2)
 extern "C" Q_DECL_EXPORT
 QBitArray *ritual_ZorRK9QBitArrayS1_(
     const QBitArray *a1,
     const QBitArray *a2) {
   return new QBitArray(operator|(*a1, *a2));
+}
+
+//  QBitArray operator|(QBitArray &&a1, const QBitArray &a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZorO9QBitArrayRKS_(QBitArray *a1, const QBitArray *a2) {
+  return new QBitArray(operator|(std::move(*a1), *a2));
+}
+
+//  QBitArray operator|(const QBitArray &a1, QBitArray &&a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZorRK9QBitArrayOS_(const QBitArray *a1, QBitArray *a2) {
+  return new QBitArray(operator|(*a1, std::move(*a2)));
+}
+
+//  QBitArray operator|(QBitArray &&a1, QBitArray &&a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZorO9QBitArrayS0_(QBitArray *a1, QBitArray *a2) {
+  return new QBitArray(operator|(std::move(*a1), std::move(*a2)));
 }
 
 //  QBitArray operator^(const QBitArray &a1, const QBitArray &a2)
@@ -26,10 +64,55 @@ QBitArray *ritual_ZeoRK9QBitArrayS1_(
   return new QBitArray(operator^(*a1, *a2));
 }
 
+//  QBitArray operator^(QBitArray &&a1, const QBitArray &a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZeoO9QBitArrayRKS_(QBitArray *a1, const QBitArray *a2) {
+  return new QBitArray(operator^(std::move(*a1), *a2));
+}
+
+//  QBitArray operator^(const QBitArray &a1, QBitArray &&a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZeoRK9QBitArrayOS_(const QBitArray *a1, QBitArray *a2) {
+  return new QBitArray(operator^(*a1, std::move(*a2)));
+}
+
+//  QBitArray operator^(QBitArray &&a1, QBitArray &&a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZeoO9QBitArrayS0_(QBitArray *a1, QBitArray *a2) {
+  return new QBitArray(operator^(std::move(*a1), std::move(*a2)));
+}
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QBitArray &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK9QBitArray(
+    QDataStream *a0,
+    const QBitArray *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QBitArray &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR9QBitArray(
+    QDataStream *a0,
+    QBitArray *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 //  QBitArray operator~(QBitArray a)
 extern "C" Q_DECL_EXPORT
 QBitArray *ritual_Zco9QBitArray(const QBitArray *a) {
   return new QBitArray(operator~(*a));
+}
+
+//  QBitArray::QBitArray(QByteArrayData &&dd)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZN9QBitArrayC1EO17QArrayDataPointerIcE(
+    QByteArrayData *dd) {
+  return new QBitArray(std::move(*dd));
 }
 
 //  QBitArray::QBitArray()
@@ -51,6 +134,38 @@ QBitArray *ritual_ZN9QBitArrayC1ERKS_(const QBitArray *other) {
   return new QBitArray(*other);
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QBitArray &QBitArray::operator=(const QBitArray &other)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZN9QBitArrayaSERKS_(
+    QBitArray *self,
+    const QBitArray *other) {
+  return &(self->operator=(*other));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QBitArray::QBitArray(QBitArray &&other)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZN9QBitArrayC1EOS_(QBitArray *other) {
+  return new QBitArray(std::move(*other));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QBitArray &QBitArray::operator=(QBitArray &&other)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZN9QBitArrayaSEOS_(QBitArray *self, QBitArray *other) {
+  return &(self->operator=(std::move(*other)));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+//  void QBitArray::swap(QBitArray &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QBitArray4swapERS_(QBitArray *self, QBitArray *other) {
+  self->swap(*other);
+}
 
 //  qsizetype QBitArray::size() const
 extern "C" Q_DECL_EXPORT
@@ -154,6 +269,24 @@ bool ritual_ZNK9QBitArrayixEx(const QBitArray *self, qsizetype i) {
   return self->operator[](i);
 }
 
+//  QBitArray &QBitArray::operator&=(QBitArray &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QBitArrayaNEOS_(QBitArray *self, QBitArray *a0) {
+  self->operator&=(std::move(*a0));
+}
+
+//  QBitArray &QBitArray::operator|=(QBitArray &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QBitArrayoREOS_(QBitArray *self, QBitArray *a0) {
+  self->operator|=(std::move(*a0));
+}
+
+//  QBitArray &QBitArray::operator^=(QBitArray &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QBitArrayeOEOS_(QBitArray *self, QBitArray *a0) {
+  self->operator^=(std::move(*a0));
+}
+
 //  QBitArray &QBitArray::operator&=(const QBitArray &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QBitArrayaNERKS_(QBitArray *self, const QBitArray *a0) {
@@ -220,6 +353,19 @@ quint32 ritual_ZNK9QBitArray8toUInt32EN8QSysInfo6EndianEPb(
   return self->toUInt32(endianness, ok);
 }
 
+//  DataPtr &QBitArray::data_ptr()
+extern "C" Q_DECL_EXPORT
+QBitArray::DataPtr *ritual_ZN9QBitArray8data_ptrEv(QBitArray *self) {
+  return &(self->data_ptr());
+}
+
+//  const DataPtr &QBitArray::data_ptr() const
+extern "C" Q_DECL_EXPORT
+const QBitArray::DataPtr *ritual_ZNK9QBitArray8data_ptrEv(
+    const QBitArray *self) {
+  return &(self->data_ptr());
+}
+
 //  bool operator==(const QBitArray &lhs, const QBitArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK9QBitArrayS1_(const QBitArray *lhs, const QBitArray *rhs) {
@@ -236,4 +382,11 @@ bool ritual_ZneRK9QBitArrayS1_(const QBitArray *lhs, const QBitArray *rhs) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QBitArrayD1Ev(QBitArray *self) {
   delete self;
+}
+
+//  QBitArray QBitArray::inverted_inplace() &&
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZNO9QBitArray16inverted_inplaceEv(
+    QBitArray *self) {
+  return new QBitArray(std::move(*self).inverted_inplace());
 }

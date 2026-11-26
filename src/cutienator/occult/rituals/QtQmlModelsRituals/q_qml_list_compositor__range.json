@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN18QQmlListCompositor5RangeC1Ev": ["address"],
+    "ritual_ZN18QQmlListCompositor5RangeC1EPS0_Pviij": [
+      "address", "address", "address", "int", "int", "unsigned int"
+    ],
     "ritual_ZNK18QQmlListCompositor5Range5startEv": ["int", "address"],
     "ritual_ZNK18QQmlListCompositor5Range3endEv": ["int", "address"],
     "ritual_ZNK18QQmlListCompositor5Range6groupsEv": ["int", "address"],

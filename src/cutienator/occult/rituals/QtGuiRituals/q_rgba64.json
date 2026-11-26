@@ -35,6 +35,7 @@
     "ritual_ZNK7QRgba6413premultipliedEv": ["address", "address"],
     "ritual_ZNK7QRgba6415unpremultipliedEv": ["address", "address"],
     "ritual_ZNK7QRgba64cvyEv": ["unsigned long long", "address"],
+    "ritual_ZN7QRgba64aSEy": ["address", "address", "unsigned long long"],
     "ritual_ZN7QRgba649alphaMaskEv": ["unsigned long long"],
     "ritual_ZN7QRgba6413div_257_floorEj": ["unsigned char", "unsigned int"],
     "ritual_ZN7QRgba647div_257Et": ["unsigned char", "unsigned short"],

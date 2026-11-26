@@ -20,12 +20,16 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 102, as _ZN22QQuick3DXrActionMapper18removeHapticEffectEP24QQuick3DXrHapticFeedback
-inline void QQuick3DXrActionMapper::removeHapticEffect(QQuick3DXrHapticFeedback *action)
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 411, as _ZN24QQuick3DXrHapticFeedback10classBeginEv
+inline void QQuick3DXrHapticFeedback::classBegin()
 {
-    auto *that = instance();
-    QList<QPointer<QQuick3DXrHapticFeedback>> list = that->m_hapticData[size_t(action->controller())].m_hapticEffects;
-    list.removeAt(list.indexOf(action));
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 415, as _ZN24QQuick3DXrHapticFeedback17componentCompleteEv
+inline void QQuick3DXrHapticFeedback::componentComplete()
+{
+    QQuick3DXrActionMapper::registerHapticEffect(this);
+    m_componentComplete = true;
 }
 
 //  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 79, as _ZN22QQuick3DXrActionMapper20registerHapticEffectE8QPointerI24QQuick3DXrHapticFeedbackE
@@ -48,24 +52,6 @@ inline QQuick3DXrActionMapper::QQuick3DXrActionMapper(QObject *parent) : QObject
 {
 }
 
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 406, as _ZN24QQuick3DXrHapticFeedbackD1Ev
-inline QQuick3DXrHapticFeedback::~QQuick3DXrHapticFeedback()
-{
-    QQuick3DXrActionMapper::removeHapticEffect(this);
-}
-
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 411, as _ZN24QQuick3DXrHapticFeedback10classBeginEv
-inline void QQuick3DXrHapticFeedback::classBegin()
-{
-}
-
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 415, as _ZN24QQuick3DXrHapticFeedback17componentCompleteEv
-inline void QQuick3DXrHapticFeedback::componentComplete()
-{
-    QQuick3DXrActionMapper::registerHapticEffect(this);
-    m_componentComplete = true;
-}
-
 //  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 485, as _ZNK24QQuick3DXrHapticFeedback12hapticEffectEv
 inline QQuick3DXrAbstractHapticEffect *QQuick3DXrHapticFeedback::hapticEffect() const
 {
@@ -84,24 +70,18 @@ inline bool QQuick3DXrHapticFeedback::trigger()
     return m_trigger;
 }
 
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 510, as _ZNK24QQuick3DXrHapticFeedback9conditionEv
+inline enum QQuick3DXrHapticFeedback::Condition QQuick3DXrHapticFeedback::condition() const
+{
+    return m_condition;
+}
+
 //  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 541, as _ZN24QQuick3DXrHapticFeedback12testAndClearEv
 inline bool QQuick3DXrHapticFeedback::testAndClear()
 {
     bool t = m_pending;
     m_pending = false;
     return t;
-}
-
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 527, as _ZN24QQuick3DXrHapticFeedback5startEv
-inline void QQuick3DXrHapticFeedback::start()
-{
-    m_pending = true;
-}
-
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 536, as _ZN24QQuick3DXrHapticFeedback4stopEv
-inline void QQuick3DXrHapticFeedback::stop()
-{
-    m_pending = false;
 }
 //  -----------------------------------------------------------------------
 
@@ -311,6 +291,25 @@ const QMetaObject *ritual_ZNK24QQuick3DXrHapticFeedback10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrHapticFeedback::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuick3DXrHapticFeedback11qt_metacastEPKc(
+    QQuick3DXrHapticFeedback *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrHapticFeedback::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuick3DXrHapticFeedback11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrHapticFeedback *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuick3DXrHapticFeedback::~QQuick3DXrHapticFeedback()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuick3DXrHapticFeedbackD1Ev(
@@ -354,6 +353,13 @@ bool ritual_ZN24QQuick3DXrHapticFeedback7triggerEv(
   return self->trigger();
 }
 
+//  enum Condition QQuick3DXrHapticFeedback::condition() const
+extern "C" Q_DECL_EXPORT
+enum QQuick3DXrHapticFeedback::Condition *ritual_ZNK24QQuick3DXrHapticFeedback9conditionEv(
+    const QQuick3DXrHapticFeedback *self) {
+  return new enum QQuick3DXrHapticFeedback::Condition(self->condition());
+}
+
 //  bool QQuick3DXrHapticFeedback::testAndClear()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN24QQuick3DXrHapticFeedback12testAndClearEv(
@@ -361,18 +367,154 @@ bool ritual_ZN24QQuick3DXrHapticFeedback12testAndClearEv(
   return self->testAndClear();
 }
 
+//  void QQuick3DXrHapticFeedback::controllerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DXrHapticFeedback17controllerChangedEv(
+    QQuick3DXrHapticFeedback *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHapticFeedback")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controllerChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controllerChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHapticFeedback::hapticEffectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DXrHapticFeedback19hapticEffectChangedEv(
+    QQuick3DXrHapticFeedback *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHapticFeedback")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "hapticEffectChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "hapticEffectChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHapticFeedback::triggerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DXrHapticFeedback14triggerChangedEv(
+    QQuick3DXrHapticFeedback *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHapticFeedback")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "triggerChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "triggerChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHapticFeedback::conditionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DXrHapticFeedback16conditionChangedEv(
+    QQuick3DXrHapticFeedback *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHapticFeedback")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "conditionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "conditionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuick3DXrHapticFeedback::start()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuick3DXrHapticFeedback5startEv(
     QQuick3DXrHapticFeedback *self) {
-  self->start();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHapticFeedback")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "start()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "start()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DXrHapticFeedback::stop()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuick3DXrHapticFeedback4stopEv(
     QQuick3DXrHapticFeedback *self) {
-  self->stop();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHapticFeedback")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "stop()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "stop()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QQuick3DXrHapticFeedback as the QQmlParserStatus it is built on
@@ -397,4 +539,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN24QQuick3DXrHapticFeedback10classBeginEv(
     QQuick3DXrHapticFeedback *self) {
   self->QQuick3DXrHapticFeedback::classBegin();
+}
+
+//  a enum QQuick3DXrHapticFeedback::Condition a ritual of
+//      QQuick3DXrHapticFeedback gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DXrHapticFeedback__enum_QQuick3DXrHapticFeedback_Condition(
+    enum QQuick3DXrHapticFeedback::Condition *self) {
+  delete self;
 }

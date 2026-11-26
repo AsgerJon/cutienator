@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QSaveFile10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QSaveFile11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QSaveFile11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QSaveFile2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QSaveFile6d_funcEv": ["address", "address"],
     "ritual_ZNK9QSaveFile6d_funcEv": ["address", "address"],
@@ -26,6 +30,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK9QSaveFile19directWriteFallbackEv": ["bool", "address"],
+    "ritual_ZNK9QSaveFile18filesystemFileNameB5cxx11Ev": [
+      "address", "address"
+    ],
     "ritual_ZN9QSaveFile9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
@@ -35,6 +42,7 @@
     "ritual_own_ZN9QSaveFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int"
     ],
-    "ritual_own_ZN9QSaveFile5closeEv": ["nothing", "address"]
+    "ritual_own_ZN9QSaveFile5closeEv": ["nothing", "address"],
+    "ritual_drop_QSaveFile__std_filesystem_path": ["nothing", "address"]
   }
 }

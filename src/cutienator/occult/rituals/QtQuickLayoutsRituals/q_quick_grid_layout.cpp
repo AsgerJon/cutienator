@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK16QQuickGridLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGridLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickGridLayout11qt_metacastEPKc(
+    QQuickGridLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGridLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickGridLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGridLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGridLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickGridLayout2trEPKcS1_i(
@@ -139,6 +158,52 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickGridLayout17insertLayoutItemsEv(
     QQuickGridLayout *self) {
   self->insertLayoutItems();
+}
+
+//  void QQuickGridLayout::columnSpacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGridLayout20columnSpacingChangedEv(
+    QQuickGridLayout *self) {
+  self->columnSpacingChanged();
+}
+
+//  void QQuickGridLayout::rowSpacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGridLayout17rowSpacingChangedEv(
+    QQuickGridLayout *self) {
+  self->rowSpacingChanged();
+}
+
+//  void QQuickGridLayout::columnsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGridLayout14columnsChangedEv(QQuickGridLayout *self) {
+  self->columnsChanged();
+}
+
+//  void QQuickGridLayout::rowsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGridLayout11rowsChangedEv(QQuickGridLayout *self) {
+  self->rowsChanged();
+}
+
+//  void QQuickGridLayout::flowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGridLayout11flowChangedEv(QQuickGridLayout *self) {
+  self->flowChanged();
+}
+
+//  void QQuickGridLayout::uniformCellWidthsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGridLayout24uniformCellWidthsChangedEv(
+    QQuickGridLayout *self) {
+  self->uniformCellWidthsChanged();
+}
+
+//  void QQuickGridLayout::uniformCellHeightsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGridLayout25uniformCellHeightsChangedEv(
+    QQuickGridLayout *self) {
+  self->uniformCellHeightsChanged();
 }
 
 //  QQuickGridLayoutPrivate *QQuickGridLayout::d_func()

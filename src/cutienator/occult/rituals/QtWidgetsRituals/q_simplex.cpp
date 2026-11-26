@@ -25,62 +25,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/graphicsview/qsimplex_p.cpp, line 565, as _ZN8QSimplex19simplifyConstraintsEP5QListIP18QSimplexConstraintE
-inline bool QSimplex::simplifyConstraints(QList<QSimplexConstraint *> *constraints)
-{
-    QHash<QSimplexVariable *, qreal> results;   // List of single-valued variables
-    bool modified = true;                       // Any chance more optimization exists?
-
-    while (modified) {
-        modified = false;
-
-        // For all constraints
-        QList<QSimplexConstraint *>::iterator iter = constraints->begin();
-        while (iter != constraints->end()) {
-            QSimplexConstraint *c = *iter;
-            if ((c->ratio == QSimplexConstraint::Equal) && (c->variables.size() == 1)) {
-                // Check whether this is a constraint of type Var == K
-                // If so, save its value to "results".
-                QSimplexVariable *variable = c->variables.constBegin().key();
-                qreal result = c->constant / c->variables.value(variable);
-
-                results.insert(variable, result);
-                variable->result = result;
-                variable->index = -1;
-                modified = true;
-
-            }
-
-            // Replace known values among their variables
-            for (auto r = results.cbegin(); r != results.cend(); ++r) {
-                if (c->variables.contains(r.key())) {
-                    c->constant -= r.value() * c->variables.take(r.key());
-                    modified = true;
-                }
-            }
-
-            // Keep it normalized
-            if (c->constant < 0)
-                c->invert();
-
-            if (c->variables.isEmpty()) {
-                // If constraint became empty due to substitution, delete it.
-                if (c->isSatisfied() == false)
-                    // We must ensure that the constraint soon to be deleted would not
-                    // make the problem unfeasible if left behind. If that's the case,
-                    // we return false so the simplex solver can properly report that.
-                    return false;
-
-                delete c;
-                iter = constraints->erase(iter);
-            } else {
-                ++iter;
-            }
-        }
-    }
-
-    return true;
-}
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/graphicsview/qsimplex_p.cpp, line 621, as _ZN18QSimplexConstraint6invertEv
 inline void QSimplexConstraint::invert()
@@ -296,6 +241,26 @@ inline void QSimplex::setObjective(QSimplexConstraint *newObjective)
     objective = newObjective;
 }
 
+//  from src/widgets/graphicsview/qsimplex_p.cpp, line 316, as _ZN8QSimplex10dumpMatrixEv
+inline void QSimplex::dumpMatrix()
+{
+    qDebug("---- Simplex Matrix ----\n");
+
+    QString str("       "_L1);
+    for (int j = 0; j < columns; ++j)
+        str += QString::fromLatin1("  <%1 >").arg(j, 2);
+    qDebug("%s", qPrintable(str));
+    for (int i = 0; i < rows; ++i) {
+        str = QString::fromLatin1("Row %1:").arg(i, 2);
+
+        qreal *row = matrix + i * columns;
+        for (int j = 0; j < columns; ++j)
+            str += QString::fromLatin1("%1").arg(row[j], 7, 'f', 2);
+        qDebug("%s", qPrintable(str));
+    }
+    qDebug("------------------------\n");
+}
+
 //  from src/widgets/graphicsview/qsimplex_p.cpp, line 294, as _ZN8QSimplex8clearRowEi
 inline void QSimplex::clearRow(int rowIndex)
 {
@@ -336,6 +301,63 @@ inline void QSimplex::combineRows(int toIndex, int fromIndex, qreal factor)
         if (qAbs(to[j]) < 0.0000000001)
             to[j] = 0.0;
     }
+}
+
+//  from src/widgets/graphicsview/qsimplex_p.cpp, line 565, as _ZN8QSimplex19simplifyConstraintsEP5QListIP18QSimplexConstraintE
+inline bool QSimplex::simplifyConstraints(QList<QSimplexConstraint *> *constraints)
+{
+    QHash<QSimplexVariable *, qreal> results;   // List of single-valued variables
+    bool modified = true;                       // Any chance more optimization exists?
+
+    while (modified) {
+        modified = false;
+
+        // For all constraints
+        QList<QSimplexConstraint *>::iterator iter = constraints->begin();
+        while (iter != constraints->end()) {
+            QSimplexConstraint *c = *iter;
+            if ((c->ratio == QSimplexConstraint::Equal) && (c->variables.size() == 1)) {
+                // Check whether this is a constraint of type Var == K
+                // If so, save its value to "results".
+                QSimplexVariable *variable = c->variables.constBegin().key();
+                qreal result = c->constant / c->variables.value(variable);
+
+                results.insert(variable, result);
+                variable->result = result;
+                variable->index = -1;
+                modified = true;
+
+            }
+
+            // Replace known values among their variables
+            for (auto r = results.cbegin(); r != results.cend(); ++r) {
+                if (c->variables.contains(r.key())) {
+                    c->constant -= r.value() * c->variables.take(r.key());
+                    modified = true;
+                }
+            }
+
+            // Keep it normalized
+            if (c->constant < 0)
+                c->invert();
+
+            if (c->variables.isEmpty()) {
+                // If constraint became empty due to substitution, delete it.
+                if (c->isSatisfied() == false)
+                    // We must ensure that the constraint soon to be deleted would not
+                    // make the problem unfeasible if left behind. If that's the case,
+                    // we return false so the simplex solver can properly report that.
+                    return false;
+
+                delete c;
+                iter = constraints->erase(iter);
+            } else {
+                ++iter;
+            }
+        }
+    }
+
+    return true;
 }
 
 //  from src/widgets/graphicsview/qsimplex_p.cpp, line 364, as _ZN8QSimplex15findPivotColumnEv
@@ -552,6 +574,12 @@ void ritual_ZN8QSimplex12setObjectiveEP18QSimplexConstraint(
   self->setObjective(objective);
 }
 
+//  void QSimplex::dumpMatrix()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSimplex10dumpMatrixEv(QSimplex *self) {
+  self->dumpMatrix();
+}
+
 //  qreal QSimplex::valueAt(int row, int column)
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZN8QSimplex7valueAtEii(QSimplex *self, int row, int column) {
@@ -591,6 +619,15 @@ void ritual_ZN8QSimplex11combineRowsEiid(
     int fromIndex,
     qreal factor) {
   self->combineRows(toIndex, fromIndex, factor);
+}
+
+//  bool QSimplex::simplifyConstraints(QList<QSimplexConstraint *>
+//      *constraints)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QSimplex19simplifyConstraintsEP5QListIP18QSimplexConstraintE(
+    QSimplex *self,
+    QList<QSimplexConstraint *> *constraints) {
+  return self->simplifyConstraints(constraints);
 }
 
 //  int QSimplex::findPivotColumn()

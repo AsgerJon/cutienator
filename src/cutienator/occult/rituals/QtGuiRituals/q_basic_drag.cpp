@@ -431,6 +431,12 @@ bool ritual_ZN10QBasicDrag11eventFilterEP7QObjectP6QEvent(
   return self->eventFilter(o, e);
 }
 
+//  QBasicDrag::QBasicDrag()
+extern "C" Q_DECL_EXPORT
+QBasicDrag *ritual_ZN10QBasicDragC1Ev() {
+  return new CuteQBasicDrag();
+}
+
 //  void QBasicDrag::startDrag()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QBasicDrag9startDragEv(QBasicDrag *self) {

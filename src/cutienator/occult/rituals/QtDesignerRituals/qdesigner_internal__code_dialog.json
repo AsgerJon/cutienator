@@ -8,8 +8,46 @@
     "ritual_ZNK18qdesigner_internal10CodeDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal10CodeDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal10CodeDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal10CodeDialog2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal10CodeDialogC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10CodeDialogD1Ev": ["nothing", "address"],
+    "ritual_ZN18qdesigner_internal10CodeDialog12generateCodeEPK28QDesignerFormWindowInterfaceNS_11UicLanguageEP7QStringS6_": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10CodeDialog14showCodeDialogEPK28QDesignerFormWindowInterfaceNS_11UicLanguageEP7QWidgetP7QString": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10CodeDialog10slotSaveAsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10CodeDialog7copyAllEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10CodeDialog7setCodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal10CodeDialog4codeEv": ["text", "address"],
+    "ritual_ZN18qdesigner_internal10CodeDialog15setFormFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal10CodeDialog12formFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10CodeDialog11setMimeTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal10CodeDialog7warningERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_take_qdesigner_internal_CodeDialog": [
       "bool", "address", "chars", "address"

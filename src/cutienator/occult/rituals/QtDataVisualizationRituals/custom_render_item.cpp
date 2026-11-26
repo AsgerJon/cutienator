@@ -11,10 +11,10 @@
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/private/abstractrenderitem_p.h>
+#include <QtDataVisualization/private/customrenderitem_p.h>
 #include <QtDataVisualization/private/meshloader_p.h>
 #include <QtDataVisualization/private/vertexindexer_p.h>
 #include <QtDataVisualization/private/objecthelper_p.h>
-#include <QtDataVisualization/private/customrenderitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -24,9 +24,21 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 16, as local:objecthelper.cpp:ObjectHelperRef
+struct ObjectHelperRef {
+    int refCount;
+    ObjectHelper *obj;
+};
+
 //  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 8, as _ZN18AbstractRenderItemC2Ev
 inline AbstractRenderItem::AbstractRenderItem()
 {
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/customrenderitem.cpp, line 40, as _ZN16CustomRenderItemD1Ev
+inline CustomRenderItem::~CustomRenderItem()
+{
+    ObjectHelper::releaseObjectHelper(m_renderer, m_object);
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 28, as _ZN12ObjectHelper17resetObjectHelperEPK18Abstract3DRendererRPS_RK7QString
@@ -42,6 +54,28 @@ inline void ObjectHelper::resetObjectHelper(const Abstract3DRenderer *cacheId, O
         releaseObjectHelper(cacheId, obj);
     }
     obj = getObjectHelper(cacheId, meshFile);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 18, as _ZN18AbstractRenderItemD2Ev
+inline AbstractRenderItem::~AbstractRenderItem()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/customrenderitem.cpp, line 51, as _ZN16CustomRenderItem13setColorTableERK5QListIjE
+inline void CustomRenderItem::setColorTable(const QList<QRgb> &colors)
+{
+    m_colorTable.resize(256);
+    for (int i = 0; i < 256; i++) {
+        if (i < colors.size()) {
+            const QRgb &rgb = colors.at(i);
+            m_colorTable[i] = QVector4D(float(qRed(rgb)) / 255.0f,
+                                        float(qGreen(rgb)) / 255.0f,
+                                        float(qBlue(rgb)) / 255.0f,
+                                        float(qAlpha(rgb)) / 255.0f);
+        } else {
+            m_colorTable[i] = QVector4D(0.0f, 0.0f, 0.0f, 0.0f);
+        }
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/customrenderitem.cpp, line 67, as _ZN16CustomRenderItem12setMinBoundsERK9QVector3D
@@ -87,6 +121,12 @@ void ritual_ZN16CustomRenderItem10setTextureEj(
     CustomRenderItem *self,
     GLuint texture) {
   self->setTexture(texture);
+}
+
+//  GLuint CustomRenderItem::texture() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK16CustomRenderItem7textureEv(const CustomRenderItem *self) {
+  return self->texture();
 }
 
 //  ObjectHelper *CustomRenderItem::mesh() const
@@ -367,6 +407,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16CustomRenderItem13setColorTableERK5QListI9QVector4DE(
     CustomRenderItem *self,
     const QList<QVector4D> *colors) {
+  self->setColorTable(*colors);
+}
+
+//  void CustomRenderItem::setColorTable(const QList<QRgb> &colors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16CustomRenderItem13setColorTableERK5QListIjE(
+    CustomRenderItem *self,
+    const QList<QRgb> *colors) {
   self->setColorTable(*colors);
 }
 

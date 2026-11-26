@@ -20,6 +20,24 @@ const QMetaObject *ritual_ZNK11QQuickCurve10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickCurve::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickCurve11qt_metacastEPKc(
+    QQuickCurve *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickCurve::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickCurve11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickCurve *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickCurve::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickCurve2trEPKcS1_i(
@@ -111,6 +129,39 @@ void ritual_ZN11QQuickCurve12setRelativeYEd(QQuickCurve *self, qreal y) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QQuickCurve12hasRelativeYEv(QQuickCurve *self) {
   return self->hasRelativeY();
+}
+
+//  void QQuickCurve::addToPath(QPainterPath &a0, const QQuickPathData &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickCurve9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickCurve *self,
+    QPainterPath *a0,
+    const QQuickPathData *a1) {
+  self->addToPath(*a0, *a1);
+}
+
+//  void QQuickCurve::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickCurve8xChangedEv(QQuickCurve *self) {
+  self->xChanged();
+}
+
+//  void QQuickCurve::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickCurve8yChangedEv(QQuickCurve *self) {
+  self->yChanged();
+}
+
+//  void QQuickCurve::relativeXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickCurve16relativeXChangedEv(QQuickCurve *self) {
+  self->relativeXChanged();
+}
+
+//  void QQuickCurve::relativeYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickCurve16relativeYChangedEv(QQuickCurve *self) {
+  self->relativeYChanged();
 }
 
 #if !defined(QT_NO_DEBUG_STREAM)

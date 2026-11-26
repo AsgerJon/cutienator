@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qchar.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qchar.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  instances of templates of the class: 4. Kept as it is when the generator
+//  runs again. Also added by hand on 2026-11-25, rituals for functions the
+//  generator leaves out: 1.
 #include <QtCore/qchar.h>
 #include <QtCore/qstring.h>
 
@@ -13,6 +16,12 @@ QChar *ritual_ZN5QCharC1Ev() {
 extern "C" Q_DECL_EXPORT
 QChar *ritual_ZN5QCharC1Ehh(uchar c, uchar r) {
   return new QChar(c, r);
+}
+
+//  QChar QChar::fromUcs2(char16_t c)
+extern "C" Q_DECL_EXPORT
+QChar *ritual_ZN5QChar8fromUcs2EDs(char16_t c) {
+  return new QChar(QChar::fromUcs2(c));
 }
 
 //  Category QChar::category() const
@@ -110,6 +119,12 @@ QChar::UnicodeVersion ritual_ZNK5QChar14unicodeVersionEv(const QChar *self) {
 extern "C" Q_DECL_EXPORT
 char ritual_ZNK5QChar8toLatin1Ev(const QChar *self) {
   return self->toLatin1();
+}
+
+//  char16_t QChar::unicode() const
+extern "C" Q_DECL_EXPORT
+char16_t ritual_ZNK5QChar7unicodeEv(const QChar *self) {
+  return self->unicode();
 }
 
 //  QChar QChar::fromLatin1(char c)
@@ -244,10 +259,228 @@ void ritual_ZN5QChar6setRowEh(QChar *self, uchar arow) {
   self->setRow(arow);
 }
 
+//  bool QChar::isNonCharacter(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar14isNonCharacterEDi(char32_t ucs4) {
+  return QChar::isNonCharacter(ucs4);
+}
+
+//  bool QChar::isHighSurrogate(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar15isHighSurrogateEDi(char32_t ucs4) {
+  return QChar::isHighSurrogate(ucs4);
+}
+
+//  bool QChar::isLowSurrogate(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar14isLowSurrogateEDi(char32_t ucs4) {
+  return QChar::isLowSurrogate(ucs4);
+}
+
+//  bool QChar::isSurrogate(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar11isSurrogateEDi(char32_t ucs4) {
+  return QChar::isSurrogate(ucs4);
+}
+
+//  bool QChar::requiresSurrogates(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar18requiresSurrogatesEDi(char32_t ucs4) {
+  return QChar::requiresSurrogates(ucs4);
+}
+
+//  char32_t QChar::surrogateToUcs4(char16_t high, char16_t low)
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN5QChar15surrogateToUcs4EDsDs(char16_t high, char16_t low) {
+  return QChar::surrogateToUcs4(high, low);
+}
+
+//  char32_t QChar::surrogateToUcs4(QChar high, QChar low)
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN5QChar15surrogateToUcs4ES_S_(
+    const QChar *high,
+    const QChar *low) {
+  return QChar::surrogateToUcs4(*high, *low);
+}
+
+//  char16_t QChar::highSurrogate(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+char16_t ritual_ZN5QChar13highSurrogateEDi(char32_t ucs4) {
+  return QChar::highSurrogate(ucs4);
+}
+
+//  char16_t QChar::lowSurrogate(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+char16_t ritual_ZN5QChar12lowSurrogateEDi(char32_t ucs4) {
+  return QChar::lowSurrogate(ucs4);
+}
+
+//  Category QChar::category(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+QChar::Category ritual_ZN5QChar8categoryEDi(char32_t ucs4) {
+  return QChar::category(ucs4);
+}
+
+//  Direction QChar::direction(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+QChar::Direction ritual_ZN5QChar9directionEDi(char32_t ucs4) {
+  return QChar::direction(ucs4);
+}
+
+//  JoiningType QChar::joiningType(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+QChar::JoiningType ritual_ZN5QChar11joiningTypeEDi(char32_t ucs4) {
+  return QChar::joiningType(ucs4);
+}
+
+//  unsigned char QChar::combiningClass(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+unsigned char ritual_ZN5QChar14combiningClassEDi(char32_t ucs4) {
+  return QChar::combiningClass(ucs4);
+}
+
+//  char32_t QChar::mirroredChar(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN5QChar12mirroredCharEDi(char32_t ucs4) {
+  return QChar::mirroredChar(ucs4);
+}
+
+//  bool QChar::hasMirrored(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar11hasMirroredEDi(char32_t ucs4) {
+  return QChar::hasMirrored(ucs4);
+}
+
+//  QString QChar::decomposition(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN5QChar13decompositionEDi(char32_t ucs4) {
+  return new QString(QChar::decomposition(ucs4));
+}
+
+//  Decomposition QChar::decompositionTag(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+QChar::Decomposition ritual_ZN5QChar16decompositionTagEDi(char32_t ucs4) {
+  return QChar::decompositionTag(ucs4);
+}
+
+//  int QChar::digitValue(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN5QChar10digitValueEDi(char32_t ucs4) {
+  return QChar::digitValue(ucs4);
+}
+
+//  char32_t QChar::toLower(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN5QChar7toLowerEDi(char32_t ucs4) {
+  return QChar::toLower(ucs4);
+}
+
+//  char32_t QChar::toUpper(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN5QChar7toUpperEDi(char32_t ucs4) {
+  return QChar::toUpper(ucs4);
+}
+
+//  char32_t QChar::toTitleCase(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN5QChar11toTitleCaseEDi(char32_t ucs4) {
+  return QChar::toTitleCase(ucs4);
+}
+
+//  char32_t QChar::toCaseFolded(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+char32_t ritual_ZN5QChar12toCaseFoldedEDi(char32_t ucs4) {
+  return QChar::toCaseFolded(ucs4);
+}
+
+//  Script QChar::script(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+QChar::Script ritual_ZN5QChar6scriptEDi(char32_t ucs4) {
+  return QChar::script(ucs4);
+}
+
+//  UnicodeVersion QChar::unicodeVersion(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+QChar::UnicodeVersion ritual_ZN5QChar14unicodeVersionEDi(char32_t ucs4) {
+  return QChar::unicodeVersion(ucs4);
+}
+
 //  UnicodeVersion QChar::currentUnicodeVersion()
 extern "C" Q_DECL_EXPORT
 QChar::UnicodeVersion ritual_ZN5QChar21currentUnicodeVersionEv() {
   return QChar::currentUnicodeVersion();
+}
+
+//  bool QChar::isPrint(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar7isPrintEDi(char32_t ucs4) {
+  return QChar::isPrint(ucs4);
+}
+
+//  bool QChar::isSpace(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar7isSpaceEDi(char32_t ucs4) {
+  return QChar::isSpace(ucs4);
+}
+
+//  bool QChar::isMark(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar6isMarkEDi(char32_t ucs4) {
+  return QChar::isMark(ucs4);
+}
+
+//  bool QChar::isPunct(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar7isPunctEDi(char32_t ucs4) {
+  return QChar::isPunct(ucs4);
+}
+
+//  bool QChar::isSymbol(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar8isSymbolEDi(char32_t ucs4) {
+  return QChar::isSymbol(ucs4);
+}
+
+//  bool QChar::isLetter(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar8isLetterEDi(char32_t ucs4) {
+  return QChar::isLetter(ucs4);
+}
+
+//  bool QChar::isNumber(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar8isNumberEDi(char32_t ucs4) {
+  return QChar::isNumber(ucs4);
+}
+
+//  bool QChar::isLetterOrNumber(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar16isLetterOrNumberEDi(char32_t ucs4) {
+  return QChar::isLetterOrNumber(ucs4);
+}
+
+//  bool QChar::isDigit(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar7isDigitEDi(char32_t ucs4) {
+  return QChar::isDigit(ucs4);
+}
+
+//  bool QChar::isLower(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar7isLowerEDi(char32_t ucs4) {
+  return QChar::isLower(ucs4);
+}
+
+//  bool QChar::isUpper(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar7isUpperEDi(char32_t ucs4) {
+  return QChar::isUpper(ucs4);
+}
+
+//  bool QChar::isTitleCase(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar11isTitleCaseEDi(char32_t ucs4) {
+  return QChar::isTitleCase(ucs4);
 }
 
 //  bool operator==(const QChar &lhs, const QChar &rhs)
@@ -286,6 +519,102 @@ bool ritual_ZgeRK5QCharS1_(const QChar *lhs, const QChar *rhs) {
   return operator>=(*lhs, *rhs);
 }
 
+//  bool operator==(const QChar &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QCharRKDn(const QChar *lhs) {
+  return operator==(*lhs, nullptr);
+}
+
+//  bool operator!=(const QChar &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QCharRKDn(const QChar *lhs) {
+  return operator!=(*lhs, nullptr);
+}
+
+//  bool operator<(const QChar &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK5QCharRKDn(const QChar *lhs) {
+  return operator<(*lhs, nullptr);
+}
+
+//  bool operator>(const QChar &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK5QCharRKDn(const QChar *lhs) {
+  return operator>(*lhs, nullptr);
+}
+
+//  bool operator<=(const QChar &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK5QCharRKDn(const QChar *lhs) {
+  return operator<=(*lhs, nullptr);
+}
+
+//  bool operator>=(const QChar &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK5QCharRKDn(const QChar *lhs) {
+  return operator>=(*lhs, nullptr);
+}
+
+//  bool operator==(const std::nullptr_t &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKDnRK5QChar(const QChar *rhs) {
+  return operator==(nullptr, *rhs);
+}
+
+//  bool operator!=(const std::nullptr_t &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKDnRK5QChar(const QChar *rhs) {
+  return operator!=(nullptr, *rhs);
+}
+
+//  bool operator<(const std::nullptr_t &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKDnRK5QChar(const QChar *rhs) {
+  return operator<(nullptr, *rhs);
+}
+
+//  bool operator>(const std::nullptr_t &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKDnRK5QChar(const QChar *rhs) {
+  return operator>(nullptr, *rhs);
+}
+
+//  bool operator<=(const std::nullptr_t &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKDnRK5QChar(const QChar *rhs) {
+  return operator<=(nullptr, *rhs);
+}
+
+//  bool operator>=(const std::nullptr_t &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKDnRK5QChar(const QChar *rhs) {
+  return operator>=(nullptr, *rhs);
+}
+
+//  bool QChar::isSpace_helper(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar14isSpace_helperEDi(char32_t ucs4) {
+  return QChar::isSpace_helper(ucs4);
+}
+
+//  bool QChar::isLetter_helper(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar15isLetter_helperEDi(char32_t ucs4) {
+  return QChar::isLetter_helper(ucs4);
+}
+
+//  bool QChar::isNumber_helper(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar15isNumber_helperEDi(char32_t ucs4) {
+  return QChar::isNumber_helper(ucs4);
+}
+
+//  bool QChar::isLetterOrNumber_helper(char32_t ucs4)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar23isLetterOrNumber_helperEDi(char32_t ucs4) {
+  return QChar::isLetterOrNumber_helper(ucs4);
+}
+
 //  bool QChar::equal_helper(QChar lhs, const char *rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN5QChar12equal_helperES_PKc(const QChar *lhs, const char *rhs) {
@@ -304,4 +633,41 @@ int ritual_ZN5QChar14compare_helperES_PKc(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QCharD1Ev(QChar *self) {
   delete self;
+}
+
+//  template <typename Char, if_implicit_conversion_char<Char> = true>
+//  constexpr QChar::QChar<char16_t, true>(const char16_t ch)
+extern "C" Q_DECL_EXPORT
+QChar *ritual_ZN5QCharC1IDsLb1EEET_(char16_t ch) {
+  return new QChar(ch);
+}
+
+//  template <typename Char, if_explicit_conversion_char<Char> = true>
+//  constexpr explicit QChar::QChar<char32_t, true>(const char32_t ch)
+extern "C" Q_DECL_EXPORT
+QChar *ritual_ZN5QCharC1IDiLb1EEET_(char32_t ch) {
+  return new QChar(ch);
+}
+
+//  template <typename Char, if_explicit_conversion_char<Char> = true>
+//  constexpr explicit QChar::QChar<int, true>(const int ch)
+extern "C" Q_DECL_EXPORT
+QChar *ritual_ZN5QCharC1IiLb1EEET_(int ch) {
+  return new QChar(ch);
+}
+
+#if !defined(QT_NO_CAST_FROM_ASCII)
+//  template <typename Char, if_implicit_ascii_warn_char<Char> = true>
+//  constexpr QChar::QChar<char, true>(const char ch)
+extern "C" Q_DECL_EXPORT
+QChar *ritual_ZN5QCharC1IcLb1EEET_(char ch) {
+  return new QChar(ch);
+}
+#endif  // !defined(QT_NO_CAST_FROM_ASCII)
+
+//  char16_t &QChar::unicode()
+extern "C" Q_DECL_EXPORT
+char16_t *ritual_ZN5QChar7unicodeEv(
+    QChar *self) {
+  return &(self->unicode());
 }

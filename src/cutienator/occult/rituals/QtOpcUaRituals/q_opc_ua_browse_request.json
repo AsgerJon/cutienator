@@ -7,9 +7,15 @@
   "rows": {
     "ritual_ZN19QOpcUaBrowseRequestC1Ev": ["address"],
     "ritual_ZN19QOpcUaBrowseRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN19QOpcUaBrowseRequestaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QOpcUaBrowseRequestD1Ev": ["nothing", "address"],
     "ritual_ZNK19QOpcUaBrowseRequest15browseDirectionEv": [
       "unsigned int", "address"
+    ],
+    "ritual_ZN19QOpcUaBrowseRequest18setBrowseDirectionERKNS_15BrowseDirectionE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK19QOpcUaBrowseRequest15referenceTypeIdEv": [
       "text", "address"
@@ -26,6 +32,9 @@
     "ritual_ZN19QOpcUaBrowseRequest18setIncludeSubtypesEb": [
       "nothing", "address", "bool"
     ],
-    "ritual_ZNK19QOpcUaBrowseRequest13nodeClassMaskEv": ["int", "address"]
+    "ritual_ZNK19QOpcUaBrowseRequest13nodeClassMaskEv": ["int", "address"],
+    "ritual_ZN19QOpcUaBrowseRequest16setNodeClassMaskERK6QFlagsIN6QOpcUa9NodeClassEE": [
+      "nothing", "address", "address"
+    ]
   }
 }

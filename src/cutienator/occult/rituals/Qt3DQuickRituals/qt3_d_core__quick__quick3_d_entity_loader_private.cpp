@@ -7,6 +7,70 @@
 #include <Qt3DQuick/6.12.0/Qt3DQuick/private/quick3dentityloader_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DQuick/private/quick3dentityloader_p_p.h>
+#include <QtQml/QQmlContext>
+#include <QtQml/QQmlEngine>
+#include <QtQml/QQmlIncubator>
+#include <QtQml/private/qqmlengine_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/quick3d/quick3d/items/quick3dentityloader.cpp, line 18, as local:quick3dentityloader.cpp:Quick3DQmlOwner
+namespace Qt3DCore::Quick {
+namespace {
+struct Quick3DQmlOwner
+{
+    Quick3DQmlOwner(QQmlEngine *e, QObject *o)
+        : engine(e)
+        , object(o)
+    {}
+
+    QQmlEngine *engine;
+    QObject *object;
+
+    QQmlContext *context() const
+    {
+        return engine->contextForObject(object);
+    }
+};
+}  // namespace
+}  // namespace Qt3DCore::Quick
+
+//  from ../qt3d/src/quick3d/quick3d/items/quick3dentityloader.cpp, line 194, as _ZN8Qt3DCore5Quick26Quick3DEntityLoaderPrivateC1Ev
+namespace Qt3DCore::Quick {
+inline Quick3DEntityLoaderPrivate::Quick3DEntityLoaderPrivate()
+    : QEntityPrivate(),
+      m_incubator(nullptr),
+      m_context(nullptr),
+      m_component(nullptr),
+      m_sourceComponent(nullptr),
+      m_entity(nullptr),
+      m_status(Quick3DEntityLoader::Null)
+{
+}
+}  // namespace Qt3DCore::Quick
+
+//  from ../qt3d/src/quick3d/quick3d/items/quick3dentityloader.cpp, line 301, as _ZN8Qt3DCore5Quick26Quick3DEntityLoaderPrivate9setStatusENS0_19Quick3DEntityLoader6StatusE
+namespace Qt3DCore::Quick {
+inline void Quick3DEntityLoaderPrivate::setStatus(Quick3DEntityLoader::Status status)
+{
+    Q_Q(Quick3DEntityLoader);
+    if (status != m_status) {
+        m_status = status;
+        const bool blocked = q->blockNotifications(true);
+        emit q->statusChanged(m_status);
+        q->blockNotifications(blocked);
+    }
+}
+}  // namespace Qt3DCore::Quick
+//  -----------------------------------------------------------------------
 
 //  A Qt3DCore::Quick::Quick3DEntityLoaderPrivate that Python can take functions over in. Every Qt3DCore::Quick::Quick3DEntityLoaderPrivate
 //  Python makes is one. Each function below asks the Python
@@ -53,6 +117,12 @@ public:
   }
 };
 
+//  Qt3DCore::Quick::Quick3DEntityLoaderPrivate::Quick3DEntityLoaderPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::Quick::Quick3DEntityLoaderPrivate *ritual_ZN8Qt3DCore5Quick26Quick3DEntityLoaderPrivateC1Ev() {
+  return new CuteQt3DCore_Quick_Quick3DEntityLoaderPrivate();
+}
+
 //  Quick3DEntityLoader
 //      *Qt3DCore::Quick::Quick3DEntityLoaderPrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -67,6 +137,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::Quick::Quick3DEntityLoader *ritual_ZNK8Qt3DCore5Quick26Quick3DEntityLoaderPrivate6q_funcEv(
     const Qt3DCore::Quick::Quick3DEntityLoaderPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DCore::Quick::Quick3DEntityLoaderPrivate::setStatus(Quick3DEntity
+//      Loader::Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore5Quick26Quick3DEntityLoaderPrivate9setStatusENS0_19Quick3DEntityLoader6StatusE(
+    Qt3DCore::Quick::Quick3DEntityLoaderPrivate *self,
+    Qt3DCore::Quick::Quick3DEntityLoader::Status status) {
+  self->setStatus(status);
 }
 
 //  Quick3DEntityLoaderPrivate

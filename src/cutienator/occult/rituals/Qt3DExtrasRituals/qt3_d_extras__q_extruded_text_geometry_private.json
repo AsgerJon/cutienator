@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras28QExtrudedTextGeometryPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras28QExtrudedTextGeometryPrivate6updateEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DExtras28QExtrudedTextGeometryPrivate6q_funcEv": [
       "address", "address"
     ],

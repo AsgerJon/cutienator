@@ -22,6 +22,14 @@ void ritual_ZN18QSGCurveGlyphAtlasD1Ev(QSGCurveGlyphAtlas *self) {
   delete self;
 }
 
+//  void QSGCurveGlyphAtlas::populate(const QList<glyph_t> &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSGCurveGlyphAtlas8populateERK5QListIjE(
+    QSGCurveGlyphAtlas *self,
+    const QList<glyph_t> *glyphs) {
+  self->populate(*glyphs);
+}
+
 //  void QSGCurveGlyphAtlas::addGlyph(QSGCurveFillNode *node, glyph_t glyph,
 //      const QPointF &position, qreal pixelSize) const
 extern "C" Q_DECL_EXPORT
@@ -32,6 +40,17 @@ void ritual_ZNK18QSGCurveGlyphAtlas8addGlyphEP16QSGCurveFillNodejRK7QPointFd(
     const QPointF *position,
     qreal pixelSize) {
   self->addGlyph(node, glyph, *position, pixelSize);
+}
+
+//  void QSGCurveGlyphAtlas::addStroke(QSGCurveStrokeNode *node, glyph_t
+//      glyph, const QPointF &position) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18QSGCurveGlyphAtlas9addStrokeEP18QSGCurveStrokeNodejRK7QPointF(
+    const QSGCurveGlyphAtlas *self,
+    QSGCurveStrokeNode *node,
+    glyph_t glyph,
+    const QPointF *position) {
+  self->addStroke(node, glyph, *position);
 }
 
 //  qreal QSGCurveGlyphAtlas::fontSize() const

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuick3DInstancing10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuick3DInstancing11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuick3DInstancing11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuick3DInstancing2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -60,6 +66,27 @@
     ],
     "ritual_ZN18QQuick3DInstancing22setShadowBoundsMaximumERK9QVector3D": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing20instanceTableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing17instanceNodeDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing28instanceCountOverrideChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing22hasTransparencyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing26depthSortingEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing26shadowBoundsMinimumChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing26shadowBoundsMaximumChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN18QQuick3DInstancing17getInstanceBufferEPi": [
       "address", "address", "address"

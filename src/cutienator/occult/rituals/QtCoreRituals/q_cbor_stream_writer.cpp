@@ -9,6 +9,7 @@
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetatype.h>
+#include <QtCore/QUtf8StringView>
 
 //  QCborStreamWriter::QCborStreamWriter(QIODevice *device)
 extern "C" Q_DECL_EXPORT
@@ -93,6 +94,14 @@ void ritual_ZN17QCborStreamWriter6appendE11QStringView(
   self->append(QStringView(*str));
 }
 
+//  void QCborStreamWriter::append(QUtf8StringView str)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QCborStreamWriter6appendE20QBasicUtf8StringViewILb0EE(
+    QCborStreamWriter *self,
+    const QUtf8StringView *str) {
+  self->append(*str);
+}
+
 //  void QCborStreamWriter::append(QCborTag tag)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCborStreamWriter6appendE8QCborTag(
@@ -115,6 +124,12 @@ void ritual_ZN17QCborStreamWriter6appendE15QCborSimpleType(
     QCborStreamWriter *self,
     QCborSimpleType st) {
   self->append(st);
+}
+
+//  void QCborStreamWriter::append(std::nullptr_t a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QCborStreamWriter6appendEDn(QCborStreamWriter *self) {
+  self->append(nullptr);
 }
 
 #if !defined(QT_BOOTSTRAPPED)

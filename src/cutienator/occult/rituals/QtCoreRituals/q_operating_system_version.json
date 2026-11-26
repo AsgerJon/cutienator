@@ -14,6 +14,9 @@
     "ritual_ZN23QOperatingSystemVersion7currentEv": ["address"],
     "ritual_ZN23QOperatingSystemVersion11currentTypeEv": ["int"],
     "ritual_ZNK23QOperatingSystemVersion4typeEv": ["int", "address"],
+    "ritual_ZNK23QOperatingSystemVersion11isAnyOfTypeESt16initializer_listINS_6OSTypeEE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN23QOperatingSystemVersionC1Ev": ["address"],
     "ritual_ZN23QOperatingSystemVersionD1Ev": ["nothing", "address"]
   }

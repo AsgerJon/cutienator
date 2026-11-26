@@ -15,16 +15,16 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtGui/qsurfaceformat.h>
+#include <QtGui/QtGui>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/qpa/qplatformbackingstore.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qimage.h>
 #include <QtCore/qsize.h>
-#include <QtGui/QtGui>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGui/6.12.0/QtGui/qpa/qplatformbackingstore.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickWidgets/qquickwidget.h>
@@ -74,6 +74,195 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 64, as local:qquickwidget.cpp:QQuickWidgetOffscreenWindowPrivate
+class QQuickWidgetOffscreenWindowPrivate: public QQuickWindowPrivate
+{
+public:
+    // override setVisible to prevent accidental offscreen window being created
+    // by base class.
+    void setVisible(bool visible) override
+    {
+        Q_Q(QWindow);
+        // this stays always invisible
+        visibility = visible ? QWindow::Windowed : QWindow::Hidden;
+        q->visibilityChanged(visibility); // workaround for QTBUG-49054
+    }
+};
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 97, as local:qquickwidget.cpp:QQuickWidgetRenderControlPrivate
+class QQuickWidgetRenderControlPrivate;
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 99, as local:qquickwidget.cpp:QQuickWidgetRenderControl
+class QQuickWidgetRenderControl : public QQuickRenderControl
+{
+    Q_DECLARE_PRIVATE(QQuickWidgetRenderControl)
+public:
+    QQuickWidgetRenderControl(QQuickWidget *quickwidget);
+    QWindow *renderWindow(QPoint *offset) override;
+
+};
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1118, as local:qquickwidget.cpp:graphicsApiToBackingStoreRhiApi
+static inline QPlatformBackingStoreRhiConfig::Api graphicsApiToBackingStoreRhiApi(QSGRendererInterface::GraphicsApi api)
+{
+    switch (api) {
+    case QSGRendererInterface::OpenGL:
+        return QPlatformBackingStoreRhiConfig::OpenGL;
+    case QSGRendererInterface::Vulkan:
+        return QPlatformBackingStoreRhiConfig::Vulkan;
+    case QSGRendererInterface::Direct3D11:
+        return QPlatformBackingStoreRhiConfig::D3D11;
+    case QSGRendererInterface::Direct3D12:
+        return QPlatformBackingStoreRhiConfig::D3D12;
+    case QSGRendererInterface::Metal:
+        return QPlatformBackingStoreRhiConfig::Metal;
+    default:
+        return QPlatformBackingStoreRhiConfig::Null;
+    }
+}
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 510, as _ZN19QQuickWidgetPrivate15grabFramebufferEv
+inline QImage QQuickWidgetPrivate::grabFramebuffer()
+{
+    if (!useSoftwareRenderer && !rhi)
+        return QImage();
+
+    // grabWindow() does not work for the rhi case, we are in control of the
+    // render target, and so it is up to us to read it back. When the software
+    // renderer is in use, just call grabWindow().
+
+    if (outputTexture) {
+        render(true);
+        QRhiCommandBuffer *cb = nullptr;
+        rhi->beginOffscreenFrame(&cb);
+        QRhiResourceUpdateBatch *resUpd = rhi->nextResourceUpdateBatch();
+        QRhiReadbackResult readResult;
+        resUpd->readBackTexture(QRhiReadbackDescription(outputTexture), &readResult);
+        cb->resourceUpdate(resUpd);
+        rhi->endOffscreenFrame();
+        if (!readResult.data.isEmpty()) {
+            QImage wrapperImage(reinterpret_cast<const uchar *>(readResult.data.constData()),
+                                readResult.pixelSize.width(), readResult.pixelSize.height(),
+                                QImage::Format_RGBA8888_Premultiplied);
+            if (rhi->isYUpInFramebuffer())
+                return wrapperImage.flipped();
+            else
+                return wrapperImage.copy();
+        }
+        return QImage();
+    }
+
+    return offscreenWindow->grabWindow();
+}
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1462, as _ZN19QQuickWidgetPrivate16textureListFlagsEv
+inline QPlatformTextureList::Flags QQuickWidgetPrivate::textureListFlags()
+{
+    QPlatformTextureList::Flags flags = QWidgetPrivate::textureListFlags();
+    flags |= QPlatformTextureList::NeedsPremultipliedAlphaBlending;
+    return flags;
+}
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 411, as _ZN19QQuickWidgetPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
+inline void QQuickWidgetPrivate::itemGeometryChanged(QQuickItem *resizeItem, QQuickGeometryChange change,
+                                              const QRectF &oldGeometry)
+{
+    Q_Q(QQuickWidget);
+    if (resizeItem == root && resizeMode == QQuickWidget::SizeViewToRootObject) {
+        // wait for both width and height to be changed
+        resizetimer.start(0,q);
+    }
+    QQuickItemChangeListener::itemGeometryChanged(resizeItem, change, oldGeometry);
+}
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1457, as _ZNK19QQuickWidgetPrivate7textureEv
+inline QWidgetPrivate::TextureData QQuickWidgetPrivate::texture() const
+{
+    return { outputTexture, nullptr };
+}
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1437, as _ZNK19QQuickWidgetPrivate9rhiConfigEv
+inline QPlatformBackingStoreRhiConfig QQuickWidgetPrivate::rhiConfig() const
+{
+    const_cast<QQuickWidgetPrivate *>(this)->ensureBackingScene();
+    if (useSoftwareRenderer)
+        return {};
+
+    QPlatformBackingStoreRhiConfig config(graphicsApiToBackingStoreRhiApi(QQuickWindow::graphicsApi()));
+
+    QQuickWindowPrivate *wd = QQuickWindowPrivate::get(offscreenWindow);
+    // This is only here to support some of the env.vars. (such as
+    // QSG_RHI_DEBUG_LAYER). There is currently no way to set a
+    // QQuickGraphicsConfiguration for a QQuickWidget, which means things like
+    // the pipeline cache are just not available. That is something to support
+    // on the widget/backingstore level since that's where the QRhi is
+    // controlled in this case.
+    const bool debugLayerRequested = wd->graphicsConfig.isDebugLayerEnabled();
+    config.setDebugLayer(debugLayerRequested);
+    return config;
+}
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 300, as _ZN19QQuickWidgetPrivate18handleWindowChangeEv
+inline void QQuickWidgetPrivate::handleWindowChange()
+{
+    Q_Q(QQuickWidget);
+
+    if (offscreenWindow->isPersistentSceneGraph()
+            && qGuiApp->testAttribute(Qt::AA_ShareOpenGLContexts)
+            && rhiConfig().api() == QPlatformBackingStoreRhiConfig::OpenGL)
+    {
+        return;
+    }
+
+    // In case of !isPersistentSceneGraph or when we need a new context due to
+    // the need to share resources with the new window's context, we must both
+    // invalidate the scenegraph and destroy the context. QQuickRenderControl
+    // must be recreated because its RHI will contain a dangling pointer to
+    // the context.
+
+    QScopedPointer<QQuickWindow> oldOffScreenWindow(offscreenWindow); // Do not delete before reparenting sgItem
+    offscreenWindow = nullptr;
+    delete renderControl;
+
+    renderControl = new QQuickWidgetRenderControl(q);
+    initOffscreenWindow();
+
+    if (oldOffScreenWindow)
+        offscreenWindow->setColor(oldOffScreenWindow->color());
+
+    QObject::connect(renderControl, SIGNAL(renderRequested()), q, SLOT(triggerUpdate()));
+    QObject::connect(renderControl, SIGNAL(sceneChanged()), q, SLOT(triggerUpdate()));
+
+    if (QQuickItem *sgItem = qobject_cast<QQuickItem *>(root))
+        sgItem->setParentItem(offscreenWindow->contentItem());
+}
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 57, as _ZN27QQuickWidgetOffscreenWindowC1ER19QQuickWindowPrivateP19QQuickRenderControl
+inline QQuickWidgetOffscreenWindow::QQuickWidgetOffscreenWindow(QQuickWindowPrivate &dd, QQuickRenderControl *control)
+:QQuickWindow(dd, control)
+{
+    setTitle(QString::fromLatin1("Offscreen"));
+    setObjectName(QString::fromLatin1("QQuickWidgetOffscreenWindow"));
+}
+
+//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 186, as _ZN19QQuickWidgetPrivate19initOffscreenWindowEv
+inline void QQuickWidgetPrivate::initOffscreenWindow()
+{
+    Q_Q(QQuickWidget);
+
+    ensureBackingScene();
+    offscreenWindow->setScreen(q->screen());
+    // Do not call create() on offscreenWindow.
+
+    QWidget::connect(offscreenWindow, SIGNAL(sceneGraphInitialized()), q, SLOT(createFramebufferObject()));
+    QWidget::connect(offscreenWindow, SIGNAL(sceneGraphInvalidated()), q, SLOT(destroyFramebufferObject()));
+    QWidget::connect(offscreenWindow, &QQuickWindow::focusObjectChanged, q, &QQuickWidget::propagateFocusObjectChanged);
+
+#if QT_CONFIG(accessibility)
+    QAccessible::installFactory(&qAccessibleQuickWidgetFactory);
+#endif
+}
 
 //  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 357, as _ZN19QQuickWidgetPrivate13executeHelperEv
 inline void QQuickWidgetPrivate::executeHelper()
@@ -131,18 +320,6 @@ inline void QQuickWidgetPrivate::execute(QAnyStringView uri, QAnyStringView type
         QObject::connect(component, SIGNAL(statusChanged(QQmlComponent::Status)),
                          q, SLOT(continueExecute()));
     }
-}
-
-//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 411, as _ZN19QQuickWidgetPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
-inline void QQuickWidgetPrivate::itemGeometryChanged(QQuickItem *resizeItem, QQuickGeometryChange change,
-                                              const QRectF &oldGeometry)
-{
-    Q_Q(QQuickWidget);
-    if (resizeItem == root && resizeMode == QQuickWidget::SizeViewToRootObject) {
-        // wait for both width and height to be changed
-        resizetimer.start(0,q);
-    }
-    QQuickItemChangeListener::itemGeometryChanged(resizeItem, change, oldGeometry);
 }
 
 //  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1006, as _ZN19QQuickWidgetPrivate10initResizeEv
@@ -275,54 +452,6 @@ inline void QQuickWidgetPrivate::handleContextCreationFailure(const QSurfaceForm
         qFatal("%s", qPrintable(untranslatedMessage));
 }
 #endif  // defined(Q_OS_LINUX)
-
-//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1457, as _ZNK19QQuickWidgetPrivate7textureEv
-inline QWidgetPrivate::TextureData QQuickWidgetPrivate::texture() const
-{
-    return { outputTexture, nullptr };
-}
-
-//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1462, as _ZN19QQuickWidgetPrivate16textureListFlagsEv
-inline QPlatformTextureList::Flags QQuickWidgetPrivate::textureListFlags()
-{
-    QPlatformTextureList::Flags flags = QWidgetPrivate::textureListFlags();
-    flags |= QPlatformTextureList::NeedsPremultipliedAlphaBlending;
-    return flags;
-}
-
-//  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 510, as _ZN19QQuickWidgetPrivate15grabFramebufferEv
-inline QImage QQuickWidgetPrivate::grabFramebuffer()
-{
-    if (!useSoftwareRenderer && !rhi)
-        return QImage();
-
-    // grabWindow() does not work for the rhi case, we are in control of the
-    // render target, and so it is up to us to read it back. When the software
-    // renderer is in use, just call grabWindow().
-
-    if (outputTexture) {
-        render(true);
-        QRhiCommandBuffer *cb = nullptr;
-        rhi->beginOffscreenFrame(&cb);
-        QRhiResourceUpdateBatch *resUpd = rhi->nextResourceUpdateBatch();
-        QRhiReadbackResult readResult;
-        resUpd->readBackTexture(QRhiReadbackDescription(outputTexture), &readResult);
-        cb->resourceUpdate(resUpd);
-        rhi->endOffscreenFrame();
-        if (!readResult.data.isEmpty()) {
-            QImage wrapperImage(reinterpret_cast<const uchar *>(readResult.data.constData()),
-                                readResult.pixelSize.width(), readResult.pixelSize.height(),
-                                QImage::Format_RGBA8888_Premultiplied);
-            if (rhi->isYUpInFramebuffer())
-                return wrapperImage.flipped();
-            else
-                return wrapperImage.copy();
-        }
-        return QImage();
-    }
-
-    return offscreenWindow->grabWindow();
-}
 
 //  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 269, as _ZNK19QQuickWidgetPrivate12ensureEngineEv
 inline void QQuickWidgetPrivate::ensureEngine() const
@@ -807,6 +936,13 @@ void ritual_ZN19QQuickWidgetPrivate28handleContextCreationFailureERK14QSurfaceFo
   self->handleContextCreationFailure(*format);
 }
 #endif  // defined(Q_OS_LINUX)
+
+//  QPlatformBackingStoreRhiConfig QQuickWidgetPrivate::rhiConfig() const
+extern "C" Q_DECL_EXPORT
+QPlatformBackingStoreRhiConfig *ritual_ZNK19QQuickWidgetPrivate9rhiConfigEv(
+    const QQuickWidgetPrivate *self) {
+  return new QPlatformBackingStoreRhiConfig(self->rhiConfig());
+}
 
 //  TextureData QQuickWidgetPrivate::texture() const
 extern "C" Q_DECL_EXPORT

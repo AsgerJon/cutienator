@@ -17,6 +17,15 @@ QCss::StyleSheet *ritual_ZN4QCss10StyleSheetC1Ev() {
   return new QCss::StyleSheet();
 }
 
+//  void QCss::StyleSheet::buildIndexes(Qt::CaseSensitivity
+//      nameCaseSensitivity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QCss10StyleSheet12buildIndexesEN2Qt15CaseSensitivityE(
+    QCss::StyleSheet *self,
+    Qt::CaseSensitivity nameCaseSensitivity) {
+  self->buildIndexes(nameCaseSensitivity);
+}
+
 //  QCss::StyleSheet::~StyleSheet()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN4QCss10StyleSheetD1Ev(QCss::StyleSheet *self) {

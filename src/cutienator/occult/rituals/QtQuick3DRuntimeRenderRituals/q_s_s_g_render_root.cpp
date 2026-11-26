@@ -43,6 +43,14 @@ void ritual_ZN14QSSGRenderRoot10clearDirtyENS_9DirtyFlagE(
   self->clearDirty(dirtyFlag);
 }
 
+//  const std::shared_ptr<QSSGGlobalRenderNodeData>
+//      &QSSGRenderRoot::globalNodeData() const
+extern "C" Q_DECL_EXPORT
+const std::shared_ptr<QSSGGlobalRenderNodeData> *ritual_ZNK14QSSGRenderRoot14globalNodeDataEv(
+    const QSSGRenderRoot *self) {
+  return &(self->globalNodeData());
+}
+
 //  void QSSGRenderRoot::setStartVersion(VersionType startVersion)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSSGRenderRoot15setStartVersionEt(
@@ -56,6 +64,12 @@ extern "C" Q_DECL_EXPORT
 QSSGRenderRoot::VersionType ritual_ZNK14QSSGRenderRoot12startVersionEv(
     const QSSGRenderRoot *self) {
   return self->startVersion();
+}
+
+//  QSSGRenderRoot *QSSGRenderRoot::get(QSSGRenderRoot **ref)
+extern "C" Q_DECL_EXPORT
+QSSGRenderRoot *ritual_ZN14QSSGRenderRoot3getEPPS_(QSSGRenderRoot **ref) {
+  return QSSGRenderRoot::get(ref);
 }
 
 //  void QSSGRenderRoot::reindex()

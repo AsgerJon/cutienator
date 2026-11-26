@@ -12,11 +12,31 @@
 #include <QtCore/qbytearray.h>
 #include <QtNetwork/qauthenticator.h>
 #include <QtNetwork/qhttpheaders.h>
+#include <QtCore/QHash>
+#include <QtCore/QByteArray>
+#include <QtCore/QByteArrayView>
 
 //  QAuthenticatorPrivate::QAuthenticatorPrivate()
 extern "C" Q_DECL_EXPORT
 QAuthenticatorPrivate *ritual_ZN21QAuthenticatorPrivateC1Ev() {
   return new QAuthenticatorPrivate();
+}
+
+//  QAuthenticatorPrivate
+//      &QAuthenticatorPrivate::operator=(QAuthenticatorPrivate &&other)
+extern "C" Q_DECL_EXPORT
+QAuthenticatorPrivate *ritual_ZN21QAuthenticatorPrivateaSEOS_(
+    QAuthenticatorPrivate *self,
+    QAuthenticatorPrivate *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QAuthenticatorPrivate::swap(QAuthenticatorPrivate &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QAuthenticatorPrivate4swapERS_(
+    QAuthenticatorPrivate *self,
+    QAuthenticatorPrivate *other) {
+  self->swap(*other);
 }
 
 //  QAuthenticatorPrivate::~QAuthenticatorPrivate()
@@ -40,6 +60,14 @@ QByteArray *ritual_ZN21QAuthenticatorPrivate17calculateResponseE14QByteArrayView
           QStringView(*host)));
 }
 
+//  QAuthenticatorPrivate *QAuthenticatorPrivate::getPrivate(QAuthenticator
+//      &auth)
+extern "C" Q_DECL_EXPORT
+QAuthenticatorPrivate *ritual_ZN21QAuthenticatorPrivate10getPrivateER14QAuthenticator(
+    QAuthenticator *auth) {
+  return QAuthenticatorPrivate::getPrivate(*auth);
+}
+
 //  const QAuthenticatorPrivate *QAuthenticatorPrivate::getPrivate(const
 //      QAuthenticator &auth)
 extern "C" Q_DECL_EXPORT
@@ -57,6 +85,17 @@ QByteArray *ritual_ZN21QAuthenticatorPrivate17digestMd5ResponseE14QByteArrayView
     const QByteArrayView *method,
     const QByteArrayView *path) {
   return new QByteArray(self->digestMd5Response(*challenge, *method, *path));
+}
+
+//  QHash<QByteArray, QByteArray>
+//      QAuthenticatorPrivate::parseDigestAuthenticationChallenge(QByteArrayV
+//      iew challenge)
+extern "C" Q_DECL_EXPORT
+QHash<QByteArray, QByteArray> *ritual_ZN21QAuthenticatorPrivate34parseDigestAuthenticationChallengeE14QByteArrayView(
+    const QByteArrayView *challenge) {
+  return new QHash<QByteArray, QByteArray>(
+      QAuthenticatorPrivate::parseDigestAuthenticationChallenge(
+          *challenge));
 }
 
 //  void QAuthenticatorPrivate::parseHttpResponse(const QHttpHeaders
@@ -82,4 +121,11 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN21QAuthenticatorPrivate17isMethodSupportedE14QByteArrayView(
     const QByteArrayView *method) {
   return QAuthenticatorPrivate::isMethodSupported(*method);
+}
+
+//  a QHash<QByteArray, QByteArray> a ritual of QAuthenticatorPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAuthenticatorPrivate__QHash_QByteArray_QByteArray(
+    QHash<QByteArray, QByteArray> *self) {
+  delete self;
 }

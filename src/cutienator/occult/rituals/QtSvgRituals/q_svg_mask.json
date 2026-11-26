@@ -9,7 +9,19 @@
       "address", "address", "address", "unsigned int"
     ],
     "ritual_ZN8QSvgMaskD1Ev": ["nothing", "address"],
+    "ritual_ZN8QSvgMask11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgMask14shouldDrawNodeEP8QPainterR15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgMask4typeEv": ["int", "address"],
+    "ritual_ZNK8QSvgMask10createMaskEP8QPainterR15QSvgExtraStatesP8QSvgNodeP6QRectF": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgMask10createMaskEP8QPainterR15QSvgExtraStatesRK6QRectFPS4_": [
+      "address", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgMask4rectEv": ["address", "address"],
     "ritual_ZNK8QSvgMask12contentUnitsEv": ["unsigned int", "address"],
     "ritual_take_QSvgMask": ["bool", "address", "chars", "address"],

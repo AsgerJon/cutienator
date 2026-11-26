@@ -11,6 +11,14 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtHttpServer/private/qhttpserverrequest_p.h>
+#include <QtHttpServer/private/qhttpserverparser_p.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtNetwork/qhttpheaders.h>
+#if QT_CONFIG(http)
+#include <QtNetwork/private/qhttp2connection_p.h>
+#endif
+#include <limits>
 #include <QtHttpServer/qhttpserverresponder.h>
 #include <QtHttpServer/qhttpserverrequest.h>
 #include <QtHttpServer/qhttpserverresponse.h>
@@ -39,6 +47,46 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from ../qthttpserver/src/httpserver/qhttpserverstream.cpp, line 19, as local:qhttpserverstream.cpp:initParserFromSocket
+static QHttpServerParser initParserFromSocket(QIODevice *socket, QHttpServerRequestFilter *filter)
+{
+    QTcpSocket *tcpSocket = qobject_cast<QTcpSocket *>(socket);
+    if (tcpSocket) {
+        return QHttpServerParser(tcpSocket->peerAddress(), tcpSocket->peerPort(),
+                                 tcpSocket->localAddress(), tcpSocket->localPort(), filter);
+    }
+    return QHttpServerParser(QHostAddress::LocalHost, 0, QHostAddress::LocalHost, 0, filter);
+}
+
+//  from ../qthttpserver/src/httpserver/qhttpserverstream.cpp, line 30, as local:qhttpserverstream.cpp:initSslConfigurationFromSocket
+#if QT_CONFIG(ssl)
+static QSslConfiguration initSslConfigurationFromSocket(QIODevice *socket)
+{
+    if (auto *ssl = qobject_cast<const QSslSocket *>(socket))
+        return ssl->sslConfiguration();
+
+    return QSslConfiguration();
+}
+#endif  // QT_CONFIG(ssl)
+
+//  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 351, as _ZN17QHttpServerParserC1ERK12QHostAddresstS2_tP24QHttpServerRequestFilter
+inline QHttpServerParser::QHttpServerParser(const QHostAddress &remoteAddress, quint16 remotePort,
+                                     const QHostAddress &localAddress, quint16 localPort,
+                                     QHttpServerRequestFilter *filter)
+    : remoteAddress(remoteAddress),
+      remotePort(remotePort),
+      localAddress(localAddress),
+      localPort(localPort),
+      filter(filter)
+{
+    clear();
+    headerParser.setMaxHeaderFieldSize(std::numeric_limits<qsizetype>::max());
+    headerParser.setMaxTotalHeaderSize(std::numeric_limits<qsizetype>::max());
+    headerParser.setMaxHeaderFields(std::numeric_limits<qsizetype>::max());
+}
 
 //  from ../qthttpserver/src/httpserver/qhttpserverresponder.cpp, line 124, as _ZN27QHttpServerResponderPrivate6cancelEv
 inline void QHttpServerResponderPrivate::cancel()
@@ -403,6 +451,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17QHttpServerStream10metaObjectEv(
     const QHttpServerStream *self) {
   return self->metaObject();
+}
+
+//  void *QHttpServerStream::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QHttpServerStream11qt_metacastEPKc(
+    QHttpServerStream *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHttpServerStream::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QHttpServerStream11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHttpServerStream *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  void QHttpServerStream::responderDestroyed(quint32 streamId)

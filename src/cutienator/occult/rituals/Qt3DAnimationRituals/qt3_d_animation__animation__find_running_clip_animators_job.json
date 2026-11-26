@@ -10,6 +10,12 @@
     ],
     "ritual_ZNK13Qt3DAnimation9Animation27FindRunningClipAnimatorsJob7handlerEv": [
       "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation27FindRunningClipAnimatorsJob21setDirtyClipAnimatorsERK5QListIN8Qt3DCore7QHandleINS0_12ClipAnimatorEEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation27FindRunningClipAnimatorsJob3runEv": [
+      "nothing", "address"
     ]
   }
 }

@@ -20,7 +20,7 @@ typedef void * (*CuteQPixmapCacheEntryCall5)(const void *, int *);
 class CuteQPixmapCacheEntry : public QPixmapCacheEntry {
 public:
   using QPixmapCacheEntry::QPixmapCacheEntry;
-  CuteQPixmapCacheEntry(const QPixmapCacheEntry &other) : QPixmapCacheEntry(other) {}
+  CuteQPixmapCacheEntry(const QPixmapCacheEntry & other) : QPixmapCacheEntry(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {

@@ -7,6 +7,8 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/managers_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/qnodeid.h>
+#include <QtCore/QList>
+#include <Qt3DCore/Qt3DCore>
 
 //  Qt3DRender::Render::RenderTargetManager::RenderTargetManager()
 extern "C" Q_DECL_EXPORT
@@ -30,4 +32,21 @@ void ritual_ZN10Qt3DRender6Render19RenderTargetManager27removeRenderTargetToClea
     Qt3DRender::Render::RenderTargetManager *self,
     const Qt3DCore::QNodeId *id) {
   self->removeRenderTargetToCleanup(*id);
+}
+
+//  QList<Qt3DCore::QNodeId>
+//      Qt3DRender::Render::RenderTargetManager::takeRenderTargetIdsToCleanup
+//      ()
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QNodeId> *ritual_ZN10Qt3DRender6Render19RenderTargetManager28takeRenderTargetIdsToCleanupEv(
+    Qt3DRender::Render::RenderTargetManager *self) {
+  return new QList<Qt3DCore::QNodeId>(self->takeRenderTargetIdsToCleanup());
+}
+
+//  a QList<Qt3DCore::QNodeId> a ritual of
+//      Qt3DRender::Render::RenderTargetManager gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_RenderTargetManager__QList_Qt3DCore_QNodeId(
+    QList<Qt3DCore::QNodeId> *self) {
+  delete self;
 }

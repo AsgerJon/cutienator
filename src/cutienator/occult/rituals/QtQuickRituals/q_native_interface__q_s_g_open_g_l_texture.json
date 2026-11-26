@@ -8,8 +8,18 @@
     "ritual_ZN16QNativeInterface16QSGOpenGLTextureD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN16QNativeInterface16QSGOpenGLTextureC1Ev": ["address"],
+    "ritual_ZNK16QNativeInterface16QSGOpenGLTexture13nativeTextureEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZN16QNativeInterface16QSGOpenGLTexture10fromNativeEjP12QQuickWindowRK5QSize6QFlagsINS1_19CreateTextureOptionEE": [
       "address", "unsigned int", "address", "address", "int"
+    ],
+    "ritual_ZN16QNativeInterface16QSGOpenGLTexture21fromNativeExternalOESEjP12QQuickWindowRK5QSize6QFlagsINS1_19CreateTextureOptionEE": [
+      "address", "unsigned int", "address", "address", "int"
+    ],
+    "ritual_take_QNativeInterface_QSGOpenGLTexture": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

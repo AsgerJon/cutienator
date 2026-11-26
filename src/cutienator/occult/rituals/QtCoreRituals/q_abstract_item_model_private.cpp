@@ -6,7 +6,9 @@
 #if QT_CONFIG(itemmodel)
 #if QT_CONFIG(itemmodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qabstractitemmodel_p.h>
@@ -277,11 +279,32 @@ bool ritual_ZN25QAbstractItemModelPrivate9allowMoveERK11QModelIndexiiS2_iN2Qt11O
       orientation);
 }
 
+//  bool QAbstractItemModelPrivate::dropOnItem(const QModelIndex &index,
+//      QDataStream &stream)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QAbstractItemModelPrivate10dropOnItemERK11QModelIndexR11QDataStream(
+    QAbstractItemModelPrivate *self,
+    const QModelIndex *index,
+    QDataStream *stream) {
+  return self->dropOnItem(*index, *stream);
+}
+
 //  void QAbstractItemModelPrivate::executePendingOperations() const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK25QAbstractItemModelPrivate24executePendingOperationsEv(
     const QAbstractItemModelPrivate *self) {
   self->executePendingOperations();
+}
+
+//  QModelIndex QAbstractItemModelPrivate::createIndex(int row, int column,
+//      void *data) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK25QAbstractItemModelPrivate11createIndexEiiPv(
+    const QAbstractItemModelPrivate *self,
+    int row,
+    int column,
+    void *data) {
+  return new QModelIndex(self->createIndex(row, column, data));
 }
 
 //  QModelIndex QAbstractItemModelPrivate::createIndex(int row, int column,

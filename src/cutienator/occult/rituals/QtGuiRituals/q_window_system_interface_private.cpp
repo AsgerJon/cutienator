@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/qpa/qwindowsysteminterface.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qlist.h>
 
 //  qsizetype QWindowSystemInterfacePrivate::windowSystemEventsQueued()
 extern "C" Q_DECL_EXPORT
@@ -51,6 +52,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN29QWindowSystemInterfacePrivate23removeWindowSystemEventEPNS_17WindowSystemEventE(
     QWindowSystemInterfacePrivate::WindowSystemEvent *event) {
   QWindowSystemInterfacePrivate::removeWindowSystemEvent(event);
+}
+
+//  QList<QEventPoint>
+//      QWindowSystemInterfacePrivate::fromNativeTouchPoints(const
+//      QList<QWindowSystemInterface::TouchPoint> &points, const QWindow
+//      *window, QEvent::Type *type)
+extern "C" Q_DECL_EXPORT
+QList<QEventPoint> *ritual_ZN29QWindowSystemInterfacePrivate21fromNativeTouchPointsERK5QListIN22QWindowSystemInterface10TouchPointEEPK7QWindowPN6QEvent4TypeE(
+    const QList<QWindowSystemInterface::TouchPoint> *points,
+    const QWindow *window,
+    QEvent::Type *type) {
+  return new QList<QEventPoint>(
+      QWindowSystemInterfacePrivate::fromNativeTouchPoints(
+          *points,
+          window,
+          type));
 }
 
 //  QWindowSystemInterface::TouchPoint

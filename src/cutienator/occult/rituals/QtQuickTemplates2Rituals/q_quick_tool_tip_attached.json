@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickToolTipAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickToolTipAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickToolTipAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickToolTipAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -37,6 +43,21 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN21QQuickToolTipAttached18resetVisiblePolicyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttached11textChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttached12delayChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttached14timeoutChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttached14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttached13policyChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN21QQuickToolTipAttached4showERK7QStringi": [

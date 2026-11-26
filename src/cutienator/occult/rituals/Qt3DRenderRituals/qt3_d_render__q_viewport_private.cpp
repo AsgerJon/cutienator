@@ -7,6 +7,28 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qviewport_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DRender/qviewport.h>
+#include <Qt3DRender/private/qviewport_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/render/framegraph/qviewport.cpp, line 11, as _ZN10Qt3DRender16QViewportPrivateC1Ev
+namespace Qt3DRender {
+inline QViewportPrivate::QViewportPrivate()
+    : QFrameGraphNodePrivate()
+    , m_normalizedRect(QRectF(0.0f, 0.0f, 1.0f, 1.0f))
+    , m_gamma(2.2f)
+{
+}
+}  // namespace Qt3DRender
+//  -----------------------------------------------------------------------
 
 //  A Qt3DRender::QViewportPrivate that Python can take functions over in. Every Qt3DRender::QViewportPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +74,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DRender::QViewportPrivate::QViewportPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QViewportPrivate *ritual_ZN10Qt3DRender16QViewportPrivateC1Ev() {
+  return new CuteQt3DRender_QViewportPrivate();
+}
 
 //  QViewport *Qt3DRender::QViewportPrivate::q_func()
 extern "C" Q_DECL_EXPORT

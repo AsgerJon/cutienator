@@ -8,8 +8,17 @@
     "ritual_ZNK30QDesignerActionEditorInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QDesignerActionEditorInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QDesignerActionEditorInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QDesignerActionEditorInterface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QDesignerActionEditorInterfaceC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
     ],
     "ritual_ZN30QDesignerActionEditorInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK30QDesignerActionEditorInterface4coreEv": [

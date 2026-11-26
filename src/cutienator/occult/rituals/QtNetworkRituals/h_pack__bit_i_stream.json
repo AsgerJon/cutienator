@@ -2,12 +2,43 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/6.12.0/QtNetwork/private/bitstreams_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN5HPack10BitIStreamC1Ev": ["address"],
+    "ritual_ZN5HPack10BitIStreamC1EPKhS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK5HPack10BitIStream9bitLengthEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK5HPack10BitIStream11hasMoreBitsEv": ["bool", "address"],
     "ritual_ZNK5HPack10BitIStream12streamOffsetEv": [
       "unsigned long long", "address"
     ],
-    "ritual_ZN5HPack10BitIStreamD1Ev": ["nothing", "address"]
+    "ritual_ZN5HPack10BitIStream8skipBitsEy": [
+      "bool", "address", "unsigned long long"
+    ],
+    "ritual_ZN5HPack10BitIStream12rewindOffsetEy": [
+      "bool", "address", "unsigned long long"
+    ],
+    "ritual_ZN5HPack10BitIStream4readEPj": ["bool", "address", "address"],
+    "ritual_ZNK5HPack10BitIStream5errorEv": ["int", "address"],
+    "ritual_ZN5HPack10BitIStream8setErrorENS0_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN5HPack10BitIStreamD1Ev": ["nothing", "address"],
+    "ritual_ZNK5HPack10BitIStream8peekBitsIhEEyyyPT_": [
+      "long long", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZNK5HPack10BitIStream8peekBitsItEEyyyPT_": [
+      "long long", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZNK5HPack10BitIStream8peekBitsIjEEyyyPT_": [
+      "long long", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZNK5HPack10BitIStream8peekBitsIyEEyyyPT_": [
+      "long long", "address", "long long", "long long", "address"
+    ]
   }
 }

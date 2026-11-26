@@ -5,22 +5,62 @@
   ],
   "rows": {
     "ritual_ZNK15QGrpcClientBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGrpcClientBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QGrpcClientBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QGrpcClientBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN15QGrpcClientBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN15QGrpcClientBase13attachChannelESt10shared_ptrI20QAbstractGrpcChannelE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QGrpcClientBase7channelEv": ["address", "address"],
+    "ritual_ZN15QGrpcClientBase14channelChangedEv": ["nothing", "address"],
     "ritual_ZN15QGrpcClientBaseC1E13QLatin1StringP7QObject": [
       "address", "address", "address"
+    ],
+    "ritual_ZN15QGrpcClientBase4callE13QLatin1StringRK16QProtobufMessageRK16QGrpcCallOptions": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QGrpcClientBase12serverStreamE13QLatin1StringRK16QProtobufMessageRK16QGrpcCallOptions": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QGrpcClientBase12clientStreamE13QLatin1StringRK16QProtobufMessageRK16QGrpcCallOptions": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QGrpcClientBase10bidiStreamE13QLatin1StringRK16QProtobufMessageRK16QGrpcCallOptions": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZN15QGrpcClientBase28setOperationResponseMetaTypeEP14QGrpcOperation9QMetaType": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QGrpcClientBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QGrpcClientBase6d_funcEv": ["address", "address"],
     "ritual_ZN15QGrpcClientBase5eventEP6QEvent": [
       "bool", "address", "address"
     ],
     "ritual_take_QGrpcClientBase": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QGrpcClientBase5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QGrpcClientBase__std_shared_ptr_QAbstractGrpcChannel": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcClientBase__std_unique_ptr_QGrpcCallReply": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcClientBase__std_unique_ptr_QGrpcServerStream": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcClientBase__std_unique_ptr_QGrpcClientStream": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcClientBase__std_unique_ptr_QGrpcBidiStream": [
+      "nothing", "address"
     ]
   }
 }

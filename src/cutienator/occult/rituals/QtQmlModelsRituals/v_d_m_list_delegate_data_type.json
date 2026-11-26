@@ -1,24 +1,92 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
+    "Written by hand on 2026-11-25 from",
     "QtQmlModels/6.12.0/QtQmlModels/private/qqmldmlistaccessordata_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
   ],
   "rows": {
+    "ritual_ZN23VDMListDelegateDataTypeD1Ev": ["nothing", "address"],
+    "ritual_ZNK23VDMListDelegateDataType7cleanupER16QQmlAdaptorModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23VDMListDelegateDataType8rowCountERK16QQmlAdaptorModel": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK23VDMListDelegateDataType11columnCountERK16QQmlAdaptorModel": [
+      "int", "address", "address"
+    ],
     "ritual_ZN23VDMListDelegateDataType18metaObjectFromTypeE9QMetaType": [
       "address", "address"
     ],
     "ritual_ZN23VDMListDelegateDataType23createMissingPropertiesEPK8QVariant": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK23VDMListDelegateDataType5valueERK16QQmlAdaptorModeliRK7QString": [
+      "address", "address", "address", "int", "text"
+    ],
+    "ritual_ZN23VDMListDelegateDataType10createItemER16QQmlAdaptorModelRK14QQmlRefPointerI29QQmlDelegateModelItemMetaTypeEiii": [
+      "address", "address", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN23VDMListDelegateDataType8metaCallEP7QObjectN11QMetaObject4CallEiPPv": [
+      "int", "address", "address", "int", "int", "address"
+    ],
     "ritual_ZN23VDMListDelegateDataType14createPropertyEPKcS1_": [
       "int", "address", "chars", "chars"
+    ],
+    "ritual_ZN23VDMListDelegateDataType18toDynamicMetaObjectEP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_cast_VDMListDelegateDataType_QQmlAdaptorModel_Accessors": [
       "address", "address"
     ],
     "ritual_cast_VDMListDelegateDataType_QAbstractDynamicMetaObject": [
       "address", "address"
+    ],
+    "ritual_ZN23VDMListDelegateDataType9toQStringI7QStringEES1_RKT_": [
+      "text", "text"
+    ],
+    "ritual_ZN23VDMListDelegateDataType9toQStringI10QByteArrayEE7QStringRKT_": [
+      "text", "address"
+    ],
+    "ritual_ZN23VDMListDelegateDataType9toQStringIPKcEE7QStringRKT_": [
+      "text", "chars"
+    ],
+    "ritual_ZN23VDMListDelegateDataType6toUtf8I7QStringEE10QByteArrayRKT_": [
+      "address", "text"
+    ],
+    "ritual_ZN23VDMListDelegateDataType6toUtf8I10QByteArrayEES1_RKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN23VDMListDelegateDataType6toUtf8IPKcEE10QByteArrayRKT_": [
+      "address", "chars"
+    ],
+    "ritual_ZN23VDMListDelegateDataType5valueI7QStringEE8QVariantPKS2_RKT_": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN23VDMListDelegateDataType5valueI10QByteArrayEE8QVariantPKS2_RKT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23VDMListDelegateDataType5valueIPKcEE8QVariantPKS3_RKT_": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23VDMListDelegateDataType23createPropertyIfMissingI7QStringEEvRKT_": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23VDMListDelegateDataType23createPropertyIfMissingI10QByteArrayEEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23VDMListDelegateDataType23createPropertyIfMissingIPKcEEvRKT_": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZN23VDMListDelegateDataType8setValueI7QStringEEvP8QVariantRKT_RKS2_": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN23VDMListDelegateDataType8setValueI10QByteArrayEEvP8QVariantRKT_RKS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23VDMListDelegateDataType8setValueIPKcEEvP8QVariantRKT_RKS3_": [
+      "nothing", "address", "chars", "address"
     ]
   }
 }

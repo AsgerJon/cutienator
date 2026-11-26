@@ -8,11 +8,46 @@
     "ritual_ZNK8Qt3DCore13QThreadPooler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore13QThreadPooler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore13QThreadPooler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore13QThreadPooler2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore13QThreadPoolerC1EP7QObject": ["address", "address"],
+    "ritual_ZN8Qt3DCore13QThreadPoolerD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore13QThreadPooler14mapDependablesER5QListIPNS_17RunnableInterfaceEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QThreadPooler14waitForAllJobsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QThreadPooler12taskFinishedEPNS_17RunnableInterfaceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QThreadPooler6futureEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore13QThreadPooler12enqueueTasksERK5QListIPNS_17RunnableInterfaceEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QThreadPooler8skipTaskEPNS_17RunnableInterfaceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QThreadPooler16enqueueDepenciesEPNS_17RunnableInterfaceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QThreadPooler7acquireEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QThreadPooler7releaseEv": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore13QThreadPooler12currentCountEv": ["int", "address"],
     "ritual_take_Qt3DCore_QThreadPooler": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DCore_QThreadPooler__QFuture_void": [
+      "nothing", "address"
     ]
   }
 }

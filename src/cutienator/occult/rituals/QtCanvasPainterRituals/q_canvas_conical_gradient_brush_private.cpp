@@ -7,6 +7,7 @@
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvasgradient_p.h>
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcpaint_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasgradient.h>
@@ -24,6 +25,9 @@
 #include <limits>
 #include <QtGui/private/qtguiglobal_p.h> // for qpixellayout_p.h's QT_CONFIG(raster_fp) check
 #include <QtGui/private/qpixellayout_p.h>
+#include <QtCanvasPainter/qcanvasconicalgradient.h>
+#include <QtCanvasPainter/private/qcanvasgradient_p.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -32,6 +36,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasconicalgradient.cpp, line 48, as local:qcanvasconicalgradient.cpp:DECONST
+#define DECONST(d) const_cast<QCanvasConicalGradientBrushPrivate *>(d)
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasgradient.cpp, line 66, as local:qcanvasgradient.cpp:QCPAINTER_GRADIENT_SIZE
+#define QCPAINTER_GRADIENT_SIZE 256
 
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvasgradient.cpp, line 549, as _ZN27QCanvasGradientBrushPrivateC2EN12QCanvasBrush9BrushTypeE
 inline QCanvasGradientBrushPrivate::QCanvasGradientBrushPrivate(QCanvasBrush::BrushType type)
@@ -56,6 +66,64 @@ inline bool QCanvasGradientBrushPrivate::equals(const QCanvasBrushPrivate &other
            && imageId == pd.imageId
            && imageY == pd.imageY;
 }
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasconicalgradient.cpp, line 149, as _ZNK34QCanvasConicalGradientBrushPrivate11createPaintEP14QCanvasPainter
+inline QCPaint QCanvasConicalGradientBrushPrivate::createPaint(QCanvasPainter *painter) const
+{
+    auto *d = this;
+    if (d->dirty) {
+        if (d->gradientStops.size() == 0) {
+            QColor icol = { 0, 0, 0, 0 };
+            QColor ocol = { 0, 0, 0, 0 };
+            // Note: Without stops, custom image might be used.
+            createConicalGradient(icol, ocol, d->imageId);
+        } else if (d->gradientStops.size() == 1) {
+            QColor c = d->gradientStops.first().color;
+            createConicalGradient(c, c, 0);
+        } else if (d->gradientStops.size() == 2) {
+            QColor ic = d->gradientStops.first().color;
+            QColor oc = d->gradientStops.last().color;
+            createConicalGradient(ic, oc, 0);
+        } else {
+            DECONST(d)->updateGradientTexture(painter);
+            QColor col = { 255, 255, 255, 255 };
+            createConicalGradient(col, col, d->textureId);
+        }
+        DECONST(d)->dirty = {};
+    }
+    if (d->paint.imageId > 0) {
+        auto *painterPriv = QCanvasPainterPrivate::get(painter);
+        painterPriv->markTextureIdUsed(d->paint.imageId);
+    }
+    return d->paint;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasconicalgradient.cpp, line 179, as _ZNK34QCanvasConicalGradientBrushPrivate21createConicalGradientE6QColorS0_i
+inline void QCanvasConicalGradientBrushPrivate::createConicalGradient(QColor iColor, QColor oColor,
+                                              int imageId) const
+{
+    auto *d = this;
+    const auto dd = d->data.conical;
+    QCPaint &p = DECONST(d)->paint;
+    p.brushType = BrushConicalGradient;
+    p.transform = QTransform::fromTranslate(dd.cx, dd.cy);
+
+    // Note: p.extent and p.radius not used
+
+    // Rotating clockwise, starting from east
+    p.transform.rotateRadians(dd.angle + M_PI_2);
+
+    if (imageId != 0) {
+        // Multistop gradient
+        p.imageId = imageId;
+        p.innerColor.a = float(d->imageY);
+    } else {
+        // 2 stops gradient
+        p.innerColor = { iColor.redF(), iColor.greenF(), iColor.blueF(), iColor.alphaF() };
+        p.outerColor = { oColor.redF(), oColor.greenF(), oColor.blueF(), oColor.alphaF() };
+        p.imageId = 0;
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  A QCanvasConicalGradientBrushPrivate that Python can take functions over in. Every QCanvasConicalGradientBrushPrivate
@@ -66,7 +134,7 @@ typedef void * (*CuteQCanvasConicalGradientBrushPrivateCall1)(const void *, int 
 class CuteQCanvasConicalGradientBrushPrivate : public QCanvasConicalGradientBrushPrivate {
 public:
   using QCanvasConicalGradientBrushPrivate::QCanvasConicalGradientBrushPrivate;
-  CuteQCanvasConicalGradientBrushPrivate(const QCanvasConicalGradientBrushPrivate &other) : QCanvasConicalGradientBrushPrivate(other) {}
+  CuteQCanvasConicalGradientBrushPrivate(const QCanvasConicalGradientBrushPrivate & other) : QCanvasConicalGradientBrushPrivate(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -105,6 +173,26 @@ public:
     return QCanvasConicalGradientBrushPrivate::clone();
   }
 };
+
+//  QCPaint QCanvasConicalGradientBrushPrivate::createPaint(QCanvasPainter
+//      *painter) const
+extern "C" Q_DECL_EXPORT
+QCPaint *ritual_ZNK34QCanvasConicalGradientBrushPrivate11createPaintEP14QCanvasPainter(
+    const QCanvasConicalGradientBrushPrivate *self,
+    QCanvasPainter *painter) {
+  return new QCPaint(self->createPaint(painter));
+}
+
+//  void QCanvasConicalGradientBrushPrivate::createConicalGradient(QColor
+//      iColor, QColor oColor, int imageId) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK34QCanvasConicalGradientBrushPrivate21createConicalGradientE6QColorS0_i(
+    const QCanvasConicalGradientBrushPrivate *self,
+    const QColor *iColor,
+    const QColor *oColor,
+    int imageId) {
+  self->createConicalGradient(*iColor, *oColor, imageId);
+}
 
 //  QCanvasBrushPrivate *QCanvasConicalGradientBrushPrivate::clone()
 extern "C" Q_DECL_EXPORT

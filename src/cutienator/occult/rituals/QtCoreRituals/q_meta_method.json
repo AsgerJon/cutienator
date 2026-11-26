@@ -53,12 +53,32 @@
       "address", "address", "address", "address", "address", "address",
       "address"
     ],
+    "ritual_ZNK11QMetaMethod14invokeOnGadgetEPv22QGenericReturnArgument16QGenericArgumentS2_S2_S2_S2_S2_S2_S2_S2_S2_": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZNK11QMetaMethod14invokeOnGadgetEPv16QGenericArgumentS1_S1_S1_S1_S1_S1_S1_S1_S1_": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
     "ritual_ZNK11QMetaMethod7isValidEv": ["bool", "address"],
+    "ritual_ZN11QMetaMethod10invokeImplES_PvN2Qt14ConnectionTypeExPKPKvPKPKcPKPKN9QtPrivate18QMetaTypeInterfaceE": [
+      "bool", "address", "address", "int", "long long", "address", "address",
+      "address"
+    ],
+    "ritual_ZN11QMetaMethod14fromSignalImplEPK11QMetaObjectPPv": [
+      "address", "address", "address"
+    ],
     "ritual_ZN11QMetaMethod23fromRelativeMethodIndexEPK11QMetaObjecti": [
       "address", "address", "int"
     ],
     "ritual_ZN11QMetaMethod28fromRelativeConstructorIndexEPK11QMetaObjecti": [
       "address", "address", "int"
+    ],
+    "ritual_ZN11QMetaMethodC1EPK11QMetaObjectRKNS_4DataE": [
+      "address", "address", "address"
     ],
     "ritual_ZeqRK11QMetaMethodS1_": ["bool", "address", "address"],
     "ritual_ZneRK11QMetaMethodS1_": ["bool", "address", "address"],

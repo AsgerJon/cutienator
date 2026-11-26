@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK20QPlatformTextureList10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QPlatformTextureList11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QPlatformTextureList11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QPlatformTextureList2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN20QPlatformTextureList6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QPlatformTextureList6d_funcEv": ["address", "address"],
     "ritual_ZN20QPlatformTextureListC1EP7QObject": ["address", "address"],
     "ritual_ZN20QPlatformTextureListD1Ev": ["nothing", "address"],
     "ritual_ZNK20QPlatformTextureList5countEv": ["int", "address"],
@@ -25,10 +33,23 @@
     "ritual_ZNK20QPlatformTextureList8clipRectEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN20QPlatformTextureList6sourceEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK20QPlatformTextureList5flagsEi": ["int", "address", "int"],
     "ritual_ZN20QPlatformTextureList4lockEb": ["nothing", "address", "bool"],
     "ritual_ZNK20QPlatformTextureList8isLockedEv": ["bool", "address"],
+    "ritual_ZN20QPlatformTextureList13appendTextureEPvP11QRhiTextureRK5QRectS5_6QFlagsINS_4FlagEE": [
+      "nothing", "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QPlatformTextureList13appendTextureEPvP11QRhiTextureS2_RK5QRectS5_6QFlagsINS_4FlagEE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "int"
+    ],
     "ritual_ZN20QPlatformTextureList5clearEv": ["nothing", "address"],
+    "ritual_ZN20QPlatformTextureList6lockedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_QPlatformTextureList": [
       "bool", "address", "chars", "address"
     ]

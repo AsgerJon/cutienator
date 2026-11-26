@@ -5,9 +5,18 @@
   ],
   "rows": {
     "ritual_ZNK13QDateTimeAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QDateTimeAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QDateTimeAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QDateTimeAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QDateTimeAxisC1EP7QObject": ["address", "address"],
     "ritual_ZN13QDateTimeAxisD1Ev": ["nothing", "address"],
+    "ritual_ZN13QDateTimeAxisC1ER20QDateTimeAxisPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK13QDateTimeAxis4typeEv": ["int", "address"],
     "ritual_ZN13QDateTimeAxis6setMinE9QDateTime": [
       "nothing", "address", "address"
@@ -28,6 +37,21 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK13QDateTimeAxis9tickCountEv": ["int", "address"],
+    "ritual_ZN13QDateTimeAxis10minChangedE9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeAxis10maxChangedE9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeAxis12rangeChangedE9QDateTimeS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeAxis13formatChangedE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QDateTimeAxis16tickCountChangedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN13QDateTimeAxis6d_funcEv": ["address", "address"],
     "ritual_ZNK13QDateTimeAxis6d_funcEv": ["address", "address"],
     "ritual_take_QDateTimeAxis": ["bool", "address", "chars", "address"],

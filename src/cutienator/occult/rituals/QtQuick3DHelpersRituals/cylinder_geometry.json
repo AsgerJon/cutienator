@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16CylinderGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN16CylinderGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16CylinderGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16CylinderGeometry2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -36,9 +42,29 @@
       "nothing", "address"
     ],
     "ritual_ZN16CylinderGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN16CylinderGeometry13radiusChangedEv": ["nothing", "address"],
+    "ritual_ZN16CylinderGeometry13lengthChangedEv": ["nothing", "address"],
+    "ritual_ZN16CylinderGeometry12ringsChangedEv": ["nothing", "address"],
+    "ritual_ZN16CylinderGeometry15segmentsChangedEv": ["nothing", "address"],
+    "ritual_ZN16CylinderGeometry19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16CylinderGeometry13statusChangedEv": ["nothing", "address"],
     "ritual_ZN16CylinderGeometry22scheduleGeometryUpdateEv": [
       "nothing", "address"
     ],
-    "ritual_take_CylinderGeometry": ["bool", "address", "chars", "address"]
+    "ritual_ZN16CylinderGeometry14updateGeometryERKNS_12GeometryDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16CylinderGeometry24generateCylinderGeometryEffii": [
+      "address", "float", "float", "int", "int"
+    ],
+    "ritual_ZN16CylinderGeometry29generateCylinderGeometryAsyncER8QPromiseINS_12GeometryDataEEffii": [
+      "nothing", "address", "float", "float", "int", "int"
+    ],
+    "ritual_take_CylinderGeometry": ["bool", "address", "chars", "address"],
+    "ritual_drop_CylinderGeometry__CylinderGeometry_GeometryData": [
+      "nothing", "address"
+    ]
   }
 }

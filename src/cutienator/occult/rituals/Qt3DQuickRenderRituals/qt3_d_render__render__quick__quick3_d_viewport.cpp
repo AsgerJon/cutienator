@@ -185,6 +185,27 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick15Quick3DViewport10metaObj
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::Quick::Quick3DViewport::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick15Quick3DViewport11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::Quick3DViewport *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      Qt3DRender::Render::Quick::Quick3DViewport::qt_metacall(QMetaObject::
+//      Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick15Quick3DViewport11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::Quick3DViewport *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::Quick3DViewport::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -197,6 +218,14 @@ QString *ritual_ZN10Qt3DRender6Render5Quick15Quick3DViewport2trEPKcS4_i(
           s,
           c,
           n));
+}
+
+//  Qt3DRender::Render::Quick::Quick3DViewport::Quick3DViewport(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DViewport *ritual_ZN10Qt3DRender6Render5Quick15Quick3DViewportC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DViewport(parent);
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_Quick_Quick3DViewport,

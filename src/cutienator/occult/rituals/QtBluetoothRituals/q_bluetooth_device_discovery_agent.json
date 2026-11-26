@@ -8,6 +8,12 @@
     "ritual_ZNK30QBluetoothDeviceDiscoveryAgent10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QBluetoothDeviceDiscoveryAgent2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -45,6 +51,27 @@
     ],
     "ritual_ZN30QBluetoothDeviceDiscoveryAgent4stopEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent16deviceDiscoveredERK20QBluetoothDeviceInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent13deviceUpdatedERK20QBluetoothDeviceInfo6QFlagsINS0_5FieldEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent8finishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent13errorOccurredENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent8canceledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QBluetoothDeviceDiscoveryAgent6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_QBluetoothDeviceDiscoveryAgent": [
       "bool", "address", "chars", "address"

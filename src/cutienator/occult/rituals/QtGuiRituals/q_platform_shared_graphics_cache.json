@@ -8,6 +8,12 @@
     "ritual_ZNK28QPlatformSharedGraphicsCache10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QPlatformSharedGraphicsCache11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QPlatformSharedGraphicsCache2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,11 +23,47 @@
     "ritual_ZN28QPlatformSharedGraphicsCache22ensureCacheInitializedERK10QByteArrayNS_10BufferTypeENS_11PixelFormatE": [
       "nothing", "address", "address", "int", "int"
     ],
+    "ritual_ZN28QPlatformSharedGraphicsCache12requestItemsERK10QByteArrayRK5QListIjE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache11insertItemsERK10QByteArrayRK5QListIjERKS3_I6QImageE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache12releaseItemsERK10QByteArrayRK5QListIjE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN28QPlatformSharedGraphicsCache15endRequestBatchEv": [
       "nothing", "address"
     ],
     "ritual_ZNK28QPlatformSharedGraphicsCache19requestBatchStartedEv": [
       "bool", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache18textureIdForBufferEPv": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache15referenceBufferEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache17dereferenceBufferEPv": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache12sizeOfBufferEPv": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache17eglImageForBufferEPv": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache12itemsMissingERK10QByteArrayRK5QListIjE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache14itemsAvailableERK10QByteArrayPvRK5QListIjERKS4_I6QPointE": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache16itemsInvalidatedERK10QByteArrayRK5QListIjE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QPlatformSharedGraphicsCache12itemsUpdatedERK10QByteArrayPvRK5QListIjERKS4_I6QPointE": [
+      "nothing", "address", "address", "address", "address", "address"
     ],
     "ritual_take_QPlatformSharedGraphicsCache": [
       "bool", "address", "chars", "address"

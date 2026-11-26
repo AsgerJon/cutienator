@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK27QQuickKeyNavigationAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickKeyNavigationAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuickKeyNavigationAttached11qt_metacastEPKc(
+    QQuickKeyNavigationAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickKeyNavigationAttached::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuickKeyNavigationAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickKeyNavigationAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickKeyNavigationAttached::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -172,6 +191,55 @@ extern "C" Q_DECL_EXPORT
 QQuickKeyNavigationAttached *ritual_ZN27QQuickKeyNavigationAttached21qmlAttachedPropertiesEP7QObject(
     QObject *a0) {
   return QQuickKeyNavigationAttached::qmlAttachedProperties(a0);
+}
+
+//  void QQuickKeyNavigationAttached::leftChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickKeyNavigationAttached11leftChangedEv(
+    QQuickKeyNavigationAttached *self) {
+  self->leftChanged();
+}
+
+//  void QQuickKeyNavigationAttached::rightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickKeyNavigationAttached12rightChangedEv(
+    QQuickKeyNavigationAttached *self) {
+  self->rightChanged();
+}
+
+//  void QQuickKeyNavigationAttached::upChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickKeyNavigationAttached9upChangedEv(
+    QQuickKeyNavigationAttached *self) {
+  self->upChanged();
+}
+
+//  void QQuickKeyNavigationAttached::downChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickKeyNavigationAttached11downChangedEv(
+    QQuickKeyNavigationAttached *self) {
+  self->downChanged();
+}
+
+//  void QQuickKeyNavigationAttached::tabChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickKeyNavigationAttached10tabChangedEv(
+    QQuickKeyNavigationAttached *self) {
+  self->tabChanged();
+}
+
+//  void QQuickKeyNavigationAttached::backtabChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickKeyNavigationAttached14backtabChangedEv(
+    QQuickKeyNavigationAttached *self) {
+  self->backtabChanged();
+}
+
+//  void QQuickKeyNavigationAttached::priorityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickKeyNavigationAttached15priorityChangedEv(
+    QQuickKeyNavigationAttached *self) {
+  self->priorityChanged();
 }
 
 //  void QQuickKeyNavigationAttached::keyPressed(QKeyEvent *event, bool post)

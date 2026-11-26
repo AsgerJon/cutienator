@@ -4,6 +4,7 @@
 #include <Qt3DQuickExtras/Qt3DQuickExtras>
 #include <Qt3DQuickExtras/qt3dquickwindow.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
@@ -585,6 +586,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras5Quick15Qt3DQuickWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::Quick::Qt3DQuickWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow11qt_metacastEPKc(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::Quick::Qt3DQuickWindow::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::Quick::Qt3DQuickWindow::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -593,6 +613,120 @@ QString *ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow2trEPKcS3_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::Quick::Qt3DQuickWindow::tr(s, c, n));
+}
+
+//  Qt3DExtras::Quick::Qt3DQuickWindow::Qt3DQuickWindow(QWindow *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::Quick::Qt3DQuickWindow *ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindowC1EP7QWindow(
+    QWindow *parent) {
+  return new CuteQt3DExtras_Quick_Qt3DQuickWindow(parent);
+}
+
+//  Qt3DExtras::Quick::Qt3DQuickWindow::~Qt3DQuickWindow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindowD1Ev(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self) {
+  delete self;
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::registerAspect(Qt3DCore::QAbstra
+//      ctAspect *aspect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow14registerAspectEPN8Qt3DCore15QAbstractAspectE(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    Qt3DCore::QAbstractAspect *aspect) {
+  self->registerAspect(aspect);
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::registerAspect(const QString
+//      &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow14registerAspectERK7QString(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    const QString *name) {
+  self->registerAspect(*name);
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::setSource(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow9setSourceERK4QUrl(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    const QUrl *source) {
+  self->setSource(*source);
+}
+
+//  Qt3DCore::Quick::QQmlAspectEngine
+//      *Qt3DExtras::Quick::Qt3DQuickWindow::engine() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::Quick::QQmlAspectEngine *ritual_ZNK10Qt3DExtras5Quick15Qt3DQuickWindow6engineEv(
+    const Qt3DExtras::Quick::Qt3DQuickWindow *self) {
+  return self->engine();
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::setCameraAspectRatioMode(CameraA
+//      spectRatioMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow24setCameraAspectRatioModeENS1_21CameraAspectRatioModeE(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    Qt3DExtras::Quick::Qt3DQuickWindow::CameraAspectRatioMode mode) {
+  self->setCameraAspectRatioMode(mode);
+}
+
+//  CameraAspectRatioMode
+//      Qt3DExtras::Quick::Qt3DQuickWindow::cameraAspectRatioMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::Quick::Qt3DQuickWindow::CameraAspectRatioMode ritual_ZNK10Qt3DExtras5Quick15Qt3DQuickWindow21cameraAspectRatioModeEv(
+    const Qt3DExtras::Quick::Qt3DQuickWindow *self) {
+  return self->cameraAspectRatioMode();
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::cameraAspectRatioModeChanged(Cam
+//      eraAspectRatioMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow28cameraAspectRatioModeChangedENS1_21CameraAspectRatioModeE(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    Qt3DExtras::Quick::Qt3DQuickWindow::CameraAspectRatioMode mode) {
+  self->cameraAspectRatioModeChanged(mode);
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::showEvent(QShowEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow9showEventEP10QShowEvent(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    QShowEvent *e) {
+  self->showEvent(e);
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::onSceneCreated(QObject
+//      *rootObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow14onSceneCreatedEP7QObject(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    QObject *rootObject) {
+  self->onSceneCreated(rootObject);
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::setWindowSurface(QObject
+//      *rootObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow16setWindowSurfaceEP7QObject(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self,
+    QObject *rootObject) {
+  self->setWindowSurface(rootObject);
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::setCameraAspectModeHelper()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow25setCameraAspectModeHelperEv(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self) {
+  self->setCameraAspectModeHelper();
+}
+
+//  void Qt3DExtras::Quick::Qt3DQuickWindow::updateCameraAspectRatio()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow23updateCameraAspectRatioEv(
+    Qt3DExtras::Quick::Qt3DQuickWindow *self) {
+  self->updateCameraAspectRatio();
 }
 
 //  Qt3DQuickWindowPrivate *Qt3DExtras::Quick::Qt3DQuickWindow::d_func()

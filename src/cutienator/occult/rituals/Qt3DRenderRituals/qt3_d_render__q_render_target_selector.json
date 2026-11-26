@@ -8,8 +8,32 @@
     "ritual_ZNK10Qt3DRender21QRenderTargetSelector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender21QRenderTargetSelector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderTargetSelector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender21QRenderTargetSelector2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderTargetSelectorC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderTargetSelectorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QRenderTargetSelector6targetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderTargetSelector9setTargetEPNS_13QRenderTargetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderTargetSelector13targetChangedEPNS_13QRenderTargetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderTargetSelectorC1ERNS_28QRenderTargetSelectorPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender21QRenderTargetSelector6d_funcEv": [
       "address", "address"

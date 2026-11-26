@@ -5,6 +5,120 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV46Lookup13resolveGetterEPNS_15ExecutionEngineEPKNS_6ObjectE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup22resolvePrimitiveGetterEPNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup19resolveGlobalGetterEPNS_15ExecutionEngineE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup18resolveProtoGetterENS_11PropertyKeyEPKNS_4Heap6ObjectE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup13getterGenericEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup16getterTwoClassesEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup14getterFallbackEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup17getter0MemberDataEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup13getter0InlineEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup11getterProtoEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup26getter0Inlinegetter0InlineEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup30getter0Inlinegetter0MemberDataEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup34getter0MemberDatagetter0MemberDataEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup21getterProtoTwoClassesEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup14getterAccessorEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup19getterProtoAccessorEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup29getterProtoAccessorTwoClassesEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup13getterIndexedEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup13getterQObjectEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup19getterQObjectMethodEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup20getterFallbackMethodEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup15getterValueTypeEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup20primitiveGetterProtoEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup23primitiveGetterAccessorEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup18stringLengthGetterEPS0_PNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup19globalGetterGenericEPS0_PNS_15ExecutionEngineE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup17globalGetterProtoEPS0_PNS_15ExecutionEngineE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup25globalGetterProtoAccessorEPS0_PNS_15ExecutionEngineE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup13resolveSetterEPNS_15ExecutionEngineEPNS_6ObjectERKNS_5ValueE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup13setterGenericEPS0_PNS_15ExecutionEngineERNS_5ValueERKS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup16setterTwoClassesEPS0_PNS_15ExecutionEngineERNS_5ValueERKS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup14setterFallbackEPS0_PNS_15ExecutionEngineERNS_5ValueERKS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup17setter0MemberDataEPS0_PNS_15ExecutionEngineERNS_5ValueERKS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup13setter0InlineEPS0_PNS_15ExecutionEngineERNS_5ValueERKS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup14setter0setter0EPS0_PNS_15ExecutionEngineERNS_5ValueERKS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup12setterInsertEPS0_PNS_15ExecutionEngineERNS_5ValueERKS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup13setterQObjectEPS0_PNS_15ExecutionEngineERNS_5ValueERKS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup17arrayLengthSetterEPS0_PNS_15ExecutionEngineERNS_5ValueERKS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN3QV46Lookup11markObjectsEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
@@ -19,6 +133,9 @@
     ],
     "ritual_ZN3QV46Lookup6getterEPNS_15ExecutionEngineERKNS_5ValueE": [
       "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup6setterEPNS_15ExecutionEngineERNS_5ValueERKS3_": [
+      "bool", "address", "address", "address", "address"
     ],
     "ritual_ZN3QV46Lookup20releasePropertyCacheEv": ["nothing", "address"],
     "ritual_ZN3QV46LookupD1Ev": ["nothing", "address"]

@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <vector>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DAnimation::QAnimationAspect that Python can take functions over in. Every Qt3DAnimation::QAnimationAspect
 //  Python makes is one. Each function below asks the Python
@@ -275,6 +277,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation16QAnimationAspect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QAnimationAspect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation16QAnimationAspect11qt_metacastEPKc(
+    Qt3DAnimation::QAnimationAspect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QAnimationAspect::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation16QAnimationAspect11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QAnimationAspect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QAnimationAspect::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -283,6 +304,29 @@ QString *ritual_ZN13Qt3DAnimation16QAnimationAspect2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QAnimationAspect::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QAnimationAspect::QAnimationAspect(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationAspect *ritual_ZN13Qt3DAnimation16QAnimationAspectC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DAnimation_QAnimationAspect(parent);
+}
+
+//  Qt3DAnimation::QAnimationAspect::~QAnimationAspect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation16QAnimationAspectD1Ev(
+    Qt3DAnimation::QAnimationAspect *self) {
+  delete self;
+}
+
+//  std::vector<Qt3DCore::QAspectJobPtr>
+//      Qt3DAnimation::QAnimationAspect::jobsToExecute(qint64 time)
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZN13Qt3DAnimation16QAnimationAspect13jobsToExecuteEx(
+    Qt3DAnimation::QAnimationAspect *self,
+    qint64 time) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(self->jobsToExecute(time));
 }
 
 //  QAnimationAspectPrivate *Qt3DAnimation::QAnimationAspect::d_func()
@@ -300,6 +344,15 @@ const Qt3DAnimation::QAnimationAspectPrivate *ritual_ZNK13Qt3DAnimation16QAnimat
   return self->d_func();
 }
 
+//  Qt3DAnimation::QAnimationAspect::QAnimationAspect(QAnimationAspectPrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationAspect *ritual_ZN13Qt3DAnimation16QAnimationAspectC1ERNS_23QAnimationAspectPrivateEP7QObject(
+    Qt3DAnimation::QAnimationAspectPrivate *dd,
+    QObject *parent) {
+  return new CuteQt3DAnimation_QAnimationAspect(*dd, parent);
+}
+
 //  a Python function taken by a CuteQt3DAnimation_QAnimationAspect, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -308,4 +361,12 @@ bool ritual_take_Qt3DAnimation_QAnimationAspect(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DAnimation_QAnimationAspect *>(self)->take(key, call);
+}
+
+//  a std::vector<Qt3DCore::QAspectJobPtr> a ritual of
+//      Qt3DAnimation::QAnimationAspect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DAnimation_QAnimationAspect__std_vector_Qt3DCore_QAspectJobPtr(
+    std::vector<Qt3DCore::QAspectJobPtr> *self) {
+  delete self;
 }

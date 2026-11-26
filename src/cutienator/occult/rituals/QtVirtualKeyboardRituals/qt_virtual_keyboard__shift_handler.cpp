@@ -1,6 +1,9 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/shifthandler_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/shifthandler_p.h,
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Left out: nothing. The constructor is private, and is written,
+//  as private members may be named.
 #include <QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/qvirtualkeyboard_global_p.h>
 #include <QtVirtualKeyboard/QtVirtualKeyboard>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -206,6 +209,212 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QtVirtualKeyboard12ShiftHandler11toggleShiftEv(
     QtVirtualKeyboard::ShiftHandler *self) {
   self->toggleShift();
+}
+
+//  QtVirtualKeyboard::ShiftHandler::ShiftHandler(QVirtualKeyboardInputContext
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::ShiftHandler *ritual_ZN17QtVirtualKeyboard12ShiftHandlerC1EP28QVirtualKeyboardInputContext(
+    QVirtualKeyboardInputContext *parent) {
+  return new CuteQtVirtualKeyboard_ShiftHandler(parent);
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::init()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler4initEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->init();
+}
+
+//  QtVirtualKeyboard::ShiftHandler::~ShiftHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandlerD1Ev(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  delete self;
+}
+
+//  QString QtVirtualKeyboard::ShiftHandler::sentenceEndingCharacters() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK17QtVirtualKeyboard12ShiftHandler24sentenceEndingCharactersEv(
+    const QtVirtualKeyboard::ShiftHandler *self) {
+  return new QString(self->sentenceEndingCharacters());
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::setSentenceEndingCharacters(const
+//      QString &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler27setSentenceEndingCharactersERK7QString(
+    QtVirtualKeyboard::ShiftHandler *self,
+    const QString *value) {
+  self->setSentenceEndingCharacters(*value);
+}
+
+//  bool QtVirtualKeyboard::ShiftHandler::isAutoCapitalizationEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard12ShiftHandler27isAutoCapitalizationEnabledEv(
+    const QtVirtualKeyboard::ShiftHandler *self) {
+  return self->isAutoCapitalizationEnabled();
+}
+
+//  bool QtVirtualKeyboard::ShiftHandler::isToggleShiftEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard12ShiftHandler20isToggleShiftEnabledEv(
+    const QtVirtualKeyboard::ShiftHandler *self) {
+  return self->isToggleShiftEnabled();
+}
+
+//  bool QtVirtualKeyboard::ShiftHandler::isShiftActive() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard12ShiftHandler13isShiftActiveEv(
+    const QtVirtualKeyboard::ShiftHandler *self) {
+  return self->isShiftActive();
+}
+
+//  bool QtVirtualKeyboard::ShiftHandler::isCapsLockActive() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard12ShiftHandler16isCapsLockActiveEv(
+    const QtVirtualKeyboard::ShiftHandler *self) {
+  return self->isCapsLockActive();
+}
+
+//  bool QtVirtualKeyboard::ShiftHandler::isUppercase() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard12ShiftHandler11isUppercaseEv(
+    const QtVirtualKeyboard::ShiftHandler *self) {
+  return self->isUppercase();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::setShiftActive(bool active)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler14setShiftActiveEb(
+    QtVirtualKeyboard::ShiftHandler *self,
+    bool active) {
+  self->setShiftActive(active);
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::setCapsLockActive(bool active)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler17setCapsLockActiveEb(
+    QtVirtualKeyboard::ShiftHandler *self,
+    bool active) {
+  self->setCapsLockActive(active);
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::clearToggleShiftTimer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler21clearToggleShiftTimerEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->clearToggleShiftTimer();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::sentenceEndingCharactersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler31sentenceEndingCharactersChangedEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->sentenceEndingCharactersChanged();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::toggleShiftEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler25toggleShiftEnabledChangedEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->toggleShiftEnabledChanged();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::autoCapitalizationEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler32autoCapitalizationEnabledChangedEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->autoCapitalizationEnabledChanged();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::shiftActiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler18shiftActiveChangedEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->shiftActiveChanged();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::capsLockActiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler21capsLockActiveChangedEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->capsLockActiveChanged();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::uppercaseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler16uppercaseChangedEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->uppercaseChanged();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::reset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler5resetEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->reset();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::autoCapitalize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler14autoCapitalizeEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->autoCapitalize();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::restart()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler7restartEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->restart();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler13localeChangedEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->localeChanged();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::inputMethodVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler25inputMethodVisibleChangedEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  self->inputMethodVisibleChanged();
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::setAutoCapitalizationEnabled(bool
+//      enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler28setAutoCapitalizationEnabledEb(
+    QtVirtualKeyboard::ShiftHandler *self,
+    bool enabled) {
+  self->setAutoCapitalizationEnabled(enabled);
+}
+
+//  void QtVirtualKeyboard::ShiftHandler::setToggleShiftEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard12ShiftHandler21setToggleShiftEnabledEb(
+    QtVirtualKeyboard::ShiftHandler *self,
+    bool enabled) {
+  self->setToggleShiftEnabled(enabled);
+}
+
+//  QtVirtualKeyboard::ShiftHandlerPrivate
+//      *QtVirtualKeyboard::ShiftHandler::d_func()
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::ShiftHandlerPrivate *ritual_ZN17QtVirtualKeyboard12ShiftHandler6d_funcEv(
+    QtVirtualKeyboard::ShiftHandler *self) {
+  return self->d_func();
+}
+
+//  const QtVirtualKeyboard::ShiftHandlerPrivate
+//      *QtVirtualKeyboard::ShiftHandler::d_func() const
+extern "C" Q_DECL_EXPORT
+const QtVirtualKeyboard::ShiftHandlerPrivate *ritual_ZNK17QtVirtualKeyboard12ShiftHandler6d_funcEv(
+    const QtVirtualKeyboard::ShiftHandler *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQtVirtualKeyboard_ShiftHandler, for the

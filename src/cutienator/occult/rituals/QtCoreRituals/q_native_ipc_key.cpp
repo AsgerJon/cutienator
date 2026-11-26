@@ -38,10 +38,40 @@ QNativeIpcKey *ritual_ZN13QNativeIpcKeyC1ERKS_(const QNativeIpcKey *other) {
   return new QNativeIpcKey(*other);
 }
 
+//  QNativeIpcKey::QNativeIpcKey(QNativeIpcKey &&other)
+extern "C" Q_DECL_EXPORT
+QNativeIpcKey *ritual_ZN13QNativeIpcKeyC1EOS_(QNativeIpcKey *other) {
+  return new QNativeIpcKey(std::move(*other));
+}
+
 //  QNativeIpcKey::~QNativeIpcKey()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QNativeIpcKeyD1Ev(QNativeIpcKey *self) {
   delete self;
+}
+
+//  QNativeIpcKey &QNativeIpcKey::operator=(const QNativeIpcKey &other)
+extern "C" Q_DECL_EXPORT
+QNativeIpcKey *ritual_ZN13QNativeIpcKeyaSERKS_(
+    QNativeIpcKey *self,
+    const QNativeIpcKey *other) {
+  return &(self->operator=(*other));
+}
+
+//  QNativeIpcKey &QNativeIpcKey::operator=(QNativeIpcKey &&other)
+extern "C" Q_DECL_EXPORT
+QNativeIpcKey *ritual_ZN13QNativeIpcKeyaSEOS_(
+    QNativeIpcKey *self,
+    QNativeIpcKey *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QNativeIpcKey::swap(QNativeIpcKey &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNativeIpcKey4swapERS_(
+    QNativeIpcKey *self,
+    QNativeIpcKey *other) {
+  self->swap(*other);
 }
 
 //  bool QNativeIpcKey::isEmpty() const
@@ -110,6 +140,22 @@ void ritual_ZN13QNativeIpcKey13copy_internalERKS_(
     QNativeIpcKey *self,
     const QNativeIpcKey *other) {
   self->copy_internal(*other);
+}
+
+//  void QNativeIpcKey::move_internal(QNativeIpcKey &&other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNativeIpcKey13move_internalEOS_(
+    QNativeIpcKey *self,
+    QNativeIpcKey *other) {
+  self->move_internal(std::move(*other));
+}
+
+//  QNativeIpcKey &QNativeIpcKey::assign_internal(const QNativeIpcKey &other)
+extern "C" Q_DECL_EXPORT
+QNativeIpcKey *ritual_ZN13QNativeIpcKey15assign_internalERKS_(
+    QNativeIpcKey *self,
+    const QNativeIpcKey *other) {
+  return &(self->assign_internal(*other));
 }
 
 //  void QNativeIpcKey::destroy_internal()

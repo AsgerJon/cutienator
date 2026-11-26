@@ -7,6 +7,35 @@
 #include <Qt3DInput/6.12.0/Qt3DInput/private/qlogicaldevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DInput/qlogicaldevice.h>
+#include <Qt3DInput/private/qlogicaldevice_p.h>
+#include <Qt3DInput/qaction.h>
+#include <Qt3DInput/qaxis.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/input/frontend/qlogicaldevice.cpp, line 14, as _ZN9Qt3DInput21QLogicalDevicePrivateC1Ev
+namespace Qt3DInput {
+inline QLogicalDevicePrivate::QLogicalDevicePrivate()
+    : Qt3DCore::QComponentPrivate()
+{
+}
+}  // namespace Qt3DInput
+
+//  from ../qt3d/src/input/frontend/qlogicaldevice.cpp, line 19, as _ZN9Qt3DInput21QLogicalDevicePrivateD1Ev
+namespace Qt3DInput {
+inline QLogicalDevicePrivate::~QLogicalDevicePrivate()
+{
+}
+}  // namespace Qt3DInput
+//  -----------------------------------------------------------------------
 
 //  A Qt3DInput::QLogicalDevicePrivate that Python can take functions over in. Every Qt3DInput::QLogicalDevicePrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +81,19 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DInput::QLogicalDevicePrivate::QLogicalDevicePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QLogicalDevicePrivate *ritual_ZN9Qt3DInput21QLogicalDevicePrivateC1Ev() {
+  return new CuteQt3DInput_QLogicalDevicePrivate();
+}
+
+//  Qt3DInput::QLogicalDevicePrivate::~QLogicalDevicePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput21QLogicalDevicePrivateD1Ev(
+    Qt3DInput::QLogicalDevicePrivate *self) {
+  delete self;
+}
 
 //  a Python function taken by a CuteQt3DInput_QLogicalDevicePrivate, for the
 //      function named by the key

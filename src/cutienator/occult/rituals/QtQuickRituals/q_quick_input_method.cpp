@@ -191,6 +191,25 @@ const QMetaObject *ritual_ZNK17QQuickInputMethod10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickInputMethod::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickInputMethod11qt_metacastEPKc(
+    QQuickInputMethod *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickInputMethod::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickInputMethod11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickInputMethod *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickInputMethod::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickInputMethod2trEPKcS1_i(
@@ -307,6 +326,63 @@ extern "C" Q_DECL_EXPORT
 QLocale *ritual_ZNK17QQuickInputMethod6localeEv(
     const QQuickInputMethod *self) {
   return new QLocale(self->locale());
+}
+
+//  void QQuickInputMethod::anchorRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickInputMethod22anchorRectangleChangedEv(
+    QQuickInputMethod *self) {
+  self->anchorRectangleChanged();
+}
+
+//  void QQuickInputMethod::animatingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickInputMethod16animatingChangedEv(
+    QQuickInputMethod *self) {
+  self->animatingChanged();
+}
+
+//  void QQuickInputMethod::cursorRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickInputMethod22cursorRectangleChangedEv(
+    QQuickInputMethod *self) {
+  self->cursorRectangleChanged();
+}
+
+//  void QQuickInputMethod::inputDirectionChanged(Qt::LayoutDirection
+//      newDirection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickInputMethod21inputDirectionChangedEN2Qt15LayoutDirectionE(
+    QQuickInputMethod *self,
+    Qt::LayoutDirection newDirection) {
+  self->inputDirectionChanged(newDirection);
+}
+
+//  void QQuickInputMethod::inputItemClipRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickInputMethod29inputItemClipRectangleChangedEv(
+    QQuickInputMethod *self) {
+  self->inputItemClipRectangleChanged();
+}
+
+//  void QQuickInputMethod::keyboardRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickInputMethod24keyboardRectangleChangedEv(
+    QQuickInputMethod *self) {
+  self->keyboardRectangleChanged();
+}
+
+//  void QQuickInputMethod::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickInputMethod13localeChangedEv(QQuickInputMethod *self) {
+  self->localeChanged();
+}
+
+//  void QQuickInputMethod::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickInputMethod14visibleChangedEv(
+    QQuickInputMethod *self) {
+  self->visibleChanged();
 }
 
 //  void QQuickInputMethod::commit()

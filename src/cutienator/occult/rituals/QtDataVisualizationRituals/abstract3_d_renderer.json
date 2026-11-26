@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18Abstract3DRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN18Abstract3DRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18Abstract3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18Abstract3DRendererD1Ev": ["nothing", "address"],
     "ritual_ZN18Abstract3DRenderer10updateDataEv": ["nothing", "address"],
     "ritual_ZN18Abstract3DRenderer12updateSeriesERK5QListIP17QAbstract3DSeriesE": [
@@ -122,6 +128,9 @@
     "ritual_ZN18Abstract3DRenderer18modifiedSeriesListERK5QListIP17QAbstract3DSeriesE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18Abstract3DRenderer15fixMeshFileNameER7QStringN17QAbstract3DSeries4MeshE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN18Abstract3DRenderer13addCustomItemEP13QCustom3DItem": [
       "address", "address", "address"
     ],
@@ -171,11 +180,21 @@
     "ritual_ZNK18Abstract3DRenderer24cachedGraphPositionQueryEv": [
       "address", "address"
     ],
+    "ritual_ZN18Abstract3DRenderer18selectionLabelItemEv": [
+      "address", "address"
+    ],
     "ritual_ZN18Abstract3DRenderer17setSelectionLabelERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN18Abstract3DRenderer14selectionLabelEv": [
+      "address", "address"
+    ],
     "ritual_ZN18Abstract3DRenderer21indexToSelectionColorEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZN18Abstract3DRenderer10needRenderEv": ["nothing", "address"],
+    "ritual_ZN18Abstract3DRenderer20requestShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN18Abstract3DRenderer14contextCleanupEv": [
       "nothing", "address"
@@ -188,6 +207,9 @@
       "nothing", "address"
     ],
     "ritual_ZN18Abstract3DRenderer12handleResizeEv": ["nothing", "address"],
+    "ritual_ZN18Abstract3DRenderer23axisCacheForOrientationEN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN18Abstract3DRenderer18lowerShadowQualityEv": [
       "nothing", "address"
     ],
@@ -197,8 +219,14 @@
     "ritual_ZN18Abstract3DRenderer30calculatePolarBackgroundMarginEv": [
       "float", "address"
     ],
+    "ritual_ZN18Abstract3DRenderer15fixCameraTargetER9QVector3D": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18Abstract3DRenderer34recalculateCustomItemScalingAndPosEP16CustomRenderItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer20getVisibleItemBoundsER9QVector3DS1_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_cast_Abstract3DRenderer_QOpenGLFunctions": [
       "address", "address"

@@ -18,10 +18,43 @@ QTextBoundaryFinder *ritual_ZN19QTextBoundaryFinderC1ERKS_(
   return new QTextBoundaryFinder(*other);
 }
 
+//  QTextBoundaryFinder::QTextBoundaryFinder(QTextBoundaryFinder &&other)
+extern "C" Q_DECL_EXPORT
+QTextBoundaryFinder *ritual_ZN19QTextBoundaryFinderC1EOS_(
+    QTextBoundaryFinder *other) {
+  return new QTextBoundaryFinder(std::move(*other));
+}
+
+//  QTextBoundaryFinder &QTextBoundaryFinder::operator=(const
+//      QTextBoundaryFinder &other)
+extern "C" Q_DECL_EXPORT
+QTextBoundaryFinder *ritual_ZN19QTextBoundaryFinderaSERKS_(
+    QTextBoundaryFinder *self,
+    const QTextBoundaryFinder *other) {
+  return &(self->operator=(*other));
+}
+
+//  QTextBoundaryFinder &QTextBoundaryFinder::operator=(QTextBoundaryFinder
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QTextBoundaryFinder *ritual_ZN19QTextBoundaryFinderaSEOS_(
+    QTextBoundaryFinder *self,
+    QTextBoundaryFinder *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QTextBoundaryFinder::~QTextBoundaryFinder()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QTextBoundaryFinderD1Ev(QTextBoundaryFinder *self) {
   delete self;
+}
+
+//  void QTextBoundaryFinder::swap(QTextBoundaryFinder &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTextBoundaryFinder4swapERS_(
+    QTextBoundaryFinder *self,
+    QTextBoundaryFinder *other) {
+  self->swap(*other);
 }
 
 //  QTextBoundaryFinder::QTextBoundaryFinder(BoundaryType type, const QString

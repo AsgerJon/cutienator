@@ -11,6 +11,36 @@
     "ritual_ZN8Qt3DCore5Quick27QQuick3DQuaternionValueType21qt_qmlMarker_extendedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN8Qt3DCore5Quick27QQuick3DQuaternionValueType6createERK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick27QQuick3DQuaternionValueType8toStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick27QQuick3DQuaternionValueType6scalarEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick27QQuick3DQuaternionValueType1xEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick27QQuick3DQuaternionValueType1yEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick27QQuick3DQuaternionValueType1zEv": [
+      "double", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick27QQuick3DQuaternionValueType9setScalarEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick27QQuick3DQuaternionValueType4setXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick27QQuick3DQuaternionValueType4setYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick27QQuick3DQuaternionValueType4setZEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZN8Qt3DCore5Quick27QQuick3DQuaternionValueTypeD1Ev": [
       "nothing", "address"
     ]

@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuick3DXrVirtualMouse10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuick3DXrVirtualMouse11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK22QQuick3DXrVirtualMouse16rightMouseButtonEv": [
       "bool", "address"
     ],
@@ -32,9 +38,69 @@
     "ritual_ZNK22QQuick3DXrVirtualMouse6sourceEv": ["address", "address"],
     "ritual_ZNK22QQuick3DXrVirtualMouse4viewEv": ["address", "address"],
     "ritual_ZNK22QQuick3DXrVirtualMouse7enabledEv": ["bool", "address"],
+    "ritual_ZN22QQuick3DXrVirtualMouse19setRightMouseButtonEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse18setLeftMouseButtonEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse20setMiddleMouseButtonEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse15setScrollWheelXEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse15setScrollWheelYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse22setScrollTimerIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse19setScrollPixelDeltaEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse9setSourceEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse7setViewEP14QQuick3DXrView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN22QQuick3DXrVirtualMouse9moveEventEv": ["nothing", "address"],
     "ritual_ZN22QQuick3DXrVirtualMouse18generateWheelEventEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse23rightMouseButtonChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse22leftMouseButtonChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse24middleMouseButtonChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse19scrollWheelXChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse19scrollWheelYChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse26scrollTimerIntervalChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse23scrollPixelDeltaChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse13sourceChangedEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse11viewChangedEP14QQuick3DXrView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouse14enabledChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN22QQuick3DXrVirtualMouse13generateEventEN6QEvent4TypeEN2Qt11MouseButtonE": [
       "nothing", "address", "int", "int"

@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN3QV416VariantPrototype16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV416VariantPrototype15method_toStringEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV416VariantPrototype14method_valueOfEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
     ]
   }
 }

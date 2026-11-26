@@ -29,6 +29,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtconnectivity/src/bluetooth/qbluetoothsocketbase.cpp, line 8, as _ZN27QBluetoothSocketBasePrivateC2EP7QObject
 inline QBluetoothSocketBasePrivate::QBluetoothSocketBasePrivate(QObject *parent) : QObject(parent)
 {
@@ -83,6 +85,26 @@ inline qint64 QBluetoothSocketPrivateBluezDBus::writeData(const char *data, qint
 
     if (localSocket)
         return localSocket->write(data, maxSize);
+
+    return -1;
+}
+
+//  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_bluezdbus.cpp, line 464, as _ZN32QBluetoothSocketPrivateBluezDBus8readDataEPcx
+inline qint64 QBluetoothSocketPrivateBluezDBus::readData(char *data, qint64 maxSize)
+{
+    Q_UNUSED(data);
+    Q_UNUSED(maxSize);
+
+    Q_Q(QBluetoothSocket);
+
+    if (state != QBluetoothSocket::SocketState::ConnectedState) {
+        errorString = QBluetoothSocket::tr("Cannot read while not connected");
+        q->setSocketError(QBluetoothSocket::SocketError::OperationError);
+        return -1;
+    }
+
+    if (localSocket)
+        return localSocket->read(data, maxSize);
 
     return -1;
 }
@@ -158,6 +180,16 @@ qint64 ritual_ZN32QBluetoothSocketPrivateBluezDBus9writeDataEPKcx(
     const char *data,
     qint64 maxSize) {
   return self->writeData(data, maxSize);
+}
+
+//  qint64 QBluetoothSocketPrivateBluezDBus::readData(char *data, qint64
+//      maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN32QBluetoothSocketPrivateBluezDBus8readDataEPcx(
+    QBluetoothSocketPrivateBluezDBus *self,
+    char *data,
+    qint64 maxSize) {
+  return self->readData(data, maxSize);
 }
 
 //  bool QBluetoothSocketPrivateBluezDBus::setSocketDescriptor(int

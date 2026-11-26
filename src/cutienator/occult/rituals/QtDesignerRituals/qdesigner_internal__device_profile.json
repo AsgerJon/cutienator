@@ -5,6 +5,82 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal13DeviceProfileC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal13DeviceProfileC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfileaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfileD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile7isEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile10fontFamilyEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile13setFontFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile13fontPointSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile16setFontPointSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile4dpiXEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile7setDpiXEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile4dpiYEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile7setDpiYEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile5styleEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile8setStyleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile10fromSystemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile16systemResolutionEPiS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile16widgetResolutionEPK7QWidgetPiS4_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile5applyEPK28QDesignerFormEditorInterfaceP7QWidgetNS0_9ApplyModeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile8applyDPIEiiP7QWidget": [
+      "nothing", "int", "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile8toStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13DeviceProfile5toXmlEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13DeviceProfile7fromXmlERK7QStringPS1_": [
+      "bool", "address", "text", "address"
+    ],
     "ritual_ZN18qdesigner_internaleqERKNS_13DeviceProfileES2_": [
       "bool", "address", "address"
     ],

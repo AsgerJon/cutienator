@@ -5,6 +5,27 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal18MorphLayoutCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18MorphLayoutCommandD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18MorphLayoutCommand4initEP7QWidgeti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal18MorphLayoutCommand8canMorphEPK28QDesignerFormWindowInterfaceP7QWidgetPi": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18MorphLayoutCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18MorphLayoutCommand4undoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18MorphLayoutCommand17formatDescriptionEP28QDesignerFormEditorInterfacePK7QWidgetii": [
+      "text", "address", "address", "int", "int"
+    ],
     "ritual_take_qdesigner_internal_MorphLayoutCommand": [
       "bool", "address", "chars", "address"
     ],

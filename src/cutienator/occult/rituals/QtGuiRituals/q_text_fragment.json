@@ -9,6 +9,7 @@
     ],
     "ritual_ZN13QTextFragmentC1Ev": ["address"],
     "ritual_ZN13QTextFragmentC1ERKS_": ["address", "address"],
+    "ritual_ZN13QTextFragmentaSERKS_": ["address", "address", "address"],
     "ritual_ZNK13QTextFragment7isValidEv": ["bool", "address"],
     "ritual_ZNK13QTextFragmenteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK13QTextFragmentneERKS_": ["bool", "address", "address"],

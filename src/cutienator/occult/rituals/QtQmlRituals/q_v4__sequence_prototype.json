@@ -8,11 +8,55 @@
     "ritual_ZN3QV417SequencePrototype16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
     ],
+    "ritual_ZN3QV417SequencePrototype4initEv": ["nothing", "address"],
+    "ritual_ZN3QV417SequencePrototype14method_valueOfEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417SequencePrototype12method_shiftEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417SequencePrototype14method_unshiftEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417SequencePrototype11method_pushEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417SequencePrototype10method_popEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417SequencePrototype16method_getLengthEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417SequencePrototype16method_setLengthEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417SequencePrototype11newSequenceEPNS_15ExecutionEngineE9QMetaType13QMetaSequencePKvPNS_4Heap6ObjectEi6QFlagsINS7_15ReferenceObject4FlagEE": [
+      "unsigned long long", "address", "address", "address", "address",
+      "address", "int", "int"
+    ],
+    "ritual_ZN3QV417SequencePrototype11fromVariantEPNS_15ExecutionEngineERK8QVariant": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV417SequencePrototype8fromDataEPNS_15ExecutionEngineE9QMetaType13QMetaSequencePKv": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV417SequencePrototype19metaTypeForSequenceEPKNS_8SequenceE": [
+      "address", "address"
+    ],
     "ritual_ZN3QV417SequencePrototype9toVariantEPKNS_8SequenceE": [
       "address", "address"
     ],
     "ritual_ZN3QV417SequencePrototype9toVariantERKNS_5ValueE9QMetaType": [
       "address", "address", "address"
+    ],
+    "ritual_ZN3QV417SequencePrototype15rawContainerPtrEPKNS_8SequenceE9QMetaType": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV417SequencePrototype15setRawContainerEPNS_8SequenceEPKv9QMetaType": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN3QV417SequencePrototype15getRawContainerEPKNS_8SequenceEPv9QMetaType": [
+      "int", "address", "address", "address"
     ]
   }
 }

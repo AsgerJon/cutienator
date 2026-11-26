@@ -17,6 +17,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQmlDelegateModel that Python can take functions over in. Every QQmlDelegateModel
 //  Python makes is one. Each function below asks the Python
@@ -585,6 +586,25 @@ const QMetaObject *ritual_ZNK17QQmlDelegateModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDelegateModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQmlDelegateModel11qt_metacastEPKc(
+    QQmlDelegateModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDelegateModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQmlDelegateModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDelegateModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlDelegateModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQmlDelegateModel2trEPKcS1_i(
@@ -849,6 +869,13 @@ QQmlDelegateModelGroup *ritual_ZN17QQmlDelegateModel14persistedItemsEv(
   return self->persistedItems();
 }
 
+//  QQmlListProperty<QQmlDelegateModelGroup> QQmlDelegateModel::groups()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQmlDelegateModelGroup> *ritual_ZN17QQmlDelegateModel6groupsEv(
+    QQmlDelegateModel *self) {
+  return new QQmlListProperty<QQmlDelegateModelGroup>(self->groups());
+}
+
 //  QObject *QQmlDelegateModel::parts()
 extern "C" Q_DECL_EXPORT
 QObject *ritual_ZN17QQmlDelegateModel5partsEv(QQmlDelegateModel *self) {
@@ -876,6 +903,58 @@ extern "C" Q_DECL_EXPORT
 QQmlDelegateModelAttached *ritual_ZN17QQmlDelegateModel21qmlAttachedPropertiesEP7QObject(
     QObject *obj) {
   return QQmlDelegateModel::qmlAttachedProperties(obj);
+}
+
+//  void QQmlDelegateModel::filterGroupChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel18filterGroupChangedEv(
+    QQmlDelegateModel *self) {
+  self->filterGroupChanged();
+}
+
+//  void QQmlDelegateModel::defaultGroupsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel20defaultGroupsChangedEv(
+    QQmlDelegateModel *self) {
+  self->defaultGroupsChanged();
+}
+
+//  void QQmlDelegateModel::rootIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel16rootIndexChangedEv(
+    QQmlDelegateModel *self) {
+  self->rootIndexChanged();
+}
+
+//  void QQmlDelegateModel::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel15delegateChangedEv(
+    QQmlDelegateModel *self) {
+  self->delegateChanged();
+}
+
+//  void QQmlDelegateModel::delegateModelAccessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel26delegateModelAccessChangedEv(
+    QQmlDelegateModel *self) {
+  self->delegateModelAccessChanged();
+}
+
+//  void QQmlDelegateModel::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel12modelChangedEv(QQmlDelegateModel *self) {
+  self->modelChanged();
+}
+
+//  void QQmlDelegateModel::_q_itemsChanged(int index, int count, const
+//      QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel15_q_itemsChangedEiiRK5QListIiE(
+    QQmlDelegateModel *self,
+    int index,
+    int count,
+    const QList<int> *roles) {
+  self->_q_itemsChanged(index, count, *roles);
 }
 
 //  void QQmlDelegateModel::_q_itemsInserted(int index, int count)
@@ -992,6 +1071,17 @@ void ritual_ZN17QQmlDelegateModel12_q_rowsMovedERK11QModelIndexiiS2_i(
     const QModelIndex *a3,
     int a4) {
   self->_q_rowsMoved(*a0, a1, a2, *a3, a4);
+}
+
+//  void QQmlDelegateModel::_q_dataChanged(const QModelIndex &a0, const
+//      QModelIndex &a1, const QList<int> &a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel14_q_dataChangedERK11QModelIndexS2_RK5QListIiE(
+    QQmlDelegateModel *self,
+    const QModelIndex *a0,
+    const QModelIndex *a1,
+    const QList<int> *a2) {
+  self->_q_dataChanged(*a0, *a1, *a2);
 }
 
 //  void QQmlDelegateModel::_q_layoutChanged(const
@@ -1152,6 +1242,14 @@ bool ritual_own_ZN17QQmlDelegateModel5eventEP6QEvent(
     QQmlDelegateModel *self,
     QEvent *a0) {
   return self->QQmlDelegateModel::event(a0);
+}
+
+//  a QQmlListProperty<QQmlDelegateModelGroup> a ritual of QQmlDelegateModel
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlDelegateModel__QQmlListProperty_QQmlDelegateModelGroup(
+    QQmlListProperty<QQmlDelegateModelGroup> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_delegate_model)

@@ -8,8 +8,35 @@
     "ritual_ZNK18qdesigner_internal14WidgetDataBase10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal14WidgetDataBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal14WidgetDataBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal14WidgetDataBase2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14WidgetDataBaseC1EP28QDesignerFormEditorInterfaceP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14WidgetDataBaseD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14WidgetDataBase4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14WidgetDataBase13indexOfObjectEP7QObjectb": [
+      "int", "address", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal14WidgetDataBase6removeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14WidgetDataBase25grabDefaultPropertyValuesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14WidgetDataBase26grabStandardWidgetBoxIconsEv": [
+      "nothing", "address"
     ],
     "ritual_ZN18qdesigner_internal14WidgetDataBase17formWidgetClassesEPK28QDesignerFormEditorInterface": [
       "address", "address"
@@ -22,6 +49,12 @@
     ],
     "ritual_ZN18qdesigner_internal14WidgetDataBase17scaleFormTemplateERK7QStringRK5QSizeb": [
       "text", "text", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal14WidgetDataBase11loadPluginsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14WidgetDataBase21defaultPropertyValuesERK7QString": [
+      "address", "address", "text"
     ],
     "ritual_take_qdesigner_internal_WidgetDataBase": [
       "bool", "address", "chars", "address"

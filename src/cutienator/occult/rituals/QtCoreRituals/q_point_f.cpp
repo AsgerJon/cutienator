@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qpoint.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qpoint.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  rituals for functions the generator leaves out: 2. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qpoint.h>
 #include <QtCore/qlist.h>
 
@@ -215,4 +217,18 @@ QPointF *ritual_list_at_QPointF(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QPointF(QList<QPointF> *self) {
   delete self;
+}
+
+//  qreal &QPointF::rx()
+extern "C" Q_DECL_EXPORT
+qreal *ritual_ZN7QPointF2rxEv(
+    QPointF *self) {
+  return &(self->rx());
+}
+
+//  qreal &QPointF::ry()
+extern "C" Q_DECL_EXPORT
+qreal *ritual_ZN7QPointF2ryEv(
+    QPointF *self) {
+  return &(self->ry());
 }

@@ -11,6 +11,7 @@
     "ritual_ZNK36QWaylandQuickShellSurfaceItemPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN36QWaylandQuickShellSurfaceItemPrivateC1Ev": ["address"],
     "ritual_ZN36QWaylandQuickShellSurfaceItemPrivate15setShellSurfaceEP20QWaylandShellSurface": [
       "nothing", "address", "address"
     ],

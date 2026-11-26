@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QDBusServiceWatcher10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QDBusServiceWatcher11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QDBusServiceWatcher11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QDBusServiceWatcher2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,16 +32,39 @@
     "ritual_ZN19QDBusServiceWatcher20removeWatchedServiceERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN19QDBusServiceWatcher23bindableWatchedServicesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK19QDBusServiceWatcher9watchModeEv": ["int", "address"],
     "ritual_ZN19QDBusServiceWatcher12setWatchModeE6QFlagsINS_13WatchModeFlagEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN19QDBusServiceWatcher17bindableWatchModeEv": [
+      "address", "address"
     ],
     "ritual_ZNK19QDBusServiceWatcher10connectionEv": ["address", "address"],
     "ritual_ZN19QDBusServiceWatcher13setConnectionERK15QDBusConnection": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN19QDBusServiceWatcher17serviceRegisteredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QDBusServiceWatcher19serviceUnregisteredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QDBusServiceWatcher19serviceOwnerChangedERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN19QDBusServiceWatcher6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QDBusServiceWatcher6d_funcEv": ["address", "address"],
     "ritual_take_QDBusServiceWatcher": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QDBusServiceWatcher__QBindable_QStringList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusServiceWatcher__QBindable_QDBusServiceWatcher_WatchMode": [
+      "nothing", "address"
     ]
   }
 }

@@ -5,6 +5,10 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render20RenderTargetSelectorC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render20RenderTargetSelector16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render20RenderTargetSelector16renderTargetUuidEv": [
       "address", "address"
     ],

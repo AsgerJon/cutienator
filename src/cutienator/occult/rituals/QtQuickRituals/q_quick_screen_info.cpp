@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK16QQuickScreenInfo10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScreenInfo::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickScreenInfo11qt_metacastEPKc(
+    QQuickScreenInfo *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScreenInfo::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickScreenInfo11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScreenInfo *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScreenInfo::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickScreenInfo2trEPKcS1_i(
@@ -321,6 +340,98 @@ extern "C" Q_DECL_EXPORT
 QScreen *ritual_ZNK16QQuickScreenInfo13wrappedScreenEv(
     const QQuickScreenInfo *self) {
   return self->wrappedScreen();
+}
+
+//  void QQuickScreenInfo::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo11nameChangedEv(QQuickScreenInfo *self) {
+  self->nameChanged();
+}
+
+//  void QQuickScreenInfo::manufacturerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo19manufacturerChangedEv(
+    QQuickScreenInfo *self) {
+  self->manufacturerChanged();
+}
+
+//  void QQuickScreenInfo::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo12modelChangedEv(QQuickScreenInfo *self) {
+  self->modelChanged();
+}
+
+//  void QQuickScreenInfo::serialNumberChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo19serialNumberChangedEv(
+    QQuickScreenInfo *self) {
+  self->serialNumberChanged();
+}
+
+//  void QQuickScreenInfo::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo12widthChangedEv(QQuickScreenInfo *self) {
+  self->widthChanged();
+}
+
+//  void QQuickScreenInfo::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo13heightChangedEv(QQuickScreenInfo *self) {
+  self->heightChanged();
+}
+
+//  void QQuickScreenInfo::desktopGeometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo22desktopGeometryChangedEv(
+    QQuickScreenInfo *self) {
+  self->desktopGeometryChanged();
+}
+
+//  void QQuickScreenInfo::logicalPixelDensityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo26logicalPixelDensityChangedEv(
+    QQuickScreenInfo *self) {
+  self->logicalPixelDensityChanged();
+}
+
+//  void QQuickScreenInfo::pixelDensityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo19pixelDensityChangedEv(
+    QQuickScreenInfo *self) {
+  self->pixelDensityChanged();
+}
+
+//  void QQuickScreenInfo::devicePixelRatioChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo23devicePixelRatioChangedEv(
+    QQuickScreenInfo *self) {
+  self->devicePixelRatioChanged();
+}
+
+//  void QQuickScreenInfo::primaryOrientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo25primaryOrientationChangedEv(
+    QQuickScreenInfo *self) {
+  self->primaryOrientationChanged();
+}
+
+//  void QQuickScreenInfo::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo18orientationChangedEv(
+    QQuickScreenInfo *self) {
+  self->orientationChanged();
+}
+
+//  void QQuickScreenInfo::virtualXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo15virtualXChangedEv(QQuickScreenInfo *self) {
+  self->virtualXChanged();
+}
+
+//  void QQuickScreenInfo::virtualYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScreenInfo15virtualYChangedEv(QQuickScreenInfo *self) {
+  self->virtualYChanged();
 }
 
 //  a Python function taken by a CuteQQuickScreenInfo, for the function named

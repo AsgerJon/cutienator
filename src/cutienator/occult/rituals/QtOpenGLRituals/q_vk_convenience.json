@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN14QVkConvenienceD1Ev": ["nothing", "address"]
+    "ritual_ZN14QVkConvenience20vkFormatFromGlFormatEj": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN14QVkConvenienceD1Ev": ["nothing", "address"],
+    "ritual_drop_QVkConvenience__VkFormat": ["nothing", "address"]
   }
 }

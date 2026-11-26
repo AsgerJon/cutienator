@@ -16,6 +16,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A QQmlObjectModel that Python can take functions over in. Every QQmlObjectModel
 //  Python makes is one. Each function below asks the Python
@@ -468,6 +470,24 @@ const QMetaObject *ritual_ZNK15QQmlObjectModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlObjectModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQmlObjectModel11qt_metacastEPKc(
+    QQmlObjectModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlObjectModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlObjectModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlObjectModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlObjectModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQmlObjectModel2trEPKcS1_i(
@@ -475,6 +495,20 @@ QString *ritual_ZN15QQmlObjectModel2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQmlObjectModel::tr(s, c, n));
+}
+
+//  QQmlObjectModelPrivate *QQmlObjectModel::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlObjectModelPrivate *ritual_ZN15QQmlObjectModel6d_funcEv(
+    QQmlObjectModel *self) {
+  return self->d_func();
+}
+
+//  const QQmlObjectModelPrivate *QQmlObjectModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlObjectModelPrivate *ritual_ZNK15QQmlObjectModel6d_funcEv(
+    const QQmlObjectModel *self) {
+  return self->d_func();
 }
 
 //  void QQmlObjectModel::qt_qmlMarker_attached()
@@ -563,6 +597,13 @@ int ritual_ZNK15QQmlObjectModel7indexOfEP7QObjectS1_(
   return self->indexOf(object, objectContext);
 }
 
+//  QQmlListProperty<QObject> QQmlObjectModel::children()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN15QQmlObjectModel8childrenEv(
+    QQmlObjectModel *self) {
+  return new QQmlListProperty<QObject>(self->children());
+}
+
 //  QQmlObjectModelAttached *QQmlObjectModel::qmlAttachedProperties(QObject
 //      *obj)
 extern "C" Q_DECL_EXPORT
@@ -619,6 +660,12 @@ void ritual_ZN15QQmlObjectModel6removeEii(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQmlObjectModel5clearEv(QQmlObjectModel *self) {
   self->clear();
+}
+
+//  void QQmlObjectModel::childrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlObjectModel15childrenChangedEv(QQmlObjectModel *self) {
+  self->childrenChanged();
 }
 
 //  a Python function taken by a CuteQQmlObjectModel, for the function named
@@ -691,6 +738,13 @@ int ritual_own_ZNK15QQmlObjectModel7indexOfEP7QObjectS1_(
     QObject *object,
     QObject *objectContext) {
   return self->QQmlObjectModel::indexOf(object, objectContext);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQmlObjectModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlObjectModel__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_object_model)

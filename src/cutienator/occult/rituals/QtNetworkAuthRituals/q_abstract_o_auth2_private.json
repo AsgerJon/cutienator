@@ -7,11 +7,24 @@
   "rows": {
     "ritual_ZN22QAbstractOAuth2Private6q_funcEv": ["address", "address"],
     "ritual_ZNK22QAbstractOAuth2Private6q_funcEv": ["address", "address"],
+    "ritual_ZN22QAbstractOAuth2PrivateC1ERKSt4pairI7QStringS1_ERK4QUrlP21QNetworkAccessManager": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QAbstractOAuth2PrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QAbstractOAuth2Private12setExpiresAtERK9QDateTime": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QAbstractOAuth2Private21setGrantedScopeTokensERK4QSetI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private11joinedScopeERK4QSetI10QByteArrayE": [
+      "text", "address"
+    ],
     "ritual_ZN22QAbstractOAuth2Private19generateRandomStateEv": ["text"],
     "ritual_ZN22QAbstractOAuth2Private13generateNonceEv": ["text"],
+    "ritual_ZN22QAbstractOAuth2Private13createRequestE4QUrlPK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK22QAbstractOAuth2Private31authorizationShouldIncludeNonceEv": [
       "bool", "address"
     ],
@@ -36,8 +49,14 @@
     "ritual_ZN22QAbstractOAuth2Private20logTokenStageWarningE13QLatin1String": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QAbstractOAuth2Private26callNetworkRequestModifierER15QNetworkRequestN14QAbstractOAuth5StageE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN22QAbstractOAuth2Private20verifyThreadAffinityEPK7QObject": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QAbstractOAuth2Private__QSet_QByteArray": [
+      "nothing", "address"
     ]
   }
 }

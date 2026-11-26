@@ -9,6 +9,12 @@
     "ritual_ZNK29QQuickUniversalFocusRectangle10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQuickUniversalFocusRectangle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQuickUniversalFocusRectangle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QQuickUniversalFocusRectangle5paintEP8QPainter": [
       "nothing", "address", "address"
     ],

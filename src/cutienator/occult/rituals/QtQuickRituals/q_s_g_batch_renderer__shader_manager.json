@@ -8,7 +8,19 @@
     "ritual_ZNK16QSGBatchRenderer13ShaderManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN16QSGBatchRenderer13ShaderManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QSGBatchRenderer13ShaderManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QSGBatchRenderer13ShaderManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSGBatchRenderer13ShaderManager23clearCachedRendererDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer13ShaderManager11invalidatedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QSGBatchRenderer_ShaderManager": [
       "bool", "address", "chars", "address"
     ]

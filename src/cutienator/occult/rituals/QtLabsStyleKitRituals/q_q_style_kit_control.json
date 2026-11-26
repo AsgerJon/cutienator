@@ -6,11 +6,20 @@
   ],
   "rows": {
     "ritual_ZNK17QQStyleKitControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQStyleKitControl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQStyleKitControl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK17QQStyleKitControl17readStylePropertyEj": [
       "address", "address", "unsigned int"
     ],
     "ritual_ZN17QQStyleKitControl18writeStylePropertyEjRK8QVariant": [
       "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_drop_QQStyleKitControl__QQmlListProperty_QQStyleKitVariation": [
+      "nothing", "address"
     ]
   }
 }

@@ -195,6 +195,25 @@ const QMetaObject *ritual_ZNK17QProximityReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QProximityReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QProximityReading11qt_metacastEPKc(
+    QProximityReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QProximityReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QProximityReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QProximityReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QProximityReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QProximityReading2trEPKcS1_i(

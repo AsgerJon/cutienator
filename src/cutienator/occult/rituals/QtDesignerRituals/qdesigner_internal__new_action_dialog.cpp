@@ -8,6 +8,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/newactiondialog_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -1022,6 +1023,290 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18qdesigner_internal15NewActionDialog10metaObjectEv(
     const qdesigner_internal::NewActionDialog *self) {
   return self->metaObject();
+}
+
+//  void *qdesigner_internal::NewActionDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal15NewActionDialog11qt_metacastEPKc(
+    qdesigner_internal::NewActionDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::NewActionDialog::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal15NewActionDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::NewActionDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  qdesigner_internal::NewActionDialog::~NewActionDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialogD1Ev(
+    qdesigner_internal::NewActionDialog *self) {
+  delete self;
+}
+
+//  void qdesigner_internal::NewActionDialog::focusName()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog9focusNameEv(
+    qdesigner_internal::NewActionDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "focusName()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "focusName()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void qdesigner_internal::NewActionDialog::focusText()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog9focusTextEv(
+    qdesigner_internal::NewActionDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "focusText()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "focusText()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void qdesigner_internal::NewActionDialog::focusTooltip()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog12focusTooltipEv(
+    qdesigner_internal::NewActionDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "focusTooltip()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "focusTooltip()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void qdesigner_internal::NewActionDialog::focusShortcut()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog13focusShortcutEv(
+    qdesigner_internal::NewActionDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "focusShortcut()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "focusShortcut()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void qdesigner_internal::NewActionDialog::focusCheckable()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog14focusCheckableEv(
+    qdesigner_internal::NewActionDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "focusCheckable()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "focusCheckable()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void qdesigner_internal::NewActionDialog::focusMenuRole()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog13focusMenuRoleEv(
+    qdesigner_internal::NewActionDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "focusMenuRole()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "focusMenuRole()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      qdesigner_internal::NewActionDialog::onEditActionTextTextEdited(const
+//      QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog26onEditActionTextTextEditedERK7QString(
+    qdesigner_internal::NewActionDialog *self,
+    const QString *text) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onEditActionTextTextEdited(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onEditActionTextTextEdited(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(text)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      qdesigner_internal::NewActionDialog::onEditObjectNameTextEdited(const
+//      QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog26onEditObjectNameTextEditedERK7QString(
+    qdesigner_internal::NewActionDialog *self,
+    const QString *text) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onEditObjectNameTextEdited(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onEditObjectNameTextEdited(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(text)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void qdesigner_internal::NewActionDialog::slotEditToolTip()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog15slotEditToolTipEv(
+    qdesigner_internal::NewActionDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "slotEditToolTip()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "slotEditToolTip()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void qdesigner_internal::NewActionDialog::slotResetKeySequence()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15NewActionDialog20slotResetKeySequenceEv(
+    qdesigner_internal::NewActionDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::NewActionDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "slotResetKeySequence()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "slotResetKeySequence()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_NewActionDialog, for

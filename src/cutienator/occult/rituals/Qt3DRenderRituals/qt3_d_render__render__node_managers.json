@@ -2,9 +2,11 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DRender/6.12.0/Qt3DRender/private/nodemanagers_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12NodeManagersC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render12NodeManagersD1Ev": ["nothing", "address"],
     "ritual_ZNK10Qt3DRender6Render12NodeManagers13cameraManagerEv": [
       "address", "address"
     ],
@@ -112,6 +114,39 @@
     ],
     "ritual_ZNK10Qt3DRender6Render12NodeManagers19pickingProxyManagerEv": [
       "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_6EntityENS0_13EntityManagerEEEPT0_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_8MaterialENS0_15MaterialManagerEEEPT0_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_7TextureENS0_14TextureManagerEEEPT0_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_6ShaderENS0_13ShaderManagerEEEPT0_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_9TransformENS0_16TransformManagerEEEPT0_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers14lookupResourceINS0_6EntityENS0_13EntityManagerEN8Qt3DCore7QNodeIdEEEPT_RKT1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers12lookupHandleINS0_6EntityENS0_13EntityManagerEN8Qt3DCore7QHandleIS3_EENS5_7QNodeIdEEET1_RKT2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12NodeManagers4dataINS0_6EntityENS0_13EntityManagerEN8Qt3DCore7QHandleIS3_EEEEPT_T1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers14lookupResourceINS0_8MaterialENS0_15MaterialManagerEN8Qt3DCore7QNodeIdEEEPT_RKT1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers12lookupHandleINS0_8MaterialENS0_15MaterialManagerEN8Qt3DCore7QHandleIS3_EENS5_7QNodeIdEEET1_RKT2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12NodeManagers4dataINS0_8MaterialENS0_15MaterialManagerEN8Qt3DCore7QHandleIS3_EEEEPT_T1_": [
+      "address", "address", "address"
     ]
   }
 }

@@ -8,11 +8,50 @@
     "ritual_ZNK10Qt3DRender21QAbstractTextureImage10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender21QAbstractTextureImage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender21QAbstractTextureImage11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender21QAbstractTextureImage2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN10Qt3DRender21QAbstractTextureImageD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QAbstractTextureImage8mipLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QAbstractTextureImage5layerEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QAbstractTextureImage4faceEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QAbstractTextureImage11setMipLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QAbstractTextureImage8setLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QAbstractTextureImage7setFaceENS_16QAbstractTexture11CubeMapFaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QAbstractTextureImage15mipLevelChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QAbstractTextureImage12layerChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QAbstractTextureImage11faceChangedENS_16QAbstractTexture11CubeMapFaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QAbstractTextureImage26notifyDataGeneratorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QAbstractTextureImage13dataGeneratorEv": [
+      "address", "address"
     ],
     "ritual_ZN10Qt3DRender21QAbstractTextureImage6d_funcEv": [
       "address", "address"
@@ -22,6 +61,9 @@
     ],
     "ritual_take_Qt3DRender_QAbstractTextureImage": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QAbstractTextureImage__Qt3DRender_QTextureImageDataGeneratorPtr": [
+      "nothing", "address"
     ]
   }
 }

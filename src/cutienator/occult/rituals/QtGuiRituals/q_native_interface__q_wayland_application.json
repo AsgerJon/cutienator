@@ -8,8 +8,33 @@
     "ritual_ZN16QNativeInterface19QWaylandApplicationD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN16QNativeInterface19QWaylandApplicationC1Ev": ["address"],
+    "ritual_ZNK16QNativeInterface19QWaylandApplication7displayEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface19QWaylandApplication10compositorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface19QWaylandApplication4seatEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface19QWaylandApplication8keyboardEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface19QWaylandApplication7pointerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface19QWaylandApplication5touchEv": [
+      "address", "address"
+    ],
     "ritual_ZNK16QNativeInterface19QWaylandApplication15lastInputSerialEv": [
       "unsigned int", "address"
+    ],
+    "ritual_ZNK16QNativeInterface19QWaylandApplication13lastInputSeatEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface19QWaylandApplication10xkbContextEv": [
+      "address", "address"
     ],
     "ritual_take_QNativeInterface_QWaylandApplication": [
       "bool", "address", "chars", "address"

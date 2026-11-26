@@ -256,6 +256,25 @@ const QMetaObject *ritual_ZNK33QItemModelSurfaceDataProxyPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QItemModelSurfaceDataProxyPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN33QItemModelSurfaceDataProxyPrivate11qt_metacastEPKc(
+    QItemModelSurfaceDataProxyPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QItemModelSurfaceDataProxyPrivate::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN33QItemModelSurfaceDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QItemModelSurfaceDataProxyPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QItemModelSurfaceDataProxyPrivate::~QItemModelSurfaceDataProxyPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN33QItemModelSurfaceDataProxyPrivateD1Ev(

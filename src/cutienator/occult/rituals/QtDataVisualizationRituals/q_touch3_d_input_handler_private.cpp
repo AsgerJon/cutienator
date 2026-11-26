@@ -6,9 +6,13 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qtouch3dinputhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDataVisualization/private/datavisualizationglobal_p.h>
+#include <QtDataVisualization/private/q3dinputhandler_p.h>
+#include <QtDataVisualization/private/abstract3dcontroller_p.h>
 #include <QtDataVisualization/private/qtouch3dinputhandler_p.h>
 #include <QtCore/QTimer>
 #include <QtCore/qmath.h>
@@ -21,11 +25,101 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 10, as local:qtouch3dinputhandler.cpp:maxTapAndHoldJitter
+static const float maxTapAndHoldJitter = 20.0f;
+
+//  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 11, as local:qtouch3dinputhandler.cpp:maxPinchJitter
+static const int maxPinchJitter = 10;
+
+//  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 13, as local:qtouch3dinputhandler.cpp:maxSelectionJitter
+#if defined (Q_OS_ANDROID) || defined(Q_OS_IOS)
+static const int maxSelectionJitter = 10;
+#endif  // defined (Q_OS_ANDROID) || defined(Q_OS_IOS)
+
+//  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 17, as local:qtouch3dinputhandler.cpp:tapAndHoldTime
+static const int tapAndHoldTime = 250;
+
+//  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 18, as local:qtouch3dinputhandler.cpp:t3ihRotationSpeed
+static const float t3ihRotationSpeed = 200.0f;
+
+//  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 19, as local:qtouch3dinputhandler.cpp:touchZoomDrift
+static const float touchZoomDrift = 0.02f;
+
+//  from ../qtdatavis3d/src/datavisualization/input/q3dinputhandler.cpp, line 337, as _ZN22Q3DInputHandlerPrivateC2EP15Q3DInputHandler
+inline Q3DInputHandlerPrivate::Q3DInputHandlerPrivate(Q3DInputHandler *q)
+    : q_ptr(q),
+      m_inputState(QAbstract3DInputHandlerPrivate::InputStateNone),
+      m_rotationEnabled(true),
+      m_zoomEnabled(true),
+      m_selectionEnabled(true),
+      m_zoomAtTargetEnabled(true),
+      m_zoomAtTargetPending(false),
+      m_controller(0),
+      m_requestedZoomLevel(0.0f),
+      m_driftMultiplier(0.0f)
+{
+    QObject::connect(q, &QAbstract3DInputHandler::sceneChanged,
+                     this, &Q3DInputHandlerPrivate::handleSceneChange);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/input/q3dinputhandler.cpp, line 353, as _ZN22Q3DInputHandlerPrivateD2Ev
+inline Q3DInputHandlerPrivate::~Q3DInputHandlerPrivate()
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 165, as _ZN27QTouch3DInputHandlerPrivateD1Ev
 inline QTouch3DInputHandlerPrivate::~QTouch3DInputHandlerPrivate()
 {
     m_holdTimer->stop();
     delete m_holdTimer;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 171, as _ZN27QTouch3DInputHandlerPrivate15handlePinchZoomEfRK6QPoint
+inline void QTouch3DInputHandlerPrivate::handlePinchZoom(float distance, const QPoint &pos)
+{
+    if (q_ptr->isZoomEnabled()) {
+        int newDistance = distance;
+        int prevDist = q_ptr->prevDistance();
+        if (prevDist > 0 && qAbs(prevDist - newDistance) < maxPinchJitter)
+            return;
+        m_inputState = QAbstract3DInputHandlerPrivate::InputStatePinching;
+        Q3DCamera *camera = q_ptr->scene()->activeCamera();
+        int zoomLevel = int(camera->zoomLevel());
+        const int minZoomLevel = int(camera->minZoomLevel());
+        const int maxZoomLevel = int(camera->maxZoomLevel());
+        float zoomRate = qSqrt(qSqrt(zoomLevel));
+        if (newDistance > prevDist)
+            zoomLevel += zoomRate;
+        else
+            zoomLevel -= zoomRate;
+        zoomLevel = qBound(minZoomLevel, zoomLevel, maxZoomLevel);
+
+        if (q_ptr->isZoomAtTargetEnabled()) {
+            q_ptr->scene()->setGraphPositionQuery(pos);
+            m_zoomAtTargetPending = true;
+            // If zoom at target is enabled, we don't want to zoom yet, as that causes
+            // jitter. Instead, we zoom next frame, when we apply the camera position.
+            m_requestedZoomLevel = zoomLevel;
+            m_driftMultiplier = touchZoomDrift;
+        } else {
+            camera->setZoomLevel(zoomLevel);
+        }
+
+        q_ptr->setPrevDistance(newDistance);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 205, as _ZN27QTouch3DInputHandlerPrivate16handleTapAndHoldEv
+inline void QTouch3DInputHandlerPrivate::handleTapAndHold()
+{
+    if (q_ptr->isSelectionEnabled()) {
+        QPointF distance = m_startHoldPos - m_touchHoldPos;
+        if (distance.manhattanLength() < maxTapAndHoldJitter) {
+            q_ptr->setInputPosition(m_touchHoldPos.toPoint());
+            q_ptr->scene()->setSelectionQueryPosition(m_touchHoldPos.toPoint());
+            m_inputState = QAbstract3DInputHandlerPrivate::InputStateSelecting;
+        }
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -203,11 +297,47 @@ const QMetaObject *ritual_ZNK27QTouch3DInputHandlerPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTouch3DInputHandlerPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QTouch3DInputHandlerPrivate11qt_metacastEPKc(
+    QTouch3DInputHandlerPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTouch3DInputHandlerPrivate::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QTouch3DInputHandlerPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTouch3DInputHandlerPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QTouch3DInputHandlerPrivate::~QTouch3DInputHandlerPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QTouch3DInputHandlerPrivateD1Ev(
     QTouch3DInputHandlerPrivate *self) {
   delete self;
+}
+
+//  void QTouch3DInputHandlerPrivate::handlePinchZoom(float distance, const
+//      QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QTouch3DInputHandlerPrivate15handlePinchZoomEfRK6QPoint(
+    QTouch3DInputHandlerPrivate *self,
+    float distance,
+    const QPoint *pos) {
+  self->handlePinchZoom(distance, *pos);
+}
+
+//  void QTouch3DInputHandlerPrivate::handleTapAndHold()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QTouch3DInputHandlerPrivate16handleTapAndHoldEv(
+    QTouch3DInputHandlerPrivate *self) {
+  self->handleTapAndHold();
 }
 
 //  a Python function taken by a CuteQTouch3DInputHandlerPrivate, for the

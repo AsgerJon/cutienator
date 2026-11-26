@@ -10,10 +10,17 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/QUtf8StringView>
 
 //  const char *QtCbor::ByteData::byte() const
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZNK6QtCbor8ByteData4byteEv(const QtCbor::ByteData *self) {
+  return self->byte();
+}
+
+//  char *QtCbor::ByteData::byte()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN6QtCbor8ByteData4byteEv(QtCbor::ByteData *self) {
   return self->byte();
 }
 
@@ -65,6 +72,13 @@ QLatin1String *ritual_ZNK6QtCbor8ByteData8asLatin1Ev(
   return new QLatin1String(self->asLatin1());
 }
 
+//  QUtf8StringView QtCbor::ByteData::asUtf8StringView() const
+extern "C" Q_DECL_EXPORT
+QUtf8StringView *ritual_ZNK6QtCbor8ByteData16asUtf8StringViewEv(
+    const QtCbor::ByteData *self) {
+  return new QUtf8StringView(self->asUtf8StringView());
+}
+
 //  QStringView QtCbor::ByteData::asStringView() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK6QtCbor8ByteData12asStringViewEv(
@@ -82,5 +96,11 @@ QString *ritual_ZNK6QtCbor8ByteData12asQStringRawEv(
 //  QtCbor::ByteData::~ByteData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QtCbor8ByteDataD1Ev(QtCbor::ByteData *self) {
+  delete self;
+}
+
+//  a QUtf8StringView a ritual of QtCbor::ByteData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtCbor_ByteData__QUtf8StringView(QUtf8StringView *self) {
   delete self;
 }

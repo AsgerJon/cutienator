@@ -5,6 +5,19 @@
     "here are lost."
   ],
   "rows": {
-    "ritual_ZN13QOpenGLConfigD1Ev": ["nothing", "address"]
+    "ritual_ZN13QOpenGLConfig11gpuFeaturesERKNS_3GpuERK7QStringRK14QVersionNumberS5_RK13QJsonDocument": [
+      "address", "address", "text", "address", "text", "address"
+    ],
+    "ritual_ZN13QOpenGLConfig11gpuFeaturesERKNS_3GpuERK7QStringRK14QVersionNumberS5_S5_": [
+      "address", "address", "text", "address", "text", "text"
+    ],
+    "ritual_ZN13QOpenGLConfig11gpuFeaturesERKNS_3GpuERK13QJsonDocument": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QOpenGLConfig11gpuFeaturesERKNS_3GpuERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN13QOpenGLConfigD1Ev": ["nothing", "address"],
+    "ritual_drop_QOpenGLConfig__QSet_QString": ["nothing", "address"]
   }
 }

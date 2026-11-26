@@ -7,13 +7,43 @@
     "ritual_ZNK9Qt3DInput14QLogicalDevice10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput14QLogicalDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput14QLogicalDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput14QLogicalDevice2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9Qt3DInput14QLogicalDeviceC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QLogicalDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZN9Qt3DInput14QLogicalDevice9addActionEPNS_7QActionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QLogicalDevice12removeActionEPNS_7QActionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput14QLogicalDevice7actionsEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput14QLogicalDevice7addAxisEPNS_5QAxisE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QLogicalDevice10removeAxisEPNS_5QAxisE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput14QLogicalDevice4axesEv": ["address", "address"],
     "ritual_ZN9Qt3DInput14QLogicalDevice6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput14QLogicalDevice6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DInput_QLogicalDevice": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DInput_QLogicalDevice__QList_Qt3DInput_QAction": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DInput_QLogicalDevice__QList_Qt3DInput_QAxis": [
+      "nothing", "address"
     ]
   }
 }

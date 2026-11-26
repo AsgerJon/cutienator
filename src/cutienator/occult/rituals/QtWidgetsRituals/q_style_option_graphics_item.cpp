@@ -17,6 +17,15 @@ QStyleOptionGraphicsItem *ritual_ZN24QStyleOptionGraphicsItemC1ERKS_(
   return new QStyleOptionGraphicsItem(*other);
 }
 
+//  QStyleOptionGraphicsItem &QStyleOptionGraphicsItem::operator=(const
+//      QStyleOptionGraphicsItem &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionGraphicsItem *ritual_ZN24QStyleOptionGraphicsItemaSERKS_(
+    QStyleOptionGraphicsItem *self,
+    const QStyleOptionGraphicsItem *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  qreal QStyleOptionGraphicsItem::levelOfDetailFromTransform(const
 //      QTransform &worldTransform)
 extern "C" Q_DECL_EXPORT

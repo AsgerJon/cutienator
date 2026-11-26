@@ -8,8 +8,32 @@
     "ritual_ZNK8Qt3DCore5Debug21AspectCommandDebugger10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebuggerC1EPNS_25QSystemInformationServiceE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger25asynchronousReplyFinishedEPNS0_24AsynchronousCommandReplyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger9sendReplyEP10QTcpSocketRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger17onCommandReceivedEP10QTcpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Debug21AspectCommandDebugger14executeCommandERK7QStringP10QTcpSocket": [
+      "nothing", "address", "text", "address"
     ]
   }
 }

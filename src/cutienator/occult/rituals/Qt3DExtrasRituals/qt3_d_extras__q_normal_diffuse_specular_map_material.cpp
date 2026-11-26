@@ -3,6 +3,7 @@
 //  here are lost.
 #include <Qt3DExtras/qnormaldiffusespecularmapmaterial.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -181,6 +182,26 @@ const QMetaObject *ritual_ZNK10Qt3DExtras33QNormalDiffuseSpecularMapMaterial10me
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QNormalDiffuseSpecularMapMaterial::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial11qt_metacastEPKc(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QNormalDiffuseSpecularMapMaterial::qt_metacall(QMetaObjec
+//      t::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QNormalDiffuseSpecularMapMaterial::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -193,6 +214,187 @@ QString *ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial2trEPKcS2_i(
           s,
           c,
           n));
+}
+
+//  Qt3DExtras::QNormalDiffuseSpecularMapMaterial::QNormalDiffuseSpecularMapM
+//      aterial(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QNormalDiffuseSpecularMapMaterial *ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterialC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QNormalDiffuseSpecularMapMaterial(parent);
+}
+
+//  Qt3DExtras::QNormalDiffuseSpecularMapMaterial::~QNormalDiffuseSpecularMap
+//      Material()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterialD1Ev(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self) {
+  delete self;
+}
+
+//  QColor Qt3DExtras::QNormalDiffuseSpecularMapMaterial::ambient() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras33QNormalDiffuseSpecularMapMaterial7ambientEv(
+    const Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self) {
+  return new QColor(self->ambient());
+}
+
+//  Qt3DRender::QAbstractTexture
+//      *Qt3DExtras::QNormalDiffuseSpecularMapMaterial::diffuse() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTexture *ritual_ZNK10Qt3DExtras33QNormalDiffuseSpecularMapMaterial7diffuseEv(
+    const Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self) {
+  return self->diffuse();
+}
+
+//  Qt3DRender::QAbstractTexture
+//      *Qt3DExtras::QNormalDiffuseSpecularMapMaterial::normal() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTexture *ritual_ZNK10Qt3DExtras33QNormalDiffuseSpecularMapMaterial6normalEv(
+    const Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self) {
+  return self->normal();
+}
+
+//  Qt3DRender::QAbstractTexture
+//      *Qt3DExtras::QNormalDiffuseSpecularMapMaterial::specular() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTexture *ritual_ZNK10Qt3DExtras33QNormalDiffuseSpecularMapMaterial8specularEv(
+    const Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self) {
+  return self->specular();
+}
+
+//  float Qt3DExtras::QNormalDiffuseSpecularMapMaterial::shininess() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras33QNormalDiffuseSpecularMapMaterial9shininessEv(
+    const Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self) {
+  return self->shininess();
+}
+
+//  float Qt3DExtras::QNormalDiffuseSpecularMapMaterial::textureScale() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras33QNormalDiffuseSpecularMapMaterial12textureScaleEv(
+    const Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self) {
+  return self->textureScale();
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::setAmbient(const
+//      QColor &ambient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial10setAmbientERK6QColor(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    const QColor *ambient) {
+  self->setAmbient(*ambient);
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::setDiffuse(Qt3DRender
+//      ::QAbstractTexture *diffuse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial10setDiffuseEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    Qt3DRender::QAbstractTexture *diffuse) {
+  self->setDiffuse(diffuse);
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::setNormal(Qt3DRender:
+//      :QAbstractTexture *normal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial9setNormalEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    Qt3DRender::QAbstractTexture *normal) {
+  self->setNormal(normal);
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::setSpecular(Qt3DRende
+//      r::QAbstractTexture *specular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial11setSpecularEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    Qt3DRender::QAbstractTexture *specular) {
+  self->setSpecular(specular);
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::setShininess(float
+//      shininess)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial12setShininessEf(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    float shininess) {
+  self->setShininess(shininess);
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::setTextureScale(float
+//      textureScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial15setTextureScaleEf(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    float textureScale) {
+  self->setTextureScale(textureScale);
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::ambientChanged(const
+//      QColor &ambient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial14ambientChangedERK6QColor(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    const QColor *ambient) {
+  self->ambientChanged(*ambient);
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::diffuseChanged(Qt3DRe
+//      nder::QAbstractTexture *diffuse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial14diffuseChangedEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    Qt3DRender::QAbstractTexture *diffuse) {
+  self->diffuseChanged(diffuse);
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::normalChanged(Qt3DRen
+//      der::QAbstractTexture *normal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial13normalChangedEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    Qt3DRender::QAbstractTexture *normal) {
+  self->normalChanged(normal);
+}
+
+//  void Qt3DExtras::QNormalDiffuseSpecularMapMaterial::specularChanged(Qt3DR
+//      ender::QAbstractTexture *specular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial15specularChangedEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    Qt3DRender::QAbstractTexture *specular) {
+  self->specularChanged(specular);
+}
+
+//  void
+//      Qt3DExtras::QNormalDiffuseSpecularMapMaterial::shininessChanged(float
+//      shininess)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial16shininessChangedEf(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    float shininess) {
+  self->shininessChanged(shininess);
+}
+
+//  void
+//      Qt3DExtras::QNormalDiffuseSpecularMapMaterial::textureScaleChanged(fl
+//      oat textureScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterial19textureScaleChangedEf(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterial *self,
+    float textureScale) {
+  self->textureScaleChanged(textureScale);
+}
+
+//  Qt3DExtras::QNormalDiffuseSpecularMapMaterial::QNormalDiffuseSpecularMapM
+//      aterial(QNormalDiffuseSpecularMapMaterialPrivate &dd, Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QNormalDiffuseSpecularMapMaterial *ritual_ZN10Qt3DExtras33QNormalDiffuseSpecularMapMaterialC1ERNS_40QNormalDiffuseSpecularMapMaterialPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QNormalDiffuseSpecularMapMaterialPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QNormalDiffuseSpecularMapMaterial(*dd, parent);
 }
 
 //  QNormalDiffuseSpecularMapMaterialPrivate

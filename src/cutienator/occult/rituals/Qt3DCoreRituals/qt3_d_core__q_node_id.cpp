@@ -14,6 +14,12 @@ Qt3DCore::QNodeId *ritual_ZN8Qt3DCore7QNodeIdC1Ev() {
   return new Qt3DCore::QNodeId();
 }
 
+//  QNodeId Qt3DCore::QNodeId::createId()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QNodeId *ritual_ZN8Qt3DCore7QNodeId8createIdEv() {
+  return new Qt3DCore::QNodeId(Qt3DCore::QNodeId::createId());
+}
+
 //  bool Qt3DCore::QNodeId::isNull() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8Qt3DCore7QNodeId6isNullEv(const Qt3DCore::QNodeId *self) {

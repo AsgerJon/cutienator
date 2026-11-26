@@ -8,6 +8,12 @@
     "ritual_ZNK24QNonContiguousByteDevice10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QNonContiguousByteDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QNonContiguousByteDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QNonContiguousByteDevice2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -22,6 +28,12 @@
     "ritual_ZN24QNonContiguousByteDevice5resetEv": ["bool", "address"],
     "ritual_ZNK24QNonContiguousByteDevice4sizeEv": ["long long", "address"],
     "ritual_ZN24QNonContiguousByteDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZN24QNonContiguousByteDevice9readyReadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNonContiguousByteDevice12readProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
     "ritual_take_QNonContiguousByteDevice": [
       "bool", "address", "chars", "address"
     ],

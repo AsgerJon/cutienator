@@ -282,6 +282,25 @@ const QMetaObject *ritual_ZNK23QQuickRotationAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRotationAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickRotationAnimation11qt_metacastEPKc(
+    QQuickRotationAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRotationAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickRotationAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRotationAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRotationAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickRotationAnimation2trEPKcS1_i(
@@ -362,6 +381,13 @@ void ritual_ZN23QQuickRotationAnimation12setDirectionENS_17RotationDirectionE(
     QQuickRotationAnimation *self,
     QQuickRotationAnimation::RotationDirection direction) {
   self->setDirection(direction);
+}
+
+//  void QQuickRotationAnimation::directionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRotationAnimation16directionChangedEv(
+    QQuickRotationAnimation *self) {
+  self->directionChanged();
 }
 
 //  a Python function taken by a CuteQQuickRotationAnimation, for the

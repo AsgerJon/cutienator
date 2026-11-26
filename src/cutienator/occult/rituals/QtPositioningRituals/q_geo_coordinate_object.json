@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QGeoCoordinateObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QGeoCoordinateObject11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QGeoCoordinateObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QGeoCoordinateObject2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,15 +23,33 @@
     "ritual_ZNK20QGeoCoordinateObjecteqERK14QGeoCoordinate": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK20QGeoCoordinateObjecteqERKS_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK20QGeoCoordinateObjectneERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QGeoCoordinateObjectneERKS_": [
       "bool", "address", "address"
     ],
     "ritual_ZNK20QGeoCoordinateObject10coordinateEv": ["address", "address"],
     "ritual_ZN20QGeoCoordinateObject13setCoordinateERK14QGeoCoordinate": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QGeoCoordinateObject18bindableCoordinateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QGeoCoordinateObject17coordinateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGeoCoordinateObject32_qt_property_m_coordinate_offsetEv": [
+      "size_t"
+    ],
     "ritual_take_QGeoCoordinateObject": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QGeoCoordinateObject__QBindable_QGeoCoordinate": [
+      "nothing", "address"
     ]
   }
 }

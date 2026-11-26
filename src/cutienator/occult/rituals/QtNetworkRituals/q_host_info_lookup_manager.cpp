@@ -36,6 +36,41 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/network/kernel/qhostinfo.cpp, line 46, as local:qhostinfo.cpp:ToBeLookedUpEquals
+namespace {
+struct ToBeLookedUpEquals {
+    typedef bool result_type;
+    explicit ToBeLookedUpEquals(const QString &toBeLookedUp) noexcept : m_toBeLookedUp(toBeLookedUp) {}
+    result_type operator()(QHostInfoRunnable* lookup) const noexcept
+    {
+        return m_toBeLookedUp == lookup->toBeLookedUp;
+    }
+private:
+    QString m_toBeLookedUp;
+};
+}  // namespace
+
+//  from src/network/kernel/qhostinfo.cpp, line 57, as local:qhostinfo.cpp:separate_if
+namespace {
+inline template <typename InputIt, typename OutputIt1, typename OutputIt2, typename UnaryPredicate>
+std::pair<OutputIt1, OutputIt2> separate_if(InputIt first, InputIt last, OutputIt1 dest1, OutputIt2 dest2, UnaryPredicate p)
+{
+    while (first != last) {
+        if (p(*first)) {
+            *dest1 = *first;
+            ++dest1;
+        } else {
+            *dest2 = *first;
+            ++dest2;
+        }
+        ++first;
+    }
+    return std::make_pair(dest1, dest2);
+}
+}  // namespace
+
 //  from src/network/kernel/qhostinfo.cpp, line 1156, as _ZN14QHostInfoCacheC1Ev
 #if defined(QT_BUILD_INTERNAL) || QT_CONFIG(hostinfocache)
 inline QHostInfoCache::QHostInfoCache() : max_age(60), enabled(true), cache(128)
@@ -51,6 +86,64 @@ inline void QHostInfoCache::clear()
     cache.clear();
 }
 #endif  // defined(QT_BUILD_INTERNAL) || QT_CONFIG(hostinfocache)
+
+//  from src/network/kernel/qhostinfo.cpp, line 941, as _ZN22QHostInfoLookupManager23rescheduleWithMutexHeldEv
+inline void QHostInfoLookupManager::rescheduleWithMutexHeld()
+{
+    if (wasDeleted)
+        return;
+
+    // goals of this function:
+    //  - launch new lookups via the thread pool
+    //  - make sure only one lookup per host/IP is in progress
+
+    if (!finishedLookups.isEmpty()) {
+        // remove ID from aborted if it is in there
+        for (int i = 0; i < finishedLookups.size(); i++) {
+           abortedLookups.removeAll(finishedLookups.at(i)->id);
+        }
+
+        finishedLookups.clear();
+    }
+
+#if QT_CONFIG(thread)
+    auto isAlreadyRunning = [this](QHostInfoRunnable *lookup) {
+        return std::any_of(currentLookups.cbegin(), currentLookups.cend(), ToBeLookedUpEquals(lookup->toBeLookedUp));
+    };
+
+    // Transfer any postponed lookups that aren't currently running to the scheduled list, keeping already-running lookups:
+    postponedLookups.erase(separate_if(postponedLookups.begin(),
+                                       postponedLookups.end(),
+                                       postponedLookups.begin(),
+                                       std::front_inserter(scheduledLookups), // prepend! we want to finish it ASAP
+                                       isAlreadyRunning).first,
+                           postponedLookups.end());
+
+    // Unschedule and postpone any that are currently running:
+    scheduledLookups.erase(separate_if(scheduledLookups.begin(),
+                                       scheduledLookups.end(),
+                                       std::back_inserter(postponedLookups),
+                                       scheduledLookups.begin(),
+                                       isAlreadyRunning).second,
+                           scheduledLookups.end());
+
+    const int availableThreads = std::max(threadPool.maxThreadCount(), 1) - currentLookups.size();
+    if (availableThreads > 0) {
+        int readyToStartCount = qMin(availableThreads, scheduledLookups.size());
+        auto it = scheduledLookups.begin();
+        while (readyToStartCount--) {
+            // runnable now running in new thread, track this in currentLookups
+            threadPool.start(*it);
+            currentLookups.push_back(std::move(*it));
+            ++it;
+        }
+        scheduledLookups.erase(scheduledLookups.begin(), it);
+    }
+#else
+    if (!scheduledLookups.isEmpty())
+        scheduledLookups.takeFirst()->run();
+#endif
+}
 
 //  from src/network/kernel/qhostinfo.cpp, line 900, as _ZN22QHostInfoLookupManagerC1Ev
 inline QHostInfoLookupManager::QHostInfoLookupManager() : wasDeleted(false)
@@ -95,6 +188,18 @@ inline void QHostInfoLookupManager::clear()
     cache.clear();
 }
 
+//  from src/network/kernel/qhostinfo.cpp, line 999, as _ZN22QHostInfoLookupManager14scheduleLookupEP17QHostInfoRunnable
+inline void QHostInfoLookupManager::scheduleLookup(QHostInfoRunnable *r)
+{
+    QMutexLocker locker(&this->mutex);
+
+    if (wasDeleted)
+        return;
+
+    scheduledLookups.enqueue(r);
+    rescheduleWithMutexHeld();
+}
+
 //  from src/network/kernel/qhostinfo.cpp, line 1011, as _ZN22QHostInfoLookupManager11abortLookupEi
 inline void QHostInfoLookupManager::abortLookup(int id)
 {
@@ -126,6 +231,21 @@ inline void QHostInfoLookupManager::abortLookup(int id)
 
     if (!abortedLookups.contains(id))
         abortedLookups.append(id);
+}
+
+//  from src/network/kernel/qhostinfo.cpp, line 1055, as _ZN22QHostInfoLookupManager14lookupFinishedEP17QHostInfoRunnable
+inline void QHostInfoLookupManager::lookupFinished(QHostInfoRunnable *r)
+{
+    QMutexLocker locker(&this->mutex);
+
+    if (wasDeleted)
+        return;
+
+#if QT_CONFIG(thread)
+    currentLookups.removeOne(r);
+#endif
+    finishedLookups.append(r);
+    rescheduleWithMutexHeld();
 }
 
 //  from src/network/kernel/qhostinfo.cpp, line 1044, as _ZN22QHostInfoLookupManager10wasAbortedEi
@@ -163,12 +283,28 @@ void ritual_ZN22QHostInfoLookupManager5clearEv(
 }
 #endif  // defined(QT_BUILD_INTERNAL) || QT_CONFIG(hostinfocache)
 
+//  void QHostInfoLookupManager::scheduleLookup(QHostInfoRunnable *r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QHostInfoLookupManager14scheduleLookupEP17QHostInfoRunnable(
+    QHostInfoLookupManager *self,
+    QHostInfoRunnable *r) {
+  self->scheduleLookup(r);
+}
+
 //  void QHostInfoLookupManager::abortLookup(int id)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QHostInfoLookupManager11abortLookupEi(
     QHostInfoLookupManager *self,
     int id) {
   self->abortLookup(id);
+}
+
+//  void QHostInfoLookupManager::lookupFinished(QHostInfoRunnable *r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QHostInfoLookupManager14lookupFinishedEP17QHostInfoRunnable(
+    QHostInfoLookupManager *self,
+    QHostInfoRunnable *r) {
+  self->lookupFinished(r);
 }
 
 //  bool QHostInfoLookupManager::wasAborted(int id)

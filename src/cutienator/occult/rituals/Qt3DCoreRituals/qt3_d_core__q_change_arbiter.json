@@ -8,11 +8,47 @@
     "ritual_ZNK8Qt3DCore14QChangeArbiter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore14QChangeArbiter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore14QChangeArbiter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore14QChangeArbiter2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore14QChangeArbiterC1EP7QObject": ["address", "address"],
+    "ritual_ZN8Qt3DCore14QChangeArbiterD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore14QChangeArbiter20addDirtyFrontEndNodeEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QChangeArbiter28addDirtyEntityComponentNodesEPNS_7QEntityEPNS_10QComponentENS_27ComponentRelationshipChange12RelationShipE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore14QChangeArbiter23removeDirtyFrontEndNodeEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QChangeArbiter22takeDirtyFrontEndNodesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QChangeArbiter29takeDirtyEntityComponentNodesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QChangeArbiter8setSceneEPNS_6QSceneE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QChangeArbiter5sceneEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore14QChangeArbiter14receivedChangeEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DCore_QChangeArbiter": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DCore_QChangeArbiter__QList_Qt3DCore_QNode": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DCore_QChangeArbiter__QList_Qt3DCore_ComponentRelationshipChange": [
+      "nothing", "address"
     ]
   }
 }

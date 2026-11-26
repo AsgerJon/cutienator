@@ -25,6 +25,24 @@ const QMetaObject *ritual_ZNK14QQuickCheckBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickCheckBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickCheckBox11qt_metacastEPKc(
+    QQuickCheckBox *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickCheckBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickCheckBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickCheckBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickCheckBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickCheckBox2trEPKcS1_i(
@@ -85,6 +103,25 @@ void ritual_ZN14QQuickCheckBox17setNextCheckStateERK8QJSValue(
   self->setNextCheckState(*callback);
 }
 
+//  void QQuickCheckBox::tristateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickCheckBox15tristateChangedEv(QQuickCheckBox *self) {
+  self->tristateChanged();
+}
+
+//  void QQuickCheckBox::checkStateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickCheckBox17checkStateChangedEv(QQuickCheckBox *self) {
+  self->checkStateChanged();
+}
+
+//  void QQuickCheckBox::nextCheckStateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickCheckBox21nextCheckStateChangedEv(
+    QQuickCheckBox *self) {
+  self->nextCheckStateChanged();
+}
+
 //  QFont QQuickCheckBox::defaultFont() const
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK14QQuickCheckBox11defaultFontEv(
@@ -104,6 +141,20 @@ void ritual_ZN14QQuickCheckBox12buttonChangeEN20QQuickAbstractButton12ButtonChan
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickCheckBox14nextCheckStateEv(QQuickCheckBox *self) {
   self->nextCheckState();
+}
+
+//  QQuickCheckBoxPrivate *QQuickCheckBox::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickCheckBoxPrivate *ritual_ZN14QQuickCheckBox6d_funcEv(
+    QQuickCheckBox *self) {
+  return self->d_func();
+}
+
+//  const QQuickCheckBoxPrivate *QQuickCheckBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickCheckBoxPrivate *ritual_ZNK14QQuickCheckBox6d_funcEv(
+    const QQuickCheckBox *self) {
+  return self->d_func();
 }
 
 //  QFont QQuickCheckBox::defaultFont() const

@@ -22,10 +22,40 @@ QGeoLocation *ritual_ZN12QGeoLocationC1ERKS_(const QGeoLocation *other) {
   return new QGeoLocation(*other);
 }
 
+//  QGeoLocation::QGeoLocation(QGeoLocation &&other)
+extern "C" Q_DECL_EXPORT
+QGeoLocation *ritual_ZN12QGeoLocationC1EOS_(QGeoLocation *other) {
+  return new QGeoLocation(std::move(*other));
+}
+
 //  QGeoLocation::~QGeoLocation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QGeoLocationD1Ev(QGeoLocation *self) {
   delete self;
+}
+
+//  QGeoLocation &QGeoLocation::operator=(const QGeoLocation &other)
+extern "C" Q_DECL_EXPORT
+QGeoLocation *ritual_ZN12QGeoLocationaSERKS_(
+    QGeoLocation *self,
+    const QGeoLocation *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoLocation &QGeoLocation::operator=(QGeoLocation &&other)
+extern "C" Q_DECL_EXPORT
+QGeoLocation *ritual_ZN12QGeoLocationaSEOS_(
+    QGeoLocation *self,
+    QGeoLocation *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoLocation::swap(QGeoLocation &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGeoLocation4swapERS_(
+    QGeoLocation *self,
+    QGeoLocation *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoLocation &lhs, const QGeoLocation &rhs)

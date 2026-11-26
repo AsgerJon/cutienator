@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QPlatformVideoSource10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QPlatformVideoSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QPlatformVideoSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QPlatformVideoSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,16 +22,31 @@
     "ritual_ZNK20QPlatformVideoSource11frameFormatEv": [
       "address", "address"
     ],
+    "ritual_ZNK20QPlatformVideoSource19ffmpegHWPixelFormatEv": [
+      "address", "address"
+    ],
     "ritual_ZN20QPlatformVideoSource17setCaptureSessionEP28QPlatformMediaCaptureSession": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK20QPlatformVideoSource11errorStringEv": ["text", "address"],
     "ritual_ZNK20QPlatformVideoSource8hasErrorEv": ["bool", "address"],
+    "ritual_ZN20QPlatformVideoSource13newVideoFrameERK11QVideoFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QPlatformVideoSource13activeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QPlatformVideoSource12errorChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QPlatformVideoSource": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN20QPlatformVideoSource17setCaptureSessionEP28QPlatformMediaCaptureSession": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QPlatformVideoSource__std_optional_int": [
+      "nothing", "address"
     ]
   }
 }

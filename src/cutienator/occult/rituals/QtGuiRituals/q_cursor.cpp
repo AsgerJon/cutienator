@@ -52,6 +52,30 @@ void ritual_ZN7QCursorD1Ev(QCursor *self) {
   delete self;
 }
 
+//  QCursor &QCursor::operator=(const QCursor &cursor)
+extern "C" Q_DECL_EXPORT
+QCursor *ritual_ZN7QCursoraSERKS_(QCursor *self, const QCursor *cursor) {
+  return &(self->operator=(*cursor));
+}
+
+//  QCursor::QCursor(QCursor &&other)
+extern "C" Q_DECL_EXPORT
+QCursor *ritual_ZN7QCursorC1EOS_(QCursor *other) {
+  return new QCursor(std::move(*other));
+}
+
+//  QCursor &QCursor::operator=(QCursor &&other)
+extern "C" Q_DECL_EXPORT
+QCursor *ritual_ZN7QCursoraSEOS_(QCursor *self, QCursor *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCursor::swap(QCursor &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCursor4swapERS_(QCursor *self, QCursor *other) {
+  self->swap(*other);
+}
+
 //  QVariant QCursor::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK7QCursorcv8QVariantEv(const QCursor *self) {

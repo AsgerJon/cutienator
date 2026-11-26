@@ -7,12 +7,16 @@
 #if QT_CONFIG(filesystemmodel)
 #if QT_CONFIG(filesystemmodel)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(filesystemmodel)
 #include <QtGui/qfilesystemmodel.h>
+#endif
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qfilesystemmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qstring.h>
 #include <QtCore/qfileinfo.h>
 #include <QtGui/qicon.h>
@@ -306,6 +310,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN23QFileSystemModelPrivate18performDelayedSortEv(
     QFileSystemModelPrivate *self) {
   self->performDelayedSort();
+}
+
+//  void QFileSystemModelPrivate::fileSystemChanged(const QString &path,
+//      const QList<std::pair<QString, QFileInfo>> &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QFileSystemModelPrivate17fileSystemChangedERK7QStringRK5QListISt4pairIS0_9QFileInfoEE(
+    QFileSystemModelPrivate *self,
+    const QString *path,
+    const QList<std::pair<QString, QFileInfo>> *a1) {
+  self->fileSystemChanged(*path, *a1);
 }
 
 //  void QFileSystemModelPrivate::resolvedName(const QString &fileName, const

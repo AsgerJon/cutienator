@@ -12,6 +12,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qabstractitemmodel.h>
 #include <QtGui/qaccessible.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
@@ -39,83 +40,16 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/accessible/itemviews.cpp, line 1114, as _ZNK20QAccessibleTableCell11columnIndexEv
+//  from src/widgets/accessible/itemviews.cpp, line 1054, as _ZN20QAccessibleTableCell14interface_castEN11QAccessible13InterfaceTypeE
 #if QT_CONFIG(accessibility)
-inline int QAccessibleTableCell::columnIndex() const
+inline void *QAccessibleTableCell::interface_cast(QAccessible::InterfaceType t)
 {
-    if (!isValid())
-        return -1;
-#if QT_CONFIG(listview)
-    if (role() == QAccessible::ListItem) {
-        return 0;
-    }
-#endif
-    return m_index.column();
+    if (t == QAccessible::TableCellInterface)
+        return static_cast<QAccessibleTableCellInterface*>(this);
+    if (t == QAccessible::ActionInterface)
+        return static_cast<QAccessibleActionInterface*>(this);
+    return nullptr;
 }
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/itemviews.cpp, line 1126, as _ZNK20QAccessibleTableCell8rowIndexEv
-#if QT_CONFIG(accessibility)
-inline int QAccessibleTableCell::rowIndex() const
-{
-    if (!isValid())
-        return -1;
-#if QT_CONFIG(treeview)
-    if (role() == QAccessible::TreeItem) {
-       const QTreeView *treeView = qobject_cast<const QTreeView*>(view);
-       Q_ASSERT(treeView);
-       int row = treeView->d_func()->viewIndex(m_index);
-       return row;
-    }
-#endif
-    return m_index.row();
-}
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/itemviews.cpp, line 1141, as _ZNK20QAccessibleTableCell10isSelectedEv
-#if QT_CONFIG(accessibility)
-inline bool QAccessibleTableCell::isSelected() const
-{
-    if (!isValid())
-        return false;
-    return view->selectionModel()->isSelected(m_index);
-}
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/itemviews.cpp, line 1247, as _ZNK20QAccessibleTableCell5tableEv
-#if QT_CONFIG(accessibility)
-inline QAccessibleInterface *QAccessibleTableCell::table() const
-{
-    return QAccessible::queryAccessibleInterface(view);
-}
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/itemviews.cpp, line 1155, as _ZN20QAccessibleTableCell8doActionERK7QString
-#if QT_CONFIG(accessibility)
-#if defined(Q_OS_LINUX)
-inline void QAccessibleTableCell::doAction(const QString& actionName)
-{
-    if (actionName == toggleAction()) {
-#if defined(Q_OS_ANDROID)
-        QAccessibleInterface *parentInterface = parent();
-        while (parentInterface){
-            if (parentInterface->role() == QAccessible::ComboBox) {
-                selectCell();
-                parentInterface->actionInterface()->doAction(pressAction());
-                return;
-            } else {
-                parentInterface = parentInterface->parent();
-            }
-        }
-#endif
-        if (isSelected()) {
-            unselectCell();
-        } else {
-            selectCell();
-        }
-    }
-}
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(accessibility)
 
 //  from src/widgets/accessible/itemviews.cpp, line 1252, as _ZNK20QAccessibleTableCell4roleEv
@@ -248,6 +182,295 @@ inline QAccessibleInterface *QAccessibleTableCell::child(int) const
 }
 #endif  // QT_CONFIG(accessibility)
 
+//  from src/widgets/accessible/itemviews.cpp, line 1063, as _ZNK20QAccessibleTableCell12columnExtentEv
+#if QT_CONFIG(accessibility)
+inline int QAccessibleTableCell::columnExtent() const { return 1; }
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1076, as _ZNK20QAccessibleTableCell17columnHeaderCellsEv
+#if QT_CONFIG(accessibility)
+inline QList<QAccessibleInterface*> QAccessibleTableCell::columnHeaderCells() const
+{
+    QList<QAccessibleInterface*> headerCell;
+    if (horizontalHeader()) {
+        // FIXME
+        headerCell.append(new QAccessibleTableHeaderCell(view, m_index.column(), Qt::Horizontal));
+    }
+    return headerCell;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1114, as _ZNK20QAccessibleTableCell11columnIndexEv
+#if QT_CONFIG(accessibility)
+inline int QAccessibleTableCell::columnIndex() const
+{
+    if (!isValid())
+        return -1;
+#if QT_CONFIG(listview)
+    if (role() == QAccessible::ListItem) {
+        return 0;
+    }
+#endif
+    return m_index.column();
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1064, as _ZNK20QAccessibleTableCell9rowExtentEv
+#if QT_CONFIG(accessibility)
+inline int QAccessibleTableCell::rowExtent() const { return 1; }
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1066, as _ZNK20QAccessibleTableCell14rowHeaderCellsEv
+#if QT_CONFIG(accessibility)
+inline QList<QAccessibleInterface*> QAccessibleTableCell::rowHeaderCells() const
+{
+    QList<QAccessibleInterface*> headerCell;
+    if (verticalHeader()) {
+        // FIXME
+        headerCell.append(new QAccessibleTableHeaderCell(view, m_index.row(), Qt::Vertical));
+    }
+    return headerCell;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1126, as _ZNK20QAccessibleTableCell8rowIndexEv
+#if QT_CONFIG(accessibility)
+inline int QAccessibleTableCell::rowIndex() const
+{
+    if (!isValid())
+        return -1;
+#if QT_CONFIG(treeview)
+    if (role() == QAccessible::TreeItem) {
+       const QTreeView *treeView = qobject_cast<const QTreeView*>(view);
+       Q_ASSERT(treeView);
+       int row = treeView->d_func()->viewIndex(m_index);
+       return row;
+    }
+#endif
+    return m_index.row();
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1141, as _ZNK20QAccessibleTableCell10isSelectedEv
+#if QT_CONFIG(accessibility)
+inline bool QAccessibleTableCell::isSelected() const
+{
+    if (!isValid())
+        return false;
+    return view->selectionModel()->isSelected(m_index);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1247, as _ZNK20QAccessibleTableCell5tableEv
+#if QT_CONFIG(accessibility)
+inline QAccessibleInterface *QAccessibleTableCell::table() const
+{
+    return QAccessible::queryAccessibleInterface(view);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1148, as _ZNK20QAccessibleTableCell11actionNamesEv
+#if QT_CONFIG(accessibility)
+inline QStringList QAccessibleTableCell::actionNames() const
+{
+    QStringList names;
+    names << toggleAction();
+    return names;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1155, as _ZN20QAccessibleTableCell8doActionERK7QString
+#if QT_CONFIG(accessibility)
+#if defined(Q_OS_LINUX)
+inline void QAccessibleTableCell::doAction(const QString& actionName)
+{
+    if (actionName == toggleAction()) {
+#if defined(Q_OS_ANDROID)
+        QAccessibleInterface *parentInterface = parent();
+        while (parentInterface){
+            if (parentInterface->role() == QAccessible::ComboBox) {
+                selectCell();
+                parentInterface->actionInterface()->doAction(pressAction());
+                return;
+            } else {
+                parentInterface = parentInterface->parent();
+            }
+        }
+#endif
+        if (isSelected()) {
+            unselectCell();
+        } else {
+            selectCell();
+        }
+    }
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1178, as _ZNK20QAccessibleTableCell20keyBindingsForActionERK7QString
+#if QT_CONFIG(accessibility)
+inline QStringList QAccessibleTableCell::keyBindingsForAction(const QString &) const
+{
+    return QStringList();
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1359, as _ZN26QAccessibleTableHeaderCellC1EP17QAbstractItemViewiN2Qt11OrientationE
+#if QT_CONFIG(accessibility)
+inline QAccessibleTableHeaderCell::QAccessibleTableHeaderCell(QAbstractItemView *view_, int index_, Qt::Orientation orientation_)
+    : view(view_), index(index_), orientation(orientation_)
+{
+    Q_ASSERT(index_ >= 0);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1365, as _ZNK26QAccessibleTableHeaderCell4roleEv
+#if QT_CONFIG(accessibility)
+inline QAccessible::Role QAccessibleTableHeaderCell::role() const
+{
+    if (orientation == Qt::Horizontal)
+        return QAccessible::ColumnHeader;
+    return QAccessible::RowHeader;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1372, as _ZNK26QAccessibleTableHeaderCell5stateEv
+#if QT_CONFIG(accessibility)
+inline QAccessible::State QAccessibleTableHeaderCell::state() const
+{
+    QAccessible::State s;
+    if (QHeaderView *h = headerView()) {
+        s.invisible = !h->testAttribute(Qt::WA_WState_Visible);
+        s.disabled = !h->isEnabled();
+    }
+    return s;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1382, as _ZNK26QAccessibleTableHeaderCell4rectEv
+#if QT_CONFIG(accessibility)
+inline QRect QAccessibleTableHeaderCell::rect() const
+{
+    QHeaderView *header = nullptr;
+    if (false) {
+#if QT_CONFIG(tableview)
+    } else if (const QTableView *tv = qobject_cast<const QTableView*>(view)) {
+        if (orientation == Qt::Horizontal) {
+            header = tv->horizontalHeader();
+        } else {
+            header = tv->verticalHeader();
+        }
+#endif
+#if QT_CONFIG(treeview)
+    } else if (const QTreeView *tv = qobject_cast<const QTreeView*>(view)) {
+        header = tv->header();
+#endif
+    }
+    if (!header)
+        return QRect();
+    QPoint zero = header->mapToGlobal(QPoint(0, 0));
+    int sectionSize = header->sectionSize(index);
+    int sectionPos = header->sectionPosition(index);
+    return orientation == Qt::Horizontal
+            ? QRect(zero.x() + sectionPos, zero.y(), sectionSize, header->height())
+            : QRect(zero.x(), zero.y() + sectionPos, header->width(), sectionSize);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1433, as _ZNK26QAccessibleTableHeaderCell7isValidEv
+#if QT_CONFIG(accessibility)
+inline bool QAccessibleTableHeaderCell::isValid() const
+{
+    const QAbstractItemModel *theModel = view && !qt_widget_private(view)->data.in_destructor
+                                       ? view->model() : nullptr;
+    if (!theModel)
+        return false;
+    const QModelIndex rootIndex = view->rootIndex();
+    return (index >= 0) && ((orientation == Qt::Horizontal)
+                        ? (index < theModel->columnCount(rootIndex))
+                        : (index < theModel->rowCount(rootIndex)));
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1409, as _ZNK26QAccessibleTableHeaderCell4textEN11QAccessible4TextE
+#if QT_CONFIG(accessibility)
+inline QString QAccessibleTableHeaderCell::text(QAccessible::Text t) const
+{
+    QAbstractItemModel *model = view->model();
+    QString value;
+    switch (t) {
+    case QAccessible::Name:
+        value = model->headerData(index, orientation, Qt::AccessibleTextRole).toString();
+        if (value.isEmpty())
+            value = model->headerData(index, orientation, Qt::DisplayRole).toString();
+        break;
+    case QAccessible::Description:
+        value = model->headerData(index, orientation, Qt::AccessibleDescriptionRole).toString();
+        break;
+    default:
+        break;
+    }
+    return value;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1428, as _ZN26QAccessibleTableHeaderCell7setTextEN11QAccessible4TextERK7QString
+#if QT_CONFIG(accessibility)
+inline void QAccessibleTableHeaderCell::setText(QAccessible::Text, const QString &)
+{
+    return;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1445, as _ZNK26QAccessibleTableHeaderCell6parentEv
+#if QT_CONFIG(accessibility)
+inline QAccessibleInterface *QAccessibleTableHeaderCell::parent() const
+{
+    return QAccessible::queryAccessibleInterface(view);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1450, as _ZNK26QAccessibleTableHeaderCell5childEi
+#if QT_CONFIG(accessibility)
+inline QAccessibleInterface *QAccessibleTableHeaderCell::child(int) const
+{
+    return nullptr;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1455, as _ZNK26QAccessibleTableHeaderCell10headerViewEv
+#if QT_CONFIG(accessibility)
+inline QHeaderView *QAccessibleTableHeaderCell::headerView() const
+{
+    QHeaderView *header = nullptr;
+    if (false) {
+#if QT_CONFIG(tableview)
+    } else if (const QTableView *tv = qobject_cast<const QTableView*>(view)) {
+        if (orientation == Qt::Horizontal) {
+            header = tv->horizontalHeader();
+        } else {
+            header = tv->verticalHeader();
+        }
+#endif
+#if QT_CONFIG(treeview)
+    } else if (const QTreeView *tv = qobject_cast<const QTreeView*>(view)) {
+        header = tv->header();
+#endif
+    }
+    return header;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/itemviews.cpp, line 1047, as _ZN20QAccessibleTableCellC1EP17QAbstractItemViewRK11QModelIndexN11QAccessible4RoleE
+#if QT_CONFIG(accessibility)
+inline QAccessibleTableCell::QAccessibleTableCell(QAbstractItemView *view_, const QModelIndex &index_, QAccessible::Role role_)
+    : /* QAccessibleSimpleEditableTextInterface(this), */ view(view_), m_index(index_), m_role(role_)
+{
+    if (Q_UNLIKELY(!index_.isValid()))
+        qWarning() << "QAccessibleTableCell::QAccessibleTableCell with invalid index: " << index_;
+}
+#endif  // QT_CONFIG(accessibility)
+
 //  from src/widgets/accessible/itemviews.cpp, line 1104, as _ZNK20QAccessibleTableCell14verticalHeaderEv
 #if QT_CONFIG(accessibility)
 inline QHeaderView *QAccessibleTableCell::verticalHeader() const
@@ -351,6 +574,28 @@ inline void QAccessibleTableCell::unselectCell()
 }
 #endif  // QT_CONFIG(accessibility)
 //  -----------------------------------------------------------------------
+
+#if QT_CONFIG(accessibility)
+#if defined(Q_OS_LINUX)
+//  QAccessibleTableCell::QAccessibleTableCell(QAbstractItemView *view, const
+//      QModelIndex &m_index, QAccessible::Role role)
+extern "C" Q_DECL_EXPORT
+QAccessibleTableCell *ritual_ZN20QAccessibleTableCellC1EP17QAbstractItemViewRK11QModelIndexN11QAccessible4RoleE(
+    QAbstractItemView *view,
+    const QModelIndex *m_index,
+    QAccessible::Role role) {
+  return new QAccessibleTableCell(view, *m_index, role);
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(accessibility)
+
+//  void *QAccessibleTableCell::interface_cast(QAccessible::InterfaceType t)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QAccessibleTableCell14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleTableCell *self,
+    QAccessible::InterfaceType t) {
+  return self->interface_cast(t);
+}
 
 //  QObject *QAccessibleTableCell::object() const
 extern "C" Q_DECL_EXPORT
@@ -577,6 +822,16 @@ QAccessibleActionInterface *ritual_cast_QAccessibleTableCell_QAccessibleActionIn
   return static_cast<QAccessibleActionInterface *>(self);
 }
 
+#if QT_CONFIG(accessibility)
+//  void *QAccessibleTableCell::interface_cast(QAccessible::InterfaceType t)
+extern "C" Q_DECL_EXPORT
+void *ritual_own_ZN20QAccessibleTableCell14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleTableCell *self,
+    QAccessible::InterfaceType t) {
+  return self->QAccessibleTableCell::interface_cast(t);
+}
+#endif  // QT_CONFIG(accessibility)
+
 //  QObject *QAccessibleTableCell::object() const
 extern "C" Q_DECL_EXPORT
 QObject *ritual_own_ZNK20QAccessibleTableCell6objectEv(
@@ -687,11 +942,29 @@ QAccessibleInterface *ritual_own_ZNK20QAccessibleTableCell5childEi(
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+//  int QAccessibleTableCell::columnExtent() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK20QAccessibleTableCell12columnExtentEv(
+    const QAccessibleTableCell *self) {
+  return self->QAccessibleTableCell::columnExtent();
+}
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
 //  int QAccessibleTableCell::columnIndex() const
 extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK20QAccessibleTableCell11columnIndexEv(
     const QAccessibleTableCell *self) {
   return self->QAccessibleTableCell::columnIndex();
+}
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+//  int QAccessibleTableCell::rowExtent() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK20QAccessibleTableCell9rowExtentEv(
+    const QAccessibleTableCell *self) {
+  return self->QAccessibleTableCell::rowExtent();
 }
 #endif  // QT_CONFIG(accessibility)
 

@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal20AddMenuActionCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal20AddMenuActionCommand4redoEv": [
       "nothing", "address"
     ],
@@ -13,6 +16,12 @@
     ],
     "ritual_take_qdesigner_internal_AddMenuActionCommand": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal20AddMenuActionCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal20AddMenuActionCommand4undoEv": [
+      "nothing", "address"
     ]
   }
 }

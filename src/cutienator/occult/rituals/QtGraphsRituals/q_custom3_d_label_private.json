@@ -10,6 +10,8 @@
   "rows": {
     "ritual_ZN21QCustom3DLabelPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QCustom3DLabelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QCustom3DLabelPrivateC1Ev": ["address"],
+    "ritual_ZN21QCustom3DLabelPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN21QCustom3DLabelPrivate14resetDirtyBitsEv": [
       "nothing", "address"
     ]

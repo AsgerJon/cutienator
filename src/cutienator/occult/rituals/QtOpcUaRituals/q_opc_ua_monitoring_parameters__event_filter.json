@@ -9,8 +9,17 @@
     "ritual_ZN26QOpcUaMonitoringParameters11EventFilterC1ERKS0_": [
       "address", "address"
     ],
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilteraSERKS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK26QOpcUaMonitoringParameters11EventFiltereqERKS0_": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilterlsERK26QOpcUaContentFilterElement": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilterlsERK28QOpcUaSimpleAttributeOperand": [
+      "address", "address", "address"
     ],
     "ritual_ZN26QOpcUaMonitoringParameters11EventFilterD1Ev": [
       "nothing", "address"
@@ -18,10 +27,16 @@
     "ritual_ZNK26QOpcUaMonitoringParameters11EventFilter13selectClausesEv": [
       "address", "address"
     ],
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilter16selectClausesRefEv": [
+      "address", "address"
+    ],
     "ritual_ZN26QOpcUaMonitoringParameters11EventFilter16setSelectClausesERK5QListI28QOpcUaSimpleAttributeOperandE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK26QOpcUaMonitoringParameters11EventFilter11whereClauseEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilter14whereClauseRefEv": [
       "address", "address"
     ],
     "ritual_ZN26QOpcUaMonitoringParameters11EventFilter14setWhereClauseERK5QListI26QOpcUaContentFilterElementE": [

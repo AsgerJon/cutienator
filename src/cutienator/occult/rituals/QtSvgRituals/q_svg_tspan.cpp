@@ -98,6 +98,15 @@ QSvgNode::Type ritual_ZNK9QSvgTspan4typeEv(const QSvgTspan *self) {
   return self->type();
 }
 
+//  void QSvgTspan::drawCommand(QPainter *a0, QSvgExtraStates &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSvgTspan11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgTspan *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  self->drawCommand(a0, *a1);
+}
+
 //  void QSvgTspan::addText(QStringView text)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QSvgTspan7addTextE11QStringView(

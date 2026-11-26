@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickPinchHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickPinchHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickPinchHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickPinchHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -67,6 +73,28 @@
     ],
     "ritual_ZN18QQuickPinchHandler21setPersistentRotationEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQuickPinchHandler19minimumScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler19maximumScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler22minimumRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler22maximumRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler7updatedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPinchHandler12scaleChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQuickPinchHandler15rotationChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQuickPinchHandler18translationChangedE9QVector2D": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN18QQuickPinchHandler17wantsPointerEventEP13QPointerEvent": [
       "bool", "address", "address"

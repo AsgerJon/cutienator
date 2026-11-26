@@ -10,6 +10,9 @@
     ],
     "ritual_ZN15QDBusMarshaller20appendRegisteredTypeERK8QVariant": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN15QDBusMarshaller21unregisteredTypeErrorE9QMetaType": [
+      "nothing", "address", "address"
     ]
   }
 }

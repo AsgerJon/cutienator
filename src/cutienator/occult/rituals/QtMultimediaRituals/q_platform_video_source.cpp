@@ -8,8 +8,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtMultimedia/qvideoframeformat.h>
+#include <QtMultimedia/qvideoframe.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <optional>
 
 //  A QPlatformVideoSource that Python can take functions over in. Every QPlatformVideoSource
 //  Python makes is one. Each function below asks the Python
@@ -270,6 +272,25 @@ const QMetaObject *ritual_ZNK20QPlatformVideoSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformVideoSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QPlatformVideoSource11qt_metacastEPKc(
+    QPlatformVideoSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformVideoSource::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QPlatformVideoSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformVideoSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformVideoSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QPlatformVideoSource2trEPKcS1_i(
@@ -301,6 +322,13 @@ QVideoFrameFormat *ritual_ZNK20QPlatformVideoSource11frameFormatEv(
   return new QVideoFrameFormat(self->frameFormat());
 }
 
+//  std::optional<int> QPlatformVideoSource::ffmpegHWPixelFormat() const
+extern "C" Q_DECL_EXPORT
+std::optional<int> *ritual_ZNK20QPlatformVideoSource19ffmpegHWPixelFormatEv(
+    const QPlatformVideoSource *self) {
+  return new std::optional<int>(self->ffmpegHWPixelFormat());
+}
+
 //  void QPlatformVideoSource::setCaptureSession(QPlatformMediaCaptureSession
 //      *a0)
 extern "C" Q_DECL_EXPORT
@@ -324,6 +352,29 @@ bool ritual_ZNK20QPlatformVideoSource8hasErrorEv(
   return self->hasError();
 }
 
+//  void QPlatformVideoSource::newVideoFrame(const QVideoFrame &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformVideoSource13newVideoFrameERK11QVideoFrame(
+    QPlatformVideoSource *self,
+    const QVideoFrame *a0) {
+  self->newVideoFrame(*a0);
+}
+
+//  void QPlatformVideoSource::activeChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformVideoSource13activeChangedEb(
+    QPlatformVideoSource *self,
+    bool a0) {
+  self->activeChanged(a0);
+}
+
+//  void QPlatformVideoSource::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformVideoSource12errorChangedEv(
+    QPlatformVideoSource *self) {
+  self->errorChanged();
+}
+
 //  a Python function taken by a CuteQPlatformVideoSource, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -341,4 +392,11 @@ void ritual_own_ZN20QPlatformVideoSource17setCaptureSessionEP28QPlatformMediaCap
     QPlatformVideoSource *self,
     QPlatformMediaCaptureSession *a0) {
   self->QPlatformVideoSource::setCaptureSession(a0);
+}
+
+//  a std::optional<int> a ritual of QPlatformVideoSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformVideoSource__std_optional_int(
+    std::optional<int> *self) {
+  delete self;
 }

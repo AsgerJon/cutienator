@@ -28,9 +28,18 @@
     "ritual_ZN17QQuickTextPrivate22isLineLaidOutConnectedEv": [
       "bool", "address"
     ],
+    "ritual_ZN17QQuickTextPrivate15setLineGeometryER9QTextLinedRd": [
+      "nothing", "address", "address", "double", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate20positionInlineImagesERK9QTextLineRK5QListIN11QTextLayout11FormatRangeEE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK17QQuickTextPrivate16lineHeightOffsetEv": ["int", "address"],
     "ritual_ZNK17QQuickTextPrivate10elidedTextEdRK9QTextLine": [
       "text", "address", "double", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate12elideFormatsEiiiP5QListIN11QTextLayout11FormatRangeEE": [
+      "nothing", "address", "int", "int", "int", "address"
     ],
     "ritual_ZN17QQuickTextPrivate12clearFormatsEv": ["nothing", "address"],
     "ritual_ZN17QQuickTextPrivate17processHoverEventEP11QHoverEvent": [
@@ -66,12 +75,19 @@
     "ritual_ZN17QQuickTextPrivate18updateDocumentTextEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QQuickTextPrivate15setupTextLayoutEPd": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate23setupCustomLineGeometryER9QTextLineRdii": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
     "ritual_ZN17QQuickTextPrivate24isLinkActivatedConnectedEv": [
       "bool", "address"
     ],
     "ritual_ZN17QQuickTextPrivate22isLinkHoveredConnectedEv": [
       "bool", "address"
     ],
+    "ritual_ZNK17QQuickTextPrivate8getLinksEv": ["address", "address"],
     "ritual_ZN17QQuickTextPrivate8anchorAtEPK11QTextLayoutRK7QPointF": [
       "text", "address", "address"
     ],
@@ -98,6 +114,9 @@
     ],
     "ritual_own_ZNK17QQuickTextPrivate17getImplicitHeightEv": [
       "double", "address"
+    ],
+    "ritual_drop_QQuickTextPrivate__QList_QQuickTextPrivate_LinkDesc": [
+      "nothing", "address"
     ]
   }
 }

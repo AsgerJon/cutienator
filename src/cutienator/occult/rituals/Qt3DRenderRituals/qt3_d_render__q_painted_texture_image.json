@@ -8,8 +8,50 @@
     "ritual_ZNK10Qt3DRender20QPaintedTextureImage10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender20QPaintedTextureImage2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImageC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImageD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender20QPaintedTextureImage5widthEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender20QPaintedTextureImage6heightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender20QPaintedTextureImage4sizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage6updateERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage8setWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage9setHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage7setSizeE5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage12widthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage13heightChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage11sizeChangedE5QSize": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN10Qt3DRender20QPaintedTextureImage5paintEP8QPainter": [
       "nothing", "address", "address"
@@ -20,8 +62,14 @@
     "ritual_ZNK10Qt3DRender20QPaintedTextureImage6d_funcEv": [
       "address", "address"
     ],
+    "ritual_ZNK10Qt3DRender20QPaintedTextureImage13dataGeneratorEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DRender_QPaintedTextureImage": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QPaintedTextureImage__Qt3DRender_QTextureImageDataGeneratorPtr": [
+      "nothing", "address"
     ]
   }
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK30QQuick3DSpecularGlossyMaterial10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QQuick3DSpecularGlossyMaterial2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -404,6 +410,201 @@
     ],
     "ritual_ZN30QQuick3DSpecularGlossyMaterial23setVertexColorAlphaMaskE6QFlagsINS_15VertexColorMaskEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial15lightingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial16blendModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial18albedoColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial16albedoMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial33albedoSingleChannelEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial20albedoChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial35specularSingleChannelEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial22specularChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial35emissiveSingleChannelEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial22emissiveChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial18emissiveMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial21emissiveFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial17glossinessChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial20glossinessMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial28invertOpacityMapValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial17opacityMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial16normalMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial20specularColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial18specularMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial21normalStrengthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial19occlusionMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial22occlusionAmountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial16alphaModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial18alphaCutoffChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial24glossinessChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial21opacityChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial23occlusionChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial16pointSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial16lineWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial16heightMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial20heightChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial19heightAmountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial26minHeightMapSamplesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial26maxHeightMapSamplesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial22clearcoatAmountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial19clearcoatMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial23clearcoatChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial31clearcoatRoughnessAmountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial32clearcoatRoughnessChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial28clearcoatRoughnessMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial25clearcoatNormalMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial30clearcoatNormalStrengthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial25transmissionFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial22transmissionMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial26transmissionChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial22thicknessFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial19thicknessMapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial23thicknessChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial26attenuationDistanceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial23attenuationColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial26vertexColorsEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial30fresnelScaleBiasEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial19fresnelScaleChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial18fresnelBiasChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial19fresnelPowerChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial39clearcoatFresnelScaleBiasEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial28clearcoatFresnelScaleChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial27clearcoatFresnelBiasChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial28clearcoatFresnelPowerChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial30vertexColorsMaskEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial25vertexColorRedMaskChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial27vertexColorGreenMaskChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial26vertexColorBlueMaskChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DSpecularGlossyMaterial27vertexColorAlphaMaskChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN30QQuick3DSpecularGlossyMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

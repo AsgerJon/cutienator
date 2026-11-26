@@ -9,6 +9,7 @@
     "ritual_ZN12QStyleOptionD1Ev": ["nothing", "address"],
     "ritual_ZN12QStyleOption8initFromEPK7QWidget": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_ZN12QStyleOptionaSERKS_": ["address", "address", "address"]
   }
 }

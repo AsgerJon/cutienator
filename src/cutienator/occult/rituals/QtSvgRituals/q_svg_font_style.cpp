@@ -18,7 +18,7 @@ typedef bool (*CuteQSvgFontStyleCall1)(const void *, int *);
 class CuteQSvgFontStyle : public QSvgFontStyle {
 public:
   using QSvgFontStyle::QSvgFontStyle;
-  CuteQSvgFontStyle(const QSvgFontStyle &other) : QSvgFontStyle(other) {}
+  CuteQSvgFontStyle(const QSvgFontStyle & other) : QSvgFontStyle(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -66,6 +66,26 @@ QSvgFontStyle *ritual_ZN13QSvgFontStyleC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSvgFontStyleD1Ev(QSvgFontStyle *self) {
   delete self;
+}
+
+//  void QSvgFontStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSvgFontStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgFontStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgFontStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSvgFontStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgFontStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
 }
 
 //  Type QSvgFontStyle::type() const

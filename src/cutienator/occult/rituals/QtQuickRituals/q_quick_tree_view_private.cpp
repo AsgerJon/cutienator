@@ -6,12 +6,19 @@
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_treeview)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_treeview)
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktreeview_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktreeview_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(itemmodel)
+#include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -915,6 +922,17 @@ void ritual_ZN21QQuickTreeViewPrivate12setModelImplERK8QVariant(
     QQuickTreeViewPrivate *self,
     const QVariant *newModel) {
   self->setModelImpl(*newModel);
+}
+
+//  void QQuickTreeViewPrivate::dataChangedCallback(const QModelIndex
+//      &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTreeViewPrivate19dataChangedCallbackERK11QModelIndexS2_RK5QListIiE(
+    QQuickTreeViewPrivate *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->dataChangedCallback(*topLeft, *bottomRight, *roles);
 }
 
 //  void QQuickTreeViewPrivate::updateItemProperties(int flatIndex, QObject

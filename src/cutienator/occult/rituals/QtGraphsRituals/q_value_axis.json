@@ -8,9 +8,18 @@
   ],
   "rows": {
     "ritual_ZNK10QValueAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QValueAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QValueAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QValueAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QValueAxisC1EP7QObject": ["address", "address"],
     "ritual_ZN10QValueAxisD1Ev": ["nothing", "address"],
+    "ritual_ZN10QValueAxisC1ER17QValueAxisPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK10QValueAxis4typeEv": ["int", "address"],
     "ritual_ZN10QValueAxis6setMinEd": ["nothing", "address", "double"],
     "ritual_ZNK10QValueAxis3minEv": ["double", "address"],
@@ -49,6 +58,37 @@
     "ritual_ZNK10QValueAxis3panEv": ["double", "address"],
     "ritual_ZNK10QValueAxis9visualMinEv": ["double", "address"],
     "ritual_ZNK10QValueAxis9visualMaxEv": ["double", "address"],
+    "ritual_ZN10QValueAxis10minChangedEd": ["nothing", "address", "double"],
+    "ritual_ZN10QValueAxis10maxChangedEd": ["nothing", "address", "double"],
+    "ritual_ZN10QValueAxis12rangeChangedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN10QValueAxis19subTickCountChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN10QValueAxis18labelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QValueAxis22labelPostFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QValueAxis20labelDecimalsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QValueAxis17tickAnchorChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QValueAxis19tickIntervalChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QValueAxis11zoomChangedEd": ["nothing", "address", "double"],
+    "ritual_ZN10QValueAxis10panChangedEd": ["nothing", "address", "double"],
+    "ritual_ZN10QValueAxis16visualMinChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QValueAxis16visualMaxChangedEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZN10QValueAxis6d_funcEv": ["address", "address"],
     "ritual_ZNK10QValueAxis6d_funcEv": ["address", "address"],
     "ritual_take_QValueAxis": ["bool", "address", "chars", "address"],

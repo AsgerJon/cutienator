@@ -5,11 +5,21 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender19QSceneLoaderPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender19QSceneLoaderPrivate9setStatusENS_12QSceneLoader6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QSceneLoaderPrivate12setSceneRootEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender19QSceneLoaderPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender19QSceneLoaderPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender19QSceneLoaderPrivate17populateEntityMapEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_Qt3DRender_QSceneLoaderPrivate": [
       "bool", "address", "chars", "address"

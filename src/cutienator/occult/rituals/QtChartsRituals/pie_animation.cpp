@@ -11,9 +11,12 @@
 #include <QtCharts/6.12.0/QtCharts/private/pieanimation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(charts_pie_chart)
+#include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/pieslicedata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -339,6 +342,24 @@ const QMetaObject *ritual_ZNK12PieAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PieAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12PieAnimation11qt_metacastEPKc(
+    PieAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PieAnimation::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12PieAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    PieAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString PieAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12PieAnimation2trEPKcS1_i(
@@ -346,6 +367,16 @@ QString *ritual_ZN12PieAnimation2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(PieAnimation::tr(s, c, n));
+}
+
+//  PieAnimation::PieAnimation(PieChartItem *item, int duration, QEasingCurve
+//      &curve)
+extern "C" Q_DECL_EXPORT
+PieAnimation *ritual_ZN12PieAnimationC1EP12PieChartItemiR12QEasingCurve(
+    PieChartItem *item,
+    int duration,
+    QEasingCurve *curve) {
+  return new CutePieAnimation(item, duration, *curve);
 }
 
 //  PieAnimation::~PieAnimation()

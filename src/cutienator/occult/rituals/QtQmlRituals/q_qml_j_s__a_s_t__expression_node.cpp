@@ -1,16 +1,20 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  Written by hand on 2026-11-25 from
+//  QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0, from Qt's
+//  source. Kept as it is when the generator runs again.
+//  Not written: the constructor, as a node is made in a
+//  QQmlJS::MemoryPool (the 'operator new' of Managed takes only that).
+//  The class is still abstract, as 'accept0' and the two source
+//  locations stay pure, so its Cute class holds only the function
+//  the class itself declares.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
-#include <QtQml/QtQml>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmljsmemorypool_p.h>
 #include <cstring>
 
-//  A QQmlJS::AST::ExpressionNode that Python can take functions over in. Every QQmlJS::AST::ExpressionNode
-//  Python makes is one. Each function below asks the Python
-//  function handed over for it, and runs Qt's own without one.
+//  A QQmlJS::AST::ExpressionNode that Python can take functions over
+//  in. Every QQmlJS::AST::ExpressionNode Python makes is one. Each
+//  function below asks the Python function handed over for it, and runs
+//  Qt's own without one.
 typedef void * (*CuteQQmlJS_AST_ExpressionNodeCall0)(const void *, int *);
 class CuteQQmlJS_AST_ExpressionNode : public QQmlJS::AST::ExpressionNode {
 public:
@@ -36,6 +40,30 @@ public:
     return QQmlJS::AST::ExpressionNode::expressionCast();
   }
 };
+
+//  ExpressionNode *QQmlJS::AST::ExpressionNode::expressionCast()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ExpressionNode *ritual_ZN6QQmlJS3AST14ExpressionNode14expressionCastEv(
+    QQmlJS::AST::ExpressionNode *self) {
+  return self->expressionCast();
+}
+
+//  bool QQmlJS::AST::ExpressionNode::containsOptionalChain() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK6QQmlJS3AST14ExpressionNode21containsOptionalChainEv(
+    const QQmlJS::AST::ExpressionNode *self) {
+  return self->containsOptionalChain();
+}
+
+//  AST::FormalParameterList
+//      *QQmlJS::AST::ExpressionNode::reparseAsFormalParameterList(MemoryPool
+//      *pool)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::FormalParameterList *ritual_ZN6QQmlJS3AST14ExpressionNode28reparseAsFormalParameterListEPNS_10MemoryPoolE(
+    QQmlJS::AST::ExpressionNode *self,
+    QQmlJS::MemoryPool *pool) {
+  return self->reparseAsFormalParameterList(pool);
+}
 
 //  a Python function taken by a CuteQQmlJS_AST_ExpressionNode, for the
 //      function named by the key

@@ -7,6 +7,7 @@
 #include <QtGui/6.12.0/QtGui/private/qrhinull_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <QtCore/QVector>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qrhinull_p.h>
 #include <QtCore/qmath.h>
@@ -19,12 +20,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from src/gui/rhi/qrhinull.cpp, line 842, as _ZNK25QNullRenderPassDescriptor16serializedFormatEv
-inline QVector<quint32> QNullRenderPassDescriptor::serializedFormat() const
-{
-    return {};
-}
 
 //  from src/gui/rhi/qrhinull.cpp, line 811, as _ZN25QNullRenderPassDescriptorC1EP18QRhiImplementation
 inline QNullRenderPassDescriptor::QNullRenderPassDescriptor(QRhiImplementation *rhi)
@@ -60,6 +55,12 @@ inline QRhiRenderPassDescriptor *QNullRenderPassDescriptor::newCompatibleRenderP
     QRHI_RES_RHI(QRhiNull);
     rhiD->registerResource(rpD, false);
     return rpD;
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 842, as _ZNK25QNullRenderPassDescriptor16serializedFormatEv
+inline QVector<quint32> QNullRenderPassDescriptor::serializedFormat() const
+{
+    return {};
 }
 //  -----------------------------------------------------------------------
 
@@ -198,6 +199,13 @@ QRhiRenderPassDescriptor *ritual_ZNK25QNullRenderPassDescriptor33newCompatibleRe
   return self->newCompatibleRenderPassDescriptor();
 }
 
+//  QVector<quint32> QNullRenderPassDescriptor::serializedFormat() const
+extern "C" Q_DECL_EXPORT
+QVector<quint32> *ritual_ZNK25QNullRenderPassDescriptor16serializedFormatEv(
+    const QNullRenderPassDescriptor *self) {
+  return new QVector<quint32>(self->serializedFormat());
+}
+
 //  a Python function taken by a CuteQNullRenderPassDescriptor, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -230,4 +238,11 @@ extern "C" Q_DECL_EXPORT
 QRhiRenderPassDescriptor *ritual_own_ZNK25QNullRenderPassDescriptor33newCompatibleRenderPassDescriptorEv(
     const QNullRenderPassDescriptor *self) {
   return self->QNullRenderPassDescriptor::newCompatibleRenderPassDescriptor();
+}
+
+//  a QVector<quint32> a ritual of QNullRenderPassDescriptor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QNullRenderPassDescriptor__QVector_quint32(
+    QVector<quint32> *self) {
+  delete self;
 }

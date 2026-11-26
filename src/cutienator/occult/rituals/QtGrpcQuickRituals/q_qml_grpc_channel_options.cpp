@@ -9,10 +9,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtGrpc/qgrpcchanneloptions.h>
+#if QT_CONFIG(qml_ssl)
 #include <QtQmlNetwork/QtQmlNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlNetwork/6.12.0/QtQmlNetwork/private/qqmlsslconfiguration_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -190,6 +192,25 @@ const QMetaObject *ritual_ZNK22QQmlGrpcChannelOptions10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlGrpcChannelOptions::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQmlGrpcChannelOptions11qt_metacastEPKc(
+    QQmlGrpcChannelOptions *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlGrpcChannelOptions::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQmlGrpcChannelOptions11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlGrpcChannelOptions *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlGrpcChannelOptions::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQmlGrpcChannelOptions2trEPKcS1_i(
@@ -285,6 +306,51 @@ void ritual_ZN22QQmlGrpcChannelOptions19setSslConfigurationERK20QQmlSslConfigura
   self->setSslConfiguration(*config);
 }
 #endif  // QT_CONFIG(ssl)
+
+//  void QQmlGrpcChannelOptions::deadlineTimeoutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlGrpcChannelOptions22deadlineTimeoutChangedEv(
+    QQmlGrpcChannelOptions *self) {
+  self->deadlineTimeoutChanged();
+}
+
+//  void QQmlGrpcChannelOptions::metadataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlGrpcChannelOptions15metadataChangedEv(
+    QQmlGrpcChannelOptions *self) {
+  self->metadataChanged();
+}
+
+//  void QQmlGrpcChannelOptions::serializationFormatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlGrpcChannelOptions26serializationFormatChangedEv(
+    QQmlGrpcChannelOptions *self) {
+  self->serializationFormatChanged();
+}
+
+#if QT_CONFIG(ssl)
+//  void QQmlGrpcChannelOptions::sslConfigurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlGrpcChannelOptions23sslConfigurationChangedEv(
+    QQmlGrpcChannelOptions *self) {
+  self->sslConfigurationChanged();
+}
+#endif  // QT_CONFIG(ssl)
+
+//  QQmlGrpcChannelOptionsPrivate *QQmlGrpcChannelOptions::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlGrpcChannelOptionsPrivate *ritual_ZN22QQmlGrpcChannelOptions6d_funcEv(
+    QQmlGrpcChannelOptions *self) {
+  return self->d_func();
+}
+
+//  const QQmlGrpcChannelOptionsPrivate *QQmlGrpcChannelOptions::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QQmlGrpcChannelOptionsPrivate *ritual_ZNK22QQmlGrpcChannelOptions6d_funcEv(
+    const QQmlGrpcChannelOptions *self) {
+  return self->d_func();
+}
 
 //  a Python function taken by a CuteQQmlGrpcChannelOptions, for the function
 //      named by the key

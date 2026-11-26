@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qlogvalueaxis.h>
@@ -13,6 +13,8 @@
 #include <QtCore/qvariant.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGraphs/QAbstractAxis>
+#include <QtGraphs/private/qabstractaxis_p.h>
 #include <QtGraphs/QLogValueAxis>
 #include <QtGraphs/private/qlogvalueaxis_p.h>
 #include <QtGraphs/private/charthelpers_p.h>
@@ -25,6 +27,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 697, as _ZN20QAbstractAxisPrivateC2Ev
+inline QAbstractAxisPrivate::QAbstractAxisPrivate() {}
+
+//  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 540, as _ZN20QLogValueAxisPrivateD1Ev
+inline QLogValueAxisPrivate::~QLogValueAxisPrivate() {}
 
 //  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 571, as _ZN20QLogValueAxisPrivate8setRangeEdd
 inline void QLogValueAxisPrivate::setRange(qreal min, qreal max)
@@ -65,6 +73,45 @@ inline void QLogValueAxisPrivate::setRange(qreal min, qreal max)
     }
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 542, as _ZN20QLogValueAxisPrivate6setMinERK8QVariant
+inline void QLogValueAxisPrivate::setMin(const QVariant &min)
+{
+    Q_Q(QLogValueAxis);
+    bool ok;
+    qreal value = min.toReal(&ok);
+    if (ok)
+        q->setMin(value);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 551, as _ZN20QLogValueAxisPrivate6setMaxERK8QVariant
+inline void QLogValueAxisPrivate::setMax(const QVariant &max)
+{
+    Q_Q(QLogValueAxis);
+    bool ok;
+    qreal value = max.toReal(&ok);
+    if (ok)
+        q->setMax(value);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 560, as _ZN20QLogValueAxisPrivate8setRangeERK8QVariantS2_
+inline void QLogValueAxisPrivate::setRange(const QVariant &min, const QVariant &max)
+{
+    Q_Q(QLogValueAxis);
+    bool ok1;
+    bool ok2;
+    qreal value1 = min.toReal(&ok1);
+    qreal value2 = max.toReal(&ok2);
+    if (ok1 && ok2)
+        q->setRange(value1, value2);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 310, as _Z8lcAxis2Dv
+inline const QLoggingCategory &lcAxis2D()
+{
+    static const QLoggingCategory category("qt.graphs2d.axis.properties");
+    return category;
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 609, as _ZN20QLogValueAxisPrivate20calculateVisualRangeEv
 inline void QLogValueAxisPrivate::calculateVisualRange()
 {
@@ -97,38 +144,6 @@ inline void QLogValueAxisPrivate::calculateVisualRange()
         m_tickCount = tickCount;
         emit q->tickCountChanged(tickCount);
     }
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 542, as _ZN20QLogValueAxisPrivate6setMinERK8QVariant
-inline void QLogValueAxisPrivate::setMin(const QVariant &min)
-{
-    Q_Q(QLogValueAxis);
-    bool ok;
-    qreal value = min.toReal(&ok);
-    if (ok)
-        q->setMin(value);
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 551, as _ZN20QLogValueAxisPrivate6setMaxERK8QVariant
-inline void QLogValueAxisPrivate::setMax(const QVariant &max)
-{
-    Q_Q(QLogValueAxis);
-    bool ok;
-    qreal value = max.toReal(&ok);
-    if (ok)
-        q->setMax(value);
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 560, as _ZN20QLogValueAxisPrivate8setRangeERK8QVariantS2_
-inline void QLogValueAxisPrivate::setRange(const QVariant &min, const QVariant &max)
-{
-    Q_Q(QLogValueAxis);
-    bool ok1;
-    bool ok2;
-    qreal value1 = min.toReal(&ok1);
-    qreal value2 = max.toReal(&ok2);
-    if (ok1 && ok2)
-        q->setRange(value1, value2);
 }
 //  -----------------------------------------------------------------------
 
@@ -250,6 +265,12 @@ public:
   }
 };
 
+//  QLogValueAxisPrivate::~QLogValueAxisPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLogValueAxisPrivateD1Ev(QLogValueAxisPrivate *self) {
+  delete self;
+}
+
 //  qreal QLogValueAxisPrivate::min()
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZN20QLogValueAxisPrivate3minEv(QLogValueAxisPrivate *self) {
@@ -340,6 +361,15 @@ qreal ritual_own_ZN20QLogValueAxisPrivate3maxEv(QLogValueAxisPrivate *self) {
   return self->QLogValueAxisPrivate::max();
 }
 
+//  void QLogValueAxisPrivate::setRange(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN20QLogValueAxisPrivate8setRangeEdd(
+    QLogValueAxisPrivate *self,
+    qreal min,
+    qreal max) {
+  self->QLogValueAxisPrivate::setRange(min, max);
+}
+
 //  void QLogValueAxisPrivate::setMin(const QVariant &min)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN20QLogValueAxisPrivate6setMinERK8QVariant(
@@ -370,4 +400,4 @@ void ritual_own_ZN20QLogValueAxisPrivate8setRangeERK8QVariantS2_(
       *max);
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

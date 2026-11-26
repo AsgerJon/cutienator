@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QUndoStack10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QUndoStack11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QUndoStack11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QUndoStack2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QUndoStack6d_funcEv": ["address", "address"],
     "ritual_ZNK10QUndoStack6d_funcEv": ["address", "address"],
@@ -43,6 +49,20 @@
     "ritual_ZN10QUndoStack4undoEv": ["nothing", "address"],
     "ritual_ZN10QUndoStack4redoEv": ["nothing", "address"],
     "ritual_ZN10QUndoStack9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QUndoStack12indexChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN10QUndoStack12cleanChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QUndoStack14canUndoChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QUndoStack14canRedoChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QUndoStack15undoTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QUndoStack15redoTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_take_QUndoStack": ["bool", "address", "chars", "address"],
     "ritual_list_make_QUndoStack_ptr": ["address"],
     "ritual_list_add_QUndoStack_ptr": ["nothing", "address", "address"],

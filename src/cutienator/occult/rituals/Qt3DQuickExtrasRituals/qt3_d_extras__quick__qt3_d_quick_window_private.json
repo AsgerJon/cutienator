@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "Qt3DQuickExtras/6.12.0/Qt3DQuickExtras/private/qt3dquickwindow_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DExtras5Quick22Qt3DQuickWindowPrivateD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

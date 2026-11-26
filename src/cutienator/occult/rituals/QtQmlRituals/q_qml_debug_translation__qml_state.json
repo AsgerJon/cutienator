@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN20QQmlDebugTranslation8QmlStateC1Ev": ["address"],
+    "ritual_ZN20QQmlDebugTranslationrsER11QDataStreamRNS_8QmlStateE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlDebugTranslationlsER11QDataStreamRKNS_8QmlStateE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QQmlDebugTranslation8QmlStateD1Ev": ["nothing", "address"]
   }
 }

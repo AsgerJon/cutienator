@@ -6,7 +6,11 @@
   "rows": {
     "ritual_ZN6QPlaceC1Ev": ["address"],
     "ritual_ZN6QPlaceC1ERKS_": ["address", "address"],
+    "ritual_ZN6QPlaceC1EOS_": ["address", "address"],
     "ritual_ZN6QPlaceD1Ev": ["nothing", "address"],
+    "ritual_ZN6QPlaceaSERKS_": ["address", "address", "address"],
+    "ritual_ZN6QPlaceaSEOS_": ["address", "address", "address"],
+    "ritual_ZN6QPlace4swapERS_": ["nothing", "address", "address"],
     "ritual_ZeqRK6QPlaceS1_": ["bool", "address", "address"],
     "ritual_ZneRK6QPlaceS1_": ["bool", "address", "address"],
     "ritual_ZNK6QPlace10categoriesEv": ["address", "address"],
@@ -91,6 +95,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK6QPlace7isEmptyEv": ["bool", "address"],
+    "ritual_ZN6QPlaceC1ERK18QSharedDataPointerI13QPlacePrivateE": [
+      "address", "address"
+    ],
     "ritual_ZNK6QPlace7isEqualERKS_": ["bool", "address", "address"],
     "ritual_ZNK6QPlace6d_funcEv": ["address", "address"],
     "ritual_list_make_QPlace": ["address"],

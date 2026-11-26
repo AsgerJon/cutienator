@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN15QPlatformPixmapC1ENS_9PixelTypeEi": [
+      "address", "int", "int"
+    ],
     "ritual_ZN15QPlatformPixmapD1Ev": ["nothing", "address"],
     "ritual_ZNK15QPlatformPixmap30createCompatiblePlatformPixmapEv": [
       "address", "address"
@@ -15,11 +18,17 @@
     "ritual_ZN15QPlatformPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN15QPlatformPixmap16fromImageInPlaceER6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN15QPlatformPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19ImageConversionFlagEE": [
       "nothing", "address", "address", "int"
     ],
     "ritual_ZN15QPlatformPixmap8fromFileERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
       "bool", "address", "text", "chars", "int"
+    ],
+    "ritual_ZN15QPlatformPixmap8fromDataEPKhjPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "bool", "address", "address", "unsigned int", "chars", "int"
     ],
     "ritual_ZN15QPlatformPixmap4copyEPKS_RK5QRect": [
       "nothing", "address", "address", "address"

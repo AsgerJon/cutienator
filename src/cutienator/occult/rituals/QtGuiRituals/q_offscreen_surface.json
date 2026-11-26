@@ -1,10 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qoffscreensurface.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qoffscreensurface.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZNK17QOffscreenSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QOffscreenSurface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QOffscreenSurface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QOffscreenSurface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +38,12 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK17QOffscreenSurface6handleEv": ["address", "address"],
+    "ritual_ZNK17QOffscreenSurface16resolveInterfaceEPKci": [
+      "address", "address", "chars", "int"
+    ],
+    "ritual_ZN17QOffscreenSurface13screenChangedEP7QScreen": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QOffscreenSurface15screenDestroyedEP7QObject": [
       "nothing", "address", "address"
     ],
@@ -41,6 +54,9 @@
     "ritual_own_ZNK17QOffscreenSurface6formatEv": ["address", "address"],
     "ritual_own_ZNK17QOffscreenSurface4sizeEv": ["address", "address"],
     "ritual_own_ZNK17QOffscreenSurface13surfaceHandleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QOffscreenSurface15nativeInterfaceIN16QNativeInterface24QAndroidOffscreenSurfaceENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
       "address", "address"
     ]
   }

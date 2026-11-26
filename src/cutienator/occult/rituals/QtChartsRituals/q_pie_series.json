@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QPieSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QPieSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QPieSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QPieSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QPieSeriesC1EP7QObject": ["address", "address"],
     "ritual_ZN10QPieSeriesD1Ev": ["nothing", "address"],
@@ -15,6 +21,7 @@
     "ritual_ZN10QPieSeries6appendERK5QListIP9QPieSliceE": [
       "bool", "address", "address"
     ],
+    "ritual_ZN10QPieSerieslsEP9QPieSlice": ["address", "address", "address"],
     "ritual_ZN10QPieSeries6appendERK7QStringd": [
       "address", "address", "text", "double"
     ],
@@ -56,6 +63,29 @@
     "ritual_ZN10QPieSeries17setLabelsPositionEN9QPieSlice13LabelPositionE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN10QPieSeries5addedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries7removedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries7clickedEP9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries7hoveredEP9QPieSliceb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10QPieSeries7pressedEP9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries8releasedEP9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries13doubleClickedEP9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries12countChangedEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries10sumChangedEv": ["nothing", "address"],
     "ritual_ZN10QPieSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK10QPieSeries6d_funcEv": ["address", "address"],
     "ritual_take_QPieSeries": ["bool", "address", "chars", "address"],

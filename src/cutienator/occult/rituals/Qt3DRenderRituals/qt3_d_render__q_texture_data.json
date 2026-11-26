@@ -1,8 +1,9 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DRender/qtexturedata.h, Qt 6.12.0. Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender12QTextureData6d_funcEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender12QTextureData6d_funcEv": ["address", "address"]
   }
 }

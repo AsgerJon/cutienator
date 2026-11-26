@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QUiLoader10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QUiLoader11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QUiLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QUiLoader2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QUiLoaderC1EP7QObject": ["address", "address"],
     "ritual_ZN9QUiLoaderD1Ev": ["nothing", "address"],
@@ -43,6 +47,8 @@
     ],
     "ritual_ZNK9QUiLoader20isTranslationEnabledEv": ["bool", "address"],
     "ritual_ZNK9QUiLoader11errorStringEv": ["text", "address"],
+    "ritual_ZN9QUiLoader6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QUiLoader6d_funcEv": ["address", "address"],
     "ritual_take_QUiLoader": ["bool", "address", "chars", "address"],
     "ritual_own_ZN9QUiLoader12createWidgetERK7QStringP7QWidgetS2_": [
       "address", "address", "text", "address", "text"

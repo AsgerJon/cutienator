@@ -6,8 +6,14 @@
   ],
   "rows": {
     "ritual_ZN18QQmlObjectOrGadgetC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQmlObjectOrGadgetC1EPK11QMetaObjectPv": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18QQmlObjectOrGadgetC1EPK11QMetaObject": [
       "address", "address"
+    ],
+    "ritual_ZNK18QQmlObjectOrGadget8metacallEN11QMetaObject4CallEiPPv": [
+      "nothing", "address", "int", "int", "address"
     ],
     "ritual_ZNK18QQmlObjectOrGadget6isNullEv": ["bool", "address"],
     "ritual_ZNK18QQmlObjectOrGadget7qObjectEv": ["address", "address"],

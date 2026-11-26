@@ -8,6 +8,12 @@
     "ritual_ZN22QLoggingSettingsParser23setImplicitRulesSectionEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN22QLoggingSettingsParser10setContentE11QStringViewDs": [
+      "nothing", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN22QLoggingSettingsParser10setContentEP8_IO_FILE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK22QLoggingSettingsParser5rulesEv": ["address", "address"],
     "ritual_ZN22QLoggingSettingsParserD1Ev": ["nothing", "address"]
   }

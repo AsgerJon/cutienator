@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render13ParameterInfoC1EiRKN8Qt3DCore7QHandleINS0_9ParameterEEE": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ParameterInfoltEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ParameterInfoltERKS1_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render13ParameterInfoD1Ev": ["nothing", "address"]
   }
 }

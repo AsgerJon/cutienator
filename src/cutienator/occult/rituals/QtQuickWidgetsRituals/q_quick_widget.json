@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QQuickWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuickWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuickWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuickWidgetC1EP7QWidget": ["address", "address"],
     "ritual_ZN12QQuickWidgetC1EP10QQmlEngineP7QWidget": [
@@ -50,6 +56,12 @@
     ],
     "ritual_ZN12QQuickWidget14loadFromModuleE14QAnyStringViewS0_": [
       "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN12QQuickWidget13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickWidget15sceneGraphErrorEN12QQuickWindow15SceneGraphErrorERK7QString": [
+      "nothing", "address", "int", "text"
     ],
     "ritual_ZN12QQuickWidget15continueExecuteEv": ["nothing", "address"],
     "ritual_ZN12QQuickWidget23createFramebufferObjectEv": [

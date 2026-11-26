@@ -9,6 +9,10 @@
       "address", "int"
     ],
     "ritual_ZN20QStringConverterBase5StateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QStringConverterBase5StateC1EOS0_": ["address", "address"],
+    "ritual_ZN20QStringConverterBase5StateaSEOS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QStringConverterBase5State5clearEv": ["nothing", "address"],
     "ritual_ZN20QStringConverterBase5State5resetEv": ["nothing", "address"]
   }

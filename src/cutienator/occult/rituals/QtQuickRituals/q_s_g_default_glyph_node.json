@@ -35,6 +35,9 @@
     "ritual_own_ZN19QSGDefaultGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_own_ZN19QSGDefaultGlyphNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZN19QSGDefaultGlyphNode8setStyleEN10QQuickText9TextStyleE": [
       "nothing", "address", "int"
     ],

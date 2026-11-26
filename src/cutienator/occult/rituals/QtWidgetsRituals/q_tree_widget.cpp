@@ -8,8 +8,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtGui/qregion.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtCore/qsize.h>
@@ -2210,6 +2214,24 @@ const QMetaObject *ritual_ZNK11QTreeWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTreeWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QTreeWidget11qt_metacastEPKc(
+    QTreeWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTreeWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QTreeWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTreeWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTreeWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QTreeWidget2trEPKcS1_i(
@@ -2615,6 +2637,92 @@ void ritual_ZN11QTreeWidget12collapseItemEPK15QTreeWidgetItem(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTreeWidget5clearEv(QTreeWidget *self) {
   self->clear();
+}
+
+//  void QTreeWidget::itemPressed(QTreeWidgetItem *item, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget11itemPressedEP15QTreeWidgetItemi(
+    QTreeWidget *self,
+    QTreeWidgetItem *item,
+    int column) {
+  self->itemPressed(item, column);
+}
+
+//  void QTreeWidget::itemClicked(QTreeWidgetItem *item, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget11itemClickedEP15QTreeWidgetItemi(
+    QTreeWidget *self,
+    QTreeWidgetItem *item,
+    int column) {
+  self->itemClicked(item, column);
+}
+
+//  void QTreeWidget::itemDoubleClicked(QTreeWidgetItem *item, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget17itemDoubleClickedEP15QTreeWidgetItemi(
+    QTreeWidget *self,
+    QTreeWidgetItem *item,
+    int column) {
+  self->itemDoubleClicked(item, column);
+}
+
+//  void QTreeWidget::itemActivated(QTreeWidgetItem *item, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget13itemActivatedEP15QTreeWidgetItemi(
+    QTreeWidget *self,
+    QTreeWidgetItem *item,
+    int column) {
+  self->itemActivated(item, column);
+}
+
+//  void QTreeWidget::itemEntered(QTreeWidgetItem *item, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget11itemEnteredEP15QTreeWidgetItemi(
+    QTreeWidget *self,
+    QTreeWidgetItem *item,
+    int column) {
+  self->itemEntered(item, column);
+}
+
+//  void QTreeWidget::itemChanged(QTreeWidgetItem *item, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget11itemChangedEP15QTreeWidgetItemi(
+    QTreeWidget *self,
+    QTreeWidgetItem *item,
+    int column) {
+  self->itemChanged(item, column);
+}
+
+//  void QTreeWidget::itemExpanded(QTreeWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget12itemExpandedEP15QTreeWidgetItem(
+    QTreeWidget *self,
+    QTreeWidgetItem *item) {
+  self->itemExpanded(item);
+}
+
+//  void QTreeWidget::itemCollapsed(QTreeWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget13itemCollapsedEP15QTreeWidgetItem(
+    QTreeWidget *self,
+    QTreeWidgetItem *item) {
+  self->itemCollapsed(item);
+}
+
+//  void QTreeWidget::currentItemChanged(QTreeWidgetItem *current,
+//      QTreeWidgetItem *previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget18currentItemChangedEP15QTreeWidgetItemS1_(
+    QTreeWidget *self,
+    QTreeWidgetItem *current,
+    QTreeWidgetItem *previous) {
+  self->currentItemChanged(current, previous);
+}
+
+//  void QTreeWidget::itemSelectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget20itemSelectionChangedEv(QTreeWidget *self) {
+  self->itemSelectionChanged();
 }
 
 //  bool QTreeWidget::event(QEvent *e)

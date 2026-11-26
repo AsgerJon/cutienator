@@ -67,3 +67,27 @@ QByteArray *ritual_ZNK22QQmlOpenMetaObjectType12propertyNameEi(
     int a0) {
   return new QByteArray(self->propertyName(a0));
 }
+
+//  QQmlPropertyCache::Ptr QQmlOpenMetaObjectType::cache() const
+extern "C" Q_DECL_EXPORT
+QQmlPropertyCache::Ptr *ritual_ZNK22QQmlOpenMetaObjectType5cacheEv(
+    const QQmlOpenMetaObjectType *self) {
+  return new QQmlPropertyCache::Ptr(self->cache());
+}
+
+//  void QQmlOpenMetaObjectType::propertyCreated(int a0, QMetaPropertyBuilder
+//      &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlOpenMetaObjectType15propertyCreatedEiR20QMetaPropertyBuilder(
+    QQmlOpenMetaObjectType *self,
+    int a0,
+    QMetaPropertyBuilder *a1) {
+  self->propertyCreated(a0, *a1);
+}
+
+//  a QQmlPropertyCache::Ptr a ritual of QQmlOpenMetaObjectType gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlOpenMetaObjectType__QQmlPropertyCache_Ptr(
+    QQmlPropertyCache::Ptr *self) {
+  delete self;
+}

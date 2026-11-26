@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN15DomResourceIconC1Ev": ["address"],
     "ritual_ZN15DomResourceIconD1Ev": ["nothing", "address"],
+    "ritual_ZN15DomResourceIcon4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK15DomResourceIcon4textEv": ["text", "address"],
     "ritual_ZN15DomResourceIcon7setTextERK7QString": [
       "nothing", "address", "text"

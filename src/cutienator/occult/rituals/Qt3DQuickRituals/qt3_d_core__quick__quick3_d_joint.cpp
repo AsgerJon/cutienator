@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DCore::Quick::Quick3DJoint that Python can take functions over in. Every Qt3DCore::Quick::Quick3DJoint
 //  Python makes is one. Each function below asks the Python
@@ -184,6 +186,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore5Quick12Quick3DJoint10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::Quick::Quick3DJoint::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore5Quick12Quick3DJoint11qt_metacastEPKc(
+    Qt3DCore::Quick::Quick3DJoint *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::Quick::Quick3DJoint::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore5Quick12Quick3DJoint11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::Quick::Quick3DJoint *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::Quick::Quick3DJoint::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -192,6 +213,21 @@ QString *ritual_ZN8Qt3DCore5Quick12Quick3DJoint2trEPKcS3_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::Quick::Quick3DJoint::tr(s, c, n));
+}
+
+//  Qt3DCore::Quick::Quick3DJoint::Quick3DJoint(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::Quick::Quick3DJoint *ritual_ZN8Qt3DCore5Quick12Quick3DJointC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DCore_Quick_Quick3DJoint(parent);
+}
+
+//  QQmlListProperty<Qt3DCore::QJoint>
+//      Qt3DCore::Quick::Quick3DJoint::childJoints()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DCore::QJoint> *ritual_ZN8Qt3DCore5Quick12Quick3DJoint11childJointsEv(
+    Qt3DCore::Quick::Quick3DJoint *self) {
+  return new QQmlListProperty<Qt3DCore::QJoint>(self->childJoints());
 }
 
 //  QJoint *Qt3DCore::Quick::Quick3DJoint::parentJoint() const
@@ -209,4 +245,12 @@ bool ritual_take_Qt3DCore_Quick_Quick3DJoint(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DCore_Quick_Quick3DJoint *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DCore::QJoint> a ritual of
+//      Qt3DCore::Quick::Quick3DJoint gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_Quick_Quick3DJoint__QQmlListProperty_Qt3DCore_QJoint(
+    QQmlListProperty<Qt3DCore::QJoint> *self) {
+  delete self;
 }

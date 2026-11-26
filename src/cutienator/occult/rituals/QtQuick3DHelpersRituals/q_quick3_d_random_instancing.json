@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuick3DRandomInstancing10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuick3DRandomInstancing11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuick3DRandomInstancing2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -63,6 +69,33 @@
     ],
     "ritual_ZN24QQuick3DRandomInstancing13setColorModelENS_10ColorModelE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing20instanceCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing17randomSeedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing12scaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing15rotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing12colorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing17customDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing17colorModelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing18gridSpacingChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN24QQuick3DRandomInstancing12handleChangeEv": [
       "nothing", "address"

@@ -28,6 +28,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace QRemoteObjectStringLiterals;
+
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 655, as _ZN23QRemoteObjectSourceBase7PrivateC1EP21QRemoteObjectSourceIoP23QRemoteObjectRootSource
 inline QRemoteObjectSourceBase::Private::Private(QRemoteObjectSourceIo *io, QRemoteObjectRootSource *root)
     : m_sourceIo(io), codec(io->m_codec.data()), isDynamic(false), root(root)

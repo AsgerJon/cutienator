@@ -947,6 +947,25 @@ const QMetaObject *ritual_ZNK17QWaylandQuickItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandQuickItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QWaylandQuickItem11qt_metacastEPKc(
+    QWaylandQuickItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQuickItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QWaylandQuickItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQuickItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandQuickItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QWaylandQuickItem2trEPKcS1_i(
@@ -1472,6 +1491,102 @@ void ritual_ZN17QWaylandQuickItem11updateFocusEv(QWaylandQuickItem *self) {
   self->updateFocus();
 }
 
+//  void QWaylandQuickItem::surfaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem14surfaceChangedEv(
+    QWaylandQuickItem *self) {
+  self->surfaceChanged();
+}
+
+//  void QWaylandQuickItem::compositorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem17compositorChangedEv(
+    QWaylandQuickItem *self) {
+  self->compositorChanged();
+}
+
+//  void QWaylandQuickItem::paintEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem19paintEnabledChangedEv(
+    QWaylandQuickItem *self) {
+  self->paintEnabledChanged();
+}
+
+//  void QWaylandQuickItem::touchEventsEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem25touchEventsEnabledChangedEv(
+    QWaylandQuickItem *self) {
+  self->touchEventsEnabledChanged();
+}
+
+//  void QWaylandQuickItem::originChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem13originChangedEv(QWaylandQuickItem *self) {
+  self->originChanged();
+}
+
+//  void QWaylandQuickItem::surfaceDestroyed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem16surfaceDestroyedEv(
+    QWaylandQuickItem *self) {
+  self->surfaceDestroyed();
+}
+
+//  void QWaylandQuickItem::inputEventsEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem25inputEventsEnabledChangedEv(
+    QWaylandQuickItem *self) {
+  self->inputEventsEnabledChanged();
+}
+
+//  void QWaylandQuickItem::focusOnClickChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem19focusOnClickChangedEv(
+    QWaylandQuickItem *self) {
+  self->focusOnClickChanged();
+}
+
+//  void QWaylandQuickItem::mouseMove(const QPointF &windowPosition)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem9mouseMoveERK7QPointF(
+    QWaylandQuickItem *self,
+    const QPointF *windowPosition) {
+  self->mouseMove(*windowPosition);
+}
+
+//  void QWaylandQuickItem::mouseRelease()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem12mouseReleaseEv(QWaylandQuickItem *self) {
+  self->mouseRelease();
+}
+
+//  void QWaylandQuickItem::subsurfaceHandlerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem24subsurfaceHandlerChangedEv(
+    QWaylandQuickItem *self) {
+  self->subsurfaceHandlerChanged();
+}
+
+//  void QWaylandQuickItem::outputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem13outputChangedEv(QWaylandQuickItem *self) {
+  self->outputChanged();
+}
+
+//  void QWaylandQuickItem::bufferLockedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem19bufferLockedChangedEv(
+    QWaylandQuickItem *self) {
+  self->bufferLockedChanged();
+}
+
+//  void QWaylandQuickItem::allowDiscardFrontBufferChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QWaylandQuickItem30allowDiscardFrontBufferChangedEv(
+    QWaylandQuickItem *self) {
+  self->allowDiscardFrontBufferChanged();
+}
+
 //  QSGNode *QWaylandQuickItem::updatePaintNode(QSGNode *oldNode,
 //      UpdatePaintNodeData *data)
 extern "C" Q_DECL_EXPORT
@@ -1480,6 +1595,15 @@ QSGNode *ritual_ZN17QWaylandQuickItem15updatePaintNodeEP7QSGNodePN10QQuickItem19
     QSGNode *oldNode,
     QQuickItem::UpdatePaintNodeData *data) {
   return self->updatePaintNode(oldNode, data);
+}
+
+//  QWaylandQuickItem::QWaylandQuickItem(QWaylandQuickItemPrivate &dd,
+//      QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QWaylandQuickItem *ritual_ZN17QWaylandQuickItemC1ER24QWaylandQuickItemPrivateP10QQuickItem(
+    QWaylandQuickItemPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQWaylandQuickItem(*dd, parent);
 }
 
 //  a Python function taken by a CuteQWaylandQuickItem, for the function

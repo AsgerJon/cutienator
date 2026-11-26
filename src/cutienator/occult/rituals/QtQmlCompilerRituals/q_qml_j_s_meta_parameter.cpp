@@ -8,6 +8,20 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QString>
+#include <QtCore/QWeakPointer>
+#include <QtCore/QSharedPointer>
+
+//  QQmlJSMetaParameter::QQmlJSMetaParameter(QString name, QString typeName,
+//      Constness typeQualifier, QWeakPointer<const QQmlJSScope> type)
+extern "C" Q_DECL_EXPORT
+QQmlJSMetaParameter *ritual_ZN19QQmlJSMetaParameterC1E7QStringS0_NS_9ConstnessE12QWeakPointerIK11QQmlJSScopeE(
+    const QString *name,
+    const QString *typeName,
+    QQmlJSMetaParameter::Constness typeQualifier,
+    const QWeakPointer<const QQmlJSScope> *type) {
+  return new QQmlJSMetaParameter(*name, *typeName, typeQualifier, *type);
+}
 
 //  QString QQmlJSMetaParameter::name() const
 extern "C" Q_DECL_EXPORT
@@ -37,6 +51,21 @@ void ritual_ZN19QQmlJSMetaParameter11setTypeNameERK7QString(
     QQmlJSMetaParameter *self,
     const QString *typeName) {
   self->setTypeName(*typeName);
+}
+
+//  QSharedPointer<const QQmlJSScope> QQmlJSMetaParameter::type() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK19QQmlJSMetaParameter4typeEv(
+    const QQmlJSMetaParameter *self) {
+  return new QSharedPointer<const QQmlJSScope>(self->type());
+}
+
+//  void QQmlJSMetaParameter::setType(QWeakPointer<const QQmlJSScope> type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSMetaParameter7setTypeE12QWeakPointerIK11QQmlJSScopeE(
+    QQmlJSMetaParameter *self,
+    const QWeakPointer<const QQmlJSScope> *type) {
+  self->setType(*type);
 }
 
 //  Constness QQmlJSMetaParameter::typeQualifier() const
@@ -141,5 +170,12 @@ QQmlJSMetaParameter *ritual_list_at_QQmlJSMetaParameter(
 //  QList<QQmlJSMetaParameter>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQmlJSMetaParameter(QList<QQmlJSMetaParameter> *self) {
+  delete self;
+}
+
+//  a QSharedPointer<const QQmlJSScope> a ritual of QQmlJSMetaParameter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSMetaParameter__QSharedPointer_const_QQmlJSScope(
+    QSharedPointer<const QQmlJSScope> *self) {
   delete self;
 }

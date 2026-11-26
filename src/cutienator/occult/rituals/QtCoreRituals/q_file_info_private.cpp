@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qfileinfo_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QFile>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
@@ -15,6 +16,15 @@
 #ifdef Q_OS_WIN
 #include <QtCore/qstringbuilder.h>
 #endif
+#include <QtCore/private/qfilesystemengine_p.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qset.h>
+#include <QtCore/qstringbuilder.h>
+#include <QtCore/private/qabstractfileengine_p.h>
+#ifdef QT_BUILD_CORE_LIB
+#include <QtCore/private/qresource_p.h>
+#endif
+#include <QtCore/private/qduplicatetracker_p.h>
 #include "qplatformdefs.h"
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qglobal.h>
@@ -30,6 +40,25 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/io/qfilesystemengine.cpp, line 100, as local:qfilesystemengine.cpp:_q_checkEntry
+static inline bool _q_checkEntry(QFileSystemEntry &entry, QFileSystemMetaData &data, bool resolvingEntry)
+{
+    if (resolvingEntry) {
+        if (!QFileSystemEngine::fillMetaData(entry, data, QFileSystemMetaData::ExistsAttribute)
+                || !data.exists()) {
+            data.clear();
+            return false;
+        }
+    }
+
+    return true;
+}
+
+//  from src/corelib/io/qfilesystementry.cpp, line 21, as local:qfilesystementry.cpp:Uninitialized
+constexpr int Uninitialized = -2;
+
 //  from src/corelib/io/qfilesystementry.cpp, line 46, as _ZN16QFileSystemEntryC1Ev
 inline QFileSystemEntry::QFileSystemEntry()
     : m_lastSeparator(-1),
@@ -37,6 +66,40 @@ inline QFileSystemEntry::QFileSystemEntry()
     m_lastDotInFileName(-1)
 {
 }
+
+//  from src/corelib/io/qfilesystemengine.cpp, line 213, as _ZN17QFileSystemEngine15resolveUserNameERK16QFileSystemEntryR19QFileSystemMetaData
+#if defined(Q_OS_LINUX)
+inline QString QFileSystemEngine::resolveUserName(const QFileSystemEntry &entry, QFileSystemMetaData &metaData)
+{
+#if defined(Q_OS_WIN)
+    Q_UNUSED(metaData);
+    return QFileSystemEngine::owner(entry, QAbstractFileEngine::OwnerUser);
+#else //(Q_OS_UNIX)
+    if (!metaData.hasFlags(QFileSystemMetaData::UserId))
+        QFileSystemEngine::fillMetaData(entry, metaData, QFileSystemMetaData::UserId);
+    if (!metaData.exists())
+        return QString();
+    return resolveUserName(metaData.userId());
+#endif
+}
+#endif  // defined(Q_OS_LINUX)
+
+//  from src/corelib/io/qfilesystemengine.cpp, line 228, as _ZN17QFileSystemEngine16resolveGroupNameERK16QFileSystemEntryR19QFileSystemMetaData
+#if defined(Q_OS_LINUX)
+inline QString QFileSystemEngine::resolveGroupName(const QFileSystemEntry &entry, QFileSystemMetaData &metaData)
+{
+#if defined(Q_OS_WIN)
+    Q_UNUSED(metaData);
+    return QFileSystemEngine::owner(entry, QAbstractFileEngine::OwnerGroup);
+#else //(Q_OS_UNIX)
+    if (!metaData.hasFlags(QFileSystemMetaData::GroupId))
+        QFileSystemEngine::fillMetaData(entry, metaData, QFileSystemMetaData::GroupId);
+    if (!metaData.exists())
+        return QString();
+    return resolveGroupName(metaData.groupId());
+#endif
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfileinfo.cpp, line 101, as _ZNK16QFileInfoPrivate12getFileFlagsE6QFlagsIN19QAbstractFileEngine8FileFlagEE
 inline uint QFileInfoPrivate::getFileFlags(QAbstractFileEngine::FileFlags request) const
@@ -99,6 +162,36 @@ inline uint QFileInfoPrivate::getFileFlags(QAbstractFileEngine::FileFlags reques
 
     return fileFlags & request.toInt();
 }
+
+//  from src/corelib/io/qfileinfo.cpp, line 162, as _ZNK16QFileInfoPrivate11getFileTimeEN11QFileDevice8FileTimeE
+inline QDateTime &QFileInfoPrivate::getFileTime(QFile::FileTime request) const
+{
+    Q_ASSERT(fileEngine); // should never be called when using the native FS
+    if (!cache_enabled)
+        clearFlags();
+
+    uint cf = 0;
+    switch (request) {
+    case QFile::FileAccessTime:
+        cf = CachedATime;
+        break;
+    case QFile::FileBirthTime:
+        cf = CachedBTime;
+        break;
+    case QFile::FileMetadataChangeTime:
+        cf = CachedMCTime;
+        break;
+    case QFile::FileModificationTime:
+        cf = CachedMTime;
+        break;
+    }
+
+    if (!getCachedFlag(cf)) {
+        fileTimes[request] = fileEngine->fileTime(request);
+        setCachedFlag(cf);
+    }
+    return fileTimes[request];
+}
 //  -----------------------------------------------------------------------
 
 //  QFileInfoPrivate *QFileInfoPrivate::get(QFileInfo *fi)
@@ -135,6 +228,14 @@ uint ritual_ZNK16QFileInfoPrivate12getFileFlagsE6QFlagsIN19QAbstractFileEngine8F
     int a0) {
   return self->getFileFlags(
       QFlags<QAbstractFileEngine::FileFlag>::fromInt(a0));
+}
+
+//  QDateTime &QFileInfoPrivate::getFileTime(QFile::FileTime a0) const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK16QFileInfoPrivate11getFileTimeEN11QFileDevice8FileTimeE(
+    const QFileInfoPrivate *self,
+    const QFile::FileTime *a0) {
+  return &(self->getFileTime(*a0));
 }
 
 //  bool QFileInfoPrivate::getCachedFlag(uint c) const

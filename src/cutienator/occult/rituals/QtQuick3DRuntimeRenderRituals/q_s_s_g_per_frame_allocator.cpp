@@ -13,6 +13,14 @@ QSSGPerFrameAllocator *ritual_ZN21QSSGPerFrameAllocatorC1Ev() {
   return new QSSGPerFrameAllocator();
 }
 
+//  void *QSSGPerFrameAllocator::allocate(size_t size)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QSSGPerFrameAllocator8allocateEm(
+    QSSGPerFrameAllocator *self,
+    size_t size) {
+  return self->allocate(size);
+}
+
 //  void QSSGPerFrameAllocator::reset()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QSSGPerFrameAllocator5resetEv(QSSGPerFrameAllocator *self) {

@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK17QHelpContentModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QHelpContentModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QHelpContentModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QHelpContentModelD1Ev": ["nothing", "address"],
+    "ritual_ZN17QHelpContentModel30createContentsForCurrentFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHelpContentModel14createContentsERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QHelpContentModel13contentItemAtERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QHelpContentModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK17QHelpContentModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK17QHelpContentModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QHelpContentModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17QHelpContentModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17QHelpContentModel18isCreatingContentsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QHelpContentModel23contentsCreationStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHelpContentModel15contentsCreatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHelpContentModel14insertContentsEv": ["nothing", "address"],
+    "ritual_ZN17QHelpContentModelC1EP15QHelpEngineCore": [
+      "address", "address"
+    ],
+    "ritual_take_QHelpContentModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QHelpContentModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QHelpContentModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK17QHelpContentModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QHelpContentModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK17QHelpContentModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ]
+  }
+}

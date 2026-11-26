@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QQuick3DNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuick3DNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuick3DNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuick3DNode2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuick3DNodeC1EPS_": ["address", "address"],
     "ritual_ZN12QQuick3DNodeD1Ev": ["nothing", "address"],
@@ -90,6 +96,36 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN12QQuick3DNode9setLayersEi": ["nothing", "address", "int"],
+    "ritual_ZN12QQuick3DNode8xChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode8yChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode8zChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode15rotationChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode20eulerRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuick3DNode15positionChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode12scaleChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode12pivotChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode19localOpacityChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode14visibleChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode14forwardChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode9upChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode12rightChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode21sceneTransformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuick3DNode20scenePositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuick3DNode20sceneRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuick3DNode17sceneScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode18staticFlagsChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode13layersChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNodeC1ER19QQuick3DNodePrivatePS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN12QQuick3DNode17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
     ],

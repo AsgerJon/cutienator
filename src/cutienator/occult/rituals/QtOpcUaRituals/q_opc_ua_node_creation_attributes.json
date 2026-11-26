@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN28QOpcUaNodeCreationAttributesC1Ev": ["address"],
     "ritual_ZN28QOpcUaNodeCreationAttributesC1ERKS_": ["address", "address"],
+    "ritual_ZN28QOpcUaNodeCreationAttributesaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN28QOpcUaNodeCreationAttributesD1Ev": ["nothing", "address"],
     "ritual_ZNK28QOpcUaNodeCreationAttributes11accessLevelEv": [
       "int", "address"
@@ -16,6 +19,12 @@
     ],
     "ritual_ZNK28QOpcUaNodeCreationAttributes14hasAccessLevelEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes15arrayDimensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes18setArrayDimensionsERK5QListIjE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK28QOpcUaNodeCreationAttributes18hasArrayDimensionsEv": [
       "bool", "address"
@@ -175,6 +184,9 @@
     ],
     "ritual_ZNK28QOpcUaNodeCreationAttributes9valueTypeEv": [
       "int", "address"
+    ],
+    "ritual_drop_QOpcUaNodeCreationAttributes__QList_quint32": [
+      "nothing", "address"
     ]
   }
 }

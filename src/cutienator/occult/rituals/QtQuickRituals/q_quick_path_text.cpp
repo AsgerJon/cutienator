@@ -20,6 +20,24 @@ const QMetaObject *ritual_ZNK14QQuickPathText10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathText::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickPathText11qt_metacastEPKc(
+    QQuickPathText *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathText::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickPathText11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathText *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathText::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickPathText2trEPKcS1_i(
@@ -33,6 +51,14 @@ QString *ritual_ZN14QQuickPathText2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 QQuickPathText *ritual_ZN14QQuickPathTextC1EP7QObject(QObject *parent) {
   return new QQuickPathText(parent);
+}
+
+//  void QQuickPathText::addToPath(QPainterPath &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathText9addToPathER12QPainterPath(
+    QQuickPathText *self,
+    QPainterPath *path) {
+  self->addToPath(*path);
 }
 
 //  qreal QQuickPathText::x() const
@@ -97,6 +123,30 @@ qreal ritual_ZNK14QQuickPathText5widthEv(const QQuickPathText *self) {
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK14QQuickPathText6heightEv(const QQuickPathText *self) {
   return self->height();
+}
+
+//  void QQuickPathText::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathText8xChangedEv(QQuickPathText *self) {
+  self->xChanged();
+}
+
+//  void QQuickPathText::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathText8yChangedEv(QQuickPathText *self) {
+  self->yChanged();
+}
+
+//  void QQuickPathText::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathText11textChangedEv(QQuickPathText *self) {
+  self->textChanged();
+}
+
+//  void QQuickPathText::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathText11fontChangedEv(QQuickPathText *self) {
+  self->fontChanged();
 }
 
 //  void QQuickPathText::invalidate()

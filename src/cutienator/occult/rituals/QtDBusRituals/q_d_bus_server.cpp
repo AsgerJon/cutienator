@@ -5,6 +5,7 @@
 #include <QtDBus/qdbusserver.h>
 #include <QtCore/qstring.h>
 #include <QtDBus/qdbuserror.h>
+#include <QtDBus/qdbusconnection.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -182,6 +183,24 @@ const QMetaObject *ritual_ZNK11QDBusServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDBusServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QDBusServer11qt_metacastEPKc(
+    QDBusServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusServer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QDBusServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDBusServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QDBusServer2trEPKcS1_i(
@@ -242,6 +261,14 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QDBusServer32isAnonymousAuthenticationAllowedEv(
     const QDBusServer *self) {
   return self->isAnonymousAuthenticationAllowed();
+}
+
+//  void QDBusServer::newConnection(const QDBusConnection &connection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDBusServer13newConnectionERK15QDBusConnection(
+    QDBusServer *self,
+    const QDBusConnection *connection) {
+  self->newConnection(*connection);
 }
 
 //  a Python function taken by a CuteQDBusServer, for the function named by

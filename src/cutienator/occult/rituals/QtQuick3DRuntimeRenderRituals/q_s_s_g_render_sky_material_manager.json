@@ -1,22 +1,23 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
-    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersk",
-    "ymaterialmanager_p.h, Qt 6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderskymaterialmanager_p.h,",
+    "Qt 6.12.0, from Qt's source."
   ],
   "rows": {
+    "ritual_ZN28QSSGRenderSkyMaterialManagerC1ERK26QSSGRenderContextInterface": ["address", "address"],
     "ritual_ZN28QSSGRenderSkyMaterialManagerD1Ev": ["nothing", "address"],
-    "ritual_ZN28QSSGRenderSkyMaterialManager22releaseCachedResourcesEv": [
-      "nothing", "address"
-    ],
-    "ritual_ZN28QSSGRenderSkyMaterialManager7resolveEP21QSSGRenderSkyMaterial": [
-      "address", "address", "address"
-    ],
-    "ritual_ZN28QSSGRenderSkyMaterialManager20ensureEnvironmentMapEP21QSSGRenderSkyMaterial": [
-      "bool", "address", "address"
-    ],
-    "ritual_ZN28QSSGRenderSkyMaterialManager19clearPrefilterCacheEv": [
-      "nothing", "address"
-    ]
+    "ritual_ZN28QSSGRenderSkyMaterialManager22releaseCachedResourcesEv": ["nothing", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager7resolveEP21QSSGRenderSkyMaterial": ["address", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager20ensureEnvironmentMapEP21QSSGRenderSkyMaterial": ["bool", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager17computeFrameStateEP21QSSGRenderSkyMaterialRNS_10FrameStateE": ["bool", "address", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager14ensureTexturesERNS_10FrameStateE": ["bool", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager16deriveCycleStateEP21QSSGRenderSkyMaterialRNS_10FrameStateE": ["nothing", "address", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager25validateAndUpdateCacheKeyERKNS_10FrameStateEP21QSSGRhiShaderPipeline": ["nothing", "address", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager21ensureSharedResourcesERNS_10FrameStateEP17QRhiCommandBuffer": ["bool", "address", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager22runEnvironmentMipChainERKNS_10FrameStateEP17QRhiCommandBuffer": ["nothing", "address", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager17runPrefilterCycleEP21QSSGRenderSkyMaterialRKNS_10FrameStateEP17QRhiCommandBufferRP23QRhiResourceUpdateBatch": ["bool", "address", "address", "address", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager18initializeTailMipsERKNS_10FrameStateEP17QRhiCommandBuffer": ["nothing", "address", "address", "address"],
+    "ritual_ZN28QSSGRenderSkyMaterialManager19clearPrefilterCacheEv": ["nothing", "address"]
   }
 }

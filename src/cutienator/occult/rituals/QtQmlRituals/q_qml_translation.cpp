@@ -8,6 +8,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 
+//  QQmlTranslation::QQmlTranslation(const Data &d)
+extern "C" Q_DECL_EXPORT
+QQmlTranslation *ritual_ZN15QQmlTranslationC1ERKSt7variantIJDnNS_8QsTrDataENS_10QsTrIdDataEEE(
+    const QQmlTranslation::Data *d) {
+  return new QQmlTranslation(*d);
+}
+
 //  QQmlTranslation::QQmlTranslation()
 extern "C" Q_DECL_EXPORT
 QQmlTranslation *ritual_ZN15QQmlTranslationC1Ev() {

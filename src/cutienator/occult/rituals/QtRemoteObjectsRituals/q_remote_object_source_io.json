@@ -8,12 +8,36 @@
     "ritual_ZNK21QRemoteObjectSourceIo10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QRemoteObjectSourceIo11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QRemoteObjectSourceIo11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QRemoteObjectSourceIoD1Ev": ["nothing", "address"],
     "ritual_ZN21QRemoteObjectSourceIo15disableRemotingEP7QObject": [
       "bool", "address", "address"
     ],
     "ritual_ZNK21QRemoteObjectSourceIo13serverAddressEv": [
       "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectSourceIo16handleConnectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QRemoteObjectSourceIo18onServerDisconnectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectSourceIo12onServerReadEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectSourceIo17remoteObjectAddedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectSourceIo19remoteObjectRemovedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectSourceIo13serverRemovedERK4QUrl": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QRemoteObjectSourceIo": [
       "bool", "address", "chars", "address"

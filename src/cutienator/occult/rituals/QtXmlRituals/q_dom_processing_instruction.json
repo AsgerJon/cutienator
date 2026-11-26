@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN25QDomProcessingInstructionC1Ev": ["address"],
     "ritual_ZN25QDomProcessingInstructionC1ERKS_": ["address", "address"],
+    "ritual_ZN25QDomProcessingInstructionaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK25QDomProcessingInstruction6targetEv": ["text", "address"],
     "ritual_ZNK25QDomProcessingInstruction4dataEv": ["text", "address"],
     "ritual_ZN25QDomProcessingInstruction7setDataERK7QString": [

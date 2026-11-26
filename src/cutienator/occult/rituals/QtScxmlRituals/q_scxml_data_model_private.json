@@ -16,6 +16,9 @@
     ],
     "ritual_ZN22QScxmlDataModelPrivate23emitStateMachineChangedEP18QScxmlStateMachine": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN22QScxmlDataModelPrivate34_qt_property_m_stateMachine_offsetEv": [
+      "size_t"
     ]
   }
 }

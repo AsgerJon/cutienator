@@ -9,6 +9,11 @@
   ],
   "rows": {
     "ritual_ZNK8AxisGrid10metaObjectEv": ["address", "address"],
+    "ritual_ZN8AxisGrid11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8AxisGrid11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8AxisGridD1Ev": ["nothing", "address"],
     "ritual_ZN8AxisGrid12setupShadersEv": ["nothing", "address"],
     "ritual_ZNK8AxisGrid11iResolutionEv": ["address", "address"],
     "ritual_ZNK8AxisGrid9smoothingEv": ["double", "address"],
@@ -31,6 +36,38 @@
     "ritual_ZN8AxisGrid17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN8AxisGrid14geometryChangeERK6QRectFS2_": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8AxisGrid18iResolutionChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid16smoothingChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid12origoChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid21gridVisibilityChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid16gridWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid17gridHeightChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid19gridMovementChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid19subGridColorChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid16gridColorChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid30plotAreaBackgroundColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8AxisGrid23subGridLineWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid20gridLineWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid27verticalSubGridScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8AxisGrid29horizontalSubGridScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8AxisGrid26verticalLogarithmicChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8AxisGrid28horizontalLogarithmicChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8AxisGrid19verticalBaseChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8AxisGrid21horizontalBaseChangedEd": [
+      "nothing", "address", "double"
     ],
     "ritual_take_AxisGrid": ["bool", "address", "chars", "address"],
     "ritual_own_ZN8AxisGrid17componentCompleteEv": ["nothing", "address"]

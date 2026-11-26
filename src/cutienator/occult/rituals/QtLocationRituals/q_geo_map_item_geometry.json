@@ -51,6 +51,7 @@
       "address", "address", "unsigned int"
     ],
     "ritual_ZNK19QGeoMapItemGeometry8verticesEv": ["address", "address"],
+    "ritual_ZNK19QGeoMapItemGeometry7indicesEv": ["address", "address"],
     "ritual_ZNK19QGeoMapItemGeometry9isIndexedEv": ["bool", "address"],
     "ritual_ZNK19QGeoMapItemGeometry4sizeEv": ["unsigned int", "address"],
     "ritual_ZN19QGeoMapItemGeometry5clearEv": ["nothing", "address"],
@@ -59,6 +60,7 @@
     ],
     "ritual_own_ZNK19QGeoMapItemGeometry8containsERK7QPointF": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_drop_QGeoMapItemGeometry__QList_quint32": ["nothing", "address"]
   }
 }

@@ -5,8 +5,27 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render16RenderPassFilterC1Ev": ["address"],
+    "ritual_ZNK10Qt3DRender6Render16RenderPassFilter7filtersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16RenderPassFilter10parametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16RenderPassFilter12appendFilterEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16RenderPassFilter12removeFilterEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16RenderPassFilter16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_own_ZN10Qt3DRender6Render16RenderPassFilter16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_RenderPassFilter__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

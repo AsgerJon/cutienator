@@ -3,7 +3,10 @@
 //  lost.
 #include <Qt3DRender/qshaderprogrambuilder.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A Qt3DRender::QShaderProgramBuilder that Python can take functions over in. Every Qt3DRender::QShaderProgramBuilder
@@ -180,6 +183,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender21QShaderProgramBuilder10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QShaderProgramBuilder::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender21QShaderProgramBuilder11qt_metacastEPKc(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QShaderProgramBuilder::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender21QShaderProgramBuilder11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QShaderProgramBuilder *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QShaderProgramBuilder::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -188,6 +210,337 @@ QString *ritual_ZN10Qt3DRender21QShaderProgramBuilder2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QShaderProgramBuilder::tr(s, c, n));
+}
+
+//  Qt3DRender::QShaderProgramBuilder::QShaderProgramBuilder(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderProgramBuilder *ritual_ZN10Qt3DRender21QShaderProgramBuilderC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QShaderProgramBuilder(parent);
+}
+
+//  Qt3DRender::QShaderProgramBuilder::~QShaderProgramBuilder()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilderD1Ev(
+    Qt3DRender::QShaderProgramBuilder *self) {
+  delete self;
+}
+
+//  QShaderProgram *Qt3DRender::QShaderProgramBuilder::shaderProgram() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderProgram *ritual_ZNK10Qt3DRender21QShaderProgramBuilder13shaderProgramEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return self->shaderProgram();
+}
+
+//  QStringList Qt3DRender::QShaderProgramBuilder::enabledLayers() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10Qt3DRender21QShaderProgramBuilder13enabledLayersEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QList<QString>(self->enabledLayers());
+}
+
+//  QUrl Qt3DRender::QShaderProgramBuilder::vertexShaderGraph() const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK10Qt3DRender21QShaderProgramBuilder17vertexShaderGraphEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QUrl(self->vertexShaderGraph());
+}
+
+//  QUrl Qt3DRender::QShaderProgramBuilder::tessellationControlShaderGraph()
+//      const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK10Qt3DRender21QShaderProgramBuilder30tessellationControlShaderGraphEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QUrl(self->tessellationControlShaderGraph());
+}
+
+//  QUrl
+//      Qt3DRender::QShaderProgramBuilder::tessellationEvaluationShaderGraph(
+//      ) const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK10Qt3DRender21QShaderProgramBuilder33tessellationEvaluationShaderGraphEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QUrl(self->tessellationEvaluationShaderGraph());
+}
+
+//  QUrl Qt3DRender::QShaderProgramBuilder::geometryShaderGraph() const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK10Qt3DRender21QShaderProgramBuilder19geometryShaderGraphEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QUrl(self->geometryShaderGraph());
+}
+
+//  QUrl Qt3DRender::QShaderProgramBuilder::fragmentShaderGraph() const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK10Qt3DRender21QShaderProgramBuilder19fragmentShaderGraphEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QUrl(self->fragmentShaderGraph());
+}
+
+//  QUrl Qt3DRender::QShaderProgramBuilder::computeShaderGraph() const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK10Qt3DRender21QShaderProgramBuilder18computeShaderGraphEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QUrl(self->computeShaderGraph());
+}
+
+//  QByteArray Qt3DRender::QShaderProgramBuilder::vertexShaderCode() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK10Qt3DRender21QShaderProgramBuilder16vertexShaderCodeEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QByteArray(self->vertexShaderCode());
+}
+
+//  QByteArray
+//      Qt3DRender::QShaderProgramBuilder::tessellationControlShaderCode()
+//      const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK10Qt3DRender21QShaderProgramBuilder29tessellationControlShaderCodeEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QByteArray(self->tessellationControlShaderCode());
+}
+
+//  QByteArray
+//      Qt3DRender::QShaderProgramBuilder::tessellationEvaluationShaderCode()
+//      const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK10Qt3DRender21QShaderProgramBuilder32tessellationEvaluationShaderCodeEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QByteArray(self->tessellationEvaluationShaderCode());
+}
+
+//  QByteArray Qt3DRender::QShaderProgramBuilder::geometryShaderCode() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK10Qt3DRender21QShaderProgramBuilder18geometryShaderCodeEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QByteArray(self->geometryShaderCode());
+}
+
+//  QByteArray Qt3DRender::QShaderProgramBuilder::fragmentShaderCode() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK10Qt3DRender21QShaderProgramBuilder18fragmentShaderCodeEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QByteArray(self->fragmentShaderCode());
+}
+
+//  QByteArray Qt3DRender::QShaderProgramBuilder::computeShaderCode() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK10Qt3DRender21QShaderProgramBuilder17computeShaderCodeEv(
+    const Qt3DRender::QShaderProgramBuilder *self) {
+  return new QByteArray(self->computeShaderCode());
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::setShaderProgram(Qt3DRender::QSha
+//      derProgram *program)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder16setShaderProgramEPNS_14QShaderProgramE(
+    Qt3DRender::QShaderProgramBuilder *self,
+    Qt3DRender::QShaderProgram *program) {
+  self->setShaderProgram(program);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::setEnabledLayers(const
+//      QStringList &layers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder16setEnabledLayersERK5QListI7QStringE(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QList<QString> *layers) {
+  self->setEnabledLayers(*layers);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::setVertexShaderGraph(const QUrl
+//      &vertexShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder20setVertexShaderGraphERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *vertexShaderGraph) {
+  self->setVertexShaderGraph(*vertexShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::setTessellationControlShaderGraph
+//      (const QUrl &tessellationControlShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder33setTessellationControlShaderGraphERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *tessellationControlShaderGraph) {
+  self->setTessellationControlShaderGraph(*tessellationControlShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::setTessellationEvaluationShaderGr
+//      aph(const QUrl &tessellationEvaluationShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder36setTessellationEvaluationShaderGraphERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *tessellationEvaluationShaderGraph) {
+  self->setTessellationEvaluationShaderGraph(
+      *tessellationEvaluationShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::setGeometryShaderGraph(const QUrl
+//      &geometryShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder22setGeometryShaderGraphERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *geometryShaderGraph) {
+  self->setGeometryShaderGraph(*geometryShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::setFragmentShaderGraph(const QUrl
+//      &fragmentShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder22setFragmentShaderGraphERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *fragmentShaderGraph) {
+  self->setFragmentShaderGraph(*fragmentShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::setComputeShaderGraph(const QUrl
+//      &computeShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder21setComputeShaderGraphERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *computeShaderGraph) {
+  self->setComputeShaderGraph(*computeShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::shaderProgramChanged(Qt3DRender::
+//      QShaderProgram *shaderProgram)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder20shaderProgramChangedEPNS_14QShaderProgramE(
+    Qt3DRender::QShaderProgramBuilder *self,
+    Qt3DRender::QShaderProgram *shaderProgram) {
+  self->shaderProgramChanged(shaderProgram);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::enabledLayersChanged(const
+//      QStringList &layers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder20enabledLayersChangedERK5QListI7QStringE(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QList<QString> *layers) {
+  self->enabledLayersChanged(*layers);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::vertexShaderGraphChanged(const
+//      QUrl &vertexShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder24vertexShaderGraphChangedERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *vertexShaderGraph) {
+  self->vertexShaderGraphChanged(*vertexShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::tessellationControlShaderGraphCha
+//      nged(const QUrl &tessellationControlShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder37tessellationControlShaderGraphChangedERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *tessellationControlShaderGraph) {
+  self->tessellationControlShaderGraphChanged(
+      *tessellationControlShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::tessellationEvaluationShaderGraph
+//      Changed(const QUrl &tessellationEvaluationShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder40tessellationEvaluationShaderGraphChangedERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *tessellationEvaluationShaderGraph) {
+  self->tessellationEvaluationShaderGraphChanged(
+      *tessellationEvaluationShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::geometryShaderGraphChanged(const
+//      QUrl &geometryShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder26geometryShaderGraphChangedERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *geometryShaderGraph) {
+  self->geometryShaderGraphChanged(*geometryShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::fragmentShaderGraphChanged(const
+//      QUrl &fragmentShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder26fragmentShaderGraphChangedERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *fragmentShaderGraph) {
+  self->fragmentShaderGraphChanged(*fragmentShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::computeShaderGraphChanged(const
+//      QUrl &computeShaderGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder25computeShaderGraphChangedERK4QUrl(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QUrl *computeShaderGraph) {
+  self->computeShaderGraphChanged(*computeShaderGraph);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::vertexShaderCodeChanged(const
+//      QByteArray &vertexShaderCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder23vertexShaderCodeChangedERK10QByteArray(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QByteArray *vertexShaderCode) {
+  self->vertexShaderCodeChanged(*vertexShaderCode);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::tessellationControlShaderCodeChan
+//      ged(const QByteArray &tessellationControlShaderCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder36tessellationControlShaderCodeChangedERK10QByteArray(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QByteArray *tessellationControlShaderCode) {
+  self->tessellationControlShaderCodeChanged(*tessellationControlShaderCode);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::tessellationEvaluationShaderCodeC
+//      hanged(const QByteArray &tessellationEvaluationShaderCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder39tessellationEvaluationShaderCodeChangedERK10QByteArray(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QByteArray *tessellationEvaluationShaderCode) {
+  self->tessellationEvaluationShaderCodeChanged(
+      *tessellationEvaluationShaderCode);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::geometryShaderCodeChanged(const
+//      QByteArray &geometryShaderCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder25geometryShaderCodeChangedERK10QByteArray(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QByteArray *geometryShaderCode) {
+  self->geometryShaderCodeChanged(*geometryShaderCode);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::fragmentShaderCodeChanged(const
+//      QByteArray &fragmentShaderCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder25fragmentShaderCodeChangedERK10QByteArray(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QByteArray *fragmentShaderCode) {
+  self->fragmentShaderCodeChanged(*fragmentShaderCode);
+}
+
+//  void Qt3DRender::QShaderProgramBuilder::computeShaderCodeChanged(const
+//      QByteArray &computeShaderCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QShaderProgramBuilder24computeShaderCodeChangedERK10QByteArray(
+    Qt3DRender::QShaderProgramBuilder *self,
+    const QByteArray *computeShaderCode) {
+  self->computeShaderCodeChanged(*computeShaderCode);
+}
+
+//  Qt3DRender::QShaderProgramBuilder::QShaderProgramBuilder(QShaderProgramBu
+//      ilderPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderProgramBuilder *ritual_ZN10Qt3DRender21QShaderProgramBuilderC1ERNS_28QShaderProgramBuilderPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QShaderProgramBuilderPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QShaderProgramBuilder(*dd, parent);
 }
 
 //  QShaderProgramBuilderPrivate *Qt3DRender::QShaderProgramBuilder::d_func()

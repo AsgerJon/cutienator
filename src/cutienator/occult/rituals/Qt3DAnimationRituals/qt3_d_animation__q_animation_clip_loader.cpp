@@ -3,6 +3,7 @@
 //  lost.
 #include <Qt3DAnimation/qanimationcliploader.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -181,6 +182,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation20QAnimationClipLoader10metaObjectEv
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QAnimationClipLoader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation20QAnimationClipLoader11qt_metacastEPKc(
+    Qt3DAnimation::QAnimationClipLoader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QAnimationClipLoader::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation20QAnimationClipLoader11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QAnimationClipLoader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QAnimationClipLoader::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +209,78 @@ QString *ritual_ZN13Qt3DAnimation20QAnimationClipLoader2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QAnimationClipLoader::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QAnimationClipLoader::QAnimationClipLoader(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationClipLoader *ritual_ZN13Qt3DAnimation20QAnimationClipLoaderC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAnimationClipLoader(parent);
+}
+
+//  Qt3DAnimation::QAnimationClipLoader::QAnimationClipLoader(const QUrl
+//      &source, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationClipLoader *ritual_ZN13Qt3DAnimation20QAnimationClipLoaderC1ERK4QUrlPN8Qt3DCore5QNodeE(
+    const QUrl *source,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAnimationClipLoader(*source, parent);
+}
+
+//  Qt3DAnimation::QAnimationClipLoader::~QAnimationClipLoader()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation20QAnimationClipLoaderD1Ev(
+    Qt3DAnimation::QAnimationClipLoader *self) {
+  delete self;
+}
+
+//  QUrl Qt3DAnimation::QAnimationClipLoader::source() const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK13Qt3DAnimation20QAnimationClipLoader6sourceEv(
+    const Qt3DAnimation::QAnimationClipLoader *self) {
+  return new QUrl(self->source());
+}
+
+//  Status Qt3DAnimation::QAnimationClipLoader::status() const
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationClipLoader::Status ritual_ZNK13Qt3DAnimation20QAnimationClipLoader6statusEv(
+    const Qt3DAnimation::QAnimationClipLoader *self) {
+  return self->status();
+}
+
+//  void Qt3DAnimation::QAnimationClipLoader::setSource(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation20QAnimationClipLoader9setSourceERK4QUrl(
+    Qt3DAnimation::QAnimationClipLoader *self,
+    const QUrl *source) {
+  self->setSource(*source);
+}
+
+//  void Qt3DAnimation::QAnimationClipLoader::sourceChanged(const QUrl
+//      &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation20QAnimationClipLoader13sourceChangedERK4QUrl(
+    Qt3DAnimation::QAnimationClipLoader *self,
+    const QUrl *source) {
+  self->sourceChanged(*source);
+}
+
+//  void Qt3DAnimation::QAnimationClipLoader::statusChanged(Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation20QAnimationClipLoader13statusChangedENS0_6StatusE(
+    Qt3DAnimation::QAnimationClipLoader *self,
+    Qt3DAnimation::QAnimationClipLoader::Status status) {
+  self->statusChanged(status);
+}
+
+//  Qt3DAnimation::QAnimationClipLoader::QAnimationClipLoader(QAnimationClipL
+//      oaderPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationClipLoader *ritual_ZN13Qt3DAnimation20QAnimationClipLoaderC1ERNS_27QAnimationClipLoaderPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QAnimationClipLoaderPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAnimationClipLoader(*dd, parent);
 }
 
 //  QAnimationClipLoaderPrivate

@@ -12,8 +12,17 @@
     "ritual_ZN24QRemoteObjectNodePrivate12setLastErrorEN17QRemoteObjectNode9ErrorCodeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN24QRemoteObjectNodePrivate14connectReplicaEP7QObjectP20QRemoteObjectReplica": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN24QRemoteObjectNodePrivate11hasInstanceERK7QString": [
       "bool", "address", "text"
+    ],
+    "ritual_ZN24QRemoteObjectNodePrivate27onRemoteObjectSourceRemovedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QRemoteObjectNodePrivate17onShouldReconnectEP18QtROClientIoDevice": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24QRemoteObjectNodePrivate16handleNewAcquireEPK11QMetaObjectP20QRemoteObjectReplicaRK7QString": [
       "address", "address", "address", "address", "text"

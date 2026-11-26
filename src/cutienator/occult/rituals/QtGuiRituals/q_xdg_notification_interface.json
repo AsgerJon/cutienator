@@ -8,10 +8,53 @@
     "ritual_ZNK25QXdgNotificationInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QXdgNotificationInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QXdgNotificationInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QXdgNotificationInterface19staticInterfaceNameEv": ["chars"],
     "ritual_ZN25QXdgNotificationInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN25QXdgNotificationInterface17closeNotificationEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN25QXdgNotificationInterface15getCapabilitiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QXdgNotificationInterface20getServerInformationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QXdgNotificationInterface20getServerInformationER7QStringS1_S1_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QXdgNotificationInterface6notifyERK7QStringjS2_S2_S2_RK5QListIS0_ERK4QMapIS0_8QVariantEi": [
+      "address", "address", "text", "unsigned int", "text", "text", "text",
+      "address", "address", "int"
+    ],
+    "ritual_ZN25QXdgNotificationInterface13ActionInvokedEjRK7QString": [
+      "nothing", "address", "unsigned int", "text"
+    ],
+    "ritual_ZN25QXdgNotificationInterface18NotificationClosedEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
     "ritual_take_QXdgNotificationInterface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QXdgNotificationInterface__QDBusPendingReply": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QXdgNotificationInterface__QDBusPendingReply_QStringList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QXdgNotificationInterface__QDBusPendingReply_QString_QString_QString_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QXdgNotificationInterface__QDBusReply_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QXdgNotificationInterface__QDBusPendingReply_uint": [
+      "nothing", "address"
     ]
   }
 }

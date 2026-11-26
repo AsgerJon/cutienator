@@ -16,6 +16,14 @@ void ritual_ZN11QScxmlEventD1Ev(QScxmlEvent *self) {
   delete self;
 }
 
+//  QScxmlEvent &QScxmlEvent::operator=(const QScxmlEvent &other)
+extern "C" Q_DECL_EXPORT
+QScxmlEvent *ritual_ZN11QScxmlEventaSERKS_(
+    QScxmlEvent *self,
+    const QScxmlEvent *other) {
+  return &(self->operator=(*other));
+}
+
 //  QScxmlEvent::QScxmlEvent(const QScxmlEvent &other)
 extern "C" Q_DECL_EXPORT
 QScxmlEvent *ritual_ZN11QScxmlEventC1ERKS_(const QScxmlEvent *other) {
@@ -41,6 +49,14 @@ extern "C" Q_DECL_EXPORT
 QScxmlEvent::EventType ritual_ZNK11QScxmlEvent9eventTypeEv(
     const QScxmlEvent *self) {
   return self->eventType();
+}
+
+//  void QScxmlEvent::setEventType(const EventType &type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QScxmlEvent12setEventTypeERKNS_9EventTypeE(
+    QScxmlEvent *self,
+    const QScxmlEvent::EventType *type) {
+  self->setEventType(*type);
 }
 
 //  QString QScxmlEvent::scxmlType() const

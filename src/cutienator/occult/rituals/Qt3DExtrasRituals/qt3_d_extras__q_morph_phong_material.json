@@ -8,8 +8,63 @@
     "ritual_ZNK10Qt3DExtras19QMorphPhongMaterial10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras19QMorphPhongMaterial2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterialC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras19QMorphPhongMaterial7ambientEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QMorphPhongMaterial7diffuseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QMorphPhongMaterial8specularEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QMorphPhongMaterial9shininessEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QMorphPhongMaterial12interpolatorEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial10setAmbientERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial10setDiffuseERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial11setSpecularERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial12setShininessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial15setInterpolatorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial14ambientChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial14diffuseChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial15specularChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial16shininessChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QMorphPhongMaterial19interpolatorChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN10Qt3DExtras19QMorphPhongMaterial6d_funcEv": [
       "address", "address"

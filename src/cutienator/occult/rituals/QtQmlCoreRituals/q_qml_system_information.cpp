@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK21QQmlSystemInformation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlSystemInformation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQmlSystemInformation11qt_metacastEPKc(
+    QQmlSystemInformation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlSystemInformation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQmlSystemInformation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlSystemInformation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlSystemInformation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQmlSystemInformation2trEPKcS1_i(

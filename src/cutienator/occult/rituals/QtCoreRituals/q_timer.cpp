@@ -6,6 +6,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/Qt>
 
 //  Only a class built on QTimer may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -186,6 +188,22 @@ const QMetaObject *ritual_ZNK6QTimer10metaObjectEv(const QTimer *self) {
   return self->metaObject();
 }
 
+//  void *QTimer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6QTimer11qt_metacastEPKc(QTimer *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTimer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6QTimer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTimer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTimer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN6QTimer2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -208,6 +226,12 @@ void ritual_ZN6QTimerD1Ev(QTimer *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QTimer8isActiveEv(const QTimer *self) {
   return self->isActive();
+}
+
+//  QBindable<bool> QTimer::bindableActive()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN6QTimer14bindableActiveEv(QTimer *self) {
+  return new QBindable<bool>(self->bindableActive());
 }
 
 //  int QTimer::timerId() const
@@ -234,6 +258,12 @@ int ritual_ZNK6QTimer8intervalEv(const QTimer *self) {
   return self->interval();
 }
 
+//  QBindable<int> QTimer::bindableInterval()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN6QTimer16bindableIntervalEv(QTimer *self) {
+  return new QBindable<int>(self->bindableInterval());
+}
+
 //  int QTimer::remainingTime() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK6QTimer13remainingTimeEv(const QTimer *self) {
@@ -254,6 +284,13 @@ Qt::TimerType ritual_ZNK6QTimer9timerTypeEv(const QTimer *self) {
   return self->timerType();
 }
 
+//  QBindable<Qt::TimerType> QTimer::bindableTimerType()
+extern "C" Q_DECL_EXPORT
+QBindable<Qt::TimerType> *ritual_ZN6QTimer17bindableTimerTypeEv(
+    QTimer *self) {
+  return new QBindable<Qt::TimerType>(self->bindableTimerType());
+}
+
 //  void QTimer::setSingleShot(bool singleShot)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QTimer13setSingleShotEb(QTimer *self, bool singleShot) {
@@ -264,6 +301,12 @@ void ritual_ZN6QTimer13setSingleShotEb(QTimer *self, bool singleShot) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QTimer12isSingleShotEv(const QTimer *self) {
   return self->isSingleShot();
+}
+
+//  QBindable<bool> QTimer::bindableSingleShot()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN6QTimer18bindableSingleShotEv(QTimer *self) {
+  return new QBindable<bool>(self->bindableSingleShot());
 }
 
 //  void QTimer::singleShot(int msec, const QObject *receiver, const char
@@ -305,6 +348,65 @@ void ritual_ZN6QTimer4stopEv(QTimer *self) {
   self->stop();
 }
 
+//  void QTimer::timeout(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QTimer7timeoutENS_14QPrivateSignalE(QTimer *self) {
+  self->timeout(QTimer::QPrivateSignal());
+}
+
+//  void QTimer::setInterval(std::chrono::milliseconds value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QTimer11setIntervalENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QTimer *self,
+    long long value) {
+  self->setInterval(std::chrono::milliseconds(value));
+}
+
+//  std::chrono::milliseconds QTimer::intervalAsDuration() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK6QTimer18intervalAsDurationEv(const QTimer *self) {
+  return static_cast<long long>(self->intervalAsDuration().count());
+}
+
+//  std::chrono::milliseconds QTimer::remainingTimeAsDuration() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK6QTimer23remainingTimeAsDurationEv(const QTimer *self) {
+  return static_cast<long long>(self->remainingTimeAsDuration().count());
+}
+
+//  void QTimer::singleShot(std::chrono::nanoseconds value, const QObject
+//      *receiver, const char *member)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QTimer10singleShotENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEPK7QObjectPKc(
+    long long value,
+    const QObject *receiver,
+    const char *member) {
+  QTimer::singleShot(std::chrono::nanoseconds(value), receiver, member);
+}
+
+//  void QTimer::singleShot(std::chrono::nanoseconds interval, Qt::TimerType
+//      timerType, const QObject *receiver, const char *member)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QTimer10singleShotENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObjectPKc(
+    long long interval,
+    Qt::TimerType timerType,
+    const QObject *receiver,
+    const char *member) {
+  QTimer::singleShot(
+      std::chrono::nanoseconds(interval),
+      timerType,
+      receiver,
+      member);
+}
+
+//  void QTimer::start(std::chrono::milliseconds value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QTimer5startENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QTimer *self,
+    long long value) {
+  self->start(std::chrono::milliseconds(value));
+}
+
 //  void QTimer::timerEvent(QTimerEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QTimer10timerEventEP11QTimerEvent(
@@ -325,6 +427,30 @@ const QTimerPrivate *ritual_ZNK6QTimer6d_funcEv(const QTimer *self) {
   return self->d_func();
 }
 
+//  std::chrono::nanoseconds QTimer::from_msecs(std::chrono::milliseconds a0)
+extern "C" Q_DECL_EXPORT
+long long ritual_ZN6QTimer10from_msecsENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    long long a0) {
+  return static_cast<long long>(
+      QTimer::from_msecs(
+          std::chrono::milliseconds(a0)).count());
+}
+
+//  std::chrono::nanoseconds QTimer::toDuration(int msecs)
+extern "C" Q_DECL_EXPORT
+long long ritual_ZN6QTimer10toDurationEi(int msecs) {
+  return static_cast<long long>(QTimer::toDuration(msecs).count());
+}
+
+//  std::chrono::nanoseconds QTimer::toDuration(std::chrono::nanoseconds ns)
+extern "C" Q_DECL_EXPORT
+long long ritual_ZN6QTimer10toDurationENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(
+    long long ns) {
+  return static_cast<long long>(
+      QTimer::toDuration(
+          std::chrono::nanoseconds(ns)).count());
+}
+
 //  int QTimer::startTimer(int a0)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN6QTimer10startTimerEi(QTimer *self, int a0) {
@@ -343,6 +469,29 @@ Qt::TimerType ritual_ZN6QTimer14defaultTypeForEi(int msecs) {
   return QTimer::defaultTypeFor(msecs);
 }
 
+//  Qt::TimerType QTimer::defaultTypeFor(std::chrono::nanoseconds interval)
+extern "C" Q_DECL_EXPORT
+Qt::TimerType ritual_ZN6QTimer14defaultTypeForENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(
+    long long interval) {
+  return QTimer::defaultTypeFor(std::chrono::nanoseconds(interval));
+}
+
+//  void QTimer::singleShotImpl(std::chrono::nanoseconds interval,
+//      Qt::TimerType timerType, const QObject *receiver,
+//      QtPrivate::QSlotObjectBase *slotObj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QTimer14singleShotImplENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObjectPN9QtPrivate15QSlotObjectBaseE(
+    long long interval,
+    Qt::TimerType timerType,
+    const QObject *receiver,
+    QtPrivate::QSlotObjectBase *slotObj) {
+  QTimer::singleShotImpl(
+      std::chrono::nanoseconds(interval),
+      timerType,
+      receiver,
+      slotObj);
+}
+
 //  a Python function taken by a CuteQTimer, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
@@ -356,6 +505,25 @@ void ritual_own_ZN6QTimer10timerEventEP11QTimerEvent(
     QTimer *self,
     QTimerEvent *a0) {
   static_cast<OwnQTimer *>(self)->OwnQTimer::timerEvent(a0);
+}
+
+//  a QBindable<bool> a ritual of QTimer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTimer__QBindable_bool(QBindable<bool> *self) {
+  delete self;
+}
+
+//  a QBindable<int> a ritual of QTimer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTimer__QBindable_int(QBindable<int> *self) {
+  delete self;
+}
+
+//  a QBindable<Qt::TimerType> a ritual of QTimer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTimer__QBindable_Qt_TimerType(
+    QBindable<Qt::TimerType> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_QOBJECT)

@@ -4,6 +4,7 @@
     "QtDesigner/extrainfo.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QDesignerExtraInfoExtensionC1Ev": ["address"],
     "ritual_ZN27QDesignerExtraInfoExtensionD1Ev": ["nothing", "address"],
     "ritual_ZNK27QDesignerExtraInfoExtension4coreEv": ["address", "address"],
     "ritual_ZNK27QDesignerExtraInfoExtension6widgetEv": [

@@ -4,6 +4,9 @@
 #include <QtConcurrent/qtconcurrent_global.h>
 #if !defined(QT_NO_CONCURRENT) ||defined(Q_QDOC)
 #include <QtConcurrent/qtconcurrentthreadengine.h>
+#if QT_CONFIG(future)
+#include <QtCore/qexception.h>
+#endif
 #include <cstring>
 
 //  Only a class built on QtConcurrent::ThreadEngineBase may call these functions of it.
@@ -182,11 +185,85 @@ public:
 #endif  // !defined(QT_NO_CONCURRENT) ||defined(Q_QDOC)
 };
 
+//  QtConcurrent::ThreadEngineBase::ThreadEngineBase(QThreadPool *pool)
+extern "C" Q_DECL_EXPORT
+QtConcurrent::ThreadEngineBase *ritual_ZN12QtConcurrent16ThreadEngineBaseC1EP11QThreadPool(
+    QThreadPool *pool) {
+  return new CuteQtConcurrent_ThreadEngineBase(pool);
+}
+
 //  QtConcurrent::ThreadEngineBase::~ThreadEngineBase()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QtConcurrent16ThreadEngineBaseD1Ev(
     QtConcurrent::ThreadEngineBase *self) {
   delete self;
+}
+
+//  void QtConcurrent::ThreadEngineBase::startSingleThreaded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase19startSingleThreadedEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  self->startSingleThreaded();
+}
+
+//  void QtConcurrent::ThreadEngineBase::startThread()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase11startThreadEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  self->startThread();
+}
+
+//  bool QtConcurrent::ThreadEngineBase::isCanceled()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QtConcurrent16ThreadEngineBase10isCanceledEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  return self->isCanceled();
+}
+
+//  void QtConcurrent::ThreadEngineBase::waitForResume()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase13waitForResumeEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  self->waitForResume();
+}
+
+//  bool QtConcurrent::ThreadEngineBase::isProgressReportingEnabled()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QtConcurrent16ThreadEngineBase26isProgressReportingEnabledEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  return self->isProgressReportingEnabled();
+}
+
+//  void QtConcurrent::ThreadEngineBase::setProgressValue(int progress)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase16setProgressValueEi(
+    QtConcurrent::ThreadEngineBase *self,
+    int progress) {
+  self->setProgressValue(progress);
+}
+
+//  void QtConcurrent::ThreadEngineBase::setProgressRange(int minimum, int
+//      maximum)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase16setProgressRangeEii(
+    QtConcurrent::ThreadEngineBase *self,
+    int minimum,
+    int maximum) {
+  self->setProgressRange(minimum, maximum);
+}
+
+//  void QtConcurrent::ThreadEngineBase::acquireBarrierSemaphore()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase23acquireBarrierSemaphoreEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  self->acquireBarrierSemaphore();
+}
+
+//  void QtConcurrent::ThreadEngineBase::reportIfSuspensionDone() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QtConcurrent16ThreadEngineBase22reportIfSuspensionDoneEv(
+    const QtConcurrent::ThreadEngineBase *self) {
+  self->reportIfSuspensionDone();
 }
 
 //  void QtConcurrent::ThreadEngineBase::start()
@@ -224,12 +301,58 @@ bool ritual_ZN12QtConcurrent16ThreadEngineBase20shouldThrottleThreadEv(
   return self->shouldThrottleThread();
 }
 
+//  bool QtConcurrent::ThreadEngineBase::startThreadInternal()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QtConcurrent16ThreadEngineBase19startThreadInternalEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  return self->startThreadInternal();
+}
+
+//  void QtConcurrent::ThreadEngineBase::startThreads()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase12startThreadsEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  self->startThreads();
+}
+
+//  void QtConcurrent::ThreadEngineBase::threadExit()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase10threadExitEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  self->threadExit();
+}
+
+//  bool QtConcurrent::ThreadEngineBase::threadThrottleExit()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QtConcurrent16ThreadEngineBase18threadThrottleExitEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  return self->threadThrottleExit();
+}
+
+//  void QtConcurrent::ThreadEngineBase::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase3runEv(
+    QtConcurrent::ThreadEngineBase *self) {
+  self->run();
+}
+
 //  void QtConcurrent::ThreadEngineBase::asynchronousFinish()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QtConcurrent16ThreadEngineBase18asynchronousFinishEv(
     QtConcurrent::ThreadEngineBase *self) {
   self->asynchronousFinish();
 }
+
+#if !defined(QT_NO_EXCEPTIONS)
+//  void QtConcurrent::ThreadEngineBase::handleException(const QException
+//      &exception)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QtConcurrent16ThreadEngineBase15handleExceptionERK10QException(
+    QtConcurrent::ThreadEngineBase *self,
+    const QException *exception) {
+  self->handleException(*exception);
+}
+#endif  // !defined(QT_NO_EXCEPTIONS)
 
 //  a Python function taken by a CuteQtConcurrent_ThreadEngineBase, for the
 //      function named by the key

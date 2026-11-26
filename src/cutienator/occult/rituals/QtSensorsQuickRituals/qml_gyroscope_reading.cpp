@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlGyroscopeReading that Python can take functions over in. Every QmlGyroscopeReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK19QmlGyroscopeReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlGyroscopeReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QmlGyroscopeReading11qt_metacastEPKc(
+    QmlGyroscopeReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlGyroscopeReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QmlGyroscopeReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlGyroscopeReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlGyroscopeReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QmlGyroscopeReading2trEPKcS1_i(
@@ -251,16 +271,55 @@ qreal ritual_ZNK19QmlGyroscopeReading1xEv(const QmlGyroscopeReading *self) {
   return self->x();
 }
 
+//  QBindable<qreal> QmlGyroscopeReading::bindableX() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK19QmlGyroscopeReading9bindableXEv(
+    const QmlGyroscopeReading *self) {
+  return new QBindable<qreal>(self->bindableX());
+}
+
 //  qreal QmlGyroscopeReading::y() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK19QmlGyroscopeReading1yEv(const QmlGyroscopeReading *self) {
   return self->y();
 }
 
+//  QBindable<qreal> QmlGyroscopeReading::bindableY() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK19QmlGyroscopeReading9bindableYEv(
+    const QmlGyroscopeReading *self) {
+  return new QBindable<qreal>(self->bindableY());
+}
+
 //  qreal QmlGyroscopeReading::z() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK19QmlGyroscopeReading1zEv(const QmlGyroscopeReading *self) {
   return self->z();
+}
+
+//  QBindable<qreal> QmlGyroscopeReading::bindableZ() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK19QmlGyroscopeReading9bindableZEv(
+    const QmlGyroscopeReading *self) {
+  return new QBindable<qreal>(self->bindableZ());
+}
+
+//  void QmlGyroscopeReading::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QmlGyroscopeReading8xChangedEv(QmlGyroscopeReading *self) {
+  self->xChanged();
+}
+
+//  void QmlGyroscopeReading::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QmlGyroscopeReading8yChangedEv(QmlGyroscopeReading *self) {
+  self->yChanged();
+}
+
+//  void QmlGyroscopeReading::zChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QmlGyroscopeReading8zChangedEv(QmlGyroscopeReading *self) {
+  self->zChanged();
 }
 
 //  QSensorReading *QmlGyroscopeReading::reading() const
@@ -275,6 +334,24 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QmlGyroscopeReading13readingUpdateEv(
     QmlGyroscopeReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlGyroscopeReading::_qt_property_m_x_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN19QmlGyroscopeReading23_qt_property_m_x_offsetEv() {
+  return QmlGyroscopeReading::_qt_property_m_x_offset();
+}
+
+//  size_t QmlGyroscopeReading::_qt_property_m_y_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN19QmlGyroscopeReading23_qt_property_m_y_offsetEv() {
+  return QmlGyroscopeReading::_qt_property_m_y_offset();
+}
+
+//  size_t QmlGyroscopeReading::_qt_property_m_z_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN19QmlGyroscopeReading23_qt_property_m_z_offsetEv() {
+  return QmlGyroscopeReading::_qt_property_m_z_offset();
 }
 
 //  a Python function taken by a CuteQmlGyroscopeReading, for the function
@@ -299,4 +376,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QmlGyroscopeReading13readingUpdateEv(
     QmlGyroscopeReading *self) {
   self->QmlGyroscopeReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlGyroscopeReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlGyroscopeReading__QBindable_qreal(
+    QBindable<qreal> *self) {
+  delete self;
 }

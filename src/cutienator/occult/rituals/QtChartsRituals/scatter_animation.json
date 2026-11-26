@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN16ScatterAnimationC1EP16ScatterChartItemiR12QEasingCurve": [
+      "address", "address", "int", "address"
+    ],
     "ritual_ZN16ScatterAnimationD1Ev": ["nothing", "address"],
     "ritual_ZN16ScatterAnimation11updateStateEN18QAbstractAnimation5StateES1_": [
       "nothing", "address", "int", "int"

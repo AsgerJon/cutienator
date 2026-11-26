@@ -220,6 +220,29 @@ public:
   }
 };
 
+//  QQmlJS::AST::ObjectPattern::ObjectPattern()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ObjectPattern *ritual_ZN6QQmlJS3AST13ObjectPatternC1Ev(
+    QQmlJS::MemoryPool *pool) {
+  return new (pool) CuteQQmlJS_AST_ObjectPattern();
+}
+
+//  QQmlJS::AST::ObjectPattern::ObjectPattern(PatternPropertyList *plist)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ObjectPattern *ritual_ZN6QQmlJS3AST13ObjectPatternC1EPNS0_19PatternPropertyListE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::PatternPropertyList *plist) {
+  return new (pool) CuteQQmlJS_AST_ObjectPattern(plist);
+}
+
+//  void QQmlJS::AST::ObjectPattern::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST13ObjectPattern7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ObjectPattern *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::ObjectPattern::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST13ObjectPattern19firstSourceLocationEv(
@@ -232,6 +255,18 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST13ObjectPattern18lastSourceLocationEv(
     const QQmlJS::AST::ObjectPattern *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  bool QQmlJS::AST::ObjectPattern::convertLiteralToAssignmentPattern(Source
+//      Location *errorLocation, QString *errorMessage)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QQmlJS3AST13ObjectPattern33convertLiteralToAssignmentPatternEPNS_14SourceLocationEP7QString(
+    QQmlJS::AST::ObjectPattern *self,
+    QQmlJS::SourceLocation *errorLocation,
+    QString *errorMessage) {
+  return self->convertLiteralToAssignmentPattern(
+      errorLocation,
+      errorMessage);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_ObjectPattern, for the

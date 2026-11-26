@@ -40,6 +40,15 @@ void ritual_ZN24QAccessibleQuickTextEdit12setSelectionEiii(
   self->setSelection(selectionIndex, startOffset, endOffset);
 }
 
+//  void *QAccessibleQuickTextEdit::interface_cast(QAccessible::InterfaceType
+//      a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QAccessibleQuickTextEdit14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleQuickTextEdit *self,
+    QAccessible::InterfaceType a0) {
+  return self->interface_cast(a0);
+}
+
 //  void QAccessibleQuickTextEdit::deleteText(int startOffset, int endOffset)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QAccessibleQuickTextEdit10deleteTextEii(
@@ -105,6 +114,15 @@ void ritual_own_ZN24QAccessibleQuickTextEdit12setSelectionEiii(
       selectionIndex,
       startOffset,
       endOffset);
+}
+
+//  void *QAccessibleQuickTextEdit::interface_cast(QAccessible::InterfaceType
+//      a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_own_ZN24QAccessibleQuickTextEdit14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleQuickTextEdit *self,
+    QAccessible::InterfaceType a0) {
+  return self->QAccessibleQuickTextEdit::interface_cast(a0);
 }
 
 //  void QAccessibleQuickTextEdit::deleteText(int startOffset, int endOffset)

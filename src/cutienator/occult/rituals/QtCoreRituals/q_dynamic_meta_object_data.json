@@ -12,6 +12,9 @@
     "ritual_ZN22QDynamicMetaObjectData19toDynamicMetaObjectEP7QObject": [
       "address", "address", "address"
     ],
+    "ritual_ZN22QDynamicMetaObjectData8metaCallEP7QObjectN11QMetaObject4CallEiPPv": [
+      "int", "address", "address", "int", "int", "address"
+    ],
     "ritual_take_QDynamicMetaObjectData": [
       "bool", "address", "chars", "address"
     ],

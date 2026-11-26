@@ -13,6 +13,7 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
 
 //  A QAbstractGeoTileCache that Python can take functions over in. Every QAbstractGeoTileCache
 //  Python makes is one. Each function below asks the Python
@@ -546,6 +547,25 @@ const QMetaObject *ritual_ZNK21QAbstractGeoTileCache10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractGeoTileCache::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QAbstractGeoTileCache11qt_metacastEPKc(
+    QAbstractGeoTileCache *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractGeoTileCache::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QAbstractGeoTileCache11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractGeoTileCache *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractGeoTileCache::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QAbstractGeoTileCache2trEPKcS1_i(
@@ -697,6 +717,15 @@ QAbstractGeoTileCache::CostStrategy ritual_ZNK21QAbstractGeoTileCache19costStrat
   return self->costStrategyTexture();
 }
 
+//  QSharedPointer<QGeoTileTexture> QAbstractGeoTileCache::get(const
+//      QGeoTileSpec &spec)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QGeoTileTexture> *ritual_ZN21QAbstractGeoTileCache3getERK12QGeoTileSpec(
+    QAbstractGeoTileCache *self,
+    const QGeoTileSpec *spec) {
+  return new QSharedPointer<QGeoTileTexture>(self->get(*spec));
+}
+
 //  void QAbstractGeoTileCache::insert(const QGeoTileSpec &spec, const
 //      QByteArray &bytes, const QString &format,
 //      QAbstractGeoTileCache::CacheAreas areas)
@@ -811,4 +840,11 @@ void ritual_own_ZN21QAbstractGeoTileCache11handleErrorERK12QGeoTileSpecRK7QStrin
     const QGeoTileSpec *spec,
     const QString *errorString) {
   self->QAbstractGeoTileCache::handleError(*spec, *errorString);
+}
+
+//  a QSharedPointer<QGeoTileTexture> a ritual of QAbstractGeoTileCache gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractGeoTileCache__QSharedPointer_QGeoTileTexture(
+    QSharedPointer<QGeoTileTexture> *self) {
+  delete self;
 }

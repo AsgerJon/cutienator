@@ -14,6 +14,7 @@
     "ritual_ZN9QQuadPath6quadToERK9QVector2DS2_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN9QQuadPath9elementAtEi": ["address", "address", "int"],
     "ritual_ZNK9QQuadPath9elementAtEi": ["address", "address", "int"],
     "ritual_ZNK9QQuadPath14indexOfChildAtEii": [
       "int", "address", "int", "int"
@@ -38,6 +39,9 @@
     ],
     "ritual_ZN9QQuadPath16addCurvatureDataEv": ["nothing", "address"],
     "ritual_ZNK9QQuadPath9flattenedEv": ["address", "address"],
+    "ritual_ZNK9QQuadPath6dashedEdRK5QListIdEd": [
+      "address", "address", "double", "address", "double"
+    ],
     "ritual_ZN9QQuadPath14splitElementAtEi": ["nothing", "address", "int"],
     "ritual_ZNK9QQuadPath8containsERK9QVector2D": [
       "bool", "address", "address"

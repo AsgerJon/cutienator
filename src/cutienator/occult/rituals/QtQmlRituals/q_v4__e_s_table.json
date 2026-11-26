@@ -5,5 +5,34 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV47ESTableC1Ev": ["address"],
+    "ritual_ZN3QV47ESTableD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV47ESTable11markObjectsEPNS_9MarkStackEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN3QV47ESTable5clearEv": ["nothing", "address"],
+    "ritual_ZN3QV47ESTable3setERKNS_5ValueES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV47ESTable3hasERKNS_5ValueE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV47ESTable3getERKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV47ESTable6removeERKNS_5ValueE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV47ESTable4sizeEv": ["unsigned int", "address"],
+    "ritual_ZN3QV47ESTable7iterateEjPNS_5ValueES2_": [
+      "nothing", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZN3QV47ESTable18removeUnmarkedKeysEv": ["nothing", "address"],
+    "ritual_ZN3QV47ESTable13observeShiftsERNS0_13ShiftObserverE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV47ESTable19stopObservingShiftsERNS0_13ShiftObserverE": [
+      "nothing", "address", "address"
+    ]
   }
 }

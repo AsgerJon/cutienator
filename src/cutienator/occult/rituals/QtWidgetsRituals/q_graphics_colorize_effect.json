@@ -8,6 +8,12 @@
     "ritual_ZNK23QGraphicsColorizeEffect10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QGraphicsColorizeEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QGraphicsColorizeEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QGraphicsColorizeEffect2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,6 +25,12 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN23QGraphicsColorizeEffect11setStrengthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QGraphicsColorizeEffect12colorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QGraphicsColorizeEffect15strengthChangedEd": [
       "nothing", "address", "double"
     ],
     "ritual_ZN23QGraphicsColorizeEffect4drawEP8QPainter": [

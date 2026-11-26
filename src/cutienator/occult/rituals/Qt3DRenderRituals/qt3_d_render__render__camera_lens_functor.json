@@ -5,8 +5,26 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK10Qt3DRender6Render17CameraLensFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render17CameraLensFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render17CameraLensFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render17CameraLensFunctorD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render17CameraLensFunctor6createEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render17CameraLensFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render17CameraLensFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
     ]
   }
 }

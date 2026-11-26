@@ -8,6 +8,9 @@
     "ritual_ZN3QV44Heap19QQmlBindingFunction11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap19QQmlBindingFunction4initEPKNS_24JavaScriptFunctionObjectE": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_QQmlBindingFunction_QV4_Heap_QQmlBindingFunctionData": [
       "address", "address"
     ]

@@ -7,8 +7,36 @@
     "ritual_ZNK10Qt3DRender10QAlphaTest10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QAlphaTest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QAlphaTest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QAlphaTest2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QAlphaTestC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QAlphaTestD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender10QAlphaTest13alphaFunctionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QAlphaTest14referenceValueEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QAlphaTest16setAlphaFunctionENS0_13AlphaFunctionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QAlphaTest17setReferenceValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QAlphaTest20alphaFunctionChangedENS0_13AlphaFunctionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QAlphaTest21referenceValueChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN10Qt3DRender10QAlphaTest6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender10QAlphaTest6d_funcEv": ["address", "address"],

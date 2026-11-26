@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QOpcUaNodeImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QOpcUaNodeImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QOpcUaNodeImpl2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,8 +32,14 @@
     "ritual_ZN14QOpcUaNodeImpl14writeAttributeEN6QOpcUa13NodeAttributeERK8QVariantNS0_5TypesERK7QString": [
       "bool", "address", "int", "address", "int", "text"
     ],
+    "ritual_ZN14QOpcUaNodeImpl15writeAttributesERK4QMapIN6QOpcUa13NodeAttributeE8QVariantENS1_5TypesE": [
+      "bool", "address", "address", "int"
+    ],
     "ritual_ZN14QOpcUaNodeImpl16modifyMonitoringEN6QOpcUa13NodeAttributeEN26QOpcUaMonitoringParameters9ParameterERK8QVariant": [
       "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl10callMethodERK7QStringRK5QListISt4pairI8QVariantN6QOpcUa5TypesEEE": [
+      "bool", "address", "text", "address"
     ],
     "ritual_ZN14QOpcUaNodeImpl14readHistoryRawERK9QDateTimeS2_jbN6QOpcUa18TimestampsToReturnE": [
       "address", "address", "address", "address", "unsigned int", "bool",
@@ -46,6 +58,36 @@
     "ritual_ZNK14QOpcUaNodeImpl10registeredEv": ["bool", "address"],
     "ritual_ZN14QOpcUaNodeImpl13setRegisteredEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl14attributesReadE5QListI16QOpcUaReadResultEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl16attributeWrittenEN6QOpcUa13NodeAttributeE8QVariantNS0_12UaStatusCodeE": [
+      "nothing", "address", "int", "address", "unsigned int"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl14browseFinishedE5QListI26QOpcUaReferenceDescriptionEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl18dataChangeOccurredEN6QOpcUa13NodeAttributeE16QOpcUaReadResult": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl13eventOccurredE5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl23monitoringEnableDisableEN6QOpcUa13NodeAttributeEb26QOpcUaMonitoringParameters": [
+      "nothing", "address", "int", "bool", "address"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl23monitoringStatusChangedEN6QOpcUa13NodeAttributeE6QFlagsIN26QOpcUaMonitoringParameters9ParameterEES3_": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl18methodCallFinishedE7QString8QVariantN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "text", "address", "unsigned int"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl25resolveBrowsePathFinishedE5QListI22QOpcUaBrowsePathTargetES0_I25QOpcUaRelativePathElementEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl22readHistoryRawFinishedE5QListI17QOpcUaHistoryDataEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
     ],
     "ritual_take_QOpcUaNodeImpl": ["bool", "address", "chars", "address"]
   }

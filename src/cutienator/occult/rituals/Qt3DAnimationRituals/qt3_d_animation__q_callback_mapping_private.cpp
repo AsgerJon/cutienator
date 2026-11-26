@@ -7,6 +7,43 @@
 #include <Qt3DAnimation/6.12.0/Qt3DAnimation/private/qcallbackmapping_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DAnimation/qabstractchannelmapping.h>
+#include <Qt3DAnimation/private/qabstractchannelmapping_p.h>
+#include <Qt3DAnimation/qcallbackmapping.h>
+#include <Qt3DAnimation/private/qcallbackmapping_p.h>
+#include <QtCore/qmetaobject.h>
+#include <QtCore/QMetaProperty>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/animation/frontend/qabstractchannelmapping.cpp, line 11, as _ZN13Qt3DAnimation30QAbstractChannelMappingPrivateC2Ev
+namespace Qt3DAnimation {
+inline QAbstractChannelMappingPrivate::QAbstractChannelMappingPrivate()
+    : Qt3DCore::QNodePrivate()
+    , m_mappingType(ChannelMapping)
+{
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qcallbackmapping.cpp, line 14, as _ZN13Qt3DAnimation23QCallbackMappingPrivateC1Ev
+namespace Qt3DAnimation {
+inline QCallbackMappingPrivate::QCallbackMappingPrivate()
+    : QAbstractChannelMappingPrivate()
+    , m_channelName()
+    , m_type(static_cast<int>(QMetaType::UnknownType))
+    , m_callback(nullptr)
+{
+    m_mappingType = QAbstractChannelMappingPrivate::CallbackMapping;
+}
+}  // namespace Qt3DAnimation
+//  -----------------------------------------------------------------------
 
 //  A Qt3DAnimation::QCallbackMappingPrivate that Python can take functions over in. Every Qt3DAnimation::QCallbackMappingPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +89,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DAnimation::QCallbackMappingPrivate::QCallbackMappingPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QCallbackMappingPrivate *ritual_ZN13Qt3DAnimation23QCallbackMappingPrivateC1Ev() {
+  return new CuteQt3DAnimation_QCallbackMappingPrivate();
+}
 
 //  QCallbackMapping *Qt3DAnimation::QCallbackMappingPrivate::q_func()
 extern "C" Q_DECL_EXPORT

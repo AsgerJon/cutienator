@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QQmlAbstractBindingC1Ev": ["address"],
     "ritual_ZN19QQmlAbstractBindingD1Ev": ["nothing", "address"],
     "ritual_ZNK19QQmlAbstractBinding10expressionEv": ["text", "address"],
     "ritual_ZNK19QQmlAbstractBinding4kindEv": ["int", "address"],
@@ -50,6 +51,9 @@
     ],
     "ritual_ZN19QQmlAbstractBinding14setNextBindingEPS_": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQmlAbstractBinding15getPropertyDataEPPK16QQmlPropertyDataPS0_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK19QQmlAbstractBinding12updatingFlagEv": ["bool", "address"],
     "ritual_ZN19QQmlAbstractBinding15setUpdatingFlagEb": [

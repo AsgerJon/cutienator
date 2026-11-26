@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DInput/Qt3DInput>
 
 //  A Qt3DInput::QInputSequence that Python can take functions over in. Every Qt3DInput::QInputSequence
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput14QInputSequence10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QInputSequence::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput14QInputSequence11qt_metacastEPKc(
+    Qt3DInput::QInputSequence *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QInputSequence::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput14QInputSequence11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QInputSequence *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QInputSequence::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,91 @@ QString *ritual_ZN9Qt3DInput14QInputSequence2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QInputSequence::tr(s, c, n));
+}
+
+//  Qt3DInput::QInputSequence::QInputSequence(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QInputSequence *ritual_ZN9Qt3DInput14QInputSequenceC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QInputSequence(parent);
+}
+
+//  Qt3DInput::QInputSequence::~QInputSequence()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSequenceD1Ev(
+    Qt3DInput::QInputSequence *self) {
+  delete self;
+}
+
+//  int Qt3DInput::QInputSequence::timeout() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput14QInputSequence7timeoutEv(
+    const Qt3DInput::QInputSequence *self) {
+  return self->timeout();
+}
+
+//  int Qt3DInput::QInputSequence::buttonInterval() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9Qt3DInput14QInputSequence14buttonIntervalEv(
+    const Qt3DInput::QInputSequence *self) {
+  return self->buttonInterval();
+}
+
+//  void Qt3DInput::QInputSequence::addSequence(QAbstractActionInput *input)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSequence11addSequenceEPNS_20QAbstractActionInputE(
+    Qt3DInput::QInputSequence *self,
+    Qt3DInput::QAbstractActionInput *input) {
+  self->addSequence(input);
+}
+
+//  void Qt3DInput::QInputSequence::removeSequence(QAbstractActionInput
+//      *input)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSequence14removeSequenceEPNS_20QAbstractActionInputE(
+    Qt3DInput::QInputSequence *self,
+    Qt3DInput::QAbstractActionInput *input) {
+  self->removeSequence(input);
+}
+
+//  QList<QAbstractActionInput *> Qt3DInput::QInputSequence::sequences()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DInput::QAbstractActionInput *> *ritual_ZNK9Qt3DInput14QInputSequence9sequencesEv(
+    const Qt3DInput::QInputSequence *self) {
+  return new QList<Qt3DInput::QAbstractActionInput *>(self->sequences());
+}
+
+//  void Qt3DInput::QInputSequence::setTimeout(int timeout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSequence10setTimeoutEi(
+    Qt3DInput::QInputSequence *self,
+    int timeout) {
+  self->setTimeout(timeout);
+}
+
+//  void Qt3DInput::QInputSequence::setButtonInterval(int buttonInterval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSequence17setButtonIntervalEi(
+    Qt3DInput::QInputSequence *self,
+    int buttonInterval) {
+  self->setButtonInterval(buttonInterval);
+}
+
+//  void Qt3DInput::QInputSequence::timeoutChanged(int timeout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSequence14timeoutChangedEi(
+    Qt3DInput::QInputSequence *self,
+    int timeout) {
+  self->timeoutChanged(timeout);
+}
+
+//  void Qt3DInput::QInputSequence::buttonIntervalChanged(int buttonInterval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QInputSequence21buttonIntervalChangedEi(
+    Qt3DInput::QInputSequence *self,
+    int buttonInterval) {
+  self->buttonIntervalChanged(buttonInterval);
 }
 
 //  QInputSequencePrivate *Qt3DInput::QInputSequence::d_func()
@@ -211,4 +317,12 @@ bool ritual_take_Qt3DInput_QInputSequence(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_QInputSequence *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DInput::QAbstractActionInput *> a ritual of
+//      Qt3DInput::QInputSequence gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QInputSequence__QList_Qt3DInput_QAbstractActionInput(
+    QList<Qt3DInput::QAbstractActionInput *> *self) {
+  delete self;
 }

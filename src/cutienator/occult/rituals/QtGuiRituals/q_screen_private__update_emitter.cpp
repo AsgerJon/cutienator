@@ -95,3 +95,10 @@ void ritual_ZN14QScreenPrivate13UpdateEmitterD1Ev(
     QScreenPrivate::UpdateEmitter *self) {
   delete self;
 }
+
+//  QScreenPrivate::UpdateEmitter::UpdateEmitter(UpdateEmitter &&a0)
+extern "C" Q_DECL_EXPORT
+QScreenPrivate::UpdateEmitter *ritual_ZN14QScreenPrivate13UpdateEmitterC1EOS0_(
+    QScreenPrivate::UpdateEmitter *a0) {
+  return new QScreenPrivate::UpdateEmitter(std::move(*a0));
+}

@@ -6,10 +6,12 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlregexpfilter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 
 //  QQmlRegExpFilter *QQmlRegExpFilterPrivate::q_func()
 extern "C" Q_DECL_EXPORT

@@ -7,6 +7,16 @@
   "rows": {
     "ritual_ZN25QOpcUaStructureDefinitionC1Ev": ["address"],
     "ritual_ZN25QOpcUaStructureDefinitionC1ERKS_": ["address", "address"],
+    "ritual_ZN25QOpcUaStructureDefinition4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QOpcUaStructureDefinitionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QOpcUaStructureDefinitionC1EOS_": ["address", "address"],
+    "ritual_ZN25QOpcUaStructureDefinitionaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK25QOpcUaStructureDefinitioncv8QVariantEv": [
       "address", "address"
     ],
@@ -25,6 +35,9 @@
     ],
     "ritual_ZNK25QOpcUaStructureDefinition13structureTypeEv": [
       "int", "address"
+    ],
+    "ritual_ZN25QOpcUaStructureDefinition16setStructureTypeERKNS_13StructureTypeE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK25QOpcUaStructureDefinition6fieldsEv": ["address", "address"],
     "ritual_ZN25QOpcUaStructureDefinition9setFieldsERK5QListI20QOpcUaStructureFieldE": [

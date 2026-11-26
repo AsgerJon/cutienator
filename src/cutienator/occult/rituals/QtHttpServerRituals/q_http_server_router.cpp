@@ -4,6 +4,7 @@
 #include <QtCore/qmetatype.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
+#include <QtHttpServer/qhttpserverrequest.h>
 
 //  QHttpServerRouterPrivate *QHttpServerRouter::d_func()
 extern "C" Q_DECL_EXPORT
@@ -55,4 +56,21 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpServerRouter15clearConvertersEv(
     QHttpServerRouter *self) {
   self->clearConverters();
+}
+
+//  const QHash<QMetaType, QString> &QHttpServerRouter::converters() const
+extern "C" Q_DECL_EXPORT
+const QHash<QMetaType, QString> *ritual_ZNKR17QHttpServerRouter10convertersEv(
+    const QHttpServerRouter *self) {
+  return &(self->converters());
+}
+
+//  bool QHttpServerRouter::handleRequest(const QHttpServerRequest &request,
+//      QHttpServerResponder &responder) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QHttpServerRouter13handleRequestERK18QHttpServerRequestR20QHttpServerResponder(
+    const QHttpServerRouter *self,
+    const QHttpServerRequest *request,
+    QHttpServerResponder *responder) {
+  return self->handleRequest(*request, *responder);
 }

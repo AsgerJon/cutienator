@@ -184,6 +184,24 @@ const QMetaObject *ritual_ZNK14QLottieLiteral10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLottieLiteral::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QLottieLiteral11qt_metacastEPKc(
+    QLottieLiteral *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLottieLiteral::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QLottieLiteral11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLottieLiteral *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLottieLiteral::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QLottieLiteral2trEPKcS1_i(

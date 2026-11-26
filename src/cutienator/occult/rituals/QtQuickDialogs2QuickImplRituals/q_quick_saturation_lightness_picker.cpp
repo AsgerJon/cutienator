@@ -23,6 +23,25 @@ const QMetaObject *ritual_ZNK31QQuickSaturationLightnessPicker10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSaturationLightnessPicker::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QQuickSaturationLightnessPicker11qt_metacastEPKc(
+    QQuickSaturationLightnessPicker *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSaturationLightnessPicker::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QQuickSaturationLightnessPicker11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSaturationLightnessPicker *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSaturationLightnessPicker::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -47,6 +66,22 @@ QColor *ritual_ZN31QQuickSaturationLightnessPicker7colorAtERK7QPointF(
     QQuickSaturationLightnessPicker *self,
     const QPointF *pos) {
   return new QColor(self->colorAt(*pos));
+}
+
+//  QQuickSaturationLightnessPickerPrivate
+//      *QQuickSaturationLightnessPicker::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSaturationLightnessPickerPrivate *ritual_ZN31QQuickSaturationLightnessPicker6d_funcEv(
+    QQuickSaturationLightnessPicker *self) {
+  return self->d_func();
+}
+
+//  const QQuickSaturationLightnessPickerPrivate
+//      *QQuickSaturationLightnessPicker::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSaturationLightnessPickerPrivate *ritual_ZNK31QQuickSaturationLightnessPicker6d_funcEv(
+    const QQuickSaturationLightnessPicker *self) {
+  return self->d_func();
 }
 
 //  QColor QQuickSaturationLightnessPicker::colorAt(const QPointF &pos)

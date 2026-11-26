@@ -17,6 +17,9 @@
     "ritual_ZN21QCanvasRhiPaintDriver10beginPaintEP17QRhiCommandBufferP16QRhiRenderTargetRK10QMatrix4x46QFlagsINS_14BeginPaintFlagEE": [
       "nothing", "address", "address", "address", "address", "int"
     ],
+    "ritual_ZN21QCanvasRhiPaintDriver10beginPaintER22QCanvasOffscreenCanvasP17QRhiCommandBuffer6QFlagsINS_14BeginPaintFlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
     "ritual_ZN21QCanvasRhiPaintDriver8endPaintE6QFlagsINS_12EndPaintFlagEE": [
       "nothing", "address", "int"
     ],

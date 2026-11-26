@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QQuickShear10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickShear11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QQuickShear11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QQuickShear2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QQuickShearC1EP7QObject": ["address", "address"],
     "ritual_ZNK11QQuickShear6originEv": ["address", "address"],
@@ -23,6 +29,13 @@
     "ritual_ZNK11QQuickShear7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN11QQuickShear13originChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickShear14xFactorChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickShear14yFactorChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickShear13xAngleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickShear13yAngleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickShear6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QQuickShear6d_funcEv": ["address", "address"],
     "ritual_own_ZNK11QQuickShear7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ]

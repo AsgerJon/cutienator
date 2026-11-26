@@ -1,10 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qversionnumber.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qversionnumber.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN14QVersionNumberC1Ev": ["address"],
+    "ritual_ZN14QVersionNumberC1ESt16initializer_listIiE": [
+      "address", "address"
+    ],
+    "ritual_ZN14QVersionNumberC1E5QSpanIKiLm18446744073709551615EE": [
+      "address", "address"
+    ],
     "ritual_ZN14QVersionNumberC1Ei": ["address", "int"],
     "ritual_ZN14QVersionNumberC1Eii": ["address", "int", "int"],
     "ritual_ZN14QVersionNumberC1Eiii": ["address", "int", "int", "int"],
@@ -14,10 +21,21 @@
     "ritual_ZNK14QVersionNumber12minorVersionEv": ["int", "address"],
     "ritual_ZNK14QVersionNumber12microVersionEv": ["int", "address"],
     "ritual_ZNK14QVersionNumber10normalizedEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber8segmentsEv": ["address", "address"],
     "ritual_ZNK14QVersionNumber9segmentAtEx": [
       "int", "address", "long long"
     ],
     "ritual_ZNK14QVersionNumber12segmentCountEv": ["long long", "address"],
+    "ritual_ZNK14QVersionNumber5beginEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber3endEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber6cbeginEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber4cendEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber6rbeginEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber4rendEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber7crbeginEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber5crendEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber10constBeginEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber8constEndEv": ["address", "address"],
     "ritual_ZNK14QVersionNumber10isPrefixOfERKS_": [
       "bool", "address", "address"
     ],
@@ -37,6 +55,9 @@
     "ritual_ZgtRK14QVersionNumberS1_": ["bool", "address", "address"],
     "ritual_ZleRK14QVersionNumberS1_": ["bool", "address", "address"],
     "ritual_ZgeRK14QVersionNumberS1_": ["bool", "address", "address"],
+    "ritual_ZrsR11QDataStreamR14QVersionNumber": [
+      "address", "address", "address"
+    ],
     "ritual_ZN14QVersionNumberD1Ev": ["nothing", "address"],
     "ritual_list_make_QVersionNumber": ["address"],
     "ritual_list_add_QVersionNumber": ["nothing", "address", "address"],
@@ -60,6 +81,16 @@
     "ritual_map_get_QMap_QString_QVersionNumber": [
       "address", "address", "text"
     ],
-    "ritual_map_drop_QMap_QString_QVersionNumber": ["nothing", "address"]
+    "ritual_map_drop_QMap_QString_QVersionNumber": ["nothing", "address"],
+    "ritual_drop_QVersionNumber__QList_int": ["nothing", "address"],
+    "ritual_drop_QVersionNumber__QVersionNumber_const_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QVersionNumber__QVersionNumber_const_reverse_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QVersionNumber10fromStringIvEES_14QAnyStringViewPi": [
+      "address", "text", "address"
+    ]
   }
 }

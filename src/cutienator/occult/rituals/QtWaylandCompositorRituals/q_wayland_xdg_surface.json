@@ -6,8 +6,29 @@
   ],
   "rows": {
     "ritual_ZNK18QWaylandXdgSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWaylandXdgSurface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QWaylandXdgSurface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QWaylandXdgSurface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QWaylandXdgSurface6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QWaylandXdgSurface6d_funcEv": ["address", "address"],
+    "ritual_ZN18QWaylandXdgSurface4dataEv": ["address", "address"],
+    "ritual_ZN18QWaylandXdgSurface14appendFunctionEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWaylandXdgSurface13countFunctionEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN18QWaylandXdgSurface10atFunctionEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QWaylandXdgSurface13clearFunctionEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
     ],
     "ritual_ZN18QWaylandXdgSurfaceC1Ev": ["address"],
     "ritual_ZN18QWaylandXdgSurfaceC1EP16QWaylandXdgShellP15QWaylandSurfaceRK16QWaylandResource": [
@@ -24,9 +45,24 @@
     "ritual_ZNK18QWaylandXdgSurface14windowGeometryEv": [
       "address", "address"
     ],
+    "ritual_ZN18QWaylandXdgSurface9interfaceEv": ["address"],
     "ritual_ZN18QWaylandXdgSurface13interfaceNameEv": ["address"],
+    "ritual_ZN18QWaylandXdgSurface12fromResourceEP11wl_resource": [
+      "address", "address"
+    ],
     "ritual_ZN18QWaylandXdgSurface17createIntegrationEP29QWaylandQuickShellSurfaceItem": [
       "address", "address", "address"
+    ],
+    "ritual_ZN18QWaylandXdgSurface12shellChangedEv": ["nothing", "address"],
+    "ritual_ZN18QWaylandXdgSurface14surfaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWaylandXdgSurface15toplevelCreatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWaylandXdgSurface12popupCreatedEv": ["nothing", "address"],
+    "ritual_ZN18QWaylandXdgSurface21windowGeometryChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN18QWaylandXdgSurface10initializeEv": ["nothing", "address"],
     "ritual_ZN18QWaylandXdgSurface24handleSurfaceSizeChangedEv": [
@@ -39,6 +75,11 @@
     "ritual_own_ZN18QWaylandXdgSurface17createIntegrationEP29QWaylandQuickShellSurfaceItem": [
       "address", "address", "address"
     ],
-    "ritual_own_ZN18QWaylandXdgSurface10initializeEv": ["nothing", "address"]
+    "ritual_own_ZN18QWaylandXdgSurface10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QWaylandXdgSurface__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

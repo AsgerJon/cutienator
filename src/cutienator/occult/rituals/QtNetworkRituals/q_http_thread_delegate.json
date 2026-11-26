@@ -6,7 +6,53 @@
   ],
   "rows": {
     "ritual_ZNK19QHttpThreadDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QHttpThreadDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QHttpThreadDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QHttpThreadDelegateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QHttpThreadDelegate22authenticationRequiredERK19QHttpNetworkRequestP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate9encryptedEv": ["nothing", "address"],
+    "ritual_ZN19QHttpThreadDelegate9sslErrorsERK5QListI9QSslErrorEPbPS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate23sslConfigurationChangedERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate23socketStartedConnectingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate11requestSentEv": ["nothing", "address"],
+    "ritual_ZN19QHttpThreadDelegate16downloadMetaDataERK12QHttpHeadersiRK7QStringb14QSharedPointerIcExxbb": [
+      "nothing", "address", "address", "int", "text", "bool", "address",
+      "long long", "long long", "bool", "bool"
+    ],
+    "ritual_ZN19QHttpThreadDelegate16downloadProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN19QHttpThreadDelegate12downloadDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate5errorEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN19QHttpThreadDelegate16downloadFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate10redirectedERK4QUrlii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QHttpThreadDelegate12startRequestEv": ["nothing", "address"],
     "ritual_ZN19QHttpThreadDelegate12abortRequestEv": ["nothing", "address"],
     "ritual_ZN19QHttpThreadDelegate21readBufferSizeChangedEx": [
       "nothing", "address", "long long"
@@ -14,11 +60,48 @@
     "ritual_ZN19QHttpThreadDelegate15readBufferFreedEx": [
       "nothing", "address", "long long"
     ],
+    "ritual_ZN19QHttpThreadDelegate25startRequestSynchronouslyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate13readyReadSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate12finishedSlotEv": ["nothing", "address"],
+    "ritual_ZN19QHttpThreadDelegate21finishedWithErrorSlotEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN19QHttpThreadDelegate23synchronousFinishedSlotEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QHttpThreadDelegate32synchronousFinishedWithErrorSlotEN13QNetworkReply12NetworkErrorERK7QString": [
       "nothing", "address", "int", "text"
     ],
+    "ritual_ZN19QHttpThreadDelegate17headerChangedSlotEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QHttpThreadDelegate28synchronousHeaderChangedSlotEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate20dataReadProgressSlotExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN19QHttpThreadDelegate20cacheCredentialsSlotERK19QHttpNetworkRequestP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate13encryptedSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate13sslErrorsSlotERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate38preSharedKeyAuthenticationRequiredSlotEP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate37synchronousAuthenticationRequiredSlotERK19QHttpNetworkRequestP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpThreadDelegate42synchronousProxyAuthenticationRequiredSlotERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_QHttpThreadDelegate": [
       "bool", "address", "chars", "address"

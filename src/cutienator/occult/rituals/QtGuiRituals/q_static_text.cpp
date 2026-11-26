@@ -25,10 +25,32 @@ QStaticText *ritual_ZN11QStaticTextC1ERKS_(const QStaticText *other) {
   return new QStaticText(*other);
 }
 
+//  QStaticText &QStaticText::operator=(QStaticText &&other)
+extern "C" Q_DECL_EXPORT
+QStaticText *ritual_ZN11QStaticTextaSEOS_(
+    QStaticText *self,
+    QStaticText *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QStaticText &QStaticText::operator=(const QStaticText &a0)
+extern "C" Q_DECL_EXPORT
+QStaticText *ritual_ZN11QStaticTextaSERKS_(
+    QStaticText *self,
+    const QStaticText *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStaticText::~QStaticText()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QStaticTextD1Ev(QStaticText *self) {
   delete self;
+}
+
+//  void QStaticText::swap(QStaticText &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStaticText4swapERS_(QStaticText *self, QStaticText *other) {
+  self->swap(*other);
 }
 
 //  void QStaticText::setText(const QString &text)

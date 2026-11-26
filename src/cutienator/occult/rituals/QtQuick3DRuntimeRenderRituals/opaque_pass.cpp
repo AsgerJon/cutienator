@@ -4,8 +4,12 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qtquick3druntimerenderglobal_p.h>
 #include <QtQuick3DRuntimeRender/QtQuick3DRuntimeRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrendercontextcore.h>
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
+#include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendershadercache_p.h>
+#include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderableobjects_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrhiquadrenderer_p.h>
@@ -23,6 +27,32 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 928, as _ZN10OpaquePass4prepERK26QSSGRenderContextInterfaceR19QSSGLayerRenderDataPvR28QSSGRhiGraphicsPipelineState18QSSGShaderFeaturesP24QRhiRenderPassDescriptorRK5QListI26QSSGRenderableObjectHandleE
+inline void OpaquePass::prep(const QSSGRenderContextInterface &ctx,
+                      QSSGLayerRenderData &data,
+                      QSSGPassKey passKey,
+                      QSSGRhiGraphicsPipelineState &ps,
+                      QSSGShaderFeatures shaderFeatures,
+                      QRhiRenderPassDescriptor *rpDesc,
+                      const QSSGRenderableObjectList &sortedOpaqueObjects)
+{
+    const auto &rhiCtx = ctx.rhiContext();
+    QSSG_ASSERT(rpDesc && rhiCtx->rhi()->isRecordingFrame(), return);
+
+    const auto &layer = data.layer;
+    const bool layerEnableDepthTest = layer.layerFlags.testFlag(QSSGRenderLayer::LayerFlag::EnableDepthTest);
+
+    for (const auto &handle : std::as_const(sortedOpaqueObjects)) {
+        QSSGRenderableObject *theObject = handle.obj;
+        const auto depthWriteMode = theObject->depthWriteMode;
+        const bool curDepthWriteEnabled = !(depthWriteMode == QSSGDepthDrawMode::Never ||
+                                            depthWriteMode == QSSGDepthDrawMode::OpaquePrePass ||
+                                            data.isZPrePassActive() || !layerEnableDepthTest);
+        ps.flags.setFlag(QSSGRhiGraphicsPipelineState::Flag::DepthWriteEnabled, curDepthWriteEnabled);
+        RenderHelpers::rhiPrepareRenderable(rhiCtx.get(), passKey, data, *theObject, rpDesc, &ps, shaderFeatures, ps.samples, ps.viewCount);
+    }
+}
+
 //  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 1004, as _ZN10OpaquePass13resetForFrameEv
 inline void OpaquePass::resetForFrame()
 {
@@ -31,6 +61,30 @@ inline void OpaquePass::resetForFrame()
     shaderFeatures = {};
 }
 //  -----------------------------------------------------------------------
+
+//  void OpaquePass::prep(const QSSGRenderContextInterface &ctx,
+//      QSSGLayerRenderData &data, QSSGPassKey passKey,
+//      QSSGRhiGraphicsPipelineState &ps, QSSGShaderFeatures shaderFeatures,
+//      QRhiRenderPassDescriptor *rpDesc, const QSSGRenderableObjectList
+//      &sortedOpaqueObjects)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10OpaquePass4prepERK26QSSGRenderContextInterfaceR19QSSGLayerRenderDataPvR28QSSGRhiGraphicsPipelineState18QSSGShaderFeaturesP24QRhiRenderPassDescriptorRK5QListI26QSSGRenderableObjectHandleE(
+    const QSSGRenderContextInterface *ctx,
+    QSSGLayerRenderData *data,
+    QSSGPassKey passKey,
+    QSSGRhiGraphicsPipelineState *ps,
+    const QSSGShaderFeatures *shaderFeatures,
+    QRhiRenderPassDescriptor *rpDesc,
+    const QList<QSSGRenderableObjectHandle> *sortedOpaqueObjects) {
+  OpaquePass::prep(
+      *ctx,
+      *data,
+      passKey,
+      *ps,
+      *shaderFeatures,
+      rpDesc,
+      *sortedOpaqueObjects);
+}
 
 //  Type OpaquePass::passType() const
 extern "C" Q_DECL_EXPORT

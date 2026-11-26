@@ -28,6 +28,15 @@ QModbusCommEvent::EventByte ritual_ZNK16QModbusCommEventcvNS_9EventByteEEv(
   return self->operator QModbusCommEvent::EventByte();
 }
 
+//  QModbusCommEvent &QModbusCommEvent::operator=(QModbusCommEvent::EventByte
+//      byte)
+extern "C" Q_DECL_EXPORT
+QModbusCommEvent *ritual_ZN16QModbusCommEventaSENS_9EventByteE(
+    QModbusCommEvent *self,
+    QModbusCommEvent::EventByte byte) {
+  return &(self->operator=(byte));
+}
+
 //  QModbusCommEvent &QModbusCommEvent::operator|=(QModbusCommEvent::SendFlag
 //      sf)
 extern "C" Q_DECL_EXPORT

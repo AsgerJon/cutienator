@@ -11,7 +11,9 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qcolumnview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qstyleoption.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qlocale.h>

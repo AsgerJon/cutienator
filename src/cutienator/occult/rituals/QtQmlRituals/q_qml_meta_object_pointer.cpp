@@ -27,6 +27,14 @@ void ritual_ZN21QQmlMetaObjectPointerD1Ev(QQmlMetaObjectPointer *self) {
   delete self;
 }
 
+//  QQmlMetaObjectPointer::QQmlMetaObjectPointer(const QQmlMetaObjectPointer
+//      &other)
+extern "C" Q_DECL_EXPORT
+QQmlMetaObjectPointer *ritual_ZN21QQmlMetaObjectPointerC1ERKS_(
+    const QQmlMetaObjectPointer *other) {
+  return new QQmlMetaObjectPointer(*other);
+}
+
 //  void QQmlMetaObjectPointer::setSharedOnce(QMetaObject *shared) const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK21QQmlMetaObjectPointer13setSharedOnceEP11QMetaObject(

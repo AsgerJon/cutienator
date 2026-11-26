@@ -51,6 +51,32 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 1682, as local:qquick3dscenerenderer.cpp:convertQtRectToGLViewport
+namespace {
+inline QRect convertQtRectToGLViewport(const QRectF &rect, const QSize surfaceSize)
+{
+    const int x = int(rect.x());
+    const int y = surfaceSize.height() - (int(rect.y()) + int(rect.height()));
+    const int width = int(rect.width());
+    const int height = int(rect.height());
+    return QRect(x, y, width, height);
+}
+}  // namespace
+
+//  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 1756, as local:qquick3dscenerenderer.cpp:queryInlineRenderPassDescriptorAndCommandBuffer
+namespace {
+inline void queryInlineRenderPassDescriptorAndCommandBuffer(QSGRenderNode *node, QSSGRhiContext *rhiCtx)
+{
+    QSGRenderNodePrivate *d = QSGRenderNodePrivate::get(node);
+    QSSGRhiContextPrivate *rhiCtxD = QSSGRhiContextPrivate::get(rhiCtx);
+    rhiCtxD->setMainRenderPassDescriptor(d->m_rt.rpDesc);
+    rhiCtxD->setCommandBuffer(d->m_rt.cb);
+    rhiCtxD->setRenderTarget(d->m_rt.rt);
+    rhiCtxD->setMainPassSampleCount(d->m_rt.rt->sampleCount());
+    rhiCtxD->setMainPassViewCount(1);
+}
+}  // namespace
+
 //  from ../qtquick3d/src/quick3d/qquick3dscenerenderer.cpp, line 206, as _ZN21QQuick3DSceneRendererD1Ev
 inline QQuick3DSceneRenderer::~QQuick3DSceneRenderer()
 {

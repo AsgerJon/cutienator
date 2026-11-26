@@ -10,6 +10,18 @@
     "ritual_ZNK14QPaintEngineEx11createStateEP13QPainterState": [
       "address", "address", "address"
     ],
+    "ritual_ZN14QPaintEngineEx4drawERK11QVectorPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx4fillERK11QVectorPathRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx6strokeERK11QVectorPathRK4QPen": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx4clipERK11QVectorPathN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN14QPaintEngineEx4clipERK5QRectN2Qt13ClipOperationE": [
       "nothing", "address", "address", "int"
     ],

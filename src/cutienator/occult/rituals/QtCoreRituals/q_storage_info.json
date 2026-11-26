@@ -8,7 +8,11 @@
     "ritual_ZN12QStorageInfoC1ERK7QString": ["address", "text"],
     "ritual_ZN12QStorageInfoC1ERK4QDir": ["address", "address"],
     "ritual_ZN12QStorageInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN12QStorageInfoC1EOS_": ["address", "address"],
     "ritual_ZN12QStorageInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN12QStorageInfoaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QStorageInfoaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QStorageInfo4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN12QStorageInfo7setPathERK7QString": [
       "nothing", "address", "text"
     ],
@@ -29,6 +33,9 @@
     "ritual_ZN12QStorageInfo7refreshEv": ["nothing", "address"],
     "ritual_ZN12QStorageInfo14mountedVolumesEv": ["address"],
     "ritual_ZN12QStorageInfo4rootEv": ["address"],
+    "ritual_ZN12QStorageInfoC1ER19QStorageInfoPrivate": [
+      "address", "address"
+    ],
     "ritual_ZeqRK12QStorageInfoS1_": ["bool", "address", "address"],
     "ritual_ZneRK12QStorageInfoS1_": ["bool", "address", "address"],
     "ritual_Zls6QDebugRK12QStorageInfo": ["address", "address", "address"],

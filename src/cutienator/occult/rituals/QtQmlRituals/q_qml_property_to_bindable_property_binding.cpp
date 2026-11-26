@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQml/6.12.0/QtQml/private/qqmlpropertytopropertybinding_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: added by hand, instances of templates of
+//  the class: 2. Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -76,4 +77,28 @@ extern "C" Q_DECL_EXPORT
 QObject *ritual_ZNK37QQmlPropertyToBindablePropertyBinding6sourceEv(
     const QQmlPropertyToBindablePropertyBinding *self) {
   return self->source();
+}
+
+//  static bool QQmlPropertyToBindablePropertyBinding::update<
+//      QQmlUnbindableToBindablePropertyBinding>(QMetaType metaType,
+//      QUntypedPropertyData *dataPtr, void *f)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN37QQmlPropertyToBindablePropertyBinding6updateI39QQmlUnbindableToBindablePropertyBindingEEb9QMetaTypeP20QUntypedPropertyDataPv(
+    const QMetaType *metaType,
+    QUntypedPropertyData *dataPtr,
+    void *f) {
+  return QQmlPropertyToBindablePropertyBinding::update<QQmlUnbindableToBindablePropertyBinding>(
+      *metaType, dataPtr, f);
+}
+
+//  static bool QQmlPropertyToBindablePropertyBinding::update<
+//      QQmlBindableToBindablePropertyBinding>(QMetaType metaType,
+//      QUntypedPropertyData *dataPtr, void *f)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN37QQmlPropertyToBindablePropertyBinding6updateI37QQmlBindableToBindablePropertyBindingEEb9QMetaTypeP20QUntypedPropertyDataPv(
+    const QMetaType *metaType,
+    QUntypedPropertyData *dataPtr,
+    void *f) {
+  return QQmlPropertyToBindablePropertyBinding::update<QQmlBindableToBindablePropertyBinding>(
+      *metaType, dataPtr, f);
 }

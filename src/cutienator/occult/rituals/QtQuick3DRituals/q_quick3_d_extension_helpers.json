@@ -2,13 +2,37 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick3D/6.12.0/QtQuick3D/ssg/qquick3dextensionhelpers.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN24QQuick3DExtensionHelpersC1Ev": ["address"],
+    "ritual_ZN24QQuick3DExtensionHelpers9getNodeIdERK14QQuick3DObject": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN24QQuick3DExtensionHelpers13getResourceIdERK14QQuick3DObject": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN24QQuick3DExtensionHelpers11getCameraIdERK14QQuick3DObject": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN24QQuick3DExtensionHelpers14getExtensionIdERK14QQuick3DObject": [
+      "unsigned long long", "address"
+    ],
     "ritual_ZN24QQuick3DExtensionHelpers13getNodeIdTypeE10QSSGNodeId": [
       "unsigned int", "unsigned long long"
     ],
-    "ritual_ZN24QQuick3DExtensionHelpersD1Ev": ["nothing", "address"]
+    "ritual_ZN24QQuick3DExtensionHelpersD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQuick3DExtensionHelpers6isNullI10QSSGNodeIdEEbT_": [
+      "bool", "long long"
+    ],
+    "ritual_ZN24QQuick3DExtensionHelpers6isNullI14QSSGResourceIdEEbT_": [
+      "bool", "long long"
+    ],
+    "ritual_ZN24QQuick3DExtensionHelpers6isNullI12QSSGCameraIdEEbT_": [
+      "bool", "long long"
+    ],
+    "ritual_ZN24QQuick3DExtensionHelpers6isNullI15QSSGExtensionIdEEbT_": [
+      "bool", "long long"
+    ]
   }
 }

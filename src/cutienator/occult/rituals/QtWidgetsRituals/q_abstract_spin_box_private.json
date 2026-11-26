@@ -8,6 +8,7 @@
     "ritual_ZN23QAbstractSpinBoxPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK23QAbstractSpinBoxPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN23QAbstractSpinBoxPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QAbstractSpinBoxPrivate4initEv": ["nothing", "address"],
     "ritual_ZN23QAbstractSpinBoxPrivate5resetEv": ["nothing", "address"],
     "ritual_ZNK23QAbstractSpinBoxPrivate8strippedERK7QStringPi": [
       "text", "address", "text", "address"

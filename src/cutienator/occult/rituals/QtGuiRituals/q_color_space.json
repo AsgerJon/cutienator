@@ -9,18 +9,35 @@
     "ritual_ZN11QColorSpaceC1E7QPointFNS_16TransferFunctionEf": [
       "address", "address", "int", "float"
     ],
+    "ritual_ZN11QColorSpaceC1E7QPointFRK5QListItE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN11QColorSpaceC1ENS_9PrimariesENS_16TransferFunctionEf": [
       "address", "int", "int", "float"
     ],
     "ritual_ZN11QColorSpaceC1ENS_9PrimariesEf": ["address", "int", "float"],
+    "ritual_ZN11QColorSpaceC1ENS_9PrimariesERK5QListItE": [
+      "address", "int", "address"
+    ],
     "ritual_ZN11QColorSpaceC1ERK7QPointFS2_S2_S2_NS_16TransferFunctionEf": [
       "address", "address", "address", "address", "address", "int", "float"
     ],
     "ritual_ZN11QColorSpaceC1ERKNS_13PrimaryPointsENS_16TransferFunctionEf": [
       "address", "address", "int", "float"
     ],
+    "ritual_ZN11QColorSpaceC1ERK7QPointFS2_S2_S2_RK5QListItE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QColorSpaceC1ERK7QPointFS2_S2_S2_RK5QListItES6_S6_": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
     "ritual_ZN11QColorSpaceD1Ev": ["nothing", "address"],
     "ritual_ZN11QColorSpaceC1ERKS_": ["address", "address"],
+    "ritual_ZN11QColorSpaceaSERKS_": ["address", "address", "address"],
+    "ritual_ZN11QColorSpaceC1EOS_": ["address", "address"],
+    "ritual_ZN11QColorSpaceaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QColorSpace4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK11QColorSpace9primariesEv": ["int", "address"],
     "ritual_ZNK11QColorSpace16transferFunctionEv": ["int", "address"],
     "ritual_ZNK11QColorSpace5gammaEv": ["float", "address"],
@@ -31,8 +48,20 @@
     "ritual_ZN11QColorSpace19setTransferFunctionENS_16TransferFunctionEf": [
       "nothing", "address", "int", "float"
     ],
+    "ritual_ZN11QColorSpace19setTransferFunctionERK5QListItE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QColorSpace20setTransferFunctionsERK5QListItES3_S3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK11QColorSpace20withTransferFunctionENS_16TransferFunctionEf": [
       "address", "address", "int", "float"
+    ],
+    "ritual_ZNK11QColorSpace20withTransferFunctionERK5QListItE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QColorSpace21withTransferFunctionsERK5QListItES3_S3_": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZN11QColorSpace12setPrimariesENS_9PrimariesE": [
       "nothing", "address", "int"

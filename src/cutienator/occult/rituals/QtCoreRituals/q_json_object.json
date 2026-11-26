@@ -1,12 +1,20 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qjsonobject.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qjsonobject.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN11QJsonObjectC1Ev": ["address"],
+    "ritual_ZN11QJsonObjectC1ESt16initializer_listISt4pairI7QString10QJsonValueEE": [
+      "address", "address"
+    ],
     "ritual_ZN11QJsonObjectD1Ev": ["nothing", "address"],
     "ritual_ZN11QJsonObjectC1ERKS_": ["address", "address"],
+    "ritual_ZN11QJsonObjectaSERKS_": ["address", "address", "address"],
+    "ritual_ZN11QJsonObjectC1EOS_": ["address", "address"],
+    "ritual_ZN11QJsonObjectaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QJsonObject4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN11QJsonObject14fromVariantMapERK4QMapI7QString8QVariantE": [
       "address", "address"
     ],
@@ -74,9 +82,17 @@
     "ritual_ZNK11QJsonObject3endEv": ["address", "address"],
     "ritual_ZNK11QJsonObject4cendEv": ["address", "address"],
     "ritual_ZNK11QJsonObject8constEndEv": ["address", "address"],
+    "ritual_ZN11QJsonObject13keyValueBeginEv": ["address", "address"],
+    "ritual_ZN11QJsonObject11keyValueEndEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject13keyValueBeginEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject18constKeyValueBeginEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject11keyValueEndEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject16constKeyValueEndEv": ["address", "address"],
     "ritual_ZN11QJsonObject5eraseENS_8iteratorE": [
       "address", "address", "address"
     ],
+    "ritual_ZNR11QJsonObject15asKeyValueRangeEv": ["address", "address"],
+    "ritual_ZNKR11QJsonObject15asKeyValueRangeEv": ["address", "address"],
     "ritual_ZN11QJsonObject4findERK7QString": ["address", "address", "text"],
     "ritual_ZNK11QJsonObject4findERK7QString": [
       "address", "address", "text"
@@ -164,6 +180,24 @@
     "ritual_map_get_QMap_QString_QJsonObject": [
       "address", "address", "text"
     ],
-    "ritual_map_drop_QMap_QString_QJsonObject": ["nothing", "address"]
+    "ritual_map_drop_QMap_QString_QJsonObject": ["nothing", "address"],
+    "ritual_drop_QJsonObject__QJsonObject_key_value_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QJsonObject__QJsonObject_const_key_value_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QJsonObject__QtPrivate_QKeyValueRange_QJsonObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QJsonObject__QtPrivate_QKeyValueRange_const_QJsonObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QJsonObject8insertAtI11QStringViewEENS_8iteratorExT_RK10QJsonValueb": [
+      "address", "address", "long long", "address", "address", "bool"
+    ],
+    "ritual_ZN11QJsonObject8insertAtI13QLatin1StringEENS_8iteratorExT_RK10QJsonValueb": [
+      "address", "address", "long long", "address", "address", "bool"
+    ]
   }
 }

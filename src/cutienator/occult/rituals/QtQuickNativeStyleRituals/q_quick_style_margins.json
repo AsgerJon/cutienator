@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitem_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickStyleMarginsC1Ev": ["address"],
+    "ritual_ZN18QQuickStyleMarginsC1ERKS_": ["address", "address"],
+    "ritual_ZN18QQuickStyleMarginsC1ERK8QMargins": ["address", "address"],
+    "ritual_ZN18QQuickStyleMarginsC1ERK5QRectS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickStyleMarginsD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickStyleMarginseqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QQuickStyleMarginsneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QQuickStyleMargins4leftEv": ["int", "address"],
+    "ritual_ZNK18QQuickStyleMargins5rightEv": ["int", "address"],
+    "ritual_ZNK18QQuickStyleMargins3topEv": ["int", "address"],
+    "ritual_ZNK18QQuickStyleMargins6bottomEv": ["int", "address"]
+  }
+}

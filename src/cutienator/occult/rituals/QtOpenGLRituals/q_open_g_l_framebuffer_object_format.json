@@ -9,6 +9,9 @@
     "ritual_ZN30QOpenGLFramebufferObjectFormatC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN30QOpenGLFramebufferObjectFormataSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN30QOpenGLFramebufferObjectFormatD1Ev": ["nothing", "address"],
     "ritual_ZN30QOpenGLFramebufferObjectFormat10setSamplesEi": [
       "nothing", "address", "int"
@@ -31,8 +34,14 @@
     "ritual_ZN30QOpenGLFramebufferObjectFormat16setTextureTargetEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZNK30QOpenGLFramebufferObjectFormat13textureTargetEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZN30QOpenGLFramebufferObjectFormat24setInternalTextureFormatEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK30QOpenGLFramebufferObjectFormat21internalTextureFormatEv": [
+      "unsigned int", "address"
     ],
     "ritual_ZNK30QOpenGLFramebufferObjectFormateqERKS_": [
       "bool", "address", "address"

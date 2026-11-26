@@ -67,6 +67,20 @@ const Qt3DCore::QCoreSettings *ritual_ZNK8Qt3DCore20QCoreSettingsPrivate6q_funcE
   return self->q_func();
 }
 
+//  Qt3DCore::QCoreSettingsPrivate::QCoreSettingsPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QCoreSettingsPrivate *ritual_ZN8Qt3DCore20QCoreSettingsPrivateC1Ev() {
+  return new CuteQt3DCore_QCoreSettingsPrivate();
+}
+
+//  QCoreSettingsPrivate *Qt3DCore::QCoreSettingsPrivate::get(QCoreSettings
+//      *q)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QCoreSettingsPrivate *ritual_ZN8Qt3DCore20QCoreSettingsPrivate3getEPNS_13QCoreSettingsE(
+    Qt3DCore::QCoreSettings *q) {
+  return Qt3DCore::QCoreSettingsPrivate::get(q);
+}
+
 //  a Python function taken by a CuteQt3DCore_QCoreSettingsPrivate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

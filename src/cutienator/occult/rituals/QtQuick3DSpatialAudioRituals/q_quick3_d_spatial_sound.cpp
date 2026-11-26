@@ -25,12 +25,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dspatialsound.cpp, line 53, as _ZN20QQuick3DSpatialSoundD1Ev
-inline QQuick3DSpatialSound::~QQuick3DSpatialSound()
-{
-    delete m_sound;
-}
-
 //  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dspatialsound.cpp, line 68, as _ZN20QQuick3DSpatialSound9setSourceERK4QUrl
 inline void QQuick3DSpatialSound::setSource(const QUrl& source)
 {
@@ -173,36 +167,6 @@ inline bool QQuick3DSpatialSound::autoPlay() const
 inline void QQuick3DSpatialSound::setAutoPlay(bool autoPlay)
 {
     m_sound->setAutoPlay(autoPlay);
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dspatialsound.cpp, line 293, as _ZN20QQuick3DSpatialSound4playEv
-inline void QQuick3DSpatialSound::play()
-{
-    m_sound->play();
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dspatialsound.cpp, line 303, as _ZN20QQuick3DSpatialSound5pauseEv
-inline void QQuick3DSpatialSound::pause()
-{
-    m_sound->pause();
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dspatialsound.cpp, line 314, as _ZN20QQuick3DSpatialSound4stopEv
-inline void QQuick3DSpatialSound::stop()
-{
-    m_sound->stop();
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dspatialsound.cpp, line 242, as _ZN20QQuick3DSpatialSound14updatePositionEv
-inline void QQuick3DSpatialSound::updatePosition()
-{
-    m_sound->setPosition(scenePosition());
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3dspatialsound.cpp, line 247, as _ZN20QQuick3DSpatialSound14updateRotationEv
-inline void QQuick3DSpatialSound::updateRotation()
-{
-    m_sound->setRotation(sceneRotation());
 }
 //  -----------------------------------------------------------------------
 
@@ -488,6 +452,25 @@ const QMetaObject *ritual_ZNK20QQuick3DSpatialSound10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DSpatialSound::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuick3DSpatialSound11qt_metacastEPKc(
+    QQuick3DSpatialSound *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DSpatialSound::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuick3DSpatialSound11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DSpatialSound *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuick3DSpatialSound::~QQuick3DSpatialSound()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DSpatialSoundD1Ev(QQuick3DSpatialSound *self) {
@@ -677,33 +660,423 @@ void ritual_ZN20QQuick3DSpatialSound11setAutoPlayEb(
 //  void QQuick3DSpatialSound::play()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DSpatialSound4playEv(QQuick3DSpatialSound *self) {
-  self->play();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "play()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "play()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DSpatialSound::pause()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DSpatialSound5pauseEv(QQuick3DSpatialSound *self) {
-  self->pause();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "pause()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "pause()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DSpatialSound::stop()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DSpatialSound4stopEv(QQuick3DSpatialSound *self) {
-  self->stop();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "stop()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "stop()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound13sourceChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sourceChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sourceChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::volumeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound13volumeChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "volumeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "volumeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::distanceModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound20distanceModelChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "distanceModelChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "distanceModelChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::sizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound11sizeChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sizeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sizeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::distanceCutoffChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound21distanceCutoffChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "distanceCutoffChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "distanceCutoffChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::manualAttenuationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound24manualAttenuationChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "manualAttenuationChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "manualAttenuationChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::occlusionIntensityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound25occlusionIntensityChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "occlusionIntensityChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "occlusionIntensityChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::directivityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound18directivityChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "directivityChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "directivityChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::directivityOrderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound23directivityOrderChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "directivityOrderChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "directivityOrderChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::nearFieldGainChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound20nearFieldGainChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "nearFieldGainChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "nearFieldGainChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::loopsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound12loopsChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "loopsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "loopsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DSpatialSound::autoPlayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DSpatialSound15autoPlayChangedEv(
+    QQuick3DSpatialSound *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "autoPlayChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "autoPlayChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DSpatialSound::updatePosition()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DSpatialSound14updatePositionEv(
     QQuick3DSpatialSound *self) {
-  self->updatePosition();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updatePosition()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updatePosition()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DSpatialSound::updateRotation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuick3DSpatialSound14updateRotationEv(
     QQuick3DSpatialSound *self) {
-  self->updateRotation();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DSpatialSound")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateRotation()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateRotation()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QSSGRenderGraphObject

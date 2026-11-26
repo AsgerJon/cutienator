@@ -8,6 +8,12 @@
     "ritual_ZNK31QSGGuiThreadShaderEffectManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QSGGuiThreadShaderEffectManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QSGGuiThreadShaderEffectManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QSGGuiThreadShaderEffectManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,12 @@
     ],
     "ritual_ZN31QSGGuiThreadShaderEffectManager17prepareShaderCodeENS_10ShaderInfo4TypeERK4QUrlPS0_": [
       "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN31QSGGuiThreadShaderEffectManager18shaderCodePreparedEbNS_10ShaderInfo4TypeERK4QUrlPS0_": [
+      "nothing", "address", "bool", "int", "address", "address"
+    ],
+    "ritual_ZN31QSGGuiThreadShaderEffectManager19logAndStatusChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QSGGuiThreadShaderEffectManager": [
       "bool", "address", "chars", "address"

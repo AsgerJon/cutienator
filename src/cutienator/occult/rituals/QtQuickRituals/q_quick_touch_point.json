@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickTouchPoint10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickTouchPoint11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickTouchPoint11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickTouchPoint2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -75,6 +81,28 @@
     "ritual_ZNK16QQuickTouchPoint6sceneYEv": ["double", "address"],
     "ritual_ZN16QQuickTouchPoint9setSceneYEd": [
       "nothing", "address", "double"
-    ]
+    ],
+    "ritual_ZN16QQuickTouchPoint14pressedChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint14pointIdChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint15uniqueIdChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint8xChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint8yChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint23ellipseDiametersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickTouchPoint15pressureChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint15rotationChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint15velocityChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint11areaChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint13startXChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint13startYChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint16previousXChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickTouchPoint16previousYChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickTouchPoint13sceneXChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickTouchPoint13sceneYChangedEv": ["nothing", "address"]
   }
 }

@@ -25,6 +25,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvascustombrush.cpp, line 538, as _ZN25QCanvasCustomBrushPrivate5cloneEv
+inline QCanvasBrushPrivate *QCanvasCustomBrushPrivate::clone()
+{
+    return new QCanvasCustomBrushPrivate(*this);
+}
+
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvascustombrush.cpp, line 328, as _ZNK25QCanvasCustomBrushPrivate6equalsERK19QCanvasBrushPrivate
 inline bool QCanvasCustomBrushPrivate::equals(const QCanvasBrushPrivate &other) const noexcept
 {
@@ -44,12 +50,6 @@ inline bool QCanvasCustomBrushPrivate::equals(const QCanvasBrushPrivate &other) 
     return true;
 }
 
-//  from ../qtcanvaspainter/src/canvaspainter/qcanvascustombrush.cpp, line 538, as _ZN25QCanvasCustomBrushPrivate5cloneEv
-inline QCanvasBrushPrivate *QCanvasCustomBrushPrivate::clone()
-{
-    return new QCanvasCustomBrushPrivate(*this);
-}
-
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvascustombrush.cpp, line 543, as _ZNK25QCanvasCustomBrushPrivate11createPaintEP14QCanvasPainter
 inline QCPaint QCanvasCustomBrushPrivate::createPaint(QCanvasPainter *) const
 {
@@ -66,7 +66,7 @@ typedef const QCPaint * (*CuteQCanvasCustomBrushPrivateCall1)(const void *, QCan
 class CuteQCanvasCustomBrushPrivate : public QCanvasCustomBrushPrivate {
 public:
   using QCanvasCustomBrushPrivate::QCanvasCustomBrushPrivate;
-  CuteQCanvasCustomBrushPrivate(const QCanvasCustomBrushPrivate &other) : QCanvasCustomBrushPrivate(other) {}
+  CuteQCanvasCustomBrushPrivate(const QCanvasCustomBrushPrivate & other) : QCanvasCustomBrushPrivate(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -126,6 +126,15 @@ QCanvasBrushPrivate *ritual_ZN25QCanvasCustomBrushPrivate5cloneEv(
   return self->clone();
 }
 
+//  bool QCanvasCustomBrushPrivate::equals(const QCanvasBrushPrivate &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK25QCanvasCustomBrushPrivate6equalsERK19QCanvasBrushPrivate(
+    const QCanvasCustomBrushPrivate *self,
+    const QCanvasBrushPrivate *other) {
+  return self->equals(*other);
+}
+
 //  QCPaint QCanvasCustomBrushPrivate::createPaint(QCanvasPainter *painter)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -149,6 +158,14 @@ extern "C" Q_DECL_EXPORT
 const QCanvasCustomBrushPrivate *ritual_ZN25QCanvasCustomBrushPrivate3getEPK18QCanvasCustomBrush(
     const QCanvasCustomBrush *brush) {
   return QCanvasCustomBrushPrivate::get(brush);
+}
+
+//  QCanvasCustomBrushPrivate
+//      *QCanvasCustomBrushPrivate::get(QCanvasCustomBrush &brush)
+extern "C" Q_DECL_EXPORT
+QCanvasCustomBrushPrivate *ritual_ZN25QCanvasCustomBrushPrivate3getER18QCanvasCustomBrush(
+    QCanvasCustomBrush *brush) {
+  return QCanvasCustomBrushPrivate::get(*brush);
 }
 
 //  const QCanvasCustomBrushPrivate *QCanvasCustomBrushPrivate::get(const

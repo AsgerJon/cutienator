@@ -267,6 +267,25 @@ const QMetaObject *ritual_ZNK21QQmlDelegateModelItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDelegateModelItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQmlDelegateModelItem11qt_metacastEPKc(
+    QQmlDelegateModelItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDelegateModelItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQmlDelegateModelItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDelegateModelItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlDelegateModelItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQmlDelegateModelItem2trEPKcS1_i(
@@ -274,6 +293,25 @@ QString *ritual_ZN21QQmlDelegateModelItem2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQmlDelegateModelItem::tr(s, c, n));
+}
+
+//  QQmlDelegateModelItem::QQmlDelegateModelItem(const
+//      QQmlRefPointer<QQmlDelegateModelItemMetaType> &metaType,
+//      QQmlAdaptorModel::Accessors *accessor, int modelIndex, int row, int
+//      column)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModelItem *ritual_ZN21QQmlDelegateModelItemC1ERK14QQmlRefPointerI29QQmlDelegateModelItemMetaTypeEPN16QQmlAdaptorModel9AccessorsEiii(
+    const QQmlRefPointer<QQmlDelegateModelItemMetaType> *metaType,
+    QQmlAdaptorModel::Accessors *accessor,
+    int modelIndex,
+    int row,
+    int column) {
+  return new CuteQQmlDelegateModelItem(
+      *metaType,
+      accessor,
+      modelIndex,
+      row,
+      column);
 }
 
 //  QQmlDelegateModelItem::~QQmlDelegateModelItem()
@@ -362,6 +400,14 @@ QQmlDelegateModelItem *ritual_ZN21QQmlDelegateModelItem13dataForObjectEP7QObject
   return QQmlDelegateModelItem::dataForObject(object);
 }
 
+//  int QQmlDelegateModelItem::groupIndex(Compositor::Group group)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQmlDelegateModelItem10groupIndexEN18QQmlListCompositor5GroupE(
+    QQmlDelegateModelItem *self,
+    const Compositor::Group *group) {
+  return self->groupIndex(*group);
+}
+
 //  int QQmlDelegateModelItem::modelRow() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QQmlDelegateModelItem8modelRowEv(
@@ -440,6 +486,23 @@ void ritual_ZN21QQmlDelegateModelItem8setValueERK7QStringRK8QVariant(
     const QString *role,
     const QVariant *value) {
   self->setValue(*role, *value);
+}
+
+//  bool QQmlDelegateModelItem::resolveIndex(const QQmlAdaptorModel &a0, int
+//      a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QQmlDelegateModelItem12resolveIndexERK16QQmlAdaptorModeli(
+    QQmlDelegateModelItem *self,
+    const QQmlAdaptorModel *a0,
+    int a1) {
+  return self->resolveIndex(*a0, a1);
+}
+
+//  QQmlRefPointer<QQmlContextData> QQmlDelegateModelItem::initProxy()
+extern "C" Q_DECL_EXPORT
+QQmlRefPointer<QQmlContextData> *ritual_ZN21QQmlDelegateModelItem9initProxyEv(
+    QQmlDelegateModelItem *self) {
+  return new QQmlRefPointer<QQmlContextData>(self->initProxy());
 }
 
 //  QV4::ReturnedValue QQmlDelegateModelItem::get_model(const
@@ -608,6 +671,23 @@ void ritual_ZN21QQmlDelegateModelItem11setDelegateEP13QQmlComponent(
   self->setDelegate(delegate);
 }
 
+//  const QQmlRefPointer<QQmlContextData>
+//      &QQmlDelegateModelItem::contextData() const
+extern "C" Q_DECL_EXPORT
+const QQmlRefPointer<QQmlContextData> *ritual_ZNK21QQmlDelegateModelItem11contextDataEv(
+    const QQmlDelegateModelItem *self) {
+  return &(self->contextData());
+}
+
+//  void QQmlDelegateModelItem::setContextData(const
+//      QQmlRefPointer<QQmlContextData> &contextData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlDelegateModelItem14setContextDataERK14QQmlRefPointerI15QQmlContextDataE(
+    QQmlDelegateModelItem *self,
+    const QQmlRefPointer<QQmlContextData> *contextData) {
+  self->setContextData(*contextData);
+}
+
 //  int QQmlDelegateModelItem::groups() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QQmlDelegateModelItem6groupsEv(
@@ -644,6 +724,35 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQmlDelegateModelItem11clearGroupsEv(
     QQmlDelegateModelItem *self) {
   self->clearGroups();
+}
+
+//  const QQmlRefPointer<QQmlDelegateModelItemMetaType>
+//      &QQmlDelegateModelItem::metaType() const
+extern "C" Q_DECL_EXPORT
+const QQmlRefPointer<QQmlDelegateModelItemMetaType> *ritual_ZNK21QQmlDelegateModelItem8metaTypeEv(
+    const QQmlDelegateModelItem *self) {
+  return &(self->metaType());
+}
+
+//  void QQmlDelegateModelItem::modelIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlDelegateModelItem17modelIndexChangedEv(
+    QQmlDelegateModelItem *self) {
+  self->modelIndexChanged();
+}
+
+//  void QQmlDelegateModelItem::rowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlDelegateModelItem10rowChangedEv(
+    QQmlDelegateModelItem *self) {
+  self->rowChanged();
+}
+
+//  void QQmlDelegateModelItem::columnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlDelegateModelItem13columnChangedEv(
+    QQmlDelegateModelItem *self) {
+  self->columnChanged();
 }
 
 //  void QQmlDelegateModelItem::referenceSript()
@@ -738,6 +847,13 @@ QQmlDelegateModelItem *ritual_list_at_QQmlDelegateModelItem_ptr(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQmlDelegateModelItem_ptr(
     QList<QQmlDelegateModelItem *> *self) {
+  delete self;
+}
+
+//  a QQmlRefPointer<QQmlContextData> a ritual of QQmlDelegateModelItem gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlDelegateModelItem__QQmlRefPointer_QQmlContextData(
+    QQmlRefPointer<QQmlContextData> *self) {
   delete self;
 }
 

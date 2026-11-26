@@ -6,10 +6,14 @@
 #if QT_CONFIG(tablewidget)
 #include <QtWidgets/qtablewidget.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtGui/qregion.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
@@ -2133,6 +2137,24 @@ const QMetaObject *ritual_ZNK12QTableWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTableWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QTableWidget11qt_metacastEPKc(
+    QTableWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTableWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QTableWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTableWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTableWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QTableWidget2trEPKcS1_i(
@@ -2632,6 +2654,140 @@ void ritual_ZN12QTableWidget5clearEv(QTableWidget *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QTableWidget13clearContentsEv(QTableWidget *self) {
   self->clearContents();
+}
+
+//  void QTableWidget::itemPressed(QTableWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget11itemPressedEP16QTableWidgetItem(
+    QTableWidget *self,
+    QTableWidgetItem *item) {
+  self->itemPressed(item);
+}
+
+//  void QTableWidget::itemClicked(QTableWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget11itemClickedEP16QTableWidgetItem(
+    QTableWidget *self,
+    QTableWidgetItem *item) {
+  self->itemClicked(item);
+}
+
+//  void QTableWidget::itemDoubleClicked(QTableWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget17itemDoubleClickedEP16QTableWidgetItem(
+    QTableWidget *self,
+    QTableWidgetItem *item) {
+  self->itemDoubleClicked(item);
+}
+
+//  void QTableWidget::itemActivated(QTableWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget13itemActivatedEP16QTableWidgetItem(
+    QTableWidget *self,
+    QTableWidgetItem *item) {
+  self->itemActivated(item);
+}
+
+//  void QTableWidget::itemEntered(QTableWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget11itemEnteredEP16QTableWidgetItem(
+    QTableWidget *self,
+    QTableWidgetItem *item) {
+  self->itemEntered(item);
+}
+
+//  void QTableWidget::itemChanged(QTableWidgetItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget11itemChangedEP16QTableWidgetItem(
+    QTableWidget *self,
+    QTableWidgetItem *item) {
+  self->itemChanged(item);
+}
+
+//  void QTableWidget::currentItemChanged(QTableWidgetItem *current,
+//      QTableWidgetItem *previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget18currentItemChangedEP16QTableWidgetItemS1_(
+    QTableWidget *self,
+    QTableWidgetItem *current,
+    QTableWidgetItem *previous) {
+  self->currentItemChanged(current, previous);
+}
+
+//  void QTableWidget::itemSelectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget20itemSelectionChangedEv(QTableWidget *self) {
+  self->itemSelectionChanged();
+}
+
+//  void QTableWidget::cellPressed(int row, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget11cellPressedEii(
+    QTableWidget *self,
+    int row,
+    int column) {
+  self->cellPressed(row, column);
+}
+
+//  void QTableWidget::cellClicked(int row, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget11cellClickedEii(
+    QTableWidget *self,
+    int row,
+    int column) {
+  self->cellClicked(row, column);
+}
+
+//  void QTableWidget::cellDoubleClicked(int row, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget17cellDoubleClickedEii(
+    QTableWidget *self,
+    int row,
+    int column) {
+  self->cellDoubleClicked(row, column);
+}
+
+//  void QTableWidget::cellActivated(int row, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget13cellActivatedEii(
+    QTableWidget *self,
+    int row,
+    int column) {
+  self->cellActivated(row, column);
+}
+
+//  void QTableWidget::cellEntered(int row, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget11cellEnteredEii(
+    QTableWidget *self,
+    int row,
+    int column) {
+  self->cellEntered(row, column);
+}
+
+//  void QTableWidget::cellChanged(int row, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget11cellChangedEii(
+    QTableWidget *self,
+    int row,
+    int column) {
+  self->cellChanged(row, column);
+}
+
+//  void QTableWidget::currentCellChanged(int currentRow, int currentColumn,
+//      int previousRow, int previousColumn)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget18currentCellChangedEiiii(
+    QTableWidget *self,
+    int currentRow,
+    int currentColumn,
+    int previousRow,
+    int previousColumn) {
+  self->currentCellChanged(
+      currentRow,
+      currentColumn,
+      previousRow,
+      previousColumn);
 }
 
 //  bool QTableWidget::event(QEvent *e)

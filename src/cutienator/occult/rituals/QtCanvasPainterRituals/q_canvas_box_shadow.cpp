@@ -1,12 +1,60 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCanvasPainter/qcanvasboxshadow.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCanvasPainter/qcanvasboxshadow.h>
 #include <QtCore/qrect.h>
 #include <QtCanvasPainter/qcanvasbrush.h>
 #include <QtCore/qvariant.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qdebug.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCanvasPainter/qcanvasboxshadow.h>
+#include <QtCanvasPainter/private/qcanvasboxshadow_p.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
+#include <QtCore/QVariant>
+#include <QtGui/QVector4D>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 14, as local:qcanvasboxshadow.cpp:QCPAINTER_BOX_SHADOW_MULTIPLIER
+static constexpr qreal QCPAINTER_BOX_SHADOW_MULTIPLIER = 1.0;
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 570, as _ZN23QCanvasBoxShadowPrivate5cloneEv
+inline QCanvasBrushPrivate *QCanvasBoxShadowPrivate::clone()
+{
+    return new QCanvasBoxShadowPrivate(*this);
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasboxshadow.cpp, line 137, as _ZNK23QCanvasBoxShadowPrivate6equalsERK19QCanvasBrushPrivate
+inline bool QCanvasBoxShadowPrivate::equals(const QCanvasBrushPrivate &other) const noexcept
+{
+    Q_ASSERT(other.type == type);
+    const auto &pd = static_cast<const QCanvasBoxShadowPrivate &>(other);
+
+    if (x != pd.x
+        || y != pd.y
+        || width != pd.width
+        || height != pd.height
+        || radius != pd.radius
+        || blur != pd.blur
+        || spread != pd.spread
+        || color != pd.color
+        || topLeftRadius != pd.topLeftRadius
+        || topRightRadius != pd.topRightRadius
+        || bottomLeftRadius != pd.bottomLeftRadius
+        || bottomRightRadius != pd.bottomRightRadius)
+        return false;
+
+    return true;
+}
+//  -----------------------------------------------------------------------
 
 //  QCanvasBoxShadow::QCanvasBoxShadow()
 extern "C" Q_DECL_EXPORT
@@ -37,6 +85,28 @@ extern "C" Q_DECL_EXPORT
 QCanvasBoxShadow *ritual_ZN16QCanvasBoxShadowC1ERKS_(
     const QCanvasBoxShadow *a0) {
   return new QCanvasBoxShadow(*a0);
+}
+
+//  QCanvasBoxShadow &QCanvasBoxShadow::operator=(const QCanvasBoxShadow &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasBoxShadow *ritual_ZN16QCanvasBoxShadowaSERKS_(
+    QCanvasBoxShadow *self,
+    const QCanvasBoxShadow *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QCanvasBoxShadow::QCanvasBoxShadow(QCanvasBoxShadow &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasBoxShadow *ritual_ZN16QCanvasBoxShadowC1EOS_(QCanvasBoxShadow *a0) {
+  return new QCanvasBoxShadow(std::move(*a0));
+}
+
+//  QCanvasBoxShadow &QCanvasBoxShadow::operator=(QCanvasBoxShadow &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasBoxShadow *ritual_ZN16QCanvasBoxShadowaSEOS_(
+    QCanvasBoxShadow *self,
+    QCanvasBoxShadow *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  QCanvasBoxShadow::~QCanvasBoxShadow()
@@ -208,6 +278,14 @@ void ritual_ZN16QCanvasBoxShadow20setBottomRightRadiusEd(
   self->setBottomRightRadius(radius);
 }
 
+//  void QCanvasBoxShadow::swap(QCanvasBoxShadow &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCanvasBoxShadow4swapERS_(
+    QCanvasBoxShadow *self,
+    QCanvasBoxShadow *other) {
+  self->swap(*other);
+}
+
 //  bool operator==(const QCanvasBoxShadow &lhs, const QCanvasBoxShadow &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK16QCanvasBoxShadowS1_(
@@ -230,6 +308,26 @@ QCanvasBoxShadow *ritual_ZN16QCanvasBoxShadowC1EP23QCanvasBoxShadowPrivate(
     QCanvasBoxShadowPrivate *p) {
   return new QCanvasBoxShadow(p);
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QCanvasBoxShadow &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK16QCanvasBoxShadow(
+    QDataStream *a0,
+    const QCanvasBoxShadow *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QCanvasBoxShadow &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR16QCanvasBoxShadow(
+    QDataStream *a0,
+    QCanvasBoxShadow *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 #if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug a0, const QCanvasBoxShadow &a1)

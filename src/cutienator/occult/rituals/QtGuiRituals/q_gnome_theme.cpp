@@ -16,7 +16,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtGui/qpixmap.h>
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <cstring>
 
 //  Only a class built on QGnomeTheme may call these functions of it.

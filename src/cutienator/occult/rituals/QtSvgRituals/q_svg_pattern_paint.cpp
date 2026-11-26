@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgpaintserver_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qbrush.h>
 #include <cstring>
 
 //  A QSvgPatternPaint that Python can take functions over in. Every QSvgPatternPaint
@@ -55,6 +56,17 @@ extern "C" Q_DECL_EXPORT
 QSvgPaintServer::Type ritual_ZNK16QSvgPatternPaint4typeEv(
     const QSvgPatternPaint *self) {
   return self->type();
+}
+
+//  QBrush QSvgPatternPaint::brush(QPainter *a0, const QSvgNode *a1,
+//      QSvgExtraStates &a2)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN16QSvgPatternPaint5brushEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgPatternPaint *self,
+    QPainter *a0,
+    const QSvgNode *a1,
+    QSvgExtraStates *a2) {
+  return new QBrush(self->brush(a0, a1, *a2));
 }
 
 //  QSvgPattern *QSvgPatternPaint::patternNode()

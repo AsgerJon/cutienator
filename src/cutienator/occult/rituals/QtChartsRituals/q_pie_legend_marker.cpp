@@ -213,6 +213,25 @@ const QMetaObject *ritual_ZNK16QPieLegendMarker10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPieLegendMarker::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QPieLegendMarker11qt_metacastEPKc(
+    QPieLegendMarker *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPieLegendMarker::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QPieLegendMarker11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPieLegendMarker *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPieLegendMarker::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QPieLegendMarker2trEPKcS1_i(
@@ -256,6 +275,15 @@ QPieSeries *ritual_ZN16QPieLegendMarker6seriesEv(QPieLegendMarker *self) {
 extern "C" Q_DECL_EXPORT
 QPieSlice *ritual_ZN16QPieLegendMarker5sliceEv(QPieLegendMarker *self) {
   return self->slice();
+}
+
+//  QPieLegendMarker::QPieLegendMarker(QPieLegendMarkerPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QPieLegendMarker *ritual_ZN16QPieLegendMarkerC1ER23QPieLegendMarkerPrivateP7QObject(
+    QPieLegendMarkerPrivate *d,
+    QObject *parent) {
+  return new CuteQPieLegendMarker(*d, parent);
 }
 
 //  QPieLegendMarkerPrivate *QPieLegendMarker::d_func()

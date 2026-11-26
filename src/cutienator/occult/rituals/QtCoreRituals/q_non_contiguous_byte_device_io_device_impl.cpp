@@ -23,50 +23,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 233, as _ZN36QNonContiguousByteDeviceIoDeviceImplD1Ev
-inline QNonContiguousByteDeviceIoDeviceImpl::~QNonContiguousByteDeviceIoDeviceImpl()
-{
-    delete currentReadBuffer;
-}
-
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 238, as _ZN36QNonContiguousByteDeviceIoDeviceImpl11readPointerExRx
-inline const char *QNonContiguousByteDeviceIoDeviceImpl::readPointer(qint64 maximumLength, qint64 &len)
-{
-    if (eof) {
-        len = -1;
-        return nullptr;
-    }
-
-    if (currentReadBuffer == nullptr)
-        currentReadBuffer = new QByteArray(currentReadBufferSize, '\0'); // lazy alloc
-
-    if (maximumLength == -1)
-        maximumLength = currentReadBufferSize;
-
-    if (currentReadBufferAmount - currentReadBufferPosition > 0) {
-        len = currentReadBufferAmount - currentReadBufferPosition;
-        return currentReadBuffer->data() + currentReadBufferPosition;
-    }
-
-    qint64 haveRead = device->read(currentReadBuffer->data(),
-                                   qMin(maximumLength, currentReadBufferSize));
-
-    if ((haveRead == -1) || (haveRead == 0 && device->atEnd() && !device->isSequential())) {
-        eof = true;
-        len = -1;
-        // size was unknown before, emit a readProgress with the final size
-        if (size() == -1)
-            emit readProgress(totalAdvancements, totalAdvancements);
-        return nullptr;
-    }
-
-    currentReadBufferAmount = haveRead;
-    currentReadBufferPosition = 0;
-
-    len = haveRead;
-    return currentReadBuffer->data();
-}
-
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 275, as _ZN36QNonContiguousByteDeviceIoDeviceImpl18advanceReadPointerEx
 inline bool QNonContiguousByteDeviceIoDeviceImpl::advanceReadPointer(qint64 amount)
 {
@@ -141,6 +97,12 @@ inline qint64 QNonContiguousByteDeviceIoDeviceImpl::pos() const
         return -1;
 
     return device->pos();
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 233, as _ZN36QNonContiguousByteDeviceIoDeviceImplD1Ev
+inline QNonContiguousByteDeviceIoDeviceImpl::~QNonContiguousByteDeviceIoDeviceImpl()
+{
+    delete currentReadBuffer;
 }
 //  -----------------------------------------------------------------------
 
@@ -398,6 +360,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK36QNonContiguousByteDeviceIoDeviceImpl10metaObjectEv(
     const QNonContiguousByteDeviceIoDeviceImpl *self) {
   return self->metaObject();
+}
+
+//  void *QNonContiguousByteDeviceIoDeviceImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN36QNonContiguousByteDeviceIoDeviceImpl11qt_metacastEPKc(
+    QNonContiguousByteDeviceIoDeviceImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNonContiguousByteDeviceIoDeviceImpl::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN36QNonContiguousByteDeviceIoDeviceImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNonContiguousByteDeviceIoDeviceImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QNonContiguousByteDeviceIoDeviceImpl::~QNonContiguousByteDeviceIoDeviceIm

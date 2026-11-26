@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK15QHelpEngineCore10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QHelpEngineCore11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QHelpEngineCore11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QHelpEngineCore2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -58,6 +64,9 @@
     "ritual_ZN15QHelpEngineCore16setCurrentFilterERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZNK15QHelpEngineCore19filterAttributeSetsERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZN15QHelpEngineCore5filesE7QStringRK5QListIS0_ERKS0_": [
       "address", "address", "text", "address", "text"
     ],
@@ -100,6 +109,39 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK15QHelpEngineCore16usesFilterEngineEv": ["bool", "address"],
-    "ritual_take_QHelpEngineCore": ["bool", "address", "chars", "address"]
+    "ritual_ZNK15QHelpEngineCore30requestContentForCurrentFilterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QHelpEngineCore14requestContentERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK15QHelpEngineCore28requestIndexForCurrentFilterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QHelpEngineCore12requestIndexERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore12setupStartedEv": ["nothing", "address"],
+    "ritual_ZN15QHelpEngineCore13setupFinishedEv": ["nothing", "address"],
+    "ritual_ZN15QHelpEngineCore7warningERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore20currentFilterChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore27readersAboutToBeInvalidatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QHelpEngineCoreC1EP22QHelpEngineCorePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QHelpEngineCore": ["bool", "address", "chars", "address"],
+    "ritual_drop_QHelpEngineCore__QList_QStringList": ["nothing", "address"],
+    "ritual_drop_QHelpEngineCore__QFuture_std_shared_ptr_QHelpContentItem": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QHelpEngineCore__QFuture_QStringList": [
+      "nothing", "address"
+    ]
   }
 }

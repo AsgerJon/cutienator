@@ -296,6 +296,25 @@ const QMetaObject *ritual_ZNK25QQuick3DInstanceListEntry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DInstanceListEntry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuick3DInstanceListEntry11qt_metacastEPKc(
+    QQuick3DInstanceListEntry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DInstanceListEntry::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuick3DInstanceListEntry11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DInstanceListEntry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DInstanceListEntry::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -409,6 +428,55 @@ void ritual_ZN25QQuick3DInstanceListEntry13setCustomDataE9QVector4D(
     QQuick3DInstanceListEntry *self,
     const QVector4D *customData) {
   self->setCustomData(*customData);
+}
+
+//  void QQuick3DInstanceListEntry::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DInstanceListEntry15positionChangedEv(
+    QQuick3DInstanceListEntry *self) {
+  self->positionChanged();
+}
+
+//  void QQuick3DInstanceListEntry::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DInstanceListEntry12scaleChangedEv(
+    QQuick3DInstanceListEntry *self) {
+  self->scaleChanged();
+}
+
+//  void QQuick3DInstanceListEntry::eulerRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DInstanceListEntry20eulerRotationChangedEv(
+    QQuick3DInstanceListEntry *self) {
+  self->eulerRotationChanged();
+}
+
+//  void QQuick3DInstanceListEntry::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DInstanceListEntry15rotationChangedEv(
+    QQuick3DInstanceListEntry *self) {
+  self->rotationChanged();
+}
+
+//  void QQuick3DInstanceListEntry::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DInstanceListEntry12colorChangedEv(
+    QQuick3DInstanceListEntry *self) {
+  self->colorChanged();
+}
+
+//  void QQuick3DInstanceListEntry::customDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DInstanceListEntry17customDataChangedEv(
+    QQuick3DInstanceListEntry *self) {
+  self->customDataChanged();
+}
+
+//  void QQuick3DInstanceListEntry::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DInstanceListEntry7changedEv(
+    QQuick3DInstanceListEntry *self) {
+  self->changed();
 }
 
 //  QSSGRenderGraphObject

@@ -7,8 +7,112 @@
     "ritual_ZNK8Qt3DCore13QGeometryView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore13QGeometryView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore13QGeometryView2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryViewC1EPNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore13QGeometryView13instanceCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK8Qt3DCore13QGeometryView11vertexCountEv": ["int", "address"],
+    "ritual_ZNK8Qt3DCore13QGeometryView11indexOffsetEv": ["int", "address"],
+    "ritual_ZNK8Qt3DCore13QGeometryView13firstInstanceEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK8Qt3DCore13QGeometryView11firstVertexEv": ["int", "address"],
+    "ritual_ZNK8Qt3DCore13QGeometryView21indexBufferByteOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK8Qt3DCore13QGeometryView17restartIndexValueEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK8Qt3DCore13QGeometryView16verticesPerPatchEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK8Qt3DCore13QGeometryView23primitiveRestartEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK8Qt3DCore13QGeometryView8geometryEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore13QGeometryView13primitiveTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView16setInstanceCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView14setVertexCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView14setIndexOffsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView16setFirstInstanceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView14setFirstVertexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView24setIndexBufferByteOffsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView20setRestartIndexValueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView19setVerticesPerPatchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView26setPrimitiveRestartEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView11setGeometryEPNS_9QGeometryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView16setPrimitiveTypeENS0_13PrimitiveTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView20instanceCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView18vertexCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView18indexOffsetChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView20firstInstanceChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView18firstVertexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView28indexBufferByteOffsetChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView24restartIndexValueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView23verticesPerPatchChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView30primitiveRestartEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView15geometryChangedEPNS_9QGeometryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryView20primitiveTypeChangedENS0_13PrimitiveTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QGeometryViewC1ERNS_20QGeometryViewPrivateEPNS_5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN8Qt3DCore13QGeometryView6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore13QGeometryView6d_funcEv": ["address", "address"],

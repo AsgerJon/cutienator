@@ -7,7 +7,11 @@
   "rows": {
     "ritual_ZN14QPlaceSupplierC1Ev": ["address"],
     "ritual_ZN14QPlaceSupplierC1ERKS_": ["address", "address"],
+    "ritual_ZN14QPlaceSupplierC1EOS_": ["address", "address"],
     "ritual_ZN14QPlaceSupplierD1Ev": ["nothing", "address"],
+    "ritual_ZN14QPlaceSupplieraSERKS_": ["address", "address", "address"],
+    "ritual_ZN14QPlaceSupplieraSEOS_": ["address", "address", "address"],
+    "ritual_ZN14QPlaceSupplier4swapERS_": ["nothing", "address", "address"],
     "ritual_ZeqRK14QPlaceSupplierS1_": ["bool", "address", "address"],
     "ritual_ZneRK14QPlaceSupplierS1_": ["bool", "address", "address"],
     "ritual_ZNK14QPlaceSupplier4nameEv": ["text", "address"],

@@ -10,6 +10,15 @@
     "ritual_ZN29QSslPreSharedKeyAuthenticatorC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN29QSslPreSharedKeyAuthenticatoraSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QSslPreSharedKeyAuthenticatoraSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QSslPreSharedKeyAuthenticator4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK29QSslPreSharedKeyAuthenticator12identityHintEv": [
       "address", "address"
     ],

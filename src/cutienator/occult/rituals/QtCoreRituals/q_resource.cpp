@@ -74,6 +74,12 @@ qint64 ritual_ZNK9QResource4sizeEv(const QResource *self) {
   return self->size();
 }
 
+//  const uchar *QResource::data() const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK9QResource4dataEv(const QResource *self) {
+  return self->data();
+}
+
 //  qint64 QResource::uncompressedSize() const
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK9QResource16uncompressedSizeEv(const QResource *self) {
@@ -110,6 +116,24 @@ bool ritual_ZN9QResource18unregisterResourceERK7QStringS2_(
   return QResource::unregisterResource(*rccFilename, *resourceRoot);
 }
 
+//  bool QResource::registerResource(const uchar *rccData, const QString
+//      &resourceRoot)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QResource16registerResourceEPKhRK7QString(
+    const uchar *rccData,
+    const QString *resourceRoot) {
+  return QResource::registerResource(rccData, *resourceRoot);
+}
+
+//  bool QResource::unregisterResource(const uchar *rccData, const QString
+//      &resourceRoot)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QResource18unregisterResourceEPKhRK7QString(
+    const uchar *rccData,
+    const QString *resourceRoot) {
+  return QResource::unregisterResource(rccData, *resourceRoot);
+}
+
 //  bool QResource::isDir() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QResource5isDirEv(const QResource *self) {
@@ -126,4 +150,17 @@ bool ritual_ZNK9QResource6isFileEv(const QResource *self) {
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK9QResource8childrenEv(const QResource *self) {
   return new QList<QString>(self->children());
+}
+
+//  QResourcePrivate *QResource::d_func()
+extern "C" Q_DECL_EXPORT
+QResourcePrivate *ritual_ZN9QResource6d_funcEv(QResource *self) {
+  return self->d_func();
+}
+
+//  const QResourcePrivate *QResource::d_func() const
+extern "C" Q_DECL_EXPORT
+const QResourcePrivate *ritual_ZNK9QResource6d_funcEv(
+    const QResource *self) {
+  return self->d_func();
 }

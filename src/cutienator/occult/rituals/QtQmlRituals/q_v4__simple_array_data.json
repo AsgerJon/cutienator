@@ -1,12 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4arraydata_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4arraydata_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV415SimpleArrayData12staticVTableEv": ["address"],
     "ritual_ZN3QV415SimpleArrayData10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV415SimpleArrayData1dEv": ["address", "address"],
+    "ritual_ZN3QV415SimpleArrayData1dEv": ["address", "address"],
     "ritual_ZN3QV415SimpleArrayData20defaultInternalClassEPNS_10EngineBaseE": [
       "address", "address"
     ],
@@ -16,6 +18,37 @@
     "ritual_ZNK3QV415SimpleArrayData4dataEj": [
       "address", "address", "unsigned int"
     ],
-    "ritual_ZNK3QV415SimpleArrayData3lenEv": ["unsigned int", "address"]
+    "ritual_ZNK3QV415SimpleArrayData3lenEv": ["unsigned int", "address"],
+    "ritual_ZN3QV415SimpleArrayData10reallocateEPNS_6ObjectEjb": [
+      "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN3QV415SimpleArrayData3getEPKNS_4Heap9ArrayDataEj": [
+      "unsigned long long", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SimpleArrayData3putEPNS_6ObjectEjRKNS_5ValueE": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV415SimpleArrayData8putArrayEPNS_6ObjectEjPKNS_5ValueEj": [
+      "bool", "address", "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SimpleArrayData3delEPNS_6ObjectEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SimpleArrayData12setAttributeEPNS_6ObjectEjNS_18PropertyAttributesE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV415SimpleArrayData10push_frontEPNS_6ObjectEPKNS_5ValueEj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SimpleArrayData9pop_frontEPNS_6ObjectE": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV415SimpleArrayData8truncateEPNS_6ObjectEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SimpleArrayData6lengthEPKNS_4Heap9ArrayDataE": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV415SimpleArrayData3lenEv": ["address", "address"]
   }
 }

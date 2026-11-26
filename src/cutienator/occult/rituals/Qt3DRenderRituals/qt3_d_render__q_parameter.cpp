@@ -180,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QParameter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QParameter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QParameter11qt_metacastEPKc(
+    Qt3DRender::QParameter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QParameter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QParameter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QParameter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QParameter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QParameter2trEPKcS2_i(
@@ -214,6 +233,67 @@ Qt3DRender::QParameter *ritual_ZN10Qt3DRender10QParameterC1ERK7QStringPNS_16QAbs
     Qt3DRender::QAbstractTexture *texture,
     Qt3DCore::QNode *parent) {
   return new CuteQt3DRender_QParameter(*name, texture, parent);
+}
+
+//  Qt3DRender::QParameter::~QParameter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QParameterD1Ev(Qt3DRender::QParameter *self) {
+  delete self;
+}
+
+//  QString Qt3DRender::QParameter::name() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DRender10QParameter4nameEv(
+    const Qt3DRender::QParameter *self) {
+  return new QString(self->name());
+}
+
+//  QVariant Qt3DRender::QParameter::value() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DRender10QParameter5valueEv(
+    const Qt3DRender::QParameter *self) {
+  return new QVariant(self->value());
+}
+
+//  void Qt3DRender::QParameter::setName(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QParameter7setNameERK7QString(
+    Qt3DRender::QParameter *self,
+    const QString *name) {
+  self->setName(*name);
+}
+
+//  void Qt3DRender::QParameter::setValue(const QVariant &dv)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QParameter8setValueERK8QVariant(
+    Qt3DRender::QParameter *self,
+    const QVariant *dv) {
+  self->setValue(*dv);
+}
+
+//  void Qt3DRender::QParameter::valueChanged(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QParameter12valueChangedERK8QVariant(
+    Qt3DRender::QParameter *self,
+    const QVariant *value) {
+  self->valueChanged(*value);
+}
+
+//  void Qt3DRender::QParameter::nameChanged(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QParameter11nameChangedERK7QString(
+    Qt3DRender::QParameter *self,
+    const QString *name) {
+  self->nameChanged(*name);
+}
+
+//  Qt3DRender::QParameter::QParameter(QParameterPrivate &dd, Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QParameter *ritual_ZN10Qt3DRender10QParameterC1ERNS_17QParameterPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QParameterPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QParameter(*dd, parent);
 }
 
 //  QParameterPrivate *Qt3DRender::QParameter::d_func()

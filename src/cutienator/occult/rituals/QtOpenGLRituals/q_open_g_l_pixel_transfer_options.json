@@ -7,7 +7,16 @@
   "rows": {
     "ritual_ZN27QOpenGLPixelTransferOptionsC1Ev": ["address"],
     "ritual_ZN27QOpenGLPixelTransferOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZN27QOpenGLPixelTransferOptionsaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QOpenGLPixelTransferOptionsaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN27QOpenGLPixelTransferOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN27QOpenGLPixelTransferOptions4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN27QOpenGLPixelTransferOptions12setAlignmentEi": [
       "nothing", "address", "int"
     ],

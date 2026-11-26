@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK16QHBarModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHBarModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QHBarModelMapper11qt_metacastEPKc(
+    QHBarModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHBarModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QHBarModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHBarModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHBarModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QHBarModelMapper2trEPKcS1_i(
@@ -284,6 +303,46 @@ void ritual_ZN16QHBarModelMapper14setColumnCountEi(
     QHBarModelMapper *self,
     int columnCount) {
   self->setColumnCount(columnCount);
+}
+
+//  void QHBarModelMapper::seriesReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHBarModelMapper14seriesReplacedEv(QHBarModelMapper *self) {
+  self->seriesReplaced();
+}
+
+//  void QHBarModelMapper::modelReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHBarModelMapper13modelReplacedEv(QHBarModelMapper *self) {
+  self->modelReplaced();
+}
+
+//  void QHBarModelMapper::firstBarSetRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHBarModelMapper21firstBarSetRowChangedEv(
+    QHBarModelMapper *self) {
+  self->firstBarSetRowChanged();
+}
+
+//  void QHBarModelMapper::lastBarSetRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHBarModelMapper20lastBarSetRowChangedEv(
+    QHBarModelMapper *self) {
+  self->lastBarSetRowChanged();
+}
+
+//  void QHBarModelMapper::firstColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHBarModelMapper18firstColumnChangedEv(
+    QHBarModelMapper *self) {
+  self->firstColumnChanged();
+}
+
+//  void QHBarModelMapper::columnCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHBarModelMapper18columnCountChangedEv(
+    QHBarModelMapper *self) {
+  self->columnCountChanged();
 }
 
 //  a Python function taken by a CuteQHBarModelMapper, for the function named

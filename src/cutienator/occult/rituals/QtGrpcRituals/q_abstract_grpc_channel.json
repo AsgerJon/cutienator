@@ -6,13 +6,35 @@
   ],
   "rows": {
     "ritual_ZN20QAbstractGrpcChannelD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QAbstractGrpcChannel10serializerEv": ["address", "address"],
     "ritual_ZNKR20QAbstractGrpcChannel14channelOptionsEv": [
       "address", "address"
     ],
     "ritual_ZN20QAbstractGrpcChannel17setChannelOptionsERK19QGrpcChannelOptions": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QAbstractGrpcChannel17setChannelOptionsEO19QGrpcChannelOptions": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNKR20QAbstractGrpcChannel16interceptorChainEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractGrpcChannel4callEP21QGrpcOperationContextO10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractGrpcChannel12serverStreamEP21QGrpcOperationContextO10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractGrpcChannel12clientStreamEP21QGrpcOperationContextO10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractGrpcChannel10bidiStreamEP21QGrpcOperationContextO10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN20QAbstractGrpcChannel6d_funcEv": ["address", "address"],
-    "ritual_ZNK20QAbstractGrpcChannel6d_funcEv": ["address", "address"]
+    "ritual_ZNK20QAbstractGrpcChannel6d_funcEv": ["address", "address"],
+    "ritual_drop_QAbstractGrpcChannel__std_shared_ptr_QAbstractProtobufSerializer": [
+      "nothing", "address"
+    ]
   }
 }

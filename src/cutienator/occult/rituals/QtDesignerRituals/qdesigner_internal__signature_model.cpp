@@ -10,9 +10,64 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDesigner/private/signalslotdialog_p.h>
+#include <QtDesigner/private/metadatabase_p.h>
+#include <QtDesigner/private/widgetdatabase_p.h>
+#include <QtDesigner/private/qdesigner_formwindowcommand_p.h>
+#include <QtDesigner/private/iconloader_p.h>
+#include <QtDesigner/membersheet.h>
+#include <QtDesigner/qextensionmanager.h>
+#include <QtDesigner/abstractformeditor.h>
+#include <QtDesigner/abstractformwindow.h>
+#include <QtDesigner/abstractwidgetfactory.h>
+#include <QtDesigner/private/abstractdialoggui_p.h>
+#include <QtGui/qstandarditemmodel.h>
+#include <QtGui/qvalidator.h>
+#include <QtWidgets/qstyleditemdelegate.h>
+#include <QtWidgets/qlineedit.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qmessagebox.h>
+#include <QtCore/qregularexpression.h>
+#include <QtCore/qdebug.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from ../qttools/src/designer/src/lib/shared/signalslotdialog.cpp, line 165, as _ZN18qdesigner_internal14SignatureModel7setDataERK11QModelIndexRK8QVarianti
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline bool SignatureModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (role != Qt::EditRole)
+        return QStandardItemModel::setData(index, value, role);
+    // check via signal (unless it is the same), in which case we can't be bothered.
+    const QStandardItem *item = itemFromIndex(index);
+    Q_ASSERT(item);
+    const QString signature = value.toString();
+    if (item->text() == signature)
+        return true;
+
+    bool ok = true;
+    emit checkSignature(signature, &ok);
+    if (!ok)
+        return false;
+
+    return QStandardItemModel::setData(index, value, role);
+}
+}  // namespace qdesigner_internal
+//  -----------------------------------------------------------------------
 
 //  A qdesigner_internal::SignatureModel that Python can take functions over in. Every qdesigner_internal::SignatureModel
 //  Python makes is one. Each function below asks the Python
@@ -1042,6 +1097,66 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18qdesigner_internal14SignatureModel10metaObjectEv(
     const qdesigner_internal::SignatureModel *self) {
   return self->metaObject();
+}
+
+//  void *qdesigner_internal::SignatureModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal14SignatureModel11qt_metacastEPKc(
+    qdesigner_internal::SignatureModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::SignatureModel::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal14SignatureModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::SignatureModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  bool qdesigner_internal::SignatureModel::setData(const QModelIndex
+//      &index, const QVariant &value, int role)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal14SignatureModel7setDataERK11QModelIndexRK8QVarianti(
+    qdesigner_internal::SignatureModel *self,
+    const QModelIndex *index,
+    const QVariant *value,
+    int role) {
+  return self->setData(*index, *value, role);
+}
+
+//  void qdesigner_internal::SignatureModel::checkSignature(const QString
+//      &signature, bool *ok)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal14SignatureModel14checkSignatureERK7QStringPb(
+    qdesigner_internal::SignatureModel *self,
+    const QString *signature,
+    bool *ok) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "qdesigner_internal::SignatureModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "checkSignature(const QString &,bool *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "checkSignature(const QString &,bool *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(signature)),
+      const_cast<void *>(static_cast<const void *>(&ok)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_SignatureModel, for

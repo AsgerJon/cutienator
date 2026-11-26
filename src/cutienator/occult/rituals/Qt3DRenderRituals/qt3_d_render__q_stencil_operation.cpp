@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender17QStencilOperation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QStencilOperation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender17QStencilOperation11qt_metacastEPKc(
+    Qt3DRender::QStencilOperation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QStencilOperation::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender17QStencilOperation11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QStencilOperation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QStencilOperation::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,34 @@ QString *ritual_ZN10Qt3DRender17QStencilOperation2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QStencilOperation::tr(s, c, n));
+}
+
+//  Qt3DRender::QStencilOperation::QStencilOperation(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilOperation *ritual_ZN10Qt3DRender17QStencilOperationC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QStencilOperation(parent);
+}
+
+//  Qt3DRender::QStencilOperation::~QStencilOperation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QStencilOperationD1Ev(
+    Qt3DRender::QStencilOperation *self) {
+  delete self;
+}
+
+//  QStencilOperationArguments *Qt3DRender::QStencilOperation::front() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilOperationArguments *ritual_ZNK10Qt3DRender17QStencilOperation5frontEv(
+    const Qt3DRender::QStencilOperation *self) {
+  return self->front();
+}
+
+//  QStencilOperationArguments *Qt3DRender::QStencilOperation::back() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilOperationArguments *ritual_ZNK10Qt3DRender17QStencilOperation4backEv(
+    const Qt3DRender::QStencilOperation *self) {
+  return self->back();
 }
 
 //  QStencilOperationPrivate *Qt3DRender::QStencilOperation::d_func()

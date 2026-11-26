@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK16QWaylandKeyboard10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QWaylandKeyboard11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QWaylandKeyboard11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QWaylandKeyboard2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QWaylandKeyboard6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QWaylandKeyboard6d_funcEv": ["address", "address"],
     "ritual_ZN16QWaylandKeyboardC1EP12QWaylandSeatP7QObject": [
       "address", "address", "address"
     ],
@@ -45,6 +53,18 @@
     ],
     "ritual_ZNK16QWaylandKeyboard13keyToScanCodeEi": [
       "unsigned int", "address", "int"
+    ],
+    "ritual_ZN16QWaylandKeyboard12focusChangedEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QWaylandKeyboard17repeatRateChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN16QWaylandKeyboard18repeatDelayChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN16QWaylandKeyboard14focusDestroyedEPv": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN16QWaylandKeyboard12updateKeymapEv": ["nothing", "address"],
     "ritual_own_ZN16QWaylandKeyboard8setFocusEP15QWaylandSurface": [

@@ -45,6 +45,15 @@ void ritual_ZN18QPlaceSearchResultD1Ev(QPlaceSearchResult *self) {
   delete self;
 }
 
+//  QPlaceSearchResult &QPlaceSearchResult::operator=(const
+//      QPlaceSearchResult &other)
+extern "C" Q_DECL_EXPORT
+QPlaceSearchResult *ritual_ZN18QPlaceSearchResultaSERKS_(
+    QPlaceSearchResult *self,
+    const QPlaceSearchResult *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QPlaceSearchResult::operator==(const QPlaceSearchResult &other)
 //      const
 extern "C" Q_DECL_EXPORT

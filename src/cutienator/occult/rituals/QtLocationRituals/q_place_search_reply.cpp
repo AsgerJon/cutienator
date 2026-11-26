@@ -214,6 +214,25 @@ const QMetaObject *ritual_ZNK17QPlaceSearchReply10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlaceSearchReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QPlaceSearchReply11qt_metacastEPKc(
+    QPlaceSearchReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlaceSearchReply::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QPlaceSearchReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlaceSearchReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlaceSearchReply::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QPlaceSearchReply2trEPKcS1_i(
@@ -304,6 +323,20 @@ void ritual_ZN17QPlaceSearchReply18setNextPageRequestERK19QPlaceSearchRequest(
     QPlaceSearchReply *self,
     const QPlaceSearchRequest *next) {
   self->setNextPageRequest(*next);
+}
+
+//  QPlaceSearchReplyPrivate *QPlaceSearchReply::d_func()
+extern "C" Q_DECL_EXPORT
+QPlaceSearchReplyPrivate *ritual_ZN17QPlaceSearchReply6d_funcEv(
+    QPlaceSearchReply *self) {
+  return self->d_func();
+}
+
+//  const QPlaceSearchReplyPrivate *QPlaceSearchReply::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPlaceSearchReplyPrivate *ritual_ZNK17QPlaceSearchReply6d_funcEv(
+    const QPlaceSearchReply *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQPlaceSearchReply, for the function

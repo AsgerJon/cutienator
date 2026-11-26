@@ -12,6 +12,12 @@
       "address", "address", "int", "text"
     ],
     "ritual_ZN19QAccessibleWidgetV2D1Ev": ["nothing", "address"],
+    "ritual_ZN19QAccessibleWidgetV214interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QAccessibleWidgetV213attributeKeysEv": [
+      "address", "address"
+    ],
     "ritual_ZNK19QAccessibleWidgetV214attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
     ],
@@ -21,8 +27,14 @@
     "ritual_take_QAccessibleWidgetV2": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZN19QAccessibleWidgetV214interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_own_ZNK19QAccessibleWidgetV214attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
+    ],
+    "ritual_drop_QAccessibleWidgetV2__QList_QAccessible_Attribute": [
+      "nothing", "address"
     ]
   }
 }

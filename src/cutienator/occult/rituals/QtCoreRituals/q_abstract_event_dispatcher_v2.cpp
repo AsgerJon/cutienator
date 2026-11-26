@@ -7,6 +7,8 @@
 #include <QtCore/qdeadlinetimer.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QAbstractEventDispatcher>
 
 //  A QAbstractEventDispatcherV2 that Python can take functions over in. Every QAbstractEventDispatcherV2
 //  Python makes is one. Each function below asks the Python
@@ -363,6 +365,25 @@ const QMetaObject *ritual_ZNK26QAbstractEventDispatcherV210metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractEventDispatcherV2::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QAbstractEventDispatcherV211qt_metacastEPKc(
+    QAbstractEventDispatcherV2 *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractEventDispatcherV2::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QAbstractEventDispatcherV211qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractEventDispatcherV2 *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractEventDispatcherV2::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -395,12 +416,48 @@ void ritual_ZN26QAbstractEventDispatcherV2D1Ev(
   delete self;
 }
 
+//  void QAbstractEventDispatcherV2::registerTimer(Qt::TimerId timerId,
+//      Duration interval, Qt::TimerType timerType, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractEventDispatcherV213registerTimerEN2Qt7TimerIdENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS0_9TimerTypeEP7QObject(
+    QAbstractEventDispatcherV2 *self,
+    Qt::TimerId timerId,
+    long long interval,
+    Qt::TimerType timerType,
+    QObject *object) {
+  self->registerTimer(
+      timerId,
+      QAbstractEventDispatcher::Duration(interval),
+      timerType,
+      object);
+}
+
 //  bool QAbstractEventDispatcherV2::unregisterTimer(Qt::TimerId timerId)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN26QAbstractEventDispatcherV215unregisterTimerEN2Qt7TimerIdE(
     QAbstractEventDispatcherV2 *self,
     Qt::TimerId timerId) {
   return self->unregisterTimer(timerId);
+}
+
+//  QList<TimerInfoV2> QAbstractEventDispatcherV2::timersForObject(QObject
+//      *object) const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractEventDispatcher::TimerInfoV2> *ritual_ZNK26QAbstractEventDispatcherV215timersForObjectEP7QObject(
+    const QAbstractEventDispatcherV2 *self,
+    QObject *object) {
+  return new QList<QAbstractEventDispatcher::TimerInfoV2>(
+      self->timersForObject(
+          object));
+}
+
+//  Duration QAbstractEventDispatcherV2::remainingTime(Qt::TimerId timerId)
+//      const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK26QAbstractEventDispatcherV213remainingTimeEN2Qt7TimerIdE(
+    const QAbstractEventDispatcherV2 *self,
+    Qt::TimerId timerId) {
+  return static_cast<long long>(self->remainingTime(timerId).count());
 }
 
 //  bool QAbstractEventDispatcherV2::processEventsWithDeadline(QEventLoop::Pr
@@ -435,6 +492,17 @@ bool ritual_ZN26QAbstractEventDispatcherV215unregisterTimerEi(
   return self->unregisterTimer(timerId);
 }
 
+//  QList<TimerInfo> QAbstractEventDispatcherV2::registeredTimers(QObject
+//      *object) const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractEventDispatcher::TimerInfo> *ritual_ZNK26QAbstractEventDispatcherV216registeredTimersEP7QObject(
+    const QAbstractEventDispatcherV2 *self,
+    QObject *object) {
+  return new QList<QAbstractEventDispatcher::TimerInfo>(
+      self->registeredTimers(
+          object));
+}
+
 //  int QAbstractEventDispatcherV2::remainingTime(int timerId)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN26QAbstractEventDispatcherV213remainingTimeEi(
@@ -463,6 +531,22 @@ bool ritual_own_ZN26QAbstractEventDispatcherV225processEventsWithDeadlineE6QFlag
   return self->QAbstractEventDispatcherV2::processEventsWithDeadline(
       QFlags<QEventLoop::ProcessEventsFlag>::fromInt(flags),
       *deadline);
+}
+
+//  a QList<QAbstractEventDispatcher::TimerInfoV2> a ritual of
+//      QAbstractEventDispatcherV2 gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractEventDispatcherV2__QList_QAbstractEventDispatcher_TimerInfoV2(
+    QList<QAbstractEventDispatcher::TimerInfoV2> *self) {
+  delete self;
+}
+
+//  a QList<QAbstractEventDispatcher::TimerInfo> a ritual of
+//      QAbstractEventDispatcherV2 gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractEventDispatcherV2__QList_QAbstractEventDispatcher_TimerInfo(
+    QList<QAbstractEventDispatcher::TimerInfo> *self) {
+  delete self;
 }
 
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)

@@ -7,6 +7,28 @@
   "rows": {
     "ritual_ZN6QQmlSA15BindingsPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK6QQmlSA15BindingsPrivate6q_funcEv": ["address", "address"],
-    "ritual_ZN6QQmlSA15BindingsPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN6QQmlSA15BindingsPrivateC1EPNS_7Binding8BindingsE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA15BindingsPrivateC1EPNS_7Binding8BindingsERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA15BindingsPrivateC1EPNS_7Binding8BindingsEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA15BindingsPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA15BindingsPrivate10constBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA15BindingsPrivate8constEndEv": ["address", "address"],
+    "ritual_ZN6QQmlSA15BindingsPrivate14createBindingsERK10QMultiHashI7QString25QQmlJSMetaPropertyBindingE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA15BindingsPrivate14createBindingsESt4pairIN10QMultiHashI7QString25QQmlJSMetaPropertyBindingE14const_iteratorES6_E": [
+      "address", "address"
+    ],
+    "ritual_drop_QQmlSA_BindingsPrivate__QMultiHash_QString_QQmlSA_Binding_const_iterator": [
+      "nothing", "address"
+    ]
   }
 }

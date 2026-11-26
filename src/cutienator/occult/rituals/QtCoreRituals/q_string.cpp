@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qstring.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qstring.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand:
+//  'ritual_ZN7QString8asprintfEPKcz'. Kept as it is when the generator runs
+//  again. Also added by hand on 2026-11-25, instances of templates of the
+//  class: 5.
 #include <QtCore/qstring.h>
 #include <QtCore/qchar.h>
 #include <QtCore/qlatin1stringview.h>
@@ -9,6 +12,11 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QUtf8StringView>
+#include <QtCore/QList>
+#include <QtCore/QString>
+#include <string>
+#include <string_view>
 
 //  QString::QString()
 extern "C" Q_DECL_EXPORT
@@ -58,6 +66,44 @@ QString *ritual_ZN7QStringC1ERKS_(const QString *a0) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QStringD1Ev(QString *self) {
   delete self;
+}
+
+//  QString &QString::operator=(QChar c)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QStringaSE5QChar(QString *self, const QChar *c) {
+  return &(self->operator=(*c));
+}
+
+//  QString &QString::operator=(const QString &a0)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QStringaSERKS_(QString *self, const QString *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QString &QString::operator=(QLatin1StringView latin1)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QStringaSE13QLatin1String(
+    QString *self,
+    const QLatin1String *latin1) {
+  return &(self->operator=(*latin1));
+}
+
+//  QString::QString(QString &&other)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QStringC1EOS_(QString *other) {
+  return new QString(std::move(*other));
+}
+
+//  QString &QString::operator=(QString &&other)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QStringaSEOS_(QString *self, QString *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QString::swap(QString &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QString4swapERS_(QString *self, QString *other) {
+  self->swap(*other);
 }
 
 //  qsizetype QString::maxSize()
@@ -113,6 +159,15 @@ void ritual_ZN7QString18resizeForOverwriteEx(QString *self, qsizetype size) {
   self->resizeForOverwrite(size);
 }
 
+//  QString &QString::fill(QChar c, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString4fillE5QCharx(
+    QString *self,
+    const QChar *c,
+    qsizetype size) {
+  return &(self->fill(*c, size));
+}
+
 //  void QString::truncate(qsizetype pos)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QString8truncateEx(QString *self, qsizetype pos) {
@@ -123,6 +178,21 @@ void ritual_ZN7QString8truncateEx(QString *self, qsizetype pos) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QString4chopEx(QString *self, qsizetype n) {
   self->chop(n);
+}
+
+//  QString &QString::slice(qsizetype pos)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString5sliceEx(QString *self, qsizetype pos) {
+  return &(self->slice(pos));
+}
+
+//  QString &QString::slice(qsizetype pos, qsizetype n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString5sliceExx(
+    QString *self,
+    qsizetype pos,
+    qsizetype n) {
+  return &(self->slice(pos, n));
 }
 
 //  qsizetype QString::capacity() const
@@ -205,16 +275,34 @@ QChar *ritual_ZNK7QStringixEx(const QString *self, qsizetype i) {
   return new QChar(self->operator[](i));
 }
 
+//  QChar &QString::operator[](qsizetype i)
+extern "C" Q_DECL_EXPORT
+QChar *ritual_ZN7QStringixEx(QString *self, qsizetype i) {
+  return &(self->operator[](i));
+}
+
 //  QChar QString::front() const
 extern "C" Q_DECL_EXPORT
 QChar *ritual_ZNK7QString5frontEv(const QString *self) {
   return new QChar(self->front());
 }
 
+//  QChar &QString::front()
+extern "C" Q_DECL_EXPORT
+QChar *ritual_ZN7QString5frontEv(QString *self) {
+  return &(self->front());
+}
+
 //  QChar QString::back() const
 extern "C" Q_DECL_EXPORT
 QChar *ritual_ZNK7QString4backEv(const QString *self) {
   return new QChar(self->back());
+}
+
+//  QChar &QString::back()
+extern "C" Q_DECL_EXPORT
+QChar *ritual_ZN7QString4backEv(QString *self) {
+  return &(self->back());
 }
 
 //  QString QString::arg_impl(qlonglong a, int fieldwidth, int base, QChar
@@ -273,6 +361,14 @@ QString *ritual_ZNK7QString8arg_implE14QAnyStringViewi5QChar(
           QAnyStringView(*a),
           fieldWidth,
           *fillChar));
+}
+
+//  QString QString::vasprintf(const char *format, __va_list_tag *ap)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString9vasprintfEPKcP13__va_list_tag(
+    const char *format,
+    va_list ap) {
+  return new QString(QString::vasprintf(format, ap));
 }
 
 //  qsizetype QString::indexOf(QChar c, qsizetype from, Qt::CaseSensitivity
@@ -789,6 +885,168 @@ QString *ritual_ZNK7QString13toHtmlEscapedEv(const QString *self) {
   return new QString(self->toHtmlEscaped());
 }
 
+//  QString &QString::insert(qsizetype i, QChar c)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6insertEx5QChar(
+    QString *self,
+    qsizetype i,
+    const QChar *c) {
+  return &(self->insert(i, *c));
+}
+
+//  QString &QString::insert(qsizetype i, const QChar *uc, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6insertExPK5QCharx(
+    QString *self,
+    qsizetype i,
+    const QChar *uc,
+    qsizetype len) {
+  return &(self->insert(i, uc, len));
+}
+
+//  QString &QString::insert(qsizetype i, const QString &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6insertExRKS_(
+    QString *self,
+    qsizetype i,
+    const QString *s) {
+  return &(self->insert(i, *s));
+}
+
+//  QString &QString::insert(qsizetype i, QStringView v)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6insertEx11QStringView(
+    QString *self,
+    qsizetype i,
+    const QString *v) {
+  return &(self->insert(i, QStringView(*v)));
+}
+
+//  QString &QString::insert(qsizetype i, QLatin1StringView s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6insertEx13QLatin1String(
+    QString *self,
+    qsizetype i,
+    const QLatin1String *s) {
+  return &(self->insert(i, *s));
+}
+
+//  QString &QString::insert(qsizetype i, QUtf8StringView s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6insertEx20QBasicUtf8StringViewILb0EE(
+    QString *self,
+    qsizetype i,
+    const QUtf8StringView *s) {
+  return &(self->insert(i, *s));
+}
+
+//  QString &QString::append(QChar c)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6appendE5QChar(QString *self, const QChar *c) {
+  return &(self->append(*c));
+}
+
+//  QString &QString::append(const QChar *uc, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6appendEPK5QCharx(
+    QString *self,
+    const QChar *uc,
+    qsizetype len) {
+  return &(self->append(uc, len));
+}
+
+//  QString &QString::append(const QString &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6appendERKS_(QString *self, const QString *s) {
+  return &(self->append(*s));
+}
+
+//  QString &QString::append(QStringView v)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6appendE11QStringView(
+    QString *self,
+    const QString *v) {
+  return &(self->append(QStringView(*v)));
+}
+
+//  QString &QString::append(QLatin1StringView s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6appendE13QLatin1String(
+    QString *self,
+    const QLatin1String *s) {
+  return &(self->append(*s));
+}
+
+//  QString &QString::append(QUtf8StringView s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6appendE20QBasicUtf8StringViewILb0EE(
+    QString *self,
+    const QUtf8StringView *s) {
+  return &(self->append(*s));
+}
+
+//  QString &QString::prepend(QChar c)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7prependE5QChar(QString *self, const QChar *c) {
+  return &(self->prepend(*c));
+}
+
+//  QString &QString::prepend(const QChar *uc, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7prependEPK5QCharx(
+    QString *self,
+    const QChar *uc,
+    qsizetype len) {
+  return &(self->prepend(uc, len));
+}
+
+//  QString &QString::prepend(const QString &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7prependERKS_(QString *self, const QString *s) {
+  return &(self->prepend(*s));
+}
+
+//  QString &QString::prepend(QStringView v)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7prependE11QStringView(
+    QString *self,
+    const QString *v) {
+  return &(self->prepend(QStringView(*v)));
+}
+
+//  QString &QString::prepend(QLatin1StringView s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7prependE13QLatin1String(
+    QString *self,
+    const QLatin1String *s) {
+  return &(self->prepend(*s));
+}
+
+//  QString &QString::prepend(QUtf8StringView s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7prependE20QBasicUtf8StringViewILb0EE(
+    QString *self,
+    const QUtf8StringView *s) {
+  return &(self->prepend(*s));
+}
+
+//  QString &QString::assign(QAnyStringView s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6assignE14QAnyStringView(
+    QString *self,
+    const QString *s) {
+  return &(self->assign(QAnyStringView(*s)));
+}
+
+//  QString &QString::assign(qsizetype n, QChar c)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6assignEx5QChar(
+    QString *self,
+    qsizetype n,
+    const QChar *c) {
+  return &(self->assign(n, *c));
+}
+
 //  QString &QString::operator+=(QChar c)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QStringpLE5QChar(QString *self, const QChar *c) {
@@ -814,6 +1072,213 @@ void ritual_ZN7QStringpLE13QLatin1String(
     const QLatin1String *s) {
   self->operator+=(*s);
 }
+
+//  QString &QString::operator+=(QUtf8StringView s)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QStringpLE20QBasicUtf8StringViewILb0EE(
+    QString *self,
+    const QUtf8StringView *s) {
+  self->operator+=(*s);
+}
+
+//  QString &QString::remove(qsizetype i, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6removeExx(
+    QString *self,
+    qsizetype i,
+    qsizetype len) {
+  return &(self->remove(i, len));
+}
+
+//  QString &QString::remove(QChar c, Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6removeE5QCharN2Qt15CaseSensitivityE(
+    QString *self,
+    const QChar *c,
+    Qt::CaseSensitivity cs) {
+  return &(self->remove(*c, cs));
+}
+
+//  QString &QString::remove(QLatin1StringView s, Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6removeE13QLatin1StringN2Qt15CaseSensitivityE(
+    QString *self,
+    const QLatin1String *s,
+    Qt::CaseSensitivity cs) {
+  return &(self->remove(*s, cs));
+}
+
+//  QString &QString::remove(const QString &s, Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6removeERKS_N2Qt15CaseSensitivityE(
+    QString *self,
+    const QString *s,
+    Qt::CaseSensitivity cs) {
+  return &(self->remove(*s, cs));
+}
+
+//  QString &QString::removeAt(qsizetype pos)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString8removeAtEx(QString *self, qsizetype pos) {
+  return &(self->removeAt(pos));
+}
+
+//  QString &QString::removeFirst()
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString11removeFirstEv(QString *self) {
+  return &(self->removeFirst());
+}
+
+//  QString &QString::removeLast()
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString10removeLastEv(QString *self) {
+  return &(self->removeLast());
+}
+
+//  QString &QString::replace(qsizetype i, qsizetype len, QChar after)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceExx5QChar(
+    QString *self,
+    qsizetype i,
+    qsizetype len,
+    const QChar *after) {
+  return &(self->replace(i, len, *after));
+}
+
+//  QString &QString::replace(qsizetype i, qsizetype len, const QChar *s,
+//      qsizetype slen)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceExxPK5QCharx(
+    QString *self,
+    qsizetype i,
+    qsizetype len,
+    const QChar *s,
+    qsizetype slen) {
+  return &(self->replace(i, len, s, slen));
+}
+
+//  QString &QString::replace(qsizetype i, qsizetype len, const QString
+//      &after)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceExxRKS_(
+    QString *self,
+    qsizetype i,
+    qsizetype len,
+    const QString *after) {
+  return &(self->replace(i, len, *after));
+}
+
+//  QString &QString::replace(QChar before, QChar after, Qt::CaseSensitivity
+//      cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceE5QCharS0_N2Qt15CaseSensitivityE(
+    QString *self,
+    const QChar *before,
+    const QChar *after,
+    Qt::CaseSensitivity cs) {
+  return &(self->replace(*before, *after, cs));
+}
+
+//  QString &QString::replace(const QChar *before, qsizetype blen, const
+//      QChar *after, qsizetype alen, Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceEPK5QCharxS2_xN2Qt15CaseSensitivityE(
+    QString *self,
+    const QChar *before,
+    qsizetype blen,
+    const QChar *after,
+    qsizetype alen,
+    Qt::CaseSensitivity cs) {
+  return &(self->replace(before, blen, after, alen, cs));
+}
+
+//  QString &QString::replace(QLatin1StringView before, QLatin1StringView
+//      after, Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceE13QLatin1StringS0_N2Qt15CaseSensitivityE(
+    QString *self,
+    const QLatin1String *before,
+    const QLatin1String *after,
+    Qt::CaseSensitivity cs) {
+  return &(self->replace(*before, *after, cs));
+}
+
+//  QString &QString::replace(QLatin1StringView before, const QString &after,
+//      Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceE13QLatin1StringRKS_N2Qt15CaseSensitivityE(
+    QString *self,
+    const QLatin1String *before,
+    const QString *after,
+    Qt::CaseSensitivity cs) {
+  return &(self->replace(*before, *after, cs));
+}
+
+//  QString &QString::replace(const QString &before, QLatin1StringView after,
+//      Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceERKS_13QLatin1StringN2Qt15CaseSensitivityE(
+    QString *self,
+    const QString *before,
+    const QLatin1String *after,
+    Qt::CaseSensitivity cs) {
+  return &(self->replace(*before, *after, cs));
+}
+
+//  QString &QString::replace(const QString &before, const QString &after,
+//      Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceERKS_S1_N2Qt15CaseSensitivityE(
+    QString *self,
+    const QString *before,
+    const QString *after,
+    Qt::CaseSensitivity cs) {
+  return &(self->replace(*before, *after, cs));
+}
+
+//  QString &QString::replace(QChar c, const QString &after,
+//      Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceE5QCharRKS_N2Qt15CaseSensitivityE(
+    QString *self,
+    const QChar *c,
+    const QString *after,
+    Qt::CaseSensitivity cs) {
+  return &(self->replace(*c, *after, cs));
+}
+
+//  QString &QString::replace(QChar c, QLatin1StringView after,
+//      Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceE5QChar13QLatin1StringN2Qt15CaseSensitivityE(
+    QString *self,
+    const QChar *c,
+    const QLatin1String *after,
+    Qt::CaseSensitivity cs) {
+  return &(self->replace(*c, *after, cs));
+}
+
+#if QT_CONFIG(regularexpression)
+//  QString &QString::replace(const QRegularExpression &re, const QString
+//      &after)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7replaceERK18QRegularExpressionRKS_(
+    QString *self,
+    const QRegularExpression *re,
+    const QString *after) {
+  return &(self->replace(*re, *after));
+}
+#endif  // QT_CONFIG(regularexpression)
+
+#if QT_CONFIG(regularexpression)
+//  QString &QString::remove(const QRegularExpression &re)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6removeERK18QRegularExpression(
+    QString *self,
+    const QRegularExpression *re) {
+  return &(self->remove(*re));
+}
+#endif  // QT_CONFIG(regularexpression)
 
 //  QStringList QString::split(const QString &sep, Qt::SplitBehavior
 //      behavior, Qt::CaseSensitivity cs) const
@@ -878,10 +1343,22 @@ QString *ritual_ZNK7QString8repeatedEx(
   return new QString(self->repeated(times));
 }
 
+//  const ushort *QString::utf16() const
+extern "C" Q_DECL_EXPORT
+const ushort *ritual_ZNK7QString5utf16Ev(const QString *self) {
+  return self->utf16();
+}
+
 //  QString QString::nullTerminated() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNKR7QString14nullTerminatedEv(const QString *self) {
   return new QString(self->nullTerminated());
+}
+
+//  QString &QString::nullTerminate()
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString13nullTerminateEv(QString *self) {
+  return &(self->nullTerminate());
 }
 
 #if !defined(Q_QDOC)
@@ -907,6 +1384,12 @@ QByteArray *ritual_ZNKR7QString11toLocal8BitEv(const QString *self) {
   return new QByteArray(self->toLocal8Bit());
 }
 #endif  // !defined(Q_QDOC)
+
+//  QList<uint> QString::toUcs4() const
+extern "C" Q_DECL_EXPORT
+QList<uint> *ritual_ZNK7QString6toUcs4Ev(const QString *self) {
+  return new QList<uint>(self->toUcs4());
+}
 
 //  QString QString::fromLatin1(QByteArrayView ba)
 extern "C" Q_DECL_EXPORT
@@ -951,12 +1434,97 @@ QString *ritual_ZN7QString13fromLocal8BitEPKcx(
   return new QString(QString::fromLocal8Bit(str, size));
 }
 
+//  QString QString::fromUtf16(const char16_t *a0, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString9fromUtf16EPKDsx(
+    const char16_t *a0,
+    qsizetype size) {
+  return new QString(QString::fromUtf16(a0, size));
+}
+
+//  QString QString::fromUcs4(const char32_t *a0, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString8fromUcs4EPKDix(
+    const char32_t *a0,
+    qsizetype size) {
+  return new QString(QString::fromUcs4(a0, size));
+}
+
+//  QString QString::fromRawData(const char16_t *unicode, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString11fromRawDataEPKDsx(
+    const char16_t *unicode,
+    qsizetype size) {
+  return new QString(QString::fromRawData(unicode, size));
+}
+
 //  QString QString::fromRawData(const QChar *a0, qsizetype size)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QString11fromRawDataEPK5QCharx(
     const QChar *a0,
     qsizetype size) {
   return new QString(QString::fromRawData(a0, size));
+}
+
+#if QT_DEPRECATED_SINCE(6, 0)
+//  QString QString::fromUtf16(const ushort *str, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString9fromUtf16EPKtx(
+    const ushort *str,
+    qsizetype size) {
+  return new QString(QString::fromUtf16(str, size));
+}
+#endif  // QT_DEPRECATED_SINCE(6, 0)
+
+#if QT_DEPRECATED_SINCE(6, 0)
+//  QString QString::fromUcs4(const uint *str, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString8fromUcs4EPKjx(const uint *str, qsizetype size) {
+  return new QString(QString::fromUcs4(str, size));
+}
+#endif  // QT_DEPRECATED_SINCE(6, 0)
+
+//  qsizetype QString::toWCharArray(wchar_t *array) const
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZNK7QString12toWCharArrayEPw(
+    const QString *self,
+    wchar_t *array) {
+  return self->toWCharArray(array);
+}
+
+//  QString QString::fromWCharArray(const wchar_t *string, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString14fromWCharArrayEPKwx(
+    const wchar_t *string,
+    qsizetype size) {
+  return new QString(QString::fromWCharArray(string, size));
+}
+
+//  QString &QString::setRawData(const QChar *unicode, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString10setRawDataEPK5QCharx(
+    QString *self,
+    const QChar *unicode,
+    qsizetype size) {
+  return &(self->setRawData(unicode, size));
+}
+
+//  QString &QString::setUnicode(const QChar *unicode, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString10setUnicodeEPK5QCharx(
+    QString *self,
+    const QChar *unicode,
+    qsizetype size) {
+  return &(self->setUnicode(unicode, size));
+}
+
+//  QString &QString::setUtf16(const char16_t *utf16, qsizetype size)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString8setUtf16EPKDsx(
+    QString *self,
+    const char16_t *utf16,
+    qsizetype size) {
+  return &(self->setUtf16(utf16, size));
 }
 
 //  int QString::compare(const QString &s, Qt::CaseSensitivity cs) const
@@ -1153,6 +1721,77 @@ double ritual_ZNK7QString8toDoubleEPb(const QString *self, bool *ok) {
   return self->toDouble(ok);
 }
 
+//  QString &QString::setNum(short a0, int base)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumEsi(QString *self, short a0, int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QString &QString::setNum(ushort a0, int base)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumEti(QString *self, ushort a0, int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QString &QString::setNum(int a0, int base)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumEii(QString *self, int a0, int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QString &QString::setNum(uint a0, int base)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumEji(QString *self, uint a0, int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QString &QString::setNum(long a0, int base)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumEli(QString *self, long a0, int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QString &QString::setNum(ulong a0, int base)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumEmi(QString *self, ulong a0, int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QString &QString::setNum(qlonglong a0, int base)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumExi(QString *self, qlonglong a0, int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QString &QString::setNum(qulonglong a0, int base)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumEyi(
+    QString *self,
+    qulonglong a0,
+    int base) {
+  return &(self->setNum(a0, base));
+}
+
+//  QString &QString::setNum(float a0, char format, int precision)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumEfci(
+    QString *self,
+    float a0,
+    char format,
+    int precision) {
+  return &(self->setNum(a0, format, precision));
+}
+
+//  QString &QString::setNum(double a0, char format, int precision)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6setNumEdci(
+    QString *self,
+    double a0,
+    char format,
+    int precision) {
+  return &(self->setNum(a0, format, precision));
+}
+
 //  QString QString::number(int a0, int base)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QString6numberEii(int a0, int base) {
@@ -1330,6 +1969,174 @@ bool ritual_ZgeRK13QLatin1StringRK7QString(
   return operator>=(*lhs, *rhs);
 }
 
+//  bool operator==(const QString &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK7QStringRKDn(const QString *lhs) {
+  return operator==(*lhs, nullptr);
+}
+
+//  bool operator!=(const QString &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK7QStringRKDn(const QString *lhs) {
+  return operator!=(*lhs, nullptr);
+}
+
+//  bool operator<(const QString &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK7QStringRKDn(const QString *lhs) {
+  return operator<(*lhs, nullptr);
+}
+
+//  bool operator>(const QString &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK7QStringRKDn(const QString *lhs) {
+  return operator>(*lhs, nullptr);
+}
+
+//  bool operator<=(const QString &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK7QStringRKDn(const QString *lhs) {
+  return operator<=(*lhs, nullptr);
+}
+
+//  bool operator>=(const QString &lhs, const std::nullptr_t &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK7QStringRKDn(const QString *lhs) {
+  return operator>=(*lhs, nullptr);
+}
+
+//  bool operator==(const std::nullptr_t &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKDnRK7QString(const QString *rhs) {
+  return operator==(nullptr, *rhs);
+}
+
+//  bool operator!=(const std::nullptr_t &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKDnRK7QString(const QString *rhs) {
+  return operator!=(nullptr, *rhs);
+}
+
+//  bool operator<(const std::nullptr_t &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKDnRK7QString(const QString *rhs) {
+  return operator<(nullptr, *rhs);
+}
+
+//  bool operator>(const std::nullptr_t &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKDnRK7QString(const QString *rhs) {
+  return operator>(nullptr, *rhs);
+}
+
+//  bool operator<=(const std::nullptr_t &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKDnRK7QString(const QString *rhs) {
+  return operator<=(nullptr, *rhs);
+}
+
+//  bool operator>=(const std::nullptr_t &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKDnRK7QString(const QString *rhs) {
+  return operator>=(nullptr, *rhs);
+}
+
+//  bool operator==(const QString &lhs, const char16_t *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK7QStringRKPKDs(
+    const QString *lhs,
+    const char16_t *const *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QString &lhs, const char16_t *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK7QStringRKPKDs(
+    const QString *lhs,
+    const char16_t *const *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QString &lhs, const char16_t *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK7QStringRKPKDs(
+    const QString *lhs,
+    const char16_t *const *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QString &lhs, const char16_t *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK7QStringRKPKDs(
+    const QString *lhs,
+    const char16_t *const *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QString &lhs, const char16_t *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK7QStringRKPKDs(
+    const QString *lhs,
+    const char16_t *const *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QString &lhs, const char16_t *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK7QStringRKPKDs(
+    const QString *lhs,
+    const char16_t *const *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const char16_t *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKPKDsRK7QString(
+    const char16_t *const *lhs,
+    const QString *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const char16_t *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKPKDsRK7QString(
+    const char16_t *const *lhs,
+    const QString *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const char16_t *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKPKDsRK7QString(
+    const char16_t *const *lhs,
+    const QString *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const char16_t *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKPKDsRK7QString(
+    const char16_t *const *lhs,
+    const QString *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const char16_t *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKPKDsRK7QString(
+    const char16_t *const *lhs,
+    const QString *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const char16_t *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKPKDsRK7QString(
+    const char16_t *const *lhs,
+    const QString *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  bool operator==(const QString &lhs, const QChar &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK7QStringRK5QChar(const QString *lhs, const QChar *rhs) {
@@ -1417,6 +2224,90 @@ QString *ritual_ZN7QStringC1EPKc(const char *ch) {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QStringC1ERK10QByteArray(const QByteArray *a) {
   return new QString(*a);
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  QString &QString::operator=(const char *ch)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QStringaSEPKc(QString *self, const char *ch) {
+  return &(self->operator=(ch));
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  QString &QString::operator=(const QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QStringaSERK10QByteArray(
+    QString *self,
+    const QByteArray *a) {
+  return &(self->operator=(*a));
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  QString &QString::prepend(const char *s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7prependEPKc(QString *self, const char *s) {
+  return &(self->prepend(s));
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  QString &QString::prepend(const QByteArray &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString7prependERK10QByteArray(
+    QString *self,
+    const QByteArray *s) {
+  return &(self->prepend(*s));
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  QString &QString::append(const char *s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6appendEPKc(QString *self, const char *s) {
+  return &(self->append(s));
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  QString &QString::append(const QByteArray &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6appendERK10QByteArray(
+    QString *self,
+    const QByteArray *s) {
+  return &(self->append(*s));
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  QString &QString::insert(qsizetype i, const char *s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6insertExPKc(
+    QString *self,
+    qsizetype i,
+    const char *s) {
+  return &(self->insert(i, s));
+}
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+//  QString &QString::insert(qsizetype i, const QByteArray &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString6insertExRK10QByteArray(
+    QString *self,
+    qsizetype i,
+    const QByteArray *s) {
+  return &(self->insert(i, *s));
 }
 #endif
 
@@ -1750,6 +2641,138 @@ bool ritual_ZgeRK10QByteArrayRK7QString(
 #endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
 #endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator==(const QString &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK7QStringRKPKc(const QString *lhs, const char *const *rhs) {
+  return operator==(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator!=(const QString &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK7QStringRKPKc(const QString *lhs, const char *const *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator<(const QString &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK7QStringRKPKc(const QString *lhs, const char *const *rhs) {
+  return operator<(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator>(const QString &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK7QStringRKPKc(const QString *lhs, const char *const *rhs) {
+  return operator>(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator<=(const QString &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK7QStringRKPKc(const QString *lhs, const char *const *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator>=(const QString &lhs, const char *const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK7QStringRKPKc(const QString *lhs, const char *const *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator==(const char *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKPKcRK7QString(const char *const *lhs, const QString *rhs) {
+  return operator==(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator!=(const char *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKPKcRK7QString(const char *const *lhs, const QString *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator<(const char *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKPKcRK7QString(const char *const *lhs, const QString *rhs) {
+  return operator<(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator>(const char *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKPKcRK7QString(const char *const *lhs, const QString *rhs) {
+  return operator>(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator<=(const char *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKPKcRK7QString(const char *const *lhs, const QString *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
+//  bool operator>=(const char *const &lhs, const QString &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKPKcRK7QString(const char *const *lhs, const QString *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
+#endif
+
 //  iterator QString::begin()
 extern "C" Q_DECL_EXPORT
 QString::iterator ritual_ZN7QString5beginEv(QString *self) {
@@ -1797,6 +2820,46 @@ QString::const_iterator ritual_ZNK7QString4cendEv(const QString *self) {
 extern "C" Q_DECL_EXPORT
 QString::const_iterator ritual_ZNK7QString8constEndEv(const QString *self) {
   return self->constEnd();
+}
+
+//  reverse_iterator QString::rbegin()
+extern "C" Q_DECL_EXPORT
+QString::reverse_iterator *ritual_ZN7QString6rbeginEv(QString *self) {
+  return new QString::reverse_iterator(self->rbegin());
+}
+
+//  reverse_iterator QString::rend()
+extern "C" Q_DECL_EXPORT
+QString::reverse_iterator *ritual_ZN7QString4rendEv(QString *self) {
+  return new QString::reverse_iterator(self->rend());
+}
+
+//  const_reverse_iterator QString::rbegin() const
+extern "C" Q_DECL_EXPORT
+QString::const_reverse_iterator *ritual_ZNK7QString6rbeginEv(
+    const QString *self) {
+  return new QString::const_reverse_iterator(self->rbegin());
+}
+
+//  const_reverse_iterator QString::rend() const
+extern "C" Q_DECL_EXPORT
+QString::const_reverse_iterator *ritual_ZNK7QString4rendEv(
+    const QString *self) {
+  return new QString::const_reverse_iterator(self->rend());
+}
+
+//  const_reverse_iterator QString::crbegin() const
+extern "C" Q_DECL_EXPORT
+QString::const_reverse_iterator *ritual_ZNK7QString7crbeginEv(
+    const QString *self) {
+  return new QString::const_reverse_iterator(self->crbegin());
+}
+
+//  const_reverse_iterator QString::crend() const
+extern "C" Q_DECL_EXPORT
+QString::const_reverse_iterator *ritual_ZNK7QString5crendEv(
+    const QString *self) {
+  return new QString::const_reverse_iterator(self->crend());
 }
 
 //  void QString::push_back(QChar c)
@@ -1852,6 +2915,68 @@ qsizetype ritual_ZNK7QString8max_sizeEv(const QString *self) {
   return self->max_size();
 }
 
+//  QString QString::fromStdString(const std::string &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString13fromStdStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(
+    const std::string *s) {
+  return new QString(QString::fromStdString(*s));
+}
+
+//  std::string QString::toStdString() const
+extern "C" Q_DECL_EXPORT
+std::string *ritual_ZNK7QString11toStdStringB5cxx11Ev(const QString *self) {
+  return new std::string(self->toStdString());
+}
+
+//  QString QString::fromStdWString(const std::wstring &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString14fromStdWStringERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(
+    const std::wstring *s) {
+  return new QString(QString::fromStdWString(*s));
+}
+
+//  std::wstring QString::toStdWString() const
+extern "C" Q_DECL_EXPORT
+std::wstring *ritual_ZNK7QString12toStdWStringB5cxx11Ev(
+    const QString *self) {
+  return new std::wstring(self->toStdWString());
+}
+
+//  QString QString::fromStdU16String(const std::u16string &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString16fromStdU16StringERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE(
+    const std::u16string *s) {
+  return new QString(QString::fromStdU16String(*s));
+}
+
+//  std::u16string QString::toStdU16String() const
+extern "C" Q_DECL_EXPORT
+std::u16string *ritual_ZNK7QString14toStdU16StringB5cxx11Ev(
+    const QString *self) {
+  return new std::u16string(self->toStdU16String());
+}
+
+//  QString QString::fromStdU32String(const std::u32string &s)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString16fromStdU32StringERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(
+    const std::u32string *s) {
+  return new QString(QString::fromStdU32String(*s));
+}
+
+//  std::u32string QString::toStdU32String() const
+extern "C" Q_DECL_EXPORT
+std::u32string *ritual_ZNK7QString14toStdU32StringB5cxx11Ev(
+    const QString *self) {
+  return new std::u32string(self->toStdU32String());
+}
+
+//  std::u16string_view QString::operator basic_string_view() const
+extern "C" Q_DECL_EXPORT
+std::u16string_view *ritual_ZNK7QStringcvSt17basic_string_viewIDsSt11char_traitsIDsEEEv(
+    const QString *self) {
+  return new std::u16string_view(self->operator std::u16string_view());
+}
+
 //  bool QString::isNull() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK7QString6isNullEv(const QString *self) {
@@ -1878,6 +3003,13 @@ QString *ritual_ZN7QStringC1ExN2Qt14InitializationE(
   return new QString(size, a1);
 }
 
+//  QString::QString(DataPointer &&dd)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QStringC1EO17QArrayDataPointerIDsE(
+    QString::DataPointer *dd) {
+  return new QString(std::move(*dd));
+}
+
 //  void QString::reallocData(qsizetype alloc, QArrayData::AllocationOption
 //      option)
 extern "C" Q_DECL_EXPORT
@@ -1892,6 +3024,15 @@ void ritual_ZN7QString11reallocDataExN10QArrayData16AllocationOptionE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QString15reallocGrowDataEx(QString *self, qsizetype n) {
   self->reallocGrowData(n);
+}
+
+//  QString &QString::assign_helper(const char32_t *data, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString13assign_helperEPKDix(
+    QString *self,
+    const char32_t *data,
+    qsizetype len) {
+  return &(self->assign_helper(data, len));
 }
 
 //  int QString::compare_helper(const QChar *data1, qsizetype length1, const
@@ -1929,9 +3070,24 @@ int ritual_ZN7QString25localeAwareCompare_helperEPK5QCharxS2_x(
   return QString::localeAwareCompare_helper(data1, length1, data2, length2);
 }
 
+//  QString QString::sliced_helper(QString &str, qsizetype pos, qsizetype n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString13sliced_helperERS_xx(
+    QString *str,
+    qsizetype pos,
+    qsizetype n) {
+  return new QString(QString::sliced_helper(*str, pos, n));
+}
+
 //  QString QString::toLower_helper(const QString &str)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QString14toLower_helperERKS_(const QString *str) {
+  return new QString(QString::toLower_helper(*str));
+}
+
+//  QString QString::toLower_helper(QString &str)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString14toLower_helperERS_(QString *str) {
   return new QString(QString::toLower_helper(*str));
 }
 
@@ -1941,9 +3097,21 @@ QString *ritual_ZN7QString14toUpper_helperERKS_(const QString *str) {
   return new QString(QString::toUpper_helper(*str));
 }
 
+//  QString QString::toUpper_helper(QString &str)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString14toUpper_helperERS_(QString *str) {
+  return new QString(QString::toUpper_helper(*str));
+}
+
 //  QString QString::toCaseFolded_helper(const QString &str)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QString19toCaseFolded_helperERKS_(const QString *str) {
+  return new QString(QString::toCaseFolded_helper(*str));
+}
+
+//  QString QString::toCaseFolded_helper(QString &str)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString19toCaseFolded_helperERS_(QString *str) {
   return new QString(QString::toCaseFolded_helper(*str));
 }
 
@@ -1953,9 +3121,21 @@ QString *ritual_ZN7QString14trimmed_helperERKS_(const QString *str) {
   return new QString(QString::trimmed_helper(*str));
 }
 
+//  QString QString::trimmed_helper(QString &str)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString14trimmed_helperERS_(QString *str) {
+  return new QString(QString::trimmed_helper(*str));
+}
+
 //  QString QString::simplified_helper(const QString &str)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QString17simplified_helperERKS_(const QString *str) {
+  return new QString(QString::simplified_helper(*str));
+}
+
+//  QString QString::simplified_helper(QString &str)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString17simplified_helperERS_(QString *str) {
   return new QString(QString::simplified_helper(*str));
 }
 
@@ -1963,6 +3143,12 @@ QString *ritual_ZN7QString17simplified_helperERKS_(const QString *str) {
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN7QString15toLatin1_helperERKS_(const QString *a0) {
   return new QByteArray(QString::toLatin1_helper(*a0));
+}
+
+//  QByteArray QString::toLatin1_helper_inplace(QString &a0)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN7QString23toLatin1_helper_inplaceERS_(QString *a0) {
+  return new QByteArray(QString::toLatin1_helper_inplace(*a0));
 }
 
 //  QByteArray QString::toUtf8_helper(const QString &a0)
@@ -1977,6 +3163,16 @@ QByteArray *ritual_ZN7QString18toLocal8Bit_helperEPK5QCharx(
     const QChar *data,
     qsizetype size) {
   return new QByteArray(QString::toLocal8Bit_helper(data, size));
+}
+
+//  qsizetype QString::toUcs4_helper(const char16_t *uc, qsizetype length,
+//      char32_t *out)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN7QString13toUcs4_helperEPKDsxPDi(
+    const char16_t *uc,
+    qsizetype length,
+    char32_t *out) {
+  return QString::toUcs4_helper(uc, length, out);
 }
 
 //  qlonglong QString::toIntegral_helper(QStringView string, bool *ok, int
@@ -2007,3 +3203,133 @@ void ritual_ZNK7QString6verifyExx(
     qsizetype n) {
   self->verify(pos, n);
 }
+
+//  DataPointer &QString::data_ptr()
+extern "C" Q_DECL_EXPORT
+QString::DataPointer *ritual_ZN7QString8data_ptrEv(QString *self) {
+  return &(self->data_ptr());
+}
+
+//  const DataPointer &QString::data_ptr() const
+extern "C" Q_DECL_EXPORT
+const QString::DataPointer *ritual_ZNK7QString8data_ptrEv(
+    const QString *self) {
+  return &(self->data_ptr());
+}
+
+//  a QList<uint> a ritual of QString gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QString__QList_uint(QList<uint> *self) {
+  delete self;
+}
+
+//  a QString::reverse_iterator a ritual of QString gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QString__QString_reverse_iterator(
+    QString::reverse_iterator *self) {
+  delete self;
+}
+
+//  a QString::const_reverse_iterator a ritual of QString gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QString__QString_const_reverse_iterator(
+    QString::const_reverse_iterator *self) {
+  delete self;
+}
+
+//  a std::string a ritual of QString gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QString__std_string(std::string *self) {
+  delete self;
+}
+
+//  a std::wstring a ritual of QString gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QString__std_wstring(std::wstring *self) {
+  delete self;
+}
+
+//  a std::u16string a ritual of QString gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QString__std_u16string(std::u16string *self) {
+  delete self;
+}
+
+//  a std::u32string a ritual of QString gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QString__std_u32string(std::u32string *self) {
+  delete self;
+}
+
+//  a std::u16string_view a ritual of QString gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QString__std_u16string_view(std::u16string_view *self) {
+  delete self;
+}
+
+//  static QString QString::asprintf(const char *format, ...)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QString8asprintfEPKcz(const char *text) {
+  return new QString(QString::asprintf("%s", text));
+}
+
+//  QString QString::arg<int>(int a, int fieldWidth, int base, QChar
+//      fillChar) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QString3argIiLb1EEES_T_ii5QChar(
+    const QString *self,
+    int a,
+    int fieldWidth,
+    int base,
+    const QChar *fillChar) {
+  return new QString(self->arg<int>(a, fieldWidth, base, *fillChar));
+}
+
+//  QString QString::arg<bool>(bool a, int fieldWidth, int base, QChar
+//      fillChar) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QString3argIbLb1EEES_T_ii5QChar(
+    const QString *self,
+    bool a,
+    int fieldWidth,
+    int base,
+    const QChar *fillChar) {
+  return new QString(self->arg<bool>(a, fieldWidth, base, *fillChar));
+}
+
+//  QString QString::arg<double>(double a, int fieldWidth, char format,
+//      int precision, QChar fillChar) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QString3argIdLb1EEES_T_ici5QChar(
+    const QString *self,
+    double a,
+    int fieldWidth,
+    char format,
+    int precision,
+    const QChar *fillChar) {
+  return new QString(
+      self->arg<double>(a, fieldWidth, format, precision, *fillChar));
+}
+
+//  QString QString::arg<QString>(const QString &a, int fieldWidth,
+//      QChar fillChar) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QString3argIS_Lb1EEES_RKT_i5QChar(
+    const QString *self,
+    const QString *a,
+    int fieldWidth,
+    const QChar *fillChar) {
+  return new QString(self->arg<QString>(*a, fieldWidth, *fillChar));
+}
+
+#if QT_CONFIG(regularexpression)
+//  qsizetype QString::lastIndexOf<QRegularExpressionMatch>(const
+//      QRegularExpression &re, QRegularExpressionMatch *rmatch) const
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZNK7QString11lastIndexOfI23QRegularExpressionMatchLb0EEExRK18QRegularExpressionPT_(
+    const QString *self,
+    const QRegularExpression *re,
+    QRegularExpressionMatch *rmatch) {
+  return self->lastIndexOf<QRegularExpressionMatch>(*re, rmatch);
+}
+#endif  // QT_CONFIG(regularexpression)

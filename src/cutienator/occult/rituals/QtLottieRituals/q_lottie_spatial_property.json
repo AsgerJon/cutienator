@@ -8,6 +8,12 @@
     "ritual_ZN22QLottieSpatialProperty9constructERK11QJsonObject": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QLottieSpatialProperty13parseKeyframeE11QJsonObjectb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN22QLottieSpatialProperty13parseKeyframeE11QJsonObjectS0_b": [
+      "address", "address", "address", "address", "bool"
+    ],
     "ritual_ZN22QLottieSpatialProperty6updateEi": ["bool", "address", "int"],
     "ritual_ZNK22QLottieSpatialProperty9hasCurvesEv": ["bool", "address"],
     "ritual_ZNK22QLottieSpatialProperty8subPathsEv": ["address", "address"],
@@ -26,6 +32,9 @@
     ],
     "ritual_own_ZN22QLottieSpatialProperty6updateEi": [
       "bool", "address", "int"
+    ],
+    "ritual_drop_QLottieSpatialProperty__EasingSegment_QPointF": [
+      "nothing", "address"
     ]
   }
 }

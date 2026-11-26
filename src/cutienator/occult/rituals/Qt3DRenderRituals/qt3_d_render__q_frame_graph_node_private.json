@@ -5,10 +5,23 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender22QFrameGraphNodePrivateC1Ev": ["address"],
+    "ritual_ZNK10Qt3DRender22QFrameGraphNodePrivate20childFrameGraphNodesEv": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender22QFrameGraphNodePrivate3getEPNS_15QFrameGraphNodeE": [
       "address", "address"
     ],
     "ritual_ZN10Qt3DRender22QFrameGraphNodePrivate3getEPKNS_15QFrameGraphNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender22QFrameGraphNodePrivate14dumpFrameGraphEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK10Qt3DRender22QFrameGraphNodePrivate19dumpFrameGraphPathsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender22QFrameGraphNodePrivate25dumpFrameGraphFilterStateEv": [
       "address", "address"
     ],
     "ritual_ZN10Qt3DRender22QFrameGraphNodePrivate6q_funcEv": [
@@ -19,6 +32,9 @@
     ],
     "ritual_take_Qt3DRender_QFrameGraphNodePrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QFrameGraphNodePrivate__QList_Qt3DRender_QFrameGraphNode": [
+      "nothing", "address"
     ]
   }
 }

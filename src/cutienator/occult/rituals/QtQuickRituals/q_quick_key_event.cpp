@@ -16,6 +16,24 @@ const QMetaObject *ritual_ZNK14QQuickKeyEvent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickKeyEvent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickKeyEvent11qt_metacastEPKc(
+    QQuickKeyEvent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickKeyEvent::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickKeyEvent11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickKeyEvent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickKeyEvent::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickKeyEvent2trEPKcS1_i(
@@ -57,6 +75,14 @@ void ritual_ZN14QQuickKeyEvent5resetEN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifi
       *text,
       autorep,
       count);
+}
+
+//  void QQuickKeyEvent::reset(const QKeyEvent &ke)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickKeyEvent5resetERK9QKeyEvent(
+    QQuickKeyEvent *self,
+    const QKeyEvent *ke) {
+  self->reset(*ke);
 }
 
 //  int QQuickKeyEvent::key() const

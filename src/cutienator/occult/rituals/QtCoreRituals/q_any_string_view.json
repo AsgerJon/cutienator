@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qanystringview.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qanystringview.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN14QAnyStringView7toQCharEc": ["address", "char"],
@@ -9,7 +10,11 @@
     "ritual_ZN14QAnyStringView7toQCharE11QLatin1Char": [
       "address", "address"
     ],
+    "ritual_ZN14QAnyStringViewC1EPKvxm": [
+      "address", "address", "long long", "size_t"
+    ],
     "ritual_ZN14QAnyStringViewC1Ev": ["address"],
+    "ritual_ZN14QAnyStringViewC1EDn": ["address"],
     "ritual_ZN14QAnyStringViewC1ERK10QByteArray": ["address", "address"],
     "ritual_ZN14QAnyStringViewC1ERK7QString": ["address", "text"],
     "ritual_ZN14QAnyStringViewC1E13QLatin1String": ["address", "address"],
@@ -26,12 +31,17 @@
     "ritual_ZNK14QAnyStringView5firstEx": ["text", "address", "long long"],
     "ritual_ZNK14QAnyStringView4lastEx": ["text", "address", "long long"],
     "ritual_ZNK14QAnyStringView7choppedEx": ["text", "address", "long long"],
+    "ritual_ZN14QAnyStringView5sliceEx": ["address", "address", "long long"],
+    "ritual_ZN14QAnyStringView5sliceExx": [
+      "address", "address", "long long", "long long"
+    ],
     "ritual_ZN14QAnyStringView8truncateEx": [
       "nothing", "address", "long long"
     ],
     "ritual_ZN14QAnyStringView4chopEx": ["nothing", "address", "long long"],
     "ritual_ZNK14QAnyStringView8toStringEv": ["text", "address"],
     "ritual_ZNK14QAnyStringView4sizeEv": ["long long", "address"],
+    "ritual_ZNK14QAnyStringView4dataEv": ["address", "address"],
     "ritual_ZN14QAnyStringView7compareES_S_N2Qt15CaseSensitivityE": [
       "int", "text", "text", "int"
     ],
@@ -56,9 +66,11 @@
     "ritual_ZNK14QAnyStringView6isUtf8Ev": ["bool", "address"],
     "ritual_ZNK14QAnyStringView8isLatin1Ev": ["bool", "address"],
     "ritual_ZNK14QAnyStringView12asStringViewEv": ["text", "address"],
+    "ritual_ZNK14QAnyStringView16asUtf8StringViewEv": ["address", "address"],
     "ritual_ZNK14QAnyStringView18asLatin1StringViewEv": [
       "address", "address"
     ],
+    "ritual_ZNK14QAnyStringView8charSizeEv": ["size_t", "address"],
     "ritual_ZN14QAnyStringView7setSizeEx": [
       "nothing", "address", "long long"
     ],
@@ -71,6 +83,20 @@
     "ritual_ZNK14QAnyStringView6verifyExx": [
       "nothing", "address", "long long", "long long"
     ],
-    "ritual_ZN14QAnyStringViewD1Ev": ["nothing", "address"]
+    "ritual_ZN14QAnyStringViewD1Ev": ["nothing", "address"],
+    "ritual_drop_QAnyStringView__q_no_char8_t_QUtf8StringView": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QAnyStringViewC1IcLb1EEEPKcx": [
+      "address", "chars", "long long"
+    ],
+    "ritual_ZN14QAnyStringViewC1IDsLb1EEEPKDsx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN14QAnyStringViewC1IPKcLb1EEERKT_": ["address", "chars"],
+    "ritual_ZN14QAnyStringViewC1IPKDsLb1EEERKT_": ["address", "address"],
+    "ritual_ZN14QAnyStringViewC2ILb0EEE20QBasicUtf8StringViewIXT_EE": [
+      "address", "address"
+    ]
   }
 }

@@ -9,6 +9,12 @@
     "ritual_ZNK26QQuickUniversalProgressBar10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuickUniversalProgressBar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuickUniversalProgressBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK26QQuickUniversalProgressBar5colorEv": ["address", "address"],
     "ritual_ZN26QQuickUniversalProgressBar8setColorERK6QColor": [
       "nothing", "address", "address"
@@ -27,6 +33,9 @@
     ],
     "ritual_ZN26QQuickUniversalProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickUniversalProgressBar15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
     ],
     "ritual_own_ZN26QQuickUniversalProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"

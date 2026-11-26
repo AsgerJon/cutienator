@@ -35,6 +35,12 @@
     "ritual_ZN17QPixmapIconEngine6isNullEv": ["bool", "address"],
     "ritual_ZNK17QPixmapIconEngine3keyEv": ["text", "address"],
     "ritual_ZNK17QPixmapIconEngine5cloneEv": ["address", "address"],
+    "ritual_ZN17QPixmapIconEngine4readER11QDataStream": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QPixmapIconEngine5writeER11QDataStream": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN17QPixmapIconEngine10adjustSizeERK5QSizeS0_": [
       "address", "address", "address"
     ],

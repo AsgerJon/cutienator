@@ -928,6 +928,25 @@ const QMetaObject *ritual_ZNK29QWaylandQuickShellSurfaceItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandQuickShellSurfaceItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QWaylandQuickShellSurfaceItem11qt_metacastEPKc(
+    QWaylandQuickShellSurfaceItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQuickShellSurfaceItem::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QWaylandQuickShellSurfaceItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQuickShellSurfaceItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandQuickShellSurfaceItem::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1043,6 +1062,50 @@ void ritual_ZN29QWaylandQuickShellSurfaceItem16setStaysOnBottomEb(
     QWaylandQuickShellSurfaceItem *self,
     bool on) {
   self->setStaysOnBottom(on);
+}
+
+//  void QWaylandQuickShellSurfaceItem::shellSurfaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QWaylandQuickShellSurfaceItem19shellSurfaceChangedEv(
+    QWaylandQuickShellSurfaceItem *self) {
+  self->shellSurfaceChanged();
+}
+
+//  void QWaylandQuickShellSurfaceItem::moveItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QWaylandQuickShellSurfaceItem15moveItemChangedEv(
+    QWaylandQuickShellSurfaceItem *self) {
+  self->moveItemChanged();
+}
+
+//  void QWaylandQuickShellSurfaceItem::autoCreatePopupItemsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QWaylandQuickShellSurfaceItem27autoCreatePopupItemsChangedEv(
+    QWaylandQuickShellSurfaceItem *self) {
+  self->autoCreatePopupItemsChanged();
+}
+
+//  void QWaylandQuickShellSurfaceItem::staysOnTopChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QWaylandQuickShellSurfaceItem17staysOnTopChangedEv(
+    QWaylandQuickShellSurfaceItem *self) {
+  self->staysOnTopChanged();
+}
+
+//  void QWaylandQuickShellSurfaceItem::staysOnBottomChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QWaylandQuickShellSurfaceItem20staysOnBottomChangedEv(
+    QWaylandQuickShellSurfaceItem *self) {
+  self->staysOnBottomChanged();
+}
+
+//  QWaylandQuickShellSurfaceItem::QWaylandQuickShellSurfaceItem(QWaylandQuic
+//      kShellSurfaceItemPrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QWaylandQuickShellSurfaceItem *ritual_ZN29QWaylandQuickShellSurfaceItemC1ER36QWaylandQuickShellSurfaceItemPrivateP10QQuickItem(
+    QWaylandQuickShellSurfaceItemPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQWaylandQuickShellSurfaceItem(*dd, parent);
 }
 
 //  a Python function taken by a CuteQWaylandQuickShellSurfaceItem, for the

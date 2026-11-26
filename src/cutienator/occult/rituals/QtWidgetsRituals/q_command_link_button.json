@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QCommandLinkButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QCommandLinkButton11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QCommandLinkButton11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QCommandLinkButton2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -37,6 +43,8 @@
     "ritual_ZN18QCommandLinkButton10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QCommandLinkButton6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QCommandLinkButton6d_funcEv": ["address", "address"],
     "ritual_take_QCommandLinkButton": [
       "bool", "address", "chars", "address"
     ],

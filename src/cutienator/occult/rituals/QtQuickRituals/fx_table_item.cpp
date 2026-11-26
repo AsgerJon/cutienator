@@ -32,7 +32,7 @@ typedef bool (*CuteFxTableItemCall4)(const void *, qreal, qreal, int *);
 class CuteFxTableItem : public FxTableItem {
 public:
   using FxTableItem::FxTableItem;
-  CuteFxTableItem(const FxTableItem &other) : FxTableItem(other) {}
+  CuteFxTableItem(const FxTableItem & other) : FxTableItem(other) {}
   void *taken[5] = {};
 
   bool take(const char *key, void *call) {

@@ -15,6 +15,10 @@
     "ritual_ZN9QGradient10setColorAtEdRK6QColor": [
       "nothing", "address", "double", "address"
     ],
+    "ritual_ZN9QGradient8setStopsERK5QListISt4pairId6QColorEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGradient5stopsEv": ["address", "address"],
     "ritual_ZNK9QGradient14coordinateModeEv": ["int", "address"],
     "ritual_ZN9QGradient17setCoordinateModeENS_14CoordinateModeE": [
       "nothing", "address", "int"
@@ -29,6 +33,7 @@
     "ritual_list_add_QGradient": ["nothing", "address", "address"],
     "ritual_list_size_QGradient": ["long long", "address"],
     "ritual_list_at_QGradient": ["address", "address", "long long"],
-    "ritual_list_drop_QGradient": ["nothing", "address"]
+    "ritual_list_drop_QGradient": ["nothing", "address"],
+    "ritual_drop_QGradient__QGradientStops": ["nothing", "address"]
   }
 }

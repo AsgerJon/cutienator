@@ -27,6 +27,9 @@
     "ritual_ZN25QRhiShaderResourceBinding7textureEi6QFlagsINS_9StageFlagEEP11QRhiTexture": [
       "address", "int", "int", "address"
     ],
+    "ritual_ZN25QRhiShaderResourceBinding8texturesEi6QFlagsINS_9StageFlagEEiPP11QRhiTexture": [
+      "address", "int", "int", "int", "address"
+    ],
     "ritual_ZN25QRhiShaderResourceBinding7samplerEi6QFlagsINS_9StageFlagEEP11QRhiSampler": [
       "address", "int", "int", "address"
     ],

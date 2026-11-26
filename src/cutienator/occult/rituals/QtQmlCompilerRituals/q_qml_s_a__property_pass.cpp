@@ -109,6 +109,13 @@ public:
   }
 };
 
+//  QQmlSA::PropertyPass::PropertyPass(PassManager *manager)
+extern "C" Q_DECL_EXPORT
+QQmlSA::PropertyPass *ritual_ZN6QQmlSA12PropertyPassC1EPNS_11PassManagerE(
+    QQmlSA::PassManager *manager) {
+  return new CuteQQmlSA_PropertyPass(manager);
+}
+
 //  void QQmlSA::PropertyPass::onBinding(const QQmlSA::Element &element,
 //      const QString &propertyName, const QQmlSA::Binding &binding, const
 //      QQmlSA::Element &bindingScope, const QQmlSA::Element &value)

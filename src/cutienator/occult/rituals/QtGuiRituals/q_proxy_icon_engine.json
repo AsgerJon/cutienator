@@ -22,6 +22,12 @@
     ],
     "ritual_ZNK16QProxyIconEngine3keyEv": ["text", "address"],
     "ritual_ZNK16QProxyIconEngine5cloneEv": ["address", "address"],
+    "ritual_ZN16QProxyIconEngine4readER11QDataStream": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QProxyIconEngine5writeER11QDataStream": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN16QProxyIconEngine14availableSizesEN5QIcon4ModeENS0_5StateE": [
       "address", "address", "int", "int"
     ],
@@ -29,6 +35,9 @@
     "ritual_ZN16QProxyIconEngine6isNullEv": ["bool", "address"],
     "ritual_ZN16QProxyIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
       "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_ZN16QProxyIconEngine12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_ZNK16QProxyIconEngine13proxiedEngineEv": ["address", "address"],
     "ritual_take_QProxyIconEngine": ["bool", "address", "chars", "address"],
@@ -53,6 +62,9 @@
     "ritual_own_ZN16QProxyIconEngine6isNullEv": ["bool", "address"],
     "ritual_own_ZN16QProxyIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
       "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_own_ZN16QProxyIconEngine12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
     ]
   }
 }

@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK19QVideoTextureHelper18TextureDescription16rhiTextureFormatEiP4QRhiNS0_14FallbackPolicyE": [
+      "int", "address", "int", "address", "int"
+    ],
     "ritual_ZNK19QVideoTextureHelper18TextureDescription14strideForWidthEi": [
       "int", "address", "int"
     ],

@@ -23,6 +23,14 @@ QCborStreamReader *ritual_ZN17QCborStreamReaderC1EPKcx(
   return new QCborStreamReader(data, len);
 }
 
+//  QCborStreamReader::QCborStreamReader(const quint8 *data, qsizetype len)
+extern "C" Q_DECL_EXPORT
+QCborStreamReader *ritual_ZN17QCborStreamReaderC1EPKhx(
+    const quint8 *data,
+    qsizetype len) {
+  return new QCborStreamReader(data, len);
+}
+
 //  QCborStreamReader::QCborStreamReader(const QByteArray &data)
 extern "C" Q_DECL_EXPORT
 QCborStreamReader *ritual_ZN17QCborStreamReaderC1ERK10QByteArray(
@@ -71,6 +79,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCborStreamReader7addDataEPKcx(
     QCborStreamReader *self,
     const char *data,
+    qsizetype len) {
+  self->addData(data, len);
+}
+
+//  void QCborStreamReader::addData(const quint8 *data, qsizetype len)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QCborStreamReader7addDataEPKhx(
+    QCborStreamReader *self,
+    const quint8 *data,
     qsizetype len) {
   self->addData(data, len);
 }
@@ -309,6 +326,30 @@ bool ritual_ZN17QCborStreamReader14leaveContainerEv(
   return self->leaveContainer();
 }
 
+//  bool QCborStreamReader::readAndAppendToString(QString &dst)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QCborStreamReader21readAndAppendToStringER7QString(
+    QCborStreamReader *self,
+    QString *dst) {
+  return self->readAndAppendToString(*dst);
+}
+
+//  bool QCborStreamReader::readAndAppendToUtf8String(QByteArray &dst)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QCborStreamReader25readAndAppendToUtf8StringER10QByteArray(
+    QCborStreamReader *self,
+    QByteArray *dst) {
+  return self->readAndAppendToUtf8String(*dst);
+}
+
+//  bool QCborStreamReader::readAndAppendToByteArray(QByteArray &dst)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QCborStreamReader24readAndAppendToByteArrayER10QByteArray(
+    QCborStreamReader *self,
+    QByteArray *dst) {
+  return self->readAndAppendToByteArray(*dst);
+}
+
 //  qsizetype QCborStreamReader::currentStringChunkSize() const
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK17QCborStreamReader22currentStringChunkSizeEv(
@@ -411,6 +452,30 @@ extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK17QCborStreamReader23_currentStringChunkSizeEv(
     const QCborStreamReader *self) {
   return self->_currentStringChunkSize();
+}
+
+//  bool QCborStreamReader::_readAndAppendToString_helper(QString &a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QCborStreamReader29_readAndAppendToString_helperER7QString(
+    QCborStreamReader *self,
+    QString *a0) {
+  return self->_readAndAppendToString_helper(*a0);
+}
+
+//  bool QCborStreamReader::_readAndAppendToUtf8String_helper(QByteArray &a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QCborStreamReader33_readAndAppendToUtf8String_helperER10QByteArray(
+    QCborStreamReader *self,
+    QByteArray *a0) {
+  return self->_readAndAppendToUtf8String_helper(*a0);
+}
+
+//  bool QCborStreamReader::_readAndAppendToByteArray_helper(QByteArray &a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QCborStreamReader32_readAndAppendToByteArray_helperER10QByteArray(
+    QCborStreamReader *self,
+    QByteArray *a0) {
+  return self->_readAndAppendToByteArray_helper(*a0);
 }
 
 #endif  // QT_CONFIG(cborstreamreader)

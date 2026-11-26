@@ -5,6 +5,35 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12ObjectPickerC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render12ObjectPickerD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render12ObjectPicker7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ObjectPicker16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12ObjectPicker9isPressedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12ObjectPicker14isHoverEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12ObjectPicker13isDragEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ObjectPicker10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ObjectPicker11setPriorityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12ObjectPicker8priorityEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12ObjectPicker9notifyJobEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DRender_Render_ObjectPicker": [
       "bool", "address", "chars", "address"
     ],

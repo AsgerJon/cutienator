@@ -8,8 +8,53 @@
     "ritual_ZNK9Qt3DInput16QAxisAccumulator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput16QAxisAccumulator2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulatorC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulatorD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput16QAxisAccumulator10sourceAxisEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput16QAxisAccumulator14sourceAxisTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK9Qt3DInput16QAxisAccumulator5valueEv": ["float", "address"],
+    "ritual_ZNK9Qt3DInput16QAxisAccumulator8velocityEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK9Qt3DInput16QAxisAccumulator5scaleEv": ["float", "address"],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator13setSourceAxisEPNS_5QAxisE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator17setSourceAxisTypeENS0_14SourceAxisTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator8setScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator17sourceAxisChangedEPNS_5QAxisE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator21sourceAxisTypeChangedENS0_14SourceAxisTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator12valueChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator15velocityChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator12scaleChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN9Qt3DInput16QAxisAccumulator6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput16QAxisAccumulator6d_funcEv": [

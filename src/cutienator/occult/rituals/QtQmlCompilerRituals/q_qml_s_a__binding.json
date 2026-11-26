@@ -6,10 +6,38 @@
   "rows": {
     "ritual_ZN6QQmlSA7Binding6d_funcEv": ["address", "address"],
     "ritual_ZNK6QQmlSA7Binding6d_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA7BindingC1Ev": ["address"],
+    "ritual_ZN6QQmlSA7BindingC1ERKS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA7BindingC1EOS0_": ["address", "address"],
+    "ritual_ZN6QQmlSA7BindingaSERKS0_": ["address", "address", "address"],
+    "ritual_ZN6QQmlSA7BindingaSEOS0_": ["address", "address", "address"],
+    "ritual_ZN6QQmlSA7BindingD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA7Binding9groupTypeEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Binding12bindingScopeEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Binding11bindingTypeEv": ["unsigned int", "address"],
+    "ritual_ZNK6QQmlSA7Binding11stringValueEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA7Binding12propertyNameEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA7Binding10isAttachedEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA7Binding12attachedTypeEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Binding13attachingTypeEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Binding14sourceLocationEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Binding11numberValueEv": ["double", "address"],
+    "ritual_ZNK6QQmlSA7Binding10scriptKindEv": ["unsigned int", "address"],
+    "ritual_ZNK6QQmlSA7Binding9hasObjectEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA7Binding10objectTypeEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Binding23hasUndefinedScriptValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlSA7Binding22hasFunctionScriptValueEv": [
+      "bool", "address"
+    ],
     "ritual_ZN6QQmlSAeqERKNS_7BindingES2_": ["bool", "address", "address"],
     "ritual_ZN6QQmlSAneERKNS_7BindingES2_": ["bool", "address", "address"],
     "ritual_ZN6QQmlSA7Binding16isLiteralBindingENS_11BindingTypeE": [
       "bool", "unsigned int"
+    ],
+    "ritual_ZN6QQmlSA7Binding18operatorEqualsImplERKS0_S2_": [
+      "bool", "address", "address"
     ]
   }
 }

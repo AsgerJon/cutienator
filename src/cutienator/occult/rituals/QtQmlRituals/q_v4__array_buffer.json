@@ -15,11 +15,14 @@
     "ritual_ZN3QV411ArrayBuffer16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
     ],
+    "ritual_ZNK3QV411ArrayBuffer11asByteArrayEv": ["address", "address"],
     "ritual_ZNK3QV411ArrayBuffer15arrayDataLengthEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZN3QV411ArrayBuffer8dataDataEv": ["address", "address"],
     "ritual_ZNK3QV411ArrayBuffer14constArrayDataEv": ["chars", "address"],
     "ritual_ZN3QV411ArrayBuffer18hasSharedArrayDataEv": ["bool", "address"],
-    "ritual_ZN3QV411ArrayBuffer15detachArrayDataEv": ["nothing", "address"]
+    "ritual_ZN3QV411ArrayBuffer15detachArrayDataEv": ["nothing", "address"],
+    "ritual_ZN3QV411ArrayBuffer6detachEv": ["nothing", "address"]
   }
 }

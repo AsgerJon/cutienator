@@ -349,6 +349,25 @@ const QMetaObject *ritual_ZNK18QtROClientIoDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtROClientIoDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtROClientIoDevice11qt_metacastEPKc(
+    QtROClientIoDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtROClientIoDevice::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QtROClientIoDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtROClientIoDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtROClientIoDevice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QtROClientIoDevice2trEPKcS1_i(
@@ -356,6 +375,13 @@ QString *ritual_ZN18QtROClientIoDevice2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QtROClientIoDevice::tr(s, c, n));
+}
+
+//  QtROClientIoDevice::QtROClientIoDevice(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtROClientIoDevice *ritual_ZN18QtROClientIoDeviceC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtROClientIoDevice(parent);
 }
 
 //  QtROClientIoDevice::~QtROClientIoDevice()
@@ -382,6 +408,22 @@ void ritual_ZN18QtROClientIoDevice15connectToServerEv(
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK18QtROClientIoDevice3urlEv(const QtROClientIoDevice *self) {
   return new QUrl(self->url());
+}
+
+//  void QtROClientIoDevice::shouldReconnect(QtROClientIoDevice *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtROClientIoDevice15shouldReconnectEPS_(
+    QtROClientIoDevice *self,
+    QtROClientIoDevice *a0) {
+  self->shouldReconnect(a0);
+}
+
+//  void QtROClientIoDevice::setError(QRemoteObjectNode::ErrorCode a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtROClientIoDevice8setErrorEN17QRemoteObjectNode9ErrorCodeE(
+    QtROClientIoDevice *self,
+    QRemoteObjectNode::ErrorCode a0) {
+  self->setError(a0);
 }
 
 //  void QtROClientIoDevice::doDisconnectFromServer()

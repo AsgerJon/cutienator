@@ -9,6 +9,12 @@
     "ritual_ZNK29QQuickMaterialPlaceholderText10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQuickMaterialPlaceholderText11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK29QQuickMaterialPlaceholderText8isFilledEv": [
       "bool", "address"
     ],
@@ -33,6 +39,24 @@
     "ritual_ZNK29QQuickMaterialPlaceholderText15verticalPaddingEv": [
       "double", "address"
     ],
+    "ritual_ZN29QQuickMaterialPlaceholderText13filledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText20largestHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText28controlHasActiveFocusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText21controlHasTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText38controlImplicitBackgroundHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText22verticalPaddingChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN29QQuickMaterialPlaceholderText21adjustTransformOriginEv": [
       "nothing", "address"
     ],
@@ -42,8 +66,14 @@
     "ritual_ZNK29QQuickMaterialPlaceholderText13shouldAnimateEv": [
       "bool", "address"
     ],
+    "ritual_ZN29QQuickMaterialPlaceholderText7updateYEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN29QQuickMaterialPlaceholderText7updateXEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText13normalTargetYEv": [
+      "double", "address"
     ],
     "ritual_ZNK29QQuickMaterialPlaceholderText13normalTargetXEv": [
       "double", "address"

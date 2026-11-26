@@ -8,13 +8,24 @@
     "ritual_ZNK24QVirtualKeyboardObserver10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QVirtualKeyboardObserver11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QVirtualKeyboardObserver11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QVirtualKeyboardObserver2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN24QVirtualKeyboardObserver6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QVirtualKeyboardObserver6d_funcEv": ["address", "address"],
     "ritual_ZN24QVirtualKeyboardObserverC1EP7QObject": [
       "address", "address"
     ],
     "ritual_ZN24QVirtualKeyboardObserver6layoutEv": ["address", "address"],
+    "ritual_ZN24QVirtualKeyboardObserver13layoutChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN24QVirtualKeyboardObserver16invalidateLayoutEv": [
       "nothing", "address"
     ]

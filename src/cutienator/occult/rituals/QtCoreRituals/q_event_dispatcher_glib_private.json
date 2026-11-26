@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QEventDispatcherGlibPrivateC1EP13_GMainContext": [
+      "address", "address"
+    ],
     "ritual_ZN27QEventDispatcherGlibPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN27QEventDispatcherGlibPrivate31runTimersOnceWithNormalPriorityEv": [
       "nothing", "address"

@@ -850,6 +850,25 @@ const QMetaObject *ritual_ZNK29QQuickUniversalFocusRectangle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickUniversalFocusRectangle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuickUniversalFocusRectangle11qt_metacastEPKc(
+    QQuickUniversalFocusRectangle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickUniversalFocusRectangle::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuickUniversalFocusRectangle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickUniversalFocusRectangle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuickUniversalFocusRectangle::paint(QPainter *painter)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QQuickUniversalFocusRectangle5paintEP8QPainter(

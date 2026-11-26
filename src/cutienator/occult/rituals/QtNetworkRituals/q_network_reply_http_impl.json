@@ -8,6 +8,12 @@
     "ritual_ZNK21QNetworkReplyHttpImpl10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QNetworkReplyHttpImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QNetworkReplyHttpImplD1Ev": ["nothing", "address"],
     "ritual_ZN21QNetworkReplyHttpImpl5closeEv": ["nothing", "address"],
     "ritual_ZN21QNetworkReplyHttpImpl5abortEv": ["nothing", "address"],
@@ -16,6 +22,9 @@
     ],
     "ritual_ZNK21QNetworkReplyHttpImpl12isSequentialEv": ["bool", "address"],
     "ritual_ZNK21QNetworkReplyHttpImpl4sizeEv": ["long long", "address"],
+    "ritual_ZN21QNetworkReplyHttpImpl8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN21QNetworkReplyHttpImpl17setReadBufferSizeEx": [
       "nothing", "address", "long long"
     ],
@@ -31,6 +40,27 @@
     "ritual_ZN21QNetworkReplyHttpImpl33setSslConfigurationImplementationERK17QSslConfiguration": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK21QNetworkReplyHttpImpl30sslConfigurationImplementationER17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImpl16startHttpRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImpl16abortHttpRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImpl21readBufferSizeChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImpl15readBufferFreedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImpl29startHttpRequestSynchronouslyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImpl14haveUploadDataExRK10QByteArraybx": [
+      "nothing", "address", "long long", "address", "bool", "long long"
+    ],
     "ritual_take_QNetworkReplyHttpImpl": [
       "bool", "address", "chars", "address"
     ],
@@ -43,6 +73,9 @@
     "ritual_own_ZNK21QNetworkReplyHttpImpl4sizeEv": ["long long", "address"],
     "ritual_own_ZNK21QNetworkReplyHttpImpl11canReadLineEv": [
       "bool", "address"
+    ],
+    "ritual_own_ZN21QNetworkReplyHttpImpl15ignoreSslErrorsEv": [
+      "nothing", "address"
     ],
     "ritual_own_ZN21QNetworkReplyHttpImpl33setSslConfigurationImplementationERK17QSslConfiguration": [
       "nothing", "address", "address"

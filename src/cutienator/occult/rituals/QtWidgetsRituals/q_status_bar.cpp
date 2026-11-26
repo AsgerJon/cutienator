@@ -890,6 +890,24 @@ const QMetaObject *ritual_ZNK10QStatusBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStatusBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QStatusBar11qt_metacastEPKc(
+    QStatusBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStatusBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QStatusBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStatusBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStatusBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QStatusBar2trEPKcS1_i(
@@ -991,6 +1009,14 @@ void ritual_ZN10QStatusBar12clearMessageEv(QStatusBar *self) {
   self->clearMessage();
 }
 
+//  void QStatusBar::messageChanged(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QStatusBar14messageChangedERK7QString(
+    QStatusBar *self,
+    const QString *text) {
+  self->messageChanged(*text);
+}
+
 //  void QStatusBar::showEvent(QShowEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QStatusBar9showEventEP10QShowEvent(
@@ -1031,6 +1057,19 @@ void ritual_ZN10QStatusBar10hideOrShowEv(QStatusBar *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN10QStatusBar5eventEP6QEvent(QStatusBar *self, QEvent *a0) {
   return self->event(a0);
+}
+
+//  QStatusBarPrivate *QStatusBar::d_func()
+extern "C" Q_DECL_EXPORT
+QStatusBarPrivate *ritual_ZN10QStatusBar6d_funcEv(QStatusBar *self) {
+  return self->d_func();
+}
+
+//  const QStatusBarPrivate *QStatusBar::d_func() const
+extern "C" Q_DECL_EXPORT
+const QStatusBarPrivate *ritual_ZNK10QStatusBar6d_funcEv(
+    const QStatusBar *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQStatusBar, for the function named by

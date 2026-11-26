@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN18qdesigner_internal20FormBuilderClipboardC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal20FormBuilderClipboardC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal20FormBuilderClipboard5emptyEv": [
+      "bool", "address"
+    ],
     "ritual_ZN18qdesigner_internal20FormBuilderClipboardD1Ev": [
       "nothing", "address"
     ]

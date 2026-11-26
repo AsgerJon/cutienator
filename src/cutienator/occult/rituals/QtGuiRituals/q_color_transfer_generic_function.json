@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN29QColorTransferGenericFunctionC1EPFffES1_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN29QColorTransferGenericFunction3hlgEv": ["address"],
     "ritual_ZN29QColorTransferGenericFunction2pqEv": ["address"],
     "ritual_ZNK29QColorTransferGenericFunction5applyEf": [

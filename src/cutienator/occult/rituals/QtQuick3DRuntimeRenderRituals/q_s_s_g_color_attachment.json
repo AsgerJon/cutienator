@@ -8,6 +8,9 @@
     "ritual_ZN19QSSGColorAttachmentC1ERK10QByteArray": [
       "address", "address"
     ],
+    "ritual_ZNK19QSSGColorAttachment8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QSSGColorAttachment6formatEv": ["address", "address"],
     "ritual_ZN19QSSGColorAttachmentC1ERK10QByteArray11CommandType": [
       "address", "address", "int"

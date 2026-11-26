@@ -7,14 +7,63 @@
   "rows": {
     "ritual_ZN18QGrpcCommonOptionsC1Ev": ["address"],
     "ritual_ZN18QGrpcCommonOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QGrpcCommonOptions15deadlineTimeoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QGrpcCommonOptions18setDeadlineTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNKR18QGrpcCommonOptions8metadataEv": ["address", "address"],
+    "ritual_ZN18QGrpcCommonOptions11setMetadataERK5QHashI10QByteArrayS1_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QGrpcCommonOptions11setMetadataEO5QHashI10QByteArrayS1_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNKR18QGrpcCommonOptions8metadataEN6QtGrpc12MultiValue_tE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QGrpcCommonOptions11setMetadataERK10QMultiHashI10QByteArrayS1_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QGrpcCommonOptions11setMetadataEO10QMultiHashI10QByteArrayS1_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QGrpcCommonOptions11addMetadataEO10QByteArrayS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK18QGrpcCommonOptions16containsMetadataE14QByteArrayViewS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK18QGrpcCommonOptions20filterServerMetadataEv": [
+      "address", "address"
+    ],
     "ritual_ZN18QGrpcCommonOptions23setFilterServerMetadataEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QGrpcCommonOptions25maximumReceiveMessageSizeEv": [
+      "address", "address"
     ],
     "ritual_ZN18QGrpcCommonOptions28setMaximumReceiveMessageSizeEy": [
       "nothing", "address", "unsigned long long"
     ],
+    "ritual_ZNK18QGrpcCommonOptions18requestCompressionEv": [
+      "address", "address"
+    ],
     "ritual_ZN18QGrpcCommonOptions21setRequestCompressionEN6QtGrpc20CompressionAlgorithmE": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_drop_QGrpcCommonOptions__std_optional_std_chrono_milliseconds": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcCommonOptions__std_optional_bool": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcCommonOptions__std_optional_quint64": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcCommonOptions__std_optional_QtGrpc_CompressionAlgorithm": [
+      "nothing", "address"
     ]
   }
 }

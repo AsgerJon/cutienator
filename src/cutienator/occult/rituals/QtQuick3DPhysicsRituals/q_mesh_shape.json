@@ -6,12 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK10QMeshShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QMeshShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QMeshShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QMeshShape2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QMeshShape24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN10QMeshShapeD1Ev": ["nothing", "address"],
     "ritual_ZNK10QMeshShape9shapeTypeEv": ["int", "address"],
+    "ritual_ZN10QMeshShape16getPhysXGeometryEv": ["address", "address"],
     "ritual_ZNK10QMeshShape6sourceEv": ["address", "address"],
     "ritual_ZN10QMeshShape9setSourceERK4QUrl": [
       "nothing", "address", "address"
@@ -20,6 +27,8 @@
     "ritual_ZN10QMeshShape11setGeometryEP16QQuick3DGeometry": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QMeshShape13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN10QMeshShape15geometryChangedEv": ["nothing", "address"],
     "ritual_ZN10QMeshShape17geometryDestroyedEP7QObject": [
       "nothing", "address", "address"
     ],
@@ -27,6 +36,7 @@
       "nothing", "address"
     ],
     "ritual_ZN10QMeshShape19updatePhysXGeometryEv": ["nothing", "address"],
-    "ritual_take_QMeshShape": ["bool", "address", "chars", "address"]
+    "ritual_take_QMeshShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QMeshShape16getPhysXGeometryEv": ["address", "address"]
   }
 }

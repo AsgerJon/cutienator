@@ -45,6 +45,10 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 941, as _ZN25QQuickScriptActionPrivateC1Ev
+inline QQuickScriptActionPrivate::QQuickScriptActionPrivate()
+    : QQuickAbstractAnimationPrivate(), hasRunScriptScript(false), reversing(false){}
+
 //  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1003, as _ZN25QQuickScriptActionPrivate7executeEv
 inline void QQuickScriptActionPrivate::execute()
 {
@@ -209,6 +213,12 @@ extern "C" Q_DECL_EXPORT
 const QQuickScriptAction *ritual_ZNK25QQuickScriptActionPrivate6q_funcEv(
     const QQuickScriptActionPrivate *self) {
   return self->q_func();
+}
+
+//  QQuickScriptActionPrivate::QQuickScriptActionPrivate()
+extern "C" Q_DECL_EXPORT
+QQuickScriptActionPrivate *ritual_ZN25QQuickScriptActionPrivateC1Ev() {
+  return new CuteQQuickScriptActionPrivate();
 }
 
 //  void QQuickScriptActionPrivate::execute()

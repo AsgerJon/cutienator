@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QBlendTreeNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QBlendTreeNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QBlendTreeNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QBlendTreeNode2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -13,9 +19,14 @@
       "nothing", "address"
     ],
     "ritual_ZN14QBlendTreeNodeC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QBlendTreeNode9frameDataEv": ["address", "address"],
     "ritual_ZNK14QBlendTreeNode13outputEnabledEv": ["bool", "address"],
     "ritual_ZN14QBlendTreeNode16setOutputEnabledEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QBlendTreeNode16frameDataChangedEv": ["nothing", "address"],
+    "ritual_ZN14QBlendTreeNode20outputEnabledChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN14QBlendTreeNode22handleFrameDataChangedEv": [
       "nothing", "address"

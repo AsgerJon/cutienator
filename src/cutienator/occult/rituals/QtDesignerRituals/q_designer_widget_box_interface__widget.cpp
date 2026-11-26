@@ -32,6 +32,14 @@ QDesignerWidgetBoxInterface::Widget *ritual_ZN27QDesignerWidgetBoxInterface6Widg
   return new QDesignerWidgetBoxInterface::Widget(*w);
 }
 
+//  Widget &QDesignerWidgetBoxInterface::Widget::operator=(const Widget &w)
+extern "C" Q_DECL_EXPORT
+QDesignerWidgetBoxInterface::Widget *ritual_ZN27QDesignerWidgetBoxInterface6WidgetaSERKS0_(
+    QDesignerWidgetBoxInterface::Widget *self,
+    const QDesignerWidgetBoxInterface::Widget *w) {
+  return &(self->operator=(*w));
+}
+
 //  QString QDesignerWidgetBoxInterface::Widget::name() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK27QDesignerWidgetBoxInterface6Widget4nameEv(

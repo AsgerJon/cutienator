@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickShapePath10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickShapePath11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickShapePath11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickShapePath2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -54,6 +60,10 @@
     "ritual_ZN15QQuickShapePath13setDashOffsetEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZNK15QQuickShapePath11dashPatternEv": ["address", "address"],
+    "ritual_ZN15QQuickShapePath14setDashPatternERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QQuickShapePath12fillGradientEv": ["address", "address"],
     "ritual_ZN15QQuickShapePath15setFillGradientEP19QQuickShapeGradient": [
       "nothing", "address", "address"
@@ -79,8 +89,46 @@
     "ritual_ZN15QQuickShapePath17setCosmeticStrokeEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN15QQuickShapePath16shapePathChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickShapePath18strokeColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapePath18strokeWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapePath16fillColorChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickShapePath15fillRuleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickShapePath16joinStyleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickShapePath17miterLimitChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapePath15capStyleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickShapePath18strokeStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapePath17dashOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapePath18dashPatternChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapePath19fillGradientChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapePath16pathHintsChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickShapePath20fillTransformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapePath15fillItemChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickShapePath21cosmeticStrokeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapePath21strokeGradientChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN15QQuickShapePath6d_funcEv": ["address", "address"],
     "ritual_ZNK15QQuickShapePath6d_funcEv": ["address", "address"],
-    "ritual_take_QQuickShapePath": ["bool", "address", "chars", "address"]
+    "ritual_take_QQuickShapePath": ["bool", "address", "chars", "address"],
+    "ritual_drop_QQuickShapePath__QList_qreal": ["nothing", "address"]
   }
 }

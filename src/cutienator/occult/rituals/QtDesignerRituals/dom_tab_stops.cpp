@@ -21,6 +21,24 @@ void ritual_ZN11DomTabStopsD1Ev(DomTabStops *self) {
   delete self;
 }
 
+//  void DomTabStops::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11DomTabStops4readER16QXmlStreamReader(
+    DomTabStops *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomTabStops::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11DomTabStops5writeER16QXmlStreamWriterRK7QString(
+    const DomTabStops *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  QStringList DomTabStops::elementTabStop() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK11DomTabStops14elementTabStopEv(

@@ -18,12 +18,14 @@
 typedef void (*CuteQMetalBufferCall0)(const void *, int *);
 typedef bool (*CuteQMetalBufferCall1)(const void *, int *);
 typedef const QRhiBuffer::NativeBuffer * (*CuteQMetalBufferCall2)(const void *, int *);
-typedef void (*CuteQMetalBufferCall3)(const void *, int *);
-typedef int (*CuteQMetalBufferCall4)(const void *, int *);
+typedef void * (*CuteQMetalBufferCall3)(const void *, int *);
+typedef void (*CuteQMetalBufferCall4)(const void *, int *);
+typedef int (*CuteQMetalBufferCall5)(const void *, int *);
+typedef void (*CuteQMetalBufferCall6)(const void *, const void *, quint32, int *);
 class CuteQMetalBuffer : public QMetalBuffer {
 public:
   using QMetalBuffer::QMetalBuffer;
-  void *taken[5] = {};
+  void *taken[7] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN12QRhiResource7destroyEv")) {
@@ -38,12 +40,20 @@ public:
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv")) {
+    if (!std::strcmp(key, "_ZN10QRhiBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QRhiResource12resourceTypeEv")) {
+    if (!std::strcmp(key, "_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv")) {
       taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QRhiResource12resourceTypeEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN10QRhiBuffer38fullDynamicBufferUpdateForCurrentFrameEPKvj")) {
+      taken[6] = call;
       return true;
     }
     return false;
@@ -82,11 +92,22 @@ public:
     return QMetalBuffer::nativeBuffer();
   }
 
-  //  void QMetalBuffer::endFullDynamicBufferUpdateForCurrentFrame()
-  void endFullDynamicBufferUpdateForCurrentFrame() override {
+  //  char *QMetalBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
+  char *beginFullDynamicBufferUpdateForCurrentFrame() override {
     if (taken[3]) {
       int handled = 0;
       CuteQMetalBufferCall3 call = reinterpret_cast<CuteQMetalBufferCall3>(taken[3]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<char *>(given);
+    }
+    return QMetalBuffer::beginFullDynamicBufferUpdateForCurrentFrame();
+  }
+
+  //  void QMetalBuffer::endFullDynamicBufferUpdateForCurrentFrame()
+  void endFullDynamicBufferUpdateForCurrentFrame() override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQMetalBufferCall4 call = reinterpret_cast<CuteQMetalBufferCall4>(taken[4]);
       call(this, &handled);
       if (handled) return;
     }
@@ -95,15 +116,62 @@ public:
 
   //  QRhiResource::Type QRhiBuffer::resourceType() const
   QRhiResource::Type resourceType() const override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQMetalBufferCall4 call = reinterpret_cast<CuteQMetalBufferCall4>(taken[4]);
+      CuteQMetalBufferCall5 call = reinterpret_cast<CuteQMetalBufferCall5>(taken[5]);
       int given = call(this, &handled);
       if (handled) return static_cast<QRhiResource::Type>(given);
     }
     return QRhiBuffer::resourceType();
   }
+
+  //  void QRhiBuffer::fullDynamicBufferUpdateForCurrentFrame(const void
+  //      *data, quint32 size)
+  void fullDynamicBufferUpdateForCurrentFrame(
+      const void *data,
+      quint32 size) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQMetalBufferCall6 call = reinterpret_cast<CuteQMetalBufferCall6>(taken[6]);
+      call(this, data, size, &handled);
+      if (handled) return;
+    }
+    QRhiBuffer::fullDynamicBufferUpdateForCurrentFrame(data, size);
+  }
 };
+
+//  void QMetalBuffer::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMetalBuffer7destroyEv(QMetalBuffer *self) {
+  self->destroy();
+}
+
+//  bool QMetalBuffer::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QMetalBuffer6createEv(QMetalBuffer *self) {
+  return self->create();
+}
+
+//  QRhiBuffer::NativeBuffer QMetalBuffer::nativeBuffer()
+extern "C" Q_DECL_EXPORT
+QRhiBuffer::NativeBuffer *ritual_ZN12QMetalBuffer12nativeBufferEv(
+    QMetalBuffer *self) {
+  return new QRhiBuffer::NativeBuffer(self->nativeBuffer());
+}
+
+//  char *QMetalBuffer::beginFullDynamicBufferUpdateForCurrentFrame()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN12QMetalBuffer43beginFullDynamicBufferUpdateForCurrentFrameEv(
+    QMetalBuffer *self) {
+  return self->beginFullDynamicBufferUpdateForCurrentFrame();
+}
+
+//  void QMetalBuffer::endFullDynamicBufferUpdateForCurrentFrame()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMetalBuffer41endFullDynamicBufferUpdateForCurrentFrameEv(
+    QMetalBuffer *self) {
+  self->endFullDynamicBufferUpdateForCurrentFrame();
+}
 
 //  a Python function taken by a CuteQMetalBuffer, for the function named by
 //      the key

@@ -118,6 +118,84 @@ public:
   }
 };
 
+//  qdesigner_internal::QDesignerDnDItem::QDesignerDnDItem(DropType type,
+//      QWidget *source)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::QDesignerDnDItem *ritual_ZN18qdesigner_internal16QDesignerDnDItemC1EN25QDesignerDnDItemInterface8DropTypeEP7QWidget(
+    QDesignerDnDItemInterface::DropType type,
+    QWidget *source) {
+  return new Cuteqdesigner_internal_QDesignerDnDItem(type, source);
+}
+
+//  qdesigner_internal::QDesignerDnDItem::~QDesignerDnDItem()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal16QDesignerDnDItemD1Ev(
+    qdesigner_internal::QDesignerDnDItem *self) {
+  delete self;
+}
+
+//  DomUI *qdesigner_internal::QDesignerDnDItem::domUi() const
+extern "C" Q_DECL_EXPORT
+DomUI *ritual_ZNK18qdesigner_internal16QDesignerDnDItem5domUiEv(
+    const qdesigner_internal::QDesignerDnDItem *self) {
+  return self->domUi();
+}
+
+//  QWidget *qdesigner_internal::QDesignerDnDItem::decoration() const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK18qdesigner_internal16QDesignerDnDItem10decorationEv(
+    const qdesigner_internal::QDesignerDnDItem *self) {
+  return self->decoration();
+}
+
+//  QWidget *qdesigner_internal::QDesignerDnDItem::widget() const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK18qdesigner_internal16QDesignerDnDItem6widgetEv(
+    const qdesigner_internal::QDesignerDnDItem *self) {
+  return self->widget();
+}
+
+//  QPoint qdesigner_internal::QDesignerDnDItem::hotSpot() const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZNK18qdesigner_internal16QDesignerDnDItem7hotSpotEv(
+    const qdesigner_internal::QDesignerDnDItem *self) {
+  return new QPoint(self->hotSpot());
+}
+
+//  QWidget *qdesigner_internal::QDesignerDnDItem::source() const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK18qdesigner_internal16QDesignerDnDItem6sourceEv(
+    const qdesigner_internal::QDesignerDnDItem *self) {
+  return self->source();
+}
+
+//  DropType qdesigner_internal::QDesignerDnDItem::type() const
+extern "C" Q_DECL_EXPORT
+QDesignerDnDItemInterface::DropType ritual_ZNK18qdesigner_internal16QDesignerDnDItem4typeEv(
+    const qdesigner_internal::QDesignerDnDItem *self) {
+  return self->type();
+}
+
+//  void qdesigner_internal::QDesignerDnDItem::setDomUi(DomUI *dom_ui)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal16QDesignerDnDItem8setDomUiEP5DomUI(
+    qdesigner_internal::QDesignerDnDItem *self,
+    DomUI *dom_ui) {
+  self->setDomUi(dom_ui);
+}
+
+//  void qdesigner_internal::QDesignerDnDItem::init(DomUI *ui, QWidget
+//      *widget, QWidget *decoration, const QPoint &global_mouse_pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal16QDesignerDnDItem4initEP5DomUIP7QWidgetS4_RK6QPoint(
+    qdesigner_internal::QDesignerDnDItem *self,
+    DomUI *ui,
+    QWidget *widget,
+    QWidget *decoration,
+    const QPoint *global_mouse_pos) {
+  self->init(ui, widget, decoration, *global_mouse_pos);
+}
+
 //  a Python function taken by a Cuteqdesigner_internal_QDesignerDnDItem, for
 //      the function named by the key
 extern "C" Q_DECL_EXPORT

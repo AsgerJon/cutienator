@@ -23,27 +23,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 117, as _ZN37QNonContiguousByteDeviceByteArrayImplD1Ev
-inline QNonContiguousByteDeviceByteArrayImpl::~QNonContiguousByteDeviceByteArrayImpl()
-{
-}
-
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 121, as _ZN37QNonContiguousByteDeviceByteArrayImpl11readPointerExRx
-inline const char* QNonContiguousByteDeviceByteArrayImpl::readPointer(qint64 maximumLength, qint64 &len)
-{
-    if (atEnd()) {
-        len = -1;
-        return nullptr;
-    }
-
-    if (maximumLength != -1)
-        len = qMin(maximumLength, size() - currentPosition);
-    else
-        len = size() - currentPosition;
-
-    return view.data() + currentPosition;
-}
-
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 136, as _ZN37QNonContiguousByteDeviceByteArrayImpl18advanceReadPointerEx
 inline bool QNonContiguousByteDeviceByteArrayImpl::advanceReadPointer(qint64 amount)
 {
@@ -75,6 +54,11 @@ inline qint64 QNonContiguousByteDeviceByteArrayImpl::size() const
 inline qint64 QNonContiguousByteDeviceByteArrayImpl::pos() const
 {
     return currentPosition;
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 117, as _ZN37QNonContiguousByteDeviceByteArrayImplD1Ev
+inline QNonContiguousByteDeviceByteArrayImpl::~QNonContiguousByteDeviceByteArrayImpl()
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -332,6 +316,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK37QNonContiguousByteDeviceByteArrayImpl10metaObjectEv(
     const QNonContiguousByteDeviceByteArrayImpl *self) {
   return self->metaObject();
+}
+
+//  void *QNonContiguousByteDeviceByteArrayImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN37QNonContiguousByteDeviceByteArrayImpl11qt_metacastEPKc(
+    QNonContiguousByteDeviceByteArrayImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNonContiguousByteDeviceByteArrayImpl::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN37QNonContiguousByteDeviceByteArrayImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNonContiguousByteDeviceByteArrayImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QNonContiguousByteDeviceByteArrayImpl::~QNonContiguousByteDeviceByteArray

@@ -34,6 +34,15 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1134, as _ZN23QAbstract3DGraphPrivate11renderLaterEv
+inline void QAbstract3DGraphPrivate::renderLater()
+{
+    if (!m_updatePending) {
+        m_updatePending = true;
+        QCoreApplication::postEvent(q_ptr, new QEvent(QEvent::UpdateRequest));
+    }
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1046, as _ZN23QAbstract3DGraphPrivateD1Ev
 inline QAbstract3DGraphPrivate::~QAbstract3DGraphPrivate()
 {
@@ -65,30 +74,6 @@ inline void QAbstract3DGraphPrivate::render()
     handleDevicePixelRatioChange();
     m_visualController->synchDataToRenderer();
     m_visualController->render();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1134, as _ZN23QAbstract3DGraphPrivate11renderLaterEv
-inline void QAbstract3DGraphPrivate::renderLater()
-{
-    if (!m_updatePending) {
-        m_updatePending = true;
-        QCoreApplication::postEvent(q_ptr, new QEvent(QEvent::UpdateRequest));
-    }
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1142, as _ZN23QAbstract3DGraphPrivate9renderNowEv
-inline void QAbstract3DGraphPrivate::renderNow()
-{
-    if (!q_ptr->isExposed())
-        return;
-
-    m_updatePending = false;
-
-    m_context->makeCurrent(q_ptr);
-
-    render();
-
-    m_context->swapBuffers(q_ptr);
 }
 //  -----------------------------------------------------------------------
 
@@ -314,6 +299,25 @@ const QMetaObject *ritual_ZNK23QAbstract3DGraphPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstract3DGraphPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QAbstract3DGraphPrivate11qt_metacastEPKc(
+    QAbstract3DGraphPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstract3DGraphPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QAbstract3DGraphPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstract3DGraphPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QAbstract3DGraphPrivate::~QAbstract3DGraphPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QAbstract3DGraphPrivateD1Ev(QAbstract3DGraphPrivate *self) {
@@ -338,14 +342,50 @@ void ritual_ZN23QAbstract3DGraphPrivate6renderEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QAbstract3DGraphPrivate11renderLaterEv(
     QAbstract3DGraphPrivate *self) {
-  self->renderLater();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstract3DGraphPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "renderLater()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "renderLater()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QAbstract3DGraphPrivate::renderNow()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QAbstract3DGraphPrivate9renderNowEv(
     QAbstract3DGraphPrivate *self) {
-  self->renderNow();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstract3DGraphPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "renderNow()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "renderNow()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QAbstract3DGraphPrivate::handleAxisXChanged(QAbstract3DAxis *axis)

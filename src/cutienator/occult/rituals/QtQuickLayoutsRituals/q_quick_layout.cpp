@@ -1261,6 +1261,24 @@ const QMetaObject *ritual_ZNK12QQuickLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickLayout11qt_metacastEPKc(
+    QQuickLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLayout::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickLayout2trEPKcS1_i(
@@ -1281,6 +1299,14 @@ void ritual_ZN12QQuickLayout24qt_qmlMarker_uncreatableEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQuickLayout21qt_qmlMarker_attachedEv(QQuickLayout *self) {
   self->qt_qmlMarker_attached();
+}
+
+//  QQuickLayout::QQuickLayout(QQuickLayoutPrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickLayout *ritual_ZN12QQuickLayoutC1ER19QQuickLayoutPrivateP10QQuickItem(
+    QQuickLayoutPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickLayout(*dd, parent);
 }
 
 //  QQuickLayout::~QQuickLayout()
@@ -1376,6 +1402,22 @@ void ritual_ZN12QQuickLayout9rearrangeERK6QSizeF(
     QQuickLayout *self,
     const QSizeF *a0) {
   self->rearrange(*a0);
+}
+
+//  void QQuickLayout::effectiveSizeHints_helper(QQuickItem *item, QSizeF
+//      *cachedSizeHints, QQuickLayoutAttached **info, bool
+//      useFallbackToWidthOrHeight)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickLayout25effectiveSizeHints_helperEP10QQuickItemP6QSizeFPP20QQuickLayoutAttachedb(
+    QQuickItem *item,
+    QSizeF *cachedSizeHints,
+    QQuickLayoutAttached **info,
+    bool useFallbackToWidthOrHeight) {
+  QQuickLayout::effectiveSizeHints_helper(
+      item,
+      cachedSizeHints,
+      info,
+      useFallbackToWidthOrHeight);
 }
 
 //  QLayoutPolicy::Policy QQuickLayout::effectiveSizePolicy_helper(QQuickItem
@@ -1513,6 +1555,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZNK12QQuickLayout17_q_dumpLayoutTreeEv(
     const QQuickLayout *self) {
   self->_q_dumpLayoutTree();
+}
+
+//  void QQuickLayout::dumpLayoutTreeRecursive(int level, QString &buf) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QQuickLayout23dumpLayoutTreeRecursiveEiR7QString(
+    const QQuickLayout *self,
+    int level,
+    QString *buf) {
+  self->dumpLayoutTreeRecursive(level, *buf);
 }
 
 //  void QQuickLayout::updatePolish()

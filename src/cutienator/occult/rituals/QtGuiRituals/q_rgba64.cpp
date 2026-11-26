@@ -162,6 +162,12 @@ quint64 ritual_ZNK7QRgba64cvyEv(const QRgba64 *self) {
   return self->operator quint64();
 }
 
+//  QRgba64 &QRgba64::operator=(quint64 _rgba)
+extern "C" Q_DECL_EXPORT
+QRgba64 *ritual_ZN7QRgba64aSEy(QRgba64 *self, quint64 _rgba) {
+  return &(self->operator=(_rgba));
+}
+
 //  quint64 QRgba64::alphaMask()
 extern "C" Q_DECL_EXPORT
 quint64 ritual_ZN7QRgba649alphaMaskEv() {

@@ -6,6 +6,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DInput/Qt3DInput>
 
 //  A Qt3DInput::QAbstractPhysicalDevice that Python can take functions over in. Every Qt3DInput::QAbstractPhysicalDevice
 //  Python makes is one. Each function below asks the Python
@@ -247,6 +249,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QAbstractPhysicalDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput23QAbstractPhysicalDevice11qt_metacastEPKc(
+    Qt3DInput::QAbstractPhysicalDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QAbstractPhysicalDevice::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput23QAbstractPhysicalDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QAbstractPhysicalDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QAbstractPhysicalDevice::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -255,6 +276,21 @@ QString *ritual_ZN9Qt3DInput23QAbstractPhysicalDevice2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QAbstractPhysicalDevice::tr(s, c, n));
+}
+
+//  Qt3DInput::QAbstractPhysicalDevice::QAbstractPhysicalDevice(Qt3DCore::QNo
+//      de *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractPhysicalDevice *ritual_ZN9Qt3DInput23QAbstractPhysicalDeviceC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QAbstractPhysicalDevice(parent);
+}
+
+//  Qt3DInput::QAbstractPhysicalDevice::~QAbstractPhysicalDevice()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput23QAbstractPhysicalDeviceD1Ev(
+    Qt3DInput::QAbstractPhysicalDevice *self) {
+  delete self;
 }
 
 //  int Qt3DInput::QAbstractPhysicalDevice::axisCount() const
@@ -301,6 +337,41 @@ int ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice16buttonIdentifierERK7QString(
     const Qt3DInput::QAbstractPhysicalDevice *self,
     const QString *name) {
   return self->buttonIdentifier(*name);
+}
+
+//  void Qt3DInput::QAbstractPhysicalDevice::addAxisSetting(QAxisSetting
+//      *axisSetting)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput23QAbstractPhysicalDevice14addAxisSettingEPNS_12QAxisSettingE(
+    Qt3DInput::QAbstractPhysicalDevice *self,
+    Qt3DInput::QAxisSetting *axisSetting) {
+  self->addAxisSetting(axisSetting);
+}
+
+//  void Qt3DInput::QAbstractPhysicalDevice::removeAxisSetting(QAxisSetting
+//      *axisSetting)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput23QAbstractPhysicalDevice17removeAxisSettingEPNS_12QAxisSettingE(
+    Qt3DInput::QAbstractPhysicalDevice *self,
+    Qt3DInput::QAxisSetting *axisSetting) {
+  self->removeAxisSetting(axisSetting);
+}
+
+//  QList<QAxisSetting *> Qt3DInput::QAbstractPhysicalDevice::axisSettings()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DInput::QAxisSetting *> *ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice12axisSettingsEv(
+    const Qt3DInput::QAbstractPhysicalDevice *self) {
+  return new QList<Qt3DInput::QAxisSetting *>(self->axisSettings());
+}
+
+//  Qt3DInput::QAbstractPhysicalDevice::QAbstractPhysicalDevice(QAbstractPhys
+//      icalDevicePrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractPhysicalDevice *ritual_ZN9Qt3DInput23QAbstractPhysicalDeviceC1ERNS_30QAbstractPhysicalDevicePrivateEPN8Qt3DCore5QNodeE(
+    Qt3DInput::QAbstractPhysicalDevicePrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QAbstractPhysicalDevice(*dd, parent);
 }
 
 //  QAbstractPhysicalDevicePrivate
@@ -359,4 +430,12 @@ int ritual_own_ZNK9Qt3DInput23QAbstractPhysicalDevice16buttonIdentifierERK7QStri
     const Qt3DInput::QAbstractPhysicalDevice *self,
     const QString *name) {
   return self->Qt3DInput::QAbstractPhysicalDevice::buttonIdentifier(*name);
+}
+
+//  a QList<Qt3DInput::QAxisSetting *> a ritual of
+//      Qt3DInput::QAbstractPhysicalDevice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QAbstractPhysicalDevice__QList_Qt3DInput_QAxisSetting(
+    QList<Qt3DInput::QAxisSetting *> *self) {
+  delete self;
 }

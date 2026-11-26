@@ -28,7 +28,7 @@ typedef int (*CuteQImageTextureGlyphCacheCall7)(const void *, int *);
 class CuteQImageTextureGlyphCache : public QImageTextureGlyphCache {
 public:
   using QImageTextureGlyphCache::QImageTextureGlyphCache;
-  CuteQImageTextureGlyphCache(const QImageTextureGlyphCache &other) : QImageTextureGlyphCache(other) {}
+  CuteQImageTextureGlyphCache(const QImageTextureGlyphCache & other) : QImageTextureGlyphCache(other) {}
   void *taken[8] = {};
 
   bool take(const char *key, void *call) {

@@ -256,6 +256,25 @@ const QMetaObject *ritual_ZNK23QQuickParallelAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickParallelAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickParallelAnimation11qt_metacastEPKc(
+    QQuickParallelAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickParallelAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickParallelAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickParallelAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickParallelAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickParallelAnimation2trEPKcS1_i(
@@ -298,6 +317,20 @@ extern "C" Q_DECL_EXPORT
 QQuickAbstractAnimation::ThreadingModel ritual_ZNK23QQuickParallelAnimation14threadingModelEv(
     const QQuickParallelAnimation *self) {
   return self->threadingModel();
+}
+
+//  QAbstractAnimationJob
+//      *QQuickParallelAnimation::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN23QQuickParallelAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickParallelAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
 }
 
 //  a Python function taken by a CuteQQuickParallelAnimation, for the

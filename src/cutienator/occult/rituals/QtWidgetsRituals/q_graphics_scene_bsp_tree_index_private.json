@@ -11,6 +11,9 @@
     "ritual_ZNK33QGraphicsSceneBspTreeIndexPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN33QGraphicsSceneBspTreeIndexPrivateC1EP14QGraphicsScene": [
+      "address", "address"
+    ],
     "ritual_ZN33QGraphicsSceneBspTreeIndexPrivate17purgeRemovedItemsEv": [
       "nothing", "address"
     ],
@@ -25,6 +28,9 @@
     ],
     "ritual_ZN33QGraphicsSceneBspTreeIndexPrivate25closestItemLast_withCacheEPK13QGraphicsItemS2_": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN33QGraphicsSceneBspTreeIndexPrivate9sortItemsEP5QListIP13QGraphicsItemEN2Qt9SortOrderEbb": [
+      "nothing", "address", "int", "bool", "bool"
     ]
   }
 }

@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN22QAbstractMetaCallEventC1EPK7QObjectiP6QLatch": [
+      "address", "address", "int", "address"
+    ],
     "ritual_ZN22QAbstractMetaCallEventD1Ev": ["nothing", "address"],
     "ritual_ZN22QAbstractMetaCallEvent13placeMetaCallEP7QObject": [
       "nothing", "address", "address"

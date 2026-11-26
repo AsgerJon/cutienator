@@ -12,6 +12,25 @@ const QMetaObject *ritual_ZNK18QQuickTextDocument10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTextDocument::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickTextDocument11qt_metacastEPKc(
+    QQuickTextDocument *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTextDocument::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickTextDocument11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTextDocument *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTextDocument::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickTextDocument2trEPKcS1_i(
@@ -106,6 +125,41 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK18QQuickTextDocument11errorStringEv(
     const QQuickTextDocument *self) {
   return new QString(self->errorString());
+}
+
+//  void QQuickTextDocument::textDocumentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTextDocument19textDocumentChangedEv(
+    QQuickTextDocument *self) {
+  self->textDocumentChanged();
+}
+
+//  void QQuickTextDocument::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTextDocument13sourceChangedEv(
+    QQuickTextDocument *self) {
+  self->sourceChanged();
+}
+
+//  void QQuickTextDocument::modifiedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTextDocument15modifiedChangedEv(
+    QQuickTextDocument *self) {
+  self->modifiedChanged();
+}
+
+//  void QQuickTextDocument::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTextDocument13statusChangedEv(
+    QQuickTextDocument *self) {
+  self->statusChanged();
+}
+
+//  void QQuickTextDocument::errorStringChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTextDocument18errorStringChangedEv(
+    QQuickTextDocument *self) {
+  self->errorStringChanged();
 }
 
 //  QQuickTextDocumentPrivate *QQuickTextDocument::d_func()

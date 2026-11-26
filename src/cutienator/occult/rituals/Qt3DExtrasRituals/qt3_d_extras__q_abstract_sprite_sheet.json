@@ -8,8 +8,44 @@
     "ritual_ZNK10Qt3DExtras20QAbstractSpriteSheet10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras20QAbstractSpriteSheet11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras20QAbstractSpriteSheet11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras20QAbstractSpriteSheet2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras20QAbstractSpriteSheetD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras20QAbstractSpriteSheet7textureEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras20QAbstractSpriteSheet16textureTransformEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras20QAbstractSpriteSheet12currentIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras20QAbstractSpriteSheet10setTextureEPN10Qt3DRender16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras20QAbstractSpriteSheet15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras20QAbstractSpriteSheet14textureChangedEPN10Qt3DRender16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras20QAbstractSpriteSheet23textureTransformChangedERK14QGenericMatrixILi3ELi3EfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras20QAbstractSpriteSheet19currentIndexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras20QAbstractSpriteSheetC1ERNS_27QAbstractSpriteSheetPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DExtras20QAbstractSpriteSheet6d_funcEv": [
       "address", "address"
@@ -19,6 +55,9 @@
     ],
     "ritual_take_Qt3DExtras_QAbstractSpriteSheet": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DExtras_QAbstractSpriteSheet__QMatrix3x3": [
+      "nothing", "address"
     ]
   }
 }

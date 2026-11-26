@@ -52,10 +52,34 @@ QPlace *ritual_ZN6QPlaceC1ERKS_(const QPlace *other) {
   return new QPlace(*other);
 }
 
+//  QPlace::QPlace(QPlace &&other)
+extern "C" Q_DECL_EXPORT
+QPlace *ritual_ZN6QPlaceC1EOS_(QPlace *other) {
+  return new QPlace(std::move(*other));
+}
+
 //  QPlace::~QPlace()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QPlaceD1Ev(QPlace *self) {
   delete self;
+}
+
+//  QPlace &QPlace::operator=(const QPlace &other)
+extern "C" Q_DECL_EXPORT
+QPlace *ritual_ZN6QPlaceaSERKS_(QPlace *self, const QPlace *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlace &QPlace::operator=(QPlace &&other)
+extern "C" Q_DECL_EXPORT
+QPlace *ritual_ZN6QPlaceaSEOS_(QPlace *self, QPlace *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlace::swap(QPlace &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QPlace4swapERS_(QPlace *self, QPlace *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPlace &lhs, const QPlace &rhs)
@@ -364,6 +388,13 @@ void ritual_ZN6QPlace13setVisibilityEN9QLocation10VisibilityE(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QPlace7isEmptyEv(const QPlace *self) {
   return self->isEmpty();
+}
+
+//  QPlace::QPlace(const QSharedDataPointer<QPlacePrivate> &dd)
+extern "C" Q_DECL_EXPORT
+QPlace *ritual_ZN6QPlaceC1ERK18QSharedDataPointerI13QPlacePrivateE(
+    const QSharedDataPointer<QPlacePrivate> *dd) {
+  return new QPlace(*dd);
 }
 
 //  bool QPlace::isEqual(const QPlace &other) const

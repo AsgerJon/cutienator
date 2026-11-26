@@ -9,6 +9,13 @@
     ],
     "ritual_ZN18QRandomGenerator64clEv": ["unsigned long long", "address"],
     "ritual_ZN18QRandomGenerator64C1Ej": ["address", "unsigned int"],
+    "ritual_ZN18QRandomGenerator64C1EPKjx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QRandomGenerator64C1ERSt8seed_seq": ["address", "address"],
+    "ritual_ZN18QRandomGenerator64C1EPKjS1_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18QRandomGenerator64C1ERK16QRandomGenerator": [
       "address", "address"
     ],

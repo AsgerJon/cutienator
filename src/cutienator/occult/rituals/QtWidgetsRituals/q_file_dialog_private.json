@@ -81,6 +81,9 @@
     "ritual_ZN18QFileDialogPrivate19restoreFromSettingsEv": [
       "bool", "address"
     ],
+    "ritual_ZN18QFileDialogPrivate18restoreWidgetStateER5QListI7QStringEi": [
+      "bool", "address", "address", "int"
+    ],
     "ritual_ZN18QFileDialogPrivate23setLastVisitedDirectoryERK4QUrl": [
       "nothing", "address"
     ],
@@ -99,6 +102,9 @@
     "ritual_ZN18QFileDialogPrivate6goHomeEv": ["nothing", "address"],
     "ritual_ZN18QFileDialogPrivate11pathChangedERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN18QFileDialogPrivate8navigateERNS_11HistoryItemE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN18QFileDialogPrivate16navigateBackwardEv": [
       "nothing", "address"

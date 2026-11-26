@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQStyleKitVariation10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQStyleKitVariation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQStyleKitVariation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQStyleKitVariation21qt_qmlMarker_attachedEv": [
       "nothing", "address"
     ],
@@ -13,6 +19,7 @@
       "nothing", "address"
     ],
     "ritual_ZNK19QQStyleKitVariation4nameEv": ["text", "address"],
+    "ritual_ZN19QQStyleKitVariation11nameChangedEv": ["nothing", "address"],
     "ritual_ZN19QQStyleKitVariation23resetVariationsForStyleEP15QQStyleKitStyle": [
       "nothing", "address"
     ]

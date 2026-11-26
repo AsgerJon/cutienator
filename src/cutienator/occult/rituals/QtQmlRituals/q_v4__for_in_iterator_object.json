@@ -14,6 +14,12 @@
     "ritual_ZNK3QV419ForInIteratorObject1dEv": ["address", "address"],
     "ritual_ZN3QV419ForInIteratorObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV419ForInIteratorObject14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV419ForInIteratorObject12nextPropertyEv": [
+      "address", "address"
     ]
   }
 }

@@ -6,6 +6,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgfilter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtSvg/6.12.0/QtSvg/private/qsvghelper_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qimage.h>
 #include <QtCore/qrect.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -96,6 +100,26 @@ public:
   }
 };
 
+//  QSvgFeColorMatrix::QSvgFeColorMatrix(QSvgNode *parent, const QString
+//      &input, const QString &result, const QSvgRectF &rect, ColorShiftType
+//      type, const Matrix &matrix)
+extern "C" Q_DECL_EXPORT
+QSvgFeColorMatrix *ritual_ZN17QSvgFeColorMatrixC1EP8QSvgNodeRK7QStringS4_RK9QSvgRectFNS_14ColorShiftTypeERK14QGenericMatrixILi5ELi5EdE(
+    QSvgNode *parent,
+    const QString *input,
+    const QString *result,
+    const QSvgRectF *rect,
+    QSvgFeColorMatrix::ColorShiftType type,
+    const QSvgFeColorMatrix::Matrix *matrix) {
+  return new CuteQSvgFeColorMatrix(
+      parent,
+      *input,
+      *result,
+      *rect,
+      type,
+      *matrix);
+}
+
 //  QSvgFeColorMatrix::~QSvgFeColorMatrix()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QSvgFeColorMatrixD1Ev(QSvgFeColorMatrix *self) {
@@ -131,6 +155,13 @@ QImage *ritual_ZNK17QSvgFeColorMatrix5applyERK4QMapI7QString6QImageEP8QPainterRK
           filterUnits));
 }
 
+//  Matrix QSvgFeColorMatrix::matrix() const
+extern "C" Q_DECL_EXPORT
+QSvgFeColorMatrix::Matrix *ritual_ZNK17QSvgFeColorMatrix6matrixEv(
+    const QSvgFeColorMatrix *self) {
+  return new QSvgFeColorMatrix::Matrix(self->matrix());
+}
+
 //  a Python function taken by a CuteQSvgFeColorMatrix, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -146,4 +177,11 @@ extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_own_ZNK17QSvgFeColorMatrix4typeEv(
     const QSvgFeColorMatrix *self) {
   return self->QSvgFeColorMatrix::type();
+}
+
+//  a QSvgFeColorMatrix::Matrix a ritual of QSvgFeColorMatrix gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSvgFeColorMatrix__QSvgFeColorMatrix_Matrix(
+    QSvgFeColorMatrix::Matrix *self) {
+  delete self;
 }

@@ -72,6 +72,20 @@ public:
   }
 };
 
+//  void QMetalGraphicsPipeline::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QMetalGraphicsPipeline7destroyEv(
+    QMetalGraphicsPipeline *self) {
+  self->destroy();
+}
+
+//  bool QMetalGraphicsPipeline::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QMetalGraphicsPipeline6createEv(
+    QMetalGraphicsPipeline *self) {
+  return self->create();
+}
+
 //  a Python function taken by a CuteQMetalGraphicsPipeline, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

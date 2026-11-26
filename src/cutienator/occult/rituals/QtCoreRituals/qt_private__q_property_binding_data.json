@@ -1,18 +1,29 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qpropertyprivate.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qpropertyprivate.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZN9QtPrivate20QPropertyBindingDataC1Ev": ["address"],
+    "ritual_ZN9QtPrivate20QPropertyBindingDataC1EOS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate20QPropertyBindingDataD1Ev": ["nothing", "address"],
     "ritual_ZNK9QtPrivate20QPropertyBindingData10hasBindingEv": [
       "bool", "address"
     ],
     "ritual_ZNK9QtPrivate20QPropertyBindingData21isNotificationDelayedEv": [
       "bool", "address"
     ],
+    "ritual_ZN9QtPrivate20QPropertyBindingData10setBindingERK23QUntypedPropertyBindingP20QUntypedPropertyDataPFvS5_EPFb9QMetaTypeS5_NS_24QPropertyBindingFunctionEE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK9QtPrivate20QPropertyBindingData7bindingEv": [
       "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData15evaluateIfDirtyEPK20QUntypedPropertyData": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN9QtPrivate20QPropertyBindingData13removeBindingEv": [
       "nothing", "address"
@@ -20,10 +31,31 @@
     "ritual_ZNK9QtPrivate20QPropertyBindingData38registerWithCurrentlyEvaluatingBindingEPNS_22BindingEvaluationStateE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData38registerWithCurrentlyEvaluatingBindingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData15notifyObserversEP20QUntypedPropertyData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData15notifyObserversEP20QUntypedPropertyDataP15QBindingStorage": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK9QtPrivate20QPropertyBindingData1dEv": [
       "unsigned long long", "address"
     ],
     "ritual_ZNK9QtPrivate20QPropertyBindingData9proxyDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData45registerWithCurrentlyEvaluatingBinding_helperEPNS_22BindingEvaluationStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate20QPropertyBindingData20removeBinding_helperEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData21notifyObserver_helperEP20QUntypedPropertyDataP15QBindingStorage24QPropertyObserverPointerR15QVarLengthArrayI26QPropertyBindingPrivatePtrLx256EE": [
+      "int", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData5d_refEv": [
       "address", "address"
     ]
   }

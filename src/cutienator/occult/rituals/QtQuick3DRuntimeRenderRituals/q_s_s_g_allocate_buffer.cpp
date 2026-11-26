@@ -46,6 +46,14 @@ QSSGAllocateBuffer *ritual_ZN18QSSGAllocateBufferC1ERKS_(
   return new QSSGAllocateBuffer(*command);
 }
 
+//  void QSSGAllocateBuffer::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18QSSGAllocateBuffer8addDebugER6QDebug(
+    const QSSGAllocateBuffer *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGAllocateBuffer::~QSSGAllocateBuffer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QSSGAllocateBufferD1Ev(QSSGAllocateBuffer *self) {

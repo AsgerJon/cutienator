@@ -19,6 +19,15 @@ QDomEntityReference *ritual_ZN19QDomEntityReferenceC1ERKS_(
   return new QDomEntityReference(*entityReference);
 }
 
+//  QDomEntityReference &QDomEntityReference::operator=(const
+//      QDomEntityReference &other)
+extern "C" Q_DECL_EXPORT
+QDomEntityReference *ritual_ZN19QDomEntityReferenceaSERKS_(
+    QDomEntityReference *self,
+    const QDomEntityReference *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDomNode::NodeType QDomEntityReference::nodeType() const
 extern "C" Q_DECL_EXPORT
 QDomNode::NodeType ritual_ZNK19QDomEntityReference8nodeTypeEv(

@@ -7,6 +7,7 @@
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <cstring>
 
 //  A QQmlJS::AST::Type that Python can take functions over in. Every QQmlJS::AST::Type
@@ -199,6 +200,23 @@ public:
   }
 };
 
+//  QQmlJS::AST::Type::Type(UiQualifiedId *typeId, Type *typeArgument)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::Type *ritual_ZN6QQmlJS3AST4TypeC1EPNS0_13UiQualifiedIdEPS1_(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiQualifiedId *typeId,
+    QQmlJS::AST::Type *typeArgument) {
+  return new (pool) CuteQQmlJS_AST_Type(typeId, typeArgument);
+}
+
+//  void QQmlJS::AST::Type::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST4Type7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::Type *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::Type::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST4Type19firstSourceLocationEv(
@@ -211,6 +229,21 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST4Type18lastSourceLocationEv(
     const QQmlJS::AST::Type *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  QString QQmlJS::AST::Type::toString() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK6QQmlJS3AST4Type8toStringEv(
+    const QQmlJS::AST::Type *self) {
+  return new QString(self->toString());
+}
+
+//  void QQmlJS::AST::Type::toString(QString *out) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK6QQmlJS3AST4Type8toStringEP7QString(
+    const QQmlJS::AST::Type *self,
+    QString *out) {
+  self->toString(out);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_Type, for the function named

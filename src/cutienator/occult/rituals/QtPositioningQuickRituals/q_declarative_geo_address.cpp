@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK22QDeclarativeGeoAddress10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoAddress::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QDeclarativeGeoAddress11qt_metacastEPKc(
+    QDeclarativeGeoAddress *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoAddress::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QDeclarativeGeoAddress11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoAddress *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoAddress::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QDeclarativeGeoAddress2trEPKcS1_i(
@@ -211,4 +230,81 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK22QDeclarativeGeoAddress15isTextGeneratedEv(
     const QDeclarativeGeoAddress *self) {
   return self->isTextGenerated();
+}
+
+//  void QDeclarativeGeoAddress::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress11textChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->textChanged();
+}
+
+//  void QDeclarativeGeoAddress::countryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress14countryChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->countryChanged();
+}
+
+//  void QDeclarativeGeoAddress::countryCodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress18countryCodeChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->countryCodeChanged();
+}
+
+//  void QDeclarativeGeoAddress::stateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress12stateChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->stateChanged();
+}
+
+//  void QDeclarativeGeoAddress::countyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress13countyChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->countyChanged();
+}
+
+//  void QDeclarativeGeoAddress::cityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress11cityChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->cityChanged();
+}
+
+//  void QDeclarativeGeoAddress::districtChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress15districtChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->districtChanged();
+}
+
+//  void QDeclarativeGeoAddress::streetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress13streetChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->streetChanged();
+}
+
+//  void QDeclarativeGeoAddress::streetNumberChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress19streetNumberChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->streetNumberChanged();
+}
+
+//  void QDeclarativeGeoAddress::postalCodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress17postalCodeChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->postalCodeChanged();
+}
+
+//  void QDeclarativeGeoAddress::isTextGeneratedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QDeclarativeGeoAddress22isTextGeneratedChangedEv(
+    QDeclarativeGeoAddress *self) {
+  self->isTextGeneratedChanged();
 }

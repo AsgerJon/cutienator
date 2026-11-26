@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquickprofiler_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquickprofiler_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25: added by hand, instances of templates of the class:
+//  26. Kept as it is when the generator runs again.
 #include <QtQml/qtqmlglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
@@ -15,6 +16,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qelapsedtimer.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QQuickProfiler that Python can take functions over in. Every QQuickProfiler
@@ -191,6 +193,24 @@ const QMetaObject *ritual_ZNK14QQuickProfiler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickProfiler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickProfiler11qt_metacastEPKc(
+    QQuickProfiler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickProfiler::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickProfiler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickProfiler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickProfiler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickProfiler2trEPKcS1_i(
@@ -240,6 +260,14 @@ void ritual_ZN14QQuickProfiler10initializeEP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickProfilerD1Ev(QQuickProfiler *self) {
   delete self;
+}
+
+//  void QQuickProfiler::dataReady(const QList<QQuickProfilerData> &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler9dataReadyERK5QListI18QQuickProfilerDataE(
+    QQuickProfiler *self,
+    const QList<QQuickProfilerData> *data) {
+  self->dataReady(*data);
 }
 
 //  QQuickProfiler::QQuickProfiler(QObject *parent)
@@ -299,6 +327,268 @@ bool ritual_take_QQuickProfiler(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickProfiler *>(self)->take(key, call);
+}
+
+//  static void QQuickProfiler::inputEvent<QQuickProfiler::Mouse,
+//      QQuickProfiler::InputMousePress>(int x, int y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler10inputEventILN23QQmlProfilerDefinitions9EventTypeE1ELNS1_14InputEventTypeE3EEEvii(
+    int x,
+    int y) {
+  QQuickProfiler::inputEvent<QQuickProfiler::Mouse,
+      QQuickProfiler::InputMousePress>(x, y);
+}
+
+//  static void QQuickProfiler::inputEvent<QQuickProfiler::Mouse,
+//      QQuickProfiler::InputMouseRelease>(int x, int y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler10inputEventILN23QQmlProfilerDefinitions9EventTypeE1ELNS1_14InputEventTypeE4EEEvii(
+    int x,
+    int y) {
+  QQuickProfiler::inputEvent<QQuickProfiler::Mouse,
+      QQuickProfiler::InputMouseRelease>(x, y);
+}
+
+//  static void QQuickProfiler::inputEvent<QQuickProfiler::Mouse,
+//      QQuickProfiler::InputMouseWheel>(int x, int y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler10inputEventILN23QQmlProfilerDefinitions9EventTypeE1ELNS1_14InputEventTypeE7EEEvii(
+    int x,
+    int y) {
+  QQuickProfiler::inputEvent<QQuickProfiler::Mouse,
+      QQuickProfiler::InputMouseWheel>(x, y);
+}
+
+//  static void QQuickProfiler::inputEvent<QQuickProfiler::Key,
+//      QQuickProfiler::InputKeyPress>(int x, int y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler10inputEventILN23QQmlProfilerDefinitions9EventTypeE2ELNS1_14InputEventTypeE0EEEvii(
+    int x,
+    int y) {
+  QQuickProfiler::inputEvent<QQuickProfiler::Key,
+      QQuickProfiler::InputKeyPress>(x, y);
+}
+
+//  static void QQuickProfiler::inputEvent<QQuickProfiler::Key,
+//      QQuickProfiler::InputKeyRelease>(int x, int y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler10inputEventILN23QQmlProfilerDefinitions9EventTypeE2ELNS1_14InputEventTypeE1EEEvii(
+    int x,
+    int y) {
+  QQuickProfiler::inputEvent<QQuickProfiler::Key,
+      QQuickProfiler::InputKeyRelease>(x, y);
+}
+
+//  static void
+//      QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphRendererFrame>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler20startSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE0EEEvv(
+    ) {
+  QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphRendererFrame>();
+}
+
+//  static void
+//      QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphAdaptationLayerFrame>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler20startSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE1EEEvv(
+    ) {
+  QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphAdaptationLayerFrame>();
+}
+
+//  static void
+//      QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphRenderLoopFrame>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler20startSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE3EEEvv(
+    ) {
+  QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphRenderLoopFrame>();
+}
+
+//  static void
+//      QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphPolishAndSync>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler20startSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE6EEEvv(
+    ) {
+  QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphPolishAndSync>();
+}
+
+//  static void
+//      QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphPolishFrame>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler20startSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE9EEEvv(
+    ) {
+  QQuickProfiler::startSceneGraphFrame<QQuickProfiler::SceneGraphPolishFrame>();
+}
+
+//  static void
+//      QQuickProfiler::recordSceneGraphTimestamp<QQuickProfiler::SceneGraphRendererFrame>(uint
+//      position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler25recordSceneGraphTimestampILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE0EEEvj(
+    unsigned int position) {
+  QQuickProfiler::recordSceneGraphTimestamp<
+      QQuickProfiler::SceneGraphRendererFrame>(position);
+}
+
+//  static void
+//      QQuickProfiler::recordSceneGraphTimestamp<QQuickProfiler::SceneGraphAdaptationLayerFrame>(uint
+//      position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler25recordSceneGraphTimestampILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE1EEEvj(
+    unsigned int position) {
+  QQuickProfiler::recordSceneGraphTimestamp<
+      QQuickProfiler::SceneGraphAdaptationLayerFrame>(position);
+}
+
+//  static void
+//      QQuickProfiler::recordSceneGraphTimestamp<QQuickProfiler::SceneGraphRenderLoopFrame>(uint
+//      position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler25recordSceneGraphTimestampILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE3EEEvj(
+    unsigned int position) {
+  QQuickProfiler::recordSceneGraphTimestamp<
+      QQuickProfiler::SceneGraphRenderLoopFrame>(position);
+}
+
+//  static void
+//      QQuickProfiler::recordSceneGraphTimestamp<QQuickProfiler::SceneGraphPolishAndSync>(uint
+//      position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler25recordSceneGraphTimestampILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE6EEEvj(
+    unsigned int position) {
+  QQuickProfiler::recordSceneGraphTimestamp<
+      QQuickProfiler::SceneGraphPolishAndSync>(position);
+}
+
+//  static void
+//      QQuickProfiler::recordSceneGraphTimestamp<QQuickProfiler::SceneGraphPolishFrame>(uint
+//      position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler25recordSceneGraphTimestampILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE9EEEvj(
+    unsigned int position) {
+  QQuickProfiler::recordSceneGraphTimestamp<
+      QQuickProfiler::SceneGraphPolishFrame>(position);
+}
+
+//  static void
+//      QQuickProfiler::skipSceneGraphTimestamps<QQuickProfiler::SceneGraphRenderLoopFrame,
+//      1>(uint position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler24skipSceneGraphTimestampsILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE3ELj1EEEvj(
+    unsigned int position) {
+  QQuickProfiler::skipSceneGraphTimestamps<
+      QQuickProfiler::SceneGraphRenderLoopFrame, 1>(position);
+}
+
+//  static void
+//      QQuickProfiler::reportSceneGraphFrame<QQuickProfiler::SceneGraphRenderLoopFrame,
+//      true>(uint position, quint64 payload)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler21reportSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE3ELb1EEEvjy(
+    unsigned int position,
+    long long payload) {
+  QQuickProfiler::reportSceneGraphFrame<
+      QQuickProfiler::SceneGraphRenderLoopFrame, true>(
+      position, static_cast<quint64>(payload));
+}
+
+//  static void
+//      QQuickProfiler::reportSceneGraphFrame<QQuickProfiler::SceneGraphRenderLoopFrame,
+//      false>(uint position, quint64 payload)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler21reportSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE3ELb0EEEvjy(
+    unsigned int position,
+    long long payload) {
+  QQuickProfiler::reportSceneGraphFrame<
+      QQuickProfiler::SceneGraphRenderLoopFrame, false>(
+      position, static_cast<quint64>(payload));
+}
+
+//  static void
+//      QQuickProfiler::reportSceneGraphFrame<QQuickProfiler::SceneGraphRendererFrame,
+//      true>(uint position, quint64 payload)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler21reportSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE0ELb1EEEvjy(
+    unsigned int position,
+    long long payload) {
+  QQuickProfiler::reportSceneGraphFrame<
+      QQuickProfiler::SceneGraphRendererFrame, true>(
+      position, static_cast<quint64>(payload));
+}
+
+//  static void
+//      QQuickProfiler::reportSceneGraphFrame<QQuickProfiler::SceneGraphPolishAndSync,
+//      true>(uint position, quint64 payload)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler21reportSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE6ELb1EEEvjy(
+    unsigned int position,
+    long long payload) {
+  QQuickProfiler::reportSceneGraphFrame<
+      QQuickProfiler::SceneGraphPolishAndSync, true>(
+      position, static_cast<quint64>(payload));
+}
+
+//  static void
+//      QQuickProfiler::reportSceneGraphFrame<QQuickProfiler::SceneGraphPolishFrame,
+//      true>(uint position, quint64 payload)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler21reportSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE9ELb1EEEvjy(
+    unsigned int position,
+    long long payload) {
+  QQuickProfiler::reportSceneGraphFrame<
+      QQuickProfiler::SceneGraphPolishFrame, true>(
+      position, static_cast<quint64>(payload));
+}
+
+//  static void
+//      QQuickProfiler::reportSceneGraphFrame<QQuickProfiler::SceneGraphPolishFrame,
+//      true, QQuickProfiler::SceneGraphRenderLoopFrame>(uint position,
+//      quint64 payload)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler21reportSceneGraphFrameILN23QQmlProfilerDefinitions19SceneGraphFrameTypeE9ELb1ELS2_3EEEvjy(
+    unsigned int position,
+    long long payload) {
+  QQuickProfiler::reportSceneGraphFrame<
+      QQuickProfiler::SceneGraphPolishFrame, true,
+      QQuickProfiler::SceneGraphRenderLoopFrame>(
+      position, static_cast<quint64>(payload));
+}
+
+//  static void
+//      QQuickProfiler::pixmapStateChanged<QQuickProfiler::PixmapLoadingStarted>(const
+//      QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler18pixmapStateChangedILN23QQmlProfilerDefinitions15PixmapEventTypeE3EEEvRK4QUrl(
+    const QUrl *url) {
+  QQuickProfiler::pixmapStateChanged<QQuickProfiler::PixmapLoadingStarted>(*url);
+}
+
+//  static void
+//      QQuickProfiler::pixmapStateChanged<QQuickProfiler::PixmapLoadingError>(const
+//      QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler18pixmapStateChangedILN23QQmlProfilerDefinitions15PixmapEventTypeE5EEEvRK4QUrl(
+    const QUrl *url) {
+  QQuickProfiler::pixmapStateChanged<QQuickProfiler::PixmapLoadingError>(*url);
+}
+
+//  static void
+//      QQuickProfiler::pixmapCountChanged<QQuickProfiler::PixmapReferenceCountChanged>(const
+//      QUrl &url, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler18pixmapCountChangedILN23QQmlProfilerDefinitions15PixmapEventTypeE1EEEvRK4QUrli(
+    const QUrl *url,
+    int count) {
+  QQuickProfiler::pixmapCountChanged<QQuickProfiler::PixmapReferenceCountChanged>(*url, count);
+}
+
+//  static void
+//      QQuickProfiler::pixmapCountChanged<QQuickProfiler::PixmapCacheCountChanged>(const
+//      QUrl &url, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickProfiler18pixmapCountChangedILN23QQmlProfilerDefinitions15PixmapEventTypeE2EEEvRK4QUrli(
+    const QUrl *url,
+    int count) {
+  QQuickProfiler::pixmapCountChanged<QQuickProfiler::PixmapCacheCountChanged>(*url, count);
 }
 
 #endif  // !(!QT_CONFIG(qml_debug))

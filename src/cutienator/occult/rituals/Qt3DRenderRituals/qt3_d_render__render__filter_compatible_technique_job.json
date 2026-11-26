@@ -5,6 +5,24 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render28FilterCompatibleTechniqueJobC1Ev": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render28FilterCompatibleTechniqueJob10setManagerEPNS0_16TechniqueManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render28FilterCompatibleTechniqueJob7managerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render28FilterCompatibleTechniqueJob11setRendererEPNS0_16AbstractRendererE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render28FilterCompatibleTechniqueJob8rendererEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render28FilterCompatibleTechniqueJob3runEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN10Qt3DRender6Render28FilterCompatibleTechniqueJob3runEv": [
       "nothing", "address"
     ]

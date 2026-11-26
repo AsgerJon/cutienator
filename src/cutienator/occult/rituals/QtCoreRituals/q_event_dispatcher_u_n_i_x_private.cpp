@@ -5,10 +5,12 @@
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if defined(Q_OS_UNIX) && !defined(Q_OS_WASM)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if defined(Q_OS_UNIX) && !defined(Q_OS_WASM)
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qeventdispatcher_unix_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 
 //  QEventDispatcherUNIX *QEventDispatcherUNIXPrivate::q_func()
 extern "C" Q_DECL_EXPORT

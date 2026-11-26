@@ -8,8 +8,29 @@
     "ritual_ZNK17QtVirtualKeyboard11UnipenTrace10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard11UnipenTrace11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard11UnipenTrace11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard11UnipenTrace2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard11UnipenTraceC1ERK4QMapI7QString8QVariantES6_P7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard11UnipenTrace6recordERK5QListIP21QVirtualKeyboardTraceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard11UnipenTrace4saveEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard11UnipenTrace9directoryEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard11UnipenTrace12setDirectoryERK7QString": [
+      "nothing", "address", "text"
     ]
   }
 }

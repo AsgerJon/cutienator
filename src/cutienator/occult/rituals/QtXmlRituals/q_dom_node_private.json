@@ -57,6 +57,15 @@
     "ritual_ZNK15QDomNodePrivate15isCharacterDataEv": ["bool", "address"],
     "ritual_ZNK15QDomNodePrivate9isCommentEv": ["bool", "address"],
     "ritual_ZNK15QDomNodePrivate8nodeTypeEv": ["int", "address"],
+    "ritual_ZNK15QDomNodePrivate11saveSubTreeEPKS_R11QTextStreamii": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK15QDomNodePrivate4saveER11QTextStreamii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK15QDomNodePrivate9afterSaveER11QTextStreamii": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZN15QDomNodePrivate11setLocationEii": [
       "nothing", "address", "int", "int"
     ],
@@ -79,6 +88,7 @@
     "ritual_own_ZN15QDomNodePrivate11appendChildEPS_": [
       "address", "address", "address"
     ],
+    "ritual_own_ZN15QDomNodePrivate9normalizeEv": ["nothing", "address"],
     "ritual_own_ZN15QDomNodePrivate5clearEv": ["nothing", "address"],
     "ritual_own_ZNK15QDomNodePrivate8nodeTypeEv": ["int", "address"]
   }

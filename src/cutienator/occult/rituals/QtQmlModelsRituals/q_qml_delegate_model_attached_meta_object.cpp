@@ -38,6 +38,26 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1473, as _ZN24QQmlDelegateModelPrivate12removeGroupsEN18QQmlListCompositor8iteratorEiNS0_5GroupEi
+inline void QQmlDelegateModelPrivate::removeGroups(
+        Compositor::iterator from, int count, Compositor::Group group, int groupFlags)
+{
+    QList<Compositor::Remove> removes;
+    m_compositor.clearFlags(from, count, group, groupFlags, &removes);
+    itemsRemoved(removes);
+    emitChanges();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1464, as _ZN24QQmlDelegateModelPrivate9addGroupsEN18QQmlListCompositor8iteratorEiNS0_5GroupEi
+inline void QQmlDelegateModelPrivate::addGroups(
+        Compositor::iterator from, int count, Compositor::Group group, int groupFlags)
+{
+    QList<Compositor::Insert> inserts;
+    m_compositor.setFlags(from, count, group, groupFlags, &inserts);
+    itemsInserted(inserts);
+    emitChanges();
+}
+
 //  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 2657, as _ZN35QQmlDelegateModelAttachedMetaObjectD1Ev
 inline QQmlDelegateModelAttachedMetaObject::~QQmlDelegateModelAttachedMetaObject()
 {

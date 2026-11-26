@@ -7,10 +7,26 @@
     "ritual_ZNK10QtTaskTree15QStartedBarrier10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10QtTaskTree15QStartedBarrier11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QtTaskTree15QStartedBarrier11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QtTaskTree15QStartedBarrier2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN10QtTaskTree15QStartedBarrierC1Ev": ["address"],
+    "ritual_ZN10QtTaskTree15QStartedBarrierC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree15QStartedBarrierC1ExP7QObject": [
+      "address", "long long", "address"
+    ],
+    "ritual_ZN10QtTaskTree15QStartedBarrierD1Ev": ["nothing", "address"],
+    "ritual_ZN10QtTaskTree15QStartedBarrier5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
     "ritual_take_QtTaskTree_QStartedBarrier": [
       "bool", "address", "chars", "address"
     ],

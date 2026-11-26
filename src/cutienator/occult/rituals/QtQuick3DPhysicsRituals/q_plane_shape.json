@@ -6,12 +6,20 @@
   ],
   "rows": {
     "ritual_ZNK11QPlaneShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QPlaneShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QPlaneShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QPlaneShape2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QPlaneShapeC1Ev": ["address"],
     "ritual_ZN11QPlaneShapeD1Ev": ["nothing", "address"],
+    "ritual_ZN11QPlaneShape16getPhysXGeometryEv": ["address", "address"],
     "ritual_ZNK11QPlaneShape13isStaticShapeEv": ["bool", "address"],
     "ritual_ZN11QPlaneShape19updatePhysXGeometryEv": ["nothing", "address"],
     "ritual_take_QPlaneShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QPlaneShape16getPhysXGeometryEv": ["address", "address"],
     "ritual_own_ZNK11QPlaneShape13isStaticShapeEv": ["bool", "address"]
   }
 }

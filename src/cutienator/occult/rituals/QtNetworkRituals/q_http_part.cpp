@@ -26,6 +26,26 @@ void ritual_ZN9QHttpPartD1Ev(QHttpPart *self) {
   delete self;
 }
 
+//  QHttpPart &QHttpPart::operator=(QHttpPart &&other)
+extern "C" Q_DECL_EXPORT
+QHttpPart *ritual_ZN9QHttpPartaSEOS_(QHttpPart *self, QHttpPart *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QHttpPart &QHttpPart::operator=(const QHttpPart &other)
+extern "C" Q_DECL_EXPORT
+QHttpPart *ritual_ZN9QHttpPartaSERKS_(
+    QHttpPart *self,
+    const QHttpPart *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QHttpPart::swap(QHttpPart &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QHttpPart4swapERS_(QHttpPart *self, QHttpPart *other) {
+  self->swap(*other);
+}
+
 //  bool QHttpPart::operator==(const QHttpPart &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QHttpParteqERKS_(

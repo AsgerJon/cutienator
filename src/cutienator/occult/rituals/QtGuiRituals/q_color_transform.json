@@ -7,6 +7,10 @@
     "ritual_ZN15QColorTransformC1Ev": ["address"],
     "ritual_ZN15QColorTransformD1Ev": ["nothing", "address"],
     "ritual_ZN15QColorTransformC1ERKS_": ["address", "address"],
+    "ritual_ZN15QColorTransformC1EOS_": ["address", "address"],
+    "ritual_ZN15QColorTransformaSERKS_": ["address", "address", "address"],
+    "ritual_ZN15QColorTransformaSEOS_": ["address", "address", "address"],
+    "ritual_ZN15QColorTransform4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK15QColorTransform10isIdentityEv": ["bool", "address"],
     "ritual_ZNK15QColorTransform3mapEj": [
       "unsigned int", "address", "unsigned int"

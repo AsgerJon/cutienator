@@ -40,6 +40,39 @@ public:
   }
 };
 
+//  Qt3DInput::Input::BackendNode::BackendNode(Qt3DCore::QBackendNode::Mode
+//      mode)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::BackendNode *ritual_ZN9Qt3DInput5Input11BackendNodeC1EN8Qt3DCore12QBackendNode4ModeE(
+    Qt3DCore::QBackendNode::Mode mode) {
+  return new CuteQt3DInput_Input_BackendNode(mode);
+}
+
+//  Qt3DInput::Input::BackendNode::~BackendNode()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput5Input11BackendNodeD1Ev(
+    Qt3DInput::Input::BackendNode *self) {
+  delete self;
+}
+
+//  void Qt3DInput::Input::BackendNode::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput5Input11BackendNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DInput::Input::BackendNode *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  Qt3DInput::Input::BackendNode::BackendNode(Qt3DCore::QBackendNodePrivate
+//      &dd)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::BackendNode *ritual_ZN9Qt3DInput5Input11BackendNodeC1ERN8Qt3DCore19QBackendNodePrivateE(
+    Qt3DCore::QBackendNodePrivate *dd) {
+  return new CuteQt3DInput_Input_BackendNode(*dd);
+}
+
 //  a Python function taken by a CuteQt3DInput_Input_BackendNode, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

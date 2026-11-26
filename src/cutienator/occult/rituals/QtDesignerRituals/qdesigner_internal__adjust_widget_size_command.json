@@ -5,6 +5,24 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal23AdjustWidgetSizeCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23AdjustWidgetSizeCommand4initEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23AdjustWidgetSizeCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23AdjustWidgetSizeCommand4undoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23AdjustWidgetSizeCommand15widgetForAdjustEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23AdjustWidgetSizeCommand20updatePropertyEditorEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN18qdesigner_internal23AdjustWidgetSizeCommand4redoEv": [
       "nothing", "address"
     ],

@@ -30,21 +30,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/util/qquickanimatorjob.cpp, line 393, as _ZN26QQuickTransformAnimatorJob6Helper6commitEv
-inline void QQuickTransformAnimatorJob::Helper::commit()
+//  from ../qtdeclarative/src/quick/util/qquickanimatorjob.cpp, line 341, as _ZN26QQuickTransformAnimatorJob10invalidateEv
+inline void QQuickTransformAnimatorJob::invalidate()
 {
-    if (!wasChanged || !node)
-        return;
-
-    QMatrix4x4 m;
-    m.translate(dx, dy);
-    m.translate(ox, oy);
-    m.scale(scale);
-    m.rotate(rotation, 0, 0, 1);
-    m.translate(-ox, -oy);
-    node->setMatrix(m);
-
-    wasChanged = false;
+    if (m_helper)
+        m_helper->node = nullptr;
 }
 
 //  from ../qtdeclarative/src/quick/util/qquickanimatorjob.cpp, line 409, as _ZN26QQuickTransformAnimatorJob6commitEv
@@ -65,11 +55,21 @@ inline void QQuickTransformAnimatorJob::setTarget(QQuickItem *item)
     QQuickAnimatorJob::setTarget(item);
 }
 
-//  from ../qtdeclarative/src/quick/util/qquickanimatorjob.cpp, line 341, as _ZN26QQuickTransformAnimatorJob10invalidateEv
-inline void QQuickTransformAnimatorJob::invalidate()
+//  from ../qtdeclarative/src/quick/util/qquickanimatorjob.cpp, line 393, as _ZN26QQuickTransformAnimatorJob6Helper6commitEv
+inline void QQuickTransformAnimatorJob::Helper::commit()
 {
-    if (m_helper)
-        m_helper->node = nullptr;
+    if (!wasChanged || !node)
+        return;
+
+    QMatrix4x4 m;
+    m.translate(dx, dy);
+    m.translate(ox, oy);
+    m.scale(scale);
+    m.rotate(rotation, 0, 0, 1);
+    m.translate(-ox, -oy);
+    node->setMatrix(m);
+
+    wasChanged = false;
 }
 //  -----------------------------------------------------------------------
 
@@ -367,6 +367,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QQuickTransformAnimatorJob6commitEv(
     QQuickTransformAnimatorJob *self) {
   self->commit();
+}
+
+//  void QQuickTransformAnimatorJob::preSync()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickTransformAnimatorJob7preSyncEv(
+    QQuickTransformAnimatorJob *self) {
+  self->preSync();
 }
 
 //  void QQuickTransformAnimatorJob::setTarget(QQuickItem *item)

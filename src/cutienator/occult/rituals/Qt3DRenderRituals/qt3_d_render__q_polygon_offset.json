@@ -8,8 +8,36 @@
     "ritual_ZNK10Qt3DRender14QPolygonOffset10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender14QPolygonOffset11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender14QPolygonOffset11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender14QPolygonOffset2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QPolygonOffsetC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QPolygonOffsetD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender14QPolygonOffset11scaleFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QPolygonOffset10depthStepsEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QPolygonOffset14setScaleFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender14QPolygonOffset13setDepthStepsEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender14QPolygonOffset18scaleFactorChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender14QPolygonOffset17depthStepsChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN10Qt3DRender14QPolygonOffset6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender14QPolygonOffset6d_funcEv": [

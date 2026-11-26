@@ -7,6 +7,21 @@
   "rows": {
     "ritual_ZN3QV413ConsoleObject10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV413ConsoleObject11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV413ConsoleObject1dEv": ["address", "address"]
+    "ritual_ZNK3QV413ConsoleObject1dEv": ["address", "address"],
+    "ritual_ZN3QV413ConsoleObject14method_profileEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413ConsoleObject17method_profileEndEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413ConsoleObject11method_timeEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413ConsoleObject14method_timeEndEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413ConsoleObject12method_countEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

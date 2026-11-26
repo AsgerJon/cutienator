@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qcustom3dlabel.h>
@@ -25,6 +25,45 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 635, as _ZN20QCustom3DItemPrivateC2Ev
+inline QCustom3DItemPrivate::QCustom3DItemPrivate()
+    : m_textureImage(QImage(1, 1, QImage::Format_ARGB32))
+    , m_position(QVector3D(0.0f, 0.0f, 0.0f))
+    , m_positionAbsolute(false)
+    , m_scaling(QVector3D(0.1f, 0.1f, 0.1f))
+    , m_scalingAbsolute(true)
+    , m_rotation(QQuaternion())
+    , m_visible(true)
+    , m_shadowCasting(true)
+    , m_isLabelItem(false)
+    , m_isVolumeItem(false)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 666, as _ZN20QCustom3DItemPrivateD2Ev
+inline QCustom3DItemPrivate::~QCustom3DItemPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3dlabel.cpp, line 385, as _ZN21QCustom3DLabelPrivateD1Ev
+inline QCustom3DLabelPrivate::~QCustom3DLabelPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 648, as _ZN20QCustom3DItemPrivateC2ERK7QString9QVector3DS3_RK11QQuaternion
+inline QCustom3DItemPrivate::QCustom3DItemPrivate(const QString &meshFile,
+                                           QVector3D position,
+                                           QVector3D scaling,
+                                           const QQuaternion &rotation)
+    : m_textureImage(QImage(1, 1, QImage::Format_ARGB32))
+    , m_meshFile(meshFile)
+    , m_position(position)
+    , m_positionAbsolute(false)
+    , m_scaling(scaling)
+    , m_scalingAbsolute(true)
+    , m_rotation(rotation)
+    , m_rotationAbsolute(true)
+    , m_visible(true)
+    , m_shadowCasting(true)
+    , m_isLabelItem(false)
+    , m_isVolumeItem(false)
+{}
+
 //  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 679, as _ZN20QCustom3DItemPrivate14resetDirtyBitsEv
 inline void QCustom3DItemPrivate::resetDirtyBits()
 {
@@ -35,6 +74,22 @@ inline void QCustom3DItemPrivate::resetDirtyBits()
     m_dirtyBits.rotationDirty = false;
     m_dirtyBits.visibleDirty = false;
     m_dirtyBits.shadowCastingDirty = false;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3dlabel.cpp, line 350, as _ZN21QCustom3DLabelPrivateC1Ev
+inline QCustom3DLabelPrivate::QCustom3DLabelPrivate()
+    : m_font(QFont(QStringLiteral("Arial"), 20))
+    , m_bgrColor(Qt::gray)
+    , m_txtColor(Qt::white)
+    , m_background(true)
+    , m_borders(true)
+    , m_facingCamera(false)
+    , m_customVisuals(false)
+    , m_facingCameraDirty(false)
+{
+    m_isLabelItem = true;
+    m_shadowCasting = false;
+    m_meshFile = QStringLiteral(":/defaultMeshes/plane");
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qcustom3dlabel.cpp, line 387, as _ZN21QCustom3DLabelPrivate14resetDirtyBitsEv
@@ -59,6 +114,18 @@ const QCustom3DLabel *ritual_ZNK21QCustom3DLabelPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QCustom3DLabelPrivate::QCustom3DLabelPrivate()
+extern "C" Q_DECL_EXPORT
+QCustom3DLabelPrivate *ritual_ZN21QCustom3DLabelPrivateC1Ev() {
+  return new QCustom3DLabelPrivate();
+}
+
+//  QCustom3DLabelPrivate::~QCustom3DLabelPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCustom3DLabelPrivateD1Ev(QCustom3DLabelPrivate *self) {
+  delete self;
+}
+
 //  void QCustom3DLabelPrivate::resetDirtyBits()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QCustom3DLabelPrivate14resetDirtyBitsEv(
@@ -66,4 +133,4 @@ void ritual_ZN21QCustom3DLabelPrivate14resetDirtyBitsEv(
   self->resetDirtyBits();
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

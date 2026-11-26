@@ -14,6 +14,16 @@
       "address", "text", "text", "address", "address"
     ],
     "ritual_ZN24QOpcUaGenericStructValueC1ERKS_": ["address", "address"],
+    "ritual_ZN24QOpcUaGenericStructValueC1EOS_": ["address", "address"],
+    "ritual_ZN24QOpcUaGenericStructValueaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaGenericStructValue4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QOpcUaGenericStructValueaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK24QOpcUaGenericStructValuecv8QVariantEv": [
       "address", "address"
     ],
@@ -32,6 +42,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK24QOpcUaGenericStructValue6fieldsEv": ["address", "address"],
+    "ritual_ZN24QOpcUaGenericStructValue9fieldsRefEv": [
+      "address", "address"
+    ],
     "ritual_ZN24QOpcUaGenericStructValue9setFieldsERK5QHashI7QString8QVariantE": [
       "nothing", "address", "address"
     ],

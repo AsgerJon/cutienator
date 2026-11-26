@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickPathInterpolator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickPathInterpolator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickPathInterpolator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickPathInterpolator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -23,6 +29,17 @@
     "ritual_ZNK22QQuickPathInterpolator1xEv": ["double", "address"],
     "ritual_ZNK22QQuickPathInterpolator1yEv": ["double", "address"],
     "ritual_ZNK22QQuickPathInterpolator5angleEv": ["double", "address"],
+    "ritual_ZN22QQuickPathInterpolator11pathChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickPathInterpolator15progressChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickPathInterpolator8xChangedEv": ["nothing", "address"],
+    "ritual_ZN22QQuickPathInterpolator8yChangedEv": ["nothing", "address"],
+    "ritual_ZN22QQuickPathInterpolator12angleChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN22QQuickPathInterpolator14_q_pathUpdatedEv": [
       "nothing", "address"
     ]

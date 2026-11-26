@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickCustomAffector10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickCustomAffector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickCustomAffector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickCustomAffector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,21 @@
       "nothing", "address"
     ],
     "ritual_ZNK20QQuickCustomAffector8relativeEv": ["bool", "address"],
+    "ritual_ZN20QQuickCustomAffector15affectParticlesERK5QListI20QQuickV4ParticleDataEd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN20QQuickCustomAffector15positionChangedEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector15velocityChangedEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector19accelerationChangedEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector15relativeChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN20QQuickCustomAffector11setPositionEP15QQuickDirection": [
       "nothing", "address", "address"
     ],

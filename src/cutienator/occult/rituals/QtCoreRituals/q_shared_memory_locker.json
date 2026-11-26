@@ -8,6 +8,13 @@
     "ritual_ZN19QSharedMemoryLockerC1EP13QSharedMemory": [
       "address", "address"
     ],
+    "ritual_ZN19QSharedMemoryLockerC1EOS_": ["address", "address"],
+    "ritual_ZN19QSharedMemoryLockeraSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QSharedMemoryLocker4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QSharedMemoryLockerD1Ev": ["nothing", "address"],
     "ritual_ZN19QSharedMemoryLocker4lockEv": ["bool", "address"]
   }

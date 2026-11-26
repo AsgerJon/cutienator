@@ -8,6 +8,9 @@
     "ritual_ZN3QV420ArrayElementLessThanC1EPNS_15ExecutionEngineERKNS_5ValueE": [
       "address", "address", "address"
     ],
+    "ritual_ZNK3QV420ArrayElementLessThanclENS_5ValueES1_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN3QV420ArrayElementLessThanD1Ev": ["nothing", "address"]
   }
 }

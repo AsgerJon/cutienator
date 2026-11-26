@@ -8,8 +8,17 @@
     "ritual_ZNK29CandlestickBodyWicksAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29CandlestickBodyWicksAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29CandlestickBodyWicksAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29CandlestickBodyWicksAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29CandlestickBodyWicksAnimationC1EP11CandlestickP20CandlestickAnimationiR12QEasingCurve": [
+      "address", "address", "address", "int", "address"
     ],
     "ritual_ZN29CandlestickBodyWicksAnimationD1Ev": ["nothing", "address"],
     "ritual_ZN29CandlestickBodyWicksAnimation5setupERK15CandlestickDataS2_": [

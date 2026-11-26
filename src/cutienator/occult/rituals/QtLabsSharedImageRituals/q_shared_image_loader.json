@@ -6,14 +6,39 @@
   ],
   "rows": {
     "ritual_ZNK18QSharedImageLoader10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QSharedImageLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QSharedImageLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QSharedImageLoader2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18QSharedImageLoader6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QSharedImageLoader6d_funcEv": ["address", "address"],
     "ritual_ZN18QSharedImageLoader22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
     "ritual_ZN18QSharedImageLoaderC1EP7QObject": ["address", "address"],
     "ritual_ZN18QSharedImageLoaderD1Ev": ["nothing", "address"],
-    "ritual_take_QSharedImageLoader": ["bool", "address", "chars", "address"]
+    "ritual_ZN18QSharedImageLoader4loadERK7QStringP5QListI8QVariantE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN18QSharedImageLoader8loadFileERK7QStringP5QListI8QVariantE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN18QSharedImageLoader3keyERK7QStringP5QListI8QVariantE": [
+      "text", "address", "text", "address"
+    ],
+    "ritual_take_QSharedImageLoader": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QSharedImageLoader8loadFileERK7QStringP5QListI8QVariantE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_own_ZN18QSharedImageLoader3keyERK7QStringP5QListI8QVariantE": [
+      "text", "address", "text", "address"
+    ]
   }
 }

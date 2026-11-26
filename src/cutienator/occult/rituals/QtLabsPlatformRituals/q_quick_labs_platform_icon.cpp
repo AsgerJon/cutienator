@@ -54,6 +54,18 @@ inline void QQuickLabsPlatformIcon::setMask(bool mask)
 {
     m_mask = mask;
 }
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformicon.cpp, line 39, as _ZNK22QQuickLabsPlatformIconeqERKS_
+inline bool QQuickLabsPlatformIcon::operator==(const QQuickLabsPlatformIcon &other) const
+{
+    return m_source == other.m_source && m_name == other.m_name && m_mask == other.m_mask;
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformicon.cpp, line 44, as _ZNK22QQuickLabsPlatformIconneERKS_
+inline bool QQuickLabsPlatformIcon::operator!=(const QQuickLabsPlatformIcon &other) const
+{
+    return !(*this == other);
+}
 //  -----------------------------------------------------------------------
 
 //  void QQuickLabsPlatformIcon::qt_qmlMarker_anonymous()
@@ -106,6 +118,24 @@ void ritual_ZN22QQuickLabsPlatformIcon7setMaskEb(
     QQuickLabsPlatformIcon *self,
     bool mask) {
   self->setMask(mask);
+}
+
+//  bool QQuickLabsPlatformIcon::operator==(const QQuickLabsPlatformIcon
+//      &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK22QQuickLabsPlatformIconeqERKS_(
+    const QQuickLabsPlatformIcon *self,
+    const QQuickLabsPlatformIcon *other) {
+  return self->operator==(*other);
+}
+
+//  bool QQuickLabsPlatformIcon::operator!=(const QQuickLabsPlatformIcon
+//      &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK22QQuickLabsPlatformIconneERKS_(
+    const QQuickLabsPlatformIcon *self,
+    const QQuickLabsPlatformIcon *other) {
+  return self->operator!=(*other);
 }
 
 //  QQuickLabsPlatformIcon::~QQuickLabsPlatformIcon()

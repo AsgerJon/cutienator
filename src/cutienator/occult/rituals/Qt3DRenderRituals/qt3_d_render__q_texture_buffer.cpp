@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QTextureBuffer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QTextureBuffer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QTextureBuffer11qt_metacastEPKc(
+    Qt3DRender::QTextureBuffer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QTextureBuffer::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QTextureBuffer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QTextureBuffer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QTextureBuffer::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,20 @@ QString *ritual_ZN10Qt3DRender14QTextureBuffer2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QTextureBuffer::tr(s, c, n));
+}
+
+//  Qt3DRender::QTextureBuffer::QTextureBuffer(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureBuffer *ritual_ZN10Qt3DRender14QTextureBufferC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QTextureBuffer(parent);
+}
+
+//  Qt3DRender::QTextureBuffer::~QTextureBuffer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QTextureBufferD1Ev(
+    Qt3DRender::QTextureBuffer *self) {
+  delete self;
 }
 
 //  a Python function taken by a CuteQt3DRender_QTextureBuffer, for the

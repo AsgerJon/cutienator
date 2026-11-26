@@ -1088,6 +1088,25 @@ const QMetaObject *ritual_ZNK19QAbstractScrollArea10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractScrollArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QAbstractScrollArea11qt_metacastEPKc(
+    QAbstractScrollArea *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractScrollArea::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QAbstractScrollArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractScrollArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractScrollArea::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QAbstractScrollArea2trEPKcS1_i(
@@ -1269,6 +1288,15 @@ void ritual_ZN19QAbstractScrollArea19setSizeAdjustPolicyENS_16SizeAdjustPolicyE(
     QAbstractScrollArea *self,
     QAbstractScrollArea::SizeAdjustPolicy policy) {
   self->setSizeAdjustPolicy(policy);
+}
+
+//  QAbstractScrollArea::QAbstractScrollArea(QAbstractScrollAreaPrivate &dd,
+//      QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractScrollArea *ritual_ZN19QAbstractScrollAreaC1ER26QAbstractScrollAreaPrivateP7QWidget(
+    QAbstractScrollAreaPrivate *dd,
+    QWidget *parent) {
+  return new CuteQAbstractScrollArea(*dd, parent);
 }
 
 //  void QAbstractScrollArea::setViewportMargins(int left, int top, int

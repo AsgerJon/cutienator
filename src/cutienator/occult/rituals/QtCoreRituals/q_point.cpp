@@ -1,7 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qpoint.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qpoint.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  rituals for functions the generator leaves out: 2. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qpoint.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QPoint>
 
 //  QPoint::QPoint()
 extern "C" Q_DECL_EXPORT
@@ -185,6 +188,14 @@ QPointF *ritual_ZNK6QPoint8toPointFEv(const QPoint *self) {
   return new QPointF(self->toPointF());
 }
 
+//  QPoint::QPoint(Representation xpos, Representation ypos)
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZN6QPointC1EN9QtPrivate16QCheckedIntegers11QCheckedIntIiNS1_13SafeCheckImplIiEENS1_18AssertReportPolicyEEES6_(
+    const QPoint::Representation *xpos,
+    const QPoint::Representation *ypos) {
+  return new QPoint(*xpos, *ypos);
+}
+
 //  QPoint::~QPoint()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QPointD1Ev(QPoint *self) {
@@ -219,4 +230,18 @@ QPoint *ritual_list_at_QPoint(const QList<QPoint> *self, long long index) {
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QPoint(QList<QPoint> *self) {
   delete self;
+}
+
+//  int &QPoint::rx()
+extern "C" Q_DECL_EXPORT
+int *ritual_ZN6QPoint2rxEv(
+    QPoint *self) {
+  return &(self->rx());
+}
+
+//  int &QPoint::ry()
+extern "C" Q_DECL_EXPORT
+int *ritual_ZN6QPoint2ryEv(
+    QPoint *self) {
+  return &(self->ry());
 }

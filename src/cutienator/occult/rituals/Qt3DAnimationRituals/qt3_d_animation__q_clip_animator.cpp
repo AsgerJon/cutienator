@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation13QClipAnimator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QClipAnimator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation13QClipAnimator11qt_metacastEPKc(
+    Qt3DAnimation::QClipAnimator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QClipAnimator::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation13QClipAnimator11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QClipAnimator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QClipAnimator::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,55 @@ QString *ritual_ZN13Qt3DAnimation13QClipAnimator2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QClipAnimator::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QClipAnimator::QClipAnimator(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QClipAnimator *ritual_ZN13Qt3DAnimation13QClipAnimatorC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QClipAnimator(parent);
+}
+
+//  Qt3DAnimation::QClipAnimator::~QClipAnimator()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation13QClipAnimatorD1Ev(
+    Qt3DAnimation::QClipAnimator *self) {
+  delete self;
+}
+
+//  Qt3DAnimation::QAbstractAnimationClip
+//      *Qt3DAnimation::QClipAnimator::clip() const
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractAnimationClip *ritual_ZNK13Qt3DAnimation13QClipAnimator4clipEv(
+    const Qt3DAnimation::QClipAnimator *self) {
+  return self->clip();
+}
+
+//  void Qt3DAnimation::QClipAnimator::setClip(Qt3DAnimation::QAbstractAnimat
+//      ionClip *clip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation13QClipAnimator7setClipEPNS_22QAbstractAnimationClipE(
+    Qt3DAnimation::QClipAnimator *self,
+    Qt3DAnimation::QAbstractAnimationClip *clip) {
+  self->setClip(clip);
+}
+
+//  void Qt3DAnimation::QClipAnimator::clipChanged(Qt3DAnimation::QAbstractAn
+//      imationClip *clip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation13QClipAnimator11clipChangedEPNS_22QAbstractAnimationClipE(
+    Qt3DAnimation::QClipAnimator *self,
+    Qt3DAnimation::QAbstractAnimationClip *clip) {
+  self->clipChanged(clip);
+}
+
+//  Qt3DAnimation::QClipAnimator::QClipAnimator(QClipAnimatorPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QClipAnimator *ritual_ZN13Qt3DAnimation13QClipAnimatorC1ERNS_20QClipAnimatorPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QClipAnimatorPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QClipAnimator(*dd, parent);
 }
 
 //  QClipAnimatorPrivate *Qt3DAnimation::QClipAnimator::d_func()

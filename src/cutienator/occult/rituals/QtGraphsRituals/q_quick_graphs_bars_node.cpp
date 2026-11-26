@@ -3,7 +3,7 @@
 //  Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,13 +11,18 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbar3dseries.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtGraphs/QBar3DSeries>
 
 //  Only a class built on QQuickGraphsBarsNode may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -561,6 +566,25 @@ const QMetaObject *ritual_ZNK20QQuickGraphsBarsNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGraphsBarsNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickGraphsBarsNode11qt_metacastEPKc(
+    QQuickGraphsBarsNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGraphsBarsNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickGraphsBarsNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGraphsBarsNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGraphsBarsNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickGraphsBarsNode2trEPKcS1_i(
@@ -747,6 +771,50 @@ QList<QBar3DSeries *> *ritual_ZN20QQuickGraphsBarsNode13barSeriesListEv(
   return new QList<QBar3DSeries *>(self->barSeriesList());
 }
 
+//  QQmlListProperty<QBar3DSeries> QQuickGraphsBarsNode::seriesList()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QBar3DSeries> *ritual_ZN20QQuickGraphsBarsNode10seriesListEv(
+    QQuickGraphsBarsNode *self) {
+  return new QQmlListProperty<QBar3DSeries>(self->seriesList());
+}
+
+//  void
+//      QQuickGraphsBarsNode::appendSeriesFunc(QQmlListProperty<QBar3DSeries>
+//      *list, QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode16appendSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesEPS1_(
+    QQmlListProperty<QBar3DSeries> *list,
+    QBar3DSeries *series) {
+  QQuickGraphsBarsNode::appendSeriesFunc(list, series);
+}
+
+//  qsizetype
+//      QQuickGraphsBarsNode::countSeriesFunc(QQmlListProperty<QBar3DSeries>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN20QQuickGraphsBarsNode15countSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesE(
+    QQmlListProperty<QBar3DSeries> *list) {
+  return QQuickGraphsBarsNode::countSeriesFunc(list);
+}
+
+//  QBar3DSeries
+//      *QQuickGraphsBarsNode::atSeriesFunc(QQmlListProperty<QBar3DSeries>
+//      *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QBar3DSeries *ritual_ZN20QQuickGraphsBarsNode12atSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesEx(
+    QQmlListProperty<QBar3DSeries> *list,
+    qsizetype index) {
+  return QQuickGraphsBarsNode::atSeriesFunc(list, index);
+}
+
+//  void QQuickGraphsBarsNode::clearSeriesFunc(QQmlListProperty<QBar3DSeries>
+//      *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode15clearSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesE(
+    QQmlListProperty<QBar3DSeries> *list) {
+  QQuickGraphsBarsNode::clearSeriesFunc(list);
+}
+
 //  void QQuickGraphsBarsNode::addSeries(QBar3DSeries *series)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickGraphsBarsNode9addSeriesEP12QBar3DSeries(
@@ -805,6 +873,94 @@ void ritual_ZN20QQuickGraphsBarsNode17componentCompleteEv(
   self->componentComplete();
 }
 
+//  void QQuickGraphsBarsNode::rowAxisChanged(QCategory3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode14rowAxisChangedEP15QCategory3DAxis(
+    QQuickGraphsBarsNode *self,
+    QCategory3DAxis *axis) {
+  self->rowAxisChanged(axis);
+}
+
+//  void QQuickGraphsBarsNode::valueAxisChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode16valueAxisChangedEP12QValue3DAxis(
+    QQuickGraphsBarsNode *self,
+    QValue3DAxis *axis) {
+  self->valueAxisChanged(axis);
+}
+
+//  void QQuickGraphsBarsNode::columnAxisChanged(QCategory3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode17columnAxisChangedEP15QCategory3DAxis(
+    QQuickGraphsBarsNode *self,
+    QCategory3DAxis *axis) {
+  self->columnAxisChanged(axis);
+}
+
+//  void QQuickGraphsBarsNode::multiSeriesUniformChanged(bool uniform)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode25multiSeriesUniformChangedEb(
+    QQuickGraphsBarsNode *self,
+    bool uniform) {
+  self->multiSeriesUniformChanged(uniform);
+}
+
+//  void QQuickGraphsBarsNode::barThicknessChanged(float thicknessRatio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode19barThicknessChangedEf(
+    QQuickGraphsBarsNode *self,
+    float thicknessRatio) {
+  self->barThicknessChanged(thicknessRatio);
+}
+
+//  void QQuickGraphsBarsNode::barSpacingChanged(QSizeF spacing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode17barSpacingChangedE6QSizeF(
+    QQuickGraphsBarsNode *self,
+    const QSizeF *spacing) {
+  self->barSpacingChanged(*spacing);
+}
+
+//  void QQuickGraphsBarsNode::barSpacingRelativeChanged(bool relative)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode25barSpacingRelativeChangedEb(
+    QQuickGraphsBarsNode *self,
+    bool relative) {
+  self->barSpacingRelativeChanged(relative);
+}
+
+//  void QQuickGraphsBarsNode::barSeriesMarginChanged(QSizeF margin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode22barSeriesMarginChangedE6QSizeF(
+    QQuickGraphsBarsNode *self,
+    const QSizeF *margin) {
+  self->barSeriesMarginChanged(*margin);
+}
+
+//  void QQuickGraphsBarsNode::primarySeriesChanged(QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode20primarySeriesChangedEP12QBar3DSeries(
+    QQuickGraphsBarsNode *self,
+    QBar3DSeries *series) {
+  self->primarySeriesChanged(series);
+}
+
+//  void QQuickGraphsBarsNode::selectedSeriesChanged(QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode21selectedSeriesChangedEP12QBar3DSeries(
+    QQuickGraphsBarsNode *self,
+    QBar3DSeries *series) {
+  self->selectedSeriesChanged(series);
+}
+
+//  void QQuickGraphsBarsNode::floorLevelChanged(float level)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGraphsBarsNode17floorLevelChangedEf(
+    QQuickGraphsBarsNode *self,
+    float level) {
+  self->floorLevelChanged(level);
+}
+
 //  QQuickGraphsBars *QQuickGraphsBarsNode::graphBars()
 extern "C" Q_DECL_EXPORT
 QQuickGraphsBars *ritual_ZN20QQuickGraphsBarsNode9graphBarsEv(
@@ -861,4 +1017,11 @@ void ritual_own_ZN20QQuickGraphsBarsNode17componentCompleteEv(
   static_cast<OwnQQuickGraphsBarsNode *>(self)->OwnQQuickGraphsBarsNode::componentComplete();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+//  a QQmlListProperty<QBar3DSeries> a ritual of QQuickGraphsBarsNode gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickGraphsBarsNode__QQmlListProperty_QBar3DSeries(
+    QQmlListProperty<QBar3DSeries> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))

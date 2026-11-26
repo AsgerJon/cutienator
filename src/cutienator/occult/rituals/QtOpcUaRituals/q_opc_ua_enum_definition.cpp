@@ -19,6 +19,39 @@ QOpcUaEnumDefinition *ritual_ZN20QOpcUaEnumDefinitionC1ERKS_(
   return new QOpcUaEnumDefinition(*other);
 }
 
+//  void QOpcUaEnumDefinition::swap(QOpcUaEnumDefinition &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpcUaEnumDefinition4swapERS_(
+    QOpcUaEnumDefinition *self,
+    QOpcUaEnumDefinition *other) {
+  self->swap(*other);
+}
+
+//  QOpcUaEnumDefinition
+//      &QOpcUaEnumDefinition::operator=(QOpcUaEnumDefinition &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaEnumDefinition *ritual_ZN20QOpcUaEnumDefinitionaSEOS_(
+    QOpcUaEnumDefinition *self,
+    QOpcUaEnumDefinition *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QOpcUaEnumDefinition::QOpcUaEnumDefinition(QOpcUaEnumDefinition &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaEnumDefinition *ritual_ZN20QOpcUaEnumDefinitionC1EOS_(
+    QOpcUaEnumDefinition *other) {
+  return new QOpcUaEnumDefinition(std::move(*other));
+}
+
+//  QOpcUaEnumDefinition &QOpcUaEnumDefinition::operator=(const
+//      QOpcUaEnumDefinition &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaEnumDefinition *ritual_ZN20QOpcUaEnumDefinitionaSERKS_(
+    QOpcUaEnumDefinition *self,
+    const QOpcUaEnumDefinition *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QVariant QOpcUaEnumDefinition::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK20QOpcUaEnumDefinitioncv8QVariantEv(

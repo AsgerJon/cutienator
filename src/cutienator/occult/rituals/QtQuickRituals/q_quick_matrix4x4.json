@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickMatrix4x410metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickMatrix4x411qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickMatrix4x411qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickMatrix4x42trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,9 @@
     "ritual_ZNK15QQuickMatrix4x47applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QQuickMatrix4x413matrixChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMatrix4x46d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickMatrix4x46d_funcEv": ["address", "address"],
     "ritual_own_ZNK15QQuickMatrix4x47applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ]

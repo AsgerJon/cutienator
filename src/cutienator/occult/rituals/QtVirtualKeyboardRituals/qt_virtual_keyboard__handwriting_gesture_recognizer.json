@@ -8,8 +8,26 @@
     "ritual_ZNK17QtVirtualKeyboard28HandwritingGestureRecognizer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard28HandwritingGestureRecognizer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28HandwritingGestureRecognizer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard28HandwritingGestureRecognizer2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28HandwritingGestureRecognizerC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28HandwritingGestureRecognizer6setDpiEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard28HandwritingGestureRecognizer3dpiEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28HandwritingGestureRecognizer9recognizeE5QListIP21QVirtualKeyboardTraceE": [
+      "address", "address", "address"
     ]
   }
 }

@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QSvgAnimatedPropertyTransform that Python can take functions over in. Every QSvgAnimatedPropertyTransform
 //  Python makes is one. Each function below asks the Python
@@ -69,6 +70,24 @@ quint32 ritual_ZNK29QSvgAnimatedPropertyTransform14transformCountEv(
   return self->transformCount();
 }
 
+//  void QSvgAnimatedPropertyTransform::appendComponents(const
+//      QList<TransformComponent> &components)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSvgAnimatedPropertyTransform16appendComponentsERK5QListINS_18TransformComponentEE(
+    QSvgAnimatedPropertyTransform *self,
+    const QList<QSvgAnimatedPropertyTransform::TransformComponent> *components) {
+  self->appendComponents(*components);
+}
+
+//  QList<TransformComponent> QSvgAnimatedPropertyTransform::components()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QSvgAnimatedPropertyTransform::TransformComponent> *ritual_ZNK29QSvgAnimatedPropertyTransform10componentsEv(
+    const QSvgAnimatedPropertyTransform *self) {
+  return new QList<QSvgAnimatedPropertyTransform::TransformComponent>(
+      self->components());
+}
+
 //  void QSvgAnimatedPropertyTransform::interpolate(uint index, qreal t)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -97,4 +116,12 @@ void ritual_own_ZNK29QSvgAnimatedPropertyTransform11interpolateEjd(
     uint index,
     qreal t) {
   self->QSvgAnimatedPropertyTransform::interpolate(index, t);
+}
+
+//  a QList<QSvgAnimatedPropertyTransform::TransformComponent> a ritual of
+//      QSvgAnimatedPropertyTransform gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSvgAnimatedPropertyTransform__QList_QSvgAnimatedPropertyTransform_TransformComponent(
+    QList<QSvgAnimatedPropertyTransform::TransformComponent> *self) {
+  delete self;
 }

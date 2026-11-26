@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN22QStyleOptionMenuItemV2C1Ev": ["address"],
     "ritual_ZN22QStyleOptionMenuItemV2C1ERKS_": ["address", "address"],
+    "ritual_ZN22QStyleOptionMenuItemV2aSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QStyleOptionMenuItemV2C1Ei": ["address", "int"],
     "ritual_ZN22QStyleOptionMenuItemV2D1Ev": ["nothing", "address"]
   }

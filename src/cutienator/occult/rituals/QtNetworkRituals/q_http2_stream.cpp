@@ -14,9 +14,12 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qbytedatabuffer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
+#if QT_CONFIG(http)
+#include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/http2frames_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -194,6 +197,24 @@ const QMetaObject *ritual_ZNK12QHttp2Stream10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHttp2Stream::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QHttp2Stream11qt_metacastEPKc(
+    QHttp2Stream *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHttp2Stream::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QHttp2Stream11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHttp2Stream *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHttp2Stream::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QHttp2Stream2trEPKcS1_i(
@@ -272,6 +293,13 @@ quint32 ritual_ZNK12QHttp2Stream18RST_STREAMCodeSentEv(
   return self->RST_STREAMCodeSent();
 }
 
+//  HPack::HttpHeader QHttp2Stream::receivedHeaders() const
+extern "C" Q_DECL_EXPORT
+HPack::HttpHeader *ritual_ZNK12QHttp2Stream15receivedHeadersEv(
+    const QHttp2Stream *self) {
+  return new HPack::HttpHeader(self->receivedHeaders());
+}
+
 //  QByteDataBuffer QHttp2Stream::downloadBuffer() const
 extern "C" Q_DECL_EXPORT
 QByteDataBuffer *ritual_ZNK12QHttp2Stream14downloadBufferEv(
@@ -299,12 +327,110 @@ QHttp2Stream::Configuration *ritual_ZNK12QHttp2Stream13configurationEv(
   return new QHttp2Stream::Configuration(self->configuration());
 }
 
+//  void QHttp2Stream::headersReceived(const HPack::HttpHeader &headers, bool
+//      endStream)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream15headersReceivedERKSt6vectorIN5HPack11HeaderFieldESaIS2_EEb(
+    QHttp2Stream *self,
+    const HPack::HttpHeader *headers,
+    bool endStream) {
+  self->headersReceived(*headers, endStream);
+}
+
+//  void QHttp2Stream::headersUpdated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream14headersUpdatedEv(QHttp2Stream *self) {
+  self->headersUpdated();
+}
+
+//  void QHttp2Stream::errorOccurred(Http2::Http2Error errorCode, const
+//      QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream13errorOccurredEN5Http210Http2ErrorERK7QString(
+    QHttp2Stream *self,
+    Http2::Http2Error errorCode,
+    const QString *errorString) {
+  self->errorOccurred(errorCode, *errorString);
+}
+
+//  void QHttp2Stream::stateChanged(QHttp2Stream::State newState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream12stateChangedENS_5StateE(
+    QHttp2Stream *self,
+    QHttp2Stream::State newState) {
+  self->stateChanged(newState);
+}
+
+//  void QHttp2Stream::promisedStreamReceived(quint32 newStreamID)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream22promisedStreamReceivedEj(
+    QHttp2Stream *self,
+    quint32 newStreamID) {
+  self->promisedStreamReceived(newStreamID);
+}
+
+//  void QHttp2Stream::uploadBlocked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream13uploadBlockedEv(QHttp2Stream *self) {
+  self->uploadBlocked();
+}
+
+//  void QHttp2Stream::dataReceived(const QByteArray &data, bool endStream)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream12dataReceivedERK10QByteArrayb(
+    QHttp2Stream *self,
+    const QByteArray *data,
+    bool endStream) {
+  self->dataReceived(*data, endStream);
+}
+
+//  void QHttp2Stream::rstFrameReceived(quint32 errorCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream16rstFrameReceivedEj(
+    QHttp2Stream *self,
+    quint32 errorCode) {
+  self->rstFrameReceived(errorCode);
+}
+
+//  void QHttp2Stream::bytesWritten(qint64 bytesWritten)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream12bytesWrittenEx(
+    QHttp2Stream *self,
+    qint64 bytesWritten) {
+  self->bytesWritten(bytesWritten);
+}
+
+//  void QHttp2Stream::uploadDeviceError(const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream17uploadDeviceErrorERK7QString(
+    QHttp2Stream *self,
+    const QString *errorString) {
+  self->uploadDeviceError(*errorString);
+}
+
+//  void QHttp2Stream::uploadFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream14uploadFinishedEv(QHttp2Stream *self) {
+  self->uploadFinished();
+}
+
 //  bool QHttp2Stream::sendRST_STREAM(Http2::Http2Error errorCode)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN12QHttp2Stream14sendRST_STREAMEN5Http210Http2ErrorE(
     QHttp2Stream *self,
     Http2::Http2Error errorCode) {
   return self->sendRST_STREAM(errorCode);
+}
+
+//  bool QHttp2Stream::sendHEADERS(const HPack::HttpHeader &headers, bool
+//      endStream, quint8 priority)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QHttp2Stream11sendHEADERSERKSt6vectorIN5HPack11HeaderFieldESaIS2_EEbh(
+    QHttp2Stream *self,
+    const HPack::HttpHeader *headers,
+    bool endStream,
+    quint8 priority) {
+  return self->sendHEADERS(*headers, endStream, priority);
 }
 
 //  bool QHttp2Stream::sendDATA(const QByteArray &payload, bool endStream)
@@ -415,6 +541,18 @@ void ritual_ZN12QHttp2Stream10handleDATAERKN5Http25FrameE(
   self->handleDATA(*inboundFrame);
 }
 
+//  void QHttp2Stream::handleHEADERS(Http2::FrameFlags frameFlags, const
+//      HPack::HttpHeader &headers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QHttp2Stream13handleHEADERSE6QFlagsIN5Http29FrameFlagEERKSt6vectorIN5HPack11HeaderFieldESaIS6_EE(
+    QHttp2Stream *self,
+    int frameFlags,
+    const HPack::HttpHeader *headers) {
+  self->handleHEADERS(
+      QFlags<Http2::FrameFlag>::fromInt(frameFlags),
+      *headers);
+}
+
 //  void QHttp2Stream::handleRST_STREAM(const Http2::Frame &inboundFrame)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QHttp2Stream16handleRST_STREAMERKN5Http25FrameE(
@@ -467,6 +605,12 @@ bool ritual_take_QHttp2Stream(
     const char *key,
     void *call) {
   return static_cast<CuteQHttp2Stream *>(self)->take(key, call);
+}
+
+//  a HPack::HttpHeader a ritual of QHttp2Stream gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHttp2Stream__HPack_HttpHeader(HPack::HttpHeader *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(http)

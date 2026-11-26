@@ -40,3 +40,11 @@ void ritual_ZN12QQmlNotifier6notifyEP8QQmlDatai(
     int notifierIndex) {
   QQmlNotifier::notify(ddata, notifierIndex);
 }
+
+//  void QQmlNotifier::emitNotify(QQmlNotifierEndpoint *a0, void **a)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlNotifier10emitNotifyEP20QQmlNotifierEndpointPPv(
+    QQmlNotifierEndpoint *a0,
+    void **a) {
+  QQmlNotifier::emitNotify(a0, a);
+}

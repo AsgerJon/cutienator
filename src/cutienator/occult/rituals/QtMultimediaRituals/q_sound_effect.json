@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QSoundEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QSoundEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QSoundEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QSoundEffect2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QSoundEffectC1EP7QObject": ["address", "address"],
     "ritual_ZN12QSoundEffectC1ERK12QAudioDeviceP7QObject": [
@@ -31,6 +37,17 @@
     "ritual_ZNK12QSoundEffect8isLoadedEv": ["bool", "address"],
     "ritual_ZNK12QSoundEffect9isPlayingEv": ["bool", "address"],
     "ritual_ZNK12QSoundEffect6statusEv": ["int", "address"],
+    "ritual_ZN12QSoundEffect13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN12QSoundEffect16loopCountChangedEv": ["nothing", "address"],
+    "ritual_ZN12QSoundEffect21loopsRemainingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QSoundEffect13volumeChangedEv": ["nothing", "address"],
+    "ritual_ZN12QSoundEffect12mutedChangedEv": ["nothing", "address"],
+    "ritual_ZN12QSoundEffect13loadedChangedEv": ["nothing", "address"],
+    "ritual_ZN12QSoundEffect14playingChangedEv": ["nothing", "address"],
+    "ritual_ZN12QSoundEffect13statusChangedEv": ["nothing", "address"],
+    "ritual_ZN12QSoundEffect18audioDeviceChangedEv": ["nothing", "address"],
     "ritual_ZN12QSoundEffect4playEv": ["nothing", "address"],
     "ritual_ZN12QSoundEffect4stopEv": ["nothing", "address"],
     "ritual_ZN12QSoundEffect6d_funcEv": ["address", "address"],

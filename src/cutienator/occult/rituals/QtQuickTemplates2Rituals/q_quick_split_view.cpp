@@ -1184,6 +1184,24 @@ const QMetaObject *ritual_ZNK15QQuickSplitView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSplitView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickSplitView11qt_metacastEPKc(
+    QQuickSplitView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSplitView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickSplitView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSplitView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSplitView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickSplitView2trEPKcS1_i(
@@ -1278,6 +1296,34 @@ bool ritual_ZN15QQuickSplitView12restoreStateERK8QVariant(
   return self->restoreState(*state);
 }
 
+//  void QQuickSplitView::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickSplitView18orientationChangedEv(
+    QQuickSplitView *self) {
+  self->orientationChanged();
+}
+
+//  void QQuickSplitView::resizingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickSplitView15resizingChangedEv(QQuickSplitView *self) {
+  self->resizingChanged();
+}
+
+//  void QQuickSplitView::handleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickSplitView13handleChangedEv(QQuickSplitView *self) {
+  self->handleChanged();
+}
+
+//  QQuickSplitView::QQuickSplitView(QQuickSplitViewPrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickSplitView *ritual_ZN15QQuickSplitViewC1ER22QQuickSplitViewPrivateP10QQuickItem(
+    QQuickSplitViewPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickSplitView(*dd, parent);
+}
+
 //  void QQuickSplitView::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickSplitView17componentCompleteEv(QQuickSplitView *self) {
@@ -1355,6 +1401,20 @@ QAccessible::Role ritual_ZNK15QQuickSplitView14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickSplitViewPrivate *QQuickSplitView::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSplitViewPrivate *ritual_ZN15QQuickSplitView6d_funcEv(
+    QQuickSplitView *self) {
+  return self->d_func();
+}
+
+//  const QQuickSplitViewPrivate *QQuickSplitView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSplitViewPrivate *ritual_ZNK15QQuickSplitView6d_funcEv(
+    const QQuickSplitView *self) {
+  return self->d_func();
+}
 
 //  a Python function taken by a CuteQQuickSplitView, for the function named
 //      by the key

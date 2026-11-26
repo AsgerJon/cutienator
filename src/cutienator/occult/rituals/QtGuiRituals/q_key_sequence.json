@@ -38,6 +38,9 @@
     ],
     "ritual_ZNK12QKeySequencecv8QVariantEv": ["address", "address"],
     "ritual_ZNK12QKeySequenceixEj": ["address", "address", "unsigned int"],
+    "ritual_ZN12QKeySequenceaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QKeySequenceaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QKeySequence4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK12QKeySequenceeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QKeySequenceneERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QKeySequenceltERKS_": ["bool", "address", "address"],
@@ -52,6 +55,13 @@
     "ritual_ZN12QKeySequence6setKeyE15QKeyCombinationi": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZlsR11QDataStreamRK12QKeySequence": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR12QKeySequence": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QKeySequence8data_ptrEv": ["address", "address"],
     "ritual_list_make_QKeySequence": ["address"],
     "ritual_list_add_QKeySequence": ["nothing", "address", "address"],
     "ritual_list_size_QKeySequence": ["long long", "address"],

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QFileSystemWatcher10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QFileSystemWatcher11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QFileSystemWatcher11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QFileSystemWatcher2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,12 @@
     ],
     "ritual_ZNK18QFileSystemWatcher5filesEv": ["address", "address"],
     "ritual_ZNK18QFileSystemWatcher11directoriesEv": ["address", "address"],
+    "ritual_ZN18QFileSystemWatcher11fileChangedERK7QStringNS_14QPrivateSignalE": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QFileSystemWatcher16directoryChangedERK7QStringNS_14QPrivateSignalE": [
+      "nothing", "address", "text"
+    ],
     "ritual_take_QFileSystemWatcher": ["bool", "address", "chars", "address"]
   }
 }

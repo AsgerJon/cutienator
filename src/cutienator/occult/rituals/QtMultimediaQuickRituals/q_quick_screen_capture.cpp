@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK19QQuickScreenCapture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScreenCapture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickScreenCapture11qt_metacastEPKc(
+    QQuickScreenCapture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScreenCapture::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickScreenCapture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScreenCapture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScreenCapture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickScreenCapture2trEPKcS1_i(
@@ -66,4 +85,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickScreenCapture24qmlResetMaximumFrameRateEv(
     QQuickScreenCapture *self) {
   self->qmlResetMaximumFrameRate();
+}
+
+//  void QQuickScreenCapture::screenChanged(QQuickScreenInfo *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickScreenCapture13screenChangedEP16QQuickScreenInfo(
+    QQuickScreenCapture *self,
+    QQuickScreenInfo *a0) {
+  self->screenChanged(a0);
 }

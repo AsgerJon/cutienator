@@ -15,6 +15,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/private/xychart_p.h>
 #include <QtCharts/QXYSeries>
@@ -1133,10 +1134,34 @@ const QMetaObject *ritual_ZNK7XYChart10metaObjectEv(const XYChart *self) {
   return self->metaObject();
 }
 
+//  void *XYChart::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7XYChart11qt_metacastEPKc(XYChart *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int XYChart::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7XYChart11qt_metacallEN11QMetaObject4CallEiPPv(
+    XYChart *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString XYChart::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7XYChart2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(XYChart::tr(s, c, n));
+}
+
+//  XYChart::XYChart(QXYSeries *series, QGraphicsItem *item)
+extern "C" Q_DECL_EXPORT
+XYChart *ritual_ZN7XYChartC1EP9QXYSeriesP13QGraphicsItem(
+    QXYSeries *series,
+    QGraphicsItem *item) {
+  return new CuteXYChart(series, item);
 }
 
 //  XYChart::~XYChart()
@@ -1191,6 +1216,12 @@ void ritual_ZN7XYChart8setDirtyEb(XYChart *self, bool dirty) {
   self->setDirty(dirty);
 }
 
+//  QList<bool> XYChart::offGridStatusVector()
+extern "C" Q_DECL_EXPORT
+QList<bool> *ritual_ZN7XYChart19offGridStatusVectorEv(XYChart *self) {
+  return new QList<bool>(self->offGridStatusVector());
+}
+
 //  void XYChart::handlePointAdded(int index)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7XYChart16handlePointAddedEi(XYChart *self, int index) {
@@ -1234,6 +1265,47 @@ void ritual_ZN7XYChart19handleDomainUpdatedEv(XYChart *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7XYChart19handleSeriesUpdatedEv(XYChart *self) {
   self->handleSeriesUpdated();
+}
+
+//  void XYChart::clicked(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7XYChart7clickedERK7QPointF(
+    XYChart *self,
+    const QPointF *point) {
+  self->clicked(*point);
+}
+
+//  void XYChart::hovered(const QPointF &point, bool state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7XYChart7hoveredERK7QPointFb(
+    XYChart *self,
+    const QPointF *point,
+    bool state) {
+  self->hovered(*point, state);
+}
+
+//  void XYChart::pressed(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7XYChart7pressedERK7QPointF(
+    XYChart *self,
+    const QPointF *point) {
+  self->pressed(*point);
+}
+
+//  void XYChart::released(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7XYChart8releasedERK7QPointF(
+    XYChart *self,
+    const QPointF *point) {
+  self->released(*point);
+}
+
+//  void XYChart::doubleClicked(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7XYChart13doubleClickedERK7QPointF(
+    XYChart *self,
+    const QPointF *point) {
+  self->doubleClicked(*point);
 }
 
 //  void XYChart::updateChart(const QList<QPointF> &oldPoints, const
@@ -1324,4 +1396,10 @@ void ritual_own_ZN7XYChart13updateGlChartEv(XYChart *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7XYChart14refreshGlChartEv(XYChart *self) {
   static_cast<OwnXYChart *>(self)->OwnXYChart::refreshGlChart();
+}
+
+//  a QList<bool> a ritual of XYChart gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_XYChart__QList_bool(QList<bool> *self) {
+  delete self;
 }

@@ -8,6 +8,9 @@
     "ritual_ZN21QQuickGridScaledImageC1Ev": ["address"],
     "ritual_ZN21QQuickGridScaledImageC1ERKS_": ["address", "address"],
     "ritual_ZN21QQuickGridScaledImageC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN21QQuickGridScaledImageaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK21QQuickGridScaledImage7isValidEv": ["bool", "address"],
     "ritual_ZNK21QQuickGridScaledImage8gridLeftEv": ["int", "address"],
     "ritual_ZNK21QQuickGridScaledImage9gridRightEv": ["int", "address"],

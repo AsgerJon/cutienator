@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DExtras/Qt3DExtras>
 
 //  A Qt3DExtras::Extras::Quick::Quick3DSpriteSheet that Python can take functions over in. Every Qt3DExtras::Extras::Quick::Quick3DSpriteSheet
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,26 @@ const QMetaObject *ritual_ZNK10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet10meta
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::Extras::Quick::Quick3DSpriteSheet::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet11qt_metacastEPKc(
+    Qt3DExtras::Extras::Quick::Quick3DSpriteSheet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::Extras::Quick::Quick3DSpriteSheet::qt_metacall(QMetaObjec
+//      t::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::Extras::Quick::Quick3DSpriteSheet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::Extras::Quick::Quick3DSpriteSheet::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -197,6 +219,29 @@ QString *ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet2trEPKcS4_i(
           s,
           c,
           n));
+}
+
+//  Qt3DExtras::Extras::Quick::Quick3DSpriteSheet::Quick3DSpriteSheet(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::Extras::Quick::Quick3DSpriteSheet *ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheetC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DExtras_Extras_Quick_Quick3DSpriteSheet(parent);
+}
+
+//  Qt3DExtras::Extras::Quick::Quick3DSpriteSheet::~Quick3DSpriteSheet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheetD1Ev(
+    Qt3DExtras::Extras::Quick::Quick3DSpriteSheet *self) {
+  delete self;
+}
+
+//  QQmlListProperty<Qt3DExtras::QSpriteSheetItem>
+//      Qt3DExtras::Extras::Quick::Quick3DSpriteSheet::sprites()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DExtras::QSpriteSheetItem> *ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet7spritesEv(
+    Qt3DExtras::Extras::Quick::Quick3DSpriteSheet *self) {
+  return new QQmlListProperty<Qt3DExtras::QSpriteSheetItem>(self->sprites());
 }
 
 //  QSpriteSheet
@@ -217,4 +262,12 @@ bool ritual_take_Qt3DExtras_Extras_Quick_Quick3DSpriteSheet(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DExtras_Extras_Quick_Quick3DSpriteSheet *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DExtras::QSpriteSheetItem> a ritual of
+//      Qt3DExtras::Extras::Quick::Quick3DSpriteSheet gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DExtras_Extras_Quick_Quick3DSpriteSheet__QQmlListProperty_Qt3DExtras_QSpriteSheetItem(
+    QQmlListProperty<Qt3DExtras::QSpriteSheetItem> *self) {
+  delete self;
 }

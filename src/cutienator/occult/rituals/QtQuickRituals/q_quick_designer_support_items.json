@@ -30,6 +30,9 @@
       "nothing", "address"
     ],
     "ritual_ZN26QQuickDesignerSupportItems16stopUnifiedTimerEv": ["nothing"],
+    "ritual_ZN26QQuickDesignerSupportItems41registerFixResourcePathsForObjectCallBackEPFvP7QObjectE": [
+      "nothing", "address"
+    ],
     "ritual_ZN26QQuickDesignerSupportItemsD1Ev": ["nothing", "address"]
   }
 }

@@ -6,19 +6,21 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekittheme_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qpalette.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLabsStyleKit/private/qqstylekitstyleandthemebase_p.h>
 #include <QtLabsStyleKit/private/qqstylekitvariation_p.h>
+#include <QtLabsStyleKit/private/qqstylekitpalette_p.h>
 #include <QtLabsStyleKit/private/qqstylekitfont_p.h>
-#include <QtLabsStyleKit/private/qqstylekitcontrols_p.h>
-#include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
-#include <QtLabsStyleKit/private/qqstylekitcustomcontrol_p.h>
 #include <QtQuickTemplates2/private/qquicktheme_p.h>
 #include <QtQuick/private/qquickpalette_p.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/qpa/qplatformtheme.h>
 #include <QtLabsStyleKit/private/qqstylekittheme_p.h>
 #include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrols_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcustomcontrol_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -27,6 +29,64 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 50, as local:qqstylekittheme.cpp:scopeForType
+static QQuickTheme::Scope scopeForType(QQStyleKitExtendableControlType type)
+{
+    switch (type) {
+    case QQStyleKitReader::ControlType::AbstractButton:
+    case QQStyleKitReader::ControlType::Button:
+    case QQStyleKitReader::ControlType::DelayButton:
+    case QQStyleKitReader::ControlType::FlatButton:
+    case QQStyleKitReader::ControlType::RoundButton:
+        return QQuickTheme::Button;
+    case QQStyleKitReader::ControlType::CheckBox:
+        return QQuickTheme::CheckBox;
+    case QQStyleKitReader::ControlType::CheckDelegate:
+    case QQStyleKitReader::ControlType::RadioDelegate:
+    case QQStyleKitReader::ControlType::SwipeDelegate:
+    case QQStyleKitReader::ControlType::SwitchDelegate:
+        return QQuickTheme::ListView;
+    case QQStyleKitReader::ControlType::ComboBox:
+        return QQuickTheme::ComboBox;
+    case QQStyleKitReader::ControlType::GroupBox:
+        return QQuickTheme::GroupBox;
+    case QQStyleKitReader::ControlType::ItemDelegate:
+        return QQuickTheme::ItemView;
+    case QQStyleKitReader::ControlType::Label:
+        return QQuickTheme::Label;
+    case QQStyleKitReader::ControlType::MenuBar:
+    case QQStyleKitReader::ControlType::MenuBarItem:
+        return QQuickTheme::MenuBar;
+    case QQStyleKitReader::ControlType::Menu:
+    case QQStyleKitReader::ControlType::MenuItem:
+    case QQStyleKitReader::ControlType::MenuSeparator:
+        return QQuickTheme::Menu;
+    case QQStyleKitReader::ControlType::RadioButton:
+        return QQuickTheme::RadioButton;
+    case QQStyleKitReader::ControlType::SpinBox:
+        return QQuickTheme::SpinBox;
+    case QQStyleKitReader::ControlType::SwitchControl:
+        return QQuickTheme::Switch;
+    case QQStyleKitReader::ControlType::TabBar:
+    case QQStyleKitReader::ControlType::TabButton:
+        return QQuickTheme::TabBar;
+    case QQStyleKitReader::ControlType::TextArea:
+        return QQuickTheme::TextArea;
+    case QQStyleKitReader::ControlType::TextInput:
+    case QQStyleKitReader::ControlType::TextField:
+        return QQuickTheme::TextField;
+    case QQStyleKitReader::ControlType::ToolBar:
+    case QQStyleKitReader::ControlType::ToolButton:
+    case QQStyleKitReader::ControlType::ToolSeparator:
+        return QQuickTheme::ToolBar;
+    default:
+        return QQuickTheme::System;
+    }
+    Q_UNREACHABLE();
+}
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitstyleandthemebase.cpp, line 21, as _ZN27QQStyleKitStyleAndThemeBaseC2EP7QObject
 inline QQStyleKitStyleAndThemeBase::QQStyleKitStyleAndThemeBase(QObject *parent)
@@ -39,6 +99,51 @@ inline QQStyleKitPalette *QQStyleKitStyleAndThemeBase::palettes()
 {
     return &m_palettes;
 }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 35, as _ZNK17QQStyleKitPalette11radioButtonEv
+inline QQuickPalette *QQStyleKitPalette::radioButton() const { if (!m_radioButton) { m_radioButton.reset(new QQuickPalette()); QObject::connect(m_radioButton.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::RadioButton); emit self->radioButtonChanged(); }); } return m_radioButton.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 33, as _ZNK17QQStyleKitPalette12itemDelegateEv
+inline QQuickPalette *QQStyleKitPalette::itemDelegate() const { if (!m_itemDelegate) { m_itemDelegate.reset(new QQuickPalette()); QObject::connect(m_itemDelegate.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::ItemView); emit self->itemDelegateChanged(); }); } return m_itemDelegate.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 43, as _ZNK17QQStyleKitPalette15fallbackPaletteEv
+inline QQStyleKitPalette *QQStyleKitPalette::fallbackPalette() const
+{
+    return m_fallbackPalette;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 34, as _ZNK17QQStyleKitPalette5labelEv
+inline QQuickPalette *QQStyleKitPalette::label() const { if (!m_label) { m_label.reset(new QQuickPalette()); QObject::connect(m_label.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::Label); emit self->labelChanged(); }); } return m_label.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 30, as _ZNK17QQStyleKitPalette6buttonEv
+inline QQuickPalette *QQStyleKitPalette::button() const { if (!m_button) { m_button.reset(new QQuickPalette()); QObject::connect(m_button.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::Button); emit self->buttonChanged(); }); } return m_button.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 28, as _ZNK17QQStyleKitPalette6systemEv
+inline QQuickPalette *QQStyleKitPalette::system() const { if (!m_system) { m_system.reset(new QQuickPalette()); QObject::connect(m_system.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::System); emit self->systemChanged(); }); } return m_system.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 38, as _ZNK17QQStyleKitPalette6tabBarEv
+inline QQuickPalette *QQStyleKitPalette::tabBar() const { if (!m_tabBar) { m_tabBar.reset(new QQuickPalette()); QObject::connect(m_tabBar.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::TabBar); emit self->tabBarChanged(); }); } return m_tabBar.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 36, as _ZNK17QQStyleKitPalette7spinBoxEv
+inline QQuickPalette *QQStyleKitPalette::spinBox() const { if (!m_spinBox) { m_spinBox.reset(new QQuickPalette()); QObject::connect(m_spinBox.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::SpinBox); emit self->spinBoxChanged(); }); } return m_spinBox.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 41, as _ZNK17QQStyleKitPalette7toolBarEv
+inline QQuickPalette *QQStyleKitPalette::toolBar() const { if (!m_toolBar) { m_toolBar.reset(new QQuickPalette()); QObject::connect(m_toolBar.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::ToolBar); emit self->toolBarChanged(); }); } return m_toolBar.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 29, as _ZNK17QQStyleKitPalette8checkBoxEv
+inline QQuickPalette *QQStyleKitPalette::checkBox() const { if (!m_checkBox) { m_checkBox.reset(new QQuickPalette()); QObject::connect(m_checkBox.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::CheckBox); emit self->checkBoxChanged(); }); } return m_checkBox.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 31, as _ZNK17QQStyleKitPalette8comboBoxEv
+inline QQuickPalette *QQStyleKitPalette::comboBox() const { if (!m_comboBox) { m_comboBox.reset(new QQuickPalette()); QObject::connect(m_comboBox.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::ComboBox); emit self->comboBoxChanged(); }); } return m_comboBox.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 32, as _ZNK17QQStyleKitPalette8groupBoxEv
+inline QQuickPalette *QQStyleKitPalette::groupBox() const { if (!m_groupBox) { m_groupBox.reset(new QQuickPalette()); QObject::connect(m_groupBox.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::GroupBox); emit self->groupBoxChanged(); }); } return m_groupBox.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 39, as _ZNK17QQStyleKitPalette8textAreaEv
+inline QQuickPalette *QQStyleKitPalette::textArea() const { if (!m_textArea) { m_textArea.reset(new QQuickPalette()); QObject::connect(m_textArea.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::TextArea); emit self->textAreaChanged(); }); } return m_textArea.get(); }
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitpalette.cpp, line 40, as _ZNK17QQStyleKitPalette9textFieldEv
+inline QQuickPalette *QQStyleKitPalette::textField() const { if (!m_textField) { m_textField.reset(new QQuickPalette()); QObject::connect(m_textField.get(), &QQuickPalette::changed, const_cast<QQStyleKitPalette*>(this), [this]() { auto *self = const_cast<QQStyleKitPalette*>(this); self->markSet(QQuickTheme::TextField); emit self->textFieldChanged(); }); } return m_textField.get(); }
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitstyleandthemebase.cpp, line 43, as _ZN27QQStyleKitStyleAndThemeBase5fontsEv
 inline QQStyleKitFont *QQStyleKitStyleAndThemeBase::fonts()
@@ -56,6 +161,13 @@ inline QQStyleKitFont *QQStyleKitFont::fallbackFont() const
 inline QFont QQStyleKitFont::fontForScope(QQuickTheme::Scope scope) const
 {
     return m_fonts[int(scope)];
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 221, as _ZN15QQStyleKitTheme17componentCompleteEv
+inline void QQStyleKitTheme::componentComplete()
+{
+    QQStyleKitControls::componentComplete();
+    m_completed = true;
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrols.cpp, line 725, as _ZN18QQStyleKitControls17componentCompleteEv
@@ -85,11 +197,11 @@ inline QQStyleKitStyle *QQStyleKitTheme::style() const
     return static_cast<QQStyleKitStyle *>(parentObj);
 }
 
-//  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 221, as _ZN15QQStyleKitTheme17componentCompleteEv
-inline void QQStyleKitTheme::componentComplete()
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 119, as _ZNK15QQStyleKitTheme21paletteForControlTypeEj
+inline QPalette QQStyleKitTheme::paletteForControlType(QQStyleKitExtendableControlType type) const
 {
-    QQStyleKitControls::componentComplete();
-    m_completed = true;
+    const QQuickTheme::Scope scope = scopeForType(type);
+    return m_effectivePalettes[int(scope)];
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 185, as _ZN15QQStyleKitTheme16updateThemeFontsEv
@@ -137,11 +249,39 @@ const QMetaObject *ritual_ZNK15QQStyleKitTheme10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitTheme::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQStyleKitTheme11qt_metacastEPKc(
+    QQStyleKitTheme *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitTheme::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQStyleKitTheme11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitTheme *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQStyleKitStyle *QQStyleKitTheme::style() const
 extern "C" Q_DECL_EXPORT
 QQStyleKitStyle *ritual_ZNK15QQStyleKitTheme5styleEv(
     const QQStyleKitTheme *self) {
   return self->style();
+}
+
+//  QPalette
+//      QQStyleKitTheme::paletteForControlType(QQStyleKitExtendableControlTyp
+//      e type) const
+extern "C" Q_DECL_EXPORT
+QPalette *ritual_ZNK15QQStyleKitTheme21paletteForControlTypeEj(
+    const QQStyleKitTheme *self,
+    QQStyleKitExtendableControlType type) {
+  return new QPalette(self->paletteForControlType(type));
 }
 
 //  void QQStyleKitTheme::componentComplete()

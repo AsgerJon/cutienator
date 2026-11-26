@@ -231,6 +231,22 @@ QTextFrameFormat *ritual_ZN16QTextFrameFormatC1ERK11QTextFormat(
   return new QTextFrameFormat(*fmt);
 }
 
+//  QDataStream &operator<<(QDataStream &a0, const QTextFrameFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK16QTextFrameFormat(
+    QDataStream *a0,
+    const QTextFrameFormat *a1) {
+  return &(operator<<(*a0, *a1));
+}
+
+//  QDataStream &operator>>(QDataStream &a0, QTextFrameFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR16QTextFrameFormat(
+    QDataStream *a0,
+    QTextFrameFormat *a1) {
+  return &(operator>>(*a0, *a1));
+}
+
 //  QTextFrameFormat::~QTextFrameFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextFrameFormatD1Ev(QTextFrameFormat *self) {

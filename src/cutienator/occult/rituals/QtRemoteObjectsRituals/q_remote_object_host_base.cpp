@@ -1,11 +1,18 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand: 'ritual_callback_ZN21QRemoteObjectHostBase5pro
+//  xyERK4QUrlS2_St8functionIFb11QStringViewS4_EE', 'ritual_callback_ZN21QRem
+//  oteObjectHostBase12reverseProxyESt8functionIFb11QStringViewS1_EE'. Kept
+//  as it is when the generator runs again.
 #include <QtRemoteObjects/qremoteobjectnode.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QString>
+#include <QtCore/QList>
+#include <QtCore/QUrl>
+#include <QtRemoteObjects/QRemoteObjectHostBase>
 
 //  Only a class built on QRemoteObjectHostBase may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -255,6 +262,25 @@ const QMetaObject *ritual_ZNK21QRemoteObjectHostBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRemoteObjectHostBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QRemoteObjectHostBase11qt_metacastEPKc(
+    QRemoteObjectHostBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRemoteObjectHostBase::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QRemoteObjectHostBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRemoteObjectHostBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRemoteObjectHostBase::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QRemoteObjectHostBase2trEPKcS1_i(
@@ -288,6 +314,19 @@ bool ritual_ZN21QRemoteObjectHostBase14enableRemotingEP7QObjectRK7QString(
   return self->enableRemoting(object, *name);
 }
 
+//  bool QRemoteObjectHostBase::enableRemoting(QAbstractItemModel *model,
+//      const QString &name, const QList<int> roles, QItemSelectionModel
+//      *selectionModel)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QRemoteObjectHostBase14enableRemotingEP18QAbstractItemModelRK7QString5QListIiEP19QItemSelectionModel(
+    QRemoteObjectHostBase *self,
+    QAbstractItemModel *model,
+    const QString *name,
+    const QList<int> *roles,
+    QItemSelectionModel *selectionModel) {
+  return self->enableRemoting(model, *name, *roles, selectionModel);
+}
+
 //  bool QRemoteObjectHostBase::disableRemoting(QObject *remoteObject)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN21QRemoteObjectHostBase15disableRemotingEP7QObject(
@@ -302,6 +341,25 @@ void ritual_ZN21QRemoteObjectHostBase21addHostSideConnectionEP9QIODevice(
     QRemoteObjectHostBase *self,
     QIODevice *ioDevice) {
   self->addHostSideConnection(ioDevice);
+}
+
+//  bool QRemoteObjectHostBase::proxy(const QUrl &registryUrl, const QUrl
+//      &hostUrl, RemoteObjectNameFilter filter)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QRemoteObjectHostBase5proxyERK4QUrlS2_St8functionIFb11QStringViewS4_EE(
+    QRemoteObjectHostBase *self,
+    const QUrl *registryUrl,
+    const QUrl *hostUrl,
+    const QRemoteObjectHostBase::RemoteObjectNameFilter *filter) {
+  return self->proxy(*registryUrl, *hostUrl, *filter);
+}
+
+//  bool QRemoteObjectHostBase::reverseProxy(RemoteObjectNameFilter filter)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QRemoteObjectHostBase12reverseProxyESt8functionIFb11QStringViewS1_EE(
+    QRemoteObjectHostBase *self,
+    const QRemoteObjectHostBase::RemoteObjectNameFilter *filter) {
+  return self->reverseProxy(*filter);
 }
 
 //  QUrl QRemoteObjectHostBase::hostUrl() const
@@ -319,6 +377,15 @@ bool ritual_ZN21QRemoteObjectHostBase10setHostUrlERK4QUrlNS_14AllowedSchemasE(
     const QUrl *hostAddress,
     QRemoteObjectHostBase::AllowedSchemas allowedSchemas) {
   return self->setHostUrl(*hostAddress, allowedSchemas);
+}
+
+//  QRemoteObjectHostBase::QRemoteObjectHostBase(QRemoteObjectHostBasePrivate
+//      &a0, QObject *a1)
+extern "C" Q_DECL_EXPORT
+QRemoteObjectHostBase *ritual_ZN21QRemoteObjectHostBaseC1ER28QRemoteObjectHostBasePrivateP7QObject(
+    QRemoteObjectHostBasePrivate *a0,
+    QObject *a1) {
+  return new CuteQRemoteObjectHostBase(*a0, a1);
 }
 
 //  bool QRemoteObjectHostBase::enableRemoting(QObject *object, const
@@ -382,4 +449,39 @@ bool ritual_own_ZN21QRemoteObjectHostBase10setHostUrlERK4QUrlNS_14AllowedSchemas
   return static_cast<OwnQRemoteObjectHostBase *>(self)->OwnQRemoteObjectHostBase::setHostUrl(
       *hostAddress,
       allowedSchemas);
+}
+
+//  bool QRemoteObjectHostBase::proxy(const QUrl &registryUrl, const QUrl
+//      &hostUrl, RemoteObjectNameFilter filter)
+extern "C" Q_DECL_EXPORT
+bool ritual_callback_ZN21QRemoteObjectHostBase5proxyERK4QUrlS2_St8functionIFb11QStringViewS4_EE(
+    QRemoteObjectHostBase *self,
+    const QUrl *registryUrl,
+    const QUrl *hostUrl,
+    void *call,
+    void *context) {
+  auto function = reinterpret_cast<bool (*)(
+      void *, const QString *, const QString *)>(call);
+  auto filter = [function, context](QStringView a, QStringView b) {
+    const QString first = a.toString();
+    const QString second = b.toString();
+    return function(context, &first, &second);
+  };
+  return self->proxy(*registryUrl, *hostUrl, filter);
+}
+
+//  bool QRemoteObjectHostBase::reverseProxy(RemoteObjectNameFilter filter)
+extern "C" Q_DECL_EXPORT
+bool ritual_callback_ZN21QRemoteObjectHostBase12reverseProxyESt8functionIFb11QStringViewS1_EE(
+    QRemoteObjectHostBase *self,
+    void *call,
+    void *context) {
+  auto function = reinterpret_cast<bool (*)(
+      void *, const QString *, const QString *)>(call);
+  auto filter = [function, context](QStringView a, QStringView b) {
+    const QString first = a.toString();
+    const QString second = b.toString();
+    return function(context, &first, &second);
+  };
+  return self->reverseProxy(filter);
 }

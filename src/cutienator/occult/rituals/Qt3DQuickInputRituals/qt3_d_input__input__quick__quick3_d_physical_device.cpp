@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DInput/Qt3DInput>
 
 //  A Qt3DInput::Input::Quick::Quick3DPhysicalDevice that Python can take functions over in. Every Qt3DInput::Input::Quick::Quick3DPhysicalDevice
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,26 @@ const QMetaObject *ritual_ZNK9Qt3DInput5Input5Quick21Quick3DPhysicalDevice10meta
   return self->metaObject();
 }
 
+//  void *Qt3DInput::Input::Quick::Quick3DPhysicalDevice::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput5Input5Quick21Quick3DPhysicalDevice11qt_metacastEPKc(
+    Qt3DInput::Input::Quick::Quick3DPhysicalDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::Input::Quick::Quick3DPhysicalDevice::qt_metacall(QMetaObje
+//      ct::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput5Input5Quick21Quick3DPhysicalDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::Input::Quick::Quick3DPhysicalDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::Input::Quick::Quick3DPhysicalDevice::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -199,6 +221,14 @@ QString *ritual_ZN9Qt3DInput5Input5Quick21Quick3DPhysicalDevice2trEPKcS4_i(
           n));
 }
 
+//  Qt3DInput::Input::Quick::Quick3DPhysicalDevice::Quick3DPhysicalDevice(QOb
+//      ject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::Quick::Quick3DPhysicalDevice *ritual_ZN9Qt3DInput5Input5Quick21Quick3DPhysicalDeviceC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DInput_Input_Quick_Quick3DPhysicalDevice(parent);
+}
+
 //  QAbstractPhysicalDevice
 //      *Qt3DInput::Input::Quick::Quick3DPhysicalDevice::parentPhysicalDevice
 //      () const
@@ -206,6 +236,14 @@ extern "C" Q_DECL_EXPORT
 Qt3DInput::QAbstractPhysicalDevice *ritual_ZNK9Qt3DInput5Input5Quick21Quick3DPhysicalDevice20parentPhysicalDeviceEv(
     const Qt3DInput::Input::Quick::Quick3DPhysicalDevice *self) {
   return self->parentPhysicalDevice();
+}
+
+//  QQmlListProperty<Qt3DInput::QAxisSetting>
+//      Qt3DInput::Input::Quick::Quick3DPhysicalDevice::axisSettings()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DInput::QAxisSetting> *ritual_ZN9Qt3DInput5Input5Quick21Quick3DPhysicalDevice12axisSettingsEv(
+    Qt3DInput::Input::Quick::Quick3DPhysicalDevice *self) {
+  return new QQmlListProperty<Qt3DInput::QAxisSetting>(self->axisSettings());
 }
 
 //  a Python function taken by a
@@ -217,4 +255,12 @@ bool ritual_take_Qt3DInput_Input_Quick_Quick3DPhysicalDevice(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_Input_Quick_Quick3DPhysicalDevice *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DInput::QAxisSetting> a ritual of
+//      Qt3DInput::Input::Quick::Quick3DPhysicalDevice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_Input_Quick_Quick3DPhysicalDevice__QQmlListProperty_Qt3DInput_QAxisSetting(
+    QQmlListProperty<Qt3DInput::QAxisSetting> *self) {
+  delete self;
 }

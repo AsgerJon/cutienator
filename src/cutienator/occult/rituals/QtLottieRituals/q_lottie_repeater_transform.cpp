@@ -36,7 +36,7 @@ typedef const QSize * (*CuteQLottieRepeaterTransformCall12)(const void *, int *)
 class CuteQLottieRepeaterTransform : public QLottieRepeaterTransform {
 public:
   using QLottieRepeaterTransform::QLottieRepeaterTransform;
-  CuteQLottieRepeaterTransform(const QLottieRepeaterTransform &other) : QLottieRepeaterTransform(other) {}
+  CuteQLottieRepeaterTransform(const QLottieRepeaterTransform & other) : QLottieRepeaterTransform(other) {}
   void *taken[13] = {};
 
   bool take(const char *key, void *call) {
@@ -278,6 +278,14 @@ void ritual_ZN24QLottieRepeaterTransform16updatePropertiesEi(
     QLottieRepeaterTransform *self,
     int frame) {
   self->updateProperties(frame);
+}
+
+//  void QLottieRepeaterTransform::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK24QLottieRepeaterTransform6renderER15QLottieRenderer(
+    const QLottieRepeaterTransform *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
 }
 
 //  qreal QLottieRepeaterTransform::startOpacity() const

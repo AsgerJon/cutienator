@@ -8,9 +8,17 @@
     "ritual_ZNK23QQuickStateChangeScript10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickStateChangeScript11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickStateChangeScript11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickStateChangeScript2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN23QQuickStateChangeScript6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickStateChangeScript6d_funcEv": ["address", "address"],
     "ritual_ZN23QQuickStateChangeScriptC1EP7QObject": ["address", "address"],
     "ritual_ZN23QQuickStateChangeScript7actionsEv": ["address", "address"],
     "ritual_ZNK23QQuickStateChangeScript4typeEv": ["int", "address"],

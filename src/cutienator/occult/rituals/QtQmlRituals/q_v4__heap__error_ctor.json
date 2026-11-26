@@ -5,5 +5,11 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap9ErrorCtor4initEPNS_15ExecutionEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap9ErrorCtor4initEPNS_15ExecutionEngineERK7QString": [
+      "nothing", "address", "address", "text"
+    ]
   }
 }

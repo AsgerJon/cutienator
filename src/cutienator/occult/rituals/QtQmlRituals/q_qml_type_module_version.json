@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qqmltypemoduleversion_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN21QQmlTypeModuleVersionC1Ev": ["address"],
@@ -10,6 +10,15 @@
       "address", "address", "address"
     ],
     "ritual_ZN21QQmlTypeModuleVersionC1ERKS_": ["address", "address"],
-    "ritual_ZN21QQmlTypeModuleVersionD1Ev": ["nothing", "address"]
+    "ritual_ZN21QQmlTypeModuleVersionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQmlTypeModuleVersionD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQmlTypeModuleVersion4typeI16QHashedStringRefEE8QQmlTypeT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QQmlTypeModuleVersion4typeIPKN3QV46StringEEE8QQmlTypeT_": [
+      "address", "address", "address"
+    ]
   }
 }

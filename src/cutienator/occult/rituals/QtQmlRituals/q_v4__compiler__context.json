@@ -17,11 +17,20 @@
     "ritual_ZNK3QV48Compiler7Context10findMemberERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZNK3QV48Compiler7Context10memberInfoERK7QStringPPKNS1_6MemberE": [
+      "bool", "address", "text", "address"
+    ],
     "ritual_ZNK3QV48Compiler7Context27requiresImplicitReturnValueEv": [
       "bool", "address"
     ],
     "ritual_ZN3QV48Compiler7Context15addUsedVariableERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN3QV48Compiler7Context11addLocalVarERK7QStringNS1_10MemberTypeEN6QQmlJS3AST13VariableScopeEPNS7_18FunctionExpressionERKNS6_14SourceLocationEb": [
+      "bool", "address", "text", "int", "int", "address", "address", "bool"
+    ],
+    "ritual_ZN3QV48Compiler7Context11resolveNameERK7QStringRKN6QQmlJS14SourceLocationE": [
+      "address", "address", "text", "address"
     ],
     "ritual_ZNK3QV48Compiler7Context16canHaveTailCallsEv": [
       "bool", "address"

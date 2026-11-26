@@ -31,7 +31,7 @@ typedef void * (*CuteQPictureCall5)(const void *, int *);
 class CuteQPicture : public QPicture {
 public:
   using QPicture::QPicture;
-  CuteQPicture(const QPicture &other) : QPicture(other) {}
+  CuteQPicture(const QPicture & other) : QPicture(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -252,6 +252,24 @@ void ritual_ZN8QPicture15setBoundingRectERK5QRect(
   self->setBoundingRect(*r);
 }
 
+//  QPicture &QPicture::operator=(const QPicture &p)
+extern "C" Q_DECL_EXPORT
+QPicture *ritual_ZN8QPictureaSERKS_(QPicture *self, const QPicture *p) {
+  return &(self->operator=(*p));
+}
+
+//  QPicture &QPicture::operator=(QPicture &&other)
+extern "C" Q_DECL_EXPORT
+QPicture *ritual_ZN8QPictureaSEOS_(QPicture *self, QPicture *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPicture::swap(QPicture &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPicture4swapERS_(QPicture *self, QPicture *other) {
+  self->swap(*other);
+}
+
 //  void QPicture::detach()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPicture6detachEv(QPicture *self) {
@@ -264,10 +282,32 @@ bool ritual_ZNK8QPicture10isDetachedEv(const QPicture *self) {
   return self->isDetached();
 }
 
+//  QDataStream &operator<<(QDataStream &in, const QPicture &p)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK8QPicture(
+    QDataStream *in,
+    const QPicture *p) {
+  return &(operator<<(*in, *p));
+}
+
+//  QDataStream &operator>>(QDataStream &in, QPicture &p)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR8QPicture(
+    QDataStream *in,
+    QPicture *p) {
+  return &(operator>>(*in, *p));
+}
+
 //  QPaintEngine *QPicture::paintEngine() const
 extern "C" Q_DECL_EXPORT
 QPaintEngine *ritual_ZNK8QPicture11paintEngineEv(const QPicture *self) {
   return self->paintEngine();
+}
+
+//  QPicture::QPicture(QPicturePrivate &data)
+extern "C" Q_DECL_EXPORT
+QPicture *ritual_ZN8QPictureC1ER15QPicturePrivate(QPicturePrivate *data) {
+  return new CuteQPicture(*data);
 }
 
 //  int QPicture::metric(PaintDeviceMetric m) const
@@ -276,6 +316,22 @@ int ritual_ZNK8QPicture6metricEN12QPaintDevice17PaintDeviceMetricE(
     const QPicture *self,
     QPaintDevice::PaintDeviceMetric m) {
   return self->metric(m);
+}
+
+//  bool QPicture::exec(QPainter *p, QDataStream &ds, int i)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QPicture4execEP8QPainterR11QDataStreami(
+    QPicture *self,
+    QPainter *p,
+    QDataStream *ds,
+    int i) {
+  return self->exec(p, *ds, i);
+}
+
+//  DataPtr &QPicture::data_ptr()
+extern "C" Q_DECL_EXPORT
+QPicture::DataPtr *ritual_ZN8QPicture8data_ptrEv(QPicture *self) {
+  return &(self->data_ptr());
 }
 
 //  a Python function taken by a CuteQPicture, for the function named by the

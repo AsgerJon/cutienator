@@ -13,8 +13,26 @@
     "ritual_ZN17QMimeProviderBase13knowsMimeTypeERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN17QMimeProviderBase18addFileNameMatchesERK7QStringR20QMimeGlobMatchResult": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN17QMimeProviderBase10addParentsERK7QStringR5QListIS0_E": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZN17QMimeProviderBase12resolveAliasERK7QString": [
       "text", "address", "text"
+    ],
+    "ritual_ZN17QMimeProviderBase10addAliasesERK7QStringR5QListIS0_E": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN17QMimeProviderBase11findByMagicERK10QByteArrayR16QMimeMagicResult": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QMimeProviderBase15addAllMimeTypesER5QListI9QMimeTypeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QMimeProviderBase14localeCommentsERK7QString": [
+      "address", "address", "text"
     ],
     "ritual_ZN17QMimeProviderBase16hasGlobDeleteAllERK7QString": [
       "bool", "address", "text"
@@ -41,6 +59,9 @@
     ],
     "ritual_take_QMimeProviderBase": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QMimeProviderBase12ensureLoadedEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QMimeProviderBase__QMimeTypePrivate_LocaleHash": [
       "nothing", "address"
     ]
   }

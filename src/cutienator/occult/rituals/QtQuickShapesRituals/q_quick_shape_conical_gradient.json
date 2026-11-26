@@ -8,6 +8,12 @@
     "ritual_ZNK26QQuickShapeConicalGradient10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuickShapeConicalGradient11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuickShapeConicalGradient11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQuickShapeConicalGradient2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -29,6 +35,15 @@
     "ritual_ZNK26QQuickShapeConicalGradient5angleEv": ["double", "address"],
     "ritual_ZN26QQuickShapeConicalGradient8setAngleEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN26QQuickShapeConicalGradient14centerXChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickShapeConicalGradient14centerYChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickShapeConicalGradient12angleChangedEv": [
+      "nothing", "address"
     ]
   }
 }

@@ -13,6 +13,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <memory>
 
 //  A QPlatformAudioDevices that Python can take functions over in. Every QPlatformAudioDevices
 //  Python makes is one. Each function below asks the Python
@@ -260,6 +261,25 @@ const QMetaObject *ritual_ZNK21QPlatformAudioDevices10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformAudioDevices::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QPlatformAudioDevices11qt_metacastEPKc(
+    QPlatformAudioDevices *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformAudioDevices::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QPlatformAudioDevices11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformAudioDevices *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformAudioDevices::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QPlatformAudioDevices2trEPKcS1_i(
@@ -279,6 +299,13 @@ QPlatformAudioDevices *ritual_ZN21QPlatformAudioDevicesC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QPlatformAudioDevicesD1Ev(QPlatformAudioDevices *self) {
   delete self;
+}
+
+//  std::unique_ptr<QPlatformAudioDevices> QPlatformAudioDevices::create()
+extern "C" Q_DECL_EXPORT
+std::unique_ptr<QPlatformAudioDevices> *ritual_ZN21QPlatformAudioDevices6createEv() {
+  return new std::unique_ptr<QPlatformAudioDevices>(
+      QPlatformAudioDevices::create());
 }
 
 //  QList<QAudioDevice> QPlatformAudioDevices::audioInputs() const
@@ -396,6 +423,22 @@ void ritual_ZN21QPlatformAudioDevices23updateAudioOutputsCacheEv(
   self->updateAudioOutputsCache();
 }
 
+//  void QPlatformAudioDevices::audioInputsChanged(PrivateTag a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlatformAudioDevices18audioInputsChangedENS_10PrivateTagE(
+    QPlatformAudioDevices *self,
+    const QPlatformAudioDevices::PrivateTag *a0) {
+  self->audioInputsChanged(*a0);
+}
+
+//  void QPlatformAudioDevices::audioOutputsChanged(PrivateTag a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlatformAudioDevices19audioOutputsChangedENS_10PrivateTagE(
+    QPlatformAudioDevices *self,
+    const QPlatformAudioDevices::PrivateTag *a0) {
+  self->audioOutputsChanged(*a0);
+}
+
 //  a Python function taken by a CuteQPlatformAudioDevices, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -440,4 +483,12 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK21QPlatformAudioDevices14hasCallbackApiEv(
     const QPlatformAudioDevices *self) {
   return self->QPlatformAudioDevices::hasCallbackApi();
+}
+
+//  a std::unique_ptr<QPlatformAudioDevices> a ritual of
+//      QPlatformAudioDevices gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformAudioDevices__std_unique_ptr_QPlatformAudioDevices(
+    std::unique_ptr<QPlatformAudioDevices> *self) {
+  delete self;
 }

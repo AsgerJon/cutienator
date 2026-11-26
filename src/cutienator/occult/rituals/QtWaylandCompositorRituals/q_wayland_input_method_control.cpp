@@ -43,6 +43,25 @@ const QMetaObject *ritual_ZNK26QWaylandInputMethodControl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandInputMethodControl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QWaylandInputMethodControl11qt_metacastEPKc(
+    QWaylandInputMethodControl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandInputMethodControl::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QWaylandInputMethodControl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandInputMethodControl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QWaylandInputMethodControlPrivate *QWaylandInputMethodControl::d_func()
 extern "C" Q_DECL_EXPORT
 QWaylandInputMethodControlPrivate *ritual_ZN26QWaylandInputMethodControl6d_funcEv(
@@ -63,6 +82,62 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK26QWaylandInputMethodControl7enabledEv(
     const QWaylandInputMethodControl *self) {
   return self->enabled();
+}
+
+//  void QWaylandInputMethodControl::enabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QWaylandInputMethodControl14enabledChangedEb(
+    QWaylandInputMethodControl *self,
+    bool enabled) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWaylandInputMethodControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "enabledChanged(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "enabledChanged(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&enabled)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QWaylandInputMethodControl::updateInputMethod(Qt::InputMethodQueries
+//      queries)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QWaylandInputMethodControl17updateInputMethodE6QFlagsIN2Qt16InputMethodQueryEE(
+    QWaylandInputMethodControl *self,
+    int queries) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QWaylandInputMethodControl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateInputMethod(Qt::InputMethodQueries)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateInputMethod(Qt::InputMethodQueries)");
+  Qt::InputMethodQueries value0 = QFlags<Qt::InputMethodQuery>::fromInt(queries);
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&value0)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 #endif  // QT_CONFIG(im)

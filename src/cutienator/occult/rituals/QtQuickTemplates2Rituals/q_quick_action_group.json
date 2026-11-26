@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickActionGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickActionGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickActionGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickActionGroup2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,7 @@
     "ritual_ZN17QQuickActionGroup16setCheckedActionEP12QQuickAction": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QQuickActionGroup7actionsEv": ["address", "address"],
     "ritual_ZNK17QQuickActionGroup11isExclusiveEv": ["bool", "address"],
     "ritual_ZN17QQuickActionGroup12setExclusiveEb": [
       "nothing", "address", "bool"
@@ -35,6 +42,22 @@
     "ritual_ZN17QQuickActionGroup12removeActionEP12QQuickAction": [
       "nothing", "address", "address"
     ],
-    "ritual_take_QQuickActionGroup": ["bool", "address", "chars", "address"]
+    "ritual_ZN17QQuickActionGroup20checkedActionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickActionGroup14actionsChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickActionGroup16exclusiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickActionGroup14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickActionGroup9triggeredEP12QQuickAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickActionGroup6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickActionGroup6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickActionGroup": ["bool", "address", "chars", "address"],
+    "ritual_drop_QQuickActionGroup__QQmlListProperty_QQuickAction": [
+      "nothing", "address"
+    ]
   }
 }

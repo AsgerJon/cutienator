@@ -65,6 +65,32 @@ void ritual_ZN18QCommandLineOptionD1Ev(QCommandLineOption *self) {
   delete self;
 }
 
+//  QCommandLineOption &QCommandLineOption::operator=(const
+//      QCommandLineOption &other)
+extern "C" Q_DECL_EXPORT
+QCommandLineOption *ritual_ZN18QCommandLineOptionaSERKS_(
+    QCommandLineOption *self,
+    const QCommandLineOption *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCommandLineOption &QCommandLineOption::operator=(QCommandLineOption
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCommandLineOption *ritual_ZN18QCommandLineOptionaSEOS_(
+    QCommandLineOption *self,
+    QCommandLineOption *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCommandLineOption::swap(QCommandLineOption &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QCommandLineOption4swapERS_(
+    QCommandLineOption *self,
+    QCommandLineOption *other) {
+  self->swap(*other);
+}
+
 //  QStringList QCommandLineOption::names() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK18QCommandLineOption5namesEv(

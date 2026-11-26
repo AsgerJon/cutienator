@@ -4,6 +4,8 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9QKeyEventC1ERKS_": ["address", "address"],
+    "ritual_ZN9QKeyEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK9QKeyEvent5cloneEv": ["address", "address"],
     "ritual_ZN9QKeyEventD1Ev": ["nothing", "address"],
     "ritual_ZN9QKeyEventC1EN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt": [

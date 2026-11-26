@@ -5,21 +5,42 @@
   ],
   "rows": {
     "ritual_ZNK12QChronoTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QChronoTimer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QChronoTimer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QChronoTimer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QChronoTimerC1ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEP7QObject": [
+      "address", "long long", "address"
+    ],
     "ritual_ZN12QChronoTimerC1EP7QObject": ["address", "address"],
     "ritual_ZN12QChronoTimerD1Ev": ["nothing", "address"],
     "ritual_ZNK12QChronoTimer8isActiveEv": ["bool", "address"],
+    "ritual_ZN12QChronoTimer14bindableActiveEv": ["address", "address"],
     "ritual_ZNK12QChronoTimer2idEv": ["int", "address"],
+    "ritual_ZN12QChronoTimer11setIntervalENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK12QChronoTimer8intervalEv": ["long long", "address"],
+    "ritual_ZN12QChronoTimer16bindableIntervalEv": ["address", "address"],
+    "ritual_ZNK12QChronoTimer13remainingTimeEv": ["long long", "address"],
     "ritual_ZN12QChronoTimer12setTimerTypeEN2Qt9TimerTypeE": [
       "nothing", "address", "int"
     ],
     "ritual_ZNK12QChronoTimer9timerTypeEv": ["int", "address"],
+    "ritual_ZN12QChronoTimer17bindableTimerTypeEv": ["address", "address"],
     "ritual_ZN12QChronoTimer13setSingleShotEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZNK12QChronoTimer12isSingleShotEv": ["bool", "address"],
+    "ritual_ZN12QChronoTimer18bindableSingleShotEv": ["address", "address"],
     "ritual_ZN12QChronoTimer5startEv": ["nothing", "address"],
     "ritual_ZN12QChronoTimer4stopEv": ["nothing", "address"],
+    "ritual_ZN12QChronoTimer7timeoutENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
     "ritual_ZN12QChronoTimer10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
@@ -28,6 +49,13 @@
     "ritual_take_QChronoTimer": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QChronoTimer10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QChronoTimer__QBindable_bool": ["nothing", "address"],
+    "ritual_drop_QChronoTimer__QBindable_std_chrono_nanoseconds": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QChronoTimer__QBindable_Qt_TimerType": [
+      "nothing", "address"
     ]
   }
 }

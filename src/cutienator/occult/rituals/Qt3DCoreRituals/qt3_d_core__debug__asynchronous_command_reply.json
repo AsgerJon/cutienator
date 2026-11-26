@@ -8,8 +8,17 @@
     "ritual_ZNK8Qt3DCore5Debug24AsynchronousCommandReply10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore5Debug24AsynchronousCommandReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore5Debug24AsynchronousCommandReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore5Debug24AsynchronousCommandReply2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Debug24AsynchronousCommandReplyC1ERK7QStringP7QObject": [
+      "address", "text", "address"
     ],
     "ritual_ZNK8Qt3DCore5Debug24AsynchronousCommandReply4dataEv": [
       "address", "address"
@@ -19,6 +28,15 @@
     ],
     "ritual_ZNK8Qt3DCore5Debug24AsynchronousCommandReply10isFinishedEv": [
       "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Debug24AsynchronousCommandReply11setFinishedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore5Debug24AsynchronousCommandReply7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Debug24AsynchronousCommandReply8finishedEPS1_": [
+      "nothing", "address", "address"
     ]
   }
 }

@@ -9,6 +9,9 @@
       "address", "address"
     ],
     "ritual_ZN14QSSGBindTargetC1ERKS_": ["address", "address"],
+    "ritual_ZNK14QSSGBindTarget8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QSSGBindTargetD1Ev": ["nothing", "address"]
   }
 }

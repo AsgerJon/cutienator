@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK19QQuick3DSkyMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DSkyMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuick3DSkyMaterial11qt_metacastEPKc(
+    QQuick3DSkyMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DSkyMaterial::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuick3DSkyMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DSkyMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DSkyMaterial::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuick3DSkyMaterial2trEPKcS1_i(
@@ -145,6 +164,55 @@ void ritual_ZN19QQuick3DSkyMaterial13setSkyboxModeENS_10SkyboxModeE(
     QQuick3DSkyMaterial *self,
     QQuick3DSkyMaterial::SkyboxMode skyboxMode) {
   self->setSkyboxMode(skyboxMode);
+}
+
+//  void QQuick3DSkyMaterial::radianceMapSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DSkyMaterial22radianceMapSizeChangedEv(
+    QQuick3DSkyMaterial *self) {
+  self->radianceMapSizeChanged();
+}
+
+//  void QQuick3DSkyMaterial::fragmentShaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DSkyMaterial21fragmentShaderChangedEv(
+    QQuick3DSkyMaterial *self) {
+  self->fragmentShaderChanged();
+}
+
+//  void QQuick3DSkyMaterial::fragmentShaderCodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DSkyMaterial25fragmentShaderCodeChangedEv(
+    QQuick3DSkyMaterial *self) {
+  self->fragmentShaderCodeChanged();
+}
+
+//  void QQuick3DSkyMaterial::enableIBLChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DSkyMaterial16enableIBLChangedEv(
+    QQuick3DSkyMaterial *self) {
+  self->enableIBLChanged();
+}
+
+//  void QQuick3DSkyMaterial::iblSampleCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DSkyMaterial21iblSampleCountChangedEv(
+    QQuick3DSkyMaterial *self) {
+  self->iblSampleCountChanged();
+}
+
+//  void QQuick3DSkyMaterial::iblRenderFramesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DSkyMaterial22iblRenderFramesChangedEv(
+    QQuick3DSkyMaterial *self) {
+  self->iblRenderFramesChanged();
+}
+
+//  void QQuick3DSkyMaterial::skyboxModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DSkyMaterial17skyboxModeChangedEv(
+    QQuick3DSkyMaterial *self) {
+  self->skyboxModeChanged();
 }
 
 //  QSSGRenderGraphObject

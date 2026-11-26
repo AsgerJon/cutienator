@@ -37,6 +37,42 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/util/qflickgesture.cpp, line 30, as local:qflickgesture.cpp:qFGDebug
+#if !defined(QT_NO_GESTURES)
+#if defined(QFLICKGESTURE_DEBUG)
+#  define qFGDebug  qDebug
+#endif  // defined(QFLICKGESTURE_DEBUG)
+#endif  // !defined(QT_NO_GESTURES)
+
+//  from src/widgets/util/qflickgesture.cpp, line 37, as local:qflickgesture.cpp:copyMouseEvent
+#if !defined(QT_NO_GESTURES)
+static QMouseEvent *copyMouseEvent(QEvent *e)
+{
+    switch (e->type()) {
+    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonRelease:
+    case QEvent::MouseMove: {
+        return static_cast<QMouseEvent *>(e->clone());
+    }
+#if QT_CONFIG(graphicsview)
+    case QEvent::GraphicsSceneMousePress:
+    case QEvent::GraphicsSceneMouseRelease:
+    case QEvent::GraphicsSceneMouseMove: {
+        QGraphicsSceneMouseEvent *me = static_cast<QGraphicsSceneMouseEvent *>(e);
+        QEvent::Type met = me->type() == QEvent::GraphicsSceneMousePress ? QEvent::MouseButtonPress :
+                           (me->type() == QEvent::GraphicsSceneMouseRelease ? QEvent::MouseButtonRelease : QEvent::MouseMove);
+        QMouseEvent *cme = new QMouseEvent(met, QPoint(0, 0), QPoint(0, 0), me->screenPos(),
+                                           me->button(), me->buttons(), me->modifiers(), me->source());
+        cme->setTimestamp(me->timestamp());
+        return cme;
+    }
+#endif // QT_CONFIG(graphicsview)
+    default:
+        return nullptr;
+    }
+}
+#endif  // !defined(QT_NO_GESTURES)
+
 //  from src/widgets/util/qflickgesture.cpp, line 304, as _ZN23QFlickGestureRecognizer6createEP7QObject
 #if !defined(QT_NO_GESTURES)
 inline QGesture *QFlickGestureRecognizer::create(QObject *target)
@@ -66,6 +102,17 @@ QGesture *ritual_ZN23QFlickGestureRecognizer6createEP7QObject(
     QFlickGestureRecognizer *self,
     QObject *target) {
   return self->create(target);
+}
+
+//  QGestureRecognizer::Result QFlickGestureRecognizer::recognize(QGesture
+//      *state, QObject *watched, QEvent *event)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QFlickGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent(
+    QFlickGestureRecognizer *self,
+    QGesture *state,
+    QObject *watched,
+    QEvent *event) {
+  return static_cast<int>(self->recognize(state, watched, event).toInt());
 }
 
 //  void QFlickGestureRecognizer::reset(QGesture *state)

@@ -93,6 +93,9 @@
     "ritual_ZNK18QCborValueConstRef6toCborE6QFlagsIN10QCborValue14EncodingOptionEE": [
       "address", "address", "int"
     ],
+    "ritual_ZNK18QCborValueConstRef6toCborER17QCborStreamWriter6QFlagsIN10QCborValue14EncodingOptionEE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZNK18QCborValueConstRef20toDiagnosticNotationE6QFlagsIN10QCborValue24DiagnosticNotationOptionEE": [
       "text", "address", "int"
     ],

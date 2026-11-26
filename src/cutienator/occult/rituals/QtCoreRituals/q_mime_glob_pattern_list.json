@@ -11,6 +11,9 @@
     "ritual_ZN20QMimeGlobPatternList14removeMimeTypeE11QStringView": [
       "nothing", "address", "text"
     ],
+    "ritual_ZNK20QMimeGlobPatternList5matchER20QMimeGlobMatchResultRK7QStringRKSt8functionIFbS4_EE": [
+      "nothing", "address", "address", "text", "address"
+    ],
     "ritual_ZN20QMimeGlobPatternListD1Ev": ["nothing", "address"]
   }
 }

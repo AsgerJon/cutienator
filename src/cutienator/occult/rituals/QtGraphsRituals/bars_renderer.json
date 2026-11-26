@@ -9,11 +9,28 @@
   ],
   "rows": {
     "ritual_ZNK12BarsRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12BarsRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12BarsRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN12BarsRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN12BarsRenderer13paintSnapshotERK5QHashIP10QBarSeries5QListINS_13BarSeriesDataEEEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12BarsRenderer13paintSnapshotEv": ["address", "address"],
     "ritual_ZN12BarsRenderer15synchronizeDataEv": ["nothing", "address"],
     "ritual_ZN12BarsRenderer12updateSeriesEP10QBarSeries": [
       "nothing", "address", "address"
     ],
     "ritual_ZN12BarsRenderer22seriesAboutToBeRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12BarsRenderer11afterUpdateER5QListIP15QAbstractSeriesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12BarsRenderer11afterPolishER5QListIP15QAbstractSeriesE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN12BarsRenderer15handleHoverMoveEP11QHoverEvent": [
@@ -44,6 +61,9 @@
       "nothing", "address", "address", "int"
     ],
     "ritual_ZN12BarsRenderer16onPressedChangedEv": ["nothing", "address"],
-    "ritual_take_BarsRenderer": ["bool", "address", "chars", "address"]
+    "ritual_take_BarsRenderer": ["bool", "address", "chars", "address"],
+    "ritual_drop_BarsRenderer__BarsRenderer_PaintSnapshot": [
+      "nothing", "address"
+    ]
   }
 }

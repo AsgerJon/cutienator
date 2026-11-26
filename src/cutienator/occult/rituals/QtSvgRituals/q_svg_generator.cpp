@@ -144,6 +144,20 @@ public:
   }
 };
 
+//  QSvgGeneratorPrivate *QSvgGenerator::d_func()
+extern "C" Q_DECL_EXPORT
+QSvgGeneratorPrivate *ritual_ZN13QSvgGenerator6d_funcEv(
+    QSvgGenerator *self) {
+  return self->d_func();
+}
+
+//  const QSvgGeneratorPrivate *QSvgGenerator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSvgGeneratorPrivate *ritual_ZNK13QSvgGenerator6d_funcEv(
+    const QSvgGenerator *self) {
+  return self->d_func();
+}
+
 //  QSvgGenerator::QSvgGenerator()
 extern "C" Q_DECL_EXPORT
 QSvgGenerator *ritual_ZN13QSvgGeneratorC1Ev() {

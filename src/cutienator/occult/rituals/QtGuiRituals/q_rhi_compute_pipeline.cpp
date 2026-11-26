@@ -128,6 +128,13 @@ void ritual_ZN19QRhiComputePipeline25setShaderResourceBindingsEP26QRhiShaderReso
   self->setShaderResourceBindings(srb);
 }
 
+//  QRhiComputePipeline::QRhiComputePipeline(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QRhiComputePipeline *ritual_ZN19QRhiComputePipelineC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQRhiComputePipeline(rhi);
+}
+
 //  a Python function taken by a CuteQRhiComputePipeline, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

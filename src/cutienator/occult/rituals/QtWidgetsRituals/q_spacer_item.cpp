@@ -27,7 +27,7 @@ typedef int (*CuteQSpacerItemCall14)(const void *, int *);
 class CuteQSpacerItem : public QSpacerItem {
 public:
   using QSpacerItem::QSpacerItem;
-  CuteQSpacerItem(const QSpacerItem &other) : QSpacerItem(other) {}
+  CuteQSpacerItem(const QSpacerItem & other) : QSpacerItem(other) {}
   void *taken[15] = {};
 
   bool take(const char *key, void *call) {

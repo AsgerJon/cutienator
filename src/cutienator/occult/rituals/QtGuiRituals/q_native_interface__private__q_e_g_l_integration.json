@@ -7,6 +7,13 @@
   "rows": {
     "ritual_ZN16QNativeInterface7Private15QEGLIntegrationD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN16QNativeInterface7Private15QEGLIntegrationC1Ev": ["address"],
+    "ritual_ZNK16QNativeInterface7Private15QEGLIntegration19createOpenGLContextEPvS2_P14QOpenGLContext": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_take_QNativeInterface_Private_QEGLIntegration": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

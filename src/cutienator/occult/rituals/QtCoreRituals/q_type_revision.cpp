@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qtyperevision.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qtyperevision.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 6. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qtyperevision.h>
 
 //  QTypeRevision QTypeRevision::zero()
@@ -106,4 +108,51 @@ QTypeRevision *ritual_ZN13QTypeRevisionC1Ehh(quint8 major, quint8 minor) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QTypeRevisionD1Ev(QTypeRevision *self) {
   delete self;
+}
+
+//  bool QTypeRevision::isValidSegment<int>(int segment)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QTypeRevision14isValidSegmentIiLb1EEEbT_(
+    int segment) {
+  return QTypeRevision::isValidSegment<int>(segment);
+}
+
+//  QTypeRevision QTypeRevision::fromVersion<int, int>(int majorVersion,
+//      int minorVersion)
+extern "C" Q_DECL_EXPORT
+QTypeRevision *ritual_ZN13QTypeRevision11fromVersionIiiLb1ELb1EEES_T_T0_(
+    int majorVersion,
+    int minorVersion) {
+  return new QTypeRevision(
+      QTypeRevision::fromVersion<int, int>(majorVersion, minorVersion));
+}
+
+//  QTypeRevision QTypeRevision::fromMajorVersion<int>(int majorVersion)
+extern "C" Q_DECL_EXPORT
+QTypeRevision *ritual_ZN13QTypeRevision16fromMajorVersionIiLb1EEES_T_(
+    int majorVersion) {
+  return new QTypeRevision(
+      QTypeRevision::fromMajorVersion<int>(majorVersion));
+}
+
+//  QTypeRevision QTypeRevision::fromMinorVersion<int>(int minorVersion)
+extern "C" Q_DECL_EXPORT
+QTypeRevision *ritual_ZN13QTypeRevision16fromMinorVersionIiLb1EEES_T_(
+    int minorVersion) {
+  return new QTypeRevision(
+      QTypeRevision::fromMinorVersion<int>(minorVersion));
+}
+
+//  QTypeRevision QTypeRevision::fromEncodedVersion<int>(int value)
+extern "C" Q_DECL_EXPORT
+QTypeRevision *ritual_ZN13QTypeRevision18fromEncodedVersionIiLb1EEES_T_(
+    int value) {
+  return new QTypeRevision(QTypeRevision::fromEncodedVersion<int>(value));
+}
+
+//  int QTypeRevision::toEncodedVersion<int>() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK13QTypeRevision16toEncodedVersionIiLb1EEET_v(
+    const QTypeRevision *self) {
+  return self->toEncodedVersion<int>();
 }

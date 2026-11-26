@@ -8,6 +8,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QSettings>
+#include <QtCore/QString>
 
 //  QString QQuickStylePrivate::style()
 extern "C" Q_DECL_EXPORT
@@ -64,6 +67,30 @@ QString *ritual_ZN18QQuickStylePrivate14configFilePathEv() {
   return new QString(QQuickStylePrivate::configFilePath());
 }
 
+//  QSharedPointer<QSettings> QQuickStylePrivate::settings(const QString
+//      &group)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QSettings> *ritual_ZN18QQuickStylePrivate8settingsERK7QString(
+    const QString *group) {
+  return new QSharedPointer<QSettings>(QQuickStylePrivate::settings(*group));
+}
+
+//  const QFont *QQuickStylePrivate::readFont(const QSharedPointer<QSettings>
+//      &settings)
+extern "C" Q_DECL_EXPORT
+const QFont *ritual_ZN18QQuickStylePrivate8readFontERK14QSharedPointerI9QSettingsE(
+    const QSharedPointer<QSettings> *settings) {
+  return QQuickStylePrivate::readFont(*settings);
+}
+
+//  const QPalette *QQuickStylePrivate::readPalette(const
+//      QSharedPointer<QSettings> &settings)
+extern "C" Q_DECL_EXPORT
+const QPalette *ritual_ZN18QQuickStylePrivate11readPaletteERK14QSharedPointerI9QSettingsE(
+    const QSharedPointer<QSettings> *settings) {
+  return QQuickStylePrivate::readPalette(*settings);
+}
+
 //  bool QQuickStylePrivate::isDarkSystemTheme()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18QQuickStylePrivate17isDarkSystemThemeEv() {
@@ -79,5 +106,12 @@ QList<QString> *ritual_ZN18QQuickStylePrivate13builtInStylesEv() {
 //  QQuickStylePrivate::~QQuickStylePrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickStylePrivateD1Ev(QQuickStylePrivate *self) {
+  delete self;
+}
+
+//  a QSharedPointer<QSettings> a ritual of QQuickStylePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickStylePrivate__QSharedPointer_QSettings(
+    QSharedPointer<QSettings> *self) {
   delete self;
 }

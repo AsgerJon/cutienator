@@ -9,6 +9,10 @@
     "ritual_ZN11QCanvasPathC1Exx": ["address", "long long", "long long"],
     "ritual_ZN11QCanvasPathC1ERKS_": ["address", "address"],
     "ritual_ZN11QCanvasPathD1Ev": ["nothing", "address"],
+    "ritual_ZN11QCanvasPathaSERKS_": ["address", "address", "address"],
+    "ritual_ZN11QCanvasPathC1EOS_": ["address", "address"],
+    "ritual_ZN11QCanvasPathaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QCanvasPath4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK11QCanvasPathcv8QVariantEv": ["address", "address"],
     "ritual_ZN11QCanvasPath9closePathEv": ["nothing", "address"],
     "ritual_ZN11QCanvasPath6moveToEdd": [
@@ -118,6 +122,8 @@
       "address", "address", "long long", "long long", "address"
     ],
     "ritual_ZeqRK11QCanvasPathS1_": ["bool", "address", "address"],
-    "ritual_ZneRK11QCanvasPathS1_": ["bool", "address", "address"]
+    "ritual_ZneRK11QCanvasPathS1_": ["bool", "address", "address"],
+    "ritual_ZN11QCanvasPath6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QCanvasPath6d_funcEv": ["address", "address"]
   }
 }

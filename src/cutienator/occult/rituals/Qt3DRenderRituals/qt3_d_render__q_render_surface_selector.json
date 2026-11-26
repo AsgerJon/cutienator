@@ -8,14 +8,56 @@
     "ritual_ZNK10Qt3DRender22QRenderSurfaceSelector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender22QRenderSurfaceSelector2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelectorC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelectorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender22QRenderSurfaceSelector7surfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender22QRenderSurfaceSelector24externalRenderTargetSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender22QRenderSurfaceSelector17surfacePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelector10setSurfaceEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelector20setSurfacePixelRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelector27setExternalRenderTargetSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelector14surfaceChangedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelector31externalRenderTargetSizeChangedERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelector24surfacePixelRatioChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN10Qt3DRender22QRenderSurfaceSelector6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender22QRenderSurfaceSelector6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSurfaceSelectorC1ERNS_29QRenderSurfaceSelectorPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_take_Qt3DRender_QRenderSurfaceSelector": [
       "bool", "address", "chars", "address"

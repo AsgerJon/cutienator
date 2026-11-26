@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickPathCubic10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickPathCubic11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickPathCubic11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickPathCubic2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -59,6 +65,27 @@
     "ritual_ZN15QQuickPathCubic20setRelativeControl2YEd": [
       "nothing", "address", "double"
     ],
-    "ritual_ZN15QQuickPathCubic20hasRelativeControl2YEv": ["bool", "address"]
+    "ritual_ZN15QQuickPathCubic20hasRelativeControl2YEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QQuickPathCubic9addToPathER12QPainterPathRK14QQuickPathData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickPathCubic16control1XChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickPathCubic16control1YChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickPathCubic16control2XChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickPathCubic16control2YChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickPathCubic24relativeControl1XChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickPathCubic24relativeControl1YChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickPathCubic24relativeControl2XChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickPathCubic24relativeControl2YChangedEv": [
+      "nothing", "address"
+    ]
   }
 }

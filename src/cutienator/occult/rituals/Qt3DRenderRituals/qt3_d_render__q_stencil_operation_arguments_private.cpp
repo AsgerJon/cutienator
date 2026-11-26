@@ -14,3 +14,11 @@ Qt3DRender::QStencilOperationArgumentsPrivate *ritual_ZN10Qt3DRender33QStencilOp
     Qt3DRender::QStencilOperationArguments::FaceMode mode) {
   return new Qt3DRender::QStencilOperationArgumentsPrivate(mode);
 }
+
+//  Qt3DRender::QStencilOperationArgumentsPrivate::~QStencilOperationArgument
+//      sPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender33QStencilOperationArgumentsPrivateD1Ev(
+    Qt3DRender::QStencilOperationArgumentsPrivate *self) {
+  delete self;
+}

@@ -5,6 +5,16 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal4GridC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal4Grid14fromVariantMapERK4QMapI7QString8QVariantE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid15addToVariantMapER4QMapI7QString8QVariantEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid12toVariantMapEb": [
+      "address", "address", "bool"
+    ],
     "ritual_ZNK18qdesigner_internal4Grid7visibleEv": ["bool", "address"],
     "ritual_ZN18qdesigner_internal4Grid10setVisibleEb": [
       "nothing", "address", "bool"
@@ -25,11 +35,29 @@
     "ritual_ZN18qdesigner_internal4Grid9setDeltaYEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK18qdesigner_internal4Grid5paintEP7QWidgetP11QPaintEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid5paintER8QPainterPK7QWidgetP11QPaintEvent": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid9snapPointERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid19widgetHandleAdjustXEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid19widgetHandleAdjustYEi": [
+      "int", "address", "int"
+    ],
     "ritual_ZN18qdesigner_internaleqERKNS_4GridES2_": [
       "bool", "address", "address"
     ],
     "ritual_ZN18qdesigner_internalneERKNS_4GridES2_": [
       "bool", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid9snapValueEii": [
+      "int", "address", "int", "int"
     ],
     "ritual_ZN18qdesigner_internal4GridD1Ev": ["nothing", "address"]
   }

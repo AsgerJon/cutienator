@@ -11,6 +11,8 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qaccessiblequickscrollbar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
+#include <QtCore/QList>
+#include <QtGui/QAccessible>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/private/qaccessiblequickcontrol_p.h>
 #include <QtQuickTemplates2/private/qquickcontrol_p.h>
@@ -31,19 +33,13 @@ inline QAccessibleQuickControl::QAccessibleQuickControl(QQuickControl *control)
 {
 }
 
-//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickcontrol.cpp, line 24, as _ZNK23QAccessibleQuickControl14attributeValueEN11QAccessible9AttributeE
-inline QVariant QAccessibleQuickControl::attributeValue(QAccessible::Attribute key) const
+//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickscrollbar.cpp, line 15, as _ZNK25QAccessibleQuickScrollBar13attributeKeysEv
+inline QList<QAccessible::Attribute> QAccessibleQuickScrollBar::attributeKeys() const
 {
-    if (key == QAccessible::Attribute::Locale)
-        return QVariant::fromValue(control()->locale());
+    QList<QAccessible::Attribute> keys = QAccessibleQuickControl::attributeKeys();
+    keys.append(QAccessible::Attribute::Orientation);
 
-    return QAccessibleQuickItem::attributeValue(key);
-}
-
-//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickcontrol.cpp, line 32, as _ZNK23QAccessibleQuickControl7controlEv
-inline QQuickControl *QAccessibleQuickControl::control() const
-{
-    return static_cast<QQuickControl *>(object());
+    return keys;
 }
 
 //  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickscrollbar.cpp, line 23, as _ZNK25QAccessibleQuickScrollBar14attributeValueEN11QAccessible9AttributeE
@@ -85,6 +81,31 @@ inline QVariant QAccessibleQuickScrollBar::minimumStepSize() const
     return normalizeValue(scrollBar()->stepSize());
 }
 
+//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickcontrol.cpp, line 15, as _ZNK23QAccessibleQuickControl13attributeKeysEv
+inline QList<QAccessible::Attribute> QAccessibleQuickControl::attributeKeys() const
+{
+    auto keys = QAccessibleQuickItem::attributeKeys();
+    if (!keys.contains(QAccessible::Attribute::Locale))
+        keys << QAccessible::Attribute::Locale;
+
+    return keys;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickcontrol.cpp, line 24, as _ZNK23QAccessibleQuickControl14attributeValueEN11QAccessible9AttributeE
+inline QVariant QAccessibleQuickControl::attributeValue(QAccessible::Attribute key) const
+{
+    if (key == QAccessible::Attribute::Locale)
+        return QVariant::fromValue(control()->locale());
+
+    return QAccessibleQuickItem::attributeValue(key);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickcontrol.cpp, line 32, as _ZNK23QAccessibleQuickControl7controlEv
+inline QQuickControl *QAccessibleQuickControl::control() const
+{
+    return static_cast<QQuickControl *>(object());
+}
+
 //  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickscrollbar.cpp, line 56, as _ZNK25QAccessibleQuickScrollBar9scrollBarEv
 inline QQuickScrollBar *QAccessibleQuickScrollBar::scrollBar() const
 {
@@ -112,6 +133,14 @@ inline qreal QAccessibleQuickScrollBar::denormalizeValue(qreal value) const
     return value / 100.0 * maximumPositionValue();
 }
 //  -----------------------------------------------------------------------
+
+//  QList<QAccessible::Attribute> QAccessibleQuickScrollBar::attributeKeys()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QAccessible::Attribute> *ritual_ZNK25QAccessibleQuickScrollBar13attributeKeysEv(
+    const QAccessibleQuickScrollBar *self) {
+  return new QList<QAccessible::Attribute>(self->attributeKeys());
+}
 
 //  QVariant QAccessibleQuickScrollBar::attributeValue(QAccessible::Attribute
 //      key) const
@@ -231,6 +260,14 @@ extern "C" Q_DECL_EXPORT
 QVariant *ritual_own_ZNK25QAccessibleQuickScrollBar15minimumStepSizeEv(
     const QAccessibleQuickScrollBar *self) {
   return new QVariant(self->QAccessibleQuickScrollBar::minimumStepSize());
+}
+
+//  a QList<QAccessible::Attribute> a ritual of QAccessibleQuickScrollBar
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessibleQuickScrollBar__QList_QAccessible_Attribute(
+    QList<QAccessible::Attribute> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(accessibility)

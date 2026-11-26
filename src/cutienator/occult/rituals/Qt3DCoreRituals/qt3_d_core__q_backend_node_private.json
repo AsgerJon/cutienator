@@ -5,7 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore19QBackendNodePrivateC1ENS_12QBackendNode4ModeE": [
+      "address", "int"
+    ],
     "ritual_ZN8Qt3DCore19QBackendNodePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore19QBackendNodePrivate10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore19QBackendNodePrivate3getEPNS_12QBackendNodeE": [
+      "address", "address"
+    ],
     "ritual_ZN8Qt3DCore19QBackendNodePrivate6q_funcEv": [
       "address", "address"
     ],

@@ -7,8 +7,20 @@
   "rows": {
     "ritual_ZN15QSvgStrokeStyleC1Ev": ["address"],
     "ritual_ZN15QSvgStrokeStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSvgStrokeStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QSvgStrokeStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK15QSvgStrokeStyle4typeEv": ["unsigned char", "address"],
     "ritual_ZN15QSvgStrokeStyle9setStrokeE6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QSvgStrokeStyle14setPaintServerESt10shared_ptrI15QSvgPaintServerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QSvgStrokeStyle12setDashArrayERK5QListIdE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN15QSvgStrokeStyle16setDashArrayNoneEv": ["nothing", "address"],

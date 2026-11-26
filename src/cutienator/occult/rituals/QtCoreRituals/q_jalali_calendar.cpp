@@ -20,6 +20,7 @@
 //  This one is, and makes them free for the rituals to call.
 struct OwnQJalaliCalendar : QJalaliCalendar {
   using QJalaliCalendar::localeMonthIndexData;
+  using QJalaliCalendar::localeMonthData;
 };
 
 //  A QJalaliCalendar that Python can take functions over in. Every QJalaliCalendar
@@ -49,24 +50,27 @@ typedef const QCalendar::YearMonthDay * (*CuteQJalaliCalendarCall6)(const void *
 #if QT_CONFIG(jalalicalendar)
 typedef void * (*CuteQJalaliCalendarCall7)(const void *, int *);
 #endif  // QT_CONFIG(jalalicalendar)
-typedef int (*CuteQJalaliCalendarCall8)(const void *, int, int *);
+#if QT_CONFIG(jalalicalendar)
+typedef void * (*CuteQJalaliCalendarCall8)(const void *, int *);
+#endif  // QT_CONFIG(jalalicalendar)
 typedef int (*CuteQJalaliCalendarCall9)(const void *, int, int *);
-typedef bool (*CuteQJalaliCalendarCall10)(const void *, int, int, int, int *);
-typedef bool (*CuteQJalaliCalendarCall11)(const void *, int *);
+typedef int (*CuteQJalaliCalendarCall10)(const void *, int, int *);
+typedef bool (*CuteQJalaliCalendarCall11)(const void *, int, int, int, int *);
 typedef bool (*CuteQJalaliCalendarCall12)(const void *, int *);
-typedef int (*CuteQJalaliCalendarCall13)(const void *, int *);
+typedef bool (*CuteQJalaliCalendarCall13)(const void *, int *);
 typedef int (*CuteQJalaliCalendarCall14)(const void *, int *);
 typedef int (*CuteQJalaliCalendarCall15)(const void *, int *);
-typedef int (*CuteQJalaliCalendarCall16)(const void *, qint64, int *);
-typedef qint64 (*CuteQJalaliCalendarCall17)(const void *, const QCalendar::YearMonthDay *, int, int *);
-typedef QString * (*CuteQJalaliCalendarCall18)(const void *, const QLocale *, int, int, int, int *);
+typedef int (*CuteQJalaliCalendarCall16)(const void *, int *);
+typedef int (*CuteQJalaliCalendarCall17)(const void *, qint64, int *);
+typedef qint64 (*CuteQJalaliCalendarCall18)(const void *, const QCalendar::YearMonthDay *, int, int *);
 typedef QString * (*CuteQJalaliCalendarCall19)(const void *, const QLocale *, int, int, int, int *);
-typedef QString * (*CuteQJalaliCalendarCall20)(const void *, const QLocale *, int, int, int *);
+typedef QString * (*CuteQJalaliCalendarCall20)(const void *, const QLocale *, int, int, int, int *);
 typedef QString * (*CuteQJalaliCalendarCall21)(const void *, const QLocale *, int, int, int *);
+typedef QString * (*CuteQJalaliCalendarCall22)(const void *, const QLocale *, int, int, int *);
 class CuteQJalaliCalendar : public QJalaliCalendar {
 public:
   using QJalaliCalendar::QJalaliCalendar;
-  void *taken[22] = {};
+  void *taken[23] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(jalalicalendar)
@@ -117,60 +121,66 @@ public:
       return true;
     }
 #endif  // QT_CONFIG(jalalicalendar)
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend10daysInYearEi")) {
+#if QT_CONFIG(jalalicalendar)
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend15localeMonthDataEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend12monthsInYearEi")) {
+#endif  // QT_CONFIG(jalalicalendar)
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend10daysInYearEi")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isDateValidEiii")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend12monthsInYearEi")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isProlepticEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isDateValidEiii")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11hasYearZeroEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isProlepticEv")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend18maximumDaysInMonthEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11hasYearZeroEv")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend18minimumDaysInMonthEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend18maximumDaysInMonthEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend19maximumMonthsInYearEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend18minimumDaysInMonthEv")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend9dayOfWeekEx")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend19maximumMonthsInYearEv")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend21matchCenturyToWeekdayERKN9QCalendar12YearMonthDayEi")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend9dayOfWeekEx")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend9monthNameERK7QLocaleiiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend21matchCenturyToWeekdayERKN9QCalendar12YearMonthDayEi")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend19standaloneMonthNameERK7QLocaleiiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend9monthNameERK7QLocaleiiNS0_10FormatTypeE")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11weekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend19standaloneMonthNameERK7QLocaleiiNS0_10FormatTypeE")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend21standaloneWeekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11weekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
       taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend21standaloneWeekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
+      taken[22] = call;
       return true;
     }
     return false;
@@ -285,11 +295,24 @@ public:
   }
 #endif  // QT_CONFIG(jalalicalendar)
 
-  //  int QCalendarBackend::daysInYear(int year) const
-  int daysInYear(int year) const override {
+#if QT_CONFIG(jalalicalendar)
+  //  const char16_t *QJalaliCalendar::localeMonthData() const
+  const char16_t *localeMonthData() const override {
     if (taken[8]) {
       int handled = 0;
       CuteQJalaliCalendarCall8 call = reinterpret_cast<CuteQJalaliCalendarCall8>(taken[8]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<const char16_t *>(given);
+    }
+    return QJalaliCalendar::localeMonthData();
+  }
+#endif  // QT_CONFIG(jalalicalendar)
+
+  //  int QCalendarBackend::daysInYear(int year) const
+  int daysInYear(int year) const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQJalaliCalendarCall9 call = reinterpret_cast<CuteQJalaliCalendarCall9>(taken[9]);
       int given = call(this, year, &handled);
       if (handled) return given;
     }
@@ -298,9 +321,9 @@ public:
 
   //  int QCalendarBackend::monthsInYear(int year) const
   int monthsInYear(int year) const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQJalaliCalendarCall9 call = reinterpret_cast<CuteQJalaliCalendarCall9>(taken[9]);
+      CuteQJalaliCalendarCall10 call = reinterpret_cast<CuteQJalaliCalendarCall10>(taken[10]);
       int given = call(this, year, &handled);
       if (handled) return given;
     }
@@ -310,9 +333,9 @@ public:
   //  bool QCalendarBackend::isDateValid(int year, int month, int day)
   //      const
   bool isDateValid(int year, int month, int day) const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQJalaliCalendarCall10 call = reinterpret_cast<CuteQJalaliCalendarCall10>(taken[10]);
+      CuteQJalaliCalendarCall11 call = reinterpret_cast<CuteQJalaliCalendarCall11>(taken[11]);
       bool given = call(this, year, month, day, &handled);
       if (handled) return given;
     }
@@ -321,9 +344,9 @@ public:
 
   //  bool QCalendarBackend::isProleptic() const
   bool isProleptic() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQJalaliCalendarCall11 call = reinterpret_cast<CuteQJalaliCalendarCall11>(taken[11]);
+      CuteQJalaliCalendarCall12 call = reinterpret_cast<CuteQJalaliCalendarCall12>(taken[12]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -332,9 +355,9 @@ public:
 
   //  bool QCalendarBackend::hasYearZero() const
   bool hasYearZero() const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQJalaliCalendarCall12 call = reinterpret_cast<CuteQJalaliCalendarCall12>(taken[12]);
+      CuteQJalaliCalendarCall13 call = reinterpret_cast<CuteQJalaliCalendarCall13>(taken[13]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -343,9 +366,9 @@ public:
 
   //  int QCalendarBackend::maximumDaysInMonth() const
   int maximumDaysInMonth() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQJalaliCalendarCall13 call = reinterpret_cast<CuteQJalaliCalendarCall13>(taken[13]);
+      CuteQJalaliCalendarCall14 call = reinterpret_cast<CuteQJalaliCalendarCall14>(taken[14]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -354,9 +377,9 @@ public:
 
   //  int QCalendarBackend::minimumDaysInMonth() const
   int minimumDaysInMonth() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQJalaliCalendarCall14 call = reinterpret_cast<CuteQJalaliCalendarCall14>(taken[14]);
+      CuteQJalaliCalendarCall15 call = reinterpret_cast<CuteQJalaliCalendarCall15>(taken[15]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -365,9 +388,9 @@ public:
 
   //  int QCalendarBackend::maximumMonthsInYear() const
   int maximumMonthsInYear() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQJalaliCalendarCall15 call = reinterpret_cast<CuteQJalaliCalendarCall15>(taken[15]);
+      CuteQJalaliCalendarCall16 call = reinterpret_cast<CuteQJalaliCalendarCall16>(taken[16]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -376,9 +399,9 @@ public:
 
   //  int QCalendarBackend::dayOfWeek(qint64 jd) const
   int dayOfWeek(qint64 jd) const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQJalaliCalendarCall16 call = reinterpret_cast<CuteQJalaliCalendarCall16>(taken[16]);
+      CuteQJalaliCalendarCall17 call = reinterpret_cast<CuteQJalaliCalendarCall17>(taken[17]);
       int given = call(this, jd, &handled);
       if (handled) return given;
     }
@@ -390,9 +413,9 @@ public:
   qint64 matchCenturyToWeekday(
       const QCalendar::YearMonthDay &parts,
       int dow) const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQJalaliCalendarCall17 call = reinterpret_cast<CuteQJalaliCalendarCall17>(taken[17]);
+      CuteQJalaliCalendarCall18 call = reinterpret_cast<CuteQJalaliCalendarCall18>(taken[18]);
       qint64 given = call(this, &parts, dow, &handled);
       if (handled) return given;
     }
@@ -406,9 +429,9 @@ public:
       int month,
       int year,
       QLocale::FormatType format) const override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQJalaliCalendarCall18 call = reinterpret_cast<CuteQJalaliCalendarCall18>(taken[18]);
+      CuteQJalaliCalendarCall19 call = reinterpret_cast<CuteQJalaliCalendarCall19>(taken[19]);
       QString * given = call(this, &locale, month, year, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);
@@ -426,9 +449,9 @@ public:
       int month,
       int year,
       QLocale::FormatType format) const override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQJalaliCalendarCall19 call = reinterpret_cast<CuteQJalaliCalendarCall19>(taken[19]);
+      CuteQJalaliCalendarCall20 call = reinterpret_cast<CuteQJalaliCalendarCall20>(taken[20]);
       QString * given = call(this, &locale, month, year, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);
@@ -445,9 +468,9 @@ public:
       const QLocale &locale,
       int day,
       QLocale::FormatType format) const override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQJalaliCalendarCall20 call = reinterpret_cast<CuteQJalaliCalendarCall20>(taken[20]);
+      CuteQJalaliCalendarCall21 call = reinterpret_cast<CuteQJalaliCalendarCall21>(taken[21]);
       QString * given = call(this, &locale, day, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);
@@ -464,9 +487,9 @@ public:
       const QLocale &locale,
       int day,
       QLocale::FormatType format) const override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQJalaliCalendarCall21 call = reinterpret_cast<CuteQJalaliCalendarCall21>(taken[21]);
+      CuteQJalaliCalendarCall22 call = reinterpret_cast<CuteQJalaliCalendarCall22>(taken[22]);
       QString * given = call(this, &locale, day, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);
@@ -553,6 +576,13 @@ const QCalendarLocale *ritual_ZNK15QJalaliCalendar20localeMonthIndexDataEv(
   return self->localeMonthIndexData();
 }
 
+//  const char16_t *QJalaliCalendar::localeMonthData() const
+extern "C" Q_DECL_EXPORT
+const char16_t *ritual_ZNK15QJalaliCalendar15localeMonthDataEv(
+    const QJalaliCalendar *self) {
+  return self->localeMonthData();
+}
+
 //  a Python function taken by a CuteQJalaliCalendar, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -621,6 +651,13 @@ extern "C" Q_DECL_EXPORT
 const QCalendarLocale *ritual_own_ZNK15QJalaliCalendar20localeMonthIndexDataEv(
     const QJalaliCalendar *self) {
   return static_cast<const OwnQJalaliCalendar *>(self)->OwnQJalaliCalendar::localeMonthIndexData();
+}
+
+//  const char16_t *QJalaliCalendar::localeMonthData() const
+extern "C" Q_DECL_EXPORT
+const char16_t *ritual_own_ZNK15QJalaliCalendar15localeMonthDataEv(
+    const QJalaliCalendar *self) {
+  return static_cast<const OwnQJalaliCalendar *>(self)->OwnQJalaliCalendar::localeMonthData();
 }
 
 #endif  // QT_CONFIG(jalalicalendar)

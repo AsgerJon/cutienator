@@ -8,11 +8,26 @@
     "ritual_ZNK18qdesigner_internal18TextPropertyEditor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal18TextPropertyEditor2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditorC1EP7QWidgetNS0_13EmbeddingModeENS_26TextPropertyValidationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditorD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZNK18qdesigner_internal18TextPropertyEditor26textPropertyValidationModeEv": [
       "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor29setTextPropertyValidationModeENS_26TextPropertyValidationModeE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZNK18qdesigner_internal18TextPropertyEditor10updateModeEv": [
       "int", "address"
@@ -20,8 +35,65 @@
     "ritual_ZN18qdesigner_internal18TextPropertyEditor13setUpdateModeENS0_10UpdateModeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK18qdesigner_internal18TextPropertyEditor4textEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal18TextPropertyEditor8sizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal18TextPropertyEditor15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal18TextPropertyEditor18hasAcceptableInputEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor18installEventFilterEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor20stringToEditorStringERK7QStringNS_26TextPropertyValidationModeE": [
+      "text", "text", "int"
+    ],
     "ritual_ZN18qdesigner_internal18TextPropertyEditor20editorStringToStringERK7QStringNS_26TextPropertyValidationModeE": [
       "text", "text", "int"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor9multiLineENS_26TextPropertyValidationModeE": [
+      "bool", "int"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor11textChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor15editingFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor9selectAllEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor15slotTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor14slotTextEditedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor19slotEditingFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor29setRegularExpressionValidatorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor21markIntermediateStateEv": [
+      "nothing", "address"
     ],
     "ritual_take_qdesigner_internal_TextPropertyEditor": [
       "bool", "address", "chars", "address"

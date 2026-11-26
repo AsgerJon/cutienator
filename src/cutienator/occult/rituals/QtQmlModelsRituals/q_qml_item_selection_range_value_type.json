@@ -43,6 +43,12 @@
     "ritual_ZNK31QQmlItemSelectionRangeValueType6heightEv": [
       "int", "address"
     ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType7topLeftEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType11bottomRightEv": [
+      "address", "address"
+    ],
     "ritual_ZNK31QQmlItemSelectionRangeValueType6parentEv": [
       "address", "address"
     ],

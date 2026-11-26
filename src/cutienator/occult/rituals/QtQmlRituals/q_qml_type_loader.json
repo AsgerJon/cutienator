@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN14QQmlTypeLoader2trEPKcS1_i": [
@@ -14,6 +14,9 @@
     "ritual_ZN14QQmlTypeLoaderD1Ev": ["nothing", "address"],
     "ritual_ZN14QQmlTypeLoader15sanitizeUNCPathEP7QString": [
       "nothing", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader12injectModuleERK4QUrlPKN3QV412CompiledData4UnitE": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZNK14QQmlTypeLoader13cleanFilePathERK7QString": [
       "text", "address", "text"
@@ -43,6 +46,12 @@
     ],
     "ritual_ZNK14QQmlTypeLoader14isScriptLoadedERK4QUrl": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader18loadWithStaticDataERK14QQmlRefPointerI12QQmlDataBlobERK10QByteArrayNS_4ModeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QQmlTypeLoader4dropERK14QQmlRefPointerI12QQmlDataBlobE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN14QQmlTypeLoader16initializeEngineEP28QQmlEngineExtensionInterfacePKc": [
       "nothing", "address", "address", "chars"
@@ -80,6 +89,9 @@
     "ritual_ZN14QQmlTypeLoader13addPluginPathERK7QStringNS_11AddPathModeE": [
       "nothing", "address", "text", "int"
     ],
+    "ritual_ZNK14QQmlTypeLoader27networkAccessManagerFactoryEv": [
+      "address", "address"
+    ],
     "ritual_ZN14QQmlTypeLoader30setNetworkAccessManagerFactoryEP31QQmlNetworkAccessManagerFactory": [
       "nothing", "address", "address"
     ],
@@ -98,16 +110,70 @@
     "ritual_ZN14QQmlTypeLoader11startThreadEv": ["nothing", "address"],
     "ritual_ZN14QQmlTypeLoader14shutdownThreadEv": ["nothing", "address"],
     "ritual_ZN14QQmlTypeLoader12ensureThreadEv": ["address", "address"],
+    "ritual_ZN14QQmlTypeLoader9trimCacheERK31QQmlTypeLoaderSharedDataPtrBaseI24QQmlTypeLoaderSharedData24QQmlTypeLoaderLockedDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader10loadThreadERK14QQmlRefPointerI12QQmlDataBlobE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader24loadWithStaticDataThreadERK14QQmlRefPointerI12QQmlDataBlobERK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader24loadWithCachedUnitThreadERK14QQmlRefPointerI12QQmlDataBlobEPKN11QQmlPrivate13CachedQmlUnitE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN14QQmlTypeLoader20networkReplyFinishedEP13QNetworkReply": [
       "nothing", "address", "address"
     ],
     "ritual_ZN14QQmlTypeLoader20networkReplyProgressEP13QNetworkReplyxx": [
       "nothing", "address", "address", "long long", "long long"
     ],
+    "ritual_ZN14QQmlTypeLoader7setDataERK14QQmlRefPointerI12QQmlDataBlobERK10QByteArrayNS_10DataOriginE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QQmlTypeLoader7setDataERK14QQmlRefPointerI12QQmlDataBlobERK7QStringb": [
+      "nothing", "address", "address", "text", "bool"
+    ],
+    "ritual_ZN14QQmlTypeLoader7setDataERK14QQmlRefPointerI12QQmlDataBlobERKNS1_14SourceCodeDataE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader13setCachedUnitERK14QQmlRefPointerI12QQmlDataBlobEPKN11QQmlPrivate13CachedQmlUnitE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK14QQmlTypeLoader14importPathListENS_8PathTypeE": [
       "address", "address", "int"
     ],
     "ritual_ZN14QQmlTypeLoader15clearQmldirInfoEv": ["nothing", "address"],
-    "ritual_ZN14QQmlTypeLoader12aotCacheModeEv": ["int", "address"]
+    "ritual_ZN14QQmlTypeLoader17locateLocalQmldirEPNS_4BlobERKSt10shared_ptrINS0_13PendingImportEEP5QListI9QQmlErrorE": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader4loadERK14QQmlRefPointerI12QQmlDataBlobENS_4ModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QQmlTypeLoader18loadWithCachedUnitERK14QQmlRefPointerI12QQmlDataBlobEPKN11QQmlPrivate13CachedQmlUnitENS_4ModeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QQmlTypeLoader28updateTypeCacheTrimThresholdERK31QQmlTypeLoaderSharedDataPtrBaseI24QQmlTypeLoaderSharedData24QQmlTypeLoaderLockedDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader12aotCacheModeEv": ["int", "address"],
+    "ritual_drop_QQmlTypeLoader__QQmlRefPointer_QV4_CompiledData_CompilationUnit": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlTypeLoader__QQmlNetworkAccessManagerFactoryPtrConst": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader3getI10QQmlEngine17QQmlEnginePrivatevEEPS_PT_": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader12finalizeBlobI12QQmlTypeDataEE14QQmlRefPointerIT_EOS4_NS_4ModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QQmlTypeLoader12finalizeBlobI14QQmlScriptBlobEE14QQmlRefPointerIT_EOS4_NS_4ModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QQmlTypeLoader12finalizeBlobI14QQmlQmldirDataEE14QQmlRefPointerIT_EOS4_NS_4ModeE": [
+      "address", "address", "address", "int"
+    ]
   }
 }

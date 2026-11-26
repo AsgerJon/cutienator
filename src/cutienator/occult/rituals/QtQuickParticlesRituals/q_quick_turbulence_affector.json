@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuickTurbulenceAffector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickTurbulenceAffector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickTurbulenceAffector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickTurbulenceAffector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,12 @@
     "ritual_ZNK24QQuickTurbulenceAffector8strengthEv": ["double", "address"],
     "ritual_ZNK24QQuickTurbulenceAffector11noiseSourceEv": [
       "address", "address"
+    ],
+    "ritual_ZN24QQuickTurbulenceAffector15strengthChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickTurbulenceAffector18noiseSourceChangedERK4QUrl": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24QQuickTurbulenceAffector11setStrengthEd": [
       "nothing", "address", "double"

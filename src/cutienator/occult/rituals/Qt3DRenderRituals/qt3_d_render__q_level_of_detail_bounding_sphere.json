@@ -5,5 +5,32 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender28QLevelOfDetailBoundingSphereC1E9QVector3Df": [
+      "address", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender28QLevelOfDetailBoundingSphereC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender28QLevelOfDetailBoundingSphereD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender28QLevelOfDetailBoundingSphereaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender28QLevelOfDetailBoundingSphere6centerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender28QLevelOfDetailBoundingSphere6radiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender28QLevelOfDetailBoundingSphere7isEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender28QLevelOfDetailBoundingSphereeqERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender28QLevelOfDetailBoundingSphereneERKS0_": [
+      "bool", "address", "address"
+    ]
   }
 }

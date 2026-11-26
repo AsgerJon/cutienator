@@ -13,6 +13,9 @@
     "ritual_ZN28QOpcUaSimpleAttributeOperandC1EN6QOpcUa13NodeAttributeERK7QString": [
       "address", "int", "text"
     ],
+    "ritual_ZN28QOpcUaSimpleAttributeOperandaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK28QOpcUaSimpleAttributeOperandcv8QVariantEv": [
       "address", "address"
     ],
@@ -22,6 +25,9 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK28QOpcUaSimpleAttributeOperand10browsePathEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpcUaSimpleAttributeOperand13browsePathRefEv": [
       "address", "address"
     ],
     "ritual_ZN28QOpcUaSimpleAttributeOperand13setBrowsePathERK5QListI19QOpcUaQualifiedNameE": [

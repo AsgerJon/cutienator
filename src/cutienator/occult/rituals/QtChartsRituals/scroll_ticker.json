@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12ScrollTicker10metaObjectEv": ["address", "address"],
+    "ritual_ZN12ScrollTicker11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12ScrollTicker11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12ScrollTicker2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12ScrollTickerC1EP8ScrollerP7QObject": [
       "address", "address", "address"

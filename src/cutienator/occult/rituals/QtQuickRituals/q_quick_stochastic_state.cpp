@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK21QQuickStochasticState10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStochasticState::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickStochasticState11qt_metacastEPKc(
+    QQuickStochasticState *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStochasticState::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickStochasticState11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStochasticState *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStochasticState::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickStochasticState2trEPKcS1_i(
@@ -80,6 +99,53 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QQuickStochasticState11randomStartEv(
     const QQuickStochasticState *self) {
   return self->randomStart();
+}
+
+//  void QQuickStochasticState::durationChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickStochasticState15durationChangedEi(
+    QQuickStochasticState *self,
+    int arg) {
+  self->durationChanged(arg);
+}
+
+//  void QQuickStochasticState::nameChanged(const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickStochasticState11nameChangedERK7QString(
+    QQuickStochasticState *self,
+    const QString *arg) {
+  self->nameChanged(*arg);
+}
+
+//  void QQuickStochasticState::toChanged(const QVariantMap &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickStochasticState9toChangedERK4QMapI7QString8QVariantE(
+    QQuickStochasticState *self,
+    const QMap<QString, QVariant> *arg) {
+  self->toChanged(*arg);
+}
+
+//  void QQuickStochasticState::durationVariationChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickStochasticState24durationVariationChangedEi(
+    QQuickStochasticState *self,
+    int arg) {
+  self->durationVariationChanged(arg);
+}
+
+//  void QQuickStochasticState::entered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickStochasticState7enteredEv(
+    QQuickStochasticState *self) {
+  self->entered();
+}
+
+//  void QQuickStochasticState::randomStartChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickStochasticState18randomStartChangedEb(
+    QQuickStochasticState *self,
+    bool arg) {
+  self->randomStartChanged(arg);
 }
 
 //  void QQuickStochasticState::setDuration(int arg)

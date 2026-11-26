@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK9Qt3DInput5Input24LogicalDeviceNodeFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input24LogicalDeviceNodeFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9Qt3DInput5Input24LogicalDeviceNodeFunctorD1Ev": [
       "nothing", "address"
     ]

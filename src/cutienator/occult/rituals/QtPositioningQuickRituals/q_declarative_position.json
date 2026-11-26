@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QDeclarativePosition10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QDeclarativePosition11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QDeclarativePosition11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QDeclarativePosition2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -61,6 +67,63 @@
     ],
     "ritual_ZNK20QDeclarativePosition17directionAccuracyEv": [
       "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition21bindableLatitudeValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition22bindableLongitudeValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition21bindableAltitudeValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition18bindableCoordinateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition17bindableTimestampEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition13bindableSpeedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition18bindableSpeedValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition26bindableHorizontalAccuracyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition23binableVerticalAccuracyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition31bindableHorizontalAccuracyValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition29bindableVerticalAccuracyValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition22bindableDirectionValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition17bindableDirectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition26bindableVerticalSpeedValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition21bindableVerticalSpeedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition25bindableMagneticVariationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition30bindableMagneticVariationValidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition25bindableDirectionAccuracyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition30bindableDirectionAccuracyValidEv": [
+      "address", "address"
     ],
     "ritual_ZNK20QDeclarativePosition32isLatitudeValidActualCalculationEv": [
       "bool", "address"
@@ -119,8 +182,80 @@
     "ritual_ZNK20QDeclarativePosition41isDirectionAccuracyValidActualCalculationEv": [
       "bool", "address"
     ],
+    "ritual_ZN20QDeclarativePosition43_qt_property_m_computedLatitudeValid_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition44_qt_property_m_computedLongitudeValid_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition43_qt_property_m_computedAltitudeValid_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition40_qt_property_m_computedCoordinate_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition39_qt_property_m_computedTimestamp_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition35_qt_property_m_computedSpeed_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition40_qt_property_m_computedSpeedValid_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition48_qt_property_m_computedHorizontalAccuracy_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition46_qt_property_m_computedVerticalAccuracy_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition53_qt_property_m_computedHorizontalAccuracyValid_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition51_qt_property_m_computedVerticalAccuracyValid_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition44_qt_property_m_computedDirectionValid_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition39_qt_property_m_computedDirection_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition48_qt_property_m_computedVerticalSpeedValid_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition43_qt_property_m_computedVerticalSpeed_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition47_qt_property_m_computedMagneticVariation_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition52_qt_property_m_computedMagneticVariationValid_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition47_qt_property_m_computedDirectionAccuracy_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN20QDeclarativePosition52_qt_property_m_computedDirectionAccuracyValid_offsetEv": [
+      "size_t"
+    ],
     "ritual_take_QDeclarativePosition": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QDeclarativePosition__QBindable_bool": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePosition__QBindable_QGeoCoordinate": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePosition__QBindable_QDateTime": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePosition__QBindable_double": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePosition__QBindable_qreal": [
+      "nothing", "address"
     ]
   }
 }

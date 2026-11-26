@@ -8,6 +8,8 @@
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
   "rows": {
+    "ritual_ZN19QGraphsThemePrivateC1Ev": ["address"],
+    "ritual_ZN19QGraphsThemePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN19QGraphsThemePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK19QGraphsThemePrivate6q_funcEv": ["address", "address"]
   }

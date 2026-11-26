@@ -11,6 +11,9 @@
     "ritual_ZNK17QHstsHeaderParser17includeSubDomainsEv": [
       "bool", "address"
     ],
+    "ritual_ZN17QHstsHeaderParser16processDirectiveERK10QByteArrayS2_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN17QHstsHeaderParserD1Ev": ["nothing", "address"]
   }
 }

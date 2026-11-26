@@ -1039,6 +1039,25 @@ const QMetaObject *ritual_ZNK17QQuickSearchField10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSearchField::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickSearchField11qt_metacastEPKc(
+    QQuickSearchField *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSearchField::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickSearchField11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSearchField *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSearchField::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickSearchField2trEPKcS1_i(
@@ -1293,6 +1312,164 @@ void ritual_ZN17QQuickSearchField8deselectEv(QQuickSearchField *self) {
   self->deselect();
 }
 
+//  void QQuickSearchField::activated(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField9activatedEi(
+    QQuickSearchField *self,
+    int index) {
+  self->activated(index);
+}
+
+//  void QQuickSearchField::highlighted(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField11highlightedEi(
+    QQuickSearchField *self,
+    int index) {
+  self->highlighted(index);
+}
+
+//  void QQuickSearchField::accepted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField8acceptedEv(QQuickSearchField *self) {
+  self->accepted();
+}
+
+//  void QQuickSearchField::searchTriggered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField15searchTriggeredEv(
+    QQuickSearchField *self) {
+  self->searchTriggered();
+}
+
+//  void QQuickSearchField::textEdited()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField10textEditedEv(QQuickSearchField *self) {
+  self->textEdited();
+}
+
+//  void QQuickSearchField::suggestionModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField22suggestionModelChangedEv(
+    QQuickSearchField *self) {
+  self->suggestionModelChanged();
+}
+
+//  void QQuickSearchField::delegateModelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField20delegateModelChangedEv(
+    QQuickSearchField *self) {
+  self->delegateModelChanged();
+}
+
+//  void QQuickSearchField::suggestionCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField22suggestionCountChangedEv(
+    QQuickSearchField *self) {
+  self->suggestionCountChanged();
+}
+
+//  void QQuickSearchField::currentIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField19currentIndexChangedEv(
+    QQuickSearchField *self) {
+  self->currentIndexChanged();
+}
+
+//  void QQuickSearchField::highlightedIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField23highlightedIndexChangedEv(
+    QQuickSearchField *self) {
+  self->highlightedIndexChanged();
+}
+
+//  void QQuickSearchField::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField11textChangedEv(QQuickSearchField *self) {
+  self->textChanged();
+}
+
+//  void QQuickSearchField::textRoleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField15textRoleChangedEv(
+    QQuickSearchField *self) {
+  self->textRoleChanged();
+}
+
+//  void QQuickSearchField::liveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField11liveChangedEv(QQuickSearchField *self) {
+  self->liveChanged();
+}
+
+//  void QQuickSearchField::popupChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField12popupChangedEv(QQuickSearchField *self) {
+  self->popupChanged();
+}
+
+//  void QQuickSearchField::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField15delegateChangedEv(
+    QQuickSearchField *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickSearchField::placeholderTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField22placeholderTextChangedEv(
+    QQuickSearchField *self) {
+  self->placeholderTextChanged();
+}
+
+//  void QQuickSearchField::selectTextByMouseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField24selectTextByMouseChangedEv(
+    QQuickSearchField *self) {
+  self->selectTextByMouseChanged();
+}
+
+//  void QQuickSearchField::selectedTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField19selectedTextChangedEv(
+    QQuickSearchField *self) {
+  self->selectedTextChanged();
+}
+
+//  void QQuickSearchField::selectionStartChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField21selectionStartChangedEv(
+    QQuickSearchField *self) {
+  self->selectionStartChanged();
+}
+
+//  void QQuickSearchField::selectionEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField19selectionEndChangedEv(
+    QQuickSearchField *self) {
+  self->selectionEndChanged();
+}
+
+//  void QQuickSearchField::cursorPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField21cursorPositionChangedEv(
+    QQuickSearchField *self) {
+  self->cursorPositionChanged();
+}
+
+//  void QQuickSearchField::searchButtonPressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField19searchButtonPressedEv(
+    QQuickSearchField *self) {
+  self->searchButtonPressed();
+}
+
+//  void QQuickSearchField::clearButtonPressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickSearchField18clearButtonPressedEv(
+    QQuickSearchField *self) {
+  self->clearButtonPressed();
+}
+
 //  bool QQuickSearchField::eventFilter(QObject *object, QEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN17QQuickSearchField11eventFilterEP7QObjectP6QEvent(
@@ -1381,6 +1558,20 @@ void ritual_ZN17QQuickSearchField10itemChangeEN10QQuickItem10ItemChangeERKNS0_14
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->itemChange(change, *data);
+}
+
+//  QQuickSearchFieldPrivate *QQuickSearchField::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSearchFieldPrivate *ritual_ZN17QQuickSearchField6d_funcEv(
+    QQuickSearchField *self) {
+  return self->d_func();
+}
+
+//  const QQuickSearchFieldPrivate *QQuickSearchField::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSearchFieldPrivate *ritual_ZNK17QQuickSearchField6d_funcEv(
+    const QQuickSearchField *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQuickSearchField, for the function

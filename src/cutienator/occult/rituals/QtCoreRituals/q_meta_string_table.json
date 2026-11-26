@@ -10,6 +10,9 @@
       "int", "address", "address"
     ],
     "ritual_ZN16QMetaStringTable18preferredAlignmentEv": ["int"],
-    "ritual_ZNK16QMetaStringTable8blobSizeEv": ["int", "address"]
+    "ritual_ZNK16QMetaStringTable8blobSizeEv": ["int", "address"],
+    "ritual_ZNK16QMetaStringTable9writeBlobEPc": [
+      "nothing", "address", "address"
+    ]
   }
 }

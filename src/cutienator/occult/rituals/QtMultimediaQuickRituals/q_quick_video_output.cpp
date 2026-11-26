@@ -18,6 +18,8 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <optional>
+#include <chrono>
 
 //  Only a class built on QQuickVideoOutput may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -798,6 +800,25 @@ const QMetaObject *ritual_ZNK17QQuickVideoOutput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickVideoOutput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickVideoOutput11qt_metacastEPKc(
+    QQuickVideoOutput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickVideoOutput::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickVideoOutput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickVideoOutput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickVideoOutput::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickVideoOutput2trEPKcS1_i(
@@ -907,6 +928,57 @@ void ritual_ZN17QQuickVideoOutput11clearOutputEv(QQuickVideoOutput *self) {
   self->clearOutput();
 }
 
+//  void QQuickVideoOutput::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickVideoOutput13sourceChangedEv(QQuickVideoOutput *self) {
+  self->sourceChanged();
+}
+
+//  void QQuickVideoOutput::fillModeChanged(QQuickVideoOutput::FillMode a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickVideoOutput15fillModeChangedENS_8FillModeE(
+    QQuickVideoOutput *self,
+    QQuickVideoOutput::FillMode a0) {
+  self->fillModeChanged(a0);
+}
+
+//  void QQuickVideoOutput::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickVideoOutput18orientationChangedEv(
+    QQuickVideoOutput *self) {
+  self->orientationChanged();
+}
+
+//  void QQuickVideoOutput::mirroredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickVideoOutput15mirroredChangedEv(
+    QQuickVideoOutput *self) {
+  self->mirroredChanged();
+}
+
+//  void QQuickVideoOutput::sourceRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickVideoOutput17sourceRectChangedEv(
+    QQuickVideoOutput *self) {
+  self->sourceRectChanged();
+}
+
+//  void QQuickVideoOutput::contentRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickVideoOutput18contentRectChangedEv(
+    QQuickVideoOutput *self) {
+  self->contentRectChanged();
+}
+
+//  void QQuickVideoOutput::endOfStreamPolicyChanged(QQuickVideoOutput::EndOf
+//      StreamPolicy a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickVideoOutput24endOfStreamPolicyChangedENS_17EndOfStreamPolicyE(
+    QQuickVideoOutput *self,
+    QQuickVideoOutput::EndOfStreamPolicy a0) {
+  self->endOfStreamPolicyChanged(a0);
+}
+
 //  QSGNode *QQuickVideoOutput::updatePaintNode(QSGNode *a0,
 //      UpdatePaintNodeData *a1)
 extern "C" Q_DECL_EXPORT
@@ -1008,6 +1080,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickVideoOutput17_q_updateGeometryEv(
     QQuickVideoOutput *self) {
   self->_q_updateGeometry();
+}
+
+//  void QQuickVideoOutput::setSignalBackoff(std::optional<std::chrono::nanos
+//      econds> a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickVideoOutput16setSignalBackoffESt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEE(
+    const std::optional<std::chrono::nanoseconds> *a0) {
+  QQuickVideoOutput::setSignalBackoff(*a0);
 }
 
 //  a Python function taken by a CuteQQuickVideoOutput, for the function

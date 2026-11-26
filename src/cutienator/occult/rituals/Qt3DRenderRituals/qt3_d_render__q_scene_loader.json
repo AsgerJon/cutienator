@@ -7,8 +7,41 @@
     "ritual_ZNK10Qt3DRender12QSceneLoader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender12QSceneLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender12QSceneLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender12QSceneLoader2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QSceneLoaderC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QSceneLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender12QSceneLoader6sourceEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender12QSceneLoader6statusEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender12QSceneLoader6entityERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK10Qt3DRender12QSceneLoader11entityNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender12QSceneLoader9componentERK7QStringNS0_13ComponentTypeE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QSceneLoader9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QSceneLoader13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QSceneLoader13statusChangedENS0_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QSceneLoaderC1ERNS_19QSceneLoaderPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender12QSceneLoader6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender12QSceneLoader6d_funcEv": ["address", "address"],

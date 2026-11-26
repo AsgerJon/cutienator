@@ -5,6 +5,8 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN22QMetalGraphicsPipeline7destroyEv": ["nothing", "address"],
+    "ritual_ZN22QMetalGraphicsPipeline6createEv": ["bool", "address"],
     "ritual_take_QMetalGraphicsPipeline": [
       "bool", "address", "chars", "address"
     ]

@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK6QChart10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QChart11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN6QChart11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN6QChart2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN6QChartC1EP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
@@ -127,6 +131,9 @@
       "address", "address", "address", "address"
     ],
     "ritual_ZNK6QChart9chartTypeEv": ["int", "address"],
+    "ritual_ZN6QChart15plotAreaChangedERK6QRectF": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN6QChartC1ENS_9ChartTypeEP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
       "address", "int", "address", "int"
     ],

@@ -27,10 +27,20 @@
     "ritual_ZN22QToolBarAreaLayoutInfo18removeToolBarBreakEP8QToolBar": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK22QToolBarAreaLayoutInfo8gapIndexERK6QPointPi": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutInfo9insertGapERK5QListIiEP11QLayoutItem": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN22QToolBarAreaLayoutInfo5clearEv": ["nothing", "address"],
+    "ritual_ZNK22QToolBarAreaLayoutInfo8itemRectERK5QListIiE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK22QToolBarAreaLayoutInfo8distanceERK6QPoint": [
       "int", "address", "address"
     ],
-    "ritual_ZN22QToolBarAreaLayoutInfoD1Ev": ["nothing", "address"]
+    "ritual_ZN22QToolBarAreaLayoutInfoD1Ev": ["nothing", "address"],
+    "ritual_drop_QToolBarAreaLayoutInfo__QList_int": ["nothing", "address"]
   }
 }

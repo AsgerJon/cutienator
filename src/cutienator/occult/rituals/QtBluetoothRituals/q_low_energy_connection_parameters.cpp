@@ -24,6 +24,16 @@ void ritual_ZN30QLowEnergyConnectionParametersD1Ev(
   delete self;
 }
 
+//  QLowEnergyConnectionParameters
+//      &QLowEnergyConnectionParameters::operator=(const
+//      QLowEnergyConnectionParameters &other)
+extern "C" Q_DECL_EXPORT
+QLowEnergyConnectionParameters *ritual_ZN30QLowEnergyConnectionParametersaSERKS_(
+    QLowEnergyConnectionParameters *self,
+    const QLowEnergyConnectionParameters *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool operator==(const QLowEnergyConnectionParameters &a, const
 //      QLowEnergyConnectionParameters &b)
 extern "C" Q_DECL_EXPORT
@@ -94,6 +104,15 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK30QLowEnergyConnectionParameters18supervisionTimeoutEv(
     const QLowEnergyConnectionParameters *self) {
   return self->supervisionTimeout();
+}
+
+//  void QLowEnergyConnectionParameters::swap(QLowEnergyConnectionParameters
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QLowEnergyConnectionParameters4swapERS_(
+    QLowEnergyConnectionParameters *self,
+    QLowEnergyConnectionParameters *other) {
+  self->swap(*other);
 }
 
 //  bool QLowEnergyConnectionParameters::equals(const

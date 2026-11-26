@@ -8,6 +8,12 @@
     "ritual_ZNK31QHttpServerHttp2ProtocolHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QHttpServerHttp2ProtocolHandler18responderDestroyedEj": [
       "nothing", "address", "unsigned int"
     ],
@@ -17,11 +23,44 @@
     "ritual_ZN31QHttpServerHttp2ProtocolHandler18socketDisconnectedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler5writeERK10QByteArrayRK12QHttpHeadersN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler5writeEN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler17writeBeginChunkedERK12QHttpHeadersN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler10writeChunkERK10QByteArrayj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler15writeEndChunkedERK10QByteArrayRK12QHttpHeadersj": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler21writeHeadersAndStatusERK12QHttpHeadersN20QHttpServerResponder10StatusCodeEbj": [
+      "nothing", "address", "address", "int", "bool", "unsigned int"
+    ],
     "ritual_ZN31QHttpServerHttp2ProtocolHandler21checkKeepAliveTimeoutEv": [
       "nothing", "address"
     ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler15onStreamCreatedEP12QHttp2Stream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler14onStreamClosedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler18onStreamHalfClosedEj": [
+      "nothing", "address", "unsigned int"
+    ],
     "ritual_ZN31QHttpServerHttp2ProtocolHandler12sendToStreamEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler17onHeadersReceivedEjRKSt6vectorIN5HPack11HeaderFieldESaIS2_EE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler14onDataReceivedEjx": [
+      "nothing", "address", "unsigned int", "long long"
     ],
     "ritual_ZNK31QHttpServerHttp2ProtocolHandler9getStreamEj": [
       "address", "address", "unsigned int"

@@ -5,5 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal20CursorSelectionStateC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal20CursorSelectionState4saveEPK28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal20CursorSelectionState7restoreEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ]
   }
 }

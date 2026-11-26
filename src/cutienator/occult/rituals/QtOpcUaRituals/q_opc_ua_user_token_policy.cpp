@@ -18,6 +18,15 @@ QOpcUaUserTokenPolicy *ritual_ZN21QOpcUaUserTokenPolicyC1ERKS_(
   return new QOpcUaUserTokenPolicy(*a0);
 }
 
+//  QOpcUaUserTokenPolicy &QOpcUaUserTokenPolicy::operator=(const
+//      QOpcUaUserTokenPolicy &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaUserTokenPolicy *ritual_ZN21QOpcUaUserTokenPolicyaSERKS_(
+    QOpcUaUserTokenPolicy *self,
+    const QOpcUaUserTokenPolicy *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaUserTokenPolicy::operator==(const QOpcUaUserTokenPolicy &a0)
 //      const
 extern "C" Q_DECL_EXPORT

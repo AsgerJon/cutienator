@@ -35,10 +35,43 @@ void ritual_ZN17QVideoFrameFormatD1Ev(QVideoFrameFormat *self) {
   delete self;
 }
 
+//  QVideoFrameFormat::QVideoFrameFormat(QVideoFrameFormat &&other)
+extern "C" Q_DECL_EXPORT
+QVideoFrameFormat *ritual_ZN17QVideoFrameFormatC1EOS_(
+    QVideoFrameFormat *other) {
+  return new QVideoFrameFormat(std::move(*other));
+}
+
+//  QVideoFrameFormat &QVideoFrameFormat::operator=(QVideoFrameFormat
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QVideoFrameFormat *ritual_ZN17QVideoFrameFormataSEOS_(
+    QVideoFrameFormat *self,
+    QVideoFrameFormat *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QVideoFrameFormat::swap(QVideoFrameFormat &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QVideoFrameFormat4swapERS_(
+    QVideoFrameFormat *self,
+    QVideoFrameFormat *other) {
+  self->swap(*other);
+}
+
 //  void QVideoFrameFormat::detach()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QVideoFrameFormat6detachEv(QVideoFrameFormat *self) {
   self->detach();
+}
+
+//  QVideoFrameFormat &QVideoFrameFormat::operator=(const QVideoFrameFormat
+//      &format)
+extern "C" Q_DECL_EXPORT
+QVideoFrameFormat *ritual_ZN17QVideoFrameFormataSERKS_(
+    QVideoFrameFormat *self,
+    const QVideoFrameFormat *format) {
+  return &(self->operator=(*format));
 }
 
 //  bool QVideoFrameFormat::operator==(const QVideoFrameFormat &format) const

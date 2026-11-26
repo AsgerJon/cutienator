@@ -34,6 +34,15 @@ void ritual_ZN17QHelpSearchResultD1Ev(QHelpSearchResult *self) {
   delete self;
 }
 
+//  QHelpSearchResult &QHelpSearchResult::operator=(const QHelpSearchResult
+//      &other)
+extern "C" Q_DECL_EXPORT
+QHelpSearchResult *ritual_ZN17QHelpSearchResultaSERKS_(
+    QHelpSearchResult *self,
+    const QHelpSearchResult *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QHelpSearchResult::title() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK17QHelpSearchResult5titleEv(

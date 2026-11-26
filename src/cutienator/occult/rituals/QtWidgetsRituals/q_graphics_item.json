@@ -4,6 +4,7 @@
     "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QGraphicsItemC1EPS_": ["address", "address"],
     "ritual_ZN13QGraphicsItemD1Ev": ["nothing", "address"],
     "ritual_ZNK13QGraphicsItem5sceneEv": ["address", "address"],
     "ritual_ZNK13QGraphicsItem10parentItemEv": ["address", "address"],
@@ -40,6 +41,9 @@
     "ritual_ZNK13QGraphicsItem13panelModalityEv": ["int", "address"],
     "ritual_ZN13QGraphicsItem16setPanelModalityENS_13PanelModalityE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsItem21isBlockedByModalPanelEPPS_": [
+      "bool", "address", "address"
     ],
     "ritual_ZNK13QGraphicsItem7toolTipEv": ["text", "address"],
     "ritual_ZN13QGraphicsItem10setToolTipERK7QString": [
@@ -464,6 +468,9 @@
       "nothing", "address", "int", "address"
     ],
     "ritual_ZNK13QGraphicsItem9extensionERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItemC1ER20QGraphicsItemPrivatePS_": [
       "address", "address", "address"
     ],
     "ritual_ZN13QGraphicsItem10addToIndexEv": ["nothing", "address"],

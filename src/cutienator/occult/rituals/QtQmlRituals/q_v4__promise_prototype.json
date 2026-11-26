@@ -5,5 +5,8 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV416PromisePrototype12method_catchEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

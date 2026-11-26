@@ -1,18 +1,19 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
+    "Written by hand on 2026-11-25 from",
     "Qt3DRender/6.12.0/Qt3DRender/private/updatelevelofdetailjob_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator",
+    "runs again."
   ],
   "rows": {
-    "ritual_ZNK10Qt3DRender6Render22UpdateLevelOfDetailJob8managersEv": [
-      "address", "address"
-    ],
-    "ritual_ZNK10Qt3DRender6Render22UpdateLevelOfDetailJob4rootEv": [
-      "address", "address"
-    ],
-    "ritual_take_Qt3DRender_Render_UpdateLevelOfDetailJob": [
-      "bool", "address", "chars", "address"
-    ]
+    "ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJobC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJobD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJob11setManagersEPNS0_12NodeManagersE": ["nothing", "address", "address"],
+    "ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJob17setFrameGraphRootEPNS0_14FrameGraphNodeE": ["nothing", "address", "address"],
+    "ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJob7setRootEPNS0_6EntityE": ["nothing", "address", "address"],
+    "ritual_ZNK10Qt3DRender6Render22UpdateLevelOfDetailJob8managersEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender6Render22UpdateLevelOfDetailJob4rootEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJob3runEv": ["nothing", "address"],
+    "ritual_take_Qt3DRender_Render_UpdateLevelOfDetailJob": ["bool", "address", "chars", "address"]
   }
 }

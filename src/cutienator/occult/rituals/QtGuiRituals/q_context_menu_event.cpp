@@ -17,6 +17,7 @@ typedef void (*CuteQContextMenuEventCall2)(const void *, bool, int *);
 class CuteQContextMenuEvent : public QContextMenuEvent {
 public:
   using QContextMenuEvent::QContextMenuEvent;
+  CuteQContextMenuEvent(const QContextMenuEvent & other) : QContextMenuEvent(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -72,6 +73,22 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QContextMenuEvent::QContextMenuEvent(const QContextMenuEvent &a0)
+extern "C" Q_DECL_EXPORT
+QContextMenuEvent *ritual_ZN17QContextMenuEventC1ERKS_(
+    const QContextMenuEvent *a0) {
+  return new CuteQContextMenuEvent(*a0);
+}
+
+//  QContextMenuEvent &QContextMenuEvent::operator=(const QContextMenuEvent
+//      &other)
+extern "C" Q_DECL_EXPORT
+QContextMenuEvent *ritual_ZN17QContextMenuEventaSERKS_(
+    QContextMenuEvent *self,
+    const QContextMenuEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QContextMenuEvent *QContextMenuEvent::clone() const
 extern "C" Q_DECL_EXPORT

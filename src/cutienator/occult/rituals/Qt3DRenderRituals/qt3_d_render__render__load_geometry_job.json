@@ -1,18 +1,15 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DRender/6.12.0/Qt3DRender/private/loadgeometryjob_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "Qt3DRender/6.12.0/Qt3DRender/private/loadgeometryjob_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator",
+    "runs again."
   ],
   "rows": {
-    "ritual_ZN10Qt3DRender6Render15LoadGeometryJob15setNodeManagersEPNS0_12NodeManagersE": [
-      "nothing", "address", "address"
-    ],
-    "ritual_take_Qt3DRender_Render_LoadGeometryJob": [
-      "bool", "address", "chars", "address"
-    ],
-    "ritual_own_ZN10Qt3DRender6Render15LoadGeometryJob3runEv": [
-      "nothing", "address"
-    ]
+    "ritual_ZN10Qt3DRender6Render15LoadGeometryJobC1ERKN8Qt3DCore7QHandleINS0_16GeometryRendererEEE": ["address", "address"],
+    "ritual_ZN10Qt3DRender6Render15LoadGeometryJobD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render15LoadGeometryJob15setNodeManagersEPNS0_12NodeManagersE": ["nothing", "address", "address"],
+    "ritual_take_Qt3DRender_Render_LoadGeometryJob": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10Qt3DRender6Render15LoadGeometryJob3runEv": ["nothing", "address"]
   }
 }

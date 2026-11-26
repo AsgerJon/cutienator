@@ -38,6 +38,15 @@ QSSGRenderVertexBufferEntry *ritual_ZN27QSSGRenderVertexBufferEntryC1ERKS_(
   return new QSSGRenderVertexBufferEntry(*inOther);
 }
 
+//  QSSGRenderVertexBufferEntry &QSSGRenderVertexBufferEntry::operator=(const
+//      QSSGRenderVertexBufferEntry &inOther)
+extern "C" Q_DECL_EXPORT
+QSSGRenderVertexBufferEntry *ritual_ZN27QSSGRenderVertexBufferEntryaSERKS_(
+    QSSGRenderVertexBufferEntry *self,
+    const QSSGRenderVertexBufferEntry *inOther) {
+  return &(self->operator=(*inOther));
+}
+
 //  QSSGRenderVertexBufferEntry::~QSSGRenderVertexBufferEntry()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QSSGRenderVertexBufferEntryD1Ev(

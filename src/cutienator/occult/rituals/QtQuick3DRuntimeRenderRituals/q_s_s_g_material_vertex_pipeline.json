@@ -5,6 +5,9 @@
     "pelineimpl_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QSSGMaterialVertexPipelineC1ER20QSSGProgramGeneratorRK38QSSGShaderDefaultMaterialKeyPropertiesP25QSSGShaderMaterialAdapter": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN26QSSGMaterialVertexPipelineD1Ev": ["nothing", "address"],
     "ritual_ZN26QSSGMaterialVertexPipeline7setCodeENS_14GenerationFlagE": [
       "bool", "address", "int"
@@ -15,11 +18,42 @@
     "ritual_ZNK26QSSGMaterialVertexPipeline16programGeneratorEv": [
       "address", "address"
     ],
+    "ritual_ZN26QSSGMaterialVertexPipeline6vertexEv": ["address", "address"],
+    "ritual_ZN26QSSGMaterialVertexPipeline8fragmentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline16generateUVCoordsEjRK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline24generateLightmapUVCoordsERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline24generateEnvMapReflectionERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline18generateViewVectorERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline19generateWorldNormalERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QSSGMaterialVertexPipeline20generateObjectNormalEv": [
       "nothing", "address"
     ],
+    "ritual_ZN26QSSGMaterialVertexPipeline21generateWorldPositionERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QSSGMaterialVertexPipeline13generateDepthEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline27generateShadowWorldPositionERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline29generateVarTangentAndBinormalERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EERbS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline19generateVertexColorERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN26QSSGMaterialVertexPipeline11addIncomingERK10QByteArrayS2_": [
       "nothing", "address", "address", "address"
@@ -48,6 +82,9 @@
     "ritual_ZN26QSSGMaterialVertexPipeline13addDefinitionERK10QByteArrayS2_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN26QSSGMaterialVertexPipelinelsERK10QByteArray": [
+      "address", "address", "address"
+    ],
     "ritual_ZN26QSSGMaterialVertexPipeline6appendERK10QByteArray": [
       "nothing", "address", "address"
     ],
@@ -58,11 +95,26 @@
     "ritual_ZN26QSSGMaterialVertexPipeline21endFragmentGenerationEv": [
       "nothing", "address"
     ],
+    "ritual_ZN26QSSGMaterialVertexPipeline11activeStageEv": [
+      "address", "address"
+    ],
     "ritual_ZN26QSSGMaterialVertexPipeline25addInterpolationParameterERK10QByteArrayS2_": [
       "nothing", "address", "address", "address"
     ],
     "ritual_ZN26QSSGMaterialVertexPipeline16addFlatParameterERK10QByteArrayS2_": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline21doGenerateWorldNormalERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline20doGenerateVarTangentERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline21doGenerateVarBinormalERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline17hasAttributeInKeyEN28QSSGShaderKeyVertexAttribute19VertexAttributeBitsERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "bool", "address", "int", "address"
     ]
   }
 }

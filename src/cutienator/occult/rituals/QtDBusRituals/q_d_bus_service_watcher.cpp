@@ -8,6 +8,9 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QStringList>
+#include <QtDBus/QDBusServiceWatcher>
 
 //  A QDBusServiceWatcher that Python can take functions over in. Every QDBusServiceWatcher
 //  Python makes is one. Each function below asks the Python
@@ -183,6 +186,25 @@ const QMetaObject *ritual_ZNK19QDBusServiceWatcher10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDBusServiceWatcher::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QDBusServiceWatcher11qt_metacastEPKc(
+    QDBusServiceWatcher *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusServiceWatcher::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QDBusServiceWatcher11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusServiceWatcher *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDBusServiceWatcher::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QDBusServiceWatcher2trEPKcS1_i(
@@ -251,6 +273,13 @@ bool ritual_ZN19QDBusServiceWatcher20removeWatchedServiceERK7QString(
   return self->removeWatchedService(*service);
 }
 
+//  QBindable<QStringList> QDBusServiceWatcher::bindableWatchedServices()
+extern "C" Q_DECL_EXPORT
+QBindable<QStringList> *ritual_ZN19QDBusServiceWatcher23bindableWatchedServicesEv(
+    QDBusServiceWatcher *self) {
+  return new QBindable<QStringList>(self->bindableWatchedServices());
+}
+
 //  WatchMode QDBusServiceWatcher::watchMode() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK19QDBusServiceWatcher9watchModeEv(
@@ -265,6 +294,14 @@ void ritual_ZN19QDBusServiceWatcher12setWatchModeE6QFlagsINS_13WatchModeFlagEE(
     int mode) {
   self->setWatchMode(
       QFlags<QDBusServiceWatcher::WatchModeFlag>::fromInt(mode));
+}
+
+//  QBindable<WatchMode> QDBusServiceWatcher::bindableWatchMode()
+extern "C" Q_DECL_EXPORT
+QBindable<QDBusServiceWatcher::WatchMode> *ritual_ZN19QDBusServiceWatcher17bindableWatchModeEv(
+    QDBusServiceWatcher *self) {
+  return new QBindable<QDBusServiceWatcher::WatchMode>(
+      self->bindableWatchMode());
 }
 
 //  QDBusConnection QDBusServiceWatcher::connection() const
@@ -283,6 +320,47 @@ void ritual_ZN19QDBusServiceWatcher13setConnectionERK15QDBusConnection(
   self->setConnection(*connection);
 }
 
+//  void QDBusServiceWatcher::serviceRegistered(const QString &service)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QDBusServiceWatcher17serviceRegisteredERK7QString(
+    QDBusServiceWatcher *self,
+    const QString *service) {
+  self->serviceRegistered(*service);
+}
+
+//  void QDBusServiceWatcher::serviceUnregistered(const QString &service)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QDBusServiceWatcher19serviceUnregisteredERK7QString(
+    QDBusServiceWatcher *self,
+    const QString *service) {
+  self->serviceUnregistered(*service);
+}
+
+//  void QDBusServiceWatcher::serviceOwnerChanged(const QString &service,
+//      const QString &oldOwner, const QString &newOwner)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QDBusServiceWatcher19serviceOwnerChangedERK7QStringS2_S2_(
+    QDBusServiceWatcher *self,
+    const QString *service,
+    const QString *oldOwner,
+    const QString *newOwner) {
+  self->serviceOwnerChanged(*service, *oldOwner, *newOwner);
+}
+
+//  QDBusServiceWatcherPrivate *QDBusServiceWatcher::d_func()
+extern "C" Q_DECL_EXPORT
+QDBusServiceWatcherPrivate *ritual_ZN19QDBusServiceWatcher6d_funcEv(
+    QDBusServiceWatcher *self) {
+  return self->d_func();
+}
+
+//  const QDBusServiceWatcherPrivate *QDBusServiceWatcher::d_func() const
+extern "C" Q_DECL_EXPORT
+const QDBusServiceWatcherPrivate *ritual_ZNK19QDBusServiceWatcher6d_funcEv(
+    const QDBusServiceWatcher *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQDBusServiceWatcher, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -291,6 +369,21 @@ bool ritual_take_QDBusServiceWatcher(
     const char *key,
     void *call) {
   return static_cast<CuteQDBusServiceWatcher *>(self)->take(key, call);
+}
+
+//  a QBindable<QStringList> a ritual of QDBusServiceWatcher gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDBusServiceWatcher__QBindable_QStringList(
+    QBindable<QStringList> *self) {
+  delete self;
+}
+
+//  a QBindable<QDBusServiceWatcher::WatchMode> a ritual of
+//      QDBusServiceWatcher gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDBusServiceWatcher__QBindable_QDBusServiceWatcher_WatchMode(
+    QBindable<QDBusServiceWatcher::WatchMode> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_DBUS) && !defined(QT_NO_QOBJECT)

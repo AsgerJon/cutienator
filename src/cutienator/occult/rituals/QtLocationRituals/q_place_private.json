@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN13QPlacePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN13QPlacePrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK13QPlacePrivateeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK13QPlacePrivate7isEmptyEv": ["bool", "address"],
     "ritual_ZNK13QPlacePrivate10categoriesEv": ["address", "address"],
     "ritual_ZN13QPlacePrivate13setCategoriesERK5QListI14QPlaceCategoryE": [
@@ -51,6 +52,9 @@
     "ritual_ZNK13QPlacePrivate18extendedAttributesEv": [
       "address", "address"
     ],
+    "ritual_ZN13QPlacePrivate18extendedAttributesEv": ["address", "address"],
+    "ritual_ZNK13QPlacePrivate8contactsEv": ["address", "address"],
+    "ritual_ZN13QPlacePrivate8contactsEv": ["address", "address"],
     "ritual_ZNK13QPlacePrivate17extendedAttributeERK7QString": [
       "address", "address", "text"
     ],
@@ -58,6 +62,9 @@
     "ritual_own_ZNK13QPlacePrivate7isEmptyEv": ["bool", "address"],
     "ritual_own_ZNK13QPlacePrivate17extendedAttributeERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_drop_QPlacePrivate__QMap_QString_QList_QPlaceContactDetail": [
+      "nothing", "address"
     ]
   }
 }

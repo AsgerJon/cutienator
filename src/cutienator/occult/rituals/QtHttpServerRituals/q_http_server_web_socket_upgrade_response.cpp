@@ -16,6 +16,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::Literals::StringLiterals;
+
+//  from ../qthttpserver/src/httpserver/qhttpserverwebsocketupgraderesponse.cpp, line 44, as _ZN35QHttpServerWebSocketUpgradeResponseC1ENS_12ResponseTypeE
+inline QHttpServerWebSocketUpgradeResponse::QHttpServerWebSocketUpgradeResponse(ResponseType type)
+    : responseType(type), errorMessage("Forbidden"_ba), reserved(nullptr)
+{
+}
+
 //  from ../qthttpserver/src/httpserver/qhttpserverwebsocketupgraderesponse.cpp, line 52, as _ZN35QHttpServerWebSocketUpgradeResponseC1ENS_12ResponseTypeEi10QByteArray
 inline QHttpServerWebSocketUpgradeResponse::QHttpServerWebSocketUpgradeResponse(ResponseType type,
                                                                          int status,
@@ -33,12 +41,48 @@ QHttpServerWebSocketUpgradeResponse *ritual_ZN35QHttpServerWebSocketUpgradeRespo
   return new QHttpServerWebSocketUpgradeResponse(*other);
 }
 
+//  QHttpServerWebSocketUpgradeResponse::QHttpServerWebSocketUpgradeResponse(
+//      QHttpServerWebSocketUpgradeResponse &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerWebSocketUpgradeResponse *ritual_ZN35QHttpServerWebSocketUpgradeResponseC1EOS_(
+    QHttpServerWebSocketUpgradeResponse *other) {
+  return new QHttpServerWebSocketUpgradeResponse(std::move(*other));
+}
+
 //  QHttpServerWebSocketUpgradeResponse::~QHttpServerWebSocketUpgradeResponse
 //      ()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN35QHttpServerWebSocketUpgradeResponseD1Ev(
     QHttpServerWebSocketUpgradeResponse *self) {
   delete self;
+}
+
+//  QHttpServerWebSocketUpgradeResponse
+//      &QHttpServerWebSocketUpgradeResponse::operator=(const
+//      QHttpServerWebSocketUpgradeResponse &other)
+extern "C" Q_DECL_EXPORT
+QHttpServerWebSocketUpgradeResponse *ritual_ZN35QHttpServerWebSocketUpgradeResponseaSERKS_(
+    QHttpServerWebSocketUpgradeResponse *self,
+    const QHttpServerWebSocketUpgradeResponse *other) {
+  return &(self->operator=(*other));
+}
+
+//  QHttpServerWebSocketUpgradeResponse &QHttpServerWebSocketUpgradeResponse:
+//      :operator=(QHttpServerWebSocketUpgradeResponse &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerWebSocketUpgradeResponse *ritual_ZN35QHttpServerWebSocketUpgradeResponseaSEOS_(
+    QHttpServerWebSocketUpgradeResponse *self,
+    QHttpServerWebSocketUpgradeResponse *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QHttpServerWebSocketUpgradeResponse::swap(QHttpServerWebSocketUpgrad
+//      eResponse &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QHttpServerWebSocketUpgradeResponse4swapERS_(
+    QHttpServerWebSocketUpgradeResponse *self,
+    QHttpServerWebSocketUpgradeResponse *other) {
+  self->swap(*other);
 }
 
 //  ResponseType QHttpServerWebSocketUpgradeResponse::type() const
@@ -98,6 +142,14 @@ extern "C" Q_DECL_EXPORT
 QHttpServerWebSocketUpgradeResponse *ritual_ZN35QHttpServerWebSocketUpgradeResponse10passToNextEv() {
   return new QHttpServerWebSocketUpgradeResponse(
       QHttpServerWebSocketUpgradeResponse::passToNext());
+}
+
+//  QHttpServerWebSocketUpgradeResponse::QHttpServerWebSocketUpgradeResponse(
+//      ResponseType type)
+extern "C" Q_DECL_EXPORT
+QHttpServerWebSocketUpgradeResponse *ritual_ZN35QHttpServerWebSocketUpgradeResponseC1ENS_12ResponseTypeE(
+    QHttpServerWebSocketUpgradeResponse::ResponseType type) {
+  return new QHttpServerWebSocketUpgradeResponse(type);
 }
 
 //  QHttpServerWebSocketUpgradeResponse::QHttpServerWebSocketUpgradeResponse(

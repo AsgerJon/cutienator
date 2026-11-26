@@ -8,6 +8,9 @@
     "ritual_ZN16QLottieTextLayerC1Ev": ["address"],
     "ritual_ZN16QLottieTextLayerC1ERKS_": ["address", "address"],
     "ritual_ZNK16QLottieTextLayer5cloneEv": ["address", "address"],
+    "ritual_ZNK16QLottieTextLayer6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QLottieTextLayer5parseERK11QJsonObject": [
       "int", "address", "address"
     ],

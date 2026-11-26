@@ -8,6 +8,9 @@
     "ritual_ZN22QOpcUaPkiConfigurationC1Ev": ["address"],
     "ritual_ZN22QOpcUaPkiConfigurationD1Ev": ["nothing", "address"],
     "ritual_ZN22QOpcUaPkiConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN22QOpcUaPkiConfigurationaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK22QOpcUaPkiConfiguration21clientCertificateFileEv": [
       "text", "address"
     ],

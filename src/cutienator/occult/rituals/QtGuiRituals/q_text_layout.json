@@ -31,6 +31,10 @@
     ],
     "ritual_ZNK11QTextLayout19preeditAreaPositionEv": ["int", "address"],
     "ritual_ZNK11QTextLayout15preeditAreaTextEv": ["text", "address"],
+    "ritual_ZN11QTextLayout10setFormatsERK5QListINS_11FormatRangeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextLayout7formatsEv": ["address", "address"],
     "ritual_ZN11QTextLayout12clearFormatsEv": ["nothing", "address"],
     "ritual_ZN11QTextLayout15setCacheEnabledEb": [
       "nothing", "address", "bool"
@@ -64,6 +68,9 @@
     "ritual_ZNK11QTextLayout19rightCursorPositionEi": [
       "int", "address", "int"
     ],
+    "ritual_ZNK11QTextLayout4drawEP8QPainterRK7QPointFRK5QListINS_11FormatRangeEERK6QRectF": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK11QTextLayout10drawCursorEP8QPainterRK7QPointFi": [
       "nothing", "address", "address", "address", "int"
     ],
@@ -85,6 +92,9 @@
     ],
     "ritual_ZNK11QTextLayout6engineEv": ["address", "address"],
     "ritual_ZN11QTextLayout8setFlagsEi": ["nothing", "address", "int"],
-    "ritual_ZN11QTextLayoutC1EP11QTextEngine": ["address", "address"]
+    "ritual_ZN11QTextLayoutC1EP11QTextEngine": ["address", "address"],
+    "ritual_drop_QTextLayout__QList_QTextLayout_FormatRange": [
+      "nothing", "address"
+    ]
   }
 }

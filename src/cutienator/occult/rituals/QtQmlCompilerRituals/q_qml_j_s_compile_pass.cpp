@@ -2364,6 +2364,19 @@ QQmlJSCompilePass::State *ritual_ZN17QQmlJSCompilePass12initialStateEPKNS_8Funct
   return new QQmlJSCompilePass::State(self->initialState(function));
 }
 
+//  State QQmlJSCompilePass::nextStateFromAnnotations(const State &oldState,
+//      const InstructionAnnotations &annotations)
+extern "C" Q_DECL_EXPORT
+QQmlJSCompilePass::State *ritual_ZN17QQmlJSCompilePass24nextStateFromAnnotationsERKNS_5StateERK8QFlatMapIiNS_21InstructionAnnotationESt4lessIiE5QListIiES7_IS4_EE(
+    QQmlJSCompilePass *self,
+    const QQmlJSCompilePass::State *oldState,
+    const QQmlJSCompilePass::InstructionAnnotations *annotations) {
+  return new QQmlJSCompilePass::State(
+      self->nextStateFromAnnotations(
+          *oldState,
+          *annotations));
+}
+
 //  QQmlJS::SourceLocation QQmlJSCompilePass::sourceLocation(int
 //      instructionOffset) const
 extern "C" Q_DECL_EXPORT

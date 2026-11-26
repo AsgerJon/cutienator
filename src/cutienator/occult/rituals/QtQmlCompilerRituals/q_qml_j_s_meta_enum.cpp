@@ -11,6 +11,8 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QList>
+#include <QtCore/QSharedPointer>
 
 //  QQmlJSMetaEnum::QQmlJSMetaEnum()
 extern "C" Q_DECL_EXPORT
@@ -117,6 +119,12 @@ void ritual_ZN14QQmlJSMetaEnum8addValueEi(QQmlJSMetaEnum *self, int value) {
   self->addValue(value);
 }
 
+//  QList<int> QQmlJSMetaEnum::values() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK14QQmlJSMetaEnum6valuesEv(const QQmlJSMetaEnum *self) {
+  return new QList<int>(self->values());
+}
+
 //  bool QQmlJSMetaEnum::hasValues() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14QQmlJSMetaEnum9hasValuesEv(const QQmlJSMetaEnum *self) {
@@ -151,6 +159,22 @@ void ritual_ZN14QQmlJSMetaEnum11setTypeNameERK7QString(
     QQmlJSMetaEnum *self,
     const QString *typeName) {
   self->setTypeName(*typeName);
+}
+
+//  QSharedPointer<const QQmlJSScope> QQmlJSMetaEnum::type() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK14QQmlJSMetaEnum4typeEv(
+    const QQmlJSMetaEnum *self) {
+  return new QSharedPointer<const QQmlJSScope>(self->type());
+}
+
+//  void QQmlJSMetaEnum::setType(const QSharedPointer<const QQmlJSScope>
+//      &type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlJSMetaEnum7setTypeERK14QSharedPointerIK11QQmlJSScopeE(
+    QQmlJSMetaEnum *self,
+    const QSharedPointer<const QQmlJSScope> *type) {
+  self->setType(*type);
 }
 
 //  int QQmlJSMetaEnum::lineNumber() const
@@ -247,5 +271,18 @@ QQmlJSMetaEnum *ritual_map_get_QHash_QString_QQmlJSMetaEnum(
 extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QHash_QString_QQmlJSMetaEnum(
     QHash<QString, QQmlJSMetaEnum> *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of QQmlJSMetaEnum gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSMetaEnum__QList_int(QList<int> *self) {
+  delete self;
+}
+
+//  a QSharedPointer<const QQmlJSScope> a ritual of QQmlJSMetaEnum gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSMetaEnum__QSharedPointer_const_QQmlJSScope(
+    QSharedPointer<const QQmlJSScope> *self) {
   delete self;
 }

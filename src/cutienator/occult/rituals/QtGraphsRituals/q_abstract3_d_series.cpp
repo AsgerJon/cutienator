@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qabstract3dseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qabstract3dseries.h>
 #include <QtCore/qstring.h>
@@ -187,6 +187,25 @@ const QMetaObject *ritual_ZNK17QAbstract3DSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstract3DSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QAbstract3DSeries11qt_metacastEPKc(
+    QAbstract3DSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstract3DSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QAbstract3DSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstract3DSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstract3DSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QAbstract3DSeries2trEPKcS1_i(
@@ -215,6 +234,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstract3DSeries24qt_qmlMarker_uncreatableEv(
     QAbstract3DSeries *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QAbstract3DSeries::QAbstract3DSeries(QAbstract3DSeriesPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstract3DSeries *ritual_ZN17QAbstract3DSeriesC1ER24QAbstract3DSeriesPrivateP7QObject(
+    QAbstract3DSeriesPrivate *d,
+    QObject *parent) {
+  return new CuteQAbstract3DSeries(*d, parent);
 }
 
 //  QAbstract3DSeries::~QAbstract3DSeries()
@@ -487,6 +515,147 @@ bool ritual_ZNK17QAbstract3DSeries18isItemLabelVisibleEv(
   return self->isItemLabelVisible();
 }
 
+//  void QAbstract3DSeries::itemLabelFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries22itemLabelFormatChangedERK7QString(
+    QAbstract3DSeries *self,
+    const QString *format) {
+  self->itemLabelFormatChanged(*format);
+}
+
+//  void QAbstract3DSeries::visibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries14visibleChangedEb(
+    QAbstract3DSeries *self,
+    bool visible) {
+  self->visibleChanged(visible);
+}
+
+//  void QAbstract3DSeries::meshChanged(QAbstract3DSeries::Mesh mesh)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries11meshChangedENS_4MeshE(
+    QAbstract3DSeries *self,
+    QAbstract3DSeries::Mesh mesh) {
+  self->meshChanged(mesh);
+}
+
+//  void QAbstract3DSeries::meshSmoothChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries17meshSmoothChangedEb(
+    QAbstract3DSeries *self,
+    bool enabled) {
+  self->meshSmoothChanged(enabled);
+}
+
+//  void QAbstract3DSeries::meshRotationChanged(const QQuaternion &rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries19meshRotationChangedERK11QQuaternion(
+    QAbstract3DSeries *self,
+    const QQuaternion *rotation) {
+  self->meshRotationChanged(*rotation);
+}
+
+//  void QAbstract3DSeries::userDefinedMeshChanged(const QString &fileName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries22userDefinedMeshChangedERK7QString(
+    QAbstract3DSeries *self,
+    const QString *fileName) {
+  self->userDefinedMeshChanged(*fileName);
+}
+
+//  void QAbstract3DSeries::colorStyleChanged(QGraphsTheme::ColorStyle style)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries17colorStyleChangedEN12QGraphsTheme10ColorStyleE(
+    QAbstract3DSeries *self,
+    QGraphsTheme::ColorStyle style) {
+  self->colorStyleChanged(style);
+}
+
+//  void QAbstract3DSeries::baseColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries16baseColorChangedE6QColor(
+    QAbstract3DSeries *self,
+    const QColor *color) {
+  self->baseColorChanged(*color);
+}
+
+//  void QAbstract3DSeries::baseGradientChanged(const QLinearGradient
+//      &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries19baseGradientChangedERK15QLinearGradient(
+    QAbstract3DSeries *self,
+    const QLinearGradient *gradient) {
+  self->baseGradientChanged(*gradient);
+}
+
+//  void QAbstract3DSeries::singleHighlightColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries27singleHighlightColorChangedE6QColor(
+    QAbstract3DSeries *self,
+    const QColor *color) {
+  self->singleHighlightColorChanged(*color);
+}
+
+//  void QAbstract3DSeries::singleHighlightGradientChanged(const
+//      QLinearGradient &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries30singleHighlightGradientChangedERK15QLinearGradient(
+    QAbstract3DSeries *self,
+    const QLinearGradient *gradient) {
+  self->singleHighlightGradientChanged(*gradient);
+}
+
+//  void QAbstract3DSeries::multiHighlightColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries26multiHighlightColorChangedE6QColor(
+    QAbstract3DSeries *self,
+    const QColor *color) {
+  self->multiHighlightColorChanged(*color);
+}
+
+//  void QAbstract3DSeries::multiHighlightGradientChanged(const
+//      QLinearGradient &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries29multiHighlightGradientChangedERK15QLinearGradient(
+    QAbstract3DSeries *self,
+    const QLinearGradient *gradient) {
+  self->multiHighlightGradientChanged(*gradient);
+}
+
+//  void QAbstract3DSeries::nameChanged(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries11nameChangedERK7QString(
+    QAbstract3DSeries *self,
+    const QString *name) {
+  self->nameChanged(*name);
+}
+
+//  void QAbstract3DSeries::itemLabelChanged(const QString &label)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries16itemLabelChangedERK7QString(
+    QAbstract3DSeries *self,
+    const QString *label) {
+  self->itemLabelChanged(*label);
+}
+
+//  void QAbstract3DSeries::itemLabelVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries23itemLabelVisibleChangedEb(
+    QAbstract3DSeries *self,
+    bool visible) {
+  self->itemLabelVisibleChanged(visible);
+}
+
+//  void
+//      QAbstract3DSeries::lightingModeChanged(QAbstract3DSeries::LightingMod
+//      e lightingMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstract3DSeries19lightingModeChangedENS_12LightingModeE(
+    QAbstract3DSeries *self,
+    QAbstract3DSeries::LightingMode lightingMode) {
+  self->lightingModeChanged(lightingMode);
+}
+
 //  a Python function taken by a CuteQAbstract3DSeries, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -534,4 +703,4 @@ void ritual_list_drop_QAbstract3DSeries_ptr(
   delete self;
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

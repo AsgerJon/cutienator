@@ -18,6 +18,22 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 
+//  bool QGeoRoutePrivate::operator==(const QGeoRoutePrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QGeoRoutePrivateeqERKS_(
+    const QGeoRoutePrivate *self,
+    const QGeoRoutePrivate *other) {
+  return self->operator==(*other);
+}
+
+//  bool QGeoRoutePrivate::equals(const QGeoRoutePrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QGeoRoutePrivate6equalsERKS_(
+    const QGeoRoutePrivate *self,
+    const QGeoRoutePrivate *other) {
+  return self->equals(*other);
+}
+
 //  void QGeoRoutePrivate::setId(const QString &id)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QGeoRoutePrivate5setIdERK7QString(

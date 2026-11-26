@@ -1,12 +1,20 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 2. Kept
+//  as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  QQmlJS::AST::UiPropertyAttributes::UiPropertyAttributes()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiPropertyAttributes *ritual_ZN6QQmlJS3AST20UiPropertyAttributesC1Ev(
+    QQmlJS::MemoryPool *pool) {
+  return new (pool) QQmlJS::AST::UiPropertyAttributes();
+}
 
 //  SourceLocation QQmlJS::AST::UiPropertyAttributes::defaultToken() const
 extern "C" Q_DECL_EXPORT
@@ -107,6 +115,22 @@ void ritual_ZN6QQmlJS3AST20UiPropertyAttributes7accept0EPNS0_11BaseVisitorE(
   self->accept0(a0);
 }
 
+//  SourceLocation QQmlJS::AST::UiPropertyAttributes::firstSourceLocation()
+//      const
+extern "C" Q_DECL_EXPORT
+QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST20UiPropertyAttributes19firstSourceLocationEv(
+    const QQmlJS::AST::UiPropertyAttributes *self) {
+  return new QQmlJS::SourceLocation(self->firstSourceLocation());
+}
+
+//  SourceLocation QQmlJS::AST::UiPropertyAttributes::lastSourceLocation()
+//      const
+extern "C" Q_DECL_EXPORT
+QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST20UiPropertyAttributes18lastSourceLocationEv(
+    const QQmlJS::AST::UiPropertyAttributes *self) {
+  return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
 //  void QQmlJS::AST::UiPropertyAttributes::accept0(BaseVisitor *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN6QQmlJS3AST20UiPropertyAttributes7accept0EPNS0_11BaseVisitorE(
@@ -131,4 +155,26 @@ QQmlJS::SourceLocation *ritual_own_ZNK6QQmlJS3AST20UiPropertyAttributes18lastSou
     const QQmlJS::AST::UiPropertyAttributes *self) {
   return new QQmlJS::SourceLocation(
       self->QQmlJS::AST::UiPropertyAttributes::lastSourceLocation());
+}
+
+//  static bool QQmlJS::AST::UiPropertyAttributes::compareLocationsByBegin<
+//      true>(const QQmlJS::SourceLocation * const &lhs, const
+//      QQmlJS::SourceLocation * const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QQmlJS3AST20UiPropertyAttributes23compareLocationsByBeginILb1EEEbRKPKNS_14SourceLocationES7_(
+    const QQmlJS::SourceLocation * const *lhs,
+    const QQmlJS::SourceLocation * const *rhs) {
+  return QQmlJS::AST::UiPropertyAttributes::compareLocationsByBegin<true>(
+      *lhs, *rhs);
+}
+
+//  static bool QQmlJS::AST::UiPropertyAttributes::compareLocationsByBegin<
+//      false>(const QQmlJS::SourceLocation * const &lhs, const
+//      QQmlJS::SourceLocation * const &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QQmlJS3AST20UiPropertyAttributes23compareLocationsByBeginILb0EEEbRKPKNS_14SourceLocationES7_(
+    const QQmlJS::SourceLocation * const *lhs,
+    const QQmlJS::SourceLocation * const *rhs) {
+  return QQmlJS::AST::UiPropertyAttributes::compareLocationsByBegin<false>(
+      *lhs, *rhs);
 }

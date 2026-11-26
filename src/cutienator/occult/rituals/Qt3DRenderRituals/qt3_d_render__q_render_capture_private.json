@@ -5,6 +5,22 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender21QRenderCapturePrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender21QRenderCapturePrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderCapturePrivate11createReplyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderCapturePrivate9takeReplyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderCapturePrivate8setImageEPNS_19QRenderCaptureReplyERK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QRenderCapturePrivate14replyDestroyedEPNS_19QRenderCaptureReplyE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender21QRenderCapturePrivate6q_funcEv": [
       "address", "address"
     ],

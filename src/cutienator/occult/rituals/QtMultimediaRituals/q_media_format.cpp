@@ -2,8 +2,12 @@
 //  QtMultimedia/qmediaformat.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #include <QtMultimedia/qmediaformat.h>
+#if QT_CONFIG(mimetype)
 #include <QtCore/qmimetype.h>
+#endif
 #include <QtCore/qstring.h>
+#include <QtCore/QList>
+#include <QtMultimedia/QMediaFormat>
 
 //  QMediaFormat::QMediaFormat(FileFormat format)
 extern "C" Q_DECL_EXPORT
@@ -22,6 +26,36 @@ void ritual_ZN12QMediaFormatD1Ev(QMediaFormat *self) {
 extern "C" Q_DECL_EXPORT
 QMediaFormat *ritual_ZN12QMediaFormatC1ERKS_(const QMediaFormat *other) {
   return new QMediaFormat(*other);
+}
+
+//  QMediaFormat &QMediaFormat::operator=(const QMediaFormat &other)
+extern "C" Q_DECL_EXPORT
+QMediaFormat *ritual_ZN12QMediaFormataSERKS_(
+    QMediaFormat *self,
+    const QMediaFormat *other) {
+  return &(self->operator=(*other));
+}
+
+//  QMediaFormat::QMediaFormat(QMediaFormat &&other)
+extern "C" Q_DECL_EXPORT
+QMediaFormat *ritual_ZN12QMediaFormatC1EOS_(QMediaFormat *other) {
+  return new QMediaFormat(std::move(*other));
+}
+
+//  QMediaFormat &QMediaFormat::operator=(QMediaFormat &&other)
+extern "C" Q_DECL_EXPORT
+QMediaFormat *ritual_ZN12QMediaFormataSEOS_(
+    QMediaFormat *self,
+    QMediaFormat *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QMediaFormat::swap(QMediaFormat &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaFormat4swapERS_(
+    QMediaFormat *self,
+    QMediaFormat *other) {
+  self->swap(*other);
 }
 
 //  FileFormat QMediaFormat::fileFormat() const
@@ -84,6 +118,30 @@ QMimeType *ritual_ZNK12QMediaFormat8mimeTypeEv(const QMediaFormat *self) {
   return new QMimeType(self->mimeType());
 }
 #endif  // QT_CONFIG(mimetype)
+
+//  QList<FileFormat> QMediaFormat::supportedFileFormats(ConversionMode m)
+extern "C" Q_DECL_EXPORT
+QList<QMediaFormat::FileFormat> *ritual_ZN12QMediaFormat20supportedFileFormatsENS_14ConversionModeE(
+    QMediaFormat *self,
+    QMediaFormat::ConversionMode m) {
+  return new QList<QMediaFormat::FileFormat>(self->supportedFileFormats(m));
+}
+
+//  QList<VideoCodec> QMediaFormat::supportedVideoCodecs(ConversionMode m)
+extern "C" Q_DECL_EXPORT
+QList<QMediaFormat::VideoCodec> *ritual_ZN12QMediaFormat20supportedVideoCodecsENS_14ConversionModeE(
+    QMediaFormat *self,
+    QMediaFormat::ConversionMode m) {
+  return new QList<QMediaFormat::VideoCodec>(self->supportedVideoCodecs(m));
+}
+
+//  QList<AudioCodec> QMediaFormat::supportedAudioCodecs(ConversionMode m)
+extern "C" Q_DECL_EXPORT
+QList<QMediaFormat::AudioCodec> *ritual_ZN12QMediaFormat20supportedAudioCodecsENS_14ConversionModeE(
+    QMediaFormat *self,
+    QMediaFormat::ConversionMode m) {
+  return new QList<QMediaFormat::AudioCodec>(self->supportedAudioCodecs(m));
+}
 
 //  QString QMediaFormat::fileFormatName(FileFormat fileFormat)
 extern "C" Q_DECL_EXPORT
@@ -152,4 +210,25 @@ void ritual_ZN12QMediaFormat18resolveForEncodingENS_12ResolveFlagsE(
     QMediaFormat *self,
     QMediaFormat::ResolveFlags flags) {
   self->resolveForEncoding(flags);
+}
+
+//  a QList<QMediaFormat::FileFormat> a ritual of QMediaFormat gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMediaFormat__QList_QMediaFormat_FileFormat(
+    QList<QMediaFormat::FileFormat> *self) {
+  delete self;
+}
+
+//  a QList<QMediaFormat::VideoCodec> a ritual of QMediaFormat gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMediaFormat__QList_QMediaFormat_VideoCodec(
+    QList<QMediaFormat::VideoCodec> *self) {
+  delete self;
+}
+
+//  a QList<QMediaFormat::AudioCodec> a ritual of QMediaFormat gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMediaFormat__QList_QMediaFormat_AudioCodec(
+    QList<QMediaFormat::AudioCodec> *self) {
+  delete self;
 }

@@ -15,6 +15,9 @@
     ],
     "ritual_ZNK16QAccessibleTable6parentEv": ["address", "address"],
     "ritual_ZNK16QAccessibleTable5childEi": ["address", "address", "int"],
+    "ritual_ZN16QAccessibleTable14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK16QAccessibleTable6cellAtEii": [
       "address", "address", "int", "int"
     ],
@@ -34,6 +37,10 @@
     ],
     "ritual_ZNK16QAccessibleTable16selectedRowCountEv": ["int", "address"],
     "ritual_ZNK16QAccessibleTable13selectedCellsEv": ["address", "address"],
+    "ritual_ZNK16QAccessibleTable15selectedColumnsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QAccessibleTable12selectedRowsEv": ["address", "address"],
     "ritual_ZNK16QAccessibleTable16isColumnSelectedEi": [
       "bool", "address", "int"
     ],
@@ -90,6 +97,12 @@
       "int", "address", "address"
     ],
     "ritual_own_ZNK16QAccessibleTable6parentEv": ["address", "address"],
+    "ritual_own_ZNK16QAccessibleTable5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN16QAccessibleTable14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_own_ZNK16QAccessibleTable6cellAtEii": [
       "address", "address", "int", "int"
     ],
@@ -146,6 +159,7 @@
     "ritual_own_ZN16QAccessibleTable5clearEv": ["bool", "address"],
     "ritual_own_ZN16QAccessibleTable11modelChangeEP32QAccessibleTableModelChangeEvent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_drop_QAccessibleTable__QList_int": ["nothing", "address"]
   }
 }

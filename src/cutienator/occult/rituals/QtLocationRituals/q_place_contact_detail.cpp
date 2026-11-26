@@ -18,10 +18,43 @@ QPlaceContactDetail *ritual_ZN19QPlaceContactDetailC1ERKS_(
   return new QPlaceContactDetail(*other);
 }
 
+//  QPlaceContactDetail::QPlaceContactDetail(QPlaceContactDetail &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceContactDetail *ritual_ZN19QPlaceContactDetailC1EOS_(
+    QPlaceContactDetail *other) {
+  return new QPlaceContactDetail(std::move(*other));
+}
+
 //  QPlaceContactDetail::~QPlaceContactDetail()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QPlaceContactDetailD1Ev(QPlaceContactDetail *self) {
   delete self;
+}
+
+//  QPlaceContactDetail &QPlaceContactDetail::operator=(const
+//      QPlaceContactDetail &other)
+extern "C" Q_DECL_EXPORT
+QPlaceContactDetail *ritual_ZN19QPlaceContactDetailaSERKS_(
+    QPlaceContactDetail *self,
+    const QPlaceContactDetail *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlaceContactDetail &QPlaceContactDetail::operator=(QPlaceContactDetail
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceContactDetail *ritual_ZN19QPlaceContactDetailaSEOS_(
+    QPlaceContactDetail *self,
+    QPlaceContactDetail *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlaceContactDetail::swap(QPlaceContactDetail &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceContactDetail4swapERS_(
+    QPlaceContactDetail *self,
+    QPlaceContactDetail *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPlaceContactDetail &lhs, const QPlaceContactDetail

@@ -7,6 +7,14 @@
 #include <QtCore/6.12.0/QtCore/private/qobject_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  ConnectionList &QObjectPrivate::SignalVector::at(int i)
+extern "C" Q_DECL_EXPORT
+QObjectPrivate::ConnectionList *ritual_ZN14QObjectPrivate12SignalVector2atEi(
+    QObjectPrivate::SignalVector *self,
+    int i) {
+  return &(self->at(i));
+}
+
 //  const ConnectionList &QObjectPrivate::SignalVector::at(int i) const
 extern "C" Q_DECL_EXPORT
 QObjectPrivate::ConnectionList *ritual_ZNK14QObjectPrivate12SignalVector2atEi(

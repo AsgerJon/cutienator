@@ -28,6 +28,15 @@ QOpcUaLocalizedText *ritual_ZN19QOpcUaLocalizedTextC1ERK7QStringS2_(
   return new QOpcUaLocalizedText(*locale, *text);
 }
 
+//  QOpcUaLocalizedText &QOpcUaLocalizedText::operator=(const
+//      QOpcUaLocalizedText &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaLocalizedText *ritual_ZN19QOpcUaLocalizedTextaSERKS_(
+    QOpcUaLocalizedText *self,
+    const QOpcUaLocalizedText *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaLocalizedText::operator==(const QOpcUaLocalizedText &rhs)
 //      const
 extern "C" Q_DECL_EXPORT

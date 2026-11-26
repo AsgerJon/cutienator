@@ -8,6 +8,8 @@
     "ritual_ZN10QRingChunkC1Ev": ["address"],
     "ritual_ZN10QRingChunkC1Ex": ["address", "long long"],
     "ritual_ZN10QRingChunkC1ERK10QByteArray": ["address", "address"],
+    "ritual_ZN10QRingChunkC1EO10QByteArray": ["address", "address"],
+    "ritual_ZN10QRingChunk4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN10QRingChunk8allocateEx": ["nothing", "address", "long long"],
     "ritual_ZNK10QRingChunk8isSharedEv": ["bool", "address"],
     "ritual_ZN10QRingChunk6detachEv": ["nothing", "address"],
@@ -16,9 +18,13 @@
     "ritual_ZNK10QRingChunk8capacityEv": ["long long", "address"],
     "ritual_ZNK10QRingChunk9availableEv": ["long long", "address"],
     "ritual_ZNK10QRingChunk4dataEv": ["chars", "address"],
+    "ritual_ZN10QRingChunk4dataEv": ["address", "address"],
     "ritual_ZN10QRingChunk7advanceEx": ["nothing", "address", "long long"],
     "ritual_ZN10QRingChunk4growEx": ["nothing", "address", "long long"],
     "ritual_ZN10QRingChunk6assignERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QRingChunk6assignEO10QByteArray": [
       "nothing", "address", "address"
     ],
     "ritual_ZN10QRingChunk5resetEv": ["nothing", "address"],

@@ -2,6 +2,7 @@
 //  Qt3DExtras/qgoochmaterial.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qgoochmaterial.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras14QGoochMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QGoochMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras14QGoochMaterial11qt_metacastEPKc(
+    Qt3DExtras::QGoochMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QGoochMaterial::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras14QGoochMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QGoochMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QGoochMaterial::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,190 @@ QString *ritual_ZN10Qt3DExtras14QGoochMaterial2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QGoochMaterial::tr(s, c, n));
+}
+
+//  Qt3DExtras::QGoochMaterial::QGoochMaterial(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QGoochMaterial *ritual_ZN10Qt3DExtras14QGoochMaterialC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QGoochMaterial(parent);
+}
+
+//  Qt3DExtras::QGoochMaterial::~QGoochMaterial()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterialD1Ev(
+    Qt3DExtras::QGoochMaterial *self) {
+  delete self;
+}
+
+//  QColor Qt3DExtras::QGoochMaterial::diffuse() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras14QGoochMaterial7diffuseEv(
+    const Qt3DExtras::QGoochMaterial *self) {
+  return new QColor(self->diffuse());
+}
+
+//  QColor Qt3DExtras::QGoochMaterial::specular() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras14QGoochMaterial8specularEv(
+    const Qt3DExtras::QGoochMaterial *self) {
+  return new QColor(self->specular());
+}
+
+//  QColor Qt3DExtras::QGoochMaterial::cool() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras14QGoochMaterial4coolEv(
+    const Qt3DExtras::QGoochMaterial *self) {
+  return new QColor(self->cool());
+}
+
+//  QColor Qt3DExtras::QGoochMaterial::warm() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras14QGoochMaterial4warmEv(
+    const Qt3DExtras::QGoochMaterial *self) {
+  return new QColor(self->warm());
+}
+
+//  float Qt3DExtras::QGoochMaterial::alpha() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras14QGoochMaterial5alphaEv(
+    const Qt3DExtras::QGoochMaterial *self) {
+  return self->alpha();
+}
+
+//  float Qt3DExtras::QGoochMaterial::beta() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras14QGoochMaterial4betaEv(
+    const Qt3DExtras::QGoochMaterial *self) {
+  return self->beta();
+}
+
+//  float Qt3DExtras::QGoochMaterial::shininess() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras14QGoochMaterial9shininessEv(
+    const Qt3DExtras::QGoochMaterial *self) {
+  return self->shininess();
+}
+
+//  void Qt3DExtras::QGoochMaterial::setDiffuse(const QColor &diffuse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial10setDiffuseERK6QColor(
+    Qt3DExtras::QGoochMaterial *self,
+    const QColor *diffuse) {
+  self->setDiffuse(*diffuse);
+}
+
+//  void Qt3DExtras::QGoochMaterial::setSpecular(const QColor &specular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial11setSpecularERK6QColor(
+    Qt3DExtras::QGoochMaterial *self,
+    const QColor *specular) {
+  self->setSpecular(*specular);
+}
+
+//  void Qt3DExtras::QGoochMaterial::setCool(const QColor &cool)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial7setCoolERK6QColor(
+    Qt3DExtras::QGoochMaterial *self,
+    const QColor *cool) {
+  self->setCool(*cool);
+}
+
+//  void Qt3DExtras::QGoochMaterial::setWarm(const QColor &warm)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial7setWarmERK6QColor(
+    Qt3DExtras::QGoochMaterial *self,
+    const QColor *warm) {
+  self->setWarm(*warm);
+}
+
+//  void Qt3DExtras::QGoochMaterial::setAlpha(float alpha)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial8setAlphaEf(
+    Qt3DExtras::QGoochMaterial *self,
+    float alpha) {
+  self->setAlpha(alpha);
+}
+
+//  void Qt3DExtras::QGoochMaterial::setBeta(float beta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial7setBetaEf(
+    Qt3DExtras::QGoochMaterial *self,
+    float beta) {
+  self->setBeta(beta);
+}
+
+//  void Qt3DExtras::QGoochMaterial::setShininess(float shininess)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial12setShininessEf(
+    Qt3DExtras::QGoochMaterial *self,
+    float shininess) {
+  self->setShininess(shininess);
+}
+
+//  void Qt3DExtras::QGoochMaterial::diffuseChanged(const QColor &diffuse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial14diffuseChangedERK6QColor(
+    Qt3DExtras::QGoochMaterial *self,
+    const QColor *diffuse) {
+  self->diffuseChanged(*diffuse);
+}
+
+//  void Qt3DExtras::QGoochMaterial::specularChanged(const QColor &specular)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial15specularChangedERK6QColor(
+    Qt3DExtras::QGoochMaterial *self,
+    const QColor *specular) {
+  self->specularChanged(*specular);
+}
+
+//  void Qt3DExtras::QGoochMaterial::coolChanged(const QColor &cool)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial11coolChangedERK6QColor(
+    Qt3DExtras::QGoochMaterial *self,
+    const QColor *cool) {
+  self->coolChanged(*cool);
+}
+
+//  void Qt3DExtras::QGoochMaterial::warmChanged(const QColor &warm)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial11warmChangedERK6QColor(
+    Qt3DExtras::QGoochMaterial *self,
+    const QColor *warm) {
+  self->warmChanged(*warm);
+}
+
+//  void Qt3DExtras::QGoochMaterial::alphaChanged(float alpha)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial12alphaChangedEf(
+    Qt3DExtras::QGoochMaterial *self,
+    float alpha) {
+  self->alphaChanged(alpha);
+}
+
+//  void Qt3DExtras::QGoochMaterial::betaChanged(float beta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial11betaChangedEf(
+    Qt3DExtras::QGoochMaterial *self,
+    float beta) {
+  self->betaChanged(beta);
+}
+
+//  void Qt3DExtras::QGoochMaterial::shininessChanged(float shininess)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras14QGoochMaterial16shininessChangedEf(
+    Qt3DExtras::QGoochMaterial *self,
+    float shininess) {
+  self->shininessChanged(shininess);
+}
+
+//  Qt3DExtras::QGoochMaterial::QGoochMaterial(QGoochMaterialPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QGoochMaterial *ritual_ZN10Qt3DExtras14QGoochMaterialC1ERNS_21QGoochMaterialPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QGoochMaterialPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QGoochMaterial(*dd, parent);
 }
 
 //  QGoochMaterialPrivate *Qt3DExtras::QGoochMaterial::d_func()

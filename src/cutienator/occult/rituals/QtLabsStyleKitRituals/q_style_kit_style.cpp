@@ -637,6 +637,24 @@ const QMetaObject *ritual_ZNK14QStyleKitStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStyleKitStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QStyleKitStyle11qt_metacastEPKc(
+    QStyleKitStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStyleKitStyle::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QStyleKitStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStyleKitStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStyleKitStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QStyleKitStyle2trEPKcS1_i(
@@ -837,6 +855,14 @@ void ritual_ZN14QStyleKitStyle6polishEP12QApplication(
   self->polish(application);
 }
 
+//  void QStyleKitStyle::polish(QPalette &palette)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStyleKitStyle6polishER8QPalette(
+    QStyleKitStyle *self,
+    QPalette *palette) {
+  self->polish(*palette);
+}
+
 //  void QStyleKitStyle::unpolish(QWidget *widget)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QStyleKitStyle8unpolishEP7QWidget(
@@ -868,6 +894,40 @@ bool ritual_ZN14QStyleKitStyle5eventEP6QEvent(
     QStyleKitStyle *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  void QStyleKitStyle::stylePathChanged(const QString &stylePath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStyleKitStyle16stylePathChangedERK7QString(
+    QStyleKitStyle *self,
+    const QString *stylePath) {
+  self->stylePathChanged(*stylePath);
+}
+
+//  void QStyleKitStyle::themeNameChanged(const QString &themeName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStyleKitStyle16themeNameChangedERK7QString(
+    QStyleKitStyle *self,
+    const QString *themeName) {
+  self->themeNameChanged(*themeName);
+}
+
+//  void QStyleKitStyle::availableThemeNamesChanged(const QStringList
+//      &availableThemeNames)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStyleKitStyle26availableThemeNamesChangedERK5QListI7QStringE(
+    QStyleKitStyle *self,
+    const QList<QString> *availableThemeNames) {
+  self->availableThemeNamesChanged(*availableThemeNames);
+}
+
+//  void QStyleKitStyle::customThemeNamesChanged(const QStringList
+//      &customThemeNames)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStyleKitStyle23customThemeNamesChangedERK5QListI7QStringE(
+    QStyleKitStyle *self,
+    const QList<QString> *customThemeNames) {
+  self->customThemeNamesChanged(*customThemeNames);
 }
 
 //  QStyleKitStylePrivate *QStyleKitStyle::d_func()

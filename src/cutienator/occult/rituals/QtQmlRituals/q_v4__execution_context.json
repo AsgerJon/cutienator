@@ -14,6 +14,36 @@
     "ritual_ZN3QV416ExecutionContext20defaultInternalClassEPNS_10EngineBaseE": [
       "address", "address"
     ],
+    "ritual_ZN3QV416ExecutionContext15newBlockContextEPNS_13CppStackFrameEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV416ExecutionContext17cloneBlockContextEPNS_15ExecutionEngineEPNS_4Heap11CallContextE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV416ExecutionContext14newCallContextEPNS_17JSTypesStackFrameE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV416ExecutionContext14newWithContextEPNS_4Heap6ObjectE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV416ExecutionContext15newCatchContextEPNS_13CppStackFrameEiPNS_4Heap6StringE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV416ExecutionContext20createMutableBindingEPNS_6StringEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN3QV416ExecutionContext11setPropertyEPNS_6StringERKNS_5ValueE": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN3QV416ExecutionContext11getPropertyEPNS_6StringE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV416ExecutionContext18getPropertyAndBaseEPNS_6StringEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV416ExecutionContext14deletePropertyEPNS_6StringE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN3QV416ExecutionContext13asCallContextEv": [
       "address", "address"
     ],

@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK12QValue3DAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QValue3DAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QValue3DAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QValue3DAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QValue3DAxis6d_funcEv": ["address", "address"],
     "ritual_ZNK12QValue3DAxis6d_funcEv": ["address", "address"],
@@ -47,6 +53,22 @@
     "ritual_ZN12QValue3DAxis14stringForValueEf": [
       "text", "address", "float"
     ],
+    "ritual_ZN12QValue3DAxis19segmentCountChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN12QValue3DAxis22subSegmentCountChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN12QValue3DAxis18labelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QValue3DAxis16formatterChangedEP21QValue3DAxisFormatter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QValue3DAxis15reversedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QValue3DAxis14formatterDirtyEv": ["nothing", "address"],
     "ritual_take_QValue3DAxis": ["bool", "address", "chars", "address"],
     "ritual_list_make_QValue3DAxis_ptr": ["address"],
     "ritual_list_add_QValue3DAxis_ptr": ["nothing", "address", "address"],

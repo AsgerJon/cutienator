@@ -5,6 +5,22 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8QSSGMesh12MeshInternal14readFileHeaderEP9QIODevice": [
+      "address", "address"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal15writeFileHeaderEP9QIODeviceRKNS0_13MultiMeshInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal12readMeshDataEP9QIODeviceyPNS_4MeshEPNS0_14MeshDataHeaderE": [
+      "unsigned long long", "address", "unsigned long long", "address",
+      "address"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal15writeMeshHeaderEP9QIODeviceRKNS0_14MeshDataHeaderE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal13writeMeshDataEP9QIODeviceRKNS_4MeshE": [
+      "unsigned long long", "address", "address"
+    ],
     "ritual_ZN8QSSGMesh12MeshInternal24byteSizeForComponentTypeE23QSSGRenderComponentType": [
       "unsigned int", "int"
     ],
@@ -18,6 +34,10 @@
     "ritual_ZN8QSSGMesh12MeshInternal16getColorAttrNameEv": ["chars"],
     "ritual_ZN8QSSGMesh12MeshInternal16getJointAttrNameEv": ["chars"],
     "ritual_ZN8QSSGMesh12MeshInternal17getWeightAttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal21calculateSubsetBoundsERKNS_4Mesh17VertexBufferEntryERK10QByteArrayjS7_23QSSGRenderComponentTypejj": [
+      "address", "address", "address", "unsigned int", "address", "int",
+      "unsigned int", "unsigned int"
+    ],
     "ritual_ZN8QSSGMesh12MeshInternalD1Ev": ["nothing", "address"]
   }
 }

@@ -185,6 +185,27 @@ const QMetaObject *ritual_ZNK42QDeclarativeGeoServiceProviderRequirements10metaO
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoServiceProviderRequirements::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN42QDeclarativeGeoServiceProviderRequirements11qt_metacastEPKc(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      QDeclarativeGeoServiceProviderRequirements::qt_metacall(QMetaObject::
+//      Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN42QDeclarativeGeoServiceProviderRequirements11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoServiceProviderRequirements::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -233,6 +254,16 @@ int ritual_ZNK42QDeclarativeGeoServiceProviderRequirements19mappingRequirementsE
   return static_cast<int>(self->mappingRequirements().toInt());
 }
 
+//  void
+//      QDeclarativeGeoServiceProviderRequirements::setMappingRequirements(co
+//      nst QDeclarativeGeoServiceProvider::MappingFeatures &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements22setMappingRequirementsERK6QFlagsIN30QDeclarativeGeoServiceProvider14MappingFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::MappingFeatures *features) {
+  self->setMappingRequirements(*features);
+}
+
 //  QDeclarativeGeoServiceProvider::RoutingFeatures
 //      QDeclarativeGeoServiceProviderRequirements::routingRequirements()
 //      const
@@ -240,6 +271,16 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK42QDeclarativeGeoServiceProviderRequirements19routingRequirementsEv(
     const QDeclarativeGeoServiceProviderRequirements *self) {
   return static_cast<int>(self->routingRequirements().toInt());
+}
+
+//  void
+//      QDeclarativeGeoServiceProviderRequirements::setRoutingRequirements(co
+//      nst QDeclarativeGeoServiceProvider::RoutingFeatures &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements22setRoutingRequirementsERK6QFlagsIN30QDeclarativeGeoServiceProvider14RoutingFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::RoutingFeatures *features) {
+  self->setRoutingRequirements(*features);
 }
 
 //  QDeclarativeGeoServiceProvider::GeocodingFeatures
@@ -251,6 +292,15 @@ int ritual_ZNK42QDeclarativeGeoServiceProviderRequirements21geocodingRequirement
   return static_cast<int>(self->geocodingRequirements().toInt());
 }
 
+//  void QDeclarativeGeoServiceProviderRequirements::setGeocodingRequirements
+//      (const QDeclarativeGeoServiceProvider::GeocodingFeatures &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements24setGeocodingRequirementsERK6QFlagsIN30QDeclarativeGeoServiceProvider16GeocodingFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::GeocodingFeatures *features) {
+  self->setGeocodingRequirements(*features);
+}
+
 //  QDeclarativeGeoServiceProvider::PlacesFeatures
 //      QDeclarativeGeoServiceProviderRequirements::placesRequirements()
 //      const
@@ -258,6 +308,16 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK42QDeclarativeGeoServiceProviderRequirements18placesRequirementsEv(
     const QDeclarativeGeoServiceProviderRequirements *self) {
   return static_cast<int>(self->placesRequirements().toInt());
+}
+
+//  void
+//      QDeclarativeGeoServiceProviderRequirements::setPlacesRequirements(con
+//      st QDeclarativeGeoServiceProvider::PlacesFeatures &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements21setPlacesRequirementsERK6QFlagsIN30QDeclarativeGeoServiceProvider13PlacesFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::PlacesFeatures *features) {
+  self->setPlacesRequirements(*features);
 }
 
 //  QDeclarativeGeoServiceProvider::NavigationFeatures
@@ -269,6 +329,15 @@ int ritual_ZNK42QDeclarativeGeoServiceProviderRequirements22navigationRequiremen
   return static_cast<int>(self->navigationRequirements().toInt());
 }
 
+//  void QDeclarativeGeoServiceProviderRequirements::setNavigationRequirement
+//      s(const QDeclarativeGeoServiceProvider::NavigationFeatures &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements25setNavigationRequirementsERK6QFlagsIN30QDeclarativeGeoServiceProvider17NavigationFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::NavigationFeatures *features) {
+  self->setNavigationRequirements(*features);
+}
+
 //  bool QDeclarativeGeoServiceProviderRequirements::matches(const
 //      QGeoServiceProvider *provider) const
 extern "C" Q_DECL_EXPORT
@@ -276,6 +345,69 @@ bool ritual_ZNK42QDeclarativeGeoServiceProviderRequirements7matchesEPK19QGeoServ
     const QDeclarativeGeoServiceProviderRequirements *self,
     const QGeoServiceProvider *provider) {
   return self->matches(provider);
+}
+
+//  bool QDeclarativeGeoServiceProviderRequirements::operator==(const
+//      QDeclarativeGeoServiceProviderRequirements &rhs) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK42QDeclarativeGeoServiceProviderRequirementseqERKS_(
+    const QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProviderRequirements *rhs) {
+  return self->operator==(*rhs);
+}
+
+//  void QDeclarativeGeoServiceProviderRequirements::mappingRequirementsChang
+//      ed(const QDeclarativeGeoServiceProvider::MappingFeatures &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements26mappingRequirementsChangedERK6QFlagsIN30QDeclarativeGeoServiceProvider14MappingFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::MappingFeatures *features) {
+  self->mappingRequirementsChanged(*features);
+}
+
+//  void QDeclarativeGeoServiceProviderRequirements::routingRequirementsChang
+//      ed(const QDeclarativeGeoServiceProvider::RoutingFeatures &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements26routingRequirementsChangedERK6QFlagsIN30QDeclarativeGeoServiceProvider14RoutingFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::RoutingFeatures *features) {
+  self->routingRequirementsChanged(*features);
+}
+
+//  void QDeclarativeGeoServiceProviderRequirements::geocodingRequirementsCha
+//      nged(const QDeclarativeGeoServiceProvider::GeocodingFeatures
+//      &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements28geocodingRequirementsChangedERK6QFlagsIN30QDeclarativeGeoServiceProvider16GeocodingFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::GeocodingFeatures *features) {
+  self->geocodingRequirementsChanged(*features);
+}
+
+//  void QDeclarativeGeoServiceProviderRequirements::placesRequirementsChange
+//      d(const QDeclarativeGeoServiceProvider::PlacesFeatures &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements25placesRequirementsChangedERK6QFlagsIN30QDeclarativeGeoServiceProvider13PlacesFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::PlacesFeatures *features) {
+  self->placesRequirementsChanged(*features);
+}
+
+//  void QDeclarativeGeoServiceProviderRequirements::navigationRequirementsCh
+//      anged(const QDeclarativeGeoServiceProvider::NavigationFeatures
+//      &features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements29navigationRequirementsChangedERK6QFlagsIN30QDeclarativeGeoServiceProvider17NavigationFeatureEE(
+    QDeclarativeGeoServiceProviderRequirements *self,
+    const QDeclarativeGeoServiceProvider::NavigationFeatures *features) {
+  self->navigationRequirementsChanged(*features);
+}
+
+//  void QDeclarativeGeoServiceProviderRequirements::requirementsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN42QDeclarativeGeoServiceProviderRequirements19requirementsChangedEv(
+    QDeclarativeGeoServiceProviderRequirements *self) {
+  self->requirementsChanged();
 }
 
 //  a Python function taken by a

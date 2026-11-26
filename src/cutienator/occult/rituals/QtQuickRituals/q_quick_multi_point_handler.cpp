@@ -15,6 +15,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QPointF>
 
 //  Only a class built on QQuickMultiPointHandler may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -351,6 +353,25 @@ const QMetaObject *ritual_ZNK23QQuickMultiPointHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMultiPointHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickMultiPointHandler11qt_metacastEPKc(
+    QQuickMultiPointHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMultiPointHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickMultiPointHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMultiPointHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMultiPointHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickMultiPointHandler2trEPKcS1_i(
@@ -410,6 +431,27 @@ QQuickHandlerPoint *ritual_ZNK23QQuickMultiPointHandler8centroidEv(
   return new QQuickHandlerPoint(self->centroid());
 }
 
+//  void QQuickMultiPointHandler::minimumPointCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickMultiPointHandler24minimumPointCountChangedEv(
+    QQuickMultiPointHandler *self) {
+  self->minimumPointCountChanged();
+}
+
+//  void QQuickMultiPointHandler::maximumPointCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickMultiPointHandler24maximumPointCountChangedEv(
+    QQuickMultiPointHandler *self) {
+  self->maximumPointCountChanged();
+}
+
+//  void QQuickMultiPointHandler::centroidChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickMultiPointHandler15centroidChangedEv(
+    QQuickMultiPointHandler *self) {
+  self->centroidChanged();
+}
+
 //  bool QQuickMultiPointHandler::wantsPointerEvent(QPointerEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN23QQuickMultiPointHandler17wantsPointerEventEP13QPointerEvent(
@@ -432,6 +474,33 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuickMultiPointHandler15onActiveChangedEv(
     QQuickMultiPointHandler *self) {
   self->onActiveChanged();
+}
+
+//  void QQuickMultiPointHandler::onGrabChanged(QQuickPointerHandler
+//      *grabber, QPointingDevice::GrabTransition transition, QPointerEvent
+//      *event, QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickMultiPointHandler13onGrabChangedEP20QQuickPointerHandlerN15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint(
+    QQuickMultiPointHandler *self,
+    QQuickPointerHandler *grabber,
+    QPointingDevice::GrabTransition transition,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->onGrabChanged(grabber, transition, event, *point);
+}
+
+//  QList<QQuickHandlerPoint> &QQuickMultiPointHandler::currentPoints()
+extern "C" Q_DECL_EXPORT
+QList<QQuickHandlerPoint> *ritual_ZN23QQuickMultiPointHandler13currentPointsEv(
+    QQuickMultiPointHandler *self) {
+  return &(self->currentPoints());
+}
+
+//  QQuickHandlerPoint &QQuickMultiPointHandler::mutableCentroid()
+extern "C" Q_DECL_EXPORT
+QQuickHandlerPoint *ritual_ZN23QQuickMultiPointHandler15mutableCentroidEv(
+    QQuickMultiPointHandler *self) {
+  return &(self->mutableCentroid());
 }
 
 //  bool QQuickMultiPointHandler::hasCurrentPoints(QPointerEvent *event)
@@ -467,6 +536,24 @@ qreal ritual_ZN23QQuickMultiPointHandler23averageStartingDistanceERK7QPointF(
     QQuickMultiPointHandler *self,
     const QPointF *ref) {
   return self->averageStartingDistance(*ref);
+}
+
+//  QList<PointData> QQuickMultiPointHandler::angles(const QPointF &ref)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QQuickMultiPointHandler::PointData> *ritual_ZNK23QQuickMultiPointHandler6anglesERK7QPointF(
+    const QQuickMultiPointHandler *self,
+    const QPointF *ref) {
+  return new QList<QQuickMultiPointHandler::PointData>(self->angles(*ref));
+}
+
+//  qreal QQuickMultiPointHandler::averageAngleDelta(const QList<PointData>
+//      &old, const QList<PointData> &newAngles)
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZN23QQuickMultiPointHandler17averageAngleDeltaERK5QListINS_9PointDataEES4_(
+    const QList<QQuickMultiPointHandler::PointData> *old,
+    const QList<QQuickMultiPointHandler::PointData> *newAngles) {
+  return QQuickMultiPointHandler::averageAngleDelta(*old, *newAngles);
 }
 
 //  void QQuickMultiPointHandler::acceptPoints(const QList<QEventPoint>
@@ -545,4 +632,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN23QQuickMultiPointHandler15onActiveChangedEv(
     QQuickMultiPointHandler *self) {
   static_cast<OwnQQuickMultiPointHandler *>(self)->OwnQQuickMultiPointHandler::onActiveChanged();
+}
+
+//  a QList<QQuickMultiPointHandler::PointData> a ritual of
+//      QQuickMultiPointHandler gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickMultiPointHandler__QList_QQuickMultiPointHandler_PointData(
+    QList<QQuickMultiPointHandler::PointData> *self) {
+  delete self;
 }

@@ -7,6 +7,10 @@
 #if QT_CONFIG(graphicsview)
 #if QT_CONFIG(graphicseffect)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#include <QtGui/QtGui>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/private/qpathclipper_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsitem_p.h>
@@ -67,35 +71,34 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4772, as local:qgraphicsscene.cpp:setClip
+static inline void setClip(QPainter *painter, QGraphicsItem *item)
+{
+    painter->save();
+    QRectF clipRect;
+    const QPainterPath clipPath(item->shape());
+    if (QPathClipper::pathToRect(clipPath, &clipRect))
+        painter->setClipRect(clipRect.normalized(), Qt::IntersectClip);
+    else
+        painter->setClipPath(clipPath, Qt::IntersectClip);
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene.cpp, line 4783, as local:qgraphicsscene.cpp:setWorldTransform
+static inline void setWorldTransform(QPainter *painter, const QTransform *const transformPtr,
+                                     const QTransform *effectTransform)
+{
+    Q_ASSERT(transformPtr);
+    if (effectTransform)
+        painter->setWorldTransform(*transformPtr * *effectTransform);
+    else
+        painter->setWorldTransform(*transformPtr);
+}
+
 //  from src/widgets/effects/qgraphicseffect.cpp, line 345, as _ZN28QGraphicsEffectSourcePrivateD2Ev
 inline QGraphicsEffectSourcePrivate::~QGraphicsEffectSourcePrivate()
 {
     invalidateCache();
 }
-
-//  from src/widgets/graphicsview/qgraphicsitem.cpp, line 11018, as _ZNK32QGraphicsItemEffectSourcePrivate12boundingRectEN2Qt16CoordinateSystemE
-#if QT_CONFIG(graphicseffect)
-inline QRectF QGraphicsItemEffectSourcePrivate::boundingRect(Qt::CoordinateSystem system) const
-{
-    const bool deviceCoordinates = (system == Qt::DeviceCoordinates);
-    if (!info && deviceCoordinates) {
-        // Device coordinates without info not yet supported.
-        qWarning("QGraphicsEffectSource::boundingRect: Not yet implemented, lacking device context");
-        return QRectF();
-    }
-
-    QRectF rect = item->boundingRect();
-    if (!item->d_ptr->children.isEmpty())
-        rect |= item->childrenBoundingRect();
-
-    if (deviceCoordinates) {
-        Q_ASSERT(info->painter);
-        rect = info->painter->worldTransform().mapRect(rect);
-    }
-
-    return rect;
-}
-#endif  // QT_CONFIG(graphicseffect)
 
 //  from src/widgets/graphicsview/qgraphicsitem.cpp, line 11039, as _ZN32QGraphicsItemEffectSourcePrivate4drawEP8QPainter
 #if QT_CONFIG(graphicseffect)
@@ -119,6 +122,30 @@ inline void QGraphicsItemEffectSourcePrivate::draw(QPainter *painter)
                      info->widget, info->opacity, &effectTransform, info->wasDirtySceneTransform,
                      info->drawItem);
     }
+}
+#endif  // QT_CONFIG(graphicseffect)
+
+//  from src/widgets/graphicsview/qgraphicsitem.cpp, line 11018, as _ZNK32QGraphicsItemEffectSourcePrivate12boundingRectEN2Qt16CoordinateSystemE
+#if QT_CONFIG(graphicseffect)
+inline QRectF QGraphicsItemEffectSourcePrivate::boundingRect(Qt::CoordinateSystem system) const
+{
+    const bool deviceCoordinates = (system == Qt::DeviceCoordinates);
+    if (!info && deviceCoordinates) {
+        // Device coordinates without info not yet supported.
+        qWarning("QGraphicsEffectSource::boundingRect: Not yet implemented, lacking device context");
+        return QRectF();
+    }
+
+    QRectF rect = item->boundingRect();
+    if (!item->d_ptr->children.isEmpty())
+        rect |= item->childrenBoundingRect();
+
+    if (deviceCoordinates) {
+        Q_ASSERT(info->painter);
+        rect = info->painter->worldTransform().mapRect(rect);
+    }
+
+    return rect;
 }
 #endif  // QT_CONFIG(graphicseffect)
 

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DRender/qmultisampleantialiasing.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  Qt3DRender/qmultisampleantialiasing.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the 'd_func' rituals name
+//  Qt3DRender::QMultiSampleAntiAliasingPrivate in full, as the
+//  compiler asked. Kept as it is when the generator runs again.
 #include <Qt3DRender/qmultisampleantialiasing.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -181,6 +183,14 @@ const QMetaObject *ritual_ZNK10Qt3DRender24QMultiSampleAntiAliasing10metaObjectE
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QMultiSampleAntiAliasing::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender24QMultiSampleAntiAliasing11qt_metacastEPKc(
+    Qt3DRender::QMultiSampleAntiAliasing *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString Qt3DRender::QMultiSampleAntiAliasing::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +199,22 @@ QString *ritual_ZN10Qt3DRender24QMultiSampleAntiAliasing2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QMultiSampleAntiAliasing::tr(s, c, n));
+}
+
+//  Qt3DRender::QMultiSampleAntiAliasingPrivate
+//      *Qt3DRender::QMultiSampleAntiAliasing::d_func()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QMultiSampleAntiAliasingPrivate *ritual_ZN10Qt3DRender24QMultiSampleAntiAliasing6d_funcEv(
+    Qt3DRender::QMultiSampleAntiAliasing *self) {
+  return self->d_func();
+}
+
+//  const Qt3DRender::QMultiSampleAntiAliasingPrivate
+//      *Qt3DRender::QMultiSampleAntiAliasing::d_func() const
+extern "C" Q_DECL_EXPORT
+const Qt3DRender::QMultiSampleAntiAliasingPrivate *ritual_ZNK10Qt3DRender24QMultiSampleAntiAliasing6d_funcEv(
+    const Qt3DRender::QMultiSampleAntiAliasing *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQt3DRender_QMultiSampleAntiAliasing, for

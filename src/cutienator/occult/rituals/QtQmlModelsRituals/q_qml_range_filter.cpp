@@ -12,7 +12,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -311,6 +313,24 @@ const QMetaObject *ritual_ZNK15QQmlRangeFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlRangeFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQmlRangeFilter11qt_metacastEPKc(
+    QQmlRangeFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlRangeFilter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlRangeFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlRangeFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlRangeFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQmlRangeFilter2trEPKcS1_i(
@@ -390,6 +410,18 @@ bool ritual_ZNK15QQmlRangeFilter24filterAcceptsRowInternalEiRK11QModelIndexPK24Q
     const QModelIndex *sourceParent,
     const QQmlSortFilterProxyModel *proxyModel) {
   return self->filterAcceptsRowInternal(row, *sourceParent, proxyModel);
+}
+
+//  void QQmlRangeFilter::minimumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlRangeFilter14minimumChangedEv(QQmlRangeFilter *self) {
+  self->minimumChanged();
+}
+
+//  void QQmlRangeFilter::maximumChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlRangeFilter14maximumChangedEv(QQmlRangeFilter *self) {
+  self->maximumChanged();
 }
 
 //  QQmlRangeFilterPrivate *QQmlRangeFilter::d_func()

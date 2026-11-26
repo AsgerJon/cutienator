@@ -10,7 +10,10 @@
       "address", "int", "address"
     ],
     "ritual_ZN9QSslErrorC1ERKS_": ["address", "address"],
+    "ritual_ZN9QSslError4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN9QSslErrorD1Ev": ["nothing", "address"],
+    "ritual_ZN9QSslErroraSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QSslErroraSERKS_": ["address", "address", "address"],
     "ritual_ZNK9QSslErroreqERKS_": ["bool", "address", "address"],
     "ritual_ZNK9QSslErrorneERKS_": ["bool", "address", "address"],
     "ritual_ZNK9QSslError5errorEv": ["int", "address"],

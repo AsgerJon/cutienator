@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK9QQuickPen10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QQuickPen11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QQuickPen11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QQuickPen2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QQuickPen22qt_qmlMarker_anonymousEv": ["nothing", "address"],
     "ritual_ZN9QQuickPenC1EP7QObject": ["address", "address"],
@@ -17,6 +21,9 @@
     ],
     "ritual_ZNK9QQuickPen12pixelAlignedEv": ["bool", "address"],
     "ritual_ZN9QQuickPen15setPixelAlignedEb": ["nothing", "address", "bool"],
-    "ritual_ZNK9QQuickPen7isValidEv": ["bool", "address"]
+    "ritual_ZNK9QQuickPen7isValidEv": ["bool", "address"],
+    "ritual_ZN9QQuickPen12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN9QQuickPen12colorChangedEv": ["nothing", "address"],
+    "ritual_ZN9QQuickPen19pixelAlignedChangedEv": ["nothing", "address"]
   }
 }

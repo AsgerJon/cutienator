@@ -7,6 +7,36 @@
   "rows": {
     "ritual_ZNK18qdesigner_internal14SignaturePanel10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14SignaturePanel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal14SignaturePanel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14SignaturePanel11fakeMethodsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14SignaturePanel7setDataERKNS_20SignalSlotDialogDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14SignaturePanel5countERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal14SignaturePanel14checkSignatureERK7QStringPb": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14SignaturePanel7slotAddEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14SignaturePanel10slotRemoveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14SignaturePanel20slotSelectionChangedERK14QItemSelectionS3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14SignaturePanel11closeEditorEv": [
+      "nothing", "address"
     ]
   }
 }

@@ -195,6 +195,24 @@ const QMetaObject *ritual_ZNK13QLogValueAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLogValueAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QLogValueAxis11qt_metacastEPKc(
+    QLogValueAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLogValueAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QLogValueAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLogValueAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLogValueAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QLogValueAxis2trEPKcS1_i(
@@ -214,6 +232,14 @@ QLogValueAxis *ritual_ZN13QLogValueAxisC1EP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QLogValueAxisD1Ev(QLogValueAxis *self) {
   delete self;
+}
+
+//  QLogValueAxis::QLogValueAxis(QLogValueAxisPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QLogValueAxis *ritual_ZN13QLogValueAxisC1ER20QLogValueAxisPrivateP7QObject(
+    QLogValueAxisPrivate *d,
+    QObject *parent) {
+  return new CuteQLogValueAxis(*d, parent);
 }
 
 //  AxisType QLogValueAxis::type() const
@@ -301,6 +327,59 @@ void ritual_ZN13QLogValueAxis17setMinorTickCountEi(
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK13QLogValueAxis14minorTickCountEv(const QLogValueAxis *self) {
   return self->minorTickCount();
+}
+
+//  void QLogValueAxis::minChanged(qreal min)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLogValueAxis10minChangedEd(QLogValueAxis *self, qreal min) {
+  self->minChanged(min);
+}
+
+//  void QLogValueAxis::maxChanged(qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLogValueAxis10maxChangedEd(QLogValueAxis *self, qreal max) {
+  self->maxChanged(max);
+}
+
+//  void QLogValueAxis::rangeChanged(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLogValueAxis12rangeChangedEdd(
+    QLogValueAxis *self,
+    qreal min,
+    qreal max) {
+  self->rangeChanged(min, max);
+}
+
+//  void QLogValueAxis::labelFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLogValueAxis18labelFormatChangedERK7QString(
+    QLogValueAxis *self,
+    const QString *format) {
+  self->labelFormatChanged(*format);
+}
+
+//  void QLogValueAxis::baseChanged(qreal base)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLogValueAxis11baseChangedEd(
+    QLogValueAxis *self,
+    qreal base) {
+  self->baseChanged(base);
+}
+
+//  void QLogValueAxis::tickCountChanged(int tickCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLogValueAxis16tickCountChangedEi(
+    QLogValueAxis *self,
+    int tickCount) {
+  self->tickCountChanged(tickCount);
+}
+
+//  void QLogValueAxis::minorTickCountChanged(int minorTickCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLogValueAxis21minorTickCountChangedEi(
+    QLogValueAxis *self,
+    int minorTickCount) {
+  self->minorTickCountChanged(minorTickCount);
 }
 
 //  QLogValueAxisPrivate *QLogValueAxis::d_func()

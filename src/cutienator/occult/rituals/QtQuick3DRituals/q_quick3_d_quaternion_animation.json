@@ -8,8 +8,20 @@
     "ritual_ZNK27QQuick3DQuaternionAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuick3DQuaternionAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QQuick3DQuaternionAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation6d_funcEv": [
+      "address", "address"
     ],
     "ritual_ZN27QQuick3DQuaternionAnimationC1EP7QObject": [
       "address", "address"
@@ -60,6 +72,27 @@
       "float", "address"
     ],
     "ritual_ZN27QQuick3DQuaternionAnimation14setToZRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation11typeChangedENS_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation20fromXRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation20fromYRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation20fromZRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation18toXRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation18toYRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation18toZRotationChangedEf": [
       "nothing", "address", "float"
     ],
     "ritual_take_QQuick3DQuaternionAnimation": [

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQmlRoleFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlRoleFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQmlRoleFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQmlRoleFilter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,7 @@
     "ritual_ZN14QQmlRoleFilter6updateEPK24QQmlSortFilterProxyModel": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QQmlRoleFilter15roleNameChangedEv": ["nothing", "address"],
     "ritual_ZNK14QQmlRoleFilter8itemRoleEPK24QQmlSortFilterProxyModel": [
       "int", "address", "address"
     ],

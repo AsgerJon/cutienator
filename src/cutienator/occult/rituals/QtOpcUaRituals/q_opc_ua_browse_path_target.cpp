@@ -18,6 +18,15 @@ QOpcUaBrowsePathTarget *ritual_ZN22QOpcUaBrowsePathTargetC1ERKS_(
   return new QOpcUaBrowsePathTarget(*a0);
 }
 
+//  QOpcUaBrowsePathTarget &QOpcUaBrowsePathTarget::operator=(const
+//      QOpcUaBrowsePathTarget &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaBrowsePathTarget *ritual_ZN22QOpcUaBrowsePathTargetaSERKS_(
+    QOpcUaBrowsePathTarget *self,
+    const QOpcUaBrowsePathTarget *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaBrowsePathTarget::operator==(const QOpcUaBrowsePathTarget
 //      &rhs) const
 extern "C" Q_DECL_EXPORT
@@ -38,6 +47,13 @@ extern "C" Q_DECL_EXPORT
 QOpcUaExpandedNodeId *ritual_ZNK22QOpcUaBrowsePathTarget8targetIdEv(
     const QOpcUaBrowsePathTarget *self) {
   return new QOpcUaExpandedNodeId(self->targetId());
+}
+
+//  QOpcUaExpandedNodeId &QOpcUaBrowsePathTarget::targetIdRef()
+extern "C" Q_DECL_EXPORT
+QOpcUaExpandedNodeId *ritual_ZN22QOpcUaBrowsePathTarget11targetIdRefEv(
+    QOpcUaBrowsePathTarget *self) {
+  return &(self->targetIdRef());
 }
 
 //  void QOpcUaBrowsePathTarget::setTargetId(const QOpcUaExpandedNodeId

@@ -5,11 +5,69 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder17getPrototypesFileEv": [
+      "text"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder17setPrototypesFileERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder17getPrototypeNamesEv": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilderC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilderD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ShaderBuilder15shaderProgramIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ShaderBuilder13enabledLayersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ShaderBuilder11graphicsApiEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder14setGraphicsApiERKNS_21GraphicsApiFilterDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ShaderBuilder11shaderGraphENS_14QShaderProgram10ShaderTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder14setShaderGraphENS_14QShaderProgram10ShaderTypeERK4QUrl": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ShaderBuilder10shaderCodeENS_14QShaderProgram10ShaderTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ShaderBuilder17isShaderCodeDirtyENS_14QShaderProgram10ShaderTypeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder12generateCodeENS_14QShaderProgram10ShaderTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder18takePendingUpdatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13ShaderBuilder21hashKeyForShaderGraphENS_14QShaderProgram10ShaderTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render13ShaderBuilder16setEnabledLayersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_Qt3DRender_Render_ShaderBuilder": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render13ShaderBuilder16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_ShaderBuilder__std_vector_Qt3DRender_Render_ShaderBuilderUpdate": [
+      "nothing", "address"
     ]
   }
 }

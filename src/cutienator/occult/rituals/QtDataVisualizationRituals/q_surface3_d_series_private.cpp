@@ -35,22 +35,6 @@ inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
         m_controller->markSeriesVisualsDirty();
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 665, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
-inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
-{
-    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_ptr->series());
-
-    delete m_dataProxy;
-    m_dataProxy = proxy;
-
-    proxy->d_ptr->setSeries(q_ptr); // also sets parent
-
-    if (m_controller) {
-        connectControllerAndProxy(m_controller);
-        m_controller->markDataDirty();
-    }
-}
-
 //  from ../qtdatavis3d/src/datavisualization/data/qsurface3dseries.cpp, line 437, as _ZN23QSurface3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
 inline void QSurface3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
 {
@@ -135,6 +119,22 @@ inline void QSurface3DSeriesPrivate::createItemLabel()
         m_itemLabel.replace(zLabelTag, valueLabelText);
     }
     m_itemLabel.replace(seriesNameTag, m_name);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 665, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
+inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
+{
+    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_ptr->series());
+
+    delete m_dataProxy;
+    m_dataProxy = proxy;
+
+    proxy->d_ptr->setSeries(q_ptr); // also sets parent
+
+    if (m_controller) {
+        connectControllerAndProxy(m_controller);
+        m_controller->markDataDirty();
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qsurface3dseries.cpp, line 520, as _ZN23QSurface3DSeriesPrivate16setSelectedPointERK6QPoint
@@ -430,6 +430,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK23QSurface3DSeriesPrivate10metaObjectEv(
     const QSurface3DSeriesPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QSurface3DSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QSurface3DSeriesPrivate11qt_metacastEPKc(
+    QSurface3DSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSurface3DSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QSurface3DSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSurface3DSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QSurface3DSeriesPrivate::~QSurface3DSeriesPrivate()

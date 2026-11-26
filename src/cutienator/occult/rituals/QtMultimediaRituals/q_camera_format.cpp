@@ -17,6 +17,14 @@ QCameraFormat *ritual_ZN13QCameraFormatC1ERKS_(const QCameraFormat *other) {
   return new QCameraFormat(*other);
 }
 
+//  QCameraFormat &QCameraFormat::operator=(const QCameraFormat &other)
+extern "C" Q_DECL_EXPORT
+QCameraFormat *ritual_ZN13QCameraFormataSERKS_(
+    QCameraFormat *self,
+    const QCameraFormat *other) {
+  return &(self->operator=(*other));
+}
+
 //  QCameraFormat::~QCameraFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QCameraFormatD1Ev(QCameraFormat *self) {

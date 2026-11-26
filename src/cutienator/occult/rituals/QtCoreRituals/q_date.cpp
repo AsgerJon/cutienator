@@ -564,6 +564,48 @@ bool ritual_ZgeRK5QDateS1_(const QDate *lhs, const QDate *rhs) {
   return operator>=(*lhs, *rhs);
 }
 
+//  QDate &operator++(QDate &date)
+extern "C" Q_DECL_EXPORT
+QDate *ritual_ZppR5QDate(QDate *date) {
+  return &(operator++(*date));
+}
+
+//  QDate &operator--(QDate &date)
+extern "C" Q_DECL_EXPORT
+QDate *ritual_ZmmR5QDate(QDate *date) {
+  return &(operator--(*date));
+}
+
+//  QDate operator++(QDate &date, int a1)
+extern "C" Q_DECL_EXPORT
+QDate *ritual_ZppR5QDatei(QDate *date, int a1) {
+  return new QDate(operator++(*date, a1));
+}
+
+//  QDate operator--(QDate &date, int a1)
+extern "C" Q_DECL_EXPORT
+QDate *ritual_ZmmR5QDatei(QDate *date, int a1) {
+  return new QDate(operator--(*date, a1));
+}
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, QDate a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStream5QDate(
+    QDataStream *a0,
+    const QDate *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QDate &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR5QDate(QDataStream *a0, QDate *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 //  QDate::~QDate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QDateD1Ev(QDate *self) {

@@ -3,9 +3,13 @@
 #include <QtDBus/qtdbusglobal.h>
 #if !defined(QT_NO_DBUS)
 #include <QtDBus/qdbusargument.h>
+#include <QtCore/qstring.h>
+#include <QtDBus/qdbusextratypes.h>
+#include <QtDBus/qdbusunixfiledescriptor.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qvariant.h>
-#include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 
 //  QDBusArgument::QDBusArgument()
 extern "C" Q_DECL_EXPORT
@@ -19,10 +23,159 @@ QDBusArgument *ritual_ZN13QDBusArgumentC1ERKS_(const QDBusArgument *other) {
   return new QDBusArgument(*other);
 }
 
+//  QDBusArgument::QDBusArgument(QDBusArgument &&other)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentC1EOS_(QDBusArgument *other) {
+  return new QDBusArgument(std::move(*other));
+}
+
+//  QDBusArgument &QDBusArgument::operator=(QDBusArgument &&other)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentaSEOS_(
+    QDBusArgument *self,
+    QDBusArgument *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDBusArgument &QDBusArgument::operator=(const QDBusArgument &other)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentaSERKS_(
+    QDBusArgument *self,
+    const QDBusArgument *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDBusArgument::~QDBusArgument()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QDBusArgumentD1Ev(QDBusArgument *self) {
   delete self;
+}
+
+//  void QDBusArgument::swap(QDBusArgument &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusArgument4swapERS_(
+    QDBusArgument *self,
+    QDBusArgument *other) {
+  self->swap(*other);
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(uchar arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsEh(QDBusArgument *self, uchar arg) {
+  return &(self->operator<<(arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(bool arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsEb(QDBusArgument *self, bool arg) {
+  return &(self->operator<<(arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(short arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsEs(QDBusArgument *self, short arg) {
+  return &(self->operator<<(arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(ushort arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsEt(
+    QDBusArgument *self,
+    ushort arg) {
+  return &(self->operator<<(arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(int arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsEi(QDBusArgument *self, int arg) {
+  return &(self->operator<<(arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(uint arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsEj(QDBusArgument *self, uint arg) {
+  return &(self->operator<<(arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(qlonglong arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsEx(
+    QDBusArgument *self,
+    qlonglong arg) {
+  return &(self->operator<<(arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(qulonglong arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsEy(
+    QDBusArgument *self,
+    qulonglong arg) {
+  return &(self->operator<<(arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(double arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsEd(
+    QDBusArgument *self,
+    double arg) {
+  return &(self->operator<<(arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(const QString &arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsERK7QString(
+    QDBusArgument *self,
+    const QString *arg) {
+  return &(self->operator<<(*arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(const QDBusVariant &arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsERK12QDBusVariant(
+    QDBusArgument *self,
+    const QDBusVariant *arg) {
+  return &(self->operator<<(*arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(const QDBusObjectPath &arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsERK15QDBusObjectPath(
+    QDBusArgument *self,
+    const QDBusObjectPath *arg) {
+  return &(self->operator<<(*arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(const QDBusSignature &arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsERK14QDBusSignature(
+    QDBusArgument *self,
+    const QDBusSignature *arg) {
+  return &(self->operator<<(*arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(const QDBusUnixFileDescriptor
+//      &arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsERK23QDBusUnixFileDescriptor(
+    QDBusArgument *self,
+    const QDBusUnixFileDescriptor *arg) {
+  return &(self->operator<<(*arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(const QStringList &arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsERK5QListI7QStringE(
+    QDBusArgument *self,
+    const QList<QString> *arg) {
+  return &(self->operator<<(*arg));
+}
+
+//  QDBusArgument &QDBusArgument::operator<<(const QByteArray &arg)
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZN13QDBusArgumentlsERK10QByteArray(
+    QDBusArgument *self,
+    const QByteArray *arg) {
+  return &(self->operator<<(*arg));
 }
 
 //  void QDBusArgument::beginStructure()
@@ -187,6 +340,64 @@ extern "C" Q_DECL_EXPORT
 QDBusArgument *ritual_ZNK13QDBusArgumentrsERd(
     const QDBusArgument *self,
     double *arg) {
+  return new QDBusArgument(self->operator>>(*arg));
+}
+
+//  const QDBusArgument &QDBusArgument::operator>>(QString &arg) const
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZNK13QDBusArgumentrsER7QString(
+    const QDBusArgument *self,
+    QString *arg) {
+  return new QDBusArgument(self->operator>>(*arg));
+}
+
+//  const QDBusArgument &QDBusArgument::operator>>(QDBusVariant &arg) const
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZNK13QDBusArgumentrsER12QDBusVariant(
+    const QDBusArgument *self,
+    QDBusVariant *arg) {
+  return new QDBusArgument(self->operator>>(*arg));
+}
+
+//  const QDBusArgument &QDBusArgument::operator>>(QDBusObjectPath &arg)
+//      const
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZNK13QDBusArgumentrsER15QDBusObjectPath(
+    const QDBusArgument *self,
+    QDBusObjectPath *arg) {
+  return new QDBusArgument(self->operator>>(*arg));
+}
+
+//  const QDBusArgument &QDBusArgument::operator>>(QDBusSignature &arg) const
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZNK13QDBusArgumentrsER14QDBusSignature(
+    const QDBusArgument *self,
+    QDBusSignature *arg) {
+  return new QDBusArgument(self->operator>>(*arg));
+}
+
+//  const QDBusArgument &QDBusArgument::operator>>(QDBusUnixFileDescriptor
+//      &arg) const
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZNK13QDBusArgumentrsER23QDBusUnixFileDescriptor(
+    const QDBusArgument *self,
+    QDBusUnixFileDescriptor *arg) {
+  return new QDBusArgument(self->operator>>(*arg));
+}
+
+//  const QDBusArgument &QDBusArgument::operator>>(QStringList &arg) const
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZNK13QDBusArgumentrsER5QListI7QStringE(
+    const QDBusArgument *self,
+    QStringList *arg) {
+  return new QDBusArgument(self->operator>>(*arg));
+}
+
+//  const QDBusArgument &QDBusArgument::operator>>(QByteArray &arg) const
+extern "C" Q_DECL_EXPORT
+QDBusArgument *ritual_ZNK13QDBusArgumentrsER10QByteArray(
+    const QDBusArgument *self,
+    QByteArray *arg) {
   return new QDBusArgument(self->operator>>(*arg));
 }
 

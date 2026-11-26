@@ -7,6 +7,7 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickcontextmenu_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qpoint.h>
 
 //  Only a class built on QQuickContextMenu may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -19,6 +20,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17QQuickContextMenu10metaObjectEv(
     const QQuickContextMenu *self) {
   return self->metaObject();
+}
+
+//  void *QQuickContextMenu::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickContextMenu11qt_metacastEPKc(
+    QQuickContextMenu *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickContextMenu::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickContextMenu11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickContextMenu *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickContextMenu::tr(const char *s, const char *c, int n)
@@ -74,12 +94,40 @@ void ritual_ZN17QQuickContextMenu7setMenuEP10QQuickMenu(
   self->setMenu(menu);
 }
 
+//  void QQuickContextMenu::menuChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickContextMenu11menuChangedEv(QQuickContextMenu *self) {
+  self->menuChanged();
+}
+
+//  void QQuickContextMenu::requested(QPointF position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickContextMenu9requestedE7QPointF(
+    QQuickContextMenu *self,
+    const QPointF *position) {
+  self->requested(*position);
+}
+
 //  bool QQuickContextMenu::event(QEvent *a0)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN17QQuickContextMenu5eventEP6QEvent(
     QQuickContextMenu *self,
     QEvent *a0) {
   return self->event(a0);
+}
+
+//  QQuickContextMenuPrivate *QQuickContextMenu::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickContextMenuPrivate *ritual_ZN17QQuickContextMenu6d_funcEv(
+    QQuickContextMenu *self) {
+  return self->d_func();
+}
+
+//  const QQuickContextMenuPrivate *QQuickContextMenu::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickContextMenuPrivate *ritual_ZNK17QQuickContextMenu6d_funcEv(
+    const QQuickContextMenu *self) {
+  return self->d_func();
 }
 
 //  void QQuickContextMenu::classBegin()

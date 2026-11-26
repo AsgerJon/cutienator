@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QPolygonOffset10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QPolygonOffset::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QPolygonOffset11qt_metacastEPKc(
+    Qt3DRender::QPolygonOffset *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QPolygonOffset::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QPolygonOffset11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QPolygonOffset *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QPolygonOffset::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,66 @@ QString *ritual_ZN10Qt3DRender14QPolygonOffset2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QPolygonOffset::tr(s, c, n));
+}
+
+//  Qt3DRender::QPolygonOffset::QPolygonOffset(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPolygonOffset *ritual_ZN10Qt3DRender14QPolygonOffsetC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QPolygonOffset(parent);
+}
+
+//  Qt3DRender::QPolygonOffset::~QPolygonOffset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QPolygonOffsetD1Ev(
+    Qt3DRender::QPolygonOffset *self) {
+  delete self;
+}
+
+//  float Qt3DRender::QPolygonOffset::scaleFactor() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender14QPolygonOffset11scaleFactorEv(
+    const Qt3DRender::QPolygonOffset *self) {
+  return self->scaleFactor();
+}
+
+//  float Qt3DRender::QPolygonOffset::depthSteps() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender14QPolygonOffset10depthStepsEv(
+    const Qt3DRender::QPolygonOffset *self) {
+  return self->depthSteps();
+}
+
+//  void Qt3DRender::QPolygonOffset::setScaleFactor(float scaleFactor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QPolygonOffset14setScaleFactorEf(
+    Qt3DRender::QPolygonOffset *self,
+    float scaleFactor) {
+  self->setScaleFactor(scaleFactor);
+}
+
+//  void Qt3DRender::QPolygonOffset::setDepthSteps(float depthSteps)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QPolygonOffset13setDepthStepsEf(
+    Qt3DRender::QPolygonOffset *self,
+    float depthSteps) {
+  self->setDepthSteps(depthSteps);
+}
+
+//  void Qt3DRender::QPolygonOffset::scaleFactorChanged(float scaleFactor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QPolygonOffset18scaleFactorChangedEf(
+    Qt3DRender::QPolygonOffset *self,
+    float scaleFactor) {
+  self->scaleFactorChanged(scaleFactor);
+}
+
+//  void Qt3DRender::QPolygonOffset::depthStepsChanged(float depthSteps)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QPolygonOffset17depthStepsChangedEf(
+    Qt3DRender::QPolygonOffset *self,
+    float depthSteps) {
+  self->depthStepsChanged(depthSteps);
 }
 
 //  QPolygonOffsetPrivate *Qt3DRender::QPolygonOffset::d_func()

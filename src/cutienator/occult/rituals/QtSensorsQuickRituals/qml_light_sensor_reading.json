@@ -8,6 +8,12 @@
     "ritual_ZNK21QmlLightSensorReading10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QmlLightSensorReading11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QmlLightSensorReading11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QmlLightSensorReading2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,9 +27,18 @@
     "ritual_ZNK21QmlLightSensorReading11illuminanceEv": [
       "double", "address"
     ],
+    "ritual_ZNK21QmlLightSensorReading19bindableIlluminanceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QmlLightSensorReading18illuminanceChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK21QmlLightSensorReading7readingEv": ["address", "address"],
     "ritual_ZN21QmlLightSensorReading13readingUpdateEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QmlLightSensorReading33_qt_property_m_illuminance_offsetEv": [
+      "size_t"
     ],
     "ritual_take_QmlLightSensorReading": [
       "bool", "address", "chars", "address"
@@ -32,6 +47,9 @@
       "address", "address"
     ],
     "ritual_own_ZN21QmlLightSensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QmlLightSensorReading__QBindable_qreal": [
       "nothing", "address"
     ]
   }

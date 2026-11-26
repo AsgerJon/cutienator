@@ -250,6 +250,25 @@ const QMetaObject *ritual_ZNK20QQuickPauseAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPauseAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickPauseAnimation11qt_metacastEPKc(
+    QQuickPauseAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPauseAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickPauseAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPauseAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPauseAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickPauseAnimation2trEPKcS1_i(
@@ -299,6 +318,28 @@ void ritual_ZN20QQuickPauseAnimation11setDurationEi(
     QQuickPauseAnimation *self,
     int a0) {
   self->setDuration(a0);
+}
+
+//  void QQuickPauseAnimation::durationChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPauseAnimation15durationChangedEi(
+    QQuickPauseAnimation *self,
+    int a0) {
+  self->durationChanged(a0);
+}
+
+//  QAbstractAnimationJob
+//      *QQuickPauseAnimation::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN20QQuickPauseAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickPauseAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
 }
 
 //  a Python function taken by a CuteQQuickPauseAnimation, for the function

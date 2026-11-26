@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK23QQuickAttractorAffector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAttractorAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickAttractorAffector11qt_metacastEPKc(
+    QQuickAttractorAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAttractorAffector::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickAttractorAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAttractorAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAttractorAffector::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickAttractorAffector2trEPKcS1_i(
@@ -70,6 +89,49 @@ extern "C" Q_DECL_EXPORT
 QQuickAttractorAffector::Proportion ritual_ZNK23QQuickAttractorAffector22proportionalToDistanceEv(
     const QQuickAttractorAffector *self) {
   return self->proportionalToDistance();
+}
+
+//  void QQuickAttractorAffector::strengthChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAttractorAffector15strengthChangedEd(
+    QQuickAttractorAffector *self,
+    qreal arg) {
+  self->strengthChanged(arg);
+}
+
+//  void QQuickAttractorAffector::pointXChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAttractorAffector13pointXChangedEd(
+    QQuickAttractorAffector *self,
+    qreal arg) {
+  self->pointXChanged(arg);
+}
+
+//  void QQuickAttractorAffector::pointYChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAttractorAffector13pointYChangedEd(
+    QQuickAttractorAffector *self,
+    qreal arg) {
+  self->pointYChanged(arg);
+}
+
+//  void
+//      QQuickAttractorAffector::affectedParameterChanged(AffectableParameter
+//      s arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAttractorAffector24affectedParameterChangedENS_20AffectableParametersE(
+    QQuickAttractorAffector *self,
+    QQuickAttractorAffector::AffectableParameters arg) {
+  self->affectedParameterChanged(arg);
+}
+
+//  void QQuickAttractorAffector::proportionalToDistanceChanged(Proportion
+//      arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickAttractorAffector29proportionalToDistanceChangedENS_10ProportionE(
+    QQuickAttractorAffector *self,
+    QQuickAttractorAffector::Proportion arg) {
+  self->proportionalToDistanceChanged(arg);
 }
 
 //  void QQuickAttractorAffector::setStrength(qreal arg)

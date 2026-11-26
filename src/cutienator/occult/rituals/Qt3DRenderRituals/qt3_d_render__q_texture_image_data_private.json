@@ -5,6 +5,31 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender24QTextureImageDataPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender24QTextureImageDataPrivate7setDataERK10QByteArrayib": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN10Qt3DRender24QTextureImageDataPrivate7setDataERK10QByteArraySt8functionIFS1_S1_iiiEEb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender24QTextureImageDataPrivate4dataEiii": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN10Qt3DRender24QTextureImageDataPrivate3getEPNS_17QTextureImageDataE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender24QTextureImageDataPrivate12ddsLayerSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender24QTextureImageDataPrivate11ddsFaceSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender24QTextureImageDataPrivate15mipmapLevelSizeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender24QTextureImageDataPrivate7ktxDataEiii": [
+      "address", "address", "int", "int", "int"
+    ],
     "ritual_ZN10Qt3DRender24QTextureImageDataPrivateD1Ev": [
       "nothing", "address"
     ]

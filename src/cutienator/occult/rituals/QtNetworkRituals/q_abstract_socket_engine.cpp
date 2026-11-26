@@ -94,50 +94,6 @@ inline int QAbstractSocketEngine::outboundStreamCount() const
     return d_func()->outboundStreamCount;
 }
 
-//  from src/network/socket/qabstractsocketengine.cpp, line 120, as _ZN21QAbstractSocketEngine16readNotificationEv
-inline void QAbstractSocketEngine::readNotification()
-{
-    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
-        receiver->readNotification();
-}
-
-//  from src/network/socket/qabstractsocketengine.cpp, line 126, as _ZN21QAbstractSocketEngine17writeNotificationEv
-inline void QAbstractSocketEngine::writeNotification()
-{
-    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
-        receiver->writeNotification();
-}
-
-//  from src/network/socket/qabstractsocketengine.cpp, line 138, as _ZN21QAbstractSocketEngine17closeNotificationEv
-inline void QAbstractSocketEngine::closeNotification()
-{
-    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
-        receiver->closeNotification();
-}
-
-//  from src/network/socket/qabstractsocketengine.cpp, line 132, as _ZN21QAbstractSocketEngine21exceptionNotificationEv
-inline void QAbstractSocketEngine::exceptionNotification()
-{
-    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
-        receiver->exceptionNotification();
-}
-
-//  from src/network/socket/qabstractsocketengine.cpp, line 144, as _ZN21QAbstractSocketEngine22connectionNotificationEv
-inline void QAbstractSocketEngine::connectionNotification()
-{
-    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
-        receiver->connectionNotification();
-}
-
-//  from src/network/socket/qabstractsocketengine.cpp, line 151, as _ZN21QAbstractSocketEngine27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QAbstractSocketEngine::proxyAuthenticationRequired(const QNetworkProxy &proxy, QAuthenticator *authenticator)
-{
-    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
-        receiver->proxyAuthenticationRequired(proxy, authenticator);
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
 //  from src/network/socket/qabstractsocketengine.cpp, line 115, as _ZN21QAbstractSocketEngine11setReceiverEP29QAbstractSocketEngineReceiver
 inline void QAbstractSocketEngine::setReceiver(QAbstractSocketEngineReceiver *receiver)
 {
@@ -200,6 +156,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK21QAbstractSocketEngine10metaObjectEv(
     const QAbstractSocketEngine *self) {
   return self->metaObject();
+}
+
+//  void *QAbstractSocketEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QAbstractSocketEngine11qt_metacastEPKc(
+    QAbstractSocketEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractSocketEngine::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QAbstractSocketEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractSocketEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  bool QAbstractSocketEngine::initialize(QAbstractSocket::SocketType type,
@@ -294,6 +269,15 @@ qint64 ritual_ZNK21QAbstractSocketEngine14bytesAvailableEv(
   return self->bytesAvailable();
 }
 
+//  qint64 QAbstractSocketEngine::read(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN21QAbstractSocketEngine4readEPcx(
+    QAbstractSocketEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->read(data, maxlen);
+}
+
 //  qint64 QAbstractSocketEngine::write(const char *data, qint64 len)
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZN21QAbstractSocketEngine5writeEPKcx(
@@ -372,6 +356,22 @@ qint64 ritual_ZNK21QAbstractSocketEngine19pendingDatagramSizeEv(
   return self->pendingDatagramSize();
 }
 #endif  // !defined(QT_NO_UDPSOCKET)
+
+//  qint64 QAbstractSocketEngine::readDatagram(char *data, qint64 maxlen,
+//      QIpPacketHeader *header, PacketHeaderOptions a3)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN21QAbstractSocketEngine12readDatagramEPcxP15QIpPacketHeader6QFlagsINS_18PacketHeaderOptionEE(
+    QAbstractSocketEngine *self,
+    char *data,
+    qint64 maxlen,
+    QIpPacketHeader *header,
+    int a3) {
+  return self->readDatagram(
+      data,
+      maxlen,
+      header,
+      QFlags<QAbstractSocketEngine::PacketHeaderOption>::fromInt(a3));
+}
 
 //  qint64 QAbstractSocketEngine::writeDatagram(const char *data, qint64 len,
 //      const QIpPacketHeader &header)
@@ -576,35 +576,125 @@ void ritual_ZN21QAbstractSocketEngine31setExceptionNotificationEnabledEb(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QAbstractSocketEngine16readNotificationEv(
     QAbstractSocketEngine *self) {
-  self->readNotification();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "readNotification()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "readNotification()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QAbstractSocketEngine::writeNotification()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QAbstractSocketEngine17writeNotificationEv(
     QAbstractSocketEngine *self) {
-  self->writeNotification();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "writeNotification()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "writeNotification()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QAbstractSocketEngine::closeNotification()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QAbstractSocketEngine17closeNotificationEv(
     QAbstractSocketEngine *self) {
-  self->closeNotification();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "closeNotification()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "closeNotification()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QAbstractSocketEngine::exceptionNotification()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QAbstractSocketEngine21exceptionNotificationEv(
     QAbstractSocketEngine *self) {
-  self->exceptionNotification();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "exceptionNotification()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "exceptionNotification()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QAbstractSocketEngine::connectionNotification()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QAbstractSocketEngine22connectionNotificationEv(
     QAbstractSocketEngine *self) {
-  self->connectionNotification();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "connectionNotification()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "connectionNotification()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 #if !defined(QT_NO_NETWORKPROXY)
@@ -615,7 +705,27 @@ void ritual_ZN21QAbstractSocketEngine27proxyAuthenticationRequiredERK13QNetworkP
     QAbstractSocketEngine *self,
     const QNetworkProxy *proxy,
     QAuthenticator *authenticator) {
-  self->proxyAuthenticationRequired(*proxy, authenticator);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractSocketEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "proxyAuthenticationRequired(const QNetworkProxy &,QAuthenticator *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "proxyAuthenticationRequired(const QNetworkProxy &,QAuthenticator *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(proxy)),
+      const_cast<void *>(static_cast<const void *>(&authenticator)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 #endif  // !defined(QT_NO_NETWORKPROXY)
 

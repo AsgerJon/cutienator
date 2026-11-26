@@ -8,6 +8,12 @@
     "ritual_ZNK25QmlProximitySensorReading10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QmlProximitySensorReading11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QmlProximitySensorReading11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QmlProximitySensorReading2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,11 +25,20 @@
     ],
     "ritual_ZN25QmlProximitySensorReadingD1Ev": ["nothing", "address"],
     "ritual_ZNK25QmlProximitySensorReading4nearEv": ["bool", "address"],
+    "ritual_ZNK25QmlProximitySensorReading12bindableNearEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QmlProximitySensorReading11nearChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK25QmlProximitySensorReading7readingEv": [
       "address", "address"
     ],
     "ritual_ZN25QmlProximitySensorReading13readingUpdateEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QmlProximitySensorReading26_qt_property_m_near_offsetEv": [
+      "size_t"
     ],
     "ritual_take_QmlProximitySensorReading": [
       "bool", "address", "chars", "address"
@@ -32,6 +47,9 @@
       "address", "address"
     ],
     "ritual_own_ZN25QmlProximitySensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QmlProximitySensorReading__QBindable_bool": [
       "nothing", "address"
     ]
   }

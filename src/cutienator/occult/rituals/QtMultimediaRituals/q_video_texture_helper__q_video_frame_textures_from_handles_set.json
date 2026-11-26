@@ -5,8 +5,17 @@
     ", Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QVideoTextureHelper33QVideoFrameTexturesFromHandlesSetD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QVideoTextureHelper33QVideoFrameTexturesFromHandlesSet11takeHandlesEv": [
+      "address", "address"
+    ],
     "ritual_take_QVideoTextureHelper_QVideoFrameTexturesFromHandlesSet": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QVideoTextureHelper_QVideoFrameTexturesFromHandlesSet__QVideoFrameTexturesHandlesUPtr": [
+      "nothing", "address"
     ]
   }
 }

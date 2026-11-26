@@ -1039,6 +1039,25 @@ const QMetaObject *ritual_ZNK20QAbstractPrintDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractPrintDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QAbstractPrintDialog11qt_metacastEPKc(
+    QAbstractPrintDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractPrintDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QAbstractPrintDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractPrintDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractPrintDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QAbstractPrintDialog2trEPKcS1_i(
@@ -1137,6 +1156,16 @@ extern "C" Q_DECL_EXPORT
 QPrinter *ritual_ZNK20QAbstractPrintDialog7printerEv(
     const QAbstractPrintDialog *self) {
   return self->printer();
+}
+
+//  QAbstractPrintDialog::QAbstractPrintDialog(QAbstractPrintDialogPrivate
+//      &ptr, QPrinter *printer, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractPrintDialog *ritual_ZN20QAbstractPrintDialogC1ER27QAbstractPrintDialogPrivateP8QPrinterP7QWidget(
+    QAbstractPrintDialogPrivate *ptr,
+    QPrinter *printer,
+    QWidget *parent) {
+  return new CuteQAbstractPrintDialog(*ptr, printer, parent);
 }
 
 //  a Python function taken by a CuteQAbstractPrintDialog, for the function

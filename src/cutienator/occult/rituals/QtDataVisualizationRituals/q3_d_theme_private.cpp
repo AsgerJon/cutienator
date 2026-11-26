@@ -184,6 +184,24 @@ const QMetaObject *ritual_ZNK15Q3DThemePrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DThemePrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15Q3DThemePrivate11qt_metacastEPKc(
+    Q3DThemePrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DThemePrivate::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15Q3DThemePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DThemePrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DThemePrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15Q3DThemePrivate2trEPKcS1_i(
@@ -209,6 +227,14 @@ void ritual_ZN15Q3DThemePrivateD1Ev(Q3DThemePrivate *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15Q3DThemePrivate14resetDirtyBitsEv(Q3DThemePrivate *self) {
   self->resetDirtyBits();
+}
+
+//  bool Q3DThemePrivate::sync(Q3DThemePrivate &other)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15Q3DThemePrivate4syncERS_(
+    Q3DThemePrivate *self,
+    Q3DThemePrivate *other) {
+  return self->sync(*other);
 }
 
 //  bool Q3DThemePrivate::isDefaultTheme()
@@ -238,6 +264,12 @@ void ritual_ZN15Q3DThemePrivate22setForcePredefinedTypeEb(
     Q3DThemePrivate *self,
     bool enable) {
   self->setForcePredefinedType(enable);
+}
+
+//  void Q3DThemePrivate::needRender()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15Q3DThemePrivate10needRenderEv(Q3DThemePrivate *self) {
+  self->needRender();
 }
 
 //  a Python function taken by a CuteQ3DThemePrivate, for the function named

@@ -11,12 +11,20 @@
 #include <QtQml/6.12.0/QtQml/private/qqmlpropertyindex_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/qqmlscriptstring.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qproperty.h>
+#include <QtQml/QQmlProperty>
 
 //  QQmlAnyBinding::QQmlAnyBinding()
 extern "C" Q_DECL_EXPORT
 QQmlAnyBinding *ritual_ZN14QQmlAnyBindingC1Ev() {
   return new QQmlAnyBinding();
+}
+
+//  QQmlAnyBinding::QQmlAnyBinding(std::nullptr_t a0)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingC1EDn() {
+  return new QQmlAnyBinding(nullptr);
 }
 
 //  QQmlAnyBinding QQmlAnyBinding::ofProperty(const QQmlProperty &prop)
@@ -42,6 +50,25 @@ QQmlAnyBinding *ritual_ZN14QQmlAnyBinding8takeFromERK12QQmlProperty(
   return new QQmlAnyBinding(QQmlAnyBinding::takeFrom(*prop));
 }
 
+//  QQmlAnyBinding QQmlAnyBinding::createFromFunction(const QQmlProperty
+//      &prop, QV4::Function *function, QObject *obj, const
+//      QQmlRefPointer<QQmlContextData> &ctxt, QV4::ExecutionContext *scope)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBinding18createFromFunctionERK12QQmlPropertyPN3QV48FunctionEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS3_16ExecutionContextE(
+    const QQmlProperty *prop,
+    QV4::Function *function,
+    QObject *obj,
+    const QQmlRefPointer<QQmlContextData> *ctxt,
+    QV4::ExecutionContext *scope) {
+  return new QQmlAnyBinding(
+      QQmlAnyBinding::createFromFunction(
+          *prop,
+          function,
+          obj,
+          *ctxt,
+          scope));
+}
+
 //  QQmlAnyBinding QQmlAnyBinding::createFromScriptString(const QQmlProperty
 //      &prop, const QQmlScriptString &script, QObject *obj, QQmlContext
 //      *ctxt)
@@ -64,6 +91,49 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQmlAnyBinding17removeBindingFromERK12QQmlProperty(
     const QQmlProperty *prop) {
   QQmlAnyBinding::removeBindingFrom(*prop);
+}
+
+//  QQmlAnyBinding QQmlAnyBinding::createFromCodeString(const QQmlProperty
+//      &prop, const QString &code, QObject *obj, const
+//      QQmlRefPointer<QQmlContextData> &ctxt, const QString &url, quint16
+//      lineNumber)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBinding20createFromCodeStringERK12QQmlPropertyRK7QStringP7QObjectRK14QQmlRefPointerI15QQmlContextDataES5_t(
+    const QQmlProperty *prop,
+    const QString *code,
+    QObject *obj,
+    const QQmlRefPointer<QQmlContextData> *ctxt,
+    const QString *url,
+    quint16 lineNumber) {
+  return new QQmlAnyBinding(
+      QQmlAnyBinding::createFromCodeString(
+          *prop,
+          *code,
+          obj,
+          *ctxt,
+          *url,
+          lineNumber));
+}
+
+//  QQmlAnyBinding QQmlAnyBinding::createTranslationBinding(const
+//      QQmlProperty &prop, const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &compilationUnit,
+//      const QV4::CompiledData::Binding *translationBinding, QObject
+//      *scopeObject, QQmlRefPointer<QQmlContextData> context)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBinding24createTranslationBindingERK12QQmlPropertyRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEPKNS4_12CompiledData7BindingEP7QObjectS3_I15QQmlContextDataE(
+    const QQmlProperty *prop,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *compilationUnit,
+    const QV4::CompiledData::Binding *translationBinding,
+    QObject *scopeObject,
+    const QQmlRefPointer<QQmlContextData> *context) {
+  return new QQmlAnyBinding(
+      QQmlAnyBinding::createTranslationBinding(
+          *prop,
+          *compilationUnit,
+          translationBinding,
+          scopeObject,
+          *context));
 }
 
 //  void QQmlAnyBinding::installOn(const QQmlProperty &target,
@@ -94,6 +164,12 @@ void ritual_ZN14QQmlAnyBinding9setStickyEb(
     QQmlAnyBinding *self,
     bool sticky) {
   self->setSticky(sticky);
+}
+
+//  QQmlAnyBinding &QQmlAnyBinding::operator=(std::nullptr_t a0)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingaSEDn(QQmlAnyBinding *self) {
+  return &(self->operator=(nullptr));
 }
 
 //  bool QQmlAnyBinding::operator bool() const
@@ -136,11 +212,85 @@ void ritual_ZN14QQmlAnyBinding7refreshEv(QQmlAnyBinding *self) {
   self->refresh();
 }
 
+//  QQmlAnyBinding &QQmlAnyBinding::operator=(QQmlAbstractBinding *binding)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingaSEP19QQmlAbstractBinding(
+    QQmlAnyBinding *self,
+    QQmlAbstractBinding *binding) {
+  return &(self->operator=(binding));
+}
+
+//  QQmlAnyBinding &QQmlAnyBinding::operator=(const QQmlAbstractBinding::Ptr
+//      &binding)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingaSERK28QExplicitlySharedDataPointerI19QQmlAbstractBindingE(
+    QQmlAnyBinding *self,
+    const QQmlAbstractBinding::Ptr *binding) {
+  return &(self->operator=(*binding));
+}
+
+//  QQmlAnyBinding &QQmlAnyBinding::operator=(QQmlAbstractBinding::Ptr
+//      &&binding)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingaSEO28QExplicitlySharedDataPointerI19QQmlAbstractBindingE(
+    QQmlAnyBinding *self,
+    QQmlAbstractBinding::Ptr *binding) {
+  return &(self->operator=(std::move(*binding)));
+}
+
+//  QQmlAnyBinding &QQmlAnyBinding::operator=(const QUntypedPropertyBinding
+//      &untypedBinding)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingaSERK23QUntypedPropertyBinding(
+    QQmlAnyBinding *self,
+    const QUntypedPropertyBinding *untypedBinding) {
+  return &(self->operator=(*untypedBinding));
+}
+
+//  QQmlAnyBinding &QQmlAnyBinding::operator=(QUntypedPropertyBinding
+//      &&untypedBinding)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingaSEO23QUntypedPropertyBinding(
+    QQmlAnyBinding *self,
+    QUntypedPropertyBinding *untypedBinding) {
+  return &(self->operator=(std::move(*untypedBinding)));
+}
+
+//  QQmlAnyBinding::QQmlAnyBinding(QQmlAnyBinding &&other)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingC1EOS_(QQmlAnyBinding *other) {
+  return new QQmlAnyBinding(std::move(*other));
+}
+
 //  QQmlAnyBinding::QQmlAnyBinding(const QQmlAnyBinding &other)
 extern "C" Q_DECL_EXPORT
 QQmlAnyBinding *ritual_ZN14QQmlAnyBindingC1ERKS_(
     const QQmlAnyBinding *other) {
   return new QQmlAnyBinding(*other);
+}
+
+//  QQmlAnyBinding &QQmlAnyBinding::operator=(QQmlAnyBinding &&other)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingaSEOS_(
+    QQmlAnyBinding *self,
+    QQmlAnyBinding *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QQmlAnyBinding::swap(QQmlAnyBinding &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlAnyBinding4swapERS_(
+    QQmlAnyBinding *self,
+    QQmlAnyBinding *other) {
+  self->swap(*other);
+}
+
+//  QQmlAnyBinding &QQmlAnyBinding::operator=(const QQmlAnyBinding &other)
+extern "C" Q_DECL_EXPORT
+QQmlAnyBinding *ritual_ZN14QQmlAnyBindingaSERKS_(
+    QQmlAnyBinding *self,
+    const QQmlAnyBinding *other) {
+  return &(self->operator=(*other));
 }
 
 //  bool operator==(const QQmlAnyBinding &p1, const QQmlAnyBinding &p2)

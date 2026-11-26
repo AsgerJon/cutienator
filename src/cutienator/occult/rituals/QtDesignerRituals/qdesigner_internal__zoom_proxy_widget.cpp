@@ -1471,6 +1471,28 @@ public:
 #endif  // QT_CONFIG(graphicsview)
 };
 
+//  qdesigner_internal::ZoomProxyWidget::ZoomProxyWidget(QGraphicsItem
+//      *parent, Qt::WindowFlags wFlags)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ZoomProxyWidget *ritual_ZN18qdesigner_internal15ZoomProxyWidgetC1EP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE(
+    QGraphicsItem *parent,
+    int wFlags) {
+  return new Cuteqdesigner_internal_ZoomProxyWidget(
+      parent,
+      QFlags<Qt::WindowType>::fromInt(wFlags));
+}
+
+//  QVariant
+//      qdesigner_internal::ZoomProxyWidget::itemChange(GraphicsItemChange
+//      change, const QVariant &value)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN18qdesigner_internal15ZoomProxyWidget10itemChangeEN13QGraphicsItem18GraphicsItemChangeERK8QVariant(
+    qdesigner_internal::ZoomProxyWidget *self,
+    QGraphicsItem::GraphicsItemChange change,
+    const QVariant *value) {
+  return new QVariant(self->itemChange(change, *value));
+}
+
 //  a Python function taken by a Cuteqdesigner_internal_ZoomProxyWidget, for
 //      the function named by the key
 extern "C" Q_DECL_EXPORT

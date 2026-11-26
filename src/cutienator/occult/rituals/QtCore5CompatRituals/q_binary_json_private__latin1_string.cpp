@@ -6,8 +6,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore5Compat/6.12.0/QtCore5Compat/private/qbinaryjson_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qlatin1stringview.h>
+#include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlatin1stringview.h>
 
 //  QBinaryJsonPrivate::Latin1String::Latin1String(const char *data)
 extern "C" Q_DECL_EXPORT
@@ -29,6 +30,14 @@ bool ritual_ZNK18QBinaryJsonPrivate12Latin1String7isValidEj(
     const QBinaryJsonPrivate::Latin1String *self,
     uint maxSize) {
   return self->isValid(maxSize);
+}
+
+//  void QBinaryJsonPrivate::Latin1String::copy(char *dest, QStringView src)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QBinaryJsonPrivate12Latin1String4copyEPc11QStringView(
+    char *dest,
+    const QString *src) {
+  QBinaryJsonPrivate::Latin1String::copy(dest, QStringView(*src));
 }
 
 //  QLatin1String QBinaryJsonPrivate::Latin1String::toQLatin1String() const

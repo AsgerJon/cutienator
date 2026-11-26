@@ -17,8 +17,17 @@
     "ritual_ZNK30QOpenGLVertexArrayObjectHelper7isValidEv": [
       "bool", "address"
     ],
+    "ritual_ZNK30QOpenGLVertexArrayObjectHelper17glGenVertexArraysEiPj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK30QOpenGLVertexArrayObjectHelper20glDeleteVertexArraysEiPKj": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZNK30QOpenGLVertexArrayObjectHelper17glBindVertexArrayEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK30QOpenGLVertexArrayObjectHelper15glIsVertexArrayEj": [
+      "unsigned char", "address", "unsigned int"
     ]
   }
 }

@@ -16,6 +16,10 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtPositioning/QGeoCoordinate>
+#include <QtPositioning/QGeoShape>
+#include <QtCore/QVariantMap>
 
 //  A QDeclarativeGeoLocation that Python can take functions over in. Every QDeclarativeGeoLocation
 //  Python makes is one. Each function below asks the Python
@@ -191,6 +195,25 @@ const QMetaObject *ritual_ZNK23QDeclarativeGeoLocation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoLocation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QDeclarativeGeoLocation11qt_metacastEPKc(
+    QDeclarativeGeoLocation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoLocation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QDeclarativeGeoLocation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoLocation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoLocation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QDeclarativeGeoLocation2trEPKcS1_i(
@@ -252,6 +275,14 @@ void ritual_ZN23QDeclarativeGeoLocation10setAddressEP22QDeclarativeGeoAddress(
   self->setAddress(address);
 }
 
+//  QBindable<QDeclarativeGeoAddress *>
+//      QDeclarativeGeoLocation::bindableAddress()
+extern "C" Q_DECL_EXPORT
+QBindable<QDeclarativeGeoAddress *> *ritual_ZN23QDeclarativeGeoLocation15bindableAddressEv(
+    QDeclarativeGeoLocation *self) {
+  return new QBindable<QDeclarativeGeoAddress *>(self->bindableAddress());
+}
+
 //  QGeoCoordinate QDeclarativeGeoLocation::coordinate() const
 extern "C" Q_DECL_EXPORT
 QGeoCoordinate *ritual_ZNK23QDeclarativeGeoLocation10coordinateEv(
@@ -266,6 +297,13 @@ void ritual_ZN23QDeclarativeGeoLocation13setCoordinateE14QGeoCoordinate(
     QDeclarativeGeoLocation *self,
     const QGeoCoordinate *coordinate) {
   self->setCoordinate(*coordinate);
+}
+
+//  QBindable<QGeoCoordinate> QDeclarativeGeoLocation::bindableCoordinate()
+extern "C" Q_DECL_EXPORT
+QBindable<QGeoCoordinate> *ritual_ZN23QDeclarativeGeoLocation18bindableCoordinateEv(
+    QDeclarativeGeoLocation *self) {
+  return new QBindable<QGeoCoordinate>(self->bindableCoordinate());
 }
 
 //  QGeoShape QDeclarativeGeoLocation::boundingShape() const
@@ -284,6 +322,13 @@ void ritual_ZN23QDeclarativeGeoLocation16setBoundingShapeERK9QGeoShape(
   self->setBoundingShape(*boundingShape);
 }
 
+//  QBindable<QGeoShape> QDeclarativeGeoLocation::bindableBoundingShape()
+extern "C" Q_DECL_EXPORT
+QBindable<QGeoShape> *ritual_ZN23QDeclarativeGeoLocation21bindableBoundingShapeEv(
+    QDeclarativeGeoLocation *self) {
+  return new QBindable<QGeoShape>(self->bindableBoundingShape());
+}
+
 //  QVariantMap QDeclarativeGeoLocation::extendedAttributes() const
 extern "C" Q_DECL_EXPORT
 QMap<QString, QVariant> *ritual_ZNK23QDeclarativeGeoLocation18extendedAttributesEv(
@@ -300,6 +345,14 @@ void ritual_ZN23QDeclarativeGeoLocation21setExtendedAttributesERK4QMapI7QString8
   self->setExtendedAttributes(*attributes);
 }
 
+//  QBindable<QVariantMap>
+//      QDeclarativeGeoLocation::bindableExtendedAttributes()
+extern "C" Q_DECL_EXPORT
+QBindable<QVariantMap> *ritual_ZN23QDeclarativeGeoLocation26bindableExtendedAttributesEv(
+    QDeclarativeGeoLocation *self) {
+  return new QBindable<QVariantMap>(self->bindableExtendedAttributes());
+}
+
 //  void QDeclarativeGeoLocation::setLocationInternal(const QGeoLocation
 //      &src)
 extern "C" Q_DECL_EXPORT
@@ -307,6 +360,31 @@ void ritual_ZN23QDeclarativeGeoLocation19setLocationInternalERK12QGeoLocation(
     QDeclarativeGeoLocation *self,
     const QGeoLocation *src) {
   self->setLocationInternal(*src);
+}
+
+//  size_t QDeclarativeGeoLocation::_qt_property_m_address_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN23QDeclarativeGeoLocation29_qt_property_m_address_offsetEv() {
+  return QDeclarativeGeoLocation::_qt_property_m_address_offset();
+}
+
+//  size_t QDeclarativeGeoLocation::_qt_property_m_boundingShape_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN23QDeclarativeGeoLocation35_qt_property_m_boundingShape_offsetEv() {
+  return QDeclarativeGeoLocation::_qt_property_m_boundingShape_offset();
+}
+
+//  size_t QDeclarativeGeoLocation::_qt_property_m_coordinate_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN23QDeclarativeGeoLocation32_qt_property_m_coordinate_offsetEv() {
+  return QDeclarativeGeoLocation::_qt_property_m_coordinate_offset();
+}
+
+//  size_t
+//      QDeclarativeGeoLocation::_qt_property_m_extendedAttributes_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN23QDeclarativeGeoLocation40_qt_property_m_extendedAttributes_offsetEv() {
+  return QDeclarativeGeoLocation::_qt_property_m_extendedAttributes_offset();
 }
 
 //  a Python function taken by a CuteQDeclarativeGeoLocation, for the
@@ -317,4 +395,33 @@ bool ritual_take_QDeclarativeGeoLocation(
     const char *key,
     void *call) {
   return static_cast<CuteQDeclarativeGeoLocation *>(self)->take(key, call);
+}
+
+//  a QBindable<QDeclarativeGeoAddress *> a ritual of QDeclarativeGeoLocation
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativeGeoLocation__QBindable_QDeclarativeGeoAddress(
+    QBindable<QDeclarativeGeoAddress *> *self) {
+  delete self;
+}
+
+//  a QBindable<QGeoCoordinate> a ritual of QDeclarativeGeoLocation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativeGeoLocation__QBindable_QGeoCoordinate(
+    QBindable<QGeoCoordinate> *self) {
+  delete self;
+}
+
+//  a QBindable<QGeoShape> a ritual of QDeclarativeGeoLocation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativeGeoLocation__QBindable_QGeoShape(
+    QBindable<QGeoShape> *self) {
+  delete self;
+}
+
+//  a QBindable<QVariantMap> a ritual of QDeclarativeGeoLocation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativeGeoLocation__QBindable_QVariantMap(
+    QBindable<QVariantMap> *self) {
+  delete self;
 }

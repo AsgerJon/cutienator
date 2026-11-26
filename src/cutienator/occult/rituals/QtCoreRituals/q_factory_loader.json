@@ -23,11 +23,15 @@
     "ritual_ZN14QFactoryLoader18setExtraSearchPathERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZNK14QFactoryLoader6keyMapEv": ["address", "address"],
     "ritual_ZNK14QFactoryLoader7indexOfERK7QString": [
       "int", "address", "text"
     ],
     "ritual_ZNK14QFactoryLoader8metaDataEv": ["address", "address"],
     "ritual_ZNK14QFactoryLoader12metaDataKeysEv": ["address", "address"],
-    "ritual_ZNK14QFactoryLoader8instanceEi": ["address", "address", "int"]
+    "ritual_ZNK14QFactoryLoader8instanceEi": ["address", "address", "int"],
+    "ritual_drop_QFactoryLoader__QMultiMap_int_QString": [
+      "nothing", "address"
+    ]
   }
 }

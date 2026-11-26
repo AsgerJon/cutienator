@@ -359,6 +359,25 @@ const QMetaObject *ritual_ZNK21QPlatformAudioDecoder10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformAudioDecoder::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QPlatformAudioDecoder11qt_metacastEPKc(
+    QPlatformAudioDecoder *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformAudioDecoder::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QPlatformAudioDecoder11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformAudioDecoder *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformAudioDecoder::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QPlatformAudioDecoder2trEPKcS1_i(
@@ -439,6 +458,20 @@ bool ritual_ZNK21QPlatformAudioDecoder15bufferAvailableEv(
   return self->bufferAvailable();
 }
 
+//  std::chrono::milliseconds QPlatformAudioDecoder::position() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK21QPlatformAudioDecoder8positionEv(
+    const QPlatformAudioDecoder *self) {
+  return static_cast<long long>(self->position().count());
+}
+
+//  std::chrono::milliseconds QPlatformAudioDecoder::duration() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK21QPlatformAudioDecoder8durationEv(
+    const QPlatformAudioDecoder *self) {
+  return static_cast<long long>(self->duration().count());
+}
+
 //  void QPlatformAudioDecoder::formatChanged(const QAudioFormat &format)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QPlatformAudioDecoder13formatChangedERK12QAudioFormat(
@@ -508,6 +541,22 @@ bool ritual_ZNK21QPlatformAudioDecoder10isDecodingEv(
   return self->isDecoding();
 }
 
+//  void QPlatformAudioDecoder::positionChanged(std::chrono::milliseconds a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlatformAudioDecoder15positionChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QPlatformAudioDecoder *self,
+    long long a0) {
+  self->positionChanged(std::chrono::milliseconds(a0));
+}
+
+//  void QPlatformAudioDecoder::durationChanged(std::chrono::milliseconds a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlatformAudioDecoder15durationChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QPlatformAudioDecoder *self,
+    long long a0) {
+  self->durationChanged(std::chrono::milliseconds(a0));
+}
+
 //  QAudioDecoder::Error QPlatformAudioDecoder::error() const
 extern "C" Q_DECL_EXPORT
 QAudioDecoder::Error ritual_ZNK21QPlatformAudioDecoder5errorEv(
@@ -533,6 +582,13 @@ bool ritual_ZNK21QPlatformAudioDecoder10canReadQrcEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QPlatformAudioDecoderD1Ev(QPlatformAudioDecoder *self) {
   delete self;
+}
+
+//  QPlatformAudioDecoder::QPlatformAudioDecoder(QAudioDecoder *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioDecoder *ritual_ZN21QPlatformAudioDecoderC1EP13QAudioDecoder(
+    QAudioDecoder *parent) {
+  return new CuteQPlatformAudioDecoder(parent);
 }
 
 //  a Python function taken by a CuteQPlatformAudioDecoder, for the function

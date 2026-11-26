@@ -22,6 +22,22 @@ const QMetaObject *ritual_ZNK6Spacer10metaObjectEv(const Spacer *self) {
   return self->metaObject();
 }
 
+//  void *Spacer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6Spacer11qt_metacastEPKc(Spacer *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Spacer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6Spacer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Spacer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Spacer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN6Spacer2trEPKcS1_i(const char *s, const char *c, int n) {

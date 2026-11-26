@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QQStyleKit10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQStyleKit11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QQStyleKit11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QQStyleKit21qt_qmlMarker_attachedEv": ["nothing", "address"]
   }
 }

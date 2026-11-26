@@ -287,6 +287,25 @@ const QMetaObject *ritual_ZNK19QQuick3DMorphTarget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DMorphTarget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuick3DMorphTarget11qt_metacastEPKc(
+    QQuick3DMorphTarget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DMorphTarget::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuick3DMorphTarget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DMorphTarget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DMorphTarget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuick3DMorphTarget2trEPKcS1_i(
@@ -341,6 +360,20 @@ void ritual_ZN19QQuick3DMorphTarget13setAttributesE6QFlagsINS_20MorphTargetAttri
       QFlags<QQuick3DMorphTarget::MorphTargetAttribute>::fromInt(attributes));
 }
 
+//  void QQuick3DMorphTarget::weightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DMorphTarget13weightChangedEv(
+    QQuick3DMorphTarget *self) {
+  self->weightChanged();
+}
+
+//  void QQuick3DMorphTarget::attributesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DMorphTarget17attributesChangedEv(
+    QQuick3DMorphTarget *self) {
+  self->attributesChanged();
+}
+
 //  QSSGRenderGraphObject
 //      *QQuick3DMorphTarget::updateSpatialNode(QSSGRenderGraphObject *node)
 extern "C" Q_DECL_EXPORT
@@ -355,6 +388,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuick3DMorphTarget12markAllDirtyEv(
     QQuick3DMorphTarget *self) {
   self->markAllDirty();
+}
+
+//  size_t QQuick3DMorphTarget::numAttribs()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN19QQuick3DMorphTarget10numAttribsEv(
+    QQuick3DMorphTarget *self) {
+  return self->numAttribs();
 }
 
 //  void QQuick3DMorphTarget::markDirty(QSSGMorphTargetDirtyType type)

@@ -5,6 +5,9 @@
   ],
   "rows": {
     "ritual_ZN30QPropertyBindingSourceLocationC1Ev": ["address"],
+    "ritual_ZN30QPropertyBindingSourceLocationC1ERKNSt12experimental15fundamentals_v215source_locationE": [
+      "address", "address"
+    ],
     "ritual_ZN30QPropertyBindingSourceLocationD1Ev": ["nothing", "address"]
   }
 }

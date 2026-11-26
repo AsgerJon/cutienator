@@ -187,6 +187,24 @@ const QMetaObject *ritual_ZNK14QLegendPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLegendPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QLegendPrivate11qt_metacastEPKc(
+    QLegendPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLegendPrivate::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QLegendPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLegendPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLegendPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QLegendPrivate2trEPKcS1_i(

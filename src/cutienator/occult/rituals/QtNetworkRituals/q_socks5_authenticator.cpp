@@ -44,6 +44,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/network/socket/qsocks5socketengine.cpp, line 402, as _ZN20QSocks5Authenticator17beginAuthenticateEP10QTcpSocketPb
 inline bool QSocks5Authenticator::beginAuthenticate(QTcpSocket *socket, bool *completed)
 {
@@ -104,7 +106,7 @@ typedef QString * (*CuteQSocks5AuthenticatorCall1)(const void *, int *);
 class CuteQSocks5Authenticator : public QSocks5Authenticator {
 public:
   using QSocks5Authenticator::QSocks5Authenticator;
-  CuteQSocks5Authenticator(const QSocks5Authenticator &other) : QSocks5Authenticator(other) {}
+  CuteQSocks5Authenticator(const QSocks5Authenticator & other) : QSocks5Authenticator(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

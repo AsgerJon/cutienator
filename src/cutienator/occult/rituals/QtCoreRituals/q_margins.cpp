@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qmargins.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qmargins.h>
+#include <QtCore/QMargins>
 
 //  QMargins::QMargins()
 extern "C" Q_DECL_EXPORT
@@ -196,6 +197,17 @@ QMargins *ritual_ZdvRK8QMarginsd(const QMargins *margins, qreal divisor) {
 extern "C" Q_DECL_EXPORT
 QMargins *ritual_ZorRK8QMarginsS1_(const QMargins *m1, const QMargins *m2) {
   return new QMargins(operator|(*m1, *m2));
+}
+
+//  QMargins::QMargins(Representation left, Representation top,
+//      Representation right, Representation bottom)
+extern "C" Q_DECL_EXPORT
+QMargins *ritual_ZN8QMarginsC1EN9QtPrivate16QCheckedIntegers11QCheckedIntIiNS1_13SafeCheckImplIiEENS1_18AssertReportPolicyEEES6_S6_S6_(
+    const QMargins::Representation *left,
+    const QMargins::Representation *top,
+    const QMargins::Representation *right,
+    const QMargins::Representation *bottom) {
+  return new QMargins(*left, *top, *right, *bottom);
 }
 
 //  bool operator==(const QMargins &lhs, const QMargins &rhs)

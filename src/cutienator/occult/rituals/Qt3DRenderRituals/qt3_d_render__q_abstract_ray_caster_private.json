@@ -5,6 +5,22 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender25QAbstractRayCasterPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate3getEPNS_18QAbstractRayCasterE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate3getEPKNS_18QAbstractRayCasterE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate16updateHitEntitesER5QListINS_13QRayCasterHitEEPN8Qt3DCore6QSceneE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate4pickEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate12dispatchHitsERK5QListINS_13QRayCasterHitEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate6q_funcEv": [
       "address", "address"
     ],
@@ -13,6 +29,9 @@
     ],
     "ritual_take_Qt3DRender_QAbstractRayCasterPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QAbstractRayCasterPrivate__Qt3DRender_QAbstractRayCaster_Hits": [
+      "nothing", "address"
     ]
   }
 }

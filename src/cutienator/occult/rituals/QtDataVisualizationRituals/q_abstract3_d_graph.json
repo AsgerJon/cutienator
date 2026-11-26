@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QAbstract3DGraph10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QAbstract3DGraph11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QAbstract3DGraph11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QAbstract3DGraph2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -156,6 +162,60 @@
     ],
     "ritual_ZN16QAbstract3DGraph10wheelEventEP11QWheelEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN16QAbstract3DGraph25activeInputHandlerChangedEP23QAbstract3DInputHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QAbstract3DGraph18activeThemeChangedEP8Q3DTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QAbstract3DGraph20selectionModeChangedE6QFlagsINS_13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QAbstract3DGraph20shadowQualityChangedENS_13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QAbstract3DGraph22selectedElementChangedENS_11ElementTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QAbstract3DGraph17measureFpsChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QAbstract3DGraph17currentFpsChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QAbstract3DGraph22orthoProjectionChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QAbstract3DGraph18aspectRatioChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QAbstract3DGraph24optimizationHintsChangedE6QFlagsINS_16OptimizationHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QAbstract3DGraph12polarChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QAbstract3DGraph24radialLabelOffsetChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QAbstract3DGraph28horizontalAspectRatioChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QAbstract3DGraph17reflectionChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QAbstract3DGraph19reflectivityChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QAbstract3DGraph13localeChangedERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QAbstract3DGraph27queriedGraphPositionChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QAbstract3DGraph13marginChangedEd": [
+      "nothing", "address", "double"
     ],
     "ritual_cast_QAbstract3DGraph_QOpenGLFunctions": ["address", "address"],
     "ritual_take_QAbstract3DGraph": ["bool", "address", "chars", "address"],

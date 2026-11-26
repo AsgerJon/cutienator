@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QButtonGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QButtonGroup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QButtonGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QButtonGroup2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QButtonGroupC1EP7QObject": ["address", "address"],
     "ritual_ZN12QButtonGroupD1Ev": ["nothing", "address"],
@@ -28,6 +34,24 @@
       "int", "address", "address"
     ],
     "ritual_ZNK12QButtonGroup9checkedIdEv": ["int", "address"],
+    "ritual_ZN12QButtonGroup13buttonClickedEP15QAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QButtonGroup13buttonPressedEP15QAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QButtonGroup14buttonReleasedEP15QAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QButtonGroup13buttonToggledEP15QAbstractButtonb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN12QButtonGroup9idClickedEi": ["nothing", "address", "int"],
+    "ritual_ZN12QButtonGroup9idPressedEi": ["nothing", "address", "int"],
+    "ritual_ZN12QButtonGroup10idReleasedEi": ["nothing", "address", "int"],
+    "ritual_ZN12QButtonGroup9idToggledEib": [
+      "nothing", "address", "int", "bool"
+    ],
     "ritual_ZN12QButtonGroup6d_funcEv": ["address", "address"],
     "ritual_ZNK12QButtonGroup6d_funcEv": ["address", "address"],
     "ritual_take_QButtonGroup": ["bool", "address", "chars", "address"]

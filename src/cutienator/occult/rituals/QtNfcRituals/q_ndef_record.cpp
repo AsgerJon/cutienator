@@ -1,8 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNfc/qndefrecord.h, Qt 6.12.0. Changes made here are lost.
+//  QtNfc/qndefrecord.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 3. Kept as it is when the
+//  generator runs again.
 #include <QtNfc/qndefrecord.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
+#include <QtNfc/qndefnfctextrecord.h>
+#include <QtNfc/qndefnfcurirecord.h>
+#include <QtNfc/qndefnfcsmartposterrecord.h>
 
 //  QNdefRecord::QNdefRecord()
 extern "C" Q_DECL_EXPORT
@@ -20,6 +25,14 @@ void ritual_ZN11QNdefRecordD1Ev(QNdefRecord *self) {
 extern "C" Q_DECL_EXPORT
 QNdefRecord *ritual_ZN11QNdefRecordC1ERKS_(const QNdefRecord *other) {
   return new QNdefRecord(*other);
+}
+
+//  QNdefRecord &QNdefRecord::operator=(const QNdefRecord &other)
+extern "C" Q_DECL_EXPORT
+QNdefRecord *ritual_ZN11QNdefRecordaSERKS_(
+    QNdefRecord *self,
+    const QNdefRecord *other) {
+  return &(self->operator=(*other));
 }
 
 //  void QNdefRecord::setTypeNameFormat(TypeNameFormat typeNameFormat)
@@ -167,4 +180,22 @@ QNdefRecord *ritual_list_at_QNdefRecord(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QNdefRecord(QList<QNdefRecord> *self) {
   delete self;
+}
+
+//  bool QNdefRecord::isRecordType<QNdefNfcTextRecord>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QNdefRecord12isRecordTypeI18QNdefNfcTextRecordEEbv(const QNdefRecord *self) {
+  return self->isRecordType<QNdefNfcTextRecord>();
+}
+
+//  bool QNdefRecord::isRecordType<QNdefNfcUriRecord>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QNdefRecord12isRecordTypeI17QNdefNfcUriRecordEEbv(const QNdefRecord *self) {
+  return self->isRecordType<QNdefNfcUriRecord>();
+}
+
+//  bool QNdefRecord::isRecordType<QNdefNfcSmartPosterRecord>() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QNdefRecord12isRecordTypeI25QNdefNfcSmartPosterRecordEEbv(const QNdefRecord *self) {
+  return self->isRecordType<QNdefNfcSmartPosterRecord>();
 }

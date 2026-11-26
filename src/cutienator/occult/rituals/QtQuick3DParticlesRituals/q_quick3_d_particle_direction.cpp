@@ -205,6 +205,25 @@ const QMetaObject *ritual_ZNK25QQuick3DParticleDirection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleDirection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuick3DParticleDirection11qt_metacastEPKc(
+    QQuick3DParticleDirection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleDirection::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuick3DParticleDirection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleDirection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleDirection::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -220,6 +239,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN25QQuick3DParticleDirection22qt_qmlMarker_anonymousEv(
     QQuick3DParticleDirection *self) {
   self->qt_qmlMarker_anonymous();
+}
+
+//  QQuick3DParticleDirection::QQuick3DParticleDirection(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DParticleDirection *ritual_ZN25QQuick3DParticleDirectionC1EP7QObject(
+    QObject *parent) {
+  return new CuteQQuick3DParticleDirection(parent);
 }
 
 //  QVector3D QQuick3DParticleDirection::sample(const QQuick3DParticleData

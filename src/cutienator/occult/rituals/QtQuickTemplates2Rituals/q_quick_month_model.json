@@ -6,6 +6,24 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickMonthModel10metaObjectEv": ["address", "address"],
-    "ritual_ZNK16QQuickMonthModel9roleNamesEv": ["address", "address"]
+    "ritual_ZN16QQuickMonthModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickMonthModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK16QQuickMonthModel9roleNamesEv": ["address", "address"],
+    "ritual_ZNK16QQuickMonthModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK16QQuickMonthModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QQuickMonthModel12monthChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickMonthModel11yearChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickMonthModel13localeChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickMonthModel12titleChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickMonthModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQuickMonthModel6d_funcEv": ["address", "address"]
   }
 }

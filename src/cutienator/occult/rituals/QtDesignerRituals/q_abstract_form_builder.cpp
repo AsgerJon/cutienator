@@ -1323,6 +1323,17 @@ QHash<QString, DomProperty *> *ritual_ZN20QAbstractFormBuilder11propertyMapERK5Q
           *properties));
 }
 
+//  void QAbstractFormBuilder::setupColorGroup(QPalette &palette,
+//      QPalette::ColorGroup colorGroup, DomColorGroup *group)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QAbstractFormBuilder15setupColorGroupER8QPaletteNS0_10ColorGroupEP13DomColorGroup(
+    QAbstractFormBuilder *self,
+    QPalette *palette,
+    QPalette::ColorGroup colorGroup,
+    DomColorGroup *group) {
+  self->setupColorGroup(*palette, colorGroup, group);
+}
+
 //  DomColorGroup *QAbstractFormBuilder::saveColorGroup(const QPalette
 //      &palette)
 extern "C" Q_DECL_EXPORT
@@ -1366,6 +1377,26 @@ void ritual_ZN20QAbstractFormBuilder10initializeEPK5DomUI(
 extern "C" Q_DECL_EXPORT
 QMetaEnum *ritual_ZN20QAbstractFormBuilder19toolBarAreaMetaEnumEv() {
   return new QMetaEnum(QAbstractFormBuilder::toolBarAreaMetaEnum());
+}
+
+//  void QAbstractFormBuilder::setIconProperty(DomProperty &a0, const
+//      IconPaths &a1) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK20QAbstractFormBuilder15setIconPropertyER11DomPropertyRKSt4pairI7QStringS3_E(
+    const QAbstractFormBuilder *self,
+    DomProperty *a0,
+    const QAbstractFormBuilder::IconPaths *a1) {
+  self->setIconProperty(*a0, *a1);
+}
+
+//  void QAbstractFormBuilder::setPixmapProperty(DomProperty &a0, const
+//      IconPaths &a1) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK20QAbstractFormBuilder17setPixmapPropertyER11DomPropertyRKSt4pairI7QStringS3_E(
+    const QAbstractFormBuilder *self,
+    DomProperty *a0,
+    const QAbstractFormBuilder::IconPaths *a1) {
+  self->setPixmapProperty(*a0, *a1);
 }
 
 //  const DomResourcePixmap *QAbstractFormBuilder::domPixmap(const

@@ -183,6 +183,24 @@ const QMetaObject *ritual_ZNK14QMediaRecorder10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMediaRecorder::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QMediaRecorder11qt_metacastEPKc(
+    QMediaRecorder *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMediaRecorder::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QMediaRecorder11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMediaRecorder *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMediaRecorder::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QMediaRecorder2trEPKcS1_i(
@@ -483,6 +501,126 @@ void ritual_ZN14QMediaRecorder5pauseEv(QMediaRecorder *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QMediaRecorder4stopEv(QMediaRecorder *self) {
   self->stop();
+}
+
+//  void QMediaRecorder::recorderStateChanged(QMediaRecorder::RecorderState
+//      state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder20recorderStateChangedENS_13RecorderStateE(
+    QMediaRecorder *self,
+    QMediaRecorder::RecorderState state) {
+  self->recorderStateChanged(state);
+}
+
+//  void QMediaRecorder::durationChanged(qint64 duration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder15durationChangedEx(
+    QMediaRecorder *self,
+    qint64 duration) {
+  self->durationChanged(duration);
+}
+
+//  void QMediaRecorder::actualLocationChanged(const QUrl &location)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder21actualLocationChangedERK4QUrl(
+    QMediaRecorder *self,
+    const QUrl *location) {
+  self->actualLocationChanged(*location);
+}
+
+#if QT_DEPRECATED_SINCE(6, 9)
+//  void QMediaRecorder::encoderSettingsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder22encoderSettingsChangedEv(
+    QMediaRecorder *self) {
+  self->encoderSettingsChanged();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  void QMediaRecorder::errorOccurred(QMediaRecorder::Error error, const
+//      QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder13errorOccurredENS_5ErrorERK7QString(
+    QMediaRecorder *self,
+    QMediaRecorder::Error error,
+    const QString *errorString) {
+  self->errorOccurred(error, *errorString);
+}
+
+//  void QMediaRecorder::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder12errorChangedEv(QMediaRecorder *self) {
+  self->errorChanged();
+}
+
+//  void QMediaRecorder::metaDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder15metaDataChangedEv(QMediaRecorder *self) {
+  self->metaDataChanged();
+}
+
+//  void QMediaRecorder::mediaFormatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder18mediaFormatChangedEv(QMediaRecorder *self) {
+  self->mediaFormatChanged();
+}
+
+//  void QMediaRecorder::encodingModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder19encodingModeChangedEv(QMediaRecorder *self) {
+  self->encodingModeChanged();
+}
+
+//  void QMediaRecorder::qualityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder14qualityChangedEv(QMediaRecorder *self) {
+  self->qualityChanged();
+}
+
+//  void QMediaRecorder::videoResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder22videoResolutionChangedEv(
+    QMediaRecorder *self) {
+  self->videoResolutionChanged();
+}
+
+//  void QMediaRecorder::videoFrameRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder21videoFrameRateChangedEv(
+    QMediaRecorder *self) {
+  self->videoFrameRateChanged();
+}
+
+//  void QMediaRecorder::videoBitRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder19videoBitRateChangedEv(QMediaRecorder *self) {
+  self->videoBitRateChanged();
+}
+
+//  void QMediaRecorder::audioBitRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder19audioBitRateChangedEv(QMediaRecorder *self) {
+  self->audioBitRateChanged();
+}
+
+//  void QMediaRecorder::audioChannelCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder24audioChannelCountChangedEv(
+    QMediaRecorder *self) {
+  self->audioChannelCountChanged();
+}
+
+//  void QMediaRecorder::audioSampleRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder22audioSampleRateChangedEv(
+    QMediaRecorder *self) {
+  self->audioSampleRateChanged();
+}
+
+//  void QMediaRecorder::autoStopChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMediaRecorder15autoStopChangedEv(QMediaRecorder *self) {
+  self->autoStopChanged();
 }
 
 //  void QMediaRecorder::setCaptureSession(QMediaCaptureSession *session)

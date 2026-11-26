@@ -35,6 +35,11 @@
 #endif
 #include <QtWidgets/private/qtoolbarlayout_p.h>
 #include <QtWidgets/private/qtoolbarseparator_p.h>
+#include <QtWidgets/private/qtoolbarseparator_p.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qtoolbar.h>
+#include <QtGui/qpainter.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -44,24 +49,30 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 308, as local:qtoolbarlayout.cpp:defaultWidgetAction
+static bool defaultWidgetAction(QToolBarItem *item)
+{
+    QWidgetAction *a = qobject_cast<QWidgetAction*>(item->action);
+    return a != nullptr && a->defaultWidget() == item->widget();
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 196, as _ZN14QToolBarLayout10invalidateEv
+inline void QToolBarLayout::invalidate()
+{
+    dirty = true;
+    QLayout::invalidate();
+}
+
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 36, as _ZN12QToolBarItemC1EP7QWidget
 inline QToolBarItem::QToolBarItem(QWidget *widget)
     : QWidgetItem(widget), action(nullptr), customWidget(false)
 {
 }
 
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 67, as _ZN14QToolBarLayoutD1Ev
-inline QToolBarLayout::~QToolBarLayout()
-{
-    while (!items.isEmpty()) {
-        QToolBarItem *item = items.takeFirst();
-        if (QWidgetAction *widgetAction = qobject_cast<QWidgetAction*>(item->action)) {
-            if (item->customWidget)
-                widgetAction->releaseWidget(item->widget());
-        }
-        delete item;
-    }
-}
+//  from src/widgets/widgets/qtoolbarseparator.cpp, line 21, as _ZN17QToolBarSeparatorC1EP8QToolBar
+inline QToolBarSeparator::QToolBarSeparator(QToolBar *parent)
+    : QWidget(parent), orient(parent->orientation())
+{ setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum); }
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 128, as _ZN14QToolBarLayout7addItemEP11QLayoutItem
 inline void QToolBarLayout::addItem(QLayoutItem*)
@@ -113,13 +124,6 @@ inline bool QToolBarLayout::isEmpty() const
     if (dirty)
         updateGeomArray();
     return empty;
-}
-
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 196, as _ZN14QToolBarLayout10invalidateEv
-inline void QToolBarLayout::invalidate()
-{
-    dirty = true;
-    QLayout::invalidate();
 }
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 202, as _ZNK14QToolBarLayout19expandingDirectionsEv
@@ -205,6 +209,25 @@ inline QSize QToolBarLayout::sizeHint() const
     return hint;
 }
 
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 41, as _ZNK12QToolBarItem7isEmptyEv
+inline bool QToolBarItem::isEmpty() const
+{
+    return action == nullptr || !action->isVisible();
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 67, as _ZN14QToolBarLayoutD1Ev
+inline QToolBarLayout::~QToolBarLayout()
+{
+    while (!items.isEmpty()) {
+        QToolBarItem *item = items.takeFirst();
+        if (QWidgetAction *widgetAction = qobject_cast<QWidgetAction*>(item->action)) {
+            if (item->customWidget)
+                widgetAction->releaseWidget(item->widget());
+        }
+        delete item;
+    }
+}
+
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 175, as _ZNK14QToolBarLayout7indexOfEPK7QAction
 inline int QToolBarLayout::indexOf(const QAction *action) const
 {
@@ -213,6 +236,155 @@ inline int QToolBarLayout::indexOf(const QAction *action) const
             return i;
     }
     return -1;
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 394, as _ZN14QToolBarLayout13layoutActionsERK5QSize
+inline bool QToolBarLayout::layoutActions(const QSize &size)
+{
+    if (dirty)
+        updateGeomArray();
+
+    QRect rect(0, 0, size.width(), size.height());
+
+    QList<QWidget*> showWidgets, hideWidgets;
+
+    QToolBar *tb = qobject_cast<QToolBar*>(parentWidget());
+    if (!tb)
+        return false;
+    QStyle *style = tb->style();
+    QStyleOptionToolBar opt;
+    tb->initStyleOption(&opt);
+    const int handleExtent = movable()
+            ? style->pixelMetric(QStyle::PM_ToolBarHandleExtent, &opt, tb) : 0;
+    const QMargins margins = contentsMargins();
+    const int spacing = this->spacing();
+    const int extensionExtent = style->pixelMetric(QStyle::PM_ToolBarExtensionExtent, &opt, tb);
+    Qt::Orientation o = tb->orientation();
+    bool extensionMenuContainsOnlyWidgetActions = true;
+
+    int space = pick(o, rect.size()) - pick(o, margins) - handleExtent;
+    if (space <= 0)
+        return false;  // nothing to do.
+
+    if (popupMenu)
+        popupMenu->clear();
+
+    bool ranOutOfSpace = false;
+    int rows = 0;
+    int rowPos = perp(o, rect.topLeft()) + perp(o, QSize(margins.top(), margins.left()));
+    int i = 0;
+    while (i < items.size()) {
+        QList<QLayoutStruct> a = geomArray;
+
+        int start = i;
+        int size = 0;
+        int prev = -1;
+        int rowHeight = 0;
+        int count = 0;
+        int maximumSize = 0;
+        bool expansiveRow = false;
+        for (; i < items.size(); ++i) {
+            if (a[i].empty)
+                continue;
+
+            int newSize = size + (count == 0 ? 0 : spacing) + a[i].minimumSize;
+            if (prev != -1 && newSize > space) {
+                if (rows == 0)
+                    ranOutOfSpace = true;
+                // do we have to move the previous item to the next line to make space for
+                // the extension button?
+                if (count > 1 && size + spacing + extensionExtent > space)
+                    i = prev;
+                break;
+            }
+
+            if (expanded)
+                rowHeight = qMax(rowHeight, perp(o, items.at(i)->sizeHint()));
+            expansiveRow = expansiveRow || a[i].expansive;
+            size = newSize;
+            maximumSize += spacing + (a[i].expansive ? a[i].maximumSize : a[i].smartSizeHint());
+            prev = i;
+            ++count;
+        }
+
+        // stretch at the end
+        a[i].sizeHint = 0;
+        a[i].maximumSize = QWIDGETSIZE_MAX;
+        a[i].minimumSize = 0;
+        a[i].expansive = true;
+        a[i].stretch = 0;
+        a[i].empty = true;
+
+        if (expansiveRow && maximumSize < space) {
+            expansiveRow = false;
+            a[i].maximumSize = space - maximumSize;
+        }
+
+        qGeomCalc(a, start, i - start + (expansiveRow ? 0 : 1), 0,
+                    space - (ranOutOfSpace ? (extensionExtent + spacing) : 0),
+                    spacing);
+
+        for (int j = start; j < i; ++j) {
+            QToolBarItem *item = items.at(j);
+
+            if (a[j].empty) {
+                if (!item->widget()->isHidden())
+                    hideWidgets << item->widget();
+                continue;
+            }
+
+            QPoint pos;
+            rpick(o, pos) = pick(o, QSize(margins.top(), margins.left())) + handleExtent + a[j].pos;
+            rperp(o, pos) = rowPos;
+            QSize size;
+            rpick(o, size) = a[j].size;
+            if (expanded)
+                rperp(o, size) = rowHeight;
+            else
+                rperp(o, size) = perp(o, rect.size()) - perp(o, margins);
+            QRect r(pos, size);
+
+            if (o == Qt::Horizontal)
+                r = QStyle::visualRect(parentWidget()->layoutDirection(), rect, r);
+
+            item->setGeometry(r);
+
+            if (item->widget()->isHidden())
+                showWidgets << item->widget();
+        }
+
+        if (!expanded) {
+            for (int j = i; j < items.size(); ++j) {
+                QToolBarItem *item = items.at(j);
+                if (!item->widget()->isHidden())
+                    hideWidgets << item->widget();
+                if (popupMenu) {
+                    if (!defaultWidgetAction(item)) {
+                        popupMenu->addAction(item->action);
+                        extensionMenuContainsOnlyWidgetActions = false;
+                    }
+                }
+            }
+            break;
+        }
+
+        rowPos += rowHeight + spacing;
+        ++rows;
+    }
+
+    // if we are using a popup menu, not the expadning toolbar effect, we cannot move custom
+    // widgets into the menu. If only custom widget actions are chopped off, the popup menu
+    // is empty. So we show the little extension button to show something is chopped off,
+    // but we make it disabled.
+    extension->setEnabled(popupMenu == nullptr || !extensionMenuContainsOnlyWidgetActions);
+
+    // we have to do the show/hide here, because it triggers more calls to setGeometry :(
+    for (int i = 0; i < showWidgets.size(); ++i)
+        showWidgets.at(i)->show();
+    for (int i = 0; i < hideWidgets.size(); ++i)
+        hideWidgets.at(i)->hide();
+
+    return ranOutOfSpace;
 }
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 542, as _ZNK14QToolBarLayout12expandedSizeERK5QSize
@@ -1100,6 +1272,24 @@ const QMetaObject *ritual_ZNK14QToolBarLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QToolBarLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QToolBarLayout11qt_metacastEPKc(
+    QToolBarLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QToolBarLayout::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QToolBarLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QToolBarLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QToolBarLayout::~QToolBarLayout()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QToolBarLayoutD1Ev(QToolBarLayout *self) {
@@ -1184,6 +1374,14 @@ int ritual_ZNK14QToolBarLayout7indexOfEPK7QAction(
   return self->indexOf(action);
 }
 
+//  bool QToolBarLayout::layoutActions(const QSize &size)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QToolBarLayout13layoutActionsERK5QSize(
+    QToolBarLayout *self,
+    const QSize *size) {
+  return self->layoutActions(*size);
+}
+
 //  QSize QToolBarLayout::expandedSize(const QSize &size) const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK14QToolBarLayout12expandedSizeERK5QSize(
@@ -1234,6 +1432,31 @@ void ritual_ZN14QToolBarLayout22updateMacBorderMetricsEv(
   self->updateMacBorderMetrics();
 }
 #endif  // defined(Q_OS_LINUX)
+
+//  void QToolBarLayout::setExpanded(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QToolBarLayout11setExpandedEb(QToolBarLayout *self, bool b) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QToolBarLayout")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setExpanded(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setExpanded(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&b)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
 
 //  void QToolBarLayout::updateGeomArray() const
 extern "C" Q_DECL_EXPORT
@@ -1301,6 +1524,16 @@ int ritual_own_ZNK14QToolBarLayout19expandingDirectionsEv(
   return static_cast<int>(
       self->QToolBarLayout::expandingDirections().toInt());
 }
+
+#if defined(Q_OS_LINUX)
+//  void QToolBarLayout::setGeometry(const QRect &r)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QToolBarLayout11setGeometryERK5QRect(
+    QToolBarLayout *self,
+    const QRect *r) {
+  self->QToolBarLayout::setGeometry(*r);
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  QSize QToolBarLayout::minimumSize() const
 extern "C" Q_DECL_EXPORT

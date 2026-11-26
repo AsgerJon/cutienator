@@ -337,6 +337,25 @@ const QMetaObject *ritual_ZNK30QOAuth2DeviceAuthorizationFlow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOAuth2DeviceAuthorizationFlow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QOAuth2DeviceAuthorizationFlow11qt_metacastEPKc(
+    QOAuth2DeviceAuthorizationFlow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOAuth2DeviceAuthorizationFlow::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QOAuth2DeviceAuthorizationFlow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOAuth2DeviceAuthorizationFlow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOAuth2DeviceAuthorizationFlow::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -431,6 +450,65 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN30QOAuth2DeviceAuthorizationFlow16stopTokenPollingEv(
     QOAuth2DeviceAuthorizationFlow *self) {
   self->stopTokenPolling();
+}
+
+//  void QOAuth2DeviceAuthorizationFlow::authorizeWithUserCode(const QUrl
+//      &verificationUrl, const QString &userCode, const QUrl
+//      &completeVerificationUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QOAuth2DeviceAuthorizationFlow21authorizeWithUserCodeERK4QUrlRK7QStringS2_(
+    QOAuth2DeviceAuthorizationFlow *self,
+    const QUrl *verificationUrl,
+    const QString *userCode,
+    const QUrl *completeVerificationUrl) {
+  self->authorizeWithUserCode(
+      *verificationUrl,
+      *userCode,
+      *completeVerificationUrl);
+}
+
+//  void QOAuth2DeviceAuthorizationFlow::userCodeChanged(const QString
+//      &userCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QOAuth2DeviceAuthorizationFlow15userCodeChangedERK7QString(
+    QOAuth2DeviceAuthorizationFlow *self,
+    const QString *userCode) {
+  self->userCodeChanged(*userCode);
+}
+
+//  void QOAuth2DeviceAuthorizationFlow::verificationUrlChanged(const QUrl
+//      &verificationUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QOAuth2DeviceAuthorizationFlow22verificationUrlChangedERK4QUrl(
+    QOAuth2DeviceAuthorizationFlow *self,
+    const QUrl *verificationUrl) {
+  self->verificationUrlChanged(*verificationUrl);
+}
+
+//  void QOAuth2DeviceAuthorizationFlow::completeVerificationUrlChanged(const
+//      QUrl &completeVerificationUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QOAuth2DeviceAuthorizationFlow30completeVerificationUrlChangedERK4QUrl(
+    QOAuth2DeviceAuthorizationFlow *self,
+    const QUrl *completeVerificationUrl) {
+  self->completeVerificationUrlChanged(*completeVerificationUrl);
+}
+
+//  void QOAuth2DeviceAuthorizationFlow::pollingChanged(bool polling)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QOAuth2DeviceAuthorizationFlow14pollingChangedEb(
+    QOAuth2DeviceAuthorizationFlow *self,
+    bool polling) {
+  self->pollingChanged(polling);
+}
+
+//  void QOAuth2DeviceAuthorizationFlow::userCodeExpirationAtChanged(const
+//      QDateTime &expiration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QOAuth2DeviceAuthorizationFlow27userCodeExpirationAtChangedERK9QDateTime(
+    QOAuth2DeviceAuthorizationFlow *self,
+    const QDateTime *expiration) {
+  self->userCodeExpirationAtChanged(*expiration);
 }
 
 //  bool QOAuth2DeviceAuthorizationFlow::event(QEvent *event)

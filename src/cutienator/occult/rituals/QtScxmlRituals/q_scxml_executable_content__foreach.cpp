@@ -20,6 +20,13 @@ int ritual_ZNK23QScxmlExecutableContent7Foreach4sizeEv(
   return self->size();
 }
 
+//  const InstructionId *QScxmlExecutableContent::Foreach::blockstart() const
+extern "C" Q_DECL_EXPORT
+const QScxmlExecutableContent::InstructionId *ritual_ZNK23QScxmlExecutableContent7Foreach10blockstartEv(
+    const QScxmlExecutableContent::Foreach *self) {
+  return self->blockstart();
+}
+
 //  QScxmlExecutableContent::Foreach::~Foreach()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QScxmlExecutableContent7ForeachD1Ev(

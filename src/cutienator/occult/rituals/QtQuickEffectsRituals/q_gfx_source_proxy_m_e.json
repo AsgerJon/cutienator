@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QGfxSourceProxyME10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGfxSourceProxyME11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QGfxSourceProxyME11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QGfxSourceProxyMED1Ev": ["nothing", "address"],
     "ritual_ZNK17QGfxSourceProxyME5inputEv": ["address", "address"],
     "ritual_ZNK17QGfxSourceProxyME6outputEv": ["address", "address"],
@@ -13,6 +19,15 @@
     "ritual_ZNK17QGfxSourceProxyME8isActiveEv": ["bool", "address"],
     "ritual_ZNK17QGfxSourceProxyME13interpolationEv": ["int", "address"],
     "ritual_ZN17QGfxSourceProxyME12updatePolishEv": ["nothing", "address"],
+    "ritual_ZN17QGfxSourceProxyME12inputChangedEv": ["nothing", "address"],
+    "ritual_ZN17QGfxSourceProxyME13outputChangedEv": ["nothing", "address"],
+    "ritual_ZN17QGfxSourceProxyME17sourceRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QGfxSourceProxyME13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN17QGfxSourceProxyME20interpolationChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QGfxSourceProxyME8repolishEv": ["nothing", "address"],
     "ritual_ZN17QGfxSourceProxyME9findLayerEP10QQuickItem": [
       "address", "address"

@@ -18,6 +18,13 @@ quint32 ritual_ZNK24QGrpcInterceptionContext7versionEv(
   return self->version();
 }
 
+//  const QAbstractGrpcChannel &QGrpcInterceptionContext::channel() const
+extern "C" Q_DECL_EXPORT
+const QAbstractGrpcChannel *ritual_ZNKR24QGrpcInterceptionContext7channelEv(
+    const QGrpcInterceptionContext *self) {
+  return &(self->channel());
+}
+
 //  QtGrpc::RpcDescriptor QGrpcInterceptionContext::descriptor() const
 extern "C" Q_DECL_EXPORT
 QtGrpc::RpcDescriptor *ritual_ZNK24QGrpcInterceptionContext10descriptorEv(
@@ -37,4 +44,13 @@ extern "C" Q_DECL_EXPORT
 quint64 ritual_ZNK24QGrpcInterceptionContext11operationIdEv(
     const QGrpcInterceptionContext *self) {
   return self->operationId();
+}
+
+//  QGrpcInterceptionContext::QGrpcInterceptionContext(const
+//      QAbstractGrpcChannel &channel, QGrpcOperationContext &context)
+extern "C" Q_DECL_EXPORT
+QGrpcInterceptionContext *ritual_ZN24QGrpcInterceptionContextC1ERK20QAbstractGrpcChannelR21QGrpcOperationContext(
+    const QAbstractGrpcChannel *channel,
+    QGrpcOperationContext *context) {
+  return new QGrpcInterceptionContext(*channel, *context);
 }

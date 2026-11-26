@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN14QSSGRenderSkinC1Ev": ["address"],
-    "ritual_ZN14QSSGRenderSkinD1Ev": ["nothing", "address"]
+    "ritual_ZN14QSSGRenderSkinD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSSGRenderSkin8boneDataEv": ["address", "address"]
   }
 }

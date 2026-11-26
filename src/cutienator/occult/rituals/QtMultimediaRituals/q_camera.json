@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK7QCamera10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QCamera11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QCamera11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QCamera2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QCameraC1EP7QObject": ["address", "address"],
     "ritual_ZN7QCameraC1ERK13QCameraDeviceP7QObject": [
@@ -103,6 +107,55 @@
     "ritual_ZN7QCamera19setColorTemperatureEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN7QCamera13activeChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QCamera12errorChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera13errorOccurredENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN7QCamera19cameraDeviceChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera19cameraFormatChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera24supportedFeaturesChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera16focusModeChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera17zoomFactorChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN7QCamera24minimumZoomFactorChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN7QCamera24maximumZoomFactorChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN7QCamera20focusDistanceChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN7QCamera17focusPointChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera23customFocusPointChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera10flashReadyEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QCamera16flashModeChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera16torchModeChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera19exposureTimeChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN7QCamera25manualExposureTimeChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN7QCamera21isoSensitivityChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QCamera27manualIsoSensitivityChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QCamera27exposureCompensationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN7QCamera19exposureModeChangedEv": ["nothing", "address"],
+    "ritual_ZNK7QCamera23whiteBalanceModeChangedEv": ["nothing", "address"],
+    "ritual_ZNK7QCamera23colorTemperatureChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera17brightnessChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera15contrastChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera17saturationChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera10hueChangedEv": ["nothing", "address"],
+    "ritual_ZN7QCamera14platformCameraEv": ["address", "address"],
     "ritual_ZN7QCamera17setCaptureSessionEP20QMediaCaptureSession": [
       "nothing", "address", "address"
     ],

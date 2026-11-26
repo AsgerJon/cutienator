@@ -12,6 +12,7 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -409,6 +410,25 @@ const QMetaObject *ritual_ZNK23QPlatformSystemTrayIcon10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformSystemTrayIcon::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QPlatformSystemTrayIcon11qt_metacastEPKc(
+    QPlatformSystemTrayIcon *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformSystemTrayIcon::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QPlatformSystemTrayIcon11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformSystemTrayIcon *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformSystemTrayIcon::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QPlatformSystemTrayIcon2trEPKcS1_i(
@@ -416,6 +436,12 @@ QString *ritual_ZN23QPlatformSystemTrayIcon2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPlatformSystemTrayIcon::tr(s, c, n));
+}
+
+//  QPlatformSystemTrayIcon::QPlatformSystemTrayIcon()
+extern "C" Q_DECL_EXPORT
+QPlatformSystemTrayIcon *ritual_ZN23QPlatformSystemTrayIconC1Ev() {
+  return new CuteQPlatformSystemTrayIcon();
 }
 
 //  QPlatformSystemTrayIcon::~QPlatformSystemTrayIcon()
@@ -501,6 +527,32 @@ extern "C" Q_DECL_EXPORT
 QPlatformMenu *ritual_ZNK23QPlatformSystemTrayIcon10createMenuEv(
     const QPlatformSystemTrayIcon *self) {
   return self->createMenu();
+}
+
+//  void QPlatformSystemTrayIcon::activated(QPlatformSystemTrayIcon::Activati
+//      onReason reason)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QPlatformSystemTrayIcon9activatedENS_16ActivationReasonE(
+    QPlatformSystemTrayIcon *self,
+    QPlatformSystemTrayIcon::ActivationReason reason) {
+  self->activated(reason);
+}
+
+//  void QPlatformSystemTrayIcon::contextMenuRequested(QPoint globalPos,
+//      const QPlatformScreen *screen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QPlatformSystemTrayIcon20contextMenuRequestedE6QPointPK15QPlatformScreen(
+    QPlatformSystemTrayIcon *self,
+    const QPoint *globalPos,
+    const QPlatformScreen *screen) {
+  self->contextMenuRequested(*globalPos, screen);
+}
+
+//  void QPlatformSystemTrayIcon::messageClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QPlatformSystemTrayIcon14messageClickedEv(
+    QPlatformSystemTrayIcon *self) {
+  self->messageClicked();
 }
 
 //  a Python function taken by a CuteQPlatformSystemTrayIcon, for the

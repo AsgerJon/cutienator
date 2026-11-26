@@ -11,9 +11,18 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qdatetime.h>
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QFlags>
+#include <QtCore/QIODeviceBase>
+#include <optional>
+#include <QtCore/QFile>
+#include <QtCore/QString>
+#include <QtCore/QDateTime>
+#include <QtCore/QDirListing>
+#include <QtCore/QList>
 
 //  A QFSFileEngine that Python can take functions over in. Every QFSFileEngine
 //  Python makes is one. Each function below asks the Python
@@ -91,21 +100,27 @@ typedef void (*CuteQFSFileEngineCall22)(const void *, const QString *, int *);
 typedef int (*CuteQFSFileEngineCall23)(const void *, int *);
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-typedef int (*CuteQFSFileEngineCall24)(const void *, QAbstractFileEngine *, int *);
+typedef qint64 (*CuteQFSFileEngineCall24)(const void *, char *, qint64, int *);
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-typedef bool (*CuteQFSFileEngineCall25)(const void *, int *);
+typedef qint64 (*CuteQFSFileEngineCall25)(const void *, char *, qint64, int *);
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-typedef bool (*CuteQFSFileEngineCall26)(const void *, int, const QAbstractFileEngine::ExtensionOption *, QAbstractFileEngine::ExtensionReturn *, int *);
+typedef int (*CuteQFSFileEngineCall26)(const void *, QAbstractFileEngine *, int *);
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-typedef bool (*CuteQFSFileEngineCall27)(const void *, int, int *);
+typedef bool (*CuteQFSFileEngineCall27)(const void *, int *);
+#endif  // !defined(QT_NO_FSFILEENGINE)
+#if !defined(QT_NO_FSFILEENGINE)
+typedef bool (*CuteQFSFileEngineCall28)(const void *, int, const QAbstractFileEngine::ExtensionOption *, QAbstractFileEngine::ExtensionReturn *, int *);
+#endif  // !defined(QT_NO_FSFILEENGINE)
+#if !defined(QT_NO_FSFILEENGINE)
+typedef bool (*CuteQFSFileEngineCall29)(const void *, int, int *);
 #endif  // !defined(QT_NO_FSFILEENGINE)
 class CuteQFSFileEngine : public QFSFileEngine {
 public:
   using QFSFileEngine::QFSFileEngine;
-  void *taken[28] = {};
+  void *taken[30] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_FSFILEENGINE)
@@ -253,26 +268,38 @@ public:
     }
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-    if (!std::strcmp(key, "_ZN19QAbstractFileEngine7cloneToEPS_")) {
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine4readEPcx")) {
       taken[24] = call;
       return true;
     }
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-    if (!std::strcmp(key, "_ZNK13QFSFileEngine13isUnnamedFileEv")) {
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine8readLineEPcx")) {
       taken[25] = call;
       return true;
     }
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-    if (!std::strcmp(key, "_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE")) {
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine7cloneToEPS_")) {
       taken[26] = call;
       return true;
     }
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-    if (!std::strcmp(key, "_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE")) {
+    if (!std::strcmp(key, "_ZNK13QFSFileEngine13isUnnamedFileEv")) {
       taken[27] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_FSFILEENGINE)
+#if !defined(QT_NO_FSFILEENGINE)
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE")) {
+      taken[28] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_FSFILEENGINE)
+#if !defined(QT_NO_FSFILEENGINE)
+    if (!std::strcmp(key, "_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE")) {
+      taken[29] = call;
       return true;
     }
 #endif  // !defined(QT_NO_FSFILEENGINE)
@@ -604,12 +631,38 @@ public:
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
 #if !defined(QT_NO_FSFILEENGINE)
-  //  TriStateResult QFSFileEngine::cloneTo(QAbstractFileEngine *target)
-  QAbstractFileEngine::TriStateResult cloneTo(
-      QAbstractFileEngine *target) override {
+  //  qint64 QFSFileEngine::read(char *data, qint64 maxlen)
+  qint64 read(char *data, qint64 maxlen) override {
     if (taken[24]) {
       int handled = 0;
       CuteQFSFileEngineCall24 call = reinterpret_cast<CuteQFSFileEngineCall24>(taken[24]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QFSFileEngine::read(data, maxlen);
+  }
+#endif  // !defined(QT_NO_FSFILEENGINE)
+
+#if !defined(QT_NO_FSFILEENGINE)
+  //  qint64 QFSFileEngine::readLine(char *data, qint64 maxlen)
+  qint64 readLine(char *data, qint64 maxlen) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQFSFileEngineCall25 call = reinterpret_cast<CuteQFSFileEngineCall25>(taken[25]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QFSFileEngine::readLine(data, maxlen);
+  }
+#endif  // !defined(QT_NO_FSFILEENGINE)
+
+#if !defined(QT_NO_FSFILEENGINE)
+  //  TriStateResult QFSFileEngine::cloneTo(QAbstractFileEngine *target)
+  QAbstractFileEngine::TriStateResult cloneTo(
+      QAbstractFileEngine *target) override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQFSFileEngineCall26 call = reinterpret_cast<CuteQFSFileEngineCall26>(taken[26]);
       int given = call(this, target, &handled);
       if (handled) return static_cast<QAbstractFileEngine::TriStateResult>(given);
     }
@@ -620,9 +673,9 @@ public:
 #if !defined(QT_NO_FSFILEENGINE)
   //  bool QFSFileEngine::isUnnamedFile() const
   bool isUnnamedFile() const override {
-    if (taken[25]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQFSFileEngineCall25 call = reinterpret_cast<CuteQFSFileEngineCall25>(taken[25]);
+      CuteQFSFileEngineCall27 call = reinterpret_cast<CuteQFSFileEngineCall27>(taken[27]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -637,9 +690,9 @@ public:
       QAbstractFileEngine::Extension extension,
       const QAbstractFileEngine::ExtensionOption *option,
       QAbstractFileEngine::ExtensionReturn *output) override {
-    if (taken[26]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQFSFileEngineCall26 call = reinterpret_cast<CuteQFSFileEngineCall26>(taken[26]);
+      CuteQFSFileEngineCall28 call = reinterpret_cast<CuteQFSFileEngineCall28>(taken[28]);
       bool given = call(this, static_cast<int>(extension), option, output, &handled);
       if (handled) return given;
     }
@@ -651,9 +704,9 @@ public:
   //  bool QFSFileEngine::supportsExtension(Extension extension) const
   bool supportsExtension(
       QAbstractFileEngine::Extension extension) const override {
-    if (taken[27]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQFSFileEngineCall27 call = reinterpret_cast<CuteQFSFileEngineCall27>(taken[27]);
+      CuteQFSFileEngineCall29 call = reinterpret_cast<CuteQFSFileEngineCall29>(taken[29]);
       bool given = call(this, static_cast<int>(extension), &handled);
       if (handled) return given;
     }
@@ -692,6 +745,18 @@ QFSFileEngine *ritual_ZN13QFSFileEngineC1ERK7QString(const QString *file) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QFSFileEngineD1Ev(QFSFileEngine *self) {
   delete self;
+}
+
+//  bool QFSFileEngine::open(QIODevice::OpenMode openMode,
+//      std::optional<QFile::Permissions> permissions)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QFSFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEESt8optionalIS0_IN11QFileDevice10PermissionEEE(
+    QFSFileEngine *self,
+    int openMode,
+    const std::optional<QFile::Permissions> *permissions) {
+  return self->open(
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(openMode),
+      *permissions);
 }
 
 //  bool QFSFileEngine::close()
@@ -774,6 +839,18 @@ bool ritual_ZN13QFSFileEngine4linkERK7QString(
   return self->link(*newName);
 }
 
+//  bool QFSFileEngine::mkdir(const QString &dirName, bool
+//      createParentDirectories, std::optional<QFile::Permissions>
+//      permissions) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QFSFileEngine5mkdirERK7QStringbSt8optionalI6QFlagsIN11QFileDevice10PermissionEEE(
+    const QFSFileEngine *self,
+    const QString *dirName,
+    bool createParentDirectories,
+    const std::optional<QFile::Permissions> *permissions) {
+  return self->mkdir(*dirName, createParentDirectories, *permissions);
+}
+
 //  bool QFSFileEngine::rmdir(const QString &dirName, bool
 //      recurseParentDirectories) const
 extern "C" Q_DECL_EXPORT
@@ -850,6 +927,24 @@ QString *ritual_ZNK13QFSFileEngine5ownerEN19QAbstractFileEngine9FileOwnerE(
   return new QString(self->owner(a0));
 }
 
+//  bool QFSFileEngine::setFileTime(const QDateTime &newDate, QFile::FileTime
+//      time)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QFSFileEngine11setFileTimeERK9QDateTimeN11QFileDevice8FileTimeE(
+    QFSFileEngine *self,
+    const QDateTime *newDate,
+    const QFile::FileTime *time) {
+  return self->setFileTime(*newDate, *time);
+}
+
+//  QDateTime QFSFileEngine::fileTime(QFile::FileTime time) const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK13QFSFileEngine8fileTimeEN11QFileDevice8FileTimeE(
+    const QFSFileEngine *self,
+    const QFile::FileTime *time) {
+  return new QDateTime(self->fileTime(*time));
+}
+
 //  void QFSFileEngine::setFileName(const QString &file)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QFSFileEngine11setFileNameERK7QString(
@@ -858,10 +953,53 @@ void ritual_ZN13QFSFileEngine11setFileNameERK7QString(
   self->setFileName(*file);
 }
 
+//  void QFSFileEngine::setFileEntry(QFileSystemEntry &&entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QFSFileEngine12setFileEntryEO16QFileSystemEntry(
+    QFSFileEngine *self,
+    QFileSystemEntry *entry) {
+  self->setFileEntry(std::move(*entry));
+}
+
 //  int QFSFileEngine::handle() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK13QFSFileEngine6handleEv(const QFSFileEngine *self) {
   return self->handle();
+}
+
+#if !defined(QT_NO_FILESYSTEMITERATOR)
+//  IteratorUniquePtr QFSFileEngine::beginEntryList(const QString &path,
+//      QDirListing::IteratorFlags filters, const QStringList &filterNames)
+extern "C" Q_DECL_EXPORT
+QAbstractFileEngine::IteratorUniquePtr *ritual_ZN13QFSFileEngine14beginEntryListERK7QString6QFlagsIN11QDirListing12IteratorFlagEERK5QListIS0_E(
+    QFSFileEngine *self,
+    const QString *path,
+    int filters,
+    const QList<QString> *filterNames) {
+  return new QAbstractFileEngine::IteratorUniquePtr(
+      self->beginEntryList(
+          *path,
+          QFlags<QDirListing::IteratorFlag>::fromInt(filters),
+          *filterNames));
+}
+#endif  // !defined(QT_NO_FILESYSTEMITERATOR)
+
+//  qint64 QFSFileEngine::read(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN13QFSFileEngine4readEPcx(
+    QFSFileEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->read(data, maxlen);
+}
+
+//  qint64 QFSFileEngine::readLine(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN13QFSFileEngine8readLineEPcx(
+    QFSFileEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->readLine(data, maxlen);
 }
 
 //  qint64 QFSFileEngine::write(const char *data, qint64 len)
@@ -920,6 +1058,20 @@ bool ritual_ZN13QFSFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEEiS0_I
       QFlags<QFileDevice::FileHandleFlag>::fromInt(handleFlags));
 }
 
+//  bool QFSFileEngine::open(QIODevice::OpenMode flags, FILE *fh,
+//      QFile::FileHandleFlags handleFlags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QFSFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEEP8_IO_FILES0_IN11QFileDevice14FileHandleFlagEE(
+    QFSFileEngine *self,
+    int flags,
+    FILE *fh,
+    int handleFlags) {
+  return self->open(
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(flags),
+      fh,
+      QFlags<QFileDevice::FileHandleFlag>::fromInt(handleFlags));
+}
+
 //  bool QFSFileEngine::setCurrentPath(const QString &path)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN13QFSFileEngine14setCurrentPathERK7QString(
@@ -938,6 +1090,13 @@ QString *ritual_ZN13QFSFileEngine11currentPathERK7QString(
 extern "C" Q_DECL_EXPORT
 QList<QFileInfo> *ritual_ZN13QFSFileEngine6drivesEv() {
   return new QList<QFileInfo>(QFSFileEngine::drives());
+}
+
+//  QFSFileEngine::QFSFileEngine(QFSFileEnginePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QFSFileEngine *ritual_ZN13QFSFileEngineC1ER20QFSFileEnginePrivate(
+    QFSFileEnginePrivate *dd) {
+  return new CuteQFSFileEngine(*dd);
 }
 
 //  bool QFSFileEngine::rename_helper(const QString &newName, RenameMode
@@ -1135,6 +1294,24 @@ int ritual_own_ZNK13QFSFileEngine6handleEv(const QFSFileEngine *self) {
   return self->QFSFileEngine::handle();
 }
 
+//  qint64 QFSFileEngine::read(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN13QFSFileEngine4readEPcx(
+    QFSFileEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->QFSFileEngine::read(data, maxlen);
+}
+
+//  qint64 QFSFileEngine::readLine(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN13QFSFileEngine8readLineEPcx(
+    QFSFileEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->QFSFileEngine::readLine(data, maxlen);
+}
+
 //  TriStateResult QFSFileEngine::cloneTo(QAbstractFileEngine *target)
 extern "C" Q_DECL_EXPORT
 QAbstractFileEngine::TriStateResult ritual_own_ZN13QFSFileEngine7cloneToEP19QAbstractFileEngine(
@@ -1167,6 +1344,13 @@ bool ritual_own_ZNK13QFSFileEngine17supportsExtensionEN19QAbstractFileEngine9Ext
     const QFSFileEngine *self,
     QAbstractFileEngine::Extension extension) {
   return self->QFSFileEngine::supportsExtension(extension);
+}
+
+//  a QAbstractFileEngine::IteratorUniquePtr a ritual of QFSFileEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFSFileEngine__QAbstractFileEngine_IteratorUniquePtr(
+    QAbstractFileEngine::IteratorUniquePtr *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_FSFILEENGINE)

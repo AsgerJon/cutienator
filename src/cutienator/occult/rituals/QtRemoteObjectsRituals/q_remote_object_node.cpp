@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand: 'ritual_callback_ZN17QRemoteObjectNode22regist
+//  erExternalSchemaERK7QStringSt8functionIFv4QUrlEE'. Kept as it is when the
+//  generator runs again.
 #include <QtRemoteObjects/qremoteobjectnode.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
@@ -10,6 +12,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QString>
+#include <QtRemoteObjects/QRemoteObjectNode>
 
 //  Only a class built on QRemoteObjectNode may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -223,6 +227,25 @@ const QMetaObject *ritual_ZNK17QRemoteObjectNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRemoteObjectNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QRemoteObjectNode11qt_metacastEPKc(
+    QRemoteObjectNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRemoteObjectNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QRemoteObjectNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRemoteObjectNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRemoteObjectNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QRemoteObjectNode2trEPKcS1_i(
@@ -295,6 +318,18 @@ QRemoteObjectDynamicReplica *ritual_ZN17QRemoteObjectNode14acquireDynamicERK7QSt
   return self->acquireDynamic(*name);
 }
 
+//  QAbstractItemModelReplica *QRemoteObjectNode::acquireModel(const QString
+//      &name, QtRemoteObjects::InitialAction action, const QList<int>
+//      &rolesHint)
+extern "C" Q_DECL_EXPORT
+QAbstractItemModelReplica *ritual_ZN17QRemoteObjectNode12acquireModelERK7QStringN15QtRemoteObjects13InitialActionERK5QListIiE(
+    QRemoteObjectNode *self,
+    const QString *name,
+    QtRemoteObjects::InitialAction action,
+    const QList<int> *rolesHint) {
+  return self->acquireModel(*name, action, *rolesHint);
+}
+
 //  QUrl QRemoteObjectNode::registryUrl() const
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK17QRemoteObjectNode11registryUrlEv(
@@ -363,6 +398,76 @@ void ritual_ZN17QRemoteObjectNode20setHeartbeatIntervalEi(
     QRemoteObjectNode *self,
     int interval) {
   self->setHeartbeatInterval(interval);
+}
+
+//  void QRemoteObjectNode::registerExternalSchema(const QString &schema,
+//      RemoteObjectSchemaHandler handler)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QRemoteObjectNode22registerExternalSchemaERK7QStringSt8functionIFv4QUrlEE(
+    QRemoteObjectNode *self,
+    const QString *schema,
+    const QRemoteObjectNode::RemoteObjectSchemaHandler *handler) {
+  self->registerExternalSchema(*schema, *handler);
+}
+
+//  void QRemoteObjectNode::remoteObjectAdded(const
+//      QRemoteObjectSourceLocation &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QRemoteObjectNode17remoteObjectAddedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRemoteObjectNode *self,
+    const QRemoteObjectSourceLocation *a0) {
+  self->remoteObjectAdded(*a0);
+}
+
+//  void QRemoteObjectNode::remoteObjectRemoved(const
+//      QRemoteObjectSourceLocation &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QRemoteObjectNode19remoteObjectRemovedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRemoteObjectNode *self,
+    const QRemoteObjectSourceLocation *a0) {
+  self->remoteObjectRemoved(*a0);
+}
+
+//  void QRemoteObjectNode::registryUrlChanged(const QUrl &registryUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QRemoteObjectNode18registryUrlChangedERK4QUrl(
+    QRemoteObjectNode *self,
+    const QUrl *registryUrl) {
+  self->registryUrlChanged(*registryUrl);
+}
+
+//  void QRemoteObjectNode::persistedStoreChanged(QRemoteObjectAbstractPersis
+//      tedStore *persistedStore)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QRemoteObjectNode21persistedStoreChangedEP35QRemoteObjectAbstractPersistedStore(
+    QRemoteObjectNode *self,
+    QRemoteObjectAbstractPersistedStore *persistedStore) {
+  self->persistedStoreChanged(persistedStore);
+}
+
+//  void QRemoteObjectNode::error(QRemoteObjectNode::ErrorCode errorCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QRemoteObjectNode5errorENS_9ErrorCodeE(
+    QRemoteObjectNode *self,
+    QRemoteObjectNode::ErrorCode errorCode) {
+  self->error(errorCode);
+}
+
+//  void QRemoteObjectNode::heartbeatIntervalChanged(int heartbeatInterval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QRemoteObjectNode24heartbeatIntervalChangedEi(
+    QRemoteObjectNode *self,
+    int heartbeatInterval) {
+  self->heartbeatIntervalChanged(heartbeatInterval);
+}
+
+//  QRemoteObjectNode::QRemoteObjectNode(QRemoteObjectNodePrivate &a0,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QRemoteObjectNode *ritual_ZN17QRemoteObjectNodeC1ER24QRemoteObjectNodePrivateP7QObject(
+    QRemoteObjectNodePrivate *a0,
+    QObject *parent) {
+  return new CuteQRemoteObjectNode(*a0, parent);
 }
 
 //  void QRemoteObjectNode::timerEvent(QTimerEvent *a0)
@@ -451,4 +556,19 @@ void ritual_own_ZN17QRemoteObjectNode10timerEventEP11QTimerEvent(
     QTimerEvent *a0) {
   static_cast<OwnQRemoteObjectNode *>(self)->OwnQRemoteObjectNode::timerEvent(
       a0);
+}
+
+//  void QRemoteObjectNode::registerExternalSchema(const QString &schema,
+//      RemoteObjectSchemaHandler handler)
+extern "C" Q_DECL_EXPORT
+void ritual_callback_ZN17QRemoteObjectNode22registerExternalSchemaERK7QStringSt8functionIFv4QUrlEE(
+    QRemoteObjectNode *self,
+    const QString *schema,
+    void *call,
+    void *context) {
+  auto function =
+      reinterpret_cast<void (*)(void *, const QUrl *)>(call);
+  self->registerExternalSchema(*schema, [function, context](QUrl url) {
+    function(context, &url);
+  });
 }

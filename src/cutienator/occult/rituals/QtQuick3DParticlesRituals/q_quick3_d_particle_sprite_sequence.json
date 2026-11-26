@@ -8,6 +8,12 @@
     "ritual_ZNK30QQuick3DParticleSpriteSequence10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QQuick3DParticleSpriteSequence2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -56,6 +62,27 @@
     ],
     "ritual_ZN30QQuick3DParticleSpriteSequence21setAnimationDirectionENS_18AnimationDirectionE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence17frameCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence17frameIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence18interpolateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence15durationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence24durationVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence18randomStartChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence25animationDirectionChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN30QQuick3DParticleSpriteSequence17componentCompleteEv": [
       "nothing", "address"

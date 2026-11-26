@@ -183,6 +183,25 @@ const QMetaObject *ritual_ZNK28QDesignerFormEditorInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerFormEditorInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QDesignerFormEditorInterface11qt_metacastEPKc(
+    QDesignerFormEditorInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerFormEditorInterface::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QDesignerFormEditorInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerFormEditorInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerFormEditorInterface::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -348,6 +367,13 @@ QtResourceModel *ritual_ZNK28QDesignerFormEditorInterface13resourceModelEv(
   return self->resourceModel();
 }
 
+//  QtGradientManager *QDesignerFormEditorInterface::gradientManager() const
+extern "C" Q_DECL_EXPORT
+QtGradientManager *ritual_ZNK28QDesignerFormEditorInterface15gradientManagerEv(
+    const QDesignerFormEditorInterface *self) {
+  return self->gradientManager();
+}
+
 //  QList<QDesignerOptionsPageInterface *>
 //      QDesignerFormEditorInterface::optionsPages() const
 extern "C" Q_DECL_EXPORT
@@ -455,6 +481,15 @@ void ritual_ZN28QDesignerFormEditorInterface16setResourceModelEP15QtResourceMode
     QDesignerFormEditorInterface *self,
     QtResourceModel *model) {
   self->setResourceModel(model);
+}
+
+//  void QDesignerFormEditorInterface::setGradientManager(QtGradientManager
+//      *manager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QDesignerFormEditorInterface18setGradientManagerEP17QtGradientManager(
+    QDesignerFormEditorInterface *self,
+    QtGradientManager *manager) {
+  self->setGradientManager(manager);
 }
 
 //  void QDesignerFormEditorInterface::setOptionsPages(const

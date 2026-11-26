@@ -180,6 +180,22 @@ const QMetaObject *ritual_ZNK8Q3DScene10metaObjectEv(const Q3DScene *self) {
   return self->metaObject();
 }
 
+//  void *Q3DScene::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Q3DScene11qt_metacastEPKc(Q3DScene *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DScene::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Q3DScene11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DScene *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DScene::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Q3DScene2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -348,6 +364,86 @@ void ritual_ZN8Q3DScene19setDevicePixelRatioEf(
     Q3DScene *self,
     float pixelRatio) {
   self->setDevicePixelRatio(pixelRatio);
+}
+
+//  void Q3DScene::viewportChanged(const QRect &viewport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene15viewportChangedERK5QRect(
+    Q3DScene *self,
+    const QRect *viewport) {
+  self->viewportChanged(*viewport);
+}
+
+//  void Q3DScene::primarySubViewportChanged(const QRect &subViewport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene25primarySubViewportChangedERK5QRect(
+    Q3DScene *self,
+    const QRect *subViewport) {
+  self->primarySubViewportChanged(*subViewport);
+}
+
+//  void Q3DScene::secondarySubViewportChanged(const QRect &subViewport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene27secondarySubViewportChangedERK5QRect(
+    Q3DScene *self,
+    const QRect *subViewport) {
+  self->secondarySubViewportChanged(*subViewport);
+}
+
+//  void Q3DScene::secondarySubviewOnTopChanged(bool isSecondaryOnTop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene28secondarySubviewOnTopChangedEb(
+    Q3DScene *self,
+    bool isSecondaryOnTop) {
+  self->secondarySubviewOnTopChanged(isSecondaryOnTop);
+}
+
+//  void Q3DScene::slicingActiveChanged(bool isSlicingActive)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene20slicingActiveChangedEb(
+    Q3DScene *self,
+    bool isSlicingActive) {
+  self->slicingActiveChanged(isSlicingActive);
+}
+
+//  void Q3DScene::activeCameraChanged(Q3DCamera *camera)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene19activeCameraChangedEP9Q3DCamera(
+    Q3DScene *self,
+    Q3DCamera *camera) {
+  self->activeCameraChanged(camera);
+}
+
+//  void Q3DScene::activeLightChanged(Q3DLight *light)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene18activeLightChangedEP8Q3DLight(
+    Q3DScene *self,
+    Q3DLight *light) {
+  self->activeLightChanged(light);
+}
+
+//  void Q3DScene::devicePixelRatioChanged(float pixelRatio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene23devicePixelRatioChangedEf(
+    Q3DScene *self,
+    float pixelRatio) {
+  self->devicePixelRatioChanged(pixelRatio);
+}
+
+//  void Q3DScene::selectionQueryPositionChanged(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene29selectionQueryPositionChangedERK6QPoint(
+    Q3DScene *self,
+    const QPoint *position) {
+  self->selectionQueryPositionChanged(*position);
+}
+
+//  void Q3DScene::graphPositionQueryChanged(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene25graphPositionQueryChangedERK6QPoint(
+    Q3DScene *self,
+    const QPoint *position) {
+  self->graphPositionQueryChanged(*position);
 }
 
 //  a Python function taken by a CuteQ3DScene, for the function named by the

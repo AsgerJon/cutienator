@@ -8,11 +8,68 @@
     "ritual_ZNK18qdesigner_internal11ActionModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal11ActionModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal11ActionModel2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18qdesigner_internal11ActionModelC1EP7QWidget": [
+      "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal11ActionModel10initializeEP28QDesignerFormEditorInterface": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel12clearActionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel9addActionEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel6removeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel6updateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal11ActionModel10findActionEP7QAction": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal11ActionModel10actionNameEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal11ActionModel8actionAtERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal11ActionModel7indexOfEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal11ActionModel8mimeDataERK5QListI11QModelIndexE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal11ActionModel9mimeTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel17associatedWidgetsEPK7QAction": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel14actionShortCutEP28QDesignerFormEditorInterfaceP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel14actionShortCutEPK31QDesignerPropertySheetExtension": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel20resourceImageDroppedERK7QStringP7QAction": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal11ActionModel8setItemsEP28QDesignerFormEditorInterfaceP7QActionRK5QIconR5QListIP13QStandardItemE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_own_ZN18qdesigner_internal11ActionModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"

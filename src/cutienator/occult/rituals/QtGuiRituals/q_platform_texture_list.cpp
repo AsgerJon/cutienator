@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK20QPlatformTextureList10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformTextureList::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QPlatformTextureList11qt_metacastEPKc(
+    QPlatformTextureList *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformTextureList::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QPlatformTextureList11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformTextureList *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformTextureList::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QPlatformTextureList2trEPKcS1_i(
@@ -192,6 +211,20 @@ QString *ritual_ZN20QPlatformTextureList2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPlatformTextureList::tr(s, c, n));
+}
+
+//  QPlatformTextureListPrivate *QPlatformTextureList::d_func()
+extern "C" Q_DECL_EXPORT
+QPlatformTextureListPrivate *ritual_ZN20QPlatformTextureList6d_funcEv(
+    QPlatformTextureList *self) {
+  return self->d_func();
+}
+
+//  const QPlatformTextureListPrivate *QPlatformTextureList::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPlatformTextureListPrivate *ritual_ZNK20QPlatformTextureList6d_funcEv(
+    const QPlatformTextureList *self) {
+  return self->d_func();
 }
 
 //  QPlatformTextureList::QPlatformTextureList(QObject *parent)
@@ -253,6 +286,14 @@ QRect *ritual_ZNK20QPlatformTextureList8clipRectEi(
   return new QRect(self->clipRect(index));
 }
 
+//  void *QPlatformTextureList::source(int index)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QPlatformTextureList6sourceEi(
+    QPlatformTextureList *self,
+    int index) {
+  return self->source(index);
+}
+
 //  Flags QPlatformTextureList::flags(int index) const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK20QPlatformTextureList5flagsEi(
@@ -276,10 +317,57 @@ bool ritual_ZNK20QPlatformTextureList8isLockedEv(
   return self->isLocked();
 }
 
+//  void QPlatformTextureList::appendTexture(void *source, QRhiTexture
+//      *texture, const QRect &geometry, const QRect &clipRect, Flags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformTextureList13appendTextureEPvP11QRhiTextureRK5QRectS5_6QFlagsINS_4FlagEE(
+    QPlatformTextureList *self,
+    void *source,
+    QRhiTexture *texture,
+    const QRect *geometry,
+    const QRect *clipRect,
+    int flags) {
+  self->appendTexture(
+      source,
+      texture,
+      *geometry,
+      *clipRect,
+      QFlags<QPlatformTextureList::Flag>::fromInt(flags));
+}
+
+//  void QPlatformTextureList::appendTexture(void *source, QRhiTexture
+//      *textureLeft, QRhiTexture *textureRight, const QRect &geometry, const
+//      QRect &clipRect, Flags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformTextureList13appendTextureEPvP11QRhiTextureS2_RK5QRectS5_6QFlagsINS_4FlagEE(
+    QPlatformTextureList *self,
+    void *source,
+    QRhiTexture *textureLeft,
+    QRhiTexture *textureRight,
+    const QRect *geometry,
+    const QRect *clipRect,
+    int flags) {
+  self->appendTexture(
+      source,
+      textureLeft,
+      textureRight,
+      *geometry,
+      *clipRect,
+      QFlags<QPlatformTextureList::Flag>::fromInt(flags));
+}
+
 //  void QPlatformTextureList::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QPlatformTextureList5clearEv(QPlatformTextureList *self) {
   self->clear();
+}
+
+//  void QPlatformTextureList::locked(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformTextureList6lockedEb(
+    QPlatformTextureList *self,
+    bool a0) {
+  self->locked(a0);
 }
 
 //  a Python function taken by a CuteQPlatformTextureList, for the function

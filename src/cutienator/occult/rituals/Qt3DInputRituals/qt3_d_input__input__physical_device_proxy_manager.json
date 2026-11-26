@@ -8,6 +8,12 @@
     "ritual_ZN9Qt3DInput5Input26PhysicalDeviceProxyManagerC1Ev": ["address"],
     "ritual_ZN9Qt3DInput5Input26PhysicalDeviceProxyManager21addPendingProxyToLoadEN8Qt3DCore7QNodeIdE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input26PhysicalDeviceProxyManager24takePendingProxiesToLoadEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DInput_Input_PhysicalDeviceProxyManager__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

@@ -5,6 +5,12 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV412CompiledData15CompilationUnit16FunctionIteratorC1EPKNS0_4UnitEPKNS0_6ObjectEi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit16FunctionIteratorptEv": [
+      "address", "address"
+    ],
     "ritual_ZN3QV412CompiledData15CompilationUnit16FunctionIteratorppEv": [
       "nothing", "address"
     ],

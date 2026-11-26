@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QQuickSlider10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickSlider11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuickSlider11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuickSlider2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuickSliderC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN12QQuickSliderD1Ev": ["nothing", "address"],
@@ -53,6 +59,29 @@
     ],
     "ritual_ZN12QQuickSlider8increaseEv": ["nothing", "address"],
     "ritual_ZN12QQuickSlider8decreaseEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider11fromChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider9toChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider12valueChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider15positionChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider21visualPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickSlider15stepSizeChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider15snapModeChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider14pressedChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider18orientationChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider13handleChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider5movedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider11liveChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSlider25touchDragThresholdChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickSlider26implicitHandleWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickSlider27implicitHandleHeightChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN12QQuickSlider13keyPressEventEP9QKeyEvent": [
       "nothing", "address", "address"
     ],
@@ -74,6 +103,8 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK12QQuickSlider14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN12QQuickSlider6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQuickSlider6d_funcEv": ["address", "address"],
     "ritual_take_QQuickSlider": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QQuickSlider13keyPressEventEP9QKeyEvent": [
       "nothing", "address", "address"

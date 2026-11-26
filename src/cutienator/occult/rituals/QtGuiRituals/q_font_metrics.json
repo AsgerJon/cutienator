@@ -9,7 +9,11 @@
       "address", "address", "address"
     ],
     "ritual_ZN12QFontMetricsC1ERKS_": ["address", "address"],
+    "ritual_ZN12QFontMetricsC1EOS_": ["address", "address"],
     "ritual_ZN12QFontMetricsD1Ev": ["nothing", "address"],
+    "ritual_ZN12QFontMetricsaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QFontMetricsaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QFontMetrics4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK12QFontMetrics6ascentEv": ["int", "address"],
     "ritual_ZNK12QFontMetrics9capHeightEv": ["int", "address"],
     "ritual_ZNK12QFontMetrics7descentEv": ["int", "address"],

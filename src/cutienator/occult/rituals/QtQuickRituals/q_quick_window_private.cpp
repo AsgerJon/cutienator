@@ -14,6 +14,11 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
+#include <utility>
+#include <QtQuick/QQuickItem>
+#include <QtCore/QPointF>
 
 //  A QQuickWindowPrivate that Python can take functions over in. Every QQuickWindowPrivate
 //  Python makes is one. Each function below asks the Python
@@ -285,6 +290,13 @@ void ritual_ZN19QQuickWindowPrivate4initEP12QQuickWindowP19QQuickRenderControl(
   self->init(a0, control);
 }
 
+//  QQmlListProperty<QObject> QQuickWindowPrivate::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN19QQuickWindowPrivate4dataEv(
+    QQuickWindowPrivate *self) {
+  return new QQmlListProperty<QObject>(self->data());
+}
+
 //  QQuickDeliveryAgentPrivate *QQuickWindowPrivate::deliveryAgentPrivate()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -302,6 +314,24 @@ void ritual_ZN19QQuickWindowPrivate12updateCursorERK7QPointFP10QQuickItem(
     const QPointF *scenePos,
     QQuickItem *rootItem) {
   self->updateCursor(*scenePos, rootItem);
+}
+#endif  // QT_CONFIG(cursor)
+
+#if QT_CONFIG(cursor)
+//  std::pair<QQuickItem *, QQuickPointerHandler *>
+//      QQuickWindowPrivate::findCursorItemAndHandler(QQuickItem *item, const
+//      QPointF &localPos, const QPointF &scenePos) const
+extern "C" Q_DECL_EXPORT
+std::pair<QQuickItem *, QQuickPointerHandler *> *ritual_ZNK19QQuickWindowPrivate24findCursorItemAndHandlerEP10QQuickItemRK7QPointFS4_(
+    const QQuickWindowPrivate *self,
+    QQuickItem *item,
+    const QPointF *localPos,
+    const QPointF *scenePos) {
+  return new std::pair<QQuickItem *, QQuickPointerHandler *>(
+      self->findCursorItemAndHandler(
+          item,
+          *localPos,
+          *scenePos));
 }
 #endif  // QT_CONFIG(cursor)
 
@@ -524,6 +554,45 @@ QRhiRenderTarget *ritual_ZN19QQuickWindowPrivate27activeCustomRhiRenderTargetEv(
   return self->activeCustomRhiRenderTarget();
 }
 
+//  void QQuickWindowPrivate::data_append(QQmlListProperty<QObject> *a0,
+//      QObject *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowPrivate11data_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *a0,
+    QObject *a1) {
+  QQuickWindowPrivate::data_append(a0, a1);
+}
+
+//  qsizetype QQuickWindowPrivate::data_count(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN19QQuickWindowPrivate10data_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  return QQuickWindowPrivate::data_count(a0);
+}
+
+//  QObject *QQuickWindowPrivate::data_at(QQmlListProperty<QObject> *a0,
+//      qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN19QQuickWindowPrivate7data_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *a0,
+    qsizetype a1) {
+  return QQuickWindowPrivate::data_at(a0, a1);
+}
+
+//  void QQuickWindowPrivate::data_clear(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowPrivate10data_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QQuickWindowPrivate::data_clear(a0);
+}
+
+//  void QQuickWindowPrivate::data_removeLast(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowPrivate15data_removeLastEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QQuickWindowPrivate::data_removeLast(a0);
+}
+
 //  void QQuickWindowPrivate::rhiCreationFailureMessage(const QString
 //      &backendName, QString *translatedMessage, QString
 //      *untranslatedMessage)
@@ -536,6 +605,28 @@ void ritual_ZN19QQuickWindowPrivate25rhiCreationFailureMessageERK7QStringPS0_S3_
       *backendName,
       translatedMessage,
       untranslatedMessage);
+}
+
+//  void QQuickWindowPrivate::emitBeforeRenderPassRecording(void *ud)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowPrivate29emitBeforeRenderPassRecordingEPv(
+    void *ud) {
+  QQuickWindowPrivate::emitBeforeRenderPassRecording(ud);
+}
+
+//  void QQuickWindowPrivate::emitAfterRenderPassRecording(void *ud)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowPrivate28emitAfterRenderPassRecordingEPv(
+    void *ud) {
+  QQuickWindowPrivate::emitAfterRenderPassRecording(ud);
+}
+
+//  void QQuickWindowPrivate::runAndClearJobs(QList<QRunnable *> *jobs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowPrivate15runAndClearJobsEP5QListIP9QRunnableE(
+    QQuickWindowPrivate *self,
+    QList<QRunnable *> *jobs) {
+  self->runAndClearJobs(jobs);
 }
 
 //  QOpenGLContext *QQuickWindowPrivate::openglContext()
@@ -603,4 +694,19 @@ void ritual_own_ZN19QQuickWindowPrivate31maybeSynthesizeContextMenuEventEP11QMou
     QQuickWindowPrivate *self,
     QMouseEvent *event) {
   self->QQuickWindowPrivate::maybeSynthesizeContextMenuEvent(event);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickWindowPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickWindowPrivate__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+//  a std::pair<QQuickItem *, QQuickPointerHandler *> a ritual of
+//      QQuickWindowPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickWindowPrivate__std_pair_QQuickItem_QQuickPointerHandler(
+    std::pair<QQuickItem *, QQuickPointerHandler *> *self) {
+  delete self;
 }

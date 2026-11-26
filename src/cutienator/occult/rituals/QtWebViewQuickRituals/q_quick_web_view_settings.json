@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickWebViewSettings10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickWebViewSettings11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickWebViewSettings11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickWebViewSettings2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -38,6 +44,18 @@
     ],
     "ritual_ZN21QQuickWebViewSettings32setLocalContentCanAccessFileUrlsEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickWebViewSettings26localStorageEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWebViewSettings24javaScriptEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWebViewSettings22allowFileAccessChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWebViewSettings36localContentCanAccessFileUrlsChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN21QQuickWebViewSettingsC1EP16QWebViewSettings": [
       "address", "address"

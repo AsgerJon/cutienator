@@ -41,36 +41,327 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 940, as _ZN26QQuickSwipeDelegatePrivate17forwardMouseEventEP11QMouseEventP10QQuickItem7QPointF
-inline void QQuickSwipeDelegatePrivate::forwardMouseEvent(QMouseEvent *event, QQuickItem *destination, QPointF localPos)
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 81, as local:qquickswipedelegate.cpp:Attached
+namespace {
+typedef QQuickSwipeDelegateAttached Attached;
+}  // namespace
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 87, as local:qquickswipedelegate.cpp:PositionAnimation
+namespace {
+enum PositionAnimation {
+        DontAnimatePosition,
+        AnimatePosition
+    };
+}  // namespace
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 93, as local:qquickswipedelegate.cpp:QQuickSwipeTransitionManager
+class QQuickSwipeTransitionManager : public QQuickTransitionManager
 {
-    Q_Q(QQuickSwipeDelegate);
-    QMutableSinglePointEvent localizedEvent(*event);
-    QMutableEventPoint::setPosition(localizedEvent.point(0), localPos);
-    QGuiApplication::sendEvent(destination, &localizedEvent);
-    q->setPressed(!localizedEvent.isAccepted());
+public:
+    QQuickSwipeTransitionManager(QQuickSwipe *swipe);
+
+    void transition(QQuickTransition *transition, qreal position);
+
+protected:
+    void finished() override;
+
+private:
+    QQuickSwipe *m_swipe = nullptr;
+};
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 107, as local:qquickswipedelegate.cpp:QQuickSwipePrivate
+class QQuickSwipePrivate : public QObjectPrivate
+{
+    Q_DECLARE_PUBLIC(QQuickSwipe)
+
+public:
+    QQuickSwipePrivate(QQuickSwipeDelegate *control) : control(control) { }
+
+    static QQuickSwipePrivate *get(QQuickSwipe *swipe);
+
+    QQuickItem *createDelegateItem(QQmlComponent *component);
+    QQuickItem *showRelevantItemForPosition(qreal position);
+    QQuickItem *createRelevantItemForDistance(qreal distance);
+    void reposition(PositionAnimation animationPolicy);
+    void createLeftItem();
+    void createBehindItem();
+    void createRightItem();
+    void createAndShowLeftItem();
+    void createAndShowBehindItem();
+    void createAndShowRightItem();
+
+    void warnAboutMixingDelegates();
+    void warnAboutSettingDelegatesWhileVisible();
+
+    bool hasDelegates() const;
+
+    bool isTransitioning() const;
+    void beginTransition(qreal position);
+    void finishTransition();
+
+    QQuickSwipeDelegate *control = nullptr;
+    // Same range as position, but is set before press events so that we can
+    // keep track of which direction the user must swipe when using left and right delegates.
+    qreal positionBeforePress = 0;
+    qreal position = 0;
+    // A "less strict" version of complete that is true if complete was true
+    // before the last press event.
+    bool wasComplete = false;
+    bool complete = false;
+    bool enabled = true;
+    bool waitForTransition = false;
+    QQuickVelocityCalculator velocityCalculator;
+    QQmlComponent *left = nullptr;
+    QQmlComponent *behind = nullptr;
+    QQmlComponent *right = nullptr;
+    QQuickItem *leftItem = nullptr;
+    QQuickItem *behindItem = nullptr;
+    QQuickItem *rightItem = nullptr;
+    QQuickTransition *transition = nullptr;
+    QScopedPointer<QQuickSwipeTransitionManager> transitionManager;
+};
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 158, as local:qquickswipedelegate.cpp:QQuickSwipeTransitionManager::QQuickSwipeTransitionManager
+inline QQuickSwipeTransitionManager::QQuickSwipeTransitionManager(QQuickSwipe *swipe)
+    : m_swipe(swipe)
+{
 }
 
-//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 1024, as _ZNK26QQuickSwipeDelegatePrivate14getPressedItemEP10QQuickItemP11QMouseEvent
-inline QQuickItem *QQuickSwipeDelegatePrivate::getPressedItem(QQuickItem *childItem, QMouseEvent *event) const
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 163, as local:qquickswipedelegate.cpp:QQuickSwipeTransitionManager::transition
+inline void QQuickSwipeTransitionManager::transition(QQuickTransition *transition, qreal position)
 {
-    if (!childItem || !event)
+    qmlExecuteDeferred(transition);
+
+    QQmlProperty defaultTarget(m_swipe, QLatin1String("position"));
+    QQmlListProperty<QQuickAbstractAnimation> animations = transition->animations();
+    const int count = animations.count(&animations);
+    for (int i = 0; i < count; ++i) {
+        QQuickAbstractAnimation *anim = animations.at(&animations, i);
+        anim->setDefaultTarget(defaultTarget);
+    }
+
+    QList<QQuickStateAction> actions;
+    actions << QQuickStateAction(m_swipe, QLatin1String("position"), position);
+    QQuickTransitionManager::transition(actions, transition, m_swipe);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 180, as local:qquickswipedelegate.cpp:QQuickSwipeTransitionManager::finished
+inline void QQuickSwipeTransitionManager::finished()
+{
+    QQuickSwipePrivate::get(m_swipe)->finishTransition();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 185, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::get
+inline QQuickSwipePrivate *QQuickSwipePrivate::get(QQuickSwipe *swipe)
+{
+    return swipe->d_func();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 190, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::createDelegateItem
+inline QQuickItem *QQuickSwipePrivate::createDelegateItem(QQmlComponent *component)
+{
+    // If we don't use the correct context, it won't be possible to refer to
+    // the control's id from within the delegates.
+    QQmlContext *context = component->creationContext();
+    // The component might not have been created in QML, in which case
+    // the creation context will be null and we have to create it ourselves.
+    if (!context)
+        context = qmlContext(control);
+    QQuickItem *item = qobject_cast<QQuickItem*>(component->beginCreate(context));
+    if (item) {
+        item->setParentItem(control);
+        component->completeCreate();
+        QJSEngine::setObjectOwnership(item, QJSEngine::JavaScriptOwnership);
+    }
+    return item;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 208, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::showRelevantItemForPosition
+inline QQuickItem *QQuickSwipePrivate::showRelevantItemForPosition(qreal position)
+{
+    if (qFuzzyIsNull(position))
         return nullptr;
 
-    QQuickItem *item = nullptr;
+    if (behind) {
+        createAndShowBehindItem();
+        return behindItem;
+    }
 
-    if (childItem->acceptedMouseButtons() &&
-            childItem->contains(childItem->mapFromScene(event->scenePosition()))) {
-        item = childItem;
-    } else {
-        const auto &childItems = childItem->childItems();
-        for (const auto &child: childItems) {
-            if ((item = getPressedItem(child, event)))
-                break;
+    if (right && position < 0.0) {
+        createAndShowRightItem();
+        return rightItem;
+    }
+
+    if (left && position > 0.0) {
+        createAndShowLeftItem();
+        return leftItem;
+    }
+
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 231, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::createRelevantItemForDistance
+inline QQuickItem *QQuickSwipePrivate::createRelevantItemForDistance(qreal distance)
+{
+    if (qFuzzyIsNull(distance))
+        return nullptr;
+
+    if (behind) {
+        createBehindItem();
+        return behindItem;
+    }
+
+    // a) If the position before the press was 0.0, we know that *any* movement
+    // whose distance is negative will result in the right item being shown and
+    // vice versa.
+    // b) Once the control has been exposed (that is, swiped to the left or right,
+    // and hence the position is either -1.0 or 1.0), we must use the width of the
+    // relevant item to determine if the distance is larger than that item,
+    // in order to know whether or not to display it.
+    // c) If the control has been exposed, and the swipe is larger than the width
+    // of the relevant item from which the swipe started from, we must show the
+    // item on the other side (if any).
+
+    if (right) {
+        if ((distance < 0.0 && positionBeforePress == 0.0) /* a) */
+            || (rightItem && positionBeforePress == -1.0 && distance < rightItem->width()) /* b) */
+            || (leftItem && positionBeforePress == 1.0 && qAbs(distance) > leftItem->width())) /* c) */ {
+            createRightItem();
+            return rightItem;
         }
     }
 
-    return item;
+    if (left) {
+        if ((distance > 0.0 && positionBeforePress == 0.0) /* a) */
+            || (leftItem && positionBeforePress == 1.0 && qAbs(distance) < leftItem->width()) /* b) */
+            || (rightItem && positionBeforePress == -1.0 && qAbs(distance) > rightItem->width())) /* c) */ {
+            createLeftItem();
+            return leftItem;
+        }
+    }
+
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 294, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::createLeftItem
+inline void QQuickSwipePrivate::createLeftItem()
+{
+    if (!leftItem) {
+        Q_Q(QQuickSwipe);
+        q->setLeftItem(createDelegateItem(left));
+        if (!leftItem)
+            qmlWarning(control) << "Failed to create left item:" << left->errors();
+    }
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 304, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::createBehindItem
+inline void QQuickSwipePrivate::createBehindItem()
+{
+    if (!behindItem) {
+        Q_Q(QQuickSwipe);
+        q->setBehindItem(createDelegateItem(behind));
+        if (!behindItem)
+            qmlWarning(control) << "Failed to create behind item:" << behind->errors();
+    }
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 314, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::createRightItem
+inline void QQuickSwipePrivate::createRightItem()
+{
+    if (!rightItem) {
+        Q_Q(QQuickSwipe);
+        q->setRightItem(createDelegateItem(right));
+        if (!rightItem)
+            qmlWarning(control) << "Failed to create right item:" << right->errors();
+    }
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 324, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::createAndShowLeftItem
+inline void QQuickSwipePrivate::createAndShowLeftItem()
+{
+    createLeftItem();
+
+    if (leftItem)
+        leftItem->setVisible(true);
+
+    if (rightItem)
+        rightItem->setVisible(false);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 335, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::createAndShowBehindItem
+inline void QQuickSwipePrivate::createAndShowBehindItem()
+{
+    createBehindItem();
+
+    if (behindItem)
+        behindItem->setVisible(true);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 343, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::createAndShowRightItem
+inline void QQuickSwipePrivate::createAndShowRightItem()
+{
+    createRightItem();
+
+    // This item may have already existed but was hidden.
+    if (rightItem)
+        rightItem->setVisible(true);
+
+    // The left item isn't visible when the right item is visible, so save rendering effort by hiding it.
+    if (leftItem)
+        leftItem->setVisible(false);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 356, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::warnAboutMixingDelegates
+inline void QQuickSwipePrivate::warnAboutMixingDelegates()
+{
+    qmlWarning(control) << "cannot set both behind and left/right properties";
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 361, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::warnAboutSettingDelegatesWhileVisible
+inline void QQuickSwipePrivate::warnAboutSettingDelegatesWhileVisible()
+{
+    qmlWarning(control) << "left/right/behind properties may only be set when swipe.position is 0";
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 366, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::hasDelegates
+inline bool QQuickSwipePrivate::hasDelegates() const
+{
+    return left || right || behind;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 371, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::isTransitioning
+inline bool QQuickSwipePrivate::isTransitioning() const
+{
+    return transitionManager && transitionManager->isRunning();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 393, as local:qquickswipedelegate.cpp:QQuickSwipePrivate::finishTransition
+inline void QQuickSwipePrivate::finishTransition()
+{
+    Q_Q(QQuickSwipe);
+    waitForTransition = false;
+    q->setComplete(qFuzzyCompare(qAbs(position), qreal(1.0)));
+    if (complete) {
+        emit q->opened();
+    } else {
+        if (qFuzzyIsNull(position))
+            wasComplete = false;
+        emit q->closed();
+    }
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 979, as local:qquickswipedelegate.cpp:warnIfHorizontallyAnchored
+static void warnIfHorizontallyAnchored(QQuickItem *item, const QString &itemName)
+{
+    if (!item)
+        return;
+
+    QQuickAnchors *anchors = QQuickItemPrivate::get(item)->_anchors;
+    if (anchors && (anchors->fill() || anchors->centerIn() || anchors->left().item || anchors->right().item)
+            && !item->property("_q_QQuickSwipeDelegate_warned").toBool()) {
+        qmlWarning(item) << QString::fromLatin1("SwipeDelegate: cannot use horizontal anchors with %1; unable to layout the item.").arg(itemName);
+        item->setProperty("_q_QQuickSwipeDelegate_warned", true);
+    }
 }
 
 //  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 697, as _ZN26QQuickSwipeDelegatePrivate16resizeBackgroundEv
@@ -101,6 +392,38 @@ inline void QQuickSwipeDelegatePrivate::resizeBackground()
 inline QPalette QQuickSwipeDelegatePrivate::defaultPalette() const
 {
     return QQuickTheme::palette(QQuickTheme::ListView);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 940, as _ZN26QQuickSwipeDelegatePrivate17forwardMouseEventEP11QMouseEventP10QQuickItem7QPointF
+inline void QQuickSwipeDelegatePrivate::forwardMouseEvent(QMouseEvent *event, QQuickItem *destination, QPointF localPos)
+{
+    Q_Q(QQuickSwipeDelegate);
+    QMutableSinglePointEvent localizedEvent(*event);
+    QMutableEventPoint::setPosition(localizedEvent.point(0), localPos);
+    QGuiApplication::sendEvent(destination, &localizedEvent);
+    q->setPressed(!localizedEvent.isAccepted());
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickswipedelegate.cpp, line 1024, as _ZNK26QQuickSwipeDelegatePrivate14getPressedItemEP10QQuickItemP11QMouseEvent
+inline QQuickItem *QQuickSwipeDelegatePrivate::getPressedItem(QQuickItem *childItem, QMouseEvent *event) const
+{
+    if (!childItem || !event)
+        return nullptr;
+
+    QQuickItem *item = nullptr;
+
+    if (childItem->acceptedMouseButtons() &&
+            childItem->contains(childItem->mapFromScene(event->scenePosition()))) {
+        item = childItem;
+    } else {
+        const auto &childItems = childItem->childItems();
+        for (const auto &child: childItems) {
+            if ((item = getPressedItem(child, event)))
+                break;
+        }
+    }
+
+    return item;
 }
 //  -----------------------------------------------------------------------
 
@@ -881,6 +1204,13 @@ QQuickItem *ritual_ZNK26QQuickSwipeDelegatePrivate14getPressedItemEP10QQuickItem
     QQuickItem *childItem,
     QMouseEvent *event) {
   return self->getPressedItem(childItem, event);
+}
+
+//  void QQuickSwipeDelegatePrivate::resizeContent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickSwipeDelegatePrivate13resizeContentEv(
+    QQuickSwipeDelegatePrivate *self) {
+  self->resizeContent();
 }
 
 //  void QQuickSwipeDelegatePrivate::resizeBackground()

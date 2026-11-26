@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK28QCanSignalDescriptionPrivate15muxValueInRangeERK8QVariantRK5QListIN21QCanSignalDescription19MultiplexValueRangeEE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK28QCanSignalDescriptionPrivate8isSharedEv": [
       "bool", "address"
     ],

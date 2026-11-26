@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput16QKeyboardHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QKeyboardHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput16QKeyboardHandler11qt_metacastEPKc(
+    Qt3DInput::QKeyboardHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QKeyboardHandler::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput16QKeyboardHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QKeyboardHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QKeyboardHandler::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,424 @@ QString *ritual_ZN9Qt3DInput16QKeyboardHandler2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QKeyboardHandler::tr(s, c, n));
+}
+
+//  Qt3DInput::QKeyboardHandler::QKeyboardHandler(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QKeyboardHandler *ritual_ZN9Qt3DInput16QKeyboardHandlerC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QKeyboardHandler(parent);
+}
+
+//  Qt3DInput::QKeyboardHandler::~QKeyboardHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandlerD1Ev(
+    Qt3DInput::QKeyboardHandler *self) {
+  delete self;
+}
+
+//  Qt3DInput::QKeyboardDevice *Qt3DInput::QKeyboardHandler::sourceDevice()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QKeyboardDevice *ritual_ZNK9Qt3DInput16QKeyboardHandler12sourceDeviceEv(
+    const Qt3DInput::QKeyboardHandler *self) {
+  return self->sourceDevice();
+}
+
+//  bool Qt3DInput::QKeyboardHandler::focus() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9Qt3DInput16QKeyboardHandler5focusEv(
+    const Qt3DInput::QKeyboardHandler *self) {
+  return self->focus();
+}
+
+//  void
+//      Qt3DInput::QKeyboardHandler::setSourceDevice(Qt3DInput::QKeyboardDevi
+//      ce *keyboardDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler15setSourceDeviceEPNS_15QKeyboardDeviceE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyboardDevice *keyboardDevice) {
+  self->setSourceDevice(keyboardDevice);
+}
+
+//  void Qt3DInput::QKeyboardHandler::setFocus(bool focus)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler8setFocusEb(
+    Qt3DInput::QKeyboardHandler *self,
+    bool focus) {
+  self->setFocus(focus);
+}
+
+//  void Qt3DInput::QKeyboardHandler::sourceDeviceChanged(QKeyboardDevice
+//      *keyboardDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler19sourceDeviceChangedEPNS_15QKeyboardDeviceE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyboardDevice *keyboardDevice) {
+  self->sourceDeviceChanged(keyboardDevice);
+}
+
+//  void Qt3DInput::QKeyboardHandler::focusChanged(bool focus)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler12focusChangedEb(
+    Qt3DInput::QKeyboardHandler *self,
+    bool focus) {
+  self->focusChanged(focus);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit0Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit0PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit0Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit1Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit1PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit1Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit2Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit2PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit2Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit3Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit3PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit3Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit4Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit4PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit4Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit5Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit5PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit5Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit6Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit6PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit6Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit7Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit7PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit7Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit8Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit8PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit8Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::digit9Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13digit9PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->digit9Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::leftPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler11leftPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->leftPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::rightPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler12rightPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->rightPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::upPressed(Qt3DInput::QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler9upPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->upPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::downPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler11downPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->downPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::tabPressed(Qt3DInput::QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler10tabPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->tabPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::backtabPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler14backtabPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->backtabPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::asteriskPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler15asteriskPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->asteriskPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::numberSignPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler17numberSignPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->numberSignPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::escapePressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13escapePressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->escapePressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::returnPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13returnPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->returnPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::enterPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler12enterPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->enterPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::deletePressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13deletePressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->deletePressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::spacePressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler12spacePressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->spacePressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::backPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler11backPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->backPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::cancelPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13cancelPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->cancelPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::selectPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13selectPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->selectPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::yesPressed(Qt3DInput::QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler10yesPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->yesPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::noPressed(Qt3DInput::QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler9noPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->noPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::context1Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler15context1PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->context1Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::context2Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler15context2PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->context2Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::context3Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler15context3PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->context3Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::context4Pressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler15context4PressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->context4Pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::callPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler11callPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->callPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::hangupPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler13hangupPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->hangupPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::flipPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler11flipPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->flipPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::menuPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler11menuPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->menuPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::volumeUpPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler15volumeUpPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->volumeUpPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::volumeDownPressed(Qt3DInput::QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler17volumeDownPressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->volumeDownPressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::pressed(Qt3DInput::QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler7pressedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->pressed(event);
+}
+
+//  void Qt3DInput::QKeyboardHandler::released(Qt3DInput::QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QKeyboardHandler8releasedEPNS_9QKeyEventE(
+    Qt3DInput::QKeyboardHandler *self,
+    Qt3DInput::QKeyEvent *event) {
+  self->released(event);
 }
 
 //  QKeyboardHandlerPrivate *Qt3DInput::QKeyboardHandler::d_func()

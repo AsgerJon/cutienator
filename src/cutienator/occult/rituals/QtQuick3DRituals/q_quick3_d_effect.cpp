@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtQuick3D/qquick3dobject.h>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuick3DEffect may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -21,6 +22,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK14QQuick3DEffect10metaObjectEv(
     const QQuick3DEffect *self) {
   return self->metaObject();
+}
+
+//  void *QQuick3DEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuick3DEffect11qt_metacastEPKc(
+    QQuick3DEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DEffect::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuick3DEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuick3DEffect::tr(const char *s, const char *c, int n)
@@ -37,6 +56,47 @@ extern "C" Q_DECL_EXPORT
 QQuick3DEffect *ritual_ZN14QQuick3DEffectC1EP14QQuick3DObject(
     QQuick3DObject *parent) {
   return new QQuick3DEffect(parent);
+}
+
+//  QQmlListProperty<QQuick3DShaderUtilsRenderPass> QQuick3DEffect::passes()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DShaderUtilsRenderPass> *ritual_ZN14QQuick3DEffect6passesEv(
+    QQuick3DEffect *self) {
+  return new QQmlListProperty<QQuick3DShaderUtilsRenderPass>(self->passes());
+}
+
+//  void QQuick3DEffect::qmlAppendPass(QQmlListProperty<QQuick3DShaderUtilsRe
+//      nderPass> *list, QQuick3DShaderUtilsRenderPass *pass)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DEffect13qmlAppendPassEP16QQmlListPropertyI29QQuick3DShaderUtilsRenderPassEPS1_(
+    QQmlListProperty<QQuick3DShaderUtilsRenderPass> *list,
+    QQuick3DShaderUtilsRenderPass *pass) {
+  QQuick3DEffect::qmlAppendPass(list, pass);
+}
+
+//  QQuick3DShaderUtilsRenderPass *QQuick3DEffect::qmlPassAt(QQmlListProperty
+//      <QQuick3DShaderUtilsRenderPass> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DShaderUtilsRenderPass *ritual_ZN14QQuick3DEffect9qmlPassAtEP16QQmlListPropertyI29QQuick3DShaderUtilsRenderPassEx(
+    QQmlListProperty<QQuick3DShaderUtilsRenderPass> *list,
+    qsizetype index) {
+  return QQuick3DEffect::qmlPassAt(list, index);
+}
+
+//  qsizetype QQuick3DEffect::qmlPassCount(QQmlListProperty<QQuick3DShaderUti
+//      lsRenderPass> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN14QQuick3DEffect12qmlPassCountEP16QQmlListPropertyI29QQuick3DShaderUtilsRenderPassE(
+    QQmlListProperty<QQuick3DShaderUtilsRenderPass> *list) {
+  return QQuick3DEffect::qmlPassCount(list);
+}
+
+//  void QQuick3DEffect::qmlPassClear(QQmlListProperty<QQuick3DShaderUtilsRen
+//      derPass> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuick3DEffect12qmlPassClearEP16QQmlListPropertyI29QQuick3DShaderUtilsRenderPassE(
+    QQmlListProperty<QQuick3DShaderUtilsRenderPass> *list) {
+  QQuick3DEffect::qmlPassClear(list);
 }
 
 //  void QQuick3DEffect::effectChainDirty()
@@ -128,4 +188,12 @@ void ritual_own_ZN14QQuick3DEffect10itemChangeEN14QQuick3DObject10ItemChangeERKN
   static_cast<OwnQQuick3DEffect *>(self)->OwnQQuick3DEffect::itemChange(
       a0,
       *a1);
+}
+
+//  a QQmlListProperty<QQuick3DShaderUtilsRenderPass> a ritual of
+//      QQuick3DEffect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DEffect__QQmlListProperty_QQuick3DShaderUtilsRenderPass(
+    QQmlListProperty<QQuick3DShaderUtilsRenderPass> *self) {
+  delete self;
 }

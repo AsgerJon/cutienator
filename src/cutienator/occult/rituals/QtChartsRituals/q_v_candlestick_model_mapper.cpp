@@ -198,6 +198,25 @@ const QMetaObject *ritual_ZNK24QVCandlestickModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVCandlestickModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QVCandlestickModelMapper11qt_metacastEPKc(
+    QVCandlestickModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVCandlestickModelMapper::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QVCandlestickModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVCandlestickModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVCandlestickModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QVCandlestickModelMapper2trEPKcS1_i(
@@ -324,6 +343,55 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK24QVCandlestickModelMapper13lastSetColumnEv(
     const QVCandlestickModelMapper *self) {
   return self->lastSetColumn();
+}
+
+//  void QVCandlestickModelMapper::timestampRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QVCandlestickModelMapper19timestampRowChangedEv(
+    QVCandlestickModelMapper *self) {
+  self->timestampRowChanged();
+}
+
+//  void QVCandlestickModelMapper::openRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QVCandlestickModelMapper14openRowChangedEv(
+    QVCandlestickModelMapper *self) {
+  self->openRowChanged();
+}
+
+//  void QVCandlestickModelMapper::highRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QVCandlestickModelMapper14highRowChangedEv(
+    QVCandlestickModelMapper *self) {
+  self->highRowChanged();
+}
+
+//  void QVCandlestickModelMapper::lowRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QVCandlestickModelMapper13lowRowChangedEv(
+    QVCandlestickModelMapper *self) {
+  self->lowRowChanged();
+}
+
+//  void QVCandlestickModelMapper::closeRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QVCandlestickModelMapper15closeRowChangedEv(
+    QVCandlestickModelMapper *self) {
+  self->closeRowChanged();
+}
+
+//  void QVCandlestickModelMapper::firstSetColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QVCandlestickModelMapper21firstSetColumnChangedEv(
+    QVCandlestickModelMapper *self) {
+  self->firstSetColumnChanged();
+}
+
+//  void QVCandlestickModelMapper::lastSetColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QVCandlestickModelMapper20lastSetColumnChangedEv(
+    QVCandlestickModelMapper *self) {
+  self->lastSetColumnChanged();
 }
 
 //  a Python function taken by a CuteQVCandlestickModelMapper, for the

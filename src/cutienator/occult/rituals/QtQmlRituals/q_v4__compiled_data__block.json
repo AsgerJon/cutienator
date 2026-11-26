@@ -5,7 +5,11 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZNK3QV412CompiledData5Block11localsTableEv": [
+      "address", "address"
+    ],
     "ritual_ZN3QV412CompiledData5Block13calculateSizeEi": ["int", "int"],
+    "ritual_ZN3QV412CompiledData5Block5alignEm": ["size_t", "size_t"],
     "ritual_ZN3QV412CompiledData5BlockD1Ev": ["nothing", "address"]
   }
 }

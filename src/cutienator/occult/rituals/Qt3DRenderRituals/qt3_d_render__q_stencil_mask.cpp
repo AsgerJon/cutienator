@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender12QStencilMask10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QStencilMask::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender12QStencilMask11qt_metacastEPKc(
+    Qt3DRender::QStencilMask *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QStencilMask::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender12QStencilMask11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QStencilMask *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QStencilMask::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender12QStencilMask2trEPKcS2_i(
@@ -186,6 +205,67 @@ QString *ritual_ZN10Qt3DRender12QStencilMask2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QStencilMask::tr(s, c, n));
+}
+
+//  Qt3DRender::QStencilMask::QStencilMask(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QStencilMask *ritual_ZN10Qt3DRender12QStencilMaskC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QStencilMask(parent);
+}
+
+//  Qt3DRender::QStencilMask::~QStencilMask()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QStencilMaskD1Ev(
+    Qt3DRender::QStencilMask *self) {
+  delete self;
+}
+
+//  uint Qt3DRender::QStencilMask::frontOutputMask() const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK10Qt3DRender12QStencilMask15frontOutputMaskEv(
+    const Qt3DRender::QStencilMask *self) {
+  return self->frontOutputMask();
+}
+
+//  uint Qt3DRender::QStencilMask::backOutputMask() const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK10Qt3DRender12QStencilMask14backOutputMaskEv(
+    const Qt3DRender::QStencilMask *self) {
+  return self->backOutputMask();
+}
+
+//  void Qt3DRender::QStencilMask::setFrontOutputMask(uint frontOutputMask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QStencilMask18setFrontOutputMaskEj(
+    Qt3DRender::QStencilMask *self,
+    uint frontOutputMask) {
+  self->setFrontOutputMask(frontOutputMask);
+}
+
+//  void Qt3DRender::QStencilMask::setBackOutputMask(uint backOutputMask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QStencilMask17setBackOutputMaskEj(
+    Qt3DRender::QStencilMask *self,
+    uint backOutputMask) {
+  self->setBackOutputMask(backOutputMask);
+}
+
+//  void Qt3DRender::QStencilMask::frontOutputMaskChanged(uint
+//      frontOutputMask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QStencilMask22frontOutputMaskChangedEj(
+    Qt3DRender::QStencilMask *self,
+    uint frontOutputMask) {
+  self->frontOutputMaskChanged(frontOutputMask);
+}
+
+//  void Qt3DRender::QStencilMask::backOutputMaskChanged(uint backOutputMask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QStencilMask21backOutputMaskChangedEj(
+    Qt3DRender::QStencilMask *self,
+    uint backOutputMask) {
+  self->backOutputMaskChanged(backOutputMask);
 }
 
 //  QStencilMaskPrivate *Qt3DRender::QStencilMask::d_func()

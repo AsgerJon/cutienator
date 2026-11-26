@@ -13,6 +13,9 @@
     ],
     "ritual_ZN20QCPainterRhiRenderer18resetDebugCountersEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN20QCPainterRhiRenderer17textureFormatInfoEN11QRhiTexture6FormatE5QSizePjS3_S3_": [
+      "nothing", "int", "address", "address", "address", "address"
     ]
   }
 }

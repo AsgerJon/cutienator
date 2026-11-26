@@ -78,17 +78,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/widgets/qcombobox.cpp, line 136, as _ZNK24QComboBoxPrivateScroller8sizeHintEv
-inline QSize QComboBoxPrivateScroller::sizeHint() const
-{
-    return QSize(20, style()->pixelMetric(QStyle::PM_MenuScrollerHeight, nullptr, this));
-}
-
-//  from src/widgets/widgets/qcombobox.cpp, line 141, as _ZN24QComboBoxPrivateScroller9stopTimerEv
-inline void QComboBoxPrivateScroller::stopTimer()
-{
-    timer.stop();
-}
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/widgets/qcombobox.cpp, line 151, as _ZN24QComboBoxPrivateScroller10enterEventEP11QEnterEvent
 inline void QComboBoxPrivateScroller::enterEvent(QEnterEvent *)
@@ -102,6 +92,23 @@ inline void QComboBoxPrivateScroller::leaveEvent(QEvent *)
     stopTimer();
 }
 
+//  from src/widgets/widgets/qcombobox.cpp, line 189, as _ZN24QComboBoxPrivateScroller10paintEventEP11QPaintEvent
+inline void QComboBoxPrivateScroller::paintEvent(QPaintEvent *)
+{
+    QPainter p(this);
+    QStyleOptionMenuItem menuOpt;
+    menuOpt.initFrom(this);
+    menuOpt.checkType = QStyleOptionMenuItem::NotCheckable;
+    menuOpt.menuRect = rect();
+    menuOpt.maxIconWidth = 0;
+    menuOpt.reservedShortcutWidth = 0;
+    menuOpt.menuItemType = QStyleOptionMenuItem::Scroller;
+    if (sliderAction == QAbstractSlider::SliderSingleStepAdd)
+        menuOpt.state |= QStyle::State_DownArrow;
+    p.eraseRect(rect());
+    style()->drawControl(QStyle::CE_MenuScroller, &menuOpt, &p);
+}
+
 //  from src/widgets/widgets/qcombobox.cpp, line 161, as _ZN24QComboBoxPrivateScroller10timerEventEP11QTimerEvent
 inline void QComboBoxPrivateScroller::timerEvent(QTimerEvent *e)
 {
@@ -112,6 +119,12 @@ inline void QComboBoxPrivateScroller::timerEvent(QTimerEvent *e)
             emit doScroll(sliderAction);
         }
     }
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 136, as _ZNK24QComboBoxPrivateScroller8sizeHintEv
+inline QSize QComboBoxPrivateScroller::sizeHint() const
+{
+    return QSize(20, style()->pixelMetric(QStyle::PM_MenuScrollerHeight, nullptr, this));
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 172, as _ZN24QComboBoxPrivateScroller9hideEventEP10QHideEvent
@@ -133,21 +146,10 @@ inline void QComboBoxPrivateScroller::mouseMoveEvent(QMouseEvent *e)
     fast = horizontallyInside && verticallyOutside;
 }
 
-//  from src/widgets/widgets/qcombobox.cpp, line 189, as _ZN24QComboBoxPrivateScroller10paintEventEP11QPaintEvent
-inline void QComboBoxPrivateScroller::paintEvent(QPaintEvent *)
+//  from src/widgets/widgets/qcombobox.cpp, line 141, as _ZN24QComboBoxPrivateScroller9stopTimerEv
+inline void QComboBoxPrivateScroller::stopTimer()
 {
-    QPainter p(this);
-    QStyleOptionMenuItem menuOpt;
-    menuOpt.initFrom(this);
-    menuOpt.checkType = QStyleOptionMenuItem::NotCheckable;
-    menuOpt.menuRect = rect();
-    menuOpt.maxIconWidth = 0;
-    menuOpt.reservedShortcutWidth = 0;
-    menuOpt.menuItemType = QStyleOptionMenuItem::Scroller;
-    if (sliderAction == QAbstractSlider::SliderSingleStepAdd)
-        menuOpt.state |= QStyle::State_DownArrow;
-    p.eraseRect(rect());
-    style()->drawControl(QStyle::CE_MenuScroller, &menuOpt, &p);
+    timer.stop();
 }
 //  -----------------------------------------------------------------------
 
@@ -1048,6 +1050,32 @@ const QMetaObject *ritual_ZNK24QComboBoxPrivateScroller10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QComboBoxPrivateScroller::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QComboBoxPrivateScroller11qt_metacastEPKc(
+    QComboBoxPrivateScroller *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QComboBoxPrivateScroller::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QComboBoxPrivateScroller11qt_metacallEN11QMetaObject4CallEiPPv(
+    QComboBoxPrivateScroller *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QComboBoxPrivateScroller::~QComboBoxPrivateScroller()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QComboBoxPrivateScrollerD1Ev(
+    QComboBoxPrivateScroller *self) {
+  delete self;
+}
+
 //  QSize QComboBoxPrivateScroller::sizeHint() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK24QComboBoxPrivateScroller8sizeHintEv(
@@ -1108,6 +1136,33 @@ void ritual_ZN24QComboBoxPrivateScroller10paintEventEP11QPaintEvent(
     QComboBoxPrivateScroller *self,
     QPaintEvent *a0) {
   self->paintEvent(a0);
+}
+
+//  void QComboBoxPrivateScroller::doScroll(int action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QComboBoxPrivateScroller8doScrollEi(
+    QComboBoxPrivateScroller *self,
+    int action) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QComboBoxPrivateScroller")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "doScroll(int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "doScroll(int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&action)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQComboBoxPrivateScroller, for the

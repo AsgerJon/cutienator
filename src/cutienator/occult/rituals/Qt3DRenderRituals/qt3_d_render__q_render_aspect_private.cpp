@@ -6,7 +6,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qrenderaspect_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qobjectdefs.h>
 #include <cstring>
+#include <vector>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DRender::QRenderAspectPrivate that Python can take functions over in. Every Qt3DRender::QRenderAspectPrivate
 //  Python makes is one. Each function below asks the Python
@@ -89,6 +93,21 @@ public:
   }
 };
 
+//  Qt3DRender::QRenderAspectPrivate::QRenderAspectPrivate(QRenderAspect::Sub
+//      missionType submissionType)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderAspectPrivate *ritual_ZN10Qt3DRender20QRenderAspectPrivateC1ENS_13QRenderAspect14SubmissionTypeE(
+    Qt3DRender::QRenderAspect::SubmissionType submissionType) {
+  return new CuteQt3DRender_QRenderAspectPrivate(submissionType);
+}
+
+//  Qt3DRender::QRenderAspectPrivate::~QRenderAspectPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivateD1Ev(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  delete self;
+}
+
 //  QRenderAspect *Qt3DRender::QRenderAspectPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QRenderAspect *ritual_ZN10Qt3DRender20QRenderAspectPrivate6q_funcEv(
@@ -103,12 +122,150 @@ const Qt3DRender::QRenderAspect *ritual_ZNK10Qt3DRender20QRenderAspectPrivate6q_
   return self->q_func();
 }
 
+//  QRenderAspectPrivate
+//      *Qt3DRender::QRenderAspectPrivate::findPrivate(Qt3DCore::QAspectEngin
+//      e *engine)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderAspectPrivate *ritual_ZN10Qt3DRender20QRenderAspectPrivate11findPrivateEPN8Qt3DCore13QAspectEngineE(
+    Qt3DCore::QAspectEngine *engine) {
+  return Qt3DRender::QRenderAspectPrivate::findPrivate(engine);
+}
+
 //  QRenderAspectPrivate *Qt3DRender::QRenderAspectPrivate::get(QRenderAspect
 //      *q)
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QRenderAspectPrivate *ritual_ZN10Qt3DRender20QRenderAspectPrivate3getEPNS_13QRenderAspectE(
     Qt3DRender::QRenderAspect *q) {
   return Qt3DRender::QRenderAspectPrivate::get(q);
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::jobsDone()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate8jobsDoneEv(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  self->jobsDone();
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::frameDone()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate9frameDoneEv(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  self->frameDone();
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::createNodeManagers()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate18createNodeManagersEv(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  self->createNodeManagers();
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::onEngineStartup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate15onEngineStartupEv(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  self->onEngineStartup();
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::onEngineAboutToShutdown()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate23onEngineAboutToShutdownEv(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  self->onEngineAboutToShutdown();
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::registerBackendTypes()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate20registerBackendTypesEv(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  self->registerBackendTypes();
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::unregisterBackendTypes()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate22unregisterBackendTypesEv(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  self->unregisterBackendTypes();
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::loadSceneImporters()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate18loadSceneImportersEv(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  self->loadSceneImporters();
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::loadRenderPlugin(const QString
+//      &pluginName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate16loadRenderPluginERK7QString(
+    Qt3DRender::QRenderAspectPrivate *self,
+    const QString *pluginName) {
+  self->loadRenderPlugin(*pluginName);
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::registerBackendType(const
+//      QMetaObject &a0, const Qt3DCore::QBackendNodeMapperPtr &functor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate19registerBackendTypeERK11QMetaObjectRK14QSharedPointerIN8Qt3DCore18QBackendNodeMapperEE(
+    Qt3DRender::QRenderAspectPrivate *self,
+    const QMetaObject *a0,
+    const Qt3DCore::QBackendNodeMapperPtr *functor) {
+  self->registerBackendType(*a0, *functor);
+}
+
+//  std::vector<Qt3DCore::QAspectJobPtr>
+//      Qt3DRender::QRenderAspectPrivate::createGeometryRendererJobs() const
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZNK10Qt3DRender20QRenderAspectPrivate26createGeometryRendererJobsEv(
+    const Qt3DRender::QRenderAspectPrivate *self) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(
+      self->createGeometryRendererJobs());
+}
+
+//  std::vector<Qt3DCore::QAspectJobPtr>
+//      Qt3DRender::QRenderAspectPrivate::createPreRendererJobs() const
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZNK10Qt3DRender20QRenderAspectPrivate21createPreRendererJobsEv(
+    const Qt3DRender::QRenderAspectPrivate *self) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(
+      self->createPreRendererJobs());
+}
+
+//  Render::AbstractRenderer
+//      *Qt3DRender::QRenderAspectPrivate::loadRendererPlugin()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::AbstractRenderer *ritual_ZN10Qt3DRender20QRenderAspectPrivate18loadRendererPluginEv(
+    Qt3DRender::QRenderAspectPrivate *self) {
+  return self->loadRendererPlugin();
+}
+
+//  bool Qt3DRender::QRenderAspectPrivate::processMouseEvent(QObject *obj,
+//      QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender20QRenderAspectPrivate17processMouseEventEP7QObjectP11QMouseEvent(
+    Qt3DRender::QRenderAspectPrivate *self,
+    QObject *obj,
+    QMouseEvent *event) {
+  return self->processMouseEvent(obj, event);
+}
+
+//  bool Qt3DRender::QRenderAspectPrivate::processKeyEvent(QObject *obj,
+//      QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender20QRenderAspectPrivate15processKeyEventEP7QObjectP9QKeyEvent(
+    Qt3DRender::QRenderAspectPrivate *self,
+    QObject *obj,
+    QKeyEvent *event) {
+  return self->processKeyEvent(obj, event);
+}
+
+//  void Qt3DRender::QRenderAspectPrivate::configurePlugin(const QString
+//      &plugin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender20QRenderAspectPrivate15configurePluginERK7QString(
+    const QString *plugin) {
+  Qt3DRender::QRenderAspectPrivate::configurePlugin(*plugin);
 }
 
 //  a Python function taken by a CuteQt3DRender_QRenderAspectPrivate, for the
@@ -140,4 +297,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN10Qt3DRender20QRenderAspectPrivate23onEngineAboutToShutdownEv(
     Qt3DRender::QRenderAspectPrivate *self) {
   self->Qt3DRender::QRenderAspectPrivate::onEngineAboutToShutdown();
+}
+
+//  a std::vector<Qt3DCore::QAspectJobPtr> a ritual of
+//      Qt3DRender::QRenderAspectPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QRenderAspectPrivate__std_vector_Qt3DCore_QAspectJobPtr(
+    std::vector<Qt3DCore::QAspectJobPtr> *self) {
+  delete self;
 }

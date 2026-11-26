@@ -6,7 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK15QQStyleKitTheme10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitTheme11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQStyleKitTheme11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK15QQStyleKitTheme5styleEv": ["address", "address"],
+    "ritual_ZNK15QQStyleKitTheme21paletteForControlTypeEj": [
+      "address", "address", "unsigned int"
+    ],
     "ritual_ZN15QQStyleKitTheme17componentCompleteEv": [
       "nothing", "address"
     ],

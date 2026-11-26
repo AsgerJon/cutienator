@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/q3dscene.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/q3dscene.h>
 #include <QtCore/qstring.h>
@@ -183,6 +183,22 @@ const QMetaObject *ritual_ZNK8Q3DScene10metaObjectEv(const Q3DScene *self) {
   return self->metaObject();
 }
 
+//  void *Q3DScene::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Q3DScene11qt_metacastEPKc(Q3DScene *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DScene::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Q3DScene11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DScene *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DScene::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Q3DScene2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -343,6 +359,76 @@ QPoint *ritual_ZNK8Q3DScene21invalidSelectionPointEv(const Q3DScene *self) {
   return new QPoint(self->invalidSelectionPoint());
 }
 
+//  void Q3DScene::viewportChanged(QRect viewport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene15viewportChangedE5QRect(
+    Q3DScene *self,
+    const QRect *viewport) {
+  self->viewportChanged(*viewport);
+}
+
+//  void Q3DScene::primarySubViewportChanged(QRect subViewport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene25primarySubViewportChangedE5QRect(
+    Q3DScene *self,
+    const QRect *subViewport) {
+  self->primarySubViewportChanged(*subViewport);
+}
+
+//  void Q3DScene::secondarySubViewportChanged(QRect subViewport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene27secondarySubViewportChangedE5QRect(
+    Q3DScene *self,
+    const QRect *subViewport) {
+  self->secondarySubViewportChanged(*subViewport);
+}
+
+//  void Q3DScene::secondarySubviewOnTopChanged(bool isSecondaryOnTop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene28secondarySubviewOnTopChangedEb(
+    Q3DScene *self,
+    bool isSecondaryOnTop) {
+  self->secondarySubviewOnTopChanged(isSecondaryOnTop);
+}
+
+//  void Q3DScene::slicingActiveChanged(bool isSlicingActive)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene20slicingActiveChangedEb(
+    Q3DScene *self,
+    bool isSlicingActive) {
+  self->slicingActiveChanged(isSlicingActive);
+}
+
+//  void Q3DScene::devicePixelRatioChanged(qreal pixelRatio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene23devicePixelRatioChangedEd(
+    Q3DScene *self,
+    qreal pixelRatio) {
+  self->devicePixelRatioChanged(pixelRatio);
+}
+
+//  void Q3DScene::selectionQueryPositionChanged(QPoint position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene29selectionQueryPositionChangedE6QPoint(
+    Q3DScene *self,
+    const QPoint *position) {
+  self->selectionQueryPositionChanged(*position);
+}
+
+//  void Q3DScene::graphPositionQueryChanged(QPoint position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene25graphPositionQueryChangedE6QPoint(
+    Q3DScene *self,
+    const QPoint *position) {
+  self->graphPositionQueryChanged(*position);
+}
+
+//  void Q3DScene::needRender()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DScene10needRenderEv(Q3DScene *self) {
+  self->needRender();
+}
+
 //  a Python function taken by a CuteQ3DScene, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
@@ -350,4 +436,4 @@ bool ritual_take_Q3DScene(Q3DScene *self, const char *key, void *call) {
   return static_cast<CuteQ3DScene *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

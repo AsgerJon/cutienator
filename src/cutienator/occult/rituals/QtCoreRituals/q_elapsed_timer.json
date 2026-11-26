@@ -11,6 +11,7 @@
     "ritual_ZN13QElapsedTimer7restartEv": ["long long", "address"],
     "ritual_ZN13QElapsedTimer10invalidateEv": ["nothing", "address"],
     "ritual_ZNK13QElapsedTimer7isValidEv": ["bool", "address"],
+    "ritual_ZNK13QElapsedTimer15durationElapsedEv": ["long long", "address"],
     "ritual_ZNK13QElapsedTimer12nsecsElapsedEv": ["long long", "address"],
     "ritual_ZNK13QElapsedTimer7elapsedEv": ["long long", "address"],
     "ritual_ZNK13QElapsedTimer10hasExpiredEx": [
@@ -18,6 +19,9 @@
     ],
     "ritual_ZNK13QElapsedTimer19msecsSinceReferenceEv": [
       "long long", "address"
+    ],
+    "ritual_ZNK13QElapsedTimer10durationToERKS_": [
+      "long long", "address", "address"
     ],
     "ritual_ZNK13QElapsedTimer7msecsToERKS_": [
       "long long", "address", "address"

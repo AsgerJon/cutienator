@@ -53,6 +53,21 @@ public:
   }
 };
 
+//  Qt3DInput::QAbstractPhysicalDevicePrivate::QAbstractPhysicalDevicePrivate
+//      ()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractPhysicalDevicePrivate *ritual_ZN9Qt3DInput30QAbstractPhysicalDevicePrivateC1Ev() {
+  return new CuteQt3DInput_QAbstractPhysicalDevicePrivate();
+}
+
+//  Qt3DInput::QAbstractPhysicalDevicePrivate::~QAbstractPhysicalDevicePrivat
+//      e()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput30QAbstractPhysicalDevicePrivateD1Ev(
+    Qt3DInput::QAbstractPhysicalDevicePrivate *self) {
+  delete self;
+}
+
 //  QAbstractPhysicalDevice
 //      *Qt3DInput::QAbstractPhysicalDevicePrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -67,6 +82,26 @@ extern "C" Q_DECL_EXPORT
 const Qt3DInput::QAbstractPhysicalDevice *ritual_ZNK9Qt3DInput30QAbstractPhysicalDevicePrivate6q_funcEv(
     const Qt3DInput::QAbstractPhysicalDevicePrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DInput::QAbstractPhysicalDevicePrivate::postAxisEvent(int axis,
+//      qreal value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput30QAbstractPhysicalDevicePrivate13postAxisEventEid(
+    Qt3DInput::QAbstractPhysicalDevicePrivate *self,
+    int axis,
+    qreal value) {
+  self->postAxisEvent(axis, value);
+}
+
+//  void Qt3DInput::QAbstractPhysicalDevicePrivate::postButtonEvent(int
+//      button, qreal value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput30QAbstractPhysicalDevicePrivate15postButtonEventEid(
+    Qt3DInput::QAbstractPhysicalDevicePrivate *self,
+    int button,
+    qreal value) {
+  self->postButtonEvent(button, value);
 }
 
 //  a Python function taken by a

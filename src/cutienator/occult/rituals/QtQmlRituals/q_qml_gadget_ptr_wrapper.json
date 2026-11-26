@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlGadgetPtrWrapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlGadgetPtrWrapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlGadgetPtrWrapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQmlGadgetPtrWrapper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -27,6 +33,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK20QQmlGadgetPtrWrapper8metaTypeEv": ["address", "address"],
+    "ritual_ZN20QQmlGadgetPtrWrapper8metaCallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK20QQmlGadgetPtrWrapper8propertyEi": [
       "address", "address", "int"
     ],
@@ -34,6 +43,9 @@
       "address", "address", "address"
     ],
     "ritual_ZN20QQmlGadgetPtrWrapper13writeOnGadgetERK13QMetaPropertyRK8QVariant": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlGadgetPtrWrapper13writeOnGadgetERK13QMetaPropertyO8QVariant": [
       "nothing", "address", "address", "address"
     ],
     "ritual_ZNK20QQmlGadgetPtrWrapper9valueTypeEv": ["address", "address"],

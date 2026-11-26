@@ -11,6 +11,9 @@
     ],
     "ritual_ZN18QWaylandOutputModeC1ERKS_": ["address", "address"],
     "ritual_ZN18QWaylandOutputModeD1Ev": ["nothing", "address"],
+    "ritual_ZN18QWaylandOutputModeaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18QWaylandOutputModeeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK18QWaylandOutputModeneERKS_": ["bool", "address", "address"],
     "ritual_ZNK18QWaylandOutputMode7isValidEv": ["bool", "address"],

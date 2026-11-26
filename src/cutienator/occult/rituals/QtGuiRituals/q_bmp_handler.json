@@ -6,7 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QBmpHandler7canReadEv": ["bool", "address"],
+    "ritual_ZN11QBmpHandler4readEP6QImage": ["bool", "address", "address"],
+    "ritual_ZN11QBmpHandler5writeERK6QImage": ["bool", "address", "address"],
     "ritual_ZN11QBmpHandler7canReadEP9QIODevice": ["bool", "address"],
+    "ritual_ZNK11QBmpHandler6optionEN15QImageIOHandler11ImageOptionE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN11QBmpHandler9setOptionEN15QImageIOHandler11ImageOptionERK8QVariant": [
       "nothing", "address", "int", "address"
     ],

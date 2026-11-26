@@ -286,6 +286,25 @@ const QMetaObject *ritual_ZNK16QStaticRigidBody10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStaticRigidBody::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QStaticRigidBody11qt_metacastEPKc(
+    QStaticRigidBody *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStaticRigidBody::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QStaticRigidBody11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStaticRigidBody *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStaticRigidBody::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QStaticRigidBody2trEPKcS1_i(
@@ -299,6 +318,13 @@ QString *ritual_ZN16QStaticRigidBody2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 QStaticRigidBody *ritual_ZN16QStaticRigidBodyC1Ev() {
   return new CuteQStaticRigidBody();
+}
+
+//  QAbstractPhysXNode *QStaticRigidBody::createPhysXBackend()
+extern "C" Q_DECL_EXPORT
+QAbstractPhysXNode *ritual_ZN16QStaticRigidBody18createPhysXBackendEv(
+    QStaticRigidBody *self) {
+  return self->createPhysXBackend();
 }
 
 //  a Python function taken by a CuteQStaticRigidBody, for the function named

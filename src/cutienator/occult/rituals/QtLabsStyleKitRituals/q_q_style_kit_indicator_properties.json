@@ -8,7 +8,16 @@
     "ritual_ZNK29QQStyleKitIndicatorProperties10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQStyleKitIndicatorProperties11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQStyleKitIndicatorProperties11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QQStyleKitIndicatorProperties24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQStyleKitIndicatorProperties17foregroundChangedEv": [
       "nothing", "address"
     ]
   }

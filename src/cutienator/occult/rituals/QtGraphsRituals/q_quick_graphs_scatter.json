@@ -9,6 +9,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickGraphsScatter10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickGraphsScatter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickGraphsScatter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickGraphsScatter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,19 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK19QQuickGraphsScatter5axisZEv": ["address", "address"],
+    "ritual_ZN19QQuickGraphsScatter10seriesListEv": ["address", "address"],
+    "ritual_ZN19QQuickGraphsScatter16appendSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter15countSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesE": [
+      "long long", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter12atSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN19QQuickGraphsScatter15clearSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesE": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QQuickGraphsScatter14clearSelectionEv": [
       "nothing", "address"
     ],
@@ -113,6 +132,18 @@
     "ritual_ZN19QQuickGraphsScatter19handleItemsInsertedExx": [
       "nothing", "address", "long long", "long long"
     ],
+    "ritual_ZN19QQuickGraphsScatter12axisXChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter12axisYChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter12axisZChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter21selectedSeriesChangedEP16QScatter3DSeries": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QQuickGraphsScatter28calculateSceneScalingFactorsEv": [
       "nothing", "address"
     ],
@@ -149,6 +180,12 @@
     "ritual_ZN19QQuickGraphsScatter20selectedItemPositionEv": [
       "address", "address"
     ],
+    "ritual_ZN19QQuickGraphsScatter23updateMaterialReferenceEPNS_12ScatterModelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter33updateInstancedMaterialPropertiesEPNS_12ScatterModelEbP15QQuick3DTextureS3_b": [
+      "nothing", "address", "address", "bool", "address", "address", "bool"
+    ],
     "ritual_ZN19QQuickGraphsScatter18updateItemMaterialEP13QQuick3DModelbbbRK7QString": [
       "nothing", "address", "address", "bool", "bool", "bool", "text"
     ],
@@ -164,14 +201,29 @@
     "ritual_ZN19QQuickGraphsScatter14createDataItemEP17QAbstract3DSeries": [
       "address", "address", "address"
     ],
+    "ritual_ZN19QQuickGraphsScatter15removeDataItemsEPNS_12ScatterModelEN10QtGraphs3D16OptimizationHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QQuickGraphsScatter15fixMeshFileNameER7QStringP17QAbstract3DSeries": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN19QQuickGraphsScatter15getMeshFileNameEP17QAbstract3DSeries": [
       "text", "address", "address"
     ],
     "ritual_ZN19QQuickGraphsScatter14deleteDataItemEP13QQuick3DModel": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN19QQuickGraphsScatter15removeDataItemsER5QListIP13QQuick3DModelEx": [
+      "nothing", "address", "address", "long long"
+    ],
     "ritual_ZN19QQuickGraphsScatter17recreateDataItemsEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter17recreateDataItemsERK5QListIPNS_12ScatterModelEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter23addPointsToScatterModelEPNS_12ScatterModelEx": [
+      "nothing", "address", "address", "long long"
     ],
     "ritual_ZN19QQuickGraphsScatter14sizeDifferenceExx": [
       "long long", "address", "long long", "long long"
@@ -194,8 +246,23 @@
     "ritual_ZNK19QQuickGraphsScatter16calculatePolarXZEffRfS0_": [
       "nothing", "address", "float", "float", "address", "address"
     ],
+    "ritual_ZN19QQuickGraphsScatter12updateSplineEPNS_12ScatterModelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter17createSplineModelEPNS_12ScatterModelE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QQuickGraphsScatter19handleSplineChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter29generatePointsForScatterModelEPNS_12ScatterModelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter31updateScatterGraphItemPositionsEPNS_12ScatterModelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter29updateScatterGraphItemVisualsEPNS_12ScatterModelE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK19QQuickGraphsScatter8selectedEv": ["address", "address"],
     "ritual_ZN19QQuickGraphsScatter11setSelectedEP13QQuick3DModel": [
@@ -223,6 +290,12 @@
     ],
     "ritual_ZN19QQuickGraphsScatter37handleSeriesVisibilityChangedBySenderEP7QObject": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter19selectedItemInRangeEPKNS_12ScatterModelE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsScatter14findGraphModelEP16QScatter3DSeries": [
+      "address", "address", "address"
     ],
     "ritual_ZN19QQuickGraphsScatter21cameraRotationChangedEv": [
       "nothing", "address"
@@ -296,6 +369,9 @@
     ],
     "ritual_own_ZN19QQuickGraphsScatter37handleSeriesVisibilityChangedBySenderEP7QObject": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QQuickGraphsScatter__QQmlListProperty_QScatter3DSeries": [
+      "nothing", "address"
     ]
   }
 }

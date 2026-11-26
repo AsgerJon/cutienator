@@ -10,6 +10,7 @@
   "rows": {
     "ritual_ZN22QSpline3DSeriesPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QSpline3DSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QSpline3DSeriesPrivateD1Ev": ["nothing", "address"],
     "ritual_take_QSpline3DSeriesPrivate": [
       "bool", "address", "chars", "address"
     ]

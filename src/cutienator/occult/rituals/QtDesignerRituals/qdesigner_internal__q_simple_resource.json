@@ -5,8 +5,47 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal15QSimpleResourceC1EP28QDesignerFormEditorInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResourceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource10setupBrushEP8DomBrush": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource9saveBrushERK6QBrush": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18qdesigner_internal15QSimpleResource4coreEv": [
       "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource21addExtensionDataToDOMEP20QAbstractFormBuilderP28QDesignerFormEditorInterfaceP9DomWidgetP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource25applyExtensionDataFromDOMEP20QAbstractFormBuilderP28QDesignerFormEditorInterfaceP9DomWidgetP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource18customWidgetScriptEP28QDesignerFormEditorInterfaceP7QObject": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource18customWidgetScriptEP28QDesignerFormEditorInterfaceRK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource21hasCustomWidgetScriptEP28QDesignerFormEditorInterfaceP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource22handleDomCustomWidgetsEPK28QDesignerFormEditorInterfacePK16DomCustomWidgets": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource14addFakeMethodsEPK8DomSlotsR5QListI7QStringES7_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource32addCustomWidgetsToWidgetDatabaseEPK28QDesignerFormEditorInterfaceR5QListIP15DomCustomWidgetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15QSimpleResource30addFakeMethodsToWidgetDataBaseEPK15DomCustomWidgetPNS_18WidgetDataBaseItemE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_qdesigner_internal_QSimpleResource": [
       "bool", "address", "chars", "address"

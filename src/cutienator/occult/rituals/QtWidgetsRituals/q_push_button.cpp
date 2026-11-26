@@ -1044,6 +1044,24 @@ const QMetaObject *ritual_ZNK11QPushButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPushButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QPushButton11qt_metacastEPKc(
+    QPushButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPushButton::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QPushButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPushButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPushButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QPushButton2trEPKcS1_i(
@@ -1215,6 +1233,14 @@ bool ritual_ZNK11QPushButton9hitButtonERK6QPoint(
     const QPushButton *self,
     const QPoint *pos) {
   return self->hitButton(*pos);
+}
+
+//  QPushButton::QPushButton(QPushButtonPrivate &dd, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QPushButton *ritual_ZN11QPushButtonC1ER18QPushButtonPrivateP7QWidget(
+    QPushButtonPrivate *dd,
+    QWidget *parent) {
+  return new CuteQPushButton(*dd, parent);
 }
 
 //  QPushButtonPrivate *QPushButton::d_func()

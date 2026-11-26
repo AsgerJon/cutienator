@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickFrameAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickFrameAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickFrameAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickFrameAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN20QQuickFrameAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickFrameAnimation6d_funcEv": ["address", "address"],
     "ritual_ZN20QQuickFrameAnimationC1EP7QObject": ["address", "address"],
     "ritual_ZNK20QQuickFrameAnimation9isRunningEv": ["bool", "address"],
     "ritual_ZN20QQuickFrameAnimation10setRunningEb": [
@@ -34,6 +42,25 @@
     "ritual_ZN20QQuickFrameAnimation5pauseEv": ["nothing", "address"],
     "ritual_ZN20QQuickFrameAnimation6resumeEv": ["nothing", "address"],
     "ritual_ZN20QQuickFrameAnimation5resetEv": ["nothing", "address"],
+    "ritual_ZN20QQuickFrameAnimation9triggeredEv": ["nothing", "address"],
+    "ritual_ZN20QQuickFrameAnimation14runningChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickFrameAnimation13pausedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickFrameAnimation19currentFrameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickFrameAnimation16frameTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickFrameAnimation22smoothFrameTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickFrameAnimation18elapsedTimeChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN20QQuickFrameAnimation15setCurrentFrameEi": [
       "nothing", "address", "int"
     ],

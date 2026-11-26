@@ -5,6 +5,35 @@
   ],
   "rows": {
     "ritual_ZN8QQmlInfoC1ERKS_": ["address", "address"],
-    "ritual_ZN8QQmlInfoD1Ev": ["nothing", "address"]
+    "ritual_ZN8QQmlInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN8QQmlInfolsE5QChar": ["address", "address", "address"],
+    "ritual_ZN8QQmlInfolsEb": ["address", "address", "bool"],
+    "ritual_ZN8QQmlInfolsEc": ["address", "address", "char"],
+    "ritual_ZN8QQmlInfolsEs": ["address", "address", "short"],
+    "ritual_ZN8QQmlInfolsEt": ["address", "address", "unsigned short"],
+    "ritual_ZN8QQmlInfolsEi": ["address", "address", "int"],
+    "ritual_ZN8QQmlInfolsEj": ["address", "address", "unsigned int"],
+    "ritual_ZN8QQmlInfolsEl": ["address", "address", "long"],
+    "ritual_ZN8QQmlInfolsEm": ["address", "address", "unsigned long"],
+    "ritual_ZN8QQmlInfolsEx": ["address", "address", "long long"],
+    "ritual_ZN8QQmlInfolsEy": ["address", "address", "unsigned long long"],
+    "ritual_ZN8QQmlInfolsEf": ["address", "address", "float"],
+    "ritual_ZN8QQmlInfolsEd": ["address", "address", "double"],
+    "ritual_ZN8QQmlInfolsEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QQmlInfolsERK7QString": ["address", "address", "text"],
+    "ritual_ZN8QQmlInfolsE11QStringView": ["address", "address", "text"],
+    "ritual_ZN8QQmlInfolsERK13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QQmlInfolsERK10QByteArray": ["address", "address", "address"],
+    "ritual_ZN8QQmlInfolsEPKv": ["address", "address", "address"],
+    "ritual_ZN8QQmlInfolsEPFR11QTextStreamS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QQmlInfolsE22QTextStreamManipulator": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QQmlInfolsERK4QUrl": ["address", "address", "address"],
+    "ritual_ZN8QQmlInfoC1EP15QQmlInfoPrivate": ["address", "address"]
   }
 }

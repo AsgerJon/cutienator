@@ -14,6 +14,33 @@
     "ritual_ZNK33QHeightMapSurfaceDataProxyPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate14setValueRangesEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMinXValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMaxXValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMinZValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMaxZValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMinYValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMaxYValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate13setAutoScaleYEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_QHeightMapSurfaceDataProxyPrivate": [
       "bool", "address", "chars", "address"
     ]

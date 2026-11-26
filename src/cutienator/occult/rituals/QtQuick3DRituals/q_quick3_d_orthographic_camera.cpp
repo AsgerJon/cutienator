@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK26QQuick3DOrthographicCamera10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DOrthographicCamera::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuick3DOrthographicCamera11qt_metacastEPKc(
+    QQuick3DOrthographicCamera *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DOrthographicCamera::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuick3DOrthographicCamera11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DOrthographicCamera *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DOrthographicCamera::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -99,6 +118,34 @@ void ritual_ZN26QQuick3DOrthographicCamera24setVerticalMagnificationEf(
     QQuick3DOrthographicCamera *self,
     float horizontalMagnification) {
   self->setVerticalMagnification(horizontalMagnification);
+}
+
+//  void QQuick3DOrthographicCamera::clipNearChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DOrthographicCamera15clipNearChangedEv(
+    QQuick3DOrthographicCamera *self) {
+  self->clipNearChanged();
+}
+
+//  void QQuick3DOrthographicCamera::clipFarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DOrthographicCamera14clipFarChangedEv(
+    QQuick3DOrthographicCamera *self) {
+  self->clipFarChanged();
+}
+
+//  void QQuick3DOrthographicCamera::horizontalMagnificationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DOrthographicCamera30horizontalMagnificationChangedEv(
+    QQuick3DOrthographicCamera *self) {
+  self->horizontalMagnificationChanged();
+}
+
+//  void QQuick3DOrthographicCamera::verticalMagnificationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DOrthographicCamera28verticalMagnificationChangedEv(
+    QQuick3DOrthographicCamera *self) {
+  self->verticalMagnificationChanged();
 }
 
 //  QSSGRenderGraphObject

@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4arraybuffer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 
 //  const QV4::VTable *QV4::ArrayBuffer::staticVTable()
 extern "C" Q_DECL_EXPORT
@@ -47,11 +48,24 @@ QV4::Object *ritual_ZN3QV411ArrayBuffer16defaultPrototypeEPNS_15ExecutionEngineE
   return QV4::ArrayBuffer::defaultPrototype(e);
 }
 
+//  QByteArray QV4::ArrayBuffer::asByteArray() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK3QV411ArrayBuffer11asByteArrayEv(
+    const QV4::ArrayBuffer *self) {
+  return new QByteArray(self->asByteArray());
+}
+
 //  uint QV4::ArrayBuffer::arrayDataLength() const
 extern "C" Q_DECL_EXPORT
 uint ritual_ZNK3QV411ArrayBuffer15arrayDataLengthEv(
     const QV4::ArrayBuffer *self) {
   return self->arrayDataLength();
+}
+
+//  char *QV4::ArrayBuffer::dataData()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN3QV411ArrayBuffer8dataDataEv(QV4::ArrayBuffer *self) {
+  return self->dataData();
 }
 
 //  const char *QV4::ArrayBuffer::constArrayData() const
@@ -72,4 +86,10 @@ bool ritual_ZN3QV411ArrayBuffer18hasSharedArrayDataEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV411ArrayBuffer15detachArrayDataEv(QV4::ArrayBuffer *self) {
   self->detachArrayData();
+}
+
+//  void QV4::ArrayBuffer::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV411ArrayBuffer6detachEv(QV4::ArrayBuffer *self) {
+  self->detach();
 }

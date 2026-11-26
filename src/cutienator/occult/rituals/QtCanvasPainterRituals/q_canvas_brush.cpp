@@ -21,6 +21,36 @@ void ritual_ZN12QCanvasBrushD1Ev(QCanvasBrush *self) {
   delete self;
 }
 
+//  QCanvasBrush &QCanvasBrush::operator=(const QCanvasBrush &brush)
+extern "C" Q_DECL_EXPORT
+QCanvasBrush *ritual_ZN12QCanvasBrushaSERKS_(
+    QCanvasBrush *self,
+    const QCanvasBrush *brush) {
+  return &(self->operator=(*brush));
+}
+
+//  QCanvasBrush::QCanvasBrush(QCanvasBrush &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasBrush *ritual_ZN12QCanvasBrushC1EOS_(QCanvasBrush *other) {
+  return new QCanvasBrush(std::move(*other));
+}
+
+//  QCanvasBrush &QCanvasBrush::operator=(QCanvasBrush &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasBrush *ritual_ZN12QCanvasBrushaSEOS_(
+    QCanvasBrush *self,
+    QCanvasBrush *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCanvasBrush::swap(QCanvasBrush &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QCanvasBrush4swapERS_(
+    QCanvasBrush *self,
+    QCanvasBrush *other) {
+  self->swap(*other);
+}
+
 //  BrushType QCanvasBrush::type() const
 extern "C" Q_DECL_EXPORT
 QCanvasBrush::BrushType ritual_ZNK12QCanvasBrush4typeEv(

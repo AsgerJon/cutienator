@@ -812,6 +812,25 @@ const QMetaObject *ritual_ZNK18QCanvasPainterItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCanvasPainterItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QCanvasPainterItem11qt_metacastEPKc(
+    QCanvasPainterItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCanvasPainterItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QCanvasPainterItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCanvasPainterItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCanvasPainterItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QCanvasPainterItem2trEPKcS1_i(
@@ -819,6 +838,13 @@ QString *ritual_ZN18QCanvasPainterItem2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QCanvasPainterItem::tr(s, c, n));
+}
+
+//  QCanvasPainterItem::QCanvasPainterItem(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QCanvasPainterItem *ritual_ZN18QCanvasPainterItemC1EP10QQuickItem(
+    QQuickItem *parent) {
+  return new CuteQCanvasPainterItem(parent);
 }
 
 //  QCanvasPainterItem::~QCanvasPainterItem()
@@ -849,6 +875,15 @@ QMap<QString, QVariant> *ritual_ZN18QCanvasPainterItem5debugEv(
   return new QMap<QString, QVariant>(self->debug());
 }
 
+//  QCanvasPainterItem::QCanvasPainterItem(QCanvasPainterItemPrivate &dd,
+//      QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QCanvasPainterItem *ritual_ZN18QCanvasPainterItemC1ER25QCanvasPainterItemPrivateP10QQuickItem(
+    QCanvasPainterItemPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQCanvasPainterItem(*dd, parent);
+}
+
 //  QCanvasPainterItemRenderer *QCanvasPainterItem::createItemRenderer()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -870,6 +905,20 @@ bool ritual_ZN18QCanvasPainterItem5eventEP6QEvent(
     QCanvasPainterItem *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  void QCanvasPainterItem::fillColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QCanvasPainterItem16fillColorChangedEv(
+    QCanvasPainterItem *self) {
+  self->fillColorChanged();
+}
+
+//  void QCanvasPainterItem::debugChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QCanvasPainterItem12debugChangedEv(
+    QCanvasPainterItem *self) {
+  self->debugChanged();
 }
 
 //  QCanvasPainterItemPrivate *QCanvasPainterItem::d_func()

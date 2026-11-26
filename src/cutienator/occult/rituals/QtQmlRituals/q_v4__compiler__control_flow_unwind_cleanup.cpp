@@ -13,20 +13,25 @@
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef bool (*CuteQV4_Compiler_ControlFlowUnwindCleanupCall0)(const void *, int *);
-typedef QString * (*CuteQV4_Compiler_ControlFlowUnwindCleanupCall1)(const void *, int *);
+typedef void * (*CuteQV4_Compiler_ControlFlowUnwindCleanupCall1)(const void *, int *);
+typedef QString * (*CuteQV4_Compiler_ControlFlowUnwindCleanupCall2)(const void *, int *);
 class CuteQV4_Compiler_ControlFlowUnwindCleanup : public QV4::Compiler::ControlFlowUnwindCleanup {
 public:
   using QV4::Compiler::ControlFlowUnwindCleanup::ControlFlowUnwindCleanup;
-  CuteQV4_Compiler_ControlFlowUnwindCleanup(const QV4::Compiler::ControlFlowUnwindCleanup &other) : QV4::Compiler::ControlFlowUnwindCleanup(other) {}
-  void *taken[2] = {};
+  CuteQV4_Compiler_ControlFlowUnwindCleanup(const QV4::Compiler::ControlFlowUnwindCleanup & other) : QV4::Compiler::ControlFlowUnwindCleanup(other) {}
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN3QV48Compiler11ControlFlow14requiresUnwindEv")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK3QV48Compiler11ControlFlow5labelEv")) {
+    if (!std::strcmp(key, "_ZN3QV48Compiler11ControlFlow13unwindHandlerEv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK3QV48Compiler11ControlFlow5labelEv")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -43,11 +48,23 @@ public:
     return QV4::Compiler::ControlFlowUnwindCleanup::requiresUnwind();
   }
 
-  //  QString QV4::Compiler::ControlFlow::label() const
-  QString label() const override {
+  //  BytecodeGenerator::ExceptionHandler
+  //      *QV4::Compiler::ControlFlowUnwind::unwindHandler()
+  BytecodeGenerator::ExceptionHandler *unwindHandler() override {
     if (taken[1]) {
       int handled = 0;
       CuteQV4_Compiler_ControlFlowUnwindCleanupCall1 call = reinterpret_cast<CuteQV4_Compiler_ControlFlowUnwindCleanupCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<BytecodeGenerator::ExceptionHandler *>(given);
+    }
+    return QV4::Compiler::ControlFlowUnwind::unwindHandler();
+  }
+
+  //  QString QV4::Compiler::ControlFlow::label() const
+  QString label() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQV4_Compiler_ControlFlowUnwindCleanupCall2 call = reinterpret_cast<CuteQV4_Compiler_ControlFlowUnwindCleanupCall2>(taken[2]);
       QString * given = call(this, &handled);
       if (handled && given) {
         QString back(*given);

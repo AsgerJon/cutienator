@@ -4,6 +4,12 @@
     "QtTaskTree/qtasktree.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QtTaskTree3ForC1ERKNS_8IteratorE": ["address", "address"],
+    "ritual_ZN10QtTaskTree3ForC1Ex": ["address", "long long"],
+    "ritual_ZN10QtTaskTree3ForC1ERKS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree3ForaSERKS0_": ["address", "address", "address"],
+    "ritual_ZN10QtTaskTree3ForC1EOS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree3For4swapERS0_": ["nothing", "address", "address"],
     "ritual_ZN10QtTaskTreersERKNS_3ForERKNS_2DoE": [
       "address", "address", "address"
     ]

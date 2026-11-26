@@ -5,6 +5,7 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN29QSGBasicInternalRectangleNodeC1Ev": ["address"],
     "ritual_ZN29QSGBasicInternalRectangleNode7setRectERK6QRectF": [
       "nothing", "address", "address"
     ],
@@ -16,6 +17,9 @@
     ],
     "ritual_ZN29QSGBasicInternalRectangleNode11setPenWidthEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN29QSGBasicInternalRectangleNode16setGradientStopsERK5QListISt4pairId6QColorEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN29QSGBasicInternalRectangleNode19setGradientVerticalEb": [
       "nothing", "address", "bool"
@@ -61,6 +65,9 @@
     ],
     "ritual_ZN29QSGBasicInternalRectangleNode26updateMaterialAntialiasingEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN29QSGBasicInternalRectangleNode22updateMaterialBlendingEP6QFlagsIN7QSGNode13DirtyStateBitEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN29QSGBasicInternalRectangleNode14updateGeometryEv": [
       "nothing", "address"

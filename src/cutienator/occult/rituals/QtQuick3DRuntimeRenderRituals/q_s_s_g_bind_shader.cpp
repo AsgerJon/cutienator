@@ -28,6 +28,14 @@ QSSGBindShader *ritual_ZN14QSSGBindShaderC1ERKS_(
   return new QSSGBindShader(*command);
 }
 
+//  void QSSGBindShader::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QSSGBindShader8addDebugER6QDebug(
+    const QSSGBindShader *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGBindShader::~QSSGBindShader()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSSGBindShaderD1Ev(QSSGBindShader *self) {

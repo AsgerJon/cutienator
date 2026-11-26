@@ -218,6 +218,25 @@ const QMetaObject *ritual_ZNK20QDeclarativeCategory10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeCategory::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QDeclarativeCategory11qt_metacastEPKc(
+    QDeclarativeCategory *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeCategory::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QDeclarativeCategory11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeCategory *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeCategory::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QDeclarativeCategory2trEPKcS1_i(
@@ -391,6 +410,48 @@ void ritual_ZN20QDeclarativeCategory4saveERK7QString(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QDeclarativeCategory6removeEv(QDeclarativeCategory *self) {
   self->remove();
+}
+
+//  void QDeclarativeCategory::pluginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDeclarativeCategory13pluginChangedEv(
+    QDeclarativeCategory *self) {
+  self->pluginChanged();
+}
+
+//  void QDeclarativeCategory::categoryIdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDeclarativeCategory17categoryIdChangedEv(
+    QDeclarativeCategory *self) {
+  self->categoryIdChanged();
+}
+
+//  void QDeclarativeCategory::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDeclarativeCategory11nameChangedEv(
+    QDeclarativeCategory *self) {
+  self->nameChanged();
+}
+
+//  void QDeclarativeCategory::visibilityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDeclarativeCategory17visibilityChangedEv(
+    QDeclarativeCategory *self) {
+  self->visibilityChanged();
+}
+
+//  void QDeclarativeCategory::iconChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDeclarativeCategory11iconChangedEv(
+    QDeclarativeCategory *self) {
+  self->iconChanged();
+}
+
+//  void QDeclarativeCategory::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDeclarativeCategory13statusChangedEv(
+    QDeclarativeCategory *self) {
+  self->statusChanged();
 }
 
 //  void QDeclarativeCategory::replyFinished()

@@ -32,6 +32,12 @@ inline void QCoapConnection::startToSendRequest()
     }
 }
 
+//  from ../qtcoap/src/coap/qcoapconnection.cpp, line 119, as _ZN22QCoapConnectionPrivateC1EN6QtCoap12SecurityModeE
+inline QCoapConnectionPrivate::QCoapConnectionPrivate(QtCoap::SecurityMode security)
+    : securityMode(security)
+    , state(QCoapConnection::ConnectionState::Unconnected)
+{}
+
 //  from ../qtcoap/src/coap/qcoapconnection.cpp, line 170, as _ZN22QCoapConnectionPrivate11sendRequestERK10QByteArrayRK7QStringt
 inline void
 QCoapConnectionPrivate::sendRequest(const QByteArray &request, const QString &host, quint16 port)
@@ -47,6 +53,14 @@ QCoapConnectionPrivate::sendRequest(const QByteArray &request, const QString &ho
         q->startToSendRequest();
 }
 //  -----------------------------------------------------------------------
+
+//  QCoapConnectionPrivate::QCoapConnectionPrivate(QtCoap::SecurityMode
+//      security)
+extern "C" Q_DECL_EXPORT
+QCoapConnectionPrivate *ritual_ZN22QCoapConnectionPrivateC1EN6QtCoap12SecurityModeE(
+    QtCoap::SecurityMode security) {
+  return new QCoapConnectionPrivate(security);
+}
 
 //  QCoapConnectionPrivate::~QCoapConnectionPrivate()
 extern "C" Q_DECL_EXPORT

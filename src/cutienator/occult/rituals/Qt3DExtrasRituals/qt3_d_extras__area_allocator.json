@@ -5,6 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras13AreaAllocatorC1ERK5QSize": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras13AreaAllocatorD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DExtras13AreaAllocator8allocateERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras13AreaAllocator10deallocateERK5QRect": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK10Qt3DExtras13AreaAllocator7isEmptyEv": ["bool", "address"],
     "ritual_ZNK10Qt3DExtras13AreaAllocator4sizeEv": ["address", "address"]
   }

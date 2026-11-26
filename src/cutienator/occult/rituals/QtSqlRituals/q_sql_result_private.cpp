@@ -18,7 +18,7 @@ typedef QString * (*CuteQSqlResultPrivateCall0)(const void *, qsizetype, int *);
 class CuteQSqlResultPrivate : public QSqlResultPrivate {
 public:
   using QSqlResultPrivate::QSqlResultPrivate;
-  CuteQSqlResultPrivate(const QSqlResultPrivate &other) : QSqlResultPrivate(other) {}
+  CuteQSqlResultPrivate(const QSqlResultPrivate & other) : QSqlResultPrivate(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {

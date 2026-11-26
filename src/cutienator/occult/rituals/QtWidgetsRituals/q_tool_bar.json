@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK8QToolBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QToolBar11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QToolBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QToolBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QToolBarC1ERK7QStringP7QWidget": [
       "address", "text", "address"
@@ -56,6 +60,26 @@
     ],
     "ritual_ZN8QToolBar18setToolButtonStyleEN2Qt15ToolButtonStyleE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN8QToolBar15actionTriggeredEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QToolBar14movableChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN8QToolBar19allowedAreasChangedE6QFlagsIN2Qt11ToolBarAreaEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QToolBar18orientationChangedEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QToolBar15iconSizeChangedERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QToolBar22toolButtonStyleChangedEN2Qt15ToolButtonStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QToolBar15topLevelChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN8QToolBar17visibilityChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN8QToolBar11actionEventEP12QActionEvent": [
       "nothing", "address", "address"

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK16QNearFieldTarget10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QNearFieldTarget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QNearFieldTarget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QNearFieldTarget2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,6 +38,16 @@
     ],
     "ritual_ZNK16QNearFieldTarget15requestResponseERKNS_9RequestIdE": [
       "address", "address", "address"
+    ],
+    "ritual_ZN16QNearFieldTarget12disconnectedEv": ["nothing", "address"],
+    "ritual_ZN16QNearFieldTarget15ndefMessageReadERK12QNdefMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QNearFieldTarget16requestCompletedERKNS_9RequestIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QNearFieldTarget5errorENS_5ErrorERKNS_9RequestIdE": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_ZN16QNearFieldTargetC1EP23QNearFieldTargetPrivateP7QObject": [
       "address", "address", "address"

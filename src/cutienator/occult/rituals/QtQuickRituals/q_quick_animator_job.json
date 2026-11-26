@@ -35,6 +35,7 @@
     "ritual_ZNK17QQuickAnimatorJob9isUniformEv": ["bool", "address"],
     "ritual_ZNK17QQuickAnimatorJob5valueEv": ["double", "address"],
     "ritual_ZNK17QQuickAnimatorJob10controllerEv": ["address", "address"],
+    "ritual_ZN17QQuickAnimatorJobC1Ev": ["address"],
     "ritual_ZNK17QQuickAnimatorJob14debugAnimationE6QDebug": [
       "nothing", "address", "address"
     ],

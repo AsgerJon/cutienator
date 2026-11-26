@@ -5,8 +5,14 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render28UpdateWorldBoundingVolumeJobC1Ev": [
+      "address"
+    ],
     "ritual_ZN10Qt3DRender6Render28UpdateWorldBoundingVolumeJob10setManagerEPNS0_13EntityManagerE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render28UpdateWorldBoundingVolumeJob3runEv": [
+      "nothing", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render28UpdateWorldBoundingVolumeJob3runEv": [
       "nothing", "address"

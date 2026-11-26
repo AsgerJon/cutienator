@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtMultimedia/qvideoframe.h, Qt 6.12.0. Changes made here are lost.
+//  QtMultimedia/qvideoframe.h, Qt 6.12.0. Edited by hand on 2026-11-25:
+//  added by hand, rituals for functions the generator leaves out: 1. Kept as
+//  it is when the generator runs again.
 #include <QtMultimedia/qvideoframe.h>
 #include <QtMultimedia/qvideoframeformat.h>
 #include <QtGui/qimage.h>
@@ -36,6 +38,34 @@ QVideoFrame *ritual_ZN11QVideoFrameC1ERKS_(const QVideoFrame *other) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QVideoFrameD1Ev(QVideoFrame *self) {
   delete self;
+}
+
+//  QVideoFrame::QVideoFrame(QVideoFrame &&other)
+extern "C" Q_DECL_EXPORT
+QVideoFrame *ritual_ZN11QVideoFrameC1EOS_(QVideoFrame *other) {
+  return new QVideoFrame(std::move(*other));
+}
+
+//  QVideoFrame &QVideoFrame::operator=(QVideoFrame &&other)
+extern "C" Q_DECL_EXPORT
+QVideoFrame *ritual_ZN11QVideoFrameaSEOS_(
+    QVideoFrame *self,
+    QVideoFrame *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QVideoFrame::swap(QVideoFrame &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QVideoFrame4swapERS_(QVideoFrame *self, QVideoFrame *other) {
+  self->swap(*other);
+}
+
+//  QVideoFrame &QVideoFrame::operator=(const QVideoFrame &other)
+extern "C" Q_DECL_EXPORT
+QVideoFrame *ritual_ZN11QVideoFrameaSERKS_(
+    QVideoFrame *self,
+    const QVideoFrame *other) {
+  return &(self->operator=(*other));
 }
 
 //  bool QVideoFrame::operator==(const QVideoFrame &other) const
@@ -144,6 +174,14 @@ int ritual_ZNK11QVideoFrame12bytesPerLineEi(
     const QVideoFrame *self,
     int plane) {
   return self->bytesPerLine(plane);
+}
+
+//  const uchar *QVideoFrame::bits(int plane) const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK11QVideoFrame4bitsEi(
+    const QVideoFrame *self,
+    int plane) {
+  return self->bits(plane);
 }
 
 //  int QVideoFrame::mappedBytes(int plane) const
@@ -294,3 +332,11 @@ QAbstractVideoBuffer *ritual_ZNK11QVideoFrame11videoBufferEv(
   return self->videoBuffer();
 }
 #endif  // QT_DEPRECATED_SINCE(6, 8)
+
+//  uchar *QVideoFrame::bits(int plane)
+extern "C" Q_DECL_EXPORT
+uchar *ritual_ZN11QVideoFrame4bitsEi(
+    QVideoFrame *self,
+    int plane) {
+  return self->bits(plane);
+}

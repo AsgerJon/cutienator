@@ -8,6 +8,10 @@
     "ritual_ZN21QQuickAnimatorPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QQuickAnimatorPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN21QQuickAnimatorPrivateC1Ev": ["address"],
+    "ritual_ZN21QQuickAnimatorPrivate5applyEP17QQuickAnimatorJobRK7QStringR5QListI17QQuickStateActionERS5_I12QQmlPropertyEP7QObject": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
     "ritual_take_QQuickAnimatorPrivate": [
       "bool", "address", "chars", "address"
     ]

@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN10QIconThemeC1Ev": ["address"],
+    "ritual_ZNK10QIconTheme7parentsEv": ["address", "address"],
     "ritual_ZNK10QIconTheme7keyListEv": ["address", "address"],
     "ritual_ZNK10QIconTheme11contentDirsEv": ["address", "address"],
     "ritual_ZNK10QIconTheme7isValidEv": ["bool", "address"],

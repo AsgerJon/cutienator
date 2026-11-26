@@ -17,6 +17,19 @@
 #include <QtCore/qpoint.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
+#include <QtQuick/private/qquicktimeline_p_p.h>
+#include <QtCore/QDebug>
+#include <QtCore/QMutex>
+#include <QtCore/QThread>
+#include <QtCore/QWaitCondition>
+#include <QtCore/QEvent>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QEasingCurve>
+#include <QtCore/QTime>
+#include <QtCore/private/qnumeric_p.h>
+#include <QtCore/QHash>
+#include <algorithm>
 #include <QtQuick/private/qquickpathview_p.h>
 #include <QtQuick/private/qquickpathview_p_p.h>
 #include <QtQuick/private/qquickflickablebehavior_p.h> //Contains flicking behavior defines
@@ -47,6 +60,28 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/items/qquickitemview.cpp, line 14, as _Z27lcItemViewDelegateLifecyclev
+inline const QLoggingCategory &lcItemViewDelegateLifecycle()
+{
+    static const QLoggingCategory category("qt.quick.itemview.lifecycle");
+    return category;
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicktimeline.cpp, line 889, as _ZN20QQuickTimeLineObjectC2Ev
+inline QQuickTimeLineObject::QQuickTimeLineObject()
+: _t(nullptr)
+{
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicktimeline.cpp, line 894, as _ZN20QQuickTimeLineObjectD2Ev
+inline QQuickTimeLineObject::~QQuickTimeLineObject()
+{
+    if (_t) {
+        _t->remove(this);
+        _t = nullptr;
+    }
+}
 
 //  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 88, as _ZN21QQuickPathViewPrivate4initEv
 inline void QQuickPathViewPrivate::init()
@@ -246,6 +281,12 @@ inline int QQuickPathViewPrivate::calcCurrentIndex()
     return current;
 }
 
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 2382, as _ZN21QQuickPathViewPrivate17fixOffsetCallbackEPv
+inline void QQuickPathViewPrivate::fixOffsetCallback(void *d)
+{
+    static_cast<QQuickPathViewPrivate *>(d)->fixOffset();
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 2387, as _ZN21QQuickPathViewPrivate9fixOffsetEv
 inline void QQuickPathViewPrivate::fixOffset()
 {
@@ -260,6 +301,31 @@ inline void QQuickPathViewPrivate::fixOffset()
                 snapToIndex(curr, Other);
         }
     }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 826, as _ZN21QQuickPathViewPrivate9setOffsetEd
+inline void QQuickPathViewPrivate::setOffset(qreal o)
+{
+    Q_Q(QQuickPathView);
+    if (!qFuzzyCompare(offset, o)) {
+        if (isValid() && q->isComponentComplete()) {
+            qreal oldOffset = offset;
+            offset = std::fmod(o, qreal(modelCount));
+            if (offset < 0)
+                offset += qreal(modelCount);
+            qCDebug(lcItemViewDelegateLifecycle) << o << "was" << oldOffset << "now" << offset;
+            q->refill();
+        } else {
+            offset = o;
+        }
+        emit q->offsetChanged();
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 844, as _ZN21QQuickPathViewPrivate17setAdjustedOffsetEd
+inline void QQuickPathViewPrivate::setAdjustedOffset(qreal o)
+{
+    setOffset(o+offsetAdj);
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 2402, as _ZN21QQuickPathViewPrivate11snapToIndexEiNS_14MovementReasonE
@@ -861,11 +927,33 @@ int ritual_ZN21QQuickPathViewPrivate16calcCurrentIndexEv(
   return self->calcCurrentIndex();
 }
 
+//  void QQuickPathViewPrivate::fixOffsetCallback(void *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate17fixOffsetCallbackEPv(void *a0) {
+  QQuickPathViewPrivate::fixOffsetCallback(a0);
+}
+
 //  void QQuickPathViewPrivate::fixOffset()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickPathViewPrivate9fixOffsetEv(
     QQuickPathViewPrivate *self) {
   self->fixOffset();
+}
+
+//  void QQuickPathViewPrivate::setOffset(qreal offset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate9setOffsetEd(
+    QQuickPathViewPrivate *self,
+    qreal offset) {
+  self->setOffset(offset);
+}
+
+//  void QQuickPathViewPrivate::setAdjustedOffset(qreal offset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate17setAdjustedOffsetEd(
+    QQuickPathViewPrivate *self,
+    qreal offset) {
+  self->setAdjustedOffset(offset);
 }
 
 //  void QQuickPathViewPrivate::snapToIndex(int index, MovementReason reason)

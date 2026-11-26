@@ -118,6 +118,22 @@ QRhiShaderResourceBinding *ritual_ZN25QRhiShaderResourceBinding7textureEi6QFlags
           tex));
 }
 
+//  QRhiShaderResourceBinding QRhiShaderResourceBinding::textures(int
+//      binding, StageFlags stage, int count, QRhiTexture **tex)
+extern "C" Q_DECL_EXPORT
+QRhiShaderResourceBinding *ritual_ZN25QRhiShaderResourceBinding8texturesEi6QFlagsINS_9StageFlagEEiPP11QRhiTexture(
+    int binding,
+    int stage,
+    int count,
+    QRhiTexture **tex) {
+  return new QRhiShaderResourceBinding(
+      QRhiShaderResourceBinding::textures(
+          binding,
+          QFlags<QRhiShaderResourceBinding::StageFlag>::fromInt(stage),
+          count,
+          tex));
+}
+
 //  QRhiShaderResourceBinding QRhiShaderResourceBinding::sampler(int binding,
 //      StageFlags stage, QRhiSampler *sampler)
 extern "C" Q_DECL_EXPORT

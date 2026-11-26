@@ -216,6 +216,25 @@ const QMetaObject *ritual_ZNK27QObjectRegistryAttachedType10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QObjectRegistryAttachedType::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QObjectRegistryAttachedType11qt_metacastEPKc(
+    QObjectRegistryAttachedType *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QObjectRegistryAttachedType::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QObjectRegistryAttachedType11qt_metacallEN11QMetaObject4CallEiPPv(
+    QObjectRegistryAttachedType *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QObjectRegistryAttachedType::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -274,6 +293,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN27QObjectRegistryAttachedType17componentCompleteEv(
     QObjectRegistryAttachedType *self) {
   self->componentComplete();
+}
+
+//  void QObjectRegistryAttachedType::keyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QObjectRegistryAttachedType10keyChangedEv(
+    QObjectRegistryAttachedType *self) {
+  self->keyChanged();
 }
 
 //  QObjectRegistryAttachedType as the QQmlParserStatus it is built on

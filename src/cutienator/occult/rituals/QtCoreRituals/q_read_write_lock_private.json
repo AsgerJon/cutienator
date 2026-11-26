@@ -6,9 +6,21 @@
   ],
   "rows": {
     "ritual_ZN21QReadWriteLockPrivateC1Eb": ["address", "bool"],
+    "ritual_ZN21QReadWriteLockPrivate12lockForWriteERSt11unique_lockISt5mutexE14QDeadlineTimer": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN21QReadWriteLockPrivate11lockForReadERSt11unique_lockISt5mutexE14QDeadlineTimer": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN21QReadWriteLockPrivate6unlockEv": ["nothing", "address"],
     "ritual_ZN21QReadWriteLockPrivate21recursiveLockForWriteE14QDeadlineTimer": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN21QReadWriteLockPrivate20recursiveLockForReadE14QDeadlineTimer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QReadWriteLockPrivate13describeStateEPv": [
+      "unsigned long long", "address"
     ]
   }
 }

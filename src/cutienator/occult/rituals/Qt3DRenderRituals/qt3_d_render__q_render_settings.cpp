@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender15QRenderSettings10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QRenderSettings::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender15QRenderSettings11qt_metacastEPKc(
+    Qt3DRender::QRenderSettings *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QRenderSettings::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender15QRenderSettings11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QRenderSettings *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QRenderSettings::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,84 @@ QString *ritual_ZN10Qt3DRender15QRenderSettings2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QRenderSettings::tr(s, c, n));
+}
+
+//  Qt3DRender::QRenderSettings::QRenderSettings(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderSettings *ritual_ZN10Qt3DRender15QRenderSettingsC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRenderSettings(parent);
+}
+
+//  Qt3DRender::QRenderSettings::~QRenderSettings()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QRenderSettingsD1Ev(
+    Qt3DRender::QRenderSettings *self) {
+  delete self;
+}
+
+//  QRenderCapabilities *Qt3DRender::QRenderSettings::renderCapabilities()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderCapabilities *ritual_ZN10Qt3DRender15QRenderSettings18renderCapabilitiesEv(
+    Qt3DRender::QRenderSettings *self) {
+  return self->renderCapabilities();
+}
+
+//  QPickingSettings *Qt3DRender::QRenderSettings::pickingSettings()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingSettings *ritual_ZN10Qt3DRender15QRenderSettings15pickingSettingsEv(
+    Qt3DRender::QRenderSettings *self) {
+  return self->pickingSettings();
+}
+
+//  QFrameGraphNode *Qt3DRender::QRenderSettings::activeFrameGraph() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFrameGraphNode *ritual_ZNK10Qt3DRender15QRenderSettings16activeFrameGraphEv(
+    const Qt3DRender::QRenderSettings *self) {
+  return self->activeFrameGraph();
+}
+
+//  RenderPolicy Qt3DRender::QRenderSettings::renderPolicy() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderSettings::RenderPolicy ritual_ZNK10Qt3DRender15QRenderSettings12renderPolicyEv(
+    const Qt3DRender::QRenderSettings *self) {
+  return self->renderPolicy();
+}
+
+//  void Qt3DRender::QRenderSettings::setActiveFrameGraph(QFrameGraphNode
+//      *activeFrameGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QRenderSettings19setActiveFrameGraphEPNS_15QFrameGraphNodeE(
+    Qt3DRender::QRenderSettings *self,
+    Qt3DRender::QFrameGraphNode *activeFrameGraph) {
+  self->setActiveFrameGraph(activeFrameGraph);
+}
+
+//  void Qt3DRender::QRenderSettings::setRenderPolicy(RenderPolicy
+//      renderPolicy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QRenderSettings15setRenderPolicyENS0_12RenderPolicyE(
+    Qt3DRender::QRenderSettings *self,
+    Qt3DRender::QRenderSettings::RenderPolicy renderPolicy) {
+  self->setRenderPolicy(renderPolicy);
+}
+
+//  void Qt3DRender::QRenderSettings::activeFrameGraphChanged(QFrameGraphNode
+//      *activeFrameGraph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QRenderSettings23activeFrameGraphChangedEPNS_15QFrameGraphNodeE(
+    Qt3DRender::QRenderSettings *self,
+    Qt3DRender::QFrameGraphNode *activeFrameGraph) {
+  self->activeFrameGraphChanged(activeFrameGraph);
+}
+
+//  void Qt3DRender::QRenderSettings::renderPolicyChanged(RenderPolicy
+//      renderPolicy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QRenderSettings19renderPolicyChangedENS0_12RenderPolicyE(
+    Qt3DRender::QRenderSettings *self,
+    Qt3DRender::QRenderSettings::RenderPolicy renderPolicy) {
+  self->renderPolicyChanged(renderPolicy);
 }
 
 //  QRenderSettingsPrivate *Qt3DRender::QRenderSettings::d_func()
@@ -201,6 +298,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QRenderSettingsPrivate *ritual_ZNK10Qt3DRender15QRenderSettings6d_funcEv(
     const Qt3DRender::QRenderSettings *self) {
   return self->d_func();
+}
+
+//  Qt3DRender::QRenderSettings::QRenderSettings(QRenderSettingsPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderSettings *ritual_ZN10Qt3DRender15QRenderSettingsC1ERNS_22QRenderSettingsPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QRenderSettingsPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRenderSettings(*dd, parent);
 }
 
 //  a Python function taken by a CuteQt3DRender_QRenderSettings, for the

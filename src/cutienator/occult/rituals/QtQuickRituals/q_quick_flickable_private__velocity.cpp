@@ -53,7 +53,7 @@ typedef qreal (*CuteQQuickFlickablePrivate_VelocityCall1)(const void *, int *);
 class CuteQQuickFlickablePrivate_Velocity : public QQuickFlickablePrivate::Velocity {
 public:
   using QQuickFlickablePrivate::Velocity::Velocity;
-  CuteQQuickFlickablePrivate_Velocity(const QQuickFlickablePrivate::Velocity &other) : QQuickFlickablePrivate::Velocity(other) {}
+  CuteQQuickFlickablePrivate_Velocity(const QQuickFlickablePrivate::Velocity & other) : QQuickFlickablePrivate::Velocity(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -90,6 +90,13 @@ public:
     return QQuickTimeLineValue::value();
   }
 };
+
+//  QQuickFlickablePrivate::Velocity::Velocity(QQuickFlickablePrivate *p)
+extern "C" Q_DECL_EXPORT
+QQuickFlickablePrivate::Velocity *ritual_ZN22QQuickFlickablePrivate8VelocityC1EPS_(
+    QQuickFlickablePrivate *p) {
+  return new CuteQQuickFlickablePrivate_Velocity(p);
+}
 
 //  void QQuickFlickablePrivate::Velocity::setValue(qreal v)
 extern "C" Q_DECL_EXPORT

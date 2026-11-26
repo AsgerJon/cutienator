@@ -8,6 +8,13 @@
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qconnectionfactories_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QDataStream &QtROIoDeviceBasePrivate::stream()
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN23QtROIoDeviceBasePrivate6streamEv(
+    QtROIoDeviceBasePrivate *self) {
+  return &(self->stream());
+}
+
 //  QtROIoDeviceBase *QtROIoDeviceBasePrivate::q_func()
 extern "C" Q_DECL_EXPORT
 QtROIoDeviceBase *ritual_ZN23QtROIoDeviceBasePrivate6q_funcEv(

@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator10metaObjectE
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QAbstractClipAnimator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation21QAbstractClipAnimator11qt_metacastEPKc(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QAbstractClipAnimator::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation21QAbstractClipAnimator11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QAbstractClipAnimator::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +208,168 @@ QString *ritual_ZN13Qt3DAnimation21QAbstractClipAnimator2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QAbstractClipAnimator::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QAbstractClipAnimator::~QAbstractClipAnimator()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimatorD1Ev(
+    Qt3DAnimation::QAbstractClipAnimator *self) {
+  delete self;
+}
+
+//  bool Qt3DAnimation::QAbstractClipAnimator::isRunning() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator9isRunningEv(
+    const Qt3DAnimation::QAbstractClipAnimator *self) {
+  return self->isRunning();
+}
+
+//  Qt3DAnimation::QChannelMapper
+//      *Qt3DAnimation::QAbstractClipAnimator::channelMapper() const
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QChannelMapper *ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator13channelMapperEv(
+    const Qt3DAnimation::QAbstractClipAnimator *self) {
+  return self->channelMapper();
+}
+
+//  int Qt3DAnimation::QAbstractClipAnimator::loopCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator9loopCountEv(
+    const Qt3DAnimation::QAbstractClipAnimator *self) {
+  return self->loopCount();
+}
+
+//  Qt3DAnimation::QClock *Qt3DAnimation::QAbstractClipAnimator::clock()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QClock *ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator5clockEv(
+    const Qt3DAnimation::QAbstractClipAnimator *self) {
+  return self->clock();
+}
+
+//  float Qt3DAnimation::QAbstractClipAnimator::normalizedTime() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator14normalizedTimeEv(
+    const Qt3DAnimation::QAbstractClipAnimator *self) {
+  return self->normalizedTime();
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::setRunning(bool running)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator10setRunningEb(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    bool running) {
+  self->setRunning(running);
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::setChannelMapper(Qt3DAnimation
+//      ::QChannelMapper *channelMapper)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator16setChannelMapperEPNS_14QChannelMapperE(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    Qt3DAnimation::QChannelMapper *channelMapper) {
+  self->setChannelMapper(channelMapper);
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::setLoopCount(int loops)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator12setLoopCountEi(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    int loops) {
+  self->setLoopCount(loops);
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::setClock(Qt3DAnimation::QClock
+//      *clock)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator8setClockEPNS_6QClockE(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    Qt3DAnimation::QClock *clock) {
+  self->setClock(clock);
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::setNormalizedTime(float
+//      timeFraction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator17setNormalizedTimeEf(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    float timeFraction) {
+  self->setNormalizedTime(timeFraction);
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::start()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator5startEv(
+    Qt3DAnimation::QAbstractClipAnimator *self) {
+  self->start();
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::stop()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator4stopEv(
+    Qt3DAnimation::QAbstractClipAnimator *self) {
+  self->stop();
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::runningChanged(bool running)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator14runningChangedEb(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    bool running) {
+  self->runningChanged(running);
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::channelMapperChanged(Qt3DAnima
+//      tion::QChannelMapper *channelMapper)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator20channelMapperChangedEPNS_14QChannelMapperE(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    Qt3DAnimation::QChannelMapper *channelMapper) {
+  self->channelMapperChanged(channelMapper);
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::loopCountChanged(int loops)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator16loopCountChangedEi(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    int loops) {
+  self->loopCountChanged(loops);
+}
+
+//  void
+//      Qt3DAnimation::QAbstractClipAnimator::clockChanged(Qt3DAnimation::QCl
+//      ock *clock)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator12clockChangedEPNS_6QClockE(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    Qt3DAnimation::QClock *clock) {
+  self->clockChanged(clock);
+}
+
+//  void Qt3DAnimation::QAbstractClipAnimator::normalizedTimeChanged(float
+//      index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation21QAbstractClipAnimator21normalizedTimeChangedEf(
+    Qt3DAnimation::QAbstractClipAnimator *self,
+    float index) {
+  self->normalizedTimeChanged(index);
+}
+
+//  Qt3DAnimation::QAbstractClipAnimator::QAbstractClipAnimator(Qt3DCore::QNo
+//      de *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractClipAnimator *ritual_ZN13Qt3DAnimation21QAbstractClipAnimatorC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAbstractClipAnimator(parent);
+}
+
+//  Qt3DAnimation::QAbstractClipAnimator::QAbstractClipAnimator(QAbstractClip
+//      AnimatorPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractClipAnimator *ritual_ZN13Qt3DAnimation21QAbstractClipAnimatorC1ERNS_28QAbstractClipAnimatorPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QAbstractClipAnimatorPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAbstractClipAnimator(*dd, parent);
 }
 
 //  QAbstractClipAnimatorPrivate

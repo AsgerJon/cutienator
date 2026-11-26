@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender13QPickingProxy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QPickingProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender13QPickingProxy11qt_metacastEPKc(
+    Qt3DRender::QPickingProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QPickingProxy::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender13QPickingProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QPickingProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QPickingProxy::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,29 @@ QString *ritual_ZN10Qt3DRender13QPickingProxy2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QPickingProxy::tr(s, c, n));
+}
+
+//  Qt3DRender::QPickingProxy::QPickingProxy(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingProxy *ritual_ZN10Qt3DRender13QPickingProxyC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QPickingProxy(parent);
+}
+
+//  Qt3DRender::QPickingProxy::~QPickingProxy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QPickingProxyD1Ev(
+    Qt3DRender::QPickingProxy *self) {
+  delete self;
+}
+
+//  Qt3DRender::QPickingProxy::QPickingProxy(QPickingProxyPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingProxy *ritual_ZN10Qt3DRender13QPickingProxyC1ERNS_20QPickingProxyPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QPickingProxyPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QPickingProxy(*dd, parent);
 }
 
 //  QPickingProxyPrivate *Qt3DRender::QPickingProxy::d_func()

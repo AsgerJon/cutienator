@@ -5,7 +5,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -30,6 +30,22 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 18, as _ZN8AxisLine17componentCompleteEv
+inline void AxisLine::componentComplete()
+{
+    QQuickShaderEffect::componentComplete();
+    setupShaders();
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 24, as _ZN8AxisLine14geometryChangeERK6QRectFS2_
+inline void AxisLine::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
+{
+    m_iResolution = QVector3D(newGeometry.width(), newGeometry.height(), 1.0);
+    emit iResolutionChanged();
+
+    QQuickShaderEffect::geometryChange(newGeometry, oldGeometry);
+}
 
 //  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 32, as _ZN8AxisLine12setupShadersEv
 inline void AxisLine::setupShaders()
@@ -71,22 +87,6 @@ inline qreal AxisLine::lineWidth() const
 inline bool AxisLine::isHorizontal() const
 {
     return m_isHorizontal;
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 18, as _ZN8AxisLine17componentCompleteEv
-inline void AxisLine::componentComplete()
-{
-    QQuickShaderEffect::componentComplete();
-    setupShaders();
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 24, as _ZN8AxisLine14geometryChangeERK6QRectFS2_
-inline void AxisLine::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
-{
-    m_iResolution = QVector3D(newGeometry.width(), newGeometry.height(), 1.0);
-    emit iResolutionChanged();
-
-    QQuickShaderEffect::geometryChange(newGeometry, oldGeometry);
 }
 //  -----------------------------------------------------------------------
 
@@ -883,6 +883,28 @@ const QMetaObject *ritual_ZNK8AxisLine10metaObjectEv(const AxisLine *self) {
   return self->metaObject();
 }
 
+//  void *AxisLine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8AxisLine11qt_metacastEPKc(AxisLine *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int AxisLine::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8AxisLine11qt_metacallEN11QMetaObject4CallEiPPv(
+    AxisLine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  AxisLine::~AxisLine()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLineD1Ev(AxisLine *self) {
+  delete self;
+}
+
 //  void AxisLine::setupShaders()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8AxisLine12setupShadersEv(AxisLine *self) {
@@ -935,6 +957,126 @@ void ritual_ZN8AxisLine14geometryChangeERK6QRectFS2_(
   self->geometryChange(*newGeometry, *oldGeometry);
 }
 
+//  void AxisLine::iResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLine18iResolutionChangedEv(AxisLine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisLine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "iResolutionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "iResolutionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisLine::smoothingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLine16smoothingChangedEv(AxisLine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisLine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "smoothingChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "smoothingChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisLine::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLine12colorChangedEv(AxisLine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisLine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "colorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "colorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisLine::lineWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLine16lineWidthChangedEv(AxisLine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisLine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "lineWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "lineWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisLine::isHorizontalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLine19isHorizontalChangedEv(AxisLine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisLine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "isHorizontalChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "isHorizontalChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  a Python function taken by a CuteAxisLine, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
@@ -948,4 +1090,4 @@ void ritual_own_ZN8AxisLine17componentCompleteEv(AxisLine *self) {
   static_cast<OwnAxisLine *>(self)->OwnAxisLine::componentComplete();
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

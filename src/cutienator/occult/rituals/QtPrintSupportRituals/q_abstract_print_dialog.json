@@ -8,6 +8,12 @@
     "ritual_ZN20QAbstractPrintDialog6d_funcEv": ["address", "address"],
     "ritual_ZNK20QAbstractPrintDialog6d_funcEv": ["address", "address"],
     "ritual_ZNK20QAbstractPrintDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QAbstractPrintDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QAbstractPrintDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QAbstractPrintDialog2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,9 @@
     "ritual_ZNK20QAbstractPrintDialog8fromPageEv": ["int", "address"],
     "ritual_ZNK20QAbstractPrintDialog6toPageEv": ["int", "address"],
     "ritual_ZNK20QAbstractPrintDialog7printerEv": ["address", "address"],
+    "ritual_ZN20QAbstractPrintDialogC1ER27QAbstractPrintDialogPrivateP8QPrinterP7QWidget": [
+      "address", "address", "address", "address"
+    ],
     "ritual_take_QAbstractPrintDialog": [
       "bool", "address", "chars", "address"
     ]

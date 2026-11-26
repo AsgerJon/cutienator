@@ -6,12 +6,29 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickTabBarAttached10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickTabBarAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickTabBarAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickTabBarAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN20QQuickTabBarAttachedC1EP7QObject": ["address", "address"],
     "ritual_ZNK20QQuickTabBarAttached5indexEv": ["int", "address"],
     "ritual_ZNK20QQuickTabBarAttached6tabBarEv": ["address", "address"],
-    "ritual_ZNK20QQuickTabBarAttached8positionEv": ["int", "address"]
+    "ritual_ZNK20QQuickTabBarAttached8positionEv": ["int", "address"],
+    "ritual_ZN20QQuickTabBarAttached12indexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTabBarAttached13tabBarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTabBarAttached15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTabBarAttached6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickTabBarAttached6d_funcEv": ["address", "address"]
   }
 }

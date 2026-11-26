@@ -7,6 +7,8 @@
     "ritual_ZN13QCoapResourceC1Ev": ["address"],
     "ritual_ZN13QCoapResourceC1ERKS_": ["address", "address"],
     "ritual_ZN13QCoapResourceD1Ev": ["nothing", "address"],
+    "ritual_ZN13QCoapResourceaSERKS_": ["address", "address", "address"],
+    "ritual_ZN13QCoapResource4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK13QCoapResource4hostEv": ["address", "address"],
     "ritual_ZNK13QCoapResource4pathEv": ["text", "address"],
     "ritual_ZNK13QCoapResource5titleEv": ["text", "address"],

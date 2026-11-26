@@ -17,6 +17,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QQuickStarShape may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -794,6 +795,24 @@ const QMetaObject *ritual_ZNK15QQuickStarShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStarShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickStarShape11qt_metacastEPKc(
+    QQuickStarShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStarShape::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickStarShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStarShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStarShape::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickStarShape2trEPKcS1_i(
@@ -962,6 +981,21 @@ void ritual_ZN15QQuickStarShape14setStrokeStyleEN15QQuickShapePath11StrokeStyleE
   self->setStrokeStyle(style);
 }
 
+//  QList<qreal> QQuickStarShape::dashPattern() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK15QQuickStarShape11dashPatternEv(
+    const QQuickStarShape *self) {
+  return new QList<qreal>(self->dashPattern());
+}
+
+//  void QQuickStarShape::setDashPattern(const QList<qreal> &array)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape14setDashPatternERK5QListIdE(
+    QQuickStarShape *self,
+    const QList<qreal> *array) {
+  self->setDashPattern(*array);
+}
+
 //  QQuickShapeGradient *QQuickStarShape::fillGradient() const
 extern "C" Q_DECL_EXPORT
 QQuickShapeGradient *ritual_ZNK15QQuickStarShape12fillGradientEv(
@@ -996,6 +1030,90 @@ void ritual_ZN15QQuickStarShape11setFillItemEP10QQuickItem(
     QQuickStarShape *self,
     QQuickItem *newFillItem) {
   self->setFillItem(newFillItem);
+}
+
+//  void QQuickStarShape::cornerRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape19cornerRadiusChangedEv(
+    QQuickStarShape *self) {
+  self->cornerRadiusChanged();
+}
+
+//  void QQuickStarShape::ratioChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape12ratioChangedEv(QQuickStarShape *self) {
+  self->ratioChanged();
+}
+
+//  void QQuickStarShape::pointCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape17pointCountChangedEv(QQuickStarShape *self) {
+  self->pointCountChanged();
+}
+
+//  void QQuickStarShape::strokeColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape18strokeColorChangedEv(
+    QQuickStarShape *self) {
+  self->strokeColorChanged();
+}
+
+//  void QQuickStarShape::strokeWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape18strokeWidthChangedEv(
+    QQuickStarShape *self) {
+  self->strokeWidthChanged();
+}
+
+//  void QQuickStarShape::fillColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape16fillColorChangedEv(QQuickStarShape *self) {
+  self->fillColorChanged();
+}
+
+//  void QQuickStarShape::joinStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape16joinStyleChangedEv(QQuickStarShape *self) {
+  self->joinStyleChanged();
+}
+
+//  void QQuickStarShape::capStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape15capStyleChangedEv(QQuickStarShape *self) {
+  self->capStyleChanged();
+}
+
+//  void QQuickStarShape::strokeStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape18strokeStyleChangedEv(
+    QQuickStarShape *self) {
+  self->strokeStyleChanged();
+}
+
+//  void QQuickStarShape::dashOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape17dashOffsetChangedEv(QQuickStarShape *self) {
+  self->dashOffsetChanged();
+}
+
+//  void QQuickStarShape::dashPatternChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape18dashPatternChangedEv(
+    QQuickStarShape *self) {
+  self->dashPatternChanged();
+}
+
+//  void QQuickStarShape::fillGradientChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape19fillGradientChangedEv(
+    QQuickStarShape *self) {
+  self->fillGradientChanged();
+}
+
+//  void QQuickStarShape::fillItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickStarShape15fillItemChangedEv(QQuickStarShape *self) {
+  self->fillItemChanged();
 }
 
 //  void QQuickStarShape::itemChange(ItemChange change, const ItemChangeData
@@ -1042,4 +1160,10 @@ void ritual_own_ZN15QQuickStarShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_
   static_cast<OwnQQuickStarShape *>(self)->OwnQQuickStarShape::itemChange(
       change,
       *value);
+}
+
+//  a QList<qreal> a ritual of QQuickStarShape gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickStarShape__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN10Qt3DRender25QGraphicsApiFilterPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender25QGraphicsApiFilterPrivate3getEPNS_18QGraphicsApiFilterE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender25QGraphicsApiFilterPrivate3getEPKNS_18QGraphicsApiFilterE": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender25QGraphicsApiFilterPrivate6q_funcEv": [
       "address", "address"
     ],

@@ -35,6 +35,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN11QRhiSampler6createEv": ["bool", "address"],
+    "ritual_ZN11QRhiSamplerC1EP18QRhiImplementationNS_6FilterES2_S2_NS_11AddressModeES3_S3_": [
+      "address", "address", "int", "int", "int", "int", "int", "int"
+    ],
     "ritual_take_QRhiSampler": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QRhiSampler12resourceTypeEv": ["int", "address"]
   }

@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK15QProgressDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QProgressDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QProgressDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QProgressDialog2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QProgressDialog6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QProgressDialog6d_funcEv": ["address", "address"],
     "ritual_ZN15QProgressDialogC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
     ],
@@ -64,6 +72,7 @@
     "ritual_ZN15QProgressDialog18setMinimumDurationEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN15QProgressDialog8canceledEv": ["nothing", "address"],
     "ritual_ZN15QProgressDialog11resizeEventEP12QResizeEvent": [
       "nothing", "address", "address"
     ],

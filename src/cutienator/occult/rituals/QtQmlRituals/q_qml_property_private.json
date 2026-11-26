@@ -40,11 +40,26 @@
     "ritual_ZN19QQmlPropertyPrivate17writeEnumPropertyERK13QMetaPropertyiP7QObjectRK8QVarianti": [
       "bool", "address", "int", "address", "address", "int"
     ],
+    "ritual_ZN19QQmlPropertyPrivate18writeValuePropertyEP7QObjectRK16QQmlPropertyDataS4_RK8QVariantRK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS2_9WriteFlagEE": [
+      "bool", "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QQmlPropertyPrivate18resetValuePropertyEP7QObjectRK16QQmlPropertyDataS4_RK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS2_9WriteFlagEE": [
+      "bool", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QQmlPropertyPrivate25convertToQQmlListPropertyEP16QQmlListPropertyI7QObjectE9QMetaTypeRK8QVariant": [
+      "int", "address", "address", "address"
+    ],
     "ritual_ZN19QQmlPropertyPrivate24convertToWriteTargetTypeERK8QVariant9QMetaType": [
       "address", "address", "address"
     ],
+    "ritual_ZN19QQmlPropertyPrivate5writeEP7QObjectRK16QQmlPropertyDataRK8QVariantRK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS2_9WriteFlagEE": [
+      "bool", "address", "address", "address", "address", "int"
+    ],
     "ritual_ZN19QQmlPropertyPrivate5resetEP7QObjectRK16QQmlPropertyData6QFlagsINS2_9WriteFlagEE": [
       "bool", "address", "address", "int"
+    ],
+    "ritual_ZN19QQmlPropertyPrivate15findAliasTargetEP7QObject17QQmlPropertyIndexPS1_PS2_": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN19QQmlPropertyPrivate15findAliasTargetEP7QObject17QQmlPropertyIndex": [
       "address", "address", "address"
@@ -63,6 +78,9 @@
     ],
     "ritual_ZN19QQmlPropertyPrivate7bindingEP7QObject17QQmlPropertyIndex": [
       "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyPrivate7restoreEP7QObjectRK16QQmlPropertyDataPS3_RK14QQmlRefPointerI15QQmlContextDataE": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZNK19QQmlPropertyPrivate11signalIndexEv": ["int", "address"],
     "ritual_ZN19QQmlPropertyPrivate3getERK12QQmlProperty": [
@@ -103,6 +121,12 @@
     ],
     "ritual_ZN19QQmlPropertyPrivate11urlSequenceERK8QVariant": [
       "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyPrivate11urlSequenceERK8QVariantRK14QQmlRefPointerI15QQmlContextDataE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyPrivate6createEP7QObjectRK7QStringRK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS_8InitFlagEE": [
+      "address", "address", "text", "address", "int"
     ]
   }
 }

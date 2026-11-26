@@ -337,6 +337,25 @@ const QMetaObject *ritual_ZNK38QQuick3DShaderUtilsRenderPassAddDefine10metaObjec
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsRenderPassAddDefine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine11qt_metacastEPKc(
+    QQuick3DShaderUtilsRenderPassAddDefine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsRenderPassAddDefine::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsRenderPassAddDefine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsRenderPassAddDefine::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -398,6 +417,20 @@ void ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine8setValueEi(
     QQuick3DShaderUtilsRenderPassAddDefine *self,
     int newValue) {
   self->setValue(newValue);
+}
+
+//  void QQuick3DShaderUtilsRenderPassAddDefine::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine11nameChangedEv(
+    QQuick3DShaderUtilsRenderPassAddDefine *self) {
+  self->nameChanged();
+}
+
+//  void QQuick3DShaderUtilsRenderPassAddDefine::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN38QQuick3DShaderUtilsRenderPassAddDefine12valueChangedEv(
+    QQuick3DShaderUtilsRenderPassAddDefine *self) {
+  self->valueChanged();
 }
 
 //  a Python function taken by a CuteQQuick3DShaderUtilsRenderPassAddDefine,

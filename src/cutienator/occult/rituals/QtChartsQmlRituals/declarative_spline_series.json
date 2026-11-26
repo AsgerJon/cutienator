@@ -8,6 +8,12 @@
     "ritual_ZNK23DeclarativeSplineSeries10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23DeclarativeSplineSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23DeclarativeSplineSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -55,6 +61,9 @@
     "ritual_ZN23DeclarativeSplineSeries11setCapStyleEN2Qt11PenCapStyleE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN23DeclarativeSplineSeries19declarativeChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZN23DeclarativeSplineSeries10classBeginEv": [
       "nothing", "address"
     ],
@@ -84,8 +93,41 @@
     ],
     "ritual_ZN23DeclarativeSplineSeries5clearEv": ["nothing", "address"],
     "ritual_ZN23DeclarativeSplineSeries2atEi": ["address", "address", "int"],
+    "ritual_ZN23DeclarativeSplineSeries12countChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries12axisXChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries12axisYChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries15axisXTopChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries17axisYRightChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries18axisAngularChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries17axisRadialChangedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries12widthChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries12styleChangedEN2Qt8PenStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries15capStyleChangedEN2Qt11PenCapStyleE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN23DeclarativeSplineSeries18handleCountChangedEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries25appendDeclarativeChildrenEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
     ],
     "ritual_cast_DeclarativeSplineSeries_DeclarativeXySeries": [
       "address", "address"
@@ -100,6 +142,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN23DeclarativeSplineSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_DeclarativeSplineSeries__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

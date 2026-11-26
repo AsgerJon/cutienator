@@ -8,6 +8,12 @@
     "ritual_ZNK26QOpcUaInternalDataTypeNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QOpcUaInternalDataTypeNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QOpcUaInternalDataTypeNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK26QOpcUaInternalDataTypeNode10definitionEv": [
       "address", "address"
     ],
@@ -15,6 +21,12 @@
       "bool", "address"
     ],
     "ritual_ZNK26QOpcUaInternalDataTypeNode4nameEv": ["text", "address"],
-    "ritual_ZNK26QOpcUaInternalDataTypeNode6nodeIdEv": ["text", "address"]
+    "ritual_ZNK26QOpcUaInternalDataTypeNode6nodeIdEv": ["text", "address"],
+    "ritual_ZNK26QOpcUaInternalDataTypeNode8childrenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaInternalDataTypeNode18initializeFinishedEb": [
+      "nothing", "address", "bool"
+    ]
   }
 }

@@ -48,10 +48,43 @@ QRegularExpression *ritual_ZN18QRegularExpressionC1ERKS_(
   return new QRegularExpression(*re);
 }
 
+//  QRegularExpression::QRegularExpression(QRegularExpression &&re)
+extern "C" Q_DECL_EXPORT
+QRegularExpression *ritual_ZN18QRegularExpressionC1EOS_(
+    QRegularExpression *re) {
+  return new QRegularExpression(std::move(*re));
+}
+
 //  QRegularExpression::~QRegularExpression()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QRegularExpressionD1Ev(QRegularExpression *self) {
   delete self;
+}
+
+//  QRegularExpression &QRegularExpression::operator=(const
+//      QRegularExpression &re)
+extern "C" Q_DECL_EXPORT
+QRegularExpression *ritual_ZN18QRegularExpressionaSERKS_(
+    QRegularExpression *self,
+    const QRegularExpression *re) {
+  return &(self->operator=(*re));
+}
+
+//  QRegularExpression &QRegularExpression::operator=(QRegularExpression
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QRegularExpression *ritual_ZN18QRegularExpressionaSEOS_(
+    QRegularExpression *self,
+    QRegularExpression *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QRegularExpression::swap(QRegularExpression &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QRegularExpression4swapERS_(
+    QRegularExpression *self,
+    QRegularExpression *other) {
+  self->swap(*other);
 }
 
 //  QString QRegularExpression::pattern() const
@@ -308,6 +341,13 @@ bool ritual_ZneRK18QRegularExpressionS1_(
     const QRegularExpression *lhs,
     const QRegularExpression *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QRegularExpression::QRegularExpression(QRegularExpressionPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QRegularExpression *ritual_ZN18QRegularExpressionC1ER25QRegularExpressionPrivate(
+    QRegularExpressionPrivate *dd) {
+  return new QRegularExpression(*dd);
 }
 
 #endif  // QT_CONFIG(regularexpression)

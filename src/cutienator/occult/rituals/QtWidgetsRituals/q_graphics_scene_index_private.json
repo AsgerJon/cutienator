@@ -16,6 +16,14 @@
     "ritual_ZN26QGraphicsSceneIndexPrivate4initEv": ["nothing", "address"],
     "ritual_ZN26QGraphicsSceneIndexPrivate20itemCollidesWithPathEPK13QGraphicsItemRK12QPainterPathN2Qt17ItemSelectionModeE": [
       "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK26QGraphicsSceneIndexPrivate22recursive_items_helperEP13QGraphicsItem6QRectFPFbPKS0_RKS2_N2Qt17ItemSelectionModeERK10QTransformPKvEP5QListIS1_ESB_S8_dSD_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "int", "double", "address"
+    ],
+    "ritual_ZNK26QGraphicsSceneIndexPrivate12items_helperERK6QRectFPFbPK13QGraphicsItemS2_N2Qt17ItemSelectionModeERK10QTransformPKvEP5QListIPS3_ESA_S7_NS6_9SortOrderESC_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "int", "int", "address"
     ]
   }
 }

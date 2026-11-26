@@ -1,0 +1,133 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qrhimetal_p.h, Qt 6.12.0, from Qt's",
+    "source: Objective-C++, built on Apple's systems only. Kept as it",
+    "is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN19QMetalCommandBuffer10resetStateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QMetalCommandBuffer17resetPerPassStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QMetalCommandBuffer23resetPerPassCachedStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QMetalSwapChain13chooseFormatsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QMetalSwapChain18waitUntilCompletedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QMetalRenderPassDescriptor22updateSerializedFormatEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QMetalTexture13prepareCreateEP5QSize": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QMetalGraphicsPipeline9mapStatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QMetalGraphicsPipeline32setupMetalDepthStencilDescriptorEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal5probeEP19QRhiMetalInitParams": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QRhiMetal23executeDeferredReleasesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QRhiMetal21finishActiveReadbacksEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QRhiMetal20subresUploadByteSizeERK39QRhiTextureSubresourceUploadDescription": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal30executeBufferHostWritesForSlotEP12QMetalBufferi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9QRhiMetal38executeBufferHostWritesForCurrentFrameEP12QMetalBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal17setDefaultScissorEP19QMetalCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal28finalizeDeferredStoreActionsEP19QMetalCommandBufferb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN9QRhiMetal19interruptRenderPassEP19QMetalCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal22adjustForMultiViewDrawEPjP17QRhiCommandBuffer": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal24updateSwapChainProxyDataEP7QWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN22QMetalGraphicsPipeline37makeActiveForCurrentRenderPassEncoderEP19QMetalCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QMetalGraphicsPipeline43setupAttachmentsInMetalRenderPassDescriptorEPvP26QMetalRenderPassDescriptor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QMetalGraphicsPipeline28createVertexFragmentPipelineEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QMetalGraphicsPipeline27createTessellationPipelinesERK7QShaderS2_S2_S2_": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal19enqueueSubresUploadEP13QMetalTexturePvS2_iiRK39QRhiTextureSubresourceUploadDescriptionPx": [
+      "nothing", "address", "address", "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal22enqueueResourceUpdatesEP17QRhiCommandBufferP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetal15tessellatedDrawERKNS_12TessDrawArgsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QMetalBufferC1EP18QRhiImplementationN10QRhiBuffer4TypeE6QFlagsINS2_9UsageFlagEEj": [
+      "address", "address", "int", "int", "unsigned int"
+    ],
+    "ritual_ZN19QMetalCommandBufferC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN21QMetalComputePipelineC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN18QMetalRenderBufferC1EP18QRhiImplementationN16QRhiRenderBuffer4TypeERK5QSizei6QFlagsINS2_4FlagEEN11QRhiTexture6FormatE": [
+      "address", "address", "int", "address", "int", "int", "int"
+    ],
+    "ritual_ZN26QMetalRenderPassDescriptorC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN13QMetalSamplerC1EP18QRhiImplementationN11QRhiSampler6FilterES3_S3_NS2_11AddressModeES4_S4_": [
+      "address", "address", "int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN28QMetalShaderResourceBindingsC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN20QMetalShadingRateMapC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN15QMetalSwapChainC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN13QMetalTextureC1EP18QRhiImplementationN11QRhiTexture6FormatERK5QSizeiii6QFlagsINS2_4FlagEE": [
+      "address", "address", "int", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN25QMetalTextureRenderTargetC1EP18QRhiImplementationRK34QRhiTextureRenderTargetDescription6QFlagsIN23QRhiTextureRenderTarget4FlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN22QMetalGraphicsPipelineC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN27QMetalSwapChainRenderTargetC1EP18QRhiImplementationP13QRhiSwapChain": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiMetalC1EP19QRhiMetalInitParamsP22QRhiMetalNativeHandles": [
+      "address", "address", "address"
+    ]
+  }
+}

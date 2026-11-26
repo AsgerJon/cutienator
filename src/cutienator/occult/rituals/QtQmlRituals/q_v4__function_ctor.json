@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN3QV412FunctionCtor10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV412FunctionCtor11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV412FunctionCtor1dEv": ["address", "address"]
+    "ritual_ZNK3QV412FunctionCtor1dEv": ["address", "address"],
+    "ritual_drop_QV4_FunctionCtor__QQmlRefPointer_QV4_ExecutableCompilationUnit": [
+      "nothing", "address"
+    ]
   }
 }

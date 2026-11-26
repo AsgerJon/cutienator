@@ -258,6 +258,25 @@ const QMetaObject *ritual_ZNK31QSGGuiThreadShaderEffectManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGGuiThreadShaderEffectManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QSGGuiThreadShaderEffectManager11qt_metacastEPKc(
+    QSGGuiThreadShaderEffectManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGGuiThreadShaderEffectManager::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QSGGuiThreadShaderEffectManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGGuiThreadShaderEffectManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGGuiThreadShaderEffectManager::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -307,6 +326,25 @@ void ritual_ZN31QSGGuiThreadShaderEffectManager17prepareShaderCodeENS_10ShaderIn
     const QUrl *src,
     QSGGuiThreadShaderEffectManager::ShaderInfo *result) {
   self->prepareShaderCode(typeHint, *src, result);
+}
+
+//  void QSGGuiThreadShaderEffectManager::shaderCodePrepared(bool ok,
+//      ShaderInfo::Type typeHint, const QUrl &src, ShaderInfo *result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QSGGuiThreadShaderEffectManager18shaderCodePreparedEbNS_10ShaderInfo4TypeERK4QUrlPS0_(
+    QSGGuiThreadShaderEffectManager *self,
+    bool ok,
+    QSGGuiThreadShaderEffectManager::ShaderInfo::Type typeHint,
+    const QUrl *src,
+    QSGGuiThreadShaderEffectManager::ShaderInfo *result) {
+  self->shaderCodePrepared(ok, typeHint, *src, result);
+}
+
+//  void QSGGuiThreadShaderEffectManager::logAndStatusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QSGGuiThreadShaderEffectManager19logAndStatusChangedEv(
+    QSGGuiThreadShaderEffectManager *self) {
+  self->logAndStatusChanged();
 }
 
 //  a Python function taken by a CuteQSGGuiThreadShaderEffectManager, for the

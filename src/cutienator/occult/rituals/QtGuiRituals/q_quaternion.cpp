@@ -1,11 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qquaternion.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qquaternion.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 1. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qtguiglobal.h>
 #if !defined(QT_NO_QUATERNION)
 #include <QtGui/qquaternion.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
+#include <QtGui/QMatrix3x3>
 
 //  QQuaternion::QQuaternion()
 extern "C" Q_DECL_EXPORT
@@ -385,6 +388,20 @@ QQuaternion *ritual_ZN11QQuaternion15fromEulerAnglesEfff(
   return new QQuaternion(QQuaternion::fromEulerAngles(pitch, yaw, roll));
 }
 
+//  QMatrix3x3 QQuaternion::toRotationMatrix() const
+extern "C" Q_DECL_EXPORT
+QMatrix3x3 *ritual_ZNK11QQuaternion16toRotationMatrixEv(
+    const QQuaternion *self) {
+  return new QMatrix3x3(self->toRotationMatrix());
+}
+
+//  QQuaternion QQuaternion::fromRotationMatrix(const QMatrix3x3 &rot3x3)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion18fromRotationMatrixERK14QGenericMatrixILi3ELi3EfE(
+    const QMatrix3x3 *rot3x3) {
+  return new QQuaternion(QQuaternion::fromRotationMatrix(*rot3x3));
+}
+
 //  Axes QQuaternion::toAxes() const
 extern "C" Q_DECL_EXPORT
 QQuaternion::Axes *ritual_ZNK11QQuaternion6toAxesEv(
@@ -504,6 +521,20 @@ QQuaternion *ritual_list_at_QQuaternion(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQuaternion(QList<QQuaternion> *self) {
   delete self;
+}
+
+//  a QMatrix3x3 a ritual of QQuaternion gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuaternion__QMatrix3x3(QMatrix3x3 *self) {
+  delete self;
+}
+
+//  static QQuaternion QQuaternion::fromEulerAngles(
+//      QQuaternion::EulerAngles<float> angles)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion15fromEulerAnglesENS_11EulerAnglesIfEE(
+    const QQuaternion::EulerAngles<float> *angles) {
+  return new QQuaternion(QQuaternion::fromEulerAngles(*angles));
 }
 
 #endif  // !defined(QT_NO_QUATERNION)

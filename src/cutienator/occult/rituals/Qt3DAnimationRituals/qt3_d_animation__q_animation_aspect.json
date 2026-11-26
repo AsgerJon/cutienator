@@ -8,8 +8,21 @@
     "ritual_ZNK13Qt3DAnimation16QAnimationAspect10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation16QAnimationAspect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation16QAnimationAspect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation16QAnimationAspect2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation16QAnimationAspectC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation16QAnimationAspectD1Ev": ["nothing", "address"],
+    "ritual_ZN13Qt3DAnimation16QAnimationAspect13jobsToExecuteEx": [
+      "address", "address", "long long"
     ],
     "ritual_ZN13Qt3DAnimation16QAnimationAspect6d_funcEv": [
       "address", "address"
@@ -17,8 +30,14 @@
     "ritual_ZNK13Qt3DAnimation16QAnimationAspect6d_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation16QAnimationAspectC1ERNS_23QAnimationAspectPrivateEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_Qt3DAnimation_QAnimationAspect": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QAnimationAspect__std_vector_Qt3DCore_QAspectJobPtr": [
+      "nothing", "address"
     ]
   }
 }

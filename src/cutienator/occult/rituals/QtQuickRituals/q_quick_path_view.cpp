@@ -847,6 +847,24 @@ const QMetaObject *ritual_ZNK14QQuickPathView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickPathView11qt_metacastEPKc(
+    QQuickPathView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickPathView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickPathView2trEPKcS1_i(
@@ -1239,6 +1257,202 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickPathView21decrementCurrentIndexEv(
     QQuickPathView *self) {
   self->decrementCurrentIndex();
+}
+
+//  void QQuickPathView::currentIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView19currentIndexChangedEv(QQuickPathView *self) {
+  self->currentIndexChanged();
+}
+
+//  void QQuickPathView::currentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView18currentItemChangedEv(QQuickPathView *self) {
+  self->currentItemChanged();
+}
+
+//  void QQuickPathView::offsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView13offsetChangedEv(QQuickPathView *self) {
+  self->offsetChanged();
+}
+
+//  void QQuickPathView::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView12modelChangedEv(QQuickPathView *self) {
+  self->modelChanged();
+}
+
+//  void QQuickPathView::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView12countChangedEv(QQuickPathView *self) {
+  self->countChanged();
+}
+
+//  void QQuickPathView::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView11pathChangedEv(QQuickPathView *self) {
+  self->pathChanged();
+}
+
+//  void QQuickPathView::preferredHighlightBeginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView30preferredHighlightBeginChangedEv(
+    QQuickPathView *self) {
+  self->preferredHighlightBeginChanged();
+}
+
+//  void QQuickPathView::preferredHighlightEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView28preferredHighlightEndChangedEv(
+    QQuickPathView *self) {
+  self->preferredHighlightEndChanged();
+}
+
+//  void QQuickPathView::highlightRangeModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView25highlightRangeModeChangedEv(
+    QQuickPathView *self) {
+  self->highlightRangeModeChanged();
+}
+
+//  void QQuickPathView::dragMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView17dragMarginChangedEv(QQuickPathView *self) {
+  self->dragMarginChanged();
+}
+
+//  void QQuickPathView::snapPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView19snapPositionChangedEv(QQuickPathView *self) {
+  self->snapPositionChanged();
+}
+
+//  void QQuickPathView::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView15delegateChangedEv(QQuickPathView *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickPathView::pathItemCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView20pathItemCountChangedEv(
+    QQuickPathView *self) {
+  self->pathItemCountChanged();
+}
+
+//  void QQuickPathView::maximumFlickVelocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView27maximumFlickVelocityChangedEv(
+    QQuickPathView *self) {
+  self->maximumFlickVelocityChanged();
+}
+
+//  void QQuickPathView::flickDecelerationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView24flickDecelerationChangedEv(
+    QQuickPathView *self) {
+  self->flickDecelerationChanged();
+}
+
+//  void QQuickPathView::interactiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView18interactiveChangedEv(QQuickPathView *self) {
+  self->interactiveChanged();
+}
+
+//  void QQuickPathView::movingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView13movingChangedEv(QQuickPathView *self) {
+  self->movingChanged();
+}
+
+//  void QQuickPathView::flickingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView15flickingChangedEv(QQuickPathView *self) {
+  self->flickingChanged();
+}
+
+//  void QQuickPathView::draggingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView15draggingChangedEv(QQuickPathView *self) {
+  self->draggingChanged();
+}
+
+//  void QQuickPathView::highlightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView16highlightChangedEv(QQuickPathView *self) {
+  self->highlightChanged();
+}
+
+//  void QQuickPathView::highlightItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView20highlightItemChangedEv(
+    QQuickPathView *self) {
+  self->highlightItemChanged();
+}
+
+//  void QQuickPathView::highlightMoveDurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView28highlightMoveDurationChangedEv(
+    QQuickPathView *self) {
+  self->highlightMoveDurationChanged();
+}
+
+//  void QQuickPathView::movementStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView15movementStartedEv(QQuickPathView *self) {
+  self->movementStarted();
+}
+
+//  void QQuickPathView::movementEnded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView13movementEndedEv(QQuickPathView *self) {
+  self->movementEnded();
+}
+
+//  void QQuickPathView::movementDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView24movementDirectionChangedEv(
+    QQuickPathView *self) {
+  self->movementDirectionChanged();
+}
+
+//  void QQuickPathView::flickStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView12flickStartedEv(QQuickPathView *self) {
+  self->flickStarted();
+}
+
+//  void QQuickPathView::flickEnded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView10flickEndedEv(QQuickPathView *self) {
+  self->flickEnded();
+}
+
+//  void QQuickPathView::dragStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView11dragStartedEv(QQuickPathView *self) {
+  self->dragStarted();
+}
+
+//  void QQuickPathView::dragEnded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView9dragEndedEv(QQuickPathView *self) {
+  self->dragEnded();
+}
+
+//  void QQuickPathView::snapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView15snapModeChangedEv(QQuickPathView *self) {
+  self->snapModeChanged();
+}
+
+//  void QQuickPathView::cacheItemCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathView21cacheItemCountChangedEv(
+    QQuickPathView *self) {
+  self->cacheItemCountChanged();
 }
 
 //  void QQuickPathView::updatePolish()

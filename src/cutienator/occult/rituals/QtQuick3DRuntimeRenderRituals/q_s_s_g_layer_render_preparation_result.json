@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN32QSSGLayerRenderPreparationResultC1Ev": ["address"],
+    "ritual_ZN32QSSGLayerRenderPreparationResultC1ERK6QRectFR15QSSGRenderLayer": [
+      "address", "address", "address"
+    ],
     "ritual_ZN32QSSGLayerRenderPreparationResult8setStateENS_5StateE": [
       "nothing", "address", "unsigned char"
     ],

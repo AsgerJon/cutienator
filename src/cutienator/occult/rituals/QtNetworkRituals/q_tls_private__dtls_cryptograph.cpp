@@ -15,7 +15,9 @@
 #include <QtNetwork/qsslerror.h>
 #include <QtNetwork/qsslcipher.h>
 #include <QtNetwork/qsslconfiguration.h>
+#if QT_CONFIG(dtls) && QT_CONFIG(ssl)
 #include <QtNetwork/qdtls.h>
+#endif
 #include <QtCore/qlist.h>
 #include <cstring>
 

@@ -20,6 +20,16 @@ QOpcUaApplicationDescription *ritual_ZN28QOpcUaApplicationDescriptionC1ERKS_(
   return new QOpcUaApplicationDescription(*a0);
 }
 
+//  QOpcUaApplicationDescription
+//      &QOpcUaApplicationDescription::operator=(const
+//      QOpcUaApplicationDescription &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaApplicationDescription *ritual_ZN28QOpcUaApplicationDescriptionaSERKS_(
+    QOpcUaApplicationDescription *self,
+    const QOpcUaApplicationDescription *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaApplicationDescription::operator==(const
 //      QOpcUaApplicationDescription &a0) const
 extern "C" Q_DECL_EXPORT
@@ -138,6 +148,13 @@ extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK28QOpcUaApplicationDescription13discoveryUrlsEv(
     const QOpcUaApplicationDescription *self) {
   return new QList<QString>(self->discoveryUrls());
+}
+
+//  QList<QString> &QOpcUaApplicationDescription::discoveryUrlsRef()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN28QOpcUaApplicationDescription16discoveryUrlsRefEv(
+    QOpcUaApplicationDescription *self) {
+  return &(self->discoveryUrlsRef());
 }
 
 //  void QOpcUaApplicationDescription::setDiscoveryUrls(const QList<QString>

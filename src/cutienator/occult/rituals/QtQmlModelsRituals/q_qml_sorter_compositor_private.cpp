@@ -6,10 +6,13 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlsortercompositor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#include <QtCore/QPointer>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/private/qqmlsortercompositor_p.h>
 #include <QtQmlModels/private/qqmlsortfilterproxymodel_p_p.h>
@@ -94,11 +97,26 @@ void ritual_ZN27QQmlSorterCompositorPrivate16setPrimarySorterEP14QQmlSorterBase(
   self->setPrimarySorter(sorter);
 }
 
+//  QPointer<QQmlSorterBase> QQmlSorterCompositorPrivate::primarySorter()
+//      const
+extern "C" Q_DECL_EXPORT
+QPointer<QQmlSorterBase> *ritual_ZNK27QQmlSorterCompositorPrivate13primarySorterEv(
+    const QQmlSorterCompositorPrivate *self) {
+  return new QPointer<QQmlSorterBase>(self->primarySorter());
+}
+
 //  void QQmlSorterCompositorPrivate::resetPrimarySorter()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QQmlSorterCompositorPrivate18resetPrimarySorterEv(
     QQmlSorterCompositorPrivate *self) {
   self->resetPrimarySorter();
+}
+
+//  a QPointer<QQmlSorterBase> a ritual of QQmlSorterCompositorPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlSorterCompositorPrivate__QPointer_QQmlSorterBase(
+    QPointer<QQmlSorterBase> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)

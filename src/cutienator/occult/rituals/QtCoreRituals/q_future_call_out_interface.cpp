@@ -52,6 +52,15 @@ void ritual_ZN23QFutureCallOutInterfaceD1Ev(QFutureCallOutInterface *self) {
   delete self;
 }
 
+//  void QFutureCallOutInterface::postCallOutEvent(const QFutureCallOutEvent
+//      &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QFutureCallOutInterface16postCallOutEventERK19QFutureCallOutEvent(
+    QFutureCallOutInterface *self,
+    const QFutureCallOutEvent *a0) {
+  self->postCallOutEvent(*a0);
+}
+
 //  void QFutureCallOutInterface::callOutInterfaceDisconnected()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QFutureCallOutInterface28callOutInterfaceDisconnectedEv(

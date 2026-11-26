@@ -5,17 +5,54 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render14FrameGraphNodeC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render14FrameGraphNodeD1Ev": [
       "nothing", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render14FrameGraphNode8nodeTypeEv": [
       "int", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render14FrameGraphNode20setFrameGraphManagerEPNS0_17FrameGraphManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14FrameGraphNode7managerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14FrameGraphNode11setParentIdEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14FrameGraphNode8parentIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14FrameGraphNode11childrenIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14FrameGraphNode6parentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14FrameGraphNode8childrenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14FrameGraphNode7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14FrameGraphNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render14FrameGraphNodeC1ENS1_18FrameGraphNodeTypeEN8Qt3DCore12QBackendNode4ModeE": [
+      "address", "int", "int"
+    ],
     "ritual_take_Qt3DRender_Render_FrameGraphNode": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render14FrameGraphNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_FrameGraphNode__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_FrameGraphNode__QList_Qt3DRender_Render_FrameGraphNode": [
+      "nothing", "address"
     ]
   }
 }

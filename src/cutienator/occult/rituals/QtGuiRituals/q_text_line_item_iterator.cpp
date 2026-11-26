@@ -78,6 +78,46 @@ inline QTextLineItemIterator::QTextLineItemIterator(QTextEngine *_eng, int _line
     eng->shapeLine(line);
 }
 
+//  from src/gui/text/qtextengine.cpp, line 4100, as _ZN21QTextLineItemIterator4nextEv
+inline QScriptItem &QTextLineItemIterator::next()
+{
+    x += itemWidth;
+
+    ++logicalItem;
+    item = visualOrder[logicalItem] + firstItem;
+    itemLength = eng->length(item);
+    si = &eng->layoutData->items[item];
+    if (!si->num_glyphs)
+        eng->shape(item);
+
+    itemStart = qMax(line.from, si->position);
+    itemEnd = qMin(lineEnd, si->position + itemLength);
+
+    if (si->analysis.flags >= QScriptAnalysis::TabOrObject) {
+        glyphsStart = 0;
+        glyphsEnd = 1;
+        itemWidth = si->width;
+        return *si;
+    }
+
+    unsigned short *logClusters = eng->logClusters(si);
+    QGlyphLayout glyphs = eng->shapedGlyphs(si);
+
+    glyphsStart = logClusters[itemStart - si->position];
+    glyphsEnd = (itemEnd == si->position + itemLength) ? si->num_glyphs : logClusters[itemEnd - si->position];
+
+    // show soft-hyphen at line-break
+    if (si->position + itemLength >= lineEnd
+        && eng->layoutData->string.at(lineEnd - 1).unicode() == QChar::SoftHyphen)
+        glyphs.attributes[glyphsEnd - 1].dontPrint = false;
+
+    itemWidth = 0;
+    for (int g = glyphsStart; g < glyphsEnd; ++g)
+        itemWidth += glyphs.effectiveAdvance(g);
+
+    return *si;
+}
+
 //  from src/gui/text/qtextengine.cpp, line 4139, as _ZNK21QTextLineItemIterator18getSelectionBoundsEP6QFixedS1_
 inline bool QTextLineItemIterator::getSelectionBounds(QFixed *selectionX, QFixed *selectionWidth) const
 {
@@ -158,6 +198,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QTextLineItemIterator11atBeginningEv(
     const QTextLineItemIterator *self) {
   return self->atBeginning();
+}
+
+//  QScriptItem &QTextLineItemIterator::next()
+extern "C" Q_DECL_EXPORT
+QScriptItem *ritual_ZN21QTextLineItemIterator4nextEv(
+    QTextLineItemIterator *self) {
+  return &(self->next());
 }
 
 //  bool QTextLineItemIterator::getSelectionBounds(QFixed *selectionX, QFixed

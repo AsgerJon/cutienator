@@ -8,6 +8,12 @@
     "ritual_ZNK26QAbstractEventDispatcherV210metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QAbstractEventDispatcherV211qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QAbstractEventDispatcherV211qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QAbstractEventDispatcherV22trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,8 +22,17 @@
       "address", "address"
     ],
     "ritual_ZN26QAbstractEventDispatcherV2D1Ev": ["nothing", "address"],
+    "ritual_ZN26QAbstractEventDispatcherV213registerTimerEN2Qt7TimerIdENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS0_9TimerTypeEP7QObject": [
+      "nothing", "address", "int", "long long", "int", "address"
+    ],
     "ritual_ZN26QAbstractEventDispatcherV215unregisterTimerEN2Qt7TimerIdE": [
       "bool", "address", "int"
+    ],
+    "ritual_ZNK26QAbstractEventDispatcherV215timersForObjectEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK26QAbstractEventDispatcherV213remainingTimeEN2Qt7TimerIdE": [
+      "long long", "address", "int"
     ],
     "ritual_ZN26QAbstractEventDispatcherV225processEventsWithDeadlineE6QFlagsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer": [
       "bool", "address", "int", "address"
@@ -28,6 +43,9 @@
     "ritual_ZN26QAbstractEventDispatcherV215unregisterTimerEi": [
       "bool", "address", "int"
     ],
+    "ritual_ZNK26QAbstractEventDispatcherV216registeredTimersEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN26QAbstractEventDispatcherV213remainingTimeEi": [
       "int", "address", "int"
     ],
@@ -36,6 +54,12 @@
     ],
     "ritual_own_ZN26QAbstractEventDispatcherV225processEventsWithDeadlineE6QFlagsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer": [
       "bool", "address", "int", "address"
+    ],
+    "ritual_drop_QAbstractEventDispatcherV2__QList_QAbstractEventDispatcher_TimerInfoV2": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractEventDispatcherV2__QList_QAbstractEventDispatcher_TimerInfo": [
+      "nothing", "address"
     ]
   }
 }

@@ -19,6 +19,24 @@ const QMetaObject *ritual_ZNK13QQuickPathSvg10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathSvg::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickPathSvg11qt_metacastEPKc(
+    QQuickPathSvg *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathSvg::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickPathSvg11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathSvg *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathSvg::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickPathSvg2trEPKcS1_i(
@@ -46,6 +64,22 @@ void ritual_ZN13QQuickPathSvg7setPathERK7QString(
     QQuickPathSvg *self,
     const QString *path) {
   self->setPath(*path);
+}
+
+//  void QQuickPathSvg::addToPath(QPainterPath &path, const QQuickPathData
+//      &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPathSvg9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickPathSvg *self,
+    QPainterPath *path,
+    const QQuickPathData *a1) {
+  self->addToPath(*path, *a1);
+}
+
+//  void QQuickPathSvg::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPathSvg11pathChangedEv(QQuickPathSvg *self) {
+  self->pathChanged();
 }
 
 #endif  // QT_CONFIG(quick_path)

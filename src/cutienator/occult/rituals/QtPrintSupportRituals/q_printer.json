@@ -66,6 +66,7 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK8QPrinter6duplexEv": ["int", "address"],
+    "ritual_ZNK8QPrinter20supportedResolutionsEv": ["address", "address"],
     "ritual_ZN8QPrinter23setFontEmbeddingEnabledEb": [
       "nothing", "address", "bool"
     ],
@@ -100,6 +101,7 @@
     "ritual_own_ZNK8QPrinter11paintEngineEv": ["address", "address"],
     "ritual_own_ZNK8QPrinter6metricEN12QPaintDevice17PaintDeviceMetricE": [
       "int", "address", "int"
-    ]
+    ],
+    "ritual_drop_QPrinter__QList_int": ["nothing", "address"]
   }
 }

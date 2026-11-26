@@ -6,6 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore10QScheduler10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QScheduler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore10QScheduler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QSchedulerD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore10QScheduler16setAspectManagerEPNS_14QAspectManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore10QScheduler13aspectManagerEv": [
+      "address", "address"
+    ],
     "ritual_ZN8Qt3DCore10QScheduler33scheduleAndWaitForFrameAspectJobsExb": [
       "int", "address", "long long", "bool"
     ],

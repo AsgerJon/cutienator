@@ -14,6 +14,29 @@ QVertexIndexVector::Type ritual_ZNK18QVertexIndexVector4typeEv(
   return self->type();
 }
 
+//  void QVertexIndexVector::setDataUint(const QList<quint32> &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QVertexIndexVector11setDataUintERK5QListIjE(
+    QVertexIndexVector *self,
+    const QList<quint32> *data) {
+  self->setDataUint(*data);
+}
+
+//  void QVertexIndexVector::setDataUshort(const QList<quint16> &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QVertexIndexVector13setDataUshortERK5QListItE(
+    QVertexIndexVector *self,
+    const QList<quint16> *data) {
+  self->setDataUshort(*data);
+}
+
+//  const void *QVertexIndexVector::data() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK18QVertexIndexVector4dataEv(
+    const QVertexIndexVector *self) {
+  return self->data();
+}
+
 //  int QVertexIndexVector::size() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QVertexIndexVector4sizeEv(const QVertexIndexVector *self) {

@@ -85,6 +85,16 @@ void ritual_ZN23QQmlDebugStatesDelegateD1Ev(QQmlDebugStatesDelegate *self) {
   delete self;
 }
 
+//  void QQmlDebugStatesDelegate::buildStatesList(bool cleanList, const
+//      QList<QPointer<QObject>> &instances)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQmlDebugStatesDelegate15buildStatesListEbRK5QListI8QPointerI7QObjectEE(
+    QQmlDebugStatesDelegate *self,
+    bool cleanList,
+    const QList<QPointer<QObject>> *instances) {
+  self->buildStatesList(cleanList, *instances);
+}
+
 //  void QQmlDebugStatesDelegate::updateBinding(QQmlContext *context, const
 //      QQmlProperty &property, const QVariant &expression, bool
 //      isLiteralValue, const QString &fileName, int line, int column, bool

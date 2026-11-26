@@ -92,7 +92,7 @@ typedef void (*CuteQMacSwipeGestureRecognizerCall2)(const void *, QGesture *, in
 class CuteQMacSwipeGestureRecognizer : public QMacSwipeGestureRecognizer {
 public:
   using QMacSwipeGestureRecognizer::QMacSwipeGestureRecognizer;
-  CuteQMacSwipeGestureRecognizer(const QMacSwipeGestureRecognizer &other) : QMacSwipeGestureRecognizer(other) {}
+  CuteQMacSwipeGestureRecognizer(const QMacSwipeGestureRecognizer & other) : QMacSwipeGestureRecognizer(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

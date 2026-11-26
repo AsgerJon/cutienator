@@ -8,6 +8,12 @@
     "ritual_ZN3QV415QQmlEnumWrapper12staticVTableEv": ["address"],
     "ritual_ZN3QV415QQmlEnumWrapper10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV415QQmlEnumWrapper11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV415QQmlEnumWrapper1dEv": ["address", "address"]
+    "ritual_ZNK3QV415QQmlEnumWrapper1dEv": ["address", "address"],
+    "ritual_ZN3QV415QQmlEnumWrapper14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV415QQmlEnumWrapper10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ]
   }
 }

@@ -7,6 +7,14 @@
 #include <QtGui/6.12.0/QtGui/private/qpalette_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QPalettePrivate::QPalettePrivate(const QExplicitlySharedDataPointer<Data>
+//      &data)
+extern "C" Q_DECL_EXPORT
+QPalettePrivate *ritual_ZN15QPalettePrivateC1ERK28QExplicitlySharedDataPointerINS_4DataEE(
+    const QExplicitlySharedDataPointer<QPalettePrivate::Data> *data) {
+  return new QPalettePrivate(*data);
+}
+
 //  QPalettePrivate::QPalettePrivate()
 extern "C" Q_DECL_EXPORT
 QPalettePrivate *ritual_ZN15QPalettePrivateC1Ev() {

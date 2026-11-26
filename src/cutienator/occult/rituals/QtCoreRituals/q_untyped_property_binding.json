@@ -5,12 +5,23 @@
   ],
   "rows": {
     "ritual_ZN23QUntypedPropertyBindingC1Ev": ["address"],
+    "ritual_ZN23QUntypedPropertyBindingC1E9QMetaTypePKN9QtPrivate21BindingFunctionVTableEPvRK30QPropertyBindingSourceLocation": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QUntypedPropertyBindingC1EOS_": ["address", "address"],
     "ritual_ZN23QUntypedPropertyBindingC1ERKS_": ["address", "address"],
+    "ritual_ZN23QUntypedPropertyBindingaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QUntypedPropertyBindingaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QUntypedPropertyBindingD1Ev": ["nothing", "address"],
     "ritual_ZNK23QUntypedPropertyBinding6isNullEv": ["bool", "address"],
     "ritual_ZNK23QUntypedPropertyBinding5errorEv": ["address", "address"],
     "ritual_ZNK23QUntypedPropertyBinding13valueMetaTypeEv": [
       "address", "address"
-    ]
+    ],
+    "ritual_ZN23QUntypedPropertyBindingC1EPv": ["address", "address"]
   }
 }

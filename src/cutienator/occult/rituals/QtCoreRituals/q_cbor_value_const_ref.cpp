@@ -6,7 +6,9 @@
 #include <QtCore/qanystringview.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qurl.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/quuid.h>
 #include <QtCore/qcborarray.h>
 #include <QtCore/qcbormap.h>
@@ -383,6 +385,18 @@ QByteArray *ritual_ZNK18QCborValueConstRef6toCborE6QFlagsIN10QCborValue14Encodin
   return new QByteArray(
       self->toCbor(
           QFlags<QCborValue::EncodingOption>::fromInt(opt)));
+}
+#endif  // QT_CONFIG(cborstreamwriter)
+
+#if QT_CONFIG(cborstreamwriter)
+//  void QCborValueConstRef::toCbor(QCborStreamWriter &writer,
+//      QCborValue::EncodingOptions opt) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18QCborValueConstRef6toCborER17QCborStreamWriter6QFlagsIN10QCborValue14EncodingOptionEE(
+    const QCborValueConstRef *self,
+    QCborStreamWriter *writer,
+    int opt) {
+  self->toCbor(*writer, QFlags<QCborValue::EncodingOption>::fromInt(opt));
 }
 #endif  // QT_CONFIG(cborstreamwriter)
 

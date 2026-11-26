@@ -10,6 +10,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmllistmodel_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QList>
+#include <functional>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/private/qqmllistmodel_p_p.h>
 #include <QtQmlModels/private/qqmllistmodelworkeragent_p.h>
@@ -45,29 +47,31 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 742, as _ZN9ListModel6removeEii
-inline QList<std::function<void()>> ListModel::remove(int index, int count)
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 45, as local:qqmllistmodel.cpp:isMemoryUsed
+template <typename T>
+static bool isMemoryUsed(const char *mem)
 {
-    QList<std::function<void()>> toDestroy;
-    auto layout = m_layout;
-    for (int i=0 ; i < count ; ++i) {
-        auto element = elements[index+i];
-        toDestroy.append([element, layout](){
-            element->destroy(layout);
-            delete element;
-        });
+    for (size_t i=0 ; i < sizeof(T) ; ++i) {
+        if (mem[i] != 0)
+            return true;
     }
-    elements.remove(index, count);
-    updateCacheIndices(index);
-    return toDestroy;
+
+    return false;
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 910, as _ZN11ListElement15getListPropertyERKN10ListLayout4RoleE
-inline ListModel *ListElement::getListProperty(const ListLayout::Role &role)
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 56, as local:qqmllistmodel.cpp:roleTypeName
+static QString roleTypeName(ListLayout::Role::DataType t)
 {
-    char *mem = getPropertyMemory(role);
-    ListModel **value = reinterpret_cast<ListModel **>(mem);
-    return *value;
+    static const QString roleTypeNames[] = {
+        QStringLiteral("String"), QStringLiteral("Number"), QStringLiteral("Bool"),
+        QStringLiteral("List"), QStringLiteral("QObject"), QStringLiteral("VariantMap"),
+        QStringLiteral("DateTime"), QStringLiteral("Url"), QStringLiteral("Function")
+    };
+
+    if (t > ListLayout::Role::Invalid && t < ListLayout::Role::MaxDataType)
+        return roleTypeNames[t];
+
+    return QString();
 }
 
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 823, as _ZN11ListElement11objectCacheEv
@@ -76,6 +80,163 @@ inline ModelNodeMetaObject *ListElement::objectCache()
     if (!m_objectCache)
         return nullptr;
     return ModelNodeMetaObject::get(m_objectCache);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1369, as _ZN11ListElement7destroyEP10ListLayout
+inline void ListElement::destroy(ListLayout *layout)
+{
+    if (layout) {
+        for (int i=0 ; i < layout->roleCount() ; ++i) {
+            const ListLayout::Role &r = layout->getExistingRole(i);
+
+            switch (r.type) {
+                case ListLayout::Role::String:
+                    {
+                        StringOrTranslation *string = getStringProperty(r);
+                        if (string)
+                            string->~StringOrTranslation();
+                    }
+                    break;
+                case ListLayout::Role::List:
+                    {
+                        ListModel *model = getListProperty(r);
+                        if (model) {
+                            model->destroy();
+                            delete model;
+                        }
+                    }
+                    break;
+                case ListLayout::Role::QObject:
+                    {
+                        if (QV4::PersistentValue *guard = getGuardProperty(r))
+                            guard->~PersistentValue();
+                    }
+                    break;
+                case ListLayout::Role::VariantMap:
+                    {
+                        QVariantMap *map = getVariantMapProperty(r);
+                        if (map)
+                            map->~QMap();
+                    }
+                    break;
+                case ListLayout::Role::DateTime:
+                    {
+                        QDateTime *dt = getDateTimeProperty(r);
+                        if (dt)
+                            dt->~QDateTime();
+                    }
+                    break;
+                case ListLayout::Role::Url:
+                    {
+                        QUrl *url = getUrlProperty(r);
+                        if (url)
+                            url->~QUrl();
+                        break;
+                    }
+                case ListLayout::Role::Function:
+                    {
+                        QJSValue *f = getFunctionProperty(r);
+                        if (f)
+                            f->~QJSValue();
+                    }
+                    break;
+                default:
+                    // other types don't need explicit cleanup.
+                    break;
+            }
+        }
+
+        if (m_objectCache) {
+            m_objectCache->~QObject();
+            operator delete(m_objectCache);
+        }
+    }
+
+    if (next)
+        next->destroy(nullptr);
+    uid = -1;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1308, as _ZN11ListElementD1Ev
+inline ListElement::~ListElement()
+{
+    delete next;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1484, as _ZN11ListElement13setJsPropertyERKN10ListLayout4RoleERKN3QV45ValueEPNS4_15ExecutionEngineE
+inline int ListElement::setJsProperty(const ListLayout::Role &role, const QV4::Value &d, QV4::ExecutionEngine *eng)
+{
+    // Check if this key exists yet
+    int roleIndex = -1;
+
+    QV4::Scope scope(eng);
+
+    // Add the value now
+    if (d.isString()) {
+        QString qstr = d.toQString();
+        roleIndex = setStringProperty(role, qstr);
+    } else if (d.isNumber()) {
+        roleIndex = setDoubleProperty(role, d.asDouble());
+    } else if (d.as<QV4::ArrayObject>()) {
+        QV4::ScopedArrayObject a(scope, d);
+        if (role.type == ListLayout::Role::List) {
+            QV4::Scope scope(a->engine());
+            QV4::ScopedObject o(scope);
+
+            ListModel *subModel = new ListModel(role.subLayout, nullptr);
+            int arrayLength = a->getLength();
+            for (int j=0 ; j < arrayLength ; ++j) {
+                o = a->get(j);
+                subModel->append(o);
+            }
+            roleIndex = setListProperty(role, subModel);
+        } else {
+            qmlWarning(nullptr) << QStringLiteral("Can't assign to existing role '%1' of different type [%2 -> %3]").arg(role.name).arg(roleTypeName(role.type)).arg(roleTypeName(ListLayout::Role::List));
+        }
+    } else if (d.isBoolean()) {
+        roleIndex = setBoolProperty(role, d.booleanValue());
+    } else if (d.as<QV4::DateObject>()) {
+        QV4::Scoped<QV4::DateObject> dd(scope, d);
+        QDateTime dt = dd->toQDateTime();
+        roleIndex = setDateTimeProperty(role, dt);
+    } else if (d.as<QV4::UrlObject>()) {
+        QV4::Scoped<QV4::UrlObject> url(scope, d);
+        QUrl qurl = QUrl(url->href());
+        roleIndex = setUrlProperty(role, qurl);
+    } else if (d.as<QV4::FunctionObject>()) {
+        QV4::ScopedFunctionObject f(scope, d);
+        QJSValue jsv;
+        QJSValuePrivate::setValue(&jsv, f);
+        roleIndex = setFunctionProperty(role, jsv);
+    } else if (d.isObject()) {
+        QV4::ScopedObject o(scope, d);
+        QV4::QObjectWrapper *wrapper = o->as<QV4::QObjectWrapper>();
+        if (role.type == ListLayout::Role::QObject && wrapper) {
+            roleIndex = setQObjectProperty(role, wrapper);
+        } else if (role.type == ListLayout::Role::VariantMap) {
+            roleIndex = setVariantMapProperty(role, o);
+        } else if (role.type == ListLayout::Role::Url) {
+            QVariant maybeUrl = QV4::ExecutionEngine::toVariant(
+                        // gc will hold on to o via the scoped propertyValue; fromReturnedValue is safe
+                        QV4::Value::fromReturnedValue(o.asReturnedValue()),
+                        QMetaType::fromType<QUrl>(), true);
+            if (maybeUrl.metaType() == QMetaType::fromType<QUrl>()) {
+                roleIndex = setUrlProperty(role, maybeUrl.toUrl());
+            }
+        }
+    } else if (d.isNullOrUndefined()) {
+        clearProperty(role);
+    }
+
+    return roleIndex;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 910, as _ZN11ListElement15getListPropertyERKN10ListLayout4RoleE
+inline ListModel *ListElement::getListProperty(const ListLayout::Role &role)
+{
+    char *mem = getPropertyMemory(role);
+    ListModel **value = reinterpret_cast<ListModel **>(mem);
+    return *value;
 }
 
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1593, as _ZN19ModelNodeMetaObject12updateValuesEv
@@ -173,81 +334,6 @@ inline QList<int> ListElement::sync(ListElement *src, ListLayout *srcLayout, Lis
     return changedRoles;
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1369, as _ZN11ListElement7destroyEP10ListLayout
-inline void ListElement::destroy(ListLayout *layout)
-{
-    if (layout) {
-        for (int i=0 ; i < layout->roleCount() ; ++i) {
-            const ListLayout::Role &r = layout->getExistingRole(i);
-
-            switch (r.type) {
-                case ListLayout::Role::String:
-                    {
-                        StringOrTranslation *string = getStringProperty(r);
-                        if (string)
-                            string->~StringOrTranslation();
-                    }
-                    break;
-                case ListLayout::Role::List:
-                    {
-                        ListModel *model = getListProperty(r);
-                        if (model) {
-                            model->destroy();
-                            delete model;
-                        }
-                    }
-                    break;
-                case ListLayout::Role::QObject:
-                    {
-                        if (QV4::PersistentValue *guard = getGuardProperty(r))
-                            guard->~PersistentValue();
-                    }
-                    break;
-                case ListLayout::Role::VariantMap:
-                    {
-                        QVariantMap *map = getVariantMapProperty(r);
-                        if (map)
-                            map->~QMap();
-                    }
-                    break;
-                case ListLayout::Role::DateTime:
-                    {
-                        QDateTime *dt = getDateTimeProperty(r);
-                        if (dt)
-                            dt->~QDateTime();
-                    }
-                    break;
-                case ListLayout::Role::Url:
-                    {
-                        QUrl *url = getUrlProperty(r);
-                        if (url)
-                            url->~QUrl();
-                        break;
-                    }
-                case ListLayout::Role::Function:
-                    {
-                        QJSValue *f = getFunctionProperty(r);
-                        if (f)
-                            f->~QJSValue();
-                    }
-                    break;
-                default:
-                    // other types don't need explicit cleanup.
-                    break;
-            }
-        }
-
-        if (m_objectCache) {
-            m_objectCache->~QObject();
-            operator delete(m_objectCache);
-        }
-    }
-
-    if (next)
-        next->destroy(nullptr);
-    uid = -1;
-}
-
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1300, as _ZN11ListElementC1Ei
 inline ListElement::ListElement(int existingUid)
 {
@@ -257,10 +343,21 @@ inline ListElement::ListElement(int existingUid)
     memset(data, 0, sizeof(data));
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1308, as _ZN11ListElementD1Ev
-inline ListElement::~ListElement()
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1551, as _ZN19ModelNodeMetaObjectC1EP7QObjectP13QQmlListModeli
+inline ModelNodeMetaObject::ModelNodeMetaObject(QObject *object, QQmlListModel *model, int elementIndex)
+: QQmlOpenMetaObject(object), m_enabled(false), m_model(model), m_elementIndex(elementIndex), m_initialized(false)
+{}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 866, as _ZN11ListElement14getUrlPropertyERKN10ListLayout4RoleE
+inline QUrl *ListElement::getUrlProperty(const ListLayout::Role &role)
 {
-    delete next;
+    QUrl *url = nullptr;
+
+    char *mem = getPropertyMemory(role);
+    if (isMemoryUsed<QUrl>(mem))
+        url = reinterpret_cast<QUrl *>(mem);
+
+    return url;
 }
 
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 888, as _ZN11ListElement16getGuardPropertyERKN10ListLayout4RoleE
@@ -312,6 +409,42 @@ inline StringOrTranslation *ListElement::getStringProperty(const ListLayout::Rol
     return s;
 }
 
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 855, as _ZN11ListElement19getDateTimePropertyERKN10ListLayout4RoleE
+inline QDateTime *ListElement::getDateTimeProperty(const ListLayout::Role &role)
+{
+    QDateTime *dt = nullptr;
+
+    char *mem = getPropertyMemory(role);
+    if (isMemoryUsed<QDateTime>(mem))
+        dt = reinterpret_cast<QDateTime *>(mem);
+
+    return dt;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 877, as _ZN11ListElement19getFunctionPropertyERKN10ListLayout4RoleE
+inline QJSValue *ListElement::getFunctionProperty(const ListLayout::Role &role)
+{
+    QJSValue *f = nullptr;
+
+    char *mem = getPropertyMemory(role);
+    if (isMemoryUsed<QJSValue>(mem))
+        f = reinterpret_cast<QJSValue *>(mem);
+
+    return f;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 844, as _ZN11ListElement21getVariantMapPropertyERKN10ListLayout4RoleE
+inline QVariantMap *ListElement::getVariantMapProperty(const ListLayout::Role &role)
+{
+    QVariantMap *map = nullptr;
+
+    char *mem = getPropertyMemory(role);
+    if (isMemoryUsed<QVariantMap>(mem))
+        map = reinterpret_cast<QVariantMap *>(mem);
+
+    return map;
+}
+
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1587, as _ZN19ModelNodeMetaObject3getEP7QObject
 inline ModelNodeMetaObject *ModelNodeMetaObject::get(QObject *obj)
 {
@@ -353,6 +486,28 @@ inline ListLayout::Role::Role(const Role *other)
         subLayout = new ListLayout(other->subLayout);
     else
         subLayout = nullptr;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1570, as _ZN19ModelNodeMetaObjectD1Ev
+inline ModelNodeMetaObject::~ModelNodeMetaObject()
+{
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1630, as _ZN19ModelNodeMetaObject15propertyWrittenEi
+inline void ModelNodeMetaObject::propertyWritten(int index)
+{
+    if (!m_enabled)
+        return;
+
+    QString propName = QString::fromUtf8(name(index));
+    const QVariant value = this->value(index);
+
+    QV4::Scope scope(m_model->engine());
+    QV4::ScopedValue v(scope, scope.engine->fromVariant(value));
+
+    int roleIndex = m_model->m_listModel->setExistingProperty(m_elementIndex, propName, v, scope.engine);
+    if (roleIndex != -1)
+        m_model->emitItemsChanged(m_elementIndex, 1, QList<int>(1, roleIndex));
 }
 
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 475, as _ZN9ListModelC1EP10ListLayoutP13QQmlListModel
@@ -458,6 +613,13 @@ void ritual_ZN9ListModel18updateCacheIndicesEii(
     int start,
     int end) {
   self->updateCacheIndices(start, end);
+}
+
+//  a QList<std::function<void ()>> a ritual of ListModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_ListModel__QList_std_function_void(
+    QList<std::function<void ()>> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_list_model)

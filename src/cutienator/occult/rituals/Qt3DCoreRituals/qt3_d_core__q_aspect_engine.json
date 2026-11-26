@@ -7,19 +7,68 @@
     "ritual_ZNK8Qt3DCore13QAspectEngine10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore13QAspectEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore13QAspectEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore13QAspectEngine2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore13QAspectEngineC1EP7QObject": ["address", "address"],
+    "ritual_ZN8Qt3DCore13QAspectEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore13QAspectEngine13setRootEntityE14QSharedPointerINS_7QEntityEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore13QAspectEngine10rootEntityEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QAspectEngine10setRunModeENS0_7RunModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8Qt3DCore13QAspectEngine7runModeEv": ["int", "address"],
     "ritual_ZN8Qt3DCore13QAspectEngine14registerAspectEPNS_15QAbstractAspectE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN8Qt3DCore13QAspectEngine14registerAspectERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN8Qt3DCore13QAspectEngine16unregisterAspectEPNS_15QAbstractAspectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QAspectEngine16unregisterAspectERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8Qt3DCore13QAspectEngine7aspectsEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore13QAspectEngine6aspectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore13QAspectEngine14executeCommandERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore13QAspectEngine12processFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK8Qt3DCore13QAspectEngine10lookupNodeENS_7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore13QAspectEngine11lookupNodesERK5QListINS_7QNodeIdEE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore13QAspectEngine6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore13QAspectEngine6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DCore_QAspectEngine": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DCore_QAspectEngine__Qt3DCore_QEntityPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DCore_QAspectEngine__QList_Qt3DCore_QAbstractAspect": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DCore_QAspectEngine__QList_Qt3DCore_QNode": [
+      "nothing", "address"
     ]
   }
 }

@@ -5,6 +5,9 @@
     "leimage_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QSSGRenderableImageC1ENS_4TypeERK15QSSGRenderImageRK22QSSGRenderImageTexture": [
+      "address", "unsigned char", "address", "address"
+    ],
     "ritual_ZN19QSSGRenderableImageD1Ev": ["nothing", "address"]
   }
 }

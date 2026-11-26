@@ -9,6 +9,9 @@
     "ritual_ZN15QNetworkRequestC1ERK4QUrl": ["address", "address"],
     "ritual_ZN15QNetworkRequestC1ERKS_": ["address", "address"],
     "ritual_ZN15QNetworkRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN15QNetworkRequestaSEOS_": ["address", "address", "address"],
+    "ritual_ZN15QNetworkRequestaSERKS_": ["address", "address", "address"],
+    "ritual_ZN15QNetworkRequest4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK15QNetworkRequesteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK15QNetworkRequestneERKS_": ["bool", "address", "address"],
     "ritual_ZNK15QNetworkRequest3urlEv": ["address", "address"],
@@ -17,6 +20,9 @@
     ],
     "ritual_ZNK15QNetworkRequest7headersEv": ["address", "address"],
     "ritual_ZN15QNetworkRequest10setHeadersERK12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QNetworkRequest10setHeadersEO12QHttpHeaders": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK15QNetworkRequest6headerENS_12KnownHeadersE": [
@@ -85,6 +91,18 @@
     "ritual_ZN15QNetworkRequest35setDecompressedSafetyCheckThresholdEx": [
       "nothing", "address", "long long"
     ],
+    "ritual_ZNK15QNetworkRequest32tcpKeepAliveIdleTimeBeforeProbesEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN15QNetworkRequest35setTcpKeepAliveIdleTimeBeforeProbesENSt6chrono8durationIlSt5ratioILl1ELl1EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK15QNetworkRequest33tcpKeepAliveIntervalBetweenProbesEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN15QNetworkRequest36setTcpKeepAliveIntervalBetweenProbesENSt6chrono8durationIlSt5ratioILl1ELl1EEEE": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZNK15QNetworkRequest22tcpKeepAliveProbeCountEv": [
       "int", "address"
     ],
@@ -94,6 +112,18 @@
     "ritual_ZNK15QNetworkRequest15transferTimeoutEv": ["int", "address"],
     "ritual_ZN15QNetworkRequest18setTransferTimeoutEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QNetworkRequest25transferTimeoutAsDurationEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN15QNetworkRequest18setTransferTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN15QNetworkRequest25doSetIdleTimeBeforeProbesENSt6chrono8durationIiSt5ratioILl1ELl1EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN15QNetworkRequest26doSetIntervalBetweenProbesENSt6chrono8durationIiSt5ratioILl1ELl1EEEE": [
+      "nothing", "address", "long long"
     ]
   }
 }

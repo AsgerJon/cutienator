@@ -8,8 +8,20 @@
     "ritual_ZN35QHttpServerWebSocketUpgradeResponseC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponseC1EOS_": [
+      "address", "address"
+    ],
     "ritual_ZN35QHttpServerWebSocketUpgradeResponseD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponseaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponseaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponse4swapERS_": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK35QHttpServerWebSocketUpgradeResponse4typeEv": [
       "int", "address"
@@ -27,6 +39,9 @@
     ],
     "ritual_ZN35QHttpServerWebSocketUpgradeResponse10passToNextEv": [
       "address"
+    ],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponseC1ENS_12ResponseTypeE": [
+      "address", "int"
     ],
     "ritual_ZN35QHttpServerWebSocketUpgradeResponseC1ENS_12ResponseTypeEi10QByteArray": [
       "address", "int", "int", "address"

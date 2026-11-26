@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN15QPlatformCursor12pointerEventERK11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QPlatformCursor12changeCursorEP7QCursorP7QWindow": [
       "nothing", "address", "address", "address"
     ],

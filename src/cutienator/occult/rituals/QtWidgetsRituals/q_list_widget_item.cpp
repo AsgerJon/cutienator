@@ -29,7 +29,7 @@ typedef void (*CuteQListWidgetItemCall2)(const void *, int, const QVariant *, in
 class CuteQListWidgetItem : public QListWidgetItem {
 public:
   using QListWidgetItem::QListWidgetItem;
-  CuteQListWidgetItem(const QListWidgetItem &other) : QListWidgetItem(other) {}
+  CuteQListWidgetItem(const QListWidgetItem & other) : QListWidgetItem(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -405,6 +405,34 @@ bool ritual_ZNK15QListWidgetItemltERKS_(
     const QListWidgetItem *self,
     const QListWidgetItem *other) {
   return self->operator<(*other);
+}
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QListWidgetItem::read(QDataStream &in)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QListWidgetItem4readER11QDataStream(
+    QListWidgetItem *self,
+    QDataStream *in) {
+  self->read(*in);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QListWidgetItem::write(QDataStream &out) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QListWidgetItem5writeER11QDataStream(
+    const QListWidgetItem *self,
+    QDataStream *out) {
+  self->write(*out);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+//  QListWidgetItem &QListWidgetItem::operator=(const QListWidgetItem &other)
+extern "C" Q_DECL_EXPORT
+QListWidgetItem *ritual_ZN15QListWidgetItemaSERKS_(
+    QListWidgetItem *self,
+    const QListWidgetItem *other) {
+  return &(self->operator=(*other));
 }
 
 //  int QListWidgetItem::type() const

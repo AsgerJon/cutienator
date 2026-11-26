@@ -35,6 +35,15 @@ QDesignerCustomWidgetData *ritual_ZN25QDesignerCustomWidgetDataC1ERKS_(
   return new QDesignerCustomWidgetData(*a0);
 }
 
+//  QDesignerCustomWidgetData &QDesignerCustomWidgetData::operator=(const
+//      QDesignerCustomWidgetData &a0)
+extern "C" Q_DECL_EXPORT
+QDesignerCustomWidgetData *ritual_ZN25QDesignerCustomWidgetDataaSERKS_(
+    QDesignerCustomWidgetData *self,
+    const QDesignerCustomWidgetData *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QDesignerCustomWidgetData::~QDesignerCustomWidgetData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QDesignerCustomWidgetDataD1Ev(
@@ -89,6 +98,16 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK25QDesignerCustomWidgetData14xmlDisplayNameEv(
     const QDesignerCustomWidgetData *self) {
   return new QString(self->xmlDisplayName());
+}
+
+//  bool QDesignerCustomWidgetData::xmlStringPropertyType(const QString
+//      &name, StringPropertyType *type) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK25QDesignerCustomWidgetData21xmlStringPropertyTypeERK7QStringPSt4pairIN18qdesigner_internal26TextPropertyValidationModeEbE(
+    const QDesignerCustomWidgetData *self,
+    const QString *name,
+    QDesignerCustomWidgetData::StringPropertyType *type) {
+  return self->xmlStringPropertyType(*name, type);
 }
 
 //  QString QDesignerCustomWidgetData::propertyToolTip(const QString &name)

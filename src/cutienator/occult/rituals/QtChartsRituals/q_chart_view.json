@@ -5,12 +5,21 @@
   ],
   "rows": {
     "ritual_ZNK10QChartView10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QChartView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QChartView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QChartView2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QChartViewC1EP7QWidget": ["address", "address"],
     "ritual_ZN10QChartViewC1EP6QChartP7QWidget": [
       "address", "address", "address"
     ],
     "ritual_ZN10QChartViewD1Ev": ["nothing", "address"],
+    "ritual_ZN10QChartView13setRubberBandERK6QFlagsINS_10RubberBandEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK10QChartView10rubberBandEv": ["int", "address"],
     "ritual_ZNK10QChartView5chartEv": ["address", "address"],
     "ritual_ZN10QChartView8setChartEP6QChart": [

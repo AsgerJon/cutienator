@@ -419,6 +419,12 @@ QQuickShapePrivate *ritual_ZN18QQuickShapePrivate3getEP11QQuickShape(
   return QQuickShapePrivate::get(item);
 }
 
+//  void QQuickShapePrivate::asyncShapeReady(void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickShapePrivate15asyncShapeReadyEPv(void *data) {
+  QQuickShapePrivate::asyncShapeReady(data);
+}
+
 //  qreal QQuickShapePrivate::getImplicitWidth() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK18QQuickShapePrivate16getImplicitWidthEv(

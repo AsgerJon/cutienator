@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN26QAbstractFileEngineHandlerD1Ev": ["nothing", "address"]
+    "ritual_ZN26QAbstractFileEngineHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QAbstractFileEngineHandler6createERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_drop_QAbstractFileEngineHandler__std_unique_ptr_QAbstractFileEngine": [
+      "nothing", "address"
+    ]
   }
 }

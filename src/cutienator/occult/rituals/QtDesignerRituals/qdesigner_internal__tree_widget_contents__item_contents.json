@@ -8,6 +8,12 @@
     "ritual_ZN18qdesigner_internal18TreeWidgetContents12ItemContentsC1Ev": [
       "address"
     ],
+    "ritual_ZN18qdesigner_internal18TreeWidgetContents12ItemContentsC1EPK15QTreeWidgetItemb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal18TreeWidgetContents12ItemContents14createTreeItemEPNS_17DesignerIconCacheEb": [
+      "address", "address", "address", "bool"
+    ],
     "ritual_ZN18qdesigner_internaleqERKNS_18TreeWidgetContents12ItemContentsES3_": [
       "bool", "address", "address"
     ],

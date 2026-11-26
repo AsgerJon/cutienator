@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickSpriteEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickSpriteEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickSpriteEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickSpriteEngine2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -14,6 +20,7 @@
       "address", "address", "address"
     ],
     "ritual_ZN18QQuickSpriteEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuickSpriteEngine7spritesEv": ["address", "address"],
     "ritual_ZNK18QQuickSpriteEngine6spriteEi": ["address", "address", "int"],
     "ritual_ZNK18QQuickSpriteEngine11spriteStateEi": [
       "int", "address", "int"
@@ -61,6 +68,9 @@
     ],
     "ritual_own_ZN18QQuickSpriteEngine7advanceEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_drop_QQuickSpriteEngine__QQmlListProperty_QQuickSprite": [
+      "nothing", "address"
     ]
   }
 }

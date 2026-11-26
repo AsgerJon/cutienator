@@ -19,9 +19,14 @@
     "ritual_ZN8QX11Info16setNextStartupIdERK10QByteArray": [
       "nothing", "address"
     ],
+    "ritual_ZN8QX11Info7displayEv": ["address"],
+    "ritual_ZN8QX11Info10connectionEv": ["address"],
     "ritual_ZN8QX11Info27isCompositingManagerRunningEi": ["bool", "int"],
     "ritual_ZN8QX11Info16generatePeekerIdEv": ["int"],
     "ritual_ZN8QX11Info14removePeekerIdEi": ["bool", "int"],
+    "ritual_ZN8QX11Info14peekEventQueueEPFbP19xcb_generic_event_tPvES2_6QFlagsINS_10PeekOptionEEi": [
+      "bool", "address", "address", "int", "int"
+    ],
     "ritual_ZN8QX11InfoC1Ev": ["address"],
     "ritual_ZN8QX11InfoD1Ev": ["nothing", "address"]
   }

@@ -6,11 +6,26 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlSorterCompositor10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlSorterCompositor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlSorterCompositor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQmlSorterCompositor22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
     "ritual_ZN20QQmlSorterCompositorD1Ev": ["nothing", "address"],
     "ritual_ZN20QQmlSorterCompositor7sortersEv": ["address", "address"],
+    "ritual_ZN20QQmlSorterCompositor5countEP16QQmlListPropertyI14QQmlSorterBaseE": [
+      "long long", "address"
+    ],
+    "ritual_ZN20QQmlSorterCompositor2atEP16QQmlListPropertyI14QQmlSorterBaseEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN20QQmlSorterCompositor5clearEP16QQmlListPropertyI14QQmlSorterBaseE": [
+      "nothing", "address"
+    ],
     "ritual_ZNK20QQmlSorterCompositor7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
       "address", "address", "address", "address", "address"
     ],
@@ -36,6 +51,9 @@
     ],
     "ritual_own_ZNK20QQmlSorterCompositor7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
       "address", "address", "address", "address", "address"
+    ],
+    "ritual_drop_QQmlSorterCompositor__QQmlListProperty_QQmlSorterBase": [
+      "nothing", "address"
     ]
   }
 }

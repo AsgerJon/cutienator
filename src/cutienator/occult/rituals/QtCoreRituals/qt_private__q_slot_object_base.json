@@ -4,9 +4,21 @@
     "QtCore/qobjectdefs_impl.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9QtPrivate15QSlotObjectBaseC1EPFviPS0_P7QObjectPPvPbE": [
+      "address", "address"
+    ],
     "ritual_ZN9QtPrivate15QSlotObjectBase3refEv": ["bool", "address"],
     "ritual_ZN9QtPrivate15QSlotObjectBase16destroyIfLastRefEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate15QSlotObjectBase7compareEPPv": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate15QSlotObjectBase4callEP7QObjectPPv": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate15QSlotObjectBase6isImplEPFviPS0_P7QObjectPPvPbE": [
+      "bool", "address", "address"
     ],
     "ritual_ZN9QtPrivate15QSlotObjectBaseD1Ev": ["nothing", "address"]
   }

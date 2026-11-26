@@ -7,6 +7,16 @@
 #include <QtQml/6.12.0/QtQml/private/qv4runtimeapi_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  ReturnedValue
+//      QV4::Runtime::LoadQmlContextPropertyLookup::call(ExecutionEngine *a0,
+//      uint a1)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV47Runtime28LoadQmlContextPropertyLookup4callEPNS_15ExecutionEngineEj(
+    QV4::ExecutionEngine *a0,
+    uint a1) {
+  return QV4::Runtime::LoadQmlContextPropertyLookup::call(a0, a1);
+}
+
 //  QV4::Runtime::LoadQmlContextPropertyLookup::~LoadQmlContextPropertyLookup
 //      ()
 extern "C" Q_DECL_EXPORT

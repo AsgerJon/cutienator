@@ -6,6 +6,13 @@
   ],
   "rows": {
     "ritual_ZN19QBindingObserverPtrC1Ev": ["address"],
+    "ritual_ZN19QBindingObserverPtr4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBindingObserverPtrC1EOS_": ["address", "address"],
+    "ritual_ZN19QBindingObserverPtraSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QBindingObserverPtrC1EP17QPropertyObserver": [
       "address", "address"
     ],

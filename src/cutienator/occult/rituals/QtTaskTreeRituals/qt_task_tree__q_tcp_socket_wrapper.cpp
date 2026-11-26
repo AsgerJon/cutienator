@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtTaskTree/qtcpsocketwrappertask.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtTaskTree/qtcpsocketwrappertask.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: 'd_func' gives the private class as
+//  QtTaskTree::<Class>Private, as the compiler needs it written.
+//  Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtTaskTree/qttasktreeglobal.h>
 #if QT_CONFIG(network)
@@ -189,6 +191,14 @@ const QMetaObject *ritual_ZNK10QtTaskTree17QTcpSocketWrapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtTaskTree::QTcpSocketWrapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QtTaskTree17QTcpSocketWrapper11qt_metacastEPKc(
+    QtTaskTree::QTcpSocketWrapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString QtTaskTree::QTcpSocketWrapper::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -197,6 +207,21 @@ QString *ritual_ZN10QtTaskTree17QTcpSocketWrapper2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtTaskTree::QTcpSocketWrapper::tr(s, c, n));
+}
+
+//  QTcpSocketWrapperPrivate *QtTaskTree::QTcpSocketWrapper::d_func()
+extern "C" Q_DECL_EXPORT
+QtTaskTree::QTcpSocketWrapperPrivate *ritual_ZN10QtTaskTree17QTcpSocketWrapper6d_funcEv(
+    QtTaskTree::QTcpSocketWrapper *self) {
+  return self->d_func();
+}
+
+//  const QTcpSocketWrapperPrivate *QtTaskTree::QTcpSocketWrapper::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QtTaskTree::QTcpSocketWrapperPrivate *ritual_ZNK10QtTaskTree17QTcpSocketWrapper6d_funcEv(
+    const QtTaskTree::QTcpSocketWrapper *self) {
+  return self->d_func();
 }
 
 //  QtTaskTree::QTcpSocketWrapper::QTcpSocketWrapper()

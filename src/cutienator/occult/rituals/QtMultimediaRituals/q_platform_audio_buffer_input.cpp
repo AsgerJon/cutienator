@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK25QPlatformAudioBufferInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformAudioBufferInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QPlatformAudioBufferInput11qt_metacastEPKc(
+    QPlatformAudioBufferInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformAudioBufferInput::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QPlatformAudioBufferInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformAudioBufferInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformAudioBufferInput::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -56,4 +75,11 @@ void ritual_ZN25QPlatformAudioBufferInput19setEncoderInterfaceEP27QMediaInputEnc
     QPlatformAudioBufferInput *self,
     QMediaInputEncoderInterface *encoderInterface) {
   self->setEncoderInterface(encoderInterface);
+}
+
+//  void QPlatformAudioBufferInput::encoderUpdated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QPlatformAudioBufferInput14encoderUpdatedEv(
+    QPlatformAudioBufferInput *self) {
+  self->encoderUpdated();
 }

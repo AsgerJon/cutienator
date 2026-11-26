@@ -8,9 +8,19 @@
     "ritual_ZNK9Qt3DInput18QInputDevicePlugin10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput18QInputDevicePlugin11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput18QInputDevicePlugin11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput18QInputDevicePlugin2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9Qt3DInput18QInputDevicePluginC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput18QInputDevicePluginD1Ev": ["nothing", "address"],
     "ritual_ZN9Qt3DInput18QInputDevicePlugin6createERK7QStringRK5QListIS1_E": [
       "address", "address", "text", "address"
     ],

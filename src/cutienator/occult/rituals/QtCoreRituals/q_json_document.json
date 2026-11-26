@@ -6,9 +6,15 @@
   "rows": {
     "ritual_ZN13QJsonDocumentC1Ev": ["address"],
     "ritual_ZN13QJsonDocumentC1ERK11QJsonObject": ["address", "address"],
+    "ritual_ZN13QJsonDocumentC1EO11QJsonObject": ["address", "address"],
     "ritual_ZN13QJsonDocumentC1ERK10QJsonArray": ["address", "address"],
+    "ritual_ZN13QJsonDocumentC1EO10QJsonArray": ["address", "address"],
     "ritual_ZN13QJsonDocumentD1Ev": ["nothing", "address"],
     "ritual_ZN13QJsonDocumentC1ERKS_": ["address", "address"],
+    "ritual_ZN13QJsonDocumentaSERKS_": ["address", "address", "address"],
+    "ritual_ZN13QJsonDocumentC1EOS_": ["address", "address"],
+    "ritual_ZN13QJsonDocumentaSEOS_": ["address", "address", "address"],
+    "ritual_ZN13QJsonDocument4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN13QJsonDocument11fromVariantERK8QVariant": [
       "address", "address"
     ],
@@ -41,6 +47,7 @@
     "ritual_ZNK13QJsonDocument6isNullEv": ["bool", "address"],
     "ritual_Zls6QDebugRK13QJsonDocument": ["address", "address", "address"],
     "ritual_ZeqRK13QJsonDocumentS1_": ["bool", "address", "address"],
-    "ritual_ZneRK13QJsonDocumentS1_": ["bool", "address", "address"]
+    "ritual_ZneRK13QJsonDocumentS1_": ["bool", "address", "address"],
+    "ritual_ZN13QJsonDocumentC1E10QCborValue": ["address", "address"]
   }
 }

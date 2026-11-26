@@ -155,6 +155,23 @@ inline qint64 QBluetoothSocketPrivateDummy::writeData(const char *data, qint64 m
     return -1;
 }
 
+//  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_dummy.cpp, line 127, as _ZN28QBluetoothSocketPrivateDummy8readDataEPcx
+inline qint64 QBluetoothSocketPrivateDummy::readData(char *data, qint64 maxSize)
+{
+    Q_UNUSED(data);
+    Q_UNUSED(maxSize);
+
+    Q_Q(QBluetoothSocket);
+
+    if (state != QBluetoothSocket::SocketState::ConnectedState) {
+        errorString = QBluetoothSocket::tr("Cannot read while not connected");
+        q->setSocketError(QBluetoothSocket::SocketError::OperationError);
+        return -1;
+    }
+
+    return -1;
+}
+
 //  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_dummy.cpp, line 147, as _ZN28QBluetoothSocketPrivateDummy19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE
 inline bool QBluetoothSocketPrivateDummy::setSocketDescriptor(int socketDescriptor, QBluetoothServiceInfo::Protocol socketType,
                                            QBluetoothSocket::SocketState socketState, QBluetoothSocket::OpenMode openMode)
@@ -315,6 +332,15 @@ qint64 ritual_ZN28QBluetoothSocketPrivateDummy9writeDataEPKcx(
     const char *data,
     qint64 maxSize) {
   return self->writeData(data, maxSize);
+}
+
+//  qint64 QBluetoothSocketPrivateDummy::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN28QBluetoothSocketPrivateDummy8readDataEPcx(
+    QBluetoothSocketPrivateDummy *self,
+    char *data,
+    qint64 maxSize) {
+  return self->readData(data, maxSize);
 }
 
 //  bool QBluetoothSocketPrivateDummy::setSocketDescriptor(int

@@ -10,6 +10,15 @@
     ],
     "ritual_ZN19QGles2CommandBufferD1Ev": ["nothing", "address"],
     "ritual_ZN19QGles2CommandBuffer7destroyEv": ["nothing", "address"],
+    "ritual_ZN19QGles2CommandBuffer10retainDataERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGles2CommandBuffer16retainBufferDataERK14QRhiBufferData": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGles2CommandBuffer11retainImageERK6QImage": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QGles2CommandBuffer13resetCommandsEv": [
       "nothing", "address"
     ],

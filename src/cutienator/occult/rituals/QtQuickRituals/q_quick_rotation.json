@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickRotation10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickRotation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickRotation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickRotation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,14 @@
     "ritual_ZNK14QQuickRotation7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QQuickRotation13originChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickRotation12angleChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickRotation11axisChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickRotation22distanceToPlaneChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickRotation6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickRotation6d_funcEv": ["address", "address"],
     "ritual_own_ZNK14QQuickRotation7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ]

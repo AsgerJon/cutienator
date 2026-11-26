@@ -26,4 +26,11 @@ const QPAEventDispatcherGlib *ritual_ZNK29QPAEventDispatcherGlibPrivate6q_funcEv
   return self->q_func();
 }
 
+//  QPAEventDispatcherGlibPrivate::~QPAEventDispatcherGlibPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QPAEventDispatcherGlibPrivateD1Ev(
+    QPAEventDispatcherGlibPrivate *self) {
+  delete self;
+}
+
 #endif  // QT_CONFIG(glib) && defined(Q_OS_UNIX)

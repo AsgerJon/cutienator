@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender12QScissorTest10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QScissorTest::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender12QScissorTest11qt_metacastEPKc(
+    Qt3DRender::QScissorTest *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QScissorTest::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender12QScissorTest11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QScissorTest *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QScissorTest::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender12QScissorTest2trEPKcS2_i(
@@ -186,6 +205,112 @@ QString *ritual_ZN10Qt3DRender12QScissorTest2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QScissorTest::tr(s, c, n));
+}
+
+//  Qt3DRender::QScissorTest::QScissorTest(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QScissorTest *ritual_ZN10Qt3DRender12QScissorTestC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QScissorTest(parent);
+}
+
+//  Qt3DRender::QScissorTest::~QScissorTest()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QScissorTestD1Ev(
+    Qt3DRender::QScissorTest *self) {
+  delete self;
+}
+
+//  int Qt3DRender::QScissorTest::left() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender12QScissorTest4leftEv(
+    const Qt3DRender::QScissorTest *self) {
+  return self->left();
+}
+
+//  int Qt3DRender::QScissorTest::bottom() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender12QScissorTest6bottomEv(
+    const Qt3DRender::QScissorTest *self) {
+  return self->bottom();
+}
+
+//  int Qt3DRender::QScissorTest::width() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender12QScissorTest5widthEv(
+    const Qt3DRender::QScissorTest *self) {
+  return self->width();
+}
+
+//  int Qt3DRender::QScissorTest::height() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender12QScissorTest6heightEv(
+    const Qt3DRender::QScissorTest *self) {
+  return self->height();
+}
+
+//  void Qt3DRender::QScissorTest::setLeft(int left)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QScissorTest7setLeftEi(
+    Qt3DRender::QScissorTest *self,
+    int left) {
+  self->setLeft(left);
+}
+
+//  void Qt3DRender::QScissorTest::setBottom(int bottom)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QScissorTest9setBottomEi(
+    Qt3DRender::QScissorTest *self,
+    int bottom) {
+  self->setBottom(bottom);
+}
+
+//  void Qt3DRender::QScissorTest::setWidth(int width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QScissorTest8setWidthEi(
+    Qt3DRender::QScissorTest *self,
+    int width) {
+  self->setWidth(width);
+}
+
+//  void Qt3DRender::QScissorTest::setHeight(int height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QScissorTest9setHeightEi(
+    Qt3DRender::QScissorTest *self,
+    int height) {
+  self->setHeight(height);
+}
+
+//  void Qt3DRender::QScissorTest::leftChanged(int left)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QScissorTest11leftChangedEi(
+    Qt3DRender::QScissorTest *self,
+    int left) {
+  self->leftChanged(left);
+}
+
+//  void Qt3DRender::QScissorTest::bottomChanged(int bottom)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QScissorTest13bottomChangedEi(
+    Qt3DRender::QScissorTest *self,
+    int bottom) {
+  self->bottomChanged(bottom);
+}
+
+//  void Qt3DRender::QScissorTest::widthChanged(int width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QScissorTest12widthChangedEi(
+    Qt3DRender::QScissorTest *self,
+    int width) {
+  self->widthChanged(width);
+}
+
+//  void Qt3DRender::QScissorTest::heightChanged(int height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender12QScissorTest13heightChangedEi(
+    Qt3DRender::QScissorTest *self,
+    int height) {
+  self->heightChanged(height);
 }
 
 //  QScissorTestPrivate *Qt3DRender::QScissorTest::d_func()

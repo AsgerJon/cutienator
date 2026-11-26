@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qabstractfileengine_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qabstractfileengine_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-25: added by hand, rituals for functions the generator
+//  leaves out: 1. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,7 +9,18 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QFlags>
+#include <QtCore/QIODeviceBase>
+#include <optional>
+#include <QtCore/QFile>
+#include <QtCore/QString>
+#include <QtCore/QDateTime>
+#include <QtCore/QDirListing>
+#include <QtCore/QList>
+#include <memory>
 
 //  A QAbstractFileEngine that Python can take functions over in. Every QAbstractFileEngine
 //  Python makes is one. Each function below asks the Python
@@ -38,12 +50,14 @@ typedef QString * (*CuteQAbstractFileEngineCall21)(const void *, int, int *);
 typedef void (*CuteQAbstractFileEngineCall22)(const void *, const QString *, int *);
 typedef int (*CuteQAbstractFileEngineCall23)(const void *, int *);
 typedef int (*CuteQAbstractFileEngineCall24)(const void *, QAbstractFileEngine *, int *);
-typedef bool (*CuteQAbstractFileEngineCall25)(const void *, int, const QAbstractFileEngine::ExtensionOption *, QAbstractFileEngine::ExtensionReturn *, int *);
-typedef bool (*CuteQAbstractFileEngineCall26)(const void *, int, int *);
+typedef qint64 (*CuteQAbstractFileEngineCall25)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQAbstractFileEngineCall26)(const void *, char *, qint64, int *);
+typedef bool (*CuteQAbstractFileEngineCall27)(const void *, int, const QAbstractFileEngine::ExtensionOption *, QAbstractFileEngine::ExtensionReturn *, int *);
+typedef bool (*CuteQAbstractFileEngineCall28)(const void *, int, int *);
 class CuteQAbstractFileEngine : public QAbstractFileEngine {
 public:
   using QAbstractFileEngine::QAbstractFileEngine;
-  void *taken[27] = {};
+  void *taken[29] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN19QAbstractFileEngine5closeEv")) {
@@ -146,12 +160,20 @@ public:
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE")) {
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine4readEPcx")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE")) {
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine8readLineEPcx")) {
       taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE")) {
+      taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE")) {
+      taken[28] = call;
       return true;
     }
     return false;
@@ -446,15 +468,37 @@ public:
     return QAbstractFileEngine::cloneTo(target);
   }
 
+  //  qint64 QAbstractFileEngine::read(char *data, qint64 maxlen)
+  qint64 read(char *data, qint64 maxlen) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQAbstractFileEngineCall25 call = reinterpret_cast<CuteQAbstractFileEngineCall25>(taken[25]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QAbstractFileEngine::read(data, maxlen);
+  }
+
+  //  qint64 QAbstractFileEngine::readLine(char *data, qint64 maxlen)
+  qint64 readLine(char *data, qint64 maxlen) override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQAbstractFileEngineCall26 call = reinterpret_cast<CuteQAbstractFileEngineCall26>(taken[26]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QAbstractFileEngine::readLine(data, maxlen);
+  }
+
   //  bool QAbstractFileEngine::extension(Extension extension, const
   //      ExtensionOption *option, ExtensionReturn *output)
   bool extension(
       QAbstractFileEngine::Extension extension,
       const QAbstractFileEngine::ExtensionOption *option,
       QAbstractFileEngine::ExtensionReturn *output) override {
-    if (taken[25]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQAbstractFileEngineCall25 call = reinterpret_cast<CuteQAbstractFileEngineCall25>(taken[25]);
+      CuteQAbstractFileEngineCall27 call = reinterpret_cast<CuteQAbstractFileEngineCall27>(taken[27]);
       bool given = call(this, static_cast<int>(extension), option, output, &handled);
       if (handled) return given;
     }
@@ -465,9 +509,9 @@ public:
   //      const
   bool supportsExtension(
       QAbstractFileEngine::Extension extension) const override {
-    if (taken[26]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQAbstractFileEngineCall26 call = reinterpret_cast<CuteQAbstractFileEngineCall26>(taken[26]);
+      CuteQAbstractFileEngineCall28 call = reinterpret_cast<CuteQAbstractFileEngineCall28>(taken[28]);
       bool given = call(this, static_cast<int>(extension), &handled);
       if (handled) return given;
     }
@@ -479,6 +523,18 @@ public:
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QAbstractFileEngineD1Ev(QAbstractFileEngine *self) {
   delete self;
+}
+
+//  bool QAbstractFileEngine::open(QIODevice::OpenMode openMode,
+//      std::optional<QFile::Permissions> permissions)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QAbstractFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEESt8optionalIS0_IN11QFileDevice10PermissionEEE(
+    QAbstractFileEngine *self,
+    int openMode,
+    const std::optional<QFile::Permissions> *permissions) {
+  return self->open(
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(openMode),
+      *permissions);
 }
 
 //  bool QAbstractFileEngine::close()
@@ -567,6 +623,18 @@ bool ritual_ZN19QAbstractFileEngine4linkERK7QString(
   return self->link(*newName);
 }
 
+//  bool QAbstractFileEngine::mkdir(const QString &dirName, bool
+//      createParentDirectories, std::optional<QFile::Permissions>
+//      permissions) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK19QAbstractFileEngine5mkdirERK7QStringbSt8optionalI6QFlagsIN11QFileDevice10PermissionEEE(
+    const QAbstractFileEngine *self,
+    const QString *dirName,
+    bool createParentDirectories,
+    const std::optional<QFile::Permissions> *permissions) {
+  return self->mkdir(*dirName, createParentDirectories, *permissions);
+}
+
 //  bool QAbstractFileEngine::rmdir(const QString &dirName, bool
 //      recurseParentDirectories) const
 extern "C" Q_DECL_EXPORT
@@ -648,6 +716,24 @@ QString *ritual_ZNK19QAbstractFileEngine5ownerENS_9FileOwnerE(
   return new QString(self->owner(a0));
 }
 
+//  bool QAbstractFileEngine::setFileTime(const QDateTime &newDate,
+//      QFile::FileTime time)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QAbstractFileEngine11setFileTimeERK9QDateTimeN11QFileDevice8FileTimeE(
+    QAbstractFileEngine *self,
+    const QDateTime *newDate,
+    const QFile::FileTime *time) {
+  return self->setFileTime(*newDate, *time);
+}
+
+//  QDateTime QAbstractFileEngine::fileTime(QFile::FileTime time) const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK19QAbstractFileEngine8fileTimeEN11QFileDevice8FileTimeE(
+    const QAbstractFileEngine *self,
+    const QFile::FileTime *time) {
+  return new QDateTime(self->fileTime(*time));
+}
+
 //  void QAbstractFileEngine::setFileName(const QString &file)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QAbstractFileEngine11setFileNameERK7QString(
@@ -686,6 +772,47 @@ bool ritual_ZN19QAbstractFileEngine5unmapEPh(
   return self->unmap(ptr);
 }
 
+//  IteratorUniquePtr QAbstractFileEngine::endEntryList()
+extern "C" Q_DECL_EXPORT
+QAbstractFileEngine::IteratorUniquePtr *ritual_ZN19QAbstractFileEngine12endEntryListEv(
+    QAbstractFileEngine *self) {
+  return new QAbstractFileEngine::IteratorUniquePtr(self->endEntryList());
+}
+
+//  IteratorUniquePtr QAbstractFileEngine::beginEntryList(const QString
+//      &path, QDirListing::IteratorFlags filters, const QStringList
+//      &filterNames)
+extern "C" Q_DECL_EXPORT
+QAbstractFileEngine::IteratorUniquePtr *ritual_ZN19QAbstractFileEngine14beginEntryListERK7QString6QFlagsIN11QDirListing12IteratorFlagEERK5QListIS0_E(
+    QAbstractFileEngine *self,
+    const QString *path,
+    int filters,
+    const QList<QString> *filterNames) {
+  return new QAbstractFileEngine::IteratorUniquePtr(
+      self->beginEntryList(
+          *path,
+          QFlags<QDirListing::IteratorFlag>::fromInt(filters),
+          *filterNames));
+}
+
+//  qint64 QAbstractFileEngine::read(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN19QAbstractFileEngine4readEPcx(
+    QAbstractFileEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->read(data, maxlen);
+}
+
+//  qint64 QAbstractFileEngine::readLine(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN19QAbstractFileEngine8readLineEPcx(
+    QAbstractFileEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->readLine(data, maxlen);
+}
+
 //  qint64 QAbstractFileEngine::write(const char *data, qint64 len)
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZN19QAbstractFileEngine5writeEPKcx(
@@ -693,6 +820,13 @@ qint64 ritual_ZN19QAbstractFileEngine5writeEPKcx(
     const char *data,
     qint64 len) {
   return self->write(data, len);
+}
+
+//  QFile::FileError QAbstractFileEngine::error() const
+extern "C" Q_DECL_EXPORT
+QFile::FileError *ritual_ZNK19QAbstractFileEngine5errorEv(
+    const QAbstractFileEngine *self) {
+  return new QFile::FileError(self->error());
 }
 
 //  QString QAbstractFileEngine::errorString() const
@@ -721,10 +855,37 @@ bool ritual_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE(
   return self->supportsExtension(extension);
 }
 
+//  std::unique_ptr<QAbstractFileEngine> QAbstractFileEngine::create(const
+//      QString &fileName)
+extern "C" Q_DECL_EXPORT
+std::unique_ptr<QAbstractFileEngine> *ritual_ZN19QAbstractFileEngine6createERK7QString(
+    const QString *fileName) {
+  return new std::unique_ptr<QAbstractFileEngine>(
+      QAbstractFileEngine::create(
+          *fileName));
+}
+
+//  void QAbstractFileEngine::setError(QFile::FileError error, const QString
+//      &str)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractFileEngine8setErrorEN11QFileDevice9FileErrorERK7QString(
+    QAbstractFileEngine *self,
+    const QFile::FileError *error,
+    const QString *str) {
+  self->setError(*error, *str);
+}
+
 //  QAbstractFileEngine::QAbstractFileEngine()
 extern "C" Q_DECL_EXPORT
 QAbstractFileEngine *ritual_ZN19QAbstractFileEngineC1Ev() {
   return new CuteQAbstractFileEngine();
+}
+
+//  QAbstractFileEngine::QAbstractFileEngine(QAbstractFileEnginePrivate &a0)
+extern "C" Q_DECL_EXPORT
+QAbstractFileEngine *ritual_ZN19QAbstractFileEngineC1ER26QAbstractFileEnginePrivate(
+    QAbstractFileEnginePrivate *a0) {
+  return new CuteQAbstractFileEngine(*a0);
 }
 
 //  QAbstractFileEnginePrivate *QAbstractFileEngine::d_func()
@@ -943,6 +1104,24 @@ QAbstractFileEngine::TriStateResult ritual_own_ZN19QAbstractFileEngine7cloneToEP
   return self->QAbstractFileEngine::cloneTo(target);
 }
 
+//  qint64 QAbstractFileEngine::read(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN19QAbstractFileEngine4readEPcx(
+    QAbstractFileEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->QAbstractFileEngine::read(data, maxlen);
+}
+
+//  qint64 QAbstractFileEngine::readLine(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN19QAbstractFileEngine8readLineEPcx(
+    QAbstractFileEngine *self,
+    char *data,
+    qint64 maxlen) {
+  return self->QAbstractFileEngine::readLine(data, maxlen);
+}
+
 //  bool QAbstractFileEngine::extension(Extension extension, const
 //      ExtensionOption *option, ExtensionReturn *output)
 extern "C" Q_DECL_EXPORT
@@ -960,4 +1139,39 @@ bool ritual_own_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE(
     const QAbstractFileEngine *self,
     QAbstractFileEngine::Extension extension) {
   return self->QAbstractFileEngine::supportsExtension(extension);
+}
+
+//  a QAbstractFileEngine::IteratorUniquePtr a ritual of QAbstractFileEngine
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractFileEngine__QAbstractFileEngine_IteratorUniquePtr(
+    QAbstractFileEngine::IteratorUniquePtr *self) {
+  delete self;
+}
+
+//  a QFile::FileError a ritual of QAbstractFileEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractFileEngine__QFile_FileError(
+    QFile::FileError *self) {
+  delete self;
+}
+
+//  a std::unique_ptr<QAbstractFileEngine> a ritual of QAbstractFileEngine
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractFileEngine__std_unique_ptr_QAbstractFileEngine(
+    std::unique_ptr<QAbstractFileEngine> *self) {
+  delete self;
+}
+
+//  uchar *QAbstractFileEngine::map(qint64 offset, qint64 size,
+//      QFile::MemoryMapFlags flags)
+extern "C" Q_DECL_EXPORT
+uchar *ritual_ZN19QAbstractFileEngine3mapExx6QFlagsIN11QFileDevice13MemoryMapFlagEE(
+    QAbstractFileEngine *self,
+    qint64 offset,
+    qint64 size,
+    int flags) {
+  return self->map(
+      offset, size, QFlags<QFileDevice::MemoryMapFlag>::fromInt(flags));
 }

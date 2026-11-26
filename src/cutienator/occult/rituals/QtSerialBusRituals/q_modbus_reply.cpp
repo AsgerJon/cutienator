@@ -6,6 +6,8 @@
 #include <QtSerialBus/qmodbuspdu.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtSerialBus/QModbusDevice>
 
 //  A QModbusReply that Python can take functions over in. Every QModbusReply
 //  Python makes is one. Each function below asks the Python
@@ -181,6 +183,24 @@ const QMetaObject *ritual_ZNK12QModbusReply10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QModbusReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QModbusReply11qt_metacastEPKc(
+    QModbusReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QModbusReply::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QModbusReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QModbusReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QModbusReply::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QModbusReply2trEPKcS1_i(
@@ -188,6 +208,19 @@ QString *ritual_ZN12QModbusReply2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QModbusReply::tr(s, c, n));
+}
+
+//  QModbusReplyPrivate *QModbusReply::d_func()
+extern "C" Q_DECL_EXPORT
+QModbusReplyPrivate *ritual_ZN12QModbusReply6d_funcEv(QModbusReply *self) {
+  return self->d_func();
+}
+
+//  const QModbusReplyPrivate *QModbusReply::d_func() const
+extern "C" Q_DECL_EXPORT
+const QModbusReplyPrivate *ritual_ZNK12QModbusReply6d_funcEv(
+    const QModbusReply *self) {
+  return self->d_func();
 }
 
 //  QModbusReply::QModbusReply(ReplyType type, int serverAddress, QObject
@@ -280,6 +313,15 @@ void ritual_ZN12QModbusReply8setErrorEN13QModbusDevice5ErrorERK7QString(
   self->setError(error, *errorText);
 }
 
+//  QList<QModbusDevice::IntermediateError>
+//      QModbusReply::intermediateErrors() const
+extern "C" Q_DECL_EXPORT
+QList<QModbusDevice::IntermediateError> *ritual_ZNK12QModbusReply18intermediateErrorsEv(
+    const QModbusReply *self) {
+  return new QList<QModbusDevice::IntermediateError>(
+      self->intermediateErrors());
+}
+
 //  void QModbusReply::addIntermediateError(QModbusDevice::IntermediateError
 //      error)
 extern "C" Q_DECL_EXPORT
@@ -287,6 +329,30 @@ void ritual_ZN12QModbusReply20addIntermediateErrorEN13QModbusDevice17Intermediat
     QModbusReply *self,
     QModbusDevice::IntermediateError error) {
   self->addIntermediateError(error);
+}
+
+//  void QModbusReply::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QModbusReply8finishedEv(QModbusReply *self) {
+  self->finished();
+}
+
+//  void QModbusReply::errorOccurred(QModbusDevice::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QModbusReply13errorOccurredEN13QModbusDevice5ErrorE(
+    QModbusReply *self,
+    QModbusDevice::Error error) {
+  self->errorOccurred(error);
+}
+
+//  void
+//      QModbusReply::intermediateErrorOccurred(QModbusDevice::IntermediateEr
+//      ror error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QModbusReply25intermediateErrorOccurredEN13QModbusDevice17IntermediateErrorE(
+    QModbusReply *self,
+    QModbusDevice::IntermediateError error) {
+  self->intermediateErrorOccurred(error);
 }
 
 //  a Python function taken by a CuteQModbusReply, for the function named by
@@ -297,4 +363,11 @@ bool ritual_take_QModbusReply(
     const char *key,
     void *call) {
   return static_cast<CuteQModbusReply *>(self)->take(key, call);
+}
+
+//  a QList<QModbusDevice::IntermediateError> a ritual of QModbusReply gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QModbusReply__QList_QModbusDevice_IntermediateError(
+    QList<QModbusDevice::IntermediateError> *self) {
+  delete self;
 }

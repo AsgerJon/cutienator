@@ -25,6 +25,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
+#include <QtQuick/QQuickItem>
 
 //  A QQuickItemPrivate that Python can take functions over in. Every QQuickItemPrivate
 //  Python makes is one. Each function below asks the Python
@@ -393,6 +396,48 @@ void ritual_ZN17QQuickItemPrivate4initEP10QQuickItem(
   self->init(parent);
 }
 
+//  QQmlListProperty<QObject> QQuickItemPrivate::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN17QQuickItemPrivate4dataEv(
+    QQuickItemPrivate *self) {
+  return new QQmlListProperty<QObject>(self->data());
+}
+
+//  QQmlListProperty<QObject> QQuickItemPrivate::resources()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN17QQuickItemPrivate9resourcesEv(
+    QQuickItemPrivate *self) {
+  return new QQmlListProperty<QObject>(self->resources());
+}
+
+//  QQmlListProperty<QQuickItem> QQuickItemPrivate::children()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickItem> *ritual_ZN17QQuickItemPrivate8childrenEv(
+    QQuickItemPrivate *self) {
+  return new QQmlListProperty<QQuickItem>(self->children());
+}
+
+//  QQmlListProperty<QQuickItem> QQuickItemPrivate::visibleChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickItem> *ritual_ZN17QQuickItemPrivate15visibleChildrenEv(
+    QQuickItemPrivate *self) {
+  return new QQmlListProperty<QQuickItem>(self->visibleChildren());
+}
+
+//  QQmlListProperty<QQuickState> QQuickItemPrivate::states()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickState> *ritual_ZN17QQuickItemPrivate6statesEv(
+    QQuickItemPrivate *self) {
+  return new QQmlListProperty<QQuickState>(self->states());
+}
+
+//  QQmlListProperty<QQuickTransition> QQuickItemPrivate::transitions()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickTransition> *ritual_ZN17QQuickItemPrivate11transitionsEv(
+    QQuickItemPrivate *self) {
+  return new QQmlListProperty<QQuickTransition>(self->transitions());
+}
+
 //  QString QQuickItemPrivate::state() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK17QQuickItemPrivate5stateEv(
@@ -525,6 +570,183 @@ QtPrivate::QQuickAttachedPropertyPropagator *ritual_ZN17QQuickItemPrivate33attac
   return self->attachedPropertyPropagator_parent(attachedType);
 }
 
+//  void QQuickItemPrivate::data_append(QQmlListProperty<QObject> *a0,
+//      QObject *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate11data_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *a0,
+    QObject *a1) {
+  QQuickItemPrivate::data_append(a0, a1);
+}
+
+//  qsizetype QQuickItemPrivate::data_count(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN17QQuickItemPrivate10data_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  return QQuickItemPrivate::data_count(a0);
+}
+
+//  QObject *QQuickItemPrivate::data_at(QQmlListProperty<QObject> *a0,
+//      qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN17QQuickItemPrivate7data_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *a0,
+    qsizetype a1) {
+  return QQuickItemPrivate::data_at(a0, a1);
+}
+
+//  void QQuickItemPrivate::data_clear(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate10data_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QQuickItemPrivate::data_clear(a0);
+}
+
+//  void QQuickItemPrivate::data_removeLast(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate15data_removeLastEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QQuickItemPrivate::data_removeLast(a0);
+}
+
+//  QObject *QQuickItemPrivate::resources_at(QQmlListProperty<QObject> *a0,
+//      qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN17QQuickItemPrivate12resources_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *a0,
+    qsizetype a1) {
+  return QQuickItemPrivate::resources_at(a0, a1);
+}
+
+//  void QQuickItemPrivate::resources_append(QQmlListProperty<QObject> *a0,
+//      QObject *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate16resources_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *a0,
+    QObject *a1) {
+  QQuickItemPrivate::resources_append(a0, a1);
+}
+
+//  qsizetype QQuickItemPrivate::resources_count(QQmlListProperty<QObject>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN17QQuickItemPrivate15resources_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  return QQuickItemPrivate::resources_count(a0);
+}
+
+//  void QQuickItemPrivate::resources_clear(QQmlListProperty<QObject> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate15resources_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QQuickItemPrivate::resources_clear(a0);
+}
+
+//  void QQuickItemPrivate::resources_removeLast(QQmlListProperty<QObject>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate20resources_removeLastEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *a0) {
+  QQuickItemPrivate::resources_removeLast(a0);
+}
+
+//  void QQuickItemPrivate::children_append(QQmlListProperty<QQuickItem> *a0,
+//      QQuickItem *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate15children_appendEP16QQmlListPropertyI10QQuickItemEPS1_(
+    QQmlListProperty<QQuickItem> *a0,
+    QQuickItem *a1) {
+  QQuickItemPrivate::children_append(a0, a1);
+}
+
+//  qsizetype QQuickItemPrivate::children_count(QQmlListProperty<QQuickItem>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN17QQuickItemPrivate14children_countEP16QQmlListPropertyI10QQuickItemE(
+    QQmlListProperty<QQuickItem> *a0) {
+  return QQuickItemPrivate::children_count(a0);
+}
+
+//  QQuickItem *QQuickItemPrivate::children_at(QQmlListProperty<QQuickItem>
+//      *a0, qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QQuickItem *ritual_ZN17QQuickItemPrivate11children_atEP16QQmlListPropertyI10QQuickItemEx(
+    QQmlListProperty<QQuickItem> *a0,
+    qsizetype a1) {
+  return QQuickItemPrivate::children_at(a0, a1);
+}
+
+//  void QQuickItemPrivate::children_clear(QQmlListProperty<QQuickItem> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate14children_clearEP16QQmlListPropertyI10QQuickItemE(
+    QQmlListProperty<QQuickItem> *a0) {
+  QQuickItemPrivate::children_clear(a0);
+}
+
+//  void QQuickItemPrivate::children_removeLast(QQmlListProperty<QQuickItem>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate19children_removeLastEP16QQmlListPropertyI10QQuickItemE(
+    QQmlListProperty<QQuickItem> *a0) {
+  QQuickItemPrivate::children_removeLast(a0);
+}
+
+//  qsizetype
+//      QQuickItemPrivate::visibleChildren_count(QQmlListProperty<QQuickItem>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN17QQuickItemPrivate21visibleChildren_countEP16QQmlListPropertyI10QQuickItemE(
+    QQmlListProperty<QQuickItem> *prop) {
+  return QQuickItemPrivate::visibleChildren_count(prop);
+}
+
+//  QQuickItem
+//      *QQuickItemPrivate::visibleChildren_at(QQmlListProperty<QQuickItem>
+//      *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickItem *ritual_ZN17QQuickItemPrivate18visibleChildren_atEP16QQmlListPropertyI10QQuickItemEx(
+    QQmlListProperty<QQuickItem> *prop,
+    qsizetype index) {
+  return QQuickItemPrivate::visibleChildren_at(prop, index);
+}
+
+//  qsizetype
+//      QQuickItemPrivate::transform_count(QQmlListProperty<QQuickTransform>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN17QQuickItemPrivate15transform_countEP16QQmlListPropertyI15QQuickTransformE(
+    QQmlListProperty<QQuickTransform> *list) {
+  return QQuickItemPrivate::transform_count(list);
+}
+
+//  void
+//      QQuickItemPrivate::transform_append(QQmlListProperty<QQuickTransform>
+//      *list, QQuickTransform *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate16transform_appendEP16QQmlListPropertyI15QQuickTransformEPS1_(
+    QQmlListProperty<QQuickTransform> *list,
+    QQuickTransform *a1) {
+  QQuickItemPrivate::transform_append(list, a1);
+}
+
+//  QQuickTransform
+//      *QQuickItemPrivate::transform_at(QQmlListProperty<QQuickTransform>
+//      *list, qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QQuickTransform *ritual_ZN17QQuickItemPrivate12transform_atEP16QQmlListPropertyI15QQuickTransformEx(
+    QQmlListProperty<QQuickTransform> *list,
+    qsizetype a1) {
+  return QQuickItemPrivate::transform_at(list, a1);
+}
+
+//  void QQuickItemPrivate::transform_clear(QQmlListProperty<QQuickTransform>
+//      *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate15transform_clearEP16QQmlListPropertyI15QQuickTransformE(
+    QQmlListProperty<QQuickTransform> *list) {
+  QQuickItemPrivate::transform_clear(list);
+}
+
 //  void QQuickItemPrivate::_q_resourceObjectDeleted(QObject *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickItemPrivate24_q_resourceObjectDeletedEP7QObject(
@@ -540,6 +762,17 @@ quint64 ritual_ZN17QQuickItemPrivate18_q_createJSWrapperEPN3QV415ExecutionEngine
     QQuickItemPrivate *self,
     QQmlV4ExecutionEnginePtr engine) {
   return self->_q_createJSWrapper(engine);
+}
+
+//  QDebug &operator<<(QDebug &dbg, QQuickItemPrivate::ChangeTypes types)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_ZlsR6QDebug6QFlagsIN17QQuickItemPrivate10ChangeTypeEE(
+    QDebug *dbg,
+    int types) {
+  return &(
+      operator<<(
+          *dbg,
+          QFlags<QQuickItemPrivate::ChangeType>::fromInt(types)));
 }
 
 //  void QQuickItemPrivate::registerAsContainmentMask(QQuickItem *a0, bool
@@ -871,6 +1104,12 @@ void ritual_ZN17QQuickItemPrivate8xChangedEv(QQuickItemPrivate *self) {
   self->xChanged();
 }
 
+//  size_t QQuickItemPrivate::_qt_property_x_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QQuickItemPrivate21_qt_property_x_offsetEv() {
+  return QQuickItemPrivate::_qt_property_x_offset();
+}
+
 //  void QQuickItemPrivate::setY(qreal y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickItemPrivate4setYEd(QQuickItemPrivate *self, qreal y) {
@@ -881,6 +1120,12 @@ void ritual_ZN17QQuickItemPrivate4setYEd(QQuickItemPrivate *self, qreal y) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickItemPrivate8yChangedEv(QQuickItemPrivate *self) {
   self->yChanged();
+}
+
+//  size_t QQuickItemPrivate::_qt_property_y_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QQuickItemPrivate21_qt_property_y_offsetEv() {
+  return QQuickItemPrivate::_qt_property_y_offset();
 }
 
 //  void QQuickItemPrivate::setWidth(qreal width)
@@ -897,6 +1142,12 @@ void ritual_ZN17QQuickItemPrivate12widthChangedEv(QQuickItemPrivate *self) {
   self->widthChanged();
 }
 
+//  size_t QQuickItemPrivate::_qt_property_width_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QQuickItemPrivate25_qt_property_width_offsetEv() {
+  return QQuickItemPrivate::_qt_property_width_offset();
+}
+
 //  void QQuickItemPrivate::setHeight(qreal height)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickItemPrivate9setHeightEd(
@@ -909,6 +1160,12 @@ void ritual_ZN17QQuickItemPrivate9setHeightEd(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickItemPrivate13heightChangedEv(QQuickItemPrivate *self) {
   self->heightChanged();
+}
+
+//  size_t QQuickItemPrivate::_qt_property_height_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QQuickItemPrivate26_qt_property_height_offsetEv() {
+  return QQuickItemPrivate::_qt_property_height_offset();
 }
 
 //  bool QQuickItemPrivate::widthValid() const
@@ -1417,6 +1674,16 @@ QLayoutPolicy *ritual_ZNK17QQuickItemPrivate10sizePolicyEv(
   return new QLayoutPolicy(self->sizePolicy());
 }
 
+//  void QQuickItemPrivate::setSizePolicy(const QLayoutPolicy::Policy
+//      &horizontalPolicy, const QLayoutPolicy::Policy &verticalPolicy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickItemPrivate13setSizePolicyERK6QFlagsIN13QLayoutPolicy10PolicyFlagEES5_(
+    QQuickItemPrivate *self,
+    const QLayoutPolicy::Policy *horizontalPolicy,
+    const QLayoutPolicy::Policy *verticalPolicy) {
+  self->setSizePolicy(*horizontalPolicy, *verticalPolicy);
+}
+
 //  a Python function taken by a CuteQQuickItemPrivate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -1572,4 +1839,32 @@ void ritual_own_ZNK17QQuickItemPrivate12dumpItemTreeEi(
     const QQuickItemPrivate *self,
     int indent) {
   self->QQuickItemPrivate::dumpItemTree(indent);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickItemPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickItemPrivate__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickItem> a ritual of QQuickItemPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickItemPrivate__QQmlListProperty_QQuickItem(
+    QQmlListProperty<QQuickItem> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickState> a ritual of QQuickItemPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickItemPrivate__QQmlListProperty_QQuickState(
+    QQmlListProperty<QQuickState> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickTransition> a ritual of QQuickItemPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickItemPrivate__QQmlListProperty_QQuickTransition(
+    QQmlListProperty<QQuickTransition> *self) {
+  delete self;
 }

@@ -12,6 +12,9 @@
     "ritual_ZN26QQuickAbstractPathRenderer7endSyncEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN26QQuickAbstractPathRenderer16setAsyncCallbackEPFvPvES0_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK26QQuickAbstractPathRenderer5flagsEv": ["int", "address"],
     "ritual_ZN26QQuickAbstractPathRenderer7setPathEiPK10QQuickPath": [
       "nothing", "address", "int", "address"
@@ -33,6 +36,9 @@
     ],
     "ritual_ZN26QQuickAbstractPathRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer14setStrokeStyleEiN15QQuickShapePath11StrokeStyleEdRK5QListIdE": [
+      "nothing", "address", "int", "int", "double", "address"
     ],
     "ritual_ZN26QQuickAbstractPathRenderer12setFillColorEiRK6QColor": [
       "nothing", "address", "int", "address"

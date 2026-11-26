@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN24QMutableSinglePointEventC1ERK17QSinglePointEvent": [
+      "address", "address"
+    ],
     "ritual_ZN24QMutableSinglePointEventC1EN6QEvent4TypeEPK15QPointingDeviceRK11QEventPointN2Qt11MouseButtonE6QFlagsIS9_ESA_INS8_16KeyboardModifierEENS8_16MouseEventSourceE": [
       "address", "int", "address", "address", "int", "int", "int", "int"
     ],

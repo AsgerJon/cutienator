@@ -5,6 +5,105 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV415ObjectPrototype4initEPNS_15ExecutionEngineEPNS_6ObjectE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ObjectPrototype13method_assignEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype13method_createEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype23method_definePropertiesEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype21method_definePropertyEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype14method_entriesEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype13method_freezeEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype31method_getOwnPropertyDescriptorEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype32method_getOwnPropertyDescriptorsEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype26method_getOwnPropertyNamesEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype28method_getOwnPropertySymbolsEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype21method_getPrototypeOfEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype9method_isEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype19method_isExtensibleEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype15method_isFrozenEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype15method_isSealedEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype11method_keysEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype24method_preventExtensionsEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype11method_sealEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype21method_setPrototypeOfEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype13method_valuesEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype15method_toStringEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype21method_toLocaleStringEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype14method_valueOfEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype21method_hasOwnPropertyEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype20method_isPrototypeOfEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype27method_propertyIsEnumerableEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype19method_defineGetterEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype19method_defineSetterEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype16method_get_protoEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype16method_set_protoEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ObjectPrototype20toPropertyDescriptorEPNS_15ExecutionEngineERKNS_5ValueEPNS_8PropertyEPNS_18PropertyAttributesE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV415ObjectPrototype22fromPropertyDescriptorEPNS_15ExecutionEngineEPKNS_8PropertyENS_18PropertyAttributesE": [
+      "unsigned long long", "address", "address", "address"
+    ],
     "ritual_ZN3QV415ObjectPrototype19getOwnPropertyNamesEPNS_15ExecutionEngineERKNS_5ValueE": [
       "address", "address", "address"
     ]

@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN8Qt3DCore16QGeometryFactoryD1Ev": ["nothing", "address"],
     "ritual_ZN8Qt3DCore16QGeometryFactoryclEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore16QGeometryFactory6equalsERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCoreeqERKNS_16QGeometryFactoryES2_": [
+      "bool", "address", "address"
+    ],
     "ritual_take_Qt3DCore_QGeometryFactory": [
       "bool", "address", "chars", "address"
     ]

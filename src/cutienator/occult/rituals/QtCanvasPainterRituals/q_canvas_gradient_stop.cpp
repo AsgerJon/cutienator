@@ -32,6 +32,26 @@ QDebug *ritual_Zls6QDebugRK19QCanvasGradientStop(
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
 
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QCanvasGradientStop &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK19QCanvasGradientStop(
+    QDataStream *a0,
+    const QCanvasGradientStop *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QCanvasGradientStop &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR19QCanvasGradientStop(
+    QDataStream *a0,
+    QCanvasGradientStop *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 //  QCanvasGradientStop::~QCanvasGradientStop()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QCanvasGradientStopD1Ev(QCanvasGradientStop *self) {

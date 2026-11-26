@@ -879,6 +879,22 @@ const QMetaObject *ritual_ZNK6QFrame10metaObjectEv(const QFrame *self) {
   return self->metaObject();
 }
 
+//  void *QFrame::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6QFrame11qt_metacastEPKc(QFrame *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFrame::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6QFrame11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFrame *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFrame::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN6QFrame2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1011,6 +1027,15 @@ void ritual_ZN6QFrame11changeEventEP6QEvent(QFrame *self, QEvent *a0) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QFrame9drawFrameEP8QPainter(QFrame *self, QPainter *a0) {
   self->drawFrame(a0);
+}
+
+//  QFrame::QFrame(QFramePrivate &dd, QWidget *parent, Qt::WindowFlags f)
+extern "C" Q_DECL_EXPORT
+QFrame *ritual_ZN6QFrameC1ER13QFramePrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE(
+    QFramePrivate *dd,
+    QWidget *parent,
+    int f) {
+  return new CuteQFrame(*dd, parent, QFlags<Qt::WindowType>::fromInt(f));
 }
 
 //  void QFrame::initStyleOption(QStyleOptionFrame *option) const

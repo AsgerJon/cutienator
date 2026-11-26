@@ -1204,6 +1204,25 @@ const QMetaObject *ritual_ZNK23QItemEditorDateTimeEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QItemEditorDateTimeEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QItemEditorDateTimeEdit11qt_metacastEPKc(
+    QItemEditorDateTimeEdit *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QItemEditorDateTimeEdit::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QItemEditorDateTimeEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QItemEditorDateTimeEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 #if QT_CONFIG(datetimeedit)
 //  void QItemEditorDateTimeEdit::setDateTimeItemEditor(const QDateTime
 //      &datetime)

@@ -15,6 +15,15 @@ QStyleOptionHeader *ritual_ZN18QStyleOptionHeaderC1ERKS_(
   return new QStyleOptionHeader(*other);
 }
 
+//  QStyleOptionHeader &QStyleOptionHeader::operator=(const
+//      QStyleOptionHeader &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionHeader *ritual_ZN18QStyleOptionHeaderaSERKS_(
+    QStyleOptionHeader *self,
+    const QStyleOptionHeader *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionHeader::QStyleOptionHeader(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionHeader *ritual_ZN18QStyleOptionHeaderC1Ei(int version) {

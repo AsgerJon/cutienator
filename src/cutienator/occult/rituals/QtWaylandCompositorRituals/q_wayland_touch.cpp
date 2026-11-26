@@ -273,6 +273,24 @@ const QMetaObject *ritual_ZNK13QWaylandTouch10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandTouch::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QWaylandTouch11qt_metacastEPKc(
+    QWaylandTouch *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandTouch::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QWaylandTouch11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandTouch *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandTouch::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QWaylandTouch2trEPKcS1_i(
@@ -280,6 +298,20 @@ QString *ritual_ZN13QWaylandTouch2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandTouch::tr(s, c, n));
+}
+
+//  QWaylandTouchPrivate *QWaylandTouch::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandTouchPrivate *ritual_ZN13QWaylandTouch6d_funcEv(
+    QWaylandTouch *self) {
+  return self->d_func();
+}
+
+//  const QWaylandTouchPrivate *QWaylandTouch::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandTouchPrivate *ritual_ZNK13QWaylandTouch6d_funcEv(
+    const QWaylandTouch *self) {
+  return self->d_func();
 }
 
 //  QWaylandTouch::QWaylandTouch(QWaylandSeat *seat, QObject *parent)

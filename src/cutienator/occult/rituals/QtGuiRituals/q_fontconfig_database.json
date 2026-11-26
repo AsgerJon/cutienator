@@ -16,6 +16,9 @@
     "ritual_ZN19QFontconfigDatabase15fontEngineMultiEP11QFontEngineN20QFontDatabasePrivate14ExtendedScriptE": [
       "address", "address", "address", "int"
     ],
+    "ritual_ZN19QFontconfigDatabase10fontEngineERK8QFontDefPv": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN19QFontconfigDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
       "address", "address", "address", "double", "int"
     ],
@@ -29,6 +32,9 @@
       "text", "address", "text"
     ],
     "ritual_ZNK19QFontconfigDatabase11defaultFontEv": ["address", "address"],
+    "ritual_ZNK19QFontconfigDatabase15setupFontEngineEP13QFontEngineFTRK8QFontDef": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_take_QFontconfigDatabase": [
       "bool", "address", "chars", "address"
     ],
@@ -43,6 +49,9 @@
     ],
     "ritual_own_ZN19QFontconfigDatabase15fontEngineMultiEP11QFontEngineN20QFontDatabasePrivate14ExtendedScriptE": [
       "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QFontconfigDatabase10fontEngineERK8QFontDefPv": [
+      "address", "address", "address", "address"
     ],
     "ritual_own_ZN19QFontconfigDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
       "address", "address", "address", "double", "int"

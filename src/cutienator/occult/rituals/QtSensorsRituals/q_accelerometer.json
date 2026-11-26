@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QAccelerometer10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QAccelerometer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QAccelerometer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QAccelerometer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK14QAccelerometer7readingEv": ["address", "address"],
+    "ritual_ZN14QAccelerometer23accelerationModeChangedENS_16AccelerationModeE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN14QAccelerometer6d_funcEv": ["address", "address"],
     "ritual_ZNK14QAccelerometer6d_funcEv": ["address", "address"],
     "ritual_take_QAccelerometer": ["bool", "address", "chars", "address"]

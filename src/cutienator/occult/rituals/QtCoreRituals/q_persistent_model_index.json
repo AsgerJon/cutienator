@@ -11,11 +11,30 @@
     ],
     "ritual_ZN21QPersistentModelIndexC1ERKS_": ["address", "address"],
     "ritual_ZN21QPersistentModelIndexD1Ev": ["nothing", "address"],
+    "ritual_ZN21QPersistentModelIndexaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QPersistentModelIndexC1EOS_": ["address", "address"],
+    "ritual_ZN21QPersistentModelIndexaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QPersistentModelIndex4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QPersistentModelIndexaSERK11QModelIndex": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK21QPersistentModelIndexcv11QModelIndexEv": [
       "address", "address"
     ],
     "ritual_ZNK21QPersistentModelIndex3rowEv": ["int", "address"],
     "ritual_ZNK21QPersistentModelIndex6columnEv": ["int", "address"],
+    "ritual_ZNK21QPersistentModelIndex15internalPointerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QPersistentModelIndex20constInternalPointerEv": [
+      "address", "address"
+    ],
     "ritual_ZNK21QPersistentModelIndex10internalIdEv": [
       "unsigned long long", "address"
     ],

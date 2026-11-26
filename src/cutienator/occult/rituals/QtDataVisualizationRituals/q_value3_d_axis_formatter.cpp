@@ -277,6 +277,25 @@ const QMetaObject *ritual_ZNK21QValue3DAxisFormatter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QValue3DAxisFormatter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QValue3DAxisFormatter11qt_metacastEPKc(
+    QValue3DAxisFormatter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QValue3DAxisFormatter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QValue3DAxisFormatter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QValue3DAxisFormatter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QValue3DAxisFormatter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QValue3DAxisFormatter2trEPKcS1_i(
@@ -378,6 +397,15 @@ float ritual_ZNK21QValue3DAxisFormatter7valueAtEf(
   return self->valueAt(position);
 }
 
+//  void QValue3DAxisFormatter::populateCopy(QValue3DAxisFormatter &copy)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK21QValue3DAxisFormatter12populateCopyERS_(
+    const QValue3DAxisFormatter *self,
+    QValue3DAxisFormatter *copy) {
+  self->populateCopy(*copy);
+}
+
 //  void QValue3DAxisFormatter::markDirty(bool labelsChange)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QValue3DAxisFormatter9markDirtyEb(
@@ -391,6 +419,34 @@ extern "C" Q_DECL_EXPORT
 QValue3DAxis *ritual_ZNK21QValue3DAxisFormatter4axisEv(
     const QValue3DAxisFormatter *self) {
   return self->axis();
+}
+
+//  QList<float> &QValue3DAxisFormatter::gridPositions() const
+extern "C" Q_DECL_EXPORT
+QList<float> *ritual_ZNK21QValue3DAxisFormatter13gridPositionsEv(
+    const QValue3DAxisFormatter *self) {
+  return &(self->gridPositions());
+}
+
+//  QList<float> &QValue3DAxisFormatter::subGridPositions() const
+extern "C" Q_DECL_EXPORT
+QList<float> *ritual_ZNK21QValue3DAxisFormatter16subGridPositionsEv(
+    const QValue3DAxisFormatter *self) {
+  return &(self->subGridPositions());
+}
+
+//  QList<float> &QValue3DAxisFormatter::labelPositions() const
+extern "C" Q_DECL_EXPORT
+QList<float> *ritual_ZNK21QValue3DAxisFormatter14labelPositionsEv(
+    const QValue3DAxisFormatter *self) {
+  return &(self->labelPositions());
+}
+
+//  QStringList &QValue3DAxisFormatter::labelStrings() const
+extern "C" Q_DECL_EXPORT
+QStringList *ritual_ZNK21QValue3DAxisFormatter12labelStringsEv(
+    const QValue3DAxisFormatter *self) {
+  return &(self->labelStrings());
 }
 
 //  void QValue3DAxisFormatter::setLocale(const QLocale &locale)

@@ -1,15 +1,102 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qresultstore.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qresultstore.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
+    "ritual_ZN9QtPrivate18ResultIteratorBaseC1Ev": ["address"],
+    "ritual_ZN9QtPrivate18ResultIteratorBaseC1EN4QMapIiNS_10ResultItemEE14const_iteratorEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase11vectorIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase11resultIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBaseppEv": ["address", "address"],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase9batchSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase14batchedAdvanceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase8isVectorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase23canIncrementVectorIndexEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase7isValidEv": [
+      "bool", "address"
+    ],
     "ritual_ZN9QtPrivateeqERKNS_18ResultIteratorBaseES2_": [
       "bool", "address", "address"
     ],
     "ritual_ZN9QtPrivateneERKNS_18ResultIteratorBaseES2_": [
       "bool", "address", "address"
     ],
-    "ritual_ZN9QtPrivate18ResultIteratorBaseD1Ev": ["nothing", "address"]
+    "ritual_ZN9QtPrivate18ResultIteratorBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN9QtPrivate18ResultIteratorBase7pointerIiEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase7pointerIiEEPKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase5valueIiEERT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase5valueIiEERKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase7pointerIdEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase7pointerIdEEPKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase5valueIdEERT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase5valueIdEERKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase7pointerIbEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase7pointerIbEEPKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase5valueIbEERT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase5valueIbEERKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase7pointerI7QStringEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase7pointerI7QStringEEPKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase5valueI7QStringEERT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase5valueI7QStringEERKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase7pointerI8QVariantEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase7pointerI8QVariantEEPKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBase5valueI8QVariantEERT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18ResultIteratorBase5valueI8QVariantEERKT_v": [
+      "address", "address"
+    ]
   }
 }

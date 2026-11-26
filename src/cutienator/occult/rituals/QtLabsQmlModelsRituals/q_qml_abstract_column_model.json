@@ -8,13 +8,39 @@
     "ritual_ZNK23QQmlAbstractColumnModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQmlAbstractColumnModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQmlAbstractColumnModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQmlAbstractColumnModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN23QQmlAbstractColumnModel22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QQmlAbstractColumnModelC1EP7QObject": ["address", "address"],
     "ritual_ZN23QQmlAbstractColumnModelD1Ev": ["nothing", "address"],
+    "ritual_ZN23QQmlAbstractColumnModel7columnsEv": ["address", "address"],
+    "ritual_ZN23QQmlAbstractColumnModel14columns_appendEP16QQmlListPropertyI20QQmlTableModelColumnEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQmlAbstractColumnModel13columns_countEP16QQmlListPropertyI20QQmlTableModelColumnE": [
+      "long long", "address"
+    ],
+    "ritual_ZN23QQmlAbstractColumnModel10columns_atEP16QQmlListPropertyI20QQmlTableModelColumnEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN23QQmlAbstractColumnModel13columns_clearEP16QQmlListPropertyI20QQmlTableModelColumnE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQmlAbstractColumnModel15columns_replaceEP16QQmlListPropertyI20QQmlTableModelColumnExPS1_": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN23QQmlAbstractColumnModel18columns_removeLastEP16QQmlListPropertyI20QQmlTableModelColumnE": [
+      "nothing", "address"
+    ],
     "ritual_ZNK23QQmlAbstractColumnModel4dataERK11QModelIndexRK7QString": [
       "address", "address", "address", "text"
     ],
@@ -33,6 +59,12 @@
     "ritual_ZNK23QQmlAbstractColumnModel5flagsERK11QModelIndex": [
       "int", "address", "address"
     ],
+    "ritual_ZN23QQmlAbstractColumnModel18columnCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQmlAbstractColumnModel11rowsChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN23QQmlAbstractColumnModel10classBeginEv": [
       "nothing", "address"
     ],
@@ -49,6 +81,9 @@
     "ritual_ZN23QQmlAbstractColumnModel14setDataPrivateERK11QModelIndexRK7QString8QVariant": [
       "nothing", "address", "address", "text", "address"
     ],
+    "ritual_ZNK23QQmlAbstractColumnModel19fetchColumnRoleDataERK7QStringP20QQmlTableModelColumni": [
+      "address", "address", "text", "address", "int"
+    ],
     "ritual_ZN23QQmlAbstractColumnModel19fetchColumnMetadataEv": [
       "nothing", "address"
     ],
@@ -60,6 +95,9 @@
     ],
     "ritual_ZN23QQmlAbstractColumnModel10jsTypeNameERK8QJSValue": [
       "address", "address"
+    ],
+    "ritual_ZNK23QQmlAbstractColumnModel20validateRowsArgumentERK8QVariant": [
+      "address", "address", "address"
     ],
     "ritual_cast_QQmlAbstractColumnModel_QQmlParserStatus": [
       "address", "address"
@@ -80,6 +118,15 @@
       "nothing", "address"
     ],
     "ritual_own_ZN23QQmlAbstractColumnModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlAbstractColumnModel__QQmlListProperty_QQmlTableModelColumn": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlAbstractColumnModel__QQmlAbstractColumnModel_ColumnRoleMetadata": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlAbstractColumnModel__std_optional_QVariantList": [
       "nothing", "address"
     ]
   }

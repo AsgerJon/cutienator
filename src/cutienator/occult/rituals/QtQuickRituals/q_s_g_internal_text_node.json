@@ -87,6 +87,9 @@
       "int", "address", "address"
     ],
     "ritual_ZNK19QSGInternalTextNode10cursorNodeEv": ["address", "address"],
+    "ritual_ZNK19QSGInternalTextNode17renderedLineRangeEv": [
+      "address", "address"
+    ],
     "ritual_ZN19QSGInternalTextNode18discardUnusedNodesEPNS_10RecycleBinE": [
       "nothing", "address", "address"
     ],
@@ -185,6 +188,9 @@
     ],
     "ritual_own_ZN19QSGInternalTextNode17doAddTextDocumentE7QPointFP13QTextDocumentii": [
       "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_drop_QSGInternalTextNode__std_pair_int_int": [
+      "nothing", "address"
     ]
   }
 }

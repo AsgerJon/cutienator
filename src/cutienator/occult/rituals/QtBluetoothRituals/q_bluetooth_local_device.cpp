@@ -183,6 +183,25 @@ const QMetaObject *ritual_ZNK21QBluetoothLocalDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBluetoothLocalDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QBluetoothLocalDevice11qt_metacastEPKc(
+    QBluetoothLocalDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBluetoothLocalDevice::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QBluetoothLocalDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBluetoothLocalDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBluetoothLocalDevice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QBluetoothLocalDevice2trEPKcS1_i(
@@ -288,6 +307,66 @@ QBluetoothAddress *ritual_ZNK21QBluetoothLocalDevice7addressEv(
 extern "C" Q_DECL_EXPORT
 QList<QBluetoothHostInfo> *ritual_ZN21QBluetoothLocalDevice10allDevicesEv() {
   return new QList<QBluetoothHostInfo>(QBluetoothLocalDevice::allDevices());
+}
+
+//  void QBluetoothLocalDevice::hostModeStateChanged(QBluetoothLocalDevice::H
+//      ostMode state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBluetoothLocalDevice20hostModeStateChangedENS_8HostModeE(
+    QBluetoothLocalDevice *self,
+    QBluetoothLocalDevice::HostMode state) {
+  self->hostModeStateChanged(state);
+}
+
+//  void QBluetoothLocalDevice::deviceConnected(const QBluetoothAddress
+//      &address)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBluetoothLocalDevice15deviceConnectedERK17QBluetoothAddress(
+    QBluetoothLocalDevice *self,
+    const QBluetoothAddress *address) {
+  self->deviceConnected(*address);
+}
+
+//  void QBluetoothLocalDevice::deviceDisconnected(const QBluetoothAddress
+//      &address)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBluetoothLocalDevice18deviceDisconnectedERK17QBluetoothAddress(
+    QBluetoothLocalDevice *self,
+    const QBluetoothAddress *address) {
+  self->deviceDisconnected(*address);
+}
+
+//  void QBluetoothLocalDevice::pairingFinished(const QBluetoothAddress
+//      &address, QBluetoothLocalDevice::Pairing pairing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBluetoothLocalDevice15pairingFinishedERK17QBluetoothAddressNS_7PairingE(
+    QBluetoothLocalDevice *self,
+    const QBluetoothAddress *address,
+    QBluetoothLocalDevice::Pairing pairing) {
+  self->pairingFinished(*address, pairing);
+}
+
+//  void QBluetoothLocalDevice::errorOccurred(QBluetoothLocalDevice::Error
+//      error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBluetoothLocalDevice13errorOccurredENS_5ErrorE(
+    QBluetoothLocalDevice *self,
+    QBluetoothLocalDevice::Error error) {
+  self->errorOccurred(error);
+}
+
+//  QBluetoothLocalDevicePrivate *QBluetoothLocalDevice::d_func()
+extern "C" Q_DECL_EXPORT
+QBluetoothLocalDevicePrivate *ritual_ZN21QBluetoothLocalDevice6d_funcEv(
+    QBluetoothLocalDevice *self) {
+  return self->d_func();
+}
+
+//  const QBluetoothLocalDevicePrivate *QBluetoothLocalDevice::d_func() const
+extern "C" Q_DECL_EXPORT
+const QBluetoothLocalDevicePrivate *ritual_ZNK21QBluetoothLocalDevice6d_funcEv(
+    const QBluetoothLocalDevice *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQBluetoothLocalDevice, for the function

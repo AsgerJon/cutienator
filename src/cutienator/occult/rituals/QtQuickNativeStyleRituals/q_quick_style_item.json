@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitem_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator"
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickStyleItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickStyleItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickStyleItem11contentSizeEv": ["address", "address"],
+    "ritual_ZNK15QQuickStyleItem9styleFontEP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickStyleItem17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStyleItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickStyleItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickStyleItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickStyleItem12updatePolishEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickStyleItem16connectToControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickStyleItem10paintEventEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickStyleItem17calculateGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQuickStyleItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

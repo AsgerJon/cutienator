@@ -6,7 +6,11 @@
   "rows": {
     "ritual_ZN9QSqlIndexC1ERK7QStringS2_": ["address", "text", "text"],
     "ritual_ZN9QSqlIndexC1ERKS_": ["address", "address"],
+    "ritual_ZN9QSqlIndexC1EOS_": ["address", "address"],
     "ritual_ZN9QSqlIndexD1Ev": ["nothing", "address"],
+    "ritual_ZN9QSqlIndexaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QSqlIndexaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QSqlIndex4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN9QSqlIndex13setCursorNameERK7QString": [
       "nothing", "address", "text"
     ],

@@ -7,12 +7,19 @@
     "ritual_ZNK21QQmlImageProviderBase10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQmlImageProviderBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQmlImageProviderBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQmlImageProviderBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN21QQmlImageProviderBaseD1Ev": ["nothing", "address"],
     "ritual_ZNK21QQmlImageProviderBase9imageTypeEv": ["int", "address"],
     "ritual_ZNK21QQmlImageProviderBase5flagsEv": ["int", "address"],
+    "ritual_ZN21QQmlImageProviderBaseC1Ev": ["address"],
     "ritual_take_QQmlImageProviderBase": [
       "bool", "address", "chars", "address"
     ]

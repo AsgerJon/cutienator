@@ -187,6 +187,24 @@ const QMetaObject *ritual_ZNK13QQuickAnchors10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnchors::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickAnchors11qt_metacastEPKc(
+    QQuickAnchors *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnchors::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickAnchors11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnchors *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnchors::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickAnchors2trEPKcS1_i(
@@ -585,6 +603,117 @@ void ritual_ZN13QQuickAnchors10classBeginEv(QQuickAnchors *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQuickAnchors17componentCompleteEv(QQuickAnchors *self) {
   self->componentComplete();
+}
+
+//  void QQuickAnchors::leftChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors11leftChangedEv(QQuickAnchors *self) {
+  self->leftChanged();
+}
+
+//  void QQuickAnchors::rightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors12rightChangedEv(QQuickAnchors *self) {
+  self->rightChanged();
+}
+
+//  void QQuickAnchors::topChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors10topChangedEv(QQuickAnchors *self) {
+  self->topChanged();
+}
+
+//  void QQuickAnchors::bottomChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors13bottomChangedEv(QQuickAnchors *self) {
+  self->bottomChanged();
+}
+
+//  void QQuickAnchors::verticalCenterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors21verticalCenterChangedEv(QQuickAnchors *self) {
+  self->verticalCenterChanged();
+}
+
+//  void QQuickAnchors::horizontalCenterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors23horizontalCenterChangedEv(
+    QQuickAnchors *self) {
+  self->horizontalCenterChanged();
+}
+
+//  void QQuickAnchors::baselineChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors15baselineChangedEv(QQuickAnchors *self) {
+  self->baselineChanged();
+}
+
+//  void QQuickAnchors::fillChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors11fillChangedEv(QQuickAnchors *self) {
+  self->fillChanged();
+}
+
+//  void QQuickAnchors::centerInChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors15centerInChangedEv(QQuickAnchors *self) {
+  self->centerInChanged();
+}
+
+//  void QQuickAnchors::leftMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors17leftMarginChangedEv(QQuickAnchors *self) {
+  self->leftMarginChanged();
+}
+
+//  void QQuickAnchors::rightMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors18rightMarginChangedEv(QQuickAnchors *self) {
+  self->rightMarginChanged();
+}
+
+//  void QQuickAnchors::topMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors16topMarginChangedEv(QQuickAnchors *self) {
+  self->topMarginChanged();
+}
+
+//  void QQuickAnchors::bottomMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors19bottomMarginChangedEv(QQuickAnchors *self) {
+  self->bottomMarginChanged();
+}
+
+//  void QQuickAnchors::marginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors14marginsChangedEv(QQuickAnchors *self) {
+  self->marginsChanged();
+}
+
+//  void QQuickAnchors::verticalCenterOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors27verticalCenterOffsetChangedEv(
+    QQuickAnchors *self) {
+  self->verticalCenterOffsetChanged();
+}
+
+//  void QQuickAnchors::horizontalCenterOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors29horizontalCenterOffsetChangedEv(
+    QQuickAnchors *self) {
+  self->horizontalCenterOffsetChanged();
+}
+
+//  void QQuickAnchors::baselineOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors21baselineOffsetChangedEv(QQuickAnchors *self) {
+  self->baselineOffsetChanged();
+}
+
+//  void QQuickAnchors::centerAlignedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickAnchors20centerAlignedChangedEv(QQuickAnchors *self) {
+  self->centerAlignedChanged();
 }
 
 //  QQuickAnchorsPrivate *QQuickAnchors::d_func()

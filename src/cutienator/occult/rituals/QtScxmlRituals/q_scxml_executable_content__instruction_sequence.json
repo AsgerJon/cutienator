@@ -8,6 +8,9 @@
     "ritual_ZN23QScxmlExecutableContent19InstructionSequence4kindEv": [
       "int"
     ],
+    "ritual_ZNK23QScxmlExecutableContent19InstructionSequence12instructionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK23QScxmlExecutableContent19InstructionSequence4sizeEv": [
       "int", "address"
     ],

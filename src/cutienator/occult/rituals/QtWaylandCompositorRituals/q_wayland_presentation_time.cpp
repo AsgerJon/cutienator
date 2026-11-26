@@ -49,6 +49,25 @@ const QMetaObject *ritual_ZNK24QWaylandPresentationTime10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandPresentationTime::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QWaylandPresentationTime11qt_metacastEPKc(
+    QWaylandPresentationTime *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandPresentationTime::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QWaylandPresentationTime11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandPresentationTime *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandPresentationTime::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QWaylandPresentationTime2trEPKcS1_i(
@@ -56,6 +75,21 @@ QString *ritual_ZN24QWaylandPresentationTime2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandPresentationTime::tr(s, c, n));
+}
+
+//  QWaylandPresentationTimePrivate *QWaylandPresentationTime::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandPresentationTimePrivate *ritual_ZN24QWaylandPresentationTime6d_funcEv(
+    QWaylandPresentationTime *self) {
+  return self->d_func();
+}
+
+//  const QWaylandPresentationTimePrivate *QWaylandPresentationTime::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QWaylandPresentationTimePrivate *ritual_ZNK24QWaylandPresentationTime6d_funcEv(
+    const QWaylandPresentationTime *self) {
+  return self->d_func();
 }
 
 //  QWaylandPresentationTime::QWaylandPresentationTime()
@@ -98,10 +132,28 @@ void ritual_ZN24QWaylandPresentationTime12sendFeedbackEP12QQuickWindowyyj(
   self->sendFeedback(window, sequence, tv_sec, tv_nsec);
 }
 
+//  const struct wl_interface *QWaylandPresentationTime::interface()
+extern "C" Q_DECL_EXPORT
+const struct wl_interface *ritual_ZN24QWaylandPresentationTime9interfaceEv() {
+  return QWaylandPresentationTime::interface();
+}
+
 //  QByteArray QWaylandPresentationTime::interfaceName()
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN24QWaylandPresentationTime13interfaceNameEv() {
   return new QByteArray(QWaylandPresentationTime::interfaceName());
+}
+
+//  void QWaylandPresentationTime::presented(quint64 sequence, quint64
+//      tv_sec, quint32 tv_nsec, quint32 refresh_nsec)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QWaylandPresentationTime9presentedEyyjj(
+    QWaylandPresentationTime *self,
+    quint64 sequence,
+    quint64 tv_sec,
+    quint32 tv_nsec,
+    quint32 refresh_nsec) {
+  self->presented(sequence, tv_sec, tv_nsec, refresh_nsec);
 }
 
 //  a Python function taken by a CuteQWaylandPresentationTime, for the

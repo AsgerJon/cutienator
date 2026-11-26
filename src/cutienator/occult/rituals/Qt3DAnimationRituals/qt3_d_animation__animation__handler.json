@@ -8,6 +8,21 @@
     "ritual_ZNK13Qt3DAnimation9Animation7Handler14simulationTimeEv": [
       "long long", "address"
     ],
+    "ritual_ZN13Qt3DAnimation9Animation7Handler8setDirtyENS1_9DirtyFlagEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation7Handler22setClipAnimatorRunningERKN8Qt3DCore7QHandleINS0_12ClipAnimatorEEEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler20runningClipAnimatorsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation7Handler29setBlendedClipAnimatorRunningERKN8Qt3DCore7QHandleINS0_19BlendedClipAnimatorEEEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler28runningBlenndedClipAnimatorsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK13Qt3DAnimation9Animation7Handler26animationClipLoaderManagerEv": [
       "address", "address"
     ],
@@ -31,6 +46,24 @@
     ],
     "ritual_ZNK13Qt3DAnimation9Animation7Handler15skeletonManagerEv": [
       "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation7Handler17cleanupHandleListEP5QListIN8Qt3DCore7QHandleINS0_13AnimationClipEEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation7Handler17cleanupHandleListEP5QListIN8Qt3DCore7QHandleINS0_12ClipAnimatorEEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation7Handler17cleanupHandleListEP5QListIN8Qt3DCore7QHandleINS0_19BlendedClipAnimatorEEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_Handler__QVector_Qt3DAnimation_Animation_HClipAnimator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_Handler__QVector_Qt3DAnimation_Animation_HBlendedClipAnimator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_Handler__std_vector_Qt3DCore_QAspectJobPtr": [
+      "nothing", "address"
     ]
   }
 }

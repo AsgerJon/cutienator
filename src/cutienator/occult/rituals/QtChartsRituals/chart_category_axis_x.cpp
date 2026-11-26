@@ -18,6 +18,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on ChartCategoryAxisX may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1286,6 +1287,25 @@ const QMetaObject *ritual_ZNK18ChartCategoryAxisX10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ChartCategoryAxisX::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18ChartCategoryAxisX11qt_metacastEPKc(
+    ChartCategoryAxisX *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ChartCategoryAxisX::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18ChartCategoryAxisX11qt_metacallEN11QMetaObject4CallEiPPv(
+    ChartCategoryAxisX *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ChartCategoryAxisX::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18ChartCategoryAxisX2trEPKcS1_i(
@@ -1327,6 +1347,13 @@ void ritual_ZN18ChartCategoryAxisX23handleCategoriesChangedEv(
   self->handleCategoriesChanged();
 }
 
+//  QList<qreal> ChartCategoryAxisX::calculateLayout() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK18ChartCategoryAxisX15calculateLayoutEv(
+    const ChartCategoryAxisX *self) {
+  return new QList<qreal>(self->calculateLayout());
+}
+
 //  void ChartCategoryAxisX::updateGeometry()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18ChartCategoryAxisX14updateGeometryEv(
@@ -1359,4 +1386,10 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN18ChartCategoryAxisX14updateGeometryEv(
     ChartCategoryAxisX *self) {
   static_cast<OwnChartCategoryAxisX *>(self)->OwnChartCategoryAxisX::updateGeometry();
+}
+
+//  a QList<qreal> a ritual of ChartCategoryAxisX gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_ChartCategoryAxisX__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

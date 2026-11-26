@@ -20,6 +20,16 @@ QMqttAuthenticationProperties *ritual_ZN29QMqttAuthenticationPropertiesC1ERKS_(
   return new QMqttAuthenticationProperties(*a0);
 }
 
+//  QMqttAuthenticationProperties
+//      &QMqttAuthenticationProperties::operator=(const
+//      QMqttAuthenticationProperties &a0)
+extern "C" Q_DECL_EXPORT
+QMqttAuthenticationProperties *ritual_ZN29QMqttAuthenticationPropertiesaSERKS_(
+    QMqttAuthenticationProperties *self,
+    const QMqttAuthenticationProperties *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QMqttAuthenticationProperties::~QMqttAuthenticationProperties()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QMqttAuthenticationPropertiesD1Ev(

@@ -5,6 +5,7 @@
     "p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17ScatterRenderItemaSERKS_": ["address", "address", "address"],
     "ritual_ZN17ScatterRenderItemD1Ev": ["nothing", "address"],
     "ritual_ZNK17ScatterRenderItem8positionEv": ["address", "address"],
     "ritual_ZN17ScatterRenderItem11setPositionERK9QVector3D": [

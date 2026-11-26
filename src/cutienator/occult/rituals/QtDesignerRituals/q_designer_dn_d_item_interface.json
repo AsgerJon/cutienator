@@ -5,6 +5,7 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN25QDesignerDnDItemInterfaceC1Ev": ["address"],
     "ritual_ZN25QDesignerDnDItemInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK25QDesignerDnDItemInterface5domUiEv": ["address", "address"],
     "ritual_ZNK25QDesignerDnDItemInterface6widgetEv": ["address", "address"],

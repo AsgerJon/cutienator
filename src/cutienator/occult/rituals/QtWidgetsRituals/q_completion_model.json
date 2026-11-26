@@ -6,6 +6,13 @@
   ],
   "rows": {
     "ritual_ZNK16QCompletionModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QCompletionModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QCompletionModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QCompletionModel12createEngineEv": ["nothing", "address"],
     "ritual_ZN16QCompletionModel11setFilteredEb": [
       "nothing", "address", "bool"
     ],
@@ -49,7 +56,9 @@
     ],
     "ritual_ZN16QCompletionModel6d_funcEv": ["address", "address"],
     "ritual_ZNK16QCompletionModel6d_funcEv": ["address", "address"],
+    "ritual_ZN16QCompletionModel9rowsAddedEv": ["nothing", "address"],
     "ritual_ZN16QCompletionModel10invalidateEv": ["nothing", "address"],
+    "ritual_ZN16QCompletionModel12rowsInsertedEv": ["nothing", "address"],
     "ritual_ZN16QCompletionModel14modelDestroyedEv": ["nothing", "address"],
     "ritual_take_QCompletionModel": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK16QCompletionModel5indexEiiRK11QModelIndex": [

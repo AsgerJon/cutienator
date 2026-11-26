@@ -5,6 +5,15 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render11StringToInt8lookupIdERK7QString": [
+      "int", "text"
+    ],
+    "ritual_ZN10Qt3DRender6Render11StringToInt8lookupIdE13QLatin1String": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render11StringToInt12lookupStringEi": [
+      "text", "int"
+    ],
     "ritual_ZN10Qt3DRender6Render11StringToIntD1Ev": ["nothing", "address"]
   }
 }

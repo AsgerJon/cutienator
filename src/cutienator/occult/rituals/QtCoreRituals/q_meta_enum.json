@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qmetaobject.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qmetaobject.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN9QMetaEnumC1Ev": ["address"],
@@ -14,12 +15,19 @@
     "ritual_ZNK9QMetaEnum8keyCountEv": ["int", "address"],
     "ritual_ZNK9QMetaEnum3keyEi": ["chars", "address", "int"],
     "ritual_ZNK9QMetaEnum5valueEi": ["int", "address", "int"],
+    "ritual_ZNK9QMetaEnum7value64Ei": ["address", "address", "int"],
     "ritual_ZNK9QMetaEnum5scopeEv": ["chars", "address"],
     "ritual_ZNK9QMetaEnum10keyToValueEPKcPb": [
       "int", "address", "chars", "address"
     ],
     "ritual_ZNK9QMetaEnum11keysToValueEPKcPb": [
       "int", "address", "chars", "address"
+    ],
+    "ritual_ZNK9QMetaEnum12keyToValue64EPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZNK9QMetaEnum13keysToValue64EPKc": [
+      "address", "address", "chars"
     ],
     "ritual_ZNK9QMetaEnum10valueToKeyEy": [
       "chars", "address", "unsigned long long"
@@ -30,6 +38,12 @@
     "ritual_ZNK9QMetaEnum19enclosingMetaObjectEv": ["address", "address"],
     "ritual_ZNK9QMetaEnum7isValidEv": ["bool", "address"],
     "ritual_ZN9QMetaEnumC1EPK11QMetaObjecti": ["address", "address", "int"],
-    "ritual_ZN9QMetaEnumD1Ev": ["nothing", "address"]
+    "ritual_ZN9QMetaEnumD1Ev": ["nothing", "address"],
+    "ritual_drop_QMetaEnum__std_optional_quint64": ["nothing", "address"],
+    "ritual_ZN9QMetaEnum8fromTypeIN2Qt11OrientationEEES_v": ["address"],
+    "ritual_ZN9QMetaEnum8fromTypeIN2Qt9DayOfWeekEEES_v": ["address"],
+    "ritual_ZN9QMetaEnum8fromTypeIN2Qt10CheckStateEEES_v": ["address"],
+    "ritual_ZN9QMetaEnum8fromTypeIN2Qt15CaseSensitivityEEES_v": ["address"],
+    "ritual_ZN9QMetaEnum8fromTypeIN2Qt14ConnectionTypeEEES_v": ["address"]
   }
 }

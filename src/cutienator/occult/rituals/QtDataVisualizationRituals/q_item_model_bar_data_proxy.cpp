@@ -3,7 +3,9 @@
 //  here are lost.
 #include <QtDataVisualization/qitemmodelbardataproxy.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -180,6 +182,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QItemModelBarDataProxy10metaObjectEv(
     const QItemModelBarDataProxy *self) {
   return self->metaObject();
+}
+
+//  void *QItemModelBarDataProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QItemModelBarDataProxy11qt_metacastEPKc(
+    QItemModelBarDataProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QItemModelBarDataProxy::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QItemModelBarDataProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    QItemModelBarDataProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QItemModelBarDataProxy::tr(const char *s, const char *c, int n)
@@ -638,6 +659,166 @@ extern "C" Q_DECL_EXPORT
 QItemModelBarDataProxy::MultiMatchBehavior ritual_ZNK22QItemModelBarDataProxy18multiMatchBehaviorEv(
     const QItemModelBarDataProxy *self) {
   return self->multiMatchBehavior();
+}
+
+//  void QItemModelBarDataProxy::itemModelChanged(const QAbstractItemModel
+//      *itemModel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy16itemModelChangedEPK18QAbstractItemModel(
+    QItemModelBarDataProxy *self,
+    const QAbstractItemModel *itemModel) {
+  self->itemModelChanged(itemModel);
+}
+
+//  void QItemModelBarDataProxy::rowRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy14rowRoleChangedERK7QString(
+    QItemModelBarDataProxy *self,
+    const QString *role) {
+  self->rowRoleChanged(*role);
+}
+
+//  void QItemModelBarDataProxy::columnRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy17columnRoleChangedERK7QString(
+    QItemModelBarDataProxy *self,
+    const QString *role) {
+  self->columnRoleChanged(*role);
+}
+
+//  void QItemModelBarDataProxy::valueRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy16valueRoleChangedERK7QString(
+    QItemModelBarDataProxy *self,
+    const QString *role) {
+  self->valueRoleChanged(*role);
+}
+
+//  void QItemModelBarDataProxy::rotationRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy19rotationRoleChangedERK7QString(
+    QItemModelBarDataProxy *self,
+    const QString *role) {
+  self->rotationRoleChanged(*role);
+}
+
+//  void QItemModelBarDataProxy::rowCategoriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy20rowCategoriesChangedEv(
+    QItemModelBarDataProxy *self) {
+  self->rowCategoriesChanged();
+}
+
+//  void QItemModelBarDataProxy::columnCategoriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy23columnCategoriesChangedEv(
+    QItemModelBarDataProxy *self) {
+  self->columnCategoriesChanged();
+}
+
+//  void QItemModelBarDataProxy::useModelCategoriesChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy25useModelCategoriesChangedEb(
+    QItemModelBarDataProxy *self,
+    bool enable) {
+  self->useModelCategoriesChanged(enable);
+}
+
+//  void QItemModelBarDataProxy::autoRowCategoriesChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy24autoRowCategoriesChangedEb(
+    QItemModelBarDataProxy *self,
+    bool enable) {
+  self->autoRowCategoriesChanged(enable);
+}
+
+//  void QItemModelBarDataProxy::autoColumnCategoriesChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy27autoColumnCategoriesChangedEb(
+    QItemModelBarDataProxy *self,
+    bool enable) {
+  self->autoColumnCategoriesChanged(enable);
+}
+
+//  void QItemModelBarDataProxy::rowRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy21rowRolePatternChangedERK18QRegularExpression(
+    QItemModelBarDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->rowRolePatternChanged(*pattern);
+}
+
+//  void QItemModelBarDataProxy::columnRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy24columnRolePatternChangedERK18QRegularExpression(
+    QItemModelBarDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->columnRolePatternChanged(*pattern);
+}
+
+//  void QItemModelBarDataProxy::valueRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy23valueRolePatternChangedERK18QRegularExpression(
+    QItemModelBarDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->valueRolePatternChanged(*pattern);
+}
+
+//  void QItemModelBarDataProxy::rotationRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy26rotationRolePatternChangedERK18QRegularExpression(
+    QItemModelBarDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->rotationRolePatternChanged(*pattern);
+}
+
+//  void QItemModelBarDataProxy::rowRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy21rowRoleReplaceChangedERK7QString(
+    QItemModelBarDataProxy *self,
+    const QString *replace) {
+  self->rowRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelBarDataProxy::columnRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy24columnRoleReplaceChangedERK7QString(
+    QItemModelBarDataProxy *self,
+    const QString *replace) {
+  self->columnRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelBarDataProxy::valueRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy23valueRoleReplaceChangedERK7QString(
+    QItemModelBarDataProxy *self,
+    const QString *replace) {
+  self->valueRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelBarDataProxy::rotationRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy26rotationRoleReplaceChangedERK7QString(
+    QItemModelBarDataProxy *self,
+    const QString *replace) {
+  self->rotationRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelBarDataProxy::multiMatchBehaviorChanged(MultiMatchBehavior
+//      behavior)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QItemModelBarDataProxy25multiMatchBehaviorChangedENS_18MultiMatchBehaviorE(
+    QItemModelBarDataProxy *self,
+    QItemModelBarDataProxy::MultiMatchBehavior behavior) {
+  self->multiMatchBehaviorChanged(behavior);
 }
 
 //  QItemModelBarDataProxyPrivate *QItemModelBarDataProxy::dptr()

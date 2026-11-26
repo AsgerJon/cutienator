@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickTumbler10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickTumbler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickTumbler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickTumbler2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickTumbler21qt_qmlMarker_attachedEv": [
       "nothing", "address"
@@ -45,6 +51,21 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN13QQuickTumbler22resetFlickDecelerationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickTumbler12modelChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickTumbler12countChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickTumbler19currentIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickTumbler18currentItemChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickTumbler15delegateChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickTumbler23visibleItemCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickTumbler11wrapChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickTumbler13movingChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickTumbler24flickDecelerationChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN13QQuickTumbler14geometryChangeERK6QRectFS2_": [

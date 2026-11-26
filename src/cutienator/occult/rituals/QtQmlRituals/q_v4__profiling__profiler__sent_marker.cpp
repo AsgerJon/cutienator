@@ -30,6 +30,15 @@ void ritual_ZN3QV49Profiling8Profiler10SentMarkerD1Ev(
   delete self;
 }
 
+//  SentMarker &QV4::Profiling::Profiler::SentMarker::operator=(const
+//      SentMarker &other)
+extern "C" Q_DECL_EXPORT
+QV4::Profiling::Profiler::SentMarker *ritual_ZN3QV49Profiling8Profiler10SentMarkeraSERKS2_(
+    QV4::Profiling::Profiler::SentMarker *self,
+    const QV4::Profiling::Profiler::SentMarker *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QV4::Profiling::Profiler::SentMarker::setFunction(Function
 //      *function)
 extern "C" Q_DECL_EXPORT

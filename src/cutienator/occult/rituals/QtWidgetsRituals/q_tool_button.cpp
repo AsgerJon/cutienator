@@ -1079,6 +1079,24 @@ const QMetaObject *ritual_ZNK11QToolButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QToolButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QToolButton11qt_metacastEPKc(
+    QToolButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QToolButton::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QToolButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QToolButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QToolButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QToolButton2trEPKcS1_i(
@@ -1210,6 +1228,14 @@ void ritual_ZN11QToolButton16setDefaultActionEP7QAction(
   self->setDefaultAction(a0);
 }
 
+//  void QToolButton::triggered(QAction *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton9triggeredEP7QAction(
+    QToolButton *self,
+    QAction *a0) {
+  self->triggered(a0);
+}
+
 //  bool QToolButton::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QToolButton5eventEP6QEvent(QToolButton *self, QEvent *e) {
@@ -1306,6 +1332,19 @@ void ritual_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolButton(
     const QToolButton *self,
     QStyleOptionToolButton *option) {
   self->initStyleOption(option);
+}
+
+//  QToolButtonPrivate *QToolButton::d_func()
+extern "C" Q_DECL_EXPORT
+QToolButtonPrivate *ritual_ZN11QToolButton6d_funcEv(QToolButton *self) {
+  return self->d_func();
+}
+
+//  const QToolButtonPrivate *QToolButton::d_func() const
+extern "C" Q_DECL_EXPORT
+const QToolButtonPrivate *ritual_ZNK11QToolButton6d_funcEv(
+    const QToolButton *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQToolButton, for the function named by

@@ -110,6 +110,35 @@ void ritual_ZN10QSvgMarkerD1Ev(QSvgMarker *self) {
   delete self;
 }
 
+//  void QSvgMarker::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSvgMarker11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgMarker *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
+//  void QSvgMarker::drawMarkersForNode(QSvgNode *node, QPainter *p,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSvgMarker18drawMarkersForNodeEP8QSvgNodeP8QPainterR15QSvgExtraStates(
+    QSvgNode *node,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  QSvgMarker::drawMarkersForNode(node, p, *states);
+}
+
+//  QRectF QSvgMarker::markersBoundsForNode(const QSvgNode *node, QPainter
+//      *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZN10QSvgMarker20markersBoundsForNodeEPK8QSvgNodeP8QPainterR15QSvgExtraStates(
+    const QSvgNode *node,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(QSvgMarker::markersBoundsForNode(node, p, *states));
+}
+
 //  Orientation QSvgMarker::orientation() const
 extern "C" Q_DECL_EXPORT
 QSvgMarker::Orientation ritual_ZNK10QSvgMarker11orientationEv(
@@ -134,6 +163,17 @@ QSvgMarker::MarkerUnits ritual_ZNK10QSvgMarker11markerUnitsEv(
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK10QSvgMarker4typeEv(const QSvgMarker *self) {
   return self->type();
+}
+
+//  void QSvgMarker::drawHelper(const QSvgNode *node, QPainter *p,
+//      QSvgExtraStates &states, QRectF *boundingRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSvgMarker10drawHelperEPK8QSvgNodeP8QPainterR15QSvgExtraStatesP6QRectF(
+    const QSvgNode *node,
+    QPainter *p,
+    QSvgExtraStates *states,
+    QRectF *boundingRect) {
+  QSvgMarker::drawHelper(node, p, *states, boundingRect);
 }
 
 //  a Python function taken by a CuteQSvgMarker, for the function named by

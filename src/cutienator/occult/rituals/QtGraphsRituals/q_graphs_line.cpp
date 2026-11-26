@@ -25,10 +25,38 @@ QGraphsLine *ritual_ZN11QGraphsLineC1ERKS_(const QGraphsLine *other) {
   return new QGraphsLine(*other);
 }
 
+//  QGraphsLine::QGraphsLine(QGraphsLine &&other)
+extern "C" Q_DECL_EXPORT
+QGraphsLine *ritual_ZN11QGraphsLineC1EOS_(QGraphsLine *other) {
+  return new QGraphsLine(std::move(*other));
+}
+
 //  QGraphsLine::~QGraphsLine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QGraphsLineD1Ev(QGraphsLine *self) {
   delete self;
+}
+
+//  QGraphsLine &QGraphsLine::operator=(const QGraphsLine &other)
+extern "C" Q_DECL_EXPORT
+QGraphsLine *ritual_ZN11QGraphsLineaSERKS_(
+    QGraphsLine *self,
+    const QGraphsLine *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QGraphsLine::swap(QGraphsLine &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGraphsLine4swapERS_(QGraphsLine *self, QGraphsLine *other) {
+  self->swap(*other);
+}
+
+//  QGraphsLine &QGraphsLine::operator=(QGraphsLine &&other)
+extern "C" Q_DECL_EXPORT
+QGraphsLine *ritual_ZN11QGraphsLineaSEOS_(
+    QGraphsLine *self,
+    QGraphsLine *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  QColor QGraphsLine::mainColor() const

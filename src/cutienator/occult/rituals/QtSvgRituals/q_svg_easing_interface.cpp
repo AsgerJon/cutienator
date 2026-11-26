@@ -37,6 +37,12 @@ public:
   }
 };
 
+//  QSvgEasingInterface::QSvgEasingInterface()
+extern "C" Q_DECL_EXPORT
+QSvgEasingInterface *ritual_ZN19QSvgEasingInterfaceC1Ev() {
+  return new CuteQSvgEasingInterface();
+}
+
 //  QSvgEasingInterface::~QSvgEasingInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QSvgEasingInterfaceD1Ev(QSvgEasingInterface *self) {

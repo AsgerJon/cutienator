@@ -5,8 +5,39 @@
   ],
   "rows": {
     "ritual_ZNK10Qt3DRender5QMesh10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender5QMesh11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender5QMesh11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender5QMesh2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender5QMeshC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5QMeshD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender5QMesh6sourceEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender5QMesh8meshNameEv": ["text", "address"],
+    "ritual_ZNK10Qt3DRender5QMesh6statusEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender5QMesh9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5QMesh11setMeshNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender5QMesh13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5QMesh15meshNameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender5QMesh13statusChangedENS0_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender5QMeshC1ERNS_12QMeshPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender5QMesh6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender5QMesh6d_funcEv": ["address", "address"],

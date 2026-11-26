@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK15QPointingDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QPointingDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QPointingDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QPointingDevice2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,13 @@
     "ritual_ZNK15QPointingDevice8uniqueIdEv": ["address", "address"],
     "ritual_ZN15QPointingDevice21primaryPointingDeviceERK7QString": [
       "address", "text"
+    ],
+    "ritual_ZNK15QPointingDeviceeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK15QPointingDevice11grabChangedEP7QObjectNS_14GrabTransitionEPK13QPointerEventRK11QEventPoint": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN15QPointingDeviceC1ER22QPointingDevicePrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QPointingDevice": ["bool", "address", "chars", "address"]
   }

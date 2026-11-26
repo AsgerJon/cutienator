@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK22QQuickImplicitSizeItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickImplicitSizeItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickImplicitSizeItem11qt_metacastEPKc(
+    QQuickImplicitSizeItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickImplicitSizeItem::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickImplicitSizeItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickImplicitSizeItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickImplicitSizeItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickImplicitSizeItem2trEPKcS1_i(
@@ -29,6 +48,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickImplicitSizeItem22qt_qmlMarker_anonymousEv(
     QQuickImplicitSizeItem *self) {
   self->qt_qmlMarker_anonymous();
+}
+
+//  QQuickImplicitSizeItem::QQuickImplicitSizeItem(QQuickImplicitSizeItemPriv
+//      ate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickImplicitSizeItem *ritual_ZN22QQuickImplicitSizeItemC1ER29QQuickImplicitSizeItemPrivateP10QQuickItem(
+    QQuickImplicitSizeItemPrivate *dd,
+    QQuickItem *parent) {
+  return new QQuickImplicitSizeItem(*dd, parent);
 }
 
 //  QQuickImplicitSizeItemPrivate *QQuickImplicitSizeItem::d_func()

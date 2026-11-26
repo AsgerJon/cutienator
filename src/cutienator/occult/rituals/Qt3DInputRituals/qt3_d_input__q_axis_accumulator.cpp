@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput16QAxisAccumulator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QAxisAccumulator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput16QAxisAccumulator11qt_metacastEPKc(
+    Qt3DInput::QAxisAccumulator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QAxisAccumulator::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput16QAxisAccumulator11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QAxisAccumulator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QAxisAccumulator::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,123 @@ QString *ritual_ZN9Qt3DInput16QAxisAccumulator2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QAxisAccumulator::tr(s, c, n));
+}
+
+//  Qt3DInput::QAxisAccumulator::QAxisAccumulator(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAxisAccumulator *ritual_ZN9Qt3DInput16QAxisAccumulatorC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QAxisAccumulator(parent);
+}
+
+//  Qt3DInput::QAxisAccumulator::~QAxisAccumulator()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAxisAccumulatorD1Ev(
+    Qt3DInput::QAxisAccumulator *self) {
+  delete self;
+}
+
+//  Qt3DInput::QAxis *Qt3DInput::QAxisAccumulator::sourceAxis() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAxis *ritual_ZNK9Qt3DInput16QAxisAccumulator10sourceAxisEv(
+    const Qt3DInput::QAxisAccumulator *self) {
+  return self->sourceAxis();
+}
+
+//  SourceAxisType Qt3DInput::QAxisAccumulator::sourceAxisType() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAxisAccumulator::SourceAxisType ritual_ZNK9Qt3DInput16QAxisAccumulator14sourceAxisTypeEv(
+    const Qt3DInput::QAxisAccumulator *self) {
+  return self->sourceAxisType();
+}
+
+//  float Qt3DInput::QAxisAccumulator::value() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK9Qt3DInput16QAxisAccumulator5valueEv(
+    const Qt3DInput::QAxisAccumulator *self) {
+  return self->value();
+}
+
+//  float Qt3DInput::QAxisAccumulator::velocity() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK9Qt3DInput16QAxisAccumulator8velocityEv(
+    const Qt3DInput::QAxisAccumulator *self) {
+  return self->velocity();
+}
+
+//  float Qt3DInput::QAxisAccumulator::scale() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK9Qt3DInput16QAxisAccumulator5scaleEv(
+    const Qt3DInput::QAxisAccumulator *self) {
+  return self->scale();
+}
+
+//  void Qt3DInput::QAxisAccumulator::setSourceAxis(Qt3DInput::QAxis
+//      *sourceAxis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAxisAccumulator13setSourceAxisEPNS_5QAxisE(
+    Qt3DInput::QAxisAccumulator *self,
+    Qt3DInput::QAxis *sourceAxis) {
+  self->setSourceAxis(sourceAxis);
+}
+
+//  void Qt3DInput::QAxisAccumulator::setSourceAxisType(QAxisAccumulator::Sou
+//      rceAxisType sourceAxisType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAxisAccumulator17setSourceAxisTypeENS0_14SourceAxisTypeE(
+    Qt3DInput::QAxisAccumulator *self,
+    Qt3DInput::QAxisAccumulator::SourceAxisType sourceAxisType) {
+  self->setSourceAxisType(sourceAxisType);
+}
+
+//  void Qt3DInput::QAxisAccumulator::setScale(float scale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAxisAccumulator8setScaleEf(
+    Qt3DInput::QAxisAccumulator *self,
+    float scale) {
+  self->setScale(scale);
+}
+
+//  void Qt3DInput::QAxisAccumulator::sourceAxisChanged(Qt3DInput::QAxis
+//      *sourceAxis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAxisAccumulator17sourceAxisChangedEPNS_5QAxisE(
+    Qt3DInput::QAxisAccumulator *self,
+    Qt3DInput::QAxis *sourceAxis) {
+  self->sourceAxisChanged(sourceAxis);
+}
+
+//  void Qt3DInput::QAxisAccumulator::sourceAxisTypeChanged(QAxisAccumulator:
+//      :SourceAxisType sourceAxisType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAxisAccumulator21sourceAxisTypeChangedENS0_14SourceAxisTypeE(
+    Qt3DInput::QAxisAccumulator *self,
+    Qt3DInput::QAxisAccumulator::SourceAxisType sourceAxisType) {
+  self->sourceAxisTypeChanged(sourceAxisType);
+}
+
+//  void Qt3DInput::QAxisAccumulator::valueChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAxisAccumulator12valueChangedEf(
+    Qt3DInput::QAxisAccumulator *self,
+    float value) {
+  self->valueChanged(value);
+}
+
+//  void Qt3DInput::QAxisAccumulator::velocityChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAxisAccumulator15velocityChangedEf(
+    Qt3DInput::QAxisAccumulator *self,
+    float value) {
+  self->velocityChanged(value);
+}
+
+//  void Qt3DInput::QAxisAccumulator::scaleChanged(float scale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput16QAxisAccumulator12scaleChangedEf(
+    Qt3DInput::QAxisAccumulator *self,
+    float scale) {
+  self->scaleChanged(scale);
 }
 
 //  QAxisAccumulatorPrivate *Qt3DInput::QAxisAccumulator::d_func()

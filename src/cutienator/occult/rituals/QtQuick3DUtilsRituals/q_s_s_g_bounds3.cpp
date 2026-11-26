@@ -25,6 +25,24 @@ inline QSSGBounds3 QSSGBounds3::boundsOfPoints(const QVector3D &v0, const QVecto
 {
     return QSSGBounds3(QSSGUtils::vec3::minimum(v0, v1), QSSGUtils::vec3::maximum(v0, v1));
 }
+
+//  from ../qtquick3d/src/utils/qssgbounds3.cpp, line 34, as _ZN11QSSGBounds311basisExtentERK9QVector3DRK14QGenericMatrixILi3ELi3EfES2_
+inline QSSGBounds3 QSSGBounds3::basisExtent(const QVector3D &center, const QMatrix3x3 &basis, const QVector3D &extent)
+{
+    // extended basis vectors
+    QVector3D c0 = QVector3D(basis(0, 0), basis(1, 0), basis(2, 0)) * extent.x();
+    QVector3D c1 = QVector3D(basis(0, 1), basis(1, 1), basis(2, 1)) * extent.y();
+    QVector3D c2 = QVector3D(basis(0, 2), basis(1, 2), basis(2, 2)) * extent.z();
+
+    QVector3D w;
+    // find combination of base vectors that produces max. distance for each component = sum of
+    // abs()
+    w.setX(qAbs(c0.x()) + qAbs(c1.x()) + qAbs(c2.x()));
+    w.setY(qAbs(c0.y()) + qAbs(c1.y()) + qAbs(c2.y()));
+    w.setZ(qAbs(c0.z()) + qAbs(c1.z()) + qAbs(c2.z()));
+
+    return QSSGBounds3(center - w, center + w);
+}
 //  -----------------------------------------------------------------------
 
 //  QSSGBounds3::QSSGBounds3()
@@ -49,6 +67,13 @@ QSSGBounds3 *ritual_ZN11QSSGBounds3C1ERK9QVector3DS2_(
   return new QSSGBounds3(*minimum, *maximum);
 }
 
+//  QSSGBounds3::QSSGBounds3(const QSSGBoxPoints &points)
+extern "C" Q_DECL_EXPORT
+QSSGBounds3 *ritual_ZN11QSSGBounds3C1ERKSt5arrayI9QVector3DLm8EE(
+    const QSSGBoxPoints *points) {
+  return new QSSGBounds3(*points);
+}
+
 //  QSSGBounds3 QSSGBounds3::boundsOfPoints(const QVector3D &v0, const
 //      QVector3D &v1)
 extern "C" Q_DECL_EXPORT
@@ -65,6 +90,25 @@ QSSGBounds3 *ritual_ZN11QSSGBounds313centerExtentsERK9QVector3DS2_(
     const QVector3D *center,
     const QVector3D *extent) {
   return new QSSGBounds3(QSSGBounds3::centerExtents(*center, *extent));
+}
+
+//  QSSGBounds3 QSSGBounds3::basisExtent(const QVector3D &center, const
+//      QMatrix3x3 &basis, const QVector3D &extent)
+extern "C" Q_DECL_EXPORT
+QSSGBounds3 *ritual_ZN11QSSGBounds311basisExtentERK9QVector3DRK14QGenericMatrixILi3ELi3EfES2_(
+    const QVector3D *center,
+    const QMatrix3x3 *basis,
+    const QVector3D *extent) {
+  return new QSSGBounds3(QSSGBounds3::basisExtent(*center, *basis, *extent));
+}
+
+//  QSSGBounds3 QSSGBounds3::transform(const QMatrix3x3 &matrix, const
+//      QSSGBounds3 &bounds)
+extern "C" Q_DECL_EXPORT
+QSSGBounds3 *ritual_ZN11QSSGBounds39transformERK14QGenericMatrixILi3ELi3EfERKS_(
+    const QMatrix3x3 *matrix,
+    const QSSGBounds3 *bounds) {
+  return new QSSGBounds3(QSSGBounds3::transform(*matrix, *bounds));
 }
 
 //  void QSSGBounds3::setEmpty()
@@ -186,6 +230,20 @@ bool ritual_ZNK11QSSGBounds38isFiniteEv(const QSSGBounds3 *self) {
   return self->isFinite();
 }
 
+//  QSSGBoxPoints QSSGBounds3::toQSSGBoxPointsNoEmptyCheck() const
+extern "C" Q_DECL_EXPORT
+QSSGBoxPoints *ritual_ZNK11QSSGBounds327toQSSGBoxPointsNoEmptyCheckEv(
+    const QSSGBounds3 *self) {
+  return new QSSGBoxPoints(self->toQSSGBoxPointsNoEmptyCheck());
+}
+
+//  QSSGBoxPoints QSSGBounds3::toQSSGBoxPoints() const
+extern "C" Q_DECL_EXPORT
+QSSGBoxPoints *ritual_ZNK11QSSGBounds315toQSSGBoxPointsEv(
+    const QSSGBounds3 *self) {
+  return new QSSGBoxPoints(self->toQSSGBoxPoints());
+}
+
 //  void QSSGBounds3::transform(const QMatrix4x4 &inMatrix)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QSSGBounds39transformERK10QMatrix4x4(
@@ -205,5 +263,11 @@ QVector3D *ritual_ZNK11QSSGBounds310getSupportERK9QVector3D(
 //  QSSGBounds3::~QSSGBounds3()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QSSGBounds3D1Ev(QSSGBounds3 *self) {
+  delete self;
+}
+
+//  a QSSGBoxPoints a ritual of QSSGBounds3 gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGBounds3__QSSGBoxPoints(QSSGBoxPoints *self) {
   delete self;
 }

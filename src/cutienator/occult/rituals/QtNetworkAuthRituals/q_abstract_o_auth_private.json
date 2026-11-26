@@ -7,6 +7,10 @@
   "rows": {
     "ritual_ZN21QAbstractOAuthPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QAbstractOAuthPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QAbstractOAuthPrivateC1EPKcRK4QUrlRK7QStringP21QNetworkAccessManager": [
+      "address", "chars", "address", "text", "address"
+    ],
+    "ritual_ZN21QAbstractOAuthPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN21QAbstractOAuthPrivate20networkAccessManagerEv": [
       "address", "address"
     ],
@@ -24,6 +28,9 @@
     ],
     "ritual_ZN21QAbstractOAuthPrivate21addContentTypeHeadersEP15QNetworkRequest": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN21QAbstractOAuthPrivate11createQueryERK9QMultiMapI7QString8QVariantE": [
+      "address", "address"
     ]
   }
 }

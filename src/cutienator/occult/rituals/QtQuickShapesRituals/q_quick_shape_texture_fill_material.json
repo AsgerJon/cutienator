@@ -32,6 +32,9 @@
     ],
     "ritual_own_ZNK30QQuickShapeTextureFillMaterial7compareEPK11QSGMaterial": [
       "int", "address", "address"
+    ],
+    "ritual_own_ZNK30QQuickShapeTextureFillMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
     ]
   }
 }

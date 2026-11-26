@@ -7,6 +7,47 @@
   "rows": {
     "ritual_ZNK22QQuickWeekNumberColumn10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn12monthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn11yearChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn13sourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn15delegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn12localeChangeERK7QLocaleS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn13paddingChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickWeekNumberColumn6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickWeekNumberColumn6d_funcEv": ["address", "address"],
+    "ritual_own_ZN22QQuickWeekNumberColumn17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickWeekNumberColumn14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickWeekNumberColumn13paddingChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
     ]
   }
 }

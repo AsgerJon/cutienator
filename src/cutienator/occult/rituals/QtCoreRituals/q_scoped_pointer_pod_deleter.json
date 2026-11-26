@@ -4,6 +4,10 @@
     "QtCore/qscopedpointer.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QScopedPointerPodDeleter7cleanupEPv": ["nothing", "address"],
+    "ritual_ZNK24QScopedPointerPodDeleterclEPv": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QScopedPointerPodDeleterD1Ev": ["nothing", "address"]
   }
 }

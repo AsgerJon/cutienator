@@ -8,11 +8,36 @@
     "ritual_ZNK8Qt3DCore5Quick11Quick3DNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore5Quick11Quick3DNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore5Quick11Quick3DNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore5Quick11Quick3DNode2trEPKcS3_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore5Quick11Quick3DNodeC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick11Quick3DNode4dataEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore5Quick11Quick3DNode10childNodesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK8Qt3DCore5Quick11Quick3DNode10parentNodeEv": [
       "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick11Quick3DNode13childAppendedEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick11Quick3DNode12childRemovedEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_Qt3DCore_Quick_Quick3DNode__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DCore_Quick_Quick3DNode__QQmlListProperty_Qt3DCore_QNode": [
+      "nothing", "address"
     ]
   }
 }

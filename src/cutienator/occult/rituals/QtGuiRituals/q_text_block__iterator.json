@@ -16,7 +16,9 @@
     "ritual_ZNK10QTextBlock8iteratorneERKS0_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN10QTextBlock8iteratorppEv": ["address", "address"],
     "ritual_ZN10QTextBlock8iteratorppEi": ["address", "address", "int"],
+    "ritual_ZN10QTextBlock8iteratormmEv": ["address", "address"],
     "ritual_ZN10QTextBlock8iteratormmEi": ["address", "address", "int"],
     "ritual_ZN10QTextBlock8iteratorD1Ev": ["nothing", "address"]
   }

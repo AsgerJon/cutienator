@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DAnimation/Qt3DAnimation>
 
 //  A Qt3DAnimation::QChannelMapper that Python can take functions over in. Every Qt3DAnimation::QChannelMapper
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation14QChannelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QChannelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation14QChannelMapper11qt_metacastEPKc(
+    Qt3DAnimation::QChannelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QChannelMapper::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation14QChannelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QChannelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QChannelMapper::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,56 @@ QString *ritual_ZN13Qt3DAnimation14QChannelMapper2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QChannelMapper::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QChannelMapper::QChannelMapper(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QChannelMapper *ritual_ZN13Qt3DAnimation14QChannelMapperC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QChannelMapper(parent);
+}
+
+//  Qt3DAnimation::QChannelMapper::~QChannelMapper()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation14QChannelMapperD1Ev(
+    Qt3DAnimation::QChannelMapper *self) {
+  delete self;
+}
+
+//  void Qt3DAnimation::QChannelMapper::addMapping(QAbstractChannelMapping
+//      *mapping)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation14QChannelMapper10addMappingEPNS_23QAbstractChannelMappingE(
+    Qt3DAnimation::QChannelMapper *self,
+    Qt3DAnimation::QAbstractChannelMapping *mapping) {
+  self->addMapping(mapping);
+}
+
+//  void Qt3DAnimation::QChannelMapper::removeMapping(QAbstractChannelMapping
+//      *mapping)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation14QChannelMapper13removeMappingEPNS_23QAbstractChannelMappingE(
+    Qt3DAnimation::QChannelMapper *self,
+    Qt3DAnimation::QAbstractChannelMapping *mapping) {
+  self->removeMapping(mapping);
+}
+
+//  QList<QAbstractChannelMapping *>
+//      Qt3DAnimation::QChannelMapper::mappings() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DAnimation::QAbstractChannelMapping *> *ritual_ZNK13Qt3DAnimation14QChannelMapper8mappingsEv(
+    const Qt3DAnimation::QChannelMapper *self) {
+  return new QList<Qt3DAnimation::QAbstractChannelMapping *>(
+      self->mappings());
+}
+
+//  Qt3DAnimation::QChannelMapper::QChannelMapper(QChannelMapperPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QChannelMapper *ritual_ZN13Qt3DAnimation14QChannelMapperC1ERNS_21QChannelMapperPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QChannelMapperPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QChannelMapper(*dd, parent);
 }
 
 //  QChannelMapperPrivate *Qt3DAnimation::QChannelMapper::d_func()
@@ -212,4 +283,12 @@ bool ritual_take_Qt3DAnimation_QChannelMapper(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DAnimation_QChannelMapper *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DAnimation::QAbstractChannelMapping *> a ritual of
+//      Qt3DAnimation::QChannelMapper gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DAnimation_QChannelMapper__QList_Qt3DAnimation_QAbstractChannelMapping(
+    QList<Qt3DAnimation::QAbstractChannelMapping *> *self) {
+  delete self;
 }

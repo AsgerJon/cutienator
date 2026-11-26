@@ -11,6 +11,7 @@
     "ritual_ZNK28QGraphicsAnchorLayoutPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivateC1Ev": ["address"],
     "ritual_ZN28QGraphicsAnchorLayoutPrivate3getEP21QGraphicsAnchorLayout": [
       "address", "address"
     ],
@@ -26,8 +27,23 @@
     "ritual_ZN28QGraphicsAnchorLayoutPrivate23removeCenterConstraintsEP19QGraphicsLayoutItemN2Qt11OrientationE": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate21acquireGraphicsAnchorEPN22QtGraphicsAnchorLayout10AnchorDataE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN28QGraphicsAnchorLayoutPrivate9getAnchorEP19QGraphicsLayoutItemN2Qt11AnchorPointES1_S3_": [
       "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZNK28QGraphicsAnchorLayoutPrivate9styleInfoEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate22restoreSimplifiedGraphEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate23restoreSimplifiedAnchorEPN22QtGraphicsAnchorLayout10AnchorDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate28restoreSimplifiedConstraintsEPN22QtGraphicsAnchorLayout18ParallelAnchorDataE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN28QGraphicsAnchorLayoutPrivate9findPathsEN2Qt11OrientationE": [
       "nothing", "address", "int"
@@ -38,8 +54,35 @@
     "ritual_ZN28QGraphicsAnchorLayoutPrivate13getGraphPartsEN2Qt11OrientationE": [
       "address", "address", "int"
     ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate18identifyFloatItemsERK4QSetIPN22QtGraphicsAnchorLayout10AnchorDataEEN2Qt11OrientationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate28identifyNonFloatItems_helperEPKN22QtGraphicsAnchorLayout10AnchorDataEP4QSetIP19QGraphicsLayoutItemE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK28QGraphicsAnchorLayoutPrivate14internalVertexERKSt4pairIP19QGraphicsLayoutItemN2Qt11AnchorPointEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK28QGraphicsAnchorLayoutPrivate14internalVertexEPK19QGraphicsLayoutItemN2Qt11AnchorPointE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate18changeLayoutVertexEN2Qt11OrientationEPN22QtGraphicsAnchorLayout12AnchorVertexES4_": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate17addInternalVertexEP19QGraphicsLayoutItemN2Qt11AnchorPointE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZN28QGraphicsAnchorLayoutPrivate18setItemsGeometriesERK6QRectF": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate24calculateVertexPositionsEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate23setupEdgesInterpolationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate15interpolateEdgeEPN22QtGraphicsAnchorLayout12AnchorVertexEPNS0_10AnchorDataE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN28QGraphicsAnchorLayoutPrivate9dumpGraphERK7QString": [
       "nothing", "address", "text"

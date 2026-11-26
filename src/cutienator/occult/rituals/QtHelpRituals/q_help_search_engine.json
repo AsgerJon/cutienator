@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK17QHelpSearchEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QHelpSearchEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QHelpSearchEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QHelpSearchEngineC1EP15QHelpEngineCoreP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QHelpSearchEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN17QHelpSearchEngine11queryWidgetEv": ["address", "address"],
+    "ritual_ZN17QHelpSearchEngine12resultWidgetEv": ["address", "address"],
+    "ritual_ZNK17QHelpSearchEngine9hitsCountEv": ["int", "address"],
+    "ritual_ZNK17QHelpSearchEngine8hitCountEv": ["int", "address"],
+    "ritual_ZNK17QHelpSearchEngine5queryEv": ["address", "address"],
+    "ritual_ZNK17QHelpSearchEngine17searchResultCountEv": ["int", "address"],
+    "ritual_ZNK17QHelpSearchEngine13searchResultsEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK17QHelpSearchEngine11searchInputEv": ["text", "address"],
+    "ritual_ZN17QHelpSearchEngine20reindexDocumentationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHelpSearchEngine14cancelIndexingEv": ["nothing", "address"],
+    "ritual_ZN17QHelpSearchEngine6searchERK5QListI16QHelpSearchQueryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHelpSearchEngine6searchERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QHelpSearchEngine15cancelSearchingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHelpSearchEngine26scheduleIndexDocumentationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHelpSearchEngine15indexingStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHelpSearchEngine16indexingFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHelpSearchEngine16searchingStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHelpSearchEngine17searchingFinishedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QHelpSearchEngine18indexDocumentationEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QHelpSearchEngine": ["bool", "address", "chars", "address"]
+  }
+}

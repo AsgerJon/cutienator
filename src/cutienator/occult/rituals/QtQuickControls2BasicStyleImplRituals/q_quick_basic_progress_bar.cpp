@@ -24,6 +24,55 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 14, as local:qquickbasicprogressbar.cpp:Blocks
+static const int Blocks = 4;
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 15, as local:qquickbasicprogressbar.cpp:BlockWidth
+static const int BlockWidth = 16;
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 16, as local:qquickbasicprogressbar.cpp:BlockRestingSpacing
+static const int BlockRestingSpacing = 4;
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 18, as local:qquickbasicprogressbar.cpp:BlockSpan
+static const int BlockSpan = Blocks * (BlockWidth + BlockRestingSpacing) - BlockRestingSpacing;
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 19, as local:qquickbasicprogressbar.cpp:QbpbTotalDuration
+static const int QbpbTotalDuration = 4000;
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 20, as local:qquickbasicprogressbar.cpp:SecondPhaseStart
+static const int SecondPhaseStart = QbpbTotalDuration * 0.4;
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 39, as local:qquickbasicprogressbar.cpp:QQuickBasicProgressBarNode
+class QQuickBasicProgressBarNode : public QQuickAnimatedNode
+{
+public:
+    QQuickBasicProgressBarNode(QQuickBasicProgressBar *item);
+
+    void updateCurrentTime(int time) override;
+    void sync(QQuickItem *item) override;
+
+private:
+    bool m_indeterminate = false;
+    qreal m_pixelsPerSecond = 0;
+};
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 52, as local:qquickbasicprogressbar.cpp:QQuickBasicProgressBarNode::QQuickBasicProgressBarNode
+inline QQuickBasicProgressBarNode::QQuickBasicProgressBarNode(QQuickBasicProgressBar *item)
+    : QQuickAnimatedNode(item),
+      m_pixelsPerSecond(item->width())
+{
+    setLoopCount(Infinite);
+    setDuration(QbpbTotalDuration);
+}
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 231, as _ZN22QQuickBasicProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickBasicProgressBar::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
+{
+    QQuickItem::itemChange(change, data);
+    if (change == ItemVisibleHasChanged)
+        update();
+}
+
 //  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 202, as _ZNK22QQuickBasicProgressBar15isIndeterminateEv
 inline bool QQuickBasicProgressBar::isIndeterminate() const
 {
@@ -72,14 +121,6 @@ inline void QQuickBasicProgressBar::setColor(const QColor &color)
     m_color = color;
     update();
 }
-
-//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicprogressbar.cpp, line 231, as _ZN22QQuickBasicProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
-inline void QQuickBasicProgressBar::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
-{
-    QQuickItem::itemChange(change, data);
-    if (change == ItemVisibleHasChanged)
-        update();
-}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickBasicProgressBar may call these functions of it.
@@ -93,6 +134,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QQuickBasicProgressBar10metaObjectEv(
     const QQuickBasicProgressBar *self) {
   return self->metaObject();
+}
+
+//  void *QQuickBasicProgressBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickBasicProgressBar11qt_metacastEPKc(
+    QQuickBasicProgressBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickBasicProgressBar::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickBasicProgressBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickBasicProgressBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  bool QQuickBasicProgressBar::isIndeterminate() const
@@ -148,6 +208,16 @@ void ritual_ZN22QQuickBasicProgressBar10itemChangeEN10QQuickItem10ItemChangeERKN
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->itemChange(change, *data);
+}
+
+//  QSGNode *QQuickBasicProgressBar::updatePaintNode(QSGNode *oldNode,
+//      UpdatePaintNodeData *a1)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN22QQuickBasicProgressBar15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE(
+    QQuickBasicProgressBar *self,
+    QSGNode *oldNode,
+    QQuickItem::UpdatePaintNodeData *a1) {
+  return self->updatePaintNode(oldNode, a1);
 }
 
 //  void QQuickBasicProgressBar::itemChange(ItemChange change, const

@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitembutton_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when"
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickStyleItemButton10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickStyleItemButtonD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuickStyleItemButton9styleFontEP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QQuickStyleItemButton16connectToControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickStyleItemButton10paintEventEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickStyleItemButton17calculateGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickStyleItemButton15initStyleOptionERN4QQC218QStyleOptionButtonE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

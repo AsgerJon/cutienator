@@ -7,7 +7,14 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_taskmenu_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(action)
+#include <QtGui/qaction.h>
+#endif
+#include <QtCore/qobject.h>
+#include <QtWidgets/qwidget.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A qdesigner_internal::QDesignerTaskMenu that Python can take functions over in. Every qdesigner_internal::QDesignerTaskMenu
@@ -201,6 +208,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal17QDesignerTaskMenu10metaObject
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::QDesignerTaskMenu::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal17QDesignerTaskMenu11qt_metacastEPKc(
+    qdesigner_internal::QDesignerTaskMenu *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::QDesignerTaskMenu::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal17QDesignerTaskMenu11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::QDesignerTaskMenu *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::QDesignerTaskMenu::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -209,6 +235,209 @@ QString *ritual_ZN18qdesigner_internal17QDesignerTaskMenu2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::QDesignerTaskMenu::tr(s, c, n));
+}
+
+//  qdesigner_internal::QDesignerTaskMenu::QDesignerTaskMenu(QWidget *widget,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::QDesignerTaskMenu *ritual_ZN18qdesigner_internal17QDesignerTaskMenuC1EP7QWidgetP7QObject(
+    QWidget *widget,
+    QObject *parent) {
+  return new Cuteqdesigner_internal_QDesignerTaskMenu(widget, parent);
+}
+
+//  qdesigner_internal::QDesignerTaskMenu::~QDesignerTaskMenu()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenuD1Ev(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  delete self;
+}
+
+//  QWidget *qdesigner_internal::QDesignerTaskMenu::widget() const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK18qdesigner_internal17QDesignerTaskMenu6widgetEv(
+    const qdesigner_internal::QDesignerTaskMenu *self) {
+  return self->widget();
+}
+
+//  QList<QAction *> qdesigner_internal::QDesignerTaskMenu::taskActions()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QAction *> *ritual_ZNK18qdesigner_internal17QDesignerTaskMenu11taskActionsEv(
+    const qdesigner_internal::QDesignerTaskMenu *self) {
+  return new QList<QAction *>(self->taskActions());
+}
+
+//  bool qdesigner_internal::QDesignerTaskMenu::isSlotNavigationEnabled(const
+//      QDesignerFormEditorInterface *core)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal17QDesignerTaskMenu23isSlotNavigationEnabledEPK28QDesignerFormEditorInterface(
+    const QDesignerFormEditorInterface *core) {
+  return qdesigner_internal::QDesignerTaskMenu::isSlotNavigationEnabled(
+      core);
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::navigateToSlot(QDesignerFormE
+//      ditorInterface *core, QObject *o, const QString &defaultSignal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu14navigateToSlotEP28QDesignerFormEditorInterfaceP7QObjectRK7QString(
+    QDesignerFormEditorInterface *core,
+    QObject *o,
+    const QString *defaultSignal) {
+  qdesigner_internal::QDesignerTaskMenu::navigateToSlot(
+      core,
+      o,
+      *defaultSignal);
+}
+
+//  QDesignerFormWindowInterface
+//      *qdesigner_internal::QDesignerTaskMenu::formWindow() const
+extern "C" Q_DECL_EXPORT
+QDesignerFormWindowInterface *ritual_ZNK18qdesigner_internal17QDesignerTaskMenu10formWindowEv(
+    const qdesigner_internal::QDesignerTaskMenu *self) {
+  return self->formWindow();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::changeTextProperty(const
+//      QString &propertyName, const QString &windowTitle, PropertyMode pm,
+//      Qt::TextFormat desiredFormat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu18changeTextPropertyERK7QStringS3_NS0_12PropertyModeEN2Qt10TextFormatE(
+    qdesigner_internal::QDesignerTaskMenu *self,
+    const QString *propertyName,
+    const QString *windowTitle,
+    qdesigner_internal::QDesignerTaskMenu::PropertyMode pm,
+    Qt::TextFormat desiredFormat) {
+  self->changeTextProperty(*propertyName, *windowTitle, pm, desiredFormat);
+}
+
+//  QAction *qdesigner_internal::QDesignerTaskMenu::createSeparator()
+extern "C" Q_DECL_EXPORT
+QAction *ritual_ZN18qdesigner_internal17QDesignerTaskMenu15createSeparatorEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  return self->createSeparator();
+}
+
+//  QObjectList
+//      qdesigner_internal::QDesignerTaskMenu::applicableObjects(const
+//      QDesignerFormWindowInterface *fw, PropertyMode pm) const
+extern "C" Q_DECL_EXPORT
+QList<QObject *> *ritual_ZNK18qdesigner_internal17QDesignerTaskMenu17applicableObjectsEPK28QDesignerFormWindowInterfaceNS0_12PropertyModeE(
+    const qdesigner_internal::QDesignerTaskMenu *self,
+    const QDesignerFormWindowInterface *fw,
+    qdesigner_internal::QDesignerTaskMenu::PropertyMode pm) {
+  return new QList<QObject *>(self->applicableObjects(fw, pm));
+}
+
+//  QWidgetList
+//      qdesigner_internal::QDesignerTaskMenu::applicableWidgets(const
+//      QDesignerFormWindowInterface *fw, PropertyMode pm) const
+extern "C" Q_DECL_EXPORT
+QList<QWidget *> *ritual_ZNK18qdesigner_internal17QDesignerTaskMenu17applicableWidgetsEPK28QDesignerFormWindowInterfaceNS0_12PropertyModeE(
+    const qdesigner_internal::QDesignerTaskMenu *self,
+    const QDesignerFormWindowInterface *fw,
+    qdesigner_internal::QDesignerTaskMenu::PropertyMode pm) {
+  return new QList<QWidget *>(self->applicableWidgets(fw, pm));
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::setProperty(QDesignerFormWind
+//      owInterface *fw, PropertyMode pm, const QString &name, const QVariant
+//      &newValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu11setPropertyEP28QDesignerFormWindowInterfaceNS0_12PropertyModeERK7QStringRK8QVariant(
+    qdesigner_internal::QDesignerTaskMenu *self,
+    QDesignerFormWindowInterface *fw,
+    qdesigner_internal::QDesignerTaskMenu::PropertyMode pm,
+    const QString *name,
+    const QVariant *newValue) {
+  self->setProperty(fw, pm, *name, *newValue);
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::changeObjectName()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu16changeObjectNameEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->changeObjectName();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::changeToolTip()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu13changeToolTipEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->changeToolTip();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::changeWhatsThis()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu15changeWhatsThisEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->changeWhatsThis();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::changeStyleSheet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu16changeStyleSheetEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->changeStyleSheet();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::createMenuBar()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu13createMenuBarEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->createMenuBar();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::addToolBar(Qt::ToolBarArea
+//      area)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu10addToolBarEN2Qt11ToolBarAreaE(
+    qdesigner_internal::QDesignerTaskMenu *self,
+    Qt::ToolBarArea area) {
+  self->addToolBar(area);
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::createStatusBar()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu15createStatusBarEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->createStatusBar();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::removeStatusBar()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu15removeStatusBarEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->removeStatusBar();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::containerFakeMethods()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu20containerFakeMethodsEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->containerFakeMethods();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::slotNavigateToSlot()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu18slotNavigateToSlotEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->slotNavigateToSlot();
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::applySize(QAction *a)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu9applySizeEP7QAction(
+    qdesigner_internal::QDesignerTaskMenu *self,
+    QAction *a) {
+  self->applySize(a);
+}
+
+//  void qdesigner_internal::QDesignerTaskMenu::slotLayoutAlignment()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17QDesignerTaskMenu19slotLayoutAlignmentEv(
+    qdesigner_internal::QDesignerTaskMenu *self) {
+  self->slotLayoutAlignment();
 }
 
 //  qdesigner_internal::QDesignerTaskMenu as the QDesignerTaskMenuExtension

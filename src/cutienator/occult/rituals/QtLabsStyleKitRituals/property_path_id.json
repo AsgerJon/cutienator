@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN14PropertyPathIdC1EN4QQSK8PropertyEjNS0_13PropertyGroupE": [
+      "address", "address", "unsigned int", "int"
+    ],
     "ritual_ZNK14PropertyPathId8propertyEv": ["int", "address"],
     "ritual_ZNK14PropertyPathId6pathIdEv": ["unsigned int", "address"],
     "ritual_ZNK14PropertyPathId9storageIdE6QFlagsIN4QQSK9StateFlagEE": [

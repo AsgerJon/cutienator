@@ -8,6 +8,16 @@
     "ritual_ZN26QCoapSecurityConfigurationC1Ev": ["address"],
     "ritual_ZN26QCoapSecurityConfigurationC1ERKS_": ["address", "address"],
     "ritual_ZN26QCoapSecurityConfigurationD1Ev": ["nothing", "address"],
+    "ritual_ZN26QCoapSecurityConfigurationC1EOS_": ["address", "address"],
+    "ritual_ZN26QCoapSecurityConfigurationaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QCoapSecurityConfigurationaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QCoapSecurityConfiguration4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QCoapSecurityConfiguration23setPreSharedKeyIdentityERK10QByteArray": [
       "nothing", "address", "address"
     ],

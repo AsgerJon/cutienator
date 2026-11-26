@@ -8,6 +8,9 @@
     "ritual_ZN3QV44Heap15PromiseReaction11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap15PromiseReaction16triggerWithValueEPNS_15ExecutionEngineEPKNS_5ValueE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_PromiseReaction_QV4_Heap_PromiseReactionData": [
       "address", "address"
     ]

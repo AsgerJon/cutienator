@@ -25,6 +25,90 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 389, as local:qmodbusclient.cpp:isValid
+static bool isValid(const QModbusResponse &response, QModbusResponse::FunctionCode fc)
+{
+    if (!response.isValid())
+        return false;
+    if (response.isException())
+        return false;
+    if (response.functionCode() != fc)
+        return false;
+    return true;
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 491, as _ZN20QModbusClientPrivate30processWriteSingleCoilResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processWriteSingleCoilResponse(const QModbusResponse &response,
+    QModbusDataUnit *data)
+{
+    if (!isValid(response, QModbusResponse::WriteSingleCoil))
+        return false;
+    return collateSingleValue(response, QModbusDataUnit::Coils, data);
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 408, as _ZN20QModbusClientPrivate33processReadDiscreteInputsResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processReadDiscreteInputsResponse(const QModbusResponse &response,
+                                                             QModbusDataUnit *data)
+{
+    if (!isValid(response, QModbusResponse::ReadDiscreteInputs))
+        return false;
+    return collateBits(response, QModbusDataUnit::DiscreteInputs, data);
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 452, as _ZN20QModbusClientPrivate33processReadInputRegistersResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processReadInputRegistersResponse(const QModbusResponse &response,
+                                                             QModbusDataUnit *data)
+{
+    if (!isValid(response, QModbusResponse::ReadInputRegisters))
+        return false;
+    return collateBytes(response, QModbusDataUnit::InputRegisters, data);
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 526, as _ZN20QModbusClientPrivate33processWriteMultipleCoilsResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processWriteMultipleCoilsResponse(const QModbusResponse &response,
+                                                             QModbusDataUnit *data)
+{
+    if (!isValid(response, QModbusResponse::WriteMultipleCoils))
+        return false;
+    return collateMultipleValues(response, QModbusDataUnit::Coils, data);
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 499, as _ZN20QModbusClientPrivate34processWriteSingleRegisterResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processWriteSingleRegisterResponse(const QModbusResponse &response,
+    QModbusDataUnit *data)
+{
+    if (!isValid(response, QModbusResponse::WriteSingleRegister))
+        return false;
+    return collateSingleValue(response, QModbusDataUnit::HoldingRegisters, data);
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 444, as _ZN20QModbusClientPrivate35processReadHoldingRegistersResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processReadHoldingRegistersResponse(const QModbusResponse &response,
+                                                               QModbusDataUnit *data)
+{
+    if (!isValid(response, QModbusResponse::ReadHoldingRegisters))
+        return false;
+    return collateBytes(response, QModbusDataUnit::HoldingRegisters, data);
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 534, as _ZN20QModbusClientPrivate37processWriteMultipleRegistersResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processWriteMultipleRegistersResponse(const QModbusResponse &response,
+                                                                 QModbusDataUnit *data)
+{
+    if (!isValid(response, QModbusResponse::WriteMultipleRegisters))
+        return false;
+    return collateMultipleValues(response, QModbusDataUnit::HoldingRegisters, data);
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 563, as _ZN20QModbusClientPrivate41processReadWriteMultipleRegistersResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processReadWriteMultipleRegistersResponse(const QModbusResponse &resp,
+                                                                     QModbusDataUnit *data)
+{
+    if (!isValid(resp, QModbusResponse::ReadWriteMultipleRegisters))
+        return false;
+    return collateBytes(resp, QModbusDataUnit::HoldingRegisters, data);
+}
+
 //  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 235, as _ZNK20QModbusClientPrivate17createReadRequestERK15QModbusDataUnit
 inline QModbusRequest QModbusClientPrivate::createReadRequest(const QModbusDataUnit &data) const
 {
@@ -111,6 +195,159 @@ inline QModbusRequest QModbusClientPrivate::createRWRequest(const QModbusDataUni
     return QModbusRequest(QModbusRequest::ReadWriteMultipleRegisters, quint16(read.startAddress()),
                           quint16(read.valueCount()), quint16(write.startAddress()),
                           quint16(write.valueCount()), byteCount, write.values());
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 349, as _ZN20QModbusClientPrivate15processResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processResponse(const QModbusResponse &response, QModbusDataUnit *data)
+{
+    switch (response.functionCode()) {
+    case QModbusRequest::ReadCoils:
+        return processReadCoilsResponse(response, data);
+    case QModbusRequest::ReadDiscreteInputs:
+        return processReadDiscreteInputsResponse(response, data);
+    case QModbusRequest::ReadHoldingRegisters:
+        return processReadHoldingRegistersResponse(response, data);
+    case QModbusRequest::ReadInputRegisters:
+        return processReadInputRegistersResponse(response, data);
+    case QModbusRequest::WriteSingleCoil:
+        return processWriteSingleCoilResponse(response, data);
+    case QModbusRequest::WriteSingleRegister:
+        return processWriteSingleRegisterResponse(response, data);
+    case QModbusRequest::ReadExceptionStatus:
+    case QModbusRequest::Diagnostics:
+    case QModbusRequest::GetCommEventCounter:
+    case QModbusRequest::GetCommEventLog:
+        return false;   // Return early, it's not a private response.
+    case QModbusRequest::WriteMultipleCoils:
+        return processWriteMultipleCoilsResponse(response, data);
+    case QModbusRequest::WriteMultipleRegisters:
+        return processWriteMultipleRegistersResponse(response, data);
+    case QModbusRequest::ReportServerId:
+    case QModbusRequest::ReadFileRecord:
+    case QModbusRequest::WriteFileRecord:
+    case QModbusRequest::MaskWriteRegister:
+        return false;   // Return early, it's not a private response.
+    case QModbusRequest::ReadWriteMultipleRegisters:
+        return processReadWriteMultipleRegistersResponse(response, data);
+    case QModbusRequest::ReadFifoQueue:
+    case QModbusRequest::EncapsulatedInterfaceTransport:
+        return false;   // Return early, it's not a private response.
+    default:
+        break;
+    }
+    return q_func()->processPrivateResponse(response, data);
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 400, as _ZN20QModbusClientPrivate24processReadCoilsResponseERK15QModbusResponseP15QModbusDataUnit
+inline bool QModbusClientPrivate::processReadCoilsResponse(const QModbusResponse &response,
+                                                    QModbusDataUnit *data)
+{
+    if (!isValid(response, QModbusResponse::ReadCoils))
+        return false;
+    return collateBits(response, QModbusDataUnit::Coils, data);
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 416, as _ZN20QModbusClientPrivate11collateBitsERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_
+inline bool QModbusClientPrivate::collateBits(const QModbusPdu &response,
+                                     QModbusDataUnit::RegisterType type, QModbusDataUnit *data)
+{
+    if (response.dataSize() < QModbusResponse::minimumDataSize(response))
+        return false;
+
+    // byte count needs to match available bytes
+    const quint8 byteCount = quint8(response.data().at(0));
+    if ((response.dataSize() - 1) != byteCount)
+        return false;
+
+    if (data) {
+        const int valueCount = byteCount *8;
+        const QByteArray payload = response.data();
+
+        qsizetype value = 0;
+        QList<quint16> values(valueCount);
+        for (qsizetype i = 1; i < payload.size(); ++i) {
+            const quint8 byte = quint8(payload[i]);
+            for (qint32 currentBit = 0; currentBit < 8 && value < valueCount; ++currentBit)
+                values[value++] = (byte & (1U << currentBit) ? 1 : 0);
+        }
+        data->setValues(values);
+        data->setRegisterType(type);
+    }
+    return true;
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 460, as _ZN20QModbusClientPrivate12collateBytesERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_
+inline bool QModbusClientPrivate::collateBytes(const QModbusPdu &response,
+                                      QModbusDataUnit::RegisterType type, QModbusDataUnit *data)
+{
+    if (response.dataSize() < QModbusResponse::minimumDataSize(response))
+        return false;
+
+    // byte count needs to match available bytes
+    const quint8 byteCount = quint8(response.data().at(0));
+    if ((response.dataSize() - 1) != byteCount)
+        return false;
+
+    // byte count needs to be even to match full registers
+    if (byteCount % 2 != 0)
+        return false;
+
+    if (data) {
+        QDataStream stream(response.data().remove(0, 1));
+
+        QList<quint16> values;
+        const quint8 itemCount = byteCount / 2;
+        for (int i = 0; i < itemCount; i++) {
+            quint16 tmp;
+            stream >> tmp;
+            values.append(tmp);
+        }
+        data->setValues(values);
+        data->setRegisterType(type);
+    }
+    return true;
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 507, as _ZN20QModbusClientPrivate18collateSingleValueERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_
+inline bool QModbusClientPrivate::collateSingleValue(const QModbusPdu &response,
+                                       QModbusDataUnit::RegisterType type, QModbusDataUnit *data)
+{
+    if (response.dataSize() != QModbusResponse::minimumDataSize(response))
+        return false;
+
+    quint16 address = 0, value = 0xffff;
+    response.decodeData(&address, &value);
+    if ((type == QModbusDataUnit::Coils) && (value != Coil::Off) && (value != Coil::On))
+        return false;
+
+    if (data) {
+        data->setRegisterType(type);
+        data->setStartAddress(address);
+        data->setValues(QList<quint16> { value });
+    }
+    return true;
+}
+
+//  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 542, as _ZN20QModbusClientPrivate21collateMultipleValuesERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_
+inline bool QModbusClientPrivate::collateMultipleValues(const QModbusPdu &response,
+                                      QModbusDataUnit::RegisterType type, QModbusDataUnit *data)
+{
+    if (response.dataSize() != QModbusResponse::minimumDataSize(response))
+        return false;
+
+    quint16 address = 0, count = 0;
+    response.decodeData(&address, &count);
+
+    // number of registers to write is 1-123 per request
+    if ((type == QModbusDataUnit::HoldingRegisters) && (count < 1 || count > 123))
+        return false;
+
+    if (data) {
+        data->setValueCount(count);
+        data->setRegisterType(type);
+        data->setStartAddress(address);
+    }
+    return true;
 }
 
 //  from ../qtserialbus/src/serialbus/qmodbusclient.cpp, line 320, as _ZN20QModbusClientPrivate19processQueueElementERK15QModbusResponseRKNS_12QueueElementE
@@ -251,6 +488,70 @@ QModbusRequest *ritual_ZNK20QModbusClientPrivate15createRWRequestERK15QModbusDat
     const QModbusDataUnit *read,
     const QModbusDataUnit *write) {
   return new QModbusRequest(self->createRWRequest(*read, *write));
+}
+
+//  bool QModbusClientPrivate::processResponse(const QModbusResponse
+//      &response, QModbusDataUnit *data)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QModbusClientPrivate15processResponseERK15QModbusResponseP15QModbusDataUnit(
+    QModbusClientPrivate *self,
+    const QModbusResponse *response,
+    QModbusDataUnit *data) {
+  return self->processResponse(*response, data);
+}
+
+//  bool QModbusClientPrivate::processReadCoilsResponse(const QModbusResponse
+//      &response, QModbusDataUnit *data)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QModbusClientPrivate24processReadCoilsResponseERK15QModbusResponseP15QModbusDataUnit(
+    QModbusClientPrivate *self,
+    const QModbusResponse *response,
+    QModbusDataUnit *data) {
+  return self->processReadCoilsResponse(*response, data);
+}
+
+//  bool QModbusClientPrivate::collateBits(const QModbusPdu &pdu,
+//      QModbusDataUnit::RegisterType type, QModbusDataUnit *data)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QModbusClientPrivate11collateBitsERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_(
+    QModbusClientPrivate *self,
+    const QModbusPdu *pdu,
+    QModbusDataUnit::RegisterType type,
+    QModbusDataUnit *data) {
+  return self->collateBits(*pdu, type, data);
+}
+
+//  bool QModbusClientPrivate::collateBytes(const QModbusPdu &pdu,
+//      QModbusDataUnit::RegisterType type, QModbusDataUnit *data)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QModbusClientPrivate12collateBytesERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_(
+    QModbusClientPrivate *self,
+    const QModbusPdu *pdu,
+    QModbusDataUnit::RegisterType type,
+    QModbusDataUnit *data) {
+  return self->collateBytes(*pdu, type, data);
+}
+
+//  bool QModbusClientPrivate::collateSingleValue(const QModbusPdu &pdu,
+//      QModbusDataUnit::RegisterType type, QModbusDataUnit *data)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QModbusClientPrivate18collateSingleValueERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_(
+    QModbusClientPrivate *self,
+    const QModbusPdu *pdu,
+    QModbusDataUnit::RegisterType type,
+    QModbusDataUnit *data) {
+  return self->collateSingleValue(*pdu, type, data);
+}
+
+//  bool QModbusClientPrivate::collateMultipleValues(const QModbusPdu &pdu,
+//      QModbusDataUnit::RegisterType type, QModbusDataUnit *data)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QModbusClientPrivate21collateMultipleValuesERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_(
+    QModbusClientPrivate *self,
+    const QModbusPdu *pdu,
+    QModbusDataUnit::RegisterType type,
+    QModbusDataUnit *data) {
+  return self->collateMultipleValues(*pdu, type, data);
 }
 
 //  QModbusReply *QModbusClientPrivate::enqueueRequest(const QModbusRequest

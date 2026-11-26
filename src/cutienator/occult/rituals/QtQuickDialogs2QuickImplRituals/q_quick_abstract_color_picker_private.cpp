@@ -34,6 +34,16 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 27, as _ZN32QQuickAbstractColorPickerPrivate10handleMoveERK7QPointFm
+inline bool QQuickAbstractColorPickerPrivate::handleMove(const QPointF &point, ulong timestamp)
+{
+    Q_Q(QQuickAbstractColorPicker);
+    QQuickControlPrivate::handleMove(point, timestamp);
+    if (point != m_pressPoint)
+        q->updateColor(point);
+    return true;
+}
+
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 17, as _ZN32QQuickAbstractColorPickerPrivate11handlePressERK7QPointFm
 inline bool QQuickAbstractColorPickerPrivate::handlePress(const QPointF &point, ulong timestamp)
 {
@@ -45,14 +55,13 @@ inline bool QQuickAbstractColorPickerPrivate::handlePress(const QPointF &point, 
     return true;
 }
 
-//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 27, as _ZN32QQuickAbstractColorPickerPrivate10handleMoveERK7QPointFm
-inline bool QQuickAbstractColorPickerPrivate::handleMove(const QPointF &point, ulong timestamp)
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 48, as _ZN32QQuickAbstractColorPickerPrivate12handleUngrabEv
+inline void QQuickAbstractColorPickerPrivate::handleUngrab()
 {
     Q_Q(QQuickAbstractColorPicker);
-    QQuickControlPrivate::handleMove(point, timestamp);
-    if (point != m_pressPoint)
-        q->updateColor(point);
-    return true;
+    QQuickControlPrivate::handleUngrab();
+    m_pressPoint = QPointF();
+    q->setPressed(false);
 }
 
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 36, as _ZN32QQuickAbstractColorPickerPrivate13handleReleaseERK7QPointFm
@@ -68,13 +77,22 @@ inline bool QQuickAbstractColorPickerPrivate::handleRelease(const QPointF &point
     return true;
 }
 
-//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 48, as _ZN32QQuickAbstractColorPickerPrivate12handleUngrabEv
-inline void QQuickAbstractColorPickerPrivate::handleUngrab()
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 74, as _ZN32QQuickAbstractColorPickerPrivate24itemImplicitWidthChangedEP10QQuickItem
+inline void QQuickAbstractColorPickerPrivate::itemImplicitWidthChanged(QQuickItem *item)
 {
     Q_Q(QQuickAbstractColorPicker);
-    QQuickControlPrivate::handleUngrab();
-    m_pressPoint = QPointF();
-    q->setPressed(false);
+    QQuickControlPrivate::itemImplicitWidthChanged(item);
+    if (item == m_handle)
+        emit q->implicitHandleWidthChanged();
+}
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 82, as _ZN32QQuickAbstractColorPickerPrivate25itemImplicitHeightChangedEP10QQuickItem
+inline void QQuickAbstractColorPickerPrivate::itemImplicitHeightChanged(QQuickItem *item)
+{
+    Q_Q(QQuickAbstractColorPicker);
+    QQuickControlPrivate::itemImplicitHeightChanged(item);
+    if (item == m_handle)
+        emit q->implicitHandleHeightChanged();
 }
 
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 56, as _ZN32QQuickAbstractColorPickerPrivate12cancelHandleEv
@@ -95,24 +113,6 @@ inline void QQuickAbstractColorPickerPrivate::executeHandle(bool complete)
         quickBeginDeferred(q, handleName(), m_handle);
     if (complete)
         quickCompleteDeferred(q, handleName(), m_handle);
-}
-
-//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 74, as _ZN32QQuickAbstractColorPickerPrivate24itemImplicitWidthChangedEP10QQuickItem
-inline void QQuickAbstractColorPickerPrivate::itemImplicitWidthChanged(QQuickItem *item)
-{
-    Q_Q(QQuickAbstractColorPicker);
-    QQuickControlPrivate::itemImplicitWidthChanged(item);
-    if (item == m_handle)
-        emit q->implicitHandleWidthChanged();
-}
-
-//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 82, as _ZN32QQuickAbstractColorPickerPrivate25itemImplicitHeightChangedEP10QQuickItem
-inline void QQuickAbstractColorPickerPrivate::itemImplicitHeightChanged(QQuickItem *item)
-{
-    Q_Q(QQuickAbstractColorPicker);
-    QQuickControlPrivate::itemImplicitHeightChanged(item);
-    if (item == m_handle)
-        emit q->implicitHandleHeightChanged();
 }
 //  -----------------------------------------------------------------------
 

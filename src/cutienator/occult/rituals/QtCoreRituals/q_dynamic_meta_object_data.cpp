@@ -83,6 +83,18 @@ QMetaObject *ritual_ZN22QDynamicMetaObjectData19toDynamicMetaObjectEP7QObject(
 }
 #endif  // !(QT_VERSION >= QT_VERSION_CHECK(7, 0, 0))
 
+//  int QDynamicMetaObjectData::metaCall(QObject *a0, QMetaObject::Call a1,
+//      int _id, void **a3)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QDynamicMetaObjectData8metaCallEP7QObjectN11QMetaObject4CallEiPPv(
+    QDynamicMetaObjectData *self,
+    QObject *a0,
+    QMetaObject::Call a1,
+    int _id,
+    void **a3) {
+  return self->metaCall(a0, a1, _id, a3);
+}
+
 //  a Python function taken by a CuteQDynamicMetaObjectData, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -7,11 +7,15 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickitemanimation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtQml/QtQml>
 #include <QtQml/qqmlproperty.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtQuick/QQuickItem>
 
 //  A QQuickAnchorAnimation that Python can take functions over in. Every QQuickAnchorAnimation
 //  Python makes is one. Each function below asks the Python
@@ -251,6 +255,25 @@ const QMetaObject *ritual_ZNK21QQuickAnchorAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnchorAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickAnchorAnimation11qt_metacastEPKc(
+    QQuickAnchorAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnchorAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickAnchorAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnchorAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnchorAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickAnchorAnimation2trEPKcS1_i(
@@ -279,6 +302,13 @@ extern "C" Q_DECL_EXPORT
 QQuickAnchorAnimation *ritual_ZN21QQuickAnchorAnimationC1EP7QObject(
     QObject *parent) {
   return new CuteQQuickAnchorAnimation(parent);
+}
+
+//  QQmlListProperty<QQuickItem> QQuickAnchorAnimation::targets()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickItem> *ritual_ZN21QQuickAnchorAnimation7targetsEv(
+    QQuickAnchorAnimation *self) {
+  return new QQmlListProperty<QQuickItem>(self->targets());
 }
 
 //  int QQuickAnchorAnimation::duration() const
@@ -311,6 +341,36 @@ void ritual_ZN21QQuickAnchorAnimation9setEasingERK12QEasingCurve(
   self->setEasing(*a0);
 }
 
+//  void QQuickAnchorAnimation::durationChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickAnchorAnimation15durationChangedEi(
+    QQuickAnchorAnimation *self,
+    int a0) {
+  self->durationChanged(a0);
+}
+
+//  void QQuickAnchorAnimation::easingChanged(const QEasingCurve &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickAnchorAnimation13easingChangedERK12QEasingCurve(
+    QQuickAnchorAnimation *self,
+    const QEasingCurve *a0) {
+  self->easingChanged(*a0);
+}
+
+//  QAbstractAnimationJob
+//      *QQuickAnchorAnimation::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN21QQuickAnchorAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickAnchorAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
+}
+
 //  a Python function taken by a CuteQQuickAnchorAnimation, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -319,4 +379,11 @@ bool ritual_take_QQuickAnchorAnimation(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickAnchorAnimation *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QQuickItem> a ritual of QQuickAnchorAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickAnchorAnimation__QQmlListProperty_QQuickItem(
+    QQmlListProperty<QQuickItem> *self) {
+  delete self;
 }

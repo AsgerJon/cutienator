@@ -921,6 +921,25 @@ const QMetaObject *ritual_ZNK25QDeclarativeCircleMapItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeCircleMapItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QDeclarativeCircleMapItem11qt_metacastEPKc(
+    QDeclarativeCircleMapItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeCircleMapItem::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QDeclarativeCircleMapItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeCircleMapItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeCircleMapItem::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -1038,6 +1057,31 @@ void ritual_ZN25QDeclarativeCircleMapItem11setGeoShapeERK9QGeoShape(
     QDeclarativeCircleMapItem *self,
     const QGeoShape *shape) {
   self->setGeoShape(*shape);
+}
+
+//  void QDeclarativeCircleMapItem::centerChanged(const QGeoCoordinate
+//      &center)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeCircleMapItem13centerChangedERK14QGeoCoordinate(
+    QDeclarativeCircleMapItem *self,
+    const QGeoCoordinate *center) {
+  self->centerChanged(*center);
+}
+
+//  void QDeclarativeCircleMapItem::radiusChanged(qreal radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeCircleMapItem13radiusChangedEd(
+    QDeclarativeCircleMapItem *self,
+    qreal radius) {
+  self->radiusChanged(radius);
+}
+
+//  void QDeclarativeCircleMapItem::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeCircleMapItem12colorChangedERK6QColor(
+    QDeclarativeCircleMapItem *self,
+    const QColor *color) {
+  self->colorChanged(*color);
 }
 
 //  void QDeclarativeCircleMapItem::geometryChange(const QRectF &newGeometry,

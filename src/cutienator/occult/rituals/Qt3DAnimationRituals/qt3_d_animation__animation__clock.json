@@ -5,11 +5,20 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation5Clock16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation5Clock7cleanupEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation5Clock15setPlaybackRateEd": [
       "nothing", "address", "double"
     ],
     "ritual_ZNK13Qt3DAnimation9Animation5Clock12playbackRateEv": [
       "double", "address"
+    ],
+    "ritual_own_ZN13Qt3DAnimation9Animation5Clock16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ]
   }
 }

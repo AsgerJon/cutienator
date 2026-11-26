@@ -969,6 +969,24 @@ const QMetaObject *ritual_ZNK11QWizardPage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWizardPage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QWizardPage11qt_metacastEPKc(
+    QWizardPage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWizardPage::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QWizardPage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWizardPage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWizardPage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QWizardPage2trEPKcS1_i(
@@ -1112,6 +1130,12 @@ int ritual_ZNK11QWizardPage6nextIdEv(const QWizardPage *self) {
   return self->nextId();
 }
 
+//  void QWizardPage::completeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QWizardPage15completeChangedEv(QWizardPage *self) {
+  self->completeChanged();
+}
+
 //  void QWizardPage::setField(const QString &name, const QVariant &value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QWizardPage8setFieldERK7QStringRK8QVariant(
@@ -1145,6 +1169,19 @@ void ritual_ZN11QWizardPage13registerFieldERK7QStringP7QWidgetPKcS6_(
 extern "C" Q_DECL_EXPORT
 QWizard *ritual_ZNK11QWizardPage6wizardEv(const QWizardPage *self) {
   return self->wizard();
+}
+
+//  QWizardPagePrivate *QWizardPage::d_func()
+extern "C" Q_DECL_EXPORT
+QWizardPagePrivate *ritual_ZN11QWizardPage6d_funcEv(QWizardPage *self) {
+  return self->d_func();
+}
+
+//  const QWizardPagePrivate *QWizardPage::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWizardPagePrivate *ritual_ZNK11QWizardPage6d_funcEv(
+    const QWizardPage *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQWizardPage, for the function named by

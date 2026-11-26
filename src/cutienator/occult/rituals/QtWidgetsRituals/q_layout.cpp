@@ -574,6 +574,22 @@ const QMetaObject *ritual_ZNK7QLayout10metaObjectEv(const QLayout *self) {
   return self->metaObject();
 }
 
+//  void *QLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QLayout11qt_metacastEPKc(QLayout *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLayout::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QLayout2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -590,6 +606,12 @@ QLayoutPrivate *ritual_ZN7QLayout6d_funcEv(QLayout *self) {
 extern "C" Q_DECL_EXPORT
 const QLayoutPrivate *ritual_ZNK7QLayout6d_funcEv(const QLayout *self) {
   return self->d_func();
+}
+
+//  QLayout::QLayout(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QLayout *ritual_ZN7QLayoutC1EP7QWidget(QWidget *parent) {
+  return new CuteQLayout(parent);
 }
 
 //  QLayout::~QLayout()
@@ -989,6 +1011,15 @@ QRect *ritual_ZNK7QLayout13alignmentRectERK5QRect(
     const QLayout *self,
     const QRect *a0) {
   return new QRect(self->alignmentRect(*a0));
+}
+
+//  QLayout::QLayout(QLayoutPrivate &d, QLayout *a1, QWidget *a2)
+extern "C" Q_DECL_EXPORT
+QLayout *ritual_ZN7QLayoutC1ER14QLayoutPrivatePS_P7QWidget(
+    QLayoutPrivate *d,
+    QLayout *a1,
+    QWidget *a2) {
+  return new CuteQLayout(*d, a1, a2);
 }
 
 //  void QLayout::activateRecursiveHelper(QLayoutItem *item)

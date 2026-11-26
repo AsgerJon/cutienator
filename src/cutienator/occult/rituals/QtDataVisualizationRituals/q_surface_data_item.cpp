@@ -30,6 +30,15 @@ void ritual_ZN16QSurfaceDataItemD1Ev(QSurfaceDataItem *self) {
   delete self;
 }
 
+//  QSurfaceDataItem &QSurfaceDataItem::operator=(const QSurfaceDataItem
+//      &other)
+extern "C" Q_DECL_EXPORT
+QSurfaceDataItem *ritual_ZN16QSurfaceDataItemaSERKS_(
+    QSurfaceDataItem *self,
+    const QSurfaceDataItem *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QSurfaceDataItem::setPosition(const QVector3D &pos)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSurfaceDataItem11setPositionERK9QVector3D(

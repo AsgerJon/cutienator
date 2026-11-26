@@ -10,6 +10,13 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qdmabuftextureimporter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QtMultimediaPrivate::DmaBufEglContext::DmaBufEglContext(QRhi *rhi)
+extern "C" Q_DECL_EXPORT
+QtMultimediaPrivate::DmaBufEglContext *ritual_ZN19QtMultimediaPrivate16DmaBufEglContextC1EP4QRhi(
+    QRhi *rhi) {
+  return new QtMultimediaPrivate::DmaBufEglContext(rhi);
+}
+
 //  bool QtMultimediaPrivate::DmaBufEglContext::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QtMultimediaPrivate16DmaBufEglContext7isValidEv(
@@ -29,6 +36,13 @@ extern "C" Q_DECL_EXPORT
 QOpenGLContext *ritual_ZNK19QtMultimediaPrivate16DmaBufEglContext9glContextEv(
     const QtMultimediaPrivate::DmaBufEglContext *self) {
   return self->glContext();
+}
+
+//  EGLDisplay QtMultimediaPrivate::DmaBufEglContext::eglDisplay() const
+extern "C" Q_DECL_EXPORT
+EGLDisplay ritual_ZNK19QtMultimediaPrivate16DmaBufEglContext10eglDisplayEv(
+    const QtMultimediaPrivate::DmaBufEglContext *self) {
+  return self->eglDisplay();
 }
 
 //  QtMultimediaPrivate::DmaBufEglContext::~DmaBufEglContext()

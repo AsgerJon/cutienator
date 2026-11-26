@@ -32,6 +32,33 @@ void ritual_ZN16QMqttTopicFilterD1Ev(QMqttTopicFilter *self) {
   delete self;
 }
 
+//  QMqttTopicFilter &QMqttTopicFilter::operator=(const QMqttTopicFilter
+//      &filter)
+extern "C" Q_DECL_EXPORT
+QMqttTopicFilter *ritual_ZN16QMqttTopicFilteraSERKS_(
+    QMqttTopicFilter *self,
+    const QMqttTopicFilter *filter) {
+  return &(self->operator=(*filter));
+}
+
+#if defined(Q_COMPILER_RVALUE_REFS)
+//  QMqttTopicFilter &QMqttTopicFilter::operator=(QMqttTopicFilter &&other)
+extern "C" Q_DECL_EXPORT
+QMqttTopicFilter *ritual_ZN16QMqttTopicFilteraSEOS_(
+    QMqttTopicFilter *self,
+    QMqttTopicFilter *other) {
+  return &(self->operator=(std::move(*other)));
+}
+#endif  // defined(Q_COMPILER_RVALUE_REFS)
+
+//  void QMqttTopicFilter::swap(QMqttTopicFilter &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QMqttTopicFilter4swapERS_(
+    QMqttTopicFilter *self,
+    QMqttTopicFilter *other) {
+  self->swap(*other);
+}
+
 //  QString QMqttTopicFilter::filter() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK16QMqttTopicFilter6filterEv(

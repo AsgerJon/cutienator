@@ -25,6 +25,25 @@ const QMetaObject *ritual_ZNK24QQuick3DParticleRepeller10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleRepeller::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuick3DParticleRepeller11qt_metacastEPKc(
+    QQuick3DParticleRepeller *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleRepeller::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuick3DParticleRepeller11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleRepeller *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleRepeller::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuick3DParticleRepeller2trEPKcS1_i(
@@ -84,6 +103,27 @@ void ritual_ZN24QQuick3DParticleRepeller11setStrengthEf(
     QQuick3DParticleRepeller *self,
     float strength) {
   self->setStrength(strength);
+}
+
+//  void QQuick3DParticleRepeller::radiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleRepeller13radiusChangedEv(
+    QQuick3DParticleRepeller *self) {
+  self->radiusChanged();
+}
+
+//  void QQuick3DParticleRepeller::outerRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleRepeller18outerRadiusChangedEv(
+    QQuick3DParticleRepeller *self) {
+  self->outerRadiusChanged();
+}
+
+//  void QQuick3DParticleRepeller::strengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DParticleRepeller15strengthChangedEv(
+    QQuick3DParticleRepeller *self) {
+  self->strengthChanged();
 }
 
 //  void QQuick3DParticleRepeller::prepareToAffect()

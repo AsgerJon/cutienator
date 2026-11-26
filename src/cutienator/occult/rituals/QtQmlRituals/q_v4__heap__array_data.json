@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap9ArrayData11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK3QV44Heap9ArrayData8isSparseEv": ["bool", "address"],
     "ritual_ZNK3QV44Heap9ArrayData6vtableEv": ["address", "address"],
     "ritual_ZNK3QV44Heap9ArrayData3getEj": [

@@ -9,6 +9,9 @@
     "ritual_ZN22QGeoMapPolygonGeometry15setAssumeSimpleEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN22QGeoMapPolygonGeometry18updateSourcePointsERK7QGeoMapRK5QListIS3_I15QDoubleVector2DEENS_18MapBorderBehaviourE": [
+      "nothing", "address", "address", "address", "int"
+    ],
     "ritual_ZNK22QGeoMapPolygonGeometry7srcPathEv": ["address", "address"],
     "ritual_ZNK22QGeoMapPolygonGeometry8maxCoordEv": ["double", "address"],
     "ritual_take_QGeoMapPolygonGeometry": [

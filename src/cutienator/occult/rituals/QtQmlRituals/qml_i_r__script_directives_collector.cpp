@@ -18,7 +18,7 @@ typedef void (*CuteQmlIR_ScriptDirectivesCollectorCall2)(const void *, const QSt
 class CuteQmlIR_ScriptDirectivesCollector : public QmlIR::ScriptDirectivesCollector {
 public:
   using QmlIR::ScriptDirectivesCollector::ScriptDirectivesCollector;
-  CuteQmlIR_ScriptDirectivesCollector(const QmlIR::ScriptDirectivesCollector &other) : QmlIR::ScriptDirectivesCollector(other) {}
+  CuteQmlIR_ScriptDirectivesCollector(const QmlIR::ScriptDirectivesCollector & other) : QmlIR::ScriptDirectivesCollector(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -82,6 +82,47 @@ public:
     QmlIR::ScriptDirectivesCollector::importModule(uri, version, module, lineNumber, column);
   }
 };
+
+//  QmlIR::ScriptDirectivesCollector::ScriptDirectivesCollector(QmlIR::Docume
+//      nt *doc)
+extern "C" Q_DECL_EXPORT
+QmlIR::ScriptDirectivesCollector *ritual_ZN5QmlIR25ScriptDirectivesCollectorC1EPNS_8DocumentE(
+    QmlIR::Document *doc) {
+  return new CuteQmlIR_ScriptDirectivesCollector(doc);
+}
+
+//  void QmlIR::ScriptDirectivesCollector::pragmaLibrary()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR25ScriptDirectivesCollector13pragmaLibraryEv(
+    QmlIR::ScriptDirectivesCollector *self) {
+  self->pragmaLibrary();
+}
+
+//  void QmlIR::ScriptDirectivesCollector::importFile(const QString &jsfile,
+//      const QString &module, int lineNumber, int column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR25ScriptDirectivesCollector10importFileERK7QStringS3_ii(
+    QmlIR::ScriptDirectivesCollector *self,
+    const QString *jsfile,
+    const QString *module,
+    int lineNumber,
+    int column) {
+  self->importFile(*jsfile, *module, lineNumber, column);
+}
+
+//  void QmlIR::ScriptDirectivesCollector::importModule(const QString &uri,
+//      const QString &version, const QString &module, int lineNumber, int
+//      column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QmlIR25ScriptDirectivesCollector12importModuleERK7QStringS3_S3_ii(
+    QmlIR::ScriptDirectivesCollector *self,
+    const QString *uri,
+    const QString *version,
+    const QString *module,
+    int lineNumber,
+    int column) {
+  self->importModule(*uri, *version, *module, lineNumber, column);
+}
 
 //  QmlIR::ScriptDirectivesCollector::~ScriptDirectivesCollector()
 extern "C" Q_DECL_EXPORT

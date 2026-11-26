@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15AxisRenderCache10metaObjectEv": ["address", "address"],
+    "ritual_ZN15AxisRenderCache11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15AxisRenderCache11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15AxisRenderCacheD1Ev": ["nothing", "address"],
     "ritual_ZN15AxisRenderCache7setTypeEN15QAbstract3DAxis8AxisTypeE": [
       "nothing", "address", "int"
@@ -41,6 +47,8 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK15AxisRenderCache13ctrlFormatterEv": ["address", "address"],
+    "ritual_ZN15AxisRenderCache9titleItemEv": ["address", "address"],
+    "ritual_ZN15AxisRenderCache10labelItemsEv": ["address", "address"],
     "ritual_ZN15AxisRenderCache16gridLinePositionEi": [
       "float", "address", "int"
     ],

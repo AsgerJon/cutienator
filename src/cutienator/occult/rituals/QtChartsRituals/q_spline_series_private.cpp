@@ -5,7 +5,9 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_spline_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_spline_chart)
 #include <QtCharts/qsplineseries.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qsplineseries_p.h>
@@ -17,6 +19,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QSplineSeriesPrivate10metaObjectEv(
     const QSplineSeriesPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QSplineSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QSplineSeriesPrivate11qt_metacastEPKc(
+    QSplineSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSplineSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QSplineSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSplineSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QSplineSeriesPrivate::tr(const char *s, const char *c, int n)
@@ -52,6 +73,20 @@ void ritual_ZN20QSplineSeriesPrivate18initializeGraphicsEP13QGraphicsItem(
     QSplineSeriesPrivate *self,
     QGraphicsItem *parent) {
   self->initializeGraphics(parent);
+}
+
+//  void QSplineSeriesPrivate::initializeAnimations(QChart::AnimationOptions
+//      options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QSplineSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QSplineSeriesPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
 }
 
 //  QSplineSeries *QSplineSeriesPrivate::q_func()

@@ -12,7 +12,9 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qsize.h>
@@ -21,6 +23,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QPointer>
+#include <QtCore/QAbstractItemModel>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/private/qquickheaderview_p_p.h>
 #include <algorithm>
@@ -1037,6 +1041,25 @@ const QMetaObject *ritual_ZNK21QHeaderDataProxyModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHeaderDataProxyModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QHeaderDataProxyModel11qt_metacastEPKc(
+    QHeaderDataProxyModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHeaderDataProxyModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QHeaderDataProxyModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHeaderDataProxyModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHeaderDataProxyModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QHeaderDataProxyModel2trEPKcS1_i(
@@ -1066,6 +1089,13 @@ void ritual_ZN21QHeaderDataProxyModel14setSourceModelEP18QAbstractItemModel(
     QHeaderDataProxyModel *self,
     QAbstractItemModel *newSourceModel) {
   self->setSourceModel(newSourceModel);
+}
+
+//  QPointer<QAbstractItemModel> QHeaderDataProxyModel::sourceModel() const
+extern "C" Q_DECL_EXPORT
+QPointer<QAbstractItemModel> *ritual_ZNK21QHeaderDataProxyModel11sourceModelEv(
+    const QHeaderDataProxyModel *self) {
+  return new QPointer<QAbstractItemModel>(self->sourceModel());
 }
 
 //  QModelIndex QHeaderDataProxyModel::index(int row, int column, const
@@ -1277,6 +1307,13 @@ bool ritual_own_ZNK21QHeaderDataProxyModel11hasChildrenERK11QModelIndex(
     const QHeaderDataProxyModel *self,
     const QModelIndex *parent) {
   return self->QHeaderDataProxyModel::hasChildren(*parent);
+}
+
+//  a QPointer<QAbstractItemModel> a ritual of QHeaderDataProxyModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHeaderDataProxyModel__QPointer_QAbstractItemModel(
+    QPointer<QAbstractItemModel> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_tableview)

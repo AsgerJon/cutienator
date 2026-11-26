@@ -5,7 +5,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,10 +14,14 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbar3dseries.h>
+#endif
 #include <QtCore/qurl.h>
 #include <QtGui/qvectornd.h>
 #include <QtGui/qcolor.h>
+#include <QtGui/qimage.h>
 #include <QtCore/qrect.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
@@ -25,6 +29,9 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtGraphs/QBar3DSeries>
+#include <QtCore/QList>
 
 //  Only a class built on QQuickGraphsBars may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -2151,6 +2158,25 @@ const QMetaObject *ritual_ZNK16QQuickGraphsBars10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGraphsBars::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickGraphsBars11qt_metacastEPKc(
+    QQuickGraphsBars *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGraphsBars::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickGraphsBars11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGraphsBars *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGraphsBars::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickGraphsBars2trEPKcS1_i(
@@ -2332,6 +2358,49 @@ extern "C" Q_DECL_EXPORT
 float ritual_ZNK16QQuickGraphsBars10floorLevelEv(
     const QQuickGraphsBars *self) {
   return self->floorLevel();
+}
+
+//  QQmlListProperty<QBar3DSeries> QQuickGraphsBars::seriesList()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QBar3DSeries> *ritual_ZN16QQuickGraphsBars10seriesListEv(
+    QQuickGraphsBars *self) {
+  return new QQmlListProperty<QBar3DSeries>(self->seriesList());
+}
+
+//  void QQuickGraphsBars::appendSeriesFunc(QQmlListProperty<QBar3DSeries>
+//      *list, QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars16appendSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesEPS1_(
+    QQmlListProperty<QBar3DSeries> *list,
+    QBar3DSeries *series) {
+  QQuickGraphsBars::appendSeriesFunc(list, series);
+}
+
+//  qsizetype
+//      QQuickGraphsBars::countSeriesFunc(QQmlListProperty<QBar3DSeries>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN16QQuickGraphsBars15countSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesE(
+    QQmlListProperty<QBar3DSeries> *list) {
+  return QQuickGraphsBars::countSeriesFunc(list);
+}
+
+//  QBar3DSeries
+//      *QQuickGraphsBars::atSeriesFunc(QQmlListProperty<QBar3DSeries> *list,
+//      qsizetype index)
+extern "C" Q_DECL_EXPORT
+QBar3DSeries *ritual_ZN16QQuickGraphsBars12atSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesEx(
+    QQmlListProperty<QBar3DSeries> *list,
+    qsizetype index) {
+  return QQuickGraphsBars::atSeriesFunc(list, index);
+}
+
+//  void QQuickGraphsBars::clearSeriesFunc(QQmlListProperty<QBar3DSeries>
+//      *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars15clearSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesE(
+    QQmlListProperty<QBar3DSeries> *list) {
+  QQuickGraphsBars::clearSeriesFunc(list);
 }
 
 //  void QQuickGraphsBars::addSeries(QBar3DSeries *series)
@@ -2853,6 +2922,110 @@ void ritual_ZN16QQuickGraphsBars26handleValueColoringChangedEv(
   self->handleValueColoringChanged();
 }
 
+//  void QQuickGraphsBars::rowAxisChanged(QCategory3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars14rowAxisChangedEP15QCategory3DAxis(
+    QQuickGraphsBars *self,
+    QCategory3DAxis *axis) {
+  self->rowAxisChanged(axis);
+}
+
+//  void QQuickGraphsBars::valueAxisChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars16valueAxisChangedEP12QValue3DAxis(
+    QQuickGraphsBars *self,
+    QValue3DAxis *axis) {
+  self->valueAxisChanged(axis);
+}
+
+//  void QQuickGraphsBars::columnAxisChanged(QCategory3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars17columnAxisChangedEP15QCategory3DAxis(
+    QQuickGraphsBars *self,
+    QCategory3DAxis *axis) {
+  self->columnAxisChanged(axis);
+}
+
+//  void QQuickGraphsBars::multiSeriesUniformChanged(bool uniform)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars25multiSeriesUniformChangedEb(
+    QQuickGraphsBars *self,
+    bool uniform) {
+  self->multiSeriesUniformChanged(uniform);
+}
+
+//  void QQuickGraphsBars::barThicknessChanged(float thicknessRatio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars19barThicknessChangedEf(
+    QQuickGraphsBars *self,
+    float thicknessRatio) {
+  self->barThicknessChanged(thicknessRatio);
+}
+
+//  void QQuickGraphsBars::barSpacingChanged(QSizeF spacing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars17barSpacingChangedE6QSizeF(
+    QQuickGraphsBars *self,
+    const QSizeF *spacing) {
+  self->barSpacingChanged(*spacing);
+}
+
+//  void QQuickGraphsBars::barSpacingRelativeChanged(bool relative)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars25barSpacingRelativeChangedEb(
+    QQuickGraphsBars *self,
+    bool relative) {
+  self->barSpacingRelativeChanged(relative);
+}
+
+//  void QQuickGraphsBars::barSeriesMarginChanged(QSizeF margin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars22barSeriesMarginChangedE6QSizeF(
+    QQuickGraphsBars *self,
+    const QSizeF *margin) {
+  self->barSeriesMarginChanged(*margin);
+}
+
+//  void QQuickGraphsBars::meshFileNameChanged(const QString &filename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars19meshFileNameChangedERK7QString(
+    QQuickGraphsBars *self,
+    const QString *filename) {
+  self->meshFileNameChanged(*filename);
+}
+
+//  void QQuickGraphsBars::primarySeriesChanged(QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars20primarySeriesChangedEP12QBar3DSeries(
+    QQuickGraphsBars *self,
+    QBar3DSeries *series) {
+  self->primarySeriesChanged(series);
+}
+
+//  void QQuickGraphsBars::selectedSeriesChanged(QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars21selectedSeriesChangedEP12QBar3DSeries(
+    QQuickGraphsBars *self,
+    QBar3DSeries *series) {
+  self->selectedSeriesChanged(series);
+}
+
+//  void QQuickGraphsBars::floorLevelChanged(float level)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars17floorLevelChangedEf(
+    QQuickGraphsBars *self,
+    float level) {
+  self->floorLevelChanged(level);
+}
+
+//  void QQuickGraphsBars::sliceImageChanged(const QImage &image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars17sliceImageChangedERK6QImage(
+    QQuickGraphsBars *self,
+    const QImage *image) {
+  self->sliceImageChanged(*image);
+}
+
 //  void QQuickGraphsBars::calculateHeightAdjustment()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickGraphsBars25calculateHeightAdjustmentEv(
@@ -2883,6 +3056,14 @@ void ritual_ZN16QQuickGraphsBars16disconnectSeriesEP12QBar3DSeries(
   self->disconnectSeries(series);
 }
 
+//  void QQuickGraphsBars::generateBars(QList<QBar3DSeries *> &barSeriesList)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars12generateBarsER5QListIP12QBar3DSeriesE(
+    QQuickGraphsBars *self,
+    QList<QBar3DSeries *> *barSeriesList) {
+  self->generateBars(*barSeriesList);
+}
+
 //  QQuick3DModel *QQuickGraphsBars::createDataItem(QQuick3DNode *scene,
 //      QAbstract3DSeries *series)
 extern "C" Q_DECL_EXPORT
@@ -2898,6 +3079,16 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickGraphsBars15getMeshFileNameEv(
     QQuickGraphsBars *self) {
   return new QString(self->getMeshFileName());
+}
+
+//  void QQuickGraphsBars::fixMeshFileName(QString &fileName,
+//      QAbstract3DSeries::Mesh meshType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars15fixMeshFileNameER7QStringN17QAbstract3DSeries4MeshE(
+    QQuickGraphsBars *self,
+    QString *fileName,
+    QAbstract3DSeries::Mesh meshType) {
+  self->fixMeshFileName(*fileName, meshType);
 }
 
 //  void QQuickGraphsBars::updateBarVisuality(QBar3DSeries *series, int
@@ -3030,6 +3221,17 @@ void ritual_ZN16QQuickGraphsBars21removeSlicedBarModelsEv(
   self->removeSlicedBarModels();
 }
 
+//  void QQuickGraphsBars::createBarItemHolders(QBar3DSeries *series,
+//      QList<BarModel *> barList, bool slice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars20createBarItemHoldersEP12QBar3DSeries5QListIPNS_8BarModelEEb(
+    QQuickGraphsBars *self,
+    QBar3DSeries *series,
+    const QList<QQuickGraphsBars::BarModel *> *barList,
+    bool slice) {
+  self->createBarItemHolders(series, *barList, slice);
+}
+
 //  void QQuickGraphsBars::updateBarSpecs(float thicknessRatio, QSizeF
 //      spacing, bool relative)
 extern "C" Q_DECL_EXPORT
@@ -3047,6 +3249,16 @@ void ritual_ZN16QQuickGraphsBars21updateBarSeriesMarginE6QSizeF(
     QQuickGraphsBars *self,
     const QSizeF *margin) {
   self->updateBarSeriesMargin(*margin);
+}
+
+//  void QQuickGraphsBars::adjustSelectionPosition(QPoint &pos, const
+//      QBar3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickGraphsBars23adjustSelectionPositionER6QPointPK12QBar3DSeries(
+    QQuickGraphsBars *self,
+    QPoint *pos,
+    const QBar3DSeries *series) {
+  self->adjustSelectionPosition(*pos, series);
 }
 
 //  a Python function taken by a CuteQQuickGraphsBars, for the function named
@@ -3335,4 +3547,11 @@ void ritual_own_ZN16QQuickGraphsBars18handleAxisZChangedEP15QAbstract3DAxis(
   self->QQuickGraphsBars::handleAxisZChanged(axis);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))
+//  a QQmlListProperty<QBar3DSeries> a ritual of QQuickGraphsBars gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickGraphsBars__QQmlListProperty_QBar3DSeries(
+    QQmlListProperty<QBar3DSeries> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_bars3d))

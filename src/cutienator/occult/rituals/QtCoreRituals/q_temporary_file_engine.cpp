@@ -12,15 +12,11 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <cstring>
+#include <QtCore/QFlags>
+#include <QtCore/QIODeviceBase>
+#include <optional>
+#include <QtCore/QFile>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/private/qfilesystementry_p.h>
-#include <QtCore/qdir.h>
-#include <QtCore/private/qdir_p.h>
-#include <QtCore/qfile.h>
-#include <QtCore/private/qfsfileengine_p.h>
-#ifdef Q_OS_WIN
-#include <QtCore/qstringbuilder.h>
-#endif
 #include <QtCore/private/qfsfileengine_p.h>
 #include <QtCore/private/qfsfileengine_iterator_p.h>
 #include <QtCore/private/qfilesystemengine_p.h>
@@ -52,6 +48,14 @@
 #include <QtCore/qcoreapplication.h>
 #else
 #endif
+#include <QtCore/private/qfilesystementry_p.h>
+#include <QtCore/qdir.h>
+#include <QtCore/private/qdir_p.h>
+#include <QtCore/qfile.h>
+#include <QtCore/private/qfsfileengine_p.h>
+#ifdef Q_OS_WIN
+#include <QtCore/qstringbuilder.h>
+#endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -61,19 +65,24 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/io/qfilesystementry.cpp, line 46, as _ZN16QFileSystemEntryC1Ev
-inline QFileSystemEntry::QFileSystemEntry()
-    : m_lastSeparator(-1),
-    m_firstDotInFileName(-1),
-    m_lastDotInFileName(-1)
-{
-}
+using namespace Qt::StringLiterals;
 
-//  from src/corelib/io/qfilesystementry.cpp, line 312, as _ZNK16QFileSystemEntry7isEmptyEv
-inline bool QFileSystemEntry::isEmpty() const
-{
-    return m_filePath.isEmpty() && m_nativeFilePath.isEmpty();
-}
+//  from src/corelib/io/qfilesystementry.cpp, line 21, as local:qfilesystementry.cpp:Uninitialized
+constexpr int Uninitialized = -2;
+
+//  from src/corelib/io/qtemporaryfile.cpp, line 37, as local:qtemporaryfile.cpp:NativeFileHandle
+#if defined(Q_OS_WIN)
+typedef HANDLE NativeFileHandle;
+#endif  // defined(Q_OS_WIN)
+
+//  from src/corelib/io/qtemporaryfile.cpp, line 232, as local:qtemporaryfile.cpp:CreateUnnamedFileStatus
+#if QT_CONFIG(temporaryfile)
+enum class CreateUnnamedFileStatus {
+    Success = 0,
+    NotSupported,
+    OtherError
+};
+#endif  // QT_CONFIG(temporaryfile)
 
 //  from src/corelib/io/qfsfileengine.cpp, line 464, as _ZN20QFSFileEnginePrivate8unmapAllEv
 #if !defined(QT_NO_FSFILEENGINE)
@@ -87,36 +96,6 @@ inline void QFSFileEnginePrivate::unmapAll()
 }
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
-//  from src/corelib/io/qtemporaryfile.cpp, line 282, as _ZN20QTemporaryFileEngineD1Ev
-#if QT_CONFIG(temporaryfile)
-inline QTemporaryFileEngine::~QTemporaryFileEngine()
-{
-    Q_D(QFSFileEngine);
-    d->unmapAll();
-    QFSFileEngine::close();
-}
-#endif  // QT_CONFIG(temporaryfile)
-
-//  from src/corelib/io/qtemporaryfile.cpp, line 289, as _ZNK20QTemporaryFileEngine12isReallyOpenEv
-#if QT_CONFIG(temporaryfile)
-#if defined(Q_OS_LINUX)
-inline bool QTemporaryFileEngine::isReallyOpen() const
-{
-    Q_D(const QFSFileEngine);
-
-    if (!((nullptr == d->fh) && (-1 == d->fd)
-#if defined Q_OS_WIN
-                && (INVALID_HANDLE_VALUE == d->fileHandle)
-#endif
-            ))
-        return true;
-
-    return false;
-
-}
-#endif  // defined(Q_OS_LINUX)
-#endif  // QT_CONFIG(temporaryfile)
-
 //  from src/corelib/io/qtemporaryfile.cpp, line 304, as _ZN20QTemporaryFileEngine11setFileNameERK7QString
 #if QT_CONFIG(temporaryfile)
 inline void QTemporaryFileEngine::setFileName(const QString &file)
@@ -124,45 +103,6 @@ inline void QTemporaryFileEngine::setFileName(const QString &file)
     // Really close the file, so we don't leak
     QFSFileEngine::close();
     QFSFileEngine::setFileName(file);
-}
-#endif  // QT_CONFIG(temporaryfile)
-
-//  from src/corelib/io/qtemporaryfile.cpp, line 356, as _ZN20QTemporaryFileEngine6removeEv
-#if QT_CONFIG(temporaryfile)
-inline bool QTemporaryFileEngine::remove()
-{
-    Q_D(QFSFileEngine);
-    // Since the QTemporaryFileEngine::close() does not really close the file,
-    // we must explicitly call QFSFileEngine::close() before we remove it.
-    d->unmapAll();
-    QFSFileEngine::close();
-    if (isUnnamedFile())
-        return true;
-    if (!filePathIsTemplate && QFSFileEngine::remove()) {
-        d->fileEntry.clear();
-        // If a QTemporaryFile is constructed using a template file path, the path
-        // is generated in QTemporaryFileEngine::open() and then filePathIsTemplate
-        // is set to false. If remove() and then open() are called on the same
-        // QTemporaryFile, the path is not regenerated. Here we ensure that if the
-        // file path was generated, it will be generated again in the scenario above.
-        filePathIsTemplate = filePathWasTemplate;
-        return true;
-    }
-    return false;
-}
-#endif  // QT_CONFIG(temporaryfile)
-
-//  from src/corelib/io/qtemporaryfile.cpp, line 378, as _ZN20QTemporaryFileEngine6renameERK7QString
-#if QT_CONFIG(temporaryfile)
-inline bool QTemporaryFileEngine::rename(const QString &newName)
-{
-    if (isUnnamedFile()) {
-        bool ok = materializeUnnamedFile(newName, DontOverwrite);
-        QFSFileEngine::close();
-        return ok;
-    }
-    QFSFileEngine::close();
-    return QFSFileEngine::rename(newName);
 }
 #endif  // QT_CONFIG(temporaryfile)
 
@@ -205,6 +145,51 @@ inline bool QTemporaryFileEngine::close()
 }
 #endif  // QT_CONFIG(temporaryfile)
 
+//  from src/corelib/io/qtemporaryfile.cpp, line 356, as _ZN20QTemporaryFileEngine6removeEv
+#if QT_CONFIG(temporaryfile)
+inline bool QTemporaryFileEngine::remove()
+{
+    Q_D(QFSFileEngine);
+    // Since the QTemporaryFileEngine::close() does not really close the file,
+    // we must explicitly call QFSFileEngine::close() before we remove it.
+    d->unmapAll();
+    QFSFileEngine::close();
+    if (isUnnamedFile())
+        return true;
+    if (!filePathIsTemplate && QFSFileEngine::remove()) {
+        d->fileEntry.clear();
+        // If a QTemporaryFile is constructed using a template file path, the path
+        // is generated in QTemporaryFileEngine::open() and then filePathIsTemplate
+        // is set to false. If remove() and then open() are called on the same
+        // QTemporaryFile, the path is not regenerated. Here we ensure that if the
+        // file path was generated, it will be generated again in the scenario above.
+        filePathIsTemplate = filePathWasTemplate;
+        return true;
+    }
+    return false;
+}
+#endif  // QT_CONFIG(temporaryfile)
+
+//  from src/corelib/io/qtemporaryfile.cpp, line 378, as _ZN20QTemporaryFileEngine6renameERK7QString
+#if QT_CONFIG(temporaryfile)
+inline bool QTemporaryFileEngine::rename(const QString &newName)
+{
+    if (isUnnamedFile()) {
+        bool ok = materializeUnnamedFile(newName, DontOverwrite);
+        QFSFileEngine::close();
+        return ok;
+    }
+    QFSFileEngine::close();
+    return QFSFileEngine::rename(newName);
+}
+#endif  // QT_CONFIG(temporaryfile)
+
+//  from src/corelib/io/qfilesystementry.cpp, line 312, as _ZNK16QFileSystemEntry7isEmptyEv
+inline bool QFileSystemEntry::isEmpty() const
+{
+    return m_filePath.isEmpty() && m_nativeFilePath.isEmpty();
+}
+
 //  from src/corelib/io/qtemporaryfile.cpp, line 420, as _ZNK20QTemporaryFileEngine8fileNameEN19QAbstractFileEngine8FileNameE
 #if QT_CONFIG(temporaryfile)
 inline QString QTemporaryFileEngine::fileName(QAbstractFileEngine::FileName file) const
@@ -220,6 +205,105 @@ inline QString QTemporaryFileEngine::fileName(QAbstractFileEngine::FileName file
     }
     return QFSFileEngine::fileName(file);
 }
+#endif  // QT_CONFIG(temporaryfile)
+
+//  from src/corelib/io/qfilesystementry.cpp, line 46, as _ZN16QFileSystemEntryC1Ev
+inline QFileSystemEntry::QFileSystemEntry()
+    : m_lastSeparator(-1),
+    m_firstDotInFileName(-1),
+    m_lastDotInFileName(-1)
+{
+}
+
+//  from src/corelib/io/qtemporaryfile.cpp, line 434, as _ZN20QTemporaryFileEngine22materializeUnnamedFileERK7QStringNS_19MaterializationModeE
+#if QT_CONFIG(temporaryfile)
+inline bool QTemporaryFileEngine::materializeUnnamedFile(const QString &newName, QTemporaryFileEngine::MaterializationMode mode)
+{
+    Q_ASSERT(isUnnamedFile());
+
+#ifdef LINUX_UNNAMED_TMPFILE
+    Q_D(QFSFileEngine);
+    const QByteArray src = "/proc/self/fd/" + QByteArray::number(d->fd);
+    auto materializeAt = [=](const QFileSystemEntry &dst) {
+        return ::linkat(AT_FDCWD, src, AT_FDCWD, dst.nativeFilePath(), AT_SYMLINK_FOLLOW) == 0;
+    };
+#else
+    auto materializeAt = [](const QFileSystemEntry &) { return false; };
+#endif
+
+    auto success = [this](const QFileSystemEntry &entry) {
+        filePathIsTemplate = false;
+        unnamedFile = false;
+        d_func()->fileEntry = entry;
+        return true;
+    };
+
+    auto materializeAsTemplate = [=](const QString &newName) {
+        QTemporaryFileName tfn(newName);
+        static const int maxAttempts = 16;
+        for (int attempt = 0; attempt < maxAttempts; ++attempt) {
+            tfn.generateNext();
+            QFileSystemEntry entry(tfn.path, QFileSystemEntry::FromNativePath());
+            if (materializeAt(entry))
+                return success(entry);
+        }
+        return false;
+    };
+
+    if (mode == NameIsTemplate) {
+        if (materializeAsTemplate(newName))
+            return true;
+    } else {
+        // Use linkat to materialize the file
+        QFileSystemEntry dst(newName);
+        if (materializeAt(dst))
+            return success(dst);
+
+        if (errno == EEXIST && mode == Overwrite) {
+            // retry by first creating a temporary file in the right dir
+            if (!materializeAsTemplate(templateName))
+                return false;
+
+            // then rename the materialized file to target (same as renameOverwrite)
+            QFSFileEngine::close();
+            return QFSFileEngine::renameOverwrite(newName);
+        }
+    }
+
+    // failed
+    setError(QFile::RenameError, QSystemError(errno, QSystemError::NativeError).toString());
+    return false;
+}
+#endif  // QT_CONFIG(temporaryfile)
+
+//  from src/corelib/io/qtemporaryfile.cpp, line 282, as _ZN20QTemporaryFileEngineD1Ev
+#if QT_CONFIG(temporaryfile)
+inline QTemporaryFileEngine::~QTemporaryFileEngine()
+{
+    Q_D(QFSFileEngine);
+    d->unmapAll();
+    QFSFileEngine::close();
+}
+#endif  // QT_CONFIG(temporaryfile)
+
+//  from src/corelib/io/qtemporaryfile.cpp, line 289, as _ZNK20QTemporaryFileEngine12isReallyOpenEv
+#if QT_CONFIG(temporaryfile)
+#if defined(Q_OS_LINUX)
+inline bool QTemporaryFileEngine::isReallyOpen() const
+{
+    Q_D(const QFSFileEngine);
+
+    if (!((nullptr == d->fh) && (-1 == d->fd)
+#if defined Q_OS_WIN
+                && (INVALID_HANDLE_VALUE == d->fileHandle)
+#endif
+            ))
+        return true;
+
+    return false;
+
+}
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 492, as _ZNK20QTemporaryFileEngine13isUnnamedFileEv
@@ -315,18 +399,24 @@ typedef QString * (*CuteQTemporaryFileEngineCall22)(const void *, int, int *);
 typedef int (*CuteQTemporaryFileEngineCall23)(const void *, int *);
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-typedef int (*CuteQTemporaryFileEngineCall24)(const void *, QAbstractFileEngine *, int *);
+typedef qint64 (*CuteQTemporaryFileEngineCall24)(const void *, char *, qint64, int *);
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-typedef bool (*CuteQTemporaryFileEngineCall25)(const void *, int, const QAbstractFileEngine::ExtensionOption *, QAbstractFileEngine::ExtensionReturn *, int *);
+typedef qint64 (*CuteQTemporaryFileEngineCall25)(const void *, char *, qint64, int *);
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-typedef bool (*CuteQTemporaryFileEngineCall26)(const void *, int, int *);
+typedef int (*CuteQTemporaryFileEngineCall26)(const void *, QAbstractFileEngine *, int *);
+#endif  // !defined(QT_NO_FSFILEENGINE)
+#if !defined(QT_NO_FSFILEENGINE)
+typedef bool (*CuteQTemporaryFileEngineCall27)(const void *, int, const QAbstractFileEngine::ExtensionOption *, QAbstractFileEngine::ExtensionReturn *, int *);
+#endif  // !defined(QT_NO_FSFILEENGINE)
+#if !defined(QT_NO_FSFILEENGINE)
+typedef bool (*CuteQTemporaryFileEngineCall28)(const void *, int, int *);
 #endif  // !defined(QT_NO_FSFILEENGINE)
 class CuteQTemporaryFileEngine : public QTemporaryFileEngine {
 public:
   using QTemporaryFileEngine::QTemporaryFileEngine;
-  void *taken[27] = {};
+  void *taken[29] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(temporaryfile)
@@ -474,20 +564,32 @@ public:
     }
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-    if (!std::strcmp(key, "_ZN19QAbstractFileEngine7cloneToEPS_")) {
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine4readEPcx")) {
       taken[24] = call;
       return true;
     }
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-    if (!std::strcmp(key, "_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE")) {
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine8readLineEPcx")) {
       taken[25] = call;
       return true;
     }
 #endif  // !defined(QT_NO_FSFILEENGINE)
 #if !defined(QT_NO_FSFILEENGINE)
-    if (!std::strcmp(key, "_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE")) {
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine7cloneToEPS_")) {
       taken[26] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_FSFILEENGINE)
+#if !defined(QT_NO_FSFILEENGINE)
+    if (!std::strcmp(key, "_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE")) {
+      taken[27] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_FSFILEENGINE)
+#if !defined(QT_NO_FSFILEENGINE)
+    if (!std::strcmp(key, "_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE")) {
+      taken[28] = call;
       return true;
     }
 #endif  // !defined(QT_NO_FSFILEENGINE)
@@ -819,12 +921,38 @@ public:
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
 #if !defined(QT_NO_FSFILEENGINE)
-  //  TriStateResult QFSFileEngine::cloneTo(QAbstractFileEngine *target)
-  QAbstractFileEngine::TriStateResult cloneTo(
-      QAbstractFileEngine *target) override {
+  //  qint64 QFSFileEngine::read(char *data, qint64 maxlen)
+  qint64 read(char *data, qint64 maxlen) override {
     if (taken[24]) {
       int handled = 0;
       CuteQTemporaryFileEngineCall24 call = reinterpret_cast<CuteQTemporaryFileEngineCall24>(taken[24]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QFSFileEngine::read(data, maxlen);
+  }
+#endif  // !defined(QT_NO_FSFILEENGINE)
+
+#if !defined(QT_NO_FSFILEENGINE)
+  //  qint64 QFSFileEngine::readLine(char *data, qint64 maxlen)
+  qint64 readLine(char *data, qint64 maxlen) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQTemporaryFileEngineCall25 call = reinterpret_cast<CuteQTemporaryFileEngineCall25>(taken[25]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QFSFileEngine::readLine(data, maxlen);
+  }
+#endif  // !defined(QT_NO_FSFILEENGINE)
+
+#if !defined(QT_NO_FSFILEENGINE)
+  //  TriStateResult QFSFileEngine::cloneTo(QAbstractFileEngine *target)
+  QAbstractFileEngine::TriStateResult cloneTo(
+      QAbstractFileEngine *target) override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQTemporaryFileEngineCall26 call = reinterpret_cast<CuteQTemporaryFileEngineCall26>(taken[26]);
       int given = call(this, target, &handled);
       if (handled) return static_cast<QAbstractFileEngine::TriStateResult>(given);
     }
@@ -839,9 +967,9 @@ public:
       QAbstractFileEngine::Extension extension,
       const QAbstractFileEngine::ExtensionOption *option,
       QAbstractFileEngine::ExtensionReturn *output) override {
-    if (taken[25]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQTemporaryFileEngineCall25 call = reinterpret_cast<CuteQTemporaryFileEngineCall25>(taken[25]);
+      CuteQTemporaryFileEngineCall27 call = reinterpret_cast<CuteQTemporaryFileEngineCall27>(taken[27]);
       bool given = call(this, static_cast<int>(extension), option, output, &handled);
       if (handled) return given;
     }
@@ -853,9 +981,9 @@ public:
   //  bool QFSFileEngine::supportsExtension(Extension extension) const
   bool supportsExtension(
       QAbstractFileEngine::Extension extension) const override {
-    if (taken[26]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQTemporaryFileEngineCall26 call = reinterpret_cast<CuteQTemporaryFileEngineCall26>(taken[26]);
+      CuteQTemporaryFileEngineCall28 call = reinterpret_cast<CuteQTemporaryFileEngineCall28>(taken[28]);
       bool given = call(this, static_cast<int>(extension), &handled);
       if (handled) return given;
     }
@@ -901,6 +1029,18 @@ void ritual_ZN20QTemporaryFileEngine11setFileNameERK7QString(
     QTemporaryFileEngine *self,
     const QString *file) {
   self->setFileName(*file);
+}
+
+//  bool QTemporaryFileEngine::open(QIODevice::OpenMode flags,
+//      std::optional<QFile::Permissions> permissions)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QTemporaryFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEESt8optionalIS0_IN11QFileDevice10PermissionEEE(
+    QTemporaryFileEngine *self,
+    int flags,
+    const std::optional<QFile::Permissions> *permissions) {
+  return self->open(
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(flags),
+      *permissions);
 }
 
 //  bool QTemporaryFileEngine::remove()

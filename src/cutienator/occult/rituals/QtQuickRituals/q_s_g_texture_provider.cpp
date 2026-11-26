@@ -196,6 +196,25 @@ const QMetaObject *ritual_ZNK18QSGTextureProvider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGTextureProvider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QSGTextureProvider11qt_metacastEPKc(
+    QSGTextureProvider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGTextureProvider::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QSGTextureProvider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGTextureProvider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGTextureProvider::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QSGTextureProvider2trEPKcS1_i(
@@ -210,6 +229,13 @@ extern "C" Q_DECL_EXPORT
 QSGTexture *ritual_ZNK18QSGTextureProvider7textureEv(
     const QSGTextureProvider *self) {
   return self->texture();
+}
+
+//  void QSGTextureProvider::textureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSGTextureProvider14textureChangedEv(
+    QSGTextureProvider *self) {
+  self->textureChanged();
 }
 
 //  a Python function taken by a CuteQSGTextureProvider, for the function

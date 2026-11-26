@@ -5,8 +5,12 @@
 #if QT_CONFIG(proxymodel)
 #include <QtCore/qabstractproxymodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qbytearray.h>
@@ -16,6 +20,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QAbstractItemModel>
 
 //  A QAbstractProxyModel that Python can take functions over in. Every QAbstractProxyModel
 //  Python makes is one. Each function below asks the Python
@@ -1172,6 +1178,25 @@ const QMetaObject *ritual_ZNK19QAbstractProxyModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractProxyModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QAbstractProxyModel11qt_metacastEPKc(
+    QAbstractProxyModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractProxyModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QAbstractProxyModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractProxyModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractProxyModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QAbstractProxyModel2trEPKcS1_i(
@@ -1179,6 +1204,13 @@ QString *ritual_ZN19QAbstractProxyModel2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractProxyModel::tr(s, c, n));
+}
+
+//  QAbstractProxyModel::QAbstractProxyModel(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractProxyModel *ritual_ZN19QAbstractProxyModelC1EP7QObject(
+    QObject *parent) {
+  return new CuteQAbstractProxyModel(parent);
 }
 
 //  QAbstractProxyModel::~QAbstractProxyModel()
@@ -1200,6 +1232,14 @@ extern "C" Q_DECL_EXPORT
 QAbstractItemModel *ritual_ZNK19QAbstractProxyModel11sourceModelEv(
     const QAbstractProxyModel *self) {
   return self->sourceModel();
+}
+
+//  QBindable<QAbstractItemModel *>
+//      QAbstractProxyModel::bindableSourceModel()
+extern "C" Q_DECL_EXPORT
+QBindable<QAbstractItemModel *> *ritual_ZN19QAbstractProxyModel19bindableSourceModelEv(
+    QAbstractProxyModel *self) {
+  return new QBindable<QAbstractItemModel *>(self->bindableSourceModel());
 }
 
 //  QModelIndex QAbstractProxyModel::mapToSource(const QModelIndex
@@ -1454,6 +1494,33 @@ QHash<int, QByteArray> *ritual_ZNK19QAbstractProxyModel9roleNamesEv(
   return new QHash<int, QByteArray>(self->roleNames());
 }
 
+//  void QAbstractProxyModel::sourceModelChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractProxyModel18sourceModelChangedENS_14QPrivateSignalE(
+    QAbstractProxyModel *self) {
+  self->sourceModelChanged(QAbstractProxyModel::QPrivateSignal());
+}
+
+//  QModelIndex QAbstractProxyModel::createSourceIndex(int row, int col, void
+//      *internalPtr) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK19QAbstractProxyModel17createSourceIndexEiiPv(
+    const QAbstractProxyModel *self,
+    int row,
+    int col,
+    void *internalPtr) {
+  return new QModelIndex(self->createSourceIndex(row, col, internalPtr));
+}
+
+//  QAbstractProxyModel::QAbstractProxyModel(QAbstractProxyModelPrivate &a0,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractProxyModel *ritual_ZN19QAbstractProxyModelC1ER26QAbstractProxyModelPrivateP7QObject(
+    QAbstractProxyModelPrivate *a0,
+    QObject *parent) {
+  return new CuteQAbstractProxyModel(*a0, parent);
+}
+
 //  QAbstractProxyModelPrivate *QAbstractProxyModel::d_func()
 extern "C" Q_DECL_EXPORT
 QAbstractProxyModelPrivate *ritual_ZN19QAbstractProxyModel6d_funcEv(
@@ -1704,6 +1771,13 @@ int ritual_own_ZNK19QAbstractProxyModel20supportedDropActionsEv(
     const QAbstractProxyModel *self) {
   return static_cast<int>(
       self->QAbstractProxyModel::supportedDropActions().toInt());
+}
+
+//  a QBindable<QAbstractItemModel *> a ritual of QAbstractProxyModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractProxyModel__QBindable_QAbstractItemModel(
+    QBindable<QAbstractItemModel *> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(proxymodel)

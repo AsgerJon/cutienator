@@ -8,6 +8,19 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 
+//  Qt3DRender::Render::RenderSurfaceSelector::RenderSurfaceSelector()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::RenderSurfaceSelector *ritual_ZN10Qt3DRender6Render21RenderSurfaceSelectorC1Ev() {
+  return new Qt3DRender::Render::RenderSurfaceSelector();
+}
+
+//  QSize Qt3DRender::Render::RenderSurfaceSelector::renderTargetSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DRender6Render21RenderSurfaceSelector16renderTargetSizeEv(
+    const Qt3DRender::Render::RenderSurfaceSelector *self) {
+  return new QSize(self->renderTargetSize());
+}
+
 //  void Qt3DRender::Render::RenderSurfaceSelector::setRenderTargetSize(const
 //      QSize &size)
 extern "C" Q_DECL_EXPORT
@@ -15,6 +28,16 @@ void ritual_ZN10Qt3DRender6Render21RenderSurfaceSelector19setRenderTargetSizeERK
     Qt3DRender::Render::RenderSurfaceSelector *self,
     const QSize *size) {
   self->setRenderTargetSize(*size);
+}
+
+//  void Qt3DRender::Render::RenderSurfaceSelector::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render21RenderSurfaceSelector16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::RenderSurfaceSelector *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
 }
 
 //  QSurface *Qt3DRender::Render::RenderSurfaceSelector::surface() const

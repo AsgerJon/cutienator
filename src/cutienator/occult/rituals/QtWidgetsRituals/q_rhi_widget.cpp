@@ -914,6 +914,24 @@ const QMetaObject *ritual_ZNK10QRhiWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRhiWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QRhiWidget11qt_metacastEPKc(
+    QRhiWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRhiWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QRhiWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRhiWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRhiWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QRhiWidget2trEPKcS1_i(
@@ -1050,6 +1068,16 @@ QImage *ritual_ZNK10QRhiWidget15grabFramebufferEv(const QRhiWidget *self) {
   return new QImage(self->grabFramebuffer());
 }
 
+//  QRhiWidget::QRhiWidget(QRhiWidgetPrivate &dd, QWidget *parent,
+//      Qt::WindowFlags f)
+extern "C" Q_DECL_EXPORT
+QRhiWidget *ritual_ZN10QRhiWidgetC1ER17QRhiWidgetPrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE(
+    QRhiWidgetPrivate *dd,
+    QWidget *parent,
+    int f) {
+  return new CuteQRhiWidget(*dd, parent, QFlags<Qt::WindowType>::fromInt(f));
+}
+
 //  bool QRhiWidget::isAutoRenderTargetEnabled() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10QRhiWidget25isAutoRenderTargetEnabledEv(
@@ -1147,6 +1175,50 @@ void ritual_ZN10QRhiWidget10paintEventEP11QPaintEvent(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN10QRhiWidget5eventEP6QEvent(QRhiWidget *self, QEvent *e) {
   return self->event(e);
+}
+
+//  void QRhiWidget::frameSubmitted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget14frameSubmittedEv(QRhiWidget *self) {
+  self->frameSubmitted();
+}
+
+//  void QRhiWidget::renderFailed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget12renderFailedEv(QRhiWidget *self) {
+  self->renderFailed();
+}
+
+//  void QRhiWidget::sampleCountChanged(int samples)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget18sampleCountChangedEi(
+    QRhiWidget *self,
+    int samples) {
+  self->sampleCountChanged(samples);
+}
+
+//  void QRhiWidget::colorBufferFormatChanged(TextureFormat format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget24colorBufferFormatChangedENS_13TextureFormatE(
+    QRhiWidget *self,
+    QRhiWidget::TextureFormat format) {
+  self->colorBufferFormatChanged(format);
+}
+
+//  void QRhiWidget::fixedColorBufferSizeChanged(const QSize &pixelSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget27fixedColorBufferSizeChangedERK5QSize(
+    QRhiWidget *self,
+    const QSize *pixelSize) {
+  self->fixedColorBufferSizeChanged(*pixelSize);
+}
+
+//  void QRhiWidget::mirrorVerticallyChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget23mirrorVerticallyChangedEb(
+    QRhiWidget *self,
+    bool enabled) {
+  self->mirrorVerticallyChanged(enabled);
 }
 
 //  a Python function taken by a CuteQRhiWidget, for the function named by

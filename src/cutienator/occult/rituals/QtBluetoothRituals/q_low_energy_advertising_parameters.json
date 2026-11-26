@@ -10,6 +10,9 @@
       "address", "address"
     ],
     "ritual_ZN31QLowEnergyAdvertisingParametersD1Ev": ["nothing", "address"],
+    "ritual_ZN31QLowEnergyAdvertisingParametersaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK31QLowEnergyAdvertisingParametersS1_": [
       "bool", "address", "address"
     ],
@@ -20,6 +23,12 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK31QLowEnergyAdvertisingParameters4modeEv": ["int", "address"],
+    "ritual_ZN31QLowEnergyAdvertisingParameters12setWhiteListERK5QListINS_11AddressInfoEENS_12FilterPolicyE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK31QLowEnergyAdvertisingParameters9whiteListEv": [
+      "address", "address"
+    ],
     "ritual_ZNK31QLowEnergyAdvertisingParameters12filterPolicyEv": [
       "int", "address"
     ],
@@ -32,8 +41,14 @@
     "ritual_ZNK31QLowEnergyAdvertisingParameters15maximumIntervalEv": [
       "int", "address"
     ],
+    "ritual_ZN31QLowEnergyAdvertisingParameters4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN31QLowEnergyAdvertisingParameters6equalsERKS_S1_": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QLowEnergyAdvertisingParameters__QList_QLowEnergyAdvertisingParameters_AddressInfo": [
+      "nothing", "address"
     ]
   }
 }

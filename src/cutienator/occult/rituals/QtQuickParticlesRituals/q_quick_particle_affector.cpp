@@ -23,6 +23,25 @@ const QMetaObject *ritual_ZNK22QQuickParticleAffector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickParticleAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickParticleAffector11qt_metacastEPKc(
+    QQuickParticleAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickParticleAffector::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickParticleAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickParticleAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickParticleAffector::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickParticleAffector2trEPKcS1_i(
@@ -102,6 +121,64 @@ extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK22QQuickParticleAffector17whenCollidingWithEv(
     const QQuickParticleAffector *self) {
   return new QList<QString>(self->whenCollidingWith());
+}
+
+//  void QQuickParticleAffector::systemChanged(QQuickParticleSystem *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickParticleAffector13systemChangedEP20QQuickParticleSystem(
+    QQuickParticleAffector *self,
+    QQuickParticleSystem *arg) {
+  self->systemChanged(arg);
+}
+
+//  void QQuickParticleAffector::groupsChanged(const QStringList &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickParticleAffector13groupsChangedERK5QListI7QStringE(
+    QQuickParticleAffector *self,
+    const QList<QString> *arg) {
+  self->groupsChanged(*arg);
+}
+
+//  void QQuickParticleAffector::enabledChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickParticleAffector14enabledChangedEb(
+    QQuickParticleAffector *self,
+    bool arg) {
+  self->enabledChanged(arg);
+}
+
+//  void QQuickParticleAffector::onceChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickParticleAffector11onceChangedEb(
+    QQuickParticleAffector *self,
+    bool arg) {
+  self->onceChanged(arg);
+}
+
+//  void QQuickParticleAffector::shapeChanged(QQuickParticleExtruder *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickParticleAffector12shapeChangedEP22QQuickParticleExtruder(
+    QQuickParticleAffector *self,
+    QQuickParticleExtruder *arg) {
+  self->shapeChanged(arg);
+}
+
+//  void QQuickParticleAffector::affected(qreal x, qreal y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickParticleAffector8affectedEdd(
+    QQuickParticleAffector *self,
+    qreal x,
+    qreal y) {
+  self->affected(x, y);
+}
+
+//  void QQuickParticleAffector::whenCollidingWithChanged(const QStringList
+//      &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickParticleAffector24whenCollidingWithChangedERK5QListI7QStringE(
+    QQuickParticleAffector *self,
+    const QList<QString> *arg) {
+  self->whenCollidingWithChanged(*arg);
 }
 
 //  void QQuickParticleAffector::setSystem(QQuickParticleSystem *arg)

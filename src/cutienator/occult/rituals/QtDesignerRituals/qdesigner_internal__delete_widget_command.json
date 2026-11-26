@@ -5,6 +5,21 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal19DeleteWidgetCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19DeleteWidgetCommandD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19DeleteWidgetCommand4initEP7QWidgetj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN18qdesigner_internal19DeleteWidgetCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19DeleteWidgetCommand4undoEv": [
+      "nothing", "address"
+    ],
     "ritual_take_qdesigner_internal_DeleteWidgetCommand": [
       "bool", "address", "chars", "address"
     ],

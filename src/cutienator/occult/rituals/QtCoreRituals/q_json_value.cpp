@@ -68,10 +68,22 @@ QJsonValue *ritual_ZN10QJsonValueC1ERK10QJsonArray(const QJsonArray *a) {
   return new QJsonValue(*a);
 }
 
+//  QJsonValue::QJsonValue(QJsonArray &&a)
+extern "C" Q_DECL_EXPORT
+QJsonValue *ritual_ZN10QJsonValueC1EO10QJsonArray(QJsonArray *a) {
+  return new QJsonValue(std::move(*a));
+}
+
 //  QJsonValue::QJsonValue(const QJsonObject &o)
 extern "C" Q_DECL_EXPORT
 QJsonValue *ritual_ZN10QJsonValueC1ERK11QJsonObject(const QJsonObject *o) {
   return new QJsonValue(*o);
+}
+
+//  QJsonValue::QJsonValue(QJsonObject &&o)
+extern "C" Q_DECL_EXPORT
+QJsonValue *ritual_ZN10QJsonValueC1EO11QJsonObject(QJsonObject *o) {
+  return new QJsonValue(std::move(*o));
 }
 
 //  QJsonValue::~QJsonValue()
@@ -84,6 +96,34 @@ void ritual_ZN10QJsonValueD1Ev(QJsonValue *self) {
 extern "C" Q_DECL_EXPORT
 QJsonValue *ritual_ZN10QJsonValueC1ERKS_(const QJsonValue *other) {
   return new QJsonValue(*other);
+}
+
+//  QJsonValue &QJsonValue::operator=(const QJsonValue &other)
+extern "C" Q_DECL_EXPORT
+QJsonValue *ritual_ZN10QJsonValueaSERKS_(
+    QJsonValue *self,
+    const QJsonValue *other) {
+  return &(self->operator=(*other));
+}
+
+//  QJsonValue::QJsonValue(QJsonValue &&other)
+extern "C" Q_DECL_EXPORT
+QJsonValue *ritual_ZN10QJsonValueC1EOS_(QJsonValue *other) {
+  return new QJsonValue(std::move(*other));
+}
+
+//  QJsonValue &QJsonValue::operator=(QJsonValue &&other)
+extern "C" Q_DECL_EXPORT
+QJsonValue *ritual_ZN10QJsonValueaSEOS_(
+    QJsonValue *self,
+    QJsonValue *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QJsonValue::swap(QJsonValue &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QJsonValue4swapERS_(QJsonValue *self, QJsonValue *other) {
+  self->swap(*other);
 }
 
 //  QJsonValue QJsonValue::fromVariant(const QVariant &variant)
@@ -301,4 +341,12 @@ QDebug *ritual_Zls6QDebugRK10QJsonValue(
     const QDebug *a0,
     const QJsonValue *a1) {
   return new QDebug(operator<<(*a0, *a1));
+}
+
+//  QDataStream &operator<<(QDataStream &a0, const QJsonValue &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK10QJsonValue(
+    QDataStream *a0,
+    const QJsonValue *a1) {
+  return &(operator<<(*a0, *a1));
 }

@@ -1012,6 +1012,22 @@ const QMetaObject *ritual_ZNK8QMenuBar10metaObjectEv(const QMenuBar *self) {
   return self->metaObject();
 }
 
+//  void *QMenuBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QMenuBar11qt_metacastEPKc(QMenuBar *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMenuBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QMenuBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMenuBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMenuBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QMenuBar2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1183,6 +1199,20 @@ QPlatformMenuBar *ritual_ZN8QMenuBar15platformMenuBarEv(QMenuBar *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QMenuBar10setVisibleEb(QMenuBar *self, bool visible) {
   self->setVisible(visible);
+}
+
+//  void QMenuBar::triggered(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar9triggeredEP7QAction(
+    QMenuBar *self,
+    QAction *action) {
+  self->triggered(action);
+}
+
+//  void QMenuBar::hovered(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar7hoveredEP7QAction(QMenuBar *self, QAction *action) {
+  self->hovered(action);
 }
 
 //  void QMenuBar::changeEvent(QEvent *a0)

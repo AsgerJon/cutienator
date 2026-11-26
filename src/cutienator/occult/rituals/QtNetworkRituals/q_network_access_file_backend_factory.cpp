@@ -11,6 +11,72 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtNetwork/private/qnetworkaccessfilebackend_p.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qdir.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDateTime>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/network/access/qnetworkaccessfilebackend.cpp, line 28, as _ZNK32QNetworkAccessFileBackendFactory6createEN21QNetworkAccessManager9OperationERK15QNetworkRequest
+#if defined(Q_OS_LINUX)
+inline QNetworkAccessBackend *
+QNetworkAccessFileBackendFactory::create(QNetworkAccessManager::Operation op,
+                                         const QNetworkRequest &request) const
+{
+    // is it an operation we know of?
+    switch (op) {
+    case QNetworkAccessManager::GetOperation:
+    case QNetworkAccessManager::PutOperation:
+        break;
+
+    default:
+        // no, we can't handle this operation
+        return nullptr;
+    }
+
+    QUrl url = request.url();
+    if (url.scheme().compare("qrc"_L1, Qt::CaseInsensitive) == 0
+#if defined(Q_OS_ANDROID)
+            || url.scheme().compare("assets"_L1, Qt::CaseInsensitive) == 0
+#endif
+            || url.isLocalFile()) {
+        return new QNetworkAccessFileBackend;
+    } else if (!url.scheme().isEmpty() && url.authority().isEmpty() && (url.scheme().size() > 1)) {
+        // check if QFile could, in theory, open this URL via the file engines
+        // it has to be in the format:
+        //    prefix:path/to/file
+        // or prefix:/path/to/file
+        //
+        // this construct here must match the one below in open()
+        QFileInfo fi(url.toString(QUrl::RemoveAuthority | QUrl::RemoveFragment | QUrl::RemoveQuery));
+        if (fi.exists() || (op == QNetworkAccessManager::PutOperation && fi.dir().exists()))
+            return new QNetworkAccessFileBackend;
+    }
+
+    return nullptr;
+}
+#endif  // defined(Q_OS_LINUX)
+
+//  from src/network/access/qnetworkaccessfilebackend.cpp, line 67, as _ZN25QNetworkAccessFileBackendC1Ev
+inline QNetworkAccessFileBackend::QNetworkAccessFileBackend()
+    : QNetworkAccessBackend(QNetworkAccessBackend::TargetType::Local),
+      totalBytes(0),
+      hasUploadFinished(false)
+{
+}
+//  -----------------------------------------------------------------------
 
 //  A QNetworkAccessFileBackendFactory that Python can take functions over in. Every QNetworkAccessFileBackendFactory
 //  Python makes is one. Each function below asks the Python

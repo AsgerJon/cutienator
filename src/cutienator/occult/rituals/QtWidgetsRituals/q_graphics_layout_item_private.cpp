@@ -31,6 +31,37 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/graphicsview/qgraphicslayoutitem.cpp, line 53, as local:qgraphicslayoutitem.cpp:normalizeHints
+static void normalizeHints(qreal &minimum, qreal &preferred, qreal &maximum, qreal &descent)
+{
+    if (minimum >= 0 && maximum >= 0 && minimum > maximum)
+        minimum = maximum;
+
+    if (preferred >= 0) {
+        if (minimum >= 0 && preferred < minimum) {
+            preferred = minimum;
+        } else if (maximum >= 0 && preferred > maximum) {
+            preferred = maximum;
+        }
+    }
+
+    if (minimum >= 0 && descent > minimum)
+        descent = minimum;
+}
+
+//  from src/widgets/graphicsview/qgraphicslayoutitem.cpp, line 81, as _ZN26QGraphicsLayoutItemPrivateD1Ev
+inline QGraphicsLayoutItemPrivate::~QGraphicsLayoutItemPrivate()
+{
+    // Remove any lazily allocated data
+    delete[] userSizeHints;
+}
+
+//  from src/widgets/graphicsview/qgraphicslayoutitem.cpp, line 73, as _ZN26QGraphicsLayoutItemPrivateC1EP19QGraphicsLayoutItemb
+inline QGraphicsLayoutItemPrivate::QGraphicsLayoutItemPrivate(QGraphicsLayoutItem *par, bool layout)
+    : parent(par), userSizeHints(nullptr), isLayout(layout), ownedByLayout(false), graphicsItem(nullptr)
+{
+}
+
 //  from src/widgets/graphicsview/qgraphicslayoutitem.cpp, line 90, as _ZN26QGraphicsLayoutItemPrivate4initEv
 inline void QGraphicsLayoutItemPrivate::init()
 {
@@ -151,6 +182,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QGraphicsLayoutItemPrivateD1Ev(
     QGraphicsLayoutItemPrivate *self) {
   delete self;
+}
+
+//  QGraphicsLayoutItemPrivate::QGraphicsLayoutItemPrivate(QGraphicsLayoutIte
+//      m *parent, bool isLayout)
+extern "C" Q_DECL_EXPORT
+QGraphicsLayoutItemPrivate *ritual_ZN26QGraphicsLayoutItemPrivateC1EP19QGraphicsLayoutItemb(
+    QGraphicsLayoutItem *parent,
+    bool isLayout) {
+  return new QGraphicsLayoutItemPrivate(parent, isLayout);
 }
 
 //  QGraphicsLayoutItemPrivate

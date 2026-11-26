@@ -7,8 +7,52 @@
     "ritual_ZNK10Qt3DRender10QColorMask10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QColorMask11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMask11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QColorMask2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMaskC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMaskD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender10QColorMask11isRedMaskedEv": ["bool", "address"],
+    "ritual_ZNK10Qt3DRender10QColorMask13isGreenMaskedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QColorMask12isBlueMaskedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QColorMask13isAlphaMaskedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMask12setRedMaskedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMask14setGreenMaskedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMask13setBlueMaskedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMask14setAlphaMaskedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMask16redMaskedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMask18greenMaskedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMask17blueMaskedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QColorMask18alphaMaskedChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN10Qt3DRender10QColorMask6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender10QColorMask6d_funcEv": ["address", "address"],

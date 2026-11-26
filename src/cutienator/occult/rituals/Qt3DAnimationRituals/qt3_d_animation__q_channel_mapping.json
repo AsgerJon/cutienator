@@ -8,8 +8,48 @@
     "ritual_ZNK13Qt3DAnimation15QChannelMapping10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation15QChannelMapping11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMapping11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation15QChannelMapping2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMappingC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMappingD1Ev": ["nothing", "address"],
+    "ritual_ZNK13Qt3DAnimation15QChannelMapping11channelNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation15QChannelMapping6targetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation15QChannelMapping8propertyEv": [
+      "text", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMapping14setChannelNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMapping9setTargetEPN8Qt3DCore5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMapping11setPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMapping18channelNameChangedE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMapping13targetChangedEPN8Qt3DCore5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMapping15propertyChangedE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13Qt3DAnimation15QChannelMappingC1ERNS_22QChannelMappingPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation15QChannelMapping6d_funcEv": [
       "address", "address"

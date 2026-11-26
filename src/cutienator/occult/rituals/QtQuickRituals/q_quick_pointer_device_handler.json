@@ -8,6 +8,12 @@
     "ritual_ZNK26QQuickPointerDeviceHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuickPointerDeviceHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQuickPointerDeviceHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -37,6 +43,21 @@
     ],
     "ritual_ZN26QQuickPointerDeviceHandler20setAcceptedModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler22acceptedDevicesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler27acceptedPointerTypesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler22acceptedButtonsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler24acceptedModifiersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandlerC1ER33QQuickPointerDeviceHandlerPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN26QQuickPointerDeviceHandler17wantsPointerEventEP13QPointerEvent": [
       "bool", "address", "address"

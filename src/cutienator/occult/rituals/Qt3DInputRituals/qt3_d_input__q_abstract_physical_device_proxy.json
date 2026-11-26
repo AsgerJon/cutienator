@@ -8,8 +8,44 @@
     "ritual_ZNK9Qt3DInput28QAbstractPhysicalDeviceProxy10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput28QAbstractPhysicalDeviceProxy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput28QAbstractPhysicalDeviceProxy11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput28QAbstractPhysicalDeviceProxy2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK9Qt3DInput28QAbstractPhysicalDeviceProxy10deviceNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK9Qt3DInput28QAbstractPhysicalDeviceProxy6statusEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK9Qt3DInput28QAbstractPhysicalDeviceProxy9axisCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK9Qt3DInput28QAbstractPhysicalDeviceProxy11buttonCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK9Qt3DInput28QAbstractPhysicalDeviceProxy9axisNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput28QAbstractPhysicalDeviceProxy11buttonNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput28QAbstractPhysicalDeviceProxy14axisIdentifierERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK9Qt3DInput28QAbstractPhysicalDeviceProxy16buttonIdentifierERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN9Qt3DInput28QAbstractPhysicalDeviceProxy13statusChangedENS0_12DeviceStatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput28QAbstractPhysicalDeviceProxyC1ERNS_35QAbstractPhysicalDeviceProxyPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN9Qt3DInput28QAbstractPhysicalDeviceProxy6d_funcEv": [
       "address", "address"

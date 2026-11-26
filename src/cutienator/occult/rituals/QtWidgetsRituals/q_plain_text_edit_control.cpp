@@ -11,10 +11,10 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qpoint.h>
+#include <QtGui/qtextobject.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qtextcursor.h>
-#include <QtCore/qrect.h>
-#include <QtGui/qtextobject.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qvariant.h>
 #include <QtGui/qtransform.h>
@@ -56,6 +56,131 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 447, as _ZNK21QPlainTextEditControl27createMimeDataFromSelectionEv
+inline QMimeData *QPlainTextEditControl::createMimeDataFromSelection() const {
+        QPlainTextEdit *ed = qobject_cast<QPlainTextEdit *>(parent());
+        if (!ed)
+            return QWidgetTextControl::createMimeDataFromSelection();
+        return ed->createMimeDataFromSelection();
+    }
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 453, as _ZNK21QPlainTextEditControl21canInsertFromMimeDataEPK9QMimeData
+inline bool QPlainTextEditControl::canInsertFromMimeData(const QMimeData *source) const {
+    QPlainTextEdit *ed = qobject_cast<QPlainTextEdit *>(parent());
+    if (!ed)
+        return QWidgetTextControl::canInsertFromMimeData(source);
+    return ed->canInsertFromMimeData(source);
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 459, as _ZN21QPlainTextEditControl18insertFromMimeDataEPK9QMimeData
+inline void QPlainTextEditControl::insertFromMimeData(const QMimeData *source) {
+    QPlainTextEdit *ed = qobject_cast<QPlainTextEdit *>(parent());
+    if (!ed)
+        QWidgetTextControl::insertFromMimeData(source);
+    else
+        ed->insertFromMimeData(source);
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 503, as _ZNK21QPlainTextEditControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE
+inline int QPlainTextEditControl::hitTest(const QPointF &point, Qt::HitTestAccuracy ) const {
+    int currentBlockNumber = topBlock;
+    QTextBlock currentBlock = document()->findBlockByNumber(currentBlockNumber);
+    if (!currentBlock.isValid())
+        return -1;
+
+    QPlainTextDocumentLayout *documentLayout = qobject_cast<QPlainTextDocumentLayout*>(document()->documentLayout());
+    Q_ASSERT(documentLayout);
+
+    QPointF offset;
+    QRectF r = documentLayout->blockBoundingRect(currentBlock);
+    while (currentBlock.next().isValid() && r.bottom() + offset.y() <= point.y()) {
+        offset.ry() += r.height();
+        currentBlock = currentBlock.next();
+        ++currentBlockNumber;
+        r = documentLayout->blockBoundingRect(currentBlock);
+    }
+    while (currentBlock.previous().isValid() && r.top() + offset.y() > point.y()) {
+        offset.ry() -= r.height();
+        currentBlock = currentBlock.previous();
+        --currentBlockNumber;
+        r = documentLayout->blockBoundingRect(currentBlock);
+    }
+
+
+    if (!currentBlock.isValid())
+        return -1;
+    QTextLayout *layout = currentBlock.layout();
+    int off = 0;
+    QPointF pos = point - offset;
+    for (int i = 0; i < layout->lineCount(); ++i) {
+        QTextLine line = layout->lineAt(i);
+        const QRectF lr = line.naturalTextRect();
+        if (lr.top() > pos.y()) {
+            off = qMin(off, line.textStart());
+        } else if (lr.bottom() <= pos.y()) {
+            off = qMax(off, line.textStart() + line.textLength());
+        } else {
+            off = line.xToCursor(pos.x(), overwriteMode() ?
+                                 QTextLine::CursorOnCharacter : QTextLine::CursorBetweenCharacters);
+            break;
+        }
+    }
+
+    return currentBlock.position() + off;
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 550, as _ZNK21QPlainTextEditControl17blockBoundingRectERK10QTextBlock
+inline QRectF QPlainTextEditControl::blockBoundingRect(const QTextBlock &block) const {
+    int currentBlockNumber = topBlock;
+    int blockNumber = block.blockNumber();
+    QTextBlock currentBlock = document()->findBlockByNumber(currentBlockNumber);
+    if (!currentBlock.isValid())
+        return QRectF();
+    Q_ASSERT(currentBlock.blockNumber() == currentBlockNumber);
+    QTextDocument *doc = document();
+    QPlainTextDocumentLayout *documentLayout = qobject_cast<QPlainTextDocumentLayout*>(doc->documentLayout());
+    Q_ASSERT(documentLayout);
+
+    QPointF offset;
+    if (!block.isValid())
+        return QRectF();
+    QRectF r = documentLayout->blockBoundingRect(currentBlock);
+    int maxVerticalOffset = r.height();
+    while (currentBlockNumber < blockNumber && offset.y() - maxVerticalOffset <= 2* textEdit->viewport()->height()) {
+        offset.ry() += r.height();
+        currentBlock = currentBlock.next();
+        ++currentBlockNumber;
+        if (!currentBlock.isVisible()) {
+            currentBlock = doc->findBlockByLineNumber(currentBlock.firstLineNumber());
+            currentBlockNumber = currentBlock.blockNumber();
+        }
+        r = documentLayout->blockBoundingRect(currentBlock);
+    }
+    while (currentBlockNumber > blockNumber && offset.y() + maxVerticalOffset >= -textEdit->viewport()->height()) {
+        currentBlock = currentBlock.previous();
+        --currentBlockNumber;
+        while (!currentBlock.isVisible()) {
+            currentBlock = currentBlock.previous();
+            --currentBlockNumber;
+        }
+        if (!currentBlock.isValid())
+            break;
+
+        r = documentLayout->blockBoundingRect(currentBlock);
+        offset.ry() -= r.height();
+    }
+
+    if (currentBlockNumber != blockNumber) {
+        // fallback for blocks out of reach. Give it some geometry at
+        // least, and ensure the layout is up to date.
+        r = documentLayout->blockBoundingRect(block);
+        if (currentBlockNumber > blockNumber)
+            offset.ry() -= r.height();
+    }
+    r.translate(offset);
+    return r;
+}
 
 //  from src/widgets/widgets/qplaintextedit.cpp, line 601, as _ZNK21QPlainTextEditControl8anchorAtERK7QPointF
 inline QString QPlainTextEditControl::anchorAt(const QPointF &pos) const
@@ -540,6 +665,68 @@ const QMetaObject *ritual_ZNK21QPlainTextEditControl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlainTextEditControl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QPlainTextEditControl11qt_metacastEPKc(
+    QPlainTextEditControl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlainTextEditControl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QPlainTextEditControl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlainTextEditControl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QMimeData *QPlainTextEditControl::createMimeDataFromSelection() const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK21QPlainTextEditControl27createMimeDataFromSelectionEv(
+    const QPlainTextEditControl *self) {
+  return self->createMimeDataFromSelection();
+}
+
+//  bool QPlainTextEditControl::canInsertFromMimeData(const QMimeData
+//      *source) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QPlainTextEditControl21canInsertFromMimeDataEPK9QMimeData(
+    const QPlainTextEditControl *self,
+    const QMimeData *source) {
+  return self->canInsertFromMimeData(source);
+}
+
+//  void QPlainTextEditControl::insertFromMimeData(const QMimeData *source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditControl18insertFromMimeDataEPK9QMimeData(
+    QPlainTextEditControl *self,
+    const QMimeData *source) {
+  self->insertFromMimeData(source);
+}
+
+//  int QPlainTextEditControl::hitTest(const QPointF &point,
+//      Qt::HitTestAccuracy a1) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK21QPlainTextEditControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE(
+    const QPlainTextEditControl *self,
+    const QPointF *point,
+    Qt::HitTestAccuracy a1) {
+  return self->hitTest(*point, a1);
+}
+
+//  QRectF QPlainTextEditControl::blockBoundingRect(const QTextBlock &block)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK21QPlainTextEditControl17blockBoundingRectERK10QTextBlock(
+    const QPlainTextEditControl *self,
+    const QTextBlock *block) {
+  return new QRectF(self->blockBoundingRect(*block));
+}
+
 //  QString QPlainTextEditControl::anchorAt(const QPointF &pos) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK21QPlainTextEditControl8anchorAtERK7QPointF(
@@ -594,6 +781,49 @@ bool ritual_take_QPlainTextEditControl(
     const char *key,
     void *call) {
   return static_cast<CuteQPlainTextEditControl *>(self)->take(key, call);
+}
+
+//  QMimeData *QPlainTextEditControl::createMimeDataFromSelection() const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_own_ZNK21QPlainTextEditControl27createMimeDataFromSelectionEv(
+    const QPlainTextEditControl *self) {
+  return self->QPlainTextEditControl::createMimeDataFromSelection();
+}
+
+//  bool QPlainTextEditControl::canInsertFromMimeData(const QMimeData
+//      *source) const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK21QPlainTextEditControl21canInsertFromMimeDataEPK9QMimeData(
+    const QPlainTextEditControl *self,
+    const QMimeData *source) {
+  return self->QPlainTextEditControl::canInsertFromMimeData(source);
+}
+
+//  void QPlainTextEditControl::insertFromMimeData(const QMimeData *source)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN21QPlainTextEditControl18insertFromMimeDataEPK9QMimeData(
+    QPlainTextEditControl *self,
+    const QMimeData *source) {
+  self->QPlainTextEditControl::insertFromMimeData(source);
+}
+
+//  int QPlainTextEditControl::hitTest(const QPointF &point,
+//      Qt::HitTestAccuracy a1) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK21QPlainTextEditControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE(
+    const QPlainTextEditControl *self,
+    const QPointF *point,
+    Qt::HitTestAccuracy a1) {
+  return self->QPlainTextEditControl::hitTest(*point, a1);
+}
+
+//  QRectF QPlainTextEditControl::blockBoundingRect(const QTextBlock &block)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_own_ZNK21QPlainTextEditControl17blockBoundingRectERK10QTextBlock(
+    const QPlainTextEditControl *self,
+    const QTextBlock *block) {
+  return new QRectF(self->QPlainTextEditControl::blockBoundingRect(*block));
 }
 
 //  QString QPlainTextEditControl::anchorAt(const QPointF &pos) const

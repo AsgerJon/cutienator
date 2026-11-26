@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK22QNetworkHeadersPrivate13allRawHeadersEv": [
+      "address", "address"
+    ],
     "ritual_ZNK22QNetworkHeadersPrivate14rawHeadersKeysEv": [
       "address", "address"
     ],
@@ -15,12 +18,42 @@
     "ritual_ZN22QNetworkHeadersPrivate12clearHeadersEv": [
       "nothing", "address"
     ],
+    "ritual_ZN22QNetworkHeadersPrivate12fromHttpDateE14QByteArrayView": [
+      "address", "address"
+    ],
     "ritual_ZN22QNetworkHeadersPrivate10toHttpDateERK9QDateTime": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkHeadersPrivate5toIntE14QByteArrayView": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkHeadersPrivate14fromCookieListERK5QListI14QNetworkCookieE": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkHeadersPrivate15toSetCookieListERK5QListI10QByteArrayE": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkHeadersPrivate12toCookieListERK5QListI10QByteArrayE": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkHeadersPrivate13fromHttpToRawERK12QHttpHeaders": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkHeadersPrivate13fromRawToHttpERK5QListISt4pairI10QByteArrayS2_EE": [
       "address", "address"
     ],
     "ritual_ZN22QNetworkHeadersPrivate21invalidateHeaderCacheEv": [
       "nothing", "address"
     ],
-    "ritual_ZN22QNetworkHeadersPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN22QNetworkHeadersPrivateD1Ev": ["nothing", "address"],
+    "ritual_drop_QNetworkHeadersPrivate__std_optional_qint64": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QNetworkHeadersPrivate__std_optional_QNetworkHeadersPrivate_NetworkCookieList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QNetworkHeadersPrivate__QNetworkHeadersPrivate_RawHeadersList": [
+      "nothing", "address"
+    ]
   }
 }

@@ -1,11 +1,125 @@
-//  Written by dev_tooling.RitualGenerator from the records of
+//  Written by hand on 2026-11-25 from
 //  Qt3DRender/6.12.0/Qt3DRender/private/updateworldtransformjob_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again. Left out: d_func() (the private class is only declared where
+//  the header is read, so it cannot be named).
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qt3drender_global_p.h>
 #include <Qt3DRender/Qt3DRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/updateworldtransformjob_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <cstring>
+
+//  A Qt3DRender::Render::UpdateWorldTransformJob that Python can take
+//      functions over in. Every Qt3DRender::Render::UpdateWorldTransformJob
+//      Python makes is one. Each function below asks the Python function
+//      handed over for it, and runs Qt's own without one.
+typedef void (*CuteQt3DRender_Render_UpdateWorldTransformJobCall0)(const void *, int *);
+typedef void (*CuteQt3DRender_Render_UpdateWorldTransformJobCall1)(const void *, Qt3DCore::QAspectEngine *, int *);
+typedef bool (*CuteQt3DRender_Render_UpdateWorldTransformJobCall2)(const void *, int *);
+class CuteQt3DRender_Render_UpdateWorldTransformJob : public Qt3DRender::Render::UpdateWorldTransformJob {
+public:
+  using Qt3DRender::Render::UpdateWorldTransformJob::UpdateWorldTransformJob;
+  void *taken[3] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN8Qt3DCore10QAspectJob3runEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN8Qt3DCore10QAspectJob9postFrameEPNS_13QAspectEngineE")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN8Qt3DCore10QAspectJob10isRequiredEv")) {
+      taken[2] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void Qt3DRender::Render::UpdateWorldTransformJob::run()
+  void run() override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQt3DRender_Render_UpdateWorldTransformJobCall0 call = reinterpret_cast<CuteQt3DRender_Render_UpdateWorldTransformJobCall0>(taken[0]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    Qt3DRender::Render::UpdateWorldTransformJob::run();
+  }
+
+  //  void Qt3DCore::QAspectJob::postFrame(QAspectEngine *aspectEngine)
+  void postFrame(Qt3DCore::QAspectEngine *aspectEngine) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQt3DRender_Render_UpdateWorldTransformJobCall1 call = reinterpret_cast<CuteQt3DRender_Render_UpdateWorldTransformJobCall1>(taken[1]);
+      call(this, aspectEngine, &handled);
+      if (handled) return;
+    }
+    Qt3DCore::QAspectJob::postFrame(aspectEngine);
+  }
+
+  //  bool Qt3DCore::QAspectJob::isRequired()
+  bool isRequired() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQt3DRender_Render_UpdateWorldTransformJobCall2 call = reinterpret_cast<CuteQt3DRender_Render_UpdateWorldTransformJobCall2>(taken[2]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return Qt3DCore::QAspectJob::isRequired();
+  }
+};
+
+//  Qt3DRender::Render::UpdateWorldTransformJob::UpdateWorldTransformJob()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::UpdateWorldTransformJob *ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJobC1Ev() {
+  return new CuteQt3DRender_Render_UpdateWorldTransformJob();
+}
+
+//  Qt3DRender::Render::UpdateWorldTransformJob::~UpdateWorldTransformJob()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJobD1Ev(
+    Qt3DRender::Render::UpdateWorldTransformJob *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::UpdateWorldTransformJob::setRoot(Entity *root)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJob7setRootEPNS0_6EntityE(
+    Qt3DRender::Render::UpdateWorldTransformJob *self,
+    Qt3DRender::Render::Entity *root) {
+  self->setRoot(root);
+}
+
+//  void
+//      Qt3DRender::Render::UpdateWorldTransformJob::setManagers(NodeManagers
+//      *manager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJob11setManagersEPNS0_12NodeManagersE(
+    Qt3DRender::Render::UpdateWorldTransformJob *self,
+    Qt3DRender::Render::NodeManagers *manager) {
+  self->setManagers(manager);
+}
+
+//  void Qt3DRender::Render::UpdateWorldTransformJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render23UpdateWorldTransformJob3runEv(
+    Qt3DRender::Render::UpdateWorldTransformJob *self) {
+  self->run();
+}
+
+//  a Python function taken by a
+//      CuteQt3DRender_Render_UpdateWorldTransformJob, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_Qt3DRender_Render_UpdateWorldTransformJob(
+    Qt3DRender::Render::UpdateWorldTransformJob *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQt3DRender_Render_UpdateWorldTransformJob *>(self)->take(key, call);
+}
 
 //  void Qt3DRender::Render::UpdateWorldTransformJob::run()
 extern "C" Q_DECL_EXPORT

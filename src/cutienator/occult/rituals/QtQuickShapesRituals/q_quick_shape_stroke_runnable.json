@@ -8,7 +8,16 @@
     "ritual_ZNK25QQuickShapeStrokeRunnable10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickShapeStrokeRunnable11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickShapeStrokeRunnable11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuickShapeStrokeRunnable3runEv": ["nothing", "address"],
+    "ritual_ZN25QQuickShapeStrokeRunnable4doneEPS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_QQuickShapeStrokeRunnable_QRunnable": [
       "address", "address"
     ],

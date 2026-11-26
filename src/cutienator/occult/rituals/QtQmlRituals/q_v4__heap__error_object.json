@@ -8,6 +8,13 @@
     "ritual_ZN3QV44Heap11ErrorObject11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap11ErrorObject4initEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap11ErrorObject4initERKNS_5ValueENS1_9ErrorTypeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN3QV44Heap11ErrorObject4initERKNS_5ValueERK7QStringiiNS1_9ErrorTypeE": [
+      "nothing", "address", "address", "text", "int", "int", "int"
+    ],
     "ritual_ZN3QV44Heap11ErrorObject7destroyEv": ["nothing", "address"],
     "ritual_cast_QV4_Heap_ErrorObject_QV4_Heap_ErrorObjectData": [
       "address", "address"

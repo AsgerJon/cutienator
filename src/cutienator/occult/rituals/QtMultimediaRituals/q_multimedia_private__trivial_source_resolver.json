@@ -5,5 +5,11 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QMultimediaPrivate21TrivialSourceResolverD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QMultimediaPrivate21TrivialSourceResolver7resolveE4QUrl": [
+      "address", "address", "address"
+    ]
   }
 }

@@ -5,6 +5,10 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender22QComputeCommandPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender22QComputeCommandPrivate13setFrameCountEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_take_Qt3DRender_QComputeCommandPrivate": [
       "bool", "address", "chars", "address"
     ]

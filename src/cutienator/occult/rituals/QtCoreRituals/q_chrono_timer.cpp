@@ -6,6 +6,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <chrono>
+#include <QtCore/Qt>
 
 //  Only a class built on QChronoTimer may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -187,6 +190,24 @@ const QMetaObject *ritual_ZNK12QChronoTimer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QChronoTimer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QChronoTimer11qt_metacastEPKc(
+    QChronoTimer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QChronoTimer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QChronoTimer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QChronoTimer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QChronoTimer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QChronoTimer2trEPKcS1_i(
@@ -194,6 +215,15 @@ QString *ritual_ZN12QChronoTimer2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QChronoTimer::tr(s, c, n));
+}
+
+//  QChronoTimer::QChronoTimer(std::chrono::nanoseconds nsec, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QChronoTimer *ritual_ZN12QChronoTimerC1ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEP7QObject(
+    long long nsec,
+    QObject *parent) {
+  return new CuteQChronoTimer(std::chrono::nanoseconds(nsec), parent);
 }
 
 //  QChronoTimer::QChronoTimer(QObject *parent)
@@ -214,10 +244,45 @@ bool ritual_ZNK12QChronoTimer8isActiveEv(const QChronoTimer *self) {
   return self->isActive();
 }
 
+//  QBindable<bool> QChronoTimer::bindableActive()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN12QChronoTimer14bindableActiveEv(
+    QChronoTimer *self) {
+  return new QBindable<bool>(self->bindableActive());
+}
+
 //  Qt::TimerId QChronoTimer::id() const
 extern "C" Q_DECL_EXPORT
 Qt::TimerId ritual_ZNK12QChronoTimer2idEv(const QChronoTimer *self) {
   return self->id();
+}
+
+//  void QChronoTimer::setInterval(std::chrono::nanoseconds nsec)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QChronoTimer11setIntervalENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(
+    QChronoTimer *self,
+    long long nsec) {
+  self->setInterval(std::chrono::nanoseconds(nsec));
+}
+
+//  std::chrono::nanoseconds QChronoTimer::interval() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK12QChronoTimer8intervalEv(const QChronoTimer *self) {
+  return static_cast<long long>(self->interval().count());
+}
+
+//  QBindable<std::chrono::nanoseconds> QChronoTimer::bindableInterval()
+extern "C" Q_DECL_EXPORT
+QBindable<std::chrono::nanoseconds> *ritual_ZN12QChronoTimer16bindableIntervalEv(
+    QChronoTimer *self) {
+  return new QBindable<std::chrono::nanoseconds>(self->bindableInterval());
+}
+
+//  std::chrono::nanoseconds QChronoTimer::remainingTime() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK12QChronoTimer13remainingTimeEv(
+    const QChronoTimer *self) {
+  return static_cast<long long>(self->remainingTime().count());
 }
 
 //  void QChronoTimer::setTimerType(Qt::TimerType atype)
@@ -235,6 +300,13 @@ Qt::TimerType ritual_ZNK12QChronoTimer9timerTypeEv(
   return self->timerType();
 }
 
+//  QBindable<Qt::TimerType> QChronoTimer::bindableTimerType()
+extern "C" Q_DECL_EXPORT
+QBindable<Qt::TimerType> *ritual_ZN12QChronoTimer17bindableTimerTypeEv(
+    QChronoTimer *self) {
+  return new QBindable<Qt::TimerType>(self->bindableTimerType());
+}
+
 //  void QChronoTimer::setSingleShot(bool singleShot)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QChronoTimer13setSingleShotEb(
@@ -249,6 +321,13 @@ bool ritual_ZNK12QChronoTimer12isSingleShotEv(const QChronoTimer *self) {
   return self->isSingleShot();
 }
 
+//  QBindable<bool> QChronoTimer::bindableSingleShot()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN12QChronoTimer18bindableSingleShotEv(
+    QChronoTimer *self) {
+  return new QBindable<bool>(self->bindableSingleShot());
+}
+
 //  void QChronoTimer::start()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QChronoTimer5startEv(QChronoTimer *self) {
@@ -259,6 +338,13 @@ void ritual_ZN12QChronoTimer5startEv(QChronoTimer *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QChronoTimer4stopEv(QChronoTimer *self) {
   self->stop();
+}
+
+//  void QChronoTimer::timeout(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QChronoTimer7timeoutENS_14QPrivateSignalE(
+    QChronoTimer *self) {
+  self->timeout(QChronoTimer::QPrivateSignal());
 }
 
 //  void QChronoTimer::timerEvent(QTimerEvent *a0)
@@ -298,6 +384,26 @@ void ritual_own_ZN12QChronoTimer10timerEventEP11QTimerEvent(
     QChronoTimer *self,
     QTimerEvent *a0) {
   static_cast<OwnQChronoTimer *>(self)->OwnQChronoTimer::timerEvent(a0);
+}
+
+//  a QBindable<bool> a ritual of QChronoTimer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QChronoTimer__QBindable_bool(QBindable<bool> *self) {
+  delete self;
+}
+
+//  a QBindable<std::chrono::nanoseconds> a ritual of QChronoTimer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QChronoTimer__QBindable_std_chrono_nanoseconds(
+    QBindable<std::chrono::nanoseconds> *self) {
+  delete self;
+}
+
+//  a QBindable<Qt::TimerType> a ritual of QChronoTimer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QChronoTimer__QBindable_Qt_TimerType(
+    QBindable<Qt::TimerType> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_QOBJECT)

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QFontComboBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QFontComboBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QFontComboBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QFontComboBox2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QFontComboBoxC1EP7QWidget": ["address", "address"],
     "ritual_ZN13QFontComboBoxD1Ev": ["nothing", "address"],
@@ -33,16 +39,25 @@
     "ritual_ZN13QFontComboBox14setDisplayFontERK7QStringRK5QFont": [
       "nothing", "address", "text", "address"
     ],
+    "ritual_ZNK13QFontComboBox11displayFontERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZN13QFontComboBox14setCurrentFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QFontComboBox18currentFontChangedERK5QFont": [
       "nothing", "address", "address"
     ],
     "ritual_ZN13QFontComboBox5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN13QFontComboBox6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QFontComboBox6d_funcEv": ["address", "address"],
     "ritual_take_QFontComboBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QFontComboBox8sizeHintEv": ["address", "address"],
     "ritual_own_ZN13QFontComboBox5eventEP6QEvent": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_drop_QFontComboBox__std_optional_QFont": ["nothing", "address"]
   }
 }

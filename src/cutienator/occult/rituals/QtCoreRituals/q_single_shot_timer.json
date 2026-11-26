@@ -6,6 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK16QSingleShotTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSingleShotTimer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QSingleShotTimer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QSingleShotTimerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSingleShotTimer21startTimerForReceiverENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObject": [
+      "nothing", "address", "long long", "int", "address"
+    ],
+    "ritual_ZN16QSingleShotTimer7timeoutEv": ["nothing", "address"],
     "ritual_ZN16QSingleShotTimer10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],

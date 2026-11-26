@@ -9,6 +9,12 @@
     "ritual_ZN11QDirPrivate17toDirListingFlagsE6QFlagsIN4QDir6FilterEE": [
       "int", "int"
     ],
+    "ritual_ZN11QDirPrivate23checkNonDirListingFlagsERKN11QDirListing8DirEntryE6QFlagsIN4QDir6FilterEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK11QDirPrivate13initFileListsERK4QDir": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QDirPrivate16getFilterSepCharERK7QString": [
       "address", "text"
     ],

@@ -17,6 +17,7 @@
     "ritual_ZNK9QGeoShape6centerEv": ["address", "address"],
     "ritual_ZeqRK9QGeoShapeS1_": ["bool", "address", "address"],
     "ritual_ZneRK9QGeoShapeS1_": ["bool", "address", "address"],
+    "ritual_ZN9QGeoShapeaSERKS_": ["address", "address", "address"],
     "ritual_ZNK9QGeoShape8toStringEv": ["text", "address"],
     "ritual_ZN9QGeoShapeC1EP16QGeoShapePrivate": ["address", "address"],
     "ritual_ZN9QGeoShape6equalsERKS_S1_": ["bool", "address", "address"],
@@ -24,6 +25,16 @@
     "ritual_ZNK9QGeoShape6d_funcEv": ["address", "address"],
     "ritual_Zls6QDebugRK9QGeoShape": ["address", "address", "address"],
     "ritual_ZN9QGeoShape14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK9QGeoShape": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR9QGeoShape": ["address", "address", "address"],
+    "ritual_ZN9QGeoShape13dataStreamOutER11QDataStreamRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QGeoShape12dataStreamInER11QDataStreamRS_": [
       "address", "address", "address"
     ]
   }

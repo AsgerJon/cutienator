@@ -5,11 +5,18 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender24QGeometryRendererPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender24QGeometryRendererPrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender24QGeometryRendererPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender24QGeometryRendererPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender24QGeometryRendererPrivate7setViewEPN8Qt3DCore13QGeometryViewE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_Qt3DRender_QGeometryRendererPrivate": [
       "bool", "address", "chars", "address"

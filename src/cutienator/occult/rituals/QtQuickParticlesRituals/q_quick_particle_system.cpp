@@ -808,6 +808,25 @@ const QMetaObject *ritual_ZNK20QQuickParticleSystem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickParticleSystem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickParticleSystem11qt_metacastEPKc(
+    QQuickParticleSystem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickParticleSystem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickParticleSystem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickParticleSystem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickParticleSystem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickParticleSystem2trEPKcS1_i(
@@ -842,6 +861,37 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK20QQuickParticleSystem5countEv(
     const QQuickParticleSystem *self) {
   return self->count();
+}
+
+//  void QQuickParticleSystem::systemInitialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickParticleSystem17systemInitializedEv(
+    QQuickParticleSystem *self) {
+  self->systemInitialized();
+}
+
+//  void QQuickParticleSystem::runningChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickParticleSystem14runningChangedEb(
+    QQuickParticleSystem *self,
+    bool arg) {
+  self->runningChanged(arg);
+}
+
+//  void QQuickParticleSystem::pausedChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickParticleSystem13pausedChangedEb(
+    QQuickParticleSystem *self,
+    bool arg) {
+  self->pausedChanged(arg);
+}
+
+//  void QQuickParticleSystem::emptyChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickParticleSystem12emptyChangedEb(
+    QQuickParticleSystem *self,
+    bool arg) {
+  self->emptyChanged(arg);
 }
 
 //  void QQuickParticleSystem::start()
@@ -1085,6 +1135,16 @@ void ritual_ZN20QQuickParticleSystem26unregisterParticleAffectorEP22QQuickPartic
     QQuickParticleSystem *self,
     QQuickParticleAffector *a) {
   self->unregisterParticleAffector(a);
+}
+
+//  void
+//      QQuickParticleSystem::statePropertyRedirect(QQmlListProperty<QObject>
+//      *prop, QObject *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickParticleSystem21statePropertyRedirectEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *prop,
+    QObject *value) {
+  QQuickParticleSystem::statePropertyRedirect(prop, value);
 }
 
 //  void QQuickParticleSystem::stateRedirect(QQuickParticleGroup *group,

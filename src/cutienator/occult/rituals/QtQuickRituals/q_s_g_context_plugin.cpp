@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QSGContextPlugin that Python can take functions over in. Every QSGContextPlugin
@@ -254,6 +255,25 @@ const QMetaObject *ritual_ZNK16QSGContextPlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGContextPlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QSGContextPlugin11qt_metacastEPKc(
+    QSGContextPlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGContextPlugin::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QSGContextPlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGContextPlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGContextPlugin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QSGContextPlugin2trEPKcS1_i(
@@ -267,6 +287,13 @@ QString *ritual_ZN16QSGContextPlugin2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSGContextPluginD1Ev(QSGContextPlugin *self) {
   delete self;
+}
+
+//  QStringList QSGContextPlugin::keys() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK16QSGContextPlugin4keysEv(
+    const QSGContextPlugin *self) {
+  return new QList<QString>(self->keys());
 }
 
 //  QQuickTextureFactory

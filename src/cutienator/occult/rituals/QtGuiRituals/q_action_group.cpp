@@ -6,7 +6,9 @@
 #include <QtGui/qactiongroup.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
+#if QT_CONFIG(action)
 #include <QtGui/qaction.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -185,6 +187,24 @@ const QMetaObject *ritual_ZNK12QActionGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QActionGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QActionGroup11qt_metacastEPKc(
+    QActionGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QActionGroup::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QActionGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QActionGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QActionGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QActionGroup2trEPKcS1_i(
@@ -323,6 +343,22 @@ void ritual_ZN12QActionGroup18setExclusionPolicyENS_15ExclusionPolicyE(
   self->setExclusionPolicy(policy);
 }
 
+//  void QActionGroup::triggered(QAction *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QActionGroup9triggeredEP7QAction(
+    QActionGroup *self,
+    QAction *a0) {
+  self->triggered(a0);
+}
+
+//  void QActionGroup::hovered(QAction *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QActionGroup7hoveredEP7QAction(
+    QActionGroup *self,
+    QAction *a0) {
+  self->hovered(a0);
+}
+
 //  void QActionGroup::_q_actionTriggered()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QActionGroup18_q_actionTriggeredEv(QActionGroup *self) {
@@ -339,6 +375,14 @@ void ritual_ZN12QActionGroup16_q_actionHoveredEv(QActionGroup *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QActionGroup16_q_actionChangedEv(QActionGroup *self) {
   self->_q_actionChanged();
+}
+
+//  QActionGroup::QActionGroup(QActionGroupPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QActionGroup *ritual_ZN12QActionGroupC1ER19QActionGroupPrivateP7QObject(
+    QActionGroupPrivate *dd,
+    QObject *parent) {
+  return new CuteQActionGroup(*dd, parent);
 }
 
 //  a Python function taken by a CuteQActionGroup, for the function named by

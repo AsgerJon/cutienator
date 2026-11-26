@@ -10,6 +10,12 @@
     "QtQmlIntegration"
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender23QuickScene2DNodeFactory10createNodeEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender23QuickScene2DNodeFactory12registerTypeEPKcS2_ii": [
+      "nothing", "address", "chars", "chars", "int", "int"
+    ],
     "ritual_ZN10Qt3DRender23QuickScene2DNodeFactoryD1Ev": [
       "nothing", "address"
     ]

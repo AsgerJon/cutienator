@@ -49,22 +49,25 @@ typedef bool (*CuteQIslamicCivilCalendarCall8)(const void *, int *);
 #if QT_CONFIG(hijricalendar)
 typedef void * (*CuteQIslamicCivilCalendarCall9)(const void *, int *);
 #endif  // QT_CONFIG(hijricalendar)
-typedef int (*CuteQIslamicCivilCalendarCall10)(const void *, int, int *);
-typedef bool (*CuteQIslamicCivilCalendarCall11)(const void *, int, int, int, int *);
-typedef bool (*CuteQIslamicCivilCalendarCall12)(const void *, int *);
+#if QT_CONFIG(hijricalendar)
+typedef void * (*CuteQIslamicCivilCalendarCall10)(const void *, int *);
+#endif  // QT_CONFIG(hijricalendar)
+typedef int (*CuteQIslamicCivilCalendarCall11)(const void *, int, int *);
+typedef bool (*CuteQIslamicCivilCalendarCall12)(const void *, int, int, int, int *);
 typedef bool (*CuteQIslamicCivilCalendarCall13)(const void *, int *);
-typedef int (*CuteQIslamicCivilCalendarCall14)(const void *, int *);
+typedef bool (*CuteQIslamicCivilCalendarCall14)(const void *, int *);
 typedef int (*CuteQIslamicCivilCalendarCall15)(const void *, int *);
-typedef int (*CuteQIslamicCivilCalendarCall16)(const void *, qint64, int *);
-typedef qint64 (*CuteQIslamicCivilCalendarCall17)(const void *, const QCalendar::YearMonthDay *, int, int *);
-typedef QString * (*CuteQIslamicCivilCalendarCall18)(const void *, const QLocale *, int, int, int, int *);
+typedef int (*CuteQIslamicCivilCalendarCall16)(const void *, int *);
+typedef int (*CuteQIslamicCivilCalendarCall17)(const void *, qint64, int *);
+typedef qint64 (*CuteQIslamicCivilCalendarCall18)(const void *, const QCalendar::YearMonthDay *, int, int *);
 typedef QString * (*CuteQIslamicCivilCalendarCall19)(const void *, const QLocale *, int, int, int, int *);
-typedef QString * (*CuteQIslamicCivilCalendarCall20)(const void *, const QLocale *, int, int, int *);
+typedef QString * (*CuteQIslamicCivilCalendarCall20)(const void *, const QLocale *, int, int, int, int *);
 typedef QString * (*CuteQIslamicCivilCalendarCall21)(const void *, const QLocale *, int, int, int *);
+typedef QString * (*CuteQIslamicCivilCalendarCall22)(const void *, const QLocale *, int, int, int *);
 class CuteQIslamicCivilCalendar : public QIslamicCivilCalendar {
 public:
   using QIslamicCivilCalendar::QIslamicCivilCalendar;
-  void *taken[22] = {};
+  void *taken[23] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(islamiccivilcalendar)
@@ -127,52 +130,58 @@ public:
       return true;
     }
 #endif  // QT_CONFIG(hijricalendar)
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend12monthsInYearEi")) {
+#if QT_CONFIG(hijricalendar)
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend15localeMonthDataEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isDateValidEiii")) {
+#endif  // QT_CONFIG(hijricalendar)
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend12monthsInYearEi")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isProlepticEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isDateValidEiii")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11hasYearZeroEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11isProlepticEv")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend18minimumDaysInMonthEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11hasYearZeroEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend19maximumMonthsInYearEv")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend18minimumDaysInMonthEv")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend9dayOfWeekEx")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend19maximumMonthsInYearEv")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend21matchCenturyToWeekdayERKN9QCalendar12YearMonthDayEi")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend9dayOfWeekEx")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend9monthNameERK7QLocaleiiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend21matchCenturyToWeekdayERKN9QCalendar12YearMonthDayEi")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend19standaloneMonthNameERK7QLocaleiiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend9monthNameERK7QLocaleiiNS0_10FormatTypeE")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend11weekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend19standaloneMonthNameERK7QLocaleiiNS0_10FormatTypeE")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QCalendarBackend21standaloneWeekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend11weekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
       taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QCalendarBackend21standaloneWeekDayNameERK7QLocaleiNS0_10FormatTypeE")) {
+      taken[22] = call;
       return true;
     }
     return false;
@@ -313,11 +322,24 @@ public:
   }
 #endif  // QT_CONFIG(hijricalendar)
 
-  //  int QCalendarBackend::monthsInYear(int year) const
-  int monthsInYear(int year) const override {
+#if QT_CONFIG(hijricalendar)
+  //  const char16_t *QHijriCalendar::localeMonthData() const
+  const char16_t *localeMonthData() const override {
     if (taken[10]) {
       int handled = 0;
       CuteQIslamicCivilCalendarCall10 call = reinterpret_cast<CuteQIslamicCivilCalendarCall10>(taken[10]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<const char16_t *>(given);
+    }
+    return QHijriCalendar::localeMonthData();
+  }
+#endif  // QT_CONFIG(hijricalendar)
+
+  //  int QCalendarBackend::monthsInYear(int year) const
+  int monthsInYear(int year) const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQIslamicCivilCalendarCall11 call = reinterpret_cast<CuteQIslamicCivilCalendarCall11>(taken[11]);
       int given = call(this, year, &handled);
       if (handled) return given;
     }
@@ -327,9 +349,9 @@ public:
   //  bool QCalendarBackend::isDateValid(int year, int month, int day)
   //      const
   bool isDateValid(int year, int month, int day) const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall11 call = reinterpret_cast<CuteQIslamicCivilCalendarCall11>(taken[11]);
+      CuteQIslamicCivilCalendarCall12 call = reinterpret_cast<CuteQIslamicCivilCalendarCall12>(taken[12]);
       bool given = call(this, year, month, day, &handled);
       if (handled) return given;
     }
@@ -338,9 +360,9 @@ public:
 
   //  bool QCalendarBackend::isProleptic() const
   bool isProleptic() const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall12 call = reinterpret_cast<CuteQIslamicCivilCalendarCall12>(taken[12]);
+      CuteQIslamicCivilCalendarCall13 call = reinterpret_cast<CuteQIslamicCivilCalendarCall13>(taken[13]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -349,9 +371,9 @@ public:
 
   //  bool QCalendarBackend::hasYearZero() const
   bool hasYearZero() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall13 call = reinterpret_cast<CuteQIslamicCivilCalendarCall13>(taken[13]);
+      CuteQIslamicCivilCalendarCall14 call = reinterpret_cast<CuteQIslamicCivilCalendarCall14>(taken[14]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -360,9 +382,9 @@ public:
 
   //  int QCalendarBackend::minimumDaysInMonth() const
   int minimumDaysInMonth() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall14 call = reinterpret_cast<CuteQIslamicCivilCalendarCall14>(taken[14]);
+      CuteQIslamicCivilCalendarCall15 call = reinterpret_cast<CuteQIslamicCivilCalendarCall15>(taken[15]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -371,9 +393,9 @@ public:
 
   //  int QCalendarBackend::maximumMonthsInYear() const
   int maximumMonthsInYear() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall15 call = reinterpret_cast<CuteQIslamicCivilCalendarCall15>(taken[15]);
+      CuteQIslamicCivilCalendarCall16 call = reinterpret_cast<CuteQIslamicCivilCalendarCall16>(taken[16]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -382,9 +404,9 @@ public:
 
   //  int QCalendarBackend::dayOfWeek(qint64 jd) const
   int dayOfWeek(qint64 jd) const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall16 call = reinterpret_cast<CuteQIslamicCivilCalendarCall16>(taken[16]);
+      CuteQIslamicCivilCalendarCall17 call = reinterpret_cast<CuteQIslamicCivilCalendarCall17>(taken[17]);
       int given = call(this, jd, &handled);
       if (handled) return given;
     }
@@ -396,9 +418,9 @@ public:
   qint64 matchCenturyToWeekday(
       const QCalendar::YearMonthDay &parts,
       int dow) const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall17 call = reinterpret_cast<CuteQIslamicCivilCalendarCall17>(taken[17]);
+      CuteQIslamicCivilCalendarCall18 call = reinterpret_cast<CuteQIslamicCivilCalendarCall18>(taken[18]);
       qint64 given = call(this, &parts, dow, &handled);
       if (handled) return given;
     }
@@ -412,9 +434,9 @@ public:
       int month,
       int year,
       QLocale::FormatType format) const override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall18 call = reinterpret_cast<CuteQIslamicCivilCalendarCall18>(taken[18]);
+      CuteQIslamicCivilCalendarCall19 call = reinterpret_cast<CuteQIslamicCivilCalendarCall19>(taken[19]);
       QString * given = call(this, &locale, month, year, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);
@@ -432,9 +454,9 @@ public:
       int month,
       int year,
       QLocale::FormatType format) const override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall19 call = reinterpret_cast<CuteQIslamicCivilCalendarCall19>(taken[19]);
+      CuteQIslamicCivilCalendarCall20 call = reinterpret_cast<CuteQIslamicCivilCalendarCall20>(taken[20]);
       QString * given = call(this, &locale, month, year, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);
@@ -451,9 +473,9 @@ public:
       const QLocale &locale,
       int day,
       QLocale::FormatType format) const override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall20 call = reinterpret_cast<CuteQIslamicCivilCalendarCall20>(taken[20]);
+      CuteQIslamicCivilCalendarCall21 call = reinterpret_cast<CuteQIslamicCivilCalendarCall21>(taken[21]);
       QString * given = call(this, &locale, day, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);
@@ -470,9 +492,9 @@ public:
       const QLocale &locale,
       int day,
       QLocale::FormatType format) const override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQIslamicCivilCalendarCall21 call = reinterpret_cast<CuteQIslamicCivilCalendarCall21>(taken[21]);
+      CuteQIslamicCivilCalendarCall22 call = reinterpret_cast<CuteQIslamicCivilCalendarCall22>(taken[22]);
       QString * given = call(this, &locale, day, static_cast<int>(format), &handled);
       if (handled && given) {
         QString back(*given);

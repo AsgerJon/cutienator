@@ -5,12 +5,44 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QResourceFileEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QResourceFileEngine6d_funcEv": ["address", "address"],
     "ritual_ZN19QResourceFileEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN19QResourceFileEngine11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QResourceFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEESt8optionalIS0_IN11QFileDevice10PermissionEEE": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN19QResourceFileEngine5closeEv": ["bool", "address"],
     "ritual_ZN19QResourceFileEngine5flushEv": ["bool", "address"],
+    "ritual_ZNK19QResourceFileEngine4sizeEv": ["long long", "address"],
+    "ritual_ZNK19QResourceFileEngine3posEv": ["long long", "address"],
     "ritual_ZNK19QResourceFileEngine5atEndEv": ["bool", "address"],
+    "ritual_ZN19QResourceFileEngine4seekEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZN19QResourceFileEngine4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZNK19QResourceFileEngine13caseSensitiveEv": ["bool", "address"],
+    "ritual_ZNK19QResourceFileEngine9fileFlagsE6QFlagsIN19QAbstractFileEngine8FileFlagEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK19QResourceFileEngine8fileNameEN19QAbstractFileEngine8FileNameE": [
+      "text", "address", "int"
+    ],
     "ritual_ZNK19QResourceFileEngine7ownerIdEN19QAbstractFileEngine9FileOwnerE": [
       "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK19QResourceFileEngine8fileTimeEN11QFileDevice8FileTimeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QResourceFileEngine14beginEntryListERK7QString6QFlagsIN11QDirListing12IteratorFlagEERK5QListIS0_E": [
+      "address", "address", "text", "int", "address"
+    ],
+    "ritual_ZN19QResourceFileEngine9extensionEN19QAbstractFileEngine9ExtensionEPKNS0_15ExtensionOptionEPNS0_15ExtensionReturnE": [
+      "bool", "address", "int", "address", "address"
     ],
     "ritual_ZNK19QResourceFileEngine17supportsExtensionEN19QAbstractFileEngine9ExtensionE": [
       "bool", "address", "int"
@@ -18,15 +50,37 @@
     "ritual_take_QResourceFileEngine": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZN19QResourceFileEngine11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN19QResourceFileEngine5closeEv": ["bool", "address"],
     "ritual_own_ZN19QResourceFileEngine5flushEv": ["bool", "address"],
+    "ritual_own_ZNK19QResourceFileEngine4sizeEv": ["long long", "address"],
+    "ritual_own_ZNK19QResourceFileEngine3posEv": ["long long", "address"],
+    "ritual_own_ZNK19QResourceFileEngine5atEndEv": ["bool", "address"],
+    "ritual_own_ZN19QResourceFileEngine4seekEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_own_ZN19QResourceFileEngine4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_own_ZNK19QResourceFileEngine13caseSensitiveEv": [
       "bool", "address"
+    ],
+    "ritual_own_ZNK19QResourceFileEngine9fileFlagsE6QFlagsIN19QAbstractFileEngine8FileFlagEE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK19QResourceFileEngine8fileNameEN19QAbstractFileEngine8FileNameE": [
+      "text", "address", "int"
     ],
     "ritual_own_ZNK19QResourceFileEngine7ownerIdEN19QAbstractFileEngine9FileOwnerE": [
       "unsigned int", "address", "int"
     ],
     "ritual_own_ZNK19QResourceFileEngine17supportsExtensionEN19QAbstractFileEngine9ExtensionE": [
       "bool", "address", "int"
+    ],
+    "ritual_drop_QResourceFileEngine__QAbstractFileEngine_IteratorUniquePtr": [
+      "nothing", "address"
     ]
   }
 }

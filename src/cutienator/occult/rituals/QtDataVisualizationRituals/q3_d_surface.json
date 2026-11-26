@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10Q3DSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Q3DSurface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Q3DSurface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Q3DSurface2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10Q3DSurfaceC1EPK14QSurfaceFormatP7QWindow": [
       "address", "address", "address"
@@ -42,6 +48,21 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK10Q3DSurface18flipHorizontalGridEv": ["bool", "address"],
+    "ritual_ZN10Q3DSurface12axisXChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Q3DSurface12axisYChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Q3DSurface12axisZChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Q3DSurface21selectedSeriesChangedEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Q3DSurface25flipHorizontalGridChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN10Q3DSurface4dptrEv": ["address", "address"],
     "ritual_ZNK10Q3DSurface5dptrcEv": ["address", "address"],
     "ritual_take_Q3DSurface": ["bool", "address", "chars", "address"]

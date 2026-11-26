@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK41QQmlTranslationPropertyBindingFunctorBase15compilationUnitEv": [
+      "address", "address"
+    ],
+    "ritual_ZN41QQmlTranslationPropertyBindingFunctorBaseC1ERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEE": [
+      "address", "address"
+    ],
     "ritual_ZN41QQmlTranslationPropertyBindingFunctorBaseD1Ev": [
       "nothing", "address"
     ]

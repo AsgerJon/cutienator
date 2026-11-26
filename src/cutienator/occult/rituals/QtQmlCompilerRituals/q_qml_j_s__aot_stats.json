@@ -5,6 +5,38 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN6QQmlJS8AotStatsD1Ev": ["nothing", "address"]
+    "ritual_ZNK6QQmlJS8AotStats7entriesEv": ["address", "address"],
+    "ritual_ZN6QQmlJS8AotStats12registerFileERK7QStringS3_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN6QQmlJS8AotStats8addEntryERK7QStringS3_RKNS_13AotStatsEntryE": [
+      "nothing", "address", "text", "text", "address"
+    ],
+    "ritual_ZN6QQmlJS8AotStats6insertERKS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS8AotStats12readAllLinesERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZNK6QQmlJS8AotStats10saveToDiskERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN6QQmlJS8AotStats17parseAotstatsFileERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN6QQmlJS8AotStats21aggregateAotstatsListERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN6QQmlJS8AotStats16fromJsonDocumentERK13QJsonDocument": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS8AotStats14toJsonDocumentEv": ["address", "address"],
+    "ritual_ZN6QQmlJS8AotStatsD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlJS_AotStats__std_optional_QStringList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJS_AotStats__std_optional_QQmlJS_AotStats": [
+      "nothing", "address"
+    ]
   }
 }

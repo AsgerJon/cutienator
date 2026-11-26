@@ -7,9 +7,13 @@
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qtquickdialogs2quickimplglobal_p.h>
 #if QT_CONFIG(quick_listview) && QT_CONFIG(quick_draganddrop)
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qtquickdialogs2quickimplglobal_p.h>
+#if QT_CONFIG(quick_listview) && QT_CONFIG(quick_draganddrop)
 #include <QtQuickDialogs2QuickImpl/QtQuickDialogs2QuickImpl>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquicksidebar_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquicksidebar_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>

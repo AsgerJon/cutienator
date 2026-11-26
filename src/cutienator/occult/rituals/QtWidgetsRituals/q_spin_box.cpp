@@ -1128,6 +1128,22 @@ const QMetaObject *ritual_ZNK8QSpinBox10metaObjectEv(const QSpinBox *self) {
   return self->metaObject();
 }
 
+//  void *QSpinBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QSpinBox11qt_metacastEPKc(QSpinBox *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSpinBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QSpinBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSpinBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSpinBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QSpinBox2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1261,6 +1277,15 @@ bool ritual_ZN8QSpinBox5eventEP6QEvent(QSpinBox *self, QEvent *event) {
   return self->event(event);
 }
 
+//  QValidator::State QSpinBox::validate(QString &input, int &pos) const
+extern "C" Q_DECL_EXPORT
+QValidator::State ritual_ZNK8QSpinBox8validateER7QStringRi(
+    const QSpinBox *self,
+    QString *input,
+    int *pos) {
+  return self->validate(*input, *pos);
+}
+
 //  int QSpinBox::valueFromText(const QString &text) const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK8QSpinBox13valueFromTextERK7QString(
@@ -1277,10 +1302,44 @@ QString *ritual_ZNK8QSpinBox13textFromValueEi(
   return new QString(self->textFromValue(val));
 }
 
+//  void QSpinBox::fixup(QString &str) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QSpinBox5fixupER7QString(
+    const QSpinBox *self,
+    QString *str) {
+  self->fixup(*str);
+}
+
 //  void QSpinBox::setValue(int val)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QSpinBox8setValueEi(QSpinBox *self, int val) {
   self->setValue(val);
+}
+
+//  void QSpinBox::valueChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSpinBox12valueChangedEi(QSpinBox *self, int a0) {
+  self->valueChanged(a0);
+}
+
+//  void QSpinBox::textChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSpinBox11textChangedERK7QString(
+    QSpinBox *self,
+    const QString *a0) {
+  self->textChanged(*a0);
+}
+
+//  QSpinBoxPrivate *QSpinBox::d_func()
+extern "C" Q_DECL_EXPORT
+QSpinBoxPrivate *ritual_ZN8QSpinBox6d_funcEv(QSpinBox *self) {
+  return self->d_func();
+}
+
+//  const QSpinBoxPrivate *QSpinBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSpinBoxPrivate *ritual_ZNK8QSpinBox6d_funcEv(const QSpinBox *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQSpinBox, for the function named by the

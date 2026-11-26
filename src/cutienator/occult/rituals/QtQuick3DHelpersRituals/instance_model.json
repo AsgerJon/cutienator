@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13InstanceModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN13InstanceModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13InstanceModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13InstanceModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13InstanceModelC1EP7QObject": ["address", "address"],
     "ritual_ZNK13InstanceModel4dataERK11QModelIndexi": [
@@ -23,6 +29,7 @@
     ],
     "ritual_ZNK13InstanceModel9roleNamesEv": ["address", "address"],
     "ritual_ZN13InstanceModel5resetEv": ["nothing", "address"],
+    "ritual_ZN13InstanceModel17instancingChangedEv": ["nothing", "address"],
     "ritual_ZNK13InstanceModel11ensureTableEv": ["nothing", "address"],
     "ritual_own_ZNK13InstanceModel4dataERK11QModelIndexi": [
       "address", "address", "address", "int"

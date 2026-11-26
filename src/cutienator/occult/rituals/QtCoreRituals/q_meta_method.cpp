@@ -309,10 +309,113 @@ bool ritual_ZNK11QMetaMethod6invokeEP7QObject16QGenericArgumentS2_S2_S2_S2_S2_S2
 }
 #endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
+//  bool QMetaMethod::invokeOnGadget(void *gadget, QGenericReturnArgument
+//      returnValue, QGenericArgument val0, QGenericArgument val1,
+//      QGenericArgument val2, QGenericArgument val3, QGenericArgument val4,
+//      QGenericArgument val5, QGenericArgument val6, QGenericArgument val7,
+//      QGenericArgument val8, QGenericArgument val9) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QMetaMethod14invokeOnGadgetEPv22QGenericReturnArgument16QGenericArgumentS2_S2_S2_S2_S2_S2_S2_S2_S2_(
+    const QMetaMethod *self,
+    void *gadget,
+    const QGenericReturnArgument *returnValue,
+    const QGenericArgument *val0,
+    const QGenericArgument *val1,
+    const QGenericArgument *val2,
+    const QGenericArgument *val3,
+    const QGenericArgument *val4,
+    const QGenericArgument *val5,
+    const QGenericArgument *val6,
+    const QGenericArgument *val7,
+    const QGenericArgument *val8,
+    const QGenericArgument *val9) {
+  return self->invokeOnGadget(
+      gadget,
+      *returnValue,
+      *val0,
+      *val1,
+      *val2,
+      *val3,
+      *val4,
+      *val5,
+      *val6,
+      *val7,
+      *val8,
+      *val9);
+}
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
+//  bool QMetaMethod::invokeOnGadget(void *gadget, QGenericArgument val0,
+//      QGenericArgument val1, QGenericArgument val2, QGenericArgument val3,
+//      QGenericArgument val4, QGenericArgument val5, QGenericArgument val6,
+//      QGenericArgument val7, QGenericArgument val8, QGenericArgument val9)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QMetaMethod14invokeOnGadgetEPv16QGenericArgumentS1_S1_S1_S1_S1_S1_S1_S1_S1_(
+    const QMetaMethod *self,
+    void *gadget,
+    const QGenericArgument *val0,
+    const QGenericArgument *val1,
+    const QGenericArgument *val2,
+    const QGenericArgument *val3,
+    const QGenericArgument *val4,
+    const QGenericArgument *val5,
+    const QGenericArgument *val6,
+    const QGenericArgument *val7,
+    const QGenericArgument *val8,
+    const QGenericArgument *val9) {
+  return self->invokeOnGadget(
+      gadget,
+      *val0,
+      *val1,
+      *val2,
+      *val3,
+      *val4,
+      *val5,
+      *val6,
+      *val7,
+      *val8,
+      *val9);
+}
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
+
 //  bool QMetaMethod::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QMetaMethod7isValidEv(const QMetaMethod *self) {
   return self->isValid();
+}
+
+//  bool QMetaMethod::invokeImpl(QMetaMethod self_, void *target,
+//      Qt::ConnectionType a2, qsizetype paramCount, const void *const
+//      *parameters, const char *const *typeNames, const
+//      QtPrivate::QMetaTypeInterface *const *metaTypes)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QMetaMethod10invokeImplES_PvN2Qt14ConnectionTypeExPKPKvPKPKcPKPKN9QtPrivate18QMetaTypeInterfaceE(
+    const QMetaMethod *self_,
+    void *target,
+    Qt::ConnectionType a2,
+    qsizetype paramCount,
+    const void *const *parameters,
+    const char *const *typeNames,
+    const QtPrivate::QMetaTypeInterface *const *metaTypes) {
+  return QMetaMethod::invokeImpl(
+      *self_,
+      target,
+      a2,
+      paramCount,
+      parameters,
+      typeNames,
+      metaTypes);
+}
+
+//  QMetaMethod QMetaMethod::fromSignalImpl(const QMetaObject *a0, void **a1)
+extern "C" Q_DECL_EXPORT
+QMetaMethod *ritual_ZN11QMetaMethod14fromSignalImplEPK11QMetaObjectPPv(
+    const QMetaObject *a0,
+    void **a1) {
+  return new QMetaMethod(QMetaMethod::fromSignalImpl(a0, a1));
 }
 
 //  QMetaMethod QMetaMethod::fromRelativeMethodIndex(const QMetaObject *mobj,
@@ -334,6 +437,15 @@ QMetaMethod *ritual_ZN11QMetaMethod28fromRelativeConstructorIndexEPK11QMetaObjec
       QMetaMethod::fromRelativeConstructorIndex(
           mobj,
           index));
+}
+
+//  QMetaMethod::QMetaMethod(const QMetaObject *metaObject, const Data
+//      &data_)
+extern "C" Q_DECL_EXPORT
+QMetaMethod *ritual_ZN11QMetaMethodC1EPK11QMetaObjectRKNS_4DataE(
+    const QMetaObject *metaObject,
+    const QMetaMethod::Data *data_) {
+  return new QMetaMethod(metaObject, *data_);
 }
 
 //  bool operator==(const QMetaMethod &lhs, const QMetaMethod &rhs)

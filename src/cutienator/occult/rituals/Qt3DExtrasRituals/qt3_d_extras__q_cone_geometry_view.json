@@ -8,8 +8,77 @@
     "ritual_ZNK10Qt3DExtras17QConeGeometryView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras17QConeGeometryView2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryViewC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras17QConeGeometryView5ringsEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras17QConeGeometryView6slicesEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras17QConeGeometryView12hasTopEndcapEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QConeGeometryView15hasBottomEndcapEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QConeGeometryView9topRadiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QConeGeometryView12bottomRadiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QConeGeometryView6lengthEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView15setHasTopEndcapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView18setHasBottomEndcapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView12setTopRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView15setBottomRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView8setRingsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView9setSlicesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView9setLengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView19hasTopEndcapChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView22hasBottomEndcapChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView16topRadiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView19bottomRadiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView12ringsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView13slicesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QConeGeometryView13lengthChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_take_Qt3DExtras_QConeGeometryView": [
       "bool", "address", "chars", "address"

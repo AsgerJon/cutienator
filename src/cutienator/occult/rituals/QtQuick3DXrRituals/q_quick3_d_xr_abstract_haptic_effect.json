@@ -8,6 +8,12 @@
     "ritual_ZNK30QQuick3DXrAbstractHapticEffect10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QQuick3DXrAbstractHapticEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QQuick3DXrAbstractHapticEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QQuick3DXrAbstractHapticEffect24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ]

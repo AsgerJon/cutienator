@@ -453,6 +453,25 @@ const QMetaObject *ritual_ZNK19QQmlProfilerService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlProfilerService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQmlProfilerService11qt_metacastEPKc(
+    QQmlProfilerService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlProfilerService::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQmlProfilerService11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlProfilerService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlProfilerService::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQmlProfilerService2trEPKcS1_i(
@@ -512,6 +531,14 @@ void ritual_ZN19QQmlProfilerService9dataReadyEP27QQmlAbstractProfilerAdapter(
     QQmlProfilerService *self,
     QQmlAbstractProfilerAdapter *profiler) {
   self->dataReady(profiler);
+}
+
+//  QQmlProfilerService::QQmlProfilerService(float version, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQmlProfilerService *ritual_ZN19QQmlProfilerServiceC1EfP7QObject(
+    float version,
+    QObject *parent) {
+  return new CuteQQmlProfilerService(version, parent);
 }
 
 //  a Python function taken by a CuteQQmlProfilerService, for the function

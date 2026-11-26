@@ -12,6 +12,15 @@
     "ritual_ZN9QLockFile6unlockEv": ["nothing", "address"],
     "ritual_ZN9QLockFile16setStaleLockTimeEi": ["nothing", "address", "int"],
     "ritual_ZNK9QLockFile13staleLockTimeEv": ["int", "address"],
+    "ritual_ZN9QLockFile7tryLockENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZN9QLockFile16setStaleLockTimeENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK9QLockFile23staleLockTimeAsDurationEv": [
+      "long long", "address"
+    ],
     "ritual_ZNK9QLockFile8isLockedEv": ["bool", "address"],
     "ritual_ZNK9QLockFile11getLockInfoEPxP7QStringS2_": [
       "bool", "address", "address", "address", "address"

@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK28QQuick3DParticleDynamicBurst10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleDynamicBurst::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuick3DParticleDynamicBurst11qt_metacastEPKc(
+    QQuick3DParticleDynamicBurst *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleDynamicBurst::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuick3DParticleDynamicBurst11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleDynamicBurst *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleDynamicBurst::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -76,4 +95,25 @@ void ritual_ZN28QQuick3DParticleDynamicBurst14setTriggerModeENS_11TriggerModeE(
     QQuick3DParticleDynamicBurst *self,
     QQuick3DParticleDynamicBurst::TriggerMode mode) {
   self->setTriggerMode(mode);
+}
+
+//  void QQuick3DParticleDynamicBurst::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleDynamicBurst14enabledChangedEv(
+    QQuick3DParticleDynamicBurst *self) {
+  self->enabledChanged();
+}
+
+//  void QQuick3DParticleDynamicBurst::amountVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleDynamicBurst22amountVariationChangedEv(
+    QQuick3DParticleDynamicBurst *self) {
+  self->amountVariationChanged();
+}
+
+//  void QQuick3DParticleDynamicBurst::triggerModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleDynamicBurst18triggerModeChangedEv(
+    QQuick3DParticleDynamicBurst *self) {
+  self->triggerModeChanged();
 }

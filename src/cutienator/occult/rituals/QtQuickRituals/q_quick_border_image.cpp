@@ -1008,6 +1008,25 @@ const QMetaObject *ritual_ZNK17QQuickBorderImage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickBorderImage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickBorderImage11qt_metacastEPKc(
+    QQuickBorderImage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickBorderImage::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickBorderImage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickBorderImage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickBorderImage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickBorderImage2trEPKcS1_i(
@@ -1073,6 +1092,27 @@ void ritual_ZN17QQuickBorderImage9setSourceERK4QUrl(
     QQuickBorderImage *self,
     const QUrl *url) {
   self->setSource(*url);
+}
+
+//  void QQuickBorderImage::horizontalTileModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickBorderImage25horizontalTileModeChangedEv(
+    QQuickBorderImage *self) {
+  self->horizontalTileModeChanged();
+}
+
+//  void QQuickBorderImage::verticalTileModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickBorderImage23verticalTileModeChangedEv(
+    QQuickBorderImage *self) {
+  self->verticalTileModeChanged();
+}
+
+//  void QQuickBorderImage::sourceSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickBorderImage17sourceSizeChangedEv(
+    QQuickBorderImage *self) {
+  self->sourceSizeChanged();
 }
 
 //  void QQuickBorderImage::load()

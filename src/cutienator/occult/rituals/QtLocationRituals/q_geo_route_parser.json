@@ -6,18 +6,33 @@
   ],
   "rows": {
     "ritual_ZNK15QGeoRouteParser10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGeoRouteParser11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QGeoRouteParser11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QGeoRouteParser2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN15QGeoRouteParser6d_funcEv": ["address", "address"],
     "ritual_ZNK15QGeoRouteParser6d_funcEv": ["address", "address"],
     "ritual_ZN15QGeoRouteParserD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QGeoRouteParser10parseReplyER5QListI9QGeoRouteER7QStringRK10QByteArray": [
+      "int", "address", "address", "address", "address"
+    ],
     "ritual_ZNK15QGeoRouteParser10requestUrlERK16QGeoRouteRequestRK7QString": [
       "address", "address", "address", "text"
     ],
     "ritual_ZNK15QGeoRouteParser11trafficSideEv": ["int", "address"],
     "ritual_ZN15QGeoRouteParser14setTrafficSideENS_11TrafficSideE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN15QGeoRouteParser18trafficSideChangedENS_11TrafficSideE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QGeoRouteParserC1ER22QGeoRouteParserPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QGeoRouteParser": ["bool", "address", "chars", "address"]
   }

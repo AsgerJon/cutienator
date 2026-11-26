@@ -31,6 +31,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::Literals::StringLiterals;
+
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterrhirenderer.cpp, line 3727, as _ZN11QCRhiCanvas7destroyEv
 inline void QCRhiCanvas::destroy()
 {

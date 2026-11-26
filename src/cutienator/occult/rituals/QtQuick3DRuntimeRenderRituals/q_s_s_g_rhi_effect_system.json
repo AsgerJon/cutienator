@@ -5,15 +5,31 @@
     "tsystem_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QSSGRhiEffectSystemC1ERKSt10shared_ptrI26QSSGRenderContextInterfaceE": [
+      "address", "address"
+    ],
     "ritual_ZN19QSSGRhiEffectSystemD1Ev": ["nothing", "address"],
     "ritual_ZN19QSSGRhiEffectSystem5setupE5QSize": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN19QSSGRhiEffectSystem7processERK15QSSGRenderLayerP11QRhiTextureS4_S4_S4_": [
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
     "ritual_ZN19QSSGRhiEffectSystem22overriddenOutputFormatEPK16QSSGRenderEffect": [
       "unsigned char", "address"
     ],
+    "ritual_ZN19QSSGRhiEffectSystem20buildShaderForEffectERK14QSSGBindShaderR20QSSGProgramGeneratorR24QSSGShaderLibraryManagerR15QSSGShaderCachebi": [
+      "address", "address", "address", "address", "address", "bool", "int"
+    ],
     "ritual_ZN19QSSGRhiEffectSystem16releaseResourcesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QSSGRhiEffectSystem14doRenderEffectEPK16QSSGRenderEffectP20QSSGRhiEffectTextureh": [
+      "address", "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN19QSSGRhiEffectSystem17allocateBufferCmdEPK18QSSGAllocateBufferP20QSSGRhiEffectTexturePK16QSSGRenderEffecth": [
+      "nothing", "address", "address", "address", "address", "unsigned char"
     ],
     "ritual_ZN19QSSGRhiEffectSystem21applyInstanceValueCmdEPK22QSSGApplyInstanceValuePK16QSSGRenderEffect": [
       "nothing", "address", "address", "address"
@@ -24,13 +40,29 @@
     "ritual_ZN19QSSGRhiEffectSystem13bindShaderCmdEPK14QSSGBindShaderPK16QSSGRenderEffecth": [
       "nothing", "address", "address", "address", "unsigned char"
     ],
+    "ritual_ZN19QSSGRhiEffectSystem9renderCmdEPK16QSSGRenderEffectP20QSSGRhiEffectTextureS4_h": [
+      "nothing", "address", "address", "address", "address", "unsigned char"
+    ],
     "ritual_ZN19QSSGRhiEffectSystem23addCommonEffectUniformsEPK16QSSGRenderEffectRK5QSizeS5_h": [
       "nothing", "address", "address", "address", "address", "unsigned char"
     ],
     "ritual_ZN19QSSGRhiEffectSystem26addTextureToShaderPipelineERK10QByteArrayP11QRhiTextureRK25QSSGRhiSamplerDescription": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_ZN19QSSGRhiEffectSystem11findTextureERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiEffectSystem10getTextureERK10QByteArrayRK5QSizeN11QRhiTexture6FormatEbPK16QSSGRenderEffecth": [
+      "address", "address", "address", "address", "int", "bool", "address",
+      "unsigned char"
+    ],
+    "ritual_ZN19QSSGRhiEffectSystem14releaseTextureEP20QSSGRhiEffectTexture": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QSSGRhiEffectSystem15releaseTexturesEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGRhiEffectSystem__QSSGRhiShaderPipelinePtr": [
       "nothing", "address"
     ]
   }

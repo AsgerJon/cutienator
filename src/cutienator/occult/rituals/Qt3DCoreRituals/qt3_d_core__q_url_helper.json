@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore10QUrlHelper19urlToLocalFileOrQrcERK4QUrl": [
+      "text", "address"
+    ],
     "ritual_ZN8Qt3DCore10QUrlHelperD1Ev": ["nothing", "address"]
   }
 }

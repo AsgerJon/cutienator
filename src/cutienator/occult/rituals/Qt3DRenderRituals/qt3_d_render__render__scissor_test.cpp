@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_ScissorTestCall0)(const void *, const Qt3DR
 class CuteQt3DRender_Render_ScissorTest : public Qt3DRender::Render::ScissorTest {
 public:
   using Qt3DRender::Render::ScissorTest::ScissorTest;
-  CuteQt3DRender_Render_ScissorTest(const Qt3DRender::Render::ScissorTest &other) : Qt3DRender::Render::ScissorTest(other) {}
+  CuteQt3DRender_Render_ScissorTest(const Qt3DRender::Render::ScissorTest & other) : Qt3DRender::Render::ScissorTest(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::ScissorTest::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::ScissorTest::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render11ScissorTest16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::ScissorTest *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::ScissorTest::~ScissorTest()
 extern "C" Q_DECL_EXPORT

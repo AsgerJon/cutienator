@@ -8,8 +8,96 @@
     "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard20PlatformInputContext2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContextC1Ev": ["address"],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContextD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext6commitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext6updateE6QFlagsIN2Qt16InputMethodQueryEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext12invokeActionEN12QInputMethod6ActionEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext12keyboardRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext11isAnimatingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext14showInputPanelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext14hideInputPanelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext19isInputPanelVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext6localeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext9setLocaleE7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext14inputDirectionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext17setInputDirectionEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext11focusObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext14setFocusObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext12inputContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext18focusObjectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext9sendEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext12sendKeyEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext15setInputContextEP28QVirtualKeyboardInputContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext25evaluateInputPanelVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext24keyboardRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext23updateInputPanelVisibleEv": [
+      "nothing", "address"
     ],
     "ritual_take_QtVirtualKeyboard_PlatformInputContext": [
       "bool", "address", "chars", "address"

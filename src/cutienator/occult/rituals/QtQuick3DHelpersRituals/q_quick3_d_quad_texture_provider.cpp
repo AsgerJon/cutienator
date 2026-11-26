@@ -27,6 +27,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3d/src/helpers/qquick3dquadtextureprovider.cpp, line 707, as _ZN27QQuick3DQuadTextureProvider24markTrackedPropertyDirtyE13QMetaPropertyN30QQuick3DPropertyChangedTracker17DirtyPropertyHintE
+inline void QQuick3DQuadTextureProvider::markTrackedPropertyDirty(QMetaProperty property, DirtyPropertyHint hint)
+{
+    Q_UNUSED(property);
+    Q_UNUSED(hint);
+    markDirty(Dirty::TrackedProperty);
+}
+
 //  from ../qtquick3d/src/helpers/qquick3dquadtextureprovider.cpp, line 720, as _ZNK27QQuick3DQuadTextureProvider14fragmentShaderEv
 inline QUrl QQuick3DQuadTextureProvider::fragmentShader() const
 {
@@ -55,14 +63,6 @@ inline int QQuick3DQuadTextureProvider::height() const
 inline QQuick3DTextureData::Format QQuick3DQuadTextureProvider::format() const
 {
     return m_format;
-}
-
-//  from ../qtquick3d/src/helpers/qquick3dquadtextureprovider.cpp, line 707, as _ZN27QQuick3DQuadTextureProvider24markTrackedPropertyDirtyE13QMetaPropertyN30QQuick3DPropertyChangedTracker17DirtyPropertyHintE
-inline void QQuick3DQuadTextureProvider::markTrackedPropertyDirty(QMetaProperty property, DirtyPropertyHint hint)
-{
-    Q_UNUSED(property);
-    Q_UNUSED(hint);
-    markDirty(Dirty::TrackedProperty);
 }
 
 //  from ../qtquick3d/src/helpers/qquick3dquadtextureprovider.cpp, line 714, as _ZN27QQuick3DQuadTextureProvider9markDirtyENS_5DirtyE
@@ -375,6 +375,32 @@ const QMetaObject *ritual_ZNK27QQuick3DQuadTextureProvider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DQuadTextureProvider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuick3DQuadTextureProvider11qt_metacastEPKc(
+    QQuick3DQuadTextureProvider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DQuadTextureProvider::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuick3DQuadTextureProvider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DQuadTextureProvider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QQuick3DQuadTextureProvider::~QQuick3DQuadTextureProvider()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuadTextureProviderD1Ev(
+    QQuick3DQuadTextureProvider *self) {
+  delete self;
+}
+
 //  QUrl QQuick3DQuadTextureProvider::fragmentShader() const
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK27QQuick3DQuadTextureProvider14fragmentShaderEv(
@@ -408,6 +434,141 @@ extern "C" Q_DECL_EXPORT
 QQuick3DTextureData::Format ritual_ZNK27QQuick3DQuadTextureProvider6formatEv(
     const QQuick3DQuadTextureProvider *self) {
   return self->format();
+}
+
+//  void QQuick3DQuadTextureProvider::fragmentShaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuadTextureProvider21fragmentShaderChangedEv(
+    QQuick3DQuadTextureProvider *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DQuadTextureProvider")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fragmentShaderChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fragmentShaderChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DQuadTextureProvider::fragmentShaderCodeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuadTextureProvider25fragmentShaderCodeChangedEv(
+    QQuick3DQuadTextureProvider *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DQuadTextureProvider")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fragmentShaderCodeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fragmentShaderCodeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DQuadTextureProvider::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuadTextureProvider12widthChangedEv(
+    QQuick3DQuadTextureProvider *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DQuadTextureProvider")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "widthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "widthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DQuadTextureProvider::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuadTextureProvider13heightChangedEv(
+    QQuick3DQuadTextureProvider *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DQuadTextureProvider")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "heightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "heightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DQuadTextureProvider::formatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuick3DQuadTextureProvider13formatChangedEv(
+    QQuick3DQuadTextureProvider *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DQuadTextureProvider")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "formatChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "formatChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  QSSGRenderGraphObject
+//      *QQuick3DQuadTextureProvider::updateSpatialNode(QSSGRenderGraphObject
+//      *node)
+extern "C" Q_DECL_EXPORT
+QSSGRenderGraphObject *ritual_ZN27QQuick3DQuadTextureProvider17updateSpatialNodeEP21QSSGRenderGraphObject(
+    QQuick3DQuadTextureProvider *self,
+    QSSGRenderGraphObject *node) {
+  return self->updateSpatialNode(node);
 }
 
 //  void QQuick3DQuadTextureProvider::markTrackedPropertyDirty(QMetaProperty

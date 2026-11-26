@@ -11,9 +11,12 @@
 #include <QtCharts/6.12.0/QtCharts/private/candlestickbodywicksanimation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(charts_candlestick_chart)
+#include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/candlestickdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -340,6 +343,25 @@ const QMetaObject *ritual_ZNK29CandlestickBodyWicksAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *CandlestickBodyWicksAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29CandlestickBodyWicksAnimation11qt_metacastEPKc(
+    CandlestickBodyWicksAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int CandlestickBodyWicksAnimation::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29CandlestickBodyWicksAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    CandlestickBodyWicksAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString CandlestickBodyWicksAnimation::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -348,6 +370,22 @@ QString *ritual_ZN29CandlestickBodyWicksAnimation2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(CandlestickBodyWicksAnimation::tr(s, c, n));
+}
+
+//  CandlestickBodyWicksAnimation::CandlestickBodyWicksAnimation(Candlestick
+//      *candlestick, CandlestickAnimation *animation, int duration,
+//      QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+CandlestickBodyWicksAnimation *ritual_ZN29CandlestickBodyWicksAnimationC1EP11CandlestickP20CandlestickAnimationiR12QEasingCurve(
+    Candlestick *candlestick,
+    CandlestickAnimation *animation,
+    int duration,
+    QEasingCurve *curve) {
+  return new CuteCandlestickBodyWicksAnimation(
+      candlestick,
+      animation,
+      duration,
+      *curve);
 }
 
 //  CandlestickBodyWicksAnimation::~CandlestickBodyWicksAnimation()

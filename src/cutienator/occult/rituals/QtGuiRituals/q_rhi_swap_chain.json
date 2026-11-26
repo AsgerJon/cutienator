@@ -59,6 +59,9 @@
     ],
     "ritual_ZN13QRhiSwapChain14createOrResizeEv": ["bool", "address"],
     "ritual_ZN13QRhiSwapChain7hdrInfoEv": ["address", "address"],
+    "ritual_ZN13QRhiSwapChainC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
     "ritual_take_QRhiSwapChain": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QRhiSwapChain12resourceTypeEv": ["int", "address"],
     "ritual_own_ZN13QRhiSwapChain24currentFrameRenderTargetENS_18StereoTargetBufferE": [

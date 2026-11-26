@@ -5,10 +5,20 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender19QRenderStatePrivateC1ENS_6Render9StateMaskE": [
+      "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderStatePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN10Qt3DRender19QRenderStatePrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender19QRenderStatePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderStatePrivate3getEPNS_12QRenderStateE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderStatePrivate3getEPKNS_12QRenderStateE": [
       "address", "address"
     ],
     "ritual_take_Qt3DRender_QRenderStatePrivate": [

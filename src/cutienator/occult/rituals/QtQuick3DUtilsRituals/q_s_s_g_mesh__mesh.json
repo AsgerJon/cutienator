@@ -8,9 +8,34 @@
     "ritual_ZNK8QSSGMesh4Mesh12vertexBufferEv": ["address", "address"],
     "ritual_ZNK8QSSGMesh4Mesh11indexBufferEv": ["address", "address"],
     "ritual_ZNK8QSSGMesh4Mesh12targetBufferEv": ["address", "address"],
+    "ritual_ZNK8QSSGMesh4Mesh7subsetsEv": ["address", "address"],
+    "ritual_ZN8QSSGMesh4Mesh8loadMeshEP9QIODevicej": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN8QSSGMesh4Mesh7loadAllEP9QIODevice": ["address", "address"],
+    "ritual_ZN8QSSGMesh4Mesh13fromAssetDataERK5QListINS_16AssetVertexEntryEERK10QByteArray23QSSGRenderComponentTypeRKS1_INS_15AssetMeshSubsetEEjj": [
+      "address", "address", "address", "int", "address", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN8QSSGMesh4Mesh15fromRuntimeDataERKNS_15RuntimeMeshDataEP7QString": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK8QSSGMesh4Mesh7isValidEv": ["bool", "address"],
     "ritual_ZNK8QSSGMesh4Mesh8drawModeEv": ["int", "address"],
     "ritual_ZNK8QSSGMesh4Mesh7windingEv": ["int", "address"],
-    "ritual_ZN8QSSGMesh4MeshD1Ev": ["nothing", "address"]
+    "ritual_ZNK8QSSGMesh4Mesh4saveEP9QIODevicej": [
+      "unsigned int", "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK8QSSGMesh4Mesh20hasLightmapUVChannelEv": ["bool", "address"],
+    "ritual_ZN8QSSGMesh4Mesh23createLightmapUVChannelEfRK10QMatrix4x4": [
+      "bool", "address", "float", "address"
+    ],
+    "ritual_ZN8QSSGMesh4MeshD1Ev": ["nothing", "address"],
+    "ritual_drop_QSSGMesh_Mesh__QVector_QSSGMesh_Mesh_Subset": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGMesh_Mesh__QMap_quint32_QSSGMesh_Mesh": [
+      "nothing", "address"
+    ]
   }
 }

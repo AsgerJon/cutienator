@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore16QuickNodeFactory10createNodeEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore16QuickNodeFactory12registerTypeEPKcS2_ii": [
+      "nothing", "address", "chars", "chars", "int", "int"
+    ],
     "ritual_ZN8Qt3DCore16QuickNodeFactoryD1Ev": ["nothing", "address"]
   }
 }

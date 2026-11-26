@@ -1414,6 +1414,24 @@ const QMetaObject *ritual_ZNK11QPolarChart10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPolarChart::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QPolarChart11qt_metacastEPKc(
+    QPolarChart *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPolarChart::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QPolarChart11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPolarChart *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPolarChart::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QPolarChart2trEPKcS1_i(

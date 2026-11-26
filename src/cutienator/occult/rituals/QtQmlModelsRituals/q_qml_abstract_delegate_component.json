@@ -8,17 +8,29 @@
     "ritual_ZNK29QQmlAbstractDelegateComponent10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQmlAbstractDelegateComponent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQmlAbstractDelegateComponent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QQmlAbstractDelegateComponent2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN29QQmlAbstractDelegateComponent24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
+    "ritual_ZN29QQmlAbstractDelegateComponentC1EP7QObject": [
+      "address", "address"
+    ],
     "ritual_ZN29QQmlAbstractDelegateComponentD1Ev": ["nothing", "address"],
     "ritual_ZNK29QQmlAbstractDelegateComponent8delegateEP16QQmlAdaptorModelii": [
       "address", "address", "address", "int", "int"
     ],
     "ritual_ZNK29QQmlAbstractDelegateComponent4roleEv": ["text", "address"],
+    "ritual_ZN29QQmlAbstractDelegateComponent15delegateChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK29QQmlAbstractDelegateComponent5valueEP16QQmlAdaptorModeliiRK7QString": [
       "address", "address", "address", "int", "int", "text"
     ],

@@ -207,6 +207,25 @@ const QMetaObject *ritual_ZNK17QAccessiblePlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAccessiblePlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QAccessiblePlugin11qt_metacastEPKc(
+    QAccessiblePlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAccessiblePlugin::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QAccessiblePlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAccessiblePlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAccessiblePlugin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QAccessiblePlugin2trEPKcS1_i(
@@ -214,6 +233,13 @@ QString *ritual_ZN17QAccessiblePlugin2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAccessiblePlugin::tr(s, c, n));
+}
+
+//  QAccessiblePlugin::QAccessiblePlugin(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAccessiblePlugin *ritual_ZN17QAccessiblePluginC1EP7QObject(
+    QObject *parent) {
+  return new CuteQAccessiblePlugin(parent);
 }
 
 //  QAccessiblePlugin::~QAccessiblePlugin()

@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN26QQuickTransformAnimatorJob6commitEv": ["nothing", "address"],
+    "ritual_ZN26QQuickTransformAnimatorJob7preSyncEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN26QQuickTransformAnimatorJob9setTargetEP10QQuickItem": [
       "nothing", "address", "address"
     ],

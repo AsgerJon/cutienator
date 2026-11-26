@@ -5,6 +5,25 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender22QRenderSettingsPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender22QRenderSettingsPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSettingsPrivate15invalidateFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSettingsPrivate25_q_onPickingMethodChangedENS_16QPickingSettings10PickMethodE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSettingsPrivate26_q_onPickResultModeChangedENS_16QPickingSettings14PickResultModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSettingsPrivate38_q_onFaceOrientationPickingModeChangedENS_16QPickingSettings26FaceOrientationPickingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender22QRenderSettingsPrivate31_q_onWorldSpaceToleranceChangedEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZN10Qt3DRender22QRenderSettingsPrivate6q_funcEv": [
       "address", "address"
     ],

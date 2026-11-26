@@ -34,6 +34,66 @@
 #include <QtGui/qpainter.h>
 #include <QtCore/qdebug.h>
 #endif
+#include <QtWidgets/qabstractitemview.h>
+#include <QtCore/qpointer.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qclipboard.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#if QT_CONFIG(draganddrop)
+#include <QtGui/qdrag.h>
+#endif
+#include <QtGui/qevent.h>
+#include <QtWidgets/qscrollbar.h>
+#if QT_CONFIG(tooltip)
+#include <QtWidgets/qtooltip.h>
+#endif
+#include <QtCore/qdatetime.h>
+#if QT_CONFIG(lineedit)
+#include <QtWidgets/qlineedit.h>
+#endif
+#if QT_CONFIG(spinbox)
+#include <QtWidgets/qspinbox.h>
+#endif
+#include <QtWidgets/qheaderview.h>
+#include <QtWidgets/qstyleditemdelegate.h>
+#include <QtWidgets/private/qabstractitemview_p.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
+#if QT_CONFIG(accessibility)
+#include <QtGui/qaccessible.h>
+#endif
+#if QT_CONFIG(gestures) && QT_CONFIG(scroller)
+#  include <QtWidgets/qscroller.h>
+#endif
+#include <algorithm>
+#include <QtWidgets/qabstractscrollarea.h>
+#if QT_CONFIG(scrollarea)
+#include <QtWidgets/qscrollbar.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qboxlayout.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qmargins.h>
+#if QT_CONFIG(itemviews)
+#include <QtWidgets/qheaderview.h>
+#endif
+#include <QtCore/QDebug>
+#include <QtWidgets/private/qabstractscrollarea_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
+#include <QtWidgets/qwidget.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtWidgets/private/qapplication_p.h>
+#ifdef Q_OS_WIN
+#  include <QtCore/qt_windows.h>
+#endif
+#endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -42,6 +102,547 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/itemviews/qcolumnview.cpp, line 1095, as _ZN18QColumnViewPrivate15columnsInsertedERK11QModelIndexii
+#if QT_CONFIG(columnview)
+inline void QColumnViewPrivate::columnsInserted(const QModelIndex &parent, int start, int end)
+{
+    QAbstractItemViewPrivate::columnsInserted(parent, start, end);
+    checkColumnCreation(parent);
+}
+#endif  // QT_CONFIG(columnview)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 3594, as _ZN24QAbstractItemViewPrivate11rowsRemovedERK11QModelIndexii
+inline void QAbstractItemViewPrivate::rowsRemoved(const QModelIndex &index, int start, int end)
+{
+    Q_UNUSED(index);
+    Q_UNUSED(start);
+    Q_UNUSED(end);
+
+    Q_Q(QAbstractItemView);
+    if (q->isVisible())
+        q->updateEditorGeometries();
+    q->setState(QAbstractItemView::NoState);
+#if QT_CONFIG(accessibility)
+    if (QAccessible::isActive()) {
+        QAccessibleTableModelChangeEvent accessibleEvent(q, QAccessibleTableModelChangeEvent::RowsRemoved);
+        accessibleEvent.setFirstRow(start);
+        accessibleEvent.setLastRow(end);
+        QAccessible::updateAccessibility(&accessibleEvent);
+    }
+#endif
+    updateGeometry();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 3786, as _ZN24QAbstractItemViewPrivate12columnsMovedERK11QModelIndexiiS2_i
+inline void QAbstractItemViewPrivate::columnsMoved(const QModelIndex &, int, int, const QModelIndex &, int)
+{
+    layoutChanged();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 3712, as _ZN24QAbstractItemViewPrivate12rowsInsertedERK11QModelIndexii
+inline void QAbstractItemViewPrivate::rowsInserted(const QModelIndex &index, int start, int end)
+{
+    Q_UNUSED(index);
+    Q_UNUSED(start);
+    Q_UNUSED(end);
+
+#if QT_CONFIG(accessibility)
+    Q_Q(QAbstractItemView);
+    if (QAccessible::isActive()) {
+        QAccessibleTableModelChangeEvent accessibleEvent(q, QAccessibleTableModelChangeEvent::RowsInserted);
+        accessibleEvent.setFirstRow(start);
+        accessibleEvent.setLastRow(end);
+        QAccessible::updateAccessibility(&accessibleEvent);
+    }
+#endif
+    updateGeometry();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 3769, as _ZN24QAbstractItemViewPrivate13layoutChangedEv
+inline void QAbstractItemViewPrivate::layoutChanged()
+{
+    doDelayedItemsLayout();
+#if QT_CONFIG(accessibility)
+    Q_Q(QAbstractItemView);
+    if (QAccessible::isActive()) {
+        QAccessibleTableModelChangeEvent accessibleEvent(q, QAccessibleTableModelChangeEvent::ModelReset);
+        QAccessible::updateAccessibility(&accessibleEvent);
+    }
+#endif
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 3685, as _ZN24QAbstractItemViewPrivate14columnsRemovedERK11QModelIndexii
+inline void QAbstractItemViewPrivate::columnsRemoved(const QModelIndex &index, int start, int end)
+{
+    Q_UNUSED(index);
+    Q_UNUSED(start);
+    Q_UNUSED(end);
+
+    Q_Q(QAbstractItemView);
+    if (q->isVisible())
+        q->updateEditorGeometries();
+    q->setState(QAbstractItemView::NoState);
+#if QT_CONFIG(accessibility)
+    if (QAccessible::isActive()) {
+        QAccessibleTableModelChangeEvent accessibleEvent(q, QAccessibleTableModelChangeEvent::ColumnsRemoved);
+        accessibleEvent.setFirstColumn(start);
+        accessibleEvent.setLastColumn(end);
+        QAccessible::updateAccessibility(&accessibleEvent);
+    }
+#endif
+    updateGeometry();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 3758, as _ZN24QAbstractItemViewPrivate14modelDestroyedEv
+inline void QAbstractItemViewPrivate::modelDestroyed()
+{
+    model = QAbstractItemModelPrivate::staticEmptyModel();
+    doDelayedReset();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 2247, as _ZN24QAbstractItemViewPrivate6dropOnEP10QDropEventPiS2_P11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QAbstractItemViewPrivate::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
+{
+    Q_Q(QAbstractItemView);
+    if (event->isAccepted())
+        return false;
+
+    QModelIndex index;
+    // rootIndex() (i.e. the viewport) might be a valid index
+    if (viewport->rect().contains(event->position().toPoint())) {
+        index = q->indexAt(event->position().toPoint());
+        if (!index.isValid())
+            index = root;
+    }
+
+    // If we are allowed to do the drop
+    if (model->supportedDropActions() & event->dropAction()) {
+        int row = -1;
+        int col = -1;
+        if (index != root) {
+            dropIndicatorPosition = position(event->position().toPoint(), q->visualRect(index), index);
+            switch (dropIndicatorPosition) {
+            case QAbstractItemView::AboveItem:
+                row = index.row();
+                col = index.column();
+                index = index.parent();
+                break;
+            case QAbstractItemView::BelowItem:
+                row = index.row() + 1;
+                col = index.column();
+                index = index.parent();
+                break;
+            case QAbstractItemView::OnItem:
+            case QAbstractItemView::OnViewport:
+                break;
+            }
+        } else {
+            dropIndicatorPosition = QAbstractItemView::OnViewport;
+        }
+        *dropIndex = index;
+        *dropRow = row;
+        *dropCol = col;
+        if (!droppingOnItself(event, index))
+            return true;
+    }
+    return false;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 3781, as _ZN24QAbstractItemViewPrivate9rowsMovedERK11QModelIndexiiS2_i
+inline void QAbstractItemViewPrivate::rowsMoved(const QModelIndex &, int, int, const QModelIndex &, int)
+{
+    layoutChanged();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4748, as _ZN24QAbstractItemViewPrivate9selectAllE6QFlagsIN19QItemSelectionModel13SelectionFlagEE
+inline void QAbstractItemViewPrivate::selectAll(QItemSelectionModel::SelectionFlags command)
+{
+    if (!selectionModel)
+        return;
+    if (!model->hasChildren(root))
+        return;
+
+    QItemSelection selection;
+    QModelIndex tl = model->index(0, 0, root);
+    QModelIndex br = model->index(model->rowCount(root) - 1,
+                                  model->columnCount(root) - 1,
+                                  root);
+    selection.append(QItemSelectionRange(tl, br));
+    selectionModel->select(selection, command);
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 46, as _ZN24QAbstractItemViewPrivateC2Ev
+inline QAbstractItemViewPrivate::QAbstractItemViewPrivate()
+    :   model(QAbstractItemModelPrivate::staticEmptyModel()),
+        itemDelegate(nullptr),
+        selectionModel(nullptr),
+        ctrlDragSelectionFlag(QItemSelectionModel::NoUpdate),
+        noSelectionOnMousePress(false),
+        selectionMode(QAbstractItemView::ExtendedSelection),
+        selectionBehavior(QAbstractItemView::SelectItems),
+        currentlyCommittingEditor(nullptr),
+        pressClosedEditor(false),
+        waitForIMCommit(false),
+        pressedModifiers(Qt::NoModifier),
+        pressedPosition(QPoint(-1, -1)),
+        pressedAlreadySelected(false),
+        releaseFromDoubleClick(false),
+        viewportEnteredNeeded(false),
+        state(QAbstractItemView::NoState),
+        stateBeforeAnimation(QAbstractItemView::NoState),
+        editTriggers(QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed),
+        lastTrigger(QAbstractItemView::NoEditTriggers),
+        tabKeyNavigation(false),
+#if QT_CONFIG(draganddrop)
+        showDropIndicator(true),
+        dragEnabled(false),
+        dragDropMode(QAbstractItemView::NoDragDrop),
+        overwrite(false),
+        dropEventMoved(false),
+        dropIndicatorPosition(QAbstractItemView::OnItem),
+        defaultDropAction(Qt::IgnoreAction),
+#endif
+        autoScroll(true),
+        autoScrollMargin(16),
+        autoScrollCount(0),
+        shouldScrollToCurrentOnShow(false),
+        shouldClearStatusTip(false),
+        alternatingColors(false),
+        textElideMode(Qt::ElideRight),
+        verticalScrollMode(QAbstractItemView::ScrollPerItem),
+        horizontalScrollMode(QAbstractItemView::ScrollPerItem),
+        currentIndexSet(false),
+        wrapItemText(false),
+        delayedPendingLayout(true),
+        moveCursorUpdatedView(false),
+        verticalScrollModeSet(false),
+        horizontalScrollModeSet(false),
+        updateThreshold(200)
+{
+    keyboardInputTime.invalidate();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 96, as _ZN24QAbstractItemViewPrivateD2Ev
+inline QAbstractItemViewPrivate::~QAbstractItemViewPrivate()
+{
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 3791, as _ZNK24QAbstractItemViewPrivate15intersectedRectE5QRectRK11QModelIndexS3_
+inline QRect QAbstractItemViewPrivate::intersectedRect(const QRect rect, const QModelIndex &topLeft, const QModelIndex &bottomRight) const
+{
+    Q_Q(const QAbstractItemView);
+
+    const auto parentIdx = topLeft.parent();
+    QRect updateRect;
+    for (int r = topLeft.row(); r <= bottomRight.row(); ++r) {
+        for (int c = topLeft.column(); c <= bottomRight.column(); ++c)
+            updateRect |= q->visualRect(model->index(r, c, parentIdx));
+    }
+    return rect.intersected(updateRect);
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4699, as _ZNK24QAbstractItemViewPrivate19draggablePaintPairsERK5QListI11QModelIndexEP5QRect
+inline QItemViewPaintPairs QAbstractItemViewPrivate::draggablePaintPairs(const QModelIndexList &indexes, QRect *r) const
+{
+    Q_ASSERT(r);
+    Q_Q(const QAbstractItemView);
+    QRect &rect = *r;
+    const QRect viewportRect = viewport->rect();
+    QItemViewPaintPairs ret;
+    for (const auto &index : indexes) {
+        const QRect current = q->visualRect(index);
+        if (current.intersects(viewportRect)) {
+            ret.append({current, index});
+            rect |= current;
+        }
+    }
+    QRect clipped = rect & viewportRect;
+    rect.setLeft(clipped.left());
+    rect.setRight(clipped.right());
+    return ret;
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 2294, as _ZNK24QAbstractItemViewPrivate8positionERK6QPointRK5QRectRK11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline QAbstractItemView::DropIndicatorPosition
+QAbstractItemViewPrivate::position(const QPoint &pos, const QRect &rect, const QModelIndex &index) const
+{
+    QAbstractItemView::DropIndicatorPosition r = QAbstractItemView::OnViewport;
+    if (!overwrite) {
+        const int margin = qBound(2, qRound(qreal(rect.height()) / 5.5), 12);
+        if (pos.y() - rect.top() < margin) {
+            r = QAbstractItemView::AboveItem;
+        } else if (rect.bottom() - pos.y() < margin) {
+            r = QAbstractItemView::BelowItem;
+        } else if (rect.contains(pos, true)) {
+            r = QAbstractItemView::OnItem;
+        }
+    } else {
+        QRect touchingRect = rect;
+        touchingRect.adjust(-1, -1, 1, 1);
+        if (touchingRect.contains(pos, false)) {
+            r = QAbstractItemView::OnItem;
+        }
+    }
+
+    if (r == QAbstractItemView::OnItem && (!(model->flags(index) & Qt::ItemIsDropEnabled)))
+        r = pos.y() < rect.center().y() ? QAbstractItemView::AboveItem : QAbstractItemView::BelowItem;
+
+    return r;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1315, as _ZNK26QAbstractScrollAreaPrivate19canStartScrollingAtERK6QPoint
+#if QT_CONFIG(scrollarea)
+inline bool QAbstractScrollAreaPrivate::canStartScrollingAt(const QPoint &startPos) const
+{
+    Q_Q(const QAbstractScrollArea);
+
+    // don't start scrolling on a QAbstractSlider
+    if (qobject_cast<QAbstractSlider *>(q->viewport()->childAt(startPos)))
+        return false;
+
+    return true;
+}
+#endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 3735, as _ZN24QAbstractItemViewPrivate15columnsInsertedERK11QModelIndexii
+inline void QAbstractItemViewPrivate::columnsInserted(const QModelIndex &index, int start, int end)
+{
+    Q_UNUSED(index);
+    Q_UNUSED(start);
+    Q_UNUSED(end);
+
+    Q_Q(QAbstractItemView);
+    if (q->isVisible())
+        q->updateEditorGeometries();
+#if QT_CONFIG(accessibility)
+    if (QAccessible::isActive()) {
+        QAccessibleTableModelChangeEvent accessibleEvent(q, QAccessibleTableModelChangeEvent::ColumnsInserted);
+        accessibleEvent.setFirstColumn(start);
+        accessibleEvent.setLastColumn(end);
+        QAccessible::updateAccessibility(&accessibleEvent);
+    }
+#endif
+    updateGeometry();
+}
+
+//  from src/widgets/itemviews/qcolumnview.cpp, line 1107, as _ZN18QColumnViewPrivate19checkColumnCreationERK11QModelIndex
+#if QT_CONFIG(columnview)
+inline void QColumnViewPrivate::checkColumnCreation(const QModelIndex &parent)
+{
+    if (parent == q_func()->currentIndex() && model->hasChildren(parent)) {
+        //the parent has children and is the current
+        //let's try to find out if there is already a mapping that is good
+        for (int i = 0; i < columns.size(); ++i) {
+            QAbstractItemView *view = columns.at(i);
+            if (view->rootIndex() == parent) {
+                if (view == previewColumn) {
+                    //let's recreate the parent
+                    closeColumns(parent, false);
+                    createColumn(parent, true /*show*/);
+                }
+                break;
+            }
+        }
+    }
+}
+#endif  // QT_CONFIG(columnview)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4458, as _ZN24QAbstractItemViewPrivate14updateGeometryEv
+inline void QAbstractItemViewPrivate::updateGeometry()
+{
+    Q_Q(QAbstractItemView);
+    if (sizeAdjustPolicy == QAbstractScrollArea::AdjustIgnored)
+        return;
+    if (sizeAdjustPolicy == QAbstractScrollArea::AdjustToContents || !shownOnce)
+        q->updateGeometry();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 2167, as _ZN24QAbstractItemViewPrivate16droppingOnItselfEP10QDropEventRK11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QAbstractItemViewPrivate::droppingOnItself(QDropEvent *event, const QModelIndex &index)
+{
+    Q_Q(QAbstractItemView);
+    Qt::DropAction dropAction = event->dropAction();
+    if (q->dragDropMode() == QAbstractItemView::InternalMove)
+        dropAction = Qt::MoveAction;
+    if (event->source() == q
+        && event->possibleActions() & Qt::MoveAction
+        && dropAction == Qt::MoveAction) {
+        QModelIndexList selectedIndexes = q->selectedIndexes();
+        QModelIndex child = index;
+        while (child.isValid() && child != root) {
+            if (selectedIndexes.contains(child))
+                return true;
+            child = child.parent();
+        }
+    }
+    return false;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4444, as _ZN24QAbstractItemViewPrivate20doDelayedItemsLayoutEi
+inline void QAbstractItemViewPrivate::doDelayedItemsLayout(int delay)
+{
+    if (!delayedPendingLayout) {
+        delayedPendingLayout = true;
+        delayedLayout.start(delay, q_func());
+    }
+}
+
+//  from src/widgets/itemviews/qcolumnview.cpp, line 564, as _ZN18QColumnViewPrivate12closeColumnsERK11QModelIndexb
+#if QT_CONFIG(columnview)
+inline void QColumnViewPrivate::closeColumns(const QModelIndex &parent, bool build)
+{
+    if (columns.isEmpty())
+        return;
+
+    bool clearAll = !parent.isValid();
+    bool passThroughRoot = false;
+
+    QList<QModelIndex> dirsToAppend;
+
+    // Find the last column that matches the parent's tree
+    int currentColumn = -1;
+    QModelIndex parentIndex = parent;
+    while (currentColumn == -1 && parentIndex.isValid()) {
+        if (columns.isEmpty())
+            break;
+        parentIndex = parentIndex.parent();
+        if (root == parentIndex)
+            passThroughRoot = true;
+        if (!parentIndex.isValid())
+            break;
+        for (int i = columns.size() - 1; i >= 0; --i) {
+            if (columns.at(i)->rootIndex() == parentIndex) {
+                currentColumn = i;
+                break;
+            }
+        }
+        if (currentColumn == -1)
+            dirsToAppend.append(parentIndex);
+    }
+
+    // Someone wants to go to an index that can be reached without changing
+    // the root index, don't allow them
+    if (!clearAll && !passThroughRoot && currentColumn == -1)
+        return;
+
+    if (currentColumn == -1 && parent.isValid())
+        currentColumn = 0;
+
+    // Optimization so we don't go deleting and then creating the same thing
+    bool alreadyExists = false;
+    if (build && columns.size() > currentColumn + 1) {
+        bool viewingParent = (columns.at(currentColumn + 1)->rootIndex() == parent);
+        bool viewingChild = (!model->hasChildren(parent)
+                             && !columns.at(currentColumn + 1)->rootIndex().isValid());
+        if (viewingParent || viewingChild) {
+            currentColumn++;
+            alreadyExists = true;
+        }
+    }
+
+    // Delete columns that don't match our path
+    for (int i = columns.size() - 1; i > currentColumn; --i) {
+        QAbstractItemView* notShownAnymore = columns.at(i);
+        columns.removeAt(i);
+        notShownAnymore->setVisible(false);
+        if (notShownAnymore != previewColumn) {
+            notShownAnymore->deleteLater();
+            disconnectView(notShownAnymore);
+        }
+    }
+
+    if (columns.isEmpty()) {
+        offset = 0;
+        updateScrollbars();
+    }
+
+    // Now fill in missing columns
+    while (!dirsToAppend.isEmpty()) {
+        QAbstractItemView *newView = createColumn(dirsToAppend.takeLast(), true);
+        if (!dirsToAppend.isEmpty())
+            newView->setCurrentIndex(dirsToAppend.constLast());
+    }
+
+    if (build && !alreadyExists)
+        createColumn(parent, false);
+}
+#endif  // QT_CONFIG(columnview)
+
+//  from src/widgets/itemviews/qcolumnview.cpp, line 681, as _ZN18QColumnViewPrivate12createColumnERK11QModelIndexb
+#if QT_CONFIG(columnview)
+inline QAbstractItemView *QColumnViewPrivate::createColumn(const QModelIndex &index, bool show)
+{
+    Q_Q(QColumnView);
+    QAbstractItemView *view = nullptr;
+    QMetaObject::Connection clickedConnection;
+    if (model->hasChildren(index)) {
+        view = q->createColumn(index);
+        clickedConnection = QObjectPrivate::connect(view, &QAbstractItemView::clicked,
+                                                    this, &QColumnViewPrivate::clicked);
+    } else {
+        if (!previewColumn)
+            previewColumn = createPreviewColumn();
+        view = previewColumn;
+        if (previewWidget)
+            view->setMinimumWidth(qMax(view->minimumWidth(), previewWidget->minimumWidth()));
+    }
+
+    viewConnections[view] = {
+        QObject::connect(view, &QAbstractItemView::activated, q, &QColumnView::activated),
+        QObject::connect(view, &QAbstractItemView::clicked, q, &QColumnView::clicked),
+        QObject::connect(view, &QAbstractItemView::doubleClicked, q, &QColumnView::doubleClicked),
+        QObject::connect(view, &QAbstractItemView::entered, q, &QColumnView::entered),
+        QObject::connect(view, &QAbstractItemView::pressed, q, &QColumnView::pressed),
+        std::move(clickedConnection),
+    };
+
+    view->setFocusPolicy(Qt::NoFocus);
+    view->setParent(viewport);
+    Q_ASSERT(view);
+
+    // Setup corner grip
+    if (showResizeGrips) {
+        QColumnViewGrip *grip = new QColumnViewGrip(view);
+        view->setCornerWidget(grip);
+        gripConnections.push_back(
+            QObjectPrivate::connect(grip, &QColumnViewGrip::gripMoved,
+                                    this, &QColumnViewPrivate::gripMoved)
+        );
+    }
+
+    if (columnSizes.size() > columns.size()) {
+        view->setGeometry(0, 0, columnSizes.at(columns.size()), viewport->height());
+    } else {
+        int initialWidth = view->sizeHint().width();
+        if (q->isRightToLeft())
+            view->setGeometry(viewport->width() - initialWidth, 0, initialWidth, viewport->height());
+        else
+            view->setGeometry(0, 0, initialWidth, viewport->height());
+        columnSizes.resize(qMax(columnSizes.size(), columns.size() + 1));
+        columnSizes[columns.size()] = initialWidth;
+    }
+    if (!columns.isEmpty() && columns.constLast()->isHidden())
+        columns.constLast()->setVisible(true);
+
+    columns.append(view);
+    doLayout();
+    updateScrollbars();
+    if (show && view->isHidden() && view != previewColumn)
+        view->setVisible(true);
+    if (view == previewColumn)
+        view->setVisible(showPreviewColumn);
+    return view;
+}
+#endif  // QT_CONFIG(columnview)
 
 //  from src/widgets/itemviews/qcolumnview.cpp, line 1087, as _ZN18QColumnViewPrivateD1Ev
 #if QT_CONFIG(columnview)
@@ -218,15 +819,6 @@ inline void QColumnViewPrivate::clicked(const QModelIndex &index)
             flags |= QItemSelectionModel::Select;
         q->selectionModel()->setCurrentIndex(index, flags);
     }
-}
-#endif  // QT_CONFIG(columnview)
-
-//  from src/widgets/itemviews/qcolumnview.cpp, line 1095, as _ZN18QColumnViewPrivate15columnsInsertedERK11QModelIndexii
-#if QT_CONFIG(columnview)
-inline void QColumnViewPrivate::columnsInserted(const QModelIndex &parent, int start, int end)
-{
-    QAbstractItemViewPrivate::columnsInserted(parent, start, end);
-    checkColumnCreation(parent);
 }
 #endif  // QT_CONFIG(columnview)
 //  -----------------------------------------------------------------------

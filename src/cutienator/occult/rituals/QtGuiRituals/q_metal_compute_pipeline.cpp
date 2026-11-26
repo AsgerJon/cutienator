@@ -72,6 +72,19 @@ public:
   }
 };
 
+//  void QMetalComputePipeline::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QMetalComputePipeline7destroyEv(
+    QMetalComputePipeline *self) {
+  self->destroy();
+}
+
+//  bool QMetalComputePipeline::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QMetalComputePipeline6createEv(QMetalComputePipeline *self) {
+  return self->create();
+}
+
 //  a Python function taken by a CuteQMetalComputePipeline, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -351,6 +351,25 @@ const QMetaObject *ritual_ZNK18QQuickWheelHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWheelHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickWheelHandler11qt_metacastEPKc(
+    QQuickWheelHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWheelHandler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickWheelHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWheelHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWheelHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickWheelHandler2trEPKcS1_i(
@@ -503,12 +522,93 @@ void ritual_ZN18QQuickWheelHandler11setBlockingEb(
   self->setBlocking(blocking);
 }
 
+//  void QQuickWheelHandler::wheel(QQuickWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler5wheelEP16QQuickWheelEvent(
+    QQuickWheelHandler *self,
+    QQuickWheelEvent *event) {
+  self->wheel(event);
+}
+
+//  void QQuickWheelHandler::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler18orientationChangedEv(
+    QQuickWheelHandler *self) {
+  self->orientationChanged();
+}
+
+//  void QQuickWheelHandler::invertibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler17invertibleChangedEv(
+    QQuickWheelHandler *self) {
+  self->invertibleChanged();
+}
+
+//  void QQuickWheelHandler::activeTimeoutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler20activeTimeoutChangedEv(
+    QQuickWheelHandler *self) {
+  self->activeTimeoutChanged();
+}
+
+//  void QQuickWheelHandler::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler15rotationChangedEv(
+    QQuickWheelHandler *self) {
+  self->rotationChanged();
+}
+
+//  void QQuickWheelHandler::rotationScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler20rotationScaleChangedEv(
+    QQuickWheelHandler *self) {
+  self->rotationScaleChanged();
+}
+
+//  void QQuickWheelHandler::propertyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler15propertyChangedEv(
+    QQuickWheelHandler *self) {
+  self->propertyChanged();
+}
+
+//  void QQuickWheelHandler::targetScaleMultiplierChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler28targetScaleMultiplierChangedEv(
+    QQuickWheelHandler *self) {
+  self->targetScaleMultiplierChanged();
+}
+
+//  void QQuickWheelHandler::targetTransformAroundCursorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler34targetTransformAroundCursorChangedEv(
+    QQuickWheelHandler *self) {
+  self->targetTransformAroundCursorChanged();
+}
+
+//  void QQuickWheelHandler::blockingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler15blockingChangedEv(
+    QQuickWheelHandler *self) {
+  self->blockingChanged();
+}
+
 //  bool QQuickWheelHandler::wantsPointerEvent(QPointerEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18QQuickWheelHandler17wantsPointerEventEP13QPointerEvent(
     QQuickWheelHandler *self,
     QPointerEvent *event) {
   return self->wantsPointerEvent(event);
+}
+
+//  void QQuickWheelHandler::handleEventPoint(QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickWheelHandler16handleEventPointEP13QPointerEventR11QEventPoint(
+    QQuickWheelHandler *self,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->handleEventPoint(event, *point);
 }
 
 //  void QQuickWheelHandler::onTargetChanged(QQuickItem *oldTarget)

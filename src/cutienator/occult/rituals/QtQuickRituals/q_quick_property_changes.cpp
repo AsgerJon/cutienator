@@ -189,6 +189,25 @@ const QMetaObject *ritual_ZNK21QQuickPropertyChanges10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPropertyChanges::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickPropertyChanges11qt_metacastEPKc(
+    QQuickPropertyChanges *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPropertyChanges::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickPropertyChanges11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPropertyChanges *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPropertyChanges::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickPropertyChanges2trEPKcS1_i(
@@ -196,6 +215,20 @@ QString *ritual_ZN21QQuickPropertyChanges2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickPropertyChanges::tr(s, c, n));
+}
+
+//  QQuickPropertyChangesPrivate *QQuickPropertyChanges::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickPropertyChangesPrivate *ritual_ZN21QQuickPropertyChanges6d_funcEv(
+    QQuickPropertyChanges *self) {
+  return self->d_func();
+}
+
+//  const QQuickPropertyChangesPrivate *QQuickPropertyChanges::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickPropertyChangesPrivate *ritual_ZNK21QQuickPropertyChanges6d_funcEv(
+    const QQuickPropertyChanges *self) {
+  return self->d_func();
 }
 
 //  QQuickPropertyChanges::QQuickPropertyChanges()
@@ -350,6 +383,27 @@ QVariant *ritual_ZNK21QQuickPropertyChanges8propertyERK7QString(
     const QQuickPropertyChanges *self,
     const QString *name) {
   return new QVariant(self->property(*name));
+}
+
+//  void QQuickPropertyChanges::objectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPropertyChanges13objectChangedEv(
+    QQuickPropertyChanges *self) {
+  self->objectChanged();
+}
+
+//  void QQuickPropertyChanges::restoreEntryValuesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPropertyChanges25restoreEntryValuesChangedEv(
+    QQuickPropertyChanges *self) {
+  self->restoreEntryValuesChanged();
+}
+
+//  void QQuickPropertyChanges::isExplicitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPropertyChanges17isExplicitChangedEv(
+    QQuickPropertyChanges *self) {
+  self->isExplicitChanged();
 }
 
 //  a Python function taken by a CuteQQuickPropertyChanges, for the function

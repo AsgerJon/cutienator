@@ -7,6 +7,14 @@
 #include <QtGui/6.12.0/QtGui/private/qdrawhelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  const uchar *QTextureData::scanLine(int y) const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK12QTextureData8scanLineEi(
+    const QTextureData *self,
+    int y) {
+  return self->scanLine(y);
+}
+
 //  QTextureData::~QTextureData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QTextureDataD1Ev(QTextureData *self) {

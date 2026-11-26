@@ -31,7 +31,7 @@ typedef const QSize * (*CuteQLottieTrimPathCall11)(const void *, int *);
 class CuteQLottieTrimPath : public QLottieTrimPath {
 public:
   using QLottieTrimPath::QLottieTrimPath;
-  CuteQLottieTrimPath(const QLottieTrimPath &other) : QLottieTrimPath(other) {}
+  CuteQLottieTrimPath(const QLottieTrimPath & other) : QLottieTrimPath(other) {}
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {
@@ -259,6 +259,14 @@ void ritual_ZN15QLottieTrimPath16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieTrimPath::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QLottieTrimPath6renderER15QLottieRenderer(
+    const QLottieTrimPath *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  bool QLottieTrimPath::acceptsTrim() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QLottieTrimPath11acceptsTrimEv(
@@ -304,6 +312,27 @@ QPainterPath *ritual_ZNK15QLottieTrimPath4trimERK12QPainterPath(
     const QLottieTrimPath *self,
     const QPainterPath *path) {
   return new QPainterPath(self->trim(*path));
+}
+
+//  QLottieProperty<qreal> QLottieTrimPath::startProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK15QLottieTrimPath13startPropertyEv(
+    const QLottieTrimPath *self) {
+  return new QLottieProperty<qreal>(self->startProperty());
+}
+
+//  QLottieProperty<qreal> QLottieTrimPath::endProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK15QLottieTrimPath11endPropertyEv(
+    const QLottieTrimPath *self) {
+  return new QLottieProperty<qreal>(self->endProperty());
+}
+
+//  QLottieProperty<qreal> QLottieTrimPath::offsetProperty() const
+extern "C" Q_DECL_EXPORT
+QLottieProperty<qreal> *ritual_ZNK15QLottieTrimPath14offsetPropertyEv(
+    const QLottieTrimPath *self) {
+  return new QLottieProperty<qreal>(self->offsetProperty());
 }
 
 //  QLottieTrimPath::~QLottieTrimPath()
@@ -358,4 +387,11 @@ void ritual_own_ZN15QLottieTrimPath9applyTrimERKS_(
     QLottieTrimPath *self,
     const QLottieTrimPath *trimmer) {
   self->QLottieTrimPath::applyTrim(*trimmer);
+}
+
+//  a QLottieProperty<qreal> a ritual of QLottieTrimPath gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieTrimPath__QLottieProperty_qreal(
+    QLottieProperty<qreal> *self) {
+  delete self;
 }

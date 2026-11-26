@@ -26,6 +26,25 @@ const QMetaObject *ritual_ZNK28QQuick3DParticlePointRotator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticlePointRotator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuick3DParticlePointRotator11qt_metacastEPKc(
+    QQuick3DParticlePointRotator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticlePointRotator::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuick3DParticlePointRotator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticlePointRotator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticlePointRotator::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -88,6 +107,27 @@ void ritual_ZN28QQuick3DParticlePointRotator13setPivotPointERK9QVector3D(
     QQuick3DParticlePointRotator *self,
     const QVector3D *point) {
   self->setPivotPoint(*point);
+}
+
+//  void QQuick3DParticlePointRotator::magnitudeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticlePointRotator16magnitudeChangedEv(
+    QQuick3DParticlePointRotator *self) {
+  self->magnitudeChanged();
+}
+
+//  void QQuick3DParticlePointRotator::directionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticlePointRotator16directionChangedEv(
+    QQuick3DParticlePointRotator *self) {
+  self->directionChanged();
+}
+
+//  void QQuick3DParticlePointRotator::pivotPointChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticlePointRotator17pivotPointChangedEv(
+    QQuick3DParticlePointRotator *self) {
+  self->pivotPointChanged();
 }
 
 //  void QQuick3DParticlePointRotator::prepareToAffect()

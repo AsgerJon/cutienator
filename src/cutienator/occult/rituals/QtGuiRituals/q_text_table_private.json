@@ -10,6 +10,9 @@
     "ritual_ZN17QTextTablePrivate11createTableEP20QTextDocumentPrivateiiiRK16QTextTableFormat": [
       "address", "address", "int", "int", "int", "address"
     ],
+    "ritual_ZN17QTextTablePrivate13fragmentAddedE5QCharj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
     "ritual_ZN17QTextTablePrivate15fragmentRemovedE5QCharj": [
       "nothing", "address", "address", "unsigned int"
     ],

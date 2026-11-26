@@ -7,6 +7,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qtransform_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qmatrix4x4.h>
 #include <cstring>
 
 //  A Qt3DCore::QTransformPrivate that Python can take functions over in. Every Qt3DCore::QTransformPrivate
@@ -66,6 +67,35 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QTransform *ritual_ZNK8Qt3DCore17QTransformPrivate6q_funcEv(
     const Qt3DCore::QTransformPrivate *self) {
   return self->q_func();
+}
+
+//  Qt3DCore::QTransformPrivate::QTransformPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QTransformPrivate *ritual_ZN8Qt3DCore17QTransformPrivateC1Ev() {
+  return new CuteQt3DCore_QTransformPrivate();
+}
+
+//  Qt3DCore::QTransformPrivate::~QTransformPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QTransformPrivateD1Ev(
+    Qt3DCore::QTransformPrivate *self) {
+  delete self;
+}
+
+//  void Qt3DCore::QTransformPrivate::setWorldMatrix(const QMatrix4x4
+//      &worldMatrix)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QTransformPrivate14setWorldMatrixERK10QMatrix4x4(
+    Qt3DCore::QTransformPrivate *self,
+    const QMatrix4x4 *worldMatrix) {
+  self->setWorldMatrix(*worldMatrix);
+}
+
+//  void Qt3DCore::QTransformPrivate::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore17QTransformPrivate6updateEv(
+    Qt3DCore::QTransformPrivate *self) {
+  self->update();
 }
 
 //  a Python function taken by a CuteQt3DCore_QTransformPrivate, for the

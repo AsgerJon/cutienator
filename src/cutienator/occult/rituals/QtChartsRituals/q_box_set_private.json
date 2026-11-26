@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QBoxSetPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QBoxSetPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QBoxSetPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QBoxSetPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -14,11 +20,17 @@
     ],
     "ritual_ZN14QBoxSetPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN14QBoxSetPrivate6appendEd": ["bool", "address", "double"],
+    "ritual_ZN14QBoxSetPrivate6appendERK5QListIdE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN14QBoxSetPrivate5clearEv": ["nothing", "address"],
     "ritual_ZN14QBoxSetPrivate8setValueEid": [
       "nothing", "address", "int", "double"
     ],
     "ritual_ZN14QBoxSetPrivate5valueEi": ["double", "address", "int"],
+    "ritual_ZN14QBoxSetPrivate15restructuredBoxEv": ["nothing", "address"],
+    "ritual_ZN14QBoxSetPrivate10updatedBoxEv": ["nothing", "address"],
+    "ritual_ZN14QBoxSetPrivate13updatedLayoutEv": ["nothing", "address"],
     "ritual_take_QBoxSetPrivate": ["bool", "address", "chars", "address"]
   }
 }

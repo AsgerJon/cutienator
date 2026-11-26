@@ -8,11 +8,19 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/6.12.0/QtQuick/private/qquickstate_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/QtQml>
 #include <QtQml/qqmlproperty.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A QQuickPropertyAnimation that Python can take functions over in. Every QQuickPropertyAnimation
 //  Python makes is one. Each function below asks the Python
@@ -284,6 +292,25 @@ const QMetaObject *ritual_ZNK23QQuickPropertyAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPropertyAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickPropertyAnimation11qt_metacastEPKc(
+    QQuickPropertyAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPropertyAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickPropertyAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPropertyAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPropertyAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickPropertyAnimation2trEPKcS1_i(
@@ -426,6 +453,111 @@ void ritual_ZN23QQuickPropertyAnimation13setPropertiesERK7QString(
   self->setProperties(*a0);
 }
 
+//  QQmlListProperty<QObject> QQuickPropertyAnimation::targets()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN23QQuickPropertyAnimation7targetsEv(
+    QQuickPropertyAnimation *self) {
+  return new QQmlListProperty<QObject>(self->targets());
+}
+
+//  QQmlListProperty<QObject> QQuickPropertyAnimation::exclude()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN23QQuickPropertyAnimation7excludeEv(
+    QQuickPropertyAnimation *self) {
+  return new QQmlListProperty<QObject>(self->exclude());
+}
+
+//  QQuickStateActions
+//      QQuickPropertyAnimation::createTransitionActions(QQuickStateActions
+//      &actions, QQmlProperties &modified, QObject *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QList<QQuickStateAction> *ritual_ZN23QQuickPropertyAnimation23createTransitionActionsER5QListI17QQuickStateActionERS0_I12QQmlPropertyEP7QObject(
+    QQuickPropertyAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QObject *defaultTarget) {
+  return new QList<QQuickStateAction>(
+      self->createTransitionActions(
+          *actions,
+          *modified,
+          defaultTarget));
+}
+
+//  QQuickPropertyAnimation::QQuickPropertyAnimation(QQuickPropertyAnimationP
+//      rivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPropertyAnimation *ritual_ZN23QQuickPropertyAnimationC1ER30QQuickPropertyAnimationPrivateP7QObject(
+    QQuickPropertyAnimationPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickPropertyAnimation(*dd, parent);
+}
+
+//  QAbstractAnimationJob
+//      *QQuickPropertyAnimation::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN23QQuickPropertyAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickPropertyAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
+}
+
+//  void QQuickPropertyAnimation::durationChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickPropertyAnimation15durationChangedEi(
+    QQuickPropertyAnimation *self,
+    int a0) {
+  self->durationChanged(a0);
+}
+
+//  void QQuickPropertyAnimation::fromChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickPropertyAnimation11fromChangedEv(
+    QQuickPropertyAnimation *self) {
+  self->fromChanged();
+}
+
+//  void QQuickPropertyAnimation::toChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickPropertyAnimation9toChangedEv(
+    QQuickPropertyAnimation *self) {
+  self->toChanged();
+}
+
+//  void QQuickPropertyAnimation::easingChanged(const QEasingCurve &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickPropertyAnimation13easingChangedERK12QEasingCurve(
+    QQuickPropertyAnimation *self,
+    const QEasingCurve *a0) {
+  self->easingChanged(*a0);
+}
+
+//  void QQuickPropertyAnimation::propertiesChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickPropertyAnimation17propertiesChangedERK7QString(
+    QQuickPropertyAnimation *self,
+    const QString *a0) {
+  self->propertiesChanged(*a0);
+}
+
+//  void QQuickPropertyAnimation::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickPropertyAnimation13targetChangedEv(
+    QQuickPropertyAnimation *self) {
+  self->targetChanged();
+}
+
+//  void QQuickPropertyAnimation::propertyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickPropertyAnimation15propertyChangedEv(
+    QQuickPropertyAnimation *self) {
+  self->propertyChanged();
+}
+
 //  a Python function taken by a CuteQQuickPropertyAnimation, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -449,4 +581,11 @@ void ritual_own_ZN23QQuickPropertyAnimation11setDurationEi(
     QQuickPropertyAnimation *self,
     int a0) {
   self->QQuickPropertyAnimation::setDuration(a0);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickPropertyAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPropertyAnimation__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

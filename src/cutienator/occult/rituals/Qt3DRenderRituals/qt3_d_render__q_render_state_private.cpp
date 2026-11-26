@@ -53,6 +53,21 @@ public:
   }
 };
 
+//  Qt3DRender::QRenderStatePrivate::QRenderStatePrivate(Render::StateMask
+//      type)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderStatePrivate *ritual_ZN10Qt3DRender19QRenderStatePrivateC1ENS_6Render9StateMaskE(
+    Qt3DRender::Render::StateMask type) {
+  return new CuteQt3DRender_QRenderStatePrivate(type);
+}
+
+//  Qt3DRender::QRenderStatePrivate::~QRenderStatePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender19QRenderStatePrivateD1Ev(
+    Qt3DRender::QRenderStatePrivate *self) {
+  delete self;
+}
+
 //  QRenderState *Qt3DRender::QRenderStatePrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QRenderState *ritual_ZN10Qt3DRender19QRenderStatePrivate6q_funcEv(
@@ -65,6 +80,22 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QRenderState *ritual_ZNK10Qt3DRender19QRenderStatePrivate6q_funcEv(
     const Qt3DRender::QRenderStatePrivate *self) {
   return self->q_func();
+}
+
+//  QRenderStatePrivate *Qt3DRender::QRenderStatePrivate::get(QRenderState
+//      *state)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderStatePrivate *ritual_ZN10Qt3DRender19QRenderStatePrivate3getEPNS_12QRenderStateE(
+    Qt3DRender::QRenderState *state) {
+  return Qt3DRender::QRenderStatePrivate::get(state);
+}
+
+//  const QRenderStatePrivate *Qt3DRender::QRenderStatePrivate::get(const
+//      QRenderState *state)
+extern "C" Q_DECL_EXPORT
+const Qt3DRender::QRenderStatePrivate *ritual_ZN10Qt3DRender19QRenderStatePrivate3getEPKNS_12QRenderStateE(
+    const Qt3DRender::QRenderState *state) {
+  return Qt3DRender::QRenderStatePrivate::get(state);
 }
 
 //  a Python function taken by a CuteQt3DRender_QRenderStatePrivate, for the

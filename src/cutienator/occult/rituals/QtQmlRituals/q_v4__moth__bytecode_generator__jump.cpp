@@ -23,6 +23,13 @@ void ritual_ZN3QV44Moth17BytecodeGenerator4JumpD1Ev(
   delete self;
 }
 
+//  QV4::Moth::BytecodeGenerator::Jump::Jump(Jump &&j)
+extern "C" Q_DECL_EXPORT
+QV4::Moth::BytecodeGenerator::Jump *ritual_ZN3QV44Moth17BytecodeGenerator4JumpC1EOS2_(
+    QV4::Moth::BytecodeGenerator::Jump *j) {
+  return new QV4::Moth::BytecodeGenerator::Jump(std::move(*j));
+}
+
 //  void QV4::Moth::BytecodeGenerator::Jump::link()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV44Moth17BytecodeGenerator4Jump4linkEv(

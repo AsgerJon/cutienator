@@ -8,6 +8,12 @@
     "ritual_ZNK26QGraphicsSceneBspTreeIndex10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QGraphicsSceneBspTreeIndexD1Ev": ["nothing", "address"],
     "ritual_ZNK26QGraphicsSceneBspTreeIndex13estimateItemsERK6QRectFN2Qt9SortOrderE": [
       "address", "address", "address", "int"
@@ -36,6 +42,9 @@
     ],
     "ritual_ZN26QGraphicsSceneBspTreeIndex25prepareBoundingRectChangeEPK13QGraphicsItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex10itemChangeEPK13QGraphicsItemNS0_18GraphicsItemChangeEPKv": [
+      "nothing", "address", "address", "int", "address"
     ],
     "ritual_ZN26QGraphicsSceneBspTreeIndex6d_funcEv": ["address", "address"],
     "ritual_ZNK26QGraphicsSceneBspTreeIndex6d_funcEv": [

@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender6QLayer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QLayer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6QLayer11qt_metacastEPKc(
+    Qt3DRender::QLayer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QLayer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6QLayer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QLayer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QLayer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender6QLayer2trEPKcS2_i(
@@ -193,6 +212,42 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QLayer *ritual_ZN10Qt3DRender6QLayerC1EPN8Qt3DCore5QNodeE(
     Qt3DCore::QNode *parent) {
   return new CuteQt3DRender_QLayer(parent);
+}
+
+//  Qt3DRender::QLayer::~QLayer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6QLayerD1Ev(Qt3DRender::QLayer *self) {
+  delete self;
+}
+
+//  bool Qt3DRender::QLayer::recursive() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender6QLayer9recursiveEv(
+    const Qt3DRender::QLayer *self) {
+  return self->recursive();
+}
+
+//  void Qt3DRender::QLayer::setRecursive(bool recursive)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6QLayer12setRecursiveEb(
+    Qt3DRender::QLayer *self,
+    bool recursive) {
+  self->setRecursive(recursive);
+}
+
+//  void Qt3DRender::QLayer::recursiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6QLayer16recursiveChangedEv(
+    Qt3DRender::QLayer *self) {
+  self->recursiveChanged();
+}
+
+//  Qt3DRender::QLayer::QLayer(QLayerPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QLayer *ritual_ZN10Qt3DRender6QLayerC1ERNS_13QLayerPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QLayerPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QLayer(*dd, parent);
 }
 
 //  QLayerPrivate *Qt3DRender::QLayer::d_func()

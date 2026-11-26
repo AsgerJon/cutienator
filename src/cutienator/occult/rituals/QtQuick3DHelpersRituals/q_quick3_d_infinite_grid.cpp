@@ -216,6 +216,25 @@ const QMetaObject *ritual_ZNK20QQuick3DInfiniteGrid10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DInfiniteGrid::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuick3DInfiniteGrid11qt_metacastEPKc(
+    QQuick3DInfiniteGrid *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DInfiniteGrid::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuick3DInfiniteGrid11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DInfiniteGrid *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DInfiniteGrid::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuick3DInfiniteGrid2trEPKcS1_i(
@@ -294,6 +313,27 @@ void ritual_ZN20QQuick3DInfiniteGrid11setGridAxesEb(
     QQuick3DInfiniteGrid *self,
     bool newGridAxes) {
   self->setGridAxes(newGridAxes);
+}
+
+//  void QQuick3DInfiniteGrid::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DInfiniteGrid14visibleChangedEv(
+    QQuick3DInfiniteGrid *self) {
+  self->visibleChanged();
+}
+
+//  void QQuick3DInfiniteGrid::gridIntervalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DInfiniteGrid19gridIntervalChangedEv(
+    QQuick3DInfiniteGrid *self) {
+  self->gridIntervalChanged();
+}
+
+//  void QQuick3DInfiniteGrid::gridAxesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DInfiniteGrid15gridAxesChangedEv(
+    QQuick3DInfiniteGrid *self) {
+  self->gridAxesChanged();
 }
 
 //  void QQuick3DInfiniteGrid::updateGridFlags()

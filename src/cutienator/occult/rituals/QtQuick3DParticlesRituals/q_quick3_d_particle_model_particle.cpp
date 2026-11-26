@@ -26,6 +26,25 @@ const QMetaObject *ritual_ZNK29QQuick3DParticleModelParticle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleModelParticle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuick3DParticleModelParticle11qt_metacastEPKc(
+    QQuick3DParticleModelParticle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleModelParticle::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuick3DParticleModelParticle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleModelParticle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleModelParticle::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -64,6 +83,20 @@ void ritual_ZN29QQuick3DParticleModelParticle11setDelegateEP13QQmlComponent(
     QQuick3DParticleModelParticle *self,
     QQmlComponent *delegate) {
   self->setDelegate(delegate);
+}
+
+//  void QQuick3DParticleModelParticle::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleModelParticle15delegateChangedEv(
+    QQuick3DParticleModelParticle *self) {
+  self->delegateChanged();
+}
+
+//  void QQuick3DParticleModelParticle::instanceTableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleModelParticle20instanceTableChangedEv(
+    QQuick3DParticleModelParticle *self) {
+  self->instanceTableChanged();
 }
 
 //  void QQuick3DParticleModelParticle::componentComplete()

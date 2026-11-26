@@ -224,6 +224,24 @@ const QMetaObject *ritual_ZNK14QWaylandOutput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandOutput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QWaylandOutput11qt_metacastEPKc(
+    QWaylandOutput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandOutput::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QWaylandOutput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandOutput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandOutput::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QWaylandOutput2trEPKcS1_i(
@@ -231,6 +249,20 @@ QString *ritual_ZN14QWaylandOutput2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandOutput::tr(s, c, n));
+}
+
+//  QWaylandOutputPrivate *QWaylandOutput::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandOutputPrivate *ritual_ZN14QWaylandOutput6d_funcEv(
+    QWaylandOutput *self) {
+  return self->d_func();
+}
+
+//  const QWaylandOutputPrivate *QWaylandOutput::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandOutputPrivate *ritual_ZNK14QWaylandOutput6d_funcEv(
+    const QWaylandOutput *self) {
+  return self->d_func();
 }
 
 //  void QWaylandOutput::qt_qmlMarker_uncreatable()
@@ -259,6 +291,22 @@ QWaylandOutput *ritual_ZN14QWaylandOutputC1EP18QWaylandCompositorP7QWindow(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QWaylandOutputD1Ev(QWaylandOutput *self) {
   delete self;
+}
+
+//  QWaylandOutput *QWaylandOutput::fromResource(wl_resource *resource)
+extern "C" Q_DECL_EXPORT
+QWaylandOutput *ritual_ZN14QWaylandOutput12fromResourceEP11wl_resource(
+    wl_resource *resource) {
+  return QWaylandOutput::fromResource(resource);
+}
+
+//  struct ::wl_resource *QWaylandOutput::resourceForClient(QWaylandClient
+//      *client) const
+extern "C" Q_DECL_EXPORT
+struct ::wl_resource *ritual_ZNK14QWaylandOutput17resourceForClientEP14QWaylandClient(
+    const QWaylandOutput *self,
+    QWaylandClient *client) {
+  return self->resourceForClient(client);
 }
 
 //  QWaylandCompositor *QWaylandOutput::compositor() const
@@ -408,11 +456,27 @@ QWaylandOutput::Subpixel ritual_ZNK14QWaylandOutput8subpixelEv(
   return self->subpixel();
 }
 
+//  void QWaylandOutput::setSubpixel(const Subpixel &subpixel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput11setSubpixelERKNS_8SubpixelE(
+    QWaylandOutput *self,
+    const QWaylandOutput::Subpixel *subpixel) {
+  self->setSubpixel(*subpixel);
+}
+
 //  Transform QWaylandOutput::transform() const
 extern "C" Q_DECL_EXPORT
 QWaylandOutput::Transform ritual_ZNK14QWaylandOutput9transformEv(
     const QWaylandOutput *self) {
   return self->transform();
+}
+
+//  void QWaylandOutput::setTransform(const Transform &transform)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput12setTransformERKNS_9TransformE(
+    QWaylandOutput *self,
+    const QWaylandOutput::Transform *transform) {
+  self->setTransform(*transform);
 }
 
 //  int QWaylandOutput::scaleFactor() const
@@ -476,6 +540,105 @@ void ritual_ZN14QWaylandOutput12surfaceLeaveEP15QWaylandSurface(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QWaylandOutput6updateEv(QWaylandOutput *self) {
   self->update();
+}
+
+//  void QWaylandOutput::compositorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput17compositorChangedEv(QWaylandOutput *self) {
+  self->compositorChanged();
+}
+
+//  void QWaylandOutput::windowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput13windowChangedEv(QWaylandOutput *self) {
+  self->windowChanged();
+}
+
+//  void QWaylandOutput::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput15positionChangedEv(QWaylandOutput *self) {
+  self->positionChanged();
+}
+
+//  void QWaylandOutput::geometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput15geometryChangedEv(QWaylandOutput *self) {
+  self->geometryChanged();
+}
+
+//  void QWaylandOutput::modeAdded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput9modeAddedEv(QWaylandOutput *self) {
+  self->modeAdded();
+}
+
+//  void QWaylandOutput::currentModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput18currentModeChangedEv(QWaylandOutput *self) {
+  self->currentModeChanged();
+}
+
+//  void QWaylandOutput::availableGeometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput24availableGeometryChangedEv(
+    QWaylandOutput *self) {
+  self->availableGeometryChanged();
+}
+
+//  void QWaylandOutput::physicalSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput19physicalSizeChangedEv(QWaylandOutput *self) {
+  self->physicalSizeChanged();
+}
+
+//  void QWaylandOutput::scaleFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput18scaleFactorChangedEv(QWaylandOutput *self) {
+  self->scaleFactorChanged();
+}
+
+//  void QWaylandOutput::subpixelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput15subpixelChangedEv(QWaylandOutput *self) {
+  self->subpixelChanged();
+}
+
+//  void QWaylandOutput::transformChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput16transformChangedEv(QWaylandOutput *self) {
+  self->transformChanged();
+}
+
+//  void QWaylandOutput::sizeFollowsWindowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput24sizeFollowsWindowChangedEv(
+    QWaylandOutput *self) {
+  self->sizeFollowsWindowChanged();
+}
+
+//  void QWaylandOutput::physicalSizeFollowsSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput30physicalSizeFollowsSizeChangedEv(
+    QWaylandOutput *self) {
+  self->physicalSizeFollowsSizeChanged();
+}
+
+//  void QWaylandOutput::manufacturerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput19manufacturerChangedEv(QWaylandOutput *self) {
+  self->manufacturerChanged();
+}
+
+//  void QWaylandOutput::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput12modelChangedEv(QWaylandOutput *self) {
+  self->modelChanged();
+}
+
+//  void QWaylandOutput::windowDestroyed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandOutput15windowDestroyedEv(QWaylandOutput *self) {
+  self->windowDestroyed();
 }
 
 //  bool QWaylandOutput::event(QEvent *event)

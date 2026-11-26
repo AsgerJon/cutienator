@@ -182,6 +182,25 @@ const QMetaObject *ritual_ZNK17QScatterDataProxy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScatterDataProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QScatterDataProxy11qt_metacastEPKc(
+    QScatterDataProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScatterDataProxy::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QScatterDataProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScatterDataProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScatterDataProxy::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QScatterDataProxy2trEPKcS1_i(
@@ -218,12 +237,27 @@ int ritual_ZNK17QScatterDataProxy9itemCountEv(
   return self->itemCount();
 }
 
+//  const QScatterDataArray *QScatterDataProxy::array() const
+extern "C" Q_DECL_EXPORT
+const QScatterDataArray *ritual_ZNK17QScatterDataProxy5arrayEv(
+    const QScatterDataProxy *self) {
+  return self->array();
+}
+
 //  const QScatterDataItem *QScatterDataProxy::itemAt(int index) const
 extern "C" Q_DECL_EXPORT
 const QScatterDataItem *ritual_ZNK17QScatterDataProxy6itemAtEi(
     const QScatterDataProxy *self,
     int index) {
   return self->itemAt(index);
+}
+
+//  void QScatterDataProxy::resetArray(QScatterDataArray *newArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy10resetArrayEP5QListI16QScatterDataItemE(
+    QScatterDataProxy *self,
+    QScatterDataArray *newArray) {
+  self->resetArray(newArray);
 }
 
 //  void QScatterDataProxy::setItem(int index, const QScatterDataItem &item)
@@ -288,6 +322,64 @@ void ritual_ZN17QScatterDataProxy11removeItemsEii(
     int index,
     int removeCount) {
   self->removeItems(index, removeCount);
+}
+
+//  void QScatterDataProxy::arrayReset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy10arrayResetEv(QScatterDataProxy *self) {
+  self->arrayReset();
+}
+
+//  void QScatterDataProxy::itemsAdded(int startIndex, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy10itemsAddedEii(
+    QScatterDataProxy *self,
+    int startIndex,
+    int count) {
+  self->itemsAdded(startIndex, count);
+}
+
+//  void QScatterDataProxy::itemsChanged(int startIndex, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy12itemsChangedEii(
+    QScatterDataProxy *self,
+    int startIndex,
+    int count) {
+  self->itemsChanged(startIndex, count);
+}
+
+//  void QScatterDataProxy::itemsRemoved(int startIndex, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy12itemsRemovedEii(
+    QScatterDataProxy *self,
+    int startIndex,
+    int count) {
+  self->itemsRemoved(startIndex, count);
+}
+
+//  void QScatterDataProxy::itemsInserted(int startIndex, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy13itemsInsertedEii(
+    QScatterDataProxy *self,
+    int startIndex,
+    int count) {
+  self->itemsInserted(startIndex, count);
+}
+
+//  void QScatterDataProxy::itemCountChanged(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy16itemCountChangedEi(
+    QScatterDataProxy *self,
+    int count) {
+  self->itemCountChanged(count);
+}
+
+//  void QScatterDataProxy::seriesChanged(QScatter3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QScatterDataProxy13seriesChangedEP16QScatter3DSeries(
+    QScatterDataProxy *self,
+    QScatter3DSeries *series) {
+  self->seriesChanged(series);
 }
 
 //  QScatterDataProxy::QScatterDataProxy(QScatterDataProxyPrivate *d, QObject

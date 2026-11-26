@@ -12,7 +12,13 @@
       "address", "address", "address"
     ],
     "ritual_ZN16QGeoRouteRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN16QGeoRouteRequestC1EOS_": ["address", "address"],
     "ritual_ZN16QGeoRouteRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN16QGeoRouteRequestaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QGeoRouteRequestaSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QGeoRouteRequest4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK16QGeoRouteRequestS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QGeoRouteRequestS1_": ["bool", "address", "address"],
     "ritual_ZN16QGeoRouteRequest12setWaypointsERK5QListI14QGeoCoordinateE": [
@@ -39,6 +45,7 @@
     "ritual_ZNK16QGeoRouteRequest13featureWeightENS_11FeatureTypeE": [
       "int", "address", "int"
     ],
+    "ritual_ZNK16QGeoRouteRequest12featureTypesEv": ["address", "address"],
     "ritual_ZN16QGeoRouteRequest20setRouteOptimizationE6QFlagsINS_17RouteOptimizationEE": [
       "nothing", "address", "int"
     ],
@@ -57,6 +64,9 @@
     "ritual_ZNK16QGeoRouteRequest13departureTimeEv": ["address", "address"],
     "ritual_ZNK16QGeoRouteRequest7isEqualERKS_": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QGeoRouteRequest__QList_QGeoRouteRequest_FeatureType": [
+      "nothing", "address"
     ]
   }
 }

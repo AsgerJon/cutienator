@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
 //  DomIncludes::DomIncludes()
@@ -18,6 +19,24 @@ DomIncludes *ritual_ZN11DomIncludesC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11DomIncludesD1Ev(DomIncludes *self) {
   delete self;
+}
+
+//  void DomIncludes::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11DomIncludes4readER16QXmlStreamReader(
+    DomIncludes *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomIncludes::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11DomIncludes5writeER16QXmlStreamWriterRK7QString(
+    const DomIncludes *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  QList<DomInclude *> DomIncludes::elementInclude() const

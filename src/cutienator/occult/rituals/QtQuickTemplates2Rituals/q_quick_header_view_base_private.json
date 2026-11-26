@@ -11,6 +11,7 @@
     "ritual_ZNK27QQuickHeaderViewBasePrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuickHeaderViewBasePrivateC1Ev": ["address"],
     "ritual_ZN27QQuickHeaderViewBasePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN27QQuickHeaderViewBasePrivate3getEP20QQuickHeaderViewBase": [
       "address", "address"
@@ -21,6 +22,9 @@
     ],
     "ritual_ZN27QQuickHeaderViewBasePrivate14setOrientationEN2Qt11OrientationE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QQuickHeaderViewBasePrivate14delegateItemAtEii": [
+      "address", "address", "int", "int"
     ],
     "ritual_ZNK27QQuickHeaderViewBasePrivate9modelImplEv": [
       "address", "address"
@@ -69,6 +73,12 @@
     ],
     "ritual_own_ZN27QQuickHeaderViewBasePrivate20selectionSourceModelEv": [
       "address", "address"
+    ],
+    "ritual_own_ZN27QQuickHeaderViewBasePrivate16initItemCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QQuickHeaderViewBasePrivate__QPointer_QQuickItem": [
+      "nothing", "address"
     ]
   }
 }

@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK17QOpenGLCompositor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLCompositor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QOpenGLCompositor11qt_metacastEPKc(
+    QOpenGLCompositor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLCompositor::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QOpenGLCompositor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLCompositor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLCompositor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QOpenGLCompositor2trEPKcS1_i(
@@ -151,6 +170,14 @@ void ritual_ZN17QOpenGLCompositor17changeWindowIndexEP23QOpenGLCompositorWindowi
     QOpenGLCompositorWindow *window,
     int newIdx) {
   self->changeWindowIndex(window, newIdx);
+}
+
+//  void QOpenGLCompositor::topWindowChanged(QOpenGLCompositorWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QOpenGLCompositor16topWindowChangedEP23QOpenGLCompositorWindow(
+    QOpenGLCompositor *self,
+    QOpenGLCompositorWindow *window) {
+  self->topWindowChanged(window);
 }
 
 //  void QOpenGLCompositor::handleRenderAllRequest()

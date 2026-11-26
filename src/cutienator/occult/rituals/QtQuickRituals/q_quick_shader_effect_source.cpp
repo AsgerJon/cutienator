@@ -858,6 +858,25 @@ const QMetaObject *ritual_ZNK24QQuickShaderEffectSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShaderEffectSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickShaderEffectSource11qt_metacastEPKc(
+    QQuickShaderEffectSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShaderEffectSource::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickShaderEffectSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShaderEffectSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShaderEffectSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuickShaderEffectSource2trEPKcS1_i(
@@ -1066,6 +1085,90 @@ void ritual_ZN24QQuickShaderEffectSource10setSamplesEi(
     QQuickShaderEffectSource *self,
     int count) {
   self->setSamples(count);
+}
+
+//  void QQuickShaderEffectSource::wrapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource15wrapModeChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->wrapModeChanged();
+}
+
+//  void QQuickShaderEffectSource::sourceItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource17sourceItemChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->sourceItemChanged();
+}
+
+//  void QQuickShaderEffectSource::sourceRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource17sourceRectChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->sourceRectChanged();
+}
+
+//  void QQuickShaderEffectSource::textureSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource18textureSizeChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->textureSizeChanged();
+}
+
+//  void QQuickShaderEffectSource::formatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource13formatChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->formatChanged();
+}
+
+//  void QQuickShaderEffectSource::liveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource11liveChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->liveChanged();
+}
+
+//  void QQuickShaderEffectSource::hideSourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource17hideSourceChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->hideSourceChanged();
+}
+
+//  void QQuickShaderEffectSource::mipmapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource13mipmapChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->mipmapChanged();
+}
+
+//  void QQuickShaderEffectSource::recursiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource16recursiveChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->recursiveChanged();
+}
+
+//  void QQuickShaderEffectSource::textureMirroringChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource23textureMirroringChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->textureMirroringChanged();
+}
+
+//  void QQuickShaderEffectSource::samplesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource14samplesChangedEv(
+    QQuickShaderEffectSource *self) {
+  self->samplesChanged();
+}
+
+//  void QQuickShaderEffectSource::scheduledUpdateCompleted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShaderEffectSource24scheduledUpdateCompletedEv(
+    QQuickShaderEffectSource *self) {
+  self->scheduledUpdateCompleted();
 }
 
 //  void QQuickShaderEffectSource::sourceItemDestroyed(QObject *item)

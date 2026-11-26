@@ -223,6 +223,31 @@ public:
   }
 };
 
+//  QQmlJS::AST::NumericLiteralPropertyName::NumericLiteralPropertyName(doubl
+//      e n)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::NumericLiteralPropertyName *ritual_ZN6QQmlJS3AST26NumericLiteralPropertyNameC1Ed(
+    QQmlJS::MemoryPool *pool,
+    double n) {
+  return new (pool) CuteQQmlJS_AST_NumericLiteralPropertyName(n);
+}
+
+//  void QQmlJS::AST::NumericLiteralPropertyName::accept0(BaseVisitor
+//      *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST26NumericLiteralPropertyName7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::NumericLiteralPropertyName *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
+//  QString QQmlJS::AST::NumericLiteralPropertyName::asString() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK6QQmlJS3AST26NumericLiteralPropertyName8asStringEv(
+    const QQmlJS::AST::NumericLiteralPropertyName *self) {
+  return new QString(self->asString());
+}
+
 //  a Python function taken by a CuteQQmlJS_AST_NumericLiteralPropertyName,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT

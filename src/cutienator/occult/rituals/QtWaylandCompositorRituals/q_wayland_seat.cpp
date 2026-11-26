@@ -214,6 +214,24 @@ const QMetaObject *ritual_ZNK12QWaylandSeat10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandSeat::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QWaylandSeat11qt_metacastEPKc(
+    QWaylandSeat *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandSeat::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QWaylandSeat11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandSeat *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandSeat::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QWaylandSeat2trEPKcS1_i(
@@ -221,6 +239,19 @@ QString *ritual_ZN12QWaylandSeat2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandSeat::tr(s, c, n));
+}
+
+//  QWaylandSeatPrivate *QWaylandSeat::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandSeatPrivate *ritual_ZN12QWaylandSeat6d_funcEv(QWaylandSeat *self) {
+  return self->d_func();
+}
+
+//  const QWaylandSeatPrivate *QWaylandSeat::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandSeatPrivate *ritual_ZNK12QWaylandSeat6d_funcEv(
+    const QWaylandSeat *self) {
+  return self->d_func();
 }
 
 //  void QWaylandSeat::qt_qmlMarker_uncreatable()
@@ -499,6 +530,59 @@ bool ritual_ZNK12QWaylandSeat7isOwnerEP11QInputEvent(
     const QWaylandSeat *self,
     QInputEvent *inputEvent) {
   return self->isOwner(inputEvent);
+}
+
+//  QWaylandSeat *QWaylandSeat::fromSeatResource(struct ::wl_resource
+//      *resource)
+extern "C" Q_DECL_EXPORT
+QWaylandSeat *ritual_ZN12QWaylandSeat16fromSeatResourceEP11wl_resource(
+    struct ::wl_resource *resource) {
+  return QWaylandSeat::fromSeatResource(resource);
+}
+
+//  void QWaylandSeat::mouseFocusChanged(QWaylandView *newFocus, QWaylandView
+//      *oldFocus)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandSeat17mouseFocusChangedEP12QWaylandViewS1_(
+    QWaylandSeat *self,
+    QWaylandView *newFocus,
+    QWaylandView *oldFocus) {
+  self->mouseFocusChanged(newFocus, oldFocus);
+}
+
+//  void QWaylandSeat::keyboardFocusChanged(QWaylandSurface *newFocus,
+//      QWaylandSurface *oldFocus)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandSeat20keyboardFocusChangedEP15QWaylandSurfaceS1_(
+    QWaylandSeat *self,
+    QWaylandSurface *newFocus,
+    QWaylandSurface *oldFocus) {
+  self->keyboardFocusChanged(newFocus, oldFocus);
+}
+
+#if QT_DEPRECATED_SINCE(6, 1)
+//  void QWaylandSeat::cursorSurfaceRequest(QWaylandSurface *surface, int
+//      hotspotX, int hotspotY)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandSeat20cursorSurfaceRequestEP15QWaylandSurfaceii(
+    QWaylandSeat *self,
+    QWaylandSurface *surface,
+    int hotspotX,
+    int hotspotY) {
+  self->cursorSurfaceRequest(surface, hotspotX, hotspotY);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 1)
+
+//  void QWaylandSeat::cursorSurfaceRequested(QWaylandSurface *surface, int
+//      hotspotX, int hotspotY, QWaylandClient *client)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QWaylandSeat22cursorSurfaceRequestedEP15QWaylandSurfaceiiP14QWaylandClient(
+    QWaylandSeat *self,
+    QWaylandSurface *surface,
+    int hotspotX,
+    int hotspotY,
+    QWaylandClient *client) {
+  self->cursorSurfaceRequested(surface, hotspotX, hotspotY, client);
 }
 
 //  void QWaylandSeat::sendUnicodeKeyEvent(uint unicode, QEvent::Type type)

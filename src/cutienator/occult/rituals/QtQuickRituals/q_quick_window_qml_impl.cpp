@@ -629,6 +629,25 @@ const QMetaObject *ritual_ZNK19QQuickWindowQmlImpl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWindowQmlImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickWindowQmlImpl11qt_metacastEPKc(
+    QQuickWindowQmlImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWindowQmlImpl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickWindowQmlImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWindowQmlImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWindowQmlImpl::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickWindowQmlImpl2trEPKcS1_i(
@@ -768,6 +787,46 @@ QQuickWindowAttached *ritual_ZN19QQuickWindowQmlImpl21qmlAttachedPropertiesEP7QO
   return QQuickWindowQmlImpl::qmlAttachedProperties(object);
 }
 
+//  void QQuickWindowQmlImpl::visibleChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowQmlImpl14visibleChangedEb(
+    QQuickWindowQmlImpl *self,
+    bool arg) {
+  self->visibleChanged(arg);
+}
+
+//  void QQuickWindowQmlImpl::visibilityChanged(QWindow::Visibility
+//      visibility)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowQmlImpl17visibilityChangedEN7QWindow10VisibilityE(
+    QQuickWindowQmlImpl *self,
+    QWindow::Visibility visibility) {
+  self->visibilityChanged(visibility);
+}
+
+//  void QQuickWindowQmlImpl::screenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowQmlImpl13screenChangedEv(
+    QQuickWindowQmlImpl *self) {
+  self->screenChanged();
+}
+
+//  void QQuickWindowQmlImpl::xChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowQmlImpl8xChangedEi(
+    QQuickWindowQmlImpl *self,
+    int arg) {
+  self->xChanged(arg);
+}
+
+//  void QQuickWindowQmlImpl::yChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickWindowQmlImpl8yChangedEi(
+    QQuickWindowQmlImpl *self,
+    int arg) {
+  self->yChanged(arg);
+}
+
 //  void QQuickWindowQmlImpl::classBegin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickWindowQmlImpl10classBeginEv(
@@ -788,6 +847,15 @@ bool ritual_ZN19QQuickWindowQmlImpl5eventEP6QEvent(
     QQuickWindowQmlImpl *self,
     QEvent *a0) {
   return self->event(a0);
+}
+
+//  QQuickWindowQmlImpl::QQuickWindowQmlImpl(QQuickWindowQmlImplPrivate &dd,
+//      QWindow *parent)
+extern "C" Q_DECL_EXPORT
+QQuickWindowQmlImpl *ritual_ZN19QQuickWindowQmlImplC1ER26QQuickWindowQmlImplPrivateP7QWindow(
+    QQuickWindowQmlImplPrivate *dd,
+    QWindow *parent) {
+  return new CuteQQuickWindowQmlImpl(*dd, parent);
 }
 
 //  void QQuickWindowQmlImpl::applyWindowVisibility()

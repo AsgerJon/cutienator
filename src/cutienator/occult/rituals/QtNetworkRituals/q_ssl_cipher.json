@@ -10,7 +10,10 @@
       "address", "text", "int"
     ],
     "ritual_ZN10QSslCipherC1ERKS_": ["address", "address"],
+    "ritual_ZN10QSslCipheraSEOS_": ["address", "address", "address"],
+    "ritual_ZN10QSslCipheraSERKS_": ["address", "address", "address"],
     "ritual_ZN10QSslCipherD1Ev": ["nothing", "address"],
+    "ritual_ZN10QSslCipher4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK10QSslCiphereqERKS_": ["bool", "address", "address"],
     "ritual_ZNK10QSslCipherneERKS_": ["bool", "address", "address"],
     "ritual_ZNK10QSslCipher6isNullEv": ["bool", "address"],

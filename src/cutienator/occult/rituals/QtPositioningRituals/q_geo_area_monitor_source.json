@@ -8,6 +8,12 @@
     "ritual_ZNK21QGeoAreaMonitorSource10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QGeoAreaMonitorSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QGeoAreaMonitorSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QGeoAreaMonitorSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -51,6 +57,20 @@
     "ritual_ZNK21QGeoAreaMonitorSource15backendPropertyERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZN21QGeoAreaMonitorSource11areaEnteredERK19QGeoAreaMonitorInfoRK16QGeoPositionInfo": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QGeoAreaMonitorSource10areaExitedERK19QGeoAreaMonitorInfoRK16QGeoPositionInfo": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QGeoAreaMonitorSource14monitorExpiredERK19QGeoAreaMonitorInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGeoAreaMonitorSource13errorOccurredENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QGeoAreaMonitorSource6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QGeoAreaMonitorSource6d_funcEv": ["address", "address"],
     "ritual_take_QGeoAreaMonitorSource": [
       "bool", "address", "chars", "address"
     ],

@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK21QQuick3DFrustumCamera10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DFrustumCamera::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DFrustumCamera11qt_metacastEPKc(
+    QQuick3DFrustumCamera *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DFrustumCamera::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DFrustumCamera11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DFrustumCamera *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DFrustumCamera::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuick3DFrustumCamera2trEPKcS1_i(
@@ -95,6 +114,34 @@ void ritual_ZN21QQuick3DFrustumCamera7setLeftEf(
     QQuick3DFrustumCamera *self,
     float left) {
   self->setLeft(left);
+}
+
+//  void QQuick3DFrustumCamera::topChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DFrustumCamera10topChangedEv(
+    QQuick3DFrustumCamera *self) {
+  self->topChanged();
+}
+
+//  void QQuick3DFrustumCamera::bottomChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DFrustumCamera13bottomChangedEv(
+    QQuick3DFrustumCamera *self) {
+  self->bottomChanged();
+}
+
+//  void QQuick3DFrustumCamera::rightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DFrustumCamera12rightChangedEv(
+    QQuick3DFrustumCamera *self) {
+  self->rightChanged();
+}
+
+//  void QQuick3DFrustumCamera::leftChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DFrustumCamera11leftChangedEv(
+    QQuick3DFrustumCamera *self) {
+  self->leftChanged();
 }
 
 //  QSSGRenderGraphObject

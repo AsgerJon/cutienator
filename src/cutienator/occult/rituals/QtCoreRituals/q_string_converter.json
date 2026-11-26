@@ -9,17 +9,32 @@
     "ritual_ZN16QStringConverterC1ENS_8EncodingE6QFlagsIN20QStringConverterBase4FlagEE": [
       "address", "int", "int"
     ],
+    "ritual_ZN16QStringConverterC1EPKNS_9InterfaceE": ["address", "address"],
     "ritual_ZN16QStringConverterC1E14QAnyStringView6QFlagsIN20QStringConverterBase4FlagEE": [
       "address", "text", "int"
     ],
     "ritual_ZN16QStringConverterD1Ev": ["nothing", "address"],
+    "ritual_ZN16QStringConverterC1EOS_": ["address", "address"],
+    "ritual_ZN16QStringConverteraSEOS_": ["address", "address", "address"],
     "ritual_ZNK16QStringConverter7isValidEv": ["bool", "address"],
     "ritual_ZN16QStringConverter10resetStateEv": ["nothing", "address"],
     "ritual_ZNK16QStringConverter8hasErrorEv": ["bool", "address"],
     "ritual_ZNK16QStringConverter4nameEv": ["chars", "address"],
+    "ritual_ZN16QStringConverter15encodingForNameE14QAnyStringView": [
+      "address", "text"
+    ],
     "ritual_ZN16QStringConverter15nameForEncodingENS_8EncodingE": [
       "chars", "int"
     ],
-    "ritual_ZN16QStringConverter15availableCodecsEv": ["address"]
+    "ritual_ZN16QStringConverter15encodingForDataE14QByteArrayViewDs": [
+      "address", "address", "unsigned short"
+    ],
+    "ritual_ZN16QStringConverter15encodingForHtmlE14QByteArrayView": [
+      "address", "address"
+    ],
+    "ritual_ZN16QStringConverter15availableCodecsEv": ["address"],
+    "ritual_drop_QStringConverter__std_optional_QStringConverter_Encoding": [
+      "nothing", "address"
+    ]
   }
 }

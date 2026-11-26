@@ -10,6 +10,9 @@
     ],
     "ritual_ZN27QOperatingSystemVersionBase7currentEv": ["address"],
     "ritual_ZN27QOperatingSystemVersionBase4nameES_": ["text", "address"],
+    "ritual_ZN27QOperatingSystemVersionBase11isAnyOfTypeESt16initializer_listINS_6OSTypeEES1_": [
+      "bool", "address", "int"
+    ],
     "ritual_ZN27QOperatingSystemVersionBase11currentTypeEv": ["int"],
     "ritual_ZNK27QOperatingSystemVersionBase7versionEv": [
       "address", "address"
@@ -25,6 +28,9 @@
     ],
     "ritual_ZNK27QOperatingSystemVersionBase12segmentCountEv": [
       "int", "address"
+    ],
+    "ritual_ZNK27QOperatingSystemVersionBase11isAnyOfTypeESt16initializer_listINS_6OSTypeEE": [
+      "bool", "address", "address"
     ],
     "ritual_ZNK27QOperatingSystemVersionBase4typeEv": ["int", "address"],
     "ritual_ZNK27QOperatingSystemVersionBase4nameEv": ["text", "address"],

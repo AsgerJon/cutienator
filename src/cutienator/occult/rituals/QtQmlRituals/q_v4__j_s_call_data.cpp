@@ -24,6 +24,16 @@ QV4::JSCallData *ritual_ZN3QV410JSCallDataC1ERKNS_15JSCallArgumentsE(
   return new QV4::JSCallData(*args);
 }
 
+//  CallData *QV4::JSCallData::callData(const Scope &scope, const
+//      FunctionObject *f) const
+extern "C" Q_DECL_EXPORT
+QV4::CallData *ritual_ZNK3QV410JSCallData8callDataERKNS_5ScopeEPKNS_14FunctionObjectE(
+    const QV4::JSCallData *self,
+    const QV4::Scope *scope,
+    const QV4::FunctionObject *f) {
+  return self->callData(*scope, f);
+}
+
 //  QV4::JSCallData::~JSCallData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV410JSCallDataD1Ev(QV4::JSCallData *self) {

@@ -342,6 +342,25 @@ const QMetaObject *ritual_ZNK24QQuickEventReplayService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickEventReplayService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickEventReplayService11qt_metacastEPKc(
+    QQuickEventReplayService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickEventReplayService::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickEventReplayService11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickEventReplayService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickEventReplayService::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuickEventReplayService2trEPKcS1_i(

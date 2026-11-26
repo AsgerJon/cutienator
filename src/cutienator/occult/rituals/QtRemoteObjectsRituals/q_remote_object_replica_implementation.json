@@ -11,6 +11,15 @@
     "ritual_ZNK34QRemoteObjectReplicaImplementation26needsDynamicInitializationEv": [
       "bool", "address"
     ],
+    "ritual_ZNK34QRemoteObjectReplicaImplementation11getPropertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN34QRemoteObjectReplicaImplementation13setPropertiesEO5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QRemoteObjectReplicaImplementation11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZNK34QRemoteObjectReplicaImplementation14isShortCircuitEv": [
       "bool", "address"
     ],
@@ -44,7 +53,16 @@
     "ritual_ZNK34QRemoteObjectReplicaImplementation4nodeEv": [
       "address", "address"
     ],
+    "ritual_ZN34QRemoteObjectReplicaImplementation7_q_sendEN11QMetaObject4CallEiRK5QListI8QVariantE": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN34QRemoteObjectReplicaImplementation16_q_sendWithReplyEN11QMetaObject4CallEiRK5QListI8QVariantE": [
+      "address", "address", "int", "int", "address"
+    ],
     "ritual_ZN34QRemoteObjectReplicaImplementation20setDynamicMetaObjectEPK11QMetaObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QRemoteObjectReplicaImplementation20setDynamicPropertiesEO5QListI8QVariantE": [
       "nothing", "address", "address"
     ],
     "ritual_cast_QRemoteObjectReplicaImplementation_QReplicaImplementationInterface": [
@@ -67,6 +85,9 @@
     ],
     "ritual_own_ZN34QRemoteObjectReplicaImplementation16notifyAboutReplyEiRK8QVariant": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN34QRemoteObjectReplicaImplementation16configurePrivateEP20QRemoteObjectReplica": [
+      "nothing", "address", "address"
     ],
     "ritual_own_ZNK34QRemoteObjectReplicaImplementation4nodeEv": [
       "address", "address"

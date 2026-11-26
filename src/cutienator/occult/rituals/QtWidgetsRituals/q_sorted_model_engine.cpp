@@ -11,7 +11,9 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/private/qcompleter_p.h>
@@ -45,6 +47,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/util/qcompleter.cpp, line 523, as _ZN17QCompletionEngine11saveInCacheE7QStringRK11QModelIndexRK10QMatchData
 inline void QCompletionEngine::saveInCache(QString part, const QModelIndex& parent, const QMatchData& m)
@@ -286,7 +290,7 @@ typedef void (*CuteQSortedModelEngineCall1)(const void *, int, int *);
 class CuteQSortedModelEngine : public QSortedModelEngine {
 public:
   using QSortedModelEngine::QSortedModelEngine;
-  CuteQSortedModelEngine(const QSortedModelEngine &other) : QSortedModelEngine(other) {}
+  CuteQSortedModelEngine(const QSortedModelEngine & other) : QSortedModelEngine(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

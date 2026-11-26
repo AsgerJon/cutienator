@@ -5,6 +5,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qmargins.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QRect>
 
 //  QRect::QRect()
 extern "C" Q_DECL_EXPORT
@@ -515,6 +516,17 @@ bool ritual_ZneRK5QRectS1_(const QRect *lhs, const QRect *rhs) {
 extern "C" Q_DECL_EXPORT
 QRectF *ritual_ZNK5QRect7toRectFEv(const QRect *self) {
   return new QRectF(self->toRectF());
+}
+
+//  QRect::QRect(Representation aleft, Representation atop, Representation
+//      awidth, Representation aheight)
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZN5QRectC1EN9QtPrivate16QCheckedIntegers11QCheckedIntIiNS1_13SafeCheckImplIiEENS1_18AssertReportPolicyEEES6_S6_S6_(
+    const QRect::Representation *aleft,
+    const QRect::Representation *atop,
+    const QRect::Representation *awidth,
+    const QRect::Representation *aheight) {
+  return new QRect(*aleft, *atop, *awidth, *aheight);
 }
 
 //  QRect::~QRect()

@@ -12,7 +12,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -311,6 +313,24 @@ const QMetaObject *ritual_ZNK15QQmlValueFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlValueFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQmlValueFilter11qt_metacastEPKc(
+    QQmlValueFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlValueFilter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlValueFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlValueFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlValueFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQmlValueFilter2trEPKcS1_i(
@@ -361,6 +381,12 @@ bool ritual_ZNK15QQmlValueFilter24filterAcceptsRowInternalEiRK11QModelIndexPK24Q
     const QModelIndex *sourceIndex,
     const QQmlSortFilterProxyModel *a2) {
   return self->filterAcceptsRowInternal(row, *sourceIndex, a2);
+}
+
+//  void QQmlValueFilter::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlValueFilter12valueChangedEv(QQmlValueFilter *self) {
+  self->valueChanged();
 }
 
 //  QQmlValueFilterPrivate *QQmlValueFilter::d_func()

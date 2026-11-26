@@ -224,6 +224,25 @@ const QMetaObject *ritual_ZNK23QQStyleKitPropertyGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitPropertyGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQStyleKitPropertyGroup11qt_metacastEPKc(
+    QQStyleKitPropertyGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitPropertyGroup::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQStyleKitPropertyGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitPropertyGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  PropertyPathId QQStyleKitPropertyGroup::propertyPathId(QQSK::Property
 //      property, PropertyPathId::Flag flag) const
 extern "C" Q_DECL_EXPORT

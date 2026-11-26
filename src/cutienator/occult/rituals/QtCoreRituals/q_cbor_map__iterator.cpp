@@ -3,6 +3,7 @@
 #include <QtCore/qcbormap.h>
 #include <QtCore/qcborvalue.h>
 #include <QtCore/qcompare.h>
+#include <QtCore/QCborMap>
 
 //  QCborMap::Iterator::Iterator(QCborContainerPrivate *dd, qsizetype ii)
 extern "C" Q_DECL_EXPORT
@@ -29,6 +30,29 @@ QCborMap::Iterator *ritual_ZN8QCborMap8IteratorC1ERKS0_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QCborMap8IteratorD1Ev(QCborMap::Iterator *self) {
   delete self;
+}
+
+//  Iterator &QCborMap::Iterator::operator=(const Iterator &other)
+extern "C" Q_DECL_EXPORT
+QCborMap::Iterator *ritual_ZN8QCborMap8IteratoraSERKS0_(
+    QCborMap::Iterator *self,
+    const QCborMap::Iterator *other) {
+  return &(self->operator=(*other));
+}
+
+//  value_type QCborMap::Iterator::operator*() const
+extern "C" Q_DECL_EXPORT
+QCborMap::Iterator::value_type *ritual_ZNK8QCborMap8IteratordeEv(
+    const QCborMap::Iterator *self) {
+  return new QCborMap::Iterator::value_type(self->operator*());
+}
+
+//  value_type QCborMap::Iterator::operator[](qsizetype j) const
+extern "C" Q_DECL_EXPORT
+QCborMap::Iterator::value_type *ritual_ZNK8QCborMap8IteratorixEx(
+    const QCborMap::Iterator *self,
+    qsizetype j) {
+  return new QCborMap::Iterator::value_type(self->operator[](j));
 }
 
 //  QCborValueRef *QCborMap::Iterator::operator->()
@@ -65,12 +89,26 @@ QCborValueRef *ritual_ZNK8QCborMap8Iterator5valueEv(
   return new QCborValueRef(self->value());
 }
 
+//  Iterator &QCborMap::Iterator::operator++()
+extern "C" Q_DECL_EXPORT
+QCborMap::Iterator *ritual_ZN8QCborMap8IteratorppEv(
+    QCborMap::Iterator *self) {
+  return &(self->operator++());
+}
+
 //  Iterator QCborMap::Iterator::operator++(int a0)
 extern "C" Q_DECL_EXPORT
 QCborMap::Iterator *ritual_ZN8QCborMap8IteratorppEi(
     QCborMap::Iterator *self,
     int a0) {
   return new QCborMap::Iterator(self->operator++(a0));
+}
+
+//  Iterator &QCborMap::Iterator::operator--()
+extern "C" Q_DECL_EXPORT
+QCborMap::Iterator *ritual_ZN8QCborMap8IteratormmEv(
+    QCborMap::Iterator *self) {
+  return &(self->operator--());
 }
 
 //  Iterator QCborMap::Iterator::operator--(int a0)
@@ -301,4 +339,11 @@ bool ritual_ZgeRKN8QCborMap13ConstIteratorERKNS_8IteratorE(
     const QCborMap::ConstIterator *lhs,
     const QCborMap::Iterator *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  a QCborMap::Iterator::value_type a ritual of QCborMap::Iterator gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborMap_Iterator__QCborMap_Iterator_value_type(
+    QCborMap::Iterator::value_type *self) {
+  delete self;
 }

@@ -12,6 +12,12 @@
     "ritual_ZN26QAbstractDynamicMetaObject14createPropertyEPKcS1_": [
       "int", "address", "chars", "chars"
     ],
+    "ritual_ZN26QAbstractDynamicMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv": [
+      "int", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QAbstractDynamicMetaObject8metaCallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_cast_QAbstractDynamicMetaObject_QMetaObject": [
       "address", "address"
     ],

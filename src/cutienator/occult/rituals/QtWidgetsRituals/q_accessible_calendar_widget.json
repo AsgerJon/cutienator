@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN25QAccessibleCalendarWidgetC1EP7QWidget": [
+      "address", "address"
+    ],
     "ritual_ZNK25QAccessibleCalendarWidget10childCountEv": [
       "int", "address"
     ],
@@ -17,11 +20,20 @@
     "ritual_ZNK25QAccessibleCalendarWidget14calendarWidgetEv": [
       "address", "address"
     ],
+    "ritual_ZNK25QAccessibleCalendarWidget12calendarViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleCalendarWidget13navigationBarEv": [
+      "address", "address"
+    ],
     "ritual_own_ZNK25QAccessibleCalendarWidget10childCountEv": [
       "int", "address"
     ],
     "ritual_own_ZNK25QAccessibleCalendarWidget12indexOfChildEPK20QAccessibleInterface": [
       "int", "address", "address"
+    ],
+    "ritual_own_ZNK25QAccessibleCalendarWidget5childEi": [
+      "address", "address", "int"
     ]
   }
 }

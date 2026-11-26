@@ -6,7 +6,9 @@
 #include <QtNetwork/qsslserver.h>
 #include <QtCore/qstring.h>
 #include <QtNetwork/qsslconfiguration.h>
+#include <QtNetwork/qsslerror.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QSslServer may call these functions of it.
@@ -243,6 +245,24 @@ const QMetaObject *ritual_ZNK10QSslServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSslServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QSslServer11qt_metacastEPKc(
+    QSslServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSslServer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QSslServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSslServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSslServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QSslServer2trEPKcS1_i(
@@ -292,6 +312,88 @@ void ritual_ZN10QSslServer19setHandshakeTimeoutEi(
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK10QSslServer16handshakeTimeoutEv(const QSslServer *self) {
   return self->handshakeTimeout();
+}
+
+//  void QSslServer::sslErrors(QSslSocket *socket, const QList<QSslError>
+//      &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslServer9sslErrorsEP10QSslSocketRK5QListI9QSslErrorE(
+    QSslServer *self,
+    QSslSocket *socket,
+    const QList<QSslError> *errors) {
+  self->sslErrors(socket, *errors);
+}
+
+//  void QSslServer::peerVerifyError(QSslSocket *socket, const QSslError
+//      &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslServer15peerVerifyErrorEP10QSslSocketRK9QSslError(
+    QSslServer *self,
+    QSslSocket *socket,
+    const QSslError *error) {
+  self->peerVerifyError(socket, *error);
+}
+
+//  void QSslServer::errorOccurred(QSslSocket *socket,
+//      QAbstractSocket::SocketError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslServer13errorOccurredEP10QSslSocketN15QAbstractSocket11SocketErrorE(
+    QSslServer *self,
+    QSslSocket *socket,
+    QAbstractSocket::SocketError error) {
+  self->errorOccurred(socket, error);
+}
+
+//  void QSslServer::preSharedKeyAuthenticationRequired(QSslSocket *socket,
+//      QSslPreSharedKeyAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslServer34preSharedKeyAuthenticationRequiredEP10QSslSocketP29QSslPreSharedKeyAuthenticator(
+    QSslServer *self,
+    QSslSocket *socket,
+    QSslPreSharedKeyAuthenticator *authenticator) {
+  self->preSharedKeyAuthenticationRequired(socket, authenticator);
+}
+
+//  void QSslServer::alertSent(QSslSocket *socket, QSsl::AlertLevel level,
+//      QSsl::AlertType type, const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslServer9alertSentEP10QSslSocketN4QSsl10AlertLevelENS2_9AlertTypeERK7QString(
+    QSslServer *self,
+    QSslSocket *socket,
+    QSsl::AlertLevel level,
+    QSsl::AlertType type,
+    const QString *description) {
+  self->alertSent(socket, level, type, *description);
+}
+
+//  void QSslServer::alertReceived(QSslSocket *socket, QSsl::AlertLevel
+//      level, QSsl::AlertType type, const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslServer13alertReceivedEP10QSslSocketN4QSsl10AlertLevelENS2_9AlertTypeERK7QString(
+    QSslServer *self,
+    QSslSocket *socket,
+    QSsl::AlertLevel level,
+    QSsl::AlertType type,
+    const QString *description) {
+  self->alertReceived(socket, level, type, *description);
+}
+
+//  void QSslServer::handshakeInterruptedOnError(QSslSocket *socket, const
+//      QSslError &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslServer27handshakeInterruptedOnErrorEP10QSslSocketRK9QSslError(
+    QSslServer *self,
+    QSslSocket *socket,
+    const QSslError *error) {
+  self->handshakeInterruptedOnError(socket, *error);
+}
+
+//  void QSslServer::startedEncryptionHandshake(QSslSocket *socket)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslServer26startedEncryptionHandshakeEP10QSslSocket(
+    QSslServer *self,
+    QSslSocket *socket) {
+  self->startedEncryptionHandshake(socket);
 }
 
 //  void QSslServer::incomingConnection(qintptr socket)

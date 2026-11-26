@@ -179,6 +179,22 @@ const QMetaObject *ritual_ZNK4QQSK10metaObjectEv(const QQSK *self) {
   return self->metaObject();
 }
 
+//  void *QQSK::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN4QQSK11qt_metacastEPKc(QQSK *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQSK::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN4QQSK11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQSK *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  a Python function taken by a CuteQQSK, for the function named by the key
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QQSK(QQSK *self, const char *key, void *call) {

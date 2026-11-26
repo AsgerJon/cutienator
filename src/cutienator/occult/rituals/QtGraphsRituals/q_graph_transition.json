@@ -9,11 +9,29 @@
   ],
   "rows": {
     "ritual_ZNK16QGraphTransition10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QGraphTransition11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QGraphTransition11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QGraphTransitionD1Ev": ["nothing", "address"],
     "ritual_ZN16QGraphTransition11initializedEv": ["bool", "address"],
     "ritual_ZN16QGraphTransition8containsEN15QGraphAnimation18GraphAnimationTypeE": [
       "bool", "address", "int"
     ],
+    "ritual_ZN16QGraphTransition10classBeginEv": ["nothing", "address"],
+    "ritual_ZN16QGraphTransition17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QGraphTransition5clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
     "ritual_cast_QGraphTransition_QQmlParserStatus": ["address", "address"],
-    "ritual_take_QGraphTransition": ["bool", "address", "chars", "address"]
+    "ritual_take_QGraphTransition": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QGraphTransition10classBeginEv": ["nothing", "address"],
+    "ritual_drop_QGraphTransition__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

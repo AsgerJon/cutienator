@@ -8,8 +8,17 @@
     "ritual_ZNK24QQuickAnimatorController10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickAnimatorController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickAnimatorController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickAnimatorControllerD1Ev": ["nothing", "address"],
     "ritual_ZN24QQuickAnimatorController7advanceEv": ["nothing", "address"],
+    "ritual_ZN24QQuickAnimatorController14beforeNodeSyncEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN24QQuickAnimatorController13afterNodeSyncEv": [
       "nothing", "address"
     ],
@@ -21,6 +30,18 @@
     ],
     "ritual_ZN24QQuickAnimatorController11requestSyncEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAnimatorController5startERK14QSharedPointerI21QAbstractAnimationJobE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickAnimatorController6cancelERK14QSharedPointerI21QAbstractAnimationJobE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickAnimatorController5pauseERK14QSharedPointerI21QAbstractAnimationJobE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickAnimatorController14isPendingStartERK14QSharedPointerI21QAbstractAnimationJobE": [
+      "bool", "address", "address"
     ],
     "ritual_ZN24QQuickAnimatorController4lockEv": ["nothing", "address"],
     "ritual_ZN24QQuickAnimatorController6unlockEv": ["nothing", "address"],

@@ -190,6 +190,27 @@ const QMetaObject *ritual_ZNK9QtWayland29ServerBufferIntegrationPlugin10metaObje
   return self->metaObject();
 }
 
+//  void *QtWayland::ServerBufferIntegrationPlugin::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QtWayland29ServerBufferIntegrationPlugin11qt_metacastEPKc(
+    QtWayland::ServerBufferIntegrationPlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      QtWayland::ServerBufferIntegrationPlugin::qt_metacall(QMetaObject::Ca
+//      ll a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QtWayland29ServerBufferIntegrationPlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtWayland::ServerBufferIntegrationPlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtWayland::ServerBufferIntegrationPlugin::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -198,6 +219,14 @@ QString *ritual_ZN9QtWayland29ServerBufferIntegrationPlugin2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtWayland::ServerBufferIntegrationPlugin::tr(s, c, n));
+}
+
+//  QtWayland::ServerBufferIntegrationPlugin::~ServerBufferIntegrationPlugin(
+//      )
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland29ServerBufferIntegrationPluginD1Ev(
+    QtWayland::ServerBufferIntegrationPlugin *self) {
+  delete self;
 }
 
 //  ServerBufferIntegration

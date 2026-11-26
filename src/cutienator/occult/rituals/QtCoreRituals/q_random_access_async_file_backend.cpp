@@ -12,6 +12,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <cstring>
+#include <QtCore/QSpan>
+#include <cstddef>
 
 //  A QRandomAccessAsyncFileBackend that Python can take functions over in. Every QRandomAccessAsyncFileBackend
 //  Python makes is one. Each function below asks the Python
@@ -230,6 +232,58 @@ QIOWriteOperation *ritual_ZN29QRandomAccessAsyncFileBackend5writeExRK10QByteArra
     qint64 offset,
     const QByteArray *data) {
   return self->write(offset, *data);
+}
+
+//  QIOWriteOperation *QRandomAccessAsyncFileBackend::write(qint64 offset,
+//      QByteArray &&data)
+extern "C" Q_DECL_EXPORT
+QIOWriteOperation *ritual_ZN29QRandomAccessAsyncFileBackend5writeExO10QByteArray(
+    QRandomAccessAsyncFileBackend *self,
+    qint64 offset,
+    QByteArray *data) {
+  return self->write(offset, std::move(*data));
+}
+
+//  QIOVectoredReadOperation *QRandomAccessAsyncFileBackend::readInto(qint64
+//      offset, QSpan<std::byte> buffer)
+extern "C" Q_DECL_EXPORT
+QIOVectoredReadOperation *ritual_ZN29QRandomAccessAsyncFileBackend8readIntoEx5QSpanISt4byteLm18446744073709551615EE(
+    QRandomAccessAsyncFileBackend *self,
+    qint64 offset,
+    const QSpan<std::byte> *buffer) {
+  return self->readInto(offset, *buffer);
+}
+
+//  QIOVectoredWriteOperation
+//      *QRandomAccessAsyncFileBackend::writeFrom(qint64 offset, QSpan<const
+//      std::byte> buffer)
+extern "C" Q_DECL_EXPORT
+QIOVectoredWriteOperation *ritual_ZN29QRandomAccessAsyncFileBackend9writeFromEx5QSpanIKSt4byteLm18446744073709551615EE(
+    QRandomAccessAsyncFileBackend *self,
+    qint64 offset,
+    const QSpan<const std::byte> *buffer) {
+  return self->writeFrom(offset, *buffer);
+}
+
+//  QIOVectoredReadOperation *QRandomAccessAsyncFileBackend::readInto(qint64
+//      offset, QSpan<const QSpan<std::byte>> buffers)
+extern "C" Q_DECL_EXPORT
+QIOVectoredReadOperation *ritual_ZN29QRandomAccessAsyncFileBackend8readIntoEx5QSpanIKS0_ISt4byteLm18446744073709551615EELm18446744073709551615EE(
+    QRandomAccessAsyncFileBackend *self,
+    qint64 offset,
+    const QSpan<const QSpan<std::byte>> *buffers) {
+  return self->readInto(offset, *buffers);
+}
+
+//  QIOVectoredWriteOperation
+//      *QRandomAccessAsyncFileBackend::writeFrom(qint64 offset, QSpan<const
+//      QSpan<const std::byte>> buffers)
+extern "C" Q_DECL_EXPORT
+QIOVectoredWriteOperation *ritual_ZN29QRandomAccessAsyncFileBackend9writeFromEx5QSpanIKS0_IKSt4byteLm18446744073709551615EELm18446744073709551615EE(
+    QRandomAccessAsyncFileBackend *self,
+    qint64 offset,
+    const QSpan<const QSpan<const std::byte>> *buffers) {
+  return self->writeFrom(offset, *buffers);
 }
 
 //  a Python function taken by a CuteQRandomAccessAsyncFileBackend, for the

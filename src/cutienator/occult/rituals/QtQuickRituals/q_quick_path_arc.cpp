@@ -19,6 +19,24 @@ const QMetaObject *ritual_ZNK13QQuickPathArc10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathArc::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickPathArc11qt_metacastEPKc(
+    QQuickPathArc *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathArc::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickPathArc11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathArc *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathArc::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickPathArc2trEPKcS1_i(
@@ -99,6 +117,46 @@ void ritual_ZN13QQuickPathArc16setXAxisRotationEd(
     QQuickPathArc *self,
     qreal rotation) {
   self->setXAxisRotation(rotation);
+}
+
+//  void QQuickPathArc::addToPath(QPainterPath &path, const QQuickPathData
+//      &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPathArc9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickPathArc *self,
+    QPainterPath *path,
+    const QQuickPathData *a1) {
+  self->addToPath(*path, *a1);
+}
+
+//  void QQuickPathArc::radiusXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPathArc14radiusXChangedEv(QQuickPathArc *self) {
+  self->radiusXChanged();
+}
+
+//  void QQuickPathArc::radiusYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPathArc14radiusYChangedEv(QQuickPathArc *self) {
+  self->radiusYChanged();
+}
+
+//  void QQuickPathArc::useLargeArcChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPathArc18useLargeArcChangedEv(QQuickPathArc *self) {
+  self->useLargeArcChanged();
+}
+
+//  void QQuickPathArc::directionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPathArc16directionChangedEv(QQuickPathArc *self) {
+  self->directionChanged();
+}
+
+//  void QQuickPathArc::xAxisRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPathArc20xAxisRotationChangedEv(QQuickPathArc *self) {
+  self->xAxisRotationChanged();
 }
 
 #endif  // QT_CONFIG(quick_path)

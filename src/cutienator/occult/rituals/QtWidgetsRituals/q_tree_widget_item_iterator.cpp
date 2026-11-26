@@ -42,6 +42,22 @@ void ritual_ZN23QTreeWidgetItemIteratorD1Ev(QTreeWidgetItemIterator *self) {
   delete self;
 }
 
+//  QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator=(const
+//      QTreeWidgetItemIterator &it)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItemIterator *ritual_ZN23QTreeWidgetItemIteratoraSERKS_(
+    QTreeWidgetItemIterator *self,
+    const QTreeWidgetItemIterator *it) {
+  return &(self->operator=(*it));
+}
+
+//  QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator++()
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItemIterator *ritual_ZN23QTreeWidgetItemIteratorppEv(
+    QTreeWidgetItemIterator *self) {
+  return &(self->operator++());
+}
+
 //  const QTreeWidgetItemIterator QTreeWidgetItemIterator::operator++(int a0)
 extern "C" Q_DECL_EXPORT
 QTreeWidgetItemIterator *ritual_ZN23QTreeWidgetItemIteratorppEi(
@@ -56,6 +72,13 @@ void ritual_ZN23QTreeWidgetItemIteratorpLEi(
     QTreeWidgetItemIterator *self,
     int n) {
   self->operator+=(n);
+}
+
+//  QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator--()
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItemIterator *ritual_ZN23QTreeWidgetItemIteratormmEv(
+    QTreeWidgetItemIterator *self) {
+  return &(self->operator--());
 }
 
 //  const QTreeWidgetItemIterator QTreeWidgetItemIterator::operator--(int a0)

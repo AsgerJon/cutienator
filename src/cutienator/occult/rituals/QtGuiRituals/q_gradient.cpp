@@ -3,6 +3,7 @@
 #include <QtGui/qbrush.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qlist.h>
+#include <QtGui/QGradientStops>
 
 //  QGradient::QGradient()
 extern "C" Q_DECL_EXPORT
@@ -49,6 +50,20 @@ void ritual_ZN9QGradient10setColorAtEdRK6QColor(
     qreal pos,
     const QColor *color) {
   self->setColorAt(pos, *color);
+}
+
+//  void QGradient::setStops(const QGradientStops &stops)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGradient8setStopsERK5QListISt4pairId6QColorEE(
+    QGradient *self,
+    const QGradientStops *stops) {
+  self->setStops(*stops);
+}
+
+//  QGradientStops QGradient::stops() const
+extern "C" Q_DECL_EXPORT
+QGradientStops *ritual_ZNK9QGradient5stopsEv(const QGradient *self) {
+  return new QGradientStops(self->stops());
 }
 
 //  CoordinateMode QGradient::coordinateMode() const
@@ -128,5 +143,11 @@ QGradient *ritual_list_at_QGradient(
 //  QList<QGradient>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QGradient(QList<QGradient> *self) {
+  delete self;
+}
+
+//  a QGradientStops a ritual of QGradient gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGradient__QGradientStops(QGradientStops *self) {
   delete self;
 }

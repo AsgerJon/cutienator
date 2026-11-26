@@ -14,6 +14,34 @@ void ritual_ZN12QVLABaseBaseD1Ev(QVLABaseBase *self) {
   delete self;
 }
 
+//  QVLABaseBase::QVLABaseBase(const QVLABaseBase &a0)
+extern "C" Q_DECL_EXPORT
+QVLABaseBase *ritual_ZN12QVLABaseBaseC1ERKS_(const QVLABaseBase *a0) {
+  return new QVLABaseBase(*a0);
+}
+
+//  QVLABaseBase::QVLABaseBase(QVLABaseBase &&a0)
+extern "C" Q_DECL_EXPORT
+QVLABaseBase *ritual_ZN12QVLABaseBaseC1EOS_(QVLABaseBase *a0) {
+  return new QVLABaseBase(std::move(*a0));
+}
+
+//  QVLABaseBase &QVLABaseBase::operator=(const QVLABaseBase &a0)
+extern "C" Q_DECL_EXPORT
+QVLABaseBase *ritual_ZN12QVLABaseBaseaSERKS_(
+    QVLABaseBase *self,
+    const QVLABaseBase *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QVLABaseBase &QVLABaseBase::operator=(QVLABaseBase &&a0)
+extern "C" Q_DECL_EXPORT
+QVLABaseBase *ritual_ZN12QVLABaseBaseaSEOS_(
+    QVLABaseBase *self,
+    QVLABaseBase *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  void QVLABaseBase::verify(qsizetype pos, qsizetype n) const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK12QVLABaseBase6verifyExx(

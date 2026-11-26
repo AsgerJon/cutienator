@@ -5,6 +5,9 @@
     "p_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK28QQuickUntypedDeferredPointer13deferredStateEv": [
+      "address", "address"
+    ],
     "ritual_ZN28QQuickUntypedDeferredPointer18clearDeferredStateEv": [
       "nothing", "address"
     ],
@@ -21,6 +24,11 @@
       "bool", "address", "bool"
     ],
     "ritual_ZN28QQuickUntypedDeferredPointerC1Ev": ["address"],
-    "ritual_ZN28QQuickUntypedDeferredPointerD1Ev": ["nothing", "address"]
+    "ritual_ZN28QQuickUntypedDeferredPointerC1EPv": ["address", "address"],
+    "ritual_ZN28QQuickUntypedDeferredPointeraSEPv": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN28QQuickUntypedDeferredPointerD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QQuickUntypedDeferredPointer4dataEv": ["address", "address"]
   }
 }

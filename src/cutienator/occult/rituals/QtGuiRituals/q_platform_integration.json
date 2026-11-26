@@ -59,6 +59,9 @@
     "ritual_ZNK20QPlatformIntegration22queryKeyboardModifiersEv": [
       "int", "address"
     ],
+    "ritual_ZNK20QPlatformIntegration12possibleKeysEPK9QKeyEvent": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK20QPlatformIntegration9keyMapperEv": ["address", "address"],
     "ritual_ZNK20QPlatformIntegration10themeNamesEv": ["address", "address"],
     "ritual_ZNK20QPlatformIntegration19createPlatformThemeERK7QString": [
@@ -85,6 +88,7 @@
     "ritual_ZNK20QPlatformIntegration28createPlatformVulkanInstanceEP15QVulkanInstance": [
       "address", "address", "address"
     ],
+    "ritual_ZN20QPlatformIntegrationC1Ev": ["address"],
     "ritual_take_QPlatformIntegration": [
       "bool", "address", "chars", "address"
     ],
@@ -161,6 +165,7 @@
     "ritual_own_ZNK20QPlatformIntegration4quitEv": ["nothing", "address"],
     "ritual_own_ZNK20QPlatformIntegration28createPlatformVulkanInstanceEP15QVulkanInstance": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_drop_QPlatformIntegration__QList_int": ["nothing", "address"]
   }
 }

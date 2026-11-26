@@ -5,6 +5,46 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal20PreviewConfigurationC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal20PreviewConfigurationC1ERK7QStringS3_S3_": [
+      "address", "text", "text", "text"
+    ],
+    "ritual_ZN18qdesigner_internal20PreviewConfigurationC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20PreviewConfigurationaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20PreviewConfigurationD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal20PreviewConfiguration5styleEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20PreviewConfiguration8setStyleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal20PreviewConfiguration21applicationStyleSheetEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20PreviewConfiguration24setApplicationStyleSheetERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal20PreviewConfiguration10deviceSkinEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20PreviewConfiguration13setDeviceSkinERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal20PreviewConfiguration5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal20PreviewConfiguration10toSettingsERK7QStringP26QDesignerSettingsInterface": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20PreviewConfiguration12fromSettingsERK7QStringPK26QDesignerSettingsInterface": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZN18qdesigner_internaleqERKNS_20PreviewConfigurationES2_": [
       "bool", "address", "address"
     ],

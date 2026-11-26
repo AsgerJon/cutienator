@@ -179,6 +179,24 @@ const QMetaObject *ritual_ZNK15QVXYModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVXYModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QVXYModelMapper11qt_metacastEPKc(
+    QVXYModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVXYModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QVXYModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVXYModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVXYModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QVXYModelMapper2trEPKcS1_i(
@@ -278,6 +296,42 @@ void ritual_ZN15QVXYModelMapper11setRowCountEi(
     QVXYModelMapper *self,
     int rowCount) {
   self->setRowCount(rowCount);
+}
+
+//  void QVXYModelMapper::seriesReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QVXYModelMapper14seriesReplacedEv(QVXYModelMapper *self) {
+  self->seriesReplaced();
+}
+
+//  void QVXYModelMapper::modelReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QVXYModelMapper13modelReplacedEv(QVXYModelMapper *self) {
+  self->modelReplaced();
+}
+
+//  void QVXYModelMapper::xColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QVXYModelMapper14xColumnChangedEv(QVXYModelMapper *self) {
+  self->xColumnChanged();
+}
+
+//  void QVXYModelMapper::yColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QVXYModelMapper14yColumnChangedEv(QVXYModelMapper *self) {
+  self->yColumnChanged();
+}
+
+//  void QVXYModelMapper::firstRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QVXYModelMapper15firstRowChangedEv(QVXYModelMapper *self) {
+  self->firstRowChanged();
+}
+
+//  void QVXYModelMapper::rowCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QVXYModelMapper15rowCountChangedEv(QVXYModelMapper *self) {
+  self->rowCountChanged();
 }
 
 //  a Python function taken by a CuteQVXYModelMapper, for the function named

@@ -5,6 +5,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DRender::Quick::QScene2D that Python can take functions over in. Every Qt3DRender::Quick::QScene2D
 //  Python makes is one. Each function below asks the Python
@@ -180,6 +182,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender5Quick8QScene2D10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Quick::QScene2D::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender5Quick8QScene2D11qt_metacastEPKc(
+    Qt3DRender::Quick::QScene2D *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Quick::QScene2D::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender5Quick8QScene2D11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Quick::QScene2D *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Quick::QScene2D::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -188,6 +209,135 @@ QString *ritual_ZN10Qt3DRender5Quick8QScene2D2trEPKcS3_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::Quick::QScene2D::tr(s, c, n));
+}
+
+//  Qt3DRender::Quick::QScene2D::QScene2D(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Quick::QScene2D *ritual_ZN10Qt3DRender5Quick8QScene2DC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_Quick_QScene2D(parent);
+}
+
+//  Qt3DRender::QRenderTargetOutput *Qt3DRender::Quick::QScene2D::output()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderTargetOutput *ritual_ZNK10Qt3DRender5Quick8QScene2D6outputEv(
+    const Qt3DRender::Quick::QScene2D *self) {
+  return self->output();
+}
+
+//  QScene2D::RenderPolicy Qt3DRender::Quick::QScene2D::renderPolicy() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Quick::QScene2D::RenderPolicy ritual_ZNK10Qt3DRender5Quick8QScene2D12renderPolicyEv(
+    const Qt3DRender::Quick::QScene2D *self) {
+  return self->renderPolicy();
+}
+
+//  QQuickItem *Qt3DRender::Quick::QScene2D::item() const
+extern "C" Q_DECL_EXPORT
+QQuickItem *ritual_ZNK10Qt3DRender5Quick8QScene2D4itemEv(
+    const Qt3DRender::Quick::QScene2D *self) {
+  return self->item();
+}
+
+//  bool Qt3DRender::Quick::QScene2D::isMouseEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender5Quick8QScene2D14isMouseEnabledEv(
+    const Qt3DRender::Quick::QScene2D *self) {
+  return self->isMouseEnabled();
+}
+
+//  QList<Qt3DCore::QEntity *> Qt3DRender::Quick::QScene2D::entities() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QEntity *> *ritual_ZNK10Qt3DRender5Quick8QScene2D8entitiesEv(
+    const Qt3DRender::Quick::QScene2D *self) {
+  return new QList<Qt3DCore::QEntity *>(self->entities());
+}
+
+//  void Qt3DRender::Quick::QScene2D::addEntity(Qt3DCore::QEntity *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D9addEntityEPN8Qt3DCore7QEntityE(
+    Qt3DRender::Quick::QScene2D *self,
+    Qt3DCore::QEntity *entity) {
+  self->addEntity(entity);
+}
+
+//  void Qt3DRender::Quick::QScene2D::removeEntity(Qt3DCore::QEntity *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D12removeEntityEPN8Qt3DCore7QEntityE(
+    Qt3DRender::Quick::QScene2D *self,
+    Qt3DCore::QEntity *entity) {
+  self->removeEntity(entity);
+}
+
+//  void
+//      Qt3DRender::Quick::QScene2D::setOutput(Qt3DRender::QRenderTargetOutpu
+//      t *output)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D9setOutputEPNS_19QRenderTargetOutputE(
+    Qt3DRender::Quick::QScene2D *self,
+    Qt3DRender::QRenderTargetOutput *output) {
+  self->setOutput(output);
+}
+
+//  void Qt3DRender::Quick::QScene2D::setRenderPolicy(QScene2D::RenderPolicy
+//      policy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D15setRenderPolicyENS1_12RenderPolicyE(
+    Qt3DRender::Quick::QScene2D *self,
+    Qt3DRender::Quick::QScene2D::RenderPolicy policy) {
+  self->setRenderPolicy(policy);
+}
+
+//  void Qt3DRender::Quick::QScene2D::setItem(QQuickItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D7setItemEP10QQuickItem(
+    Qt3DRender::Quick::QScene2D *self,
+    QQuickItem *item) {
+  self->setItem(item);
+}
+
+//  void Qt3DRender::Quick::QScene2D::setMouseEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D15setMouseEnabledEb(
+    Qt3DRender::Quick::QScene2D *self,
+    bool enabled) {
+  self->setMouseEnabled(enabled);
+}
+
+//  void Qt3DRender::Quick::QScene2D::outputChanged(Qt3DRender::QRenderTarget
+//      Output *output)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D13outputChangedEPNS_19QRenderTargetOutputE(
+    Qt3DRender::Quick::QScene2D *self,
+    Qt3DRender::QRenderTargetOutput *output) {
+  self->outputChanged(output);
+}
+
+//  void
+//      Qt3DRender::Quick::QScene2D::renderPolicyChanged(QScene2D::RenderPoli
+//      cy policy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D19renderPolicyChangedENS1_12RenderPolicyE(
+    Qt3DRender::Quick::QScene2D *self,
+    Qt3DRender::Quick::QScene2D::RenderPolicy policy) {
+  self->renderPolicyChanged(policy);
+}
+
+//  void Qt3DRender::Quick::QScene2D::itemChanged(QQuickItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D11itemChangedEP10QQuickItem(
+    Qt3DRender::Quick::QScene2D *self,
+    QQuickItem *item) {
+  self->itemChanged(item);
+}
+
+//  void Qt3DRender::Quick::QScene2D::mouseEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender5Quick8QScene2D19mouseEnabledChangedEb(
+    Qt3DRender::Quick::QScene2D *self,
+    bool enabled) {
+  self->mouseEnabledChanged(enabled);
 }
 
 //  QScene2DPrivate *Qt3DRender::Quick::QScene2D::d_func()
@@ -212,4 +362,11 @@ bool ritual_take_Qt3DRender_Quick_QScene2D(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Quick_QScene2D *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DCore::QEntity *> a ritual of Qt3DRender::Quick::QScene2D gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Quick_QScene2D__QList_Qt3DCore_QEntity(
+    QList<Qt3DCore::QEntity *> *self) {
+  delete self;
 }

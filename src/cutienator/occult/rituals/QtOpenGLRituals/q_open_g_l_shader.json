@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QOpenGLShader10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QOpenGLShader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QOpenGLShader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QOpenGLShader2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QOpenGLShaderC1E6QFlagsINS_13ShaderTypeBitEEP7QObject": [
       "address", "int", "address"
@@ -27,9 +33,12 @@
     "ritual_ZNK13QOpenGLShader10sourceCodeEv": ["address", "address"],
     "ritual_ZNK13QOpenGLShader10isCompiledEv": ["bool", "address"],
     "ritual_ZNK13QOpenGLShader3logEv": ["text", "address"],
+    "ritual_ZNK13QOpenGLShader8shaderIdEv": ["unsigned int", "address"],
     "ritual_ZN13QOpenGLShader16hasOpenGLShadersE6QFlagsINS_13ShaderTypeBitEEP14QOpenGLContext": [
       "bool", "int", "address"
     ],
+    "ritual_ZN13QOpenGLShader6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QOpenGLShader6d_funcEv": ["address", "address"],
     "ritual_take_QOpenGLShader": ["bool", "address", "chars", "address"],
     "ritual_list_make_QOpenGLShader_ptr": ["address"],
     "ritual_list_add_QOpenGLShader_ptr": ["nothing", "address", "address"],

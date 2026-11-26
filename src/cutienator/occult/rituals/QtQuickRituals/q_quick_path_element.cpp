@@ -188,6 +188,25 @@ const QMetaObject *ritual_ZNK17QQuickPathElement10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathElement::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickPathElement11qt_metacastEPKc(
+    QQuickPathElement *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathElement::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickPathElement11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathElement *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathElement::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickPathElement2trEPKcS1_i(
@@ -209,6 +228,12 @@ extern "C" Q_DECL_EXPORT
 QQuickPathElement *ritual_ZN17QQuickPathElementC1EP7QObject(
     QObject *parent) {
   return new CuteQQuickPathElement(parent);
+}
+
+//  void QQuickPathElement::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickPathElement7changedEv(QQuickPathElement *self) {
+  self->changed();
 }
 
 //  a Python function taken by a CuteQQuickPathElement, for the function

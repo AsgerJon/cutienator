@@ -16,8 +16,18 @@
     "ritual_ZN18QQuickStylePrivate4initEv": ["nothing"],
     "ritual_ZN18QQuickStylePrivate5resetEv": ["nothing"],
     "ritual_ZN18QQuickStylePrivate14configFilePathEv": ["text"],
+    "ritual_ZN18QQuickStylePrivate8settingsERK7QString": ["address", "text"],
+    "ritual_ZN18QQuickStylePrivate8readFontERK14QSharedPointerI9QSettingsE": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickStylePrivate11readPaletteERK14QSharedPointerI9QSettingsE": [
+      "address", "address"
+    ],
     "ritual_ZN18QQuickStylePrivate17isDarkSystemThemeEv": ["bool"],
     "ritual_ZN18QQuickStylePrivate13builtInStylesEv": ["address"],
-    "ritual_ZN18QQuickStylePrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN18QQuickStylePrivateD1Ev": ["nothing", "address"],
+    "ritual_drop_QQuickStylePrivate__QSharedPointer_QSettings": [
+      "nothing", "address"
+    ]
   }
 }

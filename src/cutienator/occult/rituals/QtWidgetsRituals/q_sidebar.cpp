@@ -11,11 +11,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qsize.h>
 #include <QtCore/qurl.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qrect.h>
-#include <QtCore/qpoint.h>
 #include <QtCore/qitemselectionmodel.h>
 #include <QtGui/qregion.h>
 #include <QtCore/qstring.h>
@@ -45,6 +45,36 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 53, as local:qsidebar.cpp:uriListMimeType
+constexpr char uriListMimeType[] = "text/uri-list";
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 56, as local:qsidebar.cpp:hasSupportedFormat
+#if QT_CONFIG(draganddrop)
+static bool hasSupportedFormat(const QMimeData *data)
+{
+    return data->hasFormat(QLatin1StringView(uriListMimeType));
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 438, as _ZN8QSidebar15showContextMenuERK6QPoint
+#if QT_CONFIG(menu)
+inline void QSidebar::showContextMenu(const QPoint &position)
+{
+    QList<QAction *> actions;
+    if (indexAt(position).isValid()) {
+        QAction *action = new QAction(QFileDialog::tr("Remove"), this);
+        if (indexAt(position).data(QUrlModel::UrlRole).toUrl().path().isEmpty())
+            action->setEnabled(false);
+        connect(action, &QAction::triggered, this, &QSidebar::removeEntry);
+        actions.append(action);
+    }
+    if (actions.size() > 0)
+        QMenu::exec(actions, mapToGlobal(position));
+}
+#endif  // QT_CONFIG(menu)
+
 //  from src/widgets/dialogs/qsidebar.cpp, line 217, as _ZN9QUrlModel7setUrlsERK5QListI4QUrlE
 inline void QUrlModel::setUrls(const QList<QUrl> &list)
 {
@@ -53,6 +83,48 @@ inline void QUrlModel::setUrls(const QList<QUrl> &list)
     watching.clear();
     addUrls(list, 0);
 }
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 231, as _ZN9QUrlModel7addUrlsERK5QListI4QUrlEib
+#if defined(Q_OS_LINUX)
+inline void QUrlModel::addUrls(const QList<QUrl> &list, int row, bool move)
+{
+    if (row == -1)
+        row = rowCount();
+    row = qMin(row, rowCount());
+    const auto rend = list.crend();
+    for (auto it = list.crbegin(); it != rend; ++it) {
+        QUrl url = *it;
+        if (!url.isValid() || url.scheme() != "file"_L1)
+            continue;
+        //this makes sure the url is clean
+        const QString cleanUrl = QDir::cleanPath(url.toLocalFile());
+        if (!cleanUrl.isEmpty())
+            url = QUrl::fromLocalFile(cleanUrl);
+
+        for (int j = 0; move && j < rowCount(); ++j) {
+            QString local = index(j, 0).data(UrlRole).toUrl().toLocalFile();
+#if defined(Q_OS_WIN)
+            const Qt::CaseSensitivity cs = Qt::CaseInsensitive;
+#else
+            const Qt::CaseSensitivity cs = Qt::CaseSensitive;
+#endif
+            if (!cleanUrl.compare(local, cs)) {
+                removeRow(j);
+                if (j <= row)
+                    row--;
+                break;
+            }
+        }
+        row = qMax(row, 0);
+        QModelIndex idx = fileSystemModel->index(cleanUrl);
+        if (!fileSystemModel->isDir(idx))
+            continue;
+        insertRows(row, 1);
+        setUrl(index(row, 0), url, idx);
+        watching.append({idx, cleanUrl});
+    }
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 273, as _ZNK9QUrlModel4urlsEv
 inline QList<QUrl> QUrlModel::urls() const
@@ -63,11 +135,6 @@ inline QList<QUrl> QUrlModel::urls() const
     for (int i = 0; i < numRows; ++i)
         list.append(data(index(i, 0), UrlRole).toUrl());
     return list;
-}
-
-//  from src/widgets/dialogs/qsidebar.cpp, line 394, as _ZN8QSidebarD1Ev
-inline QSidebar::~QSidebar()
-{
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 406, as _ZNK8QSidebar8sizeHintEv
@@ -107,6 +174,58 @@ inline void QSidebar::dragEnterEvent(QDragEnterEvent *event)
 }
 #endif  // QT_CONFIG(draganddrop)
 
+//  from src/widgets/dialogs/qsidebar.cpp, line 166, as _ZN9QUrlModel6setUrlERK11QModelIndexRK4QUrlS2_
+inline void QUrlModel::setUrl(const QModelIndex &index, const QUrl &url, const QModelIndex &dirIndex)
+{
+    setData(index, url, UrlRole);
+    if (url.path().isEmpty()) {
+        setData(index, fileSystemModel->myComputer());
+        setData(index, fileSystemModel->myComputer(Qt::DecorationRole), Qt::DecorationRole);
+    } else {
+        QString newName;
+        if (showFullPath) {
+            //On windows the popup display the "C:\", convert to nativeSeparators
+            newName = QDir::toNativeSeparators(dirIndex.data(QFileSystemModel::FilePathRole).toString());
+        } else {
+            newName = dirIndex.data().toString();
+        }
+
+        QIcon newIcon = qvariant_cast<QIcon>(dirIndex.data(Qt::DecorationRole));
+        if (!dirIndex.isValid()) {
+            const QAbstractFileIconProvider *provider = fileSystemModel->iconProvider();
+            if (provider)
+                newIcon = provider->icon(QAbstractFileIconProvider::Folder);
+            newName = QFileInfo(url.toLocalFile()).fileName();
+            if (!invalidUrls.contains(url))
+                invalidUrls.append(url);
+            //The bookmark is invalid then we set to false the EnabledRole
+            setData(index, false, EnabledRole);
+        } else {
+            //The bookmark is valid then we set to true the EnabledRole
+            setData(index, true, EnabledRole);
+        }
+
+        // newIcon could be null if fileSystemModel->iconProvider() returns null
+        if (!newIcon.isNull()) {
+        // Make sure that we have at least 32x32 images
+            const QSize size = newIcon.actualSize(QSize(32,32));
+            if (size.width() < 32) {
+                const auto widget = qobject_cast<QWidget *>(parent());
+                const auto dpr = widget ? widget->devicePixelRatio() : qApp->devicePixelRatio();
+                const auto smallPixmap = newIcon.pixmap(QSize(32, 32), dpr);
+                const auto newPixmap = smallPixmap.scaledToWidth(32 * dpr, Qt::SmoothTransformation);
+                newIcon.addPixmap(newPixmap);
+            }
+        }
+
+        if (index.data().toString() != newName)
+            setData(index, newName);
+        QIcon oldIcon = qvariant_cast<QIcon>(index.data(Qt::DecorationRole));
+        if (oldIcon.cacheKey() != newIcon.cacheKey())
+            setData(index, newIcon, Qt::DecorationRole);
+    }
+}
+
 //  from src/widgets/dialogs/qsidebar.cpp, line 458, as _ZN8QSidebar11removeEntryEv
 inline void QSidebar::removeEntry()
 {
@@ -119,6 +238,28 @@ inline void QSidebar::removeEntry()
             model()->removeRow(persistent.row());
     }
 }
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 110, as _ZN9QUrlModel7canDropEP15QDragEnterEvent
+#if QT_CONFIG(draganddrop)
+inline bool QUrlModel::canDrop(QDragEnterEvent *event)
+{
+    if (!hasSupportedFormat(event->mimeData()))
+        return false;
+
+    const QList<QUrl> list = event->mimeData()->urls();
+    for (const auto &url : list) {
+        const QModelIndex idx = fileSystemModel->index(url.toLocalFile());
+        if (!fileSystemModel->isDir(idx))
+            return false;
+    }
+    return true;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 394, as _ZN8QSidebarD1Ev
+inline QSidebar::~QSidebar()
+{
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QSidebar may call these functions of it.
@@ -126,6 +267,7 @@ inline void QSidebar::removeEntry()
 struct OwnQSidebar : QSidebar {
   using QSidebar::event;
   using QSidebar::focusInEvent;
+  using QSidebar::dragEnterEvent;
 };
 
 //  A QSidebar that Python can take functions over in. Every QSidebar
@@ -2173,6 +2315,47 @@ const QMetaObject *ritual_ZNK8QSidebar10metaObjectEv(const QSidebar *self) {
   return self->metaObject();
 }
 
+//  void *QSidebar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QSidebar11qt_metacastEPKc(QSidebar *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSidebar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QSidebar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSidebar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QSidebar::goToUrl(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSidebar7goToUrlERK4QUrl(QSidebar *self, const QUrl *url) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSidebar")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "goToUrl(const QUrl &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "goToUrl(const QUrl &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(url)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  QSidebar::~QSidebar()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QSidebarD1Ev(QSidebar *self) {
@@ -2184,6 +2367,27 @@ extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK8QSidebar8sizeHintEv(const QSidebar *self) {
   return new QSize(self->sizeHint());
 }
+
+#if defined(Q_OS_LINUX)
+//  void QSidebar::setUrls(const QList<QUrl> &list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSidebar7setUrlsERK5QListI4QUrlE(
+    QSidebar *self,
+    const QList<QUrl> *list) {
+  self->setUrls(*list);
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  void QSidebar::addUrls(const QList<QUrl> &list, int row)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSidebar7addUrlsERK5QListI4QUrlEi(
+    QSidebar *self,
+    const QList<QUrl> *list,
+    int row) {
+  self->addUrls(*list, row);
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  QList<QUrl> QSidebar::urls() const
 extern "C" Q_DECL_EXPORT
@@ -2215,10 +2419,57 @@ void ritual_ZN8QSidebar14dragEnterEventEP15QDragEnterEvent(
 }
 #endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(menu)
+//  void QSidebar::showContextMenu(const QPoint &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSidebar15showContextMenuERK6QPoint(
+    QSidebar *self,
+    const QPoint *position) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSidebar")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "showContextMenu(const QPoint &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "showContextMenu(const QPoint &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(position)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+#endif  // QT_CONFIG(menu)
+
 //  void QSidebar::removeEntry()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QSidebar11removeEntryEv(QSidebar *self) {
-  self->removeEntry();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSidebar")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "removeEntry()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "removeEntry()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQSidebar, for the function named by the
@@ -2247,6 +2498,16 @@ void ritual_own_ZN8QSidebar12focusInEventEP11QFocusEvent(
     QFocusEvent *event) {
   static_cast<OwnQSidebar *>(self)->OwnQSidebar::focusInEvent(event);
 }
+
+#if QT_CONFIG(draganddrop)
+//  void QSidebar::dragEnterEvent(QDragEnterEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN8QSidebar14dragEnterEventEP15QDragEnterEvent(
+    QSidebar *self,
+    QDragEnterEvent *event) {
+  static_cast<OwnQSidebar *>(self)->OwnQSidebar::dragEnterEvent(event);
+}
+#endif  // QT_CONFIG(draganddrop)
 
 #endif  // QT_CONFIG(filedialog)
 #endif  // QT_CONFIG(filedialog)

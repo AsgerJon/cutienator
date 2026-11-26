@@ -602,6 +602,24 @@ const QMetaObject *ritual_ZNK10QSqlDriver10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSqlDriver::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QSqlDriver11qt_metacastEPKc(
+    QSqlDriver *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSqlDriver::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QSqlDriver11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSqlDriver *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSqlDriver::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QSqlDriver2trEPKcS1_i(
@@ -622,6 +640,12 @@ extern "C" Q_DECL_EXPORT
 const QSqlDriverPrivate *ritual_ZNK10QSqlDriver6d_funcEv(
     const QSqlDriver *self) {
   return self->d_func();
+}
+
+//  QSqlDriver::QSqlDriver(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSqlDriver *ritual_ZN10QSqlDriverC1EP7QObject(QObject *parent) {
+  return new CuteQSqlDriver(parent);
 }
 
 //  QSqlDriver::~QSqlDriver()
@@ -854,6 +878,25 @@ QString *ritual_ZNK10QSqlDriver14connectionNameEv(const QSqlDriver *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN10QSqlDriver11cancelQueryEv(QSqlDriver *self) {
   return self->cancelQuery();
+}
+
+//  void QSqlDriver::notification(const QString &name,
+//      QSqlDriver::NotificationSource source, const QVariant &payload)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSqlDriver12notificationERK7QStringNS_18NotificationSourceERK8QVariant(
+    QSqlDriver *self,
+    const QString *name,
+    QSqlDriver::NotificationSource source,
+    const QVariant *payload) {
+  self->notification(*name, source, *payload);
+}
+
+//  QSqlDriver::QSqlDriver(QSqlDriverPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSqlDriver *ritual_ZN10QSqlDriverC1ER17QSqlDriverPrivateP7QObject(
+    QSqlDriverPrivate *dd,
+    QObject *parent) {
+  return new CuteQSqlDriver(*dd, parent);
 }
 
 //  void QSqlDriver::setOpen(bool o)

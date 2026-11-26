@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK23QAccessibleMdiSubWindow4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
     "ritual_ZN23QAccessibleMdiSubWindow7setTextEN11QAccessible4TextERK7QString": [
       "nothing", "address", "int", "text"
     ],
@@ -22,6 +25,9 @@
     ],
     "ritual_take_QAccessibleMdiSubWindow": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QAccessibleMdiSubWindow4textEN11QAccessible4TextE": [
+      "text", "address", "int"
     ],
     "ritual_own_ZN23QAccessibleMdiSubWindow7setTextEN11QAccessible4TextERK7QString": [
       "nothing", "address", "int", "text"

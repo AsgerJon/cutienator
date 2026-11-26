@@ -5,12 +5,21 @@
     "l_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN23QAccessibleQuickControlC1EP13QQuickControl": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QAccessibleQuickControl13attributeKeysEv": [
+      "address", "address"
+    ],
     "ritual_ZNK23QAccessibleQuickControl14attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
     ],
     "ritual_ZNK23QAccessibleQuickControl7controlEv": ["address", "address"],
     "ritual_own_ZNK23QAccessibleQuickControl14attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
+    ],
+    "ritual_drop_QAccessibleQuickControl__QList_QAccessible_Attribute": [
+      "nothing", "address"
     ]
   }
 }

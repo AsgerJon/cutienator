@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK32QQuickSelectionRectangleAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSelectionRectangleAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QQuickSelectionRectangleAttached11qt_metacastEPKc(
+    QQuickSelectionRectangleAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSelectionRectangleAttached::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QQuickSelectionRectangleAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSelectionRectangleAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSelectionRectangleAttached::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -68,6 +87,20 @@ void ritual_ZN32QQuickSelectionRectangleAttached11setDraggingEb(
     QQuickSelectionRectangleAttached *self,
     bool dragging) {
   self->setDragging(dragging);
+}
+
+//  void QQuickSelectionRectangleAttached::controlChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickSelectionRectangleAttached14controlChangedEv(
+    QQuickSelectionRectangleAttached *self) {
+  self->controlChanged();
+}
+
+//  void QQuickSelectionRectangleAttached::draggingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuickSelectionRectangleAttached15draggingChangedEv(
+    QQuickSelectionRectangleAttached *self) {
+  self->draggingChanged();
 }
 
 #endif  // QT_CONFIG(quick_tableview)

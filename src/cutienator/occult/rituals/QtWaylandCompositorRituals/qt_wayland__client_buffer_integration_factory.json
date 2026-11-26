@@ -1,12 +1,16 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
-    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwlclientbufferint",
-    "egrationfactory_p.h, Qt 6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwlclientbufferintegrationfactory_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
   ],
   "rows": {
     "ritual_ZN9QtWayland30ClientBufferIntegrationFactory4keysEv": [
       "address"
+    ],
+    "ritual_ZN9QtWayland30ClientBufferIntegrationFactory6createERK7QStringRK5QListIS1_E": [
+      "address", "text", "address"
     ],
     "ritual_ZN9QtWayland30ClientBufferIntegrationFactoryD1Ev": [
       "nothing", "address"

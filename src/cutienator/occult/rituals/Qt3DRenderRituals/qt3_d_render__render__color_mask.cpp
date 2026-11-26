@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_ColorMaskCall0)(const void *, const Qt3DRen
 class CuteQt3DRender_Render_ColorMask : public Qt3DRender::Render::ColorMask {
 public:
   using Qt3DRender::Render::ColorMask::ColorMask;
-  CuteQt3DRender_Render_ColorMask(const Qt3DRender::Render::ColorMask &other) : Qt3DRender::Render::ColorMask(other) {}
+  CuteQt3DRender_Render_ColorMask(const Qt3DRender::Render::ColorMask & other) : Qt3DRender::Render::ColorMask(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::ColorMask::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::ColorMask::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9ColorMask16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::ColorMask *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::ColorMask::~ColorMask()
 extern "C" Q_DECL_EXPORT

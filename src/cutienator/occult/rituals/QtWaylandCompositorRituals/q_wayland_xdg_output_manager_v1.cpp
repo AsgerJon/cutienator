@@ -41,6 +41,25 @@ const QMetaObject *ritual_ZNK26QWaylandXdgOutputManagerV110metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandXdgOutputManagerV1::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QWaylandXdgOutputManagerV111qt_metacastEPKc(
+    QWaylandXdgOutputManagerV1 *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandXdgOutputManagerV1::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QWaylandXdgOutputManagerV111qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandXdgOutputManagerV1 *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandXdgOutputManagerV1::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -49,6 +68,21 @@ QString *ritual_ZN26QWaylandXdgOutputManagerV12trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandXdgOutputManagerV1::tr(s, c, n));
+}
+
+//  QWaylandXdgOutputManagerV1Private *QWaylandXdgOutputManagerV1::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandXdgOutputManagerV1Private *ritual_ZN26QWaylandXdgOutputManagerV16d_funcEv(
+    QWaylandXdgOutputManagerV1 *self) {
+  return self->d_func();
+}
+
+//  const QWaylandXdgOutputManagerV1Private
+//      *QWaylandXdgOutputManagerV1::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandXdgOutputManagerV1Private *ritual_ZNK26QWaylandXdgOutputManagerV16d_funcEv(
+    const QWaylandXdgOutputManagerV1 *self) {
+  return self->d_func();
 }
 
 //  QWaylandXdgOutputManagerV1::QWaylandXdgOutputManagerV1()
@@ -70,6 +104,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN26QWaylandXdgOutputManagerV110initializeEv(
     QWaylandXdgOutputManagerV1 *self) {
   self->initialize();
+}
+
+//  const wl_interface *QWaylandXdgOutputManagerV1::interface()
+extern "C" Q_DECL_EXPORT
+const wl_interface *ritual_ZN26QWaylandXdgOutputManagerV19interfaceEv() {
+  return QWaylandXdgOutputManagerV1::interface();
 }
 
 //  a Python function taken by a CuteQWaylandXdgOutputManagerV1, for the

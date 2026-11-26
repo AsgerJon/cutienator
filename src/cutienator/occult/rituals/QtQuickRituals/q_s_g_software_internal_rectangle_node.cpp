@@ -21,6 +21,29 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode.cpp, line 70, as local:qsgsoftwareinternalrectanglenode.cpp:interpolateStop
+static QGradientStop interpolateStop(const QGradientStop &firstStop, const QGradientStop &secondStop, double newPos)
+{
+    double distance = secondStop.first - firstStop.first;
+    double distanceDelta = newPos - firstStop.first;
+    double modifierValue = distanceDelta / distance;
+    const auto firstStopRgbColor = firstStop.second.toRgb();
+    const auto secondStopRgbColor = secondStop.second.toRgb();
+    int redDelta = (secondStopRgbColor.red() - firstStopRgbColor.red()) * modifierValue;
+    int greenDelta = (secondStopRgbColor.green() - firstStopRgbColor.green()) * modifierValue;
+    int blueDelta = (secondStopRgbColor.blue() - firstStopRgbColor.blue()) * modifierValue;
+    int alphaDelta = (secondStopRgbColor.alpha() - firstStopRgbColor.alpha()) * modifierValue;
+
+    QGradientStop newStop;
+    newStop.first = newPos;
+    newStop.second = QColor(firstStopRgbColor.red() + redDelta,
+                            firstStopRgbColor.green() + greenDelta,
+                            firstStopRgbColor.blue() + blueDelta,
+                            firstStopRgbColor.alpha() + alphaDelta);
+
+    return newStop;
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode.cpp, line 33, as _ZN32QSGSoftwareInternalRectangleNode7setRectERK6QRectF
 inline void QSGSoftwareInternalRectangleNode::setRect(const QRectF &rect)
 {
@@ -564,6 +587,15 @@ void ritual_ZN32QSGSoftwareInternalRectangleNode11setPenWidthEd(
     QSGSoftwareInternalRectangleNode *self,
     qreal width) {
   self->setPenWidth(width);
+}
+
+//  void QSGSoftwareInternalRectangleNode::setGradientStops(const
+//      QGradientStops &stops)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QSGSoftwareInternalRectangleNode16setGradientStopsERK5QListISt4pairId6QColorEE(
+    QSGSoftwareInternalRectangleNode *self,
+    const QGradientStops *stops) {
+  self->setGradientStops(*stops);
 }
 
 //  void QSGSoftwareInternalRectangleNode::setGradientVertical(bool vertical)

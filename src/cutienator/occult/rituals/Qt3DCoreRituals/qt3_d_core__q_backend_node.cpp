@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  Qt3DCore/qbackendnode.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DCore/qbackendnode.h>
+#include <Qt3DCore/qnodeid.h>
 #include <cstring>
 
 //  A Qt3DCore::QBackendNode that Python can take functions over in. Every Qt3DCore::QBackendNode
@@ -35,10 +36,46 @@ public:
   }
 };
 
+//  Qt3DCore::QBackendNode::QBackendNode(Mode mode)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBackendNode *ritual_ZN8Qt3DCore12QBackendNodeC1ENS0_4ModeE(
+    Qt3DCore::QBackendNode::Mode mode) {
+  return new CuteQt3DCore_QBackendNode(mode);
+}
+
 //  Qt3DCore::QBackendNode::~QBackendNode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore12QBackendNodeD1Ev(Qt3DCore::QBackendNode *self) {
   delete self;
+}
+
+//  QNodeId Qt3DCore::QBackendNode::peerId() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QNodeId *ritual_ZNK8Qt3DCore12QBackendNode6peerIdEv(
+    const Qt3DCore::QBackendNode *self) {
+  return new Qt3DCore::QNodeId(self->peerId());
+}
+
+//  void Qt3DCore::QBackendNode::setEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore12QBackendNode10setEnabledEb(
+    Qt3DCore::QBackendNode *self,
+    bool enabled) {
+  self->setEnabled(enabled);
+}
+
+//  bool Qt3DCore::QBackendNode::isEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore12QBackendNode9isEnabledEv(
+    const Qt3DCore::QBackendNode *self) {
+  return self->isEnabled();
+}
+
+//  Mode Qt3DCore::QBackendNode::mode() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBackendNode::Mode ritual_ZNK8Qt3DCore12QBackendNode4modeEv(
+    const Qt3DCore::QBackendNode *self) {
+  return self->mode();
 }
 
 //  void Qt3DCore::QBackendNode::syncFromFrontEnd(const QNode *frontEnd, bool
@@ -63,6 +100,21 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QBackendNodePrivate *ritual_ZNK8Qt3DCore12QBackendNode6d_funcEv(
     const Qt3DCore::QBackendNode *self) {
   return self->d_func();
+}
+
+//  Qt3DCore::QBackendNode::QBackendNode(QBackendNodePrivate &dd)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBackendNode *ritual_ZN8Qt3DCore12QBackendNodeC1ERNS_19QBackendNodePrivateE(
+    Qt3DCore::QBackendNodePrivate *dd) {
+  return new CuteQt3DCore_QBackendNode(*dd);
+}
+
+//  void Qt3DCore::QBackendNode::setPeerId(QNodeId id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore12QBackendNode9setPeerIdENS_7QNodeIdE(
+    Qt3DCore::QBackendNode *self,
+    const Qt3DCore::QNodeId *id) {
+  self->setPeerId(*id);
 }
 
 //  a Python function taken by a CuteQt3DCore_QBackendNode, for the function

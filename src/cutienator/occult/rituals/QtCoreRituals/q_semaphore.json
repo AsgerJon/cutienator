@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qsemaphore.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qsemaphore.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN10QSemaphoreC1Ei": ["address", "int"],
@@ -16,6 +17,15 @@
     ],
     "ritual_ZN10QSemaphore7releaseEi": ["nothing", "address", "int"],
     "ritual_ZNK10QSemaphore9availableEv": ["int", "address"],
-    "ritual_ZN10QSemaphore11try_acquireEv": ["bool", "address"]
+    "ritual_ZN10QSemaphore11try_acquireEv": ["bool", "address"],
+    "ritual_ZN10QSemaphore10tryAcquireIlSt5ratioILl1ELl1000EEEEbiNSt6chrono8durationIT_T0_EE": [
+      "bool", "address", "int", "long long"
+    ],
+    "ritual_ZN10QSemaphore15try_acquire_forIlSt5ratioILl1ELl1000EEEEbRKNSt6chrono8durationIT_T0_EE": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZN10QSemaphore17try_acquire_untilINSt6chrono3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS1_10time_pointIT_T0_EE": [
+      "bool", "address", "long long"
+    ]
   }
 }

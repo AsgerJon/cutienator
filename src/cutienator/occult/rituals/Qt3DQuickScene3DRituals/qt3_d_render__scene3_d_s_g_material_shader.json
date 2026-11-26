@@ -5,5 +5,12 @@
     "p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender23Scene3DSGMaterialShaderC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender23Scene3DSGMaterialShader17updateUniformDataERN17QSGMaterialShader11RenderStateEP11QSGMaterialS5_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender23Scene3DSGMaterialShader18updateSampledImageERN17QSGMaterialShader11RenderStateEiPP10QSGTextureP11QSGMaterialS8_": [
+      "nothing", "address", "address", "int", "address", "address", "address"
+    ]
   }
 }

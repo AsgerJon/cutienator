@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QProgressBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QProgressBar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QProgressBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QProgressBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QProgressBarC1EP7QWidget": ["address", "address"],
     "ritual_ZN12QProgressBarD1Ev": ["nothing", "address"],
@@ -46,6 +52,7 @@
     "ritual_ZN12QProgressBar14setOrientationEN2Qt11OrientationE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN12QProgressBar12valueChangedEi": ["nothing", "address", "int"],
     "ritual_ZN12QProgressBar5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN12QProgressBar10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"
@@ -53,6 +60,8 @@
     "ritual_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgressBar": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN12QProgressBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QProgressBar6d_funcEv": ["address", "address"],
     "ritual_take_QProgressBar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK12QProgressBar4textEv": ["text", "address"],
     "ritual_own_ZNK12QProgressBar8sizeHintEv": ["address", "address"],

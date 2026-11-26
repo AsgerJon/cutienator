@@ -5,6 +5,19 @@
     "lost."
   ],
   "rows": {
-    "ritual_ZN16QNativeInterface11QGLXContextD1Ev": ["nothing", "address"]
+    "ritual_ZN16QNativeInterface11QGLXContextD1Ev": ["nothing", "address"],
+    "ritual_ZN16QNativeInterface11QGLXContextC1Ev": ["address"],
+    "ritual_ZN16QNativeInterface11QGLXContext10fromNativeEP15__GLXcontextRecP14QOpenGLContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QNativeInterface11QGLXContext10fromNativeEP15__GLXcontextRecPvP14QOpenGLContext": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface11QGLXContext13nativeContextEv": [
+      "address", "address"
+    ],
+    "ritual_take_QNativeInterface_QGLXContext": [
+      "bool", "address", "chars", "address"
+    ]
   }
 }

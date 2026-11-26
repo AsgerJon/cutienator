@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK25DeclarativeCandlestickSet10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25DeclarativeCandlestickSet11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25DeclarativeCandlestickSet2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25DeclarativeCandlestickSetC1EdP7QObject": [
+      "address", "double", "address"
+    ],
+    "ritual_ZN25DeclarativeCandlestickSet16setBrushFilenameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25DeclarativeCandlestickSet13brushFilenameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25DeclarativeCandlestickSet18handleBrushChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -7,12 +7,22 @@
     "ritual_ZNK9Qt3DInput11QMouseEvent10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput11QMouseEvent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput11QMouseEvent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput11QMouseEvent2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9Qt3DInput11QMouseEventD1Ev": ["nothing", "address"],
     "ritual_ZNK9Qt3DInput11QMouseEvent1xEv": ["int", "address"],
     "ritual_ZNK9Qt3DInput11QMouseEvent1yEv": ["int", "address"],
     "ritual_ZNK9Qt3DInput11QMouseEvent7wasHeldEv": ["bool", "address"],
+    "ritual_ZNK9Qt3DInput11QMouseEvent6buttonEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput11QMouseEvent7buttonsEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput11QMouseEvent9modifiersEv": ["int", "address"],
     "ritual_ZNK9Qt3DInput11QMouseEvent10isAcceptedEv": ["bool", "address"],
     "ritual_ZN9Qt3DInput11QMouseEvent11setAcceptedEb": [
       "nothing", "address", "bool"

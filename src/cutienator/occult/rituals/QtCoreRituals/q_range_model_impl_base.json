@@ -14,11 +14,17 @@
     "ritual_ZN19QRangeModelImplBaseC1EP11QRangeModel": [
       "address", "address"
     ],
+    "ritual_ZNK19QRangeModelImplBase11createIndexEiiPKv": [
+      "address", "address", "int", "int", "address"
+    ],
     "ritual_ZNK19QRangeModelImplBase19persistentIndexListEv": [
       "address", "address"
     ],
     "ritual_ZN19QRangeModelImplBase21changePersistentIndexERK11QModelIndexS2_": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase11dataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN19QRangeModelImplBase15beginResetModelEv": [
       "nothing", "address"
@@ -72,7 +78,18 @@
     "ritual_ZN19QRangeModelImplBase11compareDataERK8QVariantS2_PK9QCollator": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN19QRangeModelImplBase9itemModelEv": ["address", "address"],
+    "ritual_ZNK19QRangeModelImplBase9itemModelEv": ["address", "address"],
+    "ritual_ZN19QRangeModelImplBase22roleNamesForMetaObjectERK18QAbstractItemModelRK11QMetaObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QRangeModelImplBase22roleNamesForSimpleTypeEv": ["address"],
+    "ritual_ZN19QRangeModelImplBase24blockDataChangedDispatchEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase14rolePropertiesERK18QAbstractItemModelRK11QMetaObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QRangeModelImplBase16columnPropertiesERK11QMetaObject": [
       "address", "address"
     ],
@@ -103,6 +120,9 @@
     ],
     "ritual_ZN19QRangeModelImplBase14dropDataOnItemEPK9QMimeDataRK11QModelIndex": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_drop_QRangeModelImplBase__QScopedValueRollback_bool": [
+      "nothing", "address"
     ]
   }
 }

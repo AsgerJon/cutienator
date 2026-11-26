@@ -8,8 +8,32 @@
     "ritual_ZNK18qdesigner_internal15IconThemeEditor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal15IconThemeEditor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal15IconThemeEditor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal15IconThemeEditor2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal15IconThemeEditorC1EP7QWidgetb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal15IconThemeEditorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal15IconThemeEditor5themeEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15IconThemeEditor8setThemeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal15IconThemeEditor6editedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal15IconThemeEditor5resetEv": [
+      "nothing", "address"
     ],
     "ritual_take_qdesigner_internal_IconThemeEditor": [
       "bool", "address", "chars", "address"

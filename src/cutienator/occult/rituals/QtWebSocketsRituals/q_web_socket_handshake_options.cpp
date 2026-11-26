@@ -19,11 +19,46 @@ QWebSocketHandshakeOptions *ritual_ZN26QWebSocketHandshakeOptionsC1ERKS_(
   return new QWebSocketHandshakeOptions(*other);
 }
 
+//  QWebSocketHandshakeOptions::QWebSocketHandshakeOptions(QWebSocketHandshak
+//      eOptions &&other)
+extern "C" Q_DECL_EXPORT
+QWebSocketHandshakeOptions *ritual_ZN26QWebSocketHandshakeOptionsC1EOS_(
+    QWebSocketHandshakeOptions *other) {
+  return new QWebSocketHandshakeOptions(std::move(*other));
+}
+
 //  QWebSocketHandshakeOptions::~QWebSocketHandshakeOptions()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QWebSocketHandshakeOptionsD1Ev(
     QWebSocketHandshakeOptions *self) {
   delete self;
+}
+
+//  QWebSocketHandshakeOptions
+//      &QWebSocketHandshakeOptions::operator=(QWebSocketHandshakeOptions
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QWebSocketHandshakeOptions *ritual_ZN26QWebSocketHandshakeOptionsaSEOS_(
+    QWebSocketHandshakeOptions *self,
+    QWebSocketHandshakeOptions *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QWebSocketHandshakeOptions &QWebSocketHandshakeOptions::operator=(const
+//      QWebSocketHandshakeOptions &other)
+extern "C" Q_DECL_EXPORT
+QWebSocketHandshakeOptions *ritual_ZN26QWebSocketHandshakeOptionsaSERKS_(
+    QWebSocketHandshakeOptions *self,
+    const QWebSocketHandshakeOptions *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QWebSocketHandshakeOptions::swap(QWebSocketHandshakeOptions &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QWebSocketHandshakeOptions4swapERS_(
+    QWebSocketHandshakeOptions *self,
+    QWebSocketHandshakeOptions *other) {
+  self->swap(*other);
 }
 
 //  QStringList QWebSocketHandshakeOptions::subprotocols() const

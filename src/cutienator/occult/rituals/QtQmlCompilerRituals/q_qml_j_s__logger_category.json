@@ -6,6 +6,28 @@
   ],
   "rows": {
     "ritual_ZN6QQmlJS14LoggerCategory6d_funcEv": ["address", "address"],
-    "ritual_ZNK6QQmlJS14LoggerCategory6d_funcEv": ["address", "address"]
+    "ritual_ZNK6QQmlJS14LoggerCategory6d_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlJS14LoggerCategoryC1Ev": ["address"],
+    "ritual_ZN6QQmlJS14LoggerCategoryC1ERK7QStringS3_S3_N6QQmlSA15WarningSeverityENS0_12EssentialityE": [
+      "address", "text", "text", "text", "int", "int"
+    ],
+    "ritual_ZN6QQmlJS14LoggerCategoryC1ERKS0_": ["address", "address"],
+    "ritual_ZN6QQmlJS14LoggerCategoryC1EOS0_": ["address", "address"],
+    "ritual_ZN6QQmlJS14LoggerCategoryaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS14LoggerCategoryaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS14LoggerCategoryD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlJS14LoggerCategory4nameEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS14LoggerCategory12settingsNameEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS14LoggerCategory11descriptionEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS14LoggerCategory8severityEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS14LoggerCategory11isEssentialEv": ["bool", "address"],
+    "ritual_ZNK6QQmlJS14LoggerCategory2idEv": ["address", "address"],
+    "ritual_ZN6QQmlJS14LoggerCategory11setSeverityEN6QQmlSA15WarningSeverityE": [
+      "nothing", "address", "int"
+    ]
   }
 }

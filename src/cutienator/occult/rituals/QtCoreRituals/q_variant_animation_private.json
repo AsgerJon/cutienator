@@ -2,22 +2,64 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/6.12.0/QtCore/private/qvariantanimation_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
-    "ritual_ZN24QVariantAnimationPrivate6q_funcEv": ["address", "address"],
-    "ritual_ZNK24QVariantAnimationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QVariantAnimationPrivate6q_funcEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZNK24QVariantAnimationPrivate6q_funcEv": [
+      "address",
+      "address"
+    ],
     "ritual_ZN24QVariantAnimationPrivate3getEP17QVariantAnimation": [
-      "address", "address"
+      "address",
+      "address"
     ],
     "ritual_ZN24QVariantAnimationPrivate14setEasingCurveERK12QEasingCurve": [
-      "nothing", "address", "address"
+      "nothing",
+      "address",
+      "address"
     ],
     "ritual_ZN24QVariantAnimationPrivate11setDurationEi": [
-      "nothing", "address", "int"
+      "nothing",
+      "address",
+      "int"
     ],
     "ritual_ZN24QVariantAnimationPrivate26setCurrentValueForProgressEd": [
-      "nothing", "address", "double"
+      "nothing",
+      "address",
+      "double"
+    ],
+    "ritual_ZN24QVariantAnimationPrivate15getInterpolatorEi": [
+      "address",
+      "int"
+    ],
+    "ritual_ZN24QVariantAnimationPrivate18updateInterpolatorEv": [
+      "nothing",
+      "address"
+    ],
+    "ritual_ZN24QVariantAnimationPrivate26recalculateCurrentIntervalEb": [
+      "nothing",
+      "address",
+      "bool"
+    ],
+    "ritual_ZNK24QVariantAnimationPrivate7valueAtEd": [
+      "address",
+      "address",
+      "double"
+    ],
+    "ritual_ZN24QVariantAnimationPrivate10setValueAtEdRK8QVariant": [
+      "nothing",
+      "address",
+      "double",
+      "address"
+    ],
+    "ritual_ZN24QVariantAnimationPrivate23setDefaultStartEndValueERK8QVariant": [
+      "nothing",
+      "address",
+      "address"
     ]
   }
 }

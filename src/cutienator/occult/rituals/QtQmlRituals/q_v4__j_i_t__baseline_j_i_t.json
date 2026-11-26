@@ -5,5 +5,20 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV43JIT11BaselineJIT14generate_DebugEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV43JIT11BaselineJIT14generate_YieldEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV43JIT11BaselineJIT18generate_YieldStarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV43JIT11BaselineJIT15generate_ResumeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN3QV43JIT11BaselineJIT14endInstructionENS_4Moth5Instr4TypeE": [
+      "nothing", "address", "int"
+    ]
   }
 }

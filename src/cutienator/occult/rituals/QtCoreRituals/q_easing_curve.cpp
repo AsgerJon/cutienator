@@ -26,6 +26,36 @@ void ritual_ZN12QEasingCurveD1Ev(QEasingCurve *self) {
   delete self;
 }
 
+//  QEasingCurve &QEasingCurve::operator=(const QEasingCurve &other)
+extern "C" Q_DECL_EXPORT
+QEasingCurve *ritual_ZN12QEasingCurveaSERKS_(
+    QEasingCurve *self,
+    const QEasingCurve *other) {
+  return &(self->operator=(*other));
+}
+
+//  QEasingCurve::QEasingCurve(QEasingCurve &&other)
+extern "C" Q_DECL_EXPORT
+QEasingCurve *ritual_ZN12QEasingCurveC1EOS_(QEasingCurve *other) {
+  return new QEasingCurve(std::move(*other));
+}
+
+//  QEasingCurve &QEasingCurve::operator=(QEasingCurve &&other)
+extern "C" Q_DECL_EXPORT
+QEasingCurve *ritual_ZN12QEasingCurveaSEOS_(
+    QEasingCurve *self,
+    QEasingCurve *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QEasingCurve::swap(QEasingCurve &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QEasingCurve4swapERS_(
+    QEasingCurve *self,
+    QEasingCurve *other) {
+  self->swap(*other);
+}
+
 //  qreal QEasingCurve::amplitude() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK12QEasingCurve9amplitudeEv(const QEasingCurve *self) {
@@ -111,6 +141,20 @@ void ritual_ZN12QEasingCurve7setTypeENS_4TypeE(
   self->setType(type);
 }
 
+//  void QEasingCurve::setCustomType(EasingFunction func)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QEasingCurve13setCustomTypeEPFddE(
+    QEasingCurve *self,
+    void *func) {
+  self->setCustomType(reinterpret_cast<QEasingCurve::EasingFunction>(func));
+}
+
+//  EasingFunction QEasingCurve::customType() const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK12QEasingCurve10customTypeEv(const QEasingCurve *self) {
+  return reinterpret_cast<void *>(self->customType());
+}
+
 //  qreal QEasingCurve::valueForProgress(qreal progress) const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK12QEasingCurve16valueForProgressEd(
@@ -136,6 +180,26 @@ QDebug *ritual_Zls6QDebugRK12QEasingCurve(
   return new QDebug(operator<<(*debug, *item));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QEasingCurve &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK12QEasingCurve(
+    QDataStream *a0,
+    const QEasingCurve *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QEasingCurve &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR12QEasingCurve(
+    QDataStream *a0,
+    QEasingCurve *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 #if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator==(const QEasingCurve &lhs, const QEasingCurve &rhs)

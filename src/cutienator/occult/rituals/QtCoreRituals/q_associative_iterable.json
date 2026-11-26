@@ -6,6 +6,35 @@
   ],
   "rows": {
     "ritual_ZN20QAssociativeIterableC1Ev": ["address"],
+    "ritual_ZN20QAssociativeIterableC1ERK16QMetaAssociationRK9QMetaTypePv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAssociativeIterableC1ERK16QMetaAssociationRK9QMetaTypePKv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAssociativeIterableC1EO9QIterableI16QMetaAssociationE": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAssociativeIterableaSEO9QIterableI16QMetaAssociationE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QAssociativeIterable5beginEv": ["address", "address"],
+    "ritual_ZNK20QAssociativeIterable3endEv": ["address", "address"],
+    "ritual_ZNK20QAssociativeIterable10constBeginEv": ["address", "address"],
+    "ritual_ZNK20QAssociativeIterable8constEndEv": ["address", "address"],
+    "ritual_ZN20QAssociativeIterable12mutableBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAssociativeIterable10mutableEndEv": ["address", "address"],
+    "ritual_ZNK20QAssociativeIterable4findERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QAssociativeIterable9constFindERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAssociativeIterable11mutableFindERK8QVariant": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QAssociativeIterable11containsKeyERK8QVariant": [
       "bool", "address", "address"
     ],
@@ -23,6 +52,12 @@
     ],
     "ritual_ZNK20QAssociativeIterable22canRandomAccessIterateEv": [
       "bool", "address"
+    ],
+    "ritual_drop_QAssociativeIterable__QAssociativeIterable_const_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAssociativeIterable__QAssociativeIterable_iterator": [
+      "nothing", "address"
     ]
   }
 }

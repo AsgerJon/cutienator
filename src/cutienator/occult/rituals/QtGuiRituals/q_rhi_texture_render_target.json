@@ -22,6 +22,9 @@
       "address", "address"
     ],
     "ritual_ZN23QRhiTextureRenderTarget6createEv": ["bool", "address"],
+    "ritual_ZN23QRhiTextureRenderTargetC1EP18QRhiImplementationRK34QRhiTextureRenderTargetDescription6QFlagsINS_4FlagEE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_take_QRhiTextureRenderTarget": [
       "bool", "address", "chars", "address"
     ],

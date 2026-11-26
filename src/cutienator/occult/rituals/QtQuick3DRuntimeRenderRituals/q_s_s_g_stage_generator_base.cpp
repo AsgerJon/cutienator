@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #include <cstring>
+#include <QtCore/QByteArray>
 
 //  A QSSGStageGeneratorBase that Python can take functions over in. Every QSSGStageGeneratorBase
 //  Python makes is one. Each function below asks the Python
@@ -28,7 +29,7 @@ typedef void (*CuteQSSGStageGeneratorBaseCall12)(const void *, int *);
 class CuteQSSGStageGeneratorBase : public QSSGStageGeneratorBase {
 public:
   using QSSGStageGeneratorBase::QSSGStageGeneratorBase;
-  CuteQSSGStageGeneratorBase(const QSSGStageGeneratorBase &other) : QSSGStageGeneratorBase(other) {}
+  CuteQSSGStageGeneratorBase(const QSSGStageGeneratorBase & other) : QSSGStageGeneratorBase(other) {}
   void *taken[13] = {};
 
   bool take(const char *key, void *call) {
@@ -357,6 +358,15 @@ void ritual_ZN22QSSGStageGeneratorBase22addConstantBufferParamERK10QByteArrayS2_
   self->addConstantBufferParam(*cbName, *paramName, *type);
 }
 
+//  QSSGStageGeneratorBase &QSSGStageGeneratorBase::operator<<(const
+//      QByteArray &data)
+extern "C" Q_DECL_EXPORT
+QSSGStageGeneratorBase *ritual_ZN22QSSGStageGeneratorBaselsERK10QByteArray(
+    QSSGStageGeneratorBase *self,
+    const QByteArray *data) {
+  return &(self->operator<<(*data));
+}
+
 //  void QSSGStageGeneratorBase::append(const QByteArray &data)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSSGStageGeneratorBase6appendERK10QByteArray(
@@ -381,6 +391,20 @@ void ritual_ZN22QSSGStageGeneratorBase20addShaderPass2MarkerENS_14ShaderItemType
   self->addShaderPass2Marker(itemType);
 }
 
+//  void QSSGStageGeneratorBase::addShaderItemMap(ShaderItemType itemType,
+//      const TStrTableStrMap &itemMap, ShaderItemMapFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QSSGStageGeneratorBase16addShaderItemMapENS_14ShaderItemTypeERK4QMapI10QByteArrayS2_E6QFlagsINS_17ShaderItemMapFlagEE(
+    QSSGStageGeneratorBase *self,
+    QSSGStageGeneratorBase::ShaderItemType itemType,
+    const QSSGStageGeneratorBase::TStrTableStrMap *itemMap,
+    int flags) {
+  self->addShaderItemMap(
+      itemType,
+      *itemMap,
+      QFlags<QSSGStageGeneratorBase::ShaderItemMapFlag>::fromInt(flags));
+}
+
 //  void QSSGStageGeneratorBase::addShaderIncomingMap()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSSGStageGeneratorBase20addShaderIncomingMapEv(
@@ -400,6 +424,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSSGStageGeneratorBase20addShaderOutgoingMapEv(
     QSSGStageGeneratorBase *self) {
   self->addShaderOutgoingMap();
+}
+
+//  void QSSGStageGeneratorBase::addShaderConstantBufferItemMap(const
+//      QByteArray &itemType, const TStrTableStrMap &cbMap,
+//      TConstantBufferParamArray cbParamsArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QSSGStageGeneratorBase30addShaderConstantBufferItemMapERK10QByteArrayRK4QMapIS0_S0_E5QListISt4pairIS0_S8_IS0_S0_EEE(
+    QSSGStageGeneratorBase *self,
+    const QByteArray *itemType,
+    const QSSGStageGeneratorBase::TStrTableStrMap *cbMap,
+    const QSSGStageGeneratorBase::TConstantBufferParamArray *cbParamsArray) {
+  self->addShaderConstantBufferItemMap(*itemType, *cbMap, *cbParamsArray);
 }
 
 //  void QSSGStageGeneratorBase::appendShaderCode()

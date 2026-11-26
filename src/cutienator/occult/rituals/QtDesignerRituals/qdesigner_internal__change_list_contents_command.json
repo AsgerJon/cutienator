@@ -5,6 +5,21 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal25ChangeListContentsCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal25ChangeListContentsCommand4initEP11QListWidgetRKNS_12ListContentsES5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal25ChangeListContentsCommand4initEP9QComboBoxRKNS_12ListContentsES5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal25ChangeListContentsCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal25ChangeListContentsCommand4undoEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN18qdesigner_internal25ChangeListContentsCommand4redoEv": [
       "nothing", "address"
     ],

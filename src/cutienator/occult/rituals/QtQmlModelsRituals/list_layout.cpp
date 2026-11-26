@@ -46,6 +46,21 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 56, as local:qqmllistmodel.cpp:roleTypeName
+static QString roleTypeName(ListLayout::Role::DataType t)
+{
+    static const QString roleTypeNames[] = {
+        QStringLiteral("String"), QStringLiteral("Number"), QStringLiteral("Bool"),
+        QStringLiteral("List"), QStringLiteral("QObject"), QStringLiteral("VariantMap"),
+        QStringLiteral("DateTime"), QStringLiteral("Url"), QStringLiteral("Function")
+    };
+
+    if (t > ListLayout::Role::Invalid && t < ListLayout::Role::MaxDataType)
+        return roleTypeNames[t];
+
+    return QString();
+}
+
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 189, as _ZN10ListLayout4RoleC1EPKS0_
 inline ListLayout::Role::Role(const Role *other)
 {
@@ -84,6 +99,22 @@ inline ListLayout::ListLayout(const ListLayout *other) : currentBlock(0), curren
 inline ListLayout::~ListLayout()
 {
     qDeleteAll(roles);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 83, as _ZN10ListLayout15getRoleOrCreateEPN3QV46StringENS_4Role8DataTypeE
+inline const ListLayout::Role &ListLayout::getRoleOrCreate(QV4::String *key, Role::DataType type)
+{
+    QStringHash<Role *>::Node *node = roleHash.findNode(key);
+    if (node) {
+        const Role &r = *node->value;
+        if (type != r.type)
+            qmlWarning(nullptr) << QStringLiteral("Can't assign to existing role '%1' of different type [%2 -> %3]").arg(r.name).arg(roleTypeName(type)).arg(roleTypeName(r.type));
+        return r;
+    }
+
+    QString qkey = key->toQString();
+
+    return createRole(qkey, type);
 }
 
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 246, as _ZNK10ListLayout15getExistingRoleERK7QString
@@ -198,6 +229,16 @@ ListLayout *ritual_ZN10ListLayoutC1EPKS_(const ListLayout *other) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10ListLayoutD1Ev(ListLayout *self) {
   delete self;
+}
+
+//  const Role &ListLayout::getRoleOrCreate(QV4::String *key, Role::DataType
+//      type)
+extern "C" Q_DECL_EXPORT
+ListLayout::Role *ritual_ZN10ListLayout15getRoleOrCreateEPN3QV46StringENS_4Role8DataTypeE(
+    ListLayout *self,
+    QV4::String *key,
+    ListLayout::Role::DataType type) {
+  return new ListLayout::Role(self->getRoleOrCreate(key, type));
 }
 
 //  const Role &ListLayout::getExistingRole(int index) const

@@ -6,10 +6,34 @@
   ],
   "rows": {
     "ritual_ZNK17QQuick3DXrManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuick3DXrManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuick3DXrManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QQuick3DXrManager6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuick3DXrManager6d_funcEv": ["address", "address"],
     "ritual_ZNK17QQuick3DXrManager29isMultiViewRenderingSupportedEv": [
       "bool", "address"
     ],
     "ritual_ZN17QQuick3DXrManager28isMultiviewRenderingDisabledEv": ["bool"],
+    "ritual_ZN17QQuick3DXrManager6updateEv": ["nothing", "address"],
+    "ritual_ZN17QQuick3DXrManager11initializedEv": ["nothing", "address"],
+    "ritual_ZN17QQuick3DXrManager12sessionEndedEv": ["nothing", "address"],
+    "ritual_ZN17QQuick3DXrManager15xrOriginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuick3DXrManager10frameReadyEv": ["nothing", "address"],
+    "ritual_ZN17QQuick3DXrManager21referenceSpaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuick3DXrManager32multiViewRenderingEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuick3DXrManager5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN17QQuick3DXrManager18preSetupQuickSceneEv": [
       "nothing", "address"
     ],

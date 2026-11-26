@@ -6,3 +6,153 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickShapes/6.12.0/QtQuickShapes/private/qquickshapegenericrenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuickShapes/private/qquickshapegenericrenderer_p.h>
+#include <QtGui/private/qtriangulator_p.h>
+#include <QtGui/private/qtriangulatingstroker_p.h>
+#include <rhi/qrhi.h>
+#include <QSGVertexColorMaterial>
+#include <QSGTextureProvider>
+#include <private/qsgplaintexture_p.h>
+#include <QtQuick/private/qsggradientcache_p.h>
+#if QT_CONFIG(thread)
+#include <QtCore/QThreadPool>
+#endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1026, as _ZN34QQuickShapeRadialGradientRhiShaderC1Ei
+inline QQuickShapeRadialGradientRhiShader::QQuickShapeRadialGradientRhiShader(int viewCount)
+{
+    setShaderFileName(VertexStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/radialgradient.vert.qsb"), viewCount);
+    setShaderFileName(FragmentStage, QStringLiteral(":/qt-project.org/shapes/shaders_ng/radialgradient.frag.qsb"), viewCount);
+}
+
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1032, as _ZN34QQuickShapeRadialGradientRhiShader17updateUniformDataERN17QSGMaterialShader11RenderStateEP11QSGMaterialS4_
+inline bool QQuickShapeRadialGradientRhiShader::updateUniformData(RenderState &state,
+                                                           QSGMaterial *newMaterial, QSGMaterial *oldMaterial)
+{
+    Q_ASSERT(oldMaterial == nullptr || newMaterial->type() == oldMaterial->type());
+    QQuickShapeRadialGradientMaterial *m = static_cast<QQuickShapeRadialGradientMaterial *>(newMaterial);
+    bool changed = false;
+    QByteArray *buf = state.uniformData();
+    Q_ASSERT(buf->size() >= 92 + 64);
+    const int shaderMatrixCount = newMaterial->viewCount();
+    const int matrixCount = qMin(state.projectionMatrixCount(), shaderMatrixCount);
+
+    if (state.isMatrixDirty()) {
+        for (int viewIndex = 0; viewIndex < matrixCount; ++viewIndex) {
+            const QMatrix4x4 m = state.combinedMatrix();
+            memcpy(buf->data() + 64 * viewIndex, m.constData(), 64);
+            changed = true;
+        }
+    }
+
+    QQuickShapeGenericStrokeFillNode *node = m->node();
+
+    if (!oldMaterial || m_fillTransform != node->m_fillTransform) {
+        memcpy(buf->data() + 64 * shaderMatrixCount, node->m_fillTransform.invertedData(), 64);
+        m_fillTransform = node->m_fillTransform;
+        changed = true;
+    }
+
+    const QPointF centerPoint = node->m_gradient.a;
+    const QPointF focalPoint = node->m_gradient.b;
+    const QPointF focalToCenter = centerPoint - focalPoint;
+    const float centerRadius = node->m_gradient.v0;
+    const float focalRadius = node->m_gradient.v1;
+
+    if (!oldMaterial || m_focalPoint.x() != focalPoint.x() || m_focalPoint.y() != focalPoint.y()) {
+        m_focalPoint = QVector2D(focalPoint.x(), focalPoint.y());
+        Q_ASSERT(sizeof(m_focalPoint) == 8);
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64, &m_focalPoint, 8);
+        changed = true;
+    }
+
+    if (!oldMaterial || m_focalToCenter.x() != focalToCenter.x() || m_focalToCenter.y() != focalToCenter.y()) {
+        m_focalToCenter = QVector2D(focalToCenter.x(), focalToCenter.y());
+        Q_ASSERT(sizeof(m_focalToCenter) == 8);
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64 + 8, &m_focalToCenter, 8);
+        changed = true;
+    }
+
+    if (!oldMaterial || m_centerRadius != centerRadius) {
+        m_centerRadius = centerRadius;
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64 + 8 + 8, &m_centerRadius, 4);
+        changed = true;
+    }
+
+    if (!oldMaterial || m_focalRadius != focalRadius) {
+        m_focalRadius = focalRadius;
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64 + 8 + 8 + 4, &m_focalRadius, 4);
+        changed = true;
+    }
+
+    if (state.isOpacityDirty()) {
+        const float opacity = state.opacity();
+        memcpy(buf->data() + 64 * shaderMatrixCount + 64 + 8 + 8 + 4 + 4, &opacity, 4);
+        changed = true;
+    }
+
+    return changed;
+}
+
+//  from ../qtdeclarative/src/quickshapes/qquickshapegenericrenderer.cpp, line 1100, as _ZN34QQuickShapeRadialGradientRhiShader18updateSampledImageERN17QSGMaterialShader11RenderStateEiPP10QSGTextureP11QSGMaterialS7_
+inline void QQuickShapeRadialGradientRhiShader::updateSampledImage(RenderState &state, int binding, QSGTexture **texture,
+                                                            QSGMaterial *newMaterial, QSGMaterial *)
+{
+    if (binding != 1)
+        return;
+
+    QQuickShapeRadialGradientMaterial *m = static_cast<QQuickShapeRadialGradientMaterial *>(newMaterial);
+    QQuickShapeGenericStrokeFillNode *node = m->node();
+    const QSGGradientCacheKey cacheKey(node->m_gradient.stops, QGradient::Spread(node->m_gradient.spread));
+    QSGTexture *t = QSGGradientCache::cacheForRhi(state.rhi())->get(cacheKey);
+    t->commitTextureOperations(state.rhi(), state.resourceUpdateBatch());
+    *texture = t;
+}
+//  -----------------------------------------------------------------------
+
+//  QQuickShapeRadialGradientRhiShader::QQuickShapeRadialGradientRhiShader(in
+//      t viewCount)
+extern "C" Q_DECL_EXPORT
+QQuickShapeRadialGradientRhiShader *ritual_ZN34QQuickShapeRadialGradientRhiShaderC1Ei(
+    int viewCount) {
+  return new QQuickShapeRadialGradientRhiShader(viewCount);
+}
+
+//  bool QQuickShapeRadialGradientRhiShader::updateUniformData(RenderState
+//      &state, QSGMaterial *newMaterial, QSGMaterial *oldMaterial)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN34QQuickShapeRadialGradientRhiShader17updateUniformDataERN17QSGMaterialShader11RenderStateEP11QSGMaterialS4_(
+    QQuickShapeRadialGradientRhiShader *self,
+    QSGMaterialShader::RenderState *state,
+    QSGMaterial *newMaterial,
+    QSGMaterial *oldMaterial) {
+  return self->updateUniformData(*state, newMaterial, oldMaterial);
+}
+
+//  void QQuickShapeRadialGradientRhiShader::updateSampledImage(RenderState
+//      &state, int binding, QSGTexture **texture, QSGMaterial *newMaterial,
+//      QSGMaterial *oldMaterial)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QQuickShapeRadialGradientRhiShader18updateSampledImageERN17QSGMaterialShader11RenderStateEiPP10QSGTextureP11QSGMaterialS7_(
+    QQuickShapeRadialGradientRhiShader *self,
+    QSGMaterialShader::RenderState *state,
+    int binding,
+    QSGTexture **texture,
+    QSGMaterial *newMaterial,
+    QSGMaterial *oldMaterial) {
+  self->updateSampledImage(
+      *state,
+      binding,
+      texture,
+      newMaterial,
+      oldMaterial);
+}

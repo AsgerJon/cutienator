@@ -10,12 +10,16 @@
     "ritual_ZN19QAudioEnginePrivate3getEP12QAudioEngine": [
       "address", "address"
     ],
+    "ritual_ZN19QAudioEnginePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK19QAudioEnginePrivate10sampleRateEv": ["int", "address"],
     "ritual_ZN19QAudioEnginePrivate16setDistanceScaleEf": [
       "nothing", "address", "float"
     ],
     "ritual_ZNK19QAudioEnginePrivate13distanceScaleEv": ["float", "address"],
     "ritual_ZNK19QAudioEnginePrivate12masterVolumeEv": ["float", "address"],
+    "ritual_ZNK19QAudioEnginePrivate16listenerPositionEv": [
+      "address", "address"
+    ],
     "ritual_ZN19QAudioEnginePrivate13setOutputModeEN12QAudioEngine10OutputModeE": [
       "nothing", "address", "int"
     ],
@@ -48,8 +52,20 @@
     "ritual_ZN19QAudioEnginePrivate11removeSoundEP25QSpatialAudioSoundPrivate": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN19QAudioEnginePrivate20setSoundPlaybackDataEP25QSpatialAudioSoundPrivateSt10shared_ptrIN20QSpatialAudioPrivate26QSpatialAudioPlaybackStateEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QAudioEnginePrivate27findSmallestRoomForListenerE5QSpanIP10QAudioRoomLm18446744073709551615EE": [
+      "address", "address", "address"
+    ],
     "ritual_take_QAudioEnginePrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QAudioEnginePrivate__std_optional_QVector3D": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAudioEnginePrivate__QAudioEnginePrivate_SmallestRoomForListenerResult": [
+      "nothing", "address"
     ]
   }
 }

@@ -8,14 +8,26 @@
     "ritual_ZNK8Qt3DCore25QAbstractAspectJobManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore25QAbstractAspectJobManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore25QAbstractAspectJobManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore25QAbstractAspectJobManager2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN8Qt3DCore25QAbstractAspectJobManager10initializeEv": [
       "nothing", "address"
     ],
+    "ritual_ZN8Qt3DCore25QAbstractAspectJobManager11enqueueJobsERKSt6vectorI14QSharedPointerINS_10QAspectJobEESaIS4_EE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore25QAbstractAspectJobManager14waitForAllJobsEv": [
       "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore25QAbstractAspectJobManager24waitForPerThreadFunctionEPFvPvES1_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_Qt3DCore_QAbstractAspectJobManager": [
       "bool", "address", "chars", "address"

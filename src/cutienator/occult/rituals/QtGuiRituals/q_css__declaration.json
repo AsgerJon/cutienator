@@ -7,6 +7,46 @@
   "rows": {
     "ritual_ZN4QCss11DeclarationC1Ev": ["address"],
     "ritual_ZNK4QCss11Declaration7isEmptyEv": ["bool", "address"],
-    "ritual_ZN4QCss11DeclarationD1Ev": ["nothing", "address"]
+    "ritual_ZNK4QCss11Declaration10colorValueERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss11Declaration11colorValuesEP6QColorRK8QPalette": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss11Declaration10brushValueERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss11Declaration11brushValuesEP6QBrushRK8QPalette": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss11Declaration10styleValueEv": ["int", "address"],
+    "ritual_ZNK4QCss11Declaration11styleValuesEPNS_11BorderStyleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK4QCss11Declaration11originValueEv": ["int", "address"],
+    "ritual_ZNK4QCss11Declaration11repeatValueEv": ["int", "address"],
+    "ritual_ZNK4QCss11Declaration14alignmentValueEv": ["int", "address"],
+    "ritual_ZNK4QCss11Declaration13positionValueEv": ["int", "address"],
+    "ritual_ZNK4QCss11Declaration15attachmentValueEv": ["int", "address"],
+    "ritual_ZNK4QCss11Declaration18styleFeaturesValueEv": ["int", "address"],
+    "ritual_ZNK4QCss11Declaration8intValueEPiPKc": [
+      "bool", "address", "address", "chars"
+    ],
+    "ritual_ZNK4QCss11Declaration9realValueEPdPKc": [
+      "bool", "address", "address", "chars"
+    ],
+    "ritual_ZNK4QCss11Declaration9sizeValueEv": ["address", "address"],
+    "ritual_ZNK4QCss11Declaration9rectValueEv": ["address", "address"],
+    "ritual_ZNK4QCss11Declaration8uriValueEv": ["text", "address"],
+    "ritual_ZNK4QCss11Declaration9iconValueEv": ["address", "address"],
+    "ritual_ZNK4QCss11Declaration16borderImageValueEP7QStringPiPNS_8TileModeES5_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss11Declaration19borderCollapseValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK4QCss11Declaration9dashArrayEv": ["address", "address"],
+    "ritual_ZN4QCss11DeclarationD1Ev": ["nothing", "address"],
+    "ritual_drop_QCss_Declaration__QList_qreal": ["nothing", "address"]
   }
 }

@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender11QDepthRange10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QDepthRange::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender11QDepthRange11qt_metacastEPKc(
+    Qt3DRender::QDepthRange *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QDepthRange::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender11QDepthRange11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QDepthRange *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QDepthRange::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender11QDepthRange2trEPKcS2_i(
@@ -186,6 +205,65 @@ QString *ritual_ZN10Qt3DRender11QDepthRange2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QDepthRange::tr(s, c, n));
+}
+
+//  Qt3DRender::QDepthRange::QDepthRange(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QDepthRange *ritual_ZN10Qt3DRender11QDepthRangeC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QDepthRange(parent);
+}
+
+//  Qt3DRender::QDepthRange::~QDepthRange()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QDepthRangeD1Ev(Qt3DRender::QDepthRange *self) {
+  delete self;
+}
+
+//  double Qt3DRender::QDepthRange::nearValue() const
+extern "C" Q_DECL_EXPORT
+double ritual_ZNK10Qt3DRender11QDepthRange9nearValueEv(
+    const Qt3DRender::QDepthRange *self) {
+  return self->nearValue();
+}
+
+//  double Qt3DRender::QDepthRange::farValue() const
+extern "C" Q_DECL_EXPORT
+double ritual_ZNK10Qt3DRender11QDepthRange8farValueEv(
+    const Qt3DRender::QDepthRange *self) {
+  return self->farValue();
+}
+
+//  void Qt3DRender::QDepthRange::setNearValue(double value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QDepthRange12setNearValueEd(
+    Qt3DRender::QDepthRange *self,
+    double value) {
+  self->setNearValue(value);
+}
+
+//  void Qt3DRender::QDepthRange::setFarValue(double value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QDepthRange11setFarValueEd(
+    Qt3DRender::QDepthRange *self,
+    double value) {
+  self->setFarValue(value);
+}
+
+//  void Qt3DRender::QDepthRange::nearValueChanged(double nearValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QDepthRange16nearValueChangedEd(
+    Qt3DRender::QDepthRange *self,
+    double nearValue) {
+  self->nearValueChanged(nearValue);
+}
+
+//  void Qt3DRender::QDepthRange::farValueChanged(double farValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QDepthRange15farValueChangedEd(
+    Qt3DRender::QDepthRange *self,
+    double farValue) {
+  self->farValueChanged(farValue);
 }
 
 //  QDepthRangePrivate *Qt3DRender::QDepthRange::d_func()

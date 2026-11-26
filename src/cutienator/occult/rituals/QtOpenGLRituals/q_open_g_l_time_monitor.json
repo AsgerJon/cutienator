@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QOpenGLTimeMonitor10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QOpenGLTimeMonitor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QOpenGLTimeMonitor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QOpenGLTimeMonitor2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,11 +24,24 @@
     "ritual_ZN18QOpenGLTimeMonitor6createEv": ["bool", "address"],
     "ritual_ZN18QOpenGLTimeMonitor7destroyEv": ["nothing", "address"],
     "ritual_ZNK18QOpenGLTimeMonitor9isCreatedEv": ["bool", "address"],
+    "ritual_ZNK18QOpenGLTimeMonitor9objectIdsEv": ["address", "address"],
     "ritual_ZN18QOpenGLTimeMonitor12recordSampleEv": ["int", "address"],
     "ritual_ZNK18QOpenGLTimeMonitor17isResultAvailableEv": [
       "bool", "address"
     ],
+    "ritual_ZNK18QOpenGLTimeMonitor14waitForSamplesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QOpenGLTimeMonitor16waitForIntervalsEv": [
+      "address", "address"
+    ],
     "ritual_ZN18QOpenGLTimeMonitor5resetEv": ["nothing", "address"],
-    "ritual_take_QOpenGLTimeMonitor": ["bool", "address", "chars", "address"]
+    "ritual_ZN18QOpenGLTimeMonitor6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QOpenGLTimeMonitor6d_funcEv": ["address", "address"],
+    "ritual_take_QOpenGLTimeMonitor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QOpenGLTimeMonitor__QList_GLuint": ["nothing", "address"],
+    "ritual_drop_QOpenGLTimeMonitor__QList_GLuint64": ["nothing", "address"]
   }
 }

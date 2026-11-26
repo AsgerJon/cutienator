@@ -7,6 +7,13 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/updateworldboundingvolumejob_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  Qt3DRender::Render::UpdateWorldBoundingVolumeJob::UpdateWorldBoundingVolu
+//      meJob()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::UpdateWorldBoundingVolumeJob *ritual_ZN10Qt3DRender6Render28UpdateWorldBoundingVolumeJobC1Ev() {
+  return new Qt3DRender::Render::UpdateWorldBoundingVolumeJob();
+}
+
 //  void Qt3DRender::Render::UpdateWorldBoundingVolumeJob::setManager(EntityM
 //      anager *manager)
 extern "C" Q_DECL_EXPORT
@@ -14,6 +21,13 @@ void ritual_ZN10Qt3DRender6Render28UpdateWorldBoundingVolumeJob10setManagerEPNS0
     Qt3DRender::Render::UpdateWorldBoundingVolumeJob *self,
     Qt3DRender::Render::EntityManager *manager) {
   self->setManager(manager);
+}
+
+//  void Qt3DRender::Render::UpdateWorldBoundingVolumeJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render28UpdateWorldBoundingVolumeJob3runEv(
+    Qt3DRender::Render::UpdateWorldBoundingVolumeJob *self) {
+  self->run();
 }
 
 //  void Qt3DRender::Render::UpdateWorldBoundingVolumeJob::run()

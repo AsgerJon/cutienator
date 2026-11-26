@@ -6,6 +6,34 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qstringconverter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearrayview.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qstringview.h>
+#include <QtCore/qbytearray.h>
+
+//  QString QUtf16::convertToUnicode(QByteArrayView a0,
+//      QStringConverter::State *a1, DataEndianness a2)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN6QUtf1616convertToUnicodeE14QByteArrayViewPN20QStringConverterBase5StateE14DataEndianness(
+    const QByteArrayView *a0,
+    QStringConverter::State *a1,
+    DataEndianness a2) {
+  return new QString(QUtf16::convertToUnicode(*a0, a1, a2));
+}
+
+//  QByteArray QUtf16::convertFromUnicode(QStringView a0,
+//      QStringConverter::State *a1, DataEndianness a2)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN6QUtf1618convertFromUnicodeE11QStringViewPN20QStringConverterBase5StateE14DataEndianness(
+    const QString *a0,
+    QStringConverter::State *a1,
+    DataEndianness a2) {
+  return new QByteArray(
+      QUtf16::convertFromUnicode(
+          QStringView(*a0),
+          a1,
+          a2));
+}
 
 //  QUtf16::~QUtf16()
 extern "C" Q_DECL_EXPORT

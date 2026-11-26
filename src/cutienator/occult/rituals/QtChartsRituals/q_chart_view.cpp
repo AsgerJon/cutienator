@@ -1154,6 +1154,24 @@ const QMetaObject *ritual_ZNK10QChartView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QChartView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QChartView11qt_metacastEPKc(
+    QChartView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QChartView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QChartView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QChartView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QChartView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QChartView2trEPKcS1_i(
@@ -1181,6 +1199,14 @@ QChartView *ritual_ZN10QChartViewC1EP6QChartP7QWidget(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QChartViewD1Ev(QChartView *self) {
   delete self;
+}
+
+//  void QChartView::setRubberBand(const RubberBands &rubberBands)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QChartView13setRubberBandERK6QFlagsINS_10RubberBandEE(
+    QChartView *self,
+    const QChartView::RubberBands *rubberBands) {
+  self->setRubberBand(*rubberBands);
 }
 
 //  RubberBands QChartView::rubberBand() const

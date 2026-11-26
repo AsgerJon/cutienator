@@ -14,8 +14,12 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQmlModels/private/qqmladaptormodelenginedata_p.h>
+#include <QtQmlModels/private/qqmladaptormodel_p.h>
+#include <QtQmlModels/private/qqmldmabstractitemmodeldata_p.h>
 #include <QtQmlModels/private/qqmldmlistaccessordata_p.h>
+#include <QtQmlModels/private/qqmldmobjectdata_p.h>
+#include <QtQmlModels/private/qqmldmlistaccessordata_p.h>
+#include <QtQmlModels/private/qqmladaptormodelenginedata_p.h>
 #include <QtQmlModels/private/qqmldmlistaccessordata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -25,6 +29,19 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qmlmodels/qqmladaptormodel.cpp, line 13, as _ZN16QQmlAdaptorModel9AccessorsD2Ev
+inline QQmlAdaptorModel::Accessors::~Accessors()
+{
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldmlistaccessordata.cpp, line 59, as _ZNK23VDMListDelegateDataType14emitAllSignalsEP22QQmlDMListAccessorData
+inline void VDMListDelegateDataType::emitAllSignals(QQmlDMListAccessorData *accessor) const
+{
+    for (int i = propertyOffset, end = propertyCount(); i != end; ++i)
+        QMetaObject::activate(accessor, this, i - propertyOffset, nullptr);
+    emit accessor->modelDataChanged();
+}
 
 //  from ../qtdeclarative/src/qmlmodels/qqmladaptormodelenginedata.cpp, line 10, as _ZN26QQmlAdaptorModelEngineDataC1EPN3QV415ExecutionEngineE
 inline QQmlAdaptorModelEngineData::QQmlAdaptorModelEngineData(QV4::ExecutionEngine *v4)
@@ -42,14 +59,6 @@ inline QQmlAdaptorModelEngineData::QQmlAdaptorModelEngineData(QV4::ExecutionEngi
     listItemProto.set(v4, proto);
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmldmlistaccessordata.cpp, line 20, as _ZN22QQmlDMListAccessorDataD1Ev
-inline QQmlDMListAccessorData::~QQmlDMListAccessorData()
-{
-    QObjectPrivate *d = QObjectPrivate::get(this);
-    static_cast<VDMListDelegateDataType *>(d->metaObject)->release();
-    d->metaObject = nullptr;
-}
-
 //  from ../qtdeclarative/src/qmlmodels/qqmldmlistaccessordata.cpp, line 37, as _ZN22QQmlDMListAccessorData8setValueERK7QStringRK8QVariant
 inline void QQmlDMListAccessorData::setValue(const QString &role, const QVariant &value)
 {
@@ -60,6 +69,14 @@ inline void QQmlDMListAccessorData::setValue(const QString &role, const QVariant
         cachedData = value;
     else
         VDMListDelegateDataType::setValue(&cachedData, role, value);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldmlistaccessordata.cpp, line 20, as _ZN22QQmlDMListAccessorDataD1Ev
+inline QQmlDMListAccessorData::~QQmlDMListAccessorData()
+{
+    QObjectPrivate *d = QObjectPrivate::get(this);
+    static_cast<VDMListDelegateDataType *>(d->metaObject)->release();
+    d->metaObject = nullptr;
 }
 //  -----------------------------------------------------------------------
 
@@ -309,6 +326,25 @@ const QMetaObject *ritual_ZNK22QQmlDMListAccessorData10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDMListAccessorData::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQmlDMListAccessorData11qt_metacastEPKc(
+    QQmlDMListAccessorData *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDMListAccessorData::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQmlDMListAccessorData11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDMListAccessorData *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQmlDMListAccessorData::~QQmlDMListAccessorData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQmlDMListAccessorDataD1Ev(QQmlDMListAccessorData *self) {
@@ -337,6 +373,41 @@ void ritual_ZN22QQmlDMListAccessorData8setValueERK7QStringRK8QVariant(
     const QString *role,
     const QVariant *value) {
   self->setValue(*role, *value);
+}
+
+//  bool QQmlDMListAccessorData::resolveIndex(const QQmlAdaptorModel &model,
+//      int idx)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QQmlDMListAccessorData12resolveIndexERK16QQmlAdaptorModeli(
+    QQmlDMListAccessorData *self,
+    const QQmlAdaptorModel *model,
+    int idx) {
+  return self->resolveIndex(*model, idx);
+}
+
+//  void QQmlDMListAccessorData::modelDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlDMListAccessorData16modelDataChangedEv(
+    QQmlDMListAccessorData *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlDMListAccessorData")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "modelDataChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "modelDataChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQmlDMListAccessorData, for the function

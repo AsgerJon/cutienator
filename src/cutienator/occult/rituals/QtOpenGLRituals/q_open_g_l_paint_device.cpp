@@ -299,6 +299,13 @@ void ritual_ZN18QOpenGLPaintDevice18ensureActiveTargetEv(
   self->ensureActiveTarget();
 }
 
+//  QOpenGLPaintDevice::QOpenGLPaintDevice(QOpenGLPaintDevicePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QOpenGLPaintDevice *ritual_ZN18QOpenGLPaintDeviceC1ER25QOpenGLPaintDevicePrivate(
+    QOpenGLPaintDevicePrivate *dd) {
+  return new CuteQOpenGLPaintDevice(*dd);
+}
+
 //  int QOpenGLPaintDevice::metric(QPaintDevice::PaintDeviceMetric metric)
 //      const
 extern "C" Q_DECL_EXPORT

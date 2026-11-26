@@ -16,6 +16,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   Record = Dict[str, Any]
   Shorthands = Dict[str, List[Tuple[Tuple[str, ...], str]]]
+  Stretches = List[Tuple[int, int, str]]
+  Scopes = Tuple[Stretches, Stretches]
 
 
 class SourceReader:
@@ -58,16 +60,19 @@ class SourceReader:
     A function written another way is not found.
   - Nothing here says whether the code found can be compiled apart
     from the file it stands in. The one who takes it finds that out.
+  - A name is found as C++ reads it, in the namespace it is written
+    in: 'Quick3DScreenRayCaster::Quick3DScreenRayCaster', written inside
+    'namespace Qt3DRender {', 'namespace Render {' and
+    'namespace Quick {', is found as
+    'Qt3DRender::Render::Quick::Quick3DScreenRayCaster::...' as well,
+    and as each namespace around it would give it, and as each
+    'using namespace' line before it would; see 'findScopes'.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  #  A line that opens a definition: it starts at the edge, and a name
-  #  with '::' in it stands right before a bracket.
-  __opening_line__ = re.compile(
-      r'^(?![\s#/}{]).*?\b((?:[A-Za-z_]\w*::)+~?[A-Za-z_]\w*)\s*\(')
   #  A line of the file that pulls another file in.
   __include_line__ = re.compile(r'^\s*#\s*include\s+([<"])([^>"]+)[>"]')
 
@@ -77,6 +82,19 @@ class SourceReader:
   __named_code__ = re.compile(
       r'((?:[A-Za-z_]\w*\s*::\s*)+(?:operator\s*(?:\(\s*\)|\[\s*\]'
       r'|[^\s\w(\[]+|\s[^(;{}]+?)|~?[A-Za-z_]\w*))\s*\(')
+  #  A line for the preprocessor, with the lines it goes on to.
+  __preprocessor_line__ = re.compile(r'^[ \t]*#(?:[^\n]*\\\n)*[^\n]*', re.M)
+  #  A word, as 'const' or 'Q_DECL_NOTHROW'.
+  __plain_word__ = re.compile(r'[A-Za-z_]\w*')
+  #  What a constructor makes before its code: a base or a member, by
+  #  its name, as 'QObject' or 'QtPrivate::QSlotObjectBase'.
+  __made_name__ = re.compile(
+      r'(?:::\s*)?[A-Za-z_]\w*(?:\s*::\s*[A-Za-z_]\w*)*')
+  #  What only an expression or a statement holds, and never the words
+  #  in front of the name of a defined function.
+  __no_words_in_front__ = re.compile(
+      r'[(){};=,.!?|+\-/%^~]|\b(?:return|case|else|delete|new|throw'
+      r'|goto|if|while|for|switch|do|using|typedef|friend|emit)\b')
   #  A line of a '.cpp' file that defines a shorthand taking arguments,
   #  the same as 'HeaderReader.getShorthands' reads in a header file.
   __shorthand_line__ = re.compile(
@@ -87,6 +105,21 @@ class SourceReader:
   #  A name right before a bracket: a shorthand where one is defined
   #  under that name.
   __called_name__ = re.compile(r'\b([A-Za-z_]\w*)\s*\(')
+  #  What may hold a curly bracket that opens or closes nothing: a
+  #  comment, a text, a letter.
+  __no_code__ = re.compile(
+      r'//[^\n]*|/\*.*?\*/|"(?:\\.|[^"\\\n])*"|\'(?:\\.|[^\'\\\n])\'',
+      re.S)
+  #  What opens or closes a namespace or another pair of curly brackets,
+  #  and what takes a namespace in: 'namespace QV4::Compiler {', '{',
+  #  '}' and 'using namespace QV4;'. A namespace without a name, as
+  #  'namespace {', is a pair of curly brackets like any other.
+  __scope_mark__ = re.compile(
+      r'\b(?:inline\s+)?namespace\s+'
+      r'([A-Za-z_]\w*(?:\s*::\s*[A-Za-z_]\w*)*)\s*\{'
+      r'|\busing\s+namespace\s+(?:::\s*)?'
+      r'([A-Za-z_]\w*(?:\s*::\s*[A-Za-z_]\w*)*)\s*;'
+      r'|[{}]')
 
   #  Private Variables
   __source_folder__ = None  # type: Optional[str]
@@ -286,11 +319,12 @@ class SourceReader:
     named = [one for one in taken if one and one != '...']
     extra = given[len(named):]
     for word, value in zip(named, given):
-      text = re.sub(r'#\s*%s\b' % re.escape(word), '""', text)
+      #  '#X' alone: the '#' of 'A ## X' joins, and makes no string.
+      text = re.sub(r'(?<!#)#(?!#)\s*%s\b' % re.escape(word), '""', text)
       text = re.sub(r'\b%s\b' % re.escape(word),
                     lambda _, value=value: value, text)
     if taken and taken[-1] == '...':
-      text = re.sub(r'#\s*__VA_ARGS__\b', '""', text)
+      text = re.sub(r'(?<!#)#(?!#)\s*__VA_ARGS__\b', '""', text)
       text = text.replace('__VA_ARGS__', ', '.join(extra))
     return re.sub(r'\s*##\s*', '', text)
 
@@ -349,7 +383,13 @@ class SourceReader:
     for name, forms in self._readShorthands(text).items():
       known.setdefault(name, []).extend(forms)
     written = self._writeOut(self.__comment__.sub(' ', text), known)
-    found = set(self.__named_code__.findall(text))
+    #  A name in the file as each namespace around it would give it;
+    #  see 'qualifyName'. What the shorthands stand for stands nowhere.
+    scopes = self.findScopes(text)
+    found = set()  # type: Set[str]
+    for match in self.__named_code__.finditer(text):
+      found.update(self.qualifyName(
+          ''.join(match.group(1).split()), scopes, match.start(1)))
     found.update(self.__named_code__.findall(written))
     return {''.join(one.split()) for one in found}
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -371,6 +411,106 @@ class SourceReader:
     if last and last != 'void':
       found.append(last)
     return found
+
+  @classmethod
+  def findScopes(cls, text: str) -> Scopes:
+    """
+    Gives the namespaces of a file of code, and the namespaces it takes
+    in with 'using namespace', each with the stretch of the text it
+    holds for, so that 'qualifyName' can say what a name written at a
+    place of the file stands for.
+
+    Read from the curly brackets alone, those in comments, texts and
+    letters passed over. A namespace written in two steps at once, as
+    'namespace QV4::Compiler {', is one stretch named 'QV4::Compiler'.
+    A namespace without a name, as 'namespace {', adds nothing to a
+    name. A 'using namespace' line holds to the end of the namespace or
+    the curly brackets it stands in.
+
+    Parameters
+    ----------
+
+    text : str
+      The whole file, as it is written.
+
+    Returns
+    -------
+
+    Scopes
+      The namespaces, each as its start, its end and its full name, as
+      (1200, 98000, 'Qt3DRender::Render'); then the namespaces taken
+      in, each as its start, its end and its name, as
+      (300, 98000, 'QV4').
+    """
+    blank = cls.__no_code__.sub(
+        lambda found: re.sub(r'[^\n]', ' ', found.group(0)), text)
+    #  Each open pair of curly brackets: the name of the namespace it
+    #  opens, '' for any other, and where its inside starts.
+    opened = []  # type: List[Tuple[str, int]]
+    spaces = []  # type: List[Tuple[int, int, str]]
+    used = []  # type: List[List[Any]]
+    for mark in cls.__scope_mark__.finditer(blank):
+      named, taken = mark.group(1), mark.group(2)
+      if named is not None:
+        opened.append((''.join(named.split()), mark.end()))
+      elif taken is not None:
+        used.append([mark.start(), len(blank), ''.join(taken.split()),
+                     len(opened)])
+      elif mark.group(0) == '{':
+        opened.append(('', mark.end()))
+      elif opened:
+        depth = len(opened)
+        name, start = opened.pop()
+        if name:
+          path = [one for one, _ in opened if one]
+          spaces.append((start, mark.start(), '::'.join([*path, name])))
+        for entry in used:
+          if entry[3] >= depth and entry[1] == len(blank):
+            entry[1] = mark.start()
+    while opened:
+      name, start = opened.pop()
+      if name:
+        path = [one for one, _ in opened if one]
+        spaces.append((start, len(blank), '::'.join([*path, name])))
+    taken = [(start, end, name) for start, end, name, _ in used]
+    return spaces, taken
+
+  @staticmethod
+  def qualifyName(name: str, scopes: Scopes, place: int) -> List[str]:
+    """
+    Gives the full names a name written at a place of a file may stand
+    for: the name as written, then with each namespace around the place
+    in front, the innermost first, as C++ looks a name up, then with
+    each namespace taken in before the place in front.
+
+    'QNode::id' written inside 'namespace Qt3DCore {' gives
+    ['QNode::id', 'Qt3DCore::QNode::id'].
+
+    Parameters
+    ----------
+
+    name : str
+      The name as written, as 'QNode::id'.
+
+    scopes : Scopes
+      What 'findScopes' gave for the file.
+
+    place : int
+      Where in the text of the file the name is written.
+    """
+    spaces, taken = scopes
+    found = [name]
+    inner = ''
+    for start, end, path in spaces:
+      if start <= place < end and len(path) > len(inner):
+        inner = path
+    parts = inner.split('::') if inner else []
+    for count in range(len(parts), 0, -1):
+      found.append('%s::%s' % ('::'.join(parts[:count]), name))
+    for start, end, path in taken:
+      if start <= place < end:
+        found.append('%s::%s' % (path, name))
+    return [*dict.fromkeys(found)]
 
   def _findIncludes(self, lines: List[str]) -> Tuple[str, ...]:
     """
@@ -440,60 +580,356 @@ class SourceReader:
       raise ValueError(' '.join((infoSpec % ' | '.join(kept)).split()))
     return (*kept,)
 
+  @classmethod
+  def _blankOut(cls, text: str) -> str:
+    """
+    Gives a text of code with its comments, texts, letters and lines
+    for the preprocessor made blanks, each of their letters a space and
+    each of their line breaks kept. Every place of it is the same place
+    of the text, and every bracket left in it is one of the code.
+    """
+    def blank(found: Any) -> str:
+      return re.sub(r'[^\n]', ' ', found.group(0))
+    text = cls.__no_code__.sub(blank, text)
+    return cls.__preprocessor_line__.sub(blank, text)
+
+  @classmethod
+  def _keepFirstBranches(cls, text: str, code: str) -> str:
+    """
+    Gives 'code', the text made blanks by '_blankOut', with the lines of
+    every branch of an '#if' but the first made blanks as well: those
+    after an '#elif' or an '#else', up to its '#endif'. Qt may open a
+    bracket in each branch, as 'if (format == GL_BGRA) {' and 'if
+    (format == GL_BGRA8_EXT) {' in 'texturehelper.cpp', of which the
+    compiler sees one; counted in both, the code would never close.
+    Only where a body ends is read from it: a definition standing in a
+    later branch is still found in 'code'.
+    """
+    lines = text.split('\n')
+    asked = re.compile(r'[ \t]*#[ \t]*(if|ifdef|ifndef|elif|else|endif)\b')
+    plain = cls.__no_code__.sub(
+        lambda found: re.sub(r'[^\n]', ' ', found.group(0)), text)
+    skipping = []  # type: List[bool]
+    kept = list(code)
+    place = 0
+    for line, seen in zip(lines, plain.split('\n')):
+      word = asked.match(seen)
+      if word is not None:
+        if word.group(1).startswith('if'):
+          skipping.append(False)
+        elif word.group(1) == 'endif':
+          if skipping:
+            skipping.pop()
+        elif skipping:
+          skipping[-1] = True
+      elif any(skipping):
+        for index in range(place, place + len(line)):
+          kept[index] = ' '
+      place += len(line) + 1
+    return ''.join(kept)
+
+  @staticmethod
+  def _skipBalanced(code: str, opened: int) -> int:
+    """Gives the place just after the bracket that closes the one at
+    'opened', counting '(', '[' and '{' alike, in code made blanks of
+    comments and texts; the end of the code where none does."""
+    depth = 0
+    for index in range(opened, len(code)):
+      letter = code[index]
+      if letter in '([{':
+        depth += 1
+      elif letter in ')]}':
+        depth -= 1
+        if not depth:
+          return index + 1
+    return len(code)
+
+  @classmethod
+  def _findBody(
+      cls,
+      code: str,
+      after: int,
+      kept: Optional[str] = None,
+  ) -> Optional[Tuple[str, int]]:
+    """
+    Says how a function is defined after the ')' that closes what it
+    takes, which stands just before 'after': 'body', with the place
+    just after the '}' closing its code, or 'default', with the place
+    just after the ';' of its '= default;'. None where what follows
+    makes no definition, as the ';' of a call or of a declaration.
+
+    Between the ')' and the code may stand: words, each with what it
+    takes in brackets, as 'const', 'noexcept(false)', 'override' or
+    Qt's 'Q_DECL_NOTHROW'; '&' and '&&'; attributes in '[[ ]]'; the
+    type given back after '->'; and, for a constructor, ':' and the
+    bases and members it makes, each with what it hands them in '( )'
+    or '{ }'. The '{' of the code may stand anywhere: on the line of
+    the name, alone on a line, or with the code on one line.
+    """
+    size = len(code)
+
+    def skipBlanks(index: int) -> int:
+      while index < size and code[index].isspace():
+        index += 1
+      return index
+
+    index = skipBlanks(after)
+    while index < size:
+      if code.startswith('[[', index):
+        index = skipBlanks(cls._skipBalanced(code, index))
+      elif code.startswith('&&', index):
+        index = skipBlanks(index + 2)
+      elif code[index] == '&':
+        index = skipBlanks(index + 1)
+      elif code.startswith('->', index):
+        index += 2
+        while index < size and code[index] not in '{;=':
+          if code[index] in '([':
+            index = cls._skipBalanced(code, index)
+          else:
+            index += 1
+      else:
+        word = cls.__plain_word__.match(code, index)
+        if word is None:
+          break
+        index = skipBlanks(word.end())
+        if index < size and code[index] == '(':
+          index = skipBlanks(cls._skipBalanced(code, index))
+    if index >= size:
+      return None
+    if code[index] == '=':
+      found = re.compile(r'=\s*default\s*;').match(code, index)
+      return None if found is None else ('default', found.end())
+    if code[index] == ':' and not code.startswith('::', index):
+      index += 1
+      while True:
+        index = skipBlanks(index)
+        made = cls.__made_name__.match(code, index)
+        if made is None:
+          return None
+        index = skipBlanks(made.end())
+        if index < size and code[index] == '<':
+          #  The template arguments of a base, as 'QList<int>(...)'.
+          depth = 0
+          while index < size:
+            if code[index] == '<':
+              depth += 1
+            elif code[index] == '>':
+              depth -= 1
+              if not depth:
+                index += 1
+                break
+            elif code[index] in ';{':
+              return None
+            index += 1
+          index = skipBlanks(index)
+        if index >= size or code[index] not in '({':
+          return None
+        index = skipBlanks(cls._skipBalanced(code, index))
+        if code.startswith('...', index):
+          index = skipBlanks(index + 3)
+        if index < size and code[index] == ',':
+          index += 1
+          continue
+        break
+    if index < size and code[index] == '{':
+      #  Where the code ends is counted in the first branch of every
+      #  '#if', 'kept', when the '{' stands in one.
+      if kept is not None and kept[index] == '{':
+        return 'body', cls._skipBalanced(kept, index)
+      return 'body', cls._skipBalanced(code, index)
+    return None
+
+  @classmethod
+  def _isWordsInFront(cls, text: str) -> bool:
+    """Says whether a text may stand in front of the name of a defined
+    function: the type it gives and words such as 'static', 'inline' or
+    Qt's 'Q_NEVER_INLINE', and nothing that only an expression or a
+    statement holds, as the '= ' of an assignment or a 'return'."""
+    text = re.sub(r'\[\[.*?\]\]', ' ', text)
+    while True:
+      shorter = re.sub(r'<[^<>]*>', ' ', text)
+      if shorter == text:
+        break
+      text = shorter
+    if cls.__no_words_in_front__.search(text):
+      return False
+    return not re.search(r'(?<!:):(?!:)', text)
+
+  @classmethod
+  def _findHeadStart(cls, code: str, place: int) -> Optional[int]:
+    """
+    Gives where a definition whose name stands at 'place' begins: with
+    the type it gives and the words in front of it, on the line of the
+    name and on the lines right above, as Qt writes 'QString' alone on
+    the line above 'QLocale::name() const'. A blank line, or a line
+    that holds more than such words, ends what belongs to it. None
+    where the text in front of the name on its own line is more than
+    such words: the name is then in an expression, as in 'x = f()'.
+    """
+    lineStart = code.rfind('\n', 0, place) + 1
+    #  Code on one line, as a shorthand writes it, ends a statement or a
+    #  body before the name: the words in front start after that.
+    ended = max(code.rfind(one, lineStart, place) for one in ';{}')
+    prefix = code[max(lineStart, ended + 1):place]
+    if not cls._isWordsInFront(prefix):
+      return None
+    start = place - len(prefix.lstrip())
+    if ended >= lineStart:
+      return start
+    while lineStart > 0:
+      aboveEnd = lineStart - 1
+      aboveStart = code.rfind('\n', 0, aboveEnd) + 1
+      above = code[aboveStart:aboveEnd]
+      if not above.strip() or not cls._isWordsInFront(above):
+        break
+      start = aboveStart + len(above) - len(above.lstrip())
+      lineStart = aboveStart
+    return start
+
+  @staticmethod
+  def _pairsConditions(text: str) -> bool:
+    """Says whether the '#if' lines of a text close inside it, and its
+    '#else' and '#elif' lines stand under an '#if' of its own."""
+    depth = 0
+    for line in text.split('\n'):
+      word = re.match(r'\s*#\s*(if|ifdef|ifndef|elif|else|endif)\b', line)
+      if word is None:
+        continue
+      if word.group(1).startswith('if'):
+        depth += 1
+      elif word.group(1) == 'endif':
+        depth -= 1
+        if depth < 0:
+          return False
+      elif not depth:
+        return False
+    return depth == 0
+
+  def _scanDefinitions(
+      self,
+      code: str,
+      text: str,
+      kept: Optional[str] = None,
+  ) -> List[Record]:
+    """
+    Gives every definition of a function with its class in front of
+    its name that a text of code holds, operators among them, however
+    the text is laid out: 'name', without blanks, as
+    'QSize::operator+='; 'place', where the name stands; 'start' and
+    'end', where the definition begins and ends; 'kind', 'body' or
+    'default'; and 'taken', what it takes as written. 'code' is the
+    text made blanks of comments and texts, see '_blankOut'; 'kept',
+    where given, the same with every branch of an '#if' but the first
+    made blanks as well, where the end of a body is counted; see
+    '_keepFirstBranches'.
+    """
+    found = []  # type: List[Record]
+    index = 0
+    while True:
+      match = self.__named_code__.search(code, index)
+      if match is None:
+        return found
+      opened = match.end() - 1
+      closes = self._skipBalanced(code, opened)
+      shape = self._findBody(code, closes, kept)
+      start = None if shape is None else self._findHeadStart(
+          code, match.start(1))
+      if shape is None or start is None:
+        index = match.end()
+        continue
+      kind, end = shape
+      if not self._pairsConditions(text[start:end]):
+        #  A definition across an '#if' of the file, as one standing in
+        #  each branch of an '#if' and '#else', is no whole of its own.
+        index = match.end()
+        continue
+      found.append(dict(
+          name=''.join(match.group(1).split()), place=match.start(1),
+          start=start, end=end, kind=kind,
+          taken=text[opened + 1:closes - 1],
+          const=bool(re.match(r'\s*const\b', code[closes:closes + 40])),
+      ))
+      #  What stands inside the code is no definition of its own.
+      index = end
+
+  def _writeOutEach(
+      self,
+      code: str,
+      shorthands: Shorthands,
+  ) -> List[Tuple[int, str]]:
+    """Gives, for each use of a shorthand in code made blanks of its
+    comments, texts and lines for the preprocessor, where the use
+    stands and what it stands for, with every shorthand used inside
+    that written out as well; see '_writeOut'."""
+    out = []  # type: List[Tuple[int, str]]
+    for match in self.__called_name__.finditer(code):
+      name = match.group(1)
+      if name not in shorthands:
+        continue
+      given, _ = self._cutCall(code, match.end() - 1)
+      for taken, body in shorthands[name]:
+        if not self._fits(taken, given):
+          continue
+        made = self._fillIn(taken, body, given)
+        inner = dict(shorthands)
+        inner.pop(name)
+        out.append((match.start(1), '\n'.join(
+            (made, self._writeOut(made, inner)))))
+    return out
+
   def _readFile(self, path: str) -> List[Record]:
-    """Gives every definition one '.cpp' file holds that is written
-    the way Qt writes one."""
+    """
+    Gives every definition one '.cpp' file holds of a function with its
+    class in front of its name, operators among them, however the code
+    is laid out, and every one that a shorthand used in the file writes,
+    as 'IMPLEMENT_ACCESSORS(radioDelegate)' in 'qqstylekitcontrols.cpp'
+    writes 'QQStyleKitControls::set_radioDelegate'. One with '= default'
+    is one too: its text is then that line.
+    """
     with open(path, errors='replace') as file:
-      lines = file.read().split('\n')
+      text = file.read().replace('\r', '')
+    lines = text.split('\n')
     try:
       includes = self._findIncludes(lines)
     except ValueError as valueError:
       raise ValueError('%s: %s' % (path, valueError)) from valueError
-    found = []
-    for index, line in enumerate(lines):
-      match = self.__opening_line__.match(line)
-      if match is None or line.rstrip().endswith(';'):
-        continue
-      #  The body: from the line that is just '{' to the next line that
-      #  is just '}'. Before the '{' nothing may end a statement.
-      opens = index
-      while opens < len(lines) and lines[opens].rstrip() != '{':
-        if lines[opens].rstrip().endswith((';', '}')):
-          opens = len(lines)
-          break
-        opens += 1
-      if opens >= len(lines):
-        continue
-      closes = opens
-      while closes < len(lines) and lines[closes].rstrip() != '}':
-        closes += 1
-      if closes >= len(lines):
-        continue
-      #  What stands above the name and belongs to it: the type the
-      #  function gives, where Qt writes that on a line of its own.
-      first = index
-      while first > 0:
-        above = lines[first - 1].strip()
-        if not above or above.endswith((';', '}', '{', ':')):
-          break
-        if above.startswith(('#', '//', '/*', '*')) or above.endswith('*/'):
-          break
-        first -= 1
-      head = ' '.join(lines[index:opens])
-      inside = head[match.end():]
-      depth, end = 1, 0
-      for end, letter in enumerate(inside):
-        depth += 1 if letter == '(' else -1 if letter == ')' else 0
-        if depth == 0:
-          break
-      after = inside[end + 1:]
-      found.append(dict(
-          name=match.group(1), path=path, line=first + 1,
-          arguments=self._splitArguments(inside[:end]),
-          const=True if re.match(r'\s*const\b', after) else False,
-          text='\n'.join(lines[first:closes + 1]),
-          includes=(*includes,),
-      ))
+    scopes = self.findScopes(text)
+    code = self._blankOut(text)
+
+    def lineOf(place: int) -> int:
+      return text.count('\n', 0, place) + 1
+
+    def record(
+        scanned: Record, written: str, place: int, line: int) -> Record:
+      return dict(
+          name=scanned['name'], path=path, line=line,
+          names=(*self.qualifyName(scanned['name'], scopes, place),),
+          usings=(*(
+              one for start, end, one in scopes[1]
+              if start <= place < end),),
+          arguments=self._splitArguments(scanned['taken']),
+          const=scanned['const'], kind=scanned['kind'],
+          text=written, includes=(*includes,),
+      )
+
+    found = []  # type: List[Record]
+    kept = self._keepFirstBranches(text, code)
+    for scanned in self._scanDefinitions(code, text, kept):
+      found.append(record(
+          scanned, text[scanned['start']:scanned['end']],
+          scanned['place'], lineOf(scanned['start'])))
+    known = dict()  # type: Shorthands
+    for name, forms in self._getHeaderShorthands().items():
+      known[name] = [*forms]
+    for name, forms in self._readShorthands(text).items():
+      known.setdefault(name, []).extend(forms)
+    for place, made in self._writeOutEach(code, known):
+      madeCode = self._blankOut(made)
+      for scanned in self._scanDefinitions(madeCode, made):
+        found.append(record(
+            scanned, made[scanned['start']:scanned['end']], place,
+            lineOf(place)))
     return found
 
   def _createDefinitions(self, partName: str) -> None:
@@ -501,7 +937,9 @@ class SourceReader:
     byName = dict()  # type: Dict[str, List[Record]]
     for path in self.getSourceFiles(partName):
       for definition in self._readFile(path):
-        byName.setdefault(definition['name'], []).append(definition)
+        #  Under every full name it may stand for; see 'qualifyName'.
+        for name in definition['names']:
+          byName.setdefault(name, []).append(definition)
     if self.__found_definitions__ is None:
       self.__found_definitions__ = dict()
     self.__found_definitions__[partName] = byName
@@ -535,6 +973,9 @@ class SourceReader:
     found = self.__found_definitions__
     if found is None or partName not in found:
       self._createDefinitions(partName)
+    #  Kept without blanks, as 'QFoo::operatorQString' for the name the
+    #  compiler gives as 'QFoo::operator QString'.
+    name = ''.join(name.split())
     return [*self.__found_definitions__[partName].get(name, ())]
 
   @staticmethod

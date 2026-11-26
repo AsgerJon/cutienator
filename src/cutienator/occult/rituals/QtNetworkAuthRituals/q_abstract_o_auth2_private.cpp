@@ -7,14 +7,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetworkAuth/6.12.0/QtNetworkAuth/private/qabstractoauth2_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qurl.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qstring.h>
+#include <QtNetwork/qnetworkrequest.h>
 #include <QtCore/qvariant.h>
-#include <QtCore/qurl.h>
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QSet>
+#include <QtCore/QByteArray>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetworkAuth/qabstractoauth.h>
 #include <QtNetworkAuth/qabstractoauthreplyhandler.h>
@@ -52,6 +55,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 297, as _ZN21QAbstractOAuthPrivate26generateRandomBase64StringEh
 inline QByteArray QAbstractOAuthPrivate::generateRandomBase64String(quint8 length)
 {
@@ -76,6 +81,39 @@ inline QByteArray QAbstractOAuthPrivate::generateRandomBase64String(quint8 lengt
     return ba;
 }
 
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 264, as _ZN21QAbstractOAuthPrivateC2EPKcRK4QUrlRK7QStringP21QNetworkAccessManager
+inline QAbstractOAuthPrivate::QAbstractOAuthPrivate(const char *loggingCategory,
+                                             const QUrl &authorizationUrl,
+                                             const QString &clientIdentifier,
+                                             QNetworkAccessManager *manager) :
+    loggingCategory(loggingCategory),
+    clientIdentifier(clientIdentifier),
+    authorizationUrl(authorizationUrl),
+    defaultReplyHandler(new QOAuthOobReplyHandler),
+    networkAccessManagerPointer(manager)
+{}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 275, as _ZN21QAbstractOAuthPrivateD2Ev
+inline QAbstractOAuthPrivate::~QAbstractOAuthPrivate()
+{}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 349, as _ZN21QAbstractOAuthPrivate21addContentTypeHeadersEP15QNetworkRequest
+inline void QAbstractOAuthPrivate::addContentTypeHeaders(QNetworkRequest *request)
+{
+    Q_ASSERT(request);
+
+    switch (contentType) {
+    case QAbstractOAuth::ContentType::WwwFormUrlEncoded:
+        request->setHeader(QNetworkRequest::ContentTypeHeader,
+                           QStringLiteral("application/x-www-form-urlencoded"));
+        break;
+    case QAbstractOAuth::ContentType::Json:
+        request->setHeader(QNetworkRequest::ContentTypeHeader,
+                           QStringLiteral("application/json"));
+        break;
+    }
+}
+
 //  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 286, as _ZN21QAbstractOAuthPrivate9setStatusEN14QAbstractOAuth6StatusE
 inline void QAbstractOAuthPrivate::setStatus(QAbstractOAuth::Status newStatus)
 {
@@ -88,6 +126,16 @@ inline void QAbstractOAuthPrivate::setStatus(QAbstractOAuth::Status newStatus)
     }
 }
 
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 320, as _ZN21QAbstractOAuthPrivate14setExtraTokensERK4QMapI7QString8QVariantE
+inline void QAbstractOAuthPrivate::setExtraTokens(const QVariantMap &tokens)
+{
+    if (extraTokens == tokens)
+        return;
+    Q_Q(QAbstractOAuth);
+    extraTokens = tokens;
+    emit q->extraTokensChanged(extraTokens);
+}
+
 //  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 365, as _ZN21QAbstractOAuthPrivate11createQueryERK9QMultiMapI7QString8QVariantE
 inline QUrlQuery QAbstractOAuthPrivate::createQuery(const QMultiMap<QString, QVariant> &parameters)
 {
@@ -97,21 +145,20 @@ inline QUrlQuery QAbstractOAuthPrivate::createQuery(const QMultiMap<QString, QVa
     return query;
 }
 
-//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 891, as _ZN22QAbstractOAuth2Private26callNetworkRequestModifierER15QNetworkRequestN14QAbstractOAuth5StageE
-inline void QAbstractOAuth2Private::callNetworkRequestModifier(QNetworkRequest &request,
-                                                       QAbstractOAuth::Stage stage)
-{
-    if (networkRequestModifier.contextObject && networkRequestModifier.slot) {
-        if (!verifyThreadAffinity(networkRequestModifier.contextObject)) {
-            Q_Q(QAbstractOAuth2);
-            q->clearNetworkRequestModifier();
-            return;
-        }
-        void *argv[] = { nullptr, &request, &stage};
-        networkRequestModifier.slot->call(
-            const_cast<QObject*>(networkRequestModifier.contextObject.get()), argv);
-    }
-}
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 444, as _ZN22QAbstractOAuth2PrivateC1ERKSt4pairI7QStringS1_ERK4QUrlP21QNetworkAccessManager
+inline QAbstractOAuth2Private::QAbstractOAuth2Private(const std::pair<QString, QString> &clientCredentials,
+                                               const QUrl &authorizationUrl,
+                                               QNetworkAccessManager *manager) :
+    QAbstractOAuthPrivate("qt.networkauth.oauth2",
+                          authorizationUrl,
+                          clientCredentials.first,
+                          manager),
+    clientIdentifierSharedKey(clientCredentials.second)
+{}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 454, as _ZN22QAbstractOAuth2PrivateD1Ev
+inline QAbstractOAuth2Private::~QAbstractOAuth2Private()
+{}
 
 //  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 457, as _ZN22QAbstractOAuth2Private12setExpiresAtERK9QDateTime
 inline void QAbstractOAuth2Private::setExpiresAt(const QDateTime &expiration)
@@ -122,6 +169,29 @@ inline void QAbstractOAuth2Private::setExpiresAt(const QDateTime &expiration)
     Q_Q(QAbstractOAuth2);
     expiresAtUtc = expiration;
     emit q->expirationAtChanged(expiresAtUtc.toLocalTime());
+}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 467, as _ZN22QAbstractOAuth2Private21setGrantedScopeTokensERK4QSetI10QByteArrayE
+inline void QAbstractOAuth2Private::setGrantedScopeTokens(const QSet<QByteArray> &tokens)
+{
+    if (tokens == grantedScopeTokens)
+        return;
+    Q_Q(QAbstractOAuth2);
+    grantedScopeTokens = tokens;
+    Q_EMIT q->grantedScopeTokensChanged(grantedScopeTokens);
+}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 476, as _ZN22QAbstractOAuth2Private11joinedScopeERK4QSetI10QByteArrayE
+inline QString QAbstractOAuth2Private::joinedScope(const QSet<QByteArray> &scopeTokens)
+{
+    QString result;
+    auto separator = ""_L1;
+    for (const auto &token : scopeTokens) {
+        result += separator;
+        result += QLatin1StringView{token};
+        separator = " "_L1;
+    }
+    return result;
 }
 
 //  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 571, as _ZN22QAbstractOAuth2Private19generateRandomStateEv
@@ -142,6 +212,27 @@ inline QString QAbstractOAuth2Private::generateNonce()
     // generating a 32-character base64 URL string provides
     // ~192 bits of entropy (32 characters * 6 bits per character).
     return QString::fromLatin1(QAbstractOAuthPrivate::generateRandomBase64String(32));
+}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 589, as _ZN22QAbstractOAuth2Private13createRequestE4QUrlPK4QMapI7QString8QVariantE
+inline QNetworkRequest QAbstractOAuth2Private::createRequest(QUrl url, const QVariantMap *parameters)
+{
+    QUrlQuery query(url.query());
+
+    QNetworkRequest request;
+    if (parameters) {
+        for (auto it = parameters->begin(), end = parameters->end(); it != end; ++it)
+            query.addQueryItem(it.key(), it.value().toString());
+        url.setQuery(query);
+    } else { // POST, PUT request
+        addContentTypeHeaders(&request);
+    }
+
+    request.setUrl(url);
+    request.setHeader(QNetworkRequest::UserAgentHeader, userAgent);
+    const QString bearer = bearerFormat.arg(token);
+    request.setRawHeader("Authorization", bearer.toUtf8());
+    return request;
 }
 
 //  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 669, as _ZNK22QAbstractOAuth2Private31authorizationShouldIncludeNonceEv
@@ -262,6 +353,22 @@ inline void QAbstractOAuth2Private::logTokenStageWarning(QLatin1StringView messa
     qCWarning(loggingCategory, base, message.latin1());
 }
 
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 891, as _ZN22QAbstractOAuth2Private26callNetworkRequestModifierER15QNetworkRequestN14QAbstractOAuth5StageE
+inline void QAbstractOAuth2Private::callNetworkRequestModifier(QNetworkRequest &request,
+                                                       QAbstractOAuth::Stage stage)
+{
+    if (networkRequestModifier.contextObject && networkRequestModifier.slot) {
+        if (!verifyThreadAffinity(networkRequestModifier.contextObject)) {
+            Q_Q(QAbstractOAuth2);
+            q->clearNetworkRequestModifier();
+            return;
+        }
+        void *argv[] = { nullptr, &request, &stage};
+        networkRequestModifier.slot->call(
+            const_cast<QObject*>(networkRequestModifier.contextObject.get()), argv);
+    }
+}
+
 //  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 881, as _ZN22QAbstractOAuth2Private20verifyThreadAffinityEPK7QObject
 inline bool QAbstractOAuth2Private::verifyThreadAffinity(const QObject *contextObject)
 {
@@ -288,12 +395,49 @@ const QAbstractOAuth2 *ritual_ZNK22QAbstractOAuth2Private6q_funcEv(
   return self->q_func();
 }
 
+//  QAbstractOAuth2Private::QAbstractOAuth2Private(const std::pair<QString,
+//      QString> &clientCredentials, const QUrl &authorizationUrl,
+//      QNetworkAccessManager *manager)
+extern "C" Q_DECL_EXPORT
+QAbstractOAuth2Private *ritual_ZN22QAbstractOAuth2PrivateC1ERKSt4pairI7QStringS1_ERK4QUrlP21QNetworkAccessManager(
+    const std::pair<QString, QString> *clientCredentials,
+    const QUrl *authorizationUrl,
+    QNetworkAccessManager *manager) {
+  return new QAbstractOAuth2Private(
+      *clientCredentials,
+      *authorizationUrl,
+      manager);
+}
+
+//  QAbstractOAuth2Private::~QAbstractOAuth2Private()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QAbstractOAuth2PrivateD1Ev(QAbstractOAuth2Private *self) {
+  delete self;
+}
+
 //  void QAbstractOAuth2Private::setExpiresAt(const QDateTime &expiration)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QAbstractOAuth2Private12setExpiresAtERK9QDateTime(
     QAbstractOAuth2Private *self,
     const QDateTime *expiration) {
   self->setExpiresAt(*expiration);
+}
+
+//  void QAbstractOAuth2Private::setGrantedScopeTokens(const QSet<QByteArray>
+//      &tokens)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QAbstractOAuth2Private21setGrantedScopeTokensERK4QSetI10QByteArrayE(
+    QAbstractOAuth2Private *self,
+    const QSet<QByteArray> *tokens) {
+  self->setGrantedScopeTokens(*tokens);
+}
+
+//  QString QAbstractOAuth2Private::joinedScope(const QSet<QByteArray>
+//      &scopeTokens)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN22QAbstractOAuth2Private11joinedScopeERK4QSetI10QByteArrayE(
+    const QSet<QByteArray> *scopeTokens) {
+  return new QString(QAbstractOAuth2Private::joinedScope(*scopeTokens));
 }
 
 //  QString QAbstractOAuth2Private::generateRandomState()
@@ -306,6 +450,16 @@ QString *ritual_ZN22QAbstractOAuth2Private19generateRandomStateEv() {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QAbstractOAuth2Private13generateNonceEv() {
   return new QString(QAbstractOAuth2Private::generateNonce());
+}
+
+//  QNetworkRequest QAbstractOAuth2Private::createRequest(QUrl url, const
+//      QVariantMap *parameters)
+extern "C" Q_DECL_EXPORT
+QNetworkRequest *ritual_ZN22QAbstractOAuth2Private13createRequestE4QUrlPK4QMapI7QString8QVariantE(
+    QAbstractOAuth2Private *self,
+    const QUrl *url,
+    const QVariantMap *parameters) {
+  return new QNetworkRequest(self->createRequest(*url, parameters));
 }
 
 //  bool QAbstractOAuth2Private::authorizationShouldIncludeNonce() const
@@ -383,6 +537,16 @@ void ritual_ZN22QAbstractOAuth2Private20logTokenStageWarningE13QLatin1String(
   self->logTokenStageWarning(*message);
 }
 
+//  void QAbstractOAuth2Private::callNetworkRequestModifier(QNetworkRequest
+//      &request, QAbstractOAuth::Stage stage)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QAbstractOAuth2Private26callNetworkRequestModifierER15QNetworkRequestN14QAbstractOAuth5StageE(
+    QAbstractOAuth2Private *self,
+    QNetworkRequest *request,
+    QAbstractOAuth::Stage stage) {
+  self->callNetworkRequestModifier(*request, stage);
+}
+
 //  bool QAbstractOAuth2Private::verifyThreadAffinity(const QObject
 //      *contextObject)
 extern "C" Q_DECL_EXPORT
@@ -390,4 +554,11 @@ bool ritual_ZN22QAbstractOAuth2Private20verifyThreadAffinityEPK7QObject(
     QAbstractOAuth2Private *self,
     const QObject *contextObject) {
   return self->verifyThreadAffinity(contextObject);
+}
+
+//  a QSet<QByteArray> a ritual of QAbstractOAuth2Private gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractOAuth2Private__QSet_QByteArray(
+    QSet<QByteArray> *self) {
+  delete self;
 }

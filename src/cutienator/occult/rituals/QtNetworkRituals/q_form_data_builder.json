@@ -6,9 +6,22 @@
   ],
   "rows": {
     "ritual_ZN16QFormDataBuilderC1Ev": ["address"],
+    "ritual_ZN16QFormDataBuilderC1EOS_": ["address", "address"],
+    "ritual_ZN16QFormDataBuilderaSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QFormDataBuilder4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QFormDataBuilderD1Ev": ["nothing", "address"],
     "ritual_ZN16QFormDataBuilder4partE14QAnyStringView": [
       "address", "address", "text"
+    ],
+    "ritual_ZN16QFormDataBuilder14buildMultiPartE6QFlagsINS_6OptionEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QFormDataBuilder6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QFormDataBuilder6d_funcEv": ["address", "address"],
+    "ritual_drop_QFormDataBuilder__std_unique_ptr_QHttpMultiPart": [
+      "nothing", "address"
     ]
   }
 }

@@ -11,6 +11,35 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QGraphicsItemPaintInfo::QGraphicsItemPaintInfo(const QTransform *const
+//      xform1, const QTransform *const xform2, const QTransform *const
+//      xform3, QRegion *r, QWidget *w, QStyleOptionGraphicsItem *opt,
+//      QPainter *p, qreal o, bool b1, bool b2)
+extern "C" Q_DECL_EXPORT
+QGraphicsItemPaintInfo *ritual_ZN22QGraphicsItemPaintInfoC1EPK10QTransformS2_S2_P7QRegionP7QWidgetP24QStyleOptionGraphicsItemP8QPainterdbb(
+    const QTransform *const xform1,
+    const QTransform *const xform2,
+    const QTransform *const xform3,
+    QRegion *r,
+    QWidget *w,
+    QStyleOptionGraphicsItem *opt,
+    QPainter *p,
+    qreal o,
+    bool b1,
+    bool b2) {
+  return new QGraphicsItemPaintInfo(
+      xform1,
+      xform2,
+      xform3,
+      r,
+      w,
+      opt,
+      p,
+      o,
+      b1,
+      b2);
+}
+
 //  QGraphicsItemPaintInfo::~QGraphicsItemPaintInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QGraphicsItemPaintInfoD1Ev(QGraphicsItemPaintInfo *self) {

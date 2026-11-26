@@ -27,7 +27,7 @@ typedef const QSize * (*CuteQLottieImageCall6)(const void *, int *);
 class CuteQLottieImage : public QLottieImage {
 public:
   using QLottieImage::QLottieImage;
-  CuteQLottieImage(const QLottieImage &other) : QLottieImage(other) {}
+  CuteQLottieImage(const QLottieImage & other) : QLottieImage(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
@@ -167,6 +167,14 @@ int ritual_ZN12QLottieImage9constructERK11QJsonObject(
     QLottieImage *self,
     const QJsonObject *definition) {
   return self->construct(*definition);
+}
+
+//  void QLottieImage::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QLottieImage6renderER15QLottieRenderer(
+    const QLottieImage *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
 }
 
 //  QUrl QLottieImage::url() const

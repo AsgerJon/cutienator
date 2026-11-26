@@ -8,6 +8,12 @@
     "ritual_ZNK26QQuick3DParticleModelShape10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuick3DParticleModelShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQuick3DParticleModelShape2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,12 @@
     ],
     "ritual_ZN26QQuick3DParticleModelShape16getSurfaceNormalEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape11fillChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape15delegateChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN26QQuick3DParticleModelShape19randomPositionModelEi": [
       "address", "address", "int"

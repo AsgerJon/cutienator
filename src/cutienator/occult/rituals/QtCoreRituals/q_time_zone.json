@@ -4,13 +4,24 @@
     "QtCore/qtimezone.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9QTimeZoneC1ENS_9ShortDataE": ["address", "address"],
     "ritual_ZN9QTimeZoneC1Ev": ["address"],
     "ritual_ZN9QTimeZoneC1ENS_14InitializationE": ["address", "int"],
     "ritual_ZN9QTimeZoneC1Ei": ["address", "int"],
     "ritual_ZN9QTimeZoneC1ERK10QByteArray": ["address", "address"],
+    "ritual_ZN9QTimeZoneC1ERK10QByteArrayiRK7QStringS5_N7QLocale7CountryES5_": [
+      "address", "address", "int", "text", "text", "address", "text"
+    ],
     "ritual_ZN9QTimeZoneC1ERKS_": ["address", "address"],
+    "ritual_ZN9QTimeZoneC1EOS_": ["address", "address"],
     "ritual_ZN9QTimeZoneD1Ev": ["nothing", "address"],
+    "ritual_ZN9QTimeZoneaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QTimeZoneaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QTimeZone4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QTimeZone7isValidEv": ["bool", "address"],
+    "ritual_ZN9QTimeZone22fromDurationAheadOfUtcENSt6chrono8durationIlSt5ratioILl1ELl1EEEE": [
+      "address", "long long"
+    ],
     "ritual_ZN9QTimeZone21fromSecondsAheadOfUtcEi": ["address", "int"],
     "ritual_ZNK9QTimeZone8timeSpecEv": ["int", "address"],
     "ritual_ZNK9QTimeZone22fixedSecondsAheadOfUtcEv": ["int", "address"],
@@ -23,6 +34,7 @@
       "bool", "address", "address"
     ],
     "ritual_ZNK9QTimeZone2idEv": ["address", "address"],
+    "ritual_ZNK9QTimeZone9territoryEv": ["address", "address"],
     "ritual_ZNK9QTimeZone7countryEv": ["unsigned short", "address"],
     "ritual_ZNK9QTimeZone7commentEv": ["text", "address"],
     "ritual_ZNK9QTimeZone11displayNameERK9QDateTimeNS_8NameTypeERK7QLocale": [
@@ -57,6 +69,9 @@
     "ritual_ZNK9QTimeZone18previousTransitionERK9QDateTime": [
       "address", "address", "address"
     ],
+    "ritual_ZNK9QTimeZone11transitionsERK9QDateTimeS2_": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN9QTimeZone16systemTimeZoneIdEv": ["address"],
     "ritual_ZN9QTimeZone14systemTimeZoneEv": ["address"],
     "ritual_ZN9QTimeZone3utcEv": ["address"],
@@ -64,6 +79,9 @@
       "bool", "address"
     ],
     "ritual_ZN9QTimeZone20availableTimeZoneIdsEv": ["address"],
+    "ritual_ZN9QTimeZone20availableTimeZoneIdsEN7QLocale7CountryE": [
+      "address", "address"
+    ],
     "ritual_ZN9QTimeZone20availableTimeZoneIdsEi": ["address", "int"],
     "ritual_ZN9QTimeZone17ianaIdToWindowsIdERK10QByteArray": [
       "address", "address"
@@ -71,11 +89,23 @@
     "ritual_ZN9QTimeZone24windowsIdToDefaultIanaIdERK10QByteArray": [
       "address", "address"
     ],
+    "ritual_ZN9QTimeZone24windowsIdToDefaultIanaIdERK10QByteArrayN7QLocale7CountryE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QTimeZone18windowsIdToIanaIdsERK10QByteArray": [
       "address", "address"
     ],
+    "ritual_ZN9QTimeZone18windowsIdToIanaIdsERK10QByteArrayN7QLocale7CountryE": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK9QTimeZoneS1_": ["bool", "address", "address"],
     "ritual_ZneRK9QTimeZoneS1_": ["bool", "address", "address"],
-    "ritual_Zls6QDebugRK9QTimeZone": ["address", "address", "address"]
+    "ritual_ZlsR11QDataStreamRK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK9QTimeZone": ["address", "address", "address"],
+    "ritual_ZN9QTimeZoneC1ER16QTimeZonePrivate": ["address", "address"],
+    "ritual_drop_QTimeZone__QLocale_Territory": ["nothing", "address"],
+    "ritual_drop_QTimeZone__QTimeZone_OffsetDataList": ["nothing", "address"]
   }
 }

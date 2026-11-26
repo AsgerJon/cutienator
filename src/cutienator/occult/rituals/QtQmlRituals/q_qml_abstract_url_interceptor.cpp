@@ -39,6 +39,12 @@ public:
   }
 };
 
+//  QQmlAbstractUrlInterceptor::QQmlAbstractUrlInterceptor()
+extern "C" Q_DECL_EXPORT
+QQmlAbstractUrlInterceptor *ritual_ZN26QQmlAbstractUrlInterceptorC1Ev() {
+  return new CuteQQmlAbstractUrlInterceptor();
+}
+
 //  QQmlAbstractUrlInterceptor::~QQmlAbstractUrlInterceptor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QQmlAbstractUrlInterceptorD1Ev(

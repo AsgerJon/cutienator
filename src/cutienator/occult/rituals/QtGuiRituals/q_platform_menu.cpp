@@ -18,6 +18,24 @@ const QMetaObject *ritual_ZNK13QPlatformMenu10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformMenu::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QPlatformMenu11qt_metacastEPKc(
+    QPlatformMenu *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformMenu::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QPlatformMenu11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformMenu *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformMenu::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QPlatformMenu2trEPKcS1_i(
@@ -180,6 +198,18 @@ extern "C" Q_DECL_EXPORT
 QPlatformMenu *ritual_ZNK13QPlatformMenu13createSubMenuEv(
     const QPlatformMenu *self) {
   return self->createSubMenu();
+}
+
+//  void QPlatformMenu::aboutToShow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPlatformMenu11aboutToShowEv(QPlatformMenu *self) {
+  self->aboutToShow();
+}
+
+//  void QPlatformMenu::aboutToHide()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QPlatformMenu11aboutToHideEv(QPlatformMenu *self) {
+  self->aboutToHide();
 }
 
 //  void QPlatformMenu::setTag(quintptr tag)

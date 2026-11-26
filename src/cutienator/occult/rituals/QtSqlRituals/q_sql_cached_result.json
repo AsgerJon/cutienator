@@ -10,6 +10,9 @@
     "ritual_ZN16QSqlCachedResult4initEi": ["nothing", "address", "int"],
     "ritual_ZN16QSqlCachedResult7cleanupEv": ["nothing", "address"],
     "ritual_ZN16QSqlCachedResult11clearValuesEv": ["nothing", "address"],
+    "ritual_ZN16QSqlCachedResult8gotoNextER5QListI8QVariantEi": [
+      "bool", "address", "address", "int"
+    ],
     "ritual_ZN16QSqlCachedResult4dataEi": ["address", "address", "int"],
     "ritual_ZN16QSqlCachedResult6isNullEi": ["bool", "address", "int"],
     "ritual_ZN16QSqlCachedResult5fetchEi": ["bool", "address", "int"],
@@ -18,6 +21,10 @@
     "ritual_ZN16QSqlCachedResult10fetchFirstEv": ["bool", "address"],
     "ritual_ZN16QSqlCachedResult9fetchLastEv": ["bool", "address"],
     "ritual_ZNK16QSqlCachedResult8colCountEv": ["int", "address"],
+    "ritual_ZN16QSqlCachedResult5cacheEv": ["address", "address"],
+    "ritual_ZN16QSqlCachedResult12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN16QSqlCachedResult19detachFromResultSetEv": [
       "nothing", "address"
     ],
@@ -32,6 +39,9 @@
     "ritual_own_ZN16QSqlCachedResult13fetchPreviousEv": ["bool", "address"],
     "ritual_own_ZN16QSqlCachedResult10fetchFirstEv": ["bool", "address"],
     "ritual_own_ZN16QSqlCachedResult9fetchLastEv": ["bool", "address"],
+    "ritual_own_ZN16QSqlCachedResult12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_own_ZN16QSqlCachedResult19detachFromResultSetEv": [
       "nothing", "address"
     ],

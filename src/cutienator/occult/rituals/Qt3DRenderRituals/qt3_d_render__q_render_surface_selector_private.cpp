@@ -54,12 +54,36 @@ public:
   }
 };
 
+//  Qt3DRender::QRenderSurfaceSelectorPrivate::QRenderSurfaceSelectorPrivate(
+//      )
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderSurfaceSelectorPrivate *ritual_ZN10Qt3DRender29QRenderSurfaceSelectorPrivateC1Ev() {
+  return new CuteQt3DRender_QRenderSurfaceSelectorPrivate();
+}
+
+//  Qt3DRender::QRenderSurfaceSelectorPrivate::~QRenderSurfaceSelectorPrivate
+//      ()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender29QRenderSurfaceSelectorPrivateD1Ev(
+    Qt3DRender::QRenderSurfaceSelectorPrivate *self) {
+  delete self;
+}
+
 //  QRenderSurfaceSelector
 //      *Qt3DRender::QRenderSurfaceSelectorPrivate::find(QObject *rootObject)
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QRenderSurfaceSelector *ritual_ZN10Qt3DRender29QRenderSurfaceSelectorPrivate4findEP7QObject(
     QObject *rootObject) {
   return Qt3DRender::QRenderSurfaceSelectorPrivate::find(rootObject);
+}
+
+//  void Qt3DRender::QRenderSurfaceSelectorPrivate::setExternalRenderTargetSi
+//      ze(const QSize &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender29QRenderSurfaceSelectorPrivate27setExternalRenderTargetSizeERK5QSize(
+    Qt3DRender::QRenderSurfaceSelectorPrivate *self,
+    const QSize *size) {
+  self->setExternalRenderTargetSize(*size);
 }
 
 //  QSize

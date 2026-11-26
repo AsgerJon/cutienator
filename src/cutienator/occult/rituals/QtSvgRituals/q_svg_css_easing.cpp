@@ -41,6 +41,14 @@ public:
   }
 };
 
+//  QSvgCssEasing::QSvgCssEasing(QSvgCssValues::EasingFunction
+//      easingFunction)
+extern "C" Q_DECL_EXPORT
+QSvgCssEasing *ritual_ZN13QSvgCssEasingC1EN13QSvgCssValues14EasingFunctionE(
+    QSvgCssValues::EasingFunction easingFunction) {
+  return new CuteQSvgCssEasing(easingFunction);
+}
+
 //  QSvgCssEasing::~QSvgCssEasing()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSvgCssEasingD1Ev(QSvgCssEasing *self) {

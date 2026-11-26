@@ -79,6 +79,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/accessible/qaccessiblewidgets.cpp, line 510, as _ZNK25QAccessibleCalendarWidget10childCountEv
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(calendarwidget)
@@ -119,6 +121,17 @@ inline QAccessibleInterface *QAccessibleCalendarWidget::child(int index) const
 #endif  // QT_CONFIG(calendarwidget)
 #endif  // QT_CONFIG(accessibility)
 
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 504, as _ZN25QAccessibleCalendarWidgetC1EP7QWidget
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(calendarwidget)
+inline QAccessibleCalendarWidget::QAccessibleCalendarWidget(QWidget *widget)
+    : QAccessibleWidgetV2(widget, QAccessible::Table)
+{
+    Q_ASSERT(qobject_cast<QCalendarWidget *>(widget));
+}
+#endif  // QT_CONFIG(calendarwidget)
+#endif  // QT_CONFIG(accessibility)
+
 //  from src/widgets/accessible/qaccessiblewidgets.cpp, line 535, as _ZNK25QAccessibleCalendarWidget14calendarWidgetEv
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(calendarwidget)
@@ -128,7 +141,46 @@ inline QCalendarWidget *QAccessibleCalendarWidget::calendarWidget() const
 }
 #endif  // QT_CONFIG(calendarwidget)
 #endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 540, as _ZNK25QAccessibleCalendarWidget12calendarViewEv
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(calendarwidget)
+inline QAbstractItemView *QAccessibleCalendarWidget::calendarView() const
+{
+    for (QObject *child : calendarWidget()->children()) {
+        if (child->objectName() == "qt_calendar_calendarview"_L1)
+            return static_cast<QAbstractItemView *>(child);
+    }
+    return nullptr;
+}
+#endif  // QT_CONFIG(calendarwidget)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 549, as _ZNK25QAccessibleCalendarWidget13navigationBarEv
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(calendarwidget)
+inline QWidget *QAccessibleCalendarWidget::navigationBar() const
+{
+    for (QObject *child : calendarWidget()->children()) {
+        if (child->objectName() == "qt_calendar_navigationbar"_L1)
+            return static_cast<QWidget *>(child);
+    }
+    return nullptr;
+}
+#endif  // QT_CONFIG(calendarwidget)
+#endif  // QT_CONFIG(accessibility)
 //  -----------------------------------------------------------------------
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(calendarwidget)
+//  QAccessibleCalendarWidget::QAccessibleCalendarWidget(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+QAccessibleCalendarWidget *ritual_ZN25QAccessibleCalendarWidgetC1EP7QWidget(
+    QWidget *widget) {
+  return new QAccessibleCalendarWidget(widget);
+}
+#endif  // QT_CONFIG(calendarwidget)
+#endif  // QT_CONFIG(accessibility)
 
 //  int QAccessibleCalendarWidget::childCount() const
 extern "C" Q_DECL_EXPORT
@@ -167,6 +219,28 @@ QCalendarWidget *ritual_ZNK25QAccessibleCalendarWidget14calendarWidgetEv(
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(calendarwidget)
+//  QAbstractItemView *QAccessibleCalendarWidget::calendarView() const
+extern "C" Q_DECL_EXPORT
+QAbstractItemView *ritual_ZNK25QAccessibleCalendarWidget12calendarViewEv(
+    const QAccessibleCalendarWidget *self) {
+  return self->calendarView();
+}
+#endif  // QT_CONFIG(calendarwidget)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(calendarwidget)
+//  QWidget *QAccessibleCalendarWidget::navigationBar() const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK25QAccessibleCalendarWidget13navigationBarEv(
+    const QAccessibleCalendarWidget *self) {
+  return self->navigationBar();
+}
+#endif  // QT_CONFIG(calendarwidget)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(calendarwidget)
 //  int QAccessibleCalendarWidget::childCount() const
 extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK25QAccessibleCalendarWidget10childCountEv(
@@ -185,6 +259,18 @@ int ritual_own_ZNK25QAccessibleCalendarWidget12indexOfChildEPK20QAccessibleInter
     const QAccessibleCalendarWidget *self,
     const QAccessibleInterface *child) {
   return self->QAccessibleCalendarWidget::indexOfChild(child);
+}
+#endif  // QT_CONFIG(calendarwidget)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(calendarwidget)
+//  QAccessibleInterface *QAccessibleCalendarWidget::child(int index) const
+extern "C" Q_DECL_EXPORT
+QAccessibleInterface *ritual_own_ZNK25QAccessibleCalendarWidget5childEi(
+    const QAccessibleCalendarWidget *self,
+    int index) {
+  return self->QAccessibleCalendarWidget::child(index);
 }
 #endif  // QT_CONFIG(calendarwidget)
 #endif  // QT_CONFIG(accessibility)

@@ -32,3 +32,26 @@ QV4::Heap::EvalFunction *ritual_ZNK3QV412EvalFunction1dEv(
     const QV4::EvalFunction *self) {
   return self->d();
 }
+
+//  ReturnedValue QV4::EvalFunction::evalCall(const Value *thisObject, const
+//      Value *argv, int argc, bool directCall) const
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZNK3QV412EvalFunction8evalCallEPKNS_5ValueES3_ib(
+    const QV4::EvalFunction *self,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc,
+    bool directCall) {
+  return self->evalCall(thisObject, argv, argc, directCall);
+}
+
+//  ReturnedValue QV4::EvalFunction::virtualCall(const FunctionObject *f,
+//      const Value *thisObject, const Value *argv, int argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV412EvalFunction11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *f,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::EvalFunction::virtualCall(f, thisObject, argv, argc);
+}

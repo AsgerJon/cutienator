@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QNetworkReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QNetworkReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QNetworkReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QNetworkReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QNetworkReplyD1Ev": ["nothing", "address"],
     "ritual_ZN13QNetworkReply5closeEv": ["nothing", "address"],
@@ -30,6 +36,7 @@
     "ritual_ZNK13QNetworkReply9rawHeaderE14QAnyStringView": [
       "address", "address", "text"
     ],
+    "ritual_ZNK13QNetworkReply14rawHeaderPairsEv": ["address", "address"],
     "ritual_ZNK13QNetworkReply7headersEv": ["address", "address"],
     "ritual_ZNK13QNetworkReply9attributeEN15QNetworkRequest9AttributeE": [
       "address", "address", "int"
@@ -43,6 +50,36 @@
     ],
     "ritual_ZN13QNetworkReply5abortEv": ["nothing", "address"],
     "ritual_ZN13QNetworkReply15ignoreSslErrorsEv": ["nothing", "address"],
+    "ritual_ZN13QNetworkReply23socketStartedConnectingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QNetworkReply11requestSentEv": ["nothing", "address"],
+    "ritual_ZN13QNetworkReply15metaDataChangedEv": ["nothing", "address"],
+    "ritual_ZN13QNetworkReply8finishedEv": ["nothing", "address"],
+    "ritual_ZN13QNetworkReply13errorOccurredENS_12NetworkErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QNetworkReply9encryptedEv": ["nothing", "address"],
+    "ritual_ZN13QNetworkReply9sslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply10redirectedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply15redirectAllowedEv": ["nothing", "address"],
+    "ritual_ZN13QNetworkReply14uploadProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN13QNetworkReply16downloadProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN13QNetworkReplyC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QNetworkReplyC1ER20QNetworkReplyPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QNetworkReply9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
@@ -70,11 +107,17 @@
     "ritual_ZN13QNetworkReply10setHeadersERK12QHttpHeaders": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QNetworkReply10setHeadersEO12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13QNetworkReply18setWellKnownHeaderEN12QHttpHeaders15WellKnownHeaderE14QByteArrayView": [
       "nothing", "address", "int", "address"
     ],
     "ritual_ZN13QNetworkReply12setAttributeEN15QNetworkRequest9AttributeERK8QVariant": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13QNetworkReply30sslConfigurationImplementationER17QSslConfiguration": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN13QNetworkReply33setSslConfigurationImplementationERK17QSslConfiguration": [
       "nothing", "address", "address"

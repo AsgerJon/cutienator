@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DXr/private/qquick3dxractionmapper_p.h>
 #include <QtQuick3DXr/private/qquick3dxrabstracthapticeffect_p.h>
@@ -21,10 +22,58 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 203, as _ZN21QQuick3DXrInputActionD1Ev
-inline QQuick3DXrInputAction::~QQuick3DXrInputAction()
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 15, as local:qquick3dxractionmapper.cpp:actionIntKey
+static inline quint32 actionIntKey(const QQuick3DXrInputAction::Action id, const QtQuick3DXr::Controller controller)
 {
-    QQuick3DXrActionMapper::removeAction(this);
+    return quint16(id) | (quint32(controller) << 16);
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 20, as local:qquick3dxractionmapper.cpp:actionStringKey
+static inline QString actionStringKey(const QString &name, const QtQuick3DXr::Controller controller)
+{
+    return QString::number(uint(controller)) + name;
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 221, as _ZN21QQuick3DXrInputAction10classBeginEv
+inline void QQuick3DXrInputAction::classBegin()
+{
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 225, as _ZN21QQuick3DXrInputAction17componentCompleteEv
+inline void QQuick3DXrInputAction::componentComplete()
+{
+    QQuick3DXrActionMapper::registerAction(this);
+    m_componentComplete = true;
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 62, as _ZN22QQuick3DXrActionMapper14registerActionEP21QQuick3DXrInputAction
+inline void QQuick3DXrActionMapper::registerAction(QQuick3DXrInputAction *action)
+{
+    auto *that = instance();
+
+    const auto &idList = action->actionId();
+    const auto controller = static_cast<QtQuick3DXr::Controller>(action->controller());
+
+    if (idList.isEmpty()) {
+        that->m_customActions.insert(actionStringKey(action->actionName(), controller), action);
+    } else {
+        for (const auto &id : idList) {
+            if (id != QQuick3DXrInputAction::CustomAction)
+                that->m_actions.insert(actionIntKey(id, controller), action);
+        }
+    }
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 25, as _ZN22QQuick3DXrActionMapper8instanceEv
+inline QQuick3DXrActionMapper *QQuick3DXrActionMapper::instance()
+{
+    static QQuick3DXrActionMapper instance;
+    return &instance;
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 11, as _ZN22QQuick3DXrActionMapperC1EP7QObject
+inline QQuick3DXrActionMapper::QQuick3DXrActionMapper(QObject *parent) : QObject(parent)
+{
 }
 
 //  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 216, as _ZNK21QQuick3DXrInputAction5valueEv
@@ -45,16 +94,10 @@ inline QString QQuick3DXrInputAction::actionName() const
     return m_actionName;
 }
 
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 221, as _ZN21QQuick3DXrInputAction10classBeginEv
-inline void QQuick3DXrInputAction::classBegin()
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 268, as _ZNK21QQuick3DXrInputAction8actionIdEv
+inline QList<QQuick3DXrInputAction::Action> QQuick3DXrInputAction::actionId() const
 {
-}
-
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 225, as _ZN21QQuick3DXrInputAction17componentCompleteEv
-inline void QQuick3DXrInputAction::componentComplete()
-{
-    QQuick3DXrActionMapper::registerAction(this);
-    m_componentComplete = true;
+    return m_actionIds;
 }
 
 //  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 303, as _ZNK21QQuick3DXrInputAction4handEv
@@ -282,6 +325,25 @@ const QMetaObject *ritual_ZNK21QQuick3DXrInputAction10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrInputAction::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DXrInputAction11qt_metacastEPKc(
+    QQuick3DXrInputAction *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrInputAction::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DXrInputAction11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrInputAction *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuick3DXrInputAction::~QQuick3DXrInputAction()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuick3DXrInputActionD1Ev(QQuick3DXrInputAction *self) {
@@ -307,6 +369,13 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK21QQuick3DXrInputAction10actionNameEv(
     const QQuick3DXrInputAction *self) {
   return new QString(self->actionName());
+}
+
+//  QList<Action> QQuick3DXrInputAction::actionId() const
+extern "C" Q_DECL_EXPORT
+QList<QQuick3DXrInputAction::Action> *ritual_ZNK21QQuick3DXrInputAction8actionIdEv(
+    const QQuick3DXrInputAction *self) {
+  return new QList<QQuick3DXrInputAction::Action>(self->actionId());
 }
 
 //  void QQuick3DXrInputAction::classBegin()
@@ -344,6 +413,206 @@ QQuick3DXrInputAction::Controller ritual_ZNK21QQuick3DXrInputAction10controllerE
   return self->controller();
 }
 
+//  void QQuick3DXrInputAction::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DXrInputAction12valueChangedEv(
+    QQuick3DXrInputAction *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrInputAction")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "valueChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "valueChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrInputAction::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DXrInputAction14pressedChangedEv(
+    QQuick3DXrInputAction *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrInputAction")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "pressedChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "pressedChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrInputAction::triggered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DXrInputAction9triggeredEv(
+    QQuick3DXrInputAction *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrInputAction")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "triggered()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "triggered()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrInputAction::actionNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DXrInputAction17actionNameChangedEv(
+    QQuick3DXrInputAction *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrInputAction")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "actionNameChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "actionNameChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrInputAction::actionIdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DXrInputAction15actionIdChangedEv(
+    QQuick3DXrInputAction *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrInputAction")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "actionIdChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "actionIdChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrInputAction::handChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DXrInputAction11handChangedEv(
+    QQuick3DXrInputAction *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrInputAction")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrInputAction::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DXrInputAction14enabledChangedEv(
+    QQuick3DXrInputAction *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrInputAction")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "enabledChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "enabledChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrInputAction::controllerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DXrInputAction17controllerChangedEv(
+    QQuick3DXrInputAction *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrInputAction")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "controllerChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "controllerChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  QQuick3DXrInputAction as the QQmlParserStatus it is built on
 extern "C" Q_DECL_EXPORT
 QQmlParserStatus *ritual_cast_QQuick3DXrInputAction_QQmlParserStatus(
@@ -366,4 +635,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN21QQuick3DXrInputAction10classBeginEv(
     QQuick3DXrInputAction *self) {
   self->QQuick3DXrInputAction::classBegin();
+}
+
+//  a QList<QQuick3DXrInputAction::Action> a ritual of QQuick3DXrInputAction
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DXrInputAction__QList_QQuick3DXrInputAction_Action(
+    QList<QQuick3DXrInputAction::Action> *self) {
+  delete self;
 }

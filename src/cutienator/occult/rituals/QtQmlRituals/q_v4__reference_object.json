@@ -10,6 +10,12 @@
     "ritual_ZNK3QV415ReferenceObject1dEv": ["address", "address"],
     "ritual_ZN3QV415ReferenceObject14virtualDestroyEPNS_4Heap4BaseE": [
       "nothing", "address"
+    ],
+    "ritual_ZN3QV415ReferenceObject13shouldConnectEPNS_4Heap15ReferenceObjectE": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV415ReferenceObject7connectEPNS_4Heap15ReferenceObjectE": [
+      "nothing", "address"
     ]
   }
 }

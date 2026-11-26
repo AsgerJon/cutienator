@@ -226,6 +226,21 @@ void ritual_ZN27QGraphicsSceneDragDropEvent11setMimeDataEPK9QMimeData(
   self->setMimeData(data);
 }
 
+//  QGraphicsSceneDragDropEventPrivate *QGraphicsSceneDragDropEvent::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneDragDropEventPrivate *ritual_ZN27QGraphicsSceneDragDropEvent6d_funcEv(
+    QGraphicsSceneDragDropEvent *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneDragDropEventPrivate
+//      *QGraphicsSceneDragDropEvent::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneDragDropEventPrivate *ritual_ZNK27QGraphicsSceneDragDropEvent6d_funcEv(
+    const QGraphicsSceneDragDropEvent *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSceneDragDropEvent, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

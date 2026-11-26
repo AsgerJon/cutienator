@@ -199,6 +199,32 @@ public:
   }
 };
 
+//  QQmlJS::AST::CaseClauses::CaseClauses(CaseClause *c)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::CaseClauses *ritual_ZN6QQmlJS3AST11CaseClausesC1EPNS0_10CaseClauseE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::CaseClause *c) {
+  return new (pool) CuteQQmlJS_AST_CaseClauses(c);
+}
+
+//  QQmlJS::AST::CaseClauses::CaseClauses(CaseClauses *previous, CaseClause
+//      *c)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::CaseClauses *ritual_ZN6QQmlJS3AST11CaseClausesC1EPS1_PNS0_10CaseClauseE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::CaseClauses *previous,
+    QQmlJS::AST::CaseClause *c) {
+  return new (pool) CuteQQmlJS_AST_CaseClauses(previous, c);
+}
+
+//  void QQmlJS::AST::CaseClauses::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST11CaseClauses7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::CaseClauses *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::CaseClauses::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST11CaseClauses19firstSourceLocationEv(

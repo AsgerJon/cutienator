@@ -8,6 +8,8 @@
     "ritual_ZN14QDBusSignatureC1EPKc": ["address", "chars"],
     "ritual_ZN14QDBusSignatureC1E13QLatin1String": ["address", "address"],
     "ritual_ZN14QDBusSignatureC1ERK7QString": ["address", "text"],
+    "ritual_ZN14QDBusSignatureC1EO7QString": ["address", "address"],
+    "ritual_ZN14QDBusSignature4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN14QDBusSignature12setSignatureERK7QString": [
       "nothing", "address", "text"
     ],

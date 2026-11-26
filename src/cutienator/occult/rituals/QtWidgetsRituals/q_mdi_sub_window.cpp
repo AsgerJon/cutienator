@@ -1016,6 +1016,24 @@ const QMetaObject *ritual_ZNK13QMdiSubWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMdiSubWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QMdiSubWindow11qt_metacastEPKc(
+    QMdiSubWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMdiSubWindow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QMdiSubWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMdiSubWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMdiSubWindow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QMdiSubWindow2trEPKcS1_i(
@@ -1157,6 +1175,24 @@ QMenu *ritual_ZNK13QMdiSubWindow10systemMenuEv(const QMdiSubWindow *self) {
 extern "C" Q_DECL_EXPORT
 QMdiArea *ritual_ZNK13QMdiSubWindow7mdiAreaEv(const QMdiSubWindow *self) {
   return self->mdiArea();
+}
+
+//  void QMdiSubWindow::windowStateChanged(Qt::WindowStates oldState,
+//      Qt::WindowStates newState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow18windowStateChangedE6QFlagsIN2Qt11WindowStateEES3_(
+    QMdiSubWindow *self,
+    int oldState,
+    int newState) {
+  self->windowStateChanged(
+      QFlags<Qt::WindowState>::fromInt(oldState),
+      QFlags<Qt::WindowState>::fromInt(newState));
+}
+
+//  void QMdiSubWindow::aboutToActivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow15aboutToActivateEv(QMdiSubWindow *self) {
+  self->aboutToActivate();
 }
 
 #if QT_CONFIG(menu)

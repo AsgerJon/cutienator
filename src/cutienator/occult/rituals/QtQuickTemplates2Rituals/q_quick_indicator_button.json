@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickIndicatorButton10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickIndicatorButton11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickIndicatorButton11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickIndicatorButton2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,21 @@
     ],
     "ritual_ZNK21QQuickIndicatorButton23implicitIndicatorHeightEv": [
       "double", "address"
+    ],
+    "ritual_ZN21QQuickIndicatorButton14pressedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickIndicatorButton16indicatorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickIndicatorButton14hoveredChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickIndicatorButton29implicitIndicatorWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickIndicatorButton30implicitIndicatorHeightChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN21QQuickIndicatorButton6d_funcEv": ["address", "address"],
     "ritual_ZNK21QQuickIndicatorButton6d_funcEv": ["address", "address"],

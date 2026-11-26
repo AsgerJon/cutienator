@@ -9,6 +9,18 @@
     "ritual_ZNK20QSSGShaderKeyBoolean7getMaskEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZNK20QSSGShaderKeyBoolean8setValueE11QSSGDataRefIjEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK20QSSGShaderKeyBoolean8getValueE12QSSGDataViewIjE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QSSGShaderKeyBoolean8toStringER10QByteArray12QSSGDataViewIjE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QSSGShaderKeyBoolean10fromStringERK10QByteArray11QSSGDataRefIjE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN20QSSGShaderKeyBooleanD1Ev": ["nothing", "address"]
   }
 }

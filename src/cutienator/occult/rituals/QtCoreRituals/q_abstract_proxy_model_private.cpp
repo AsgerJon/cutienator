@@ -6,12 +6,16 @@
 #if QT_CONFIG(proxymodel)
 #if QT_CONFIG(proxymodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(proxymodel)
 #include <QtCore/qabstractproxymodel.h>
+#endif
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qabstractproxymodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <cstring>
 
 //  A QAbstractProxyModelPrivate that Python can take functions over in. Every QAbstractProxyModelPrivate
@@ -119,6 +123,12 @@ extern "C" Q_DECL_EXPORT
 QAbstractItemModel *ritual_ZNK26QAbstractProxyModelPrivate17getModelForwarderEv(
     const QAbstractProxyModelPrivate *self) {
   return self->getModelForwarder();
+}
+
+//  size_t QAbstractProxyModelPrivate::_qt_property_model_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN26QAbstractProxyModelPrivate25_qt_property_model_offsetEv() {
+  return QAbstractProxyModelPrivate::_qt_property_model_offset();
 }
 
 //  void QAbstractProxyModelPrivate::_q_sourceModelDestroyed()

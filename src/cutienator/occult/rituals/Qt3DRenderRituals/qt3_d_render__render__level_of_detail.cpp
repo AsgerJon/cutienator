@@ -9,6 +9,7 @@
 #include <Qt3DCore/qnodeid.h>
 #include <QtGui/qvectornd.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A Qt3DRender::Render::LevelOfDetail that Python can take functions over in. Every Qt3DRender::Render::LevelOfDetail
 //  Python makes is one. Each function below asks the Python
@@ -42,6 +43,36 @@ public:
   }
 };
 
+//  Qt3DRender::Render::LevelOfDetail::LevelOfDetail()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::LevelOfDetail *ritual_ZN10Qt3DRender6Render13LevelOfDetailC1Ev() {
+  return new CuteQt3DRender_Render_LevelOfDetail();
+}
+
+//  Qt3DRender::Render::LevelOfDetail::~LevelOfDetail()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render13LevelOfDetailD1Ev(
+    Qt3DRender::Render::LevelOfDetail *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::LevelOfDetail::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render13LevelOfDetail7cleanupEv(
+    Qt3DRender::Render::LevelOfDetail *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::LevelOfDetail::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render13LevelOfDetail16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::LevelOfDetail *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  Qt3DCore::QNodeId Qt3DRender::Render::LevelOfDetail::camera() const
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QNodeId *ritual_ZNK10Qt3DRender6Render13LevelOfDetail6cameraEv(
@@ -62,6 +93,13 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QLevelOfDetail::ThresholdType ritual_ZNK10Qt3DRender6Render13LevelOfDetail13thresholdTypeEv(
     const Qt3DRender::Render::LevelOfDetail *self) {
   return self->thresholdType();
+}
+
+//  QList<qreal> Qt3DRender::Render::LevelOfDetail::thresholds() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK10Qt3DRender6Render13LevelOfDetail10thresholdsEv(
+    const Qt3DRender::Render::LevelOfDetail *self) {
+  return new QList<qreal>(self->thresholds());
 }
 
 //  float Qt3DRender::Render::LevelOfDetail::radius() const
@@ -85,6 +123,14 @@ bool ritual_ZNK10Qt3DRender6Render13LevelOfDetail25hasBoundingVolumeOverrideEv(
   return self->hasBoundingVolumeOverride();
 }
 
+//  void Qt3DRender::Render::LevelOfDetail::setCurrentIndex(int currentIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render13LevelOfDetail15setCurrentIndexEi(
+    Qt3DRender::Render::LevelOfDetail *self,
+    int currentIndex) {
+  self->setCurrentIndex(currentIndex);
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_LevelOfDetail, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -105,4 +151,11 @@ void ritual_own_ZN10Qt3DRender6Render13LevelOfDetail16syncFromFrontEndEPKN8Qt3DC
   self->Qt3DRender::Render::LevelOfDetail::syncFromFrontEnd(
       frontEnd,
       firstTime);
+}
+
+//  a QList<qreal> a ritual of Qt3DRender::Render::LevelOfDetail gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_LevelOfDetail__QList_qreal(
+    QList<qreal> *self) {
+  delete self;
 }

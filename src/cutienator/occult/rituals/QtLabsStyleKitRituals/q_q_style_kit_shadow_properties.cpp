@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK26QQStyleKitShadowProperties10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitShadowProperties::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQStyleKitShadowProperties11qt_metacastEPKc(
+    QQStyleKitShadowProperties *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitShadowProperties::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQStyleKitShadowProperties11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitShadowProperties *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQStyleKitShadowProperties::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -330,6 +349,62 @@ void ritual_ZN26QQStyleKitShadowProperties11setDelegateEP13QQmlComponent(
     QQStyleKitShadowProperties *self,
     QQmlComponent *delegate) {
   self->setDelegate(delegate);
+}
+
+//  void QQStyleKitShadowProperties::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitShadowProperties12colorChangedEv(
+    QQStyleKitShadowProperties *self) {
+  self->colorChanged();
+}
+
+//  void QQStyleKitShadowProperties::opacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitShadowProperties14opacityChangedEv(
+    QQStyleKitShadowProperties *self) {
+  self->opacityChanged();
+}
+
+//  void QQStyleKitShadowProperties::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitShadowProperties12scaleChangedEv(
+    QQStyleKitShadowProperties *self) {
+  self->scaleChanged();
+}
+
+//  void QQStyleKitShadowProperties::verticalOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitShadowProperties21verticalOffsetChangedEv(
+    QQStyleKitShadowProperties *self) {
+  self->verticalOffsetChanged();
+}
+
+//  void QQStyleKitShadowProperties::horizontalOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitShadowProperties23horizontalOffsetChangedEv(
+    QQStyleKitShadowProperties *self) {
+  self->horizontalOffsetChanged();
+}
+
+//  void QQStyleKitShadowProperties::blurChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitShadowProperties11blurChangedEv(
+    QQStyleKitShadowProperties *self) {
+  self->blurChanged();
+}
+
+//  void QQStyleKitShadowProperties::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitShadowProperties14visibleChangedEv(
+    QQStyleKitShadowProperties *self) {
+  self->visibleChanged();
+}
+
+//  void QQStyleKitShadowProperties::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQStyleKitShadowProperties15delegateChangedEv(
+    QQStyleKitShadowProperties *self) {
+  self->delegateChanged();
 }
 
 //  a Python function taken by a CuteQQStyleKitShadowProperties, for the

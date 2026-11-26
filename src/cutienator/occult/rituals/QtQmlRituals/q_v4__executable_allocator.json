@@ -5,9 +5,13 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV419ExecutableAllocatorC1Ev": ["address"],
     "ritual_ZNK3QV419ExecutableAllocator19freeAllocationCountEv": [
       "int", "address"
     ],
-    "ritual_ZNK3QV419ExecutableAllocator10chunkCountEv": ["int", "address"]
+    "ritual_ZNK3QV419ExecutableAllocator10chunkCountEv": ["int", "address"],
+    "ritual_ZNK3QV419ExecutableAllocator18chunkForAllocationEPNS0_10AllocationE": [
+      "address", "address", "address"
+    ]
   }
 }

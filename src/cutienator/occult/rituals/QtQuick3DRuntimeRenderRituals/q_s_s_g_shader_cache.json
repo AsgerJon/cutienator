@@ -2,12 +2,39 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQuick",
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersh",
-    "adercache_p.h, Qt 6.12.0. Changes made here are lost."
+    "adercache_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN15QSSGShaderCache19loadBuiltinUncachedERK10QByteArrayi6QFlagsIN21QSSGRhiShaderPipeline9StageFlagEE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN15QSSGShaderCache21addShaderPreprocessorER10QByteArrayRKS0_NS_10ShaderTypeERK18QSSGShaderFeaturesRK26QSSGUserShaderAugmentationi": [
+      "nothing", "address", "address", "address", "int", "address",
+      "address", "int"
+    ],
     "ritual_ZN15QSSGShaderCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSSGShaderCache10rhiContextEv": ["address", "address"],
     "ritual_ZN15QSSGShaderCache22releaseCachedResourcesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN15QSSGShaderCache27persistentShaderBakingCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QSSGShaderCache23tryGetRhiShaderPipelineERK10QByteArrayRK18QSSGShaderFeatures": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QSSGShaderCache33tryNewPipelineFromPersistentCacheERK10QByteArrayS2_RK18QSSGShaderFeatures6QFlagsIN21QSSGRhiShaderPipeline9StageFlagEE": [
+      "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN15QSSGShaderCache27newPipelineFromPregeneratedERK10QByteArrayRK18QSSGShaderFeaturesN14QQsbCollection5EntryERK21QSSGRenderGraphObject6QFlagsIN21QSSGRhiShaderPipeline9StageFlagEE": [
+      "address", "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN15QSSGShaderCache13compileForRhiERK10QByteArrayS2_S2_RK18QSSGShaderFeatures6QFlagsIN21QSSGRhiShaderPipeline9StageFlagEERK26QSSGUserShaderAugmentationib": [
+      "address", "address", "address", "address", "address", "address",
+      "int", "address", "int", "bool"
+    ],
+    "ritual_ZN15QSSGShaderCache20getBuiltInRhiShadersEv": [
+      "address", "address"
     ],
     "ritual_ZN15QSSGShaderCache14resourceFolderEv": ["address"],
     "ritual_ZN15QSSGShaderCache20shaderCollectionFileEv": ["address"],
@@ -16,6 +43,12 @@
     ],
     "ritual_ZN15QSSGShaderCache25initBakerForPersistentUseEP12QShaderBakerP4QRhi": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QSSGShaderCache__QSSGRhiShaderPipelinePtr": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QSSGShaderCacheC1ER14QSSGRhiContextPFvP12QShaderBakerP4QRhiE": [
+      "address", "address", "address"
     ]
   }
 }

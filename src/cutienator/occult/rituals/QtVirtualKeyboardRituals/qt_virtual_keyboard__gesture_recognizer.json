@@ -8,6 +8,12 @@
     "ritual_ZNK17QtVirtualKeyboard17GestureRecognizer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard17GestureRecognizer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17GestureRecognizer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard17GestureRecognizer2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],

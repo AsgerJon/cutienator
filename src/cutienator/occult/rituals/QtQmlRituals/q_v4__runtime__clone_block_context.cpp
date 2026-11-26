@@ -7,6 +7,13 @@
 #include <QtQml/6.12.0/QtQml/private/qv4runtimeapi_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  void QV4::Runtime::CloneBlockContext::call(ExecutionEngine *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV47Runtime17CloneBlockContext4callEPNS_15ExecutionEngineE(
+    QV4::ExecutionEngine *a0) {
+  QV4::Runtime::CloneBlockContext::call(a0);
+}
+
 //  QV4::Runtime::CloneBlockContext::~CloneBlockContext()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV47Runtime17CloneBlockContextD1Ev(

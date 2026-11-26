@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickContainer10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickContainer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickContainer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickContainer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -27,6 +33,8 @@
     ],
     "ritual_ZN15QQuickContainer8takeItemEi": ["address", "address", "int"],
     "ritual_ZNK15QQuickContainer12contentModelEv": ["address", "address"],
+    "ritual_ZN15QQuickContainer11contentDataEv": ["address", "address"],
+    "ritual_ZN15QQuickContainer15contentChildrenEv": ["address", "address"],
     "ritual_ZNK15QQuickContainer12currentIndexEv": ["int", "address"],
     "ritual_ZNK15QQuickContainer11currentItemEv": ["address", "address"],
     "ritual_ZNK15QQuickContainer12contentWidthEv": ["double", "address"],
@@ -51,6 +59,25 @@
     ],
     "ritual_ZN15QQuickContainer21decrementCurrentIndexEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainer12countChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickContainer22contentChildrenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainer19currentIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainer18currentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainer19contentWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainer20contentHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainerC1ER22QQuickContainerPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QQuickContainer17componentCompleteEv": [
       "nothing", "address"
@@ -96,6 +123,12 @@
     ],
     "ritual_own_ZN15QQuickContainer11itemRemovedEiP10QQuickItem": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QQuickContainer__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickContainer__QQmlListProperty_QQuickItem": [
+      "nothing", "address"
     ]
   }
 }

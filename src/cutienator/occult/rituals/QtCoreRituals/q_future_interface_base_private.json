@@ -19,6 +19,15 @@
     "ritual_ZN27QFutureInterfaceBasePrivate26internal_waitForNextResultEv": [
       "bool", "address"
     ],
+    "ritual_ZN27QFutureInterfaceBasePrivate21internal_setThrottledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QFutureInterfaceBasePrivate11sendCallOutERK19QFutureCallOutEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QFutureInterfaceBasePrivate12sendCallOutsERK19QFutureCallOutEventS2_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN27QFutureInterfaceBasePrivate22connectOutputInterfaceEP23QFutureCallOutInterface": [
       "nothing", "address", "address"
     ],

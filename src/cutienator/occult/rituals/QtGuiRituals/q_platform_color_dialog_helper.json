@@ -8,14 +8,32 @@
     "ritual_ZNK26QPlatformColorDialogHelper10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QPlatformColorDialogHelper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QPlatformColorDialogHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QPlatformColorDialogHelper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK26QPlatformColorDialogHelper7optionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QPlatformColorDialogHelper10setOptionsERK14QSharedPointerI19QColorDialogOptionsE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN26QPlatformColorDialogHelper15setCurrentColorERK6QColor": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK26QPlatformColorDialogHelper12currentColorEv": [
       "address", "address"
+    ],
+    "ritual_ZN26QPlatformColorDialogHelper19currentColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QPlatformColorDialogHelper13colorSelectedERK6QColor": [
+      "nothing", "address", "address"
     ]
   }
 }

@@ -7,7 +7,6 @@
   "rows": {
     "ritual_ZN19QQuickLoaderPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK19QQuickLoaderPrivate6q_funcEv": ["address", "address"],
-    "ritual_ZN19QQuickLoaderPrivateC1Ev": ["address"],
     "ritual_ZN19QQuickLoaderPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN19QQuickLoaderPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
       "nothing", "address", "address", "address", "address"
@@ -17,6 +16,11 @@
     ],
     "ritual_ZN19QQuickLoaderPrivate25itemImplicitHeightChangedEP10QQuickItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickLoaderPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN19QQuickLoaderPrivate4loadEv": ["nothing", "address"],
+    "ritual_ZN19QQuickLoaderPrivate21incubatorStateChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN19QQuickLoaderPrivate15setInitialStateEP7QObject": [
       "nothing", "address", "address"

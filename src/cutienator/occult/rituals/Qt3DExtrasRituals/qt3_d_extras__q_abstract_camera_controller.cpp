@@ -199,6 +199,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras25QAbstractCameraController10metaObject
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QAbstractCameraController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras25QAbstractCameraController11qt_metacastEPKc(
+    Qt3DExtras::QAbstractCameraController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QAbstractCameraController::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras25QAbstractCameraController11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QAbstractCameraController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QAbstractCameraController::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -207,6 +226,165 @@ QString *ritual_ZN10Qt3DExtras25QAbstractCameraController2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QAbstractCameraController::tr(s, c, n));
+}
+
+//  Qt3DExtras::QAbstractCameraController::~QAbstractCameraController()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraControllerD1Ev(
+    Qt3DExtras::QAbstractCameraController *self) {
+  delete self;
+}
+
+//  Qt3DRender::QCamera *Qt3DExtras::QAbstractCameraController::camera()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QCamera *ritual_ZNK10Qt3DExtras25QAbstractCameraController6cameraEv(
+    const Qt3DExtras::QAbstractCameraController *self) {
+  return self->camera();
+}
+
+//  float Qt3DExtras::QAbstractCameraController::linearSpeed() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras25QAbstractCameraController11linearSpeedEv(
+    const Qt3DExtras::QAbstractCameraController *self) {
+  return self->linearSpeed();
+}
+
+//  float Qt3DExtras::QAbstractCameraController::lookSpeed() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras25QAbstractCameraController9lookSpeedEv(
+    const Qt3DExtras::QAbstractCameraController *self) {
+  return self->lookSpeed();
+}
+
+//  float Qt3DExtras::QAbstractCameraController::acceleration() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras25QAbstractCameraController12accelerationEv(
+    const Qt3DExtras::QAbstractCameraController *self) {
+  return self->acceleration();
+}
+
+//  float Qt3DExtras::QAbstractCameraController::deceleration() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras25QAbstractCameraController12decelerationEv(
+    const Qt3DExtras::QAbstractCameraController *self) {
+  return self->deceleration();
+}
+
+//  void Qt3DExtras::QAbstractCameraController::setCamera(Qt3DRender::QCamera
+//      *camera)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController9setCameraEPN10Qt3DRender7QCameraE(
+    Qt3DExtras::QAbstractCameraController *self,
+    Qt3DRender::QCamera *camera) {
+  self->setCamera(camera);
+}
+
+//  void Qt3DExtras::QAbstractCameraController::setLinearSpeed(float
+//      linearSpeed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController14setLinearSpeedEf(
+    Qt3DExtras::QAbstractCameraController *self,
+    float linearSpeed) {
+  self->setLinearSpeed(linearSpeed);
+}
+
+//  void Qt3DExtras::QAbstractCameraController::setLookSpeed(float lookSpeed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController12setLookSpeedEf(
+    Qt3DExtras::QAbstractCameraController *self,
+    float lookSpeed) {
+  self->setLookSpeed(lookSpeed);
+}
+
+//  void Qt3DExtras::QAbstractCameraController::setAcceleration(float
+//      acceleration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController15setAccelerationEf(
+    Qt3DExtras::QAbstractCameraController *self,
+    float acceleration) {
+  self->setAcceleration(acceleration);
+}
+
+//  void Qt3DExtras::QAbstractCameraController::setDeceleration(float
+//      deceleration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController15setDecelerationEf(
+    Qt3DExtras::QAbstractCameraController *self,
+    float deceleration) {
+  self->setDeceleration(deceleration);
+}
+
+//  void Qt3DExtras::QAbstractCameraController::cameraChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController13cameraChangedEv(
+    Qt3DExtras::QAbstractCameraController *self) {
+  self->cameraChanged();
+}
+
+//  void Qt3DExtras::QAbstractCameraController::linearSpeedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController18linearSpeedChangedEv(
+    Qt3DExtras::QAbstractCameraController *self) {
+  self->linearSpeedChanged();
+}
+
+//  void Qt3DExtras::QAbstractCameraController::lookSpeedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController16lookSpeedChangedEv(
+    Qt3DExtras::QAbstractCameraController *self) {
+  self->lookSpeedChanged();
+}
+
+//  void Qt3DExtras::QAbstractCameraController::accelerationChanged(float
+//      acceleration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController19accelerationChangedEf(
+    Qt3DExtras::QAbstractCameraController *self,
+    float acceleration) {
+  self->accelerationChanged(acceleration);
+}
+
+//  void Qt3DExtras::QAbstractCameraController::decelerationChanged(float
+//      deceleration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras25QAbstractCameraController19decelerationChangedEf(
+    Qt3DExtras::QAbstractCameraController *self,
+    float deceleration) {
+  self->decelerationChanged(deceleration);
+}
+
+//  Qt3DExtras::QAbstractCameraController::QAbstractCameraController(Qt3DCore
+//      ::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QAbstractCameraController *ritual_ZN10Qt3DExtras25QAbstractCameraControllerC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QAbstractCameraController(parent);
+}
+
+//  Qt3DExtras::QAbstractCameraController::QAbstractCameraController(QAbstrac
+//      tCameraControllerPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QAbstractCameraController *ritual_ZN10Qt3DExtras25QAbstractCameraControllerC1ERNS_32QAbstractCameraControllerPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DExtras::QAbstractCameraControllerPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QAbstractCameraController(*dd, parent);
+}
+
+//  Qt3DInput::QKeyboardDevice
+//      *Qt3DExtras::QAbstractCameraController::keyboardDevice() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QKeyboardDevice *ritual_ZNK10Qt3DExtras25QAbstractCameraController14keyboardDeviceEv(
+    const Qt3DExtras::QAbstractCameraController *self) {
+  return self->keyboardDevice();
+}
+
+//  Qt3DInput::QMouseDevice
+//      *Qt3DExtras::QAbstractCameraController::mouseDevice() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QMouseDevice *ritual_ZNK10Qt3DExtras25QAbstractCameraController11mouseDeviceEv(
+    const Qt3DExtras::QAbstractCameraController *self) {
+  return self->mouseDevice();
 }
 
 //  void Qt3DExtras::QAbstractCameraController::moveCamera(const InputState

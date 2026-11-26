@@ -5,5 +5,20 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV414RuntimeCodegenC1EPNS_15ExecutionEngineEPNS_8Compiler15JSUnitGeneratorEb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN3QV414RuntimeCodegen16throwSyntaxErrorERKN6QQmlJS14SourceLocationERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN3QV414RuntimeCodegen19throwReferenceErrorERKN6QQmlJS14SourceLocationERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_own_ZN3QV414RuntimeCodegen16throwSyntaxErrorERKN6QQmlJS14SourceLocationERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_own_ZN3QV414RuntimeCodegen19throwReferenceErrorERKN6QQmlJS14SourceLocationERK7QString": [
+      "nothing", "address", "address", "text"
+    ]
   }
 }

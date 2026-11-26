@@ -17,6 +17,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuickPath may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -243,6 +244,24 @@ const QMetaObject *ritual_ZNK10QQuickPath10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPath::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickPath11qt_metacastEPKc(
+    QQuickPath *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPath::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQuickPath11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPath *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPath::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQuickPath2trEPKcS1_i(
@@ -262,6 +281,13 @@ QQuickPath *ritual_ZN10QQuickPathC1EP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickPathD1Ev(QQuickPath *self) {
   delete self;
+}
+
+//  QQmlListProperty<QQuickPathElement> QQuickPath::pathElements()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickPathElement> *ritual_ZN10QQuickPath12pathElementsEv(
+    QQuickPath *self) {
+  return new QQmlListProperty<QQuickPathElement>(self->pathElements());
 }
 
 //  qreal QQuickPath::startX() const
@@ -404,6 +430,50 @@ void ritual_ZN10QQuickPath11processPathEv(QQuickPath *self) {
   self->processPath();
 }
 
+//  void QQuickPath::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath7changedEv(QQuickPath *self) {
+  self->changed();
+}
+
+//  void QQuickPath::startXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath13startXChangedEv(QQuickPath *self) {
+  self->startXChanged();
+}
+
+//  void QQuickPath::startYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath13startYChangedEv(QQuickPath *self) {
+  self->startYChanged();
+}
+
+//  void QQuickPath::simplifyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath15simplifyChangedEv(QQuickPath *self) {
+  self->simplifyChanged();
+}
+
+//  void QQuickPath::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath12scaleChangedEv(QQuickPath *self) {
+  self->scaleChanged();
+}
+
+//  void QQuickPath::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath19asynchronousChangedEv(QQuickPath *self) {
+  self->asynchronousChanged();
+}
+
+//  QQuickPath::QQuickPath(QQuickPathPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPath *ritual_ZN10QQuickPathC1ER17QQuickPathPrivateP7QObject(
+    QQuickPathPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickPath(*dd, parent);
+}
+
 //  void QQuickPath::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickPath17componentCompleteEv(QQuickPath *self) {
@@ -432,6 +502,61 @@ void ritual_ZN10QQuickPath19connectPathElementsEv(QQuickPath *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickPath16gatherAttributesEv(QQuickPath *self) {
   self->gatherAttributes();
+}
+
+//  QQuickPathElement
+//      *QQuickPath::pathElements_at(QQmlListProperty<QQuickPathElement> *a0,
+//      qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QQuickPathElement *ritual_ZN10QQuickPath15pathElements_atEP16QQmlListPropertyI17QQuickPathElementEx(
+    QQmlListProperty<QQuickPathElement> *a0,
+    qsizetype a1) {
+  return QQuickPath::pathElements_at(a0, a1);
+}
+
+//  void QQuickPath::pathElements_append(QQmlListProperty<QQuickPathElement>
+//      *a0, QQuickPathElement *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath19pathElements_appendEP16QQmlListPropertyI17QQuickPathElementEPS1_(
+    QQmlListProperty<QQuickPathElement> *a0,
+    QQuickPathElement *a1) {
+  QQuickPath::pathElements_append(a0, a1);
+}
+
+//  qsizetype
+//      QQuickPath::pathElements_count(QQmlListProperty<QQuickPathElement>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN10QQuickPath18pathElements_countEP16QQmlListPropertyI17QQuickPathElementE(
+    QQmlListProperty<QQuickPathElement> *a0) {
+  return QQuickPath::pathElements_count(a0);
+}
+
+//  void QQuickPath::pathElements_clear(QQmlListProperty<QQuickPathElement>
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath18pathElements_clearEP16QQmlListPropertyI17QQuickPathElementE(
+    QQmlListProperty<QQuickPathElement> *a0) {
+  QQuickPath::pathElements_clear(a0);
+}
+
+//  void QQuickPath::pathElements_replace(QQmlListProperty<QQuickPathElement>
+//      *a0, qsizetype a1, QQuickPathElement *a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath20pathElements_replaceEP16QQmlListPropertyI17QQuickPathElementExPS1_(
+    QQmlListProperty<QQuickPathElement> *a0,
+    qsizetype a1,
+    QQuickPathElement *a2) {
+  QQuickPath::pathElements_replace(a0, a1, a2);
+}
+
+//  void
+//      QQuickPath::pathElements_removeLast(QQmlListProperty<QQuickPathElemen
+//      t> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath23pathElements_removeLastEP16QQmlListPropertyI17QQuickPathElementE(
+    QQmlListProperty<QQuickPathElement> *a0) {
+  QQuickPath::pathElements_removeLast(a0);
 }
 
 //  void QQuickPath::doProcessPath()
@@ -464,6 +589,68 @@ void ritual_ZNK10QQuickPath16createPointCacheEv(const QQuickPath *self) {
   self->createPointCache();
 }
 
+//  void QQuickPath::interpolate(QList<AttributePoint> &points, int idx,
+//      const QString &name, qreal value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath11interpolateER5QListINS_14AttributePointEEiRK7QStringd(
+    QList<QQuickPath::AttributePoint> *points,
+    int idx,
+    const QString *name,
+    qreal value) {
+  QQuickPath::interpolate(*points, idx, *name, value);
+}
+
+//  void QQuickPath::endpoint(QList<AttributePoint> &attributePoints, const
+//      QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickPath8endpointER5QListINS_14AttributePointEERK7QString(
+    QList<QQuickPath::AttributePoint> *attributePoints,
+    const QString *name) {
+  QQuickPath::endpoint(*attributePoints, *name);
+}
+
+//  QPointF QQuickPath::forwardsPointAt(const QPainterPath &path, const qreal
+//      &pathLength, const QList<AttributePoint> &attributePoints,
+//      QQuickCachedBezier &prevBez, qreal p, qreal *angle)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZN10QQuickPath15forwardsPointAtERK12QPainterPathRKdRK5QListINS_14AttributePointEER18QQuickCachedBezierdPd(
+    const QPainterPath *path,
+    qreal pathLength,
+    const QList<QQuickPath::AttributePoint> *attributePoints,
+    QQuickCachedBezier *prevBez,
+    qreal p,
+    qreal *angle) {
+  return new QPointF(
+      QQuickPath::forwardsPointAt(
+          *path,
+          pathLength,
+          *attributePoints,
+          *prevBez,
+          p,
+          angle));
+}
+
+//  QPointF QQuickPath::backwardsPointAt(const QPainterPath &path, const
+//      qreal &pathLength, const QList<AttributePoint> &attributePoints,
+//      QQuickCachedBezier &prevBez, qreal p, qreal *angle)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZN10QQuickPath16backwardsPointAtERK12QPainterPathRKdRK5QListINS_14AttributePointEER18QQuickCachedBezierdPd(
+    const QPainterPath *path,
+    qreal pathLength,
+    const QList<QQuickPath::AttributePoint> *attributePoints,
+    QQuickCachedBezier *prevBez,
+    qreal p,
+    qreal *angle) {
+  return new QPointF(
+      QQuickPath::backwardsPointAt(
+          *path,
+          pathLength,
+          *attributePoints,
+          *prevBez,
+          p,
+          angle));
+}
+
 //  QQuickPathPrivate *QQuickPath::d_func()
 extern "C" Q_DECL_EXPORT
 QQuickPathPrivate *ritual_ZN10QQuickPath6d_funcEv(QQuickPath *self) {
@@ -475,6 +662,28 @@ extern "C" Q_DECL_EXPORT
 const QQuickPathPrivate *ritual_ZNK10QQuickPath6d_funcEv(
     const QQuickPath *self) {
   return self->d_func();
+}
+
+//  QPainterPath QQuickPath::createPath(const QPointF &startPoint, const
+//      QPointF &endPoint, const QStringList &attributes, qreal &pathLength,
+//      QList<AttributePoint> &attributePoints, bool *closed)
+extern "C" Q_DECL_EXPORT
+QPainterPath *ritual_ZN10QQuickPath10createPathERK7QPointFS2_RK5QListI7QStringERdRS3_INS_14AttributePointEEPb(
+    QQuickPath *self,
+    const QPointF *startPoint,
+    const QPointF *endPoint,
+    const QList<QString> *attributes,
+    qreal *pathLength,
+    QList<QQuickPath::AttributePoint> *attributePoints,
+    bool *closed) {
+  return new QPainterPath(
+      self->createPath(
+          *startPoint,
+          *endPoint,
+          *attributes,
+          *pathLength,
+          *attributePoints,
+          closed));
 }
 
 //  QPainterPath QQuickPath::createShapePath(const QPointF &startPoint, const
@@ -492,6 +701,27 @@ QPainterPath *ritual_ZN10QQuickPath15createShapePathERK7QPointFS2_RdPb(
           *endPoint,
           *pathLength,
           closed));
+}
+
+//  QPointF QQuickPath::sequentialPointAt(const QPainterPath &path, const
+//      qreal &pathLength, const QList<AttributePoint> &attributePoints,
+//      QQuickCachedBezier &prevBez, qreal p, qreal *angle)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZN10QQuickPath17sequentialPointAtERK12QPainterPathRKdRK5QListINS_14AttributePointEER18QQuickCachedBezierdPd(
+    const QPainterPath *path,
+    qreal pathLength,
+    const QList<QQuickPath::AttributePoint> *attributePoints,
+    QQuickCachedBezier *prevBez,
+    qreal p,
+    qreal *angle) {
+  return new QPointF(
+      QQuickPath::sequentialPointAt(
+          *path,
+          pathLength,
+          *attributePoints,
+          *prevBez,
+          p,
+          angle));
 }
 
 //  QQuickPath as the QQmlParserStatus it is built on
@@ -517,6 +747,13 @@ void ritual_own_ZN10QQuickPath17componentCompleteEv(QQuickPath *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN10QQuickPath10classBeginEv(QQuickPath *self) {
   static_cast<OwnQQuickPath *>(self)->OwnQQuickPath::classBegin();
+}
+
+//  a QQmlListProperty<QQuickPathElement> a ritual of QQuickPath gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPath__QQmlListProperty_QQuickPathElement(
+    QQmlListProperty<QQuickPathElement> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_path)

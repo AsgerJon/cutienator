@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QPlaceSearchReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QPlaceSearchReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QPlaceSearchReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QPlaceSearchReply2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,6 +38,8 @@
     "ritual_ZN17QPlaceSearchReply18setNextPageRequestERK19QPlaceSearchRequest": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QPlaceSearchReply6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QPlaceSearchReply6d_funcEv": ["address", "address"],
     "ritual_take_QPlaceSearchReply": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QPlaceSearchReply4typeEv": ["int", "address"]
   }

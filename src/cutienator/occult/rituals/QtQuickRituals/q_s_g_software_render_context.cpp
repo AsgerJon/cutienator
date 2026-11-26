@@ -12,8 +12,6 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQuick/private/qsgsoftwarepixmaptexture_p.h>
-#include <QtQuick/private/qsgcontext_p.h>
 #include <QtQuick/private/qsgsoftwarecontext_p.h>
 #include <QtQuick/private/qsgsoftwareinternalrectanglenode_p.h>
 #include <QtQuick/private/qsgsoftwareinternalimagenode_p.h>
@@ -31,6 +29,8 @@
 #include <QtGui/QWindow>
 #include <QtQuick/private/qquickwindow_p.h>
 #include <QtQuick/private/qquickitem_p.h>
+#include <QtQuick/private/qsgsoftwarepixmaptexture_p.h>
+#include <QtQuick/private/qsgcontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -39,29 +39,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepixmaptexture.cpp, line 10, as _ZN24QSGSoftwarePixmapTextureC1ERK6QImagej
-inline QSGSoftwarePixmapTexture::QSGSoftwarePixmapTexture(const QImage &image, uint flags)
-{
-    // Prevent pixmap format conversion to reduce memory consumption
-    // and surprises in calling code. (See QTBUG-47328)
-    if (flags & QSGRenderContext::CreateTexture_Alpha) {
-        //If texture should have an alpha
-        m_pixmap = QPixmap::fromImage(image, Qt::NoFormatConversion);
-    } else {
-        //Force opaque texture
-        m_pixmap = QPixmap::fromImage(image.convertToFormat(QImage::Format_RGB32), Qt::NoFormatConversion);
-    }
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 85, as _ZN24QSGSoftwareRenderContext18initializeIfNeededEv
-inline void QSGSoftwareRenderContext::initializeIfNeeded()
-{
-    if (m_initialized)
-        return;
-    m_initialized = true;
-    emit initialized();
-}
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 93, as _ZN24QSGSoftwareRenderContext10invalidateEv
 inline void QSGSoftwareRenderContext::invalidate()
@@ -106,6 +83,29 @@ inline QSGRenderer *QSGSoftwareRenderContext::createRenderer(QSGRendererInterfac
 inline int QSGSoftwareRenderContext::maxTextureSize() const
 {
     return 2048;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepixmaptexture.cpp, line 10, as _ZN24QSGSoftwarePixmapTextureC1ERK6QImagej
+inline QSGSoftwarePixmapTexture::QSGSoftwarePixmapTexture(const QImage &image, uint flags)
+{
+    // Prevent pixmap format conversion to reduce memory consumption
+    // and surprises in calling code. (See QTBUG-47328)
+    if (flags & QSGRenderContext::CreateTexture_Alpha) {
+        //If texture should have an alpha
+        m_pixmap = QPixmap::fromImage(image, Qt::NoFormatConversion);
+    } else {
+        //Force opaque texture
+        m_pixmap = QPixmap::fromImage(image.convertToFormat(QImage::Format_RGB32), Qt::NoFormatConversion);
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 85, as _ZN24QSGSoftwareRenderContext18initializeIfNeededEv
+inline void QSGSoftwareRenderContext::initializeIfNeeded()
+{
+    if (m_initialized)
+        return;
+    m_initialized = true;
+    emit initialized();
 }
 //  -----------------------------------------------------------------------
 
@@ -566,6 +566,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK24QSGSoftwareRenderContext10metaObjectEv(
     const QSGSoftwareRenderContext *self) {
   return self->metaObject();
+}
+
+//  void *QSGSoftwareRenderContext::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QSGSoftwareRenderContext11qt_metacastEPKc(
+    QSGSoftwareRenderContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGSoftwareRenderContext::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QSGSoftwareRenderContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGSoftwareRenderContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  void QSGSoftwareRenderContext::initializeIfNeeded()

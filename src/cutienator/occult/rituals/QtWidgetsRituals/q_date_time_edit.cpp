@@ -1169,6 +1169,24 @@ const QMetaObject *ritual_ZNK13QDateTimeEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDateTimeEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QDateTimeEdit11qt_metacastEPKc(
+    QDateTimeEdit *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDateTimeEdit::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QDateTimeEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDateTimeEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDateTimeEdit::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QDateTimeEdit2trEPKcS1_i(
@@ -1566,6 +1584,30 @@ bool ritual_ZN13QDateTimeEdit5eventEP6QEvent(
   return self->event(event);
 }
 
+//  void QDateTimeEdit::dateTimeChanged(const QDateTime &dateTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeEdit15dateTimeChangedERK9QDateTime(
+    QDateTimeEdit *self,
+    const QDateTime *dateTime) {
+  self->dateTimeChanged(*dateTime);
+}
+
+//  void QDateTimeEdit::timeChanged(QTime time)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeEdit11timeChangedE5QTime(
+    QDateTimeEdit *self,
+    const QTime *time) {
+  self->timeChanged(*time);
+}
+
+//  void QDateTimeEdit::dateChanged(QDate date)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeEdit11dateChangedE5QDate(
+    QDateTimeEdit *self,
+    const QDate *date) {
+  self->dateChanged(*date);
+}
+
 //  void QDateTimeEdit::setDateTime(const QDateTime &dateTime)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QDateTimeEdit11setDateTimeERK9QDateTime(
@@ -1622,6 +1664,23 @@ bool ritual_ZN13QDateTimeEdit18focusNextPrevChildEb(
     QDateTimeEdit *self,
     bool next) {
   return self->focusNextPrevChild(next);
+}
+
+//  QValidator::State QDateTimeEdit::validate(QString &input, int &pos) const
+extern "C" Q_DECL_EXPORT
+QValidator::State ritual_ZNK13QDateTimeEdit8validateER7QStringRi(
+    const QDateTimeEdit *self,
+    QString *input,
+    int *pos) {
+  return self->validate(*input, *pos);
+}
+
+//  void QDateTimeEdit::fixup(QString &input) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QDateTimeEdit5fixupER7QString(
+    const QDateTimeEdit *self,
+    QString *input) {
+  self->fixup(*input);
 }
 
 //  QDateTime QDateTimeEdit::dateTimeFromText(const QString &text) const

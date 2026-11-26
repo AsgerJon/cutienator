@@ -8,6 +8,15 @@
     "ritual_ZN3QV44Heap24JavaScriptFunctionObject11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap24JavaScriptFunctionObject4initEPNS_16ExecutionContextEPNS_8FunctionEPNS_6StringE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap24JavaScriptFunctionObject7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV44Heap24JavaScriptFunctionObject11setFunctionEPNS_8FunctionE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN3QV44Heap24JavaScriptFunctionObject20formalParameterCountEv": [
       "unsigned int", "address"
     ],

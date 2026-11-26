@@ -47,15 +47,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1872, as _ZN30DynamicRoleModelNodeMetaObjectD1Ev
-inline DynamicRoleModelNodeMetaObject::~DynamicRoleModelNodeMetaObject()
-{
-    for (int i=0 ; i < count() ; ++i) {
-        QQmlListModel *subModel = qobject_cast<QQmlListModel *>(value(i).value<QObject *>());
-        delete subModel;
-    }
-}
-
 //  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1880, as _ZN30DynamicRoleModelNodeMetaObject13propertyWriteEi
 inline void DynamicRoleModelNodeMetaObject::propertyWrite(int index)
 {
@@ -107,6 +98,15 @@ inline void DynamicRoleModelNodeMetaObject::propertyWritten(int index)
             parentModel->emitItemsChanged(elementIndex, 1, QList<int>(1, roleIndex));
     }
 }
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistmodel.cpp, line 1872, as _ZN30DynamicRoleModelNodeMetaObjectD1Ev
+inline DynamicRoleModelNodeMetaObject::~DynamicRoleModelNodeMetaObject()
+{
+    for (int i=0 ; i < count() ; ++i) {
+        QQmlListModel *subModel = qobject_cast<QQmlListModel *>(value(i).value<QObject *>());
+        delete subModel;
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on DynamicRoleModelNodeMetaObject may call these functions of it.
@@ -134,7 +134,7 @@ typedef void (*CuteDynamicRoleModelNodeMetaObjectCall6)(const void *, QObject *,
 class CuteDynamicRoleModelNodeMetaObject : public DynamicRoleModelNodeMetaObject {
 public:
   using DynamicRoleModelNodeMetaObject::DynamicRoleModelNodeMetaObject;
-  CuteDynamicRoleModelNodeMetaObject(const DynamicRoleModelNodeMetaObject &other) : DynamicRoleModelNodeMetaObject(other) {}
+  CuteDynamicRoleModelNodeMetaObject(const DynamicRoleModelNodeMetaObject & other) : DynamicRoleModelNodeMetaObject(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {

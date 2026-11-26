@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickWebView10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickWebView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickWebView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickWebView2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickWebViewC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN13QQuickWebViewD1Ev": ["nothing", "address"],
@@ -14,6 +20,7 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK13QQuickWebView3urlEv": ["address", "address"],
+    "ritual_ZNK13QQuickWebView7webViewEv": ["address", "address"],
     "ritual_ZN13QQuickWebView6setUrlERK4QUrl": [
       "nothing", "address", "address"
     ],
@@ -41,6 +48,23 @@
       "nothing", "address", "text", "text"
     ],
     "ritual_ZN13QQuickWebView16deleteAllCookiesEv": ["nothing", "address"],
+    "ritual_ZN13QQuickWebView12titleChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickWebView10urlChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickWebView14loadingChangedEP24QQuickWebViewLoadRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickWebView19loadProgressChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickWebView20httpUserAgentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickWebView11cookieAddedERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN13QQuickWebView13cookieRemovedERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
     "ritual_ZN13QQuickWebView16onLoadingChangedERK19QWebViewLoadingInfo": [
       "nothing", "address", "address"
     ],

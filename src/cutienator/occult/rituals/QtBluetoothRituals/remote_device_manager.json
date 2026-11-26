@@ -6,6 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK19RemoteDeviceManager10metaObjectEv": ["address", "address"],
-    "ritual_ZNK19RemoteDeviceManager15isJobInProgressEv": ["bool", "address"]
+    "ritual_ZN19RemoteDeviceManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19RemoteDeviceManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK19RemoteDeviceManager15isJobInProgressEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19RemoteDeviceManager8finishedEv": ["nothing", "address"],
+    "ritual_ZN19RemoteDeviceManager8runQueueEv": ["nothing", "address"],
+    "ritual_ZN19RemoteDeviceManager14prepareNextJobEv": [
+      "nothing", "address"
+    ]
   }
 }

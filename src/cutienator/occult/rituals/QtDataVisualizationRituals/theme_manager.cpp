@@ -25,6 +25,9 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/theme/thememanager.cpp, line 10, as local:thememanager.cpp:defaultColorLevel
+const float defaultColorLevel = 0.5f;
+
 //  from ../qtdatavis3d/src/datavisualization/theme/thememanager.cpp, line 18, as _ZN12ThemeManagerD1Ev
 inline ThemeManager::~ThemeManager()
 {
@@ -401,6 +404,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK12ThemeManager10metaObjectEv(
     const ThemeManager *self) {
   return self->metaObject();
+}
+
+//  void *ThemeManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12ThemeManager11qt_metacastEPKc(
+    ThemeManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ThemeManager::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12ThemeManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    ThemeManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  ThemeManager::~ThemeManager()

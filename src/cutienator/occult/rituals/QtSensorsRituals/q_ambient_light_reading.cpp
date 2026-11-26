@@ -195,6 +195,25 @@ const QMetaObject *ritual_ZNK20QAmbientLightReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAmbientLightReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QAmbientLightReading11qt_metacastEPKc(
+    QAmbientLightReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAmbientLightReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QAmbientLightReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAmbientLightReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAmbientLightReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QAmbientLightReading2trEPKcS1_i(

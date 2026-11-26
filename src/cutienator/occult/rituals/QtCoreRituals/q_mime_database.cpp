@@ -5,7 +5,9 @@
 #if QT_CONFIG(mimetype)
 #include <QtCore/qmimedatabase.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(mimetype)
 #include <QtCore/qmimetype.h>
+#endif
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qurl.h>

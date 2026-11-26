@@ -13,11 +13,24 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtQuick/qquickitem.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
+#endif
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <utility>
+#include <QtGui/QAccessibleInterface>
+#include <QtGui/QAccessible>
+#include <QtCore/QFlags>
+
+//  Only a class built on QAccessibleQuickItem may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQAccessibleQuickItem : QAccessibleQuickItem {
+  using QAccessibleQuickItem::interface_cast;
+};
 
 //  QAccessibleQuickItem::QAccessibleQuickItem(QQuickItem *item)
 extern "C" Q_DECL_EXPORT
@@ -145,6 +158,17 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QAccessibleQuickItem12isAccessibleEv(
     const QAccessibleQuickItem *self) {
   return self->isAccessible();
+}
+
+//  QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>
+//      QAccessibleQuickItem::relations(QAccessible::Relation match) const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> *ritual_ZNK20QAccessibleQuickItem9relationsE6QFlagsIN11QAccessible12RelationFlagEE(
+    const QAccessibleQuickItem *self,
+    int match) {
+  return new QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>(
+      self->relations(
+          QFlags<QAccessible::RelationFlag>::fromInt(match)));
 }
 
 //  QStringList QAccessibleQuickItem::actionNames() const
@@ -381,6 +405,13 @@ QTextDocument *ritual_ZNK20QAccessibleQuickItem12textDocumentEv(
   return self->textDocument();
 }
 
+//  QList<QAccessible::Attribute> QAccessibleQuickItem::attributeKeys() const
+extern "C" Q_DECL_EXPORT
+QList<QAccessible::Attribute> *ritual_ZNK20QAccessibleQuickItem13attributeKeysEv(
+    const QAccessibleQuickItem *self) {
+  return new QList<QAccessible::Attribute>(self->attributeKeys());
+}
+
 //  QVariant QAccessibleQuickItem::attributeValue(QAccessible::Attribute key)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -395,6 +426,14 @@ extern "C" Q_DECL_EXPORT
 QQuickItem *ritual_ZNK20QAccessibleQuickItem4itemEv(
     const QAccessibleQuickItem *self) {
   return self->item();
+}
+
+//  void *QAccessibleQuickItem::interface_cast(QAccessible::InterfaceType t)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QAccessibleQuickItem14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleQuickItem *self,
+    QAccessible::InterfaceType t) {
+  return self->interface_cast(t);
 }
 
 //  QAccessibleQuickItem as the QAccessibleActionInterface it is built on
@@ -666,6 +705,30 @@ QVariant *ritual_own_ZNK20QAccessibleQuickItem14attributeValueEN11QAccessible9At
     const QAccessibleQuickItem *self,
     QAccessible::Attribute key) {
   return new QVariant(self->QAccessibleQuickItem::attributeValue(key));
+}
+
+//  void *QAccessibleQuickItem::interface_cast(QAccessible::InterfaceType t)
+extern "C" Q_DECL_EXPORT
+void *ritual_own_ZN20QAccessibleQuickItem14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleQuickItem *self,
+    QAccessible::InterfaceType t) {
+  return static_cast<OwnQAccessibleQuickItem *>(self)->OwnQAccessibleQuickItem::interface_cast(
+      t);
+}
+
+//  a QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> a
+//      ritual of QAccessibleQuickItem gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessibleQuickItem__QList_std_pair_QAccessibleInterface_QAccessible_Relation(
+    QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> *self) {
+  delete self;
+}
+
+//  a QList<QAccessible::Attribute> a ritual of QAccessibleQuickItem gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessibleQuickItem__QList_QAccessible_Attribute(
+    QList<QAccessible::Attribute> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(accessibility)

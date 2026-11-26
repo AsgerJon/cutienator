@@ -205,6 +205,25 @@ const QMetaObject *ritual_ZNK17QGraphicsRotation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsRotation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QGraphicsRotation11qt_metacastEPKc(
+    QGraphicsRotation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsRotation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QGraphicsRotation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsRotation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsRotation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QGraphicsRotation2trEPKcS1_i(
@@ -285,6 +304,38 @@ void ritual_ZNK17QGraphicsRotation7applyToEP10QMatrix4x4(
     const QGraphicsRotation *self,
     QMatrix4x4 *matrix) {
   self->applyTo(matrix);
+}
+
+//  void QGraphicsRotation::originChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsRotation13originChangedEv(QGraphicsRotation *self) {
+  self->originChanged();
+}
+
+//  void QGraphicsRotation::angleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsRotation12angleChangedEv(QGraphicsRotation *self) {
+  self->angleChanged();
+}
+
+//  void QGraphicsRotation::axisChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsRotation11axisChangedEv(QGraphicsRotation *self) {
+  self->axisChanged();
+}
+
+//  QGraphicsRotationPrivate *QGraphicsRotation::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsRotationPrivate *ritual_ZN17QGraphicsRotation6d_funcEv(
+    QGraphicsRotation *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsRotationPrivate *QGraphicsRotation::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsRotationPrivate *ritual_ZNK17QGraphicsRotation6d_funcEv(
+    const QGraphicsRotation *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQGraphicsRotation, for the function

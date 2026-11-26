@@ -2,6 +2,7 @@
 //  Qt3DCore/qskeletonloader.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DCore/qskeletonloader.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore15QSkeletonLoader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QSkeletonLoader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore15QSkeletonLoader11qt_metacastEPKc(
+    Qt3DCore::QSkeletonLoader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QSkeletonLoader::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore15QSkeletonLoader11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QSkeletonLoader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QSkeletonLoader::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,116 @@ QString *ritual_ZN8Qt3DCore15QSkeletonLoader2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QSkeletonLoader::tr(s, c, n));
+}
+
+//  Qt3DCore::QSkeletonLoader::QSkeletonLoader(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QSkeletonLoader *ritual_ZN8Qt3DCore15QSkeletonLoaderC1EPNS_5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QSkeletonLoader(parent);
+}
+
+//  Qt3DCore::QSkeletonLoader::QSkeletonLoader(const QUrl &source,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QSkeletonLoader *ritual_ZN8Qt3DCore15QSkeletonLoaderC1ERK4QUrlPNS_5QNodeE(
+    const QUrl *source,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QSkeletonLoader(*source, parent);
+}
+
+//  Qt3DCore::QSkeletonLoader::~QSkeletonLoader()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QSkeletonLoaderD1Ev(
+    Qt3DCore::QSkeletonLoader *self) {
+  delete self;
+}
+
+//  QUrl Qt3DCore::QSkeletonLoader::source() const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK8Qt3DCore15QSkeletonLoader6sourceEv(
+    const Qt3DCore::QSkeletonLoader *self) {
+  return new QUrl(self->source());
+}
+
+//  Status Qt3DCore::QSkeletonLoader::status() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QSkeletonLoader::Status ritual_ZNK8Qt3DCore15QSkeletonLoader6statusEv(
+    const Qt3DCore::QSkeletonLoader *self) {
+  return self->status();
+}
+
+//  bool Qt3DCore::QSkeletonLoader::isCreateJointsEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore15QSkeletonLoader21isCreateJointsEnabledEv(
+    const Qt3DCore::QSkeletonLoader *self) {
+  return self->isCreateJointsEnabled();
+}
+
+//  Qt3DCore::QJoint *Qt3DCore::QSkeletonLoader::rootJoint() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QJoint *ritual_ZNK8Qt3DCore15QSkeletonLoader9rootJointEv(
+    const Qt3DCore::QSkeletonLoader *self) {
+  return self->rootJoint();
+}
+
+//  void Qt3DCore::QSkeletonLoader::setSource(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QSkeletonLoader9setSourceERK4QUrl(
+    Qt3DCore::QSkeletonLoader *self,
+    const QUrl *source) {
+  self->setSource(*source);
+}
+
+//  void Qt3DCore::QSkeletonLoader::setCreateJointsEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QSkeletonLoader22setCreateJointsEnabledEb(
+    Qt3DCore::QSkeletonLoader *self,
+    bool enabled) {
+  self->setCreateJointsEnabled(enabled);
+}
+
+//  void Qt3DCore::QSkeletonLoader::sourceChanged(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QSkeletonLoader13sourceChangedERK4QUrl(
+    Qt3DCore::QSkeletonLoader *self,
+    const QUrl *source) {
+  self->sourceChanged(*source);
+}
+
+//  void Qt3DCore::QSkeletonLoader::statusChanged(Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QSkeletonLoader13statusChangedENS0_6StatusE(
+    Qt3DCore::QSkeletonLoader *self,
+    Qt3DCore::QSkeletonLoader::Status status) {
+  self->statusChanged(status);
+}
+
+//  void Qt3DCore::QSkeletonLoader::createJointsEnabledChanged(bool
+//      createJointsEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QSkeletonLoader26createJointsEnabledChangedEb(
+    Qt3DCore::QSkeletonLoader *self,
+    bool createJointsEnabled) {
+  self->createJointsEnabledChanged(createJointsEnabled);
+}
+
+//  void Qt3DCore::QSkeletonLoader::rootJointChanged(Qt3DCore::QJoint
+//      *rootJoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QSkeletonLoader16rootJointChangedEPNS_6QJointE(
+    Qt3DCore::QSkeletonLoader *self,
+    Qt3DCore::QJoint *rootJoint) {
+  self->rootJointChanged(rootJoint);
+}
+
+//  Qt3DCore::QSkeletonLoader::QSkeletonLoader(QSkeletonLoaderPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QSkeletonLoader *ritual_ZN8Qt3DCore15QSkeletonLoaderC1ERNS_22QSkeletonLoaderPrivateEPNS_5QNodeE(
+    Qt3DCore::QSkeletonLoaderPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QSkeletonLoader(*dd, parent);
 }
 
 //  QSkeletonLoaderPrivate *Qt3DCore::QSkeletonLoader::d_func()
@@ -201,6 +331,14 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QSkeletonLoaderPrivate *ritual_ZNK8Qt3DCore15QSkeletonLoader6d_funcEv(
     const Qt3DCore::QSkeletonLoader *self) {
   return self->d_func();
+}
+
+//  void Qt3DCore::QSkeletonLoader::setRootJoint(QJoint *rootJoint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QSkeletonLoader12setRootJointEPNS_6QJointE(
+    Qt3DCore::QSkeletonLoader *self,
+    Qt3DCore::QJoint *rootJoint) {
+  self->setRootJoint(rootJoint);
 }
 
 //  a Python function taken by a CuteQt3DCore_QSkeletonLoader, for the

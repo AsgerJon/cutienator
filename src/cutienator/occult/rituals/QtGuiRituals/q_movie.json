@@ -5,7 +5,13 @@
   ],
   "rows": {
     "ritual_ZNK6QMovie10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QMovie11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN6QMovie11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN6QMovie2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN6QMovie6d_funcEv": ["address", "address"],
+    "ritual_ZNK6QMovie6d_funcEv": ["address", "address"],
     "ritual_ZN6QMovieC1EP7QObject": ["address", "address"],
     "ritual_ZN6QMovieC1EP9QIODeviceRK10QByteArrayP7QObject": [
       "address", "address", "address", "address"
@@ -44,6 +50,7 @@
     "ritual_ZNK6QMovie14nextFrameDelayEv": ["int", "address"],
     "ritual_ZNK6QMovie18currentFrameNumberEv": ["int", "address"],
     "ritual_ZNK6QMovie5speedEv": ["int", "address"],
+    "ritual_ZN6QMovie13bindableSpeedEv": ["address", "address"],
     "ritual_ZN6QMovie10scaledSizeEv": ["address", "address"],
     "ritual_ZN6QMovie13setScaledSizeERK5QSize": [
       "nothing", "address", "address"
@@ -52,11 +59,25 @@
     "ritual_ZN6QMovie12setCacheModeENS_9CacheModeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN6QMovie17bindableCacheModeEv": ["address", "address"],
+    "ritual_ZN6QMovie7startedEv": ["nothing", "address"],
+    "ritual_ZN6QMovie7resizedERK5QSize": ["nothing", "address", "address"],
+    "ritual_ZN6QMovie7updatedERK5QRect": ["nothing", "address", "address"],
+    "ritual_ZN6QMovie12stateChangedENS_10MovieStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN6QMovie5errorEN12QImageReader16ImageReaderErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN6QMovie8finishedEv": ["nothing", "address"],
+    "ritual_ZN6QMovie12frameChangedEi": ["nothing", "address", "int"],
     "ritual_ZN6QMovie5startEv": ["nothing", "address"],
     "ritual_ZN6QMovie15jumpToNextFrameEv": ["bool", "address"],
     "ritual_ZN6QMovie9setPausedEb": ["nothing", "address", "bool"],
     "ritual_ZN6QMovie4stopEv": ["nothing", "address"],
     "ritual_ZN6QMovie8setSpeedEi": ["nothing", "address", "int"],
-    "ritual_take_QMovie": ["bool", "address", "chars", "address"]
+    "ritual_take_QMovie": ["bool", "address", "chars", "address"],
+    "ritual_drop_QMovie__QBindable_int": ["nothing", "address"],
+    "ritual_drop_QMovie__QBindable_QMovie_CacheMode": ["nothing", "address"]
   }
 }

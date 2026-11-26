@@ -11,6 +11,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qobjectdefs.h>
 #include <QtCore/qlist.h>
+#include <string>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qtconfigmacros.h>
 #include <QtCore/qobject.h>
@@ -219,6 +220,16 @@ void ritual_ZN14QObjectPrivate17deleteInOwnThreadEP7QObject(
   QObjectPrivate::deleteInOwnThread(object);
 }
 
+//  int QObjectPrivate::signalIndex(const char *signalName, const QMetaObject
+//      **meta) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK14QObjectPrivate11signalIndexEPKcPPK11QMetaObject(
+    const QObjectPrivate *self,
+    const char *signalName,
+    const QMetaObject **meta) {
+  return self->signalIndex(signalName, meta);
+}
+
 //  bool QObjectPrivate::isSignalConnected(uint signalIdx, bool
 //      checkDeclarative) const
 extern "C" Q_DECL_EXPORT
@@ -268,6 +279,32 @@ void ritual_ZN14QObjectPrivate35reinitBindingStorageAfterThreadMoveEv(
   self->reinitBindingStorageAfterThreadMove();
 }
 
+//  QMetaObject::Connection QObjectPrivate::connectImpl(const QObject
+//      *sender, int signal_index, const QObject *receiver, void **slot,
+//      QtPrivate::QSlotObjectBase *slotObj, int type, const int *types,
+//      const QMetaObject *senderMetaObject)
+extern "C" Q_DECL_EXPORT
+QMetaObject::Connection *ritual_ZN14QObjectPrivate11connectImplEPK7QObjectiS2_PPvPN9QtPrivate15QSlotObjectBaseEiPKiPK11QMetaObject(
+    const QObject *sender,
+    int signal_index,
+    const QObject *receiver,
+    void **slot,
+    QtPrivate::QSlotObjectBase *slotObj,
+    int type,
+    const int *types,
+    const QMetaObject *senderMetaObject) {
+  return new QMetaObject::Connection(
+      QObjectPrivate::connectImpl(
+          sender,
+          signal_index,
+          receiver,
+          slot,
+          slotObj,
+          type,
+          types,
+          senderMetaObject));
+}
+
 //  QMetaObject::Connection QObjectPrivate::connect(const QObject *sender,
 //      int signal_index, QtPrivate::QSlotObjectBase *slotObj,
 //      Qt::ConnectionType type)
@@ -304,6 +341,44 @@ QMetaObject::Connection *ritual_ZN14QObjectPrivate7connectEPK7QObjectiS2_PN9QtPr
           type));
 }
 
+//  bool QObjectPrivate::disconnect(const QObject *sender, int signal_index,
+//      void **slot)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QObjectPrivate10disconnectEPK7QObjectiPPv(
+    const QObject *sender,
+    int signal_index,
+    void **slot) {
+  return QObjectPrivate::disconnect(sender, signal_index, slot);
+}
+
+//  bool QObjectPrivate::disconnect(const QObject *sender, int signal_index,
+//      const QObject *receiver, void **slot)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QObjectPrivate10disconnectEPK7QObjectiS2_PPv(
+    const QObject *sender,
+    int signal_index,
+    const QObject *receiver,
+    void **slot) {
+  return QObjectPrivate::disconnect(sender, signal_index, receiver, slot);
+}
+
+//  std::string QObjectPrivate::flagsForDumping() const
+extern "C" Q_DECL_EXPORT
+std::string *ritual_ZNK14QObjectPrivate15flagsForDumpingB5cxx11Ev(
+    const QObjectPrivate *self) {
+  return new std::string(self->flagsForDumping());
+}
+
+#if !defined(QT_NO_DEBUG_STREAM)
+//  void QObjectPrivate::writeToDebugStream(QDebug &a0) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QObjectPrivate18writeToDebugStreamER6QDebug(
+    const QObjectPrivate *self,
+    QDebug *a0) {
+  self->writeToDebugStream(*a0);
+}
+#endif  // !defined(QT_NO_DEBUG_STREAM)
+
 //  QtPrivate::QPropertyAdaptorSlotObject
 //      *QObjectPrivate::getPropertyAdaptorSlotObject(const QMetaProperty
 //      &property)
@@ -312,4 +387,10 @@ QtPrivate::QPropertyAdaptorSlotObject *ritual_ZN14QObjectPrivate28getPropertyAda
     QObjectPrivate *self,
     const QMetaProperty *property) {
   return self->getPropertyAdaptorSlotObject(*property);
+}
+
+//  a std::string a ritual of QObjectPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QObjectPrivate__std_string(std::string *self) {
+  delete self;
 }

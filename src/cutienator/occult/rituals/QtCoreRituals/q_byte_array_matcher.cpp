@@ -46,6 +46,15 @@ void ritual_ZN17QByteArrayMatcherD1Ev(QByteArrayMatcher *self) {
   delete self;
 }
 
+//  QByteArrayMatcher &QByteArrayMatcher::operator=(const QByteArrayMatcher
+//      &other)
+extern "C" Q_DECL_EXPORT
+QByteArrayMatcher *ritual_ZN17QByteArrayMatcheraSERKS_(
+    QByteArrayMatcher *self,
+    const QByteArrayMatcher *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QByteArrayMatcher::setPattern(const QByteArray &pattern)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QByteArrayMatcher10setPatternERK10QByteArray(

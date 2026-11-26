@@ -12,13 +12,20 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qcolor.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <utility>
+#include <QtGui/QAccessibleInterface>
+#include <QtGui/QAccessible>
+#include <QtCore/QFlags>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/private/simplewidgets_p.h>
 #if QT_CONFIG(abstractbutton)
@@ -86,35 +93,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/accessible/simplewidgets.cpp, line 519, as _ZN18QAccessibleDisplay14interface_castEN11QAccessible13InterfaceTypeE
-#if QT_CONFIG(accessibility)
-inline void *QAccessibleDisplay::interface_cast(QAccessible::InterfaceType t)
-{
-    if (t == QAccessible::ImageInterface)
-        return static_cast<QAccessibleImageInterface*>(this);
-    return QAccessibleWidgetV2::interface_cast(t);
-}
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/simplewidgets.cpp, line 502, as _ZNK18QAccessibleDisplay9relationsE6QFlagsIN11QAccessible12RelationFlagEE
-#if QT_CONFIG(accessibility)
-inline QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>
-QAccessibleDisplay::relations(QAccessible::Relation match /* = QAccessible::AllRelations */) const
-{
-    QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> rels =
-            QAccessibleWidgetV2::relations(match);
-#    if QT_CONFIG(shortcut) && QT_CONFIG(label)
-    if (match & QAccessible::Labelled) {
-        if (QLabel *label = qobject_cast<QLabel*>(object())) {
-            const QAccessible::Relation rel = QAccessible::Labelled;
-            if (QAccessibleInterface *iface = QAccessible::queryAccessibleInterface(label->buddy()))
-                rels.emplace_back(iface, rel);
-        }
-    }
-#endif
-    return rels;
-}
-#endif  // QT_CONFIG(accessibility)
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/accessible/simplewidgets.cpp, line 407, as _ZN18QAccessibleDisplayC1EP7QWidgetN11QAccessible4RoleE
 #if QT_CONFIG(accessibility)
@@ -222,6 +201,36 @@ inline QAccessible::State QAccessibleDisplay::state() const
 }
 #endif  // QT_CONFIG(accessibility)
 
+//  from src/widgets/accessible/simplewidgets.cpp, line 502, as _ZNK18QAccessibleDisplay9relationsE6QFlagsIN11QAccessible12RelationFlagEE
+#if QT_CONFIG(accessibility)
+inline QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>
+QAccessibleDisplay::relations(QAccessible::Relation match /* = QAccessible::AllRelations */) const
+{
+    QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> rels =
+            QAccessibleWidgetV2::relations(match);
+#    if QT_CONFIG(shortcut) && QT_CONFIG(label)
+    if (match & QAccessible::Labelled) {
+        if (QLabel *label = qobject_cast<QLabel*>(object())) {
+            const QAccessible::Relation rel = QAccessible::Labelled;
+            if (QAccessibleInterface *iface = QAccessible::queryAccessibleInterface(label->buddy()))
+                rels.emplace_back(iface, rel);
+        }
+    }
+#endif
+    return rels;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/simplewidgets.cpp, line 519, as _ZN18QAccessibleDisplay14interface_castEN11QAccessible13InterfaceTypeE
+#if QT_CONFIG(accessibility)
+inline void *QAccessibleDisplay::interface_cast(QAccessible::InterfaceType t)
+{
+    if (t == QAccessible::ImageInterface)
+        return static_cast<QAccessibleImageInterface*>(this);
+    return QAccessibleWidgetV2::interface_cast(t);
+}
+#endif  // QT_CONFIG(accessibility)
+
 //  from src/widgets/accessible/simplewidgets.cpp, line 527, as _ZNK18QAccessibleDisplay16imageDescriptionEv
 #if QT_CONFIG(accessibility)
 inline QString QAccessibleDisplay::imageDescription() const
@@ -281,69 +290,75 @@ typedef int (*CuteQAccessibleDisplayCall1)(const void *, int *);
 typedef const QAccessible::State * (*CuteQAccessibleDisplayCall2)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleDisplayCall3)(const void *, int *);
+typedef void * (*CuteQAccessibleDisplayCall3)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QSize * (*CuteQAccessibleDisplayCall4)(const void *, int *);
+typedef QString * (*CuteQAccessibleDisplayCall4)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QPoint * (*CuteQAccessibleDisplayCall5)(const void *, int *);
+typedef const QSize * (*CuteQAccessibleDisplayCall5)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QVariant * (*CuteQAccessibleDisplayCall6)(const void *, int, int *);
+typedef const QPoint * (*CuteQAccessibleDisplayCall6)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef bool (*CuteQAccessibleDisplayCall7)(const void *, int *);
+typedef const QVariant * (*CuteQAccessibleDisplayCall7)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleDisplayCall8)(const void *, int *);
+typedef bool (*CuteQAccessibleDisplayCall8)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleDisplayCall9)(const void *, int *);
+typedef void * (*CuteQAccessibleDisplayCall9)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleDisplayCall10)(const void *, const QAccessibleInterface *, int *);
+typedef int (*CuteQAccessibleDisplayCall10)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleDisplayCall11)(const void *, int *);
+typedef int (*CuteQAccessibleDisplayCall11)(const void *, const QAccessibleInterface *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QRect * (*CuteQAccessibleDisplayCall12)(const void *, int *);
+typedef void * (*CuteQAccessibleDisplayCall12)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleDisplayCall13)(const void *, int *);
+typedef const QRect * (*CuteQAccessibleDisplayCall13)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleDisplayCall14)(const void *, int, int *);
+typedef void * (*CuteQAccessibleDisplayCall14)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QColor * (*CuteQAccessibleDisplayCall15)(const void *, int *);
+typedef void * (*CuteQAccessibleDisplayCall15)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleDisplayCall16)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleDisplayCall17)(const void *, const QString *, int *);
+typedef const QColor * (*CuteQAccessibleDisplayCall17)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleDisplayCall18)(const void *, int *);
+typedef void (*CuteQAccessibleDisplayCall18)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleDisplayCall19)(const void *, int, const QString *, int *);
+typedef void * (*CuteQAccessibleDisplayCall19)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleDisplayCall20)(const void *, int, int, int *);
+typedef void (*CuteQAccessibleDisplayCall20)(const void *, int, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleDisplayCall21)(const void *, const QString *, int *);
+typedef void * (*CuteQAccessibleDisplayCall21)(const void *, int, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleDisplayCall22)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleDisplayCall22)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleDisplayCall23)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleDisplayCall24)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleDisplay : public QAccessibleDisplay {
 public:
   using QAccessibleDisplay::QAccessibleDisplay;
-  void *taken[23] = {};
+  void *taken[25] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -365,122 +380,134 @@ public:
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface16imageDescriptionEv")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
       taken[3] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface9imageSizeEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface16imageDescriptionEv")) {
       taken[4] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface13imagePositionEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface9imageSizeEv")) {
       taken[5] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface13imagePositionEv")) {
       taken[6] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
+    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
       taken[7] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
       taken[8] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10childCountEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
       taken[9] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface12indexOfChildEPKS_")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10childCountEv")) {
       taken[10] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface12indexOfChildEPKS_")) {
       taken[11] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
       taken[12] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
       taken[13] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5childEi")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
       taken[14] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5childEi")) {
       taken[15] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
       taken[16] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[17] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
       taken[18] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
       taken[19] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
       taken[20] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
       taken[21] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
       taken[22] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[23] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+      taken[24] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -531,11 +558,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
-  //  QString QAccessibleDisplay::imageDescription() const
-  QString imageDescription() const override {
+  //  void *QAccessibleDisplay::interface_cast(QAccessible::InterfaceType
+  //      t)
+  void *interface_cast(QAccessible::InterfaceType t) override {
     if (taken[3]) {
       int handled = 0;
       CuteQAccessibleDisplayCall3 call = reinterpret_cast<CuteQAccessibleDisplayCall3>(taken[3]);
+      void * given = call(this, static_cast<int>(t), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleDisplay::interface_cast(t);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  QString QAccessibleDisplay::imageDescription() const
+  QString imageDescription() const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQAccessibleDisplayCall4 call = reinterpret_cast<CuteQAccessibleDisplayCall4>(taken[4]);
       QString * given = call(this, &handled);
       if (handled && given) {
         QString back(*given);
@@ -550,9 +591,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QSize QAccessibleDisplay::imageSize() const
   QSize imageSize() const override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall4 call = reinterpret_cast<CuteQAccessibleDisplayCall4>(taken[4]);
+      CuteQAccessibleDisplayCall5 call = reinterpret_cast<CuteQAccessibleDisplayCall5>(taken[5]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -563,9 +604,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QPoint QAccessibleDisplay::imagePosition() const
   QPoint imagePosition() const override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall5 call = reinterpret_cast<CuteQAccessibleDisplayCall5>(taken[5]);
+      CuteQAccessibleDisplayCall6 call = reinterpret_cast<CuteQAccessibleDisplayCall6>(taken[6]);
       const QPoint * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -577,9 +618,9 @@ public:
   //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
   //      key) const
   QVariant attributeValue(QAccessible::Attribute key) const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall6 call = reinterpret_cast<CuteQAccessibleDisplayCall6>(taken[6]);
+      CuteQAccessibleDisplayCall7 call = reinterpret_cast<CuteQAccessibleDisplayCall7>(taken[7]);
       const QVariant * given = call(this, static_cast<int>(key), &handled);
       if (handled && given) return *given;
     }
@@ -590,9 +631,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  bool QAccessibleWidget::isValid() const
   bool isValid() const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall7 call = reinterpret_cast<CuteQAccessibleDisplayCall7>(taken[7]);
+      CuteQAccessibleDisplayCall8 call = reinterpret_cast<CuteQAccessibleDisplayCall8>(taken[8]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -603,9 +644,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QWindow *QAccessibleWidget::window() const
   QWindow *window() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall8 call = reinterpret_cast<CuteQAccessibleDisplayCall8>(taken[8]);
+      CuteQAccessibleDisplayCall9 call = reinterpret_cast<CuteQAccessibleDisplayCall9>(taken[9]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWindow *>(given);
     }
@@ -616,9 +657,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  int QAccessibleWidget::childCount() const
   int childCount() const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall9 call = reinterpret_cast<CuteQAccessibleDisplayCall9>(taken[9]);
+      CuteQAccessibleDisplayCall10 call = reinterpret_cast<CuteQAccessibleDisplayCall10>(taken[10]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -630,9 +671,9 @@ public:
   //  int QAccessibleWidget::indexOfChild(const QAccessibleInterface
   //      *child) const
   int indexOfChild(const QAccessibleInterface *child) const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall10 call = reinterpret_cast<CuteQAccessibleDisplayCall10>(taken[10]);
+      CuteQAccessibleDisplayCall11 call = reinterpret_cast<CuteQAccessibleDisplayCall11>(taken[11]);
       int given = call(this, child, &handled);
       if (handled) return given;
     }
@@ -643,9 +684,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::focusChild() const
   QAccessibleInterface *focusChild() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall11 call = reinterpret_cast<CuteQAccessibleDisplayCall11>(taken[11]);
+      CuteQAccessibleDisplayCall12 call = reinterpret_cast<CuteQAccessibleDisplayCall12>(taken[12]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -656,9 +697,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QRect QAccessibleWidget::rect() const
   QRect rect() const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall12 call = reinterpret_cast<CuteQAccessibleDisplayCall12>(taken[12]);
+      CuteQAccessibleDisplayCall13 call = reinterpret_cast<CuteQAccessibleDisplayCall13>(taken[13]);
       const QRect * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -669,9 +710,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::parent() const
   QAccessibleInterface *parent() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall13 call = reinterpret_cast<CuteQAccessibleDisplayCall13>(taken[13]);
+      CuteQAccessibleDisplayCall14 call = reinterpret_cast<CuteQAccessibleDisplayCall14>(taken[14]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -682,9 +723,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::child(int index) const
   QAccessibleInterface *child(int index) const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall14 call = reinterpret_cast<CuteQAccessibleDisplayCall14>(taken[14]);
+      CuteQAccessibleDisplayCall15 call = reinterpret_cast<CuteQAccessibleDisplayCall15>(taken[15]);
       void * given = call(this, index, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -695,9 +736,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall15 call = reinterpret_cast<CuteQAccessibleDisplayCall15>(taken[15]);
+      CuteQAccessibleDisplayCall16 call = reinterpret_cast<CuteQAccessibleDisplayCall16>(taken[16]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -708,9 +749,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall16 call = reinterpret_cast<CuteQAccessibleDisplayCall16>(taken[16]);
+      CuteQAccessibleDisplayCall17 call = reinterpret_cast<CuteQAccessibleDisplayCall17>(taken[17]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -721,9 +762,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  void QAccessibleWidget::doAction(const QString &actionName)
   void doAction(const QString &actionName) override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall17 call = reinterpret_cast<CuteQAccessibleDisplayCall17>(taken[17]);
+      CuteQAccessibleDisplayCall18 call = reinterpret_cast<CuteQAccessibleDisplayCall18>(taken[18]);
       call(this, &actionName, &handled);
       if (handled) return;
     }
@@ -734,9 +775,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QObject *QAccessibleObject::object() const
   QObject *object() const override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall18 call = reinterpret_cast<CuteQAccessibleDisplayCall18>(taken[18]);
+      CuteQAccessibleDisplayCall19 call = reinterpret_cast<CuteQAccessibleDisplayCall19>(taken[19]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QObject *>(given);
     }
@@ -748,9 +789,9 @@ public:
   //  void QAccessibleObject::setText(QAccessible::Text t, const QString
   //      &text)
   void setText(QAccessible::Text t, const QString &text) override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall19 call = reinterpret_cast<CuteQAccessibleDisplayCall19>(taken[19]);
+      CuteQAccessibleDisplayCall20 call = reinterpret_cast<CuteQAccessibleDisplayCall20>(taken[20]);
       call(this, static_cast<int>(t), &text, &handled);
       if (handled) return;
     }
@@ -761,9 +802,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const
   QAccessibleInterface *childAt(int x, int y) const override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall20 call = reinterpret_cast<CuteQAccessibleDisplayCall20>(taken[20]);
+      CuteQAccessibleDisplayCall21 call = reinterpret_cast<CuteQAccessibleDisplayCall21>(taken[21]);
       void * given = call(this, x, y, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -772,12 +813,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQAccessibleDisplayCall22 call = reinterpret_cast<CuteQAccessibleDisplayCall22>(taken[22]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionName(const QString
   //      &name) const
   QString localizedActionName(const QString &name) const override {
-    if (taken[21]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall21 call = reinterpret_cast<CuteQAccessibleDisplayCall21>(taken[21]);
+      CuteQAccessibleDisplayCall23 call = reinterpret_cast<CuteQAccessibleDisplayCall23>(taken[23]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -793,9 +847,9 @@ public:
   //  QString QAccessibleActionInterface::localizedActionDescription(const
   //      QString &name) const
   QString localizedActionDescription(const QString &name) const override {
-    if (taken[22]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQAccessibleDisplayCall22 call = reinterpret_cast<CuteQAccessibleDisplayCall22>(taken[22]);
+      CuteQAccessibleDisplayCall24 call = reinterpret_cast<CuteQAccessibleDisplayCall24>(taken[24]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -839,6 +893,25 @@ extern "C" Q_DECL_EXPORT
 QAccessible::State *ritual_ZNK18QAccessibleDisplay5stateEv(
     const QAccessibleDisplay *self) {
   return new QAccessible::State(self->state());
+}
+
+//  QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>
+//      QAccessibleDisplay::relations(QAccessible::Relation match) const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> *ritual_ZNK18QAccessibleDisplay9relationsE6QFlagsIN11QAccessible12RelationFlagEE(
+    const QAccessibleDisplay *self,
+    int match) {
+  return new QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>(
+      self->relations(
+          QFlags<QAccessible::RelationFlag>::fromInt(match)));
+}
+
+//  void *QAccessibleDisplay::interface_cast(QAccessible::InterfaceType t)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QAccessibleDisplay14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleDisplay *self,
+    QAccessible::InterfaceType t) {
+  return self->interface_cast(t);
 }
 
 //  QString QAccessibleDisplay::imageDescription() const
@@ -908,6 +981,16 @@ QAccessible::State *ritual_own_ZNK18QAccessibleDisplay5stateEv(
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+//  void *QAccessibleDisplay::interface_cast(QAccessible::InterfaceType t)
+extern "C" Q_DECL_EXPORT
+void *ritual_own_ZN18QAccessibleDisplay14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleDisplay *self,
+    QAccessible::InterfaceType t) {
+  return self->QAccessibleDisplay::interface_cast(t);
+}
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
 //  QString QAccessibleDisplay::imageDescription() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_own_ZNK18QAccessibleDisplay16imageDescriptionEv(
@@ -933,6 +1016,14 @@ QPoint *ritual_own_ZNK18QAccessibleDisplay13imagePositionEv(
   return new QPoint(self->QAccessibleDisplay::imagePosition());
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  a QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> a
+//      ritual of QAccessibleDisplay gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessibleDisplay__QList_std_pair_QAccessibleInterface_QAccessible_Relation(
+    QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> *self) {
+  delete self;
+}
 
 #endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

@@ -5,5 +5,17 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12JointManager13addDirtyJointEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12JointManager16removeDirtyJointEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12JointManager11dirtyJointsEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_JointManager__QList_Qt3DRender_Render_HJoint": [
+      "nothing", "address"
+    ]
   }
 }

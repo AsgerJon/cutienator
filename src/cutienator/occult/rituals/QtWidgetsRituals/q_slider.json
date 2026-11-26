@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK7QSlider10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QSlider11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QSlider11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QSlider2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QSliderC1EP7QWidget": ["address", "address"],
     "ritual_ZN7QSliderC1EN2Qt11OrientationEP7QWidget": [
@@ -35,6 +39,8 @@
     "ritual_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN7QSlider6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QSlider6d_funcEv": ["address", "address"],
     "ritual_take_QSlider": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK7QSlider8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK7QSlider15minimumSizeHintEv": ["address", "address"],

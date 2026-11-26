@@ -4,6 +4,10 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QNativeGestureEventC1ERKS_": ["address", "address"],
+    "ritual_ZN19QNativeGestureEventaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QNativeGestureEvent5cloneEv": ["address", "address"],
     "ritual_ZN19QNativeGestureEventD1Ev": ["nothing", "address"],
     "ritual_ZN19QNativeGestureEventC1EN2Qt17NativeGestureTypeEPK15QPointingDeviceRK7QPointFS7_S7_dyy": [

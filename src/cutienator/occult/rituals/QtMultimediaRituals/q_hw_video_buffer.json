@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN14QHwVideoBufferC1EN11QVideoFrame10HandleTypeE": [
+      "address", "int"
+    ],
     "ritual_ZN14QHwVideoBufferD1Ev": ["nothing", "address"],
     "ritual_ZNK14QHwVideoBuffer10handleTypeEv": ["int", "address"],
     "ritual_ZNK14QHwVideoBuffer26associatedCurrentThreadRhiEv": [
@@ -13,6 +16,12 @@
     "ritual_ZNK14QHwVideoBuffer6formatEv": ["address", "address"],
     "ritual_ZNK14QHwVideoBuffer21externalTextureMatrixEv": [
       "address", "address"
+    ],
+    "ritual_ZN14QHwVideoBuffer11mapTexturesER4QRhiRSt10unique_ptrI19QVideoFrameTexturesSt14default_deleteIS3_EE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QHwVideoBuffer20initTextureConverterER4QRhi": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK14QHwVideoBuffer8isDmaBufEv": ["bool", "address"],
     "ritual_cast_QHwVideoBuffer_QVideoFrameTexturesHandles": [
@@ -26,6 +35,9 @@
     "ritual_own_ZNK14QHwVideoBuffer21externalTextureMatrixEv": [
       "address", "address"
     ],
-    "ritual_own_ZNK14QHwVideoBuffer8isDmaBufEv": ["bool", "address"]
+    "ritual_own_ZNK14QHwVideoBuffer8isDmaBufEv": ["bool", "address"],
+    "ritual_drop_QHwVideoBuffer__QVideoFrameTexturesUPtr": [
+      "nothing", "address"
+    ]
   }
 }

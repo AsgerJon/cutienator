@@ -179,6 +179,14 @@ public:
   }
 };
 
+//  QDeclarativePolygonMapItemPrivate::QDeclarativePolygonMapItemPrivate(QDec
+//      larativePolygonMapItem &polygon)
+extern "C" Q_DECL_EXPORT
+QDeclarativePolygonMapItemPrivate *ritual_ZN33QDeclarativePolygonMapItemPrivateC1ER26QDeclarativePolygonMapItem(
+    QDeclarativePolygonMapItem *polygon) {
+  return new CuteQDeclarativePolygonMapItemPrivate(*polygon);
+}
+
 //  QDeclarativePolygonMapItemPrivate::~QDeclarativePolygonMapItemPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN33QDeclarativePolygonMapItemPrivateD1Ev(

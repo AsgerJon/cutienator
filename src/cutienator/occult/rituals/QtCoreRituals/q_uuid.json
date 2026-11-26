@@ -1,7 +1,7 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/quuid.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/quuid.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN5QUuidC1EN2Qt14InitializationE": ["address", "int"],
@@ -26,6 +26,9 @@
       "address", "address", "int"
     ],
     "ritual_ZNK5QUuid9toRfc4122Ev": ["address", "address"],
+    "ritual_ZN5QUuid9fromBytesEPKvN8QSysInfo6EndianE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN5QUuid11fromRfc4122E14QByteArrayView": ["address", "address"],
     "ritual_ZNK5QUuid6isNullEN2Qt15Disambiguated_tE": [
       "bool", "address", "address"
@@ -54,6 +57,12 @@
     "ritual_ZNK5QUuid7versionEN2Qt15Disambiguated_tE": [
       "int", "address", "address"
     ],
-    "ritual_ZN5QUuidD1Ev": ["nothing", "address"]
+    "ritual_ZN5QUuidD1Ev": ["nothing", "address"],
+    "ritual_ZN5QUuid12createUuidV3IvEES_RKS_RK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN5QUuid12createUuidV5IvEES_RKS_RK7QString": [
+      "address", "address", "text"
+    ]
   }
 }

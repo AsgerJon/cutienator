@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/planegeometry_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/qtquick3dhelpersglobal_p.h>
 #include <QtQuick3DHelpers/QtQuick3DHelpers>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,6 +12,7 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSize>
 
 //  A PlaneGeometry that Python can take functions over in. Every PlaneGeometry
 //  Python makes is one. Each function below asks the Python
@@ -287,6 +289,24 @@ const QMetaObject *ritual_ZNK13PlaneGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PlaneGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13PlaneGeometry11qt_metacastEPKc(
+    PlaneGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PlaneGeometry::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13PlaneGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    PlaneGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString PlaneGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13PlaneGeometry2trEPKcS1_i(
@@ -428,12 +448,113 @@ void ritual_ZN13PlaneGeometry15requestFinishedEv(PlaneGeometry *self) {
   self->requestFinished();
 }
 
+//  void PlaneGeometry::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry12widthChangedEv(PlaneGeometry *self) {
+  self->widthChanged();
+}
+
+//  void PlaneGeometry::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry13heightChangedEv(PlaneGeometry *self) {
+  self->heightChanged();
+}
+
+//  void PlaneGeometry::meshResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry21meshResolutionChangedEv(PlaneGeometry *self) {
+  self->meshResolutionChanged();
+}
+
+//  void PlaneGeometry::planeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry12planeChangedEv(PlaneGeometry *self) {
+  self->planeChanged();
+}
+
+//  void PlaneGeometry::mirroredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry15mirroredChangedEv(PlaneGeometry *self) {
+  self->mirroredChanged();
+}
+
+//  void PlaneGeometry::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry19asynchronousChangedEv(PlaneGeometry *self) {
+  self->asynchronousChanged();
+}
+
+//  void PlaneGeometry::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry13statusChangedEv(PlaneGeometry *self) {
+  self->statusChanged();
+}
+
+//  void PlaneGeometry::reversedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry15reversedChangedEv(PlaneGeometry *self) {
+  self->reversedChanged();
+}
+
 //  void PlaneGeometry::scheduleGeometryUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13PlaneGeometry22scheduleGeometryUpdateEv(
     PlaneGeometry *self) {
   self->scheduleGeometryUpdate();
 }
+
+//  void PlaneGeometry::updateGeometry(const GeometryData &geometryData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry14updateGeometryERKNS_12GeometryDataE(
+    PlaneGeometry *self,
+    const PlaneGeometry::GeometryData *geometryData) {
+  self->updateGeometry(*geometryData);
+}
+
+//  PlaneGeometry::GeometryData PlaneGeometry::generatePlaneGeometry(float
+//      width, float height, QSize meshResolution, Plane plane, bool
+//      reversed, bool mirrored)
+extern "C" Q_DECL_EXPORT
+PlaneGeometry::GeometryData *ritual_ZN13PlaneGeometry21generatePlaneGeometryEff5QSizeNS_5PlaneEbb(
+    float width,
+    float height,
+    const QSize *meshResolution,
+    PlaneGeometry::Plane plane,
+    bool reversed,
+    bool mirrored) {
+  return new PlaneGeometry::GeometryData(
+      PlaneGeometry::generatePlaneGeometry(
+          width,
+          height,
+          *meshResolution,
+          plane,
+          reversed,
+          mirrored));
+}
+
+#if QT_CONFIG(concurrent)
+//  void PlaneGeometry::generatePlaneGeometryAsync(QPromise<PlaneGeometry::Ge
+//      ometryData> &promise, float width, float height, QSize
+//      meshResolution, Plane plane, bool reversed, bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13PlaneGeometry26generatePlaneGeometryAsyncER8QPromiseINS_12GeometryDataEEff5QSizeNS_5PlaneEbb(
+    QPromise<PlaneGeometry::GeometryData> *promise,
+    float width,
+    float height,
+    const QSize *meshResolution,
+    PlaneGeometry::Plane plane,
+    bool reversed,
+    bool mirrored) {
+  PlaneGeometry::generatePlaneGeometryAsync(
+      *promise,
+      width,
+      height,
+      *meshResolution,
+      plane,
+      reversed,
+      mirrored);
+}
+#endif  // QT_CONFIG(concurrent)
 
 //  a Python function taken by a CutePlaneGeometry, for the function named by
 //      the key
@@ -443,4 +564,11 @@ bool ritual_take_PlaneGeometry(
     const char *key,
     void *call) {
   return static_cast<CutePlaneGeometry *>(self)->take(key, call);
+}
+
+//  a PlaneGeometry::GeometryData a ritual of PlaneGeometry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_PlaneGeometry__PlaneGeometry_GeometryData(
+    PlaneGeometry::GeometryData *self) {
+  delete self;
 }

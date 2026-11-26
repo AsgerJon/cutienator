@@ -43,6 +43,15 @@
     "ritual_ZN16QLineEditPrivate21cursorPositionChangedEii": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN16QLineEditPrivate16connectCompleterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QLineEditPrivate19disconnectCompleterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QLineEditPrivate21completionHighlightedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN16QLineEditPrivate4dragEv": ["nothing", "address"],
     "ritual_ZN16QLineEditPrivate18clearButtonClickedEv": [
       "nothing", "address"
@@ -63,6 +72,18 @@
       "nothing", "address"
     ],
     "ritual_ZNK16QLineEditPrivate14hasSideWidgetsEv": ["bool", "address"],
-    "ritual_take_QLineEditPrivate": ["bool", "address", "chars", "address"]
+    "ritual_ZNK16QLineEditPrivate18leftSideWidgetListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QLineEditPrivate19rightSideWidgetListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QLineEditPrivate14findSideWidgetEPK7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QLineEditPrivate": ["bool", "address", "chars", "address"],
+    "ritual_drop_QLineEditPrivate__QLineEditPrivate_SideWidgetLocation": [
+      "nothing", "address"
+    ]
   }
 }

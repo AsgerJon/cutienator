@@ -1,15 +1,20 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DRender/qalphacoverage.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK10Qt3DRender14QAlphaCoverage10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender14QAlphaCoverage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_ZN10Qt3DRender14QAlphaCoverage2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QAlphaCoverage6d_funcEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender14QAlphaCoverage6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_Qt3DRender_QAlphaCoverage": [
       "bool", "address", "chars", "address"

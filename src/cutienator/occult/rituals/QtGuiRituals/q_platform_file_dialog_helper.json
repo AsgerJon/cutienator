@@ -8,6 +8,12 @@
     "ritual_ZNK25QPlatformFileDialogHelper10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QPlatformFileDialogHelper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QPlatformFileDialogHelper2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -44,8 +50,29 @@
     "ritual_ZNK25QPlatformFileDialogHelper14isSupportedUrlERK4QUrl": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK25QPlatformFileDialogHelper7optionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper10setOptionsERK14QSharedPointerI18QFileDialogOptionsE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN25QPlatformFileDialogHelper15cleanFilterListERK7QString": [
       "address", "text"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper12fileSelectedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper13filesSelectedERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper14currentChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper16directoryEnteredERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper14filterSelectedERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_own_ZN25QPlatformFileDialogHelper20selectMimeTypeFilterERK7QString": [
       "nothing", "address", "text"

@@ -7,6 +7,8 @@
 #include <QtChartsQml/6.12.0/QtChartsQml/private/declarativecategoryaxis_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtChartsQml/private/declarativecategoryaxis_p.h>
 #include <QtCore/QDebug>
@@ -19,12 +21,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 78, as _ZN23DeclarativeCategoryAxis16endValueLessThanERKSt4pairI7QStringdES4_
-inline bool DeclarativeCategoryAxis::endValueLessThan(const QPair<QString, qreal> &value1, const QPair<QString, qreal> &value2)
-{
-    return value1.second < value2.second;
-}
 
 //  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 57, as _ZN23DeclarativeCategoryAxis10classBeginEv
 inline void DeclarativeCategoryAxis::classBegin()
@@ -49,28 +45,36 @@ inline void DeclarativeCategoryAxis::componentComplete()
         append(ranges.at(i).first, ranges.at(i).second);
 }
 
-//  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 110, as _ZNK23DeclarativeCategoryAxis14labelsPositionEv
-inline DeclarativeCategoryAxis::AxisLabelsPosition DeclarativeCategoryAxis::labelsPosition() const
-{
-    return (DeclarativeCategoryAxis::AxisLabelsPosition) QCategoryAxis::labelsPosition();
-}
-
 //  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 88, as _ZN23DeclarativeCategoryAxis6appendERK7QStringd
 inline void DeclarativeCategoryAxis::append(const QString &label, qreal categoryEndValue)
 {
     QCategoryAxis::append(label, categoryEndValue);
 }
 
-//  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 93, as _ZN23DeclarativeCategoryAxis6removeERK7QString
-inline void DeclarativeCategoryAxis::remove(const QString &label)
+//  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 83, as _ZN23DeclarativeCategoryAxis12axisChildrenEv
+inline QQmlListProperty<QObject> DeclarativeCategoryAxis::axisChildren()
 {
-    QCategoryAxis::remove(label);
+    return QQmlListProperty<QObject>(this, 0, &DeclarativeCategoryAxis::appendAxisChildren ,0,0,0);
 }
 
-//  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 98, as _ZN23DeclarativeCategoryAxis7replaceERK7QStringS2_
-inline void DeclarativeCategoryAxis::replace(const QString &oldLabel, const QString &newLabel)
+//  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 110, as _ZNK23DeclarativeCategoryAxis14labelsPositionEv
+inline DeclarativeCategoryAxis::AxisLabelsPosition DeclarativeCategoryAxis::labelsPosition() const
 {
-    QCategoryAxis::replaceLabel(oldLabel, newLabel);
+    return (DeclarativeCategoryAxis::AxisLabelsPosition) QCategoryAxis::labelsPosition();
+}
+
+//  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 78, as _ZN23DeclarativeCategoryAxis16endValueLessThanERKSt4pairI7QStringdES4_
+inline bool DeclarativeCategoryAxis::endValueLessThan(const QPair<QString, qreal> &value1, const QPair<QString, qreal> &value2)
+{
+    return value1.second < value2.second;
+}
+
+//  from ../qtcharts/src/chartsqml2/declarativecategoryaxis.cpp, line 103, as _ZN23DeclarativeCategoryAxis18appendAxisChildrenEP16QQmlListPropertyI7QObjectEPS1_
+inline void DeclarativeCategoryAxis::appendAxisChildren(QQmlListProperty<QObject> *list, QObject *element)
+{
+    // Empty implementation; the children are parsed in componentComplete instead
+    Q_UNUSED(list);
+    Q_UNUSED(element);
 }
 //  -----------------------------------------------------------------------
 
@@ -79,6 +83,32 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK23DeclarativeCategoryAxis10metaObjectEv(
     const DeclarativeCategoryAxis *self) {
   return self->metaObject();
+}
+
+//  void *DeclarativeCategoryAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23DeclarativeCategoryAxis11qt_metacastEPKc(
+    DeclarativeCategoryAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeCategoryAxis::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23DeclarativeCategoryAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeCategoryAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QQmlListProperty<QObject> DeclarativeCategoryAxis::axisChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN23DeclarativeCategoryAxis12axisChildrenEv(
+    DeclarativeCategoryAxis *self) {
+  return new QQmlListProperty<QObject>(self->axisChildren());
 }
 
 //  void DeclarativeCategoryAxis::classBegin()
@@ -102,6 +132,34 @@ DeclarativeCategoryAxis::AxisLabelsPosition ritual_ZNK23DeclarativeCategoryAxis1
   return self->labelsPosition();
 }
 
+//  void DeclarativeCategoryAxis::labelsPositionChanged(AxisLabelsPosition
+//      position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeCategoryAxis21labelsPositionChangedENS_18AxisLabelsPositionE(
+    DeclarativeCategoryAxis *self,
+    DeclarativeCategoryAxis::AxisLabelsPosition position) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "DeclarativeCategoryAxis")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "labelsPositionChanged(AxisLabelsPosition)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "labelsPositionChanged(AxisLabelsPosition)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&position)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void DeclarativeCategoryAxis::append(const QString &label, qreal
 //      categoryEndValue)
 extern "C" Q_DECL_EXPORT
@@ -109,7 +167,27 @@ void ritual_ZN23DeclarativeCategoryAxis6appendERK7QStringd(
     DeclarativeCategoryAxis *self,
     const QString *label,
     qreal categoryEndValue) {
-  self->append(*label, categoryEndValue);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "DeclarativeCategoryAxis")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "append(const QString &,qreal)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "append(const QString &,qreal)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(label)),
+      const_cast<void *>(static_cast<const void *>(&categoryEndValue)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void DeclarativeCategoryAxis::remove(const QString &label)
@@ -117,7 +195,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN23DeclarativeCategoryAxis6removeERK7QString(
     DeclarativeCategoryAxis *self,
     const QString *label) {
-  self->remove(*label);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "DeclarativeCategoryAxis")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "remove(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "remove(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(label)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void DeclarativeCategoryAxis::replace(const QString &oldLabel, const
@@ -127,7 +224,46 @@ void ritual_ZN23DeclarativeCategoryAxis7replaceERK7QStringS2_(
     DeclarativeCategoryAxis *self,
     const QString *oldLabel,
     const QString *newLabel) {
-  self->replace(*oldLabel, *newLabel);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "DeclarativeCategoryAxis")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "replace(const QString &,const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "replace(const QString &,const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(oldLabel)),
+      const_cast<void *>(static_cast<const void *>(newLabel)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  bool DeclarativeCategoryAxis::endValueLessThan(const QPair<QString,
+//      qreal> &value1, const QPair<QString, qreal> &value2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN23DeclarativeCategoryAxis16endValueLessThanERKSt4pairI7QStringdES4_(
+    const QPair<QString, qreal> *value1,
+    const QPair<QString, qreal> *value2) {
+  return DeclarativeCategoryAxis::endValueLessThan(*value1, *value2);
+}
+
+//  void
+//      DeclarativeCategoryAxis::appendAxisChildren(QQmlListProperty<QObject>
+//      *list, QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23DeclarativeCategoryAxis18appendAxisChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  DeclarativeCategoryAxis::appendAxisChildren(list, element);
 }
 
 //  DeclarativeCategoryAxis as the QQmlParserStatus it is built on
@@ -149,4 +285,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN23DeclarativeCategoryAxis17componentCompleteEv(
     DeclarativeCategoryAxis *self) {
   self->DeclarativeCategoryAxis::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of DeclarativeCategoryAxis gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeCategoryAxis__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

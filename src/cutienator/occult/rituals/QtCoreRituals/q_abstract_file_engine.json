@@ -2,10 +2,13 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/6.12.0/QtCore/private/qabstractfileengine_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN19QAbstractFileEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN19QAbstractFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEESt8optionalIS0_IN11QFileDevice10PermissionEEE": [
+      "bool", "address", "int", "address"
+    ],
     "ritual_ZN19QAbstractFileEngine5closeEv": ["bool", "address"],
     "ritual_ZN19QAbstractFileEngine5flushEv": ["bool", "address"],
     "ritual_ZN19QAbstractFileEngine10syncToDiskEv": ["bool", "address"],
@@ -27,6 +30,9 @@
     ],
     "ritual_ZN19QAbstractFileEngine4linkERK7QString": [
       "bool", "address", "text"
+    ],
+    "ritual_ZNK19QAbstractFileEngine5mkdirERK7QStringbSt8optionalI6QFlagsIN11QFileDevice10PermissionEEE": [
+      "bool", "address", "text", "bool", "address"
     ],
     "ritual_ZNK19QAbstractFileEngine5rmdirERK7QStringb": [
       "bool", "address", "text", "bool"
@@ -52,6 +58,12 @@
     "ritual_ZNK19QAbstractFileEngine5ownerENS_9FileOwnerE": [
       "text", "address", "int"
     ],
+    "ritual_ZN19QAbstractFileEngine11setFileTimeERK9QDateTimeN11QFileDevice8FileTimeE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractFileEngine8fileTimeEN11QFileDevice8FileTimeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QAbstractFileEngine11setFileNameERK7QString": [
       "nothing", "address", "text"
     ],
@@ -63,9 +75,20 @@
     "ritual_ZN19QAbstractFileEngine5unmapEPh": [
       "bool", "address", "address"
     ],
+    "ritual_ZN19QAbstractFileEngine12endEntryListEv": ["address", "address"],
+    "ritual_ZN19QAbstractFileEngine14beginEntryListERK7QString6QFlagsIN11QDirListing12IteratorFlagEERK5QListIS0_E": [
+      "address", "address", "text", "int", "address"
+    ],
+    "ritual_ZN19QAbstractFileEngine4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN19QAbstractFileEngine8readLineEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN19QAbstractFileEngine5writeEPKcx": [
       "long long", "address", "chars", "long long"
     ],
+    "ritual_ZNK19QAbstractFileEngine5errorEv": ["address", "address"],
     "ritual_ZNK19QAbstractFileEngine11errorStringEv": ["text", "address"],
     "ritual_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE": [
       "bool", "address", "int", "address", "address"
@@ -73,7 +96,14 @@
     "ritual_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE": [
       "bool", "address", "int"
     ],
+    "ritual_ZN19QAbstractFileEngine6createERK7QString": ["address", "text"],
+    "ritual_ZN19QAbstractFileEngine8setErrorEN11QFileDevice9FileErrorERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZN19QAbstractFileEngineC1Ev": ["address"],
+    "ritual_ZN19QAbstractFileEngineC1ER26QAbstractFileEnginePrivate": [
+      "address", "address"
+    ],
     "ritual_ZN19QAbstractFileEngine6d_funcEv": ["address", "address"],
     "ritual_ZNK19QAbstractFileEngine6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractFileEngine": [
@@ -138,11 +168,29 @@
     "ritual_own_ZN19QAbstractFileEngine7cloneToEPS_": [
       "signed char", "address", "address"
     ],
+    "ritual_own_ZN19QAbstractFileEngine4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine8readLineEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_own_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE": [
       "bool", "address", "int", "address", "address"
     ],
     "ritual_own_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE": [
       "bool", "address", "int"
+    ],
+    "ritual_drop_QAbstractFileEngine__QAbstractFileEngine_IteratorUniquePtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractFileEngine__QFile_FileError": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractFileEngine__std_unique_ptr_QAbstractFileEngine": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QAbstractFileEngine3mapExx6QFlagsIN11QFileDevice13MemoryMapFlagEE": [
+      "address", "address", "long long", "long long", "int"
     ]
   }
 }

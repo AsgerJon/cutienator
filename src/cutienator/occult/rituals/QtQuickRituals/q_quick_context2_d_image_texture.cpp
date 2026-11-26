@@ -16,6 +16,15 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qquickcontext2dtexture_p.h>
+#include <QtQuick/private/qquickcontext2dtile_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQuick/private/qsgplaintexture_p.h>
+#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
+#include <QtCore/QThread>
+#include <QtGui/QGuiApplication>
+#include <QtQuick/private/qquickcontext2dtile_p.h>
 #include <QtQuick/private/qquickcontext2d_p.h>
 #include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
 #include <QtQuick/private/qquickcanvasitem_p.h>
@@ -57,15 +66,6 @@
 #if defined(Q_OS_QNX) || defined(Q_OS_ANDROID)
 #include <ctype.h>
 #endif
-#include <QtQuick/private/qquickcontext2dtile_p.h>
-#include <QtQuick/private/qquickcontext2dtexture_p.h>
-#include <QtQuick/private/qquickcontext2dtile_p.h>
-#include <QtQuick/private/qquickcanvasitem_p.h>
-#include <QtQuick/private/qquickitem_p.h>
-#include <QtQuick/private/qsgplaintexture_p.h>
-#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
-#include <QtCore/QThread>
-#include <QtGui/QGuiApplication>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -75,30 +75,57 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4166, as _ZN15QQuickContext2D15setGrabbedImageERK6QImage
-inline void QQuickContext2D::setGrabbedImage(const QImage& grab)
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 300, as _ZN22QQuickContext2DTexture16adjustedTileSizeERK5QSize
+inline QSize QQuickContext2DTexture::adjustedTileSize(const QSize &ts)
 {
-    m_grabbedImage = grab;
-    m_grabbed = true;
+    return ts;
 }
 
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 61, as _ZN24QQuickContext2DImageTileC1Ev
-inline QQuickContext2DImageTile::QQuickContext2DImageTile()
-    : QQuickContext2DTile()
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 305, as _ZN22QQuickContext2DTexture5eventEP6QEvent
+inline bool QQuickContext2DTexture::event(QEvent *e)
+{
+    if ((int) e->type() == QEvent::User + 1) {
+        PaintEvent *pe = static_cast<PaintEvent *>(e);
+        paint(pe->buffer);
+        return true;
+    } else if ((int) e->type() == QEvent::User + 2) {
+        CanvasChangeEvent *ce = static_cast<CanvasChangeEvent *>(e);
+        canvasChanged(ce->canvasSize, ce->tileSize, ce->canvasWindow, ce->dirtyRect, ce->smooth, ce->antialiasing);
+        return true;
+    }
+    return QObject::event(e);
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 18, as _ZN22QQuickContext2DTextureC2Ev
+inline QQuickContext2DTexture::QQuickContext2DTexture()
+    : m_context(nullptr)
+    , m_surface(nullptr)
+    , m_item(nullptr)
+    , m_canvasDevicePixelRatio(1)
+    , m_canvasWindowChanged(false)
+    , m_dirtyTexture(false)
+    , m_smooth(true)
+    , m_antialiasing(false)
+    , m_tiledCanvas(false)
+    , m_painting(false)
 {
 }
 
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 9, as _ZN19QQuickContext2DTileC2Ev
-inline QQuickContext2DTile::QQuickContext2DTile()
-    : m_dirty(true)
-    , m_rect(QRect(0, 0, 1, 1))
-    , m_device(nullptr)
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 32, as _ZN22QQuickContext2DTextureD2Ev
+inline QQuickContext2DTexture::~QQuickContext2DTexture()
 {
+   clearTiles();
 }
 
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 324, as _ZN27QQuickContext2DImageTextureD1Ev
-inline QQuickContext2DImageTexture::~QQuickContext2DImageTexture()
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 386, as _ZN27QQuickContext2DImageTexture11endPaintingEv
+inline void QQuickContext2DImageTexture::endPainting()
 {
+    QQuickContext2DTexture::endPainting();
+    if (m_onCustomThread)
+        m_mutex.lock();
+    m_displayImage = m_image;
+    if (m_onCustomThread)
+        m_mutex.unlock();
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 328, as _ZNK27QQuickContext2DImageTexture12renderTargetEv
@@ -111,17 +138,6 @@ inline QQuickCanvasItem::RenderTarget QQuickContext2DImageTexture::renderTarget(
 inline QQuickContext2DTile* QQuickContext2DImageTexture::createTile() const
 {
     return new QQuickContext2DImageTile();
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 386, as _ZN27QQuickContext2DImageTexture11endPaintingEv
-inline void QQuickContext2DImageTexture::endPainting()
-{
-    QQuickContext2DTexture::endPainting();
-    if (m_onCustomThread)
-        m_mutex.lock();
-    m_displayImage = m_image;
-    if (m_onCustomThread)
-        m_mutex.unlock();
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 396, as _ZN27QQuickContext2DImageTexture13compositeTileEP19QQuickContext2DTile
@@ -169,6 +185,97 @@ inline void QQuickContext2DImageTexture::grabImage(const QRectF& rf)
         m_context->setGrabbedImage(grabbed);
     }
     QQuickContext2D::mutex.unlock();
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 61, as _ZN24QQuickContext2DImageTileC1Ev
+inline QQuickContext2DImageTile::QQuickContext2DImageTile()
+    : QQuickContext2DTile()
+{
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4166, as _ZN15QQuickContext2D15setGrabbedImageERK6QImage
+inline void QQuickContext2D::setGrabbedImage(const QImage& grab)
+{
+    m_grabbedImage = grab;
+    m_grabbed = true;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 9, as _ZN19QQuickContext2DTileC2Ev
+inline QQuickContext2DTile::QQuickContext2DTile()
+    : m_dirty(true)
+    , m_rect(QRect(0, 0, 1, 1))
+    , m_device(nullptr)
+{
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 66, as _ZN24QQuickContext2DImageTileD1Ev
+inline QQuickContext2DImageTile::~QQuickContext2DImageTile()
+{
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 70, as _ZN24QQuickContext2DImageTile7setRectERK5QRect
+inline void QQuickContext2DImageTile::setRect(const QRect& r)
+{
+    if (m_rect == r)
+        return;
+    m_rect = r;
+    m_dirty = true;
+    if (m_image.size() != r.size()) {
+        m_image = QImage(r.size(), QImage::Format_ARGB32_Premultiplied);
+    }
+    m_device = &m_image;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 22, as _ZN19QQuickContext2DTile13createPainterEbb
+inline QPainter* QQuickContext2DTile::createPainter(bool smooth, bool antialiasing)
+{
+    if (m_painter.isActive())
+        m_painter.end();
+
+    aboutToDraw();
+    if (m_device) {
+        m_painter.begin(m_device);
+        m_painter.resetTransform();
+        m_painter.setCompositionMode(QPainter::CompositionMode_Source);
+
+#ifdef QQUICKCONTEXT2D_DEBUG
+        int v = 100;
+        int gray = (m_rect.x() / m_rect.width() + m_rect.y() / m_rect.height()) % 2;
+        if (gray)
+            v = 150;
+        m_painter.fillRect(QRect(0, 0, m_rect.width(), m_rect.height()), QColor(v, v, v, 255));
+#endif
+
+        if (antialiasing)
+            m_painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing, true);
+        else
+            m_painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing, false);
+
+        if (smooth)
+            m_painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+        else
+            m_painter.setRenderHint(QPainter::SmoothPixmapTransform, false);
+
+        m_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+        m_painter.translate(-m_rect.left(), -m_rect.top());
+        m_painter.setClipRect(m_rect);
+        m_painter.setClipping(false);
+        return &m_painter;
+    }
+
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 16, as _ZN19QQuickContext2DTileD2Ev
+inline QQuickContext2DTile::~QQuickContext2DTile()
+{
+    if (m_painter.isActive())
+        m_painter.end();
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 324, as _ZN27QQuickContext2DImageTextureD1Ev
+inline QQuickContext2DImageTexture::~QQuickContext2DImageTexture()
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -556,6 +663,25 @@ const QMetaObject *ritual_ZNK27QQuickContext2DImageTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickContext2DImageTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuickContext2DImageTexture11qt_metacastEPKc(
+    QQuickContext2DImageTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickContext2DImageTexture::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuickContext2DImageTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickContext2DImageTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickContext2DImageTexture::~QQuickContext2DImageTexture()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QQuickContext2DImageTextureD1Ev(
@@ -576,6 +702,13 @@ extern "C" Q_DECL_EXPORT
 QQuickContext2DTile *ritual_ZNK27QQuickContext2DImageTexture10createTileEv(
     const QQuickContext2DImageTexture *self) {
   return self->createTile();
+}
+
+//  QPaintDevice *QQuickContext2DImageTexture::beginPainting()
+extern "C" Q_DECL_EXPORT
+QPaintDevice *ritual_ZN27QQuickContext2DImageTexture13beginPaintingEv(
+    QQuickContext2DImageTexture *self) {
+  return self->beginPainting();
 }
 
 //  void QQuickContext2DImageTexture::endPainting()

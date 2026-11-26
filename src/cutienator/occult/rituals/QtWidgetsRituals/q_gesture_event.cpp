@@ -15,7 +15,7 @@ typedef void * (*CuteQGestureEventCall1)(const void *, int *);
 class CuteQGestureEvent : public QGestureEvent {
 public:
   using QGestureEvent::QGestureEvent;
-  CuteQGestureEvent(const QGestureEvent &other) : QGestureEvent(other) {}
+  CuteQGestureEvent(const QGestureEvent & other) : QGestureEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

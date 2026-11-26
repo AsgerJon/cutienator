@@ -5,5 +5,68 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN5HPack16FieldLookupTableC1Ejb": [
+      "address", "unsigned int", "bool"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable15numberOfEntriesEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable21numberOfStaticEntriesEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable22numberOfDynamicEntriesEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable15dynamicDataSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable19dynamicDataCapacityEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable22maxDynamicDataCapacityEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN5HPack16FieldLookupTable17clearDynamicTableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable12indexIsValidEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable7indexOfERK10QByteArrayS3_": [
+      "unsigned int", "address", "address", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable7indexOfERK10QByteArray": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable5fieldEjP10QByteArrayS2_": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable9fieldNameEjP10QByteArray": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable10fieldValueEjP10QByteArray": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN5HPack16FieldLookupTable22setMaxDynamicTableSizeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN5HPack16FieldLookupTable10staticPartEv": ["address"],
+    "ritual_ZNK5HPack16FieldLookupTable8frontKeyEv": ["address", "address"],
+    "ritual_ZNK5HPack16FieldLookupTable7backKeyEv": ["address", "address"],
+    "ritual_ZNK5HPack16FieldLookupTable5frontEv": ["address", "address"],
+    "ritual_ZN5HPack16FieldLookupTable5frontEv": ["address", "address"],
+    "ritual_ZNK5HPack16FieldLookupTable4backEv": ["address", "address"],
+    "ritual_ZNK5HPack16FieldLookupTable12indexOfChunkEPKSt6vectorINS_11HeaderFieldESaIS2_EE": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK5HPack16FieldLookupTable10keyToIndexERKNS0_11SearchEntryE": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_drop_HPack_FieldLookupTable__HPack_FieldLookupTable_SearchEntry": [
+      "nothing", "address"
+    ],
+    "ritual_drop_HPack_FieldLookupTable__std_vector_HPack_HeaderField_const_iterator": [
+      "nothing", "address"
+    ]
   }
 }

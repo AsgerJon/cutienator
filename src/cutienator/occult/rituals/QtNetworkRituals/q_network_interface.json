@@ -7,7 +7,12 @@
   "rows": {
     "ritual_ZN17QNetworkInterfaceC1Ev": ["address"],
     "ritual_ZN17QNetworkInterfaceC1ERKS_": ["address", "address"],
+    "ritual_ZN17QNetworkInterfaceaSEOS_": ["address", "address", "address"],
+    "ritual_ZN17QNetworkInterfaceaSERKS_": ["address", "address", "address"],
     "ritual_ZN17QNetworkInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN17QNetworkInterface4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QNetworkInterface7isValidEv": ["bool", "address"],
     "ritual_ZNK17QNetworkInterface5indexEv": ["int", "address"],
     "ritual_ZNK17QNetworkInterface23maximumTransmissionUnitEv": [

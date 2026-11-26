@@ -1,14 +1,15 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4managed_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4managed_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV47Managed12staticVTableEv": ["address"],
     "ritual_ZN3QV47Managed10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV47Managed11d_uncheckedEv": ["address", "address"],
     "ritual_ZNK3QV47Managed1dEv": ["address", "address"],
+    "ritual_ZN3QV47Managed12typeToStringENS0_4TypeE": ["text", "int"],
     "ritual_ZNK3QV47Managed13internalClassEv": ["address", "address"],
     "ritual_ZNK3QV47Managed6vtableEv": ["address", "address"],
     "ritual_ZNK3QV47Managed6engineEv": ["address", "address"],
@@ -19,6 +20,7 @@
     "ritual_ZNK3QV47Managed13isArrayObjectEv": ["bool", "address"],
     "ritual_ZNK3QV47Managed14isStringObjectEv": ["bool", "address"],
     "ritual_ZNK3QV47Managed14isSymbolObjectEv": ["bool", "address"],
+    "ritual_ZNK3QV47Managed9classNameEv": ["text", "address"],
     "ritual_ZNK3QV47Managed9isEqualToEPKS0_": ["bool", "address", "address"],
     "ritual_ZNK3QV47Managed5inUseEv": ["bool", "address"],
     "ritual_ZNK3QV47Managed7markBitEv": ["bool", "address"],
@@ -26,6 +28,25 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK3QV47Managed10heapObjectEv": ["address", "address"],
-    "ritual_cast_QV4_Managed_QV4_VTableBase": ["address", "address"]
+    "ritual_ZN3QV47Managed16virtualIsEqualToEPS0_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_cast_QV4_Managed_QV4_VTableBase": ["address", "address"],
+    "ritual_ZN3QV47Managed4castINS_6ObjectEEEPT_v": ["address", "address"],
+    "ritual_ZN3QV47Managed4castINS_14FunctionObjectEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV47Managed4castINS_6StringEEEPT_v": ["address", "address"],
+    "ritual_ZN3QV47Managed4castINS_11ArrayObjectEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV47Managed4castINS_11ErrorObjectEEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV47Managed4castINS_6ObjectEEEPKT_v": ["address", "address"],
+    "ritual_ZNK3QV47Managed4castINS_14FunctionObjectEEEPKT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV47Managed4castINS_6StringEEEPKT_v": ["address", "address"]
   }
 }

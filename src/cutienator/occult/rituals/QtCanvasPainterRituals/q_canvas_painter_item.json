@@ -6,15 +6,25 @@
   ],
   "rows": {
     "ritual_ZNK18QCanvasPainterItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QCanvasPainterItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QCanvasPainterItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QCanvasPainterItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18QCanvasPainterItemC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN18QCanvasPainterItemD1Ev": ["nothing", "address"],
     "ritual_ZNK18QCanvasPainterItem9fillColorEv": ["address", "address"],
     "ritual_ZN18QCanvasPainterItem12setFillColorE6QColor": [
       "nothing", "address", "address"
     ],
     "ritual_ZN18QCanvasPainterItem5debugEv": ["address", "address"],
+    "ritual_ZN18QCanvasPainterItemC1ER25QCanvasPainterItemPrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18QCanvasPainterItem18createItemRendererEv": [
       "address", "address"
     ],
@@ -24,6 +34,10 @@
     "ritual_ZN18QCanvasPainterItem5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN18QCanvasPainterItem16fillColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QCanvasPainterItem12debugChangedEv": ["nothing", "address"],
     "ritual_ZN18QCanvasPainterItem6d_funcEv": ["address", "address"],
     "ritual_ZNK18QCanvasPainterItem6d_funcEv": ["address", "address"],
     "ritual_take_QCanvasPainterItem": [

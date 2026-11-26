@@ -7,8 +7,15 @@
     "ritual_ZN9QUrlQueryC1Ev": ["address"],
     "ritual_ZN9QUrlQueryC1ERK4QUrl": ["address", "address"],
     "ritual_ZN9QUrlQueryC1ERK7QString": ["address", "text"],
+    "ritual_ZN9QUrlQueryC1ESt16initializer_listISt4pairI7QStringS2_EE": [
+      "address", "address"
+    ],
     "ritual_ZN9QUrlQueryC1ERKS_": ["address", "address"],
+    "ritual_ZN9QUrlQueryC1EOS_": ["address", "address"],
+    "ritual_ZN9QUrlQueryaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QUrlQueryaSEOS_": ["address", "address", "address"],
     "ritual_ZN9QUrlQueryD1Ev": ["nothing", "address"],
+    "ritual_ZN9QUrlQuery4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QUrlQuery7isEmptyEv": ["bool", "address"],
     "ritual_ZNK9QUrlQuery10isDetachedEv": ["bool", "address"],
     "ritual_ZN9QUrlQuery5clearEv": ["nothing", "address"],
@@ -26,6 +33,12 @@
     ],
     "ritual_ZNK9QUrlQuery19queryValueDelimiterEv": ["address", "address"],
     "ritual_ZNK9QUrlQuery18queryPairDelimiterEv": ["address", "address"],
+    "ritual_ZN9QUrlQuery13setQueryItemsERK5QListISt4pairI7QStringS2_EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QUrlQuery10queryItemsE6QFlagsIN4QUrl25ComponentFormattingOptionEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK9QUrlQuery12hasQueryItemERK7QString": [
       "bool", "address", "text"
     ],
@@ -44,7 +57,13 @@
     "ritual_ZN9QUrlQuery19removeAllQueryItemsERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN9QUrlQuery26defaultQueryValueDelimiterEv": ["unsigned short"],
+    "ritual_ZN9QUrlQuery25defaultQueryPairDelimiterEv": ["unsigned short"],
     "ritual_ZeqRK9QUrlQueryS1_": ["bool", "address", "address"],
-    "ritual_ZneRK9QUrlQueryS1_": ["bool", "address", "address"]
+    "ritual_ZneRK9QUrlQueryS1_": ["bool", "address", "address"],
+    "ritual_ZN9QUrlQuery8data_ptrEv": ["address", "address"],
+    "ritual_drop_QUrlQuery__QList_std_pair_QString_QString": [
+      "nothing", "address"
+    ]
   }
 }

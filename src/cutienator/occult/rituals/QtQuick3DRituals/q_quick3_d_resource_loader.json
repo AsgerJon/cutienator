@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuick3DResourceLoader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuick3DResourceLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuick3DResourceLoader2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,6 +25,13 @@
     ],
     "ritual_ZN22QQuick3DResourceLoader14setMeshSourcesERK5QListI4QUrlE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader10geometriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader8texturesEv": ["address", "address"],
+    "ritual_ZN22QQuick3DResourceLoader18meshSourcesChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN22QQuick3DResourceLoader19onGeometryDestroyedEP7QObject": [
       "nothing", "address", "address"
@@ -35,6 +48,30 @@
     "ritual_ZN22QQuick3DResourceLoader10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN22QQuick3DResourceLoader17qmlAppendGeometryEP16QQmlListPropertyI16QQuick3DGeometryEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader13qmlGeometryAtEP16QQmlListPropertyI16QQuick3DGeometryEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader18qmlGeometriesCountEP16QQmlListPropertyI16QQuick3DGeometryE": [
+      "long long", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader18qmlClearGeometriesEP16QQmlListPropertyI16QQuick3DGeometryE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader16qmlAppendTextureEP16QQmlListPropertyI15QQuick3DTextureEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader12qmlTextureAtEP16QQmlListPropertyI15QQuick3DTextureEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader16qmlTexturesCountEP16QQmlListPropertyI15QQuick3DTextureE": [
+      "long long", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader16qmlClearTexturesEP16QQmlListPropertyI15QQuick3DTextureE": [
+      "nothing", "address"
+    ],
     "ritual_ZN22QQuick3DResourceLoader9markDirtyENS_23ResourceLoaderDirtyTypeE": [
       "nothing", "address", "int"
     ],
@@ -49,6 +86,12 @@
     ],
     "ritual_own_ZN22QQuick3DResourceLoader10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QQuick3DResourceLoader__QQmlListProperty_QQuick3DGeometry": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DResourceLoader__QQmlListProperty_QQuick3DTexture": [
+      "nothing", "address"
     ]
   }
 }

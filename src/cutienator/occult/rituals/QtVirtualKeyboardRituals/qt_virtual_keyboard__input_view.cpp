@@ -598,6 +598,25 @@ const QMetaObject *ritual_ZNK17QtVirtualKeyboard9InputView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtVirtualKeyboard::InputView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QtVirtualKeyboard9InputView11qt_metacastEPKc(
+    QtVirtualKeyboard::InputView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtVirtualKeyboard::InputView::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QtVirtualKeyboard9InputView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtVirtualKeyboard::InputView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtVirtualKeyboard::InputView::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -606,6 +625,28 @@ QString *ritual_ZN17QtVirtualKeyboard9InputView2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtVirtualKeyboard::InputView::tr(s, c, n));
+}
+
+//  QtVirtualKeyboard::InputView::InputView(QWindow *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::InputView *ritual_ZN17QtVirtualKeyboard9InputViewC1EP7QWindow(
+    QWindow *parent) {
+  return new CuteQtVirtualKeyboard_InputView(parent);
+}
+
+//  void QtVirtualKeyboard::InputView::sizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard9InputView11sizeChangedEv(
+    QtVirtualKeyboard::InputView *self) {
+  self->sizeChanged();
+}
+
+//  void QtVirtualKeyboard::InputView::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard9InputView11resizeEventEP12QResizeEvent(
+    QtVirtualKeyboard::InputView *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
 }
 
 //  a Python function taken by a CuteQtVirtualKeyboard_InputView, for the

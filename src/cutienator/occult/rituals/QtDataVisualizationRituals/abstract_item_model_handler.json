@@ -8,6 +8,12 @@
     "ritual_ZNK24AbstractItemModelHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24AbstractItemModelHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24AbstractItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24AbstractItemModelHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN24AbstractItemModelHandler12setItemModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
@@ -23,6 +29,9 @@
     ],
     "ritual_ZN24AbstractItemModelHandler20handleColumnsRemovedERK11QModelIndexii": [
       "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN24AbstractItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN24AbstractItemModelHandler19handleLayoutChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
       "nothing", "address", "address", "int"
@@ -44,6 +53,9 @@
     ],
     "ritual_ZN24AbstractItemModelHandler20handlePendingResolveEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN24AbstractItemModelHandler16itemModelChangedEPK18QAbstractItemModel": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24AbstractItemModelHandler12resolveModelEv": [
       "nothing", "address"

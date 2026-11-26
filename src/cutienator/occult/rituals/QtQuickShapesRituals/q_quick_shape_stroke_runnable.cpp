@@ -228,11 +228,57 @@ const QMetaObject *ritual_ZNK25QQuickShapeStrokeRunnable10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShapeStrokeRunnable::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickShapeStrokeRunnable11qt_metacastEPKc(
+    QQuickShapeStrokeRunnable *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShapeStrokeRunnable::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickShapeStrokeRunnable11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShapeStrokeRunnable *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuickShapeStrokeRunnable::run()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QQuickShapeStrokeRunnable3runEv(
     QQuickShapeStrokeRunnable *self) {
   self->run();
+}
+
+//  void QQuickShapeStrokeRunnable::done(QQuickShapeStrokeRunnable *self_)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickShapeStrokeRunnable4doneEPS_(
+    QQuickShapeStrokeRunnable *self,
+    QQuickShapeStrokeRunnable *self_) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickShapeStrokeRunnable")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "done(QQuickShapeStrokeRunnable *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "done(QQuickShapeStrokeRunnable *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&self_)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QQuickShapeStrokeRunnable as the QRunnable it is built on

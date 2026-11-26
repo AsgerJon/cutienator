@@ -26,6 +26,14 @@ QAuthenticator *ritual_ZN14QAuthenticatorC1ERKS_(
   return new QAuthenticator(*other);
 }
 
+//  QAuthenticator &QAuthenticator::operator=(const QAuthenticator &other)
+extern "C" Q_DECL_EXPORT
+QAuthenticator *ritual_ZN14QAuthenticatoraSERKS_(
+    QAuthenticator *self,
+    const QAuthenticator *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QAuthenticator::operator==(const QAuthenticator &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14QAuthenticatoreqERKS_(

@@ -264,6 +264,24 @@ const QMetaObject *ritual_ZNK14QScatterSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScatterSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QScatterSeries11qt_metacastEPKc(
+    QScatterSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScatterSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QScatterSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScatterSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScatterSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QScatterSeries2trEPKcS1_i(
@@ -370,6 +388,38 @@ void ritual_ZN14QScatterSeries13setMarkerSizeEd(
     QScatterSeries *self,
     qreal size) {
   self->setMarkerSize(size);
+}
+
+//  void QScatterSeries::colorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScatterSeries12colorChangedE6QColor(
+    QScatterSeries *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QScatterSeries::borderColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScatterSeries18borderColorChangedE6QColor(
+    QScatterSeries *self,
+    const QColor *color) {
+  self->borderColorChanged(*color);
+}
+
+//  void QScatterSeries::markerShapeChanged(MarkerShape shape)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScatterSeries18markerShapeChangedENS_11MarkerShapeE(
+    QScatterSeries *self,
+    QScatterSeries::MarkerShape shape) {
+  self->markerShapeChanged(shape);
+}
+
+//  void QScatterSeries::markerSizeChanged(qreal size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScatterSeries17markerSizeChangedEd(
+    QScatterSeries *self,
+    qreal size) {
+  self->markerSizeChanged(size);
 }
 
 //  QScatterSeriesPrivate *QScatterSeries::d_func()

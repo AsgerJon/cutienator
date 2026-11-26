@@ -8,6 +8,18 @@
     "ritual_ZN33QQuickShapeGenericMaterialFactory17createVertexColorEP12QQuickWindow": [
       "address", "address"
     ],
+    "ritual_ZN33QQuickShapeGenericMaterialFactory20createLinearGradientEP12QQuickWindowP32QQuickShapeGenericStrokeFillNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN33QQuickShapeGenericMaterialFactory20createRadialGradientEP12QQuickWindowP32QQuickShapeGenericStrokeFillNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN33QQuickShapeGenericMaterialFactory21createConicalGradientEP12QQuickWindowP32QQuickShapeGenericStrokeFillNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN33QQuickShapeGenericMaterialFactory17createTextureFillEP12QQuickWindowP32QQuickShapeGenericStrokeFillNode": [
+      "address", "address", "address"
+    ],
     "ritual_ZN33QQuickShapeGenericMaterialFactoryD1Ev": [
       "nothing", "address"
     ]

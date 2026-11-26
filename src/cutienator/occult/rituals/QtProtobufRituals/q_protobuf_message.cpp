@@ -26,6 +26,16 @@ bool ritual_ZN16QProtobufMessage11setPropertyE14QAnyStringViewRK8QVariant(
   return self->setProperty(QAnyStringView(*propertyName), *value);
 }
 
+//  bool QProtobufMessage::setProperty(QAnyStringView propertyName, QVariant
+//      &&value)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QProtobufMessage11setPropertyE14QAnyStringViewO8QVariant(
+    QProtobufMessage *self,
+    const QString *propertyName,
+    QVariant *value) {
+  return self->setProperty(QAnyStringView(*propertyName), std::move(*value));
+}
+
 //  QList<QByteArray> QProtobufMessage::unknownFieldData(qint32 field) const
 extern "C" Q_DECL_EXPORT
 QList<QByteArray> *ritual_ZNK16QProtobufMessage16unknownFieldDataEi(
@@ -70,10 +80,56 @@ QProtobufMessage *ritual_ZN16QProtobufMessageC1EPK11QMetaObjectPKN17QtProtobufPr
   return new QProtobufMessage(metaObject, ordering);
 }
 
+//  QProtobufMessage::QProtobufMessage(QProtobufMessagePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QProtobufMessage *ritual_ZN16QProtobufMessageC1ER23QProtobufMessagePrivate(
+    QProtobufMessagePrivate *dd) {
+  return new QProtobufMessage(*dd);
+}
+
 //  QProtobufMessage::~QProtobufMessage()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QProtobufMessageD1Ev(QProtobufMessage *self) {
   delete self;
+}
+
+//  QProtobufMessage::QProtobufMessage(const QProtobufMessage &other)
+extern "C" Q_DECL_EXPORT
+QProtobufMessage *ritual_ZN16QProtobufMessageC1ERKS_(
+    const QProtobufMessage *other) {
+  return new QProtobufMessage(*other);
+}
+
+//  QProtobufMessage &QProtobufMessage::operator=(const QProtobufMessage
+//      &other)
+extern "C" Q_DECL_EXPORT
+QProtobufMessage *ritual_ZN16QProtobufMessageaSERKS_(
+    QProtobufMessage *self,
+    const QProtobufMessage *other) {
+  return &(self->operator=(*other));
+}
+
+//  QProtobufMessage::QProtobufMessage(QProtobufMessage &&other)
+extern "C" Q_DECL_EXPORT
+QProtobufMessage *ritual_ZN16QProtobufMessageC1EOS_(
+    QProtobufMessage *other) {
+  return new QProtobufMessage(std::move(*other));
+}
+
+//  QProtobufMessage &QProtobufMessage::operator=(QProtobufMessage &&other)
+extern "C" Q_DECL_EXPORT
+QProtobufMessage *ritual_ZN16QProtobufMessageaSEOS_(
+    QProtobufMessage *self,
+    QProtobufMessage *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QProtobufMessage::swap(QProtobufMessage &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QProtobufMessage4swapERS_(
+    QProtobufMessage *self,
+    QProtobufMessage *other) {
+  self->swap(*other);
 }
 
 //  const QMetaObject *QProtobufMessage::metaObject() const
@@ -81,6 +137,22 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QProtobufMessage10metaObjectEv(
     const QProtobufMessage *self) {
   return self->metaObject();
+}
+
+//  bool operator==(const QProtobufMessage &lhs, const QProtobufMessage &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK16QProtobufMessageS1_(
+    const QProtobufMessage *lhs,
+    const QProtobufMessage *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QProtobufMessage &lhs, const QProtobufMessage &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK16QProtobufMessageS1_(
+    const QProtobufMessage *lhs,
+    const QProtobufMessage *rhs) {
+  return operator!=(*lhs, *rhs);
 }
 
 //  QProtobufMessagePrivate *QProtobufMessage::d_func()

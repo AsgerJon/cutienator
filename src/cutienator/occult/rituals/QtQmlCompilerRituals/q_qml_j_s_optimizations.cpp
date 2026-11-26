@@ -1,6 +1,12 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsoptimizations_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsoptimizations_p.h,
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Not written: the constructor, which takes a 'QList' by value (the
+//  generator's attempt failed on its type 'InstructionAnnotations',
+//  which is 'QQmlJSCompilePass::InstructionAnnotations'), and
+//  'removeReadsFromErasedInstructions' and 'eraseDeadStore', whose
+//  parameters are iterators of the template 'QFlatMap'.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtQmlCompiler/QtQmlCompiler>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -2245,6 +2251,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQmlJSOptimizations27removeDeadStoresUntilStableEv(
     QQmlJSOptimizations *self) {
   self->removeDeadStoresUntilStable();
+}
+
+//  bool QQmlJSOptimizations::canMove(int instructionOffset, const
+//      RegisterAccess &access) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK19QQmlJSOptimizations7canMoveEiRKNS_14RegisterAccessE(
+    const QQmlJSOptimizations *self,
+    int instructionOffset,
+    const QQmlJSOptimizations::RegisterAccess *access) {
+  return self->canMove(instructionOffset, *access);
 }
 
 //  a Python function taken by a CuteQQmlJSOptimizations, for the function

@@ -11,6 +11,24 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtBluetooth/private/battery1_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtconnectivity/src/bluetooth/bluez/battery1.cpp, line 25, as _ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceD1Ev
+namespace QtBluetoothPrivate {
+inline OrgBluezBattery1Interface::~OrgBluezBattery1Interface()
+{
+}
+}  // namespace QtBluetoothPrivate
+//  -----------------------------------------------------------------------
 
 //  A QtBluetoothPrivate::OrgBluezBattery1Interface that Python can take functions over in. Every QtBluetoothPrivate::OrgBluezBattery1Interface
 //  Python makes is one. Each function below asks the Python
@@ -200,11 +218,39 @@ const QMetaObject *ritual_ZNK18QtBluetoothPrivate25OrgBluezBattery1Interface10me
   return self->metaObject();
 }
 
+//  void *QtBluetoothPrivate::OrgBluezBattery1Interface::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1Interface11qt_metacastEPKc(
+    QtBluetoothPrivate::OrgBluezBattery1Interface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtBluetoothPrivate::OrgBluezBattery1Interface::qt_metacall(QMetaObjec
+//      t::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1Interface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtBluetoothPrivate::OrgBluezBattery1Interface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const char
 //      *QtBluetoothPrivate::OrgBluezBattery1Interface::staticInterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1Interface19staticInterfaceNameEv() {
   return QtBluetoothPrivate::OrgBluezBattery1Interface::staticInterfaceName();
+}
+
+//  QtBluetoothPrivate::OrgBluezBattery1Interface::~OrgBluezBattery1Interface
+//      ()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceD1Ev(
+    QtBluetoothPrivate::OrgBluezBattery1Interface *self) {
+  delete self;
 }
 
 //  uchar QtBluetoothPrivate::OrgBluezBattery1Interface::percentage() const

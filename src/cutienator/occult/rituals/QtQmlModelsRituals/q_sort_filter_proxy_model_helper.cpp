@@ -13,6 +13,10 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QSet>
+#include <QtCore/QModelIndex>
+#include <QtCore/QList>
+#include <utility>
 
 //  Only a class built on QSortFilterProxyModelHelper may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -421,6 +425,12 @@ public:
   }
 };
 
+//  QSortFilterProxyModelHelper::QSortFilterProxyModelHelper()
+extern "C" Q_DECL_EXPORT
+QSortFilterProxyModelHelper *ritual_ZN27QSortFilterProxyModelHelperC1Ev() {
+  return new CuteQSortFilterProxyModelHelper();
+}
+
 //  QSortFilterProxyModelHelper::~QSortFilterProxyModelHelper()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QSortFilterProxyModelHelperD1Ev(
@@ -439,6 +449,14 @@ void ritual_ZN27QSortFilterProxyModelHelper13setPropertiesEP8QVariantPK24QQmlSor
       target,
       proxyModel,
       *sourceIndex);
+}
+
+//  QSet<int> QSortFilterProxyModelHelper::qListToSet(const QList<int>
+//      &vector)
+extern "C" Q_DECL_EXPORT
+QSet<int> *ritual_ZN27QSortFilterProxyModelHelper10qListToSetERK5QListIiE(
+    const QList<int> *vector) {
+  return new QSet<int>(QSortFilterProxyModelHelper::qListToSet(*vector));
 }
 
 //  bool QSortFilterProxyModelHelper::can_create_mapping(const QModelIndex
@@ -475,6 +493,21 @@ QModelIndex *ritual_ZNK27QSortFilterProxyModelHelper15source_to_proxyERK11QModel
   return new QModelIndex(self->source_to_proxy(*source_index));
 }
 
+//  void
+//      QSortFilterProxyModelHelper::build_source_to_proxy_mapping(QList<int>
+//      &proxy_to_source, QList<int> &source_to_proxy, int start) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK27QSortFilterProxyModelHelper29build_source_to_proxy_mappingER5QListIiES2_i(
+    const QSortFilterProxyModelHelper *self,
+    QList<int> *proxy_to_source,
+    QList<int> *source_to_proxy,
+    int start) {
+  self->build_source_to_proxy_mapping(
+      *proxy_to_source,
+      *source_to_proxy,
+      start);
+}
+
 //  QModelIndex QSortFilterProxyModelHelper::proxy_to_source(const
 //      QModelIndex &proxy_index) const
 extern "C" Q_DECL_EXPORT
@@ -507,6 +540,40 @@ void ritual_ZN27QSortFilterProxyModelHelper21updateChildrenMappingERK11QModelInd
       remove);
 }
 
+//  void QSortFilterProxyModelHelper::proxy_item_range(const QList<int>
+//      &source_to_proxy, const QList<int> &source_items, int &proxy_low, int
+//      &proxy_high) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK27QSortFilterProxyModelHelper16proxy_item_rangeERK5QListIiES3_RiS4_(
+    const QSortFilterProxyModelHelper *self,
+    const QList<int> *source_to_proxy,
+    const QList<int> *source_items,
+    int *proxy_low,
+    int *proxy_high) {
+  self->proxy_item_range(
+      *source_to_proxy,
+      *source_items,
+      *proxy_low,
+      *proxy_high);
+}
+
+//  QModelIndexPairList
+//      QSortFilterProxyModelHelper::store_persistent_indexes() const
+extern "C" Q_DECL_EXPORT
+QModelIndexPairList *ritual_ZNK27QSortFilterProxyModelHelper24store_persistent_indexesEv(
+    const QSortFilterProxyModelHelper *self) {
+  return new QModelIndexPairList(self->store_persistent_indexes());
+}
+
+//  void QSortFilterProxyModelHelper::update_persistent_indexes(const
+//      QModelIndexPairList &source_indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QSortFilterProxyModelHelper25update_persistent_indexesERK5QListISt4pairI11QModelIndex21QPersistentModelIndexEE(
+    QSortFilterProxyModelHelper *self,
+    const QModelIndexPairList *source_indexes) {
+  self->update_persistent_indexes(*source_indexes);
+}
+
 //  void QSortFilterProxyModelHelper::filter_changed(Direction dir, const
 //      QModelIndex &source_parent)
 extern "C" Q_DECL_EXPORT
@@ -515,6 +582,46 @@ void ritual_ZN27QSortFilterProxyModelHelper14filter_changedENS_9DirectionERK11QM
     QSortFilterProxyModelHelper::Direction dir,
     const QModelIndex *source_parent) {
   self->filter_changed(dir, *source_parent);
+}
+
+//  QSet<int> QSortFilterProxyModelHelper::handle_filter_changed(QList<int>
+//      &source_to_proxy, QList<int> &proxy_to_source, const QModelIndex
+//      &source_parent, Direction direction)
+extern "C" Q_DECL_EXPORT
+QSet<int> *ritual_ZN27QSortFilterProxyModelHelper21handle_filter_changedER5QListIiES2_RK11QModelIndexNS_9DirectionE(
+    QSortFilterProxyModelHelper *self,
+    QList<int> *source_to_proxy,
+    QList<int> *proxy_to_source,
+    const QModelIndex *source_parent,
+    QSortFilterProxyModelHelper::Direction direction) {
+  return new QSet<int>(
+      self->handle_filter_changed(
+          *source_to_proxy,
+          *proxy_to_source,
+          *source_parent,
+          direction));
+}
+
+//  void QSortFilterProxyModelHelper::insert_source_items(QList<int>
+//      &source_to_proxy, QList<int> &proxy_to_source, const QList<int>
+//      &source_items, const QModelIndex &source_parent, Direction direction,
+//      bool emit_signal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QSortFilterProxyModelHelper19insert_source_itemsER5QListIiES2_RKS1_RK11QModelIndexNS_9DirectionEb(
+    QSortFilterProxyModelHelper *self,
+    QList<int> *source_to_proxy,
+    QList<int> *proxy_to_source,
+    const QList<int> *source_items,
+    const QModelIndex *source_parent,
+    QSortFilterProxyModelHelper::Direction direction,
+    bool emit_signal) {
+  self->insert_source_items(
+      *source_to_proxy,
+      *proxy_to_source,
+      *source_items,
+      *source_parent,
+      direction,
+      emit_signal);
 }
 
 //  void QSortFilterProxyModelHelper::source_items_inserted(const QModelIndex
@@ -555,6 +662,84 @@ void ritual_ZN27QSortFilterProxyModelHelper20source_items_removedERK11QModelInde
     int end,
     QSortFilterProxyModelHelper::Direction direction) {
   self->source_items_removed(*source_parent, start, end, direction);
+}
+
+//  void QSortFilterProxyModelHelper::remove_source_items(QList<int>
+//      &source_to_proxy, QList<int> &proxy_to_source, const QList<int>
+//      &source_items, const QModelIndex &source_parent, Direction direction,
+//      bool emit_signal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QSortFilterProxyModelHelper19remove_source_itemsER5QListIiES2_RKS1_RK11QModelIndexNS_9DirectionEb(
+    QSortFilterProxyModelHelper *self,
+    QList<int> *source_to_proxy,
+    QList<int> *proxy_to_source,
+    const QList<int> *source_items,
+    const QModelIndex *source_parent,
+    QSortFilterProxyModelHelper::Direction direction,
+    bool emit_signal) {
+  self->remove_source_items(
+      *source_to_proxy,
+      *proxy_to_source,
+      *source_items,
+      *source_parent,
+      direction,
+      emit_signal);
+}
+
+//  void QSortFilterProxyModelHelper::remove_proxy_interval(QList<int>
+//      &source_to_proxy, QList<int> &proxy_to_source, int proxy_start, int
+//      proxy_end, const QModelIndex &proxy_parent, Direction direction, bool
+//      emit_signal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QSortFilterProxyModelHelper21remove_proxy_intervalER5QListIiES2_iiRK11QModelIndexNS_9DirectionEb(
+    QSortFilterProxyModelHelper *self,
+    QList<int> *source_to_proxy,
+    QList<int> *proxy_to_source,
+    int proxy_start,
+    int proxy_end,
+    const QModelIndex *proxy_parent,
+    QSortFilterProxyModelHelper::Direction direction,
+    bool emit_signal) {
+  self->remove_proxy_interval(
+      *source_to_proxy,
+      *proxy_to_source,
+      proxy_start,
+      proxy_end,
+      *proxy_parent,
+      direction,
+      emit_signal);
+}
+
+//  QList<std::pair<int, int>>
+//      QSortFilterProxyModelHelper::proxy_intervals_for_source_items(const
+//      QList<int> &source_to_proxy, const QList<int> &source_items) const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<int, int>> *ritual_ZNK27QSortFilterProxyModelHelper32proxy_intervals_for_source_itemsERK5QListIiES3_(
+    const QSortFilterProxyModelHelper *self,
+    const QList<int> *source_to_proxy,
+    const QList<int> *source_items) {
+  return new QList<std::pair<int, int>>(
+      self->proxy_intervals_for_source_items(
+          *source_to_proxy,
+          *source_items));
+}
+
+//  QList<std::pair<int, QList<int>>> QSortFilterProxyModelHelper::proxy_inte
+//      rvals_for_source_items_to_add(const QList<int> &a0, const QList<int>
+//      &a1, const QModelIndex &a2, Direction a3) const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<int, QList<int>>> *ritual_ZNK27QSortFilterProxyModelHelper39proxy_intervals_for_source_items_to_addERK5QListIiES3_RK11QModelIndexNS_9DirectionE(
+    const QSortFilterProxyModelHelper *self,
+    const QList<int> *a0,
+    const QList<int> *a1,
+    const QModelIndex *a2,
+    QSortFilterProxyModelHelper::Direction a3) {
+  return new QList<std::pair<int, QList<int>>>(
+      self->proxy_intervals_for_source_items_to_add(
+          *a0,
+          *a1,
+          *a2,
+          a3));
 }
 
 //  void QSortFilterProxyModelHelper::sort()
@@ -706,6 +891,16 @@ bool ritual_ZNK27QSortFilterProxyModelHelper19filterAcceptsColumnEiRK11QModelInd
     int a0,
     const QModelIndex *a1) {
   return self->filterAcceptsColumn(a0, *a1);
+}
+
+//  void QSortFilterProxyModelHelper::sort_source_rows(QList<int> &a0, const
+//      QModelIndex &a1) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK27QSortFilterProxyModelHelper16sort_source_rowsER5QListIiERK11QModelIndex(
+    const QSortFilterProxyModelHelper *self,
+    QList<int> *a0,
+    const QModelIndex *a1) {
+  self->sort_source_rows(*a0, *a1);
 }
 
 //  bool QSortFilterProxyModelHelper::lessThan(const QModelIndex &a0, const
@@ -949,6 +1144,34 @@ bool ritual_own_ZNK27QSortFilterProxyModelHelper8lessThanERK11QModelIndexS2_(
   return static_cast<const OwnQSortFilterProxyModelHelper *>(self)->OwnQSortFilterProxyModelHelper::lessThan(
       *a0,
       *a1);
+}
+
+//  a QSet<int> a ritual of QSortFilterProxyModelHelper gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSortFilterProxyModelHelper__QSet_int(QSet<int> *self) {
+  delete self;
+}
+
+//  a QModelIndexPairList a ritual of QSortFilterProxyModelHelper gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSortFilterProxyModelHelper__QModelIndexPairList(
+    QModelIndexPairList *self) {
+  delete self;
+}
+
+//  a QList<std::pair<int, int>> a ritual of QSortFilterProxyModelHelper gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSortFilterProxyModelHelper__QList_std_pair_int_int(
+    QList<std::pair<int, int>> *self) {
+  delete self;
+}
+
+//  a QList<std::pair<int, QList<int>>> a ritual of
+//      QSortFilterProxyModelHelper gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSortFilterProxyModelHelper__QList_std_pair_int_QList_int(
+    QList<std::pair<int, QList<int>>> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)

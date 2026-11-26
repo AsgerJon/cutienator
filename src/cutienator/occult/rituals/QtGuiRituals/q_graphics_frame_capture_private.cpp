@@ -12,6 +12,35 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/private/qgraphicsframecapture_p.h>
+#if (defined (Q_OS_WIN) || defined(Q_OS_LINUX)) && QT_CONFIG(library)
+#elif QT_CONFIG(metal)
+#include <QtGui/private/qgraphicsframecapturemetal_p_p.h>
+#else
+#include <QtGui/private/qgraphicsframecapture_p_p.h>
+#endif
+#include <QtCore/qstandardpaths.h>
+#include <QtCore/qcoreapplication.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/gui/util/qgraphicsframecapture.cpp, line 19, as _ZN28QGraphicsFrameCapturePrivateC1Ev
+inline QGraphicsFrameCapturePrivate::QGraphicsFrameCapturePrivate()
+    : m_capturePath(QStandardPaths::writableLocation(QStandardPaths::TempLocation) +
+                    QStringLiteral("/") + QCoreApplication::applicationName() +
+                    QStringLiteral("/captures")),
+      m_capturePrefix(QCoreApplication::applicationName())
+{
+
+}
+//  -----------------------------------------------------------------------
 
 //  A QGraphicsFrameCapturePrivate that Python can take functions over in. Every QGraphicsFrameCapturePrivate
 //  Python makes is one. Each function below asks the Python
@@ -171,6 +200,12 @@ public:
     }
   }
 };
+
+//  QGraphicsFrameCapturePrivate::QGraphicsFrameCapturePrivate()
+extern "C" Q_DECL_EXPORT
+QGraphicsFrameCapturePrivate *ritual_ZN28QGraphicsFrameCapturePrivateC1Ev() {
+  return new CuteQGraphicsFrameCapturePrivate();
+}
 
 //  QGraphicsFrameCapturePrivate::~QGraphicsFrameCapturePrivate()
 extern "C" Q_DECL_EXPORT

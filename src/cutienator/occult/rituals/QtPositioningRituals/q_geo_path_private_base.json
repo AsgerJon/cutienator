@@ -5,12 +5,23 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QGeoPathPrivateBaseC1Ev": ["address"],
+    "ritual_ZN19QGeoPathPrivateBaseC1ERK5QListI14QGeoCoordinateE": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGeoPathPrivateBaseC1ERKS_": ["address", "address"],
     "ritual_ZN19QGeoPathPrivateBaseD1Ev": ["nothing", "address"],
     "ritual_ZNK19QGeoPathPrivateBase7isValidEv": ["bool", "address"],
     "ritual_ZNK19QGeoPathPrivateBase7isEmptyEv": ["bool", "address"],
     "ritual_ZNK19QGeoPathPrivateBase6centerEv": ["address", "address"],
+    "ritual_ZNK19QGeoPathPrivateBaseeqERK16QGeoShapePrivate": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK19QGeoPathPrivateBase20boundingGeoRectangleEv": [
       "address", "address"
+    ],
+    "ritual_ZNK19QGeoPathPrivateBase4hashEm": [
+      "size_t", "address", "size_t"
     ],
     "ritual_ZNK19QGeoPathPrivateBase4pathEv": ["address", "address"],
     "ritual_ZNK19QGeoPathPrivateBase6lengthExx": [
@@ -57,6 +68,9 @@
     "ritual_own_ZNK19QGeoPathPrivateBase6centerEv": ["address", "address"],
     "ritual_own_ZNK19QGeoPathPrivateBase20boundingGeoRectangleEv": [
       "address", "address"
+    ],
+    "ritual_own_ZNK19QGeoPathPrivateBase4hashEm": [
+      "size_t", "address", "size_t"
     ],
     "ritual_own_ZNK19QGeoPathPrivateBase6lengthExx": [
       "double", "address", "long long", "long long"

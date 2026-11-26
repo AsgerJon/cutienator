@@ -7,12 +7,24 @@
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
+#include <QtCore/QList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtRemoteObjects/qremoteobjectpendingcall.h>
-#include <QtRemoteObjects/private/qremoteobjectpendingcall_p.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/private/qmetaobjectbuilder_p.h>
+#include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
+#include <QtRemoteObjects/qremoteobjectnode.h>
+#include <QtRemoteObjects/private/qremoteobjectnode_p.h>
+#include <QtRemoteObjects/qremoteobjectregistry.h>
+#include <QtRemoteObjects/qremoteobjectdynamicreplica.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
+#include <QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
 #include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
-#include <QtCore/qcoreapplication.h>
-#include <QtCore/private/qobject_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodelreplica_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodeladapter_p.h>
+#include <QtCore/qabstractitemmodel.h>
+#include <memory>
+#include <algorithm>
 #include <QtRemoteObjects/qremoteobjectreplica.h>
 #include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -28,6 +40,11 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qthread.h>
 #include <limits>
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
+#include <QtRemoteObjects/private/qremoteobjectpendingcall_p.h>
+#include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/private/qobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -36,6 +53,95 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace QRemoteObjectStringLiterals;
+
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
+{
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 247, as _ZN15QtRemoteObjects37getTypeNameAndMetaobjectFromClassInfoERPK11QMetaObject
+inline QString QtRemoteObjects::getTypeNameAndMetaobjectFromClassInfo(const QMetaObject *& meta) {
+    QString typeName;
+    const int ind = meta->indexOfClassInfo(QCLASSINFO_REMOTEOBJECT_TYPE);
+    if (ind != -1) { //We have an object created from repc or at least with QCLASSINFO defined
+        typeName = QString::fromLatin1(meta->classInfo(ind).value());
+        while (true) {
+            Q_ASSERT(meta->superClass());//This recurses to QObject, which doesn't have QCLASSINFO_REMOTEOBJECT_TYPE
+            //At the point superclass doesn't have the same QCLASSINFO_REMOTEOBJECT_TYPE,
+            //we have the metaobject we should work from
+            if (ind != meta->superClass()->indexOfClassInfo(QCLASSINFO_REMOTEOBJECT_TYPE))
+                break;
+            meta = meta->superClass();
+        }
+    }
+    return typeName;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 505, as _ZN34QRemoteObjectReplicaImplementation16configurePrivateEP20QRemoteObjectReplica
+inline void QRemoteObjectReplicaImplementation::configurePrivate(QRemoteObjectReplica *rep)
+{
+    qCDebug(QT_REMOTEOBJECT) << "configurePrivate starting for" << this->m_objectName;
+    //We need to connect the Replicant only signals too
+    // Uncomment the following two lines if QRemoteObjectDynamicReplica gets a unique staticMetaObject (FIX #3)
+    //const QMetaObject *m =  rep->inherits("QRemoteObjectDynamicReplica") ?
+    //            &QRemoteObjectDynamicReplica::staticMetaObject : &QRemoteObjectReplica::staticMetaObject;
+    const QMetaObject *m = &QRemoteObjectReplica::staticMetaObject;
+    for (int i = m->methodOffset(); i < m->methodCount(); ++i)
+    {
+        const QMetaMethod mm = m->method(i);
+        if (mm.methodType() == QMetaMethod::Signal) {
+            const bool res = QMetaObject::connect(this, i, rep, i, Qt::DirectConnection, nullptr);
+            qCDebug(QT_REMOTEOBJECT) << "  Rep connect"<<i<<res<<mm.name();
+            Q_UNUSED(res)
+        }
+    }
+    if (m_methodOffset == 0) //We haven't initialized the offsets yet
+    {
+        const int index = m_metaObject->indexOfClassInfo(QCLASSINFO_REMOTEOBJECT_TYPE);
+        const QMetaObject *metaObject = m_metaObject;
+        if (index != -1) { //We have an object created from repc or at least with QCLASSINFO defined
+            while (true) {
+                Q_ASSERT(metaObject->superClass()); //This recurses to QObject, which doesn't have QCLASSINFO_REMOTEOBJECT_TYPE
+                if (index != metaObject->superClass()->indexOfClassInfo(QCLASSINFO_REMOTEOBJECT_TYPE)) //At the point we don't find the same QCLASSINFO_REMOTEOBJECT_TYPE,
+                                //we have the metaobject we should work from
+                    break;
+                metaObject = metaObject->superClass();
+            }
+        }
+
+        for (int i = m_signalOffset; i < metaObject->methodCount(); ++i) {
+            const QMetaMethod mm = metaObject->method(i);
+            if (mm.methodType() == QMetaMethod::Signal) {
+                ++m_numSignals;
+                const bool res = QMetaObject::connect(this, i, rep, i, Qt::DirectConnection, nullptr);
+                qCDebug(QT_REMOTEOBJECT) << "  Connect"<<i<<res<<mm.name();
+                Q_UNUSED(res)
+            }
+        }
+        m_methodOffset = m_signalOffset + m_numSignals;
+        qCDebug(QT_REMOTEOBJECT) << QStringLiteral("configurePrivate finished, signalOffset = %1, methodOffset = %2, #Signals = %3").arg(m_signalOffset).arg(m_methodOffset).arg(m_numSignals);
+    } else { //We have initialized offsets, this is an additional Replica attaching
+        for (int i = m_signalOffset; i < m_methodOffset; ++i) {
+            const bool res = QMetaObject::connect(this, i, rep, i, Qt::DirectConnection, nullptr);
+            qCDebug(QT_REMOTEOBJECT) << "  Connect"<<i<<res<<m_metaObject->method(i).name();
+            Q_UNUSED(res)
+        }
+        if (isInitialized()) {
+            qCDebug(QT_REMOTEOBJECT) << QStringLiteral("ReplicaImplementation initialized, emitting signal on replica");
+            emit rep->initialized(); //Emit from new replica only
+        }
+        if (state() != QRemoteObjectReplica::Valid) {
+            qCDebug(QT_REMOTEOBJECT) << QStringLiteral("ReplicaImplementation not currently valid, emitting signal on replica");
+            emit rep->stateChanged(state(), m_metaObject ? QRemoteObjectReplica::Default : QRemoteObjectReplica::Uninitialized);
+        }
+
+        qCDebug(QT_REMOTEOBJECT) << QStringLiteral("configurePrivate finished, added replica to existing ReplicaImplementation");
+    }
+}
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpendingcall.cpp, line 37, as _ZN37QRemoteObjectPendingCallWatcherHelper11emitSignalsEv
 inline void QRemoteObjectPendingCallWatcherHelper::emitSignals()
@@ -65,18 +171,35 @@ inline void QRemoteObjectReplicaImplementation::setState(QRemoteObjectReplica::S
     QMetaObject::activate(this, metaObject(), stateChangedIndex, args);
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 176, as _ZNK31QConnectedReplicaImplementation12childIndicesEv
-inline QList<int> QConnectedReplicaImplementation::childIndices() const
-{
-    return m_childIndices;
-}
-
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 253, as _ZN34QRemoteObjectReplicaImplementation20setDynamicMetaObjectEPK11QMetaObject
 inline void QRemoteObjectReplicaImplementation::setDynamicMetaObject(const QMetaObject *meta)
 {
     Q_ASSERT(!m_metaObject);
 
     m_metaObject = meta;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 156, as _ZN34QRemoteObjectReplicaImplementation12emitNotifiedEv
+inline void QRemoteObjectReplicaImplementation::emitNotified()
+{
+    const static int notifiedIndex = QRemoteObjectReplica::staticMetaObject.indexOfMethod("notified()");
+    Q_ASSERT(notifiedIndex != -1);
+    void *args[] = {nullptr};
+    QMetaObject::activate(this, metaObject(), notifiedIndex, args);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 271, as _ZN34QRemoteObjectReplicaImplementation20setDynamicPropertiesEO5QListI8QVariantE
+inline void QRemoteObjectReplicaImplementation::setDynamicProperties(QVariantList &&values)
+{
+    const int offset = m_propertyOffset;
+    int propertyIndex = -1;
+    for (auto &prop : values) {
+        propertyIndex++;
+        const QMetaProperty property = m_metaObject->property(propertyIndex+offset);
+        prop = QRemoteObjectPackets::decodeVariant(std::move(prop), property.metaType());
+    }
+    //rely on order of properties;
+    setProperties(std::move(values));
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 221, as _ZN34QRemoteObjectReplicaImplementation15emitInitializedEv
@@ -93,6 +216,14 @@ inline const QVariant QConnectedReplicaImplementation::getProperty(int i) const
 {
     Q_ASSERT_X(i >= 0 && i < m_propertyStorage.size(), __FUNCTION__, qPrintable(QString(QLatin1String("0 <= %1 < %2")).arg(i).arg(m_propertyStorage.size())));
     return m_propertyStorage[i];
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 459, as _ZN31QConnectedReplicaImplementation13setPropertiesEO5QListI8QVariantE
+inline void QConnectedReplicaImplementation::setProperties(QVariantList &&properties)
+{
+    Q_ASSERT(m_propertyStorage.isEmpty());
+    m_propertyStorage.reserve(properties.size());
+    m_propertyStorage = std::move(properties);
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 466, as _ZN31QConnectedReplicaImplementation11setPropertyEiRK8QVariant
@@ -140,6 +271,41 @@ inline bool QConnectedReplicaImplementation::waitForSource(int timeout)
     return state() == QRemoteObjectReplica::State::Valid;
 }
 
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 176, as _ZNK31QConnectedReplicaImplementation12childIndicesEv
+inline QList<int> QConnectedReplicaImplementation::childIndices() const
+{
+    return m_childIndices;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 566, as _ZN31QConnectedReplicaImplementation16configurePrivateEP20QRemoteObjectReplica
+inline void QConnectedReplicaImplementation::configurePrivate(QRemoteObjectReplica *rep)
+{
+    if (m_metaObject) {
+        // see QRemoteObjectReplicaImplementation::configurePrivate
+        const bool firstReplicaInstance = (m_methodOffset == 0);
+
+        QRemoteObjectReplicaImplementation::configurePrivate(rep);
+
+        // ensure that notify signals are emitted for the new replica, when
+        // we are initializing an nth replica of the same type
+        if (!firstReplicaInstance) {
+            const int offset = m_propertyOffset;
+            const int nParam = int(m_propertyStorage.size());
+            void *args[] = {nullptr, nullptr};
+            for (int i = 0; i < nParam; ++i) {
+                const int notifyIndex = m_metaObject->property(i+offset).notifySignalIndex();
+                if (notifyIndex < 0)
+                    continue;
+                qCDebug(QT_REMOTEOBJECT) << " Before activate" << notifyIndex << m_metaObject->property(i+offset).name();
+                args[1] = m_propertyStorage[i].data();
+                // NOTE: this over-emits (assumes all values have changed)
+                QMetaObject::activate(rep, rep->metaObject(), notifyIndex - m_signalOffset, args);
+            }
+        }
+    } else
+        m_parentsNeedingConnect.append(rep);
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 480, as _ZN31QConnectedReplicaImplementation15setDisconnectedEv
 inline void QConnectedReplicaImplementation::setDisconnected()
 {
@@ -180,6 +346,14 @@ QVariant *ritual_ZNK31QConnectedReplicaImplementation11getPropertyEi(
   return new QVariant(self->getProperty(i));
 }
 
+//  void QConnectedReplicaImplementation::setProperties(QVariantList &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QConnectedReplicaImplementation13setPropertiesEO5QListI8QVariantE(
+    QConnectedReplicaImplementation *self,
+    QVariantList *a0) {
+  self->setProperties(std::move(*a0));
+}
+
 //  void QConnectedReplicaImplementation::setProperty(int i, const QVariant
 //      &a1)
 extern "C" Q_DECL_EXPORT
@@ -212,6 +386,23 @@ bool ritual_ZN31QConnectedReplicaImplementation13waitForSourceEi(
   return self->waitForSource(timeout);
 }
 
+//  QList<int> QConnectedReplicaImplementation::childIndices() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK31QConnectedReplicaImplementation12childIndicesEv(
+    const QConnectedReplicaImplementation *self) {
+  return new QList<int>(self->childIndices());
+}
+
+//  void
+//      QConnectedReplicaImplementation::configurePrivate(QRemoteObjectReplic
+//      a *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QConnectedReplicaImplementation16configurePrivateEP20QRemoteObjectReplica(
+    QConnectedReplicaImplementation *self,
+    QRemoteObjectReplica *a0) {
+  self->configurePrivate(a0);
+}
+
 //  void QConnectedReplicaImplementation::setDisconnected()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QConnectedReplicaImplementation15setDisconnectedEv(
@@ -226,4 +417,11 @@ void ritual_ZN31QConnectedReplicaImplementation20setDynamicMetaObjectEPK11QMetaO
     QConnectedReplicaImplementation *self,
     const QMetaObject *meta) {
   self->setDynamicMetaObject(meta);
+}
+
+//  a QList<int> a ritual of QConnectedReplicaImplementation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QConnectedReplicaImplementation__QList_int(
+    QList<int> *self) {
+  delete self;
 }

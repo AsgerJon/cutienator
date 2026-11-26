@@ -9,8 +9,12 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/objectmanageradaptor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDBus/qdbusextratypes.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <QtDBus/QDBusObjectPath>
 
 //  A QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor that Python can take functions over in. Every QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor
 //  Python makes is one. Each function below asks the Python
@@ -188,6 +192,96 @@ const QMetaObject *ritual_ZNK18QtBluetoothPrivate38OrgFreedesktopDBusObjectManag
   return self->metaObject();
 }
 
+//  void *QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor::qt_meta
+//      cast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtBluetoothPrivate38OrgFreedesktopDBusObjectManagerAdaptor11qt_metacastEPKc(
+    QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor::qt_metaca
+//      ll(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QtBluetoothPrivate38OrgFreedesktopDBusObjectManagerAdaptor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor::~OrgFreedeskt
+//      opDBusObjectManagerAdaptor()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate38OrgFreedesktopDBusObjectManagerAdaptorD1Ev(
+    QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor *self) {
+  delete self;
+}
+
+//  void QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor::Interfac
+//      esAdded(const QDBusObjectPath &object_path, InterfaceList
+//      interfaces_and_properties)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate38OrgFreedesktopDBusObjectManagerAdaptor15InterfacesAddedERK15QDBusObjectPath4QMapI7QStringS4_IS5_8QVariantEE(
+    QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor *self,
+    const QDBusObjectPath *object_path,
+    const InterfaceList *interfaces_and_properties) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "InterfacesAdded(const QDBusObjectPath &,InterfaceList)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "InterfacesAdded(const QDBusObjectPath &,InterfaceList)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(object_path)),
+      const_cast<void *>(static_cast<const void *>(interfaces_and_properties)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor::Interfac
+//      esRemoved(const QDBusObjectPath &object_path, const QStringList
+//      &interfaces)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate38OrgFreedesktopDBusObjectManagerAdaptor17InterfacesRemovedERK15QDBusObjectPathRK5QListI7QStringE(
+    QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor *self,
+    const QDBusObjectPath *object_path,
+    const QList<QString> *interfaces) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "InterfacesRemoved(const QDBusObjectPath &,const QStringList &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "InterfacesRemoved(const QDBusObjectPath &,const QStringList &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(object_path)),
+      const_cast<void *>(static_cast<const void *>(interfaces)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  a Python function taken by a
 //      CuteQtBluetoothPrivate_OrgFreedesktopDBusObjectManagerAdaptor, for
 //      the function named by the key
@@ -197,6 +291,14 @@ bool ritual_take_QtBluetoothPrivate_OrgFreedesktopDBusObjectManagerAdaptor(
     const char *key,
     void *call) {
   return static_cast<CuteQtBluetoothPrivate_OrgFreedesktopDBusObjectManagerAdaptor *>(self)->take(key, call);
+}
+
+//  a ManagedObjectList a ritual of
+//      QtBluetoothPrivate::OrgFreedesktopDBusObjectManagerAdaptor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtBluetoothPrivate_OrgFreedesktopDBusObjectManagerAdaptor__ManagedObjectList(
+    ManagedObjectList *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(bluez)

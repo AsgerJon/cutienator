@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK15QWaylandSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QWaylandSurface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QWaylandSurface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QWaylandSurface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QWaylandSurface6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QWaylandSurface6d_funcEv": ["address", "address"],
     "ritual_ZN15QWaylandSurface24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -22,6 +30,10 @@
     ],
     "ritual_ZNK15QWaylandSurface13isInitializedEv": ["bool", "address"],
     "ritual_ZNK15QWaylandSurface6clientEv": ["address", "address"],
+    "ritual_ZNK15QWaylandSurface13waylandClientEv": ["address", "address"],
+    "ritual_ZN15QWaylandSurface7setRoleEP19QWaylandSurfaceRoleP11wl_resourcej": [
+      "bool", "address", "address", "address", "unsigned int"
+    ],
     "ritual_ZNK15QWaylandSurface4roleEv": ["address", "address"],
     "ritual_ZNK15QWaylandSurface10hasContentEv": ["bool", "address"],
     "ritual_ZNK15QWaylandSurface14sourceGeometryEv": ["address", "address"],
@@ -48,6 +60,10 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK15QWaylandSurface5viewsEv": ["address", "address"],
+    "ritual_ZN15QWaylandSurface12fromResourceEP11wl_resource": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QWaylandSurface8resourceEv": ["address", "address"],
     "ritual_ZN15QWaylandSurface19markAsCursorSurfaceEb": [
       "nothing", "address", "bool"
     ],
@@ -58,6 +74,62 @@
       "address", "address"
     ],
     "ritual_ZN15QWaylandSurface15updateSelectionEv": ["nothing", "address"],
+    "ritual_ZN15QWaylandSurfaceC1ER22QWaylandSurfacePrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface17hasContentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandSurface7damagedERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface13parentChangedEPS_S0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface10childAddedEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface21sourceGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandSurface22destinationSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandSurface17bufferSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandSurface18bufferScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandSurface18offsetForNextFrameERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface25contentOrientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandSurface16surfaceDestroyedEv": ["nothing", "address"],
+    "ritual_ZN15QWaylandSurface13originChangedEv": ["nothing", "address"],
+    "ritual_ZN15QWaylandSurface25subsurfacePositionChangedERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface20subsurfacePlaceAboveEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface20subsurfacePlaceBelowEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface11dragStartedEP12QWaylandDrag": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface20cursorSurfaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandSurface19inhibitsIdleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandSurface15isOpaqueChangedEv": ["nothing", "address"],
+    "ritual_ZN15QWaylandSurface9configureEb": ["nothing", "address", "bool"],
+    "ritual_ZN15QWaylandSurface6redrawEv": ["nothing", "address"],
     "ritual_take_QWaylandSurface": ["bool", "address", "chars", "address"],
     "ritual_list_make_QWaylandSurface_ptr": ["address"],
     "ritual_list_add_QWaylandSurface_ptr": ["nothing", "address", "address"],

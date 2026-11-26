@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A Qt3DInput::QActionInput that Python can take functions over in. Every Qt3DInput::QActionInput
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput12QActionInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QActionInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput12QActionInput11qt_metacastEPKc(
+    Qt3DInput::QActionInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QActionInput::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput12QActionInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QActionInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QActionInput::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Qt3DInput12QActionInput2trEPKcS2_i(
@@ -186,6 +206,67 @@ QString *ritual_ZN9Qt3DInput12QActionInput2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QActionInput::tr(s, c, n));
+}
+
+//  Qt3DInput::QActionInput::QActionInput(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QActionInput *ritual_ZN9Qt3DInput12QActionInputC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QActionInput(parent);
+}
+
+//  Qt3DInput::QActionInput::~QActionInput()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QActionInputD1Ev(Qt3DInput::QActionInput *self) {
+  delete self;
+}
+
+//  QAbstractPhysicalDevice *Qt3DInput::QActionInput::sourceDevice() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractPhysicalDevice *ritual_ZNK9Qt3DInput12QActionInput12sourceDeviceEv(
+    const Qt3DInput::QActionInput *self) {
+  return self->sourceDevice();
+}
+
+//  QList<int> Qt3DInput::QActionInput::buttons() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK9Qt3DInput12QActionInput7buttonsEv(
+    const Qt3DInput::QActionInput *self) {
+  return new QList<int>(self->buttons());
+}
+
+//  void Qt3DInput::QActionInput::setSourceDevice(QAbstractPhysicalDevice
+//      *sourceDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QActionInput15setSourceDeviceEPNS_23QAbstractPhysicalDeviceE(
+    Qt3DInput::QActionInput *self,
+    Qt3DInput::QAbstractPhysicalDevice *sourceDevice) {
+  self->setSourceDevice(sourceDevice);
+}
+
+//  void Qt3DInput::QActionInput::setButtons(const QList<int> &buttons)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QActionInput10setButtonsERK5QListIiE(
+    Qt3DInput::QActionInput *self,
+    const QList<int> *buttons) {
+  self->setButtons(*buttons);
+}
+
+//  void Qt3DInput::QActionInput::sourceDeviceChanged(QAbstractPhysicalDevice
+//      *sourceDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QActionInput19sourceDeviceChangedEPNS_23QAbstractPhysicalDeviceE(
+    Qt3DInput::QActionInput *self,
+    Qt3DInput::QAbstractPhysicalDevice *sourceDevice) {
+  self->sourceDeviceChanged(sourceDevice);
+}
+
+//  void Qt3DInput::QActionInput::buttonsChanged(const QList<int> &buttons)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput12QActionInput14buttonsChangedERK5QListIiE(
+    Qt3DInput::QActionInput *self,
+    const QList<int> *buttons) {
+  self->buttonsChanged(*buttons);
 }
 
 //  QActionInputPrivate *Qt3DInput::QActionInput::d_func()
@@ -210,4 +291,10 @@ bool ritual_take_Qt3DInput_QActionInput(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_QActionInput *>(self)->take(key, call);
+}
+
+//  a QList<int> a ritual of Qt3DInput::QActionInput gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QActionInput__QList_int(QList<int> *self) {
+  delete self;
 }

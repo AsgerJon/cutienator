@@ -8,8 +8,99 @@
     "ritual_ZNK10Qt3DRender14QShaderProgram10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender14QShaderProgram11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender14QShaderProgram2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgramC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgramD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender14QShaderProgram16vertexShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QShaderProgram29tessellationControlShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QShaderProgram32tessellationEvaluationShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QShaderProgram18geometryShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QShaderProgram18fragmentShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QShaderProgram17computeShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram13setShaderCodeENS0_10ShaderTypeERK10QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender14QShaderProgram10shaderCodeENS0_10ShaderTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender14QShaderProgram3logEv": ["text", "address"],
+    "ritual_ZNK10Qt3DRender14QShaderProgram6statusEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender14QShaderProgram9setFormatENS0_6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender14QShaderProgram6formatEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender14QShaderProgram10loadSourceERK4QUrl": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram19setVertexShaderCodeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram32setTessellationControlShaderCodeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram35setTessellationEvaluationShaderCodeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram21setGeometryShaderCodeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram21setFragmentShaderCodeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram20setComputeShaderCodeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram23vertexShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram36tessellationControlShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram39tessellationEvaluationShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram25geometryShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram25fragmentShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram24computeShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram10logChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram13statusChangedENS0_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgram13formatChangedENS0_6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QShaderProgramC1ERNS_21QShaderProgramPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender14QShaderProgram6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender14QShaderProgram6d_funcEv": [

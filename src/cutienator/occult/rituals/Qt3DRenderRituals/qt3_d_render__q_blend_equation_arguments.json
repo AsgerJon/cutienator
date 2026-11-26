@@ -8,8 +8,80 @@
     "ritual_ZNK10Qt3DRender23QBlendEquationArguments10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender23QBlendEquationArguments2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArgumentsC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArgumentsD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QBlendEquationArguments9sourceRgbEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QBlendEquationArguments14destinationRgbEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QBlendEquationArguments11sourceAlphaEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QBlendEquationArguments16destinationAlphaEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QBlendEquationArguments11bufferIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments12setSourceRgbENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments17setDestinationRgbENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments14setSourceAlphaENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments19setDestinationAlphaENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments13setSourceRgbaENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments18setDestinationRgbaENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments14setBufferIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments16sourceRgbChangedENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments18sourceAlphaChangedENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments21destinationRgbChangedENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments23destinationAlphaChangedENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments17sourceRgbaChangedENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments22destinationRgbaChangedENS0_8BlendingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArguments18bufferIndexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender23QBlendEquationArgumentsC1ERNS_30QBlendEquationArgumentsPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender23QBlendEquationArguments6d_funcEv": [
       "address", "address"

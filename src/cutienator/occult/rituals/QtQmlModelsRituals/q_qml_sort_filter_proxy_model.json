@@ -8,6 +8,12 @@
     "ritual_ZNK24QQmlSortFilterProxyModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQmlSortFilterProxyModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQmlSortFilterProxyModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,8 @@
       "address", "address"
     ],
     "ritual_ZN24QQmlSortFilterProxyModelD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQmlSortFilterProxyModel7filtersEv": ["address", "address"],
+    "ritual_ZN24QQmlSortFilterProxyModel7sortersEv": ["address", "address"],
     "ritual_ZN24QQmlSortFilterProxyModel5modelEv": ["address", "address"],
     "ritual_ZN24QQmlSortFilterProxyModel8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
@@ -106,6 +114,9 @@
     "ritual_ZN24QQmlSortFilterProxyModel20setPrimarySortColumnEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN24QQmlSortFilterProxyModel19setPrimarySortOrderEN2Qt9SortOrderE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK24QQmlSortFilterProxyModel10sourceDataERK11QModelIndexi": [
       "address", "address", "address", "int"
     ],
@@ -137,6 +148,27 @@
       "nothing", "address"
     ],
     "ritual_ZN24QQmlSortFilterProxyModel16invalidateFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel24dynamicSortFilterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel25recursiveFilteringChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel26autoAcceptChildRowsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel14filtersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel14sortersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel12modelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel20primarySorterChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN24QQmlSortFilterProxyModel6d_funcEv": ["address", "address"],
@@ -211,6 +243,12 @@
       "nothing", "address"
     ],
     "ritual_own_ZN24QQmlSortFilterProxyModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlSortFilterProxyModel__QQmlListProperty_QQmlFilterBase": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlSortFilterProxyModel__QQmlListProperty_QQmlSorterBase": [
       "nothing", "address"
     ]
   }

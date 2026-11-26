@@ -12,6 +12,9 @@
     "ritual_ZNK18QBinaryJsonPrivate6String7isValidEj": [
       "bool", "address", "unsigned int"
     ],
+    "ritual_ZN18QBinaryJsonPrivate6String4copyEPc11QStringView": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN18QBinaryJsonPrivate6String17fillTrailingZerosEPNS0_4DataE": [
       "nothing", "address"
     ],

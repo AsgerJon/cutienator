@@ -7,6 +7,60 @@
   "rows": {
     "ritual_ZNK18qdesigner_internal14ActionListView10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14ActionListView13currentActionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView6filterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView26actionContextMenuRequestedEP17QContextMenuEventP7QAction": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView20currentActionChangedEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView15actionActivatedEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView14currentChangedERK11QModelIndexS3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView9startDragE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14ActionListView13slotActivatedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ActionListView14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ActionListView9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ActionListView9startDragE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
     ]
   }
 }

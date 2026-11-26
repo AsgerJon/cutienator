@@ -8,6 +8,12 @@
     "ritual_ZNK34QQuick3DParticleModelBlendParticle10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN34QQuick3DParticleModelBlendParticle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -52,6 +58,27 @@
     ],
     "ritual_ZN34QQuick3DParticleModelBlendParticle11setEmitModeENS_18ModelBlendEmitModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle15delegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle18blendFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle14endNodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle21modelBlendModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle14endTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle21activationNodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle15emitModeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN34QQuick3DParticleModelBlendParticle10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
@@ -104,6 +131,9 @@
     ],
     "ritual_ZN34QQuick3DParticleModelBlendParticle20handleEndNodeChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle14perEmitterDataEi": [
+      "address", "address", "int"
     ],
     "ritual_take_QQuick3DParticleModelBlendParticle": [
       "bool", "address", "chars", "address"

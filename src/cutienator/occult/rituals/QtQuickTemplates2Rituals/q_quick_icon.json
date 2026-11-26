@@ -11,6 +11,7 @@
     "ritual_ZN10QQuickIconC1Ev": ["address"],
     "ritual_ZN10QQuickIconC1ERKS_": ["address", "address"],
     "ritual_ZN10QQuickIconD1Ev": ["nothing", "address"],
+    "ritual_ZN10QQuickIconaSERKS_": ["address", "address", "address"],
     "ritual_ZNK10QQuickIconeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK10QQuickIconneERKS_": ["bool", "address", "address"],
     "ritual_ZNK10QQuickIcon7isEmptyEv": ["bool", "address"],

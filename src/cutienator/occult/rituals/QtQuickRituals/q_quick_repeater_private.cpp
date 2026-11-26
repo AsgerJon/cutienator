@@ -7,9 +7,13 @@
 #if QT_CONFIG(quick_repeater)
 #if QT_CONFIG(quick_repeater)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_repeater)
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickrepeater_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickrepeater_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>

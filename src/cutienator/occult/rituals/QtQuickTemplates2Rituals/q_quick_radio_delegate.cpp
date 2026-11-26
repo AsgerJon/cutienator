@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK19QQuickRadioDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRadioDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickRadioDelegate11qt_metacastEPKc(
+    QQuickRadioDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRadioDelegate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickRadioDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRadioDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRadioDelegate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickRadioDelegate2trEPKcS1_i(
@@ -55,6 +74,20 @@ QAccessible::Role ritual_ZNK19QQuickRadioDelegate14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickRadioDelegatePrivate *QQuickRadioDelegate::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickRadioDelegatePrivate *ritual_ZN19QQuickRadioDelegate6d_funcEv(
+    QQuickRadioDelegate *self) {
+  return self->d_func();
+}
+
+//  const QQuickRadioDelegatePrivate *QQuickRadioDelegate::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickRadioDelegatePrivate *ritual_ZNK19QQuickRadioDelegate6d_funcEv(
+    const QQuickRadioDelegate *self) {
+  return self->d_func();
+}
 
 //  QFont QQuickRadioDelegate::defaultFont() const
 extern "C" Q_DECL_EXPORT

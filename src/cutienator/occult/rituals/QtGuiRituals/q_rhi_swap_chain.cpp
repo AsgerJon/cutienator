@@ -375,6 +375,13 @@ QRhiSwapChainHdrInfo *ritual_ZN13QRhiSwapChain7hdrInfoEv(
   return new QRhiSwapChainHdrInfo(self->hdrInfo());
 }
 
+//  QRhiSwapChain::QRhiSwapChain(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QRhiSwapChain *ritual_ZN13QRhiSwapChainC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQRhiSwapChain(rhi);
+}
+
 //  a Python function taken by a CuteQRhiSwapChain, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

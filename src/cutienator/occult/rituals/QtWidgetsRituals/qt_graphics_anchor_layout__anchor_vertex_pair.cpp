@@ -24,7 +24,7 @@ typedef QString * (*CuteQtGraphicsAnchorLayout_AnchorVertexPairCall0)(const void
 class CuteQtGraphicsAnchorLayout_AnchorVertexPair : public QtGraphicsAnchorLayout::AnchorVertexPair {
 public:
   using QtGraphicsAnchorLayout::AnchorVertexPair::AnchorVertexPair;
-  CuteQtGraphicsAnchorLayout_AnchorVertexPair(const QtGraphicsAnchorLayout::AnchorVertexPair &other) : QtGraphicsAnchorLayout::AnchorVertexPair(other) {}
+  CuteQtGraphicsAnchorLayout_AnchorVertexPair(const QtGraphicsAnchorLayout::AnchorVertexPair & other) : QtGraphicsAnchorLayout::AnchorVertexPair(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {

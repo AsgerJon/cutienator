@@ -8,6 +8,12 @@
     "ritual_ZNK18qdesigner_internal21NewPromotedClassPanel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK18qdesigner_internal21NewPromotedClassPanel20promotedHeaderSuffixEv": [
       "text", "address"
     ],
@@ -19,6 +25,27 @@
     ],
     "ritual_ZN18qdesigner_internal21NewPromotedClassPanel26setPromotedHeaderLowerCaseEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel9grabFocusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel15chooseBaseClassERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel15slotNameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel22slotIncludeFileChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel7slotAddEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel9slotResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel13enableButtonsEv": [
+      "nothing", "address"
     ]
   }
 }

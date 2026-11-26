@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput18QAbstractAxisInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QAbstractAxisInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput18QAbstractAxisInput11qt_metacastEPKc(
+    Qt3DInput::QAbstractAxisInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QAbstractAxisInput::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput18QAbstractAxisInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QAbstractAxisInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QAbstractAxisInput::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,49 @@ QString *ritual_ZN9Qt3DInput18QAbstractAxisInput2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QAbstractAxisInput::tr(s, c, n));
+}
+
+//  Qt3DInput::QAbstractAxisInput::~QAbstractAxisInput()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput18QAbstractAxisInputD1Ev(
+    Qt3DInput::QAbstractAxisInput *self) {
+  delete self;
+}
+
+//  QAbstractPhysicalDevice *Qt3DInput::QAbstractAxisInput::sourceDevice()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractPhysicalDevice *ritual_ZNK9Qt3DInput18QAbstractAxisInput12sourceDeviceEv(
+    const Qt3DInput::QAbstractAxisInput *self) {
+  return self->sourceDevice();
+}
+
+//  void
+//      Qt3DInput::QAbstractAxisInput::setSourceDevice(QAbstractPhysicalDevic
+//      e *sourceDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput18QAbstractAxisInput15setSourceDeviceEPNS_23QAbstractPhysicalDeviceE(
+    Qt3DInput::QAbstractAxisInput *self,
+    Qt3DInput::QAbstractPhysicalDevice *sourceDevice) {
+  self->setSourceDevice(sourceDevice);
+}
+
+//  void Qt3DInput::QAbstractAxisInput::sourceDeviceChanged(QAbstractPhysical
+//      Device *sourceDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput18QAbstractAxisInput19sourceDeviceChangedEPNS_23QAbstractPhysicalDeviceE(
+    Qt3DInput::QAbstractAxisInput *self,
+    Qt3DInput::QAbstractPhysicalDevice *sourceDevice) {
+  self->sourceDeviceChanged(sourceDevice);
+}
+
+//  Qt3DInput::QAbstractAxisInput::QAbstractAxisInput(QAbstractAxisInputPriva
+//      te &dd, QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractAxisInput *ritual_ZN9Qt3DInput18QAbstractAxisInputC1ERNS_25QAbstractAxisInputPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DInput::QAbstractAxisInputPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QAbstractAxisInput(*dd, parent);
 }
 
 //  QAbstractAxisInputPrivate *Qt3DInput::QAbstractAxisInput::d_func()

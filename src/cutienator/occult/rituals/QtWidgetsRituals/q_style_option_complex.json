@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN19QStyleOptionComplexC1Eii": ["address", "int", "int"],
     "ritual_ZN19QStyleOptionComplexC1ERKS_": ["address", "address"],
+    "ritual_ZN19QStyleOptionComplexaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QStyleOptionComplexD1Ev": ["nothing", "address"]
   }
 }

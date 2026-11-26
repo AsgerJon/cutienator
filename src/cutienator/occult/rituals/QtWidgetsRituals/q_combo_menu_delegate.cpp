@@ -78,23 +78,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/widgets/qcombobox.cpp, line 235, as _ZNK18QComboMenuDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex
-inline void QComboMenuDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
-                               const QModelIndex &index) const
-{
-    const QStyleOptionMenuItem opt = getStyleOption(option, index);
-    painter->fillRect(option.rect, opt.palette.window());
-    mCombo->style()->drawControl(QStyle::CE_MenuItem, &opt, painter, mCombo);
-}
-
-//  from src/widgets/widgets/qcombobox.cpp, line 243, as _ZNK18QComboMenuDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex
-inline QSize QComboMenuDelegate::sizeHint(const QStyleOptionViewItem &option,
-                                   const QModelIndex &index) const
-{
-    const QStyleOptionMenuItem opt = getStyleOption(option, index);
-    return mCombo->style()->sizeFromContents(QStyle::CT_MenuItem, &opt,
-                                             option.rect.size(), mCombo);
-}
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/widgets/qcombobox.cpp, line 331, as _ZN18QComboMenuDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex
 inline bool QComboMenuDelegate::editorEvent(QEvent *event, QAbstractItemModel *model,
@@ -145,11 +129,118 @@ inline bool QComboMenuDelegate::editorEvent(QEvent *event, QAbstractItemModel *m
                             ? Qt::Unchecked : Qt::Checked;
     return model->setData(index, newState, Qt::CheckStateRole);
 }
+
+//  from src/widgets/widgets/qcombobox.cpp, line 392, as _ZN17QComboBoxDelegate11isSeparatorERK11QModelIndex
+inline bool QComboBoxDelegate::isSeparator(const QModelIndex &index)
+{
+    return index.data(Qt::AccessibleDescriptionRole).toString() == "separator"_L1;
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 235, as _ZNK18QComboMenuDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex
+inline void QComboMenuDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
+                               const QModelIndex &index) const
+{
+    const QStyleOptionMenuItem opt = getStyleOption(option, index);
+    painter->fillRect(option.rect, opt.palette.window());
+    mCombo->style()->drawControl(QStyle::CE_MenuItem, &opt, painter, mCombo);
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 243, as _ZNK18QComboMenuDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex
+inline QSize QComboMenuDelegate::sizeHint(const QStyleOptionViewItem &option,
+                                   const QModelIndex &index) const
+{
+    const QStyleOptionMenuItem opt = getStyleOption(option, index);
+    return mCombo->style()->sizeFromContents(QStyle::CT_MenuItem, &opt,
+                                             option.rect.size(), mCombo);
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 251, as _ZNK18QComboMenuDelegate14getStyleOptionERK20QStyleOptionViewItemRK11QModelIndex
+inline QStyleOptionMenuItem QComboMenuDelegate::getStyleOption(const QStyleOptionViewItem &option,
+                                                        const QModelIndex &index) const
+{
+    QStyleOptionMenuItem menuOption;
+
+    QPalette resolvedpalette = option.palette.resolve(QApplication::palette("QMenu"));
+    QVariant value = index.data(Qt::ForegroundRole);
+    if (value.canConvert<QBrush>()) {
+        resolvedpalette.setBrush(QPalette::WindowText, qvariant_cast<QBrush>(value));
+        resolvedpalette.setBrush(QPalette::ButtonText, qvariant_cast<QBrush>(value));
+        resolvedpalette.setBrush(QPalette::Text, qvariant_cast<QBrush>(value));
+    }
+    menuOption.palette = resolvedpalette;
+    menuOption.state = QStyle::State_None;
+    if (mCombo->window()->isActiveWindow())
+        menuOption.state = QStyle::State_Active;
+    if ((option.state & QStyle::State_Enabled) && (index.model()->flags(index) & Qt::ItemIsEnabled))
+        menuOption.state |= QStyle::State_Enabled;
+    else
+        menuOption.palette.setCurrentColorGroup(QPalette::Disabled);
+    if (option.state & QStyle::State_Selected)
+        menuOption.state |= QStyle::State_Selected;
+    menuOption.checkType = QStyleOptionMenuItem::NonExclusive;
+    // a valid checkstate means that the model has checkable items
+    const QVariant checkState = index.data(Qt::CheckStateRole);
+    if (!checkState.isValid()) {
+        menuOption.checked = mCombo->currentIndex() == index.row();
+    } else {
+        menuOption.checked = qvariant_cast<int>(checkState) == Qt::Checked;
+        menuOption.state |= qvariant_cast<int>(checkState) == Qt::Checked
+                          ? QStyle::State_On : QStyle::State_Off;
+    }
+    if (QComboBoxDelegate::isSeparator(index))
+        menuOption.menuItemType = QStyleOptionMenuItem::Separator;
+    else
+        menuOption.menuItemType = QStyleOptionMenuItem::Normal;
+
+    const QVariant variant = index.data(Qt::DecorationRole);
+    switch (variant.userType()) {
+    case QMetaType::QIcon:
+        menuOption.icon = qvariant_cast<QIcon>(variant);
+        break;
+    case QMetaType::QColor: {
+        static QPixmap pixmap(option.decorationSize);
+        pixmap.fill(qvariant_cast<QColor>(variant));
+        menuOption.icon = pixmap;
+        break; }
+    default:
+        menuOption.icon = qvariant_cast<QPixmap>(variant);
+        break;
+    }
+    if (index.data(Qt::BackgroundRole).canConvert<QBrush>()) {
+        menuOption.palette.setBrush(QPalette::All, QPalette::Window,
+                                    qvariant_cast<QBrush>(index.data(Qt::BackgroundRole)));
+    }
+    menuOption.text = index.data(Qt::DisplayRole).toString().replace(u'&', "&&"_L1);
+    menuOption.reservedShortcutWidth = 0;
+    menuOption.maxIconWidth =  option.decorationSize.width() + 4;
+    menuOption.menuRect = option.rect;
+    menuOption.rect = option.rect;
+
+    // Make sure fonts set on the model or on the combo box, in
+    // that order, also override the font for the popup menu.
+    QVariant fontRoleData = index.data(Qt::FontRole);
+    if (fontRoleData.isValid()) {
+        menuOption.font = qvariant_cast<QFont>(fontRoleData);
+    } else if (mCombo->testAttribute(Qt::WA_SetFont)
+            || mCombo->testAttribute(Qt::WA_MacSmallSize)
+            || mCombo->testAttribute(Qt::WA_MacMiniSize)
+            || mCombo->font() != qt_app_fonts_hash()->value("QComboBox", QFont())) {
+        menuOption.font = mCombo->font();
+    } else {
+        menuOption.font = qt_app_fonts_hash()->value("QComboMenuItem", mCombo->font());
+    }
+
+    menuOption.fontMetrics = QFontMetrics(menuOption.font);
+
+    return menuOption;
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QComboMenuDelegate may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
 struct OwnQComboMenuDelegate : QComboMenuDelegate {
+  using QComboMenuDelegate::paint;
+  using QComboMenuDelegate::sizeHint;
   using QComboMenuDelegate::editorEvent;
 };
 
@@ -581,6 +672,31 @@ const QMetaObject *ritual_ZNK18QComboMenuDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QComboMenuDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QComboMenuDelegate11qt_metacastEPKc(
+    QComboMenuDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QComboMenuDelegate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QComboMenuDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QComboMenuDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QComboMenuDelegate::~QComboMenuDelegate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QComboMenuDelegateD1Ev(QComboMenuDelegate *self) {
+  delete self;
+}
+
 //  void QComboMenuDelegate::paint(QPainter *painter, const
 //      QStyleOptionViewItem &option, const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
@@ -614,6 +730,16 @@ bool ritual_ZN18QComboMenuDelegate11editorEventEP6QEventP18QAbstractItemModelRK2
   return self->editorEvent(event, model, *option, *index);
 }
 
+//  QStyleOptionMenuItem QComboMenuDelegate::getStyleOption(const
+//      QStyleOptionViewItem &option, const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+QStyleOptionMenuItem *ritual_ZNK18QComboMenuDelegate14getStyleOptionERK20QStyleOptionViewItemRK11QModelIndex(
+    const QComboMenuDelegate *self,
+    const QStyleOptionViewItem *option,
+    const QModelIndex *index) {
+  return new QStyleOptionMenuItem(self->getStyleOption(*option, *index));
+}
+
 //  a Python function taken by a CuteQComboMenuDelegate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -622,6 +748,33 @@ bool ritual_take_QComboMenuDelegate(
     const char *key,
     void *call) {
   return static_cast<CuteQComboMenuDelegate *>(self)->take(key, call);
+}
+
+//  void QComboMenuDelegate::paint(QPainter *painter, const
+//      QStyleOptionViewItem &option, const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZNK18QComboMenuDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex(
+    const QComboMenuDelegate *self,
+    QPainter *painter,
+    const QStyleOptionViewItem *option,
+    const QModelIndex *index) {
+  static_cast<const OwnQComboMenuDelegate *>(self)->OwnQComboMenuDelegate::paint(
+      painter,
+      *option,
+      *index);
+}
+
+//  QSize QComboMenuDelegate::sizeHint(const QStyleOptionViewItem &option,
+//      const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK18QComboMenuDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex(
+    const QComboMenuDelegate *self,
+    const QStyleOptionViewItem *option,
+    const QModelIndex *index) {
+  return new QSize(
+      static_cast<const OwnQComboMenuDelegate *>(self)->OwnQComboMenuDelegate::sizeHint(
+          *option,
+          *index));
 }
 
 //  bool QComboMenuDelegate::editorEvent(QEvent *event, QAbstractItemModel

@@ -5,5 +5,25 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DLogic5Logic11CallbackJobC1Ev": ["address"],
+    "ritual_ZN9Qt3DLogic5Logic11CallbackJob10setManagerEPNS0_7ManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DLogic5Logic11CallbackJob3runEv": ["nothing", "address"],
+    "ritual_ZN9Qt3DLogic5Logic11CallbackJob10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9Qt3DLogic5Logic11CallbackJob9postFrameEPN8Qt3DCore13QAspectEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9Qt3DLogic5Logic11CallbackJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN9Qt3DLogic5Logic11CallbackJob10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN9Qt3DLogic5Logic11CallbackJob9postFrameEPN8Qt3DCore13QAspectEngineE": [
+      "nothing", "address", "address"
+    ]
   }
 }

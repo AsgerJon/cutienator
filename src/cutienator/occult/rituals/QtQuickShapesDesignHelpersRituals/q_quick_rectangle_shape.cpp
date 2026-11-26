@@ -17,6 +17,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QQuickRectangleShape may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -795,6 +796,25 @@ const QMetaObject *ritual_ZNK20QQuickRectangleShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRectangleShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickRectangleShape11qt_metacastEPKc(
+    QQuickRectangleShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRectangleShape::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickRectangleShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRectangleShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRectangleShape::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickRectangleShape2trEPKcS1_i(
@@ -1262,6 +1282,21 @@ void ritual_ZN20QQuickRectangleShape13setDashOffsetEd(
   self->setDashOffset(offset);
 }
 
+//  QList<qreal> QQuickRectangleShape::dashPattern() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK20QQuickRectangleShape11dashPatternEv(
+    const QQuickRectangleShape *self) {
+  return new QList<qreal>(self->dashPattern());
+}
+
+//  void QQuickRectangleShape::setDashPattern(const QList<qreal> &array)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape14setDashPatternERK5QListIdE(
+    QQuickRectangleShape *self,
+    const QList<qreal> *array) {
+  self->setDashPattern(*array);
+}
+
 //  QQuickShapeGradient *QQuickRectangleShape::fillGradient() const
 extern "C" Q_DECL_EXPORT
 QQuickShapeGradient *ritual_ZNK20QQuickRectangleShape12fillGradientEv(
@@ -1320,6 +1355,202 @@ void ritual_ZN20QQuickRectangleShape11setFillItemEP10QQuickItem(
     QQuickRectangleShape *self,
     QQuickItem *newFillItem) {
   self->setFillItem(newFillItem);
+}
+
+//  void QQuickRectangleShape::drawTopChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape14drawTopChangedEv(
+    QQuickRectangleShape *self) {
+  self->drawTopChanged();
+}
+
+//  void QQuickRectangleShape::drawRightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape16drawRightChangedEv(
+    QQuickRectangleShape *self) {
+  self->drawRightChanged();
+}
+
+//  void QQuickRectangleShape::drawBottomChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape17drawBottomChangedEv(
+    QQuickRectangleShape *self) {
+  self->drawBottomChanged();
+}
+
+//  void QQuickRectangleShape::drawLeftChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape15drawLeftChangedEv(
+    QQuickRectangleShape *self) {
+  self->drawLeftChanged();
+}
+
+//  void QQuickRectangleShape::fillGradientChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape19fillGradientChangedEv(
+    QQuickRectangleShape *self) {
+  self->fillGradientChanged();
+}
+
+//  void QQuickRectangleShape::radiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape13radiusChangedEv(
+    QQuickRectangleShape *self) {
+  self->radiusChanged();
+}
+
+//  void QQuickRectangleShape::topLeftRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape20topLeftRadiusChangedEv(
+    QQuickRectangleShape *self) {
+  self->topLeftRadiusChanged();
+}
+
+//  void QQuickRectangleShape::topRightRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape21topRightRadiusChangedEv(
+    QQuickRectangleShape *self) {
+  self->topRightRadiusChanged();
+}
+
+//  void QQuickRectangleShape::bottomLeftRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape23bottomLeftRadiusChangedEv(
+    QQuickRectangleShape *self) {
+  self->bottomLeftRadiusChanged();
+}
+
+//  void QQuickRectangleShape::bottomRightRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape24bottomRightRadiusChangedEv(
+    QQuickRectangleShape *self) {
+  self->bottomRightRadiusChanged();
+}
+
+//  void QQuickRectangleShape::bevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape12bevelChangedEv(
+    QQuickRectangleShape *self) {
+  self->bevelChanged();
+}
+
+//  void QQuickRectangleShape::topLeftBevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape19topLeftBevelChangedEv(
+    QQuickRectangleShape *self) {
+  self->topLeftBevelChanged();
+}
+
+//  void QQuickRectangleShape::topRightBevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape20topRightBevelChangedEv(
+    QQuickRectangleShape *self) {
+  self->topRightBevelChanged();
+}
+
+//  void QQuickRectangleShape::bottomLeftBevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape22bottomLeftBevelChangedEv(
+    QQuickRectangleShape *self) {
+  self->bottomLeftBevelChanged();
+}
+
+//  void QQuickRectangleShape::bottomRightBevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape23bottomRightBevelChangedEv(
+    QQuickRectangleShape *self) {
+  self->bottomRightBevelChanged();
+}
+
+//  void QQuickRectangleShape::shapePathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape16shapePathChangedEv(
+    QQuickRectangleShape *self) {
+  self->shapePathChanged();
+}
+
+//  void QQuickRectangleShape::strokeColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape18strokeColorChangedEv(
+    QQuickRectangleShape *self) {
+  self->strokeColorChanged();
+}
+
+//  void QQuickRectangleShape::strokeWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape18strokeWidthChangedEv(
+    QQuickRectangleShape *self) {
+  self->strokeWidthChanged();
+}
+
+//  void QQuickRectangleShape::fillColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape16fillColorChangedEv(
+    QQuickRectangleShape *self) {
+  self->fillColorChanged();
+}
+
+//  void QQuickRectangleShape::fillRuleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape15fillRuleChangedEv(
+    QQuickRectangleShape *self) {
+  self->fillRuleChanged();
+}
+
+//  void QQuickRectangleShape::joinStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape16joinStyleChangedEv(
+    QQuickRectangleShape *self) {
+  self->joinStyleChanged();
+}
+
+//  void QQuickRectangleShape::miterLimitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape17miterLimitChangedEv(
+    QQuickRectangleShape *self) {
+  self->miterLimitChanged();
+}
+
+//  void QQuickRectangleShape::capStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape15capStyleChangedEv(
+    QQuickRectangleShape *self) {
+  self->capStyleChanged();
+}
+
+//  void QQuickRectangleShape::strokeStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape18strokeStyleChangedEv(
+    QQuickRectangleShape *self) {
+  self->strokeStyleChanged();
+}
+
+//  void QQuickRectangleShape::dashOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape17dashOffsetChangedEv(
+    QQuickRectangleShape *self) {
+  self->dashOffsetChanged();
+}
+
+//  void QQuickRectangleShape::dashPatternChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape18dashPatternChangedEv(
+    QQuickRectangleShape *self) {
+  self->dashPatternChanged();
+}
+
+//  void QQuickRectangleShape::borderModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape17borderModeChangedEv(
+    QQuickRectangleShape *self) {
+  self->borderModeChanged();
+}
+
+//  void QQuickRectangleShape::fillItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickRectangleShape15fillItemChangedEv(
+    QQuickRectangleShape *self) {
+  self->fillItemChanged();
 }
 
 //  void QQuickRectangleShape::componentComplete()
@@ -1394,4 +1625,10 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN20QQuickRectangleShape12updatePolishEv(
     QQuickRectangleShape *self) {
   self->QQuickRectangleShape::updatePolish();
+}
+
+//  a QList<qreal> a ritual of QQuickRectangleShape gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickRectangleShape__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

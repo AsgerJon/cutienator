@@ -54,19 +54,24 @@ inline QNetworkReplyDataImplPrivate::~QNetworkReplyDataImplPrivate()
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef bool (*CuteQNetworkReplyDataImplPrivateCall0)(const void *, char, int *);
-typedef const QByteArray * (*CuteQNetworkReplyDataImplPrivateCall1)(const void *, qint64, int *);
+typedef qint64 (*CuteQNetworkReplyDataImplPrivateCall1)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQNetworkReplyDataImplPrivateCall2)(const void *, qint64, int *);
 class CuteQNetworkReplyDataImplPrivate : public QNetworkReplyDataImplPrivate {
 public:
   using QNetworkReplyDataImplPrivate::QNetworkReplyDataImplPrivate;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN16QIODevicePrivate13putCharHelperEc")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -83,11 +88,22 @@ public:
     return QIODevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[1]) {
       int handled = 0;
       CuteQNetworkReplyDataImplPrivateCall1 call = reinterpret_cast<CuteQNetworkReplyDataImplPrivateCall1>(taken[1]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQNetworkReplyDataImplPrivateCall2 call = reinterpret_cast<CuteQNetworkReplyDataImplPrivateCall2>(taken[2]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }

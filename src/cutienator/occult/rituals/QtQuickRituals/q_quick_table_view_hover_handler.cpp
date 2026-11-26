@@ -340,11 +340,40 @@ const QMetaObject *ritual_ZNK27QQuickTableViewHoverHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTableViewHoverHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuickTableViewHoverHandler11qt_metacastEPKc(
+    QQuickTableViewHoverHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTableViewHoverHandler::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuickTableViewHoverHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTableViewHoverHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  bool QQuickTableViewHoverHandler::isHoveringGrid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK27QQuickTableViewHoverHandler14isHoveringGridEv(
     const QQuickTableViewHoverHandler *self) {
   return self->isHoveringGrid();
+}
+
+//  void QQuickTableViewHoverHandler::handleEventPoint(QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickTableViewHoverHandler16handleEventPointEP13QPointerEventR11QEventPoint(
+    QQuickTableViewHoverHandler *self,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->handleEventPoint(event, *point);
 }
 
 //  a Python function taken by a CuteQQuickTableViewHoverHandler, for the

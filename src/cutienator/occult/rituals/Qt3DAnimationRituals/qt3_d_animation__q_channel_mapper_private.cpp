@@ -7,6 +7,27 @@
 #include <Qt3DAnimation/6.12.0/Qt3DAnimation/private/qchannelmapper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DAnimation/qchannelmapper.h>
+#include <Qt3DAnimation/private/qchannelmapper_p.h>
+#include <Qt3DAnimation/qchannelmapping.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/animation/frontend/qchannelmapper.cpp, line 12, as _ZN13Qt3DAnimation21QChannelMapperPrivateC1Ev
+namespace Qt3DAnimation {
+inline QChannelMapperPrivate::QChannelMapperPrivate()
+    : Qt3DCore::QNodePrivate()
+{
+}
+}  // namespace Qt3DAnimation
+//  -----------------------------------------------------------------------
 
 //  A Qt3DAnimation::QChannelMapperPrivate that Python can take functions over in. Every Qt3DAnimation::QChannelMapperPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +73,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DAnimation::QChannelMapperPrivate::QChannelMapperPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QChannelMapperPrivate *ritual_ZN13Qt3DAnimation21QChannelMapperPrivateC1Ev() {
+  return new CuteQt3DAnimation_QChannelMapperPrivate();
+}
 
 //  QChannelMapper *Qt3DAnimation::QChannelMapperPrivate::q_func()
 extern "C" Q_DECL_EXPORT

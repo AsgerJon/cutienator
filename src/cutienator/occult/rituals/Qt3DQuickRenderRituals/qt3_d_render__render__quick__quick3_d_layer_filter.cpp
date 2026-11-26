@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::Render::Quick::Quick3DLayerFilter that Python can take functions over in. Every Qt3DRender::Render::Quick::Quick3DLayerFilter
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,26 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick18Quick3DLayerFilter10meta
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::Quick::Quick3DLayerFilter::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick18Quick3DLayerFilter11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::Quick3DLayerFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Render::Quick::Quick3DLayerFilter::qt_metacall(QMetaObjec
+//      t::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick18Quick3DLayerFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::Quick3DLayerFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::Quick3DLayerFilter::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -199,12 +221,28 @@ QString *ritual_ZN10Qt3DRender6Render5Quick18Quick3DLayerFilter2trEPKcS4_i(
           n));
 }
 
+//  Qt3DRender::Render::Quick::Quick3DLayerFilter::Quick3DLayerFilter(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DLayerFilter *ritual_ZN10Qt3DRender6Render5Quick18Quick3DLayerFilterC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DLayerFilter(parent);
+}
+
 //  QLayerFilter
 //      *Qt3DRender::Render::Quick::Quick3DLayerFilter::parentFilter() const
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QLayerFilter *ritual_ZNK10Qt3DRender6Render5Quick18Quick3DLayerFilter12parentFilterEv(
     const Qt3DRender::Render::Quick::Quick3DLayerFilter *self) {
   return self->parentFilter();
+}
+
+//  QQmlListProperty<QLayer>
+//      Qt3DRender::Render::Quick::Quick3DLayerFilter::qmlLayers()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DRender::QLayer> *ritual_ZN10Qt3DRender6Render5Quick18Quick3DLayerFilter9qmlLayersEv(
+    Qt3DRender::Render::Quick::Quick3DLayerFilter *self) {
+  return new QQmlListProperty<Qt3DRender::QLayer>(self->qmlLayers());
 }
 
 //  a Python function taken by a
@@ -216,4 +254,12 @@ bool ritual_take_Qt3DRender_Render_Quick_Quick3DLayerFilter(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Render_Quick_Quick3DLayerFilter *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DRender::QLayer> a ritual of
+//      Qt3DRender::Render::Quick::Quick3DLayerFilter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Quick_Quick3DLayerFilter__QQmlListProperty_Qt3DRender_QLayer(
+    QQmlListProperty<Qt3DRender::QLayer> *self) {
+  delete self;
 }

@@ -92,11 +92,57 @@ public:
   }
 };
 
+//  Qt3DInput::QAbstractPhysicalDeviceBackendNode::QAbstractPhysicalDeviceBac
+//      kendNode(QBackendNode::Mode mode)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractPhysicalDeviceBackendNode *ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNodeC1EN8Qt3DCore12QBackendNode4ModeE(
+    Qt3DCore::QBackendNode::Mode mode) {
+  return new CuteQt3DInput_QAbstractPhysicalDeviceBackendNode(mode);
+}
+
 //  void Qt3DInput::QAbstractPhysicalDeviceBackendNode::cleanup()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode7cleanupEv(
     Qt3DInput::QAbstractPhysicalDeviceBackendNode *self) {
   self->cleanup();
+}
+
+//  void
+//      Qt3DInput::QAbstractPhysicalDeviceBackendNode::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DInput::QAbstractPhysicalDeviceBackendNode *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  void Qt3DInput::QAbstractPhysicalDeviceBackendNode::setInputAspect(QInput
+//      Aspect *aspect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode14setInputAspectEPNS_12QInputAspectE(
+    Qt3DInput::QAbstractPhysicalDeviceBackendNode *self,
+    Qt3DInput::QInputAspect *aspect) {
+  self->setInputAspect(aspect);
+}
+
+//  QInputAspect
+//      *Qt3DInput::QAbstractPhysicalDeviceBackendNode::inputAspect() const
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QInputAspect *ritual_ZNK9Qt3DInput34QAbstractPhysicalDeviceBackendNode11inputAspectEv(
+    const Qt3DInput::QAbstractPhysicalDeviceBackendNode *self) {
+  return self->inputAspect();
+}
+
+//  float
+//      Qt3DInput::QAbstractPhysicalDeviceBackendNode::processedAxisValue(int
+//      axisIdentifier)
+extern "C" Q_DECL_EXPORT
+float ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode18processedAxisValueEi(
+    Qt3DInput::QAbstractPhysicalDeviceBackendNode *self,
+    int axisIdentifier) {
+  return self->processedAxisValue(axisIdentifier);
 }
 
 //  float Qt3DInput::QAbstractPhysicalDeviceBackendNode::axisValue(int
@@ -115,6 +161,14 @@ bool ritual_ZNK9Qt3DInput34QAbstractPhysicalDeviceBackendNode15isButtonPressedEi
     const Qt3DInput::QAbstractPhysicalDeviceBackendNode *self,
     int buttonIdentifier) {
   return self->isButtonPressed(buttonIdentifier);
+}
+
+//  Qt3DInput::QAbstractPhysicalDeviceBackendNode::QAbstractPhysicalDeviceBac
+//      kendNode(QAbstractPhysicalDeviceBackendNodePrivate &dd)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QAbstractPhysicalDeviceBackendNode *ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNodeC1ERNS_41QAbstractPhysicalDeviceBackendNodePrivateE(
+    Qt3DInput::QAbstractPhysicalDeviceBackendNodePrivate *dd) {
+  return new CuteQt3DInput_QAbstractPhysicalDeviceBackendNode(*dd);
 }
 
 //  QAbstractPhysicalDeviceBackendNodePrivate

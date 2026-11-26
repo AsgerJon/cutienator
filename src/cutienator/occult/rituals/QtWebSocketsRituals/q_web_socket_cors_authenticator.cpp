@@ -42,6 +42,42 @@ QWebSocketCorsAuthenticator *ritual_ZN27QWebSocketCorsAuthenticatorC1ERKS_(
   return new QWebSocketCorsAuthenticator(*other);
 }
 
+//  QWebSocketCorsAuthenticator::QWebSocketCorsAuthenticator(QWebSocketCorsAu
+//      thenticator &&other)
+extern "C" Q_DECL_EXPORT
+QWebSocketCorsAuthenticator *ritual_ZN27QWebSocketCorsAuthenticatorC1EOS_(
+    QWebSocketCorsAuthenticator *other) {
+  return new QWebSocketCorsAuthenticator(std::move(*other));
+}
+
+//  QWebSocketCorsAuthenticator
+//      &QWebSocketCorsAuthenticator::operator=(QWebSocketCorsAuthenticator
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QWebSocketCorsAuthenticator *ritual_ZN27QWebSocketCorsAuthenticatoraSEOS_(
+    QWebSocketCorsAuthenticator *self,
+    QWebSocketCorsAuthenticator *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QWebSocketCorsAuthenticator::swap(QWebSocketCorsAuthenticator
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QWebSocketCorsAuthenticator4swapERS_(
+    QWebSocketCorsAuthenticator *self,
+    QWebSocketCorsAuthenticator *other) {
+  self->swap(*other);
+}
+
+//  QWebSocketCorsAuthenticator &QWebSocketCorsAuthenticator::operator=(const
+//      QWebSocketCorsAuthenticator &other)
+extern "C" Q_DECL_EXPORT
+QWebSocketCorsAuthenticator *ritual_ZN27QWebSocketCorsAuthenticatoraSERKS_(
+    QWebSocketCorsAuthenticator *self,
+    const QWebSocketCorsAuthenticator *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QWebSocketCorsAuthenticator::origin() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK27QWebSocketCorsAuthenticator6originEv(

@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK21QHelpSearchEngineCore10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHelpSearchEngineCore::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QHelpSearchEngineCore11qt_metacastEPKc(
+    QHelpSearchEngineCore *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHelpSearchEngineCore::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QHelpSearchEngineCore11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHelpSearchEngineCore *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHelpSearchEngineCore::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QHelpSearchEngineCore2trEPKcS1_i(
@@ -188,6 +207,20 @@ QString *ritual_ZN21QHelpSearchEngineCore2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QHelpSearchEngineCore::tr(s, c, n));
+}
+
+//  QHelpSearchEngineCorePrivate *QHelpSearchEngineCore::d_func()
+extern "C" Q_DECL_EXPORT
+QHelpSearchEngineCorePrivate *ritual_ZN21QHelpSearchEngineCore6d_funcEv(
+    QHelpSearchEngineCore *self) {
+  return self->d_func();
+}
+
+//  const QHelpSearchEngineCorePrivate *QHelpSearchEngineCore::d_func() const
+extern "C" Q_DECL_EXPORT
+const QHelpSearchEngineCorePrivate *ritual_ZNK21QHelpSearchEngineCore6d_funcEv(
+    const QHelpSearchEngineCore *self) {
+  return self->d_func();
 }
 
 //  QHelpSearchEngineCore::QHelpSearchEngineCore(QHelpEngineCore *helpEngine,
@@ -263,6 +296,34 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QHelpSearchEngineCore26scheduleIndexDocumentationEv(
     QHelpSearchEngineCore *self) {
   self->scheduleIndexDocumentation();
+}
+
+//  void QHelpSearchEngineCore::indexingStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QHelpSearchEngineCore15indexingStartedEv(
+    QHelpSearchEngineCore *self) {
+  self->indexingStarted();
+}
+
+//  void QHelpSearchEngineCore::indexingFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QHelpSearchEngineCore16indexingFinishedEv(
+    QHelpSearchEngineCore *self) {
+  self->indexingFinished();
+}
+
+//  void QHelpSearchEngineCore::searchingStarted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QHelpSearchEngineCore16searchingStartedEv(
+    QHelpSearchEngineCore *self) {
+  self->searchingStarted();
+}
+
+//  void QHelpSearchEngineCore::searchingFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QHelpSearchEngineCore17searchingFinishedEv(
+    QHelpSearchEngineCore *self) {
+  self->searchingFinished();
 }
 
 //  a Python function taken by a CuteQHelpSearchEngineCore, for the function

@@ -29,12 +29,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 18, as _ZN17QGfxSourceProxyMED1Ev
-inline QGfxSourceProxyME::~QGfxSourceProxyME()
-{
-    delete m_proxy;
-}
-
 //  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 97, as _ZN17QGfxSourceProxyME12updatePolishEv
 inline void QGfxSourceProxyME::updatePolish()
 {
@@ -102,10 +96,31 @@ inline void QGfxSourceProxyME::updatePolish()
     }
 }
 
-//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 79, as _ZN17QGfxSourceProxyME8repolishEv
-inline void QGfxSourceProxyME::repolish()
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 69, as _ZN17QGfxSourceProxyME8useProxyEv
+inline void QGfxSourceProxyME::useProxy()
 {
-    polish();
+    if (!m_proxy)
+        m_proxy = new QQuickShaderEffectSource(this);
+    m_proxy->setSourceRect(m_sourceRect);
+    m_proxy->setSourceItem(m_input);
+    m_proxy->setSmooth(m_interpolation != Interpolation::Nearest);
+    setOutput(m_proxy);
+}
+
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 42, as _ZN17QGfxSourceProxyME9setOutputEP10QQuickItem
+inline void QGfxSourceProxyME::setOutput(QQuickItem *output)
+{
+    if (m_output == output)
+        return;
+    m_output = output;
+    Q_EMIT activeChanged();
+    Q_EMIT outputChanged();
+}
+
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 18, as _ZN17QGfxSourceProxyMED1Ev
+inline QGfxSourceProxyME::~QGfxSourceProxyME()
+{
+    delete m_proxy;
 }
 
 //  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 84, as _ZN17QGfxSourceProxyME9findLayerEP10QQuickItem
@@ -892,6 +907,25 @@ const QMetaObject *ritual_ZNK17QGfxSourceProxyME10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGfxSourceProxyME::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QGfxSourceProxyME11qt_metacastEPKc(
+    QGfxSourceProxyME *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGfxSourceProxyME::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QGfxSourceProxyME11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGfxSourceProxyME *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QGfxSourceProxyME::~QGfxSourceProxyME()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QGfxSourceProxyMED1Ev(QGfxSourceProxyME *self) {
@@ -939,10 +973,150 @@ void ritual_ZN17QGfxSourceProxyME12updatePolishEv(QGfxSourceProxyME *self) {
   self->updatePolish();
 }
 
+//  void QGfxSourceProxyME::inputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME12inputChangedEv(QGfxSourceProxyME *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QGfxSourceProxyME")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "inputChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "inputChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QGfxSourceProxyME::outputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME13outputChangedEv(QGfxSourceProxyME *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QGfxSourceProxyME")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "outputChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "outputChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QGfxSourceProxyME::sourceRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME17sourceRectChangedEv(
+    QGfxSourceProxyME *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QGfxSourceProxyME")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sourceRectChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sourceRectChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QGfxSourceProxyME::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME13activeChangedEv(QGfxSourceProxyME *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QGfxSourceProxyME")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "activeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "activeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QGfxSourceProxyME::interpolationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME20interpolationChangedEv(
+    QGfxSourceProxyME *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QGfxSourceProxyME")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "interpolationChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "interpolationChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QGfxSourceProxyME::repolish()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QGfxSourceProxyME8repolishEv(QGfxSourceProxyME *self) {
-  self->repolish();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QGfxSourceProxyME")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "repolish()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "repolish()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QObject *QGfxSourceProxyME::findLayer(QQuickItem *a0)

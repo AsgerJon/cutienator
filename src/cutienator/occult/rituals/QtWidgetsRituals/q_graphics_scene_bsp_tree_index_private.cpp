@@ -38,6 +38,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 55, as local:qgraphicsscenebsptreeindex.cpp:intmaxlog
+static inline int intmaxlog(int n)
+{
+    return  (n > 0 ? qMax(qCeil(qLn(qreal(n)) / qLn(qreal(2))), 5) : 0);
+}
+
 //  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 13, as _ZN21QGraphicsSceneBspTreeC1Ev
 inline QGraphicsSceneBspTree::QGraphicsSceneBspTree()
     : leafCnt(0)
@@ -74,42 +80,73 @@ inline void QGraphicsSceneBspTree::removeItems(const QSet<QGraphicsItem *> &item
     }
 }
 
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 88, as _ZN33QGraphicsSceneBspTreeIndexPrivate14_q_updateIndexEv
+inline void QGraphicsSceneBspTreeIndexPrivate::_q_updateIndex()
+{
+    if (!indexTimer.isActive())
+        return;
+
+    indexTimer.stop();
+
+    purgeRemovedItems();
+
+     // Add unindexedItems to indexedItems
+    for (int i = 0; i < unindexedItems.size(); ++i) {
+        if (QGraphicsItem *item = unindexedItems.at(i)) {
+            Q_ASSERT(!item->d_ptr->itemDiscovered);
+            if (!freeItemIndexes.isEmpty()) {
+                int freeIndex = freeItemIndexes.takeFirst();
+                item->d_func()->index = freeIndex;
+                indexedItems[freeIndex] = item;
+            } else {
+                item->d_func()->index = indexedItems.size();
+                indexedItems << item;
+            }
+        }
+    }
+
+    // Determine whether we should regenerate the BSP tree.
+    if (bspTreeDepth == 0) {
+        int oldDepth = intmaxlog(lastItemCount);
+        bspTreeDepth = intmaxlog(indexedItems.size());
+        static const int slack = 100;
+        if (bsp.leafCount() == 0 || (oldDepth != bspTreeDepth && qAbs(lastItemCount - indexedItems.size()) > slack)) {
+            // ### Crude algorithm.
+            regenerateIndex = true;
+        }
+    }
+
+    // Regenerate the tree.
+    if (regenerateIndex) {
+        regenerateIndex = false;
+        bsp.initialize(sceneRect, bspTreeDepth);
+        unindexedItems = indexedItems;
+        lastItemCount = indexedItems.size();
+    }
+
+    // Insert all unindexed items into the tree.
+    for (int i = 0; i < unindexedItems.size(); ++i) {
+        if (QGraphicsItem *item = unindexedItems.at(i)) {
+            if (item->d_ptr->itemIsUntransformable()) {
+                untransformableItems << item;
+                continue;
+            }
+            if (item->d_ptr->ancestorFlags & QGraphicsItemPrivate::AncestorClipsChildren
+                || item->d_ptr->ancestorFlags & QGraphicsItemPrivate::AncestorContainsChildren)
+                continue;
+
+            bsp.insertItem(item, item->d_ptr->sceneEffectiveBoundingRect());
+        }
+    }
+    unindexedItems.clear();
+}
+
 //  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 48, as _ZN21QGraphicsSceneBspTree10removeItemEP13QGraphicsItemRK6QRectF
 inline void QGraphicsSceneBspTree::removeItem(QGraphicsItem *item, const QRectF &rect)
 {
     climbTree([item](QList<QGraphicsItem *> *items){
         items->removeAll(item);
     }, rect);
-}
-
-//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 380, as _ZN33QGraphicsSceneBspTreeIndexPrivate9sortItemsEP5QListIP13QGraphicsItemEN2Qt9SortOrderEbb
-inline void QGraphicsSceneBspTreeIndexPrivate::sortItems(QList<QGraphicsItem *> *itemList, Qt::SortOrder order,
-                                                  bool sortCacheEnabled, bool onlyTopLevelItems)
-{
-    if (order == Qt::SortOrder(-1))
-        return;
-
-    if (onlyTopLevelItems) {
-        if (order == Qt::DescendingOrder)
-            std::sort(itemList->begin(), itemList->end(), qt_closestLeaf);
-        else if (order == Qt::AscendingOrder)
-            std::sort(itemList->begin(), itemList->end(), qt_notclosestLeaf);
-        return;
-    }
-
-    if (sortCacheEnabled) {
-        if (order == Qt::DescendingOrder) {
-            std::sort(itemList->begin(), itemList->end(), closestItemFirst_withCache);
-        } else if (order == Qt::AscendingOrder) {
-            std::sort(itemList->begin(), itemList->end(), closestItemLast_withCache);
-        }
-    } else {
-        if (order == Qt::DescendingOrder) {
-            std::sort(itemList->begin(), itemList->end(), qt_closestItemFirst);
-        } else if (order == Qt::AscendingOrder) {
-            std::sort(itemList->begin(), itemList->end(), qt_closestItemLast);
-        }
-    }
 }
 
 //  from src/widgets/graphicsview/qgraphicssceneindex.cpp, line 490, as _ZNK19QGraphicsSceneIndex21estimateTopLevelItemsERK6QRectFN2Qt9SortOrderE
@@ -149,6 +186,92 @@ inline QList<QGraphicsItem *> QGraphicsSceneBspTree::items(const QRectF &rect, b
     for (const auto &foundItem : std::as_const(foundItems))
         foundItem->d_ptr->itemDiscovered = 0;
     return foundItems;
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 22, as _ZN21QGraphicsSceneBspTree10initializeERK6QRectFi
+inline void QGraphicsSceneBspTree::initialize(const QRectF &rect, int depth)
+{
+    this->rect = rect;
+    leafCnt = 0;
+    nodes.resize((1 << (depth + 1)) - 1);
+    nodes.fill(Node());
+    leaves.resize(1ll << depth);
+    leaves.fill(QList<QGraphicsItem *>());
+
+    initialize(rect, depth, 0);
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 41, as _ZN21QGraphicsSceneBspTree10insertItemEP13QGraphicsItemRK6QRectF
+inline void QGraphicsSceneBspTree::insertItem(QGraphicsItem *item, const QRectF &rect)
+{
+    climbTree([item](QList<QGraphicsItem *> *items){
+        items->prepend(item);
+    }, rect);
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 89, as _ZNK21QGraphicsSceneBspTree9leafCountEv
+inline int QGraphicsSceneBspTree::leafCount() const
+{
+    return leafCnt;
+}
+
+//  from src/widgets/graphicsview/qgraphicsscene_bsp.cpp, line 120, as _ZN21QGraphicsSceneBspTree10initializeERK6QRectFii
+inline void QGraphicsSceneBspTree::initialize(const QRectF &rect, int depth, int index)
+{
+    Node *node = &nodes[index];
+    if (index == 0) {
+        node->type = Node::Horizontal;
+        node->offset = rect.center().y();
+    }
+
+    if (depth) {
+        Node::Type type;
+        QRectF rect1, rect2;
+        qreal offset1, offset2;
+
+        if (node->type == Node::Horizontal) {
+            type = Node::Vertical;
+            rect1.setRect(rect.left(), rect.top(), rect.width(), rect.height() / 2);
+            rect2.setRect(rect1.left(), rect1.bottom(), rect1.width(), rect.height() - rect1.height());
+            offset1 = rect1.center().x();
+            offset2 = rect2.center().x();
+        } else {
+            type = Node::Horizontal;
+            rect1.setRect(rect.left(), rect.top(), rect.width() / 2, rect.height());
+            rect2.setRect(rect1.right(), rect1.top(), rect.width() - rect1.width(), rect1.height());
+            offset1 = rect1.center().y();
+            offset2 = rect2.center().y();
+        }
+
+        int childIndex = firstChildIndex(index);
+
+        Node *child = &nodes[childIndex];
+        child->offset = offset1;
+        child->type = type;
+
+        child = &nodes[childIndex + 1];
+        child->offset = offset2;
+        child->type = type;
+
+        initialize(rect1, depth - 1, childIndex);
+        initialize(rect2, depth - 1, childIndex + 1);
+    } else {
+        node->type = Node::Leaf;
+        node->leafIndex = leafCnt++;
+    }
+}
+
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 67, as _ZN33QGraphicsSceneBspTreeIndexPrivateC1EP14QGraphicsScene
+inline QGraphicsSceneBspTreeIndexPrivate::QGraphicsSceneBspTreeIndexPrivate(QGraphicsScene *scene)
+    : QGraphicsSceneIndexPrivate(scene),
+    bspTreeDepth(0),
+    restartIndexTimer(false),
+    regenerateIndex(true),
+    lastItemCount(0),
+    purgePending(false),
+    sortCacheEnabled(false),
+    updatingSortCache(false)
+{
 }
 
 //  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 154, as _ZN33QGraphicsSceneBspTreeIndexPrivate17purgeRemovedItemsEv
@@ -201,6 +324,36 @@ inline void QGraphicsSceneBspTreeIndexPrivate::climbTree(QGraphicsItem *item, in
         item->d_ptr->globalStackingOrder = (*stackingOrder)++;
     }
 }
+
+//  from src/widgets/graphicsview/qgraphicsscenebsptreeindex.cpp, line 380, as _ZN33QGraphicsSceneBspTreeIndexPrivate9sortItemsEP5QListIP13QGraphicsItemEN2Qt9SortOrderEbb
+inline void QGraphicsSceneBspTreeIndexPrivate::sortItems(QList<QGraphicsItem *> *itemList, Qt::SortOrder order,
+                                                  bool sortCacheEnabled, bool onlyTopLevelItems)
+{
+    if (order == Qt::SortOrder(-1))
+        return;
+
+    if (onlyTopLevelItems) {
+        if (order == Qt::DescendingOrder)
+            std::sort(itemList->begin(), itemList->end(), qt_closestLeaf);
+        else if (order == Qt::AscendingOrder)
+            std::sort(itemList->begin(), itemList->end(), qt_notclosestLeaf);
+        return;
+    }
+
+    if (sortCacheEnabled) {
+        if (order == Qt::DescendingOrder) {
+            std::sort(itemList->begin(), itemList->end(), closestItemFirst_withCache);
+        } else if (order == Qt::AscendingOrder) {
+            std::sort(itemList->begin(), itemList->end(), closestItemLast_withCache);
+        }
+    } else {
+        if (order == Qt::DescendingOrder) {
+            std::sort(itemList->begin(), itemList->end(), qt_closestItemFirst);
+        } else if (order == Qt::AscendingOrder) {
+            std::sort(itemList->begin(), itemList->end(), qt_closestItemLast);
+        }
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  QGraphicsSceneBspTreeIndex *QGraphicsSceneBspTreeIndexPrivate::q_func()
@@ -216,6 +369,14 @@ extern "C" Q_DECL_EXPORT
 const QGraphicsSceneBspTreeIndex *ritual_ZNK33QGraphicsSceneBspTreeIndexPrivate6q_funcEv(
     const QGraphicsSceneBspTreeIndexPrivate *self) {
   return self->q_func();
+}
+
+//  QGraphicsSceneBspTreeIndexPrivate::QGraphicsSceneBspTreeIndexPrivate(QGra
+//      phicsScene *scene)
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneBspTreeIndexPrivate *ritual_ZN33QGraphicsSceneBspTreeIndexPrivateC1EP14QGraphicsScene(
+    QGraphicsScene *scene) {
+  return new QGraphicsSceneBspTreeIndexPrivate(scene);
 }
 
 //  void QGraphicsSceneBspTreeIndexPrivate::purgeRemovedItems()
@@ -261,6 +422,21 @@ bool ritual_ZN33QGraphicsSceneBspTreeIndexPrivate25closestItemLast_withCacheEPK1
   return QGraphicsSceneBspTreeIndexPrivate::closestItemLast_withCache(
       item1,
       item2);
+}
+
+//  void QGraphicsSceneBspTreeIndexPrivate::sortItems(QList<QGraphicsItem *>
+//      *itemList, Qt::SortOrder order, bool cached, bool onlyTopLevelItems)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QGraphicsSceneBspTreeIndexPrivate9sortItemsEP5QListIP13QGraphicsItemEN2Qt9SortOrderEbb(
+    QList<QGraphicsItem *> *itemList,
+    Qt::SortOrder order,
+    bool cached,
+    bool onlyTopLevelItems) {
+  QGraphicsSceneBspTreeIndexPrivate::sortItems(
+      itemList,
+      order,
+      cached,
+      onlyTopLevelItems);
 }
 
 #endif  // QT_CONFIG(graphicsview)

@@ -10,6 +10,7 @@
     "ritual_ZN12QBarDataItemC1Eff": ["address", "float", "float"],
     "ritual_ZN12QBarDataItemC1ERKS_": ["address", "address"],
     "ritual_ZN12QBarDataItemD1Ev": ["nothing", "address"],
+    "ritual_ZN12QBarDataItemaSERKS_": ["address", "address", "address"],
     "ritual_ZN12QBarDataItem8setValueEf": ["nothing", "address", "float"],
     "ritual_ZNK12QBarDataItem5valueEv": ["float", "address"],
     "ritual_ZN12QBarDataItem11setRotationEf": [

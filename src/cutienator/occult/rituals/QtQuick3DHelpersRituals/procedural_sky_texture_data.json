@@ -8,6 +8,12 @@
     "ritual_ZNK24ProceduralSkyTextureData10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24ProceduralSkyTextureData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24ProceduralSkyTextureData2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -103,6 +109,57 @@
     ],
     "ritual_ZN24ProceduralSkyTextureData22generateRGBA16FTextureEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData18skyTopColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData22skyHorizonColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData15skyCurveChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData16skyEnergyChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData24groundBottomColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData25groundHorizonColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData18groundCurveChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData19groundEnergyChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData15sunColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData18sunLatitudeChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData19sunLongitudeChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData18sunAngleMinChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData18sunAngleMaxChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData15sunCurveChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData16sunEnergyChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData21textureQualityChangedENS_17SkyTextureQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData18generateSkyTextureEiiR10QByteArrayb": [
+      "address", "address", "int", "int", "address", "bool"
     ],
     "ritual_ZN24ProceduralSkyTextureData21scheduleTextureUpdateEv": [
       "nothing", "address"

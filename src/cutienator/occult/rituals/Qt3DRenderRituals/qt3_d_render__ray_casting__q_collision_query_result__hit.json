@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender10RayCasting21QCollisionQueryResult3HitC1Ev": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting21QCollisionQueryResult3HitC1EN8Qt3DCore7QNodeIdERK9QVector3DfS7_": [
+      "address", "address", "address", "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting21QCollisionQueryResult3HitD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

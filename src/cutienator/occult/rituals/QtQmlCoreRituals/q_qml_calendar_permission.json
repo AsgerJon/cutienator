@@ -8,6 +8,12 @@
     "ritual_ZNK22QQmlCalendarPermission10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQmlCalendarPermission11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQmlCalendarPermission11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK22QQmlCalendarPermission6statusEv": ["int", "address"],
     "ritual_ZN22QQmlCalendarPermission20qmlExtendedNamespaceEv": ["address"],
     "ritual_ZN22QQmlCalendarPermission30qt_qmlMarker_extendedNamespaceEv": [

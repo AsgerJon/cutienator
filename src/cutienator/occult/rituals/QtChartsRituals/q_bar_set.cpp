@@ -11,6 +11,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QBarSet that Python can take functions over in. Every QBarSet
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +186,22 @@ const QMetaObject *ritual_ZNK7QBarSet10metaObjectEv(const QBarSet *self) {
   return self->metaObject();
 }
 
+//  void *QBarSet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QBarSet11qt_metacastEPKc(QBarSet *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarSet::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QBarSet11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarSet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBarSet::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QBarSet2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -223,6 +240,20 @@ QString *ritual_ZNK7QBarSet5labelEv(const QBarSet *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QBarSet6appendEd(QBarSet *self, qreal value) {
   self->append(value);
+}
+
+//  void QBarSet::append(const QList<qreal> &values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet6appendERK5QListIdE(
+    QBarSet *self,
+    const QList<qreal> *values) {
+  self->append(*values);
+}
+
+//  QBarSet &QBarSet::operator<<(const qreal &value)
+extern "C" Q_DECL_EXPORT
+QBarSet *ritual_ZN7QBarSetlsERKd(QBarSet *self, qreal value) {
+  return &(self->operator<<(value));
 }
 
 //  void QBarSet::insert(const int index, const qreal value)
@@ -414,6 +445,157 @@ void ritual_ZN7QBarSet15deselectAllBarsEv(QBarSet *self) {
   self->deselectAllBars();
 }
 
+//  void QBarSet::selectBars(const QList<int> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet10selectBarsERK5QListIiE(
+    QBarSet *self,
+    const QList<int> *indexes) {
+  self->selectBars(*indexes);
+}
+
+//  void QBarSet::deselectBars(const QList<int> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12deselectBarsERK5QListIiE(
+    QBarSet *self,
+    const QList<int> *indexes) {
+  self->deselectBars(*indexes);
+}
+
+//  void QBarSet::toggleSelection(const QList<int> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet15toggleSelectionERK5QListIiE(
+    QBarSet *self,
+    const QList<int> *indexes) {
+  self->toggleSelection(*indexes);
+}
+
+//  QList<int> QBarSet::selectedBars() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK7QBarSet12selectedBarsEv(const QBarSet *self) {
+  return new QList<int>(self->selectedBars());
+}
+
+//  void QBarSet::clicked(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet7clickedEi(QBarSet *self, int index) {
+  self->clicked(index);
+}
+
+//  void QBarSet::hovered(bool status, int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet7hoveredEbi(QBarSet *self, bool status, int index) {
+  self->hovered(status, index);
+}
+
+//  void QBarSet::pressed(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet7pressedEi(QBarSet *self, int index) {
+  self->pressed(index);
+}
+
+//  void QBarSet::released(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet8releasedEi(QBarSet *self, int index) {
+  self->released(index);
+}
+
+//  void QBarSet::doubleClicked(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet13doubleClickedEi(QBarSet *self, int index) {
+  self->doubleClicked(index);
+}
+
+//  void QBarSet::penChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet10penChangedEv(QBarSet *self) {
+  self->penChanged();
+}
+
+//  void QBarSet::brushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12brushChangedEv(QBarSet *self) {
+  self->brushChanged();
+}
+
+//  void QBarSet::labelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12labelChangedEv(QBarSet *self) {
+  self->labelChanged();
+}
+
+//  void QBarSet::labelBrushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet17labelBrushChangedEv(QBarSet *self) {
+  self->labelBrushChanged();
+}
+
+//  void QBarSet::labelFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet16labelFontChangedEv(QBarSet *self) {
+  self->labelFontChanged();
+}
+
+//  void QBarSet::colorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12colorChangedE6QColor(
+    QBarSet *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QBarSet::borderColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet18borderColorChangedE6QColor(
+    QBarSet *self,
+    const QColor *color) {
+  self->borderColorChanged(*color);
+}
+
+//  void QBarSet::labelColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet17labelColorChangedE6QColor(
+    QBarSet *self,
+    const QColor *color) {
+  self->labelColorChanged(*color);
+}
+
+//  void QBarSet::selectedColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet20selectedColorChangedERK6QColor(
+    QBarSet *self,
+    const QColor *color) {
+  self->selectedColorChanged(*color);
+}
+
+//  void QBarSet::valuesAdded(int index, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet11valuesAddedEii(QBarSet *self, int index, int count) {
+  self->valuesAdded(index, count);
+}
+
+//  void QBarSet::valuesRemoved(int index, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet13valuesRemovedEii(
+    QBarSet *self,
+    int index,
+    int count) {
+  self->valuesRemoved(index, count);
+}
+
+//  void QBarSet::valueChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet12valueChangedEi(QBarSet *self, int index) {
+  self->valueChanged(index);
+}
+
+//  void QBarSet::selectedBarsChanged(const QList<int> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBarSet19selectedBarsChangedERK5QListIiE(
+    QBarSet *self,
+    const QList<int> *indexes) {
+  self->selectedBarsChanged(*indexes);
+}
+
 //  a Python function taken by a CuteQBarSet, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
@@ -450,6 +632,12 @@ QBarSet *ritual_list_at_QBarSet_ptr(
 //  QList<QBarSet *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QBarSet_ptr(QList<QBarSet *> *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of QBarSet gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QBarSet__QList_int(QList<int> *self) {
   delete self;
 }
 

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickPathArc10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickPathArc11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickPathArc11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickPathArc2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickPathArcC1EP7QObject": ["address", "address"],
     "ritual_ZNK13QQuickPathArc7radiusXEv": ["double", "address"],
@@ -27,6 +33,16 @@
     "ritual_ZNK13QQuickPathArc13xAxisRotationEv": ["double", "address"],
     "ritual_ZN13QQuickPathArc16setXAxisRotationEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickPathArc9addToPathER12QPainterPathRK14QQuickPathData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickPathArc14radiusXChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickPathArc14radiusYChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickPathArc18useLargeArcChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickPathArc16directionChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickPathArc20xAxisRotationChangedEv": [
+      "nothing", "address"
     ]
   }
 }

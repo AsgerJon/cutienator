@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qdatetimeaxis.h>
@@ -13,6 +13,8 @@
 #include <QtCore/qvariant.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGraphs/QAbstractAxis>
+#include <QtGraphs/private/qabstractaxis_p.h>
 #include <QtGraphs/qdatetimeaxis.h>
 #include <QtGraphs/private/qdatetimeaxis_p.h>
 #include <QtCore/qobject.h>
@@ -25,6 +27,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 697, as _ZN20QAbstractAxisPrivateC2Ev
+inline QAbstractAxisPrivate::QAbstractAxisPrivate() {}
+
+//  from ../qtgraphs/src/graphs2d/axis/datetimeaxis/qdatetimeaxis.cpp, line 505, as _ZN20QDateTimeAxisPrivateD1Ev
+inline QDateTimeAxisPrivate::~QDateTimeAxisPrivate() {}
 
 //  from ../qtgraphs/src/graphs2d/axis/datetimeaxis/qdatetimeaxis.cpp, line 507, as _ZN20QDateTimeAxisPrivate6setMinERK8QVariant
 inline void QDateTimeAxisPrivate::setMin(const QVariant &min)
@@ -207,6 +215,12 @@ public:
   }
 };
 
+//  QDateTimeAxisPrivate::~QDateTimeAxisPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDateTimeAxisPrivateD1Ev(QDateTimeAxisPrivate *self) {
+  delete self;
+}
+
 //  void QDateTimeAxisPrivate::setMin(const QVariant &min)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QDateTimeAxisPrivate6setMinERK8QVariant(
@@ -332,4 +346,4 @@ qreal ritual_own_ZN20QDateTimeAxisPrivate3maxEv(QDateTimeAxisPrivate *self) {
   return self->QDateTimeAxisPrivate::max();
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

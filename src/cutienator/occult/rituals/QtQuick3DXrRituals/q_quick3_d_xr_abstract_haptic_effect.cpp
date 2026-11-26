@@ -14,6 +14,25 @@ const QMetaObject *ritual_ZNK30QQuick3DXrAbstractHapticEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrAbstractHapticEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QQuick3DXrAbstractHapticEffect11qt_metacastEPKc(
+    QQuick3DXrAbstractHapticEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrAbstractHapticEffect::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QQuick3DXrAbstractHapticEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrAbstractHapticEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuick3DXrAbstractHapticEffect::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QQuick3DXrAbstractHapticEffect24qt_qmlMarker_uncreatableEv(

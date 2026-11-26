@@ -15,6 +15,14 @@ Qt3DRender::QAxisAlignedBoundingBox *ritual_ZN10Qt3DRender23QAxisAlignedBounding
   return new Qt3DRender::QAxisAlignedBoundingBox();
 }
 
+//  Qt3DRender::QAxisAlignedBoundingBox::QAxisAlignedBoundingBox(const
+//      std::vector<QVector3D> &points)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAxisAlignedBoundingBox *ritual_ZN10Qt3DRender23QAxisAlignedBoundingBoxC1ERKSt6vectorI9QVector3DSaIS2_EE(
+    const std::vector<QVector3D> *points) {
+  return new Qt3DRender::QAxisAlignedBoundingBox(*points);
+}
+
 //  void Qt3DRender::QAxisAlignedBoundingBox::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender23QAxisAlignedBoundingBox5clearEv(
@@ -27,6 +35,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox6isNullEv(
     const Qt3DRender::QAxisAlignedBoundingBox *self) {
   return self->isNull();
+}
+
+//  void Qt3DRender::QAxisAlignedBoundingBox::update(const
+//      std::vector<QVector3D> &points)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender23QAxisAlignedBoundingBox6updateERKSt6vectorI9QVector3DSaIS2_EE(
+    Qt3DRender::QAxisAlignedBoundingBox *self,
+    const std::vector<QVector3D> *points) {
+  self->update(*points);
 }
 
 //  QVector3D Qt3DRender::QAxisAlignedBoundingBox::center() const
@@ -127,6 +144,16 @@ Qt3DRender::QAxisAlignedBoundingBox *ritual_ZNK10Qt3DRender23QAxisAlignedBoundin
     const Qt3DRender::QAxisAlignedBoundingBox *self,
     const QMatrix4x4 *mat) {
   return new Qt3DRender::QAxisAlignedBoundingBox(self->transformBy(*mat));
+}
+
+//  QAxisAlignedBoundingBox
+//      &Qt3DRender::QAxisAlignedBoundingBox::transform(const QMatrix4x4
+//      &mat)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAxisAlignedBoundingBox *ritual_ZN10Qt3DRender23QAxisAlignedBoundingBox9transformERK10QMatrix4x4(
+    Qt3DRender::QAxisAlignedBoundingBox *self,
+    const QMatrix4x4 *mat) {
+  return &(self->transform(*mat));
 }
 
 //  Qt3DRender::QAxisAlignedBoundingBox::~QAxisAlignedBoundingBox()

@@ -1,8 +1,6 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
-    "mpiler/6.12.0/QtQmlCompiler/private/qqmljscontextualtypes_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25: see the ritual file."
   ],
   "rows": {
     "ritual_ZN6QQmlJS14ContextualTypeC1Ev": ["address"],

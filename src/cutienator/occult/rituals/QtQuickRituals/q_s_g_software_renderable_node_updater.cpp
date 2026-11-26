@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qsgsoftwarerenderablenodeupdater_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0. Edited by hand on 2026-11-25: added by hand, instances of
+//  templates of the class: 5. Kept as it is when the generator runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -27,182 +28,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 31, as _ZN32QSGSoftwareRenderableNodeUpdaterD2Ev
-inline QSGSoftwareRenderableNodeUpdater::~QSGSoftwareRenderableNodeUpdater()
-{
-
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 263, as _ZNK32QSGSoftwareRenderableNodeUpdater12currentStateEP7QSGNode
-inline QSGSoftwareRenderableNodeUpdater::NodeState QSGSoftwareRenderableNodeUpdater::currentState(QSGNode *node) const
-{
-    NodeState state;
-    state.opacity = m_opacityState.top();
-    state.clip = m_clipState.top();
-    state.hasClip = m_hasClip;
-    state.transform = m_transformState.top();
-    state.parent = node->parent();
-    return state;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 36, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP16QSGTransformNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGTransformNode *node)
-{
-    m_transformState.push(node->matrix().toTransform() * m_transformState.top());
-    m_stateMap[node] = currentState(node);
-    return true;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 43, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP16QSGTransformNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGTransformNode *)
-{
-    m_transformState.pop();
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 48, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP11QSGClipNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGClipNode *node)
-{
-    // Make sure to translate the clip rect into world coordinates
-    if (m_clipState.size() == 0 || (m_clipState.size() == 1 && m_clipState.top().isNull())) {
-        m_clipState.push(m_transformState.top().map(QRegion(node->clipRect().toRect())));
-        m_hasClip = true;
-    } else {
-        const QRegion transformedClipRect = m_transformState.top().map(QRegion(node->clipRect().toRect()));
-        m_clipState.push(transformedClipRect.intersected(m_clipState.top()));
-    }
-    m_stateMap[node] = currentState(node);
-    return true;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 62, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP11QSGClipNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGClipNode *)
-{
-    m_clipState.pop();
-    if (m_clipState.size() == 0 || (m_clipState.size() == 1 && m_clipState.top().isNull()))
-        m_hasClip = false;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 69, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP15QSGGeometryNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGGeometryNode *node)
-{
-    if (QSGSimpleRectNode *rectNode = dynamic_cast<QSGSimpleRectNode *>(node)) {
-        return updateRenderableNode(QSGSoftwareRenderableNode::SimpleRect, rectNode);
-    } else if (QSGSimpleTextureNode *tn = dynamic_cast<QSGSimpleTextureNode *>(node)) {
-        return updateRenderableNode(QSGSoftwareRenderableNode::SimpleTexture, tn);
-    } else if (QSGNinePatchNode *nn = dynamic_cast<QSGNinePatchNode *>(node)) {
-        return updateRenderableNode(QSGSoftwareRenderableNode::NinePatch, nn);
-    } else if (QSGRectangleNode *rn = dynamic_cast<QSGRectangleNode *>(node)) {
-        return updateRenderableNode(QSGSoftwareRenderableNode::SimpleRectangle, rn);
-    } else if (QSGImageNode *n = dynamic_cast<QSGImageNode *>(node)) {
-        return updateRenderableNode(QSGSoftwareRenderableNode::SimpleImage, n);
-    } else {
-        // We dont know, so skip
-        return false;
-    }
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 87, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP15QSGGeometryNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGGeometryNode *)
-{
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 91, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP14QSGOpacityNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGOpacityNode *node)
-{
-    m_opacityState.push(m_opacityState.top() * node->opacity());
-    m_stateMap[node] = currentState(node);
-    return true;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 98, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP14QSGOpacityNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGOpacityNode *)
-{
-    m_opacityState.pop();
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 103, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP20QSGInternalImageNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGInternalImageNode *node)
-{
-    return updateRenderableNode(QSGSoftwareRenderableNode::Image, node);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 108, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP20QSGInternalImageNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGInternalImageNode *)
-{
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 112, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP14QSGPainterNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGPainterNode *node)
-{
-    return updateRenderableNode(QSGSoftwareRenderableNode::Painter, node);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 117, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP14QSGPainterNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGPainterNode *)
-{
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 121, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP24QSGInternalRectangleNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGInternalRectangleNode *node)
-{
-    return updateRenderableNode(QSGSoftwareRenderableNode::Rectangle, node);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 126, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP24QSGInternalRectangleNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGInternalRectangleNode *)
-{
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 130, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP12QSGGlyphNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGGlyphNode *node)
-{
-    return updateRenderableNode(QSGSoftwareRenderableNode::Glyph, node);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 135, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP12QSGGlyphNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGGlyphNode *)
-{
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 139, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP11QSGRootNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGRootNode *node)
-{
-    m_stateMap[node] = currentState(node);
-    return true;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 145, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP11QSGRootNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGRootNode *)
-{
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 150, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP13QSGSpriteNode
-#if QT_CONFIG(quick_sprite)
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGSpriteNode *node)
-{
-    return updateRenderableNode(QSGSoftwareRenderableNode::SpriteNode, node);
-}
-#endif  // QT_CONFIG(quick_sprite)
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 155, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP13QSGSpriteNode
-#if QT_CONFIG(quick_sprite)
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGSpriteNode *)
-{
-
-}
-#endif  // QT_CONFIG(quick_sprite)
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 161, as _ZN32QSGSoftwareRenderableNodeUpdater5visitEP13QSGRenderNode
-inline bool QSGSoftwareRenderableNodeUpdater::visit(QSGRenderNode *node)
-{
-    return updateRenderableNode(QSGSoftwareRenderableNode::RenderNode, node);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 166, as _ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP13QSGRenderNode
-inline void QSGSoftwareRenderableNodeUpdater::endVisit(QSGRenderNode *)
-{
-}
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 170, as _ZN32QSGSoftwareRenderableNodeUpdater11updateNodesEP7QSGNodeb
 inline void QSGSoftwareRenderableNodeUpdater::updateNodes(QSGNode *node, bool isNodeRemoved)
@@ -297,6 +122,18 @@ inline void QSGSoftwareRenderableNodeUpdater::updateNodes(QSGNode *node, bool is
         break;
     }
 }
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderablenodeupdater.cpp, line 263, as _ZNK32QSGSoftwareRenderableNodeUpdater12currentStateEP7QSGNode
+inline QSGSoftwareRenderableNodeUpdater::NodeState QSGSoftwareRenderableNodeUpdater::currentState(QSGNode *node) const
+{
+    NodeState state;
+    state.opacity = m_opacityState.top();
+    state.clip = m_clipState.top();
+    state.hasClip = m_hasClip;
+    state.transform = m_transformState.top();
+    state.parent = node->parent();
+    return state;
+}
 //  -----------------------------------------------------------------------
 
 //  A QSGSoftwareRenderableNodeUpdater that Python can take functions over in. Every QSGSoftwareRenderableNodeUpdater
@@ -331,7 +168,7 @@ typedef void (*CuteQSGSoftwareRenderableNodeUpdaterCall21)(const void *, QSGRend
 class CuteQSGSoftwareRenderableNodeUpdater : public QSGSoftwareRenderableNodeUpdater {
 public:
   using QSGSoftwareRenderableNodeUpdater::QSGSoftwareRenderableNodeUpdater;
-  CuteQSGSoftwareRenderableNodeUpdater(const QSGSoftwareRenderableNodeUpdater &other) : QSGSoftwareRenderableNodeUpdater(other) {}
+  CuteQSGSoftwareRenderableNodeUpdater(const QSGSoftwareRenderableNodeUpdater & other) : QSGSoftwareRenderableNodeUpdater(other) {}
   void *taken[22] = {};
 
   bool take(const char *key, void *call) {
@@ -881,6 +718,17 @@ void ritual_ZN32QSGSoftwareRenderableNodeUpdater11updateNodesEP7QSGNodeb(
   self->updateNodes(node, isNodeRemoved);
 }
 
+//  NodeState QSGSoftwareRenderableNodeUpdater::currentState(QSGNode *node)
+//      const
+extern "C" Q_DECL_EXPORT
+QSGSoftwareRenderableNodeUpdater::NodeState *ritual_ZNK32QSGSoftwareRenderableNodeUpdater12currentStateEP7QSGNode(
+    const QSGSoftwareRenderableNodeUpdater *self,
+    QSGNode *node) {
+  return new QSGSoftwareRenderableNodeUpdater::NodeState(
+      self->currentState(
+          node));
+}
+
 //  a Python function taken by a CuteQSGSoftwareRenderableNodeUpdater, for
 //      the function named by the key
 extern "C" Q_DECL_EXPORT
@@ -891,184 +739,56 @@ bool ritual_take_QSGSoftwareRenderableNodeUpdater(
   return static_cast<CuteQSGSoftwareRenderableNodeUpdater *>(self)->take(key, call);
 }
 
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGTransformNode *a0)
+//  a QSGSoftwareRenderableNodeUpdater::NodeState a ritual of
+//      QSGSoftwareRenderableNodeUpdater gave
 extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP16QSGTransformNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGTransformNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
+void ritual_drop_QSGSoftwareRenderableNodeUpdater__QSGSoftwareRenderableNodeUpdater_NodeState(
+    QSGSoftwareRenderableNodeUpdater::NodeState *self) {
+  delete self;
 }
 
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGTransformNode *a0)
+//  bool
+//      QSGSoftwareRenderableNodeUpdater::updateRenderableNode<QSGSimpleRectNode>(
+//      QSGSoftwareRenderableNode::NodeType type, QSGSimpleRectNode *node)
 extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP16QSGTransformNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGTransformNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
+bool ritual_ZN32QSGSoftwareRenderableNodeUpdater20updateRenderableNodeI17QSGSimpleRectNodeEEbN25QSGSoftwareRenderableNode8NodeTypeEPT_(QSGSoftwareRenderableNodeUpdater *self, int type, QSGSimpleRectNode *node) {
+  return self->updateRenderableNode<QSGSimpleRectNode>(
+      static_cast<QSGSoftwareRenderableNode::NodeType>(type), node);
 }
 
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGClipNode *a0)
+//  bool
+//      QSGSoftwareRenderableNodeUpdater::updateRenderableNode<QSGSimpleTextureNode>(
+//      QSGSoftwareRenderableNode::NodeType type, QSGSimpleTextureNode *node)
 extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP11QSGClipNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGClipNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
+bool ritual_ZN32QSGSoftwareRenderableNodeUpdater20updateRenderableNodeI20QSGSimpleTextureNodeEEbN25QSGSoftwareRenderableNode8NodeTypeEPT_(QSGSoftwareRenderableNodeUpdater *self, int type, QSGSimpleTextureNode *node) {
+  return self->updateRenderableNode<QSGSimpleTextureNode>(
+      static_cast<QSGSoftwareRenderableNode::NodeType>(type), node);
 }
 
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGClipNode *a0)
+//  bool
+//      QSGSoftwareRenderableNodeUpdater::updateRenderableNode<QSGInternalImageNode>(
+//      QSGSoftwareRenderableNode::NodeType type, QSGInternalImageNode *node)
 extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP11QSGClipNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGClipNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
+bool ritual_ZN32QSGSoftwareRenderableNodeUpdater20updateRenderableNodeI20QSGInternalImageNodeEEbN25QSGSoftwareRenderableNode8NodeTypeEPT_(QSGSoftwareRenderableNodeUpdater *self, int type, QSGInternalImageNode *node) {
+  return self->updateRenderableNode<QSGInternalImageNode>(
+      static_cast<QSGSoftwareRenderableNode::NodeType>(type), node);
 }
 
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGGeometryNode *a0)
+//  bool
+//      QSGSoftwareRenderableNodeUpdater::updateRenderableNode<QSGInternalRectangleNode>(
+//      QSGSoftwareRenderableNode::NodeType type, QSGInternalRectangleNode
+//      *node)
 extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP15QSGGeometryNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGGeometryNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
+bool ritual_ZN32QSGSoftwareRenderableNodeUpdater20updateRenderableNodeI24QSGInternalRectangleNodeEEbN25QSGSoftwareRenderableNode8NodeTypeEPT_(QSGSoftwareRenderableNodeUpdater *self, int type, QSGInternalRectangleNode *node) {
+  return self->updateRenderableNode<QSGInternalRectangleNode>(
+      static_cast<QSGSoftwareRenderableNode::NodeType>(type), node);
 }
 
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGGeometryNode *a0)
+//  bool
+//      QSGSoftwareRenderableNodeUpdater::updateRenderableNode<QSGGlyphNode>(
+//      QSGSoftwareRenderableNode::NodeType type, QSGGlyphNode *node)
 extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP15QSGGeometryNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGGeometryNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
-}
-
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGOpacityNode *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP14QSGOpacityNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGOpacityNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
-}
-
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGOpacityNode *a0)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP14QSGOpacityNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGOpacityNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
-}
-
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGInternalImageNode *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP20QSGInternalImageNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGInternalImageNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
-}
-
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGInternalImageNode *a0)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP20QSGInternalImageNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGInternalImageNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
-}
-
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGPainterNode *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP14QSGPainterNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGPainterNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
-}
-
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGPainterNode *a0)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP14QSGPainterNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGPainterNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
-}
-
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGInternalRectangleNode
-//      *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP24QSGInternalRectangleNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGInternalRectangleNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
-}
-
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGInternalRectangleNode
-//      *a0)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP24QSGInternalRectangleNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGInternalRectangleNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
-}
-
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGGlyphNode *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP12QSGGlyphNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGGlyphNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
-}
-
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGGlyphNode *a0)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP12QSGGlyphNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGGlyphNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
-}
-
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGRootNode *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP11QSGRootNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGRootNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
-}
-
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGRootNode *a0)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP11QSGRootNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGRootNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
-}
-
-#if QT_CONFIG(quick_sprite)
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGSpriteNode *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP13QSGSpriteNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGSpriteNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
-}
-#endif  // QT_CONFIG(quick_sprite)
-
-#if QT_CONFIG(quick_sprite)
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGSpriteNode *a0)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP13QSGSpriteNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGSpriteNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
-}
-#endif  // QT_CONFIG(quick_sprite)
-
-//  bool QSGSoftwareRenderableNodeUpdater::visit(QSGRenderNode *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP13QSGRenderNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGRenderNode *a0) {
-  return self->QSGSoftwareRenderableNodeUpdater::visit(a0);
-}
-
-//  void QSGSoftwareRenderableNodeUpdater::endVisit(QSGRenderNode *a0)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP13QSGRenderNode(
-    QSGSoftwareRenderableNodeUpdater *self,
-    QSGRenderNode *a0) {
-  self->QSGSoftwareRenderableNodeUpdater::endVisit(a0);
+bool ritual_ZN32QSGSoftwareRenderableNodeUpdater20updateRenderableNodeI12QSGGlyphNodeEEbN25QSGSoftwareRenderableNode8NodeTypeEPT_(QSGSoftwareRenderableNodeUpdater *self, int type, QSGGlyphNode *node) {
+  return self->updateRenderableNode<QSGGlyphNode>(
+      static_cast<QSGSoftwareRenderableNode::NodeType>(type), node);
 }

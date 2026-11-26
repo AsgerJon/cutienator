@@ -8,6 +8,12 @@
     "ritual_ZNK25QQuickTableViewTapHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickTableViewTapHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickTableViewTapHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuickTableViewTapHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
       "bool", "address", "address", "address"
     ],

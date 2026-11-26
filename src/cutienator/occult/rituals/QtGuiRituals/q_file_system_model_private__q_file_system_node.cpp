@@ -15,9 +15,13 @@
 #include <QtCore/qdatetime.h>
 #include <QtCore/qfileinfo.h>
 #include <QtGui/qicon.h>
+#if QT_CONFIG(filesystemmodel)
+#include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qfileinfogatherer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#include <QtCore/QFile>
 
 //  QFileSystemModelPrivate::QFileSystemNode::QFileSystemNode(const QString
 //      &filename, QFileSystemNode *p)
@@ -56,6 +60,14 @@ QDateTime *ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode12lastModifiedERK
     const QFileSystemModelPrivate::QFileSystemNode *self,
     const QTimeZone *tz) {
   return new QDateTime(self->lastModified(*tz));
+}
+
+//  QFile::Permissions
+//      QFileSystemModelPrivate::QFileSystemNode::permissions() const
+extern "C" Q_DECL_EXPORT
+QFile::Permissions *ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode11permissionsEv(
+    const QFileSystemModelPrivate::QFileSystemNode *self) {
+  return new QFile::Permissions(self->permissions());
 }
 
 //  bool QFileSystemModelPrivate::QFileSystemNode::isReadable() const
@@ -135,6 +147,15 @@ extern "C" Q_DECL_EXPORT
 QIcon *ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode4iconEv(
     const QFileSystemModelPrivate::QFileSystemNode *self) {
   return new QIcon(self->icon());
+}
+
+//  bool QFileSystemModelPrivate::QFileSystemNode::operator<(const
+//      QFileSystemNode &node) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK23QFileSystemModelPrivate15QFileSystemNodeltERKS0_(
+    const QFileSystemModelPrivate::QFileSystemNode *self,
+    const QFileSystemModelPrivate::QFileSystemNode *node) {
+  return self->operator<(*node);
 }
 
 //  bool QFileSystemModelPrivate::QFileSystemNode::operator>(const QString
@@ -225,6 +246,14 @@ void ritual_ZN23QFileSystemModelPrivate15QFileSystemNode18retranslateStringsEP25
     QAbstractFileIconProvider *iconProvider,
     const QString *path) {
   self->retranslateStrings(iconProvider, *path);
+}
+
+//  a QFile::Permissions a ritual of QFileSystemModelPrivate::QFileSystemNode
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFileSystemModelPrivate_QFileSystemNode__QFile_Permissions(
+    QFile::Permissions *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(filesystemmodel)

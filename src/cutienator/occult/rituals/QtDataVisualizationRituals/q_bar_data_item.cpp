@@ -33,6 +33,14 @@ void ritual_ZN12QBarDataItemD1Ev(QBarDataItem *self) {
   delete self;
 }
 
+//  QBarDataItem &QBarDataItem::operator=(const QBarDataItem &other)
+extern "C" Q_DECL_EXPORT
+QBarDataItem *ritual_ZN12QBarDataItemaSERKS_(
+    QBarDataItem *self,
+    const QBarDataItem *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QBarDataItem::setValue(float val)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QBarDataItem8setValueEf(QBarDataItem *self, float val) {

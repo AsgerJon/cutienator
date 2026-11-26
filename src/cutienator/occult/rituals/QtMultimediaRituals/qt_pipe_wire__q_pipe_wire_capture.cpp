@@ -13,6 +13,7 @@
 #include <QtMultimedia/qvideoframeformat.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <memory>
 
 //  Only a class built on QtPipeWire::QPipeWireCapture may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -276,6 +277,25 @@ const QMetaObject *ritual_ZNK10QtPipeWire16QPipeWireCapture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtPipeWire::QPipeWireCapture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QtPipeWire16QPipeWireCapture11qt_metacastEPKc(
+    QtPipeWire::QPipeWireCapture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtPipeWire::QPipeWireCapture::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QtPipeWire16QPipeWireCapture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtPipeWire::QPipeWireCapture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtPipeWire::QPipeWireCapture::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -284,6 +304,38 @@ QString *ritual_ZN10QtPipeWire16QPipeWireCapture2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtPipeWire::QPipeWireCapture::tr(s, c, n));
+}
+
+//  QtPipeWire::QPipeWireCapture::~QPipeWireCapture()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QtPipeWire16QPipeWireCaptureD1Ev(
+    QtPipeWire::QPipeWireCapture *self) {
+  delete self;
+}
+
+//  QVideoFrameFormat QtPipeWire::QPipeWireCapture::frameFormat() const
+extern "C" Q_DECL_EXPORT
+QVideoFrameFormat *ritual_ZNK10QtPipeWire16QPipeWireCapture11frameFormatEv(
+    const QtPipeWire::QPipeWireCapture *self) {
+  return new QVideoFrameFormat(self->frameFormat());
+}
+
+//  std::unique_ptr<QPipeWireCapture>
+//      QtPipeWire::QPipeWireCapture::create(Source initialSource)
+extern "C" Q_DECL_EXPORT
+std::unique_ptr<QtPipeWire::QPipeWireCapture> *ritual_ZN10QtPipeWire16QPipeWireCapture6createESt7variantIJ8QPointerI7QScreenE17QCapturableWindowEE(
+    const QPlatformSurfaceCapture::Source *initialSource) {
+  return new std::unique_ptr<QtPipeWire::QPipeWireCapture>(
+      QtPipeWire::QPipeWireCapture::create(
+          *initialSource));
+}
+
+//  bool QtPipeWire::QPipeWireCapture::setActiveInternal(bool active)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QtPipeWire16QPipeWireCapture17setActiveInternalEb(
+    QtPipeWire::QPipeWireCapture *self,
+    bool active) {
+  return self->setActiveInternal(active);
 }
 
 //  a Python function taken by a CuteQtPipeWire_QPipeWireCapture, for the
@@ -311,6 +363,14 @@ bool ritual_own_ZN10QtPipeWire16QPipeWireCapture17setActiveInternalEb(
     bool active) {
   return static_cast<OwnQtPipeWire_QPipeWireCapture *>(self)->OwnQtPipeWire_QPipeWireCapture::setActiveInternal(
       active);
+}
+
+//  a std::unique_ptr<QtPipeWire::QPipeWireCapture> a ritual of
+//      QtPipeWire::QPipeWireCapture gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtPipeWire_QPipeWireCapture__std_unique_ptr_QtPipeWire_QPipeWireCapture(
+    std::unique_ptr<QtPipeWire::QPipeWireCapture> *self) {
+  delete self;
 }
 
 #endif  // (QT_CONFIG(pipewire)) && (QT_CONFIG(pipewire_screencapture))

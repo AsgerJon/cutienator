@@ -986,6 +986,25 @@ const QMetaObject *ritual_ZNK20QCanvasPainterWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCanvasPainterWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QCanvasPainterWidget11qt_metacastEPKc(
+    QCanvasPainterWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCanvasPainterWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QCanvasPainterWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCanvasPainterWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCanvasPainterWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QCanvasPainterWidget2trEPKcS1_i(
@@ -1100,11 +1119,34 @@ bool ritual_ZN20QCanvasPainterWidget5eventEP6QEvent(
   return self->event(event);
 }
 
+//  void QCanvasPainterWidget::beginCanvasPainting(QCanvasOffscreenCanvas
+//      &canvas)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QCanvasPainterWidget19beginCanvasPaintingER22QCanvasOffscreenCanvas(
+    QCanvasPainterWidget *self,
+    QCanvasOffscreenCanvas *canvas) {
+  self->beginCanvasPainting(*canvas);
+}
+
 //  void QCanvasPainterWidget::endCanvasPainting()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QCanvasPainterWidget17endCanvasPaintingEv(
     QCanvasPainterWidget *self) {
   self->endCanvasPainting();
+}
+
+//  QCanvasPainterWidgetPrivate *QCanvasPainterWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QCanvasPainterWidgetPrivate *ritual_ZN20QCanvasPainterWidget6d_funcEv(
+    QCanvasPainterWidget *self) {
+  return self->d_func();
+}
+
+//  const QCanvasPainterWidgetPrivate *QCanvasPainterWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCanvasPainterWidgetPrivate *ritual_ZNK20QCanvasPainterWidget6d_funcEv(
+    const QCanvasPainterWidget *self) {
+  return self->d_func();
 }
 
 //  void QCanvasPainterWidget::grabCanvasImpl(const QCanvasOffscreenCanvas

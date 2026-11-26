@@ -8,6 +8,13 @@
     "ritual_ZNK27QQuick3DQuadTextureProvider10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuick3DQuadTextureProvider11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuick3DQuadTextureProvider11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN27QQuick3DQuadTextureProviderD1Ev": ["nothing", "address"],
     "ritual_ZNK27QQuick3DQuadTextureProvider14fragmentShaderEv": [
       "address", "address"
     ],
@@ -17,6 +24,24 @@
     "ritual_ZNK27QQuick3DQuadTextureProvider5widthEv": ["int", "address"],
     "ritual_ZNK27QQuick3DQuadTextureProvider6heightEv": ["int", "address"],
     "ritual_ZNK27QQuick3DQuadTextureProvider6formatEv": ["int", "address"],
+    "ritual_ZN27QQuick3DQuadTextureProvider21fragmentShaderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DQuadTextureProvider25fragmentShaderCodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DQuadTextureProvider12widthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DQuadTextureProvider13heightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DQuadTextureProvider13formatChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DQuadTextureProvider17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN27QQuick3DQuadTextureProvider24markTrackedPropertyDirtyE13QMetaPropertyN30QQuick3DPropertyChangedTracker17DirtyPropertyHintE": [
       "nothing", "address", "address", "int"
     ],

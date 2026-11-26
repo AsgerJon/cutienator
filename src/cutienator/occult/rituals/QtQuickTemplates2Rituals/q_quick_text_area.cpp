@@ -857,6 +857,24 @@ const QMetaObject *ritual_ZNK14QQuickTextArea10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTextArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickTextArea11qt_metacastEPKc(
+    QQuickTextArea *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTextArea::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickTextArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTextArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTextArea::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickTextArea2trEPKcS1_i(
@@ -1103,6 +1121,126 @@ void ritual_ZN14QQuickTextArea14setBottomInsetEd(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickTextArea16resetBottomInsetEv(QQuickTextArea *self) {
   self->resetBottomInset();
+}
+
+//  void QQuickTextArea::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea11fontChangedEv(QQuickTextArea *self) {
+  self->fontChanged();
+}
+
+//  void QQuickTextArea::implicitWidthChanged3()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea21implicitWidthChanged3Ev(
+    QQuickTextArea *self) {
+  self->implicitWidthChanged3();
+}
+
+//  void QQuickTextArea::implicitHeightChanged3()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea22implicitHeightChanged3Ev(
+    QQuickTextArea *self) {
+  self->implicitHeightChanged3();
+}
+
+//  void QQuickTextArea::backgroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea17backgroundChangedEv(QQuickTextArea *self) {
+  self->backgroundChanged();
+}
+
+//  void QQuickTextArea::placeholderTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea22placeholderTextChangedEv(
+    QQuickTextArea *self) {
+  self->placeholderTextChanged();
+}
+
+//  void QQuickTextArea::focusReasonChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea18focusReasonChangedEv(QQuickTextArea *self) {
+  self->focusReasonChanged();
+}
+
+//  void QQuickTextArea::pressAndHold(QQuickMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea12pressAndHoldEP16QQuickMouseEvent(
+    QQuickTextArea *self,
+    QQuickMouseEvent *event) {
+  self->pressAndHold(event);
+}
+
+//  void QQuickTextArea::pressed(QQuickMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea7pressedEP16QQuickMouseEvent(
+    QQuickTextArea *self,
+    QQuickMouseEvent *event) {
+  self->pressed(event);
+}
+
+//  void QQuickTextArea::released(QQuickMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea8releasedEP16QQuickMouseEvent(
+    QQuickTextArea *self,
+    QQuickMouseEvent *event) {
+  self->released(event);
+}
+
+//  void QQuickTextArea::hoveredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea14hoveredChangedEv(QQuickTextArea *self) {
+  self->hoveredChanged();
+}
+
+//  void QQuickTextArea::hoverEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea19hoverEnabledChangedEv(QQuickTextArea *self) {
+  self->hoverEnabledChanged();
+}
+
+//  void QQuickTextArea::placeholderTextColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea27placeholderTextColorChangedEv(
+    QQuickTextArea *self) {
+  self->placeholderTextColorChanged();
+}
+
+//  void QQuickTextArea::implicitBackgroundWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea30implicitBackgroundWidthChangedEv(
+    QQuickTextArea *self) {
+  self->implicitBackgroundWidthChanged();
+}
+
+//  void QQuickTextArea::implicitBackgroundHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea31implicitBackgroundHeightChangedEv(
+    QQuickTextArea *self) {
+  self->implicitBackgroundHeightChanged();
+}
+
+//  void QQuickTextArea::topInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea15topInsetChangedEv(QQuickTextArea *self) {
+  self->topInsetChanged();
+}
+
+//  void QQuickTextArea::leftInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea16leftInsetChangedEv(QQuickTextArea *self) {
+  self->leftInsetChanged();
+}
+
+//  void QQuickTextArea::rightInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea17rightInsetChangedEv(QQuickTextArea *self) {
+  self->rightInsetChanged();
+}
+
+//  void QQuickTextArea::bottomInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickTextArea18bottomInsetChangedEv(QQuickTextArea *self) {
+  self->bottomInsetChanged();
 }
 
 //  void QQuickTextArea::classBegin()

@@ -4,6 +4,7 @@
     "QtCore/qdebug.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN16QDebugStateSaverC1ER6QDebug": ["address", "address"],
     "ritual_ZN16QDebugStateSaverD1Ev": ["nothing", "address"]
   }
 }

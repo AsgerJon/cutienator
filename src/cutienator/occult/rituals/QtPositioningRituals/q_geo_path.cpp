@@ -72,6 +72,12 @@ void ritual_ZN8QGeoPathD1Ev(QGeoPath *self) {
   delete self;
 }
 
+//  QGeoPath &QGeoPath::operator=(const QGeoPath &other)
+extern "C" Q_DECL_EXPORT
+QGeoPath *ritual_ZN8QGeoPathaSERKS_(QGeoPath *self, const QGeoPath *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QGeoPath::setPath(const QList<QGeoCoordinate> &path)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QGeoPath7setPathERK5QListI14QGeoCoordinateE(
@@ -229,3 +235,23 @@ extern "C" Q_DECL_EXPORT
 const QGeoPathPrivate *ritual_ZNK8QGeoPath6d_funcEv(const QGeoPath *self) {
   return self->d_func();
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &stream, const QGeoPath &path)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK8QGeoPath(
+    QDataStream *stream,
+    const QGeoPath *path) {
+  return &(operator<<(*stream, *path));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &stream, QGeoPath &path)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR8QGeoPath(
+    QDataStream *stream,
+    QGeoPath *path) {
+  return &(operator>>(*stream, *path));
+}
+#endif  // !defined(QT_NO_DATASTREAM)

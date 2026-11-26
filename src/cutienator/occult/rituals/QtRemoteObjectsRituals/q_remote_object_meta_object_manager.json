@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN30QRemoteObjectMetaObjectManagerC1Ev": ["address"],
     "ritual_ZN30QRemoteObjectMetaObjectManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN30QRemoteObjectMetaObjectManager17metaObjectForTypeERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZN30QRemoteObjectMetaObjectManager17addFromMetaObjectEPK11QMetaObject": [
       "nothing", "address", "address"
     ]

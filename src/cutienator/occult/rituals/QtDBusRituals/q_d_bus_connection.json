@@ -6,7 +6,11 @@
   "rows": {
     "ritual_ZN15QDBusConnectionC1ERK7QString": ["address", "text"],
     "ritual_ZN15QDBusConnectionC1ERKS_": ["address", "address"],
+    "ritual_ZN15QDBusConnectionC1EOS_": ["address", "address"],
+    "ritual_ZN15QDBusConnectionaSEOS_": ["address", "address", "address"],
+    "ritual_ZN15QDBusConnectionaSERKS_": ["address", "address", "address"],
     "ritual_ZN15QDBusConnectionD1Ev": ["nothing", "address"],
+    "ritual_ZN15QDBusConnection4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK15QDBusConnection11isConnectedEv": ["bool", "address"],
     "ritual_ZNK15QDBusConnection11baseServiceEv": ["text", "address"],
     "ritual_ZNK15QDBusConnection9lastErrorEv": ["address", "address"],
@@ -73,6 +77,7 @@
       "bool", "address", "text"
     ],
     "ritual_ZNK15QDBusConnection9interfaceEv": ["address", "address"],
+    "ritual_ZNK15QDBusConnection15internalPointerEv": ["address", "address"],
     "ritual_ZN15QDBusConnection12connectToBusENS_7BusTypeERK7QString": [
       "address", "int", "text"
     ],

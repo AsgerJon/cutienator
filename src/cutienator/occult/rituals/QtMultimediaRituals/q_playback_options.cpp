@@ -15,10 +15,56 @@ QPlaybackOptions *ritual_ZN16QPlaybackOptionsC1ERKS_(
   return new QPlaybackOptions(*a0);
 }
 
+//  QPlaybackOptions &QPlaybackOptions::operator=(const QPlaybackOptions &a0)
+extern "C" Q_DECL_EXPORT
+QPlaybackOptions *ritual_ZN16QPlaybackOptionsaSERKS_(
+    QPlaybackOptions *self,
+    const QPlaybackOptions *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QPlaybackOptions::QPlaybackOptions(QPlaybackOptions &&a0)
+extern "C" Q_DECL_EXPORT
+QPlaybackOptions *ritual_ZN16QPlaybackOptionsC1EOS_(QPlaybackOptions *a0) {
+  return new QPlaybackOptions(std::move(*a0));
+}
+
+//  QPlaybackOptions &QPlaybackOptions::operator=(QPlaybackOptions &&other)
+extern "C" Q_DECL_EXPORT
+QPlaybackOptions *ritual_ZN16QPlaybackOptionsaSEOS_(
+    QPlaybackOptions *self,
+    QPlaybackOptions *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QPlaybackOptions::~QPlaybackOptions()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QPlaybackOptionsD1Ev(QPlaybackOptions *self) {
   delete self;
+}
+
+//  void QPlaybackOptions::swap(QPlaybackOptions &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPlaybackOptions4swapERS_(
+    QPlaybackOptions *self,
+    QPlaybackOptions *other) {
+  self->swap(*other);
+}
+
+//  std::chrono::milliseconds QPlaybackOptions::networkTimeout() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK16QPlaybackOptions14networkTimeoutEv(
+    const QPlaybackOptions *self) {
+  return static_cast<long long>(self->networkTimeout().count());
+}
+
+//  void QPlaybackOptions::setNetworkTimeout(std::chrono::milliseconds
+//      timeout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QPlaybackOptions17setNetworkTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QPlaybackOptions *self,
+    long long timeout) {
+  self->setNetworkTimeout(std::chrono::milliseconds(timeout));
 }
 
 //  void QPlaybackOptions::resetNetworkTimeout()

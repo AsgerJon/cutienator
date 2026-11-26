@@ -49,6 +49,8 @@
     "ritual_ZgtRK5QTimeS1_": ["bool", "address", "address"],
     "ritual_ZleRK5QTimeS1_": ["bool", "address", "address"],
     "ritual_ZgeRK5QTimeS1_": ["bool", "address", "address"],
+    "ritual_ZlsR11QDataStream5QTime": ["address", "address", "address"],
+    "ritual_ZrsR11QDataStreamR5QTime": ["address", "address", "address"],
     "ritual_ZN5QTimeD1Ev": ["nothing", "address"]
   }
 }

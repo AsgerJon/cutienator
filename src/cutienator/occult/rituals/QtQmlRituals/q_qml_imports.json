@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmlimport_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtQml/6.12.0/QtQml/private/qqmlimport_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN11QQmlImports2trEPKcS1_i": ["text", "chars", "chars", "int"],
@@ -12,8 +12,31 @@
       "nothing", "address", "address", "text"
     ],
     "ritual_ZNK11QQmlImports7baseUrlEv": ["address", "address"],
+    "ritual_ZNK11QQmlImports11resolveTypeEP14QQmlTypeLoaderRK16QHashedStringRefP8QQmlTypeP13QTypeRevisionPP19QQmlImportNamespaceP5QListI9QQmlErrorENS5_16RegistrationTypeEPb": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN11QQmlImports24addInlineComponentImportEP18QQmlImportInstanceRK7QStringRK4QUrl": [
+      "bool", "address", "address", "text", "address"
+    ],
+    "ritual_ZN11QQmlImports13addFileImportEP14QQmlTypeLoaderRK7QStringS4_13QTypeRevision6QFlagsINS_10ImportFlagEEhPS2_P5QListI9QQmlErrorE": [
+      "address", "address", "address", "text", "text", "address", "int",
+      "unsigned char", "address", "address"
+    ],
+    "ritual_ZN11QQmlImports16addLibraryImportEP14QQmlTypeLoaderRK7QStringS4_13QTypeRevisionS4_S4_6QFlagsINS_10ImportFlagEEhP5QListI9QQmlErrorE": [
+      "address", "address", "address", "text", "text", "address", "text",
+      "text", "int", "unsigned char", "address"
+    ],
+    "ritual_ZN11QQmlImports19updateQmldirContentEP14QQmlTypeLoaderRK7QString13QTypeRevisionS4_S4_S4_P5QListI9QQmlErrorE": [
+      "address", "address", "address", "text", "address", "text", "text",
+      "text", "address"
+    ],
     "ritual_ZNK11QQmlImports13populateCacheEP17QQmlTypeNameCache": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlImports15resolvedScriptsEv": ["address", "address"],
+    "ritual_ZNK11QQmlImports27resolvedCompositeSingletonsEv": [
+      "address", "address"
     ],
     "ritual_ZN11QQmlImports19completeQmldirPathsERK7QStringRK5QListIS0_E13QTypeRevision": [
       "address", "text", "address", "address"
@@ -44,14 +67,37 @@
     "ritual_ZN11QQmlImports15importNamespaceERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZNK11QQmlImports11resolveTypeEP14QQmlTypeLoaderRK16QHashedStringRefP13QTypeRevisionP8QQmlTypeP5QListI9QQmlErrorENS7_16RegistrationTypeEPb": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "int", "address"
+    ],
     "ritual_ZNK11QQmlImports22findQualifiedNamespaceERK16QHashedStringRef": [
       "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlImports15importExtensionEP14QQmlTypeLoaderRK7QString13QTypeRevisionPK27QQmlTypeLoaderQmldirContentP5QListI9QQmlErrorE": [
+      "address", "address", "address", "text", "address", "address",
+      "address"
     ],
     "ritual_ZN11QQmlImports26registerBuiltinModuleTypesERK27QQmlTypeLoaderQmldirContent13QTypeRevision": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN11QQmlImports16getQmldirContentEP14QQmlTypeLoaderRK7QStringS4_P27QQmlTypeLoaderQmldirContentP5QListI9QQmlErrorE": [
+      "bool", "address", "address", "text", "text", "address", "address"
+    ],
     "ritual_ZN11QQmlImports11resolvedUriERK7QStringP14QQmlTypeLoader": [
       "text", "address", "text", "address"
+    ],
+    "ritual_drop_QQmlImports__QList_QQmlImports_ScriptReference": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlImports__QList_QQmlImports_CompositeSingletonReference": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQmlImports20addImportToNamespaceILNS_9IsLibraryE0EEEP18QQmlImportInstanceP19QQmlImportNamespaceRK7QStringS8_13QTypeRevisionh": [
+      "address", "address", "text", "text", "address", "unsigned char"
+    ],
+    "ritual_ZN11QQmlImports20addImportToNamespaceILNS_9IsLibraryE1EEEP18QQmlImportInstanceP19QQmlImportNamespaceRK7QStringS8_13QTypeRevisionh": [
+      "address", "address", "text", "text", "address", "unsigned char"
     ]
   }
 }

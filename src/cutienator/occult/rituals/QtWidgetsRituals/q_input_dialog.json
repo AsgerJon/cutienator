@@ -5,7 +5,15 @@
   ],
   "rows": {
     "ritual_ZNK12QInputDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QInputDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QInputDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QInputDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QInputDialog6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QInputDialog6d_funcEv": ["address", "address"],
     "ritual_ZN12QInputDialogC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
     ],
@@ -115,6 +123,24 @@
       "nothing", "address", "double"
     ],
     "ritual_ZNK12QInputDialog10doubleStepEv": ["double", "address"],
+    "ritual_ZN12QInputDialog16textValueChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QInputDialog17textValueSelectedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QInputDialog15intValueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QInputDialog16intValueSelectedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QInputDialog18doubleValueChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QInputDialog19doubleValueSelectedEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZN12QInputDialog4doneEi": ["nothing", "address", "int"],
     "ritual_take_QInputDialog": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK12QInputDialog15minimumSizeHintEv": [

@@ -7,6 +7,13 @@
 #include <QtScxml/6.12.0/QtScxml/private/qscxmlexecutablecontent_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QScxmlExecutableContent::StateTable::Array::Array(const int *start)
+extern "C" Q_DECL_EXPORT
+QScxmlExecutableContent::StateTable::Array *ritual_ZN23QScxmlExecutableContent10StateTable5ArrayC1EPKi(
+    const int *start) {
+  return new QScxmlExecutableContent::StateTable::Array(start);
+}
+
 //  int QScxmlExecutableContent::StateTable::Array::size() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK23QScxmlExecutableContent10StateTable5Array4sizeEv(

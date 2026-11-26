@@ -18,4 +18,31 @@ QSGTexturePlatformVulkan *ritual_ZN24QSGTexturePlatformVulkanC1EP10QSGTexture(
   return new QSGTexturePlatformVulkan(t);
 }
 
+//  VkImage QSGTexturePlatformVulkan::nativeImage() const
+extern "C" Q_DECL_EXPORT
+VkImage *ritual_ZNK24QSGTexturePlatformVulkan11nativeImageEv(
+    const QSGTexturePlatformVulkan *self) {
+  return new VkImage(self->nativeImage());
+}
+
+//  VkImageLayout QSGTexturePlatformVulkan::nativeImageLayout() const
+extern "C" Q_DECL_EXPORT
+VkImageLayout *ritual_ZNK24QSGTexturePlatformVulkan17nativeImageLayoutEv(
+    const QSGTexturePlatformVulkan *self) {
+  return new VkImageLayout(self->nativeImageLayout());
+}
+
+//  a VkImage a ritual of QSGTexturePlatformVulkan gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSGTexturePlatformVulkan__VkImage(VkImage *self) {
+  delete self;
+}
+
+//  a VkImageLayout a ritual of QSGTexturePlatformVulkan gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSGTexturePlatformVulkan__VkImageLayout(
+    VkImageLayout *self) {
+  delete self;
+}
+
 #endif  // QT_CONFIG(vulkan)

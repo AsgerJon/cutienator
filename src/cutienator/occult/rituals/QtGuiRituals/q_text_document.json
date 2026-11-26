@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QTextDocument10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QTextDocument11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QTextDocument11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QTextDocument2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QTextDocumentC1EP7QObject": ["address", "address"],
     "ritual_ZN13QTextDocumentC1ERK7QStringP7QObject": [
@@ -115,6 +121,14 @@
     "ritual_ZN13QTextDocument11addResourceEiRK4QUrlRK8QVariant": [
       "nothing", "address", "int", "address", "address"
     ],
+    "ritual_ZNK13QTextDocument16resourceProviderEv": ["address", "address"],
+    "ritual_ZN13QTextDocument19setResourceProviderERKSt8functionIF8QVariantRK4QUrlEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextDocument23defaultResourceProviderEv": ["address"],
+    "ritual_ZN13QTextDocument26setDefaultResourceProviderERKSt8functionIF8QVariantRK4QUrlEE": [
+      "nothing", "address"
+    ],
     "ritual_ZNK13QTextDocument10allFormatsEv": ["address", "address"],
     "ritual_ZN13QTextDocument17markContentsDirtyEii": [
       "nothing", "address", "int", "int"
@@ -179,6 +193,32 @@
     "ritual_ZN13QTextDocument25setDefaultCursorMoveStyleEN2Qt15CursorMoveStyleE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN13QTextDocument14contentsChangeEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN13QTextDocument15contentsChangedEv": ["nothing", "address"],
+    "ritual_ZN13QTextDocument13undoAvailableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QTextDocument13redoAvailableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QTextDocument16undoCommandAddedEv": ["nothing", "address"],
+    "ritual_ZN13QTextDocument19modificationChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QTextDocument21cursorPositionChangedERK11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextDocument17blockCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QTextDocument14baseUrlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextDocument21documentLayoutChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN13QTextDocument4undoEv": ["nothing", "address"],
     "ritual_ZN13QTextDocument4redoEv": ["nothing", "address"],
     "ritual_ZN13QTextDocument14appendUndoItemEP17QAbstractUndoItem": [
@@ -193,6 +233,9 @@
     "ritual_ZN13QTextDocument12loadResourceEiRK4QUrl": [
       "address", "address", "int", "address"
     ],
+    "ritual_ZN13QTextDocumentC1ER20QTextDocumentPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QTextDocument6d_funcEv": ["address", "address"],
     "ritual_ZNK13QTextDocument6d_funcEv": ["address", "address"],
     "ritual_take_QTextDocument": ["bool", "address", "chars", "address"],
@@ -202,6 +245,9 @@
     ],
     "ritual_own_ZN13QTextDocument12loadResourceEiRK4QUrl": [
       "address", "address", "int", "address"
+    ],
+    "ritual_drop_QTextDocument__QTextDocument_ResourceProvider": [
+      "nothing", "address"
     ]
   }
 }

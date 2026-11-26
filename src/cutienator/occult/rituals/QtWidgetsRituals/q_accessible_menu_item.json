@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QAccessibleMenuItemD1Ev": ["nothing", "address"],
+    "ritual_ZN19QAccessibleMenuItem14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK19QAccessibleMenuItem10childCountEv": ["int", "address"],
     "ritual_ZNK19QAccessibleMenuItem7childAtEii": [
       "address", "address", "int", "int"
@@ -23,6 +27,9 @@
       "nothing", "address", "int", "text"
     ],
     "ritual_ZNK19QAccessibleMenuItem5stateEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleMenuItem4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
     "ritual_ZNK19QAccessibleMenuItem11actionNamesEv": ["address", "address"],
     "ritual_ZN19QAccessibleMenuItem8doActionERK7QString": [
       "nothing", "address", "text"
@@ -37,6 +44,9 @@
     ],
     "ritual_take_QAccessibleMenuItem": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QAccessibleMenuItem14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
     ],
     "ritual_own_ZNK19QAccessibleMenuItem10childCountEv": ["int", "address"],
     "ritual_own_ZNK19QAccessibleMenuItem7childAtEii": [

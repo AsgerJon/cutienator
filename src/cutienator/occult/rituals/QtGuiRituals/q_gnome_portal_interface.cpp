@@ -190,6 +190,25 @@ const QMetaObject *ritual_ZNK21QGnomePortalInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGnomePortalInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QGnomePortalInterface11qt_metacastEPKc(
+    QGnomePortalInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGnomePortalInterface::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QGnomePortalInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGnomePortalInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGnomePortalInterface::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QGnomePortalInterface2trEPKcS1_i(
@@ -272,6 +291,38 @@ void ritual_ZN21QGnomePortalInterface12updateMotionEN2Qt16MotionPreferenceE(
     QGnomePortalInterface *self,
     Qt::MotionPreference motion) {
   self->updateMotion(motion);
+}
+
+//  void QGnomePortalInterface::colorSchemeChanged(Qt::ColorScheme a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGnomePortalInterface18colorSchemeChangedEN2Qt11ColorSchemeE(
+    QGnomePortalInterface *self,
+    Qt::ColorScheme a0) {
+  self->colorSchemeChanged(a0);
+}
+
+//  void QGnomePortalInterface::contrastChanged(Qt::ContrastPreference a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGnomePortalInterface15contrastChangedEN2Qt18ContrastPreferenceE(
+    QGnomePortalInterface *self,
+    Qt::ContrastPreference a0) {
+  self->contrastChanged(a0);
+}
+
+//  void QGnomePortalInterface::motionChanged(Qt::MotionPreference a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGnomePortalInterface13motionChangedEN2Qt16MotionPreferenceE(
+    QGnomePortalInterface *self,
+    Qt::MotionPreference a0) {
+  self->motionChanged(a0);
+}
+
+//  void QGnomePortalInterface::themeNameChanged(const QString &themeName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QGnomePortalInterface16themeNameChangedERK7QString(
+    QGnomePortalInterface *self,
+    const QString *themeName) {
+  self->themeNameChanged(*themeName);
 }
 
 //  void QGnomePortalInterface::dbusSettingChanged(QDBusListener::Provider

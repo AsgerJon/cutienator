@@ -10,6 +10,9 @@
     "ritual_ZNK26QAccessibleAbstractSpinBox4textEN11QAccessible4TextE": [
       "text", "address", "int"
     ],
+    "ritual_ZN26QAccessibleAbstractSpinBox14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK26QAccessibleAbstractSpinBox12currentValueEv": [
       "address", "address"
     ],
@@ -85,6 +88,9 @@
     "ritual_ZNK26QAccessibleAbstractSpinBox15abstractSpinBoxEv": [
       "address", "address"
     ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox13lineEditIfaceEv": [
+      "address", "address"
+    ],
     "ritual_cast_QAccessibleAbstractSpinBox_QAccessibleValueInterface": [
       "address", "address"
     ],
@@ -102,6 +108,9 @@
     ],
     "ritual_own_ZNK26QAccessibleAbstractSpinBox4textEN11QAccessible4TextE": [
       "text", "address", "int"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
     ],
     "ritual_own_ZNK26QAccessibleAbstractSpinBox12currentValueEv": [
       "address", "address"

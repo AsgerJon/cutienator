@@ -53,6 +53,21 @@ public:
   }
 };
 
+//  Qt3DRender::QAbstractLightPrivate::QAbstractLightPrivate(QAbstractLight::
+//      Type type)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractLightPrivate *ritual_ZN10Qt3DRender21QAbstractLightPrivateC1ENS_14QAbstractLight4TypeE(
+    Qt3DRender::QAbstractLight::Type type) {
+  return new CuteQt3DRender_QAbstractLightPrivate(type);
+}
+
+//  Qt3DRender::QAbstractLightPrivate::~QAbstractLightPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QAbstractLightPrivateD1Ev(
+    Qt3DRender::QAbstractLightPrivate *self) {
+  delete self;
+}
+
 //  QAbstractLight *Qt3DRender::QAbstractLightPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QAbstractLight *ritual_ZN10Qt3DRender21QAbstractLightPrivate6q_funcEv(

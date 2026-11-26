@@ -30,6 +30,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1089, as local:qquickscrollbar.cpp:QQuickFriendlyFlickable
+class QQuickFriendlyFlickable : public QQuickFlickable
+{
+    friend class QQuickScrollBarAttachedPrivate;
+};
+
 //  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 204, as _ZN22QQuickScrollBarPrivate12updateActiveEv
 inline void QQuickScrollBarPrivate::updateActive()
 {
@@ -40,6 +46,56 @@ inline void QQuickScrollBarPrivate::updateActive()
     bool hover = false;
 #endif
     q->setActive(moving || (interactive && (pressed || hover)));
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1149, as _ZN30QQuickScrollBarAttachedPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
+inline void QQuickScrollBarAttachedPrivate::itemGeometryChanged(QQuickItem *item, const QQuickGeometryChange change, const QRectF &diff)
+{
+    Q_UNUSED(item);
+    Q_UNUSED(change);
+    if (horizontal && horizontal->height() > 0) {
+#ifdef QT_QUICK_NEW_GEOMETRY_CHANGED_HANDLING // TODO: correct/rename diff to oldGeometry
+        bool move = qFuzzyIsNull(horizontal->y()) || qFuzzyCompare(horizontal->y(), diff.height() - horizontal->height());
+#else
+        bool move = qFuzzyIsNull(horizontal->y()) || qFuzzyCompare(horizontal->y(), item->height() - diff.height() - horizontal->height());
+#endif
+        if (flickable)
+            layoutHorizontal(move);
+    }
+    if (vertical && vertical->width() > 0) {
+#ifdef QT_QUICK_NEW_GEOMETRY_CHANGED_HANDLING // TODO: correct/rename diff to oldGeometry
+        bool move = qFuzzyIsNull(vertical->x()) || qFuzzyCompare(vertical->x(), diff.width() - vertical->width());
+#else
+        bool move = qFuzzyIsNull(vertical->x()) || qFuzzyCompare(vertical->x(), item->width() - diff.width() - vertical->width());
+#endif
+        if (flickable)
+            layoutVertical(move);
+    }
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1173, as _ZN30QQuickScrollBarAttachedPrivate24itemImplicitWidthChangedEP10QQuickItem
+inline void QQuickScrollBarAttachedPrivate::itemImplicitWidthChanged(QQuickItem *item)
+{
+    if (item == vertical && flickable)
+        layoutVertical(true);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1179, as _ZN30QQuickScrollBarAttachedPrivate25itemImplicitHeightChangedEP10QQuickItem
+inline void QQuickScrollBarAttachedPrivate::itemImplicitHeightChanged(QQuickItem *item)
+{
+    if (item == horizontal && flickable)
+        layoutHorizontal(true);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1185, as _ZN30QQuickScrollBarAttachedPrivate13itemDestroyedEP10QQuickItem
+inline void QQuickScrollBarAttachedPrivate::itemDestroyed(QQuickItem *item)
+{
+    if (item == flickable)
+        flickable = nullptr;
+    if (item == horizontal)
+        horizontal = nullptr;
+    if (item == vertical)
+        vertical = nullptr;
 }
 
 //  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 944, as _ZN30QQuickScrollBarAttachedPrivate12setFlickableEP15QQuickFlickable
@@ -193,6 +249,22 @@ inline void QQuickScrollBarAttachedPrivate::activateVertical()
     p->updateActive();
 }
 
+//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1094, as _ZN30QQuickScrollBarAttachedPrivate16scrollHorizontalEv
+inline void QQuickScrollBarAttachedPrivate::scrollHorizontal()
+{
+    if (!flickable)
+        return;
+
+    QQuickFriendlyFlickable *f = reinterpret_cast<QQuickFriendlyFlickable *>(flickable);
+
+    const qreal viewwidth = f->width();
+    const qreal maxxextent = -f->maxXExtent() + f->minXExtent();
+    const qreal cx = horizontal->position() * (maxxextent + viewwidth) - f->minXExtent();
+
+    if (!qIsNaN(cx) && !qFuzzyCompare(cx, flickable->contentX()))
+        flickable->setContentX(cx);
+}
+
 //  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1124, as _ZN30QQuickScrollBarAttachedPrivate14mirrorVerticalEv
 inline void QQuickScrollBarAttachedPrivate::mirrorVertical()
 {
@@ -219,56 +291,6 @@ inline void QQuickScrollBarAttachedPrivate::layoutVertical(bool move)
     vertical->setHeight(flickable->height());
     if (move)
         vertical->setX(vertical->isMirrored() ? 0 : flickable->width() - vertical->width());
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1149, as _ZN30QQuickScrollBarAttachedPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
-inline void QQuickScrollBarAttachedPrivate::itemGeometryChanged(QQuickItem *item, const QQuickGeometryChange change, const QRectF &diff)
-{
-    Q_UNUSED(item);
-    Q_UNUSED(change);
-    if (horizontal && horizontal->height() > 0) {
-#ifdef QT_QUICK_NEW_GEOMETRY_CHANGED_HANDLING // TODO: correct/rename diff to oldGeometry
-        bool move = qFuzzyIsNull(horizontal->y()) || qFuzzyCompare(horizontal->y(), diff.height() - horizontal->height());
-#else
-        bool move = qFuzzyIsNull(horizontal->y()) || qFuzzyCompare(horizontal->y(), item->height() - diff.height() - horizontal->height());
-#endif
-        if (flickable)
-            layoutHorizontal(move);
-    }
-    if (vertical && vertical->width() > 0) {
-#ifdef QT_QUICK_NEW_GEOMETRY_CHANGED_HANDLING // TODO: correct/rename diff to oldGeometry
-        bool move = qFuzzyIsNull(vertical->x()) || qFuzzyCompare(vertical->x(), diff.width() - vertical->width());
-#else
-        bool move = qFuzzyIsNull(vertical->x()) || qFuzzyCompare(vertical->x(), item->width() - diff.width() - vertical->width());
-#endif
-        if (flickable)
-            layoutVertical(move);
-    }
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1173, as _ZN30QQuickScrollBarAttachedPrivate24itemImplicitWidthChangedEP10QQuickItem
-inline void QQuickScrollBarAttachedPrivate::itemImplicitWidthChanged(QQuickItem *item)
-{
-    if (item == vertical && flickable)
-        layoutVertical(true);
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1179, as _ZN30QQuickScrollBarAttachedPrivate25itemImplicitHeightChangedEP10QQuickItem
-inline void QQuickScrollBarAttachedPrivate::itemImplicitHeightChanged(QQuickItem *item)
-{
-    if (item == horizontal && flickable)
-        layoutHorizontal(true);
-}
-
-//  from ../qtdeclarative/src/quicktemplates/qquickscrollbar.cpp, line 1185, as _ZN30QQuickScrollBarAttachedPrivate13itemDestroyedEP10QQuickItem
-inline void QQuickScrollBarAttachedPrivate::itemDestroyed(QQuickItem *item)
-{
-    if (item == flickable)
-        flickable = nullptr;
-    if (item == horizontal)
-        horizontal = nullptr;
-    if (item == vertical)
-        vertical = nullptr;
 }
 //  -----------------------------------------------------------------------
 
@@ -415,6 +437,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN30QQuickScrollBarAttachedPrivate16activateVerticalEv(
     QQuickScrollBarAttachedPrivate *self) {
   self->activateVertical();
+}
+
+//  void QQuickScrollBarAttachedPrivate::scrollHorizontal()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickScrollBarAttachedPrivate16scrollHorizontalEv(
+    QQuickScrollBarAttachedPrivate *self) {
+  self->scrollHorizontal();
 }
 
 //  void QQuickScrollBarAttachedPrivate::mirrorVertical()

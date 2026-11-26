@@ -219,6 +219,22 @@ public:
   }
 };
 
+//  QQmlJS::AST::ArrayPattern::ArrayPattern(PatternElementList *elts)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ArrayPattern *ritual_ZN6QQmlJS3AST12ArrayPatternC1EPNS0_18PatternElementListE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::PatternElementList *elts) {
+  return new (pool) CuteQQmlJS_AST_ArrayPattern(elts);
+}
+
+//  void QQmlJS::AST::ArrayPattern::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST12ArrayPattern7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ArrayPattern *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::ArrayPattern::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST12ArrayPattern19firstSourceLocationEv(
@@ -231,6 +247,27 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST12ArrayPattern18lastSourceLocationEv(
     const QQmlJS::AST::ArrayPattern *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  bool QQmlJS::AST::ArrayPattern::isValidArrayLiteral(SourceLocation
+//      *errorLocation) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK6QQmlJS3AST12ArrayPattern19isValidArrayLiteralEPNS_14SourceLocationE(
+    const QQmlJS::AST::ArrayPattern *self,
+    QQmlJS::SourceLocation *errorLocation) {
+  return self->isValidArrayLiteral(errorLocation);
+}
+
+//  bool QQmlJS::AST::ArrayPattern::convertLiteralToAssignmentPattern(SourceL
+//      ocation *errorLocation, QString *errorMessage)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QQmlJS3AST12ArrayPattern33convertLiteralToAssignmentPatternEPNS_14SourceLocationEP7QString(
+    QQmlJS::AST::ArrayPattern *self,
+    QQmlJS::SourceLocation *errorLocation,
+    QString *errorMessage) {
+  return self->convertLiteralToAssignmentPattern(
+      errorLocation,
+      errorMessage);
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_ArrayPattern, for the

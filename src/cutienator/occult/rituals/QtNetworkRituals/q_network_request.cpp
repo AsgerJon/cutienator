@@ -8,8 +8,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtNetwork/qsslconfiguration.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/qhttp1configuration.h>
+#endif
+#if QT_CONFIG(http)
 #include <QtNetwork/qhttp2configuration.h>
+#endif
 #include <QtCore/qlist.h>
 
 //  QNetworkRequest::QNetworkRequest()
@@ -35,6 +39,30 @@ QNetworkRequest *ritual_ZN15QNetworkRequestC1ERKS_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QNetworkRequestD1Ev(QNetworkRequest *self) {
   delete self;
+}
+
+//  QNetworkRequest &QNetworkRequest::operator=(QNetworkRequest &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkRequest *ritual_ZN15QNetworkRequestaSEOS_(
+    QNetworkRequest *self,
+    QNetworkRequest *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QNetworkRequest &QNetworkRequest::operator=(const QNetworkRequest &other)
+extern "C" Q_DECL_EXPORT
+QNetworkRequest *ritual_ZN15QNetworkRequestaSERKS_(
+    QNetworkRequest *self,
+    const QNetworkRequest *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QNetworkRequest::swap(QNetworkRequest &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QNetworkRequest4swapERS_(
+    QNetworkRequest *self,
+    QNetworkRequest *other) {
+  self->swap(*other);
 }
 
 //  bool QNetworkRequest::operator==(const QNetworkRequest &other) const
@@ -80,6 +108,14 @@ void ritual_ZN15QNetworkRequest10setHeadersERK12QHttpHeaders(
     QNetworkRequest *self,
     const QHttpHeaders *newHeaders) {
   self->setHeaders(*newHeaders);
+}
+
+//  void QNetworkRequest::setHeaders(QHttpHeaders &&newHeaders)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QNetworkRequest10setHeadersEO12QHttpHeaders(
+    QNetworkRequest *self,
+    QHttpHeaders *newHeaders) {
+  self->setHeaders(std::move(*newHeaders));
 }
 
 //  QVariant QNetworkRequest::header(KnownHeaders header) const
@@ -293,6 +329,43 @@ void ritual_ZN15QNetworkRequest35setDecompressedSafetyCheckThresholdEx(
 }
 #endif  // QT_CONFIG(http)
 
+//  std::chrono::seconds QNetworkRequest::tcpKeepAliveIdleTimeBeforeProbes()
+//      const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK15QNetworkRequest32tcpKeepAliveIdleTimeBeforeProbesEv(
+    const QNetworkRequest *self) {
+  return static_cast<long long>(
+      self->tcpKeepAliveIdleTimeBeforeProbes().count());
+}
+
+//  void
+//      QNetworkRequest::setTcpKeepAliveIdleTimeBeforeProbes(std::chrono::sec
+//      onds idle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QNetworkRequest35setTcpKeepAliveIdleTimeBeforeProbesENSt6chrono8durationIlSt5ratioILl1ELl1EEEE(
+    QNetworkRequest *self,
+    long long idle) {
+  self->setTcpKeepAliveIdleTimeBeforeProbes(std::chrono::seconds(idle));
+}
+
+//  std::chrono::seconds QNetworkRequest::tcpKeepAliveIntervalBetweenProbes()
+//      const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK15QNetworkRequest33tcpKeepAliveIntervalBetweenProbesEv(
+    const QNetworkRequest *self) {
+  return static_cast<long long>(
+      self->tcpKeepAliveIntervalBetweenProbes().count());
+}
+
+//  void QNetworkRequest::setTcpKeepAliveIntervalBetweenProbes(std::chrono::s
+//      econds interval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QNetworkRequest36setTcpKeepAliveIntervalBetweenProbesENSt6chrono8durationIlSt5ratioILl1ELl1EEEE(
+    QNetworkRequest *self,
+    long long interval) {
+  self->setTcpKeepAliveIntervalBetweenProbes(std::chrono::seconds(interval));
+}
+
 //  int QNetworkRequest::tcpKeepAliveProbeCount() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QNetworkRequest22tcpKeepAliveProbeCountEv(
@@ -326,3 +399,44 @@ void ritual_ZN15QNetworkRequest18setTransferTimeoutEi(
   self->setTransferTimeout(timeout);
 }
 #endif  // QT_CONFIG(http) || defined (Q_OS_WASM)
+
+#if QT_CONFIG(http) || defined (Q_OS_WASM)
+//  std::chrono::milliseconds QNetworkRequest::transferTimeoutAsDuration()
+//      const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK15QNetworkRequest25transferTimeoutAsDurationEv(
+    const QNetworkRequest *self) {
+  return static_cast<long long>(self->transferTimeoutAsDuration().count());
+}
+#endif  // QT_CONFIG(http) || defined (Q_OS_WASM)
+
+#if QT_CONFIG(http) || defined (Q_OS_WASM)
+//  void QNetworkRequest::setTransferTimeout(std::chrono::milliseconds
+//      duration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QNetworkRequest18setTransferTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QNetworkRequest *self,
+    long long duration) {
+  self->setTransferTimeout(std::chrono::milliseconds(duration));
+}
+#endif  // QT_CONFIG(http) || defined (Q_OS_WASM)
+
+//  void
+//      QNetworkRequest::doSetIdleTimeBeforeProbes(std::chrono::duration<int>
+//      idle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QNetworkRequest25doSetIdleTimeBeforeProbesENSt6chrono8durationIiSt5ratioILl1ELl1EEEE(
+    QNetworkRequest *self,
+    long long idle) {
+  self->doSetIdleTimeBeforeProbes(std::chrono::duration<int>(idle));
+}
+
+//  void
+//      QNetworkRequest::doSetIntervalBetweenProbes(std::chrono::duration<int
+//      > interval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QNetworkRequest26doSetIntervalBetweenProbesENSt6chrono8durationIiSt5ratioILl1ELl1EEEE(
+    QNetworkRequest *self,
+    long long interval) {
+  self->doSetIntervalBetweenProbes(std::chrono::duration<int>(interval));
+}

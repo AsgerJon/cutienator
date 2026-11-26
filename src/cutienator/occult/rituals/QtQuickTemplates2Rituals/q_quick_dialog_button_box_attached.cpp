@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK29QQuickDialogButtonBoxAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDialogButtonBoxAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuickDialogButtonBoxAttached11qt_metacastEPKc(
+    QQuickDialogButtonBoxAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDialogButtonBoxAttached::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuickDialogButtonBoxAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDialogButtonBoxAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDialogButtonBoxAttached::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -59,6 +78,20 @@ void ritual_ZN29QQuickDialogButtonBoxAttached13setButtonRoleEN21QPlatformDialogH
     QQuickDialogButtonBoxAttached *self,
     QPlatformDialogHelper::ButtonRole role) {
   self->setButtonRole(role);
+}
+
+//  void QQuickDialogButtonBoxAttached::buttonBoxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickDialogButtonBoxAttached16buttonBoxChangedEv(
+    QQuickDialogButtonBoxAttached *self) {
+  self->buttonBoxChanged();
+}
+
+//  void QQuickDialogButtonBoxAttached::buttonRoleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickDialogButtonBoxAttached17buttonRoleChangedEv(
+    QQuickDialogButtonBoxAttached *self) {
+  self->buttonRoleChanged();
 }
 
 //  QQuickDialogButtonBoxAttachedPrivate

@@ -11,7 +11,7 @@ typedef void (*CuteQModbusRequestCall0)(const void *, int, int *);
 class CuteQModbusRequest : public QModbusRequest {
 public:
   using QModbusRequest::QModbusRequest;
-  CuteQModbusRequest(const QModbusRequest &other) : QModbusRequest(other) {}
+  CuteQModbusRequest(const QModbusRequest & other) : QModbusRequest(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,13 @@ public:
 extern "C" Q_DECL_EXPORT
 QModbusRequest *ritual_ZN14QModbusRequestC1Ev() {
   return new CuteQModbusRequest();
+}
+
+//  QModbusRequest::QModbusRequest(const QModbusPdu &pdu)
+extern "C" Q_DECL_EXPORT
+QModbusRequest *ritual_ZN14QModbusRequestC1ERK10QModbusPdu(
+    const QModbusPdu *pdu) {
+  return new CuteQModbusRequest(*pdu);
 }
 
 //  QModbusRequest::QModbusRequest(FunctionCode code, const QByteArray
@@ -67,6 +74,17 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZN14QModbusRequest17calculateDataSizeERKS_(
     const QModbusRequest *pdu) {
   return QModbusRequest::calculateDataSize(*pdu);
+}
+
+//  void QModbusRequest::registerDataSizeCalculator(FunctionCode fc,
+//      CalcFuncPtr func)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QModbusRequest26registerDataSizeCalculatorEN10QModbusPdu12FunctionCodeEPFiRKS_E(
+    QModbusPdu::FunctionCode fc,
+    void *func) {
+  QModbusRequest::registerDataSizeCalculator(
+      fc,
+      reinterpret_cast<QModbusRequest::CalcFuncPtr>(func));
 }
 
 //  a Python function taken by a CuteQModbusRequest, for the function named

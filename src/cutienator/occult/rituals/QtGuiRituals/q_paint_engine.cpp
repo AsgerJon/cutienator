@@ -411,6 +411,14 @@ const QPaintEnginePrivate *ritual_ZNK12QPaintEngine6d_funcEv(
   return self->d_func();
 }
 
+//  QPaintEngine::QPaintEngine(PaintEngineFeatures features)
+extern "C" Q_DECL_EXPORT
+QPaintEngine *ritual_ZN12QPaintEngineC1E6QFlagsINS_18PaintEngineFeatureEE(
+    int features) {
+  return new CuteQPaintEngine(
+      QFlags<QPaintEngine::PaintEngineFeature>::fromInt(features));
+}
+
 //  QPaintEngine::~QPaintEngine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QPaintEngineD1Ev(QPaintEngine *self) {
@@ -737,6 +745,17 @@ QPixmap *ritual_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19Ima
       self->createPixmapFromImage(
           *image,
           QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
+}
+
+//  QPaintEngine::QPaintEngine(QPaintEnginePrivate &data, PaintEngineFeatures
+//      devcaps)
+extern "C" Q_DECL_EXPORT
+QPaintEngine *ritual_ZN12QPaintEngineC1ER19QPaintEnginePrivate6QFlagsINS_18PaintEngineFeatureEE(
+    QPaintEnginePrivate *data,
+    int devcaps) {
+  return new CuteQPaintEngine(
+      *data,
+      QFlags<QPaintEngine::PaintEngineFeature>::fromInt(devcaps));
 }
 
 //  void QPaintEngine::setAutoDestruct(bool autoDestr)

@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK18qdesigner_internal10ActionData7compareERKS0_": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internaleqERKNS_10ActionDataES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalneERKNS_10ActionDataES2_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal10ActionDataD1Ev": ["nothing", "address"]
   }
 }

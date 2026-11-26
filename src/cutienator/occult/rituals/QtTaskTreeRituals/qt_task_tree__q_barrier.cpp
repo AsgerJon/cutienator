@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtTaskTree/qbarriertask.h, Qt 6.12.0. Changes made here are lost.
+//  QtTaskTree/qbarriertask.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: 'd_func' gives the private class as
+//  QtTaskTree::<Class>Private, as the compiler needs it written.
+//  Kept as it is when the generator runs again.
 #include <QtTaskTree/qbarriertask.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -185,6 +188,14 @@ const QMetaObject *ritual_ZNK10QtTaskTree8QBarrier10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtTaskTree::QBarrier::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QtTaskTree8QBarrier11qt_metacastEPKc(
+    QtTaskTree::QBarrier *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString QtTaskTree::QBarrier::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QtTaskTree8QBarrier2trEPKcS2_i(
@@ -192,6 +203,20 @@ QString *ritual_ZN10QtTaskTree8QBarrier2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtTaskTree::QBarrier::tr(s, c, n));
+}
+
+//  QBarrierPrivate *QtTaskTree::QBarrier::d_func()
+extern "C" Q_DECL_EXPORT
+QtTaskTree::QBarrierPrivate *ritual_ZN10QtTaskTree8QBarrier6d_funcEv(
+    QtTaskTree::QBarrier *self) {
+  return self->d_func();
+}
+
+//  const QBarrierPrivate *QtTaskTree::QBarrier::d_func() const
+extern "C" Q_DECL_EXPORT
+const QtTaskTree::QBarrierPrivate *ritual_ZNK10QtTaskTree8QBarrier6d_funcEv(
+    const QtTaskTree::QBarrier *self) {
+  return self->d_func();
 }
 
 //  QtTaskTree::QBarrier::QBarrier()

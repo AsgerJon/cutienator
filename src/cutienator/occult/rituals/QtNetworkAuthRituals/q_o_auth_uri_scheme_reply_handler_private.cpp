@@ -1,6 +1,14 @@
-//  Written by dev_tooling.RitualGenerator from the records of QtNetworkAuth/
-//  6.12.0/QtNetworkAuth/private/qoauthurischemereplyhandler_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  QtNetworkAuth/6.12.0/QtNetworkAuth/private/qoauthurischemereplyhandler_p.h,
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Qt builds the class only with its feature 'urischeme_replyhandler',
+//  as the CMakeLists.txt of its oauth directory says, so the whole file
+//  stands under it. The feature is private to the part, its line is in
+//  the private config header, which comes first.
+#include <QtNetworkAuth/qoauthglobal.h>
+#include <QtNetworkAuth/6.12.0/QtNetworkAuth/private/qtnetworkauth-config_p.h>
+#if QT_CONFIG(urischeme_replyhandler)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtNetworkAuth/qoauthurischemereplyhandler.h>
 #include <QtNetworkAuth/QtNetworkAuth>
@@ -55,3 +63,5 @@ bool ritual_ZNK34QOAuthUriSchemeReplyHandlerPrivate19hasValidRedirectUrlEv(
     const QOAuthUriSchemeReplyHandlerPrivate *self) {
   return self->hasValidRedirectUrl();
 }
+
+#endif  // QT_CONFIG(urischeme_replyhandler)

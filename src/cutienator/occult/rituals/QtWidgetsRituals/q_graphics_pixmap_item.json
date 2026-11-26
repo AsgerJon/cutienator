@@ -56,6 +56,8 @@
     "ritual_ZNK19QGraphicsPixmapItem9extensionERK8QVariant": [
       "address", "address", "address"
     ],
+    "ritual_ZN19QGraphicsPixmapItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QGraphicsPixmapItem6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsPixmapItem": [
       "bool", "address", "chars", "address"
     ],

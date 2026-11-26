@@ -8,6 +8,11 @@
 #include <QtGui/qcolor.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <utility>
+#include <QtGui/QAccessibleInterface>
+#include <QtGui/QAccessible>
+#include <QtCore/QFlags>
 
 //  A QAccessibleInterface that Python can take functions over in. Every QAccessibleInterface
 //  Python makes is one. Each function below asks the Python
@@ -60,10 +65,16 @@ typedef const QColor * (*CuteQAccessibleInterfaceCall14)(const void *, int *);
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleInterfaceCall15)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef void (*CuteQAccessibleInterfaceCall16)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef void * (*CuteQAccessibleInterfaceCall17)(const void *, int, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleInterface : public QAccessibleInterface {
 public:
   using QAccessibleInterface::QAccessibleInterface;
-  void *taken[16] = {};
+  void *taken[18] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -159,6 +170,18 @@ public:
 #if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[15] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
+      taken[16] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
+      taken[17] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -378,7 +401,40 @@ public:
     return QAccessibleInterface::backgroundColor();
   }
 #endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQAccessibleInterfaceCall16 call = reinterpret_cast<CuteQAccessibleInterfaceCall16>(taken[16]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  void *QAccessibleInterface::interface_cast(QAccessible::InterfaceType
+  //      a0)
+  void *interface_cast(QAccessible::InterfaceType a0) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQAccessibleInterfaceCall17 call = reinterpret_cast<CuteQAccessibleInterfaceCall17>(taken[17]);
+      void * given = call(this, static_cast<int>(a0), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleInterface::interface_cast(a0);
+  }
+#endif  // QT_CONFIG(accessibility)
 };
+
+//  QAccessibleInterface::QAccessibleInterface()
+extern "C" Q_DECL_EXPORT
+QAccessibleInterface *ritual_ZN20QAccessibleInterfaceC1Ev() {
+  return new CuteQAccessibleInterface();
+}
 
 //  QAccessibleInterface::~QAccessibleInterface()
 extern "C" Q_DECL_EXPORT
@@ -405,6 +461,17 @@ extern "C" Q_DECL_EXPORT
 QWindow *ritual_ZNK20QAccessibleInterface6windowEv(
     const QAccessibleInterface *self) {
   return self->window();
+}
+
+//  QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>
+//      QAccessibleInterface::relations(QAccessible::Relation match) const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> *ritual_ZNK20QAccessibleInterface9relationsE6QFlagsIN11QAccessible12RelationFlagEE(
+    const QAccessibleInterface *self,
+    int match) {
+  return new QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>(
+      self->relations(
+          QFlags<QAccessible::RelationFlag>::fromInt(match)));
 }
 
 //  QAccessibleInterface *QAccessibleInterface::focusChild() const
@@ -586,6 +653,23 @@ QAccessibleViewportInterface *ritual_ZN20QAccessibleInterface17viewportInterface
   return self->viewportInterface();
 }
 
+//  void QAccessibleInterface::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QAccessibleInterface12virtual_hookEiPv(
+    QAccessibleInterface *self,
+    int id,
+    void *data) {
+  self->virtual_hook(id, data);
+}
+
+//  void *QAccessibleInterface::interface_cast(QAccessible::InterfaceType a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleInterface *self,
+    QAccessible::InterfaceType a0) {
+  return self->interface_cast(a0);
+}
+
 //  a Python function taken by a CuteQAccessibleInterface, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -624,6 +708,23 @@ QColor *ritual_own_ZNK20QAccessibleInterface15backgroundColorEv(
   return new QColor(self->QAccessibleInterface::backgroundColor());
 }
 
+//  void QAccessibleInterface::virtual_hook(int id, void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN20QAccessibleInterface12virtual_hookEiPv(
+    QAccessibleInterface *self,
+    int id,
+    void *data) {
+  self->QAccessibleInterface::virtual_hook(id, data);
+}
+
+//  void *QAccessibleInterface::interface_cast(QAccessible::InterfaceType a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_own_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE(
+    QAccessibleInterface *self,
+    QAccessible::InterfaceType a0) {
+  return self->QAccessibleInterface::interface_cast(a0);
+}
+
 //  QList<QAccessibleInterface *>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QAccessibleInterface *> *ritual_list_make_QAccessibleInterface_ptr() {
@@ -659,6 +760,14 @@ QAccessibleInterface *ritual_list_at_QAccessibleInterface_ptr(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QAccessibleInterface_ptr(
     QList<QAccessibleInterface *> *self) {
+  delete self;
+}
+
+//  a QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> a
+//      ritual of QAccessibleInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessibleInterface__QList_std_pair_QAccessibleInterface_QAccessible_Relation(
+    QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> *self) {
   delete self;
 }
 

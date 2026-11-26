@@ -40,6 +40,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qsplitter.cpp, line 327, as _ZN21QSplitterLayoutStruct13getWidgetSizeEN2Qt11OrientationE
 inline int QSplitterLayoutStruct::getWidgetSize(Qt::Orientation orient)
 {

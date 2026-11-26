@@ -11,6 +11,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtWebSockets/QWebSocketProtocol>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
 #include <QtWebSockets/qwebsocketprotocol.h>
@@ -30,6 +32,49 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 171, as local:qwebsockethandshakerequest.cpp:readLine
+static QByteArrayView readLine(QByteArrayView &header, int maxHeaderLineLength)
+{
+    qsizetype length = qMin(maxHeaderLineLength, header.size());
+    QByteArrayView line = header.first(length);
+    qsizetype end = line.indexOf('\n');
+    if (end != -1) {
+        line = line.first(end);
+        if (line.endsWith('\r'))
+            line.chop(1);
+        header = header.sliced(end + 1);
+        return line;
+    }
+    return QByteArrayView();
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 189, as local:qwebsockethandshakerequest.cpp:appendCommmaSeparatedLineToList
+static void appendCommmaSeparatedLineToList(QStringList &list, QByteArrayView line)
+{
+    for (auto &c : QLatin1String(line).tokenize(QLatin1String(","), Qt::SkipEmptyParts))
+        list << c.trimmed().toString();
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 40, as _ZN26QWebSocketHandshakeRequestD1Ev
+inline QWebSocketHandshakeRequest::~QWebSocketHandshakeRequest()
+{
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 23, as _ZN26QWebSocketHandshakeRequestC1Eib
+inline QWebSocketHandshakeRequest::QWebSocketHandshakeRequest(int port, bool isSecure) :
+    m_port(port),
+    m_isSecure(isSecure),
+    m_isValid(false),
+    m_parser(),
+    m_versions(),
+    m_key(),
+    m_origin(),
+    m_protocols(),
+    m_extensions(),
+    m_requestUrl()
+{
+}
 
 //  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 48, as _ZN26QWebSocketHandshakeRequest5clearEv
 inline void QWebSocketHandshakeRequest::clear()
@@ -74,6 +119,12 @@ inline bool QWebSocketHandshakeRequest::hasHeader(const QByteArray &name) const
     return !m_parser.firstHeaderField(name).isEmpty();
 }
 
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 103, as _ZNK26QWebSocketHandshakeRequest8versionsEv
+inline QList<QWebSocketProtocol::Version> QWebSocketHandshakeRequest::versions() const
+{
+    return m_versions;
+}
+
 //  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 119, as _ZNK26QWebSocketHandshakeRequest3keyEv
 inline QString QWebSocketHandshakeRequest::key() const
 {
@@ -116,6 +167,15 @@ inline QString QWebSocketHandshakeRequest::host() const
     return m_requestUrl.host();
 }
 //  -----------------------------------------------------------------------
+
+//  QWebSocketHandshakeRequest::QWebSocketHandshakeRequest(int port, bool
+//      isSecure)
+extern "C" Q_DECL_EXPORT
+QWebSocketHandshakeRequest *ritual_ZN26QWebSocketHandshakeRequestC1Eib(
+    int port,
+    bool isSecure) {
+  return new QWebSocketHandshakeRequest(port, isSecure);
+}
 
 //  QWebSocketHandshakeRequest::~QWebSocketHandshakeRequest()
 extern "C" Q_DECL_EXPORT
@@ -167,6 +227,14 @@ bool ritual_ZNK26QWebSocketHandshakeRequest9hasHeaderERK10QByteArray(
   return self->hasHeader(*name);
 }
 
+//  QList<QWebSocketProtocol::Version> QWebSocketHandshakeRequest::versions()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QWebSocketProtocol::Version> *ritual_ZNK26QWebSocketHandshakeRequest8versionsEv(
+    const QWebSocketHandshakeRequest *self) {
+  return new QList<QWebSocketProtocol::Version>(self->versions());
+}
+
 //  QString QWebSocketHandshakeRequest::key() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK26QWebSocketHandshakeRequest3keyEv(
@@ -214,4 +282,12 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK26QWebSocketHandshakeRequest4hostEv(
     const QWebSocketHandshakeRequest *self) {
   return new QString(self->host());
+}
+
+//  a QList<QWebSocketProtocol::Version> a ritual of
+//      QWebSocketHandshakeRequest gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWebSocketHandshakeRequest__QList_QWebSocketProtocol_Version(
+    QList<QWebSocketProtocol::Version> *self) {
+  delete self;
 }

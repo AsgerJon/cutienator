@@ -1,18 +1,19 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DCore/6.12.0/Qt3DCore/private/qdownloadhelperservice_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  Qt3DCore/6.12.0/Qt3DCore/private/qdownloadhelperservice_p.h, Qt 6.12.0,
+//  from Qt's source. Kept as it is when the generator runs again. Not
+//  written: 'submitRequest' and 'cancelRequest' (they take a QSharedPointer,
+//  a template).
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qt3dcore_global_p.h>
-#include <Qt3DCore/Qt3DCore>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qdownloadhelperservice_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qurl.h>
 #include <cstring>
 
-//  A Qt3DCore::QDownloadHelperService that Python can take functions over in. Every Qt3DCore::QDownloadHelperService
-//  Python makes is one. Each function below asks the Python
-//  function handed over for it, and runs Qt's own without one.
+//  A Qt3DCore::QDownloadHelperService that Python can take functions over in.
+//  Every Qt3DCore::QDownloadHelperService Python makes is one. Each
+//  function below asks the Python function handed over for it, and runs
+//  Qt's own without one.
 #if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQt3DCore_QDownloadHelperServiceCall0)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
@@ -184,14 +185,72 @@ const QMetaObject *ritual_ZNK8Qt3DCore22QDownloadHelperService10metaObjectEv(
   return self->metaObject();
 }
 
-//  QString Qt3DCore::QDownloadHelperService::tr(const char *s, const char
-//      *c, int n)
+//  QString Qt3DCore::QDownloadHelperService::tr(const char *s, const char *c,
+//      int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore22QDownloadHelperService2trEPKcS2_i(
     const char *s,
     const char *c,
     int n) {
   return new QString(Qt3DCore::QDownloadHelperService::tr(s, c, n));
+}
+
+//  QDownloadHelperService::QDownloadHelperService(const QString &description)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QDownloadHelperService *ritual_ZN8Qt3DCore22QDownloadHelperServiceC1ERK7QString(
+    const QString *description) {
+  return new CuteQt3DCore_QDownloadHelperService(*description);
+}
+
+//  QDownloadHelperService::~QDownloadHelperService()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore22QDownloadHelperServiceD1Ev(
+    Qt3DCore::QDownloadHelperService *self) {
+  delete self;
+}
+
+//  void QDownloadHelperService::cancelAllRequests()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore22QDownloadHelperService17cancelAllRequestsEv(
+    Qt3DCore::QDownloadHelperService *self) {
+  self->cancelAllRequests();
+}
+
+//  QString QDownloadHelperService::urlToLocalFileOrQrc(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN8Qt3DCore22QDownloadHelperService19urlToLocalFileOrQrcERK4QUrl(
+    const QUrl *url) {
+  return new QString(Qt3DCore::QDownloadHelperService::urlToLocalFileOrQrc(*url));
+}
+
+//  bool QDownloadHelperService::isLocal(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8Qt3DCore22QDownloadHelperService7isLocalERK4QUrl(
+    const QUrl *url) {
+  return Qt3DCore::QDownloadHelperService::isLocal(*url);
+}
+
+//  QDownloadHelperService *QDownloadHelperService::getService(QAspectEngine
+//      *engine)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QDownloadHelperService *ritual_ZN8Qt3DCore22QDownloadHelperService10getServiceEPNS_13QAspectEngineE(
+    Qt3DCore::QAspectEngine *engine) {
+  return Qt3DCore::QDownloadHelperService::getService(engine);
+}
+
+//  QDownloadHelperServicePrivate *Qt3DCore::QDownloadHelperService::d_func()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QDownloadHelperServicePrivate *ritual_ZN8Qt3DCore22QDownloadHelperService6d_funcEv(
+    Qt3DCore::QDownloadHelperService *self) {
+  return self->d_func();
+}
+
+//  const QDownloadHelperServicePrivate
+//      *Qt3DCore::QDownloadHelperService::d_func() const
+extern "C" Q_DECL_EXPORT
+const Qt3DCore::QDownloadHelperServicePrivate *ritual_ZNK8Qt3DCore22QDownloadHelperService6d_funcEv(
+    const Qt3DCore::QDownloadHelperService *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQt3DCore_QDownloadHelperService, for the

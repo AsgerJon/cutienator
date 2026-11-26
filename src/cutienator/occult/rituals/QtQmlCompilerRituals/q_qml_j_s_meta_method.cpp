@@ -16,6 +16,10 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QWeakPointer>
+#include <utility>
+#include <QtCore/QList>
 
 //  QQmlJSMetaMethod::QQmlJSMetaMethod()
 extern "C" Q_DECL_EXPORT
@@ -92,11 +96,37 @@ void ritual_ZN16QQmlJSMetaMethod17setReturnTypeNameERK7QString(
   self->setReturnTypeName(*typeName);
 }
 
+//  QSharedPointer<const QQmlJSScope> QQmlJSMetaMethod::returnType() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<const QQmlJSScope> *ritual_ZNK16QQmlJSMetaMethod10returnTypeEv(
+    const QQmlJSMetaMethod *self) {
+  return new QSharedPointer<const QQmlJSScope>(self->returnType());
+}
+
+//  void QQmlJSMetaMethod::setReturnType(QWeakPointer<const QQmlJSScope>
+//      type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlJSMetaMethod13setReturnTypeE12QWeakPointerIK11QQmlJSScopeE(
+    QQmlJSMetaMethod *self,
+    const QWeakPointer<const QQmlJSScope> *type) {
+  self->setReturnType(*type);
+}
+
 //  QList<QQmlJSMetaParameter> QQmlJSMetaMethod::parameters() const
 extern "C" Q_DECL_EXPORT
 QList<QQmlJSMetaParameter> *ritual_ZNK16QQmlJSMetaMethod10parametersEv(
     const QQmlJSMetaMethod *self) {
   return new QList<QQmlJSMetaParameter>(self->parameters());
+}
+
+//  std::pair<QList<QQmlJSMetaParameter>::iterator,
+//      QList<QQmlJSMetaParameter>::iterator>
+//      QQmlJSMetaMethod::mutableParametersRange()
+extern "C" Q_DECL_EXPORT
+std::pair<QList<QQmlJSMetaParameter>::iterator, QList<QQmlJSMetaParameter>::iterator> *ritual_ZN16QQmlJSMetaMethod22mutableParametersRangeEv(
+    QQmlJSMetaMethod *self) {
+  return new std::pair<QList<QQmlJSMetaParameter>::iterator, QList<QQmlJSMetaParameter>::iterator>(
+      self->mutableParametersRange());
 }
 
 //  QStringList QQmlJSMetaMethod::parameterNames() const
@@ -414,5 +444,21 @@ QQmlJSMetaMethod *ritual_map_get_QHash_QString_QQmlJSMetaMethod(
 extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QHash_QString_QQmlJSMetaMethod(
     QHash<QString, QQmlJSMetaMethod> *self) {
+  delete self;
+}
+
+//  a QSharedPointer<const QQmlJSScope> a ritual of QQmlJSMetaMethod gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSMetaMethod__QSharedPointer_const_QQmlJSScope(
+    QSharedPointer<const QQmlJSScope> *self) {
+  delete self;
+}
+
+//  a std::pair<QList<QQmlJSMetaParameter>::iterator,
+//      QList<QQmlJSMetaParameter>::iterator> a ritual of QQmlJSMetaMethod
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSMetaMethod__std_pair_QList_QQmlJSMetaParameter_iterator_QList_QQmlJSMetaParameter_iterator(
+    std::pair<QList<QQmlJSMetaParameter>::iterator, QList<QQmlJSMetaParameter>::iterator> *self) {
   delete self;
 }

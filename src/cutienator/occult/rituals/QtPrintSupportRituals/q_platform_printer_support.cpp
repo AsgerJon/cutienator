@@ -30,7 +30,7 @@ typedef QString * (*CuteQPlatformPrinterSupportCall2)(const void *, int *);
 class CuteQPlatformPrinterSupport : public QPlatformPrinterSupport {
 public:
   using QPlatformPrinterSupport::QPlatformPrinterSupport;
-  CuteQPlatformPrinterSupport(const QPlatformPrinterSupport &other) : QPlatformPrinterSupport(other) {}
+  CuteQPlatformPrinterSupport(const QPlatformPrinterSupport & other) : QPlatformPrinterSupport(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

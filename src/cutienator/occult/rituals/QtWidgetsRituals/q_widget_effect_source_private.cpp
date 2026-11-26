@@ -13,15 +13,6 @@
 #include <QtGui/qpixmap.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtWidgets/private/qgraphicseffect_p.h>
-#include <QtWidgets/private/qgraphicsitem_p.h>
-#include <QtWidgets/qgraphicsitem.h>
-#include <QtGui/qimage.h>
-#include <QtGui/qpainter.h>
-#include <QtGui/qpaintengine.h>
-#include <QtCore/qrect.h>
-#include <QtCore/qdebug.h>
-#include <QtGui/private/qdrawhelper_p.h>
 #include <QtWidgets/qapplication.h>
 #include <QtWidgets/private/qapplication_p.h>
 #include <QtGui/qbrush.h>
@@ -88,6 +79,15 @@
 #include <QtWidgets/private/qgesturemanager_p.h>
 #include <QtWidgets/private/qwindowcontainer_p.h>
 #include <sstream>
+#include <QtWidgets/private/qgraphicseffect_p.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtWidgets/qgraphicsitem.h>
+#include <QtGui/qimage.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qpaintengine.h>
+#include <QtCore/qrect.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/private/qdrawhelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -96,6 +96,30 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/kernel/qwidget.cpp, line 5811, as _ZN26QWidgetEffectSourcePrivate4drawEP8QPainter
+#if QT_CONFIG(graphicseffect)
+inline void QWidgetEffectSourcePrivate::draw(QPainter *painter)
+{
+    if (!context || context->painter != painter) {
+        m_widget->render(painter);
+        return;
+    }
+
+    // The region saved in the context is neither clipped to the rect
+    // nor the mask, so we have to clip it here before calling drawWidget.
+    QRegion toBePainted = context->rgn;
+    toBePainted &= m_widget->rect();
+    QWidgetPrivate *wd = qt_widget_private(m_widget);
+    if (wd->extra && wd->extra->hasMask)
+        toBePainted &= wd->extra->mask;
+
+    wd->drawWidget(context->pdev, toBePainted, context->offset, context->flags,
+                   context->sharedPainter, context->repaintManager);
+}
+#endif  // QT_CONFIG(graphicseffect)
 
 //  from src/widgets/effects/qgraphicseffect.cpp, line 345, as _ZN28QGraphicsEffectSourcePrivateD2Ev
 inline QGraphicsEffectSourcePrivate::~QGraphicsEffectSourcePrivate()
@@ -117,28 +141,6 @@ inline QRectF QWidgetEffectSourcePrivate::boundingRect(Qt::CoordinateSystem syst
     }
 
     return context->painter->worldTransform().mapRect(m_widget->rect());
-}
-#endif  // QT_CONFIG(graphicseffect)
-
-//  from src/widgets/kernel/qwidget.cpp, line 5811, as _ZN26QWidgetEffectSourcePrivate4drawEP8QPainter
-#if QT_CONFIG(graphicseffect)
-inline void QWidgetEffectSourcePrivate::draw(QPainter *painter)
-{
-    if (!context || context->painter != painter) {
-        m_widget->render(painter);
-        return;
-    }
-
-    // The region saved in the context is neither clipped to the rect
-    // nor the mask, so we have to clip it here before calling drawWidget.
-    QRegion toBePainted = context->rgn;
-    toBePainted &= m_widget->rect();
-    QWidgetPrivate *wd = qt_widget_private(m_widget);
-    if (wd->extra && wd->extra->hasMask)
-        toBePainted &= wd->extra->mask;
-
-    wd->drawWidget(context->pdev, toBePainted, context->offset, context->flags,
-                   context->sharedPainter, context->repaintManager);
 }
 #endif  // QT_CONFIG(graphicseffect)
 

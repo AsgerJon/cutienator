@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QMemoryBarrier10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QMemoryBarrier::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QMemoryBarrier11qt_metacastEPKc(
+    Qt3DRender::QMemoryBarrier *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QMemoryBarrier::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QMemoryBarrier11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QMemoryBarrier *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QMemoryBarrier::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,57 @@ QString *ritual_ZN10Qt3DRender14QMemoryBarrier2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QMemoryBarrier::tr(s, c, n));
+}
+
+//  Qt3DRender::QMemoryBarrier::QMemoryBarrier(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QMemoryBarrier *ritual_ZN10Qt3DRender14QMemoryBarrierC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QMemoryBarrier(parent);
+}
+
+//  Qt3DRender::QMemoryBarrier::~QMemoryBarrier()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QMemoryBarrierD1Ev(
+    Qt3DRender::QMemoryBarrier *self) {
+  delete self;
+}
+
+//  Operations Qt3DRender::QMemoryBarrier::waitOperations() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender14QMemoryBarrier14waitOperationsEv(
+    const Qt3DRender::QMemoryBarrier *self) {
+  return static_cast<int>(self->waitOperations().toInt());
+}
+
+//  void
+//      Qt3DRender::QMemoryBarrier::setWaitOperations(QMemoryBarrier::Operati
+//      ons operations)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QMemoryBarrier17setWaitOperationsE6QFlagsINS0_9OperationEE(
+    Qt3DRender::QMemoryBarrier *self,
+    int operations) {
+  self->setWaitOperations(
+      QFlags<Qt3DRender::QMemoryBarrier::Operation>::fromInt(operations));
+}
+
+//  void Qt3DRender::QMemoryBarrier::waitOperationsChanged(QMemoryBarrier::Op
+//      erations barrierTypes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QMemoryBarrier21waitOperationsChangedE6QFlagsINS0_9OperationEE(
+    Qt3DRender::QMemoryBarrier *self,
+    int barrierTypes) {
+  self->waitOperationsChanged(
+      QFlags<Qt3DRender::QMemoryBarrier::Operation>::fromInt(barrierTypes));
+}
+
+//  Qt3DRender::QMemoryBarrier::QMemoryBarrier(QMemoryBarrierPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QMemoryBarrier *ritual_ZN10Qt3DRender14QMemoryBarrierC1ERNS_21QMemoryBarrierPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QMemoryBarrierPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QMemoryBarrier(*dd, parent);
 }
 
 //  QMemoryBarrierPrivate *Qt3DRender::QMemoryBarrier::d_func()

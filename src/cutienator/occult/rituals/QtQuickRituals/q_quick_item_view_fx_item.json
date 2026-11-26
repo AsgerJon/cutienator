@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QQuickItemViewFxItemC1EP10QQuickItembP24QQuickItemChangeListener": [
+      "address", "address", "bool", "address"
+    ],
     "ritual_ZN20QQuickItemViewFxItemD1Ev": ["nothing", "address"],
     "ritual_ZNK20QQuickItemViewFxItem5itemXEv": ["double", "address"],
     "ritual_ZNK20QQuickItemViewFxItem5itemYEv": ["double", "address"],

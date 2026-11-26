@@ -73,6 +73,15 @@ const Qt3DRender::QStencilTest *ritual_ZNK10Qt3DRender19QStencilTestPrivate6q_fu
   return self->q_func();
 }
 
+//  void Qt3DRender::QStencilTestPrivate::fillData(QStencilTestData &data)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10Qt3DRender19QStencilTestPrivate8fillDataERNS_16QStencilTestDataE(
+    const Qt3DRender::QStencilTestPrivate *self,
+    Qt3DRender::QStencilTestData *data) {
+  self->fillData(*data);
+}
+
 //  a Python function taken by a CuteQt3DRender_QStencilTestPrivate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

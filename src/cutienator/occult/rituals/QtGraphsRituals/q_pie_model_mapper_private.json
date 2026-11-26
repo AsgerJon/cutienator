@@ -9,6 +9,50 @@
   ],
   "rows": {
     "ritual_ZN22QPieModelMapperPrivate6q_funcEv": ["address", "address"],
-    "ritual_ZNK22QPieModelMapperPrivate6q_funcEv": ["address", "address"]
+    "ritual_ZNK22QPieModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QPieModelMapperPrivateC1Ev": ["address"],
+    "ritual_ZN22QPieModelMapperPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QPieModelMapperPrivate19onSliceLabelChangedEPK9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate19onSliceValueChangedEPK9QPieSlice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate14onModelUpdatedE11QModelIndexS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate20handleModelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate13onSlicesAddedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate15onSlicesRemovedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate21handleSeriesDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QPieModelMapperPrivate8pieSliceE11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QPieModelMapperPrivate12isLabelIndexE11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK22QPieModelMapperPrivate12isValueIndexE11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate15valueModelIndexEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate15labelModelIndexEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate17blockModelSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate18blockSeriesSignalsEb": [
+      "nothing", "address", "bool"
+    ]
   }
 }

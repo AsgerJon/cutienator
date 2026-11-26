@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCanvasPainter/qcanvasimagepattern.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCanvasPainter/qcanvasimagepattern.h>
 #include <QtCanvasPainter/qcanvasimage.h>
 #include <QtCore/qpoint.h>
@@ -9,6 +10,49 @@
 #include <QtCore/qvariant.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qdebug.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCanvasPainter/qcanvasimagepattern.h>
+#include <QtCanvasPainter/private/qcanvasimagepattern_p.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasimagepattern.cpp, line 414, as local:qcanvasimagepattern.cpp:DECONST
+#define DECONST(d) const_cast<QCanvasImagePatternPrivate *>(d)
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasimagepattern.cpp, line 435, as _ZN26QCanvasImagePatternPrivate5cloneEv
+inline QCanvasBrushPrivate *QCanvasImagePatternPrivate::clone()
+{
+    return new QCanvasImagePatternPrivate(*this);
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvasimagepattern.cpp, line 178, as _ZNK26QCanvasImagePatternPrivate6equalsERK19QCanvasBrushPrivate
+inline bool QCanvasImagePatternPrivate::equals(const QCanvasBrushPrivate &other) const noexcept
+{
+    Q_ASSERT(other.type == type);
+    const auto &pd = static_cast<const QCanvasImagePatternPrivate &>(other);
+
+    if (x != pd.x
+        || y != pd.y
+        || width != pd.width
+        || height != pd.height
+        || angle != pd.angle
+        || tintColor != pd.tintColor)
+        return false;
+
+    // For images comparing the id is enough
+    if (image.id() != pd.image.id())
+        return false;
+
+    return true;
+}
+//  -----------------------------------------------------------------------
 
 //  QCanvasImagePattern::QCanvasImagePattern()
 extern "C" Q_DECL_EXPORT
@@ -55,6 +99,31 @@ extern "C" Q_DECL_EXPORT
 QCanvasImagePattern *ritual_ZN19QCanvasImagePatternC1ERKS_(
     const QCanvasImagePattern *a0) {
   return new QCanvasImagePattern(*a0);
+}
+
+//  QCanvasImagePattern &QCanvasImagePattern::operator=(const
+//      QCanvasImagePattern &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasImagePattern *ritual_ZN19QCanvasImagePatternaSERKS_(
+    QCanvasImagePattern *self,
+    const QCanvasImagePattern *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QCanvasImagePattern::QCanvasImagePattern(QCanvasImagePattern &&a0)
+extern "C" Q_DECL_EXPORT
+QCanvasImagePattern *ritual_ZN19QCanvasImagePatternC1EOS_(
+    QCanvasImagePattern *a0) {
+  return new QCanvasImagePattern(std::move(*a0));
+}
+
+//  QCanvasImagePattern &QCanvasImagePattern::operator=(QCanvasImagePattern
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCanvasImagePattern *ritual_ZN19QCanvasImagePatternaSEOS_(
+    QCanvasImagePattern *self,
+    QCanvasImagePattern *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  QCanvasImagePattern::~QCanvasImagePattern()
@@ -177,6 +246,14 @@ uint ritual_ZNK19QCanvasImagePattern12serialNumberEv(
   return self->serialNumber();
 }
 
+//  void QCanvasImagePattern::swap(QCanvasImagePattern &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QCanvasImagePattern4swapERS_(
+    QCanvasImagePattern *self,
+    QCanvasImagePattern *other) {
+  self->swap(*other);
+}
+
 //  bool operator==(const QCanvasImagePattern &lhs, const QCanvasImagePattern
 //      &rhs)
 extern "C" Q_DECL_EXPORT
@@ -201,6 +278,26 @@ QCanvasImagePattern *ritual_ZN19QCanvasImagePatternC1EP26QCanvasImagePatternPriv
     QCanvasImagePatternPrivate *p) {
   return new QCanvasImagePattern(p);
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QCanvasImagePattern &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK19QCanvasImagePattern(
+    QDataStream *a0,
+    const QCanvasImagePattern *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QCanvasImagePattern &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR19QCanvasImagePattern(
+    QDataStream *a0,
+    QCanvasImagePattern *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
 
 #if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug a0, const QCanvasImagePattern &a1)

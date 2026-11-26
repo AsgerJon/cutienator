@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QOpcUaClient10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QOpcUaClient11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QOpcUaClient11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QOpcUaClient2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QOpcUaClient6d_funcEv": ["address", "address"],
     "ritual_ZNK12QOpcUaClient6d_funcEv": ["address", "address"],
@@ -95,6 +101,9 @@
     "ritual_ZNK12QOpcUaClient25supportedSecurityPoliciesEv": [
       "address", "address"
     ],
+    "ritual_ZNK12QOpcUaClient23supportedUserTokenTypesEv": [
+      "address", "address"
+    ],
     "ritual_ZN12QOpcUaClient15readHistoryDataERK27QOpcUaHistoryReadRawRequest": [
       "address", "address", "address"
     ],
@@ -107,6 +116,59 @@
     "ritual_ZN12QOpcUaClient15unregisterNodesERK5QListI7QStringE": [
       "bool", "address", "address"
     ],
-    "ritual_take_QOpcUaClient": ["bool", "address", "chars", "address"]
+    "ritual_ZN12QOpcUaClient9connectedEv": ["nothing", "address"],
+    "ritual_ZN12QOpcUaClient12disconnectedEv": ["nothing", "address"],
+    "ritual_ZN12QOpcUaClient12stateChangedENS_11ClientStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QOpcUaClient12errorChangedENS_11ClientErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QOpcUaClient12connectErrorEP16QOpcUaErrorState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient21namespaceArrayUpdatedE5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient21namespaceArrayChangedE5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient24endpointsRequestFinishedE5QListI25QOpcUaEndpointDescriptionEN6QOpcUa12UaStatusCodeE4QUrl": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN12QOpcUaClient19findServersFinishedE5QListI28QOpcUaApplicationDescriptionEN6QOpcUa12UaStatusCodeE4QUrl": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN12QOpcUaClient26readNodeAttributesFinishedE5QListI16QOpcUaReadResultEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN12QOpcUaClient27writeNodeAttributesFinishedE5QListI17QOpcUaWriteResultEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN12QOpcUaClient15addNodeFinishedE20QOpcUaExpandedNodeId7QStringN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN12QOpcUaClient18deleteNodeFinishedE7QStringN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN12QOpcUaClient20addReferenceFinishedE7QStringS0_20QOpcUaExpandedNodeIdbN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "text", "text", "address", "bool", "unsigned int"
+    ],
+    "ritual_ZN12QOpcUaClient23deleteReferenceFinishedE7QStringS0_20QOpcUaExpandedNodeIdbN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "text", "text", "address", "bool", "unsigned int"
+    ],
+    "ritual_ZN12QOpcUaClient29passwordForPrivateKeyRequiredE7QStringPS0_b": [
+      "nothing", "address", "text", "address", "bool"
+    ],
+    "ritual_ZN12QOpcUaClient21registerNodesFinishedERK5QListI7QStringES4_N6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN12QOpcUaClient23unregisterNodesFinishedERK5QListI7QStringEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_take_QOpcUaClient": ["bool", "address", "chars", "address"],
+    "ritual_drop_QOpcUaClient__QList_QOpcUaUserTokenPolicy_TokenType": [
+      "nothing", "address"
+    ]
   }
 }

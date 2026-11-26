@@ -36,56 +36,74 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtcharts/src/charts/glwidget.cpp, line 63, as _ZN8GLWidgetD1Ev
+//  from ../qtcharts/src/charts/glwidget.cpp, line 99, as local:glwidget.cpp:vertexSource
 #if !defined(QT_NO_OPENGL)
-inline GLWidget::~GLWidget()
-{
-    cleanup();
-}
+static const char *vertexSource =
+        "attribute highp vec2 points;\n"
+        "uniform highp vec2 min;\n"
+        "uniform highp vec2 delta;\n"
+        "uniform highp float pointSize;\n"
+        "uniform highp mat4 matrix;\n"
+        "void main() {\n"
+        "  vec2 normalPoint = vec2(-1, -1) + ((points - min) / delta);\n"
+        "  gl_Position = matrix * vec4(normalPoint, 0, 1);\n"
+        "  gl_PointSize = pointSize;\n"
+        "}";
 #endif  // !defined(QT_NO_OPENGL)
 
-//  from ../qtcharts/src/charts/glwidget.cpp, line 386, as _ZNK8GLWidget10needsResetEv
+//  from ../qtcharts/src/charts/glwidget.cpp, line 110, as local:glwidget.cpp:fragmentSource
 #if !defined(QT_NO_OPENGL)
-inline bool GLWidget::needsReset() const
-{
-    return m_view->renderHints().testFlag(QPainter::Antialiasing) != m_antiAlias;
-}
+static const char *fragmentSource =
+        "uniform highp vec3 color;\n"
+        "void main() {\n"
+        "  gl_FragColor = vec4(color,1);\n"
+        "}\n";
 #endif  // !defined(QT_NO_OPENGL)
 
-//  from ../qtcharts/src/charts/glwidget.cpp, line 68, as _ZN8GLWidget7cleanupEv
+//  from ../qtcharts/src/charts/glwidget.cpp, line 116, as _ZN8GLWidget12initializeGLEv
 #if !defined(QT_NO_OPENGL)
-inline void GLWidget::cleanup()
+inline void GLWidget::initializeGL()
 {
-    makeCurrent();
+    connect(context(), &QOpenGLContext::aboutToBeDestroyed, this, &GLWidget::cleanup);
 
-    delete m_program;
-    m_program = 0;
+    initializeOpenGLFunctions();
+    glClearColor(0, 0, 0, 0);
 
-    for (auto buffer : std::as_const(m_seriesBufferMap))
-        delete buffer;
-    m_seriesBufferMap.clear();
+    m_program = new QOpenGLShaderProgram;
+    m_program->addShaderFromSourceCode(QOpenGLShader::Vertex, vertexSource);
+    m_program->addShaderFromSourceCode(QOpenGLShader::Fragment, fragmentSource);
+    m_program->bindAttributeLocation("points", 0);
+    m_program->link();
 
-    doneCurrent();
+    m_program->bind();
+    m_colorUniformLoc = m_program->uniformLocation("color");
+    m_minUniformLoc = m_program->uniformLocation("min");
+    m_deltaUniformLoc = m_program->uniformLocation("delta");
+    m_pointSizeUniformLoc = m_program->uniformLocation("pointSize");
+    m_matrixUniformLoc = m_program->uniformLocation("matrix");
 
-    if (context())
-        context()->disconnect(this);
-}
-#endif  // !defined(QT_NO_OPENGL)
 
-//  from ../qtcharts/src/charts/glwidget.cpp, line 85, as _ZN8GLWidget22cleanXYSeriesResourcesEPK9QXYSeries
-#if !defined(QT_NO_OPENGL)
-inline void GLWidget::cleanXYSeriesResources(const QXYSeries *series)
-{
-    makeCurrent();
-    if (series) {
-        delete m_seriesBufferMap.take(series);
-    } else {
-        // Null series means all series were removed
-        for (auto buffer : std::as_const(m_seriesBufferMap))
-            delete buffer;
-        m_seriesBufferMap.clear();
+    // Create a vertex array object. In OpenGL ES 2.0 and OpenGL 2.x
+    // implementations this is optional and support may not be present
+    // at all. Nonetheless the below code works in all cases and makes
+    // sure there is a VAO when one is needed.
+    m_vao.create();
+    QOpenGLVertexArrayObject::Binder vaoBinder(&m_vao);
+
+    glEnableVertexAttribArray(0);
+
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_STENCIL_TEST);
+
+#if !QT_CONFIG(opengles2)
+    if (!QOpenGLContext::currentContext()->isOpenGLES()) {
+        // Make it possible to change point primitive size and use textures with them in
+        // the shaders. These are implicitly enabled in ES2.
+        glEnable(GL_PROGRAM_POINT_SIZE);
     }
-    doneCurrent();
+#endif
+
+    m_program->release();
 }
 #endif  // !defined(QT_NO_OPENGL)
 
@@ -200,6 +218,22 @@ inline void GLWidget::mouseReleaseEvent(QMouseEvent *event)
     } else {
         event->ignore();
     }
+}
+#endif  // !defined(QT_NO_OPENGL)
+
+//  from ../qtcharts/src/charts/glwidget.cpp, line 63, as _ZN8GLWidgetD1Ev
+#if !defined(QT_NO_OPENGL)
+inline GLWidget::~GLWidget()
+{
+    cleanup();
+}
+#endif  // !defined(QT_NO_OPENGL)
+
+//  from ../qtcharts/src/charts/glwidget.cpp, line 386, as _ZNK8GLWidget10needsResetEv
+#if !defined(QT_NO_OPENGL)
+inline bool GLWidget::needsReset() const
+{
+    return m_view->renderHints().testFlag(QPainter::Antialiasing) != m_antiAlias;
 }
 #endif  // !defined(QT_NO_OPENGL)
 
@@ -1291,6 +1325,22 @@ const QMetaObject *ritual_ZNK8GLWidget10metaObjectEv(const GLWidget *self) {
   return self->metaObject();
 }
 
+//  void *GLWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8GLWidget11qt_metacastEPKc(GLWidget *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int GLWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8GLWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    GLWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  GLWidget::~GLWidget()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8GLWidgetD1Ev(GLWidget *self) {
@@ -1305,23 +1355,62 @@ bool ritual_ZNK8GLWidget10needsResetEv(const GLWidget *self) {
 }
 #endif  // !defined(QT_NO_OPENGL)
 
-#if !defined(QT_NO_OPENGL)
 //  void GLWidget::cleanup()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8GLWidget7cleanupEv(GLWidget *self) {
-  self->cleanup();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "GLWidget")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "cleanup()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "cleanup()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_OPENGL)
 
-#if !defined(QT_NO_OPENGL)
 //  void GLWidget::cleanXYSeriesResources(const QXYSeries *series)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8GLWidget22cleanXYSeriesResourcesEPK9QXYSeries(
     GLWidget *self,
     const QXYSeries *series) {
-  self->cleanXYSeriesResources(series);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "GLWidget")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "cleanXYSeriesResources(const QXYSeries *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "cleanXYSeriesResources(const QXYSeries *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&series)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // !defined(QT_NO_OPENGL)
+
+//  void GLWidget::initializeGL()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8GLWidget12initializeGLEv(GLWidget *self) {
+  self->initializeGL();
+}
 
 //  void GLWidget::paintGL()
 extern "C" Q_DECL_EXPORT

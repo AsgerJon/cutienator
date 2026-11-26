@@ -5,7 +5,9 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/qcandlestickset.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qcandlestickset_p.h>
@@ -188,6 +190,25 @@ const QMetaObject *ritual_ZNK22QCandlestickSetPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCandlestickSetPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QCandlestickSetPrivate11qt_metacastEPKc(
+    QCandlestickSetPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCandlestickSetPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QCandlestickSetPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCandlestickSetPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCandlestickSetPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QCandlestickSetPrivate2trEPKcS1_i(
@@ -218,6 +239,20 @@ bool ritual_ZN22QCandlestickSetPrivate12setTimestampEd(
     QCandlestickSetPrivate *self,
     qreal timestamp) {
   return self->setTimestamp(timestamp);
+}
+
+//  void QCandlestickSetPrivate::updatedLayout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QCandlestickSetPrivate13updatedLayoutEv(
+    QCandlestickSetPrivate *self) {
+  self->updatedLayout();
+}
+
+//  void QCandlestickSetPrivate::updatedCandlestick()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QCandlestickSetPrivate18updatedCandlestickEv(
+    QCandlestickSetPrivate *self) {
+  self->updatedCandlestick();
 }
 
 //  QCandlestickSet *QCandlestickSetPrivate::q_func()

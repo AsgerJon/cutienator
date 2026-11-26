@@ -23,6 +23,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/network/access/qabstractprotocolhandler.cpp, line 18, as _ZN24QAbstractProtocolHandlerD2Ev
+inline QAbstractProtocolHandler::~QAbstractProtocolHandler()
+{
+}
+
 //  from src/network/access/qabstractprotocolhandler.cpp, line 22, as _ZN24QAbstractProtocolHandler8setReplyEP17QHttpNetworkReply
 inline void QAbstractProtocolHandler::setReply(QHttpNetworkReply *reply)
 {

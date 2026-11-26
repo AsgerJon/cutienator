@@ -21,6 +21,24 @@ void ritual_ZN12DomColorRoleD1Ev(DomColorRole *self) {
   delete self;
 }
 
+//  void DomColorRole::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12DomColorRole4readER16QXmlStreamReader(
+    DomColorRole *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomColorRole::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12DomColorRole5writeER16QXmlStreamWriterRK7QString(
+    const DomColorRole *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomColorRole::hasAttributeRole() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12DomColorRole16hasAttributeRoleEv(const DomColorRole *self) {

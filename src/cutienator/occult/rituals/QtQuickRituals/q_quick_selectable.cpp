@@ -13,6 +13,7 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
 #include <cstring>
+#include <functional>
 
 //  A QQuickSelectable that Python can take functions over in. Every QQuickSelectable
 //  Python makes is one. Each function below asks the Python
@@ -249,6 +250,15 @@ QSizeF *ritual_ZN16QQuickSelectable18scrollTowardsPointERK7QPointFRK6QSizeF(
     const QPointF *pos,
     const QSizeF *step) {
   return new QSizeF(self->scrollTowardsPoint(*pos, *step));
+}
+
+//  void QQuickSelectable::setCallback(std::function<void (CallBackFlag)>
+//      func)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickSelectable11setCallbackESt8functionIFvNS_12CallBackFlagEEE(
+    QQuickSelectable *self,
+    const std::function<void (QQuickSelectable::CallBackFlag)> *func) {
+  self->setCallback(*func);
 }
 
 //  a Python function taken by a CuteQQuickSelectable, for the function named

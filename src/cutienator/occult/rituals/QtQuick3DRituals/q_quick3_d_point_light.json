@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuick3DPointLight10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuick3DPointLight11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuick3DPointLight11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuick3DPointLight2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,15 @@
     ],
     "ritual_ZN18QQuick3DPointLight16setQuadraticFadeEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN18QQuick3DPointLight19constantFadeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DPointLight17linearFadeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DPointLight20quadraticFadeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN18QQuick3DPointLight17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

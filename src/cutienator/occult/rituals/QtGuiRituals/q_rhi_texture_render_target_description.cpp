@@ -43,6 +43,15 @@ QRhiTextureRenderTargetDescription *ritual_ZN34QRhiTextureRenderTargetDescriptio
       depthTexture);
 }
 
+//  void QRhiTextureRenderTargetDescription::setColorAttachments(std::initial
+//      izer_list<QRhiColorAttachment> list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QRhiTextureRenderTargetDescription19setColorAttachmentsESt16initializer_listI19QRhiColorAttachmentE(
+    QRhiTextureRenderTargetDescription *self,
+    const std::initializer_list<QRhiColorAttachment> *list) {
+  self->setColorAttachments(*list);
+}
+
 //  const QRhiColorAttachment
 //      *QRhiTextureRenderTargetDescription::cbeginColorAttachments() const
 extern "C" Q_DECL_EXPORT

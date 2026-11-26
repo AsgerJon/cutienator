@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::Render::Quick::Quick3DRenderPass that Python can take functions over in. Every Qt3DRender::Render::Quick::Quick3DRenderPass
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,26 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick17Quick3DRenderPass10metaO
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::Quick::Quick3DRenderPass::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick17Quick3DRenderPass11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::Quick3DRenderPass *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Render::Quick::Quick3DRenderPass::qt_metacall(QMetaObject
+//      ::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick17Quick3DRenderPass11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::Quick3DRenderPass *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::Quick3DRenderPass::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -197,6 +219,39 @@ QString *ritual_ZN10Qt3DRender6Render5Quick17Quick3DRenderPass2trEPKcS4_i(
           s,
           c,
           n));
+}
+
+//  Qt3DRender::Render::Quick::Quick3DRenderPass::Quick3DRenderPass(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DRenderPass *ritual_ZN10Qt3DRender6Render5Quick17Quick3DRenderPassC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DRenderPass(parent);
+}
+
+//  QQmlListProperty<QFilterKey>
+//      Qt3DRender::Render::Quick::Quick3DRenderPass::filterKeyList()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DRender::QFilterKey> *ritual_ZN10Qt3DRender6Render5Quick17Quick3DRenderPass13filterKeyListEv(
+    Qt3DRender::Render::Quick::Quick3DRenderPass *self) {
+  return new QQmlListProperty<Qt3DRender::QFilterKey>(self->filterKeyList());
+}
+
+//  QQmlListProperty<QRenderState>
+//      Qt3DRender::Render::Quick::Quick3DRenderPass::renderStateList()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DRender::QRenderState> *ritual_ZN10Qt3DRender6Render5Quick17Quick3DRenderPass15renderStateListEv(
+    Qt3DRender::Render::Quick::Quick3DRenderPass *self) {
+  return new QQmlListProperty<Qt3DRender::QRenderState>(
+      self->renderStateList());
+}
+
+//  QQmlListProperty<QParameter>
+//      Qt3DRender::Render::Quick::Quick3DRenderPass::parameterList()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DRender::QParameter> *ritual_ZN10Qt3DRender6Render5Quick17Quick3DRenderPass13parameterListEv(
+    Qt3DRender::Render::Quick::Quick3DRenderPass *self) {
+  return new QQmlListProperty<Qt3DRender::QParameter>(self->parameterList());
 }
 
 //  QRenderPass
@@ -217,4 +272,28 @@ bool ritual_take_Qt3DRender_Render_Quick_Quick3DRenderPass(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Render_Quick_Quick3DRenderPass *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DRender::QFilterKey> a ritual of
+//      Qt3DRender::Render::Quick::Quick3DRenderPass gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Quick_Quick3DRenderPass__QQmlListProperty_Qt3DRender_QFilterKey(
+    QQmlListProperty<Qt3DRender::QFilterKey> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<Qt3DRender::QRenderState> a ritual of
+//      Qt3DRender::Render::Quick::Quick3DRenderPass gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Quick_Quick3DRenderPass__QQmlListProperty_Qt3DRender_QRenderState(
+    QQmlListProperty<Qt3DRender::QRenderState> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<Qt3DRender::QParameter> a ritual of
+//      Qt3DRender::Render::Quick::Quick3DRenderPass gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Quick_Quick3DRenderPass__QQmlListProperty_Qt3DRender_QParameter(
+    QQmlListProperty<Qt3DRender::QParameter> *self) {
+  delete self;
 }

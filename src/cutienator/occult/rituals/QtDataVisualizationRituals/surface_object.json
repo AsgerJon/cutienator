@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN13SurfaceObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN13SurfaceObject9smoothUVsERK5QListIPS0_I16QSurfaceDataItemEES6_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13SurfaceObject9coarseUVsERK5QListIPS0_I16QSurfaceDataItemEES6_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN13SurfaceObject19createSmoothIndicesEiiii": [
       "nothing", "address", "int", "int", "int", "int"
     ],
@@ -19,6 +25,13 @@
       "nothing", "address", "int", "int", "int", "int"
     ],
     "ritual_ZN13SurfaceObject13uploadBuffersEv": ["nothing", "address"],
+    "ritual_ZN13SurfaceObject14gridElementBufEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN13SurfaceObject5uvBufEv": ["unsigned int", "address"],
+    "ritual_ZN13SurfaceObject14gridIndexCountEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZN13SurfaceObject8vertexAtEii": [
       "address", "address", "int", "int"
     ],
@@ -32,6 +45,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK13SurfaceObject14wireframeColorEv": ["address", "address"],
+    "ritual_ZN13SurfaceObject19createCoarseIndicesEPiRiiii": [
+      "nothing", "address", "address", "address", "int", "int", "int"
+    ],
     "ritual_ZN13SurfaceObject13createNormalsERiiii": [
       "nothing", "address", "address", "int", "int", "int"
     ],
@@ -49,6 +65,14 @@
     ],
     "ritual_ZN13SurfaceObject6normalERK9QVector3DS2_S2_": [
       "address", "address", "address", "address", "address"
-    ]
+    ],
+    "ritual_ZN13SurfaceObject13createBuffersERK5QListI9QVector3DERKS0_I9QVector2DES4_PKi": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13SurfaceObject15checkDirectionsERK5QListIPS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_SurfaceObject": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13SurfaceObject5uvBufEv": ["unsigned int", "address"]
   }
 }

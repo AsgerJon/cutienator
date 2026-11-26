@@ -8,6 +8,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  Only a class built on QMultiObjectRegistryRef may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -189,6 +191,25 @@ const QMetaObject *ritual_ZNK23QMultiObjectRegistryRef10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMultiObjectRegistryRef::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QMultiObjectRegistryRef11qt_metacastEPKc(
+    QMultiObjectRegistryRef *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMultiObjectRegistryRef::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QMultiObjectRegistryRef11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMultiObjectRegistryRef *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMultiObjectRegistryRef::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QMultiObjectRegistryRef2trEPKcS1_i(
@@ -245,6 +266,13 @@ void ritual_ZN23QMultiObjectRegistryRefD1Ev(QMultiObjectRegistryRef *self) {
   delete self;
 }
 
+//  QQmlListProperty<QObject> QMultiObjectRegistryRef::objects()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN23QMultiObjectRegistryRef7objectsEv(
+    QMultiObjectRegistryRef *self) {
+  return new QQmlListProperty<QObject>(self->objects());
+}
+
 //  QList<QObject *> QMultiObjectRegistryRef::objectsList()
 extern "C" Q_DECL_EXPORT
 QList<QObject *> *ritual_ZN23QMultiObjectRegistryRef11objectsListEv(
@@ -258,6 +286,29 @@ bool ritual_ZN23QMultiObjectRegistryRef5eventEP6QEvent(
     QMultiObjectRegistryRef *self,
     QEvent *a0) {
   return self->event(a0);
+}
+
+//  void QMultiObjectRegistryRef::objectsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QMultiObjectRegistryRef14objectsChangedEv(
+    QMultiObjectRegistryRef *self) {
+  self->objectsChanged();
+}
+
+//  void QMultiObjectRegistryRef::objectAdded(QObject *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QMultiObjectRegistryRef11objectAddedEP7QObject(
+    QMultiObjectRegistryRef *self,
+    QObject *obj) {
+  self->objectAdded(obj);
+}
+
+//  void QMultiObjectRegistryRef::objectRemoved(QObject *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QMultiObjectRegistryRef13objectRemovedEP7QObject(
+    QMultiObjectRegistryRef *self,
+    QObject *obj) {
+  self->objectRemoved(obj);
 }
 
 //  a Python function taken by a CuteQMultiObjectRegistryRef, for the
@@ -277,4 +328,11 @@ bool ritual_own_ZN23QMultiObjectRegistryRef5eventEP6QEvent(
     QEvent *a0) {
   return static_cast<OwnQMultiObjectRegistryRef *>(self)->OwnQMultiObjectRegistryRef::event(
       a0);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QMultiObjectRegistryRef gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMultiObjectRegistryRef__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK25QHelpFilterSettingsWidget10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QHelpFilterSettingsWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QHelpFilterSettingsWidget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QHelpFilterSettingsWidgetC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN25QHelpFilterSettingsWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZN25QHelpFilterSettingsWidget22setAvailableComponentsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QHelpFilterSettingsWidget20setAvailableVersionsERK5QListI14QVersionNumberE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QHelpFilterSettingsWidget12readSettingsEPK17QHelpFilterEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QHelpFilterSettingsWidget13applySettingsEP17QHelpFilterEngine": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QHelpFilterSettingsWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QHelpFilterSettingsWidget6d_funcEv": ["address", "address"],
+    "ritual_take_QHelpFilterSettingsWidget": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

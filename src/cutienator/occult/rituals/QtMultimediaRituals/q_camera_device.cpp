@@ -18,6 +18,14 @@ QCameraDevice *ritual_ZN13QCameraDeviceC1ERKS_(const QCameraDevice *other) {
   return new QCameraDevice(*other);
 }
 
+//  QCameraDevice &QCameraDevice::operator=(const QCameraDevice &other)
+extern "C" Q_DECL_EXPORT
+QCameraDevice *ritual_ZN13QCameraDeviceaSERKS_(
+    QCameraDevice *self,
+    const QCameraDevice *other) {
+  return &(self->operator=(*other));
+}
+
 //  QCameraDevice::~QCameraDevice()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QCameraDeviceD1Ev(QCameraDevice *self) {

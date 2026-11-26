@@ -15,6 +15,7 @@
     "ritual_ZN6QColorC1E13QLatin1String": ["address", "address"],
     "ritual_ZN6QColorC1ENS_4SpecE": ["address", "int"],
     "ritual_ZN6QColor10fromStringE14QAnyStringView": ["address", "text"],
+    "ritual_ZN6QColoraSEN2Qt11GlobalColorE": ["address", "address", "int"],
     "ritual_ZNK6QColor7isValidEv": ["bool", "address"],
     "ritual_ZNK6QColor4nameENS_10NameFormatE": ["text", "address", "int"],
     "ritual_ZN6QColor13setNamedColorERK7QString": [
@@ -168,6 +169,8 @@
     "ritual_ZN6QColor11isRgbaValidEiiii": [
       "bool", "int", "int", "int", "int"
     ],
+    "ritual_ZlsR11QDataStreamRK6QColor": ["address", "address", "address"],
+    "ritual_ZrsR11QDataStreamR6QColor": ["address", "address", "address"],
     "ritual_ZN6QColorC1ENS_4SpecEttttt": [
       "address", "int", "unsigned short", "unsigned short", "unsigned short",
       "unsigned short", "unsigned short"

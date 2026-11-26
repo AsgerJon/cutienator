@@ -188,6 +188,24 @@ const QMetaObject *ritual_ZNK14QQuickPathMove10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathMove::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickPathMove11qt_metacastEPKc(
+    QQuickPathMove *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathMove::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickPathMove11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathMove *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathMove::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickPathMove2trEPKcS1_i(
@@ -201,6 +219,16 @@ QString *ritual_ZN14QQuickPathMove2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 QQuickPathMove *ritual_ZN14QQuickPathMoveC1EP7QObject(QObject *parent) {
   return new CuteQQuickPathMove(parent);
+}
+
+//  void QQuickPathMove::addToPath(QPainterPath &path, const QQuickPathData
+//      &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathMove9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickPathMove *self,
+    QPainterPath *path,
+    const QQuickPathData *a1) {
+  self->addToPath(*path, *a1);
 }
 
 //  a Python function taken by a CuteQQuickPathMove, for the function named

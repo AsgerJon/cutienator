@@ -5,5 +5,16 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN19QSequentialIteratorC1EO9QIteratorI13QMetaSequenceE": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSequentialIteratordeEv": ["address", "address"],
+    "ritual_ZNK19QSequentialIteratorptEv": ["address", "address"],
+    "ritual_drop_QSequentialIterator__QVariantRef_QSequentialIterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSequentialIterator__QVariantPointer_QSequentialIterator": [
+      "nothing", "address"
+    ]
   }
 }

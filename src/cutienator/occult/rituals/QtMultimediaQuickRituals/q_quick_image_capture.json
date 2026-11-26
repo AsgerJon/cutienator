@@ -6,10 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickImageCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickImageCapture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickImageCapture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickImageCaptureD1Ev": ["nothing", "address"],
     "ritual_ZNK18QQuickImageCapture7previewEv": ["text", "address"],
-    "ritual_ZNK18QQuickImageCapture10saveToFileERK4QUrl": [
-      "nothing", "address", "address"
+    "ritual_ZN18QQuickImageCapture14previewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickImageCapture16_q_imageCapturedEiRK6QImage": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_take_QQuickImageCapture": ["bool", "address", "chars", "address"]
   }

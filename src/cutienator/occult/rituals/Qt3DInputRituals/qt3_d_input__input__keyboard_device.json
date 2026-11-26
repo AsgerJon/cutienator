@@ -5,11 +5,42 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input14KeyboardDeviceC1Ev": ["address"],
+    "ritual_ZN9Qt3DInput5Input14KeyboardDevice7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input14KeyboardDevice20requestFocusForInputEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input14KeyboardDevice15setInputHandlerEPNS0_12InputHandlerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input14KeyboardDevice19setCurrentFocusItemEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input14KeyboardDevice9axisValueEi": [
+      "float", "address", "int"
+    ],
+    "ritual_ZNK9Qt3DInput5Input14KeyboardDevice15isButtonPressedEi": [
+      "bool", "address", "int"
+    ],
     "ritual_ZNK9Qt3DInput5Input14KeyboardDevice16currentFocusItemEv": [
       "address", "address"
     ],
     "ritual_ZNK9Qt3DInput5Input14KeyboardDevice26lastKeyboardInputRequesterEv": [
       "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input14KeyboardDevice14setButtonValueEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input14KeyboardDevice7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK9Qt3DInput5Input14KeyboardDevice9axisValueEi": [
+      "float", "address", "int"
+    ],
+    "ritual_own_ZNK9Qt3DInput5Input14KeyboardDevice15isButtonPressedEi": [
+      "bool", "address", "int"
     ]
   }
 }

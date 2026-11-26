@@ -60,10 +60,42 @@ bool ritual_ZNK17QOpenGLExtensions18hasOpenGLExtensionENS_15OpenGLExtensionE(
   return self->hasOpenGLExtension(extension);
 }
 
+//  GLvoid *QOpenGLExtensions::glMapBuffer(GLenum target, GLenum access)
+extern "C" Q_DECL_EXPORT
+GLvoid *ritual_ZN17QOpenGLExtensions11glMapBufferEjj(
+    QOpenGLExtensions *self,
+    GLenum target,
+    GLenum access) {
+  return self->glMapBuffer(target, access);
+}
+
+//  void QOpenGLExtensions::glGetBufferSubData(GLenum target,
+//      qopengl_GLintptr offset, qopengl_GLsizeiptr size, GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QOpenGLExtensions18glGetBufferSubDataEjllPv(
+    QOpenGLExtensions *self,
+    GLenum target,
+    long long offset,
+    long long size,
+    GLvoid *data) {
+  self->glGetBufferSubData(target, offset, size, data);
+}
+
 //  void QOpenGLExtensions::flushShared()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QOpenGLExtensions11flushSharedEv(QOpenGLExtensions *self) {
   self->flushShared();
+}
+
+//  void QOpenGLExtensions::discardFramebuffer(GLenum target, GLsizei
+//      numAttachments, const GLenum *attachments)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QOpenGLExtensions18discardFramebufferEjiPKj(
+    QOpenGLExtensions *self,
+    GLenum target,
+    GLsizei numAttachments,
+    const GLenum *attachments) {
+  self->discardFramebuffer(target, numAttachments, attachments);
 }
 
 //  QOpenGLExtensionsPrivate *QOpenGLExtensions::d() const

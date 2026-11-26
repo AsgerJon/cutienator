@@ -10,6 +10,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtGui/QGradientStops>
 
 //  A QQuickGradient that Python can take functions over in. Every QQuickGradient
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,24 @@ const QMetaObject *ritual_ZNK14QQuickGradient10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGradient::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickGradient11qt_metacastEPKc(
+    QQuickGradient *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGradient::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickGradient11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGradient *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGradient::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickGradient2trEPKcS1_i(
@@ -219,6 +239,13 @@ void ritual_ZN14QQuickGradientD1Ev(QQuickGradient *self) {
   delete self;
 }
 
+//  QQmlListProperty<QQuickGradientStop> QQuickGradient::stops()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickGradientStop> *ritual_ZN14QQuickGradient5stopsEv(
+    QQuickGradient *self) {
+  return new QQmlListProperty<QQuickGradientStop>(self->stops());
+}
+
 //  Orientation QQuickGradient::orientation() const
 extern "C" Q_DECL_EXPORT
 QQuickGradient::Orientation ritual_ZNK14QQuickGradient11orientationEv(
@@ -232,6 +259,25 @@ void ritual_ZN14QQuickGradient14setOrientationENS_11OrientationE(
     QQuickGradient *self,
     QQuickGradient::Orientation orientation) {
   self->setOrientation(orientation);
+}
+
+//  QGradientStops QQuickGradient::gradientStops() const
+extern "C" Q_DECL_EXPORT
+QGradientStops *ritual_ZNK14QQuickGradient13gradientStopsEv(
+    const QQuickGradient *self) {
+  return new QGradientStops(self->gradientStops());
+}
+
+//  void QQuickGradient::updated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickGradient7updatedEv(QQuickGradient *self) {
+  self->updated();
+}
+
+//  void QQuickGradient::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickGradient18orientationChangedEv(QQuickGradient *self) {
+  self->orientationChanged();
 }
 
 //  void QQuickGradient::doUpdate()
@@ -282,5 +328,18 @@ QQuickGradient *ritual_list_at_QQuickGradient_ptr(
 //  QList<QQuickGradient *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QQuickGradient_ptr(QList<QQuickGradient *> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickGradientStop> a ritual of QQuickGradient gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickGradient__QQmlListProperty_QQuickGradientStop(
+    QQmlListProperty<QQuickGradientStop> *self) {
+  delete self;
+}
+
+//  a QGradientStops a ritual of QQuickGradient gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickGradient__QGradientStops(QGradientStops *self) {
   delete self;
 }

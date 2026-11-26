@@ -6,8 +6,15 @@
   ],
   "rows": {
     "ritual_ZN25QIOVectoredWriteOperationD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QIOVectoredWriteOperation4dataEv": ["address", "address"],
+    "ritual_ZN25QIOVectoredWriteOperationC1ER19QIOOperationPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QIOVectoredWriteOperation": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QIOVectoredWriteOperation__QSpan_const_QSpan_const_std_byte": [
+      "nothing", "address"
     ]
   }
 }

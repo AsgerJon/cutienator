@@ -1,11 +1,29 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qsequentialiterable.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "QtCore/qsequentialiterable.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZN19QSequentialIterableC1Ev": ["address"],
+    "ritual_ZN19QSequentialIterableC1ERK13QMetaSequenceRK9QMetaTypePv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSequentialIterableC1ERK13QMetaSequenceRK9QMetaTypePKv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSequentialIterableC1EO9QIterableI13QMetaSequenceE": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSequentialIterableaSEO9QIterableI13QMetaSequenceE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSequentialIterable5beginEv": ["address", "address"],
+    "ritual_ZNK19QSequentialIterable3endEv": ["address", "address"],
+    "ritual_ZNK19QSequentialIterable10constBeginEv": ["address", "address"],
+    "ritual_ZNK19QSequentialIterable8constEndEv": ["address", "address"],
+    "ritual_ZN19QSequentialIterable12mutableBeginEv": ["address", "address"],
+    "ritual_ZN19QSequentialIterable10mutableEndEv": ["address", "address"],
     "ritual_ZNK19QSequentialIterable2atEx": [
       "address", "address", "long long"
     ],
@@ -23,6 +41,25 @@
     ],
     "ritual_ZNK19QSequentialIterable22canRandomAccessIterateEv": [
       "bool", "address"
-    ]
+    ],
+    "ritual_drop_QSequentialIterable__QSequentialIterable_const_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSequentialIterable__QSequentialIterable_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QSequentialIterableC2I5QListI8QVariantEEEPT_": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSequentialIterableC2I5QListI8QVariantEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSequentialIterableC2I5QListI7QStringEEEPT_": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSequentialIterableC2I5QListI7QStringEEEPKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSequentialIterableC2I5QListIiEEEPT_": ["address", "address"]
   }
 }

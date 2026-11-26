@@ -1,10 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qaction.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qaction.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK7QAction10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QAction11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QAction11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QAction2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QAction6d_funcEv": ["address", "address"],
     "ritual_ZNK7QAction6d_funcEv": ["address", "address"],
@@ -96,6 +100,9 @@
       "bool", "address", "address"
     ],
     "ritual_ZN7QAction5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN7QActionC1ER14QActionPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN7QAction7triggerEv": ["nothing", "address"],
     "ritual_ZN7QAction5hoverEv": ["nothing", "address"],
     "ritual_ZN7QAction10setCheckedEb": ["nothing", "address", "bool"],
@@ -104,6 +111,13 @@
     "ritual_ZN7QAction12resetEnabledEv": ["nothing", "address"],
     "ritual_ZN7QAction11setDisabledEb": ["nothing", "address", "bool"],
     "ritual_ZN7QAction10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QAction7changedEv": ["nothing", "address"],
+    "ritual_ZN7QAction14enabledChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QAction16checkableChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QAction14visibleChangedEv": ["nothing", "address"],
+    "ritual_ZN7QAction9triggeredEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QAction7hoveredEv": ["nothing", "address"],
+    "ritual_ZN7QAction7toggledEb": ["nothing", "address", "bool"],
     "ritual_ZNK7QAction10menuObjectEv": ["address", "address"],
     "ritual_ZN7QAction13setMenuObjectEP7QObject": [
       "nothing", "address", "address"
@@ -114,6 +128,11 @@
     "ritual_list_add_QAction_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QAction_ptr": ["long long", "address"],
     "ritual_list_at_QAction_ptr": ["address", "address", "long long"],
-    "ritual_list_drop_QAction_ptr": ["nothing", "address"]
+    "ritual_list_drop_QAction_ptr": ["nothing", "address"],
+    "ritual_ZNK7QAction4menuIP7QObjectEET_v": ["address", "address"],
+    "ritual_ZN7QAction7setMenuIP7QObjectEEvT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QAction12parentWidgetIP7QObjectEET_v": ["address", "address"]
   }
 }

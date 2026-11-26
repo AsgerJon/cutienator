@@ -106,6 +106,38 @@ void ritual_ZN17QRhiCommandBuffer19setGraphicsPipelineEP20QRhiGraphicsPipeline(
   self->setGraphicsPipeline(ps);
 }
 
+//  void QRhiCommandBuffer::setShaderResources(QRhiShaderResourceBindings
+//      *srb, int dynamicOffsetCount, const DynamicOffset *dynamicOffsets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QRhiCommandBuffer18setShaderResourcesEP26QRhiShaderResourceBindingsiPKSt4pairIijE(
+    QRhiCommandBuffer *self,
+    QRhiShaderResourceBindings *srb,
+    int dynamicOffsetCount,
+    const QRhiCommandBuffer::DynamicOffset *dynamicOffsets) {
+  self->setShaderResources(srb, dynamicOffsetCount, dynamicOffsets);
+}
+
+//  void QRhiCommandBuffer::setVertexInput(int startBinding, int
+//      bindingCount, const VertexInput *bindings, QRhiBuffer *indexBuf,
+//      quint32 indexOffset, IndexFormat indexFormat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QRhiCommandBuffer14setVertexInputEiiPKSt4pairIP10QRhiBufferjES2_jNS_11IndexFormatE(
+    QRhiCommandBuffer *self,
+    int startBinding,
+    int bindingCount,
+    const QRhiCommandBuffer::VertexInput *bindings,
+    QRhiBuffer *indexBuf,
+    quint32 indexOffset,
+    QRhiCommandBuffer::IndexFormat indexFormat) {
+  self->setVertexInput(
+      startBinding,
+      bindingCount,
+      bindings,
+      indexBuf,
+      indexOffset,
+      indexFormat);
+}
+
 //  void QRhiCommandBuffer::setViewport(const QRhiViewport &viewport)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QRhiCommandBuffer11setViewportERK12QRhiViewport(
@@ -294,6 +326,13 @@ extern "C" Q_DECL_EXPORT
 double ritual_ZN17QRhiCommandBuffer20lastCompletedGpuTimeEv(
     QRhiCommandBuffer *self) {
   return self->lastCompletedGpuTime();
+}
+
+//  QRhiCommandBuffer::QRhiCommandBuffer(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QRhiCommandBuffer *ritual_ZN17QRhiCommandBufferC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQRhiCommandBuffer(rhi);
 }
 
 //  a Python function taken by a CuteQRhiCommandBuffer, for the function

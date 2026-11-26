@@ -15,6 +15,7 @@ typedef void (*CuteQToolBarChangeEventCall1)(const void *, bool, int *);
 class CuteQToolBarChangeEvent : public QToolBarChangeEvent {
 public:
   using QToolBarChangeEvent::QToolBarChangeEvent;
+  CuteQToolBarChangeEvent(const QToolBarChangeEvent & other) : QToolBarChangeEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -55,6 +56,22 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QToolBarChangeEvent::QToolBarChangeEvent(const QToolBarChangeEvent &a0)
+extern "C" Q_DECL_EXPORT
+QToolBarChangeEvent *ritual_ZN19QToolBarChangeEventC1ERKS_(
+    const QToolBarChangeEvent *a0) {
+  return new CuteQToolBarChangeEvent(*a0);
+}
+
+//  QToolBarChangeEvent &QToolBarChangeEvent::operator=(const
+//      QToolBarChangeEvent &other)
+extern "C" Q_DECL_EXPORT
+QToolBarChangeEvent *ritual_ZN19QToolBarChangeEventaSERKS_(
+    QToolBarChangeEvent *self,
+    const QToolBarChangeEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QToolBarChangeEvent *QToolBarChangeEvent::clone() const
 extern "C" Q_DECL_EXPORT

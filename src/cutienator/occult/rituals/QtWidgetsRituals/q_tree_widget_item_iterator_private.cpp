@@ -6,7 +6,9 @@
 #if QT_CONFIG(treewidget)
 #if QT_CONFIG(treewidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(treewidget)
 #include <QtWidgets/qtreewidgetitemiterator.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtreewidgetitemiterator_p.h>
@@ -178,6 +180,16 @@ extern "C" Q_DECL_EXPORT
 QTreeWidgetItemIteratorPrivate *ritual_ZN30QTreeWidgetItemIteratorPrivateC1ERKS_(
     const QTreeWidgetItemIteratorPrivate *other) {
   return new QTreeWidgetItemIteratorPrivate(*other);
+}
+
+//  QTreeWidgetItemIteratorPrivate
+//      &QTreeWidgetItemIteratorPrivate::operator=(const
+//      QTreeWidgetItemIteratorPrivate &other)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItemIteratorPrivate *ritual_ZN30QTreeWidgetItemIteratorPrivateaSERKS_(
+    QTreeWidgetItemIteratorPrivate *self,
+    const QTreeWidgetItemIteratorPrivate *other) {
+  return &(self->operator=(*other));
 }
 
 //  QTreeWidgetItemIteratorPrivate::~QTreeWidgetItemIteratorPrivate()

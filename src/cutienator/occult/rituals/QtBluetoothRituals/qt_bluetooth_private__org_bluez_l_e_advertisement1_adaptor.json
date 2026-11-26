@@ -8,8 +8,65 @@
     "ritual_ZNK18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1AdaptorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor12discoverableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor15setDiscoverableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor8includesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor11setIncludesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor9localNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor12setLocalNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor11maxIntervalEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor14setMaxIntervalEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor11minIntervalEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor14setMinIntervalEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor12serviceUUIDsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor15setServiceUUIDsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor4typeEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor7setTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QtBluetoothPrivate31OrgBluezLEAdvertisement1Adaptor7ReleaseEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgBluezLEAdvertisement1Adaptor": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QtBluetoothPrivate_OrgBluezLEAdvertisement1Adaptor__ManufacturerDataList": [
+      "nothing", "address"
     ]
   }
 }

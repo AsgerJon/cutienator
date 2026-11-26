@@ -11,13 +11,37 @@
 #include <QtCharts/qlegendmarker.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QPair>
+#include <QtCore/QList>
+#include <QtCharts/QXYSeries>
+#include <QtCore/QVariant>
 
 //  const QMetaObject *QXYSeriesPrivate::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QXYSeriesPrivate10metaObjectEv(
     const QXYSeriesPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QXYSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QXYSeriesPrivate11qt_metacastEPKc(
+    QXYSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QXYSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QXYSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QXYSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QXYSeriesPrivate::tr(const char *s, const char *c, int n)
@@ -40,6 +64,20 @@ void ritual_ZN16QXYSeriesPrivate16initializeDomainEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QXYSeriesPrivate14initializeAxesEv(QXYSeriesPrivate *self) {
   self->initializeAxes();
+}
+
+//  void QXYSeriesPrivate::initializeAnimations(QChart::AnimationOptions
+//      options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QXYSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QXYSeriesPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
 }
 
 //  QList<QLegendMarker *> QXYSeriesPrivate::createLegendMarkers(QLegend
@@ -80,6 +118,28 @@ void ritual_ZN16QXYSeriesPrivate15drawPointLabelsEP8QPainterRK5QListI7QPointFEi(
   self->drawPointLabels(painter, *allPoints, offset);
 }
 
+//  void QXYSeriesPrivate::drawSeriesPointLabels(QPainter *painter, const
+//      QList<QPointF> &points, const int offset, const QHash<int, int>
+//      &offsets, const QList<int> &indexesToSkip, const QHash<int, QString>
+//      &customLabels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QXYSeriesPrivate21drawSeriesPointLabelsEP8QPainterRK5QListI7QPointFEiRK5QHashIiiERKS2_IiERKS7_Ii7QStringE(
+    QXYSeriesPrivate *self,
+    QPainter *painter,
+    const QList<QPointF> *points,
+    int offset,
+    const QHash<int, int> *offsets,
+    const QList<int> *indexesToSkip,
+    const QHash<int, QString> *customLabels) {
+  self->drawSeriesPointLabels(
+      painter,
+      *points,
+      offset,
+      *offsets,
+      *indexesToSkip,
+      *customLabels);
+}
+
 //  void QXYSeriesPrivate::drawBestFitLine(QPainter *painter, const QRectF
 //      &clipRect)
 extern "C" Q_DECL_EXPORT
@@ -88,6 +148,14 @@ void ritual_ZN16QXYSeriesPrivate15drawBestFitLineEP8QPainterRK6QRectF(
     QPainter *painter,
     const QRectF *clipRect) {
   self->drawBestFitLine(painter, *clipRect);
+}
+
+//  QPair<qreal, qreal> QXYSeriesPrivate::bestFitLineEquation(bool &ok) const
+extern "C" Q_DECL_EXPORT
+QPair<qreal, qreal> *ritual_ZNK16QXYSeriesPrivate19bestFitLineEquationERb(
+    const QXYSeriesPrivate *self,
+    bool *ok) {
+  return new QPair<qreal, qreal>(self->bestFitLineEquation(*ok));
 }
 
 //  void QXYSeriesPrivate::setPointSelected(int index, bool selected, bool
@@ -122,6 +190,30 @@ void ritual_ZN16QXYSeriesPrivate13setMarkerSizeEd(
     QXYSeriesPrivate *self,
     qreal markerSize) {
   self->setMarkerSize(markerSize);
+}
+
+//  QList<qreal> QXYSeriesPrivate::colorByData() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK16QXYSeriesPrivate11colorByDataEv(
+    const QXYSeriesPrivate *self) {
+  return new QList<qreal>(self->colorByData());
+}
+
+//  bool QXYSeriesPrivate::setPointConfiguration(const int index, const
+//      QXYSeries::PointConfiguration key, const QVariant &value)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QXYSeriesPrivate21setPointConfigurationEiN9QXYSeries18PointConfigurationERK8QVariant(
+    QXYSeriesPrivate *self,
+    int index,
+    const QXYSeries::PointConfiguration *key,
+    const QVariant *value) {
+  return self->setPointConfiguration(index, *key, *value);
+}
+
+//  void QXYSeriesPrivate::seriesUpdated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QXYSeriesPrivate13seriesUpdatedEv(QXYSeriesPrivate *self) {
+  self->seriesUpdated();
 }
 
 //  QXYSeries *QXYSeriesPrivate::q_func()
@@ -167,4 +259,17 @@ QAbstractAxis *ritual_own_ZNK16QXYSeriesPrivate17createDefaultAxisEN2Qt11Orienta
     const QXYSeriesPrivate *self,
     Qt::Orientation orientation) {
   return self->QXYSeriesPrivate::createDefaultAxis(orientation);
+}
+
+//  a QPair<qreal, qreal> a ritual of QXYSeriesPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXYSeriesPrivate__QPair_qreal_qreal(
+    QPair<qreal, qreal> *self) {
+  delete self;
+}
+
+//  a QList<qreal> a ritual of QXYSeriesPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXYSeriesPrivate__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

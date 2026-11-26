@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QTextEdit10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QTextEdit11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QTextEdit11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QTextEdit2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QTextEdit6d_funcEv": ["address", "address"],
     "ritual_ZNK9QTextEdit6d_funcEv": ["address", "address"],
@@ -120,6 +124,10 @@
     "ritual_ZN9QTextEdit17setAcceptRichTextEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN9QTextEdit18setExtraSelectionsERK5QListINS_14ExtraSelectionEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QTextEdit15extraSelectionsEv": ["address", "address"],
     "ritual_ZN9QTextEdit10moveCursorEN11QTextCursor13MoveOperationENS0_8MoveModeE": [
       "nothing", "address", "int", "int"
     ],
@@ -183,6 +191,15 @@
     ],
     "ritual_ZN9QTextEdit6zoomInEi": ["nothing", "address", "int"],
     "ritual_ZN9QTextEdit7zoomOutEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTextEdit11textChangedEv": ["nothing", "address"],
+    "ritual_ZN9QTextEdit13undoAvailableEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QTextEdit13redoAvailableEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QTextEdit24currentCharFormatChangedERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTextEdit13copyAvailableEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QTextEdit16selectionChangedEv": ["nothing", "address"],
+    "ritual_ZN9QTextEdit21cursorPositionChangedEv": ["nothing", "address"],
     "ritual_ZN9QTextEdit5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN9QTextEdit10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
@@ -253,6 +270,9 @@
     ],
     "ritual_ZN9QTextEdit16inputMethodEventEP17QInputMethodEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTextEditC1ER16QTextEditPrivateP7QWidget": [
+      "address", "address", "address"
     ],
     "ritual_ZN9QTextEdit16scrollContentsByEii": [
       "nothing", "address", "int", "int"
@@ -346,6 +366,9 @@
     ],
     "ritual_own_ZN9QTextEdit15doSetTextCursorERK11QTextCursor": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QTextEdit__QList_QTextEdit_ExtraSelection": [
+      "nothing", "address"
     ]
   }
 }

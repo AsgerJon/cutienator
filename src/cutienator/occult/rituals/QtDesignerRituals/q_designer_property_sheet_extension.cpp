@@ -283,6 +283,12 @@ public:
   }
 };
 
+//  QDesignerPropertySheetExtension::QDesignerPropertySheetExtension()
+extern "C" Q_DECL_EXPORT
+QDesignerPropertySheetExtension *ritual_ZN31QDesignerPropertySheetExtensionC1Ev() {
+  return new CuteQDesignerPropertySheetExtension();
+}
+
 //  QDesignerPropertySheetExtension::~QDesignerPropertySheetExtension()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QDesignerPropertySheetExtensionD1Ev(

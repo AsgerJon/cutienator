@@ -186,6 +186,24 @@ const QMetaObject *ritual_ZNK13QTextToSpeech10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTextToSpeech::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QTextToSpeech11qt_metacastEPKc(
+    QTextToSpeech *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextToSpeech::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QTextToSpeech11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextToSpeech *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTextToSpeech::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QTextToSpeech2trEPKcS1_i(
@@ -405,6 +423,92 @@ void ritual_ZN13QTextToSpeech8setVoiceERK6QVoice(
     QTextToSpeech *self,
     const QVoice *voice) {
   self->setVoice(*voice);
+}
+
+//  void QTextToSpeech::engineChanged(const QString &engine)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech13engineChangedERK7QString(
+    QTextToSpeech *self,
+    const QString *engine) {
+  self->engineChanged(*engine);
+}
+
+//  void QTextToSpeech::stateChanged(QTextToSpeech::State state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech12stateChangedENS_5StateE(
+    QTextToSpeech *self,
+    QTextToSpeech::State state) {
+  self->stateChanged(state);
+}
+
+//  void QTextToSpeech::errorOccurred(QTextToSpeech::ErrorReason error, const
+//      QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech13errorOccurredENS_11ErrorReasonERK7QString(
+    QTextToSpeech *self,
+    QTextToSpeech::ErrorReason error,
+    const QString *errorString) {
+  self->errorOccurred(error, *errorString);
+}
+
+//  void QTextToSpeech::localeChanged(const QLocale &locale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech13localeChangedERK7QLocale(
+    QTextToSpeech *self,
+    const QLocale *locale) {
+  self->localeChanged(*locale);
+}
+
+//  void QTextToSpeech::rateChanged(double rate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech11rateChangedEd(
+    QTextToSpeech *self,
+    double rate) {
+  self->rateChanged(rate);
+}
+
+//  void QTextToSpeech::pitchChanged(double pitch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech12pitchChangedEd(
+    QTextToSpeech *self,
+    double pitch) {
+  self->pitchChanged(pitch);
+}
+
+//  void QTextToSpeech::volumeChanged(double volume)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech13volumeChangedEd(
+    QTextToSpeech *self,
+    double volume) {
+  self->volumeChanged(volume);
+}
+
+//  void QTextToSpeech::voiceChanged(const QVoice &voice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech12voiceChangedERK6QVoice(
+    QTextToSpeech *self,
+    const QVoice *voice) {
+  self->voiceChanged(*voice);
+}
+
+//  void QTextToSpeech::sayingWord(const QString &word, qsizetype id,
+//      qsizetype start, qsizetype length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech10sayingWordERK7QStringxxx(
+    QTextToSpeech *self,
+    const QString *word,
+    qsizetype id,
+    qsizetype start,
+    qsizetype length) {
+  self->sayingWord(*word, id, start, length);
+}
+
+//  void QTextToSpeech::aboutToSynthesize(qsizetype id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextToSpeech17aboutToSynthesizeEx(
+    QTextToSpeech *self,
+    qsizetype id) {
+  self->aboutToSynthesize(id);
 }
 
 //  QList<QVoice> QTextToSpeech::allVoices(const QLocale *locale) const

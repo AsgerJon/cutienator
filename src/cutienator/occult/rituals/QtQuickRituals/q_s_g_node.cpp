@@ -221,6 +221,14 @@ QSGNode *ritual_ZN7QSGNodeC1ENS_8NodeTypeE(QSGNode::NodeType type) {
   return new CuteQSGNode(type);
 }
 
+//  QSGNode::QSGNode(QSGNodePrivate &dd, NodeType type)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN7QSGNodeC1ER14QSGNodePrivateNS_8NodeTypeE(
+    QSGNodePrivate *dd,
+    QSGNode::NodeType type) {
+  return new CuteQSGNode(*dd, type);
+}
+
 //  void QSGNode::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QSGNode4initEv(QSGNode *self) {

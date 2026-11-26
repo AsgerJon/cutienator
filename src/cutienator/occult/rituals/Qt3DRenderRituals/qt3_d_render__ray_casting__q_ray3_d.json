@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender10RayCasting6QRay3DC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender10RayCasting6QRay3DC1ERK9QVector3DS4_f": [
+      "address", "address", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting6QRay3D6originEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting6QRay3D9setOriginERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting6QRay3D9directionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting6QRay3D12setDirectionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting6QRay3D5pointEf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting6QRay3D9transformERK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting6QRay3D11transformedERK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting6QRay3DeqERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting6QRay3DneERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting6QRay3D7isValidEv": [
+      "bool", "address"
+    ]
+  }
+}

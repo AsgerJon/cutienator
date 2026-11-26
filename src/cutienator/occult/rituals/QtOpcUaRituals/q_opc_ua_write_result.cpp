@@ -17,6 +17,15 @@ QOpcUaWriteResult *ritual_ZN17QOpcUaWriteResultC1ERKS_(
   return new QOpcUaWriteResult(*other);
 }
 
+//  QOpcUaWriteResult &QOpcUaWriteResult::operator=(const QOpcUaWriteResult
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaWriteResult *ritual_ZN17QOpcUaWriteResultaSERKS_(
+    QOpcUaWriteResult *self,
+    const QOpcUaWriteResult *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QOpcUaWriteResult::~QOpcUaWriteResult()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QOpcUaWriteResultD1Ev(QOpcUaWriteResult *self) {

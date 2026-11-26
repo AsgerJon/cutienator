@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN22QMqttPublishPropertiesC1Ev": ["address"],
     "ritual_ZN22QMqttPublishPropertiesC1ERKS_": ["address", "address"],
+    "ritual_ZN22QMqttPublishPropertiesaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QMqttPublishPropertiesD1Ev": ["nothing", "address"],
     "ritual_ZNK22QMqttPublishProperties19availablePropertiesEv": [
       "int", "address"
@@ -47,9 +50,18 @@
     "ritual_ZN22QMqttPublishProperties17setUserPropertiesERK19QMqttUserProperties": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK22QMqttPublishProperties23subscriptionIdentifiersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QMqttPublishProperties26setSubscriptionIdentifiersERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK22QMqttPublishProperties11contentTypeEv": ["text", "address"],
     "ritual_ZN22QMqttPublishProperties14setContentTypeERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_drop_QMqttPublishProperties__QList_quint32": [
+      "nothing", "address"
     ]
   }
 }

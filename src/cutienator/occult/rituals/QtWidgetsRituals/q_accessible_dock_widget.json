@@ -13,6 +13,9 @@
     ],
     "ritual_ZNK21QAccessibleDockWidget10childCountEv": ["int", "address"],
     "ritual_ZNK21QAccessibleDockWidget4rectEv": ["address", "address"],
+    "ritual_ZNK21QAccessibleDockWidget4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
     "ritual_ZNK21QAccessibleDockWidget4roleEv": ["int", "address"],
     "ritual_ZNK21QAccessibleDockWidget10dockWidgetEv": [
       "address", "address"

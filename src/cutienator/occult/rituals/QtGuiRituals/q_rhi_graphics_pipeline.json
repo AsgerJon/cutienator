@@ -22,6 +22,9 @@
     "ritual_ZN20QRhiGraphicsPipeline12setFrontFaceENS_9FrontFaceE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN20QRhiGraphicsPipeline15setTargetBlendsESt16initializer_listINS_11TargetBlendEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QRhiGraphicsPipeline18cbeginTargetBlendsEv": [
       "address", "address"
     ],
@@ -98,6 +101,9 @@
     "ritual_ZN20QRhiGraphicsPipeline23setSlopeScaledDepthBiasEf": [
       "nothing", "address", "float"
     ],
+    "ritual_ZN20QRhiGraphicsPipeline15setShaderStagesESt16initializer_listI15QRhiShaderStageE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QRhiGraphicsPipeline18cbeginShaderStagesEv": [
       "address", "address"
     ],
@@ -143,6 +149,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN20QRhiGraphicsPipeline6createEv": ["bool", "address"],
+    "ritual_ZN20QRhiGraphicsPipelineC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
     "ritual_take_QRhiGraphicsPipeline": [
       "bool", "address", "chars", "address"
     ],

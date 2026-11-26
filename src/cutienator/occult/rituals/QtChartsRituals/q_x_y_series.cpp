@@ -8,9 +8,15 @@
 #include <QtGui/qcolor.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qimage.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QPair>
+#include <QtCharts/QXYSeries>
+#include <QtCore/QVariant>
+#include <QtCore/QHash>
 
 //  A QXYSeries that Python can take functions over in. Every QXYSeries
 //  Python makes is one. Each function below asks the Python
@@ -266,6 +272,22 @@ const QMetaObject *ritual_ZNK9QXYSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QXYSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QXYSeries11qt_metacastEPKc(QXYSeries *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QXYSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QXYSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QXYSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QXYSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QXYSeries2trEPKcS1_i(
@@ -273,6 +295,14 @@ QString *ritual_ZN9QXYSeries2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QXYSeries::tr(s, c, n));
+}
+
+//  QXYSeries::QXYSeries(QXYSeriesPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QXYSeries *ritual_ZN9QXYSeriesC1ER16QXYSeriesPrivateP7QObject(
+    QXYSeriesPrivate *d,
+    QObject *parent) {
+  return new CuteQXYSeries(*d, parent);
 }
 
 //  QXYSeries::~QXYSeries()
@@ -410,6 +440,22 @@ QList<QPointF> *ritual_ZNK9QXYSeries12pointsVectorEv(const QXYSeries *self) {
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK9QXYSeries2atEi(const QXYSeries *self, int index) {
   return new QPointF(self->at(index));
+}
+
+//  QXYSeries &QXYSeries::operator<<(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+QXYSeries *ritual_ZN9QXYSerieslsERK7QPointF(
+    QXYSeries *self,
+    const QPointF *point) {
+  return &(self->operator<<(*point));
+}
+
+//  QXYSeries &QXYSeries::operator<<(const QList<QPointF> &points)
+extern "C" Q_DECL_EXPORT
+QXYSeries *ritual_ZN9QXYSerieslsERK5QListI7QPointFE(
+    QXYSeries *self,
+    const QList<QPointF> *points) {
+  return &(self->operator<<(*points));
 }
 
 //  void QXYSeries::setPen(const QPen &pen)
@@ -595,6 +641,36 @@ void ritual_ZN9QXYSeries17deselectAllPointsEv(QXYSeries *self) {
   self->deselectAllPoints();
 }
 
+//  void QXYSeries::selectPoints(const QList<int> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries12selectPointsERK5QListIiE(
+    QXYSeries *self,
+    const QList<int> *indexes) {
+  self->selectPoints(*indexes);
+}
+
+//  void QXYSeries::deselectPoints(const QList<int> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries14deselectPointsERK5QListIiE(
+    QXYSeries *self,
+    const QList<int> *indexes) {
+  self->deselectPoints(*indexes);
+}
+
+//  void QXYSeries::toggleSelection(const QList<int> &indexes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries15toggleSelectionERK5QListIiE(
+    QXYSeries *self,
+    const QList<int> *indexes) {
+  self->toggleSelection(*indexes);
+}
+
+//  QList<int> QXYSeries::selectedPoints() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK9QXYSeries14selectedPointsEv(const QXYSeries *self) {
+  return new QList<int>(self->selectedPoints());
+}
+
 //  void QXYSeries::setLightMarker(const QImage &lightMarker)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QXYSeries14setLightMarkerERK6QImage(
@@ -649,6 +725,14 @@ bool ritual_ZNK9QXYSeries18bestFitLineVisibleEv(const QXYSeries *self) {
   return self->bestFitLineVisible();
 }
 
+//  QPair<qreal, qreal> QXYSeries::bestFitLineEquation(bool &ok) const
+extern "C" Q_DECL_EXPORT
+QPair<qreal, qreal> *ritual_ZNK9QXYSeries19bestFitLineEquationERb(
+    const QXYSeries *self,
+    bool *ok) {
+  return new QPair<qreal, qreal>(self->bestFitLineEquation(*ok));
+}
+
 //  void QXYSeries::setBestFitLinePen(const QPen &pen)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QXYSeries17setBestFitLinePenERK4QPen(
@@ -685,10 +769,297 @@ void ritual_ZN9QXYSeries23clearPointConfigurationEi(
   self->clearPointConfiguration(index);
 }
 
+//  void QXYSeries::clearPointConfiguration(const int index, const
+//      PointConfiguration key)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries23clearPointConfigurationEiNS_18PointConfigurationE(
+    QXYSeries *self,
+    int index,
+    const QXYSeries::PointConfiguration *key) {
+  self->clearPointConfiguration(index, *key);
+}
+
 //  void QXYSeries::clearPointsConfiguration()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QXYSeries24clearPointsConfigurationEv(QXYSeries *self) {
   self->clearPointsConfiguration();
+}
+
+//  void QXYSeries::clearPointsConfiguration(const PointConfiguration key)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries24clearPointsConfigurationENS_18PointConfigurationE(
+    QXYSeries *self,
+    const QXYSeries::PointConfiguration *key) {
+  self->clearPointsConfiguration(*key);
+}
+
+//  void QXYSeries::setPointConfiguration(const int index, const
+//      QHash<PointConfiguration, QVariant> &configuration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries21setPointConfigurationEiRK5QHashINS_18PointConfigurationE8QVariantE(
+    QXYSeries *self,
+    int index,
+    const QHash<QXYSeries::PointConfiguration, QVariant> *configuration) {
+  self->setPointConfiguration(index, *configuration);
+}
+
+//  void QXYSeries::setPointConfiguration(const int index, const
+//      PointConfiguration key, const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries21setPointConfigurationEiNS_18PointConfigurationERK8QVariant(
+    QXYSeries *self,
+    int index,
+    const QXYSeries::PointConfiguration *key,
+    const QVariant *value) {
+  self->setPointConfiguration(index, *key, *value);
+}
+
+//  void QXYSeries::setPointsConfiguration(const QHash<int,
+//      QHash<QXYSeries::PointConfiguration, QVariant>> &pointsConfiguration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries22setPointsConfigurationERK5QHashIiS0_INS_18PointConfigurationE8QVariantEE(
+    QXYSeries *self,
+    const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>> *pointsConfiguration) {
+  self->setPointsConfiguration(*pointsConfiguration);
+}
+
+//  QHash<PointConfiguration, QVariant> QXYSeries::pointConfiguration(const
+//      int index) const
+extern "C" Q_DECL_EXPORT
+QHash<QXYSeries::PointConfiguration, QVariant> *ritual_ZNK9QXYSeries18pointConfigurationEi(
+    const QXYSeries *self,
+    int index) {
+  return new QHash<QXYSeries::PointConfiguration, QVariant>(
+      self->pointConfiguration(
+          index));
+}
+
+//  PointsConfigurationHash QXYSeries::pointsConfiguration() const
+extern "C" Q_DECL_EXPORT
+QXYSeries::PointsConfigurationHash *ritual_ZNK9QXYSeries19pointsConfigurationEv(
+    const QXYSeries *self) {
+  return new QXYSeries::PointsConfigurationHash(self->pointsConfiguration());
+}
+
+//  void QXYSeries::sizeBy(const QList<qreal> &sourceData, const qreal
+//      minSize, const qreal maxSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries6sizeByERK5QListIdEdd(
+    QXYSeries *self,
+    const QList<qreal> *sourceData,
+    qreal minSize,
+    qreal maxSize) {
+  self->sizeBy(*sourceData, minSize, maxSize);
+}
+
+//  void QXYSeries::colorBy(const QList<qreal> &sourceData, const
+//      QLinearGradient &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries7colorByERK5QListIdERK15QLinearGradient(
+    QXYSeries *self,
+    const QList<qreal> *sourceData,
+    const QLinearGradient *gradient) {
+  self->colorBy(*sourceData, *gradient);
+}
+
+//  void QXYSeries::clicked(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries7clickedERK7QPointF(
+    QXYSeries *self,
+    const QPointF *point) {
+  self->clicked(*point);
+}
+
+//  void QXYSeries::hovered(const QPointF &point, bool state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries7hoveredERK7QPointFb(
+    QXYSeries *self,
+    const QPointF *point,
+    bool state) {
+  self->hovered(*point, state);
+}
+
+//  void QXYSeries::pressed(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries7pressedERK7QPointF(
+    QXYSeries *self,
+    const QPointF *point) {
+  self->pressed(*point);
+}
+
+//  void QXYSeries::released(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries8releasedERK7QPointF(
+    QXYSeries *self,
+    const QPointF *point) {
+  self->released(*point);
+}
+
+//  void QXYSeries::doubleClicked(const QPointF &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries13doubleClickedERK7QPointF(
+    QXYSeries *self,
+    const QPointF *point) {
+  self->doubleClicked(*point);
+}
+
+//  void QXYSeries::pointReplaced(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries13pointReplacedEi(QXYSeries *self, int index) {
+  self->pointReplaced(index);
+}
+
+//  void QXYSeries::pointRemoved(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries12pointRemovedEi(QXYSeries *self, int index) {
+  self->pointRemoved(index);
+}
+
+//  void QXYSeries::pointAdded(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries10pointAddedEi(QXYSeries *self, int index) {
+  self->pointAdded(index);
+}
+
+//  void QXYSeries::colorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries12colorChangedE6QColor(
+    QXYSeries *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QXYSeries::selectedColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries20selectedColorChangedERK6QColor(
+    QXYSeries *self,
+    const QColor *color) {
+  self->selectedColorChanged(*color);
+}
+
+//  void QXYSeries::pointsReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries14pointsReplacedEv(QXYSeries *self) {
+  self->pointsReplaced();
+}
+
+//  void QXYSeries::pointLabelsFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries24pointLabelsFormatChangedERK7QString(
+    QXYSeries *self,
+    const QString *format) {
+  self->pointLabelsFormatChanged(*format);
+}
+
+//  void QXYSeries::pointLabelsVisibilityChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries28pointLabelsVisibilityChangedEb(
+    QXYSeries *self,
+    bool visible) {
+  self->pointLabelsVisibilityChanged(visible);
+}
+
+//  void QXYSeries::pointLabelsFontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries22pointLabelsFontChangedERK5QFont(
+    QXYSeries *self,
+    const QFont *font) {
+  self->pointLabelsFontChanged(*font);
+}
+
+//  void QXYSeries::pointLabelsColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries23pointLabelsColorChangedERK6QColor(
+    QXYSeries *self,
+    const QColor *color) {
+  self->pointLabelsColorChanged(*color);
+}
+
+//  void QXYSeries::pointLabelsClippingChanged(bool clipping)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries26pointLabelsClippingChangedEb(
+    QXYSeries *self,
+    bool clipping) {
+  self->pointLabelsClippingChanged(clipping);
+}
+
+//  void QXYSeries::pointsRemoved(int index, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries13pointsRemovedEii(
+    QXYSeries *self,
+    int index,
+    int count) {
+  self->pointsRemoved(index, count);
+}
+
+//  void QXYSeries::penChanged(const QPen &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries10penChangedERK4QPen(
+    QXYSeries *self,
+    const QPen *pen) {
+  self->penChanged(*pen);
+}
+
+//  void QXYSeries::selectedPointsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries21selectedPointsChangedEv(QXYSeries *self) {
+  self->selectedPointsChanged();
+}
+
+//  void QXYSeries::lightMarkerChanged(const QImage &lightMarker)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries18lightMarkerChangedERK6QImage(
+    QXYSeries *self,
+    const QImage *lightMarker) {
+  self->lightMarkerChanged(*lightMarker);
+}
+
+//  void QXYSeries::selectedLightMarkerChanged(const QImage
+//      &selectedLightMarker)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries26selectedLightMarkerChangedERK6QImage(
+    QXYSeries *self,
+    const QImage *selectedLightMarker) {
+  self->selectedLightMarkerChanged(*selectedLightMarker);
+}
+
+//  void QXYSeries::bestFitLineVisibilityChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries28bestFitLineVisibilityChangedEb(
+    QXYSeries *self,
+    bool visible) {
+  self->bestFitLineVisibilityChanged(visible);
+}
+
+//  void QXYSeries::bestFitLinePenChanged(const QPen &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries21bestFitLinePenChangedERK4QPen(
+    QXYSeries *self,
+    const QPen *pen) {
+  self->bestFitLinePenChanged(*pen);
+}
+
+//  void QXYSeries::bestFitLineColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries23bestFitLineColorChangedERK6QColor(
+    QXYSeries *self,
+    const QColor *color) {
+  self->bestFitLineColorChanged(*color);
+}
+
+//  void QXYSeries::pointsConfigurationChanged(const
+//      QXYSeries::PointsConfigurationHash &configuration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries26pointsConfigurationChangedERK5QHashIiS0_INS_18PointConfigurationE8QVariantEE(
+    QXYSeries *self,
+    const QXYSeries::PointsConfigurationHash *configuration) {
+  self->pointsConfigurationChanged(*configuration);
+}
+
+//  void QXYSeries::markerSizeChanged(qreal size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QXYSeries17markerSizeChangedEd(QXYSeries *self, qreal size) {
+  self->markerSizeChanged(size);
 }
 
 //  QXYSeriesPrivate *QXYSeries::d_func()
@@ -739,4 +1110,31 @@ void ritual_own_ZN9QXYSeries8setColorERK6QColor(
 extern "C" Q_DECL_EXPORT
 QColor *ritual_own_ZNK9QXYSeries5colorEv(const QXYSeries *self) {
   return new QColor(self->QXYSeries::color());
+}
+
+//  a QList<int> a ritual of QXYSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXYSeries__QList_int(QList<int> *self) {
+  delete self;
+}
+
+//  a QPair<qreal, qreal> a ritual of QXYSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXYSeries__QPair_qreal_qreal(QPair<qreal, qreal> *self) {
+  delete self;
+}
+
+//  a QHash<QXYSeries::PointConfiguration, QVariant> a ritual of QXYSeries
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXYSeries__QHash_QXYSeries_PointConfiguration_QVariant(
+    QHash<QXYSeries::PointConfiguration, QVariant> *self) {
+  delete self;
+}
+
+//  a QXYSeries::PointsConfigurationHash a ritual of QXYSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXYSeries__QXYSeries_PointsConfigurationHash(
+    QXYSeries::PointsConfigurationHash *self) {
+  delete self;
 }

@@ -360,6 +360,14 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  QSGAbstractSoftwareRenderer::QSGAbstractSoftwareRenderer(QSGRenderContext
+//      *context)
+extern "C" Q_DECL_EXPORT
+QSGAbstractSoftwareRenderer *ritual_ZN27QSGAbstractSoftwareRendererC1EP16QSGRenderContext(
+    QSGRenderContext *context) {
+  return new CuteQSGAbstractSoftwareRenderer(context);
+}
+
 //  QSGAbstractSoftwareRenderer::~QSGAbstractSoftwareRenderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QSGAbstractSoftwareRendererD1Ev(

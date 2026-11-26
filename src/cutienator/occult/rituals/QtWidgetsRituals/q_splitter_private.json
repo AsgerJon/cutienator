@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN16QSplitterPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK16QSplitterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QSplitterPrivateC1Ev": ["address"],
     "ritual_ZN16QSplitterPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK16QSplitterPrivate4pickERK6QPoint": [
       "int", "address", "address"
@@ -43,6 +44,12 @@
     "ritual_ZNK16QSplitterPrivate10findWidgetEP7QWidget": [
       "address", "address", "address"
     ],
+    "ritual_ZN16QSplitterPrivate19insertWidget_helperEiP7QWidgetb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN16QSplitterPrivate12insertWidgetEiP7QWidget": [
+      "address", "address", "int", "address"
+    ],
     "ritual_ZN16QSplitterPrivate6doMoveEbiiibPiS0_": [
       "nothing", "address", "bool", "int", "int", "int", "bool", "address",
       "address"
@@ -54,6 +61,9 @@
       "int", "address", "int", "int", "address"
     ],
     "ritual_ZN16QSplitterPrivate13updateHandlesEv": ["nothing", "address"],
+    "ritual_ZN16QSplitterPrivate15setSizes_helperERK5QListIiEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK16QSplitterPrivate16shouldShowWidgetEPK7QWidget": [
       "bool", "address", "address"
     ],

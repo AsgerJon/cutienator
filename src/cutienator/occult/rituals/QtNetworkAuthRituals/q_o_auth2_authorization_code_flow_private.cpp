@@ -7,8 +7,28 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetworkAuth/6.12.0/QtNetworkAuth/private/qoauth2authorizationcodeflow_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qurl.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtNetworkAuth/qabstractoauth2.h>
+#include <QtNetworkAuth/private/qabstractoauth2_p.h>
+#include <QtCore/qurl.h>
+#include <QtCore/qurlquery.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qmessageauthenticationcode.h>
+#include <QtNetwork/qnetworkreply.h>
+#include <QtNetwork/qnetworkrequest.h>
+#include <QtNetwork/qnetworkaccessmanager.h>
+#include <QtNetwork/qhttpmultipart.h>
+#ifndef QT_NO_SSL
+#include <QtNetwork/qsslconfiguration.h>
+#endif
 #include <QtNetworkAuth/qabstractoauth.h>
 #include <QtNetworkAuth/qabstractoauthreplyhandler.h>
 #include <QtNetworkAuth/private/qabstractoauth_p.h>
@@ -43,6 +63,79 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from ../qtnetworkauth/src/oauth/qoauth2authorizationcodeflow.cpp, line 79, as local:qoauth2authorizationcodeflow.cpp:fromUrlFormEncoding
+static QString fromUrlFormEncoding(const QString &source)
+{
+    QByteArray decoded = source.toUtf8();
+    decoded = QByteArray::fromPercentEncoding(decoded.replace("+"," "));
+    return QString::fromUtf8(decoded);
+}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 444, as _ZN22QAbstractOAuth2PrivateC2ERKSt4pairI7QStringS1_ERK4QUrlP21QNetworkAccessManager
+inline QAbstractOAuth2Private::QAbstractOAuth2Private(const std::pair<QString, QString> &clientCredentials,
+                                               const QUrl &authorizationUrl,
+                                               QNetworkAccessManager *manager) :
+    QAbstractOAuthPrivate("qt.networkauth.oauth2",
+                          authorizationUrl,
+                          clientCredentials.first,
+                          manager),
+    clientIdentifierSharedKey(clientCredentials.second)
+{}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 454, as _ZN22QAbstractOAuth2PrivateD2Ev
+inline QAbstractOAuth2Private::~QAbstractOAuth2Private()
+{}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 320, as _ZN21QAbstractOAuthPrivate14setExtraTokensERK4QMapI7QString8QVariantE
+inline void QAbstractOAuthPrivate::setExtraTokens(const QVariantMap &tokens)
+{
+    if (extraTokens == tokens)
+        return;
+    Q_Q(QAbstractOAuth);
+    extraTokens = tokens;
+    emit q->extraTokensChanged(extraTokens);
+}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 286, as _ZN21QAbstractOAuthPrivate9setStatusEN14QAbstractOAuth6StatusE
+inline void QAbstractOAuthPrivate::setStatus(QAbstractOAuth::Status newStatus)
+{
+    Q_Q(QAbstractOAuth);
+    if (status != newStatus) {
+        status = newStatus;
+        Q_EMIT q->statusChanged(status);
+        if (status == QAbstractOAuth::Status::Granted)
+            Q_EMIT q->granted();
+    }
+}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 810, as _ZN22QAbstractOAuth2Private31handleRfcErrorResponseIfPresentERK4QMapI7QString8QVariantE
+inline bool QAbstractOAuth2Private::handleRfcErrorResponseIfPresent(const QVariantMap &data)
+{
+    Q_Q(QAbstractOAuth2);
+    const QString error = data.value(QtOAuth2RfcKeywords::error).toString();
+
+    if (error.size()) {
+        // RFC 6749, Section 5.2 Error Response
+        const QString uri = data.value(QtOAuth2RfcKeywords::errorUri).toString();
+        const QString description = data.value(QtOAuth2RfcKeywords::errorDescription).toString();
+        qCWarning(loggingCategory, "Authorization stage: AuthenticationError: %ls(%ls): %ls",
+                  qUtf16Printable(error), qUtf16Printable(uri), qUtf16Printable(description));
+
+        const QUrl url = QUrl{uri};
+#if QT_DEPRECATED_SINCE(6, 13)
+        QT_IGNORE_DEPRECATIONS(Q_EMIT q->error(error, description, url);)
+#endif
+        Q_EMIT q->serverReportedErrorOccurred(error, description, url);
+
+        // Emit also requestFailed() so that it is a signal for all errors
+        emit q->requestFailed(QAbstractOAuth::Error::ServerError);
+        return true;
+    }
+    return false;
+}
+
 //  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 297, as _ZN21QAbstractOAuthPrivate26generateRandomBase64StringEh
 inline QByteArray QAbstractOAuthPrivate::generateRandomBase64String(quint8 length)
 {
@@ -65,6 +158,87 @@ inline QByteArray QAbstractOAuthPrivate::generateRandomBase64String(quint8 lengt
             .toBase64(QByteArray::Base64UrlEncoding);
     ba.truncate(length);        // toBase64 output length has fixed lengths: 6, 11, 16, 22, 27...
     return ba;
+}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 264, as _ZN21QAbstractOAuthPrivateC2EPKcRK4QUrlRK7QStringP21QNetworkAccessManager
+inline QAbstractOAuthPrivate::QAbstractOAuthPrivate(const char *loggingCategory,
+                                             const QUrl &authorizationUrl,
+                                             const QString &clientIdentifier,
+                                             QNetworkAccessManager *manager) :
+    loggingCategory(loggingCategory),
+    clientIdentifier(clientIdentifier),
+    authorizationUrl(authorizationUrl),
+    defaultReplyHandler(new QOAuthOobReplyHandler),
+    networkAccessManagerPointer(manager)
+{}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 275, as _ZN21QAbstractOAuthPrivateD2Ev
+inline QAbstractOAuthPrivate::~QAbstractOAuthPrivate()
+{}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth2.cpp, line 571, as _ZN22QAbstractOAuth2Private19generateRandomStateEv
+inline QString QAbstractOAuth2Private::generateRandomState()
+{
+    // There is no strict minimum or maximum size for state, but
+    // generating a 32-character base64 URL string provides
+    // ~192 bits of entropy (32 characters * 6 bits per character), which is
+    // a common minimum size and meets OAuth 2 recommendation for secrets:
+    // https://datatracker.ietf.org/doc/html/rfc6819#section-5.1.4.2.2
+    return QString::fromLatin1(QAbstractOAuthPrivate::generateRandomBase64String(32));
+}
+
+//  from ../qtnetworkauth/src/oauth/qoauth2authorizationcodeflow.cpp, line 60, as _ZN35QOAuth2AuthorizationCodeFlowPrivateC1ERK4QUrlS2_RK7QStringP21QNetworkAccessManager
+inline QOAuth2AuthorizationCodeFlowPrivate::QOAuth2AuthorizationCodeFlowPrivate(
+        const QUrl &authorizationUrl, const QUrl &accessTokenUrl, const QString &clientIdentifier,
+        QNetworkAccessManager *manager) :
+    QAbstractOAuth2Private(std::make_pair(clientIdentifier, QString()), authorizationUrl, manager)
+{
+    tokenUrl = accessTokenUrl;
+    responseType = QStringLiteral("code");
+}
+
+//  from ../qtnetworkauth/src/oauth/qoauth2authorizationcodeflow.cpp, line 86, as _ZN35QOAuth2AuthorizationCodeFlowPrivate17_q_handleCallbackERK4QMapI7QString8QVariantE
+inline void QOAuth2AuthorizationCodeFlowPrivate::_q_handleCallback(const QVariantMap &data)
+{
+    Q_Q(QOAuth2AuthorizationCodeFlow);
+
+    if (status != QAbstractOAuth::Status::NotAuthenticated) {
+        qCWarning(loggingCategory) << "Authorization stage: callback in unexpected status:"
+                                   << static_cast<int>(status) << ", ignoring the callback";
+        return;
+    }
+
+    Q_ASSERT(!state.isEmpty());
+
+    if (handleRfcErrorResponseIfPresent(data))
+        return;
+
+    const QString code = data.value(QtOAuth2RfcKeywords::code).toString();
+    if (code.isEmpty()) {
+        qCWarning(loggingCategory, "Authorization stage: Code not received");
+        emit q->requestFailed(QAbstractOAuth::Error::OAuthTokenNotFoundError);
+        return;
+    }
+    const QString receivedState =
+        fromUrlFormEncoding(data.value(QtOAuth2RfcKeywords::state).toString());
+    if (receivedState.isEmpty()) {
+        qCWarning(loggingCategory, "Authorization stage: State not received");
+        emit q->requestFailed(QAbstractOAuth::Error::ServerError);
+        return;
+    }
+    if (state != receivedState) {
+        qCWarning(loggingCategory) << "Authorization stage: State mismatch";
+        emit q->requestFailed(QAbstractOAuth::Error::ServerError);
+        return;
+    }
+
+    setStatus(QAbstractOAuth::Status::TemporaryCredentialsReceived);
+
+    QVariantMap copy(data);
+    copy.remove(QtOAuth2RfcKeywords::code);
+    copy.remove(QtOAuth2RfcKeywords::state);
+    setExtraTokens(copy);
+    q->requestAccessToken(code);
 }
 
 //  from ../qtnetworkauth/src/oauth/qoauth2authorizationcodeflow.cpp, line 129, as _ZN35QOAuth2AuthorizationCodeFlowPrivate15_q_authenticateEP13QNetworkReplyP14QAuthenticator
@@ -120,6 +294,31 @@ extern "C" Q_DECL_EXPORT
 const QOAuth2AuthorizationCodeFlow *ritual_ZNK35QOAuth2AuthorizationCodeFlowPrivate6q_funcEv(
     const QOAuth2AuthorizationCodeFlowPrivate *self) {
   return self->q_func();
+}
+
+//  QOAuth2AuthorizationCodeFlowPrivate::QOAuth2AuthorizationCodeFlowPrivate(
+//      const QUrl &authorizationUrl, const QUrl &accessTokenUrl, const
+//      QString &clientIdentifier, QNetworkAccessManager *manager)
+extern "C" Q_DECL_EXPORT
+QOAuth2AuthorizationCodeFlowPrivate *ritual_ZN35QOAuth2AuthorizationCodeFlowPrivateC1ERK4QUrlS2_RK7QStringP21QNetworkAccessManager(
+    const QUrl *authorizationUrl,
+    const QUrl *accessTokenUrl,
+    const QString *clientIdentifier,
+    QNetworkAccessManager *manager) {
+  return new QOAuth2AuthorizationCodeFlowPrivate(
+      *authorizationUrl,
+      *accessTokenUrl,
+      *clientIdentifier,
+      manager);
+}
+
+//  void QOAuth2AuthorizationCodeFlowPrivate::_q_handleCallback(const
+//      QVariantMap &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QOAuth2AuthorizationCodeFlowPrivate17_q_handleCallbackERK4QMapI7QString8QVariantE(
+    QOAuth2AuthorizationCodeFlowPrivate *self,
+    const QMap<QString, QVariant> *data) {
+  self->_q_handleCallback(*data);
 }
 
 //  void QOAuth2AuthorizationCodeFlowPrivate::_q_authenticate(QNetworkReply

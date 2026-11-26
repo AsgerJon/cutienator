@@ -6,11 +6,26 @@
   ],
   "rows": {
     "ritual_ZN8QSvgNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN8QSvgNode4drawEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgNode18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN8QSvgNode11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8QSvgNode14fillThenStrokeEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8QSvgNode14drawIntoBufferEP8QPainterR15QSvgExtraStatesRK5QRect": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgNode17applyMaskToBufferEP6QImageRKS0_": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8QSvgNode12drawWithMaskEP8QPainterR15QSvgExtraStatesRK6QImageRK5QRect": [
+      "nothing", "address", "address", "address", "address", "address"
     ],
     "ritual_ZNK8QSvgNode19applyBufferToCanvasEP8QPainterRK6QImage": [
       "nothing", "address", "address", "address"
@@ -19,14 +34,47 @@
     "ritual_ZNK8QSvgNode14isDescendantOfEPKS_": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK8QSvgNode10applyStyleEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode19applyStyleRecursiveEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode11revertStyleEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode20revertStyleRecursiveEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode18applyAnimatedStyleEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode19revertAnimatedStyleEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgNode13stylePropertyEN17QSvgStyleProperty4TypeE": [
       "address", "address", "unsigned char"
     ],
     "ritual_ZNK8QSvgNode8documentEv": ["address", "address"],
     "ritual_ZNK8QSvgNode4typeEv": ["int", "address"],
     "ritual_ZNK8QSvgNode8typeNameEv": ["address", "address"],
+    "ritual_ZNK8QSvgNode18internalFastBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode6boundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK8QSvgNode6boundsEPK12QSvgDocument": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode15decoratedBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZN8QSvgNode19setRequiredFeaturesERK5QListI7QStringE": [
       "nothing", "address", "address"
@@ -89,6 +137,10 @@
     "ritual_ZNK8QSvgNode12hasMarkerEndEv": ["bool", "address"],
     "ritual_ZNK8QSvgNode12hasAnyMarkerEv": ["bool", "address"],
     "ritual_ZNK8QSvgNode22requiresGroupRenderingEv": ["bool", "address"],
+    "ritual_ZNK8QSvgNode14shouldDrawNodeEP8QPainterR15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode5styleEv": ["address", "address"],
     "ritual_ZNK8QSvgNode12filterRegionEPK12QSvgDocument6QRectF": [
       "address", "address", "address", "address"
     ],

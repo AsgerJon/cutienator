@@ -800,6 +800,24 @@ const QMetaObject *ritual_ZNK14QQuickFlipable10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFlipable::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickFlipable11qt_metacastEPKc(
+    QQuickFlipable *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFlipable::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickFlipable11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFlipable *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFlipable::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickFlipable2trEPKcS1_i(
@@ -857,6 +875,24 @@ QQuickFlipable::Side ritual_ZNK14QQuickFlipable4sideEv(
   return self->side();
 }
 
+//  void QQuickFlipable::frontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickFlipable12frontChangedEv(QQuickFlipable *self) {
+  self->frontChanged();
+}
+
+//  void QQuickFlipable::backChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickFlipable11backChangedEv(QQuickFlipable *self) {
+  self->backChanged();
+}
+
+//  void QQuickFlipable::sideChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickFlipable11sideChangedEv(QQuickFlipable *self) {
+  self->sideChanged();
+}
+
 //  void QQuickFlipable::updatePolish()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickFlipable12updatePolishEv(QQuickFlipable *self) {
@@ -867,6 +903,20 @@ void ritual_ZN14QQuickFlipable12updatePolishEv(QQuickFlipable *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickFlipable15retransformBackEv(QQuickFlipable *self) {
   self->retransformBack();
+}
+
+//  QQuickFlipablePrivate *QQuickFlipable::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickFlipablePrivate *ritual_ZN14QQuickFlipable6d_funcEv(
+    QQuickFlipable *self) {
+  return self->d_func();
+}
+
+//  const QQuickFlipablePrivate *QQuickFlipable::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickFlipablePrivate *ritual_ZNK14QQuickFlipable6d_funcEv(
+    const QQuickFlipable *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQuickFlipable, for the function named

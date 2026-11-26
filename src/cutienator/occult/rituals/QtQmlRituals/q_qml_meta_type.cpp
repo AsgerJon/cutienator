@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmlmetatype_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qqmlmetatype_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 5. Kept
+//  as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,14 +9,14 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qurl.h>
 #include <QtCore/qstring.h>
-#include <QtQml/qqmlprivate.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmltype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/qqmlprivate.h>
 #include <QtCore/qtyperevision.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQml/6.12.0/QtQml/private/qqmldirparser_p.h>
 #include <QtQml/6.12.0/QtQml/private/qhashedstring_p.h>
+#include <QtQml/6.12.0/QtQml/private/qqmldirparser_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetatype.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -25,6 +26,10 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtCore/QString>
+#include <QtCore/QTypeRevision>
+#include <QtCore/qhash.h>
 
 //  QUrl QQmlMetaType::inlineComponentUrl(const QUrl &baseUrl, const QString
 //      &name)
@@ -50,6 +55,49 @@ QUrl *ritual_ZN12QQmlMetaType13normalizedUrlERK4QUrl(
   return new QUrl(QQmlMetaType::normalizedUrl(*unNormalizedUrl));
 }
 
+//  QQmlType QQmlMetaType::findCompositeType(const QUrl &url, const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &compilationUnit,
+//      CompositeTypeLookupMode mode)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN12QQmlMetaType17findCompositeTypeERK4QUrlRK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEENS_23CompositeTypeLookupModeE(
+    const QUrl *url,
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *compilationUnit,
+    QQmlMetaType::CompositeTypeLookupMode mode) {
+  return new QQmlType(
+      QQmlMetaType::findCompositeType(
+          *url,
+          *compilationUnit,
+          mode));
+}
+
+//  QQmlType QQmlMetaType::findOrCreateFactualInlineComponentType(const QUrl
+//      &url, const QQmlRefPointer<QV4::CompiledData::CompilationUnit>
+//      &compilationUnit)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN12QQmlMetaType38findOrCreateFactualInlineComponentTypeERK4QUrlRK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE(
+    const QUrl *url,
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *compilationUnit) {
+  return new QQmlType(
+      QQmlMetaType::findOrCreateFactualInlineComponentType(
+          *url,
+          *compilationUnit));
+}
+
+//  QQmlType QQmlMetaType::findOrCreateFactualInlineComponentType(const QUrl
+//      &baseUrl, const QString &name, const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &compilationUnit)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN12QQmlMetaType38findOrCreateFactualInlineComponentTypeERK4QUrlRK7QStringRK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE(
+    const QUrl *baseUrl,
+    const QString *name,
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *compilationUnit) {
+  return new QQmlType(
+      QQmlMetaType::findOrCreateFactualInlineComponentType(
+          *baseUrl,
+          *name,
+          *compilationUnit));
+}
+
 //  QQmlType QQmlMetaType::registerType(const QQmlPrivate::RegisterType
 //      &type)
 extern "C" Q_DECL_EXPORT
@@ -66,12 +114,74 @@ QQmlType *ritual_ZN12QQmlMetaType17registerInterfaceERKN11QQmlPrivate17RegisterI
   return new QQmlType(QQmlMetaType::registerInterface(*type));
 }
 
+//  QQmlType QQmlMetaType::registerSingletonType(const
+//      QQmlPrivate::RegisterSingletonType &type, const
+//      QQmlType::SingletonInstanceInfo::ConstPtr &siinfo)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN12QQmlMetaType21registerSingletonTypeERKN11QQmlPrivate21RegisterSingletonTypeERK14QQmlRefPointerIKN8QQmlType21SingletonInstanceInfoEE(
+    const QQmlPrivate::RegisterSingletonType *type,
+    const QQmlType::SingletonInstanceInfo::ConstPtr *siinfo) {
+  return new QQmlType(QQmlMetaType::registerSingletonType(*type, *siinfo));
+}
+
+//  QQmlType QQmlMetaType::registerCompositeSingletonType(const
+//      QQmlPrivate::RegisterCompositeSingletonType &type, const
+//      QQmlType::SingletonInstanceInfo::ConstPtr &siinfo)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN12QQmlMetaType30registerCompositeSingletonTypeERKN11QQmlPrivate30RegisterCompositeSingletonTypeERK14QQmlRefPointerIKN8QQmlType21SingletonInstanceInfoEE(
+    const QQmlPrivate::RegisterCompositeSingletonType *type,
+    const QQmlType::SingletonInstanceInfo::ConstPtr *siinfo) {
+  return new QQmlType(
+      QQmlMetaType::registerCompositeSingletonType(
+          *type,
+          *siinfo));
+}
+
 //  QQmlType QQmlMetaType::registerCompositeType(const
 //      QQmlPrivate::RegisterCompositeType &type)
 extern "C" Q_DECL_EXPORT
 QQmlType *ritual_ZN12QQmlMetaType21registerCompositeTypeERKN11QQmlPrivate21RegisterCompositeTypeE(
     const QQmlPrivate::RegisterCompositeType *type) {
   return new QQmlType(QQmlMetaType::registerCompositeType(*type));
+}
+
+//  RegistrationResult QQmlMetaType::registerPluginTypes(QObject *instance,
+//      const QString &basePath, const QString &uri, const QString
+//      &typeNamespace, QTypeRevision version, QList<QQmlError> *errors)
+extern "C" Q_DECL_EXPORT
+QQmlMetaType::RegistrationResult ritual_ZN12QQmlMetaType19registerPluginTypesEP7QObjectRK7QStringS4_S4_13QTypeRevisionP5QListI9QQmlErrorE(
+    QObject *instance,
+    const QString *basePath,
+    const QString *uri,
+    const QString *typeNamespace,
+    const QTypeRevision *version,
+    QList<QQmlError> *errors) {
+  return QQmlMetaType::registerPluginTypes(
+      instance,
+      *basePath,
+      *uri,
+      *typeNamespace,
+      *version,
+      errors);
+}
+
+//  QQmlType QQmlMetaType::typeForUrl(const QUrl &url, const QHashedStringRef
+//      &typeName, CompositeTypeLookupMode mode, QList<QQmlError> *errors,
+//      QTypeRevision version)
+extern "C" Q_DECL_EXPORT
+QQmlType *ritual_ZN12QQmlMetaType10typeForUrlERK4QUrlRK16QHashedStringRefNS_23CompositeTypeLookupModeEP5QListI9QQmlErrorE13QTypeRevision(
+    const QUrl *url,
+    const QHashedStringRef *typeName,
+    QQmlMetaType::CompositeTypeLookupMode mode,
+    QList<QQmlError> *errors,
+    const QTypeRevision *version) {
+  return new QQmlType(
+      QQmlMetaType::typeForUrl(
+          *url,
+          *typeName,
+          mode,
+          errors,
+          *version));
 }
 
 //  QQmlType QQmlMetaType::findOrCreateSpeculativeInlineComponentType(const
@@ -147,6 +257,18 @@ void ritual_ZN12QQmlMetaType22unregisterModuleImportERK7QString13QTypeRevisionRK
     const QTypeRevision *version,
     const QQmlDirParser::Import *import) {
   QQmlMetaType::unregisterModuleImport(*uri, *version, *import);
+}
+
+//  QList<QQmlDirParser::Import> QQmlMetaType::moduleImports(const QString
+//      &uri, QTypeRevision version)
+extern "C" Q_DECL_EXPORT
+QList<QQmlDirParser::Import> *ritual_ZN12QQmlMetaType13moduleImportsERK7QString13QTypeRevision(
+    const QString *uri,
+    const QTypeRevision *version) {
+  return new QList<QQmlDirParser::Import>(
+      QQmlMetaType::moduleImports(
+          *uri,
+          *version));
 }
 
 //  int QQmlMetaType::typeId(const char *uri, QTypeRevision version, const
@@ -411,6 +533,19 @@ QMetaType *ritual_ZN12QQmlMetaType13listValueTypeE9QMetaType(
   return new QMetaType(QQmlMetaType::listValueType(*type));
 }
 
+//  QQmlAttachedPropertiesFunc
+//      QQmlMetaType::attachedPropertiesFunc(QQmlTypeLoader *typeLoader,
+//      const QMetaObject *a1)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQmlMetaType22attachedPropertiesFuncEP14QQmlTypeLoaderPK11QMetaObject(
+    QQmlTypeLoader *typeLoader,
+    const QMetaObject *a1) {
+  return reinterpret_cast<void *>(
+      QQmlMetaType::attachedPropertiesFunc(
+          typeLoader,
+          a1));
+}
+
 //  bool QQmlMetaType::isInterface(QMetaType type)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN12QQmlMetaType11isInterfaceE9QMetaType(const QMetaType *type) {
@@ -467,11 +602,56 @@ QQmlTypeModule *ritual_ZN12QQmlMetaType10typeModuleERK7QString13QTypeRevision(
   return QQmlMetaType::typeModule(*uri, *version);
 }
 
+//  QList<QQmlPrivate::AutoParentFunction> QQmlMetaType::parentFunctions()
+extern "C" Q_DECL_EXPORT
+QList<QQmlPrivate::AutoParentFunction> *ritual_ZN12QQmlMetaType15parentFunctionsEv() {
+  return new QList<QQmlPrivate::AutoParentFunction>(
+      QQmlMetaType::parentFunctions());
+}
+
+//  const QQmlPrivate::CachedQmlUnit
+//      *QQmlMetaType::findCachedCompilationUnit(const QUrl &uri, CacheMode
+//      mode, CachedUnitLookupError *status)
+extern "C" Q_DECL_EXPORT
+const QQmlPrivate::CachedQmlUnit *ritual_ZN12QQmlMetaType25findCachedCompilationUnitERK4QUrlNS_9CacheModeEPNS_21CachedUnitLookupErrorE(
+    const QUrl *uri,
+    QQmlMetaType::CacheMode mode,
+    QQmlMetaType::CachedUnitLookupError *status) {
+  return QQmlMetaType::findCachedCompilationUnit(*uri, mode, status);
+}
+
+//  void QQmlMetaType::prependCachedUnitLookupFunction(QQmlPrivate::QmlUnitCa
+//      cheLookupFunction handler)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType31prependCachedUnitLookupFunctionEPFPKN11QQmlPrivate13CachedQmlUnitERK4QUrlE(
+    void *handler) {
+  QQmlMetaType::prependCachedUnitLookupFunction(
+      reinterpret_cast<QQmlPrivate::QmlUnitCacheLookupFunction>(handler));
+}
+
+//  void QQmlMetaType::removeCachedUnitLookupFunction(QQmlPrivate::QmlUnitCac
+//      heLookupFunction handler)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType30removeCachedUnitLookupFunctionEPFPKN11QQmlPrivate13CachedQmlUnitERK4QUrlE(
+    void *handler) {
+  QQmlMetaType::removeCachedUnitLookupFunction(
+      reinterpret_cast<QQmlPrivate::QmlUnitCacheLookupFunction>(handler));
+}
+
 //  QString QQmlMetaType::prettyTypeName(const QObject *object)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQmlMetaType14prettyTypeNameEPK7QObject(
     const QObject *object) {
   return new QString(QQmlMetaType::prettyTypeName(object));
+}
+
+//  void QQmlMetaType::removeFromInlineComponents(QSet<QUrl> &container,
+//      const QQmlTypePrivate *reference)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType26removeFromInlineComponentsER4QSetI4QUrlEPK15QQmlTypePrivate(
+    QSet<QUrl> *container,
+    const QQmlTypePrivate *reference) {
+  QQmlMetaType::removeFromInlineComponents(*container, reference);
 }
 
 //  void QQmlMetaType::registerTypeAlias(int typeId, const QString &name)
@@ -488,6 +668,14 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZN12QQmlMetaType26registerAutoParentFunctionERKN11QQmlPrivate18RegisterAutoParentE(
     const QQmlPrivate::RegisterAutoParent *autoparent) {
   return QQmlMetaType::registerAutoParentFunction(*autoparent);
+}
+
+//  void QQmlMetaType::unregisterAutoParentFunction(const
+//      QQmlPrivate::AutoParentFunction &function)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType28unregisterAutoParentFunctionERKPFN11QQmlPrivate16AutoParentResultEP7QObjectS3_E(
+    const QQmlPrivate::AutoParentFunction *function) {
+  QQmlMetaType::unregisterAutoParentFunction(*function);
 }
 
 //  QQmlType QQmlMetaType::registerSequentialContainer(const
@@ -518,6 +706,45 @@ int ritual_ZN12QQmlMetaType21registerUnitCacheHookERKN11QQmlPrivate24RegisterQml
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQmlMetaType22clearTypeRegistrationsEv() {
   QQmlMetaType::clearTypeRegistrations();
+}
+
+//  QList<QQmlProxyMetaObject::ProxyData> QQmlMetaType::proxyData(const
+//      QMetaObject *mo, const QMetaObject *baseMetaObject, QMetaObject
+//      *lastMetaObject)
+extern "C" Q_DECL_EXPORT
+QList<QQmlProxyMetaObject::ProxyData> *ritual_ZN12QQmlMetaType9proxyDataEPK11QMetaObjectS2_PS0_(
+    const QMetaObject *mo,
+    const QMetaObject *baseMetaObject,
+    QMetaObject *lastMetaObject) {
+  return new QList<QQmlProxyMetaObject::ProxyData>(
+      QQmlMetaType::proxyData(
+          mo,
+          baseMetaObject,
+          lastMetaObject));
+}
+
+//  void QQmlMetaType::clone(QMetaObjectBuilder &builder, const QMetaObject
+//      *mo, const QMetaObject *ignoreStart, const QMetaObject *ignoreEnd,
+//      ClonePolicy policy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType5cloneER18QMetaObjectBuilderPK11QMetaObjectS4_S4_NS_11ClonePolicyE(
+    QMetaObjectBuilder *builder,
+    const QMetaObject *mo,
+    const QMetaObject *ignoreStart,
+    const QMetaObject *ignoreEnd,
+    QQmlMetaType::ClonePolicy policy) {
+  QQmlMetaType::clone(*builder, mo, ignoreStart, ignoreEnd, policy);
+}
+
+//  void QQmlMetaType::qmlInsertModuleRegistration(const QString &uri, void
+//      (*)() registerFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType27qmlInsertModuleRegistrationERK7QStringPFvvE(
+    const QString *uri,
+    void *registerFunction) {
+  QQmlMetaType::qmlInsertModuleRegistration(
+      *uri,
+      reinterpret_cast<void (*)()>(registerFunction));
 }
 
 //  void QQmlMetaType::qmlRemoveModuleRegistration(const QString &uri)
@@ -564,8 +791,118 @@ QQmlPropertyCache::ConstPtr *ritual_ZN12QQmlMetaType33findPropertyCacheInComposi
           *t));
 }
 
+//  void QQmlMetaType::registerInternalCompositeType(const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &compilationUnit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType29registerInternalCompositeTypeERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE(
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *compilationUnit) {
+  QQmlMetaType::registerInternalCompositeType(*compilationUnit);
+}
+
+//  void QQmlMetaType::unregisterInternalCompositeType(const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &compilationUnit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType31unregisterInternalCompositeTypeERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE(
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *compilationUnit) {
+  QQmlMetaType::unregisterInternalCompositeType(*compilationUnit);
+}
+
+//  void QQmlMetaType::deepClearCompositeType(const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &oldUnit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType22deepClearCompositeTypeERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE(
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *oldUnit) {
+  QQmlMetaType::deepClearCompositeType(*oldUnit);
+}
+
+//  int QQmlMetaType::countInternalCompositeTypeSelfReferences(const
+//      QQmlRefPointer<QV4::CompiledData::CompilationUnit> &compilationUnit)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQmlMetaType40countInternalCompositeTypeSelfReferencesERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE(
+    const QQmlRefPointer<QV4::CompiledData::CompilationUnit> *compilationUnit) {
+  return QQmlMetaType::countInternalCompositeTypeSelfReferences(
+      *compilationUnit);
+}
+
 //  QQmlMetaType::~QQmlMetaType()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQmlMetaTypeD1Ev(QQmlMetaType *self) {
   delete self;
+}
+
+//  a QList<QQmlDirParser::Import> a ritual of QQmlMetaType gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlMetaType__QList_QQmlDirParser_Import(
+    QList<QQmlDirParser::Import> *self) {
+  delete self;
+}
+
+//  a QList<QQmlPrivate::AutoParentFunction> a ritual of QQmlMetaType gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlMetaType__QList_QQmlPrivate_AutoParentFunction(
+    QList<QQmlPrivate::AutoParentFunction> *self) {
+  delete self;
+}
+
+//  a QList<QQmlProxyMetaObject::ProxyData> a ritual of QQmlMetaType gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlMetaType__QList_QQmlProxyMetaObject_ProxyData(
+    QList<QQmlProxyMetaObject::ProxyData> *self) {
+  delete self;
+}
+
+//  static void QQmlMetaType::removeQQmlTypePrivate<QHash<int,
+//      QQmlTypePrivate *>>(QHash<int, QQmlTypePrivate *> &container, const
+//      QQmlTypePrivate *reference)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType21removeQQmlTypePrivateI5QHashIiP15QQmlTypePrivateEEEvRT_PKS2_(
+    QHash<int, QQmlTypePrivate *> *container,
+    const QQmlTypePrivate *reference) {
+  QQmlMetaType::removeQQmlTypePrivate<QHash<int, QQmlTypePrivate *>>(
+      *container, reference);
+}
+
+//  static void QQmlMetaType::removeQQmlTypePrivate<QMultiHash<QString, const
+//      QQmlTypePrivate *>>(QMultiHash<QString, const QQmlTypePrivate *>
+//      &container, const QQmlTypePrivate *reference)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType21removeQQmlTypePrivateI10QMultiHashI7QStringPK15QQmlTypePrivateEEEvRT_S5_(
+    QMultiHash<QString, const QQmlTypePrivate *> *container,
+    const QQmlTypePrivate *reference) {
+  QQmlMetaType::removeQQmlTypePrivate<QMultiHash<QString, const QQmlTypePrivate *>>(
+      *container, reference);
+}
+
+//  static void QQmlMetaType::removeQQmlTypePrivate<QHash<QUrl, const
+//      QQmlTypePrivate *>>(QHash<QUrl, const QQmlTypePrivate *> &container,
+//      const QQmlTypePrivate *reference)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType21removeQQmlTypePrivateI5QHashI4QUrlPK15QQmlTypePrivateEEEvRT_S5_(
+    QHash<QUrl, const QQmlTypePrivate *> *container,
+    const QQmlTypePrivate *reference) {
+  QQmlMetaType::removeQQmlTypePrivate<QHash<QUrl, const QQmlTypePrivate *>>(
+      *container, reference);
+}
+
+//  static void QQmlMetaType::removeQQmlTypePrivate<QMultiHash<const
+//      QMetaObject *, const QQmlTypePrivate *>>(QMultiHash<const QMetaObject
+//      *, const QQmlTypePrivate *> &container, const QQmlTypePrivate
+//      *reference)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType21removeQQmlTypePrivateI10QMultiHashIPK11QMetaObjectPK15QQmlTypePrivateEEEvRT_S7_(
+    QMultiHash<const QMetaObject *, const QQmlTypePrivate *> *container,
+    const QQmlTypePrivate *reference) {
+  QQmlMetaType::removeQQmlTypePrivate<QMultiHash<const QMetaObject *, const QQmlTypePrivate *>>(
+      *container, reference);
+}
+
+//  static void QQmlMetaType::removeFromInlineComponents<QHash<QUrl, const
+//      QQmlTypePrivate *>>(QHash<QUrl, const QQmlTypePrivate *> &container,
+//      const QQmlTypePrivate *reference)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlMetaType26removeFromInlineComponentsI5QHashI4QUrlPK15QQmlTypePrivateEEEvRT_S5_(
+    QHash<QUrl, const QQmlTypePrivate *> *container,
+    const QQmlTypePrivate *reference) {
+  QQmlMetaType::removeFromInlineComponents<
+      QHash<QUrl, const QQmlTypePrivate *>>(*container, reference);
 }

@@ -12,6 +12,7 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickitemchangelistener_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
+#include <QtGui/qpixmap.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/private/qquickdrag_p.h>
@@ -45,14 +46,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/items/qquickdrag.cpp, line 66, as _ZN25QQuickDragAttachedPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
-inline void QQuickDragAttachedPrivate::itemGeometryChanged(QQuickItem *, QQuickGeometryChange change,
-                                                    const QRectF &)
-{
-    if (!change.positionChange() || !active || itemMoved)
-        return;
-    updatePosition();
-}
+using namespace Qt::StringLiterals;
 
 //  from ../qtdeclarative/src/quick/items/qquickdrag.cpp, line 74, as _ZN25QQuickDragAttachedPrivate17itemParentChangedEP10QQuickItemS1_
 inline void QQuickDragAttachedPrivate::itemParentChanged(QQuickItem *, QQuickItem *)
@@ -66,6 +60,15 @@ inline void QQuickDragAttachedPrivate::itemParentChanged(QQuickItem *, QQuickIte
         restartDrag();
     else if (window)
         updatePosition();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdrag.cpp, line 66, as _ZN25QQuickDragAttachedPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
+inline void QQuickDragAttachedPrivate::itemGeometryChanged(QQuickItem *, QQuickGeometryChange change,
+                                                    const QRectF &)
+{
+    if (!change.positionChange() || !active || itemMoved)
+        return;
+    updatePosition();
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickdrag.cpp, line 87, as _ZN25QQuickDragAttachedPrivate14updatePositionEv
@@ -146,6 +149,149 @@ inline void QQuickDragAttachedPrivate::deliverEvent(QQuickWindow *window, QEvent
     inEvent = true;
     QQuickWindowPrivate::get(window)->deliveryAgentPrivate()->deliverDragEvent(&dragGrabber, event);
     inEvent = false;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdrag.cpp, line 870, as _ZN25QQuickDragAttachedPrivate9startDragE6QFlagsIN2Qt10DropActionEE7QPixmap
+inline Qt::DropAction QQuickDragAttachedPrivate::startDrag(Qt::DropActions supportedActions,
+                                                    QPixmap pixmap)
+{
+    Q_Q(QQuickDragAttached);
+
+    QDrag *drag = new QDrag(source ? source : q);
+
+    drag->setMimeData(createMimeData());
+    if (!pixmap.isNull())
+        drag->setPixmap(pixmap);
+    else if (pixmapLoader.isReady())
+        drag->setPixmap(QPixmap::fromImage(pixmapLoader.image()));
+
+    drag->setHotSpot(hotSpot.toPoint());
+    emit q->dragStarted();
+
+    executingNativeDrag = true;
+    Qt::DropAction dropAction = drag->exec(supportedActions);
+    executingNativeDrag = false;
+
+    if (!QGuiApplicationPrivate::platformIntegration()->drag()->ownsDragObject())
+        drag->deleteLater();
+
+    deliverLeaveEvent();
+
+    if (target) {
+        target = nullptr;
+        emit q->targetChanged();
+    }
+
+    emit q->dragFinished(dropAction);
+
+    active = false;
+    emit q->activeChanged();
+
+    return dropAction;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdrag.cpp, line 756, as _ZNK25QQuickDragAttachedPrivate14createMimeDataEv
+inline QMimeData *QQuickDragAttachedPrivate::createMimeData() const
+{
+    Q_Q(const QQuickDragAttached);
+    QMimeData *mimeData = new QMimeData();
+
+    for (const auto [mimeType, value] : externalMimeData.asKeyValueRange()) {
+        switch (value.typeId()) {
+        case QMetaType::QByteArray:
+            // byte array assumed to already be correctly encoded
+            mimeData->setData(mimeType, value.toByteArray());
+            break;
+        case QMetaType::QString: {
+            const QString text = value.toString();
+            if (mimeType == u"text/plain"_s) {
+                mimeData->setText(text);
+            } else if (mimeType == u"text/html"_s) {
+                mimeData->setHtml(text);
+            } else if (mimeType == u"text/uri-list"_s) {
+                QList<QUrl> urls;
+                // parse and split according to RFC2483
+                const auto lines = text.split(u"\r\n"_s, Qt::SkipEmptyParts);
+                for (const auto &line : lines) {
+                    const QUrl url(line);
+                    if (url.isValid())
+                        urls.push_back(url);
+                    else
+                        qmlWarning(q) << line << " is not a valid URI";
+
+                }
+                mimeData->setUrls(urls);
+            } else if (mimeType.startsWith(u"text/"_s)) {
+                if (qsizetype charsetIdx = mimeType.lastIndexOf(u";charset="_s); charsetIdx != -1) {
+                    charsetIdx += sizeof(";charset=") - 1;
+                    const QByteArray encoding = mimeType.mid(charsetIdx).toUtf8();
+                    QStringEncoder encoder(encoding);
+                    if (encoder.isValid())
+                        mimeData->setData(mimeType, encoder.encode(text));
+                    else
+                        qmlWarning(q) << "Don't know how to encode text as " << mimeType;
+                } else {
+                    mimeData->setData(mimeType, text.toUtf8());
+                }
+            } else {
+                mimeData->setData(mimeType, text.toUtf8());
+            }
+            break;
+        }
+        case QMetaType::QVariantList:
+        case QMetaType::QStringList:
+            if (mimeType == u"text/uri-list"_s) {
+                const QVariantList values = value.toList();
+                QList<QUrl> urls;
+                urls.reserve(values.size());
+                bool error = false;
+                for (qsizetype index = 0; index < values.size(); ++index) {
+                    const QUrl url = values.at(index).value<QUrl>();
+                    if (url.isValid()) {
+                        urls += url;
+                    } else {
+                        error = true;
+                        qmlWarning(q) << "Value '" << values.at(index) << "' at index " << index
+                                      << " is not a valid URI";
+                    }
+                }
+                if (!error)
+                    mimeData->setUrls(urls);
+            }
+            break;
+        case QMetaType::QColor:
+            if (mimeType == u"application/x-color"_s)
+                mimeData->setColorData(value);
+            break;
+        case QMetaType::QImage:
+            if (const QByteArray mimeTypeUtf8 = mimeType.toUtf8();
+                QImageWriter::supportedMimeTypes().contains(mimeTypeUtf8)) {
+                const auto imageFormats = QImageWriter::imageFormatsForMimeType(mimeTypeUtf8);
+                if (imageFormats.isEmpty()) { // shouldn't happen, but we can fall back
+                    mimeData->setImageData(value);
+                    break;
+                }
+                const QImage image = value.value<QImage>();
+                QByteArray bytes;
+                {
+                    QBuffer buffer(&bytes);
+                    QImageWriter encoder(&buffer, imageFormats.first());
+                    encoder.write(image);
+                }
+                mimeData->setData(mimeType, bytes);
+                break;
+            }
+            Q_FALLTHROUGH();
+        default:
+            qmlWarning(q) << "Don't know how to encode variant of type " << value.metaType()
+                          << " as mime type " << mimeType;
+            // compatibility with pre-6.5 - probably a bad idea
+            mimeData->setData(mimeType, value.toString().toUtf8());
+            break;
+        }
+    }
+
+    return mimeData;
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickdrag.cpp, line 859, as _ZN25QQuickDragAttachedPrivate10loadPixmapEv
@@ -240,12 +386,6 @@ QQuickDragAttachedPrivate *ritual_ZN25QQuickDragAttachedPrivate3getEP18QQuickDra
   return QQuickDragAttachedPrivate::get(attached);
 }
 
-//  QQuickDragAttachedPrivate::QQuickDragAttachedPrivate()
-extern "C" Q_DECL_EXPORT
-QQuickDragAttachedPrivate *ritual_ZN25QQuickDragAttachedPrivateC1Ev() {
-  return new CuteQQuickDragAttachedPrivate();
-}
-
 //  void QQuickDragAttachedPrivate::itemGeometryChanged(QQuickItem *a0,
 //      QQuickGeometryChange a1, const QRectF &a2)
 extern "C" Q_DECL_EXPORT
@@ -310,6 +450,25 @@ void ritual_ZN25QQuickDragAttachedPrivate12deliverEventEP12QQuickWindowP6QEvent(
     QQuickWindow *window,
     QEvent *event) {
   self->deliverEvent(window, event);
+}
+
+//  Qt::DropAction QQuickDragAttachedPrivate::startDrag(Qt::DropActions
+//      supportedActions, QPixmap pixmap)
+extern "C" Q_DECL_EXPORT
+Qt::DropAction ritual_ZN25QQuickDragAttachedPrivate9startDragE6QFlagsIN2Qt10DropActionEE7QPixmap(
+    QQuickDragAttachedPrivate *self,
+    int supportedActions,
+    const QPixmap *pixmap) {
+  return self->startDrag(
+      QFlags<Qt::DropAction>::fromInt(supportedActions),
+      *pixmap);
+}
+
+//  QMimeData *QQuickDragAttachedPrivate::createMimeData() const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK25QQuickDragAttachedPrivate14createMimeDataEv(
+    const QQuickDragAttachedPrivate *self) {
+  return self->createMimeData();
 }
 
 //  void QQuickDragAttachedPrivate::loadPixmap()

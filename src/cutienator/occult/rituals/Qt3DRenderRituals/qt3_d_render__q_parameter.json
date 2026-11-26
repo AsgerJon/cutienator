@@ -7,6 +7,12 @@
     "ritual_ZNK10Qt3DRender10QParameter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QParameter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QParameter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QParameter2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,6 +24,24 @@
     ],
     "ritual_ZN10Qt3DRender10QParameterC1ERK7QStringPNS_16QAbstractTextureEPN8Qt3DCore5QNodeE": [
       "address", "text", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QParameterD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender10QParameter4nameEv": ["text", "address"],
+    "ritual_ZNK10Qt3DRender10QParameter5valueEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender10QParameter7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender10QParameter8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QParameter12valueChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QParameter11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender10QParameterC1ERNS_17QParameterPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender10QParameter6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender10QParameter6d_funcEv": ["address", "address"],

@@ -11,7 +11,9 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlfunctionsorter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qcompare.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -256,6 +258,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18QQmlFunctionSorter10metaObjectEv(
     const QQmlFunctionSorter *self) {
   return self->metaObject();
+}
+
+//  void *QQmlFunctionSorter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQmlFunctionSorter11qt_metacastEPKc(
+    QQmlFunctionSorter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlFunctionSorter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQmlFunctionSorter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlFunctionSorter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQmlFunctionSorter::tr(const char *s, const char *c, int n)

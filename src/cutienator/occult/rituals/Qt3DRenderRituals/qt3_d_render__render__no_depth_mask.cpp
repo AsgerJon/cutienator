@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_NoDepthMaskCall0)(const void *, const Qt3DR
 class CuteQt3DRender_Render_NoDepthMask : public Qt3DRender::Render::NoDepthMask {
 public:
   using Qt3DRender::Render::NoDepthMask::NoDepthMask;
-  CuteQt3DRender_Render_NoDepthMask(const Qt3DRender::Render::NoDepthMask &other) : Qt3DRender::Render::NoDepthMask(other) {}
+  CuteQt3DRender_Render_NoDepthMask(const Qt3DRender::Render::NoDepthMask & other) : Qt3DRender::Render::NoDepthMask(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::NoDepthMask::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::NoDepthMask::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render11NoDepthMask16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::NoDepthMask *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::NoDepthMask::~NoDepthMask()
 extern "C" Q_DECL_EXPORT

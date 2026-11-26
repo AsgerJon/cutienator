@@ -10,6 +10,7 @@
 #include <Qt3DCore/qnodeid.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A Qt3DCore::QAspectManager that Python can take functions over in. Every Qt3DCore::QAspectManager
 //  Python makes is one. Each function below asks the Python
@@ -201,6 +202,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore14QAspectManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QAspectManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore14QAspectManager11qt_metacastEPKc(
+    Qt3DCore::QAspectManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QAspectManager::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore14QAspectManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QAspectManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QAspectManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore14QAspectManager2trEPKcS2_i(
@@ -208,6 +228,19 @@ QString *ritual_ZN8Qt3DCore14QAspectManager2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QAspectManager::tr(s, c, n));
+}
+
+//  Qt3DCore::QAspectManager::QAspectManager(QAspectEngine *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAspectManager *ritual_ZN8Qt3DCore14QAspectManagerC1EPNS_13QAspectEngineE(
+    Qt3DCore::QAspectEngine *parent) {
+  return new CuteQt3DCore_QAspectManager(parent);
+}
+
+//  Qt3DCore::QAspectManager::~QAspectManager()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManagerD1Ev(Qt3DCore::QAspectManager *self) {
+  delete self;
 }
 
 //  QAspectEngine *Qt3DCore::QAspectManager::engine() const
@@ -224,11 +257,199 @@ Qt3DCore::QScheduler *ritual_ZNK8Qt3DCore14QAspectManager9schedulerEv(
   return self->scheduler();
 }
 
+//  void Qt3DCore::QAspectManager::setRunMode(QAspectEngine::RunMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager10setRunModeENS_13QAspectEngine7RunModeE(
+    Qt3DCore::QAspectManager *self,
+    Qt3DCore::QAspectEngine::RunMode mode) {
+  self->setRunMode(mode);
+}
+
+//  void Qt3DCore::QAspectManager::enterSimulationLoop()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager19enterSimulationLoopEv(
+    Qt3DCore::QAspectManager *self) {
+  self->enterSimulationLoop();
+}
+
+//  void Qt3DCore::QAspectManager::exitSimulationLoop()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager18exitSimulationLoopEv(
+    Qt3DCore::QAspectManager *self) {
+  self->exitSimulationLoop();
+}
+
+//  bool Qt3DCore::QAspectManager::isShuttingDown() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore14QAspectManager14isShuttingDownEv(
+    const Qt3DCore::QAspectManager *self) {
+  return self->isShuttingDown();
+}
+
+//  void Qt3DCore::QAspectManager::initialize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager10initializeEv(
+    Qt3DCore::QAspectManager *self) {
+  self->initialize();
+}
+
+//  void Qt3DCore::QAspectManager::shutdown()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager8shutdownEv(
+    Qt3DCore::QAspectManager *self) {
+  self->shutdown();
+}
+
+//  void Qt3DCore::QAspectManager::processFrame()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager12processFrameEv(
+    Qt3DCore::QAspectManager *self) {
+  self->processFrame();
+}
+
+//  void Qt3DCore::QAspectManager::setRootEntity(Qt3DCore::QEntity *root,
+//      const QList<QNode *> &nodes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager13setRootEntityEPNS_7QEntityERK5QListIPNS_5QNodeEE(
+    Qt3DCore::QAspectManager *self,
+    Qt3DCore::QEntity *root,
+    const QList<Qt3DCore::QNode *> *nodes) {
+  self->setRootEntity(root, *nodes);
+}
+
+//  void Qt3DCore::QAspectManager::addNodes(const QList<QNode *> &nodes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager8addNodesERK5QListIPNS_5QNodeEE(
+    Qt3DCore::QAspectManager *self,
+    const QList<Qt3DCore::QNode *> *nodes) {
+  self->addNodes(*nodes);
+}
+
+//  void Qt3DCore::QAspectManager::removeNodes(const QList<QNode *> &nodes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager11removeNodesERK5QListIPNS_5QNodeEE(
+    Qt3DCore::QAspectManager *self,
+    const QList<Qt3DCore::QNode *> *nodes) {
+  self->removeNodes(*nodes);
+}
+
+//  void Qt3DCore::QAspectManager::registerAspect(Qt3DCore::QAbstractAspect
+//      *aspect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager14registerAspectEPNS_15QAbstractAspectE(
+    Qt3DCore::QAspectManager *self,
+    Qt3DCore::QAbstractAspect *aspect) {
+  self->registerAspect(aspect);
+}
+
+//  void Qt3DCore::QAspectManager::unregisterAspect(Qt3DCore::QAbstractAspect
+//      *aspect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager16unregisterAspectEPNS_15QAbstractAspectE(
+    Qt3DCore::QAspectManager *self,
+    Qt3DCore::QAbstractAspect *aspect) {
+  self->unregisterAspect(aspect);
+}
+
+//  const QList<QAbstractAspect *> &Qt3DCore::QAspectManager::aspects() const
+extern "C" Q_DECL_EXPORT
+const QList<Qt3DCore::QAbstractAspect *> *ritual_ZNK8Qt3DCore14QAspectManager7aspectsEv(
+    const Qt3DCore::QAspectManager *self) {
+  return &(self->aspects());
+}
+
+//  QAbstractAspect *Qt3DCore::QAspectManager::aspect(const QString &name)
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractAspect *ritual_ZNK8Qt3DCore14QAspectManager6aspectERK7QString(
+    const Qt3DCore::QAspectManager *self,
+    const QString *name) {
+  return self->aspect(*name);
+}
+
+//  QAbstractAspect *Qt3DCore::QAspectManager::aspect(const QMetaObject
+//      *metaType) const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractAspect *ritual_ZNK8Qt3DCore14QAspectManager6aspectEPK11QMetaObject(
+    const Qt3DCore::QAspectManager *self,
+    const QMetaObject *metaType) {
+  return self->aspect(metaType);
+}
+
+//  QAbstractAspectJobManager *Qt3DCore::QAspectManager::jobManager() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractAspectJobManager *ritual_ZNK8Qt3DCore14QAspectManager10jobManagerEv(
+    const Qt3DCore::QAspectManager *self) {
+  return self->jobManager();
+}
+
+//  QChangeArbiter *Qt3DCore::QAspectManager::changeArbiter() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QChangeArbiter *ritual_ZNK8Qt3DCore14QAspectManager13changeArbiterEv(
+    const Qt3DCore::QAspectManager *self) {
+  return self->changeArbiter();
+}
+
+//  QServiceLocator *Qt3DCore::QAspectManager::serviceLocator() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QServiceLocator *ritual_ZNK8Qt3DCore14QAspectManager14serviceLocatorEv(
+    const Qt3DCore::QAspectManager *self) {
+  return self->serviceLocator();
+}
+
+//  void
+//      Qt3DCore::QAspectManager::setPostConstructorInit(NodePostConstructorI
+//      nit *postConstructorInit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager22setPostConstructorInitEPNS_23NodePostConstructorInitE(
+    Qt3DCore::QAspectManager *self,
+    Qt3DCore::NodePostConstructorInit *postConstructorInit) {
+  self->setPostConstructorInit(postConstructorInit);
+}
+
+//  QNode *Qt3DCore::QAspectManager::lookupNode(QNodeId id) const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QNode *ritual_ZNK8Qt3DCore14QAspectManager10lookupNodeENS_7QNodeIdE(
+    const Qt3DCore::QAspectManager *self,
+    const Qt3DCore::QNodeId *id) {
+  return self->lookupNode(*id);
+}
+
+//  QList<QNode *> Qt3DCore::QAspectManager::lookupNodes(const QList<QNodeId>
+//      &ids) const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QNode *> *ritual_ZNK8Qt3DCore14QAspectManager11lookupNodesERK5QListINS_7QNodeIdEE(
+    const Qt3DCore::QAspectManager *self,
+    const QList<Qt3DCore::QNodeId> *ids) {
+  return new QList<Qt3DCore::QNode *>(self->lookupNodes(*ids));
+}
+
+//  QScene *Qt3DCore::QAspectManager::scene() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QScene *ritual_ZNK8Qt3DCore14QAspectManager5sceneEv(
+    const Qt3DCore::QAspectManager *self) {
+  return self->scene();
+}
+
 //  int Qt3DCore::QAspectManager::jobsInLastFrame() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK8Qt3DCore14QAspectManager15jobsInLastFrameEv(
     const Qt3DCore::QAspectManager *self) {
   return self->jobsInLastFrame();
+}
+
+//  void Qt3DCore::QAspectManager::dumpJobsOnNextFrame()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager19dumpJobsOnNextFrameEv(
+    Qt3DCore::QAspectManager *self) {
+  self->dumpJobsOnNextFrame();
+}
+
+//  void Qt3DCore::QAspectManager::requestNextFrame()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore14QAspectManager16requestNextFrameEv(
+    Qt3DCore::QAspectManager *self) {
+  self->requestNextFrame();
 }
 
 //  Qt3DCore::QAspectManager as the Qt3DCore::QAbstractFrontEndNodeManager it
@@ -255,4 +476,11 @@ Qt3DCore::QNode *ritual_own_ZNK8Qt3DCore14QAspectManager10lookupNodeENS_7QNodeId
     const Qt3DCore::QAspectManager *self,
     const Qt3DCore::QNodeId *id) {
   return self->Qt3DCore::QAspectManager::lookupNode(*id);
+}
+
+//  a QList<Qt3DCore::QNode *> a ritual of Qt3DCore::QAspectManager gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QAspectManager__QList_Qt3DCore_QNode(
+    QList<Qt3DCore::QNode *> *self) {
+  delete self;
 }

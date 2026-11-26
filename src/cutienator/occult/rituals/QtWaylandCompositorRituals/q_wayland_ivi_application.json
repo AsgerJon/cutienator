@@ -8,9 +8,17 @@
     "ritual_ZNK22QWaylandIviApplication10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QWaylandIviApplication11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QWaylandIviApplication11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QWaylandIviApplication2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN22QWaylandIviApplication6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QWaylandIviApplication6d_funcEv": ["address", "address"],
     "ritual_ZN22QWaylandIviApplicationC1Ev": ["address"],
     "ritual_ZN22QWaylandIviApplicationC1EP18QWaylandCompositor": [
       "address", "address"
@@ -18,7 +26,14 @@
     "ritual_ZN22QWaylandIviApplication10initializeEv": [
       "nothing", "address"
     ],
+    "ritual_ZN22QWaylandIviApplication9interfaceEv": ["address"],
     "ritual_ZN22QWaylandIviApplication13interfaceNameEv": ["address"],
+    "ritual_ZN22QWaylandIviApplication19iviSurfaceRequestedEP15QWaylandSurfacejRK16QWaylandResource": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN22QWaylandIviApplication17iviSurfaceCreatedEP18QWaylandIviSurface": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QWaylandIviApplication": [
       "bool", "address", "chars", "address"
     ],

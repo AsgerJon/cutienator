@@ -8,11 +8,25 @@
     "ritual_ZNK9QtPrivate19QAutoResetEventPipe10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9QtPrivate19QAutoResetEventPipe11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9QtPrivate19QAutoResetEventPipe11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QtPrivate19QAutoResetEventPipe2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9QtPrivate19QAutoResetEventPipeC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate19QAutoResetEventPipeD1Ev": ["nothing", "address"],
     "ritual_ZNK9QtPrivate19QAutoResetEventPipe7isValidEv": [
       "bool", "address"
+    ],
+    "ritual_ZN9QtPrivate19QAutoResetEventPipe3setEv": ["nothing", "address"],
+    "ritual_ZN9QtPrivate19QAutoResetEventPipe9activatedEv": [
+      "nothing", "address"
     ]
   }
 }

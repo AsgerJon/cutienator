@@ -35,6 +35,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from ../qttools/src/designer/src/lib/uilib/formbuilderextra.cpp, line 40, as _ZN17QFormBuilderExtra16CustomWidgetDataC1Ev
+inline QFormBuilderExtra::CustomWidgetData::CustomWidgetData() = default;
+
 //  from ../qttools/src/designer/src/lib/uilib/formbuilderextra.cpp, line 42, as _ZN17QFormBuilderExtra16CustomWidgetDataC1EPK15DomCustomWidget
 inline QFormBuilderExtra::CustomWidgetData::CustomWidgetData(const DomCustomWidget *dcw) :
     addPageMethod(dcw->elementAddPageMethod()),
@@ -43,6 +48,12 @@ inline QFormBuilderExtra::CustomWidgetData::CustomWidgetData(const DomCustomWidg
 {
 }
 //  -----------------------------------------------------------------------
+
+//  QFormBuilderExtra::CustomWidgetData::CustomWidgetData()
+extern "C" Q_DECL_EXPORT
+QFormBuilderExtra::CustomWidgetData *ritual_ZN17QFormBuilderExtra16CustomWidgetDataC1Ev() {
+  return new QFormBuilderExtra::CustomWidgetData();
+}
 
 //  QFormBuilderExtra::CustomWidgetData::CustomWidgetData(const
 //      DomCustomWidget *dc)

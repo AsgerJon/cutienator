@@ -8,10 +8,15 @@
     "ritual_ZN8QVariant13PrivateShared13computeOffsetEPS0_m": [
       "int", "address", "size_t"
     ],
+    "ritual_ZN8QVariant13PrivateShared21computeAllocationSizeEmm": [
+      "size_t", "size_t", "size_t"
+    ],
     "ritual_ZN8QVariant13PrivateShared6createEmm": [
       "address", "size_t", "size_t"
     ],
     "ritual_ZN8QVariant13PrivateShared4freeEPS0_": ["nothing", "address"],
+    "ritual_ZNK8QVariant13PrivateShared4dataEv": ["address", "address"],
+    "ritual_ZN8QVariant13PrivateShared4dataEv": ["address", "address"],
     "ritual_ZN8QVariant13PrivateSharedD1Ev": ["nothing", "address"]
   }
 }

@@ -7,7 +7,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/6.12.0/QtLocation/private/qdeclarativeplacecontentmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>

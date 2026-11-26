@@ -35,6 +35,20 @@ QDBusObjectPath *ritual_ZN15QDBusObjectPathC1ERK7QString(
   return new QDBusObjectPath(*path);
 }
 
+//  QDBusObjectPath::QDBusObjectPath(QString &&p)
+extern "C" Q_DECL_EXPORT
+QDBusObjectPath *ritual_ZN15QDBusObjectPathC1EO7QString(QString *p) {
+  return new QDBusObjectPath(std::move(*p));
+}
+
+//  void QDBusObjectPath::swap(QDBusObjectPath &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QDBusObjectPath4swapERS_(
+    QDBusObjectPath *self,
+    QDBusObjectPath *other) {
+  self->swap(*other);
+}
+
 //  void QDBusObjectPath::setPath(const QString &path)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QDBusObjectPath7setPathERK7QString(

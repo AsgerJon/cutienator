@@ -4,7 +4,9 @@
 #if QT_CONFIG(itemmodel)
 #if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qlist.h>
 
 //  QItemSelectionRange::QItemSelectionRange()
@@ -27,6 +29,14 @@ extern "C" Q_DECL_EXPORT
 QItemSelectionRange *ritual_ZN19QItemSelectionRangeC1ERK11QModelIndex(
     const QModelIndex *index) {
   return new QItemSelectionRange(*index);
+}
+
+//  void QItemSelectionRange::swap(QItemSelectionRange &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QItemSelectionRange4swapERS_(
+    QItemSelectionRange *self,
+    QItemSelectionRange *other) {
+  self->swap(*other);
 }
 
 //  int QItemSelectionRange::top() const

@@ -430,6 +430,25 @@ const QMetaObject *ritual_ZNK26QQuickPlatformFolderDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPlatformFolderDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickPlatformFolderDialog11qt_metacastEPKc(
+    QQuickPlatformFolderDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPlatformFolderDialog::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickPlatformFolderDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPlatformFolderDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPlatformFolderDialog::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT

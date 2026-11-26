@@ -23,6 +23,8 @@
     ],
     "ritual_ZNK18QGraphicsItemGroup10opaqueAreaEv": ["address", "address"],
     "ritual_ZNK18QGraphicsItemGroup4typeEv": ["int", "address"],
+    "ritual_ZN18QGraphicsItemGroup6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QGraphicsItemGroup6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsItemGroup": [
       "bool", "address", "chars", "address"
     ],

@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickAnimatorProxyJob10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickAnimatorProxyJob11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickAnimatorProxyJob2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,7 @@
     ],
     "ritual_ZN22QQuickAnimatorProxyJobD1Ev": ["nothing", "address"],
     "ritual_ZNK22QQuickAnimatorProxyJob8durationEv": ["int", "address"],
+    "ritual_ZNK22QQuickAnimatorProxyJob3jobEv": ["address", "address"],
     "ritual_ZN22QQuickAnimatorProxyJob17updateCurrentTimeEi": [
       "nothing", "address", "int"
     ],

@@ -289,6 +289,21 @@ void ritual_ZN24QGraphicsSceneMouseEvent8setFlagsE6QFlagsIN2Qt14MouseEventFlagEE
   self->setFlags(QFlags<Qt::MouseEventFlag>::fromInt(a0));
 }
 
+//  QGraphicsSceneMouseEventPrivate *QGraphicsSceneMouseEvent::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneMouseEventPrivate *ritual_ZN24QGraphicsSceneMouseEvent6d_funcEv(
+    QGraphicsSceneMouseEvent *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneMouseEventPrivate *QGraphicsSceneMouseEvent::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneMouseEventPrivate *ritual_ZNK24QGraphicsSceneMouseEvent6d_funcEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSceneMouseEvent, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

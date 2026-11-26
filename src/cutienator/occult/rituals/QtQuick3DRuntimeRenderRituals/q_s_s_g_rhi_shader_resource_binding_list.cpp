@@ -28,6 +28,16 @@ QSSGRhiShaderResourceBindingList *ritual_ZN32QSSGRhiShaderResourceBindingListC1E
   return new QSSGRhiShaderResourceBindingList(*other);
 }
 
+//  QSSGRhiShaderResourceBindingList
+//      &QSSGRhiShaderResourceBindingList::operator=(const
+//      QSSGRhiShaderResourceBindingList &other)
+extern "C" Q_DECL_EXPORT
+QSSGRhiShaderResourceBindingList *ritual_ZN32QSSGRhiShaderResourceBindingListaSERKS_(
+    QSSGRhiShaderResourceBindingList *self,
+    const QSSGRhiShaderResourceBindingList *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QSSGRhiShaderResourceBindingList::addUniformBuffer(int binding,
 //      QRhiShaderResourceBinding::StageFlags stage, QRhiBuffer *buf, int
 //      offset, int size, bool hasDynamicOffset)

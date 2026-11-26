@@ -22,6 +22,24 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrols/fluentwinui3/impl/qquickfluentwinui3focusstroke.cpp, line 13, as _ZN29QQuickFluentWinUI3FocusStroke5paintEP8QPainter
+inline void QQuickFluentWinUI3FocusStroke::paint(QPainter *painter)
+{
+    painter->setRenderHint(QPainter::Antialiasing);
+    QPainterPath path;
+    QRectF rect = boundingRect();
+    path.moveTo(rect.left(), rect.top() + m_radius);
+    path.lineTo(rect.left(), rect.bottom() - m_radius);
+    path.arcTo(QRectF(rect.left(), rect.bottom() - 2 * m_radius, 2 * m_radius, 2 * m_radius), 180, 90);
+    path.lineTo(rect.right() - m_radius, rect.bottom());
+    path.arcTo(QRectF(rect.right() - 2 * m_radius, rect.bottom() - 2 * m_radius, 2 * m_radius, 2 * m_radius), 270, 90);
+    path.lineTo(rect.right(), rect.top() + m_radius);
+    path.lineTo(rect.right(), rect.top() + m_radius);
+    path.lineTo(rect.right(), rect.top());
+    path.lineTo(rect.left(), rect.top());
+    painter->fillPath(path, m_color);
+}
+
 //  from ../qtdeclarative/src/quickcontrols/fluentwinui3/impl/qquickfluentwinui3focusstroke.cpp, line 40, as _ZNK29QQuickFluentWinUI3FocusStroke6radiusEv
 inline int QQuickFluentWinUI3FocusStroke::radius() const
 {
@@ -51,24 +69,6 @@ inline void QQuickFluentWinUI3FocusStroke::setColor(const QColor &color)
     m_color = color;
     update();
 }
-
-//  from ../qtdeclarative/src/quickcontrols/fluentwinui3/impl/qquickfluentwinui3focusstroke.cpp, line 13, as _ZN29QQuickFluentWinUI3FocusStroke5paintEP8QPainter
-inline void QQuickFluentWinUI3FocusStroke::paint(QPainter *painter)
-{
-    painter->setRenderHint(QPainter::Antialiasing);
-    QPainterPath path;
-    QRectF rect = boundingRect();
-    path.moveTo(rect.left(), rect.top() + m_radius);
-    path.lineTo(rect.left(), rect.bottom() - m_radius);
-    path.arcTo(QRectF(rect.left(), rect.bottom() - 2 * m_radius, 2 * m_radius, 2 * m_radius), 180, 90);
-    path.lineTo(rect.right() - m_radius, rect.bottom());
-    path.arcTo(QRectF(rect.right() - 2 * m_radius, rect.bottom() - 2 * m_radius, 2 * m_radius, 2 * m_radius), 270, 90);
-    path.lineTo(rect.right(), rect.top() + m_radius);
-    path.lineTo(rect.right(), rect.top() + m_radius);
-    path.lineTo(rect.right(), rect.top());
-    path.lineTo(rect.left(), rect.top());
-    painter->fillPath(path, m_color);
-}
 //  -----------------------------------------------------------------------
 
 //  const QMetaObject *QQuickFluentWinUI3FocusStroke::metaObject() const
@@ -76,6 +76,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK29QQuickFluentWinUI3FocusStroke10metaObjectEv(
     const QQuickFluentWinUI3FocusStroke *self) {
   return self->metaObject();
+}
+
+//  void *QQuickFluentWinUI3FocusStroke::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuickFluentWinUI3FocusStroke11qt_metacastEPKc(
+    QQuickFluentWinUI3FocusStroke *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFluentWinUI3FocusStroke::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuickFluentWinUI3FocusStroke11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFluentWinUI3FocusStroke *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  int QQuickFluentWinUI3FocusStroke::radius() const

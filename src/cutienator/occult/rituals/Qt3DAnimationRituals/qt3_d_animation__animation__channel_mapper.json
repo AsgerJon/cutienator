@@ -5,5 +5,32 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation13ChannelMapper7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13ChannelMapper16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13ChannelMapper13setMappingIdsERK5QListIN8Qt3DCore7QNodeIdEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation13ChannelMapper10mappingIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation13ChannelMapper8mappingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation13ChannelMapper14updateMappingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN13Qt3DAnimation9Animation13ChannelMapper16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_ChannelMapper__Qt3DCore_QNodeIdVector": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_ChannelMapper__QVector_Qt3DAnimation_Animation_ChannelMapping": [
+      "nothing", "address"
+    ]
   }
 }

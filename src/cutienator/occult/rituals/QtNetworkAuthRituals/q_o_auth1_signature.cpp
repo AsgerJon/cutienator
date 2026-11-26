@@ -3,18 +3,56 @@
 #include <QtNetworkAuth/qoauthglobal.h>
 #if !defined(QT_NO_HTTP)
 #include <QtNetworkAuth/qoauth1signature.h>
-#include <QtCore/qbytearray.h>
 #include <QtCore/qurl.h>
-#include <QtCore/qurlquery.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qurlquery.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QMultiMap>
+#include <QtCore/QString>
+#include <QtCore/QVariant>
+
+//  QOAuth1Signature::QOAuth1Signature(const QUrl &url, HttpRequestMethod
+//      method, const QMultiMap<QString, QVariant> &parameters)
+extern "C" Q_DECL_EXPORT
+QOAuth1Signature *ritual_ZN16QOAuth1SignatureC1ERK4QUrlNS_17HttpRequestMethodERK9QMultiMapI7QString8QVariantE(
+    const QUrl *url,
+    QOAuth1Signature::HttpRequestMethod method,
+    const QMultiMap<QString, QVariant> *parameters) {
+  return new QOAuth1Signature(*url, method, *parameters);
+}
+
+//  QOAuth1Signature::QOAuth1Signature(const QUrl &url, const QString
+//      &clientSharedKey, const QString &tokenSecret, HttpRequestMethod
+//      method, const QMultiMap<QString, QVariant> &parameters)
+extern "C" Q_DECL_EXPORT
+QOAuth1Signature *ritual_ZN16QOAuth1SignatureC1ERK4QUrlRK7QStringS5_NS_17HttpRequestMethodERK9QMultiMapIS3_8QVariantE(
+    const QUrl *url,
+    const QString *clientSharedKey,
+    const QString *tokenSecret,
+    QOAuth1Signature::HttpRequestMethod method,
+    const QMultiMap<QString, QVariant> *parameters) {
+  return new QOAuth1Signature(
+      *url,
+      *clientSharedKey,
+      *tokenSecret,
+      method,
+      *parameters);
+}
 
 //  QOAuth1Signature::QOAuth1Signature(const QOAuth1Signature &other)
 extern "C" Q_DECL_EXPORT
 QOAuth1Signature *ritual_ZN16QOAuth1SignatureC1ERKS_(
     const QOAuth1Signature *other) {
   return new QOAuth1Signature(*other);
+}
+
+//  QOAuth1Signature::QOAuth1Signature(QOAuth1Signature &&other)
+extern "C" Q_DECL_EXPORT
+QOAuth1Signature *ritual_ZN16QOAuth1SignatureC1EOS_(
+    QOAuth1Signature *other) {
+  return new QOAuth1Signature(std::move(*other));
 }
 
 //  QOAuth1Signature::~QOAuth1Signature()
@@ -65,6 +103,22 @@ void ritual_ZN16QOAuth1Signature6setUrlERK4QUrl(
     QOAuth1Signature *self,
     const QUrl *url) {
   self->setUrl(*url);
+}
+
+//  QMultiMap<QString, QVariant> QOAuth1Signature::parameters() const
+extern "C" Q_DECL_EXPORT
+QMultiMap<QString, QVariant> *ritual_ZNK16QOAuth1Signature10parametersEv(
+    const QOAuth1Signature *self) {
+  return new QMultiMap<QString, QVariant>(self->parameters());
+}
+
+//  void QOAuth1Signature::setParameters(const QMultiMap<QString, QVariant>
+//      &parameters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOAuth1Signature13setParametersERK9QMultiMapI7QString8QVariantE(
+    QOAuth1Signature *self,
+    const QMultiMap<QString, QVariant> *parameters) {
+  self->setParameters(*parameters);
 }
 
 //  void QOAuth1Signature::addRequestBody(const QUrlQuery &body)
@@ -170,6 +224,38 @@ QByteArray *ritual_ZN16QOAuth1Signature9plainTextERK7QStringS2_(
       QOAuth1Signature::plainText(
           *clientSharedSecret,
           *tokenSecret));
+}
+
+//  void QOAuth1Signature::swap(QOAuth1Signature &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QOAuth1Signature4swapERS_(
+    QOAuth1Signature *self,
+    QOAuth1Signature *other) {
+  self->swap(*other);
+}
+
+//  QOAuth1Signature &QOAuth1Signature::operator=(const QOAuth1Signature
+//      &other)
+extern "C" Q_DECL_EXPORT
+QOAuth1Signature *ritual_ZN16QOAuth1SignatureaSERKS_(
+    QOAuth1Signature *self,
+    const QOAuth1Signature *other) {
+  return &(self->operator=(*other));
+}
+
+//  QOAuth1Signature &QOAuth1Signature::operator=(QOAuth1Signature &&other)
+extern "C" Q_DECL_EXPORT
+QOAuth1Signature *ritual_ZN16QOAuth1SignatureaSEOS_(
+    QOAuth1Signature *self,
+    QOAuth1Signature *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  a QMultiMap<QString, QVariant> a ritual of QOAuth1Signature gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOAuth1Signature__QMultiMap_QString_QVariant(
+    QMultiMap<QString, QVariant> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_HTTP)

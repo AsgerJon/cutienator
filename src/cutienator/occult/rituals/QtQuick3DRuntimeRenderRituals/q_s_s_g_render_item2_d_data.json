@@ -5,7 +5,31 @@
     "ta_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QSSGRenderItem2DDataC1ERKSt10shared_ptrI24QSSGGlobalRenderNodeDataE": [
+      "address", "address"
+    ],
     "ritual_ZN20QSSGRenderItem2DDataD1Ev": ["nothing", "address"],
-    "ritual_ZN20QSSGRenderItem2DData10releaseAllEv": ["nothing", "address"]
+    "ritual_ZNK20QSSGRenderItem2DData22getModelViewProjectionE23QSSGRenderStorageHandleIL10HandleType1EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QSSGRenderItem2DData22getModelViewProjectionERK16QSSGRenderItem2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QSSGRenderItem2DData17getItem2DRendererERK16QSSGRenderItem2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QSSGRenderItem2DData14globalNodeDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QSSGRenderItem2DData17releaseRenderDataERK16QSSGRenderItem2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSSGRenderItem2DData10releaseAllEv": ["nothing", "address"],
+    "ritual_drop_QSSGRenderItem2DData__QSSGRenderItem2DData_ModelViewProjections": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGRenderItem2DData__QSSGRenderItem2DData_Item2DRenderer": [
+      "nothing", "address"
+    ]
   }
 }

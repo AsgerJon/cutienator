@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QCharacterController10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QCharacterController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QCharacterController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QCharacterController2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,9 @@
     "ritual_ZN20QCharacterController15getDisplacementEf": [
       "address", "address", "float"
     ],
+    "ritual_ZN20QCharacterController11getTeleportER9QVector3D": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK20QCharacterController13midAirControlEv": ["bool", "address"],
     "ritual_ZN20QCharacterController16setMidAirControlEb": [
       "nothing", "address", "bool"
@@ -28,11 +37,36 @@
     "ritual_ZN20QCharacterController8teleportERK9QVector3D": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK20QCharacterController10collisionsEv": ["address", "address"],
+    "ritual_ZN20QCharacterController13setCollisionsERK6QFlagsINS_9CollisionEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCharacterController18createPhysXBackendEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QCharacterController22enableShapeHitCallbackEv": [
       "bool", "address"
     ],
     "ritual_ZN20QCharacterController25setEnableShapeHitCallbackEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QCharacterController15movementChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QCharacterController14gravityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QCharacterController20midAirControlChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QCharacterController17collisionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QCharacterController29enableShapeHitCallbackChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QCharacterController8shapeHitEP20QAbstractPhysicsNodeRK9QVector3DS4_S4_": [
+      "nothing", "address", "address", "address", "address", "address"
     ]
   }
 }

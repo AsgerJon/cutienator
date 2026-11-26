@@ -11,10 +11,43 @@ QCanBusDeviceInfo *ritual_ZN17QCanBusDeviceInfoC1ERKS_(
   return new QCanBusDeviceInfo(*other);
 }
 
+//  QCanBusDeviceInfo::QCanBusDeviceInfo(QCanBusDeviceInfo &&other)
+extern "C" Q_DECL_EXPORT
+QCanBusDeviceInfo *ritual_ZN17QCanBusDeviceInfoC1EOS_(
+    QCanBusDeviceInfo *other) {
+  return new QCanBusDeviceInfo(std::move(*other));
+}
+
 //  QCanBusDeviceInfo::~QCanBusDeviceInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCanBusDeviceInfoD1Ev(QCanBusDeviceInfo *self) {
   delete self;
+}
+
+//  void QCanBusDeviceInfo::swap(QCanBusDeviceInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QCanBusDeviceInfo4swapERS_(
+    QCanBusDeviceInfo *self,
+    QCanBusDeviceInfo *other) {
+  self->swap(*other);
+}
+
+//  QCanBusDeviceInfo &QCanBusDeviceInfo::operator=(const QCanBusDeviceInfo
+//      &other)
+extern "C" Q_DECL_EXPORT
+QCanBusDeviceInfo *ritual_ZN17QCanBusDeviceInfoaSERKS_(
+    QCanBusDeviceInfo *self,
+    const QCanBusDeviceInfo *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCanBusDeviceInfo &QCanBusDeviceInfo::operator=(QCanBusDeviceInfo
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCanBusDeviceInfo *ritual_ZN17QCanBusDeviceInfoaSEOS_(
+    QCanBusDeviceInfo *self,
+    QCanBusDeviceInfo *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  QString QCanBusDeviceInfo::plugin() const
@@ -70,6 +103,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QCanBusDeviceInfo9isVirtualEv(
     const QCanBusDeviceInfo *self) {
   return self->isVirtual();
+}
+
+//  QCanBusDeviceInfo::QCanBusDeviceInfo(QCanBusDeviceInfoPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QCanBusDeviceInfo *ritual_ZN17QCanBusDeviceInfoC1ER24QCanBusDeviceInfoPrivate(
+    QCanBusDeviceInfoPrivate *dd) {
+  return new QCanBusDeviceInfo(*dd);
 }
 
 //  QList<QCanBusDeviceInfo>::QList()

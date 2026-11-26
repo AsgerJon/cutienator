@@ -12,6 +12,9 @@
       "address", "address"
     ],
     "ritual_ZN28QAbstractItemDelegatePrivateC1Ev": ["address"],
+    "ritual_ZN28QAbstractItemDelegatePrivate17handleEditorEventEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN28QAbstractItemDelegatePrivate8tryFixupEP7QWidget": [
       "bool", "address", "address"
     ],

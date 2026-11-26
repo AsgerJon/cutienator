@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN23QXmlStreamReaderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QXmlStreamReaderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QXmlStreamReaderPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QXmlStreamReaderPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN23QXmlStreamReaderPrivate15referenceEntityEP5QHashI11QStringViewNS_6EntityEERS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate23resolvePublicNamespacesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate10resolveDtdEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate14resolveCharRefEi": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK23QXmlStreamReaderPrivate22entitiesMustBeDeclaredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate15reallocateStackEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QXmlStreamReaderPrivate3symEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate15clearTextBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate9symStringEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK23QXmlStreamReaderPrivate7symViewEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate7symNameEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate9symPrefixEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate9symStringERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate7symNameERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate9symPrefixERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate8clearSymEv": ["nothing", "address"],
+    "ritual_ZN23QXmlStreamReaderPrivate7putCharEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate7putCharE5QChar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate9putStringE11QStringViewx": [
+      "nothing", "address", "text", "long long"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate16putStringLiteralE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate14putReplacementE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate30putReplacementInAttributeValueE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate11injectTokenEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate23resolveUndeclaredEntityERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate10raiseErrorEN16QXmlStreamReader5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate20raiseWellFormedErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QXmlStreamReaderPrivate27raiseNamePrefixTooLongErrorEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QXmlStreamReaderPrivate_QXmlStreamPrivateTagStack": [
+      "address", "address"
+    ]
+  }
+}

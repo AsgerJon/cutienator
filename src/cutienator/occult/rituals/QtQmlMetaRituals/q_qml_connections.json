@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK15QQmlConnections10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlConnections11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQmlConnections11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQmlConnections2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QQmlConnections6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQmlConnections6d_funcEv": ["address", "address"],
     "ritual_ZN15QQmlConnectionsC1EP7QObject": ["address", "address"],
     "ritual_ZN15QQmlConnectionsD1Ev": ["nothing", "address"],
     "ritual_ZNK15QQmlConnections6targetEv": ["address", "address"],
@@ -29,6 +37,8 @@
     "ritual_ZN15QQmlConnections17componentCompleteEv": [
       "nothing", "address"
     ],
+    "ritual_ZN15QQmlConnections13targetChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQmlConnections14enabledChangedEv": ["nothing", "address"],
     "ritual_ZN15QQmlConnections14connectSignalsEv": ["nothing", "address"],
     "ritual_ZN15QQmlConnections23connectSignalsToMethodsEv": [
       "nothing", "address"

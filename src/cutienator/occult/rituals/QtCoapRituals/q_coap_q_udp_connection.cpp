@@ -13,7 +13,6 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCoap/private/qcoapconnection_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCoap/private/qcoapqudpconnection_p.h>
 #include <QtCoap/private/qcoapnamespace_p.h>
@@ -35,74 +34,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtcoap/src/coap/qcoapconnection.cpp, line 258, as _ZNK15QCoapConnection21securityConfigurationEv
-inline QCoapSecurityConfiguration QCoapConnection::securityConfiguration() const
+//  from ../qtcoap/src/coap/qcoapconnection.cpp, line 11, as _Z16lcCoapConnectionv
+inline const QLoggingCategory &lcCoapConnection()
 {
-    Q_D(const QCoapConnection);
-    return d->securityConfiguration;
+    static const QLoggingCategory category("qt.coap.connection");
+    return category;
 }
-
-//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 271, as _ZN26QCoapQUdpConnectionPrivate13writeToSocketERK10QByteArrayRK7QStringt
-inline void QCoapQUdpConnectionPrivate::writeToSocket(const QByteArray &data, const QString &host, quint16 port)
-{
-#if QT_CONFIG(dtls)
-    Q_Q(QCoapQUdpConnection);
-#endif
-    if (!socket()->isWritable()) {
-        bool opened = socket()->open(socket()->openMode() | QIODevice::WriteOnly);
-        if (!opened) {
-            qCWarning(lcCoapConnection, "Failed to open the UDP socket with write permission");
-            return;
-        }
-    }
-
-    QHostAddress hostAddress(host);
-    if (hostAddress.isNull()) {
-        qCWarning(lcCoapConnection) << "Invalid host IP address" << host
-                                    << "- only IPv4/IPv6 destination addresses are supported.";
-        return;
-    }
-
-    const qint64 bytesWritten =
-#if QT_CONFIG(dtls)
-            q->isSecure() ? (Q_ASSERT(dtls), dtls->writeDatagramEncrypted(socket(), data)) :
-#endif
-            socket()->writeDatagram(data, hostAddress, port);
-
-    if (bytesWritten < 0)
-        qCWarning(lcCoapConnection) << "Failed to write datagram:" << socket()->errorString();
-}
-
-//  from ../qtcoap/src/coap/qcoapconnection.cpp, line 189, as _ZNK15QCoapConnection8isSecureEv
-inline bool QCoapConnection::isSecure() const
-{
-    Q_D(const QCoapConnection);
-    return d->securityMode != QtCoap::SecurityMode::NoSecurity;
-}
-
-//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 337, as _ZNK19QCoapQUdpConnection6socketEv
-inline QUdpSocket *QCoapQUdpConnection::socket() const
-{
-    Q_D(const QCoapQUdpConnection);
-    return d->udpSocket;
-}
-
-//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 260, as _ZN19QCoapQUdpConnection15setSocketOptionEN15QAbstractSocket12SocketOptionERK8QVariant
-inline void QCoapQUdpConnection::setSocketOption(QAbstractSocket::SocketOption option, const QVariant &value)
-{
-    Q_D(QCoapQUdpConnection);
-    d->socket()->setSocketOption(option, value);
-}
-
-//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 413, as _ZN19QCoapQUdpConnection11pskRequiredEP29QSslPreSharedKeyAuthenticator
-#if QT_CONFIG(dtls)
-inline void QCoapQUdpConnection::pskRequired(QSslPreSharedKeyAuthenticator *authenticator)
-{
-    Q_ASSERT(authenticator);
-    authenticator->setIdentity(securityConfiguration().preSharedKeyIdentity());
-    authenticator->setPreSharedKey(securityConfiguration().preSharedKey());
-}
-#endif  // QT_CONFIG(dtls)
 
 //  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 196, as _ZN19QCoapQUdpConnection4bindERK7QStringt
 inline void QCoapQUdpConnection::bind(const QString &host, quint16 port)
@@ -152,11 +89,57 @@ inline void QCoapQUdpConnection::close()
 #endif
     d->socket()->close();
 }
+
+//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 271, as _ZN26QCoapQUdpConnectionPrivate13writeToSocketERK10QByteArrayRK7QStringt
+inline void QCoapQUdpConnectionPrivate::writeToSocket(const QByteArray &data, const QString &host, quint16 port)
+{
+#if QT_CONFIG(dtls)
+    Q_Q(QCoapQUdpConnection);
+#endif
+    if (!socket()->isWritable()) {
+        bool opened = socket()->open(socket()->openMode() | QIODevice::WriteOnly);
+        if (!opened) {
+            qCWarning(lcCoapConnection, "Failed to open the UDP socket with write permission");
+            return;
+        }
+    }
+
+    QHostAddress hostAddress(host);
+    if (hostAddress.isNull()) {
+        qCWarning(lcCoapConnection) << "Invalid host IP address" << host
+                                    << "- only IPv4/IPv6 destination addresses are supported.";
+        return;
+    }
+
+    const qint64 bytesWritten =
+#if QT_CONFIG(dtls)
+            q->isSecure() ? (Q_ASSERT(dtls), dtls->writeDatagramEncrypted(socket(), data)) :
+#endif
+            socket()->writeDatagram(data, hostAddress, port);
+
+    if (bytesWritten < 0)
+        qCWarning(lcCoapConnection) << "Failed to write datagram:" << socket()->errorString();
+}
+
+//  from ../qtcoap/src/coap/qcoapconnection.cpp, line 189, as _ZNK15QCoapConnection8isSecureEv
+inline bool QCoapConnection::isSecure() const
+{
+    Q_D(const QCoapConnection);
+    return d->securityMode != QtCoap::SecurityMode::NoSecurity;
+}
+
+//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 337, as _ZNK19QCoapQUdpConnection6socketEv
+inline QUdpSocket *QCoapQUdpConnection::socket() const
+{
+    Q_D(const QCoapQUdpConnection);
+    return d->udpSocket;
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QCoapQUdpConnection may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
 struct OwnQCoapQUdpConnection : QCoapQUdpConnection {
+  using QCoapQUdpConnection::writeData;
   using QCoapQUdpConnection::close;
 };
 
@@ -386,6 +369,25 @@ const QMetaObject *ritual_ZNK19QCoapQUdpConnection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCoapQUdpConnection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QCoapQUdpConnection11qt_metacastEPKc(
+    QCoapQUdpConnection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCoapQUdpConnection::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QCoapQUdpConnection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCoapQUdpConnection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QCoapQUdpConnection::~QCoapQUdpConnection()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QCoapQUdpConnectionD1Ev(QCoapQUdpConnection *self) {
@@ -406,7 +408,27 @@ void ritual_ZN19QCoapQUdpConnection15setSocketOptionEN15QAbstractSocket12SocketO
     QCoapQUdpConnection *self,
     QAbstractSocket::SocketOption a0,
     const QVariant *value) {
-  self->setSocketOption(a0, *value);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapQUdpConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setSocketOption(QAbstractSocket::SocketOption,const QVariant &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setSocketOption(QAbstractSocket::SocketOption,const QVariant &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+      const_cast<void *>(static_cast<const void *>(value)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 #if QT_CONFIG(dtls)
@@ -416,7 +438,53 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QCoapQUdpConnection11pskRequiredEP29QSslPreSharedKeyAuthenticator(
     QCoapQUdpConnection *self,
     QSslPreSharedKeyAuthenticator *authenticator) {
-  self->pskRequired(authenticator);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapQUdpConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "pskRequired(QSslPreSharedKeyAuthenticator *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "pskRequired(QSslPreSharedKeyAuthenticator *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&authenticator)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+#endif  // QT_CONFIG(dtls)
+
+#if QT_CONFIG(dtls)
+//  void QCoapQUdpConnection::handshakeTimeout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QCoapQUdpConnection16handshakeTimeoutEv(
+    QCoapQUdpConnection *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapQUdpConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handshakeTimeout()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handshakeTimeout()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 #endif  // QT_CONFIG(dtls)
 
@@ -468,6 +536,20 @@ bool ritual_take_QCoapQUdpConnection(
     const char *key,
     void *call) {
   return static_cast<CuteQCoapQUdpConnection *>(self)->take(key, call);
+}
+
+//  void QCoapQUdpConnection::writeData(const QByteArray &data, const QString
+//      &host, quint16 port)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QCoapQUdpConnection9writeDataERK10QByteArrayRK7QStringt(
+    QCoapQUdpConnection *self,
+    const QByteArray *data,
+    const QString *host,
+    quint16 port) {
+  static_cast<OwnQCoapQUdpConnection *>(self)->OwnQCoapQUdpConnection::writeData(
+      *data,
+      *host,
+      port);
 }
 
 //  void QCoapQUdpConnection::close()

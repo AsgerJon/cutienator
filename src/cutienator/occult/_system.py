@@ -374,6 +374,17 @@ class System:
     raise self._refuse('getLinkerFlags')
 
   @abstractmethod
+  def buildsObjectiveC(self) -> bool:
+    """
+    Says whether a ritual file of Objective-C++, ending in '.mm', is
+    built on this system. Qt writes some of its code for Apple's systems
+    only in that language, and a ritual file carrying a copy of it can
+    be compiled there only; elsewhere it is passed over, and its rituals
+    raise when called, as those of a part the machine's Qt lacks do.
+    """
+    raise self._refuse('buildsObjectiveC')
+
+  @abstractmethod
   def prepareOpening(self) -> None:
     """
     Does what this system needs done in Python before a built file can

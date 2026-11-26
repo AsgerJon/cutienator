@@ -19,6 +19,36 @@ QOpcUaEnumField *ritual_ZN15QOpcUaEnumFieldC1ERKS_(
   return new QOpcUaEnumField(*other);
 }
 
+//  void QOpcUaEnumField::swap(QOpcUaEnumField &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QOpcUaEnumField4swapERS_(
+    QOpcUaEnumField *self,
+    QOpcUaEnumField *other) {
+  self->swap(*other);
+}
+
+//  QOpcUaEnumField &QOpcUaEnumField::operator=(QOpcUaEnumField &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaEnumField *ritual_ZN15QOpcUaEnumFieldaSEOS_(
+    QOpcUaEnumField *self,
+    QOpcUaEnumField *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QOpcUaEnumField::QOpcUaEnumField(QOpcUaEnumField &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaEnumField *ritual_ZN15QOpcUaEnumFieldC1EOS_(QOpcUaEnumField *other) {
+  return new QOpcUaEnumField(std::move(*other));
+}
+
+//  QOpcUaEnumField &QOpcUaEnumField::operator=(const QOpcUaEnumField &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaEnumField *ritual_ZN15QOpcUaEnumFieldaSERKS_(
+    QOpcUaEnumField *self,
+    const QOpcUaEnumField *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QVariant QOpcUaEnumField::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK15QOpcUaEnumFieldcv8QVariantEv(

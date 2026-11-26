@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_PolygonOffsetCall0)(const void *, const Qt3
 class CuteQt3DRender_Render_PolygonOffset : public Qt3DRender::Render::PolygonOffset {
 public:
   using Qt3DRender::Render::PolygonOffset::PolygonOffset;
-  CuteQt3DRender_Render_PolygonOffset(const Qt3DRender::Render::PolygonOffset &other) : Qt3DRender::Render::PolygonOffset(other) {}
+  CuteQt3DRender_Render_PolygonOffset(const Qt3DRender::Render::PolygonOffset & other) : Qt3DRender::Render::PolygonOffset(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::PolygonOffset::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::PolygonOffset::updateProperties(const
+//      QRenderState *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render13PolygonOffset16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::PolygonOffset *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::PolygonOffset::~PolygonOffset()
 extern "C" Q_DECL_EXPORT

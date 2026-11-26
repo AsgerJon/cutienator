@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QTechniqueFilter that Python can take functions over in. Every Qt3DRender::QTechniqueFilter
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender16QTechniqueFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QTechniqueFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender16QTechniqueFilter11qt_metacastEPKc(
+    Qt3DRender::QTechniqueFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QTechniqueFilter::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender16QTechniqueFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QTechniqueFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QTechniqueFilter::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,75 @@ QString *ritual_ZN10Qt3DRender16QTechniqueFilter2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QTechniqueFilter::tr(s, c, n));
+}
+
+//  Qt3DRender::QTechniqueFilter::QTechniqueFilter(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTechniqueFilter *ritual_ZN10Qt3DRender16QTechniqueFilterC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QTechniqueFilter(parent);
+}
+
+//  Qt3DRender::QTechniqueFilter::~QTechniqueFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QTechniqueFilterD1Ev(
+    Qt3DRender::QTechniqueFilter *self) {
+  delete self;
+}
+
+//  QList<QFilterKey *> Qt3DRender::QTechniqueFilter::matchAll() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QFilterKey *> *ritual_ZNK10Qt3DRender16QTechniqueFilter8matchAllEv(
+    const Qt3DRender::QTechniqueFilter *self) {
+  return new QList<Qt3DRender::QFilterKey *>(self->matchAll());
+}
+
+//  void Qt3DRender::QTechniqueFilter::addMatch(QFilterKey *filterKey)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QTechniqueFilter8addMatchEPNS_10QFilterKeyE(
+    Qt3DRender::QTechniqueFilter *self,
+    Qt3DRender::QFilterKey *filterKey) {
+  self->addMatch(filterKey);
+}
+
+//  void Qt3DRender::QTechniqueFilter::removeMatch(QFilterKey *filterKey)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QTechniqueFilter11removeMatchEPNS_10QFilterKeyE(
+    Qt3DRender::QTechniqueFilter *self,
+    Qt3DRender::QFilterKey *filterKey) {
+  self->removeMatch(filterKey);
+}
+
+//  void Qt3DRender::QTechniqueFilter::addParameter(QParameter *p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QTechniqueFilter12addParameterEPNS_10QParameterE(
+    Qt3DRender::QTechniqueFilter *self,
+    Qt3DRender::QParameter *p) {
+  self->addParameter(p);
+}
+
+//  void Qt3DRender::QTechniqueFilter::removeParameter(QParameter *p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QTechniqueFilter15removeParameterEPNS_10QParameterE(
+    Qt3DRender::QTechniqueFilter *self,
+    Qt3DRender::QParameter *p) {
+  self->removeParameter(p);
+}
+
+//  QList<QParameter *> Qt3DRender::QTechniqueFilter::parameters() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QParameter *> *ritual_ZNK10Qt3DRender16QTechniqueFilter10parametersEv(
+    const Qt3DRender::QTechniqueFilter *self) {
+  return new QList<Qt3DRender::QParameter *>(self->parameters());
+}
+
+//  Qt3DRender::QTechniqueFilter::QTechniqueFilter(QTechniqueFilterPrivate
+//      &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTechniqueFilter *ritual_ZN10Qt3DRender16QTechniqueFilterC1ERNS_23QTechniqueFilterPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QTechniqueFilterPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QTechniqueFilter(*dd, parent);
 }
 
 //  QTechniqueFilterPrivate *Qt3DRender::QTechniqueFilter::d_func()
@@ -212,4 +302,20 @@ bool ritual_take_Qt3DRender_QTechniqueFilter(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QTechniqueFilter *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DRender::QFilterKey *> a ritual of
+//      Qt3DRender::QTechniqueFilter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QTechniqueFilter__QList_Qt3DRender_QFilterKey(
+    QList<Qt3DRender::QFilterKey *> *self) {
+  delete self;
+}
+
+//  a QList<Qt3DRender::QParameter *> a ritual of
+//      Qt3DRender::QTechniqueFilter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QTechniqueFilter__QList_Qt3DRender_QParameter(
+    QList<Qt3DRender::QParameter *> *self) {
+  delete self;
 }

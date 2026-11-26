@@ -13,6 +13,12 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qtyperevision.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(qml_delegate_model)
+#include <QtQmlModels/QtQmlModels>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -158,11 +164,33 @@ QVariant *ritual_ZNK16QQmlAdaptorModel5valueEiRK7QString(
   return new QVariant(self->value(index, *role));
 }
 
+//  QQmlDelegateModelItem *QQmlAdaptorModel::createItem(const
+//      QQmlRefPointer<QQmlDelegateModelItemMetaType> &metaType, int index)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModelItem *ritual_ZN16QQmlAdaptorModel10createItemERK14QQmlRefPointerI29QQmlDelegateModelItemMetaTypeEi(
+    QQmlAdaptorModel *self,
+    const QQmlRefPointer<QQmlDelegateModelItemMetaType> *metaType,
+    int index) {
+  return self->createItem(*metaType, index);
+}
+
 //  bool QQmlAdaptorModel::hasProxyObject() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QQmlAdaptorModel14hasProxyObjectEv(
     const QQmlAdaptorModel *self) {
   return self->hasProxyObject();
+}
+
+//  bool QQmlAdaptorModel::notify(const QList<QQmlDelegateModelItem *>
+//      &items, int index, int count, const QList<int> &roles) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QQmlAdaptorModel6notifyERK5QListIP21QQmlDelegateModelItemEiiRKS0_IiE(
+    const QQmlAdaptorModel *self,
+    const QList<QQmlDelegateModelItem *> *items,
+    int index,
+    int count,
+    const QList<int> *roles) {
+  return self->notify(*items, index, count, *roles);
 }
 
 //  void QQmlAdaptorModel::replaceWatchedRoles(const QList<QByteArray>

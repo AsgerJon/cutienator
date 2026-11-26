@@ -222,6 +222,25 @@ const QMetaObject *ritual_ZNK20QRemoteObjectReplica10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRemoteObjectReplica::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QRemoteObjectReplica11qt_metacastEPKc(
+    QRemoteObjectReplica *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRemoteObjectReplica::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QRemoteObjectReplica11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRemoteObjectReplica *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRemoteObjectReplica::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QRemoteObjectReplica2trEPKcS1_i(
@@ -281,11 +300,42 @@ void ritual_ZN20QRemoteObjectReplica7setNodeEP17QRemoteObjectNode(
   self->setNode(node);
 }
 
+//  void QRemoteObjectReplica::initialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectReplica11initializedEv(
+    QRemoteObjectReplica *self) {
+  self->initialized();
+}
+
+//  void QRemoteObjectReplica::notified()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectReplica8notifiedEv(QRemoteObjectReplica *self) {
+  self->notified();
+}
+
+//  void QRemoteObjectReplica::stateChanged(State state, State oldState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectReplica12stateChangedENS_5StateES0_(
+    QRemoteObjectReplica *self,
+    QRemoteObjectReplica::State state,
+    QRemoteObjectReplica::State oldState) {
+  self->stateChanged(state, oldState);
+}
+
 //  QRemoteObjectReplica::QRemoteObjectReplica(ConstructorType t)
 extern "C" Q_DECL_EXPORT
 QRemoteObjectReplica *ritual_ZN20QRemoteObjectReplicaC1ENS_15ConstructorTypeE(
     QRemoteObjectReplica::ConstructorType t) {
   return new CuteQRemoteObjectReplica(t);
+}
+
+//  QRemoteObjectReplica::QRemoteObjectReplica(QObjectPrivate &dptr, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QRemoteObjectReplica *ritual_ZN20QRemoteObjectReplicaC1ER14QObjectPrivateP7QObject(
+    QObjectPrivate *dptr,
+    QObject *parent) {
+  return new CuteQRemoteObjectReplica(*dptr, parent);
 }
 
 //  void QRemoteObjectReplica::initialize()
@@ -320,6 +370,14 @@ QRemoteObjectPendingCall *ritual_ZN20QRemoteObjectReplica13sendWithReplyEN11QMet
           call,
           index,
           *args));
+}
+
+//  void QRemoteObjectReplica::setProperties(QVariantList &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectReplica13setPropertiesEO5QListI8QVariantE(
+    QRemoteObjectReplica *self,
+    QVariantList *a0) {
+  self->setProperties(std::move(*a0));
 }
 
 //  void QRemoteObjectReplica::setChild(int i, const QVariant &a1)

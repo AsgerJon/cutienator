@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickShaderEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickShaderEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickShaderEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickShaderEffect2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -46,6 +52,24 @@
     ],
     "ritual_ZN18QQuickShaderEffect18updateUniformValueERK10QByteArrayRK8QVariant": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect21fragmentShaderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect19vertexShaderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect15blendingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect11meshChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickShaderEffect15cullModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect10logChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickShaderEffect13statusChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickShaderEffect28supportsAtlasTexturesChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN18QQuickShaderEffect5eventEP6QEvent": [
       "bool", "address", "address"

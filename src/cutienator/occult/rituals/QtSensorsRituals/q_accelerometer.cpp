@@ -179,6 +179,24 @@ const QMetaObject *ritual_ZNK14QAccelerometer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAccelerometer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QAccelerometer11qt_metacastEPKc(
+    QAccelerometer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAccelerometer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QAccelerometer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAccelerometer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAccelerometer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QAccelerometer2trEPKcS1_i(
@@ -221,6 +239,15 @@ extern "C" Q_DECL_EXPORT
 QAccelerometerReading *ritual_ZNK14QAccelerometer7readingEv(
     const QAccelerometer *self) {
   return self->reading();
+}
+
+//  void QAccelerometer::accelerationModeChanged(AccelerationMode
+//      accelerationMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAccelerometer23accelerationModeChangedENS_16AccelerationModeE(
+    QAccelerometer *self,
+    QAccelerometer::AccelerationMode accelerationMode) {
+  self->accelerationModeChanged(accelerationMode);
 }
 
 //  QAccelerometerPrivate *QAccelerometer::d_func()

@@ -20,6 +20,9 @@
     ],
     "ritual_ZNK16QNearFieldTarget9RequestIdneERKS0_": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN16QNearFieldTarget9RequestIdaSERKS0_": [
+      "address", "address", "address"
     ]
   }
 }

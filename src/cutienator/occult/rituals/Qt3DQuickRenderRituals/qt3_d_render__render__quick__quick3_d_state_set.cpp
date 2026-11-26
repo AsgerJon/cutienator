@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::Render::Quick::Quick3DStateSet that Python can take functions over in. Every Qt3DRender::Render::Quick::Quick3DStateSet
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,27 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick15Quick3DStateSet10metaObj
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::Quick::Quick3DStateSet::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick15Quick3DStateSet11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::Quick3DStateSet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      Qt3DRender::Render::Quick::Quick3DStateSet::qt_metacall(QMetaObject::
+//      Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick15Quick3DStateSet11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::Quick3DStateSet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::Quick3DStateSet::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -197,6 +220,30 @@ QString *ritual_ZN10Qt3DRender6Render5Quick15Quick3DStateSet2trEPKcS4_i(
           s,
           c,
           n));
+}
+
+//  Qt3DRender::Render::Quick::Quick3DStateSet::Quick3DStateSet(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DStateSet *ritual_ZN10Qt3DRender6Render5Quick15Quick3DStateSetC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DStateSet(parent);
+}
+
+//  Qt3DRender::Render::Quick::Quick3DStateSet::~Quick3DStateSet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render5Quick15Quick3DStateSetD1Ev(
+    Qt3DRender::Render::Quick::Quick3DStateSet *self) {
+  delete self;
+}
+
+//  QQmlListProperty<QRenderState>
+//      Qt3DRender::Render::Quick::Quick3DStateSet::renderStateList()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DRender::QRenderState> *ritual_ZN10Qt3DRender6Render5Quick15Quick3DStateSet15renderStateListEv(
+    Qt3DRender::Render::Quick::Quick3DStateSet *self) {
+  return new QQmlListProperty<Qt3DRender::QRenderState>(
+      self->renderStateList());
 }
 
 //  QRenderStateSet
@@ -215,4 +262,12 @@ bool ritual_take_Qt3DRender_Render_Quick_Quick3DStateSet(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Render_Quick_Quick3DStateSet *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DRender::QRenderState> a ritual of
+//      Qt3DRender::Render::Quick::Quick3DStateSet gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Quick_Quick3DStateSet__QQmlListProperty_Qt3DRender_QRenderState(
+    QQmlListProperty<Qt3DRender::QRenderState> *self) {
+  delete self;
 }

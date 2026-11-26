@@ -8,6 +8,12 @@
     "ritual_ZNK31QQuickMessageDialogImplAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickMessageDialogImplAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuickMessageDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QQuickMessageDialogImplAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,6 +31,12 @@
     ],
     "ritual_ZN31QQuickMessageDialogImplAttached21setDetailedTextButtonEP12QQuickButton": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickMessageDialogImplAttached16buttonBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickMessageDialogImplAttached25detailedTextButtonChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN31QQuickMessageDialogImplAttached6d_funcEv": [
       "address", "address"

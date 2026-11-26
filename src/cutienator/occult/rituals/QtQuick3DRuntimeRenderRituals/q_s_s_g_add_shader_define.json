@@ -9,6 +9,9 @@
     "ritual_ZN19QSSGAddShaderDefineC1ERK10QByteArrayi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK19QSSGAddShaderDefine8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QSSGAddShaderDefineD1Ev": ["nothing", "address"]
   }
 }

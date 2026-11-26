@@ -12,7 +12,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/qcandlestickset.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qpoint.h>
@@ -1040,6 +1042,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20CandlestickChartItem10metaObjectEv(
     const CandlestickChartItem *self) {
   return self->metaObject();
+}
+
+//  void *CandlestickChartItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20CandlestickChartItem11qt_metacastEPKc(
+    CandlestickChartItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int CandlestickChartItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20CandlestickChartItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    CandlestickChartItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString CandlestickChartItem::tr(const char *s, const char *c, int n)

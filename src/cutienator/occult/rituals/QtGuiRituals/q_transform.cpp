@@ -1,13 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qtransform.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtransform.h>
+#include <QtGui/qpolygon.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qline.h>
-#include <QtGui/qpolygon.h>
 #include <QtGui/qregion.h>
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qrect.h>
+#include <QtGui/QTransform>
 
 //  QTransform::QTransform(Qt::Initialization a0)
 extern "C" Q_DECL_EXPORT
@@ -49,6 +50,28 @@ QTransform *ritual_ZN10QTransformC1Edddddd(
     qreal dx,
     qreal dy) {
   return new QTransform(h11, h12, h21, h22, dx, dy);
+}
+
+//  QTransform &QTransform::operator=(QTransform &&other)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransformaSEOS_(
+    QTransform *self,
+    QTransform *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QTransform &QTransform::operator=(const QTransform &a0)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransformaSERKS_(
+    QTransform *self,
+    const QTransform *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QTransform::QTransform(QTransform &&other)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransformC1EOS_(QTransform *other) {
+  return new QTransform(std::move(*other));
 }
 
 //  QTransform::QTransform(const QTransform &other)
@@ -207,6 +230,108 @@ QTransform *ritual_ZNK10QTransform7adjointEv(const QTransform *self) {
 extern "C" Q_DECL_EXPORT
 QTransform *ritual_ZNK10QTransform10transposedEv(const QTransform *self) {
   return new QTransform(self->transposed());
+}
+
+//  QTransform &QTransform::translate(qreal dx, qreal dy)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransform9translateEdd(
+    QTransform *self,
+    qreal dx,
+    qreal dy) {
+  return &(self->translate(dx, dy));
+}
+
+//  QTransform &QTransform::scale(qreal sx, qreal sy)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransform5scaleEdd(
+    QTransform *self,
+    qreal sx,
+    qreal sy) {
+  return &(self->scale(sx, sy));
+}
+
+//  QTransform &QTransform::shear(qreal sh, qreal sv)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransform5shearEdd(
+    QTransform *self,
+    qreal sh,
+    qreal sv) {
+  return &(self->shear(sh, sv));
+}
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QTransform &QTransform::rotate(qreal a, Qt::Axis axis, qreal
+//      distanceToPlane)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransform6rotateEdN2Qt4AxisEd(
+    QTransform *self,
+    qreal a,
+    Qt::Axis axis,
+    qreal distanceToPlane) {
+  return &(self->rotate(a, axis, distanceToPlane));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QTransform &QTransform::rotate(qreal a, Qt::Axis axis)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransform6rotateEdN2Qt4AxisE(
+    QTransform *self,
+    qreal a,
+    Qt::Axis axis) {
+  return &(self->rotate(a, axis));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QTransform &QTransform::rotateRadians(qreal a, Qt::Axis axis, qreal
+//      distanceToPlane)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransform13rotateRadiansEdN2Qt4AxisEd(
+    QTransform *self,
+    qreal a,
+    Qt::Axis axis,
+    qreal distanceToPlane) {
+  return &(self->rotateRadians(a, axis, distanceToPlane));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QTransform &QTransform::rotateRadians(qreal a, Qt::Axis axis)
+extern "C" Q_DECL_EXPORT
+QTransform *ritual_ZN10QTransform13rotateRadiansEdN2Qt4AxisE(
+    QTransform *self,
+    qreal a,
+    Qt::Axis axis) {
+  return &(self->rotateRadians(a, axis));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+//  bool QTransform::squareToQuad(const QPolygonF &square, QTransform
+//      &result)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QTransform12squareToQuadERK9QPolygonFRS_(
+    const QPolygonF *square,
+    QTransform *result) {
+  return QTransform::squareToQuad(*square, *result);
+}
+
+//  bool QTransform::quadToSquare(const QPolygonF &quad, QTransform &result)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QTransform12quadToSquareERK9QPolygonFRS_(
+    const QPolygonF *quad,
+    QTransform *result) {
+  return QTransform::quadToSquare(*quad, *result);
+}
+
+//  bool QTransform::quadToQuad(const QPolygonF &one, const QPolygonF &two,
+//      QTransform &result)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QTransform10quadToQuadERK9QPolygonFS2_RS_(
+    const QPolygonF *one,
+    const QPolygonF *two,
+    QTransform *result) {
+  return QTransform::quadToQuad(*one, *two, *result);
 }
 
 //  bool QTransform::operator==(const QTransform &a0) const
@@ -397,6 +522,29 @@ QTransform *ritual_ZN10QTransform9fromScaleEdd(qreal dx, qreal dy) {
   return new QTransform(QTransform::fromScale(dx, dy));
 }
 
+//  Affine QTransform::asAffineMatrix()
+extern "C" Q_DECL_EXPORT
+QTransform::Affine *ritual_ZN10QTransform14asAffineMatrixEv(
+    QTransform *self) {
+  return new QTransform::Affine(self->asAffineMatrix());
+}
+
+//  QDataStream &operator>>(QDataStream &s, Affine &m)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamRN10QTransform6AffineE(
+    QDataStream *s,
+    QTransform::Affine *m) {
+  return &(operator>>(*s, *m));
+}
+
+//  QDataStream &operator<<(QDataStream &s, const Affine &m)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRKN10QTransform6AffineE(
+    QDataStream *s,
+    const QTransform::Affine *m) {
+  return &(operator<<(*s, *m));
+}
+
 //  TransformationType QTransform::inline_type() const
 extern "C" Q_DECL_EXPORT
 QTransform::TransformationType ritual_ZNK10QTransform11inline_typeEv(
@@ -418,5 +566,11 @@ void ritual_ZNK10QTransform6do_mapEddRdS0_(
 //  QTransform::~QTransform()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QTransformD1Ev(QTransform *self) {
+  delete self;
+}
+
+//  a QTransform::Affine a ritual of QTransform gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTransform__QTransform_Affine(QTransform::Affine *self) {
   delete self;
 }

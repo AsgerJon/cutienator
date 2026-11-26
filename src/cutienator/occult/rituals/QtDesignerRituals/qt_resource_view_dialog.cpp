@@ -1024,6 +1024,25 @@ const QMetaObject *ritual_ZNK20QtResourceViewDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtResourceViewDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QtResourceViewDialog11qt_metacastEPKc(
+    QtResourceViewDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtResourceViewDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QtResourceViewDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtResourceViewDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtResourceViewDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QtResourceViewDialog2trEPKcS1_i(
@@ -1076,6 +1095,20 @@ void ritual_ZN20QtResourceViewDialog25setResourceEditingEnabledEb(
     QtResourceViewDialog *self,
     bool enable) {
   self->setResourceEditingEnabled(enable);
+}
+
+//  QtResourceViewDialogPrivate *QtResourceViewDialog::d_func()
+extern "C" Q_DECL_EXPORT
+QtResourceViewDialogPrivate *ritual_ZN20QtResourceViewDialog6d_funcEv(
+    QtResourceViewDialog *self) {
+  return self->d_func();
+}
+
+//  const QtResourceViewDialogPrivate *QtResourceViewDialog::d_func() const
+extern "C" Q_DECL_EXPORT
+const QtResourceViewDialogPrivate *ritual_ZNK20QtResourceViewDialog6d_funcEv(
+    const QtResourceViewDialog *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQtResourceViewDialog, for the function

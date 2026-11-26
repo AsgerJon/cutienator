@@ -144,14 +144,15 @@ class TestSummon(BaseTest):
 
   def test_each_part_has_a_build_of_its_own(self) -> None:
     """The build of the target file of a part takes the ritual files of
-    that part, and is joined to the shared object of that part of Qt
-    first, so a function two parts of Qt offer by one name is taken
+    that part this system compiles (one of Objective-C++ on Apple's
+    systems only), and is joined to the shared object of that part of
+    Qt first, so a function two parts of Qt offer by one name is taken
     from its own."""
     for partName in Rituals.getBuiltParts():
       build = Rituals.createPartSummon(partName)
       with self.subTest(partName=partName):
         self.assertEqual(
-            build.getRitualFiles(), Rituals.getPartRitualFiles(partName))
+            build.getRitualFiles(), Rituals.getPartCompiledFiles(partName))
         self.assertEqual(
             build.getTargetFile(), Rituals.getTargetFile(partName))
         self.assertEqual(

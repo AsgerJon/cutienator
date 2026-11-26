@@ -11,14 +11,37 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlregexpfilter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 
 //  const QMetaObject *QQmlRegExpFilter::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QQmlRegExpFilter10metaObjectEv(
     const QQmlRegExpFilter *self) {
   return self->metaObject();
+}
+
+//  void *QQmlRegExpFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQmlRegExpFilter11qt_metacastEPKc(
+    QQmlRegExpFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlRegExpFilter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQmlRegExpFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlRegExpFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQmlRegExpFilter::tr(const char *s, const char *c, int n)
@@ -61,6 +84,12 @@ bool ritual_ZNK16QQmlRegExpFilter24filterAcceptsRowInternalEiRK11QModelIndexPK24
     const QModelIndex *sourceParent,
     const QQmlSortFilterProxyModel *proxyModel) {
   return self->filterAcceptsRowInternal(row, *sourceParent, proxyModel);
+}
+
+//  void QQmlRegExpFilter::regExpChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlRegExpFilter13regExpChangedEv(QQmlRegExpFilter *self) {
+  self->regExpChanged();
 }
 
 //  QQmlRegExpFilterPrivate *QQmlRegExpFilter::d_func()

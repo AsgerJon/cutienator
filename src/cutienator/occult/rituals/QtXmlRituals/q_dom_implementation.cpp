@@ -26,6 +26,15 @@ void ritual_ZN18QDomImplementationD1Ev(QDomImplementation *self) {
   delete self;
 }
 
+//  QDomImplementation &QDomImplementation::operator=(const
+//      QDomImplementation &other)
+extern "C" Q_DECL_EXPORT
+QDomImplementation *ritual_ZN18QDomImplementationaSERKS_(
+    QDomImplementation *self,
+    const QDomImplementation *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QDomImplementation::operator==(const QDomImplementation &other)
 //      const
 extern "C" Q_DECL_EXPORT

@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK19QQuick3DRenderStats10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DRenderStats::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuick3DRenderStats11qt_metacastEPKc(
+    QQuick3DRenderStats *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DRenderStats::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuick3DRenderStats11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DRenderStats *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DRenderStats::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuick3DRenderStats2trEPKcS1_i(
@@ -272,6 +291,160 @@ void ritual_ZN19QQuick3DRenderStats9setWindowEP12QQuickWindow(
     QQuick3DRenderStats *self,
     QQuickWindow *window) {
   self->setWindow(window);
+}
+
+//  void QQuick3DRenderStats::fpsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats10fpsChangedEv(
+    QQuick3DRenderStats *self) {
+  self->fpsChanged();
+}
+
+//  void QQuick3DRenderStats::frameTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats16frameTimeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->frameTimeChanged();
+}
+
+//  void QQuick3DRenderStats::renderTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats17renderTimeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->renderTimeChanged();
+}
+
+//  void QQuick3DRenderStats::syncTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats15syncTimeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->syncTimeChanged();
+}
+
+//  void QQuick3DRenderStats::maxFrameTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats19maxFrameTimeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->maxFrameTimeChanged();
+}
+
+//  void QQuick3DRenderStats::extendedDataCollectionEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats36extendedDataCollectionEnabledChangedEv(
+    QQuick3DRenderStats *self) {
+  self->extendedDataCollectionEnabledChanged();
+}
+
+//  void QQuick3DRenderStats::drawCallCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats20drawCallCountChangedEv(
+    QQuick3DRenderStats *self) {
+  self->drawCallCountChanged();
+}
+
+//  void QQuick3DRenderStats::drawVertexCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats22drawVertexCountChangedEv(
+    QQuick3DRenderStats *self) {
+  self->drawVertexCountChanged();
+}
+
+//  void QQuick3DRenderStats::imageDataSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats20imageDataSizeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->imageDataSizeChanged();
+}
+
+//  void QQuick3DRenderStats::meshDataSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats19meshDataSizeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->meshDataSizeChanged();
+}
+
+//  void QQuick3DRenderStats::renderPassCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats22renderPassCountChangedEv(
+    QQuick3DRenderStats *self) {
+  self->renderPassCountChanged();
+}
+
+//  void QQuick3DRenderStats::renderPassDetailsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats24renderPassDetailsChangedEv(
+    QQuick3DRenderStats *self) {
+  self->renderPassDetailsChanged();
+}
+
+//  void QQuick3DRenderStats::textureDetailsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats21textureDetailsChangedEv(
+    QQuick3DRenderStats *self) {
+  self->textureDetailsChanged();
+}
+
+//  void QQuick3DRenderStats::meshDetailsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats18meshDetailsChangedEv(
+    QQuick3DRenderStats *self) {
+  self->meshDetailsChanged();
+}
+
+//  void QQuick3DRenderStats::pipelineCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats20pipelineCountChangedEv(
+    QQuick3DRenderStats *self) {
+  self->pipelineCountChanged();
+}
+
+//  void QQuick3DRenderStats::materialGenerationTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats29materialGenerationTimeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->materialGenerationTimeChanged();
+}
+
+//  void QQuick3DRenderStats::effectGenerationTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats27effectGenerationTimeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->effectGenerationTimeChanged();
+}
+
+//  void QQuick3DRenderStats::pipelineCreationTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats27pipelineCreationTimeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->pipelineCreationTimeChanged();
+}
+
+//  void QQuick3DRenderStats::vmemAllocCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats21vmemAllocCountChangedEv(
+    QQuick3DRenderStats *self) {
+  self->vmemAllocCountChanged();
+}
+
+//  void QQuick3DRenderStats::vmemUsedBytesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats20vmemUsedBytesChangedEv(
+    QQuick3DRenderStats *self) {
+  self->vmemUsedBytesChanged();
+}
+
+//  void QQuick3DRenderStats::graphicsApiNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats22graphicsApiNameChangedEv(
+    QQuick3DRenderStats *self) {
+  self->graphicsApiNameChanged();
+}
+
+//  void QQuick3DRenderStats::lastCompletedGpuTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DRenderStats27lastCompletedGpuTimeChangedEv(
+    QQuick3DRenderStats *self) {
+  self->lastCompletedGpuTimeChanged();
 }
 
 //  void QQuick3DRenderStats::onFrameSwapped()

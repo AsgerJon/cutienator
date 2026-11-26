@@ -133,6 +133,9 @@ inline void QProtobufSerializerBase::serializeMessage(const QProtobufMessage *me
                            value.constData(), fieldInfo);
     }
 }
+
+//  from ../qtgrpc/src/protobuf/qprotobufserializerbase.cpp, line 19, as _ZN23QProtobufSerializerBaseD1Ev
+inline QProtobufSerializerBase::~QProtobufSerializerBase() = default;
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QProtobufSerializerBase may call these functions of it.
@@ -245,6 +248,12 @@ bool ritual_ZN23QProtobufSerializerBase22isOneofOrOptionalFieldE6QFlagsIN17QtPro
       QFlags<QtProtobufPrivate::FieldFlag>::fromInt(flags));
 }
 
+//  QProtobufSerializerBase::~QProtobufSerializerBase()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QProtobufSerializerBaseD1Ev(QProtobufSerializerBase *self) {
+  delete self;
+}
+
 //  void QProtobufSerializerBase::serializeMessageField(const
 //      QProtobufMessage *message, const
 //      QtProtobufPrivate::QProtobufFieldInfo &fieldInfo)
@@ -254,6 +263,16 @@ void ritual_ZN23QProtobufSerializerBase21serializeMessageFieldEPK16QProtobufMess
     const QProtobufMessage *message,
     const QtProtobufPrivate::QProtobufFieldInfo *fieldInfo) {
   self->serializeMessageField(message, *fieldInfo);
+}
+
+//  bool QProtobufSerializerBase::serializeEnum(QVariant &value, const
+//      QtProtobufPrivate::QProtobufFieldInfo &fieldInfo)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN23QProtobufSerializerBase13serializeEnumER8QVariantRKN17QtProtobufPrivate18QProtobufFieldInfoE(
+    QProtobufSerializerBase *self,
+    QVariant *value,
+    const QtProtobufPrivate::QProtobufFieldInfo *fieldInfo) {
+  return self->serializeEnum(*value, *fieldInfo);
 }
 
 //  bool QProtobufSerializerBase::serializeScalarField(const QVariant &value,

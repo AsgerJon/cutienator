@@ -46,141 +46,183 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/xml/dom/qdom.cpp, line 1230, as _ZN15QDomNodePrivate11insertAfterEPS_S0_
+using namespace Qt::StringLiterals;
+
+//  from src/xml/dom/qdom.cpp, line 1480, as local:qdom.cpp:qNormalizeNode
 #if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomNodePrivate::insertAfter(QDomNodePrivate* newChild, QDomNodePrivate* refChild)
+static void qNormalizeNode(QDomNodePrivate* n)
 {
-    // Error check
-    if (!newChild)
-        return nullptr;
+    QDomNodePrivate* p = n->first;
+    QDomTextPrivate* t = nullptr;
 
-    // Error check
-    if (newChild == refChild)
-        return nullptr;
-
-    // Error check
-    if (refChild && refChild->parent() != this)
-        return nullptr;
-
-    // "mark lists as dirty"
-    QDomDocumentPrivate *const doc = ownerDocument();
-    if (doc)
-        doc->nodeListTime++;
-
-    // Special handling for inserting a fragment. We just insert
-    // all elements of the fragment instead of the fragment itself.
-    if (newChild->isDocumentFragment()) {
-        // Fragment is empty ?
-        if (newChild->first == nullptr)
-            return newChild;
-
-        // New parent
-        QDomNodePrivate* n = newChild->first;
-        while (n) {
-            n->setParent(this);
-            n = n->next;
+    while (p) {
+        if (p->isText()) {
+            if (t) {
+                QDomNodePrivate* tmp = p->next;
+                t->appendData(p->nodeValue());
+                n->removeChild(p);
+                p = tmp;
+            } else {
+                t = static_cast<QDomTextPrivate *>(p);
+                p = p->next;
+            }
+        } else {
+            p = p->next;
+            t = nullptr;
         }
-
-        // Insert at the end
-        if (!refChild || refChild->next == nullptr) {
-            if (last)
-                last->next = newChild->first;
-            newChild->first->prev = last;
-            if (!first)
-                first = newChild->first;
-            last = newChild->last;
-        } else { // Insert in the middle
-            newChild->first->prev = refChild;
-            newChild->last->next = refChild->next;
-            refChild->next->prev = newChild->last;
-            refChild->next = newChild->first;
-        }
-
-        // No need to increase the reference since QDomDocumentFragment
-        // does not decrease the reference.
-
-        // Remove the nodes from the fragment
-        newChild->first = nullptr;
-        newChild->last = nullptr;
-        return newChild;
     }
-
-    // Release new node from its current parent
-    if (newChild->parent())
-        newChild->parent()->removeChild(newChild);
-
-    // No more errors can occur now, so we take
-    // ownership of the node
-    newChild->ref.ref();
-
-    newChild->setParent(this);
-
-    // Insert at the end
-    if (!refChild) {
-        if (last)
-            last->next = newChild;
-        newChild->prev = last;
-        if (!first)
-            first = newChild;
-        last = newChild;
-        return newChild;
-    }
-
-    if (refChild->next == nullptr) {
-        if (last)
-            last->next = newChild;
-        newChild->prev = last;
-        if (!first)
-            first = newChild;
-        last = newChild;
-        return newChild;
-    }
-
-    newChild->prev = refChild;
-    newChild->next = refChild->next;
-    refChild->next->prev = newChild;
-    refChild->next = newChild;
-
-    return newChild;
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 1418, as _ZN15QDomNodePrivate11removeChildEPS_
+//  from src/xml/dom/qdom.cpp, line 1108, as _ZN15QDomNodePrivate5clearEv
 #if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomNodePrivate::removeChild(QDomNodePrivate* oldChild)
+inline void QDomNodePrivate::clear()
 {
-    // Error check
-    if (oldChild->parent() != this)
-        return nullptr;
+    QDomNodePrivate* p = first;
+    QDomNodePrivate* n;
 
-    // "mark lists as dirty"
-    QDomDocumentPrivate *const doc = ownerDocument();
-    if (doc)
-        doc->nodeListTime++;
+    while (p) {
+        n = p->next;
+        if (!p->ref.deref())
+            delete p;
+        p = n;
+    }
+    first = nullptr;
+    last = nullptr;
+}
+#endif  // QT_CONFIG(dom)
 
-    // Perhaps oldChild was just created with "createElement" or that. In this case
-    // its parent is QDomDocument but it is not part of the documents child list.
-    if (oldChild->next == nullptr && oldChild->prev == nullptr && first != oldChild)
-        return nullptr;
+//  from src/xml/dom/qdom.cpp, line 1502, as _ZN15QDomNodePrivate9normalizeEv
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::normalize()
+{
+    // ### This one has moved from QDomElementPrivate to this position. It is
+    // not tested.
+    qNormalizeNode(this);
+}
+#endif  // QT_CONFIG(dom)
 
-    if (oldChild->next)
-        oldChild->next->prev = oldChild->prev;
-    if (oldChild->prev)
-        oldChild->prev->next = oldChild->next;
+//  from src/xml/dom/qdom.cpp, line 2681, as _ZN23QDomNamedNodeMapPrivateC1EP15QDomNodePrivate
+#if QT_CONFIG(dom)
+inline QDomNamedNodeMapPrivate::QDomNamedNodeMapPrivate(QDomNodePrivate *pimpl)
+    : ref(1)
+    , parent(pimpl)
+    , readonly(false)
+    , appendToParent(false)
+{
+}
+#endif  // QT_CONFIG(dom)
 
-    if (last == oldChild)
-        last = oldChild->prev;
-    if (first == oldChild)
-        first = oldChild->next;
+//  from src/xml/dom/qdom.cpp, line 2689, as _ZN23QDomNamedNodeMapPrivateD1Ev
+#if QT_CONFIG(dom)
+inline QDomNamedNodeMapPrivate::~QDomNamedNodeMapPrivate()
+{
+    clearMap();
+}
+#endif  // QT_CONFIG(dom)
 
-    oldChild->setNoParent();
-    oldChild->next = nullptr;
-    oldChild->prev = nullptr;
+//  from src/xml/dom/qdom.cpp, line 3149, as _ZN23QDomDocumentTypePrivate9cloneNodeEb
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomDocumentTypePrivate::cloneNode(bool deep)
+{
+    QDomNodePrivate* p = new QDomDocumentTypePrivate(this, deep);
+    // We are not interested in this node
+    p->ref.deref();
+    return p;
+}
+#endif  // QT_CONFIG(dom)
 
-    // We are no longer interested in the old node
-    oldChild->ref.deref();
+//  from src/xml/dom/qdom.cpp, line 3157, as _ZN23QDomDocumentTypePrivate12insertBeforeEP15QDomNodePrivateS1_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomDocumentTypePrivate::insertBefore(QDomNodePrivate* newChild, QDomNodePrivate* refChild)
+{
+    // Call the original implementation
+    QDomNodePrivate* p = QDomNodePrivate::insertBefore(newChild, refChild);
+    // Update the maps
+    if (p && p->isEntity())
+        entities->map.insert(p->nodeName(), p);
+    else if (p && p->isNotation())
+        notations->map.insert(p->nodeName(), p);
 
-    return oldChild;
+    return p;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3170, as _ZN23QDomDocumentTypePrivate11insertAfterEP15QDomNodePrivateS1_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomDocumentTypePrivate::insertAfter(QDomNodePrivate* newChild, QDomNodePrivate* refChild)
+{
+    // Call the original implementation
+    QDomNodePrivate* p = QDomNodePrivate::insertAfter(newChild, refChild);
+    // Update the maps
+    if (p && p->isEntity())
+        entities->map.insert(p->nodeName(), p);
+    else if (p && p->isNotation())
+        notations->map.insert(p->nodeName(), p);
+
+    return p;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3183, as _ZN23QDomDocumentTypePrivate12replaceChildEP15QDomNodePrivateS1_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomDocumentTypePrivate::replaceChild(QDomNodePrivate* newChild, QDomNodePrivate* oldChild)
+{
+    // Call the original implementation
+    QDomNodePrivate* p = QDomNodePrivate::replaceChild(newChild, oldChild);
+    // Update the maps
+    if (p) {
+        if (oldChild && oldChild->isEntity())
+            entities->map.remove(oldChild->nodeName());
+        else if (oldChild && oldChild->isNotation())
+            notations->map.remove(oldChild->nodeName());
+
+        if (p->isEntity())
+            entities->map.insert(p->nodeName(), p);
+        else if (p->isNotation())
+            notations->map.insert(p->nodeName(), p);
+    }
+
+    return p;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3203, as _ZN23QDomDocumentTypePrivate11removeChildEP15QDomNodePrivate
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomDocumentTypePrivate::removeChild(QDomNodePrivate* oldChild)
+{
+    // Call the original implementation
+    QDomNodePrivate* p = QDomNodePrivate::removeChild( oldChild);
+    // Update the maps
+    if (p && p->isEntity())
+        entities->map.remove(p->nodeName());
+    else if (p && p->isNotation())
+        notations->map.remove(p ->nodeName());
+
+    return p;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3216, as _ZN23QDomDocumentTypePrivate11appendChildEP15QDomNodePrivate
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomDocumentTypePrivate::appendChild(QDomNodePrivate* newChild)
+{
+    return insertAfter(newChild, nullptr);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 2712, as _ZN23QDomNamedNodeMapPrivate8clearMapEv
+#if QT_CONFIG(dom)
+inline void QDomNamedNodeMapPrivate::clearMap()
+{
+    // Dereference all of our children if we took references
+    if (!appendToParent) {
+        auto it = map.constBegin();
+        for (; it != map.constEnd(); ++it)
+            if (!it.value()->ref.deref())
+                delete it.value();
+    }
+    map.clear();
 }
 #endif  // QT_CONFIG(dom)
 
@@ -282,6 +324,105 @@ inline QDomNodePrivate* QDomNodePrivate::insertBefore(QDomNodePrivate* newChild,
 }
 #endif  // QT_CONFIG(dom)
 
+//  from src/xml/dom/qdom.cpp, line 1230, as _ZN15QDomNodePrivate11insertAfterEPS_S0_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomNodePrivate::insertAfter(QDomNodePrivate* newChild, QDomNodePrivate* refChild)
+{
+    // Error check
+    if (!newChild)
+        return nullptr;
+
+    // Error check
+    if (newChild == refChild)
+        return nullptr;
+
+    // Error check
+    if (refChild && refChild->parent() != this)
+        return nullptr;
+
+    // "mark lists as dirty"
+    QDomDocumentPrivate *const doc = ownerDocument();
+    if (doc)
+        doc->nodeListTime++;
+
+    // Special handling for inserting a fragment. We just insert
+    // all elements of the fragment instead of the fragment itself.
+    if (newChild->isDocumentFragment()) {
+        // Fragment is empty ?
+        if (newChild->first == nullptr)
+            return newChild;
+
+        // New parent
+        QDomNodePrivate* n = newChild->first;
+        while (n) {
+            n->setParent(this);
+            n = n->next;
+        }
+
+        // Insert at the end
+        if (!refChild || refChild->next == nullptr) {
+            if (last)
+                last->next = newChild->first;
+            newChild->first->prev = last;
+            if (!first)
+                first = newChild->first;
+            last = newChild->last;
+        } else { // Insert in the middle
+            newChild->first->prev = refChild;
+            newChild->last->next = refChild->next;
+            refChild->next->prev = newChild->last;
+            refChild->next = newChild->first;
+        }
+
+        // No need to increase the reference since QDomDocumentFragment
+        // does not decrease the reference.
+
+        // Remove the nodes from the fragment
+        newChild->first = nullptr;
+        newChild->last = nullptr;
+        return newChild;
+    }
+
+    // Release new node from its current parent
+    if (newChild->parent())
+        newChild->parent()->removeChild(newChild);
+
+    // No more errors can occur now, so we take
+    // ownership of the node
+    newChild->ref.ref();
+
+    newChild->setParent(this);
+
+    // Insert at the end
+    if (!refChild) {
+        if (last)
+            last->next = newChild;
+        newChild->prev = last;
+        if (!first)
+            first = newChild;
+        last = newChild;
+        return newChild;
+    }
+
+    if (refChild->next == nullptr) {
+        if (last)
+            last->next = newChild;
+        newChild->prev = last;
+        if (!first)
+            first = newChild;
+        last = newChild;
+        return newChild;
+    }
+
+    newChild->prev = refChild;
+    newChild->next = refChild->next;
+    refChild->next->prev = newChild;
+    refChild->next = newChild;
+
+    return newChild;
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1326, as _ZN15QDomNodePrivate12replaceChildEPS_S0_
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomNodePrivate::replaceChild(QDomNodePrivate* newChild, QDomNodePrivate* oldChild)
@@ -377,55 +518,42 @@ inline QDomNodePrivate* QDomNodePrivate::replaceChild(QDomNodePrivate* newChild,
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 1108, as _ZN15QDomNodePrivate5clearEv
+//  from src/xml/dom/qdom.cpp, line 1418, as _ZN15QDomNodePrivate11removeChildEPS_
 #if QT_CONFIG(dom)
-inline void QDomNodePrivate::clear()
+inline QDomNodePrivate* QDomNodePrivate::removeChild(QDomNodePrivate* oldChild)
 {
-    QDomNodePrivate* p = first;
-    QDomNodePrivate* n;
+    // Error check
+    if (oldChild->parent() != this)
+        return nullptr;
 
-    while (p) {
-        n = p->next;
-        if (!p->ref.deref())
-            delete p;
-        p = n;
-    }
-    first = nullptr;
-    last = nullptr;
-}
-#endif  // QT_CONFIG(dom)
+    // "mark lists as dirty"
+    QDomDocumentPrivate *const doc = ownerDocument();
+    if (doc)
+        doc->nodeListTime++;
 
-//  from src/xml/dom/qdom.cpp, line 2681, as _ZN23QDomNamedNodeMapPrivateC1EP15QDomNodePrivate
-#if QT_CONFIG(dom)
-inline QDomNamedNodeMapPrivate::QDomNamedNodeMapPrivate(QDomNodePrivate *pimpl)
-    : ref(1)
-    , parent(pimpl)
-    , readonly(false)
-    , appendToParent(false)
-{
-}
-#endif  // QT_CONFIG(dom)
+    // Perhaps oldChild was just created with "createElement" or that. In this case
+    // its parent is QDomDocument but it is not part of the documents child list.
+    if (oldChild->next == nullptr && oldChild->prev == nullptr && first != oldChild)
+        return nullptr;
 
-//  from src/xml/dom/qdom.cpp, line 2689, as _ZN23QDomNamedNodeMapPrivateD1Ev
-#if QT_CONFIG(dom)
-inline QDomNamedNodeMapPrivate::~QDomNamedNodeMapPrivate()
-{
-    clearMap();
-}
-#endif  // QT_CONFIG(dom)
+    if (oldChild->next)
+        oldChild->next->prev = oldChild->prev;
+    if (oldChild->prev)
+        oldChild->prev->next = oldChild->next;
 
-//  from src/xml/dom/qdom.cpp, line 2712, as _ZN23QDomNamedNodeMapPrivate8clearMapEv
-#if QT_CONFIG(dom)
-inline void QDomNamedNodeMapPrivate::clearMap()
-{
-    // Dereference all of our children if we took references
-    if (!appendToParent) {
-        auto it = map.constBegin();
-        for (; it != map.constEnd(); ++it)
-            if (!it.value()->ref.deref())
-                delete it.value();
-    }
-    map.clear();
+    if (last == oldChild)
+        last = oldChild->prev;
+    if (first == oldChild)
+        first = oldChild->next;
+
+    oldChild->setNoParent();
+    oldChild->next = nullptr;
+    oldChild->prev = nullptr;
+
+    // We are no longer interested in the old node
+    oldChild->ref.deref();
+
+    return oldChild;
 }
 #endif  // QT_CONFIG(dom)
 
@@ -474,96 +602,6 @@ inline void QDomDocumentTypePrivate::init()
     }
 }
 #endif  // QT_CONFIG(dom)
-
-//  from src/xml/dom/qdom.cpp, line 3149, as _ZN23QDomDocumentTypePrivate9cloneNodeEb
-#if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomDocumentTypePrivate::cloneNode(bool deep)
-{
-    QDomNodePrivate* p = new QDomDocumentTypePrivate(this, deep);
-    // We are not interested in this node
-    p->ref.deref();
-    return p;
-}
-#endif  // QT_CONFIG(dom)
-
-//  from src/xml/dom/qdom.cpp, line 3157, as _ZN23QDomDocumentTypePrivate12insertBeforeEP15QDomNodePrivateS1_
-#if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomDocumentTypePrivate::insertBefore(QDomNodePrivate* newChild, QDomNodePrivate* refChild)
-{
-    // Call the original implementation
-    QDomNodePrivate* p = QDomNodePrivate::insertBefore(newChild, refChild);
-    // Update the maps
-    if (p && p->isEntity())
-        entities->map.insert(p->nodeName(), p);
-    else if (p && p->isNotation())
-        notations->map.insert(p->nodeName(), p);
-
-    return p;
-}
-#endif  // QT_CONFIG(dom)
-
-//  from src/xml/dom/qdom.cpp, line 3170, as _ZN23QDomDocumentTypePrivate11insertAfterEP15QDomNodePrivateS1_
-#if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomDocumentTypePrivate::insertAfter(QDomNodePrivate* newChild, QDomNodePrivate* refChild)
-{
-    // Call the original implementation
-    QDomNodePrivate* p = QDomNodePrivate::insertAfter(newChild, refChild);
-    // Update the maps
-    if (p && p->isEntity())
-        entities->map.insert(p->nodeName(), p);
-    else if (p && p->isNotation())
-        notations->map.insert(p->nodeName(), p);
-
-    return p;
-}
-#endif  // QT_CONFIG(dom)
-
-//  from src/xml/dom/qdom.cpp, line 3183, as _ZN23QDomDocumentTypePrivate12replaceChildEP15QDomNodePrivateS1_
-#if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomDocumentTypePrivate::replaceChild(QDomNodePrivate* newChild, QDomNodePrivate* oldChild)
-{
-    // Call the original implementation
-    QDomNodePrivate* p = QDomNodePrivate::replaceChild(newChild, oldChild);
-    // Update the maps
-    if (p) {
-        if (oldChild && oldChild->isEntity())
-            entities->map.remove(oldChild->nodeName());
-        else if (oldChild && oldChild->isNotation())
-            notations->map.remove(oldChild->nodeName());
-
-        if (p->isEntity())
-            entities->map.insert(p->nodeName(), p);
-        else if (p->isNotation())
-            notations->map.insert(p->nodeName(), p);
-    }
-
-    return p;
-}
-#endif  // QT_CONFIG(dom)
-
-//  from src/xml/dom/qdom.cpp, line 3203, as _ZN23QDomDocumentTypePrivate11removeChildEP15QDomNodePrivate
-#if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomDocumentTypePrivate::removeChild(QDomNodePrivate* oldChild)
-{
-    // Call the original implementation
-    QDomNodePrivate* p = QDomNodePrivate::removeChild( oldChild);
-    // Update the maps
-    if (p && p->isEntity())
-        entities->map.remove(p->nodeName());
-    else if (p && p->isNotation())
-        notations->map.remove(p ->nodeName());
-
-    return p;
-}
-#endif  // QT_CONFIG(dom)
-
-//  from src/xml/dom/qdom.cpp, line 3216, as _ZN23QDomDocumentTypePrivate11appendChildEP15QDomNodePrivate
-#if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomDocumentTypePrivate::appendChild(QDomNodePrivate* newChild)
-{
-    return insertAfter(newChild, nullptr);
-}
-#endif  // QT_CONFIG(dom)
 //  -----------------------------------------------------------------------
 
 //  A QDomDocumentTypePrivate that Python can take functions over in. Every QDomDocumentTypePrivate
@@ -602,7 +640,7 @@ typedef void (*CuteQDomDocumentTypePrivateCall9)(const void *, int *);
 class CuteQDomDocumentTypePrivate : public QDomDocumentTypePrivate {
 public:
   using QDomDocumentTypePrivate::QDomDocumentTypePrivate;
-  CuteQDomDocumentTypePrivate(const QDomDocumentTypePrivate &other) : QDomDocumentTypePrivate(other) {}
+  CuteQDomDocumentTypePrivate(const QDomDocumentTypePrivate & other) : QDomDocumentTypePrivate(other) {}
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {
@@ -889,6 +927,16 @@ extern "C" Q_DECL_EXPORT
 QDomNode::NodeType ritual_ZNK23QDomDocumentTypePrivate8nodeTypeEv(
     const QDomDocumentTypePrivate *self) {
   return self->nodeType();
+}
+
+//  void QDomDocumentTypePrivate::save(QTextStream &s, int a1, int a2) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK23QDomDocumentTypePrivate4saveER11QTextStreamii(
+    const QDomDocumentTypePrivate *self,
+    QTextStream *s,
+    int a1,
+    int a2) {
+  self->save(*s, a1, a2);
 }
 
 //  a Python function taken by a CuteQDomDocumentTypePrivate, for the

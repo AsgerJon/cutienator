@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK18QFutureWatcherBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFutureWatcherBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QFutureWatcherBase11qt_metacastEPKc(
+    QFutureWatcherBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFutureWatcherBase::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QFutureWatcherBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFutureWatcherBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFutureWatcherBase::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QFutureWatcherBase2trEPKcS1_i(
@@ -147,6 +166,92 @@ bool ritual_ZN18QFutureWatcherBase5eventEP6QEvent(
   return self->event(event);
 }
 
+//  void QFutureWatcherBase::started()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase7startedEv(QFutureWatcherBase *self) {
+  self->started();
+}
+
+//  void QFutureWatcherBase::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase8finishedEv(QFutureWatcherBase *self) {
+  self->finished();
+}
+
+//  void QFutureWatcherBase::canceled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase8canceledEv(QFutureWatcherBase *self) {
+  self->canceled();
+}
+
+#if QT_DEPRECATED_SINCE(6, 0)
+//  void QFutureWatcherBase::paused()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase6pausedEv(QFutureWatcherBase *self) {
+  self->paused();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 0)
+
+//  void QFutureWatcherBase::suspending()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase10suspendingEv(QFutureWatcherBase *self) {
+  self->suspending();
+}
+
+//  void QFutureWatcherBase::suspended()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase9suspendedEv(QFutureWatcherBase *self) {
+  self->suspended();
+}
+
+//  void QFutureWatcherBase::resumed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase7resumedEv(QFutureWatcherBase *self) {
+  self->resumed();
+}
+
+//  void QFutureWatcherBase::resultReadyAt(int resultIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase13resultReadyAtEi(
+    QFutureWatcherBase *self,
+    int resultIndex) {
+  self->resultReadyAt(resultIndex);
+}
+
+//  void QFutureWatcherBase::resultsReadyAt(int beginIndex, int endIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase14resultsReadyAtEii(
+    QFutureWatcherBase *self,
+    int beginIndex,
+    int endIndex) {
+  self->resultsReadyAt(beginIndex, endIndex);
+}
+
+//  void QFutureWatcherBase::progressRangeChanged(int minimum, int maximum)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase20progressRangeChangedEii(
+    QFutureWatcherBase *self,
+    int minimum,
+    int maximum) {
+  self->progressRangeChanged(minimum, maximum);
+}
+
+//  void QFutureWatcherBase::progressValueChanged(int progressValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase20progressValueChangedEi(
+    QFutureWatcherBase *self,
+    int progressValue) {
+  self->progressValueChanged(progressValue);
+}
+
+//  void QFutureWatcherBase::progressTextChanged(const QString &progressText)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase19progressTextChangedERK7QString(
+    QFutureWatcherBase *self,
+    const QString *progressText) {
+  self->progressTextChanged(*progressText);
+}
+
 //  void QFutureWatcherBase::cancel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFutureWatcherBase6cancelEv(QFutureWatcherBase *self) {
@@ -244,6 +349,13 @@ extern "C" Q_DECL_EXPORT
 QFutureInterfaceBase *ritual_ZNK18QFutureWatcherBase15futureInterfaceEv(
     const QFutureWatcherBase *self) {
   return new QFutureInterfaceBase(self->futureInterface());
+}
+
+//  QFutureInterfaceBase &QFutureWatcherBase::futureInterface()
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZN18QFutureWatcherBase15futureInterfaceEv(
+    QFutureWatcherBase *self) {
+  return &(self->futureInterface());
 }
 
 //  bool QFutureWatcherBase::event(QEvent *event)

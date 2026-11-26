@@ -5,10 +5,20 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN14QMetaCallEventC1EttPFvP7QObjectN11QMetaObject4CallEiPPvEPKS0_iS5_P6QLatch": [
+      "address", "unsigned short", "unsigned short", "address", "address",
+      "int", "address", "address"
+    ],
+    "ritual_ZN14QMetaCallEventC1EPN9QtPrivate15QSlotObjectBaseEPK7QObjectiPPvP6QLatch": [
+      "address", "address", "address", "int", "address", "address"
+    ],
     "ritual_ZN14QMetaCallEvent13placeMetaCallEP7QObject": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK14QMetaCallEvent2idEv": ["int", "address"],
+    "ritual_ZN14QMetaCallEventC1EPK7QObjectiONS_4DataE": [
+      "address", "address", "int", "address"
+    ],
     "ritual_take_QMetaCallEvent": ["bool", "address", "chars", "address"],
     "ritual_own_ZN14QMetaCallEvent13placeMetaCallEP7QObject": [
       "nothing", "address", "address"

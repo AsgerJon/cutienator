@@ -23,6 +23,25 @@ const QMetaObject *ritual_ZNK17QQuickDelayButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDelayButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickDelayButton11qt_metacastEPKc(
+    QQuickDelayButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDelayButton::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickDelayButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDelayButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDelayButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickDelayButton2trEPKcS1_i(
@@ -83,6 +102,32 @@ void ritual_ZN17QQuickDelayButton13setTransitionEP16QQuickTransition(
   self->setTransition(transition);
 }
 
+//  void QQuickDelayButton::activated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickDelayButton9activatedEv(QQuickDelayButton *self) {
+  self->activated();
+}
+
+//  void QQuickDelayButton::delayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickDelayButton12delayChangedEv(QQuickDelayButton *self) {
+  self->delayChanged();
+}
+
+//  void QQuickDelayButton::progressChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickDelayButton15progressChangedEv(
+    QQuickDelayButton *self) {
+  self->progressChanged();
+}
+
+//  void QQuickDelayButton::transitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickDelayButton17transitionChangedEv(
+    QQuickDelayButton *self) {
+  self->transitionChanged();
+}
+
 //  void QQuickDelayButton::buttonChange(ButtonChange change)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickDelayButton12buttonChangeEN20QQuickAbstractButton12ButtonChangeE(
@@ -103,6 +148,20 @@ extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK17QQuickDelayButton11defaultFontEv(
     const QQuickDelayButton *self) {
   return new QFont(self->defaultFont());
+}
+
+//  QQuickDelayButtonPrivate *QQuickDelayButton::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickDelayButtonPrivate *ritual_ZN17QQuickDelayButton6d_funcEv(
+    QQuickDelayButton *self) {
+  return self->d_func();
+}
+
+//  const QQuickDelayButtonPrivate *QQuickDelayButton::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickDelayButtonPrivate *ritual_ZNK17QQuickDelayButton6d_funcEv(
+    const QQuickDelayButton *self) {
+  return self->d_func();
 }
 
 //  void QQuickDelayButton::nextCheckState()

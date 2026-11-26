@@ -3,8 +3,19 @@
 #include <QtSerialPort/qserialport.h>
 #include <QtCore/qstring.h>
 #include <QtSerialPort/qserialportinfo.h>
+#include <QtCore/qnamespace.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtSerialPort/QSerialPort>
+#include <QtCore/Qt>
+
+//  Only a class built on QSerialPort may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQSerialPort : QSerialPort {
+  using QSerialPort::readData;
+  using QSerialPort::readLineData;
+};
 
 //  A QSerialPort that Python can take functions over in. Every QSerialPort
 //  Python makes is one. Each function below asks the Python
@@ -17,37 +28,39 @@ typedef qint64 (*CuteQSerialPortCall4)(const void *, int *);
 typedef bool (*CuteQSerialPortCall5)(const void *, int *);
 typedef bool (*CuteQSerialPortCall6)(const void *, int, int *);
 typedef bool (*CuteQSerialPortCall7)(const void *, int, int *);
-typedef qint64 (*CuteQSerialPortCall8)(const void *, int *);
-typedef qint64 (*CuteQSerialPortCall9)(const void *, int *);
-typedef bool (*CuteQSerialPortCall10)(const void *, qint64, int *);
-typedef bool (*CuteQSerialPortCall11)(const void *, int *);
-typedef bool (*CuteQSerialPortCall12)(const void *, int *);
-typedef qint64 (*CuteQSerialPortCall13)(const void *, qint64, int *);
+typedef qint64 (*CuteQSerialPortCall8)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQSerialPortCall9)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQSerialPortCall10)(const void *, int *);
+typedef qint64 (*CuteQSerialPortCall11)(const void *, int *);
+typedef bool (*CuteQSerialPortCall12)(const void *, qint64, int *);
+typedef bool (*CuteQSerialPortCall13)(const void *, int *);
+typedef bool (*CuteQSerialPortCall14)(const void *, int *);
+typedef qint64 (*CuteQSerialPortCall15)(const void *, qint64, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSerialPortCall14)(const void *, QEvent *, int *);
+typedef bool (*CuteQSerialPortCall16)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSerialPortCall15)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQSerialPortCall17)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSerialPortCall16)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQSerialPortCall18)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSerialPortCall17)(const void *, QChildEvent *, int *);
+typedef void (*CuteQSerialPortCall19)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSerialPortCall18)(const void *, QEvent *, int *);
+typedef void (*CuteQSerialPortCall20)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSerialPortCall19)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSerialPortCall21)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSerialPortCall20)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSerialPortCall22)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQSerialPort : public QSerialPort {
 public:
   using QSerialPort::QSerialPort;
-  void *taken[21] = {};
+  void *taken[23] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
@@ -82,69 +95,77 @@ public:
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice8readDataEPcx")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice12readLineDataEPcx")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
       taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+      taken[15] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[14] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[15] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[16] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[17] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[18] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[19] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[20] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[21] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[22] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -239,11 +260,33 @@ public:
     return QSerialPort::waitForBytesWritten(msecs);
   }
 
-  //  qint64 QIODevice::pos() const
-  qint64 pos() const override {
+  //  qint64 QSerialPort::readData(char *data, qint64 maxSize)
+  qint64 readData(char *data, qint64 maxSize) override {
     if (taken[8]) {
       int handled = 0;
       CuteQSerialPortCall8 call = reinterpret_cast<CuteQSerialPortCall8>(taken[8]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QSerialPort::readData(data, maxSize);
+  }
+
+  //  qint64 QSerialPort::readLineData(char *data, qint64 maxSize)
+  qint64 readLineData(char *data, qint64 maxSize) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQSerialPortCall9 call = reinterpret_cast<CuteQSerialPortCall9>(taken[9]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QSerialPort::readLineData(data, maxSize);
+  }
+
+  //  qint64 QIODevice::pos() const
+  qint64 pos() const override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQSerialPortCall10 call = reinterpret_cast<CuteQSerialPortCall10>(taken[10]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -252,9 +295,9 @@ public:
 
   //  qint64 QIODevice::size() const
   qint64 size() const override {
-    if (taken[9]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQSerialPortCall9 call = reinterpret_cast<CuteQSerialPortCall9>(taken[9]);
+      CuteQSerialPortCall11 call = reinterpret_cast<CuteQSerialPortCall11>(taken[11]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -263,9 +306,9 @@ public:
 
   //  bool QIODevice::seek(qint64 pos)
   bool seek(qint64 pos) override {
-    if (taken[10]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQSerialPortCall10 call = reinterpret_cast<CuteQSerialPortCall10>(taken[10]);
+      CuteQSerialPortCall12 call = reinterpret_cast<CuteQSerialPortCall12>(taken[12]);
       bool given = call(this, pos, &handled);
       if (handled) return given;
     }
@@ -274,9 +317,9 @@ public:
 
   //  bool QIODevice::atEnd() const
   bool atEnd() const override {
-    if (taken[11]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQSerialPortCall11 call = reinterpret_cast<CuteQSerialPortCall11>(taken[11]);
+      CuteQSerialPortCall13 call = reinterpret_cast<CuteQSerialPortCall13>(taken[13]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -285,9 +328,9 @@ public:
 
   //  bool QIODevice::reset()
   bool reset() override {
-    if (taken[12]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQSerialPortCall12 call = reinterpret_cast<CuteQSerialPortCall12>(taken[12]);
+      CuteQSerialPortCall14 call = reinterpret_cast<CuteQSerialPortCall14>(taken[14]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -296,9 +339,9 @@ public:
 
   //  qint64 QIODevice::skipData(qint64 maxSize)
   qint64 skipData(qint64 maxSize) override {
-    if (taken[13]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQSerialPortCall13 call = reinterpret_cast<CuteQSerialPortCall13>(taken[13]);
+      CuteQSerialPortCall15 call = reinterpret_cast<CuteQSerialPortCall15>(taken[15]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -308,9 +351,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[14]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQSerialPortCall14 call = reinterpret_cast<CuteQSerialPortCall14>(taken[14]);
+      CuteQSerialPortCall16 call = reinterpret_cast<CuteQSerialPortCall16>(taken[16]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -321,9 +364,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[15]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQSerialPortCall15 call = reinterpret_cast<CuteQSerialPortCall15>(taken[15]);
+      CuteQSerialPortCall17 call = reinterpret_cast<CuteQSerialPortCall17>(taken[17]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -334,9 +377,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[16]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQSerialPortCall16 call = reinterpret_cast<CuteQSerialPortCall16>(taken[16]);
+      CuteQSerialPortCall18 call = reinterpret_cast<CuteQSerialPortCall18>(taken[18]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -347,9 +390,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQSerialPortCall17 call = reinterpret_cast<CuteQSerialPortCall17>(taken[17]);
+      CuteQSerialPortCall19 call = reinterpret_cast<CuteQSerialPortCall19>(taken[19]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -360,9 +403,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQSerialPortCall18 call = reinterpret_cast<CuteQSerialPortCall18>(taken[18]);
+      CuteQSerialPortCall20 call = reinterpret_cast<CuteQSerialPortCall20>(taken[20]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -373,9 +416,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQSerialPortCall19 call = reinterpret_cast<CuteQSerialPortCall19>(taken[19]);
+      CuteQSerialPortCall21 call = reinterpret_cast<CuteQSerialPortCall21>(taken[21]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -386,9 +429,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQSerialPortCall20 call = reinterpret_cast<CuteQSerialPortCall20>(taken[20]);
+      CuteQSerialPortCall22 call = reinterpret_cast<CuteQSerialPortCall22>(taken[22]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -402,6 +445,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK11QSerialPort10metaObjectEv(
     const QSerialPort *self) {
   return self->metaObject();
+}
+
+//  void *QSerialPort::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QSerialPort11qt_metacastEPKc(
+    QSerialPort *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSerialPort::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QSerialPort11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSerialPort *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QSerialPort::tr(const char *s, const char *c, int n)
@@ -524,6 +585,13 @@ QSerialPort::DataBits ritual_ZNK11QSerialPort8dataBitsEv(
   return self->dataBits();
 }
 
+//  QBindable<DataBits> QSerialPort::bindableDataBits()
+extern "C" Q_DECL_EXPORT
+QBindable<QSerialPort::DataBits> *ritual_ZN11QSerialPort16bindableDataBitsEv(
+    QSerialPort *self) {
+  return new QBindable<QSerialPort::DataBits>(self->bindableDataBits());
+}
+
 //  bool QSerialPort::setParity(Parity parity)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QSerialPort9setParityENS_6ParityE(
@@ -537,6 +605,13 @@ extern "C" Q_DECL_EXPORT
 QSerialPort::Parity ritual_ZNK11QSerialPort6parityEv(
     const QSerialPort *self) {
   return self->parity();
+}
+
+//  QBindable<Parity> QSerialPort::bindableParity()
+extern "C" Q_DECL_EXPORT
+QBindable<QSerialPort::Parity> *ritual_ZN11QSerialPort14bindableParityEv(
+    QSerialPort *self) {
+  return new QBindable<QSerialPort::Parity>(self->bindableParity());
 }
 
 //  bool QSerialPort::setStopBits(StopBits stopBits)
@@ -554,6 +629,14 @@ QSerialPort::StopBits ritual_ZNK11QSerialPort8stopBitsEv(
   return self->stopBits();
 }
 
+//  QBindable<StopBits> QSerialPort::bindableStopBits(Qt::Disambiguated_t a0)
+extern "C" Q_DECL_EXPORT
+QBindable<QSerialPort::StopBits> *ritual_ZN11QSerialPort16bindableStopBitsEN2Qt15Disambiguated_tE(
+    QSerialPort *self,
+    const Qt::Disambiguated_t *a0) {
+  return new QBindable<QSerialPort::StopBits>(self->bindableStopBits(*a0));
+}
+
 //  bool QSerialPort::setFlowControl(FlowControl flowControl)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QSerialPort14setFlowControlENS_11FlowControlE(
@@ -567,6 +650,14 @@ extern "C" Q_DECL_EXPORT
 QSerialPort::FlowControl ritual_ZNK11QSerialPort11flowControlEv(
     const QSerialPort *self) {
   return self->flowControl();
+}
+
+//  QBindable<FlowControl> QSerialPort::bindableFlowControl()
+extern "C" Q_DECL_EXPORT
+QBindable<QSerialPort::FlowControl> *ritual_ZN11QSerialPort19bindableFlowControlEv(
+    QSerialPort *self) {
+  return new QBindable<QSerialPort::FlowControl>(
+      self->bindableFlowControl());
 }
 
 //  bool QSerialPort::setDataTerminalReady(bool set)
@@ -628,6 +719,13 @@ QSerialPort::SerialPortError ritual_ZNK11QSerialPort5errorEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QSerialPort10clearErrorEv(QSerialPort *self) {
   self->clearError();
+}
+
+//  QBindable<SerialPortError> QSerialPort::bindableError() const
+extern "C" Q_DECL_EXPORT
+QBindable<QSerialPort::SerialPortError> *ritual_ZNK11QSerialPort13bindableErrorEv(
+    const QSerialPort *self) {
+  return new QBindable<QSerialPort::SerialPortError>(self->bindableError());
 }
 
 //  qint64 QSerialPort::readBufferSize() const
@@ -710,6 +808,13 @@ bool ritual_ZNK11QSerialPort14isBreakEnabledEv(const QSerialPort *self) {
   return self->isBreakEnabled();
 }
 
+//  QBindable<bool> QSerialPort::bindableIsBreakEnabled()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN11QSerialPort22bindableIsBreakEnabledEv(
+    QSerialPort *self) {
+  return new QBindable<bool>(self->bindableIsBreakEnabled());
+}
+
 //  bool QSerialPort::settingsRestoredOnClose() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QSerialPort23settingsRestoredOnCloseEv(
@@ -730,6 +835,109 @@ extern "C" Q_DECL_EXPORT
 QSerialPort::Handle ritual_ZNK11QSerialPort6handleEv(
     const QSerialPort *self) {
   return self->handle();
+}
+
+//  void QSerialPort::baudRateChanged(qint32 baudRate,
+//      QSerialPort::Directions directions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort15baudRateChangedEi6QFlagsINS_9DirectionEE(
+    QSerialPort *self,
+    qint32 baudRate,
+    int directions) {
+  self->baudRateChanged(
+      baudRate,
+      QFlags<QSerialPort::Direction>::fromInt(directions));
+}
+
+//  void QSerialPort::dataBitsChanged(QSerialPort::DataBits dataBits)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort15dataBitsChangedENS_8DataBitsE(
+    QSerialPort *self,
+    QSerialPort::DataBits dataBits) {
+  self->dataBitsChanged(dataBits);
+}
+
+//  void QSerialPort::parityChanged(QSerialPort::Parity parity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort13parityChangedENS_6ParityE(
+    QSerialPort *self,
+    QSerialPort::Parity parity) {
+  self->parityChanged(parity);
+}
+
+//  void QSerialPort::stopBitsChanged(QSerialPort::StopBits stopBits)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort15stopBitsChangedENS_8StopBitsE(
+    QSerialPort *self,
+    QSerialPort::StopBits stopBits) {
+  self->stopBitsChanged(stopBits);
+}
+
+//  void QSerialPort::flowControlChanged(QSerialPort::FlowControl
+//      flowControl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort18flowControlChangedENS_11FlowControlE(
+    QSerialPort *self,
+    QSerialPort::FlowControl flowControl) {
+  self->flowControlChanged(flowControl);
+}
+
+//  void QSerialPort::dataTerminalReadyChanged(bool set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort24dataTerminalReadyChangedEb(
+    QSerialPort *self,
+    bool set) {
+  self->dataTerminalReadyChanged(set);
+}
+
+//  void QSerialPort::requestToSendChanged(bool set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort20requestToSendChangedEb(
+    QSerialPort *self,
+    bool set) {
+  self->requestToSendChanged(set);
+}
+
+//  void QSerialPort::errorOccurred(QSerialPort::SerialPortError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort13errorOccurredENS_15SerialPortErrorE(
+    QSerialPort *self,
+    QSerialPort::SerialPortError error) {
+  self->errorOccurred(error);
+}
+
+//  void QSerialPort::breakEnabledChanged(bool set)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort19breakEnabledChangedEb(
+    QSerialPort *self,
+    bool set) {
+  self->breakEnabledChanged(set);
+}
+
+//  void QSerialPort::settingsRestoredOnCloseChanged(bool restore)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSerialPort30settingsRestoredOnCloseChangedEb(
+    QSerialPort *self,
+    bool restore) {
+  self->settingsRestoredOnCloseChanged(restore);
+}
+
+//  qint64 QSerialPort::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN11QSerialPort8readDataEPcx(
+    QSerialPort *self,
+    char *data,
+    qint64 maxSize) {
+  return self->readData(data, maxSize);
+}
+
+//  qint64 QSerialPort::readLineData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN11QSerialPort12readLineDataEPcx(
+    QSerialPort *self,
+    char *data,
+    qint64 maxSize) {
+  return self->readLineData(data, maxSize);
 }
 
 //  qint64 QSerialPort::writeData(const char *data, qint64 maxSize)
@@ -805,4 +1013,67 @@ bool ritual_own_ZN11QSerialPort19waitForBytesWrittenEi(
     QSerialPort *self,
     int msecs) {
   return self->QSerialPort::waitForBytesWritten(msecs);
+}
+
+//  qint64 QSerialPort::readData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN11QSerialPort8readDataEPcx(
+    QSerialPort *self,
+    char *data,
+    qint64 maxSize) {
+  return static_cast<OwnQSerialPort *>(self)->OwnQSerialPort::readData(
+      data,
+      maxSize);
+}
+
+//  qint64 QSerialPort::readLineData(char *data, qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN11QSerialPort12readLineDataEPcx(
+    QSerialPort *self,
+    char *data,
+    qint64 maxSize) {
+  return static_cast<OwnQSerialPort *>(self)->OwnQSerialPort::readLineData(
+      data,
+      maxSize);
+}
+
+//  a QBindable<QSerialPort::DataBits> a ritual of QSerialPort gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSerialPort__QBindable_QSerialPort_DataBits(
+    QBindable<QSerialPort::DataBits> *self) {
+  delete self;
+}
+
+//  a QBindable<QSerialPort::Parity> a ritual of QSerialPort gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSerialPort__QBindable_QSerialPort_Parity(
+    QBindable<QSerialPort::Parity> *self) {
+  delete self;
+}
+
+//  a QBindable<QSerialPort::StopBits> a ritual of QSerialPort gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSerialPort__QBindable_QSerialPort_StopBits(
+    QBindable<QSerialPort::StopBits> *self) {
+  delete self;
+}
+
+//  a QBindable<QSerialPort::FlowControl> a ritual of QSerialPort gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSerialPort__QBindable_QSerialPort_FlowControl(
+    QBindable<QSerialPort::FlowControl> *self) {
+  delete self;
+}
+
+//  a QBindable<QSerialPort::SerialPortError> a ritual of QSerialPort gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSerialPort__QBindable_QSerialPort_SerialPortError(
+    QBindable<QSerialPort::SerialPortError> *self) {
+  delete self;
+}
+
+//  a QBindable<bool> a ritual of QSerialPort gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSerialPort__QBindable_bool(QBindable<bool> *self) {
+  delete self;
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickToolTip10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickToolTip11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickToolTip11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickToolTip2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickToolTip21qt_qmlMarker_attachedEv": [
       "nothing", "address"
@@ -23,6 +29,9 @@
     "ritual_ZN13QQuickToolTip21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
     ],
+    "ritual_ZN13QQuickToolTip11textChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickToolTip12delayChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickToolTip14timeoutChangedEv": ["nothing", "address"],
     "ritual_ZN13QQuickToolTip4showERK7QStringi": [
       "nothing", "address", "text", "int"
     ],
@@ -38,6 +47,8 @@
     "ritual_ZN13QQuickToolTip26accessibilityActiveChangedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN13QQuickToolTip6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQuickToolTip6d_funcEv": ["address", "address"],
     "ritual_own_ZN13QQuickToolTip10setVisibleEb": [
       "nothing", "address", "bool"
     ],

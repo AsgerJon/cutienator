@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK19PercentBarChartItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PercentBarChartItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19PercentBarChartItem11qt_metacastEPKc(
+    PercentBarChartItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PercentBarChartItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19PercentBarChartItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    PercentBarChartItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString PercentBarChartItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19PercentBarChartItem2trEPKcS1_i(

@@ -182,6 +182,22 @@ const QMetaObject *ritual_ZNK8Q3DTheme10metaObjectEv(const Q3DTheme *self) {
   return self->metaObject();
 }
 
+//  void *Q3DTheme::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Q3DTheme11qt_metacastEPKc(Q3DTheme *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DTheme::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Q3DTheme11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DTheme *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DTheme::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Q3DTheme2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -513,6 +529,183 @@ extern "C" Q_DECL_EXPORT
 Q3DTheme::ColorStyle ritual_ZNK8Q3DTheme10colorStyleEv(
     const Q3DTheme *self) {
   return self->colorStyle();
+}
+
+//  void Q3DTheme::typeChanged(Q3DTheme::Theme themeType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme11typeChangedENS_5ThemeE(
+    Q3DTheme *self,
+    Q3DTheme::Theme themeType) {
+  self->typeChanged(themeType);
+}
+
+//  void Q3DTheme::baseColorsChanged(const QList<QColor> &colors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme17baseColorsChangedERK5QListI6QColorE(
+    Q3DTheme *self,
+    const QList<QColor> *colors) {
+  self->baseColorsChanged(*colors);
+}
+
+//  void Q3DTheme::backgroundColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme22backgroundColorChangedERK6QColor(
+    Q3DTheme *self,
+    const QColor *color) {
+  self->backgroundColorChanged(*color);
+}
+
+//  void Q3DTheme::windowColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme18windowColorChangedERK6QColor(
+    Q3DTheme *self,
+    const QColor *color) {
+  self->windowColorChanged(*color);
+}
+
+//  void Q3DTheme::labelTextColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme21labelTextColorChangedERK6QColor(
+    Q3DTheme *self,
+    const QColor *color) {
+  self->labelTextColorChanged(*color);
+}
+
+//  void Q3DTheme::labelBackgroundColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme27labelBackgroundColorChangedERK6QColor(
+    Q3DTheme *self,
+    const QColor *color) {
+  self->labelBackgroundColorChanged(*color);
+}
+
+//  void Q3DTheme::gridLineColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme20gridLineColorChangedERK6QColor(
+    Q3DTheme *self,
+    const QColor *color) {
+  self->gridLineColorChanged(*color);
+}
+
+//  void Q3DTheme::singleHighlightColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme27singleHighlightColorChangedERK6QColor(
+    Q3DTheme *self,
+    const QColor *color) {
+  self->singleHighlightColorChanged(*color);
+}
+
+//  void Q3DTheme::multiHighlightColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme26multiHighlightColorChangedERK6QColor(
+    Q3DTheme *self,
+    const QColor *color) {
+  self->multiHighlightColorChanged(*color);
+}
+
+//  void Q3DTheme::lightColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme17lightColorChangedERK6QColor(
+    Q3DTheme *self,
+    const QColor *color) {
+  self->lightColorChanged(*color);
+}
+
+//  void Q3DTheme::baseGradientsChanged(const QList<QLinearGradient>
+//      &gradients)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme20baseGradientsChangedERK5QListI15QLinearGradientE(
+    Q3DTheme *self,
+    const QList<QLinearGradient> *gradients) {
+  self->baseGradientsChanged(*gradients);
+}
+
+//  void Q3DTheme::singleHighlightGradientChanged(const QLinearGradient
+//      &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme30singleHighlightGradientChangedERK15QLinearGradient(
+    Q3DTheme *self,
+    const QLinearGradient *gradient) {
+  self->singleHighlightGradientChanged(*gradient);
+}
+
+//  void Q3DTheme::multiHighlightGradientChanged(const QLinearGradient
+//      &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme29multiHighlightGradientChangedERK15QLinearGradient(
+    Q3DTheme *self,
+    const QLinearGradient *gradient) {
+  self->multiHighlightGradientChanged(*gradient);
+}
+
+//  void Q3DTheme::lightStrengthChanged(float strength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme20lightStrengthChangedEf(
+    Q3DTheme *self,
+    float strength) {
+  self->lightStrengthChanged(strength);
+}
+
+//  void Q3DTheme::ambientLightStrengthChanged(float strength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme27ambientLightStrengthChangedEf(
+    Q3DTheme *self,
+    float strength) {
+  self->ambientLightStrengthChanged(strength);
+}
+
+//  void Q3DTheme::highlightLightStrengthChanged(float strength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme29highlightLightStrengthChangedEf(
+    Q3DTheme *self,
+    float strength) {
+  self->highlightLightStrengthChanged(strength);
+}
+
+//  void Q3DTheme::labelBorderEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme25labelBorderEnabledChangedEb(
+    Q3DTheme *self,
+    bool enabled) {
+  self->labelBorderEnabledChanged(enabled);
+}
+
+//  void Q3DTheme::fontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme11fontChangedERK5QFont(
+    Q3DTheme *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+
+//  void Q3DTheme::backgroundEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme24backgroundEnabledChangedEb(
+    Q3DTheme *self,
+    bool enabled) {
+  self->backgroundEnabledChanged(enabled);
+}
+
+//  void Q3DTheme::gridEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme18gridEnabledChangedEb(Q3DTheme *self, bool enabled) {
+  self->gridEnabledChanged(enabled);
+}
+
+//  void Q3DTheme::labelBackgroundEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme29labelBackgroundEnabledChangedEb(
+    Q3DTheme *self,
+    bool enabled) {
+  self->labelBackgroundEnabledChanged(enabled);
+}
+
+//  void Q3DTheme::colorStyleChanged(Q3DTheme::ColorStyle style)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DTheme17colorStyleChangedENS_10ColorStyleE(
+    Q3DTheme *self,
+    Q3DTheme::ColorStyle style) {
+  self->colorStyleChanged(style);
 }
 
 //  Q3DTheme::Q3DTheme(Q3DThemePrivate *d, Theme themeType, QObject *parent)

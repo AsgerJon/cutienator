@@ -8,6 +8,12 @@
     "ritual_ZNK22QDBusConnectionManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QDBusConnectionManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QDBusConnectionManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QDBusConnectionManagerD1Ev": ["nothing", "address"],
     "ritual_ZNK22QDBusConnectionManager18existingConnectionERK7QString": [
       "address", "address", "text"

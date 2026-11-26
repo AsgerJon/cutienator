@@ -8,26 +8,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtLabsPlatform/private/qquicklabsplatformmenu_p.h>
-#include <QtLabsPlatform/private/qquicklabsplatformmenubar_p.h>
-#include <QtLabsPlatform/private/qquicklabsplatformmenuitem_p.h>
-#include <QtLabsPlatform/private/qquicklabsplatformiconloader_p.h>
 #include <QtCore/qloggingcategory.h>
-#include <QtGui/qicon.h>
-#include <QtGui/qcursor.h>
-#include <QtGui/qpa/qplatformtheme.h>
-#include <QtGui/private/qguiapplication_p.h>
-#include <QtGui/private/qhighdpiscaling_p.h>
-#include <QtQml/private/qqmlengine_p.h>
-#include <QtQml/private/qv4scopedvalue_p.h>
-#include <QtQml/private/qv4qobjectwrapper_p.h>
-#include <QtQuick/qquickrendercontrol.h>
-#include <QtQuick/qquickwindow.h>
-#include <QtQuick/qquickitem.h>
-#if QT_CONFIG(systemtrayicon)
-#include <QtLabsPlatform/private/qquicklabsplatformsystemtrayicon_p.h>
-#endif
 #include <QtLabsPlatform/private/qquicklabsplatformmenubar_p.h>
 #include <QtLabsPlatform/private/qquicklabsplatformmenu_p.h>
 #include <QtCore/qloggingcategory.h>
@@ -45,6 +29,13 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenu.cpp, line 133, as _Z19qtLabsPlatformMenusv
+inline const QLoggingCategory &qtLabsPlatformMenus()
+{
+    static const QLoggingCategory category("qt.labs.platform.menus");
+    return category;
+}
+
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenu.cpp, line 293, as _ZN22QQuickLabsPlatformMenu10setMenuBarEP25QQuickLabsPlatformMenuBar
 inline void QQuickLabsPlatformMenu::setMenuBar(QQuickLabsPlatformMenuBar *menuBar)
 {
@@ -56,28 +47,72 @@ inline void QQuickLabsPlatformMenu::setMenuBar(QQuickLabsPlatformMenuBar *menuBa
     emit menuBarChanged();
 }
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenu.cpp, line 233, as _ZN22QQuickLabsPlatformMenu4syncEv
-inline void QQuickLabsPlatformMenu::sync()
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 218, as _ZN25QQuickLabsPlatformMenuBar10classBeginEv
+inline void QQuickLabsPlatformMenuBar::classBegin()
 {
-    if (!m_complete || !create())
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 201, as _ZN25QQuickLabsPlatformMenuBar5clearEv
+inline void QQuickLabsPlatformMenuBar::clear()
+{
+    if (m_menus.isEmpty())
         return;
 
-    m_handle->setText(m_title);
-    m_handle->setEnabled(m_enabled);
-    m_handle->setVisible(m_visible);
-    m_handle->setMinimumWidth(m_minimumWidth);
-    m_handle->setMenuType(m_type);
-    m_handle->setFont(m_font);
+    for (QQuickLabsPlatformMenu *menu : std::as_const(m_menus)) {
+        m_data.removeOne(menu);
+        if (m_handle)
+            m_handle->removeMenu(menu->handle());
+        menu->setMenuBar(nullptr);
+        delete menu;
+    }
 
-    if (m_menuBar && m_menuBar->handle())
-        m_menuBar->handle()->syncMenu(m_handle);
-#if QT_CONFIG(systemtrayicon)
-    else if (m_systemTrayIcon && m_systemTrayIcon->handle())
-        m_systemTrayIcon->handle()->updateMenu(m_handle);
-#endif
+    m_menus.clear();
+    emit menusChanged();
+}
 
-    for (QQuickLabsPlatformMenuItem *item : std::as_const(m_items))
-        item->sync();
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 154, as _ZN25QQuickLabsPlatformMenuBar7addMenuEP22QQuickLabsPlatformMenu
+inline void QQuickLabsPlatformMenuBar::addMenu(QQuickLabsPlatformMenu *menu)
+{
+    insertMenu(m_menus.size(), menu);
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 222, as _ZN25QQuickLabsPlatformMenuBar17componentCompleteEv
+inline void QQuickLabsPlatformMenuBar::componentComplete()
+{
+    m_complete = true;
+    for (QQuickLabsPlatformMenu *menu : std::as_const(m_menus))
+        menu->sync();
+    if (!m_window)
+        setWindow(findWindow());
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 164, as _ZN25QQuickLabsPlatformMenuBar10insertMenuEiP22QQuickLabsPlatformMenu
+inline void QQuickLabsPlatformMenuBar::insertMenu(int index, QQuickLabsPlatformMenu *menu)
+{
+    if (!menu || m_menus.contains(menu))
+        return;
+
+    QQuickLabsPlatformMenu *before = m_menus.value(index);
+    m_menus.insert(index, menu);
+    m_data.append(menu);
+    menu->setMenuBar(this);
+    if (m_handle)
+        m_handle->insertMenu(menu->create(), before ? before->handle() : nullptr);
+    menu->sync();
+    emit menusChanged();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 137, as _ZN25QQuickLabsPlatformMenuBar9setWindowEP7QWindow
+inline void QQuickLabsPlatformMenuBar::setWindow(QWindow *window)
+{
+    if (m_window == window)
+        return;
+
+    if (m_handle)
+        m_handle->handleReparent(window);
+
+    m_window = window;
+    emit windowChanged();
 }
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 85, as _ZN25QQuickLabsPlatformMenuBarD1Ev
@@ -101,21 +136,6 @@ inline QWindow *QQuickLabsPlatformMenuBar::window() const
     return m_window;
 }
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 218, as _ZN25QQuickLabsPlatformMenuBar10classBeginEv
-inline void QQuickLabsPlatformMenuBar::classBegin()
-{
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 222, as _ZN25QQuickLabsPlatformMenuBar17componentCompleteEv
-inline void QQuickLabsPlatformMenuBar::componentComplete()
-{
-    m_complete = true;
-    for (QQuickLabsPlatformMenu *menu : std::as_const(m_menus))
-        menu->sync();
-    if (!m_window)
-        setWindow(findWindow());
-}
-
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 231, as _ZNK25QQuickLabsPlatformMenuBar10findWindowEv
 inline QWindow *QQuickLabsPlatformMenuBar::findWindow() const
 {
@@ -130,6 +150,41 @@ inline QWindow *QQuickLabsPlatformMenuBar::findWindow() const
         obj = obj->parent();
     }
     return nullptr;
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 256, as _ZN25QQuickLabsPlatformMenuBar10data_countEP16QQmlListPropertyI7QObjectE
+inline qsizetype QQuickLabsPlatformMenuBar::data_count(QQmlListProperty<QObject> *property)
+{
+    QQuickLabsPlatformMenuBar *menuBar = static_cast<QQuickLabsPlatformMenuBar *>(property->object);
+    return menuBar->m_data.size();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 262, as _ZN25QQuickLabsPlatformMenuBar7data_atEP16QQmlListPropertyI7QObjectEx
+inline QObject *QQuickLabsPlatformMenuBar::data_at(QQmlListProperty<QObject> *property, qsizetype index)
+{
+    QQuickLabsPlatformMenuBar *menuBar = static_cast<QQuickLabsPlatformMenuBar *>(property->object);
+    return menuBar->m_data.value(index);
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 268, as _ZN25QQuickLabsPlatformMenuBar10data_clearEP16QQmlListPropertyI7QObjectE
+inline void QQuickLabsPlatformMenuBar::data_clear(QQmlListProperty<QObject> *property)
+{
+    QQuickLabsPlatformMenuBar *menuBar = static_cast<QQuickLabsPlatformMenuBar *>(property->object);
+    menuBar->m_data.clear();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 280, as _ZN25QQuickLabsPlatformMenuBar11menus_countEP16QQmlListPropertyI22QQuickLabsPlatformMenuE
+inline qsizetype QQuickLabsPlatformMenuBar::menus_count(QQmlListProperty<QQuickLabsPlatformMenu> *property)
+{
+    QQuickLabsPlatformMenuBar *menuBar = static_cast<QQuickLabsPlatformMenuBar *>(property->object);
+    return menuBar->m_menus.size();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformmenubar.cpp, line 286, as _ZN25QQuickLabsPlatformMenuBar8menus_atEP16QQmlListPropertyI22QQuickLabsPlatformMenuEx
+inline QQuickLabsPlatformMenu *QQuickLabsPlatformMenuBar::menus_at(QQmlListProperty<QQuickLabsPlatformMenu> *property, qsizetype index)
+{
+    QQuickLabsPlatformMenuBar *menuBar = static_cast<QQuickLabsPlatformMenuBar *>(property->object);
+    return menuBar->m_menus.value(index);
 }
 //  -----------------------------------------------------------------------
 
@@ -345,6 +400,25 @@ const QMetaObject *ritual_ZNK25QQuickLabsPlatformMenuBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLabsPlatformMenuBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickLabsPlatformMenuBar11qt_metacastEPKc(
+    QQuickLabsPlatformMenuBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformMenuBar::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickLabsPlatformMenuBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformMenuBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickLabsPlatformMenuBar::~QQuickLabsPlatformMenuBar()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QQuickLabsPlatformMenuBarD1Ev(
@@ -366,6 +440,135 @@ QWindow *ritual_ZNK25QQuickLabsPlatformMenuBar6windowEv(
   return self->window();
 }
 
+//  void QQuickLabsPlatformMenuBar::addMenu(QQuickLabsPlatformMenu *menu)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickLabsPlatformMenuBar7addMenuEP22QQuickLabsPlatformMenu(
+    QQuickLabsPlatformMenuBar *self,
+    QQuickLabsPlatformMenu *menu) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuBar")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "addMenu(QQuickLabsPlatformMenu *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "addMenu(QQuickLabsPlatformMenu *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&menu)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuBar::removeMenu(QQuickLabsPlatformMenu *menu)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickLabsPlatformMenuBar10removeMenuEP22QQuickLabsPlatformMenu(
+    QQuickLabsPlatformMenuBar *self,
+    QQuickLabsPlatformMenu *menu) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuBar")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "removeMenu(QQuickLabsPlatformMenu *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "removeMenu(QQuickLabsPlatformMenu *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&menu)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuBar::clear()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickLabsPlatformMenuBar5clearEv(
+    QQuickLabsPlatformMenuBar *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuBar")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "clear()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "clear()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuBar::menusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickLabsPlatformMenuBar12menusChangedEv(
+    QQuickLabsPlatformMenuBar *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuBar")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "menusChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "menusChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformMenuBar::windowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickLabsPlatformMenuBar13windowChangedEv(
+    QQuickLabsPlatformMenuBar *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformMenuBar")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "windowChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "windowChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuickLabsPlatformMenuBar::classBegin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QQuickLabsPlatformMenuBar10classBeginEv(
@@ -385,6 +588,48 @@ extern "C" Q_DECL_EXPORT
 QWindow *ritual_ZNK25QQuickLabsPlatformMenuBar10findWindowEv(
     const QQuickLabsPlatformMenuBar *self) {
   return self->findWindow();
+}
+
+//  qsizetype QQuickLabsPlatformMenuBar::data_count(QQmlListProperty<QObject>
+//      *property)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN25QQuickLabsPlatformMenuBar10data_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *property) {
+  return QQuickLabsPlatformMenuBar::data_count(property);
+}
+
+//  QObject *QQuickLabsPlatformMenuBar::data_at(QQmlListProperty<QObject>
+//      *property, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN25QQuickLabsPlatformMenuBar7data_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *property,
+    qsizetype index) {
+  return QQuickLabsPlatformMenuBar::data_at(property, index);
+}
+
+//  void QQuickLabsPlatformMenuBar::data_clear(QQmlListProperty<QObject>
+//      *property)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickLabsPlatformMenuBar10data_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *property) {
+  QQuickLabsPlatformMenuBar::data_clear(property);
+}
+
+//  qsizetype QQuickLabsPlatformMenuBar::menus_count(QQmlListProperty<QQuickL
+//      absPlatformMenu> *property)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN25QQuickLabsPlatformMenuBar11menus_countEP16QQmlListPropertyI22QQuickLabsPlatformMenuE(
+    QQmlListProperty<QQuickLabsPlatformMenu> *property) {
+  return QQuickLabsPlatformMenuBar::menus_count(property);
+}
+
+//  QQuickLabsPlatformMenu *QQuickLabsPlatformMenuBar::menus_at(QQmlListPrope
+//      rty<QQuickLabsPlatformMenu> *property, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickLabsPlatformMenu *ritual_ZN25QQuickLabsPlatformMenuBar8menus_atEP16QQmlListPropertyI22QQuickLabsPlatformMenuEx(
+    QQmlListProperty<QQuickLabsPlatformMenu> *property,
+    qsizetype index) {
+  return QQuickLabsPlatformMenuBar::menus_at(property, index);
 }
 
 //  QQuickLabsPlatformMenuBar as the QQmlParserStatus it is built on
@@ -409,4 +654,19 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN25QQuickLabsPlatformMenuBar10classBeginEv(
     QQuickLabsPlatformMenuBar *self) {
   static_cast<OwnQQuickLabsPlatformMenuBar *>(self)->OwnQQuickLabsPlatformMenuBar::classBegin();
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickLabsPlatformMenuBar gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickLabsPlatformMenuBar__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickLabsPlatformMenu> a ritual of
+//      QQuickLabsPlatformMenuBar gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickLabsPlatformMenuBar__QQmlListProperty_QQuickLabsPlatformMenu(
+    QQmlListProperty<QQuickLabsPlatformMenu> *self) {
+  delete self;
 }

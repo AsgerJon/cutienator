@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QRenderTarget that Python can take functions over in. Every Qt3DRender::QRenderTarget
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender13QRenderTarget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QRenderTarget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender13QRenderTarget11qt_metacastEPKc(
+    Qt3DRender::QRenderTarget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QRenderTarget::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender13QRenderTarget11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QRenderTarget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QRenderTarget::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,52 @@ QString *ritual_ZN10Qt3DRender13QRenderTarget2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QRenderTarget::tr(s, c, n));
+}
+
+//  Qt3DRender::QRenderTarget::QRenderTarget(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderTarget *ritual_ZN10Qt3DRender13QRenderTargetC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRenderTarget(parent);
+}
+
+//  Qt3DRender::QRenderTarget::~QRenderTarget()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QRenderTargetD1Ev(
+    Qt3DRender::QRenderTarget *self) {
+  delete self;
+}
+
+//  void Qt3DRender::QRenderTarget::addOutput(QRenderTargetOutput *output)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QRenderTarget9addOutputEPNS_19QRenderTargetOutputE(
+    Qt3DRender::QRenderTarget *self,
+    Qt3DRender::QRenderTargetOutput *output) {
+  self->addOutput(output);
+}
+
+//  void Qt3DRender::QRenderTarget::removeOutput(QRenderTargetOutput *output)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QRenderTarget12removeOutputEPNS_19QRenderTargetOutputE(
+    Qt3DRender::QRenderTarget *self,
+    Qt3DRender::QRenderTargetOutput *output) {
+  self->removeOutput(output);
+}
+
+//  QList<QRenderTargetOutput *> Qt3DRender::QRenderTarget::outputs() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QRenderTargetOutput *> *ritual_ZNK10Qt3DRender13QRenderTarget7outputsEv(
+    const Qt3DRender::QRenderTarget *self) {
+  return new QList<Qt3DRender::QRenderTargetOutput *>(self->outputs());
+}
+
+//  Qt3DRender::QRenderTarget::QRenderTarget(QRenderTargetPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderTarget *ritual_ZN10Qt3DRender13QRenderTargetC1ERNS_20QRenderTargetPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QRenderTargetPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRenderTarget(*dd, parent);
 }
 
 //  QRenderTargetPrivate *Qt3DRender::QRenderTarget::d_func()
@@ -211,4 +278,12 @@ bool ritual_take_Qt3DRender_QRenderTarget(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QRenderTarget *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DRender::QRenderTargetOutput *> a ritual of
+//      Qt3DRender::QRenderTarget gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QRenderTarget__QList_Qt3DRender_QRenderTargetOutput(
+    QList<Qt3DRender::QRenderTargetOutput *> *self) {
+  delete self;
 }

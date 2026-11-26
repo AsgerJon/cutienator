@@ -10,7 +10,7 @@ typedef void (*CuteQModbusExceptionResponseCall0)(const void *, int, int *);
 class CuteQModbusExceptionResponse : public QModbusExceptionResponse {
 public:
   using QModbusExceptionResponse::QModbusExceptionResponse;
-  CuteQModbusExceptionResponse(const QModbusExceptionResponse &other) : QModbusExceptionResponse(other) {}
+  CuteQModbusExceptionResponse(const QModbusExceptionResponse & other) : QModbusExceptionResponse(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -37,6 +37,13 @@ public:
 extern "C" Q_DECL_EXPORT
 QModbusExceptionResponse *ritual_ZN24QModbusExceptionResponseC1Ev() {
   return new CuteQModbusExceptionResponse();
+}
+
+//  QModbusExceptionResponse::QModbusExceptionResponse(const QModbusPdu &pdu)
+extern "C" Q_DECL_EXPORT
+QModbusExceptionResponse *ritual_ZN24QModbusExceptionResponseC1ERK10QModbusPdu(
+    const QModbusPdu *pdu) {
+  return new CuteQModbusExceptionResponse(*pdu);
 }
 
 //  QModbusExceptionResponse::QModbusExceptionResponse(FunctionCode fc,

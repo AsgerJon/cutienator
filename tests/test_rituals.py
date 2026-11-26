@@ -8,6 +8,7 @@ from __future__ import annotations
 import contextlib
 import json
 import os
+import re
 import tempfile
 from typing import TYPE_CHECKING
 from unittest import mock
@@ -18,7 +19,7 @@ from worktoy.work_test import BaseTest
 from cutienator.occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Dict, Iterator, List
+  from typing import Any, Dict, Iterator, List, Set
 
 
 class TestRituals(BaseTest):
@@ -89,7 +90,8 @@ class TestRituals(BaseTest):
     self.assertEqual(len(ritualFiles), len(rowsFiles))
     for ritualFile, rowsFile in zip(ritualFiles, rowsFiles):
       with self.subTest(ritualFile=ritualFile):
-        self.assertEqual(ritualFile[:-4], rowsFile[:-5])
+        self.assertEqual(
+            os.path.splitext(ritualFile)[0], os.path.splitext(rowsFile)[0])
         self.assertTrue(os.path.isfile(rowsFile))
 
   def test_a_row_says_what_comes_back_and_what_goes_in(self) -> None:
@@ -106,16 +108,20 @@ class TestRituals(BaseTest):
 
   def test_every_ritual_named_once_and_in_known_words(self) -> None:
     """Each ritual of the ritual files of a part has one row of known
-    words, and each is named once in all."""
+    words, and each is named once in all. A ritual may be written in
+    two files of the part for two systems, as one of Objective-C++ for
+    visionOS and one of C++ for the others; its row is one."""
     names = []  # type: List[str]
+    written = re.compile(
+        r'extern "C" Q_DECL_EXPORT\n[^\n]*?\b(ritual\w*)\(')
     for partName in Rituals.getRitualParts():
       rows = Rituals.getRows(partName)
-      count = 0
+      found = set()  # type: Set[str]
       for ritualFile in Rituals.getPartRitualFiles(partName):
         with open(ritualFile) as file:
-          count += file.read().count('extern "C" Q_DECL_EXPORT')
+          found.update(written.findall(file.read()))
       with self.subTest(partName=partName):
-        self.assertEqual(len(rows), count)
+        self.assertEqual({*rows}, found)
       for name, row in rows.items():
         self.assertIn(partName, Rituals.getPartsOf(name))
         if name not in names:

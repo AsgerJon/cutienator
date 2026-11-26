@@ -1,12 +1,19 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGrpc/qgrpcinterceptorchain.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "QtGrpc/qgrpcinterceptorchain.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZN21QGrpcInterceptorChainC1Ev": ["address"],
     "ritual_ZN21QGrpcInterceptorChainD1Ev": ["nothing", "address"],
+    "ritual_ZN21QGrpcInterceptorChainC1EOS_": ["address", "address"],
+    "ritual_ZN21QGrpcInterceptorChainaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QGrpcInterceptorChain4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QGrpcInterceptorChain5clearEv": ["nothing", "address"],
     "ritual_ZNK21QGrpcInterceptorChain4sizeEv": ["long long", "address"],
     "ritual_ZNK21QGrpcInterceptorChain7isEmptyEv": ["bool", "address"],
@@ -14,10 +21,19 @@
     "ritual_ZNK21QGrpcInterceptorChain13hasHandlerForEN6QtGrpc21InterceptorCapabilityE": [
       "bool", "address", "unsigned long long"
     ],
+    "ritual_ZN21QGrpcInterceptorChain7addImplEPvPFvS0_E5QSpanIKN13QtGrpcPrivate28InterceptorCapabilityBindingELm18446744073709551615EE": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZNK21QGrpcInterceptorChain19warnNullInterceptorExx": [
       "nothing", "address", "long long", "long long"
     ],
     "ritual_ZN21QGrpcInterceptorChain6d_funcEv": ["address", "address"],
-    "ritual_ZNK21QGrpcInterceptorChain6d_funcEv": ["address", "address"]
+    "ritual_ZNK21QGrpcInterceptorChain6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QGrpcInterceptorChain12capabilitiesEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK21QGrpcInterceptorChain14capabilitiesAtEx": [
+      "unsigned long long", "address", "long long"
+    ]
   }
 }

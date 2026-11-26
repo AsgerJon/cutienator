@@ -36,6 +36,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/network/socket/qabstractsocketengine.cpp, line 40, as _ZN28QAbstractSocketEnginePrivateC2Ev
 inline QAbstractSocketEnginePrivate::QAbstractSocketEnginePrivate()
     : socketError(QAbstractSocket::UnknownSocketError)
@@ -132,4 +134,16 @@ QHostAddress *ritual_ZNK26QNativeSocketEnginePrivate21adjustAddressProtocolERK12
     const QNativeSocketEnginePrivate *self,
     const QHostAddress *address) {
   return new QHostAddress(self->adjustAddressProtocol(*address));
+}
+
+//  void QNativeSocketEnginePrivate::setPortAndAddress(quint16 port, const
+//      QHostAddress &address, qt_sockaddr *aa, socklen_t *sockAddrSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QNativeSocketEnginePrivate17setPortAndAddressEtRK12QHostAddressP11qt_sockaddrPj(
+    QNativeSocketEnginePrivate *self,
+    quint16 port,
+    const QHostAddress *address,
+    qt_sockaddr *aa,
+    socklen_t *sockAddrSize) {
+  self->setPortAndAddress(port, *address, aa, sockAddrSize);
 }

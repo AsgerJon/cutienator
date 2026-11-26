@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtLabsFolderLi
 //  stModel/6.12.0/QtLabsFolderListModel/private/fileinfothread_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtLabsFolderListModel/6.12.0/QtLabsFolderListModel/private/qquickfolderlistmodelglobal_p.h>
 #include <QtLabsFolderListModel/QtLabsFolderListModel>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -28,6 +29,34 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/labs/folderlistmodel/fileinfothread.cpp, line 225, as _ZN14FileInfoThread3runEv
+inline void FileInfoThread::run()
+{
+    forever {
+        bool updateFiles = false;
+        QMutexLocker locker(&mutex);
+        if (abort) {
+            return;
+        }
+        if (currentPath.isEmpty() || !needUpdate) {
+            emit statusChanged(currentPath.isEmpty() ? QQuickFolderListModel::Null : QQuickFolderListModel::Ready);
+            condition.wait(&mutex);
+        }
+
+        if (abort) {
+            return;
+        }
+
+        if (!currentPath.isEmpty()) {
+            updateFiles = true;
+            emit statusChanged(QQuickFolderListModel::Loading);
+        }
+        if (updateFiles)
+            getFileInfos(currentPath);
+        locker.unlock();
+    }
+}
 
 //  from ../qtdeclarative/src/labs/folderlistmodel/fileinfothread.cpp, line 44, as _ZN14FileInfoThreadD1Ev
 inline FileInfoThread::~FileInfoThread()
@@ -60,34 +89,6 @@ inline void FileInfoThread::removePath(const QString &path)
     Q_UNUSED(path);
 #endif
     currentPath.clear();
-}
-
-//  from ../qtdeclarative/src/labs/folderlistmodel/fileinfothread.cpp, line 225, as _ZN14FileInfoThread3runEv
-inline void FileInfoThread::run()
-{
-    forever {
-        bool updateFiles = false;
-        QMutexLocker locker(&mutex);
-        if (abort) {
-            return;
-        }
-        if (currentPath.isEmpty() || !needUpdate) {
-            emit statusChanged(currentPath.isEmpty() ? QQuickFolderListModel::Null : QQuickFolderListModel::Ready);
-            condition.wait(&mutex);
-        }
-
-        if (abort) {
-            return;
-        }
-
-        if (!currentPath.isEmpty()) {
-            updateFiles = true;
-            emit statusChanged(QQuickFolderListModel::Loading);
-        }
-        if (updateFiles)
-            getFileInfos(currentPath);
-        locker.unlock();
-    }
 }
 
 //  from ../qtdeclarative/src/labs/folderlistmodel/fileinfothread.cpp, line 364, as _ZN14FileInfoThread15findChangeRangeERK5QListI12FilePropertyERiS5_
@@ -310,6 +311,24 @@ const QMetaObject *ritual_ZNK14FileInfoThread10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *FileInfoThread::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14FileInfoThread11qt_metacastEPKc(
+    FileInfoThread *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int FileInfoThread::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14FileInfoThread11qt_metacallEN11QMetaObject4CallEiPPv(
+    FileInfoThread *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  FileInfoThread::~FileInfoThread()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14FileInfoThreadD1Ev(FileInfoThread *self) {
@@ -329,6 +348,64 @@ void ritual_ZN14FileInfoThread10removePathERK7QString(
     const QString *path) {
   self->removePath(*path);
 }
+
+#if QT_CONFIG(filesystemwatcher)
+//  void FileInfoThread::dirChanged(const QString &directoryPath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14FileInfoThread10dirChangedERK7QString(
+    FileInfoThread *self,
+    const QString *directoryPath) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "FileInfoThread")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "dirChanged(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "dirChanged(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(directoryPath)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+#endif  // QT_CONFIG(filesystemwatcher)
+
+#if QT_CONFIG(filesystemwatcher)
+//  void FileInfoThread::updateFile(const QString &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14FileInfoThread10updateFileERK7QString(
+    FileInfoThread *self,
+    const QString *path) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "FileInfoThread")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateFile(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateFile(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(path)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+#endif  // QT_CONFIG(filesystemwatcher)
 
 //  void FileInfoThread::run()
 extern "C" Q_DECL_EXPORT

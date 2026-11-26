@@ -30,6 +30,16 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/dbus/qdbusmessage.cpp, line 34, as local:qdbusmessage.cpp:data
+#if !defined(QT_NO_DBUS)
+static inline const char *data(const QByteArray &arr)
+{
+    return arr.isEmpty() ? nullptr : arr.constData();
+}
+#endif  // !defined(QT_NO_DBUS)
+
 //  from src/dbus/qdbusmessage.cpp, line 39, as _ZN19QDBusMessagePrivateC1Ev
 #if !defined(QT_NO_DBUS)
 inline QDBusMessagePrivate::QDBusMessagePrivate()
@@ -102,6 +112,15 @@ void ritual_ZN19QDBusMessagePrivate18createResponseLinkEPKS_(
   self->createResponseLink(call);
 }
 #endif  // !defined(QT_NO_DBUS)
+
+//  void QDBusMessagePrivate::setParametersValidated(QDBusMessage &msg, bool
+//      enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QDBusMessagePrivate22setParametersValidatedER12QDBusMessageb(
+    QDBusMessage *msg,
+    bool enable) {
+  QDBusMessagePrivate::setParametersValidated(*msg, enable);
+}
 
 #if !defined(QT_NO_DBUS)
 //  bool QDBusMessagePrivate::isLocal(const QDBusMessage &msg)

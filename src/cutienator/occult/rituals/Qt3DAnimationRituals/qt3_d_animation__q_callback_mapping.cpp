@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation16QCallbackMapping10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QCallbackMapping::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation16QCallbackMapping11qt_metacastEPKc(
+    Qt3DAnimation::QCallbackMapping *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QCallbackMapping::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation16QCallbackMapping11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QCallbackMapping *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QCallbackMapping::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,76 @@ QString *ritual_ZN13Qt3DAnimation16QCallbackMapping2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QCallbackMapping::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QCallbackMapping::QCallbackMapping(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QCallbackMapping *ritual_ZN13Qt3DAnimation16QCallbackMappingC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QCallbackMapping(parent);
+}
+
+//  Qt3DAnimation::QCallbackMapping::~QCallbackMapping()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation16QCallbackMappingD1Ev(
+    Qt3DAnimation::QCallbackMapping *self) {
+  delete self;
+}
+
+//  QString Qt3DAnimation::QCallbackMapping::channelName() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK13Qt3DAnimation16QCallbackMapping11channelNameEv(
+    const Qt3DAnimation::QCallbackMapping *self) {
+  return new QString(self->channelName());
+}
+
+//  QAnimationCallback *Qt3DAnimation::QCallbackMapping::callback() const
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAnimationCallback *ritual_ZNK13Qt3DAnimation16QCallbackMapping8callbackEv(
+    const Qt3DAnimation::QCallbackMapping *self) {
+  return self->callback();
+}
+
+//  void Qt3DAnimation::QCallbackMapping::setCallback(int type,
+//      QAnimationCallback *callback, QAnimationCallback::Flags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation16QCallbackMapping11setCallbackEiPNS_18QAnimationCallbackE6QFlagsINS1_4FlagEE(
+    Qt3DAnimation::QCallbackMapping *self,
+    int type,
+    Qt3DAnimation::QAnimationCallback *callback,
+    int flags) {
+  self->setCallback(
+      type,
+      callback,
+      QFlags<Qt3DAnimation::QAnimationCallback::Flag>::fromInt(flags));
+}
+
+//  void Qt3DAnimation::QCallbackMapping::setChannelName(const QString
+//      &channelName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation16QCallbackMapping14setChannelNameERK7QString(
+    Qt3DAnimation::QCallbackMapping *self,
+    const QString *channelName) {
+  self->setChannelName(*channelName);
+}
+
+//  void Qt3DAnimation::QCallbackMapping::channelNameChanged(QString
+//      channelName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation16QCallbackMapping18channelNameChangedE7QString(
+    Qt3DAnimation::QCallbackMapping *self,
+    const QString *channelName) {
+  self->channelNameChanged(*channelName);
+}
+
+//  Qt3DAnimation::QCallbackMapping::QCallbackMapping(QCallbackMappingPrivate
+//      &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QCallbackMapping *ritual_ZN13Qt3DAnimation16QCallbackMappingC1ERNS_23QCallbackMappingPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QCallbackMappingPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QCallbackMapping(*dd, parent);
 }
 
 //  QCallbackMappingPrivate *Qt3DAnimation::QCallbackMapping::d_func()

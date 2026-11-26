@@ -1054,6 +1054,22 @@ const QMetaObject *ritual_ZNK9QCheckBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCheckBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QCheckBox11qt_metacastEPKc(QCheckBox *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCheckBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QCheckBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCheckBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCheckBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QCheckBox2trEPKcS1_i(
@@ -1121,6 +1137,22 @@ void ritual_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(
   self->setCheckState(state);
 }
 
+#if QT_DEPRECATED_SINCE(6, 9)
+//  void QCheckBox::stateChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QCheckBox12stateChangedEi(QCheckBox *self, int a0) {
+  self->stateChanged(a0);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  void QCheckBox::checkStateChanged(Qt::CheckState a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QCheckBox17checkStateChangedEN2Qt10CheckStateE(
+    QCheckBox *self,
+    Qt::CheckState a0) {
+  self->checkStateChanged(a0);
+}
+
 //  bool QCheckBox::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QCheckBox5eventEP6QEvent(QCheckBox *self, QEvent *e) {
@@ -1169,6 +1201,19 @@ void ritual_ZNK9QCheckBox15initStyleOptionEP18QStyleOptionButton(
     const QCheckBox *self,
     QStyleOptionButton *option) {
   self->initStyleOption(option);
+}
+
+//  QCheckBoxPrivate *QCheckBox::d_func()
+extern "C" Q_DECL_EXPORT
+QCheckBoxPrivate *ritual_ZN9QCheckBox6d_funcEv(QCheckBox *self) {
+  return self->d_func();
+}
+
+//  const QCheckBoxPrivate *QCheckBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCheckBoxPrivate *ritual_ZNK9QCheckBox6d_funcEv(
+    const QCheckBox *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQCheckBox, for the function named by the

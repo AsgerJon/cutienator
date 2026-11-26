@@ -11,6 +11,7 @@ typedef void (*CuteQScreenOrientationChangeEventCall1)(const void *, bool, int *
 class CuteQScreenOrientationChangeEvent : public QScreenOrientationChangeEvent {
 public:
   using QScreenOrientationChangeEvent::QScreenOrientationChangeEvent;
+  CuteQScreenOrientationChangeEvent(const QScreenOrientationChangeEvent & other) : QScreenOrientationChangeEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -48,6 +49,24 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QScreenOrientationChangeEvent::QScreenOrientationChangeEvent(const
+//      QScreenOrientationChangeEvent &a0)
+extern "C" Q_DECL_EXPORT
+QScreenOrientationChangeEvent *ritual_ZN29QScreenOrientationChangeEventC1ERKS_(
+    const QScreenOrientationChangeEvent *a0) {
+  return new CuteQScreenOrientationChangeEvent(*a0);
+}
+
+//  QScreenOrientationChangeEvent
+//      &QScreenOrientationChangeEvent::operator=(const
+//      QScreenOrientationChangeEvent &other)
+extern "C" Q_DECL_EXPORT
+QScreenOrientationChangeEvent *ritual_ZN29QScreenOrientationChangeEventaSERKS_(
+    QScreenOrientationChangeEvent *self,
+    const QScreenOrientationChangeEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QScreenOrientationChangeEvent *QScreenOrientationChangeEvent::clone()
 //      const

@@ -11,7 +11,13 @@
     "ritual_ZNK13Qt3DAnimation9Animation23EvaluateClipAnimatorJob7handlerEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation9Animation23EvaluateClipAnimatorJob15setClipAnimatorERKN8Qt3DCore7QHandleINS0_12ClipAnimatorEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation23EvaluateClipAnimatorJob17clearClipAnimatorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation23EvaluateClipAnimatorJob3runEv": [
       "nothing", "address"
     ]
   }

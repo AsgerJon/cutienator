@@ -13,10 +13,10 @@
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtNetwork/private/qhttpnetworkheader_p.h>
 #include <QtNetwork/private/qhttpnetworkrequest_p.h>
 #include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/private/qtools_p.h>
+#include <QtNetwork/private/qhttpnetworkheader_p.h>
 #include <QtNetwork/private/qhttpnetworkreply_p.h>
 #include <QtNetwork/private/qhttpnetworkconnection_p.h>
 #ifndef QT_NO_SSL
@@ -33,6 +33,25 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 178, as _ZN19QHttpNetworkRequestC1ERK4QUrlNS_9OperationENS_8PriorityE
+inline QHttpNetworkRequest::QHttpNetworkRequest(const QUrl &url, Operation operation, Priority priority)
+    : d(new QHttpNetworkRequestPrivate(operation, priority, url))
+{
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 188, as _ZN19QHttpNetworkRequestD1Ev
+inline QHttpNetworkRequest::~QHttpNetworkRequest()
+{
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 12, as _ZN25QHttpNetworkHeaderPrivateC2ERK4QUrl
+inline QHttpNetworkHeaderPrivate::QHttpNetworkHeaderPrivate(const QUrl &newUrl)
+    :url(newUrl)
+{
+}
 
 //  from src/network/access/qhttpnetworkheader.cpp, line 34, as _ZNK25QHttpNetworkHeaderPrivate11headerFieldE14QByteArrayViewRK10QByteArray
 inline QByteArray QHttpNetworkHeaderPrivate::headerField(QByteArrayView name, const QByteArray &defaultValue) const
@@ -69,11 +88,87 @@ inline QHttpNetworkRequest::Operation QHttpNetworkRequest::operation() const
     return d->operation;
 }
 
+//  from src/network/access/qhttpnetworkheader.cpp, line 9, as _ZN18QHttpNetworkHeaderD2Ev
+inline QHttpNetworkHeader::~QHttpNetworkHeader()
+    = default;
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 264, as _ZN19QHttpNetworkRequest14setHeaderFieldERK10QByteArrayS2_
+inline void QHttpNetworkRequest::setHeaderField(const QByteArray &name, const QByteArray &data)
+{
+    d->setHeaderField(name, data);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 249, as _ZN19QHttpNetworkRequest16setContentLengthEx
+inline void QHttpNetworkRequest::setContentLength(qint64 length)
+{
+    d->setContentLength(length);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 196, as _ZN19QHttpNetworkRequest6setUrlERK4QUrl
+inline void QHttpNetworkRequest::setUrl(const QUrl &url)
+{
+    d->url = url;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 14, as _ZN26QHttpNetworkRequestPrivateC1EN19QHttpNetworkRequest9OperationENS0_8PriorityERK4QUrl
+inline QHttpNetworkRequestPrivate::QHttpNetworkRequestPrivate(QHttpNetworkRequest::Operation op,
+        QHttpNetworkRequest::Priority pri, const QUrl &newUrl)
+    : QHttpNetworkHeaderPrivate(newUrl), operation(op), priority(pri), uploadByteDevice(nullptr),
+      autoDecompress(false), pipeliningAllowed(false), http2Allowed(true),
+      http2Direct(false), withCredentials(true), preConnect(false), redirectCount(0),
+      redirectPolicy(QNetworkRequest::ManualRedirectPolicy)
+{
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 45, as _ZN26QHttpNetworkRequestPrivateD1Ev
+inline QHttpNetworkRequestPrivate::~QHttpNetworkRequestPrivate()
+{
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 259, as _ZNK19QHttpNetworkRequest11headerFieldE14QByteArrayViewRK10QByteArray
+inline QByteArray QHttpNetworkRequest::headerField(QByteArrayView name, const QByteArray &defaultValue) const
+{
+    return d->headerField(name, defaultValue);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 381, as _ZNK19QHttpNetworkRequest12majorVersionEv
+inline int QHttpNetworkRequest::majorVersion() const
+{
+    return 1;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 386, as _ZNK19QHttpNetworkRequest12minorVersionEv
+inline int QHttpNetworkRequest::minorVersion() const
+{
+    return 1;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 244, as _ZNK19QHttpNetworkRequest13contentLengthEv
+inline qint64 QHttpNetworkRequest::contentLength() const
+{
+    return d->contentLength();
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 192, as _ZNK19QHttpNetworkRequest3urlEv
+inline QUrl QHttpNetworkRequest::url() const
+{
+    return d->url;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 254, as _ZNK19QHttpNetworkRequest6headerEv
+inline QHttpHeaders QHttpNetworkRequest::header() const
+{
+    return d->parser.headers();
+}
+
 //  from src/network/access/qhttpnetworkheader.cpp, line 43, as _ZNK25QHttpNetworkHeaderPrivate17headerFieldValuesE14QByteArrayView
 inline QList<QByteArray> QHttpNetworkHeaderPrivate::headerFieldValues(QByteArrayView name) const
 {
     return parser.headerFieldValues(name);
 }
+
+//  from src/network/access/qhttpnetworkreply.cpp, line 327, as _ZN24QHttpNetworkReplyPrivateD1Ev
+inline QHttpNetworkReplyPrivate::~QHttpNetworkReplyPrivate() = default;
 
 //  from src/network/access/qhttpnetworkreply.cpp, line 382, as _ZN24QHttpNetworkReplyPrivate10readStatusEP9QIODevice
 inline qint64 QHttpNetworkReplyPrivate::readStatus(QIODevice *socket)
@@ -225,6 +320,24 @@ inline qint64 QHttpNetworkReplyPrivate::readBody(QIODevice *socket, QByteDataBuf
     }
     contentRead += bytes;
     return bytes;
+}
+
+//  from src/network/access/qhttpnetworkreply.cpp, line 520, as _ZN24QHttpNetworkReplyPrivate16readBodyVeryFastEP9QIODevicePc
+inline qint64 QHttpNetworkReplyPrivate::readBodyVeryFast(QIODevice *socket, char *b)
+{
+    // This first read is to flush the buffer inside the socket
+    qint64 haveRead = 0;
+    haveRead = socket->read(b, bodyLength - contentRead);
+    if (haveRead == -1) {
+        return -1;
+    }
+    contentRead += haveRead;
+
+    if (contentRead == bodyLength) {
+        state = AllDoneState;
+    }
+
+    return haveRead;
 }
 
 //  from src/network/access/qhttpnetworkreply.cpp, line 539, as _ZN24QHttpNetworkReplyPrivate12readBodyFastEP9QIODeviceP15QByteDataBuffer
@@ -502,6 +615,13 @@ inline void QHttpNetworkReplyPrivate::removeAutoDecompressHeader()
 }
 //  -----------------------------------------------------------------------
 
+//  QHttpNetworkReplyPrivate::~QHttpNetworkReplyPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QHttpNetworkReplyPrivateD1Ev(
+    QHttpNetworkReplyPrivate *self) {
+  delete self;
+}
+
 //  qint64 QHttpNetworkReplyPrivate::readStatus(QIODevice *socket)
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZN24QHttpNetworkReplyPrivate10readStatusEP9QIODevice(
@@ -552,6 +672,16 @@ qint64 ritual_ZN24QHttpNetworkReplyPrivate8readBodyEP9QIODeviceP15QByteDataBuffe
     QIODevice *socket,
     QByteDataBuffer *out) {
   return self->readBody(socket, out);
+}
+
+//  qint64 QHttpNetworkReplyPrivate::readBodyVeryFast(QIODevice *socket, char
+//      *b)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN24QHttpNetworkReplyPrivate16readBodyVeryFastEP9QIODevicePc(
+    QHttpNetworkReplyPrivate *self,
+    QIODevice *socket,
+    char *b) {
+  return self->readBodyVeryFast(socket, b);
 }
 
 //  qint64 QHttpNetworkReplyPrivate::readBodyFast(QIODevice *socket,

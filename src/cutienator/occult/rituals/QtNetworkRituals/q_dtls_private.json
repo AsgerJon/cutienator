@@ -5,5 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QDtlsPrivateC1Ev": ["address"],
+    "ritual_ZN12QDtlsPrivateD1Ev": ["nothing", "address"]
   }
 }

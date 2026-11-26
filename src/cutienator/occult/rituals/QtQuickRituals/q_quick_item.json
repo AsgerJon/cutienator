@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QQuickItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QQuickItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QQuickItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QQuickItemC1EPS_": ["address", "address"],
     "ritual_ZN10QQuickItemD1Ev": ["nothing", "address"],
@@ -31,6 +37,7 @@
     "ritual_ZN10QQuickItem17setBaselineOffsetEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZN10QQuickItem9transformEv": ["address", "address"],
     "ritual_ZNK10QQuickItem1xEv": ["double", "address"],
     "ritual_ZNK10QQuickItem1yEv": ["double", "address"],
     "ritual_ZNK10QQuickItem8positionEv": ["address", "address"],
@@ -39,6 +46,8 @@
     "ritual_ZN10QQuickItem11setPositionERK7QPointF": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QQuickItem9bindableXEv": ["address", "address"],
+    "ritual_ZN10QQuickItem9bindableYEv": ["address", "address"],
     "ritual_ZNK10QQuickItem5widthEv": ["double", "address"],
     "ritual_ZN10QQuickItem8setWidthEd": ["nothing", "address", "double"],
     "ritual_ZN10QQuickItem10resetWidthEv": ["nothing", "address"],
@@ -46,6 +55,7 @@
       "nothing", "address", "double"
     ],
     "ritual_ZNK10QQuickItem13implicitWidthEv": ["double", "address"],
+    "ritual_ZN10QQuickItem13bindableWidthEv": ["address", "address"],
     "ritual_ZNK10QQuickItem6heightEv": ["double", "address"],
     "ritual_ZN10QQuickItem9setHeightEd": ["nothing", "address", "double"],
     "ritual_ZN10QQuickItem11resetHeightEv": ["nothing", "address"],
@@ -53,6 +63,7 @@
       "nothing", "address", "double"
     ],
     "ritual_ZNK10QQuickItem14implicitHeightEv": ["double", "address"],
+    "ritual_ZN10QQuickItem14bindableHeightEv": ["address", "address"],
     "ritual_ZNK10QQuickItem4sizeEv": ["address", "address"],
     "ritual_ZN10QQuickItem7setSizeERK6QSizeF": [
       "nothing", "address", "address"
@@ -141,6 +152,9 @@
     "ritual_ZN10QQuickItem26setFiltersChildMouseEventsEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN10QQuickItem15grabTouchPointsERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QQuickItem17ungrabTouchPointsEv": ["nothing", "address"],
     "ritual_ZNK10QQuickItem13keepTouchGrabEv": ["bool", "address"],
     "ritual_ZN10QQuickItem16setKeepTouchGrabEb": [
@@ -148,6 +162,9 @@
     ],
     "ritual_ZN10QQuickItem11grabToImageERK8QJSValueRK5QSize": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10QQuickItem11grabToImageERK5QSize": [
+      "address", "address", "address"
     ],
     "ritual_ZNK10QQuickItem8containsERK7QPointF": [
       "bool", "address", "address"
@@ -248,6 +265,63 @@
     ],
     "ritual_ZNK10QQuickItem15mutabilityGroupEv": ["int", "address"],
     "ritual_ZN10QQuickItem6updateEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem19childrenRectChangedERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickItem21baselineOffsetChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QQuickItem12stateChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQuickItem12focusChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QQuickItem18activeFocusChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QQuickItem18focusPolicyChangedEN2Qt11FocusPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQuickItem23activeFocusOnTabChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QQuickItem13parentChangedEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickItem22transformOriginChangedENS_15TransformOriginE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQuickItem13smoothChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QQuickItem19antialiasingChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QQuickItem11clipChangedEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QQuickItem13windowChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickItem15childrenChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem14opacityChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem14visibleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem22visibleChildrenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickItem15rotationChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem12scaleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem8xChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem8yChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem13heightChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem8zChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem20implicitWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem21implicitHeightChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem22containmentMaskChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickItem14paletteChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem14paletteCreatedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItem22mutabilityGroupChangedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN10QQuickItem5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZNK10QQuickItem19isComponentCompleteEv": ["bool", "address"],
     "ritual_ZN10QQuickItem10itemChangeENS_10ItemChangeERKNS_14ItemChangeDataE": [
@@ -330,6 +404,9 @@
     ],
     "ritual_ZN10QQuickItem16releaseResourcesEv": ["nothing", "address"],
     "ritual_ZN10QQuickItem12updatePolishEv": ["nothing", "address"],
+    "ritual_ZN10QQuickItemC1ER17QQuickItemPrivatePS_": [
+      "address", "address", "address"
+    ],
     "ritual_Zls6QDebugP10QQuickItem": ["address", "address", "address"],
     "ritual_ZN10QQuickItem6d_funcEv": ["address", "address"],
     "ritual_ZNK10QQuickItem6d_funcEv": ["address", "address"],
@@ -424,6 +501,13 @@
     "ritual_list_add_QQuickItem_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QQuickItem_ptr": ["long long", "address"],
     "ritual_list_at_QQuickItem_ptr": ["address", "address", "long long"],
-    "ritual_list_drop_QQuickItem_ptr": ["nothing", "address"]
+    "ritual_list_drop_QQuickItem_ptr": ["nothing", "address"],
+    "ritual_drop_QQuickItem__QQmlListProperty_QQuickTransform": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickItem__QBindable_qreal": ["nothing", "address"],
+    "ritual_drop_QQuickItem__QSharedPointer_QQuickItemGrabResult": [
+      "nothing", "address"
+    ]
   }
 }

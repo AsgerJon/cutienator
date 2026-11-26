@@ -278,6 +278,25 @@ const QMetaObject *ritual_ZNK25QConnectionAbstractServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QConnectionAbstractServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QConnectionAbstractServer11qt_metacastEPKc(
+    QConnectionAbstractServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QConnectionAbstractServer::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QConnectionAbstractServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QConnectionAbstractServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QConnectionAbstractServer::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -286,6 +305,13 @@ QString *ritual_ZN25QConnectionAbstractServer2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QConnectionAbstractServer::tr(s, c, n));
+}
+
+//  QConnectionAbstractServer::QConnectionAbstractServer(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QConnectionAbstractServer *ritual_ZN25QConnectionAbstractServerC1EP7QObject(
+    QObject *parent) {
+  return new CuteQConnectionAbstractServer(parent);
 }
 
 //  QConnectionAbstractServer::~QConnectionAbstractServer()
@@ -344,6 +370,13 @@ extern "C" Q_DECL_EXPORT
 QtROServerIoDevice *ritual_ZN25QConnectionAbstractServer22configureNewConnectionEv(
     QConnectionAbstractServer *self) {
   return self->configureNewConnection();
+}
+
+//  void QConnectionAbstractServer::newConnection()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QConnectionAbstractServer13newConnectionEv(
+    QConnectionAbstractServer *self) {
+  self->newConnection();
 }
 
 //  a Python function taken by a CuteQConnectionAbstractServer, for the

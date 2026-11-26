@@ -25,6 +25,21 @@ QSSGAllocateTexture *ritual_ZN19QSSGAllocateTextureC1E23QSSGRenderTextureFormat(
   return new QSSGAllocateTexture(*inFormat);
 }
 
+//  const QSSGManagedRhiTexturePtr &QSSGAllocateTexture::texture() const
+extern "C" Q_DECL_EXPORT
+const QSSGManagedRhiTexturePtr *ritual_ZNK19QSSGAllocateTexture7textureEv(
+    const QSSGAllocateTexture *self) {
+  return &(self->texture());
+}
+
+//  void QSSGAllocateTexture::setTexture(const QSSGManagedRhiTexturePtr &tex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSSGAllocateTexture10setTextureERKSt10unique_ptrI21QSSGManagedRhiTextureSt14default_deleteIS1_EE(
+    QSSGAllocateTexture *self,
+    const QSSGManagedRhiTexturePtr *tex) {
+  self->setTexture(*tex);
+}
+
 //  QSSGRenderTextureFormat QSSGAllocateTexture::format() const
 extern "C" Q_DECL_EXPORT
 QSSGRenderTextureFormat *ritual_ZNK19QSSGAllocateTexture6formatEv(
@@ -38,4 +53,12 @@ void ritual_ZN19QSSGAllocateTexture9setFormatE23QSSGRenderTextureFormat(
     QSSGAllocateTexture *self,
     const QSSGRenderTextureFormat *format) {
   self->setFormat(*format);
+}
+
+//  void QSSGAllocateTexture::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK19QSSGAllocateTexture8addDebugER6QDebug(
+    const QSSGAllocateTexture *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
 }

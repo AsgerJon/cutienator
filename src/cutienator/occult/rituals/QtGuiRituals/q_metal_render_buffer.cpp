@@ -105,6 +105,25 @@ public:
   }
 };
 
+//  void QMetalRenderBuffer::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QMetalRenderBuffer7destroyEv(QMetalRenderBuffer *self) {
+  self->destroy();
+}
+
+//  bool QMetalRenderBuffer::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QMetalRenderBuffer6createEv(QMetalRenderBuffer *self) {
+  return self->create();
+}
+
+//  QRhiTexture::Format QMetalRenderBuffer::backingFormat() const
+extern "C" Q_DECL_EXPORT
+QRhiTexture::Format ritual_ZNK18QMetalRenderBuffer13backingFormatEv(
+    const QMetalRenderBuffer *self) {
+  return self->backingFormat();
+}
+
 //  a Python function taken by a CuteQMetalRenderBuffer, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

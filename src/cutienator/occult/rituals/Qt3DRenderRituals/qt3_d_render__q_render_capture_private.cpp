@@ -6,7 +6,83 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qrendercapture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qimage.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DRender/qrendercapture.h>
+#include <Qt3DRender/private/qrendercapture_p.h>
+#include <QtCore/QPointer>
+#include <QtCore/QMutexLocker>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/render/framegraph/qrendercapture.cpp, line 186, as _ZN10Qt3DRender21QRenderCapturePrivateC1Ev
+namespace Qt3DRender {
+inline QRenderCapturePrivate::QRenderCapturePrivate()
+    : QFrameGraphNodePrivate()
+{
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/render/framegraph/qrendercapture.cpp, line 194, as _ZN10Qt3DRender21QRenderCapturePrivateD1Ev
+namespace Qt3DRender {
+inline QRenderCapturePrivate::~QRenderCapturePrivate()
+{
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/render/framegraph/qrendercapture.cpp, line 201, as _ZN10Qt3DRender21QRenderCapturePrivate11createReplyEi
+namespace Qt3DRender {
+inline QRenderCaptureReply *QRenderCapturePrivate::createReply(int captureId)
+{
+    QMutexLocker lock(&m_mutex);
+    QRenderCaptureReply *reply = new QRenderCaptureReply();
+    reply->d_func()->m_captureId = captureId;
+    m_waitingReplies.push_back(reply);
+    return reply;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/render/framegraph/qrendercapture.cpp, line 213, as _ZN10Qt3DRender21QRenderCapturePrivate9takeReplyEi
+namespace Qt3DRender {
+inline QRenderCaptureReply *QRenderCapturePrivate::takeReply(int captureId)
+{
+    QRenderCaptureReply *reply = nullptr;
+    QMutexLocker lock(&m_mutex);
+    for (int i = 0; i < m_waitingReplies.size(); ++i) {
+        if (m_waitingReplies[i]->d_func()->m_captureId == captureId) {
+            reply = m_waitingReplies.takeAt(i);
+            break;
+        }
+    }
+    return reply;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/render/framegraph/qrendercapture.cpp, line 229, as _ZN10Qt3DRender21QRenderCapturePrivate8setImageEPNS_19QRenderCaptureReplyERK6QImage
+namespace Qt3DRender {
+inline void QRenderCapturePrivate::setImage(QRenderCaptureReply *reply, const QImage &image)
+{
+    reply->d_func()->m_complete = true;
+    reply->d_func()->m_image = image;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/render/framegraph/qrendercapture.cpp, line 238, as _ZN10Qt3DRender21QRenderCapturePrivate14replyDestroyedEPNS_19QRenderCaptureReplyE
+namespace Qt3DRender {
+inline void QRenderCapturePrivate::replyDestroyed(QRenderCaptureReply *reply)
+{
+    QMutexLocker lock(&m_mutex);
+    m_waitingReplies.removeAll(reply);
+}
+}  // namespace Qt3DRender
+//  -----------------------------------------------------------------------
 
 //  A Qt3DRender::QRenderCapturePrivate that Python can take functions over in. Every Qt3DRender::QRenderCapturePrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +128,57 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DRender::QRenderCapturePrivate::QRenderCapturePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderCapturePrivate *ritual_ZN10Qt3DRender21QRenderCapturePrivateC1Ev() {
+  return new CuteQt3DRender_QRenderCapturePrivate();
+}
+
+//  Qt3DRender::QRenderCapturePrivate::~QRenderCapturePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QRenderCapturePrivateD1Ev(
+    Qt3DRender::QRenderCapturePrivate *self) {
+  delete self;
+}
+
+//  QRenderCaptureReply *Qt3DRender::QRenderCapturePrivate::createReply(int
+//      captureId)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderCaptureReply *ritual_ZN10Qt3DRender21QRenderCapturePrivate11createReplyEi(
+    Qt3DRender::QRenderCapturePrivate *self,
+    int captureId) {
+  return self->createReply(captureId);
+}
+
+//  QRenderCaptureReply *Qt3DRender::QRenderCapturePrivate::takeReply(int
+//      captureId)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderCaptureReply *ritual_ZN10Qt3DRender21QRenderCapturePrivate9takeReplyEi(
+    Qt3DRender::QRenderCapturePrivate *self,
+    int captureId) {
+  return self->takeReply(captureId);
+}
+
+//  void Qt3DRender::QRenderCapturePrivate::setImage(QRenderCaptureReply
+//      *reply, const QImage &image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QRenderCapturePrivate8setImageEPNS_19QRenderCaptureReplyERK6QImage(
+    Qt3DRender::QRenderCapturePrivate *self,
+    Qt3DRender::QRenderCaptureReply *reply,
+    const QImage *image) {
+  self->setImage(reply, *image);
+}
+
+//  void
+//      Qt3DRender::QRenderCapturePrivate::replyDestroyed(QRenderCaptureReply
+//      *reply)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QRenderCapturePrivate14replyDestroyedEPNS_19QRenderCaptureReplyE(
+    Qt3DRender::QRenderCapturePrivate *self,
+    Qt3DRender::QRenderCaptureReply *reply) {
+  self->replyDestroyed(reply);
+}
 
 //  QRenderCapture *Qt3DRender::QRenderCapturePrivate::q_func()
 extern "C" Q_DECL_EXPORT

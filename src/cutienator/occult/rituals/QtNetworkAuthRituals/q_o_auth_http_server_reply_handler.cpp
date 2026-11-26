@@ -233,6 +233,25 @@ const QMetaObject *ritual_ZNK28QOAuthHttpServerReplyHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOAuthHttpServerReplyHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QOAuthHttpServerReplyHandler11qt_metacastEPKc(
+    QOAuthHttpServerReplyHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOAuthHttpServerReplyHandler::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QOAuthHttpServerReplyHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOAuthHttpServerReplyHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOAuthHttpServerReplyHandler::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT

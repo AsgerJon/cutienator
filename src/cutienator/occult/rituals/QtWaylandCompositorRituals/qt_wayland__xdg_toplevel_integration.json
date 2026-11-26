@@ -7,6 +7,69 @@
   "rows": {
     "ritual_ZNK9QtWayland22XdgToplevelIntegration10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration15handleStartMoveEP12QWaylandSeat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration17handleStartResizeEP12QWaylandSeat6QFlagsIN2Qt4EdgeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration18handleSetMaximizedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration20handleUnsetMaximizedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration22handleMaximizedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration19handleSetFullscreenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration21handleUnsetFullscreenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration23handleFullscreenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration22handleActivatedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration24handleSurfaceSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration23handleToplevelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration26handleMaximizedSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration27handleFullscreenSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration22filterPointerMoveEventERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration20filterMouseMoveEventEP11QMouseEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration25filterPointerReleaseEventEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QtWayland22XdgToplevelIntegration22filterTouchUpdateEventEP11QTouchEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN9QtWayland22XdgToplevelIntegration11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
     ]
   }
 }

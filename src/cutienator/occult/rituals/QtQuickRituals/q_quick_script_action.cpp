@@ -251,6 +251,25 @@ const QMetaObject *ritual_ZNK18QQuickScriptAction10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScriptAction::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickScriptAction11qt_metacastEPKc(
+    QQuickScriptAction *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScriptAction::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickScriptAction11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScriptAction *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScriptAction::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickScriptAction2trEPKcS1_i(
@@ -315,6 +334,19 @@ void ritual_ZN18QQuickScriptAction24setStateChangeScriptNameERK7QString(
     QQuickScriptAction *self,
     const QString *a0) {
   self->setStateChangeScriptName(*a0);
+}
+
+//  QAbstractAnimationJob *QQuickScriptAction::transition(QQuickStateActions
+//      &actions, QQmlProperties &modified, TransitionDirection direction,
+//      QObject *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN18QQuickScriptAction10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickScriptAction *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
 }
 
 //  a Python function taken by a CuteQQuickScriptAction, for the function

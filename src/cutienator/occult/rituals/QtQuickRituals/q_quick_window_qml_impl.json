@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickWindowQmlImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickWindowQmlImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickWindowQmlImpl2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -45,12 +51,30 @@
     "ritual_ZN19QQuickWindowQmlImpl21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
     ],
+    "ritual_ZN19QQuickWindowQmlImpl14visibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl17visibilityChangedEN7QWindow10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl13screenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl8xChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl8yChangedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN19QQuickWindowQmlImpl10classBeginEv": ["nothing", "address"],
     "ritual_ZN19QQuickWindowQmlImpl17componentCompleteEv": [
       "nothing", "address"
     ],
     "ritual_ZN19QQuickWindowQmlImpl5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImplC1ER26QQuickWindowQmlImplPrivateP7QWindow": [
+      "address", "address", "address"
     ],
     "ritual_ZN19QQuickWindowQmlImpl21applyWindowVisibilityEv": [
       "nothing", "address"

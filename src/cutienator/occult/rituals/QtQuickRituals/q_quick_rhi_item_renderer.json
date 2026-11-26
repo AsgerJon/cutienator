@@ -4,6 +4,7 @@
     "QtQuick/qquickrhiitem.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QQuickRhiItemRendererC1Ev": ["address"],
     "ritual_ZN21QQuickRhiItemRendererD1Ev": ["nothing", "address"],
     "ritual_ZN21QQuickRhiItemRenderer10initializeEP17QRhiCommandBuffer": [
       "nothing", "address", "address"

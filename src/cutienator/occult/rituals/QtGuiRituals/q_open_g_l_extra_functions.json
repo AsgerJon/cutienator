@@ -15,15 +15,77 @@
     "ritual_ZN21QOpenGLExtraFunctions12glReadBufferEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions19glDrawRangeElementsEjjjijPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions12glTexImage3DEjiiiiiijjPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "int", "int", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glTexSubImage3DEjiiiiiiijjPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "int", "int", "int", "unsigned int", "unsigned int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions19glCopyTexSubImage3DEjiiiiiiii": [
       "nothing", "address", "unsigned int", "int", "int", "int", "int",
       "int", "int", "int", "int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions22glCompressedTexImage3DEjijiiiiiPKv": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "int",
+      "int", "int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions25glCompressedTexSubImage3DEjiiiiiiijiPKv": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "int", "int", "int", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions12glGenQueriesEiPj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glDeleteQueriesEiPKj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions9glIsQueryEj": [
+      "unsigned char", "address", "unsigned int"
     ],
     "ritual_ZN21QOpenGLExtraFunctions12glBeginQueryEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
     ],
     "ritual_ZN21QOpenGLExtraFunctions10glEndQueryEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions12glGetQueryivEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glGetQueryObjectuivEjjPj": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13glUnmapBufferEj": [
+      "unsigned char", "address", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glGetBufferPointervEjjPPv": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13glDrawBuffersEiPKj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glUniformMatrix2x3fvEiihPKf": [
+      "nothing", "address", "int", "int", "unsigned char", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glUniformMatrix3x2fvEiihPKf": [
+      "nothing", "address", "int", "int", "unsigned char", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glUniformMatrix2x4fvEiihPKf": [
+      "nothing", "address", "int", "int", "unsigned char", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glUniformMatrix4x2fvEiihPKf": [
+      "nothing", "address", "int", "int", "unsigned char", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glUniformMatrix3x4fvEiihPKf": [
+      "nothing", "address", "int", "int", "unsigned char", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glUniformMatrix4x3fvEiihPKf": [
+      "nothing", "address", "int", "int", "unsigned char", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions17glBlitFramebufferEiiiiiiiijj": [
       "nothing", "address", "int", "int", "int", "int", "int", "int", "int",
@@ -37,8 +99,27 @@
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "int", "int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions16glMapBufferRangeEjllj": [
+      "address", "address", "unsigned int", "long long", "long long",
+      "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions24glFlushMappedBufferRangeEjll": [
+      "nothing", "address", "unsigned int", "long long", "long long"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions17glBindVertexArrayEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glDeleteVertexArraysEiPKj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions17glGenVertexArraysEiPj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glIsVertexArrayEj": [
+      "unsigned char", "address", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glGetIntegeri_vEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions24glBeginTransformFeedbackEj": [
       "nothing", "address", "unsigned int"
@@ -46,8 +127,29 @@
     "ritual_ZN21QOpenGLExtraFunctions22glEndTransformFeedbackEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions17glBindBufferRangeEjjjll": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "long long", "long long"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions16glBindBufferBaseEjjj": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glTransformFeedbackVaryingsEjiPKPKcj": [
+      "nothing", "address", "unsigned int", "int", "address", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions29glGetTransformFeedbackVaryingEjjiPiS0_PjPc": [
+      "nothing", "address", "unsigned int", "unsigned int", "int", "address",
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions22glVertexAttribIPointerEjijiPKv": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "int",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glGetVertexAttribIivEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions21glGetVertexAttribIuivEjjPj": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions17glVertexAttribI4iEjiiii": [
       "nothing", "address", "unsigned int", "int", "int", "int", "int"
@@ -55,6 +157,18 @@
     "ritual_ZN21QOpenGLExtraFunctions18glVertexAttribI4uiEjjjjj": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions18glVertexAttribI4ivEjPKi": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glVertexAttribI4uivEjPKj": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glGetUniformuivEjiPj": [
+      "nothing", "address", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions21glGetFragDataLocationEjPKc": [
+      "int", "address", "unsigned int", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions12glUniform1uiEij": [
       "nothing", "address", "int", "unsigned int"
@@ -70,8 +184,54 @@
       "nothing", "address", "int", "unsigned int", "unsigned int",
       "unsigned int", "unsigned int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions13glUniform1uivEiiPKj": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13glUniform2uivEiiPKj": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13glUniform3uivEiiPKj": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13glUniform4uivEiiPKj": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glClearBufferivEjiPKi": [
+      "nothing", "address", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions16glClearBufferuivEjiPKj": [
+      "nothing", "address", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glClearBufferfvEjiPKf": [
+      "nothing", "address", "unsigned int", "int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions15glClearBufferfiEjifi": [
       "nothing", "address", "unsigned int", "int", "float", "int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions12glGetStringiEjj": [
+      "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glCopyBufferSubDataEjjlll": [
+      "nothing", "address", "unsigned int", "unsigned int", "long long",
+      "long long", "long long"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glGetUniformIndicesEjiPKPKcPj": [
+      "nothing", "address", "unsigned int", "int", "address", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions21glGetActiveUniformsivEjiPKjjPi": [
+      "nothing", "address", "unsigned int", "int", "address", "unsigned int",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions22glGetUniformBlockIndexEjPKc": [
+      "unsigned int", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions25glGetActiveUniformBlockivEjjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glGetActiveUniformBlockNameEjjiPiPc": [
+      "nothing", "address", "unsigned int", "unsigned int", "int", "address",
+      "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions21glUniformBlockBindingEjjj": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
@@ -79,14 +239,68 @@
     "ritual_ZN21QOpenGLExtraFunctions21glDrawArraysInstancedEjiii": [
       "nothing", "address", "unsigned int", "int", "int", "int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions23glDrawElementsInstancedEjijPKvi": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "address",
+      "int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions11glFenceSyncEjj": [
+      "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions8glIsSyncEP8__GLsync": [
+      "unsigned char", "address", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions12glDeleteSyncEP8__GLsync": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions16glClientWaitSyncEP8__GLsyncjm": [
+      "unsigned int", "address", "address", "unsigned int",
+      "unsigned long long"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions10glWaitSyncEP8__GLsyncjm": [
+      "nothing", "address", "address", "unsigned int", "unsigned long long"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glGetInteger64vEjPl": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions11glGetSyncivEP8__GLsyncjiPiS2_": [
+      "nothing", "address", "address", "unsigned int", "int", "address",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions17glGetInteger64i_vEjjPl": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions24glGetBufferParameteri64vEjjPl": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13glGenSamplersEiPj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions16glDeleteSamplersEiPKj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions11glIsSamplerEj": [
+      "unsigned char", "address", "unsigned int"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions13glBindSamplerEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
     ],
     "ritual_ZN21QOpenGLExtraFunctions19glSamplerParameteriEjji": [
       "nothing", "address", "unsigned int", "unsigned int", "int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions20glSamplerParameterivEjjPKi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions19glSamplerParameterfEjjf": [
       "nothing", "address", "unsigned int", "unsigned int", "float"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glSamplerParameterfvEjjPKf": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions23glGetSamplerParameterivEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions23glGetSamplerParameterfvEjjPf": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions21glVertexAttribDivisorEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
@@ -94,14 +308,37 @@
     "ritual_ZN21QOpenGLExtraFunctions23glBindTransformFeedbackEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions26glDeleteTransformFeedbacksEiPKj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions23glGenTransformFeedbacksEiPj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions21glIsTransformFeedbackEj": [
+      "unsigned char", "address", "unsigned int"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions24glPauseTransformFeedbackEv": [
       "nothing", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions25glResumeTransformFeedbackEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions18glGetProgramBinaryEjiPiPjPv": [
+      "nothing", "address", "unsigned int", "int", "address", "address",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glProgramBinaryEjjPKvi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address", "int"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions19glProgramParameteriEjji": [
       "nothing", "address", "unsigned int", "unsigned int", "int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions23glInvalidateFramebufferEjiPKj": [
+      "nothing", "address", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions26glInvalidateSubFramebufferEjiPKjiiii": [
+      "nothing", "address", "unsigned int", "int", "address", "int", "int",
+      "int", "int"
     ],
     "ritual_ZN21QOpenGLExtraFunctions14glTexStorage2DEjijii": [
       "nothing", "address", "unsigned int", "int", "unsigned int", "int",
@@ -111,11 +348,45 @@
       "nothing", "address", "unsigned int", "int", "unsigned int", "int",
       "int", "int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions21glGetInternalformativEjjjiPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions17glDispatchComputeEjjj": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions25glDispatchComputeIndirectEl": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glDrawArraysIndirectEjPKv": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions22glDrawElementsIndirectEjjPKv": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions23glFramebufferParameteriEjji": [
       "nothing", "address", "unsigned int", "unsigned int", "int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glGetFramebufferParameterivEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions23glGetProgramInterfaceivEjjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions25glGetProgramResourceIndexEjjPKc": [
+      "unsigned int", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions24glGetProgramResourceNameEjjjiPiPc": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions22glGetProgramResourceivEjjjiPKjiPiS2_": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions28glGetProgramResourceLocationEjjPKc": [
+      "int", "address", "unsigned int", "unsigned int", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions18glUseProgramStagesEjjj": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
@@ -123,8 +394,23 @@
     "ritual_ZN21QOpenGLExtraFunctions21glActiveShaderProgramEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions22glCreateShaderProgramvEjiPKPKc": [
+      "unsigned int", "address", "unsigned int", "int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions21glBindProgramPipelineEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions24glDeleteProgramPipelinesEiPKj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions21glGenProgramPipelinesEiPj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glIsProgramPipelineEj": [
+      "unsigned char", "address", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions22glGetProgramPipelineivEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions18glProgramUniform1iEjii": [
       "nothing", "address", "unsigned int", "int", "int"
@@ -166,12 +452,90 @@
       "nothing", "address", "unsigned int", "int", "float", "float", "float",
       "float"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions19glProgramUniform1ivEjiiPKi": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glProgramUniform2ivEjiiPKi": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glProgramUniform3ivEjiiPKi": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glProgramUniform4ivEjiiPKi": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glProgramUniform1uivEjiiPKj": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glProgramUniform2uivEjiiPKj": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glProgramUniform3uivEjiiPKj": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glProgramUniform4uivEjiiPKj": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glProgramUniform1fvEjiiPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glProgramUniform2fvEjiiPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glProgramUniform3fvEjiiPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glProgramUniform4fvEjiiPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions25glProgramUniformMatrix2fvEjiihPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "unsigned char",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions25glProgramUniformMatrix3fvEjiihPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "unsigned char",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions25glProgramUniformMatrix4fvEjiihPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "unsigned char",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glProgramUniformMatrix2x3fvEjiihPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "unsigned char",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glProgramUniformMatrix3x2fvEjiihPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "unsigned char",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glProgramUniformMatrix2x4fvEjiihPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "unsigned char",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glProgramUniformMatrix4x2fvEjiihPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "unsigned char",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glProgramUniformMatrix3x4fvEjiihPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "unsigned char",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glProgramUniformMatrix4x3fvEjiihPKf": [
+      "nothing", "address", "unsigned int", "int", "int", "unsigned char",
+      "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions25glValidateProgramPipelineEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions27glGetProgramPipelineInfoLogEjiPiPc": [
+      "nothing", "address", "unsigned int", "int", "address", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions18glBindImageTextureEjjihijj": [
       "nothing", "address", "unsigned int", "unsigned int", "int",
       "unsigned char", "int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glGetBooleani_vEjjPh": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions15glMemoryBarrierEj": [
       "nothing", "address", "unsigned int"
@@ -183,8 +547,21 @@
       "nothing", "address", "unsigned int", "int", "unsigned int", "int",
       "int", "unsigned char"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions18glGetMultisamplefvEjjPf": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions13glSampleMaskiEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions24glGetTexLevelParameterivEjijPi": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions24glGetTexLevelParameterfvEjijPf": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions18glBindVertexBufferEjjli": [
+      "nothing", "address", "unsigned int", "unsigned int", "long long",
+      "int"
     ],
     "ritual_ZN21QOpenGLExtraFunctions20glVertexAttribFormatEjijhj": [
       "nothing", "address", "unsigned int", "int", "unsigned int",
@@ -208,8 +585,42 @@
       "int", "int", "unsigned int", "unsigned int", "int", "int", "int",
       "int", "int", "int", "int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions21glDebugMessageControlEjjjiPKjh": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "address", "unsigned char"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glDebugMessageInsertEjjjjiPKc": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions22glDebugMessageCallbackEPFvjjjjiPKcPKvES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glGetDebugMessageLogEjiPjS0_S0_S0_PiPc": [
+      "unsigned int", "address", "unsigned int", "int", "address", "address",
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions16glPushDebugGroupEjjiPKc": [
+      "nothing", "address", "unsigned int", "unsigned int", "int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions15glPopDebugGroupEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13glObjectLabelEjjiPKc": [
+      "nothing", "address", "unsigned int", "unsigned int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions16glGetObjectLabelEjjiPiPc": [
+      "nothing", "address", "unsigned int", "unsigned int", "int", "address",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions16glObjectPtrLabelEPKviPKc": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions19glGetObjectPtrLabelEPKviPiPc": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13glGetPointervEjPPv": [
+      "nothing", "address", "unsigned int", "address"
     ],
     "ritual_ZN21QOpenGLExtraFunctions9glEnableiEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
@@ -234,6 +645,21 @@
       "nothing", "address", "unsigned int", "unsigned char", "unsigned char",
       "unsigned char", "unsigned char"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions12glIsEnablediEjj": [
+      "unsigned char", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions24glDrawElementsBaseVertexEjijPKvi": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "address",
+      "int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions29glDrawRangeElementsBaseVertexEjjjijPKvi": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int", "address", "int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions33glDrawElementsInstancedBaseVertexEjijPKvii": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "address",
+      "int", "int"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions20glFramebufferTextureEjjji": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
       "int"
@@ -242,14 +668,58 @@
       "nothing", "address", "float", "float", "float", "float", "float",
       "float", "float", "float"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions24glGetGraphicsResetStatusEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13glReadnPixelsEiiiijjiPv": [
+      "nothing", "address", "int", "int", "int", "int", "unsigned int",
+      "unsigned int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glGetnUniformfvEjiiPf": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions15glGetnUniformivEjiiPi": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions16glGetnUniformuivEjiiPj": [
+      "nothing", "address", "unsigned int", "int", "int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions18glMinSampleShadingEf": [
       "nothing", "address", "float"
     ],
     "ritual_ZN21QOpenGLExtraFunctions17glPatchParameteriEji": [
       "nothing", "address", "unsigned int", "int"
     ],
+    "ritual_ZN21QOpenGLExtraFunctions17glTexParameterIivEjjPKi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions18glTexParameterIuivEjjPKj": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions20glGetTexParameterIivEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions21glGetTexParameterIuivEjjPj": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions21glSamplerParameterIivEjjPKi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions22glSamplerParameterIuivEjjPKj": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions24glGetSamplerParameterIivEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions25glGetSamplerParameterIuivEjjPj": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
     "ritual_ZN21QOpenGLExtraFunctions11glTexBufferEjjj": [
       "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions16glTexBufferRangeEjjjll": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "long long", "long long"
     ],
     "ritual_ZN21QOpenGLExtraFunctions25glTexStorage3DMultisampleEjijiiih": [
       "nothing", "address", "unsigned int", "int", "unsigned int", "int",

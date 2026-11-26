@@ -24,6 +24,15 @@ QOpcUaComplexNumber *ritual_ZN19QOpcUaComplexNumberC1Eff(
   return new QOpcUaComplexNumber(real, imaginary);
 }
 
+//  QOpcUaComplexNumber &QOpcUaComplexNumber::operator=(const
+//      QOpcUaComplexNumber &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaComplexNumber *ritual_ZN19QOpcUaComplexNumberaSERKS_(
+    QOpcUaComplexNumber *self,
+    const QOpcUaComplexNumber *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaComplexNumber::operator==(const QOpcUaComplexNumber &rhs)
 //      const
 extern "C" Q_DECL_EXPORT

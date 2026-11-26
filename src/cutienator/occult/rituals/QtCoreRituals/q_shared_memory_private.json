@@ -17,6 +17,12 @@
     "ritual_ZN20QSharedMemoryPrivate15destructBackendEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QSharedMemoryPrivate6handleEv": ["bool", "address"],
+    "ritual_ZN20QSharedMemoryPrivate11cleanHandleEv": ["bool", "address"],
+    "ritual_ZN20QSharedMemoryPrivate6attachEN13QSharedMemory10AccessModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN20QSharedMemoryPrivate6detachEv": ["bool", "address"],
     "ritual_ZN20QSharedMemoryPrivate8setErrorEN13QSharedMemory17SharedMemoryErrorERK7QString": [
       "nothing", "address", "int", "text"
     ],

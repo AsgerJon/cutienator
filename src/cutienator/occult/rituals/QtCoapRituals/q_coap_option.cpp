@@ -55,10 +55,38 @@ QCoapOption *ritual_ZN11QCoapOptionC1ERKS_(const QCoapOption *other) {
   return new QCoapOption(*other);
 }
 
+//  QCoapOption::QCoapOption(QCoapOption &&other)
+extern "C" Q_DECL_EXPORT
+QCoapOption *ritual_ZN11QCoapOptionC1EOS_(QCoapOption *other) {
+  return new QCoapOption(std::move(*other));
+}
+
 //  QCoapOption::~QCoapOption()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QCoapOptionD1Ev(QCoapOption *self) {
   delete self;
+}
+
+//  QCoapOption &QCoapOption::operator=(const QCoapOption &other)
+extern "C" Q_DECL_EXPORT
+QCoapOption *ritual_ZN11QCoapOptionaSERKS_(
+    QCoapOption *self,
+    const QCoapOption *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCoapOption &QCoapOption::operator=(QCoapOption &&other)
+extern "C" Q_DECL_EXPORT
+QCoapOption *ritual_ZN11QCoapOptionaSEOS_(
+    QCoapOption *self,
+    QCoapOption *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCoapOption::swap(QCoapOption &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QCoapOption4swapERS_(QCoapOption *self, QCoapOption *other) {
+  self->swap(*other);
 }
 
 //  QByteArray QCoapOption::opaqueValue() const

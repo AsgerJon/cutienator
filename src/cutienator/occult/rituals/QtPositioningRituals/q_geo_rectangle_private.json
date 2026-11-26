@@ -5,6 +5,8 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QGeoRectanglePrivateC1Ev": ["address"],
+    "ritual_ZN20QGeoRectanglePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK20QGeoRectanglePrivate7isValidEv": ["bool", "address"],
     "ritual_ZNK20QGeoRectanglePrivate7isEmptyEv": ["bool", "address"],
     "ritual_ZNK20QGeoRectanglePrivate8containsERK14QGeoCoordinate": [
@@ -18,6 +20,12 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK20QGeoRectanglePrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK20QGeoRectanglePrivateeqERK16QGeoShapePrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QGeoRectanglePrivate4hashEm": [
+      "size_t", "address", "size_t"
+    ],
     "ritual_take_QGeoRectanglePrivate": [
       "bool", "address", "chars", "address"
     ],
@@ -29,6 +37,10 @@
     "ritual_own_ZNK20QGeoRectanglePrivate6centerEv": ["address", "address"],
     "ritual_own_ZNK20QGeoRectanglePrivate20boundingGeoRectangleEv": [
       "address", "address"
+    ],
+    "ritual_own_ZNK20QGeoRectanglePrivate5cloneEv": ["address", "address"],
+    "ritual_own_ZNK20QGeoRectanglePrivate4hashEm": [
+      "size_t", "address", "size_t"
     ]
   }
 }

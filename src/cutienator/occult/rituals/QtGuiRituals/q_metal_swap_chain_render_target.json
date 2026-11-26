@@ -5,6 +5,18 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN27QMetalSwapChainRenderTarget7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QMetalSwapChainRenderTarget9pixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QMetalSwapChainRenderTarget16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK27QMetalSwapChainRenderTarget11sampleCountEv": [
+      "int", "address"
+    ],
     "ritual_take_QMetalSwapChainRenderTarget": [
       "bool", "address", "chars", "address"
     ]

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuick3DInfiniteGrid10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DInfiniteGrid11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuick3DInfiniteGrid11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuick3DInfiniteGrid2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,15 @@
     "ritual_ZNK20QQuick3DInfiniteGrid8gridAxesEv": ["bool", "address"],
     "ritual_ZN20QQuick3DInfiniteGrid11setGridAxesEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuick3DInfiniteGrid14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DInfiniteGrid19gridIntervalChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DInfiniteGrid15gridAxesChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN20QQuick3DInfiniteGrid15updateGridFlagsEv": [
       "nothing", "address"

@@ -5,7 +5,10 @@
   ],
   "rows": {
     "ritual_ZN14QSignalBlockerC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QSignalBlockerC1ER7QObject": ["address", "address"],
     "ritual_ZN14QSignalBlockerD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSignalBlockerC1EOS_": ["address", "address"],
+    "ritual_ZN14QSignalBlockeraSEOS_": ["address", "address", "address"],
     "ritual_ZN14QSignalBlocker7reblockEv": ["nothing", "address"],
     "ritual_ZN14QSignalBlocker7unblockEv": ["nothing", "address"],
     "ritual_ZN14QSignalBlocker7dismissEv": ["nothing", "address"]

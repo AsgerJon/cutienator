@@ -8,8 +8,6 @@
 #include <QtWebSockets/6.12.0/QtWebSockets/private/qwebsocket_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
-#include <QtNetwork/qhostaddress.h>
-#include <QtNetwork/qnetworkproxy.h>
 #include <QtNetwork/qnetworkrequest.h>
 #include <QtWebSockets/qwebsockethandshakeoptions.h>
 #include <QtNetwork/qsslerror.h>
@@ -17,24 +15,8 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtWebSockets/private/qwebsocketprotocol_p.h>
-#include <QtCore/QString>
-#include <QtCore/QSet>
-#include <QtCore/QtEndian>
-#include <QtWebSockets/private/qwebsocketdataprocessor_p.h>
-#include <QtWebSockets/qwebsocketprotocol.h>
-#include <QtWebSockets/private/qwebsocketprotocol_p.h>
-#include <QtWebSockets/private/qwebsocketframe_p.h>
-#include <QtCore/QtEndian>
-#include <QtCore/QDebug>
-#include <QtCore/QIODevice>
-#include <QtCore/QStringDecoder>
-#include <limits.h>
-#include <QtWebSockets/private/qwebsocketframe_p.h>
-#include <QtWebSockets/private/qwebsocketprotocol_p.h>
-#include <QtCore/QtEndian>
-#include <QtCore/QDebug>
-#include <QtCore/QIODevice>
+#include <QtWebSockets/private/qdefaultmaskgenerator_p.h>
+#include <QtCore/QRandomGenerator>
 #include <QtWebSockets/qwebsocket.h>
 #include <QtWebSockets/private/qwebsocket_p.h>
 #include <QtWebSockets/private/qwebsocketprotocol_p.h>
@@ -65,6 +47,42 @@
 #include <QtCore/QTimer>
 #include <limits>
 #include <memory>
+#include <QtWebSockets/private/qwebsocketdataprocessor_p.h>
+#include <QtWebSockets/qwebsocketprotocol.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
+#include <QtWebSockets/private/qwebsocketframe_p.h>
+#include <QtCore/QtEndian>
+#include <QtCore/QDebug>
+#include <QtCore/QIODevice>
+#include <QtCore/QStringDecoder>
+#include <limits.h>
+#include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
+#include <QtWebSockets/qwebsocketprotocol.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
+#include <QtCore/QString>
+#include <QtCore/QMap>
+#include <QtCore/QTextStream>
+#include <QtCore/QUrl>
+#include <QtCore/QList>
+#include <QtCore/QStringList>
+#include <functional>   //for std::greater
+#include <QtWebSockets/private/qwebsockethandshakeresponse_p.h>
+#include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
+#include <QtWebSockets/qwebsocketprotocol.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
+#include <QtCore/QString>
+#include <QtCore/QTextStream>
+#include <QtCore/QByteArray>
+#include <QtCore/QStringList>
+#include <QtCore/QDateTime>
+#include <QtCore/QLocale>
+#include <QtCore/QCryptographicHash>
+#include <QtCore/QSet>
+#include <QtCore/QList>
+#include <QtCore/QStringBuilder>   //for more efficient string concatenation
+#include <algorithm>
+#include <functional>   //for std::greater
+#include <iterator>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -74,239 +92,94 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtwebsockets/src/websockets/qwebsocketprotocol.cpp, line 158, as _ZN18QWebSocketProtocol4maskEP10QByteArrayj
-inline void QWebSocketProtocol::mask(QByteArray *payload, quint32 maskingKey)
+using namespace Qt::StringLiterals;
+
+//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 46, as local:qwebsocket_p.cpp:MAX_OUTGOING_FRAME_SIZE_IN_BYTES
+namespace {
+constexpr quint64 MAX_OUTGOING_FRAME_SIZE_IN_BYTES = std::numeric_limits<int>::max() - 1;
+}  // namespace
+
+//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 47, as local:qwebsocket_p.cpp:DEFAULT_OUTGOING_FRAME_SIZE_IN_BYTES
+namespace {
+constexpr quint64 DEFAULT_OUTGOING_FRAME_SIZE_IN_BYTES = 512 * 512 * 2;
+}  // namespace
+
+//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 57, as local:qwebsocket_p.cpp:isSeparator
+namespace {
+inline bool isSeparator(char c)
 {
-    Q_ASSERT(payload);
-    mask(payload->data(), quint64(payload->size()), maskingKey);
+    // separators     = "(" | ")" | "<" | ">" | "@"
+    //                      | "," | ";" | ":" | "\" | <">
+    //                      | "/" | "[" | "]" | "?" | "="
+    //                      | "{" | "}" | SP | HT
+    static const char separators[] = "()<>@,;:\\\"/[]?={} \t";
+    static const char *end = separators + sizeof separators - 1;
+    return std::find(separators, end, c) != end;
+}
+}  // namespace
+
+//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 76, as local:qwebsocket_p.cpp:isValidSubProtocolName
+namespace {
+inline bool isValidSubProtocolName(const QString &protocol)
+{
+    return std::all_of(protocol.begin(), protocol.end(), [](const QChar &c) {
+        return c.unicode() >= 0x21 && c.unicode() <= 0x7E && !isSeparator(c.toLatin1());
+    });
+}
+}  // namespace
+
+//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 953, as local:qwebsocket_p.cpp:msgUnsupportedAuthenticateChallenges
+static QString msgUnsupportedAuthenticateChallenges(qsizetype count)
+{
+    // Keep the error on a single line so it can easily be searched for:
+    //: 'WWW-Authenticate' is the HTTP header.
+    return count == 1
+        ? QWebSocket::tr("QWebSocketPrivate::processHandshake: "
+                         "Unsupported WWW-Authenticate challenge encountered.")
+        : QWebSocket::tr("QWebSocketPrivate::processHandshake: "
+                         "Unsupported WWW-Authenticate challenges encountered.");
 }
 
-//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 68, as _ZN23QWebSocketDataProcessor22setMaxAllowedFrameSizeEy
-inline void QWebSocketDataProcessor::setMaxAllowedFrameSize(quint64 maxAllowedFrameSize)
+//  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 35, as _ZN21QDefaultMaskGeneratorC1EP7QObject
+inline QDefaultMaskGenerator::QDefaultMaskGenerator(QObject *parent) :
+    QMaskGenerator(parent)
 {
-    frame.setMaxAllowedFrameSize(maxAllowedFrameSize);
 }
 
-//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 73, as _ZNK23QWebSocketDataProcessor19maxAllowedFrameSizeEv
-inline quint64 QWebSocketDataProcessor::maxAllowedFrameSize() const
+//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 85, as _ZN23QWebSocketConfigurationC1Ev
+inline QWebSocketConfiguration::QWebSocketConfiguration() :
+#ifndef QT_NO_SSL
+    m_sslConfiguration(QSslConfiguration::defaultConfiguration()),
+    m_ignoredSslErrors(),
+    m_ignoreSslErrors(false),
+#endif
+#ifndef QT_NO_NETWORKPROXY
+    m_proxy(QNetworkProxy::DefaultProxy),
+#endif
+    m_pSocket(nullptr)
 {
-    return frame.maxAllowedFrameSize();
 }
 
-//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 81, as _ZN23QWebSocketDataProcessor24setMaxAllowedMessageSizeEy
-inline void QWebSocketDataProcessor::setMaxAllowedMessageSize(quint64 maxAllowedMessageSize)
+//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 39, as _ZN23QWebSocketDataProcessorC1EP7QObject
+inline QWebSocketDataProcessor::QWebSocketDataProcessor(QObject *parent) :
+    QObject(parent),
+    m_processingState(PS_READ_HEADER),
+    m_isFinalFrame(false),
+    m_isFragmented(false),
+    m_opCode(QWebSocketProtocol::OpCodeClose),
+    m_isControlFrame(false),
+    m_hasMask(false),
+    m_mask(0),
+    m_payloadLength(0),
+    m_decoder(QStringDecoder(QStringDecoder::Utf8, QStringDecoder::Flag::ConvertInvalidToNull)),
+    m_waitTimer(new QChronoTimer(this))
 {
-    if (maxAllowedMessageSize <= maxMessageSize())
-        m_maxAllowedMessageSize = maxAllowedMessageSize;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 90, as _ZNK23QWebSocketDataProcessor21maxAllowedMessageSizeEv
-inline quint64 QWebSocketDataProcessor::maxAllowedMessageSize() const
-{
-    return m_maxAllowedMessageSize;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 98, as _ZN23QWebSocketDataProcessor14maxMessageSizeEv
-inline quint64 QWebSocketDataProcessor::maxMessageSize()
-{
-    return MAX_MESSAGE_SIZE_IN_BYTES;   //COV_NF_LINE
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 106, as _ZN23QWebSocketDataProcessor12maxFrameSizeEv
-inline quint64 QWebSocketDataProcessor::maxFrameSize()
-{
-   return QWebSocketFrame::maxFrameSize();
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 135, as _ZN23QWebSocketDataProcessor7processEP9QIODevice
-inline bool QWebSocketDataProcessor::process(QIODevice *pIoDevice)
-{
-    if (Q_UNLIKELY(m_hasFailed))
-        return false;
-
-    bool isDone = false;
-
-    while (!isDone) {
-        frame.readFrame(pIoDevice);
-        if (!frame.isDone()) {
-            // waiting for more data available
-            QObject::connect(pIoDevice, &QIODevice::readyRead,
-                             m_waitTimer, &QChronoTimer::stop, Qt::UniqueConnection);
-            m_waitTimer->start();
-            return false;
-        } else if (Q_LIKELY(frame.isValid())) {
-            if (frame.isControlFrame()) {
-                isDone = processControlFrame(frame);
-            } else {
-                //we have a dataframe; opcode can be OC_CONTINUE, OC_TEXT or OC_BINARY
-                if (Q_UNLIKELY(!m_isFragmented && frame.isContinuationFrame())) {
-                    reportError(QWebSocketProtocol::CloseCodeProtocolError,
-                                tr("Received Continuation frame, while there is " \
-                                   "nothing to continue."));
-                    return false;
-                }
-                if (Q_UNLIKELY(m_isFragmented && frame.isDataFrame() &&
-                               !frame.isContinuationFrame())) {
-                    reportError(QWebSocketProtocol::CloseCodeProtocolError,
-                                tr("All data frames after the initial data frame " \
-                                   "must have opcode 0 (continuation)."));
-                    return false;
-                }
-                if (!frame.isContinuationFrame()) {
-                    m_opCode = frame.opCode();
-                    m_isFragmented = !frame.isFinalFrame();
-                }
-                quint64 messageLength = m_opCode == QWebSocketProtocol::OpCodeText
-                        ? quint64(m_textMessage.size())
-                        : quint64(m_binaryMessage.size());
-                if (Q_UNLIKELY((messageLength + quint64(frame.payload().size())) >
-                               maxAllowedMessageSize())) {
-                    reportError(QWebSocketProtocol::CloseCodeTooMuchData,
-                                tr("Received message is too big."));
-                    return false;
-                }
-
-                bool isFinalFrame = frame.isFinalFrame();
-                if (m_opCode == QWebSocketProtocol::OpCodeText) {
-                    QString frameTxt = m_decoder(frame.payload());
-                    bool decoderHadError = m_decoder.hasError();
-                    if (!decoderHadError && isFinalFrame) {
-                        auto r = m_decoder.finalize();
-                        decoderHadError = r.error != QStringDecoder::FinalizeResult::Error::NoError;
-                    }
-                    if (Q_UNLIKELY(decoderHadError)) {
-                        reportError(QWebSocketProtocol::CloseCodeWrongDatatype,
-                                    tr("Invalid UTF-8 code encountered."));
-                        return false;
-                    } else {
-                        m_textMessage.append(frameTxt);
-                        frame.clear();
-                        Q_EMIT textFrameReceived(frameTxt, isFinalFrame);
-                    }
-                } else {
-                    m_binaryMessage.append(frame.payload());
-                    QByteArray payload = frame.payload();
-                    frame.clear();
-                    Q_EMIT binaryFrameReceived(payload, isFinalFrame);
-                }
-
-                if (isFinalFrame) {
-                    isDone = true;
-                    if (m_opCode == QWebSocketProtocol::OpCodeText) {
-                        const QString textMessage(m_textMessage);
-                        clear();
-                        Q_EMIT textMessageReceived(textMessage);
-                    } else {
-                        const QByteArray binaryMessage(m_binaryMessage);
-                        clear();
-                        Q_EMIT binaryMessageReceived(binaryMessage);
-                    }
-                }
-            }
-        } else {
-            reportError(frame.closeCode(), frame.closeReason());
-            return false;
-        }
-        frame.clear();
-    }
-    return true;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketprotocol.cpp, line 170, as _ZN18QWebSocketProtocol4maskEPcyj
-inline void QWebSocketProtocol::mask(char *payload, quint64 size, quint32 maskingKey)
-{
-    Q_ASSERT(payload);
-    const quint8 mask[] = { quint8((maskingKey & 0xFF000000u) >> 24),
-                            quint8((maskingKey & 0x00FF0000u) >> 16),
-                            quint8((maskingKey & 0x0000FF00u) >> 8),
-                            quint8((maskingKey & 0x000000FFu))
-                          };
-    quint64 i = 0;
-    while (size-- > 0)
-        *payload++ ^= mask[i++ % 4];
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 33, as _ZN15QWebSocketFrame22setMaxAllowedFrameSizeEy
-inline void QWebSocketFrame::setMaxAllowedFrameSize(quint64 maxAllowedFrameSize)
-{
-    if (maxAllowedFrameSize <= maxFrameSize())
-        m_maxAllowedFrameSize = maxAllowedFrameSize;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 42, as _ZNK15QWebSocketFrame19maxAllowedFrameSizeEv
-inline quint64 QWebSocketFrame::maxAllowedFrameSize() const
-{
-    return m_maxAllowedFrameSize;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 50, as _ZN15QWebSocketFrame12maxFrameSizeEv
-inline quint64 QWebSocketFrame::maxFrameSize()
-{
-    return MAX_FRAME_SIZE_IN_BYTES;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 140, as _ZN15QWebSocketFrame5clearEv
-inline void QWebSocketFrame::clear()
-{
-    m_closeCode = QWebSocketProtocol::CloseCodeNormal;
-    m_closeReason.clear();
-    m_isFinalFrame = true;
-    m_mask = 0;
-    m_rsv1 = false;
-    m_rsv2 = false;
-    m_rsv3 = false;
-    m_opCode = QWebSocketProtocol::OpCodeReservedC;
-    m_length = 0;
-    m_payload.clear();
-    m_isValid = false;
-    m_processingState = PS_READ_HEADER;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 175, as _ZN15QWebSocketFrame9readFrameEP9QIODevice
-inline void QWebSocketFrame::readFrame(QIODevice *pIoDevice)
-{
-    while (true)
-    {
-        switch (m_processingState) {
-        case PS_READ_HEADER:
-            m_processingState = readFrameHeader(pIoDevice);
-            if (m_processingState == PS_WAIT_FOR_MORE_DATA) {
-                m_processingState = PS_READ_HEADER;
-                return;
-            }
-            break;
-
-        case PS_READ_PAYLOAD_LENGTH:
-            m_processingState = readFramePayloadLength(pIoDevice);
-            if (m_processingState == PS_WAIT_FOR_MORE_DATA) {
-                m_processingState = PS_READ_PAYLOAD_LENGTH;
-                return;
-            }
-            break;
-
-        case PS_READ_MASK:
-            m_processingState = readFrameMask(pIoDevice);
-            if (m_processingState == PS_WAIT_FOR_MORE_DATA) {
-                m_processingState = PS_READ_MASK;
-                return;
-            }
-            break;
-
-        case PS_READ_PAYLOAD:
-            m_processingState = readFramePayload(pIoDevice);
-            if (m_processingState == PS_WAIT_FOR_MORE_DATA) {
-                m_processingState = PS_READ_PAYLOAD;
-                return;
-            }
-            break;
-
-        case PS_DISPATCH_RESULT:
-            return;
-
-        default:
-            Q_UNREACHABLE_RETURN();
-        }
-    }
+    clear();
+    // initialize the internal timeout timer
+    using namespace std::chrono_literals;
+    m_waitTimer->setInterval(5s);
+    m_waitTimer->setSingleShot(true);
+    m_waitTimer->callOnTimeout(this, &QWebSocketDataProcessor::timeout);
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 179, as _ZN17QWebSocketPrivateD1Ev
@@ -325,6 +198,53 @@ inline QWebSocketPrivate::~QWebSocketPrivate()
 #endif
 }
 #endif  // defined(Q_OS_LINUX)
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 159, as _ZNK26QWebSocketHandshakeRequest10requestUrlEv
+inline QUrl QWebSocketHandshakeRequest::requestUrl() const
+{
+    return m_requestUrl;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 135, as _ZNK26QWebSocketHandshakeRequest6originEv
+inline QString QWebSocketHandshakeRequest::origin() const
+{
+    return m_origin;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 87, as _ZNK26QWebSocketHandshakeRequest7headersEv
+inline QHttpHeaders QWebSocketHandshakeRequest::headers() const
+{
+    return m_parser.headers();
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 143, as _ZNK26QWebSocketHandshakeRequest9protocolsEv
+inline QList<QString> QWebSocketHandshakeRequest::protocols() const
+{
+    return m_protocols;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 236, as _ZNK27QWebSocketHandshakeResponse15acceptedVersionEv
+inline QWebSocketProtocol::Version QWebSocketHandshakeResponse::acceptedVersion() const
+{
+    return m_acceptedVersion;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 78, as _ZNK27QWebSocketHandshakeResponse16acceptedProtocolEv
+inline QString QWebSocketHandshakeResponse::acceptedProtocol() const
+{
+    return m_acceptedProtocol;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 260, as _ZNK27QWebSocketHandshakeResponse17acceptedExtensionEv
+inline QString QWebSocketHandshakeResponse::acceptedExtension() const
+{
+    return m_acceptedExtension;
+}
+
+//  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 45, as _ZN21QDefaultMaskGeneratorD1Ev
+inline QDefaultMaskGenerator::~QDefaultMaskGenerator()
+{
+}
 
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 208, as _ZN17QWebSocketPrivate5abortEv
 inline void QWebSocketPrivate::abort()
@@ -360,125 +280,6 @@ inline bool QWebSocketPrivate::flush()
     if (Q_LIKELY(m_pSocket))
         result = m_pSocket->flush();
     return result;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1627, as _ZNK17QWebSocketPrivate12localAddressEv
-inline QHostAddress QWebSocketPrivate::localAddress() const
-{
-    QHostAddress address;
-    if (Q_LIKELY(m_pSocket))
-        address = m_pSocket->localAddress();
-    return address;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1638, as _ZNK17QWebSocketPrivate9localPortEv
-inline quint16 QWebSocketPrivate::localPort() const
-{
-    quint16 port = 0;
-    if (Q_LIKELY(m_pSocket))
-        port = m_pSocket->localPort();
-    return port;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1649, as _ZNK17QWebSocketPrivate9pauseModeEv
-inline QAbstractSocket::PauseModes QWebSocketPrivate::pauseMode() const
-{
-    return m_pauseMode;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1657, as _ZNK17QWebSocketPrivate11peerAddressEv
-inline QHostAddress QWebSocketPrivate::peerAddress() const
-{
-    QHostAddress address;
-    if (Q_LIKELY(m_pSocket))
-        address = m_pSocket->peerAddress();
-    return address;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1668, as _ZNK17QWebSocketPrivate8peerNameEv
-inline QString QWebSocketPrivate::peerName() const
-{
-    QString name;
-    if (Q_LIKELY(m_pSocket))
-        name = m_pSocket->peerName();
-    return name;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1679, as _ZNK17QWebSocketPrivate8peerPortEv
-inline quint16 QWebSocketPrivate::peerPort() const
-{
-    quint16 port = 0;
-    if (Q_LIKELY(m_pSocket))
-        port = m_pSocket->peerPort();
-    return port;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1691, as _ZNK17QWebSocketPrivate5proxyEv
-#if !defined(QT_NO_NETWORKPROXY)
-inline QNetworkProxy QWebSocketPrivate::proxy() const
-{
-    return m_configuration.m_proxy;
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1699, as _ZN17QWebSocketPrivate8setProxyERK13QNetworkProxy
-#if !defined(QT_NO_NETWORKPROXY)
-inline void QWebSocketPrivate::setProxy(const QNetworkProxy &networkProxy)
-{
-    if (m_configuration.m_proxy != networkProxy)
-        m_configuration.m_proxy = networkProxy;
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1709, as _ZN17QWebSocketPrivate16setMaskGeneratorEPK14QMaskGenerator
-inline void QWebSocketPrivate::setMaskGenerator(const QMaskGenerator *maskGenerator)
-{
-    if (!maskGenerator)
-        m_pMaskGenerator = &m_defaultMaskGenerator;
-    else if (maskGenerator != m_pMaskGenerator)
-        m_pMaskGenerator = const_cast<QMaskGenerator *>(maskGenerator);
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1720, as _ZNK17QWebSocketPrivate13maskGeneratorEv
-inline const QMaskGenerator *QWebSocketPrivate::maskGenerator() const
-{
-    Q_ASSERT(m_pMaskGenerator);
-    return m_pMaskGenerator;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1729, as _ZNK17QWebSocketPrivate14readBufferSizeEv
-inline qint64 QWebSocketPrivate::readBufferSize() const
-{
-    return m_readBufferSize;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1737, as _ZN17QWebSocketPrivate6resumeEv
-inline void QWebSocketPrivate::resume()
-{
-    if (Q_LIKELY(m_pSocket))
-        m_pSocket->resume();
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1746, as _ZN17QWebSocketPrivate12setPauseModeE6QFlagsIN15QAbstractSocket9PauseModeEE
-inline void QWebSocketPrivate::setPauseMode(QAbstractSocket::PauseModes pauseMode)
-{
-    m_pauseMode = pauseMode;
-    if (Q_LIKELY(m_pSocket))
-        m_pSocket->setPauseMode(m_pauseMode);
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1756, as _ZN17QWebSocketPrivate17setReadBufferSizeEx
-inline void QWebSocketPrivate::setReadBufferSize(qint64 size)
-{
-    m_readBufferSize = size;
-    if (Q_LIKELY(m_pSocket))
-        m_pSocket->setReadBufferSize(m_readBufferSize);
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1524, as _ZNK17QWebSocketPrivate5stateEv
-inline QAbstractSocket::SocketState QWebSocketPrivate::state() const
-{
-    return m_socketState;
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 710, as _ZNK17QWebSocketPrivate7versionEv
@@ -598,76 +399,6 @@ inline void QWebSocketPrivate::_q_updateSslConfiguration()
 }
 #endif  // !defined(QT_NO_SSL)
 
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 523, as _ZN17QWebSocketPrivate4pingERK10QByteArray
-inline void QWebSocketPrivate::ping(const QByteArray &payload)
-{
-    QByteArray payloadTruncated = payload.left(125);
-    m_pingTimer.start();
-    quint32 maskingKey = 0;
-    if (m_mustMask)
-        maskingKey = generateMaskingKey();
-    QByteArray pingFrame = getFrameHeader(QWebSocketProtocol::OpCodePing,
-                                          quint64(payloadTruncated.size()),
-                                          maskingKey, true);
-    if (m_mustMask)
-        QWebSocketProtocol::mask(&payloadTruncated, maskingKey);
-    pingFrame.append(payloadTruncated);
-    qint64 ret = writeFrame(pingFrame);
-    Q_UNUSED(ret);
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1532, as _ZN17QWebSocketPrivate14setSocketStateEN15QAbstractSocket11SocketStateE
-inline void QWebSocketPrivate::setSocketState(QAbstractSocket::SocketState state)
-{
-    Q_Q(QWebSocket);
-    if (m_socketState != state) {
-        m_socketState = state;
-        Q_EMIT q->stateChanged(m_socketState);
-    }
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1544, as _ZN17QWebSocketPrivate30setMaxAllowedIncomingFrameSizeEy
-inline void QWebSocketPrivate::setMaxAllowedIncomingFrameSize(quint64 maxAllowedIncomingFrameSize)
-{
-    m_dataProcessor->setMaxAllowedFrameSize(maxAllowedIncomingFrameSize);
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1552, as _ZNK17QWebSocketPrivate27maxAllowedIncomingFrameSizeEv
-inline quint64 QWebSocketPrivate::maxAllowedIncomingFrameSize() const
-{
-    return m_dataProcessor->maxAllowedFrameSize();
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1560, as _ZN17QWebSocketPrivate32setMaxAllowedIncomingMessageSizeEy
-inline void QWebSocketPrivate::setMaxAllowedIncomingMessageSize(quint64 maxAllowedIncomingMessageSize)
-{
-    m_dataProcessor->setMaxAllowedMessageSize(maxAllowedIncomingMessageSize);
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1568, as _ZNK17QWebSocketPrivate29maxAllowedIncomingMessageSizeEv
-inline quint64 QWebSocketPrivate::maxAllowedIncomingMessageSize() const
-{
-    return m_dataProcessor->maxAllowedMessageSize();
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1576, as _ZN17QWebSocketPrivate22maxIncomingMessageSizeEv
-inline quint64 QWebSocketPrivate::maxIncomingMessageSize()
-{
-    return QWebSocketDataProcessor::maxMessageSize();
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1584, as _ZN17QWebSocketPrivate20maxIncomingFrameSizeEv
-inline quint64 QWebSocketPrivate::maxIncomingFrameSize()
-{
-    return QWebSocketDataProcessor::maxFrameSize();
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1601, as _ZNK17QWebSocketPrivate17outgoingFrameSizeEv
-inline quint64 QWebSocketPrivate::outgoingFrameSize() const
-{
-    return m_outgoingFrameSize;
-}
-
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 545, as _ZN17QWebSocketPrivate10setVersionEN18QWebSocketProtocol7VersionE
 inline void QWebSocketPrivate::setVersion(QWebSocketProtocol::Version version)
 {
@@ -720,13 +451,6 @@ inline void QWebSocketPrivate::enableMasking(bool enable)
         m_mustMask = enable;
 }
 
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1618, as _ZN17QWebSocketPrivate14setErrorStringERK7QString
-inline void QWebSocketPrivate::setErrorString(const QString &errorString)
-{
-    if (m_errorString != errorString)
-        m_errorString = errorString;
-}
-
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 335, as _ZNK17QWebSocketPrivate21requestedSubProtocolsEv
 inline QStringList QWebSocketPrivate::requestedSubProtocols() const
 {
@@ -746,172 +470,41 @@ inline QStringList QWebSocketPrivate::requestedSubProtocols() const
     return m_options.subprotocols() + subprotocolsRequestedInRawHeader();
 }
 
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1369, as _ZN17QWebSocketPrivate15socketDestroyedEP7QObject
-inline void QWebSocketPrivate::socketDestroyed(QObject *socket)
-{
-    Q_ASSERT(m_pSocket);
-    if (m_pSocket == socket)
-        m_pSocket = nullptr;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1402, as _ZN17QWebSocketPrivate11processPingERK10QByteArray
-inline void QWebSocketPrivate::processPing(const QByteArray &data)
-{
-    Q_ASSERT(m_pSocket);
-    quint32 maskingKey = 0;
-    if (m_mustMask)
-        maskingKey = generateMaskingKey();
-    m_pSocket->write(getFrameHeader(QWebSocketProtocol::OpCodePong,
-                                    unsigned(data.size()),
-                                    maskingKey,
-                                    true));
-    if (data.size() > 0) {
-        QByteArray maskedData = data;
-        if (m_mustMask)
-            QWebSocketProtocol::mask(&maskedData, maskingKey);
-        m_pSocket->write(maskedData);
-    }
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1423, as _ZN17QWebSocketPrivate11processPongERK10QByteArray
-inline void QWebSocketPrivate::processPong(const QByteArray &data)
-{
-    Q_Q(QWebSocket);
-    Q_EMIT q->pong(static_cast<quint64>(m_pingTimer.elapsed()), data);
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 828, as _ZN17QWebSocketPrivate13doWriteFramesERK10QByteArrayb
-inline qint64 QWebSocketPrivate::doWriteFrames(const QByteArray &data, bool isBinary)
-{
-    qint64 payloadWritten = 0;
-    if (Q_UNLIKELY(!m_pSocket) || (state() != QAbstractSocket::ConnectedState))
-        return payloadWritten;
-
-    const QWebSocketProtocol::OpCode firstOpCode = isBinary ?
-                QWebSocketProtocol::OpCodeBinary : QWebSocketProtocol::OpCodeText;
-
-    int numFrames = data.size() / int(outgoingFrameSize());
-    QByteArray tmpData(data);
-    tmpData.detach();
-    char *payload = tmpData.data();
-    quint64 sizeLeft = quint64(data.size()) % outgoingFrameSize();
-    if (Q_LIKELY(sizeLeft))
-        ++numFrames;
-
-    //catch the case where the payload is zero bytes;
-    //in this case, we still need to send a frame
-    if (Q_UNLIKELY(numFrames == 0))
-        numFrames = 1;
-    quint64 currentPosition = 0;
-    quint64 bytesLeft = quint64(data.size());
-
-    for (int i = 0; i < numFrames; ++i) {
-        quint32 maskingKey = 0;
-        if (m_mustMask)
-            maskingKey = generateMaskingKey();
-
-        const bool isLastFrame = (i == (numFrames - 1));
-        const bool isFirstFrame = (i == 0);
-
-        const quint64 size = qMin(bytesLeft, outgoingFrameSize());
-        const QWebSocketProtocol::OpCode opcode = isFirstFrame ? firstOpCode
-                                                               : QWebSocketProtocol::OpCodeContinue;
-
-        //write header
-        m_pSocket->write(getFrameHeader(opcode, size, maskingKey, isLastFrame));
-
-        //write payload
-        if (Q_LIKELY(size > 0)) {
-            char *currentData = payload + currentPosition;
-            if (m_mustMask)
-                QWebSocketProtocol::mask(currentData, size, maskingKey);
-            qint64 written = m_pSocket->write(currentData, static_cast<qint64>(size));
-            if (Q_LIKELY(written > 0)) {
-                payloadWritten += written;
-            } else {
-                m_pSocket->flush();
-                setErrorString(QWebSocket::tr("Error writing bytes to socket: %1.")
-                               .arg(m_pSocket->errorString()));
-                emitErrorOccurred(QAbstractSocket::NetworkError);
-                break;
-            }
-        }
-        currentPosition += size;
-        bytesLeft -= size;
-    }
-    if (Q_UNLIKELY(payloadWritten != data.size())) {
-        setErrorString(QWebSocket::tr("Bytes written %1 != %2.")
-                       .arg(payloadWritten).arg(data.size()));
-        emitErrorOccurred(QAbstractSocket::NetworkError);
-    }
-    return payloadWritten;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 693, as _ZN17QWebSocketPrivate18releaseConnectionsEPK10QTcpSocket
-inline void QWebSocketPrivate::releaseConnections(const QTcpSocket *pTcpSocket)
-{
-    if (Q_LIKELY(pTcpSocket)) {
-        // Explicitly disconnect this signal to avoid warning being printed about a destroyed-signal
-        // being disconnected with the wildcard disconnect below
-        disconnect(pTcpSocket, &QObject::destroyed, this, &QWebSocketPrivate::socketDestroyed);
-        pTcpSocket->disconnect();
-        // Re-connect, we need 'socketDestroyed' slot executed
-        QObjectPrivate::connect(pTcpSocket, &QObject::destroyed,
-                                this, &QWebSocketPrivate::socketDestroyed);
-    }
-    m_dataProcessor->disconnect();
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 782, as _ZN17QWebSocketPrivate14getFrameHeaderEN18QWebSocketProtocol6OpCodeEyjb
-inline QByteArray QWebSocketPrivate::getFrameHeader(QWebSocketProtocol::OpCode opCode,
-                                             quint64 payloadLength, quint32 maskingKey,
-                                             bool lastFrame)
-{
-    QByteArray header;
-    bool ok = payloadLength <= 0x7FFFFFFFFFFFFFFFULL;
-
-    if (Q_LIKELY(ok)) {
-        //FIN, RSV1-3, opcode (RSV-1, RSV-2 and RSV-3 are zero)
-        quint8 byte = static_cast<quint8>((opCode & 0x0F) | (lastFrame ? 0x80 : 0x00));
-        header.append(static_cast<char>(byte));
-
-        byte = 0x00;
-        if (maskingKey != 0)
-            byte |= 0x80;
-        if (payloadLength <= 125) {
-            byte |= static_cast<quint8>(payloadLength);
-            header.append(static_cast<char>(byte));
-        } else if (payloadLength <= 0xFFFFU) {
-            byte |= 126;
-            header.append(static_cast<char>(byte));
-            quint16 swapped = qToBigEndian<quint16>(static_cast<quint16>(payloadLength));
-            header.append(static_cast<const char *>(static_cast<const void *>(&swapped)), 2);
-        } else if (payloadLength <= 0x7FFFFFFFFFFFFFFFULL) {
-            byte |= 127;
-            header.append(static_cast<char>(byte));
-            quint64 swapped = qToBigEndian<quint64>(payloadLength);
-            header.append(static_cast<const char *>(static_cast<const void *>(&swapped)), 8);
-        }
-
-        if (maskingKey != 0) {
-            const quint32 mask = qToBigEndian<quint32>(maskingKey);
-            header.append(static_cast<const char *>(static_cast<const void *>(&mask)),
-                          sizeof(quint32));
-        }
-    } else {
-        setErrorString(QStringLiteral("WebSocket::getHeader: payload too big!"));
-        emitErrorOccurred(QAbstractSocket::DatagramTooLargeError);
-    }
-
-    return header;
-}
-
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 921, as _ZNK17QWebSocketPrivate18calculateAcceptKeyERK10QByteArray
 inline QString QWebSocketPrivate::calculateAcceptKey(const QByteArray &key) const
 {
     const QByteArray tmpKey = key + QByteArrayLiteral("258EAFA5-E914-47DA-95CA-C5AB0DC85B11");
     const QByteArray hash = QCryptographicHash::hash(tmpKey, QCryptographicHash::Sha1).toBase64();
     return QString::fromLatin1(hash);
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 357, as _ZN17QWebSocketPrivate11upgradeFromEP10QTcpSocketRK26QWebSocketHandshakeRequestRK27QWebSocketHandshakeResponseP7QObject
+inline QWebSocket *QWebSocketPrivate::upgradeFrom(QTcpSocket *pTcpSocket,
+                                           const QWebSocketHandshakeRequest &request,
+                                           const QWebSocketHandshakeResponse &response,
+                                           QObject *parent)
+{
+    QWebSocket *pWebSocket = new QWebSocket(pTcpSocket, response.acceptedVersion(), parent);
+    if (Q_LIKELY(pWebSocket)) {
+        QNetworkRequest netRequest(request.requestUrl());
+        netRequest.setHeaders(request.headers());
+#ifndef QT_NO_SSL
+        if (QSslSocket *sslSock = qobject_cast<QSslSocket *>(pTcpSocket))
+            pWebSocket->setSslConfiguration(sslSock->sslConfiguration());
+#endif
+        QWebSocketHandshakeOptions options;
+        options.setSubprotocols(request.protocols());
+
+        pWebSocket->d_func()->setExtension(response.acceptedExtension());
+        pWebSocket->d_func()->setOrigin(request.origin());
+        pWebSocket->d_func()->setRequest(netRequest, options);
+        pWebSocket->d_func()->setProtocol(response.acceptedProtocol());
+        pWebSocket->d_func()->setResourceName(request.requestUrl().toString(QUrl::RemoveUserInfo));
+        //a server should not send masked frames
+        pWebSocket->d_func()->enableMasking(false);
+    }
+
+    return pWebSocket;
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 897, as _ZNK17QWebSocketPrivate18generateMaskingKeyEv
@@ -952,19 +545,6 @@ inline qint64 QWebSocketPrivate::writeFrame(const QByteArray &frame)
     if (Q_LIKELY(m_pSocket))
         written = m_pSocket->write(frame);
     return written;
-}
-
-//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 1763, as _ZN17QWebSocketPrivate17emitErrorOccurredEN15QAbstractSocket11SocketErrorE
-inline void QWebSocketPrivate::emitErrorOccurred(QAbstractSocket::SocketError error)
-{
-    Q_Q(QWebSocket);
-    Q_EMIT q->errorOccurred(error);
-#if QT_DEPRECATED_SINCE(6, 5)
-    QT_WARNING_PUSH
-    QT_WARNING_DISABLE_DEPRECATED
-    Q_EMIT q->error(error);
-    QT_WARNING_POP
-#endif
 }
 //  -----------------------------------------------------------------------
 
@@ -1011,120 +591,6 @@ QString *ritual_ZNK17QWebSocketPrivate11errorStringEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN17QWebSocketPrivate5flushEv(QWebSocketPrivate *self) {
   return self->flush();
-}
-
-//  QHostAddress QWebSocketPrivate::localAddress() const
-extern "C" Q_DECL_EXPORT
-QHostAddress *ritual_ZNK17QWebSocketPrivate12localAddressEv(
-    const QWebSocketPrivate *self) {
-  return new QHostAddress(self->localAddress());
-}
-
-//  quint16 QWebSocketPrivate::localPort() const
-extern "C" Q_DECL_EXPORT
-quint16 ritual_ZNK17QWebSocketPrivate9localPortEv(
-    const QWebSocketPrivate *self) {
-  return self->localPort();
-}
-
-//  QAbstractSocket::PauseModes QWebSocketPrivate::pauseMode() const
-extern "C" Q_DECL_EXPORT
-int ritual_ZNK17QWebSocketPrivate9pauseModeEv(
-    const QWebSocketPrivate *self) {
-  return static_cast<int>(self->pauseMode().toInt());
-}
-
-//  QHostAddress QWebSocketPrivate::peerAddress() const
-extern "C" Q_DECL_EXPORT
-QHostAddress *ritual_ZNK17QWebSocketPrivate11peerAddressEv(
-    const QWebSocketPrivate *self) {
-  return new QHostAddress(self->peerAddress());
-}
-
-//  QString QWebSocketPrivate::peerName() const
-extern "C" Q_DECL_EXPORT
-QString *ritual_ZNK17QWebSocketPrivate8peerNameEv(
-    const QWebSocketPrivate *self) {
-  return new QString(self->peerName());
-}
-
-//  quint16 QWebSocketPrivate::peerPort() const
-extern "C" Q_DECL_EXPORT
-quint16 ritual_ZNK17QWebSocketPrivate8peerPortEv(
-    const QWebSocketPrivate *self) {
-  return self->peerPort();
-}
-
-#if !defined(QT_NO_NETWORKPROXY)
-//  QNetworkProxy QWebSocketPrivate::proxy() const
-extern "C" Q_DECL_EXPORT
-QNetworkProxy *ritual_ZNK17QWebSocketPrivate5proxyEv(
-    const QWebSocketPrivate *self) {
-  return new QNetworkProxy(self->proxy());
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-#if !defined(QT_NO_NETWORKPROXY)
-//  void QWebSocketPrivate::setProxy(const QNetworkProxy &networkProxy)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate8setProxyERK13QNetworkProxy(
-    QWebSocketPrivate *self,
-    const QNetworkProxy *networkProxy) {
-  self->setProxy(*networkProxy);
-}
-#endif  // !defined(QT_NO_NETWORKPROXY)
-
-//  void QWebSocketPrivate::setMaskGenerator(const QMaskGenerator
-//      *maskGenerator)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate16setMaskGeneratorEPK14QMaskGenerator(
-    QWebSocketPrivate *self,
-    const QMaskGenerator *maskGenerator) {
-  self->setMaskGenerator(maskGenerator);
-}
-
-//  const QMaskGenerator *QWebSocketPrivate::maskGenerator() const
-extern "C" Q_DECL_EXPORT
-const QMaskGenerator *ritual_ZNK17QWebSocketPrivate13maskGeneratorEv(
-    const QWebSocketPrivate *self) {
-  return self->maskGenerator();
-}
-
-//  qint64 QWebSocketPrivate::readBufferSize() const
-extern "C" Q_DECL_EXPORT
-qint64 ritual_ZNK17QWebSocketPrivate14readBufferSizeEv(
-    const QWebSocketPrivate *self) {
-  return self->readBufferSize();
-}
-
-//  void QWebSocketPrivate::resume()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate6resumeEv(QWebSocketPrivate *self) {
-  self->resume();
-}
-
-//  void QWebSocketPrivate::setPauseMode(QAbstractSocket::PauseModes
-//      pauseMode)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate12setPauseModeE6QFlagsIN15QAbstractSocket9PauseModeEE(
-    QWebSocketPrivate *self,
-    int pauseMode) {
-  self->setPauseMode(QFlags<QAbstractSocket::PauseMode>::fromInt(pauseMode));
-}
-
-//  void QWebSocketPrivate::setReadBufferSize(qint64 size)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate17setReadBufferSizeEx(
-    QWebSocketPrivate *self,
-    qint64 size) {
-  self->setReadBufferSize(size);
-}
-
-//  QAbstractSocket::SocketState QWebSocketPrivate::state() const
-extern "C" Q_DECL_EXPORT
-QAbstractSocket::SocketState ritual_ZNK17QWebSocketPrivate5stateEv(
-    const QWebSocketPrivate *self) {
-  return self->state();
 }
 
 //  QWebSocketProtocol::Version QWebSocketPrivate::version() const
@@ -1247,74 +713,6 @@ void ritual_ZN17QWebSocketPrivate25_q_updateSslConfigurationEv(
 }
 #endif  // !defined(QT_NO_SSL)
 
-//  void QWebSocketPrivate::ping(const QByteArray &payload)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate4pingERK10QByteArray(
-    QWebSocketPrivate *self,
-    const QByteArray *payload) {
-  self->ping(*payload);
-}
-
-//  void QWebSocketPrivate::setSocketState(QAbstractSocket::SocketState
-//      state)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate14setSocketStateEN15QAbstractSocket11SocketStateE(
-    QWebSocketPrivate *self,
-    QAbstractSocket::SocketState state) {
-  self->setSocketState(state);
-}
-
-//  void QWebSocketPrivate::setMaxAllowedIncomingFrameSize(quint64
-//      maxAllowedIncomingFrameSize)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate30setMaxAllowedIncomingFrameSizeEy(
-    QWebSocketPrivate *self,
-    quint64 maxAllowedIncomingFrameSize) {
-  self->setMaxAllowedIncomingFrameSize(maxAllowedIncomingFrameSize);
-}
-
-//  quint64 QWebSocketPrivate::maxAllowedIncomingFrameSize() const
-extern "C" Q_DECL_EXPORT
-quint64 ritual_ZNK17QWebSocketPrivate27maxAllowedIncomingFrameSizeEv(
-    const QWebSocketPrivate *self) {
-  return self->maxAllowedIncomingFrameSize();
-}
-
-//  void QWebSocketPrivate::setMaxAllowedIncomingMessageSize(quint64
-//      maxAllowedIncomingMessageSize)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate32setMaxAllowedIncomingMessageSizeEy(
-    QWebSocketPrivate *self,
-    quint64 maxAllowedIncomingMessageSize) {
-  self->setMaxAllowedIncomingMessageSize(maxAllowedIncomingMessageSize);
-}
-
-//  quint64 QWebSocketPrivate::maxAllowedIncomingMessageSize() const
-extern "C" Q_DECL_EXPORT
-quint64 ritual_ZNK17QWebSocketPrivate29maxAllowedIncomingMessageSizeEv(
-    const QWebSocketPrivate *self) {
-  return self->maxAllowedIncomingMessageSize();
-}
-
-//  quint64 QWebSocketPrivate::maxIncomingMessageSize()
-extern "C" Q_DECL_EXPORT
-quint64 ritual_ZN17QWebSocketPrivate22maxIncomingMessageSizeEv() {
-  return QWebSocketPrivate::maxIncomingMessageSize();
-}
-
-//  quint64 QWebSocketPrivate::maxIncomingFrameSize()
-extern "C" Q_DECL_EXPORT
-quint64 ritual_ZN17QWebSocketPrivate20maxIncomingFrameSizeEv() {
-  return QWebSocketPrivate::maxIncomingFrameSize();
-}
-
-//  quint64 QWebSocketPrivate::outgoingFrameSize() const
-extern "C" Q_DECL_EXPORT
-quint64 ritual_ZNK17QWebSocketPrivate17outgoingFrameSizeEv(
-    const QWebSocketPrivate *self) {
-  return self->outgoingFrameSize();
-}
-
 //  void QWebSocketPrivate::setVersion(QWebSocketProtocol::Version version)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QWebSocketPrivate10setVersionEN18QWebSocketProtocol7VersionE(
@@ -1373,78 +771,11 @@ void ritual_ZN17QWebSocketPrivate13enableMaskingEb(
   self->enableMasking(enable);
 }
 
-//  void QWebSocketPrivate::setErrorString(const QString &errorString)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate14setErrorStringERK7QString(
-    QWebSocketPrivate *self,
-    const QString *errorString) {
-  self->setErrorString(*errorString);
-}
-
 //  QStringList QWebSocketPrivate::requestedSubProtocols() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK17QWebSocketPrivate21requestedSubProtocolsEv(
     const QWebSocketPrivate *self) {
   return new QList<QString>(self->requestedSubProtocols());
-}
-
-//  void QWebSocketPrivate::socketDestroyed(QObject *socket)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate15socketDestroyedEP7QObject(
-    QWebSocketPrivate *self,
-    QObject *socket) {
-  self->socketDestroyed(socket);
-}
-
-//  void QWebSocketPrivate::processPing(const QByteArray &data)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate11processPingERK10QByteArray(
-    QWebSocketPrivate *self,
-    const QByteArray *data) {
-  self->processPing(*data);
-}
-
-//  void QWebSocketPrivate::processPong(const QByteArray &data)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate11processPongERK10QByteArray(
-    QWebSocketPrivate *self,
-    const QByteArray *data) {
-  self->processPong(*data);
-}
-
-//  qint64 QWebSocketPrivate::doWriteFrames(const QByteArray &data, bool
-//      isBinary)
-extern "C" Q_DECL_EXPORT
-qint64 ritual_ZN17QWebSocketPrivate13doWriteFramesERK10QByteArrayb(
-    QWebSocketPrivate *self,
-    const QByteArray *data,
-    bool isBinary) {
-  return self->doWriteFrames(*data, isBinary);
-}
-
-//  void QWebSocketPrivate::releaseConnections(const QTcpSocket *pTcpSocket)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate18releaseConnectionsEPK10QTcpSocket(
-    QWebSocketPrivate *self,
-    const QTcpSocket *pTcpSocket) {
-  self->releaseConnections(pTcpSocket);
-}
-
-//  QByteArray QWebSocketPrivate::getFrameHeader(QWebSocketProtocol::OpCode
-//      opCode, quint64 payloadLength, quint32 maskingKey, bool lastFrame)
-extern "C" Q_DECL_EXPORT
-QByteArray *ritual_ZN17QWebSocketPrivate14getFrameHeaderEN18QWebSocketProtocol6OpCodeEyjb(
-    QWebSocketPrivate *self,
-    QWebSocketProtocol::OpCode opCode,
-    quint64 payloadLength,
-    quint32 maskingKey,
-    bool lastFrame) {
-  return new QByteArray(
-      self->getFrameHeader(
-          opCode,
-          payloadLength,
-          maskingKey,
-          lastFrame));
 }
 
 //  QString QWebSocketPrivate::calculateAcceptKey(const QByteArray &key)
@@ -1454,6 +785,22 @@ QString *ritual_ZNK17QWebSocketPrivate18calculateAcceptKeyERK10QByteArray(
     const QWebSocketPrivate *self,
     const QByteArray *key) {
   return new QString(self->calculateAcceptKey(*key));
+}
+
+//  QWebSocket *QWebSocketPrivate::upgradeFrom(QTcpSocket *tcpSocket, const
+//      QWebSocketHandshakeRequest &request, const
+//      QWebSocketHandshakeResponse &response, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QWebSocket *ritual_ZN17QWebSocketPrivate11upgradeFromEP10QTcpSocketRK26QWebSocketHandshakeRequestRK27QWebSocketHandshakeResponseP7QObject(
+    QTcpSocket *tcpSocket,
+    const QWebSocketHandshakeRequest *request,
+    const QWebSocketHandshakeResponse *response,
+    QObject *parent) {
+  return QWebSocketPrivate::upgradeFrom(
+      tcpSocket,
+      *request,
+      *response,
+      parent);
 }
 
 //  quint32 QWebSocketPrivate::generateMaskingKey() const
@@ -1484,13 +831,4 @@ qint64 ritual_ZN17QWebSocketPrivate10writeFrameERK10QByteArray(
     QWebSocketPrivate *self,
     const QByteArray *frame) {
   return self->writeFrame(*frame);
-}
-
-//  void QWebSocketPrivate::emitErrorOccurred(QAbstractSocket::SocketError
-//      error)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN17QWebSocketPrivate17emitErrorOccurredEN15QAbstractSocket11SocketErrorE(
-    QWebSocketPrivate *self,
-    QAbstractSocket::SocketError error) {
-  self->emitErrorOccurred(error);
 }

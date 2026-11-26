@@ -2,8 +2,10 @@
 //  Qt3DRender/qtextureimage.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qtextureimage.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QTextureImage that Python can take functions over in. Every Qt3DRender::QTextureImage
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender13QTextureImage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QTextureImage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender13QTextureImage11qt_metacastEPKc(
+    Qt3DRender::QTextureImage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QTextureImage::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender13QTextureImage11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QTextureImage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QTextureImage::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,98 @@ QString *ritual_ZN10Qt3DRender13QTextureImage2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QTextureImage::tr(s, c, n));
+}
+
+//  Qt3DRender::QTextureImage::QTextureImage(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureImage *ritual_ZN10Qt3DRender13QTextureImageC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QTextureImage(parent);
+}
+
+//  Qt3DRender::QTextureImage::~QTextureImage()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QTextureImageD1Ev(
+    Qt3DRender::QTextureImage *self) {
+  delete self;
+}
+
+//  QUrl Qt3DRender::QTextureImage::source() const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK10Qt3DRender13QTextureImage6sourceEv(
+    const Qt3DRender::QTextureImage *self) {
+  return new QUrl(self->source());
+}
+
+//  Status Qt3DRender::QTextureImage::status() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureImage::Status ritual_ZNK10Qt3DRender13QTextureImage6statusEv(
+    const Qt3DRender::QTextureImage *self) {
+  return self->status();
+}
+
+//  bool Qt3DRender::QTextureImage::isMirrored() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender13QTextureImage10isMirroredEv(
+    const Qt3DRender::QTextureImage *self) {
+  return self->isMirrored();
+}
+
+//  void Qt3DRender::QTextureImage::setSource(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QTextureImage9setSourceERK4QUrl(
+    Qt3DRender::QTextureImage *self,
+    const QUrl *source) {
+  self->setSource(*source);
+}
+
+//  void Qt3DRender::QTextureImage::setMirrored(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QTextureImage11setMirroredEb(
+    Qt3DRender::QTextureImage *self,
+    bool mirrored) {
+  self->setMirrored(mirrored);
+}
+
+//  void Qt3DRender::QTextureImage::sourceChanged(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QTextureImage13sourceChangedERK4QUrl(
+    Qt3DRender::QTextureImage *self,
+    const QUrl *source) {
+  self->sourceChanged(*source);
+}
+
+//  void Qt3DRender::QTextureImage::statusChanged(Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QTextureImage13statusChangedENS0_6StatusE(
+    Qt3DRender::QTextureImage *self,
+    Qt3DRender::QTextureImage::Status status) {
+  self->statusChanged(status);
+}
+
+//  void Qt3DRender::QTextureImage::mirroredChanged(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QTextureImage15mirroredChangedEb(
+    Qt3DRender::QTextureImage *self,
+    bool mirrored) {
+  self->mirroredChanged(mirrored);
+}
+
+//  void Qt3DRender::QTextureImage::setStatus(Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QTextureImage9setStatusENS0_6StatusE(
+    Qt3DRender::QTextureImage *self,
+    Qt3DRender::QTextureImage::Status status) {
+  self->setStatus(status);
+}
+
+//  QTextureImageDataGeneratorPtr Qt3DRender::QTextureImage::dataGenerator()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureImageDataGeneratorPtr *ritual_ZNK10Qt3DRender13QTextureImage13dataGeneratorEv(
+    const Qt3DRender::QTextureImage *self) {
+  return new Qt3DRender::QTextureImageDataGeneratorPtr(
+      self->dataGenerator());
 }
 
 //  QTextureImagePrivate *Qt3DRender::QTextureImage::d_func()
@@ -211,4 +324,12 @@ bool ritual_take_Qt3DRender_QTextureImage(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QTextureImage *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QTextureImageDataGeneratorPtr a ritual of
+//      Qt3DRender::QTextureImage gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QTextureImage__Qt3DRender_QTextureImageDataGeneratorPtr(
+    Qt3DRender::QTextureImageDataGeneratorPtr *self) {
+  delete self;
 }

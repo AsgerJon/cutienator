@@ -7,7 +7,13 @@
   "rows": {
     "ritual_ZN16QGeoRouteSegmentC1Ev": ["address"],
     "ritual_ZN16QGeoRouteSegmentC1ERKS_": ["address", "address"],
+    "ritual_ZN16QGeoRouteSegmentC1EOS_": ["address", "address"],
     "ritual_ZN16QGeoRouteSegmentD1Ev": ["nothing", "address"],
+    "ritual_ZN16QGeoRouteSegmentaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QGeoRouteSegmentaSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QGeoRouteSegment4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK16QGeoRouteSegmentS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QGeoRouteSegmentS1_": ["bool", "address", "address"],
     "ritual_ZNK16QGeoRouteSegment7isValidEv": ["bool", "address"],
@@ -34,6 +40,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK16QGeoRouteSegment8maneuverEv": ["address", "address"],
+    "ritual_ZN16QGeoRouteSegmentC1EO28QExplicitlySharedDataPointerI23QGeoRouteSegmentPrivateE": [
+      "address", "address"
+    ],
     "ritual_ZNK16QGeoRouteSegment7isEqualERKS_": [
       "bool", "address", "address"
     ],

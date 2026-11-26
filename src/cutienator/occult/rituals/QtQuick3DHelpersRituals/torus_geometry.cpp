@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/torusgeometry_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/qtquick3dhelpersglobal_p.h>
 #include <QtQuick3DHelpers/QtQuick3DHelpers>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -286,6 +287,24 @@ const QMetaObject *ritual_ZNK13TorusGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *TorusGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13TorusGeometry11qt_metacastEPKc(
+    TorusGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int TorusGeometry::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13TorusGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    TorusGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString TorusGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13TorusGeometry2trEPKcS1_i(
@@ -395,12 +414,92 @@ void ritual_ZN13TorusGeometry15requestFinishedEv(TorusGeometry *self) {
   self->requestFinished();
 }
 
+//  void TorusGeometry::ringsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TorusGeometry12ringsChangedEv(TorusGeometry *self) {
+  self->ringsChanged();
+}
+
+//  void TorusGeometry::segmentsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TorusGeometry15segmentsChangedEv(TorusGeometry *self) {
+  self->segmentsChanged();
+}
+
+//  void TorusGeometry::radiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TorusGeometry13radiusChangedEv(TorusGeometry *self) {
+  self->radiusChanged();
+}
+
+//  void TorusGeometry::tubeRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TorusGeometry17tubeRadiusChangedEv(TorusGeometry *self) {
+  self->tubeRadiusChanged();
+}
+
+//  void TorusGeometry::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TorusGeometry19asynchronousChangedEv(TorusGeometry *self) {
+  self->asynchronousChanged();
+}
+
+//  void TorusGeometry::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TorusGeometry13statusChangedEv(TorusGeometry *self) {
+  self->statusChanged();
+}
+
 //  void TorusGeometry::scheduleGeometryUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13TorusGeometry22scheduleGeometryUpdateEv(
     TorusGeometry *self) {
   self->scheduleGeometryUpdate();
 }
+
+//  void TorusGeometry::updateGeometry(const GeometryData &geometryData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TorusGeometry14updateGeometryERKNS_12GeometryDataE(
+    TorusGeometry *self,
+    const TorusGeometry::GeometryData *geometryData) {
+  self->updateGeometry(*geometryData);
+}
+
+//  TorusGeometry::GeometryData TorusGeometry::generateTorusGeometry(int
+//      rings, int segments, float radius, float tubeRadius)
+extern "C" Q_DECL_EXPORT
+TorusGeometry::GeometryData *ritual_ZN13TorusGeometry21generateTorusGeometryEiiff(
+    int rings,
+    int segments,
+    float radius,
+    float tubeRadius) {
+  return new TorusGeometry::GeometryData(
+      TorusGeometry::generateTorusGeometry(
+          rings,
+          segments,
+          radius,
+          tubeRadius));
+}
+
+#if QT_CONFIG(concurrent)
+//  void TorusGeometry::generateTorusGeometryAsync(QPromise<TorusGeometry::Ge
+//      ometryData> &promise, int rings, int segments, float radius, float
+//      tubeRadius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13TorusGeometry26generateTorusGeometryAsyncER8QPromiseINS_12GeometryDataEEiiff(
+    QPromise<TorusGeometry::GeometryData> *promise,
+    int rings,
+    int segments,
+    float radius,
+    float tubeRadius) {
+  TorusGeometry::generateTorusGeometryAsync(
+      *promise,
+      rings,
+      segments,
+      radius,
+      tubeRadius);
+}
+#endif  // QT_CONFIG(concurrent)
 
 //  a Python function taken by a CuteTorusGeometry, for the function named by
 //      the key
@@ -410,4 +509,11 @@ bool ritual_take_TorusGeometry(
     const char *key,
     void *call) {
   return static_cast<CuteTorusGeometry *>(self)->take(key, call);
+}
+
+//  a TorusGeometry::GeometryData a ritual of TorusGeometry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_TorusGeometry__TorusGeometry_GeometryData(
+    TorusGeometry::GeometryData *self) {
+  delete self;
 }

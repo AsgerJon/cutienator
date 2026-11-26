@@ -8,8 +8,75 @@
     "ritual_ZNK9QtWayland18WlShellIntegration10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9QtWayland18WlShellIntegration11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegrationD1Ev": ["nothing", "address"],
+    "ritual_ZN9QtWayland18WlShellIntegration11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration15handleStartMoveEP12QWaylandSeat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration17handleStartResizeEP12QWaylandSeatN22QWaylandWlShellSurface10ResizeEdgeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration24handleSetDefaultTopLevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration18handleSetTransientEP15QWaylandSurfaceRK6QPointb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration18handleSetMaximizedEP14QWaylandOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration19handleSetFullScreenEN22QWaylandWlShellSurface16FullScreenMethodEjP14QWaylandOutput": [
+      "nothing", "address", "int", "unsigned int", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration14handleSetPopupEP12QWaylandSeatP15QWaylandSurfaceRK6QPoint": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration27handleShellSurfaceDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration30handleSurfaceHasContentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration12handleRedrawEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration24adjustOffsetForNextFrameERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration27handleFullScreenSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration26handleMaximizedSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration17handlePopupClosedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration18handlePopupRemovedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9QtWayland18WlShellIntegration16devicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration20filterMouseMoveEventEP11QMouseEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtWayland18WlShellIntegration23filterMouseReleaseEventEP11QMouseEvent": [
+      "bool", "address", "address"
+    ],
     "ritual_take_QtWayland_WlShellIntegration": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9QtWayland18WlShellIntegration11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
     ]
   }
 }

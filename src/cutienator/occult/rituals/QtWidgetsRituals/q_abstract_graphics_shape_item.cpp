@@ -771,6 +771,14 @@ public:
 #endif  // QT_CONFIG(graphicsview)
 };
 
+//  QAbstractGraphicsShapeItem::QAbstractGraphicsShapeItem(QGraphicsItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractGraphicsShapeItem *ritual_ZN26QAbstractGraphicsShapeItemC1EP13QGraphicsItem(
+    QGraphicsItem *parent) {
+  return new CuteQAbstractGraphicsShapeItem(parent);
+}
+
 //  QAbstractGraphicsShapeItem::~QAbstractGraphicsShapeItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QAbstractGraphicsShapeItemD1Ev(
@@ -822,6 +830,30 @@ extern "C" Q_DECL_EXPORT
 QPainterPath *ritual_ZNK26QAbstractGraphicsShapeItem10opaqueAreaEv(
     const QAbstractGraphicsShapeItem *self) {
   return new QPainterPath(self->opaqueArea());
+}
+
+//  QAbstractGraphicsShapeItem::QAbstractGraphicsShapeItem(QAbstractGraphicsS
+//      hapeItemPrivate &dd, QGraphicsItem *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractGraphicsShapeItem *ritual_ZN26QAbstractGraphicsShapeItemC1ER33QAbstractGraphicsShapeItemPrivateP13QGraphicsItem(
+    QAbstractGraphicsShapeItemPrivate *dd,
+    QGraphicsItem *parent) {
+  return new CuteQAbstractGraphicsShapeItem(*dd, parent);
+}
+
+//  QAbstractGraphicsShapeItemPrivate *QAbstractGraphicsShapeItem::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractGraphicsShapeItemPrivate *ritual_ZN26QAbstractGraphicsShapeItem6d_funcEv(
+    QAbstractGraphicsShapeItem *self) {
+  return self->d_func();
+}
+
+//  const QAbstractGraphicsShapeItemPrivate
+//      *QAbstractGraphicsShapeItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractGraphicsShapeItemPrivate *ritual_ZNK26QAbstractGraphicsShapeItem6d_funcEv(
+    const QAbstractGraphicsShapeItem *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQAbstractGraphicsShapeItem, for the

@@ -5,7 +5,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -21,6 +21,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtGraphs/private/qgraphsinputhandler_p.h>
 #include <QtQuick/private/qquickdraghandler_p.h>
 #include <QtQuick/private/qquickpinchhandler_p.h>
@@ -37,10 +38,56 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtgraphs/src/graphs3d/utils/qgraphs3dlogging.cpp, line 14, as _Z10lcEvents3Dv
+inline const QLoggingCategory &lcEvents3D()
+{
+    static const QLoggingCategory category("qt.graphs3d.events");
+    return category;
+}
+
+//  from ../qtgraphs/src/graphs3d/utils/qgraphs3dlogging.cpp, line 13, as _Z14lcProperties3Dv
+inline const QLoggingCategory &lcProperties3D()
+{
+    static const QLoggingCategory category("qt.graphs3d.properties");
+    return category;
+}
+
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 441, as _ZN19QGraphsInputHandler14hoverMoveEventEP11QHoverEvent
+inline void QGraphsInputHandler::hoverMoveEvent(QHoverEvent *event)
+{
+    Q_EMIT mouseMove(event->oldPos());
+}
+
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 67, as _ZN19QGraphsInputHandler14setZoomEnabledEb
+inline void QGraphsInputHandler::setZoomEnabled(bool enable)
+{
+    if (m_flags.zoomEnabled == enable) {
+        qCDebug(lcProperties3D) << __FUNCTION__
+            << "value is already set to:" << enable;
+        return;
+    }
+    m_flags.zoomEnabled = enable;
+    if (m_graphsItem)
+        emit m_graphsItem->zoomEnabledChanged(enable);
+}
+
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 79, as _ZN19QGraphsInputHandler13isZoomEnabledEv
 inline bool QGraphsInputHandler::isZoomEnabled()
 {
     return m_flags.zoomEnabled;
+}
+
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 84, as _ZN19QGraphsInputHandler22setZoomAtTargetEnabledEb
+inline void QGraphsInputHandler::setZoomAtTargetEnabled(bool enable)
+{
+    if (m_flags.zoomAtTarget == enable) {
+        qCDebug(lcProperties3D) << __FUNCTION__
+            << "value is already set to:" << enable;
+        return;
+    }
+    m_flags.zoomAtTarget = enable;
+    if (m_graphsItem)
+        emit m_graphsItem->zoomAtTargetEnabledChanged(enable);
 }
 
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 96, as _ZN19QGraphsInputHandler21isZoomAtTargetEnabledEv
@@ -49,10 +96,34 @@ inline bool QGraphsInputHandler::isZoomAtTargetEnabled()
     return m_flags.zoomAtTarget;
 }
 
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 101, as _ZN19QGraphsInputHandler18setRotationEnabledEb
+inline void QGraphsInputHandler::setRotationEnabled(bool enable)
+{
+    if (m_flags.rotationEnabled == enable) {
+        qCDebug(lcProperties3D) << __FUNCTION__
+            << "value is already set to:" << enable;
+    }
+    m_flags.rotationEnabled = enable;
+    if (m_graphsItem)
+        emit m_graphsItem->rotationEnabledChanged(enable);
+}
+
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 112, as _ZN19QGraphsInputHandler17isRotationEnabledEv
 inline bool QGraphsInputHandler::isRotationEnabled()
 {
     return m_flags.rotationEnabled;
+}
+
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 117, as _ZN19QGraphsInputHandler13setPanEnabledEb
+inline void QGraphsInputHandler::setPanEnabled(bool enable)
+{
+    if (m_flags.panEnabled == enable) {
+        qCDebug(lcProperties3D) << __FUNCTION__
+            << "value is already set to:" << enable;
+    }
+    m_flags.panEnabled = enable;
+    if (m_graphsItem)
+        emit m_graphsItem->panEnabledChanged(enable);
 }
 
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 128, as _ZN19QGraphsInputHandler12isPanEnabledEv
@@ -61,10 +132,35 @@ inline bool QGraphsInputHandler::isPanEnabled()
     return m_flags.panEnabled;
 }
 
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 133, as _ZN19QGraphsInputHandler11setDragModeEN10QtGraphs3D8DragModeE
+inline void QGraphsInputHandler::setDragMode(QtGraphs3D::DragMode mode)
+{
+    if (m_dragMode == mode) {
+        qCDebug(lcProperties3D) << __FUNCTION__
+            << "value is already set to:" << mode;
+    }
+    m_dragMode = mode;
+    if (m_graphsItem)
+        emit m_graphsItem->dragModeChanged(mode);
+}
+
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 144, as _ZN19QGraphsInputHandler8dragModeEv
 inline QtGraphs3D::DragMode QGraphsInputHandler::dragMode()
 {
     return m_dragMode;
+}
+
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 149, as _ZN19QGraphsInputHandler19setSelectionEnabledEb
+inline void QGraphsInputHandler::setSelectionEnabled(bool enable)
+{
+    if (m_flags.selectionEnabled == enable) {
+        qCDebug(lcProperties3D) << __FUNCTION__
+            << "value is already set to:" << enable;
+        return;
+    }
+    m_flags.selectionEnabled = enable;
+    if (m_graphsItem)
+        emit m_graphsItem->selectionEnabledChanged(enable);
 }
 
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 161, as _ZN19QGraphsInputHandler18isSelectionEnabledEv
@@ -101,6 +197,24 @@ inline void QGraphsInputHandler::unsetDefaultDragHandler()
                         &QQuickDragHandler::translationChanged,
                         this,
                         &QGraphsInputHandler::onTranslationChanged);
+}
+
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 192, as _ZN19QGraphsInputHandler24unsetDefaultWheelHandlerEv
+inline void QGraphsInputHandler::unsetDefaultWheelHandler()
+{
+    QObject::disconnect(m_wheelHandler,
+                        &QQuickWheelHandler::wheel,
+                        this,
+                        &QGraphsInputHandler::onWheel);
+}
+
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 200, as _ZN19QGraphsInputHandler24unsetDefaultPinchHandlerEv
+inline void QGraphsInputHandler::unsetDefaultPinchHandler()
+{
+    QObject::disconnect(m_pinchHandler,
+                        &QQuickPinchHandler::scaleChanged,
+                        this,
+                        &QGraphsInputHandler::onPinchScaleChanged);
 }
 
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 208, as _ZN19QGraphsInputHandler13setDragButtonE6QFlagsIN2Qt11MouseButtonEE
@@ -192,10 +306,133 @@ inline void QGraphsInputHandler::onGrabChanged(QPointingDevice::GrabTransition t
     }
 }
 
-//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 441, as _ZN19QGraphsInputHandler14hoverMoveEventEP11QHoverEvent
-inline void QGraphsInputHandler::hoverMoveEvent(QHoverEvent *event)
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 314, as _ZN19QGraphsInputHandler7onWheelEP16QQuickWheelEvent
+inline void QGraphsInputHandler::onWheel(QQuickWheelEvent *event)
 {
-    Q_EMIT mouseMove(event->oldPos());
+    if (!m_flags.zoomEnabled) {
+        qCWarning(lcEvents3D, "%s zooming needs to be enabled",
+                qUtf8Printable(QLatin1String(__FUNCTION__)));
+        return;
+    }
+
+    int halfSizeZoomLevel = 50;
+    int oneToOneZoomLevel = 100;
+
+    int driftTowardCenterLevel = 175;
+    float wheelZoomDrift = 0.1f;
+
+    int nearZoomRangeDivider = 12;
+    int midZoomRangeDivider = 60;
+    int farZoomRangeDivider = 120;
+
+    if (m_graphsItem->isSlicingActive())
+        return;
+
+    // Adjust zoom level based on what zoom range we're in.
+    QQuickGraphsItem *item = m_graphsItem;
+    int zoomLevel = int(item->cameraZoomLevel());
+    const int minZoomLevel = int(item->minCameraZoomLevel());
+    const int maxZoomLevel = int(item->maxCameraZoomLevel());
+    if (zoomLevel > oneToOneZoomLevel)
+        zoomLevel += event->angleDelta().y() / nearZoomRangeDivider;
+    else if (zoomLevel > halfSizeZoomLevel)
+        zoomLevel += event->angleDelta().y() / midZoomRangeDivider;
+    else
+        zoomLevel += event->angleDelta().y() / farZoomRangeDivider;
+    zoomLevel = qBound(minZoomLevel, zoomLevel, maxZoomLevel);
+
+    if (m_flags.zoomAtTarget) {
+        QVector3D targetPosition = item->graphPositionAt(QPoint(event->x(), event->y()));
+        float previousZoom = item->cameraZoomLevel();
+        item->setCameraZoomLevel(zoomLevel);
+
+        float diffAdj = 0.0f;
+
+        // If zooming in/out outside the graph, or zooming out after certain point,
+        // move towards the center.
+        if ((qAbs(targetPosition.x()) > 2.0f || qAbs(targetPosition.y()) > 2.0f
+             || qAbs(targetPosition.z()) > 2.0f)
+            || (previousZoom > zoomLevel && zoomLevel <= driftTowardCenterLevel)) {
+            targetPosition = QVector3D();
+            // Add some extra correction so that we actually reach the center
+            // eventually
+            diffAdj = wheelZoomDrift;
+            if (previousZoom > zoomLevel)
+                diffAdj *= 2.0f; // Correct towards center little more when zooming out
+        }
+
+        float zoomFraction = 1.0f - (previousZoom / zoomLevel);
+
+        // Adjust camera towards the zoom point, attempting to keep the cursor at
+        // same graph point
+        QVector3D oldTarget = item->cameraTargetPosition();
+        QVector3D origDiff = targetPosition - oldTarget;
+        QVector3D diff = origDiff * zoomFraction + (origDiff.normalized() * diffAdj);
+        if (diff.length() > origDiff.length())
+            diff = origDiff;
+        item->setCameraTargetPosition(oldTarget + diff);
+    } else {
+        item->setCameraZoomLevel(zoomLevel);
+    }
+
+    item->update();
+}
+
+//  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 385, as _ZN19QGraphsInputHandler19onPinchScaleChangedEd
+inline void QGraphsInputHandler::onPinchScaleChanged(qreal delta)
+{
+    if (!m_flags.zoomEnabled) {
+        qCWarning(lcEvents3D, "%s zooming needs to be enabled",
+                qUtf8Printable(QLatin1String(__FUNCTION__)));
+        return;
+    }
+
+    m_pinchDiff += (delta - 1.0f);
+    int driftTowardCenterLevel = 175;
+    float wheelZoomDrift = 0.1f;
+
+    QQuickGraphsItem *item = m_graphsItem;
+    int zoomLevel = int(item->cameraZoomLevel());
+    const int minZoomLevel = int(item->minCameraZoomLevel());
+    const int maxZoomLevel = int(item->maxCameraZoomLevel());
+    float zoomRate = qSqrt(qSqrt(zoomLevel));
+    if (m_pinchDiff > .0f)
+        zoomLevel += zoomRate;
+    else
+        zoomLevel -= zoomRate;
+    zoomLevel = qBound(minZoomLevel, zoomLevel, maxZoomLevel);
+    if (m_flags.zoomAtTarget) {
+        QVector3D targetPosition = item->graphPositionAt(
+            m_pinchHandler->centroid().position().toPoint());
+        item->setCameraZoomLevel(zoomLevel);
+
+        float diffAdj = 0.0f;
+
+        // If zooming in/out outside the graph, or zooming out after certain point,
+        // move towards the center.
+        if ((qAbs(targetPosition.x()) > 2.0f || qAbs(targetPosition.y()) > 2.0f
+             || qAbs(targetPosition.z()) > 2.0f)
+            || (m_pinchDiff > .0f && zoomLevel <= driftTowardCenterLevel)) {
+            targetPosition = QVector3D();
+            // Add some extra correction so that we actually reach the center
+            // eventually
+            diffAdj = wheelZoomDrift;
+            if (m_pinchDiff > .0f)
+                diffAdj *= 2.0f; // Correct towards center little more when zooming out
+        }
+
+        // Adjust camera towards the zoom point, attempting to keep the cursor at
+        // same graph point
+        QVector3D oldTarget = item->cameraTargetPosition();
+        QVector3D origDiff = targetPosition - oldTarget;
+        QVector3D diff = origDiff * m_pinchDiff + (origDiff.normalized() * diffAdj);
+        if (diff.length() > origDiff.length())
+            diff = origDiff;
+        item->setCameraTargetPosition(oldTarget + diff);
+    } else {
+        item->setCameraZoomLevel(zoomLevel);
+    }
+    m_pinchDiff = .0f;
 }
 //  -----------------------------------------------------------------------
 
@@ -968,11 +1205,44 @@ const QMetaObject *ritual_ZNK19QGraphsInputHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphsInputHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QGraphsInputHandler11qt_metacastEPKc(
+    QGraphsInputHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphsInputHandler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QGraphsInputHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphsInputHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QGraphsInputHandler::~QGraphsInputHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandlerD1Ev(QGraphsInputHandler *self) {
+  delete self;
+}
+
 //  QPoint QGraphsInputHandler::pendingPoint()
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZN19QGraphsInputHandler12pendingPointEv(
     QGraphsInputHandler *self) {
   return new QPoint(self->pendingPoint());
+}
+
+//  void QGraphsInputHandler::setZoomEnabled(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler14setZoomEnabledEb(
+    QGraphsInputHandler *self,
+    bool enable) {
+  self->setZoomEnabled(enable);
 }
 
 //  bool QGraphsInputHandler::isZoomEnabled()
@@ -982,11 +1252,27 @@ bool ritual_ZN19QGraphsInputHandler13isZoomEnabledEv(
   return self->isZoomEnabled();
 }
 
+//  void QGraphsInputHandler::setZoomAtTargetEnabled(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler22setZoomAtTargetEnabledEb(
+    QGraphsInputHandler *self,
+    bool enable) {
+  self->setZoomAtTargetEnabled(enable);
+}
+
 //  bool QGraphsInputHandler::isZoomAtTargetEnabled()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN19QGraphsInputHandler21isZoomAtTargetEnabledEv(
     QGraphsInputHandler *self) {
   return self->isZoomAtTargetEnabled();
+}
+
+//  void QGraphsInputHandler::setRotationEnabled(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler18setRotationEnabledEb(
+    QGraphsInputHandler *self,
+    bool enable) {
+  self->setRotationEnabled(enable);
 }
 
 //  bool QGraphsInputHandler::isRotationEnabled()
@@ -996,6 +1282,14 @@ bool ritual_ZN19QGraphsInputHandler17isRotationEnabledEv(
   return self->isRotationEnabled();
 }
 
+//  void QGraphsInputHandler::setPanEnabled(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler13setPanEnabledEb(
+    QGraphsInputHandler *self,
+    bool enable) {
+  self->setPanEnabled(enable);
+}
+
 //  bool QGraphsInputHandler::isPanEnabled()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN19QGraphsInputHandler12isPanEnabledEv(
@@ -1003,11 +1297,27 @@ bool ritual_ZN19QGraphsInputHandler12isPanEnabledEv(
   return self->isPanEnabled();
 }
 
+//  void QGraphsInputHandler::setDragMode(QtGraphs3D::DragMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler11setDragModeEN10QtGraphs3D8DragModeE(
+    QGraphsInputHandler *self,
+    QtGraphs3D::DragMode mode) {
+  self->setDragMode(mode);
+}
+
 //  QtGraphs3D::DragMode QGraphsInputHandler::dragMode()
 extern "C" Q_DECL_EXPORT
 QtGraphs3D::DragMode ritual_ZN19QGraphsInputHandler8dragModeEv(
     QGraphsInputHandler *self) {
   return self->dragMode();
+}
+
+//  void QGraphsInputHandler::setSelectionEnabled(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler19setSelectionEnabledEb(
+    QGraphsInputHandler *self,
+    bool enable) {
+  self->setSelectionEnabled(enable);
 }
 
 //  bool QGraphsInputHandler::isSelectionEnabled()
@@ -1046,6 +1356,20 @@ void ritual_ZN19QGraphsInputHandler23unsetDefaultDragHandlerEv(
   self->unsetDefaultDragHandler();
 }
 #endif  // defined(Q_OS_LINUX)
+
+//  void QGraphsInputHandler::unsetDefaultWheelHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler24unsetDefaultWheelHandlerEv(
+    QGraphsInputHandler *self) {
+  self->unsetDefaultWheelHandler();
+}
+
+//  void QGraphsInputHandler::unsetDefaultPinchHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler24unsetDefaultPinchHandlerEv(
+    QGraphsInputHandler *self) {
+  self->unsetDefaultPinchHandler();
+}
 
 //  void QGraphsInputHandler::setDragButton(Qt::MouseButtons button)
 extern "C" Q_DECL_EXPORT
@@ -1089,6 +1413,49 @@ void ritual_ZN19QGraphsInputHandler13onGrabChangedEN15QPointingDevice14GrabTrans
   self->onGrabChanged(transition, *point);
 }
 
+//  void QGraphsInputHandler::onWheel(QQuickWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler7onWheelEP16QQuickWheelEvent(
+    QGraphsInputHandler *self,
+    QQuickWheelEvent *event) {
+  self->onWheel(event);
+}
+
+//  void QGraphsInputHandler::onPinchScaleChanged(qreal delta)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler19onPinchScaleChangedEd(
+    QGraphsInputHandler *self,
+    qreal delta) {
+  self->onPinchScaleChanged(delta);
+}
+
+//  void QGraphsInputHandler::mouseMove(QPoint mousePos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphsInputHandler9mouseMoveE6QPoint(
+    QGraphsInputHandler *self,
+    const QPoint *mousePos) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QGraphsInputHandler")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "mouseMove(QPoint)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "mouseMove(QPoint)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(mousePos)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QGraphsInputHandler::hoverMoveEvent(QHoverEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGraphsInputHandler14hoverMoveEventEP11QHoverEvent(
@@ -1107,4 +1474,4 @@ bool ritual_take_QGraphsInputHandler(
   return static_cast<CuteQGraphsInputHandler *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

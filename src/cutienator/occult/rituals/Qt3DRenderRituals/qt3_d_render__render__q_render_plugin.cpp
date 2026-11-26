@@ -80,6 +80,18 @@ bool ritual_ZN10Qt3DRender6Render13QRenderPlugin22unregisterBackendTypesEPNS_13Q
   return self->unregisterBackendTypes(aspect);
 }
 
+//  void Qt3DRender::Render::QRenderPlugin::registerBackendType(QRenderAspect
+//      *aspect, const QMetaObject &obj, const
+//      Qt3DCore::QBackendNodeMapperPtr &functor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render13QRenderPlugin19registerBackendTypeEPNS_13QRenderAspectERK11QMetaObjectRK14QSharedPointerIN8Qt3DCore18QBackendNodeMapperEE(
+    Qt3DRender::Render::QRenderPlugin *self,
+    Qt3DRender::QRenderAspect *aspect,
+    const QMetaObject *obj,
+    const Qt3DCore::QBackendNodeMapperPtr *functor) {
+  self->registerBackendType(aspect, *obj, *functor);
+}
+
 //  void
 //      Qt3DRender::Render::QRenderPlugin::unregisterBackendType(QRenderAspec
 //      t *aspect, const QMetaObject &obj)

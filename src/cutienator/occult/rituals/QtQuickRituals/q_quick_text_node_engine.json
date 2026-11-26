@@ -7,6 +7,10 @@
   "rows": {
     "ritual_ZN20QQuickTextNodeEngineC1Ev": ["address"],
     "ritual_ZNK20QQuickTextNodeEngine11hasContentsEv": ["bool", "address"],
+    "ritual_ZN20QQuickTextNodeEngine12addTextBlockEP13QTextDocumentRK10QTextBlockRK7QPointFRK6QColorSA_iiRK6QRectF": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "int", "int", "address"
+    ],
     "ritual_ZNK20QQuickTextNodeEngine11currentLineEv": [
       "address", "address"
     ],
@@ -25,6 +29,10 @@
     "ritual_ZN20QQuickTextNodeEngine8addImageERK6QRectFRK6QImagedNS_14SelectionStateEN16QTextFrameFormat8PositionE": [
       "nothing", "address", "address", "address", "double", "int", "int"
     ],
+    "ritual_ZN20QQuickTextNodeEngine7addTextERK10QTextBlockRK15QTextCharFormatRK6QColorRK15QVarLengthArrayIN11QTextLayout11FormatRangeELx256EEiiii": [
+      "int", "address", "address", "address", "address", "address", "int",
+      "int", "int", "int"
+    ],
     "ritual_ZN20QQuickTextNodeEngine13addTextObjectERK10QTextBlockRK7QPointFRK15QTextCharFormatNS_14SelectionStateEP13QTextDocumentiN16QTextFrameFormat8PositionE": [
       "nothing", "address", "address", "address", "address", "int",
       "address", "int", "int"
@@ -38,6 +46,9 @@
     "ritual_ZN20QQuickTextNodeEngine16addGlyphsInRangeEiiN15QTextCharFormat14UnderlineStyleERK6QColorS4_S4_ii": [
       "nothing", "address", "int", "int", "int", "address", "address",
       "address", "int", "int"
+    ],
+    "ritual_ZN20QQuickTextNodeEngine18addGlyphsForRangesERK15QVarLengthArrayIN11QTextLayout11FormatRangeELx256EEiiii": [
+      "nothing", "address", "address", "int", "int", "int", "int"
     ],
     "ritual_ZN20QQuickTextNodeEngine17setSelectionColorERK6QColor": [
       "nothing", "address", "address"
@@ -59,6 +70,12 @@
     ],
     "ritual_ZN20QQuickTextNodeEngine18processCurrentLineEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTextNodeEngine18addTextDecorationsE5QSpanIKNS_14TextDecorationELm18446744073709551615EEdd": [
+      "nothing", "address", "address", "double", "double"
+    ],
+    "ritual_ZN20QQuickTextNodeEngine12mergeFormatsEP11QTextLayoutP15QVarLengthArrayINS0_11FormatRangeELx256EE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN20QQuickTextNodeEngineD1Ev": ["nothing", "address"]
   }

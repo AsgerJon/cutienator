@@ -201,10 +201,32 @@ const QMetaObject *ritual_ZNK7QThread10metaObjectEv(const QThread *self) {
   return self->metaObject();
 }
 
+//  void *QThread::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QThread11qt_metacastEPKc(QThread *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QThread::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QThread11qt_metacallEN11QMetaObject4CallEiPPv(
+    QThread *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QThread::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QThread2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QThread::tr(s, c, n));
+}
+
+//  Qt::HANDLE QThread::currentThreadId()
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_ZN7QThread15currentThreadIdEv() {
+  return QThread::currentThreadId();
 }
 
 //  QThread *QThread::currentThread()
@@ -400,6 +422,25 @@ void ritual_ZN7QThread6usleepEm(unsigned long a0) {
   QThread::usleep(a0);
 }
 
+//  void QThread::sleep(std::chrono::nanoseconds nsec)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QThread5sleepENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(
+    long long nsec) {
+  QThread::sleep(std::chrono::nanoseconds(nsec));
+}
+
+//  void QThread::started(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QThread7startedENS_14QPrivateSignalE(QThread *self) {
+  self->started(QThread::QPrivateSignal());
+}
+
+//  void QThread::finished(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QThread8finishedENS_14QPrivateSignalE(QThread *self) {
+  self->finished(QThread::QPrivateSignal());
+}
+
 //  void QThread::run()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QThread3runEv(QThread *self) {
@@ -418,6 +459,14 @@ void ritual_ZN7QThread21setTerminationEnabledEb(bool enabled) {
   QThread::setTerminationEnabled(enabled);
 }
 
+//  QThread::QThread(QThreadPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QThread *ritual_ZN7QThreadC1ER14QThreadPrivateP7QObject(
+    QThreadPrivate *dd,
+    QObject *parent) {
+  return new CuteQThread(*dd, parent);
+}
+
 //  QThreadPrivate *QThread::d_func()
 extern "C" Q_DECL_EXPORT
 QThreadPrivate *ritual_ZN7QThread6d_funcEv(QThread *self) {
@@ -428,6 +477,19 @@ QThreadPrivate *ritual_ZN7QThread6d_funcEv(QThread *self) {
 extern "C" Q_DECL_EXPORT
 const QThreadPrivate *ritual_ZNK7QThread6d_funcEv(const QThread *self) {
   return self->d_func();
+}
+
+//  QThread *QThread::createThreadImpl(std::future<void> &&future)
+extern "C" Q_DECL_EXPORT
+QThread *ritual_ZN7QThread16createThreadImplEOSt6futureIvE(
+    std::future<void> *future) {
+  return QThread::createThreadImpl(std::move(*future));
+}
+
+//  Qt::HANDLE QThread::currentThreadIdImpl()
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_ZN7QThread19currentThreadIdImplEv() {
+  return QThread::currentThreadIdImpl();
 }
 
 //  a Python function taken by a CuteQThread, for the function named by the

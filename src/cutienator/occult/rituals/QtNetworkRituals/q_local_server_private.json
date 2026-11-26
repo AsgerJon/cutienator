@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN19QLocalServerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK19QLocalServerPrivate6q_funcEv": ["address", "address"],
-    "ritual_ZN19QLocalServerPrivateC1Ev": ["address"]
+    "ritual_ZN19QLocalServerPrivateC1Ev": ["address"],
+    "ritual_ZN19QLocalServerPrivate33_qt_property_socketOptions_offsetEv": [
+      "size_t"
+    ]
   }
 }

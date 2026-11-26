@@ -16,6 +16,24 @@
     "ritual_ZNK20QModbusClientPrivate15createRWRequestERK15QModbusDataUnitS2_": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN20QModbusClientPrivate15processResponseERK15QModbusResponseP15QModbusDataUnit": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QModbusClientPrivate24processReadCoilsResponseERK15QModbusResponseP15QModbusDataUnit": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QModbusClientPrivate11collateBitsERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN20QModbusClientPrivate12collateBytesERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN20QModbusClientPrivate18collateSingleValueERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN20QModbusClientPrivate21collateMultipleValuesERK10QModbusPduN15QModbusDataUnit12RegisterTypeEPS3_": [
+      "bool", "address", "address", "int", "address"
+    ],
     "ritual_ZN20QModbusClientPrivate14enqueueRequestERK14QModbusRequestiRK15QModbusDataUnitN12QModbusReply9ReplyTypeE": [
       "address", "address", "address", "int", "address", "int"
     ],

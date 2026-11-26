@@ -10,6 +10,9 @@
       "unsigned char"
     ],
     "ritual_ZN10QSvgSymbolD1Ev": ["nothing", "address"],
+    "ritual_ZN10QSvgSymbol11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK10QSvgSymbol4typeEv": ["int", "address"],
     "ritual_take_QSvgSymbol": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QSvgSymbol4typeEv": ["int", "address"]

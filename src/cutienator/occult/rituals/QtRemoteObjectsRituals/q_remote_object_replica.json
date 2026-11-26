@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QRemoteObjectReplica10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QRemoteObjectReplica11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QRemoteObjectReplica11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QRemoteObjectReplica2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -22,8 +28,16 @@
     "ritual_ZN20QRemoteObjectReplica7setNodeEP17QRemoteObjectNode": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QRemoteObjectReplica11initializedEv": ["nothing", "address"],
+    "ritual_ZN20QRemoteObjectReplica8notifiedEv": ["nothing", "address"],
+    "ritual_ZN20QRemoteObjectReplica12stateChangedENS_5StateES0_": [
+      "nothing", "address", "int", "int"
+    ],
     "ritual_ZN20QRemoteObjectReplicaC1ENS_15ConstructorTypeE": [
       "address", "int"
+    ],
+    "ritual_ZN20QRemoteObjectReplicaC1ER14QObjectPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN20QRemoteObjectReplica10initializeEv": ["nothing", "address"],
     "ritual_ZN20QRemoteObjectReplica4sendEN11QMetaObject4CallEiRK5QListI8QVariantE": [
@@ -31,6 +45,9 @@
     ],
     "ritual_ZN20QRemoteObjectReplica13sendWithReplyEN11QMetaObject4CallEiRK5QListI8QVariantE": [
       "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QRemoteObjectReplica13setPropertiesEO5QListI8QVariantE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN20QRemoteObjectReplica8setChildEiRK8QVariant": [
       "nothing", "address", "int", "address"

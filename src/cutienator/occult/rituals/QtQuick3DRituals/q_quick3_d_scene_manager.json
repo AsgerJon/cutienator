@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuick3DSceneManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DSceneManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuick3DSceneManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuick3DSceneManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -49,8 +55,36 @@
     "ritual_ZN20QQuick3DSceneManager22updateDirtySpatialNodeEP12QQuick3DNode": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QQuick3DSceneManager19updateBoundingBoxesER17QSSGBufferManager": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QQuick3DSceneManager10lookUpNodeEPK21QSSGRenderGraphObject": [
       "address", "address", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager17resourceListIndexEN21QSSGRenderGraphObject4TypeE": [
+      "size_t", "unsigned int"
+    ],
+    "ritual_ZN20QQuick3DSceneManager13nodeListIndexEN21QSSGRenderGraphObject4TypeE": [
+      "size_t", "unsigned int"
+    ],
+    "ritual_ZN20QQuick3DSceneManager18extensionListIndexEN21QSSGRenderGraphObject4TypeE": [
+      "size_t", "unsigned int"
+    ],
+    "ritual_ZN20QQuick3DSceneManager24getOrSetWindowAttachmentER12QQuickWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager11needsUpdateEv": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSceneManager13windowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager15updateResourcesEPP14QQuick3DObject": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager11updateNodesEPP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager16updateExtensionsEPP14QQuick3DObject": [
+      "unsigned int", "address", "address"
     ],
     "ritual_take_QQuick3DSceneManager": [
       "bool", "address", "chars", "address"

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquickcolorgroup_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquickcolorgroup_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25: added by hand, rituals for functions the generator
+//  leaves out: 2. Kept as it is when the generator runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,6 +9,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtGui/qcolor.h>
+#include <cstring>
 
 //  Only a class built on QQuickColorGroup may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -20,6 +22,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QQuickColorGroup10metaObjectEv(
     const QQuickColorGroup *self) {
   return self->metaObject();
+}
+
+//  void *QQuickColorGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickColorGroup11qt_metacastEPKc(
+    QQuickColorGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickColorGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickColorGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickColorGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickColorGroup::tr(const char *s, const char *c, int n)
@@ -489,6 +510,177 @@ void ritual_ZN16QQuickColorGroup11setGroupTagEN8QPalette10ColorGroupE(
   self->setGroupTag(tag);
 }
 
+//  const QQuickPaletteColorProvider &QQuickColorGroup::colorProvider() const
+extern "C" Q_DECL_EXPORT
+const QQuickPaletteColorProvider *ritual_ZNK16QQuickColorGroup13colorProviderEv(
+    const QQuickColorGroup *self) {
+  return &(self->colorProvider());
+}
+
+//  QQuickPaletteColorProvider &QQuickColorGroup::colorProvider()
+extern "C" Q_DECL_EXPORT
+QQuickPaletteColorProvider *ritual_ZN16QQuickColorGroup13colorProviderEv(
+    QQuickColorGroup *self) {
+  return &(self->colorProvider());
+}
+
+//  QQuickColorGroup *QQuickColorGroup::createWithParent(QQuickPalette
+//      &parent)
+extern "C" Q_DECL_EXPORT
+QQuickColorGroup *ritual_ZN16QQuickColorGroup16createWithParentER13QQuickPalette(
+    QQuickPalette *parent) {
+  return QQuickColorGroup::createWithParent(*parent);
+}
+
+//  void QQuickColorGroup::alternateBaseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup20alternateBaseChangedEv(
+    QQuickColorGroup *self) {
+  self->alternateBaseChanged();
+}
+
+//  void QQuickColorGroup::baseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup11baseChangedEv(QQuickColorGroup *self) {
+  self->baseChanged();
+}
+
+//  void QQuickColorGroup::brightTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup17brightTextChangedEv(
+    QQuickColorGroup *self) {
+  self->brightTextChanged();
+}
+
+//  void QQuickColorGroup::buttonChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup13buttonChangedEv(QQuickColorGroup *self) {
+  self->buttonChanged();
+}
+
+//  void QQuickColorGroup::buttonTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup17buttonTextChangedEv(
+    QQuickColorGroup *self) {
+  self->buttonTextChanged();
+}
+
+//  void QQuickColorGroup::darkChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup11darkChangedEv(QQuickColorGroup *self) {
+  self->darkChanged();
+}
+
+//  void QQuickColorGroup::highlightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup16highlightChangedEv(
+    QQuickColorGroup *self) {
+  self->highlightChanged();
+}
+
+//  void QQuickColorGroup::highlightedTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup22highlightedTextChangedEv(
+    QQuickColorGroup *self) {
+  self->highlightedTextChanged();
+}
+
+//  void QQuickColorGroup::lightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup12lightChangedEv(QQuickColorGroup *self) {
+  self->lightChanged();
+}
+
+//  void QQuickColorGroup::linkChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup11linkChangedEv(QQuickColorGroup *self) {
+  self->linkChanged();
+}
+
+//  void QQuickColorGroup::linkVisitedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup18linkVisitedChangedEv(
+    QQuickColorGroup *self) {
+  self->linkVisitedChanged();
+}
+
+//  void QQuickColorGroup::midChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup10midChangedEv(QQuickColorGroup *self) {
+  self->midChanged();
+}
+
+//  void QQuickColorGroup::midlightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup15midlightChangedEv(QQuickColorGroup *self) {
+  self->midlightChanged();
+}
+
+//  void QQuickColorGroup::shadowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup13shadowChangedEv(QQuickColorGroup *self) {
+  self->shadowChanged();
+}
+
+//  void QQuickColorGroup::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup11textChangedEv(QQuickColorGroup *self) {
+  self->textChanged();
+}
+
+//  void QQuickColorGroup::toolTipBaseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup18toolTipBaseChangedEv(
+    QQuickColorGroup *self) {
+  self->toolTipBaseChanged();
+}
+
+//  void QQuickColorGroup::toolTipTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup18toolTipTextChangedEv(
+    QQuickColorGroup *self) {
+  self->toolTipTextChanged();
+}
+
+//  void QQuickColorGroup::windowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup13windowChangedEv(QQuickColorGroup *self) {
+  self->windowChanged();
+}
+
+//  void QQuickColorGroup::windowTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup17windowTextChangedEv(
+    QQuickColorGroup *self) {
+  self->windowTextChanged();
+}
+
+//  void QQuickColorGroup::placeholderTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup22placeholderTextChangedEv(
+    QQuickColorGroup *self) {
+  self->placeholderTextChanged();
+}
+
+//  void QQuickColorGroup::accentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup13accentChangedEv(QQuickColorGroup *self) {
+  self->accentChanged();
+}
+
+//  void QQuickColorGroup::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup7changedEv(QQuickColorGroup *self) {
+  self->changed();
+}
+
+//  QQuickColorGroup::QQuickColorGroup(QQuickPalette &parent)
+extern "C" Q_DECL_EXPORT
+QQuickColorGroup *ritual_ZN16QQuickColorGroupC1ER13QQuickPalette(
+    QQuickPalette *parent) {
+  return new QQuickColorGroup(*parent);
+}
+
 //  QPalette::ColorGroup QQuickColorGroup::defaultGroupTag()
 extern "C" Q_DECL_EXPORT
 QPalette::ColorGroup ritual_ZN16QQuickColorGroup15defaultGroupTagEv() {
@@ -515,4 +707,92 @@ extern "C" Q_DECL_EXPORT
 QPalette::ColorGroup ritual_own_ZNK16QQuickColorGroup17currentColorGroupEv(
     const QQuickColorGroup *self) {
   return static_cast<const OwnQQuickColorGroup *>(self)->OwnQQuickColorGroup::currentColorGroup();
+}
+
+//  void QQuickColorGroup::setColor(QPalette::ColorRole role, QColor color,
+//      Notifier notifier)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup8setColorEN8QPalette9ColorRoleE6QColorMS_FvvE(
+    QQuickColorGroup *self,
+    int role,
+    const QColor *color,
+    const char *notifier) {
+  static const struct {
+    const char *name;
+    QQuickColorGroup::Notifier member;
+  } known[] = {
+      {"accentChanged", &QQuickColorGroup::accentChanged},
+      {"alternateBaseChanged", &QQuickColorGroup::alternateBaseChanged},
+      {"baseChanged", &QQuickColorGroup::baseChanged},
+      {"brightTextChanged", &QQuickColorGroup::brightTextChanged},
+      {"buttonChanged", &QQuickColorGroup::buttonChanged},
+      {"buttonTextChanged", &QQuickColorGroup::buttonTextChanged},
+      {"darkChanged", &QQuickColorGroup::darkChanged},
+      {"highlightChanged", &QQuickColorGroup::highlightChanged},
+      {"highlightedTextChanged", &QQuickColorGroup::highlightedTextChanged},
+      {"lightChanged", &QQuickColorGroup::lightChanged},
+      {"linkChanged", &QQuickColorGroup::linkChanged},
+      {"linkVisitedChanged", &QQuickColorGroup::linkVisitedChanged},
+      {"midChanged", &QQuickColorGroup::midChanged},
+      {"midlightChanged", &QQuickColorGroup::midlightChanged},
+      {"placeholderTextChanged", &QQuickColorGroup::placeholderTextChanged},
+      {"shadowChanged", &QQuickColorGroup::shadowChanged},
+      {"textChanged", &QQuickColorGroup::textChanged},
+      {"toolTipBaseChanged", &QQuickColorGroup::toolTipBaseChanged},
+      {"toolTipTextChanged", &QQuickColorGroup::toolTipTextChanged},
+      {"windowChanged", &QQuickColorGroup::windowChanged},
+      {"windowTextChanged", &QQuickColorGroup::windowTextChanged},
+  };
+  for (const auto &one : known) {
+    if (!std::strcmp(one.name, notifier)) {
+      self->setColor(
+          static_cast<QPalette::ColorRole>(role), *color,
+          one.member);
+      return;
+    }
+  }
+  qFatal("no member function named %s here", notifier);
+}
+
+//  void QQuickColorGroup::resetColor(QPalette::ColorRole role, Notifier
+//      notifier)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickColorGroup10resetColorEN8QPalette9ColorRoleEMS_FvvE(
+    QQuickColorGroup *self,
+    int role,
+    const char *notifier) {
+  static const struct {
+    const char *name;
+    QQuickColorGroup::Notifier member;
+  } known[] = {
+      {"accentChanged", &QQuickColorGroup::accentChanged},
+      {"alternateBaseChanged", &QQuickColorGroup::alternateBaseChanged},
+      {"baseChanged", &QQuickColorGroup::baseChanged},
+      {"brightTextChanged", &QQuickColorGroup::brightTextChanged},
+      {"buttonChanged", &QQuickColorGroup::buttonChanged},
+      {"buttonTextChanged", &QQuickColorGroup::buttonTextChanged},
+      {"darkChanged", &QQuickColorGroup::darkChanged},
+      {"highlightChanged", &QQuickColorGroup::highlightChanged},
+      {"highlightedTextChanged", &QQuickColorGroup::highlightedTextChanged},
+      {"lightChanged", &QQuickColorGroup::lightChanged},
+      {"linkChanged", &QQuickColorGroup::linkChanged},
+      {"linkVisitedChanged", &QQuickColorGroup::linkVisitedChanged},
+      {"midChanged", &QQuickColorGroup::midChanged},
+      {"midlightChanged", &QQuickColorGroup::midlightChanged},
+      {"placeholderTextChanged", &QQuickColorGroup::placeholderTextChanged},
+      {"shadowChanged", &QQuickColorGroup::shadowChanged},
+      {"textChanged", &QQuickColorGroup::textChanged},
+      {"toolTipBaseChanged", &QQuickColorGroup::toolTipBaseChanged},
+      {"toolTipTextChanged", &QQuickColorGroup::toolTipTextChanged},
+      {"windowChanged", &QQuickColorGroup::windowChanged},
+      {"windowTextChanged", &QQuickColorGroup::windowTextChanged},
+  };
+  for (const auto &one : known) {
+    if (!std::strcmp(one.name, notifier)) {
+      self->resetColor(
+          static_cast<QPalette::ColorRole>(role), one.member);
+      return;
+    }
+  }
+  qFatal("no member function named %s here", notifier);
 }

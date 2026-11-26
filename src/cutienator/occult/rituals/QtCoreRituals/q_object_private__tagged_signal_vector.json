@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN14QObjectPrivate18TaggedSignalVectorC1Ev": ["address"],
+    "ritual_ZN14QObjectPrivate18TaggedSignalVectorC1EDn": ["address"],
     "ritual_ZN14QObjectPrivate18TaggedSignalVectorC1EPNS_10ConnectionE": [
       "address", "address"
     ],
@@ -17,6 +18,9 @@
     ],
     "ritual_ZNK14QObjectPrivate18TaggedSignalVectorcvPNS_10ConnectionEEv": [
       "address", "address"
+    ],
+    "ritual_ZNK14QObjectPrivate18TaggedSignalVectorcvmEv": [
+      "unsigned long long", "address"
     ],
     "ritual_ZN14QObjectPrivate18TaggedSignalVectorD1Ev": [
       "nothing", "address"

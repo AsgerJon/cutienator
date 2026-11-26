@@ -187,6 +187,26 @@ QRhiTexture::Format ritual_ZNK16QRhiRenderBuffer13backingFormatEv(
   return self->backingFormat();
 }
 
+//  QRhiRenderBuffer::QRhiRenderBuffer(QRhiImplementation *rhi, Type type_,
+//      const QSize &pixelSize_, int sampleCount_, Flags flags_,
+//      QRhiTexture::Format backingFormatHint_)
+extern "C" Q_DECL_EXPORT
+QRhiRenderBuffer *ritual_ZN16QRhiRenderBufferC1EP18QRhiImplementationNS_4TypeERK5QSizei6QFlagsINS_4FlagEEN11QRhiTexture6FormatE(
+    QRhiImplementation *rhi,
+    QRhiRenderBuffer::Type type_,
+    const QSize *pixelSize_,
+    int sampleCount_,
+    int flags_,
+    QRhiTexture::Format backingFormatHint_) {
+  return new CuteQRhiRenderBuffer(
+      rhi,
+      type_,
+      *pixelSize_,
+      sampleCount_,
+      QFlags<QRhiRenderBuffer::Flag>::fromInt(flags_),
+      backingFormatHint_);
+}
+
 //  a Python function taken by a CuteQRhiRenderBuffer, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

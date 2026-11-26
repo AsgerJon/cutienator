@@ -5,9 +5,17 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QKtxHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN11QKtxHandler7canReadERK10QByteArrayS2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QKtxHandler4readEv": ["address", "address"],
     "ritual_ZNK11QKtxHandler6decodeEj": [
       "unsigned int", "address", "unsigned int"
     ],
-    "ritual_take_QKtxHandler": ["bool", "address", "chars", "address"]
+    "ritual_take_QKtxHandler": ["bool", "address", "chars", "address"],
+    "ritual_drop_QKtxHandler__std_optional_QMap_QByteArray_QByteArray": [
+      "nothing", "address"
+    ]
   }
 }

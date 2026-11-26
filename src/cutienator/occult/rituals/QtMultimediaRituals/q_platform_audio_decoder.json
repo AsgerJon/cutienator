@@ -8,6 +8,12 @@
     "ritual_ZNK21QPlatformAudioDecoder10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QPlatformAudioDecoder11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QPlatformAudioDecoder2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,8 @@
     "ritual_ZNK21QPlatformAudioDecoder15bufferAvailableEv": [
       "bool", "address"
     ],
+    "ritual_ZNK21QPlatformAudioDecoder8positionEv": ["long long", "address"],
+    "ritual_ZNK21QPlatformAudioDecoder8durationEv": ["long long", "address"],
     "ritual_ZN21QPlatformAudioDecoder13formatChangedERK12QAudioFormat": [
       "nothing", "address", "address"
     ],
@@ -54,10 +62,19 @@
     ],
     "ritual_ZN21QPlatformAudioDecoder8finishedEv": ["nothing", "address"],
     "ritual_ZNK21QPlatformAudioDecoder10isDecodingEv": ["bool", "address"],
+    "ritual_ZN21QPlatformAudioDecoder15positionChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder15durationChangedENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZNK21QPlatformAudioDecoder5errorEv": ["int", "address"],
     "ritual_ZNK21QPlatformAudioDecoder11errorStringEv": ["text", "address"],
     "ritual_ZNK21QPlatformAudioDecoder10canReadQrcEv": ["bool", "address"],
     "ritual_ZN21QPlatformAudioDecoderD1Ev": ["nothing", "address"],
+    "ritual_ZN21QPlatformAudioDecoderC1EP13QAudioDecoder": [
+      "address", "address"
+    ],
     "ritual_take_QPlatformAudioDecoder": [
       "bool", "address", "chars", "address"
     ],

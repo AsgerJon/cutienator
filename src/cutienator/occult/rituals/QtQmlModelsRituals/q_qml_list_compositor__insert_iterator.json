@@ -12,6 +12,9 @@
     "ritual_ZN18QQmlListCompositor15insert_iteratorC1EPNS_5RangeEiNS_5GroupEi": [
       "address", "address", "int", "int", "int"
     ],
+    "ritual_ZN18QQmlListCompositor15insert_iteratorpLEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN18QQmlListCompositor15insert_iteratorD1Ev": [
       "nothing", "address"
     ]

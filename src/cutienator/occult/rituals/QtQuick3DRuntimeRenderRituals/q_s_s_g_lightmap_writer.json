@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZN18QSSGLightmapWriterD1Ev": ["nothing", "address"],
+    "ritual_ZN18QSSGLightmapWriter4openERK14QSharedPointerI9QIODeviceE": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSSGLightmapWriter4openERK7QString": ["address", "text"],
     "ritual_ZN18QSSGLightmapWriter13writeF32ImageERK7QString21QSSGLightmapIODataTagRK10QByteArray": [
       "bool", "address", "text", "unsigned int", "address"
     ],
@@ -19,6 +23,9 @@
       "bool", "address", "text", "unsigned int", "address"
     ],
     "ritual_ZNK18QSSGLightmapWriter5closeEv": ["bool", "address"],
-    "ritual_ZN18QSSGLightmapWriterC1Ev": ["address"]
+    "ritual_ZN18QSSGLightmapWriterC1Ev": ["address"],
+    "ritual_drop_QSSGLightmapWriter__QSharedPointer_QSSGLightmapWriter": [
+      "nothing", "address"
+    ]
   }
 }

@@ -75,6 +75,13 @@ void ritual_ZN19QVideoFrameTextures17onFrameEndInvokedEv(
   self->onFrameEndInvoked();
 }
 
+//  QVideoFrameTexturesHandlesUPtr QVideoFrameTextures::takeHandles()
+extern "C" Q_DECL_EXPORT
+QVideoFrameTexturesHandlesUPtr *ritual_ZN19QVideoFrameTextures11takeHandlesEv(
+    QVideoFrameTextures *self) {
+  return new QVideoFrameTexturesHandlesUPtr(self->takeHandles());
+}
+
 //  void QVideoFrameTextures::setSourceFrame(QVideoFrame sourceFrame)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QVideoFrameTextures14setSourceFrameE11QVideoFrame(
@@ -98,4 +105,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QVideoFrameTextures17onFrameEndInvokedEv(
     QVideoFrameTextures *self) {
   self->QVideoFrameTextures::onFrameEndInvoked();
+}
+
+//  a QVideoFrameTexturesHandlesUPtr a ritual of QVideoFrameTextures gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QVideoFrameTextures__QVideoFrameTexturesHandlesUPtr(
+    QVideoFrameTexturesHandlesUPtr *self) {
+  delete self;
 }

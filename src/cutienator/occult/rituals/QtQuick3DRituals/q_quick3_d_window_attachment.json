@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuick3DWindowAttachment10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuick3DWindowAttachment11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuick3DWindowAttachment2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,6 +25,9 @@
     "ritual_ZN24QQuick3DWindowAttachment16cleanupResourcesEv": [
       "nothing", "address"
     ],
+    "ritual_ZN24QQuick3DWindowAttachment11synchronizeER4QSetIP21QSSGRenderGraphObjectE": [
+      "unsigned int", "address", "address"
+    ],
     "ritual_ZN24QQuick3DWindowAttachment13requestUpdateEv": [
       "nothing", "address"
     ],
@@ -29,6 +38,16 @@
     "ritual_ZNK24QQuick3DWindowAttachment8rootNodeEv": [
       "address", "address"
     ],
+    "ritual_ZNK24QQuick3DWindowAttachment3rciEv": ["address", "address"],
+    "ritual_ZN24QQuick3DWindowAttachment6setRciERKSt10shared_ptrI26QSSGRenderContextInterfaceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment20registerSceneManagerER20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment22unregisterSceneManagerER20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QQuick3DWindowAttachment15queueForCleanupEP21QSSGRenderGraphObject": [
       "nothing", "address", "address"
     ],
@@ -37,6 +56,12 @@
     ],
     "ritual_ZN24QQuick3DWindowAttachment15queueForCleanupEP15QSSGRenderLayer": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment29renderContextInterfaceChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN24QQuick3DWindowAttachment24onReleaseCachedResourcesEv": [
       "nothing", "address"

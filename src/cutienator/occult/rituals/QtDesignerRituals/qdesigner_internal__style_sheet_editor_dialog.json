@@ -8,11 +8,62 @@
     "ritual_ZNK18qdesigner_internal22StyleSheetEditorDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialogC1EP28QDesignerFormEditorInterfaceP7QWidgetNS0_4ModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialogD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22StyleSheetEditorDialog4textEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog17isStyleSheetValidERK7QString": [
       "bool", "text"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog18validateStyleSheetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog24slotContextMenuRequestedERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog15slotAddResourceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog15slotAddGradientERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog12slotAddColorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog11slotAddFontEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog15slotRequestHelpEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22StyleSheetEditorDialog9buttonBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog18setOkButtonEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal22StyleSheetEditorDialog17insertCssPropertyERK7QStringS3_": [
+      "nothing", "address", "text", "text"
     ],
     "ritual_take_qdesigner_internal_StyleSheetEditorDialog": [
       "bool", "address", "chars", "address"

@@ -7,6 +7,25 @@
   "rows": {
     "ritual_ZN6QQmlSA15PropertyPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK6QQmlSA15PropertyPrivate6q_funcEv": ["address", "address"],
-    "ritual_ZN6QQmlSA15PropertyPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN6QQmlSA15PropertyPrivateC1EPNS_8PropertyE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA15PropertyPrivateC1EPNS_8PropertyERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA15PropertyPrivateC1EPNS_8PropertyEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA15PropertyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA15PropertyPrivate8typeNameEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA15PropertyPrivate7isValidEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA15PropertyPrivate10isReadonlyEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA15PropertyPrivate4typeEv": ["address", "address"],
+    "ritual_ZN6QQmlSA15PropertyPrivate8propertyERKNS_8PropertyE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA15PropertyPrivate14createPropertyERK18QQmlJSMetaProperty": [
+      "address", "address"
+    ]
   }
 }

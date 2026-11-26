@@ -5,6 +5,8 @@
 #include <QtCore/qstring.h>
 #include <QtMultimedia/qaudioformat.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtMultimedia/QAudioFormat>
 
 //  QAudioDevice::QAudioDevice()
 extern "C" Q_DECL_EXPORT
@@ -22,6 +24,36 @@ QAudioDevice *ritual_ZN12QAudioDeviceC1ERKS_(const QAudioDevice *other) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QAudioDeviceD1Ev(QAudioDevice *self) {
   delete self;
+}
+
+//  QAudioDevice::QAudioDevice(QAudioDevice &&other)
+extern "C" Q_DECL_EXPORT
+QAudioDevice *ritual_ZN12QAudioDeviceC1EOS_(QAudioDevice *other) {
+  return new QAudioDevice(std::move(*other));
+}
+
+//  QAudioDevice &QAudioDevice::operator=(QAudioDevice &&other)
+extern "C" Q_DECL_EXPORT
+QAudioDevice *ritual_ZN12QAudioDeviceaSEOS_(
+    QAudioDevice *self,
+    QAudioDevice *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QAudioDevice::swap(QAudioDevice &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QAudioDevice4swapERS_(
+    QAudioDevice *self,
+    QAudioDevice *other) {
+  self->swap(*other);
+}
+
+//  QAudioDevice &QAudioDevice::operator=(const QAudioDevice &other)
+extern "C" Q_DECL_EXPORT
+QAudioDevice *ritual_ZN12QAudioDeviceaSERKS_(
+    QAudioDevice *self,
+    const QAudioDevice *other) {
+  return &(self->operator=(*other));
 }
 
 //  bool QAudioDevice::operator==(const QAudioDevice &other) const
@@ -112,6 +144,15 @@ int ritual_ZNK12QAudioDevice19maximumChannelCountEv(
   return self->maximumChannelCount();
 }
 
+//  QList<QAudioFormat::SampleFormat> QAudioDevice::supportedSampleFormats()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QAudioFormat::SampleFormat> *ritual_ZNK12QAudioDevice22supportedSampleFormatsEv(
+    const QAudioDevice *self) {
+  return new QList<QAudioFormat::SampleFormat>(
+      self->supportedSampleFormats());
+}
+
 //  QAudioFormat::ChannelConfig QAudioDevice::channelConfiguration() const
 extern "C" Q_DECL_EXPORT
 QAudioFormat::ChannelConfig ritual_ZNK12QAudioDevice20channelConfigurationEv(
@@ -166,5 +207,12 @@ QAudioDevice *ritual_list_at_QAudioDevice(
 //  QList<QAudioDevice>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QAudioDevice(QList<QAudioDevice> *self) {
+  delete self;
+}
+
+//  a QList<QAudioFormat::SampleFormat> a ritual of QAudioDevice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAudioDevice__QList_QAudioFormat_SampleFormat(
+    QList<QAudioFormat::SampleFormat> *self) {
   delete self;
 }

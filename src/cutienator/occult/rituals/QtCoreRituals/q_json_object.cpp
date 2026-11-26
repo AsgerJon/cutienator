@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qjsonobject.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qjsonobject.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 2. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qjsonobject.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qstring.h>
@@ -11,11 +13,23 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <utility>
+#include <QtCore/QString>
+#include <QtCore/QJsonValue>
+#include <QtCore/QJsonObject>
 
 //  QJsonObject::QJsonObject()
 extern "C" Q_DECL_EXPORT
 QJsonObject *ritual_ZN11QJsonObjectC1Ev() {
   return new QJsonObject();
+}
+
+//  QJsonObject::QJsonObject(std::initializer_list<std::pair<QString,
+//      QJsonValue>> args)
+extern "C" Q_DECL_EXPORT
+QJsonObject *ritual_ZN11QJsonObjectC1ESt16initializer_listISt4pairI7QString10QJsonValueEE(
+    const std::initializer_list<std::pair<QString, QJsonValue>> *args) {
+  return new QJsonObject(*args);
 }
 
 //  QJsonObject::~QJsonObject()
@@ -28,6 +42,34 @@ void ritual_ZN11QJsonObjectD1Ev(QJsonObject *self) {
 extern "C" Q_DECL_EXPORT
 QJsonObject *ritual_ZN11QJsonObjectC1ERKS_(const QJsonObject *other) {
   return new QJsonObject(*other);
+}
+
+//  QJsonObject &QJsonObject::operator=(const QJsonObject &other)
+extern "C" Q_DECL_EXPORT
+QJsonObject *ritual_ZN11QJsonObjectaSERKS_(
+    QJsonObject *self,
+    const QJsonObject *other) {
+  return &(self->operator=(*other));
+}
+
+//  QJsonObject::QJsonObject(QJsonObject &&other)
+extern "C" Q_DECL_EXPORT
+QJsonObject *ritual_ZN11QJsonObjectC1EOS_(QJsonObject *other) {
+  return new QJsonObject(std::move(*other));
+}
+
+//  QJsonObject &QJsonObject::operator=(QJsonObject &&other)
+extern "C" Q_DECL_EXPORT
+QJsonObject *ritual_ZN11QJsonObjectaSEOS_(
+    QJsonObject *self,
+    QJsonObject *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QJsonObject::swap(QJsonObject &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QJsonObject4swapERS_(QJsonObject *self, QJsonObject *other) {
+  self->swap(*other);
 }
 
 //  QJsonObject QJsonObject::fromVariantMap(const QVariantMap &map)
@@ -286,12 +328,72 @@ QJsonObject::const_iterator *ritual_ZNK11QJsonObject8constEndEv(
   return new QJsonObject::const_iterator(self->constEnd());
 }
 
+//  key_value_iterator QJsonObject::keyValueBegin()
+extern "C" Q_DECL_EXPORT
+QJsonObject::key_value_iterator *ritual_ZN11QJsonObject13keyValueBeginEv(
+    QJsonObject *self) {
+  return new QJsonObject::key_value_iterator(self->keyValueBegin());
+}
+
+//  key_value_iterator QJsonObject::keyValueEnd()
+extern "C" Q_DECL_EXPORT
+QJsonObject::key_value_iterator *ritual_ZN11QJsonObject11keyValueEndEv(
+    QJsonObject *self) {
+  return new QJsonObject::key_value_iterator(self->keyValueEnd());
+}
+
+//  const_key_value_iterator QJsonObject::keyValueBegin() const
+extern "C" Q_DECL_EXPORT
+QJsonObject::const_key_value_iterator *ritual_ZNK11QJsonObject13keyValueBeginEv(
+    const QJsonObject *self) {
+  return new QJsonObject::const_key_value_iterator(self->keyValueBegin());
+}
+
+//  const_key_value_iterator QJsonObject::constKeyValueBegin() const
+extern "C" Q_DECL_EXPORT
+QJsonObject::const_key_value_iterator *ritual_ZNK11QJsonObject18constKeyValueBeginEv(
+    const QJsonObject *self) {
+  return new QJsonObject::const_key_value_iterator(
+      self->constKeyValueBegin());
+}
+
+//  const_key_value_iterator QJsonObject::keyValueEnd() const
+extern "C" Q_DECL_EXPORT
+QJsonObject::const_key_value_iterator *ritual_ZNK11QJsonObject11keyValueEndEv(
+    const QJsonObject *self) {
+  return new QJsonObject::const_key_value_iterator(self->keyValueEnd());
+}
+
+//  const_key_value_iterator QJsonObject::constKeyValueEnd() const
+extern "C" Q_DECL_EXPORT
+QJsonObject::const_key_value_iterator *ritual_ZNK11QJsonObject16constKeyValueEndEv(
+    const QJsonObject *self) {
+  return new QJsonObject::const_key_value_iterator(self->constKeyValueEnd());
+}
+
 //  iterator QJsonObject::erase(iterator it)
 extern "C" Q_DECL_EXPORT
 QJsonObject::iterator *ritual_ZN11QJsonObject5eraseENS_8iteratorE(
     QJsonObject *self,
     const QJsonObject::iterator *it) {
   return new QJsonObject::iterator(self->erase(*it));
+}
+
+//  QtPrivate::QKeyValueRange<QJsonObject &> QJsonObject::asKeyValueRange()
+extern "C" Q_DECL_EXPORT
+QtPrivate::QKeyValueRange<QJsonObject &> *ritual_ZNR11QJsonObject15asKeyValueRangeEv(
+    QJsonObject *self) {
+  return new QtPrivate::QKeyValueRange<QJsonObject &>(
+      self->asKeyValueRange());
+}
+
+//  QtPrivate::QKeyValueRange<const QJsonObject &>
+//      QJsonObject::asKeyValueRange() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::QKeyValueRange<const QJsonObject &> *ritual_ZNKR11QJsonObject15asKeyValueRangeEv(
+    const QJsonObject *self) {
+  return new QtPrivate::QKeyValueRange<const QJsonObject &>(
+      self->asKeyValueRange());
 }
 
 //  iterator QJsonObject::find(const QString &key)
@@ -597,4 +699,59 @@ extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QMap_QString_QJsonObject(
     QMap<QString, QJsonObject> *self) {
   delete self;
+}
+
+//  a QJsonObject::key_value_iterator a ritual of QJsonObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QJsonObject__QJsonObject_key_value_iterator(
+    QJsonObject::key_value_iterator *self) {
+  delete self;
+}
+
+//  a QJsonObject::const_key_value_iterator a ritual of QJsonObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QJsonObject__QJsonObject_const_key_value_iterator(
+    QJsonObject::const_key_value_iterator *self) {
+  delete self;
+}
+
+//  a QtPrivate::QKeyValueRange<QJsonObject &> a ritual of QJsonObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QJsonObject__QtPrivate_QKeyValueRange_QJsonObject(
+    QtPrivate::QKeyValueRange<QJsonObject &> *self) {
+  delete self;
+}
+
+//  a QtPrivate::QKeyValueRange<const QJsonObject &> a ritual of QJsonObject
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QJsonObject__QtPrivate_QKeyValueRange_const_QJsonObject(
+    QtPrivate::QKeyValueRange<const QJsonObject &> *self) {
+  delete self;
+}
+
+//  iterator QJsonObject::insertAt(qsizetype i, T key,
+//      const QJsonValue &val, bool exists) [T = QStringView]
+extern "C" Q_DECL_EXPORT
+QJsonObject::iterator *ritual_ZN11QJsonObject8insertAtI11QStringViewEENS_8iteratorExT_RK10QJsonValueb(
+    QJsonObject *self,
+    qsizetype i,
+    const QStringView *key,
+    const QJsonValue *val,
+    bool exists) {
+  return new QJsonObject::iterator(
+      self->insertAt<QStringView>(i, *key, *val, exists));
+}
+
+//  iterator QJsonObject::insertAt(qsizetype i, T key,
+//      const QJsonValue &val, bool exists) [T = QLatin1StringView]
+extern "C" Q_DECL_EXPORT
+QJsonObject::iterator *ritual_ZN11QJsonObject8insertAtI13QLatin1StringEENS_8iteratorExT_RK10QJsonValueb(
+    QJsonObject *self,
+    qsizetype i,
+    const QLatin1StringView *key,
+    const QJsonValue *val,
+    bool exists) {
+  return new QJsonObject::iterator(
+      self->insertAt<QLatin1StringView>(i, *key, *val, exists));
 }

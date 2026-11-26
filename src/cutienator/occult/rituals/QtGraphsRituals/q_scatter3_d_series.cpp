@@ -1,11 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qscatter3dseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qscatter3dseries.h>
 #include <QtCore/qstring.h>
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qscatterdataitem.h>
+#endif
 #include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -183,6 +186,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QScatter3DSeries10metaObjectEv(
     const QScatter3DSeries *self) {
   return self->metaObject();
+}
+
+//  void *QScatter3DSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QScatter3DSeries11qt_metacastEPKc(
+    QScatter3DSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScatter3DSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QScatter3DSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScatter3DSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QScatter3DSeries::tr(const char *s, const char *c, int n)
@@ -393,6 +415,80 @@ void ritual_ZN16QScatter3DSeries10resetAxisZEv(QScatter3DSeries *self) {
   self->resetAxisZ();
 }
 
+//  void QScatter3DSeries::dataProxyChanged(QScatterDataProxy *proxy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries16dataProxyChangedEP17QScatterDataProxy(
+    QScatter3DSeries *self,
+    QScatterDataProxy *proxy) {
+  self->dataProxyChanged(proxy);
+}
+
+//  void QScatter3DSeries::selectedItemChanged(qsizetype index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries19selectedItemChangedEx(
+    QScatter3DSeries *self,
+    qsizetype index) {
+  self->selectedItemChanged(index);
+}
+
+//  void QScatter3DSeries::itemSizeChanged(float size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries15itemSizeChangedEf(
+    QScatter3DSeries *self,
+    float size) {
+  self->itemSizeChanged(size);
+}
+
+//  void QScatter3DSeries::dataArrayChanged(const QScatterDataArray &array)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries16dataArrayChangedERK5QListI16QScatterDataItemE(
+    QScatter3DSeries *self,
+    const QList<QScatterDataItem> *array) {
+  self->dataArrayChanged(*array);
+}
+
+//  void QScatter3DSeries::scaleArrayChanged(const QList<QVector3D>
+//      &scaleArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries17scaleArrayChangedERK5QListI9QVector3DE(
+    QScatter3DSeries *self,
+    const QList<QVector3D> *scaleArray) {
+  self->scaleArrayChanged(*scaleArray);
+}
+
+//  void QScatter3DSeries::axisXChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries12axisXChangedEP12QValue3DAxis(
+    QScatter3DSeries *self,
+    QValue3DAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void QScatter3DSeries::axisYChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries12axisYChangedEP12QValue3DAxis(
+    QScatter3DSeries *self,
+    QValue3DAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void QScatter3DSeries::axisZChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QScatter3DSeries12axisZChangedEP12QValue3DAxis(
+    QScatter3DSeries *self,
+    QValue3DAxis *axis) {
+  self->axisZChanged(axis);
+}
+
+//  QScatter3DSeries::QScatter3DSeries(QScatter3DSeriesPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QScatter3DSeries *ritual_ZN16QScatter3DSeriesC1ER23QScatter3DSeriesPrivateP7QObject(
+    QScatter3DSeriesPrivate *d,
+    QObject *parent) {
+  return new CuteQScatter3DSeries(*d, parent);
+}
+
 //  a Python function taken by a CuteQScatter3DSeries, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -439,4 +535,4 @@ void ritual_list_drop_QScatter3DSeries_ptr(QList<QScatter3DSeries *> *self) {
   delete self;
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))

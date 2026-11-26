@@ -195,6 +195,24 @@ const QMetaObject *ritual_ZNK15QSystemTrayIcon10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSystemTrayIcon::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QSystemTrayIcon11qt_metacastEPKc(
+    QSystemTrayIcon *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSystemTrayIcon::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QSystemTrayIcon11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSystemTrayIcon *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSystemTrayIcon::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QSystemTrayIcon2trEPKcS1_i(
@@ -337,6 +355,20 @@ void ritual_ZN15QSystemTrayIcon11showMessageERK7QStringS2_NS_11MessageIconEi(
     QSystemTrayIcon::MessageIcon icon,
     int msecs) {
   self->showMessage(*title, *msg, icon, msecs);
+}
+
+//  void QSystemTrayIcon::activated(QSystemTrayIcon::ActivationReason reason)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSystemTrayIcon9activatedENS_16ActivationReasonE(
+    QSystemTrayIcon *self,
+    QSystemTrayIcon::ActivationReason reason) {
+  self->activated(reason);
+}
+
+//  void QSystemTrayIcon::messageClicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSystemTrayIcon14messageClickedEv(QSystemTrayIcon *self) {
+  self->messageClicked();
 }
 
 //  bool QSystemTrayIcon::event(QEvent *event)

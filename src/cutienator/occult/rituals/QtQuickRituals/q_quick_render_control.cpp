@@ -196,6 +196,25 @@ const QMetaObject *ritual_ZNK19QQuickRenderControl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRenderControl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickRenderControl11qt_metacastEPKc(
+    QQuickRenderControl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRenderControl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickRenderControl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRenderControl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRenderControl::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickRenderControl2trEPKcS1_i(
@@ -323,6 +342,29 @@ extern "C" Q_DECL_EXPORT
 QRhiCommandBuffer *ritual_ZNK19QQuickRenderControl13commandBufferEv(
     const QQuickRenderControl *self) {
   return self->commandBuffer();
+}
+
+//  QQuickRenderControl::QQuickRenderControl(QQuickRenderControlPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickRenderControl *ritual_ZN19QQuickRenderControlC1ER26QQuickRenderControlPrivateP7QObject(
+    QQuickRenderControlPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickRenderControl(*dd, parent);
+}
+
+//  void QQuickRenderControl::renderRequested()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickRenderControl15renderRequestedEv(
+    QQuickRenderControl *self) {
+  self->renderRequested();
+}
+
+//  void QQuickRenderControl::sceneChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickRenderControl12sceneChangedEv(
+    QQuickRenderControl *self) {
+  self->sceneChanged();
 }
 
 //  QQuickRenderControlPrivate *QQuickRenderControl::d_func()

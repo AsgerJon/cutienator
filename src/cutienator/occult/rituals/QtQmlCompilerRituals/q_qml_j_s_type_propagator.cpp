@@ -14,6 +14,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QString>
 
 //  Only a class built on QQmlJSTypePropagator may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -3558,6 +3559,27 @@ void ritual_ZNK20QQmlJSTypePropagator43handleUnqualifiedAccessAndContextProperti
   self->handleUnqualifiedAccessAndContextProperties(*name, isMethod);
 }
 
+//  void QQmlJSTypePropagator::checkDeprecated(QQmlJSScope::ConstPtr scope,
+//      const QString &name, bool isMethod) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK20QQmlJSTypePropagator15checkDeprecatedE22QDeferredSharedPointerIK11QQmlJSScopeERK7QStringb(
+    const QQmlJSTypePropagator *self,
+    const QQmlJSScope::ConstPtr *scope,
+    const QString *name,
+    bool isMethod) {
+  self->checkDeprecated(*scope, *name, isMethod);
+}
+
+//  bool QQmlJSTypePropagator::isCallingProperty(QQmlJSScope::ConstPtr scope,
+//      const QString &name) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QQmlJSTypePropagator17isCallingPropertyE22QDeferredSharedPointerIK11QQmlJSScopeERK7QString(
+    const QQmlJSTypePropagator *self,
+    const QQmlJSScope::ConstPtr *scope,
+    const QString *name) {
+  return self->isCallingProperty(*scope, *name);
+}
+
 //  bool QQmlJSTypePropagator::handleImportNamespaceLookup(const QString
 //      &propertyName)
 extern "C" Q_DECL_EXPORT
@@ -3591,6 +3613,17 @@ void ritual_ZN20QQmlJSTypePropagator21warnAboutTypeCoercionEi(
     QQmlJSTypePropagator *self,
     int lhs) {
   self->warnAboutTypeCoercion(lhs);
+}
+
+//  PropertyResolution
+//      QQmlJSTypePropagator::propertyResolution(QQmlJSScope::ConstPtr scope,
+//      const QString &type) const
+extern "C" Q_DECL_EXPORT
+QQmlJSTypePropagator::PropertyResolution ritual_ZNK20QQmlJSTypePropagator18propertyResolutionE22QDeferredSharedPointerIK11QQmlJSScopeERK7QString(
+    const QQmlJSTypePropagator *self,
+    const QQmlJSScope::ConstPtr *scope,
+    const QString *type) {
+  return self->propertyResolution(*scope, *type);
 }
 
 //  void QQmlJSTypePropagator::checkConversion(QQmlJSRegisterContent from,
@@ -3744,6 +3777,16 @@ bool ritual_ZN20QQmlJSTypePropagator16canConvertFromToE21QQmlJSRegisterContentS0
   return self->canConvertFromTo(*from, *to);
 }
 
+//  bool QQmlJSTypePropagator::canConvertFromTo(QQmlJSRegisterContent from,
+//      const QQmlJSScope::ConstPtr &to)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QQmlJSTypePropagator16canConvertFromToE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSTypePropagator *self,
+    const QQmlJSRegisterContent *from,
+    const QQmlJSScope::ConstPtr *to) {
+  return self->canConvertFromTo(*from, *to);
+}
+
 //  QString QQmlJSTypePropagator::registerName(int registerIndex) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK20QQmlJSTypePropagator12registerNameEi(
@@ -3758,6 +3801,24 @@ QQmlJSRegisterContent *ritual_ZN20QQmlJSTypePropagator20checkedInputRegisterEi(
     QQmlJSTypePropagator *self,
     int reg) {
   return new QQmlJSRegisterContent(self->checkedInputRegister(reg));
+}
+
+//  QQmlJSMetaMethod QQmlJSTypePropagator::bestMatchForCall(const
+//      QList<QQmlJSMetaMethod> &methods, int argc, int argv, QStringList
+//      *errors)
+extern "C" Q_DECL_EXPORT
+QQmlJSMetaMethod *ritual_ZN20QQmlJSTypePropagator16bestMatchForCallERK5QListI16QQmlJSMetaMethodEiiPS0_I7QStringE(
+    QQmlJSTypePropagator *self,
+    const QList<QQmlJSMetaMethod> *methods,
+    int argc,
+    int argv,
+    QStringList *errors) {
+  return new QQmlJSMetaMethod(
+      self->bestMatchForCall(
+          *methods,
+          argc,
+          argv,
+          errors));
 }
 
 //  void QQmlJSTypePropagator::setAccumulator(QQmlJSRegisterContent content)
@@ -3807,6 +3868,16 @@ void ritual_ZN20QQmlJSTypePropagator15addReadRegisterEi21QQmlJSRegisterContent(
   self->addReadRegister(index, *convertTo);
 }
 
+//  void QQmlJSTypePropagator::addReadRegister(int index, const
+//      QQmlJSScope::ConstPtr &convertTo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlJSTypePropagator15addReadRegisterEiRK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSTypePropagator *self,
+    int index,
+    const QQmlJSScope::ConstPtr *convertTo) {
+  self->addReadRegister(index, *convertTo);
+}
+
 //  void QQmlJSTypePropagator::addReadAccumulator()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlJSTypePropagator18addReadAccumulatorEv(
@@ -3820,6 +3891,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlJSTypePropagator18addReadAccumulatorE21QQmlJSRegisterContent(
     QQmlJSTypePropagator *self,
     const QQmlJSRegisterContent *convertTo) {
+  self->addReadAccumulator(*convertTo);
+}
+
+//  void QQmlJSTypePropagator::addReadAccumulator(const QQmlJSScope::ConstPtr
+//      &convertTo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlJSTypePropagator18addReadAccumulatorERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSTypePropagator *self,
+    const QQmlJSScope::ConstPtr *convertTo) {
   self->addReadAccumulator(*convertTo);
 }
 

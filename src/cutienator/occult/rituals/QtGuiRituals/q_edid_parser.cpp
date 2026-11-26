@@ -10,6 +10,7 @@
 #include <QtGui/6.12.0/QtGui/private/qedidparser_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
+#include <QtCore/qstring.h>
 
 //  bool QEdidParser::parse(const QByteArray &blob)
 extern "C" Q_DECL_EXPORT
@@ -17,6 +18,14 @@ bool ritual_ZN11QEdidParser5parseERK10QByteArray(
     QEdidParser *self,
     const QByteArray *blob) {
   return self->parse(*blob);
+}
+
+//  QString QEdidParser::parseEdidString(const quint8 *data)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN11QEdidParser15parseEdidStringEPKh(
+    QEdidParser *self,
+    const quint8 *data) {
+  return new QString(self->parseEdidString(data));
 }
 
 //  QEdidParser::~QEdidParser()

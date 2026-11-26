@@ -8,6 +8,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QWebChannel that Python can take functions over in. Every QWebChannel
 //  Python makes is one. Each function below asks the Python
@@ -183,6 +184,24 @@ const QMetaObject *ritual_ZNK11QWebChannel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWebChannel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QWebChannel11qt_metacastEPKc(
+    QWebChannel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWebChannel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QWebChannel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWebChannel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWebChannel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QWebChannel2trEPKcS1_i(
@@ -251,6 +270,13 @@ void ritual_ZN11QWebChannel15setBlockUpdatesEb(
   self->setBlockUpdates(block);
 }
 
+//  QBindable<bool> QWebChannel::bindableBlockUpdates()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN11QWebChannel20bindableBlockUpdatesEv(
+    QWebChannel *self) {
+  return new QBindable<bool>(self->bindableBlockUpdates());
+}
+
 //  int QWebChannel::propertyUpdateInterval() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QWebChannel22propertyUpdateIntervalEv(
@@ -264,6 +290,21 @@ void ritual_ZN11QWebChannel25setPropertyUpdateIntervalEi(
     QWebChannel *self,
     int ms) {
   self->setPropertyUpdateInterval(ms);
+}
+
+//  QBindable<int> QWebChannel::bindablePropertyUpdateInterval()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN11QWebChannel30bindablePropertyUpdateIntervalEv(
+    QWebChannel *self) {
+  return new QBindable<int>(self->bindablePropertyUpdateInterval());
+}
+
+//  void QWebChannel::blockUpdatesChanged(bool block)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QWebChannel19blockUpdatesChangedEb(
+    QWebChannel *self,
+    bool block) {
+  self->blockUpdatesChanged(block);
 }
 
 //  void QWebChannel::connectTo(QWebChannelAbstractTransport *transport)
@@ -295,6 +336,14 @@ const QWebChannelPrivate *ritual_ZNK11QWebChannel6d_funcEv(
   return self->d_func();
 }
 
+//  QWebChannel::QWebChannel(QWebChannelPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QWebChannel *ritual_ZN11QWebChannelC1ER18QWebChannelPrivateP7QObject(
+    QWebChannelPrivate *dd,
+    QObject *parent) {
+  return new CuteQWebChannel(*dd, parent);
+}
+
 //  a Python function taken by a CuteQWebChannel, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -303,4 +352,16 @@ bool ritual_take_QWebChannel(
     const char *key,
     void *call) {
   return static_cast<CuteQWebChannel *>(self)->take(key, call);
+}
+
+//  a QBindable<bool> a ritual of QWebChannel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWebChannel__QBindable_bool(QBindable<bool> *self) {
+  delete self;
+}
+
+//  a QBindable<int> a ritual of QWebChannel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWebChannel__QBindable_int(QBindable<int> *self) {
+  delete self;
 }

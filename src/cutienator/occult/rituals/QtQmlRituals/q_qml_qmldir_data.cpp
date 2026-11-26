@@ -22,21 +22,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/qml/qml/qqmldirdata.cpp, line 14, as _ZNK14QQmlQmldirData7contentEv
-inline const QString &QQmlQmldirData::content() const
-{
-    return m_content;
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmldirdata.cpp, line 19, as _ZNK14QQmlQmldirData14importLocationEPN14QQmlTypeLoader4BlobE
-inline QV4::CompiledData::Location QQmlQmldirData::importLocation(QQmlTypeLoader::Blob *blob) const
-{
-    auto it = m_imports.constFind(blob);
-    if (it == m_imports.constEnd())
-        return QV4::CompiledData::Location();
-    return it->import->location;
-}
-
 //  from ../qtdeclarative/src/qml/qml/qqmldirdata.cpp, line 35, as _ZN14QQmlQmldirData12dataReceivedERKN12QQmlDataBlob14SourceCodeDataE
 inline void QQmlQmldirData::dataReceived(const SourceCodeData &data)
 {
@@ -54,6 +39,21 @@ inline void QQmlQmldirData::initializeFromCachedUnit(const QQmlPrivate::CachedQm
 {
     assertTypeLoaderThread();
     Q_UNIMPLEMENTED();
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmldirdata.cpp, line 14, as _ZNK14QQmlQmldirData7contentEv
+inline const QString &QQmlQmldirData::content() const
+{
+    return m_content;
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmldirdata.cpp, line 19, as _ZNK14QQmlQmldirData14importLocationEPN14QQmlTypeLoader4BlobE
+inline QV4::CompiledData::Location QQmlQmldirData::importLocation(QQmlTypeLoader::Blob *blob) const
+{
+    auto it = m_imports.constFind(blob);
+    if (it == m_imports.constEnd())
+        return QV4::CompiledData::Location();
+    return it->import->location;
 }
 //  -----------------------------------------------------------------------
 

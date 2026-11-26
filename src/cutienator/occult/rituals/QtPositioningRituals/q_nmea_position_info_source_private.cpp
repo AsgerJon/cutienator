@@ -33,12 +33,55 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 26, as local:qnmeapositioninfosource.cpp:QGeoPositionInfoPrivateNmea
+#if USE_POSITION_NMEA_PIMPL
+class QGeoPositionInfoPrivateNmea : public QGeoPositionInfoPrivate
+{
+public:
+    virtual ~QGeoPositionInfoPrivateNmea();
+
+    QList<QByteArray> nmeaSentences;
+};
+#endif  // USE_POSITION_NMEA_PIMPL
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 35, as local:qnmeapositioninfosource.cpp:QGeoPositionInfoPrivateNmea::~QGeoPositionInfoPrivateNmea
+#if USE_POSITION_NMEA_PIMPL
+inline QGeoPositionInfoPrivateNmea::~QGeoPositionInfoPrivateNmea()
+{
+
+}
+#endif  // USE_POSITION_NMEA_PIMPL
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 677, as _ZN30QNmeaPositionInfoSourcePrivate10timerEventEP11QTimerEvent
+inline void QNmeaPositionInfoSourcePrivate::timerEvent(QTimerEvent *)
+{
+    emitPendingUpdate();
+}
+
 //  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 262, as _ZN20QNmeaSimulatedReaderC1EP30QNmeaPositionInfoSourcePrivate
 inline QNmeaSimulatedReader::QNmeaSimulatedReader(QNmeaPositionInfoSourcePrivate *sourcePrivate)
         : QNmeaReader(sourcePrivate),
         m_currTimerId(-1),
         m_hasValidDateTime(false)
 {
+}
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 682, as _ZN30QNmeaPositionInfoSourcePrivate17emitPendingUpdateEv
+inline void QNmeaPositionInfoSourcePrivate::emitPendingUpdate()
+{
+    if (m_pendingUpdate.isValid()) {
+        m_updateTimeoutSent = false;
+        m_noUpdateLastInterval = false;
+        emitUpdated(m_pendingUpdate);
+        m_pendingUpdate = QGeoPositionInfo();
+    } else { // invalid update
+        if (m_noUpdateLastInterval && !m_updateTimeoutSent) {
+            m_updateTimeoutSent = true;
+            m_pendingUpdate = QGeoPositionInfo(); // Invalid already, but clear just in case.
+            m_source->setError(QGeoPositionInfoSource::UpdateTimeoutError);
+        }
+        m_noUpdateLastInterval = true;
+    }
 }
 
 //  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 472, as _ZN30QNmeaPositionInfoSourcePrivateD1Ev
@@ -113,51 +156,6 @@ inline void QNmeaPositionInfoSourcePrivate::notifyNewUpdate(QGeoPositionInfo *up
         }
         m_lastUpdate = *update; // Set in any case, if update is valid. Used in lastKnownPosition().
     }
-}
-
-//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 503, as _ZN30QNmeaPositionInfoSourcePrivate9readyReadEv
-inline void QNmeaPositionInfoSourcePrivate::readyRead()
-{
-    if (m_nmeaReader)
-        m_nmeaReader->readAvailableData();
-}
-
-//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 677, as _ZN30QNmeaPositionInfoSourcePrivate10timerEventEP11QTimerEvent
-inline void QNmeaPositionInfoSourcePrivate::timerEvent(QTimerEvent *)
-{
-    emitPendingUpdate();
-}
-
-//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 682, as _ZN30QNmeaPositionInfoSourcePrivate17emitPendingUpdateEv
-inline void QNmeaPositionInfoSourcePrivate::emitPendingUpdate()
-{
-    if (m_pendingUpdate.isValid()) {
-        m_updateTimeoutSent = false;
-        m_noUpdateLastInterval = false;
-        emitUpdated(m_pendingUpdate);
-        m_pendingUpdate = QGeoPositionInfo();
-    } else { // invalid update
-        if (m_noUpdateLastInterval && !m_updateTimeoutSent) {
-            m_updateTimeoutSent = true;
-            m_pendingUpdate = QGeoPositionInfo(); // Invalid already, but clear just in case.
-            m_source->setError(QGeoPositionInfoSource::UpdateTimeoutError);
-        }
-        m_noUpdateLastInterval = true;
-    }
-}
-
-//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 497, as _ZN30QNmeaPositionInfoSourcePrivate16sourceDataClosedEv
-inline void QNmeaPositionInfoSourcePrivate::sourceDataClosed()
-{
-    if (m_nmeaReader && m_device && m_device->bytesAvailable())
-        m_nmeaReader->readAvailableData();
-}
-
-//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 622, as _ZN30QNmeaPositionInfoSourcePrivate20updateRequestTimeoutEv
-inline void QNmeaPositionInfoSourcePrivate::updateRequestTimeout()
-{
-    m_requestTimer->stop();
-    m_source->setError(QGeoPositionInfoSource::UpdateTimeoutError);
 }
 
 //  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 478, as _ZN30QNmeaPositionInfoSourcePrivate16openSourceDeviceEv
@@ -385,6 +383,25 @@ const QMetaObject *ritual_ZNK30QNmeaPositionInfoSourcePrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNmeaPositionInfoSourcePrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QNmeaPositionInfoSourcePrivate11qt_metacastEPKc(
+    QNmeaPositionInfoSourcePrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNmeaPositionInfoSourcePrivate::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QNmeaPositionInfoSourcePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNmeaPositionInfoSourcePrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QNmeaPositionInfoSourcePrivate::~QNmeaPositionInfoSourcePrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QNmeaPositionInfoSourcePrivateD1Ev(
@@ -425,7 +442,25 @@ void ritual_ZN30QNmeaPositionInfoSourcePrivate15notifyNewUpdateEP16QGeoPositionI
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QNmeaPositionInfoSourcePrivate9readyReadEv(
     QNmeaPositionInfoSourcePrivate *self) {
-  self->readyRead();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNmeaPositionInfoSourcePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "readyRead()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "readyRead()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QNmeaPositionInfoSourcePrivate::timerEvent(QTimerEvent *event)
@@ -440,21 +475,75 @@ void ritual_ZN30QNmeaPositionInfoSourcePrivate10timerEventEP11QTimerEvent(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QNmeaPositionInfoSourcePrivate17emitPendingUpdateEv(
     QNmeaPositionInfoSourcePrivate *self) {
-  self->emitPendingUpdate();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNmeaPositionInfoSourcePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "emitPendingUpdate()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "emitPendingUpdate()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QNmeaPositionInfoSourcePrivate::sourceDataClosed()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QNmeaPositionInfoSourcePrivate16sourceDataClosedEv(
     QNmeaPositionInfoSourcePrivate *self) {
-  self->sourceDataClosed();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNmeaPositionInfoSourcePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sourceDataClosed()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sourceDataClosed()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QNmeaPositionInfoSourcePrivate::updateRequestTimeout()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QNmeaPositionInfoSourcePrivate20updateRequestTimeoutEv(
     QNmeaPositionInfoSourcePrivate *self) {
-  self->updateRequestTimeout();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNmeaPositionInfoSourcePrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateRequestTimeout()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateRequestTimeout()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  bool QNmeaPositionInfoSourcePrivate::openSourceDevice()

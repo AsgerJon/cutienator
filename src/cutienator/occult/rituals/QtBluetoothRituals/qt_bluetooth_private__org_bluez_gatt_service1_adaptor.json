@@ -8,6 +8,27 @@
     "ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate27OrgBluezGattService1Adaptor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate27OrgBluezGattService1Adaptor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate27OrgBluezGattService1AdaptorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor6deviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor8includesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor7primaryEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor4uUIDEv": [
+      "text", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgBluezGattService1Adaptor": [
       "bool", "address", "chars", "address"
     ]

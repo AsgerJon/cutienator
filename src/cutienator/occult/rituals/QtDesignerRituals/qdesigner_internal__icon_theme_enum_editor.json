@@ -8,8 +8,38 @@
     "ritual_ZNK18qdesigner_internal19IconThemeEnumEditor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal19IconThemeEnumEditor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal19IconThemeEnumEditor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal19IconThemeEnumEditor2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal19IconThemeEnumEditorC1EP7QWidgetb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal19IconThemeEnumEditorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal19IconThemeEnumEditor9themeEnumEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19IconThemeEnumEditor12setThemeEnumEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal19IconThemeEnumEditor8iconNameEi": [
+      "text", "int"
+    ],
+    "ritual_ZN18qdesigner_internal19IconThemeEnumEditor14createComboBoxEP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19IconThemeEnumEditor6editedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal19IconThemeEnumEditor5resetEv": [
+      "nothing", "address"
     ],
     "ritual_take_qdesigner_internal_IconThemeEnumEditor": [
       "bool", "address", "chars", "address"

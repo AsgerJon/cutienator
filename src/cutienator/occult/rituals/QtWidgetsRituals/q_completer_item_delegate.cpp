@@ -11,7 +11,9 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qstyleoption.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 
 //  QCompleterItemDelegate::QCompleterItemDelegate(QAbstractItemView *view)
 extern "C" Q_DECL_EXPORT

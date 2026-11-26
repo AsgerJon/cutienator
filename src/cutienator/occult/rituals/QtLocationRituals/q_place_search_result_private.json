@@ -9,6 +9,9 @@
     "ritual_ZNK25QPlaceSearchResultPrivate7compareEPKS_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN25QPlaceSearchResultPrivate9extract_dERK18QPlaceSearchResult": [
+      "address", "address"
+    ],
     "ritual_ZNK25QPlaceSearchResultPrivate5cloneEv": ["address", "address"],
     "ritual_ZNK25QPlaceSearchResultPrivate4typeEv": ["int", "address"],
     "ritual_take_QPlaceSearchResultPrivate": [

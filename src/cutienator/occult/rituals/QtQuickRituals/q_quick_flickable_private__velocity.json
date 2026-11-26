@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QQuickFlickablePrivate8VelocityC1EPS_": [
+      "address", "address"
+    ],
     "ritual_ZN22QQuickFlickablePrivate8Velocity8setValueEd": [
       "nothing", "address", "double"
     ],

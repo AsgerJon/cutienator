@@ -21,6 +21,24 @@ void ritual_ZN11DomGradientD1Ev(DomGradient *self) {
   delete self;
 }
 
+//  void DomGradient::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11DomGradient4readER16QXmlStreamReader(
+    DomGradient *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomGradient::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11DomGradient5writeER16QXmlStreamWriterRK7QString(
+    const DomGradient *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomGradient::hasAttributeStartX() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11DomGradient18hasAttributeStartXEv(const DomGradient *self) {

@@ -10,6 +10,12 @@
     "ritual_ZNK3QV411ModelObject1dEv": ["address", "address"],
     "ritual_ZN3QV411ModelObject14virtualDestroyEPNS_4Heap4BaseE": [
       "nothing", "address"
+    ],
+    "ritual_ZN3QV411ModelObject26virtualResolveLookupGetterEPKNS_6ObjectEPNS_15ExecutionEngineEPNS_6LookupE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV411ModelObject22virtualOwnPropertyKeysEPKNS_6ObjectEPNS_5ValueE": [
+      "address", "address", "address"
     ]
   }
 }

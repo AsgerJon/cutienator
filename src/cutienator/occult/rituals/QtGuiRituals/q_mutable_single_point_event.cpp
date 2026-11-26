@@ -21,7 +21,7 @@ typedef void (*CuteQMutableSinglePointEventCall5)(const void *, bool, int *);
 class CuteQMutableSinglePointEvent : public QMutableSinglePointEvent {
 public:
   using QMutableSinglePointEvent::QMutableSinglePointEvent;
-  CuteQMutableSinglePointEvent(const QMutableSinglePointEvent &other) : QMutableSinglePointEvent(other) {}
+  CuteQMutableSinglePointEvent(const QMutableSinglePointEvent & other) : QMutableSinglePointEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -118,6 +118,14 @@ public:
     QPointerEvent::setAccepted(accepted);
   }
 };
+
+//  QMutableSinglePointEvent::QMutableSinglePointEvent(const
+//      QSinglePointEvent &other)
+extern "C" Q_DECL_EXPORT
+QMutableSinglePointEvent *ritual_ZN24QMutableSinglePointEventC1ERK17QSinglePointEvent(
+    const QSinglePointEvent *other) {
+  return new CuteQMutableSinglePointEvent(*other);
+}
 
 //  QMutableSinglePointEvent::QMutableSinglePointEvent(Type type, const
 //      QPointingDevice *device, const QEventPoint &point, Qt::MouseButton

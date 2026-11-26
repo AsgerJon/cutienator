@@ -88,6 +88,12 @@ public:
 #endif  // QT_CONFIG(accessibility)
 };
 
+//  QAccessibleEditableTextInterface::QAccessibleEditableTextInterface()
+extern "C" Q_DECL_EXPORT
+QAccessibleEditableTextInterface *ritual_ZN32QAccessibleEditableTextInterfaceC1Ev() {
+  return new CuteQAccessibleEditableTextInterface();
+}
+
 //  QAccessibleEditableTextInterface::~QAccessibleEditableTextInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN32QAccessibleEditableTextInterfaceD1Ev(

@@ -6,7 +6,16 @@
   "rows": {
     "ritual_ZN20QDnsDomainNameRecordC1Ev": ["address"],
     "ritual_ZN20QDnsDomainNameRecordC1ERKS_": ["address", "address"],
+    "ritual_ZN20QDnsDomainNameRecordaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QDnsDomainNameRecordaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QDnsDomainNameRecordD1Ev": ["nothing", "address"],
+    "ritual_ZN20QDnsDomainNameRecord4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QDnsDomainNameRecord4nameEv": ["text", "address"],
     "ritual_ZNK20QDnsDomainNameRecord10timeToLiveEv": [
       "unsigned int", "address"

@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/6.12.0/QtGui/private/qtextengine_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtGui/6.12.0/QtGui/private/qtextengine_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN11QTextEngineC1Ev": ["address"],
@@ -15,6 +15,9 @@
     "ritual_ZNK11QTextEngine8validateEv": ["nothing", "address"],
     "ritual_ZNK11QTextEngine7itemizeEv": ["nothing", "address"],
     "ritual_ZNK11QTextEngine13isRightToLeftEv": ["bool", "address"],
+    "ritual_ZN11QTextEngine11bidiReorderEiPKhPi": [
+      "nothing", "int", "address", "address"
+    ],
     "ritual_ZNK11QTextEngine10attributesEv": ["address", "address"],
     "ritual_ZNK11QTextEngine5shapeEi": ["nothing", "address", "int"],
     "ritual_ZN11QTextEngine7justifyERK11QScriptLine": [
@@ -68,6 +71,10 @@
       "nothing", "address", "int", "text"
     ],
     "ritual_ZNK11QTextEngine10hasFormatsEv": ["bool", "address"],
+    "ritual_ZNK11QTextEngine7formatsEv": ["address", "address"],
+    "ritual_ZN11QTextEngine10setFormatsERK5QListIN11QTextLayout11FormatRangeEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QTextEngine4initEPS_": ["nothing", "address"],
     "ritual_ZN11QTextEngine12indexFormatsEv": ["nothing", "address"],
     "ritual_ZNK11QTextEngine14resolveFormatsEv": ["nothing", "address"],
@@ -99,6 +106,9 @@
     "ritual_ZN11QTextEngine27positionAfterVisualMovementEiN11QTextCursor13MoveOperationE": [
       "int", "address", "int", "int"
     ],
+    "ritual_ZN11QTextEngine22insertionPointsForLineEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN11QTextEngine20resetFontEngineCacheEv": ["nothing", "address"],
     "ritual_ZN11QTextEngine22enableDelayDecorationsEb": [
       "nothing", "address", "bool"
@@ -117,15 +127,32 @@
     ],
     "ritual_ZN11QTextEngine16clearDecorationsEv": ["nothing", "address"],
     "ritual_ZN11QTextEngine16adjustUnderlinesEv": ["nothing", "address"],
+    "ritual_ZN11QTextEngine17addItemDecorationEP8QPainterRK6QLineFP5QListINS_14ItemDecorationEE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QTextEngine22drawItemDecorationListEP8QPainterRK5QListINS_14ItemDecorationEE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK11QTextEngine11setBoundaryEi": ["nothing", "address", "int"],
     "ritual_ZNK11QTextEngine21addRequiredBoundariesEv": [
       "nothing", "address"
     ],
     "ritual_ZNK11QTextEngine9shapeTextEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QTextEngine23shapeTextWithHarfbuzzNGERK11QScriptItemPKtiiiP11QFontEngine5QSpanIjLm18446744073709551615EEbbRK4QMapIN5QFont3TagEjE": [
+      "int", "address", "address", "address", "int", "int", "int", "address",
+      "address", "bool", "bool", "address"
+    ],
     "ritual_ZN11QTextEngine9endOfLineEi": ["int", "address", "int"],
     "ritual_ZN11QTextEngine15beginningOfLineEi": ["int", "address", "int"],
     "ritual_ZN11QTextEngine16getClusterLengthEPtPK15QCharAttributesiiiPi": [
       "int", "address", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_drop_QTextEngine__QList_QTextLayout_FormatRange": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QTextEngine__std_vector_int": ["nothing", "address"],
+    "ritual_ZNK11QTextEngine11logClustersEPK11QScriptItem": [
+      "address", "address", "address"
     ]
   }
 }

@@ -25,9 +25,39 @@
     "ritual_ZNK15QStringIterator7hasNextEv": ["bool", "address"],
     "ritual_ZN15QStringIterator7advanceEv": ["nothing", "address"],
     "ritual_ZN15QStringIterator16advanceUncheckedEv": ["nothing", "address"],
+    "ritual_ZNK15QStringIterator17peekNextUncheckedEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK15QStringIterator8peekNextEDi": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN15QStringIterator13nextUncheckedEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN15QStringIterator4nextEDi": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN15QStringIterator17nextOrRawCodeUnitEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZNK15QStringIterator11hasPreviousEv": ["bool", "address"],
     "ritual_ZN15QStringIterator6recedeEv": ["nothing", "address"],
     "ritual_ZN15QStringIterator15recedeUncheckedEv": ["nothing", "address"],
+    "ritual_ZNK15QStringIterator21peekPreviousUncheckedEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK15QStringIterator12peekPreviousEDi": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN15QStringIterator17previousUncheckedEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN15QStringIterator8previousEDi": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN15QStringIterator21previousOrRawCodeUnitEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZN15QStringIteratorD1Ev": ["nothing", "address"]
   }
 }

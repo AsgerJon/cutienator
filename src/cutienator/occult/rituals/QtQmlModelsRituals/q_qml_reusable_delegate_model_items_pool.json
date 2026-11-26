@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN34QQmlReusableDelegateModelItemsPool10insertItemEP21QQmlDelegateModelItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN34QQmlReusableDelegateModelItemsPool8takeItemEPK13QQmlComponenti": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN34QQmlReusableDelegateModelItemsPool5drainEiSt8functionIFvP21QQmlDelegateModelItemEE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN34QQmlReusableDelegateModelItemsPool4sizeEv": [
       "int", "address"
     ],

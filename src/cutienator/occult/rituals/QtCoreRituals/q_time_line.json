@@ -5,18 +5,25 @@
   ],
   "rows": {
     "ritual_ZNK9QTimeLine10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QTimeLine11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QTimeLine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QTimeLine2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QTimeLineC1EiP7QObject": ["address", "int", "address"],
     "ritual_ZN9QTimeLineD1Ev": ["nothing", "address"],
     "ritual_ZNK9QTimeLine5stateEv": ["int", "address"],
     "ritual_ZNK9QTimeLine9loopCountEv": ["int", "address"],
     "ritual_ZN9QTimeLine12setLoopCountEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTimeLine17bindableLoopCountEv": ["address", "address"],
     "ritual_ZNK9QTimeLine9directionEv": ["int", "address"],
     "ritual_ZN9QTimeLine12setDirectionENS_9DirectionE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN9QTimeLine17bindableDirectionEv": ["address", "address"],
     "ritual_ZNK9QTimeLine8durationEv": ["int", "address"],
     "ritual_ZN9QTimeLine11setDurationEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTimeLine16bindableDurationEv": ["address", "address"],
     "ritual_ZNK9QTimeLine10startFrameEv": ["int", "address"],
     "ritual_ZN9QTimeLine13setStartFrameEi": ["nothing", "address", "int"],
     "ritual_ZNK9QTimeLine8endFrameEv": ["int", "address"],
@@ -28,11 +35,14 @@
     "ritual_ZN9QTimeLine17setUpdateIntervalEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN9QTimeLine22bindableUpdateIntervalEv": ["address", "address"],
     "ritual_ZNK9QTimeLine11easingCurveEv": ["address", "address"],
     "ritual_ZN9QTimeLine14setEasingCurveERK12QEasingCurve": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN9QTimeLine19bindableEasingCurveEv": ["address", "address"],
     "ritual_ZNK9QTimeLine11currentTimeEv": ["int", "address"],
+    "ritual_ZN9QTimeLine19bindableCurrentTimeEv": ["address", "address"],
     "ritual_ZNK9QTimeLine12currentFrameEv": ["int", "address"],
     "ritual_ZNK9QTimeLine12currentValueEv": ["double", "address"],
     "ritual_ZNK9QTimeLine12frameForTimeEi": ["int", "address", "int"],
@@ -43,13 +53,32 @@
     "ritual_ZN9QTimeLine9setPausedEb": ["nothing", "address", "bool"],
     "ritual_ZN9QTimeLine14setCurrentTimeEi": ["nothing", "address", "int"],
     "ritual_ZN9QTimeLine15toggleDirectionEv": ["nothing", "address"],
+    "ritual_ZN9QTimeLine12valueChangedEdNS_14QPrivateSignalE": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN9QTimeLine12frameChangedEiNS_14QPrivateSignalE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QTimeLine12stateChangedENS_5StateENS_14QPrivateSignalE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QTimeLine8finishedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
     "ritual_ZN9QTimeLine10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN9QTimeLine6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QTimeLine6d_funcEv": ["address", "address"],
     "ritual_take_QTimeLine": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QTimeLine12valueForTimeEi": ["double", "address", "int"],
     "ritual_own_ZN9QTimeLine10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_drop_QTimeLine__QBindable_int": ["nothing", "address"],
+    "ritual_drop_QTimeLine__QBindable_QTimeLine_Direction": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QTimeLine__QBindable_QEasingCurve": ["nothing", "address"]
   }
 }

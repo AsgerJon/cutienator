@@ -185,6 +185,24 @@ const QMetaObject *ritual_ZNK15QmlSensorGlobal10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlSensorGlobal::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QmlSensorGlobal11qt_metacastEPKc(
+    QmlSensorGlobal *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlSensorGlobal::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QmlSensorGlobal11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlSensorGlobal *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlSensorGlobal::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QmlSensorGlobal2trEPKcS1_i(
@@ -234,6 +252,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QmlSensorGlobal22qt_qmlMarker_singletonEv(
     QmlSensorGlobal *self) {
   self->qt_qmlMarker_singleton();
+}
+
+//  void QmlSensorGlobal::availableSensorsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QmlSensorGlobal23availableSensorsChangedEv(
+    QmlSensorGlobal *self) {
+  self->availableSensorsChanged();
 }
 
 //  a Python function taken by a CuteQmlSensorGlobal, for the function named

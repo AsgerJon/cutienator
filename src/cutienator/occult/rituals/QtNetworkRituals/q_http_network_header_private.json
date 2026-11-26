@@ -31,6 +31,9 @@
     "ritual_ZNK25QHttpNetworkHeaderPrivate7headersEv": [
       "address", "address"
     ],
+    "ritual_ZNK25QHttpNetworkHeaderPrivateeqERKS_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN25QHttpNetworkHeaderPrivateD1Ev": ["nothing", "address"]
   }
 }

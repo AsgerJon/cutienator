@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QRenderPass that Python can take functions over in. Every Qt3DRender::QRenderPass
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender11QRenderPass10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QRenderPass::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender11QRenderPass11qt_metacastEPKc(
+    Qt3DRender::QRenderPass *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QRenderPass::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender11QRenderPass11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QRenderPass *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QRenderPass::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender11QRenderPass2trEPKcS2_i(
@@ -193,6 +214,115 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QRenderPass *ritual_ZN10Qt3DRender11QRenderPassC1EPN8Qt3DCore5QNodeE(
     Qt3DCore::QNode *parent) {
   return new CuteQt3DRender_QRenderPass(parent);
+}
+
+//  Qt3DRender::QRenderPass::~QRenderPass()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRenderPassD1Ev(Qt3DRender::QRenderPass *self) {
+  delete self;
+}
+
+//  QShaderProgram *Qt3DRender::QRenderPass::shaderProgram() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderProgram *ritual_ZNK10Qt3DRender11QRenderPass13shaderProgramEv(
+    const Qt3DRender::QRenderPass *self) {
+  return self->shaderProgram();
+}
+
+//  void Qt3DRender::QRenderPass::addFilterKey(QFilterKey *filterKey)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRenderPass12addFilterKeyEPNS_10QFilterKeyE(
+    Qt3DRender::QRenderPass *self,
+    Qt3DRender::QFilterKey *filterKey) {
+  self->addFilterKey(filterKey);
+}
+
+//  void Qt3DRender::QRenderPass::removeFilterKey(QFilterKey *filterKey)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRenderPass15removeFilterKeyEPNS_10QFilterKeyE(
+    Qt3DRender::QRenderPass *self,
+    Qt3DRender::QFilterKey *filterKey) {
+  self->removeFilterKey(filterKey);
+}
+
+//  QList<QFilterKey *> Qt3DRender::QRenderPass::filterKeys() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QFilterKey *> *ritual_ZNK10Qt3DRender11QRenderPass10filterKeysEv(
+    const Qt3DRender::QRenderPass *self) {
+  return new QList<Qt3DRender::QFilterKey *>(self->filterKeys());
+}
+
+//  void Qt3DRender::QRenderPass::addRenderState(QRenderState *state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRenderPass14addRenderStateEPNS_12QRenderStateE(
+    Qt3DRender::QRenderPass *self,
+    Qt3DRender::QRenderState *state) {
+  self->addRenderState(state);
+}
+
+//  void Qt3DRender::QRenderPass::removeRenderState(QRenderState *state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRenderPass17removeRenderStateEPNS_12QRenderStateE(
+    Qt3DRender::QRenderPass *self,
+    Qt3DRender::QRenderState *state) {
+  self->removeRenderState(state);
+}
+
+//  QList<QRenderState *> Qt3DRender::QRenderPass::renderStates() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QRenderState *> *ritual_ZNK10Qt3DRender11QRenderPass12renderStatesEv(
+    const Qt3DRender::QRenderPass *self) {
+  return new QList<Qt3DRender::QRenderState *>(self->renderStates());
+}
+
+//  void Qt3DRender::QRenderPass::addParameter(QParameter *p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRenderPass12addParameterEPNS_10QParameterE(
+    Qt3DRender::QRenderPass *self,
+    Qt3DRender::QParameter *p) {
+  self->addParameter(p);
+}
+
+//  void Qt3DRender::QRenderPass::removeParameter(QParameter *p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRenderPass15removeParameterEPNS_10QParameterE(
+    Qt3DRender::QRenderPass *self,
+    Qt3DRender::QParameter *p) {
+  self->removeParameter(p);
+}
+
+//  QList<QParameter *> Qt3DRender::QRenderPass::parameters() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QParameter *> *ritual_ZNK10Qt3DRender11QRenderPass10parametersEv(
+    const Qt3DRender::QRenderPass *self) {
+  return new QList<Qt3DRender::QParameter *>(self->parameters());
+}
+
+//  void Qt3DRender::QRenderPass::setShaderProgram(QShaderProgram
+//      *shaderProgram)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRenderPass16setShaderProgramEPNS_14QShaderProgramE(
+    Qt3DRender::QRenderPass *self,
+    Qt3DRender::QShaderProgram *shaderProgram) {
+  self->setShaderProgram(shaderProgram);
+}
+
+//  void Qt3DRender::QRenderPass::shaderProgramChanged(QShaderProgram
+//      *shaderProgram)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRenderPass20shaderProgramChangedEPNS_14QShaderProgramE(
+    Qt3DRender::QRenderPass *self,
+    Qt3DRender::QShaderProgram *shaderProgram) {
+  self->shaderProgramChanged(shaderProgram);
+}
+
+//  Qt3DRender::QRenderPass::QRenderPass(QRenderPassPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderPass *ritual_ZN10Qt3DRender11QRenderPassC1ERNS_18QRenderPassPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QRenderPassPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRenderPass(*dd, parent);
 }
 
 //  QRenderPassPrivate *Qt3DRender::QRenderPass::d_func()
@@ -217,4 +347,28 @@ bool ritual_take_Qt3DRender_QRenderPass(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QRenderPass *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DRender::QFilterKey *> a ritual of Qt3DRender::QRenderPass
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QRenderPass__QList_Qt3DRender_QFilterKey(
+    QList<Qt3DRender::QFilterKey *> *self) {
+  delete self;
+}
+
+//  a QList<Qt3DRender::QRenderState *> a ritual of Qt3DRender::QRenderPass
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QRenderPass__QList_Qt3DRender_QRenderState(
+    QList<Qt3DRender::QRenderState *> *self) {
+  delete self;
+}
+
+//  a QList<Qt3DRender::QParameter *> a ritual of Qt3DRender::QRenderPass
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QRenderPass__QList_Qt3DRender_QParameter(
+    QList<Qt3DRender::QParameter *> *self) {
+  delete self;
 }

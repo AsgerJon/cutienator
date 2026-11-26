@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QStateMachine10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QStateMachine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QStateMachine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QStateMachine2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QStateMachineC1EP7QObject": ["address", "address"],
     "ritual_ZN13QStateMachineC1EN6QState9ChildModeEP7QObject": [
@@ -21,11 +27,15 @@
     "ritual_ZNK13QStateMachine5errorEv": ["int", "address"],
     "ritual_ZNK13QStateMachine11errorStringEv": ["text", "address"],
     "ritual_ZN13QStateMachine10clearErrorEv": ["nothing", "address"],
+    "ritual_ZNK13QStateMachine19bindableErrorStringEv": [
+      "address", "address"
+    ],
     "ritual_ZNK13QStateMachine9isRunningEv": ["bool", "address"],
     "ritual_ZNK13QStateMachine10isAnimatedEv": ["bool", "address"],
     "ritual_ZN13QStateMachine11setAnimatedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN13QStateMachine16bindableAnimatedEv": ["address", "address"],
     "ritual_ZN13QStateMachine19addDefaultAnimationEP18QAbstractAnimation": [
       "nothing", "address", "address"
     ],
@@ -37,6 +47,9 @@
     "ritual_ZN13QStateMachine22setGlobalRestorePolicyEN6QState13RestorePolicyE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN13QStateMachine27bindableGlobalRestorePolicyEv": [
+      "address", "address"
+    ],
     "ritual_ZN13QStateMachine9postEventEP6QEventNS_13EventPriorityE": [
       "nothing", "address", "address", "int"
     ],
@@ -46,12 +59,25 @@
     "ritual_ZN13QStateMachine18cancelDelayedEventEi": [
       "bool", "address", "int"
     ],
+    "ritual_ZNK13QStateMachine13configurationEv": ["address", "address"],
     "ritual_ZN13QStateMachine11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine16postDelayedEventEP6QEventNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "int", "address", "address", "long long"
     ],
     "ritual_ZN13QStateMachine5startEv": ["nothing", "address"],
     "ritual_ZN13QStateMachine4stopEv": ["nothing", "address"],
     "ritual_ZN13QStateMachine10setRunningEb": ["nothing", "address", "bool"],
+    "ritual_ZN13QStateMachine7startedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QStateMachine7stoppedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QStateMachine14runningChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN13QStateMachine7onEntryEP6QEvent": [
       "nothing", "address", "address"
     ],
@@ -73,6 +99,11 @@
     "ritual_ZN13QStateMachine5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN13QStateMachineC1ER20QStateMachinePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QStateMachine6d_funcEv": ["address", "address"],
     "ritual_take_QStateMachine": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QStateMachine11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
@@ -97,6 +128,12 @@
     ],
     "ritual_own_ZN13QStateMachine5eventEP6QEvent": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_drop_QStateMachine__QBindable_QString": ["nothing", "address"],
+    "ritual_drop_QStateMachine__QBindable_bool": ["nothing", "address"],
+    "ritual_drop_QStateMachine__QBindable_QState_RestorePolicy": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QStateMachine__QSet_QAbstractState": ["nothing", "address"]
   }
 }

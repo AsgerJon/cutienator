@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK23QQuickStackViewAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStackViewAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickStackViewAttached11qt_metacastEPKc(
+    QQuickStackViewAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStackViewAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickStackViewAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStackViewAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStackViewAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickStackViewAttached2trEPKcS1_i(
@@ -247,6 +266,69 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuickStackViewAttached12resetVisibleEv(
     QQuickStackViewAttached *self) {
   self->resetVisible();
+}
+
+//  void QQuickStackViewAttached::indexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickStackViewAttached12indexChangedEv(
+    QQuickStackViewAttached *self) {
+  self->indexChanged();
+}
+
+//  void QQuickStackViewAttached::viewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickStackViewAttached11viewChangedEv(
+    QQuickStackViewAttached *self) {
+  self->viewChanged();
+}
+
+//  void QQuickStackViewAttached::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickStackViewAttached13statusChangedEv(
+    QQuickStackViewAttached *self) {
+  self->statusChanged();
+}
+
+//  void QQuickStackViewAttached::activated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickStackViewAttached9activatedEv(
+    QQuickStackViewAttached *self) {
+  self->activated();
+}
+
+//  void QQuickStackViewAttached::activating()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickStackViewAttached10activatingEv(
+    QQuickStackViewAttached *self) {
+  self->activating();
+}
+
+//  void QQuickStackViewAttached::deactivated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickStackViewAttached11deactivatedEv(
+    QQuickStackViewAttached *self) {
+  self->deactivated();
+}
+
+//  void QQuickStackViewAttached::deactivating()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickStackViewAttached12deactivatingEv(
+    QQuickStackViewAttached *self) {
+  self->deactivating();
+}
+
+//  void QQuickStackViewAttached::removed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickStackViewAttached7removedEv(
+    QQuickStackViewAttached *self) {
+  self->removed();
+}
+
+//  void QQuickStackViewAttached::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickStackViewAttached14visibleChangedEv(
+    QQuickStackViewAttached *self) {
+  self->visibleChanged();
 }
 
 //  QQuickStackViewAttachedPrivate *QQuickStackViewAttached::d_func()

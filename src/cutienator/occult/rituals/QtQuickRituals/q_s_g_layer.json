@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK8QSGLayer10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QSGLayer11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QSGLayer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QSGLayer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QSGLayerD1Ev": ["nothing", "address"],
     "ritual_ZN8QSGLayer7setItemEP7QSGNode": [
@@ -35,6 +39,9 @@
     "ritual_ZN8QSGLayer10setSamplesEi": ["nothing", "address", "int"],
     "ritual_ZN8QSGLayer16markDirtyTextureEv": ["nothing", "address"],
     "ritual_ZN8QSGLayer11invalidatedEv": ["nothing", "address"],
+    "ritual_ZN8QSGLayer15updateRequestedEv": ["nothing", "address"],
+    "ritual_ZN8QSGLayer24scheduledUpdateCompletedEv": ["nothing", "address"],
+    "ritual_ZN8QSGLayerC1ER17QSGTexturePrivate": ["address", "address"],
     "ritual_take_QSGLayer": ["bool", "address", "chars", "address"]
   }
 }

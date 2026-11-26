@@ -345,6 +345,12 @@ public:
   }
 };
 
+//  QSGBasicInternalImageNode::QSGBasicInternalImageNode()
+extern "C" Q_DECL_EXPORT
+QSGBasicInternalImageNode *ritual_ZN25QSGBasicInternalImageNodeC1Ev() {
+  return new CuteQSGBasicInternalImageNode();
+}
+
 //  void QSGBasicInternalImageNode::setTargetRect(const QRectF &rect)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QSGBasicInternalImageNode13setTargetRectERK6QRectF(

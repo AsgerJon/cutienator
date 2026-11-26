@@ -5,6 +5,14 @@
 #if !defined(QVERSIONTAGGING_H)
 #include <QtCore/qglobal.h>
 
+//  QtPrivate::QVersionTag::QVersionTag(const void *sym, int currentVersion)
+extern "C" Q_DECL_EXPORT
+QtPrivate::QVersionTag *ritual_ZN9QtPrivate11QVersionTagC1EPKvi(
+    const void *sym,
+    int currentVersion) {
+  return new QtPrivate::QVersionTag(sym, currentVersion);
+}
+
 //  QtPrivate::QVersionTag::~QVersionTag()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QtPrivate11QVersionTagD1Ev(QtPrivate::QVersionTag *self) {

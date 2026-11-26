@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN18QSvgTransformStyleC1ERK10QTransform": ["address", "address"],
     "ritual_ZN18QSvgTransformStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN18QSvgTransformStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QSvgTransformStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK18QSvgTransformStyle4typeEv": ["unsigned char", "address"],
     "ritual_ZNK18QSvgTransformStyle10qtransformEv": ["address", "address"],
     "ritual_ZNK18QSvgTransformStyle9isDefaultEv": ["bool", "address"],

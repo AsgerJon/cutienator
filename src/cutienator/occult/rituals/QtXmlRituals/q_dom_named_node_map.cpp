@@ -19,6 +19,15 @@ QDomNamedNodeMap *ritual_ZN16QDomNamedNodeMapC1ERKS_(
   return new QDomNamedNodeMap(*namedNodeMap);
 }
 
+//  QDomNamedNodeMap &QDomNamedNodeMap::operator=(const QDomNamedNodeMap
+//      &other)
+extern "C" Q_DECL_EXPORT
+QDomNamedNodeMap *ritual_ZN16QDomNamedNodeMapaSERKS_(
+    QDomNamedNodeMap *self,
+    const QDomNamedNodeMap *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QDomNamedNodeMap::operator==(const QDomNamedNodeMap &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QDomNamedNodeMapeqERKS_(

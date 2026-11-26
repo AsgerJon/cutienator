@@ -8,6 +8,27 @@
     "ritual_ZNK18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor3GetERK7QStringS3_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor6GetAllERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor3SetERK7QStringS3_RK12QDBusVariant": [
+      "nothing", "address", "text", "text", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor17PropertiesChangedERK7QStringRK4QMapIS1_8QVariantERK5QListIS1_E": [
+      "nothing", "address", "text", "address", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgFreedesktopDBusPropertiesAdaptor": [
       "bool", "address", "chars", "address"
     ]

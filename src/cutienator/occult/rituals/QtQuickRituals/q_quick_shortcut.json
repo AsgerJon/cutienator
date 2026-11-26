@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickShortcut10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickShortcut11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickShortcut11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickShortcut2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,10 +39,35 @@
     "ritual_ZN14QQuickShortcut10setContextEN2Qt15ShortcutContextE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN14QQuickShortcut15sequenceChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickShortcut16sequencesChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickShortcut17nativeTextChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickShortcut19portableTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickShortcut14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickShortcut17autoRepeatChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickShortcut14contextChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickShortcut9activatedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickShortcut20activatedAmbiguouslyEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QQuickShortcut10classBeginEv": ["nothing", "address"],
     "ritual_ZN14QQuickShortcut17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN14QQuickShortcut5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN14QQuickShortcut10setEnabledERNS_8ShortcutEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN14QQuickShortcut13setAutoRepeatERNS_8ShortcutEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN14QQuickShortcut12grabShortcutERNS_8ShortcutEN2Qt15ShortcutContextE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QQuickShortcut14ungrabShortcutERNS_8ShortcutE": [
+      "nothing", "address", "address"
     ],
     "ritual_cast_QQuickShortcut_QQmlParserStatus": ["address", "address"],
     "ritual_take_QQuickShortcut": ["bool", "address", "chars", "address"],

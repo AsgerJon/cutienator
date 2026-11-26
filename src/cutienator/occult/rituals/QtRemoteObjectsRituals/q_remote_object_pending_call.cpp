@@ -25,6 +25,15 @@ void ritual_ZN24QRemoteObjectPendingCallD1Ev(
   delete self;
 }
 
+//  QRemoteObjectPendingCall &QRemoteObjectPendingCall::operator=(const
+//      QRemoteObjectPendingCall &other)
+extern "C" Q_DECL_EXPORT
+QRemoteObjectPendingCall *ritual_ZN24QRemoteObjectPendingCallaSERKS_(
+    QRemoteObjectPendingCall *self,
+    const QRemoteObjectPendingCall *other) {
+  return &(self->operator=(*other));
+}
+
 //  QVariant QRemoteObjectPendingCall::returnValue() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK24QRemoteObjectPendingCall11returnValueEv(

@@ -8,6 +8,12 @@
     "ritual_ZNK27QQuickDefaultTextureFactory10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuickDefaultTextureFactory11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuickDefaultTextureFactory11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK27QQuickDefaultTextureFactory13createTextureEP12QQuickWindow": [
       "address", "address", "address"
     ],

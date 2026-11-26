@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qparallelanimationgroup_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: completed by hand:
+//  disconnectUncontrolledAnimations and _q_uncontrolledAnimationFinished,
+//  Qt's code taken from its source. Kept as it is when the generator runs
+//  again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(animation)
@@ -94,6 +97,45 @@ inline void QParallelAnimationGroupPrivate::animationRemoved(qsizetype index, QA
     disconnectUncontrolledAnimation(anim);
     uncontrolledFinishTime.remove(anim);
 }
+//  from src/corelib/animation/qparallelanimationgroup.cpp, line 201, as _ZN30QParallelAnimationGroupPrivate30disconnectUncontrolledAnimationsEv
+inline void QParallelAnimationGroupPrivate::disconnectUncontrolledAnimations()
+{
+    for (QHash<QAbstractAnimation*, int>::ConstIterator it = uncontrolledFinishTime.constBegin(), cend = uncontrolledFinishTime.constEnd(); it != cend; ++it)
+        disconnectUncontrolledAnimation(it.key());
+
+    uncontrolledFinishTime.clear();
+}
+
+//  from src/corelib/animation/qparallelanimationgroup.cpp, line 172, as _ZN30QParallelAnimationGroupPrivate32_q_uncontrolledAnimationFinishedEv
+inline void QParallelAnimationGroupPrivate::_q_uncontrolledAnimationFinished()
+{
+    Q_Q(QParallelAnimationGroup);
+
+    QAbstractAnimation *animation = qobject_cast<QAbstractAnimation *>(q->sender());
+    Q_ASSERT(animation);
+
+    int uncontrolledRunningCount = 0;
+    if (animation->duration() == -1 || animation->loopCount() < 0) {
+        for (QHash<QAbstractAnimation*, int>::Iterator it = uncontrolledFinishTime.begin(), cend = uncontrolledFinishTime.end(); it != cend; ++it) {
+            if (it.key() == animation) {
+                *it = animation->currentTime();
+            }
+            if (it.value() == -1)
+                ++uncontrolledRunningCount;
+        }
+    }
+
+    if (uncontrolledRunningCount > 0)
+        return;
+
+    int maxDuration = 0;
+    for (auto ani : std::as_const(animations))
+        maxDuration = qMax(maxDuration, ani->totalDuration());
+
+    if (currentTime >= maxDuration)
+        q->stop();
+}
+
 //  -----------------------------------------------------------------------
 
 //  A QParallelAnimationGroupPrivate that Python can take functions over in. Every QParallelAnimationGroupPrivate
@@ -233,6 +275,22 @@ void ritual_own_ZN30QParallelAnimationGroupPrivate16animationRemovedExP18QAbstra
     qsizetype index,
     QAbstractAnimation *a1) {
   self->QParallelAnimationGroupPrivate::animationRemoved(index, a1);
+}
+
+//  void QParallelAnimationGroupPrivate::disconnectUncontrolledAnim
+//      ations()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QParallelAnimationGroupPrivate32disconnectUncontrolledAnimationsEv(
+    QParallelAnimationGroupPrivate *self) {
+  self->disconnectUncontrolledAnimations();
+}
+
+//  void QParallelAnimationGroupPrivate::_q_uncontrolledAnimationF
+//      inished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QParallelAnimationGroupPrivate32_q_uncontrolledAnimationFinishedEv(
+    QParallelAnimationGroupPrivate *self) {
+  self->_q_uncontrolledAnimationFinished();
 }
 
 #endif  // QT_CONFIG(animation)

@@ -6,12 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK20QEventDispatcherGlib10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QEventDispatcherGlib11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QEventDispatcherGlib11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QEventDispatcherGlib2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN20QEventDispatcherGlib6d_funcEv": ["address", "address"],
     "ritual_ZNK20QEventDispatcherGlib6d_funcEv": ["address", "address"],
     "ritual_ZN20QEventDispatcherGlibC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QEventDispatcherGlibC1EP13_GMainContextP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QEventDispatcherGlibD1Ev": ["nothing", "address"],
     "ritual_ZN20QEventDispatcherGlib13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
       "bool", "address", "int"
@@ -22,20 +31,35 @@
     "ritual_ZN20QEventDispatcherGlib24unregisterSocketNotifierEP15QSocketNotifier": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QEventDispatcherGlib13registerTimerEN2Qt7TimerIdENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS0_9TimerTypeEP7QObject": [
+      "nothing", "address", "int", "long long", "int", "address"
+    ],
     "ritual_ZN20QEventDispatcherGlib15unregisterTimerEN2Qt7TimerIdE": [
       "bool", "address", "int"
     ],
     "ritual_ZN20QEventDispatcherGlib16unregisterTimersEP7QObject": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK20QEventDispatcherGlib15timersForObjectEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QEventDispatcherGlib13remainingTimeEN2Qt7TimerIdE": [
+      "long long", "address", "int"
+    ],
     "ritual_ZN20QEventDispatcherGlib6wakeUpEv": ["nothing", "address"],
     "ritual_ZN20QEventDispatcherGlib9interruptEv": ["nothing", "address"],
     "ritual_ZN20QEventDispatcherGlib16versionSupportedEv": ["bool"],
+    "ritual_ZN20QEventDispatcherGlibC1ER27QEventDispatcherGlibPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QEventDispatcherGlib": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN20QEventDispatcherGlib13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
       "bool", "address", "int"
+    ],
+    "ritual_drop_QEventDispatcherGlib__QList_QAbstractEventDispatcher_TimerInfoV2": [
+      "nothing", "address"
     ]
   }
 }

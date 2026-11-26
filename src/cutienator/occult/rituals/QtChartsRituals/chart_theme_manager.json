@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartthememanager_p.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK17ChartThemeManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN17ChartThemeManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17ChartThemeManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17ChartThemeManagerC1EP6QChart": ["address", "address"],
+    "ritual_ZN17ChartThemeManager8setThemeEN6QChart10ChartThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17ChartThemeManager5themeEv": ["address", "address"],
+    "ritual_ZNK17ChartThemeManager13decorateChartEP6QChartP10ChartTheme": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK17ChartThemeManager14decorateLegendEP7QLegendP10ChartTheme": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17ChartThemeManager12updateSeriesEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17ChartThemeManager23generateSeriesGradientsERK5QListI6QColorE": [
+      "address", "address"
+    ],
+    "ritual_ZN17ChartThemeManager7colorAtERK6QColorS2_d": [
+      "address", "address", "address", "double"
+    ],
+    "ritual_ZN17ChartThemeManager7colorAtERK9QGradientd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK17ChartThemeManager14createIndexKeyERK5QListIiE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17ChartThemeManager11seriesCountEN15QAbstractSeries10SeriesTypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN17ChartThemeManager17handleSeriesAddedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17ChartThemeManager19handleSeriesRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17ChartThemeManager15handleAxisAddedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17ChartThemeManager17handleAxisRemovedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_ChartThemeManager": ["bool", "address", "chars", "address"]
+  }
+}

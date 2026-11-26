@@ -4,5 +4,45 @@
     "QtTaskTree/qtasktree.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QtTaskTree9GroupItemC1ERK5QListIS0_E": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree9GroupItemC1ESt16initializer_listIS0_E": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree9GroupItemC1ERKS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree9GroupItemaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree9GroupItemC1EOS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree9GroupItem4swapERS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree9GroupItemC1ERKNS_8IteratorE": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree9GroupItemC1Ev": ["address"],
+    "ritual_ZN10QtTaskTree9GroupItemC1ENS0_4TypeE": ["address", "int"],
+    "ritual_ZN10QtTaskTree9GroupItemC1ERKNS0_9GroupDataE": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree9GroupItemC1ERKNS0_11TaskHandlerE": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree9GroupItem11addChildrenERK5QListIS0_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree9GroupItem12groupHandlerERKNS0_12GroupHandlerE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QtTaskTree9GroupItem11taskHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree9GroupItemC1ERKNS_11StorageBaseE": [
+      "address", "address"
+    ],
+    "ritual_drop_QtTaskTree_GroupItem__QtTaskTree_GroupItem_TaskHandler": [
+      "nothing", "address"
+    ]
   }
 }

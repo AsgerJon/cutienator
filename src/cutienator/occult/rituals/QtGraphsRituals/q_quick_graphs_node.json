@@ -9,12 +9,19 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickGraphsNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickGraphsNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickGraphsNode2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN16QQuickGraphsNode24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
+    "ritual_ZN16QQuickGraphsNodeC1EP12QQuick3DNode": ["address", "address"],
     "ritual_ZN16QQuickGraphsNodeD1Ev": ["nothing", "address"],
     "ritual_ZN16QQuickGraphsNode17componentCompleteEv": [
       "nothing", "address"
@@ -28,6 +35,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK16QQuickGraphsNode5themeEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsNode14customItemListEv": ["address", "address"],
     "ritual_ZN16QQuickGraphsNode14setAspectRatioEd": [
       "nothing", "address", "double"
     ],
@@ -66,6 +74,9 @@
     ],
     "ritual_ZNK16QQuickGraphsNode6marginEv": ["double", "address"],
     "ritual_ZNK16QQuickGraphsNode12gridLineTypeEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsNode15setGridLineTypeERKN10QtGraphs3D12GridLineTypeE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QQuickGraphsNode9hasSeriesEP17QAbstract3DSeries": [
       "bool", "address", "address"
     ],
@@ -110,6 +121,39 @@
       "bool", "address", "address", "address"
     ],
     "ritual_ZN16QQuickGraphsNode14setGraphParentEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsNode27queriedGraphPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode22selectedElementChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode23optimizationHintChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode20selectionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode12themeChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsNode18aspectRatioChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode12polarChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsNode18labelMarginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode24radialLabelOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode28horizontalAspectRatioChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode13localeChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsNode13marginChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QQuickGraphsNode19gridLineTypeChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuickGraphsNode": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QQuickGraphsNode17componentCompleteEv": [
       "nothing", "address"
@@ -152,6 +196,9 @@
     ],
     "ritual_own_ZNK16QQuickGraphsNode18selectedCustomItemEv": [
       "address", "address"
+    ],
+    "ritual_drop_QQuickGraphsNode__QQmlListProperty_QCustom3DItem": [
+      "nothing", "address"
     ]
   }
 }

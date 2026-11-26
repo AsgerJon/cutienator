@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by hand on 2026-11-26 from QtQuick/6.12.0/QtQuick/private/",
+    "qsgcurveprocessor_p.h, Qt 6.12.0, from Qt's source. Kept as it is",
+    "when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN17QSGCurveProcessor13solveOverlapsER9QQuadPath": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QSGCurveProcessor25findOverlappingCandidatesERK9QQuadPath": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGCurveProcessor20removeNestedSubpathsER9QQuadPath": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QSGCurveProcessor18solveIntersectionsER9QQuadPathb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_drop_QSGCurveProcessor__QList_std_pair_int_int": [
+      "nothing", "address"
+    ]
+  }
+}

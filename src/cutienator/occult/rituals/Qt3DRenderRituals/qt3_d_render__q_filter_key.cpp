@@ -2,6 +2,7 @@
 //  Qt3DRender/qfilterkey.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qfilterkey.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QFilterKey10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QFilterKey::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QFilterKey11qt_metacastEPKc(
+    Qt3DRender::QFilterKey *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QFilterKey::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QFilterKey11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QFilterKey *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QFilterKey::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QFilterKey2trEPKcS2_i(
@@ -186,6 +206,65 @@ QString *ritual_ZN10Qt3DRender10QFilterKey2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QFilterKey::tr(s, c, n));
+}
+
+//  Qt3DRender::QFilterKey::QFilterKey(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFilterKey *ritual_ZN10Qt3DRender10QFilterKeyC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QFilterKey(parent);
+}
+
+//  Qt3DRender::QFilterKey::~QFilterKey()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QFilterKeyD1Ev(Qt3DRender::QFilterKey *self) {
+  delete self;
+}
+
+//  QVariant Qt3DRender::QFilterKey::value() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK10Qt3DRender10QFilterKey5valueEv(
+    const Qt3DRender::QFilterKey *self) {
+  return new QVariant(self->value());
+}
+
+//  QString Qt3DRender::QFilterKey::name() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DRender10QFilterKey4nameEv(
+    const Qt3DRender::QFilterKey *self) {
+  return new QString(self->name());
+}
+
+//  void Qt3DRender::QFilterKey::setValue(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QFilterKey8setValueERK8QVariant(
+    Qt3DRender::QFilterKey *self,
+    const QVariant *value) {
+  self->setValue(*value);
+}
+
+//  void Qt3DRender::QFilterKey::setName(const QString &customType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QFilterKey7setNameERK7QString(
+    Qt3DRender::QFilterKey *self,
+    const QString *customType) {
+  self->setName(*customType);
+}
+
+//  void Qt3DRender::QFilterKey::nameChanged(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QFilterKey11nameChangedERK7QString(
+    Qt3DRender::QFilterKey *self,
+    const QString *name) {
+  self->nameChanged(*name);
+}
+
+//  void Qt3DRender::QFilterKey::valueChanged(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QFilterKey12valueChangedERK8QVariant(
+    Qt3DRender::QFilterKey *self,
+    const QVariant *value) {
+  self->valueChanged(*value);
 }
 
 //  QFilterKeyPrivate *Qt3DRender::QFilterKey::d_func()

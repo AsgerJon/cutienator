@@ -6,6 +6,13 @@
   ],
   "rows": {
     "ritual_ZN11QLocaleData13DigitSequenceC1ERKS0_": ["address", "address"],
+    "ritual_ZN11QLocaleData13DigitSequenceC1EOS0_": ["address", "address"],
+    "ritual_ZN11QLocaleData13DigitSequenceaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QLocaleData13DigitSequenceaSEOS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN11QLocaleData13DigitSequenceD1Ev": ["nothing", "address"],
     "ritual_ZNK11QLocaleData13DigitSequence8endIndexEv": [
       "long long", "address"
@@ -15,6 +22,9 @@
     ],
     "ritual_ZNK11QLocaleData13DigitSequence7isEmptyEv": ["bool", "address"],
     "ritual_ZNK11QLocaleData13DigitSequence7hasSignEv": ["bool", "address"],
+    "ritual_ZNK11QLocaleData13DigitSequence12transcribeToEP15QVarLengthArrayIcLx256EE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK11QLocaleData13DigitSequence5firstEx": [
       "address", "address", "long long"
     ],
@@ -32,6 +42,9 @@
     ],
     "ritual_ZNK11QLocaleData13DigitSequence4usedE11QStringView": [
       "text", "address", "text"
+    ],
+    "ritual_ZN11QLocaleData13DigitSequenceC1EO10QByteArrayO5QListIxEc": [
+      "address", "address", "address", "char"
     ]
   }
 }

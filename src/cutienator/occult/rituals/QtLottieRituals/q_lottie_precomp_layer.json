@@ -11,10 +11,16 @@
     "ritual_ZN19QLottiePrecompLayer16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK19QLottiePrecompLayer6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QLottiePrecompLayer5parseERK11QJsonObject": [
       "int", "address", "address"
     ],
     "ritual_ZNK19QLottiePrecompLayer5refIdEv": ["text", "address"],
+    "ritual_ZNK19QLottiePrecompLayer17timeRemapPropertyEv": [
+      "address", "address"
+    ],
     "ritual_ZN19QLottiePrecompLayerD1Ev": ["nothing", "address"],
     "ritual_own_ZNK19QLottiePrecompLayer5cloneEv": ["address", "address"],
     "ritual_own_ZN19QLottiePrecompLayer16updatePropertiesEi": [
@@ -22,6 +28,9 @@
     ],
     "ritual_own_ZN19QLottiePrecompLayer5parseERK11QJsonObject": [
       "int", "address", "address"
+    ],
+    "ritual_drop_QLottiePrecompLayer__QLottieProperty_qreal": [
+      "nothing", "address"
     ]
   }
 }

@@ -8,8 +8,131 @@
     "ritual_ZNK10Qt3DRender21QShaderProgramBuilder10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender21QShaderProgramBuilder2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilderC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilderD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder13shaderProgramEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder13enabledLayersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder17vertexShaderGraphEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder30tessellationControlShaderGraphEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder33tessellationEvaluationShaderGraphEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder19geometryShaderGraphEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder19fragmentShaderGraphEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder18computeShaderGraphEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder16vertexShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder29tessellationControlShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder32tessellationEvaluationShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder18geometryShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder18fragmentShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QShaderProgramBuilder17computeShaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder16setShaderProgramEPNS_14QShaderProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder16setEnabledLayersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder20setVertexShaderGraphERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder33setTessellationControlShaderGraphERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder36setTessellationEvaluationShaderGraphERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder22setGeometryShaderGraphERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder22setFragmentShaderGraphERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder21setComputeShaderGraphERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder20shaderProgramChangedEPNS_14QShaderProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder20enabledLayersChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder24vertexShaderGraphChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder37tessellationControlShaderGraphChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder40tessellationEvaluationShaderGraphChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder26geometryShaderGraphChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder26fragmentShaderGraphChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder25computeShaderGraphChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder23vertexShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder36tessellationControlShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder39tessellationEvaluationShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder25geometryShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder25fragmentShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilder24computeShaderCodeChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QShaderProgramBuilderC1ERNS_28QShaderProgramBuilderPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender21QShaderProgramBuilder6d_funcEv": [
       "address", "address"

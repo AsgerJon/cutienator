@@ -2,9 +2,39 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtScxml/6.12.0/QtScxml/private/qscxmltabledata_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN14QScxmlInternal18GeneratedTableData5buildEPN13DocumentModel13ScxmlDocumentEPS0_PNS0_12MetaDataInfoEPNS0_13DataModelInfoESt8functionIFiRKN23QScxmlExecutableContent10InvokeInfoERK5QListIiERKSE_INSA_13ParameterInfoEE14QSharedPointerIS2_EEE": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QScxmlInternal18GeneratedTableData8toStringEPKi": [
+      "text", "address"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData6stringEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData13evaluatorInfoEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData14assignmentInfoEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData11foreachInfoEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData12initialSetupEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData17stateMachineTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData14serviceFactoryEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN14QScxmlInternal18GeneratedTableDataD1Ev": [
       "nothing", "address"
     ],
@@ -13,6 +43,18 @@
     ],
     "ritual_own_ZNK14QScxmlInternal18GeneratedTableData14serviceFactoryEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData12instructionsEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK14QScxmlInternal18GeneratedTableData12instructionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QScxmlInternal18GeneratedTableData9dataNamesEPi": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QScxmlInternal18GeneratedTableData9dataNamesEPi": [
+      "address", "address", "address"
     ]
   }
 }

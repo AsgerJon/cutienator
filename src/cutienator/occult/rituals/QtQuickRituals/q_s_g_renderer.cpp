@@ -363,6 +363,13 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  QSGRenderer::QSGRenderer(QSGRenderContext *context)
+extern "C" Q_DECL_EXPORT
+QSGRenderer *ritual_ZN11QSGRendererC1EP16QSGRenderContext(
+    QSGRenderContext *context) {
+  return new CuteQSGRenderer(context);
+}
+
 //  QSGRenderer::~QSGRenderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QSGRendererD1Ev(QSGRenderer *self) {
@@ -545,6 +552,21 @@ extern "C" Q_DECL_EXPORT
 QSGRenderTarget *ritual_ZNK11QSGRenderer12renderTargetEv(
     const QSGRenderer *self) {
   return new QSGRenderTarget(self->renderTarget());
+}
+
+//  void QSGRenderer::setRenderPassRecordingCallbacks(QSGRenderContext::Rende
+//      rPassCallback start, QSGRenderContext::RenderPassCallback end, void
+//      *userData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSGRenderer31setRenderPassRecordingCallbacksEPFvPvES2_S0_(
+    QSGRenderer *self,
+    void *start,
+    void *end,
+    void *userData) {
+  self->setRenderPassRecordingCallbacks(
+      reinterpret_cast<QSGRenderContext::RenderPassCallback>(start),
+      reinterpret_cast<QSGRenderContext::RenderPassCallback>(end),
+      userData);
 }
 
 //  void QSGRenderer::render()

@@ -7,9 +7,11 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qaudiosystem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtMultimedia/qaudiodevice.h>
 #include <QtMultimedia/qaudioformat.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <optional>
 
 //  A QPlatformAudioSink that Python can take functions over in. Every QPlatformAudioSink
 //  Python makes is one. Each function below asks the Python
@@ -436,6 +438,25 @@ const QMetaObject *ritual_ZNK18QPlatformAudioSink10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformAudioSink::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QPlatformAudioSink11qt_metacastEPKc(
+    QPlatformAudioSink *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformAudioSink::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QPlatformAudioSink11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformAudioSink *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformAudioSink::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QPlatformAudioSink2trEPKcS1_i(
@@ -443,6 +464,16 @@ QString *ritual_ZN18QPlatformAudioSink2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPlatformAudioSink::tr(s, c, n));
+}
+
+//  QPlatformAudioSink::QPlatformAudioSink(QAudioDevice a0, const
+//      QAudioFormat &a1, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSink *ritual_ZN18QPlatformAudioSinkC1E12QAudioDeviceRK12QAudioFormatP7QObject(
+    const QAudioDevice *a0,
+    const QAudioFormat *a1,
+    QObject *parent) {
+  return new CuteQPlatformAudioSink(*a0, *a1, parent);
 }
 
 //  QPlatformAudioSink::~QPlatformAudioSink()
@@ -511,6 +542,24 @@ qsizetype ritual_ZNK18QPlatformAudioSink10bufferSizeEv(
   return self->bufferSize();
 }
 
+//  void QPlatformAudioSink::setNativePeriodFrames(std::optional<NativePeriod
+//      Frames> a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QPlatformAudioSink21setNativePeriodFramesESt8optionalIN19QtMultimediaPrivate18NativePeriodFramesEE(
+    QPlatformAudioSink *self,
+    const std::optional<QPlatformAudioEndpointBase::NativePeriodFrames> *a0) {
+  self->setNativePeriodFrames(*a0);
+}
+
+//  std::optional<NativePeriodFrames>
+//      QPlatformAudioSink::nativePeriodFrames()
+extern "C" Q_DECL_EXPORT
+std::optional<QPlatformAudioEndpointBase::NativePeriodFrames> *ritual_ZN18QPlatformAudioSink18nativePeriodFramesEv(
+    QPlatformAudioSink *self) {
+  return new std::optional<QPlatformAudioEndpointBase::NativePeriodFrames>(
+      self->nativePeriodFrames());
+}
+
 //  qint64 QPlatformAudioSink::processedUSecs() const
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK18QPlatformAudioSink14processedUSecsEv(
@@ -518,11 +567,26 @@ qint64 ritual_ZNK18QPlatformAudioSink14processedUSecsEv(
   return self->processedUSecs();
 }
 
+//  void QPlatformAudioSink::start(AudioCallback &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QPlatformAudioSink5startEOSt7variantIJSt8functionIFv5QSpanIfLm18446744073709551615EEEES1_IFvS2_IhLm18446744073709551615EEEES1_IFvS2_IsLm18446744073709551615EEEES1_IFvS2_IiLm18446744073709551615EEEEEE(
+    QPlatformAudioSink *self,
+    QPlatformAudioSink::AudioCallback *a0) {
+  self->start(std::move(*a0));
+}
+
 //  bool QPlatformAudioSink::hasCallbackAPI()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18QPlatformAudioSink14hasCallbackAPIEv(
     QPlatformAudioSink *self) {
   return self->hasCallbackAPI();
+}
+
+//  QPlatformAudioSink *QPlatformAudioSink::get(const QAudioSink &a0)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSink *ritual_ZN18QPlatformAudioSink3getERK10QAudioSink(
+    const QAudioSink *a0) {
+  return QPlatformAudioSink::get(*a0);
 }
 
 //  void QPlatformAudioSink::setRole(AudioEndpointRole a0)
@@ -556,4 +620,12 @@ void ritual_own_ZN18QPlatformAudioSink7setRoleEN19QtMultimediaPrivate17AudioEndp
     QPlatformAudioSink *self,
     QPlatformAudioSink::AudioEndpointRole a0) {
   self->QPlatformAudioSink::setRole(a0);
+}
+
+//  a std::optional<QPlatformAudioEndpointBase::NativePeriodFrames> a ritual
+//      of QPlatformAudioSink gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformAudioSink__std_optional_QPlatformAudioEndpointBase_NativePeriodFrames(
+    std::optional<QPlatformAudioEndpointBase::NativePeriodFrames> *self) {
+  delete self;
 }

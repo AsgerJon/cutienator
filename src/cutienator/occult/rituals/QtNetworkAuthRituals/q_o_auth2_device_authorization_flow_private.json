@@ -11,6 +11,9 @@
     "ritual_ZNK37QOAuth2DeviceAuthorizationFlowPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivateC1EP21QNetworkAccessManager": [
+      "address", "address"
+    ],
     "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivateD1Ev": [
       "nothing", "address"
     ],

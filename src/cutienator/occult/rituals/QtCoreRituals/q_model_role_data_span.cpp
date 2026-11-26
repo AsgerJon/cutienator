@@ -1,14 +1,24 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qabstractitemmodel.h, Qt 6.12.0. Edited by hand on 2026-11-25:
+//  added by hand, instances of templates of the class: 1. Kept as it is when
+//  the generator runs again.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(itemmodel)
 #if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#include <QtCore/qlist.h>
 
 //  QModelRoleDataSpan::QModelRoleDataSpan()
 extern "C" Q_DECL_EXPORT
 QModelRoleDataSpan *ritual_ZN18QModelRoleDataSpanC1Ev() {
   return new QModelRoleDataSpan();
+}
+
+//  QModelRoleDataSpan::QModelRoleDataSpan(QModelRoleData &modelRoleData)
+extern "C" Q_DECL_EXPORT
+QModelRoleDataSpan *ritual_ZN18QModelRoleDataSpanC1ER14QModelRoleData(
+    QModelRoleData *modelRoleData) {
+  return new QModelRoleDataSpan(*modelRoleData);
 }
 
 //  QModelRoleDataSpan::QModelRoleDataSpan(QModelRoleData *modelRoleData,
@@ -55,6 +65,14 @@ QModelRoleData *ritual_ZNK18QModelRoleDataSpan3endEv(
   return self->end();
 }
 
+//  QModelRoleData &QModelRoleDataSpan::operator[](qsizetype index) const
+extern "C" Q_DECL_EXPORT
+QModelRoleData *ritual_ZNK18QModelRoleDataSpanixEx(
+    const QModelRoleDataSpan *self,
+    qsizetype index) {
+  return &(self->operator[](index));
+}
+
 //  QVariant *QModelRoleDataSpan::dataForRole(int role) const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK18QModelRoleDataSpan11dataForRoleEi(
@@ -67,6 +85,14 @@ QVariant *ritual_ZNK18QModelRoleDataSpan11dataForRoleEi(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QModelRoleDataSpanD1Ev(QModelRoleDataSpan *self) {
   delete self;
+}
+
+//  QModelRoleDataSpan::QModelRoleDataSpan<QList<QModelRoleData>>(QList<QModelRoleData>
+//      &c)
+extern "C" Q_DECL_EXPORT
+QModelRoleDataSpan * ritual_ZN18QModelRoleDataSpanC1I5QListI14QModelRoleDataELb1EERT_(
+    QList<QModelRoleData> *c) {
+  return new QModelRoleDataSpan(*c);
 }
 
 #endif  // QT_CONFIG(itemmodel)

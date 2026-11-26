@@ -18,6 +18,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK12QPlaceResult11isSponsoredEv": ["bool", "address"],
-    "ritual_ZN12QPlaceResult12setSponsoredEb": ["nothing", "address", "bool"]
+    "ritual_ZN12QPlaceResult12setSponsoredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QPlaceResult6d_funcEv": ["address", "address"]
   }
 }

@@ -57,26 +57,27 @@ typedef void (*CuteQRasterPaintEngineCall30)(const void *, const QPoint *, int, 
 typedef void (*CuteQRasterPaintEngineCall31)(const void *, const QRect *, int, int *);
 typedef void (*CuteQRasterPaintEngineCall32)(const void *, const QRegion *, int, int *);
 typedef void (*CuteQRasterPaintEngineCall33)(const void *, QStaticTextItem *, int *);
-typedef int (*CuteQRasterPaintEngineCall34)(const void *, int *);
-typedef const QPoint * (*CuteQRasterPaintEngineCall35)(const void *, int *);
-typedef bool (*CuteQRasterPaintEngineCall36)(const void *, QFontEngine *, const QTransform *, int *);
+typedef bool (*CuteQRasterPaintEngineCall34)(const void *, int, const glyph_t *, const QFixedPoint *, QFontEngine *, int *);
+typedef int (*CuteQRasterPaintEngineCall35)(const void *, int *);
+typedef const QPoint * (*CuteQRasterPaintEngineCall36)(const void *, int *);
 typedef bool (*CuteQRasterPaintEngineCall37)(const void *, QFontEngine *, const QTransform *, int *);
-typedef void (*CuteQRasterPaintEngineCall38)(const void *, const QPainterPath *, int, int *);
-typedef void (*CuteQRasterPaintEngineCall39)(const void *, const QRectF *, qreal, qreal, int, int *);
-typedef void (*CuteQRasterPaintEngineCall40)(const void *, const QRect *, int *);
-typedef void (*CuteQRasterPaintEngineCall41)(const void *, const QPainterPath *, int *);
-typedef void (*CuteQRasterPaintEngineCall42)(const void *, const QPainter::PixmapFragment *, int, const QPixmap *, int, int *);
-typedef void (*CuteQRasterPaintEngineCall43)(const void *, const QPaintEngineState *, int *);
-typedef void (*CuteQRasterPaintEngineCall44)(const void *, int *);
+typedef bool (*CuteQRasterPaintEngineCall38)(const void *, QFontEngine *, const QTransform *, int *);
+typedef void (*CuteQRasterPaintEngineCall39)(const void *, const QPainterPath *, int, int *);
+typedef void (*CuteQRasterPaintEngineCall40)(const void *, const QRectF *, qreal, qreal, int, int *);
+typedef void (*CuteQRasterPaintEngineCall41)(const void *, const QRect *, int *);
+typedef void (*CuteQRasterPaintEngineCall42)(const void *, const QPainterPath *, int *);
+typedef void (*CuteQRasterPaintEngineCall43)(const void *, const QPainter::PixmapFragment *, int, const QPixmap *, int, int *);
+typedef void (*CuteQRasterPaintEngineCall44)(const void *, const QPaintEngineState *, int *);
 typedef void (*CuteQRasterPaintEngineCall45)(const void *, int *);
 typedef void (*CuteQRasterPaintEngineCall46)(const void *, int *);
-typedef uint (*CuteQRasterPaintEngineCall47)(const void *, int *);
-typedef const QPixmap * (*CuteQRasterPaintEngineCall48)(const void *, const QSize *, int *);
-typedef const QPixmap * (*CuteQRasterPaintEngineCall49)(const void *, const QImage *, int, int *);
+typedef void (*CuteQRasterPaintEngineCall47)(const void *, int *);
+typedef uint (*CuteQRasterPaintEngineCall48)(const void *, int *);
+typedef const QPixmap * (*CuteQRasterPaintEngineCall49)(const void *, const QSize *, int *);
+typedef const QPixmap * (*CuteQRasterPaintEngineCall50)(const void *, const QImage *, int, int *);
 class CuteQRasterPaintEngine : public QRasterPaintEngine {
 public:
   using QRasterPaintEngine::QRasterPaintEngine;
-  void *taken[50] = {};
+  void *taken[51] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN12QPaintEngine5beginEP12QPaintDevice")) {
@@ -215,68 +216,72 @@ public:
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintEngine4typeEv")) {
+    if (!std::strcmp(key, "_ZN18QRasterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine")) {
       taken[34] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintEngine16coordinateOffsetEv")) {
+    if (!std::strcmp(key, "_ZNK12QPaintEngine4typeEv")) {
       taken[35] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK14QPaintEngineEx36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform")) {
+    if (!std::strcmp(key, "_ZNK12QPaintEngine16coordinateOffsetEv")) {
       taken[36] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK14QPaintEngineEx22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform")) {
+    if (!std::strcmp(key, "_ZNK14QPaintEngineEx36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform")) {
       taken[37] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx4clipERK12QPainterPathN2Qt13ClipOperationE")) {
+    if (!std::strcmp(key, "_ZNK14QPaintEngineEx22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform")) {
       taken[38] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx15drawRoundedRectERK6QRectFddN2Qt8SizeModeE")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx4clipERK12QPainterPathN2Qt13ClipOperationE")) {
       taken[39] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine11drawEllipseERK5QRect")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx15drawRoundedRectERK6QRectFddN2Qt8SizeModeE")) {
       taken[40] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine8drawPathERK12QPainterPath")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine11drawEllipseERK5QRect")) {
       taken[41] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx19drawPixmapFragmentsEPKN8QPainter14PixmapFragmentEiRK7QPixmap6QFlagsINS0_18PixmapFragmentHintEE")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine8drawPathERK12QPainterPath")) {
       taken[42] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine11updateStateERK17QPaintEngineState")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx19drawPixmapFragmentsEPKN8QPainter14PixmapFragmentEiRK7QPixmap6QFlagsINS0_18PixmapFragmentHintEE")) {
       taken[43] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx4syncEv")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine11updateStateERK17QPaintEngineState")) {
       taken[44] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx19beginNativePaintingEv")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx4syncEv")) {
       taken[45] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN14QPaintEngineEx17endNativePaintingEv")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx19beginNativePaintingEv")) {
       taken[46] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK14QPaintEngineEx5flagsEv")) {
+    if (!std::strcmp(key, "_ZN14QPaintEngineEx17endNativePaintingEv")) {
       taken[47] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine12createPixmapE5QSize")) {
+    if (!std::strcmp(key, "_ZNK14QPaintEngineEx5flagsEv")) {
       taken[48] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine12createPixmapE5QSize")) {
       taken[49] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE")) {
+      taken[50] = call;
       return true;
     }
     return false;
@@ -694,11 +699,28 @@ public:
     QRasterPaintEngine::drawStaticTextItem(textItem);
   }
 
-  //  Type QRasterPaintEngine::type() const
-  QPaintEngine::Type type() const override {
+  //  bool QRasterPaintEngine::drawCachedGlyphs(int numGlyphs, const
+  //      glyph_t *glyphs, const QFixedPoint *positions, QFontEngine
+  //      *fontEngine)
+  bool drawCachedGlyphs(
+      int numGlyphs,
+      const glyph_t *glyphs,
+      const QFixedPoint *positions,
+      QFontEngine *fontEngine) override {
     if (taken[34]) {
       int handled = 0;
       CuteQRasterPaintEngineCall34 call = reinterpret_cast<CuteQRasterPaintEngineCall34>(taken[34]);
+      bool given = call(this, numGlyphs, glyphs, positions, fontEngine, &handled);
+      if (handled) return given;
+    }
+    return QRasterPaintEngine::drawCachedGlyphs(numGlyphs, glyphs, positions, fontEngine);
+  }
+
+  //  Type QRasterPaintEngine::type() const
+  QPaintEngine::Type type() const override {
+    if (taken[35]) {
+      int handled = 0;
+      CuteQRasterPaintEngineCall35 call = reinterpret_cast<CuteQRasterPaintEngineCall35>(taken[35]);
       int given = call(this, &handled);
       if (handled) return static_cast<QPaintEngine::Type>(given);
     }
@@ -707,9 +729,9 @@ public:
 
   //  QPoint QRasterPaintEngine::coordinateOffset() const
   QPoint coordinateOffset() const override {
-    if (taken[35]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall35 call = reinterpret_cast<CuteQRasterPaintEngineCall35>(taken[35]);
+      CuteQRasterPaintEngineCall36 call = reinterpret_cast<CuteQRasterPaintEngineCall36>(taken[36]);
       const QPoint * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -722,9 +744,9 @@ public:
   bool requiresPretransformedGlyphPositions(
       QFontEngine *fontEngine,
       const QTransform &m) const override {
-    if (taken[36]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall36 call = reinterpret_cast<CuteQRasterPaintEngineCall36>(taken[36]);
+      CuteQRasterPaintEngineCall37 call = reinterpret_cast<CuteQRasterPaintEngineCall37>(taken[37]);
       bool given = call(this, fontEngine, &m, &handled);
       if (handled) return given;
     }
@@ -736,9 +758,9 @@ public:
   bool shouldDrawCachedGlyphs(
       QFontEngine *fontEngine,
       const QTransform &m) const override {
-    if (taken[37]) {
+    if (taken[38]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall37 call = reinterpret_cast<CuteQRasterPaintEngineCall37>(taken[37]);
+      CuteQRasterPaintEngineCall38 call = reinterpret_cast<CuteQRasterPaintEngineCall38>(taken[38]);
       bool given = call(this, fontEngine, &m, &handled);
       if (handled) return given;
     }
@@ -748,9 +770,9 @@ public:
   //  void QPaintEngineEx::clip(const QPainterPath &path, Qt::ClipOperation
   //      op)
   void clip(const QPainterPath &path, Qt::ClipOperation op) override {
-    if (taken[38]) {
+    if (taken[39]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall38 call = reinterpret_cast<CuteQRasterPaintEngineCall38>(taken[38]);
+      CuteQRasterPaintEngineCall39 call = reinterpret_cast<CuteQRasterPaintEngineCall39>(taken[39]);
       call(this, &path, static_cast<int>(op), &handled);
       if (handled) return;
     }
@@ -764,9 +786,9 @@ public:
       qreal xrad,
       qreal yrad,
       Qt::SizeMode mode) override {
-    if (taken[39]) {
+    if (taken[40]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall39 call = reinterpret_cast<CuteQRasterPaintEngineCall39>(taken[39]);
+      CuteQRasterPaintEngineCall40 call = reinterpret_cast<CuteQRasterPaintEngineCall40>(taken[40]);
       call(this, &rect, xrad, yrad, static_cast<int>(mode), &handled);
       if (handled) return;
     }
@@ -775,9 +797,9 @@ public:
 
   //  void QPaintEngineEx::drawEllipse(const QRect &r)
   void drawEllipse(const QRect &r) override {
-    if (taken[40]) {
+    if (taken[41]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall40 call = reinterpret_cast<CuteQRasterPaintEngineCall40>(taken[40]);
+      CuteQRasterPaintEngineCall41 call = reinterpret_cast<CuteQRasterPaintEngineCall41>(taken[41]);
       call(this, &r, &handled);
       if (handled) return;
     }
@@ -786,9 +808,9 @@ public:
 
   //  void QPaintEngineEx::drawPath(const QPainterPath &path)
   void drawPath(const QPainterPath &path) override {
-    if (taken[41]) {
+    if (taken[42]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall41 call = reinterpret_cast<CuteQRasterPaintEngineCall41>(taken[41]);
+      CuteQRasterPaintEngineCall42 call = reinterpret_cast<CuteQRasterPaintEngineCall42>(taken[42]);
       call(this, &path, &handled);
       if (handled) return;
     }
@@ -803,9 +825,9 @@ public:
       int fragmentCount,
       const QPixmap &pixmap,
       QFlags<QPainter::PixmapFragmentHint> hints) override {
-    if (taken[42]) {
+    if (taken[43]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall42 call = reinterpret_cast<CuteQRasterPaintEngineCall42>(taken[42]);
+      CuteQRasterPaintEngineCall43 call = reinterpret_cast<CuteQRasterPaintEngineCall43>(taken[43]);
       call(this, fragments, fragmentCount, &pixmap, static_cast<int>(hints.toInt()), &handled);
       if (handled) return;
     }
@@ -814,9 +836,9 @@ public:
 
   //  void QPaintEngineEx::updateState(const QPaintEngineState &state)
   void updateState(const QPaintEngineState &state) override {
-    if (taken[43]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall43 call = reinterpret_cast<CuteQRasterPaintEngineCall43>(taken[43]);
+      CuteQRasterPaintEngineCall44 call = reinterpret_cast<CuteQRasterPaintEngineCall44>(taken[44]);
       call(this, &state, &handled);
       if (handled) return;
     }
@@ -825,9 +847,9 @@ public:
 
   //  void QPaintEngineEx::sync()
   void sync() override {
-    if (taken[44]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall44 call = reinterpret_cast<CuteQRasterPaintEngineCall44>(taken[44]);
+      CuteQRasterPaintEngineCall45 call = reinterpret_cast<CuteQRasterPaintEngineCall45>(taken[45]);
       call(this, &handled);
       if (handled) return;
     }
@@ -836,9 +858,9 @@ public:
 
   //  void QPaintEngineEx::beginNativePainting()
   void beginNativePainting() override {
-    if (taken[45]) {
+    if (taken[46]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall45 call = reinterpret_cast<CuteQRasterPaintEngineCall45>(taken[45]);
+      CuteQRasterPaintEngineCall46 call = reinterpret_cast<CuteQRasterPaintEngineCall46>(taken[46]);
       call(this, &handled);
       if (handled) return;
     }
@@ -847,9 +869,9 @@ public:
 
   //  void QPaintEngineEx::endNativePainting()
   void endNativePainting() override {
-    if (taken[46]) {
+    if (taken[47]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall46 call = reinterpret_cast<CuteQRasterPaintEngineCall46>(taken[46]);
+      CuteQRasterPaintEngineCall47 call = reinterpret_cast<CuteQRasterPaintEngineCall47>(taken[47]);
       call(this, &handled);
       if (handled) return;
     }
@@ -858,9 +880,9 @@ public:
 
   //  uint QPaintEngineEx::flags() const
   uint flags() const override {
-    if (taken[47]) {
+    if (taken[48]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall47 call = reinterpret_cast<CuteQRasterPaintEngineCall47>(taken[47]);
+      CuteQRasterPaintEngineCall48 call = reinterpret_cast<CuteQRasterPaintEngineCall48>(taken[48]);
       uint given = call(this, &handled);
       if (handled) return given;
     }
@@ -869,9 +891,9 @@ public:
 
   //  QPixmap QPaintEngine::createPixmap(QSize size)
   QPixmap createPixmap(QSize size) override {
-    if (taken[48]) {
+    if (taken[49]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall48 call = reinterpret_cast<CuteQRasterPaintEngineCall48>(taken[48]);
+      CuteQRasterPaintEngineCall49 call = reinterpret_cast<CuteQRasterPaintEngineCall49>(taken[49]);
       const QPixmap * given = call(this, &size, &handled);
       if (handled && given) return *given;
     }
@@ -883,9 +905,9 @@ public:
   QPixmap createPixmapFromImage(
       QImage image,
       Qt::ImageConversionFlags flags) override {
-    if (taken[49]) {
+    if (taken[50]) {
       int handled = 0;
-      CuteQRasterPaintEngineCall49 call = reinterpret_cast<CuteQRasterPaintEngineCall49>(taken[49]);
+      CuteQRasterPaintEngineCall50 call = reinterpret_cast<CuteQRasterPaintEngineCall50>(taken[50]);
       const QPixmap * given = call(this, &image, static_cast<int>(flags.toInt()), &handled);
       if (handled && given) return *given;
     }
@@ -1235,6 +1257,35 @@ void ritual_ZN18QRasterPaintEngine10drawPointsEPK6QPointi(
   self->drawPoints(points, pointCount);
 }
 
+//  void QRasterPaintEngine::stroke(const QVectorPath &path, const QPen &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QRasterPaintEngine6strokeERK11QVectorPathRK4QPen(
+    QRasterPaintEngine *self,
+    const QVectorPath *path,
+    const QPen *pen) {
+  self->stroke(*path, *pen);
+}
+
+//  void QRasterPaintEngine::fill(const QVectorPath &path, const QBrush
+//      &brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QRasterPaintEngine4fillERK11QVectorPathRK6QBrush(
+    QRasterPaintEngine *self,
+    const QVectorPath *path,
+    const QBrush *brush) {
+  self->fill(*path, *brush);
+}
+
+//  void QRasterPaintEngine::clip(const QVectorPath &path, Qt::ClipOperation
+//      op)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QRasterPaintEngine4clipERK11QVectorPathN2Qt13ClipOperationE(
+    QRasterPaintEngine *self,
+    const QVectorPath *path,
+    Qt::ClipOperation op) {
+  self->clip(*path, op);
+}
+
 //  void QRasterPaintEngine::clip(const QRect &rect, Qt::ClipOperation op)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QRasterPaintEngine4clipERK5QRectN2Qt13ClipOperationE(
@@ -1269,6 +1320,18 @@ void ritual_ZN18QRasterPaintEngine18drawStaticTextItemEP15QStaticTextItem(
   self->drawStaticTextItem(textItem);
 }
 
+//  bool QRasterPaintEngine::drawCachedGlyphs(int numGlyphs, const glyph_t
+//      *glyphs, const QFixedPoint *positions, QFontEngine *fontEngine)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QRasterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine(
+    QRasterPaintEngine *self,
+    int numGlyphs,
+    const glyph_t *glyphs,
+    const QFixedPoint *positions,
+    QFontEngine *fontEngine) {
+  return self->drawCachedGlyphs(numGlyphs, glyphs, positions, fontEngine);
+}
+
 //  ClipType QRasterPaintEngine::clipType() const
 extern "C" Q_DECL_EXPORT
 QRasterPaintEngine::ClipType ritual_ZNK18QRasterPaintEngine8clipTypeEv(
@@ -1288,6 +1351,22 @@ extern "C" Q_DECL_EXPORT
 QRasterBuffer *ritual_ZN18QRasterPaintEngine12rasterBufferEv(
     QRasterPaintEngine *self) {
   return self->rasterBuffer();
+}
+
+//  void QRasterPaintEngine::alphaPenBlt(const void *src, int bpl, int depth,
+//      int rx, int ry, int w, int h, bool useGammaCorrection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QRasterPaintEngine11alphaPenBltEPKviiiiiib(
+    QRasterPaintEngine *self,
+    const void *src,
+    int bpl,
+    int depth,
+    int rx,
+    int ry,
+    int w,
+    int h,
+    bool useGammaCorrection) {
+  self->alphaPenBlt(src, bpl, depth, rx, ry, w, h, useGammaCorrection);
 }
 
 //  Type QRasterPaintEngine::type() const
@@ -1322,6 +1401,15 @@ bool ritual_ZNK18QRasterPaintEngine22shouldDrawCachedGlyphsEP11QFontEngineRK10QT
     QFontEngine *fontEngine,
     const QTransform *m) {
   return self->shouldDrawCachedGlyphs(fontEngine, *m);
+}
+
+//  QRasterPaintEngine::QRasterPaintEngine(QRasterPaintEnginePrivate &d,
+//      QPaintDevice *a1)
+extern "C" Q_DECL_EXPORT
+QRasterPaintEngine *ritual_ZN18QRasterPaintEngineC1ER25QRasterPaintEnginePrivateP12QPaintDevice(
+    QRasterPaintEnginePrivate *d,
+    QPaintDevice *a1) {
+  return new CuteQRasterPaintEngine(*d, a1);
 }
 
 //  void QRasterPaintEngine::init()
@@ -1737,6 +1825,22 @@ void ritual_own_ZN18QRasterPaintEngine18drawStaticTextItemEP15QStaticTextItem(
     QRasterPaintEngine *self,
     QStaticTextItem *textItem) {
   self->QRasterPaintEngine::drawStaticTextItem(textItem);
+}
+
+//  bool QRasterPaintEngine::drawCachedGlyphs(int numGlyphs, const glyph_t
+//      *glyphs, const QFixedPoint *positions, QFontEngine *fontEngine)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN18QRasterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine(
+    QRasterPaintEngine *self,
+    int numGlyphs,
+    const glyph_t *glyphs,
+    const QFixedPoint *positions,
+    QFontEngine *fontEngine) {
+  return self->QRasterPaintEngine::drawCachedGlyphs(
+      numGlyphs,
+      glyphs,
+      positions,
+      fontEngine);
 }
 
 //  Type QRasterPaintEngine::type() const

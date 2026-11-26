@@ -7,6 +7,7 @@
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qaspectjobproviderinterface_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <vector>
 
 //  A Qt3DCore::QAspectJobProviderInterface that Python can take functions over in. Every Qt3DCore::QAspectJobProviderInterface
 //  Python makes is one. Each function below asks the Python
@@ -58,6 +59,15 @@ void ritual_ZN8Qt3DCore27QAspectJobProviderInterfaceD1Ev(
   delete self;
 }
 
+//  std::vector<QAspectJobPtr>
+//      Qt3DCore::QAspectJobProviderInterface::jobsToExecute(qint64 time)
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZN8Qt3DCore27QAspectJobProviderInterface13jobsToExecuteEx(
+    Qt3DCore::QAspectJobProviderInterface *self,
+    qint64 time) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(self->jobsToExecute(time));
+}
+
 //  void Qt3DCore::QAspectJobProviderInterface::jobsDone()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore27QAspectJobProviderInterface8jobsDoneEv(
@@ -80,4 +90,12 @@ bool ritual_take_Qt3DCore_QAspectJobProviderInterface(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DCore_QAspectJobProviderInterface *>(self)->take(key, call);
+}
+
+//  a std::vector<Qt3DCore::QAspectJobPtr> a ritual of
+//      Qt3DCore::QAspectJobProviderInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QAspectJobProviderInterface__std_vector_Qt3DCore_QAspectJobPtr(
+    std::vector<Qt3DCore::QAspectJobPtr> *self) {
+  delete self;
 }

@@ -12,9 +12,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQmlModels/private/qqmldmabstractitemmodeldata_p.h>
 #include <QtQmlModels/private/qqmladaptormodelenginedata_p.h>
 #include <QtQmlModels/private/qqmldmlistaccessordata_p.h>
-#include <QtQmlModels/private/qqmldmabstractitemmodeldata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -23,6 +23,20 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldmabstractitemmodeldata.cpp, line 238, as _ZN27QQmlDMAbstractItemModelData3getEv
+inline QV4::ReturnedValue QQmlDMAbstractItemModelData::get()
+{
+    QV4::Scope scope(metaType()->v4Engine);
+    if (m_type->prototype.isUndefined()) {
+        QQmlAdaptorModelEngineData *const data = QQmlAdaptorModelEngineData::get(scope.engine);
+        m_type->initializeConstructor(data);
+    }
+    QV4::ScopedObject proto(scope, m_type->prototype.value());
+    QV4::ScopedObject o(scope, proto->engine()->memoryManager->allocate<QQmlDelegateModelItemObject>(this));
+    o->setPrototypeOf(proto);
+    return o.asReturnedValue();
+}
 
 //  from ../qtdeclarative/src/qmlmodels/qqmladaptormodelenginedata.cpp, line 10, as _ZN26QQmlAdaptorModelEngineDataC1EPN3QV415ExecutionEngineE
 inline QQmlAdaptorModelEngineData::QQmlAdaptorModelEngineData(QV4::ExecutionEngine *v4)
@@ -40,6 +54,94 @@ inline QQmlAdaptorModelEngineData::QQmlAdaptorModelEngineData(QV4::ExecutionEngi
     listItemProto.set(v4, proto);
 }
 
+//  from ../qtdeclarative/src/qmlmodels/qqmldmabstractitemmodeldata.cpp, line 95, as _ZN27QQmlDMAbstractItemModelData12get_propertyEPKN3QV414FunctionObjectEPKNS0_5ValueES6_i
+inline QV4::ReturnedValue QQmlDMAbstractItemModelData::get_property(const QV4::FunctionObject *b, const QV4::Value *thisObject, const QV4::Value *, int)
+{
+    QV4::Scope scope(b);
+    QV4::Scoped<QQmlDelegateModelItemObject> o(scope, thisObject->as<QQmlDelegateModelItemObject>());
+    if (!o)
+        return scope.engine->throwTypeError(QStringLiteral("Not a valid DelegateModel object"));
+
+    const qsizetype propertyId = static_cast<const QV4::IndexedBuiltinFunction *>(b)->d()->index;
+
+    QQmlDelegateModelItem *item = o->d()->item();
+    QQmlDMAbstractItemModelData *modelData = static_cast<QQmlDMAbstractItemModelData *>(item);
+    if (item->modelIndex() == -1) {
+        if (!modelData->m_cachedData.isEmpty())
+            return scope.engine->fromVariant(modelData->m_cachedData.at(propertyId));
+    } else if (*modelData->m_type->model) {
+        return scope.engine->fromVariant(
+                modelData->value(modelData->m_type->propertyRoles.at(propertyId)));
+    }
+    return QV4::Encode::undefined();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldmabstractitemmodeldata.cpp, line 116, as _ZN27QQmlDMAbstractItemModelData12set_propertyEPKN3QV414FunctionObjectEPKNS0_5ValueES6_i
+inline QV4::ReturnedValue QQmlDMAbstractItemModelData::set_property(const QV4::FunctionObject *b, const QV4::Value *thisObject, const QV4::Value *argv, int argc)
+{
+    QV4::Scope scope(b);
+    QV4::Scoped<QQmlDelegateModelItemObject> o(scope, thisObject->as<QQmlDelegateModelItemObject>());
+    if (!o)
+        return scope.engine->throwTypeError(QStringLiteral("Not a valid DelegateModel object"));
+    if (!argc)
+        return scope.engine->throwTypeError();
+
+    const qsizetype propertyId = static_cast<const QV4::IndexedBuiltinFunction *>(b)->d()->index;
+
+    QQmlDelegateModelItem *item = o->d()->item();
+    if (item->modelIndex() == -1) {
+        QQmlDMAbstractItemModelData *modelData = static_cast<QQmlDMAbstractItemModelData *>(item);
+        if (!modelData->m_cachedData.isEmpty()) {
+            if (modelData->m_cachedData.size() > 1) {
+                modelData->m_cachedData[propertyId]
+                        = QV4::ExecutionEngine::toVariant(argv[0], QMetaType {});
+                QMetaObject::activate(item, item->metaObject(), propertyId, nullptr);
+            } else if (modelData->m_cachedData.size() == 1) {
+                modelData->m_cachedData[0] = QV4::ExecutionEngine::toVariant(argv[0], QMetaType {});
+                QMetaObject::activate(item, item->metaObject(), 0, nullptr);
+            }
+            emit modelData->modelDataChanged();
+        }
+    }
+    return QV4::Encode::undefined();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldmabstractitemmodeldata.cpp, line 145, as _ZN27QQmlDMAbstractItemModelData13get_modelDataEPKN3QV414FunctionObjectEPKNS0_5ValueES6_i
+inline QV4::ReturnedValue QQmlDMAbstractItemModelData::get_modelData(
+        const QV4::FunctionObject *b, const QV4::Value *thisObject,
+        const QV4::Value *argv, int argc)
+{
+    Q_UNUSED(argv)
+    Q_UNUSED(argc)
+
+    QV4::Scope scope(b);
+    QV4::Scoped<QQmlDelegateModelItemObject> o(
+                scope, thisObject->as<QQmlDelegateModelItemObject>());
+    if (!o)
+        return scope.engine->throwTypeError(QStringLiteral("Not a valid DelegateModel object"));
+
+    return scope.engine->fromVariant(
+            static_cast<QQmlDMAbstractItemModelData *>(o->d()->item())->modelData());
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldmabstractitemmodeldata.cpp, line 162, as _ZN27QQmlDMAbstractItemModelData13set_modelDataEPKN3QV414FunctionObjectEPKNS0_5ValueES6_i
+inline QV4::ReturnedValue QQmlDMAbstractItemModelData::set_modelData(
+        const QV4::FunctionObject *b, const QV4::Value *thisObject,
+        const QV4::Value *argv, int argc)
+{
+    QV4::Scope scope(b);
+    QV4::Scoped<QQmlDelegateModelItemObject> o(scope, thisObject->as<QQmlDelegateModelItemObject>());
+    if (!o)
+        return scope.engine->throwTypeError(QStringLiteral("Not a valid DelegateModel object"));
+    if (!argc)
+        return scope.engine->throwTypeError();
+
+    static_cast<QQmlDMAbstractItemModelData *>(o->d()->item())->setModelData(
+                QV4::ExecutionEngine::toVariant(argv[0], QMetaType()));
+
+    return QV4::Encode::undefined();
+}
+
 //  from ../qtdeclarative/src/qmlmodels/qqmldmabstractitemmodeldata.cpp, line 214, as _ZNK27QQmlDMAbstractItemModelData16hasModelChildrenEv
 inline bool QQmlDMAbstractItemModelData::hasModelChildren() const
 {
@@ -50,43 +152,6 @@ inline bool QQmlDMAbstractItemModelData::hasModelChildren() const
         }
     }
     return false;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldmabstractitemmodeldata.cpp, line 238, as _ZN27QQmlDMAbstractItemModelData3getEv
-inline QV4::ReturnedValue QQmlDMAbstractItemModelData::get()
-{
-    QV4::Scope scope(metaType()->v4Engine);
-    if (m_type->prototype.isUndefined()) {
-        QQmlAdaptorModelEngineData *const data = QQmlAdaptorModelEngineData::get(scope.engine);
-        m_type->initializeConstructor(data);
-    }
-    QV4::ScopedObject proto(scope, m_type->prototype.value());
-    QV4::ScopedObject o(scope, proto->engine()->memoryManager->allocate<QQmlDelegateModelItemObject>(this));
-    o->setPrototypeOf(proto);
-    return o.asReturnedValue();
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldmabstractitemmodeldata.cpp, line 57, as _ZN27QQmlDMAbstractItemModelData8setValueERK7QStringRK8QVariant
-inline void QQmlDMAbstractItemModelData::setValue(const QString &role, const QVariant &value)
-{
-    // Used only for initialization of the cached data. Does not have to emit change signals.
-
-    if (m_type->propertyRoles.size() == 1
-            && (role.isEmpty() || role == QLatin1String("modelData"))) {
-        // If the model has only a single role, the modelData is that role.
-        m_cachedData[0] = value;
-        return;
-    }
-
-    const auto it = m_type->roleNames.constFind(role.toUtf8());
-    if (it != m_type->roleNames.cend()) {
-        for (int i = 0; i < m_type->propertyRoles.size(); ++i) {
-            if (m_type->propertyRoles.at(i) == *it) {
-                m_cachedData[i] = value;
-                return;
-            }
-        }
-    }
 }
 
 //  from ../qtdeclarative/src/qmlmodels/qqmldmabstractitemmodeldata.cpp, line 225, as _ZNK27QQmlDMAbstractItemModelData5valueEi
@@ -110,6 +175,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK27QQmlDMAbstractItemModelData10metaObjectEv(
     const QQmlDMAbstractItemModelData *self) {
   return self->metaObject();
+}
+
+//  void *QQmlDMAbstractItemModelData::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQmlDMAbstractItemModelData11qt_metacastEPKc(
+    QQmlDMAbstractItemModelData *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDMAbstractItemModelData::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQmlDMAbstractItemModelData11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDMAbstractItemModelData *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  bool QQmlDMAbstractItemModelData::hasModelChildren() const
@@ -136,12 +220,47 @@ void ritual_ZN27QQmlDMAbstractItemModelData8setValueERK7QStringRK8QVariant(
   self->setValue(*role, *value);
 }
 
+//  bool QQmlDMAbstractItemModelData::resolveIndex(const QQmlAdaptorModel
+//      &model, int idx)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN27QQmlDMAbstractItemModelData12resolveIndexERK16QQmlAdaptorModeli(
+    QQmlDMAbstractItemModelData *self,
+    const QQmlAdaptorModel *model,
+    int idx) {
+  return self->resolveIndex(*model, idx);
+}
+
 //  const VDMAbstractItemModelDataType *QQmlDMAbstractItemModelData::type()
 //      const
 extern "C" Q_DECL_EXPORT
 const VDMAbstractItemModelDataType *ritual_ZNK27QQmlDMAbstractItemModelData4typeEv(
     const QQmlDMAbstractItemModelData *self) {
   return self->type();
+}
+
+//  void QQmlDMAbstractItemModelData::modelDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQmlDMAbstractItemModelData16modelDataChangedEv(
+    QQmlDMAbstractItemModelData *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlDMAbstractItemModelData")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "modelDataChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "modelDataChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QVariant QQmlDMAbstractItemModelData::value(int role) const
@@ -160,16 +279,6 @@ void ritual_ZN27QQmlDMAbstractItemModelData8setValueEiRK8QVariant(
     int role,
     const QVariant *value) {
   self->setValue(role, *value);
-}
-
-//  void QQmlDMAbstractItemModelData::setValue(const QString &role, const
-//      QVariant &value)
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN27QQmlDMAbstractItemModelData8setValueERK7QStringRK8QVariant(
-    QQmlDMAbstractItemModelData *self,
-    const QString *role,
-    const QVariant *value) {
-  self->QQmlDMAbstractItemModelData::setValue(*role, *value);
 }
 
 #endif  // QT_CONFIG(qml_delegate_model)

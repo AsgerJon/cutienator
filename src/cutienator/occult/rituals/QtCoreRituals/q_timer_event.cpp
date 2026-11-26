@@ -11,6 +11,7 @@ typedef void (*CuteQTimerEventCall1)(const void *, bool, int *);
 class CuteQTimerEvent : public QTimerEvent {
 public:
   using QTimerEvent::QTimerEvent;
+  CuteQTimerEvent(const QTimerEvent & other) : QTimerEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -48,6 +49,20 @@ public:
   }
 };
 
+//  QTimerEvent::QTimerEvent(const QTimerEvent &a0)
+extern "C" Q_DECL_EXPORT
+QTimerEvent *ritual_ZN11QTimerEventC1ERKS_(const QTimerEvent *a0) {
+  return new CuteQTimerEvent(*a0);
+}
+
+//  QTimerEvent &QTimerEvent::operator=(const QTimerEvent &other)
+extern "C" Q_DECL_EXPORT
+QTimerEvent *ritual_ZN11QTimerEventaSERKS_(
+    QTimerEvent *self,
+    const QTimerEvent *other) {
+  return &(self->operator=(*other));
+}
+
 //  QTimerEvent *QTimerEvent::clone() const
 extern "C" Q_DECL_EXPORT
 QTimerEvent *ritual_ZNK11QTimerEvent5cloneEv(const QTimerEvent *self) {
@@ -82,6 +97,14 @@ int ritual_ZNK11QTimerEvent7timerIdEv(const QTimerEvent *self) {
 extern "C" Q_DECL_EXPORT
 Qt::TimerId ritual_ZNK11QTimerEvent2idEv(const QTimerEvent *self) {
   return self->id();
+}
+
+//  bool QTimerEvent::matches(const QBasicTimer &timer) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QTimerEvent7matchesERK11QBasicTimer(
+    const QTimerEvent *self,
+    const QBasicTimer *timer) {
+  return self->matches(*timer);
 }
 
 //  a Python function taken by a CuteQTimerEvent, for the function named by

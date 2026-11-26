@@ -11,6 +11,9 @@
     "ritual_ZNK25QRhiSwapChainRenderTarget9swapChainEv": [
       "address", "address"
     ],
+    "ritual_ZN25QRhiSwapChainRenderTargetC1EP18QRhiImplementationP13QRhiSwapChain": [
+      "address", "address", "address"
+    ],
     "ritual_take_QRhiSwapChainRenderTarget": [
       "bool", "address", "chars", "address"
     ],

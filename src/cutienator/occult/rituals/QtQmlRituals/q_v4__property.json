@@ -14,6 +14,9 @@
     "ritual_ZNK3QV48Property8isSubsetERKNS_18PropertyAttributesEPKS0_S1_": [
       "bool", "address", "address", "address", "address"
     ],
+    "ritual_ZN3QV48Property5mergeERNS_18PropertyAttributesEPKS0_S1_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK3QV48Property6getterEv": ["address", "address"],
     "ritual_ZNK3QV48Property6setterEv": ["address", "address"],
     "ritual_ZN3QV48Property9setGetterEPNS_14FunctionObjectE": [
@@ -24,6 +27,9 @@
     ],
     "ritual_ZN3QV48Property4copyEPKS0_NS_18PropertyAttributesE": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV48Property12isCompatibleERNS_18PropertyAttributesEPKS0_S1_": [
+      "bool", "address", "address", "address", "address"
     ],
     "ritual_ZN3QV48PropertyC1Ev": ["address"],
     "ritual_ZN3QV48PropertyC1EPNS_4Heap14FunctionObjectES3_": [

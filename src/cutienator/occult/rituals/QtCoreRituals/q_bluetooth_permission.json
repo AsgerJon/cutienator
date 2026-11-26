@@ -12,6 +12,16 @@
     ],
     "ritual_ZN20QBluetoothPermissionC1Ev": ["address"],
     "ritual_ZN20QBluetoothPermissionC1ERKS_": ["address", "address"],
-    "ritual_ZN20QBluetoothPermissionD1Ev": ["nothing", "address"]
+    "ritual_ZN20QBluetoothPermissionC1EOS_": ["address", "address"],
+    "ritual_ZN20QBluetoothPermissionD1Ev": ["nothing", "address"],
+    "ritual_ZN20QBluetoothPermissionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QBluetoothPermissionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QBluetoothPermission4swapERS_": [
+      "nothing", "address", "address"
+    ]
   }
 }

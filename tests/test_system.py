@@ -117,10 +117,18 @@ class TestSystem(BaseTest):
         ('-fms-runtime-lib=dll', '-DNOMINMAX'),
     )
 
+  def test_builds_objective_c(self) -> None:
+    """A ritual file of Objective-C++ is built on macOS only."""
+    self.assertFalse(Linux().buildsObjectiveC())
+    self.assertTrue(MacOS().buildsObjectiveC())
+    self.assertFalse(Windows().buildsObjectiveC())
+
   def test_linker_flags(self) -> None:
     """Linux and macOS have the Qt folder written in; Windows cannot.
     Linux is also told to offer the rituals and nothing else, and to
-    name only the Qt shared objects it calls into."""
+    name only the Qt shared objects it calls into. macOS also links
+    Apple's frameworks and the runtime of Objective-C, which a ritual
+    file of Objective-C++ calls."""
     offers = os.path.join(
         os.path.dirname(os.path.abspath(occult.__file__)),
         'linux_offers.map',
@@ -135,7 +143,11 @@ class TestSystem(BaseTest):
     )
     self.assertEqual(
         MacOS().getLinkerFlags('/opt/qt/lib'),
-        ('-Wl,-rpath,/opt/qt/lib',),
+        (
+            '-Wl,-rpath,/opt/qt/lib',
+            '-framework', 'Foundation', '-framework', 'AppKit',
+            '-framework', 'Metal', '-framework', 'QuartzCore', '-lobjc',
+        ),
     )
     self.assertEqual(Windows().getLinkerFlags('C:/Qt/lib'), ())
 
@@ -146,6 +158,7 @@ class TestSystem(BaseTest):
         lambda: system.getQtFileName('QtCore'),
         lambda: system.getCompilerFlags('/opt/qt/lib'),
         lambda: system.getLinkerFlags('/opt/qt/lib'),
+        lambda: system.buildsObjectiveC(),
         lambda: system.prepareOpening(),
     ):
       with self.assertRaises(NotImplementedError) as context:

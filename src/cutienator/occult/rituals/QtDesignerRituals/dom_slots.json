@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN8DomSlotsC1Ev": ["address"],
     "ritual_ZN8DomSlotsD1Ev": ["nothing", "address"],
+    "ritual_ZN8DomSlots4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8DomSlots5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK8DomSlots13elementSignalEv": ["address", "address"],
     "ritual_ZN8DomSlots16setElementSignalERK5QListI7QStringE": [
       "nothing", "address", "address"

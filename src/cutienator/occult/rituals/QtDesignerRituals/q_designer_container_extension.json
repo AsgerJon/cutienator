@@ -4,6 +4,7 @@
     "QtDesigner/container.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QDesignerContainerExtensionC1Ev": ["address"],
     "ritual_ZN27QDesignerContainerExtensionD1Ev": ["nothing", "address"],
     "ritual_ZNK27QDesignerContainerExtension5countEv": ["int", "address"],
     "ritual_ZNK27QDesignerContainerExtension6widgetEi": [

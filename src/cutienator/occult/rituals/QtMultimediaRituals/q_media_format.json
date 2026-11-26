@@ -8,6 +8,10 @@
     "ritual_ZN12QMediaFormatC1ENS_10FileFormatE": ["address", "int"],
     "ritual_ZN12QMediaFormatD1Ev": ["nothing", "address"],
     "ritual_ZN12QMediaFormatC1ERKS_": ["address", "address"],
+    "ritual_ZN12QMediaFormataSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QMediaFormatC1EOS_": ["address", "address"],
+    "ritual_ZN12QMediaFormataSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QMediaFormat4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK12QMediaFormat10fileFormatEv": ["int", "address"],
     "ritual_ZN12QMediaFormat13setFileFormatENS_10FileFormatE": [
       "nothing", "address", "int"
@@ -24,6 +28,15 @@
       "bool", "address", "int"
     ],
     "ritual_ZNK12QMediaFormat8mimeTypeEv": ["address", "address"],
+    "ritual_ZN12QMediaFormat20supportedFileFormatsENS_14ConversionModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QMediaFormat20supportedVideoCodecsENS_14ConversionModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QMediaFormat20supportedAudioCodecsENS_14ConversionModeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN12QMediaFormat14fileFormatNameENS_10FileFormatE": [
       "text", "int"
     ],
@@ -46,6 +59,15 @@
     "ritual_ZNK12QMediaFormatneERKS_": ["bool", "address", "address"],
     "ritual_ZN12QMediaFormat18resolveForEncodingENS_12ResolveFlagsE": [
       "nothing", "address", "int"
+    ],
+    "ritual_drop_QMediaFormat__QList_QMediaFormat_FileFormat": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QMediaFormat__QList_QMediaFormat_VideoCodec": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QMediaFormat__QList_QMediaFormat_AudioCodec": [
+      "nothing", "address"
     ]
   }
 }

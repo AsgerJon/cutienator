@@ -48,6 +48,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/widgets/qabstractbutton.cpp, line 31, as local:qabstractbutton.cpp:AUTO_REPEAT_DELAY
+#define AUTO_REPEAT_DELAY  300
+
+//  from src/widgets/widgets/qabstractbutton.cpp, line 32, as local:qabstractbutton.cpp:AUTO_REPEAT_INTERVAL
+#define AUTO_REPEAT_INTERVAL 100
+
 //  from src/widgets/widgets/qabstractbutton.cpp, line 434, as _ZNK22QAbstractButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9StateFlagEE
 inline QStyle::State QAbstractButtonPrivate::styleButtonState(QStyle::State state) const
 {

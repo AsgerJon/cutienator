@@ -170,6 +170,25 @@ inline void QValue3DAxisFormatterPrivate::doRecalculate()
     m_labelStrings << q_ptr->stringForValue(qreal(m_max), labelFormat);
 }
 
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 364, as _ZN28QValue3DAxisFormatterPrivate12populateCopyER21QValue3DAxisFormatter
+inline void QValue3DAxisFormatterPrivate::populateCopy(QValue3DAxisFormatter &copy)
+{
+    recalculate();
+    q_ptr->populateCopy(copy);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 370, as _ZN28QValue3DAxisFormatterPrivate14doPopulateCopyERS_
+inline void QValue3DAxisFormatterPrivate::doPopulateCopy(QValue3DAxisFormatterPrivate &copy)
+{
+    copy.m_min = m_min;
+    copy.m_max = m_max;
+    copy.m_rangeNormalizer = m_rangeNormalizer;
+
+    copy.m_gridPositions = m_gridPositions;
+    copy.m_labelPositions = m_labelPositions;
+    copy.m_subGridPositions = m_subGridPositions;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 381, as _ZN28QValue3DAxisFormatterPrivate14stringForValueEdRK7QString
 inline QString QValue3DAxisFormatterPrivate::stringForValue(qreal value, const QString &format)
 {
@@ -377,6 +396,25 @@ const QMetaObject *ritual_ZNK28QValue3DAxisFormatterPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QValue3DAxisFormatterPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QValue3DAxisFormatterPrivate11qt_metacastEPKc(
+    QValue3DAxisFormatterPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QValue3DAxisFormatterPrivate::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QValue3DAxisFormatterPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QValue3DAxisFormatterPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QValue3DAxisFormatterPrivate::~QValue3DAxisFormatterPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QValue3DAxisFormatterPrivateD1Ev(
@@ -396,6 +434,25 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN28QValue3DAxisFormatterPrivate13doRecalculateEv(
     QValue3DAxisFormatterPrivate *self) {
   self->doRecalculate();
+}
+
+//  void QValue3DAxisFormatterPrivate::populateCopy(QValue3DAxisFormatter
+//      &copy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QValue3DAxisFormatterPrivate12populateCopyER21QValue3DAxisFormatter(
+    QValue3DAxisFormatterPrivate *self,
+    QValue3DAxisFormatter *copy) {
+  self->populateCopy(*copy);
+}
+
+//  void
+//      QValue3DAxisFormatterPrivate::doPopulateCopy(QValue3DAxisFormatterPri
+//      vate &copy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QValue3DAxisFormatterPrivate14doPopulateCopyERS_(
+    QValue3DAxisFormatterPrivate *self,
+    QValue3DAxisFormatterPrivate *copy) {
+  self->doPopulateCopy(*copy);
 }
 
 //  QString QValue3DAxisFormatterPrivate::stringForValue(qreal value, const
@@ -422,6 +479,31 @@ float ritual_ZNK28QValue3DAxisFormatterPrivate7valueAtEf(
     const QValue3DAxisFormatterPrivate *self,
     float position) {
   return self->valueAt(position);
+}
+
+//  void QValue3DAxisFormatterPrivate::markDirtyNoLabelChange()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QValue3DAxisFormatterPrivate22markDirtyNoLabelChangeEv(
+    QValue3DAxisFormatterPrivate *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QValue3DAxisFormatterPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "markDirtyNoLabelChange()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "markDirtyNoLabelChange()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQValue3DAxisFormatterPrivate, for the

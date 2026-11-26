@@ -18,6 +18,9 @@
     ],
     "ritual_ZNK19QDomDocumentPrivate8nodeTypeEv": ["int", "address"],
     "ritual_ZN19QDomDocumentPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZNK19QDomDocumentPrivate12saveDocumentER11QTextStreamiN8QDomNode14EncodingPolicyE": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_take_QDomDocumentPrivate": [
       "bool", "address", "chars", "address"
     ],

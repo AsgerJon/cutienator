@@ -36,6 +36,9 @@
     "ritual_ZdvRK8QMarginsi": ["address", "address", "int"],
     "ritual_ZdvRK8QMarginsd": ["address", "address", "double"],
     "ritual_ZorRK8QMarginsS1_": ["address", "address", "address"],
+    "ritual_ZN8QMarginsC1EN9QtPrivate16QCheckedIntegers11QCheckedIntIiNS1_13SafeCheckImplIiEENS1_18AssertReportPolicyEEES6_S6_S6_": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZeqRK8QMarginsS1_": ["bool", "address", "address"],
     "ritual_ZneRK8QMarginsS1_": ["bool", "address", "address"],
     "ritual_ZN8QMarginsD1Ev": ["nothing", "address"]

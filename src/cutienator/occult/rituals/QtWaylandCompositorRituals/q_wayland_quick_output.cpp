@@ -7,6 +7,8 @@
 #include <QtWaylandCompositor/qwaylandquickoutput.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  Only a class built on QWaylandQuickOutput may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -23,6 +25,25 @@ const QMetaObject *ritual_ZNK19QWaylandQuickOutput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandQuickOutput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QWaylandQuickOutput11qt_metacastEPKc(
+    QWaylandQuickOutput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQuickOutput::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QWaylandQuickOutput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQuickOutput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandQuickOutput::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QWaylandQuickOutput2trEPKcS1_i(
@@ -30,6 +51,46 @@ QString *ritual_ZN19QWaylandQuickOutput2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandQuickOutput::tr(s, c, n));
+}
+
+//  QQmlListProperty<QObject> QWaylandQuickOutput::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN19QWaylandQuickOutput4dataEv(
+    QWaylandQuickOutput *self) {
+  return new QQmlListProperty<QObject>(self->data());
+}
+
+//  void QWaylandQuickOutput::appendFunction(QQmlListProperty<QObject> *list,
+//      QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandQuickOutput14appendFunctionEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *object) {
+  QWaylandQuickOutput::appendFunction(list, object);
+}
+
+//  qsizetype QWaylandQuickOutput::countFunction(QQmlListProperty<QObject>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN19QWaylandQuickOutput13countFunctionEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  return QWaylandQuickOutput::countFunction(list);
+}
+
+//  QObject *QWaylandQuickOutput::atFunction(QQmlListProperty<QObject> *list,
+//      qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN19QWaylandQuickOutput10atFunctionEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *list,
+    qsizetype index) {
+  return QWaylandQuickOutput::atFunction(list, index);
+}
+
+//  void QWaylandQuickOutput::clearFunction(QQmlListProperty<QObject> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandQuickOutput13clearFunctionEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  QWaylandQuickOutput::clearFunction(list);
 }
 
 //  QWaylandQuickOutput::QWaylandQuickOutput()
@@ -82,6 +143,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QWaylandQuickOutput13updateStartedEv(
     QWaylandQuickOutput *self) {
   self->updateStarted();
+}
+
+//  void QWaylandQuickOutput::automaticFrameCallbackChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QWaylandQuickOutput29automaticFrameCallbackChangedEv(
+    QWaylandQuickOutput *self) {
+  self->automaticFrameCallbackChanged();
 }
 
 //  void QWaylandQuickOutput::initialize()
@@ -144,6 +212,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QWaylandQuickOutput17componentCompleteEv(
     QWaylandQuickOutput *self) {
   static_cast<OwnQWaylandQuickOutput *>(self)->OwnQWaylandQuickOutput::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of QWaylandQuickOutput gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWaylandQuickOutput__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(wayland_compositor_quick)

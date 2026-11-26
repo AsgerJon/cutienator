@@ -6,6 +6,18 @@
   ],
   "rows": {
     "ritual_ZN10QtPipeWire13QAudioDevicesD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QtPipeWire13QAudioDevices15findAudioInputsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QtPipeWire13QAudioDevices16findAudioOutputsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtPipeWire13QAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QtPipeWire13QAudioDevices15createAudioSinkERK12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK10QtPipeWire13QAudioDevices11backendNameEv": [
       "address", "address"
     ],

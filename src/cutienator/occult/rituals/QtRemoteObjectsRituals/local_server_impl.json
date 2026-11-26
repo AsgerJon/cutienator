@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15LocalServerImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN15LocalServerImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15LocalServerImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15LocalServerImplD1Ev": ["nothing", "address"],
     "ritual_ZNK15LocalServerImpl21hasPendingConnectionsEv": [
       "bool", "address"

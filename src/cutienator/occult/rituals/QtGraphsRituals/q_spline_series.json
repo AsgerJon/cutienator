@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK13QSplineSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QSplineSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QSplineSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QSplineSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QSplineSeriesC1EP7QObject": ["address", "address"],
     "ritual_ZN13QSplineSeriesD1Ev": ["nothing", "address"],
@@ -21,6 +27,15 @@
     "ritual_ZNK13QSplineSeries11isOptimizedEv": ["bool", "address"],
     "ritual_ZN13QSplineSeries12setOptimizedEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QSplineSeries16getControlPointsEv": ["address", "address"],
+    "ritual_ZN13QSplineSeries12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN13QSplineSeries15capStyleChangedEv": ["nothing", "address"],
+    "ritual_ZN13QSplineSeries16optimizedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QSplineSeriesC1ER20QSplineSeriesPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN13QSplineSeries17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN13QSplineSeries6d_funcEv": ["address", "address"],

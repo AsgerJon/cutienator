@@ -12,6 +12,9 @@
       "nothing", "address", "int", "text"
     ],
     "ritual_ZNK24QAccessiblePlainTextEdit5stateEv": ["address", "address"],
+    "ritual_ZN24QAccessiblePlainTextEdit14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN24QAccessiblePlainTextEdit17scrollToSubstringEii": [
       "nothing", "address", "int", "int"
     ],
@@ -44,6 +47,9 @@
     ],
     "ritual_own_ZNK24QAccessiblePlainTextEdit5stateEv": [
       "address", "address"
+    ],
+    "ritual_own_ZN24QAccessiblePlainTextEdit14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
     ],
     "ritual_own_ZN24QAccessiblePlainTextEdit17scrollToSubstringEii": [
       "nothing", "address", "int", "int"

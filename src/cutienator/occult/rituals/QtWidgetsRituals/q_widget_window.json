@@ -6,12 +6,26 @@
   ],
   "rows": {
     "ritual_ZNK13QWidgetWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QWidgetWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QWidgetWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN13QWidgetWindow6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QWidgetWindow6d_funcEv": ["address", "address"],
     "ritual_ZN13QWidgetWindowD1Ev": ["nothing", "address"],
     "ritual_ZNK13QWidgetWindow6widgetEv": ["address", "address"],
     "ritual_ZNK13QWidgetWindow14accessibleRootEv": ["address", "address"],
     "ritual_ZNK13QWidgetWindow11focusObjectEv": ["address", "address"],
     "ritual_ZN13QWidgetWindow18focusNextPrevChildEP7QWidgetb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QWidgetWindow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN13QWidgetWindow29handleNonClientAreaMouseEventEP11QMouseEvent": [
       "nothing", "address", "address"
@@ -25,6 +39,9 @@
     "ritual_ZN13QWidgetWindow17handleResizeEventEP12QResizeEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QWidgetWindow20handleDragEnterEventEP14QDragMoveEventP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN13QWidgetWindow20handleDragLeaveEventEP15QDragLeaveEvent": [
       "nothing", "address", "address"
     ],
@@ -37,12 +54,16 @@
     "ritual_ZN13QWidgetWindow29handleWindowStateChangedEventEP23QWindowStateChangeEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QWidgetWindow11nativeEventERK10QByteArrayPvPx": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN13QWidgetWindow17handleTabletEventEP12QTabletEvent": [
       "nothing", "address", "address"
     ],
     "ritual_ZN13QWidgetWindow18handleGestureEventEP19QNativeGestureEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QWidgetWindow16updateObjectNameEv": ["nothing", "address"],
     "ritual_ZN13QWidgetWindow10updateSizeEv": ["bool", "address"],
     "ritual_ZN13QWidgetWindow13updateMarginsEv": ["nothing", "address"],
     "ritual_ZN13QWidgetWindow20updateNormalGeometryEv": [

@@ -9,12 +9,12 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtDataVisualization/private/qabstract3daxis_p.h>
-#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
-#include <QtDataVisualization/private/qvalue3daxis_p.h>
 #include <QtDataVisualization/private/qvalue3daxis_p.h>
 #include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
 #include <QtDataVisualization/private/abstract3dcontroller_p.h>
+#include <QtDataVisualization/private/qabstract3daxis_p.h>
+#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
+#include <QtDataVisualization/private/qvalue3daxis_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -23,6 +23,70 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 284, as _ZN19QValue3DAxisPrivate8setRangeEffb
+inline void QValue3DAxisPrivate::setRange(float min, float max, bool suppressWarnings)
+{
+    bool dirty = (min != m_min || max != m_max);
+
+    QAbstract3DAxisPrivate::setRange(min, max, suppressWarnings);
+
+    if (dirty)
+        emitLabelsChanged();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 294, as _ZN19QValue3DAxisPrivate6setMinEf
+inline void QValue3DAxisPrivate::setMin(float min)
+{
+    bool dirty = (min != m_min);
+
+    QAbstract3DAxisPrivate::setMin(min);
+
+    if (dirty)
+        emitLabelsChanged();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 304, as _ZN19QValue3DAxisPrivate6setMaxEf
+inline void QValue3DAxisPrivate::setMax(float max)
+{
+    bool dirty = (max != m_max);
+
+    QAbstract3DAxisPrivate::setMax(max);
+
+    if (dirty)
+        emitLabelsChanged();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 320, as _ZN19QValue3DAxisPrivate12updateLabelsEv
+inline void QValue3DAxisPrivate::updateLabels()
+{
+    if (!m_labelsDirty)
+        return;
+
+    m_labelsDirty = false;
+
+    m_formatter->d_ptr->recalculate();
+
+    m_labels = m_formatter->labelStrings();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 332, as _ZN19QValue3DAxisPrivate9allowZeroEv
+inline bool QValue3DAxisPrivate::allowZero()
+{
+    return m_formatter->allowZero();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 337, as _ZN19QValue3DAxisPrivate14allowNegativesEv
+inline bool QValue3DAxisPrivate::allowNegatives()
+{
+    return m_formatter->allowNegatives();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 342, as _ZN19QValue3DAxisPrivate15allowMinMaxSameEv
+inline bool QValue3DAxisPrivate::allowMinMaxSame()
+{
+    return false;
+}
 
 //  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 408, as _ZN22QAbstract3DAxisPrivate8setRangeEffb
 inline void QAbstract3DAxisPrivate::setRange(float min, float max, bool suppressWarnings)
@@ -185,75 +249,11 @@ inline void QValue3DAxisFormatterPrivate::recalculate()
     }
 }
 
-//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 284, as _ZN19QValue3DAxisPrivate8setRangeEffb
-inline void QValue3DAxisPrivate::setRange(float min, float max, bool suppressWarnings)
-{
-    bool dirty = (min != m_min || max != m_max);
-
-    QAbstract3DAxisPrivate::setRange(min, max, suppressWarnings);
-
-    if (dirty)
-        emitLabelsChanged();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 294, as _ZN19QValue3DAxisPrivate6setMinEf
-inline void QValue3DAxisPrivate::setMin(float min)
-{
-    bool dirty = (min != m_min);
-
-    QAbstract3DAxisPrivate::setMin(min);
-
-    if (dirty)
-        emitLabelsChanged();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 304, as _ZN19QValue3DAxisPrivate6setMaxEf
-inline void QValue3DAxisPrivate::setMax(float max)
-{
-    bool dirty = (max != m_max);
-
-    QAbstract3DAxisPrivate::setMax(max);
-
-    if (dirty)
-        emitLabelsChanged();
-}
-
 //  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 314, as _ZN19QValue3DAxisPrivate17emitLabelsChangedEv
 inline void QValue3DAxisPrivate::emitLabelsChanged()
 {
     m_labelsDirty = true;
     emit q_ptr->labelsChanged();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 320, as _ZN19QValue3DAxisPrivate12updateLabelsEv
-inline void QValue3DAxisPrivate::updateLabels()
-{
-    if (!m_labelsDirty)
-        return;
-
-    m_labelsDirty = false;
-
-    m_formatter->d_ptr->recalculate();
-
-    m_labels = m_formatter->labelStrings();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 332, as _ZN19QValue3DAxisPrivate9allowZeroEv
-inline bool QValue3DAxisPrivate::allowZero()
-{
-    return m_formatter->allowZero();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 337, as _ZN19QValue3DAxisPrivate14allowNegativesEv
-inline bool QValue3DAxisPrivate::allowNegatives()
-{
-    return m_formatter->allowNegatives();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 342, as _ZN19QValue3DAxisPrivate15allowMinMaxSameEv
-inline bool QValue3DAxisPrivate::allowMinMaxSame()
-{
-    return false;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 347, as _ZN19QValue3DAxisPrivate4qptrEv
@@ -559,6 +559,25 @@ const QMetaObject *ritual_ZNK19QValue3DAxisPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QValue3DAxisPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QValue3DAxisPrivate11qt_metacastEPKc(
+    QValue3DAxisPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QValue3DAxisPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QValue3DAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QValue3DAxisPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QValue3DAxisPrivate::~QValue3DAxisPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QValue3DAxisPrivateD1Ev(QValue3DAxisPrivate *self) {
@@ -597,6 +616,31 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QValue3DAxisPrivate17emitLabelsChangedEv(
     QValue3DAxisPrivate *self) {
   self->emitLabelsChanged();
+}
+
+//  void QValue3DAxisPrivate::formatterDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QValue3DAxisPrivate14formatterDirtyEv(
+    QValue3DAxisPrivate *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QValue3DAxisPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "formatterDirty()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "formatterDirty()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QValue3DAxisPrivate::updateLabels()

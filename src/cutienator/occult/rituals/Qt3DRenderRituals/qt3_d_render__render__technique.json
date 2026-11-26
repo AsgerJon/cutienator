@@ -5,11 +5,61 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render9TechniqueC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render9TechniqueD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render9Technique7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Technique16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9Technique10parametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Technique16appendRenderPassEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Technique16removeRenderPassEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Technique15appendFilterKeyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Technique15removeFilterKeyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9Technique10filterKeysEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9Technique12renderPassesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9Technique17graphicsApiFilterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9Technique24isCompatibleWithRendererEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Technique25setCompatibleWithRendererEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Technique23isCompatibleWithFiltersERK5QListIN8Qt3DCore7QNodeIdEE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Technique14setNodeManagerEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9Technique11nodeManagerEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DRender_Render_Technique": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render9Technique16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_Technique__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

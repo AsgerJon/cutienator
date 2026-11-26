@@ -8,6 +8,75 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_command_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDesigner/private/qdesigner_command_p.h>
+#include <QtDesigner/private/qdesigner_utils_p.h>
+#include <QtDesigner/private/layout_p.h>
+#include <QtDesigner/private/qlayout_widget_p.h>
+#include <QtDesigner/private/qdesigner_widget_p.h>
+#include <QtDesigner/private/qdesigner_menu_p.h>
+#include <QtDesigner/private/shared_enums_p.h>
+#include <QtDesigner/private/metadatabase_p.h>
+#include <QtDesigner/private/formwindowbase_p.h>
+#include <QtDesigner/abstractformbuilder.h>
+#include <QtDesigner/abstractformwindow.h>
+#include <QtDesigner/abstractformeditor.h>
+#include <QtDesigner/propertysheet.h>
+#include <QtDesigner/abstractactioneditor.h>
+#include <QtDesigner/abstractpropertyeditor.h>
+#include <QtDesigner/qextensionmanager.h>
+#include <QtDesigner/container.h>
+#include <QtDesigner/layoutdecoration.h>
+#include <QtDesigner/abstractwidgetfactory.h>
+#include <QtDesigner/abstractobjectinspector.h>
+#include <QtDesigner/abstractintegration.h>
+#include <QtDesigner/abstractformwindowcursor.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qtextstream.h>
+#include <QtCore/qqueue.h>
+#include <QtWidgets/qmenubar.h>
+#include <QtWidgets/qstatusbar.h>
+#include <QtWidgets/qtoolbar.h>
+#include <QtWidgets/qtoolbox.h>
+#include <QtWidgets/qstackedwidget.h>
+#include <QtWidgets/qtabwidget.h>
+#include <QtWidgets/qtablewidget.h>
+#include <QtWidgets/qtreewidget.h>
+#include <QtWidgets/qlistwidget.h>
+#include <QtWidgets/qcombobox.h>
+#include <QtWidgets/qsplitter.h>
+#include <QtWidgets/qdockwidget.h>
+#include <QtWidgets/qmainwindow.h>
+#include <QtWidgets/qwizard.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qformlayout.h>
+#include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1623, as _ZN18qdesigner_internal17DockWidgetCommandD2Ev
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline DockWidgetCommand::~DockWidgetCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1625, as _ZN18qdesigner_internal17DockWidgetCommand4initEP11QDockWidget
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline void DockWidgetCommand::init(QDockWidget *dockWidget)
+{
+    m_dockWidget = dockWidget;
+}
+}  // namespace qdesigner_internal
+//  -----------------------------------------------------------------------
 
 //  A qdesigner_internal::DockWidgetCommand that Python can take functions over in. Every qdesigner_internal::DockWidgetCommand
 //  Python makes is one. Each function below asks the Python
@@ -109,6 +178,21 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::DockWidgetCommand::~DockWidgetCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17DockWidgetCommandD1Ev(
+    qdesigner_internal::DockWidgetCommand *self) {
+  delete self;
+}
+
+//  void qdesigner_internal::DockWidgetCommand::init(QDockWidget *dockWidget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal17DockWidgetCommand4initEP11QDockWidget(
+    qdesigner_internal::DockWidgetCommand *self,
+    QDockWidget *dockWidget) {
+  self->init(dockWidget);
+}
 
 //  a Python function taken by a Cuteqdesigner_internal_DockWidgetCommand,
 //      for the function named by the key

@@ -5,5 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QSGTextureMaterialRhiShaderC1Ei": ["address", "int"],
+    "ritual_ZN27QSGTextureMaterialRhiShader17updateUniformDataERN17QSGMaterialShader11RenderStateEP11QSGMaterialS4_": [
+      "bool", "address", "address", "address", "address"
+    ]
   }
 }

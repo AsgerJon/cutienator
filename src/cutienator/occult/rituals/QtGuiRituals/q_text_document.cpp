@@ -5,7 +5,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qchar.h>
 #include <QtGui/qtextcursor.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtGui/qtextformat.h>
 #include <QtGui/qtextobject.h>
 #include <QtCore/qsize.h>
@@ -17,6 +19,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtGui/QTextDocument>
 
 //  Only a class built on QTextDocument may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -245,6 +248,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK13QTextDocument10metaObjectEv(
     const QTextDocument *self) {
   return self->metaObject();
+}
+
+//  void *QTextDocument::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QTextDocument11qt_metacastEPKc(
+    QTextDocument *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextDocument::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QTextDocument11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextDocument *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QTextDocument::tr(const char *s, const char *c, int n)
@@ -712,6 +733,36 @@ void ritual_ZN13QTextDocument11addResourceEiRK4QUrlRK8QVariant(
   self->addResource(type, *name, *resource);
 }
 
+//  QTextDocument::ResourceProvider QTextDocument::resourceProvider() const
+extern "C" Q_DECL_EXPORT
+QTextDocument::ResourceProvider *ritual_ZNK13QTextDocument16resourceProviderEv(
+    const QTextDocument *self) {
+  return new QTextDocument::ResourceProvider(self->resourceProvider());
+}
+
+//  void QTextDocument::setResourceProvider(const ResourceProvider &provider)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument19setResourceProviderERKSt8functionIF8QVariantRK4QUrlEE(
+    QTextDocument *self,
+    const QTextDocument::ResourceProvider *provider) {
+  self->setResourceProvider(*provider);
+}
+
+//  QTextDocument::ResourceProvider QTextDocument::defaultResourceProvider()
+extern "C" Q_DECL_EXPORT
+QTextDocument::ResourceProvider *ritual_ZN13QTextDocument23defaultResourceProviderEv() {
+  return new QTextDocument::ResourceProvider(
+      QTextDocument::defaultResourceProvider());
+}
+
+//  void QTextDocument::setDefaultResourceProvider(const ResourceProvider
+//      &provider)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument26setDefaultResourceProviderERKSt8functionIF8QVariantRK4QUrlEE(
+    const QTextDocument::ResourceProvider *provider) {
+  QTextDocument::setDefaultResourceProvider(*provider);
+}
+
 //  QList<QTextFormat> QTextDocument::allFormats() const
 extern "C" Q_DECL_EXPORT
 QList<QTextFormat> *ritual_ZNK13QTextDocument10allFormatsEv(
@@ -948,6 +999,83 @@ void ritual_ZN13QTextDocument25setDefaultCursorMoveStyleEN2Qt15CursorMoveStyleE(
   self->setDefaultCursorMoveStyle(style);
 }
 
+//  void QTextDocument::contentsChange(int from, int charsRemoved, int
+//      charsAdded)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument14contentsChangeEiii(
+    QTextDocument *self,
+    int from,
+    int charsRemoved,
+    int charsAdded) {
+  self->contentsChange(from, charsRemoved, charsAdded);
+}
+
+//  void QTextDocument::contentsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument15contentsChangedEv(QTextDocument *self) {
+  self->contentsChanged();
+}
+
+//  void QTextDocument::undoAvailable(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument13undoAvailableEb(
+    QTextDocument *self,
+    bool a0) {
+  self->undoAvailable(a0);
+}
+
+//  void QTextDocument::redoAvailable(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument13redoAvailableEb(
+    QTextDocument *self,
+    bool a0) {
+  self->redoAvailable(a0);
+}
+
+//  void QTextDocument::undoCommandAdded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument16undoCommandAddedEv(QTextDocument *self) {
+  self->undoCommandAdded();
+}
+
+//  void QTextDocument::modificationChanged(bool m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument19modificationChangedEb(
+    QTextDocument *self,
+    bool m) {
+  self->modificationChanged(m);
+}
+
+//  void QTextDocument::cursorPositionChanged(const QTextCursor &cursor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument21cursorPositionChangedERK11QTextCursor(
+    QTextDocument *self,
+    const QTextCursor *cursor) {
+  self->cursorPositionChanged(*cursor);
+}
+
+//  void QTextDocument::blockCountChanged(int newBlockCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument17blockCountChangedEi(
+    QTextDocument *self,
+    int newBlockCount) {
+  self->blockCountChanged(newBlockCount);
+}
+
+//  void QTextDocument::baseUrlChanged(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument14baseUrlChangedERK4QUrl(
+    QTextDocument *self,
+    const QUrl *url) {
+  self->baseUrlChanged(*url);
+}
+
+//  void QTextDocument::documentLayoutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QTextDocument21documentLayoutChangedEv(QTextDocument *self) {
+  self->documentLayoutChanged();
+}
+
 //  void QTextDocument::undo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QTextDocument4undoEv(QTextDocument *self) {
@@ -989,6 +1117,14 @@ QVariant *ritual_ZN13QTextDocument12loadResourceEiRK4QUrl(
     int type,
     const QUrl *name) {
   return new QVariant(self->loadResource(type, *name));
+}
+
+//  QTextDocument::QTextDocument(QTextDocumentPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QTextDocument *ritual_ZN13QTextDocumentC1ER20QTextDocumentPrivateP7QObject(
+    QTextDocumentPrivate *dd,
+    QObject *parent) {
+  return new CuteQTextDocument(*dd, parent);
 }
 
 //  QTextDocumentPrivate *QTextDocument::d_func()
@@ -1040,4 +1176,11 @@ QVariant *ritual_own_ZN13QTextDocument12loadResourceEiRK4QUrl(
       static_cast<OwnQTextDocument *>(self)->OwnQTextDocument::loadResource(
           type,
           *name));
+}
+
+//  a QTextDocument::ResourceProvider a ritual of QTextDocument gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextDocument__QTextDocument_ResourceProvider(
+    QTextDocument::ResourceProvider *self) {
+  delete self;
 }

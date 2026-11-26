@@ -27,6 +27,9 @@
     "ritual_ZN22QGuiApplicationPrivate24notifyActiveWindowChangeEP7QWindow": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QGuiApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QGuiApplicationPrivate20canQuitAutomaticallyEv": [
       "bool", "address"
     ],
@@ -138,6 +141,9 @@
     "ritual_ZN22QGuiApplicationPrivate11processDropEP7QWindowPK9QMimeDataRK6QPoint6QFlagsIN2Qt10DropActionEES8_INS9_11MouseButtonEES8_INS9_16KeyboardModifierEE": [
       "address", "address", "address", "address", "int", "int", "int"
     ],
+    "ritual_ZN22QGuiApplicationPrivate18processNativeEventEP7QWindowRK10QByteArrayPvPx": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN22QGuiApplicationPrivate33sendQWindowEventToQPlatformWindowEP7QWindowP6QEvent": [
       "bool", "address", "address"
     ],
@@ -170,6 +176,9 @@
     "ritual_ZNK22QGuiApplicationPrivate18windowNeverBlockedEP7QWindow": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK22QGuiApplicationPrivate15isWindowBlockedEP7QWindowPS1_": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN22QGuiApplicationPrivate10popupCountEv": ["long long"],
     "ritual_ZN22QGuiApplicationPrivate17activePopupWindowEv": ["address"],
     "ritual_ZN22QGuiApplicationPrivate13activatePopupEP7QWindow": [
@@ -179,6 +188,9 @@
       "bool", "address"
     ],
     "ritual_ZN22QGuiApplicationPrivate14closeAllPopupsEv": ["bool"],
+    "ritual_ZN22QGuiApplicationPrivate17tabletDevicePointEx": [
+      "address", "long long"
+    ],
     "ritual_ZN22QGuiApplicationPrivate10commitDataEv": [
       "nothing", "address"
     ],
@@ -246,6 +258,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN22QGuiApplicationPrivate24notifyActiveWindowChangeEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QGuiApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE": [
       "nothing", "address", "address"
     ],
     "ritual_own_ZN22QGuiApplicationPrivate20canQuitAutomaticallyEv": [

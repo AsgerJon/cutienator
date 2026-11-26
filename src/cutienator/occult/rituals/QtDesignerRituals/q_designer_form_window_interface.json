@@ -8,6 +8,12 @@
     "ritual_ZNK28QDesignerFormWindowInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QDesignerFormWindowInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QDesignerFormWindowInterface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -142,6 +148,9 @@
     "ritual_ZN28QDesignerFormWindowInterface10endCommandEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK28QDesignerFormWindowInterface17simplifySelectionEP5QListIP7QWidgetE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN28QDesignerFormWindowInterface20emitSelectionChangedEv": [
       "nothing", "address"
     ],
@@ -189,6 +198,48 @@
     ],
     "ritual_ZN28QDesignerFormWindowInterface25activateResourceFilePathsERK5QListI7QStringEPiPS1_": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface20mainContainerChangedEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface11toolChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface15fileNameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface14featureChangedE6QFlagsINS_11FeatureFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface16selectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface15geometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface20resourceFilesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface13widgetManagedEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface15widgetUnmanagedEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface21aboutToUnmanageWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface9activatedEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface7changedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface13widgetRemovedEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface13objectRemovedEP7QObject": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QDesignerFormWindowInterface": [
       "bool", "address", "chars", "address"

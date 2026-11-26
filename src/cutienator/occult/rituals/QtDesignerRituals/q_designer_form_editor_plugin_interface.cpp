@@ -82,6 +82,12 @@ public:
   }
 };
 
+//  QDesignerFormEditorPluginInterface::QDesignerFormEditorPluginInterface()
+extern "C" Q_DECL_EXPORT
+QDesignerFormEditorPluginInterface *ritual_ZN34QDesignerFormEditorPluginInterfaceC1Ev() {
+  return new CuteQDesignerFormEditorPluginInterface();
+}
+
 //  QDesignerFormEditorPluginInterface::~QDesignerFormEditorPluginInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN34QDesignerFormEditorPluginInterfaceD1Ev(

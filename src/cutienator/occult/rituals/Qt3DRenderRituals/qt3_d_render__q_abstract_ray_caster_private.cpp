@@ -53,6 +53,54 @@ public:
   }
 };
 
+//  Qt3DRender::QAbstractRayCasterPrivate::QAbstractRayCasterPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCasterPrivate *ritual_ZN10Qt3DRender25QAbstractRayCasterPrivateC1Ev() {
+  return new CuteQt3DRender_QAbstractRayCasterPrivate();
+}
+
+//  QAbstractRayCasterPrivate
+//      *Qt3DRender::QAbstractRayCasterPrivate::get(QAbstractRayCaster *obj)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCasterPrivate *ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate3getEPNS_18QAbstractRayCasterE(
+    Qt3DRender::QAbstractRayCaster *obj) {
+  return Qt3DRender::QAbstractRayCasterPrivate::get(obj);
+}
+
+//  const QAbstractRayCasterPrivate
+//      *Qt3DRender::QAbstractRayCasterPrivate::get(const QAbstractRayCaster
+//      *obj)
+extern "C" Q_DECL_EXPORT
+const Qt3DRender::QAbstractRayCasterPrivate *ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate3getEPKNS_18QAbstractRayCasterE(
+    const Qt3DRender::QAbstractRayCaster *obj) {
+  return Qt3DRender::QAbstractRayCasterPrivate::get(obj);
+}
+
+//  void Qt3DRender::QAbstractRayCasterPrivate::updateHitEntites(QAbstractRay
+//      Caster::Hits &hits, Qt3DCore::QScene *scene)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate16updateHitEntitesER5QListINS_13QRayCasterHitEEPN8Qt3DCore6QSceneE(
+    Qt3DRender::QAbstractRayCaster::Hits *hits,
+    Qt3DCore::QScene *scene) {
+  Qt3DRender::QAbstractRayCasterPrivate::updateHitEntites(*hits, scene);
+}
+
+//  QAbstractRayCaster::Hits Qt3DRender::QAbstractRayCasterPrivate::pick()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCaster::Hits *ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate4pickEv(
+    Qt3DRender::QAbstractRayCasterPrivate *self) {
+  return new Qt3DRender::QAbstractRayCaster::Hits(self->pick());
+}
+
+//  void Qt3DRender::QAbstractRayCasterPrivate::dispatchHits(const
+//      QAbstractRayCaster::Hits &hits)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate12dispatchHitsERK5QListINS_13QRayCasterHitEE(
+    Qt3DRender::QAbstractRayCasterPrivate *self,
+    const Qt3DRender::QAbstractRayCaster::Hits *hits) {
+  self->dispatchHits(*hits);
+}
+
 //  QAbstractRayCaster *Qt3DRender::QAbstractRayCasterPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QAbstractRayCaster *ritual_ZN10Qt3DRender25QAbstractRayCasterPrivate6q_funcEv(
@@ -76,4 +124,12 @@ bool ritual_take_Qt3DRender_QAbstractRayCasterPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QAbstractRayCasterPrivate *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QAbstractRayCaster::Hits a ritual of
+//      Qt3DRender::QAbstractRayCasterPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QAbstractRayCasterPrivate__Qt3DRender_QAbstractRayCaster_Hits(
+    Qt3DRender::QAbstractRayCaster::Hits *self) {
+  delete self;
 }

@@ -59,6 +59,9 @@
     "ritual_ZN28QQuickContext2DCommandBuffer9drawImageERK6QImageRK6QRectFS5_": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_ZN28QQuickContext2DCommandBuffer10drawPixmapE14QQmlRefPointerI18QQuickCanvasPixmapERK6QRectFS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN28QQuickContext2DCommandBuffer17takeShadowOffsetXEv": [
       "double", "address"
     ],
@@ -104,6 +107,9 @@
     "ritual_ZN28QQuickContext2DCommandBuffer11setLineJoinEN2Qt12PenJoinStyleE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN28QQuickContext2DCommandBuffer11setLineDashERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN28QQuickContext2DCommandBuffer17setLineDashOffsetEd": [
       "nothing", "address", "double"
     ],
@@ -134,6 +140,9 @@
     "ritual_ZN28QQuickContext2DCommandBuffer9takeImageEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickContext2DCommandBuffer10takePixmapEv": [
+      "address", "address"
+    ],
     "ritual_ZN28QQuickContext2DCommandBuffer7takeIntEv": ["int", "address"],
     "ritual_ZN28QQuickContext2DCommandBuffer8takeBoolEv": [
       "bool", "address"
@@ -152,6 +161,9 @@
     ],
     "ritual_ZN28QQuickContext2DCommandBuffer15setPainterStateEP8QPainterRKN15QQuickContext2D5StateERK4QPen": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_drop_QQuickContext2DCommandBuffer__QQmlRefPointer_QQuickCanvasPixmap": [
+      "nothing", "address"
     ]
   }
 }

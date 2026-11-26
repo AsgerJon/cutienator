@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QAbstractSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractSocket11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QAbstractSocket11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QAbstractSocket2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -88,6 +94,24 @@
     "ritual_ZN15QAbstractSocket14setProtocolTagERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN15QAbstractSocket9hostFoundEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSocket9connectedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSocket12disconnectedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSocket12stateChangedENS_11SocketStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSocket13errorOccurredENS_11SocketErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSocket27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN15QAbstractSocket12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN15QAbstractSocket8skipDataEx": [
       "long long", "address", "long long"
     ],
@@ -114,6 +138,9 @@
     ],
     "ritual_ZN15QAbstractSocket11setPeerNameERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN15QAbstractSocketC1ENS_10SocketTypeER22QAbstractSocketPrivateP7QObject": [
+      "address", "int", "address", "address"
     ],
     "ritual_ZN15QAbstractSocket6d_funcEv": ["address", "address"],
     "ritual_ZNK15QAbstractSocket6d_funcEv": ["address", "address"],
@@ -162,6 +189,12 @@
     ],
     "ritual_own_ZN15QAbstractSocket19waitForDisconnectedEi": [
       "bool", "address", "int"
+    ],
+    "ritual_own_ZN15QAbstractSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_own_ZN15QAbstractSocket12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_own_ZN15QAbstractSocket8skipDataEx": [
       "long long", "address", "long long"

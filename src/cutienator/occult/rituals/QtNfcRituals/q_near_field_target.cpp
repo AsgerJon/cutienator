@@ -183,6 +183,25 @@ const QMetaObject *ritual_ZNK16QNearFieldTarget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNearFieldTarget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QNearFieldTarget11qt_metacastEPKc(
+    QNearFieldTarget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNearFieldTarget::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QNearFieldTarget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNearFieldTarget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QNearFieldTarget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QNearFieldTarget2trEPKcS1_i(
@@ -298,6 +317,39 @@ QVariant *ritual_ZNK16QNearFieldTarget15requestResponseERKNS_9RequestIdE(
     const QNearFieldTarget *self,
     const QNearFieldTarget::RequestId *id) {
   return new QVariant(self->requestResponse(*id));
+}
+
+//  void QNearFieldTarget::disconnected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QNearFieldTarget12disconnectedEv(QNearFieldTarget *self) {
+  self->disconnected();
+}
+
+//  void QNearFieldTarget::ndefMessageRead(const QNdefMessage &message)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QNearFieldTarget15ndefMessageReadERK12QNdefMessage(
+    QNearFieldTarget *self,
+    const QNdefMessage *message) {
+  self->ndefMessageRead(*message);
+}
+
+//  void QNearFieldTarget::requestCompleted(const QNearFieldTarget::RequestId
+//      &id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QNearFieldTarget16requestCompletedERKNS_9RequestIdE(
+    QNearFieldTarget *self,
+    const QNearFieldTarget::RequestId *id) {
+  self->requestCompleted(*id);
+}
+
+//  void QNearFieldTarget::error(QNearFieldTarget::Error error, const
+//      QNearFieldTarget::RequestId &id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QNearFieldTarget5errorENS_5ErrorERKNS_9RequestIdE(
+    QNearFieldTarget *self,
+    QNearFieldTarget::Error error,
+    const QNearFieldTarget::RequestId *id) {
+  self->error(error, *id);
 }
 
 //  QNearFieldTarget::QNearFieldTarget(QNearFieldTargetPrivate *backend,

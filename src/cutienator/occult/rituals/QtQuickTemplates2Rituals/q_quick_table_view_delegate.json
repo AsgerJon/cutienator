@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickTableViewDelegate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickTableViewDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickTableViewDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickTableViewDelegate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,21 @@
     ],
     "ritual_ZN23QQuickTableViewDelegate12setTableViewEP15QQuickTableView": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickTableViewDelegate16tableViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickTableViewDelegate14currentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickTableViewDelegate15selectedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickTableViewDelegate14editingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickTableViewDelegateC1ER30QQuickTableViewDelegatePrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZNK23QQuickTableViewDelegate11defaultFontEv": [
       "address", "address"

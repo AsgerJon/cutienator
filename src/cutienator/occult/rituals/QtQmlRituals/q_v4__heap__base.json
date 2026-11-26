@@ -17,6 +17,15 @@
     "ritual_ZNK3QV44Heap4Base8isMarkedEv": ["bool", "address"],
     "ritual_ZN3QV44Heap4Base10setMarkBitEv": ["nothing", "address"],
     "ritual_ZNK3QV44Heap4Base5inUseEv": ["bool", "address"],
+    "ritual_ZN3QV44Heap4BasenwEmPNS_7ManagedE": [
+      "address", "address", "size_t", "address"
+    ],
+    "ritual_ZN3QV44Heap4BasenwEmPS1_": [
+      "address", "address", "size_t", "address"
+    ],
+    "ritual_ZN3QV44Heap4BasedlEPvPS1_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN3QV44Heap4Base4initEv": ["nothing", "address"],
     "ritual_ZN3QV44Heap4Base7destroyEv": ["nothing", "address"],
     "ritual_ZN3QV44Heap4Base19_checkIsInitializedEv": ["nothing", "address"],

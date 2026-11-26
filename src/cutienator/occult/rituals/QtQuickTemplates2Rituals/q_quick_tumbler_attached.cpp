@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK21QQuickTumblerAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTumblerAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickTumblerAttached11qt_metacastEPKc(
+    QQuickTumblerAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTumblerAttached::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickTumblerAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTumblerAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTumblerAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickTumblerAttached2trEPKcS1_i(
@@ -47,6 +66,13 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK21QQuickTumblerAttached12displacementEv(
     const QQuickTumblerAttached *self) {
   return self->displacement();
+}
+
+//  void QQuickTumblerAttached::displacementChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickTumblerAttached19displacementChangedEv(
+    QQuickTumblerAttached *self) {
+  self->displacementChanged();
 }
 
 //  QQuickTumblerAttachedPrivate *QQuickTumblerAttached::d_func()

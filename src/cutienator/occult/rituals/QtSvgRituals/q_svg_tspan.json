@@ -8,6 +8,9 @@
     "ritual_ZN9QSvgTspanC1EP8QSvgNodeb": ["address", "address", "bool"],
     "ritual_ZN9QSvgTspanD1Ev": ["nothing", "address"],
     "ritual_ZNK9QSvgTspan4typeEv": ["int", "address"],
+    "ritual_ZN9QSvgTspan11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN9QSvgTspan7addTextE11QStringView": [
       "nothing", "address", "text"
     ],

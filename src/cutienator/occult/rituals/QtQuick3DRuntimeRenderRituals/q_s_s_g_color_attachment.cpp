@@ -19,6 +19,14 @@ QSSGColorAttachment *ritual_ZN19QSSGColorAttachmentC1ERK10QByteArray(
   return new QSSGColorAttachment(*name);
 }
 
+//  void QSSGColorAttachment::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK19QSSGColorAttachment8addDebugER6QDebug(
+    const QSSGColorAttachment *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGRenderTextureFormat QSSGColorAttachment::format() const
 extern "C" Q_DECL_EXPORT
 QSSGRenderTextureFormat *ritual_ZNK19QSSGColorAttachment6formatEv(

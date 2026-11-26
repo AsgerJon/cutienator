@@ -8,9 +8,17 @@
     "ritual_ZNK21QHelpSearchEngineCore10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QHelpSearchEngineCore11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QHelpSearchEngineCore2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN21QHelpSearchEngineCore6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QHelpSearchEngineCore6d_funcEv": ["address", "address"],
     "ritual_ZN21QHelpSearchEngineCoreC1EP15QHelpEngineCoreP7QObject": [
       "address", "address", "address"
     ],
@@ -35,6 +43,18 @@
       "nothing", "address"
     ],
     "ritual_ZN21QHelpSearchEngineCore26scheduleIndexDocumentationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore15indexingStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore16indexingFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore16searchingStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore17searchingFinishedEv": [
       "nothing", "address"
     ],
     "ritual_take_QHelpSearchEngineCore": [

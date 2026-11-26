@@ -33,6 +33,19 @@ void ritual_ZN16QSSGRenderCamera6lookAtERK9QVector3DS2_S2_S2_(
   self->lookAt(*inCameraPos, *inUpDir, *inTargetPos, *pivot);
 }
 
+//  bool QSSGRenderCamera::calculateProjectionInternal(QSSGRenderCamera
+//      &camera, const QRectF &inViewport, Configuration config)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSSGRenderCamera27calculateProjectionInternalERS_RK6QRectF29QSSGRenderCameraConfiguration(
+    QSSGRenderCamera *camera,
+    const QRectF *inViewport,
+    const QSSGRenderCameraConfiguration *config) {
+  return QSSGRenderCamera::calculateProjectionInternal(
+      *camera,
+      *inViewport,
+      *config);
+}
+
 //  bool QSSGRenderCamera::calculateProjection(const QRectF &inViewport,
 //      Configuration config)
 extern "C" Q_DECL_EXPORT
@@ -41,6 +54,96 @@ bool ritual_ZN16QSSGRenderCamera19calculateProjectionERK6QRectF29QSSGRenderCamer
     const QRectF *inViewport,
     const QSSGRenderCameraConfiguration *config) {
   return self->calculateProjection(*inViewport, *config);
+}
+
+//  bool QSSGRenderCamera::computeFrustumOrtho(QRectF inViewport,
+//      QSSGRenderCamera::ClipPlanes clipPlanes,
+//      QSSGRenderCamera::Magnification magnification, Configuration config,
+//      QMatrix4x4 &outProjection)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSSGRenderCamera19computeFrustumOrthoE6QRectFNS_10ClipPlanesENS_13MagnificationE29QSSGRenderCameraConfigurationR10QMatrix4x4(
+    const QRectF *inViewport,
+    const QSSGRenderCamera::ClipPlanes *clipPlanes,
+    const QSSGRenderCamera::Magnification *magnification,
+    const QSSGRenderCameraConfiguration *config,
+    QMatrix4x4 *outProjection) {
+  return QSSGRenderCamera::computeFrustumOrtho(
+      *inViewport,
+      *clipPlanes,
+      *magnification,
+      *config,
+      *outProjection);
+}
+
+//  bool QSSGRenderCamera::computeFrustumPerspective(QRectF inViewport,
+//      FieldOfView fov, QSSGRenderCamera::ClipPlanes clipPlanes, QMatrix4x4
+//      &outProjection)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSSGRenderCamera25computeFrustumPerspectiveE6QRectF27QSSGRenderCameraFieldOfViewNS_10ClipPlanesER10QMatrix4x4(
+    const QRectF *inViewport,
+    const QSSGRenderCameraFieldOfView *fov,
+    const QSSGRenderCamera::ClipPlanes *clipPlanes,
+    QMatrix4x4 *outProjection) {
+  return QSSGRenderCamera::computeFrustumPerspective(
+      *inViewport,
+      *fov,
+      *clipPlanes,
+      *outProjection);
+}
+
+//  bool QSSGRenderCamera::computeCustomFrustum(QSSGRenderCamera::Frustum
+//      frustum, QSSGRenderCamera::ClipPlanes clipPlanes, QMatrix4x4
+//      &outProjection)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSSGRenderCamera20computeCustomFrustumENS_7FrustumENS_10ClipPlanesER10QMatrix4x4(
+    const QSSGRenderCamera::Frustum *frustum,
+    const QSSGRenderCamera::ClipPlanes *clipPlanes,
+    QMatrix4x4 *outProjection) {
+  return QSSGRenderCamera::computeCustomFrustum(
+      *frustum,
+      *clipPlanes,
+      *outProjection);
+}
+
+//  void QSSGRenderCamera::calculateViewProjectionMatrix(const QMatrix4x4
+//      &globalTransform, const QMatrix4x4 &projection, QMatrix4x4
+//      &outMatrix)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSSGRenderCamera29calculateViewProjectionMatrixERK10QMatrix4x4S2_RS0_(
+    const QMatrix4x4 *globalTransform,
+    const QMatrix4x4 *projection,
+    QMatrix4x4 *outMatrix) {
+  QSSGRenderCamera::calculateViewProjectionMatrix(
+      *globalTransform,
+      *projection,
+      *outMatrix);
+}
+
+//  void QSSGRenderCamera::calculateViewProjectionMatrix(const QMatrix4x4
+//      &globalTransform, QMatrix4x4 &outMatrix) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QSSGRenderCamera29calculateViewProjectionMatrixERK10QMatrix4x4RS0_(
+    const QSSGRenderCamera *self,
+    const QMatrix4x4 *globalTransform,
+    QMatrix4x4 *outMatrix) {
+  self->calculateViewProjectionMatrix(*globalTransform, *outMatrix);
+}
+
+//  void QSSGRenderCamera::calculateViewProjectionWithoutTranslation(const
+//      QMatrix4x4 &globalTransform, float near, float far, QMatrix4x4
+//      &outMatrix) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QSSGRenderCamera41calculateViewProjectionWithoutTranslationERK10QMatrix4x4ffRS0_(
+    const QSSGRenderCamera *self,
+    const QMatrix4x4 *globalTransform,
+    float near,
+    float far,
+    QMatrix4x4 *outMatrix) {
+  self->calculateViewProjectionWithoutTranslation(
+      *globalTransform,
+      near,
+      far,
+      *outMatrix);
 }
 
 //  QSSGRenderRay QSSGRenderCamera::unproject(const QMatrix4x4

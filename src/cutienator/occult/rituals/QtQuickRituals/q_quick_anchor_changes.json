@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickAnchorChanges10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickAnchorChanges11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickAnchorChanges11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickAnchorChanges2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN19QQuickAnchorChanges6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickAnchorChanges6d_funcEv": ["address", "address"],
     "ritual_ZN19QQuickAnchorChangesC1EP7QObject": ["address", "address"],
     "ritual_ZN19QQuickAnchorChanges7actionsEv": ["address", "address"],
     "ritual_ZNK19QQuickAnchorChanges7anchorsEv": ["address", "address"],

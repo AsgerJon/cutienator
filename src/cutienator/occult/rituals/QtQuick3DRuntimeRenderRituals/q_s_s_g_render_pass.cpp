@@ -58,6 +58,24 @@ void ritual_ZN14QSSGRenderPassD1Ev(QSSGRenderPass *self) {
   delete self;
 }
 
+//  void QSSGRenderPass::renderPrep(QSSGRenderer &renderer,
+//      QSSGLayerRenderData &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSSGRenderPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData(
+    QSSGRenderPass *self,
+    QSSGRenderer *renderer,
+    QSSGLayerRenderData *data) {
+  self->renderPrep(*renderer, *data);
+}
+
+//  void QSSGRenderPass::renderPass(QSSGRenderer &renderer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSSGRenderPass10renderPassER12QSSGRenderer(
+    QSSGRenderPass *self,
+    QSSGRenderer *renderer) {
+  self->renderPass(*renderer);
+}
+
 //  Type QSSGRenderPass::passType() const
 extern "C" Q_DECL_EXPORT
 QSSGRenderPass::Type ritual_ZNK14QSSGRenderPass8passTypeEv(

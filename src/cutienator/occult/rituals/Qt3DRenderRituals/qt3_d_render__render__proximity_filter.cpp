@@ -8,6 +8,22 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/qnodeid.h>
 
+//  Qt3DRender::Render::ProximityFilter::ProximityFilter()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::ProximityFilter *ritual_ZN10Qt3DRender6Render15ProximityFilterC1Ev() {
+  return new Qt3DRender::Render::ProximityFilter();
+}
+
+//  void Qt3DRender::Render::ProximityFilter::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15ProximityFilter16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::ProximityFilter *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  float Qt3DRender::Render::ProximityFilter::distanceThreshold() const
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK10Qt3DRender6Render15ProximityFilter17distanceThresholdEv(

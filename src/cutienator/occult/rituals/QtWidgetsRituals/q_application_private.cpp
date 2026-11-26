@@ -2,6 +2,7 @@
 //  QtWidgets/6.12.0/QtWidgets/private/qapplication_p.h, Qt 6.12.0. Changes
 //  made here are lost.
 #include <QtGui/qtguiglobal.h>
+#include <QtCore/qglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qapplication.h>
 #include <QtWidgets/QtWidgets>
@@ -99,6 +100,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/kernel/qapplication.cpp, line 340, as _ZN19QApplicationPrivate7isAlienEP7QWidget
 inline bool QApplicationPrivate::isAlien(QWidget *widget)
 {
@@ -140,16 +143,19 @@ typedef const QPixmap * (*CuteQApplicationPrivateCall11)(const void *, int, cons
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQApplicationPrivateCall12)(const void *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(commandlineparser)
+typedef void (*CuteQApplicationPrivateCall13)(const void *, QList<QCommandLineOption> *, int *);
+#endif  // QT_CONFIG(commandlineparser)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQApplicationPrivateCall13)(const void *, int *);
+typedef bool (*CuteQApplicationPrivateCall14)(const void *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQApplicationPrivateCall14)(const void *, int *);
+typedef void (*CuteQApplicationPrivateCall15)(const void *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQApplicationPrivate : public QApplicationPrivate {
 public:
   using QApplicationPrivate::QApplicationPrivate;
-  void *taken[15] = {};
+  void *taken[16] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN22QGuiApplicationPrivate27notifyLayoutDirectionChangeEv")) {
@@ -214,15 +220,21 @@ public:
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(commandlineparser)
+    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE")) {
+      taken[13] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(commandlineparser)
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate20canQuitAutomaticallyEv")) {
-      taken[13] = call;
+      taken[14] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate4quitEv")) {
-      taken[14] = call;
+      taken[15] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -385,12 +397,26 @@ public:
   }
 #endif  // !defined(QT_NO_QOBJECT)
 
-#if !defined(QT_NO_QOBJECT)
-  //  bool QGuiApplicationPrivate::canQuitAutomatically()
-  bool canQuitAutomatically() override {
+#if QT_CONFIG(commandlineparser)
+  //  void QGuiApplicationPrivate::addQtOptions(QList<QCommandLineOption>
+  //      *options)
+  void addQtOptions(QList<QCommandLineOption> *options) override {
     if (taken[13]) {
       int handled = 0;
       CuteQApplicationPrivateCall13 call = reinterpret_cast<CuteQApplicationPrivateCall13>(taken[13]);
+      call(this, options, &handled);
+      if (handled) return;
+    }
+    QGuiApplicationPrivate::addQtOptions(options);
+  }
+#endif  // QT_CONFIG(commandlineparser)
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QGuiApplicationPrivate::canQuitAutomatically()
+  bool canQuitAutomatically() override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQApplicationPrivateCall14 call = reinterpret_cast<CuteQApplicationPrivateCall14>(taken[14]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -401,9 +427,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QGuiApplicationPrivate::quit()
   void quit() override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQApplicationPrivateCall14 call = reinterpret_cast<CuteQApplicationPrivateCall14>(taken[14]);
+      CuteQApplicationPrivateCall15 call = reinterpret_cast<CuteQApplicationPrivateCall15>(taken[15]);
       call(this, &handled);
       if (handled) return;
     }
@@ -540,6 +566,15 @@ bool ritual_ZN19QApplicationPrivate16isBlockedByModalEP7QWidget(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN19QApplicationPrivate10modalStateEv() {
   return QApplicationPrivate::modalState();
+}
+
+//  bool QApplicationPrivate::tryModalHelper(QWidget *widget, QWidget
+//      **rettop)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QApplicationPrivate14tryModalHelperEP7QWidgetPS1_(
+    QWidget *widget,
+    QWidget **rettop) {
+  return QApplicationPrivate::tryModalHelper(widget, rettop);
 }
 
 //  bool QApplicationPrivate::notify_helper(QObject *receiver, QEvent *e)
@@ -701,6 +736,31 @@ QWidget *ritual_ZN19QApplicationPrivate17pickMouseReceiverEP7QWidgetRK7QPointFPS
       alienWidget);
 }
 
+//  bool QApplicationPrivate::sendMouseEvent(QWidget *receiver, QMouseEvent
+//      *event, QWidget *alienWidget, QWidget *native, QWidget **buttonDown,
+//      QPointer<QWidget> &lastMouseReceiver, bool spontaneous, bool
+//      onlyDispatchEnterLeave)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QApplicationPrivate14sendMouseEventEP7QWidgetP11QMouseEventS1_S1_PS1_R8QPointerIS0_Ebb(
+    QWidget *receiver,
+    QMouseEvent *event,
+    QWidget *alienWidget,
+    QWidget *native,
+    QWidget **buttonDown,
+    QPointer<QWidget> *lastMouseReceiver,
+    bool spontaneous,
+    bool onlyDispatchEnterLeave) {
+  return QApplicationPrivate::sendMouseEvent(
+      receiver,
+      event,
+      alienWidget,
+      native,
+      buttonDown,
+      *lastMouseReceiver,
+      spontaneous,
+      onlyDispatchEnterLeave);
+}
+
 //  void QApplicationPrivate::sendSyntheticEnterLeave(QWidget *widget)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QApplicationPrivate23sendSyntheticEnterLeaveEP7QWidget(
@@ -800,6 +860,14 @@ QPixmap *ritual_ZNK19QApplicationPrivate21applyQIconStyleHelperEN5QIcon4ModeERK7
     QIcon::Mode mode,
     const QPixmap *base) {
   return new QPixmap(self->applyQIconStyleHelper(mode, *base));
+}
+
+//  bool QApplicationPrivate::tryCloseAllWidgetWindows(QWindowList
+//      *processedWindows)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QApplicationPrivate24tryCloseAllWidgetWindowsEP5QListIP7QWindowE(
+    QWindowList *processedWindows) {
+  return QApplicationPrivate::tryCloseAllWidgetWindows(processedWindows);
 }
 
 //  void QApplicationPrivate::giveFocusAccordingToFocusPolicy(QWidget *w,

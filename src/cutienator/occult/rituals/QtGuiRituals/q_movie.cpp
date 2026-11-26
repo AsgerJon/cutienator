@@ -14,6 +14,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtGui/QMovie>
 
 //  A QMovie that Python can take functions over in. Every QMovie
 //  Python makes is one. Each function below asks the Python
@@ -188,10 +190,38 @@ const QMetaObject *ritual_ZNK6QMovie10metaObjectEv(const QMovie *self) {
   return self->metaObject();
 }
 
+//  void *QMovie::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6QMovie11qt_metacastEPKc(QMovie *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMovie::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6QMovie11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMovie *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMovie::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN6QMovie2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QMovie::tr(s, c, n));
+}
+
+//  QMoviePrivate *QMovie::d_func()
+extern "C" Q_DECL_EXPORT
+QMoviePrivate *ritual_ZN6QMovie6d_funcEv(QMovie *self) {
+  return self->d_func();
+}
+
+//  const QMoviePrivate *QMovie::d_func() const
+extern "C" Q_DECL_EXPORT
+const QMoviePrivate *ritual_ZNK6QMovie6d_funcEv(const QMovie *self) {
+  return self->d_func();
 }
 
 //  QMovie::QMovie(QObject *parent)
@@ -367,6 +397,12 @@ int ritual_ZNK6QMovie5speedEv(const QMovie *self) {
   return self->speed();
 }
 
+//  QBindable<int> QMovie::bindableSpeed()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN6QMovie13bindableSpeedEv(QMovie *self) {
+  return new QBindable<int>(self->bindableSpeed());
+}
+
 //  QSize QMovie::scaledSize()
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZN6QMovie10scaledSizeEv(QMovie *self) {
@@ -393,6 +429,59 @@ void ritual_ZN6QMovie12setCacheModeENS_9CacheModeE(
     QMovie *self,
     QMovie::CacheMode mode) {
   self->setCacheMode(mode);
+}
+
+//  QBindable<CacheMode> QMovie::bindableCacheMode()
+extern "C" Q_DECL_EXPORT
+QBindable<QMovie::CacheMode> *ritual_ZN6QMovie17bindableCacheModeEv(
+    QMovie *self) {
+  return new QBindable<QMovie::CacheMode>(self->bindableCacheMode());
+}
+
+//  void QMovie::started()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QMovie7startedEv(QMovie *self) {
+  self->started();
+}
+
+//  void QMovie::resized(const QSize &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QMovie7resizedERK5QSize(QMovie *self, const QSize *size) {
+  self->resized(*size);
+}
+
+//  void QMovie::updated(const QRect &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QMovie7updatedERK5QRect(QMovie *self, const QRect *rect) {
+  self->updated(*rect);
+}
+
+//  void QMovie::stateChanged(QMovie::MovieState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QMovie12stateChangedENS_10MovieStateE(
+    QMovie *self,
+    QMovie::MovieState state) {
+  self->stateChanged(state);
+}
+
+//  void QMovie::error(QImageReader::ImageReaderError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QMovie5errorEN12QImageReader16ImageReaderErrorE(
+    QMovie *self,
+    QImageReader::ImageReaderError error) {
+  self->error(error);
+}
+
+//  void QMovie::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QMovie8finishedEv(QMovie *self) {
+  self->finished();
+}
+
+//  void QMovie::frameChanged(int frameNumber)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QMovie12frameChangedEi(QMovie *self, int frameNumber) {
+  self->frameChanged(frameNumber);
 }
 
 //  void QMovie::start()
@@ -430,6 +519,19 @@ void ritual_ZN6QMovie8setSpeedEi(QMovie *self, int percentSpeed) {
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QMovie(QMovie *self, const char *key, void *call) {
   return static_cast<CuteQMovie *>(self)->take(key, call);
+}
+
+//  a QBindable<int> a ritual of QMovie gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMovie__QBindable_int(QBindable<int> *self) {
+  delete self;
+}
+
+//  a QBindable<QMovie::CacheMode> a ritual of QMovie gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMovie__QBindable_QMovie_CacheMode(
+    QBindable<QMovie::CacheMode> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(movie)

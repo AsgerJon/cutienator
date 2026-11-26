@@ -286,6 +286,25 @@ const QMetaObject *ritual_ZNK25QQuick3DShaderUtilsShader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsShader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuick3DShaderUtilsShader11qt_metacastEPKc(
+    QQuick3DShaderUtilsShader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsShader::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuick3DShaderUtilsShader11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsShader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsShader::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -307,6 +326,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN25QQuick3DShaderUtilsShaderD1Ev(
     QQuick3DShaderUtilsShader *self) {
   delete self;
+}
+
+//  void QQuick3DShaderUtilsShader::shaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DShaderUtilsShader13shaderChangedEv(
+    QQuick3DShaderUtilsShader *self) {
+  self->shaderChanged();
+}
+
+//  void QQuick3DShaderUtilsShader::stageChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DShaderUtilsShader12stageChangedEv(
+    QQuick3DShaderUtilsShader *self) {
+  self->stageChanged();
 }
 
 //  a Python function taken by a CuteQQuick3DShaderUtilsShader, for the

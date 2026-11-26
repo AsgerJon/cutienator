@@ -8,6 +8,12 @@
     "ritual_ZNK24QScxmlStateMachineLoader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QScxmlStateMachineLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QScxmlStateMachineLoader2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,9 +23,15 @@
     "ritual_ZNK24QScxmlStateMachineLoader12stateMachineEv": [
       "address", "address"
     ],
+    "ritual_ZN24QScxmlStateMachineLoader20bindableStateMachineEv": [
+      "address", "address"
+    ],
     "ritual_ZN24QScxmlStateMachineLoader6sourceEv": ["address", "address"],
     "ritual_ZN24QScxmlStateMachineLoader9setSourceERK4QUrl": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader14bindableSourceEv": [
+      "address", "address"
     ],
     "ritual_ZNK24QScxmlStateMachineLoader13initialValuesEv": [
       "address", "address"
@@ -27,17 +39,59 @@
     "ritual_ZN24QScxmlStateMachineLoader16setInitialValuesERK4QMapI7QString8QVariantE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN24QScxmlStateMachineLoader21bindableInitialValuesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK24QScxmlStateMachineLoader9dataModelEv": [
       "address", "address"
     ],
     "ritual_ZN24QScxmlStateMachineLoader12setDataModelEP15QScxmlDataModel": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN24QScxmlStateMachineLoader17bindableDataModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader13sourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader20initialValuesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader19stateMachineChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader16dataModelChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN24QScxmlStateMachineLoader5parseERK4QUrl": [
       "bool", "address", "address"
     ],
     "ritual_ZN24QScxmlStateMachineLoader15setStateMachineEP18QScxmlStateMachine": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader28_qt_property_m_source_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader35_qt_property_m_initialValues_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader31_qt_property_m_dataModel_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader34_qt_property_m_stateMachine_offsetEv": [
+      "size_t"
+    ],
+    "ritual_drop_QScxmlStateMachineLoader__QBindable_QScxmlStateMachine": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachineLoader__QBindable_QUrl": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachineLoader__QBindable_QVariantMap": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachineLoader__QBindable_QScxmlDataModel": [
+      "nothing", "address"
     ]
   }
 }

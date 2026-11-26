@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/qsggeometry.h, Qt 6.12.0. Changes made here are lost.
+//  QtQuick/qsggeometry.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, rituals for functions the generator leaves out: 2. Kept as it is
+//  when the generator runs again.
 #include <QtQuick/QtQuick>
 #include <QtQuick/qsggeometry.h>
 #include <QtCore/qrect.h>
@@ -78,6 +80,12 @@ void ritual_ZN11QSGGeometry14setVertexCountEi(QSGGeometry *self, int count) {
   self->setVertexCount(count);
 }
 
+//  void *QSGGeometry::vertexData()
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QSGGeometry10vertexDataEv(QSGGeometry *self) {
+  return self->vertexData();
+}
+
 //  Point2D *QSGGeometry::vertexDataAsPoint2D()
 extern "C" Q_DECL_EXPORT
 QSGGeometry::Point2D *ritual_ZN11QSGGeometry19vertexDataAsPoint2DEv(
@@ -97,6 +105,12 @@ extern "C" Q_DECL_EXPORT
 QSGGeometry::ColoredPoint2D *ritual_ZN11QSGGeometry26vertexDataAsColoredPoint2DEv(
     QSGGeometry *self) {
   return self->vertexDataAsColoredPoint2D();
+}
+
+//  const void *QSGGeometry::vertexData() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK11QSGGeometry10vertexDataEv(const QSGGeometry *self) {
+  return self->vertexData();
 }
 
 //  const Point2D *QSGGeometry::vertexDataAsPoint2D() const
@@ -138,10 +152,36 @@ void ritual_ZN11QSGGeometry13setIndexCountEi(QSGGeometry *self, int count) {
   self->setIndexCount(count);
 }
 
+//  void *QSGGeometry::indexData()
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QSGGeometry9indexDataEv(QSGGeometry *self) {
+  return self->indexData();
+}
+
 //  int QSGGeometry::sizeOfIndex() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QSGGeometry11sizeOfIndexEv(const QSGGeometry *self) {
   return self->sizeOfIndex();
+}
+
+//  const void *QSGGeometry::indexData() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK11QSGGeometry9indexDataEv(const QSGGeometry *self) {
+  return self->indexData();
+}
+
+//  const uint *QSGGeometry::indexDataAsUInt() const
+extern "C" Q_DECL_EXPORT
+const uint *ritual_ZNK11QSGGeometry15indexDataAsUIntEv(
+    const QSGGeometry *self) {
+  return self->indexDataAsUInt();
+}
+
+//  const quint16 *QSGGeometry::indexDataAsUShort() const
+extern "C" Q_DECL_EXPORT
+const quint16 *ritual_ZNK11QSGGeometry17indexDataAsUShortEv(
+    const QSGGeometry *self) {
+  return self->indexDataAsUShort();
 }
 
 //  int QSGGeometry::attributeCount() const
@@ -242,4 +282,18 @@ float ritual_ZNK11QSGGeometry9lineWidthEv(const QSGGeometry *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QSGGeometry12setLineWidthEf(QSGGeometry *self, float w) {
   self->setLineWidth(w);
+}
+
+//  quint16 *QSGGeometry::indexDataAsUShort()
+extern "C" Q_DECL_EXPORT
+quint16 *ritual_ZN11QSGGeometry17indexDataAsUShortEv(
+    QSGGeometry *self) {
+  return self->indexDataAsUShort();
+}
+
+//  uint *QSGGeometry::indexDataAsUInt()
+extern "C" Q_DECL_EXPORT
+uint *ritual_ZN11QSGGeometry15indexDataAsUIntEv(
+    QSGGeometry *self) {
+  return self->indexDataAsUInt();
 }

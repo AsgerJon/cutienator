@@ -9,6 +9,12 @@
       "address", "address", "address", "unsigned int", "unsigned int"
     ],
     "ritual_ZN19QSvgFilterContainerD1Ev": ["nothing", "address"],
+    "ritual_ZN19QSvgFilterContainer11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QSvgFilterContainer14shouldDrawNodeEP8QPainterR15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK19QSvgFilterContainer4typeEv": ["int", "address"],
     "ritual_ZNK19QSvgFilterContainer11applyFilterERK6QImageP8QPainterRK6QRectF": [
       "address", "address", "address", "address", "address"

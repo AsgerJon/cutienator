@@ -186,6 +186,57 @@ const QMetaObject *ritual_ZNK9QtWayland21IviSurfaceIntegration10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtWayland::IviSurfaceIntegration::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QtWayland21IviSurfaceIntegration11qt_metacastEPKc(
+    QtWayland::IviSurfaceIntegration *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtWayland::IviSurfaceIntegration::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QtWayland21IviSurfaceIntegration11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtWayland::IviSurfaceIntegration *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QtWayland::IviSurfaceIntegration::~IviSurfaceIntegration()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland21IviSurfaceIntegrationD1Ev(
+    QtWayland::IviSurfaceIntegration *self) {
+  delete self;
+}
+
+//  void QtWayland::IviSurfaceIntegration::handleIviSurfaceDestroyed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland21IviSurfaceIntegration25handleIviSurfaceDestroyedEv(
+    QtWayland::IviSurfaceIntegration *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QtWayland::IviSurfaceIntegration")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handleIviSurfaceDestroyed()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handleIviSurfaceDestroyed()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  a Python function taken by a CuteQtWayland_IviSurfaceIntegration, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

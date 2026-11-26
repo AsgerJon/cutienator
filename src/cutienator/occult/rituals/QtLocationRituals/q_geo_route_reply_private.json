@@ -5,5 +5,11 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QGeoRouteReplyPrivateC1ERK16QGeoRouteRequest": [
+      "address", "address"
+    ],
+    "ritual_ZN21QGeoRouteReplyPrivateC1EN14QGeoRouteReply5ErrorE7QString": [
+      "address", "int", "text"
+    ]
   }
 }

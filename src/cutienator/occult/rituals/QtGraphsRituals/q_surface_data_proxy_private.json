@@ -10,8 +10,37 @@
   "rows": {
     "ritual_ZN24QSurfaceDataProxyPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK24QSurfaceDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QSurfaceDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QSurfaceDataProxyPrivate10resetArrayEO5QListIS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate6setRowExO5QListI16QSurfaceDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate7setRowsExO5QListIS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate7setItemExxO16QSurfaceDataItem": [
+      "nothing", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate6addRowEO5QListI16QSurfaceDataItemE": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate7addRowsEO5QListIS0_I16QSurfaceDataItemEE": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate9insertRowExO5QListI16QSurfaceDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate10insertRowsExO5QListIS0_I16QSurfaceDataItemEE": [
+      "nothing", "address", "long long", "address"
+    ],
     "ritual_ZN24QSurfaceDataProxyPrivate10removeRowsExx": [
       "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZNK24QSurfaceDataProxyPrivate11limitValuesER9QVector3DS1_P15QAbstract3DAxisS3_S3_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
     ],
     "ritual_ZNK24QSurfaceDataProxyPrivate12isValidValueEfP15QAbstract3DAxis": [
       "bool", "address", "float", "address"

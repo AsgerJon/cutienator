@@ -16,6 +16,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtQuick3D/qquick3dobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuick3DParticleEmitter may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -347,6 +348,25 @@ const QMetaObject *ritual_ZNK23QQuick3DParticleEmitter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleEmitter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuick3DParticleEmitter11qt_metacastEPKc(
+    QQuick3DParticleEmitter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleEmitter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuick3DParticleEmitter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleEmitter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleEmitter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuick3DParticleEmitter2trEPKcS1_i(
@@ -501,6 +521,14 @@ extern "C" Q_DECL_EXPORT
 QQuick3DParticleEmitter::EmitMode ritual_ZNK23QQuick3DParticleEmitter8emitModeEv(
     const QQuick3DParticleEmitter *self) {
   return self->emitMode();
+}
+
+//  QQmlListProperty<QQuick3DParticleEmitBurst>
+//      QQuick3DParticleEmitter::emitBursts()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DParticleEmitBurst> *ritual_ZN23QQuick3DParticleEmitter10emitBurstsEv(
+    QQuick3DParticleEmitter *self) {
+  return new QQmlListProperty<QQuick3DParticleEmitBurst>(self->emitBursts());
 }
 
 //  void QQuick3DParticleEmitter::burst(int count)
@@ -692,6 +720,139 @@ void ritual_ZN23QQuick3DParticleEmitter11setEmitModeENS_8EmitModeE(
   self->setEmitMode(mode);
 }
 
+//  void QQuick3DParticleEmitter::velocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter15velocityChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->velocityChanged();
+}
+
+//  void QQuick3DParticleEmitter::systemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter13systemChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->systemChanged();
+}
+
+//  void QQuick3DParticleEmitter::emitRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter15emitRateChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->emitRateChanged();
+}
+
+//  void QQuick3DParticleEmitter::particleScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter20particleScaleChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->particleScaleChanged();
+}
+
+//  void QQuick3DParticleEmitter::particleEndScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter23particleEndScaleChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->particleEndScaleChanged();
+}
+
+//  void QQuick3DParticleEmitter::particleScaleVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter29particleScaleVariationChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->particleScaleVariationChanged();
+}
+
+//  void QQuick3DParticleEmitter::particleEndScaleVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter32particleEndScaleVariationChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->particleEndScaleVariationChanged();
+}
+
+//  void QQuick3DParticleEmitter::lifeSpanChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter15lifeSpanChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->lifeSpanChanged();
+}
+
+//  void QQuick3DParticleEmitter::lifeSpanVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter24lifeSpanVariationChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->lifeSpanVariationChanged();
+}
+
+//  void QQuick3DParticleEmitter::particleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter15particleChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->particleChanged();
+}
+
+//  void QQuick3DParticleEmitter::shapeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter12shapeChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->shapeChanged();
+}
+
+//  void QQuick3DParticleEmitter::particleRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter23particleRotationChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->particleRotationChanged();
+}
+
+//  void QQuick3DParticleEmitter::particleRotationVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter32particleRotationVariationChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->particleRotationVariationChanged();
+}
+
+//  void QQuick3DParticleEmitter::particleRotationVelocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter31particleRotationVelocityChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->particleRotationVelocityChanged();
+}
+
+//  void QQuick3DParticleEmitter::particleRotationVariationVelocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter40particleRotationVariationVelocityChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->particleRotationVariationVelocityChanged();
+}
+
+//  void QQuick3DParticleEmitter::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter14enabledChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->enabledChanged();
+}
+
+//  void QQuick3DParticleEmitter::depthBiasChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter16depthBiasChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->depthBiasChanged();
+}
+
+//  void QQuick3DParticleEmitter::reversedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter15reversedChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->reversedChanged();
+}
+
+//  void QQuick3DParticleEmitter::emitModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter15emitModeChangedEv(
+    QQuick3DParticleEmitter *self) {
+  self->emitModeChanged();
+}
+
 //  void QQuick3DParticleEmitter::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuick3DParticleEmitter17componentCompleteEv(
@@ -848,6 +1009,58 @@ void ritual_ZN23QQuick3DParticleEmitter19removeLastEmitBurstEv(
   self->removeLastEmitBurst();
 }
 
+//  void QQuick3DParticleEmitter::appendEmitBurst(QQmlListProperty<QQuick3DPa
+//      rticleEmitBurst> *a0, QQuick3DParticleEmitBurst *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter15appendEmitBurstEP16QQmlListPropertyI25QQuick3DParticleEmitBurstEPS1_(
+    QQmlListProperty<QQuick3DParticleEmitBurst> *a0,
+    QQuick3DParticleEmitBurst *a1) {
+  QQuick3DParticleEmitter::appendEmitBurst(a0, a1);
+}
+
+//  qsizetype QQuick3DParticleEmitter::emitBurstCount(QQmlListProperty<QQuick
+//      3DParticleEmitBurst> *a0)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN23QQuick3DParticleEmitter14emitBurstCountEP16QQmlListPropertyI25QQuick3DParticleEmitBurstE(
+    QQmlListProperty<QQuick3DParticleEmitBurst> *a0) {
+  return QQuick3DParticleEmitter::emitBurstCount(a0);
+}
+
+//  QQuick3DParticleEmitBurst *QQuick3DParticleEmitter::emitBurst(QQmlListPro
+//      perty<QQuick3DParticleEmitBurst> *a0, qsizetype a1)
+extern "C" Q_DECL_EXPORT
+QQuick3DParticleEmitBurst *ritual_ZN23QQuick3DParticleEmitter9emitBurstEP16QQmlListPropertyI25QQuick3DParticleEmitBurstEx(
+    QQmlListProperty<QQuick3DParticleEmitBurst> *a0,
+    qsizetype a1) {
+  return QQuick3DParticleEmitter::emitBurst(a0, a1);
+}
+
+//  void QQuick3DParticleEmitter::clearEmitBursts(QQmlListProperty<QQuick3DPa
+//      rticleEmitBurst> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter15clearEmitBurstsEP16QQmlListPropertyI25QQuick3DParticleEmitBurstE(
+    QQmlListProperty<QQuick3DParticleEmitBurst> *a0) {
+  QQuick3DParticleEmitter::clearEmitBursts(a0);
+}
+
+//  void QQuick3DParticleEmitter::replaceEmitBurst(QQmlListProperty<QQuick3DP
+//      articleEmitBurst> *a0, qsizetype a1, QQuick3DParticleEmitBurst *a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter16replaceEmitBurstEP16QQmlListPropertyI25QQuick3DParticleEmitBurstExPS1_(
+    QQmlListProperty<QQuick3DParticleEmitBurst> *a0,
+    qsizetype a1,
+    QQuick3DParticleEmitBurst *a2) {
+  QQuick3DParticleEmitter::replaceEmitBurst(a0, a1, a2);
+}
+
+//  void QQuick3DParticleEmitter::removeLastEmitBurst(QQmlListProperty<QQuick
+//      3DParticleEmitBurst> *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DParticleEmitter19removeLastEmitBurstEP16QQmlListPropertyI25QQuick3DParticleEmitBurstE(
+    QQmlListProperty<QQuick3DParticleEmitBurst> *a0) {
+  QQuick3DParticleEmitter::removeLastEmitBurst(a0);
+}
+
 //  a Python function taken by a CuteQQuick3DParticleEmitter, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -891,4 +1104,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN23QQuick3DParticleEmitter17componentCompleteEv(
     QQuick3DParticleEmitter *self) {
   static_cast<OwnQQuick3DParticleEmitter *>(self)->OwnQQuick3DParticleEmitter::componentComplete();
+}
+
+//  a QQmlListProperty<QQuick3DParticleEmitBurst> a ritual of
+//      QQuick3DParticleEmitter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DParticleEmitter__QQmlListProperty_QQuick3DParticleEmitBurst(
+    QQmlListProperty<QQuick3DParticleEmitBurst> *self) {
+  delete self;
 }

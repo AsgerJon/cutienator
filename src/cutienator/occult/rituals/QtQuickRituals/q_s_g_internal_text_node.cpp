@@ -12,6 +12,7 @@
 #include <QtCore/qpoint.h>
 #include <QtGui/qglyphrun.h>
 #include <cstring>
+#include <utility>
 
 //  Only a class built on QSGInternalTextNode may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -748,6 +749,13 @@ QSGInternalRectangleNode *ritual_ZNK19QSGInternalTextNode10cursorNodeEv(
   return self->cursorNode();
 }
 
+//  std::pair<int, int> QSGInternalTextNode::renderedLineRange() const
+extern "C" Q_DECL_EXPORT
+std::pair<int, int> *ritual_ZNK19QSGInternalTextNode17renderedLineRangeEv(
+    const QSGInternalTextNode *self) {
+  return new std::pair<int, int>(self->renderedLineRange());
+}
+
 //  void QSGInternalTextNode::discardUnusedNodes(RecycleBin *recycleBin)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QSGInternalTextNode18discardUnusedNodesEPNS_10RecycleBinE(
@@ -1126,4 +1134,11 @@ void ritual_own_ZN19QSGInternalTextNode17doAddTextDocumentE7QPointFP13QTextDocum
       textDocument,
       selectionStart,
       selectionEnd);
+}
+
+//  a std::pair<int, int> a ritual of QSGInternalTextNode gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSGInternalTextNode__std_pair_int_int(
+    std::pair<int, int> *self) {
+  delete self;
 }

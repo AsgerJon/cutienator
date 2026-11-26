@@ -19,6 +19,14 @@ QSSGRender *ritual_ZN10QSSGRenderC1ERKS_(const QSSGRender *a0) {
   return new QSSGRender(*a0);
 }
 
+//  void QSSGRender::addDebug(QDebug &stream) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QSSGRender8addDebugER6QDebug(
+    const QSSGRender *self,
+    QDebug *stream) {
+  self->addDebug(*stream);
+}
+
 //  QSSGRender::~QSSGRender()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QSSGRenderD1Ev(QSSGRender *self) {

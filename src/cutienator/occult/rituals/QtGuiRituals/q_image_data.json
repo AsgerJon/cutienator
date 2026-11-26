@@ -10,6 +10,11 @@
     "ritual_ZN10QImageData6createERK5QSizeN6QImage6FormatE": [
       "address", "address", "int"
     ],
+    "ritual_ZN10QImageData6createEPhiixN6QImage6FormatEbPFvPvES3_": [
+      "address", "address", "int", "int", "long long", "int", "bool",
+      "address", "address"
+    ],
+    "ritual_ZN10QImageData3getER6QImage": ["address", "address"],
     "ritual_ZN10QImageData3getERK6QImage": ["address", "address"],
     "ritual_ZNK10QImageData19checkForAlphaPixelsEv": ["bool", "address"],
     "ritual_ZN10QImageData14convertInPlaceEN6QImage6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [

@@ -20,6 +20,15 @@ QDomCharacterData *ritual_ZN17QDomCharacterDataC1ERKS_(
   return new QDomCharacterData(*characterData);
 }
 
+//  QDomCharacterData &QDomCharacterData::operator=(const QDomCharacterData
+//      &other)
+extern "C" Q_DECL_EXPORT
+QDomCharacterData *ritual_ZN17QDomCharacterDataaSERKS_(
+    QDomCharacterData *self,
+    const QDomCharacterData *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QDomCharacterData::substringData(unsigned long offset, unsigned
 //      long count)
 extern "C" Q_DECL_EXPORT

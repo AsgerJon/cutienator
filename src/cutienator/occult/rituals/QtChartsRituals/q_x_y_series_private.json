@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QXYSeriesPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QXYSeriesPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QXYSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QXYSeriesPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -13,6 +19,9 @@
       "nothing", "address"
     ],
     "ritual_ZN16QXYSeriesPrivate14initializeAxesEv": ["nothing", "address"],
+    "ritual_ZN16QXYSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve": [
+      "nothing", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QXYSeriesPrivate19createLegendMarkersEP7QLegend": [
       "address", "address", "address"
     ],
@@ -25,8 +34,15 @@
     "ritual_ZN16QXYSeriesPrivate15drawPointLabelsEP8QPainterRK5QListI7QPointFEi": [
       "nothing", "address", "address", "address", "int"
     ],
+    "ritual_ZN16QXYSeriesPrivate21drawSeriesPointLabelsEP8QPainterRK5QListI7QPointFEiRK5QHashIiiERKS2_IiERKS7_Ii7QStringE": [
+      "nothing", "address", "address", "address", "int", "address",
+      "address", "address"
+    ],
     "ritual_ZN16QXYSeriesPrivate15drawBestFitLineEP8QPainterRK6QRectF": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK16QXYSeriesPrivate19bestFitLineEquationERb": [
+      "address", "address", "address"
     ],
     "ritual_ZN16QXYSeriesPrivate16setPointSelectedEibRb": [
       "nothing", "address", "int", "bool", "address"
@@ -40,6 +56,11 @@
     "ritual_ZN16QXYSeriesPrivate13setMarkerSizeEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZNK16QXYSeriesPrivate11colorByDataEv": ["address", "address"],
+    "ritual_ZN16QXYSeriesPrivate21setPointConfigurationEiN9QXYSeries18PointConfigurationERK8QVariant": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZN16QXYSeriesPrivate13seriesUpdatedEv": ["nothing", "address"],
     "ritual_ZN16QXYSeriesPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK16QXYSeriesPrivate6q_funcEv": ["address", "address"],
     "ritual_own_ZN16QXYSeriesPrivate16initializeDomainEv": [
@@ -53,6 +74,10 @@
     ],
     "ritual_own_ZNK16QXYSeriesPrivate17createDefaultAxisEN2Qt11OrientationE": [
       "address", "address", "int"
-    ]
+    ],
+    "ritual_drop_QXYSeriesPrivate__QPair_qreal_qreal": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QXYSeriesPrivate__QList_qreal": ["nothing", "address"]
   }
 }

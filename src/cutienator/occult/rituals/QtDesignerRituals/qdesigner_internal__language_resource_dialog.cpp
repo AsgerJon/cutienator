@@ -1,6 +1,10 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtDesigner/6.12.0/QtDesigner/private/iconselector_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  Written by hand on 2026-11-25 from
+//  QtDesigner/6.12.0/QtDesigner/private/iconselector_p.h,
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Not written: 'qt_metacast'. The constructor is private in Qt's
+//  header; it is called all the same. The class declares no virtual
+//  function but its destructor, so it has no 'own_' rituals.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
@@ -12,11 +16,13 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_utils_p.h>
 #include <cstring>
 
-//  A qdesigner_internal::LanguageResourceDialog that Python can take functions over in. Every qdesigner_internal::LanguageResourceDialog
-//  Python makes is one. Each function below asks the Python
-//  function handed over for it, and runs Qt's own without one.
+//  A qdesigner_internal::LanguageResourceDialog that Python can take
+//  functions over in. Every qdesigner_internal::LanguageResourceDialog
+//  Python makes is one. Each function below asks the Python function handed
+//  over for it, and runs Qt's own without one.
 #if QT_CONFIG(dialog)
 typedef void (*Cuteqdesigner_internal_LanguageResourceDialogCall0)(const void *, bool, int *);
 #endif  // QT_CONFIG(dialog)
@@ -1032,16 +1038,69 @@ QString *ritual_ZN18qdesigner_internal22LanguageResourceDialog2trEPKcS2_i(
     const char *s,
     const char *c,
     int n) {
-  return new QString(
-      qdesigner_internal::LanguageResourceDialog::tr(
-          s,
-          c,
-          n));
+  return new QString(qdesigner_internal::LanguageResourceDialog::tr(s, c, n));
 }
 
-//  a Python function taken by a
-//      Cuteqdesigner_internal_LanguageResourceDialog, for the function named
-//      by the key
+//  LanguageResourceDialogPrivate
+//      *qdesigner_internal::LanguageResourceDialog::d_func()
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::LanguageResourceDialogPrivate *ritual_ZN18qdesigner_internal22LanguageResourceDialog6d_funcEv(
+    qdesigner_internal::LanguageResourceDialog *self) {
+  return self->d_func();
+}
+
+//  const LanguageResourceDialogPrivate
+//      *qdesigner_internal::LanguageResourceDialog::d_func() const
+extern "C" Q_DECL_EXPORT
+const qdesigner_internal::LanguageResourceDialogPrivate *ritual_ZNK18qdesigner_internal22LanguageResourceDialog6d_funcEv(
+    const qdesigner_internal::LanguageResourceDialog *self) {
+  return self->d_func();
+}
+
+//  qdesigner_internal::LanguageResourceDialog::LanguageResourceDialog(QDesignerResourceBrowserInterface
+//      *rb, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::LanguageResourceDialog *ritual_ZN18qdesigner_internal22LanguageResourceDialogC1EP33QDesignerResourceBrowserInterfaceP7QWidget(
+    QDesignerResourceBrowserInterface *rb,
+    QWidget *parent) {
+  return new Cuteqdesigner_internal_LanguageResourceDialog(rb, parent);
+}
+
+//  qdesigner_internal::LanguageResourceDialog::~LanguageResourceDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22LanguageResourceDialogD1Ev(
+    qdesigner_internal::LanguageResourceDialog *self) {
+  delete self;
+}
+
+//  LanguageResourceDialog
+//      *qdesigner_internal::LanguageResourceDialog::create(QDesignerFormEditorInterface
+//      *core, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::LanguageResourceDialog *ritual_ZN18qdesigner_internal22LanguageResourceDialog6createEP28QDesignerFormEditorInterfaceP7QWidget(
+    QDesignerFormEditorInterface *core,
+    QWidget *parent) {
+  return qdesigner_internal::LanguageResourceDialog::create(core, parent);
+}
+
+//  void qdesigner_internal::LanguageResourceDialog::setCurrentPath(const
+//      QString &filePath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal22LanguageResourceDialog14setCurrentPathERK7QString(
+    qdesigner_internal::LanguageResourceDialog *self,
+    const QString *filePath) {
+  self->setCurrentPath(*filePath);
+}
+
+//  QString qdesigner_internal::LanguageResourceDialog::currentPath() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal22LanguageResourceDialog11currentPathEv(
+    const qdesigner_internal::LanguageResourceDialog *self) {
+  return new QString(self->currentPath());
+}
+
+//  a Python function taken by a Cuteqdesigner_internal_LanguageResourceDialog, for
+//      the function named by the key
 extern "C" Q_DECL_EXPORT
 bool ritual_take_qdesigner_internal_LanguageResourceDialog(
     qdesigner_internal::LanguageResourceDialog *self,

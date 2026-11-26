@@ -8,8 +8,20 @@
     "ritual_ZNK30QWaylandXdgDecorationManagerV110metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QWaylandXdgDecorationManagerV111qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QWaylandXdgDecorationManagerV111qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QWaylandXdgDecorationManagerV12trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QWaylandXdgDecorationManagerV16d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QWaylandXdgDecorationManagerV16d_funcEv": [
+      "address", "address"
     ],
     "ritual_ZN30QWaylandXdgDecorationManagerV1C1Ev": ["address"],
     "ritual_ZN30QWaylandXdgDecorationManagerV110initializeEv": [
@@ -20,6 +32,10 @@
     ],
     "ritual_ZN30QWaylandXdgDecorationManagerV116setPreferredModeEN19QWaylandXdgToplevel14DecorationModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN30QWaylandXdgDecorationManagerV19interfaceEv": ["address"],
+    "ritual_ZN30QWaylandXdgDecorationManagerV120preferredModeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QWaylandXdgDecorationManagerV1": [
       "bool", "address", "chars", "address"

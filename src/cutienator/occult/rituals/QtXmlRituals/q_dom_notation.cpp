@@ -18,6 +18,14 @@ QDomNotation *ritual_ZN12QDomNotationC1ERKS_(const QDomNotation *notation) {
   return new QDomNotation(*notation);
 }
 
+//  QDomNotation &QDomNotation::operator=(const QDomNotation &other)
+extern "C" Q_DECL_EXPORT
+QDomNotation *ritual_ZN12QDomNotationaSERKS_(
+    QDomNotation *self,
+    const QDomNotation *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QDomNotation::publicId() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK12QDomNotation8publicIdEv(const QDomNotation *self) {

@@ -1,11 +1,12 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qvariant.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qvariant.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN8QVariantC1Ev": ["address"],
     "ritual_ZN8QVariantD1Ev": ["nothing", "address"],
+    "ritual_ZN8QVariantC1E9QMetaTypePKv": ["address", "address", "address"],
     "ritual_ZN8QVariantC1ERKS_": ["address", "address"],
     "ritual_ZN8QVariantC1Ei": ["address", "int"],
     "ritual_ZN8QVariantC1Ej": ["address", "unsigned int"],
@@ -18,19 +19,33 @@
     "ritual_ZN8QVariantC1E5QDate": ["address", "address"],
     "ritual_ZN8QVariantC1E5QTime": ["address", "address"],
     "ritual_ZN8QVariantC1ERK9QBitArray": ["address", "address"],
+    "ritual_ZN8QVariantC1EO9QBitArray": ["address", "address"],
     "ritual_ZN8QVariantC1ERK10QByteArray": ["address", "address"],
+    "ritual_ZN8QVariantC1EO10QByteArray": ["address", "address"],
     "ritual_ZN8QVariantC1ERK9QDateTime": ["address", "address"],
+    "ritual_ZN8QVariantC1EO9QDateTime": ["address", "address"],
     "ritual_ZN8QVariantC1ERK5QHashI7QStringS_E": ["address", "address"],
+    "ritual_ZN8QVariantC1EO5QHashI7QStringS_E": ["address", "address"],
     "ritual_ZN8QVariantC1ERK10QJsonArray": ["address", "address"],
+    "ritual_ZN8QVariantC1EO10QJsonArray": ["address", "address"],
     "ritual_ZN8QVariantC1ERK11QJsonObject": ["address", "address"],
+    "ritual_ZN8QVariantC1EO11QJsonObject": ["address", "address"],
     "ritual_ZN8QVariantC1ERK5QListIS_E": ["address", "address"],
+    "ritual_ZN8QVariantC1EO5QListIS_E": ["address", "address"],
     "ritual_ZN8QVariantC1ERK7QLocale": ["address", "address"],
+    "ritual_ZN8QVariantC1EO7QLocale": ["address", "address"],
     "ritual_ZN8QVariantC1ERK4QMapI7QStringS_E": ["address", "address"],
+    "ritual_ZN8QVariantC1EO4QMapI7QStringS_E": ["address", "address"],
     "ritual_ZN8QVariantC1ERK18QRegularExpression": ["address", "address"],
+    "ritual_ZN8QVariantC1EO18QRegularExpression": ["address", "address"],
     "ritual_ZN8QVariantC1ERK7QString": ["address", "text"],
+    "ritual_ZN8QVariantC1EO7QString": ["address", "address"],
     "ritual_ZN8QVariantC1ERK5QListI7QStringE": ["address", "address"],
+    "ritual_ZN8QVariantC1EO5QListI7QStringE": ["address", "address"],
     "ritual_ZN8QVariantC1ERK4QUrl": ["address", "address"],
+    "ritual_ZN8QVariantC1EO4QUrl": ["address", "address"],
     "ritual_ZN8QVariantC1ERK10QJsonValue": ["address", "address"],
+    "ritual_ZN8QVariantC1EO10QJsonValue": ["address", "address"],
     "ritual_ZN8QVariantC1ERK11QModelIndex": ["address", "address"],
     "ritual_ZN8QVariantC1E5QUuid": ["address", "address"],
     "ritual_ZN8QVariantC1E5QSize": ["address", "address"],
@@ -42,10 +57,17 @@
     "ritual_ZN8QVariantC1E5QRect": ["address", "address"],
     "ritual_ZN8QVariantC1E6QRectF": ["address", "address"],
     "ritual_ZN8QVariantC1ERK12QEasingCurve": ["address", "address"],
+    "ritual_ZN8QVariantC1EO12QEasingCurve": ["address", "address"],
     "ritual_ZN8QVariantC1ERK13QJsonDocument": ["address", "address"],
+    "ritual_ZN8QVariantC1EO13QJsonDocument": ["address", "address"],
     "ritual_ZN8QVariantC1ERK21QPersistentModelIndex": ["address", "address"],
+    "ritual_ZN8QVariantC1EO21QPersistentModelIndex": ["address", "address"],
     "ritual_ZN8QVariantC1EPKc": ["address", "chars"],
     "ritual_ZN8QVariantC1E13QLatin1String": ["address", "address"],
+    "ritual_ZN8QVariantaSERKS_": ["address", "address", "address"],
+    "ritual_ZN8QVariantC1EOS_": ["address", "address"],
+    "ritual_ZN8QVariantaSEOS_": ["address", "address", "address"],
+    "ritual_ZN8QVariant4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK8QVariant8userTypeEv": ["int", "address"],
     "ritual_ZNK8QVariant6typeIdEv": ["int", "address"],
     "ritual_ZNK8QVariant8typeNameEv": ["chars", "address"],
@@ -104,18 +126,53 @@
     "ritual_ZNK8QVariant14toJsonDocumentEv": ["address", "address"],
     "ritual_ZNK8QVariant12toModelIndexEv": ["address", "address"],
     "ritual_ZNK8QVariant22toPersistentModelIndexEv": ["address", "address"],
+    "ritual_ZN8QVariant4loadER11QDataStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QVariant4saveER11QDataStream": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN8QVariantC1ENS_4TypeE": ["address", "int"],
     "ritual_ZNK8QVariant4typeEv": ["int", "address"],
     "ritual_ZN8QVariant10typeToNameEi": ["chars", "int"],
     "ritual_ZN8QVariant10nameToTypeEPKc": ["int", "chars"],
+    "ritual_ZN8QVariant4dataEv": ["address", "address"],
+    "ritual_ZNK8QVariant9constDataEv": ["address", "address"],
+    "ritual_ZNK8QVariant4dataEv": ["address", "address"],
     "ritual_ZN8QVariant8setValueERKS_": ["nothing", "address", "address"],
+    "ritual_ZN8QVariant8setValueEOS_": ["nothing", "address", "address"],
+    "ritual_ZN8QVariant12fromMetaTypeE9QMetaTypePKv": [
+      "address", "address", "address"
+    ],
     "ritual_ZN8QVariant7compareERKS_S1_": ["address", "address", "address"],
     "ritual_ZeqRK8QVariantS1_": ["bool", "address", "address"],
     "ritual_ZneRK8QVariantS1_": ["bool", "address", "address"],
     "ritual_ZNK8QVariant12qdebugHelperE6QDebug": [
       "address", "address", "address"
     ],
+    "ritual_ZN8QVariant13moveConstructE9QMetaTypePv": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QVariant13copyConstructE9QMetaTypePKv": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QVariant6createEiPKv": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8QVariant6createE9QMetaTypePKv": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QVariant7convertEiPv": ["bool", "address", "int", "address"],
+    "ritual_ZN8QVariant4viewEiPv": ["bool", "address", "int", "address"],
     "ritual_ZNK8QVariant6equalsERKS_": ["bool", "address", "address"],
+    "ritual_ZN8QVariantC1ESt10in_place_t9QMetaType": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QVariant17prepareForEmplaceE9QMetaType": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QVariant8data_ptrEv": ["address", "address"],
+    "ritual_ZNK8QVariant8data_ptrEv": ["address", "address"],
     "ritual_list_make_QVariant": ["address"],
     "ritual_list_add_QVariant": ["nothing", "address", "address"],
     "ritual_list_size_QVariant": ["long long", "address"],
@@ -158,6 +215,52 @@
     ],
     "ritual_map_has_QMap_int_QVariant": ["bool", "address", "int"],
     "ritual_map_get_QMap_int_QVariant": ["address", "address", "int"],
-    "ritual_map_drop_QMap_int_QVariant": ["nothing", "address"]
+    "ritual_map_drop_QMap_int_QVariant": ["nothing", "address"],
+    "ritual_ZNK8QVariant10canConvertIiEEbv": ["bool", "address"],
+    "ritual_ZNK8QVariant10canConvertIdEEbv": ["bool", "address"],
+    "ritual_ZNK8QVariant10canConvertIbEEbv": ["bool", "address"],
+    "ritual_ZNK8QVariant10canConvertI7QStringEEbv": ["bool", "address"],
+    "ritual_ZNK8QVariant7canViewIiEEbv": ["bool", "address"],
+    "ritual_ZNK8QVariant7canViewIdEEbv": ["bool", "address"],
+    "ritual_ZNK8QVariant7canViewIbEEbv": ["bool", "address"],
+    "ritual_ZNK8QVariant7canViewI7QStringEEbv": ["bool", "address"],
+    "ritual_ZN8QVariant9fromValueIiEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS2_EES_E4typeERKS2_": [
+      "address", "int"
+    ],
+    "ritual_ZN8QVariant9fromValueIdEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS2_EES_E4typeERKS2_": [
+      "address", "double"
+    ],
+    "ritual_ZN8QVariant9fromValueIbEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS2_EES_E4typeERKS2_": [
+      "address", "bool"
+    ],
+    "ritual_ZN8QVariant9fromValueI7QStringEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS3_EES_E4typeERKS3_": [
+      "address", "text"
+    ],
+    "ritual_ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXaasr3stdE23is_copy_constructible_vIT_Esr3stdE17is_destructible_vIS3_EES_E4typeERKS3_": [
+      "address", "address"
+    ],
+    "ritual_ZN8QVariant8setValueIivEEvOT_": ["nothing", "address", "int"],
+    "ritual_ZN8QVariant8setValueIdvEEvOT_": ["nothing", "address", "double"],
+    "ritual_ZN8QVariant8setValueIbvEEvOT_": ["nothing", "address", "bool"],
+    "ritual_ZN8QVariant8setValueI7QStringvEEvOT_": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8QVariant9typedDataIiEEPT_v": ["address", "address"],
+    "ritual_ZN8QVariant9typedDataIdEEPT_v": ["address", "address"],
+    "ritual_ZN8QVariant9typedDataIbEEPT_v": ["address", "address"],
+    "ritual_ZN8QVariant9typedDataI7QStringEEPT_v": ["address", "address"],
+    "ritual_ZNK8QVariant9typedDataIiEEPKT_v": ["address", "address"],
+    "ritual_ZNK8QVariant9typedDataIdEEPKT_v": ["address", "address"],
+    "ritual_ZNK8QVariant9typedDataIbEEPKT_v": ["address", "address"],
+    "ritual_ZNK8QVariant9typedDataI7QStringEEPKT_v": ["address", "address"],
+    "ritual_ZNKR8QVariant5valueIiEET_v": ["int", "address"],
+    "ritual_ZNKR8QVariant5valueIdEET_v": ["double", "address"],
+    "ritual_ZNKR8QVariant5valueIbEET_v": ["bool", "address"],
+    "ritual_ZNKR8QVariant5valueI7QStringEET_v": ["text", "address"],
+    "ritual_ZNKR8QVariant5valueI10QByteArrayEET_v": ["address", "address"],
+    "ritual_ZN8QVariant4viewIiEET_v": ["int", "address"],
+    "ritual_ZN8QVariant4viewIdEET_v": ["double", "address"],
+    "ritual_ZN8QVariant4viewIbEET_v": ["bool", "address"],
+    "ritual_ZN8QVariant4viewI7QStringEET_v": ["text", "address"]
   }
 }

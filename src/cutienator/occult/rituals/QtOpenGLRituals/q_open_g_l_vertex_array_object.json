@@ -8,6 +8,12 @@
     "ritual_ZNK24QOpenGLVertexArrayObject10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QOpenGLVertexArrayObject11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QOpenGLVertexArrayObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QOpenGLVertexArrayObject2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,8 +24,16 @@
     "ritual_ZN24QOpenGLVertexArrayObject6createEv": ["bool", "address"],
     "ritual_ZN24QOpenGLVertexArrayObject7destroyEv": ["nothing", "address"],
     "ritual_ZNK24QOpenGLVertexArrayObject9isCreatedEv": ["bool", "address"],
+    "ritual_ZNK24QOpenGLVertexArrayObject8objectIdEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZN24QOpenGLVertexArrayObject4bindEv": ["nothing", "address"],
     "ritual_ZN24QOpenGLVertexArrayObject7releaseEv": ["nothing", "address"],
+    "ritual_ZN24QOpenGLVertexArrayObject6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QOpenGLVertexArrayObject6d_funcEv": ["address", "address"],
+    "ritual_ZN24QOpenGLVertexArrayObjectC1ER31QOpenGLVertexArrayObjectPrivate": [
+      "address", "address"
+    ],
     "ritual_take_QOpenGLVertexArrayObject": [
       "bool", "address", "chars", "address"
     ]

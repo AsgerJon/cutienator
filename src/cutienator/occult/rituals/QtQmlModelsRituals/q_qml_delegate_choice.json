@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQmlDelegateChoice10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQmlDelegateChoice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQmlDelegateChoice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQmlDelegateChoice2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,16 @@
     "ritual_ZNK18QQmlDelegateChoice5matchEiiRK8QVariant": [
       "bool", "address", "int", "int", "address"
     ],
+    "ritual_ZN18QQmlDelegateChoice16roleValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlDelegateChoice10rowChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQmlDelegateChoice12indexChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQmlDelegateChoice13columnChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQmlDelegateChoice15delegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlDelegateChoice7changedEv": ["nothing", "address"],
     "ritual_own_ZNK18QQmlDelegateChoice5matchEiiRK8QVariant": [
       "bool", "address", "int", "int", "address"
     ]

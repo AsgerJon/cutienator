@@ -14,6 +14,26 @@ void ritual_ZN11QBasicTimerD1Ev(QBasicTimer *self) {
   delete self;
 }
 
+//  QBasicTimer::QBasicTimer(QBasicTimer &&other)
+extern "C" Q_DECL_EXPORT
+QBasicTimer *ritual_ZN11QBasicTimerC1EOS_(QBasicTimer *other) {
+  return new QBasicTimer(std::move(*other));
+}
+
+//  QBasicTimer &QBasicTimer::operator=(QBasicTimer &&other)
+extern "C" Q_DECL_EXPORT
+QBasicTimer *ritual_ZN11QBasicTimeraSEOS_(
+    QBasicTimer *self,
+    QBasicTimer *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QBasicTimer::swap(QBasicTimer &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QBasicTimer4swapERS_(QBasicTimer *self, QBasicTimer *other) {
+  self->swap(*other);
+}
+
 //  bool QBasicTimer::isActive() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QBasicTimer8isActiveEv(const QBasicTimer *self) {
@@ -49,6 +69,26 @@ void ritual_ZN11QBasicTimer5startEiN2Qt9TimerTypeEP7QObject(
     Qt::TimerType timerType,
     QObject *obj) {
   self->start(msec, timerType, obj);
+}
+
+//  void QBasicTimer::start(Duration duration, QObject *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QBasicTimer5startENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEP7QObject(
+    QBasicTimer *self,
+    long long duration,
+    QObject *obj) {
+  self->start(QBasicTimer::Duration(duration), obj);
+}
+
+//  void QBasicTimer::start(Duration duration, Qt::TimerType timerType,
+//      QObject *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QBasicTimer5startENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEP7QObject(
+    QBasicTimer *self,
+    long long duration,
+    Qt::TimerType timerType,
+    QObject *obj) {
+  self->start(QBasicTimer::Duration(duration), timerType, obj);
 }
 
 //  void QBasicTimer::stop()

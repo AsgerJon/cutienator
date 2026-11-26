@@ -4,6 +4,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtStateMachine/QAbstractTransition>
+#include <QtStateMachine/QHistoryState>
 
 //  Only a class built on QHistoryState may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -219,6 +222,24 @@ const QMetaObject *ritual_ZNK13QHistoryState10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHistoryState::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QHistoryState11qt_metacastEPKc(
+    QHistoryState *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHistoryState::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QHistoryState11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHistoryState *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHistoryState::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QHistoryState2trEPKcS1_i(
@@ -263,6 +284,15 @@ void ritual_ZN13QHistoryState20setDefaultTransitionEP19QAbstractTransition(
   self->setDefaultTransition(transition);
 }
 
+//  QBindable<QAbstractTransition *>
+//      QHistoryState::bindableDefaultTransition()
+extern "C" Q_DECL_EXPORT
+QBindable<QAbstractTransition *> *ritual_ZN13QHistoryState25bindableDefaultTransitionEv(
+    QHistoryState *self) {
+  return new QBindable<QAbstractTransition *>(
+      self->bindableDefaultTransition());
+}
+
 //  QAbstractState *QHistoryState::defaultState() const
 extern "C" Q_DECL_EXPORT
 QAbstractState *ritual_ZNK13QHistoryState12defaultStateEv(
@@ -293,6 +323,36 @@ void ritual_ZN13QHistoryState14setHistoryTypeENS_11HistoryTypeE(
   self->setHistoryType(type);
 }
 
+//  QBindable<QHistoryState::HistoryType>
+//      QHistoryState::bindableHistoryType()
+extern "C" Q_DECL_EXPORT
+QBindable<QHistoryState::HistoryType> *ritual_ZN13QHistoryState19bindableHistoryTypeEv(
+    QHistoryState *self) {
+  return new QBindable<QHistoryState::HistoryType>(
+      self->bindableHistoryType());
+}
+
+//  void QHistoryState::defaultTransitionChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QHistoryState24defaultTransitionChangedENS_14QPrivateSignalE(
+    QHistoryState *self) {
+  self->defaultTransitionChanged(QHistoryState::QPrivateSignal());
+}
+
+//  void QHistoryState::defaultStateChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QHistoryState19defaultStateChangedENS_14QPrivateSignalE(
+    QHistoryState *self) {
+  self->defaultStateChanged(QHistoryState::QPrivateSignal());
+}
+
+//  void QHistoryState::historyTypeChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QHistoryState18historyTypeChangedENS_14QPrivateSignalE(
+    QHistoryState *self) {
+  self->historyTypeChanged(QHistoryState::QPrivateSignal());
+}
+
 //  void QHistoryState::onEntry(QEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QHistoryState7onEntryEP6QEvent(
@@ -315,6 +375,20 @@ bool ritual_ZN13QHistoryState5eventEP6QEvent(
     QHistoryState *self,
     QEvent *e) {
   return self->event(e);
+}
+
+//  QHistoryStatePrivate *QHistoryState::d_func()
+extern "C" Q_DECL_EXPORT
+QHistoryStatePrivate *ritual_ZN13QHistoryState6d_funcEv(
+    QHistoryState *self) {
+  return self->d_func();
+}
+
+//  const QHistoryStatePrivate *QHistoryState::d_func() const
+extern "C" Q_DECL_EXPORT
+const QHistoryStatePrivate *ritual_ZNK13QHistoryState6d_funcEv(
+    const QHistoryState *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQHistoryState, for the function named by
@@ -349,4 +423,18 @@ bool ritual_own_ZN13QHistoryState5eventEP6QEvent(
     QHistoryState *self,
     QEvent *e) {
   return static_cast<OwnQHistoryState *>(self)->OwnQHistoryState::event(e);
+}
+
+//  a QBindable<QAbstractTransition *> a ritual of QHistoryState gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHistoryState__QBindable_QAbstractTransition(
+    QBindable<QAbstractTransition *> *self) {
+  delete self;
+}
+
+//  a QBindable<QHistoryState::HistoryType> a ritual of QHistoryState gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHistoryState__QBindable_QHistoryState_HistoryType(
+    QBindable<QHistoryState::HistoryType> *self) {
+  delete self;
 }

@@ -9,8 +9,12 @@
     "ritual_ZN9QClipDataD1Ev": ["nothing", "address"],
     "ritual_ZN9QClipData10initializeEv": ["nothing", "address"],
     "ritual_ZN9QClipData9clipLinesEv": ["address", "address"],
+    "ritual_ZN9QClipData5spansEv": ["address", "address"],
     "ritual_ZN9QClipData10appendSpanEiiii": [
       "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN9QClipData11appendSpansEPK11QT_FT_Span_i": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_ZN9QClipData11setClipRectERK5QRect": [
       "nothing", "address", "address"

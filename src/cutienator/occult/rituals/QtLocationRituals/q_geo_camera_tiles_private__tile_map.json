@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QGeoCameraTilesPrivate7TileMapC1Ev": ["address"],
     "ritual_ZN22QGeoCameraTilesPrivate7TileMap3addEii": [
       "nothing", "address", "int", "int"
     ],

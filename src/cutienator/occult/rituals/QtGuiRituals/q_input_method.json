@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QInputMethod10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QInputMethod11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QInputMethod11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QInputMethod2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QInputMethod6d_funcEv": ["address", "address"],
     "ritual_ZNK12QInputMethod6d_funcEv": ["address", "address"],
@@ -39,6 +45,24 @@
     "ritual_ZN12QInputMethod6commitEv": ["nothing", "address"],
     "ritual_ZN12QInputMethod12invokeActionENS_6ActionEi": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QInputMethod22cursorRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QInputMethod22anchorRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QInputMethod24keyboardRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QInputMethod29inputItemClipRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QInputMethod14visibleChangedEv": ["nothing", "address"],
+    "ritual_ZN12QInputMethod16animatingChangedEv": ["nothing", "address"],
+    "ritual_ZN12QInputMethod13localeChangedEv": ["nothing", "address"],
+    "ritual_ZN12QInputMethod21inputDirectionChangedEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN12QInputMethodC1Ev": ["address"],
     "ritual_ZN12QInputMethodD1Ev": ["nothing", "address"]

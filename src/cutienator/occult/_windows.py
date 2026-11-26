@@ -154,6 +154,10 @@ class Windows(System):
     """
     return ('-fms-runtime-lib=dll', '-DNOMINMAX')
 
+  def buildsObjectiveC(self) -> bool:
+    """No: Objective-C++ is for Apple's systems."""
+    return False
+
   def getLinkerFlags(self, qtFolder: str) -> Paths:
     """
     Gives what the linker is told on Windows, which is nothing. It

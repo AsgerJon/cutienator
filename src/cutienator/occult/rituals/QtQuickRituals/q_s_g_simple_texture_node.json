@@ -39,6 +39,8 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK20QSGSimpleTextureNode11ownsTextureEv": ["bool", "address"],
+    "ritual_ZN20QSGSimpleTextureNode6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QSGSimpleTextureNode6d_funcEv": ["address", "address"],
     "ritual_take_QSGSimpleTextureNode": [
       "bool", "address", "chars", "address"
     ]

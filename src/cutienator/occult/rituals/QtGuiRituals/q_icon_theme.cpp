@@ -11,12 +11,73 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef QT_NO_ICON
+#include <QtGui/private/qiconloader_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/private/qicon_p.h>
+#include <QtGui/QIconEnginePlugin>
+#include <QtGui/QPixmapCache>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/qfontdatabase.h>
+#include <QtGui/QPalette>
+#include <QtCore/qmath.h>
+#include <QtCore/QList>
+#include <QtCore/QDir>
+#include <QtCore/qloggingcategory.h>
+#if QT_CONFIG(settings)
+#include <QtCore/QSettings>
+#endif
+#include <QtGui/QPainter>
+#include <QtGui/private/qhexstring_p.h>
+#include <QtCore/private/qfactoryloader_p.h>
+#include <QtGui/private/qfonticonengine_p.h>
+#endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/gui/image/qiconloader.cpp, line 430, as _ZNK10QIconTheme7parentsEv
+#if !defined(QT_NO_ICON)
+inline QStringList QIconTheme::parents() const
+{
+    // Respect explicitly declared parents
+    QStringList result = m_parents;
+
+    // Ensure a default fallback for all themes
+    const QString fallback = QIconLoader::instance()->fallbackThemeName();
+    if (!fallback.isEmpty())
+        result.append(fallback);
+
+    // Ensure that all themes fall back to hicolor as the last theme
+    result.removeAll("hicolor"_L1);
+    result.append("hicolor"_L1);
+
+    return result;
+}
+#endif  // !defined(QT_NO_ICON)
+//  -----------------------------------------------------------------------
 
 //  QIconTheme::QIconTheme()
 extern "C" Q_DECL_EXPORT
 QIconTheme *ritual_ZN10QIconThemeC1Ev() {
   return new QIconTheme();
 }
+
+#if !defined(QT_NO_ICON)
+//  QStringList QIconTheme::parents() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10QIconTheme7parentsEv(const QIconTheme *self) {
+  return new QList<QString>(self->parents());
+}
+#endif  // !defined(QT_NO_ICON)
 
 //  QList<QIconDirInfo> QIconTheme::keyList() const
 extern "C" Q_DECL_EXPORT

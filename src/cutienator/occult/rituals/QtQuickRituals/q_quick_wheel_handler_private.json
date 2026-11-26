@@ -14,6 +14,9 @@
       "address", "address"
     ],
     "ritual_ZN25QQuickWheelHandlerPrivateC1Ev": ["address"],
+    "ritual_ZNK25QQuickWheelHandlerPrivate18targetMetaPropertyEv": [
+      "address", "address"
+    ],
     "ritual_take_QQuickWheelHandlerPrivate": [
       "bool", "address", "chars", "address"
     ]

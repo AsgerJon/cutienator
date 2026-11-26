@@ -7,8 +7,36 @@
     "ritual_ZNK10Qt3DRender12QStencilMask10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender12QStencilMask11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender12QStencilMask11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender12QStencilMask2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QStencilMaskC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QStencilMaskD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender12QStencilMask15frontOutputMaskEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender12QStencilMask14backOutputMaskEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QStencilMask18setFrontOutputMaskEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN10Qt3DRender12QStencilMask17setBackOutputMaskEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN10Qt3DRender12QStencilMask22frontOutputMaskChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN10Qt3DRender12QStencilMask21backOutputMaskChangedEj": [
+      "nothing", "address", "unsigned int"
     ],
     "ritual_ZN10Qt3DRender12QStencilMask6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender12QStencilMask6d_funcEv": ["address", "address"],

@@ -58,6 +58,41 @@ QOpcUaGenericStructValue *ritual_ZN24QOpcUaGenericStructValueC1ERKS_(
   return new QOpcUaGenericStructValue(*other);
 }
 
+//  QOpcUaGenericStructValue::QOpcUaGenericStructValue(QOpcUaGenericStructVal
+//      ue &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaGenericStructValue *ritual_ZN24QOpcUaGenericStructValueC1EOS_(
+    QOpcUaGenericStructValue *other) {
+  return new QOpcUaGenericStructValue(std::move(*other));
+}
+
+//  QOpcUaGenericStructValue &QOpcUaGenericStructValue::operator=(const
+//      QOpcUaGenericStructValue &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaGenericStructValue *ritual_ZN24QOpcUaGenericStructValueaSERKS_(
+    QOpcUaGenericStructValue *self,
+    const QOpcUaGenericStructValue *rhs) {
+  return &(self->operator=(*rhs));
+}
+
+//  void QOpcUaGenericStructValue::swap(QOpcUaGenericStructValue &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QOpcUaGenericStructValue4swapERS_(
+    QOpcUaGenericStructValue *self,
+    QOpcUaGenericStructValue *other) {
+  self->swap(*other);
+}
+
+//  QOpcUaGenericStructValue
+//      &QOpcUaGenericStructValue::operator=(QOpcUaGenericStructValue
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaGenericStructValue *ritual_ZN24QOpcUaGenericStructValueaSEOS_(
+    QOpcUaGenericStructValue *self,
+    QOpcUaGenericStructValue *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QVariant QOpcUaGenericStructValue::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK24QOpcUaGenericStructValuecv8QVariantEv(
@@ -117,6 +152,13 @@ extern "C" Q_DECL_EXPORT
 QHash<QString, QVariant> *ritual_ZNK24QOpcUaGenericStructValue6fieldsEv(
     const QOpcUaGenericStructValue *self) {
   return new QHash<QString, QVariant>(self->fields());
+}
+
+//  QHash<QString, QVariant> &QOpcUaGenericStructValue::fieldsRef()
+extern "C" Q_DECL_EXPORT
+QHash<QString, QVariant> *ritual_ZN24QOpcUaGenericStructValue9fieldsRefEv(
+    QOpcUaGenericStructValue *self) {
+  return &(self->fieldsRef());
 }
 
 //  void QOpcUaGenericStructValue::setFields(const QHash<QString, QVariant>

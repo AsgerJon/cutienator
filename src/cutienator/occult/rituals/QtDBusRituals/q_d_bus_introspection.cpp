@@ -10,6 +10,7 @@
 #include <QtDBus/6.12.0/QtDBus/private/qdbusintrospection_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/QString>
 
 //  Interface QDBusIntrospection::parseInterface(const QString &xml,
 //      DiagnosticsReporter *reporter)
@@ -19,6 +20,18 @@ QDBusIntrospection::Interface *ritual_ZN18QDBusIntrospection14parseInterfaceERK7
     QDBusIntrospection::DiagnosticsReporter *reporter) {
   return new QDBusIntrospection::Interface(
       QDBusIntrospection::parseInterface(
+          *xml,
+          reporter));
+}
+
+//  Interfaces QDBusIntrospection::parseInterfaces(const QString &xml,
+//      DiagnosticsReporter *reporter)
+extern "C" Q_DECL_EXPORT
+QDBusIntrospection::Interfaces *ritual_ZN18QDBusIntrospection15parseInterfacesERK7QStringPNS_19DiagnosticsReporterE(
+    const QString *xml,
+    QDBusIntrospection::DiagnosticsReporter *reporter) {
+  return new QDBusIntrospection::Interfaces(
+      QDBusIntrospection::parseInterfaces(
           *xml,
           reporter));
 }
@@ -42,6 +55,13 @@ QDBusIntrospection::Object *ritual_ZN18QDBusIntrospection11parseObjectERK7QStrin
 //  QDBusIntrospection::~QDBusIntrospection()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QDBusIntrospectionD1Ev(QDBusIntrospection *self) {
+  delete self;
+}
+
+//  a QDBusIntrospection::Interfaces a ritual of QDBusIntrospection gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDBusIntrospection__QDBusIntrospection_Interfaces(
+    QDBusIntrospection::Interfaces *self) {
   delete self;
 }
 

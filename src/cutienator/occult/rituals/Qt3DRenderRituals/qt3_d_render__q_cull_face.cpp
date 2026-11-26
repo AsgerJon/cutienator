@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender9QCullFace10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QCullFace::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender9QCullFace11qt_metacastEPKc(
+    Qt3DRender::QCullFace *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QCullFace::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender9QCullFace11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QCullFace *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QCullFace::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender9QCullFace2trEPKcS2_i(
@@ -186,6 +205,42 @@ QString *ritual_ZN10Qt3DRender9QCullFace2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QCullFace::tr(s, c, n));
+}
+
+//  Qt3DRender::QCullFace::QCullFace(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QCullFace *ritual_ZN10Qt3DRender9QCullFaceC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QCullFace(parent);
+}
+
+//  Qt3DRender::QCullFace::~QCullFace()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QCullFaceD1Ev(Qt3DRender::QCullFace *self) {
+  delete self;
+}
+
+//  CullingMode Qt3DRender::QCullFace::mode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QCullFace::CullingMode ritual_ZNK10Qt3DRender9QCullFace4modeEv(
+    const Qt3DRender::QCullFace *self) {
+  return self->mode();
+}
+
+//  void Qt3DRender::QCullFace::setMode(CullingMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QCullFace7setModeENS0_11CullingModeE(
+    Qt3DRender::QCullFace *self,
+    Qt3DRender::QCullFace::CullingMode mode) {
+  self->setMode(mode);
+}
+
+//  void Qt3DRender::QCullFace::modeChanged(CullingMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender9QCullFace11modeChangedENS0_11CullingModeE(
+    Qt3DRender::QCullFace *self,
+    Qt3DRender::QCullFace::CullingMode mode) {
+  self->modeChanged(mode);
 }
 
 //  QCullFacePrivate *Qt3DRender::QCullFace::d_func()

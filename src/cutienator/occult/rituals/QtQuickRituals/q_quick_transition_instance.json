@@ -10,6 +10,9 @@
     "ritual_ZN24QQuickTransitionInstance4stopEv": ["nothing", "address"],
     "ritual_ZN24QQuickTransitionInstance8completeEv": ["nothing", "address"],
     "ritual_ZNK24QQuickTransitionInstance9isRunningEv": ["bool", "address"],
+    "ritual_ZN24QQuickTransitionInstance21animationStateChangedEP21QAbstractAnimationJobNS0_5StateES2_": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZN24QQuickTransitionInstance25removeStateChangeListenerEv": [
       "nothing", "address"
     ],

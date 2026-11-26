@@ -29,6 +29,7 @@
     ],
     "ritual_ZNK14QQmlJSMetaEnum4keysEv": ["address", "address"],
     "ritual_ZN14QQmlJSMetaEnum8addValueEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QQmlJSMetaEnum6valuesEv": ["address", "address"],
     "ritual_ZNK14QQmlJSMetaEnum9hasValuesEv": ["bool", "address"],
     "ritual_ZNK14QQmlJSMetaEnum5valueERK7QString": [
       "int", "address", "text"
@@ -39,6 +40,10 @@
     "ritual_ZNK14QQmlJSMetaEnum8typeNameEv": ["text", "address"],
     "ritual_ZN14QQmlJSMetaEnum11setTypeNameERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQmlJSMetaEnum4typeEv": ["address", "address"],
+    "ritual_ZN14QQmlJSMetaEnum7setTypeERK14QSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK14QQmlJSMetaEnum10lineNumberEv": ["int", "address"],
     "ritual_ZN14QQmlJSMetaEnum13setLineNumberEi": [
@@ -64,6 +69,10 @@
     "ritual_map_get_QHash_QString_QQmlJSMetaEnum": [
       "address", "address", "text"
     ],
-    "ritual_map_drop_QHash_QString_QQmlJSMetaEnum": ["nothing", "address"]
+    "ritual_map_drop_QHash_QString_QQmlJSMetaEnum": ["nothing", "address"],
+    "ritual_drop_QQmlJSMetaEnum__QList_int": ["nothing", "address"],
+    "ritual_drop_QQmlJSMetaEnum__QSharedPointer_const_QQmlJSScope": [
+      "nothing", "address"
+    ]
   }
 }

@@ -1,13 +1,21 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQuick/qsgtexture.h, Qt 6.12.0. Changes made here are lost."
+    "QtQuick/qsgtexture.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZNK10QSGTexture10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSGTexture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QSGTexture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QSGTexture2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QSGTexture6d_funcEv": ["address", "address"],
     "ritual_ZNK10QSGTexture6d_funcEv": ["address", "address"],
+    "ritual_ZN10QSGTextureC1Ev": ["address"],
     "ritual_ZN10QSGTextureD1Ev": ["nothing", "address"],
     "ritual_ZNK10QSGTexture13comparisonKeyEv": ["long long", "address"],
     "ritual_ZNK10QSGTexture10rhiTextureEv": ["address", "address"],
@@ -47,6 +55,10 @@
     "ritual_ZNK10QSGTexture29convertToNormalizedSourceRectERK6QRectF": [
       "address", "address", "address"
     ],
+    "ritual_ZNK10QSGTexture16resolveInterfaceEPKci": [
+      "address", "address", "chars", "int"
+    ],
+    "ritual_ZN10QSGTextureC1ER17QSGTexturePrivate": ["address", "address"],
     "ritual_take_QSGTexture": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QSGTexture10rhiTextureEv": ["address", "address"],
     "ritual_own_ZNK10QSGTexture24normalizedTextureSubRectEv": [
@@ -58,6 +70,21 @@
     ],
     "ritual_own_ZN10QSGTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface16QSGOpenGLTextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface16QSGVulkanTextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface15QSGD3D11TextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface15QSGD3D12TextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QSGTexture15nativeInterfaceIN16QNativeInterface15QSGMetalTextureENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v": [
+      "address", "address"
     ]
   }
 }

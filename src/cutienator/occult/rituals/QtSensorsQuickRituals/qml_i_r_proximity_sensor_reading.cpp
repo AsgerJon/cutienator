@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlIRProximitySensorReading that Python can take functions over in. Every QmlIRProximitySensorReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK27QmlIRProximitySensorReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlIRProximitySensorReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QmlIRProximitySensorReading11qt_metacastEPKc(
+    QmlIRProximitySensorReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlIRProximitySensorReading::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QmlIRProximitySensorReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlIRProximitySensorReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlIRProximitySensorReading::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -255,6 +275,20 @@ qreal ritual_ZNK27QmlIRProximitySensorReading11reflectanceEv(
   return self->reflectance();
 }
 
+//  QBindable<qreal> QmlIRProximitySensorReading::bindableReflectance() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK27QmlIRProximitySensorReading19bindableReflectanceEv(
+    const QmlIRProximitySensorReading *self) {
+  return new QBindable<qreal>(self->bindableReflectance());
+}
+
+//  void QmlIRProximitySensorReading::reflectanceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QmlIRProximitySensorReading18reflectanceChangedEv(
+    QmlIRProximitySensorReading *self) {
+  self->reflectanceChanged();
+}
+
 //  QSensorReading *QmlIRProximitySensorReading::reading() const
 extern "C" Q_DECL_EXPORT
 QSensorReading *ritual_ZNK27QmlIRProximitySensorReading7readingEv(
@@ -267,6 +301,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN27QmlIRProximitySensorReading13readingUpdateEv(
     QmlIRProximitySensorReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlIRProximitySensorReading::_qt_property_m_reflectance_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN27QmlIRProximitySensorReading33_qt_property_m_reflectance_offsetEv() {
+  return QmlIRProximitySensorReading::_qt_property_m_reflectance_offset();
 }
 
 //  a Python function taken by a CuteQmlIRProximitySensorReading, for the
@@ -291,4 +331,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN27QmlIRProximitySensorReading13readingUpdateEv(
     QmlIRProximitySensorReading *self) {
   self->QmlIRProximitySensorReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlIRProximitySensorReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlIRProximitySensorReading__QBindable_qreal(
+    QBindable<qreal> *self) {
+  delete self;
 }

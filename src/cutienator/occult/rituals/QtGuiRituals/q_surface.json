@@ -11,6 +11,7 @@
     "ritual_ZNK8QSurface11surfaceTypeEv": ["int", "address"],
     "ritual_ZNK8QSurface14supportsOpenGLEv": ["bool", "address"],
     "ritual_ZNK8QSurface4sizeEv": ["address", "address"],
+    "ritual_ZN8QSurfaceC1ENS_12SurfaceClassE": ["address", "int"],
     "ritual_take_QSurface": ["bool", "address", "chars", "address"]
   }
 }

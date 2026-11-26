@@ -333,6 +333,24 @@ const QMetaObject *ritual_ZNK11XLogYDomain10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *XLogYDomain::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11XLogYDomain11qt_metacastEPKc(
+    XLogYDomain *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int XLogYDomain::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11XLogYDomain11qt_metacallEN11QMetaObject4CallEiPPv(
+    XLogYDomain *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString XLogYDomain::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11XLogYDomain2trEPKcS1_i(

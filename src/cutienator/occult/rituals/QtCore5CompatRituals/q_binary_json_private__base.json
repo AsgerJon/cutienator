@@ -19,6 +19,12 @@
     "ritual_ZNK18QBinaryJsonPrivate4Base6lengthEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZN18QBinaryJsonPrivate4Base5tableEv": ["address", "address"],
+    "ritual_ZNK18QBinaryJsonPrivate4Base5tableEv": ["address", "address"],
+    "ritual_ZN18QBinaryJsonPrivate4Base12reserveSpaceEjjjb": [
+      "unsigned int", "address", "unsigned int", "unsigned int",
+      "unsigned int", "bool"
+    ],
     "ritual_ZN18QBinaryJsonPrivate4BaseD1Ev": ["nothing", "address"]
   }
 }

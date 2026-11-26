@@ -14,6 +14,25 @@ const QMetaObject *ritual_ZNK22QQuick3DXrInputManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrInputManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuick3DXrInputManager11qt_metacastEPKc(
+    QQuick3DXrInputManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrInputManager::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuick3DXrInputManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrInputManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuick3DXrInputManagerPrivate *QQuick3DXrInputManager::d_func()
 extern "C" Q_DECL_EXPORT
 QQuick3DXrInputManagerPrivate *ritual_ZN22QQuick3DXrInputManager6d_funcEv(
@@ -27,4 +46,10 @@ extern "C" Q_DECL_EXPORT
 const QQuick3DXrInputManagerPrivate *ritual_ZNK22QQuick3DXrInputManager6d_funcEv(
     const QQuick3DXrInputManager *self) {
   return self->d_func();
+}
+
+//  QQuick3DXrInputManager::~QQuick3DXrInputManager()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DXrInputManagerD1Ev(QQuick3DXrInputManager *self) {
+  delete self;
 }

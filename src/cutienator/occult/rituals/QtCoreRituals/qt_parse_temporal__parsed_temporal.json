@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK15QtParseTemporal14ParsedTemporal4dateE9QCalendar5QDate": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK15QtParseTemporal14ParsedTemporal4timeE5QTime": [
+      "address", "address", "address"
+    ],
     "ritual_ZN15QtParseTemporal14ParsedTemporalD1Ev": ["nothing", "address"]
   }
 }

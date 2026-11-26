@@ -4,10 +4,14 @@
     "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QAccessibleInterfaceC1Ev": ["address"],
     "ritual_ZN20QAccessibleInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK20QAccessibleInterface7isValidEv": ["bool", "address"],
     "ritual_ZNK20QAccessibleInterface6objectEv": ["address", "address"],
     "ritual_ZNK20QAccessibleInterface6windowEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleInterface9relationsE6QFlagsIN11QAccessible12RelationFlagEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK20QAccessibleInterface10focusChildEv": ["address", "address"],
     "ritual_ZNK20QAccessibleInterface7childAtEii": [
       "address", "address", "int", "int"
@@ -68,6 +72,12 @@
     "ritual_ZN20QAccessibleInterface17viewportInterfaceEv": [
       "address", "address"
     ],
+    "ritual_ZN20QAccessibleInterface12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_take_QAccessibleInterface": [
       "bool", "address", "chars", "address"
     ],
@@ -81,6 +91,12 @@
     "ritual_own_ZNK20QAccessibleInterface15backgroundColorEv": [
       "address", "address"
     ],
+    "ritual_own_ZN20QAccessibleInterface12virtual_hookEiPv": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_list_make_QAccessibleInterface_ptr": ["address"],
     "ritual_list_add_QAccessibleInterface_ptr": [
       "nothing", "address", "address"
@@ -89,6 +105,9 @@
     "ritual_list_at_QAccessibleInterface_ptr": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QAccessibleInterface_ptr": ["nothing", "address"]
+    "ritual_list_drop_QAccessibleInterface_ptr": ["nothing", "address"],
+    "ritual_drop_QAccessibleInterface__QList_std_pair_QAccessibleInterface_QAccessible_Relation": [
+      "nothing", "address"
+    ]
   }
 }

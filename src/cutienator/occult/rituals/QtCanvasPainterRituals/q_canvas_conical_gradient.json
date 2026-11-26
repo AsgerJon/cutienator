@@ -13,7 +13,17 @@
       "address", "address", "double"
     ],
     "ritual_ZN22QCanvasConicalGradientC1ERKS_": ["address", "address"],
+    "ritual_ZN22QCanvasConicalGradientaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QCanvasConicalGradientC1EOS_": ["address", "address"],
+    "ritual_ZN22QCanvasConicalGradientaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QCanvasConicalGradientD1Ev": ["nothing", "address"],
+    "ritual_ZN22QCanvasConicalGradient4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK22QCanvasConicalGradient14centerPositionEv": [
       "address", "address"
     ],

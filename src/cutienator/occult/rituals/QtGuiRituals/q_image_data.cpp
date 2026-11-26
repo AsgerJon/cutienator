@@ -29,6 +29,36 @@ QImageData *ritual_ZN10QImageData6createERK5QSizeN6QImage6FormatE(
   return QImageData::create(*size, format);
 }
 
+//  QImageData *QImageData::create(uchar *data, int w, int h, qsizetype bpl,
+//      QImage::Format format, bool readOnly, QImageCleanupFunction
+//      cleanupFunction, void *cleanupInfo)
+extern "C" Q_DECL_EXPORT
+QImageData *ritual_ZN10QImageData6createEPhiixN6QImage6FormatEbPFvPvES3_(
+    uchar *data,
+    int w,
+    int h,
+    qsizetype bpl,
+    QImage::Format format,
+    bool readOnly,
+    void *cleanupFunction,
+    void *cleanupInfo) {
+  return QImageData::create(
+      data,
+      w,
+      h,
+      bpl,
+      format,
+      readOnly,
+      reinterpret_cast<QImageCleanupFunction>(cleanupFunction),
+      cleanupInfo);
+}
+
+//  QImageData *QImageData::get(QImage &img)
+extern "C" Q_DECL_EXPORT
+QImageData *ritual_ZN10QImageData3getER6QImage(QImage *img) {
+  return QImageData::get(*img);
+}
+
 //  const QImageData *QImageData::get(const QImage &img)
 extern "C" Q_DECL_EXPORT
 const QImageData *ritual_ZN10QImageData3getERK6QImage(const QImage *img) {

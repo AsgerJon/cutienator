@@ -5,5 +5,8 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap22IndexedBuiltinFunction4initEPNS_15ExecutionEngineExPFyPKNS_14FunctionObjectEPKNS_5ValueES9_iE": [
+      "nothing", "address", "address", "long long", "address"
+    ]
   }
 }

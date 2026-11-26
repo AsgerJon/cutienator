@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickMediaPlayer10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickMediaPlayer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickMediaPlayer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickMediaPlayer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,9 @@
     ],
     "ritual_ZN17QQuickMediaPlayer20onMediaStatusChangedEN12QMediaPlayer11MediaStatusE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickMediaPlayer15autoPlayChangedEb": [
+      "nothing", "address", "bool"
     ]
   }
 }

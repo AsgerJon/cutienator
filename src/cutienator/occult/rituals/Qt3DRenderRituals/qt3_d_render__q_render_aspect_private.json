@@ -5,14 +5,71 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivateC1ENS_13QRenderAspect14SubmissionTypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender20QRenderAspectPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender20QRenderAspectPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate11findPrivateEPN8Qt3DCore13QAspectEngineE": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender20QRenderAspectPrivate3getEPNS_13QRenderAspectE": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate8jobsDoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate9frameDoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate18createNodeManagersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate15onEngineStartupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate23onEngineAboutToShutdownEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate20registerBackendTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate22unregisterBackendTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate18loadSceneImportersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate16loadRenderPluginERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate19registerBackendTypeERK11QMetaObjectRK14QSharedPointerIN8Qt3DCore18QBackendNodeMapperEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender20QRenderAspectPrivate26createGeometryRendererJobsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender20QRenderAspectPrivate21createPreRendererJobsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate18loadRendererPluginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate17processMouseEventEP7QObjectP11QMouseEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate15processKeyEventEP7QObjectP9QKeyEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QRenderAspectPrivate15configurePluginERK7QString": [
+      "nothing", "text"
     ],
     "ritual_take_Qt3DRender_QRenderAspectPrivate": [
       "bool", "address", "chars", "address"
@@ -24,6 +81,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN10Qt3DRender20QRenderAspectPrivate23onEngineAboutToShutdownEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_QRenderAspectPrivate__std_vector_Qt3DCore_QAspectJobPtr": [
       "nothing", "address"
     ]
   }

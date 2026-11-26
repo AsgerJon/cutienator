@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QCoapInternalReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QCoapInternalReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QCoapInternalReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QCoapInternalReply10appendDataERK10QByteArray": [
       "nothing", "address", "address"
     ],
@@ -26,6 +32,9 @@
       "address", "address"
     ],
     "ritual_ZN18QCoapInternalReply6d_funcEv": ["address", "address"],
-    "ritual_ZNK18QCoapInternalReply6d_funcEv": ["address", "address"]
+    "ritual_ZNK18QCoapInternalReply6d_funcEv": ["address", "address"],
+    "ritual_own_ZN18QCoapInternalReply9addOptionERK11QCoapOption": [
+      "nothing", "address", "address"
+    ]
   }
 }

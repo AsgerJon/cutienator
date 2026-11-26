@@ -7,6 +7,8 @@
 #include <QtOpcUa/qopcuamonitoringparameters.h>
 #include <QtOpcUa/qopcuarelativepathelement.h>
 #include <QtOpcUa/qopcuabrowserequest.h>
+#include <QtOpcUa/qopcuareferencedescription.h>
+#include <QtOpcUa/qopcuabrowsepathtarget.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -185,6 +187,24 @@ const QMetaObject *ritual_ZNK10QOpcUaNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpcUaNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QOpcUaNode11qt_metacastEPKc(
+    QOpcUaNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpcUaNode::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QOpcUaNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpcUaNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpcUaNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QOpcUaNode2trEPKcS1_i(
@@ -331,6 +351,16 @@ bool ritual_ZN10QOpcUaNode19writeAttributeRangeEN6QOpcUa13NodeAttributeERK8QVari
   return self->writeAttributeRange(attribute, *value, *indexRange, type);
 }
 
+//  bool QOpcUaNode::writeAttributes(const AttributeMap &toWrite,
+//      QOpcUa::Types valueAttributeType)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QOpcUaNode15writeAttributesERK4QMapIN6QOpcUa13NodeAttributeE8QVariantENS1_5TypesE(
+    QOpcUaNode *self,
+    const QOpcUaNode::AttributeMap *toWrite,
+    QOpcUa::Types valueAttributeType) {
+  return self->writeAttributes(*toWrite, valueAttributeType);
+}
+
 //  bool QOpcUaNode::writeValueAttribute(const QVariant &value, QOpcUa::Types
 //      type)
 extern "C" Q_DECL_EXPORT
@@ -425,6 +455,16 @@ QOpcUaClient *ritual_ZNK10QOpcUaNode6clientEv(const QOpcUaNode *self) {
   return self->client();
 }
 
+//  bool QOpcUaNode::callMethod(const QString &methodNodeId, const
+//      QList<QOpcUa::TypedVariant> &args)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QOpcUaNode10callMethodERK7QStringRK5QListISt4pairI8QVariantN6QOpcUa5TypesEEE(
+    QOpcUaNode *self,
+    const QString *methodNodeId,
+    const QList<QOpcUa::TypedVariant> *args) {
+  return self->callMethod(*methodNodeId, *args);
+}
+
 //  bool QOpcUaNode::resolveBrowsePath(const QList<QOpcUaRelativePathElement>
 //      &path)
 extern "C" Q_DECL_EXPORT
@@ -472,6 +512,141 @@ QOpcUaHistoryReadResponse *ritual_ZN10QOpcUaNode14readHistoryRawERK9QDateTimeS2_
       numValues,
       returnBounds,
       timestampsToReturn);
+}
+
+//  QOpcUaHistoryReadResponse *QOpcUaNode::readHistoryEvents(const QDateTime
+//      &startTime, const QDateTime &endTime,
+//      QOpcUaMonitoringParameters::EventFilter &filter, quint32 numValues)
+extern "C" Q_DECL_EXPORT
+QOpcUaHistoryReadResponse *ritual_ZN10QOpcUaNode17readHistoryEventsERK9QDateTimeS2_RN26QOpcUaMonitoringParameters11EventFilterEj(
+    QOpcUaNode *self,
+    const QDateTime *startTime,
+    const QDateTime *endTime,
+    QOpcUaMonitoringParameters::EventFilter *filter,
+    quint32 numValues) {
+  return self->readHistoryEvents(*startTime, *endTime, *filter, numValues);
+}
+
+//  void QOpcUaNode::attributeRead(QOpcUa::NodeAttributes attributes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode13attributeReadE6QFlagsIN6QOpcUa13NodeAttributeEE(
+    QOpcUaNode *self,
+    int attributes) {
+  self->attributeRead(QFlags<QOpcUa::NodeAttribute>::fromInt(attributes));
+}
+
+//  void QOpcUaNode::attributeWritten(QOpcUa::NodeAttribute attribute,
+//      QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode16attributeWrittenEN6QOpcUa13NodeAttributeENS0_12UaStatusCodeE(
+    QOpcUaNode *self,
+    QOpcUa::NodeAttribute attribute,
+    QOpcUa::UaStatusCode statusCode) {
+  self->attributeWritten(attribute, statusCode);
+}
+
+//  void QOpcUaNode::dataChangeOccurred(QOpcUa::NodeAttribute attr, QVariant
+//      value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode18dataChangeOccurredEN6QOpcUa13NodeAttributeE8QVariant(
+    QOpcUaNode *self,
+    QOpcUa::NodeAttribute attr,
+    const QVariant *value) {
+  self->dataChangeOccurred(attr, *value);
+}
+
+//  void QOpcUaNode::attributeUpdated(QOpcUa::NodeAttribute attr, QVariant
+//      value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode16attributeUpdatedEN6QOpcUa13NodeAttributeE8QVariant(
+    QOpcUaNode *self,
+    QOpcUa::NodeAttribute attr,
+    const QVariant *value) {
+  self->attributeUpdated(attr, *value);
+}
+
+//  void QOpcUaNode::valueAttributeUpdated(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode21valueAttributeUpdatedERK8QVariant(
+    QOpcUaNode *self,
+    const QVariant *value) {
+  self->valueAttributeUpdated(*value);
+}
+
+//  void QOpcUaNode::eventOccurred(QVariantList eventFields)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode13eventOccurredE5QListI8QVariantE(
+    QOpcUaNode *self,
+    const QList<QVariant> *eventFields) {
+  self->eventOccurred(*eventFields);
+}
+
+//  void QOpcUaNode::monitoringStatusChanged(QOpcUa::NodeAttribute attr,
+//      QOpcUaMonitoringParameters::Parameters items, QOpcUa::UaStatusCode
+//      statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode23monitoringStatusChangedEN6QOpcUa13NodeAttributeE6QFlagsIN26QOpcUaMonitoringParameters9ParameterEENS0_12UaStatusCodeE(
+    QOpcUaNode *self,
+    QOpcUa::NodeAttribute attr,
+    int items,
+    QOpcUa::UaStatusCode statusCode) {
+  self->monitoringStatusChanged(
+      attr,
+      QFlags<QOpcUaMonitoringParameters::Parameter>::fromInt(items),
+      statusCode);
+}
+
+//  void QOpcUaNode::enableMonitoringFinished(QOpcUa::NodeAttribute attr,
+//      QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode24enableMonitoringFinishedEN6QOpcUa13NodeAttributeENS0_12UaStatusCodeE(
+    QOpcUaNode *self,
+    QOpcUa::NodeAttribute attr,
+    QOpcUa::UaStatusCode statusCode) {
+  self->enableMonitoringFinished(attr, statusCode);
+}
+
+//  void QOpcUaNode::disableMonitoringFinished(QOpcUa::NodeAttribute attr,
+//      QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode25disableMonitoringFinishedEN6QOpcUa13NodeAttributeENS0_12UaStatusCodeE(
+    QOpcUaNode *self,
+    QOpcUa::NodeAttribute attr,
+    QOpcUa::UaStatusCode statusCode) {
+  self->disableMonitoringFinished(attr, statusCode);
+}
+
+//  void QOpcUaNode::methodCallFinished(QString methodNodeId, QVariant
+//      result, QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode18methodCallFinishedE7QString8QVariantN6QOpcUa12UaStatusCodeE(
+    QOpcUaNode *self,
+    const QString *methodNodeId,
+    const QVariant *result,
+    QOpcUa::UaStatusCode statusCode) {
+  self->methodCallFinished(*methodNodeId, *result, statusCode);
+}
+
+//  void QOpcUaNode::browseFinished(QList<QOpcUaReferenceDescription>
+//      children, QOpcUa::UaStatusCode statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode14browseFinishedE5QListI26QOpcUaReferenceDescriptionEN6QOpcUa12UaStatusCodeE(
+    QOpcUaNode *self,
+    const QList<QOpcUaReferenceDescription> *children,
+    QOpcUa::UaStatusCode statusCode) {
+  self->browseFinished(*children, statusCode);
+}
+
+//  void QOpcUaNode::resolveBrowsePathFinished(QList<QOpcUaBrowsePathTarget>
+//      targets, QList<QOpcUaRelativePathElement> path, QOpcUa::UaStatusCode
+//      statusCode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QOpcUaNode25resolveBrowsePathFinishedE5QListI22QOpcUaBrowsePathTargetES0_I25QOpcUaRelativePathElementEN6QOpcUa12UaStatusCodeE(
+    QOpcUaNode *self,
+    const QList<QOpcUaBrowsePathTarget> *targets,
+    const QList<QOpcUaRelativePathElement> *path,
+    QOpcUa::UaStatusCode statusCode) {
+  self->resolveBrowsePathFinished(*targets, *path, statusCode);
 }
 
 //  a Python function taken by a CuteQOpcUaNode, for the function named by

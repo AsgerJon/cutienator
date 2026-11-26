@@ -1,8 +1,9 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DQuick/6.12.0/Qt3DQuick/private/quick3dnodeinstantiator_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "Qt3DQuick/6.12.0/Qt3DQuick/private/quick3dnodeinstantiator_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore5Quick23Quick3DNodeInstantiator10metaObjectEv": [
@@ -10,6 +11,84 @@
     ],
     "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick23Quick3DNodeInstantiator6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiatorC1EPNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick23Quick3DNodeInstantiator8isActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick23Quick3DNodeInstantiator7isAsyncEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator8setAsyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick23Quick3DNodeInstantiator5countEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator8delegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick23Quick3DNodeInstantiator5modelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick23Quick3DNodeInstantiator6objectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick23Quick3DNodeInstantiator8objectAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator12modelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator15delegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator12countChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator13objectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator13activeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator11objectAddedEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator13objectRemovedEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick23Quick3DNodeInstantiator15onParentChangedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_Qt3DCore_Quick_Quick3DNodeInstantiator": [
+      "bool", "address", "chars", "address"
     ],
     "ritual_cast_Qt3DCore_Quick_Quick3DNodeInstantiator_QQmlParserStatus": [
       "address", "address"

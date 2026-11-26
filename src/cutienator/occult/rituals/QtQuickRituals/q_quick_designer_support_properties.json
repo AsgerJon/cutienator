@@ -47,6 +47,9 @@
     "ritual_ZN31QQuickDesignerSupportProperties37propertyNameListForWritablePropertiesEP7QObject": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickDesignerSupportProperties16allPropertyNamesEP7QObjectRK10QByteArrayP5QListIS1_Ei": [
+      "address", "address", "address", "address", "int"
+    ],
     "ritual_ZN31QQuickDesignerSupportProperties31hasFullImplementedListInterfaceERK17QQmlListReference": [
       "bool", "address"
     ],

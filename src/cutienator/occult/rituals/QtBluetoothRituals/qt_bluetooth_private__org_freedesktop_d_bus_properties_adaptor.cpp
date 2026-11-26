@@ -9,8 +9,55 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/propertiesadaptor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtDBus/qdbusextratypes.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtBluetooth/private/propertiesadaptor_p.h>
+#include <QtCore/QMetaObject>
+#include <QtCore/QByteArray>
+#include <QtCore/QList>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QVariant>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtconnectivity/src/bluetooth/bluez/propertiesadaptor.cpp, line 38, as _ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor3GetERK7QStringS3_
+namespace QtBluetoothPrivate {
+inline QDBusVariant OrgFreedesktopDBusPropertiesAdaptor::Get(const QString &interface, const QString &name)
+{
+    // handle method call org.freedesktop.DBus.Properties.Get
+    QDBusVariant value;
+    QMetaObject::invokeMethod(parent(), "Get", Q_RETURN_ARG(QDBusVariant, value), Q_ARG(QString, interface), Q_ARG(QString, name));
+    return value;
+}
+}  // namespace QtBluetoothPrivate
+
+//  from ../qtconnectivity/src/bluetooth/bluez/propertiesadaptor.cpp, line 46, as _ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor6GetAllERK7QString
+namespace QtBluetoothPrivate {
+inline QVariantMap OrgFreedesktopDBusPropertiesAdaptor::GetAll(const QString &interface)
+{
+    // handle method call org.freedesktop.DBus.Properties.GetAll
+    QVariantMap properties;
+    QMetaObject::invokeMethod(parent(), "GetAll", Q_RETURN_ARG(QVariantMap, properties), Q_ARG(QString, interface));
+    return properties;
+}
+}  // namespace QtBluetoothPrivate
+//  -----------------------------------------------------------------------
 
 //  A QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor that Python can take functions over in. Every QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor
 //  Python makes is one. Each function below asks the Python
@@ -186,6 +233,120 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor10metaObjectEv(
     const QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor *self) {
   return self->metaObject();
+}
+
+//  void *QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::qt_metacas
+//      t(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor11qt_metacastEPKc(
+    QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::qt_metacall(
+//      QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::~OrgFreedesktopD
+//      BusPropertiesAdaptor()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorD1Ev(
+    QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor *self) {
+  delete self;
+}
+
+//  QDBusVariant
+//      QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::Get(const
+//      QString &interface, const QString &name)
+extern "C" Q_DECL_EXPORT
+QDBusVariant *ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor3GetERK7QStringS3_(
+    QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor *self,
+    const QString *interface,
+    const QString *name) {
+  return new QDBusVariant(self->Get(*interface, *name));
+}
+
+//  QVariantMap
+//      QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::GetAll(const
+//      QString &interface)
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVariant> *ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor6GetAllERK7QString(
+    QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor *self,
+    const QString *interface) {
+  return new QMap<QString, QVariant>(self->GetAll(*interface));
+}
+
+//  void QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::Set(const
+//      QString &interface, const QString &name, const QDBusVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor3SetERK7QStringS3_RK12QDBusVariant(
+    QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor *self,
+    const QString *interface,
+    const QString *name,
+    const QDBusVariant *value) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "Set(const QString &,const QString &,const QDBusVariant &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "Set(const QString &,const QString &,const QDBusVariant &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(interface)),
+      const_cast<void *>(static_cast<const void *>(name)),
+      const_cast<void *>(static_cast<const void *>(value)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::PropertiesC
+//      hanged(const QString &interface, const QVariantMap
+//      &changed_properties, const QStringList &invalidated_properties)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor17PropertiesChangedERK7QStringRK4QMapIS1_8QVariantERK5QListIS1_E(
+    QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor *self,
+    const QString *interface,
+    const QMap<QString, QVariant> *changed_properties,
+    const QList<QString> *invalidated_properties) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "PropertiesChanged(const QString &,const QVariantMap &,const QStringList &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "PropertiesChanged(const QString &,const QVariantMap &,const QStringList &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(interface)),
+      const_cast<void *>(static_cast<const void *>(changed_properties)),
+      const_cast<void *>(static_cast<const void *>(invalidated_properties)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QFocusFrame10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QFocusFrame11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QFocusFrame11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QFocusFrame2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QFocusFrameC1EP7QWidget": ["address", "address"],
     "ritual_ZN11QFocusFrameD1Ev": ["nothing", "address"],
@@ -22,6 +28,8 @@
     "ritual_ZNK11QFocusFrame15initStyleOptionEP12QStyleOption": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN11QFocusFrame6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QFocusFrame6d_funcEv": ["address", "address"],
     "ritual_take_QFocusFrame": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QFocusFrame5eventEP6QEvent": [
       "bool", "address", "address"

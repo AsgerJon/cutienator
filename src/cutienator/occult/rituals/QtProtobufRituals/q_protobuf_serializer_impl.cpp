@@ -8,6 +8,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtProtobuf/private/qprotobufserializerbase_p.h>
+#include <QtProtobuf/private/qprotobufregistration_p.h>
+#include <QtProtobuf/private/qtprotobufdefs_p.h>
+#include <QtProtobuf/private/qtprotobuflogging_p.h>
+#include <QtProtobuf/private/qtprotobufserializerhelpers_p.h>
+#include <QtProtobuf/qprotobufmessage.h>
+#include <QtProtobuf/qprotobufpropertyordering.h>
+#include <QtProtobuf/qprotobufrepeatediterator.h>
+#include <QtProtobuf/qtprotobuftypes.h>
 #include <QtProtobuf/qprotobufserializer.h>
 #include <QtProtobuf/private/protobufscalarserializers_p.h>
 #include <QtProtobuf/private/qprotobufmessage_p.h>
@@ -32,6 +41,34 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from ../qtgrpc/src/protobuf/qprotobufserializerbase.cpp, line 18, as _ZN23QProtobufSerializerBaseC2Ev
+inline QProtobufSerializerBase::QProtobufSerializerBase() = default;
+
+//  from ../qtgrpc/src/protobuf/qprotobufserializer.cpp, line 181, as _ZN23QProtobufSerializerImplD1Ev
+inline QProtobufSerializerImpl::~QProtobufSerializerImpl() = default;
+
+//  from ../qtgrpc/src/protobuf/qprotobufserializer.cpp, line 254, as _ZN23QProtobufSerializerImpl26serializeMessageFieldBeginEv
+inline void QProtobufSerializerImpl::serializeMessageFieldBegin()
+{
+    m_state.emplaceBack(std::move(m_result));
+    m_result = {};
+}
+
+//  from ../qtgrpc/src/protobuf/qprotobufserializerbase.cpp, line 19, as _ZN23QProtobufSerializerBaseD2Ev
+inline QProtobufSerializerBase::~QProtobufSerializerBase() = default;
+
+//  from ../qtgrpc/src/protobuf/qprotobufserializerbase.cpp, line 76, as _ZN23QProtobufSerializerBase21serializeMessageFieldEPK16QProtobufMessageRKN17QtProtobufPrivate18QProtobufFieldInfoE
+inline void QProtobufSerializerBase::serializeMessageField(const QProtobufMessage *message,
+                                                    const QtProtobufPrivate::QProtobufFieldInfo
+                                                        &fieldInfo)
+{
+    serializeMessageFieldBegin();
+    serializeMessage(message);
+    serializeMessageFieldEnd(message, fieldInfo);
+}
+
 //  from ../qtgrpc/src/protobuf/qprotobufserializer.cpp, line 183, as _ZN23QProtobufSerializerImpl5resetEv
 inline void QProtobufSerializerImpl::reset()
 {
@@ -50,14 +87,13 @@ inline void QProtobufSerializerImpl::serializeUnknownFields(const QProtobufMessa
         }
     }
 }
-
-//  from ../qtgrpc/src/protobuf/qprotobufserializer.cpp, line 254, as _ZN23QProtobufSerializerImpl26serializeMessageFieldBeginEv
-inline void QProtobufSerializerImpl::serializeMessageFieldBegin()
-{
-    m_state.emplaceBack(std::move(m_result));
-    m_result = {};
-}
 //  -----------------------------------------------------------------------
+
+//  QProtobufSerializerImpl::~QProtobufSerializerImpl()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QProtobufSerializerImplD1Ev(QProtobufSerializerImpl *self) {
+  delete self;
+}
 
 //  const QByteArray &QProtobufSerializerImpl::result() const
 extern "C" Q_DECL_EXPORT

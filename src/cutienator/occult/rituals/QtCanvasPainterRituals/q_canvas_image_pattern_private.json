@@ -9,6 +9,12 @@
       "unsigned int"
     ],
     "ritual_ZN26QCanvasImagePatternPrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK26QCanvasImagePatternPrivate6equalsERK19QCanvasBrushPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QCanvasImagePatternPrivate11createPaintEP14QCanvasPainter": [
+      "address", "address", "address"
+    ],
     "ritual_ZN26QCanvasImagePatternPrivate3getEP19QCanvasImagePattern": [
       "address", "address"
     ],

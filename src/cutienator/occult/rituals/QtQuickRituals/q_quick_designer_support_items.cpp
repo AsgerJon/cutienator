@@ -84,6 +84,15 @@ void ritual_ZN26QQuickDesignerSupportItems16stopUnifiedTimerEv() {
   QQuickDesignerSupportItems::stopUnifiedTimer();
 }
 
+//  void QQuickDesignerSupportItems::registerFixResourcePathsForObjectCallBac
+//      k(void (*)(QObject *) callback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickDesignerSupportItems41registerFixResourcePathsForObjectCallBackEPFvP7QObjectE(
+    void *callback) {
+  QQuickDesignerSupportItems::registerFixResourcePathsForObjectCallBack(
+      reinterpret_cast<void (*)(QObject *)>(callback));
+}
+
 //  QQuickDesignerSupportItems::~QQuickDesignerSupportItems()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QQuickDesignerSupportItemsD1Ev(

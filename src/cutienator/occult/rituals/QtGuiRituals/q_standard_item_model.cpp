@@ -7,7 +7,9 @@
 #include <QtGui/qstandarditemmodel.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
@@ -16,6 +18,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QStandardItemModel that Python can take functions over in. Every QStandardItemModel
 //  Python makes is one. Each function below asks the Python
@@ -1053,6 +1056,25 @@ const QMetaObject *ritual_ZNK18QStandardItemModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStandardItemModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QStandardItemModel11qt_metacastEPKc(
+    QStandardItemModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStandardItemModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QStandardItemModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStandardItemModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStandardItemModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QStandardItemModel2trEPKcS1_i(
@@ -1582,6 +1604,13 @@ void ritual_ZN18QStandardItemModel11setSortRoleEi(
   self->setSortRole(role);
 }
 
+//  QBindable<int> QStandardItemModel::bindableSortRole()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN18QStandardItemModel16bindableSortRoleEv(
+    QStandardItemModel *self) {
+  return new QBindable<int>(self->bindableSortRole());
+}
+
 //  QStringList QStandardItemModel::mimeTypes() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK18QStandardItemModel9mimeTypesEv(
@@ -1610,6 +1639,23 @@ bool ritual_ZN18QStandardItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEii
     int column,
     const QModelIndex *parent) {
   return self->dropMimeData(data, action, row, column, *parent);
+}
+
+//  void QStandardItemModel::itemChanged(QStandardItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QStandardItemModel11itemChangedEP13QStandardItem(
+    QStandardItemModel *self,
+    QStandardItem *item) {
+  self->itemChanged(item);
+}
+
+//  QStandardItemModel::QStandardItemModel(QStandardItemModelPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QStandardItemModel *ritual_ZN18QStandardItemModelC1ER25QStandardItemModelPrivateP7QObject(
+    QStandardItemModelPrivate *dd,
+    QObject *parent) {
+  return new CuteQStandardItemModel(*dd, parent);
 }
 
 //  QStandardItemModelPrivate *QStandardItemModel::d_func()
@@ -1839,6 +1885,12 @@ bool ritual_own_ZN18QStandardItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActio
       row,
       column,
       *parent);
+}
+
+//  a QBindable<int> a ritual of QStandardItemModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStandardItemModel__QBindable_int(QBindable<int> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(standarditemmodel)

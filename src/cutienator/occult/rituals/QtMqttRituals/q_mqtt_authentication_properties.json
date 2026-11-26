@@ -9,6 +9,9 @@
     "ritual_ZN29QMqttAuthenticationPropertiesC1ERKS_": [
       "address", "address"
     ],
+    "ritual_ZN29QMqttAuthenticationPropertiesaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN29QMqttAuthenticationPropertiesD1Ev": ["nothing", "address"],
     "ritual_ZNK29QMqttAuthenticationProperties20authenticationMethodEv": [
       "text", "address"

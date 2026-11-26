@@ -16,6 +16,7 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <utility>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qstandarditemmodel.h>
 #include <QtCore/qdatetime.h>
@@ -38,6 +39,95 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from src/gui/itemmodels/qstandarditemmodel.cpp, line 27, as local:qstandarditemmodel.cpp:QStandardItemModelLessThan
+class QStandardItemModelLessThan
+{
+public:
+    inline QStandardItemModelLessThan()
+        { }
+
+    inline bool operator()(const std::pair<QStandardItem*, int> &l,
+                           const std::pair<QStandardItem*, int> &r) const
+    {
+        return *(l.first) < *(r.first);
+    }
+};
+
+//  from src/gui/itemmodels/qstandarditemmodel.cpp, line 40, as local:qstandarditemmodel.cpp:QStandardItemModelGreaterThan
+class QStandardItemModelGreaterThan
+{
+public:
+    inline QStandardItemModelGreaterThan()
+        { }
+
+    inline bool operator()(const std::pair<QStandardItem*, int> &l,
+                           const std::pair<QStandardItem*, int> &r) const
+    {
+        return *(r.first) < *(l.first);
+    }
+};
+
+//  from src/gui/itemmodels/qstandarditemmodel.cpp, line 163, as local:qstandarditemmodel.cpp:ByNormalizedRole
+namespace {
+struct ByNormalizedRole
+    {
+        static int normalizedRole(int role)
+        {
+            return role == Qt::EditRole ? Qt::DisplayRole : role;
+        }
+
+       bool operator()(const QStandardItemData& standardItemData, const std::pair<const int &, const QVariant&>& roleMapIt) const
+       {
+           return standardItemData.role < normalizedRole(roleMapIt.first);
+       }
+       bool operator()(const std::pair<const int&, const QVariant &>& roleMapIt, const QStandardItemData& standardItemData) const
+       {
+           return normalizedRole(roleMapIt.first) < standardItemData.role;
+       }
+
+    };
+}  // namespace
+
+//  from src/gui/itemmodels/qstandarditemmodel.cpp, line 186, as local:qstandarditemmodel.cpp:roleMapStandardItemDataTransform
+namespace {
+inline template<class Input, class OutputIt>
+    OutputIt roleMapStandardItemDataTransform(Input first1, Input last1, OutputIt d_first)
+    {
+        while (first1 != last1) {
+            if ((*first1).second.isValid())
+                *d_first++ = QStandardItemData(*first1);
+            ++first1;
+        }
+        return d_first;
+    }
+}  // namespace
+
+//  from src/gui/itemmodels/qstandarditemmodel.cpp, line 203, as local:qstandarditemmodel.cpp:roleMapStandardItemDataUnion
+namespace {
+inline template<class Input1, class Input2,
+             class OutputIt, class Compare>
+    OutputIt roleMapStandardItemDataUnion(Input1 first1, Input1 last1,
+                                          Input2 first2, Input2 last2,
+                                          OutputIt d_first, Compare comp)
+    {
+        for (; first1 != last1; ++d_first) {
+            if (first2 == last2) {
+                return roleMapStandardItemDataTransform(first1, last1, d_first);
+            }
+            if (comp(*first2, *first1)) {
+                *d_first = *first2++;
+            } else {
+                if ((*first1).second.isValid())
+                    *d_first = QStandardItemData(*first1);
+                if (!comp(*first1, *first2))
+                    ++first2;
+                ++first1;
+            }
+        }
+        return std::copy(first2, last2, d_first);
+    }
+}  // namespace
 
 //  from src/gui/itemmodels/qstandarditemmodel.cpp, line 551, as _ZN25QStandardItemModelPrivate11itemChangedEP13QStandardItemRK5QListIiE
 inline void QStandardItemModelPrivate::itemChanged(QStandardItem *item, const QList<int> &roles)
@@ -97,6 +187,19 @@ inline void QStandardItemModelPrivate::columnsAboutToBeInserted(QStandardItem *p
     Q_Q(QStandardItemModel);
     QModelIndex index = q->indexFromItem(parent);
     q->beginInsertColumns(index, start, end);
+}
+
+//  from src/gui/itemmodels/qstandarditemmodel.cpp, line 56, as _ZNK20QStandardItemPrivate8positionEv
+inline std::pair<int, int> QStandardItemPrivate::position() const
+{
+    if (QStandardItem *par = parent) {
+        int idx = par->d_func()->childIndex(q_func());
+        if (idx == -1)
+            return std::pair<int, int>(-1, -1);
+        return std::pair<int, int>(idx / par->columnCount(), idx % par->columnCount());
+    }
+    // ### support header items?
+    return std::pair<int, int>(-1, -1);
 }
 
 //  from src/gui/itemmodels/qstandarditemmodel.cpp, line 71, as _ZN20QStandardItemPrivate8setChildEiiP13QStandardItemb
@@ -209,6 +312,52 @@ inline void QStandardItemPrivate::changeFlags(bool enable, Qt::ItemFlags f)
     else
         flags &= ~f;
     q->setFlags(flags);
+}
+
+//  from src/gui/itemmodels/qstandarditemmodel.cpp, line 230, as _ZN20QStandardItemPrivate11setItemDataERK4QMapIi8QVariantE
+inline void QStandardItemPrivate::setItemData(const QMap<int, QVariant> &roles)
+{
+    Q_Q(QStandardItem);
+
+    auto byRole = [](const QStandardItemData& item1, const QStandardItemData& item2) {
+        return item1.role < item2.role;
+    };
+
+    std::sort(values.begin(), values.end(), byRole);
+
+    /*
+        Create a list of QStandardItemData that will contain the original values
+        if the matching role is not contained in roles, the new value if it is and
+        if the new value is an invalid QVariant, it will be removed.
+    */
+    QList<QStandardItemData> newValues;
+    newValues.reserve(values.size());
+    roleMapStandardItemDataUnion(roles.keyValueBegin(),
+                                 roles.keyValueEnd(),
+                                 values.cbegin(), values.cend(),
+                                 std::back_inserter(newValues), ByNormalizedRole());
+
+    if (newValues != values) {
+        values.swap(newValues);
+        if (model) {
+            QList<int> roleKeys;
+            roleKeys.reserve(roles.size() + 1);
+            bool hasEditRole = false;
+            bool hasDisplayRole = false;
+            for (auto it = roles.keyBegin(); it != roles.keyEnd(); ++it) {
+                roleKeys.push_back(*it);
+                if (*it == Qt::EditRole)
+                    hasEditRole = true;
+                else if (*it == Qt::DisplayRole)
+                    hasDisplayRole = true;
+            }
+            if (hasEditRole && !hasDisplayRole)
+                roleKeys.push_back(Qt::DisplayRole);
+            else if (!hasEditRole && hasDisplayRole)
+                roleKeys.push_back(Qt::EditRole);
+            model->d_func()->itemChanged(q, roleKeys);
+        }
+    }
 }
 
 //  from src/gui/itemmodels/qstandarditemmodel.cpp, line 278, as _ZNK20QStandardItemPrivate8itemDataEv
@@ -380,6 +529,13 @@ int ritual_ZNK20QStandardItemPrivate10childIndexEPK13QStandardItem(
   return self->childIndex(child);
 }
 
+//  std::pair<int, int> QStandardItemPrivate::position() const
+extern "C" Q_DECL_EXPORT
+std::pair<int, int> *ritual_ZNK20QStandardItemPrivate8positionEv(
+    const QStandardItemPrivate *self) {
+  return new std::pair<int, int>(self->position());
+}
+
 //  void QStandardItemPrivate::setChild(int row, int column, QStandardItem
 //      *item, bool emitChanged)
 extern "C" Q_DECL_EXPORT
@@ -441,6 +597,14 @@ void ritual_ZN20QStandardItemPrivate11changeFlagsEb6QFlagsIN2Qt8ItemFlagEE(
   self->changeFlags(enable, QFlags<Qt::ItemFlag>::fromInt(f));
 }
 
+//  void QStandardItemPrivate::setItemData(const QMap<int, QVariant> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QStandardItemPrivate11setItemDataERK4QMapIi8QVariantE(
+    QStandardItemPrivate *self,
+    const QMap<int, QVariant> *roles) {
+  self->setItemData(*roles);
+}
+
 //  QMap<int, QVariant> QStandardItemPrivate::itemData() const
 extern "C" Q_DECL_EXPORT
 QMap<int, QVariant> *ritual_ZNK20QStandardItemPrivate8itemDataEv(
@@ -483,6 +647,13 @@ bool ritual_ZN20QStandardItemPrivate13insertColumnsEiiRK5QListIP13QStandardItemE
 //  QStandardItemPrivate::~QStandardItemPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QStandardItemPrivateD1Ev(QStandardItemPrivate *self) {
+  delete self;
+}
+
+//  a std::pair<int, int> a ritual of QStandardItemPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStandardItemPrivate__std_pair_int_int(
+    std::pair<int, int> *self) {
   delete self;
 }
 

@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK8QProcess10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QProcess11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QProcess11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QProcess2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QProcessC1EP7QObject": ["address", "address"],
     "ritual_ZN8QProcessD1Ev": ["nothing", "address"],
@@ -57,6 +61,10 @@
     "ritual_ZN8QProcess24setStandardOutputProcessEPS_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK8QProcess20childProcessModifierEv": ["address", "address"],
+    "ritual_ZN8QProcess23setChildProcessModifierERKSt8functionIFvvEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN8QProcess24failChildProcessModifierEPKci": [
       "nothing", "address", "chars", "int"
     ],
@@ -104,14 +112,36 @@
     "ritual_ZN8QProcess12splitCommandE11QStringView": ["address", "text"],
     "ritual_ZN8QProcess9terminateEv": ["nothing", "address"],
     "ritual_ZN8QProcess4killEv": ["nothing", "address"],
+    "ritual_ZN8QProcess7startedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8QProcess8finishedEiNS_10ExitStatusE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN8QProcess13errorOccurredENS_12ProcessErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QProcess12stateChangedENS_12ProcessStateENS_14QPrivateSignalE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QProcess23readyReadStandardOutputENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8QProcess22readyReadStandardErrorENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
     "ritual_ZN8QProcess15setProcessStateENS_12ProcessStateE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN8QProcess8readDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_ZN8QProcess9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
     "ritual_ZN8QProcess6d_funcEv": ["address", "address"],
     "ritual_ZNK8QProcess6d_funcEv": ["address", "address"],
+    "ritual_ZN8QProcess17setupChildProcessEv": ["address", "address"],
     "ritual_take_QProcess": ["bool", "address", "chars", "address"],
     "ritual_own_ZN8QProcess4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int"
@@ -122,6 +152,13 @@
     ],
     "ritual_own_ZNK8QProcess12bytesToWriteEv": ["long long", "address"],
     "ritual_own_ZNK8QProcess12isSequentialEv": ["bool", "address"],
-    "ritual_own_ZN8QProcess5closeEv": ["nothing", "address"]
+    "ritual_own_ZN8QProcess5closeEv": ["nothing", "address"],
+    "ritual_own_ZN8QProcess8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_drop_QProcess__std_function_void": ["nothing", "address"],
+    "ritual_drop_QProcess__QProcess_Use_setChildProcessModifier_Instead": [
+      "nothing", "address"
+    ]
   }
 }

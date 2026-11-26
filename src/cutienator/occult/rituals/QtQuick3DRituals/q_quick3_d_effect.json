@@ -6,10 +6,29 @@
   ],
   "rows": {
     "ritual_ZNK14QQuick3DEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuick3DEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuick3DEffect2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN14QQuick3DEffectC1EP14QQuick3DObject": ["address", "address"],
+    "ritual_ZN14QQuick3DEffect6passesEv": ["address", "address"],
+    "ritual_ZN14QQuick3DEffect13qmlAppendPassEP16QQmlListPropertyI29QQuick3DShaderUtilsRenderPassEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DEffect9qmlPassAtEP16QQmlListPropertyI29QQuick3DShaderUtilsRenderPassEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN14QQuick3DEffect12qmlPassCountEP16QQmlListPropertyI29QQuick3DShaderUtilsRenderPassE": [
+      "long long", "address"
+    ],
+    "ritual_ZN14QQuick3DEffect12qmlPassClearEP16QQmlListPropertyI29QQuick3DShaderUtilsRenderPassE": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QQuick3DEffect16effectChainDirtyEv": ["nothing", "address"],
     "ritual_ZN14QQuick3DEffect17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
@@ -34,6 +53,9 @@
     ],
     "ritual_own_ZN14QQuick3DEffect10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QQuick3DEffect__QQmlListProperty_QQuick3DShaderUtilsRenderPass": [
+      "nothing", "address"
     ]
   }
 }

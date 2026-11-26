@@ -55,10 +55,124 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/itemviews/qabstractitemdelegate.cpp, line 432, as local:qabstractitemdelegate.cpp:editorHandlesKeyEvent
+static bool editorHandlesKeyEvent(QWidget *editor, const QKeyEvent *event)
+{
+#if QT_CONFIG(textedit)
+    // do not filter enter / return / tab / backtab for QTextEdit or QPlainTextEdit
+    if (qobject_cast<QTextEdit *>(editor) || qobject_cast<QPlainTextEdit *>(editor)) {
+        switch (event->key()) {
+        case Qt::Key_Tab:
+        case Qt::Key_Backtab:
+        case Qt::Key_Enter:
+        case Qt::Key_Return:
+            return true;
+
+        default:
+            break;
+        }
+    }
+#endif // QT_CONFIG(textedit)
+
+    Q_UNUSED(editor);
+    Q_UNUSED(event);
+    return false;
+}
+
 //  from src/widgets/itemviews/qabstractitemdelegate.cpp, line 384, as _ZN28QAbstractItemDelegatePrivateC1Ev
 inline QAbstractItemDelegatePrivate::QAbstractItemDelegatePrivate()
     : QObjectPrivate()
 {
+}
+
+//  from src/widgets/itemviews/qabstractitemdelegate.cpp, line 455, as _ZN28QAbstractItemDelegatePrivate17handleEditorEventEP7QObjectP6QEvent
+inline bool QAbstractItemDelegatePrivate::handleEditorEvent(QObject *object, QEvent *event)
+{
+    Q_Q(QAbstractItemDelegate);
+
+    QWidget *editor = qobject_cast<QWidget*>(object);
+    if (!editor)
+        return false;
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (editorHandlesKeyEvent(editor, keyEvent))
+            return false;
+
+#ifndef QT_NO_SHORTCUT
+        if (keyEvent->matches(QKeySequence::Cancel)) {
+            // don't commit data
+            emit q->closeEditor(editor, QAbstractItemDelegate::RevertModelCache);
+            return true;
+        }
+#endif
+
+        switch (keyEvent->key()) {
+        case Qt::Key_Tab:
+            if (tryFixup(editor)) {
+                emit q->commitData(editor);
+                emit q->closeEditor(editor, QAbstractItemDelegate::EditNextItem);
+            }
+            return true;
+        case Qt::Key_Backtab:
+            if (tryFixup(editor)) {
+                emit q->commitData(editor);
+                emit q->closeEditor(editor, QAbstractItemDelegate::EditPreviousItem);
+            }
+            return true;
+        case Qt::Key_Enter:
+        case Qt::Key_Return:
+            // We want the editor to be able to process the key press
+            // before committing the data (e.g. so it can do
+            // validation/fixup of the input).
+            if (!tryFixup(editor))
+                return true;
+
+            QMetaObject::invokeMethod(q, "_q_commitDataAndCloseEditor",
+                                      Qt::QueuedConnection, Q_ARG(QWidget*, editor));
+            return false;
+        default:
+            return false;
+        }
+    } else if (event->type() == QEvent::FocusOut || (event->type() == QEvent::Hide && editor->isWindow())) {
+        //the Hide event will take care of he editors that are in fact complete dialogs
+        if (!editor->isActiveWindow() || (QApplication::focusWidget() != editor)) {
+            QWidget *w = QApplication::focusWidget();
+            while (w) { // don't worry about focus changes internally in the editor
+                if (w == editor)
+                    return false;
+                w = w->parentWidget();
+            }
+#if QT_CONFIG(draganddrop)
+            // The window may lose focus during an drag operation.
+            // i.e when dragging involves the taskbar on Windows.
+            QPlatformDrag *platformDrag = QGuiApplicationPrivate::instance()->platformIntegration()->drag();
+            if (platformDrag && platformDrag->currentDrag()) {
+                return false;
+            }
+#endif
+            if (tryFixup(editor))
+                emit q->commitData(editor);
+
+            // If the application loses focus while editing, then the focus needs to go back
+            // to the itemview when the editor closes. This ensures that when the application
+            // is active again it will have the focus on the itemview as expected.
+            QWidget *editorParent = editor->parentWidget();
+            const bool manuallyFixFocus = (event->type() == QEvent::FocusOut) && !editor->hasFocus() &&
+                    editorParent &&
+                    (static_cast<QFocusEvent *>(event)->reason() == Qt::ActiveWindowFocusReason);
+            emit q->closeEditor(editor, QAbstractItemDelegate::NoHint);
+            if (manuallyFixFocus)
+                editorParent->setFocus();
+        }
+#ifndef QT_NO_SHORTCUT
+    } else if (event->type() == QEvent::ShortcutOverride) {
+        if (static_cast<QKeyEvent*>(event)->matches(QKeySequence::Cancel)) {
+            event->accept();
+            return true;
+        }
+#endif
+    }
+    return false;
 }
 
 //  from src/widgets/itemviews/qabstractitemdelegate.cpp, line 544, as _ZN28QAbstractItemDelegatePrivate8tryFixupEP7QWidget
@@ -171,6 +285,16 @@ const QAbstractItemDelegate *ritual_ZNK28QAbstractItemDelegatePrivate6q_funcEv(
 extern "C" Q_DECL_EXPORT
 QAbstractItemDelegatePrivate *ritual_ZN28QAbstractItemDelegatePrivateC1Ev() {
   return new QAbstractItemDelegatePrivate();
+}
+
+//  bool QAbstractItemDelegatePrivate::handleEditorEvent(QObject *object,
+//      QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN28QAbstractItemDelegatePrivate17handleEditorEventEP7QObjectP6QEvent(
+    QAbstractItemDelegatePrivate *self,
+    QObject *object,
+    QEvent *event) {
+  return self->handleEditorEvent(object, event);
 }
 
 //  bool QAbstractItemDelegatePrivate::tryFixup(QWidget *editor)

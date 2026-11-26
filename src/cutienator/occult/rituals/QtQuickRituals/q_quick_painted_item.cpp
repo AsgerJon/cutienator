@@ -806,6 +806,25 @@ const QMetaObject *ritual_ZNK17QQuickPaintedItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPaintedItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickPaintedItem11qt_metacastEPKc(
+    QQuickPaintedItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPaintedItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickPaintedItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPaintedItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPaintedItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickPaintedItem2trEPKcS1_i(
@@ -820,6 +839,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickPaintedItem24qt_qmlMarker_uncreatableEv(
     QQuickPaintedItem *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QQuickPaintedItem::QQuickPaintedItem(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPaintedItem *ritual_ZN17QQuickPaintedItemC1EP10QQuickItem(
+    QQuickItem *parent) {
+  return new CuteQQuickPaintedItem(parent);
 }
 
 //  QQuickPaintedItem::~QQuickPaintedItem()
@@ -1015,6 +1041,50 @@ extern "C" Q_DECL_EXPORT
 QSGTextureProvider *ritual_ZNK17QQuickPaintedItem15textureProviderEv(
     const QQuickPaintedItem *self) {
   return self->textureProvider();
+}
+
+//  void QQuickPaintedItem::fillColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickPaintedItem16fillColorChangedEv(
+    QQuickPaintedItem *self) {
+  self->fillColorChanged();
+}
+
+//  void QQuickPaintedItem::contentsSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickPaintedItem19contentsSizeChangedEv(
+    QQuickPaintedItem *self) {
+  self->contentsSizeChanged();
+}
+
+//  void QQuickPaintedItem::contentsScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickPaintedItem20contentsScaleChangedEv(
+    QQuickPaintedItem *self) {
+  self->contentsScaleChanged();
+}
+
+//  void QQuickPaintedItem::renderTargetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickPaintedItem19renderTargetChangedEv(
+    QQuickPaintedItem *self) {
+  self->renderTargetChanged();
+}
+
+//  void QQuickPaintedItem::textureSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickPaintedItem18textureSizeChangedEv(
+    QQuickPaintedItem *self) {
+  self->textureSizeChanged();
+}
+
+//  QQuickPaintedItem::QQuickPaintedItem(QQuickPaintedItemPrivate &dd,
+//      QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPaintedItem *ritual_ZN17QQuickPaintedItemC1ER24QQuickPaintedItemPrivateP10QQuickItem(
+    QQuickPaintedItemPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickPaintedItem(*dd, parent);
 }
 
 //  QSGNode *QQuickPaintedItem::updatePaintNode(QSGNode *a0,

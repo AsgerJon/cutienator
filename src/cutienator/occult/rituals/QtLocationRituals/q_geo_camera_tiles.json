@@ -33,6 +33,7 @@
     "ritual_ZNK15QGeoCameraTiles13activeMapTypeEv": ["address", "address"],
     "ritual_ZN15QGeoCameraTiles13setMapVersionEi": [
       "nothing", "address", "int"
-    ]
+    ],
+    "ritual_ZN15QGeoCameraTiles11createTilesEv": ["address", "address"]
   }
 }

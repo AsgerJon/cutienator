@@ -5,6 +5,16 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QtMultimediaPrivate18QEglImageFunctionsC1Ev": ["address"],
+    "ritual_ZN19QtMultimediaPrivate18QEglImageFunctions8instanceEv": [
+      "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate18QEglImageFunctions7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate18QEglImageFunctions28glEGLImageTargetTexture2DOESEjPv": [
+      "nothing", "address", "unsigned int", "address"
+    ],
     "ritual_ZN19QtMultimediaPrivate18QEglImageFunctionsD1Ev": [
       "nothing", "address"
     ]

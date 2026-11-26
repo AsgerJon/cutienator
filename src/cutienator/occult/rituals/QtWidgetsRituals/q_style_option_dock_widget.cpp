@@ -16,6 +16,15 @@ QStyleOptionDockWidget *ritual_ZN22QStyleOptionDockWidgetC1ERKS_(
   return new QStyleOptionDockWidget(*other);
 }
 
+//  QStyleOptionDockWidget &QStyleOptionDockWidget::operator=(const
+//      QStyleOptionDockWidget &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionDockWidget *ritual_ZN22QStyleOptionDockWidgetaSERKS_(
+    QStyleOptionDockWidget *self,
+    const QStyleOptionDockWidget *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionDockWidget::QStyleOptionDockWidget(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionDockWidget *ritual_ZN22QStyleOptionDockWidgetC1Ei(int version) {

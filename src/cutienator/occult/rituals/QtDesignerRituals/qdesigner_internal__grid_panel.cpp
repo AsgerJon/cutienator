@@ -8,6 +8,9 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/gridpanel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDesigner/6.12.0/QtDesigner/private/grid_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -859,6 +862,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal9GridPanel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::GridPanel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal9GridPanel11qt_metacastEPKc(
+    qdesigner_internal::GridPanel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::GridPanel::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal9GridPanel11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::GridPanel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::GridPanel::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -867,6 +889,88 @@ QString *ritual_ZN18qdesigner_internal9GridPanel2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::GridPanel::tr(s, c, n));
+}
+
+//  qdesigner_internal::GridPanel::GridPanel(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::GridPanel *ritual_ZN18qdesigner_internal9GridPanelC1EP7QWidget(
+    QWidget *parent) {
+  return new Cuteqdesigner_internal_GridPanel(parent);
+}
+
+//  qdesigner_internal::GridPanel::~GridPanel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal9GridPanelD1Ev(
+    qdesigner_internal::GridPanel *self) {
+  delete self;
+}
+
+//  void qdesigner_internal::GridPanel::setTitle(const QString &title)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal9GridPanel8setTitleERK7QString(
+    qdesigner_internal::GridPanel *self,
+    const QString *title) {
+  self->setTitle(*title);
+}
+
+//  void qdesigner_internal::GridPanel::setGrid(const Grid &g)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal9GridPanel7setGridERKNS_4GridE(
+    qdesigner_internal::GridPanel *self,
+    const qdesigner_internal::Grid *g) {
+  self->setGrid(*g);
+}
+
+//  Grid qdesigner_internal::GridPanel::grid() const
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::Grid *ritual_ZNK18qdesigner_internal9GridPanel4gridEv(
+    const qdesigner_internal::GridPanel *self) {
+  return new qdesigner_internal::Grid(self->grid());
+}
+
+//  void qdesigner_internal::GridPanel::setCheckable(bool c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal9GridPanel12setCheckableEb(
+    qdesigner_internal::GridPanel *self,
+    bool c) {
+  self->setCheckable(c);
+}
+
+//  bool qdesigner_internal::GridPanel::isCheckable() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal9GridPanel11isCheckableEv(
+    const qdesigner_internal::GridPanel *self) {
+  return self->isCheckable();
+}
+
+//  bool qdesigner_internal::GridPanel::isChecked() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18qdesigner_internal9GridPanel9isCheckedEv(
+    const qdesigner_internal::GridPanel *self) {
+  return self->isChecked();
+}
+
+//  void qdesigner_internal::GridPanel::setChecked(bool c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal9GridPanel10setCheckedEb(
+    qdesigner_internal::GridPanel *self,
+    bool c) {
+  self->setChecked(c);
+}
+
+//  void qdesigner_internal::GridPanel::setResetButtonVisible(bool v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal9GridPanel21setResetButtonVisibleEb(
+    qdesigner_internal::GridPanel *self,
+    bool v) {
+  self->setResetButtonVisible(v);
+}
+
+//  void qdesigner_internal::GridPanel::reset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal9GridPanel5resetEv(
+    qdesigner_internal::GridPanel *self) {
+  self->reset();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_GridPanel, for the

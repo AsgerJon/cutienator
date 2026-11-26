@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQStyleKitStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitStyle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQStyleKitStyle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQStyleKitStyle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -44,6 +50,20 @@
     ],
     "ritual_ZNK15QQStyleKitStyle18fontForControlTypeEj": [
       "address", "address", "unsigned int"
+    ],
+    "ritual_ZN15QQStyleKitStyle14paletteChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQStyleKitStyle20fallbackStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQStyleKitStyle12lightChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQStyleKitStyle11darkChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQStyleKitStyle12themeChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQStyleKitStyle16themeNameChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQStyleKitStyle26availableThemeNamesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQStyleKitStyle23customThemeNamesChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN15QQStyleKitStyle17componentCompleteEv": [
       "nothing", "address"

@@ -8,8 +8,48 @@
     "ritual_ZNK13Qt3DAnimation14QLerpClipBlend10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation14QLerpClipBlend2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlendC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlendD1Ev": ["nothing", "address"],
+    "ritual_ZNK13Qt3DAnimation14QLerpClipBlend11blendFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation14QLerpClipBlend9startClipEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation14QLerpClipBlend7endClipEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend14setBlendFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend12setStartClipEPNS_22QAbstractClipBlendNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend10setEndClipEPNS_22QAbstractClipBlendNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend18blendFactorChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend16startClipChangedEPNS_22QAbstractClipBlendNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend14endClipChangedEPNS_22QAbstractClipBlendNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlendC1ERNS_21QLerpClipBlendPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation14QLerpClipBlend6d_funcEv": [
       "address", "address"

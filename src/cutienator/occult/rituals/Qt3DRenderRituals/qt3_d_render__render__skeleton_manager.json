@@ -5,5 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render15SkeletonManager16addDirtySkeletonENS1_9DirtyFlagEN8Qt3DCore7QHandleINS0_8SkeletonEEE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15SkeletonManager18takeDirtySkeletonsENS1_9DirtyFlagE": [
+      "address", "address", "int"
+    ],
+    "ritual_drop_Qt3DRender_Render_SkeletonManager__QList_Qt3DRender_Render_HSkeleton": [
+      "nothing", "address"
+    ]
   }
 }

@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QQDMIncubationTask13statusChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN18QQDMIncubationTask15setInitialStateEP7QObject": [
       "nothing", "address", "address"
     ],

@@ -46,6 +46,34 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/xml/dom/qdom.cpp, line 1480, as local:qdom.cpp:qNormalizeNode
+#if QT_CONFIG(dom)
+static void qNormalizeNode(QDomNodePrivate* n)
+{
+    QDomNodePrivate* p = n->first;
+    QDomTextPrivate* t = nullptr;
+
+    while (p) {
+        if (p->isText()) {
+            if (t) {
+                QDomNodePrivate* tmp = p->next;
+                t->appendData(p->nodeValue());
+                n->removeChild(p);
+                p = tmp;
+            } else {
+                t = static_cast<QDomTextPrivate *>(p);
+                p = p->next;
+            }
+        } else {
+            p = p->next;
+            t = nullptr;
+        }
+    }
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1454, as _ZN15QDomNodePrivate11appendChildEPS_
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomNodePrivate::appendChild(QDomNodePrivate* newChild)
@@ -404,6 +432,16 @@ inline void QDomNodePrivate::clear()
 }
 #endif  // QT_CONFIG(dom)
 
+//  from src/xml/dom/qdom.cpp, line 1502, as _ZN15QDomNodePrivate9normalizeEv
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::normalize()
+{
+    // ### This one has moved from QDomElementPrivate to this position. It is
+    // not tested.
+    qNormalizeNode(this);
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1088, as _ZN15QDomNodePrivateD2Ev
 #if QT_CONFIG(dom)
 inline QDomNodePrivate::~QDomNodePrivate()
@@ -427,11 +465,25 @@ inline QDomNodePrivate::~QDomNodePrivate()
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 3518, as _ZN24QDomCharacterDataPrivateC2EPS_b
+//  from src/xml/dom/qdom.cpp, line 5004, as _ZN18QDomCommentPrivate9cloneNodeEb
 #if QT_CONFIG(dom)
-inline QDomCharacterDataPrivate::QDomCharacterDataPrivate(QDomCharacterDataPrivate* n, bool deep)
-    : QDomNodePrivate(n, deep)
+inline QDomNodePrivate* QDomCommentPrivate::cloneNode(bool deep)
 {
+    QDomNodePrivate* p = new QDomCommentPrivate(this, deep);
+    // We are not interested in this node
+    p->ref.deref();
+    return p;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3510, as _ZN24QDomCharacterDataPrivateC2EP19QDomDocumentPrivateP15QDomNodePrivateRK7QString
+#if QT_CONFIG(dom)
+inline QDomCharacterDataPrivate::QDomCharacterDataPrivate(QDomDocumentPrivate* d, QDomNodePrivate* p,
+                                                      const QString& data)
+    : QDomNodePrivate(d, p)
+{
+    value = data;
+    name = u"#character-data"_s;
 }
 #endif  // QT_CONFIG(dom)
 
@@ -453,11 +505,42 @@ inline void QDomCommentPrivate::save(QTextStream& s, int depth, int indent) cons
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 5004, as _ZN18QDomCommentPrivate9cloneNodeEb
+//  from src/xml/dom/qdom.cpp, line 3518, as _ZN24QDomCharacterDataPrivateC2EPS_b
 #if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomCommentPrivate::cloneNode(bool deep)
+inline QDomCharacterDataPrivate::QDomCharacterDataPrivate(QDomCharacterDataPrivate* n, bool deep)
+    : QDomNodePrivate(n, deep)
 {
-    QDomNodePrivate* p = new QDomCommentPrivate(this, deep);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 4998, as _ZN18QDomCommentPrivateC1EPS_b
+#if QT_CONFIG(dom)
+inline QDomCommentPrivate::QDomCommentPrivate(QDomCommentPrivate* n, bool deep)
+    : QDomCharacterDataPrivate(n, deep)
+{
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1460, as _ZN15QDomNodePrivate13ownerDocumentEv
+#if QT_CONFIG(dom)
+inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()
+{
+    QDomNodePrivate* p = this;
+    while (p && !p->isDocument()) {
+        if (!p->hasParent)
+            return static_cast<QDomDocumentPrivate *>(p->ownerNode);
+        p = p->parent();
+    }
+
+    return static_cast<QDomDocumentPrivate *>(p);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1472, as _ZN15QDomNodePrivate9cloneNodeEb
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomNodePrivate::cloneNode(bool deep)
+{
+    QDomNodePrivate* p = new QDomNodePrivate(this, deep);
     // We are not interested in this node
     p->ref.deref();
     return p;
@@ -501,7 +584,7 @@ typedef void (*CuteQDomCommentPrivateCall9)(const void *, int *);
 class CuteQDomCommentPrivate : public QDomCommentPrivate {
 public:
   using QDomCommentPrivate::QDomCommentPrivate;
-  CuteQDomCommentPrivate(const QDomCommentPrivate &other) : QDomCommentPrivate(other) {}
+  CuteQDomCommentPrivate(const QDomCommentPrivate & other) : QDomCommentPrivate(other) {}
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {
@@ -723,6 +806,16 @@ extern "C" Q_DECL_EXPORT
 QDomNode::NodeType ritual_ZNK18QDomCommentPrivate8nodeTypeEv(
     const QDomCommentPrivate *self) {
   return self->nodeType();
+}
+
+//  void QDomCommentPrivate::save(QTextStream &s, int a1, int a2) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18QDomCommentPrivate4saveER11QTextStreamii(
+    const QDomCommentPrivate *self,
+    QTextStream *s,
+    int a1,
+    int a2) {
+  self->save(*s, a1, a2);
 }
 
 //  QDomCommentPrivate::~QDomCommentPrivate()

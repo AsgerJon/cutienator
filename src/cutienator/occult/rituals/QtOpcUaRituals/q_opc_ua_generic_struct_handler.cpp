@@ -3,11 +3,15 @@
 //  lost.
 #include <QtOpcUa/qopcuagenericstructhandler.h>
 #include <QtCore/qstring.h>
+#include <QtOpcUa/qopcuaextensionobject.h>
 #include <QtOpcUa/qopcuagenericstructvalue.h>
 #include <QtOpcUa/qopcuastructuredefinition.h>
 #include <QtOpcUa/qopcuaenumdefinition.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <optional>
+#include <QtOpcUa/QOpcUaGenericStructValue>
+#include <QtOpcUa/QOpcUaExtensionObject>
 
 //  A QOpcUaGenericStructHandler that Python can take functions over in. Every QOpcUaGenericStructHandler
 //  Python makes is one. Each function below asks the Python
@@ -183,6 +187,25 @@ const QMetaObject *ritual_ZNK26QOpcUaGenericStructHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpcUaGenericStructHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QOpcUaGenericStructHandler11qt_metacastEPKc(
+    QOpcUaGenericStructHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpcUaGenericStructHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QOpcUaGenericStructHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpcUaGenericStructHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpcUaGenericStructHandler::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -229,6 +252,28 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN26QOpcUaGenericStructHandler10initializeEv(
     QOpcUaGenericStructHandler *self) {
   return self->initialize();
+}
+
+//  std::optional<QOpcUaGenericStructValue>
+//      QOpcUaGenericStructHandler::decode(const QOpcUaExtensionObject
+//      &extensionObject) const
+extern "C" Q_DECL_EXPORT
+std::optional<QOpcUaGenericStructValue> *ritual_ZNK26QOpcUaGenericStructHandler6decodeERK21QOpcUaExtensionObject(
+    const QOpcUaGenericStructHandler *self,
+    const QOpcUaExtensionObject *extensionObject) {
+  return new std::optional<QOpcUaGenericStructValue>(
+      self->decode(
+          *extensionObject));
+}
+
+//  std::optional<QOpcUaExtensionObject>
+//      QOpcUaGenericStructHandler::encode(const QOpcUaGenericStructValue
+//      &value)
+extern "C" Q_DECL_EXPORT
+std::optional<QOpcUaExtensionObject> *ritual_ZN26QOpcUaGenericStructHandler6encodeERK24QOpcUaGenericStructValue(
+    QOpcUaGenericStructHandler *self,
+    const QOpcUaGenericStructValue *value) {
+  return new std::optional<QOpcUaExtensionObject>(self->encode(*value));
 }
 
 //  QOpcUaGenericStructValue
@@ -363,6 +408,14 @@ QString *ritual_ZNK26QOpcUaGenericStructHandler25typeIdForBinaryEncodingIdERK7QS
   return new QString(self->typeIdForBinaryEncodingId(*id));
 }
 
+//  void QOpcUaGenericStructHandler::initializedChanged(bool initialized)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QOpcUaGenericStructHandler18initializedChangedEb(
+    QOpcUaGenericStructHandler *self,
+    bool initialized) {
+  self->initializedChanged(initialized);
+}
+
 //  a Python function taken by a CuteQOpcUaGenericStructHandler, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -371,4 +424,20 @@ bool ritual_take_QOpcUaGenericStructHandler(
     const char *key,
     void *call) {
   return static_cast<CuteQOpcUaGenericStructHandler *>(self)->take(key, call);
+}
+
+//  a std::optional<QOpcUaGenericStructValue> a ritual of
+//      QOpcUaGenericStructHandler gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpcUaGenericStructHandler__std_optional_QOpcUaGenericStructValue(
+    std::optional<QOpcUaGenericStructValue> *self) {
+  delete self;
+}
+
+//  a std::optional<QOpcUaExtensionObject> a ritual of
+//      QOpcUaGenericStructHandler gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpcUaGenericStructHandler__std_optional_QOpcUaExtensionObject(
+    std::optional<QOpcUaExtensionObject> *self) {
+  delete self;
 }

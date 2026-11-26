@@ -30,6 +30,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 16, as local:objecthelper.cpp:ObjectHelperRef
+struct ObjectHelperRef {
+    int refCount;
+    ObjectHelper *obj;
+};
+
 //  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 172, as _ZN17SeriesRenderCache7cleanupEP13TextureHelper
 inline void SeriesRenderCache::cleanup(TextureHelper *texHelper)
 {
@@ -66,7 +72,7 @@ typedef void (*CuteSeriesRenderCacheCall1)(const void *, TextureHelper *, int *)
 class CuteSeriesRenderCache : public SeriesRenderCache {
 public:
   using SeriesRenderCache::SeriesRenderCache;
-  CuteSeriesRenderCache(const SeriesRenderCache &other) : SeriesRenderCache(other) {}
+  CuteSeriesRenderCache(const SeriesRenderCache & other) : SeriesRenderCache(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -133,6 +139,13 @@ QAbstract3DSeries *ritual_ZNK17SeriesRenderCache6seriesEv(
   return self->series();
 }
 
+//  const QAbstract3DSeries::Mesh &SeriesRenderCache::mesh() const
+extern "C" Q_DECL_EXPORT
+const QAbstract3DSeries::Mesh *ritual_ZNK17SeriesRenderCache4meshEv(
+    const SeriesRenderCache *self) {
+  return &(self->mesh());
+}
+
 //  const QQuaternion &SeriesRenderCache::meshRotation() const
 extern "C" Q_DECL_EXPORT
 QQuaternion *ritual_ZNK17SeriesRenderCache12meshRotationEv(
@@ -155,11 +168,32 @@ ObjectHelper *ritual_ZNK17SeriesRenderCache6objectEv(
   return self->object();
 }
 
+//  const Q3DTheme::ColorStyle &SeriesRenderCache::colorStyle() const
+extern "C" Q_DECL_EXPORT
+const Q3DTheme::ColorStyle *ritual_ZNK17SeriesRenderCache10colorStyleEv(
+    const SeriesRenderCache *self) {
+  return &(self->colorStyle());
+}
+
 //  const QVector4D &SeriesRenderCache::baseColor() const
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZNK17SeriesRenderCache9baseColorEv(
     const SeriesRenderCache *self) {
   return new QVector4D(self->baseColor());
+}
+
+//  const GLuint &SeriesRenderCache::baseUniformTexture() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK17SeriesRenderCache18baseUniformTextureEv(
+    const SeriesRenderCache *self) {
+  return self->baseUniformTexture();
+}
+
+//  const GLuint &SeriesRenderCache::baseGradientTexture() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK17SeriesRenderCache19baseGradientTextureEv(
+    const SeriesRenderCache *self) {
+  return self->baseGradientTexture();
 }
 
 //  const QImage &SeriesRenderCache::gradientImage() const
@@ -176,11 +210,25 @@ QVector4D *ritual_ZNK17SeriesRenderCache20singleHighlightColorEv(
   return new QVector4D(self->singleHighlightColor());
 }
 
+//  const GLuint &SeriesRenderCache::singleHighlightGradientTexture() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK17SeriesRenderCache30singleHighlightGradientTextureEv(
+    const SeriesRenderCache *self) {
+  return self->singleHighlightGradientTexture();
+}
+
 //  const QVector4D &SeriesRenderCache::multiHighlightColor() const
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZNK17SeriesRenderCache19multiHighlightColorEv(
     const SeriesRenderCache *self) {
   return new QVector4D(self->multiHighlightColor());
+}
+
+//  const GLuint &SeriesRenderCache::multiHighlightGradientTexture() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK17SeriesRenderCache29multiHighlightGradientTextureEv(
+    const SeriesRenderCache *self) {
+  return self->multiHighlightGradientTexture();
 }
 
 //  const QString &SeriesRenderCache::name() const

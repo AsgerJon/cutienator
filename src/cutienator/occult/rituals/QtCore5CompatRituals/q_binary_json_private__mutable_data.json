@@ -5,12 +5,21 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QBinaryJsonPrivate11MutableDataC1EPcj": [
+      "address", "address", "unsigned int"
+    ],
     "ritual_ZN18QBinaryJsonPrivate11MutableDataC1EjN10QJsonValue4TypeE": [
       "address", "unsigned int", "int"
     ],
     "ritual_ZN18QBinaryJsonPrivate11MutableDataD1Ev": ["nothing", "address"],
     "ritual_ZN18QBinaryJsonPrivate11MutableData5cloneEPKNS_4BaseEj": [
       "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate11MutableData11takeRawDataEPj": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate11MutableData7compactEv": [
+      "nothing", "address"
     ]
   }
 }

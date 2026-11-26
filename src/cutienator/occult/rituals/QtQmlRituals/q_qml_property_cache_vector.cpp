@@ -14,6 +14,23 @@ QQmlPropertyCacheVector *ritual_ZN23QQmlPropertyCacheVectorC1Ev() {
   return new QQmlPropertyCacheVector();
 }
 
+//  QQmlPropertyCacheVector::QQmlPropertyCacheVector(QQmlPropertyCacheVector
+//      &&a0)
+extern "C" Q_DECL_EXPORT
+QQmlPropertyCacheVector *ritual_ZN23QQmlPropertyCacheVectorC1EOS_(
+    QQmlPropertyCacheVector *a0) {
+  return new QQmlPropertyCacheVector(std::move(*a0));
+}
+
+//  QQmlPropertyCacheVector
+//      &QQmlPropertyCacheVector::operator=(QQmlPropertyCacheVector &&a0)
+extern "C" Q_DECL_EXPORT
+QQmlPropertyCacheVector *ritual_ZN23QQmlPropertyCacheVectoraSEOS_(
+    QQmlPropertyCacheVector *self,
+    QQmlPropertyCacheVector *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QQmlPropertyCacheVector::~QQmlPropertyCacheVector()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQmlPropertyCacheVectorD1Ev(QQmlPropertyCacheVector *self) {
@@ -66,12 +83,29 @@ void ritual_ZN23QQmlPropertyCacheVector6appendERKN17QQmlPropertyCache8ConstPtrE(
   self->append(*cache);
 }
 
+//  void QQmlPropertyCacheVector::appendOwn(const QQmlPropertyCache::Ptr
+//      &cache)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQmlPropertyCacheVector9appendOwnERK14QQmlRefPointerI17QQmlPropertyCacheE(
+    QQmlPropertyCacheVector *self,
+    const QQmlPropertyCache::Ptr *cache) {
+  self->appendOwn(*cache);
+}
+
 //  QQmlPropertyCache::ConstPtr QQmlPropertyCacheVector::at(int index) const
 extern "C" Q_DECL_EXPORT
 QQmlPropertyCache::ConstPtr *ritual_ZNK23QQmlPropertyCacheVector2atEi(
     const QQmlPropertyCacheVector *self,
     int index) {
   return new QQmlPropertyCache::ConstPtr(self->at(index));
+}
+
+//  QQmlPropertyCache::Ptr QQmlPropertyCacheVector::ownAt(int index) const
+extern "C" Q_DECL_EXPORT
+QQmlPropertyCache::Ptr *ritual_ZNK23QQmlPropertyCacheVector5ownAtEi(
+    const QQmlPropertyCacheVector *self,
+    int index) {
+  return new QQmlPropertyCache::Ptr(self->ownAt(index));
 }
 
 //  void QQmlPropertyCacheVector::set(int index, const
@@ -82,6 +116,16 @@ void ritual_ZN23QQmlPropertyCacheVector3setEiRKN17QQmlPropertyCache8ConstPtrE(
     int index,
     const QQmlPropertyCache::ConstPtr *replacement) {
   self->set(index, *replacement);
+}
+
+//  void QQmlPropertyCacheVector::setOwn(int index, const
+//      QQmlPropertyCache::Ptr &replacement)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQmlPropertyCacheVector6setOwnEiRK14QQmlRefPointerI17QQmlPropertyCacheE(
+    QQmlPropertyCacheVector *self,
+    int index,
+    const QQmlPropertyCache::Ptr *replacement) {
+  self->setOwn(index, *replacement);
 }
 
 //  void QQmlPropertyCacheVector::setNeedsVMEMetaObject(int index)
@@ -113,4 +157,11 @@ void ritual_ZN23QQmlPropertyCacheVector14releaseElementEi(
     QQmlPropertyCacheVector *self,
     int i) {
   self->releaseElement(i);
+}
+
+//  a QQmlPropertyCache::Ptr a ritual of QQmlPropertyCacheVector gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlPropertyCacheVector__QQmlPropertyCache_Ptr(
+    QQmlPropertyCache::Ptr *self) {
+  delete self;
 }

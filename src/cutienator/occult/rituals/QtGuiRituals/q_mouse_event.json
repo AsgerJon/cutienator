@@ -4,6 +4,8 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QMouseEventC1ERKS_": ["address", "address"],
+    "ritual_ZN11QMouseEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK11QMouseEvent5cloneEv": ["address", "address"],
     "ritual_ZN11QMouseEventD1Ev": ["nothing", "address"],
     "ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFN2Qt11MouseButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice": [

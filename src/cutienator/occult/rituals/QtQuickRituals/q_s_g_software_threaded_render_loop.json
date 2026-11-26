@@ -8,7 +8,37 @@
     "ritual_ZNK29QSGSoftwareThreadedRenderLoop10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop4showEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop4hideEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop6resizeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop15windowDestroyedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop15exposureChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop4grabEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop6updateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN29QSGSoftwareThreadedRenderLoop11maybeUpdateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop19handleUpdateRequestEP12QQuickWindow": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK29QSGSoftwareThreadedRenderLoop15animationDriverEv": [
@@ -20,6 +50,12 @@
     "ritual_ZNK29QSGSoftwareThreadedRenderLoop19createRenderContextEP10QSGContext": [
       "address", "address", "address"
     ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop16releaseResourcesEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop7postJobEP12QQuickWindowP9QRunnable": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK29QSGSoftwareThreadedRenderLoop17windowSurfaceTypeEv": [
       "int", "address"
     ],
@@ -30,8 +66,38 @@
     "ritual_ZN29QSGSoftwareThreadedRenderLoop5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop18onAnimationStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop18onAnimationStoppedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop9windowForEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop25startOrStopAnimationTimerEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QSGSoftwareThreadedRenderLoop": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QSGSoftwareThreadedRenderLoop4showEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QSGSoftwareThreadedRenderLoop4hideEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QSGSoftwareThreadedRenderLoop6resizeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QSGSoftwareThreadedRenderLoop15windowDestroyedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QSGSoftwareThreadedRenderLoop6updateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QSGSoftwareThreadedRenderLoop11maybeUpdateEP12QQuickWindow": [
+      "nothing", "address", "address"
     ],
     "ritual_own_ZNK29QSGSoftwareThreadedRenderLoop15animationDriverEv": [
       "address", "address"
@@ -41,6 +107,12 @@
     ],
     "ritual_own_ZNK29QSGSoftwareThreadedRenderLoop19createRenderContextEP10QSGContext": [
       "address", "address", "address"
+    ],
+    "ritual_own_ZN29QSGSoftwareThreadedRenderLoop16releaseResourcesEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QSGSoftwareThreadedRenderLoop7postJobEP12QQuickWindowP9QRunnable": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_own_ZNK29QSGSoftwareThreadedRenderLoop17windowSurfaceTypeEv": [
       "int", "address"

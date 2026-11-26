@@ -5,11 +5,93 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec25serializeObjectListPacketERK5QListINS_10ObjectInfoEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec27deserializeObjectListPacketER11QDataStreamR5QListINS_10ObjectInfoEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec19serializeInitPacketEPK23QRemoteObjectRootSource": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec26serializeInitDynamicPacketEPK23QRemoteObjectRootSource": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec29serializePropertyChangePacketEP23QRemoteObjectSourceBasei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec31deserializePropertyChangePacketER11QDataStreamRiR8QVariant": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec17serializePropertyEPK23QRemoteObjectSourceBasei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec19serializePingPacketERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec19serializePongPacketERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec21serializeInvokePacketERK7QStringiiRK5QListI8QVariantEii": [
+      "nothing", "address", "text", "int", "int", "address", "int", "int"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec23deserializeInvokePacketER11QDataStreamRiS3_R5QListI8QVariantES3_S3_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec26serializeInvokeReplyPacketERK7QStringiRK8QVariant": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec24serializeHandshakePacketEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec27serializeRemoveObjectPacketERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec24serializeAddObjectPacketERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec26deserializeAddObjectPacketER11QDataStreamRb": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec21deserializeInitPacketER11QDataStreamR5QListI8QVariantE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec28deserializeInvokeReplyPacketER11QDataStreamRiR8QVariant": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec10getPayloadEv": [
       "address", "address"
     ],
     "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec5resetEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets16QDataStreamCodec19serializePropertiesEPK23QRemoteObjectSourceBase": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QRemoteObjectPackets16QDataStreamCodec19serializeInitPacketEPK23QRemoteObjectRootSource": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QRemoteObjectPackets16QDataStreamCodec29serializePropertyChangePacketEP23QRemoteObjectSourceBasei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN20QRemoteObjectPackets16QDataStreamCodec19serializePingPacketERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN20QRemoteObjectPackets16QDataStreamCodec19serializePongPacketERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN20QRemoteObjectPackets16QDataStreamCodec26serializeInvokeReplyPacketERK7QStringiRK8QVariant": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_own_ZN20QRemoteObjectPackets16QDataStreamCodec24serializeHandshakePacketEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QRemoteObjectPackets16QDataStreamCodec27serializeRemoveObjectPacketERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN20QRemoteObjectPackets16QDataStreamCodec24serializeAddObjectPacketERK7QStringb": [
+      "nothing", "address", "text", "bool"
     ],
     "ritual_own_ZN20QRemoteObjectPackets16QDataStreamCodec10getPayloadEv": [
       "address", "address"

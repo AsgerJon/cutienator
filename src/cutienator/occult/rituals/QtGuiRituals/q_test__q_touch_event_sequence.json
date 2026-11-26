@@ -5,8 +5,35 @@
   ],
   "rows": {
     "ritual_ZN5QTest19QTouchEventSequenceD1Ev": ["nothing", "address"],
+    "ritual_ZN5QTest19QTouchEventSequence5pressEiRK6QPointP7QWindow": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN5QTest19QTouchEventSequence4moveEiRK6QPointP7QWindow": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN5QTest19QTouchEventSequence7releaseEiRK6QPointP7QWindow": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN5QTest19QTouchEventSequence10stationaryEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN5QTest19QTouchEventSequence6commitEb": [
       "bool", "address", "bool"
+    ],
+    "ritual_ZN5QTest19QTouchEventSequence6cancelEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN5QTest19QTouchEventSequenceC1EP7QWindowP15QPointingDeviceb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN5QTest19QTouchEventSequence11mapToScreenEP7QWindowRK6QPoint": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN5QTest19QTouchEventSequence5pointEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN5QTest19QTouchEventSequence20pointOrPreviousPointEi": [
+      "address", "address", "int"
     ],
     "ritual_take_QTest_QTouchEventSequence": [
       "bool", "address", "chars", "address"

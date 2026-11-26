@@ -7,6 +7,15 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickstate_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QQuickStatePrivate::OperationGuard::OperationGuard(QObject *obj,
+//      QList<OperationGuard> *l)
+extern "C" Q_DECL_EXPORT
+QQuickStatePrivate::OperationGuard *ritual_ZN18QQuickStatePrivate14OperationGuardC1EP7QObjectP5QListIS0_E(
+    QObject *obj,
+    QList<QQuickStatePrivate::OperationGuard> *l) {
+  return new QQuickStatePrivate::OperationGuard(obj, l);
+}
+
 //  void
 //      QQuickStatePrivate::OperationGuard::objectDestroyedImpl(QQmlGuardImpl
 //      *guard)

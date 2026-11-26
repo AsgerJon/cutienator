@@ -16,6 +16,8 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  Only a class built on QQuickShape may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -797,6 +799,24 @@ const QMetaObject *ritual_ZNK11QQuickShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickShape11qt_metacastEPKc(
+    QQuickShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShape::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShape::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickShape2trEPKcS1_i(
@@ -905,6 +925,12 @@ bool ritual_ZNK11QQuickShape8containsERK7QPointF(
   return self->contains(*point);
 }
 
+//  QQmlListProperty<QObject> QQuickShape::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN11QQuickShape4dataEv(QQuickShape *self) {
+  return new QQmlListProperty<QObject>(self->data());
+}
+
 //  FillMode QQuickShape::fillMode() const
 extern "C" Q_DECL_EXPORT
 QQuickShape::FillMode ritual_ZNK11QQuickShape8fillModeEv(
@@ -951,6 +977,14 @@ void ritual_ZN11QQuickShape20setVerticalAlignmentENS_10VAlignmentE(
   self->setVerticalAlignment(newVerticalAlignment);
 }
 
+//  QQuickShape::QQuickShape(QQuickShapePrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickShape *ritual_ZN11QQuickShapeC1ER18QQuickShapePrivateP10QQuickItem(
+    QQuickShapePrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickShape(*dd, parent);
+}
+
 //  QSGNode *QQuickShape::updatePaintNode(QSGNode *node, UpdatePaintNodeData
 //      *a1)
 extern "C" Q_DECL_EXPORT
@@ -987,6 +1021,69 @@ void ritual_ZN11QQuickShape17componentCompleteEv(QQuickShape *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQuickShape10classBeginEv(QQuickShape *self) {
   self->classBegin();
+}
+
+//  void QQuickShape::rendererChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape15rendererChangedEv(QQuickShape *self) {
+  self->rendererChanged();
+}
+
+//  void QQuickShape::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape19asynchronousChangedEv(QQuickShape *self) {
+  self->asynchronousChanged();
+}
+
+//  void QQuickShape::vendorExtensionsEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape30vendorExtensionsEnabledChangedEv(
+    QQuickShape *self) {
+  self->vendorExtensionsEnabledChanged();
+}
+
+//  void QQuickShape::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape13statusChangedEv(QQuickShape *self) {
+  self->statusChanged();
+}
+
+//  void QQuickShape::preferredRendererTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape28preferredRendererTypeChangedEv(
+    QQuickShape *self) {
+  self->preferredRendererTypeChanged();
+}
+
+//  void QQuickShape::boundingRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape19boundingRectChangedEv(QQuickShape *self) {
+  self->boundingRectChanged();
+}
+
+//  void QQuickShape::containsModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape19containsModeChangedEv(QQuickShape *self) {
+  self->containsModeChanged();
+}
+
+//  void QQuickShape::fillModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape15fillModeChangedEv(QQuickShape *self) {
+  self->fillModeChanged();
+}
+
+//  void QQuickShape::horizontalAlignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape26horizontalAlignmentChangedEv(
+    QQuickShape *self) {
+  self->horizontalAlignmentChanged();
+}
+
+//  void QQuickShape::verticalAlignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickShape24verticalAlignmentChangedEv(QQuickShape *self) {
+  self->verticalAlignmentChanged();
 }
 
 //  QQuickShapePrivate *QQuickShape::d_func()
@@ -1067,4 +1164,11 @@ void ritual_own_ZN11QQuickShape17componentCompleteEv(QQuickShape *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN11QQuickShape10classBeginEv(QQuickShape *self) {
   static_cast<OwnQQuickShape *>(self)->OwnQQuickShape::classBegin();
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickShape gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickShape__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

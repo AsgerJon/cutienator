@@ -3,7 +3,7 @@
 //  Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -410,6 +410,49 @@ const QMetaObject *ritual_ZNK23SurfaceItemModelHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *SurfaceItemModelHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23SurfaceItemModelHandler11qt_metacastEPKc(
+    SurfaceItemModelHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int SurfaceItemModelHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23SurfaceItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    SurfaceItemModelHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  SurfaceItemModelHandler::~SurfaceItemModelHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23SurfaceItemModelHandlerD1Ev(SurfaceItemModelHandler *self) {
+  delete self;
+}
+
+//  void SurfaceItemModelHandler::handleDataChanged(const QModelIndex
+//      &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23SurfaceItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE(
+    SurfaceItemModelHandler *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->handleDataChanged(*topLeft, *bottomRight, *roles);
+}
+
+//  void SurfaceItemModelHandler::resolveModel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23SurfaceItemModelHandler12resolveModelEv(
+    SurfaceItemModelHandler *self) {
+  self->resolveModel();
+}
+
 //  a Python function taken by a CuteSurfaceItemModelHandler, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -420,4 +463,4 @@ bool ritual_take_SurfaceItemModelHandler(
   return static_cast<CuteSurfaceItemModelHandler *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))

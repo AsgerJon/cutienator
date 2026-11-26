@@ -16,6 +16,24 @@ const QMetaObject *ritual_ZNK15QQuickMatrix4x410metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMatrix4x4::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickMatrix4x411qt_metacastEPKc(
+    QQuickMatrix4x4 *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMatrix4x4::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickMatrix4x411qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMatrix4x4 *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMatrix4x4::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickMatrix4x42trEPKcS1_i(
@@ -52,6 +70,26 @@ void ritual_ZNK15QQuickMatrix4x47applyToEP10QMatrix4x4(
     const QQuickMatrix4x4 *self,
     QMatrix4x4 *matrix) {
   self->applyTo(matrix);
+}
+
+//  void QQuickMatrix4x4::matrixChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMatrix4x413matrixChangedEv(QQuickMatrix4x4 *self) {
+  self->matrixChanged();
+}
+
+//  QQuickMatrix4x4Private *QQuickMatrix4x4::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickMatrix4x4Private *ritual_ZN15QQuickMatrix4x46d_funcEv(
+    QQuickMatrix4x4 *self) {
+  return self->d_func();
+}
+
+//  const QQuickMatrix4x4Private *QQuickMatrix4x4::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickMatrix4x4Private *ritual_ZNK15QQuickMatrix4x46d_funcEv(
+    const QQuickMatrix4x4 *self) {
+  return self->d_func();
 }
 
 //  void QQuickMatrix4x4::applyTo(QMatrix4x4 *matrix) const

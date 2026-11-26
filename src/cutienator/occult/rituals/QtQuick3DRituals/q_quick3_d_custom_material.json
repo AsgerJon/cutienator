@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuick3DCustomMaterial10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuick3DCustomMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuick3DCustomMaterial2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -71,6 +77,39 @@
     "ritual_ZN22QQuick3DCustomMaterial12setLineWidthEf": [
       "nothing", "address", "float"
     ],
+    "ritual_ZN22QQuick3DCustomMaterial18shadingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial19vertexShaderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial21fragmentShaderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial23vertexShaderCodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial25fragmentShaderCodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial15srcBlendChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial15dstBlendChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial20srcAlphaBlendChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial20dstAlphaBlendChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial18alwaysDirtyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial16lineWidthChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN22QQuick3DCustomMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
     ],
@@ -79,6 +118,9 @@
     ],
     "ritual_ZN22QQuick3DCustomMaterial12markAllDirtyEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial9markDirtyERS_NS_5DirtyE": [
+      "nothing", "address", "unsigned int"
     ],
     "ritual_ZN22QQuick3DCustomMaterial15onPropertyDirtyEv": [
       "nothing", "address"

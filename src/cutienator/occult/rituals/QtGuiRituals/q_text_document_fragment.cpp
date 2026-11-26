@@ -33,6 +33,15 @@ QTextDocumentFragment *ritual_ZN21QTextDocumentFragmentC1ERKS_(
   return new QTextDocumentFragment(*rhs);
 }
 
+//  QTextDocumentFragment &QTextDocumentFragment::operator=(const
+//      QTextDocumentFragment &rhs)
+extern "C" Q_DECL_EXPORT
+QTextDocumentFragment *ritual_ZN21QTextDocumentFragmentaSERKS_(
+    QTextDocumentFragment *self,
+    const QTextDocumentFragment *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QTextDocumentFragment::~QTextDocumentFragment()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QTextDocumentFragmentD1Ev(QTextDocumentFragment *self) {

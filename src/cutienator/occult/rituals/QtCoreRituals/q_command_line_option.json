@@ -17,6 +17,13 @@
     ],
     "ritual_ZN18QCommandLineOptionC1ERKS_": ["address", "address"],
     "ritual_ZN18QCommandLineOptionD1Ev": ["nothing", "address"],
+    "ritual_ZN18QCommandLineOptionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QCommandLineOptionaSEOS_": ["address", "address", "address"],
+    "ritual_ZN18QCommandLineOption4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QCommandLineOption5namesEv": ["address", "address"],
     "ritual_ZN18QCommandLineOption12setValueNameERK7QString": [
       "nothing", "address", "text"

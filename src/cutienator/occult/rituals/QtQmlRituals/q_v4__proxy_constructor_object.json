@@ -11,6 +11,9 @@
     "ritual_ZNK3QV422ProxyConstructorObject11d_uncheckedEv": [
       "address", "address"
     ],
-    "ritual_ZNK3QV422ProxyConstructorObject1dEv": ["address", "address"]
+    "ritual_ZNK3QV422ProxyConstructorObject1dEv": ["address", "address"],
+    "ritual_ZN3QV422ProxyConstructorObject24virtualCallAsConstructorEPKNS_14FunctionObjectEPKNS_5ValueEiS6_": [
+      "unsigned long long", "address", "address", "int", "address"
+    ]
   }
 }

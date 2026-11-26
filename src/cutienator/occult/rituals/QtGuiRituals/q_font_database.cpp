@@ -6,6 +6,15 @@
 #include <QtGui/qfontinfo.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtGui/QFontDatabase>
+#include <QtCore/QString>
+
+//  QList<int> QFontDatabase::standardSizes()
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZN13QFontDatabase13standardSizesEv() {
+  return new QList<int>(QFontDatabase::standardSizes());
+}
 
 #if QT_DEPRECATED_SINCE(6, 0) && !defined(QT_BUILD_GUI_LIB)
 //  QFontDatabase::QFontDatabase()
@@ -14,6 +23,22 @@ QFontDatabase *ritual_ZN13QFontDatabaseC1Ev() {
   return new QFontDatabase();
 }
 #endif  // QT_DEPRECATED_SINCE(6, 0) && !defined(QT_BUILD_GUI_LIB)
+
+//  QList<WritingSystem> QFontDatabase::writingSystems()
+extern "C" Q_DECL_EXPORT
+QList<QFontDatabase::WritingSystem> *ritual_ZN13QFontDatabase14writingSystemsEv() {
+  return new QList<QFontDatabase::WritingSystem>(
+      QFontDatabase::writingSystems());
+}
+
+//  QList<WritingSystem> QFontDatabase::writingSystems(const QString &family)
+extern "C" Q_DECL_EXPORT
+QList<QFontDatabase::WritingSystem> *ritual_ZN13QFontDatabase14writingSystemsERK7QString(
+    const QString *family) {
+  return new QList<QFontDatabase::WritingSystem>(
+      QFontDatabase::writingSystems(
+          *family));
+}
 
 //  QStringList QFontDatabase::families(WritingSystem writingSystem)
 extern "C" Q_DECL_EXPORT
@@ -27,6 +52,24 @@ extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZN13QFontDatabase6stylesERK7QString(
     const QString *family) {
   return new QList<QString>(QFontDatabase::styles(*family));
+}
+
+//  QList<int> QFontDatabase::pointSizes(const QString &family, const QString
+//      &style)
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZN13QFontDatabase10pointSizesERK7QStringS2_(
+    const QString *family,
+    const QString *style) {
+  return new QList<int>(QFontDatabase::pointSizes(*family, *style));
+}
+
+//  QList<int> QFontDatabase::smoothSizes(const QString &family, const
+//      QString &style)
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZN13QFontDatabase11smoothSizesERK7QStringS2_(
+    const QString *family,
+    const QString *style) {
+  return new QList<int>(QFontDatabase::smoothSizes(*family, *style));
 }
 
 //  QString QFontDatabase::styleString(const QFont &font)
@@ -250,5 +293,18 @@ QFont *ritual_ZN13QFontDatabase10systemFontENS_10SystemFontE(
 //  QFontDatabase::~QFontDatabase()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QFontDatabaseD1Ev(QFontDatabase *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of QFontDatabase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFontDatabase__QList_int(QList<int> *self) {
+  delete self;
+}
+
+//  a QList<QFontDatabase::WritingSystem> a ritual of QFontDatabase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFontDatabase__QList_QFontDatabase_WritingSystem(
+    QList<QFontDatabase::WritingSystem> *self) {
   delete self;
 }

@@ -34,6 +34,12 @@ public:
   }
 };
 
+//  QQmlSA::LintPlugin::LintPlugin()
+extern "C" Q_DECL_EXPORT
+QQmlSA::LintPlugin *ritual_ZN6QQmlSA10LintPluginC1Ev() {
+  return new CuteQQmlSA_LintPlugin();
+}
+
 //  QQmlSA::LintPlugin::~LintPlugin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QQmlSA10LintPluginD1Ev(QQmlSA::LintPlugin *self) {

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuick3DRepeater10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DRepeater11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuick3DRepeater11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuick3DRepeater2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,18 @@
     ],
     "ritual_ZN16QQuick3DRepeater22setDelegateModelAccessEN17QQmlDelegateModel19DelegateModelAccessE": [
       "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN16QQuick3DRepeater12modelChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DRepeater15delegateChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DRepeater12countChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DRepeater11objectAddedEiP14QQuick3DObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQuick3DRepeater13objectRemovedEiP14QQuick3DObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQuick3DRepeater26delegateModelAccessChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN16QQuick3DRepeater5clearEv": ["nothing", "address"],
     "ritual_ZN16QQuick3DRepeater10regenerateEv": ["nothing", "address"],

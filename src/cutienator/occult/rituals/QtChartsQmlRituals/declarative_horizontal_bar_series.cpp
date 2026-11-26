@@ -15,6 +15,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A DeclarativeHorizontalBarSeries that Python can take functions over in. Every DeclarativeHorizontalBarSeries
 //  Python makes is one. Each function below asks the Python
@@ -238,6 +240,25 @@ const QMetaObject *ritual_ZNK30DeclarativeHorizontalBarSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeHorizontalBarSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30DeclarativeHorizontalBarSeries11qt_metacastEPKc(
+    DeclarativeHorizontalBarSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeHorizontalBarSeries::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30DeclarativeHorizontalBarSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeHorizontalBarSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeHorizontalBarSeries::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -316,6 +337,14 @@ void ritual_ZN30DeclarativeHorizontalBarSeries13setAxisYRightEP13QAbstractAxis(
   self->setAxisYRight(axis);
 }
 
+//  QQmlListProperty<QObject>
+//      DeclarativeHorizontalBarSeries::seriesChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN30DeclarativeHorizontalBarSeries14seriesChildrenEv(
+    DeclarativeHorizontalBarSeries *self) {
+  return new QQmlListProperty<QObject>(self->seriesChildren());
+}
+
 //  DeclarativeBarSet *DeclarativeHorizontalBarSeries::at(int index)
 extern "C" Q_DECL_EXPORT
 DeclarativeBarSet *ritual_ZN30DeclarativeHorizontalBarSeries2atEi(
@@ -374,6 +403,48 @@ void ritual_ZN30DeclarativeHorizontalBarSeries17componentCompleteEv(
   self->componentComplete();
 }
 
+//  void DeclarativeHorizontalBarSeries::axisXChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30DeclarativeHorizontalBarSeries12axisXChangedEP13QAbstractAxis(
+    DeclarativeHorizontalBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeHorizontalBarSeries::axisYChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30DeclarativeHorizontalBarSeries12axisYChangedEP13QAbstractAxis(
+    DeclarativeHorizontalBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeHorizontalBarSeries::axisXTopChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30DeclarativeHorizontalBarSeries15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeHorizontalBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void DeclarativeHorizontalBarSeries::axisYRightChanged(QAbstractAxis
+//      *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30DeclarativeHorizontalBarSeries17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeHorizontalBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
+}
+
+//  void DeclarativeHorizontalBarSeries::appendSeriesChildren(QQmlListPropert
+//      y<QObject> *list, QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30DeclarativeHorizontalBarSeries20appendSeriesChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  DeclarativeHorizontalBarSeries::appendSeriesChildren(list, element);
+}
+
 //  DeclarativeHorizontalBarSeries as the QQmlParserStatus it is built on
 extern "C" Q_DECL_EXPORT
 QQmlParserStatus *ritual_cast_DeclarativeHorizontalBarSeries_QQmlParserStatus(
@@ -403,6 +474,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN30DeclarativeHorizontalBarSeries17componentCompleteEv(
     DeclarativeHorizontalBarSeries *self) {
   self->DeclarativeHorizontalBarSeries::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of DeclarativeHorizontalBarSeries
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeHorizontalBarSeries__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_bar_chart)

@@ -43,6 +43,12 @@
     "ritual_ZN25QQmlJSMetaPropertyBinding16setScriptBindingEN16QQmlJSMetaMethod21RelativeFunctionIndexEN6QQmlSA17ScriptBindingKindE22ScriptBindingValueType": [
       "nothing", "address", "int", "unsigned int", "unsigned int"
     ],
+    "ritual_ZN25QQmlJSMetaPropertyBinding15setGroupBindingERK14QSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQmlJSMetaPropertyBinding18setAttachedBindingERK14QSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN25QQmlJSMetaPropertyBinding14setBoolLiteralEb": [
       "nothing", "address", "bool"
     ],
@@ -61,6 +67,15 @@
     "ritual_ZN25QQmlJSMetaPropertyBinding16setTranslationIdE11QStringViewi": [
       "nothing", "address", "text", "int"
     ],
+    "ritual_ZN25QQmlJSMetaPropertyBinding9setObjectERK7QStringRK14QSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN25QQmlJSMetaPropertyBinding14setInterceptorERK7QStringRK14QSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN25QQmlJSMetaPropertyBinding14setValueSourceERK7QStringRK14QSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZNK25QQmlJSMetaPropertyBinding9boolValueEv": ["bool", "address"],
     "ritual_ZNK25QQmlJSMetaPropertyBinding11numberValueEv": [
       "double", "address"
@@ -74,6 +89,9 @@
     "ritual_ZNK25QQmlJSMetaPropertyBinding20translationDataValueE7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZNK25QQmlJSMetaPropertyBinding11literalTypeEPK18QQmlJSTypeResolver": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK25QQmlJSMetaPropertyBinding11scriptIndexEv": [
       "int", "address"
     ],
@@ -86,11 +104,26 @@
     "ritual_ZNK25QQmlJSMetaPropertyBinding14objectTypeNameEv": [
       "text", "address"
     ],
+    "ritual_ZNK25QQmlJSMetaPropertyBinding10objectTypeEv": [
+      "address", "address"
+    ],
     "ritual_ZNK25QQmlJSMetaPropertyBinding19interceptorTypeNameEv": [
       "text", "address"
     ],
+    "ritual_ZNK25QQmlJSMetaPropertyBinding15interceptorTypeEv": [
+      "address", "address"
+    ],
     "ritual_ZNK25QQmlJSMetaPropertyBinding19valueSourceTypeNameEv": [
       "text", "address"
+    ],
+    "ritual_ZNK25QQmlJSMetaPropertyBinding15valueSourceTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQmlJSMetaPropertyBinding9groupTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQmlJSMetaPropertyBinding12attachedTypeEv": [
+      "address", "address"
     ],
     "ritual_ZNK25QQmlJSMetaPropertyBinding10hasLiteralEv": [
       "bool", "address"
@@ -117,6 +150,9 @@
     "ritual_list_at_QQmlJSMetaPropertyBinding": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QQmlJSMetaPropertyBinding": ["nothing", "address"]
+    "ritual_list_drop_QQmlJSMetaPropertyBinding": ["nothing", "address"],
+    "ritual_drop_QQmlJSMetaPropertyBinding__QSharedPointer_const_QQmlJSScope": [
+      "nothing", "address"
+    ]
   }
 }

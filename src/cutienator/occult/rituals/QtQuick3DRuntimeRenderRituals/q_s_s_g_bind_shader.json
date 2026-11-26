@@ -8,6 +8,9 @@
     "ritual_ZN14QSSGBindShaderC1ERK10QByteArray": ["address", "address"],
     "ritual_ZN14QSSGBindShaderC1Ev": ["address"],
     "ritual_ZN14QSSGBindShaderC1ERKS_": ["address", "address"],
+    "ritual_ZNK14QSSGBindShader8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QSSGBindShaderD1Ev": ["nothing", "address"]
   }
 }

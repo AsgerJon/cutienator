@@ -339,6 +339,25 @@ const QMetaObject *ritual_ZNK20QSGCompressedTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGCompressedTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QSGCompressedTexture11qt_metacastEPKc(
+    QSGCompressedTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGCompressedTexture::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QSGCompressedTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGCompressedTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGCompressedTexture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QSGCompressedTexture2trEPKcS1_i(

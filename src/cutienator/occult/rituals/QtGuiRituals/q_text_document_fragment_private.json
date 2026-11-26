@@ -5,9 +5,6 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN28QTextDocumentFragmentPrivateC1ERK11QTextCursor": [
-      "address", "address"
-    ],
     "ritual_ZN28QTextDocumentFragmentPrivateD1Ev": ["nothing", "address"]
   }
 }

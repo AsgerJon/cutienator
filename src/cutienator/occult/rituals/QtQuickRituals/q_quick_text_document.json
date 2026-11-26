@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickTextDocument10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickTextDocument11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickTextDocument11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickTextDocument2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,17 @@
     ],
     "ritual_ZNK18QQuickTextDocument6statusEv": ["unsigned char", "address"],
     "ritual_ZNK18QQuickTextDocument11errorStringEv": ["text", "address"],
+    "ritual_ZN18QQuickTextDocument19textDocumentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickTextDocument13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickTextDocument15modifiedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickTextDocument13statusChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickTextDocument18errorStringChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN18QQuickTextDocument6d_funcEv": ["address", "address"],
     "ritual_ZNK18QQuickTextDocument6d_funcEv": ["address", "address"]
   }

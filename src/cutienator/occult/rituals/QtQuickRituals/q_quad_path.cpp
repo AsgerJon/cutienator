@@ -37,6 +37,12 @@ void ritual_ZN9QQuadPath6quadToERK9QVector2DS2_(
   self->quadTo(*control, *to);
 }
 
+//  Element &QQuadPath::elementAt(int i)
+extern "C" Q_DECL_EXPORT
+QQuadPath::Element *ritual_ZN9QQuadPath9elementAtEi(QQuadPath *self, int i) {
+  return &(self->elementAt(i));
+}
+
 //  const Element &QQuadPath::elementAt(int i) const
 extern "C" Q_DECL_EXPORT
 QQuadPath::Element *ritual_ZNK9QQuadPath9elementAtEi(
@@ -146,6 +152,17 @@ void ritual_ZN9QQuadPath16addCurvatureDataEv(QQuadPath *self) {
 extern "C" Q_DECL_EXPORT
 QQuadPath *ritual_ZNK9QQuadPath9flattenedEv(const QQuadPath *self) {
   return new QQuadPath(self->flattened());
+}
+
+//  QQuadPath QQuadPath::dashed(qreal lineWidth, const QList<qreal>
+//      &dashPattern, qreal dashOffset) const
+extern "C" Q_DECL_EXPORT
+QQuadPath *ritual_ZNK9QQuadPath6dashedEdRK5QListIdEd(
+    const QQuadPath *self,
+    qreal lineWidth,
+    const QList<qreal> *dashPattern,
+    qreal dashOffset) {
+  return new QQuadPath(self->dashed(lineWidth, *dashPattern, dashOffset));
 }
 
 //  void QQuadPath::splitElementAt(int index)

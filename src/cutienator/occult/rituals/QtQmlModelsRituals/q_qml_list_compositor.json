@@ -27,6 +27,13 @@
       "int", "address", "int"
     ],
     "ritual_ZN18QQmlListCompositor3endEv": ["address", "address"],
+    "ritual_ZN18QQmlListCompositor10transitionENS_5GroupES0_P5QListIN13QQmlChangeSet6ChangeEES5_": [
+      "nothing", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZN18QQmlListCompositor6insertEPNS_5RangeEPviij": [
+      "address", "address", "address", "address", "int", "int",
+      "unsigned int"
+    ],
     "ritual_ZN18QQmlListCompositor5eraseEPNS_5RangeE": [
       "address", "address", "address"
     ]

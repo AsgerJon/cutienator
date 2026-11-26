@@ -9,11 +9,20 @@
   ],
   "rows": {
     "ritual_ZNK16QBarCategoryAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QBarCategoryAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QBarCategoryAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QBarCategoryAxis2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN16QBarCategoryAxisC1EP7QObject": ["address", "address"],
     "ritual_ZN16QBarCategoryAxisD1Ev": ["nothing", "address"],
+    "ritual_ZN16QBarCategoryAxisC1ER23QBarCategoryAxisPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK16QBarCategoryAxis4typeEv": ["int", "address"],
     "ritual_ZN16QBarCategoryAxis6appendERK5QListI7QStringE": [
       "nothing", "address", "address"
@@ -54,6 +63,22 @@
     "ritual_ZNK16QBarCategoryAxis3maxEv": ["text", "address"],
     "ritual_ZN16QBarCategoryAxis8setRangeERK7QStringS2_": [
       "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN16QBarCategoryAxis17categoriesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QBarCategoryAxis10minChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QBarCategoryAxis10maxChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QBarCategoryAxis20categoryRangeChangedERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN16QBarCategoryAxis12countChangedEv": ["nothing", "address"],
+    "ritual_ZN16QBarCategoryAxis20labelPositionChangedENS_13LabelPositionE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN16QBarCategoryAxis6d_funcEv": ["address", "address"],
     "ritual_ZNK16QBarCategoryAxis6d_funcEv": ["address", "address"],

@@ -5,6 +5,7 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN23QQmlPropertyValueSourceC1Ev": ["address"],
     "ritual_ZN23QQmlPropertyValueSourceD1Ev": ["nothing", "address"],
     "ritual_ZN23QQmlPropertyValueSource9setTargetERK12QQmlProperty": [
       "nothing", "address", "address"

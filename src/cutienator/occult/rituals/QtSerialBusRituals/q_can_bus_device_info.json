@@ -6,7 +6,13 @@
   ],
   "rows": {
     "ritual_ZN17QCanBusDeviceInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN17QCanBusDeviceInfoC1EOS_": ["address", "address"],
     "ritual_ZN17QCanBusDeviceInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCanBusDeviceInfo4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QCanBusDeviceInfoaSERKS_": ["address", "address", "address"],
+    "ritual_ZN17QCanBusDeviceInfoaSEOS_": ["address", "address", "address"],
     "ritual_ZNK17QCanBusDeviceInfo6pluginEv": ["text", "address"],
     "ritual_ZNK17QCanBusDeviceInfo4nameEv": ["text", "address"],
     "ritual_ZNK17QCanBusDeviceInfo11descriptionEv": ["text", "address"],
@@ -17,6 +23,9 @@
       "bool", "address"
     ],
     "ritual_ZNK17QCanBusDeviceInfo9isVirtualEv": ["bool", "address"],
+    "ritual_ZN17QCanBusDeviceInfoC1ER24QCanBusDeviceInfoPrivate": [
+      "address", "address"
+    ],
     "ritual_list_make_QCanBusDeviceInfo": ["address"],
     "ritual_list_add_QCanBusDeviceInfo": ["nothing", "address", "address"],
     "ritual_list_size_QCanBusDeviceInfo": ["long long", "address"],

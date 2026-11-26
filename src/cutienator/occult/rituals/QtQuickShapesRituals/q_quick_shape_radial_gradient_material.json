@@ -5,6 +5,9 @@
     ", Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN33QQuickShapeRadialGradientMaterialC1EP32QQuickShapeGenericStrokeFillNode": [
+      "address", "address"
+    ],
     "ritual_ZNK33QQuickShapeRadialGradientMaterial4typeEv": [
       "address", "address"
     ],

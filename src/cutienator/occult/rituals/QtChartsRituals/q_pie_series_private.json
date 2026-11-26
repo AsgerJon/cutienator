@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QPieSeriesPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QPieSeriesPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QPieSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QPieSeriesPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,9 @@
     "ritual_ZN17QPieSeriesPrivate14initializeAxesEv": ["nothing", "address"],
     "ritual_ZN17QPieSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPieSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve": [
+      "nothing", "address", "int", "int", "address"
     ],
     "ritual_ZN17QPieSeriesPrivate15initializeThemeEiP10ChartThemeb": [
       "nothing", "address", "int", "address", "bool"
@@ -38,6 +47,22 @@
     ],
     "ritual_ZN17QPieSeriesPrivate10fromSeriesEP10QPieSeries": [
       "address", "address"
+    ],
+    "ritual_ZN17QPieSeriesPrivate21calculatedDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QPieSeriesPrivate14pieSizeChangedEv": ["nothing", "address"],
+    "ritual_ZN17QPieSeriesPrivate20pieStartAngleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QPieSeriesPrivate18pieEndAngleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QPieSeriesPrivate25horizontalPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QPieSeriesPrivate23verticalPositionChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN17QPieSeriesPrivate17sliceValueChangedEv": [
       "nothing", "address"

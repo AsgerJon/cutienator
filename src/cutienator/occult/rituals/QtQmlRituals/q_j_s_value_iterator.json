@@ -10,6 +10,9 @@
     "ritual_ZN16QJSValueIterator4nextEv": ["bool", "address"],
     "ritual_ZNK16QJSValueIterator4nameEv": ["text", "address"],
     "ritual_ZNK16QJSValueIterator5valueEv": ["address", "address"],
+    "ritual_ZN16QJSValueIteratoraSER8QJSValue": [
+      "address", "address", "address"
+    ],
     "ritual_ZN16QJSValueIterator6d_funcEv": ["address", "address"],
     "ritual_ZNK16QJSValueIterator6d_funcEv": ["address", "address"]
   }

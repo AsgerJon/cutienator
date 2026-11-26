@@ -8,16 +8,28 @@
     "ritual_ZNK21QGStreamerVideoSource10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QGStreamerVideoSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QGStreamerVideoSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QGStreamerVideoSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN21QGStreamerVideoSourceC1ERK7QStringP7QObject": [
       "address", "text", "address"
     ],
+    "ritual_ZN21QGStreamerVideoSourceC1EP11_GstElementP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QGStreamerVideoSourceD1Ev": ["nothing", "address"],
     "ritual_ZNK21QGStreamerVideoSource8isActiveEv": ["bool", "address"],
     "ritual_ZNK21QGStreamerVideoSource17gstBinDescriptionEv": [
       "text", "address"
+    ],
+    "ritual_ZNK21QGStreamerVideoSource10gstElementEv": [
+      "address", "address"
     ],
     "ritual_ZNK21QGStreamerVideoSource14captureSessionEv": [
       "address", "address"
@@ -27,7 +39,13 @@
     ],
     "ritual_ZN21QGStreamerVideoSource5startEv": ["nothing", "address"],
     "ritual_ZN21QGStreamerVideoSource4stopEv": ["nothing", "address"],
+    "ritual_ZN21QGStreamerVideoSource13activeChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN21QGStreamerVideoSourceC1EP7QObject": ["address", "address"],
+    "ritual_ZNK21QGStreamerVideoSource19platformVideoSourceEv": [
+      "address", "address"
+    ],
     "ritual_ZN21QGStreamerVideoSource17setCaptureSessionEP20QMediaCaptureSession": [
       "nothing", "address", "address"
     ],

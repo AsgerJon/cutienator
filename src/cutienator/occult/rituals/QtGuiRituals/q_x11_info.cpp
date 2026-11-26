@@ -84,6 +84,18 @@ void ritual_ZN8QX11Info16setNextStartupIdERK10QByteArray(
   QX11Info::setNextStartupId(*id);
 }
 
+//  Display *QX11Info::display()
+extern "C" Q_DECL_EXPORT
+Display *ritual_ZN8QX11Info7displayEv() {
+  return QX11Info::display();
+}
+
+//  xcb_connection_t *QX11Info::connection()
+extern "C" Q_DECL_EXPORT
+xcb_connection_t *ritual_ZN8QX11Info10connectionEv() {
+  return QX11Info::connection();
+}
+
 //  bool QX11Info::isCompositingManagerRunning(int screen)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN8QX11Info27isCompositingManagerRunningEi(int screen) {
@@ -100,6 +112,21 @@ qint32 ritual_ZN8QX11Info16generatePeekerIdEv() {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN8QX11Info14removePeekerIdEi(qint32 peekerId) {
   return QX11Info::removePeekerId(peekerId);
+}
+
+//  bool QX11Info::peekEventQueue(PeekerCallback peeker, void *peekerData,
+//      PeekOptions option, qint32 peekerId)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QX11Info14peekEventQueueEPFbP19xcb_generic_event_tPvES2_6QFlagsINS_10PeekOptionEEi(
+    void *peeker,
+    void *peekerData,
+    int option,
+    qint32 peekerId) {
+  return QX11Info::peekEventQueue(
+      reinterpret_cast<QX11Info::PeekerCallback>(peeker),
+      peekerData,
+      QFlags<QX11Info::PeekOption>::fromInt(option),
+      peekerId);
 }
 
 //  QX11Info::QX11Info()

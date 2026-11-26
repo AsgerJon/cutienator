@@ -13,6 +13,11 @@
     "ritual_ZN10QByteArrayC1E14QByteArrayView": ["address", "address"],
     "ritual_ZN10QByteArrayC1ERKS_": ["address", "address"],
     "ritual_ZN10QByteArrayD1Ev": ["nothing", "address"],
+    "ritual_ZN10QByteArrayaSERKS_": ["address", "address", "address"],
+    "ritual_ZN10QByteArrayaSEPKc": ["address", "address", "chars"],
+    "ritual_ZN10QByteArrayC1EOS_": ["address", "address"],
+    "ritual_ZN10QByteArrayaSEOS_": ["address", "address", "address"],
+    "ritual_ZN10QByteArray4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK10QByteArray7isEmptyEv": ["bool", "address"],
     "ritual_ZN10QByteArray6resizeEx": ["nothing", "address", "long long"],
     "ritual_ZN10QByteArray6resizeExc": [
@@ -21,10 +26,18 @@
     "ritual_ZN10QByteArray18resizeForOverwriteEx": [
       "nothing", "address", "long long"
     ],
+    "ritual_ZN10QByteArray4fillEcx": [
+      "address", "address", "char", "long long"
+    ],
     "ritual_ZNK10QByteArray8capacityEv": ["long long", "address"],
     "ritual_ZN10QByteArray7reserveEx": ["nothing", "address", "long long"],
     "ritual_ZN10QByteArray7squeezeEv": ["nothing", "address"],
     "ritual_ZNK10QByteArraycvPKcEv": ["chars", "address"],
+    "ritual_ZNK10QByteArraycvPKvEv": ["address", "address"],
+    "ritual_ZNK10QByteArraycvSt17basic_string_viewIcSt11char_traitsIcEEEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QByteArray4dataEv": ["address", "address"],
     "ritual_ZNK10QByteArray4dataEv": ["chars", "address"],
     "ritual_ZNK10QByteArray9constDataEv": ["chars", "address"],
     "ritual_ZN10QByteArray6detachEv": ["nothing", "address"],
@@ -35,8 +48,11 @@
     "ritual_ZN10QByteArray5clearEv": ["nothing", "address"],
     "ritual_ZNK10QByteArray2atEx": ["char", "address", "long long"],
     "ritual_ZNK10QByteArrayixEx": ["char", "address", "long long"],
+    "ritual_ZN10QByteArrayixEx": ["address", "address", "long long"],
     "ritual_ZNK10QByteArray5frontEv": ["char", "address"],
+    "ritual_ZN10QByteArray5frontEv": ["address", "address"],
     "ritual_ZNK10QByteArray4backEv": ["char", "address"],
+    "ritual_ZN10QByteArray4backEv": ["address", "address"],
     "ritual_ZNK10QByteArray7indexOfEcx": [
       "long long", "address", "char", "long long"
     ],
@@ -91,6 +107,10 @@
     "ritual_ZNK10QByteArray11isValidUtf8Ev": ["bool", "address"],
     "ritual_ZN10QByteArray8truncateEx": ["nothing", "address", "long long"],
     "ritual_ZN10QByteArray4chopEx": ["nothing", "address", "long long"],
+    "ritual_ZN10QByteArray5sliceEx": ["address", "address", "long long"],
+    "ritual_ZN10QByteArray5sliceExx": [
+      "address", "address", "long long", "long long"
+    ],
     "ritual_ZNKR10QByteArray7toLowerEv": ["address", "address"],
     "ritual_ZNKR10QByteArray7toUpperEv": ["address", "address"],
     "ritual_ZNKR10QByteArray7trimmedEv": ["address", "address"],
@@ -100,6 +120,78 @@
     ],
     "ritual_ZNK10QByteArray14rightJustifiedExcb": [
       "address", "address", "long long", "char", "bool"
+    ],
+    "ritual_ZN10QByteArray7prependEc": ["address", "address", "char"],
+    "ritual_ZN10QByteArray7prependExc": [
+      "address", "address", "long long", "char"
+    ],
+    "ritual_ZN10QByteArray7prependEPKc": ["address", "address", "chars"],
+    "ritual_ZN10QByteArray7prependEPKcx": [
+      "address", "address", "chars", "long long"
+    ],
+    "ritual_ZN10QByteArray7prependERKS_": ["address", "address", "address"],
+    "ritual_ZN10QByteArray7prependE14QByteArrayView": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QByteArray6appendEc": ["address", "address", "char"],
+    "ritual_ZN10QByteArray6appendExc": [
+      "address", "address", "long long", "char"
+    ],
+    "ritual_ZN10QByteArray6appendEPKc": ["address", "address", "chars"],
+    "ritual_ZN10QByteArray6appendEPKcx": [
+      "address", "address", "chars", "long long"
+    ],
+    "ritual_ZN10QByteArray6appendERKS_": ["address", "address", "address"],
+    "ritual_ZN10QByteArray6appendE14QByteArrayView": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QByteArray6assignE14QByteArrayView": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QByteArray6assignExc": [
+      "address", "address", "long long", "char"
+    ],
+    "ritual_ZN10QByteArray6insertEx14QByteArrayView": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN10QByteArray6insertExPKc": [
+      "address", "address", "long long", "chars"
+    ],
+    "ritual_ZN10QByteArray6insertExRKS_": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN10QByteArray6insertExxc": [
+      "address", "address", "long long", "long long", "char"
+    ],
+    "ritual_ZN10QByteArray6insertExc": [
+      "address", "address", "long long", "char"
+    ],
+    "ritual_ZN10QByteArray6insertExPKcx": [
+      "address", "address", "long long", "chars", "long long"
+    ],
+    "ritual_ZN10QByteArray6removeExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN10QByteArray8removeAtEx": ["address", "address", "long long"],
+    "ritual_ZN10QByteArray11removeFirstEv": ["address", "address"],
+    "ritual_ZN10QByteArray10removeLastEv": ["address", "address"],
+    "ritual_ZN10QByteArray7replaceExxPKcx": [
+      "address", "address", "long long", "long long", "chars", "long long"
+    ],
+    "ritual_ZN10QByteArray7replaceExx14QByteArrayView": [
+      "address", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZN10QByteArray7replaceEc14QByteArrayView": [
+      "address", "address", "char", "address"
+    ],
+    "ritual_ZN10QByteArray7replaceEPKcxS1_x": [
+      "address", "address", "chars", "long long", "chars", "long long"
+    ],
+    "ritual_ZN10QByteArray7replaceE14QByteArrayViewS0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QByteArray7replaceEcc": [
+      "address", "address", "char", "char"
     ],
     "ritual_ZN10QByteArraypLEc": ["nothing", "address", "char"],
     "ritual_ZN10QByteArraypLEPKc": ["nothing", "address", "chars"],
@@ -143,6 +235,35 @@
     "ritual_ZNKR10QByteArray14percentDecodedEc": [
       "address", "address", "char"
     ],
+    "ritual_ZN10QByteArray6setNumEsi": [
+      "address", "address", "short", "int"
+    ],
+    "ritual_ZN10QByteArray6setNumEti": [
+      "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN10QByteArray6setNumEii": ["address", "address", "int", "int"],
+    "ritual_ZN10QByteArray6setNumEji": [
+      "address", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN10QByteArray6setNumEli": ["address", "address", "long", "int"],
+    "ritual_ZN10QByteArray6setNumEmi": [
+      "address", "address", "unsigned long", "int"
+    ],
+    "ritual_ZN10QByteArray6setNumExi": [
+      "address", "address", "long long", "int"
+    ],
+    "ritual_ZN10QByteArray6setNumEyi": [
+      "address", "address", "unsigned long long", "int"
+    ],
+    "ritual_ZN10QByteArray6setNumEfci": [
+      "address", "address", "float", "char", "int"
+    ],
+    "ritual_ZN10QByteArray6setNumEdci": [
+      "address", "address", "double", "char", "int"
+    ],
+    "ritual_ZN10QByteArray10setRawDataEPKcx": [
+      "address", "address", "chars", "long long"
+    ],
     "ritual_ZN10QByteArray6numberEii": ["address", "int", "int"],
     "ritual_ZN10QByteArray6numberEji": ["address", "unsigned int", "int"],
     "ritual_ZN10QByteArray6numberEli": ["address", "long", "int"],
@@ -155,6 +276,9 @@
     "ritual_ZN10QByteArray11fromRawDataEPKcx": [
       "address", "chars", "long long"
     ],
+    "ritual_ZN10QByteArray18fromBase64EncodingEOS_6QFlagsINS_12Base64OptionEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN10QByteArray18fromBase64EncodingERKS_6QFlagsINS_12Base64OptionEE": [
       "address", "address", "int"
     ],
@@ -165,12 +289,23 @@
     "ritual_ZN10QByteArray19fromPercentEncodingERKS_c": [
       "address", "address", "char"
     ],
+    "ritual_ZN10QByteArray19fromPercentEncodingEOS_c": [
+      "address", "address", "char"
+    ],
+    "ritual_ZN10QByteArray5beginEv": ["address", "address"],
     "ritual_ZNK10QByteArray5beginEv": ["chars", "address"],
     "ritual_ZNK10QByteArray6cbeginEv": ["chars", "address"],
     "ritual_ZNK10QByteArray10constBeginEv": ["chars", "address"],
+    "ritual_ZN10QByteArray3endEv": ["address", "address"],
     "ritual_ZNK10QByteArray3endEv": ["chars", "address"],
     "ritual_ZNK10QByteArray4cendEv": ["chars", "address"],
     "ritual_ZNK10QByteArray8constEndEv": ["chars", "address"],
+    "ritual_ZN10QByteArray6rbeginEv": ["address", "address"],
+    "ritual_ZN10QByteArray4rendEv": ["address", "address"],
+    "ritual_ZNK10QByteArray6rbeginEv": ["address", "address"],
+    "ritual_ZNK10QByteArray4rendEv": ["address", "address"],
+    "ritual_ZNK10QByteArray7crbeginEv": ["address", "address"],
+    "ritual_ZNK10QByteArray5crendEv": ["address", "address"],
     "ritual_ZN10QByteArray9push_backEc": ["nothing", "address", "char"],
     "ritual_ZN10QByteArray9push_backEPKc": ["nothing", "address", "chars"],
     "ritual_ZN10QByteArray9push_backERKS_": [
@@ -188,13 +323,30 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN10QByteArray13shrink_to_fitEv": ["nothing", "address"],
+    "ritual_ZN10QByteArray5eraseEPKcS1_": [
+      "address", "address", "chars", "chars"
+    ],
+    "ritual_ZN10QByteArray5eraseEPKc": ["address", "address", "chars"],
     "ritual_ZNK10QByteArray8max_sizeEv": ["long long", "address"],
+    "ritual_ZN10QByteArray13fromStdStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QByteArray11toStdStringB5cxx11Ev": ["address", "address"],
     "ritual_ZN10QByteArray7maxSizeEv": ["long long"],
     "ritual_ZNK10QByteArray4sizeEv": ["long long", "address"],
     "ritual_ZNK10QByteArray5countEv": ["long long", "address"],
     "ritual_ZNK10QByteArray6lengthEv": ["long long", "address"],
     "ritual_ZNK10QByteArray6isNullEv": ["bool", "address"],
+    "ritual_ZNK10QByteArray8data_ptrEv": ["address", "address"],
+    "ritual_ZN10QByteArray8data_ptrEv": ["address", "address"],
+    "ritual_ZN10QByteArrayC1ERK17QArrayDataPointerIcE": [
+      "address", "address"
+    ],
+    "ritual_ZN10QByteArrayC1EO17QArrayDataPointerIcE": [
+      "address", "address"
+    ],
     "ritual_ZNKR10QByteArray14nullTerminatedEv": ["address", "address"],
+    "ritual_ZN10QByteArray13nullTerminateEv": ["address", "address"],
     "ritual_ZeqRK10QByteArrayS1_": ["bool", "address", "address"],
     "ritual_ZneRK10QByteArrayS1_": ["bool", "address", "address"],
     "ritual_ZltRK10QByteArrayS1_": ["bool", "address", "address"],
@@ -213,6 +365,30 @@
     "ritual_ZgtRKcRK10QByteArray": ["bool", "char", "address"],
     "ritual_ZleRKcRK10QByteArray": ["bool", "char", "address"],
     "ritual_ZgeRKcRK10QByteArray": ["bool", "char", "address"],
+    "ritual_ZeqRK10QByteArrayRKPKc": ["bool", "address", "address"],
+    "ritual_ZneRK10QByteArrayRKPKc": ["bool", "address", "address"],
+    "ritual_ZltRK10QByteArrayRKPKc": ["bool", "address", "address"],
+    "ritual_ZgtRK10QByteArrayRKPKc": ["bool", "address", "address"],
+    "ritual_ZleRK10QByteArrayRKPKc": ["bool", "address", "address"],
+    "ritual_ZgeRK10QByteArrayRKPKc": ["bool", "address", "address"],
+    "ritual_ZeqRKPKcRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZneRKPKcRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZltRKPKcRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZgtRKPKcRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZleRKPKcRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZgeRKPKcRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZeqRK10QByteArrayRKDn": ["bool", "address"],
+    "ritual_ZneRK10QByteArrayRKDn": ["bool", "address"],
+    "ritual_ZltRK10QByteArrayRKDn": ["bool", "address"],
+    "ritual_ZgtRK10QByteArrayRKDn": ["bool", "address"],
+    "ritual_ZleRK10QByteArrayRKDn": ["bool", "address"],
+    "ritual_ZgeRK10QByteArrayRKDn": ["bool", "address"],
+    "ritual_ZeqRKDnRK10QByteArray": ["bool", "address"],
+    "ritual_ZneRKDnRK10QByteArray": ["bool", "address"],
+    "ritual_ZltRKDnRK10QByteArray": ["bool", "address"],
+    "ritual_ZgtRKDnRK10QByteArray": ["bool", "address"],
+    "ritual_ZleRKDnRK10QByteArray": ["bool", "address"],
+    "ritual_ZgeRKDnRK10QByteArray": ["bool", "address"],
     "ritual_ZeqRK10QByteArrayRK5QChar": ["bool", "address", "address"],
     "ritual_ZneRK10QByteArrayRK5QChar": ["bool", "address", "address"],
     "ritual_ZltRK10QByteArrayRK5QChar": ["bool", "address", "address"],
@@ -225,6 +401,18 @@
     "ritual_ZgtRK5QCharRK10QByteArray": ["bool", "address", "address"],
     "ritual_ZleRK5QCharRK10QByteArray": ["bool", "address", "address"],
     "ritual_ZgeRK5QCharRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZeqRK10QByteArrayRKDs": ["bool", "address", "unsigned short"],
+    "ritual_ZneRK10QByteArrayRKDs": ["bool", "address", "unsigned short"],
+    "ritual_ZltRK10QByteArrayRKDs": ["bool", "address", "unsigned short"],
+    "ritual_ZgtRK10QByteArrayRKDs": ["bool", "address", "unsigned short"],
+    "ritual_ZleRK10QByteArrayRKDs": ["bool", "address", "unsigned short"],
+    "ritual_ZgeRK10QByteArrayRKDs": ["bool", "address", "unsigned short"],
+    "ritual_ZeqRKDsRK10QByteArray": ["bool", "unsigned short", "address"],
+    "ritual_ZneRKDsRK10QByteArray": ["bool", "unsigned short", "address"],
+    "ritual_ZltRKDsRK10QByteArray": ["bool", "unsigned short", "address"],
+    "ritual_ZgtRKDsRK10QByteArray": ["bool", "unsigned short", "address"],
+    "ritual_ZleRKDsRK10QByteArray": ["bool", "unsigned short", "address"],
+    "ritual_ZgeRKDsRK10QByteArray": ["bool", "unsigned short", "address"],
     "ritual_ZN10QByteArray11reallocDataExN10QArrayData16AllocationOptionE": [
       "nothing", "address", "long long", "int"
     ],
@@ -235,10 +423,17 @@
     "ritual_ZNK10QByteArray6verifyExx": [
       "nothing", "address", "long long", "long long"
     ],
+    "ritual_ZN10QByteArray13sliced_helperERS_xx": [
+      "address", "address", "long long", "long long"
+    ],
     "ritual_ZN10QByteArray14toLower_helperERKS_": ["address", "address"],
+    "ritual_ZN10QByteArray14toLower_helperERS_": ["address", "address"],
     "ritual_ZN10QByteArray14toUpper_helperERKS_": ["address", "address"],
+    "ritual_ZN10QByteArray14toUpper_helperERS_": ["address", "address"],
     "ritual_ZN10QByteArray14trimmed_helperERKS_": ["address", "address"],
+    "ritual_ZN10QByteArray14trimmed_helperERS_": ["address", "address"],
     "ritual_ZN10QByteArray17simplified_helperERKS_": ["address", "address"],
+    "ritual_ZN10QByteArray17simplified_helperERS_": ["address", "address"],
     "ritual_list_make_QByteArray": ["address"],
     "ritual_list_add_QByteArray": ["nothing", "address", "address"],
     "ritual_list_size_QByteArray": ["long long", "address"],
@@ -255,6 +450,14 @@
     ],
     "ritual_map_has_QHash_int_QByteArray": ["bool", "address", "int"],
     "ritual_map_get_QHash_int_QByteArray": ["address", "address", "int"],
-    "ritual_map_drop_QHash_int_QByteArray": ["nothing", "address"]
+    "ritual_map_drop_QHash_int_QByteArray": ["nothing", "address"],
+    "ritual_drop_QByteArray__std_string_view": ["nothing", "address"],
+    "ritual_drop_QByteArray__QByteArray_reverse_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QByteArray__QByteArray_const_reverse_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QByteArray__std_string": ["nothing", "address"]
   }
 }

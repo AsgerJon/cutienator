@@ -103,6 +103,15 @@ void ritual_ZN10QSvgSymbolD1Ev(QSvgSymbol *self) {
   delete self;
 }
 
+//  void QSvgSymbol::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSvgSymbol11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgSymbol *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
 //  Type QSvgSymbol::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK10QSvgSymbol4typeEv(const QSvgSymbol *self) {

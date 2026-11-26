@@ -204,6 +204,24 @@ const QMetaObject *ritual_ZNK11QTranslator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTranslator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QTranslator11qt_metacastEPKc(
+    QTranslator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTranslator::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QTranslator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTranslator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTranslator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QTranslator2trEPKcS1_i(
@@ -284,6 +302,30 @@ bool ritual_ZN11QTranslator4loadERK7QLocaleRK7QStringS5_S5_S5_(
     const QString *directory,
     const QString *suffix) {
   return self->load(*locale, *filename, *prefix, *directory, *suffix);
+}
+
+//  bool QTranslator::load(const uchar *data, int len, const QString
+//      &directory)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QTranslator4loadEPKhiRK7QString(
+    QTranslator *self,
+    const uchar *data,
+    int len,
+    const QString *directory) {
+  return self->load(data, len, *directory);
+}
+
+//  QTranslatorPrivate *QTranslator::d_func()
+extern "C" Q_DECL_EXPORT
+QTranslatorPrivate *ritual_ZN11QTranslator6d_funcEv(QTranslator *self) {
+  return self->d_func();
+}
+
+//  const QTranslatorPrivate *QTranslator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTranslatorPrivate *ritual_ZNK11QTranslator6d_funcEv(
+    const QTranslator *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQTranslator, for the function named by

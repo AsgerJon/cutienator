@@ -58,6 +58,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/dbus/qdbusintegrator.cpp, line 1310, as _ZN22QDBusConnectionPrivate8findSlotEP7QObjectRK10QByteArrayR5QListI9QMetaTypeER7QString
 #if !defined(QT_NO_DBUS)
 inline int QDBusConnectionPrivate::findSlot(QObject *obj, const QByteArray &normalizedName,
@@ -88,6 +90,54 @@ inline void QDBusPendingCallPrivate::waitForFinished()
     waitForFinishedCondition.wait(&mutex);
 }
 #endif  // !defined(QT_NO_DBUS)
+
+//  from src/dbus/qdbuspendingcall.cpp, line 158, as _ZN23QDBusPendingCallPrivate12setMetaTypesEiPK9QMetaType
+#if !defined(QT_NO_DBUS)
+inline void QDBusPendingCallPrivate::setMetaTypes(int count, const QMetaType *types)
+{
+    if (count == 0) {
+        expectedReplySignature = ""_L1; // not null
+        return;
+    }
+
+    QByteArray sig;
+    sig.reserve(count + count / 2);
+    for (int i = 0; i < count; ++i) {
+        const char *typeSig = QDBusMetaType::typeToSignature(types[i]);
+        if (Q_UNLIKELY(!typeSig))
+            qFatal("QDBusPendingReply: type %s is not registered with QtDBus", types[i].name());
+        sig += typeSig;
+    }
+
+    expectedReplySignature = QString::fromLatin1(sig);
+}
+#endif  // !defined(QT_NO_DBUS)
+
+//  from src/dbus/qdbuspendingcall.cpp, line 177, as _ZN23QDBusPendingCallPrivate22checkReceivedSignatureEv
+#if !defined(QT_NO_DBUS)
+inline void QDBusPendingCallPrivate::checkReceivedSignature()
+{
+    // MUST BE CALLED WITH A LOCKED MUTEX!
+
+    if (replyMessage.type() == QDBusMessage::InvalidMessage)
+        return;                 // not yet finished - no message to
+                                // validate against
+    if (replyMessage.type() == QDBusMessage::ErrorMessage)
+        return;                 // we don't have to check the signature of an error reply
+
+    if (expectedReplySignature.isNull())
+        return;                 // no signature to validate against
+
+    // can't use startsWith here because a null string doesn't start or end with an empty string
+    if (replyMessage.signature().indexOf(expectedReplySignature) != 0) {
+        const auto errorMsg = "Unexpected reply signature: got \"%1\", expected \"%2\""_L1;
+        replyMessage = QDBusMessage::createError(
+            QDBusError::InvalidSignature,
+            errorMsg.arg(replyMessage.signature(), expectedReplySignature));
+
+    }
+}
+#endif  // !defined(QT_NO_DBUS)
 //  -----------------------------------------------------------------------
 
 //  QDBusPendingCallPrivate::QDBusPendingCallPrivate(const QDBusMessage
@@ -105,6 +155,27 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN23QDBusPendingCallPrivate15waitForFinishedEv(
     QDBusPendingCallPrivate *self) {
   self->waitForFinished();
+}
+#endif  // !defined(QT_NO_DBUS)
+
+#if !defined(QT_NO_DBUS)
+//  void QDBusPendingCallPrivate::setMetaTypes(int count, const QMetaType
+//      *types)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QDBusPendingCallPrivate12setMetaTypesEiPK9QMetaType(
+    QDBusPendingCallPrivate *self,
+    int count,
+    const QMetaType *types) {
+  self->setMetaTypes(count, types);
+}
+#endif  // !defined(QT_NO_DBUS)
+
+#if !defined(QT_NO_DBUS)
+//  void QDBusPendingCallPrivate::checkReceivedSignature()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QDBusPendingCallPrivate22checkReceivedSignatureEv(
+    QDBusPendingCallPrivate *self) {
+  self->checkReceivedSignature();
 }
 #endif  // !defined(QT_NO_DBUS)
 

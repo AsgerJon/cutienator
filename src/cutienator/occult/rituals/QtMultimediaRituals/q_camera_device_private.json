@@ -8,6 +8,9 @@
     "ritual_ZN20QCameraDevicePrivate6handleERK13QCameraDevice": [
       "address", "address"
     ],
+    "ritual_ZN20QCameraDevicePrivate6handleER13QCameraDevice": [
+      "address", "address"
+    ],
     "ritual_ZNK20QCameraDevicePrivateeqERKS_": [
       "bool", "address", "address"
     ],

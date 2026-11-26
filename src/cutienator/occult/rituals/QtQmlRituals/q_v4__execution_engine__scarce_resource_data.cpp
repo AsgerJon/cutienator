@@ -6,11 +6,21 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4engine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
 
 //  QV4::ExecutionEngine::ScarceResourceData::ScarceResourceData()
 extern "C" Q_DECL_EXPORT
 QV4::ExecutionEngine::ScarceResourceData *ritual_ZN3QV415ExecutionEngine18ScarceResourceDataC1Ev() {
   return new QV4::ExecutionEngine::ScarceResourceData();
+}
+
+//  QV4::ExecutionEngine::ScarceResourceData::ScarceResourceData(const
+//      QMetaType type, const void *data)
+extern "C" Q_DECL_EXPORT
+QV4::ExecutionEngine::ScarceResourceData *ritual_ZN3QV415ExecutionEngine18ScarceResourceDataC1E9QMetaTypePKv(
+    const QMetaType *type,
+    const void *data) {
+  return new QV4::ExecutionEngine::ScarceResourceData(*type, data);
 }
 
 //  QV4::ExecutionEngine::ScarceResourceData::~ScarceResourceData()

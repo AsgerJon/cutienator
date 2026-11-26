@@ -27,6 +27,15 @@ void ritual_ZN21QLowEnergyServiceDataD1Ev(QLowEnergyServiceData *self) {
   delete self;
 }
 
+//  QLowEnergyServiceData &QLowEnergyServiceData::operator=(const
+//      QLowEnergyServiceData &other)
+extern "C" Q_DECL_EXPORT
+QLowEnergyServiceData *ritual_ZN21QLowEnergyServiceDataaSERKS_(
+    QLowEnergyServiceData *self,
+    const QLowEnergyServiceData *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool operator==(const QLowEnergyServiceData &a, const
 //      QLowEnergyServiceData &b)
 extern "C" Q_DECL_EXPORT
@@ -132,6 +141,14 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QLowEnergyServiceData7isValidEv(
     const QLowEnergyServiceData *self) {
   return self->isValid();
+}
+
+//  void QLowEnergyServiceData::swap(QLowEnergyServiceData &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QLowEnergyServiceData4swapERS_(
+    QLowEnergyServiceData *self,
+    QLowEnergyServiceData *other) {
+  self->swap(*other);
 }
 
 //  bool QLowEnergyServiceData::equals(const QLowEnergyServiceData &a, const

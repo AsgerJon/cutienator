@@ -8,6 +8,12 @@
     "ritual_ZNK23QSGDefaultRenderContext10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QSGDefaultRenderContext11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QSGDefaultRenderContext11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QSGDefaultRenderContext2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,10 @@
     ],
     "ritual_ZN23QSGDefaultRenderContext11prepareSyncEdP17QRhiCommandBufferRK27QQuickGraphicsConfiguration": [
       "nothing", "address", "double", "address", "address"
+    ],
+    "ritual_ZN23QSGDefaultRenderContext14beginNextFrameEP11QSGRendererRK15QSGRenderTargetPFvPvES7_S5_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
     ],
     "ritual_ZN23QSGDefaultRenderContext15renderNextFrameEP11QSGRenderer": [
       "nothing", "address", "address"
@@ -88,6 +98,12 @@
     "ritual_ZN23QSGDefaultRenderContext24resetGlyphCacheResourcesEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QSGDefaultRenderContext21getDepthStencilBufferERK5QSizei": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN23QSGDefaultRenderContext21addDepthStencilBufferERK14QSharedPointerI21QSGDepthStencilBufferE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QSGDefaultRenderContext": [
       "bool", "address", "chars", "address"
     ],
@@ -137,6 +153,9 @@
     ],
     "ritual_own_ZNK23QSGDefaultRenderContext14maxTextureSizeEv": [
       "int", "address"
+    ],
+    "ritual_drop_QSGDefaultRenderContext__QSharedPointer_QSGDepthStencilBuffer": [
+      "nothing", "address"
     ]
   }
 }

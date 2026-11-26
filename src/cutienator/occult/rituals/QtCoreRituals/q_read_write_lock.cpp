@@ -33,6 +33,18 @@ bool ritual_ZN14QReadWriteLock15tryLockForWriteEi(
   return self->tryLockForWrite(timeout);
 }
 
+//  void *QReadWriteLock::initRecursiveHelper()
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QReadWriteLock19initRecursiveHelperEv() {
+  return QReadWriteLock::initRecursiveHelper();
+}
+
+//  void QReadWriteLock::destroyRecursiveHelper(void *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QReadWriteLock22destroyRecursiveHelperEPv(void *a0) {
+  QReadWriteLock::destroyRecursiveHelper(a0);
+}
+
 //  QReadWriteLockPrivate *QReadWriteLock::initRecursiveInline()
 extern "C" Q_DECL_EXPORT
 QReadWriteLockPrivate *ritual_ZN14QReadWriteLock19initRecursiveInlineEv() {

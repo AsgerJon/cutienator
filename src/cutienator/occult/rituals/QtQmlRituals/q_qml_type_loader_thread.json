@@ -6,11 +6,29 @@
   ],
   "rows": {
     "ritual_ZN20QQmlTypeLoaderThreadD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQmlTypeLoaderThread10loadThreadERK14QQmlRefPointerI12QQmlDataBlobE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlTypeLoaderThread24loadWithStaticDataThreadERK14QQmlRefPointerI12QQmlDataBlobERK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlTypeLoaderThread24loadWithCachedUnitThreadERK14QQmlRefPointerI12QQmlDataBlobEPKN11QQmlPrivate13CachedQmlUnitE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlTypeLoaderThread17callCompletedMainERK14QQmlRefPointerI12QQmlDataBlobE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlTypeLoaderThread31callDownloadProgressChangedMainERK14QQmlRefPointerI12QQmlDataBlobEd": [
+      "nothing", "address", "address", "double"
+    ],
     "ritual_ZN20QQmlTypeLoaderThread23initializeExtensionMainEP22QQmlExtensionInterfacePKc": [
       "nothing", "address", "address", "chars"
     ],
     "ritual_ZN20QQmlTypeLoaderThread29initializeEngineExtensionMainEP28QQmlEngineExtensionInterfacePKc": [
       "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlTypeLoaderThread10dropThreadERK14QQmlRefPointerI12QQmlDataBlobE": [
+      "nothing", "address", "address"
     ]
   }
 }

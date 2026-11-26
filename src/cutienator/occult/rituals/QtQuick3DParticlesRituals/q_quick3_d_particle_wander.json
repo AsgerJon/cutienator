@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuick3DParticleWander10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuick3DParticleWander11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuick3DParticleWander11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuick3DParticleWander2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -67,6 +73,33 @@
     ],
     "ritual_ZN22QQuick3DParticleWander18setFadeOutDurationEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleWander19globalAmountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander17globalPaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander22globalPaceStartChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander19uniqueAmountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander17uniquePaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander28uniqueAmountVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander26uniquePaceVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander21fadeInDurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander22fadeOutDurationChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN22QQuick3DParticleWander14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
       "nothing", "address", "address", "address", "float"

@@ -13,6 +13,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QString>
 
 //  A QWindowsPrinterSupport that Python can take functions over in. Every QWindowsPrinterSupport
 //  Python makes is one. Each function below asks the Python
@@ -136,6 +137,14 @@ QPaintEngine *ritual_ZN22QWindowsPrinterSupport17createPaintEngineEP12QPrintEngi
   return self->createPaintEngine(printEngine, a1);
 }
 
+//  QPrintDevice QWindowsPrinterSupport::createPrintDevice(const QString &id)
+extern "C" Q_DECL_EXPORT
+QPrintDevice *ritual_ZN22QWindowsPrinterSupport17createPrintDeviceERK7QString(
+    QWindowsPrinterSupport *self,
+    const QString *id) {
+  return new QPrintDevice(self->createPrintDevice(*id));
+}
+
 //  QStringList QWindowsPrinterSupport::availablePrintDeviceIds() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK22QWindowsPrinterSupport23availablePrintDeviceIdsEv(
@@ -188,6 +197,12 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_own_ZNK22QWindowsPrinterSupport20defaultPrintDeviceIdEv(
     const QWindowsPrinterSupport *self) {
   return new QString(self->QWindowsPrinterSupport::defaultPrintDeviceId());
+}
+
+//  a QPrintDevice a ritual of QWindowsPrinterSupport gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWindowsPrinterSupport__QPrintDevice(QPrintDevice *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_PRINTER)

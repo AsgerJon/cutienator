@@ -6,7 +6,16 @@
   "rows": {
     "ritual_ZN21QDnsHostAddressRecordC1Ev": ["address"],
     "ritual_ZN21QDnsHostAddressRecordC1ERKS_": ["address", "address"],
+    "ritual_ZN21QDnsHostAddressRecordaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QDnsHostAddressRecordaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QDnsHostAddressRecordD1Ev": ["nothing", "address"],
+    "ritual_ZN21QDnsHostAddressRecord4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QDnsHostAddressRecord4nameEv": ["text", "address"],
     "ritual_ZNK21QDnsHostAddressRecord10timeToLiveEv": [
       "unsigned int", "address"

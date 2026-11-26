@@ -5,6 +5,15 @@
     "made here are lost."
   ],
   "rows": {
-    "ritual_ZN10Qt3DRender19MeshDownloadRequestD1Ev": ["nothing", "address"]
+    "ritual_ZN10Qt3DRender19MeshDownloadRequestC1EN8Qt3DCore7QNodeIdE4QUrlPNS_6Render12NodeManagersE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender19MeshDownloadRequest11onCompletedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender19MeshDownloadRequestD1Ev": ["nothing", "address"],
+    "ritual_own_ZN10Qt3DRender19MeshDownloadRequest11onCompletedEv": [
+      "nothing", "address"
+    ]
   }
 }

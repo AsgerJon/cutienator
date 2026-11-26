@@ -23,6 +23,7 @@ typedef void (*CuteQFutureCallOutEventCall1)(const void *, bool, int *);
 class CuteQFutureCallOutEvent : public QFutureCallOutEvent {
 public:
   using QFutureCallOutEvent::QFutureCallOutEvent;
+  CuteQFutureCallOutEvent(const QFutureCallOutEvent & other) : QFutureCallOutEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -63,6 +64,22 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QFutureCallOutEvent::QFutureCallOutEvent(const QFutureCallOutEvent &a0)
+extern "C" Q_DECL_EXPORT
+QFutureCallOutEvent *ritual_ZN19QFutureCallOutEventC1ERKS_(
+    const QFutureCallOutEvent *a0) {
+  return new CuteQFutureCallOutEvent(*a0);
+}
+
+//  QFutureCallOutEvent &QFutureCallOutEvent::operator=(const
+//      QFutureCallOutEvent &other)
+extern "C" Q_DECL_EXPORT
+QFutureCallOutEvent *ritual_ZN19QFutureCallOutEventaSERKS_(
+    QFutureCallOutEvent *self,
+    const QFutureCallOutEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QFutureCallOutEvent *QFutureCallOutEvent::clone() const
 extern "C" Q_DECL_EXPORT

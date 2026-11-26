@@ -6,15 +6,32 @@
   ],
   "rows": {
     "ritual_ZNK9QUrlModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QUrlModel11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QUrlModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QUrlModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QUrlModel9mimeTypesEv": ["address", "address"],
     "ritual_ZNK9QUrlModel8mimeDataERK5QListI11QModelIndexE": [
       "address", "address", "address"
+    ],
+    "ritual_ZN9QUrlModel7canDropEP15QDragEnterEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QUrlModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
     ],
     "ritual_ZNK9QUrlModel5flagsERK11QModelIndex": [
       "int", "address", "address"
     ],
     "ritual_ZN9QUrlModel7setDataERK11QModelIndexRK8QVarianti": [
       "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QUrlModel7setUrlsERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QUrlModel7addUrlsERK5QListI4QUrlEib": [
+      "nothing", "address", "address", "int", "bool"
     ],
     "ritual_ZNK9QUrlModel4urlsEv": ["address", "address"],
     "ritual_ZN9QUrlModel11dataChangedERK11QModelIndexS2_": [
@@ -26,6 +43,9 @@
     ],
     "ritual_ZN9QUrlModel7changedERK7QString": ["nothing", "address", "text"],
     "ritual_take_QUrlModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QUrlModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
     "ritual_own_ZNK9QUrlModel5flagsERK11QModelIndex": [
       "int", "address", "address"
     ],

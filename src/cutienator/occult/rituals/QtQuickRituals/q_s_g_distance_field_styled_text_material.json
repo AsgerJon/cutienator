@@ -5,8 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN34QSGDistanceFieldStyledTextMaterialC1Ev": ["address"],
     "ritual_ZN34QSGDistanceFieldStyledTextMaterialD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZNK34QSGDistanceFieldStyledTextMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QSGDistanceFieldStyledTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
     ],
     "ritual_ZNK34QSGDistanceFieldStyledTextMaterial7compareEPK11QSGMaterial": [
       "int", "address", "address"

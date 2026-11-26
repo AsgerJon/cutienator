@@ -4,6 +4,7 @@
     "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN25QAccessibleValueInterfaceC1Ev": ["address"],
     "ritual_ZN25QAccessibleValueInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK25QAccessibleValueInterface12currentValueEv": [
       "address", "address"

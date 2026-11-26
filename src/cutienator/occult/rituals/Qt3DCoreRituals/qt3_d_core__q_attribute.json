@@ -5,8 +5,122 @@
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore10QAttribute10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QAttribute11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore10QAttribute2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttributeC1EPNS_5QNodeE": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QAttributeC1EPNS_7QBufferENS0_14VertexBaseTypeEjjjjPNS_5QNodeE": [
+      "address", "address", "int", "unsigned int", "unsigned int",
+      "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QAttributeC1EPNS_7QBufferERK7QStringNS0_14VertexBaseTypeEjjjjPNS_5QNodeE": [
+      "address", "address", "text", "int", "unsigned int", "unsigned int",
+      "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QAttributeD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore10QAttribute6bufferEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore10QAttribute4nameEv": ["text", "address"],
+    "ritual_ZNK8Qt3DCore10QAttribute14vertexBaseTypeEv": ["int", "address"],
+    "ritual_ZNK8Qt3DCore10QAttribute10vertexSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK8Qt3DCore10QAttribute5countEv": ["unsigned int", "address"],
+    "ritual_ZNK8Qt3DCore10QAttribute10byteStrideEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK8Qt3DCore10QAttribute10byteOffsetEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK8Qt3DCore10QAttribute7divisorEv": ["unsigned int", "address"],
+    "ritual_ZNK8Qt3DCore10QAttribute13attributeTypeEv": ["int", "address"],
+    "ritual_ZN8Qt3DCore10QAttribute28defaultPositionAttributeNameEv": [
+      "text"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute26defaultNormalAttributeNameEv": ["text"],
+    "ritual_ZN8Qt3DCore10QAttribute25defaultColorAttributeNameEv": ["text"],
+    "ritual_ZN8Qt3DCore10QAttribute37defaultTextureCoordinateAttributeNameEv": [
+      "text"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute27defaultTangentAttributeNameEv": [
+      "text"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute32defaultJointIndicesAttributeNameEv": [
+      "text"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute32defaultJointWeightsAttributeNameEv": [
+      "text"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute38defaultTextureCoordinate1AttributeNameEv": [
+      "text"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute38defaultTextureCoordinate2AttributeNameEv": [
+      "text"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute9setBufferEPNS_7QBufferE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute17setVertexBaseTypeENS0_14VertexBaseTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute13setVertexSizeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute8setCountEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute13setByteStrideEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute13setByteOffsetEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute10setDivisorEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute16setAttributeTypeENS0_13AttributeTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute13bufferChangedEPNS_7QBufferE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute21vertexBaseTypeChangedENS0_14VertexBaseTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute17vertexSizeChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute15dataTypeChangedENS0_14VertexBaseTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute15dataSizeChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute12countChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute17byteStrideChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute17byteOffsetChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute14divisorChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore10QAttribute20attributeTypeChangedENS0_13AttributeTypeE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN8Qt3DCore10QAttribute6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore10QAttribute6d_funcEv": ["address", "address"],

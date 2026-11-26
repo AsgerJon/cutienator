@@ -8,8 +8,17 @@
     "ritual_ZNK29QWaylandQuickShellEventFilter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QWaylandQuickShellEventFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QWaylandQuickShellEventFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QWaylandQuickShellEventFilter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QWaylandQuickShellEventFilter11startFilterEP14QWaylandClientSt8functionIFvvEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN29QWaylandQuickShellEventFilter12cancelFilterEv": ["nothing"],
     "ritual_ZN29QWaylandQuickShellEventFilter10timerEventEP11QTimerEvent": [

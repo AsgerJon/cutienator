@@ -8,6 +8,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QAbstractAnimation>
 
 //  Only a class built on QSequentialAnimationGroup may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -290,6 +292,25 @@ const QMetaObject *ritual_ZNK25QSequentialAnimationGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSequentialAnimationGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QSequentialAnimationGroup11qt_metacastEPKc(
+    QSequentialAnimationGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSequentialAnimationGroup::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QSequentialAnimationGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSequentialAnimationGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSequentialAnimationGroup::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -339,11 +360,39 @@ QAbstractAnimation *ritual_ZNK25QSequentialAnimationGroup16currentAnimationEv(
   return self->currentAnimation();
 }
 
+//  QBindable<QAbstractAnimation *>
+//      QSequentialAnimationGroup::bindableCurrentAnimation() const
+extern "C" Q_DECL_EXPORT
+QBindable<QAbstractAnimation *> *ritual_ZNK25QSequentialAnimationGroup24bindableCurrentAnimationEv(
+    const QSequentialAnimationGroup *self) {
+  return new QBindable<QAbstractAnimation *>(
+      self->bindableCurrentAnimation());
+}
+
 //  int QSequentialAnimationGroup::duration() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK25QSequentialAnimationGroup8durationEv(
     const QSequentialAnimationGroup *self) {
   return self->duration();
+}
+
+//  void
+//      QSequentialAnimationGroup::currentAnimationChanged(QAbstractAnimation
+//      *current)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSequentialAnimationGroup23currentAnimationChangedEP18QAbstractAnimation(
+    QSequentialAnimationGroup *self,
+    QAbstractAnimation *current) {
+  self->currentAnimationChanged(current);
+}
+
+//  QSequentialAnimationGroup::QSequentialAnimationGroup(QSequentialAnimation
+//      GroupPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSequentialAnimationGroup *ritual_ZN25QSequentialAnimationGroupC1ER32QSequentialAnimationGroupPrivateP7QObject(
+    QSequentialAnimationGroupPrivate *dd,
+    QObject *parent) {
+  return new CuteQSequentialAnimationGroup(*dd, parent);
 }
 
 //  bool QSequentialAnimationGroup::event(QEvent *event)
@@ -453,6 +502,14 @@ void ritual_own_ZN25QSequentialAnimationGroup15updateDirectionEN18QAbstractAnima
     QAbstractAnimation::Direction direction) {
   static_cast<OwnQSequentialAnimationGroup *>(self)->OwnQSequentialAnimationGroup::updateDirection(
       direction);
+}
+
+//  a QBindable<QAbstractAnimation *> a ritual of QSequentialAnimationGroup
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSequentialAnimationGroup__QBindable_QAbstractAnimation(
+    QBindable<QAbstractAnimation *> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(animation)

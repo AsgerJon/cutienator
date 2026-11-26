@@ -8,6 +8,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A QWaylandQuickSurface that Python can take functions over in. Every QWaylandQuickSurface
 //  Python makes is one. Each function below asks the Python
@@ -183,6 +185,25 @@ const QMetaObject *ritual_ZNK20QWaylandQuickSurface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandQuickSurface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QWaylandQuickSurface11qt_metacastEPKc(
+    QWaylandQuickSurface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQuickSurface::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QWaylandQuickSurface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQuickSurface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandQuickSurface::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QWaylandQuickSurface2trEPKcS1_i(
@@ -190,6 +211,60 @@ QString *ritual_ZN20QWaylandQuickSurface2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandQuickSurface::tr(s, c, n));
+}
+
+//  QWaylandQuickSurfacePrivate *QWaylandQuickSurface::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandQuickSurfacePrivate *ritual_ZN20QWaylandQuickSurface6d_funcEv(
+    QWaylandQuickSurface *self) {
+  return self->d_func();
+}
+
+//  const QWaylandQuickSurfacePrivate *QWaylandQuickSurface::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandQuickSurfacePrivate *ritual_ZNK20QWaylandQuickSurface6d_funcEv(
+    const QWaylandQuickSurface *self) {
+  return self->d_func();
+}
+
+//  QQmlListProperty<QObject> QWaylandQuickSurface::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN20QWaylandQuickSurface4dataEv(
+    QWaylandQuickSurface *self) {
+  return new QQmlListProperty<QObject>(self->data());
+}
+
+//  void QWaylandQuickSurface::appendFunction(QQmlListProperty<QObject>
+//      *list, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QWaylandQuickSurface14appendFunctionEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *object) {
+  QWaylandQuickSurface::appendFunction(list, object);
+}
+
+//  qsizetype QWaylandQuickSurface::countFunction(QQmlListProperty<QObject>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN20QWaylandQuickSurface13countFunctionEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  return QWaylandQuickSurface::countFunction(list);
+}
+
+//  QObject *QWaylandQuickSurface::atFunction(QQmlListProperty<QObject>
+//      *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN20QWaylandQuickSurface10atFunctionEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *list,
+    qsizetype index) {
+  return QWaylandQuickSurface::atFunction(list, index);
+}
+
+//  void QWaylandQuickSurface::clearFunction(QQmlListProperty<QObject> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QWaylandQuickSurface13clearFunctionEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  QWaylandQuickSurface::clearFunction(list);
 }
 
 //  QWaylandQuickSurface::QWaylandQuickSurface()
@@ -230,6 +305,21 @@ void ritual_ZN20QWaylandQuickSurface18setUseTextureAlphaEb(
   self->setUseTextureAlpha(useTextureAlpha);
 }
 
+//  QWaylandQuickSurface::QWaylandQuickSurface(QWaylandQuickSurfacePrivate
+//      &dptr)
+extern "C" Q_DECL_EXPORT
+QWaylandQuickSurface *ritual_ZN20QWaylandQuickSurfaceC1ER27QWaylandQuickSurfacePrivate(
+    QWaylandQuickSurfacePrivate *dptr) {
+  return new CuteQWaylandQuickSurface(*dptr);
+}
+
+//  void QWaylandQuickSurface::useTextureAlphaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QWaylandQuickSurface22useTextureAlphaChangedEv(
+    QWaylandQuickSurface *self) {
+  self->useTextureAlphaChanged();
+}
+
 //  a Python function taken by a CuteQWaylandQuickSurface, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -238,6 +328,13 @@ bool ritual_take_QWaylandQuickSurface(
     const char *key,
     void *call) {
   return static_cast<CuteQWaylandQuickSurface *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QWaylandQuickSurface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWaylandQuickSurface__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(wayland_compositor_quick)

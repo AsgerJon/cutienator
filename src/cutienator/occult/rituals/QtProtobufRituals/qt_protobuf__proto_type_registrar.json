@@ -5,6 +5,9 @@
     "are lost."
   ],
   "rows": {
+    "ritual_ZN10QtProtobuf18ProtoTypeRegistrarC1EPFvvE": [
+      "address", "address"
+    ],
     "ritual_ZN10QtProtobuf18ProtoTypeRegistrarD1Ev": ["nothing", "address"]
   }
 }

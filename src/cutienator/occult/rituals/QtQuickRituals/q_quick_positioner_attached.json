@@ -8,10 +8,27 @@
     "ritual_ZNK24QQuickPositionerAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickPositionerAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickPositionerAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK24QQuickPositionerAttached5indexEv": ["int", "address"],
     "ritual_ZNK24QQuickPositionerAttached11isFirstItemEv": [
       "bool", "address"
     ],
-    "ritual_ZNK24QQuickPositionerAttached10isLastItemEv": ["bool", "address"]
+    "ritual_ZNK24QQuickPositionerAttached10isLastItemEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickPositionerAttached12indexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickPositionerAttached18isFirstItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickPositionerAttached17isLastItemChangedEv": [
+      "nothing", "address"
+    ]
   }
 }

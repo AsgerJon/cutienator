@@ -60,6 +60,27 @@
 #  include <QtWidgets/qscroller.h>
 #endif
 #include <algorithm>
+#include <QtWidgets/qtableview.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtWidgets/qabstractitemdelegate.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtCore/qsize.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qbitarray.h>
+#include <QtWidgets/qscrollbar.h>
+#if QT_CONFIG(abstractbutton)
+#include <QtWidgets/qabstractbutton.h>
+#endif
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qtableview_p.h>
+#include <QtWidgets/private/qheaderview_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
+#if QT_CONFIG(accessibility)
+#include <QtGui/qaccessible.h>
+#endif
+#include <algorithm>
 #include <QtWidgets/qabstractscrollarea.h>
 #if QT_CONFIG(scrollarea)
 #include <QtWidgets/qscrollbar.h>
@@ -85,27 +106,6 @@
 #  include <QtCore/qt_windows.h>
 #endif
 #endif
-#include <QtWidgets/qtableview.h>
-#include <QtWidgets/qheaderview.h>
-#include <QtWidgets/qabstractitemdelegate.h>
-#include <QtWidgets/qapplication.h>
-#include <QtGui/qpainter.h>
-#include <QtWidgets/qstyle.h>
-#include <QtCore/qsize.h>
-#include <QtGui/qevent.h>
-#include <QtCore/qbitarray.h>
-#include <QtWidgets/qscrollbar.h>
-#if QT_CONFIG(abstractbutton)
-#include <QtWidgets/qabstractbutton.h>
-#endif
-#include <QtWidgets/private/qapplication_p.h>
-#include <QtWidgets/private/qtableview_p.h>
-#include <QtWidgets/private/qheaderview_p.h>
-#include <QtWidgets/private/qscrollbar_p.h>
-#if QT_CONFIG(accessibility)
-#include <QtGui/qaccessible.h>
-#endif
-#include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -114,6 +114,36 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/itemviews/qtableview.cpp, line 554, as local:qtableview.cpp:QTableCornerButton
+#if QT_CONFIG(abstractbutton)
+class QTableCornerButton : public QAbstractButton
+{
+    Q_OBJECT
+public:
+    QTableCornerButton(QWidget *parent) : QAbstractButton(parent) {
+        setObjectName(QLatin1String("qt_tableview_cornerbutton"));
+    }
+    void paintEvent(QPaintEvent*) override {
+        QStyleOptionHeader opt;
+        opt.initFrom(this);
+        QStyle::State state = QStyle::State_None;
+        if (isEnabled())
+            state |= QStyle::State_Enabled;
+        if (isActiveWindow())
+            state |= QStyle::State_Active;
+        if (isDown())
+            state |= QStyle::State_Sunken;
+        opt.state = state;
+        opt.rect = rect();
+        opt.position = QStyleOptionHeader::OnlyOneSection;
+        QPainter painter(this);
+        style()->drawControl(QStyle::CE_Header, &opt, &painter, this);
+    }
+};
+#endif  // QT_CONFIG(abstractbutton)
 
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 3594, as _ZN24QAbstractItemViewPrivate11rowsRemovedERK11QModelIndexii
 inline void QAbstractItemViewPrivate::rowsRemoved(const QModelIndex &index, int start, int end)
@@ -352,6 +382,53 @@ inline QAbstractItemViewPrivate::QAbstractItemViewPrivate()
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 96, as _ZN24QAbstractItemViewPrivateD2Ev
 inline QAbstractItemViewPrivate::~QAbstractItemViewPrivate()
 {
+}
+
+//  from src/widgets/itemviews/qtableview.cpp, line 661, as _ZNK17QTableViewPrivate15intersectedRectE5QRectRK11QModelIndexS3_
+inline QRect QTableViewPrivate::intersectedRect(const QRect rect, const QModelIndex &topLeft, const QModelIndex &bottomRight) const
+{
+    Q_Q(const QTableView);
+
+    using minMaxPair = std::pair<int, int>;
+    const auto calcMinMax = [q](QHeaderView *hdr, int startIdx, int endIdx, minMaxPair bounds) -> minMaxPair
+    {
+        minMaxPair ret(std::numeric_limits<int>::max(), std::numeric_limits<int>::min());
+        if (hdr->sectionsMoved()) {
+            for (int i = startIdx; i <= endIdx; ++i) {
+                const int start = hdr->sectionViewportPosition(i);
+                const int end = start + hdr->sectionSize(i);
+                ret.first = std::min(start, ret.first);
+                ret.second = std::max(end, ret.second);
+                if (ret.first <= bounds.first && ret.second >= bounds.second)
+                    break;
+            }
+        } else {
+            if (q->isRightToLeft() && q->horizontalHeader() == hdr)
+                std::swap(startIdx, endIdx);
+            ret.first = hdr->sectionViewportPosition(startIdx);
+            ret.second = hdr->sectionViewportPosition(endIdx) +
+                         hdr->sectionSize(endIdx);
+        }
+        return ret;
+    };
+
+    const auto yVals = calcMinMax(verticalHeader, topLeft.row(), bottomRight.row(),
+                                  minMaxPair(rect.top(), rect.bottom()));
+    if (yVals.first == yVals.second) // all affected rows are hidden
+        return QRect();
+
+    // short circuit: check if no row is inside rect
+    const QRect colRect(QPoint(rect.left(), yVals.first),
+                        QPoint(rect.right(), yVals.second));
+    const QRect intersected = rect.intersected(colRect);
+    if (intersected.isNull())
+        return QRect();
+
+    const auto xVals = calcMinMax(horizontalHeader, topLeft.column(), bottomRight.column(),
+                                  minMaxPair(rect.left(), rect.right()));
+    const QRect updateRect(QPoint(xVals.first, yVals.first),
+                           QPoint(xVals.second, yVals.second));
+    return rect.intersected(updateRect);
 }
 
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 4699, as _ZNK24QAbstractItemViewPrivate19draggablePaintPairsERK5QListI11QModelIndexEP5QRect
@@ -912,53 +989,6 @@ inline void QTableViewPrivate::trimHiddenSelections(QItemSelectionRange *range) 
     *range = QItemSelectionRange(topLeft, bottomRight);
 }
 
-//  from src/widgets/itemviews/qtableview.cpp, line 661, as _ZNK17QTableViewPrivate15intersectedRectE5QRectRK11QModelIndexS3_
-inline QRect QTableViewPrivate::intersectedRect(const QRect rect, const QModelIndex &topLeft, const QModelIndex &bottomRight) const
-{
-    Q_Q(const QTableView);
-
-    using minMaxPair = std::pair<int, int>;
-    const auto calcMinMax = [q](QHeaderView *hdr, int startIdx, int endIdx, minMaxPair bounds) -> minMaxPair
-    {
-        minMaxPair ret(std::numeric_limits<int>::max(), std::numeric_limits<int>::min());
-        if (hdr->sectionsMoved()) {
-            for (int i = startIdx; i <= endIdx; ++i) {
-                const int start = hdr->sectionViewportPosition(i);
-                const int end = start + hdr->sectionSize(i);
-                ret.first = std::min(start, ret.first);
-                ret.second = std::max(end, ret.second);
-                if (ret.first <= bounds.first && ret.second >= bounds.second)
-                    break;
-            }
-        } else {
-            if (q->isRightToLeft() && q->horizontalHeader() == hdr)
-                std::swap(startIdx, endIdx);
-            ret.first = hdr->sectionViewportPosition(startIdx);
-            ret.second = hdr->sectionViewportPosition(endIdx) +
-                         hdr->sectionSize(endIdx);
-        }
-        return ret;
-    };
-
-    const auto yVals = calcMinMax(verticalHeader, topLeft.row(), bottomRight.row(),
-                                  minMaxPair(rect.top(), rect.bottom()));
-    if (yVals.first == yVals.second) // all affected rows are hidden
-        return QRect();
-
-    // short circuit: check if no row is inside rect
-    const QRect colRect(QPoint(rect.left(), yVals.first),
-                        QPoint(rect.right(), yVals.second));
-    const QRect intersected = rect.intersected(colRect);
-    if (intersected.isNull())
-        return QRect();
-
-    const auto xVals = calcMinMax(horizontalHeader, topLeft.column(), bottomRight.column(),
-                                  minMaxPair(rect.left(), rect.right()));
-    const QRect updateRect(QPoint(xVals.first, yVals.first),
-                           QPoint(xVals.second, yVals.second));
-    return rect.intersected(updateRect);
-}
-
 //  from src/widgets/itemviews/qtableview.cpp, line 1028, as _ZNK17QTableViewPrivate16viewItemPositionERK11QModelIndex
 inline QStyleOptionViewItem::ViewItemPosition QTableViewPrivate::viewItemPosition(
         const QModelIndex &index) const
@@ -1161,6 +1191,45 @@ inline int QTableViewPrivate::widthHintForIndex(const QModelIndex &index, int hi
         }
         hint = std::max(hint, oldHint);
     }
+    return hint;
+}
+
+//  from src/widgets/itemviews/qtableview.cpp, line 1117, as _ZNK17QTableViewPrivate18heightHintForIndexERK11QModelIndexiR20QStyleOptionViewItem
+inline int QTableViewPrivate::heightHintForIndex(const QModelIndex &index, int hint, QStyleOptionViewItem &option) const
+{
+    Q_Q(const QTableView);
+    QWidget *editor = editorForIndex(index).widget.data();
+    if (editor && persistent.contains(editor)) {
+        hint = qMax(hint, editor->sizeHint().height());
+        int min = editor->minimumSize().height();
+        int max = editor->maximumSize().height();
+        hint = qBound(min, hint, max);
+    }
+
+    if (wrapItemText) {// for wrapping boundaries
+        option.rect.setY(q->rowViewportPosition(index.row()));
+        int height = q->rowHeight(index.row());
+        // if the option.height == 0 then q->itemDelegateForIndex(index)->sizeHint(option, index) will be wrong.
+        // The option.height == 0 is used to conclude that the text is not wrapped, and hence it will
+        // (exactly like widthHintForIndex) return a QSize with a long width (that we don't use) -
+        // and the height of the text if it was/is on one line.
+        // What we want is a height hint for the current width (and we know that this section is not hidden)
+        // Therefore we catch this special situation with:
+        if (height == 0)
+            height = 1;
+        option.rect.setHeight(height);
+        option.rect.setX(q->columnViewportPosition(index.column()));
+        option.rect.setWidth(q->columnWidth(index.column()));
+        if (hasSpans()) {
+            auto span = spans.spanAt(index.column(), index.row());
+            if (span && span->m_left == index.column() && span->m_top == index.row())
+                option.rect.setWidth(std::max(option.rect.width(), visualSpanRect(*span).width()));
+        }
+        // 1px less space when grid is shown (see drawCell)
+        if (showGrid)
+            option.rect.setWidth(option.rect.width() - 1);
+    }
+    hint = qMax(hint, q->itemDelegateForIndex(index)->sizeHint(option, index).height());
     return hint;
 }
 
@@ -2354,6 +2423,17 @@ int ritual_ZNK17QTableViewPrivate17widthHintForIndexERK11QModelIndexiRK20QStyleO
     int hint,
     const QStyleOptionViewItem *option) {
   return self->widthHintForIndex(*index, hint, *option);
+}
+
+//  int QTableViewPrivate::heightHintForIndex(const QModelIndex &index, int
+//      hint, QStyleOptionViewItem &option) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK17QTableViewPrivate18heightHintForIndexERK11QModelIndexiR20QStyleOptionViewItem(
+    const QTableViewPrivate *self,
+    const QModelIndex *index,
+    int hint,
+    QStyleOptionViewItem *option) {
+  return self->heightHintForIndex(*index, hint, *option);
 }
 
 //  void QTableViewPrivate::setSpan(int row, int column, int rowSpan, int

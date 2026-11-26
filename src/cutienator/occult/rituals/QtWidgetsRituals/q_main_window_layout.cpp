@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qmainwindowlayout_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(mainwindow)
@@ -12,9 +13,19 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/private/qwidgetanimator_p.h>
+#if QT_CONFIG(animation)
+#include <QtCore/qpropertyanimation.h>
+#endif
+#include <QtWidgets/qwidget.h>
+#include <QtWidgets/qstyle.h>
+#if QT_CONFIG(mainwindow)
+#include <QtWidgets/private/qmainwindowlayout_p.h>
+#endif
 #include <QtWidgets/private/qmainwindowlayout_p.h>
 #if QT_CONFIG(dockwidget)
 #include <QtWidgets/private/qdockarealayout_p.h>
@@ -90,15 +101,6 @@
 #endif
 #include <QtGui/qpainter.h>
 #include <QtWidgets/qstyleoption.h>
-#include <QtWidgets/private/qwidgetanimator_p.h>
-#if QT_CONFIG(animation)
-#include <QtCore/qpropertyanimation.h>
-#endif
-#include <QtWidgets/qwidget.h>
-#include <QtWidgets/qstyle.h>
-#if QT_CONFIG(mainwindow)
-#include <QtWidgets/private/qmainwindowlayout_p.h>
-#endif
 #include <QtWidgets/qdockwidget.h>
 #include <QtWidgets/qaction.h>
 #include <QtWidgets/qapplication.h>
@@ -120,6 +122,26 @@
 #include <QtGui/private/qhighdpiscaling_p.h>
 #include <QtWidgets/private/qdockwidget_p.h>
 #include <QtWidgets/private/qmainwindowlayout_p.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qaction.h>
+#include <QtWidgets/qwidgetaction.h>
+#include <QtWidgets/qtoolbar.h>
+#include <QtWidgets/qstyleoption.h>
+#if QT_CONFIG(toolbutton)
+#include <QtWidgets/qtoolbutton.h>
+#endif
+#include <QtWidgets/qmenu.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qmath.h>
+#ifdef Q_OS_MACOS
+#include <QtGui/qpa/qplatformnativeinterface.h>
+#endif
+#include <QtWidgets/private/qmainwindowlayout_p.h>
+#if QT_CONFIG(toolbutton)
+#include <QtWidgets/private/qtoolbarextension_p.h>
+#endif
+#include <QtWidgets/private/qtoolbarlayout_p.h>
+#include <QtWidgets/private/qtoolbarseparator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -128,6 +150,453 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 39, as local:qdockwidget.cpp:mainwindow_from_dock
+static const QMainWindow *mainwindow_from_dock(const QDockWidget *dock)
+{
+    for (const QWidget *p = dock->parentWidget(); p; p = p->parentWidget()) {
+        if (const QMainWindow *window = qobject_cast<const QMainWindow*>(p))
+            return window;
+    }
+    return nullptr;
+}
+
+//  from src/widgets/widgets/qdockwidget.cpp, line 54, as local:qdockwidget.cpp:hasFeature
+static inline bool hasFeature(const QDockWidgetPrivate *priv, QDockWidget::DockWidgetFeature feature)
+{ return (priv->features & feature) == feature; }
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 73, as local:qmainwindowlayout.cpp:toAnimationRule
+static constexpr QWidgetAnimator::AnimationRule toAnimationRule(QMainWindow::DockOptions options)
+{
+    return options.testFlag(QMainWindow::AnimatedDocks) ? QWidgetAnimator::AnimationRule::Run
+                                                        : QWidgetAnimator::AnimationRule::Stop;
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 261, as local:qmainwindowlayout.cpp:QDockWidgetGroupLayout
+#if QT_CONFIG(dockwidget)
+class QDockWidgetGroupLayout : public QLayout,
+                               public QMainWindowLayoutSeparatorHelper<QDockWidgetGroupLayout>
+{
+    QWidgetResizeHandler *resizer;
+public:
+    QDockWidgetGroupLayout(QDockWidgetGroupWindow* parent) : QLayout(parent) {
+        setSizeConstraint(QLayout::SetMinAndMaxSize);
+        resizer = new QWidgetResizeHandler(parent);
+    }
+    ~QDockWidgetGroupLayout() {
+        layoutState.deleteAllLayoutItems();
+    }
+
+    void addItem(QLayoutItem*) override { Q_UNREACHABLE(); }
+    int count() const override { return 0; }
+    QLayoutItem* itemAt(int index) const override
+    {
+        int x = 0;
+        return layoutState.itemAt(&x, index);
+    }
+    QLayoutItem* takeAt(int index) override
+    {
+        int x = 0;
+        QLayoutItem *ret = layoutState.takeAt(&x, index);
+        if (savedState.rect.isValid() && ret->widget()) {
+            // we need to remove the item also from the saved state to prevent crash
+            QList<int> path = savedState.indexOf(ret->widget());
+            if (!path.isEmpty())
+                savedState.remove(path);
+            // Also, the item may be contained several times as a gap item.
+            path = layoutState.indexOf(ret->widget());
+            if (!path.isEmpty())
+                layoutState.remove(path);
+        }
+        return ret;
+    }
+    QSize sizeHint() const override
+    {
+        int fw = frameWidth();
+        return layoutState.sizeHint() + QSize(fw, fw);
+    }
+    QSize minimumSize() const override
+    {
+        int fw = frameWidth();
+        return layoutState.minimumSize() + QSize(fw, fw);
+    }
+    QSize maximumSize() const override
+    {
+        int fw = frameWidth();
+        return layoutState.maximumSize() + QSize(fw, fw);
+    }
+    void setGeometry(const QRect&r) override
+    {
+        groupWindow()->destroyOrHideIfEmpty();
+        QDockAreaLayoutInfo *li = dockAreaLayoutInfo();
+        if (li->isEmpty())
+            return;
+        int fw = frameWidth();
+#if QT_CONFIG(tabbar)
+        li->reparentWidgets(parentWidget());
+#endif
+        li->rect = r.adjusted(fw, fw, -fw, -fw);
+        li->fitItems();
+        li->apply(QWidgetAnimator::AnimationRule::Stop);
+        if (savedState.rect.isValid())
+            savedState.rect = li->rect;
+        resizer->setEnabled(!nativeWindowDeco());
+    }
+
+    QDockAreaLayoutInfo *dockAreaLayoutInfo() { return &layoutState; }
+
+#if QT_CONFIG(toolbar)
+    QToolBarAreaLayout *toolBarAreaLayout()
+    {
+        return nullptr; // QDockWidgetGroupWindow doesn't have toolbars
+    }
+#endif
+
+    bool nativeWindowDeco() const
+    {
+        return groupWindow()->hasNativeDecos();
+    }
+
+    int frameWidth() const
+    {
+        return nativeWindowDeco() ? 0 :
+            parentWidget()->style()->pixelMetric(QStyle::PM_DockWidgetFrameWidth, nullptr, parentWidget());
+    }
+
+    QDockWidgetGroupWindow *groupWindow() const
+    {
+        return static_cast<QDockWidgetGroupWindow *>(parent());
+    }
+
+    QDockAreaLayoutInfo layoutState;
+    QDockAreaLayoutInfo savedState;
+};
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 1496, as local:qmainwindowlayout.cpp:validateToolBarArea
+#if QT_CONFIG(toolbar)
+static constexpr Qt::ToolBarArea validateToolBarArea(Qt::ToolBarArea area)
+{
+    switch (area) {
+    case Qt::LeftToolBarArea:
+    case Qt::RightToolBarArea:
+    case Qt::TopToolBarArea:
+    case Qt::BottomToolBarArea:
+        return area;
+    default:
+        break;
+    }
+    return Qt::TopToolBarArea;
+}
+#endif  // QT_CONFIG(toolbar)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 1510, as local:qmainwindowlayout.cpp:toDockPos
+#if QT_CONFIG(toolbar)
+static QInternal::DockPosition toDockPos(Qt::ToolBarArea area)
+{
+    switch (area) {
+        case Qt::LeftToolBarArea: return QInternal::LeftDock;
+        case Qt::RightToolBarArea: return QInternal::RightDock;
+        case Qt::TopToolBarArea: return QInternal::TopDock;
+        case Qt::BottomToolBarArea: return QInternal::BottomDock;
+        default:
+            break;
+    }
+
+    return QInternal::DockCount;
+}
+#endif  // QT_CONFIG(toolbar)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 1723, as local:qmainwindowlayout.cpp:toDockWidgetArea
+#if QT_CONFIG(dockwidget)
+inline static Qt::DockWidgetArea toDockWidgetArea(int pos)
+{
+    return QDockWidgetPrivate::toDockWidgetArea(static_cast<QInternal::DockPosition>(pos));
+}
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 1833, as local:qmainwindowlayout.cpp:tabwidgetPositionToTabBarShape
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(dockwidget) && QT_CONFIG(tabwidget)
+static QTabBar::Shape tabwidgetPositionToTabBarShape(QDockWidget *w)
+{
+    switch (static_cast<QDockWidgetPrivate *>(qt_widget_private(w))->tabPosition) {
+    case QTabWidget::North:
+        return QTabBar::RoundedNorth;
+    case QTabWidget::South:
+        return QTabBar::RoundedSouth;
+    case QTabWidget::West:
+        return QTabBar::RoundedWest;
+    case QTabWidget::East:
+        return QTabBar::RoundedEast;
+    }
+    Q_UNREACHABLE_RETURN(QTabBar::RoundedSouth);
+}
+#endif  // QT_CONFIG(dockwidget) && QT_CONFIG(tabwidget)
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2067, as local:qmainwindowlayout.cpp:QMainWindowTabBar
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+class QMainWindowTabBar : public QTabBar
+{
+    Q_OBJECT
+    QPointer<QMainWindow> mainWindow;
+    QPointer<QDockWidget> draggingDock; // Currently dragging (detached) dock widget
+public:
+    QMainWindowTabBar(QMainWindow *parent);
+    ~QMainWindowTabBar();
+    QDockWidget *dockAt(int index) const;
+    QList<QDockWidget *> dockWidgets() const;
+    bool contains(const QDockWidget *dockWidget) const;
+protected:
+    bool event(QEvent *e) override;
+    void mouseReleaseEvent(QMouseEvent*) override;
+    void mouseMoveEvent(QMouseEvent*) override;
+
+};
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2112, as local:qmainwindowlayout.cpp:QMainWindowTabBar::QMainWindowTabBar
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+inline QMainWindowTabBar::QMainWindowTabBar(QMainWindow *parent)
+    : QTabBar(parent), mainWindow(parent)
+{
+    setExpanding(false);
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2118, as local:qmainwindowlayout.cpp:QMainWindowTabBar::dockWidgets
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+inline QList<QDockWidget *> QMainWindowTabBar::dockWidgets() const
+{
+    QList<QDockWidget *> docks;
+    for (int i = 0; i < count(); ++i) {
+        if (QDockWidget *dock = dockAt(i))
+            docks << dock;
+    }
+    return docks;
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2128, as local:qmainwindowlayout.cpp:QMainWindowTabBar::contains
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+inline bool QMainWindowTabBar::contains(const QDockWidget *dockWidget) const
+{
+    for (int i = 0; i < count(); ++i) {
+        if (dockAt(i) == dockWidget)
+            return true;
+    }
+    return false;
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2169, as local:qmainwindowlayout.cpp:moveToUnplugPosition
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+static void moveToUnplugPosition(QPoint mouse, QDockWidget *dockWidget)
+{
+    Q_ASSERT(dockWidget);
+
+    if (auto *tbWidget = dockWidget->titleBarWidget()) {
+        dockWidget->move(mouse - tbWidget->rect().center());
+        return;
+    }
+
+    const bool vertical = dockWidget->features().testFlag(QDockWidget::DockWidgetVerticalTitleBar);
+    const int deltaX = vertical ? QApplication::startDragDistance() : dockWidget->width() / 2;
+    const int deltaY = vertical ? dockWidget->height() / 2 : QApplication::startDragDistance();
+    dockWidget->move(mouse - QPoint(deltaX, deltaY));
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2184, as local:qmainwindowlayout.cpp:QMainWindowTabBar::mouseMoveEvent
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+inline void QMainWindowTabBar::mouseMoveEvent(QMouseEvent *e)
+{
+    // The QTabBar handles the moving (reordering) of tabs.
+    // When QTabBarPrivate::dragInProgress is true, and that the mouse is outside of a region
+    // around the QTabBar, we will consider the user wants to drag that QDockWidget away from this
+    // tab area.
+
+    QTabBarPrivate *d = static_cast<QTabBarPrivate*>(d_ptr.data());
+    if (!draggingDock && (mainWindow->dockOptions() & QMainWindow::GroupedDragging)) {
+        int offset = QApplication::startDragDistance() + 1;
+        offset *= 3;
+        QRect r = rect().adjusted(-offset, -offset, offset, offset);
+        if (d->dragInProgress && !r.contains(e->position().toPoint()) && d->validIndex(d->pressedIndex)) {
+            draggingDock = dockAt(d->pressedIndex);
+            if (draggingDock) {
+                // We should drag this QDockWidget away by unpluging it.
+                // First cancel the QTabBar's internal move
+                d->moveTabFinished(d->pressedIndex);
+                d->pressedIndex = -1;
+                if (d->movingTab)
+                    d->movingTab->setVisible(false);
+                d->dragStartPosition = QPoint();
+
+                // Then starts the drag using QDockWidgetPrivate's API
+                QDockWidgetPrivate *dockPriv = static_cast<QDockWidgetPrivate *>(QObjectPrivate::get(draggingDock));
+                QDockWidgetLayout *dwlayout = static_cast<QDockWidgetLayout *>(draggingDock->layout());
+                dockPriv->initDrag(dwlayout->titleArea().center(), true);
+                dockPriv->startDrag(QDockWidgetPrivate::DragScope::Widget);
+                if (dockPriv->state)
+                    dockPriv->state->ctrlDrag = e->modifiers() & Qt::ControlModifier;
+            }
+        }
+    }
+
+    if (draggingDock) {
+        QDockWidgetPrivate *dockPriv = static_cast<QDockWidgetPrivate *>(QObjectPrivate::get(draggingDock));
+        if (dockPriv->state && dockPriv->state->dragging) {
+            // move will call QMainWindowLayout::hover
+            moveToUnplugPosition(e->globalPosition().toPoint(), draggingDock);
+        }
+    }
+    QTabBar::mouseMoveEvent(e);
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2243, as local:qmainwindowlayout.cpp:QMainWindowTabBar::mouseReleaseEvent
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+inline void QMainWindowTabBar::mouseReleaseEvent(QMouseEvent *e)
+{
+    if (draggingDock && e->button() == Qt::LeftButton) {
+        QDockWidgetPrivate *dockPriv = static_cast<QDockWidgetPrivate *>(QObjectPrivate::get(draggingDock));
+        if (dockPriv->state && dockPriv->state->dragging)
+            dockPriv->endDrag(QDockWidgetPrivate::EndDragMode::LocationChange);
+
+        draggingDock = nullptr;
+    }
+    QTabBar::mouseReleaseEvent(e);
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2255, as local:qmainwindowlayout.cpp:QMainWindowTabBar::event
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+inline bool QMainWindowTabBar::event(QEvent *e)
+{
+    // show the tooltip if tab is too small to fit label
+
+    if (e->type() != QEvent::ToolTip)
+        return QTabBar::event(e);
+    QSize size = this->size();
+    QSize hint = sizeHint();
+    if (shape() == QTabBar::RoundedWest || shape() == QTabBar::RoundedEast) {
+        size = size.transposed();
+        hint = hint.transposed();
+    }
+    if (size.width() < hint.width())
+        return QTabBar::event(e);
+    e->accept();
+    return true;
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2620, as local:qmainwindowlayout.cpp:fixToolBarOrientation
+static void fixToolBarOrientation(QLayoutItem *item, int dockPos)
+{
+#if QT_CONFIG(toolbar)
+    QToolBar *toolBar = qobject_cast<QToolBar*>(item->widget());
+    if (toolBar == nullptr)
+        return;
+
+    QRect oldGeo = toolBar->geometry();
+
+    QInternal::DockPosition pos
+        = static_cast<QInternal::DockPosition>(dockPos);
+    Qt::Orientation o = pos == QInternal::TopDock || pos == QInternal::BottomDock
+                        ? Qt::Horizontal : Qt::Vertical;
+    if (o != toolBar->orientation())
+        toolBar->setOrientation(o);
+
+    QSize hint = toolBar->sizeHint().boundedTo(toolBar->maximumSize())
+                    .expandedTo(toolBar->minimumSize());
+
+    if (toolBar->size() != hint) {
+        QRect newGeo(oldGeo.topLeft(), hint);
+        if (toolBar->layoutDirection() == Qt::RightToLeft)
+            newGeo.moveRight(oldGeo.right());
+        toolBar->setGeometry(newGeo);
+    }
+
+#else
+    Q_UNUSED(item);
+    Q_UNUSED(dockPos);
+#endif
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2979, as local:qmainwindowlayout.cpp:unplugGroup
+#if QT_CONFIG(dockwidget) && QT_CONFIG(tabwidget)
+static bool unplugGroup(QMainWindowLayout *layout, QLayoutItem **item,
+                        QDockAreaLayoutItem &parentItem)
+{
+    if (!parentItem.subinfo || !parentItem.subinfo->tabbed)
+        return false;
+
+    // The QDockWidget is part of a group of tab and we need to unplug them all.
+    QDockWidgetGroupWindow *floatingTabs = layout->createTabbedDockWindow();
+    QDockAreaLayoutInfo *info = floatingTabs->layoutInfo();
+    *info = std::move(*parentItem.subinfo);
+    delete parentItem.subinfo;
+    parentItem.subinfo = nullptr;
+    floatingTabs->setGeometry(info->rect.translated(layout->parentWidget()->pos()));
+    floatingTabs->show();
+    floatingTabs->raise();
+    *item = new QDockWidgetGroupWindowItem(floatingTabs);
+    parentItem.widgetItem = *item;
+    return true;
+}
+#endif  // QT_CONFIG(dockwidget) && QT_CONFIG(tabwidget)
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 308, as local:qtoolbarlayout.cpp:defaultWidgetAction
+static bool defaultWidgetAction(QToolBarItem *item)
+{
+    QWidgetAction *a = qobject_cast<QWidgetAction*>(item->action);
+    return a != nullptr && a->defaultWidget() == item->widget();
+}
+
+//  from src/widgets/widgets/qwidgetanimator.cpp, line 18, as _ZN15QWidgetAnimatorC1EP17QMainWindowLayout
+inline QWidgetAnimator::QWidgetAnimator(QMainWindowLayout *layout)
+#if QT_CONFIG(mainwindow)
+: m_mainWindowLayout(layout)
+#endif
+{
+    Q_UNUSED(layout);
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2581, as _ZN17QMainWindowLayout10invalidateEv
+inline void QMainWindowLayout::invalidate()
+{
+    QLayout::invalidate();
+    minSize = szHint = QSize();
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2547, as _ZN17QMainWindowLayout10timerEventEP11QTimerEvent
+inline void QMainWindowLayout::timerEvent(QTimerEvent *e)
+{
+    if (e->timerId() == discardRestoredStateTimer.timerId()) {
+        discardRestoredStateTimer.stop();
+        restoredState.reset();
+    }
+    QLayout::timerEvent(e);
+}
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1081, as _ZNK22QMainWindowLayoutState13centralWidgetEv
 inline QWidget *QMainWindowLayoutState::centralWidget() const
@@ -293,11 +762,37 @@ inline void QDockAreaLayout::splitDockWidget(QDockWidget *after,
     removePlaceHolder(dockWidget->objectName());
 }
 
+//  from src/widgets/widgets/qdockwidget.cpp, line 875, as _ZN18QDockWidgetPrivate16toDockWidgetAreaEN9QInternal12DockPositionE
+inline Qt::DockWidgetArea QDockWidgetPrivate::toDockWidgetArea(QInternal::DockPosition pos)
+{
+    switch (pos) {
+    case QInternal::LeftDock:   return Qt::LeftDockWidgetArea;
+    case QInternal::RightDock:  return Qt::RightDockWidgetArea;
+    case QInternal::TopDock:    return Qt::TopDockWidgetArea;
+    case QInternal::BottomDock: return Qt::BottomDockWidgetArea;
+    default: break;
+    }
+    return Qt::NoDockWidgetArea;
+}
+
 //  from src/widgets/widgets/qdockarealayout.cpp, line 90, as _ZN19QDockAreaLayoutItemD1Ev
 inline QDockAreaLayoutItem::~QDockAreaLayoutItem()
 {
     delete subinfo;
     delete placeHolderItem;
+}
+
+//  from src/widgets/widgets/qdockarealayout.cpp, line 2534, as _ZNK15QDockAreaLayout7indexOfEPK7QWidget
+inline QList<int> QDockAreaLayout::indexOf(const QWidget *dockWidget) const
+{
+    for (std::size_t i = 0; i < docks.size(); ++i) {
+        QList<int> result = docks[i].indexOf(dockWidget);
+        if (!result.isEmpty()) {
+            result.prepend(int(i));
+            return result;
+        }
+    }
+    return QList<int>();
 }
 
 //  from src/widgets/widgets/qdockarealayout.cpp, line 3184, as _ZN15QDockAreaLayout17restoreDockWidgetEP11QDockWidget
@@ -340,6 +835,130 @@ inline bool QDockAreaLayout::restoreDockWidget(QDockWidget *dockWidget)
     return true;
 }
 
+//  from src/widgets/widgets/qdockarealayout.cpp, line 2200, as _ZN19QDockAreaLayoutInfo15reparentWidgetsEP7QWidget
+#if QT_CONFIG(tabbar)
+inline void QDockAreaLayoutInfo::reparentWidgets(QWidget *parent)
+{
+    if (tabBar)
+        tabBar->setParent(parent);
+
+    for (int i = 0; i < item_list.size(); ++i) {
+        const QDockAreaLayoutItem &item = item_list.at(i);
+        if (item.flags & QDockAreaLayoutItem::GapItem)
+            continue;
+        if (item.subinfo)
+            item.subinfo->reparentWidgets(parent);
+        if (item.widgetItem) {
+            QWidget *w = item.widgetItem->widget();
+            if (qobject_cast<QDockWidgetGroupWindow *>(w))
+                continue;
+            if (w->parent() != parent) {
+                bool hidden = w->isHidden();
+                w->setParent(parent, w->windowFlags());
+                if (!hidden)
+                    w->show();
+            }
+        }
+    }
+}
+#endif  // QT_CONFIG(tabbar)
+
+//  from src/widgets/widgets/qdockarealayout.cpp, line 1854, as _ZN19QDockAreaLayoutInfo20deleteAllLayoutItemsEv
+inline void QDockAreaLayoutInfo::deleteAllLayoutItems()
+{
+    for (int i = 0; i < item_list.size(); ++i) {
+        QDockAreaLayoutItem &item= item_list[i];
+        if (item.subinfo) {
+            item.subinfo->deleteAllLayoutItems();
+        } else {
+            delete item.widgetItem;
+            item.widgetItem = nullptr;
+        }
+    }
+}
+
+//  from src/widgets/widgets/qdockarealayout.cpp, line 1557, as _ZN19QDockAreaLayoutInfo5applyEN15QWidgetAnimator13AnimationRuleE
+inline QDockWidget *QDockAreaLayoutInfo::apply(QWidgetAnimator::AnimationRule rule)
+{
+    QWidgetAnimator &widgetAnimator = mainWindowLayout()->widgetAnimator;
+
+#if QT_CONFIG(tabbar)
+    if (tabbed) {
+        QRect tab_rect;
+        QSize tbh = tabBarSizeHint();
+
+        if (!tbh.isNull()) {
+            switch (tabBarShape) {
+                case QTabBar::RoundedNorth:
+                case QTabBar::TriangularNorth:
+                    tab_rect = QRect(rect.left(), rect.top(), rect.width(), tbh.height());
+                    break;
+                case QTabBar::RoundedSouth:
+                case QTabBar::TriangularSouth:
+                    tab_rect = QRect(rect.left(), rect.bottom() - tbh.height() + 1,
+                                        rect.width(), tbh.height());
+                    break;
+                case QTabBar::RoundedEast:
+                case QTabBar::TriangularEast:
+                    tab_rect = QRect(rect.right() - tbh.width() + 1, rect.top(),
+                                        tbh.width(), rect.height());
+                    break;
+                case QTabBar::RoundedWest:
+                case QTabBar::TriangularWest:
+                    tab_rect = QRect(rect.left(), rect.top(),
+                                        tbh.width(), rect.height());
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        widgetAnimator.animate(tabBar, tab_rect, rule);
+    }
+#endif // QT_CONFIG(tabbar)
+
+    QDockWidget *activated = nullptr;
+
+    for (int i = 0; i < item_list.size(); ++i) {
+        QDockAreaLayoutItem &item = item_list[i];
+
+        if (item.flags & QDockAreaLayoutItem::GapItem)
+            continue;
+
+        if (item.subinfo != nullptr) {
+            item.subinfo->apply(rule);
+            continue;
+        }
+
+        if (item.skip())
+            continue;
+
+        Q_ASSERT(item.widgetItem);
+        QRect r = itemRect(i);
+        QWidget *w = item.widgetItem->widget();
+
+        QRect geo = w->geometry();
+        widgetAnimator.animate(w, r, rule);
+        if (!w->isHidden() && w->window()->isVisible()) {
+            QDockWidget *dw = qobject_cast<QDockWidget*>(w);
+            if (!r.isValid() && geo.right() >= 0 && geo.bottom() >= 0) {
+                dw->lower();
+                emit dw->visibilityChanged(false);
+            } else if (r.isValid()
+                        && (geo.right() < 0 || geo.bottom() < 0)) {
+                emit dw->visibilityChanged(true);
+                activated = dw;
+            }
+        }
+    }
+#if QT_CONFIG(tabbar)
+    if (*sep == 1)
+        updateSeparatorWidgets();
+#endif // QT_CONFIG(tabbar)
+
+    return activated;
+}
+
 //  from src/widgets/widgets/qdockarealayout.cpp, line 3567, as _ZN15QDockAreaLayout8keepSizeEP11QDockWidget
 inline void QDockAreaLayout::keepSize(QDockWidget *w)
 {
@@ -349,6 +968,80 @@ inline void QDockAreaLayout::keepSize(QDockWidget *w)
     QDockAreaLayoutItem &item = this->item(path);
     if (item.size != -1)
         item.flags |= QDockAreaLayoutItem::KeepSize;
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 1297, as _ZNK22QMainWindowLayoutState9saveStateER11QDataStream
+inline void QMainWindowLayoutState::saveState(QDataStream &stream) const
+{
+#if QT_CONFIG(dockwidget)
+    dockAreaLayout.saveState(stream);
+#if QT_CONFIG(tabbar)
+    const QList<QDockWidgetGroupWindow *> floatingTabs =
+        mainWindow->findChildren<QDockWidgetGroupWindow *>(Qt::FindDirectChildrenOnly);
+
+    for (QDockWidgetGroupWindow *floating : floatingTabs) {
+        if (floating->layoutInfo()->isEmpty())
+            continue;
+        stream << StateMarkers::FloatingDockWidgetTab;
+        stream << floating->geometry();
+        floating->layoutInfo()->saveState(stream);
+    }
+#endif
+#endif
+#if QT_CONFIG(toolbar)
+    toolBarAreaLayout.saveState(stream);
+#endif
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 3353, as _ZN17QMainWindowLayout10applyStateER22QMainWindowLayoutStateb
+inline void QMainWindowLayout::applyState(QMainWindowLayoutState &newState, bool animate)
+{
+    // applying the state can lead to showing separator widgets, which would lead to a re-layout
+    // (even though the separator widgets are not really part of the layout)
+    // break the loop
+    if (isInApplyState)
+        return;
+    isInApplyState = true;
+#if QT_CONFIG(dockwidget) && QT_CONFIG(tabwidget)
+    QSet<QTabBar*> used = newState.dockAreaLayout.usedTabBars();
+    const auto groups =
+            parent()->findChildren<QDockWidgetGroupWindow*>(Qt::FindDirectChildrenOnly);
+    for (QDockWidgetGroupWindow *dwgw : groups)
+        used += dwgw->layoutInfo()->usedTabBars();
+
+    const QSet<QTabBar*> retired = usedTabBars - used;
+    usedTabBars = used;
+    for (QTabBar *tab_bar : retired) {
+        unuseTabBar(tab_bar);
+    }
+
+    if (sep == 1) {
+        const QSet<QWidget*> usedSeps = newState.dockAreaLayout.usedSeparatorWidgets();
+        const QSet<QWidget*> retiredSeps = usedSeparatorWidgets - usedSeps;
+        usedSeparatorWidgets = usedSeps;
+        for (QWidget *sepWidget : retiredSeps)
+            delete sepWidget;
+    }
+
+    for (int i = 0; i < QInternal::DockCount; ++i)
+        newState.dockAreaLayout.docks[i].reparentWidgets(parentWidget());
+
+#endif // QT_CONFIG(dockwidget) && QT_CONFIG(tabwidget)
+    const auto rule = animate ? toAnimationRule(dockOptions) : QWidgetAnimator::AnimationRule::Stop;
+    newState.apply(rule);
+    isInApplyState = false;
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 958, as _ZN22QMainWindowLayoutState20deleteAllLayoutItemsEv
+inline void QMainWindowLayoutState::deleteAllLayoutItems()
+{
+#if QT_CONFIG(toolbar)
+    toolBarAreaLayout.deleteAllLayoutItems();
+#endif
+
+#if QT_CONFIG(dockwidget)
+    dockAreaLayout.deleteAllLayoutItems();
+#endif
 }
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1187, as _ZN22QMainWindowLayoutState5clearEv
@@ -407,77 +1100,352 @@ inline bool QMainWindowLayoutState::fits() const
     return size.width() <= mainWindow->width() && size.height() <= mainWindow->height();
 }
 
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 980, as _ZNK22QMainWindowLayoutState6itemAtEiPi
-inline QLayoutItem *QMainWindowLayoutState::itemAt(int index, int *x) const
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 3121, as _ZN17QMainWindowLayout18updateGapIndicatorEv
+inline void QMainWindowLayout::updateGapIndicator()
 {
-#if QT_CONFIG(toolbar)
-    if (QLayoutItem *ret = toolBarAreaLayout.itemAt(x, index))
-        return ret;
+#if QT_CONFIG(rubberband)
+    if (!widgetAnimator.animating() && (!currentGapPos.isEmpty()
+#if QT_CONFIG(dockwidget)
+                                        || currentHoveredFloat
 #endif
+                                        )) {
+        QWidget *expectedParent =
+#if QT_CONFIG(dockwidget)
+            currentHoveredFloat ? currentHoveredFloat.data() :
+#endif
+            parentWidget();
+        if (!gapIndicator) {
+            gapIndicator = new QRubberBand(QRubberBand::Rectangle, expectedParent);
+            // For accessibility to identify this special widget.
+            gapIndicator->setObjectName("qt_rubberband"_L1);
+        } else if (gapIndicator->parent() != expectedParent) {
+            gapIndicator->setParent(expectedParent);
+        }
+
+        // Prevent re-entry in case of size change
+        const bool sigBlockState = gapIndicator->signalsBlocked();
+        auto resetSignals = qScopeGuard([this, sigBlockState](){ gapIndicator->blockSignals(sigBlockState); });
+        gapIndicator->blockSignals(true);
 
 #if QT_CONFIG(dockwidget)
-    if (QLayoutItem *ret = dockAreaLayout.itemAt(x, index))
-        return ret;
-#else
-    if (centralWidgetItem  && (*x)++ == index)
-        return centralWidgetItem;
+        if (currentHoveredFloat)
+            gapIndicator->setGeometry(currentHoveredFloat->currentGapRect);
+        else
 #endif
+            gapIndicator->setGeometry(currentGapRect);
+
+        gapIndicator->show();
+        gapIndicator->raise();
+
+        // Reset signal state
+
+    } else if (gapIndicator) {
+        gapIndicator->hide();
+    }
+
+#endif // QT_CONFIG(rubberband)
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 394, as _ZN14QToolBarLayout13layoutActionsERK5QSize
+inline bool QToolBarLayout::layoutActions(const QSize &size)
+{
+    if (dirty)
+        updateGeomArray();
+
+    QRect rect(0, 0, size.width(), size.height());
+
+    QList<QWidget*> showWidgets, hideWidgets;
+
+    QToolBar *tb = qobject_cast<QToolBar*>(parentWidget());
+    if (!tb)
+        return false;
+    QStyle *style = tb->style();
+    QStyleOptionToolBar opt;
+    tb->initStyleOption(&opt);
+    const int handleExtent = movable()
+            ? style->pixelMetric(QStyle::PM_ToolBarHandleExtent, &opt, tb) : 0;
+    const QMargins margins = contentsMargins();
+    const int spacing = this->spacing();
+    const int extensionExtent = style->pixelMetric(QStyle::PM_ToolBarExtensionExtent, &opt, tb);
+    Qt::Orientation o = tb->orientation();
+    bool extensionMenuContainsOnlyWidgetActions = true;
+
+    int space = pick(o, rect.size()) - pick(o, margins) - handleExtent;
+    if (space <= 0)
+        return false;  // nothing to do.
+
+    if (popupMenu)
+        popupMenu->clear();
+
+    bool ranOutOfSpace = false;
+    int rows = 0;
+    int rowPos = perp(o, rect.topLeft()) + perp(o, QSize(margins.top(), margins.left()));
+    int i = 0;
+    while (i < items.size()) {
+        QList<QLayoutStruct> a = geomArray;
+
+        int start = i;
+        int size = 0;
+        int prev = -1;
+        int rowHeight = 0;
+        int count = 0;
+        int maximumSize = 0;
+        bool expansiveRow = false;
+        for (; i < items.size(); ++i) {
+            if (a[i].empty)
+                continue;
+
+            int newSize = size + (count == 0 ? 0 : spacing) + a[i].minimumSize;
+            if (prev != -1 && newSize > space) {
+                if (rows == 0)
+                    ranOutOfSpace = true;
+                // do we have to move the previous item to the next line to make space for
+                // the extension button?
+                if (count > 1 && size + spacing + extensionExtent > space)
+                    i = prev;
+                break;
+            }
+
+            if (expanded)
+                rowHeight = qMax(rowHeight, perp(o, items.at(i)->sizeHint()));
+            expansiveRow = expansiveRow || a[i].expansive;
+            size = newSize;
+            maximumSize += spacing + (a[i].expansive ? a[i].maximumSize : a[i].smartSizeHint());
+            prev = i;
+            ++count;
+        }
+
+        // stretch at the end
+        a[i].sizeHint = 0;
+        a[i].maximumSize = QWIDGETSIZE_MAX;
+        a[i].minimumSize = 0;
+        a[i].expansive = true;
+        a[i].stretch = 0;
+        a[i].empty = true;
+
+        if (expansiveRow && maximumSize < space) {
+            expansiveRow = false;
+            a[i].maximumSize = space - maximumSize;
+        }
+
+        qGeomCalc(a, start, i - start + (expansiveRow ? 0 : 1), 0,
+                    space - (ranOutOfSpace ? (extensionExtent + spacing) : 0),
+                    spacing);
+
+        for (int j = start; j < i; ++j) {
+            QToolBarItem *item = items.at(j);
+
+            if (a[j].empty) {
+                if (!item->widget()->isHidden())
+                    hideWidgets << item->widget();
+                continue;
+            }
+
+            QPoint pos;
+            rpick(o, pos) = pick(o, QSize(margins.top(), margins.left())) + handleExtent + a[j].pos;
+            rperp(o, pos) = rowPos;
+            QSize size;
+            rpick(o, size) = a[j].size;
+            if (expanded)
+                rperp(o, size) = rowHeight;
+            else
+                rperp(o, size) = perp(o, rect.size()) - perp(o, margins);
+            QRect r(pos, size);
+
+            if (o == Qt::Horizontal)
+                r = QStyle::visualRect(parentWidget()->layoutDirection(), rect, r);
+
+            item->setGeometry(r);
+
+            if (item->widget()->isHidden())
+                showWidgets << item->widget();
+        }
+
+        if (!expanded) {
+            for (int j = i; j < items.size(); ++j) {
+                QToolBarItem *item = items.at(j);
+                if (!item->widget()->isHidden())
+                    hideWidgets << item->widget();
+                if (popupMenu) {
+                    if (!defaultWidgetAction(item)) {
+                        popupMenu->addAction(item->action);
+                        extensionMenuContainsOnlyWidgetActions = false;
+                    }
+                }
+            }
+            break;
+        }
+
+        rowPos += rowHeight + spacing;
+        ++rows;
+    }
+
+    // if we are using a popup menu, not the expadning toolbar effect, we cannot move custom
+    // widgets into the menu. If only custom widget actions are chopped off, the popup menu
+    // is empty. So we show the little extension button to show something is chopped off,
+    // but we make it disabled.
+    extension->setEnabled(popupMenu == nullptr || !extensionMenuContainsOnlyWidgetActions);
+
+    // we have to do the show/hide here, because it triggers more calls to setGeometry :(
+    for (int i = 0; i < showWidgets.size(); ++i)
+        showWidgets.at(i)->show();
+    for (int i = 0; i < hideWidgets.size(); ++i)
+        hideWidgets.at(i)->hide();
+
+    return ranOutOfSpace;
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2556, as _ZN17QMainWindowLayout7addItemEP11QLayoutItem
+inline void QMainWindowLayout::addItem(QLayoutItem *)
+{ qWarning("QMainWindowLayout::addItem: Please use the public QMainWindow API instead"); }
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2490, as _ZN17QMainWindowLayout11setGeometryERK5QRect
+#if defined(Q_OS_LINUX)
+inline void QMainWindowLayout::setGeometry(const QRect &_r)
+{
+    // Check if the state is valid, and avoid replacing it again if it is currently used
+    // in applyState
+    if (savedState.isValid() || (restoredState && isInApplyState))
+        return;
+
+    QRect r = _r;
+
+    QLayout::setGeometry(r);
+
+    if (statusbar) {
+        QRect sbr(QPoint(r.left(), 0),
+                  QSize(r.width(), statusbar->heightForWidth(r.width()))
+                  .expandedTo(statusbar->minimumSize()));
+        sbr.moveBottom(r.bottom());
+        QRect vr = QStyle::visualRect(parentWidget()->layoutDirection(), _r, sbr);
+        statusbar->setGeometry(vr);
+        r.setBottom(sbr.top() - 1);
+    }
+
+    if (restoredState) {
+        /*
+            The main window was hidden and was going to be maximized or full-screened when
+            the state was restored. The state might have been for a larger window size than
+            the current size (in _r), and the window might still be in the process of being
+            shown and transitioning to the final size (there's no reliable way of knowing
+            this across different platforms). Try again with the restored state.
+        */
+        layoutState = *restoredState;
+        if (restoredState->fits()) {
+            restoredState.reset();
+            discardRestoredStateTimer.stop();
+        } else {
+            /*
+                Try again in the next setGeometry call, but discard the restored state
+                after 150ms without any further tries. That's a reasonably short amount of
+                time during which we can expect the windowing system to either have completed
+                showing the window, or resized the window once more (which then restarts the
+                timer in timerEvent).
+                If the windowing system is done, then the user won't have had a chance to
+                change the layout interactively AND trigger another resize.
+            */
+            discardRestoredStateTimer.start(150, this);
+        }
+    }
+
+    layoutState.rect = r;
+
+    layoutState.fitLayout();
+    applyState(layoutState, false);
+
+#if defined(Q_OS_MACOS)
+    updateUnifiedToolBarArea();
+#endif
+}
+#endif  // defined(Q_OS_LINUX)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2410, as _ZNK17QMainWindowLayout6itemAtEi
+inline QLayoutItem *QMainWindowLayout::itemAt(int index) const
+{
+    int x = 0;
+
+    if (QLayoutItem *ret = layoutState.itemAt(index, &x))
+        return ret;
+
+    if (statusbar && x++ == index)
+        return statusbar;
 
     return nullptr;
 }
 
-//  from src/widgets/widgets/qwidgetanimator.cpp, line 26, as _ZN15QWidgetAnimator5abortEP7QWidget
-inline void QWidgetAnimator::abort(QWidget *w)
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2423, as _ZN17QMainWindowLayout6takeAtEi
+inline QLayoutItem *QMainWindowLayout::takeAt(int index)
 {
-#if QT_CONFIG(animation)
-    QPropertyAnimation *anim = m_animation_map.take(w);
-    if (anim)
-        anim->stop();
-#if QT_CONFIG(mainwindow)
-    m_mainWindowLayout->animationFinished(w);
-#endif
-#else
-    Q_UNUSED(w); //there is no animation to abort
-#endif // animation
-}
+    int x = 0;
 
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 860, as _ZNK22QMainWindowLayoutState8sizeHintEv
-inline QSize QMainWindowLayoutState::sizeHint() const
-{
+    if (QLayoutItem *ret = layoutState.takeAt(index, &x)) {
+        // the widget might in fact have been destroyed by now
+        if (QWidget *w = ret->widget()) {
+            widgetAnimator.abort(w);
+            if (w == pluggingWidget)
+                pluggingWidget = nullptr;
+        }
 
-    QSize result(0, 0);
-
-#if QT_CONFIG(dockwidget)
-    result = dockAreaLayout.sizeHint();
-#else
-    if (centralWidgetItem)
-        result = centralWidgetItem->sizeHint();
-#endif
+        if (savedState.isValid() ) {
+            //we need to remove the item also from the saved state to prevent crash
+            savedState.remove(ret);
+            //Also, the item may be contained several times as a gap item.
+            layoutState.remove(ret);
+        }
 
 #if QT_CONFIG(toolbar)
-    result = toolBarAreaLayout.sizeHint(result);
-#endif // QT_CONFIG(toolbar)
+        if (!currentGapPos.isEmpty() && currentGapPos.constFirst() == 0) {
+            currentGapPos = layoutState.toolBarAreaLayout.currentGapIndex();
+            if (!currentGapPos.isEmpty()) {
+                currentGapPos.prepend(0);
+                currentGapRect = layoutState.itemRect(currentGapPos);
+            }
+        }
+#endif
 
+        return ret;
+    }
+
+    if (statusbar && x++ == index) {
+        QLayoutItem *ret = statusbar;
+        statusbar = nullptr;
+        return ret;
+    }
+
+    return nullptr;
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2402, as _ZNK17QMainWindowLayout5countEv
+inline int QMainWindowLayout::count() const
+{
+    int result = 0;
+    while (itemAt(result))
+        ++result;
     return result;
 }
 
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 879, as _ZNK22QMainWindowLayoutState11minimumSizeEv
-inline QSize QMainWindowLayoutState::minimumSize() const
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2559, as _ZNK17QMainWindowLayout8sizeHintEv
+inline QSize QMainWindowLayout::sizeHint() const
 {
-    QSize result(0, 0);
+    if (!szHint.isValid()) {
+        szHint = layoutState.sizeHint();
+        const QSize sbHint = statusbar ? statusbar->sizeHint() : QSize(0, 0);
+        szHint = QSize(qMax(sbHint.width(), szHint.width()),
+                        sbHint.height() + szHint.height());
+    }
+    return szHint;
+}
 
-#if QT_CONFIG(dockwidget)
-    result = dockAreaLayout.minimumSize();
-#else
-    if (centralWidgetItem)
-        result = centralWidgetItem->minimumSize();
-#endif
-
-#if QT_CONFIG(toolbar)
-    result = toolBarAreaLayout.minimumSize(result);
-#endif // QT_CONFIG(toolbar)
-
-    return result;
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2570, as _ZNK17QMainWindowLayout11minimumSizeEv
+inline QSize QMainWindowLayout::minimumSize() const
+{
+    if (!minSize.isValid()) {
+        minSize = layoutState.minimumSize();
+        const QSize sbMin = statusbar ? statusbar->minimumSize() : QSize(0, 0);
+        minSize = QSize(qMax(sbMin.width(), minSize.width()),
+                        sbMin.height() + minSize.height());
+    }
+    return minSize;
 }
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 969, as _ZN22QMainWindowLayoutState23deleteCentralWidgetItemEv
@@ -669,6 +1637,34 @@ inline void QDockAreaLayout::removePlaceHolder(const QString &name)
     }
 }
 
+//  from src/widgets/widgets/qdockarealayout.cpp, line 1507, as _ZNK19QDockAreaLayoutInfo7indexOfEPK7QWidget
+inline QList<int> QDockAreaLayoutInfo::indexOf(const QWidget *widget) const
+{
+    for (int i = 0; i < item_list.size(); ++i) {
+        const QDockAreaLayoutItem &item = item_list.at(i);
+
+        if (item.placeHolderItem != nullptr)
+            continue;
+
+        if (item.subinfo != nullptr) {
+            QList<int> result = item.subinfo->indexOf(widget);
+            if (!result.isEmpty()) {
+                result.prepend(i);
+                return result;
+            }
+            continue;
+        }
+
+        if (!(item.flags & QDockAreaLayoutItem::GapItem) && item.widgetItem && item.widgetItem->widget() == widget) {
+            QList<int> result;
+            result << i;
+            return result;
+        }
+    }
+
+    return QList<int>();
+}
+
 //  from src/widgets/widgets/qdockarealayout.cpp, line 3163, as _ZN15QDockAreaLayout15constrainedRectE5QRectP7QWidget
 inline QRect QDockAreaLayout::constrainedRect(QRect rect, QWidget* widget)
 {
@@ -719,17 +1715,11 @@ inline QDockAreaLayoutItem &QDockAreaLayoutInfo::item(const QList<int> &path)
     return item_list[index];
 }
 
-//  from src/widgets/widgets/qdockarealayout.cpp, line 2534, as _ZNK15QDockAreaLayout7indexOfEPK7QWidget
-inline QList<int> QDockAreaLayout::indexOf(const QWidget *dockWidget) const
+//  from src/widgets/widgets/qdockarealayout.cpp, line 3527, as _ZN15QDockAreaLayout20deleteAllLayoutItemsEv
+inline void QDockAreaLayout::deleteAllLayoutItems()
 {
-    for (std::size_t i = 0; i < docks.size(); ++i) {
-        QList<int> result = docks[i].indexOf(dockWidget);
-        if (!result.isEmpty()) {
-            result.prepend(int(i));
-            return result;
-        }
-    }
-    return QList<int>();
+    for (auto &dock : docks)
+        dock.deleteAllLayoutItems();
 }
 
 //  from src/widgets/widgets/qdockarealayout.cpp, line 3076, as _ZN15QDockAreaLayout5clearEv
@@ -755,99 +1745,144 @@ inline void QDockAreaLayout::fitLayout()
     setGrid(&ver_struct_list, &hor_struct_list);
 }
 
-//  from src/widgets/widgets/qdockarealayout.cpp, line 3494, as _ZNK15QDockAreaLayout6itemAtEPii
-inline QLayoutItem *QDockAreaLayout::itemAt(int *x, int index) const
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2295, as _ZN17QMainWindowLayout11unuseTabBarEP7QTabBar
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+inline void QMainWindowLayout::unuseTabBar(QTabBar *bar)
 {
-    Q_ASSERT(x != nullptr);
-
-    for (const auto &dock : docks) {
-        if (QLayoutItem *ret = dock.itemAt(x, index))
-            return ret;
-    }
-
-    if (centralWidgetItem && (*x)++ == index)
-        return centralWidgetItem;
-
-    return nullptr;
+    Q_ASSERT(qobject_cast<QMainWindowTabBar *>(bar));
+    bar->deleteLater();
 }
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 
-//  from src/widgets/widgets/qtoolbararealayout.cpp, line 695, as _ZNK18QToolBarAreaLayout6itemAtEPii
-inline QLayoutItem *QToolBarAreaLayout::itemAt(int *x, int index) const
+//  from src/widgets/widgets/qtoolbararealayout.cpp, line 739, as _ZN18QToolBarAreaLayout20deleteAllLayoutItemsEv
+inline void QToolBarAreaLayout::deleteAllLayoutItems()
 {
-    Q_ASSERT(x != nullptr);
-
     for (int i = 0; i < QInternal::DockCount; ++i) {
-        const QToolBarAreaLayoutInfo &dock = docks[i];
+        QToolBarAreaLayoutInfo &dock = docks[i];
 
         for (int j = 0; j < dock.lines.size(); ++j) {
-            const QToolBarAreaLayoutLine &line = dock.lines.at(j);
+            QToolBarAreaLayoutLine &line = dock.lines[j];
 
             for (int k = 0; k < line.toolBarItems.size(); ++k) {
-                if ((*x)++ == index)
-                    return line.toolBarItems.at(k).widgetItem;
+                QToolBarAreaLayoutItem &item = line.toolBarItems[k];
+                if (!item.gap)
+                    delete item.widgetItem;
+                item.widgetItem = nullptr;
             }
         }
     }
-
-    return nullptr;
 }
 
-//  from src/widgets/widgets/qdockarealayout.cpp, line 3137, as _ZNK15QDockAreaLayout8sizeHintEv
-inline QSize QDockAreaLayout::sizeHint() const
+//  from src/widgets/widgets/qtoolbararealayout.cpp, line 1056, as _ZN18QToolBarAreaLayout5clearEv
+inline void QToolBarAreaLayout::clear()
 {
-    return size_helper(&QDockAreaLayoutInfo::sizeHint, &QLayoutItem::sizeHint);
+    for (int i = 0; i < QInternal::DockCount; ++i)
+        docks[i].clear();
+    rect = QRect();
 }
 
-//  from src/widgets/widgets/qtoolbararealayout.cpp, line 655, as _ZNK18QToolBarAreaLayout8sizeHintERK5QSize
-inline QSize QToolBarAreaLayout::sizeHint(const QSize &centerHint) const
+//  from src/widgets/widgets/qtoolbararealayout.cpp, line 602, as _ZN18QToolBarAreaLayout9fitLayoutEv
+inline QRect QToolBarAreaLayout::fitLayout()
 {
     if (!visible)
-        return centerHint;
-
-    QSize result = centerHint;
+        return rect;
 
     QSize left_hint = docks[QInternal::LeftDock].sizeHint();
     QSize right_hint = docks[QInternal::RightDock].sizeHint();
     QSize top_hint = docks[QInternal::TopDock].sizeHint();
     QSize bottom_hint = docks[QInternal::BottomDock].sizeHint();
 
-    result.setWidth(qMax(top_hint.width(), result.width()));
-    result.setWidth(qMax(bottom_hint.width(), result.width()));
-    result.setHeight(qMax(left_hint.height(), result.height()));
-    result.setHeight(qMax(right_hint.height(), result.height()));
+    QRect center = rect.adjusted(left_hint.width(), top_hint.height(),
+                                    -right_hint.width(), -bottom_hint.height());
 
-    result.rwidth() += left_hint.width() + right_hint.width();
-    result.rheight() += top_hint.height() + bottom_hint.height();
+    docks[QInternal::TopDock].rect = QRect(rect.left(), rect.top(),
+                                rect.width(), top_hint.height());
+    docks[QInternal::LeftDock].rect = QRect(rect.left(), center.top(),
+                                left_hint.width(), center.height());
+    docks[QInternal::RightDock].rect = QRect(center.right() + 1, center.top(),
+                                    right_hint.width(), center.height());
+    docks[QInternal::BottomDock].rect = QRect(rect.left(), center.bottom() + 1,
+                                    rect.width(), bottom_hint.height());
+
+    docks[QInternal::TopDock].fitLayout();
+    docks[QInternal::LeftDock].fitLayout();
+    docks[QInternal::RightDock].fitLayout();
+    docks[QInternal::BottomDock].fitLayout();
+
+    return center;
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 980, as _ZNK22QMainWindowLayoutState6itemAtEiPi
+inline QLayoutItem *QMainWindowLayoutState::itemAt(int index, int *x) const
+{
+#if QT_CONFIG(toolbar)
+    if (QLayoutItem *ret = toolBarAreaLayout.itemAt(x, index))
+        return ret;
+#endif
+
+#if QT_CONFIG(dockwidget)
+    if (QLayoutItem *ret = dockAreaLayout.itemAt(x, index))
+        return ret;
+#else
+    if (centralWidgetItem  && (*x)++ == index)
+        return centralWidgetItem;
+#endif
+
+    return nullptr;
+}
+
+//  from src/widgets/widgets/qwidgetanimator.cpp, line 26, as _ZN15QWidgetAnimator5abortEP7QWidget
+inline void QWidgetAnimator::abort(QWidget *w)
+{
+#if QT_CONFIG(animation)
+    QPropertyAnimation *anim = m_animation_map.take(w);
+    if (anim)
+        anim->stop();
+#if QT_CONFIG(mainwindow)
+    m_mainWindowLayout->animationFinished(w);
+#endif
+#else
+    Q_UNUSED(w); //there is no animation to abort
+#endif // animation
+}
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 860, as _ZNK22QMainWindowLayoutState8sizeHintEv
+inline QSize QMainWindowLayoutState::sizeHint() const
+{
+
+    QSize result(0, 0);
+
+#if QT_CONFIG(dockwidget)
+    result = dockAreaLayout.sizeHint();
+#else
+    if (centralWidgetItem)
+        result = centralWidgetItem->sizeHint();
+#endif
+
+#if QT_CONFIG(toolbar)
+    result = toolBarAreaLayout.sizeHint(result);
+#endif // QT_CONFIG(toolbar)
 
     return result;
 }
 
-//  from src/widgets/widgets/qdockarealayout.cpp, line 3142, as _ZNK15QDockAreaLayout11minimumSizeEv
-inline QSize QDockAreaLayout::minimumSize() const
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 879, as _ZNK22QMainWindowLayoutState11minimumSizeEv
+inline QSize QMainWindowLayoutState::minimumSize() const
 {
-    return size_helper(&QDockAreaLayoutInfo::minimumSize, &QLayoutItem::minimumSize);
-}
+    QSize result(0, 0);
 
-//  from src/widgets/widgets/qtoolbararealayout.cpp, line 632, as _ZNK18QToolBarAreaLayout11minimumSizeERK5QSize
-inline QSize QToolBarAreaLayout::minimumSize(const QSize &centerMin) const
-{
-    if (!visible)
-        return centerMin;
+#if QT_CONFIG(dockwidget)
+    result = dockAreaLayout.minimumSize();
+#else
+    if (centralWidgetItem)
+        result = centralWidgetItem->minimumSize();
+#endif
 
-    QSize result = centerMin;
-
-    QSize left_min = docks[QInternal::LeftDock].minimumSize();
-    QSize right_min = docks[QInternal::RightDock].minimumSize();
-    QSize top_min = docks[QInternal::TopDock].minimumSize();
-    QSize bottom_min = docks[QInternal::BottomDock].minimumSize();
-
-    result.setWidth(qMax(top_min.width(), result.width()));
-    result.setWidth(qMax(bottom_min.width(), result.width()));
-    result.setHeight(qMax(left_min.height(), result.height()));
-    result.setHeight(qMax(right_min.height(), result.height()));
-
-    result.rwidth() += left_min.width() + right_min.width();
-    result.rheight() += top_min.height() + bottom_min.height();
+#if QT_CONFIG(toolbar)
+    result = toolBarAreaLayout.minimumSize(result);
+#endif // QT_CONFIG(toolbar)
 
     return result;
 }
@@ -951,22 +1986,101 @@ inline QSize QToolBarAreaLayoutItem::sizeHint() const
     return realSizeHint();
 }
 
-//  from src/widgets/widgets/qdockarealayout.cpp, line 1788, as _ZNK19QDockAreaLayoutInfo6itemAtEPii
-inline QLayoutItem *QDockAreaLayoutInfo::itemAt(int *x, int index) const
+//  from src/widgets/widgets/qdockarealayout.cpp, line 3494, as _ZNK15QDockAreaLayout6itemAtEPii
+inline QLayoutItem *QDockAreaLayout::itemAt(int *x, int index) const
 {
-    for (int i = 0; i < item_list.size(); ++i) {
-        const QDockAreaLayoutItem &item = item_list.at(i);
-        if (item.placeHolderItem != nullptr)
-            continue;
-        if (item.subinfo) {
-            if (QLayoutItem *ret = item.subinfo->itemAt(x, index))
-                return ret;
-        } else if (item.widgetItem) {
-            if ((*x)++ == index)
-                return item.widgetItem;
+    Q_ASSERT(x != nullptr);
+
+    for (const auto &dock : docks) {
+        if (QLayoutItem *ret = dock.itemAt(x, index))
+            return ret;
+    }
+
+    if (centralWidgetItem && (*x)++ == index)
+        return centralWidgetItem;
+
+    return nullptr;
+}
+
+//  from src/widgets/widgets/qtoolbararealayout.cpp, line 695, as _ZNK18QToolBarAreaLayout6itemAtEPii
+inline QLayoutItem *QToolBarAreaLayout::itemAt(int *x, int index) const
+{
+    Q_ASSERT(x != nullptr);
+
+    for (int i = 0; i < QInternal::DockCount; ++i) {
+        const QToolBarAreaLayoutInfo &dock = docks[i];
+
+        for (int j = 0; j < dock.lines.size(); ++j) {
+            const QToolBarAreaLayoutLine &line = dock.lines.at(j);
+
+            for (int k = 0; k < line.toolBarItems.size(); ++k) {
+                if ((*x)++ == index)
+                    return line.toolBarItems.at(k).widgetItem;
+            }
         }
     }
+
     return nullptr;
+}
+
+//  from src/widgets/widgets/qdockarealayout.cpp, line 3137, as _ZNK15QDockAreaLayout8sizeHintEv
+inline QSize QDockAreaLayout::sizeHint() const
+{
+    return size_helper(&QDockAreaLayoutInfo::sizeHint, &QLayoutItem::sizeHint);
+}
+
+//  from src/widgets/widgets/qtoolbararealayout.cpp, line 655, as _ZNK18QToolBarAreaLayout8sizeHintERK5QSize
+inline QSize QToolBarAreaLayout::sizeHint(const QSize &centerHint) const
+{
+    if (!visible)
+        return centerHint;
+
+    QSize result = centerHint;
+
+    QSize left_hint = docks[QInternal::LeftDock].sizeHint();
+    QSize right_hint = docks[QInternal::RightDock].sizeHint();
+    QSize top_hint = docks[QInternal::TopDock].sizeHint();
+    QSize bottom_hint = docks[QInternal::BottomDock].sizeHint();
+
+    result.setWidth(qMax(top_hint.width(), result.width()));
+    result.setWidth(qMax(bottom_hint.width(), result.width()));
+    result.setHeight(qMax(left_hint.height(), result.height()));
+    result.setHeight(qMax(right_hint.height(), result.height()));
+
+    result.rwidth() += left_hint.width() + right_hint.width();
+    result.rheight() += top_hint.height() + bottom_hint.height();
+
+    return result;
+}
+
+//  from src/widgets/widgets/qdockarealayout.cpp, line 3142, as _ZNK15QDockAreaLayout11minimumSizeEv
+inline QSize QDockAreaLayout::minimumSize() const
+{
+    return size_helper(&QDockAreaLayoutInfo::minimumSize, &QLayoutItem::minimumSize);
+}
+
+//  from src/widgets/widgets/qtoolbararealayout.cpp, line 632, as _ZNK18QToolBarAreaLayout11minimumSizeERK5QSize
+inline QSize QToolBarAreaLayout::minimumSize(const QSize &centerMin) const
+{
+    if (!visible)
+        return centerMin;
+
+    QSize result = centerMin;
+
+    QSize left_min = docks[QInternal::LeftDock].minimumSize();
+    QSize right_min = docks[QInternal::RightDock].minimumSize();
+    QSize top_min = docks[QInternal::TopDock].minimumSize();
+    QSize bottom_min = docks[QInternal::BottomDock].minimumSize();
+
+    result.setWidth(qMax(top_min.width(), result.width()));
+    result.setWidth(qMax(bottom_min.width(), result.width()));
+    result.setHeight(qMax(left_min.height(), result.height()));
+    result.setHeight(qMax(right_min.height(), result.height()));
+
+    result.rwidth() += left_min.width() + right_min.width();
+    result.rheight() += top_min.height() + bottom_min.height();
+
+    return result;
 }
 
 //  from src/widgets/widgets/qtoolbararealayout.cpp, line 42, as _ZNK22QToolBarAreaLayoutItem12realSizeHintEv
@@ -1026,6 +2140,24 @@ inline void QToolBarAreaLayoutLine::fitLayout()
     }
 }
 
+//  from src/widgets/widgets/qdockarealayout.cpp, line 1788, as _ZNK19QDockAreaLayoutInfo6itemAtEPii
+inline QLayoutItem *QDockAreaLayoutInfo::itemAt(int *x, int index) const
+{
+    for (int i = 0; i < item_list.size(); ++i) {
+        const QDockAreaLayoutItem &item = item_list.at(i);
+        if (item.placeHolderItem != nullptr)
+            continue;
+        if (item.subinfo) {
+            if (QLayoutItem *ret = item.subinfo->itemAt(x, index))
+                return ret;
+        } else if (item.widgetItem) {
+            if ((*x)++ == index)
+                return item.widgetItem;
+        }
+    }
+    return nullptr;
+}
+
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2914, as _ZN17QMainWindowLayoutD1Ev
 inline QMainWindowLayout::~QMainWindowLayout()
 {
@@ -1034,6 +2166,12 @@ inline QMainWindowLayout::~QMainWindowLayout()
 
     delete statusbar;
 }
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2937, as _ZNK17QMainWindowLayout9statusBarEv
+#if QT_CONFIG(statusbar)
+inline QStatusBar *QMainWindowLayout::statusBar() const
+{ return statusbar ? qobject_cast<QStatusBar *>(statusbar->widget()) : 0; }
+#endif  // QT_CONFIG(statusbar)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2940, as _ZN17QMainWindowLayout12setStatusBarEP10QStatusBar
 #if QT_CONFIG(statusbar)
@@ -1181,6 +2319,17 @@ inline Qt::DockWidgetArea QMainWindowLayout::corner(Qt::Corner corner) const
 }
 #endif  // QT_CONFIG(dockwidget)
 
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2051, as _ZNK17QMainWindowLayout14dockWidgetAreaEPK7QWidget
+#if QT_CONFIG(dockwidget)
+inline Qt::DockWidgetArea QMainWindowLayout::dockWidgetArea(const QWidget *widget) const
+{
+    const QList<int> pathToWidget = layoutState.dockAreaLayout.indexOf(widget);
+    if (pathToWidget.isEmpty())
+        return Qt::NoDockWidgetArea;
+    return toDockWidgetArea(pathToWidget.first());
+}
+#endif  // QT_CONFIG(dockwidget)
+
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1923, as _ZNK17QMainWindowLayout12documentModeEv
 #if QT_CONFIG(dockwidget)
 #if QT_CONFIG(tabbar)
@@ -1208,6 +2357,21 @@ inline void QMainWindowLayout::setDocumentMode(bool enabled)
 #endif  // QT_CONFIG(tabbar)
 #endif  // QT_CONFIG(dockwidget)
 
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2324, as _ZN17QMainWindowLayout18getSeparatorWidgetEv
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+inline QWidget *QMainWindowLayout::getSeparatorWidget()
+{
+    auto *separator = new QWidget(parentWidget());
+    separator->setAttribute(Qt::WA_MouseNoMask, true);
+    separator->setAutoFillBackground(false);
+    separator->setObjectName("qt_qmainwindow_extended_splitter"_L1);
+    usedSeparatorWidgets.insert(separator);
+    return separator;
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1951, as _ZNK17QMainWindowLayout8tabShapeEv
 #if QT_CONFIG(dockwidget)
 #if QT_CONFIG(tabbar)
@@ -1220,162 +2384,6 @@ inline QTabWidget::TabShape QMainWindowLayout::tabShape() const
 #endif  // QT_CONFIG(tabbar)
 #endif  // QT_CONFIG(dockwidget)
 
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2490, as _ZN17QMainWindowLayout11setGeometryERK5QRect
-#if defined(Q_OS_LINUX)
-inline void QMainWindowLayout::setGeometry(const QRect &_r)
-{
-    // Check if the state is valid, and avoid replacing it again if it is currently used
-    // in applyState
-    if (savedState.isValid() || (restoredState && isInApplyState))
-        return;
-
-    QRect r = _r;
-
-    QLayout::setGeometry(r);
-
-    if (statusbar) {
-        QRect sbr(QPoint(r.left(), 0),
-                  QSize(r.width(), statusbar->heightForWidth(r.width()))
-                  .expandedTo(statusbar->minimumSize()));
-        sbr.moveBottom(r.bottom());
-        QRect vr = QStyle::visualRect(parentWidget()->layoutDirection(), _r, sbr);
-        statusbar->setGeometry(vr);
-        r.setBottom(sbr.top() - 1);
-    }
-
-    if (restoredState) {
-        /*
-            The main window was hidden and was going to be maximized or full-screened when
-            the state was restored. The state might have been for a larger window size than
-            the current size (in _r), and the window might still be in the process of being
-            shown and transitioning to the final size (there's no reliable way of knowing
-            this across different platforms). Try again with the restored state.
-        */
-        layoutState = *restoredState;
-        if (restoredState->fits()) {
-            restoredState.reset();
-            discardRestoredStateTimer.stop();
-        } else {
-            /*
-                Try again in the next setGeometry call, but discard the restored state
-                after 150ms without any further tries. That's a reasonably short amount of
-                time during which we can expect the windowing system to either have completed
-                showing the window, or resized the window once more (which then restarts the
-                timer in timerEvent).
-                If the windowing system is done, then the user won't have had a chance to
-                change the layout interactively AND trigger another resize.
-            */
-            discardRestoredStateTimer.start(150, this);
-        }
-    }
-
-    layoutState.rect = r;
-
-    layoutState.fitLayout();
-    applyState(layoutState, false);
-
-#if defined(Q_OS_MACOS)
-    updateUnifiedToolBarArea();
-#endif
-}
-#endif  // defined(Q_OS_LINUX)
-
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2410, as _ZNK17QMainWindowLayout6itemAtEi
-inline QLayoutItem *QMainWindowLayout::itemAt(int index) const
-{
-    int x = 0;
-
-    if (QLayoutItem *ret = layoutState.itemAt(index, &x))
-        return ret;
-
-    if (statusbar && x++ == index)
-        return statusbar;
-
-    return nullptr;
-}
-
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2423, as _ZN17QMainWindowLayout6takeAtEi
-inline QLayoutItem *QMainWindowLayout::takeAt(int index)
-{
-    int x = 0;
-
-    if (QLayoutItem *ret = layoutState.takeAt(index, &x)) {
-        // the widget might in fact have been destroyed by now
-        if (QWidget *w = ret->widget()) {
-            widgetAnimator.abort(w);
-            if (w == pluggingWidget)
-                pluggingWidget = nullptr;
-        }
-
-        if (savedState.isValid() ) {
-            //we need to remove the item also from the saved state to prevent crash
-            savedState.remove(ret);
-            //Also, the item may be contained several times as a gap item.
-            layoutState.remove(ret);
-        }
-
-#if QT_CONFIG(toolbar)
-        if (!currentGapPos.isEmpty() && currentGapPos.constFirst() == 0) {
-            currentGapPos = layoutState.toolBarAreaLayout.currentGapIndex();
-            if (!currentGapPos.isEmpty()) {
-                currentGapPos.prepend(0);
-                currentGapRect = layoutState.itemRect(currentGapPos);
-            }
-        }
-#endif
-
-        return ret;
-    }
-
-    if (statusbar && x++ == index) {
-        QLayoutItem *ret = statusbar;
-        statusbar = nullptr;
-        return ret;
-    }
-
-    return nullptr;
-}
-
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2402, as _ZNK17QMainWindowLayout5countEv
-inline int QMainWindowLayout::count() const
-{
-    int result = 0;
-    while (itemAt(result))
-        ++result;
-    return result;
-}
-
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2559, as _ZNK17QMainWindowLayout8sizeHintEv
-inline QSize QMainWindowLayout::sizeHint() const
-{
-    if (!szHint.isValid()) {
-        szHint = layoutState.sizeHint();
-        const QSize sbHint = statusbar ? statusbar->sizeHint() : QSize(0, 0);
-        szHint = QSize(qMax(sbHint.width(), szHint.width()),
-                        sbHint.height() + szHint.height());
-    }
-    return szHint;
-}
-
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2570, as _ZNK17QMainWindowLayout11minimumSizeEv
-inline QSize QMainWindowLayout::minimumSize() const
-{
-    if (!minSize.isValid()) {
-        minSize = layoutState.minimumSize();
-        const QSize sbMin = statusbar ? statusbar->minimumSize() : QSize(0, 0);
-        minSize = QSize(qMax(sbMin.width(), minSize.width()),
-                        sbMin.height() + minSize.height());
-    }
-    return minSize;
-}
-
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2581, as _ZN17QMainWindowLayout10invalidateEv
-inline void QMainWindowLayout::invalidate()
-{
-    QLayout::invalidate();
-    minSize = szHint = QSize();
-}
-
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2481, as _ZN17QMainWindowLayout18applyRestoredStateEv
 inline void QMainWindowLayout::applyRestoredState()
 {
@@ -1386,15 +2394,44 @@ inline void QMainWindowLayout::applyRestoredState()
     }
 }
 
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2547, as _ZN17QMainWindowLayout10timerEventEP11QTimerEvent
-inline void QMainWindowLayout::timerEvent(QTimerEvent *e)
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 3440, as _ZN17QMainWindowLayout17needsPlatformDragEv
+#if QT_CONFIG(draganddrop)
+inline bool QMainWindowLayout::needsPlatformDrag()
 {
-    if (e->timerId() == discardRestoredStateTimer.timerId()) {
-        discardRestoredStateTimer.stop();
-        restoredState.reset();
-    }
-    QLayout::timerEvent(e);
+    static const bool wayland =
+            QGuiApplication::platformName().startsWith("wayland"_L1, Qt::CaseInsensitive);
+    return wayland;
 }
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/widgets/qmainwindowlayout.cpp, line 3447, as _ZN17QMainWindowLayout25performPlatformWidgetDragEP11QLayoutItemRK6QPoint
+#if QT_CONFIG(draganddrop)
+inline Qt::DropAction QMainWindowLayout::performPlatformWidgetDrag(QLayoutItem *widgetItem,
+                                                            const QPoint &pressPosition)
+{
+    draggingWidget = widgetItem;
+    QWidget *widget = widgetItem->widget();
+    auto drag = QDrag(widget);
+    auto mimeData = new QMimeData();
+    auto window = widgetItem->widget()->windowHandle();
+
+    auto serialize = [](const auto &object) {
+        QByteArray data;
+        QDataStream dataStream(&data, QIODevice::WriteOnly);
+        dataStream << object;
+        return data;
+    };
+    mimeData->setData("application/x-qt-mainwindowdrag-window"_L1,
+                      serialize(reinterpret_cast<qintptr>(window)));
+    mimeData->setData("application/x-qt-mainwindowdrag-position"_L1, serialize(pressPosition));
+    drag.setMimeData(mimeData);
+
+    auto result = drag.exec();
+
+    draggingWidget = nullptr;
+    return result;
+}
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1999, as _ZN17QMainWindowLayout11showTabBarsEv
 #if QT_CONFIG(dockwidget)
@@ -2033,11 +3070,39 @@ const QMetaObject *ritual_ZNK17QMainWindowLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMainWindowLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QMainWindowLayout11qt_metacastEPKc(
+    QMainWindowLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMainWindowLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QMainWindowLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMainWindowLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QMainWindowLayout::~QMainWindowLayout()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QMainWindowLayoutD1Ev(QMainWindowLayout *self) {
   delete self;
 }
+
+#if QT_CONFIG(statusbar)
+//  QStatusBar *QMainWindowLayout::statusBar() const
+extern "C" Q_DECL_EXPORT
+QStatusBar *ritual_ZNK17QMainWindowLayout9statusBarEv(
+    const QMainWindowLayout *self) {
+  return self->statusBar();
+}
+#endif  // QT_CONFIG(statusbar)
 
 #if QT_CONFIG(statusbar)
 //  void QMainWindowLayout::setStatusBar(QStatusBar *sb)
@@ -2168,6 +3233,17 @@ Qt::DockWidgetArea ritual_ZNK17QMainWindowLayout6cornerEN2Qt6CornerE(
 #endif  // QT_CONFIG(dockwidget)
 
 #if QT_CONFIG(dockwidget)
+//  Qt::DockWidgetArea QMainWindowLayout::dockWidgetArea(const QWidget
+//      *widget) const
+extern "C" Q_DECL_EXPORT
+Qt::DockWidgetArea ritual_ZNK17QMainWindowLayout14dockWidgetAreaEPK7QWidget(
+    const QMainWindowLayout *self,
+    const QWidget *widget) {
+  return self->dockWidgetArea(widget);
+}
+#endif  // QT_CONFIG(dockwidget)
+
+#if QT_CONFIG(dockwidget)
 #if QT_CONFIG(tabbar)
 //  bool QMainWindowLayout::documentMode() const
 extern "C" Q_DECL_EXPORT
@@ -2186,6 +3262,17 @@ void ritual_ZN17QMainWindowLayout15setDocumentModeEb(
     QMainWindowLayout *self,
     bool enabled) {
   self->setDocumentMode(enabled);
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+//  QWidget *QMainWindowLayout::getSeparatorWidget()
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZN17QMainWindowLayout18getSeparatorWidgetEv(
+    QMainWindowLayout *self) {
+  return self->getSeparatorWidget();
 }
 #endif  // QT_CONFIG(tabbar)
 #endif  // QT_CONFIG(dockwidget)
@@ -2211,6 +3298,14 @@ QDockAreaLayout *ritual_ZN17QMainWindowLayout18dockAreaLayoutInfoEv(
   return self->dockAreaLayoutInfo();
 }
 #endif  // QT_CONFIG(dockwidget)
+
+//  void QMainWindowLayout::addItem(QLayoutItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMainWindowLayout7addItemEP11QLayoutItem(
+    QMainWindowLayout *self,
+    QLayoutItem *item) {
+  self->addItem(item);
+}
 
 //  void QMainWindowLayout::setGeometry(const QRect &r)
 extern "C" Q_DECL_EXPORT
@@ -2269,6 +3364,26 @@ void ritual_ZN17QMainWindowLayout18applyRestoredStateEv(
   self->applyRestoredState();
 }
 
+#if QT_CONFIG(draganddrop)
+//  bool QMainWindowLayout::needsPlatformDrag()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QMainWindowLayout17needsPlatformDragEv() {
+  return QMainWindowLayout::needsPlatformDrag();
+}
+#endif  // QT_CONFIG(draganddrop)
+
+#if QT_CONFIG(draganddrop)
+//  Qt::DropAction QMainWindowLayout::performPlatformWidgetDrag(QLayoutItem
+//      *widgetItem, const QPoint &pressPosition)
+extern "C" Q_DECL_EXPORT
+Qt::DropAction ritual_ZN17QMainWindowLayout25performPlatformWidgetDragEP11QLayoutItemRK6QPoint(
+    QMainWindowLayout *self,
+    QLayoutItem *widgetItem,
+    const QPoint *pressPosition) {
+  return self->performPlatformWidgetDrag(widgetItem, *pressPosition);
+}
+#endif  // QT_CONFIG(draganddrop)
+
 //  void QMainWindowLayout::timerEvent(QTimerEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QMainWindowLayout10timerEventEP11QTimerEvent(
@@ -2276,6 +3391,126 @@ void ritual_ZN17QMainWindowLayout10timerEventEP11QTimerEvent(
     QTimerEvent *e) {
   self->timerEvent(e);
 }
+
+//  void QMainWindowLayout::updateGapIndicator()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMainWindowLayout18updateGapIndicatorEv(
+    QMainWindowLayout *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QMainWindowLayout")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateGapIndicator()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateGapIndicator()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+//  void QMainWindowLayout::tabChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMainWindowLayout10tabChangedEv(QMainWindowLayout *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QMainWindowLayout")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "tabChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "tabChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+//  void QMainWindowLayout::tabMoved(int from, int to)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMainWindowLayout8tabMovedEii(
+    QMainWindowLayout *self,
+    int from,
+    int to) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QMainWindowLayout")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "tabMoved(int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "tabMoved(int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&from)),
+      const_cast<void *>(static_cast<const void *>(&to)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+//  void QMainWindowLayout::tabifyWhileFloating(QDockWidget *first,
+//      QDockWidget *second)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMainWindowLayout19tabifyWhileFloatingEP11QDockWidgetS1_(
+    QMainWindowLayout *self,
+    QDockWidget *first,
+    QDockWidget *second) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QMainWindowLayout")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "tabifyWhileFloating(QDockWidget *,QDockWidget *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "tabifyWhileFloating(QDockWidget *,QDockWidget *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&first)),
+      const_cast<void *>(static_cast<const void *>(&second)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 
 #if QT_CONFIG(tabbar)
 #if QT_CONFIG(dockwidget)
@@ -2295,6 +3530,14 @@ bool ritual_take_QMainWindowLayout(
     const char *key,
     void *call) {
   return static_cast<CuteQMainWindowLayout *>(self)->take(key, call);
+}
+
+//  void QMainWindowLayout::addItem(QLayoutItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN17QMainWindowLayout7addItemEP11QLayoutItem(
+    QMainWindowLayout *self,
+    QLayoutItem *item) {
+  self->QMainWindowLayout::addItem(item);
 }
 
 //  QLayoutItem *QMainWindowLayout::itemAt(int index) const

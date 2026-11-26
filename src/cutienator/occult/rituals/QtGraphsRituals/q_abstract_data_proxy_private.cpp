@@ -3,7 +3,7 @@
 //  Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qabstractdataproxy.h>
@@ -30,6 +30,9 @@ inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
     q->setParent(series);
     m_series = series;
 }
+
+//  from ../qtgraphs/src/graphs3d/data/qabstractdataproxy.cpp, line 87, as _ZN25QAbstractDataProxyPrivateD2Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate() {}
 //  -----------------------------------------------------------------------
 
 //  A QAbstractDataProxyPrivate that Python can take functions over in. Every QAbstractDataProxyPrivate
@@ -75,6 +78,13 @@ const QAbstractDataProxy *ritual_ZNK25QAbstractDataProxyPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractDataProxyPrivateD1Ev(
+    QAbstractDataProxyPrivate *self) {
+  delete self;
+}
+
 //  QAbstract3DSeries *QAbstractDataProxyPrivate::series() const
 extern "C" Q_DECL_EXPORT
 QAbstract3DSeries *ritual_ZNK25QAbstractDataProxyPrivate6seriesEv(
@@ -108,4 +118,4 @@ void ritual_own_ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries(
   self->QAbstractDataProxyPrivate::setSeries(series);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

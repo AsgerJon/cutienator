@@ -8,12 +8,30 @@
     "ritual_ZNK27QQStyleKitDelegateContainer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQStyleKitDelegateContainer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQStyleKitDelegateContainer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QQStyleKitDelegateContainerD1Ev": ["nothing", "address"],
     "ritual_ZNK27QQStyleKitDelegateContainer12quickControlEv": [
       "address", "address"
     ],
     "ritual_ZNK27QQStyleKitDelegateContainer16delegateInstanceEv": [
       "address", "address"
+    ],
+    "ritual_ZN27QQStyleKitDelegateContainer20delegateStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitDelegateContainer19quickControlChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitDelegateContainer23delegateInstanceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitDelegateContainer17componentCompleteEv": [
+      "nothing", "address"
     ],
     "ritual_ZN27QQStyleKitDelegateContainer14geometryChangeERK6QRectFS2_": [
       "nothing", "address", "address", "address"

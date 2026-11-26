@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickYAnimator10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickYAnimator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickYAnimator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickYAnimator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

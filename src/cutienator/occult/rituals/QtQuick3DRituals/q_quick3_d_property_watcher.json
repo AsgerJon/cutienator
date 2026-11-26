@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuick3DPropertyWatcher10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuick3DPropertyWatcher11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuick3DPropertyWatcher11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuick3DPropertyWatcher22onValuePropertyChangedEv": [
       "nothing", "address"
     ],

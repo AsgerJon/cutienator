@@ -11,6 +11,12 @@
     "ritual_ZNK12QFontPrivate15engineForScriptEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK12QFontPrivate18engineForCharacterEDi6QFlagsINS_17EngineQueryOptionEE": [
+      "address", "address", "unsigned int", "int"
+    ],
+    "ritual_ZNK12QFontPrivate26alterCharForCapitalizationER5QChar": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK12QFontPrivate13smallCapsFontEv": ["address", "address"],
     "ritual_ZNK12QFontPrivate20smallCapsFontPrivateEv": [
       "address", "address"

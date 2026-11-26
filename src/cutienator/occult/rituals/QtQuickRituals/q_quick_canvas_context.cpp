@@ -367,6 +367,25 @@ const QMetaObject *ritual_ZNK19QQuickCanvasContext10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickCanvasContext::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickCanvasContext11qt_metacastEPKc(
+    QQuickCanvasContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickCanvasContext::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickCanvasContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickCanvasContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickCanvasContext::~QQuickCanvasContext()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickCanvasContextD1Ev(QQuickCanvasContext *self) {
@@ -445,6 +464,31 @@ QImage *ritual_ZN19QQuickCanvasContext7toImageERK6QRectF(
     QQuickCanvasContext *self,
     const QRectF *bounds) {
   return new QImage(self->toImage(*bounds));
+}
+
+//  void QQuickCanvasContext::textureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickCanvasContext14textureChangedEv(
+    QQuickCanvasContext *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickCanvasContext")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "textureChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "textureChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuickCanvasContext, for the function

@@ -7,6 +7,7 @@
     "ritual_ZN10QExceptionC1Ev": ["address"],
     "ritual_ZN10QExceptionD1Ev": ["nothing", "address"],
     "ritual_ZN10QExceptionC1ERKS_": ["address", "address"],
+    "ritual_ZN10QExceptionaSERKS_": ["address", "address", "address"],
     "ritual_ZNK10QException5raiseEv": ["nothing", "address"],
     "ritual_ZNK10QException5cloneEv": ["address", "address"],
     "ritual_take_QException": ["bool", "address", "chars", "address"],

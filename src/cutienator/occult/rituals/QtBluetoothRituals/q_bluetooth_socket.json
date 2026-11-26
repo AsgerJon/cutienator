@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QBluetoothSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QBluetoothSocket11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QBluetoothSocket11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QBluetoothSocket2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -61,6 +67,17 @@
     "ritual_ZNK16QBluetoothSocket22preferredSecurityFlagsEv": [
       "int", "address"
     ],
+    "ritual_ZN16QBluetoothSocket9connectedEv": ["nothing", "address"],
+    "ritual_ZN16QBluetoothSocket12disconnectedEv": ["nothing", "address"],
+    "ritual_ZN16QBluetoothSocket13errorOccurredENS_11SocketErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket12stateChangedENS_11SocketStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN16QBluetoothSocket9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
@@ -91,6 +108,9 @@
     "ritual_own_ZNK16QBluetoothSocket12bytesToWriteEv": [
       "long long", "address"
     ],
-    "ritual_own_ZNK16QBluetoothSocket11canReadLineEv": ["bool", "address"]
+    "ritual_own_ZNK16QBluetoothSocket11canReadLineEv": ["bool", "address"],
+    "ritual_own_ZN16QBluetoothSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ]
   }
 }

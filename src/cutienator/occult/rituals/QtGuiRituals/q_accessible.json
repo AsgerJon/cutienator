@@ -4,6 +4,18 @@
     "QtGui/qaccessible_base.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QAccessible14installFactoryEPFP20QAccessibleInterfaceRK7QStringP7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QAccessible13removeFactoryEPFP20QAccessibleInterfaceRK7QStringP7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QAccessible20installUpdateHandlerEPFvP16QAccessibleEventE": [
+      "address", "address"
+    ],
+    "ritual_ZN11QAccessible24installRootObjectHandlerEPFvP7QObjectE": [
+      "address", "address"
+    ],
     "ritual_ZN11QAccessible25installActivationObserverEPNS_18ActivationObserverE": [
       "nothing", "address"
     ],
@@ -34,7 +46,11 @@
       "nothing", "address"
     ],
     "ritual_ZN11QAccessible7cleanupEv": ["nothing"],
+    "ritual_ZN11QAccessible29qAccessibleTextBoundaryHelperERK11QTextCursorNS_16TextBoundaryTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN11QAccessibleC1Ev": ["address"],
-    "ritual_ZN11QAccessibleD1Ev": ["nothing", "address"]
+    "ritual_ZN11QAccessibleD1Ev": ["nothing", "address"],
+    "ritual_drop_QAccessible__std_pair_int_int": ["nothing", "address"]
   }
 }

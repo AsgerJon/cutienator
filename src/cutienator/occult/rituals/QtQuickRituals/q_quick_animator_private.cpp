@@ -8,7 +8,82 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickanimator_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qquickanimator_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qquickanimator_p_p.h>
+#include <QtQuick/private/qquickanimatorjob_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/util/qquickanimator.cpp, line 185, as _ZN21QQuickAnimatorPrivate5applyEP17QQuickAnimatorJobRK7QStringR5QListI17QQuickStateActionERS5_I12QQmlPropertyEP7QObject
+inline void QQuickAnimatorPrivate::apply(QQuickAnimatorJob *job,
+                                     const QString &propertyName,
+                                     QQuickStateActions &actions,
+                                     QQmlProperties &modified,
+                                     QObject *defaultTarget)
+{
+
+    if (actions.size()) {
+        for (int i=0; i<actions.size(); ++i) {
+            QQuickStateAction &action = actions[i];
+            if (action.property.name() != propertyName)
+                continue;
+            modified << action.property;
+
+            job->setTarget(qobject_cast<QQuickItem *>(action.property.object()));
+
+            if (fromIsDefined)
+                job->setFrom(from);
+            else if (action.fromValue.isValid())
+                job->setFrom(action.fromValue.toReal());
+            else
+                job->setFrom(action.property.read().toReal());
+
+            if (toIsDefined)
+                job->setTo(to);
+            else if (action.toValue.isValid())
+                job->setTo(action.toValue.toReal());
+            else
+                job->setTo(action.property.read().toReal());
+
+            // This magic line is in sync with what PropertyAnimation does
+            // and prevents the animation to end up in the "completeList"
+            // which forces action.toValue to be written directly to
+            // the item when a transition is cancelled.
+            action.fromValue = action.toValue;
+       }
+    }
+
+    if (modified.isEmpty()) {
+        job->setTarget(target);
+        if (fromIsDefined)
+            job->setFrom(from);
+        job->setTo(to);
+    }
+
+    if (!job->target()) {
+        if (defaultProperty.object())
+            job->setTarget(qobject_cast<QQuickItem *>(defaultProperty.object()));
+        else
+            job->setTarget(qobject_cast<QQuickItem *>(defaultTarget));
+    }
+
+    if (modified.isEmpty() && !fromIsDefined && job->target())
+        job->setFrom(job->target()->property(propertyName.toLatin1()).toReal());
+
+    job->setDuration(duration);
+    job->setLoopCount(loopCount);
+    job->setEasingCurve(easing);
+}
+//  -----------------------------------------------------------------------
 
 //  A QQuickAnimatorPrivate that Python can take functions over in. Every QQuickAnimatorPrivate
 //  Python makes is one. Each function below asks the Python
@@ -139,6 +214,20 @@ const QQuickAnimator *ritual_ZNK21QQuickAnimatorPrivate6q_funcEv(
 extern "C" Q_DECL_EXPORT
 QQuickAnimatorPrivate *ritual_ZN21QQuickAnimatorPrivateC1Ev() {
   return new CuteQQuickAnimatorPrivate();
+}
+
+//  void QQuickAnimatorPrivate::apply(QQuickAnimatorJob *job, const QString
+//      &propertyName, QQuickStateActions &actions, QQmlProperties &modified,
+//      QObject *defaultTarget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickAnimatorPrivate5applyEP17QQuickAnimatorJobRK7QStringR5QListI17QQuickStateActionERS5_I12QQmlPropertyEP7QObject(
+    QQuickAnimatorPrivate *self,
+    QQuickAnimatorJob *job,
+    const QString *propertyName,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QObject *defaultTarget) {
+  self->apply(job, *propertyName, *actions, *modified, defaultTarget);
 }
 
 //  a Python function taken by a CuteQQuickAnimatorPrivate, for the function

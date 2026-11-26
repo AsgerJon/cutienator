@@ -8,10 +8,19 @@
     "ritual_ZN18QScxmlStateMachine6d_funcEv": ["address", "address"],
     "ritual_ZNK18QScxmlStateMachine6d_funcEv": ["address", "address"],
     "ritual_ZNK18QScxmlStateMachine10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QScxmlStateMachine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QScxmlStateMachine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QScxmlStateMachine2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN18QScxmlStateMachineC1EPK11QMetaObjectP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QScxmlStateMachineC1ER25QScxmlStateMachinePrivateP7QObject": [
       "address", "address", "address"
     ],
     "ritual_ZN18QScxmlStateMachine8fromFileERK7QString": ["address", "text"],
@@ -22,14 +31,23 @@
     "ritual_ZNK18QScxmlStateMachine9sessionIdEv": ["text", "address"],
     "ritual_ZNK18QScxmlStateMachine9isInvokedEv": ["bool", "address"],
     "ritual_ZNK18QScxmlStateMachine13isInitializedEv": ["bool", "address"],
+    "ritual_ZNK18QScxmlStateMachine19bindableInitializedEv": [
+      "address", "address"
+    ],
     "ritual_ZN18QScxmlStateMachine12setDataModelEP15QScxmlDataModel": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK18QScxmlStateMachine9dataModelEv": ["address", "address"],
+    "ritual_ZN18QScxmlStateMachine17bindableDataModelEv": [
+      "address", "address"
+    ],
     "ritual_ZN18QScxmlStateMachine9setLoaderEPN14QScxmlCompiler6LoaderE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK18QScxmlStateMachine6loaderEv": ["address", "address"],
+    "ritual_ZN18QScxmlStateMachine14bindableLoaderEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QScxmlStateMachine9isRunningEv": ["bool", "address"],
     "ritual_ZN18QScxmlStateMachine10setRunningEb": [
       "nothing", "address", "bool"
@@ -37,6 +55,9 @@
     "ritual_ZN18QScxmlStateMachine13initialValuesEv": ["address", "address"],
     "ritual_ZN18QScxmlStateMachine16setInitialValuesERK4QMapI7QString8QVariantE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18QScxmlStateMachine21bindableInitialValuesEv": [
+      "address", "address"
     ],
     "ritual_ZNK18QScxmlStateMachine4nameEv": ["text", "address"],
     "ritual_ZNK18QScxmlStateMachine10stateNamesEb": [
@@ -50,6 +71,12 @@
     ],
     "ritual_ZN18QScxmlStateMachine14connectToStateERK7QStringPK7QObjectPKcN2Qt14ConnectionTypeE": [
       "address", "address", "text", "address", "chars", "int"
+    ],
+    "ritual_ZN18QScxmlStateMachine7onEntryEPK7QObjectPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QScxmlStateMachine6onExitEPK7QObjectPKc": [
+      "address", "address", "chars"
     ],
     "ritual_ZN18QScxmlStateMachine14connectToEventERK7QStringPK7QObjectPKcN2Qt14ConnectionTypeE": [
       "address", "address", "text", "address", "chars", "int"
@@ -72,13 +99,72 @@
     "ritual_ZNK18QScxmlStateMachine15invokedServicesEv": [
       "address", "address"
     ],
+    "ritual_ZN18QScxmlStateMachine23bindableInvokedServicesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QScxmlStateMachine9tableDataEv": ["address", "address"],
     "ritual_ZN18QScxmlStateMachine12setTableDataEP15QScxmlTableData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QScxmlStateMachine17bindableTableDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QScxmlStateMachine14runningChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QScxmlStateMachine22invokedServicesChangedERK5QListIP22QScxmlInvokableServiceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QScxmlStateMachine3logERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN18QScxmlStateMachine18reachedStableStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QScxmlStateMachine8finishedEv": ["nothing", "address"],
+    "ritual_ZN18QScxmlStateMachine16dataModelChangedEP15QScxmlDataModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QScxmlStateMachine20initialValuesChangedERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QScxmlStateMachine18initializedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QScxmlStateMachine13loaderChangedEPN14QScxmlCompiler6LoaderE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QScxmlStateMachine16tableDataChangedEP15QScxmlTableData": [
       "nothing", "address", "address"
     ],
     "ritual_ZN18QScxmlStateMachine5startEv": ["nothing", "address"],
     "ritual_ZN18QScxmlStateMachine4stopEv": ["nothing", "address"],
     "ritual_ZN18QScxmlStateMachine4initEv": ["bool", "address"],
-    "ritual_ZNK18QScxmlStateMachine8isActiveEi": ["bool", "address", "int"]
+    "ritual_ZNK18QScxmlStateMachine8isActiveEi": ["bool", "address", "int"],
+    "ritual_ZN18QScxmlStateMachine18connectToStateImplERK7QStringPK7QObjectPPvPN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeE": [
+      "address", "address", "text", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QScxmlStateMachine18connectToEventImplERK7QStringPK7QObjectPPvPN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeE": [
+      "address", "address", "text", "address", "address", "address", "int"
+    ],
+    "ritual_drop_QScxmlStateMachine__QBindable_bool": ["nothing", "address"],
+    "ritual_drop_QScxmlStateMachine__QBindable_QScxmlDataModel": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachine__QBindable_QScxmlCompiler_Loader": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachine__QBindable_QVariantMap": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachine__std_function_void_bool": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachine__QBindable_QList_QScxmlInvokableService": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlStateMachine__QBindable_QScxmlTableData": [
+      "nothing", "address"
+    ]
   }
 }

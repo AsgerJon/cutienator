@@ -14,6 +14,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuick3DModel may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -298,6 +299,24 @@ const QMetaObject *ritual_ZNK13QQuick3DModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuick3DModel11qt_metacastEPKc(
+    QQuick3DModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuick3DModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuick3DModel2trEPKcS1_i(
@@ -377,6 +396,20 @@ QQuick3DBounds3 *ritual_ZNK13QQuick3DModel6boundsEv(
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK13QQuick3DModel9depthBiasEv(const QQuick3DModel *self) {
   return self->depthBias();
+}
+
+//  QQmlListProperty<QQuick3DMaterial> QQuick3DModel::materials()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DMaterial> *ritual_ZN13QQuick3DModel9materialsEv(
+    QQuick3DModel *self) {
+  return new QQmlListProperty<QQuick3DMaterial>(self->materials());
+}
+
+//  QQmlListProperty<QQuick3DMorphTarget> QQuick3DModel::morphTargets()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DMorphTarget> *ritual_ZN13QQuick3DModel12morphTargetsEv(
+    QQuick3DModel *self) {
+  return new QQmlListProperty<QQuick3DMorphTarget>(self->morphTargets());
 }
 
 //  QQuick3DInstancing *QQuick3DModel::instancing() const
@@ -688,6 +721,168 @@ void ritual_ZN13QQuick3DModel22setMotionVectorEnabledEb(
   self->setMotionVectorEnabled(newMotionVectorEnabled);
 }
 
+//  void QQuick3DModel::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel13sourceChangedEv(QQuick3DModel *self) {
+  self->sourceChanged();
+}
+
+//  void QQuick3DModel::castsShadowsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel19castsShadowsChangedEv(QQuick3DModel *self) {
+  self->castsShadowsChanged();
+}
+
+//  void QQuick3DModel::receivesShadowsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel22receivesShadowsChangedEv(
+    QQuick3DModel *self) {
+  self->receivesShadowsChanged();
+}
+
+//  void QQuick3DModel::pickableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel15pickableChangedEv(QQuick3DModel *self) {
+  self->pickableChanged();
+}
+
+//  void QQuick3DModel::geometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel15geometryChangedEv(QQuick3DModel *self) {
+  self->geometryChanged();
+}
+
+//  void QQuick3DModel::skeletonChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel15skeletonChangedEv(QQuick3DModel *self) {
+  self->skeletonChanged();
+}
+
+//  void QQuick3DModel::inverseBindPosesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel23inverseBindPosesChangedEv(
+    QQuick3DModel *self) {
+  self->inverseBindPosesChanged();
+}
+
+//  void QQuick3DModel::boundsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel13boundsChangedEv(QQuick3DModel *self) {
+  self->boundsChanged();
+}
+
+//  void QQuick3DModel::instancingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel17instancingChangedEv(QQuick3DModel *self) {
+  self->instancingChanged();
+}
+
+//  void QQuick3DModel::instanceRootChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel19instanceRootChangedEv(QQuick3DModel *self) {
+  self->instanceRootChanged();
+}
+
+//  void QQuick3DModel::morphTargetsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel19morphTargetsChangedEv(QQuick3DModel *self) {
+  self->morphTargetsChanged();
+}
+
+//  void QQuick3DModel::depthBiasChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel16depthBiasChangedEv(QQuick3DModel *self) {
+  self->depthBiasChanged();
+}
+
+//  void QQuick3DModel::receivesReflectionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel26receivesReflectionsChangedEv(
+    QQuick3DModel *self) {
+  self->receivesReflectionsChanged();
+}
+
+//  void QQuick3DModel::castsReflectionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel23castsReflectionsChangedEv(
+    QQuick3DModel *self) {
+  self->castsReflectionsChanged();
+}
+
+//  void QQuick3DModel::skinChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel11skinChangedEv(QQuick3DModel *self) {
+  self->skinChanged();
+}
+
+//  void QQuick3DModel::usedInBakedLightingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel26usedInBakedLightingChangedEv(
+    QQuick3DModel *self) {
+  self->usedInBakedLightingChanged();
+}
+
+//  void QQuick3DModel::lightmapBaseResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel29lightmapBaseResolutionChangedEv(
+    QQuick3DModel *self) {
+  self->lightmapBaseResolutionChanged();
+}
+
+//  void QQuick3DModel::bakedLightmapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel20bakedLightmapChangedEv(QQuick3DModel *self) {
+  self->bakedLightmapChanged();
+}
+
+//  void QQuick3DModel::instancingLodMinChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel23instancingLodMinChangedEv(
+    QQuick3DModel *self) {
+  self->instancingLodMinChanged();
+}
+
+//  void QQuick3DModel::instancingLodMaxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel23instancingLodMaxChangedEv(
+    QQuick3DModel *self) {
+  self->instancingLodMaxChanged();
+}
+
+//  void QQuick3DModel::instancingLodFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel26instancingLodFactorChangedEv(
+    QQuick3DModel *self) {
+  self->instancingLodFactorChanged();
+}
+
+//  void QQuick3DModel::levelOfDetailBiasChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel24levelOfDetailBiasChangedEv(
+    QQuick3DModel *self) {
+  self->levelOfDetailBiasChanged();
+}
+
+//  void QQuick3DModel::texelsPerUnitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel20texelsPerUnitChangedEv(QQuick3DModel *self) {
+  self->texelsPerUnitChanged();
+}
+
+//  void QQuick3DModel::motionVectorEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel26motionVectorEnabledChangedEv(
+    QQuick3DModel *self) {
+  self->motionVectorEnabledChanged();
+}
+
+//  void QQuick3DModel::motionVectorScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel24motionVectorScaleChangedEv(
+    QQuick3DModel *self) {
+  self->motionVectorScaleChanged();
+}
+
 //  QSSGRenderGraphObject
 //      *QQuick3DModel::updateSpatialNode(QSSGRenderGraphObject *node)
 extern "C" Q_DECL_EXPORT
@@ -745,6 +940,80 @@ void ritual_ZN13QQuick3DModel18updateSceneManagerEP20QQuick3DSceneManager(
   self->updateSceneManager(sceneManager);
 }
 
+//  void QQuick3DModel::qmlAppendMaterial(QQmlListProperty<QQuick3DMaterial>
+//      *list, QQuick3DMaterial *material)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel17qmlAppendMaterialEP16QQmlListPropertyI16QQuick3DMaterialEPS1_(
+    QQmlListProperty<QQuick3DMaterial> *list,
+    QQuick3DMaterial *material) {
+  QQuick3DModel::qmlAppendMaterial(list, material);
+}
+
+//  QQuick3DMaterial
+//      *QQuick3DModel::qmlMaterialAt(QQmlListProperty<QQuick3DMaterial>
+//      *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DMaterial *ritual_ZN13QQuick3DModel13qmlMaterialAtEP16QQmlListPropertyI16QQuick3DMaterialEx(
+    QQmlListProperty<QQuick3DMaterial> *list,
+    qsizetype index) {
+  return QQuick3DModel::qmlMaterialAt(list, index);
+}
+
+//  qsizetype
+//      QQuick3DModel::qmlMaterialsCount(QQmlListProperty<QQuick3DMaterial>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN13QQuick3DModel17qmlMaterialsCountEP16QQmlListPropertyI16QQuick3DMaterialE(
+    QQmlListProperty<QQuick3DMaterial> *list) {
+  return QQuick3DModel::qmlMaterialsCount(list);
+}
+
+//  void QQuick3DModel::qmlClearMaterials(QQmlListProperty<QQuick3DMaterial>
+//      *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel17qmlClearMaterialsEP16QQmlListPropertyI16QQuick3DMaterialE(
+    QQmlListProperty<QQuick3DMaterial> *list) {
+  QQuick3DModel::qmlClearMaterials(list);
+}
+
+//  void
+//      QQuick3DModel::qmlAppendMorphTarget(QQmlListProperty<QQuick3DMorphTar
+//      get> *list, QQuick3DMorphTarget *morphTarget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel20qmlAppendMorphTargetEP16QQmlListPropertyI19QQuick3DMorphTargetEPS1_(
+    QQmlListProperty<QQuick3DMorphTarget> *list,
+    QQuick3DMorphTarget *morphTarget) {
+  QQuick3DModel::qmlAppendMorphTarget(list, morphTarget);
+}
+
+//  QQuick3DMorphTarget
+//      *QQuick3DModel::qmlMorphTargetAt(QQmlListProperty<QQuick3DMorphTarget
+//      > *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DMorphTarget *ritual_ZN13QQuick3DModel16qmlMorphTargetAtEP16QQmlListPropertyI19QQuick3DMorphTargetEx(
+    QQmlListProperty<QQuick3DMorphTarget> *list,
+    qsizetype index) {
+  return QQuick3DModel::qmlMorphTargetAt(list, index);
+}
+
+//  qsizetype
+//      QQuick3DModel::qmlMorphTargetsCount(QQmlListProperty<QQuick3DMorphTar
+//      get> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN13QQuick3DModel20qmlMorphTargetsCountEP16QQmlListPropertyI19QQuick3DMorphTargetE(
+    QQmlListProperty<QQuick3DMorphTarget> *list) {
+  return QQuick3DModel::qmlMorphTargetsCount(list);
+}
+
+//  void
+//      QQuick3DModel::qmlClearMorphTargets(QQmlListProperty<QQuick3DMorphTar
+//      get> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuick3DModel20qmlClearMorphTargetsEP16QQmlListPropertyI19QQuick3DMorphTargetE(
+    QQmlListProperty<QQuick3DMorphTarget> *list) {
+  QQuick3DModel::qmlClearMorphTargets(list);
+}
+
 //  a Python function taken by a CuteQQuick3DModel, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -780,4 +1049,18 @@ void ritual_own_ZN13QQuick3DModel10itemChangeEN14QQuick3DObject10ItemChangeERKNS
   static_cast<OwnQQuick3DModel *>(self)->OwnQQuick3DModel::itemChange(
       a0,
       *a1);
+}
+
+//  a QQmlListProperty<QQuick3DMaterial> a ritual of QQuick3DModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DModel__QQmlListProperty_QQuick3DMaterial(
+    QQmlListProperty<QQuick3DMaterial> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuick3DMorphTarget> a ritual of QQuick3DModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DModel__QQmlListProperty_QQuick3DMorphTarget(
+    QQmlListProperty<QQuick3DMorphTarget> *self) {
+  delete self;
 }

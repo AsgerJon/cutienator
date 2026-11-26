@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN24QSupportedWritingSystemsC1Ev": ["address"],
     "ritual_ZN24QSupportedWritingSystemsC1ERKS_": ["address", "address"],
+    "ritual_ZN24QSupportedWritingSystemsaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN24QSupportedWritingSystemsD1Ev": ["nothing", "address"],
     "ritual_ZN24QSupportedWritingSystems12setSupportedEN13QFontDatabase13WritingSystemEb": [
       "nothing", "address", "int", "bool"

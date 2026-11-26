@@ -1,18 +1,16 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DCore/6.12.0/Qt3DCore/private/qeventfilterservice_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  Qt3DCore/6.12.0/Qt3DCore/private/qeventfilterservice_p.h, Qt 6.12.0, from
+//  Qt's source. Kept as it is when the generator runs again.
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qt3dcore_global_p.h>
-#include <Qt3DCore/Qt3DCore>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qeventfilterservice_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
-//  A Qt3DCore::QEventFilterService that Python can take functions over in. Every Qt3DCore::QEventFilterService
-//  Python makes is one. Each function below asks the Python
-//  function handed over for it, and runs Qt's own without one.
+//  A Qt3DCore::QEventFilterService that Python can take functions over in.
+//  Every Qt3DCore::QEventFilterService Python makes is one. Each function
+//  below asks the Python function handed over for it, and runs Qt's own
+//  without one.
 #if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQt3DCore_QEventFilterServiceCall0)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
@@ -192,6 +190,68 @@ QString *ritual_ZN8Qt3DCore19QEventFilterService2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QEventFilterService::tr(s, c, n));
+}
+
+//  QEventFilterService::QEventFilterService()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEventFilterService *ritual_ZN8Qt3DCore19QEventFilterServiceC1Ev() {
+  return new CuteQt3DCore_QEventFilterService();
+}
+
+//  QEventFilterService::~QEventFilterService()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore19QEventFilterServiceD1Ev(
+    Qt3DCore::QEventFilterService *self) {
+  delete self;
+}
+
+//  void QEventFilterService::initialize(QObject *eventSource)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore19QEventFilterService10initializeEP7QObject(
+    Qt3DCore::QEventFilterService *self,
+    QObject *eventSource) {
+  self->initialize(eventSource);
+}
+
+//  void QEventFilterService::shutdown(QObject *eventSource)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore19QEventFilterService8shutdownEP7QObject(
+    Qt3DCore::QEventFilterService *self,
+    QObject *eventSource) {
+  self->shutdown(eventSource);
+}
+
+//  void QEventFilterService::registerEventFilter(QObject *eventFilter,
+//      int priority)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore19QEventFilterService19registerEventFilterEP7QObjecti(
+    Qt3DCore::QEventFilterService *self,
+    QObject *eventFilter,
+    int priority) {
+  self->registerEventFilter(eventFilter, priority);
+}
+
+//  void QEventFilterService::unregisterEventFilter(QObject *eventFilter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore19QEventFilterService21unregisterEventFilterEP7QObject(
+    Qt3DCore::QEventFilterService *self,
+    QObject *eventFilter) {
+  self->unregisterEventFilter(eventFilter);
+}
+
+//  QEventFilterServicePrivate *Qt3DCore::QEventFilterService::d_func()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEventFilterServicePrivate *ritual_ZN8Qt3DCore19QEventFilterService6d_funcEv(
+    Qt3DCore::QEventFilterService *self) {
+  return self->d_func();
+}
+
+//  const QEventFilterServicePrivate *Qt3DCore::QEventFilterService::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const Qt3DCore::QEventFilterServicePrivate *ritual_ZNK8Qt3DCore19QEventFilterService6d_funcEv(
+    const Qt3DCore::QEventFilterService *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQt3DCore_QEventFilterService, for the

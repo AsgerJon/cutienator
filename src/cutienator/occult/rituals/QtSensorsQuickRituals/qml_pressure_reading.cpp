@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlPressureReading that Python can take functions over in. Every QmlPressureReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK18QmlPressureReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlPressureReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QmlPressureReading11qt_metacastEPKc(
+    QmlPressureReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlPressureReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QmlPressureReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlPressureReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlPressureReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QmlPressureReading2trEPKcS1_i(
@@ -252,11 +272,39 @@ qreal ritual_ZNK18QmlPressureReading8pressureEv(
   return self->pressure();
 }
 
+//  QBindable<qreal> QmlPressureReading::bindablePressure() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK18QmlPressureReading16bindablePressureEv(
+    const QmlPressureReading *self) {
+  return new QBindable<qreal>(self->bindablePressure());
+}
+
 //  qreal QmlPressureReading::temperature() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK18QmlPressureReading11temperatureEv(
     const QmlPressureReading *self) {
   return self->temperature();
+}
+
+//  QBindable<qreal> QmlPressureReading::bindableTemperature() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK18QmlPressureReading19bindableTemperatureEv(
+    const QmlPressureReading *self) {
+  return new QBindable<qreal>(self->bindableTemperature());
+}
+
+//  void QmlPressureReading::pressureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QmlPressureReading15pressureChangedEv(
+    QmlPressureReading *self) {
+  self->pressureChanged();
+}
+
+//  void QmlPressureReading::temperatureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QmlPressureReading18temperatureChangedEv(
+    QmlPressureReading *self) {
+  self->temperatureChanged();
 }
 
 //  QSensorReading *QmlPressureReading::reading() const
@@ -271,6 +319,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QmlPressureReading13readingUpdateEv(
     QmlPressureReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlPressureReading::_qt_property_m_pressure_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN18QmlPressureReading30_qt_property_m_pressure_offsetEv() {
+  return QmlPressureReading::_qt_property_m_pressure_offset();
+}
+
+//  size_t QmlPressureReading::_qt_property_m_temperature_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN18QmlPressureReading33_qt_property_m_temperature_offsetEv() {
+  return QmlPressureReading::_qt_property_m_temperature_offset();
 }
 
 //  a Python function taken by a CuteQmlPressureReading, for the function
@@ -295,4 +355,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN18QmlPressureReading13readingUpdateEv(
     QmlPressureReading *self) {
   self->QmlPressureReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlPressureReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlPressureReading__QBindable_qreal(
+    QBindable<qreal> *self) {
+  delete self;
 }

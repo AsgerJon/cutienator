@@ -9,6 +9,18 @@
 #include <QtMultimedia/qaudiodevice.h>
 #include <QtMultimedia/qaudioformat.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtSpatialAudio/qaudioengine.h>
+#include <QtSpatialAudio/private/qaudioengine_p.h>
+#include <QtMultimedia/private/qmultimedia_ranges_p.h>
+#include <QtSpatialAudio/private/qaudioengine_threaded_p.h>
+#include <QtSpatialAudio/private/qaudioengine_withplayer_p.h>
+#include <QtCore/qspan.h>
+#include <QtMultimedia/qaudiosink.h>
+#include <QtMultimedia/qmediadevices.h>
+#include <QtMultimedia/private/qaudiosystem_p.h>
+#include <QtMultimedia/private/qplatformaudiodevices_p.h>
+#include <QtMultimedia/private/qplatformmediaintegration_p.h>
+#include <QtCore/q20vector.h>
 #include <QtSpatialAudio/private/qaudioengine_withplayer_p.h>
 #include <QtMultimedia/qmediadevices.h>
 #include <QtMultimedia/private/qmemory_resource_tlsf_p.h>
@@ -25,6 +37,9 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtmultimedia/src/spatialaudio/qaudioengine.cpp, line 37, as _ZN19QAudioEnginePrivateD2Ev
+inline QAudioEnginePrivate::~QAudioEnginePrivate() = default;
 
 //  from ../qtmultimedia/src/spatialaudio/qaudioengine_withplayer.cpp, line 311, as _ZN22QAudioEngineWithPlayer4stopEv
 inline void QAudioEngineWithPlayer::stop()

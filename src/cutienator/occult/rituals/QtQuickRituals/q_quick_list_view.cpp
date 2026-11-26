@@ -1106,6 +1106,24 @@ const QMetaObject *ritual_ZNK14QQuickListView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickListView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickListView11qt_metacastEPKc(
+    QQuickListView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickListView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickListView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickListView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickListView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickListView2trEPKcS1_i(
@@ -1113,6 +1131,20 @@ QString *ritual_ZN14QQuickListView2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickListView::tr(s, c, n));
+}
+
+//  QQuickListViewPrivate *QQuickListView::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickListViewPrivate *ritual_ZN14QQuickListView6d_funcEv(
+    QQuickListView *self) {
+  return self->d_func();
+}
+
+//  const QQuickListViewPrivate *QQuickListView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickListViewPrivate *ritual_ZNK14QQuickListView6d_funcEv(
+    const QQuickListView *self) {
+  return self->d_func();
 }
 
 //  void QQuickListView::qt_qmlMarker_attached()
@@ -1304,6 +1336,66 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQuickListView21decrementCurrentIndexEv(
     QQuickListView *self) {
   self->decrementCurrentIndex();
+}
+
+//  void QQuickListView::spacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickListView14spacingChangedEv(QQuickListView *self) {
+  self->spacingChanged();
+}
+
+//  void QQuickListView::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickListView18orientationChangedEv(QQuickListView *self) {
+  self->orientationChanged();
+}
+
+//  void QQuickListView::currentSectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickListView21currentSectionChangedEv(
+    QQuickListView *self) {
+  self->currentSectionChanged();
+}
+
+//  void QQuickListView::highlightMoveVelocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickListView28highlightMoveVelocityChangedEv(
+    QQuickListView *self) {
+  self->highlightMoveVelocityChanged();
+}
+
+//  void QQuickListView::highlightResizeVelocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickListView30highlightResizeVelocityChangedEv(
+    QQuickListView *self) {
+  self->highlightResizeVelocityChanged();
+}
+
+//  void QQuickListView::highlightResizeDurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickListView30highlightResizeDurationChangedEv(
+    QQuickListView *self) {
+  self->highlightResizeDurationChanged();
+}
+
+//  void QQuickListView::snapModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickListView15snapModeChangedEv(QQuickListView *self) {
+  self->snapModeChanged();
+}
+
+//  void QQuickListView::headerPositioningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickListView24headerPositioningChangedEv(
+    QQuickListView *self) {
+  self->headerPositioningChanged();
+}
+
+//  void QQuickListView::footerPositioningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickListView24footerPositioningChangedEv(
+    QQuickListView *self) {
+  self->footerPositioningChanged();
 }
 
 //  void QQuickListView::viewportMoved(Qt::Orientations orient)

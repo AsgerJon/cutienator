@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK11QLineSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QLineSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QLineSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QLineSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QLineSeriesC1EP7QObject": ["address", "address"],
     "ritual_ZN11QLineSeriesD1Ev": ["nothing", "address"],
@@ -34,14 +40,41 @@
     "ritual_ZN11QLineSeries13setDashOffsetEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZNK11QLineSeries11dashPatternEv": ["address", "address"],
+    "ritual_ZN11QLineSeries14setDashPatternERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QLineSeries22dataPointCoordinatesAtEdd": [
       "address", "address", "double", "double"
+    ],
+    "ritual_ZN11QLineSeries12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN11QLineSeries15capStyleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QLineSeries16joinStyleChangedEN2Qt12PenJoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QLineSeries16lineStyleChangedENS_9LineStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QLineSeries18strokeStyleChangedENS_11StrokeStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QLineSeries17dashOffsetChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11QLineSeries18dashPatternChangedERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QLineSeriesC1ER18QLineSeriesPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN11QLineSeries17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN11QLineSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK11QLineSeries6d_funcEv": ["address", "address"],
     "ritual_take_QLineSeries": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QLineSeries4typeEv": ["int", "address"],
-    "ritual_own_ZN11QLineSeries17componentCompleteEv": ["nothing", "address"]
+    "ritual_own_ZN11QLineSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QLineSeries__QList_qreal": ["nothing", "address"]
   }
 }

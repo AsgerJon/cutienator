@@ -8,8 +8,17 @@
     "ritual_ZNK10Qt3DRender6Render5Quick15Quick3DViewport10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render5Quick15Quick3DViewport11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick15Quick3DViewport11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render5Quick15Quick3DViewport2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick15Quick3DViewportC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_take_Qt3DRender_Render_Quick_Quick3DViewport": [
       "bool", "address", "chars", "address"

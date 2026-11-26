@@ -200,6 +200,25 @@ const QMetaObject *ritual_ZNK26QQuickImageTextureProvider10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickImageTextureProvider::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickImageTextureProvider11qt_metacastEPKc(
+    QQuickImageTextureProvider *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickImageTextureProvider::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickImageTextureProvider11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickImageTextureProvider *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickImageTextureProvider::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT

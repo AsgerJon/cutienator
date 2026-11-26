@@ -8,8 +8,20 @@
     "ritual_ZNK32QWaylandQtTextInputMethodManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32QWaylandQtTextInputMethodManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QWaylandQtTextInputMethodManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN32QWaylandQtTextInputMethodManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QWaylandQtTextInputMethodManager6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QWaylandQtTextInputMethodManager6d_funcEv": [
+      "address", "address"
     ],
     "ritual_ZN32QWaylandQtTextInputMethodManagerC1Ev": ["address"],
     "ritual_ZN32QWaylandQtTextInputMethodManagerC1EP18QWaylandCompositor": [
@@ -18,6 +30,7 @@
     "ritual_ZN32QWaylandQtTextInputMethodManager10initializeEv": [
       "nothing", "address"
     ],
+    "ritual_ZN32QWaylandQtTextInputMethodManager9interfaceEv": ["address"],
     "ritual_ZN32QWaylandQtTextInputMethodManager13interfaceNameEv": [
       "address"
     ],

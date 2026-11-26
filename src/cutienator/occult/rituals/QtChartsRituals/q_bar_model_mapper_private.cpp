@@ -5,14 +5,20 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/qbarmodelmapper.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qbarmodelmapper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/qbarset.h>
+#endif
 #include <QtCore/qlist.h>
 
 //  const QMetaObject *QBarModelMapperPrivate::metaObject() const
@@ -20,6 +26,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QBarModelMapperPrivate10metaObjectEv(
     const QBarModelMapperPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QBarModelMapperPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QBarModelMapperPrivate11qt_metacastEPKc(
+    QBarModelMapperPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarModelMapperPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QBarModelMapperPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarModelMapperPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QBarModelMapperPrivate::tr(const char *s, const char *c, int n)

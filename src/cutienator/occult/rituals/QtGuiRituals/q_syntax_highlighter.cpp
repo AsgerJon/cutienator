@@ -206,6 +206,25 @@ const QMetaObject *ritual_ZNK18QSyntaxHighlighter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSyntaxHighlighter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QSyntaxHighlighter11qt_metacastEPKc(
+    QSyntaxHighlighter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSyntaxHighlighter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QSyntaxHighlighter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSyntaxHighlighter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSyntaxHighlighter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QSyntaxHighlighter2trEPKcS1_i(
@@ -213,6 +232,34 @@ QString *ritual_ZN18QSyntaxHighlighter2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSyntaxHighlighter::tr(s, c, n));
+}
+
+//  QSyntaxHighlighterPrivate *QSyntaxHighlighter::d_func()
+extern "C" Q_DECL_EXPORT
+QSyntaxHighlighterPrivate *ritual_ZN18QSyntaxHighlighter6d_funcEv(
+    QSyntaxHighlighter *self) {
+  return self->d_func();
+}
+
+//  const QSyntaxHighlighterPrivate *QSyntaxHighlighter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSyntaxHighlighterPrivate *ritual_ZNK18QSyntaxHighlighter6d_funcEv(
+    const QSyntaxHighlighter *self) {
+  return self->d_func();
+}
+
+//  QSyntaxHighlighter::QSyntaxHighlighter(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSyntaxHighlighter *ritual_ZN18QSyntaxHighlighterC1EP7QObject(
+    QObject *parent) {
+  return new CuteQSyntaxHighlighter(parent);
+}
+
+//  QSyntaxHighlighter::QSyntaxHighlighter(QTextDocument *parent)
+extern "C" Q_DECL_EXPORT
+QSyntaxHighlighter *ritual_ZN18QSyntaxHighlighterC1EP13QTextDocument(
+    QTextDocument *parent) {
+  return new CuteQSyntaxHighlighter(parent);
 }
 
 //  QSyntaxHighlighter::~QSyntaxHighlighter()

@@ -9,9 +9,23 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qxdgnotificationproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
+#include <QtDBus/QDBusPendingReply>
+#include <QtCore/QStringList>
+#include <QtCore/QString>
+#include <QtDBus/QDBusReply>
+#include <QtCore/QList>
+#include <QtCore/QMap>
+#include <QtCore/QVariant>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtGui/private/qxdgnotificationproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -21,6 +35,15 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from src/gui/platform/unix/dbustray/qdbustrayicon.cpp, line 42, as _Z7qLcTrayv
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline const QLoggingCategory &qLcTray()
+{
+    static const QLoggingCategory category("qt.qpa.tray");
+    return category;
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
 
 //  from src/gui/platform/unix/dbustray/qxdgnotificationproxy.cpp, line 14, as _ZN25QXdgNotificationInterfaceD1Ev
 inline QXdgNotificationInterface::~QXdgNotificationInterface()
@@ -215,6 +238,25 @@ const QMetaObject *ritual_ZNK25QXdgNotificationInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QXdgNotificationInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QXdgNotificationInterface11qt_metacastEPKc(
+    QXdgNotificationInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QXdgNotificationInterface::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QXdgNotificationInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QXdgNotificationInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const char *QXdgNotificationInterface::staticInterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN25QXdgNotificationInterface19staticInterfaceNameEv() {
@@ -228,6 +270,135 @@ void ritual_ZN25QXdgNotificationInterfaceD1Ev(
   delete self;
 }
 
+//  QDBusPendingReply<> QXdgNotificationInterface::closeNotification(uint id)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN25QXdgNotificationInterface17closeNotificationEj(
+    QXdgNotificationInterface *self,
+    uint id) {
+  return new QDBusPendingReply<>(self->closeNotification(id));
+}
+
+//  QDBusPendingReply<QStringList>
+//      QXdgNotificationInterface::getCapabilities()
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<QStringList> *ritual_ZN25QXdgNotificationInterface15getCapabilitiesEv(
+    QXdgNotificationInterface *self) {
+  return new QDBusPendingReply<QStringList>(self->getCapabilities());
+}
+
+//  QDBusPendingReply<QString, QString, QString, QString>
+//      QXdgNotificationInterface::getServerInformation()
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<QString, QString, QString, QString> *ritual_ZN25QXdgNotificationInterface20getServerInformationEv(
+    QXdgNotificationInterface *self) {
+  return new QDBusPendingReply<QString, QString, QString, QString>(
+      self->getServerInformation());
+}
+
+//  QDBusReply<QString>
+//      QXdgNotificationInterface::getServerInformation(QString &vendor,
+//      QString &version, QString &specVersion)
+extern "C" Q_DECL_EXPORT
+QDBusReply<QString> *ritual_ZN25QXdgNotificationInterface20getServerInformationER7QStringS1_S1_(
+    QXdgNotificationInterface *self,
+    QString *vendor,
+    QString *version,
+    QString *specVersion) {
+  return new QDBusReply<QString>(
+      self->getServerInformation(
+          *vendor,
+          *version,
+          *specVersion));
+}
+
+#if !defined(QT_NO_SYSTEMTRAYICON)
+//  QDBusPendingReply<uint> QXdgNotificationInterface::notify(const QString
+//      &appName, uint replacesId, const QString &appIcon, const QString
+//      &summary, const QString &body, const QStringList &actions, const
+//      QVariantMap &hints, int timeout)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<uint> *ritual_ZN25QXdgNotificationInterface6notifyERK7QStringjS2_S2_S2_RK5QListIS0_ERK4QMapIS0_8QVariantEi(
+    QXdgNotificationInterface *self,
+    const QString *appName,
+    uint replacesId,
+    const QString *appIcon,
+    const QString *summary,
+    const QString *body,
+    const QList<QString> *actions,
+    const QMap<QString, QVariant> *hints,
+    int timeout) {
+  return new QDBusPendingReply<uint>(
+      self->notify(
+          *appName,
+          replacesId,
+          *appIcon,
+          *summary,
+          *body,
+          *actions,
+          *hints,
+          timeout));
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  void QXdgNotificationInterface::ActionInvoked(uint id, const QString
+//      &action_key)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QXdgNotificationInterface13ActionInvokedEjRK7QString(
+    QXdgNotificationInterface *self,
+    uint id,
+    const QString *action_key) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QXdgNotificationInterface")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "ActionInvoked(uint,const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "ActionInvoked(uint,const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&id)),
+      const_cast<void *>(static_cast<const void *>(action_key)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QXdgNotificationInterface::NotificationClosed(uint id, uint reason)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QXdgNotificationInterface18NotificationClosedEjj(
+    QXdgNotificationInterface *self,
+    uint id,
+    uint reason) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QXdgNotificationInterface")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "NotificationClosed(uint,uint)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "NotificationClosed(uint,uint)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&id)),
+      const_cast<void *>(static_cast<const void *>(&reason)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  a Python function taken by a CuteQXdgNotificationInterface, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -236,6 +407,43 @@ bool ritual_take_QXdgNotificationInterface(
     const char *key,
     void *call) {
   return static_cast<CuteQXdgNotificationInterface *>(self)->take(key, call);
+}
+
+//  a QDBusPendingReply<> a ritual of QXdgNotificationInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXdgNotificationInterface__QDBusPendingReply(
+    QDBusPendingReply<> *self) {
+  delete self;
+}
+
+//  a QDBusPendingReply<QStringList> a ritual of QXdgNotificationInterface
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXdgNotificationInterface__QDBusPendingReply_QStringList(
+    QDBusPendingReply<QStringList> *self) {
+  delete self;
+}
+
+//  a QDBusPendingReply<QString, QString, QString, QString> a ritual of
+//      QXdgNotificationInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXdgNotificationInterface__QDBusPendingReply_QString_QString_QString_QString(
+    QDBusPendingReply<QString, QString, QString, QString> *self) {
+  delete self;
+}
+
+//  a QDBusReply<QString> a ritual of QXdgNotificationInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXdgNotificationInterface__QDBusReply_QString(
+    QDBusReply<QString> *self) {
+  delete self;
+}
+
+//  a QDBusPendingReply<uint> a ritual of QXdgNotificationInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QXdgNotificationInterface__QDBusPendingReply_uint(
+    QDBusPendingReply<uint> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(systemtrayicon) && 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))

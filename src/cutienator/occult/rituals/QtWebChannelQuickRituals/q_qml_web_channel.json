@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQmlWebChannel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlWebChannel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQmlWebChannel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQmlWebChannel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,8 @@
     "ritual_ZN14QQmlWebChannel15registerObjectsERK4QMapI7QString8QVariantE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QQmlWebChannel17registeredObjectsEv": ["address", "address"],
+    "ritual_ZN14QQmlWebChannel10transportsEv": ["address", "address"],
     "ritual_ZN14QQmlWebChannel21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
     ],
@@ -26,6 +34,35 @@
     "ritual_ZN14QQmlWebChannel14disconnectFromEP7QObject": [
       "nothing", "address", "address"
     ],
-    "ritual_take_QQmlWebChannel": ["bool", "address", "chars", "address"]
+    "ritual_ZN14QQmlWebChannel6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQmlWebChannel6d_funcEv": ["address", "address"],
+    "ritual_ZN14QQmlWebChannel24registeredObjects_appendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlWebChannel23registeredObjects_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN14QQmlWebChannel20registeredObjects_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN14QQmlWebChannel23registeredObjects_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQmlWebChannel17transports_appendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlWebChannel16transports_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN14QQmlWebChannel13transports_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN14QQmlWebChannel16transports_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQmlWebChannel": ["bool", "address", "chars", "address"],
+    "ritual_drop_QQmlWebChannel__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

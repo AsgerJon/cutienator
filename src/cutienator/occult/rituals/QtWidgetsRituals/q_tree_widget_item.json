@@ -121,6 +121,13 @@
       "nothing", "address", "int", "int", "address"
     ],
     "ritual_ZNK15QTreeWidgetItemltERKS_": ["bool", "address", "address"],
+    "ritual_ZN15QTreeWidgetItem4readER11QDataStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QTreeWidgetItem5writeER11QDataStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QTreeWidgetItemaSERKS_": ["address", "address", "address"],
     "ritual_ZNK15QTreeWidgetItem6parentEv": ["address", "address"],
     "ritual_ZNK15QTreeWidgetItem5childEi": ["address", "address", "int"],
     "ritual_ZNK15QTreeWidgetItem10childCountEv": ["int", "address"],

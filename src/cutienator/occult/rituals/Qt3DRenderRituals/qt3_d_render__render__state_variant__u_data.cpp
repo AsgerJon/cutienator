@@ -20,6 +20,15 @@ Qt3DRender::Render::StateVariant::u_Data *ritual_ZN10Qt3DRender6Render12StateVar
   return new Qt3DRender::Render::StateVariant::u_Data(*other);
 }
 
+//  u_Data &Qt3DRender::Render::StateVariant::u_Data::operator=(const u_Data
+//      &other)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::StateVariant::u_Data *ritual_ZN10Qt3DRender6Render12StateVariant6u_DataaSERKS2_(
+    Qt3DRender::Render::StateVariant::u_Data *self,
+    const Qt3DRender::Render::StateVariant::u_Data *other) {
+  return &(self->operator=(*other));
+}
+
 //  Qt3DRender::Render::StateVariant::u_Data::~u_Data()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender6Render12StateVariant6u_DataD1Ev(

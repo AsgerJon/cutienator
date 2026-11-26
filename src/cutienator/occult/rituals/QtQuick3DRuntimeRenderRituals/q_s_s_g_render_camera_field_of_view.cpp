@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtQuick3DRunti
 //  meRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendercamera_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0. Edited by hand on 2026-11-25: added by hand, instances of
+//  templates of the class: 4. Kept as it is when the generator runs again.
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qtquick3druntimerenderglobal_p.h>
 #include <QtQuick3DRuntimeRender/QtQuick3DRuntimeRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -21,6 +22,23 @@ extern "C" Q_DECL_EXPORT
 QSSGRenderCameraFieldOfView *ritual_ZN27QSSGRenderCameraFieldOfViewC1ERKS_(
     const QSSGRenderCameraFieldOfView *a0) {
   return new QSSGRenderCameraFieldOfView(*a0);
+}
+
+//  QSSGRenderCameraFieldOfView::QSSGRenderCameraFieldOfView(QSSGRenderCamera
+//      FieldOfView &&a0)
+extern "C" Q_DECL_EXPORT
+QSSGRenderCameraFieldOfView *ritual_ZN27QSSGRenderCameraFieldOfViewC1EOS_(
+    QSSGRenderCameraFieldOfView *a0) {
+  return new QSSGRenderCameraFieldOfView(std::move(*a0));
+}
+
+//  QSSGRenderCameraFieldOfView &QSSGRenderCameraFieldOfView::operator=(const
+//      QSSGRenderCameraFieldOfView &other)
+extern "C" Q_DECL_EXPORT
+QSSGRenderCameraFieldOfView *ritual_ZN27QSSGRenderCameraFieldOfViewaSERKS_(
+    QSSGRenderCameraFieldOfView *self,
+    const QSSGRenderCameraFieldOfView *other) {
+  return &(self->operator=(*other));
 }
 
 //  Orientation QSSGRenderCameraFieldOfView::orientation() const
@@ -84,4 +102,40 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN27QSSGRenderCameraFieldOfViewD1Ev(
     QSSGRenderCameraFieldOfView *self) {
   delete self;
+}
+
+//  static QSSGRenderCameraFieldOfView
+//      QSSGRenderCameraFieldOfView::fromDegrees<
+//      QSSGRenderCameraFieldOfView::Orientation::Vertical>(float fov)
+extern "C" Q_DECL_EXPORT
+QSSGRenderCameraFieldOfView * ritual_ZN27QSSGRenderCameraFieldOfView11fromDegreesILNS_11OrientationE0EEES_f(float fov) {
+  return new QSSGRenderCameraFieldOfView(
+      QSSGRenderCameraFieldOfView::fromDegrees<QSSGRenderCameraFieldOfView::Orientation::Vertical>(fov));
+}
+
+//  static QSSGRenderCameraFieldOfView
+//      QSSGRenderCameraFieldOfView::fromDegrees<
+//      QSSGRenderCameraFieldOfView::Orientation::Horizontal>(float fov)
+extern "C" Q_DECL_EXPORT
+QSSGRenderCameraFieldOfView * ritual_ZN27QSSGRenderCameraFieldOfView11fromDegreesILNS_11OrientationE1EEES_f(float fov) {
+  return new QSSGRenderCameraFieldOfView(
+      QSSGRenderCameraFieldOfView::fromDegrees<QSSGRenderCameraFieldOfView::Orientation::Horizontal>(fov));
+}
+
+//  static QSSGRenderCameraFieldOfView
+//      QSSGRenderCameraFieldOfView::fromRadians<
+//      QSSGRenderCameraFieldOfView::Orientation::Vertical>(float fov)
+extern "C" Q_DECL_EXPORT
+QSSGRenderCameraFieldOfView * ritual_ZN27QSSGRenderCameraFieldOfView11fromRadiansILNS_11OrientationE0EEES_f(float fov) {
+  return new QSSGRenderCameraFieldOfView(
+      QSSGRenderCameraFieldOfView::fromRadians<QSSGRenderCameraFieldOfView::Orientation::Vertical>(fov));
+}
+
+//  static QSSGRenderCameraFieldOfView
+//      QSSGRenderCameraFieldOfView::fromRadians<
+//      QSSGRenderCameraFieldOfView::Orientation::Horizontal>(float fov)
+extern "C" Q_DECL_EXPORT
+QSSGRenderCameraFieldOfView * ritual_ZN27QSSGRenderCameraFieldOfView11fromRadiansILNS_11OrientationE1EEES_f(float fov) {
+  return new QSSGRenderCameraFieldOfView(
+      QSSGRenderCameraFieldOfView::fromRadians<QSSGRenderCameraFieldOfView::Orientation::Horizontal>(fov));
 }

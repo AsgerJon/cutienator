@@ -19,6 +19,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QHash>
+#include <QtCore/QString>
 
 //  A QQmlTableModelColumn that Python can take functions over in. Every QQmlTableModelColumn
 //  Python makes is one. Each function below asks the Python
@@ -192,6 +194,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QQmlTableModelColumn10metaObjectEv(
     const QQmlTableModelColumn *self) {
   return self->metaObject();
+}
+
+//  void *QQmlTableModelColumn::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQmlTableModelColumn11qt_metacastEPKc(
+    QQmlTableModelColumn *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlTableModelColumn::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQmlTableModelColumn11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlTableModelColumn *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQmlTableModelColumn::tr(const char *s, const char *c, int n)
@@ -448,6 +469,117 @@ QHash<QString, QJSValue> *ritual_ZNK20QQmlTableModelColumn7gettersEv(
   return new QHash<QString, QJSValue>(self->getters());
 }
 
+//  const QHash<int, QString> QQmlTableModelColumn::supportedRoleNames()
+extern "C" Q_DECL_EXPORT
+QHash<int, QString> *ritual_ZN20QQmlTableModelColumn18supportedRoleNamesEv() {
+  return new QHash<int, QString>(QQmlTableModelColumn::supportedRoleNames());
+}
+
+//  void QQmlTableModelColumn::indexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn12indexChangedEv(
+    QQmlTableModelColumn *self) {
+  self->indexChanged();
+}
+
+//  void QQmlTableModelColumn::displayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn14displayChangedEv(
+    QQmlTableModelColumn *self) {
+  self->displayChanged();
+}
+
+//  void QQmlTableModelColumn::decorationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn17decorationChangedEv(
+    QQmlTableModelColumn *self) {
+  self->decorationChanged();
+}
+
+//  void QQmlTableModelColumn::editChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn11editChangedEv(
+    QQmlTableModelColumn *self) {
+  self->editChanged();
+}
+
+//  void QQmlTableModelColumn::toolTipChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn14toolTipChangedEv(
+    QQmlTableModelColumn *self) {
+  self->toolTipChanged();
+}
+
+//  void QQmlTableModelColumn::statusTipChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn16statusTipChangedEv(
+    QQmlTableModelColumn *self) {
+  self->statusTipChanged();
+}
+
+//  void QQmlTableModelColumn::whatsThisChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn16whatsThisChangedEv(
+    QQmlTableModelColumn *self) {
+  self->whatsThisChanged();
+}
+
+//  void QQmlTableModelColumn::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn11fontChangedEv(
+    QQmlTableModelColumn *self) {
+  self->fontChanged();
+}
+
+//  void QQmlTableModelColumn::textAlignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn20textAlignmentChangedEv(
+    QQmlTableModelColumn *self) {
+  self->textAlignmentChanged();
+}
+
+//  void QQmlTableModelColumn::backgroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn17backgroundChangedEv(
+    QQmlTableModelColumn *self) {
+  self->backgroundChanged();
+}
+
+//  void QQmlTableModelColumn::foregroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn17foregroundChangedEv(
+    QQmlTableModelColumn *self) {
+  self->foregroundChanged();
+}
+
+//  void QQmlTableModelColumn::checkStateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn17checkStateChangedEv(
+    QQmlTableModelColumn *self) {
+  self->checkStateChanged();
+}
+
+//  void QQmlTableModelColumn::accessibleTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn21accessibleTextChangedEv(
+    QQmlTableModelColumn *self) {
+  self->accessibleTextChanged();
+}
+
+//  void QQmlTableModelColumn::accessibleDescriptionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn28accessibleDescriptionChangedEv(
+    QQmlTableModelColumn *self) {
+  self->accessibleDescriptionChanged();
+}
+
+//  void QQmlTableModelColumn::sizeHintChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlTableModelColumn15sizeHintChangedEv(
+    QQmlTableModelColumn *self) {
+  self->sizeHintChanged();
+}
+
 //  a Python function taken by a CuteQQmlTableModelColumn, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -456,6 +588,13 @@ bool ritual_take_QQmlTableModelColumn(
     const char *key,
     void *call) {
   return static_cast<CuteQQmlTableModelColumn *>(self)->take(key, call);
+}
+
+//  a QHash<int, QString> a ritual of QQmlTableModelColumn gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTableModelColumn__QHash_int_QString(
+    QHash<int, QString> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_table_model)

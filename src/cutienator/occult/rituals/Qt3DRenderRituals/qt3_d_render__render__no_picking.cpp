@@ -7,6 +7,34 @@
 #include <Qt3DRender/6.12.0/Qt3DRender/private/nopicking_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DRender/private/nopicking_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/render/framegraph/nopicking.cpp, line 14, as _ZN10Qt3DRender6Render9NoPickingC1Ev
+namespace Qt3DRender::Render {
+using namespace Qt3DCore;
+inline NoPicking::NoPicking()
+    : FrameGraphNode(FrameGraphNode::NoPicking)
+{
+}
+}  // namespace Qt3DRender::Render
+
+//  from ../qt3d/src/render/framegraph/nopicking.cpp, line 19, as _ZN10Qt3DRender6Render9NoPickingD1Ev
+namespace Qt3DRender::Render {
+using namespace Qt3DCore;
+inline NoPicking::~NoPicking()
+{
+}
+}  // namespace Qt3DRender::Render
+//  -----------------------------------------------------------------------
 
 //  A Qt3DRender::Render::NoPicking that Python can take functions over in. Every Qt3DRender::Render::NoPicking
 //  Python makes is one. Each function below asks the Python
@@ -39,6 +67,19 @@ public:
     Qt3DRender::Render::FrameGraphNode::syncFromFrontEnd(frontEnd, firstTime);
   }
 };
+
+//  Qt3DRender::Render::NoPicking::NoPicking()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::NoPicking *ritual_ZN10Qt3DRender6Render9NoPickingC1Ev() {
+  return new CuteQt3DRender_Render_NoPicking();
+}
+
+//  Qt3DRender::Render::NoPicking::~NoPicking()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9NoPickingD1Ev(
+    Qt3DRender::Render::NoPicking *self) {
+  delete self;
+}
 
 //  a Python function taken by a CuteQt3DRender_Render_NoPicking, for the
 //      function named by the key

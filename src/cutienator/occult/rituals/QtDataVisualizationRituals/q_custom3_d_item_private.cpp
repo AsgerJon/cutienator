@@ -220,6 +220,25 @@ const QMetaObject *ritual_ZNK20QCustom3DItemPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCustom3DItemPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QCustom3DItemPrivate11qt_metacastEPKc(
+    QCustom3DItemPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCustom3DItemPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QCustom3DItemPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCustom3DItemPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QCustom3DItemPrivate::~QCustom3DItemPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QCustom3DItemPrivateD1Ev(QCustom3DItemPrivate *self) {
@@ -245,6 +264,31 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QCustom3DItemPrivate14resetDirtyBitsEv(
     QCustom3DItemPrivate *self) {
   self->resetDirtyBits();
+}
+
+//  void QCustom3DItemPrivate::needUpdate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QCustom3DItemPrivate10needUpdateEv(
+    QCustom3DItemPrivate *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCustom3DItemPrivate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "needUpdate()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "needUpdate()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQCustom3DItemPrivate, for the function

@@ -106,6 +106,13 @@ bool ritual_ZN18QRhiShadingRateMap10createFromEP11QRhiTexture(
   return self->createFrom(src);
 }
 
+//  QRhiShadingRateMap::QRhiShadingRateMap(QRhiImplementation *rhi)
+extern "C" Q_DECL_EXPORT
+QRhiShadingRateMap *ritual_ZN18QRhiShadingRateMapC1EP18QRhiImplementation(
+    QRhiImplementation *rhi) {
+  return new CuteQRhiShadingRateMap(rhi);
+}
+
 //  a Python function taken by a CuteQRhiShadingRateMap, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

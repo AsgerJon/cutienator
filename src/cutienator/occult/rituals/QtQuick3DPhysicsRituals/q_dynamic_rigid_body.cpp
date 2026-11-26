@@ -288,6 +288,25 @@ const QMetaObject *ritual_ZNK17QDynamicRigidBody10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDynamicRigidBody::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QDynamicRigidBody11qt_metacastEPKc(
+    QDynamicRigidBody *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDynamicRigidBody::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QDynamicRigidBody11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDynamicRigidBody *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDynamicRigidBody::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QDynamicRigidBody2trEPKcS1_i(
@@ -478,6 +497,13 @@ void ritual_ZN17QDynamicRigidBody5resetERK9QVector3DS2_(
   self->reset(*position, *eulerRotation);
 }
 
+//  QQueue<QPhysicsCommand *> &QDynamicRigidBody::commandQueue()
+extern "C" Q_DECL_EXPORT
+QQueue<QPhysicsCommand *> *ritual_ZN17QDynamicRigidBody12commandQueueEv(
+    QDynamicRigidBody *self) {
+  return &(self->commandQueue());
+}
+
 //  void QDynamicRigidBody::updateDefaultDensity(float defaultDensity)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QDynamicRigidBody20updateDefaultDensityEf(
@@ -491,6 +517,14 @@ extern "C" Q_DECL_EXPORT
 QDynamicRigidBody::MassMode ritual_ZNK17QDynamicRigidBody8massModeEv(
     const QDynamicRigidBody *self) {
   return self->massMode();
+}
+
+//  void QDynamicRigidBody::setMassMode(const MassMode newMassMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody11setMassModeENS_8MassModeE(
+    QDynamicRigidBody *self,
+    const QDynamicRigidBody::MassMode *newMassMode) {
+  self->setMassMode(*newMassMode);
 }
 
 //  const QVector3D &QDynamicRigidBody::inertiaTensor() const
@@ -539,6 +573,29 @@ void ritual_ZN17QDynamicRigidBody23setCenterOfMassRotationERK11QQuaternion(
     QDynamicRigidBody *self,
     const QQuaternion *newCenterOfMassRotation) {
   self->setCenterOfMassRotation(*newCenterOfMassRotation);
+}
+
+//  const QList<float> &QDynamicRigidBody::readInertiaMatrix() const
+extern "C" Q_DECL_EXPORT
+const QList<float> *ritual_ZNK17QDynamicRigidBody17readInertiaMatrixEv(
+    const QDynamicRigidBody *self) {
+  return &(self->readInertiaMatrix());
+}
+
+//  void QDynamicRigidBody::setInertiaMatrix(const QList<float>
+//      &newInertiaMatrix)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody16setInertiaMatrixERK5QListIfE(
+    QDynamicRigidBody *self,
+    const QList<float> *newInertiaMatrix) {
+  self->setInertiaMatrix(*newInertiaMatrix);
+}
+
+//  const QMatrix3x3 &QDynamicRigidBody::inertiaMatrix() const
+extern "C" Q_DECL_EXPORT
+const QMatrix3x3 *ritual_ZNK17QDynamicRigidBody13inertiaMatrixEv(
+    const QDynamicRigidBody *self) {
+  return &(self->inertiaMatrix());
 }
 
 //  void QDynamicRigidBody::setKinematicPosition(const QVector3D &position)
@@ -615,6 +672,137 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QDynamicRigidBody10isSleepingEv(
     const QDynamicRigidBody *self) {
   return self->isSleeping();
+}
+
+//  QAbstractPhysXNode *QDynamicRigidBody::createPhysXBackend()
+extern "C" Q_DECL_EXPORT
+QAbstractPhysXNode *ritual_ZN17QDynamicRigidBody18createPhysXBackendEv(
+    QDynamicRigidBody *self) {
+  return self->createPhysXBackend();
+}
+
+//  void QDynamicRigidBody::massChanged(float mass)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody11massChangedEf(
+    QDynamicRigidBody *self,
+    float mass) {
+  self->massChanged(mass);
+}
+
+//  void QDynamicRigidBody::densityChanged(float density)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody14densityChangedEf(
+    QDynamicRigidBody *self,
+    float density) {
+  self->densityChanged(density);
+}
+
+//  void QDynamicRigidBody::isKinematicChanged(bool isKinematic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody18isKinematicChangedEb(
+    QDynamicRigidBody *self,
+    bool isKinematic) {
+  self->isKinematicChanged(isKinematic);
+}
+
+//  void QDynamicRigidBody::linearAxisLockChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody21linearAxisLockChangedEv(
+    QDynamicRigidBody *self) {
+  self->linearAxisLockChanged();
+}
+
+//  void QDynamicRigidBody::angularAxisLockChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody22angularAxisLockChangedEv(
+    QDynamicRigidBody *self) {
+  self->angularAxisLockChanged();
+}
+
+//  void QDynamicRigidBody::gravityEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody21gravityEnabledChangedEv(
+    QDynamicRigidBody *self) {
+  self->gravityEnabledChanged();
+}
+
+//  void QDynamicRigidBody::massModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody15massModeChangedEv(
+    QDynamicRigidBody *self) {
+  self->massModeChanged();
+}
+
+//  void QDynamicRigidBody::inertiaTensorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody20inertiaTensorChangedEv(
+    QDynamicRigidBody *self) {
+  self->inertiaTensorChanged();
+}
+
+//  void QDynamicRigidBody::centerOfMassPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody27centerOfMassPositionChangedEv(
+    QDynamicRigidBody *self) {
+  self->centerOfMassPositionChanged();
+}
+
+//  void QDynamicRigidBody::centerOfMassRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody27centerOfMassRotationChangedEv(
+    QDynamicRigidBody *self) {
+  self->centerOfMassRotationChanged();
+}
+
+//  void QDynamicRigidBody::inertiaMatrixChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody20inertiaMatrixChangedEv(
+    QDynamicRigidBody *self) {
+  self->inertiaMatrixChanged();
+}
+
+//  void QDynamicRigidBody::kinematicPositionChanged(const QVector3D
+//      &kinematicPosition)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody24kinematicPositionChangedERK9QVector3D(
+    QDynamicRigidBody *self,
+    const QVector3D *kinematicPosition) {
+  self->kinematicPositionChanged(*kinematicPosition);
+}
+
+//  void QDynamicRigidBody::kinematicRotationChanged(const QQuaternion
+//      &kinematicRotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody24kinematicRotationChangedERK11QQuaternion(
+    QDynamicRigidBody *self,
+    const QQuaternion *kinematicRotation) {
+  self->kinematicRotationChanged(*kinematicRotation);
+}
+
+//  void QDynamicRigidBody::kinematicEulerRotationChanged(const QVector3D
+//      &kinematicEulerRotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody29kinematicEulerRotationChangedERK9QVector3D(
+    QDynamicRigidBody *self,
+    const QVector3D *kinematicEulerRotation) {
+  self->kinematicEulerRotationChanged(*kinematicEulerRotation);
+}
+
+//  void QDynamicRigidBody::kinematicPivotChanged(const QVector3D
+//      &kinematicPivot)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody21kinematicPivotChangedERK9QVector3D(
+    QDynamicRigidBody *self,
+    const QVector3D *kinematicPivot) {
+  self->kinematicPivotChanged(*kinematicPivot);
+}
+
+//  void QDynamicRigidBody::isSleepingChanged(bool isSleeping)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDynamicRigidBody17isSleepingChangedEb(
+    QDynamicRigidBody *self,
+    bool isSleeping) {
+  self->isSleepingChanged(isSleeping);
 }
 
 //  a Python function taken by a CuteQDynamicRigidBody, for the function

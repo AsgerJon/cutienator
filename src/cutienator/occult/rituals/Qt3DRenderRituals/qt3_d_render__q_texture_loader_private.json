@@ -5,11 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender21QTextureLoaderPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender21QTextureLoaderPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender21QTextureLoaderPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QTextureLoaderPrivate8setSceneEPN8Qt3DCore6QSceneE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QTextureLoaderPrivate15updateGeneratorEv": [
+      "nothing", "address"
     ],
     "ritual_take_Qt3DRender_QTextureLoaderPrivate": [
       "bool", "address", "chars", "address"

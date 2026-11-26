@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qfutureinterface.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qfutureinterface.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, instances of templates of the class: 5. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(future)
 #if QT_CONFIG(future)
@@ -7,6 +9,11 @@
 #include <QtCore/qexception.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qresultstore.h>
+#include <QtCore/qvariant.h>
+#include <functional>
+#include <QtCore/QFutureInterfaceBase>
+#include <QtCore/QVariant>
+#include <QtCore/qfuture.h>
 
 //  QFutureInterfaceBase::QFutureInterfaceBase(State initialState)
 extern "C" Q_DECL_EXPORT
@@ -21,6 +28,31 @@ extern "C" Q_DECL_EXPORT
 QFutureInterfaceBase *ritual_ZN20QFutureInterfaceBaseC1ERKS_(
     const QFutureInterfaceBase *other) {
   return new QFutureInterfaceBase(*other);
+}
+
+//  QFutureInterfaceBase::QFutureInterfaceBase(QFutureInterfaceBase &&other)
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZN20QFutureInterfaceBaseC1EOS_(
+    QFutureInterfaceBase *other) {
+  return new QFutureInterfaceBase(std::move(*other));
+}
+
+//  QFutureInterfaceBase &QFutureInterfaceBase::operator=(const
+//      QFutureInterfaceBase &other)
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZN20QFutureInterfaceBaseaSERKS_(
+    QFutureInterfaceBase *self,
+    const QFutureInterfaceBase *other) {
+  return &(self->operator=(*other));
+}
+
+//  QFutureInterfaceBase
+//      &QFutureInterfaceBase::operator=(QFutureInterfaceBase &&other)
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZN20QFutureInterfaceBaseaSEOS_(
+    QFutureInterfaceBase *self,
+    QFutureInterfaceBase *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  QFutureInterfaceBase::~QFutureInterfaceBase()
@@ -58,6 +90,18 @@ void ritual_ZN20QFutureInterfaceBase15reportExceptionERK10QException(
     const QException *e) {
   self->reportException(*e);
 }
+#endif  // !defined(QT_NO_EXCEPTIONS)
+
+#if !defined(QT_NO_EXCEPTIONS)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  void QFutureInterfaceBase::reportException(std::exception_ptr e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase15reportExceptionENSt15__exception_ptr13exception_ptrE(
+    QFutureInterfaceBase *self,
+    const std::exception_ptr *e) {
+  self->reportException(*e);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 #endif  // !defined(QT_NO_EXCEPTIONS)
 
 //  void QFutureInterfaceBase::reportResultsReady(int beginIndex, int
@@ -393,11 +437,32 @@ void ritual_ZN20QFutureInterfaceBase18suspendIfRequestedEv(
   self->suspendIfRequested();
 }
 
+//  QMutex &QFutureInterfaceBase::mutex() const
+extern "C" Q_DECL_EXPORT
+QMutex *ritual_ZNK20QFutureInterfaceBase5mutexEv(
+    const QFutureInterfaceBase *self) {
+  return &(self->mutex());
+}
+
 //  bool QFutureInterfaceBase::hasException() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QFutureInterfaceBase12hasExceptionEv(
     const QFutureInterfaceBase *self) {
   return self->hasException();
+}
+
+//  QtPrivate::ExceptionStore &QFutureInterfaceBase::exceptionStore()
+extern "C" Q_DECL_EXPORT
+QtPrivate::ExceptionStore *ritual_ZN20QFutureInterfaceBase14exceptionStoreEv(
+    QFutureInterfaceBase *self) {
+  return &(self->exceptionStore());
+}
+
+//  QtPrivate::ResultStoreBase &QFutureInterfaceBase::resultStoreBase()
+extern "C" Q_DECL_EXPORT
+QtPrivate::ResultStoreBase *ritual_ZN20QFutureInterfaceBase15resultStoreBaseEv(
+    QFutureInterfaceBase *self) {
+  return &(self->resultStoreBase());
 }
 
 //  const QtPrivate::ResultStoreBase &QFutureInterfaceBase::resultStoreBase()
@@ -424,6 +489,14 @@ bool ritual_ZNK20QFutureInterfaceBaseneERKS_(
     const QFutureInterfaceBase *self,
     const QFutureInterfaceBase *other) {
   return self->operator!=(*other);
+}
+
+//  void QFutureInterfaceBase::swap(QFutureInterfaceBase &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase4swapERS_(
+    QFutureInterfaceBase *self,
+    QFutureInterfaceBase *other) {
+  self->swap(*other);
 }
 
 //  bool QFutureInterfaceBase::isChainCanceled() const
@@ -458,6 +531,31 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QFutureInterfaceBase24rethrowPossibleExceptionEv(
     QFutureInterfaceBase *self) {
   self->rethrowPossibleException();
+}
+
+//  void QFutureInterfaceBase::setContinuation(std::function<void (const
+//      QFutureInterfaceBase &)> func, void *continuationFutureData,
+//      ContinuationType type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase15setContinuationESt8functionIFvRKS_EEPvNS_16ContinuationTypeE(
+    QFutureInterfaceBase *self,
+    const std::function<void (const QFutureInterfaceBase &)> *func,
+    void *continuationFutureData,
+    QFutureInterfaceBase::ContinuationType type) {
+  self->setContinuation(*func, continuationFutureData, type);
+}
+
+//  void QFutureInterfaceBase::setContinuation(const QObject *context,
+//      std::function<void ()> func, const QVariant &continuationFuture,
+//      ContinuationType type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase15setContinuationEPK7QObjectSt8functionIFvvEERK8QVariantNS_16ContinuationTypeE(
+    QFutureInterfaceBase *self,
+    const QObject *context,
+    const std::function<void ()> *func,
+    const QVariant *continuationFuture,
+    QFutureInterfaceBase::ContinuationType type) {
+  self->setContinuation(context, *func, *continuationFuture, type);
 }
 
 //  void QFutureInterfaceBase::cleanContinuation()
@@ -510,6 +608,51 @@ void ritual_ZN20QFutureInterfaceBase11cancelChainENS_10CancelModeE(
     QFutureInterfaceBase *self,
     QFutureInterfaceBase::CancelMode mode) {
   self->cancelChain(mode);
+}
+
+//  static QFutureInterfaceBase QFutureInterfaceBase::get(
+//      const QFuture<T> &future) [T = void]
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZN20QFutureInterfaceBase3getIvEES_RK7QFutureIT_E(
+    const QFuture<void> *future) {
+  return new QFutureInterfaceBase(
+      QFutureInterfaceBase::get<void>(*future));
+}
+
+//  static QFutureInterfaceBase QFutureInterfaceBase::get(
+//      const QFuture<T> &future) [T = int]
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZN20QFutureInterfaceBase3getIiEES_RK7QFutureIT_E(
+    const QFuture<int> *future) {
+  return new QFutureInterfaceBase(
+      QFutureInterfaceBase::get<int>(*future));
+}
+
+//  static QFutureInterfaceBase QFutureInterfaceBase::get(
+//      const QFuture<T> &future) [T = double]
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZN20QFutureInterfaceBase3getIdEES_RK7QFutureIT_E(
+    const QFuture<double> *future) {
+  return new QFutureInterfaceBase(
+      QFutureInterfaceBase::get<double>(*future));
+}
+
+//  static QFutureInterfaceBase QFutureInterfaceBase::get(
+//      const QFuture<T> &future) [T = bool]
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZN20QFutureInterfaceBase3getIbEES_RK7QFutureIT_E(
+    const QFuture<bool> *future) {
+  return new QFutureInterfaceBase(
+      QFutureInterfaceBase::get<bool>(*future));
+}
+
+//  static QFutureInterfaceBase QFutureInterfaceBase::get(
+//      const QFuture<T> &future) [T = QString]
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZN20QFutureInterfaceBase3getI7QStringEES_RK7QFutureIT_E(
+    const QFuture<QString> *future) {
+  return new QFutureInterfaceBase(
+      QFutureInterfaceBase::get<QString>(*future));
 }
 
 #endif  // QT_CONFIG(future)

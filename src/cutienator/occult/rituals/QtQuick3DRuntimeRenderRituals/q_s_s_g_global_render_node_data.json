@@ -22,6 +22,39 @@
     "ritual_ZN24QSSGGlobalRenderNodeData19bumpStateGenerationEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData9nodeCountEv": [
+      "size_t", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData11storageSizeEv": [
+      "size_t", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData18getGlobalTransformE23QSSGRenderStorageHandleIL10HandleType1EERK10QMatrix4x4": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData18getGlobalTransformE23QSSGRenderStorageHandleIL10HandleType1EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData18getGlobalTransformERK14QSSGRenderNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData16getGlobalOpacityE23QSSGRenderStorageHandleIL10HandleType1EEf": [
+      "float", "address", "address", "float"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData16getGlobalOpacityERK14QSSGRenderNode": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData21getInstanceTransformsE23QSSGRenderStorageHandleIL10HandleType1EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData21getInstanceTransformsERK14QSSGRenderNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData16getLayerNodeViewE23QSSGRenderStorageHandleIL10HandleType0EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData16getLayerNodeViewERK15QSSGRenderLayer": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK24QSSGGlobalRenderNodeData10threadPoolEv": [
       "address", "address"
     ],
@@ -29,6 +62,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN24QSSGGlobalRenderNodeData17updateGlobalStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGGlobalRenderNodeData__QSSGGlobalRenderNodeData_LayerNodeView": [
       "nothing", "address"
     ]
   }

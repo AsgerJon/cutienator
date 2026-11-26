@@ -8,7 +8,14 @@
     "ritual_ZN26QMessageAuthenticationCodeC1EN18QCryptographicHash9AlgorithmE14QByteArrayView": [
       "address", "int", "address"
     ],
+    "ritual_ZN26QMessageAuthenticationCodeC1EOS_": ["address", "address"],
     "ritual_ZN26QMessageAuthenticationCodeD1Ev": ["nothing", "address"],
+    "ritual_ZN26QMessageAuthenticationCodeaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QMessageAuthenticationCode5resetEv": ["nothing", "address"],
     "ritual_ZN26QMessageAuthenticationCode6setKeyE14QByteArrayView": [
       "nothing", "address", "address"
@@ -30,6 +37,24 @@
     ],
     "ritual_ZN26QMessageAuthenticationCode4hashE14QByteArrayViewS0_N18QCryptographicHash9AlgorithmE": [
       "address", "address", "address", "int"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanIcLm18446744073709551615EE14QByteArrayViewS2_N18QCryptographicHash9AlgorithmE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanIhLm18446744073709551615EE14QByteArrayViewS2_N18QCryptographicHash9AlgorithmE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanISt4byteLm18446744073709551615EE14QByteArrayViewS3_N18QCryptographicHash9AlgorithmE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanIcLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EES2_N18QCryptographicHash9AlgorithmE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanIhLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EES2_N18QCryptographicHash9AlgorithmE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode8hashIntoE5QSpanISt4byteLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EES3_N18QCryptographicHash9AlgorithmE": [
+      "address", "address", "address", "address", "int"
     ]
   }
 }

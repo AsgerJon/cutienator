@@ -23,6 +23,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/corelib/thread/qthread.cpp, line 688, as _ZN9QtPrivate19BindingStatusOrList28addObjectUnlessAlreadyStatusEP7QObject
 #if QT_CONFIG(thread)
 inline QBindingStatus *QtPrivate::BindingStatusOrList::addObjectUnlessAlreadyStatus(QObject *object)
@@ -77,6 +79,13 @@ extern "C" Q_DECL_EXPORT
 QtPrivate::BindingStatusOrList *ritual_ZN9QtPrivate19BindingStatusOrListC1EP14QBindingStatus(
     QBindingStatus *status) {
   return new QtPrivate::BindingStatusOrList(status);
+}
+
+//  QtPrivate::BindingStatusOrList::BindingStatusOrList(List *list)
+extern "C" Q_DECL_EXPORT
+QtPrivate::BindingStatusOrList *ritual_ZN9QtPrivate19BindingStatusOrListC1EPSt6vectorIP7QObjectSaIS3_EE(
+    QtPrivate::BindingStatusOrList::List *list) {
+  return new QtPrivate::BindingStatusOrList(list);
 }
 
 //  QtPrivate::BindingStatusOrList::~BindingStatusOrList()
@@ -143,6 +152,20 @@ QBindingStatus *ritual_ZNK9QtPrivate19BindingStatusOrList13bindingStatusEv(
   return self->bindingStatus();
 }
 
+//  List *QtPrivate::BindingStatusOrList::list() const
+extern "C" Q_DECL_EXPORT
+QtPrivate::BindingStatusOrList::List *ritual_ZNK9QtPrivate19BindingStatusOrList4listEv(
+    const QtPrivate::BindingStatusOrList *self) {
+  return self->list();
+}
+
+//  List *QtPrivate::BindingStatusOrList::decodeList(quintptr ptr)
+extern "C" Q_DECL_EXPORT
+QtPrivate::BindingStatusOrList::List *ritual_ZN9QtPrivate19BindingStatusOrList10decodeListEy(
+    quintptr ptr) {
+  return QtPrivate::BindingStatusOrList::decodeList(ptr);
+}
+
 //  quintptr
 //      QtPrivate::BindingStatusOrList::encodeBindingStatus(QBindingStatus
 //      *status)
@@ -150,4 +173,11 @@ extern "C" Q_DECL_EXPORT
 quintptr ritual_ZN9QtPrivate19BindingStatusOrList19encodeBindingStatusEP14QBindingStatus(
     QBindingStatus *status) {
   return QtPrivate::BindingStatusOrList::encodeBindingStatus(status);
+}
+
+//  quintptr QtPrivate::BindingStatusOrList::encodeList(List *list)
+extern "C" Q_DECL_EXPORT
+quintptr ritual_ZN9QtPrivate19BindingStatusOrList10encodeListEPSt6vectorIP7QObjectSaIS3_EE(
+    QtPrivate::BindingStatusOrList::List *list) {
+  return QtPrivate::BindingStatusOrList::encodeList(list);
 }

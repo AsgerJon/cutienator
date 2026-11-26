@@ -35,6 +35,9 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/corelib/animation/qabstractanimation.cpp, line 134, as local:qabstractanimation.cpp:AnimationListConstIt
+typedef QList<QAbstractAnimation*>::ConstIterator AnimationListConstIt;
+
 //  from src/corelib/animation/qabstractanimation.cpp, line 614, as _ZN15QAnimationTimer21restartAnimationTimerEv
 inline void QAnimationTimer::restartAnimationTimer()
 {
@@ -70,36 +73,6 @@ inline void QAnimationTimer::updateAnimationsTime(qint64 delta)
     }
 }
 
-//  from src/corelib/animation/qabstractanimation.cpp, line 624, as _ZN15QAnimationTimer15startAnimationsEv
-inline void QAnimationTimer::startAnimations()
-{
-    if (!startAnimationPending)
-        return;
-    startAnimationPending = false;
-
-    //force timer to update, which prevents large deltas for our newly added animations
-    QUnifiedTimer::instance()->maybeUpdateAnimationsToCurrentTime();
-
-    //we transfer the waiting animations into the "really running" state
-    animations += animationsToStart;
-    animationsToStart.clear();
-    if (!animations.isEmpty())
-        restartAnimationTimer();
-}
-
-//  from src/corelib/animation/qabstractanimation.cpp, line 640, as _ZN15QAnimationTimer9stopTimerEv
-inline void QAnimationTimer::stopTimer()
-{
-    stopTimerPending = false;
-    bool pendingStart = startAnimationPending && animationsToStart.size() > 0;
-    if (animations.isEmpty() && !pendingStart) {
-        QUnifiedTimer::resumeAnimationTimer(this);
-        QUnifiedTimer::stopAnimationTimer(this);
-        // invalidate the start reference time
-        lastTick = 0;
-    }
-}
-
 //  from src/corelib/animation/qabstractanimation.cpp, line 697, as _ZN15QAnimationTimer24registerRunningAnimationEP18QAbstractAnimation
 inline void QAnimationTimer::registerRunningAnimation(QAbstractAnimation *animation)
 {
@@ -123,6 +96,25 @@ inline void QAnimationTimer::unregisterRunningAnimation(QAbstractAnimation *anim
     else
         runningLeafAnimations--;
     Q_ASSERT(runningLeafAnimations >= 0);
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 720, as _ZN15QAnimationTimer33closestPauseAnimationTimeToFinishEv
+inline int QAnimationTimer::closestPauseAnimationTimeToFinish()
+{
+    int closestTimeToFinish = INT_MAX;
+    for (AnimationListConstIt it = runningPauseAnimations.constBegin(), cend = runningPauseAnimations.constEnd(); it != cend; ++it) {
+        const QAbstractAnimation *animation = *it;
+        int timeToFinish;
+
+        if (animation->direction() == QAbstractAnimation::Forward)
+            timeToFinish = animation->duration() - animation->currentLoopTime();
+        else
+            timeToFinish = animation->currentLoopTime();
+
+        if (timeToFinish < closestTimeToFinish)
+            closestTimeToFinish = timeToFinish;
+    }
+    return closestTimeToFinish;
 }
 //  -----------------------------------------------------------------------
 
@@ -366,6 +358,30 @@ const QMetaObject *ritual_ZNK15QAnimationTimer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAnimationTimer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QAnimationTimer11qt_metacastEPKc(
+    QAnimationTimer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAnimationTimer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QAnimationTimer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAnimationTimer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QAnimationTimer::~QAnimationTimer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAnimationTimerD1Ev(QAnimationTimer *self) {
+  delete self;
+}
+
 //  void QAnimationTimer::restartAnimationTimer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAnimationTimer21restartAnimationTimerEv(
@@ -391,13 +407,49 @@ qsizetype ritual_ZNK15QAnimationTimer21runningAnimationCountEv(
 //  void QAnimationTimer::startAnimations()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAnimationTimer15startAnimationsEv(QAnimationTimer *self) {
-  self->startAnimations();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAnimationTimer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "startAnimations()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "startAnimations()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QAnimationTimer::stopTimer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAnimationTimer9stopTimerEv(QAnimationTimer *self) {
-  self->stopTimer();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAnimationTimer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "stopTimer()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "stopTimer()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QAnimationTimer::registerRunningAnimation(QAbstractAnimation
@@ -418,6 +470,13 @@ void ritual_ZN15QAnimationTimer26unregisterRunningAnimationEP18QAbstractAnimatio
   self->unregisterRunningAnimation(animation);
 }
 
+//  int QAnimationTimer::closestPauseAnimationTimeToFinish()
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QAnimationTimer33closestPauseAnimationTimeToFinishEv(
+    QAnimationTimer *self) {
+  return self->closestPauseAnimationTimeToFinish();
+}
+
 //  a Python function taken by a CuteQAnimationTimer, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -426,6 +485,13 @@ bool ritual_take_QAnimationTimer(
     const char *key,
     void *call) {
   return static_cast<CuteQAnimationTimer *>(self)->take(key, call);
+}
+
+//  void QAnimationTimer::restartAnimationTimer()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN15QAnimationTimer21restartAnimationTimerEv(
+    QAnimationTimer *self) {
+  self->QAnimationTimer::restartAnimationTimer();
 }
 
 //  void QAnimationTimer::updateAnimationsTime(qint64 delta)

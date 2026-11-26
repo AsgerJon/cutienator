@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuickHeaderViewDelegate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickHeaderViewDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickHeaderViewDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickHeaderViewDelegate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,17 @@
     "ritual_ZNK24QQuickHeaderViewDelegate5modelEv": ["address", "address"],
     "ritual_ZN24QQuickHeaderViewDelegate8setModelERK8QVariant": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_ZN24QQuickHeaderViewDelegate17headerViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickHeaderViewDelegate12modelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickHeaderViewDelegate18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickHeaderViewDelegate6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QQuickHeaderViewDelegate6d_funcEv": ["address", "address"]
   }
 }

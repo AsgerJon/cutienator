@@ -6,7 +6,9 @@
 #if QT_CONFIG(buttongroup)
 #if QT_CONFIG(buttongroup)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(buttongroup)
 #include <QtWidgets/qbuttongroup.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qbuttongroup_p.h>

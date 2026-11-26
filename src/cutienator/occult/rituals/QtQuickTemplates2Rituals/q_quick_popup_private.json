@@ -11,6 +11,10 @@
     "ritual_ZN18QQuickPopupPrivate3getEP11QQuickPopup": [
       "address", "address"
     ],
+    "ritual_ZN18QQuickPopupPrivate11contentDataEv": ["address", "address"],
+    "ritual_ZN18QQuickPopupPrivate15contentChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZN18QQuickPopupPrivate4initEv": ["nothing", "address"],
     "ritual_ZN18QQuickPopupPrivate13closeOrRejectEv": ["nothing", "address"],
     "ritual_ZN18QQuickPopupPrivate8tryCloseERK7QPointF6QFlagsIN11QQuickPopup15ClosePolicyFlagEE": [
@@ -178,6 +182,12 @@
     ],
     "ritual_own_ZN18QQuickPopupPrivate22updateChildrenPalettesERK8QPalette": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QQuickPopupPrivate__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickPopupPrivate__QQmlListProperty_QQuickItem": [
+      "nothing", "address"
     ]
   }
 }

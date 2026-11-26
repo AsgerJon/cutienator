@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickParentAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickParentAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickParentAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickParentAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,6 +31,16 @@
     "ritual_ZNK21QQuickParentAnimation3viaEv": ["address", "address"],
     "ritual_ZN21QQuickParentAnimation6setViaEP10QQuickItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParentAnimation13targetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParentAnimation16newParentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParentAnimation10viaChangedEv": ["nothing", "address"],
+    "ritual_ZN21QQuickParentAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
     ],
     "ritual_take_QQuickParentAnimation": [
       "bool", "address", "chars", "address"

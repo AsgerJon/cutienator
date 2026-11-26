@@ -7,6 +7,8 @@
   "rows": {
     "ritual_ZN15QPainterPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK15QPainterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN15QPainterPrivateC1EP8QPainter": ["address", "address"],
+    "ritual_ZN15QPainterPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK15QPainterPrivate9fakeStateEv": ["address", "address"],
     "ritual_ZN15QPainterPrivate20drawOpaqueBackgroundERK12QPainterPathNS_13DrawOperationE": [
       "nothing", "address", "address", "int"
@@ -21,7 +23,16 @@
     "ritual_ZNK15QPainterPrivate19hidpiScaleTransformEv": [
       "address", "address"
     ],
+    "ritual_ZN15QPainterPrivate20attachPainterPrivateEP8QPainterP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QPainterPrivate20detachPainterPrivateEP8QPainter": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QPainterPrivate8initFromEPK12QPaintDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QPainterPrivate19setEngineDirtyFlagsE5QSpanIK6QFlagsIN12QPaintEngine9DirtyFlagEELm18446744073709551615EE": [
       "nothing", "address", "address"
     ]
   }

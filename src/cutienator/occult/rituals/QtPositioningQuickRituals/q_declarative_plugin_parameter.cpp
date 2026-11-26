@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK27QDeclarativePluginParameter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativePluginParameter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QDeclarativePluginParameter11qt_metacastEPKc(
+    QDeclarativePluginParameter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativePluginParameter::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QDeclarativePluginParameter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativePluginParameter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativePluginParameter::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -244,6 +263,29 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK27QDeclarativePluginParameter13isInitializedEv(
     const QDeclarativePluginParameter *self) {
   return self->isInitialized();
+}
+
+//  void QDeclarativePluginParameter::nameChanged(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativePluginParameter11nameChangedERK7QString(
+    QDeclarativePluginParameter *self,
+    const QString *name) {
+  self->nameChanged(*name);
+}
+
+//  void QDeclarativePluginParameter::valueChanged(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativePluginParameter12valueChangedERK8QVariant(
+    QDeclarativePluginParameter *self,
+    const QVariant *value) {
+  self->valueChanged(*value);
+}
+
+//  void QDeclarativePluginParameter::initialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativePluginParameter11initializedEv(
+    QDeclarativePluginParameter *self) {
+  self->initialized();
 }
 
 //  a Python function taken by a CuteQDeclarativePluginParameter, for the

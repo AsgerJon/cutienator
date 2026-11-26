@@ -8,7 +8,22 @@
     "ritual_ZNK8Qt3DCore23NodePostConstructorInit10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore23NodePostConstructorInit11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore23NodePostConstructorInit11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore23NodePostConstructorInitD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore23NodePostConstructorInit10removeNodeEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore23NodePostConstructorInit7addNodeEPNS_5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore23NodePostConstructorInit12processNodesEv": [
       "nothing", "address"
     ],
     "ritual_take_Qt3DCore_NodePostConstructorInit": [

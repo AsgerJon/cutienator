@@ -7,6 +7,8 @@
 #include <QtGui/qpagesize.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtPrintSupport/QPrinter>
 
 //  QPrinterInfo::QPrinterInfo()
 extern "C" Q_DECL_EXPORT
@@ -20,10 +22,25 @@ QPrinterInfo *ritual_ZN12QPrinterInfoC1ERKS_(const QPrinterInfo *other) {
   return new QPrinterInfo(*other);
 }
 
+//  QPrinterInfo::QPrinterInfo(const QPrinter &printer)
+extern "C" Q_DECL_EXPORT
+QPrinterInfo *ritual_ZN12QPrinterInfoC1ERK8QPrinter(
+    const QPrinter *printer) {
+  return new QPrinterInfo(*printer);
+}
+
 //  QPrinterInfo::~QPrinterInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QPrinterInfoD1Ev(QPrinterInfo *self) {
   delete self;
+}
+
+//  QPrinterInfo &QPrinterInfo::operator=(const QPrinterInfo &other)
+extern "C" Q_DECL_EXPORT
+QPrinterInfo *ritual_ZN12QPrinterInfoaSERKS_(
+    QPrinterInfo *self,
+    const QPrinterInfo *other) {
+  return &(self->operator=(*other));
 }
 
 //  QString QPrinterInfo::printerName() const
@@ -110,6 +127,13 @@ QPageSize *ritual_ZNK12QPrinterInfo23maximumPhysicalPageSizeEv(
   return new QPageSize(self->maximumPhysicalPageSize());
 }
 
+//  QList<int> QPrinterInfo::supportedResolutions() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK12QPrinterInfo20supportedResolutionsEv(
+    const QPrinterInfo *self) {
+  return new QList<int>(self->supportedResolutions());
+}
+
 //  QPrinter::DuplexMode QPrinterInfo::defaultDuplexMode() const
 extern "C" Q_DECL_EXPORT
 QPrinter::DuplexMode ritual_ZNK12QPrinterInfo17defaultDuplexModeEv(
@@ -117,11 +141,25 @@ QPrinter::DuplexMode ritual_ZNK12QPrinterInfo17defaultDuplexModeEv(
   return self->defaultDuplexMode();
 }
 
+//  QList<QPrinter::DuplexMode> QPrinterInfo::supportedDuplexModes() const
+extern "C" Q_DECL_EXPORT
+QList<QPrinter::DuplexMode> *ritual_ZNK12QPrinterInfo20supportedDuplexModesEv(
+    const QPrinterInfo *self) {
+  return new QList<QPrinter::DuplexMode>(self->supportedDuplexModes());
+}
+
 //  QPrinter::ColorMode QPrinterInfo::defaultColorMode() const
 extern "C" Q_DECL_EXPORT
 QPrinter::ColorMode ritual_ZNK12QPrinterInfo16defaultColorModeEv(
     const QPrinterInfo *self) {
   return self->defaultColorMode();
+}
+
+//  QList<QPrinter::ColorMode> QPrinterInfo::supportedColorModes() const
+extern "C" Q_DECL_EXPORT
+QList<QPrinter::ColorMode> *ritual_ZNK12QPrinterInfo19supportedColorModesEv(
+    const QPrinterInfo *self) {
+  return new QList<QPrinter::ColorMode>(self->supportedColorModes());
 }
 
 //  QStringList QPrinterInfo::availablePrinterNames()
@@ -171,6 +209,19 @@ QDebug *ritual_Zls6QDebugRK12QPrinterInfo(
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
 
+//  QPrinterInfoPrivate *QPrinterInfo::d_func()
+extern "C" Q_DECL_EXPORT
+QPrinterInfoPrivate *ritual_ZN12QPrinterInfo6d_funcEv(QPrinterInfo *self) {
+  return self->d_func();
+}
+
+//  const QPrinterInfoPrivate *QPrinterInfo::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPrinterInfoPrivate *ritual_ZNK12QPrinterInfo6d_funcEv(
+    const QPrinterInfo *self) {
+  return self->d_func();
+}
+
 //  QList<QPrinterInfo>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QPrinterInfo> *ritual_list_make_QPrinterInfo() {
@@ -202,6 +253,26 @@ QPrinterInfo *ritual_list_at_QPrinterInfo(
 //  QList<QPrinterInfo>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QPrinterInfo(QList<QPrinterInfo> *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of QPrinterInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPrinterInfo__QList_int(QList<int> *self) {
+  delete self;
+}
+
+//  a QList<QPrinter::DuplexMode> a ritual of QPrinterInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPrinterInfo__QList_QPrinter_DuplexMode(
+    QList<QPrinter::DuplexMode> *self) {
+  delete self;
+}
+
+//  a QList<QPrinter::ColorMode> a ritual of QPrinterInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPrinterInfo__QList_QPrinter_ColorMode(
+    QList<QPrinter::ColorMode> *self) {
   delete self;
 }
 

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickWanderAffector10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickWanderAffector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickWanderAffector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickWanderAffector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,18 @@
     ],
     "ritual_ZN20QQuickWanderAffector14affectParticleEP18QQuickParticleDatad": [
       "bool", "address", "address", "double"
+    ],
+    "ritual_ZN20QQuickWanderAffector16xVarianceChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickWanderAffector16yVarianceChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickWanderAffector11paceChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickWanderAffector24affectedParameterChangedENS_20AffectableParametersE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN20QQuickWanderAffector12setXVarianceEd": [
       "nothing", "address", "double"

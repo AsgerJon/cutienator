@@ -9,6 +9,12 @@
     "ritual_ZNK22QQuickBasicProgressBar10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickBasicProgressBar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickBasicProgressBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK22QQuickBasicProgressBar15isIndeterminateEv": [
       "bool", "address"
     ],
@@ -25,6 +31,9 @@
     ],
     "ritual_ZN22QQuickBasicProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuickBasicProgressBar15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
     ],
     "ritual_own_ZN22QQuickBasicProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"

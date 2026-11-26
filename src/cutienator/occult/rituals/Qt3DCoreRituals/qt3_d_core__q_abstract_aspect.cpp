@@ -1,11 +1,21 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DCore/qabstractaspect.h, Qt 6.12.0. Changes made here are lost.
+//  Qt3DCore/qabstractaspect.h, Qt 6.12.0. Edited by hand on 2026-11-25:
+//  added by hand, instances of templates of the class: 6. Kept as it is when
+//  the generator runs again.
 #include <Qt3DCore/qabstractaspect.h>
 #include <QtCore/qstring.h>
+#include <Qt3DCore/qnodeid.h>
+#include <QtCore/qobjectdefs.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <vector>
+#include <Qt3DCore/Qt3DCore>
+#include <Qt3DCore/qbackendnode.h>
+#include <Qt3DCore/qnode.h>
+#include <Qt3DCore/qentity.h>
+#include <Qt3DCore/qcomponent.h>
 
 //  A Qt3DCore::QAbstractAspect that Python can take functions over in. Every Qt3DCore::QAbstractAspect
 //  Python makes is one. Each function below asks the Python
@@ -277,6 +287,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore15QAbstractAspect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QAbstractAspect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore15QAbstractAspect11qt_metacastEPKc(
+    Qt3DCore::QAbstractAspect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QAbstractAspect::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore15QAbstractAspect11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QAbstractAspect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QAbstractAspect::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -287,11 +316,69 @@ QString *ritual_ZN8Qt3DCore15QAbstractAspect2trEPKcS2_i(
   return new QString(Qt3DCore::QAbstractAspect::tr(s, c, n));
 }
 
+//  Qt3DCore::QAbstractAspect::QAbstractAspect(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractAspect *ritual_ZN8Qt3DCore15QAbstractAspectC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DCore_QAbstractAspect(parent);
+}
+
+//  Qt3DCore::QAbstractAspect::~QAbstractAspect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspectD1Ev(
+    Qt3DCore::QAbstractAspect *self) {
+  delete self;
+}
+
+//  void Qt3DCore::QAbstractAspect::scheduleSingleShotJob(const
+//      Qt3DCore::QAspectJobPtr &job)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspect21scheduleSingleShotJobERK14QSharedPointerINS_10QAspectJobEE(
+    Qt3DCore::QAbstractAspect *self,
+    const Qt3DCore::QAspectJobPtr *job) {
+  self->scheduleSingleShotJob(*job);
+}
+
 //  QStringList Qt3DCore::QAbstractAspect::dependencies() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK8Qt3DCore15QAbstractAspect12dependenciesEv(
     const Qt3DCore::QAbstractAspect *self) {
   return new QList<QString>(self->dependencies());
+}
+
+//  Qt3DCore::QAbstractAspect::QAbstractAspect(QAbstractAspectPrivate &dd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QAbstractAspect *ritual_ZN8Qt3DCore15QAbstractAspectC1ERNS_22QAbstractAspectPrivateEP7QObject(
+    Qt3DCore::QAbstractAspectPrivate *dd,
+    QObject *parent) {
+  return new CuteQt3DCore_QAbstractAspect(*dd, parent);
+}
+
+//  QNodeId Qt3DCore::QAbstractAspect::rootEntityId() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QNodeId *ritual_ZNK8Qt3DCore15QAbstractAspect12rootEntityIdEv(
+    const Qt3DCore::QAbstractAspect *self) {
+  return new Qt3DCore::QNodeId(self->rootEntityId());
+}
+
+//  void Qt3DCore::QAbstractAspect::registerBackendType(const QMetaObject
+//      &obj, const QBackendNodeMapperPtr &functor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspect19registerBackendTypeERK11QMetaObjectRK14QSharedPointerINS_18QBackendNodeMapperEE(
+    Qt3DCore::QAbstractAspect *self,
+    const QMetaObject *obj,
+    const Qt3DCore::QBackendNodeMapperPtr *functor) {
+  self->registerBackendType(*obj, *functor);
+}
+
+//  void Qt3DCore::QAbstractAspect::unregisterBackendType(const QMetaObject
+//      &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspect21unregisterBackendTypeERK11QMetaObject(
+    Qt3DCore::QAbstractAspect *self,
+    const QMetaObject *a0) {
+  self->unregisterBackendType(*a0);
 }
 
 //  QVariant Qt3DCore::QAbstractAspect::executeCommand(const QStringList
@@ -301,6 +388,15 @@ QVariant *ritual_ZN8Qt3DCore15QAbstractAspect14executeCommandERK5QListI7QStringE
     Qt3DCore::QAbstractAspect *self,
     const QList<QString> *args) {
   return new QVariant(self->executeCommand(*args));
+}
+
+//  std::vector<QAspectJobPtr>
+//      Qt3DCore::QAbstractAspect::jobsToExecute(qint64 time)
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QAspectJobPtr> *ritual_ZN8Qt3DCore15QAbstractAspect13jobsToExecuteEx(
+    Qt3DCore::QAbstractAspect *self,
+    qint64 time) {
+  return new std::vector<Qt3DCore::QAspectJobPtr>(self->jobsToExecute(time));
 }
 
 //  void Qt3DCore::QAbstractAspect::onRegistered()
@@ -409,4 +505,63 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN8Qt3DCore15QAbstractAspect9frameDoneEv(
     Qt3DCore::QAbstractAspect *self) {
   self->Qt3DCore::QAbstractAspect::frameDone();
+}
+
+//  a std::vector<Qt3DCore::QAspectJobPtr> a ritual of
+//      Qt3DCore::QAbstractAspect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QAbstractAspect__std_vector_Qt3DCore_QAspectJobPtr(
+    std::vector<Qt3DCore::QAspectJobPtr> *self) {
+  delete self;
+}
+
+//  void Qt3DCore::QAbstractAspect::registerBackendType<Qt3DCore::QNode>(
+//      const QBackendNodeMapperPtr &functor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspect19registerBackendTypeINS_5QNodeEEEvRK14QSharedPointerINS_18QBackendNodeMapperEE(
+    Qt3DCore::QAbstractAspect *self,
+    const QSharedPointer<Qt3DCore::QBackendNodeMapper> *functor) {
+  self->registerBackendType<Qt3DCore::QNode>(*functor);
+}
+
+//  void Qt3DCore::QAbstractAspect::unregisterBackendType<Qt3DCore::QNode>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspect21unregisterBackendTypeINS_5QNodeEEEvv(
+    Qt3DCore::QAbstractAspect *self) {
+  self->unregisterBackendType<Qt3DCore::QNode>();
+}
+
+//  void Qt3DCore::QAbstractAspect::registerBackendType<Qt3DCore::QEntity>(
+//      const QBackendNodeMapperPtr &functor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspect19registerBackendTypeINS_7QEntityEEEvRK14QSharedPointerINS_18QBackendNodeMapperEE(
+    Qt3DCore::QAbstractAspect *self,
+    const QSharedPointer<Qt3DCore::QBackendNodeMapper> *functor) {
+  self->registerBackendType<Qt3DCore::QEntity>(*functor);
+}
+
+//  void
+//      Qt3DCore::QAbstractAspect::unregisterBackendType<Qt3DCore::QEntity>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspect21unregisterBackendTypeINS_7QEntityEEEvv(
+    Qt3DCore::QAbstractAspect *self) {
+  self->unregisterBackendType<Qt3DCore::QEntity>();
+}
+
+//  void
+//      Qt3DCore::QAbstractAspect::registerBackendType<Qt3DCore::QComponent>(
+//      const QBackendNodeMapperPtr &functor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspect19registerBackendTypeINS_10QComponentEEEvRK14QSharedPointerINS_18QBackendNodeMapperEE(
+    Qt3DCore::QAbstractAspect *self,
+    const QSharedPointer<Qt3DCore::QBackendNodeMapper> *functor) {
+  self->registerBackendType<Qt3DCore::QComponent>(*functor);
+}
+
+//  void
+//      Qt3DCore::QAbstractAspect::unregisterBackendType<Qt3DCore::QComponent>()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore15QAbstractAspect21unregisterBackendTypeINS_10QComponentEEEvv(
+    Qt3DCore::QAbstractAspect *self) {
+  self->unregisterBackendType<Qt3DCore::QComponent>();
 }

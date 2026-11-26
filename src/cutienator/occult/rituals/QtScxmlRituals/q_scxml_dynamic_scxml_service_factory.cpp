@@ -2,6 +2,7 @@
 //  QtScxml/qscxmlinvokableservice.h, Qt 6.12.0. Changes made here are lost.
 #include <QtScxml/qscxmlinvokableservice.h>
 #include <QtCore/qstring.h>
+#include <QtScxml/qscxmlexecutablecontent.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -198,6 +199,25 @@ const QMetaObject *ritual_ZNK32QScxmlDynamicScxmlServiceFactory10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScxmlDynamicScxmlServiceFactory::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QScxmlDynamicScxmlServiceFactory11qt_metacastEPKc(
+    QScxmlDynamicScxmlServiceFactory *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScxmlDynamicScxmlServiceFactory::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QScxmlDynamicScxmlServiceFactory11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScxmlDynamicScxmlServiceFactory *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScxmlDynamicScxmlServiceFactory::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -206,6 +226,24 @@ QString *ritual_ZN32QScxmlDynamicScxmlServiceFactory2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QScxmlDynamicScxmlServiceFactory::tr(s, c, n));
+}
+
+//  QScxmlDynamicScxmlServiceFactory::QScxmlDynamicScxmlServiceFactory(const
+//      QScxmlExecutableContent::InvokeInfo &invokeInfo, const
+//      QList<QScxmlExecutableContent::StringId> &names, const
+//      QList<QScxmlExecutableContent::ParameterInfo> &parameters, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QScxmlDynamicScxmlServiceFactory *ritual_ZN32QScxmlDynamicScxmlServiceFactoryC1ERKN23QScxmlExecutableContent10InvokeInfoERK5QListIiERKS4_INS0_13ParameterInfoEEP7QObject(
+    const QScxmlExecutableContent::InvokeInfo *invokeInfo,
+    const QList<QScxmlExecutableContent::StringId> *names,
+    const QList<QScxmlExecutableContent::ParameterInfo> *parameters,
+    QObject *parent) {
+  return new CuteQScxmlDynamicScxmlServiceFactory(
+      *invokeInfo,
+      *names,
+      *parameters,
+      parent);
 }
 
 //  QScxmlInvokableService

@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuax509certificatesigningrequest.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN35QOpcUaX509CertificateSigningRequest6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QOpcUaX509CertificateSigningRequest6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QOpcUaX509CertificateSigningRequestC1Ev": ["address"],
+    "ritual_ZN35QOpcUaX509CertificateSigningRequestD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QOpcUaX509CertificateSigningRequest16setMessageDigestENS_13MessageDigestE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK35QOpcUaX509CertificateSigningRequest13messageDigestEv": [
+      "int", "address"
+    ],
+    "ritual_ZN35QOpcUaX509CertificateSigningRequest11setEncodingENS_8EncodingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK35QOpcUaX509CertificateSigningRequest8encodingEv": [
+      "int", "address"
+    ],
+    "ritual_ZN35QOpcUaX509CertificateSigningRequest10setSubjectERK27QOpcUaX509DistinguishedName": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK35QOpcUaX509CertificateSigningRequest7subjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QOpcUaX509CertificateSigningRequest12addExtensionEP19QOpcUaX509Extension": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QOpcUaX509CertificateSigningRequest13createRequestERK13QOpcUaKeyPair": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN35QOpcUaX509CertificateSigningRequest27createSelfSignedCertificateERK13QOpcUaKeyPairi": [
+      "address", "address", "address", "int"
+    ]
+  }
+}

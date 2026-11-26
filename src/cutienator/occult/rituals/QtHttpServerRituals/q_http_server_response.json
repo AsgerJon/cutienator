@@ -7,6 +7,13 @@
   "rows": {
     "ritual_ZN19QHttpServerResponse6d_funcEv": ["address", "address"],
     "ritual_ZNK19QHttpServerResponse6d_funcEv": ["address", "address"],
+    "ritual_ZN19QHttpServerResponseC1EOS_": ["address", "address"],
+    "ritual_ZN19QHttpServerResponseaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpServerResponse4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QHttpServerResponseC1EN20QHttpServerResponder10StatusCodeE": [
       "address", "int"
     ],
@@ -19,6 +26,9 @@
     "ritual_ZN19QHttpServerResponseC1ERK10QByteArrayN20QHttpServerResponder10StatusCodeE": [
       "address", "address", "int"
     ],
+    "ritual_ZN19QHttpServerResponseC1EO10QByteArrayN20QHttpServerResponder10StatusCodeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN19QHttpServerResponseC1ERK11QJsonObjectN20QHttpServerResponder10StatusCodeE": [
       "address", "address", "int"
     ],
@@ -28,13 +38,25 @@
     "ritual_ZN19QHttpServerResponseC1ERK10QByteArrayS2_N20QHttpServerResponder10StatusCodeE": [
       "address", "address", "address", "int"
     ],
+    "ritual_ZN19QHttpServerResponseC1ERK10QByteArrayOS0_N20QHttpServerResponder10StatusCodeE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZN19QHttpServerResponseD1Ev": ["nothing", "address"],
+    "ritual_ZN19QHttpServerResponse8fromFileERK7QString": [
+      "address", "text"
+    ],
     "ritual_ZNK19QHttpServerResponse4dataEv": ["address", "address"],
     "ritual_ZNK19QHttpServerResponse8mimeTypeEv": ["address", "address"],
     "ritual_ZNK19QHttpServerResponse10statusCodeEv": ["int", "address"],
     "ritual_ZNK19QHttpServerResponse7headersEv": ["address", "address"],
     "ritual_ZN19QHttpServerResponse10setHeadersERK12QHttpHeaders": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QHttpServerResponse10setHeadersEO12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_QHttpServerResponse__QHttpServerResponse": [
+      "nothing", "address"
     ]
   }
 }

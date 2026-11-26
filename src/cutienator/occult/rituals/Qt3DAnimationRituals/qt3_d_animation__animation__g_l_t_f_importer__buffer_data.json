@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter10BufferDataC1Ev": [
+      "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter10BufferDataC1ERK11QJsonObject": [
+      "address", "address"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation12GLTFImporter10BufferDataD1Ev": [
       "nothing", "address"
     ]

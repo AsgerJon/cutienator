@@ -16,10 +16,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGui/private/qdbusplatformmenu_p.h>
-#include <QtCore/QDateTime>
-#include <QtCore/QDebug>
-#include <QtGui/QWindow>
+#include <QtGui/private/qxdgnotificationproxy_p.h>
 #include <QtGui/private/qdbustrayicon_p.h>
 #ifndef QT_NO_SYSTEMTRAYICON
 #include <QtCore/QString>
@@ -46,6 +43,23 @@
 #include <QtCore/private/qlockfile_p.h>
 #include <QtGui/private/qguiapplication_p.h>
 #endif
+#include <QtGui/qtgui-config.h>
+#include <QDBusMessage>
+#include <QDBusInterface>
+#include <QDBusServiceWatcher>
+#include <QDBusConnectionInterface>
+#include <QtCore/QDebug>
+#include <QtCore/QCoreApplication>
+#ifndef QT_NO_SYSTEMTRAYICON
+#include <QtGui/private/qdbustrayicon_p.h>
+#endif
+#include <QtGui/private/qdbusmenuconnection_p.h>
+#include <QtGui/private/qdbusmenuadaptor_p.h>
+#include <QtGui/private/qdbusplatformmenu_p.h>
+#include <QtGui/private/qdbusplatformmenu_p.h>
+#include <QtCore/QDateTime>
+#include <QtCore/QDebug>
+#include <QtGui/QWindow>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -55,12 +69,83 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 130, as _ZN17QDBusPlatformMenuC1Ev
-inline QDBusPlatformMenu::QDBusPlatformMenu()
-    : m_isEnabled(true)
-    , m_isVisible(true)
-    , m_revision(1)
-    , m_containingMenuItem(nullptr)
+using namespace Qt::StringLiterals;
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 25, as local:qdbusmenuconnection.cpp:StatusNotifierWatcherService
+const QString StatusNotifierWatcherService = "org.kde.StatusNotifierWatcher"_L1;
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 27, as local:qdbusmenuconnection.cpp:StatusNotifierItemPath
+const QString StatusNotifierItemPath = "/StatusNotifierItem"_L1;
+
+//  from src/gui/platform/unix/dbustray/qdbustrayicon.cpp, line 42, as local:qdbustrayicon.cpp:iconTempPath
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline Q_LOGGING_CATEGORY(qLcTray, "qt.qpa.tray")
+
+static QString iconTempPath()
+{
+    QString tempPath = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
+    if (!tempPath.isEmpty()) {
+        QString flatpakId = qEnvironmentVariable("FLATPAK_ID");
+        if (!flatpakId.isEmpty() && QFileInfo::exists("/.flatpak-info"_L1))
+            tempPath += "/app/"_L1 + flatpakId;
+        return tempPath;
+    }
+
+    tempPath = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation);
+
+    if (!tempPath.isEmpty()) {
+        QDir tempDir(tempPath);
+        if (tempDir.exists())
+            return tempPath;
+
+        if (tempDir.mkpath(QStringLiteral("."))) {
+            const QFile::Permissions permissions = QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner;
+            if (QFile(tempPath).setPermissions(permissions))
+                return tempPath;
+        }
+    }
+
+    return QDir::tempPath();
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/gui/platform/unix/dbustray/qdbustrayicon.cpp, line 71, as local:qdbustrayicon.cpp:KDEItemFormat
+#if !defined(QT_NO_SYSTEMTRAYICON)
+static const QString KDEItemFormat = QStringLiteral("org.kde.StatusNotifierItem-%1-%2");
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/gui/platform/unix/dbustray/qdbustrayicon.cpp, line 72, as local:qdbustrayicon.cpp:KDEWatcherService
+#if !defined(QT_NO_SYSTEMTRAYICON)
+static const QString KDEWatcherService = QStringLiteral("org.kde.StatusNotifierWatcher");
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/gui/platform/unix/dbustray/qdbustrayicon.cpp, line 73, as local:qdbustrayicon.cpp:XdgNotificationService
+#if !defined(QT_NO_SYSTEMTRAYICON)
+static const QString XdgNotificationService = QStringLiteral("org.freedesktop.Notifications");
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/gui/platform/unix/dbustray/qdbustrayicon.cpp, line 74, as local:qdbustrayicon.cpp:XdgNotificationPath
+#if !defined(QT_NO_SYSTEMTRAYICON)
+static const QString XdgNotificationPath = QStringLiteral("/org/freedesktop/Notifications");
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/gui/platform/unix/dbustray/qdbustrayicon.cpp, line 75, as local:qdbustrayicon.cpp:DefaultAction
+#if !defined(QT_NO_SYSTEMTRAYICON)
+static const QString DefaultAction = QStringLiteral("default");
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/gui/platform/unix/dbustray/qdbustrayicon.cpp, line 78, as local:qdbustrayicon.cpp:tempFileTemplate
+#if !defined(QT_NO_SYSTEMTRAYICON)
+static inline QString tempFileTemplate()
+{
+    static const QString TempFileTemplate = iconTempPath() + "/qt-trayicon-XXXXXX.png"_L1;
+    return TempFileTemplate;
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/gui/platform/unix/dbustray/qxdgnotificationproxy.cpp, line 9, as _ZN25QXdgNotificationInterfaceC1ERK7QStringS2_RK15QDBusConnectionP7QObject
+inline QXdgNotificationInterface::QXdgNotificationInterface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
+    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
 {
 }
 
@@ -160,6 +245,68 @@ inline bool QDBusTrayIcon::isSystemTrayAvailable() const
     // where a StatusNotifier-conforming system tray exists.
     qCDebug(qLcTray) << conn->isWatcherRegistered();
     return conn->isWatcherRegistered();
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 104, as _ZN19QDBusMenuConnection18unregisterTrayIconEP13QDBusTrayIcon
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline void QDBusMenuConnection::unregisterTrayIcon(QDBusTrayIcon *item)
+{
+    unregisterTrayIconMenu(item);
+    connection().unregisterObject(StatusNotifierItemPath);
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 130, as _ZN17QDBusPlatformMenuC1Ev
+inline QDBusPlatformMenu::QDBusPlatformMenu()
+    : m_isEnabled(true)
+    , m_isVisible(true)
+    , m_revision(1)
+    , m_containingMenuItem(nullptr)
+{
+}
+
+//  from src/gui/platform/unix/dbustray/qdbustrayicon.cpp, line 192, as _ZN13QDBusTrayIcon8tempIconERK5QIcon
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline QTemporaryFile *QDBusTrayIcon::tempIcon(const QIcon &icon)
+{
+    // Hack for indicator-application, which doesn't handle icons sent across D-Bus:
+    // save the icon to a temp file and set the icon name to that filename.
+    static bool necessity_checked = false;
+    static bool necessary = false;
+    if (!necessity_checked) {
+        QDBusConnection session = QDBusConnection::sessionBus();
+        uint pid = session.interface()->servicePid(KDEWatcherService).value();
+        QString processName = QLockFilePrivate::processNameByPid(pid);
+        necessary = processName.endsWith("indicator-application-service"_L1);
+        if (!necessary) {
+            necessary = session.interface()->isServiceRegistered(
+                QStringLiteral("com.canonical.indicator.application"));
+        }
+        if (!necessary) {
+            necessary = session.interface()->isServiceRegistered(
+                QStringLiteral("org.ayatana.indicator.application"));
+        }
+        if (!necessary && QGuiApplication::desktopSettingsAware()) {
+            // Accessing to process name might be not allowed if the application
+            // is confined, thus we can just rely on the current desktop in use
+            const QPlatformServices *services = QGuiApplicationPrivate::platformIntegration()->services();
+            if (services)
+                necessary = services->desktopEnvironment().split(':').contains("UNITY");
+        }
+        necessity_checked = true;
+    }
+    if (!necessary)
+        return nullptr;
+    QTemporaryFile *ret = new QTemporaryFile(tempFileTemplate(), this);
+    if (!ret->open()) {
+        delete ret;
+        return nullptr;
+    }
+    const qreal dpr = qGuiApp->devicePixelRatio();
+    icon.pixmap(QSize(22, 22), dpr).save(ret);
+    ret->close();
+    return ret;
 }
 #endif  // !defined(QT_NO_SYSTEMTRAYICON)
 //  -----------------------------------------------------------------------
@@ -624,6 +771,24 @@ const QMetaObject *ritual_ZNK13QDBusTrayIcon10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDBusTrayIcon::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QDBusTrayIcon11qt_metacastEPKc(
+    QDBusTrayIcon *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusTrayIcon::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QDBusTrayIcon11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusTrayIcon *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QDBusTrayIcon::~QDBusTrayIcon()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QDBusTrayIconD1Ev(QDBusTrayIcon *self) {
@@ -671,6 +836,19 @@ extern "C" Q_DECL_EXPORT
 QPlatformMenu *ritual_ZNK13QDBusTrayIcon10createMenuEv(
     const QDBusTrayIcon *self) {
   return self->createMenu();
+}
+
+//  void QDBusTrayIcon::showMessage(const QString &title, const QString &msg,
+//      const QIcon &icon, MessageIcon iconType, int msecs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon11showMessageERK7QStringS2_RK5QIconN23QPlatformSystemTrayIcon11MessageIconEi(
+    QDBusTrayIcon *self,
+    const QString *title,
+    const QString *msg,
+    const QIcon *icon,
+    QPlatformSystemTrayIcon::MessageIcon iconType,
+    int msecs) {
+  self->showMessage(*title, *msg, *icon, iconType, msecs);
 }
 
 //  bool QDBusTrayIcon::isSystemTrayAvailable() const
@@ -769,6 +947,272 @@ extern "C" Q_DECL_EXPORT
 QDBusPlatformMenu *ritual_ZN13QDBusTrayIcon4menuEv(QDBusTrayIcon *self) {
   return self->menu();
 }
+
+//  void QDBusTrayIcon::categoryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon15categoryChangedEv(QDBusTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "categoryChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "categoryChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusTrayIcon::statusChanged(QString arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon13statusChangedE7QString(
+    QDBusTrayIcon *self,
+    const QString *arg) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "statusChanged(QString)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "statusChanged(QString)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(arg)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusTrayIcon::tooltipChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon14tooltipChangedEv(QDBusTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "tooltipChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "tooltipChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusTrayIcon::iconChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon11iconChangedEv(QDBusTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "iconChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "iconChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusTrayIcon::attention()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon9attentionEv(QDBusTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "attention()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "attention()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusTrayIcon::menuChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon11menuChangedEv(QDBusTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "menuChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "menuChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusTrayIcon::attentionTimerExpired()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon21attentionTimerExpiredEv(QDBusTrayIcon *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "attentionTimerExpired()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "attentionTimerExpired()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusTrayIcon::actionInvoked(uint id, const QString &action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon13actionInvokedEjRK7QString(
+    QDBusTrayIcon *self,
+    uint id,
+    const QString *action) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "actionInvoked(uint,const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "actionInvoked(uint,const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&id)),
+      const_cast<void *>(static_cast<const void *>(action)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusTrayIcon::notificationClosed(uint id, uint reason)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon18notificationClosedEjj(
+    QDBusTrayIcon *self,
+    uint id,
+    uint reason) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "notificationClosed(uint,uint)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "notificationClosed(uint,uint)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&id)),
+      const_cast<void *>(static_cast<const void *>(&reason)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QDBusTrayIcon::watcherServiceRegistered(const QString &serviceName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDBusTrayIcon24watcherServiceRegisteredERK7QString(
+    QDBusTrayIcon *self,
+    const QString *serviceName) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QDBusTrayIcon")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "watcherServiceRegistered(const QString &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "watcherServiceRegistered(const QString &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(serviceName)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+#if !defined(QT_NO_SYSTEMTRAYICON)
+//  QTemporaryFile *QDBusTrayIcon::tempIcon(const QIcon &icon)
+extern "C" Q_DECL_EXPORT
+QTemporaryFile *ritual_ZN13QDBusTrayIcon8tempIconERK5QIcon(
+    QDBusTrayIcon *self,
+    const QIcon *icon) {
+  return self->tempIcon(*icon);
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
 
 //  a Python function taken by a CuteQDBusTrayIcon, for the function named by
 //      the key

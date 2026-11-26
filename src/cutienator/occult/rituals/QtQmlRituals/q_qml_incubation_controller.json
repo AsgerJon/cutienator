@@ -13,6 +13,9 @@
     "ritual_ZN24QQmlIncubationController11incubateForEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN24QQmlIncubationController13incubateWhileEPSt6atomicIbEi": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN24QQmlIncubationController28incubatingObjectCountChangedEi": [
       "nothing", "address", "int"
     ],

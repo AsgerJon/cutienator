@@ -6,11 +6,20 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickItemView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickItemView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickItemView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickItemView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN14QQuickItemView24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemViewC1ER22QQuickFlickablePrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN14QQuickItemViewD1Ev": ["nothing", "address"],
     "ritual_ZNK14QQuickItemView5modelEv": ["address", "address"],
@@ -189,6 +198,90 @@
     ],
     "ritual_ZN14QQuickItemView22setDelegateModelAccessEN17QQmlDelegateModel19DelegateModelAccessE": [
       "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QQuickItemView12modelChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickItemView15delegateChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickItemView12countChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickItemView19currentIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView18currentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView25keyNavigationWrapsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView27keyNavigationEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView18cacheBufferChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView29displayMarginBeginningChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView23displayMarginEndChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView22layoutDirectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView31effectiveLayoutDirectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView30verticalLayoutDirectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView13headerChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickItemView13footerChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickItemView17headerItemChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickItemView17footerItemChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickItemView25populateTransitionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView20addTransitionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView29addDisplacedTransitionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView21moveTransitionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView30moveDisplacedTransitionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView23removeTransitionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView32removeDisplacedTransitionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView26displacedTransitionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView16highlightChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickItemView20highlightItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView34highlightFollowsCurrentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView25highlightRangeModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView30preferredHighlightBeginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView28preferredHighlightEndChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView28highlightMoveDurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickItemView17reuseItemsChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickItemView26delegateModelAccessChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN14QQuickItemView12updatePolishEv": ["nothing", "address"],
     "ritual_ZN14QQuickItemView17componentCompleteEv": ["nothing", "address"],

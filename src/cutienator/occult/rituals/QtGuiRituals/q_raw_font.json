@@ -12,7 +12,10 @@
       "address", "address", "double", "int"
     ],
     "ritual_ZN8QRawFontC1ERKS_": ["address", "address"],
+    "ritual_ZN8QRawFontaSEOS_": ["address", "address", "address"],
+    "ritual_ZN8QRawFontaSERKS_": ["address", "address", "address"],
     "ritual_ZN8QRawFontD1Ev": ["nothing", "address"],
+    "ritual_ZN8QRawFont4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK8QRawFont7isValidEv": ["bool", "address"],
     "ritual_ZNK8QRawFonteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK8QRawFontneERKS_": ["bool", "address", "address"],
@@ -21,8 +24,23 @@
     "ritual_ZNK8QRawFont9styleNameEv": ["text", "address"],
     "ritual_ZNK8QRawFont5styleEv": ["int", "address"],
     "ritual_ZNK8QRawFont6weightEv": ["int", "address"],
+    "ritual_ZNK8QRawFont21glyphIndexesForStringERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK8QRawFont23advancesForGlyphIndexesERK5QListIjE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QRawFont23advancesForGlyphIndexesERK5QListIjE6QFlagsINS_10LayoutFlagEE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK8QRawFont20glyphIndexesForCharsEPK5QChariPjPi": [
       "bool", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK8QRawFont23advancesForGlyphIndexesEPKjP7QPointFi": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK8QRawFont23advancesForGlyphIndexesEPKjP7QPointFi6QFlagsINS_10LayoutFlagEE": [
+      "bool", "address", "address", "address", "int", "int"
     ],
     "ritual_ZNK8QRawFont16alphaMapForGlyphEjNS_16AntialiasingTypeERK10QTransform": [
       "address", "address", "unsigned int", "int", "address"
@@ -59,12 +77,17 @@
     "ritual_ZNK8QRawFont17supportsCharacterE5QChar": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK8QRawFont23supportedWritingSystemsEv": ["address", "address"],
     "ritual_ZNK8QRawFont9fontTableEPKc": ["address", "address", "chars"],
     "ritual_ZNK8QRawFont9fontTableEN5QFont3TagE": [
       "address", "address", "address"
     ],
     "ritual_ZN8QRawFont8fromFontERK5QFontN13QFontDatabase13WritingSystemE": [
       "address", "address", "int"
+    ],
+    "ritual_drop_QRawFont__QList_quint32": ["nothing", "address"],
+    "ritual_drop_QRawFont__QList_QFontDatabase_WritingSystem": [
+      "nothing", "address"
     ]
   }
 }

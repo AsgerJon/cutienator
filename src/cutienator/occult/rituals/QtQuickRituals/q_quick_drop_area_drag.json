@@ -6,10 +6,21 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickDropAreaDrag10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickDropAreaDrag11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickDropAreaDrag11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickDropAreaDrag22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
     "ritual_ZN18QQuickDropAreaDragD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickDropAreaDrag1xEv": ["double", "address"],
+    "ritual_ZN18QQuickDropAreaDrag15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickDropAreaDrag13sourceChangedEv": ["nothing", "address"],
     "ritual_take_QQuickDropAreaDrag": ["bool", "address", "chars", "address"]
   }
 }

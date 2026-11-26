@@ -8,6 +8,10 @@
     "ritual_ZN9QCollatorC1ERK7QLocale": ["address", "address"],
     "ritual_ZN9QCollatorC1ERKS_": ["address", "address"],
     "ritual_ZN9QCollatorD1Ev": ["nothing", "address"],
+    "ritual_ZN9QCollatoraSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QCollatorC1EOS_": ["address", "address"],
+    "ritual_ZN9QCollatoraSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QCollator4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN9QCollator9setLocaleERK7QLocale": [
       "nothing", "address", "address"
     ],

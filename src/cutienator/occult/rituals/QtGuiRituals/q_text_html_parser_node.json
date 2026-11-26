@@ -18,11 +18,23 @@
     "ritual_ZNK19QTextHtmlParserNode18mayNotHaveChildrenEv": [
       "bool", "address"
     ],
+    "ritual_ZN19QTextHtmlParserNode20initializePropertiesEPKS_PK15QTextHtmlParser": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK19QTextHtmlParserNode17uncollapsedMarginEi": [
       "int", "address", "int"
     ],
     "ritual_ZNK19QTextHtmlParserNode12isNestedListEPK15QTextHtmlParser": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN19QTextHtmlParserNode19parseStyleAttributeERK7QStringPK13QTextDocument": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN19QTextHtmlParserNode20applyCssDeclarationsERK5QListIN4QCss11DeclarationEEPK13QTextDocument": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QTextHtmlParserNode12setListStyleERK5QListIN4QCss5ValueEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN19QTextHtmlParserNode20applyForegroundImageExPK13QTextDocument": [
       "nothing", "address", "long long", "address"

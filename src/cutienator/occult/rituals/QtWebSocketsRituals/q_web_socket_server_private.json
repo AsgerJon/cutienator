@@ -61,6 +61,9 @@
     "ritual_ZNK23QWebSocketServerPrivate16socketDescriptorEv": [
       "long long", "address"
     ],
+    "ritual_ZNK23QWebSocketServerPrivate17supportedVersionsEv": [
+      "address", "address"
+    ],
     "ritual_ZN23QWebSocketServerPrivate24setSupportedSubprotocolsERK5QListI7QStringE": [
       "nothing", "address", "address"
     ],
@@ -104,6 +107,9 @@
     ],
     "ritual_own_ZN23QWebSocketServerPrivate21nextPendingConnectionEv": [
       "address", "address"
+    ],
+    "ritual_drop_QWebSocketServerPrivate__QList_QWebSocketProtocol_Version": [
+      "nothing", "address"
     ]
   }
 }

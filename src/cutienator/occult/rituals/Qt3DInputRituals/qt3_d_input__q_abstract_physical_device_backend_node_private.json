@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "Qt3DInput/6.12.0/Qt3DInput/private/qabstractphysicaldevicebackendnode_p_p.h,",
+    "Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZN9Qt3DInput41QAbstractPhysicalDeviceBackendNodePrivateC1EN8Qt3DCore12QBackendNode4ModeE": [
+      "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput41QAbstractPhysicalDeviceBackendNodePrivate14addAxisSettingEiN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN9Qt3DInput41QAbstractPhysicalDeviceBackendNodePrivate17removeAxisSettingEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput41QAbstractPhysicalDeviceBackendNodePrivate17getOrCreateFilterEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9Qt3DInput41QAbstractPhysicalDeviceBackendNodePrivate14getAxisSettingEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput41QAbstractPhysicalDeviceBackendNodePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput41QAbstractPhysicalDeviceBackendNodePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DInput_QAbstractPhysicalDeviceBackendNodePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

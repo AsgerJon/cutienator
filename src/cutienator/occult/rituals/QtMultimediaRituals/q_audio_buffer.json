@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtMultimedia/qaudiobuffer.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "QtMultimedia/qaudiobuffer.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZN12QAudioBufferC1Ev": ["address"],
@@ -14,6 +14,10 @@
       "address", "int", "address", "long long"
     ],
     "ritual_ZN12QAudioBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN12QAudioBufferaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QAudioBufferC1EOS_": ["address", "address"],
+    "ritual_ZN12QAudioBufferaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QAudioBuffer4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK12QAudioBuffer7isValidEv": ["bool", "address"],
     "ritual_ZN12QAudioBuffer6detachEv": ["nothing", "address"],
     "ritual_ZNK12QAudioBuffer6formatEv": ["address", "address"],
@@ -21,6 +25,17 @@
     "ritual_ZNK12QAudioBuffer11sampleCountEv": ["long long", "address"],
     "ritual_ZNK12QAudioBuffer9byteCountEv": ["long long", "address"],
     "ritual_ZNK12QAudioBuffer8durationEv": ["long long", "address"],
-    "ritual_ZNK12QAudioBuffer9startTimeEv": ["long long", "address"]
+    "ritual_ZNK12QAudioBuffer9startTimeEv": ["long long", "address"],
+    "ritual_ZNK12QAudioBuffer9constDataEv": ["address", "address"],
+    "ritual_ZNK12QAudioBuffer4dataEv": ["address", "address"],
+    "ritual_ZN12QAudioBuffer4dataEv": ["address", "address"],
+    "ritual_ZNK12QAudioBuffer9constDataIhEEPKT_v": ["address", "address"],
+    "ritual_ZNK12QAudioBuffer9constDataIsEEPKT_v": ["address", "address"],
+    "ritual_ZNK12QAudioBuffer9constDataIiEEPKT_v": ["address", "address"],
+    "ritual_ZNK12QAudioBuffer9constDataIfEEPKT_v": ["address", "address"],
+    "ritual_ZN12QAudioBuffer4dataIhEEPT_v": ["address", "address"],
+    "ritual_ZN12QAudioBuffer4dataIsEEPT_v": ["address", "address"],
+    "ritual_ZN12QAudioBuffer4dataIiEEPT_v": ["address", "address"],
+    "ritual_ZN12QAudioBuffer4dataIfEEPT_v": ["address", "address"]
   }
 }

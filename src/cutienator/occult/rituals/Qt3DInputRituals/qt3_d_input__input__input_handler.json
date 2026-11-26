@@ -58,6 +58,48 @@
     ],
     "ritual_ZNK9Qt3DInput5Input12InputHandler13inputSettingsEv": [
       "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler20appendKeyboardDeviceEN8Qt3DCore7QHandleINS0_14KeyboardDeviceEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler20removeKeyboardDeviceEN8Qt3DCore7QHandleINS0_14KeyboardDeviceEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler17appendMouseDeviceEN8Qt3DCore7QHandleINS0_11MouseDeviceEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler17removeMouseDeviceEN8Qt3DCore7QHandleINS0_11MouseDeviceEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler19appendGenericDeviceEN8Qt3DCore7QHandleINS0_24GenericDeviceBackendNodeEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler19removeGenericDeviceEN8Qt3DCore7QHandleINS0_24GenericDeviceBackendNodeEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler19resetMouseAxisStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler23inputDeviceIntegrationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler25addInputDeviceIntegrationEPNS_23QInputDeviceIntegrationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler16setInputSettingsEPNS0_13InputSettingsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler17updateEventSourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input12InputHandler21setEventFilterServiceEPN8Qt3DCore19QEventFilterServiceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler17lookupActionInputEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_drop_Qt3DInput_Input_InputHandler__QList_Qt3DInput_QInputDeviceIntegration": [
+      "nothing", "address"
     ]
   }
 }

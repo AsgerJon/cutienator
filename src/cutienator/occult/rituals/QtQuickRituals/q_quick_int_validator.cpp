@@ -188,6 +188,25 @@ const QMetaObject *ritual_ZNK18QQuickIntValidator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickIntValidator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickIntValidator11qt_metacastEPKc(
+    QQuickIntValidator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickIntValidator::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickIntValidator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickIntValidator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickIntValidator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickIntValidator2trEPKcS1_i(
@@ -224,6 +243,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickIntValidator15resetLocaleNameEv(
     QQuickIntValidator *self) {
   self->resetLocaleName();
+}
+
+//  void QQuickIntValidator::localeNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickIntValidator17localeNameChangedEv(
+    QQuickIntValidator *self) {
+  self->localeNameChanged();
 }
 
 //  a Python function taken by a CuteQQuickIntValidator, for the function

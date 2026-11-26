@@ -8,8 +8,52 @@
     "ritual_ZNK10Qt3DExtras18QTorusGeometryView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras18QTorusGeometryView2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryViewC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras18QTorusGeometryView5ringsEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras18QTorusGeometryView6slicesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras18QTorusGeometryView6radiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras18QTorusGeometryView11minorRadiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView8setRingsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView9setSlicesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView9setRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView14setMinorRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView13radiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView12ringsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView13slicesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView18minorRadiusChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_take_Qt3DExtras_QTorusGeometryView": [
       "bool", "address", "chars", "address"

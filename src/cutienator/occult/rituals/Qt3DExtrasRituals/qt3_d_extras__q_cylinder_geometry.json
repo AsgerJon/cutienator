@@ -8,8 +8,71 @@
     "ritual_ZNK10Qt3DExtras17QCylinderGeometry10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras17QCylinderGeometry2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometryC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry14updateVerticesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry13updateIndicesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QCylinderGeometry5ringsEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras17QCylinderGeometry6slicesEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras17QCylinderGeometry6radiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QCylinderGeometry6lengthEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QCylinderGeometry17positionAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QCylinderGeometry15normalAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QCylinderGeometry17texCoordAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras17QCylinderGeometry14indexAttributeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry8setRingsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry9setSlicesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry9setRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry9setLengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry13radiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry12ringsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry13slicesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometry13lengthChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras17QCylinderGeometryC1ERNS_24QCylinderGeometryPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DExtras17QCylinderGeometry6d_funcEv": [
       "address", "address"

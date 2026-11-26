@@ -5,6 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render9AttributeC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render9AttributeD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render9Attribute7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Attribute16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render9Attribute8bufferIdEv": [
       "address", "address"
     ],
@@ -32,6 +40,9 @@
       "int", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render9Attribute7isDirtyEv": ["bool", "address"],
+    "ritual_ZN10Qt3DRender6Render9Attribute10unsetDirtyEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DRender_Render_Attribute": [
       "bool", "address", "chars", "address"
     ],

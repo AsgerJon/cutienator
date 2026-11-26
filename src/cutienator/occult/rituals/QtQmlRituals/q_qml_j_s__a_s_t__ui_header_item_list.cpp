@@ -201,11 +201,55 @@ public:
   }
 };
 
+//  QQmlJS::AST::UiHeaderItemList::UiHeaderItemList(UiImport *import)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiHeaderItemList *ritual_ZN6QQmlJS3AST16UiHeaderItemListC1EPNS0_8UiImportE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiImport *import) {
+  return new (pool) CuteQQmlJS_AST_UiHeaderItemList(import);
+}
+
+//  QQmlJS::AST::UiHeaderItemList::UiHeaderItemList(UiPragma *pragma)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiHeaderItemList *ritual_ZN6QQmlJS3AST16UiHeaderItemListC1EPNS0_8UiPragmaE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiPragma *pragma) {
+  return new (pool) CuteQQmlJS_AST_UiHeaderItemList(pragma);
+}
+
+//  QQmlJS::AST::UiHeaderItemList::UiHeaderItemList(UiHeaderItemList
+//      *previous, UiImport *import)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiHeaderItemList *ritual_ZN6QQmlJS3AST16UiHeaderItemListC1EPS1_PNS0_8UiImportE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiHeaderItemList *previous,
+    QQmlJS::AST::UiImport *import) {
+  return new (pool) CuteQQmlJS_AST_UiHeaderItemList(previous, import);
+}
+
+//  QQmlJS::AST::UiHeaderItemList::UiHeaderItemList(UiHeaderItemList
+//      *previous, UiPragma *pragma)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiHeaderItemList *ritual_ZN6QQmlJS3AST16UiHeaderItemListC1EPS1_PNS0_8UiPragmaE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiHeaderItemList *previous,
+    QQmlJS::AST::UiPragma *pragma) {
+  return new (pool) CuteQQmlJS_AST_UiHeaderItemList(previous, pragma);
+}
+
 //  UiHeaderItemList *QQmlJS::AST::UiHeaderItemList::finish()
 extern "C" Q_DECL_EXPORT
 QQmlJS::AST::UiHeaderItemList *ritual_ZN6QQmlJS3AST16UiHeaderItemList6finishEv(
     QQmlJS::AST::UiHeaderItemList *self) {
   return self->finish();
+}
+
+//  void QQmlJS::AST::UiHeaderItemList::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST16UiHeaderItemList7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiHeaderItemList *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  SourceLocation QQmlJS::AST::UiHeaderItemList::firstSourceLocation() const

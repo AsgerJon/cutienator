@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QSignalTransition10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QSignalTransition11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QSignalTransition11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QSignalTransition2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,10 +24,14 @@
     "ritual_ZN17QSignalTransition15setSenderObjectEPK7QObject": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QSignalTransition20bindableSenderObjectEv": [
+      "address", "address"
+    ],
     "ritual_ZNK17QSignalTransition6signalEv": ["address", "address"],
     "ritual_ZN17QSignalTransition9setSignalERK10QByteArray": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QSignalTransition14bindableSignalEv": ["address", "address"],
     "ritual_ZN17QSignalTransition9eventTestEP6QEvent": [
       "bool", "address", "address"
     ],
@@ -31,6 +41,14 @@
     "ritual_ZN17QSignalTransition5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN17QSignalTransition19senderObjectChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSignalTransition13signalChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSignalTransition6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QSignalTransition6d_funcEv": ["address", "address"],
     "ritual_take_QSignalTransition": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QSignalTransition9eventTestEP6QEvent": [
       "bool", "address", "address"
@@ -40,6 +58,12 @@
     ],
     "ritual_own_ZN17QSignalTransition5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QSignalTransition__QBindable_const_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSignalTransition__QBindable_QByteArray": [
+      "nothing", "address"
     ]
   }
 }

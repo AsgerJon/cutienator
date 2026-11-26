@@ -137,6 +137,16 @@ public:
 #endif  // QT_CONFIG(quick_itemview)
 };
 
+//  QQuickItemViewFxItem::QQuickItemViewFxItem(QQuickItem *item, bool
+//      ownItem, QQuickItemChangeListener *changeListener)
+extern "C" Q_DECL_EXPORT
+QQuickItemViewFxItem *ritual_ZN20QQuickItemViewFxItemC1EP10QQuickItembP24QQuickItemChangeListener(
+    QQuickItem *item,
+    bool ownItem,
+    QQuickItemChangeListener *changeListener) {
+  return new CuteQQuickItemViewFxItem(item, ownItem, changeListener);
+}
+
 //  QQuickItemViewFxItem::~QQuickItemViewFxItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickItemViewFxItemD1Ev(QQuickItemViewFxItem *self) {

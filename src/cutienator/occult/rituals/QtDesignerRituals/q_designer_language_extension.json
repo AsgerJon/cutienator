@@ -5,6 +5,7 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN26QDesignerLanguageExtensionC1Ev": ["address"],
     "ritual_ZN26QDesignerLanguageExtensionD1Ev": ["nothing", "address"],
     "ritual_ZNK26QDesignerLanguageExtension4nameEv": ["text", "address"],
     "ritual_ZN26QDesignerLanguageExtension30createFormWindowSettingsDialogEP28QDesignerFormWindowInterfaceP7QWidget": [

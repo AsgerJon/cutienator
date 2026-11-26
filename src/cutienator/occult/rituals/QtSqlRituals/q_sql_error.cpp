@@ -20,6 +20,26 @@ QSqlError *ritual_ZN9QSqlErrorC1ERKS_(const QSqlError *other) {
   return new QSqlError(*other);
 }
 
+//  QSqlError::QSqlError(QSqlError &&other)
+extern "C" Q_DECL_EXPORT
+QSqlError *ritual_ZN9QSqlErrorC1EOS_(QSqlError *other) {
+  return new QSqlError(std::move(*other));
+}
+
+//  QSqlError &QSqlError::operator=(const QSqlError &other)
+extern "C" Q_DECL_EXPORT
+QSqlError *ritual_ZN9QSqlErroraSERKS_(
+    QSqlError *self,
+    const QSqlError *other) {
+  return &(self->operator=(*other));
+}
+
+//  QSqlError &QSqlError::operator=(QSqlError &&other)
+extern "C" Q_DECL_EXPORT
+QSqlError *ritual_ZN9QSqlErroraSEOS_(QSqlError *self, QSqlError *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QSqlError::~QSqlError()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QSqlErrorD1Ev(QSqlError *self) {
@@ -40,6 +60,12 @@ bool ritual_ZNK9QSqlErrorneERKS_(
     const QSqlError *self,
     const QSqlError *other) {
   return self->operator!=(*other);
+}
+
+//  void QSqlError::swap(QSqlError &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSqlError4swapERS_(QSqlError *self, QSqlError *other) {
+  self->swap(*other);
 }
 
 //  QString QSqlError::driverText() const

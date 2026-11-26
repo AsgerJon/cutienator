@@ -8,6 +8,12 @@
     "ritual_ZNK29QQuickColorDialogImplAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQuickColorDialogImplAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QQuickColorDialogImplAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -43,6 +49,21 @@
     ],
     "ritual_ZN29QQuickColorDialogImplAttached14setAlphaSliderEP12QQuickSlider": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached16buttonBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached23eyeDropperButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached18colorPickerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached18colorInputsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached18alphaSliderChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN29QQuickColorDialogImplAttached6d_funcEv": [
       "address", "address"

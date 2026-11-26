@@ -107,6 +107,25 @@ const QMetaObject *ritual_ZNK29QQuickLayoutMirroringAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLayoutMirroringAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuickLayoutMirroringAttached11qt_metacastEPKc(
+    QQuickLayoutMirroringAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLayoutMirroringAttached::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuickLayoutMirroringAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLayoutMirroringAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuickLayoutMirroringAttached::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QQuickLayoutMirroringAttached24qt_qmlMarker_uncreatableEv(
@@ -148,4 +167,54 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK29QQuickLayoutMirroringAttached15childrenInheritEv(
     const QQuickLayoutMirroringAttached *self) {
   return self->childrenInherit();
+}
+
+//  void QQuickLayoutMirroringAttached::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickLayoutMirroringAttached14enabledChangedEv(
+    QQuickLayoutMirroringAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutMirroringAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "enabledChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "enabledChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLayoutMirroringAttached::childrenInheritChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickLayoutMirroringAttached22childrenInheritChangedEv(
+    QQuickLayoutMirroringAttached *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLayoutMirroringAttached")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "childrenInheritChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "childrenInheritChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }

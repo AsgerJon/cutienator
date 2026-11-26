@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0, from Qt's",
+    "source. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK6QQmlJS3AST14UiObjectMember19firstSourceLocationEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiObjectMember18lastSourceLocationEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST14UiObjectMember18uiObjectMemberCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_take_QQmlJS_AST_UiObjectMember": [
+      "bool",
+      "address",
+      "chars",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST14UiObjectMember18uiObjectMemberCastEv": [
+      "address",
+      "address"
+    ]
+  }
+}

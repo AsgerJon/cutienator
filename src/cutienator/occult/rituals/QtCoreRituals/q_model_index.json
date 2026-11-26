@@ -11,6 +11,10 @@
     "ritual_ZNK11QModelIndex10internalIdEv": [
       "unsigned long long", "address"
     ],
+    "ritual_ZNK11QModelIndex15internalPointerEv": ["address", "address"],
+    "ritual_ZNK11QModelIndex20constInternalPointerEv": [
+      "address", "address"
+    ],
     "ritual_ZNK11QModelIndex6parentEv": ["address", "address"],
     "ritual_ZNK11QModelIndex7siblingEii": [
       "address", "address", "int", "int"
@@ -32,6 +36,9 @@
     "ritual_ZgtRK11QModelIndexS1_": ["bool", "address", "address"],
     "ritual_ZleRK11QModelIndexS1_": ["bool", "address", "address"],
     "ritual_ZgeRK11QModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZN11QModelIndexC1EiiPKvPK18QAbstractItemModel": [
+      "address", "int", "int", "address", "address"
+    ],
     "ritual_ZN11QModelIndexC1EiiyPK18QAbstractItemModel": [
       "address", "int", "int", "unsigned long long", "address"
     ],

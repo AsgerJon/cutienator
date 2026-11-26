@@ -10,6 +10,7 @@
 #include <QtCore5Compat/6.12.0/QtCore5Compat/private/qutfcodec_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
+#include <QtCore/qstring.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore5Compat/private/qutfcodec_p.h>
@@ -49,6 +50,39 @@ inline int QUtf8Codec::mibEnum() const
     return 106;
 }
 #endif  // QT_CONFIG(textcodec)
+
+//  from ../qt5compat/src/core5/codecs/qutfcodec.cpp, line 38, as _ZNK10QUtf8Codec16convertToUnicodeEPKciPN20QStringConverterBase5StateE
+#if QT_CONFIG(textcodec)
+inline QString QUtf8Codec::convertToUnicode(const char *chars, int len, ConverterState *state) const
+{
+    ConverterState s(QStringConverter::Flag::Stateless);
+    if (!state)
+        state = &s;
+    return QUtf8::convertToUnicode(QByteArrayView(chars, len), state);
+}
+#endif  // QT_CONFIG(textcodec)
+
+//  from ../qt5compat/src/core5/codecs/qutfcodec.cpp, line 22, as _ZNK10QUtf8Codec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE
+#if QT_CONFIG(textcodec)
+inline QByteArray QUtf8Codec::convertFromUnicode(const QChar *uc, int len, ConverterState *state) const
+{
+    ConverterState s(QStringConverter::Flag::Stateless);
+    if (!state)
+        state = &s;
+    return QUtf8::convertFromUnicode(QStringView(uc, len), state);
+}
+#endif  // QT_CONFIG(textcodec)
+
+//  from ../qt5compat/src/core5/codecs/qutfcodec.cpp, line 30, as _ZNK10QUtf8Codec16convertToUnicodeEP7QStringPKciPN20QStringConverterBase5StateE
+#if QT_CONFIG(textcodec)
+inline void QUtf8Codec::convertToUnicode(QString *target, const char *chars, int len, ConverterState *state) const
+{
+    ConverterState s(QStringConverter::Flag::Stateless);
+    if (!state)
+        state = &s;
+    *target += QUtf8::convertToUnicode(QByteArrayView(chars, len), state);
+}
+#endif  // QT_CONFIG(textcodec)
 //  -----------------------------------------------------------------------
 
 //  A QUtf8Codec that Python can take functions over in. Every QUtf8Codec
@@ -60,10 +94,13 @@ typedef const QByteArray * (*CuteQUtf8CodecCall0)(const void *, int *);
 #if QT_CONFIG(textcodec)
 typedef int (*CuteQUtf8CodecCall1)(const void *, int *);
 #endif  // QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
+typedef const QByteArray * (*CuteQUtf8CodecCall2)(const void *, const QChar *, int, QTextCodec::ConverterState *, int *);
+#endif  // QT_CONFIG(textcodec)
 class CuteQUtf8Codec : public QUtf8Codec {
 public:
   using QUtf8Codec::QUtf8Codec;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(textcodec)
@@ -75,6 +112,12 @@ public:
 #if QT_CONFIG(textcodec)
     if (!std::strcmp(key, "_ZNK10QTextCodec7mibEnumEv")) {
       taken[1] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
+    if (!std::strcmp(key, "_ZNK10QTextCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE")) {
+      taken[2] = call;
       return true;
     }
 #endif  // QT_CONFIG(textcodec)
@@ -106,6 +149,23 @@ public:
     return QUtf8Codec::mibEnum();
   }
 #endif  // QT_CONFIG(textcodec)
+
+#if QT_CONFIG(textcodec)
+  //  QByteArray QUtf8Codec::convertFromUnicode(const QChar *a0, int a1,
+  //      ConverterState *a2) const
+  QByteArray convertFromUnicode(
+      const QChar *a0,
+      int a1,
+      QTextCodec::ConverterState *a2) const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQUtf8CodecCall2 call = reinterpret_cast<CuteQUtf8CodecCall2>(taken[2]);
+      const QByteArray * given = call(this, a0, a1, a2, &handled);
+      if (handled && given) return *given;
+    }
+    return QUtf8Codec::convertFromUnicode(a0, a1, a2);
+  }
+#endif  // QT_CONFIG(textcodec)
 };
 
 //  QUtf8Codec::~QUtf8Codec()
@@ -125,6 +185,42 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK10QUtf8Codec7mibEnumEv(const QUtf8Codec *self) {
   return self->mibEnum();
 }
+
+//  QString QUtf8Codec::convertToUnicode(const char *a0, int a1,
+//      ConverterState *a2) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10QUtf8Codec16convertToUnicodeEPKciPN20QStringConverterBase5StateE(
+    const QUtf8Codec *self,
+    const char *a0,
+    int a1,
+    QTextCodec::ConverterState *a2) {
+  return new QString(self->convertToUnicode(a0, a1, a2));
+}
+
+//  QByteArray QUtf8Codec::convertFromUnicode(const QChar *a0, int a1,
+//      ConverterState *a2) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK10QUtf8Codec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE(
+    const QUtf8Codec *self,
+    const QChar *a0,
+    int a1,
+    QTextCodec::ConverterState *a2) {
+  return new QByteArray(self->convertFromUnicode(a0, a1, a2));
+}
+
+#if QT_CONFIG(textcodec)
+//  void QUtf8Codec::convertToUnicode(QString *target, const char *a1, int
+//      a2, ConverterState *a3) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QUtf8Codec16convertToUnicodeEP7QStringPKciPN20QStringConverterBase5StateE(
+    const QUtf8Codec *self,
+    QString *target,
+    const char *a1,
+    int a2,
+    QTextCodec::ConverterState *a3) {
+  self->convertToUnicode(target, a1, a2, a3);
+}
+#endif  // QT_CONFIG(textcodec)
 
 //  a Python function taken by a CuteQUtf8Codec, for the function named by
 //      the key
@@ -146,6 +242,19 @@ QByteArray *ritual_own_ZNK10QUtf8Codec4nameEv(const QUtf8Codec *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK10QUtf8Codec7mibEnumEv(const QUtf8Codec *self) {
   return self->QUtf8Codec::mibEnum();
+}
+#endif  // QT_CONFIG(textcodec)
+
+#if QT_CONFIG(textcodec)
+//  QByteArray QUtf8Codec::convertFromUnicode(const QChar *a0, int a1,
+//      ConverterState *a2) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_own_ZNK10QUtf8Codec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE(
+    const QUtf8Codec *self,
+    const QChar *a0,
+    int a1,
+    QTextCodec::ConverterState *a2) {
+  return new QByteArray(self->QUtf8Codec::convertFromUnicode(a0, a1, a2));
 }
 #endif  // QT_CONFIG(textcodec)
 

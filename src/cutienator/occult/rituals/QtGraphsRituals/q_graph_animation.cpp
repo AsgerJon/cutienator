@@ -4,7 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,8 +14,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGraphs/private/qgraphanimation_p.h>
-#include <QtGraphs/private/qgraphanimation_p.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -25,10 +24,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtgraphs/src/graphs2d/animation/qgraphanimation.cpp, line 60, as _ZN15QGraphAnimationD1Ev
-inline QGraphAnimation::~QGraphAnimation()
+//  from ../qtgraphs/src/graphs2d/animation/qgraphanimation.cpp, line 51, as _Z11lcAnimationv
+inline const QLoggingCategory &lcAnimation()
 {
-    stop();
+    static const QLoggingCategory category("qt.graphs2d.animation");
+    return category;
 }
 
 //  from ../qtgraphs/src/graphs2d/animation/qgraphanimation.cpp, line 65, as _ZNK15QGraphAnimation9animatingEv
@@ -438,6 +438,24 @@ const QMetaObject *ritual_ZNK15QGraphAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QGraphAnimation11qt_metacastEPKc(
+    QGraphAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphAnimation::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QGraphAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QGraphAnimation::~QGraphAnimation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphAnimationD1Ev(QGraphAnimation *self) {
@@ -473,6 +491,17 @@ void ritual_ZN15QGraphAnimation3endEv(QGraphAnimation *self) {
   self->end();
 }
 
+//  QVariant QGraphAnimation::interpolated(const QVariant &start, const
+//      QVariant &end, qreal progress) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK15QGraphAnimation12interpolatedERK8QVariantS2_d(
+    const QGraphAnimation *self,
+    const QVariant *start,
+    const QVariant *end,
+    qreal progress) {
+  return new QVariant(self->interpolated(*start, *end, progress));
+}
+
 //  AnimationState QGraphAnimation::animating() const
 extern "C" Q_DECL_EXPORT
 QGraphAnimation::AnimationState ritual_ZNK15QGraphAnimation9animatingEv(
@@ -488,6 +517,30 @@ void ritual_ZN15QGraphAnimation12valueUpdatedERK8QVariant(
   self->valueUpdated(*value);
 }
 
+//  void QGraphAnimation::animatingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphAnimation16animatingChangedEv(QGraphAnimation *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QGraphAnimation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "animatingChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "animatingChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  a Python function taken by a CuteQGraphAnimation, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -498,4 +551,4 @@ bool ritual_take_QGraphAnimation(
   return static_cast<CuteQGraphAnimation *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

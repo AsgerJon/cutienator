@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK25QAbstractBarSeriesPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractBarSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QAbstractBarSeriesPrivate11qt_metacastEPKc(
+    QAbstractBarSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractBarSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QAbstractBarSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractBarSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractBarSeriesPrivate::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -82,6 +101,21 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN25QAbstractBarSeriesPrivate14initializeAxesEv(
     QAbstractBarSeriesPrivate *self) {
   self->initializeAxes();
+}
+
+//  void
+//      QAbstractBarSeriesPrivate::initializeAnimations(QChart::AnimationOpti
+//      ons options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QAbstractBarSeriesPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
 }
 
 //  void QAbstractBarSeriesPrivate::initializeTheme(int index, ChartTheme
@@ -314,6 +348,110 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK25QAbstractBarSeriesPrivate11labelsDirtyEv(
     const QAbstractBarSeriesPrivate *self) {
   return self->labelsDirty();
+}
+
+//  void QAbstractBarSeriesPrivate::clicked(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate7clickedEiP7QBarSet(
+    QAbstractBarSeriesPrivate *self,
+    int index,
+    QBarSet *barset) {
+  self->clicked(index, barset);
+}
+
+//  void QAbstractBarSeriesPrivate::pressed(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate7pressedEiP7QBarSet(
+    QAbstractBarSeriesPrivate *self,
+    int index,
+    QBarSet *barset) {
+  self->pressed(index, barset);
+}
+
+//  void QAbstractBarSeriesPrivate::released(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate8releasedEiP7QBarSet(
+    QAbstractBarSeriesPrivate *self,
+    int index,
+    QBarSet *barset) {
+  self->released(index, barset);
+}
+
+//  void QAbstractBarSeriesPrivate::doubleClicked(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate13doubleClickedEiP7QBarSet(
+    QAbstractBarSeriesPrivate *self,
+    int index,
+    QBarSet *barset) {
+  self->doubleClicked(index, barset);
+}
+
+//  void QAbstractBarSeriesPrivate::updatedBars()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate11updatedBarsEv(
+    QAbstractBarSeriesPrivate *self) {
+  self->updatedBars();
+}
+
+//  void QAbstractBarSeriesPrivate::updatedLayout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate13updatedLayoutEv(
+    QAbstractBarSeriesPrivate *self) {
+  self->updatedLayout();
+}
+
+//  void QAbstractBarSeriesPrivate::restructuredBars()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate16restructuredBarsEv(
+    QAbstractBarSeriesPrivate *self) {
+  self->restructuredBars();
+}
+
+//  void QAbstractBarSeriesPrivate::labelsVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate20labelsVisibleChangedEb(
+    QAbstractBarSeriesPrivate *self,
+    bool visible) {
+  self->labelsVisibleChanged(visible);
+}
+
+//  void QAbstractBarSeriesPrivate::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate14visibleChangedEv(
+    QAbstractBarSeriesPrivate *self) {
+  self->visibleChanged();
+}
+
+//  void QAbstractBarSeriesPrivate::setValueChanged(int index, QBarSet
+//      *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate15setValueChangedEiP7QBarSet(
+    QAbstractBarSeriesPrivate *self,
+    int index,
+    QBarSet *barset) {
+  self->setValueChanged(index, barset);
+}
+
+//  void QAbstractBarSeriesPrivate::setValueAdded(int index, int count,
+//      QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate13setValueAddedEiiP7QBarSet(
+    QAbstractBarSeriesPrivate *self,
+    int index,
+    int count,
+    QBarSet *barset) {
+  self->setValueAdded(index, count, barset);
+}
+
+//  void QAbstractBarSeriesPrivate::setValueRemoved(int index, int count,
+//      QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QAbstractBarSeriesPrivate15setValueRemovedEiiP7QBarSet(
+    QAbstractBarSeriesPrivate *self,
+    int index,
+    int count,
+    QBarSet *barset) {
+  self->setValueRemoved(index, count, barset);
 }
 
 //  void QAbstractBarSeriesPrivate::handleSetValueChange(int index)

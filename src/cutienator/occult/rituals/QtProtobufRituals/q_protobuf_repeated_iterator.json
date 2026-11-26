@@ -7,6 +7,13 @@
   "rows": {
     "ritual_ZN25QProtobufRepeatedIteratorC1Ev": ["address"],
     "ritual_ZN25QProtobufRepeatedIteratorD1Ev": ["nothing", "address"],
+    "ritual_ZN25QProtobufRepeatedIteratorC1EOS_": ["address", "address"],
+    "ritual_ZN25QProtobufRepeatedIteratoraSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QProtobufRepeatedIterator4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK25QProtobufRepeatedIterator7isValidEv": ["bool", "address"],
     "ritual_ZNK25QProtobufRepeatedIterator7hasNextEv": ["bool", "address"],
     "ritual_ZN25QProtobufRepeatedIterator4nextEv": ["address", "address"],

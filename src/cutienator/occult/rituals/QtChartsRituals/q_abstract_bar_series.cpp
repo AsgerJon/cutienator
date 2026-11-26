@@ -4,7 +4,9 @@
 #if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/qabstractbarseries.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/qbarset.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -199,6 +201,25 @@ const QMetaObject *ritual_ZNK18QAbstractBarSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractBarSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QAbstractBarSeries11qt_metacastEPKc(
+    QAbstractBarSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractBarSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QAbstractBarSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractBarSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractBarSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QAbstractBarSeries2trEPKcS1_i(
@@ -365,6 +386,124 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QAbstractBarSeries15labelsPrecisionEv(
     const QAbstractBarSeries *self) {
   return self->labelsPrecision();
+}
+
+//  QAbstractBarSeries::QAbstractBarSeries(QAbstractBarSeriesPrivate &d,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractBarSeries *ritual_ZN18QAbstractBarSeriesC1ER25QAbstractBarSeriesPrivateP7QObject(
+    QAbstractBarSeriesPrivate *d,
+    QObject *parent) {
+  return new CuteQAbstractBarSeries(*d, parent);
+}
+
+//  void QAbstractBarSeries::clicked(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries7clickedEiP7QBarSet(
+    QAbstractBarSeries *self,
+    int index,
+    QBarSet *barset) {
+  self->clicked(index, barset);
+}
+
+//  void QAbstractBarSeries::hovered(bool status, int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries7hoveredEbiP7QBarSet(
+    QAbstractBarSeries *self,
+    bool status,
+    int index,
+    QBarSet *barset) {
+  self->hovered(status, index, barset);
+}
+
+//  void QAbstractBarSeries::pressed(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries7pressedEiP7QBarSet(
+    QAbstractBarSeries *self,
+    int index,
+    QBarSet *barset) {
+  self->pressed(index, barset);
+}
+
+//  void QAbstractBarSeries::released(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries8releasedEiP7QBarSet(
+    QAbstractBarSeries *self,
+    int index,
+    QBarSet *barset) {
+  self->released(index, barset);
+}
+
+//  void QAbstractBarSeries::doubleClicked(int index, QBarSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries13doubleClickedEiP7QBarSet(
+    QAbstractBarSeries *self,
+    int index,
+    QBarSet *barset) {
+  self->doubleClicked(index, barset);
+}
+
+//  void QAbstractBarSeries::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries12countChangedEv(
+    QAbstractBarSeries *self) {
+  self->countChanged();
+}
+
+//  void QAbstractBarSeries::labelsVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries20labelsVisibleChangedEv(
+    QAbstractBarSeries *self) {
+  self->labelsVisibleChanged();
+}
+
+//  void QAbstractBarSeries::labelsFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries19labelsFormatChangedERK7QString(
+    QAbstractBarSeries *self,
+    const QString *format) {
+  self->labelsFormatChanged(*format);
+}
+
+//  void QAbstractBarSeries::labelsPositionChanged(QAbstractBarSeries::Labels
+//      Position position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries21labelsPositionChangedENS_14LabelsPositionE(
+    QAbstractBarSeries *self,
+    QAbstractBarSeries::LabelsPosition position) {
+  self->labelsPositionChanged(position);
+}
+
+//  void QAbstractBarSeries::labelsAngleChanged(qreal angle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries18labelsAngleChangedEd(
+    QAbstractBarSeries *self,
+    qreal angle) {
+  self->labelsAngleChanged(angle);
+}
+
+//  void QAbstractBarSeries::labelsPrecisionChanged(int precision)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries22labelsPrecisionChangedEi(
+    QAbstractBarSeries *self,
+    int precision) {
+  self->labelsPrecisionChanged(precision);
+}
+
+//  void QAbstractBarSeries::barsetsAdded(const QList<QBarSet *> &sets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries12barsetsAddedERK5QListIP7QBarSetE(
+    QAbstractBarSeries *self,
+    const QList<QBarSet *> *sets) {
+  self->barsetsAdded(*sets);
+}
+
+//  void QAbstractBarSeries::barsetsRemoved(const QList<QBarSet *> &sets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractBarSeries14barsetsRemovedERK5QListIP7QBarSetE(
+    QAbstractBarSeries *self,
+    const QList<QBarSet *> *sets) {
+  self->barsetsRemoved(*sets);
 }
 
 //  QAbstractBarSeriesPrivate *QAbstractBarSeries::d_func()

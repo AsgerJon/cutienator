@@ -8,6 +8,12 @@
     "ritual_ZNK24QLogValue3DAxisFormatter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QLogValue3DAxisFormatter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QLogValue3DAxisFormatter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QLogValue3DAxisFormatter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,6 +40,15 @@
     "ritual_ZNK24QLogValue3DAxisFormatter14showEdgeLabelsEv": [
       "bool", "address"
     ],
+    "ritual_ZN24QLogValue3DAxisFormatter11baseChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QLogValue3DAxisFormatter18autoSubGridChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QLogValue3DAxisFormatter21showEdgeLabelsChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK24QLogValue3DAxisFormatter17createNewInstanceEv": [
       "address", "address"
     ],
@@ -45,6 +60,9 @@
     ],
     "ritual_ZNK24QLogValue3DAxisFormatter7valueAtEf": [
       "float", "address", "float"
+    ],
+    "ritual_ZNK24QLogValue3DAxisFormatter12populateCopyER21QValue3DAxisFormatter": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24QLogValue3DAxisFormatter4dptrEv": ["address", "address"],
     "ritual_ZNK24QLogValue3DAxisFormatter5dptrcEv": ["address", "address"],

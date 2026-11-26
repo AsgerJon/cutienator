@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK18QQuickFolderDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFolderDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickFolderDialog11qt_metacastEPKc(
+    QQuickFolderDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFolderDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickFolderDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFolderDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFolderDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickFolderDialog2trEPKcS1_i(
@@ -149,6 +168,41 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickFolderDialog16resetRejectLabelEv(
     QQuickFolderDialog *self) {
   self->resetRejectLabel();
+}
+
+//  void QQuickFolderDialog::currentFolderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickFolderDialog20currentFolderChangedEv(
+    QQuickFolderDialog *self) {
+  self->currentFolderChanged();
+}
+
+//  void QQuickFolderDialog::selectedFolderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickFolderDialog21selectedFolderChangedEv(
+    QQuickFolderDialog *self) {
+  self->selectedFolderChanged();
+}
+
+//  void QQuickFolderDialog::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickFolderDialog14optionsChangedEv(
+    QQuickFolderDialog *self) {
+  self->optionsChanged();
+}
+
+//  void QQuickFolderDialog::acceptLabelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickFolderDialog18acceptLabelChangedEv(
+    QQuickFolderDialog *self) {
+  self->acceptLabelChanged();
+}
+
+//  void QQuickFolderDialog::rejectLabelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickFolderDialog18rejectLabelChangedEv(
+    QQuickFolderDialog *self) {
+  self->rejectLabelChanged();
 }
 
 //  bool QQuickFolderDialog::useNativeDialog() const

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QDBusServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QDBusServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QDBusServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QDBusServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QDBusServerC1ERK7QStringP7QObject": [
       "address", "text", "address"
@@ -19,6 +25,9 @@
     ],
     "ritual_ZNK11QDBusServer32isAnonymousAuthenticationAllowedEv": [
       "bool", "address"
+    ],
+    "ritual_ZN11QDBusServer13newConnectionERK15QDBusConnection": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QDBusServer": ["bool", "address", "chars", "address"]
   }

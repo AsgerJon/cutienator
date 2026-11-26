@@ -427,6 +427,20 @@ void ritual_ZNK21QGraphicsLinearLayout4dumpEi(
   self->dump(indent);
 }
 
+//  QGraphicsLinearLayoutPrivate *QGraphicsLinearLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsLinearLayoutPrivate *ritual_ZN21QGraphicsLinearLayout6d_funcEv(
+    QGraphicsLinearLayout *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsLinearLayoutPrivate *QGraphicsLinearLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsLinearLayoutPrivate *ritual_ZNK21QGraphicsLinearLayout6d_funcEv(
+    const QGraphicsLinearLayout *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsLinearLayout, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

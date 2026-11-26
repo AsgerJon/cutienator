@@ -202,6 +202,24 @@ const QMetaObject *ritual_ZNK14QSensorReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSensorReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QSensorReading11qt_metacastEPKc(
+    QSensorReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSensorReading::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QSensorReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSensorReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSensorReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QSensorReading2trEPKcS1_i(
@@ -251,6 +269,13 @@ QSensorReading *ritual_ZN14QSensorReadingC1EP7QObjectP21QSensorReadingPrivate(
     QObject *parent,
     QSensorReadingPrivate *d) {
   return new CuteQSensorReading(parent, d);
+}
+
+//  QScopedPointer<QSensorReadingPrivate> *QSensorReading::d_ptr()
+extern "C" Q_DECL_EXPORT
+QScopedPointer<QSensorReadingPrivate> *ritual_ZN14QSensorReading5d_ptrEv(
+    QSensorReading *self) {
+  return self->d_ptr();
 }
 
 //  void QSensorReading::copyValuesFrom(QSensorReading *other)

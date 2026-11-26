@@ -11,6 +11,9 @@
       "nothing", "address", "address", "int"
     ],
     "ritual_ZNK20QQmlComponentPrivate10loadedTypeEv": ["address", "address"],
+    "ritual_ZN20QQmlComponentPrivate11beginCreateE14QQmlRefPointerI15QQmlContextDataE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QQmlComponentPrivate14completeCreateEv": [
       "nothing", "address"
     ],
@@ -24,14 +27,27 @@
     "ritual_ZN20QQmlComponentPrivate32unsetRequiredPropertyToQQmlErrorERK20RequiredPropertyInfo": [
       "address", "address"
     ],
+    "ritual_ZN20QQmlComponentPrivate14incubateObjectEP13QQmlIncubatorP13QQmlComponentP10QQmlEngineRK14QQmlRefPointerI15QQmlContextDataESA_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
+    ],
     "ritual_ZN20QQmlComponentPrivate5readyEP17QQmlNotifyingBlob": [
       "nothing", "address", "address"
     ],
     "ritual_ZN20QQmlComponentPrivate8progressEP17QQmlNotifyingBlobd": [
       "nothing", "address", "address", "double"
     ],
+    "ritual_ZN20QQmlComponentPrivate12fromTypeDataERK14QQmlRefPointerI12QQmlTypeDataE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QQmlComponentPrivate29hadTopLevelRequiredPropertiesEv": [
       "bool", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate13beginDeferredEP17QQmlEnginePrivateP7QObjectPSt6vectorINS_17ConstructionStateESaIS5_EE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate16completeDeferredEP17QQmlEnginePrivatePSt6vectorINS_17ConstructionStateESaIS3_EE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN20QQmlComponentPrivate8completeEP17QQmlEnginePrivatePNS_17ConstructionStateE": [
       "nothing", "address", "address"
@@ -65,6 +81,9 @@
     "ritual_ZN20QQmlComponentPrivate11setProgressEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZN20QQmlComponentPrivate18setCreationContextE14QQmlRefPointerI15QQmlContextDataE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QQmlComponentPrivate14loadHelperTypeEv": [
       "address", "address"
     ],
@@ -76,11 +95,20 @@
     ],
     "ritual_ZNK20QQmlComponentPrivate7creatorEv": ["address", "address"],
     "ritual_ZNK20QQmlComponentPrivate6engineEv": ["address", "address"],
+    "ritual_ZNK20QQmlComponentPrivate15compilationUnitEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate18setCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QQmlComponentPrivate7setDataERK10QByteArrayRK4QUrlN13QQmlComponent15CompilationModeE": [
       "nothing", "address", "address", "address", "int"
     ],
     "ritual_cast_QQmlComponentPrivate_QQmlNotifyingBlob_Callback": [
       "address", "address"
+    ],
+    "ritual_drop_QQmlComponentPrivate__QQmlRefPointer_QV4_ExecutableCompilationUnit": [
+      "nothing", "address"
     ]
   }
 }

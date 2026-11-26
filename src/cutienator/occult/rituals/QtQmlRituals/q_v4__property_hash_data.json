@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV416PropertyHashDataC1Ei": ["address", "int"],
     "ritual_ZN3QV416PropertyHashDataD1Ev": ["nothing", "address"]
   }
 }

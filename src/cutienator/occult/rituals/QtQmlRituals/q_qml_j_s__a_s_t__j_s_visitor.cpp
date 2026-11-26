@@ -3748,6 +3748,12 @@ public:
   }
 };
 
+//  QQmlJS::AST::JSVisitor::JSVisitor()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::JSVisitor *ritual_ZN6QQmlJS3AST9JSVisitorC1Ev() {
+  return new CuteQQmlJS_AST_JSVisitor();
+}
+
 //  bool QQmlJS::AST::JSVisitor::preVisit(Node *a0)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN6QQmlJS3AST9JSVisitor8preVisitEPNS0_4NodeE(

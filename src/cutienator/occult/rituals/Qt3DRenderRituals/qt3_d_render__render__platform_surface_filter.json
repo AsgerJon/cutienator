@@ -2,20 +2,53 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DRender/6.12.0/Qt3DRender/private/platformsurfacefilter_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK10Qt3DRender6Render21PlatformSurfaceFilter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilterC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilterD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter11lockSurfaceEv": [
+      "nothing"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter14releaseSurfaceEv": [
+      "nothing"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter14isSurfaceValidEP8QSurface": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter18markSurfaceAsValidEv": [
+      "nothing", "address"
     ],
     "ritual_take_Qt3DRender_Render_PlatformSurfaceFilter": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render21PlatformSurfaceFilter11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter10setSurfaceI7QWindowEEvPT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter10setSurfaceI17QOffscreenSurfaceEEvPT_": [
+      "nothing", "address", "address"
     ]
   }
 }

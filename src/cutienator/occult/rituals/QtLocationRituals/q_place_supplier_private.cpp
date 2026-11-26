@@ -18,6 +18,17 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtlocation/src/location/places/qplacesupplier.cpp, line 12, as _ZNK21QPlaceSupplierPrivateeqERKS_
+inline bool QPlaceSupplierPrivate::operator==(const QPlaceSupplierPrivate &other) const
+{
+    return (
+            this->name == other.name
+            && this->supplierId == other.supplierId
+            && this->url == other.url
+            && this->icon == other.icon
+    );
+}
+
 //  from ../qtlocation/src/location/places/qplacesupplier.cpp, line 22, as _ZNK21QPlaceSupplierPrivate7isEmptyEv
 inline bool QPlaceSupplierPrivate::isEmpty() const
 {
@@ -28,6 +39,15 @@ inline bool QPlaceSupplierPrivate::isEmpty() const
             );
 }
 //  -----------------------------------------------------------------------
+
+//  bool QPlaceSupplierPrivate::operator==(const QPlaceSupplierPrivate
+//      &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QPlaceSupplierPrivateeqERKS_(
+    const QPlaceSupplierPrivate *self,
+    const QPlaceSupplierPrivate *other) {
+  return self->operator==(*other);
+}
 
 //  bool QPlaceSupplierPrivate::isEmpty() const
 extern "C" Q_DECL_EXPORT

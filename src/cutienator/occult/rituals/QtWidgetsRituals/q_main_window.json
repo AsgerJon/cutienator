@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QMainWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QMainWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QMainWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QMainWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QMainWindowC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
@@ -119,6 +125,9 @@
     "ritual_ZNK11QMainWindow14dockWidgetAreaEP11QDockWidget": [
       "int", "address", "address"
     ],
+    "ritual_ZN11QMainWindow11resizeDocksERK5QListIP11QDockWidgetERKS0_IiEN2Qt11OrientationE": [
+      "nothing", "address", "address", "address", "int"
+    ],
     "ritual_ZNK11QMainWindow9saveStateEi": ["address", "address", "int"],
     "ritual_ZN11QMainWindow12restoreStateERK10QByteArrayi": [
       "bool", "address", "address", "int"
@@ -131,10 +140,21 @@
     "ritual_ZN11QMainWindow30setUnifiedTitleAndToolBarOnMacEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN11QMainWindow15iconSizeChangedERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow22toolButtonStyleChangedEN2Qt15ToolButtonStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QMainWindow27tabifiedDockWidgetActivatedEP11QDockWidget": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent": [
       "nothing", "address", "address"
     ],
     "ritual_ZN11QMainWindow5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN11QMainWindow6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QMainWindow6d_funcEv": ["address", "address"],
     "ritual_take_QMainWindow": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QMainWindow15createPopupMenuEv": ["address", "address"],
     "ritual_own_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent": [

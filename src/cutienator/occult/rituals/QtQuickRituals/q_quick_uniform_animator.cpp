@@ -308,6 +308,25 @@ const QMetaObject *ritual_ZNK21QQuickUniformAnimator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickUniformAnimator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickUniformAnimator11qt_metacastEPKc(
+    QQuickUniformAnimator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickUniformAnimator::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickUniformAnimator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickUniformAnimator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickUniformAnimator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickUniformAnimator2trEPKcS1_i(
@@ -351,6 +370,14 @@ void ritual_ZN21QQuickUniformAnimator10setUniformERK7QString(
     QQuickUniformAnimator *self,
     const QString *a0) {
   self->setUniform(*a0);
+}
+
+//  void QQuickUniformAnimator::uniformChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickUniformAnimator14uniformChangedERK7QString(
+    QQuickUniformAnimator *self,
+    const QString *a0) {
+  self->uniformChanged(*a0);
 }
 
 //  QQuickAnimatorJob *QQuickUniformAnimator::createJob() const

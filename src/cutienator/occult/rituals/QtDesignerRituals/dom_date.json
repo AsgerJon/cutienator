@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN7DomDateC1Ev": ["address"],
     "ritual_ZN7DomDateD1Ev": ["nothing", "address"],
+    "ritual_ZN7DomDate4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7DomDate5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK7DomDate11elementYearEv": ["int", "address"],
     "ritual_ZN7DomDate14setElementYearEi": ["nothing", "address", "int"],
     "ritual_ZNK7DomDate14hasElementYearEv": ["bool", "address"],

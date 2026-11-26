@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QNetworkReplyImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QNetworkReplyImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QNetworkReplyImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QNetworkReplyImplD1Ev": ["nothing", "address"],
     "ritual_ZN17QNetworkReplyImpl5abortEv": ["nothing", "address"],
     "ritual_ZN17QNetworkReplyImpl5closeEv": ["nothing", "address"],
@@ -15,11 +21,17 @@
     "ritual_ZN17QNetworkReplyImpl17setReadBufferSizeEx": [
       "nothing", "address", "long long"
     ],
+    "ritual_ZN17QNetworkReplyImpl8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN17QNetworkReplyImpl5eventEP6QEvent": [
       "bool", "address", "address"
     ],
     "ritual_ZN17QNetworkReplyImpl6d_funcEv": ["address", "address"],
     "ritual_ZNK17QNetworkReplyImpl6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QNetworkReplyImpl30sslConfigurationImplementationER17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QNetworkReplyImpl33setSslConfigurationImplementationERK17QSslConfiguration": [
       "nothing", "address", "address"
     ],
@@ -35,6 +47,9 @@
     ],
     "ritual_own_ZN17QNetworkReplyImpl17setReadBufferSizeEx": [
       "nothing", "address", "long long"
+    ],
+    "ritual_own_ZN17QNetworkReplyImpl8readDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_own_ZN17QNetworkReplyImpl33setSslConfigurationImplementationERK17QSslConfiguration": [
       "nothing", "address", "address"

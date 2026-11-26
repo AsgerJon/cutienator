@@ -33,6 +33,217 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 16, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+class QAccessibleColorWellItem : public QAccessibleInterface
+{
+    QAccessibleColorWell *m_parent;
+
+    Q_DECLARE_TR_FUNCTIONS(QAccessibleColorWellItem)
+public:
+    QAccessibleColorWellItem(QAccessibleColorWell *parent);
+
+    virtual bool isValid() const override;
+    virtual QObject *object() const override;
+
+    virtual QAccessibleInterface *parent() const override;
+    virtual QAccessibleInterface *child(int index) const override;
+    virtual QAccessibleInterface *childAt(int x, int y) const override;
+    virtual int childCount() const override;
+    virtual int indexOfChild(const QAccessibleInterface *) const override;
+
+    virtual QString text(QAccessible::Text t) const override;
+    virtual void setText(QAccessible::Text t, const QString &text) override;
+    virtual QRect rect() const override;
+    virtual QAccessible::Role role() const override;
+    virtual QAccessible::State state() const override;
+};
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 40, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::QAccessibleColorWellItem
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QAccessibleColorWellItem::QAccessibleColorWellItem(QAccessibleColorWell *parent)
+    : m_parent(parent)
+{
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 45, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::isValid
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline bool QAccessibleColorWellItem::isValid() const
+{
+    return m_parent->isValid();
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 50, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::object
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QObject *QAccessibleColorWellItem::object() const
+{
+    return nullptr;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 55, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::parent
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QAccessibleInterface *QAccessibleColorWellItem::parent() const
+{
+    return m_parent;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 60, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::child
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QAccessibleInterface *QAccessibleColorWellItem::child(int) const
+{
+    return nullptr;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 65, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::childAt
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QAccessibleInterface *QAccessibleColorWellItem::childAt(int, int) const
+{
+    return nullptr;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 70, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::childCount
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline int QAccessibleColorWellItem::childCount() const
+{
+    return 0;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 75, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::indexOfChild
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline int QAccessibleColorWellItem::indexOfChild(const QAccessibleInterface *) const
+{
+    return -1;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 80, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::text
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QString QAccessibleColorWellItem::text(QAccessible::Text t) const
+{
+
+    if (t == QAccessible::Name) {
+        QRgb color = m_parent->colorWell()->rgbValues()[m_parent->indexOfChild(this)];
+        //: Color specified via its 3 RGB components (red, green, blue)
+        return tr("RGB %1, %2, %3")
+                .arg(QString::number(qRed(color)), QString::number(qGreen(color)),
+                     QString::number(qBlue(color)));
+    }
+
+    return QString();
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 94, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::setText
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline void QAccessibleColorWellItem::setText(QAccessible::Text, const QString &) { }
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 96, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::rect
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QRect QAccessibleColorWellItem::rect() const
+{
+    const QColorWell *well = m_parent->colorWell();
+    const int childIndex = m_parent->indexOfChild(this);
+    // QColorWell layout is column-based, i.e. color indices 0 to QColorWell::numRows() - 1
+    // are in first column, see QColorWell::paintCellContents
+    const int col = childIndex / well->numRows();
+    const int row = childIndex % well->numRows();
+
+    return m_parent->colorWell()->cellGeometry(row, col).translated(m_parent->rect().topLeft());
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 108, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::role
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QAccessible::Role QAccessibleColorWellItem::role() const
+{
+    return QAccessible::ListItem;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 113, as local:qaccessiblecolorwell.cpp:QAccessibleColorWellItem::state
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QAccessible::State QAccessibleColorWellItem::state() const
+{
+    QAccessible::State state;
+
+    state.invisible = m_parent->state().invisible;
+
+    state.focusable = true;
+    const int childIndex = m_parent->indexOfChild(this);
+    Q_ASSERT(childIndex >= 0);
+    QColorWell *well = m_parent->colorWell();
+    if (well->hasFocus() && well->index(well->currentRow(), well->currentColumn()) == childIndex)
+        state.focused = true;
+
+    state.selectable = true;
+    if (well->index(well->selectedRow(), well->selectedColumn() == childIndex))
+        state.selected = true;
+
+    return state;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 139, as _ZN20QAccessibleColorWellD2Ev
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QAccessibleColorWell::~QAccessibleColorWell()
+{
+    for (const std::optional<QAccessible::Id> &childId : m_childIds) {
+        if (childId.has_value())
+            QAccessible::deleteAccessibleInterface(childId.value());
+    }
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 176, as _ZNK20QAccessibleColorWell10childCountEv
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline int QAccessibleColorWell::childCount() const
+{
+    const QColorWell *well = colorWell();
+    return well->numCols() * well->numRows();
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
 //  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 163, as _ZNK20QAccessibleColorWell12indexOfChildEPK20QAccessibleInterface
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(colordialog)
@@ -51,13 +262,33 @@ inline int QAccessibleColorWell::indexOfChild(const QAccessibleInterface *child)
 #endif  // QT_CONFIG(colordialog)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 176, as _ZNK20QAccessibleColorWell10childCountEv
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 147, as _ZNK20QAccessibleColorWell5childEi
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(colordialog)
-inline int QAccessibleColorWell::childCount() const
+inline QAccessibleInterface *QAccessibleColorWell::child(int index) const
 {
-    const QColorWell *well = colorWell();
-    return well->numCols() * well->numRows();
+    if (index < 0 || static_cast<size_t>(index) >= m_childIds.size())
+        return nullptr;
+
+    std::optional<QAccessible::Id> childId = m_childIds.at(index);
+    if (childId.has_value())
+        return QAccessible::accessibleInterface(childId.value());
+
+    QAccessibleInterface *child =
+            new QAccessibleColorWellItem(const_cast<QAccessibleColorWell *>(this));
+    const QAccessible::Id id = QAccessible::registerAccessibleInterface(child);
+    m_childIds[index] = id;
+    return child;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 182, as _ZNK20QAccessibleColorWell9colorWellEv
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QColorWell *QAccessibleColorWell::colorWell() const
+{
+    return qobject_cast<QColorWell *>(object());
 }
 #endif  // QT_CONFIG(colordialog)
 #endif  // QT_CONFIG(accessibility)
@@ -82,60 +313,66 @@ typedef int (*CuteQAccessibleColorWellCall2)(const void *, int *);
 #endif  // QT_CONFIG(colordialog)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QVariant * (*CuteQAccessibleColorWellCall3)(const void *, int, int *);
+typedef void * (*CuteQAccessibleColorWellCall3)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef bool (*CuteQAccessibleColorWellCall4)(const void *, int *);
+typedef const QVariant * (*CuteQAccessibleColorWellCall4)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleColorWellCall5)(const void *, int *);
+typedef bool (*CuteQAccessibleColorWellCall5)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef void * (*CuteQAccessibleColorWellCall6)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QRect * (*CuteQAccessibleColorWellCall7)(const void *, int *);
+typedef void * (*CuteQAccessibleColorWellCall7)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleColorWellCall8)(const void *, int *);
+typedef const QRect * (*CuteQAccessibleColorWellCall8)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleColorWellCall9)(const void *, int, int *);
+typedef void * (*CuteQAccessibleColorWellCall9)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef int (*CuteQAccessibleColorWellCall10)(const void *, int *);
+typedef QString * (*CuteQAccessibleColorWellCall10)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QAccessible::State * (*CuteQAccessibleColorWellCall11)(const void *, int *);
+typedef int (*CuteQAccessibleColorWellCall11)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QColor * (*CuteQAccessibleColorWellCall12)(const void *, int *);
+typedef const QAccessible::State * (*CuteQAccessibleColorWellCall12)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleColorWellCall13)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleColorWellCall14)(const void *, const QString *, int *);
+typedef const QColor * (*CuteQAccessibleColorWellCall14)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleColorWellCall15)(const void *, int *);
+typedef void (*CuteQAccessibleColorWellCall15)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void (*CuteQAccessibleColorWellCall16)(const void *, int, const QString *, int *);
+typedef void * (*CuteQAccessibleColorWellCall16)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleColorWellCall17)(const void *, int, int, int *);
+typedef void (*CuteQAccessibleColorWellCall17)(const void *, int, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleColorWellCall18)(const void *, const QString *, int *);
+typedef void * (*CuteQAccessibleColorWellCall18)(const void *, int, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleColorWellCall19)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleColorWellCall19)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleColorWellCall20)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleColorWellCall21)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleColorWell : public QAccessibleColorWell {
 public:
   using QAccessibleColorWell::QAccessibleColorWell;
-  void *taken[20] = {};
+  void *taken[22] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -163,104 +400,116 @@ public:
 #endif  // QT_CONFIG(colordialog)
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
       taken[3] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
+    if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
       taken[4] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
       taken[5] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
       taken[6] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
       taken[7] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4rectEv")) {
       taken[8] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
       taken[9] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
       taken[10] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
       taken[11] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
       taken[12] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
       taken[13] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[14] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
       taken[15] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
       taken[16] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
       taken[17] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
       taken[18] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
       taken[19] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[20] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+      taken[21] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -314,12 +563,26 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
-  //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
-  //      key) const
-  QVariant attributeValue(QAccessible::Attribute key) const override {
+  //  void *QAccessibleWidgetV2::interface_cast(QAccessible::InterfaceType
+  //      t)
+  void *interface_cast(QAccessible::InterfaceType t) override {
     if (taken[3]) {
       int handled = 0;
       CuteQAccessibleColorWellCall3 call = reinterpret_cast<CuteQAccessibleColorWellCall3>(taken[3]);
+      void * given = call(this, static_cast<int>(t), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleWidgetV2::interface_cast(t);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
+  //      key) const
+  QVariant attributeValue(QAccessible::Attribute key) const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQAccessibleColorWellCall4 call = reinterpret_cast<CuteQAccessibleColorWellCall4>(taken[4]);
       const QVariant * given = call(this, static_cast<int>(key), &handled);
       if (handled && given) return *given;
     }
@@ -330,9 +593,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  bool QAccessibleWidget::isValid() const
   bool isValid() const override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall4 call = reinterpret_cast<CuteQAccessibleColorWellCall4>(taken[4]);
+      CuteQAccessibleColorWellCall5 call = reinterpret_cast<CuteQAccessibleColorWellCall5>(taken[5]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -343,9 +606,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QWindow *QAccessibleWidget::window() const
   QWindow *window() const override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall5 call = reinterpret_cast<CuteQAccessibleColorWellCall5>(taken[5]);
+      CuteQAccessibleColorWellCall6 call = reinterpret_cast<CuteQAccessibleColorWellCall6>(taken[6]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWindow *>(given);
     }
@@ -356,9 +619,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::focusChild() const
   QAccessibleInterface *focusChild() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall6 call = reinterpret_cast<CuteQAccessibleColorWellCall6>(taken[6]);
+      CuteQAccessibleColorWellCall7 call = reinterpret_cast<CuteQAccessibleColorWellCall7>(taken[7]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -369,9 +632,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QRect QAccessibleWidget::rect() const
   QRect rect() const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall7 call = reinterpret_cast<CuteQAccessibleColorWellCall7>(taken[7]);
+      CuteQAccessibleColorWellCall8 call = reinterpret_cast<CuteQAccessibleColorWellCall8>(taken[8]);
       const QRect * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -382,9 +645,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleWidget::parent() const
   QAccessibleInterface *parent() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall8 call = reinterpret_cast<CuteQAccessibleColorWellCall8>(taken[8]);
+      CuteQAccessibleColorWellCall9 call = reinterpret_cast<CuteQAccessibleColorWellCall9>(taken[9]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -395,9 +658,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QString QAccessibleWidget::text(QAccessible::Text t) const
   QString text(QAccessible::Text t) const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall9 call = reinterpret_cast<CuteQAccessibleColorWellCall9>(taken[9]);
+      CuteQAccessibleColorWellCall10 call = reinterpret_cast<CuteQAccessibleColorWellCall10>(taken[10]);
       QString * given = call(this, static_cast<int>(t), &handled);
       if (handled && given) {
         QString back(*given);
@@ -412,9 +675,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::Role QAccessibleWidget::role() const
   QAccessible::Role role() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall10 call = reinterpret_cast<CuteQAccessibleColorWellCall10>(taken[10]);
+      CuteQAccessibleColorWellCall11 call = reinterpret_cast<CuteQAccessibleColorWellCall11>(taken[11]);
       int given = call(this, &handled);
       if (handled) return static_cast<QAccessible::Role>(given);
     }
@@ -425,9 +688,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessible::State QAccessibleWidget::state() const
   QAccessible::State state() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall11 call = reinterpret_cast<CuteQAccessibleColorWellCall11>(taken[11]);
+      CuteQAccessibleColorWellCall12 call = reinterpret_cast<CuteQAccessibleColorWellCall12>(taken[12]);
       const QAccessible::State * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -438,9 +701,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall12 call = reinterpret_cast<CuteQAccessibleColorWellCall12>(taken[12]);
+      CuteQAccessibleColorWellCall13 call = reinterpret_cast<CuteQAccessibleColorWellCall13>(taken[13]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -451,9 +714,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleWidget::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall13 call = reinterpret_cast<CuteQAccessibleColorWellCall13>(taken[13]);
+      CuteQAccessibleColorWellCall14 call = reinterpret_cast<CuteQAccessibleColorWellCall14>(taken[14]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -464,9 +727,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  void QAccessibleWidget::doAction(const QString &actionName)
   void doAction(const QString &actionName) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall14 call = reinterpret_cast<CuteQAccessibleColorWellCall14>(taken[14]);
+      CuteQAccessibleColorWellCall15 call = reinterpret_cast<CuteQAccessibleColorWellCall15>(taken[15]);
       call(this, &actionName, &handled);
       if (handled) return;
     }
@@ -477,9 +740,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QObject *QAccessibleObject::object() const
   QObject *object() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall15 call = reinterpret_cast<CuteQAccessibleColorWellCall15>(taken[15]);
+      CuteQAccessibleColorWellCall16 call = reinterpret_cast<CuteQAccessibleColorWellCall16>(taken[16]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QObject *>(given);
     }
@@ -491,9 +754,9 @@ public:
   //  void QAccessibleObject::setText(QAccessible::Text t, const QString
   //      &text)
   void setText(QAccessible::Text t, const QString &text) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall16 call = reinterpret_cast<CuteQAccessibleColorWellCall16>(taken[16]);
+      CuteQAccessibleColorWellCall17 call = reinterpret_cast<CuteQAccessibleColorWellCall17>(taken[17]);
       call(this, static_cast<int>(t), &text, &handled);
       if (handled) return;
     }
@@ -504,9 +767,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const
   QAccessibleInterface *childAt(int x, int y) const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall17 call = reinterpret_cast<CuteQAccessibleColorWellCall17>(taken[17]);
+      CuteQAccessibleColorWellCall18 call = reinterpret_cast<CuteQAccessibleColorWellCall18>(taken[18]);
       void * given = call(this, x, y, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -515,12 +778,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQAccessibleColorWellCall19 call = reinterpret_cast<CuteQAccessibleColorWellCall19>(taken[19]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionName(const QString
   //      &name) const
   QString localizedActionName(const QString &name) const override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall18 call = reinterpret_cast<CuteQAccessibleColorWellCall18>(taken[18]);
+      CuteQAccessibleColorWellCall20 call = reinterpret_cast<CuteQAccessibleColorWellCall20>(taken[20]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -536,9 +812,9 @@ public:
   //  QString QAccessibleActionInterface::localizedActionDescription(const
   //      QString &name) const
   QString localizedActionDescription(const QString &name) const override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQAccessibleColorWellCall19 call = reinterpret_cast<CuteQAccessibleColorWellCall19>(taken[19]);
+      CuteQAccessibleColorWellCall21 call = reinterpret_cast<CuteQAccessibleColorWellCall21>(taken[21]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -555,6 +831,14 @@ public:
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QAccessibleColorWellD1Ev(QAccessibleColorWell *self) {
   delete self;
+}
+
+//  QAccessibleInterface *QAccessibleColorWell::child(int index) const
+extern "C" Q_DECL_EXPORT
+QAccessibleInterface *ritual_ZNK20QAccessibleColorWell5childEi(
+    const QAccessibleColorWell *self,
+    int index) {
+  return self->child(index);
 }
 
 //  int QAccessibleColorWell::indexOfChild(const QAccessibleInterface *child)

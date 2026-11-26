@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickAbstractAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickAbstractAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickAbstractAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -66,14 +72,35 @@
     "ritual_ZNK23QQuickAbstractAnimation14threadingModelEv": [
       "int", "address"
     ],
+    "ritual_ZN23QQuickAbstractAnimation7startedEv": ["nothing", "address"],
+    "ritual_ZN23QQuickAbstractAnimation7stoppedEv": ["nothing", "address"],
+    "ritual_ZN23QQuickAbstractAnimation14runningChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation13pausedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation21alwaysRunToEndChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation16loopCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation8finishedEv": ["nothing", "address"],
     "ritual_ZN23QQuickAbstractAnimation7restartEv": ["nothing", "address"],
     "ritual_ZN23QQuickAbstractAnimation5startEv": ["nothing", "address"],
     "ritual_ZN23QQuickAbstractAnimation5pauseEv": ["nothing", "address"],
     "ritual_ZN23QQuickAbstractAnimation6resumeEv": ["nothing", "address"],
     "ritual_ZN23QQuickAbstractAnimation4stopEv": ["nothing", "address"],
     "ritual_ZN23QQuickAbstractAnimation8completeEv": ["nothing", "address"],
+    "ritual_ZN23QQuickAbstractAnimationC1ER30QQuickAbstractAnimationPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QQuickAbstractAnimation12initInstanceEP21QAbstractAnimationJob": [
       "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyENS_19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
     ],
     "ritual_ZN23QQuickAbstractAnimation11qtAnimationEv": [
       "address", "address"

@@ -29,6 +29,11 @@
 #include <QtGui/qimage.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QVariantAnimation>
+#include <QtCore/QList>
+#include <utility>
+#include <QtCore/QModelIndex>
+#include <QtCore/QRect>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qabstractitemview.h>
 #include <QtCore/qpointer.h>
@@ -90,6 +95,16 @@
 #  include <QtCore/qt_windows.h>
 #endif
 #endif
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -98,6 +113,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 3594, as _ZN24QAbstractItemViewPrivate11rowsRemovedERK11QModelIndexii
 inline void QAbstractItemViewPrivate::rowsRemoved(const QModelIndex &index, int start, int end)
@@ -475,6 +492,41 @@ inline QItemViewPaintPairs QAbstractItemViewPrivate::draggablePaintPairs(const Q
     rect.setLeft(clipped.left());
     rect.setRight(clipped.right());
     return ret;
+}
+
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1368, as _ZNK26QAbstractScrollAreaPrivate14contentsOffsetEv
+#if QT_CONFIG(scrollarea)
+inline QPoint QAbstractScrollAreaPrivate::contentsOffset() const
+{
+    Q_Q(const QAbstractScrollArea);
+    QPoint offset;
+    if (vbar->isVisible())
+        offset.setY(vbar->value());
+    if (hbar->isVisible()) {
+        if (q->isRightToLeft())
+            offset.setX(hbar->maximum() - hbar->value());
+        else
+            offset.setX(hbar->value());
+    }
+    return offset;
+}
+#endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
+inline QFramePrivate::QFramePrivate()
+    : frect(0, 0, 0, 0),
+      frameStyle(QFrame::NoFrame | QFrame::Plain),
+      lineWidth(1),
+      midLineWidth(0),
+      frameWidth(0),
+      leftFrameWidth(0), rightFrameWidth(0),
+      topFrameWidth(0), bottomFrameWidth(0)
+{
+}
+
+//  from src/widgets/widgets/qframe.cpp, line 30, as _ZN13QFramePrivateD2Ev
+inline QFramePrivate::~QFramePrivate()
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -1340,6 +1392,18 @@ void ritual_ZNK16QTreeViewPrivate25adjustViewOptionsForIndexEP20QStyleOptionView
 }
 
 #if QT_CONFIG(animation)
+//  void QTreeViewPrivate::prepareAnimatedOperation(int item,
+//      QVariantAnimation::Direction d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QTreeViewPrivate24prepareAnimatedOperationEiN18QAbstractAnimation9DirectionE(
+    QTreeViewPrivate *self,
+    int item,
+    const QVariantAnimation::Direction *d) {
+  self->prepareAnimatedOperation(item, *d);
+}
+#endif  // QT_CONFIG(animation)
+
+#if QT_CONFIG(animation)
 //  void QTreeViewPrivate::beginAnimatedOperation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTreeViewPrivate22beginAnimatedOperationEv(
@@ -1638,6 +1702,19 @@ QRect *ritual_ZNK16QTreeViewPrivate18itemDecorationRectERK11QModelIndex(
   return new QRect(self->itemDecorationRect(*index));
 }
 
+//  QList<std::pair<int, int>> QTreeViewPrivate::columnRanges(const
+//      QModelIndex &topIndex, const QModelIndex &bottomIndex) const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<int, int>> *ritual_ZNK16QTreeViewPrivate12columnRangesERK11QModelIndexS2_(
+    const QTreeViewPrivate *self,
+    const QModelIndex *topIndex,
+    const QModelIndex *bottomIndex) {
+  return new QList<std::pair<int, int>>(
+      self->columnRanges(
+          *topIndex,
+          *bottomIndex));
+}
+
 //  void QTreeViewPrivate::select(const QModelIndex &start, const QModelIndex
 //      &stop, QItemSelectionModel::SelectionFlags command)
 extern "C" Q_DECL_EXPORT
@@ -1652,6 +1729,15 @@ void ritual_ZN16QTreeViewPrivate6selectERK11QModelIndexS2_6QFlagsIN19QItemSelect
       QFlags<QItemSelectionModel::SelectionFlag>::fromInt(command));
 }
 
+//  std::pair<int, int> QTreeViewPrivate::startAndEndColumns(const QRect
+//      &rect) const
+extern "C" Q_DECL_EXPORT
+std::pair<int, int> *ritual_ZNK16QTreeViewPrivate18startAndEndColumnsERK5QRect(
+    const QTreeViewPrivate *self,
+    const QRect *rect) {
+  return new std::pair<int, int>(self->startAndEndColumns(*rect));
+}
+
 //  void QTreeViewPrivate::paintAlternatingRowColors(QPainter *painter,
 //      QStyleOptionViewItem *option, int y, int bottom) const
 extern "C" Q_DECL_EXPORT
@@ -1662,6 +1748,19 @@ void ritual_ZNK16QTreeViewPrivate25paintAlternatingRowColorsEP8QPainterP20QStyle
     int y,
     int bottom) {
   self->paintAlternatingRowColors(painter, option, y, bottom);
+}
+
+//  void QTreeViewPrivate::calcLogicalIndices(QList<int> *logicalIndices,
+//      QList<QStyleOptionViewItem::ViewItemPosition> *itemPositions, int
+//      left, int right) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QTreeViewPrivate18calcLogicalIndicesEP5QListIiEPS0_IN20QStyleOptionViewItem16ViewItemPositionEEii(
+    const QTreeViewPrivate *self,
+    QList<int> *logicalIndices,
+    QList<QStyleOptionViewItem::ViewItemPosition> *itemPositions,
+    int left,
+    int right) {
+  self->calcLogicalIndices(logicalIndices, itemPositions, left, right);
 }
 
 //  int QTreeViewPrivate::widthHintForIndex(const QModelIndex &index, int
@@ -1866,6 +1965,20 @@ int ritual_own_ZNK16QTreeViewPrivate20accessibleChildIndexERK11QModelIndex(
   return self->QTreeViewPrivate::accessibleChildIndex(*index);
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  a QList<std::pair<int, int>> a ritual of QTreeViewPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTreeViewPrivate__QList_std_pair_int_int(
+    QList<std::pair<int, int>> *self) {
+  delete self;
+}
+
+//  a std::pair<int, int> a ritual of QTreeViewPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTreeViewPrivate__std_pair_int_int(
+    std::pair<int, int> *self) {
+  delete self;
+}
 
 #endif  // QT_CONFIG(treeview)
 #endif  // QT_CONFIG(treeview)

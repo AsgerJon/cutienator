@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickPathAngleArc10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickPathAngleArc11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickPathAngleArc11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickPathAngleArc2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -37,6 +43,30 @@
     "ritual_ZNK18QQuickPathAngleArc11moveToStartEv": ["bool", "address"],
     "ritual_ZN18QQuickPathAngleArc14setMoveToStartEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QQuickPathAngleArc9addToPathER12QPainterPathRK14QQuickPathData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickPathAngleArc14centerXChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPathAngleArc14centerYChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPathAngleArc14radiusXChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPathAngleArc14radiusYChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPathAngleArc17startAngleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPathAngleArc17sweepAngleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPathAngleArc18moveToStartChangedEv": [
+      "nothing", "address"
     ]
   }
 }

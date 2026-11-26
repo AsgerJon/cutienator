@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QAbstractPhysicsBody10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QAbstractPhysicsBody11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QAbstractPhysicsBody11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QAbstractPhysicsBody24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -14,6 +20,12 @@
     ],
     "ritual_ZNK20QAbstractPhysicsBody17simulationEnabledEv": [
       "bool", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsBody22physicsMaterialChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsBody24simulationEnabledChangedEv": [
+      "nothing", "address"
     ]
   }
 }

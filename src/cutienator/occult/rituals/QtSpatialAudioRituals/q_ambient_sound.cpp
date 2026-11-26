@@ -180,6 +180,24 @@ const QMetaObject *ritual_ZNK13QAmbientSound10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAmbientSound::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QAmbientSound11qt_metacastEPKc(
+    QAmbientSound *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAmbientSound::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QAmbientSound11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAmbientSound *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAmbientSound::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QAmbientSound2trEPKcS1_i(
@@ -262,6 +280,30 @@ QAudioEngine *ritual_ZNK13QAmbientSound6engineEv(const QAmbientSound *self) {
   return self->engine();
 }
 
+//  void QAmbientSound::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAmbientSound13sourceChangedEv(QAmbientSound *self) {
+  self->sourceChanged();
+}
+
+//  void QAmbientSound::loopsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAmbientSound12loopsChangedEv(QAmbientSound *self) {
+  self->loopsChanged();
+}
+
+//  void QAmbientSound::autoPlayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAmbientSound15autoPlayChangedEv(QAmbientSound *self) {
+  self->autoPlayChanged();
+}
+
+//  void QAmbientSound::volumeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QAmbientSound13volumeChangedEv(QAmbientSound *self) {
+  self->volumeChanged();
+}
+
 //  void QAmbientSound::play()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QAmbientSound4playEv(QAmbientSound *self) {
@@ -278,6 +320,20 @@ void ritual_ZN13QAmbientSound5pauseEv(QAmbientSound *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QAmbientSound4stopEv(QAmbientSound *self) {
   self->stop();
+}
+
+//  QAmbientSoundPrivate *QAmbientSound::d_func()
+extern "C" Q_DECL_EXPORT
+QAmbientSoundPrivate *ritual_ZN13QAmbientSound6d_funcEv(
+    QAmbientSound *self) {
+  return self->d_func();
+}
+
+//  const QAmbientSoundPrivate *QAmbientSound::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAmbientSoundPrivate *ritual_ZNK13QAmbientSound6d_funcEv(
+    const QAmbientSound *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQAmbientSound, for the function named by

@@ -249,7 +249,7 @@ typedef void (*CuteQQmlJSAOTIRBuilderCall234)(const void *, QQmlJS::AST::TypeAnn
 class CuteQQmlJSAOTIRBuilder : public QQmlJSAOTIRBuilder {
 public:
   using QQmlJSAOTIRBuilder::QQmlJSAOTIRBuilder;
-  CuteQQmlJSAOTIRBuilder(const QQmlJSAOTIRBuilder &other) : QQmlJSAOTIRBuilder(other) {}
+  CuteQQmlJSAOTIRBuilder(const QQmlJSAOTIRBuilder & other) : QQmlJSAOTIRBuilder(other) {}
   void *taken[235] = {};
 
   bool take(const char *key, void *call) {

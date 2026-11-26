@@ -11,6 +11,9 @@
     "ritual_ZN21SignalHandlerResolverC1EP16QQmlTypeCompiler": [
       "address", "address"
     ],
+    "ritual_ZN21SignalHandlerResolver31resolveSignalHandlerExpressionsEv": [
+      "bool", "address"
+    ],
     "ritual_ZN21SignalHandlerResolverD1Ev": ["nothing", "address"]
   }
 }

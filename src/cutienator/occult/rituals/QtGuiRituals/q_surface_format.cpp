@@ -3,6 +3,7 @@
 #include <QtGui/qsurfaceformat.h>
 #include <QtGui/qcolorspace.h>
 #include <QtCore/qdebug.h>
+#include <utility>
 
 //  QSurfaceFormat::QSurfaceFormat()
 extern "C" Q_DECL_EXPORT
@@ -23,6 +24,14 @@ extern "C" Q_DECL_EXPORT
 QSurfaceFormat *ritual_ZN14QSurfaceFormatC1ERKS_(
     const QSurfaceFormat *other) {
   return new QSurfaceFormat(*other);
+}
+
+//  QSurfaceFormat &QSurfaceFormat::operator=(const QSurfaceFormat &other)
+extern "C" Q_DECL_EXPORT
+QSurfaceFormat *ritual_ZN14QSurfaceFormataSERKS_(
+    QSurfaceFormat *self,
+    const QSurfaceFormat *other) {
+  return &(self->operator=(*other));
 }
 
 //  QSurfaceFormat::~QSurfaceFormat()
@@ -213,6 +222,13 @@ int ritual_ZNK14QSurfaceFormat12minorVersionEv(const QSurfaceFormat *self) {
   return self->minorVersion();
 }
 
+//  std::pair<int, int> QSurfaceFormat::version() const
+extern "C" Q_DECL_EXPORT
+std::pair<int, int> *ritual_ZNK14QSurfaceFormat7versionEv(
+    const QSurfaceFormat *self) {
+  return new std::pair<int, int>(self->version());
+}
+
 //  void QSurfaceFormat::setVersion(int major, int minor)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSurfaceFormat10setVersionEii(
@@ -358,3 +374,10 @@ QDebug *ritual_Zls6QDebugRK14QSurfaceFormat(
   return new QDebug(operator<<(*a0, *a1));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+//  a std::pair<int, int> a ritual of QSurfaceFormat gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSurfaceFormat__std_pair_int_int(
+    std::pair<int, int> *self) {
+  delete self;
+}

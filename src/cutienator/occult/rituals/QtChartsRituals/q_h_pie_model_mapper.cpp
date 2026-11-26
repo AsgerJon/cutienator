@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK16QHPieModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHPieModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QHPieModelMapper11qt_metacastEPKc(
+    QHPieModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHPieModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QHPieModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHPieModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHPieModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QHPieModelMapper2trEPKcS1_i(
@@ -282,6 +301,46 @@ void ritual_ZN16QHPieModelMapper14setColumnCountEi(
     QHPieModelMapper *self,
     int columnCount) {
   self->setColumnCount(columnCount);
+}
+
+//  void QHPieModelMapper::seriesReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHPieModelMapper14seriesReplacedEv(QHPieModelMapper *self) {
+  self->seriesReplaced();
+}
+
+//  void QHPieModelMapper::modelReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHPieModelMapper13modelReplacedEv(QHPieModelMapper *self) {
+  self->modelReplaced();
+}
+
+//  void QHPieModelMapper::valuesRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHPieModelMapper16valuesRowChangedEv(
+    QHPieModelMapper *self) {
+  self->valuesRowChanged();
+}
+
+//  void QHPieModelMapper::labelsRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHPieModelMapper16labelsRowChangedEv(
+    QHPieModelMapper *self) {
+  self->labelsRowChanged();
+}
+
+//  void QHPieModelMapper::firstColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHPieModelMapper18firstColumnChangedEv(
+    QHPieModelMapper *self) {
+  self->firstColumnChanged();
+}
+
+//  void QHPieModelMapper::columnCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHPieModelMapper18columnCountChangedEv(
+    QHPieModelMapper *self) {
+  self->columnCountChanged();
 }
 
 //  a Python function taken by a CuteQHPieModelMapper, for the function named

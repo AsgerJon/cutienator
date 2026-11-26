@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuick3DMaterial10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuick3DMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuick3DMaterial2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,18 @@
     ],
     "ritual_ZN16QQuick3DMaterial16setDepthDrawModeENS_13DepthDrawModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DMaterial17lightProbeChangedEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DMaterial15cullModeChangedENS_8CullModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DMaterial20depthDrawModeChangedENS_13DepthDrawModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DMaterialC1ER21QQuick3DObjectPrivateP14QQuick3DObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN16QQuick3DMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

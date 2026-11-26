@@ -7,7 +7,15 @@
   "rows": {
     "ritual_ZN18QHttpServerRequestC1Ev": ["address"],
     "ritual_ZN18QHttpServerRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN18QHttpServerRequestaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QHttpServerRequestC1EOS_": ["address", "address"],
+    "ritual_ZN18QHttpServerRequestaSEOS_": ["address", "address", "address"],
     "ritual_ZN18QHttpServerRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN18QHttpServerRequest4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QHttpServerRequest5valueERK10QByteArray": [
       "address", "address", "address"
     ],

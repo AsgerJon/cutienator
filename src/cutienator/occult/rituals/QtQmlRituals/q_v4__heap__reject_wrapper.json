@@ -8,6 +8,7 @@
     "ritual_ZN3QV44Heap13RejectWrapper11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap13RejectWrapper4initEv": ["nothing", "address"],
     "ritual_cast_QV4_Heap_RejectWrapper_QV4_Heap_RejectWrapperData": [
       "address", "address"
     ]

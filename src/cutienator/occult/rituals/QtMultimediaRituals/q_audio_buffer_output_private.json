@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN25QAudioBufferOutputPrivateC1ERK12QAudioFormat": [
       "address", "address"
+    ],
+    "ritual_ZN25QAudioBufferOutputPrivate19exchangeMediaPlayerER18QAudioBufferOutputP12QMediaPlayer": [
+      "address", "address", "address"
     ]
   }
 }

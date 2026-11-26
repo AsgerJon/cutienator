@@ -33,6 +33,24 @@ void ritual_ZN7QRegExpD1Ev(QRegExp *self) {
   delete self;
 }
 
+//  QRegExp &QRegExp::operator=(const QRegExp &rx)
+extern "C" Q_DECL_EXPORT
+QRegExp *ritual_ZN7QRegExpaSERKS_(QRegExp *self, const QRegExp *rx) {
+  return &(self->operator=(*rx));
+}
+
+//  QRegExp &QRegExp::operator=(QRegExp &&other)
+extern "C" Q_DECL_EXPORT
+QRegExp *ritual_ZN7QRegExpaSEOS_(QRegExp *self, QRegExp *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QRegExp::swap(QRegExp &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegExp4swapERS_(QRegExp *self, QRegExp *other) {
+  self->swap(*other);
+}
+
 //  bool QRegExp::operator==(const QRegExp &rx) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK7QRegExpeqERKS_(const QRegExp *self, const QRegExp *rx) {

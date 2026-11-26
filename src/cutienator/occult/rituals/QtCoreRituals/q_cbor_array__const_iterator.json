@@ -9,14 +9,19 @@
     ],
     "ritual_ZN10QCborArray13ConstIteratorC1Ev": ["address"],
     "ritual_ZN10QCborArray13ConstIteratorC1ERKS0_": ["address", "address"],
+    "ritual_ZN10QCborArray13ConstIteratoraSERKS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK10QCborArray13ConstIteratordeEv": ["address", "address"],
     "ritual_ZNK10QCborArray13ConstIteratorptEv": ["address", "address"],
     "ritual_ZNK10QCborArray13ConstIteratorixEx": [
       "address", "address", "long long"
     ],
+    "ritual_ZN10QCborArray13ConstIteratorppEv": ["address", "address"],
     "ritual_ZN10QCborArray13ConstIteratorppEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN10QCborArray13ConstIteratormmEv": ["address", "address"],
     "ritual_ZN10QCborArray13ConstIteratormmEi": [
       "address", "address", "int"
     ],

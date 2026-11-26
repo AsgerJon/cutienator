@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QQuickDrag10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickDrag11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QQuickDrag11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QQuickDrag2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QQuickDrag24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
@@ -44,6 +50,16 @@
     "ritual_ZN10QQuickDrag21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
     ],
+    "ritual_ZN10QQuickDrag13targetChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDrag11axisChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDrag15minimumXChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDrag15maximumXChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDrag15minimumYChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDrag15maximumYChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDrag13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDrag21filterChildrenChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDrag15smoothedChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDrag16thresholdChangedEv": ["nothing", "address"],
     "ritual_take_QQuickDrag": ["bool", "address", "chars", "address"]
   }
 }

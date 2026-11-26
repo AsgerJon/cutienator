@@ -7,8 +7,16 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qsamplecache_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qurl.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QFuture>
+#include <QtCore/QUrl>
+#include <optional>
+#include <QtCore/QSpan>
+#include <variant>
+#include <QtCore/QByteArray>
 
 //  A QSampleCache that Python can take functions over in. Every QSampleCache
 //  Python makes is one. Each function below asks the Python
@@ -195,6 +203,59 @@ void ritual_ZN12QSampleCacheD1Ev(QSampleCache *self) {
   delete self;
 }
 
+//  QFuture<SharedSamplePtr> QSampleCache::requestSampleFuture(const QUrl
+//      &a0, std::optional<int> targetSampleRate,
+//      std::optional<SampleSourceType> forceSourceType)
+extern "C" Q_DECL_EXPORT
+QFuture<SharedSamplePtr> *ritual_ZN12QSampleCache19requestSampleFutureERK4QUrlSt8optionalIiES3_INS_16SampleSourceTypeEE(
+    QSampleCache *self,
+    const QUrl *a0,
+    const std::optional<int> *targetSampleRate,
+    const std::optional<QSampleCache::SampleSourceType> *forceSourceType) {
+  return new QFuture<SharedSamplePtr>(
+      self->requestSampleFuture(
+          *a0,
+          *targetSampleRate,
+          *forceSourceType));
+}
+
+//  bool QSampleCache::isCached(const QUrl &url, std::optional<int>
+//      targetSampleRate) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK12QSampleCache8isCachedERK4QUrlSt8optionalIiE(
+    const QSampleCache *self,
+    const QUrl *url,
+    const std::optional<int> *targetSampleRate) {
+  return self->isCached(*url, *targetSampleRate);
+}
+
+//  SampleLoadResult QSampleCache::loadSample(QSpan<const char> a0)
+extern "C" Q_DECL_EXPORT
+QSampleCache::SampleLoadResult *ritual_ZN12QSampleCache10loadSampleE5QSpanIKcLm18446744073709551615EE(
+    const QSpan<const char> *a0) {
+  return new QSampleCache::SampleLoadResult(QSampleCache::loadSample(*a0));
+}
+
+//  SampleLoadResult QSampleCache::loadSampleViaDecoder(std::variant<QUrl,
+//      QByteArray> a0)
+extern "C" Q_DECL_EXPORT
+QSampleCache::SampleLoadResult *ritual_ZN12QSampleCache20loadSampleViaDecoderESt7variantIJ4QUrl10QByteArrayEE(
+    const std::variant<QUrl, QByteArray> *a0) {
+  return new QSampleCache::SampleLoadResult(
+      QSampleCache::loadSampleViaDecoder(
+          *a0));
+}
+
+//  QFuture<SampleLoadResult>
+//      QSampleCache::loadSampleAsyncViaDecoder(QByteArray a0)
+extern "C" Q_DECL_EXPORT
+QFuture<QSampleCache::SampleLoadResult> *ritual_ZN12QSampleCache25loadSampleAsyncViaDecoderE10QByteArray(
+    const QByteArray *a0) {
+  return new QFuture<QSampleCache::SampleLoadResult>(
+      QSampleCache::loadSampleAsyncViaDecoder(
+          *a0));
+}
+
 #if QT_CONFIG(thread)
 //  QThreadPool *QSampleCache::threadPool()
 extern "C" Q_DECL_EXPORT
@@ -202,6 +263,43 @@ QThreadPool *ritual_ZN12QSampleCache10threadPoolEv(QSampleCache *self) {
   return self->threadPool();
 }
 #endif  // QT_CONFIG(thread)
+
+//  void QSampleCache::removeUnreferencedSample(const QUrl &a0,
+//      std::optional<SampleRate> targetSampleRate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QSampleCache24removeUnreferencedSampleERK4QUrlSt8optionalIN19QtMultimediaPrivate10SampleRateEE(
+    QSampleCache *self,
+    const QUrl *a0,
+    const std::optional<QSampleCache::SampleRate> *targetSampleRate) {
+  self->removeUnreferencedSample(*a0, *targetSampleRate);
+}
+
+#if QT_CONFIG(thread)
+//  SampleLoadResult QSampleCache::loadSample(const QUrl &a0,
+//      std::optional<SampleSourceType> a1)
+extern "C" Q_DECL_EXPORT
+QSampleCache::SampleLoadResult *ritual_ZN12QSampleCache10loadSampleERK4QUrlSt8optionalINS_16SampleSourceTypeEE(
+    const QUrl *a0,
+    const std::optional<QSampleCache::SampleSourceType> *a1) {
+  return new QSampleCache::SampleLoadResult(
+      QSampleCache::loadSample(
+          *a0,
+          *a1));
+}
+#endif  // QT_CONFIG(thread)
+
+//  QFuture<SampleLoadResult> QSampleCache::loadSampleAsync(const QUrl &a0,
+//      std::optional<SampleSourceType> a1)
+extern "C" Q_DECL_EXPORT
+QFuture<QSampleCache::SampleLoadResult> *ritual_ZN12QSampleCache15loadSampleAsyncERK4QUrlSt8optionalINS_16SampleSourceTypeEE(
+    QSampleCache *self,
+    const QUrl *a0,
+    const std::optional<QSampleCache::SampleSourceType> *a1) {
+  return new QFuture<QSampleCache::SampleLoadResult>(
+      self->loadSampleAsync(
+          *a0,
+          *a1));
+}
 
 //  a Python function taken by a CuteQSampleCache, for the function named by
 //      the key
@@ -211,4 +309,25 @@ bool ritual_take_QSampleCache(
     const char *key,
     void *call) {
   return static_cast<CuteQSampleCache *>(self)->take(key, call);
+}
+
+//  a QFuture<SharedSamplePtr> a ritual of QSampleCache gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSampleCache__QFuture_SharedSamplePtr(
+    QFuture<SharedSamplePtr> *self) {
+  delete self;
+}
+
+//  a QSampleCache::SampleLoadResult a ritual of QSampleCache gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSampleCache__QSampleCache_SampleLoadResult(
+    QSampleCache::SampleLoadResult *self) {
+  delete self;
+}
+
+//  a QFuture<QSampleCache::SampleLoadResult> a ritual of QSampleCache gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSampleCache__QFuture_QSampleCache_SampleLoadResult(
+    QFuture<QSampleCache::SampleLoadResult> *self) {
+  delete self;
 }

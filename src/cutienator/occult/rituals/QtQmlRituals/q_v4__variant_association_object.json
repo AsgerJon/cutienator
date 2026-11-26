@@ -15,6 +15,24 @@
     "ritual_ZNK3QV424VariantAssociationObject1dEv": ["address", "address"],
     "ritual_ZN3QV424VariantAssociationObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV424VariantAssociationObject10virtualPutEPNS_7ManagedENS_11PropertyKeyERKNS_5ValueEPS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV424VariantAssociationObject10virtualGetEPKNS_7ManagedENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV424VariantAssociationObject21virtualDeletePropertyEPNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV424VariantAssociationObject22virtualOwnPropertyKeysEPKNS_6ObjectEPNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV424VariantAssociationObject21virtualGetOwnPropertyEPKNS_7ManagedENS_11PropertyKeyEPNS_8PropertyE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV424VariantAssociationObject15virtualMetacallEPNS_6ObjectEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
     ]
   }
 }

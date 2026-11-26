@@ -7,13 +7,52 @@
     "ritual_ZNK10Qt3DRender13QTextureImage10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender13QTextureImage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender13QTextureImage11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender13QTextureImage2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender13QTextureImageC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QTextureImageD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender13QTextureImage6sourceEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender13QTextureImage6statusEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender13QTextureImage10isMirroredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QTextureImage9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QTextureImage11setMirroredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender13QTextureImage13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QTextureImage13statusChangedENS0_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender13QTextureImage15mirroredChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender13QTextureImage9setStatusENS0_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender13QTextureImage13dataGeneratorEv": [
+      "address", "address"
     ],
     "ritual_ZN10Qt3DRender13QTextureImage6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender13QTextureImage6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DRender_QTextureImage": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QTextureImage__Qt3DRender_QTextureImageDataGeneratorPtr": [
+      "nothing", "address"
     ]
   }
 }

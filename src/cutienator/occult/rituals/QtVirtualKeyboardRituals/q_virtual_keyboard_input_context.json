@@ -8,6 +8,12 @@
     "ritual_ZNK28QVirtualKeyboardInputContext10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QVirtualKeyboardInputContext11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QVirtualKeyboardInputContext2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -44,6 +50,12 @@
     ],
     "ritual_ZNK28QVirtualKeyboardInputContext11preeditTextEv": [
       "text", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext14setPreeditTextERK7QString5QListIN17QInputMethodEvent9AttributeEEii": [
+      "nothing", "address", "text", "address", "int", "int"
+    ],
+    "ritual_ZNK28QVirtualKeyboardInputContext21preeditTextAttributesEv": [
+      "address", "address"
     ],
     "ritual_ZNK28QVirtualKeyboardInputContext15surroundingTextEv": [
       "text", "address"
@@ -100,8 +112,62 @@
     "ritual_ZN28QVirtualKeyboardInputContext25setSelectionOnFocusObjectERK7QPointFS2_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN28QVirtualKeyboardInputContext18preeditTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext23inputMethodHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext22surroundingTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext19selectedTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext21anchorPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext21cursorPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext22anchorRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext22cursorRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext18shiftActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext21capsLockActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext16uppercaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext16animatingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext13localeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext16inputItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext30selectionControlVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext35anchorRectIntersectsClipRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QVirtualKeyboardInputContext35cursorRectIntersectsClipRectChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QVirtualKeyboardInputContext": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QVirtualKeyboardInputContext__QList_QInputMethodEvent_Attribute": [
+      "nothing", "address"
     ]
   }
 }

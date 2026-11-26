@@ -19,6 +19,15 @@ QOpcUaReadResult *ritual_ZN16QOpcUaReadResultC1ERKS_(
   return new QOpcUaReadResult(*other);
 }
 
+//  QOpcUaReadResult &QOpcUaReadResult::operator=(const QOpcUaReadResult
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaReadResult *ritual_ZN16QOpcUaReadResultaSERKS_(
+    QOpcUaReadResult *self,
+    const QOpcUaReadResult *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QOpcUaReadResult::~QOpcUaReadResult()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QOpcUaReadResultD1Ev(QOpcUaReadResult *self) {

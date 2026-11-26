@@ -207,6 +207,25 @@ const QMetaObject *ritual_ZNK22QDBusAbstractInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDBusAbstractInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QDBusAbstractInterface11qt_metacastEPKc(
+    QDBusAbstractInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDBusAbstractInterface::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QDBusAbstractInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDBusAbstractInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDBusAbstractInterface::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QDBusAbstractInterface2trEPKcS1_i(
@@ -387,6 +406,15 @@ QDBusAbstractInterface *ritual_ZN22QDBusAbstractInterfaceC1ERK7QStringS2_PKcRK15
       interface,
       *connection,
       parent);
+}
+
+//  QDBusAbstractInterface::QDBusAbstractInterface(QDBusAbstractInterfacePriv
+//      ate &a0, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QDBusAbstractInterface *ritual_ZN22QDBusAbstractInterfaceC1ER29QDBusAbstractInterfacePrivateP7QObject(
+    QDBusAbstractInterfacePrivate *a0,
+    QObject *parent) {
+  return new CuteQDBusAbstractInterface(*a0, parent);
 }
 
 //  void QDBusAbstractInterface::connectNotify(const QMetaMethod &signal)

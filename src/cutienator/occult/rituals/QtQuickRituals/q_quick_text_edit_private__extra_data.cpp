@@ -42,6 +42,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtdeclarative/src/quick/items/qquicktextedit.cpp, line 2775, as _ZN21QQuickTextEditPrivate9ExtraDataC1Ev
 inline QQuickTextEditPrivate::ExtraData::ExtraData()
     : explicitTopPadding(false)

@@ -184,6 +184,24 @@ const QMetaObject *ritual_ZNK13QCustom3DItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCustom3DItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QCustom3DItem11qt_metacastEPKc(
+    QCustom3DItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCustom3DItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QCustom3DItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCustom3DItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCustom3DItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QCustom3DItem2trEPKcS1_i(
@@ -371,6 +389,78 @@ void ritual_ZN13QCustom3DItem15setTextureImageERK6QImage(
     QCustom3DItem *self,
     const QImage *textureImage) {
   self->setTextureImage(*textureImage);
+}
+
+//  void QCustom3DItem::meshFileChanged(const QString &meshFile)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustom3DItem15meshFileChangedERK7QString(
+    QCustom3DItem *self,
+    const QString *meshFile) {
+  self->meshFileChanged(*meshFile);
+}
+
+//  void QCustom3DItem::textureFileChanged(const QString &textureFile)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustom3DItem18textureFileChangedERK7QString(
+    QCustom3DItem *self,
+    const QString *textureFile) {
+  self->textureFileChanged(*textureFile);
+}
+
+//  void QCustom3DItem::positionChanged(const QVector3D &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustom3DItem15positionChangedERK9QVector3D(
+    QCustom3DItem *self,
+    const QVector3D *position) {
+  self->positionChanged(*position);
+}
+
+//  void QCustom3DItem::positionAbsoluteChanged(bool positionAbsolute)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustom3DItem23positionAbsoluteChangedEb(
+    QCustom3DItem *self,
+    bool positionAbsolute) {
+  self->positionAbsoluteChanged(positionAbsolute);
+}
+
+//  void QCustom3DItem::scalingChanged(const QVector3D &scaling)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustom3DItem14scalingChangedERK9QVector3D(
+    QCustom3DItem *self,
+    const QVector3D *scaling) {
+  self->scalingChanged(*scaling);
+}
+
+//  void QCustom3DItem::rotationChanged(const QQuaternion &rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustom3DItem15rotationChangedERK11QQuaternion(
+    QCustom3DItem *self,
+    const QQuaternion *rotation) {
+  self->rotationChanged(*rotation);
+}
+
+//  void QCustom3DItem::visibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustom3DItem14visibleChangedEb(
+    QCustom3DItem *self,
+    bool visible) {
+  self->visibleChanged(visible);
+}
+
+//  void QCustom3DItem::shadowCastingChanged(bool shadowCasting)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustom3DItem20shadowCastingChangedEb(
+    QCustom3DItem *self,
+    bool shadowCasting) {
+  self->shadowCastingChanged(shadowCasting);
+}
+
+//  void QCustom3DItem::scalingAbsoluteChanged(bool scalingAbsolute)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCustom3DItem22scalingAbsoluteChangedEb(
+    QCustom3DItem *self,
+    bool scalingAbsolute) {
+  self->scalingAbsoluteChanged(scalingAbsolute);
 }
 
 //  QCustom3DItem::QCustom3DItem(QCustom3DItemPrivate *d, QObject *parent)

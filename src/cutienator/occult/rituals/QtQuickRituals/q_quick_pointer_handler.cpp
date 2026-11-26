@@ -355,6 +355,25 @@ const QMetaObject *ritual_ZNK20QQuickPointerHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPointerHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickPointerHandler11qt_metacastEPKc(
+    QQuickPointerHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPointerHandler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickPointerHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPointerHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPointerHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickPointerHandler2trEPKcS1_i(
@@ -535,6 +554,91 @@ bool ritual_ZNK20QQuickPointerHandler26isCursorShapeExplicitlySetEv(
 }
 #endif  // QT_CONFIG(cursor)
 
+//  void QQuickPointerHandler::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler14enabledChangedEv(
+    QQuickPointerHandler *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickPointerHandler::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler13activeChangedEv(
+    QQuickPointerHandler *self) {
+  self->activeChanged();
+}
+
+//  void QQuickPointerHandler::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler13targetChangedEv(
+    QQuickPointerHandler *self) {
+  self->targetChanged();
+}
+
+//  void QQuickPointerHandler::marginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler13marginChangedEv(
+    QQuickPointerHandler *self) {
+  self->marginChanged();
+}
+
+//  void QQuickPointerHandler::dragThresholdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler20dragThresholdChangedEv(
+    QQuickPointerHandler *self) {
+  self->dragThresholdChanged();
+}
+
+//  void QQuickPointerHandler::grabChanged(QPointingDevice::GrabTransition
+//      transition, QEventPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler11grabChangedEN15QPointingDevice14GrabTransitionE11QEventPoint(
+    QQuickPointerHandler *self,
+    QPointingDevice::GrabTransition transition,
+    const QEventPoint *point) {
+  self->grabChanged(transition, *point);
+}
+
+//  void QQuickPointerHandler::grabPermissionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler21grabPermissionChangedEv(
+    QQuickPointerHandler *self) {
+  self->grabPermissionChanged();
+}
+
+//  void QQuickPointerHandler::canceled(QEventPoint point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler8canceledE11QEventPoint(
+    QQuickPointerHandler *self,
+    const QEventPoint *point) {
+  self->canceled(*point);
+}
+
+#if QT_CONFIG(cursor)
+//  void QQuickPointerHandler::cursorShapeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler18cursorShapeChangedEv(
+    QQuickPointerHandler *self) {
+  self->cursorShapeChanged();
+}
+#endif  // QT_CONFIG(cursor)
+
+//  void QQuickPointerHandler::parentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler13parentChangedEv(
+    QQuickPointerHandler *self) {
+  self->parentChanged();
+}
+
+//  QQuickPointerHandler::QQuickPointerHandler(QQuickPointerHandlerPrivate
+//      &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPointerHandler *ritual_ZN20QQuickPointerHandlerC1ER27QQuickPointerHandlerPrivateP10QQuickItem(
+    QQuickPointerHandlerPrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickPointerHandler(*dd, parent);
+}
+
 //  void QQuickPointerHandler::classBegin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickPointerHandler10classBeginEv(
@@ -613,6 +717,19 @@ void ritual_ZN20QQuickPointerHandler15onActiveChangedEv(
   self->onActiveChanged();
 }
 
+//  void QQuickPointerHandler::onGrabChanged(QQuickPointerHandler *grabber,
+//      QPointingDevice::GrabTransition transition, QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler13onGrabChangedEPS_N15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint(
+    QQuickPointerHandler *self,
+    QQuickPointerHandler *grabber,
+    QPointingDevice::GrabTransition transition,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->onGrabChanged(grabber, transition, event, *point);
+}
+
 //  bool QQuickPointerHandler::canGrab(QPointerEvent *event, const
 //      QEventPoint &point)
 extern "C" Q_DECL_EXPORT
@@ -654,6 +771,16 @@ bool ritual_ZN20QQuickPointerHandler16setExclusiveGrabEP13QPointerEventRK11QEven
     const QEventPoint *point,
     bool grab) {
   return self->setExclusiveGrab(ev, *point, grab);
+}
+
+//  void QQuickPointerHandler::cancelAllGrabs(QPointerEvent *event,
+//      QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPointerHandler14cancelAllGrabsEP13QPointerEventR11QEventPoint(
+    QQuickPointerHandler *self,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->cancelAllGrabs(event, *point);
 }
 
 //  QPointF QQuickPointerHandler::eventPos(const QEventPoint &point) const

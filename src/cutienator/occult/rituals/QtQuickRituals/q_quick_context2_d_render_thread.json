@@ -8,6 +8,12 @@
     "ritual_ZNK27QQuickContext2DRenderThread10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuickContext2DRenderThread11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuickContext2DRenderThread11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QQuickContext2DRenderThreadD1Ev": ["nothing", "address"],
     "ritual_take_QQuickContext2DRenderThread": [
       "bool", "address", "chars", "address"

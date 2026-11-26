@@ -21,6 +21,24 @@ void ritual_ZN8DomSlotsD1Ev(DomSlots *self) {
   delete self;
 }
 
+//  void DomSlots::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8DomSlots4readER16QXmlStreamReader(
+    DomSlots *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomSlots::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8DomSlots5writeER16QXmlStreamWriterRK7QString(
+    const DomSlots *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  QStringList DomSlots::elementSignal() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK8DomSlots13elementSignalEv(const DomSlots *self) {

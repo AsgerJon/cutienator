@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuakeypair.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK13QOpcUaKeyPair10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QOpcUaKeyPair11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QOpcUaKeyPair2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QOpcUaKeyPair6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QOpcUaKeyPair6d_funcEv": ["address", "address"],
+    "ritual_ZN13QOpcUaKeyPairC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QOpcUaKeyPairD1Ev": ["nothing", "address"],
+    "ritual_ZN13QOpcUaKeyPair15loadFromPemDataERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QOpcUaKeyPair20publicKeyToByteArrayEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QOpcUaKeyPair21privateKeyToByteArrayENS_6CipherERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZNK13QOpcUaKeyPair4typeEv": ["int", "address"],
+    "ritual_ZNK13QOpcUaKeyPair13hasPrivateKeyEv": ["bool", "address"],
+    "ritual_ZN13QOpcUaKeyPair14generateRsaKeyENS_14RsaKeyStrengthE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QOpcUaKeyPair16passphraseNeededER7QStringib": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_take_QOpcUaKeyPair": ["bool", "address", "chars", "address"]
+  }
+}

@@ -10,6 +10,14 @@
 #include <QtCore/6.12.0/QtCore/private/qeventdispatcher_glib_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(GMainContext
+//      *context)
+extern "C" Q_DECL_EXPORT
+QEventDispatcherGlibPrivate *ritual_ZN27QEventDispatcherGlibPrivateC1EP13_GMainContext(
+    GMainContext *context) {
+  return new QEventDispatcherGlibPrivate(context);
+}
+
 //  QEventDispatcherGlibPrivate::~QEventDispatcherGlibPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QEventDispatcherGlibPrivateD1Ev(

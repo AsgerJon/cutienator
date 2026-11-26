@@ -5,6 +5,25 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render13RenderCaptureC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render13RenderCapture14requestCaptureERKNS_21QRenderCaptureRequestE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13RenderCapture19wasCaptureRequestedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13RenderCapture18takeCaptureRequestEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13RenderCapture16addRenderCaptureEiRK6QImage": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13RenderCapture16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render13RenderCapture28syncRenderCapturesToFrontendEPN8Qt3DCore14QAspectManagerE": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZN10Qt3DRender6Render13RenderCapture16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
     ]

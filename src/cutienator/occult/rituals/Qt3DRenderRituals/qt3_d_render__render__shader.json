@@ -5,8 +5,23 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render6ShaderC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render6ShaderD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render6Shader7cleanupEv": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender6Render6Shader10shaderCodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Shader13setShaderCodeENS_14QShaderProgram10ShaderTypeERK10QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Shader16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render6Shader3logEv": ["text", "address"],
     "ritual_ZNK10Qt3DRender6Render6Shader6statusEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender6Render6Shader9setFormatENS_14QShaderProgram6FormatE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK10Qt3DRender6Render6Shader6formatEv": ["int", "address"],
     "ritual_ZNK10Qt3DRender6Render6Shader7isDirtyEv": ["bool", "address"],
     "ritual_ZN10Qt3DRender6Render6Shader10unsetDirtyEv": [
@@ -16,6 +31,18 @@
       "bool", "address"
     ],
     "ritual_ZN10Qt3DRender6Render6Shader25unsetRequiresFrontendSyncEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Shader6setLogERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Shader9setStatusENS_14QShaderProgram6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Shader23initializeFromReferenceERKS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Shader19requestCacheRebuildEv": [
       "nothing", "address"
     ],
     "ritual_take_Qt3DRender_Render_Shader": [

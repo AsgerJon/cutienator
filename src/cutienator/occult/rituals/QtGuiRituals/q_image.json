@@ -1,15 +1,34 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qimage.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qimage.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN6QImageC1Ev": ["address"],
     "ritual_ZN6QImageC1ERK5QSizeNS_6FormatE": ["address", "address", "int"],
     "ritual_ZN6QImageC1EiiNS_6FormatE": ["address", "int", "int", "int"],
+    "ritual_ZN6QImageC1EPhiiNS_6FormatEPFvPvES2_": [
+      "address", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN6QImageC1EPKhiiNS_6FormatEPFvPvES3_": [
+      "address", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN6QImageC1EPhiixNS_6FormatEPFvPvES2_": [
+      "address", "address", "int", "int", "long long", "int", "address",
+      "address"
+    ],
+    "ritual_ZN6QImageC1EPKhiixNS_6FormatEPFvPvES3_": [
+      "address", "address", "int", "int", "long long", "int", "address",
+      "address"
+    ],
+    "ritual_ZN6QImageC1EPKPKc": ["address", "address"],
     "ritual_ZN6QImageC1ERK7QStringPKc": ["address", "text", "chars"],
     "ritual_ZN6QImageC1ERKS_": ["address", "address"],
+    "ritual_ZN6QImageC1EOS_": ["address", "address"],
     "ritual_ZN6QImageD1Ev": ["nothing", "address"],
+    "ritual_ZN6QImageaSERKS_": ["address", "address", "address"],
+    "ritual_ZN6QImageaSEOS_": ["address", "address", "address"],
+    "ritual_ZN6QImage4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK6QImage6isNullEv": ["bool", "address"],
     "ritual_ZNK6QImage7devTypeEv": ["int", "address"],
     "ritual_ZNK6QImageeqERKS_": ["bool", "address", "address"],
@@ -24,6 +43,9 @@
     "ritual_ZNK6QImage6formatEv": ["int", "address"],
     "ritual_ZNKR6QImage15convertToFormatENS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
       "address", "address", "int", "int"
+    ],
+    "ritual_ZNK6QImage15convertToFormatENS_6FormatERK5QListIjE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int", "address", "int"
     ],
     "ritual_ZN6QImage19reinterpretAsFormatENS_6FormatE": [
       "bool", "address", "int"
@@ -48,7 +70,11 @@
     "ritual_ZN6QImage13setColorCountEi": ["nothing", "address", "int"],
     "ritual_ZNK6QImage7allGrayEv": ["bool", "address"],
     "ritual_ZNK6QImage11isGrayscaleEv": ["bool", "address"],
+    "ritual_ZNK6QImage4bitsEv": ["address", "address"],
+    "ritual_ZNK6QImage9constBitsEv": ["address", "address"],
     "ritual_ZNK6QImage11sizeInBytesEv": ["long long", "address"],
+    "ritual_ZNK6QImage8scanLineEi": ["address", "address", "int"],
+    "ritual_ZNK6QImage13constScanLineEi": ["address", "address", "int"],
     "ritual_ZNK6QImage12bytesPerLineEv": ["long long", "address"],
     "ritual_ZNK6QImage5validEii": ["bool", "address", "int", "int"],
     "ritual_ZNK6QImage5validERK6QPoint": ["bool", "address", "address"],
@@ -73,6 +99,10 @@
     ],
     "ritual_ZN6QImage13setPixelColorERK6QPointRK6QColor": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK6QImage10colorTableEv": ["address", "address"],
+    "ritual_ZN6QImage13setColorTableERK5QListIjE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK6QImage16devicePixelRatioEv": ["double", "address"],
     "ritual_ZN6QImage19setDevicePixelRatioEd": [
@@ -165,6 +195,9 @@
     "ritual_ZN6QImage12loadFromDataE14QByteArrayViewPKc": [
       "bool", "address", "address", "chars"
     ],
+    "ritual_ZN6QImage12loadFromDataEPKhiPKc": [
+      "bool", "address", "address", "int", "chars"
+    ],
     "ritual_ZN6QImage12loadFromDataERK10QByteArrayPKc": [
       "bool", "address", "address", "chars"
     ],
@@ -176,6 +209,9 @@
     ],
     "ritual_ZN6QImage8fromDataE14QByteArrayViewPKc": [
       "address", "address", "chars"
+    ],
+    "ritual_ZN6QImage8fromDataEPKhiPKc": [
+      "address", "address", "int", "chars"
     ],
     "ritual_ZN6QImage8fromDataERK10QByteArrayPKc": [
       "address", "address", "chars"
@@ -219,6 +255,7 @@
       "address", "address", "int", "int"
     ],
     "ritual_ZN6QImage14detachMetadataEb": ["nothing", "address", "bool"],
+    "ritual_ZN6QImage8data_ptrEv": ["address", "address"],
     "ritual_take_QImage": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK6QImage7devTypeEv": ["int", "address"],
     "ritual_own_ZNK6QImage11paintEngineEv": ["address", "address"],
@@ -246,6 +283,9 @@
     ],
     "ritual_map_has_QMap_QString_QImage": ["bool", "address", "text"],
     "ritual_map_get_QMap_QString_QImage": ["address", "address", "text"],
-    "ritual_map_drop_QMap_QString_QImage": ["nothing", "address"]
+    "ritual_map_drop_QMap_QString_QImage": ["nothing", "address"],
+    "ritual_drop_QImage__QList_QRgb": ["nothing", "address"],
+    "ritual_ZN6QImage4bitsEv": ["address", "address"],
+    "ritual_ZN6QImage8scanLineEi": ["address", "address", "int"]
   }
 }

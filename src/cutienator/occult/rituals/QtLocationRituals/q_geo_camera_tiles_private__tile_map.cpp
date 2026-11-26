@@ -33,6 +33,9 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtlocation/src/location/maps/qgeocameratiles.cpp, line 808, as _ZN22QGeoCameraTilesPrivate7TileMapC1Ev
+inline QGeoCameraTilesPrivate::TileMap::TileMap() {}
+
 //  from ../qtlocation/src/location/maps/qgeocameratiles.cpp, line 810, as _ZN22QGeoCameraTilesPrivate7TileMap3addEii
 inline void QGeoCameraTilesPrivate::TileMap::add(int tileX, int tileY)
 {
@@ -45,6 +48,12 @@ inline void QGeoCameraTilesPrivate::TileMap::add(int tileX, int tileY)
     }
 }
 //  -----------------------------------------------------------------------
+
+//  QGeoCameraTilesPrivate::TileMap::TileMap()
+extern "C" Q_DECL_EXPORT
+QGeoCameraTilesPrivate::TileMap *ritual_ZN22QGeoCameraTilesPrivate7TileMapC1Ev() {
+  return new QGeoCameraTilesPrivate::TileMap();
+}
 
 //  void QGeoCameraTilesPrivate::TileMap::add(int tileX, int tileY)
 extern "C" Q_DECL_EXPORT

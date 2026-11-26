@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljscodegenerator_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0. Edited by hand on 2026-11-25: added by hand, instances of
+//  templates of the class: 3. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtQmlCompiler/QtQmlCompiler>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -2375,6 +2376,30 @@ public:
   }
 };
 
+//  QQmlJSCodeGenerator::QQmlJSCodeGenerator(const QV4::Compiler::Context
+//      *compilerContext, const QV4::Compiler::JSUnitGenerator
+//      *unitGenerator, const QQmlJSTypeResolver *typeResolver, QQmlJSLogger
+//      *logger, const BasicBlocks &basicBlocks, const InstructionAnnotations
+//      &annotations, bool noAotValidation)
+extern "C" Q_DECL_EXPORT
+QQmlJSCodeGenerator *ritual_ZN19QQmlJSCodeGeneratorC1EPKN3QV48Compiler7ContextEPKNS1_15JSUnitGeneratorEPK18QQmlJSTypeResolverP12QQmlJSLoggerRK8QFlatMapIiN17QQmlJSCompilePass10BasicBlockESt4lessIiE5QListIiESI_ISF_EERKSD_IiNSE_21InstructionAnnotationESH_SJ_SI_ISO_EEb(
+    const QV4::Compiler::Context *compilerContext,
+    const QV4::Compiler::JSUnitGenerator *unitGenerator,
+    const QQmlJSTypeResolver *typeResolver,
+    QQmlJSLogger *logger,
+    const QQmlJSCompilePass::BasicBlocks *basicBlocks,
+    const QQmlJSCompilePass::InstructionAnnotations *annotations,
+    bool noAotValidation) {
+  return new CuteQQmlJSCodeGenerator(
+      compilerContext,
+      unitGenerator,
+      typeResolver,
+      logger,
+      *basicBlocks,
+      *annotations,
+      noAotValidation);
+}
+
 //  QQmlJSCodeGenerator::~QQmlJSCodeGenerator()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQmlJSCodeGeneratorD1Ev(QQmlJSCodeGenerator *self) {
@@ -2392,6 +2417,30 @@ QQmlJSAotFunction *ritual_ZN19QQmlJSCodeGenerator3runEPKN17QQmlJSCompilePass8Fun
       self->run(
           function,
           basicBlocksValidationFailed));
+}
+
+//  LookupSignatures QQmlJSCodeGenerator::lookupSignatures() const
+extern "C" Q_DECL_EXPORT
+LookupSignatures *ritual_ZNK19QQmlJSCodeGenerator16lookupSignaturesEv(
+    const QQmlJSCodeGenerator *self) {
+  return new LookupSignatures(self->lookupSignatures());
+}
+
+//  QString QQmlJSCodeGenerator::metaObject(const QQmlJSScope::ConstPtr
+//      &objectType)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQmlJSCodeGenerator10metaObjectERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *objectType) {
+  return new QString(self->metaObject(*objectType));
+}
+
+//  QString QQmlJSCodeGenerator::metaType(const QQmlJSScope::ConstPtr &type)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQmlJSCodeGenerator8metaTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *type) {
+  return new QString(self->metaType(*type));
 }
 
 //  void QQmlJSCodeGenerator::generate_Ret()
@@ -3528,6 +3577,50 @@ QString *ritual_ZN19QQmlJSCodeGenerator10conversionE21QQmlJSRegisterContentS0_RK
   return new QString(self->conversion(*from, *to, *variable));
 }
 
+//  QString QQmlJSCodeGenerator::conversion(const QQmlJSScope::ConstPtr
+//      &from, QQmlJSRegisterContent to, const QString &variable)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQmlJSCodeGenerator10conversionERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContentRK7QString(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *from,
+    const QQmlJSRegisterContent *to,
+    const QString *variable) {
+  return new QString(self->conversion(*from, *to, *variable));
+}
+
+//  QString QQmlJSCodeGenerator::conversion(QQmlJSRegisterContent from, const
+//      QQmlJSScope::ConstPtr &to, const QString &variable)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQmlJSCodeGenerator10conversionE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeERK7QString(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSRegisterContent *from,
+    const QQmlJSScope::ConstPtr *to,
+    const QString *variable) {
+  return new QString(self->conversion(*from, *to, *variable));
+}
+
+//  QString QQmlJSCodeGenerator::conversion(const QQmlJSScope::ConstPtr
+//      &from, const QQmlJSScope::ConstPtr &to, const QString &variable)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQmlJSCodeGenerator10conversionERK22QDeferredSharedPointerIK11QQmlJSScopeES5_RK7QString(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *from,
+    const QQmlJSScope::ConstPtr *to,
+    const QString *variable) {
+  return new QString(self->conversion(*from, *to, *variable));
+}
+
+//  QString QQmlJSCodeGenerator::convertStored(const QQmlJSScope::ConstPtr
+//      &from, const QQmlJSScope::ConstPtr &to, const QString &variable)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQmlJSCodeGenerator13convertStoredERK22QDeferredSharedPointerIK11QQmlJSScopeES5_RK7QString(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *from,
+    const QQmlJSScope::ConstPtr *to,
+    const QString *variable) {
+  return new QString(self->convertStored(*from, *to, *variable));
+}
+
 //  QString QQmlJSCodeGenerator::convertContained(QQmlJSRegisterContent from,
 //      QQmlJSRegisterContent to, const QString &variable)
 extern "C" Q_DECL_EXPORT
@@ -3560,6 +3653,24 @@ void ritual_ZN19QQmlJSCodeGenerator4skipERK7QString(
     QQmlJSCodeGenerator *self,
     const QString *thing) {
   self->skip(*thing);
+}
+
+//  QString QQmlJSCodeGenerator::metaTypeFromType(const QQmlJSScope::ConstPtr
+//      &type) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK19QQmlJSCodeGenerator16metaTypeFromTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    const QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *type) {
+  return new QString(self->metaTypeFromType(*type));
+}
+
+//  QString QQmlJSCodeGenerator::metaTypeFromName(const QQmlJSScope::ConstPtr
+//      &type) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK19QQmlJSCodeGenerator16metaTypeFromNameERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    const QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *type) {
+  return new QString(self->metaTypeFromName(*type));
 }
 
 //  QString QQmlJSCodeGenerator::compositeMetaType(const QString
@@ -3698,6 +3809,37 @@ bool ritual_ZNK19QQmlJSCodeGenerator18shouldMoveRegisterEi(
     const QQmlJSCodeGenerator *self,
     int index) {
   return self->shouldMoveRegister(index);
+}
+
+//  void QQmlJSCodeGenerator::recordPropertyLookup(const
+//      QQmlJSScope::ConstPtr &base, const QQmlJSMetaProperty &prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSCodeGenerator20recordPropertyLookupERK22QDeferredSharedPointerIK11QQmlJSScopeERK18QQmlJSMetaProperty(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *base,
+    const QQmlJSMetaProperty *prop) {
+  self->recordPropertyLookup(*base, *prop);
+}
+
+//  void QQmlJSCodeGenerator::recordMethodLookup(const QQmlJSScope::ConstPtr
+//      &base, const QQmlJSMetaMethod &method)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSCodeGenerator18recordMethodLookupERK22QDeferredSharedPointerIK11QQmlJSScopeERK16QQmlJSMetaMethod(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *base,
+    const QQmlJSMetaMethod *method) {
+  self->recordMethodLookup(*base, *method);
+}
+
+//  void QQmlJSCodeGenerator::recordEnumKeyLookup(const QQmlJSScope::ConstPtr
+//      &base, const QQmlJSMetaEnum &metaEnum, const QString &keyName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlJSCodeGenerator19recordEnumKeyLookupERK22QDeferredSharedPointerIK11QQmlJSScopeERK14QQmlJSMetaEnumRK7QString(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *base,
+    const QQmlJSMetaEnum *metaEnum,
+    const QString *keyName) {
+  self->recordEnumKeyLookup(*base, *metaEnum, *keyName);
 }
 
 //  void QQmlJSCodeGenerator::resetState()
@@ -3926,6 +4068,15 @@ QString *ritual_ZN19QQmlJSCodeGenerator11initAndCallEiiRK7QStringS2_PS0_(
           outVar));
 }
 
+//  QString QQmlJSCodeGenerator::castTargetName(const QQmlJSScope::ConstPtr
+//      &type) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK19QQmlJSCodeGenerator14castTargetNameERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    const QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *type) {
+  return new QString(self->castTargetName(*type));
+}
+
 //  bool QQmlJSCodeGenerator::inlineStringMethod(const QString &name, int
 //      base, int argc, int argv)
 extern "C" Q_DECL_EXPORT
@@ -3991,6 +4142,59 @@ void ritual_ZN19QQmlJSCodeGenerator24generate_GetLookupHelperEi(
   self->generate_GetLookupHelper(index);
 }
 
+//  QString QQmlJSCodeGenerator::resolveValueTypeContentPointer(const
+//      QQmlJSScope::ConstPtr &required, QQmlJSRegisterContent actual, const
+//      QString &variable, const QString &errorMessage)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQmlJSCodeGenerator30resolveValueTypeContentPointerERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContentRK7QStringS9_(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *required,
+    const QQmlJSRegisterContent *actual,
+    const QString *variable,
+    const QString *errorMessage) {
+  return new QString(
+      self->resolveValueTypeContentPointer(
+          *required,
+          *actual,
+          *variable,
+          *errorMessage));
+}
+
+//  QString QQmlJSCodeGenerator::resolveQObjectPointer(const
+//      QQmlJSScope::ConstPtr &required, QQmlJSRegisterContent actual, const
+//      QString &variable, const QString &errorMessage)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQmlJSCodeGenerator21resolveQObjectPointerERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContentRK7QStringS9_(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *required,
+    const QQmlJSRegisterContent *actual,
+    const QString *variable,
+    const QString *errorMessage) {
+  return new QString(
+      self->resolveQObjectPointer(
+          *required,
+          *actual,
+          *variable,
+          *errorMessage));
+}
+
+//  bool QQmlJSCodeGenerator::generateContentPointerCheck(const
+//      QQmlJSScope::ConstPtr &required, QQmlJSRegisterContent actual, const
+//      QString &variable, const QString &errorMessage)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQmlJSCodeGenerator27generateContentPointerCheckERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContentRK7QStringS9_(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *required,
+    const QQmlJSRegisterContent *actual,
+    const QString *variable,
+    const QString *errorMessage) {
+  return self->generateContentPointerCheck(
+      *required,
+      *actual,
+      *variable,
+      *errorMessage);
+}
+
 //  QString QQmlJSCodeGenerator::generateCallConstructor(const
 //      QQmlJSMetaMethod &ctor, const QList<QQmlJSRegisterContent>
 //      &argumentTypes, const QStringList &arguments, const QString
@@ -4022,6 +4226,24 @@ QString *ritual_ZN19QQmlJSCodeGenerator27generateVariantMapGetLookupERK7QStringi
   return new QString(self->generateVariantMapGetLookup(*map, nameIndex));
 }
 
+//  QString QQmlJSCodeGenerator::generateVariantMapSetLookup(const QString
+//      &map, const int nameIndex, const QQmlJSScope::ConstPtr &property,
+//      const QString &variableIn)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQmlJSCodeGenerator27generateVariantMapSetLookupERK7QStringiRK22QDeferredSharedPointerIK11QQmlJSScopeES2_(
+    QQmlJSCodeGenerator *self,
+    const QString *map,
+    int nameIndex,
+    const QQmlJSScope::ConstPtr *property,
+    const QString *variableIn) {
+  return new QString(
+      self->generateVariantMapSetLookup(
+          *map,
+          nameIndex,
+          *property,
+          *variableIn));
+}
+
 //  QQmlJSRegisterContent
 //      QQmlJSCodeGenerator::originalType(QQmlJSRegisterContent tracked)
 extern "C" Q_DECL_EXPORT
@@ -4047,6 +4269,15 @@ QQmlJSMetaMethod *ritual_ZNK19QQmlJSCodeGenerator14originalMethodERK21QQmlJSRegi
     const QQmlJSCodeGenerator *self,
     const QQmlJSRegisterContent *reg) {
   return new QQmlJSMetaMethod(self->originalMethod(*reg));
+}
+
+//  QQmlJSRegisterContent QQmlJSCodeGenerator::literalType(const
+//      QQmlJSScope::ConstPtr &contained)
+extern "C" Q_DECL_EXPORT
+QQmlJSRegisterContent *ritual_ZN19QQmlJSCodeGenerator11literalTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE(
+    QQmlJSCodeGenerator *self,
+    const QQmlJSScope::ConstPtr *contained) {
+  return new QQmlJSRegisterContent(self->literalType(*contained));
 }
 
 //  bool QQmlJSCodeGenerator::isRegisterAffectedBySideEffects(int
@@ -5322,4 +5553,35 @@ void ritual_own_ZN19QQmlJSCodeGenerator14endInstructionEN3QV44Moth5Instr4TypeE(
     QV4::Moth::Instr::Type a0) {
   static_cast<OwnQQmlJSCodeGenerator *>(self)->OwnQQmlJSCodeGenerator::endInstruction(
       a0);
+}
+
+//  a LookupSignatures a ritual of QQmlJSCodeGenerator gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSCodeGenerator__LookupSignatures(
+    LookupSignatures *self) {
+  delete self;
+}
+
+//  bool QQmlJSCodeGenerator::reject<bool>(const QString &thing)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQmlJSCodeGenerator6rejectIbEET_RK7QString(
+    QQmlJSCodeGenerator *self,
+    const QString *thing) {
+  return self->reject<bool>(*thing);
+}
+
+//  int QQmlJSCodeGenerator::reject<int>(const QString &thing)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQmlJSCodeGenerator6rejectIiEET_RK7QString(
+    QQmlJSCodeGenerator *self,
+    const QString *thing) {
+  return self->reject<int>(*thing);
+}
+
+//  QString QQmlJSCodeGenerator::reject<QString>(const QString &thing)
+extern "C" Q_DECL_EXPORT
+QString * ritual_ZN19QQmlJSCodeGenerator6rejectI7QStringEET_RKS1_(
+    QQmlJSCodeGenerator *self,
+    const QString *thing) {
+  return new QString(self->reject<QString>(*thing));
 }

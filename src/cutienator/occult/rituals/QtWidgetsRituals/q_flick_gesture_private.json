@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN20QFlickGesturePrivate6q_funcEv": ["address", "address"],
-    "ritual_ZNK20QFlickGesturePrivate6q_funcEv": ["address", "address"]
+    "ritual_ZNK20QFlickGesturePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QFlickGesturePrivateC1Ev": ["address"]
   }
 }

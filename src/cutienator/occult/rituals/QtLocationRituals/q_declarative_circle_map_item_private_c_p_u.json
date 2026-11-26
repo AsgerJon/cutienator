@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPUC1ER25QDeclarativeCircleMapItem": [
+      "address", "address"
+    ],
     "ritual_ZN35QDeclarativeCircleMapItemPrivateCPUD1Ev": [
       "nothing", "address"
     ],

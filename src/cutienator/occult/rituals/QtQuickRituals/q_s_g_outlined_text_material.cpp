@@ -27,6 +27,20 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 539, as local:qsgdefaultglyphnode_p.cpp:qsg_colorDiff
+static inline int qsg_colorDiff(const QVector4D &a, const QVector4D &b)
+{
+    if (a.x() != b.x())
+        return a.x() > b.x() ? 1 : -1;
+    if (a.y() != b.y())
+        return a.y() > b.y() ? 1 : -1;
+    if (a.z() != b.z())
+        return a.z() > b.z() ? 1 : -1;
+    if (a.w() != b.w())
+        return a.w() > b.w() ? 1 : -1;
+    return 0;
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 323, as _ZN19QSGTextMaskMaterialD2Ev
 inline QSGTextMaskMaterial::~QSGTextMaskMaterial()
 {
@@ -39,6 +53,20 @@ inline QSGTextMaskMaterial::~QSGTextMaskMaterial()
 inline QSGStyledTextMaterial::QSGStyledTextMaterial(QSGRenderContext *rc, const QRawFont &font)
     : QSGTextMaskMaterial(rc, QVector4D(), font, QFontEngine::Format_A8)
 {
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 597, as _ZNK21QSGStyledTextMaterial7compareEPK11QSGMaterial
+inline int QSGStyledTextMaterial::compare(const QSGMaterial *o) const
+{
+    const QSGStyledTextMaterial *other = static_cast<const QSGStyledTextMaterial *>(o);
+
+    if (m_styleShift != other->m_styleShift)
+        return m_styleShift.y() - other->m_styleShift.y();
+
+    int diff = qsg_colorDiff(m_styleColor, other->m_styleColor);
+    if (diff == 0)
+        return QSGTextMaskMaterial::compare(o);
+    return diff;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 616, as _ZNK23QSGOutlinedTextMaterial4typeEv
@@ -123,6 +151,16 @@ extern "C" Q_DECL_EXPORT
 QSGMaterialType *ritual_ZNK23QSGOutlinedTextMaterial4typeEv(
     const QSGOutlinedTextMaterial *self) {
   return self->type();
+}
+
+//  QSGMaterialShader
+//      *QSGOutlinedTextMaterial::createShader(QSGRendererInterface::RenderMo
+//      de renderMode) const
+extern "C" Q_DECL_EXPORT
+QSGMaterialShader *ritual_ZNK23QSGOutlinedTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE(
+    const QSGOutlinedTextMaterial *self,
+    QSGRendererInterface::RenderMode renderMode) {
+  return self->createShader(renderMode);
 }
 
 //  a Python function taken by a CuteQSGOutlinedTextMaterial, for the

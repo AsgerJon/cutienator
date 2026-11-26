@@ -2,22 +2,43 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DInput/6.12.0/Qt3DInput/private/qinputdeviceintegration_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK9Qt3DInput23QInputDeviceIntegration10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput23QInputDeviceIntegration11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput23QInputDeviceIntegration11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput23QInputDeviceIntegration2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9Qt3DInput23QInputDeviceIntegration19registerBackendTypeERK11QMetaObjectRK14QSharedPointerIN8Qt3DCore18QBackendNodeMapperEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QInputDeviceIntegration10initializeEPNS_12QInputAspectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QInputDeviceIntegration13jobsToExecuteEx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN9Qt3DInput23QInputDeviceIntegration20createPhysicalDeviceERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_ZNK9Qt3DInput23QInputDeviceIntegration15physicalDevicesEv": [
+      "address", "address"
     ],
     "ritual_ZNK9Qt3DInput23QInputDeviceIntegration14physicalDeviceEN8Qt3DCore7QNodeIdE": [
       "address", "address", "address"
     ],
     "ritual_ZNK9Qt3DInput23QInputDeviceIntegration11deviceNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput23QInputDeviceIntegration11inputAspectEv": [
       "address", "address"
     ],
     "ritual_ZN9Qt3DInput23QInputDeviceIntegration12onInitializeEv": [
@@ -28,6 +49,21 @@
     ],
     "ritual_ZNK9Qt3DInput23QInputDeviceIntegration6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DInput_QInputDeviceIntegration__std_vector_Qt3DCore_QAspectJobPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DInput_QInputDeviceIntegration__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QInputDeviceIntegration19registerBackendTypeINS_15QKeyboardDeviceEEEvRK14QSharedPointerIN8Qt3DCore18QBackendNodeMapperEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QInputDeviceIntegration19registerBackendTypeINS_12QMouseDeviceEEEvRK14QSharedPointerIN8Qt3DCore18QBackendNodeMapperEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QInputDeviceIntegration19registerBackendTypeINS_23QAbstractPhysicalDeviceEEEvRK14QSharedPointerIN8Qt3DCore18QBackendNodeMapperEE": [
+      "nothing", "address", "address"
     ]
   }
 }

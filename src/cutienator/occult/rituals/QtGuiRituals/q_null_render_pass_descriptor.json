@@ -16,6 +16,9 @@
     "ritual_ZNK25QNullRenderPassDescriptor33newCompatibleRenderPassDescriptorEv": [
       "address", "address"
     ],
+    "ritual_ZNK25QNullRenderPassDescriptor16serializedFormatEv": [
+      "address", "address"
+    ],
     "ritual_take_QNullRenderPassDescriptor": [
       "bool", "address", "chars", "address"
     ],
@@ -27,6 +30,9 @@
     ],
     "ritual_own_ZNK25QNullRenderPassDescriptor33newCompatibleRenderPassDescriptorEv": [
       "address", "address"
+    ],
+    "ritual_drop_QNullRenderPassDescriptor__QVector_quint32": [
+      "nothing", "address"
     ]
   }
 }

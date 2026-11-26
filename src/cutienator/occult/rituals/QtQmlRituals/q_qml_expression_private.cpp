@@ -7,8 +7,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmlexpression_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qvariant.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmlglobal_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -31,17 +31,47 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 18, as _ZN21QQmlExpressionPrivateC1Ev
-inline QQmlExpressionPrivate::QQmlExpressionPrivate()
-: QQmlJavaScriptExpression(),
-  expressionFunctionValid(true),
-  line(0), column(0)
+//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 409, as _ZN21QQmlExpressionPrivate17expressionChangedEv
+inline void QQmlExpressionPrivate::expressionChanged()
+{
+    Q_Q(QQmlExpression);
+    emit q->valueChanged();
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 25, as _ZN21QQmlExpressionPrivateD2Ev
+inline QQmlExpressionPrivate::~QQmlExpressionPrivate()
 {
 }
 
-//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 25, as _ZN21QQmlExpressionPrivateD1Ev
-inline QQmlExpressionPrivate::~QQmlExpressionPrivate()
+//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 415, as _ZNK21QQmlExpressionPrivate20expressionIdentifierEv
+inline QString QQmlExpressionPrivate::expressionIdentifier() const
 {
+    return QLatin1Char('"') + expression + QLatin1Char('"');
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 29, as _ZN21QQmlExpressionPrivate4initERK14QQmlRefPointerI15QQmlContextDataERK7QStringP7QObject
+inline void QQmlExpressionPrivate::init(const QQmlRefPointer<QQmlContextData> &ctxt, const QString &expr,
+                                 QObject *me)
+{
+    expression = expr;
+
+    QQmlJavaScriptExpression::setContext(ctxt);
+    setScopeObject(me);
+    expressionFunctionValid = false;
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 39, as _ZN21QQmlExpressionPrivate4initERK14QQmlRefPointerI15QQmlContextDataEPN3QV48FunctionEP7QObject
+inline void QQmlExpressionPrivate::init(const QQmlRefPointer<QQmlContextData> &ctxt,
+                                 QV4::Function *runtimeFunction, QObject *me)
+{
+    expressionFunctionValid = true;
+    QV4::ExecutionEngine *engine = ctxt->engine()->handle();
+    QV4::Scope scope(engine);
+    QV4::Scoped<QV4::QmlContext> qmlContext(scope, QV4::QmlContext::create(engine->rootContext(), ctxt, me));
+    setupFunction(qmlContext, runtimeFunction);
+
+    QQmlJavaScriptExpression::setContext(ctxt);
+    setScopeObject(me);
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 236, as _ZN21QQmlExpressionPrivate5valueEPb
@@ -86,19 +116,6 @@ inline QV4::ReturnedValue QQmlExpressionPrivate::v4value(bool *isUndefined)
     }
 
     return evaluate(isUndefined);
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 415, as _ZNK21QQmlExpressionPrivate20expressionIdentifierEv
-inline QString QQmlExpressionPrivate::expressionIdentifier() const
-{
-    return QLatin1Char('"') + expression + QLatin1Char('"');
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 409, as _ZN21QQmlExpressionPrivate17expressionChangedEv
-inline void QQmlExpressionPrivate::expressionChanged()
-{
-    Q_Q(QQmlExpression);
-    emit q->valueChanged();
 }
 //  -----------------------------------------------------------------------
 
@@ -197,16 +214,32 @@ const QQmlExpression *ritual_ZNK21QQmlExpressionPrivate6q_funcEv(
   return self->q_func();
 }
 
-//  QQmlExpressionPrivate::QQmlExpressionPrivate()
-extern "C" Q_DECL_EXPORT
-QQmlExpressionPrivate *ritual_ZN21QQmlExpressionPrivateC1Ev() {
-  return new CuteQQmlExpressionPrivate();
-}
-
 //  QQmlExpressionPrivate::~QQmlExpressionPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQmlExpressionPrivateD1Ev(QQmlExpressionPrivate *self) {
   delete self;
+}
+
+//  void QQmlExpressionPrivate::init(const QQmlRefPointer<QQmlContextData>
+//      &a0, const QString &a1, QObject *a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlExpressionPrivate4initERK14QQmlRefPointerI15QQmlContextDataERK7QStringP7QObject(
+    QQmlExpressionPrivate *self,
+    const QQmlRefPointer<QQmlContextData> *a0,
+    const QString *a1,
+    QObject *a2) {
+  self->init(*a0, *a1, a2);
+}
+
+//  void QQmlExpressionPrivate::init(const QQmlRefPointer<QQmlContextData>
+//      &a0, QV4::Function *runtimeFunction, QObject *a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlExpressionPrivate4initERK14QQmlRefPointerI15QQmlContextDataEPN3QV48FunctionEP7QObject(
+    QQmlExpressionPrivate *self,
+    const QQmlRefPointer<QQmlContextData> *a0,
+    QV4::Function *runtimeFunction,
+    QObject *a2) {
+  self->init(*a0, runtimeFunction, a2);
 }
 
 //  QVariant QQmlExpressionPrivate::value(bool *isUndefined)

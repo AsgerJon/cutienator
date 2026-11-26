@@ -28,6 +28,50 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 23, as local:qhttpserverparser.cpp:parseRequestMethod
+namespace {
+inline QHttpServerRequest::Method parseRequestMethod(QByteArrayView str)
+{
+    if (str == "GET")
+        return QHttpServerRequest::Method::Get;
+    else if (str == "PUT")
+        return QHttpServerRequest::Method::Put;
+    else if (str == "DELETE")
+        return QHttpServerRequest::Method::Delete;
+    else if (str == "POST")
+        return QHttpServerRequest::Method::Post;
+    else if (str == "HEAD")
+        return QHttpServerRequest::Method::Head;
+    else if (str == "OPTIONS")
+        return QHttpServerRequest::Method::Options;
+    else if (str == "PATCH")
+        return QHttpServerRequest::Method::Patch;
+    else if (str == "CONNECT")
+        return QHttpServerRequest::Method::Connect;
+    else
+        return QHttpServerRequest::Method::Unknown;
+}
+}  // namespace
+
+//  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 45, as local:qhttpserverparser.cpp:getErrorString
+namespace {
+inline const char* getErrorString(QHttpServerResponder::StatusCode code)
+{
+    switch (code) {
+    case QHttpServerResponder::StatusCode::PayloadTooLarge:
+        return "Request Entity Too Large";
+    case QHttpServerResponder::StatusCode::UriTooLong:
+        return "Request-URI Too Long";
+    case QHttpServerResponder::StatusCode::RequestHeaderFieldsTooLarge:
+        return "Request Header Fields Too Large";
+    default:
+        return "Bad Request";
+    };
+}
+}  // namespace
+
 //  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 351, as _ZN17QHttpServerParserC1ERK12QHostAddresstS2_tP24QHttpServerRequestFilter
 inline QHttpServerParser::QHttpServerParser(const QHostAddress &remoteAddress, quint16 remotePort,
                                      const QHostAddress &localAddress, quint16 localPort,
@@ -42,6 +86,48 @@ inline QHttpServerParser::QHttpServerParser(const QHostAddress &remoteAddress, q
     headerParser.setMaxHeaderFieldSize(std::numeric_limits<qsizetype>::max());
     headerParser.setMaxTotalHeaderSize(std::numeric_limits<qsizetype>::max());
     headerParser.setMaxHeaderFields(std::numeric_limits<qsizetype>::max());
+}
+
+//  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 64, as _ZN17QHttpServerParser16parseRequestLineE14QByteArrayView
+inline bool QHttpServerParser::parseRequestLine(QByteArrayView line)
+{
+    // Request-Line   = Method SP Request-URI SP HTTP-Version CRLF
+    auto i = line.indexOf(' ');
+    if (i == -1)
+        return false;
+    const auto requestMethod = line.first(i);
+    i++;
+
+    while (i < line.size() && line[i] == ' ')
+        i++;
+
+    auto j = line.indexOf(' ', i);
+    if (j == -1)
+        return false;
+
+    const auto requestUrl = line.sliced(i, j - i);
+    i = j + 1;
+
+    while (i < line.size() && line[i] == ' ')
+        i++;
+
+    if (i >= line.size())
+        return false;
+
+    j = line.indexOf(' ', i);
+
+    const auto protocol = j == -1 ? line.sliced(i) : line.sliced(i, j - i);
+    if (protocol.size() != 8 || !protocol.startsWith("HTTP"))
+        return false;
+
+    headerParser.setMajorVersion(protocol[5] - '0');
+    headerParser.setMinorVersion(protocol[7] - '0');
+    majorVersion = protocol[5] - '0';
+    minorVersion = protocol[7] - '0';
+
+    method = parseRequestMethod(requestMethod);
+    url = QUrl::fromEncoded(requestUrl.toByteArray());
+    return true;
 }
 
 //  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 341, as _ZN17QHttpServerParser12sendContinueEP9QIODevice
@@ -148,6 +234,18 @@ inline qsizetype QHttpServerParser::getChunkSize(QIODevice *socket, qsizetype *c
     return bytes;
 }
 
+//  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 186, as _ZN17QHttpServerParser9sendErrorEP9QIODeviceN20QHttpServerResponder10StatusCodeE
+inline void QHttpServerParser::sendError(QIODevice *socket, QHttpServerResponder::StatusCode error)
+{
+    QByteArray buffer;
+    buffer.append("HTTP/1.1 ");
+    buffer.append(QByteArray::number(int(error)));
+    buffer.append(" ");
+    buffer.append(getErrorString(error));
+    buffer.append("\r\nConnection: close\r\n\r\n");
+    socket->write(buffer);
+}
+
 //  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 161, as _ZN17QHttpServerParser16isUrlSizeAllowedE14QByteArrayView
 inline bool QHttpServerParser::isUrlSizeAllowed(QByteArrayView requestLine)
 {
@@ -242,6 +340,14 @@ QHttpServerParser *ritual_ZN17QHttpServerParserC1ERK12QHostAddresstS2_tP24QHttpS
       filter);
 }
 
+//  bool QHttpServerParser::parseRequestLine(QByteArrayView line)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QHttpServerParser16parseRequestLineE14QByteArrayView(
+    QHttpServerParser *self,
+    const QByteArrayView *line) {
+  return self->parseRequestLine(*line);
+}
+
 //  qsizetype QHttpServerParser::sendContinue(QIODevice *socket)
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZN17QHttpServerParser12sendContinueEP9QIODevice(
@@ -276,6 +382,16 @@ qsizetype ritual_ZN17QHttpServerParser12getChunkSizeEP9QIODevicePx(
     QIODevice *socket,
     qsizetype *chunkSize) {
   return self->getChunkSize(socket, chunkSize);
+}
+
+//  void QHttpServerParser::sendError(QIODevice *socket,
+//      QHttpServerResponder::StatusCode error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpServerParser9sendErrorEP9QIODeviceN20QHttpServerResponder10StatusCodeE(
+    QHttpServerParser *self,
+    QIODevice *socket,
+    QHttpServerResponder::StatusCode error) {
+  self->sendError(socket, error);
 }
 
 //  bool QHttpServerParser::isUrlSizeAllowed(QByteArrayView requestLine)

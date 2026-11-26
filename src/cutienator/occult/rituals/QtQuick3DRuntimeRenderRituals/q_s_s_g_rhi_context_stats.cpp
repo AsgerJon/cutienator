@@ -7,6 +7,28 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhicontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QSSGRhiContextStats &QSSGRhiContextStats::get(QSSGRhiContext &rhiCtx)
+extern "C" Q_DECL_EXPORT
+QSSGRhiContextStats *ritual_ZN19QSSGRhiContextStats3getER14QSSGRhiContext(
+    QSSGRhiContext *rhiCtx) {
+  return &(QSSGRhiContextStats::get(*rhiCtx));
+}
+
+//  const QSSGRhiContextStats &QSSGRhiContextStats::get(const QSSGRhiContext
+//      &rhiCtx)
+extern "C" Q_DECL_EXPORT
+QSSGRhiContextStats *ritual_ZN19QSSGRhiContextStats3getERK14QSSGRhiContext(
+    const QSSGRhiContext *rhiCtx) {
+  return new QSSGRhiContextStats(QSSGRhiContextStats::get(*rhiCtx));
+}
+
+//  QSSGRhiContextStats::QSSGRhiContextStats(QSSGRhiContext &context)
+extern "C" Q_DECL_EXPORT
+QSSGRhiContextStats *ritual_ZN19QSSGRhiContextStatsC1ER14QSSGRhiContext(
+    QSSGRhiContext *context) {
+  return new QSSGRhiContextStats(*context);
+}
+
 //  bool QSSGRhiContextStats::profilingEnabled()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN19QSSGRhiContextStats16profilingEnabledEv() {

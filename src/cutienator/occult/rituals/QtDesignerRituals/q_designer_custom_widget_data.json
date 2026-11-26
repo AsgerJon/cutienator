@@ -10,6 +10,9 @@
       "int", "address", "text", "text", "address"
     ],
     "ritual_ZN25QDesignerCustomWidgetDataC1ERKS_": ["address", "address"],
+    "ritual_ZN25QDesignerCustomWidgetDataaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN25QDesignerCustomWidgetDataD1Ev": ["nothing", "address"],
     "ritual_ZNK25QDesignerCustomWidgetData6isNullEv": ["bool", "address"],
     "ritual_ZNK25QDesignerCustomWidgetData10pluginPathEv": [
@@ -29,6 +32,9 @@
     ],
     "ritual_ZNK25QDesignerCustomWidgetData14xmlDisplayNameEv": [
       "text", "address"
+    ],
+    "ritual_ZNK25QDesignerCustomWidgetData21xmlStringPropertyTypeERK7QStringPSt4pairIN18qdesigner_internal26TextPropertyValidationModeEbE": [
+      "bool", "address", "text", "address"
     ],
     "ritual_ZNK25QDesignerCustomWidgetData15propertyToolTipERK7QString": [
       "text", "address", "text"

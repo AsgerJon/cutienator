@@ -12,6 +12,7 @@
 #include <QtQml/qqmlproperty.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QQuickGeoCoordinateAnimation that Python can take functions over in. Every QQuickGeoCoordinateAnimation
 //  Python makes is one. Each function below asks the Python
@@ -283,6 +284,25 @@ const QMetaObject *ritual_ZNK28QQuickGeoCoordinateAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGeoCoordinateAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuickGeoCoordinateAnimation11qt_metacastEPKc(
+    QQuickGeoCoordinateAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGeoCoordinateAnimation::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuickGeoCoordinateAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGeoCoordinateAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGeoCoordinateAnimation::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -369,6 +389,21 @@ void ritual_ZN28QQuickGeoCoordinateAnimation12setDirectionENS_9DirectionE(
   self->setDirection(direction);
 }
 
+//  QBindable<Direction> QQuickGeoCoordinateAnimation::bindableDirection()
+extern "C" Q_DECL_EXPORT
+QBindable<QQuickGeoCoordinateAnimation::Direction> *ritual_ZN28QQuickGeoCoordinateAnimation17bindableDirectionEv(
+    QQuickGeoCoordinateAnimation *self) {
+  return new QBindable<QQuickGeoCoordinateAnimation::Direction>(
+      self->bindableDirection());
+}
+
+//  void QQuickGeoCoordinateAnimation::directionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickGeoCoordinateAnimation16directionChangedEv(
+    QQuickGeoCoordinateAnimation *self) {
+  self->directionChanged();
+}
+
 //  a Python function taken by a CuteQQuickGeoCoordinateAnimation, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -377,4 +412,12 @@ bool ritual_take_QQuickGeoCoordinateAnimation(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickGeoCoordinateAnimation *>(self)->take(key, call);
+}
+
+//  a QBindable<QQuickGeoCoordinateAnimation::Direction> a ritual of
+//      QQuickGeoCoordinateAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickGeoCoordinateAnimation__QBindable_QQuickGeoCoordinateAnimation_Direction(
+    QBindable<QQuickGeoCoordinateAnimation::Direction> *self) {
+  delete self;
 }

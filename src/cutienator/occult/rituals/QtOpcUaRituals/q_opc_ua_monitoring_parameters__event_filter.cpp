@@ -2,8 +2,8 @@
 //  QtOpcUa/qopcuamonitoringparameters.h, Qt 6.12.0. Changes made here are
 //  lost.
 #include <QtOpcUa/qopcuamonitoringparameters.h>
-#include <QtOpcUa/qopcuasimpleattributeoperand.h>
 #include <QtOpcUa/qopcuacontentfilterelement.h>
+#include <QtOpcUa/qopcuasimpleattributeoperand.h>
 #include <QtCore/qlist.h>
 
 //  QOpcUaMonitoringParameters::EventFilter::EventFilter()
@@ -20,6 +20,15 @@ QOpcUaMonitoringParameters::EventFilter *ritual_ZN26QOpcUaMonitoringParameters11
   return new QOpcUaMonitoringParameters::EventFilter(*a0);
 }
 
+//  EventFilter &QOpcUaMonitoringParameters::EventFilter::operator=(const
+//      EventFilter &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaMonitoringParameters::EventFilter *ritual_ZN26QOpcUaMonitoringParameters11EventFilteraSERKS0_(
+    QOpcUaMonitoringParameters::EventFilter *self,
+    const QOpcUaMonitoringParameters::EventFilter *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaMonitoringParameters::EventFilter::operator==(const
 //      QOpcUaMonitoringParameters::EventFilter &rhs) const
 extern "C" Q_DECL_EXPORT
@@ -27,6 +36,24 @@ bool ritual_ZNK26QOpcUaMonitoringParameters11EventFiltereqERKS0_(
     const QOpcUaMonitoringParameters::EventFilter *self,
     const QOpcUaMonitoringParameters::EventFilter *rhs) {
   return self->operator==(*rhs);
+}
+
+//  EventFilter &QOpcUaMonitoringParameters::EventFilter::operator<<(const
+//      QOpcUaContentFilterElement &whereClauseElement)
+extern "C" Q_DECL_EXPORT
+QOpcUaMonitoringParameters::EventFilter *ritual_ZN26QOpcUaMonitoringParameters11EventFilterlsERK26QOpcUaContentFilterElement(
+    QOpcUaMonitoringParameters::EventFilter *self,
+    const QOpcUaContentFilterElement *whereClauseElement) {
+  return &(self->operator<<(*whereClauseElement));
+}
+
+//  EventFilter &QOpcUaMonitoringParameters::EventFilter::operator<<(const
+//      QOpcUaSimpleAttributeOperand &selectClauseElement)
+extern "C" Q_DECL_EXPORT
+QOpcUaMonitoringParameters::EventFilter *ritual_ZN26QOpcUaMonitoringParameters11EventFilterlsERK28QOpcUaSimpleAttributeOperand(
+    QOpcUaMonitoringParameters::EventFilter *self,
+    const QOpcUaSimpleAttributeOperand *selectClauseElement) {
+  return &(self->operator<<(*selectClauseElement));
 }
 
 //  QOpcUaMonitoringParameters::EventFilter::~EventFilter()
@@ -44,6 +71,14 @@ QList<QOpcUaSimpleAttributeOperand> *ritual_ZNK26QOpcUaMonitoringParameters11Eve
   return new QList<QOpcUaSimpleAttributeOperand>(self->selectClauses());
 }
 
+//  QList<QOpcUaSimpleAttributeOperand>
+//      &QOpcUaMonitoringParameters::EventFilter::selectClausesRef()
+extern "C" Q_DECL_EXPORT
+QList<QOpcUaSimpleAttributeOperand> *ritual_ZN26QOpcUaMonitoringParameters11EventFilter16selectClausesRefEv(
+    QOpcUaMonitoringParameters::EventFilter *self) {
+  return &(self->selectClausesRef());
+}
+
 //  void QOpcUaMonitoringParameters::EventFilter::setSelectClauses(const
 //      QList<QOpcUaSimpleAttributeOperand> &selectClauses)
 extern "C" Q_DECL_EXPORT
@@ -59,6 +94,14 @@ extern "C" Q_DECL_EXPORT
 QList<QOpcUaContentFilterElement> *ritual_ZNK26QOpcUaMonitoringParameters11EventFilter11whereClauseEv(
     const QOpcUaMonitoringParameters::EventFilter *self) {
   return new QList<QOpcUaContentFilterElement>(self->whereClause());
+}
+
+//  QList<QOpcUaContentFilterElement>
+//      &QOpcUaMonitoringParameters::EventFilter::whereClauseRef()
+extern "C" Q_DECL_EXPORT
+QList<QOpcUaContentFilterElement> *ritual_ZN26QOpcUaMonitoringParameters11EventFilter14whereClauseRefEv(
+    QOpcUaMonitoringParameters::EventFilter *self) {
+  return &(self->whereClauseRef());
 }
 
 //  void QOpcUaMonitoringParameters::EventFilter::setWhereClause(const

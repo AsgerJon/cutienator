@@ -23,6 +23,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitfont.cpp, line 8, as _ZN14QQStyleKitFontC1EP7QObject
 inline QQStyleKitFont::QQStyleKitFont(QObject *parent)
     : QObject(parent)
@@ -61,6 +63,25 @@ const QMetaObject *ritual_ZNK27QQStyleKitStyleAndThemeBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitStyleAndThemeBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQStyleKitStyleAndThemeBase11qt_metacastEPKc(
+    QQStyleKitStyleAndThemeBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitStyleAndThemeBase::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQStyleKitStyleAndThemeBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitStyleAndThemeBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQStyleKitStyleAndThemeBase::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QQStyleKitStyleAndThemeBase24qt_qmlMarker_uncreatableEv(
@@ -80,4 +101,54 @@ extern "C" Q_DECL_EXPORT
 QQStyleKitPalette *ritual_ZN27QQStyleKitStyleAndThemeBase8palettesEv(
     QQStyleKitStyleAndThemeBase *self) {
   return self->palettes();
+}
+
+//  void QQStyleKitStyleAndThemeBase::fontsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitStyleAndThemeBase12fontsChangedEv(
+    QQStyleKitStyleAndThemeBase *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitStyleAndThemeBase")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fontsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fontsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitStyleAndThemeBase::palettesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitStyleAndThemeBase15palettesChangedEv(
+    QQStyleKitStyleAndThemeBase *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitStyleAndThemeBase")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "palettesChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "palettesChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }

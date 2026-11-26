@@ -5,7 +5,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -41,6 +41,49 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 316, as local:barsrenderer.cpp:calculateCategoryTotalValues
+inline void calculateCategoryTotalValues(QBarSeries *series, QList<float> &totalValues, qsizetype valuesPerSet)
+{
+    totalValues.fill(0, valuesPerSet);
+    auto barsets = series->barSets();
+    for (auto s : std::as_const(barsets)) {
+        QVariantList v = s->values();
+        int setIndex = 0;
+        for (const auto &variantValue : std::as_const(v)) {
+            if (setIndex < totalValues.size())
+                totalValues[setIndex] += qAbs(variantValue.toReal());
+            setIndex++;
+        }
+    }
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 65, as _ZN12BarsRenderer13paintSnapshotERK5QHashIP10QBarSeries5QListINS_13BarSeriesDataEEEP14QCanvasPainter
+#if QT_CONFIG(graphs_2d_high_performance_backend)
+inline void BarsRenderer::paintSnapshot(const PaintSnapshot &snapshot,
+                                 QCanvasPainter *p)
+{
+    for (const auto &dataList : snapshot) {
+        for (const auto &d : dataList) {
+            p->setFillStyle(d.color);
+            p->setStrokeStyle(d.borderColor);
+            p->setLineWidth(d.borderWidth);
+            p->beginPath();
+            p->rect(d.rect);
+            p->fill();
+            p->stroke();
+        }
+    }
+}
+#endif  // QT_CONFIG(graphs_2d_high_performance_backend)
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 86, as _ZNK12BarsRenderer13paintSnapshotEv
+#if QT_CONFIG(graphs_2d_high_performance_backend)
+inline BarsRenderer::PaintSnapshot BarsRenderer::paintSnapshot() const
+{
+    return m_paintSnapshot;
+}
+#endif  // QT_CONFIG(graphs_2d_high_performance_backend)
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 81, as _ZN12BarsRenderer15synchronizeDataEv
 #if QT_CONFIG(graphs_2d_high_performance_backend)
@@ -80,6 +123,18 @@ inline void BarsRenderer::seriesAboutToBeRemoved(QAbstractSeries *series)
             m_labelTextItems.erase(textItemsIter);
         }
     }
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 685, as _ZN12BarsRenderer11afterUpdateER5QListIP15QAbstractSeriesE
+inline void BarsRenderer::afterUpdate(QList<QAbstractSeries *> &cleanupSeries)
+{
+    Q_UNUSED(cleanupSeries);
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 690, as _ZN12BarsRenderer11afterPolishER5QListIP15QAbstractSeriesE
+inline void BarsRenderer::afterPolish(QList<QAbstractSeries *> &cleanupSeries)
+{
+    Q_UNUSED(cleanupSeries);
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 695, as _ZN12BarsRenderer15handleHoverMoveEP11QHoverEvent
@@ -1069,6 +1124,50 @@ const QMetaObject *ritual_ZNK12BarsRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *BarsRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12BarsRenderer11qt_metacastEPKc(
+    BarsRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int BarsRenderer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12BarsRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    BarsRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  BarsRenderer::~BarsRenderer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12BarsRendererD1Ev(BarsRenderer *self) {
+  delete self;
+}
+
+#if QT_CONFIG(graphs_2d_high_performance_backend)
+//  void BarsRenderer::paintSnapshot(const PaintSnapshot &snapshot,
+//      QCanvasPainter *p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12BarsRenderer13paintSnapshotERK5QHashIP10QBarSeries5QListINS_13BarSeriesDataEEEP14QCanvasPainter(
+    const BarsRenderer::PaintSnapshot *snapshot,
+    QCanvasPainter *p) {
+  BarsRenderer::paintSnapshot(*snapshot, p);
+}
+#endif  // QT_CONFIG(graphs_2d_high_performance_backend)
+
+#if QT_CONFIG(graphs_2d_high_performance_backend)
+//  PaintSnapshot BarsRenderer::paintSnapshot() const
+extern "C" Q_DECL_EXPORT
+BarsRenderer::PaintSnapshot *ritual_ZNK12BarsRenderer13paintSnapshotEv(
+    const BarsRenderer *self) {
+  return new BarsRenderer::PaintSnapshot(self->paintSnapshot());
+}
+#endif  // QT_CONFIG(graphs_2d_high_performance_backend)
+
 #if QT_CONFIG(graphs_2d_high_performance_backend)
 //  void BarsRenderer::synchronizeData()
 extern "C" Q_DECL_EXPORT
@@ -1091,6 +1190,22 @@ void ritual_ZN12BarsRenderer22seriesAboutToBeRemovedEP15QAbstractSeries(
     BarsRenderer *self,
     QAbstractSeries *series) {
   self->seriesAboutToBeRemoved(series);
+}
+
+//  void BarsRenderer::afterUpdate(QList<QAbstractSeries *> &cleanupSeries)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12BarsRenderer11afterUpdateER5QListIP15QAbstractSeriesE(
+    BarsRenderer *self,
+    QList<QAbstractSeries *> *cleanupSeries) {
+  self->afterUpdate(*cleanupSeries);
+}
+
+//  void BarsRenderer::afterPolish(QList<QAbstractSeries *> &cleanupSeries)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12BarsRenderer11afterPolishER5QListIP15QAbstractSeriesE(
+    BarsRenderer *self,
+    QList<QAbstractSeries *> *cleanupSeries) {
+  self->afterPolish(*cleanupSeries);
 }
 
 //  bool BarsRenderer::handleHoverMove(QHoverEvent *event)
@@ -1198,4 +1313,11 @@ bool ritual_take_BarsRenderer(
   return static_cast<CuteBarsRenderer *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+//  a BarsRenderer::PaintSnapshot a ritual of BarsRenderer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_BarsRenderer__BarsRenderer_PaintSnapshot(
+    BarsRenderer::PaintSnapshot *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))

@@ -3,7 +3,9 @@
 //  here are lost.
 #include <QtDataVisualization/qitemmodelsurfacedataproxy.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -180,6 +182,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK26QItemModelSurfaceDataProxy10metaObjectEv(
     const QItemModelSurfaceDataProxy *self) {
   return self->metaObject();
+}
+
+//  void *QItemModelSurfaceDataProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QItemModelSurfaceDataProxy11qt_metacastEPKc(
+    QItemModelSurfaceDataProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QItemModelSurfaceDataProxy::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QItemModelSurfaceDataProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    QItemModelSurfaceDataProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QItemModelSurfaceDataProxy::tr(const char *s, const char *c, int
@@ -700,6 +721,193 @@ extern "C" Q_DECL_EXPORT
 QItemModelSurfaceDataProxy::MultiMatchBehavior ritual_ZNK26QItemModelSurfaceDataProxy18multiMatchBehaviorEv(
     const QItemModelSurfaceDataProxy *self) {
   return self->multiMatchBehavior();
+}
+
+//  void QItemModelSurfaceDataProxy::itemModelChanged(const
+//      QAbstractItemModel *itemModel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy16itemModelChangedEPK18QAbstractItemModel(
+    QItemModelSurfaceDataProxy *self,
+    const QAbstractItemModel *itemModel) {
+  self->itemModelChanged(itemModel);
+}
+
+//  void QItemModelSurfaceDataProxy::rowRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy14rowRoleChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *role) {
+  self->rowRoleChanged(*role);
+}
+
+//  void QItemModelSurfaceDataProxy::columnRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy17columnRoleChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *role) {
+  self->columnRoleChanged(*role);
+}
+
+//  void QItemModelSurfaceDataProxy::xPosRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy15xPosRoleChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *role) {
+  self->xPosRoleChanged(*role);
+}
+
+//  void QItemModelSurfaceDataProxy::yPosRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy15yPosRoleChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *role) {
+  self->yPosRoleChanged(*role);
+}
+
+//  void QItemModelSurfaceDataProxy::zPosRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy15zPosRoleChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *role) {
+  self->zPosRoleChanged(*role);
+}
+
+//  void QItemModelSurfaceDataProxy::rowCategoriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy20rowCategoriesChangedEv(
+    QItemModelSurfaceDataProxy *self) {
+  self->rowCategoriesChanged();
+}
+
+//  void QItemModelSurfaceDataProxy::columnCategoriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy23columnCategoriesChangedEv(
+    QItemModelSurfaceDataProxy *self) {
+  self->columnCategoriesChanged();
+}
+
+//  void QItemModelSurfaceDataProxy::useModelCategoriesChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy25useModelCategoriesChangedEb(
+    QItemModelSurfaceDataProxy *self,
+    bool enable) {
+  self->useModelCategoriesChanged(enable);
+}
+
+//  void QItemModelSurfaceDataProxy::autoRowCategoriesChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy24autoRowCategoriesChangedEb(
+    QItemModelSurfaceDataProxy *self,
+    bool enable) {
+  self->autoRowCategoriesChanged(enable);
+}
+
+//  void QItemModelSurfaceDataProxy::autoColumnCategoriesChanged(bool enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy27autoColumnCategoriesChangedEb(
+    QItemModelSurfaceDataProxy *self,
+    bool enable) {
+  self->autoColumnCategoriesChanged(enable);
+}
+
+//  void QItemModelSurfaceDataProxy::rowRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy21rowRolePatternChangedERK18QRegularExpression(
+    QItemModelSurfaceDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->rowRolePatternChanged(*pattern);
+}
+
+//  void QItemModelSurfaceDataProxy::columnRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy24columnRolePatternChangedERK18QRegularExpression(
+    QItemModelSurfaceDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->columnRolePatternChanged(*pattern);
+}
+
+//  void QItemModelSurfaceDataProxy::xPosRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy22xPosRolePatternChangedERK18QRegularExpression(
+    QItemModelSurfaceDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->xPosRolePatternChanged(*pattern);
+}
+
+//  void QItemModelSurfaceDataProxy::yPosRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy22yPosRolePatternChangedERK18QRegularExpression(
+    QItemModelSurfaceDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->yPosRolePatternChanged(*pattern);
+}
+
+//  void QItemModelSurfaceDataProxy::zPosRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy22zPosRolePatternChangedERK18QRegularExpression(
+    QItemModelSurfaceDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->zPosRolePatternChanged(*pattern);
+}
+
+//  void QItemModelSurfaceDataProxy::rowRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy21rowRoleReplaceChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *replace) {
+  self->rowRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelSurfaceDataProxy::columnRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy24columnRoleReplaceChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *replace) {
+  self->columnRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelSurfaceDataProxy::xPosRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy22xPosRoleReplaceChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *replace) {
+  self->xPosRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelSurfaceDataProxy::yPosRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy22yPosRoleReplaceChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *replace) {
+  self->yPosRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelSurfaceDataProxy::zPosRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy22zPosRoleReplaceChangedERK7QString(
+    QItemModelSurfaceDataProxy *self,
+    const QString *replace) {
+  self->zPosRoleReplaceChanged(*replace);
+}
+
+//  void
+//      QItemModelSurfaceDataProxy::multiMatchBehaviorChanged(MultiMatchBehav
+//      ior behavior)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelSurfaceDataProxy25multiMatchBehaviorChangedENS_18MultiMatchBehaviorE(
+    QItemModelSurfaceDataProxy *self,
+    QItemModelSurfaceDataProxy::MultiMatchBehavior behavior) {
+  self->multiMatchBehaviorChanged(behavior);
 }
 
 //  QItemModelSurfaceDataProxyPrivate *QItemModelSurfaceDataProxy::dptr()

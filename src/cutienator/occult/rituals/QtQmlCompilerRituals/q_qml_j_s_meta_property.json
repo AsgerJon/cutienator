@@ -39,6 +39,10 @@
     ],
     "ritual_ZNK18QQmlJSMetaProperty12privateClassEv": ["text", "address"],
     "ritual_ZNK18QQmlJSMetaProperty9isPrivateEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty7setTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty4typeEv": ["address", "address"],
     "ritual_ZN18QQmlJSMetaProperty17setSourceLocationERKN6QQmlJS14SourceLocationE": [
       "nothing", "address", "address"
     ],
@@ -74,6 +78,12 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK18QQmlJSMetaProperty15aliasTargetNameEv": ["text", "address"],
+    "ritual_ZN18QQmlJSMetaProperty19setAliasTargetScopeERK14QSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty16aliasTargetScopeEv": [
+      "address", "address"
+    ],
     "ritual_ZN18QQmlJSMetaProperty10setIsFinalEb": [
       "nothing", "address", "bool"
     ],
@@ -124,6 +134,12 @@
       "address", "address", "text"
     ],
     "ritual_map_drop_QHash_QString_QQmlJSMetaProperty": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSMetaProperty__QDeferredSharedPointer_const_QQmlJSScope": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSMetaProperty__QSharedPointer_const_QQmlJSScope": [
       "nothing", "address"
     ]
   }

@@ -17,6 +17,7 @@
     ],
     "ritual_ZN9ListModel18updateCacheIndicesEii": [
       "nothing", "address", "int", "int"
-    ]
+    ],
+    "ritual_drop_ListModel__QList_std_function_void": ["nothing", "address"]
   }
 }

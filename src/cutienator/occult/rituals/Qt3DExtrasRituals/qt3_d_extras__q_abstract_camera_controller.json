@@ -8,8 +8,74 @@
     "ritual_ZNK10Qt3DExtras25QAbstractCameraController10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras25QAbstractCameraController2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraControllerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras25QAbstractCameraController6cameraEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras25QAbstractCameraController11linearSpeedEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras25QAbstractCameraController9lookSpeedEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras25QAbstractCameraController12accelerationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras25QAbstractCameraController12decelerationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController9setCameraEPN10Qt3DRender7QCameraE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController14setLinearSpeedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController12setLookSpeedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController15setAccelerationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController15setDecelerationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController13cameraChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController18linearSpeedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController16lookSpeedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController19accelerationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraController19decelerationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraControllerC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras25QAbstractCameraControllerC1ERNS_32QAbstractCameraControllerPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras25QAbstractCameraController14keyboardDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras25QAbstractCameraController11mouseDeviceEv": [
+      "address", "address"
     ],
     "ritual_ZN10Qt3DExtras25QAbstractCameraController10moveCameraERKNS0_10InputStateEf": [
       "nothing", "address", "address", "float"

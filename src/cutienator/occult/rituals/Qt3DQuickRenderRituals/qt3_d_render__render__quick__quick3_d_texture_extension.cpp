@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::Render::Quick::Quick3DTextureExtension that Python can take functions over in. Every Qt3DRender::Render::Quick::Quick3DTextureExtension
 //  Python makes is one. Each function below asks the Python
@@ -186,6 +188,27 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render5Quick23Quick3DTextureExtension1
   return self->metaObject();
 }
 
+//  void
+//      *Qt3DRender::Render::Quick::Quick3DTextureExtension::qt_metacast(cons
+//      t char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render5Quick23Quick3DTextureExtension11qt_metacastEPKc(
+    Qt3DRender::Render::Quick::Quick3DTextureExtension *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Render::Quick::Quick3DTextureExtension::qt_metacall(QMeta
+//      Object::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render5Quick23Quick3DTextureExtension11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::Quick::Quick3DTextureExtension *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::Quick::Quick3DTextureExtension::tr(const char
 //      *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -198,6 +221,23 @@ QString *ritual_ZN10Qt3DRender6Render5Quick23Quick3DTextureExtension2trEPKcS4_i(
           s,
           c,
           n));
+}
+
+//  Qt3DRender::Render::Quick::Quick3DTextureExtension::Quick3DTextureExtensi
+//      on(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Quick::Quick3DTextureExtension *ritual_ZN10Qt3DRender6Render5Quick23Quick3DTextureExtensionC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_Quick_Quick3DTextureExtension(parent);
+}
+
+//  QQmlListProperty<QAbstractTextureImage>
+//      Qt3DRender::Render::Quick::Quick3DTextureExtension::textureImages()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DRender::QAbstractTextureImage> *ritual_ZN10Qt3DRender6Render5Quick23Quick3DTextureExtension13textureImagesEv(
+    Qt3DRender::Render::Quick::Quick3DTextureExtension *self) {
+  return new QQmlListProperty<Qt3DRender::QAbstractTextureImage>(
+      self->textureImages());
 }
 
 //  QAbstractTexture
@@ -218,4 +258,12 @@ bool ritual_take_Qt3DRender_Render_Quick_Quick3DTextureExtension(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Render_Quick_Quick3DTextureExtension *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DRender::QAbstractTextureImage> a ritual of
+//      Qt3DRender::Render::Quick::Quick3DTextureExtension gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_Quick_Quick3DTextureExtension__QQmlListProperty_Qt3DRender_QAbstractTextureImage(
+    QQmlListProperty<Qt3DRender::QAbstractTextureImage> *self) {
+  delete self;
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuick3DAmbientSound10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DAmbientSound11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuick3DAmbientSound11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuick3DAmbientSoundD1Ev": ["nothing", "address"],
     "ritual_ZN20QQuick3DAmbientSound9setSourceERK4QUrl": [
       "nothing", "address", "address"
@@ -26,6 +32,18 @@
     "ritual_ZN20QQuick3DAmbientSound4playEv": ["nothing", "address"],
     "ritual_ZN20QQuick3DAmbientSound5pauseEv": ["nothing", "address"],
     "ritual_ZN20QQuick3DAmbientSound4stopEv": ["nothing", "address"],
+    "ritual_ZN20QQuick3DAmbientSound13sourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DAmbientSound13volumeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DAmbientSound12loopsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DAmbientSound15autoPlayChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuick3DAmbientSound": [
       "bool", "address", "chars", "address"
     ]

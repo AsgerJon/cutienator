@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -201,6 +205,31 @@ public:
     return QQmlJS::AST::Node::asClassDefinition();
   }
 };
+
+//  QQmlJS::AST::FunctionDeclaration::FunctionDeclaration(QStringView n,
+//      FormalParameterList *f, StatementList *b, TypeAnnotation
+//      *typeAnnotation)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::FunctionDeclaration *ritual_ZN6QQmlJS3AST19FunctionDeclarationC1E11QStringViewPNS0_19FormalParameterListEPNS0_13StatementListEPNS0_14TypeAnnotationE(
+    QQmlJS::MemoryPool *pool,
+    const QString *n,
+    QQmlJS::AST::FormalParameterList *f,
+    QQmlJS::AST::StatementList *b,
+    QQmlJS::AST::TypeAnnotation *typeAnnotation) {
+  return new (pool) CuteQQmlJS_AST_FunctionDeclaration(
+      QStringView(*n),
+      f,
+      b,
+      typeAnnotation);
+}
+
+//  void QQmlJS::AST::FunctionDeclaration::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST19FunctionDeclaration7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::FunctionDeclaration *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
 
 //  a Python function taken by a CuteQQmlJS_AST_FunctionDeclaration, for the
 //      function named by the key

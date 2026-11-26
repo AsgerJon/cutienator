@@ -21,6 +21,7 @@
     "ritual_ZNK14QRomanCalendar20localeMonthIndexDataEv": [
       "address", "address"
     ],
+    "ritual_ZNK14QRomanCalendar15localeMonthDataEv": ["address", "address"],
     "ritual_take_QRomanCalendar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QRomanCalendar11daysInMonthEii": [
       "int", "address", "int", "int"
@@ -38,6 +39,9 @@
       "text", "address", "address", "int", "int", "int"
     ],
     "ritual_own_ZNK14QRomanCalendar20localeMonthIndexDataEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK14QRomanCalendar15localeMonthDataEv": [
       "address", "address"
     ]
   }

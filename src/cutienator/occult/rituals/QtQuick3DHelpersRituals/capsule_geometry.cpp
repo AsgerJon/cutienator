@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/capsulegeometry_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/qtquick3dhelpersglobal_p.h>
 #include <QtQuick3DHelpers/QtQuick3DHelpers>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -286,6 +287,24 @@ const QMetaObject *ritual_ZNK15CapsuleGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *CapsuleGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15CapsuleGeometry11qt_metacastEPKc(
+    CapsuleGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int CapsuleGeometry::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15CapsuleGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    CapsuleGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString CapsuleGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15CapsuleGeometry2trEPKcS1_i(
@@ -456,12 +475,137 @@ void ritual_ZN15CapsuleGeometry15requestFinishedEv(CapsuleGeometry *self) {
   self->requestFinished();
 }
 
+//  void CapsuleGeometry::enableNormalsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry20enableNormalsChangedEv(
+    CapsuleGeometry *self) {
+  self->enableNormalsChanged();
+}
+
+//  void CapsuleGeometry::enableUVChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry15enableUVChangedEv(CapsuleGeometry *self) {
+  self->enableUVChanged();
+}
+
+//  void CapsuleGeometry::longitudesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry17longitudesChangedEv(CapsuleGeometry *self) {
+  self->longitudesChanged();
+}
+
+//  void CapsuleGeometry::latitudesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry16latitudesChangedEv(CapsuleGeometry *self) {
+  self->latitudesChanged();
+}
+
+//  void CapsuleGeometry::ringsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry12ringsChangedEv(CapsuleGeometry *self) {
+  self->ringsChanged();
+}
+
+//  void CapsuleGeometry::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry13heightChangedEv(CapsuleGeometry *self) {
+  self->heightChanged();
+}
+
+//  void CapsuleGeometry::diameterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry15diameterChangedEv(CapsuleGeometry *self) {
+  self->diameterChanged();
+}
+
+//  void CapsuleGeometry::uvProfileChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry16uvProfileChangedEv(CapsuleGeometry *self) {
+  self->uvProfileChanged();
+}
+
+//  void CapsuleGeometry::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry19asynchronousChangedEv(
+    CapsuleGeometry *self) {
+  self->asynchronousChanged();
+}
+
+//  void CapsuleGeometry::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry13statusChangedEv(CapsuleGeometry *self) {
+  self->statusChanged();
+}
+
 //  void CapsuleGeometry::scheduleGeometryUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15CapsuleGeometry22scheduleGeometryUpdateEv(
     CapsuleGeometry *self) {
   self->scheduleGeometryUpdate();
 }
+
+//  void CapsuleGeometry::updateGeometry(const GeometryData &geometryData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry14updateGeometryERKNS_12GeometryDataE(
+    CapsuleGeometry *self,
+    const CapsuleGeometry::GeometryData *geometryData) {
+  self->updateGeometry(*geometryData);
+}
+
+//  CapsuleGeometry::GeometryData
+//      CapsuleGeometry::generateCapsuleGeometry(bool enableNormals, bool
+//      enableUV, int longitudes, int latitudes, int rings, float height,
+//      float diameter, UVProfile uvProfile)
+extern "C" Q_DECL_EXPORT
+CapsuleGeometry::GeometryData *ritual_ZN15CapsuleGeometry23generateCapsuleGeometryEbbiiiffNS_9UVProfileE(
+    bool enableNormals,
+    bool enableUV,
+    int longitudes,
+    int latitudes,
+    int rings,
+    float height,
+    float diameter,
+    CapsuleGeometry::UVProfile uvProfile) {
+  return new CapsuleGeometry::GeometryData(
+      CapsuleGeometry::generateCapsuleGeometry(
+          enableNormals,
+          enableUV,
+          longitudes,
+          latitudes,
+          rings,
+          height,
+          diameter,
+          uvProfile));
+}
+
+#if QT_CONFIG(concurrent)
+//  void CapsuleGeometry::generateCapsuleGeometryAsync(QPromise<CapsuleGeomet
+//      ry::GeometryData> &promise, bool enableNormals, bool enableUV, int
+//      longitudes, int latitudes, int rings, float height, float diameter,
+//      UVProfile uvProfile)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15CapsuleGeometry28generateCapsuleGeometryAsyncER8QPromiseINS_12GeometryDataEEbbiiiffNS_9UVProfileE(
+    QPromise<CapsuleGeometry::GeometryData> *promise,
+    bool enableNormals,
+    bool enableUV,
+    int longitudes,
+    int latitudes,
+    int rings,
+    float height,
+    float diameter,
+    CapsuleGeometry::UVProfile uvProfile) {
+  CapsuleGeometry::generateCapsuleGeometryAsync(
+      *promise,
+      enableNormals,
+      enableUV,
+      longitudes,
+      latitudes,
+      rings,
+      height,
+      diameter,
+      uvProfile);
+}
+#endif  // QT_CONFIG(concurrent)
 
 //  a Python function taken by a CuteCapsuleGeometry, for the function named
 //      by the key
@@ -471,4 +615,11 @@ bool ritual_take_CapsuleGeometry(
     const char *key,
     void *call) {
   return static_cast<CuteCapsuleGeometry *>(self)->take(key, call);
+}
+
+//  a CapsuleGeometry::GeometryData a ritual of CapsuleGeometry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_CapsuleGeometry__CapsuleGeometry_GeometryData(
+    CapsuleGeometry::GeometryData *self) {
+  delete self;
 }

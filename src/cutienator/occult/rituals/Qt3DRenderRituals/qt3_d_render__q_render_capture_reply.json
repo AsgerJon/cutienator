@@ -8,13 +8,37 @@
     "ritual_ZNK10Qt3DRender19QRenderCaptureReply10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender19QRenderCaptureReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderCaptureReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender19QRenderCaptureReply2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCaptureReply5imageEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCaptureReply9captureIdEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCaptureReply10isCompleteEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender19QRenderCaptureReply9saveImageERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderCaptureReply9completedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN10Qt3DRender19QRenderCaptureReply6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender19QRenderCaptureReply6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender19QRenderCaptureReplyC1EP7QObject": [
       "address", "address"
     ]
   }

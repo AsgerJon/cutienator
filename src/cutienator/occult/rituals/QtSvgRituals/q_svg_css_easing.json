@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QSvgCssEasingC1EN13QSvgCssValues14EasingFunctionE": [
+      "address", "unsigned char"
+    ],
     "ritual_ZN13QSvgCssEasingD1Ev": ["nothing", "address"],
     "ritual_ZNK13QSvgCssEasing14easingFunctionEv": [
       "unsigned char", "address"

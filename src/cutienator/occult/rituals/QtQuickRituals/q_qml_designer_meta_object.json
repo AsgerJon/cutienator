@@ -5,8 +5,14 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QQmlDesignerMetaObject24createNewDynamicPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN22QQmlDesignerMetaObject14createPropertyEPKcS1_": [
       "int", "address", "chars", "chars"
+    ],
+    "ritual_ZN22QQmlDesignerMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv": [
+      "int", "address", "address", "int", "int", "address"
     ],
     "ritual_ZN22QQmlDesignerMetaObject18propertyWriteValueEiRK8QVariant": [
       "address", "address", "int", "address"
@@ -22,11 +28,15 @@
     "ritual_ZNK22QQmlDesignerMetaObject4nameEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK22QQmlDesignerMetaObject5cacheEv": ["address", "address"],
     "ritual_take_QQmlDesignerMetaObject": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN22QQmlDesignerMetaObject18propertyWriteValueEiRK8QVariant": [
       "address", "address", "int", "address"
+    ],
+    "ritual_drop_QQmlDesignerMetaObject__QQmlPropertyCache_Ptr": [
+      "nothing", "address"
     ]
   }
 }

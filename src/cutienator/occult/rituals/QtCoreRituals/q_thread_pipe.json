@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN11QThreadPipeC1Ev": ["address"],
-    "ritual_ZN11QThreadPipe6wakeUpEv": ["nothing", "address"]
+    "ritual_ZN11QThreadPipeD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QThreadPipe7prepareEv": ["address", "address"],
+    "ritual_ZN11QThreadPipe6wakeUpEv": ["nothing", "address"],
+    "ritual_drop_QThreadPipe__pollfd": ["nothing", "address"]
   }
 }

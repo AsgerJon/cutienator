@@ -8,8 +8,20 @@
     "ritual_ZNK18qdesigner_internal10ZoomWidget10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal10ZoomWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal10ZoomWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal10ZoomWidget2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal10ZoomWidgetC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ZoomWidget9setWidgetEP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_ZNK18qdesigner_internal10ZoomWidget5proxyEv": [
       "address", "address"
@@ -17,11 +29,56 @@
     "ritual_ZN18qdesigner_internal10ZoomWidget5proxyEv": [
       "address", "address"
     ],
+    "ritual_ZNK18qdesigner_internal10ZoomWidget30isWidgetZoomContextMenuEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ZoomWidget31setWidgetZoomContextMenuEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal10ZoomWidget18setItemAcceptDropsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal10ZoomWidget15itemAcceptDropsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10ZoomWidget15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10ZoomWidget8sizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ZoomWidget17zoomedEventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10ZoomWidget4dumpEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ZoomWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ZoomWidget9applyZoomEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN18qdesigner_internal10ZoomWidget8doResizeERK5QSize": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK18qdesigner_internal10ZoomWidget17createProxyWidgetEP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal10ZoomWidget20widgetSizeToViewSizeERK5QSizePb": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ZoomWidget18resizeToWidgetSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10ZoomWidget14viewPortMarginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10ZoomWidget10widgetSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10ZoomWidget21widgetDecorationSizeFEv": [
+      "address", "address"
     ],
     "ritual_own_ZNK18qdesigner_internal10ZoomWidget15minimumSizeHintEv": [
       "address", "address"

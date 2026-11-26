@@ -55,4 +55,16 @@ bool ritual_ZNK25QOpenGLProgramBinaryCache12verifyHeaderERK10QByteArray(
   return self->verifyHeader(*buf);
 }
 
+//  bool QOpenGLProgramBinaryCache::setProgramBinary(uint programId, uint
+//      blobFormat, const void *p, uint blobSize)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QOpenGLProgramBinaryCache16setProgramBinaryEjjPKvj(
+    QOpenGLProgramBinaryCache *self,
+    uint programId,
+    uint blobFormat,
+    const void *p,
+    uint blobSize) {
+  return self->setProgramBinary(programId, blobFormat, p, blobSize);
+}
+
 #endif  // QT_CONFIG(opengl)

@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN28QNetworkAccessManagerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN28QNetworkAccessManagerPrivate12createThreadEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QNetworkAccessManagerPrivate13destroyThreadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkAccessManagerPrivate16_q_replyFinishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QNetworkAccessManagerPrivate17_q_replyEncryptedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QNetworkAccessManagerPrivate17_q_replySslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QNetworkAccessManagerPrivate42_q_replyPreSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QNetworkAccessManagerPrivate11postProcessEP13QNetworkReply": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK28QNetworkAccessManagerPrivate15createCookieJarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkAccessManagerPrivate10queryProxyERK18QNetworkProxyQuery": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN28QNetworkAccessManagerPrivate20clearConnectionCacheEP21QNetworkAccessManager": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QNetworkAccessManagerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QNetworkAccessManagerPrivate6q_funcEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -35,7 +35,7 @@ typedef void (*CuteQSGNodeVisitorCall9)(const void *, QSGNode *, int *);
 class CuteQSGNodeVisitor : public QSGNodeVisitor {
 public:
   using QSGNodeVisitor::QSGNodeVisitor;
-  CuteQSGNodeVisitor(const QSGNodeVisitor &other) : QSGNodeVisitor(other) {}
+  CuteQSGNodeVisitor(const QSGNodeVisitor & other) : QSGNodeVisitor(other) {}
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {

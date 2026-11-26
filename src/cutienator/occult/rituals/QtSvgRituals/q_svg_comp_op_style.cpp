@@ -16,7 +16,7 @@ typedef bool (*CuteQSvgCompOpStyleCall1)(const void *, int *);
 class CuteQSvgCompOpStyle : public QSvgCompOpStyle {
 public:
   using QSvgCompOpStyle::QSvgCompOpStyle;
-  CuteQSvgCompOpStyle(const QSvgCompOpStyle &other) : QSvgCompOpStyle(other) {}
+  CuteQSvgCompOpStyle(const QSvgCompOpStyle & other) : QSvgCompOpStyle(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -67,11 +67,38 @@ void ritual_ZN15QSvgCompOpStyleD1Ev(QSvgCompOpStyle *self) {
   delete self;
 }
 
+//  void QSvgCompOpStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgCompOpStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgCompOpStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgCompOpStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgCompOpStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgCompOpStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
+}
+
 //  Type QSvgCompOpStyle::type() const
 extern "C" Q_DECL_EXPORT
 QSvgStyleProperty::Type ritual_ZNK15QSvgCompOpStyle4typeEv(
     const QSvgCompOpStyle *self) {
   return self->type();
+}
+
+//  const QPainter::CompositionMode &QSvgCompOpStyle::compOp() const
+extern "C" Q_DECL_EXPORT
+const QPainter::CompositionMode *ritual_ZNK15QSvgCompOpStyle6compOpEv(
+    const QSvgCompOpStyle *self) {
+  return &(self->compOp());
 }
 
 //  a Python function taken by a CuteQSvgCompOpStyle, for the function named

@@ -32,10 +32,32 @@ QHstsPolicy *ritual_ZN11QHstsPolicyC1ERKS_(const QHstsPolicy *rhs) {
   return new QHstsPolicy(*rhs);
 }
 
+//  QHstsPolicy &QHstsPolicy::operator=(const QHstsPolicy &rhs)
+extern "C" Q_DECL_EXPORT
+QHstsPolicy *ritual_ZN11QHstsPolicyaSERKS_(
+    QHstsPolicy *self,
+    const QHstsPolicy *rhs) {
+  return &(self->operator=(*rhs));
+}
+
+//  QHstsPolicy &QHstsPolicy::operator=(QHstsPolicy &&other)
+extern "C" Q_DECL_EXPORT
+QHstsPolicy *ritual_ZN11QHstsPolicyaSEOS_(
+    QHstsPolicy *self,
+    QHstsPolicy *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QHstsPolicy::~QHstsPolicy()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QHstsPolicyD1Ev(QHstsPolicy *self) {
   delete self;
+}
+
+//  void QHstsPolicy::swap(QHstsPolicy &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QHstsPolicy4swapERS_(QHstsPolicy *self, QHstsPolicy *other) {
+  self->swap(*other);
 }
 
 //  void QHstsPolicy::setHost(const QString &host, QUrl::ParsingMode mode)

@@ -76,11 +76,26 @@ bool ritual_ZN17QFormBuilderExtra10applyBuddyERK7QStringNS_9BuddyModeEP6QLabel(
   return QFormBuilderExtra::applyBuddy(*buddyName, applyMode, label);
 }
 
+//  const QPointer<QWidget> &QFormBuilderExtra::parentWidget() const
+extern "C" Q_DECL_EXPORT
+const QPointer<QWidget> *ritual_ZNK17QFormBuilderExtra12parentWidgetEv(
+    const QFormBuilderExtra *self) {
+  return &(self->parentWidget());
+}
+
 //  bool QFormBuilderExtra::parentWidgetIsSet() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QFormBuilderExtra17parentWidgetIsSetEv(
     const QFormBuilderExtra *self) {
   return self->parentWidgetIsSet();
+}
+
+//  void QFormBuilderExtra::setParentWidget(const QPointer<QWidget> &w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QFormBuilderExtra15setParentWidgetERK8QPointerI7QWidgetE(
+    QFormBuilderExtra *self,
+    const QPointer<QWidget> *w) {
+  self->setParentWidget(*w);
 }
 
 //  void QFormBuilderExtra::setProcessingLayoutWidget(bool processing)
@@ -172,6 +187,20 @@ void ritual_ZN17QFormBuilderExtra20registerButtonGroupsEPK15DomButtonGroups(
     QFormBuilderExtra *self,
     const DomButtonGroups *groups) {
   self->registerButtonGroups(groups);
+}
+
+//  const ButtonGroupHash &QFormBuilderExtra::buttonGroups() const
+extern "C" Q_DECL_EXPORT
+const QFormBuilderExtra::ButtonGroupHash *ritual_ZNK17QFormBuilderExtra12buttonGroupsEv(
+    const QFormBuilderExtra *self) {
+  return &(self->buttonGroups());
+}
+
+//  ButtonGroupHash &QFormBuilderExtra::buttonGroups()
+extern "C" Q_DECL_EXPORT
+QFormBuilderExtra::ButtonGroupHash *ritual_ZN17QFormBuilderExtra12buttonGroupsEv(
+    QFormBuilderExtra *self) {
+  return &(self->buttonGroups());
 }
 
 //  void QFormBuilderExtra::getLayoutMargins(const QList<DomProperty *>
@@ -302,6 +331,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QFormBuilderExtra33clearGridLayoutColumnMinimumWidthEP11QGridLayout(
     QGridLayout *a0) {
   QFormBuilderExtra::clearGridLayoutColumnMinimumWidth(a0);
+}
+
+//  void QFormBuilderExtra::setPixmapProperty(DomProperty *p, const
+//      std::pair<QString, QString> &ip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QFormBuilderExtra17setPixmapPropertyEP11DomPropertyRKSt4pairI7QStringS3_E(
+    DomProperty *p,
+    const std::pair<QString, QString> *ip) {
+  QFormBuilderExtra::setPixmapProperty(p, *ip);
 }
 
 //  QPalette QFormBuilderExtra::loadPalette(const DomPalette *dom)

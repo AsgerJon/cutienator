@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK7QBoxSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QBoxSet11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QBoxSet11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QBoxSet2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QBoxSetC1E7QStringP7QObject": ["address", "text", "address"],
     "ritual_ZN7QBoxSetC1Eddddd7QStringP7QObject": [
@@ -13,9 +17,13 @@
     ],
     "ritual_ZN7QBoxSetD1Ev": ["nothing", "address"],
     "ritual_ZN7QBoxSet6appendEd": ["nothing", "address", "double"],
+    "ritual_ZN7QBoxSet6appendERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN7QBoxSet5clearEv": ["nothing", "address"],
     "ritual_ZN7QBoxSet8setLabelE7QString": ["nothing", "address", "text"],
     "ritual_ZNK7QBoxSet5labelEv": ["text", "address"],
+    "ritual_ZN7QBoxSetlsERKd": ["address", "address", "double"],
     "ritual_ZN7QBoxSet8setValueEid": ["nothing", "address", "int", "double"],
     "ritual_ZNK7QBoxSet2atEi": ["double", "address", "int"],
     "ritual_ZNK7QBoxSetixEi": ["double", "address", "int"],
@@ -26,6 +34,16 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK7QBoxSet5brushEv": ["address", "address"],
+    "ritual_ZN7QBoxSet7clickedEv": ["nothing", "address"],
+    "ritual_ZN7QBoxSet7hoveredEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QBoxSet7pressedEv": ["nothing", "address"],
+    "ritual_ZN7QBoxSet8releasedEv": ["nothing", "address"],
+    "ritual_ZN7QBoxSet13doubleClickedEv": ["nothing", "address"],
+    "ritual_ZN7QBoxSet10penChangedEv": ["nothing", "address"],
+    "ritual_ZN7QBoxSet12brushChangedEv": ["nothing", "address"],
+    "ritual_ZN7QBoxSet13valuesChangedEv": ["nothing", "address"],
+    "ritual_ZN7QBoxSet12valueChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QBoxSet7clearedEv": ["nothing", "address"],
     "ritual_take_QBoxSet": ["bool", "address", "chars", "address"],
     "ritual_list_make_QBoxSet_ptr": ["address"],
     "ritual_list_add_QBoxSet_ptr": ["nothing", "address", "address"],

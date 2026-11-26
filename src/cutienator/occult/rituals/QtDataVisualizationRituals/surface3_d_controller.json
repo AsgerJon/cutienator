@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19Surface3DController10metaObjectEv": ["address", "address"],
+    "ritual_ZN19Surface3DController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19Surface3DController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19Surface3DController2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -89,6 +95,12 @@
       "nothing", "address", "int", "int"
     ],
     "ritual_ZN19Surface3DController32handleFlatShadingSupportedChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19Surface3DController21selectedSeriesChangedEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19Surface3DController25flipHorizontalGridChangedEb": [
       "nothing", "address", "bool"
     ],
     "ritual_take_Surface3DController": [

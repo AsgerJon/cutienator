@@ -8,9 +8,18 @@
     "ritual_ZNK26QQuickFileDialogTapHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuickFileDialogTapHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuickFileDialogTapHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQuickFileDialogTapHandler5stateEv": ["int", "address"],
     "ritual_ZNK26QQuickFileDialogTapHandler17getFileDialogImplEv": [
       "address", "address"
+    ],
+    "ritual_ZN26QQuickFileDialogTapHandler10grabFolderEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK26QQuickFileDialogTapHandler19getFolderUrlAtPressEv": [
       "address", "address"
@@ -23,6 +32,9 @@
     ],
     "ritual_ZN26QQuickFileDialogTapHandler25handleContainsDragChangedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN26QQuickFileDialogTapHandler16handleEventPointEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN26QQuickFileDialogTapHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
       "bool", "address", "address", "address"

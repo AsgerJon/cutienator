@@ -5,6 +5,12 @@
     "lost."
   ],
   "rows": {
-    "ritual_ZN22QQmlModuleRegistrationD1Ev": ["nothing", "address"]
+    "ritual_ZN22QQmlModuleRegistrationC1EPKcPFvvE": [
+      "address", "chars", "address"
+    ],
+    "ritual_ZN22QQmlModuleRegistrationD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQmlModuleRegistrationC1EPKciPFvvE": [
+      "address", "chars", "int", "address"
+    ]
   }
 }

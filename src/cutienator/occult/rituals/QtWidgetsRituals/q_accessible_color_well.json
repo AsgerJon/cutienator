@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN20QAccessibleColorWellD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QAccessibleColorWell5childEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK20QAccessibleColorWell12indexOfChildEPK20QAccessibleInterface": [
       "int", "address", "address"
     ],

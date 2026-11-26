@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/6.12.0/QtNetwork/private/qsslsocket_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN17QSslSocketPrivate6q_funcEv": ["address", "address"],
@@ -60,6 +60,12 @@
     "ritual_ZN17QSslSocketPrivate21resumeSocketNotifiersEP10QSslSocket": [
       "nothing", "address"
     ],
+    "ritual_ZN17QSslSocketPrivate22checkSettingSslContextEP10QSslSocketSt10shared_ptrI11QSslContextE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate10sslContextEP10QSslSocket": [
+      "address", "address"
+    ],
     "ritual_ZNK17QSslSocketPrivate8isPausedEv": ["bool", "address"],
     "ritual_ZN17QSslSocketPrivate9setPausedEb": [
       "nothing", "address", "bool"
@@ -107,6 +113,9 @@
       "nothing", "address"
     ],
     "ritual_ZN17QSslSocketPrivate23unixRootCertDirectoriesEv": ["address"],
+    "ritual_ZN17QSslSocketPrivate4peekEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN17QSslSocketPrivate4peekEx": [
       "address", "address", "long long"
     ],
@@ -162,6 +171,8 @@
     "ritual_ZN17QSslSocketPrivate12setEncryptedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN17QSslSocketPrivate14tlsWriteBufferEv": ["address", "address"],
+    "ritual_ZN17QSslSocketPrivate9tlsBufferEv": ["address", "address"],
     "ritual_ZNK17QSslSocketPrivate18hasUndecryptedDataEv": [
       "bool", "address"
     ],
@@ -169,9 +180,21 @@
     "ritual_own_ZN17QSslSocketPrivate4bindERK12QHostAddresst6QFlagsIN15QAbstractSocket8BindFlagEEPK17QNetworkInterface": [
       "bool", "address", "address", "unsigned short", "int", "address"
     ],
+    "ritual_own_ZN17QSslSocketPrivate4peekEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_own_ZN17QSslSocketPrivate4peekEx": [
       "address", "address", "long long"
     ],
-    "ritual_own_ZN17QSslSocketPrivate5flushEv": ["bool", "address"]
+    "ritual_own_ZN17QSslSocketPrivate5flushEv": ["bool", "address"],
+    "ritual_drop_QSslSocketPrivate__std_shared_ptr_QSslContext": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate22tlsEmittedBytesWrittenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate16readyReadPointerEv": [
+      "address", "address"
+    ]
   }
 }

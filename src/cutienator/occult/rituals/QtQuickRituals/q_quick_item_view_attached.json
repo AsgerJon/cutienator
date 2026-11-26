@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickItemViewAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickItemViewAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickItemViewAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickItemViewAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -42,6 +48,28 @@
     "ritual_ZN22QQuickItemViewAttached10emitRemoveEv": [
       "nothing", "address"
     ],
+    "ritual_ZN22QQuickItemViewAttached11viewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickItemViewAttached18currentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickItemViewAttached18delayRemoveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickItemViewAttached3addEv": ["nothing", "address"],
+    "ritual_ZN22QQuickItemViewAttached6removeEv": ["nothing", "address"],
+    "ritual_ZN22QQuickItemViewAttached14sectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickItemViewAttached18prevSectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickItemViewAttached18nextSectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickItemViewAttached6pooledEv": ["nothing", "address"],
+    "ritual_ZN22QQuickItemViewAttached6reusedEv": ["nothing", "address"],
     "ritual_take_QQuickItemViewAttached": [
       "bool", "address", "chars", "address"
     ]

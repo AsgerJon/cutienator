@@ -1,13 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qabstractseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qabstractseries.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  Only a class built on QAbstractSeries may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -238,6 +241,24 @@ const QMetaObject *ritual_ZNK15QAbstractSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QAbstractSeries11qt_metacastEPKc(
+    QAbstractSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QAbstractSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QAbstractSeries2trEPKcS1_i(
@@ -266,6 +287,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAbstractSeries22qt_qmlMarker_anonymousEv(
     QAbstractSeries *self) {
   self->qt_qmlMarker_anonymous();
+}
+
+//  QAbstractSeries::QAbstractSeries(QAbstractSeriesPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractSeries *ritual_ZN15QAbstractSeriesC1ER22QAbstractSeriesPrivateP7QObject(
+    QAbstractSeriesPrivate *dd,
+    QObject *parent) {
+  return new CuteQAbstractSeries(*dd, parent);
 }
 
 //  void QAbstractSeries::classBegin()
@@ -399,6 +429,13 @@ void ritual_ZN15QAbstractSeries4hideEv(QAbstractSeries *self) {
   self->hide();
 }
 
+//  QQmlListProperty<QObject> QAbstractSeries::seriesChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN15QAbstractSeries14seriesChildrenEv(
+    QAbstractSeries *self) {
+  return new QQmlListProperty<QObject>(self->seriesChildren());
+}
+
 //  bool QAbstractSeries::isHoverable() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QAbstractSeries11isHoverableEv(
@@ -478,6 +515,119 @@ void ritual_ZN15QAbstractSeries9setZValueEi(
   self->setZValue(newDrawOrder);
 }
 
+//  void QAbstractSeries::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries6updateEv(QAbstractSeries *self) {
+  self->update();
+}
+
+//  void QAbstractSeries::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries11nameChangedEv(QAbstractSeries *self) {
+  self->nameChanged();
+}
+
+//  void QAbstractSeries::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries14visibleChangedEv(QAbstractSeries *self) {
+  self->visibleChanged();
+}
+
+//  void QAbstractSeries::selectableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries17selectableChangedEv(QAbstractSeries *self) {
+  self->selectableChanged();
+}
+
+//  void QAbstractSeries::hoverableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries16hoverableChangedEv(QAbstractSeries *self) {
+  self->hoverableChanged();
+}
+
+//  void QAbstractSeries::opacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries14opacityChangedEv(QAbstractSeries *self) {
+  self->opacityChanged();
+}
+
+//  void QAbstractSeries::valuesMultiplierChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries23valuesMultiplierChangedEv(
+    QAbstractSeries *self) {
+  self->valuesMultiplierChanged();
+}
+
+//  void QAbstractSeries::legendDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries17legendDataChangedEv(QAbstractSeries *self) {
+  self->legendDataChanged();
+}
+
+//  void QAbstractSeries::hoverEnter(const QString &seriesName, QPointF
+//      position, QPointF value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries10hoverEnterERK7QString7QPointFS3_(
+    QAbstractSeries *self,
+    const QString *seriesName,
+    const QPointF *position,
+    const QPointF *value) {
+  self->hoverEnter(*seriesName, *position, *value);
+}
+
+//  void QAbstractSeries::hoverExit(const QString &seriesName, QPointF
+//      position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries9hoverExitERK7QString7QPointF(
+    QAbstractSeries *self,
+    const QString *seriesName,
+    const QPointF *position) {
+  self->hoverExit(*seriesName, *position);
+}
+
+//  void QAbstractSeries::hover(const QString &seriesName, QPointF position,
+//      QPointF value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries5hoverERK7QString7QPointFS3_(
+    QAbstractSeries *self,
+    const QString *seriesName,
+    const QPointF *position,
+    const QPointF *value) {
+  self->hover(*seriesName, *position, *value);
+}
+
+//  void QAbstractSeries::hoveredChanged(bool hovered)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries14hoveredChangedEb(
+    QAbstractSeries *self,
+    bool hovered) {
+  self->hoveredChanged(hovered);
+}
+
+//  void QAbstractSeries::axisXChanged(QAbstractAxis *newAxis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries12axisXChangedEP13QAbstractAxis(
+    QAbstractSeries *self,
+    QAbstractAxis *newAxis) {
+  self->axisXChanged(newAxis);
+}
+
+//  void QAbstractSeries::axisYChanged(QAbstractAxis *newAxis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries12axisYChangedEP13QAbstractAxis(
+    QAbstractSeries *self,
+    QAbstractAxis *newAxis) {
+  self->axisYChanged(newAxis);
+}
+
+//  void QAbstractSeries::zValueChanged(int z)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries13zValueChangedEi(
+    QAbstractSeries *self,
+    int z) {
+  self->zValueChanged(z);
+}
+
 //  QAbstractSeries as the QQmlParserStatus it is built on
 extern "C" Q_DECL_EXPORT
 QQmlParserStatus *ritual_cast_QAbstractSeries_QQmlParserStatus(
@@ -508,4 +658,11 @@ void ritual_own_ZN15QAbstractSeries17componentCompleteEv(
   static_cast<OwnQAbstractSeries *>(self)->OwnQAbstractSeries::componentComplete();
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+//  a QQmlListProperty<QObject> a ritual of QAbstractSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractSeries__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

@@ -5,14 +5,29 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN14QQmlJSImporter13ImportedTypesC1EON6QQmlJS15ContextualTypesEO5QListINS1_17DiagnosticMessageEE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN14QQmlJSImporter13ImportedTypesC1ERKS0_": [
       "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter13ImportedTypesC1EOS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter13ImportedTypesaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter13ImportedTypesaSEOS0_": [
+      "address", "address", "address"
     ],
     "ritual_ZN14QQmlJSImporter13ImportedTypesD1Ev": ["nothing", "address"],
     "ritual_ZN14QQmlJSImporter13ImportedTypes5clearEv": [
       "nothing", "address"
     ],
     "ritual_ZNK14QQmlJSImporter13ImportedTypes15contextualTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QQmlJSImporter13ImportedTypes8warningsEv": [
       "address", "address"
     ],
     "ritual_ZN14QQmlJSImporter13ImportedTypes22setCurrentFileSelectorERK7QString": [
@@ -24,8 +39,32 @@
     "ritual_ZNK14QQmlJSImporter13ImportedTypes7hasTypeERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZNK14QQmlJSImporter13ImportedTypes4typeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK14QQmlJSImporter13ImportedTypes4nameERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter13ImportedTypes7setTypeERK7QStringRKN6QQmlJS14ContextualTypeE": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZNK14QQmlJSImporter13ImportedTypes10isNullTypeERK7QString": [
       "bool", "address", "text"
+    ],
+    "ritual_ZNK14QQmlJSImporter13ImportedTypes5typesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QQmlJSImporter13ImportedTypes5namesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter13ImportedTypes3addEOS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter13ImportedTypes11addWarningsEO5QListIN6QQmlJS17DiagnosticMessageEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_QQmlJSImporter_ImportedTypes__QQmlJS_ImportedScope_QQmlJSScope_ConstPtr": [
+      "nothing", "address"
     ]
   }
 }

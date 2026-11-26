@@ -11,7 +11,9 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -46,6 +48,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/util/qcompleter.cpp, line 412, as _ZN17QCompletionEngine6filterERK5QListI7QStringE
 inline void QCompletionEngine::filter(const QStringList& parts)
@@ -255,6 +259,13 @@ public:
   }
 #endif  // QT_CONFIG(completer)
 };
+
+//  QCompletionEngine::QCompletionEngine(QCompleterPrivate *c)
+extern "C" Q_DECL_EXPORT
+QCompletionEngine *ritual_ZN17QCompletionEngineC1EP17QCompleterPrivate(
+    QCompleterPrivate *c) {
+  return new CuteQCompletionEngine(c);
+}
 
 //  QCompletionEngine::~QCompletionEngine()
 extern "C" Q_DECL_EXPORT

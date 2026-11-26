@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal15ZoomProxyWidgetC1EP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal15ZoomProxyWidget10itemChangeEN13QGraphicsItem18GraphicsItemChangeERK8QVariant": [
+      "address", "address", "int", "address"
+    ],
     "ritual_take_qdesigner_internal_ZoomProxyWidget": [
       "bool", "address", "chars", "address"
     ],

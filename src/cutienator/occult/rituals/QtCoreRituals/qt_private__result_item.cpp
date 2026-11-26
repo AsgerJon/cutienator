@@ -5,6 +5,21 @@
 #if QT_CONFIG(future)
 #include <QtCore/qresultstore.h>
 
+//  QtPrivate::ResultItem::ResultItem(const void *_result, int _count)
+extern "C" Q_DECL_EXPORT
+QtPrivate::ResultItem *ritual_ZN9QtPrivate10ResultItemC1EPKvi(
+    const void *_result,
+    int _count) {
+  return new QtPrivate::ResultItem(_result, _count);
+}
+
+//  QtPrivate::ResultItem::ResultItem(const void *_result)
+extern "C" Q_DECL_EXPORT
+QtPrivate::ResultItem *ritual_ZN9QtPrivate10ResultItemC1EPKv(
+    const void *_result) {
+  return new QtPrivate::ResultItem(_result);
+}
+
 //  QtPrivate::ResultItem::ResultItem()
 extern "C" Q_DECL_EXPORT
 QtPrivate::ResultItem *ritual_ZN9QtPrivate10ResultItemC1Ev() {

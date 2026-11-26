@@ -12,10 +12,10 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qdatetimeedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
+#include <QtCore/qdatetime.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qtimezone.h>
-#include <QtCore/qdatetime.h>
 #include <QtCore/qlocale.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -79,82 +79,96 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2626, as _ZN14QCalendarPopup12setDateRangeE5QDateS0_
-inline void QCalendarPopup::setDateRange(QDate min, QDate max)
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 25, as local:qdatetimeedit.cpp:QDTEDEBUG
+#if defined(QDATETIMEEDIT_QDTEDEBUG)
+#  define QDTEDEBUG qDebug() << QString::fromLatin1("%1:%2").arg(__FILE__).arg(__LINE__)
+#endif  // defined(QDATETIMEEDIT_QDTEDEBUG)
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2139, as _ZN20QDateTimeEditPrivate11emitSignalsE10EmitPolicyRK8QVariant
+inline void QDateTimeEditPrivate::emitSignals(EmitPolicy ep, const QVariant &old)
 {
-    QCalendarWidget *cw = verifyCalendarInstance();
-    cw->setMinimumDate(min);
-    cw->setMaximumDate(max);
+    Q_Q(QDateTimeEdit);
+    if (ep == NeverEmit) {
+        return;
+    }
+    pendingEmit = false;
+
+    const bool dodate = value.toDate().isValid() && (sections & DateSectionMask);
+    const bool datechanged = (ep == AlwaysEmit || old.toDate() != value.toDate());
+    const bool dotime = value.toTime().isValid() && (sections & TimeSectionMask);
+    const bool timechanged = (ep == AlwaysEmit || old.toTime() != value.toTime());
+
+    updateCache(value, displayText());
+
+    syncCalendarWidget();
+    if (datechanged || timechanged)
+        emit q->dateTimeChanged(value.toDateTime());
+    if (dodate && datechanged)
+        emit q->dateChanged(value.toDate());
+    if (dotime && timechanged)
+        emit q->timeChanged(value.toTime());
+
 }
 
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2620, as _ZN14QCalendarPopup7setDateE5QDate
-inline void QCalendarPopup::setDate(QDate date)
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2446, as _ZN20QDateTimeEditPrivate15newHoverControlERK6QPoint
+inline QStyle::SubControl QDateTimeEditPrivate::newHoverControl(const QPoint &pos)
 {
-    oldDate = date;
-    verifyCalendarInstance()->setSelectedDate(date);
-}
+    if (!calendarPopupEnabled())
+        return QAbstractSpinBoxPrivate::newHoverControl(pos);
 
-//  from src/widgets/widgets/qabstractspinbox.cpp, line 1397, as _ZN23QAbstractSpinBoxPrivate15newHoverControlERK6QPoint
-inline QStyle::SubControl QAbstractSpinBoxPrivate::newHoverControl(const QPoint &pos)
-{
-    Q_Q(QAbstractSpinBox);
+    Q_Q(QDateTimeEdit);
 
-    QStyleOptionSpinBox opt;
-    q->initStyleOption(&opt);
-    opt.subControls = QStyle::SC_All;
-    hoverControl = q->style()->hitTestComplexControl(QStyle::CC_SpinBox, &opt, pos, q);
-    hoverRect = q->style()->subControlRect(QStyle::CC_SpinBox, &opt, hoverControl, q);
+    QStyleOptionComboBox optCombo;
+    optCombo.initFrom(q);
+    optCombo.editable = true;
+    optCombo.subControls = QStyle::SC_All;
+    hoverControl = q->style()->hitTestComplexControl(QStyle::CC_ComboBox, &optCombo, pos, q);
     return hoverControl;
 }
 
-//  from src/widgets/widgets/qabstractspinbox.cpp, line 1442, as _ZN23QAbstractSpinBoxPrivate23updateEditFieldGeometryEv
-inline void QAbstractSpinBoxPrivate::updateEditFieldGeometry()
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2461, as _ZN20QDateTimeEditPrivate23updateEditFieldGeometryEv
+inline void QDateTimeEditPrivate::updateEditFieldGeometry()
 {
-    Q_Q(QAbstractSpinBox);
-    QStyleOptionSpinBox opt;
-    q->initStyleOption(&opt);
-    opt.subControls = QStyle::SC_SpinBoxEditField;
-    edit->setGeometry(q->style()->subControlRect(QStyle::CC_SpinBox, &opt,
-                                                 QStyle::SC_SpinBoxEditField, q));
-}
-
-//  from src/widgets/widgets/qabstractspinbox.cpp, line 1771, as _ZN23QAbstractSpinBoxPrivate8setRangeERK8QVariantS2_
-inline void QAbstractSpinBoxPrivate::setRange(const QVariant &min, const QVariant &max)
-{
-    Q_Q(QAbstractSpinBox);
-
-    clearCache();
-    minimum = min;
-    maximum = (variantCompare(min, max) < 0 ? max : min);
-    cachedSizeHint = QSize();
-    cachedMinimumSizeHint = QSize(); // minimumSizeHint cares about min/max
-
-    reset();
-    if (!(bound(value) == value)) {
-        setValue(bound(value), EmitIfChanged);
-    } else if (value == minimum && !specialValueText.isEmpty()) {
-        updateEdit();
+    if (!calendarPopupEnabled()) {
+        QAbstractSpinBoxPrivate::updateEditFieldGeometry();
+        return;
     }
 
-    q->updateGeometry();
+    Q_Q(QDateTimeEdit);
+
+    QStyleOptionComboBox optCombo;
+    optCombo.initFrom(q);
+    optCombo.editable = true;
+    optCombo.subControls = QStyle::SC_ComboBoxEditField;
+    edit->setGeometry(q->style()->subControlRect(QStyle::CC_ComboBox, &optCombo,
+                                                 QStyle::SC_ComboBoxEditField, q));
 }
 
-//  from src/widgets/widgets/qabstractspinbox.cpp, line 1709, as _ZN23QAbstractSpinBoxPrivate8setValueERK8QVariant10EmitPolicyb
-inline void QAbstractSpinBoxPrivate::setValue(const QVariant &val, EmitPolicy ep,
-                                       bool doUpdate)
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2484, as _ZN20QDateTimeEditPrivate8setRangeERK8QVariantS2_
+inline void QDateTimeEditPrivate::setRange(const QVariant &min, const QVariant &max)
 {
-    Q_Q(QAbstractSpinBox);
-    const QVariant old = value;
-    value = bound(val);
-    pendingEmit = false;
-    cleared = false;
-    if (doUpdate) {
-        updateEdit();
-    }
-    q->update();
+    QAbstractSpinBoxPrivate::setRange(min, max);
+    syncCalendarWidget();
+}
 
-    if (ep == AlwaysEmit || (ep == EmitIfChanged && old != value)) {
-        emitSignals(ep, old);
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2338, as _ZN20QDateTimeEditPrivate9interpretE10EmitPolicy
+inline void QDateTimeEditPrivate::interpret(EmitPolicy ep)
+{
+    Q_Q(QDateTimeEdit);
+    QString tmp = displayText();
+    int pos = edit->cursorPosition();
+    const QValidator::State state = q->validate(tmp, pos);
+    if (state != QValidator::Acceptable
+        && correctionMode == QAbstractSpinBox::CorrectToPreviousValue
+        && (state == QValidator::Invalid
+            || currentSectionIndex < 0
+            || !(fieldInfo(currentSectionIndex) & AllowPartial))) {
+        setValue(value, ep);
+        updateTimeZone();
+    } else {
+        QAbstractSpinBoxPrivate::interpret(ep);
     }
 }
 
@@ -171,81 +185,60 @@ inline QAbstractSpinBoxPrivate::~QAbstractSpinBoxPrivate()
 {
 }
 
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 1868, as _ZNK20QDateTimeEditPrivate20validateAndInterpretER7QStringRiRN10QValidator5StateEb
-inline QDateTime QDateTimeEditPrivate::validateAndInterpret(QString &input, int &position,
-                                                     QValidator::State &state, bool fixup) const
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2356, as _ZNK20QDateTimeEditPrivate10clearCacheEv
+inline void QDateTimeEditPrivate::clearCache() const
 {
-    if (input.isEmpty()) {
-        if (sectionNodes.size() == 1 || !specialValueText.isEmpty()) {
-            state = QValidator::Intermediate;
-        } else {
-            state = QValidator::Invalid;
-        }
-        return getZeroVariant().toDateTime();
-    } else if (cachedText == input && !fixup) {
-        state = cachedState;
-        return cachedValue.toDateTime();
-    } else if (!specialValueText.isEmpty()) {
-        bool changeCase = false;
-        const int max = qMin(specialValueText.size(), input.size());
-        int i;
-        for (i=0; i<max; ++i) {
-            const QChar ic = input.at(i);
-            const QChar sc = specialValueText.at(i);
-            if (ic != sc) {
-                if (sc.toLower() == ic.toLower()) {
-                    changeCase = true;
-                } else {
-                    break;
-                }
-            }
-        }
-        if (i == max) {
-            state = specialValueText.size() == input.size() ? QValidator::Acceptable : QValidator::Intermediate;
-            if (changeCase) {
-                input = specialValueText.left(max);
-            }
-            return minimum.toDateTime();
-        }
-    }
-
-    StateNode tmp = parse(input, position, value.toDateTime(), fixup);
-    // Take note of any corrections imposed during parsing:
-    input = m_text;
-    // TODO: if the format specifies time-zone, update timeZone to match the
-    // parsed text; but we're in const context, so can't - QTBUG-118393.
-    // Impose this widget's time system:
-    tmp.value = tmp.value.toTimeZone(timeZone);
-    // ... but that might turn a valid datetime into an invalid one:
-    if (!tmp.value.isValid() && tmp.state == Acceptable)
-        tmp.state = Intermediate;
-
-    position += tmp.padded;
-    state = QValidator::State(int(tmp.state));
-    if (state == QValidator::Acceptable) {
-        if (tmp.conflicts && conflictGuard != tmp.value) {
-            conflictGuard = tmp.value;
-            clearCache();
-            input = textFromValue(tmp.value);
-            updateCache(tmp.value, input);
-            conflictGuard.clear();
-        } else {
-            cachedText = input;
-            cachedState = state;
-            cachedValue = tmp.value;
-        }
-    } else {
-        clearCache();
-    }
-    return (tmp.value.isNull() ? getZeroVariant().toDateTime() : tmp.value);
+    QAbstractSpinBoxPrivate::clearCache();
+    cachedDay = -1;
 }
 
-//  from src/widgets/widgets/qabstractspinbox.cpp, line 1882, as _ZNK23QAbstractSpinBoxPrivate10clearCacheEv
-inline void QAbstractSpinBoxPrivate::clearCache() const
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 1688, as _ZNK20QDateTimeEditPrivate10getMaximumERK9QTimeZone
+inline QDateTime QDateTimeEditPrivate::getMaximum(const QTimeZone &zone) const
 {
-    cachedText.clear();
-    cachedValue.clear();
-    cachedState = QValidator::Acceptable;
+    if (keyboardTracking)
+        return maximum.toDateTime().toTimeZone(zone);
+
+    // QDTP's max is the local-time end of QDATETIMEEDIT_DATE_MAX, cached
+    // (along with its conversion to UTC).
+    if (timeZone.timeSpec() == Qt::LocalTime)
+        return QDateTimeParser::getMaximum(zone);
+
+    return QDATETIMEEDIT_DATE_MAX.endOfDay(timeZone).toTimeZone(zone);
+}
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 1675, as _ZNK20QDateTimeEditPrivate10getMinimumERK9QTimeZone
+inline QDateTime QDateTimeEditPrivate::getMinimum(const QTimeZone &zone) const
+{
+    if (keyboardTracking)
+        return minimum.toDateTime().toTimeZone(zone);
+
+    // QDTP's min is the local-time start of QDATETIMEEDIT_DATE_MIN, cached
+    // (along with its conversion to UTC).
+    if (timeZone.timeSpec() == Qt::LocalTime)
+        return QDateTimeParser::getMinimum(zone);
+
+    return QDATETIMEEDIT_DATE_MIN.startOfDay(timeZone).toTimeZone(zone);
+}
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 1941, as _ZNK20QDateTimeEditPrivate13textFromValueERK8QVariant
+inline QString QDateTimeEditPrivate::textFromValue(const QVariant &f) const
+{
+    Q_Q(const QDateTimeEdit);
+    return q->textFromDateTime(f.toDateTime());
+}
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 1954, as _ZNK20QDateTimeEditPrivate13valueFromTextERK7QString
+inline QVariant QDateTimeEditPrivate::valueFromText(const QString &f) const
+{
+    Q_Q(const QDateTimeEdit);
+    return q->dateTimeFromText(f).toTimeZone(timeZone);
+}
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2478, as _ZNK20QDateTimeEditPrivate14getZeroVariantEv
+inline QVariant QDateTimeEditPrivate::getZeroVariant() const
+{
+    Q_ASSERT(type == QMetaType::QDateTime);
+    return QDATETIMEEDIT_DATE_INITIAL.startOfDay(timeZone);
 }
 
 //  from src/widgets/widgets/qabstractspinbox.cpp, line 1727, as _ZNK23QAbstractSpinBoxPrivate10roundValueERK8QVariant
@@ -298,6 +291,56 @@ inline bool QAbstractSpinBoxPrivate::specialValue() const
     return (value == minimum && !specialValueText.isEmpty());
 }
 
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2626, as _ZN14QCalendarPopup12setDateRangeE5QDateS0_
+inline void QCalendarPopup::setDateRange(QDate min, QDate max)
+{
+    QCalendarWidget *cw = verifyCalendarInstance();
+    cw->setMinimumDate(min);
+    cw->setMaximumDate(max);
+}
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2620, as _ZN14QCalendarPopup7setDateE5QDate
+inline void QCalendarPopup::setDate(QDate date)
+{
+    oldDate = date;
+    verifyCalendarInstance()->setSelectedDate(date);
+}
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2599, as _ZN14QCalendarPopup17setCalendarWidgetEP15QCalendarWidget
+inline void QCalendarPopup::setCalendarWidget(QCalendarWidget *cw)
+{
+    Q_ASSERT(cw);
+    QVBoxLayout *widgetLayout = qobject_cast<QVBoxLayout*>(layout());
+    if (!widgetLayout) {
+        widgetLayout = new QVBoxLayout(this);
+        widgetLayout->setContentsMargins(QMargins());
+        widgetLayout->setSpacing(0);
+    }
+    delete calendar.data();
+    calendar = QPointer<QCalendarWidget>(cw);
+    widgetLayout->addWidget(cw);
+
+    connect(cw, SIGNAL(activated(QDate)), this, SLOT(dateSelected(QDate)));
+    connect(cw, SIGNAL(clicked(QDate)), this, SLOT(dateSelected(QDate)));
+    connect(cw, SIGNAL(selectionChanged()), this, SLOT(dateSelectionChanged()));
+
+    cw->setFocus();
+}
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2573, as _ZN14QCalendarPopupC1EP7QWidgetP15QCalendarWidget9QCalendar
+inline QCalendarPopup::QCalendarPopup(QWidget *parent, QCalendarWidget *cw, QCalendar ca)
+    : QWidget(parent, Qt::Popup), calendarSystem(ca)
+{
+    setAttribute(Qt::WA_WindowPropagation);
+
+    dateChanged = false;
+    if (!cw) {
+        verifyCalendarInstance();
+    } else {
+        setCalendarWidget(cw);
+    }
+}
+
 //  from src/widgets/widgets/qdatetimeedit.cpp, line 2586, as _ZN14QCalendarPopup22verifyCalendarInstanceEv
 inline QCalendarWidget *QCalendarPopup::verifyCalendarInstance()
 {
@@ -310,6 +353,78 @@ inline QCalendarWidget *QCalendarPopup::verifyCalendarInstance()
     } else {
         return calendar.data();
     }
+}
+
+//  from src/widgets/widgets/qabstractspinbox.cpp, line 1709, as _ZN23QAbstractSpinBoxPrivate8setValueERK8QVariant10EmitPolicyb
+inline void QAbstractSpinBoxPrivate::setValue(const QVariant &val, EmitPolicy ep,
+                                       bool doUpdate)
+{
+    Q_Q(QAbstractSpinBox);
+    const QVariant old = value;
+    value = bound(val);
+    pendingEmit = false;
+    cleared = false;
+    if (doUpdate) {
+        updateEdit();
+    }
+    q->update();
+
+    if (ep == AlwaysEmit || (ep == EmitIfChanged && old != value)) {
+        emitSignals(ep, old);
+    }
+}
+
+//  from src/widgets/widgets/qabstractspinbox.cpp, line 1882, as _ZNK23QAbstractSpinBoxPrivate10clearCacheEv
+inline void QAbstractSpinBoxPrivate::clearCache() const
+{
+    cachedText.clear();
+    cachedValue.clear();
+    cachedState = QValidator::Acceptable;
+}
+
+//  from src/widgets/widgets/qabstractspinbox.cpp, line 1397, as _ZN23QAbstractSpinBoxPrivate15newHoverControlERK6QPoint
+inline QStyle::SubControl QAbstractSpinBoxPrivate::newHoverControl(const QPoint &pos)
+{
+    Q_Q(QAbstractSpinBox);
+
+    QStyleOptionSpinBox opt;
+    q->initStyleOption(&opt);
+    opt.subControls = QStyle::SC_All;
+    hoverControl = q->style()->hitTestComplexControl(QStyle::CC_SpinBox, &opt, pos, q);
+    hoverRect = q->style()->subControlRect(QStyle::CC_SpinBox, &opt, hoverControl, q);
+    return hoverControl;
+}
+
+//  from src/widgets/widgets/qabstractspinbox.cpp, line 1442, as _ZN23QAbstractSpinBoxPrivate23updateEditFieldGeometryEv
+inline void QAbstractSpinBoxPrivate::updateEditFieldGeometry()
+{
+    Q_Q(QAbstractSpinBox);
+    QStyleOptionSpinBox opt;
+    q->initStyleOption(&opt);
+    opt.subControls = QStyle::SC_SpinBoxEditField;
+    edit->setGeometry(q->style()->subControlRect(QStyle::CC_SpinBox, &opt,
+                                                 QStyle::SC_SpinBoxEditField, q));
+}
+
+//  from src/widgets/widgets/qabstractspinbox.cpp, line 1771, as _ZN23QAbstractSpinBoxPrivate8setRangeERK8QVariantS2_
+inline void QAbstractSpinBoxPrivate::setRange(const QVariant &min, const QVariant &max)
+{
+    Q_Q(QAbstractSpinBox);
+
+    clearCache();
+    minimum = min;
+    maximum = (variantCompare(min, max) < 0 ? max : min);
+    cachedSizeHint = QSize();
+    cachedMinimumSizeHint = QSize(); // minimumSizeHint cares about min/max
+
+    reset();
+    if (!(bound(value) == value)) {
+        setValue(bound(value), EmitIfChanged);
+    } else if (value == minimum && !specialValueText.isEmpty()) {
+        updateEdit();
+    }
+
+    q->updateGeometry();
 }
 
 //  from src/widgets/widgets/qabstractspinbox.cpp, line 2080, as _ZN23QAbstractSpinBoxPrivate14variantCompareERK8QVariantS2_
@@ -391,25 +506,39 @@ inline void QAbstractSpinBoxPrivate::reset()
     }
 }
 
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2599, as _ZN14QCalendarPopup17setCalendarWidgetEP15QCalendarWidget
-inline void QCalendarPopup::setCalendarWidget(QCalendarWidget *cw)
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2386, as _ZN20QDateTimeEditPrivate4initERK8QVariant
+inline void QDateTimeEditPrivate::init(const QVariant &var)
 {
-    Q_ASSERT(cw);
-    QVBoxLayout *widgetLayout = qobject_cast<QVBoxLayout*>(layout());
-    if (!widgetLayout) {
-        widgetLayout = new QVBoxLayout(this);
-        widgetLayout->setContentsMargins(QMargins());
-        widgetLayout->setSpacing(0);
+    Q_Q(QDateTimeEdit);
+    defaultCenturyStart = QDATETIMEEDIT_DATE_INITIAL.year();
+    switch (var.userType()) {
+    case QMetaType::QDate:
+        value = var.toDate().startOfDay(timeZone);
+        updateTimeZone();
+        q->setDisplayFormat(defaultDateFormat);
+        if (sectionNodes.isEmpty()) // ### safeguard for broken locale
+            q->setDisplayFormat("dd/MM/yyyy"_L1);
+        break;
+    case QMetaType::QDateTime:
+        value = var;
+        updateTimeZone();
+        q->setDisplayFormat(defaultDateTimeFormat);
+        if (sectionNodes.isEmpty()) // ### safeguard for broken locale
+            q->setDisplayFormat("dd/MM/yyyy hh:mm:ss"_L1);
+        break;
+    case QMetaType::QTime:
+        value = dateTimeValue(QDATETIMEEDIT_DATE_INITIAL, var.toTime());
+        updateTimeZone();
+        q->setDisplayFormat(defaultTimeFormat);
+        if (sectionNodes.isEmpty()) // ### safeguard for broken locale
+            q->setDisplayFormat("hh:mm:ss"_L1);
+        break;
+    default:
+        Q_ASSERT_X(0, "QDateTimeEditPrivate::init", "Internal error");
+        break;
     }
-    delete calendar.data();
-    calendar = QPointer<QCalendarWidget>(cw);
-    widgetLayout->addWidget(cw);
-
-    connect(cw, SIGNAL(activated(QDate)), this, SLOT(dateSelected(QDate)));
-    connect(cw, SIGNAL(clicked(QDate)), this, SLOT(dateSelected(QDate)));
-    connect(cw, SIGNAL(selectionChanged()), this, SLOT(dateSelectionChanged()));
-
-    cw->setFocus();
+    q->setInputMethodHints(Qt::ImhPreferNumbers);
+    setLayoutItemMargins(QStyle::SE_DateTimeEditLayoutItem);
 }
 
 //  from src/widgets/widgets/qdatetimeedit.cpp, line 2239, as _ZN20QDateTimeEditPrivate18readLocaleSettingsEv
@@ -421,146 +550,73 @@ inline void QDateTimeEditPrivate::readLocaleSettings()
     defaultDateTimeFormat = loc.dateTimeFormat(QLocale::ShortFormat);
 }
 
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2139, as _ZN20QDateTimeEditPrivate11emitSignalsE10EmitPolicyRK8QVariant
-inline void QDateTimeEditPrivate::emitSignals(EmitPolicy ep, const QVariant &old)
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 1868, as _ZNK20QDateTimeEditPrivate20validateAndInterpretER7QStringRiRN10QValidator5StateEb
+inline QDateTime QDateTimeEditPrivate::validateAndInterpret(QString &input, int &position,
+                                                     QValidator::State &state, bool fixup) const
 {
-    Q_Q(QDateTimeEdit);
-    if (ep == NeverEmit) {
-        return;
+    if (input.isEmpty()) {
+        if (sectionNodes.size() == 1 || !specialValueText.isEmpty()) {
+            state = QValidator::Intermediate;
+        } else {
+            state = QValidator::Invalid;
+        }
+        return getZeroVariant().toDateTime();
+    } else if (cachedText == input && !fixup) {
+        state = cachedState;
+        return cachedValue.toDateTime();
+    } else if (!specialValueText.isEmpty()) {
+        bool changeCase = false;
+        const int max = qMin(specialValueText.size(), input.size());
+        int i;
+        for (i=0; i<max; ++i) {
+            const QChar ic = input.at(i);
+            const QChar sc = specialValueText.at(i);
+            if (ic != sc) {
+                if (sc.toLower() == ic.toLower()) {
+                    changeCase = true;
+                } else {
+                    break;
+                }
+            }
+        }
+        if (i == max) {
+            state = specialValueText.size() == input.size() ? QValidator::Acceptable : QValidator::Intermediate;
+            if (changeCase) {
+                input = specialValueText.left(max);
+            }
+            return minimum.toDateTime();
+        }
     }
-    pendingEmit = false;
 
-    const bool dodate = value.toDate().isValid() && (sections & DateSectionMask);
-    const bool datechanged = (ep == AlwaysEmit || old.toDate() != value.toDate());
-    const bool dotime = value.toTime().isValid() && (sections & TimeSectionMask);
-    const bool timechanged = (ep == AlwaysEmit || old.toTime() != value.toTime());
+    StateNode tmp = parse(input, position, value.toDateTime(), fixup);
+    // Take note of any corrections imposed during parsing:
+    input = m_text;
+    // TODO: if the format specifies time-zone, update timeZone to match the
+    // parsed text; but we're in const context, so can't - QTBUG-118393.
+    // Impose this widget's time system:
+    tmp.value = tmp.value.toTimeZone(timeZone);
+    // ... but that might turn a valid datetime into an invalid one:
+    if (!tmp.value.isValid() && tmp.state == Acceptable)
+        tmp.state = Intermediate;
 
-    updateCache(value, displayText());
-
-    syncCalendarWidget();
-    if (datechanged || timechanged)
-        emit q->dateTimeChanged(value.toDateTime());
-    if (dodate && datechanged)
-        emit q->dateChanged(value.toDate());
-    if (dotime && timechanged)
-        emit q->timeChanged(value.toTime());
-
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 1941, as _ZNK20QDateTimeEditPrivate13textFromValueERK8QVariant
-inline QString QDateTimeEditPrivate::textFromValue(const QVariant &f) const
-{
-    Q_Q(const QDateTimeEdit);
-    return q->textFromDateTime(f.toDateTime());
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 1954, as _ZNK20QDateTimeEditPrivate13valueFromTextERK7QString
-inline QVariant QDateTimeEditPrivate::valueFromText(const QString &f) const
-{
-    Q_Q(const QDateTimeEdit);
-    return q->dateTimeFromText(f).toTimeZone(timeZone);
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2338, as _ZN20QDateTimeEditPrivate9interpretE10EmitPolicy
-inline void QDateTimeEditPrivate::interpret(EmitPolicy ep)
-{
-    Q_Q(QDateTimeEdit);
-    QString tmp = displayText();
-    int pos = edit->cursorPosition();
-    const QValidator::State state = q->validate(tmp, pos);
-    if (state != QValidator::Acceptable
-        && correctionMode == QAbstractSpinBox::CorrectToPreviousValue
-        && (state == QValidator::Invalid
-            || currentSectionIndex < 0
-            || !(fieldInfo(currentSectionIndex) & AllowPartial))) {
-        setValue(value, ep);
-        updateTimeZone();
+    position += tmp.padded;
+    state = QValidator::State(int(tmp.state));
+    if (state == QValidator::Acceptable) {
+        if (tmp.conflicts && conflictGuard != tmp.value) {
+            conflictGuard = tmp.value;
+            clearCache();
+            input = textFromValue(tmp.value);
+            updateCache(tmp.value, input);
+            conflictGuard.clear();
+        } else {
+            cachedText = input;
+            cachedState = state;
+            cachedValue = tmp.value;
+        }
     } else {
-        QAbstractSpinBoxPrivate::interpret(ep);
+        clearCache();
     }
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2356, as _ZNK20QDateTimeEditPrivate10clearCacheEv
-inline void QDateTimeEditPrivate::clearCache() const
-{
-    QAbstractSpinBoxPrivate::clearCache();
-    cachedDay = -1;
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2446, as _ZN20QDateTimeEditPrivate15newHoverControlERK6QPoint
-inline QStyle::SubControl QDateTimeEditPrivate::newHoverControl(const QPoint &pos)
-{
-    if (!calendarPopupEnabled())
-        return QAbstractSpinBoxPrivate::newHoverControl(pos);
-
-    Q_Q(QDateTimeEdit);
-
-    QStyleOptionComboBox optCombo;
-    optCombo.initFrom(q);
-    optCombo.editable = true;
-    optCombo.subControls = QStyle::SC_All;
-    hoverControl = q->style()->hitTestComplexControl(QStyle::CC_ComboBox, &optCombo, pos, q);
-    return hoverControl;
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2461, as _ZN20QDateTimeEditPrivate23updateEditFieldGeometryEv
-inline void QDateTimeEditPrivate::updateEditFieldGeometry()
-{
-    if (!calendarPopupEnabled()) {
-        QAbstractSpinBoxPrivate::updateEditFieldGeometry();
-        return;
-    }
-
-    Q_Q(QDateTimeEdit);
-
-    QStyleOptionComboBox optCombo;
-    optCombo.initFrom(q);
-    optCombo.editable = true;
-    optCombo.subControls = QStyle::SC_ComboBoxEditField;
-    edit->setGeometry(q->style()->subControlRect(QStyle::CC_ComboBox, &optCombo,
-                                                 QStyle::SC_ComboBoxEditField, q));
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2478, as _ZNK20QDateTimeEditPrivate14getZeroVariantEv
-inline QVariant QDateTimeEditPrivate::getZeroVariant() const
-{
-    Q_ASSERT(type == QMetaType::QDateTime);
-    return QDATETIMEEDIT_DATE_INITIAL.startOfDay(timeZone);
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 2484, as _ZN20QDateTimeEditPrivate8setRangeERK8QVariantS2_
-inline void QDateTimeEditPrivate::setRange(const QVariant &min, const QVariant &max)
-{
-    QAbstractSpinBoxPrivate::setRange(min, max);
-    syncCalendarWidget();
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 1675, as _ZNK20QDateTimeEditPrivate10getMinimumERK9QTimeZone
-inline QDateTime QDateTimeEditPrivate::getMinimum(const QTimeZone &zone) const
-{
-    if (keyboardTracking)
-        return minimum.toDateTime().toTimeZone(zone);
-
-    // QDTP's min is the local-time start of QDATETIMEEDIT_DATE_MIN, cached
-    // (along with its conversion to UTC).
-    if (timeZone.timeSpec() == Qt::LocalTime)
-        return QDateTimeParser::getMinimum(zone);
-
-    return QDATETIMEEDIT_DATE_MIN.startOfDay(timeZone).toTimeZone(zone);
-}
-
-//  from src/widgets/widgets/qdatetimeedit.cpp, line 1688, as _ZNK20QDateTimeEditPrivate10getMaximumERK9QTimeZone
-inline QDateTime QDateTimeEditPrivate::getMaximum(const QTimeZone &zone) const
-{
-    if (keyboardTracking)
-        return maximum.toDateTime().toTimeZone(zone);
-
-    // QDTP's max is the local-time end of QDATETIMEEDIT_DATE_MAX, cached
-    // (along with its conversion to UTC).
-    if (timeZone.timeSpec() == Qt::LocalTime)
-        return QDateTimeParser::getMaximum(zone);
-
-    return QDATETIMEEDIT_DATE_MAX.endOfDay(timeZone).toTimeZone(zone);
+    return (tmp.value.isNull() ? getZeroVariant().toDateTime() : tmp.value);
 }
 
 //  from src/widgets/widgets/qdatetimeedit.cpp, line 2323, as _ZNK20QDateTimeEditPrivate13absoluteIndexEN13QDateTimeEdit7SectionEi
@@ -1777,11 +1833,36 @@ const QDateTimeEdit *ritual_ZNK20QDateTimeEditPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  void QDateTimeEditPrivate::init(const QVariant &var)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDateTimeEditPrivate4initERK8QVariant(
+    QDateTimeEditPrivate *self,
+    const QVariant *var) {
+  self->init(*var);
+}
+
 //  void QDateTimeEditPrivate::readLocaleSettings()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QDateTimeEditPrivate18readLocaleSettingsEv(
     QDateTimeEditPrivate *self) {
   self->readLocaleSettings();
+}
+
+//  QDateTime QDateTimeEditPrivate::validateAndInterpret(QString &input, int
+//      &a1, QValidator::State &state, bool fixup) const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK20QDateTimeEditPrivate20validateAndInterpretER7QStringRiRN10QValidator5StateEb(
+    const QDateTimeEditPrivate *self,
+    QString *input,
+    int *a1,
+    QValidator::State *state,
+    bool fixup) {
+  return new QDateTime(
+      self->validateAndInterpret(
+          *input,
+          *a1,
+          *state,
+          fixup));
 }
 
 //  void QDateTimeEditPrivate::emitSignals(EmitPolicy ep, const QVariant
@@ -1808,6 +1889,16 @@ QVariant *ritual_ZNK20QDateTimeEditPrivate13valueFromTextERK7QString(
     const QDateTimeEditPrivate *self,
     const QString *f) {
   return new QVariant(self->valueFromText(*f));
+}
+
+//  void QDateTimeEditPrivate::editorCursorPositionChanged(int oldpos, int
+//      newpos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDateTimeEditPrivate27editorCursorPositionChangedEii(
+    QDateTimeEditPrivate *self,
+    int oldpos,
+    int newpos) {
+  self->editorCursorPositionChanged(oldpos, newpos);
 }
 
 //  void QDateTimeEditPrivate::interpret(EmitPolicy ep)
@@ -1856,6 +1947,13 @@ void ritual_ZN20QDateTimeEditPrivate8setRangeERK8QVariantS2_(
     const QVariant *min,
     const QVariant *max) {
   self->setRange(*min, *max);
+}
+
+//  void QDateTimeEditPrivate::updateEdit()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDateTimeEditPrivate10updateEditEv(
+    QDateTimeEditPrivate *self) {
+  self->updateEdit();
 }
 
 //  QString QDateTimeEditPrivate::displayText() const

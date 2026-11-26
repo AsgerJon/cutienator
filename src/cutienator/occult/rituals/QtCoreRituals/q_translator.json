@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QTranslator10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QTranslator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QTranslator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QTranslator2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QTranslatorC1EP7QObject": ["address", "address"],
     "ritual_ZN11QTranslatorD1Ev": ["nothing", "address"],
@@ -20,6 +26,11 @@
     "ritual_ZN11QTranslator4loadERK7QLocaleRK7QStringS5_S5_S5_": [
       "bool", "address", "address", "text", "text", "text", "text"
     ],
+    "ritual_ZN11QTranslator4loadEPKhiRK7QString": [
+      "bool", "address", "address", "int", "text"
+    ],
+    "ritual_ZN11QTranslator6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QTranslator6d_funcEv": ["address", "address"],
     "ritual_take_QTranslator": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QTranslator7isEmptyEv": ["bool", "address"]
   }

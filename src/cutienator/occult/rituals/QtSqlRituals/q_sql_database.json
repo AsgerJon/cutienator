@@ -7,6 +7,7 @@
     "ritual_ZN12QSqlDatabaseC1Ev": ["address"],
     "ritual_ZN12QSqlDatabaseC1ERKS_": ["address", "address"],
     "ritual_ZN12QSqlDatabaseD1Ev": ["nothing", "address"],
+    "ritual_ZN12QSqlDatabaseaSERKS_": ["address", "address", "address"],
     "ritual_ZN12QSqlDatabase4openEv": ["bool", "address"],
     "ritual_ZN12QSqlDatabase4openERK7QStringS2_": [
       "bool", "address", "text", "text"

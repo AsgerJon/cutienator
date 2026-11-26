@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender20QDebugOverlayPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender20QDebugOverlayPrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender20QDebugOverlayPrivate6q_funcEv": [
       "address", "address"
     ],

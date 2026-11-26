@@ -8,11 +8,26 @@
     "ritual_ZNK8Qt3DCore5Quick15Quick3DGeometry10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore5Quick15Quick3DGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore5Quick15Quick3DGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore5Quick15Quick3DGeometry2trEPKcS3_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore5Quick15Quick3DGeometryC1EP7QObject": [
+      "address", "address"
+    ],
     "ritual_ZNK8Qt3DCore5Quick15Quick3DGeometry14parentGeometryEv": [
       "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick15Quick3DGeometry13attributeListEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DCore_Quick_Quick3DGeometry__QQmlListProperty_Qt3DCore_QAttribute": [
+      "nothing", "address"
     ]
   }
 }

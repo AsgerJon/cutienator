@@ -11,8 +11,10 @@
 #include <QtCore/6.12.0/QtCore/private/qmimeprovider_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QString>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/private/qmimeprovider_p.h>
 #include <QtCore/private/qmimetypeparser_p.h>
@@ -43,6 +45,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/corelib/mimetypes/qmimeprovider.cpp, line 252, as _ZNK17QMimeProviderBase16overrideProviderEv
 inline QMimeProviderBase *QMimeProviderBase::overrideProvider() const
@@ -296,12 +300,69 @@ bool ritual_ZN17QMimeProviderBase13knowsMimeTypeERK7QString(
   return self->knowsMimeType(*name);
 }
 
+//  void QMimeProviderBase::addFileNameMatches(const QString &fileName,
+//      QMimeGlobMatchResult &result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMimeProviderBase18addFileNameMatchesERK7QStringR20QMimeGlobMatchResult(
+    QMimeProviderBase *self,
+    const QString *fileName,
+    QMimeGlobMatchResult *result) {
+  self->addFileNameMatches(*fileName, *result);
+}
+
+//  void QMimeProviderBase::addParents(const QString &mime, QStringList
+//      &result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMimeProviderBase10addParentsERK7QStringR5QListIS0_E(
+    QMimeProviderBase *self,
+    const QString *mime,
+    QStringList *result) {
+  self->addParents(*mime, *result);
+}
+
 //  QString QMimeProviderBase::resolveAlias(const QString &name)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QMimeProviderBase12resolveAliasERK7QString(
     QMimeProviderBase *self,
     const QString *name) {
   return new QString(self->resolveAlias(*name));
+}
+
+//  void QMimeProviderBase::addAliases(const QString &name, QStringList
+//      &result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMimeProviderBase10addAliasesERK7QStringR5QListIS0_E(
+    QMimeProviderBase *self,
+    const QString *name,
+    QStringList *result) {
+  self->addAliases(*name, *result);
+}
+
+//  void QMimeProviderBase::findByMagic(const QByteArray &data,
+//      QMimeMagicResult &result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMimeProviderBase11findByMagicERK10QByteArrayR16QMimeMagicResult(
+    QMimeProviderBase *self,
+    const QByteArray *data,
+    QMimeMagicResult *result) {
+  self->findByMagic(*data, *result);
+}
+
+//  void QMimeProviderBase::addAllMimeTypes(QList<QMimeType> &result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QMimeProviderBase15addAllMimeTypesER5QListI9QMimeTypeE(
+    QMimeProviderBase *self,
+    QList<QMimeType> *result) {
+  self->addAllMimeTypes(*result);
+}
+
+//  QMimeTypePrivate::LocaleHash QMimeProviderBase::localeComments(const
+//      QString &name)
+extern "C" Q_DECL_EXPORT
+QMimeTypePrivate::LocaleHash *ritual_ZN17QMimeProviderBase14localeCommentsERK7QString(
+    QMimeProviderBase *self,
+    const QString *name) {
+  return new QMimeTypePrivate::LocaleHash(self->localeComments(*name));
 }
 
 //  bool QMimeProviderBase::hasGlobDeleteAll(const QString &name)
@@ -388,6 +449,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QMimeProviderBase12ensureLoadedEv(
     QMimeProviderBase *self) {
   self->QMimeProviderBase::ensureLoaded();
+}
+
+//  a QMimeTypePrivate::LocaleHash a ritual of QMimeProviderBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMimeProviderBase__QMimeTypePrivate_LocaleHash(
+    QMimeTypePrivate::LocaleHash *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(mimetype)

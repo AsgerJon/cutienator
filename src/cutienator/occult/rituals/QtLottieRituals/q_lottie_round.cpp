@@ -35,7 +35,7 @@ typedef const QSize * (*CuteQLottieRoundCall11)(const void *, int *);
 class CuteQLottieRound : public QLottieRound {
 public:
   using QLottieRound::QLottieRound;
-  CuteQLottieRound(const QLottieRound &other) : QLottieRound(other) {}
+  CuteQLottieRound(const QLottieRound & other) : QLottieRound(other) {}
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {
@@ -258,6 +258,14 @@ void ritual_ZN12QLottieRound16updatePropertiesEi(
     QLottieRound *self,
     int frame) {
   self->updateProperties(frame);
+}
+
+//  void QLottieRound::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QLottieRound6renderER15QLottieRenderer(
+    const QLottieRound *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
 }
 
 //  bool QLottieRound::acceptsTrim() const

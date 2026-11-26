@@ -800,6 +800,25 @@ const QMetaObject *ritual_ZNK21QQuickWindowContainer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWindowContainer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickWindowContainer11qt_metacastEPKc(
+    QQuickWindowContainer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWindowContainer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickWindowContainer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWindowContainer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWindowContainer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickWindowContainer2trEPKcS1_i(
@@ -837,6 +856,14 @@ void ritual_ZN21QQuickWindowContainer18setContainedWindowEP7QWindow(
     QQuickWindowContainer *self,
     QWindow *window) {
   self->setContainedWindow(window);
+}
+
+//  void QQuickWindowContainer::containedWindowChanged(QWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickWindowContainer22containedWindowChangedEP7QWindow(
+    QQuickWindowContainer *self,
+    QWindow *window) {
+  self->containedWindowChanged(window);
 }
 
 //  void QQuickWindowContainer::classBegin()
@@ -909,6 +936,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickWindowContainer16releaseResourcesEv(
     QQuickWindowContainer *self) {
   self->releaseResources();
+}
+
+//  QQuickWindowContainerPrivate *QQuickWindowContainer::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickWindowContainerPrivate *ritual_ZN21QQuickWindowContainer6d_funcEv(
+    QQuickWindowContainer *self) {
+  return self->d_func();
+}
+
+//  const QQuickWindowContainerPrivate *QQuickWindowContainer::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickWindowContainerPrivate *ritual_ZNK21QQuickWindowContainer6d_funcEv(
+    const QQuickWindowContainer *self) {
+  return self->d_func();
 }
 
 //  void QQuickWindowContainer::initializeContainedWindow()

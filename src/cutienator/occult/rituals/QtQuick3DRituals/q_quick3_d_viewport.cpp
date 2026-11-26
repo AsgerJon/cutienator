@@ -25,10 +25,20 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrenderpickresult.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qeventpoint.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
+#include <QtQuick3D/QQuick3DObject>
+#include <QtCore/QPair>
+#include <QtQuick/QQuickItem>
+#include <QtCore/QPointF>
+#include <QtCore/QVarLengthArray>
+#include <QtGui/QVector3D>
+#include <QtGui/QEventPoint>
 
 //  Only a class built on QQuick3DViewport may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -810,6 +820,25 @@ const QMetaObject *ritual_ZNK16QQuick3DViewport10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DViewport::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuick3DViewport11qt_metacastEPKc(
+    QQuick3DViewport *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DViewport::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuick3DViewport11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DViewport *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DViewport::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuick3DViewport2trEPKcS1_i(
@@ -830,6 +859,13 @@ QQuick3DViewport *ritual_ZN16QQuick3DViewportC1EP10QQuickItem(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuick3DViewportD1Ev(QQuick3DViewport *self) {
   delete self;
+}
+
+//  QQmlListProperty<QObject> QQuick3DViewport::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN16QQuick3DViewport4dataEv(
+    QQuick3DViewport *self) {
+  return new QQmlListProperty<QObject>(self->data());
 }
 
 //  QQuick3DCamera *QQuick3DViewport::camera() const
@@ -1088,6 +1124,13 @@ void ritual_ZN16QQuick3DViewport15denoiseLightmapEv(QQuick3DViewport *self) {
   self->denoiseLightmap();
 }
 
+//  QQmlListProperty<QQuick3DObject> QQuick3DViewport::extensions()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DObject> *ritual_ZN16QQuick3DViewport10extensionsEv(
+    QQuick3DViewport *self) {
+  return new QQmlListProperty<QQuick3DObject>(self->extensions());
+}
+
 //  int QQuick3DViewport::explicitTextureWidth() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK16QQuick3DViewport20explicitTextureWidthEv(
@@ -1151,6 +1194,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QQuick3DViewport16isXrViewInstanceEv(
     const QQuick3DViewport *self) {
   return self->isXrViewInstance();
+}
+
+//  void QQuick3DViewport::updateCameraForLayer(const QQuick3DViewport
+//      &view3D, QSSGRenderLayer &layerNode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport20updateCameraForLayerERKS_R15QSSGRenderLayer(
+    const QQuick3DViewport *view3D,
+    QSSGRenderLayer *layerNode) {
+  QQuick3DViewport::updateCameraForLayer(*view3D, *layerNode);
 }
 
 //  RenderOverrides QQuick3DViewport::renderOverrides() const
@@ -1312,6 +1364,84 @@ void ritual_ZN16QQuick3DViewport24onReleaseCachedResourcesEv(
   self->onReleaseCachedResources();
 }
 
+//  void QQuick3DViewport::cameraChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport13cameraChangedEv(QQuick3DViewport *self) {
+  self->cameraChanged();
+}
+
+//  void QQuick3DViewport::environmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport18environmentChangedEv(
+    QQuick3DViewport *self) {
+  self->environmentChanged();
+}
+
+//  void QQuick3DViewport::sceneChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport12sceneChangedEv(QQuick3DViewport *self) {
+  self->sceneChanged();
+}
+
+//  void QQuick3DViewport::importSceneChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport18importSceneChangedEv(
+    QQuick3DViewport *self) {
+  self->importSceneChanged();
+}
+
+//  void QQuick3DViewport::renderModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport17renderModeChangedEv(
+    QQuick3DViewport *self) {
+  self->renderModeChanged();
+}
+
+//  void QQuick3DViewport::renderFormatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport19renderFormatChangedEv(
+    QQuick3DViewport *self) {
+  self->renderFormatChanged();
+}
+
+//  void QQuick3DViewport::explicitTextureWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport27explicitTextureWidthChangedEv(
+    QQuick3DViewport *self) {
+  self->explicitTextureWidthChanged();
+}
+
+//  void QQuick3DViewport::explicitTextureHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport28explicitTextureHeightChangedEv(
+    QQuick3DViewport *self) {
+  self->explicitTextureHeightChanged();
+}
+
+//  void QQuick3DViewport::effectiveTextureSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport27effectiveTextureSizeChangedEv(
+    QQuick3DViewport *self) {
+  self->effectiveTextureSizeChanged();
+}
+
+//  void QQuick3DViewport::renderOverridesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport22renderOverridesChangedEv(
+    QQuick3DViewport *self) {
+  self->renderOverridesChanged();
+}
+
+//  void QQuick3DViewport::setMultiViewCameras(QQuick3DCamera **firstCamera,
+//      int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuick3DViewport19setMultiViewCamerasEPP14QQuick3DCamerai(
+    QQuick3DViewport *self,
+    QQuick3DCamera **firstCamera,
+    int count) {
+  self->setMultiViewCameras(firstCamera, count);
+}
+
 //  QQuick3DSceneRenderer *QQuick3DViewport::getRenderer() const
 extern "C" Q_DECL_EXPORT
 QQuick3DSceneRenderer *ritual_ZNK16QQuick3DViewport11getRendererEv(
@@ -1368,6 +1498,81 @@ bool ritual_ZNK16QQuick3DViewport12internalPickEP13QPointerEventRK9QVector3DS4_(
   return self->internalPick(event, *origin, *direction);
 }
 
+//  QPair<QQuickItem *, QPointF> QQuick3DViewport::getItemAndPosition(const
+//      QSSGRenderPickResult &pickResult) const
+extern "C" Q_DECL_EXPORT
+QPair<QQuickItem *, QPointF> *ritual_ZNK16QQuick3DViewport18getItemAndPositionERK20QSSGRenderPickResult(
+    const QQuick3DViewport *self,
+    const QSSGRenderPickResult *pickResult) {
+  return new QPair<QQuickItem *, QPointF>(
+      self->getItemAndPosition(
+          *pickResult));
+}
+
+//  QVarLengthArray<QSSGRenderPickResult, 20>
+//      QQuick3DViewport::getPickResults(QQuick3DSceneRenderer *renderer,
+//      const QVector3D &origin, const QVector3D &direction) const
+extern "C" Q_DECL_EXPORT
+QVarLengthArray<QSSGRenderPickResult, 20> *ritual_ZNK16QQuick3DViewport14getPickResultsEP21QQuick3DSceneRendererRK9QVector3DS4_(
+    const QQuick3DViewport *self,
+    QQuick3DSceneRenderer *renderer,
+    const QVector3D *origin,
+    const QVector3D *direction) {
+  return new QVarLengthArray<QSSGRenderPickResult, 20>(
+      self->getPickResults(
+          renderer,
+          *origin,
+          *direction));
+}
+
+//  QVarLengthArray<QSSGRenderPickResult, 20>
+//      QQuick3DViewport::getPickResults(QQuick3DSceneRenderer *renderer,
+//      const QEventPoint &eventPoint) const
+extern "C" Q_DECL_EXPORT
+QVarLengthArray<QSSGRenderPickResult, 20> *ritual_ZNK16QQuick3DViewport14getPickResultsEP21QQuick3DSceneRendererRK11QEventPoint(
+    const QQuick3DViewport *self,
+    QQuick3DSceneRenderer *renderer,
+    const QEventPoint *eventPoint) {
+  return new QVarLengthArray<QSSGRenderPickResult, 20>(
+      self->getPickResults(
+          renderer,
+          *eventPoint));
+}
+
+//  bool QQuick3DViewport::forwardEventToSubscenes(QPointerEvent *event, bool
+//      useRayPicking, QQuick3DSceneRenderer *renderer, const
+//      QFlatMap<QQuickItem *, SubsceneInfo> &visitedSubscenes) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QQuick3DViewport23forwardEventToSubscenesEP13QPointerEventbP21QQuick3DSceneRendererRK8QFlatMapIP10QQuickItemNS_12SubsceneInfoESt4lessIS6_E5QListIS6_ESA_IS7_EE(
+    const QQuick3DViewport *self,
+    QPointerEvent *event,
+    bool useRayPicking,
+    QQuick3DSceneRenderer *renderer,
+    const QFlatMap<QQuickItem *, QQuick3DViewport::SubsceneInfo> *visitedSubscenes) {
+  return self->forwardEventToSubscenes(
+      event,
+      useRayPicking,
+      renderer,
+      *visitedSubscenes);
+}
+
+//  void QQuick3DViewport::processPickedObject(const QSSGRenderPickResult
+//      &pickResult, int pointIndex, QPointerEvent *event,
+//      QFlatMap<QQuickItem *, SubsceneInfo> &vistedSubscenes) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QQuick3DViewport19processPickedObjectERK20QSSGRenderPickResultiP13QPointerEventR8QFlatMapIP10QQuickItemNS_12SubsceneInfoESt4lessIS7_E5QListIS7_ESB_IS8_EE(
+    const QQuick3DViewport *self,
+    const QSSGRenderPickResult *pickResult,
+    int pointIndex,
+    QPointerEvent *event,
+    QFlatMap<QQuickItem *, QQuick3DViewport::SubsceneInfo> *vistedSubscenes) {
+  self->processPickedObject(
+      *pickResult,
+      pointIndex,
+      event,
+      *vistedSubscenes);
+}
+
 //  QQuickItem *QQuick3DViewport::getSubSceneRootItem(QQuick3DMaterial
 //      *material) const
 extern "C" Q_DECL_EXPORT
@@ -1375,6 +1580,15 @@ QQuickItem *ritual_ZNK16QQuick3DViewport19getSubSceneRootItemEP16QQuick3DMateria
     const QQuick3DViewport *self,
     QQuick3DMaterial *material) {
   return self->getSubSceneRootItem(material);
+}
+
+//  QQuick3DPickResult QQuick3DViewport::getNearestPickResult(const
+//      QVarLengthArray<QSSGRenderPickResult, 20> &pickResults) const
+extern "C" Q_DECL_EXPORT
+QQuick3DPickResult *ritual_ZNK16QQuick3DViewport20getNearestPickResultERK15QVarLengthArrayI20QSSGRenderPickResultLx20EE(
+    const QQuick3DViewport *self,
+    const QVarLengthArray<QSSGRenderPickResult, 20> *pickResults) {
+  return new QQuick3DPickResult(self->getNearestPickResult(*pickResults));
 }
 
 //  QQuick3DPickResult QQuick3DViewport::processPickResult(const
@@ -1494,4 +1708,33 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN16QQuick3DViewport17componentCompleteEv(
     QQuick3DViewport *self) {
   static_cast<OwnQQuick3DViewport *>(self)->OwnQQuick3DViewport::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuick3DViewport gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DViewport__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuick3DObject> a ritual of QQuick3DViewport gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DViewport__QQmlListProperty_QQuick3DObject(
+    QQmlListProperty<QQuick3DObject> *self) {
+  delete self;
+}
+
+//  a QPair<QQuickItem *, QPointF> a ritual of QQuick3DViewport gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DViewport__QPair_QQuickItem_QPointF(
+    QPair<QQuickItem *, QPointF> *self) {
+  delete self;
+}
+
+//  a QVarLengthArray<QSSGRenderPickResult, 20> a ritual of QQuick3DViewport
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DViewport__QVarLengthArray_QSSGRenderPickResult_20(
+    QVarLengthArray<QSSGRenderPickResult, 20> *self) {
+  delete self;
 }

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/conegeometry_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/qtquick3dhelpersglobal_p.h>
 #include <QtQuick3DHelpers/QtQuick3DHelpers>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -286,6 +287,24 @@ const QMetaObject *ritual_ZNK12ConeGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ConeGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12ConeGeometry11qt_metacastEPKc(
+    ConeGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ConeGeometry::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12ConeGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    ConeGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ConeGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12ConeGeometry2trEPKcS1_i(
@@ -409,11 +428,101 @@ void ritual_ZN12ConeGeometry15requestFinishedEv(ConeGeometry *self) {
   self->requestFinished();
 }
 
+//  void ConeGeometry::topRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ConeGeometry16topRadiusChangedEv(ConeGeometry *self) {
+  self->topRadiusChanged();
+}
+
+//  void ConeGeometry::bottomRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ConeGeometry19bottomRadiusChangedEv(ConeGeometry *self) {
+  self->bottomRadiusChanged();
+}
+
+//  void ConeGeometry::lengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ConeGeometry13lengthChangedEv(ConeGeometry *self) {
+  self->lengthChanged();
+}
+
+//  void ConeGeometry::ringsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ConeGeometry12ringsChangedEv(ConeGeometry *self) {
+  self->ringsChanged();
+}
+
+//  void ConeGeometry::segmentsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ConeGeometry15segmentsChangedEv(ConeGeometry *self) {
+  self->segmentsChanged();
+}
+
+//  void ConeGeometry::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ConeGeometry19asynchronousChangedEv(ConeGeometry *self) {
+  self->asynchronousChanged();
+}
+
+//  void ConeGeometry::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ConeGeometry13statusChangedEv(ConeGeometry *self) {
+  self->statusChanged();
+}
+
 //  void ConeGeometry::scheduleGeometryUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12ConeGeometry22scheduleGeometryUpdateEv(ConeGeometry *self) {
   self->scheduleGeometryUpdate();
 }
+
+//  void ConeGeometry::updateGeometry(const GeometryData &geometryData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ConeGeometry14updateGeometryERKNS_12GeometryDataE(
+    ConeGeometry *self,
+    const ConeGeometry::GeometryData *geometryData) {
+  self->updateGeometry(*geometryData);
+}
+
+//  ConeGeometry::GeometryData ConeGeometry::generateConeGeometry(float
+//      topRadius, float bottomRadius, float length, int rings, int slices)
+extern "C" Q_DECL_EXPORT
+ConeGeometry::GeometryData *ritual_ZN12ConeGeometry20generateConeGeometryEfffii(
+    float topRadius,
+    float bottomRadius,
+    float length,
+    int rings,
+    int slices) {
+  return new ConeGeometry::GeometryData(
+      ConeGeometry::generateConeGeometry(
+          topRadius,
+          bottomRadius,
+          length,
+          rings,
+          slices));
+}
+
+#if QT_CONFIG(concurrent)
+//  void ConeGeometry::generateConeGeometryAsync(QPromise<ConeGeometry::Geome
+//      tryData> &promise, float topRadius, float bottomRadius, float length,
+//      int rings, int segments)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ConeGeometry25generateConeGeometryAsyncER8QPromiseINS_12GeometryDataEEfffii(
+    QPromise<ConeGeometry::GeometryData> *promise,
+    float topRadius,
+    float bottomRadius,
+    float length,
+    int rings,
+    int segments) {
+  ConeGeometry::generateConeGeometryAsync(
+      *promise,
+      topRadius,
+      bottomRadius,
+      length,
+      rings,
+      segments);
+}
+#endif  // QT_CONFIG(concurrent)
 
 //  a Python function taken by a CuteConeGeometry, for the function named by
 //      the key
@@ -423,4 +532,11 @@ bool ritual_take_ConeGeometry(
     const char *key,
     void *call) {
   return static_cast<CuteConeGeometry *>(self)->take(key, call);
+}
+
+//  a ConeGeometry::GeometryData a ritual of ConeGeometry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_ConeGeometry__ConeGeometry_GeometryData(
+    ConeGeometry::GeometryData *self) {
+  delete self;
 }

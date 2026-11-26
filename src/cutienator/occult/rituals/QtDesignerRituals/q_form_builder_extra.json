@@ -21,8 +21,12 @@
     "ritual_ZN17QFormBuilderExtra10applyBuddyERK7QStringNS_9BuddyModeEP6QLabel": [
       "bool", "text", "int", "address"
     ],
+    "ritual_ZNK17QFormBuilderExtra12parentWidgetEv": ["address", "address"],
     "ritual_ZNK17QFormBuilderExtra17parentWidgetIsSetEv": [
       "bool", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra15setParentWidgetERK8QPointerI7QWidgetE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17QFormBuilderExtra25setProcessingLayoutWidgetEb": [
       "nothing", "address", "bool"
@@ -55,6 +59,8 @@
     "ritual_ZN17QFormBuilderExtra20registerButtonGroupsEPK15DomButtonGroups": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK17QFormBuilderExtra12buttonGroupsEv": ["address", "address"],
+    "ritual_ZN17QFormBuilderExtra12buttonGroupsEv": ["address", "address"],
     "ritual_ZN17QFormBuilderExtra16getLayoutMarginsERK5QListIP11DomPropertyEPiS6_S6_S6_": [
       "nothing", "address", "address", "address", "address", "address"
     ],
@@ -102,6 +108,9 @@
     ],
     "ritual_ZN17QFormBuilderExtra33clearGridLayoutColumnMinimumWidthEP11QGridLayout": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra17setPixmapPropertyEP11DomPropertyRKSt4pairI7QStringS3_E": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17QFormBuilderExtra11loadPaletteEPK10DomPalette": [
       "address", "address"

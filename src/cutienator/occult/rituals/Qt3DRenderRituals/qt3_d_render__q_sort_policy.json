@@ -7,13 +7,48 @@
     "ritual_ZNK10Qt3DRender11QSortPolicy10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender11QSortPolicy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender11QSortPolicy11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender11QSortPolicy2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender11QSortPolicyC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QSortPolicyD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender11QSortPolicy9sortTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11QSortPolicy12sortTypesIntEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QSortPolicy12setSortTypesERK5QListINS0_8SortTypeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QSortPolicy12setSortTypesERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QSortPolicy16sortTypesChangedERK5QListINS0_8SortTypeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QSortPolicy16sortTypesChangedERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11QSortPolicyC1ERNS_18QSortPolicyPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender11QSortPolicy6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender11QSortPolicy6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DRender_QSortPolicy": [
       "bool", "address", "chars", "address"
-    ]
+    ],
+    "ritual_drop_Qt3DRender_QSortPolicy__QList_Qt3DRender_QSortPolicy_SortType": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_QSortPolicy__QList_int": ["nothing", "address"]
   }
 }

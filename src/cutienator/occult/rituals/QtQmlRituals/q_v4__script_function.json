@@ -10,6 +10,9 @@
     "ritual_ZNK3QV414ScriptFunction1dEv": ["address", "address"],
     "ritual_ZN3QV414ScriptFunction20defaultInternalClassEPNS_10EngineBaseE": [
       "address", "address"
+    ],
+    "ritual_ZNK3QV414ScriptFunction19classForConstructorEv": [
+      "address", "address"
     ]
   }
 }

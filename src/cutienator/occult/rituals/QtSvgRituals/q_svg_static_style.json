@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN15QSvgStaticStyleC1Ev": ["address"],
     "ritual_ZN15QSvgStaticStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSvgStaticStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QSvgStaticStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK15QSvgStaticStyle8propertyEN17QSvgStyleProperty4TypeE": [
       "address", "address", "unsigned char"
     ],

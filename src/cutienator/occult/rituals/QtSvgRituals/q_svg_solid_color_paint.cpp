@@ -7,6 +7,7 @@
 #include <QtSvg/6.12.0/QtSvg/private/qsvgpaintserver_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qcolor.h>
+#include <QtGui/qbrush.h>
 #include <cstring>
 
 //  A QSvgSolidColorPaint that Python can take functions over in. Every QSvgSolidColorPaint
@@ -63,6 +64,17 @@ extern "C" Q_DECL_EXPORT
 QColor *ritual_ZNK19QSvgSolidColorPaint6qcolorEv(
     const QSvgSolidColorPaint *self) {
   return new QColor(self->qcolor());
+}
+
+//  QBrush QSvgSolidColorPaint::brush(QPainter *a0, const QSvgNode *a1,
+//      QSvgExtraStates &a2)
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZN19QSvgSolidColorPaint5brushEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgSolidColorPaint *self,
+    QPainter *a0,
+    const QSvgNode *a1,
+    QSvgExtraStates *a2) {
+  return new QBrush(self->brush(a0, a1, *a2));
 }
 
 //  a Python function taken by a CuteQSvgSolidColorPaint, for the function

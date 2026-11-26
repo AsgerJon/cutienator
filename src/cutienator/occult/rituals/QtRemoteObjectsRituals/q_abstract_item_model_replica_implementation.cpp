@@ -7,8 +7,15 @@
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectabstractitemmodelreplica_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qabstractitemmodel.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectabstractitemmodeltypes_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtRemoteObjects/QRemoteObjectPendingReply>
+#include <QtCore/QSize>
+#include <QtCore/QVariantList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/qremoteobjectabstractitemmodelreplica.h>
 #include <QtRemoteObjects/private/qremoteobjectabstractitemmodelreplica_p.h>
@@ -25,11 +32,37 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectabstractitemmodelreplica.cpp, line 71, as _ZN39QAbstractItemModelReplicaImplementationD1Ev
-inline QAbstractItemModelReplicaImplementation::~QAbstractItemModelReplicaImplementation()
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectabstractitemmodelreplica.cpp, line 119, as local:qremoteobjectabstractitemmodelreplica.cpp:removeIndexFromRow
+inline void removeIndexFromRow(const QModelIndex &index, const QList<int> &roles, CachedRowEntry *entry)
 {
-    m_rootItem.clear();
-    qDeleteAll(m_pendingRequests);
+    CachedRowEntry &entryRef = *entry;
+    if (index.column() < entryRef.size()) {
+        CacheEntry &entry = entryRef[index.column()];
+        if (roles.isEmpty()) {
+            entry.data.clear();
+        } else {
+            for (int role : roles)
+                entry.data.remove(role);
+        }
+    }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectabstractitemmodelreplica.cpp, line 30, as _ZN9CacheDataC1EP39QAbstractItemModelReplicaImplementationPS_
+inline CacheData::CacheData(QAbstractItemModelReplicaImplementation *model, CacheData *parentItem)
+    : replicaModel(model)
+    , parent(parentItem)
+    , hasChildren(false)
+    , columnCount(0)
+    , rowCount(0)
+{
+    if (parent)
+        replicaModel->m_activeParents.insert(parent);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectabstractitemmodelreplica.cpp, line 41, as _ZN9CacheDataD1Ev
+inline CacheData::~CacheData() {
+    if (parent && !replicaModel->m_activeParents.empty())
+        replicaModel->m_activeParents.erase(this);
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectabstractitemmodelreplica.cpp, line 77, as _ZN39QAbstractItemModelReplicaImplementation10initializeEv
@@ -41,50 +74,39 @@ inline void QAbstractItemModelReplicaImplementation::initialize()
     setProperties(std::move(properties));
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectabstractitemmodelreplica.cpp, line 647, as _ZN39QAbstractItemModelReplicaImplementation19onHeaderDataChangedEN2Qt11OrientationEii
-inline void QAbstractItemModelReplicaImplementation::onHeaderDataChanged(Qt::Orientation orientation, int first, int last)
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectabstractitemmodelreplica.cpp, line 149, as _ZN39QAbstractItemModelReplicaImplementation10clearCacheERK5QListIN9QtPrivate10ModelIndexEES5_RKS0_IiE
+inline bool QAbstractItemModelReplicaImplementation::clearCache(const QtPrivate::IndexList &start, const QtPrivate::IndexList &end, const QList<int> &roles = QList<int>())
 {
-    // TODO clean cache
-    const int index = orientation == Qt::Horizontal ? 0 : 1;
-    QList<CacheEntry> &entries = m_headerData[index];
-    for (int i = first; i <= last && i < entries.size(); ++i )
-        entries[i].data.clear();
-    emit q->headerDataChanged(orientation, first, last);
-}
+    Q_ASSERT(start.size() == end.size());
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectabstractitemmodelreplica.cpp, line 384, as _ZN39QAbstractItemModelReplicaImplementation14handleSizeDoneEP31QRemoteObjectPendingCallWatcher
-inline void QAbstractItemModelReplicaImplementation::handleSizeDone(QRemoteObjectPendingCallWatcher *watcher)
-{
-    SizeWatcher *sizeWatcher = static_cast<SizeWatcher*>(watcher);
-    const QSize size = sizeWatcher->returnValue().toSize();
-    auto parentItem = cacheData(sizeWatcher->parentList);
-    const QModelIndex parent = toQModelIndex(sizeWatcher->parentList, q);
+    bool ok = true;
+    const QModelIndex startIndex = toQModelIndex(start, q, &ok);
+    if (!ok)
+        return false;
+    const QModelIndex endIndex = toQModelIndex(end, q, &ok);
+    if (!ok)
+        return false;
+    Q_ASSERT(startIndex.isValid());
+    Q_ASSERT(endIndex.isValid());
+    Q_ASSERT(startIndex.parent() == endIndex.parent());
+    Q_UNUSED(endIndex)
+    QModelIndex parentIndex = startIndex.parent();
+    auto parentItem = cacheData(parentIndex);
 
-    if (size.width() != parentItem->columnCount) {
-        const int columnCount = std::max(0, parentItem->columnCount);
-        Q_ASSERT_X(size.width() >= parentItem->columnCount, __FUNCTION__, "The column count should only shrink in columnsRemoved!!");
-        parentItem->columnCount = size.width();
-        if (size.width() > columnCount) {
-            Q_ASSERT(size.width() > 0);
-            q->beginInsertColumns(parent, columnCount, size.width() - 1);
-            q->endInsertColumns();
-        } else {
-            Q_ASSERT_X(size.width() == columnCount, __FUNCTION__, qPrintable(QString(QLatin1String("%1 != %2")).arg(size.width()).arg(columnCount)));
+    const int startRow = start.last().row;
+    const int lastRow = end.last().row;
+    const int startColumn = start.last().column;
+    const int lastColumn = end.last().column;
+    for (int row = startRow; row <= lastRow; ++row) {
+        Q_ASSERT_X(row >= 0 && row < parentItem->rowCount, __FUNCTION__, qPrintable(QString(QLatin1String("0 <= %1 < %2")).arg(row).arg(parentItem->rowCount)));
+        auto item = parentItem->children.get(row);
+        if (item) {
+            CachedRowEntry *entry = &(item->cachedRowEntry);
+            for (int column = startColumn; column <= lastColumn; ++column)
+                removeIndexFromRow(q->index(row, column, parentIndex), roles, entry);
         }
     }
-
-    Q_ASSERT_X(size.height() >= parentItem->rowCount, __FUNCTION__, "The new size and the current size should match!!");
-    if (!parentItem->rowCount) {
-        if (size.height() > 0) {
-            q->beginInsertRows(parent, 0, size.height() - 1);
-            parentItem->rowCount = size.height();
-            q->endInsertRows();
-        }
-    } else {
-        Q_ASSERT_X(parentItem->rowCount == size.height(), __FUNCTION__, qPrintable(QString(QLatin1String("%1 != %2")).arg(parentItem->rowCount).arg(size.height())));
-    }
-    m_pendingRequests.removeAll(watcher);
-    delete watcher;
+    return true;
 }
 //  -----------------------------------------------------------------------
 
@@ -295,6 +317,27 @@ const QMetaObject *ritual_ZNK39QAbstractItemModelReplicaImplementation10metaObje
   return self->metaObject();
 }
 
+//  void *QAbstractItemModelReplicaImplementation::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN39QAbstractItemModelReplicaImplementation11qt_metacastEPKc(
+    QAbstractItemModelReplicaImplementation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      QAbstractItemModelReplicaImplementation::qt_metacall(QMetaObject::Cal
+//      l a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN39QAbstractItemModelReplicaImplementation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractItemModelReplicaImplementation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QAbstractItemModelReplicaImplementation::~QAbstractItemModelReplicaImplem
 //      entation()
 extern "C" Q_DECL_EXPORT
@@ -310,6 +353,336 @@ void ritual_ZN39QAbstractItemModelReplicaImplementation10initializeEv(
   self->initialize();
 }
 
+//  const QList<int>
+//      &QAbstractItemModelReplicaImplementation::availableRoles() const
+extern "C" Q_DECL_EXPORT
+const QList<int> *ritual_ZNK39QAbstractItemModelReplicaImplementation14availableRolesEv(
+    const QAbstractItemModelReplicaImplementation *self) {
+  return &(self->availableRoles());
+}
+
+//  bool QAbstractItemModelReplicaImplementation::clearCache(const
+//      QtPrivate::IndexList &start, const QtPrivate::IndexList &end, const
+//      QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN39QAbstractItemModelReplicaImplementation10clearCacheERK5QListIN9QtPrivate10ModelIndexEES5_RKS0_IiE(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *start,
+    const QtPrivate::IndexList *end,
+    const QList<int> *roles) {
+  return self->clearCache(*start, *end, *roles);
+}
+
+//  void QAbstractItemModelReplicaImplementation::availableRolesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation21availableRolesChangedEv(
+    QAbstractItemModelReplicaImplementation *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "availableRolesChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "availableRolesChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QAbstractItemModelReplicaImplementation::dataChanged(QtPrivate::Index
+//      List topLeft, QtPrivate::IndexList bottomRight, QList<int> roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation11dataChangedE5QListIN9QtPrivate10ModelIndexEES3_S0_IiE(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *topLeft,
+    const QtPrivate::IndexList *bottomRight,
+    const QList<int> *roles) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "dataChanged(QtPrivate::IndexList,QtPrivate::IndexList,QList<int>)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "dataChanged(QtPrivate::IndexList,QtPrivate::IndexList,QList<int>)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(topLeft)),
+      const_cast<void *>(static_cast<const void *>(bottomRight)),
+      const_cast<void *>(static_cast<const void *>(roles)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::rowsInserted(QtPrivate::Ind
+//      exList parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation12rowsInsertedE5QListIN9QtPrivate10ModelIndexEEii(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *parent,
+    int first,
+    int last) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "rowsInserted(QtPrivate::IndexList,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "rowsInserted(QtPrivate::IndexList,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(parent)),
+      const_cast<void *>(static_cast<const void *>(&first)),
+      const_cast<void *>(static_cast<const void *>(&last)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QAbstractItemModelReplicaImplementation::rowsRemoved(QtPrivate::Index
+//      List parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation11rowsRemovedE5QListIN9QtPrivate10ModelIndexEEii(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *parent,
+    int first,
+    int last) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "rowsRemoved(QtPrivate::IndexList,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "rowsRemoved(QtPrivate::IndexList,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(parent)),
+      const_cast<void *>(static_cast<const void *>(&first)),
+      const_cast<void *>(static_cast<const void *>(&last)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QAbstractItemModelReplicaImplementation::rowsMoved(QtPrivate::IndexLi
+//      st parent, int start, int end, QtPrivate::IndexList destination, int
+//      row)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation9rowsMovedE5QListIN9QtPrivate10ModelIndexEEiiS3_i(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *parent,
+    int start,
+    int end,
+    const QtPrivate::IndexList *destination,
+    int row) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "rowsMoved(QtPrivate::IndexList,int,int,QtPrivate::IndexList,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "rowsMoved(QtPrivate::IndexList,int,int,QtPrivate::IndexList,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(parent)),
+      const_cast<void *>(static_cast<const void *>(&start)),
+      const_cast<void *>(static_cast<const void *>(&end)),
+      const_cast<void *>(static_cast<const void *>(destination)),
+      const_cast<void *>(static_cast<const void *>(&row)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::currentChanged(QtPrivate::I
+//      ndexList current, QtPrivate::IndexList previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation14currentChangedE5QListIN9QtPrivate10ModelIndexEES3_(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *current,
+    const QtPrivate::IndexList *previous) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "currentChanged(QtPrivate::IndexList,QtPrivate::IndexList)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "currentChanged(QtPrivate::IndexList,QtPrivate::IndexList)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(current)),
+      const_cast<void *>(static_cast<const void *>(previous)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::modelReset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation10modelResetEv(
+    QAbstractItemModelReplicaImplementation *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "modelReset()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "modelReset()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::headerDataChanged(Qt::Orien
+//      tation a0, int a1, int a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation17headerDataChangedEN2Qt11OrientationEii(
+    QAbstractItemModelReplicaImplementation *self,
+    Qt::Orientation a0,
+    int a1,
+    int a2) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "headerDataChanged(Qt::Orientation,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "headerDataChanged(Qt::Orientation,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+      const_cast<void *>(static_cast<const void *>(&a1)),
+      const_cast<void *>(static_cast<const void *>(&a2)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::columnsInserted(QtPrivate::
+//      IndexList parent, int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation15columnsInsertedE5QListIN9QtPrivate10ModelIndexEEii(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *parent,
+    int first,
+    int last) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "columnsInserted(QtPrivate::IndexList,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "columnsInserted(QtPrivate::IndexList,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(parent)),
+      const_cast<void *>(static_cast<const void *>(&first)),
+      const_cast<void *>(static_cast<const void *>(&last)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::layoutChanged(QtPrivate::In
+//      dexList parents, QAbstractItemModel::LayoutChangeHint hint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation13layoutChangedE5QListIN9QtPrivate10ModelIndexEEN18QAbstractItemModel16LayoutChangeHintE(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *parents,
+    QAbstractItemModel::LayoutChangeHint hint) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "layoutChanged(QtPrivate::IndexList,QAbstractItemModel::LayoutChangeHint)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "layoutChanged(QtPrivate::IndexList,QAbstractItemModel::LayoutChangeHint)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(parents)),
+      const_cast<void *>(static_cast<const void *>(&hint)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QAbstractItemModelReplicaImplementation::onHeaderDataChanged(Qt::Ori
 //      entation orientation, int first, int last)
 extern "C" Q_DECL_EXPORT
@@ -318,7 +691,437 @@ void ritual_ZN39QAbstractItemModelReplicaImplementation19onHeaderDataChangedEN2Q
     Qt::Orientation orientation,
     int first,
     int last) {
-  self->onHeaderDataChanged(orientation, first, last);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onHeaderDataChanged(Qt::Orientation,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onHeaderDataChanged(Qt::Orientation,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&orientation)),
+      const_cast<void *>(static_cast<const void *>(&first)),
+      const_cast<void *>(static_cast<const void *>(&last)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::onDataChanged(const
+//      QtPrivate::IndexList &start, const QtPrivate::IndexList &end, const
+//      QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation13onDataChangedERK5QListIN9QtPrivate10ModelIndexEES5_RKS0_IiE(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *start,
+    const QtPrivate::IndexList *end,
+    const QList<int> *roles) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onDataChanged(const QtPrivate::IndexList &,const QtPrivate::IndexList &,const QList<int> &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onDataChanged(const QtPrivate::IndexList &,const QtPrivate::IndexList &,const QList<int> &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(start)),
+      const_cast<void *>(static_cast<const void *>(end)),
+      const_cast<void *>(static_cast<const void *>(roles)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::onRowsInserted(const
+//      QtPrivate::IndexList &parent, int start, int end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation14onRowsInsertedERK5QListIN9QtPrivate10ModelIndexEEii(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *parent,
+    int start,
+    int end) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onRowsInserted(const QtPrivate::IndexList &,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onRowsInserted(const QtPrivate::IndexList &,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(parent)),
+      const_cast<void *>(static_cast<const void *>(&start)),
+      const_cast<void *>(static_cast<const void *>(&end)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::onRowsRemoved(const
+//      QtPrivate::IndexList &parent, int start, int end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation13onRowsRemovedERK5QListIN9QtPrivate10ModelIndexEEii(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *parent,
+    int start,
+    int end) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onRowsRemoved(const QtPrivate::IndexList &,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onRowsRemoved(const QtPrivate::IndexList &,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(parent)),
+      const_cast<void *>(static_cast<const void *>(&start)),
+      const_cast<void *>(static_cast<const void *>(&end)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::onColumnsInserted(const
+//      QtPrivate::IndexList &parent, int start, int end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation17onColumnsInsertedERK5QListIN9QtPrivate10ModelIndexEEii(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *parent,
+    int start,
+    int end) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onColumnsInserted(const QtPrivate::IndexList &,int,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onColumnsInserted(const QtPrivate::IndexList &,int,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(parent)),
+      const_cast<void *>(static_cast<const void *>(&start)),
+      const_cast<void *>(static_cast<const void *>(&end)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QAbstractItemModelReplicaImplementation::onRowsMoved(QtPrivate::Index
+//      List srcParent, int srcRow, int count, QtPrivate::IndexList
+//      destParent, int destRow)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation11onRowsMovedE5QListIN9QtPrivate10ModelIndexEEiiS3_i(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *srcParent,
+    int srcRow,
+    int count,
+    const QtPrivate::IndexList *destParent,
+    int destRow) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onRowsMoved(QtPrivate::IndexList,int,int,QtPrivate::IndexList,int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onRowsMoved(QtPrivate::IndexList,int,int,QtPrivate::IndexList,int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(srcParent)),
+      const_cast<void *>(static_cast<const void *>(&srcRow)),
+      const_cast<void *>(static_cast<const void *>(&count)),
+      const_cast<void *>(static_cast<const void *>(destParent)),
+      const_cast<void *>(static_cast<const void *>(&destRow)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::onCurrentChanged(QtPrivate:
+//      :IndexList current, QtPrivate::IndexList previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation16onCurrentChangedE5QListIN9QtPrivate10ModelIndexEES3_(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *current,
+    const QtPrivate::IndexList *previous) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onCurrentChanged(QtPrivate::IndexList,QtPrivate::IndexList)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onCurrentChanged(QtPrivate::IndexList,QtPrivate::IndexList)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(current)),
+      const_cast<void *>(static_cast<const void *>(previous)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::onModelReset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation12onModelResetEv(
+    QAbstractItemModelReplicaImplementation *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onModelReset()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onModelReset()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::requestedData(QRemoteObject
+//      PendingCallWatcher *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation13requestedDataEP31QRemoteObjectPendingCallWatcher(
+    QAbstractItemModelReplicaImplementation *self,
+    QRemoteObjectPendingCallWatcher *a0) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "requestedData(QRemoteObjectPendingCallWatcher *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "requestedData(QRemoteObjectPendingCallWatcher *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::requestedHeaderData(QRemote
+//      ObjectPendingCallWatcher *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation19requestedHeaderDataEP31QRemoteObjectPendingCallWatcher(
+    QAbstractItemModelReplicaImplementation *self,
+    QRemoteObjectPendingCallWatcher *a0) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "requestedHeaderData(QRemoteObjectPendingCallWatcher *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "requestedHeaderData(QRemoteObjectPendingCallWatcher *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::init()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation4initEv(
+    QAbstractItemModelReplicaImplementation *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "init()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "init()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::fetchPendingData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation16fetchPendingDataEv(
+    QAbstractItemModelReplicaImplementation *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fetchPendingData()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fetchPendingData()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::fetchPendingHeaderData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation22fetchPendingHeaderDataEv(
+    QAbstractItemModelReplicaImplementation *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fetchPendingHeaderData()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fetchPendingHeaderData()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::handleInitDone(QRemoteObjec
+//      tPendingCallWatcher *watcher)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation14handleInitDoneEP31QRemoteObjectPendingCallWatcher(
+    QAbstractItemModelReplicaImplementation *self,
+    QRemoteObjectPendingCallWatcher *watcher) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handleInitDone(QRemoteObjectPendingCallWatcher *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handleInitDone(QRemoteObjectPendingCallWatcher *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&watcher)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::handleModelResetDone(QRemot
+//      eObjectPendingCallWatcher *watcher)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation20handleModelResetDoneEP31QRemoteObjectPendingCallWatcher(
+    QAbstractItemModelReplicaImplementation *self,
+    QRemoteObjectPendingCallWatcher *watcher) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handleModelResetDone(QRemoteObjectPendingCallWatcher *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handleModelResetDone(QRemoteObjectPendingCallWatcher *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&watcher)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QAbstractItemModelReplicaImplementation::handleSizeDone(QRemoteObjec
@@ -327,7 +1130,118 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN39QAbstractItemModelReplicaImplementation14handleSizeDoneEP31QRemoteObjectPendingCallWatcher(
     QAbstractItemModelReplicaImplementation *self,
     QRemoteObjectPendingCallWatcher *watcher) {
-  self->handleSizeDone(watcher);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handleSizeDone(QRemoteObjectPendingCallWatcher *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handleSizeDone(QRemoteObjectPendingCallWatcher *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&watcher)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      QAbstractItemModelReplicaImplementation::onReplicaCurrentChanged(cons
+//      t QModelIndex &current, const QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation23onReplicaCurrentChangedERK11QModelIndexS2_(
+    QAbstractItemModelReplicaImplementation *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onReplicaCurrentChanged(const QModelIndex &,const QModelIndex &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onReplicaCurrentChanged(const QModelIndex &,const QModelIndex &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(current)),
+      const_cast<void *>(static_cast<const void *>(previous)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::fillCache(const
+//      QtPrivate::IndexValuePair &pair, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation9fillCacheERKN9QtPrivate14IndexValuePairERK5QListIiE(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexValuePair *pair,
+    const QList<int> *roles) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "fillCache(const QtPrivate::IndexValuePair &,const QList<int> &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "fillCache(const QtPrivate::IndexValuePair &,const QList<int> &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(pair)),
+      const_cast<void *>(static_cast<const void *>(roles)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QAbstractItemModelReplicaImplementation::onLayoutChanged(const
+//      QtPrivate::IndexList &parents, QAbstractItemModel::LayoutChangeHint
+//      hint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN39QAbstractItemModelReplicaImplementation15onLayoutChangedERK5QListIN9QtPrivate10ModelIndexEEN18QAbstractItemModel16LayoutChangeHintE(
+    QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *parents,
+    QAbstractItemModel::LayoutChangeHint hint) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QAbstractItemModelReplicaImplementation")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onLayoutChanged(const QtPrivate::IndexList &,QAbstractItemModel::LayoutChangeHint)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onLayoutChanged(const QtPrivate::IndexList &,QAbstractItemModel::LayoutChangeHint)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(parents)),
+      const_cast<void *>(static_cast<const void *>(&hint)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  CacheData *QAbstractItemModelReplicaImplementation::cacheData(const
@@ -339,12 +1253,39 @@ CacheData *ritual_ZNK39QAbstractItemModelReplicaImplementation9cacheDataERK11QMo
   return self->cacheData(*index);
 }
 
+//  CacheData *QAbstractItemModelReplicaImplementation::cacheData(const
+//      QtPrivate::IndexList &index) const
+extern "C" Q_DECL_EXPORT
+CacheData *ritual_ZNK39QAbstractItemModelReplicaImplementation9cacheDataERK5QListIN9QtPrivate10ModelIndexEE(
+    const QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *index) {
+  return self->cacheData(*index);
+}
+
+//  CacheData *QAbstractItemModelReplicaImplementation::createCacheData(const
+//      QtPrivate::IndexList &index) const
+extern "C" Q_DECL_EXPORT
+CacheData *ritual_ZNK39QAbstractItemModelReplicaImplementation15createCacheDataERK5QListIN9QtPrivate10ModelIndexEE(
+    const QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *index) {
+  return self->createCacheData(*index);
+}
+
 //  CacheEntry *QAbstractItemModelReplicaImplementation::cacheEntry(const
 //      QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
 CacheEntry *ritual_ZNK39QAbstractItemModelReplicaImplementation10cacheEntryERK11QModelIndex(
     const QAbstractItemModelReplicaImplementation *self,
     const QModelIndex *index) {
+  return self->cacheEntry(*index);
+}
+
+//  CacheEntry *QAbstractItemModelReplicaImplementation::cacheEntry(const
+//      QtPrivate::IndexList &index) const
+extern "C" Q_DECL_EXPORT
+CacheEntry *ritual_ZNK39QAbstractItemModelReplicaImplementation10cacheEntryERK5QListIN9QtPrivate10ModelIndexEE(
+    const QAbstractItemModelReplicaImplementation *self,
+    const QtPrivate::IndexList *index) {
   return self->cacheEntry(*index);
 }
 
@@ -356,4 +1297,36 @@ bool ritual_take_QAbstractItemModelReplicaImplementation(
     const char *key,
     void *call) {
   return static_cast<CuteQAbstractItemModelReplicaImplementation *>(self)->take(key, call);
+}
+
+//  a QRemoteObjectPendingReply<QSize> a ritual of
+//      QAbstractItemModelReplicaImplementation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractItemModelReplicaImplementation__QRemoteObjectPendingReply_QSize(
+    QRemoteObjectPendingReply<QSize> *self) {
+  delete self;
+}
+
+//  a QRemoteObjectPendingReply<QtPrivate::DataEntries> a ritual of
+//      QAbstractItemModelReplicaImplementation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractItemModelReplicaImplementation__QRemoteObjectPendingReply_QtPrivate_DataEntries(
+    QRemoteObjectPendingReply<QtPrivate::DataEntries> *self) {
+  delete self;
+}
+
+//  a QRemoteObjectPendingReply<QVariantList> a ritual of
+//      QAbstractItemModelReplicaImplementation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractItemModelReplicaImplementation__QRemoteObjectPendingReply_QVariantList(
+    QRemoteObjectPendingReply<QVariantList> *self) {
+  delete self;
+}
+
+//  a QRemoteObjectPendingReply<QtPrivate::MetaAndDataEntries> a ritual of
+//      QAbstractItemModelReplicaImplementation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractItemModelReplicaImplementation__QRemoteObjectPendingReply_QtPrivate_MetaAndDataEntries(
+    QRemoteObjectPendingReply<QtPrivate::MetaAndDataEntries> *self) {
+  delete self;
 }

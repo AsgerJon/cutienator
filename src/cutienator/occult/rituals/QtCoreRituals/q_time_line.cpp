@@ -5,9 +5,14 @@
 #if QT_CONFIG(easingcurve)
 #include <QtCore/qtimeline.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QTimeLine>
+#include <QtCore/QEasingCurve>
 
 //  Only a class built on QTimeLine may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -217,6 +222,22 @@ const QMetaObject *ritual_ZNK9QTimeLine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTimeLine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QTimeLine11qt_metacastEPKc(QTimeLine *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTimeLine::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QTimeLine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTimeLine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTimeLine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QTimeLine2trEPKcS1_i(
@@ -256,6 +277,12 @@ void ritual_ZN9QTimeLine12setLoopCountEi(QTimeLine *self, int count) {
   self->setLoopCount(count);
 }
 
+//  QBindable<int> QTimeLine::bindableLoopCount()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN9QTimeLine17bindableLoopCountEv(QTimeLine *self) {
+  return new QBindable<int>(self->bindableLoopCount());
+}
+
 //  Direction QTimeLine::direction() const
 extern "C" Q_DECL_EXPORT
 QTimeLine::Direction ritual_ZNK9QTimeLine9directionEv(
@@ -271,6 +298,13 @@ void ritual_ZN9QTimeLine12setDirectionENS_9DirectionE(
   self->setDirection(direction);
 }
 
+//  QBindable<Direction> QTimeLine::bindableDirection()
+extern "C" Q_DECL_EXPORT
+QBindable<QTimeLine::Direction> *ritual_ZN9QTimeLine17bindableDirectionEv(
+    QTimeLine *self) {
+  return new QBindable<QTimeLine::Direction>(self->bindableDirection());
+}
+
 //  int QTimeLine::duration() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK9QTimeLine8durationEv(const QTimeLine *self) {
@@ -281,6 +315,12 @@ int ritual_ZNK9QTimeLine8durationEv(const QTimeLine *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTimeLine11setDurationEi(QTimeLine *self, int duration) {
   self->setDuration(duration);
+}
+
+//  QBindable<int> QTimeLine::bindableDuration()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN9QTimeLine16bindableDurationEv(QTimeLine *self) {
+  return new QBindable<int>(self->bindableDuration());
 }
 
 //  int QTimeLine::startFrame() const
@@ -330,6 +370,13 @@ void ritual_ZN9QTimeLine17setUpdateIntervalEi(
   self->setUpdateInterval(interval);
 }
 
+//  QBindable<int> QTimeLine::bindableUpdateInterval()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN9QTimeLine22bindableUpdateIntervalEv(
+    QTimeLine *self) {
+  return new QBindable<int>(self->bindableUpdateInterval());
+}
+
 //  QEasingCurve QTimeLine::easingCurve() const
 extern "C" Q_DECL_EXPORT
 QEasingCurve *ritual_ZNK9QTimeLine11easingCurveEv(const QTimeLine *self) {
@@ -344,10 +391,23 @@ void ritual_ZN9QTimeLine14setEasingCurveERK12QEasingCurve(
   self->setEasingCurve(*curve);
 }
 
+//  QBindable<QEasingCurve> QTimeLine::bindableEasingCurve()
+extern "C" Q_DECL_EXPORT
+QBindable<QEasingCurve> *ritual_ZN9QTimeLine19bindableEasingCurveEv(
+    QTimeLine *self) {
+  return new QBindable<QEasingCurve>(self->bindableEasingCurve());
+}
+
 //  int QTimeLine::currentTime() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK9QTimeLine11currentTimeEv(const QTimeLine *self) {
   return self->currentTime();
+}
+
+//  QBindable<int> QTimeLine::bindableCurrentTime()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN9QTimeLine19bindableCurrentTimeEv(QTimeLine *self) {
+  return new QBindable<int>(self->bindableCurrentTime());
 }
 
 //  int QTimeLine::currentFrame() const
@@ -410,12 +470,56 @@ void ritual_ZN9QTimeLine15toggleDirectionEv(QTimeLine *self) {
   self->toggleDirection();
 }
 
+//  void QTimeLine::valueChanged(qreal x, QPrivateSignal a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTimeLine12valueChangedEdNS_14QPrivateSignalE(
+    QTimeLine *self,
+    qreal x) {
+  self->valueChanged(x, QTimeLine::QPrivateSignal());
+}
+
+//  void QTimeLine::frameChanged(int a0, QPrivateSignal a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTimeLine12frameChangedEiNS_14QPrivateSignalE(
+    QTimeLine *self,
+    int a0) {
+  self->frameChanged(a0, QTimeLine::QPrivateSignal());
+}
+
+//  void QTimeLine::stateChanged(QTimeLine::State newState, QPrivateSignal
+//      a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTimeLine12stateChangedENS_5StateENS_14QPrivateSignalE(
+    QTimeLine *self,
+    QTimeLine::State newState) {
+  self->stateChanged(newState, QTimeLine::QPrivateSignal());
+}
+
+//  void QTimeLine::finished(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTimeLine8finishedENS_14QPrivateSignalE(QTimeLine *self) {
+  self->finished(QTimeLine::QPrivateSignal());
+}
+
 //  void QTimeLine::timerEvent(QTimerEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTimeLine10timerEventEP11QTimerEvent(
     QTimeLine *self,
     QTimerEvent *event) {
   self->timerEvent(event);
+}
+
+//  QTimeLinePrivate *QTimeLine::d_func()
+extern "C" Q_DECL_EXPORT
+QTimeLinePrivate *ritual_ZN9QTimeLine6d_funcEv(QTimeLine *self) {
+  return self->d_func();
+}
+
+//  const QTimeLinePrivate *QTimeLine::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTimeLinePrivate *ritual_ZNK9QTimeLine6d_funcEv(
+    const QTimeLine *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQTimeLine, for the function named by the
@@ -439,6 +543,26 @@ void ritual_own_ZN9QTimeLine10timerEventEP11QTimerEvent(
     QTimeLine *self,
     QTimerEvent *event) {
   static_cast<OwnQTimeLine *>(self)->OwnQTimeLine::timerEvent(event);
+}
+
+//  a QBindable<int> a ritual of QTimeLine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTimeLine__QBindable_int(QBindable<int> *self) {
+  delete self;
+}
+
+//  a QBindable<QTimeLine::Direction> a ritual of QTimeLine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTimeLine__QBindable_QTimeLine_Direction(
+    QBindable<QTimeLine::Direction> *self) {
+  delete self;
+}
+
+//  a QBindable<QEasingCurve> a ritual of QTimeLine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTimeLine__QBindable_QEasingCurve(
+    QBindable<QEasingCurve> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(easingcurve)

@@ -22,7 +22,7 @@ typedef void * (*CuteQQuickContext2DTexture_CanvasChangeEventCall1)(const void *
 class CuteQQuickContext2DTexture_CanvasChangeEvent : public QQuickContext2DTexture::CanvasChangeEvent {
 public:
   using QQuickContext2DTexture::CanvasChangeEvent::CanvasChangeEvent;
-  CuteQQuickContext2DTexture_CanvasChangeEvent(const QQuickContext2DTexture::CanvasChangeEvent &other) : QQuickContext2DTexture::CanvasChangeEvent(other) {}
+  CuteQQuickContext2DTexture_CanvasChangeEvent(const QQuickContext2DTexture::CanvasChangeEvent & other) : QQuickContext2DTexture::CanvasChangeEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

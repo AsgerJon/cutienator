@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/shader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #include <QtCore/qstring.h>
 #include <cstring>
 
@@ -41,6 +42,54 @@ public:
   }
 };
 
+//  Qt3DRender::Render::Shader::Shader()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Shader *ritual_ZN10Qt3DRender6Render6ShaderC1Ev() {
+  return new CuteQt3DRender_Render_Shader();
+}
+
+//  Qt3DRender::Render::Shader::~Shader()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6ShaderD1Ev(
+    Qt3DRender::Render::Shader *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::Shader::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Shader7cleanupEv(
+    Qt3DRender::Render::Shader *self) {
+  self->cleanup();
+}
+
+//  const std::vector<QByteArray> &Qt3DRender::Render::Shader::shaderCode()
+//      const
+extern "C" Q_DECL_EXPORT
+const std::vector<QByteArray> *ritual_ZNK10Qt3DRender6Render6Shader10shaderCodeEv(
+    const Qt3DRender::Render::Shader *self) {
+  return &(self->shaderCode());
+}
+
+//  void Qt3DRender::Render::Shader::setShaderCode(QShaderProgram::ShaderType
+//      type, const QByteArray &code)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Shader13setShaderCodeENS_14QShaderProgram10ShaderTypeERK10QByteArray(
+    Qt3DRender::Render::Shader *self,
+    Qt3DRender::QShaderProgram::ShaderType type,
+    const QByteArray *code) {
+  self->setShaderCode(type, *code);
+}
+
+//  void Qt3DRender::Render::Shader::syncFromFrontEnd(const Qt3DCore::QNode
+//      *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Shader16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::Shader *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
 //  QString Qt3DRender::Render::Shader::log() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK10Qt3DRender6Render6Shader3logEv(
@@ -53,6 +102,14 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QShaderProgram::Status ritual_ZNK10Qt3DRender6Render6Shader6statusEv(
     const Qt3DRender::Render::Shader *self) {
   return self->status();
+}
+
+//  void Qt3DRender::Render::Shader::setFormat(QShaderProgram::Format format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Shader9setFormatENS_14QShaderProgram6FormatE(
+    Qt3DRender::Render::Shader *self,
+    Qt3DRender::QShaderProgram::Format format) {
+  self->setFormat(format);
 }
 
 //  QShaderProgram::Format Qt3DRender::Render::Shader::format() const
@@ -88,6 +145,38 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender6Render6Shader25unsetRequiresFrontendSyncEv(
     Qt3DRender::Render::Shader *self) {
   self->unsetRequiresFrontendSync();
+}
+
+//  void Qt3DRender::Render::Shader::setLog(const QString &log)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Shader6setLogERK7QString(
+    Qt3DRender::Render::Shader *self,
+    const QString *log) {
+  self->setLog(*log);
+}
+
+//  void Qt3DRender::Render::Shader::setStatus(QShaderProgram::Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Shader9setStatusENS_14QShaderProgram6StatusE(
+    Qt3DRender::Render::Shader *self,
+    Qt3DRender::QShaderProgram::Status status) {
+  self->setStatus(status);
+}
+
+//  void Qt3DRender::Render::Shader::initializeFromReference(const Shader
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Shader23initializeFromReferenceERKS1_(
+    Qt3DRender::Render::Shader *self,
+    const Qt3DRender::Render::Shader *other) {
+  self->initializeFromReference(*other);
+}
+
+//  void Qt3DRender::Render::Shader::requestCacheRebuild()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Shader19requestCacheRebuildEv(
+    Qt3DRender::Render::Shader *self) {
+  self->requestCacheRebuild();
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_Shader, for the

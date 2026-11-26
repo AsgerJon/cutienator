@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QQuickText10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickText11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QQuickText11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QQuickText2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QQuickTextC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN10QQuickTextD1Ev": ["nothing", "address"],
@@ -132,6 +138,82 @@
     "ritual_ZNK10QQuickText8fontInfoEv": ["address", "address"],
     "ritual_ZNK10QQuickText7advanceEv": ["address", "address"],
     "ritual_ZN10QQuickText10invalidateEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText11textChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQuickText13linkActivatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQuickText11linkHoveredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQuickText11fontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickText12colorChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText16linkColorChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText12styleChangedENS_9TextStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQuickText17styleColorChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText26horizontalAlignmentChangedENS_10HAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQuickText24verticalAlignmentChangedENS_10VAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQuickText15wrapModeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText16lineCountChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText16truncatedChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText23maximumLineCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickText17textFormatChangedENS_10TextFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQuickText16elideModeChangedENS_13TextElideModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQuickText18contentSizeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText19contentWidthChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QQuickText20contentHeightChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QQuickText17lineHeightChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QQuickText21lineHeightModeChangedENS_14LineHeightModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQuickText19fontSizeModeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText23minimumPixelSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickText23minimumPointSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickText35effectiveHorizontalAlignmentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickText11lineLaidOutEP14QQuickTextLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickText14baseUrlChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText17renderTypeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText14paddingChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText17topPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText18leftPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText19rightPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText20bottomPaddingChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText15fontInfoChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickText24renderTypeQualityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickTextC1ER17QQuickTextPrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10QQuickText15mousePressEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],

@@ -5,6 +5,10 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render14FrustumCullingC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render14FrustumCullingD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DRender_Render_FrustumCulling": [
       "bool", "address", "chars", "address"
     ]

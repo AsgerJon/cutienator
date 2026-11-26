@@ -5,14 +5,23 @@
 #if QT_CONFIG(sortfilterproxymodel)
 #include <QtCore/qsortfilterproxymodel.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QRegularExpression>
+#include <QtCore/Qt>
 
 //  Only a class built on QSortFilterProxyModel may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1331,6 +1340,25 @@ const QMetaObject *ritual_ZNK21QSortFilterProxyModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSortFilterProxyModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QSortFilterProxyModel11qt_metacastEPKc(
+    QSortFilterProxyModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSortFilterProxyModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QSortFilterProxyModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSortFilterProxyModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSortFilterProxyModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QSortFilterProxyModel2trEPKcS1_i(
@@ -1405,6 +1433,15 @@ QRegularExpression *ritual_ZNK21QSortFilterProxyModel23filterRegularExpressionEv
   return new QRegularExpression(self->filterRegularExpression());
 }
 
+//  QBindable<QRegularExpression>
+//      QSortFilterProxyModel::bindableFilterRegularExpression()
+extern "C" Q_DECL_EXPORT
+QBindable<QRegularExpression> *ritual_ZN21QSortFilterProxyModel31bindableFilterRegularExpressionEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<QRegularExpression>(
+      self->bindableFilterRegularExpression());
+}
+
 //  int QSortFilterProxyModel::filterKeyColumn() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QSortFilterProxyModel15filterKeyColumnEv(
@@ -1418,6 +1455,13 @@ void ritual_ZN21QSortFilterProxyModel18setFilterKeyColumnEi(
     QSortFilterProxyModel *self,
     int column) {
   self->setFilterKeyColumn(column);
+}
+
+//  QBindable<int> QSortFilterProxyModel::bindableFilterKeyColumn()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN21QSortFilterProxyModel23bindableFilterKeyColumnEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<int>(self->bindableFilterKeyColumn());
 }
 
 //  Qt::CaseSensitivity QSortFilterProxyModel::filterCaseSensitivity() const
@@ -1436,6 +1480,15 @@ void ritual_ZN21QSortFilterProxyModel24setFilterCaseSensitivityEN2Qt15CaseSensit
   self->setFilterCaseSensitivity(cs);
 }
 
+//  QBindable<Qt::CaseSensitivity>
+//      QSortFilterProxyModel::bindableFilterCaseSensitivity()
+extern "C" Q_DECL_EXPORT
+QBindable<Qt::CaseSensitivity> *ritual_ZN21QSortFilterProxyModel29bindableFilterCaseSensitivityEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<Qt::CaseSensitivity>(
+      self->bindableFilterCaseSensitivity());
+}
+
 //  Qt::CaseSensitivity QSortFilterProxyModel::sortCaseSensitivity() const
 extern "C" Q_DECL_EXPORT
 Qt::CaseSensitivity ritual_ZNK21QSortFilterProxyModel19sortCaseSensitivityEv(
@@ -1452,6 +1505,15 @@ void ritual_ZN21QSortFilterProxyModel22setSortCaseSensitivityEN2Qt15CaseSensitiv
   self->setSortCaseSensitivity(cs);
 }
 
+//  QBindable<Qt::CaseSensitivity>
+//      QSortFilterProxyModel::bindableSortCaseSensitivity()
+extern "C" Q_DECL_EXPORT
+QBindable<Qt::CaseSensitivity> *ritual_ZN21QSortFilterProxyModel27bindableSortCaseSensitivityEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<Qt::CaseSensitivity>(
+      self->bindableSortCaseSensitivity());
+}
+
 //  bool QSortFilterProxyModel::isSortLocaleAware() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QSortFilterProxyModel17isSortLocaleAwareEv(
@@ -1465,6 +1527,13 @@ void ritual_ZN21QSortFilterProxyModel18setSortLocaleAwareEb(
     QSortFilterProxyModel *self,
     bool on) {
   self->setSortLocaleAware(on);
+}
+
+//  QBindable<bool> QSortFilterProxyModel::bindableIsSortLocaleAware()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN21QSortFilterProxyModel25bindableIsSortLocaleAwareEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<bool>(self->bindableIsSortLocaleAware());
 }
 
 //  int QSortFilterProxyModel::sortColumn() const
@@ -1496,6 +1565,13 @@ void ritual_ZN21QSortFilterProxyModel20setDynamicSortFilterEb(
   self->setDynamicSortFilter(enable);
 }
 
+//  QBindable<bool> QSortFilterProxyModel::bindableDynamicSortFilter()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN21QSortFilterProxyModel25bindableDynamicSortFilterEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<bool>(self->bindableDynamicSortFilter());
+}
+
 //  int QSortFilterProxyModel::sortRole() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QSortFilterProxyModel8sortRoleEv(
@@ -1509,6 +1585,13 @@ void ritual_ZN21QSortFilterProxyModel11setSortRoleEi(
     QSortFilterProxyModel *self,
     int role) {
   self->setSortRole(role);
+}
+
+//  QBindable<int> QSortFilterProxyModel::bindableSortRole()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN21QSortFilterProxyModel16bindableSortRoleEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<int>(self->bindableSortRole());
 }
 
 //  int QSortFilterProxyModel::filterRole() const
@@ -1526,6 +1609,13 @@ void ritual_ZN21QSortFilterProxyModel13setFilterRoleEi(
   self->setFilterRole(role);
 }
 
+//  QBindable<int> QSortFilterProxyModel::bindableFilterRole()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN21QSortFilterProxyModel18bindableFilterRoleEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<int>(self->bindableFilterRole());
+}
+
 //  bool QSortFilterProxyModel::isRecursiveFilteringEnabled() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QSortFilterProxyModel27isRecursiveFilteringEnabledEv(
@@ -1541,6 +1631,14 @@ void ritual_ZN21QSortFilterProxyModel28setRecursiveFilteringEnabledEb(
   self->setRecursiveFilteringEnabled(recursive);
 }
 
+//  QBindable<bool>
+//      QSortFilterProxyModel::bindableRecursiveFilteringEnabled()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN21QSortFilterProxyModel33bindableRecursiveFilteringEnabledEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<bool>(self->bindableRecursiveFilteringEnabled());
+}
+
 //  bool QSortFilterProxyModel::autoAcceptChildRows() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QSortFilterProxyModel19autoAcceptChildRowsEv(
@@ -1554,6 +1652,13 @@ void ritual_ZN21QSortFilterProxyModel22setAutoAcceptChildRowsEb(
     QSortFilterProxyModel *self,
     bool accept) {
   self->setAutoAcceptChildRows(accept);
+}
+
+//  QBindable<bool> QSortFilterProxyModel::bindableAutoAcceptChildRows()
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZN21QSortFilterProxyModel27bindableAutoAcceptChildRowsEv(
+    QSortFilterProxyModel *self) {
+  return new QBindable<bool>(self->bindableAutoAcceptChildRows());
 }
 
 //  void QSortFilterProxyModel::setFilterRegularExpression(const QString
@@ -1626,6 +1731,25 @@ bool ritual_ZNK21QSortFilterProxyModel8lessThanERK11QModelIndexS2_(
     const QModelIndex *source_right) {
   return self->lessThan(*source_left, *source_right);
 }
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  DataChangeRelevanceFlags
+//      QSortFilterProxyModel::dataChangeRelevanceFlags(const QModelIndex
+//      &sourceTopLeft, const QModelIndex &sourceBottomRight, const
+//      QList<int> &roles) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK21QSortFilterProxyModel24dataChangeRelevanceFlagsERK11QModelIndexS2_RK5QListIiE(
+    const QSortFilterProxyModel *self,
+    const QModelIndex *sourceTopLeft,
+    const QModelIndex *sourceBottomRight,
+    const QList<int> *roles) {
+  return static_cast<int>(
+      self->dataChangeRelevanceFlags(
+          *sourceTopLeft,
+          *sourceBottomRight,
+          *roles).toInt());
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  void QSortFilterProxyModel::beginFilterChange()
 extern "C" Q_DECL_EXPORT
@@ -1917,6 +2041,91 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK21QSortFilterProxyModel20supportedDropActionsEv(
     const QSortFilterProxyModel *self) {
   return static_cast<int>(self->supportedDropActions().toInt());
+}
+
+//  void QSortFilterProxyModel::dynamicSortFilterChanged(bool
+//      dynamicSortFilter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel24dynamicSortFilterChangedEb(
+    QSortFilterProxyModel *self,
+    bool dynamicSortFilter) {
+  self->dynamicSortFilterChanged(dynamicSortFilter);
+}
+
+//  void
+//      QSortFilterProxyModel::filterCaseSensitivityChanged(Qt::CaseSensitivi
+//      ty filterCaseSensitivity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel28filterCaseSensitivityChangedEN2Qt15CaseSensitivityE(
+    QSortFilterProxyModel *self,
+    Qt::CaseSensitivity filterCaseSensitivity) {
+  self->filterCaseSensitivityChanged(filterCaseSensitivity);
+}
+
+//  void
+//      QSortFilterProxyModel::sortCaseSensitivityChanged(Qt::CaseSensitivity
+//      sortCaseSensitivity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel26sortCaseSensitivityChangedEN2Qt15CaseSensitivityE(
+    QSortFilterProxyModel *self,
+    Qt::CaseSensitivity sortCaseSensitivity) {
+  self->sortCaseSensitivityChanged(sortCaseSensitivity);
+}
+
+//  void QSortFilterProxyModel::sortLocaleAwareChanged(bool sortLocaleAware)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel22sortLocaleAwareChangedEb(
+    QSortFilterProxyModel *self,
+    bool sortLocaleAware) {
+  self->sortLocaleAwareChanged(sortLocaleAware);
+}
+
+//  void QSortFilterProxyModel::sortRoleChanged(int sortRole)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel15sortRoleChangedEi(
+    QSortFilterProxyModel *self,
+    int sortRole) {
+  self->sortRoleChanged(sortRole);
+}
+
+//  void QSortFilterProxyModel::filterRoleChanged(int filterRole)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel17filterRoleChangedEi(
+    QSortFilterProxyModel *self,
+    int filterRole) {
+  self->filterRoleChanged(filterRole);
+}
+
+//  void QSortFilterProxyModel::recursiveFilteringEnabledChanged(bool
+//      recursiveFilteringEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel32recursiveFilteringEnabledChangedEb(
+    QSortFilterProxyModel *self,
+    bool recursiveFilteringEnabled) {
+  self->recursiveFilteringEnabledChanged(recursiveFilteringEnabled);
+}
+
+//  void QSortFilterProxyModel::autoAcceptChildRowsChanged(bool
+//      autoAcceptChildRows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel26autoAcceptChildRowsChangedEb(
+    QSortFilterProxyModel *self,
+    bool autoAcceptChildRows) {
+  self->autoAcceptChildRowsChanged(autoAcceptChildRows);
+}
+
+//  QSortFilterProxyModelPrivate *QSortFilterProxyModel::d_func()
+extern "C" Q_DECL_EXPORT
+QSortFilterProxyModelPrivate *ritual_ZN21QSortFilterProxyModel6d_funcEv(
+    QSortFilterProxyModel *self) {
+  return self->d_func();
+}
+
+//  const QSortFilterProxyModelPrivate *QSortFilterProxyModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSortFilterProxyModelPrivate *ritual_ZNK21QSortFilterProxyModel6d_funcEv(
+    const QSortFilterProxyModel *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQSortFilterProxyModel, for the function
@@ -2253,6 +2462,33 @@ int ritual_own_ZNK21QSortFilterProxyModel20supportedDropActionsEv(
     const QSortFilterProxyModel *self) {
   return static_cast<int>(
       self->QSortFilterProxyModel::supportedDropActions().toInt());
+}
+
+//  a QBindable<QRegularExpression> a ritual of QSortFilterProxyModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSortFilterProxyModel__QBindable_QRegularExpression(
+    QBindable<QRegularExpression> *self) {
+  delete self;
+}
+
+//  a QBindable<int> a ritual of QSortFilterProxyModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSortFilterProxyModel__QBindable_int(QBindable<int> *self) {
+  delete self;
+}
+
+//  a QBindable<Qt::CaseSensitivity> a ritual of QSortFilterProxyModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSortFilterProxyModel__QBindable_Qt_CaseSensitivity(
+    QBindable<Qt::CaseSensitivity> *self) {
+  delete self;
+}
+
+//  a QBindable<bool> a ritual of QSortFilterProxyModel gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSortFilterProxyModel__QBindable_bool(
+    QBindable<bool> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(sortfilterproxymodel)

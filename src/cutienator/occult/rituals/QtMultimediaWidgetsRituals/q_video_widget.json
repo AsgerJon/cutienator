@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QVideoWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QVideoWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QVideoWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QVideoWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QVideoWidgetC1EP7QWidget": ["address", "address"],
     "ritual_ZN12QVideoWidgetD1Ev": ["nothing", "address"],
@@ -16,6 +22,12 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZN12QVideoWidget18setAspectRatioModeEN2Qt15AspectRatioModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QVideoWidget17fullScreenChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QVideoWidget22aspectRatioModeChangedEN2Qt15AspectRatioModeE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN12QVideoWidget5eventEP6QEvent": ["bool", "address", "address"],

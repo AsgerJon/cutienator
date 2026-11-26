@@ -137,6 +137,14 @@ QVariant *ritual_ZNK31QReplicaImplementationInterface11getPropertyEi(
   return new QVariant(self->getProperty(i));
 }
 
+//  void QReplicaImplementationInterface::setProperties(QVariantList &&a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QReplicaImplementationInterface13setPropertiesEO5QListI8QVariantE(
+    QReplicaImplementationInterface *self,
+    QVariantList *a0) {
+  self->setProperties(std::move(*a0));
+}
+
 //  void QReplicaImplementationInterface::setProperty(int i, const QVariant
 //      &a1)
 extern "C" Q_DECL_EXPORT

@@ -7,11 +7,31 @@
     "ritual_ZNK9Qt3DLogic12QLogicAspect10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DLogic12QLogicAspect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DLogic12QLogicAspect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DLogic12QLogicAspect2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN9Qt3DLogic12QLogicAspectC1EP7QObject": ["address", "address"],
+    "ritual_ZN9Qt3DLogic12QLogicAspectD1Ev": ["nothing", "address"],
+    "ritual_ZN9Qt3DLogic12QLogicAspect13jobsToExecuteEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN9Qt3DLogic12QLogicAspect12onRegisteredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9Qt3DLogic12QLogicAspect15onEngineStartupEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN9Qt3DLogic12QLogicAspect6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DLogic12QLogicAspect6d_funcEv": ["address", "address"],
+    "ritual_ZN9Qt3DLogic12QLogicAspectC1ERNS_19QLogicAspectPrivateEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_Qt3DLogic_QLogicAspect": [
       "bool", "address", "chars", "address"
     ],
@@ -19,6 +39,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN9Qt3DLogic12QLogicAspect15onEngineStartupEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DLogic_QLogicAspect__std_vector_Qt3DCore_QAspectJobPtr": [
       "nothing", "address"
     ]
   }

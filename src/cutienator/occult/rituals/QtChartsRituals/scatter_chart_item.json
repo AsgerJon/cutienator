@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16ScatterChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN16ScatterChartItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16ScatterChartItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16ScatterChartItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

@@ -6,8 +6,21 @@
   ],
   "rows": {
     "ritual_ZN11QFontEngine6HolderC1Ev": ["address"],
+    "ritual_ZN11QFontEngine6HolderC1EPvPFvS1_E": [
+      "address", "address", "address"
+    ],
     "ritual_ZN11QFontEngine6HolderD1Ev": ["nothing", "address"],
+    "ritual_ZN11QFontEngine6HolderC1EOS0_": ["address", "address"],
+    "ritual_ZN11QFontEngine6HolderaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QFontEngine6Holder4swapERS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QFontEngine6Holder3getEv": ["address", "address"],
+    "ritual_ZN11QFontEngine6Holder7releaseEv": ["address", "address"],
     "ritual_ZN11QFontEngine6Holder5resetEv": ["nothing", "address"],
+    "ritual_ZNK11QFontEngine6Holder11get_deleterEv": ["address", "address"],
     "ritual_ZNK11QFontEngine6HolderntEv": ["bool", "address"]
   }
 }

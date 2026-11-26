@@ -6,12 +6,32 @@
   "rows": {
     "ritual_ZN4QUrlC1Ev": ["address"],
     "ritual_ZN4QUrlC1ERKS_": ["address", "address"],
+    "ritual_ZN4QUrlaSERKS_": ["address", "address", "address"],
     "ritual_ZN4QUrlC1ERK7QStringNS_11ParsingModeE": [
       "address", "text", "int"
     ],
+    "ritual_ZN4QUrlaSERK7QString": ["address", "address", "text"],
+    "ritual_ZN4QUrlC1EOS_": ["address", "address"],
+    "ritual_ZN4QUrlaSEOS_": ["address", "address", "address"],
     "ritual_ZN4QUrlD1Ev": ["nothing", "address"],
+    "ritual_ZN4QUrl4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN4QUrl6setUrlERK7QStringNS_11ParsingModeE": [
       "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK4QUrl3urlE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK4QUrl8toStringE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK4QUrl15toDisplayStringE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK4QUrl8adjustedE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QUrl9toEncodedE12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE": [
+      "address", "address", "address"
     ],
     "ritual_ZN4QUrl11fromEncodedE14QByteArrayViewNS_11ParsingModeE": [
       "address", "address", "int"
@@ -91,6 +111,9 @@
     "ritual_ZNK4QUrl11toLocalFileEv": ["text", "address"],
     "ritual_ZN4QUrl6detachEv": ["nothing", "address"],
     "ritual_ZNK4QUrl10isDetachedEv": ["bool", "address"],
+    "ritual_ZNK4QUrl7matchesERKS_12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN4QUrl19fromPercentEncodingERK10QByteArray": [
       "text", "address"
     ],
@@ -104,6 +127,9 @@
       "address", "text", "int"
     ],
     "ritual_ZN4QUrl12idnWhitelistEv": ["address"],
+    "ritual_ZN4QUrl12toStringListERK5QListIS_E12QUrlTwoFlagsINS_19UrlFormattingOptionENS_25ComponentFormattingOptionEE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN4QUrl14fromStringListERK5QListI7QStringENS_11ParsingModeE": [
       "address", "address", "int"
     ],
@@ -117,6 +143,7 @@
     "ritual_ZleRK4QUrlS1_": ["bool", "address", "address"],
     "ritual_ZgeRK4QUrlS1_": ["bool", "address", "address"],
     "ritual_ZN4QUrl13detachToClearEv": ["nothing", "address"],
+    "ritual_ZN4QUrl8data_ptrEv": ["address", "address"],
     "ritual_list_make_QUrl": ["address"],
     "ritual_list_add_QUrl": ["nothing", "address", "address"],
     "ritual_list_size_QUrl": ["long long", "address"],

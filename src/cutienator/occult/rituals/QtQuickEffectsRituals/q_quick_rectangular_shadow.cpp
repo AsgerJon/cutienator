@@ -32,6 +32,25 @@ const QMetaObject *ritual_ZNK23QQuickRectangularShadow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRectangularShadow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickRectangularShadow11qt_metacastEPKc(
+    QQuickRectangularShadow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRectangularShadow::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickRectangularShadow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRectangularShadow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRectangularShadow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickRectangularShadow2trEPKcS1_i(
@@ -239,6 +258,83 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuickRectangularShadow22resetBottomRightRadiusEv(
     QQuickRectangularShadow *self) {
   self->resetBottomRightRadius();
+}
+
+//  void QQuickRectangularShadow::offsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow13offsetChangedEv(
+    QQuickRectangularShadow *self) {
+  self->offsetChanged();
+}
+
+//  void QQuickRectangularShadow::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow12colorChangedEv(
+    QQuickRectangularShadow *self) {
+  self->colorChanged();
+}
+
+//  void QQuickRectangularShadow::blurChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow11blurChangedEv(
+    QQuickRectangularShadow *self) {
+  self->blurChanged();
+}
+
+//  void QQuickRectangularShadow::radiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow13radiusChangedEv(
+    QQuickRectangularShadow *self) {
+  self->radiusChanged();
+}
+
+//  void QQuickRectangularShadow::spreadChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow13spreadChangedEv(
+    QQuickRectangularShadow *self) {
+  self->spreadChanged();
+}
+
+//  void QQuickRectangularShadow::cachedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow13cachedChangedEv(
+    QQuickRectangularShadow *self) {
+  self->cachedChanged();
+}
+
+//  void QQuickRectangularShadow::materialChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow15materialChangedEv(
+    QQuickRectangularShadow *self) {
+  self->materialChanged();
+}
+
+//  void QQuickRectangularShadow::topLeftRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow20topLeftRadiusChangedEv(
+    QQuickRectangularShadow *self) {
+  self->topLeftRadiusChanged();
+}
+
+//  void QQuickRectangularShadow::topRightRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow21topRightRadiusChangedEv(
+    QQuickRectangularShadow *self) {
+  self->topRightRadiusChanged();
+}
+
+//  void QQuickRectangularShadow::bottomLeftRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow23bottomLeftRadiusChangedEv(
+    QQuickRectangularShadow *self) {
+  self->bottomLeftRadiusChanged();
+}
+
+//  void QQuickRectangularShadow::bottomRightRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickRectangularShadow24bottomRightRadiusChangedEv(
+    QQuickRectangularShadow *self) {
+  self->bottomRightRadiusChanged();
 }
 
 //  void QQuickRectangularShadow::componentComplete()

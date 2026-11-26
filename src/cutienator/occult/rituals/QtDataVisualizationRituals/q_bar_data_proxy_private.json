@@ -6,12 +6,42 @@
   ],
   "rows": {
     "ritual_ZNK20QBarDataProxyPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QBarDataProxyPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QBarDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QBarDataProxyPrivate10resetArrayEP5QListIPS0_I12QBarDataItemEEPKS0_I7QStringES9_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate6setRowEiP5QListI12QBarDataItemEPK7QString": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate7setRowsEiRK5QListIPS0_I12QBarDataItemEEPKS0_I7QStringE": [
+      "nothing", "address", "int", "address", "address"
+    ],
     "ritual_ZN20QBarDataProxyPrivate7setItemEiiRK12QBarDataItem": [
       "nothing", "address", "int", "int", "address"
     ],
+    "ritual_ZN20QBarDataProxyPrivate6addRowEP5QListI12QBarDataItemEPK7QString": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate7addRowsERK5QListIPS0_I12QBarDataItemEEPKS0_I7QStringE": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate9insertRowEiP5QListI12QBarDataItemEPK7QString": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate10insertRowsEiRK5QListIPS0_I12QBarDataItemEEPKS0_I7QStringE": [
+      "nothing", "address", "int", "address", "address"
+    ],
     "ritual_ZN20QBarDataProxyPrivate10removeRowsEiib": [
       "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_ZNK20QBarDataProxyPrivate11limitValuesEiiii": [
+      "address", "address", "int", "int", "int", "int"
     ],
     "ritual_ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
       "nothing", "address", "address"
@@ -29,6 +59,9 @@
     ],
     "ritual_own_ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QBarDataProxyPrivate__QPair_GLfloat_GLfloat": [
+      "nothing", "address"
     ]
   }
 }

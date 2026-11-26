@@ -113,6 +113,15 @@ public:
 #endif  // QT_CONFIG(graphicsview)
 };
 
+//  QGraphicsLayoutItem::QGraphicsLayoutItem(QGraphicsLayoutItem *parent,
+//      bool isLayout)
+extern "C" Q_DECL_EXPORT
+QGraphicsLayoutItem *ritual_ZN19QGraphicsLayoutItemC1EPS_b(
+    QGraphicsLayoutItem *parent,
+    bool isLayout) {
+  return new CuteQGraphicsLayoutItem(parent, isLayout);
+}
+
 //  QGraphicsLayoutItem::~QGraphicsLayoutItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGraphicsLayoutItemD1Ev(QGraphicsLayoutItem *self) {
@@ -416,6 +425,13 @@ void ritual_ZN19QGraphicsLayoutItem16setOwnedByLayoutEb(
     QGraphicsLayoutItem *self,
     bool ownedByLayout) {
   self->setOwnedByLayout(ownedByLayout);
+}
+
+//  QGraphicsLayoutItem::QGraphicsLayoutItem(QGraphicsLayoutItemPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QGraphicsLayoutItem *ritual_ZN19QGraphicsLayoutItemC1ER26QGraphicsLayoutItemPrivate(
+    QGraphicsLayoutItemPrivate *dd) {
+  return new CuteQGraphicsLayoutItem(*dd);
 }
 
 //  QSizeF QGraphicsLayoutItem::sizeHint(Qt::SizeHint which, const QSizeF

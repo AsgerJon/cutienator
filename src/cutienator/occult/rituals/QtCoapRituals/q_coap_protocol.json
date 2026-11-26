@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QCoapProtocol10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCoapProtocol11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QCoapProtocol11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QCoapProtocolD1Ev": ["nothing", "address"],
     "ritual_ZNK13QCoapProtocol10ackTimeoutEv": ["unsigned int", "address"],
     "ritual_ZNK13QCoapProtocol15ackRandomFactorEv": ["double", "address"],
@@ -34,11 +40,35 @@
     "ritual_ZNK13QCoapProtocol26maximumServerResponseDelayEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZN13QCoapProtocol8finishedEP10QCoapReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCoapProtocol27responseToMulticastReceivedEP10QCoapReplyRK12QCoapMessageRK12QHostAddress": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QCoapProtocol5errorEP10QCoapReplyN6QtCoap5ErrorE": [
+      "nothing", "address", "address", "unsigned char"
+    ],
     "ritual_ZN13QCoapProtocol13setAckTimeoutEj": [
       "nothing", "address", "unsigned int"
     ],
+    "ritual_ZN13QCoapProtocol18setAckRandomFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QCoapProtocol25setMaximumRetransmitCountEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN13QCoapProtocol12setBlockSizeEt": [
+      "nothing", "address", "unsigned short"
+    ],
     "ritual_ZN13QCoapProtocol29setMaximumServerResponseDelayEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN13QCoapProtocol19setMinimumTokenSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QCoapProtocol11sendRequestE8QPointerI10QCoapReplyEP15QCoapConnection": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN13QCoapProtocol6d_funcEv": ["address", "address"],
     "ritual_ZNK13QCoapProtocol6d_funcEv": ["address", "address"],

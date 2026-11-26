@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickListView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickListView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickListView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickListView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QQuickListView6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickListView6d_funcEv": ["address", "address"],
     "ritual_ZN14QQuickListView21qt_qmlMarker_attachedEv": [
       "nothing", "address"
     ],
@@ -67,6 +75,29 @@
       "nothing", "address"
     ],
     "ritual_ZN14QQuickListView21decrementCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListView14spacingChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickListView18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListView21currentSectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListView28highlightMoveVelocityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListView30highlightResizeVelocityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListView30highlightResizeDurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListView15snapModeChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickListView24headerPositioningChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListView24footerPositioningChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN14QQuickListView13viewportMovedE6QFlagsIN2Qt11OrientationEE": [

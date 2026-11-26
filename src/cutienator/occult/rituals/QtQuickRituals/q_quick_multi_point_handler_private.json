@@ -20,6 +20,12 @@
     "ritual_ZN30QQuickMultiPointHandlerPrivateC1Eii": [
       "address", "int", "int"
     ],
+    "ritual_ZNK30QQuickMultiPointHandlerPrivate13xMetaPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickMultiPointHandlerPrivate13yMetaPropertyEv": [
+      "address", "address"
+    ],
     "ritual_take_QQuickMultiPointHandlerPrivate": [
       "bool", "address", "chars", "address"
     ]

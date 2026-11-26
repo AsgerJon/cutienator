@@ -8,6 +8,12 @@
     "ritual_ZNK22QAbstract3DAxisPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QAbstract3DAxisPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QAbstract3DAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QAbstract3DAxisPrivate14setOrientationEN15QAbstract3DAxis15AxisOrientationE": [
       "nothing", "address", "int"

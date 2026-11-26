@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK4QQSK10metaObjectEv": ["address", "address"],
+    "ritual_ZN4QQSK11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN4QQSK11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_take_QQSK": ["bool", "address", "chars", "address"]
   }
 }

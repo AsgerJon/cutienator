@@ -5,6 +5,7 @@
     "are lost."
   ],
   "rows": {
+    "ritual_ZN38QDesignerDynamicPropertySheetExtensionC1Ev": ["address"],
     "ritual_ZN38QDesignerDynamicPropertySheetExtensionD1Ev": [
       "nothing", "address"
     ],

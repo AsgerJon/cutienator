@@ -138,6 +138,49 @@ public:
   }
 };
 
+//  void QMetalTextureRenderTarget::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QMetalTextureRenderTarget7destroyEv(
+    QMetalTextureRenderTarget *self) {
+  self->destroy();
+}
+
+//  QSize QMetalTextureRenderTarget::pixelSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK25QMetalTextureRenderTarget9pixelSizeEv(
+    const QMetalTextureRenderTarget *self) {
+  return new QSize(self->pixelSize());
+}
+
+//  float QMetalTextureRenderTarget::devicePixelRatio() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK25QMetalTextureRenderTarget16devicePixelRatioEv(
+    const QMetalTextureRenderTarget *self) {
+  return self->devicePixelRatio();
+}
+
+//  int QMetalTextureRenderTarget::sampleCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK25QMetalTextureRenderTarget11sampleCountEv(
+    const QMetalTextureRenderTarget *self) {
+  return self->sampleCount();
+}
+
+//  QRhiRenderPassDescriptor
+//      *QMetalTextureRenderTarget::newCompatibleRenderPassDescriptor()
+extern "C" Q_DECL_EXPORT
+QRhiRenderPassDescriptor *ritual_ZN25QMetalTextureRenderTarget33newCompatibleRenderPassDescriptorEv(
+    QMetalTextureRenderTarget *self) {
+  return self->newCompatibleRenderPassDescriptor();
+}
+
+//  bool QMetalTextureRenderTarget::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QMetalTextureRenderTarget6createEv(
+    QMetalTextureRenderTarget *self) {
+  return self->create();
+}
+
 //  a Python function taken by a CuteQMetalTextureRenderTarget, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

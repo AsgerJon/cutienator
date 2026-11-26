@@ -8,6 +8,12 @@
     "ritual_ZNK26QQuickFlickableVisibleArea10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QQuickFlickableVisibleArea11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QQuickFlickableVisibleArea11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QQuickFlickableVisibleArea2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,18 @@
     ],
     "ritual_ZN26QQuickFlickableVisibleArea13updateVisibleEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN26QQuickFlickableVisibleArea16xPositionChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN26QQuickFlickableVisibleArea16yPositionChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN26QQuickFlickableVisibleArea17widthRatioChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN26QQuickFlickableVisibleArea18heightRatioChangedEd": [
+      "nothing", "address", "double"
     ]
   }
 }

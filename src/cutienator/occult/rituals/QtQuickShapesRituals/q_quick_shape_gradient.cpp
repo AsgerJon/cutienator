@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK19QQuickShapeGradient10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShapeGradient::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickShapeGradient11qt_metacastEPKc(
+    QQuickShapeGradient *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShapeGradient::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickShapeGradient11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShapeGradient *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShapeGradient::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickShapeGradient2trEPKcS1_i(
@@ -51,4 +70,11 @@ void ritual_ZN19QQuickShapeGradient9setSpreadENS_10SpreadModeE(
     QQuickShapeGradient *self,
     QQuickShapeGradient::SpreadMode mode) {
   self->setSpread(mode);
+}
+
+//  void QQuickShapeGradient::spreadChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickShapeGradient13spreadChangedEv(
+    QQuickShapeGradient *self) {
+  self->spreadChanged();
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK27QWaylandCompositorExtension10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QWaylandCompositorExtension11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QWaylandCompositorExtension11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QWaylandCompositorExtension2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,6 +25,10 @@
     ],
     "ritual_ZN27QWaylandCompositorExtension24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN27QWaylandCompositorExtensionC1Ev": ["address"],
+    "ritual_ZN27QWaylandCompositorExtensionC1EP14QWaylandObject": [
+      "address", "address"
     ],
     "ritual_ZN27QWaylandCompositorExtensionD1Ev": ["nothing", "address"],
     "ritual_ZNK27QWaylandCompositorExtension18extensionContainerEv": [
@@ -32,6 +42,15 @@
     ],
     "ritual_ZNK27QWaylandCompositorExtension13isInitializedEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK27QWaylandCompositorExtension18extensionInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QWaylandCompositorExtensionC1ER34QWaylandCompositorExtensionPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN27QWaylandCompositorExtensionC1EP14QWaylandObjectR34QWaylandCompositorExtensionPrivate": [
+      "address", "address", "address"
     ],
     "ritual_ZN27QWaylandCompositorExtension5eventEP6QEvent": [
       "bool", "address", "address"

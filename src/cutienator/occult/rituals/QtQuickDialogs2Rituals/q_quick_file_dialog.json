@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickFileDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickFileDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickFileDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickFileDialog2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -69,6 +75,35 @@
       "nothing", "address", "text"
     ],
     "ritual_ZN16QQuickFileDialog16resetRejectLabelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFileDialog15fileModeChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickFileDialog19selectedFileChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFileDialog20selectedFilesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFileDialog18currentFileChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFileDialog19currentFilesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFileDialog20currentFolderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFileDialog14optionsChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickFileDialog18nameFiltersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFileDialog20defaultSuffixChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFileDialog18acceptLabelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFileDialog18rejectLabelChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZNK16QQuickFileDialog15useNativeDialogEv": ["bool", "address"],

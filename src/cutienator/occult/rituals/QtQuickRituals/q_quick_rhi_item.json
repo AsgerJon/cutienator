@@ -5,9 +5,16 @@
   ],
   "rows": {
     "ritual_ZNK13QQuickRhiItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickRhiItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickRhiItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuickRhiItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuickRhiItem6d_funcEv": ["address", "address"],
     "ritual_ZNK13QQuickRhiItem6d_funcEv": ["address", "address"],
+    "ritual_ZN13QQuickRhiItemC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN13QQuickRhiItemD1Ev": ["nothing", "address"],
     "ritual_ZNK13QQuickRhiItem11sampleCountEv": ["int", "address"],
     "ritual_ZN13QQuickRhiItem14setSampleCountEi": [
@@ -42,6 +49,31 @@
     ],
     "ritual_ZNK13QQuickRhiItem17isTextureProviderEv": ["bool", "address"],
     "ritual_ZNK13QQuickRhiItem15textureProviderEv": ["address", "address"],
+    "ritual_ZN13QQuickRhiItem18sampleCountChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuickRhiItem24colorBufferFormatChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem23autoRenderTargetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem23mirrorVerticallyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem20alphaBlendingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem28fixedColorBufferWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem29fixedColorBufferHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem31effectiveColorBufferSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickRhiItemC1ER20QQuickRhiItemPrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN13QQuickRhiItem14createRendererEv": ["address", "address"],
     "ritual_ZNK13QQuickRhiItem25isAutoRenderTargetEnabledEv": [
       "bool", "address"

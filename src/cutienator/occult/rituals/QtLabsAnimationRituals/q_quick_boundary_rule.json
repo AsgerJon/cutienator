@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickBoundaryRule10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickBoundaryRule11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickBoundaryRule11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickBoundaryRule2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18QQuickBoundaryRule6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickBoundaryRule6d_funcEv": ["address", "address"],
     "ritual_ZN18QQuickBoundaryRuleC1EP7QObject": ["address", "address"],
     "ritual_ZN18QQuickBoundaryRuleD1Ev": ["nothing", "address"],
     "ritual_ZN18QQuickBoundaryRule9setTargetERK12QQmlProperty": [
@@ -66,6 +74,40 @@
     ],
     "ritual_ZN18QQuickBoundaryRule10classBeginEv": ["nothing", "address"],
     "ritual_ZN18QQuickBoundaryRule17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule14enabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule14minimumChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule23minimumOvershootChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule14maximumChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule23maximumOvershootChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule21overshootScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule23currentOvershootChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule20peakOvershootChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule22overshootFilterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule13easingChangedEv": ["nothing", "address"],
+    "ritual_ZN18QQuickBoundaryRule21returnDurationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule16returnedToBoundsEv": [
       "nothing", "address"
     ],
     "ritual_cast_QQuickBoundaryRule_QQmlPropertyValueInterceptor": [

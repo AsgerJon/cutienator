@@ -29,6 +29,14 @@ QLottieBase *ritual_ZNK17QLottieSolidLayer5cloneEv(
   return self->clone();
 }
 
+//  void QLottieSolidLayer::render(QLottieRenderer &render) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QLottieSolidLayer6renderER15QLottieRenderer(
+    const QLottieSolidLayer *self,
+    QLottieRenderer *render) {
+  self->render(*render);
+}
+
 //  int QLottieSolidLayer::parse(const QJsonObject &definition)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN17QLottieSolidLayer5parseERK11QJsonObject(

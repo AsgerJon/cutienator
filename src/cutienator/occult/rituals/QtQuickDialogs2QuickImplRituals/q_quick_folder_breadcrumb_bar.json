@@ -8,6 +8,12 @@
     "ritual_ZNK25QQuickFolderBreadcrumbBar10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuickFolderBreadcrumbBar2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -47,6 +53,24 @@
     ],
     "ritual_ZN25QQuickFolderBreadcrumbBar12setTextFieldEP15QQuickTextField": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar13dialogChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar21buttonDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar24separatorDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar15upButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar22upButtonSpacingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar16textFieldChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN25QQuickFolderBreadcrumbBar5eventEP6QEvent": [
       "bool", "address", "address"

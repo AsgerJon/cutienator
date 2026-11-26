@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickColorImage10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickColorImage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickColorImage11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickColorImage2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,6 +26,10 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN16QQuickColorImage17resetDefaultColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorImage12colorChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickColorImage19defaultColorChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN16QQuickColorImage12pixmapChangeEv": ["nothing", "address"],

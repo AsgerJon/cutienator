@@ -9,6 +9,7 @@
     "ritual_ZN14QOpcUaReadItemC1ERK7QStringN6QOpcUa13NodeAttributeES2_": [
       "address", "text", "int", "text"
     ],
+    "ritual_ZN14QOpcUaReadItemaSERKS_": ["address", "address", "address"],
     "ritual_ZN14QOpcUaReadItemD1Ev": ["nothing", "address"],
     "ritual_ZNK14QOpcUaReadItem6nodeIdEv": ["text", "address"],
     "ritual_ZN14QOpcUaReadItem9setNodeIdERK7QString": [

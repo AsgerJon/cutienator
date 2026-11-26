@@ -248,6 +248,24 @@ const QMetaObject *ritual_ZNK14QmlLightSensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlLightSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QmlLightSensor11qt_metacastEPKc(
+    QmlLightSensor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlLightSensor::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QmlLightSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlLightSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlLightSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QmlLightSensor2trEPKcS1_i(
@@ -279,6 +297,14 @@ qreal ritual_ZNK14QmlLightSensor11fieldOfViewEv(const QmlLightSensor *self) {
 extern "C" Q_DECL_EXPORT
 QSensor *ritual_ZNK14QmlLightSensor6sensorEv(const QmlLightSensor *self) {
   return self->sensor();
+}
+
+//  void QmlLightSensor::fieldOfViewChanged(qreal fieldOfView)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QmlLightSensor18fieldOfViewChangedEd(
+    QmlLightSensor *self,
+    qreal fieldOfView) {
+  self->fieldOfViewChanged(fieldOfView);
 }
 
 //  QmlSensorReading *QmlLightSensor::createReading() const

@@ -8,6 +8,12 @@
     "ritual_ZNK22QDBusAbstractInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QDBusAbstractInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QDBusAbstractInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QDBusAbstractInterface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -53,6 +59,9 @@
     ],
     "ritual_ZN22QDBusAbstractInterfaceC1ERK7QStringS2_PKcRK15QDBusConnectionP7QObject": [
       "address", "text", "text", "chars", "address", "address"
+    ],
+    "ritual_ZN22QDBusAbstractInterfaceC1ER29QDBusAbstractInterfacePrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN22QDBusAbstractInterface13connectNotifyERK11QMetaMethod": [
       "nothing", "address", "address"

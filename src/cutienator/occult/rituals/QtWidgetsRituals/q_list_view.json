@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QListView10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QListView11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QListView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QListView2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QListViewC1EP7QWidget": ["address", "address"],
     "ritual_ZN9QListViewD1Ev": ["nothing", "address"],
@@ -71,6 +75,12 @@
     "ritual_ZN9QListView12setRootIndexERK11QModelIndex": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN9QListView12indexesMovedERK5QListI11QModelIndexE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QListViewC1ER16QListViewPrivateP7QWidget": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QListView5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN9QListView16scrollContentsByEii": [
       "nothing", "address", "int", "int"
@@ -79,6 +89,9 @@
       "nothing", "address", "int", "int"
     ],
     "ritual_ZNK9QListView12contentsSizeEv": ["address", "address"],
+    "ritual_ZN9QListView11dataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN9QListView12rowsInsertedERK11QModelIndexii": [
       "nothing", "address", "address", "int", "int"
     ],

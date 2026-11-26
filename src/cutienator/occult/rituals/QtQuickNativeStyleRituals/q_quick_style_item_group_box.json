@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemgroupbox_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when"
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickStyleItemGroupBox10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickStyleItemGroupBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuickStyleItemGroupBox9styleFontEP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK23QQuickStyleItemGroupBox10paintEventEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickStyleItemGroupBox17calculateGeometryEv": [
+      "address", "address"
+    ]
+  }
+}

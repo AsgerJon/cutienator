@@ -30,6 +30,9 @@
     "ritual_ZN18QQuickShapePrivate3getEP11QQuickShape": [
       "address", "address"
     ],
+    "ritual_ZN18QQuickShapePrivate15asyncShapeReadyEPv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK18QQuickShapePrivate16getImplicitWidthEv": [
       "double", "address"
     ],

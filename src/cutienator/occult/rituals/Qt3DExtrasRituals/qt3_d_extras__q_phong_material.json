@@ -8,8 +8,54 @@
     "ritual_ZNK10Qt3DExtras14QPhongMaterial10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras14QPhongMaterial2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterialC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras14QPhongMaterial7ambientEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras14QPhongMaterial7diffuseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras14QPhongMaterial8specularEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras14QPhongMaterial9shininessEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial10setAmbientERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial10setDiffuseERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial11setSpecularERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial12setShininessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial14ambientChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial14diffuseChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial15specularChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPhongMaterial16shininessChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN10Qt3DExtras14QPhongMaterial6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DExtras14QPhongMaterial6d_funcEv": [

@@ -865,6 +865,24 @@ const QMetaObject *ritual_ZNK12QVideoWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVideoWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QVideoWidget11qt_metacastEPKc(
+    QVideoWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVideoWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QVideoWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVideoWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVideoWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QVideoWidget2trEPKcS1_i(
@@ -919,6 +937,22 @@ void ritual_ZN12QVideoWidget18setAspectRatioModeEN2Qt15AspectRatioModeE(
     QVideoWidget *self,
     Qt::AspectRatioMode mode) {
   self->setAspectRatioMode(mode);
+}
+
+//  void QVideoWidget::fullScreenChanged(bool fullScreen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QVideoWidget17fullScreenChangedEb(
+    QVideoWidget *self,
+    bool fullScreen) {
+  self->fullScreenChanged(fullScreen);
+}
+
+//  void QVideoWidget::aspectRatioModeChanged(Qt::AspectRatioMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QVideoWidget22aspectRatioModeChangedEN2Qt15AspectRatioModeE(
+    QVideoWidget *self,
+    Qt::AspectRatioMode mode) {
+  self->aspectRatioModeChanged(mode);
 }
 
 //  bool QVideoWidget::event(QEvent *event)

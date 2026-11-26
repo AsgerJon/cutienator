@@ -8,8 +8,30 @@
     "ritual_ZNK10Qt3DRender14QMemoryBarrier10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender14QMemoryBarrier11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender14QMemoryBarrier11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender14QMemoryBarrier2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QMemoryBarrierC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QMemoryBarrierD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender14QMemoryBarrier14waitOperationsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QMemoryBarrier17setWaitOperationsE6QFlagsINS0_9OperationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QMemoryBarrier21waitOperationsChangedE6QFlagsINS0_9OperationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QMemoryBarrierC1ERNS_21QMemoryBarrierPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender14QMemoryBarrier6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender14QMemoryBarrier6d_funcEv": [

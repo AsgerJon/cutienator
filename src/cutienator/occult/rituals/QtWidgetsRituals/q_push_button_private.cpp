@@ -79,6 +79,44 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/widgets/qabstractbutton.cpp, line 31, as local:qabstractbutton.cpp:AUTO_REPEAT_DELAY
+#define AUTO_REPEAT_DELAY  300
+
+//  from src/widgets/widgets/qabstractbutton.cpp, line 32, as local:qabstractbutton.cpp:AUTO_REPEAT_INTERVAL
+#define AUTO_REPEAT_INTERVAL 100
+
+//  from src/widgets/widgets/qabstractbutton.cpp, line 139, as _ZN22QAbstractButtonPrivateC2EN11QSizePolicy11ControlTypeE
+inline QAbstractButtonPrivate::QAbstractButtonPrivate(QSizePolicy::ControlType type)
+    :
+#ifndef QT_NO_SHORTCUT
+    shortcutId(0),
+#endif
+    checkable(false), checked(false), autoRepeat(false), autoExclusive(false),
+    down(false), blockRefresh(false), pressed(false),
+#if QT_CONFIG(buttongroup)
+    group(nullptr),
+#endif
+    autoRepeatDelay(AUTO_REPEAT_DELAY),
+    autoRepeatInterval(AUTO_REPEAT_INTERVAL),
+    controlType(type)
+{}
+
+//  from src/widgets/widgets/qpushbutton.cpp, line 643, as _ZNK18QPushButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9StateFlagEE
+inline QStyle::State QPushButtonPrivate::styleButtonState(QStyle::State state) const
+{
+    Q_Q(const QPushButton);
+    state = QAbstractButtonPrivate::styleButtonState(state);
+    if (menuOpen)
+        state |= QStyle::State_Sunken;
+    if (checked)
+        state |= QStyle::State_On;
+    if (!flat && !down)
+        state |= QStyle::State_Raised;
+    if (q->underMouse() && q->hasMouseTracking())
+        state.setFlag(QStyle::State_MouseOver, hovering);
+    return state;
+}
+
 //  from src/widgets/widgets/qabstractbutton.cpp, line 434, as _ZNK22QAbstractButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9StateFlagEE
 inline QStyle::State QAbstractButtonPrivate::styleButtonState(QStyle::State state) const
 {
@@ -168,22 +206,6 @@ inline void QPushButtonPrivate::popupPressed()
     menu->popup(menuPos);
 }
 #endif  // QT_CONFIG(menu)
-
-//  from src/widgets/widgets/qpushbutton.cpp, line 643, as _ZNK18QPushButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9StateFlagEE
-inline QStyle::State QPushButtonPrivate::styleButtonState(QStyle::State state) const
-{
-    Q_Q(const QPushButton);
-    state = QAbstractButtonPrivate::styleButtonState(state);
-    if (menuOpen)
-        state |= QStyle::State_Sunken;
-    if (checked)
-        state |= QStyle::State_On;
-    if (!flat && !down)
-        state |= QStyle::State_Raised;
-    if (q->underMouse() && q->hasMouseTracking())
-        state.setFlag(QStyle::State_MouseOver, hovering);
-    return state;
-}
 
 //  from src/widgets/widgets/qpushbutton.cpp, line 257, as _ZNK18QPushButtonPrivate12dialogParentEv
 #if QT_CONFIG(dialog)

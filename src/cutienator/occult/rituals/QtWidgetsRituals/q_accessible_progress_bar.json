@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QAccessibleProgressBar14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK22QAccessibleProgressBar12currentValueEv": [
       "address", "address"
     ],
@@ -28,6 +31,9 @@
     ],
     "ritual_take_QAccessibleProgressBar": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QAccessibleProgressBar14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
     ],
     "ritual_own_ZNK22QAccessibleProgressBar12currentValueEv": [
       "address", "address"

@@ -5,12 +5,18 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
 #if QT_CONFIG(quicktemplates2_container)
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
+#if QT_CONFIG(quicktemplates2_container)
 #include <QtQuickTemplates2/QtQuickTemplates2>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickmenubar_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickmenubar_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qpalette.h>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  QQuickMenuBar *QQuickMenuBarPrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -31,6 +37,20 @@ extern "C" Q_DECL_EXPORT
 QQuickMenuBarPrivate *ritual_ZN20QQuickMenuBarPrivate3getEP13QQuickMenuBar(
     QQuickMenuBar *menuBar) {
   return QQuickMenuBarPrivate::get(menuBar);
+}
+
+//  QQmlListProperty<QQuickMenu> QQuickMenuBarPrivate::menus()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickMenu> *ritual_ZN20QQuickMenuBarPrivate5menusEv(
+    QQuickMenuBarPrivate *self) {
+  return new QQmlListProperty<QQuickMenu>(self->menus());
+}
+
+//  QQmlListProperty<QObject> QQuickMenuBarPrivate::contentData()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN20QQuickMenuBarPrivate11contentDataEv(
+    QQuickMenuBarPrivate *self) {
+  return new QQmlListProperty<QObject>(self->contentData());
 }
 
 //  QQuickItem *QQuickMenuBarPrivate::createItemFromDelegate()
@@ -247,6 +267,49 @@ void ritual_ZN20QQuickMenuBarPrivate25itemImplicitHeightChangedEP10QQuickItem(
   self->itemImplicitHeightChanged(item);
 }
 
+//  void QQuickMenuBarPrivate::contentData_append(QQmlListProperty<QObject>
+//      *prop, QObject *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickMenuBarPrivate18contentData_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *prop,
+    QObject *obj) {
+  QQuickMenuBarPrivate::contentData_append(prop, obj);
+}
+
+//  void QQuickMenuBarPrivate::menus_append(QQmlListProperty<QQuickMenu>
+//      *prop, QQuickMenu *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickMenuBarPrivate12menus_appendEP16QQmlListPropertyI10QQuickMenuEPS1_(
+    QQmlListProperty<QQuickMenu> *prop,
+    QQuickMenu *obj) {
+  QQuickMenuBarPrivate::menus_append(prop, obj);
+}
+
+//  qsizetype QQuickMenuBarPrivate::menus_count(QQmlListProperty<QQuickMenu>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN20QQuickMenuBarPrivate11menus_countEP16QQmlListPropertyI10QQuickMenuE(
+    QQmlListProperty<QQuickMenu> *prop) {
+  return QQuickMenuBarPrivate::menus_count(prop);
+}
+
+//  QQuickMenu *QQuickMenuBarPrivate::menus_at(QQmlListProperty<QQuickMenu>
+//      *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickMenu *ritual_ZN20QQuickMenuBarPrivate8menus_atEP16QQmlListPropertyI10QQuickMenuEx(
+    QQmlListProperty<QQuickMenu> *prop,
+    qsizetype index) {
+  return QQuickMenuBarPrivate::menus_at(prop, index);
+}
+
+//  void QQuickMenuBarPrivate::menus_clear(QQmlListProperty<QQuickMenu>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickMenuBarPrivate11menus_clearEP16QQmlListPropertyI10QQuickMenuE(
+    QQmlListProperty<QQuickMenu> *prop) {
+  QQuickMenuBarPrivate::menus_clear(prop);
+}
+
 //  QPalette QQuickMenuBarPrivate::defaultPalette() const
 extern "C" Q_DECL_EXPORT
 QPalette *ritual_ZNK20QQuickMenuBarPrivate14defaultPaletteEv(
@@ -289,6 +352,20 @@ extern "C" Q_DECL_EXPORT
 QPalette *ritual_own_ZNK20QQuickMenuBarPrivate14defaultPaletteEv(
     const QQuickMenuBarPrivate *self) {
   return new QPalette(self->QQuickMenuBarPrivate::defaultPalette());
+}
+
+//  a QQmlListProperty<QQuickMenu> a ritual of QQuickMenuBarPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickMenuBarPrivate__QQmlListProperty_QQuickMenu(
+    QQmlListProperty<QQuickMenu> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickMenuBarPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickMenuBarPrivate__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quicktemplates2_container)

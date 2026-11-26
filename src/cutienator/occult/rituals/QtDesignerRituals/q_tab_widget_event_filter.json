@@ -8,6 +8,12 @@
     "ritual_ZNK21QTabWidgetEventFilter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QTabWidgetEventFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QTabWidgetEventFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QTabWidgetEventFilter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -39,6 +45,9 @@
     "ritual_ZN21QTabWidgetEventFilter7addPageEv": ["nothing", "address"],
     "ritual_ZN21QTabWidgetEventFilter12addPageAfterEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK21QTabWidgetEventFilter16pageFromPositionERK6QPointR5QRect": [
+      "int", "address", "address", "address"
     ],
     "ritual_ZNK21QTabWidgetEventFilter6tabBarEv": ["address", "address"],
     "ritual_take_QTabWidgetEventFilter": [

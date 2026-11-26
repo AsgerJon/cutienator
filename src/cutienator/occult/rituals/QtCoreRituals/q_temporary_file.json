@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QTemporaryFile10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QTemporaryFile11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QTemporaryFile11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QTemporaryFile2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -35,6 +41,9 @@
     ],
     "ritual_ZN14QTemporaryFile16createNativeFileERK7QString": [
       "address", "text"
+    ],
+    "ritual_ZN14QTemporaryFile16createNativeFileER5QFile": [
+      "address", "address"
     ],
     "ritual_ZN14QTemporaryFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int"

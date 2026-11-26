@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN5DomUIC1Ev": ["address"],
     "ritual_ZN5DomUID1Ev": ["nothing", "address"],
+    "ritual_ZN5DomUI4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK5DomUI19hasAttributeVersionEv": ["bool", "address"],
     "ritual_ZNK5DomUI16attributeVersionEv": ["text", "address"],
     "ritual_ZN5DomUI19setAttributeVersionERK7QString": [

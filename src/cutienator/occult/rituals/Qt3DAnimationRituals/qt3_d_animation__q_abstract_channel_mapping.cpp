@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation23QAbstractChannelMapping10metaObjec
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QAbstractChannelMapping::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation23QAbstractChannelMapping11qt_metacastEPKc(
+    Qt3DAnimation::QAbstractChannelMapping *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QAbstractChannelMapping::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation23QAbstractChannelMapping11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QAbstractChannelMapping *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QAbstractChannelMapping::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +208,22 @@ QString *ritual_ZN13Qt3DAnimation23QAbstractChannelMapping2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QAbstractChannelMapping::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QAbstractChannelMapping::~QAbstractChannelMapping()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation23QAbstractChannelMappingD1Ev(
+    Qt3DAnimation::QAbstractChannelMapping *self) {
+  delete self;
+}
+
+//  Qt3DAnimation::QAbstractChannelMapping::QAbstractChannelMapping(QAbstract
+//      ChannelMappingPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractChannelMapping *ritual_ZN13Qt3DAnimation23QAbstractChannelMappingC1ERNS_30QAbstractChannelMappingPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QAbstractChannelMappingPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QAbstractChannelMapping(*dd, parent);
 }
 
 //  QAbstractChannelMappingPrivate

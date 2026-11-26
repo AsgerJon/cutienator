@@ -31,11 +31,12 @@ typedef bool (*CuteQAbstractSocketPrivateCall8)(const void *, int *);
 typedef void (*CuteQAbstractSocketPrivateCall9)(const void *, int *);
 typedef bool (*CuteQAbstractSocketPrivateCall10)(const void *, int *);
 typedef bool (*CuteQAbstractSocketPrivateCall11)(const void *, char, int *);
-typedef const QByteArray * (*CuteQAbstractSocketPrivateCall12)(const void *, qint64, int *);
+typedef qint64 (*CuteQAbstractSocketPrivateCall12)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQAbstractSocketPrivateCall13)(const void *, qint64, int *);
 class CuteQAbstractSocketPrivate : public QAbstractSocketPrivate {
 public:
   using QAbstractSocketPrivate::QAbstractSocketPrivate;
-  void *taken[13] = {};
+  void *taken[14] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN29QAbstractSocketEngineReceiver16readNotificationEv")) {
@@ -88,8 +89,12 @@ public:
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[13] = call;
       return true;
     }
     return false;
@@ -238,11 +243,22 @@ public:
     return QIODevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[12]) {
       int handled = 0;
       CuteQAbstractSocketPrivateCall12 call = reinterpret_cast<CuteQAbstractSocketPrivateCall12>(taken[12]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQAbstractSocketPrivateCall13 call = reinterpret_cast<CuteQAbstractSocketPrivateCall13>(taken[13]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }

@@ -8,14 +8,95 @@
     "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoaderC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader7sourcesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader10setSourcesERK5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader6cameraEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader9setCameraEPN10Qt3DRender7QCameraE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader12currentIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader13thresholdTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader16setThresholdTypeEN10Qt3DRender14QLevelOfDetail13ThresholdTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader10thresholdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader13setThresholdsERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader14volumeOverrideEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader17setVolumeOverrideERKN10Qt3DRender28QLevelOfDetailBoundingSphereE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader20createBoundingSphereERK9QVector3Df": [
+      "address", "address", "address", "float"
+    ],
+    "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader6entityEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader14sourcesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader13cameraChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader19currentIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader20thresholdTypeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader17thresholdsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader21volumeOverrideChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader13entityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader13sourceChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DExtras_Extras_Quick_Quick3DLevelOfDetailLoader__QList_qreal": [
+      "nothing", "address"
     ]
   }
 }

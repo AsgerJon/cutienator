@@ -8,8 +8,54 @@
     "ritual_ZNK10Qt3DExtras19QSphereGeometryView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras19QSphereGeometryView2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryViewC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras19QSphereGeometryView5ringsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QSphereGeometryView6slicesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QSphereGeometryView6radiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QSphereGeometryView16generateTangentsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView8setRingsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView9setSlicesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView9setRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView19setGenerateTangentsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView13radiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView12ringsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView13slicesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QSphereGeometryView23generateTangentsChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_take_Qt3DExtras_QSphereGeometryView": [
       "bool", "address", "chars", "address"

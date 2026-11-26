@@ -27,6 +27,18 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/util/qastchandler.cpp, line 16, as local:qastchandler.cpp:AstcHeader
+struct AstcHeader
+{
+    quint8 magic[4];
+    quint8 blockDimX;
+    quint8 blockDimY;
+    quint8 blockDimZ;
+    quint8 xSize[3];
+    quint8 ySize[3];
+    quint8 zSize[3];
+};
+
 //  from src/gui/util/qastchandler.cpp, line 29, as _ZN12QAstcHandler7canReadERK10QByteArrayS2_
 inline bool QAstcHandler::canRead(const QByteArray &suffix, const QByteArray &block)
 {
@@ -83,7 +95,7 @@ typedef const QTextureFileData * (*CuteQAstcHandlerCall0)(const void *, int *);
 class CuteQAstcHandler : public QAstcHandler {
 public:
   using QAstcHandler::QAstcHandler;
-  CuteQAstcHandler(const QAstcHandler &other) : QAstcHandler(other) {}
+  CuteQAstcHandler(const QAstcHandler & other) : QAstcHandler(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -106,6 +118,12 @@ public:
   }
 };
 
+//  QAstcHandler::~QAstcHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QAstcHandlerD1Ev(QAstcHandler *self) {
+  delete self;
+}
+
 //  bool QAstcHandler::canRead(const QByteArray &suffix, const QByteArray
 //      &block)
 extern "C" Q_DECL_EXPORT
@@ -113,6 +131,12 @@ bool ritual_ZN12QAstcHandler7canReadERK10QByteArrayS2_(
     const QByteArray *suffix,
     const QByteArray *block) {
   return QAstcHandler::canRead(*suffix, *block);
+}
+
+//  QTextureFileData QAstcHandler::read()
+extern "C" Q_DECL_EXPORT
+QTextureFileData *ritual_ZN12QAstcHandler4readEv(QAstcHandler *self) {
+  return new QTextureFileData(self->read());
 }
 
 //  quint32 QAstcHandler::astcGLFormat(quint8 xBlockDim, quint8 yBlockDim)

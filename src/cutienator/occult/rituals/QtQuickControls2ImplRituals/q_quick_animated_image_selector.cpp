@@ -34,6 +34,19 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickimageselector.cpp, line 22, as local:qquickimageselector.cpp:DEFAULT_CACHE
+Q_STATIC_LOGGING_CATEGORY(lcQtQuickControlsImageSelector, "qt.quick.controls.imageselector")
+
+static const int DEFAULT_CACHE = 500;
+
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickimageselector.cpp, line 26, as local:qquickimageselector.cpp:cacheSize
+static inline int cacheSize()
+{
+    static bool ok = false;
+    static const int size = qEnvironmentVariableIntValue("QT_QUICK_CONTROLS_IMAGESELECTOR_CACHE", &ok);
+    return ok ? size : DEFAULT_CACHE;
+}
+
 //  from ../qtdeclarative/src/quickcontrolsimpl/qquickimageselector.cpp, line 181, as _ZN19QQuickImageSelector10classBeginEv
 inline void QQuickImageSelector::classBegin()
 {
@@ -59,11 +72,11 @@ inline void QQuickImageSelector::setTarget(const QQmlProperty &property)
     m_property = property;
 }
 
-//  from ../qtdeclarative/src/quickcontrolsimpl/qquickimageselector.cpp, line 312, as _ZNK27QQuickAnimatedImageSelector14fileExtensionsEv
-inline QStringList QQuickAnimatedImageSelector::fileExtensions() const
+//  from ../qtdeclarative/src/quickcontrolsimpl/qquickimageselector.cpp, line 79, as _ZN19QQuickImageSelectorC2EP7QObject
+inline QQuickImageSelector::QQuickImageSelector(QObject *parent)
+    : QObject(parent),
+      m_cache(cacheSize() > 0)
 {
-    static const QStringList extensions = QStringList() << QStringLiteral("webp") << QStringLiteral("gif");
-    return extensions;
 }
 //  -----------------------------------------------------------------------
 
@@ -322,6 +335,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK27QQuickAnimatedImageSelector10metaObjectEv(
     const QQuickAnimatedImageSelector *self) {
   return self->metaObject();
+}
+
+//  void *QQuickAnimatedImageSelector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQuickAnimatedImageSelector11qt_metacastEPKc(
+    QQuickAnimatedImageSelector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnimatedImageSelector::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQuickAnimatedImageSelector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnimatedImageSelector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QStringList QQuickAnimatedImageSelector::fileExtensions() const

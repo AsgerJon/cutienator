@@ -366,6 +366,15 @@ void ritual_ZN24QSGInternalRectangleNode11setPenWidthEd(
   self->setPenWidth(width);
 }
 
+//  void QSGInternalRectangleNode::setGradientStops(const QGradientStops
+//      &stops)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QSGInternalRectangleNode16setGradientStopsERK5QListISt4pairId6QColorEE(
+    QSGInternalRectangleNode *self,
+    const QGradientStops *stops) {
+  self->setGradientStops(*stops);
+}
+
 //  void QSGInternalRectangleNode::setGradientVertical(bool vertical)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QSGInternalRectangleNode19setGradientVerticalEb(

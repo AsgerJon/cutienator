@@ -9,6 +9,7 @@
 #include <QtCore/qjsonobject.h>
 #include <QtCore/qjsonarray.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/QPointF>
 
 //  QLottieFreeFormShape::QLottieFreeFormShape(const QLottieFreeFormShape
 //      &other)
@@ -48,6 +49,14 @@ void ritual_ZN20QLottieFreeFormShape16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieFreeFormShape::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK20QLottieFreeFormShape6renderER15QLottieRenderer(
+    const QLottieFreeFormShape *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  bool QLottieFreeFormShape::acceptsTrim() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QLottieFreeFormShape11acceptsTrimEv(
@@ -60,6 +69,22 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QLottieFreeFormShape10isAnimatedEv(
     const QLottieFreeFormShape *self) {
   return self->isAnimated();
+}
+
+//  QLottieProperty2D<QPointF> QLottieFreeFormShape::startPointProperty()
+//      const
+extern "C" Q_DECL_EXPORT
+QLottieProperty2D<QPointF> *ritual_ZNK20QLottieFreeFormShape18startPointPropertyEv(
+    const QLottieFreeFormShape *self) {
+  return new QLottieProperty2D<QPointF>(self->startPointProperty());
+}
+
+//  void QLottieFreeFormShape::parseShapeKeyframes(QJsonObject &keyframes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLottieFreeFormShape19parseShapeKeyframesER11QJsonObject(
+    QLottieFreeFormShape *self,
+    QJsonObject *keyframes) {
+  self->parseShapeKeyframes(*keyframes);
 }
 
 //  void QLottieFreeFormShape::buildShape(const QJsonObject &keyframe)
@@ -168,4 +193,11 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK20QLottieFreeFormShape10isAnimatedEv(
     const QLottieFreeFormShape *self) {
   return self->QLottieFreeFormShape::isAnimated();
+}
+
+//  a QLottieProperty2D<QPointF> a ritual of QLottieFreeFormShape gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLottieFreeFormShape__QLottieProperty2D_QPointF(
+    QLottieProperty2D<QPointF> *self) {
+  delete self;
 }

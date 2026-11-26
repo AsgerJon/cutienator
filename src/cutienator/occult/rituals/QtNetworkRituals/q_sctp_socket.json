@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QSctpSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QSctpSocket11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QSctpSocket11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QSctpSocket2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QSctpSocketC1EP7QObject": ["address", "address"],
     "ritual_ZN11QSctpSocketD1Ev": ["nothing", "address"],
@@ -19,12 +25,24 @@
     "ritual_ZN11QSctpSocket13writeDatagramERK16QNetworkDatagram": [
       "bool", "address", "address"
     ],
+    "ritual_ZN11QSctpSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN11QSctpSocket12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN11QSctpSocket6d_funcEv": ["address", "address"],
     "ritual_ZNK11QSctpSocket6d_funcEv": ["address", "address"],
     "ritual_take_QSctpSocket": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QSctpSocket5closeEv": ["nothing", "address"],
     "ritual_own_ZN11QSctpSocket18disconnectFromHostEv": [
       "nothing", "address"
+    ],
+    "ritual_own_ZN11QSctpSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_own_ZN11QSctpSocket12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
     ]
   }
 }

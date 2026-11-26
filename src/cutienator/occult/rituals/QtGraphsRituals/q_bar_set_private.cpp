@@ -3,13 +3,14 @@
 //  here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbarset.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qbarset_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -24,6 +25,15 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/barchart/qbarset.cpp, line 906, as _ZN14QBarSetPrivateD1Ev
+inline QBarSetPrivate::~QBarSetPrivate() {}
+
+//  from ../qtgraphs/src/graphs2d/barchart/qbarset.cpp, line 901, as _ZN14QBarSetPrivateC1ERK7QString
+inline QBarSetPrivate::QBarSetPrivate(const QString &label)
+    : m_label(label)
+    , m_visualsDirty(true)
+{}
 
 //  from ../qtgraphs/src/graphs2d/barchart/qbarset.cpp, line 908, as _ZN14QBarSetPrivate6appendE7QPointF
 inline void QBarSetPrivate::append(QPointF value)
@@ -42,6 +52,21 @@ inline void QBarSetPrivate::append(const QList<QPointF> &values)
     for (const auto &value : values) {
         if (isValidValue(value))
             m_values.append(value);
+    }
+    Q_Q(QBarSet);
+    emit q->valueAdded(originalIndex, values.size());
+}
+
+//  from ../qtgraphs/src/graphs2d/barchart/qbarset.cpp, line 928, as _ZN14QBarSetPrivate6appendERK5QListIdE
+inline void QBarSetPrivate::append(const QList<qreal> &values)
+{
+    qsizetype originalIndex = m_values.size();
+    qsizetype index = originalIndex;
+    for (const auto value : values) {
+        if (isValidValue(value)) {
+            m_values.append(QPointF(index, value));
+            index++;
+        }
     }
     Q_Q(QBarSet);
     emit q->valueAdded(originalIndex, values.size());
@@ -171,6 +196,19 @@ const QBarSet *ritual_ZNK14QBarSetPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QBarSetPrivate::QBarSetPrivate(const QString &label)
+extern "C" Q_DECL_EXPORT
+QBarSetPrivate *ritual_ZN14QBarSetPrivateC1ERK7QString(
+    const QString *label) {
+  return new QBarSetPrivate(*label);
+}
+
+//  QBarSetPrivate::~QBarSetPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBarSetPrivateD1Ev(QBarSetPrivate *self) {
+  delete self;
+}
+
 //  void QBarSetPrivate::append(QPointF value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QBarSetPrivate6appendE7QPointF(
@@ -184,6 +222,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QBarSetPrivate6appendERK5QListI7QPointFE(
     QBarSetPrivate *self,
     const QList<QPointF> *values) {
+  self->append(*values);
+}
+
+//  void QBarSetPrivate::append(const QList<qreal> &values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBarSetPrivate6appendERK5QListIdE(
+    QBarSetPrivate *self,
+    const QList<qreal> *values) {
   self->append(*values);
 }
 
@@ -286,4 +332,4 @@ bool ritual_ZNK14QBarSetPrivate13isBarSelectedEx(
   return self->isBarSelected(index);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))

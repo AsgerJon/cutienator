@@ -1,18 +1,27 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qfileinfo.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qfileinfo.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN9QFileInfoC1EP16QFileInfoPrivate": ["address", "address"],
     "ritual_ZN9QFileInfoC1Ev": ["address"],
     "ritual_ZN9QFileInfoC1ERK7QString": ["address", "text"],
+    "ritual_ZN9QFileInfoC1ERK11QFileDevice": ["address", "address"],
     "ritual_ZN9QFileInfoC1ERK4QDirRK7QString": [
       "address", "address", "text"
     ],
     "ritual_ZN9QFileInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN9QFileInfoC1EOS_": ["address", "address"],
     "ritual_ZN9QFileInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN9QFileInfoaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QFileInfoaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QFileInfo4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN9QFileInfo7setFileERK7QString": ["nothing", "address", "text"],
+    "ritual_ZN9QFileInfo7setFileERK11QFileDevice": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QFileInfo7setFileERK4QDirRK7QString": [
       "nothing", "address", "address", "text"
     ],
@@ -22,6 +31,15 @@
     "ritual_ZNK9QFileInfo8filePathEv": ["text", "address"],
     "ritual_ZNK9QFileInfo16absoluteFilePathEv": ["text", "address"],
     "ritual_ZNK9QFileInfo17canonicalFilePathEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo18filesystemFilePathB5cxx11Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QFileInfo26filesystemAbsoluteFilePathB5cxx11Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QFileInfo27filesystemCanonicalFilePathB5cxx11Ev": [
+      "address", "address"
+    ],
     "ritual_ZNK9QFileInfo8fileNameEv": ["text", "address"],
     "ritual_ZNK9QFileInfo8baseNameEv": ["text", "address"],
     "ritual_ZNK9QFileInfo16completeBaseNameEv": ["text", "address"],
@@ -31,6 +49,13 @@
     "ritual_ZNK9QFileInfo4pathEv": ["text", "address"],
     "ritual_ZNK9QFileInfo12absolutePathEv": ["text", "address"],
     "ritual_ZNK9QFileInfo13canonicalPathEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo14filesystemPathB5cxx11Ev": ["address", "address"],
+    "ritual_ZNK9QFileInfo22filesystemAbsolutePathB5cxx11Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QFileInfo23filesystemCanonicalPathB5cxx11Ev": [
+      "address", "address"
+    ],
     "ritual_ZNK9QFileInfo3dirEv": ["address", "address"],
     "ritual_ZNK9QFileInfo11absoluteDirEv": ["address", "address"],
     "ritual_ZNK9QFileInfo10isReadableEv": ["bool", "address"],
@@ -54,6 +79,15 @@
     "ritual_ZNK9QFileInfo13symLinkTargetEv": ["text", "address"],
     "ritual_ZNK9QFileInfo11readSymLinkEv": ["text", "address"],
     "ritual_ZNK9QFileInfo14junctionTargetEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo23filesystemSymLinkTargetB5cxx11Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QFileInfo21filesystemReadSymLinkB5cxx11Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QFileInfo24filesystemJunctionTargetB5cxx11Ev": [
+      "address", "address"
+    ],
     "ritual_ZNK9QFileInfo5ownerEv": ["text", "address"],
     "ritual_ZNK9QFileInfo7ownerIdEv": ["unsigned int", "address"],
     "ritual_ZNK9QFileInfo5groupEv": ["text", "address"],
@@ -61,11 +95,15 @@
     "ritual_ZNK9QFileInfo10permissionE6QFlagsIN11QFileDevice10PermissionEE": [
       "bool", "address", "int"
     ],
+    "ritual_ZNK9QFileInfo11permissionsEv": ["address", "address"],
     "ritual_ZNK9QFileInfo4sizeEv": ["long long", "address"],
     "ritual_ZNK9QFileInfo9birthTimeEv": ["address", "address"],
     "ritual_ZNK9QFileInfo18metadataChangeTimeEv": ["address", "address"],
     "ritual_ZNK9QFileInfo12lastModifiedEv": ["address", "address"],
     "ritual_ZNK9QFileInfo8lastReadEv": ["address", "address"],
+    "ritual_ZNK9QFileInfo8fileTimeEN11QFileDevice8FileTimeE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK9QFileInfo9birthTimeERK9QTimeZone": [
       "address", "address", "address"
     ],
@@ -78,6 +116,9 @@
     "ritual_ZNK9QFileInfo8lastReadERK9QTimeZone": [
       "address", "address", "address"
     ],
+    "ritual_ZNK9QFileInfo8fileTimeEN11QFileDevice8FileTimeERK9QTimeZone": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK9QFileInfo7cachingEv": ["bool", "address"],
     "ritual_ZN9QFileInfo10setCachingEb": ["nothing", "address", "bool"],
     "ritual_ZN9QFileInfo4statEv": ["nothing", "address"],
@@ -89,6 +130,17 @@
     "ritual_list_add_QFileInfo": ["nothing", "address", "address"],
     "ritual_list_size_QFileInfo": ["long long", "address"],
     "ritual_list_at_QFileInfo": ["address", "address", "long long"],
-    "ritual_list_drop_QFileInfo": ["nothing", "address"]
+    "ritual_list_drop_QFileInfo": ["nothing", "address"],
+    "ritual_drop_QFileInfo__std_filesystem_path": ["nothing", "address"],
+    "ritual_drop_QFileInfo__QFile_Permissions": ["nothing", "address"],
+    "ritual_ZN9QFileInfoC1INSt10filesystem7__cxx114pathELi0EEERKT_": [
+      "address", "address"
+    ],
+    "ritual_ZN9QFileInfoC1INSt10filesystem7__cxx114pathELi0EEERK4QDirRKT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QFileInfo7setFileINSt10filesystem7__cxx114pathELi0EEEvRKT_": [
+      "nothing", "address", "address"
+    ]
   }
 }

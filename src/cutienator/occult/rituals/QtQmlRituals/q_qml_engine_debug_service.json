@@ -8,6 +8,12 @@
     "ritual_ZNK22QQmlEngineDebugService10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQmlEngineDebugService11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQmlEngineDebugService11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQmlEngineDebugService2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,7 +21,13 @@
     "ritual_ZN22QQmlEngineDebugService13objectCreatedEP9QJSEngineP7QObject": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN22QQmlEngineDebugService24setStatesDelegateFactoryEPFP23QQmlDebugStatesDelegatevE": [
+      "nothing", "address"
+    ],
     "ritual_ZN22QQmlEngineDebugService20createStatesDelegateEv": ["address"],
+    "ritual_ZN22QQmlEngineDebugServiceC1EfP7QObject": [
+      "address", "float", "address"
+    ],
     "ritual_ZN22QQmlEngineDebugService10nextSignalEP15QQmlBoundSignal": [
       "address", "address", "address"
     ],

@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZNK5QmlIR6Signal19parameterStringListEPKN3QV48Compiler20StringTableGeneratorE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK5QmlIR6Signal14parameterCountEv": ["int", "address"],
     "ritual_ZN5QmlIR6SignalD1Ev": ["nothing", "address"]
   }

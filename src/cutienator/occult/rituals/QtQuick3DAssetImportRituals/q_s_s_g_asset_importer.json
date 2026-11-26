@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QSSGAssetImporter10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QSSGAssetImporter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QSSGAssetImporter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QSSGAssetImporter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,12 @@
     "ritual_ZNK17QSSGAssetImporter4typeEv": ["text", "address"],
     "ritual_ZNK17QSSGAssetImporter13importOptionsEv": ["address", "address"],
     "ritual_ZNK17QSSGAssetImporter15typeDescriptionEv": ["text", "address"],
+    "ritual_ZN17QSSGAssetImporter6importERK7QStringRK4QDirRK11QJsonObjectP5QListIS0_E": [
+      "text", "address", "text", "address", "address", "address"
+    ],
+    "ritual_ZN17QSSGAssetImporter6importERK4QUrlRK11QJsonObjectRN13QSSGSceneDesc5SceneE": [
+      "text", "address", "address", "address", "address"
+    ],
     "ritual_take_QSSGAssetImporter": ["bool", "address", "chars", "address"]
   }
 }

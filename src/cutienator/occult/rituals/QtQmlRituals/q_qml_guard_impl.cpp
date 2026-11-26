@@ -19,6 +19,12 @@ QQmlGuardImpl *ritual_ZN13QQmlGuardImplC1EP7QObject(QObject *a0) {
   return new QQmlGuardImpl(a0);
 }
 
+//  QQmlGuardImpl::QQmlGuardImpl(const QQmlGuardImpl &a0)
+extern "C" Q_DECL_EXPORT
+QQmlGuardImpl *ritual_ZN13QQmlGuardImplC1ERKS_(const QQmlGuardImpl *a0) {
+  return new QQmlGuardImpl(*a0);
+}
+
 //  QQmlGuardImpl::~QQmlGuardImpl()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQmlGuardImplD1Ev(QQmlGuardImpl *self) {

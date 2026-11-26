@@ -6,6 +6,7 @@
 #include <QtGui/qimage.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
 
 //  QOpenGLFramebufferObjectPrivate *QOpenGLFramebufferObject::d_func()
 extern "C" Q_DECL_EXPORT
@@ -169,6 +170,35 @@ int ritual_ZNK24QOpenGLFramebufferObject6heightEv(
   return self->height();
 }
 
+//  GLuint QOpenGLFramebufferObject::texture() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK24QOpenGLFramebufferObject7textureEv(
+    const QOpenGLFramebufferObject *self) {
+  return self->texture();
+}
+
+//  QList<GLuint> QOpenGLFramebufferObject::textures() const
+extern "C" Q_DECL_EXPORT
+QList<GLuint> *ritual_ZNK24QOpenGLFramebufferObject8texturesEv(
+    const QOpenGLFramebufferObject *self) {
+  return new QList<GLuint>(self->textures());
+}
+
+//  GLuint QOpenGLFramebufferObject::takeTexture()
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN24QOpenGLFramebufferObject11takeTextureEv(
+    QOpenGLFramebufferObject *self) {
+  return self->takeTexture();
+}
+
+//  GLuint QOpenGLFramebufferObject::takeTexture(int colorAttachmentIndex)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN24QOpenGLFramebufferObject11takeTextureEi(
+    QOpenGLFramebufferObject *self,
+    int colorAttachmentIndex) {
+  return self->takeTexture(colorAttachmentIndex);
+}
+
 //  QSize QOpenGLFramebufferObject::size() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK24QOpenGLFramebufferObject4sizeEv(
@@ -214,6 +244,13 @@ void ritual_ZN24QOpenGLFramebufferObject13setAttachmentENS_10AttachmentE(
     QOpenGLFramebufferObject *self,
     QOpenGLFramebufferObject::Attachment attachment) {
   self->setAttachment(attachment);
+}
+
+//  GLuint QOpenGLFramebufferObject::handle() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK24QOpenGLFramebufferObject6handleEv(
+    const QOpenGLFramebufferObject *self) {
+  return self->handle();
 }
 
 //  bool QOpenGLFramebufferObject::bindDefault()
@@ -317,4 +354,11 @@ void ritual_ZN24QOpenGLFramebufferObject15blitFramebufferEPS_S0_jj(
     GLbitfield buffers,
     GLenum filter) {
   QOpenGLFramebufferObject::blitFramebuffer(target, source, buffers, filter);
+}
+
+//  a QList<GLuint> a ritual of QOpenGLFramebufferObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpenGLFramebufferObject__QList_GLuint(
+    QList<GLuint> *self) {
+  delete self;
 }

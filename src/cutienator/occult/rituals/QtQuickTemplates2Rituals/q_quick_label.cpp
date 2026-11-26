@@ -834,6 +834,24 @@ const QMetaObject *ritual_ZNK11QQuickLabel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickLabel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickLabel11qt_metacastEPKc(
+    QQuickLabel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickLabel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickLabel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickLabel2trEPKcS1_i(
@@ -971,6 +989,56 @@ void ritual_ZN11QQuickLabel14setBottomInsetEd(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQuickLabel16resetBottomInsetEv(QQuickLabel *self) {
   self->resetBottomInset();
+}
+
+//  void QQuickLabel::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickLabel11fontChangedEv(QQuickLabel *self) {
+  self->fontChanged();
+}
+
+//  void QQuickLabel::backgroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickLabel17backgroundChangedEv(QQuickLabel *self) {
+  self->backgroundChanged();
+}
+
+//  void QQuickLabel::implicitBackgroundWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickLabel30implicitBackgroundWidthChangedEv(
+    QQuickLabel *self) {
+  self->implicitBackgroundWidthChanged();
+}
+
+//  void QQuickLabel::implicitBackgroundHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickLabel31implicitBackgroundHeightChangedEv(
+    QQuickLabel *self) {
+  self->implicitBackgroundHeightChanged();
+}
+
+//  void QQuickLabel::topInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickLabel15topInsetChangedEv(QQuickLabel *self) {
+  self->topInsetChanged();
+}
+
+//  void QQuickLabel::leftInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickLabel16leftInsetChangedEv(QQuickLabel *self) {
+  self->leftInsetChanged();
+}
+
+//  void QQuickLabel::rightInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickLabel17rightInsetChangedEv(QQuickLabel *self) {
+  self->rightInsetChanged();
+}
+
+//  void QQuickLabel::bottomInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickLabel18bottomInsetChangedEv(QQuickLabel *self) {
+  self->bottomInsetChanged();
 }
 
 //  void QQuickLabel::classBegin()

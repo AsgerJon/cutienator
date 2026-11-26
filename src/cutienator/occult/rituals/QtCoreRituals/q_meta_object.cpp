@@ -305,6 +305,38 @@ void ritual_ZN11QMetaObject18connectSlotsByNameEP7QObject(QObject *o) {
   QMetaObject::connectSlotsByName(o);
 }
 
+//  void QMetaObject::activate(QObject *sender, int signal_index, void
+//      **argv)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMetaObject8activateEP7QObjectiPPv(
+    QObject *sender,
+    int signal_index,
+    void **argv) {
+  QMetaObject::activate(sender, signal_index, argv);
+}
+
+//  void QMetaObject::activate(QObject *sender, const QMetaObject *a1, int
+//      local_signal_index, void **argv)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMetaObject8activateEP7QObjectPKS_iPPv(
+    QObject *sender,
+    const QMetaObject *a1,
+    int local_signal_index,
+    void **argv) {
+  QMetaObject::activate(sender, a1, local_signal_index, argv);
+}
+
+//  void QMetaObject::activate(QObject *sender, int signal_offset, int
+//      local_signal_index, void **argv)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMetaObject8activateEP7QObjectiiPPv(
+    QObject *sender,
+    int signal_offset,
+    int local_signal_index,
+    void **argv) {
+  QMetaObject::activate(sender, signal_offset, local_signal_index, argv);
+}
+
 #if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 //  bool QMetaObject::invokeMethod(QObject *obj, const char *member,
 //      Qt::ConnectionType a2, QGenericReturnArgument ret, QGenericArgument
@@ -489,6 +521,111 @@ QObject *ritual_ZNK11QMetaObject11newInstanceE16QGenericArgumentS0_S0_S0_S0_S0_S
       *val9);
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+//  int QMetaObject::static_metacall(Call a0, int a1, void **a2) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK11QMetaObject15static_metacallENS_4CallEiPPv(
+    const QMetaObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->static_metacall(a0, a1, a2);
+}
+
+//  int QMetaObject::metacall(QObject *a0, Call a1, int a2, void **a3)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QMetaObject8metacallEP7QObjectNS_4CallEiPPv(
+    QObject *a0,
+    QMetaObject::Call a1,
+    int a2,
+    void **a3) {
+  return QMetaObject::metacall(a0, a1, a2, a3);
+}
+
+//  bool QMetaObject::invokeMethodImpl(QObject *object, const char *member,
+//      Qt::ConnectionType type, qsizetype parameterCount, const void *const
+//      *parameters, const char *const *names, const
+//      QtPrivate::QMetaTypeInterface *const *metaTypes)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QMetaObject16invokeMethodImplEP7QObjectPKcN2Qt14ConnectionTypeExPKPKvPKS3_PKPKN9QtPrivate18QMetaTypeInterfaceE(
+    QObject *object,
+    const char *member,
+    Qt::ConnectionType type,
+    qsizetype parameterCount,
+    const void *const *parameters,
+    const char *const *names,
+    const QtPrivate::QMetaTypeInterface *const *metaTypes) {
+  return QMetaObject::invokeMethodImpl(
+      object,
+      member,
+      type,
+      parameterCount,
+      parameters,
+      names,
+      metaTypes);
+}
+
+//  bool QMetaObject::invokeMethodImpl(QObject *object,
+//      QtPrivate::QSlotObjectBase *slotObj, Qt::ConnectionType type,
+//      qsizetype parameterCount, const void *const *params, const char
+//      *const *names, const QtPrivate::QMetaTypeInterface *const *metaTypes)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QMetaObject16invokeMethodImplEP7QObjectPN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeExPKPKvPKPKcPKPKNS2_18QMetaTypeInterfaceE(
+    QObject *object,
+    QtPrivate::QSlotObjectBase *slotObj,
+    Qt::ConnectionType type,
+    qsizetype parameterCount,
+    const void *const *params,
+    const char *const *names,
+    const QtPrivate::QMetaTypeInterface *const *metaTypes) {
+  return QMetaObject::invokeMethodImpl(
+      object,
+      slotObj,
+      type,
+      parameterCount,
+      params,
+      names,
+      metaTypes);
+}
+
+//  QObject *QMetaObject::newInstanceImpl(const QMetaObject *mobj, qsizetype
+//      parameterCount, const void **parameters, const char **typeNames,
+//      const QtPrivate::QMetaTypeInterface **metaTypes)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN11QMetaObject15newInstanceImplEPKS_xPPKvPPKcPPKN9QtPrivate18QMetaTypeInterfaceE(
+    const QMetaObject *mobj,
+    qsizetype parameterCount,
+    const void **parameters,
+    const char **typeNames,
+    const QtPrivate::QMetaTypeInterface **metaTypes) {
+  return QMetaObject::newInstanceImpl(
+      mobj,
+      parameterCount,
+      parameters,
+      typeNames,
+      metaTypes);
+}
+
+//  QMetaObject::Connection QMetaObject::connectImpl(const QObject *sender,
+//      const QMetaMethod &signal, const QObject *receiver, void **slotPtr,
+//      QtPrivate::QSlotObjectBase *slot, Qt::ConnectionType type)
+extern "C" Q_DECL_EXPORT
+QMetaObject::Connection *ritual_ZN11QMetaObject11connectImplEPK7QObjectRK11QMetaMethodS2_PPvPN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeE(
+    const QObject *sender,
+    const QMetaMethod *signal,
+    const QObject *receiver,
+    void **slotPtr,
+    QtPrivate::QSlotObjectBase *slot,
+    Qt::ConnectionType type) {
+  return new QMetaObject::Connection(
+      QMetaObject::connectImpl(
+          sender,
+          *signal,
+          receiver,
+          slotPtr,
+          slot,
+          type));
+}
 
 //  QMetaObject::~QMetaObject()
 extern "C" Q_DECL_EXPORT

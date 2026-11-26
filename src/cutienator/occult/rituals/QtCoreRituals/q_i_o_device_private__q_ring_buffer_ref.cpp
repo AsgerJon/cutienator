@@ -62,6 +62,22 @@ void ritual_ZN16QIODevicePrivate14QRingBufferRef4freeEx(
   self->free(bytes);
 }
 
+//  char *QIODevicePrivate::QRingBufferRef::reserve(qint64 bytes)
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN16QIODevicePrivate14QRingBufferRef7reserveEx(
+    QIODevicePrivate::QRingBufferRef *self,
+    qint64 bytes) {
+  return self->reserve(bytes);
+}
+
+//  char *QIODevicePrivate::QRingBufferRef::reserveFront(qint64 bytes)
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN16QIODevicePrivate14QRingBufferRef12reserveFrontEx(
+    QIODevicePrivate::QRingBufferRef *self,
+    qint64 bytes) {
+  return self->reserveFront(bytes);
+}
+
 //  void QIODevicePrivate::QRingBufferRef::truncate(qint64 pos)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QIODevicePrivate14QRingBufferRef8truncateEx(
@@ -141,11 +157,32 @@ qint64 ritual_ZNK16QIODevicePrivate14QRingBufferRef7indexOfEcxx(
   return self->indexOf(c, maxLength, pos);
 }
 
+//  qint64 QIODevicePrivate::QRingBufferRef::read(char *data, qint64
+//      maxLength)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN16QIODevicePrivate14QRingBufferRef4readEPcx(
+    QIODevicePrivate::QRingBufferRef *self,
+    char *data,
+    qint64 maxLength) {
+  return self->read(data, maxLength);
+}
+
 //  QByteArray QIODevicePrivate::QRingBufferRef::read()
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN16QIODevicePrivate14QRingBufferRef4readEv(
     QIODevicePrivate::QRingBufferRef *self) {
   return new QByteArray(self->read());
+}
+
+//  qint64 QIODevicePrivate::QRingBufferRef::peek(char *data, qint64
+//      maxLength, qint64 pos) const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZNK16QIODevicePrivate14QRingBufferRef4peekEPcxx(
+    const QIODevicePrivate::QRingBufferRef *self,
+    char *data,
+    qint64 maxLength,
+    qint64 pos) {
+  return self->peek(data, maxLength, pos);
 }
 
 //  void QIODevicePrivate::QRingBufferRef::append(const char *data, qint64
@@ -172,6 +209,20 @@ qint64 ritual_ZN16QIODevicePrivate14QRingBufferRef4skipEx(
     QIODevicePrivate::QRingBufferRef *self,
     qint64 length) {
   return self->skip(length);
+}
+
+//  qint64 QIODevicePrivate::QRingBufferRef::readLine(char *data, qint64
+//      maxLength, ReadLineOptions option)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN16QIODevicePrivate14QRingBufferRef8readLineEPcx6QFlagsINS_14ReadLineOptionEE(
+    QIODevicePrivate::QRingBufferRef *self,
+    char *data,
+    qint64 maxLength,
+    int option) {
+  return self->readLine(
+      data,
+      maxLength,
+      QFlags<QIODevicePrivate::ReadLineOption>::fromInt(option));
 }
 
 //  bool QIODevicePrivate::QRingBufferRef::canReadLine() const

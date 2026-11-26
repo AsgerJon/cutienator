@@ -7,12 +7,35 @@
 #include <QtQuickParticles/6.12.0/QtQuickParticles/private/qquicktrailemitter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuickParticles/6.12.0/QtQuickParticles/private/qquickv4particledata_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qlist.h>
 
 //  const QMetaObject *QQuickTrailEmitter::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18QQuickTrailEmitter10metaObjectEv(
     const QQuickTrailEmitter *self) {
   return self->metaObject();
+}
+
+//  void *QQuickTrailEmitter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickTrailEmitter11qt_metacastEPKc(
+    QQuickTrailEmitter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTrailEmitter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickTrailEmitter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTrailEmitter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickTrailEmitter::tr(const char *s, const char *c, int n)
@@ -78,6 +101,58 @@ extern "C" Q_DECL_EXPORT
 QQuickParticleExtruder *ritual_ZNK18QQuickTrailEmitter12emissonShapeEv(
     const QQuickTrailEmitter *self) {
   return self->emissonShape();
+}
+
+//  void QQuickTrailEmitter::emitFollowParticles(const
+//      QList<QQuickV4ParticleData> &particles, const QQuickV4ParticleData
+//      &followed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTrailEmitter19emitFollowParticlesERK5QListI20QQuickV4ParticleDataERKS1_(
+    QQuickTrailEmitter *self,
+    const QList<QQuickV4ParticleData> *particles,
+    const QQuickV4ParticleData *followed) {
+  self->emitFollowParticles(*particles, *followed);
+}
+
+//  void QQuickTrailEmitter::particlesPerParticlePerSecondChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTrailEmitter36particlesPerParticlePerSecondChangedEi(
+    QQuickTrailEmitter *self,
+    int arg) {
+  self->particlesPerParticlePerSecondChanged(arg);
+}
+
+//  void QQuickTrailEmitter::emitterXVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTrailEmitter24emitterXVariationChangedEd(
+    QQuickTrailEmitter *self,
+    qreal arg) {
+  self->emitterXVariationChanged(arg);
+}
+
+//  void QQuickTrailEmitter::emitterYVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTrailEmitter24emitterYVariationChangedEd(
+    QQuickTrailEmitter *self,
+    qreal arg) {
+  self->emitterYVariationChanged(arg);
+}
+
+//  void QQuickTrailEmitter::followChanged(const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTrailEmitter13followChangedERK7QString(
+    QQuickTrailEmitter *self,
+    const QString *arg) {
+  self->followChanged(*arg);
+}
+
+//  void QQuickTrailEmitter::emissionShapeChanged(QQuickParticleExtruder
+//      *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickTrailEmitter20emissionShapeChangedEP22QQuickParticleExtruder(
+    QQuickTrailEmitter *self,
+    QQuickParticleExtruder *arg) {
+  self->emissionShapeChanged(arg);
 }
 
 //  void QQuickTrailEmitter::setParticlesPerParticlePerSecond(int arg)

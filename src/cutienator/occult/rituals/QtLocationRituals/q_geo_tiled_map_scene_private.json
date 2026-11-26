@@ -9,8 +9,20 @@
     "ritual_ZNK24QGeoTiledMapScenePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN24QGeoTiledMapScenePrivateC1Ev": ["address"],
     "ritual_ZN24QGeoTiledMapScenePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QGeoTiledMapScenePrivate7addTileERK12QGeoTileSpec14QSharedPointerI15QGeoTileTextureE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QGeoTiledMapScenePrivate15setVisibleTilesERK4QSetI12QGeoTileSpecE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QGeoTiledMapScenePrivate11removeTilesERK4QSetI12QGeoTileSpecE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QGeoTiledMapScenePrivate13buildGeometryERK12QGeoTileSpecP12QSGImageNodeRb": [
       "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QGeoTiledMapScenePrivate16updateTileBoundsERK4QSetI12QGeoTileSpecE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24QGeoTiledMapScenePrivate11setupCameraEv": [
       "nothing", "address"

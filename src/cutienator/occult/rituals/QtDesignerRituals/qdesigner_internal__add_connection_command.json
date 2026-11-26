@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal20AddConnectionCommandC1EPNS_14ConnectionEditEPNS_10ConnectionE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20AddConnectionCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal20AddConnectionCommand4undoEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN18qdesigner_internal20AddConnectionCommand4redoEv": [
       "nothing", "address"
     ],

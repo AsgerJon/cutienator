@@ -44,6 +44,53 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/gui/painting/qpdf.cpp, line 570, as local:qpdf.cpp:moveToHook
+#if !defined(QT_NO_PDF)
+static void moveToHook(qfixed x, qfixed y, void *data)
+{
+    QPdf::Stroker *t = (QPdf::Stroker *)data;
+    if (!t->first)
+        *t->stream << "h\n";
+    if (!t->cosmeticPen)
+        t->matrix.map(x, y, &x, &y);
+    *t->stream << x << y << "m\n";
+    t->first = false;
+}
+#endif  // !defined(QT_NO_PDF)
+
+//  from src/gui/painting/qpdf.cpp, line 581, as local:qpdf.cpp:lineToHook
+#if !defined(QT_NO_PDF)
+static void lineToHook(qfixed x, qfixed y, void *data)
+{
+    QPdf::Stroker *t = (QPdf::Stroker *)data;
+    if (!t->cosmeticPen)
+        t->matrix.map(x, y, &x, &y);
+    *t->stream << x << y << "l\n";
+}
+#endif  // !defined(QT_NO_PDF)
+
+//  from src/gui/painting/qpdf.cpp, line 589, as local:qpdf.cpp:cubicToHook
+#if !defined(QT_NO_PDF)
+static void cubicToHook(qfixed c1x, qfixed c1y,
+                        qfixed c2x, qfixed c2y,
+                        qfixed ex, qfixed ey,
+                        void *data)
+{
+    QPdf::Stroker *t = (QPdf::Stroker *)data;
+    if (!t->cosmeticPen) {
+        t->matrix.map(c1x, c1y, &c1x, &c1y);
+        t->matrix.map(c2x, c2y, &c2x, &c2y);
+        t->matrix.map(ex, ey, &ex, &ey);
+    }
+    *t->stream << c1x << c1y
+               << c2x << c2y
+               << ex << ey
+               << "c\n";
+}
+#endif  // !defined(QT_NO_PDF)
+
 //  from src/gui/painting/qpdf.cpp, line 619, as _ZN4QPdf7Stroker6setPenERK4QPen6QFlagsIN8QPainter10RenderHintEE
 #if !defined(QT_NO_PDF)
 inline void QPdf::Stroker::setPen(const QPen &pen, QPainter::RenderHints)

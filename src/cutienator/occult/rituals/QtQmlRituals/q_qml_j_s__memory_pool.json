@@ -7,9 +7,15 @@
   "rows": {
     "ritual_ZN6QQmlJS10MemoryPoolC1Ev": ["address"],
     "ritual_ZN6QQmlJS10MemoryPoolD1Ev": ["nothing", "address"],
+    "ritual_ZN6QQmlJS10MemoryPool8allocateEm": [
+      "address", "address", "size_t"
+    ],
     "ritual_ZN6QQmlJS10MemoryPool5resetEv": ["nothing", "address"],
     "ritual_ZN6QQmlJS10MemoryPool9newStringE7QString": [
       "text", "address", "text"
+    ],
+    "ritual_ZN6QQmlJS10MemoryPool15allocate_helperEm": [
+      "address", "address", "size_t"
     ]
   }
 }

@@ -6,6 +6,57 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgmesh_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgbounds3_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  MultiMeshInfo QSSGMesh::MeshInternal::readFileHeader(QIODevice *device)
+extern "C" Q_DECL_EXPORT
+QSSGMesh::MeshInternal::MultiMeshInfo *ritual_ZN8QSSGMesh12MeshInternal14readFileHeaderEP9QIODevice(
+    QIODevice *device) {
+  return new QSSGMesh::MeshInternal::MultiMeshInfo(
+      QSSGMesh::MeshInternal::readFileHeader(
+          device));
+}
+
+//  void QSSGMesh::MeshInternal::writeFileHeader(QIODevice *device, const
+//      MultiMeshInfo &meshFileInfo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSSGMesh12MeshInternal15writeFileHeaderEP9QIODeviceRKNS0_13MultiMeshInfoE(
+    QIODevice *device,
+    const QSSGMesh::MeshInternal::MultiMeshInfo *meshFileInfo) {
+  QSSGMesh::MeshInternal::writeFileHeader(device, *meshFileInfo);
+}
+
+//  quint64 QSSGMesh::MeshInternal::readMeshData(QIODevice *device, quint64
+//      offset, Mesh *mesh, MeshDataHeader *header)
+extern "C" Q_DECL_EXPORT
+quint64 ritual_ZN8QSSGMesh12MeshInternal12readMeshDataEP9QIODeviceyPNS_4MeshEPNS0_14MeshDataHeaderE(
+    QIODevice *device,
+    quint64 offset,
+    QSSGMesh::Mesh *mesh,
+    QSSGMesh::MeshInternal::MeshDataHeader *header) {
+  return QSSGMesh::MeshInternal::readMeshData(device, offset, mesh, header);
+}
+
+//  void QSSGMesh::MeshInternal::writeMeshHeader(QIODevice *device, const
+//      MeshDataHeader &header)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSSGMesh12MeshInternal15writeMeshHeaderEP9QIODeviceRKNS0_14MeshDataHeaderE(
+    QIODevice *device,
+    const QSSGMesh::MeshInternal::MeshDataHeader *header) {
+  QSSGMesh::MeshInternal::writeMeshHeader(device, *header);
+}
+
+//  quint64 QSSGMesh::MeshInternal::writeMeshData(QIODevice *device, const
+//      Mesh &mesh)
+extern "C" Q_DECL_EXPORT
+quint64 ritual_ZN8QSSGMesh12MeshInternal13writeMeshDataEP9QIODeviceRKNS_4MeshE(
+    QIODevice *device,
+    const QSSGMesh::Mesh *mesh) {
+  return QSSGMesh::MeshInternal::writeMeshData(device, *mesh);
+}
 
 //  quint32
 //      QSSGMesh::MeshInternal::byteSizeForComponentType(Mesh::ComponentType
@@ -74,6 +125,31 @@ const char *ritual_ZN8QSSGMesh12MeshInternal16getJointAttrNameEv() {
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN8QSSGMesh12MeshInternal17getWeightAttrNameEv() {
   return QSSGMesh::MeshInternal::getWeightAttrName();
+}
+
+//  QSSGBounds3 QSSGMesh::MeshInternal::calculateSubsetBounds(const
+//      Mesh::VertexBufferEntry &entry, const QByteArray &vertexBufferData,
+//      quint32 vertexBufferStride, const QByteArray &indexBufferData,
+//      Mesh::ComponentType indexComponentType, quint32 subsetCount, quint32
+//      subsetOffset)
+extern "C" Q_DECL_EXPORT
+QSSGBounds3 *ritual_ZN8QSSGMesh12MeshInternal21calculateSubsetBoundsERKNS_4Mesh17VertexBufferEntryERK10QByteArrayjS7_23QSSGRenderComponentTypejj(
+    const QSSGMesh::Mesh::VertexBufferEntry *entry,
+    const QByteArray *vertexBufferData,
+    quint32 vertexBufferStride,
+    const QByteArray *indexBufferData,
+    QSSGMesh::Mesh::ComponentType indexComponentType,
+    quint32 subsetCount,
+    quint32 subsetOffset) {
+  return new QSSGBounds3(
+      QSSGMesh::MeshInternal::calculateSubsetBounds(
+          *entry,
+          *vertexBufferData,
+          vertexBufferStride,
+          *indexBufferData,
+          indexComponentType,
+          subsetCount,
+          subsetOffset));
 }
 
 //  QSSGMesh::MeshInternal::~MeshInternal()

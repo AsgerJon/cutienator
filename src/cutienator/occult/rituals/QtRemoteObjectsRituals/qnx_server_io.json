@@ -5,6 +5,9 @@
     "h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QnxServerIoC1E14QSharedPointerI12QIOQnxSourceEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK11QnxServerIo10connectionEv": ["address", "address"],
     "ritual_ZN11QnxServerIo7doCloseEv": ["nothing", "address"]
   }

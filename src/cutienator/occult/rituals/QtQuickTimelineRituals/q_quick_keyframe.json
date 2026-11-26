@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickKeyframe10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickKeyframe11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickKeyframe11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickKeyframe2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QQuickKeyframe6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickKeyframe6d_funcEv": ["address", "address"],
     "ritual_ZN14QQuickKeyframeC1EP7QObject": ["address", "address"],
     "ritual_ZNK14QQuickKeyframe5frameEv": ["double", "address"],
     "ritual_ZN14QQuickKeyframe8setFrameEd": ["nothing", "address", "double"],
@@ -24,6 +32,14 @@
     "ritual_ZNK14QQuickKeyframe8evaluateEPS_di": [
       "address", "address", "address", "double", "int"
     ],
+    "ritual_ZN14QQuickKeyframeC1ER21QQuickKeyframePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickKeyframe12frameChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickKeyframe18easingCurveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickKeyframe12valueChangedEv": ["nothing", "address"],
     "ritual_take_QQuickKeyframe": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QQuickKeyframe8evaluateEPS_di": [
       "address", "address", "address", "double", "int"

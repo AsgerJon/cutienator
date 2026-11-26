@@ -6,13 +6,27 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qlocale_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearrayview.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
+#include <QtCore/QByteArrayView>
 
 //  float QLocaleData::convertDoubleToFloat(double d, bool *ok)
 extern "C" Q_DECL_EXPORT
 float ritual_ZN11QLocaleData20convertDoubleToFloatEdPb(double d, bool *ok) {
   return QLocaleData::convertDoubleToFloat(d, ok);
+}
+
+//  QSimpleParsedNumber<qint64>
+//      QLocaleData::bytearrayToLongLong(QByteArrayView num, int base)
+extern "C" Q_DECL_EXPORT
+QSimpleParsedNumber<qint64> *ritual_ZN11QLocaleData19bytearrayToLongLongE14QByteArrayViewi(
+    const QByteArrayView *num,
+    int base) {
+  return new QSimpleParsedNumber<qint64>(
+      QLocaleData::bytearrayToLongLong(
+          *num,
+          base));
 }
 
 //  ParsingResult QLocaleData::validateChars(QStringView str, NumberMode
@@ -307,5 +321,19 @@ QLocaleData::DataRange *ritual_ZNK11QLocaleData16endonymTerritoryEv(
 //  QLocaleData::~QLocaleData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QLocaleDataD1Ev(QLocaleData *self) {
+  delete self;
+}
+
+//  a QSimpleParsedNumber<qint64> a ritual of QLocaleData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLocaleData__QSimpleParsedNumber_qint64(
+    QSimpleParsedNumber<qint64> *self) {
+  delete self;
+}
+
+//  a QSimpleParsedNumber<quint64> a ritual of QLocaleData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLocaleData__QSimpleParsedNumber_quint64(
+    QSimpleParsedNumber<quint64> *self) {
   delete self;
 }

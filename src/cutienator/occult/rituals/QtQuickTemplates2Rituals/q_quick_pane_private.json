@@ -8,6 +8,10 @@
     "ritual_ZN17QQuickPanePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QQuickPanePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN17QQuickPanePrivate4initEv": ["nothing", "address"],
+    "ritual_ZN17QQuickPanePrivate11contentDataEv": ["address", "address"],
+    "ritual_ZN17QQuickPanePrivate15contentChildrenEv": [
+      "address", "address"
+    ],
     "ritual_ZNK17QQuickPanePrivate17contentChildItemsEv": [
       "address", "address"
     ],
@@ -64,6 +68,12 @@
     ],
     "ritual_own_ZN17QQuickPanePrivate11handlePressERK7QPointFm": [
       "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_drop_QQuickPanePrivate__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickPanePrivate__QQmlListProperty_QQuickItem": [
+      "nothing", "address"
     ]
   }
 }

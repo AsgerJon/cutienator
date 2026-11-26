@@ -327,6 +327,20 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  QSGVideoTexturePrivate *QSGVideoTexture::d_func()
+extern "C" Q_DECL_EXPORT
+QSGVideoTexturePrivate *ritual_ZN15QSGVideoTexture6d_funcEv(
+    QSGVideoTexture *self) {
+  return self->d_func();
+}
+
+//  const QSGVideoTexturePrivate *QSGVideoTexture::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSGVideoTexturePrivate *ritual_ZNK15QSGVideoTexture6d_funcEv(
+    const QSGVideoTexture *self) {
+  return self->d_func();
+}
+
 //  QSGVideoTexture::QSGVideoTexture()
 extern "C" Q_DECL_EXPORT
 QSGVideoTexture *ritual_ZN15QSGVideoTextureC1Ev() {
@@ -379,6 +393,18 @@ void ritual_ZN15QSGVideoTexture13setRhiTextureEP11QRhiTexture(
     QSGVideoTexture *self,
     QRhiTexture *texture) {
   self->setRhiTexture(texture);
+}
+
+//  void QSGVideoTexture::setData(QRhiTexture::Format f, const QSize &s,
+//      const uchar *data, int bytes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSGVideoTexture7setDataEN11QRhiTexture6FormatERK5QSizePKhi(
+    QSGVideoTexture *self,
+    QRhiTexture::Format f,
+    const QSize *s,
+    const uchar *data,
+    int bytes) {
+  self->setData(f, *s, data, bytes);
 }
 
 //  a Python function taken by a CuteQSGVideoTexture, for the function named

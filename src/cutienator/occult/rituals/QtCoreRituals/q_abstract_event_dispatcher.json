@@ -8,6 +8,12 @@
     "ritual_ZNK24QAbstractEventDispatcher10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QAbstractEventDispatcher11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QAbstractEventDispatcher2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,6 +32,9 @@
     "ritual_ZN24QAbstractEventDispatcher24unregisterSocketNotifierEP15QSocketNotifier": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN24QAbstractEventDispatcher13registerTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEP7QObject": [
+      "int", "address", "long long", "int", "address"
+    ],
     "ritual_ZN24QAbstractEventDispatcher13registerTimerExN2Qt9TimerTypeEP7QObject": [
       "int", "address", "long long", "int", "address"
     ],
@@ -38,11 +47,23 @@
     "ritual_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK24QAbstractEventDispatcher16registeredTimersEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN24QAbstractEventDispatcher13remainingTimeEi": [
       "int", "address", "int"
     ],
+    "ritual_ZN24QAbstractEventDispatcher13registerTimerEN2Qt7TimerIdENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS0_9TimerTypeEP7QObject": [
+      "nothing", "address", "int", "long long", "int", "address"
+    ],
     "ritual_ZN24QAbstractEventDispatcher15unregisterTimerEN2Qt7TimerIdE": [
       "bool", "address", "int"
+    ],
+    "ritual_ZNK24QAbstractEventDispatcher15timersForObjectEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractEventDispatcher13remainingTimeEN2Qt7TimerIdE": [
+      "long long", "address", "int"
     ],
     "ritual_ZN24QAbstractEventDispatcher6wakeUpEv": ["nothing", "address"],
     "ritual_ZN24QAbstractEventDispatcher9interruptEv": [
@@ -60,6 +81,13 @@
     "ritual_ZN24QAbstractEventDispatcher23removeNativeEventFilterEP26QAbstractNativeEventFilter": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN24QAbstractEventDispatcher17filterNativeEventERK10QByteArrayPvPx": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher12aboutToBlockEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher5awakeEv": ["nothing", "address"],
     "ritual_take_QAbstractEventDispatcher": [
       "bool", "address", "chars", "address"
     ],
@@ -67,6 +95,12 @@
       "nothing", "address"
     ],
     "ritual_own_ZN24QAbstractEventDispatcher11closingDownEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractEventDispatcher__QList_QAbstractEventDispatcher_TimerInfo": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractEventDispatcher__QList_QAbstractEventDispatcher_TimerInfoV2": [
       "nothing", "address"
     ]
   }

@@ -7,8 +7,32 @@
     "ritual_ZNK10Qt3DExtras11QSpriteGrid10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras11QSpriteGrid11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras11QSpriteGrid11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras11QSpriteGrid2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras11QSpriteGridC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras11QSpriteGridD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras11QSpriteGrid4rowsEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras11QSpriteGrid7columnsEv": ["int", "address"],
+    "ritual_ZN10Qt3DExtras11QSpriteGrid7setRowsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras11QSpriteGrid10setColumnsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras11QSpriteGrid11rowsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras11QSpriteGrid14columnsChangedEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN10Qt3DExtras11QSpriteGrid6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DExtras11QSpriteGrid6d_funcEv": ["address", "address"],

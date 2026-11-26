@@ -937,6 +937,22 @@ const QMetaObject *ritual_ZNK9QSizeGrip10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSizeGrip::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QSizeGrip11qt_metacastEPKc(QSizeGrip *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSizeGrip::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QSizeGrip11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSizeGrip *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSizeGrip::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QSizeGrip2trEPKcS1_i(
@@ -1039,6 +1055,19 @@ bool ritual_ZN9QSizeGrip11eventFilterEP7QObjectP6QEvent(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QSizeGrip5eventEP6QEvent(QSizeGrip *self, QEvent *a0) {
   return self->event(a0);
+}
+
+//  QSizeGripPrivate *QSizeGrip::d_func()
+extern "C" Q_DECL_EXPORT
+QSizeGripPrivate *ritual_ZN9QSizeGrip6d_funcEv(QSizeGrip *self) {
+  return self->d_func();
+}
+
+//  const QSizeGripPrivate *QSizeGrip::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSizeGripPrivate *ritual_ZNK9QSizeGrip6d_funcEv(
+    const QSizeGrip *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQSizeGrip, for the function named by the

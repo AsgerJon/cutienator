@@ -4,6 +4,13 @@
     "QtScxml/qscxmlcompiler.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN14QScxmlCompiler6LoaderD1Ev": ["nothing", "address"]
+    "ritual_ZN14QScxmlCompiler6LoaderC1Ev": ["address"],
+    "ritual_ZN14QScxmlCompiler6LoaderD1Ev": ["nothing", "address"],
+    "ritual_ZN14QScxmlCompiler6Loader4loadERK7QStringS3_P5QListIS1_E": [
+      "address", "address", "text", "text", "address"
+    ],
+    "ritual_take_QScxmlCompiler_Loader": [
+      "bool", "address", "chars", "address"
+    ]
   }
 }

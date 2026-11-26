@@ -15,6 +15,12 @@
     "ritual_ZNK18QHeaderViewPrivate11SectionItem16calculatedEndPosEv": [
       "int", "address"
     ],
+    "ritual_ZNK18QHeaderViewPrivate11SectionItem5writeER11QDataStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate11SectionItem4readER11QDataStream": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QHeaderViewPrivate11SectionItemD1Ev": ["nothing", "address"]
   }
 }

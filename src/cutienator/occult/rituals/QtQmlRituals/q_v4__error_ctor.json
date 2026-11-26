@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN3QV49ErrorCtor10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV49ErrorCtor11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV49ErrorCtor1dEv": ["address", "address"]
+    "ritual_ZNK3QV49ErrorCtor1dEv": ["address", "address"],
+    "ritual_ZN3QV49ErrorCtor11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

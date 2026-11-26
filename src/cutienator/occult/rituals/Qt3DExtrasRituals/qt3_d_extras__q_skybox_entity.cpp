@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras13QSkyboxEntity10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QSkyboxEntity::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras13QSkyboxEntity11qt_metacastEPKc(
+    Qt3DExtras::QSkyboxEntity *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QSkyboxEntity::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras13QSkyboxEntity11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QSkyboxEntity *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QSkyboxEntity::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,90 @@ QString *ritual_ZN10Qt3DExtras13QSkyboxEntity2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QSkyboxEntity::tr(s, c, n));
+}
+
+//  Qt3DExtras::QSkyboxEntity::QSkyboxEntity(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QSkyboxEntity *ritual_ZN10Qt3DExtras13QSkyboxEntityC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QSkyboxEntity(parent);
+}
+
+//  Qt3DExtras::QSkyboxEntity::~QSkyboxEntity()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QSkyboxEntityD1Ev(
+    Qt3DExtras::QSkyboxEntity *self) {
+  delete self;
+}
+
+//  QString Qt3DExtras::QSkyboxEntity::baseName() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DExtras13QSkyboxEntity8baseNameEv(
+    const Qt3DExtras::QSkyboxEntity *self) {
+  return new QString(self->baseName());
+}
+
+//  QString Qt3DExtras::QSkyboxEntity::extension() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DExtras13QSkyboxEntity9extensionEv(
+    const Qt3DExtras::QSkyboxEntity *self) {
+  return new QString(self->extension());
+}
+
+//  bool Qt3DExtras::QSkyboxEntity::isGammaCorrectEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras13QSkyboxEntity21isGammaCorrectEnabledEv(
+    const Qt3DExtras::QSkyboxEntity *self) {
+  return self->isGammaCorrectEnabled();
+}
+
+//  void Qt3DExtras::QSkyboxEntity::setBaseName(const QString &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QSkyboxEntity11setBaseNameERK7QString(
+    Qt3DExtras::QSkyboxEntity *self,
+    const QString *path) {
+  self->setBaseName(*path);
+}
+
+//  void Qt3DExtras::QSkyboxEntity::setExtension(const QString &extension)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QSkyboxEntity12setExtensionERK7QString(
+    Qt3DExtras::QSkyboxEntity *self,
+    const QString *extension) {
+  self->setExtension(*extension);
+}
+
+//  void Qt3DExtras::QSkyboxEntity::setGammaCorrectEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QSkyboxEntity22setGammaCorrectEnabledEb(
+    Qt3DExtras::QSkyboxEntity *self,
+    bool enabled) {
+  self->setGammaCorrectEnabled(enabled);
+}
+
+//  void Qt3DExtras::QSkyboxEntity::baseNameChanged(const QString &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QSkyboxEntity15baseNameChangedERK7QString(
+    Qt3DExtras::QSkyboxEntity *self,
+    const QString *path) {
+  self->baseNameChanged(*path);
+}
+
+//  void Qt3DExtras::QSkyboxEntity::extensionChanged(const QString
+//      &extension)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QSkyboxEntity16extensionChangedERK7QString(
+    Qt3DExtras::QSkyboxEntity *self,
+    const QString *extension) {
+  self->extensionChanged(*extension);
+}
+
+//  void Qt3DExtras::QSkyboxEntity::gammaCorrectEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QSkyboxEntity26gammaCorrectEnabledChangedEb(
+    Qt3DExtras::QSkyboxEntity *self,
+    bool enabled) {
+  self->gammaCorrectEnabledChanged(enabled);
 }
 
 //  QSkyboxEntityPrivate *Qt3DExtras::QSkyboxEntity::d_func()

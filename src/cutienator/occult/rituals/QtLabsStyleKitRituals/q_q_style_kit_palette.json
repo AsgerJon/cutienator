@@ -6,8 +6,47 @@
   ],
   "rows": {
     "ritual_ZNK17QQStyleKitPalette10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQStyleKitPalette11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQStyleKitPalette11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK17QQStyleKitPalette15fallbackPaletteEv": [
       "address", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette13systemChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQStyleKitPalette15checkBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette13buttonChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQStyleKitPalette15comboBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette15groupBoxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette19itemDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette12labelChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQStyleKitPalette18radioButtonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette14spinBoxChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQStyleKitPalette20switchControlChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette13tabBarChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQStyleKitPalette15textAreaChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette16textFieldChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette14toolBarChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQStyleKitPalette22fallbackPaletteChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK17QQStyleKitPalette5isSetEN11QQuickTheme5ScopeE": [
       "bool", "address", "int"

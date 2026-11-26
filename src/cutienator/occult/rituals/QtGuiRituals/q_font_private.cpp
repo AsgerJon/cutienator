@@ -34,6 +34,26 @@ QFontEngine *ritual_ZNK12QFontPrivate15engineForScriptEi(
   return self->engineForScript(script);
 }
 
+//  QFontEngine *QFontPrivate::engineForCharacter(char32_t c,
+//      EngineQueryOptions opt) const
+extern "C" Q_DECL_EXPORT
+QFontEngine *ritual_ZNK12QFontPrivate18engineForCharacterEDi6QFlagsINS_17EngineQueryOptionEE(
+    const QFontPrivate *self,
+    char32_t c,
+    int opt) {
+  return self->engineForCharacter(
+      c,
+      QFlags<QFontPrivate::EngineQueryOption>::fromInt(opt));
+}
+
+//  void QFontPrivate::alterCharForCapitalization(QChar &c) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QFontPrivate26alterCharForCapitalizationER5QChar(
+    const QFontPrivate *self,
+    QChar *c) {
+  self->alterCharForCapitalization(*c);
+}
+
 //  QFont QFontPrivate::smallCapsFont() const
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK12QFontPrivate13smallCapsFontEv(const QFontPrivate *self) {

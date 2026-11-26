@@ -11,6 +11,9 @@
 #include <QtGui/qtransform.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <utility>
+#include <QtCore/QPointF>
 
 //  Only a class built on QGraphicsItemAnimation may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -237,6 +240,25 @@ const QMetaObject *ritual_ZNK22QGraphicsItemAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsItemAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QGraphicsItemAnimation11qt_metacastEPKc(
+    QGraphicsItemAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsItemAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QGraphicsItemAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsItemAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsItemAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QGraphicsItemAnimation2trEPKcS1_i(
@@ -297,6 +319,13 @@ QPointF *ritual_ZNK22QGraphicsItemAnimation5posAtEd(
   return new QPointF(self->posAt(step));
 }
 
+//  QList<std::pair<qreal, QPointF>> QGraphicsItemAnimation::posList() const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<qreal, QPointF>> *ritual_ZNK22QGraphicsItemAnimation7posListEv(
+    const QGraphicsItemAnimation *self) {
+  return new QList<std::pair<qreal, QPointF>>(self->posList());
+}
+
 //  void QGraphicsItemAnimation::setPosAt(qreal step, const QPointF &pos)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QGraphicsItemAnimation8setPosAtEdRK7QPointF(
@@ -322,6 +351,14 @@ qreal ritual_ZNK22QGraphicsItemAnimation10rotationAtEd(
   return self->rotationAt(step);
 }
 
+//  QList<std::pair<qreal, qreal>> QGraphicsItemAnimation::rotationList()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<qreal, qreal>> *ritual_ZNK22QGraphicsItemAnimation12rotationListEv(
+    const QGraphicsItemAnimation *self) {
+  return new QList<std::pair<qreal, qreal>>(self->rotationList());
+}
+
 //  void QGraphicsItemAnimation::setRotationAt(qreal step, qreal angle)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QGraphicsItemAnimation13setRotationAtEdd(
@@ -345,6 +382,14 @@ qreal ritual_ZNK22QGraphicsItemAnimation14yTranslationAtEd(
     const QGraphicsItemAnimation *self,
     qreal step) {
   return self->yTranslationAt(step);
+}
+
+//  QList<std::pair<qreal, QPointF>>
+//      QGraphicsItemAnimation::translationList() const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<qreal, QPointF>> *ritual_ZNK22QGraphicsItemAnimation15translationListEv(
+    const QGraphicsItemAnimation *self) {
+  return new QList<std::pair<qreal, QPointF>>(self->translationList());
 }
 
 //  void QGraphicsItemAnimation::setTranslationAt(qreal step, qreal dx, qreal
@@ -374,6 +419,14 @@ qreal ritual_ZNK22QGraphicsItemAnimation17horizontalScaleAtEd(
   return self->horizontalScaleAt(step);
 }
 
+//  QList<std::pair<qreal, QPointF>> QGraphicsItemAnimation::scaleList()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<qreal, QPointF>> *ritual_ZNK22QGraphicsItemAnimation9scaleListEv(
+    const QGraphicsItemAnimation *self) {
+  return new QList<std::pair<qreal, QPointF>>(self->scaleList());
+}
+
 //  void QGraphicsItemAnimation::setScaleAt(qreal step, qreal sx, qreal sy)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QGraphicsItemAnimation10setScaleAtEddd(
@@ -398,6 +451,14 @@ qreal ritual_ZNK22QGraphicsItemAnimation17horizontalShearAtEd(
     const QGraphicsItemAnimation *self,
     qreal step) {
   return self->horizontalShearAt(step);
+}
+
+//  QList<std::pair<qreal, QPointF>> QGraphicsItemAnimation::shearList()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<qreal, QPointF>> *ritual_ZNK22QGraphicsItemAnimation9shearListEv(
+    const QGraphicsItemAnimation *self) {
+  return new QList<std::pair<qreal, QPointF>>(self->shearList());
 }
 
 //  void QGraphicsItemAnimation::setShearAt(qreal step, qreal sh, qreal sv)
@@ -467,6 +528,21 @@ void ritual_own_ZN22QGraphicsItemAnimation18afterAnimationStepEd(
     qreal step) {
   static_cast<OwnQGraphicsItemAnimation *>(self)->OwnQGraphicsItemAnimation::afterAnimationStep(
       step);
+}
+
+//  a QList<std::pair<qreal, QPointF>> a ritual of QGraphicsItemAnimation
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGraphicsItemAnimation__QList_std_pair_qreal_QPointF(
+    QList<std::pair<qreal, QPointF>> *self) {
+  delete self;
+}
+
+//  a QList<std::pair<qreal, qreal>> a ritual of QGraphicsItemAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGraphicsItemAnimation__QList_std_pair_qreal_qreal(
+    QList<std::pair<qreal, qreal>> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(graphicsview)

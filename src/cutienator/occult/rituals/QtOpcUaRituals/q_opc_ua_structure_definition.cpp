@@ -21,6 +21,41 @@ QOpcUaStructureDefinition *ritual_ZN25QOpcUaStructureDefinitionC1ERKS_(
   return new QOpcUaStructureDefinition(*a0);
 }
 
+//  void QOpcUaStructureDefinition::swap(QOpcUaStructureDefinition &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QOpcUaStructureDefinition4swapERS_(
+    QOpcUaStructureDefinition *self,
+    QOpcUaStructureDefinition *other) {
+  self->swap(*other);
+}
+
+//  QOpcUaStructureDefinition
+//      &QOpcUaStructureDefinition::operator=(QOpcUaStructureDefinition
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaStructureDefinition *ritual_ZN25QOpcUaStructureDefinitionaSEOS_(
+    QOpcUaStructureDefinition *self,
+    QOpcUaStructureDefinition *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QOpcUaStructureDefinition::QOpcUaStructureDefinition(QOpcUaStructureDefin
+//      ition &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaStructureDefinition *ritual_ZN25QOpcUaStructureDefinitionC1EOS_(
+    QOpcUaStructureDefinition *other) {
+  return new QOpcUaStructureDefinition(std::move(*other));
+}
+
+//  QOpcUaStructureDefinition &QOpcUaStructureDefinition::operator=(const
+//      QOpcUaStructureDefinition &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaStructureDefinition *ritual_ZN25QOpcUaStructureDefinitionaSERKS_(
+    QOpcUaStructureDefinition *self,
+    const QOpcUaStructureDefinition *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QVariant QOpcUaStructureDefinition::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK25QOpcUaStructureDefinitioncv8QVariantEv(
@@ -73,6 +108,15 @@ extern "C" Q_DECL_EXPORT
 QOpcUaStructureDefinition::StructureType ritual_ZNK25QOpcUaStructureDefinition13structureTypeEv(
     const QOpcUaStructureDefinition *self) {
   return self->structureType();
+}
+
+//  void QOpcUaStructureDefinition::setStructureType(const
+//      QOpcUaStructureDefinition::StructureType &structureType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QOpcUaStructureDefinition16setStructureTypeERKNS_13StructureTypeE(
+    QOpcUaStructureDefinition *self,
+    const QOpcUaStructureDefinition::StructureType *structureType) {
+  self->setStructureType(*structureType);
 }
 
 //  QList<QOpcUaStructureField> QOpcUaStructureDefinition::fields() const

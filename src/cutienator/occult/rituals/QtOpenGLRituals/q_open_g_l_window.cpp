@@ -825,6 +825,24 @@ const QMetaObject *ritual_ZNK13QOpenGLWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QOpenGLWindow11qt_metacastEPKc(
+    QOpenGLWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLWindow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QOpenGLWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLWindow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QOpenGLWindow2trEPKcS1_i(
@@ -832,6 +850,20 @@ QString *ritual_ZN13QOpenGLWindow2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QOpenGLWindow::tr(s, c, n));
+}
+
+//  QOpenGLWindowPrivate *QOpenGLWindow::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLWindowPrivate *ritual_ZN13QOpenGLWindow6d_funcEv(
+    QOpenGLWindow *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLWindowPrivate *QOpenGLWindow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOpenGLWindowPrivate *ritual_ZNK13QOpenGLWindow6d_funcEv(
+    const QOpenGLWindow *self) {
+  return self->d_func();
 }
 
 //  QOpenGLWindow::QOpenGLWindow(UpdateBehavior updateBehavior, QWindow
@@ -898,10 +930,23 @@ QOpenGLContext *ritual_ZNK13QOpenGLWindow12shareContextEv(
   return self->shareContext();
 }
 
+//  GLuint QOpenGLWindow::defaultFramebufferObject() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK13QOpenGLWindow24defaultFramebufferObjectEv(
+    const QOpenGLWindow *self) {
+  return self->defaultFramebufferObject();
+}
+
 //  QImage QOpenGLWindow::grabFramebuffer()
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN13QOpenGLWindow15grabFramebufferEv(QOpenGLWindow *self) {
   return new QImage(self->grabFramebuffer());
+}
+
+//  void QOpenGLWindow::frameSwapped()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QOpenGLWindow12frameSwappedEv(QOpenGLWindow *self) {
+  self->frameSwapped();
 }
 
 //  void QOpenGLWindow::initializeGL()

@@ -9,6 +9,12 @@
     "ritual_ZNK27QQuickMaterialBusyIndicator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuickMaterialBusyIndicator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQuickMaterialBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK27QQuickMaterialBusyIndicator5colorEv": [
       "address", "address"
     ],
@@ -24,6 +30,9 @@
     "ritual_ZNK27QQuickMaterialBusyIndicator7elapsedEv": ["int", "address"],
     "ritual_ZN27QQuickMaterialBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QQuickMaterialBusyIndicator15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
     ],
     "ritual_own_ZN27QQuickMaterialBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"

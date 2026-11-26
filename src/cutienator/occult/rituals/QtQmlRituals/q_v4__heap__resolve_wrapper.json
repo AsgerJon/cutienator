@@ -8,6 +8,7 @@
     "ritual_ZN3QV44Heap14ResolveWrapper11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap14ResolveWrapper4initEv": ["nothing", "address"],
     "ritual_cast_QV4_Heap_ResolveWrapper_QV4_Heap_ResolveWrapperData": [
       "address", "address"
     ]

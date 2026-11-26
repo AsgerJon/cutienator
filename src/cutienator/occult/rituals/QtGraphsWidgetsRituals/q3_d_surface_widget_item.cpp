@@ -6,9 +6,15 @@
 #if QT_CONFIG(graphs_3d_surface3d)
 #include <QtGraphsWidgets/q3dsurfacewidgetitem.h>
 #include <QtCore/qstring.h>
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qsurface3dseries.h>
+#endif
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qvalue3daxis.h>
+#endif
+#include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -193,6 +199,25 @@ const QMetaObject *ritual_ZNK20Q3DSurfaceWidgetItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DSurfaceWidgetItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20Q3DSurfaceWidgetItem11qt_metacastEPKc(
+    Q3DSurfaceWidgetItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DSurfaceWidgetItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20Q3DSurfaceWidgetItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DSurfaceWidgetItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DSurfaceWidgetItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20Q3DSurfaceWidgetItem2trEPKcS1_i(
@@ -345,6 +370,55 @@ bool ritual_ZN20Q3DSurfaceWidgetItem5eventEP6QEvent(
     Q3DSurfaceWidgetItem *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  void Q3DSurfaceWidgetItem::axisXChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DSurfaceWidgetItem12axisXChangedEP12QValue3DAxis(
+    Q3DSurfaceWidgetItem *self,
+    QValue3DAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void Q3DSurfaceWidgetItem::axisYChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DSurfaceWidgetItem12axisYChangedEP12QValue3DAxis(
+    Q3DSurfaceWidgetItem *self,
+    QValue3DAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void Q3DSurfaceWidgetItem::axisZChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DSurfaceWidgetItem12axisZChangedEP12QValue3DAxis(
+    Q3DSurfaceWidgetItem *self,
+    QValue3DAxis *axis) {
+  self->axisZChanged(axis);
+}
+
+//  void Q3DSurfaceWidgetItem::selectedSeriesChanged(QSurface3DSeries
+//      *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DSurfaceWidgetItem21selectedSeriesChangedEP16QSurface3DSeries(
+    Q3DSurfaceWidgetItem *self,
+    QSurface3DSeries *series) {
+  self->selectedSeriesChanged(series);
+}
+
+//  void Q3DSurfaceWidgetItem::flipHorizontalGridChanged(bool flip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DSurfaceWidgetItem25flipHorizontalGridChangedEb(
+    Q3DSurfaceWidgetItem *self,
+    bool flip) {
+  self->flipHorizontalGridChanged(flip);
+}
+
+//  void Q3DSurfaceWidgetItem::sliceImageChanged(const QImage &image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20Q3DSurfaceWidgetItem17sliceImageChangedERK6QImage(
+    Q3DSurfaceWidgetItem *self,
+    const QImage *image) {
+  self->sliceImageChanged(*image);
 }
 
 //  Q3DSurfaceWidgetItemPrivate *Q3DSurfaceWidgetItem::d_func()

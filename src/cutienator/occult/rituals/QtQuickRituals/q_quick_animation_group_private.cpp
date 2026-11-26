@@ -44,6 +44,61 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1712, as _ZN27QQuickAnimationGroupPrivate16append_animationEP16QQmlListPropertyI23QQuickAbstractAnimationEPS1_
+inline void QQuickAnimationGroupPrivate::append_animation(QQmlListProperty<QQuickAbstractAnimation> *list, QQuickAbstractAnimation *a)
+{
+    QQuickAnimationGroup *q = qmlobject_cast<QQuickAnimationGroup *>(list->object);
+    if (q && a)
+        a->setGroup(q);
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1719, as _ZN27QQuickAnimationGroupPrivate12at_animationEP16QQmlListPropertyI23QQuickAbstractAnimationEx
+inline QQuickAbstractAnimation *QQuickAnimationGroupPrivate::at_animation(QQmlListProperty<QQuickAbstractAnimation> *list, qsizetype index)
+{
+    if (auto q = qmlobject_cast<QQuickAnimationGroup *>(list->object))
+        return q->d_func()->animations.at(index);
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1726, as _ZN27QQuickAnimationGroupPrivate15count_animationEP16QQmlListPropertyI23QQuickAbstractAnimationE
+inline qsizetype QQuickAnimationGroupPrivate::count_animation(QQmlListProperty<QQuickAbstractAnimation> *list)
+{
+    if (auto q = qmlobject_cast<QQuickAnimationGroup *>(list->object))
+        return q->d_func()->animations.size();
+    return 0;
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1733, as _ZN27QQuickAnimationGroupPrivate15clear_animationEP16QQmlListPropertyI23QQuickAbstractAnimationE
+inline void QQuickAnimationGroupPrivate::clear_animation(QQmlListProperty<QQuickAbstractAnimation> *list)
+{
+    QQuickAnimationGroup *q = qobject_cast<QQuickAnimationGroup *>(list->object);
+    if (q) {
+        while (q->d_func()->animations.size()) {
+            QQuickAbstractAnimation *firstAnim = q->d_func()->animations.at(0);
+            firstAnim->setGroup(nullptr);
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1744, as _ZN27QQuickAnimationGroupPrivate17replace_animationEP16QQmlListPropertyI23QQuickAbstractAnimationExPS1_
+inline void QQuickAnimationGroupPrivate::replace_animation(QQmlListProperty<QQuickAbstractAnimation> *list,
+                                                    qsizetype i, QQuickAbstractAnimation *a)
+{
+    if (auto *q = qmlobject_cast<QQuickAnimationGroup *>(list->object)) {
+        if (QQuickAbstractAnimation *anim = q->d_func()->animations.at(i))
+            anim->setGroup(nullptr);
+        if (a)
+            a->setGroup(q, i);
+    }
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1755, as _ZN27QQuickAnimationGroupPrivate20removeLast_animationEP16QQmlListPropertyI23QQuickAbstractAnimationE
+inline void QQuickAnimationGroupPrivate::removeLast_animation(QQmlListProperty<QQuickAbstractAnimation> *list)
+{
+    if (auto *q = qobject_cast<QQuickAnimationGroup *>(list->object))
+        q->d_func()->animations.last()->setGroup(nullptr);
+}
+
 //  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1761, as _ZN27QQuickAnimationGroupPrivate22restartFromCurrentLoopEv
 inline void QQuickAnimationGroupPrivate::restartFromCurrentLoop()
 {
@@ -206,6 +261,59 @@ const QQuickAnimationGroup *ritual_ZNK27QQuickAnimationGroupPrivate6q_funcEv(
 extern "C" Q_DECL_EXPORT
 QQuickAnimationGroupPrivate *ritual_ZN27QQuickAnimationGroupPrivateC1Ev() {
   return new CuteQQuickAnimationGroupPrivate();
+}
+
+//  void QQuickAnimationGroupPrivate::append_animation(QQmlListProperty<QQuic
+//      kAbstractAnimation> *list, QQuickAbstractAnimation *role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickAnimationGroupPrivate16append_animationEP16QQmlListPropertyI23QQuickAbstractAnimationEPS1_(
+    QQmlListProperty<QQuickAbstractAnimation> *list,
+    QQuickAbstractAnimation *role) {
+  QQuickAnimationGroupPrivate::append_animation(list, role);
+}
+
+//  QQuickAbstractAnimation *QQuickAnimationGroupPrivate::at_animation(QQmlLi
+//      stProperty<QQuickAbstractAnimation> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickAbstractAnimation *ritual_ZN27QQuickAnimationGroupPrivate12at_animationEP16QQmlListPropertyI23QQuickAbstractAnimationEx(
+    QQmlListProperty<QQuickAbstractAnimation> *list,
+    qsizetype index) {
+  return QQuickAnimationGroupPrivate::at_animation(list, index);
+}
+
+//  qsizetype QQuickAnimationGroupPrivate::count_animation(QQmlListProperty<Q
+//      QuickAbstractAnimation> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN27QQuickAnimationGroupPrivate15count_animationEP16QQmlListPropertyI23QQuickAbstractAnimationE(
+    QQmlListProperty<QQuickAbstractAnimation> *list) {
+  return QQuickAnimationGroupPrivate::count_animation(list);
+}
+
+//  void QQuickAnimationGroupPrivate::clear_animation(QQmlListProperty<QQuick
+//      AbstractAnimation> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickAnimationGroupPrivate15clear_animationEP16QQmlListPropertyI23QQuickAbstractAnimationE(
+    QQmlListProperty<QQuickAbstractAnimation> *list) {
+  QQuickAnimationGroupPrivate::clear_animation(list);
+}
+
+//  void QQuickAnimationGroupPrivate::replace_animation(QQmlListProperty<QQui
+//      ckAbstractAnimation> *list, qsizetype index, QQuickAbstractAnimation
+//      *role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickAnimationGroupPrivate17replace_animationEP16QQmlListPropertyI23QQuickAbstractAnimationExPS1_(
+    QQmlListProperty<QQuickAbstractAnimation> *list,
+    qsizetype index,
+    QQuickAbstractAnimation *role) {
+  QQuickAnimationGroupPrivate::replace_animation(list, index, role);
+}
+
+//  void QQuickAnimationGroupPrivate::removeLast_animation(QQmlListProperty<Q
+//      QuickAbstractAnimation> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQuickAnimationGroupPrivate20removeLast_animationEP16QQmlListPropertyI23QQuickAbstractAnimationE(
+    QQmlListProperty<QQuickAbstractAnimation> *list) {
+  QQuickAnimationGroupPrivate::removeLast_animation(list);
 }
 
 //  void QQuickAnimationGroupPrivate::restartFromCurrentLoop()

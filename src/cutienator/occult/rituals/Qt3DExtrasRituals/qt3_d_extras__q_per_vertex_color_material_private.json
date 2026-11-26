@@ -5,6 +5,10 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras30QPerVertexColorMaterialPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DExtras30QPerVertexColorMaterialPrivate4initEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DExtras30QPerVertexColorMaterialPrivate6q_funcEv": [
       "address", "address"
     ],

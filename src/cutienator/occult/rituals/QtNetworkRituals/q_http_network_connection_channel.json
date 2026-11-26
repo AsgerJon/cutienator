@@ -61,21 +61,6 @@
     ],
     "ritual_ZNK29QHttpNetworkConnectionChannel15isSocketReadingEv": [
       "bool", "address"
-    ],
-    "ritual_ZN29QHttpNetworkConnectionChannel15_q_receiveReplyEv": [
-      "nothing", "address"
-    ],
-    "ritual_ZN29QHttpNetworkConnectionChannel15_q_bytesWrittenEx": [
-      "nothing", "address", "long long"
-    ],
-    "ritual_ZN29QHttpNetworkConnectionChannel12_q_readyReadEv": [
-      "nothing", "address"
-    ],
-    "ritual_ZN29QHttpNetworkConnectionChannel22_q_uploadDataReadyReadEv": [
-      "nothing", "address"
-    ],
-    "ritual_ZN29QHttpNetworkConnectionChannel24_q_encryptedBytesWrittenEx": [
-      "nothing", "address", "long long"
     ]
   }
 }

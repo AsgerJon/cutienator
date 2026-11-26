@@ -9,9 +9,11 @@
       "address", "address", "unsigned int"
     ],
     "ritual_ZN11QFontSubsetD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QFontSubset13getReverseMapEv": ["address", "address"],
     "ritual_ZN11QFontSubset8addGlyphEj": [
       "long long", "address", "unsigned int"
     ],
-    "ritual_ZNK11QFontSubset7nGlyphsEv": ["long long", "address"]
+    "ritual_ZNK11QFontSubset7nGlyphsEv": ["long long", "address"],
+    "ritual_drop_QFontSubset__QList_int": ["nothing", "address"]
   }
 }

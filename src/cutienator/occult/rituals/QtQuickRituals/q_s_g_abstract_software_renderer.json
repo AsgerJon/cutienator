@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QSGAbstractSoftwareRendererC1EP16QSGRenderContext": [
+      "address", "address"
+    ],
     "ritual_ZN27QSGAbstractSoftwareRendererD1Ev": ["nothing", "address"],
     "ritual_ZNK27QSGAbstractSoftwareRenderer14renderableNodeEP7QSGNode": [
       "address", "address", "address"

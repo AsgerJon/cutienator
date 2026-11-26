@@ -8,6 +8,12 @@
     "ritual_ZN18qdesigner_internal12LayoutHelperD1Ev": [
       "nothing", "address"
     ],
+    "ritual_ZN18qdesigner_internal12LayoutHelper7indexOfEPK7QLayoutPK7QWidget": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12LayoutHelper8itemInfoEP7QLayoutPK7QWidget": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK18qdesigner_internal12LayoutHelper8itemInfoEP7QLayouti": [
       "address", "address", "address", "int"
     ],

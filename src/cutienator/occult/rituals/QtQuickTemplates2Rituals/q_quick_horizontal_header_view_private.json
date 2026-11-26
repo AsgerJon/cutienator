@@ -11,6 +11,10 @@
     "ritual_ZNK33QQuickHorizontalHeaderViewPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN33QQuickHorizontalHeaderViewPrivateC1Ev": ["address"],
+    "ritual_ZN33QQuickHorizontalHeaderViewPrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuickHorizontalHeaderViewPrivate": [
       "bool", "address", "chars", "address"
     ]

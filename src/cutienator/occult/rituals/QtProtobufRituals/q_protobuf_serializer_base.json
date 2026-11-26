@@ -11,8 +11,12 @@
     "ritual_ZN23QProtobufSerializerBase22isOneofOrOptionalFieldE6QFlagsIN17QtProtobufPrivate9FieldFlagEE": [
       "bool", "int"
     ],
+    "ritual_ZN23QProtobufSerializerBaseD1Ev": ["nothing", "address"],
     "ritual_ZN23QProtobufSerializerBase21serializeMessageFieldEPK16QProtobufMessageRKN17QtProtobufPrivate18QProtobufFieldInfoE": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QProtobufSerializerBase13serializeEnumER8QVariantRKN17QtProtobufPrivate18QProtobufFieldInfoE": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZN23QProtobufSerializerBase20serializeScalarFieldERK8QVariantRKN17QtProtobufPrivate18QProtobufFieldInfoE": [
       "bool", "address", "address", "address"

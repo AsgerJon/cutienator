@@ -4,6 +4,8 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QDragLeaveEventC1ERKS_": ["address", "address"],
+    "ritual_ZN15QDragLeaveEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK15QDragLeaveEvent5cloneEv": ["address", "address"],
     "ritual_ZN15QDragLeaveEventD1Ev": ["nothing", "address"],
     "ritual_ZN15QDragLeaveEventC1Ev": ["address"],

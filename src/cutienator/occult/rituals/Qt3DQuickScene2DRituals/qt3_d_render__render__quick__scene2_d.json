@@ -10,6 +10,44 @@
     "QtQmlIntegration"
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2DC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2DD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D6renderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D16initializeRenderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D15setSharedObjectE14QSharedPointerINS_5Quick19Scene2DSharedObjectEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D9setOutputEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D22initializeSharedObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D17syncRenderControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D26registerObjectPickerEventsEPN8Qt3DCore7QEntityE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D28unregisterObjectPickerEventsEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Quick7Scene2D15handlePickEventEiPKNS_10QPickEventE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_take_Qt3DRender_Render_Quick_Scene2D": [
       "bool", "address", "chars", "address"
     ],

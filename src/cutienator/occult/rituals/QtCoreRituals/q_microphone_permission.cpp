@@ -19,10 +19,44 @@ QMicrophonePermission *ritual_ZN21QMicrophonePermissionC1ERKS_(
   return new QMicrophonePermission(*other);
 }
 
+//  QMicrophonePermission::QMicrophonePermission(QMicrophonePermission
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QMicrophonePermission *ritual_ZN21QMicrophonePermissionC1EOS_(
+    QMicrophonePermission *other) {
+  return new QMicrophonePermission(std::move(*other));
+}
+
 //  QMicrophonePermission::~QMicrophonePermission()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QMicrophonePermissionD1Ev(QMicrophonePermission *self) {
   delete self;
+}
+
+//  QMicrophonePermission &QMicrophonePermission::operator=(const
+//      QMicrophonePermission &other)
+extern "C" Q_DECL_EXPORT
+QMicrophonePermission *ritual_ZN21QMicrophonePermissionaSERKS_(
+    QMicrophonePermission *self,
+    const QMicrophonePermission *other) {
+  return &(self->operator=(*other));
+}
+
+//  QMicrophonePermission
+//      &QMicrophonePermission::operator=(QMicrophonePermission &&other)
+extern "C" Q_DECL_EXPORT
+QMicrophonePermission *ritual_ZN21QMicrophonePermissionaSEOS_(
+    QMicrophonePermission *self,
+    QMicrophonePermission *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QMicrophonePermission::swap(QMicrophonePermission &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QMicrophonePermission4swapERS_(
+    QMicrophonePermission *self,
+    QMicrophonePermission *other) {
+  self->swap(*other);
 }
 
 #endif  // QT_CONFIG(permissions)

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QQuickPage10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickPage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QQuickPage11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QQuickPage2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QQuickPageC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN10QQuickPageD1Ev": ["nothing", "address"],
@@ -26,6 +32,24 @@
     "ritual_ZNK10QQuickPage20implicitHeaderHeightEv": ["double", "address"],
     "ritual_ZNK10QQuickPage19implicitFooterWidthEv": ["double", "address"],
     "ritual_ZNK10QQuickPage20implicitFooterHeightEv": ["double", "address"],
+    "ritual_ZN10QQuickPage12titleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPage13headerChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPage13footerChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPage26implicitHeaderWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickPage27implicitHeaderHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickPage26implicitFooterWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickPage27implicitFooterHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickPageC1ER17QQuickPagePrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10QQuickPage17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN10QQuickPage13spacingChangeEdd": [
       "nothing", "address", "double", "double"

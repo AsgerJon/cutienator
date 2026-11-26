@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickScrollIndicator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickScrollIndicator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickScrollIndicator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickScrollIndicator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -48,12 +54,35 @@
     "ritual_ZN21QQuickScrollIndicator11setPositionEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZN21QQuickScrollIndicator11sizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator13activeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator18orientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator18minimumSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator17visualSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator21visualPositionChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN21QQuickScrollIndicator10touchEventEP11QTouchEvent": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK21QQuickScrollIndicator14accessibleRoleEv": [
       "int", "address"
     ],
+    "ritual_ZN21QQuickScrollIndicator6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickScrollIndicator6d_funcEv": ["address", "address"],
     "ritual_own_ZN21QQuickScrollIndicator10touchEventEP11QTouchEvent": [
       "nothing", "address", "address"
     ],

@@ -10,6 +10,8 @@
   "rows": {
     "ritual_ZN22QBarModelMapperPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QBarModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QBarModelMapperPrivateC1Ev": ["address"],
+    "ritual_ZN22QBarModelMapperPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QBarModelMapperPrivate13barModelIndexExx": [
       "address", "address", "long long", "long long"
     ],

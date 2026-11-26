@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK16QWaylandXdgPopup10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QWaylandXdgPopup11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QWaylandXdgPopup11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QWaylandXdgPopup2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QWaylandXdgPopup6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QWaylandXdgPopup6d_funcEv": ["address", "address"],
     "ritual_ZNK16QWaylandXdgPopup10xdgSurfaceEv": ["address", "address"],
     "ritual_ZNK16QWaylandXdgPopup16parentXdgSurfaceEv": [
       "address", "address"
@@ -31,6 +39,12 @@
       "unsigned int", "address", "address"
     ],
     "ritual_ZN16QWaylandXdgPopup13sendPopupDoneEv": ["nothing", "address"],
-    "ritual_ZN16QWaylandXdgPopup4roleEv": ["address"]
+    "ritual_ZN16QWaylandXdgPopup4roleEv": ["address"],
+    "ritual_ZN16QWaylandXdgPopup25configuredGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QWaylandXdgPopupC1EP18QWaylandXdgSurfaceS1_P21QWaylandXdgPositionerR16QWaylandResource": [
+      "address", "address", "address", "address", "address"
+    ]
   }
 }

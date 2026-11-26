@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12GridGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN12GridGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12GridGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12GridGeometry2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12GridGeometryC1Ev": ["address"],
     "ritual_ZN12GridGeometryD1Ev": ["nothing", "address"],
@@ -25,6 +31,16 @@
     "ritual_ZN12GridGeometry15setVerticalStepEf": [
       "nothing", "address", "float"
     ],
+    "ritual_ZN12GridGeometry22horizontalLinesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12GridGeometry20verticalLinesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12GridGeometry21horizontalStepChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12GridGeometry19verticalStepChangedEv": ["nothing", "address"],
     "ritual_ZN12GridGeometry10updateDataEv": ["nothing", "address"],
     "ritual_take_GridGeometry": ["bool", "address", "chars", "address"]
   }

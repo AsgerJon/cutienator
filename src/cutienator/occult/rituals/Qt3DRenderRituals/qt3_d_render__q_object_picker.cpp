@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender13QObjectPicker10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QObjectPicker::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender13QObjectPicker11qt_metacastEPKc(
+    Qt3DRender::QObjectPicker *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QObjectPicker::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender13QObjectPicker11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QObjectPicker *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QObjectPicker::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,165 @@ QString *ritual_ZN10Qt3DRender13QObjectPicker2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QObjectPicker::tr(s, c, n));
+}
+
+//  Qt3DRender::QObjectPicker::QObjectPicker(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QObjectPicker *ritual_ZN10Qt3DRender13QObjectPickerC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QObjectPicker(parent);
+}
+
+//  Qt3DRender::QObjectPicker::~QObjectPicker()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPickerD1Ev(
+    Qt3DRender::QObjectPicker *self) {
+  delete self;
+}
+
+//  bool Qt3DRender::QObjectPicker::isHoverEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender13QObjectPicker14isHoverEnabledEv(
+    const Qt3DRender::QObjectPicker *self) {
+  return self->isHoverEnabled();
+}
+
+//  bool Qt3DRender::QObjectPicker::isDragEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender13QObjectPicker13isDragEnabledEv(
+    const Qt3DRender::QObjectPicker *self) {
+  return self->isDragEnabled();
+}
+
+//  bool Qt3DRender::QObjectPicker::containsMouse() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender13QObjectPicker13containsMouseEv(
+    const Qt3DRender::QObjectPicker *self) {
+  return self->containsMouse();
+}
+
+//  bool Qt3DRender::QObjectPicker::isPressed() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender13QObjectPicker9isPressedEv(
+    const Qt3DRender::QObjectPicker *self) {
+  return self->isPressed();
+}
+
+//  int Qt3DRender::QObjectPicker::priority() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender13QObjectPicker8priorityEv(
+    const Qt3DRender::QObjectPicker *self) {
+  return self->priority();
+}
+
+//  void Qt3DRender::QObjectPicker::setHoverEnabled(bool hoverEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker15setHoverEnabledEb(
+    Qt3DRender::QObjectPicker *self,
+    bool hoverEnabled) {
+  self->setHoverEnabled(hoverEnabled);
+}
+
+//  void Qt3DRender::QObjectPicker::setDragEnabled(bool dragEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker14setDragEnabledEb(
+    Qt3DRender::QObjectPicker *self,
+    bool dragEnabled) {
+  self->setDragEnabled(dragEnabled);
+}
+
+//  void Qt3DRender::QObjectPicker::setPriority(int priority)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker11setPriorityEi(
+    Qt3DRender::QObjectPicker *self,
+    int priority) {
+  self->setPriority(priority);
+}
+
+//  void Qt3DRender::QObjectPicker::pressed(Qt3DRender::QPickEvent *pick)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker7pressedEPNS_10QPickEventE(
+    Qt3DRender::QObjectPicker *self,
+    Qt3DRender::QPickEvent *pick) {
+  self->pressed(pick);
+}
+
+//  void Qt3DRender::QObjectPicker::released(Qt3DRender::QPickEvent *pick)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker8releasedEPNS_10QPickEventE(
+    Qt3DRender::QObjectPicker *self,
+    Qt3DRender::QPickEvent *pick) {
+  self->released(pick);
+}
+
+//  void Qt3DRender::QObjectPicker::clicked(Qt3DRender::QPickEvent *pick)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker7clickedEPNS_10QPickEventE(
+    Qt3DRender::QObjectPicker *self,
+    Qt3DRender::QPickEvent *pick) {
+  self->clicked(pick);
+}
+
+//  void Qt3DRender::QObjectPicker::moved(Qt3DRender::QPickEvent *pick)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker5movedEPNS_10QPickEventE(
+    Qt3DRender::QObjectPicker *self,
+    Qt3DRender::QPickEvent *pick) {
+  self->moved(pick);
+}
+
+//  void Qt3DRender::QObjectPicker::entered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker7enteredEv(
+    Qt3DRender::QObjectPicker *self) {
+  self->entered();
+}
+
+//  void Qt3DRender::QObjectPicker::exited()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker6exitedEv(
+    Qt3DRender::QObjectPicker *self) {
+  self->exited();
+}
+
+//  void Qt3DRender::QObjectPicker::hoverEnabledChanged(bool hoverEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker19hoverEnabledChangedEb(
+    Qt3DRender::QObjectPicker *self,
+    bool hoverEnabled) {
+  self->hoverEnabledChanged(hoverEnabled);
+}
+
+//  void Qt3DRender::QObjectPicker::dragEnabledChanged(bool dragEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker18dragEnabledChangedEb(
+    Qt3DRender::QObjectPicker *self,
+    bool dragEnabled) {
+  self->dragEnabledChanged(dragEnabled);
+}
+
+//  void Qt3DRender::QObjectPicker::pressedChanged(bool pressed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker14pressedChangedEb(
+    Qt3DRender::QObjectPicker *self,
+    bool pressed) {
+  self->pressedChanged(pressed);
+}
+
+//  void Qt3DRender::QObjectPicker::containsMouseChanged(bool containsMouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker20containsMouseChangedEb(
+    Qt3DRender::QObjectPicker *self,
+    bool containsMouse) {
+  self->containsMouseChanged(containsMouse);
+}
+
+//  void Qt3DRender::QObjectPicker::priorityChanged(int priority)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender13QObjectPicker15priorityChangedEi(
+    Qt3DRender::QObjectPicker *self,
+    int priority) {
+  self->priorityChanged(priority);
 }
 
 //  QObjectPickerPrivate *Qt3DRender::QObjectPicker::d_func()

@@ -27,14 +27,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/labs/stylekit/impl/qqstylekitdelegatecontainer.cpp, line 19, as _ZN27QQStyleKitDelegateContainerD1Ev
-inline QQStyleKitDelegateContainer::~QQStyleKitDelegateContainer()
+//  from ../qtdeclarative/src/labs/stylekit/impl/qqstylekitdelegatecontainer.cpp, line 286, as _ZN27QQStyleKitDelegateContainer14geometryChangeERK6QRectFS2_
+inline void QQStyleKitDelegateContainer::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
 {
-    // Disconnect before QQuickItem::~QQuickItem() reparents children, which emits
-    // signals. At that point our vtable would already be replaced with QQuickItem's,
-    // causing assertObjectType to fail.
-    if (m_delegateInstance)
-        disconnect(m_delegateInstance, nullptr, this, nullptr);
+    QScopedValueRollback implicitSizeUpdateGuard(m_inGeometryChange, true);
+    QQuickItem::geometryChange(newGeometry, oldGeometry);
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/impl/qqstylekitdelegatecontainer.cpp, line 51, as _ZNK27QQStyleKitDelegateContainer12quickControlEv
@@ -47,13 +44,6 @@ inline QObject *QQStyleKitDelegateContainer::quickControl() const
 inline QQuickItem *QQStyleKitDelegateContainer::delegateInstance() const
 {
     return m_delegateInstance;
-}
-
-//  from ../qtdeclarative/src/labs/stylekit/impl/qqstylekitdelegatecontainer.cpp, line 286, as _ZN27QQStyleKitDelegateContainer14geometryChangeERK6QRectFS2_
-inline void QQStyleKitDelegateContainer::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
-{
-    QScopedValueRollback implicitSizeUpdateGuard(m_inGeometryChange, true);
-    QQuickItem::geometryChange(newGeometry, oldGeometry);
 }
 //  -----------------------------------------------------------------------
 
@@ -832,6 +822,25 @@ const QMetaObject *ritual_ZNK27QQStyleKitDelegateContainer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitDelegateContainer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQStyleKitDelegateContainer11qt_metacastEPKc(
+    QQStyleKitDelegateContainer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitDelegateContainer::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQStyleKitDelegateContainer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitDelegateContainer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQStyleKitDelegateContainer::~QQStyleKitDelegateContainer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QQStyleKitDelegateContainerD1Ev(
@@ -851,6 +860,88 @@ extern "C" Q_DECL_EXPORT
 QQuickItem *ritual_ZNK27QQStyleKitDelegateContainer16delegateInstanceEv(
     const QQStyleKitDelegateContainer *self) {
   return self->delegateInstance();
+}
+
+//  void QQStyleKitDelegateContainer::delegateStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitDelegateContainer20delegateStyleChangedEv(
+    QQStyleKitDelegateContainer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitDelegateContainer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "delegateStyleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "delegateStyleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitDelegateContainer::quickControlChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitDelegateContainer19quickControlChangedEv(
+    QQStyleKitDelegateContainer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitDelegateContainer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "quickControlChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "quickControlChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitDelegateContainer::delegateInstanceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitDelegateContainer23delegateInstanceChangedEv(
+    QQStyleKitDelegateContainer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitDelegateContainer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "delegateInstanceChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "delegateInstanceChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQStyleKitDelegateContainer::componentComplete()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitDelegateContainer17componentCompleteEv(
+    QQStyleKitDelegateContainer *self) {
+  self->componentComplete();
 }
 
 //  void QQStyleKitDelegateContainer::geometryChange(const QRectF

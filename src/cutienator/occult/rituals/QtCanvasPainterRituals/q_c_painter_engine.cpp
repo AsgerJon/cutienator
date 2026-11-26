@@ -58,59 +58,392 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1335, as _ZN15QCPainterEngine14appendCommandsEPK9QCCommandi
-inline void QCPainterEngine::appendCommands(const QCCommand commands[], int cCount)
+using namespace Qt::Literals::StringLiterals;
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 26, as local:qcpainterengine.cpp:QCPAINTER_INITIAL_COMMANDS_SIZE
+#define QCPAINTER_INITIAL_COMMANDS_SIZE 256
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 29, as local:qcpainterengine.cpp:QCPAINTER_INITIAL_COMMANDS_DATA_SIZE
+#define QCPAINTER_INITIAL_COMMANDS_DATA_SIZE 512
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 32, as local:qcpainterengine.cpp:QCPAINTER_INITIAL_VERTICES_SIZE
+#define QCPAINTER_INITIAL_VERTICES_SIZE 4096
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 35, as local:qcpainterengine.cpp:QCPAINTER_INITIAL_POINTS_SIZE
+#define QCPAINTER_INITIAL_POINTS_SIZE 1024
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 38, as local:qcpainterengine.cpp:QCPAINTER_INITIAL_PATHS_SIZE
+#define QCPAINTER_INITIAL_PATHS_SIZE 64
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 41, as local:qcpainterengine.cpp:QCPAINTER_MAX_STATES
+#define QCPAINTER_MAX_STATES 32
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 45, as local:qcpainterengine.cpp:QCPAINTER_TEXT_VERTEX_INDEX_LIST_REUSE_CAPACITY
+#define QCPAINTER_TEXT_VERTEX_INDEX_LIST_REUSE_CAPACITY (64 * 1024)
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 52, as local:qcpainterengine.cpp:QCPAINTER_MAX_STROKE_WIDTH
+static const float QCPAINTER_MAX_STROKE_WIDTH = 1000.0f;
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 53, as local:qcpainterengine.cpp:QCPAINTER_MAX_ANTIALIAS_WIDTH
+static const float QCPAINTER_MAX_ANTIALIAS_WIDTH = 10.0f;
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 54, as local:qcpainterengine.cpp:QCPAINTER_MAX_TESSELLATION_LEVEL
+static const int QCPAINTER_MAX_TESSELLATION_LEVEL = 11;
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 55, as local:qcpainterengine.cpp:QCPAINTER_ANTIALIAS_MULTIPLIER
+static const float QCPAINTER_ANTIALIAS_MULTIPLIER = 1.25f;
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 59, as local:qcpainterengine.cpp:qt_qc_envFloat
+static float qt_qc_envFloat(const char *name, float defaultValue)
 {
-    Q_ASSERT(cCount > 0);
-    auto &c = ctx.commands;
-
-    if (ctx.commandsCount + cCount > c.size()) {
-        // Increase capacity with the commands amount + 20% of the current size.
-        int newSize = (ctx.commandsCount + cCount) + c.size() * 0.2;
-        c.resize(newSize);
-    }
-
-    for (int i = 0; i < cCount; i++)
-        c[ctx.commandsCount++] = commands[i];
-    //memcpy(&c[ctx.commandsCount], commands, sizeof(QCCommand) * cCount);
-    //ctx.commandsCount += cCount;
+    if (Q_LIKELY(!qEnvironmentVariableIsSet(name)))
+        return defaultValue;
+    bool ok = false;
+    const float value = qgetenv(name).toFloat(&ok);
+    return ok ? value : defaultValue;
 }
 
-//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1354, as _ZN15QCPainterEngine18appendCommandsDataEPKfib
-inline void QCPainterEngine::appendCommandsData(const float commandsData[], int dCount, bool ignoreTransform)
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1446, as local:qcpainterengine.cpp:triarea2
+static constexpr float triarea2(float ax, float ay, float bx, float by, float cx, float cy) noexcept
 {
-    // There are always even amount of data as they are (x, y) points.
-    Q_ASSERT(dCount % 2 == 0);
-    Q_ASSERT(dCount >= 2);
+    const float abx = bx - ax;
+    const float aby = by - ay;
+    const float acx = cx - ax;
+    const float acy = cy - ay;
+    return (acx * aby) - (abx * acy);
+}
 
-    // Store previous point, as untransformed.
-    ctx.prevX = commandsData[dCount - 2];
-    ctx.prevY = commandsData[dCount - 1];
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1945, as local:qcpainterengine.cpp:adjustBevel
+static void adjustBevel(bool innerBevel, const QCPoint &p0, const QCPoint &p1, float w,
+                        float* x0, float* y0, float* x1, float* y1)
+{
+    if (innerBevel) {
+        *x0 = p1.x + p0.dy * w;
+        *y0 = p1.y - p0.dx * w;
+        *x1 = p1.x + p1.dy * w;
+        *y1 = p1.y - p1.dx * w;
+    } else {
+        *x0 = p1.x + p1.dmx * w;
+        *y0 = p1.y + p1.dmy * w;
+        *x1 = p1.x + p1.dmx * w;
+        *y1 = p1.y + p1.dmy * w;
+    }
+}
 
-    auto &c = ctx.commandsData;
-    if (ctx.commandsDataCount + dCount > c.size()) {
-        // Increase capacity with the commands amount + 20% of the current size.
-        int newSize = (ctx.commandsDataCount + dCount) + c.size() * 0.2;
-        c.resize(newSize);
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 2405, as local:qcpainterengine.cpp:thresholdFunc
+#if !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
+static float thresholdFunc(float glyphScale)
+{
+    static const float base = qt_qc_envFloat("QT_DF_BASE", 0.5f);
+    static const float baseDev = qt_qc_envFloat("QT_DF_BASEDEVIATION", 0.065f);
+    static const float devScaleMin = qt_qc_envFloat("QT_DF_SCALEFORMAXDEV", 0.15f);
+    static const float devScaleMax = qt_qc_envFloat("QT_DF_SCALEFORNODEV", 0.3f);
+    return base - ((qBound(devScaleMin, glyphScale, devScaleMax) - devScaleMin) / (devScaleMax - devScaleMin) * -baseDev + baseDev);
+}
+#endif  // !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 2414, as local:qcpainterengine.cpp:spreadFunc
+#if !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
+static float spreadFunc(float glyphScale)
+{
+    static const float range = qt_qc_envFloat("QT_DF_RANGE", 0.06f);
+    return range / glyphScale;
+}
+#endif  // !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterrhirenderer.cpp, line 81, as local:qcpainterrhirenderer.cpp:QCRHICallType
+enum QCRHICallType {
+    CallFill,
+    CallConvexFill,
+    CallStroke,
+    CallText, // This call and all below do not use paths
+    CallStencilClip,
+    CallClearStencil,
+};
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterrhirenderer.cpp, line 90, as local:qcpainterrhirenderer.cpp:QCRHIBlend
+struct QCRHIBlend
+{
+    bool enable;
+    QRhiGraphicsPipeline::BlendFactor srcRGB;
+    QRhiGraphicsPipeline::BlendFactor dstRGB;
+    QRhiGraphicsPipeline::BlendFactor srcAlpha;
+    QRhiGraphicsPipeline::BlendFactor dstAlpha;
+};
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterrhirenderer.cpp, line 101, as local:qcpainterrhirenderer.cpp:QCRHICall
+struct QCRHICall {
+    QCRHICallType type;
+    int image;
+    int font;
+    int pathOffset;
+    int pathCount;
+    int indexOffset;
+    int indexCount;
+    int triangleOffset;
+    int triangleCount;
+    int commonUniformBufferOffset;
+    int vertUniformBufferOffset;
+    QCPainterRhiRenderer::RenderFlags renderFlags;
+    QRhiScissor scissor;
+    QCRHIBlend blendFunc;
+    QRhiShaderResourceBindings *srb[2];
+    QRhiGraphicsPipeline *ps[4];
+    QShader customFragShader;
+    QShader customVertShader;
+    quint64 pathGroupEntryId;
+    int pathGroup = -1; // non-zero default
+    QCanvasPainter::FillRule fillRule;
+    quint8 stencilRef;
+    uint simplePathFill : 1;
+    uint textTriangleOffsetBakedInToIndices : 1;
+};
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterrhirenderer.cpp, line 135, as local:qcpainterrhirenderer.cpp:QCRHIVertUniforms
+struct QCRHIVertUniforms {
+    // Total size 256 bytes.
+    // This is often the minimum uniform buffer offset alignment.
+    float vertMat[12]; // matrices are actually 3 vec4s
+    float unused[52];
+};
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterrhirenderer.cpp, line 321, as local:qcpainterrhirenderer.cpp:QCRHISrbKey
+struct QCRHISrbKey {
+    int passId;
+    int imageId;
+    int fontId;
+};
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1306, as _ZN15QCPainterEngine19setDevicePixelRatioEf
+inline void QCPainterEngine::setDevicePixelRatio(float ratio)
+{
+    if (ratio > 0.0f) {
+        static const float tessTol = qt_qc_envFloat("QCPAINTER_TESSELLATION_TOLERANCE", 0.25f);
+        ctx.tessTol = tessTol / ratio;
+        ctx.divsTol = 0.25f / ratio;
+        ctx.distTol = 0.01f / ratio;
+        // Note: This is not called during the paint operations,
+        // so it can set antialias to default value.
+        state.antialias = QCPAINTER_ANTIALIAS_MULTIPLIER / ratio;
+        ctx.devicePxRatio = ratio;
+    }
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1961, as _ZN15QCPainterEngine12addBevelJoinERK7QCPointS2_ffff
+inline void QCPainterEngine::addBevelJoin(const QCPoint &p0, const QCPoint &p1,
+                                      float lw, float rw, float lu, float ru)
+{
+    float dlx0 = p0.dy;
+    float dly0 = -p0.dx;
+    float dlx1 = p1.dy;
+    float dly1 = -p1.dx;
+    if (p1.flags & PointLeft) {
+        float lx0, ly0, lx1, ly1;
+        adjustBevel(p1.flags & PointInnerBevel, p0, p1, lw, &lx0, &ly0, &lx1, &ly1);
+        addVert(lx0, ly0, lu, 1.0f);
+        addVert(p1.x - (dlx0 * rw), p1.y - (dly0 * rw), ru, 1.0f);
+
+        if (p1.flags & PointBevel) {
+#ifdef QCPAINTER_FAST_BEVEL_CALCULATIONS
+            addVert(lx0, ly0, lu, 1.0f);
+            addVert(p1.x - (dlx0 * rw), p1.y - (dly0 * rw), ru, 1.0f);
+#else
+            float a0 = std::atan2(-dly0, -dlx0);
+            float a1 = std::atan2(-dly1, -dlx1);
+            if (a1 > a0) a1 -= float(M_PI) * 2;
+            for (int i = 0; i < 2; i++) {
+                // No extra divs with bevel joins
+                float a = a0 + float(i) * (a1 - a0);
+                float rx = p1.x + std::cos(a) * rw;
+                float ry = p1.y + std::sin(a) * rw;
+                addVert(p1.x, p1.y, 0.5f, 1.0f);
+                addVert(rx, ry, ru, 1.0f);
+            }
+#endif
+            addVert(lx1, ly1, lu, 1.0f);
+            addVert(p1.x - (dlx1 * rw), p1.y - (dly1 * rw), ru, 1.0f);
+        } else {
+            float rx0 = p1.x - (p1.dmx * rw);
+            float ry0 = p1.y - (p1.dmy * rw);
+            addVert(p1.x, p1.y, 0.5f, 1.0f);
+            addVert(p1.x - (dlx0 * rw), p1.y - (dly0 * rw), ru, 1.0f);
+            addVert(rx0, ry0, ru, 1.0f);
+            addVert(rx0, ry0, ru, 1.0f);
+            addVert(p1.x, p1.y, 0.5f, 1.0f);
+            addVert(p1.x - (dlx1 * rw), p1.y - (dly1 * rw), ru, 1.0f);
+        }
+        addVert(lx1, ly1, lu, 1.0f);
+        addVert(p1.x - (dlx1 * rw), p1.y - (dly1 * rw), ru, 1.0f);
+    } else {
+        float rx0, ry0, rx1, ry1;
+        adjustBevel(p1.flags & PointInnerBevel, p0, p1, -rw, &rx0, &ry0, &rx1, &ry1);
+        addVert(p1.x + (dlx0 * lw), p1.y + (dly0 * lw), lu, 1.0f);
+        addVert(rx0, ry0, ru, 1.0f);
+
+        if (p1.flags & PointBevel) {
+#ifdef QCPAINTER_FAST_BEVEL_CALCULATIONS
+            addVert(p1.x + (dlx0 * lw), p1.y + (dly0 * lw), lu, 1.0f);
+            addVert(rx0, ry0, ru, 1.0f);
+#else
+            float a0 = std::atan2(dly0, dlx0);
+            float a1 = std::atan2(dly1, dlx1);
+            if (a1 < a0) a1 += float(M_PI) * 2;
+            for (int i = 0; i < 2; i++) {
+                // No extra divs with bevel joins
+                float a = a0 + float(i) * (a1 - a0);
+                float lx = p1.x + std::cos(a) * lw;
+                float ly = p1.y + std::sin(a) * lw;
+                addVert(lx, ly, lu, 1.0f);
+                addVert(p1.x, p1.y, 0.5f, 1.0f);
+            }
+#endif
+            addVert(p1.x + (dlx1 * lw), p1.y + (dly1 * lw), lu, 1.0f);
+            addVert(rx1, ry1, ru, 1.0f);
+        } else {
+            float lx0 = p1.x + (p1.dmx * lw);
+            float ly0 = p1.y + (p1.dmy * lw);
+            addVert(p1.x + (dlx0 * lw), p1.y + (dly0 * lw), lu, 1.0f);
+            addVert(p1.x, p1.y, 0.5f, 1.0f);
+
+            addVert(lx0, ly0, lu, 1.0f);
+            addVert(lx0, ly0, lu, 1.0f);
+
+            addVert(p1.x + (dlx1 * lw), p1.y + (dly1 * lw), lu, 1.0f);
+            addVert(p1.x, p1.y, 0.5f, 1.0f);
+        }
+        addVert(p1.x + (dlx1 * lw), p1.y + (dly1 * lw), lu, 1.0f);
+        addVert(rx1, ry1, ru, 1.0f);
+    }
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 2047, as _ZN15QCPainterEngine12addRoundJoinERK7QCPointS2_ffffi
+inline void QCPainterEngine::addRoundJoin(const QCPoint &p0, const QCPoint &p1,
+                                      float lw, float rw, float lu, float ru,
+                                      int roundDivs)
+{
+    float dlx0 = p0.dy;
+    float dly0 = -p0.dx;
+    float dlx1 = p1.dy;
+    float dly1 = -p1.dx;
+    if (p1.flags & PointLeft) {
+        float lx0, ly0, lx1, ly1;
+        adjustBevel(p1.flags & PointInnerBevel, p0, p1, lw, &lx0, &ly0, &lx1, &ly1);
+        float a0 = std::atan2(-dly0, -dlx0);
+        float a1 = std::atan2(-dly1, -dlx1);
+        if (a1 > a0) a1 -= float(M_PI) * 2;
+
+        addVert(lx0, ly0, lu, 1.0f);
+        addVert(p1.x - (dlx0 * rw), p1.y - (dly0 * rw), ru, 1.0f);
+
+        int divs = qCeil((a0 - a1) / M_PI) * roundDivs;
+        divs = std::clamp(divs, 2, roundDivs);
+        for (int i = 0; i < divs; i++) {
+            float u = i / float(divs - 1);
+            float a = a0 + u * (a1 - a0);
+            float rx = p1.x + std::cos(a) * rw;
+            float ry = p1.y + std::sin(a) * rw;
+            addVert(p1.x, p1.y, 0.5f, 1.0f);
+            addVert(rx, ry, ru, 1.0f);
+        }
+
+        addVert(lx1, ly1, lu, 1.0f);
+        addVert(p1.x - dlx1 * rw, p1.y - dly1 * rw, ru, 1.0f);
+
+    } else {
+        float rx0,ry0,rx1,ry1;
+        adjustBevel(p1.flags & PointInnerBevel, p0, p1, -rw, &rx0, &ry0, &rx1, &ry1);
+        float a0 = std::atan2(dly0, dlx0);
+        float a1 = std::atan2(dly1, dlx1);
+        if (a1 < a0) a1 += float(M_PI) * 2;
+
+        addVert(p1.x + dlx0 * rw, p1.y + dly0 * rw, lu, 1.0f);
+        addVert(rx0, ry0, ru, 1.0f);
+
+        int divs = qCeil((a1 - a0) / M_PI) * roundDivs;
+        divs = std::clamp(divs, 2, roundDivs);
+        for (int i = 0; i < divs; i++) {
+            float u = i / float(divs - 1);
+            float a = a0 + u * (a1 - a0);
+            float lx = p1.x + std::cos(a) * lw;
+            float ly = p1.y + std::sin(a) * lw;
+            addVert(lx, ly, lu, 1.0f);
+            addVert(p1.x, p1.y, 0.5f, 1.0f);
+        }
+
+        addVert(p1.x + dlx1 * rw, p1.y + dly1 * rw, lu, 1.0f);
+        addVert(rx1, ry1, ru, 1.0f);
+    }
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 2332, as _ZN15QCPainterEngine14getStrokePaintEPfb
+inline QCPaint QCPainterEngine::getStrokePaint(float *strokeWidth, bool ignoreTransform)
+{
+    float scale = getAverageScale(state.transform);
+    *strokeWidth = std::clamp(state.strokeWidth * scale, 0.0f, QCPAINTER_MAX_STROKE_WIDTH);
+    float expa = 1.0f;
+    if (*strokeWidth < state.antialias) {
+        // If the stroke width is less than pixel size, use alpha to emulate coverage.
+        float alpha = std::clamp((*strokeWidth * QCPAINTER_ANTIALIAS_MULTIPLIER) / state.antialias, 0.0f, 1.0f);
+        // Since coverage is area, scale by alpha*alpha.
+        expa = alpha * alpha;
+        *strokeWidth = state.antialias;
     }
 
-    if (ignoreTransform || state.transform.isIdentity()) {
-        // Add commands directly
-        for (int i = 0; i < dCount; i++)
-            c[ctx.commandsDataCount++] = commandsData[i];
-        //memcpy(&c[ctx.commandsDataCount], commandsData, sizeof(float) * dCount);
-        //ctx.commandsDataCount += dCount;
-    } else {
-        int i = 0;
-        while (i < dCount) {
-            qreal p1 = commandsData[i++];
-            qreal p2 = commandsData[i++];
-            state.transform.map(p1, p2, &p1, &p2);
-            c[ctx.commandsDataCount++] = float(p1);
-            c[ctx.commandsDataCount++] = float(p2);
+    QCPaint strokePaint = state.stroke;
+    strokePaint.alpha = state.alpha * expa;
+    // Apply current transform and optional brush transform
+    if (!ignoreTransform &&
+        strokePaint.brushType != BrushColor &&
+        !(state.transform.isIdentity() && state.brushTransform.isIdentity())) {
+        strokePaint.transform *= (state.brushTransform * state.transform);
+    }
+    return strokePaint;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1134, as _ZN15QCPainterEngine16renderFilledTextEi
+#if !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
+inline void QCPainterEngine::renderFilledText(int fontTex)
+{
+    // Monochrome (SDF) glyphs and text decorations.
+    if (!textVertices.empty()) {
+        const QCPaint p = getFillPaint();
+        ctx.fontId = fontTex;
+        updateStateFontVars();
+
+        // Decoration rects (underline/overline/strikeout) are appended to
+        // textVertices/textIndices by the glyph cache with a texCoord pointing
+        // into a reserved 0xFF region of the SDF atlas, so they participate in
+        // this same draw call and pick up the same shader as the glyphs.
+        if (state.customFill.type() != QCanvasBrush::BrushType::Custom) {
+            m_renderer->renderTextFill(p, state, textVertices, textIndices);
+        } else {
+            // Using custom brush. Avoid detaching the brush.
+            auto *customPriv = static_cast<QCanvasCustomBrushPrivate *>(
+                    QCanvasBrushPrivate::get(std::as_const(state.customFill)));
+            m_renderer->renderTextFillCustom(
+                    p, state, customPriv, textVertices, textIndices);
         }
     }
+
+    // Color (emoji) glyphs are drawn by samppling the color atlas directly, so
+    // they keep their native colors instead of being tinted by the fill.
+    auto colorTex = m_renderer->populateColorFont(colorTextVertices, colorTextIndices);
+    if (colorTex != 0 && !colorTextVertices.empty()) {
+        ctx.colorFontId = colorTex;
+        m_renderer->renderTextFill({}, state, colorTextVertices, colorTextIndices, true);
+    }
+
+    // simple memory usage cap; drawing huge texts will not reuse the containers (and their allocations)
+    if (textVertices.capacity() > QCPAINTER_TEXT_VERTEX_INDEX_LIST_REUSE_CAPACITY)
+        textVertices = {};
+    if (textIndices.capacity() > QCPAINTER_TEXT_VERTEX_INDEX_LIST_REUSE_CAPACITY)
+        textIndices = {};
+    if (colorTextVertices.capacity() > QCPAINTER_TEXT_VERTEX_INDEX_LIST_REUSE_CAPACITY)
+        colorTextVertices = {};
+    if (colorTextIndices.capacity() > QCPAINTER_TEXT_VERTEX_INDEX_LIST_REUSE_CAPACITY)
+        colorTextIndices = {};
 }
+#endif  // !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
 
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qctextlayout.cpp, line 11, as _ZN12QCTextLayout19convertToQtWrapModeEN14QCanvasPainter8WrapModeE
 inline QTextOption::WrapMode QCTextLayout::convertToQtWrapMode(QCanvasPainter::WrapMode mode)
@@ -235,6 +568,16 @@ inline void QCPainterEngine::setCustomMatrix(const QMatrix4x4 &matrix)
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 135, as _ZN15QCPainterEngine8endPaintEv
 inline void QCPainterEngine::endPaint()
 {
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 139, as _ZN15QCPainterEngine4saveEv
+inline void QCPainterEngine::save()
+{
+    if (ctx.states.size() >= QCPAINTER_MAX_STATES) {
+        qWarning() << "Maximum amount of states reached";
+        return;
+    }
+    ctx.states << state;
 }
 
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 148, as _ZN15QCPainterEngine7restoreEv
@@ -934,6 +1277,13 @@ inline QCDebugCounters QCPainterEngine::debugCounters() const
     return ctx.debugCounters;
 }
 
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1265, as _ZN15QCPainterEngine12setAntialiasEf
+inline void QCPainterEngine::setAntialias(float antialias)
+{
+    antialias = std::clamp(antialias, 0.0f, QCPAINTER_MAX_ANTIALIAS_WIDTH);
+    state.antialias = QCPAINTER_ANTIALIAS_MULTIPLIER * antialias / ctx.devicePxRatio;
+}
+
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1271, as _ZN15QCPainterEngine13setMiterLimitEf
 inline void QCPainterEngine::setMiterLimit(float limit)
 {
@@ -977,6 +1327,60 @@ inline void QCPainterEngine::appendCommand(QCCommand command)
     }
 
     c[ctx.commandsCount++] = command;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1335, as _ZN15QCPainterEngine14appendCommandsEPK9QCCommandi
+inline void QCPainterEngine::appendCommands(const QCCommand commands[], int cCount)
+{
+    Q_ASSERT(cCount > 0);
+    auto &c = ctx.commands;
+
+    if (ctx.commandsCount + cCount > c.size()) {
+        // Increase capacity with the commands amount + 20% of the current size.
+        int newSize = (ctx.commandsCount + cCount) + c.size() * 0.2;
+        c.resize(newSize);
+    }
+
+    for (int i = 0; i < cCount; i++)
+        c[ctx.commandsCount++] = commands[i];
+    //memcpy(&c[ctx.commandsCount], commands, sizeof(QCCommand) * cCount);
+    //ctx.commandsCount += cCount;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1354, as _ZN15QCPainterEngine18appendCommandsDataEPKfib
+inline void QCPainterEngine::appendCommandsData(const float commandsData[], int dCount, bool ignoreTransform)
+{
+    // There are always even amount of data as they are (x, y) points.
+    Q_ASSERT(dCount % 2 == 0);
+    Q_ASSERT(dCount >= 2);
+
+    // Store previous point, as untransformed.
+    ctx.prevX = commandsData[dCount - 2];
+    ctx.prevY = commandsData[dCount - 1];
+
+    auto &c = ctx.commandsData;
+    if (ctx.commandsDataCount + dCount > c.size()) {
+        // Increase capacity with the commands amount + 20% of the current size.
+        int newSize = (ctx.commandsDataCount + dCount) + c.size() * 0.2;
+        c.resize(newSize);
+    }
+
+    if (ignoreTransform || state.transform.isIdentity()) {
+        // Add commands directly
+        for (int i = 0; i < dCount; i++)
+            c[ctx.commandsDataCount++] = commandsData[i];
+        //memcpy(&c[ctx.commandsDataCount], commandsData, sizeof(float) * dCount);
+        //ctx.commandsDataCount += dCount;
+    } else {
+        int i = 0;
+        while (i < dCount) {
+            qreal p1 = commandsData[i++];
+            qreal p2 = commandsData[i++];
+            state.transform.map(p1, p2, &p1, &p2);
+            c[ctx.commandsDataCount++] = float(p1);
+            c[ctx.commandsDataCount++] = float(p2);
+        }
+    }
 }
 
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1389, as _ZN15QCPainterEngine20handleSetPathWindingEN14QCanvasPainter11PathWindingE
@@ -1038,6 +1442,72 @@ inline void QCPainterEngine::handleAddPoint(float x, float y, QCPointFlags flags
     pt.y = y;
     pt.flags = flags;
     path->pointsCount++;
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1595, as _ZN15QCPainterEngine15tesselateBezierEffffffffiNS_12QCPointFlagsE
+inline void QCPainterEngine::tesselateBezier(float x1, float y1, float x2, float y2,
+                                         float x3, float y3, float x4, float y4,
+                                         int level, QCPointFlags flags)
+{
+    if (Q_UNLIKELY(level > QCPAINTER_MAX_TESSELLATION_LEVEL)) {
+        // This shouldn't usually happen, as we will
+        // reach the tessTol accuracy. In case of e.g. huge circles, increase
+        // the QCPAINTER_MAX_TESSELLATION_LEVEL.
+        return;
+    }
+
+    const float dx = x4 - x1;
+    const float dy = y4 - y1;
+    const float d2 = std::abs((x2 - x4) * dy - (y2 - y4) * dx);
+    const float d3 = std::abs((x3 - x4) * dy - (y3 - y4) * dx);
+    const float d23 = d2 + d3;
+    if (d23 * d23 < ctx.tessTol * (dx * dx + dy * dy)) {
+        handleAddPoint(x4, y4, flags);
+        return;
+    }
+
+    const float x12 = (x1 + x2) * 0.5f;
+    const float y12 = (y1 + y2) * 0.5f;
+    const float x23 = (x2 + x3) * 0.5f;
+    const float y23 = (y2 + y3) * 0.5f;
+    const float x34 = (x3 + x4) * 0.5f;
+    const float y34 = (y3 + y4) * 0.5f;
+    const float x234 = (x23 + x34) * 0.5f;
+    const float y234 = (y23 + y34) * 0.5f;
+    const float x123 = (x12 + x23) * 0.5f;
+    const float y123 = (y12 + y23) * 0.5f;
+    const float x1234 = (x123 + x234) * 0.5f;
+    const float y1234 = (y123 + y234) * 0.5f;
+
+    tesselateBezier(x1, y1, x12, y12, x123, y123, x1234, y1234, (level + 1), {});
+    tesselateBezier(x1234, y1234, x234, y234, x34, y34, x4, y4, (level + 1), flags);
+}
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1455, as _ZN15QCPainterEngine14enforceWindingEiiN14QCanvasPainter11PathWindingE
+inline void QCPainterEngine::enforceWinding(int pointsOffset, int pointsCount, QCanvasPainter::PathWinding winding)
+{
+    if (pointsCount <= 2)
+        return;
+    // Calculate if points area is positive or negative
+    float area = 0;
+    for (int i = 2; i < pointsCount; i++) {
+        const QCPoint a = ctx.points.at(pointsOffset);
+        const QCPoint b = ctx.points.at(pointsOffset + i - 1);
+        const QCPoint c = ctx.points.at(pointsOffset + i);
+        area += triarea2(a.x, a.y, b.x, b.y, c.x, c.y);
+    }
+    // If needed, reverse the points order
+    if ((winding == QCanvasPainter::PathWinding::CounterClockWise && area < 0.0f) ||
+        (winding == QCanvasPainter::PathWinding::ClockWise && area > 0.0f)) {
+        int i = 0;
+        int j = pointsCount - 1;
+        auto &pts = ctx.points;
+        while (i < j) {
+            std::swap(pts[pointsOffset + i], pts[pointsOffset + j]);
+            i++;
+            j--;
+        }
+    }
 }
 
 //  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 1858, as _ZN15QCPainterEngine14calculateJoinsEfN14QCanvasPainter8LineJoinEf
@@ -1277,6 +1747,28 @@ inline QCPaint QCPainterEngine::getFillPaint(bool ignoreTransform)
     }
     return fillPaint;
 }
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 2420, as _ZN15QCPainterEngine19updateStateFontVarsEv
+#if !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
+inline void QCPainterEngine::updateStateFontVars()
+{
+    auto &font = state.font;
+    // Calculating optimal font scale.
+    // This is how QSGDistanceFieldGlyphNode does it:
+    //const float combinedScale = m_fontScale * m_matrixScale;
+    const auto rFont = QRawFont::fromFont(font);
+    // TODO: This is a heavy operation. If supported, it should be cached.
+    //const bool narrowFont = qt_fontHasNarrowOutlines(rFont);
+    const bool narrowFont = false;
+    const float baseFontSize = QT_DISTANCEFIELD_BASEFONTSIZE(narrowFont);
+    const float combinedScale = rFont.pixelSize() / baseFontSize * ctx.devicePxRatio;
+    // Then use it to calculate the optimal smoothstep min & max.
+    const float base = thresholdFunc(combinedScale);
+    const float range = spreadFunc(combinedScale) * state.textAntialias;
+    ctx.fontAlphaMin = qMax(0.0f, base - range);
+    ctx.fontAlphaMax = qMin(base + range, 1.0f);
+}
+#endif  // !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
 //  -----------------------------------------------------------------------
 
 //  QCPainterEngine::QCPainterEngine()
@@ -1297,6 +1789,12 @@ void ritual_ZN15QCPainterEngine15setCustomMatrixERK10QMatrix4x4(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QCPainterEngine8endPaintEv(QCPainterEngine *self) {
   self->endPaint();
+}
+
+//  void QCPainterEngine::save()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCPainterEngine4saveEv(QCPainterEngine *self) {
+  self->save();
 }
 
 //  void QCPainterEngine::restore()
@@ -1773,6 +2271,14 @@ QCDebugCounters *ritual_ZNK15QCPainterEngine13debugCountersEv(
   return new QCDebugCounters(self->debugCounters());
 }
 
+//  void QCPainterEngine::setAntialias(float antialias)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCPainterEngine12setAntialiasEf(
+    QCPainterEngine *self,
+    float antialias) {
+  self->setAntialias(antialias);
+}
+
 //  void QCPainterEngine::setMiterLimit(float limit)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QCPainterEngine13setMiterLimitEf(
@@ -1800,6 +2306,27 @@ void ritual_ZN15QCPainterEngine13appendCommandE9QCCommand(
     QCPainterEngine *self,
     QCCommand command) {
   self->appendCommand(command);
+}
+
+//  void QCPainterEngine::appendCommands(const QCCommand *commands, int
+//      cCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCPainterEngine14appendCommandsEPK9QCCommandi(
+    QCPainterEngine *self,
+    const QCCommand *commands,
+    int cCount) {
+  self->appendCommands(commands, cCount);
+}
+
+//  void QCPainterEngine::appendCommandsData(const float *commandsData, int
+//      dCount, bool ignoreTransform)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCPainterEngine18appendCommandsDataEPKfib(
+    QCPainterEngine *self,
+    const float *commandsData,
+    int dCount,
+    bool ignoreTransform) {
+  self->appendCommandsData(commandsData, dCount, ignoreTransform);
 }
 
 //  void QCPainterEngine::handleSetPathWinding(QCanvasPainter::PathWinding
@@ -1832,6 +2359,36 @@ void ritual_ZN15QCPainterEngine14handleAddPointEffNS_12QCPointFlagsE(
     float y,
     QCPainterEngine::QCPointFlags flags) {
   self->handleAddPoint(x, y, flags);
+}
+
+//  void QCPainterEngine::tesselateBezier(float x1, float y1, float x2, float
+//      y2, float x3, float y3, float x4, float y4, int level, QCPointFlags
+//      flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCPainterEngine15tesselateBezierEffffffffiNS_12QCPointFlagsE(
+    QCPainterEngine *self,
+    float x1,
+    float y1,
+    float x2,
+    float y2,
+    float x3,
+    float y3,
+    float x4,
+    float y4,
+    int level,
+    QCPainterEngine::QCPointFlags flags) {
+  self->tesselateBezier(x1, y1, x2, y2, x3, y3, x4, y4, level, flags);
+}
+
+//  void QCPainterEngine::enforceWinding(int pointsOffset, int pointsCount,
+//      QCanvasPainter::PathWinding winding)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCPainterEngine14enforceWindingEiiN14QCanvasPainter11PathWindingE(
+    QCPainterEngine *self,
+    int pointsOffset,
+    int pointsCount,
+    QCanvasPainter::PathWinding winding) {
+  self->enforceWinding(pointsOffset, pointsCount, winding);
 }
 
 //  void QCPainterEngine::calculateJoins(float w, QCanvasPainter::LineJoin
@@ -1942,6 +2499,15 @@ QCPaint *ritual_ZN15QCPainterEngine12getFillPaintEb(
     bool ignoreTransform) {
   return new QCPaint(self->getFillPaint(ignoreTransform));
 }
+
+#if !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
+//  void QCPainterEngine::updateStateFontVars()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCPainterEngine19updateStateFontVarsEv(
+    QCPainterEngine *self) {
+  self->updateStateFontVars();
+}
+#endif  // !defined(QCPAINTER_DISABLE_TEXT_SUPPORT)
 
 //  QCPainterEngine::~QCPainterEngine()
 extern "C" Q_DECL_EXPORT

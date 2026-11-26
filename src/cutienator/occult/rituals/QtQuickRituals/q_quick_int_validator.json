@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickIntValidator10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickIntValidator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickIntValidator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickIntValidator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,9 @@
       "nothing", "address", "text"
     ],
     "ritual_ZN18QQuickIntValidator15resetLocaleNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickIntValidator17localeNameChangedEv": [
       "nothing", "address"
     ],
     "ritual_take_QQuickIntValidator": ["bool", "address", "chars", "address"]

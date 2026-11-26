@@ -37,16 +37,48 @@ QSslKey *ritual_ZN7QSslKeyC1EP9QIODeviceN4QSsl12KeyAlgorithmENS2_14EncodingForma
   return new QSslKey(device, algorithm, format, type, *passPhrase);
 }
 
+//  QSslKey::QSslKey(Qt::HANDLE handle, QSsl::KeyType type)
+extern "C" Q_DECL_EXPORT
+QSslKey *ritual_ZN7QSslKeyC1EPvN4QSsl7KeyTypeE(
+    Qt::HANDLE handle,
+    QSsl::KeyType type) {
+  return new QSslKey(handle, type);
+}
+
 //  QSslKey::QSslKey(const QSslKey &other)
 extern "C" Q_DECL_EXPORT
 QSslKey *ritual_ZN7QSslKeyC1ERKS_(const QSslKey *other) {
   return new QSslKey(*other);
 }
 
+//  QSslKey::QSslKey(QSslKey &&other)
+extern "C" Q_DECL_EXPORT
+QSslKey *ritual_ZN7QSslKeyC1EOS_(QSslKey *other) {
+  return new QSslKey(std::move(*other));
+}
+
+//  QSslKey &QSslKey::operator=(QSslKey &&other)
+extern "C" Q_DECL_EXPORT
+QSslKey *ritual_ZN7QSslKeyaSEOS_(QSslKey *self, QSslKey *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QSslKey &QSslKey::operator=(const QSslKey &other)
+extern "C" Q_DECL_EXPORT
+QSslKey *ritual_ZN7QSslKeyaSERKS_(QSslKey *self, const QSslKey *other) {
+  return &(self->operator=(*other));
+}
+
 //  QSslKey::~QSslKey()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QSslKeyD1Ev(QSslKey *self) {
   delete self;
+}
+
+//  void QSslKey::swap(QSslKey &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSslKey4swapERS_(QSslKey *self, QSslKey *other) {
+  self->swap(*other);
 }
 
 //  bool QSslKey::isNull() const
@@ -93,6 +125,12 @@ QByteArray *ritual_ZNK7QSslKey5toDerERK10QByteArray(
     const QSslKey *self,
     const QByteArray *passPhrase) {
   return new QByteArray(self->toDer(*passPhrase));
+}
+
+//  Qt::HANDLE QSslKey::handle() const
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_ZNK7QSslKey6handleEv(const QSslKey *self) {
+  return self->handle();
 }
 
 //  bool QSslKey::operator==(const QSslKey &key) const

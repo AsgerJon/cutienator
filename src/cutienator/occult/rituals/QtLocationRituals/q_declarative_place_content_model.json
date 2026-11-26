@@ -8,6 +8,12 @@
     "ritual_ZNK29QDeclarativePlaceContentModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QDeclarativePlaceContentModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QDeclarativePlaceContentModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -55,6 +61,15 @@
       "nothing", "address"
     ],
     "ritual_ZN29QDeclarativePlaceContentModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel12placeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel16batchSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel17totalCountChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN29QDeclarativePlaceContentModel13fetchFinishedEv": [

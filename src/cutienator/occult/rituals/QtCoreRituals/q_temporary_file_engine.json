@@ -12,6 +12,9 @@
     "ritual_ZN20QTemporaryFileEngine11setFileNameERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN20QTemporaryFileEngine4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEESt8optionalIS0_IN11QFileDevice10PermissionEEE": [
+      "bool", "address", "int", "address"
+    ],
     "ritual_ZN20QTemporaryFileEngine6removeEv": ["bool", "address"],
     "ritual_ZN20QTemporaryFileEngine6renameERK7QString": [
       "bool", "address", "text"

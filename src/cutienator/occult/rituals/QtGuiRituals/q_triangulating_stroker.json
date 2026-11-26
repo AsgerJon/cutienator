@@ -6,16 +6,42 @@
   ],
   "rows": {
     "ritual_ZN21QTriangulatingStrokerC1Ev": ["address"],
+    "ritual_ZN21QTriangulatingStroker7processERK11QVectorPathRK4QPenRK6QRectF6QFlagsIN8QPainter10RenderHintEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
     "ritual_ZNK21QTriangulatingStroker11vertexCountEv": ["int", "address"],
+    "ritual_ZNK21QTriangulatingStroker8verticesEv": ["address", "address"],
     "ritual_ZN21QTriangulatingStroker11setInvScaleEd": [
       "nothing", "address", "double"
     ],
     "ritual_ZN21QTriangulatingStroker15emitLineSegmentEffff": [
       "nothing", "address", "float", "float", "float", "float"
     ],
+    "ritual_ZN21QTriangulatingStroker6moveToEPKd": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QTriangulatingStroker6lineToEPKd": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QTriangulatingStroker7cubicToEPKd": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QTriangulatingStroker4joinEPKd": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QTriangulatingStroker12normalVectorEffffPfS0_": [
       "nothing", "address", "float", "float", "float", "float", "address",
       "address"
+    ],
+    "ritual_ZN21QTriangulatingStroker6endCapEPKd": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QTriangulatingStroker9arcPointsEffffffR15QVarLengthArrayIfLx256EE": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "float", "address"
+    ],
+    "ritual_ZN21QTriangulatingStroker18endCapOrJoinClosedEPKdS1_bb": [
+      "nothing", "address", "address", "address", "bool", "bool"
     ]
   }
 }

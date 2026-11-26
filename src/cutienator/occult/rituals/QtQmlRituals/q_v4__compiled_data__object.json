@@ -28,6 +28,9 @@
     "ritual_ZN3QV412CompiledData6Object37calculateSizeExcludingSignalsAndEnumsEiiiiiiiii": [
       "int", "int", "int", "int", "int", "int", "int", "int", "int", "int"
     ],
+    "ritual_ZNK3QV412CompiledData6Object19functionOffsetTableEv": [
+      "address", "address"
+    ],
     "ritual_ZNK3QV412CompiledData6Object13propertyTableEv": [
       "address", "address"
     ],
@@ -45,6 +48,9 @@
     ],
     "ritual_ZNK3QV412CompiledData6Object17inlineComponentAtEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object28namedObjectsInComponentTableEv": [
+      "address", "address"
     ],
     "ritual_ZNK3QV412CompiledData6Object20inlineComponentTableEv": [
       "address", "address"
@@ -88,9 +94,43 @@
     "ritual_ZNK3QV412CompiledData6Object10aliasesEndEv": [
       "address", "address"
     ],
+    "ritual_ZNK3QV412CompiledData6Object10enumsBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object8enumsEndEv": ["address", "address"],
+    "ritual_ZNK3QV412CompiledData6Object12signalsBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object10signalsEndEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object21inlineComponentsBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object19inlineComponentsEndEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object30requiredPropertyExtraDataBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object28requiredPropertyExtraDataEndEv": [
+      "address", "address"
+    ],
     "ritual_ZNK3QV412CompiledData6Object28namedObjectsInComponentCountEv": [
       "int", "address"
     ],
-    "ritual_ZN3QV412CompiledData6ObjectD1Ev": ["nothing", "address"]
+    "ritual_ZN3QV412CompiledData6ObjectD1Ev": ["nothing", "address"],
+    "ritual_drop_QV4_CompiledData_Object__QV4_CompiledData_Object_EnumIterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QV4_CompiledData_Object__QV4_CompiledData_Object_SignalIterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QV4_CompiledData_Object__QV4_CompiledData_Object_InlineComponentIterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QV4_CompiledData_Object__QV4_CompiledData_Object_RequiredPropertyExtraDataIterator": [
+      "nothing", "address"
+    ]
   }
 }

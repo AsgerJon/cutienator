@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickHeaderViewBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickHeaderViewBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickHeaderViewBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickHeaderViewBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,6 +24,12 @@
     "ritual_ZNK20QQuickHeaderViewBase8textRoleEv": ["text", "address"],
     "ritual_ZN20QQuickHeaderViewBase11setTextRoleERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickHeaderViewBaseC1ER27QQuickHeaderViewBasePrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickHeaderViewBase15textRoleChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQuickHeaderViewBase": [
       "bool", "address", "chars", "address"

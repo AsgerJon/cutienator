@@ -9,6 +9,9 @@
   ],
   "rows": {
     "ritual_ZNK17QSurfaceDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QSurfaceDataProxy11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
     "ritual_ZN17QSurfaceDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -46,6 +49,25 @@
     ],
     "ritual_ZN17QSurfaceDataProxy10removeRowsExx": [
       "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QSurfaceDataProxy10arrayResetEv": ["nothing", "address"],
+    "ritual_ZN17QSurfaceDataProxy9rowsAddedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QSurfaceDataProxy11rowsChangedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QSurfaceDataProxy11rowsRemovedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QSurfaceDataProxy12rowsInsertedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QSurfaceDataProxy11itemChangedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN17QSurfaceDataProxyC1ER24QSurfaceDataProxyPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QSurfaceDataProxy": ["bool", "address", "chars", "address"]
   }

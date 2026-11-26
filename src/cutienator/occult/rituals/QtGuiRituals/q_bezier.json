@@ -21,6 +21,9 @@
     "ritual_ZNK7QBezier12addToPolygonEP9QPolygonFd": [
       "nothing", "address", "address", "double"
     ],
+    "ritual_ZNK7QBezier12addToPolygonER11QDataBufferI7QPointFEd": [
+      "nothing", "address", "address", "double"
+    ],
     "ritual_ZNK7QBezier6boundsEv": ["address", "address"],
     "ritual_ZNK7QBezier6lengthEd": ["double", "address", "double"],
     "ritual_ZNK7QBezier10addIfCloseEPdd": [
@@ -47,6 +50,7 @@
     "ritual_ZN7QBezier18parameterSplitLeftEdPS_": [
       "nothing", "address", "double", "address"
     ],
+    "ritual_ZNK7QBezier5splitEv": ["address", "address"],
     "ritual_ZNK7QBezier7shiftedEPS_idf": [
       "int", "address", "address", "int", "double", "float"
     ],
@@ -56,6 +60,7 @@
     "ritual_ZNK7QBezier11getSubRangeEdd": [
       "address", "address", "double", "double"
     ],
-    "ritual_ZN7QBezierD1Ev": ["nothing", "address"]
+    "ritual_ZN7QBezierD1Ev": ["nothing", "address"],
+    "ritual_drop_QBezier__std_pair_QBezier_QBezier": ["nothing", "address"]
   }
 }

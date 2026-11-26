@@ -7,8 +7,18 @@
     "ritual_ZNK10Qt3DRender12QRenderState10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender12QRenderState11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender12QRenderState11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender12QRenderState2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QRenderStateD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender12QRenderStateC1ERNS_19QRenderStatePrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender12QRenderState6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender12QRenderState6d_funcEv": ["address", "address"],

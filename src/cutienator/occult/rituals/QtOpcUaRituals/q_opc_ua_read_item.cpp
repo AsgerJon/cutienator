@@ -27,6 +27,14 @@ QOpcUaReadItem *ritual_ZN14QOpcUaReadItemC1ERK7QStringN6QOpcUa13NodeAttributeES2
   return new QOpcUaReadItem(*nodeId, attr, *indexRange);
 }
 
+//  QOpcUaReadItem &QOpcUaReadItem::operator=(const QOpcUaReadItem &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaReadItem *ritual_ZN14QOpcUaReadItemaSERKS_(
+    QOpcUaReadItem *self,
+    const QOpcUaReadItem *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QOpcUaReadItem::~QOpcUaReadItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QOpcUaReadItemD1Ev(QOpcUaReadItem *self) {

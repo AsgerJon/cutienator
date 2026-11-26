@@ -42,6 +42,29 @@ QString *ritual_ZNK20QXmlNamespaceSupport3uriERK7QString(
   return new QString(self->uri(*a0));
 }
 
+//  void QXmlNamespaceSupport::splitName(const QString &a0, QString &a1,
+//      QString &a2) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK20QXmlNamespaceSupport9splitNameERK7QStringRS0_S3_(
+    const QXmlNamespaceSupport *self,
+    const QString *a0,
+    QString *a1,
+    QString *a2) {
+  self->splitName(*a0, *a1, *a2);
+}
+
+//  void QXmlNamespaceSupport::processName(const QString &a0, bool a1,
+//      QString &a2, QString &a3) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK20QXmlNamespaceSupport11processNameERK7QStringbRS0_S3_(
+    const QXmlNamespaceSupport *self,
+    const QString *a0,
+    bool a1,
+    QString *a2,
+    QString *a3) {
+  self->processName(*a0, a1, *a2, *a3);
+}
+
 //  QStringList QXmlNamespaceSupport::prefixes() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK20QXmlNamespaceSupport8prefixesEv(

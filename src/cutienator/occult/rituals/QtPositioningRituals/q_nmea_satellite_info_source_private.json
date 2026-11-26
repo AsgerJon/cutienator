@@ -8,7 +8,16 @@
     "ritual_ZNK31QNmeaSatelliteInfoSourcePrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QNmeaSatelliteInfoSourcePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate12startUpdatesEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN31QNmeaSatelliteInfoSourcePrivate11stopUpdatesEv": [
       "nothing", "address"
     ],
@@ -32,6 +41,9 @@
     ],
     "ritual_ZN31QNmeaSatelliteInfoSourcePrivate19prepareSourceDeviceEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate11emitUpdatedER24QNmeaSatelliteInfoUpdateb": [
+      "bool", "address", "address", "bool"
     ],
     "ritual_ZN31QNmeaSatelliteInfoSourcePrivate10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"

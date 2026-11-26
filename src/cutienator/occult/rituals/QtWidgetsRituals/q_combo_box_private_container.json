@@ -8,6 +8,12 @@
     "ritual_ZNK25QComboBoxPrivateContainer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QComboBoxPrivateContainer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QComboBoxPrivateContainer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -73,6 +79,12 @@
     ],
     "ritual_ZNK25QComboBoxPrivateContainer16comboStyleOptionEv": [
       "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer12itemSelectedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer11resetButtonEv": [
+      "nothing", "address"
     ],
     "ritual_take_QComboBoxPrivateContainer": [
       "bool", "address", "chars", "address"

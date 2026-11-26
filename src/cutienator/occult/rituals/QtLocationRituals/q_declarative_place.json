@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QDeclarativePlace10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QDeclarativePlace11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QDeclarativePlace2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -28,6 +34,19 @@
     "ritual_ZNK17QDeclarativePlace5placeEv": ["address", "address"],
     "ritual_ZN17QDeclarativePlace8setPlaceERK6QPlace": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace10categoriesEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace15category_appendEP16QQmlListPropertyI20QDeclarativeCategoryEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace14category_countEP16QQmlListPropertyI20QDeclarativeCategoryE": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace11category_atEP16QQmlListPropertyI20QDeclarativeCategoryEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN17QDeclarativePlace14category_clearEP16QQmlListPropertyI20QDeclarativeCategoryE": [
+      "nothing", "address"
     ],
     "ritual_ZNK17QDeclarativePlace8locationEv": ["address", "address"],
     "ritual_ZN17QDeclarativePlace11setLocationEP23QDeclarativeGeoLocation": [
@@ -92,6 +111,60 @@
     "ritual_ZN17QDeclarativePlace18initializeFavoriteEP30QDeclarativeGeoServiceProvider": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QDeclarativePlace13pluginChangedEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace17categoriesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace15locationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace14ratingsChangedEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace15supplierChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace11iconChangedEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace11nameChangedEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace14placeIdChangedEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace18attributionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace21detailsFetchedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace18reviewModelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace17imageModelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace21editorialModelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace19primaryPhoneChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace17primaryFaxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace19primaryEmailChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace21primaryWebsiteChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace25extendedAttributesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace21contactDetailsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace13statusChangedEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace17visibilityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace15favoriteChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QDeclarativePlace8finishedEv": ["nothing", "address"],
     "ritual_ZN17QDeclarativePlace16contactsModifiedERK7QStringRK8QVariant": [
       "nothing", "address", "text", "address"
@@ -120,6 +193,9 @@
     "ritual_take_QDeclarativePlace": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QDeclarativePlace10classBeginEv": ["nothing", "address"],
     "ritual_own_ZN17QDeclarativePlace17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativePlace__QQmlListProperty_QDeclarativeCategory": [
       "nothing", "address"
     ]
   }

@@ -5,8 +5,26 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation11BackendNodeC1EN8Qt3DCore12QBackendNode4ModeE": [
+      "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation11BackendNodeD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation11BackendNode10setHandlerEPNS0_7HandlerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation11BackendNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation11BackendNode8setDirtyENS0_7Handler9DirtyFlagE": [
+      "nothing", "address", "int"
+    ],
     "ritual_take_Qt3DAnimation_Animation_BackendNode": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN13Qt3DAnimation9Animation11BackendNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ]
   }
 }

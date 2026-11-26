@@ -7,6 +7,12 @@
     "ritual_ZNK10Qt3DRender10QPickEvent10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QPickEvent11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QPickEvent11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QPickEvent2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,30 @@
     "ritual_ZN10Qt3DRender10QPickEventC1ERK7QPointFRK9QVector3DS6_fNS0_7ButtonsEii": [
       "address", "address", "address", "address", "float", "int", "int",
       "int"
+    ],
+    "ritual_ZN10Qt3DRender10QPickEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender10QPickEvent10isAcceptedEv": ["bool", "address"],
+    "ritual_ZN10Qt3DRender10QPickEvent11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender10QPickEvent8positionEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender10QPickEvent8distanceEv": ["float", "address"],
+    "ritual_ZNK10Qt3DRender10QPickEvent17worldIntersectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QPickEvent17localIntersectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QPickEvent6buttonEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender10QPickEvent7buttonsEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender10QPickEvent9modifiersEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender10QPickEvent8viewportEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender10QPickEvent6entityEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender10QPickEvent15acceptedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender10QPickEventC1ER14QObjectPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender10QPickEvent6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender10QPickEvent6d_funcEv": ["address", "address"],

@@ -233,6 +233,25 @@ const QMetaObject *ritual_ZNK16QQmlInstantiator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlInstantiator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQmlInstantiator11qt_metacastEPKc(
+    QQmlInstantiator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlInstantiator::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQmlInstantiator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlInstantiator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlInstantiator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQmlInstantiator2trEPKcS1_i(
@@ -361,6 +380,68 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQmlInstantiator17componentCompleteEv(
     QQmlInstantiator *self) {
   self->componentComplete();
+}
+
+//  void QQmlInstantiator::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlInstantiator12modelChangedEv(QQmlInstantiator *self) {
+  self->modelChanged();
+}
+
+//  void QQmlInstantiator::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlInstantiator15delegateChangedEv(QQmlInstantiator *self) {
+  self->delegateChanged();
+}
+
+//  void QQmlInstantiator::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlInstantiator12countChangedEv(QQmlInstantiator *self) {
+  self->countChanged();
+}
+
+//  void QQmlInstantiator::objectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlInstantiator13objectChangedEv(QQmlInstantiator *self) {
+  self->objectChanged();
+}
+
+//  void QQmlInstantiator::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlInstantiator13activeChangedEv(QQmlInstantiator *self) {
+  self->activeChanged();
+}
+
+//  void QQmlInstantiator::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlInstantiator19asynchronousChangedEv(
+    QQmlInstantiator *self) {
+  self->asynchronousChanged();
+}
+
+//  void QQmlInstantiator::objectAdded(int index, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlInstantiator11objectAddedEiP7QObject(
+    QQmlInstantiator *self,
+    int index,
+    QObject *object) {
+  self->objectAdded(index, object);
+}
+
+//  void QQmlInstantiator::objectRemoved(int index, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlInstantiator13objectRemovedEiP7QObject(
+    QQmlInstantiator *self,
+    int index,
+    QObject *object) {
+  self->objectRemoved(index, object);
+}
+
+//  void QQmlInstantiator::delegateModelAccessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlInstantiator26delegateModelAccessChangedEv(
+    QQmlInstantiator *self) {
+  self->delegateModelAccessChanged();
 }
 
 //  QQmlInstantiatorPrivate *QQmlInstantiator::d_func()

@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtCore/QVariantList>
 
 //  QOpcUaHistoryEvent::QOpcUaHistoryEvent()
 extern "C" Q_DECL_EXPORT
@@ -25,10 +27,43 @@ QOpcUaHistoryEvent *ritual_ZN18QOpcUaHistoryEventC1ERKS_(
   return new QOpcUaHistoryEvent(*other);
 }
 
+//  QOpcUaHistoryEvent &QOpcUaHistoryEvent::operator=(const
+//      QOpcUaHistoryEvent &other)
+extern "C" Q_DECL_EXPORT
+QOpcUaHistoryEvent *ritual_ZN18QOpcUaHistoryEventaSERKS_(
+    QOpcUaHistoryEvent *self,
+    const QOpcUaHistoryEvent *other) {
+  return &(self->operator=(*other));
+}
+
+//  QOpcUaHistoryEvent::QOpcUaHistoryEvent(QOpcUaHistoryEvent &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaHistoryEvent *ritual_ZN18QOpcUaHistoryEventC1EOS_(
+    QOpcUaHistoryEvent *other) {
+  return new QOpcUaHistoryEvent(std::move(*other));
+}
+
+//  QOpcUaHistoryEvent &QOpcUaHistoryEvent::operator=(QOpcUaHistoryEvent
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QOpcUaHistoryEvent *ritual_ZN18QOpcUaHistoryEventaSEOS_(
+    QOpcUaHistoryEvent *self,
+    QOpcUaHistoryEvent *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QOpcUaHistoryEvent::~QOpcUaHistoryEvent()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QOpcUaHistoryEventD1Ev(QOpcUaHistoryEvent *self) {
   delete self;
+}
+
+//  void QOpcUaHistoryEvent::swap(QOpcUaHistoryEvent &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QOpcUaHistoryEvent4swapERS_(
+    QOpcUaHistoryEvent *self,
+    QOpcUaHistoryEvent *other) {
+  self->swap(*other);
 }
 
 //  QOpcUa::UaStatusCode QOpcUaHistoryEvent::statusCode() const
@@ -44,6 +79,13 @@ void ritual_ZN18QOpcUaHistoryEvent13setStatusCodeEN6QOpcUa12UaStatusCodeE(
     QOpcUaHistoryEvent *self,
     QOpcUa::UaStatusCode statusCode) {
   self->setStatusCode(statusCode);
+}
+
+//  QList<QVariantList> QOpcUaHistoryEvent::events() const
+extern "C" Q_DECL_EXPORT
+QList<QVariantList> *ritual_ZNK18QOpcUaHistoryEvent6eventsEv(
+    const QOpcUaHistoryEvent *self) {
+  return new QList<QVariantList>(self->events());
 }
 
 //  int QOpcUaHistoryEvent::count() const
@@ -126,5 +168,12 @@ QOpcUaHistoryEvent *ritual_list_at_QOpcUaHistoryEvent(
 //  QList<QOpcUaHistoryEvent>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QOpcUaHistoryEvent(QList<QOpcUaHistoryEvent> *self) {
+  delete self;
+}
+
+//  a QList<QVariantList> a ritual of QOpcUaHistoryEvent gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpcUaHistoryEvent__QList_QVariantList(
+    QList<QVariantList> *self) {
   delete self;
 }

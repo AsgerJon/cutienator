@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickParticlePainter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickParticlePainter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickParticlePainter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickParticlePainter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,8 +39,18 @@
     ],
     "ritual_ZNK21QQuickParticlePainter6systemEv": ["address", "address"],
     "ritual_ZNK21QQuickParticlePainter6groupsEv": ["address", "address"],
+    "ritual_ZNK21QQuickParticlePainter8groupIdsEv": ["address", "address"],
     "ritual_ZN21QQuickParticlePainter10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter12countChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter13systemChangedEP20QQuickParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter13groupsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN21QQuickParticlePainter9setSystemEP20QQuickParticleSystem": [
       "nothing", "address", "address"

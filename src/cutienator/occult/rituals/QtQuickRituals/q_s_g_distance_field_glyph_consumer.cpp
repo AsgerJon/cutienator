@@ -13,3 +13,12 @@ void ritual_ZN29QSGDistanceFieldGlyphConsumerD1Ev(
     QSGDistanceFieldGlyphConsumer *self) {
   delete self;
 }
+
+//  void QSGDistanceFieldGlyphConsumer::invalidateGlyphs(const QList<quint32>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGDistanceFieldGlyphConsumer16invalidateGlyphsERK5QListIjE(
+    QSGDistanceFieldGlyphConsumer *self,
+    const QList<quint32> *glyphs) {
+  self->invalidateGlyphs(*glyphs);
+}

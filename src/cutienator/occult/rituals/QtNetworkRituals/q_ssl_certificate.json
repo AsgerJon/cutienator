@@ -12,7 +12,11 @@
       "address", "address", "int"
     ],
     "ritual_ZN15QSslCertificateC1ERKS_": ["address", "address"],
+    "ritual_ZN15QSslCertificateC1EOS_": ["address", "address"],
     "ritual_ZN15QSslCertificateD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSslCertificateaSEOS_": ["address", "address", "address"],
+    "ritual_ZN15QSslCertificateaSERKS_": ["address", "address", "address"],
+    "ritual_ZN15QSslCertificate4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK15QSslCertificateeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK15QSslCertificateneERKS_": ["bool", "address", "address"],
     "ritual_ZNK15QSslCertificate6isNullEv": ["bool", "address"],
@@ -44,6 +48,9 @@
     "ritual_ZNK15QSslCertificate20issuerInfoAttributesEv": [
       "address", "address"
     ],
+    "ritual_ZNK15QSslCertificate23subjectAlternativeNamesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK15QSslCertificate13effectiveDateEv": ["address", "address"],
     "ritual_ZNK15QSslCertificate10expiryDateEv": ["address", "address"],
     "ritual_ZNK15QSslCertificate9publicKeyEv": ["address", "address"],
@@ -66,10 +73,17 @@
     "ritual_ZN15QSslCertificate6verifyERK5QListIS_ERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZN15QSslCertificate12importPkcs12EP9QIODeviceP7QSslKeyPS_P5QListIS_ERK10QByteArray": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK15QSslCertificate6handleEv": ["address", "address"],
     "ritual_list_make_QSslCertificate": ["address"],
     "ritual_list_add_QSslCertificate": ["nothing", "address", "address"],
     "ritual_list_size_QSslCertificate": ["long long", "address"],
     "ritual_list_at_QSslCertificate": ["address", "address", "long long"],
-    "ritual_list_drop_QSslCertificate": ["nothing", "address"]
+    "ritual_list_drop_QSslCertificate": ["nothing", "address"],
+    "ritual_drop_QSslCertificate__QMultiMap_QSsl_AlternativeNameEntryType_QString": [
+      "nothing", "address"
+    ]
   }
 }

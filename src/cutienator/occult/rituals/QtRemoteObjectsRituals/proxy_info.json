@@ -6,6 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK9ProxyInfo10metaObjectEv": ["address", "address"],
+    "ritual_ZN9ProxyInfo11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9ProxyInfo11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN9ProxyInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN9ProxyInfo11proxyObjectERKSt4pairI7QString31QRemoteObjectSourceLocationInfoENS_14ProxyDirectionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9ProxyInfo13unproxyObjectERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9ProxyInfo22disableAndDeleteObjectEP16ProxyReplicaInfo": [
       "nothing", "address", "address"
     ],

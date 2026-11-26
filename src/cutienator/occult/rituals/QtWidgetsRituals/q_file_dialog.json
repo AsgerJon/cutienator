@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QFileDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QFileDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QFileDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QFileDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QFileDialogC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
@@ -119,6 +125,33 @@
       "nothing", "address", "address", "chars"
     ],
     "ritual_ZN11QFileDialog10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QFileDialog12fileSelectedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QFileDialog13filesSelectedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QFileDialog14currentChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QFileDialog16directoryEnteredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QFileDialog11urlSelectedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QFileDialog12urlsSelectedERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QFileDialog17currentUrlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QFileDialog19directoryUrlEnteredERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QFileDialog14filterSelectedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN11QFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsINS_6OptionEE": [
       "text", "address", "text", "text", "text", "address", "int"
     ],
@@ -145,6 +178,9 @@
     "ritual_ZN11QFileDialog15getOpenFileUrlsEP7QWidgetRK7QStringRK4QUrlS4_PS2_6QFlagsINS_6OptionEERK5QListIS2_E": [
       "address", "address", "text", "address", "text", "address", "int",
       "address"
+    ],
+    "ritual_ZN11QFileDialog18getOpenFileContentERK7QStringRKSt8functionIFvS2_RK10QByteArrayEEP7QWidget": [
+      "nothing", "text", "address", "address"
     ],
     "ritual_ZN11QFileDialog15saveFileContentERK10QByteArrayRK7QStringP7QWidget": [
       "nothing", "address", "text", "address"

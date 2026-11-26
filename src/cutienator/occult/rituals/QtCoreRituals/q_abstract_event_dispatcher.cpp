@@ -2,8 +2,11 @@
 //  QtCore/qabstracteventdispatcher.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qabstracteventdispatcher.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QAbstractEventDispatcher>
 
 //  A QAbstractEventDispatcher that Python can take functions over in. Every QAbstractEventDispatcher
 //  Python makes is one. Each function below asks the Python
@@ -383,6 +386,25 @@ const QMetaObject *ritual_ZNK24QAbstractEventDispatcher10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractEventDispatcher::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QAbstractEventDispatcher11qt_metacastEPKc(
+    QAbstractEventDispatcher *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractEventDispatcher::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QAbstractEventDispatcher11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractEventDispatcher *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractEventDispatcher::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QAbstractEventDispatcher2trEPKcS1_i(
@@ -451,6 +473,20 @@ void ritual_ZN24QAbstractEventDispatcher24unregisterSocketNotifierEP15QSocketNot
   self->unregisterSocketNotifier(notifier);
 }
 
+//  Qt::TimerId QAbstractEventDispatcher::registerTimer(Duration interval,
+//      Qt::TimerType timerType, QObject *object)
+extern "C" Q_DECL_EXPORT
+Qt::TimerId ritual_ZN24QAbstractEventDispatcher13registerTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEP7QObject(
+    QAbstractEventDispatcher *self,
+    long long interval,
+    Qt::TimerType timerType,
+    QObject *object) {
+  return self->registerTimer(
+      QAbstractEventDispatcher::Duration(interval),
+      timerType,
+      object);
+}
+
 #if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  int QAbstractEventDispatcher::registerTimer(qint64 interval,
 //      Qt::TimerType timerType, QObject *object)
@@ -499,6 +535,19 @@ bool ritual_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject(
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 #if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QList<TimerInfo> QAbstractEventDispatcher::registeredTimers(QObject
+//      *object) const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractEventDispatcher::TimerInfo> *ritual_ZNK24QAbstractEventDispatcher16registeredTimersEP7QObject(
+    const QAbstractEventDispatcher *self,
+    QObject *object) {
+  return new QList<QAbstractEventDispatcher::TimerInfo>(
+      self->registeredTimers(
+          object));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  int QAbstractEventDispatcher::remainingTime(int timerId)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN24QAbstractEventDispatcher13remainingTimeEi(
@@ -509,12 +558,54 @@ int ritual_ZN24QAbstractEventDispatcher13remainingTimeEi(
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 #if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  void QAbstractEventDispatcher::registerTimer(Qt::TimerId timerId,
+//      Duration interval, Qt::TimerType timerType, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QAbstractEventDispatcher13registerTimerEN2Qt7TimerIdENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS0_9TimerTypeEP7QObject(
+    QAbstractEventDispatcher *self,
+    Qt::TimerId timerId,
+    long long interval,
+    Qt::TimerType timerType,
+    QObject *object) {
+  self->registerTimer(
+      timerId,
+      QAbstractEventDispatcher::Duration(interval),
+      timerType,
+      object);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  bool QAbstractEventDispatcher::unregisterTimer(Qt::TimerId timerId)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN24QAbstractEventDispatcher15unregisterTimerEN2Qt7TimerIdE(
     QAbstractEventDispatcher *self,
     Qt::TimerId timerId) {
   return self->unregisterTimer(timerId);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  QList<TimerInfoV2> QAbstractEventDispatcher::timersForObject(QObject
+//      *object) const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractEventDispatcher::TimerInfoV2> *ritual_ZNK24QAbstractEventDispatcher15timersForObjectEP7QObject(
+    const QAbstractEventDispatcher *self,
+    QObject *object) {
+  return new QList<QAbstractEventDispatcher::TimerInfoV2>(
+      self->timersForObject(
+          object));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  Duration QAbstractEventDispatcher::remainingTime(Qt::TimerId timerId)
+//      const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK24QAbstractEventDispatcher13remainingTimeEN2Qt7TimerIdE(
+    const QAbstractEventDispatcher *self,
+    Qt::TimerId timerId) {
+  return static_cast<long long>(self->remainingTime(timerId).count());
 }
 #endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
@@ -564,6 +655,31 @@ void ritual_ZN24QAbstractEventDispatcher23removeNativeEventFilterEP26QAbstractNa
   self->removeNativeEventFilter(filterObj);
 }
 
+//  bool QAbstractEventDispatcher::filterNativeEvent(const QByteArray
+//      &eventType, void *message, qintptr *result)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN24QAbstractEventDispatcher17filterNativeEventERK10QByteArrayPvPx(
+    QAbstractEventDispatcher *self,
+    const QByteArray *eventType,
+    void *message,
+    qintptr *result) {
+  return self->filterNativeEvent(*eventType, message, result);
+}
+
+//  void QAbstractEventDispatcher::aboutToBlock()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QAbstractEventDispatcher12aboutToBlockEv(
+    QAbstractEventDispatcher *self) {
+  self->aboutToBlock();
+}
+
+//  void QAbstractEventDispatcher::awake()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QAbstractEventDispatcher5awakeEv(
+    QAbstractEventDispatcher *self) {
+  self->awake();
+}
+
 //  a Python function taken by a CuteQAbstractEventDispatcher, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -586,4 +702,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN24QAbstractEventDispatcher11closingDownEv(
     QAbstractEventDispatcher *self) {
   self->QAbstractEventDispatcher::closingDown();
+}
+
+//  a QList<QAbstractEventDispatcher::TimerInfo> a ritual of
+//      QAbstractEventDispatcher gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractEventDispatcher__QList_QAbstractEventDispatcher_TimerInfo(
+    QList<QAbstractEventDispatcher::TimerInfo> *self) {
+  delete self;
+}
+
+//  a QList<QAbstractEventDispatcher::TimerInfoV2> a ritual of
+//      QAbstractEventDispatcher gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractEventDispatcher__QList_QAbstractEventDispatcher_TimerInfoV2(
+    QList<QAbstractEventDispatcher::TimerInfoV2> *self) {
+  delete self;
 }

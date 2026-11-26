@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render11NoDepthMask16updatePropertiesEPKNS_12QRenderStateE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render11NoDepthMaskD1Ev": ["nothing", "address"],
     "ritual_take_Qt3DRender_Render_NoDepthMask": [
       "bool", "address", "chars", "address"

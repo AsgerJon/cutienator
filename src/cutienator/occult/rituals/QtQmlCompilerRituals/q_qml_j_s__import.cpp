@@ -27,6 +27,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtdeclarative/src/qmlcompiler/qqmljsimporter.cpp, line 26, as _ZN6QQmlJS6ImportC1E7QStringS1_13QTypeRevisionbb
 inline QQmlJS::Import::Import(QString prefix, QString name, QTypeRevision version, bool isFile,
                        bool isDependency) :

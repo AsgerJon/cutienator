@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickItemLayer10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickItemLayer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickItemLayer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickItemLayer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -80,6 +86,42 @@
     "ritual_ZN15QQuickItemLayer14updateGeometryEv": ["nothing", "address"],
     "ritual_ZN15QQuickItemLayer13updateOpacityEv": ["nothing", "address"],
     "ritual_ZN15QQuickItemLayer7updateZEv": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer14enabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickItemLayer11sizeChangedERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickItemLayer13mipmapChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickItemLayer15wrapModeChangedEN24QQuickShaderEffectSource8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QQuickItemLayer11nameChangedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickItemLayer13effectChangedEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickItemLayer13smoothChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickItemLayer11liveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickItemLayer13formatChangedEN24QQuickShaderEffectSource6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QQuickItemLayer17sourceRectChangedERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickItemLayer23textureMirroringChangedEN24QQuickShaderEffectSource16TextureMirroringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QQuickItemLayer14samplesChangedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN15QQuickItemLayer8activateEv": ["nothing", "address"],
     "ritual_ZN15QQuickItemLayer10deactivateEv": ["nothing", "address"],
     "ritual_ZN15QQuickItemLayer14activateEffectEv": ["nothing", "address"],

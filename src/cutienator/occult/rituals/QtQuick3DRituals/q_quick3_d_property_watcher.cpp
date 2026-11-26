@@ -6,42 +6,6 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQuick3D/private/qquick3dshaderutils_p.h>
-#include <QtCore/qfile.h>
-#include <QtQml/qqmlcontext.h>
-#include <QtQml/qqmlfile.h>
-#include <QtQuick3D/private/qquick3dviewport_p.h>
-#include <QtQuick3D/private/qquick3dcustommaterial_p.h>
-#include <QtQuick3D/private/qquick3deffect_p.h>
-#include <QtQuick3D/qquick3dtextureproviderextension.h>
-#include <QtQuick3DRuntimeRender/ssg/qssgrenderextensions.h>
-#include <QtQuick3D/ssg/qquick3dextensionhelpers.h>
-#include <QtQuick3DRuntimeRender/private/qssgrenderimage_p.h>
-#include <QtCore/QLoggingCategory>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-
-//  Qt's own code, from here to the line of dashes: taken from
-//  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it where Qt did not write it.
-
-//  from ../qtquick3d/src/quick3d/qquick3dshaderutils.cpp, line 2000, as _ZN23QQuick3DPropertyWatcher22onValuePropertyChangedEv
-inline void QQuick3DPropertyWatcher::onValuePropertyChanged()
-{
-    m_tracker->m_dirtyProperties.push_back(m_property.propertyIndex());
-    m_tracker->markTrackedPropertyDirty(m_property, QQuick3DPropertyChangedTracker::DirtyPropertyHint::Value);
-}
-
-//  from ../qtquick3d/src/quick3d/qquick3dshaderutils.cpp, line 2006, as _ZN23QQuick3DPropertyWatcher24onPointerPropertyChangedEv
-inline void QQuick3DPropertyWatcher::onPointerPropertyChanged()
-{
-    m_tracker->m_dirtyProperties.push_back(m_property.propertyIndex());
-    m_tracker->markTrackedPropertyDirty(m_property, QQuick3DPropertyChangedTracker::DirtyPropertyHint::Reference);;
-}
-//  -----------------------------------------------------------------------
 
 //  const QMetaObject *QQuick3DPropertyWatcher::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -50,16 +14,71 @@ const QMetaObject *ritual_ZNK23QQuick3DPropertyWatcher10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DPropertyWatcher::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuick3DPropertyWatcher11qt_metacastEPKc(
+    QQuick3DPropertyWatcher *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DPropertyWatcher::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuick3DPropertyWatcher11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DPropertyWatcher *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuick3DPropertyWatcher::onValuePropertyChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuick3DPropertyWatcher22onValuePropertyChangedEv(
     QQuick3DPropertyWatcher *self) {
-  self->onValuePropertyChanged();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DPropertyWatcher")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onValuePropertyChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onValuePropertyChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DPropertyWatcher::onPointerPropertyChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuick3DPropertyWatcher24onPointerPropertyChangedEv(
     QQuick3DPropertyWatcher *self) {
-  self->onPointerPropertyChanged();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DPropertyWatcher")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onPointerPropertyChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onPointerPropertyChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }

@@ -9,6 +9,12 @@
     "ritual_ZNK23QOpenGLExtensionMatcher5matchERK10QByteArray": [
       "bool", "address", "address"
     ],
-    "ritual_ZN23QOpenGLExtensionMatcherD1Ev": ["nothing", "address"]
+    "ritual_ZNK23QOpenGLExtensionMatcher10extensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QOpenGLExtensionMatcherD1Ev": ["nothing", "address"],
+    "ritual_drop_QOpenGLExtensionMatcher__QSet_QByteArray": [
+      "nothing", "address"
+    ]
   }
 }

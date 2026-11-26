@@ -49,6 +49,13 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/dbus/qdbusintegrator.cpp, line 57, as local:qdbusintegrator.cpp:qDBusDebug
+#if !defined(QT_NO_DBUS)
+#define qDBusDebug              if (::isDebugging.loadRelaxed() == 0); else qDebug
+#endif  // !defined(QT_NO_DBUS)
+
 //  from src/dbus/qdbusintegrator.cpp, line 506, as _ZN17QDBusSpyCallEvent13placeMetaCallEP7QObject
 #if !defined(QT_NO_DBUS)
 inline void QDBusSpyCallEvent::placeMetaCall(QObject *)
@@ -69,7 +76,7 @@ typedef void * (*CuteQDBusSpyCallEventCall2)(const void *, int *);
 class CuteQDBusSpyCallEvent : public QDBusSpyCallEvent {
 public:
   using QDBusSpyCallEvent::QDBusSpyCallEvent;
-  CuteQDBusSpyCallEvent(const QDBusSpyCallEvent &other) : QDBusSpyCallEvent(other) {}
+  CuteQDBusSpyCallEvent(const QDBusSpyCallEvent & other) : QDBusSpyCallEvent(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -125,6 +132,12 @@ public:
     return QEvent::clone();
   }
 };
+
+//  QDBusSpyCallEvent::~QDBusSpyCallEvent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDBusSpyCallEventD1Ev(QDBusSpyCallEvent *self) {
+  delete self;
+}
 
 //  void QDBusSpyCallEvent::placeMetaCall(QObject *a0)
 extern "C" Q_DECL_EXPORT

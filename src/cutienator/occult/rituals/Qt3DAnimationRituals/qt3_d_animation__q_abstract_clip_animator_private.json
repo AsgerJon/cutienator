@@ -16,6 +16,9 @@
     ],
     "ritual_take_Qt3DAnimation_QAbstractClipAnimatorPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK13Qt3DAnimation28QAbstractClipAnimatorPrivate7canPlayEv": [
+      "bool", "address"
     ]
   }
 }

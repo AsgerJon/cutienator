@@ -1,11 +1,16 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN19QColorDialogOptionsC1EP26QColorDialogOptionsPrivate": [
+      "address", "address"
+    ],
     "ritual_ZN19QColorDialogOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN19QColorDialogOptions6createEv": ["address"],
+    "ritual_ZNK19QColorDialogOptions5cloneEv": ["address", "address"],
     "ritual_ZNK19QColorDialogOptions11windowTitleEv": ["text", "address"],
     "ritual_ZN19QColorDialogOptions14setWindowTitleERK7QString": [
       "nothing", "address", "text"
@@ -30,6 +35,11 @@
     ],
     "ritual_ZN19QColorDialogOptions16setStandardColorEij": [
       "nothing", "int", "unsigned int"
-    ]
+    ],
+    "ritual_drop_QColorDialogOptions__QSharedPointer_QColorDialogOptions": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QColorDialogOptions12customColorsEv": ["address"],
+    "ritual_ZN19QColorDialogOptions14standardColorsEv": ["address"]
   }
 }

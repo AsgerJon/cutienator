@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qmatrix4x4.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qmatrix4x4.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 10. Kept as it is when the
+//  generator runs again. Also added by hand on 2026-11-25, rituals for
+//  functions the generator leaves out: 2.
 #include <QtGui/qtguiglobal.h>
 #if !defined(QT_NO_MATRIX4X4)
 #include <QtGui/qmatrix4x4.h>
@@ -11,6 +14,8 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
+#include <QtGui/QMatrix3x3>
+#include <QtGui/qgenericmatrix.h>
 
 //  QMatrix4x4::QMatrix4x4()
 extern "C" Q_DECL_EXPORT
@@ -23,6 +28,12 @@ extern "C" Q_DECL_EXPORT
 QMatrix4x4 *ritual_ZN10QMatrix4x4C1EN2Qt14InitializationE(
     Qt::Initialization a0) {
   return new QMatrix4x4(a0);
+}
+
+//  QMatrix4x4::QMatrix4x4(const float *values)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZN10QMatrix4x4C1EPKf(const float *values) {
+  return new QMatrix4x4(values);
 }
 
 //  QMatrix4x4::QMatrix4x4(float m11, float m12, float m13, float m14, float
@@ -63,6 +74,15 @@ QMatrix4x4 *ritual_ZN10QMatrix4x4C1Effffffffffffffff(
       m42,
       m43,
       m44);
+}
+
+//  QMatrix4x4::QMatrix4x4(const float *values, int cols, int rows)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZN10QMatrix4x4C1EPKfii(
+    const float *values,
+    int cols,
+    int rows) {
+  return new QMatrix4x4(values, cols, rows);
 }
 
 //  QMatrix4x4::QMatrix4x4(const QTransform &transform)
@@ -163,6 +183,12 @@ QMatrix4x4 *ritual_ZNK10QMatrix4x48invertedEPb(
 extern "C" Q_DECL_EXPORT
 QMatrix4x4 *ritual_ZNK10QMatrix4x410transposedEv(const QMatrix4x4 *self) {
   return new QMatrix4x4(self->transposed());
+}
+
+//  QMatrix3x3 QMatrix4x4::normalMatrix() const
+extern "C" Q_DECL_EXPORT
+QMatrix3x3 *ritual_ZNK10QMatrix4x412normalMatrixEv(const QMatrix4x4 *self) {
+  return new QMatrix3x3(self->normalMatrix());
 }
 
 //  QMatrix4x4 &QMatrix4x4::operator+=(const QMatrix4x4 &other)
@@ -600,6 +626,18 @@ QRectF *ritual_ZNK10QMatrix4x47mapRectERK6QRectF(
   return new QRectF(self->mapRect(*rect));
 }
 
+//  const float *QMatrix4x4::data() const
+extern "C" Q_DECL_EXPORT
+const float *ritual_ZNK10QMatrix4x44dataEv(const QMatrix4x4 *self) {
+  return self->data();
+}
+
+//  const float *QMatrix4x4::constData() const
+extern "C" Q_DECL_EXPORT
+const float *ritual_ZNK10QMatrix4x49constDataEv(const QMatrix4x4 *self) {
+  return self->constData();
+}
+
 //  void QMatrix4x4::optimize()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x48optimizeEv(QMatrix4x4 *self) {
@@ -711,6 +749,100 @@ QMatrix4x4 *ritual_list_at_QMatrix4x4(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QMatrix4x4(QList<QMatrix4x4> *self) {
   delete self;
+}
+
+//  a QMatrix3x3 a ritual of QMatrix4x4 gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMatrix4x4__QMatrix3x3(QMatrix3x3 *self) {
+  delete self;
+}
+
+typedef QGenericMatrix<4, 4, float> CutieGenericMatrix4x4;
+
+//  QMatrix4x4::QMatrix4x4<2, 2>(const QGenericMatrix<2, 2, float> &matrix)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZN10QMatrix4x4C2ILi2ELi2EEERK14QGenericMatrixIXT_EXT0_EfE(
+    const QMatrix2x2 *matrix) {
+  return new QMatrix4x4(*matrix);
+}
+
+//  QGenericMatrix<2, 2, float> QMatrix4x4::toGenericMatrix<2, 2>() const
+extern "C" Q_DECL_EXPORT
+QGenericMatrix<2, 2, float> *ritual_ZNK10QMatrix4x415toGenericMatrixILi2ELi2EEE14QGenericMatrixIXT_EXT0_EfEv(
+    const QMatrix4x4 *self) {
+  return new QGenericMatrix<2, 2, float>(self->toGenericMatrix<2, 2>());
+}
+
+//  QMatrix4x4::QMatrix4x4<3, 3>(const QGenericMatrix<3, 3, float> &matrix)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZN10QMatrix4x4C2ILi3ELi3EEERK14QGenericMatrixIXT_EXT0_EfE(
+    const QMatrix3x3 *matrix) {
+  return new QMatrix4x4(*matrix);
+}
+
+//  QGenericMatrix<3, 3, float> QMatrix4x4::toGenericMatrix<3, 3>() const
+extern "C" Q_DECL_EXPORT
+QGenericMatrix<3, 3, float> *ritual_ZNK10QMatrix4x415toGenericMatrixILi3ELi3EEE14QGenericMatrixIXT_EXT0_EfEv(
+    const QMatrix4x4 *self) {
+  return new QGenericMatrix<3, 3, float>(self->toGenericMatrix<3, 3>());
+}
+
+//  QMatrix4x4::QMatrix4x4<4, 4>(const QGenericMatrix<4, 4, float> &matrix)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZN10QMatrix4x4C2ILi4ELi4EEERK14QGenericMatrixIXT_EXT0_EfE(
+    const CutieGenericMatrix4x4 *matrix) {
+  return new QMatrix4x4(*matrix);
+}
+
+//  QGenericMatrix<4, 4, float> QMatrix4x4::toGenericMatrix<4, 4>() const
+extern "C" Q_DECL_EXPORT
+QGenericMatrix<4, 4, float> *ritual_ZNK10QMatrix4x415toGenericMatrixILi4ELi4EEE14QGenericMatrixIXT_EXT0_EfEv(
+    const QMatrix4x4 *self) {
+  return new QGenericMatrix<4, 4, float>(self->toGenericMatrix<4, 4>());
+}
+
+//  QMatrix4x4::QMatrix4x4<3, 4>(const QGenericMatrix<3, 4, float> &matrix)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZN10QMatrix4x4C2ILi3ELi4EEERK14QGenericMatrixIXT_EXT0_EfE(
+    const QMatrix3x4 *matrix) {
+  return new QMatrix4x4(*matrix);
+}
+
+//  QGenericMatrix<3, 4, float> QMatrix4x4::toGenericMatrix<3, 4>() const
+extern "C" Q_DECL_EXPORT
+QGenericMatrix<3, 4, float> *ritual_ZNK10QMatrix4x415toGenericMatrixILi3ELi4EEE14QGenericMatrixIXT_EXT0_EfEv(
+    const QMatrix4x4 *self) {
+  return new QGenericMatrix<3, 4, float>(self->toGenericMatrix<3, 4>());
+}
+
+//  QMatrix4x4::QMatrix4x4<4, 3>(const QGenericMatrix<4, 3, float> &matrix)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZN10QMatrix4x4C2ILi4ELi3EEERK14QGenericMatrixIXT_EXT0_EfE(
+    const QMatrix4x3 *matrix) {
+  return new QMatrix4x4(*matrix);
+}
+
+//  QGenericMatrix<4, 3, float> QMatrix4x4::toGenericMatrix<4, 3>() const
+extern "C" Q_DECL_EXPORT
+QGenericMatrix<4, 3, float> *ritual_ZNK10QMatrix4x415toGenericMatrixILi4ELi3EEE14QGenericMatrixIXT_EXT0_EfEv(
+    const QMatrix4x4 *self) {
+  return new QGenericMatrix<4, 3, float>(self->toGenericMatrix<4, 3>());
+}
+
+//  float &QMatrix4x4::operator()(int row, int column)
+extern "C" Q_DECL_EXPORT
+float *ritual_ZN10QMatrix4x4clEii(
+    QMatrix4x4 *self,
+    int row,
+    int column) {
+  return &((*self)(row, column));
+}
+
+//  float *QMatrix4x4::data()
+extern "C" Q_DECL_EXPORT
+float *ritual_ZN10QMatrix4x44dataEv(
+    QMatrix4x4 *self) {
+  return self->data();
 }
 
 #endif  // !defined(QT_NO_MATRIX4X4)

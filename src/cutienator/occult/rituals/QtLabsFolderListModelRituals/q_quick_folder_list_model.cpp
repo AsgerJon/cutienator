@@ -8,7 +8,9 @@
 #include <QtLabsFolderListModel/6.12.0/QtLabsFolderListModel/private/qquickfolderlistmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qurl.h>
@@ -974,6 +976,25 @@ const QMetaObject *ritual_ZNK21QQuickFolderListModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFolderListModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickFolderListModel11qt_metacastEPKc(
+    QQuickFolderListModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFolderListModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickFolderListModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFolderListModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFolderListModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickFolderListModel2trEPKcS1_i(
@@ -1324,6 +1345,146 @@ int ritual_ZNK21QQuickFolderListModel14roleFromStringERK7QString(
     const QQuickFolderListModel *self,
     const QString *roleName) {
   return self->roleFromString(*roleName);
+}
+
+//  void QQuickFolderListModel::folderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel13folderChangedEv(
+    QQuickFolderListModel *self) {
+  self->folderChanged();
+}
+
+//  void QQuickFolderListModel::rowCountChanged() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK21QQuickFolderListModel15rowCountChangedEv(
+    const QQuickFolderListModel *self) {
+  self->rowCountChanged();
+}
+
+//  void QQuickFolderListModel::rootFolderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel17rootFolderChangedEv(
+    QQuickFolderListModel *self) {
+  self->rootFolderChanged();
+}
+
+//  void QQuickFolderListModel::nameFilterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel17nameFilterChangedEv(
+    QQuickFolderListModel *self) {
+  self->nameFilterChanged();
+}
+
+//  void QQuickFolderListModel::sortFieldChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel16sortFieldChangedEv(
+    QQuickFolderListModel *self) {
+  self->sortFieldChanged();
+}
+
+//  void QQuickFolderListModel::sortReversedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel19sortReversedChangedEv(
+    QQuickFolderListModel *self) {
+  self->sortReversedChanged();
+}
+
+//  void QQuickFolderListModel::showFilesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel16showFilesChangedEv(
+    QQuickFolderListModel *self) {
+  self->showFilesChanged();
+}
+
+//  void QQuickFolderListModel::showDirsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel15showDirsChangedEv(
+    QQuickFolderListModel *self) {
+  self->showDirsChanged();
+}
+
+//  void QQuickFolderListModel::showDirsFirstChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel20showDirsFirstChangedEv(
+    QQuickFolderListModel *self) {
+  self->showDirsFirstChanged();
+}
+
+//  void QQuickFolderListModel::showDotAndDotDotChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel23showDotAndDotDotChangedEv(
+    QQuickFolderListModel *self) {
+  self->showDotAndDotDotChanged();
+}
+
+//  void QQuickFolderListModel::showDotChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel14showDotChangedEv(
+    QQuickFolderListModel *self) {
+  self->showDotChanged();
+}
+
+//  void QQuickFolderListModel::showDotDotChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel17showDotDotChangedEv(
+    QQuickFolderListModel *self) {
+  self->showDotDotChanged();
+}
+
+//  void QQuickFolderListModel::showHiddenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel17showHiddenChangedEv(
+    QQuickFolderListModel *self) {
+  self->showHiddenChanged();
+}
+
+//  void QQuickFolderListModel::showOnlyReadableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel23showOnlyReadableChangedEv(
+    QQuickFolderListModel *self) {
+  self->showOnlyReadableChanged();
+}
+
+//  void QQuickFolderListModel::caseSensitiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel20caseSensitiveChangedEv(
+    QQuickFolderListModel *self) {
+  self->caseSensitiveChanged();
+}
+
+//  void QQuickFolderListModel::sortCaseSensitiveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel24sortCaseSensitiveChangedEv(
+    QQuickFolderListModel *self) {
+  self->sortCaseSensitiveChanged();
+}
+
+//  void QQuickFolderListModel::countChanged() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK21QQuickFolderListModel12countChangedEv(
+    const QQuickFolderListModel *self) {
+  self->countChanged();
+}
+
+//  void QQuickFolderListModel::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickFolderListModel13statusChangedEv(
+    QQuickFolderListModel *self) {
+  self->statusChanged();
+}
+
+//  QQuickFolderListModelPrivate *QQuickFolderListModel::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickFolderListModelPrivate *ritual_ZN21QQuickFolderListModel6d_funcEv(
+    QQuickFolderListModel *self) {
+  return self->d_func();
+}
+
+//  const QQuickFolderListModelPrivate *QQuickFolderListModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickFolderListModelPrivate *ritual_ZNK21QQuickFolderListModel6d_funcEv(
+    const QQuickFolderListModel *self) {
+  return self->d_func();
 }
 
 //  QQuickFolderListModel as the QQmlParserStatus it is built on

@@ -8,6 +8,12 @@
     "ritual_ZNK25QQStyleKitImageProperties10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQStyleKitImageProperties11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQStyleKitImageProperties11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQStyleKitImageProperties2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -28,6 +34,15 @@
     "ritual_ZNK25QQStyleKitImageProperties8fillModeEv": ["int", "address"],
     "ritual_ZN25QQStyleKitImageProperties11setFillModeEN11QQuickImage8FillModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQStyleKitImageProperties13sourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQStyleKitImageProperties12colorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQStyleKitImageProperties15fillModeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQStyleKitImageProperties": [
       "bool", "address", "chars", "address"

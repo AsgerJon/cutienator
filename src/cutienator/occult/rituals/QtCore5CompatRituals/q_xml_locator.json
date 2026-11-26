@@ -4,6 +4,7 @@
     "QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QXmlLocatorC1Ev": ["address"],
     "ritual_ZN11QXmlLocatorD1Ev": ["nothing", "address"],
     "ritual_ZNK11QXmlLocator12columnNumberEv": ["int", "address"],
     "ritual_ZNK11QXmlLocator10lineNumberEv": ["int", "address"],

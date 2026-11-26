@@ -5,6 +5,8 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QIconLoaderEngineC1ERK7QString": ["address", "text"],
+    "ritual_ZN17QIconLoaderEngineD1Ev": ["nothing", "address"],
     "ritual_ZN17QIconLoaderEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
       "nothing", "address", "address", "address", "int", "int"
     ],
@@ -26,6 +28,7 @@
     "ritual_ZN17QIconLoaderEngine12entryForSizeERK14QThemeIconInfoRK5QSizei": [
       "address", "address", "address", "int"
     ],
+    "ritual_ZNK17QIconLoaderEngine3keyEv": ["text", "address"],
     "ritual_ZNK17QIconLoaderEngine7hasIconEv": ["bool", "address"],
     "ritual_take_QIconLoaderEngine": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QIconLoaderEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
@@ -42,6 +45,7 @@
     "ritual_own_ZN17QIconLoaderEngine6isNullEv": ["bool", "address"],
     "ritual_own_ZN17QIconLoaderEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
       "address", "address", "address", "int", "int", "double"
-    ]
+    ],
+    "ritual_own_ZNK17QIconLoaderEngine3keyEv": ["text", "address"]
   }
 }

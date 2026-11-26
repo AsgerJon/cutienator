@@ -8,6 +8,21 @@
     "ritual_ZNK29QDBusPendingCallWatcherHelper10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QDBusPendingCallWatcherHelper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QDBusPendingCallWatcherHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN29QDBusPendingCallWatcherHelper8finishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDBusPendingCallWatcherHelper5replyERK12QDBusMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QDBusPendingCallWatcherHelper5errorERK10QDBusErrorRK12QDBusMessage": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_take_QDBusPendingCallWatcherHelper": [
       "bool", "address", "chars", "address"
     ]

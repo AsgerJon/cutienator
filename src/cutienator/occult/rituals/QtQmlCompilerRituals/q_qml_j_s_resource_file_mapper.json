@@ -22,6 +22,9 @@
     "ritual_ZNK24QQmlJSResourceFileMapper6isFileE11QStringView": [
       "bool", "address", "text"
     ],
+    "ritual_ZNK24QQmlJSResourceFileMapper6filterERKNS_6FilterE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK24QQmlJSResourceFileMapper9filePathsERKNS_6FilterE": [
       "address", "address", "address"
     ],
@@ -31,6 +34,12 @@
     "ritual_ZNK24QQmlJSResourceFileMapper5entryERKNS_6FilterE": [
       "address", "address", "address"
     ],
-    "ritual_ZN24QQmlJSResourceFileMapperD1Ev": ["nothing", "address"]
+    "ritual_ZN24QQmlJSResourceFileMapper19populateFromQrcFileER5QFile": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQmlJSResourceFileMapperD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlJSResourceFileMapper__QList_QQmlJSResourceFileMapper_Entry": [
+      "nothing", "address"
+    ]
   }
 }

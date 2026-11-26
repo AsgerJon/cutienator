@@ -16,6 +16,7 @@
       "address", "address", "chars"
     ],
     "ritual_ZN17QQmlListReferenceC1ERKS_": ["address", "address"],
+    "ritual_ZN17QQmlListReferenceaSERKS_": ["address", "address", "address"],
     "ritual_ZN17QQmlListReferenceD1Ev": ["nothing", "address"],
     "ritual_ZNK17QQmlListReference7isValidEv": ["bool", "address"],
     "ritual_ZNK17QQmlListReference6objectEv": ["address", "address"],

@@ -11,6 +11,12 @@
     "ritual_ZNK23QQuickGraphsScatterNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickGraphsScatterNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickGraphsScatterNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickGraphsScatterNode2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -39,6 +45,21 @@
     "ritual_ZN23QQuickGraphsScatterNode17scatterSeriesListEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickGraphsScatterNode10seriesListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsScatterNode16appendSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsScatterNode15countSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesE": [
+      "long long", "address"
+    ],
+    "ritual_ZN23QQuickGraphsScatterNode12atSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN23QQuickGraphsScatterNode15clearSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesE": [
+      "nothing", "address"
+    ],
     "ritual_ZN23QQuickGraphsScatterNode9addSeriesEP16QScatter3DSeries": [
       "nothing", "address", "address"
     ],
@@ -56,6 +77,18 @@
     ],
     "ritual_ZN23QQuickGraphsScatterNode17componentCompleteEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN23QQuickGraphsScatterNode12axisXChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsScatterNode12axisYChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsScatterNode12axisZChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsScatterNode21selectedSeriesChangedEP16QScatter3DSeries": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN23QQuickGraphsScatterNode12graphScatterEv": [
       "address", "address"
@@ -79,6 +112,9 @@
       "bool", "address", "address", "address"
     ],
     "ritual_own_ZN23QQuickGraphsScatterNode17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickGraphsScatterNode__QQmlListProperty_QScatter3DSeries": [
       "nothing", "address"
     ]
   }

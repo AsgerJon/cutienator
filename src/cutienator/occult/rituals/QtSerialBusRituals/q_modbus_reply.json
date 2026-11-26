@@ -5,7 +5,15 @@
   ],
   "rows": {
     "ritual_ZNK12QModbusReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QModbusReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QModbusReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QModbusReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QModbusReply6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QModbusReply6d_funcEv": ["address", "address"],
     "ritual_ZN12QModbusReplyC1ENS_9ReplyTypeEiP7QObject": [
       "address", "int", "int", "address"
     ],
@@ -26,9 +34,20 @@
     "ritual_ZN12QModbusReply8setErrorEN13QModbusDevice5ErrorERK7QString": [
       "nothing", "address", "int", "text"
     ],
+    "ritual_ZNK12QModbusReply18intermediateErrorsEv": ["address", "address"],
     "ritual_ZN12QModbusReply20addIntermediateErrorEN13QModbusDevice17IntermediateErrorE": [
       "nothing", "address", "int"
     ],
-    "ritual_take_QModbusReply": ["bool", "address", "chars", "address"]
+    "ritual_ZN12QModbusReply8finishedEv": ["nothing", "address"],
+    "ritual_ZN12QModbusReply13errorOccurredEN13QModbusDevice5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QModbusReply25intermediateErrorOccurredEN13QModbusDevice17IntermediateErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QModbusReply": ["bool", "address", "chars", "address"],
+    "ritual_drop_QModbusReply__QList_QModbusDevice_IntermediateError": [
+      "nothing", "address"
+    ]
   }
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK23QSmoothedAnimationTimer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QSmoothedAnimationTimer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QSmoothedAnimationTimer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QSmoothedAnimationTimerD1Ev": ["nothing", "address"],
     "ritual_ZN23QSmoothedAnimationTimer13stopAnimationEv": [
       "nothing", "address"

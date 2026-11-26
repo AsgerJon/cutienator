@@ -5,5 +5,27 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render13BufferManagerC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render13BufferManagerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13BufferManager14addDirtyBufferEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13BufferManager16takeDirtyBuffersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13BufferManager18addBufferReferenceEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13BufferManager21removeBufferReferenceEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13BufferManager20takeBuffersToReleaseEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_BufferManager__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
+    ]
   }
 }

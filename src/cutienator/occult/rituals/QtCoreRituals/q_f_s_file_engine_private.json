@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN20QFSFileEnginePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QFSFileEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QFSFileEnginePrivate6openFhE6QFlagsIN13QIODeviceBase12OpenModeFlagEEP8_IO_FILE": [
+      "bool", "address", "int", "address"
+    ],
     "ritual_ZN20QFSFileEnginePrivate6openFdE6QFlagsIN13QIODeviceBase12OpenModeFlagEEi": [
       "bool", "address", "int", "int"
     ],
@@ -15,6 +18,9 @@
     "ritual_ZNK20QFSFileEnginePrivate7posFdFhEv": ["long long", "address"],
     "ritual_ZN20QFSFileEnginePrivate8seekFdFhEx": [
       "bool", "address", "long long"
+    ],
+    "ritual_ZN20QFSFileEnginePrivate12readLineFdFhEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_ZN20QFSFileEnginePrivate17openModeCanCreateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "int"

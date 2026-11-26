@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK16QQmlDebugService10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlDebugService11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQmlDebugService11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQmlDebugService2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QQmlDebugService6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQmlDebugService6d_funcEv": ["address", "address"],
     "ritual_ZN16QQmlDebugServiceD1Ev": ["nothing", "address"],
     "ritual_ZNK16QQmlDebugService4nameEv": ["text", "address"],
     "ritual_ZNK16QQmlDebugService7versionEv": ["float", "address"],
@@ -42,6 +50,18 @@
     "ritual_ZN16QQmlDebugService11objectForIdEi": ["address", "int"],
     "ritual_ZN16QQmlDebugServiceC1ERK7QStringfP7QObject": [
       "address", "text", "float", "address"
+    ],
+    "ritual_ZN16QQmlDebugService16attachedToEngineEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlDebugService18detachedFromEngineEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlDebugService15messageToClientERK7QStringRK10QByteArray": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN16QQmlDebugService16messagesToClientERK7QStringRK5QListI10QByteArrayE": [
+      "nothing", "address", "text", "address"
     ],
     "ritual_take_QQmlDebugService": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QQmlDebugService21stateAboutToBeChangedENS_5StateE": [

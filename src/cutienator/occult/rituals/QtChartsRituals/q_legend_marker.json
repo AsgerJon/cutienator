@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QLegendMarker10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QLegendMarker11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QLegendMarker11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QLegendMarker2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QLegendMarkerD1Ev": ["nothing", "address"],
     "ritual_ZN13QLegendMarker4typeEv": ["int", "address"],
@@ -35,6 +41,18 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN13QLegendMarker6seriesEv": ["address", "address"],
+    "ritual_ZN13QLegendMarker7clickedEv": ["nothing", "address"],
+    "ritual_ZN13QLegendMarker7hoveredEb": ["nothing", "address", "bool"],
+    "ritual_ZN13QLegendMarker12labelChangedEv": ["nothing", "address"],
+    "ritual_ZN13QLegendMarker17labelBrushChangedEv": ["nothing", "address"],
+    "ritual_ZN13QLegendMarker11fontChangedEv": ["nothing", "address"],
+    "ritual_ZN13QLegendMarker10penChangedEv": ["nothing", "address"],
+    "ritual_ZN13QLegendMarker12brushChangedEv": ["nothing", "address"],
+    "ritual_ZN13QLegendMarker14visibleChangedEv": ["nothing", "address"],
+    "ritual_ZN13QLegendMarker12shapeChangedEv": ["nothing", "address"],
+    "ritual_ZN13QLegendMarkerC1ER20QLegendMarkerPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QLegendMarker": ["bool", "address", "chars", "address"],
     "ritual_list_make_QLegendMarker_ptr": ["address"],
     "ritual_list_add_QLegendMarker_ptr": ["nothing", "address", "address"],

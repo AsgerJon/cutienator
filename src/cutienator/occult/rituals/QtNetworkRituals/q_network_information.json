@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK19QNetworkInformation10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QNetworkInformation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QNetworkInformation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QNetworkInformation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN19QNetworkInformation6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QNetworkInformation6d_funcEv": ["address", "address"],
     "ritual_ZNK19QNetworkInformation12reachabilityEv": ["int", "address"],
     "ritual_ZNK19QNetworkInformation21isBehindCaptivePortalEv": [
       "bool", "address"
@@ -35,6 +43,18 @@
     ],
     "ritual_ZN19QNetworkInformation17availableBackendsEv": ["address"],
     "ritual_ZN19QNetworkInformation8instanceEv": ["address"],
+    "ritual_ZN19QNetworkInformation19reachabilityChangedENS_12ReachabilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QNetworkInformation28isBehindCaptivePortalChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QNetworkInformation22transportMediumChangedENS_15TransportMediumE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QNetworkInformation16isMeteredChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN19QNetworkInformationC1EP26QNetworkInformationBackend": [
       "address", "address"
     ],

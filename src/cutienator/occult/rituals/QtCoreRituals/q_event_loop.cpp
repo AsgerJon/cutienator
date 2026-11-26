@@ -180,6 +180,24 @@ const QMetaObject *ritual_ZNK10QEventLoop10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QEventLoop::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QEventLoop11qt_metacastEPKc(
+    QEventLoop *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QEventLoop::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QEventLoop11qt_metacallEN11QMetaObject4CallEiPPv(
+    QEventLoop *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QEventLoop::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QEventLoop2trEPKcS1_i(

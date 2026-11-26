@@ -1001,6 +1001,25 @@ const QMetaObject *ritual_ZNK17DateTimeAxisLabel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DateTimeAxisLabel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17DateTimeAxisLabel11qt_metacastEPKc(
+    DateTimeAxisLabel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DateTimeAxisLabel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17DateTimeAxisLabel11qt_metacallEN11QMetaObject4CallEiPPv(
+    DateTimeAxisLabel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DateTimeAxisLabel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17DateTimeAxisLabel2trEPKcS1_i(
@@ -1066,6 +1085,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17DateTimeAxisLabel20resetBeforeEditValueEv(
     DateTimeAxisLabel *self) {
   self->resetBeforeEditValue();
+}
+
+//  void DateTimeAxisLabel::dateTimeChanged(const QDateTime &oldDateTime,
+//      const QDateTime &newDateTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DateTimeAxisLabel15dateTimeChangedERK9QDateTimeS2_(
+    DateTimeAxisLabel *self,
+    const QDateTime *oldDateTime,
+    const QDateTime *newDateTime) {
+  self->dateTimeChanged(*oldDateTime, *newDateTime);
 }
 
 //  a Python function taken by a CuteDateTimeAxisLabel, for the function

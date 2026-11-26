@@ -109,6 +109,15 @@
     "ritual_ZN18QRasterPaintEngine10drawPointsEPK6QPointi": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN18QRasterPaintEngine6strokeERK11QVectorPathRK4QPen": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine4fillERK11QVectorPathRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine4clipERK11QVectorPathN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN18QRasterPaintEngine4clipERK5QRectN2Qt13ClipOperationE": [
       "nothing", "address", "address", "int"
     ],
@@ -119,11 +128,18 @@
     "ritual_ZN18QRasterPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QRasterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine": [
+      "bool", "address", "int", "address", "address", "address"
+    ],
     "ritual_ZNK18QRasterPaintEngine8clipTypeEv": ["int", "address"],
     "ritual_ZNK18QRasterPaintEngine16clipBoundingRectEv": [
       "address", "address"
     ],
     "ritual_ZN18QRasterPaintEngine12rasterBufferEv": ["address", "address"],
+    "ritual_ZN18QRasterPaintEngine11alphaPenBltEPKviiiiiib": [
+      "nothing", "address", "address", "int", "int", "int", "int", "int",
+      "int", "bool"
+    ],
     "ritual_ZNK18QRasterPaintEngine4typeEv": ["int", "address"],
     "ritual_ZNK18QRasterPaintEngine16coordinateOffsetEv": [
       "address", "address"
@@ -133,6 +149,9 @@
     ],
     "ritual_ZNK18QRasterPaintEngine22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngineC1ER25QRasterPaintEnginePrivateP12QPaintDevice": [
+      "address", "address", "address"
     ],
     "ritual_ZN18QRasterPaintEngine4initEv": ["nothing", "address"],
     "ritual_ZN18QRasterPaintEngine8fillRectERK6QRectFP9QSpanData": [
@@ -269,6 +288,9 @@
     ],
     "ritual_own_ZN18QRasterPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine16drawCachedGlyphsEiPKjPK11QFixedPointP11QFontEngine": [
+      "bool", "address", "int", "address", "address", "address"
     ],
     "ritual_own_ZNK18QRasterPaintEngine4typeEv": ["int", "address"],
     "ritual_own_ZNK18QRasterPaintEngine16coordinateOffsetEv": [

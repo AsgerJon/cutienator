@@ -37,7 +37,7 @@ typedef const QSize * (*CuteQLottieRepeaterCall11)(const void *, int *);
 class CuteQLottieRepeater : public QLottieRepeater {
 public:
   using QLottieRepeater::QLottieRepeater;
-  CuteQLottieRepeater(const QLottieRepeater &other) : QLottieRepeater(other) {}
+  CuteQLottieRepeater(const QLottieRepeater & other) : QLottieRepeater(other) {}
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {
@@ -271,6 +271,14 @@ void ritual_ZN15QLottieRepeater16updatePropertiesEi(
     QLottieRepeater *self,
     int frame) {
   self->updateProperties(frame);
+}
+
+//  void QLottieRepeater::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QLottieRepeater6renderER15QLottieRenderer(
+    const QLottieRepeater *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
 }
 
 //  int QLottieRepeater::copies() const

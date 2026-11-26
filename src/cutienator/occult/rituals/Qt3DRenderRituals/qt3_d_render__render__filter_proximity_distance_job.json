@@ -5,11 +5,35 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJobC1Ev": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJobD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob10setManagerEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob21setProximityFilterIdsERK5QListIN8Qt3DCore7QNodeIdEE": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK10Qt3DRender6Render26FilterProximityDistanceJob18hasProximityFilterEv": [
       "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render26FilterProximityDistanceJob16filteredEntitiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob17selectAllEntitiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26FilterProximityDistanceJob14filterEntitiesERKSt6vectorIPNS0_6EntityESaIS4_EE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_Qt3DRender_Render_FilterProximityDistanceJob": [
       "bool", "address", "chars", "address"

@@ -20,6 +20,25 @@ const QMetaObject *ritual_ZNK18QQmlDelegateChoice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDelegateChoice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQmlDelegateChoice11qt_metacastEPKc(
+    QQmlDelegateChoice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDelegateChoice::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQmlDelegateChoice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDelegateChoice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlDelegateChoice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQmlDelegateChoice2trEPKcS1_i(
@@ -96,6 +115,46 @@ bool ritual_ZNK18QQmlDelegateChoice5matchEiiRK8QVariant(
     int column,
     const QVariant *value) {
   return self->match(row, column, *value);
+}
+
+//  void QQmlDelegateChoice::roleValueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlDelegateChoice16roleValueChangedEv(
+    QQmlDelegateChoice *self) {
+  self->roleValueChanged();
+}
+
+//  void QQmlDelegateChoice::rowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlDelegateChoice10rowChangedEv(QQmlDelegateChoice *self) {
+  self->rowChanged();
+}
+
+//  void QQmlDelegateChoice::indexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlDelegateChoice12indexChangedEv(
+    QQmlDelegateChoice *self) {
+  self->indexChanged();
+}
+
+//  void QQmlDelegateChoice::columnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlDelegateChoice13columnChangedEv(
+    QQmlDelegateChoice *self) {
+  self->columnChanged();
+}
+
+//  void QQmlDelegateChoice::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlDelegateChoice15delegateChangedEv(
+    QQmlDelegateChoice *self) {
+  self->delegateChanged();
+}
+
+//  void QQmlDelegateChoice::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQmlDelegateChoice7changedEv(QQmlDelegateChoice *self) {
+  self->changed();
 }
 
 //  bool QQmlDelegateChoice::match(int row, int column, const QVariant

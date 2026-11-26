@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickGridViewAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickGridViewAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickGridViewAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickGridViewAttachedD1Ev": ["nothing", "address"],
     "ritual_ZNK22QQuickGridViewAttached4viewEv": ["address", "address"],
     "ritual_ZN22QQuickGridViewAttached7setViewEP14QQuickGridView": [

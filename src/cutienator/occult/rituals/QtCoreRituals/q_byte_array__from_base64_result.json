@@ -4,7 +4,11 @@
     "QtCore/qbytearray.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QByteArray16FromBase64Result4swapERS0_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK10QByteArray16FromBase64ResultcvbEv": ["bool", "address"],
+    "ritual_ZNR10QByteArray16FromBase64ResultdeEv": ["address", "address"],
     "ritual_ZNKR10QByteArray16FromBase64ResultdeEv": ["address", "address"],
     "ritual_ZeqRKN10QByteArray16FromBase64ResultES2_": [
       "bool", "address", "address"

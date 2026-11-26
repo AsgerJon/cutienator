@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QDateTimeEdit10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QDateTimeEdit11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QDateTimeEdit2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QDateTimeEditC1EP7QWidget": ["address", "address"],
     "ritual_ZN13QDateTimeEditC1ERK9QDateTimeP7QWidget": [
@@ -110,6 +116,15 @@
     "ritual_ZN13QDateTimeEdit5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN13QDateTimeEdit15dateTimeChangedERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit11timeChangedE5QTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit11dateChangedE5QDate": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13QDateTimeEdit11setDateTimeERK9QDateTime": [
       "nothing", "address", "address"
     ],
@@ -130,6 +145,12 @@
     ],
     "ritual_ZN13QDateTimeEdit18focusNextPrevChildEb": [
       "bool", "address", "bool"
+    ],
+    "ritual_ZNK13QDateTimeEdit8validateER7QStringRi": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit5fixupER7QString": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString": [
       "address", "address", "text"

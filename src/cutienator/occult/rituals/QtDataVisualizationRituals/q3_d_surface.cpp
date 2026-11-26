@@ -597,6 +597,24 @@ const QMetaObject *ritual_ZNK10Q3DSurface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DSurface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Q3DSurface11qt_metacastEPKc(
+    Q3DSurface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DSurface::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Q3DSurface11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DSurface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DSurface::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Q3DSurface2trEPKcS1_i(
@@ -727,6 +745,46 @@ void ritual_ZN10Q3DSurface21setFlipHorizontalGridEb(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10Q3DSurface18flipHorizontalGridEv(const Q3DSurface *self) {
   return self->flipHorizontalGrid();
+}
+
+//  void Q3DSurface::axisXChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Q3DSurface12axisXChangedEP12QValue3DAxis(
+    Q3DSurface *self,
+    QValue3DAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void Q3DSurface::axisYChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Q3DSurface12axisYChangedEP12QValue3DAxis(
+    Q3DSurface *self,
+    QValue3DAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void Q3DSurface::axisZChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Q3DSurface12axisZChangedEP12QValue3DAxis(
+    Q3DSurface *self,
+    QValue3DAxis *axis) {
+  self->axisZChanged(axis);
+}
+
+//  void Q3DSurface::selectedSeriesChanged(QSurface3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Q3DSurface21selectedSeriesChangedEP16QSurface3DSeries(
+    Q3DSurface *self,
+    QSurface3DSeries *series) {
+  self->selectedSeriesChanged(series);
+}
+
+//  void Q3DSurface::flipHorizontalGridChanged(bool flip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Q3DSurface25flipHorizontalGridChangedEb(
+    Q3DSurface *self,
+    bool flip) {
+  self->flipHorizontalGridChanged(flip);
 }
 
 //  Q3DSurfacePrivate *Q3DSurface::dptr()

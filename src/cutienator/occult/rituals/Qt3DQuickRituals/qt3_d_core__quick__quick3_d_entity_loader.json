@@ -8,8 +8,50 @@
     "ritual_ZNK8Qt3DCore5Quick19Quick3DEntityLoader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoaderC1EPNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoaderD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick19Quick3DEntityLoader6entityEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick19Quick3DEntityLoader6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick19Quick3DEntityLoader15sourceComponentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader18setSourceComponentEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick19Quick3DEntityLoader6statusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader13entityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader13sourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader22sourceComponentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader13statusChangedENS1_6StatusE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN8Qt3DCore5Quick19Quick3DEntityLoader6d_funcEv": [
       "address", "address"

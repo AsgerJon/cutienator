@@ -15,10 +15,38 @@ QPlaceUser *ritual_ZN10QPlaceUserC1ERKS_(const QPlaceUser *other) {
   return new QPlaceUser(*other);
 }
 
+//  QPlaceUser::QPlaceUser(QPlaceUser &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceUser *ritual_ZN10QPlaceUserC1EOS_(QPlaceUser *other) {
+  return new QPlaceUser(std::move(*other));
+}
+
 //  QPlaceUser::~QPlaceUser()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QPlaceUserD1Ev(QPlaceUser *self) {
   delete self;
+}
+
+//  QPlaceUser &QPlaceUser::operator=(const QPlaceUser &other)
+extern "C" Q_DECL_EXPORT
+QPlaceUser *ritual_ZN10QPlaceUseraSERKS_(
+    QPlaceUser *self,
+    const QPlaceUser *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlaceUser &QPlaceUser::operator=(QPlaceUser &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceUser *ritual_ZN10QPlaceUseraSEOS_(
+    QPlaceUser *self,
+    QPlaceUser *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlaceUser::swap(QPlaceUser &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QPlaceUser4swapERS_(QPlaceUser *self, QPlaceUser *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPlaceUser &lhs, const QPlaceUser &rhs)

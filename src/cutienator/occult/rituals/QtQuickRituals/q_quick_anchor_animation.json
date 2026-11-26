@@ -8,12 +8,19 @@
     "ritual_ZNK21QQuickAnchorAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickAnchorAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickAnchorAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickAnchorAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN21QQuickAnchorAnimation6d_funcEv": ["address", "address"],
     "ritual_ZNK21QQuickAnchorAnimation6d_funcEv": ["address", "address"],
     "ritual_ZN21QQuickAnchorAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QQuickAnchorAnimation7targetsEv": ["address", "address"],
     "ritual_ZNK21QQuickAnchorAnimation8durationEv": ["int", "address"],
     "ritual_ZN21QQuickAnchorAnimation11setDurationEi": [
       "nothing", "address", "int"
@@ -22,8 +29,20 @@
     "ritual_ZN21QQuickAnchorAnimation9setEasingERK12QEasingCurve": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN21QQuickAnchorAnimation15durationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickAnchorAnimation13easingChangedERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickAnchorAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
+    ],
     "ritual_take_QQuickAnchorAnimation": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQuickAnchorAnimation__QQmlListProperty_QQuickItem": [
+      "nothing", "address"
     ]
   }
 }

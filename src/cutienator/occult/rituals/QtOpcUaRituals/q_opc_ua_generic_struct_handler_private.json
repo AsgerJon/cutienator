@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtOpcUa/6.12.0/QtOpcUa/private/qopcuagenericstructhandler_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN33QOpcUaGenericStructHandlerPrivate6q_funcEv": [
@@ -13,6 +13,9 @@
     ],
     "ritual_ZN33QOpcUaGenericStructHandlerPrivateC1EP12QOpcUaClient": [
       "address", "address"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate33createGenericStructValueForTypeIdERK7QString": [
+      "address", "address", "text"
     ],
     "ritual_ZNK33QOpcUaGenericStructHandlerPrivate38structureDefinitionForBinaryEncodingIdERK7QString": [
       "address", "address", "text"
@@ -41,11 +44,59 @@
     "ritual_ZN33QOpcUaGenericStructHandlerPrivate14handleFinishedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate28addCustomStructureDefinitionERK25QOpcUaStructureDefinitionRK7QStringS5_N6QOpcUa10IsAbstractE": [
+      "bool", "address", "address", "text", "text", "int"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate23addCustomEnumDefinitionERK20QOpcUaEnumDefinitionRK7QStringS5_N6QOpcUa10IsAbstractE": [
+      "bool", "address", "address", "text", "text", "int"
+    ],
     "ritual_ZNK33QOpcUaGenericStructHandlerPrivate11initializedEv": [
       "bool", "address"
     ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate24handleInitializeFinishedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate24processDataTypeRecursiveEP26QOpcUaInternalDataTypeNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate22processStructRecursiveEP26QOpcUaInternalDataTypeNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate20processEnumRecursiveEP26QOpcUaInternalDataTypeNode": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN33QOpcUaGenericStructHandlerPrivate34processSubtypeOfKnownTypeRecursiveEP26QOpcUaInternalDataTypeNodeRK7QString": [
       "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK33QOpcUaGenericStructHandlerPrivate19decodeArrayOrScalarIiLN6QOpcUa5TypesE4294967295EEE8QVariantR24QOpcUaBinaryDataEncodingiRb": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK33QOpcUaGenericStructHandlerPrivate19decodeArrayOrScalarIdLN6QOpcUa5TypesE4294967295EEE8QVariantR24QOpcUaBinaryDataEncodingiRb": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK33QOpcUaGenericStructHandlerPrivate19decodeArrayOrScalarIbLN6QOpcUa5TypesE4294967295EEE8QVariantR24QOpcUaBinaryDataEncodingiRb": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK33QOpcUaGenericStructHandlerPrivate19decodeArrayOrScalarI7QStringLN6QOpcUa5TypesE4294967295EEE8QVariantR24QOpcUaBinaryDataEncodingiRb": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK33QOpcUaGenericStructHandlerPrivate19decodeArrayOrScalarI10QByteArrayLN6QOpcUa5TypesE4294967295EEE8QVariantR24QOpcUaBinaryDataEncodingiRb": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate19encodeArrayOrScalarIiLN6QOpcUa5TypesE4294967295EEEbR24QOpcUaBinaryDataEncodingiRK8QVariant": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate19encodeArrayOrScalarIdLN6QOpcUa5TypesE4294967295EEEbR24QOpcUaBinaryDataEncodingiRK8QVariant": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate19encodeArrayOrScalarIbLN6QOpcUa5TypesE4294967295EEEbR24QOpcUaBinaryDataEncodingiRK8QVariant": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate19encodeArrayOrScalarI7QStringLN6QOpcUa5TypesE4294967295EEEbR24QOpcUaBinaryDataEncodingiRK8QVariant": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN33QOpcUaGenericStructHandlerPrivate19encodeArrayOrScalarI10QByteArrayLN6QOpcUa5TypesE4294967295EEEbR24QOpcUaBinaryDataEncodingiRK8QVariant": [
+      "bool", "address", "address", "int", "address"
     ]
   }
 }

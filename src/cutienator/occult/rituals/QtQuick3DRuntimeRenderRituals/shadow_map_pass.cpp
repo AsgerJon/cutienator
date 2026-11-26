@@ -4,6 +4,7 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qtquick3druntimerenderglobal_p.h>
 #include <QtQuick3DRuntimeRender/QtQuick3DRuntimeRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrendercontextcore.h>
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -23,6 +24,37 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 169, as _ZN13ShadowMapPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData
+inline void ShadowMapPass::renderPrep(QSSGRenderer &renderer, QSSGLayerRenderData &data)
+{
+    Q_UNUSED(renderer)
+    using namespace RenderHelpers;
+
+    QSSG_ASSERT(!data.renderedCameras.isEmpty(), return);
+    camera = data.renderedCameras[0];
+
+    QSSG_ASSERT(shadowPassObjects.isEmpty(), shadowPassObjects.clear());
+
+    data.getShadowCastingObjects(*camera, shadowPassObjects, castingObjectsBox, receivingObjectsBox);
+
+    globalLights = data.globalLights;
+    enabled = !shadowPassObjects.isEmpty() || !globalLights.isEmpty();
+
+    if (enabled) {
+        shadowMapManager = data.requestShadowMapManager();
+
+        ps = data.getPipelineState();
+        ps.flags |= { QSSGRhiGraphicsPipelineState::Flag::DepthTestEnabled, QSSGRhiGraphicsPipelineState::Flag::DepthWriteEnabled };
+        // Try reducing self-shadowing and artifacts.
+        ps.depthBias = 2;
+        ps.slopeScaledDepthBias = 1.5f;
+
+        if (!debugCamera) {
+            debugCamera = std::make_unique<QSSGRenderCamera>(QSSGRenderGraphObject::Type::OrthographicCamera);
+        }
+    }
+}
+
 //  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 237, as _ZN13ShadowMapPass13resetForFrameEv
 inline void ShadowMapPass::resetForFrame()
 {
@@ -35,6 +67,16 @@ inline void ShadowMapPass::resetForFrame()
     globalLights.clear();
 }
 //  -----------------------------------------------------------------------
+
+//  void ShadowMapPass::renderPrep(QSSGRenderer &renderer,
+//      QSSGLayerRenderData &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13ShadowMapPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData(
+    ShadowMapPass *self,
+    QSSGRenderer *renderer,
+    QSSGLayerRenderData *data) {
+  self->renderPrep(*renderer, *data);
+}
 
 //  Type ShadowMapPass::passType() const
 extern "C" Q_DECL_EXPORT

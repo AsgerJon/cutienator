@@ -224,6 +224,23 @@ public:
   }
 };
 
+//  QQmlJS::AST::ComputedPropertyName::ComputedPropertyName(ExpressionNode
+//      *expression)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ComputedPropertyName *ritual_ZN6QQmlJS3AST20ComputedPropertyNameC1EPNS0_14ExpressionNodeE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::ExpressionNode *expression) {
+  return new (pool) CuteQQmlJS_AST_ComputedPropertyName(expression);
+}
+
+//  void QQmlJS::AST::ComputedPropertyName::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST20ComputedPropertyName7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ComputedPropertyName *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  QString QQmlJS::AST::ComputedPropertyName::asString() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK6QQmlJS3AST20ComputedPropertyName8asStringEv(

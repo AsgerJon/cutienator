@@ -8,8 +8,36 @@
     "ritual_ZNK8Qt3DCore5Quick16QQmlAspectEngine10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine2trEPKcS3_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Quick16QQmlAspectEngineC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick16QQmlAspectEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore5Quick16QQmlAspectEngine6statusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick16QQmlAspectEngine9qmlEngineEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick16QQmlAspectEngine12aspectEngineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine13statusChangedENS1_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine12sceneCreatedEP7QObject": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN8Qt3DCore5Quick16QQmlAspectEngine6d_funcEv": [
       "address", "address"

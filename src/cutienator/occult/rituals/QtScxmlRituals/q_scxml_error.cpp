@@ -27,6 +27,14 @@ QScxmlError *ritual_ZN11QScxmlErrorC1ERKS_(const QScxmlError *a0) {
   return new QScxmlError(*a0);
 }
 
+//  QScxmlError &QScxmlError::operator=(const QScxmlError &a0)
+extern "C" Q_DECL_EXPORT
+QScxmlError *ritual_ZN11QScxmlErroraSERKS_(
+    QScxmlError *self,
+    const QScxmlError *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QScxmlError::~QScxmlError()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QScxmlErrorD1Ev(QScxmlError *self) {

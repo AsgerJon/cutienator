@@ -24,12 +24,21 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtlocation/src/location/maps/qgeomappingmanager.cpp, line 142, as _ZN25QGeoMappingManagerPrivateC1Ev
+inline QGeoMappingManagerPrivate::QGeoMappingManagerPrivate() = default;
+
 //  from ../qtlocation/src/location/maps/qgeomappingmanager.cpp, line 144, as _ZN25QGeoMappingManagerPrivateD1Ev
 inline QGeoMappingManagerPrivate::~QGeoMappingManagerPrivate()
 {
     delete engine;
 }
 //  -----------------------------------------------------------------------
+
+//  QGeoMappingManagerPrivate::QGeoMappingManagerPrivate()
+extern "C" Q_DECL_EXPORT
+QGeoMappingManagerPrivate *ritual_ZN25QGeoMappingManagerPrivateC1Ev() {
+  return new QGeoMappingManagerPrivate();
+}
 
 //  QGeoMappingManagerPrivate::~QGeoMappingManagerPrivate()
 extern "C" Q_DECL_EXPORT

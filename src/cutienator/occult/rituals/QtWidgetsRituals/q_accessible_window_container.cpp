@@ -79,6 +79,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/accessible/simplewidgets.cpp, line 921, as _ZN26QAccessibleWindowContainerC1EP7QWidget
 #if QT_CONFIG(accessibility)
 inline QAccessibleWindowContainer::QAccessibleWindowContainer(QWidget *w)

@@ -12,6 +12,7 @@
     "ritual_ZN11QGeoPolygonC1ERKS_": ["address", "address"],
     "ritual_ZN11QGeoPolygonC1ERK9QGeoShape": ["address", "address"],
     "ritual_ZN11QGeoPolygonD1Ev": ["nothing", "address"],
+    "ritual_ZN11QGeoPolygonaSERKS_": ["address", "address", "address"],
     "ritual_ZN11QGeoPolygon12setPerimeterERK5QListI14QGeoCoordinateE": [
       "nothing", "address", "address"
     ],
@@ -63,6 +64,12 @@
     ],
     "ritual_ZNK11QGeoPolygon8toStringEv": ["text", "address"],
     "ritual_ZN11QGeoPolygon6d_funcEv": ["address", "address"],
-    "ritual_ZNK11QGeoPolygon6d_funcEv": ["address", "address"]
+    "ritual_ZNK11QGeoPolygon6d_funcEv": ["address", "address"],
+    "ritual_ZlsR11QDataStreamRK11QGeoPolygon": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR11QGeoPolygon": [
+      "address", "address", "address"
+    ]
   }
 }

@@ -1,10 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4staticvalue_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qv4staticvalue_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: added by hand, instances of templates of the class: 2.
+//  Kept as it is when the generator runs again. Also added by hand on
+//  2026-11-25, rituals for functions the generator leaves out: 2.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4staticvalue_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4value_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  QV4::StaticValue::StaticValue()
@@ -17,6 +20,14 @@ QV4::StaticValue *ritual_ZN3QV411StaticValueC1Ev() {
 extern "C" Q_DECL_EXPORT
 QV4::StaticValue *ritual_ZN3QV411StaticValueC1Ey(quint64 val) {
   return new QV4::StaticValue(val);
+}
+
+//  StaticValue &QV4::StaticValue::operator=(ReturnedValue v)
+extern "C" Q_DECL_EXPORT
+QV4::StaticValue *ritual_ZN3QV411StaticValueaSEy(
+    QV4::StaticValue *self,
+    QV4::ReturnedValue v) {
+  return &(self->operator=(v));
 }
 
 //  quint64 QV4::StaticValue::rawValue() const
@@ -377,6 +388,15 @@ unsigned int ritual_ZN3QV411StaticValue8toUInt32Ed(double d) {
 }
 
 #if QT_POINTER_SIZE == 8
+//  HeapBasePtr QV4::StaticValue::m() const
+extern "C" Q_DECL_EXPORT
+QV4::StaticValue::HeapBasePtr ritual_ZNK3QV411StaticValue1mEv(
+    const QV4::StaticValue *self) {
+  return self->m();
+}
+#endif  // QT_POINTER_SIZE == 8
+
+#if QT_POINTER_SIZE == 8
 //  void QV4::StaticValue::setM(HeapBasePtr b)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV411StaticValue4setMEPNS_4Heap4BaseE(
@@ -390,4 +410,32 @@ void ritual_ZN3QV411StaticValue4setMEPNS_4Heap4BaseE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV411StaticValueD1Ev(QV4::StaticValue *self) {
   delete self;
+}
+
+//  const QV4::Value &QV4::StaticValue::asValue<QV4::Value>() const
+extern "C" Q_DECL_EXPORT
+const QV4::Value * ritual_ZNK3QV411StaticValue7asValueINS_5ValueEEERKT_v(
+    const QV4::StaticValue *self) {
+  return &(self->asValue<QV4::Value>());
+}
+
+//  QV4::Value &QV4::StaticValue::asValue<QV4::Value>()
+extern "C" Q_DECL_EXPORT
+QV4::Value * ritual_ZN3QV411StaticValue7asValueINS_5ValueEEERT_v(
+    QV4::StaticValue *self) {
+  return &(self->asValue<QV4::Value>());
+}
+
+//  ReturnedValue *QV4::StaticValue::data_ptr()
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue *ritual_ZN3QV411StaticValue8data_ptrEv(
+    QV4::StaticValue *self) {
+  return self->data_ptr();
+}
+
+//  quint64 &QV4::StaticValue::rawValueRef()
+extern "C" Q_DECL_EXPORT
+quint64 *ritual_ZN3QV411StaticValue11rawValueRefEv(
+    QV4::StaticValue *self) {
+  return &(self->rawValueRef());
 }

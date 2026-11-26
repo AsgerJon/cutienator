@@ -9,6 +9,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qrhigles2_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/private/qrhi_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qrhigles2_p.h>
@@ -113,6 +118,31 @@ void ritual_ZN19QGles2CommandBufferD1Ev(QGles2CommandBuffer *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGles2CommandBuffer7destroyEv(QGles2CommandBuffer *self) {
   self->destroy();
+}
+
+//  const void *QGles2CommandBuffer::retainData(const QByteArray &data)
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZN19QGles2CommandBuffer10retainDataERK10QByteArray(
+    QGles2CommandBuffer *self,
+    const QByteArray *data) {
+  return self->retainData(*data);
+}
+
+//  const uchar *QGles2CommandBuffer::retainBufferData(const QRhiBufferData
+//      &data)
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZN19QGles2CommandBuffer16retainBufferDataERK14QRhiBufferData(
+    QGles2CommandBuffer *self,
+    const QRhiBufferData *data) {
+  return self->retainBufferData(*data);
+}
+
+//  const void *QGles2CommandBuffer::retainImage(const QImage &image)
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZN19QGles2CommandBuffer11retainImageERK6QImage(
+    QGles2CommandBuffer *self,
+    const QImage *image) {
+  return self->retainImage(*image);
 }
 
 //  void QGles2CommandBuffer::resetCommands()

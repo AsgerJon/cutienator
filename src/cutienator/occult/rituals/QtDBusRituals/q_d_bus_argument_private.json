@@ -11,6 +11,9 @@
     "ritual_ZN20QDBusArgumentPrivate12demarshallerEv": [
       "address", "address"
     ],
-    "ritual_ZN20QDBusArgumentPrivate6createEPS_": ["address", "address"]
+    "ritual_ZN20QDBusArgumentPrivate6createEPS_": ["address", "address"],
+    "ritual_ZN20QDBusArgumentPrivate1dER13QDBusArgument": [
+      "address", "address"
+    ]
   }
 }

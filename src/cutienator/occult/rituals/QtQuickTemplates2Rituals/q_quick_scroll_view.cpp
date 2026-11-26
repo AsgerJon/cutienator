@@ -1074,6 +1074,25 @@ const QMetaObject *ritual_ZNK16QQuickScrollView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickScrollView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickScrollView11qt_metacastEPKc(
+    QQuickScrollView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickScrollView::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickScrollView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickScrollView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickScrollView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickScrollView2trEPKcS1_i(
@@ -1172,6 +1191,34 @@ QAccessible::Role ritual_ZNK16QQuickScrollView14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  void QQuickScrollView::effectiveScrollBarWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScrollView30effectiveScrollBarWidthChangedEv(
+    QQuickScrollView *self) {
+  self->effectiveScrollBarWidthChanged();
+}
+
+//  void QQuickScrollView::effectiveScrollBarHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickScrollView31effectiveScrollBarHeightChangedEv(
+    QQuickScrollView *self) {
+  self->effectiveScrollBarHeightChanged();
+}
+
+//  QQuickScrollViewPrivate *QQuickScrollView::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickScrollViewPrivate *ritual_ZN16QQuickScrollView6d_funcEv(
+    QQuickScrollView *self) {
+  return self->d_func();
+}
+
+//  const QQuickScrollViewPrivate *QQuickScrollView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickScrollViewPrivate *ritual_ZNK16QQuickScrollView6d_funcEv(
+    const QQuickScrollView *self) {
+  return self->d_func();
+}
 
 //  a Python function taken by a CuteQQuickScrollView, for the function named
 //      by the key

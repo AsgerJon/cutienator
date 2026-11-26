@@ -10,7 +10,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qfilesystemwatcher_inotify_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qfilesystemwatcher.h>
@@ -43,6 +45,88 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 393, as local:qfilesystemwatcher_inotify.cpp:find_last_in_equal_range
+inline template <typename Hash, typename Key>
+typename Hash::const_iterator
+find_last_in_equal_range(const Hash &c, const Key &key)
+{
+    // find c.equal_range(key).second - 1 without backwards iteration:
+    auto i = c.find(key);
+    const auto end = c.cend();
+    if (i == end)
+        return end;
+    decltype(i) prev;
+    do {
+        prev = i;
+        ++i;
+    } while (i != end && i.key() == key);
+    return prev;
+}
+
+//  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 330, as _ZN31QInotifyFileSystemWatcherEngine15readFromInotifyEv
+inline void QInotifyFileSystemWatcherEngine::readFromInotify()
+{
+    // qDebug("QInotifyFileSystemWatcherEngine::readFromInotify");
+
+    int buffSize = 0;
+    if (ioctl(inotifyFd, FIONREAD, (char *) &buffSize) == -1 || buffSize == 0)
+        return;
+
+    QVarLengthArray<char, 4096> buffer(buffSize);
+    buffSize = int(read(inotifyFd, buffer.data(), buffSize));
+    char *at = buffer.data();
+    char * const end = at + buffSize;
+
+    QHash<int, inotify_event *> eventForId;
+    while (at < end) {
+        inotify_event *event = reinterpret_cast<inotify_event *>(at);
+
+        if (eventForId.contains(event->wd))
+            eventForId[event->wd]->mask |= event->mask;
+        else
+            eventForId.insert(event->wd, event);
+
+        at += sizeof(inotify_event) + event->len;
+    }
+
+    QHash<int, inotify_event *>::const_iterator it = eventForId.constBegin();
+    while (it != eventForId.constEnd()) {
+        const inotify_event &event = **it;
+        ++it;
+
+        // qDebug() << "inotify event, wd" << event.wd << "mask" << Qt::hex << event.mask;
+
+        int id = event.wd;
+        QString path = getPathFromID(id);
+        if (path.isEmpty()) {
+            // perhaps a directory?
+            id = -id;
+            path = getPathFromID(id);
+            if (path.isEmpty())
+                continue;
+        }
+
+        // qDebug() << "event for path" << path;
+
+        if ((event.mask & (IN_DELETE_SELF | IN_MOVE_SELF | IN_UNMOUNT)) != 0) {
+            pathToID.remove(path);
+            idToPath.remove(id, getPathFromID(id));
+            if (!idToPath.contains(id))
+                inotify_rm_watch(inotifyFd, event.wd);
+
+            if (id < 0)
+                emit directoryChanged(path, true);
+            else
+                emit fileChanged(path, true);
+        } else {
+            if (id < 0)
+                emit directoryChanged(path, false);
+            else
+                emit fileChanged(path, false);
+        }
+    }
+}
+
 //  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 225, as _ZN31QInotifyFileSystemWatcherEngineD1Ev
 inline QInotifyFileSystemWatcherEngine::~QInotifyFileSystemWatcherEngine()
 {
@@ -51,6 +135,13 @@ inline QInotifyFileSystemWatcherEngine::~QInotifyFileSystemWatcherEngine()
         inotify_rm_watch(inotifyFd, id < 0 ? -id : id);
 
     ::close(inotifyFd);
+}
+
+//  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 410, as _ZNK31QInotifyFileSystemWatcherEngine13getPathFromIDEi
+inline QString QInotifyFileSystemWatcherEngine::getPathFromID(int id) const
+{
+    auto i = find_last_in_equal_range(idToPath, id);
+    return i == idToPath.cend() ? QString() : i.value() ;
 }
 //  -----------------------------------------------------------------------
 
@@ -228,11 +319,85 @@ const QMetaObject *ritual_ZNK31QInotifyFileSystemWatcherEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QInotifyFileSystemWatcherEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN31QInotifyFileSystemWatcherEngine11qt_metacastEPKc(
+    QInotifyFileSystemWatcherEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QInotifyFileSystemWatcherEngine::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN31QInotifyFileSystemWatcherEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QInotifyFileSystemWatcherEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QInotifyFileSystemWatcherEngine::~QInotifyFileSystemWatcherEngine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QInotifyFileSystemWatcherEngineD1Ev(
     QInotifyFileSystemWatcherEngine *self) {
   delete self;
+}
+
+//  QStringList QInotifyFileSystemWatcherEngine::addPaths(const QStringList
+//      &paths, QStringList *files, QStringList *directories)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN31QInotifyFileSystemWatcherEngine8addPathsERK5QListI7QStringEPS2_S5_(
+    QInotifyFileSystemWatcherEngine *self,
+    const QList<QString> *paths,
+    QStringList *files,
+    QStringList *directories) {
+  return new QList<QString>(self->addPaths(*paths, files, directories));
+}
+
+//  QStringList QInotifyFileSystemWatcherEngine::removePaths(const
+//      QStringList &paths, QStringList *files, QStringList *directories)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN31QInotifyFileSystemWatcherEngine11removePathsERK5QListI7QStringEPS2_S5_(
+    QInotifyFileSystemWatcherEngine *self,
+    const QList<QString> *paths,
+    QStringList *files,
+    QStringList *directories) {
+  return new QList<QString>(self->removePaths(*paths, files, directories));
+}
+
+//  void QInotifyFileSystemWatcherEngine::readFromInotify()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QInotifyFileSystemWatcherEngine15readFromInotifyEv(
+    QInotifyFileSystemWatcherEngine *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QInotifyFileSystemWatcherEngine")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "readFromInotify()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "readFromInotify()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  QString QInotifyFileSystemWatcherEngine::getPathFromID(int id) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK31QInotifyFileSystemWatcherEngine13getPathFromIDEi(
+    const QInotifyFileSystemWatcherEngine *self,
+    int id) {
+  return new QString(self->getPathFromID(id));
 }
 
 //  a Python function taken by a CuteQInotifyFileSystemWatcherEngine, for the

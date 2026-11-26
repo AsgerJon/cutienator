@@ -10,6 +10,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qpoint.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtQuick/private/qquicktextcontrol_p.h>
 #include <QtQuick/private/qquicktextcontrol_p_p.h>
 #ifndef QT_NO_TEXTCONTROL
@@ -51,6 +52,66 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 43, as local:qquicktextcontrol.cpp:textCursorWidth
+#if !defined(QT_NO_TEXTCONTROL)
+const int textCursorWidth = 1;
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 48, as local:qquicktextcontrol.cpp:currentTextLine
+#if !defined(QT_NO_TEXTCONTROL)
+static QTextLine currentTextLine(const QTextCursor &cursor)
+{
+    const QTextBlock block = cursor.block();
+    if (!block.isValid())
+        return QTextLine();
+
+    const QTextLayout *layout = block.layout();
+    if (!layout)
+        return QTextLine();
+
+    const int relativePos = cursor.position() - block.position();
+    return layout->lineForTextPosition(relativePos);
+}
+#endif  // !defined(QT_NO_TEXTCONTROL)
+
+//  from ../qtdeclarative/src/quick/util/qquickdeliveryagent.cpp, line 38, as _Z12lcHoverTracev
+inline const QLoggingCategory &lcHoverTrace()
+{
+    static const QLoggingCategory category("qt.quick.hover.trace");
+    return category;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 62, as _ZN24QQuickTextControlPrivateC1Ev
+#if !defined(QT_NO_TEXTCONTROL)
+inline QQuickTextControlPrivate::QQuickTextControlPrivate()
+    : doc(nullptr),
+#if QT_CONFIG(im)
+      preeditCursor(0),
+#endif
+      interactionFlags(Qt::TextEditorInteraction),
+      cursorOn(false),
+      cursorIsFocusIndicator(false),
+      mousePressed(false),
+      lastSelectionState(false),
+      ignoreAutomaticScrollbarAdjustement(false),
+      overwriteMode(false),
+      acceptRichText(true),
+      cursorVisible(false),
+      cursorBlinkingEnabled(false),
+      hasFocus(false),
+      hadSelectionOnMousePress(false),
+      wordSelectionEnabled(false),
+      hasImState(false),
+      cursorRectangleChanged(false),
+      hoveredMarker(false),
+      selectByTouchDrag(false),
+      imSelectionAfterPress(false),
+      beingEdited(false),
+      lastSelectionStart(-1),
+      lastSelectionEnd(-1)
+{}
+#endif  // !defined(QT_NO_TEXTCONTROL)
 
 //  from ../qtdeclarative/src/quick/items/qquicktextcontrol.cpp, line 324, as _ZN24QQuickTextControlPrivate17setCursorPositionERK7QPointF
 #if !defined(QT_NO_TEXTCONTROL)
@@ -195,6 +256,12 @@ extern "C" Q_DECL_EXPORT
 const QQuickTextControl *ritual_ZNK24QQuickTextControlPrivate6q_funcEv(
     const QQuickTextControlPrivate *self) {
   return self->q_func();
+}
+
+//  QQuickTextControlPrivate::QQuickTextControlPrivate()
+extern "C" Q_DECL_EXPORT
+QQuickTextControlPrivate *ritual_ZN24QQuickTextControlPrivateC1Ev() {
+  return new QQuickTextControlPrivate();
 }
 
 #if !defined(QT_NO_TEXTCONTROL)

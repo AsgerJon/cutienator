@@ -301,6 +301,27 @@ const QMetaObject *ritual_ZNK41QNonContiguousByteDeviceThreadForwardImpl10metaOb
   return self->metaObject();
 }
 
+//  void *QNonContiguousByteDeviceThreadForwardImpl::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl11qt_metacastEPKc(
+    QNonContiguousByteDeviceThreadForwardImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      QNonContiguousByteDeviceThreadForwardImpl::qt_metacall(QMetaObject::C
+//      all a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNonContiguousByteDeviceThreadForwardImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QNonContiguousByteDeviceThreadForwardImpl::~QNonContiguousByteDeviceThrea
 //      dForwardImpl()
 extern "C" Q_DECL_EXPORT
@@ -366,6 +387,90 @@ void ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl12haveDataSlotExRK10QBy
     bool dataAtEnd,
     qint64 dataSize) {
   self->haveDataSlot(pos, *dataArray, dataAtEnd, dataSize);
+}
+
+//  void QNonContiguousByteDeviceThreadForwardImpl::wantData(qint64 a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl8wantDataEx(
+    QNonContiguousByteDeviceThreadForwardImpl *self,
+    qint64 a0) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNonContiguousByteDeviceThreadForwardImpl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "wantData(qint64)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "wantData(qint64)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QNonContiguousByteDeviceThreadForwardImpl::processedData(qint64 pos,
+//      qint64 amount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl13processedDataExx(
+    QNonContiguousByteDeviceThreadForwardImpl *self,
+    qint64 pos,
+    qint64 amount) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNonContiguousByteDeviceThreadForwardImpl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "processedData(qint64,qint64)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "processedData(qint64,qint64)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&pos)),
+      const_cast<void *>(static_cast<const void *>(&amount)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QNonContiguousByteDeviceThreadForwardImpl::resetData(bool *b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl9resetDataEPb(
+    QNonContiguousByteDeviceThreadForwardImpl *self,
+    bool *b) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNonContiguousByteDeviceThreadForwardImpl")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "resetData(bool *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "resetData(bool *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&b)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a

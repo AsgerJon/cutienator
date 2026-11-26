@@ -30,6 +30,9 @@
     ],
     "ritual_ZNK3QV424JavaScriptFunctionObject10strictModeEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK3QV424JavaScriptFunctionObject14sourceLocationEv": [
+      "address", "address"
     ]
   }
 }

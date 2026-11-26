@@ -8,8 +8,35 @@
     "ritual_ZNK17QtVirtualKeyboard19FallbackInputMethod10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethodC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod10inputModesERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod12setInputModeERK7QStringN27QVirtualKeyboardInputEngine9InputModeE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod11setTextCaseEN27QVirtualKeyboardInputEngine8TextCaseE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod8keyEventEN2Qt3KeyERK7QString6QFlagsINS1_16KeyboardModifierEE": [
+      "bool", "address", "int", "text", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod6updateEv": [
+      "nothing", "address"
     ],
     "ritual_take_QtVirtualKeyboard_FallbackInputMethod": [
       "bool", "address", "chars", "address"
@@ -27,6 +54,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN17QtVirtualKeyboard19FallbackInputMethod6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtVirtualKeyboard_FallbackInputMethod__QList_QVirtualKeyboardInputEngine_InputMode": [
       "nothing", "address"
     ]
   }

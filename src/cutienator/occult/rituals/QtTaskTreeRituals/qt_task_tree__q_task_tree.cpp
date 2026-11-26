@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtTaskTree/qtasktree.h, Qt 6.12.0. Changes made here are lost.
+//  QtTaskTree/qtasktree.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: 'd_func' gives the private class as
+//  QtTaskTree::<Class>Private, as the compiler needs it written.
+//  Kept as it is when the generator runs again.
 #include <QtTaskTree/qtasktree.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -185,6 +188,14 @@ const QMetaObject *ritual_ZNK10QtTaskTree9QTaskTree10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtTaskTree::QTaskTree::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QtTaskTree9QTaskTree11qt_metacastEPKc(
+    QtTaskTree::QTaskTree *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString QtTaskTree::QTaskTree::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QtTaskTree9QTaskTree2trEPKcS2_i(
@@ -192,6 +203,20 @@ QString *ritual_ZN10QtTaskTree9QTaskTree2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtTaskTree::QTaskTree::tr(s, c, n));
+}
+
+//  QTaskTreePrivate *QtTaskTree::QTaskTree::d_func()
+extern "C" Q_DECL_EXPORT
+QtTaskTree::QTaskTreePrivate *ritual_ZN10QtTaskTree9QTaskTree6d_funcEv(
+    QtTaskTree::QTaskTree *self) {
+  return self->d_func();
+}
+
+//  const QTaskTreePrivate *QtTaskTree::QTaskTree::d_func() const
+extern "C" Q_DECL_EXPORT
+const QtTaskTree::QTaskTreePrivate *ritual_ZNK10QtTaskTree9QTaskTree6d_funcEv(
+    const QtTaskTree::QTaskTree *self) {
+  return self->d_func();
 }
 
 //  QtTaskTree::QTaskTree::QTaskTree()

@@ -6,8 +6,20 @@
   ],
   "rows": {
     "ritual_ZN13TextureHelperD1Ev": ["nothing", "address"],
+    "ritual_ZN13TextureHelper20createCubeMapTextureERK6QImageb": [
+      "unsigned int", "address", "address", "bool"
+    ],
+    "ritual_ZN13TextureHelper27createCursorPositionTextureERK5QSizeRj": [
+      "unsigned int", "address", "address", "address"
+    ],
+    "ritual_ZN13TextureHelper13deleteTextureEPj": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13TextureHelper17convertToGLFormatERK6QImage": [
       "address", "address", "address"
+    ],
+    "ritual_ZN13TextureHelper23convertToGLFormatHelperER6QImageRKS0_j": [
+      "nothing", "address", "address", "address", "unsigned int"
     ],
     "ritual_ZN13TextureHelper29qt_gl_convertToGLFormatHelperEjj": [
       "unsigned int", "address", "unsigned int", "unsigned int"

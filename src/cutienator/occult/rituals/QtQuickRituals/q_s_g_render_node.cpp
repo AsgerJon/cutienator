@@ -145,6 +145,12 @@ public:
   }
 };
 
+//  QSGRenderNode::QSGRenderNode()
+extern "C" Q_DECL_EXPORT
+QSGRenderNode *ritual_ZN13QSGRenderNodeC1Ev() {
+  return new CuteQSGRenderNode();
+}
+
 //  QSGRenderNode::~QSGRenderNode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSGRenderNodeD1Ev(QSGRenderNode *self) {

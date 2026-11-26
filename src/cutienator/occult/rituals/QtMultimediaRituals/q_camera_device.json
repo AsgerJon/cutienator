@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN13QCameraDeviceC1Ev": ["address"],
     "ritual_ZN13QCameraDeviceC1ERKS_": ["address", "address"],
+    "ritual_ZN13QCameraDeviceaSERKS_": ["address", "address", "address"],
     "ritual_ZN13QCameraDeviceD1Ev": ["nothing", "address"],
     "ritual_ZNK13QCameraDeviceeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK13QCameraDeviceneERKS_": ["bool", "address", "address"],

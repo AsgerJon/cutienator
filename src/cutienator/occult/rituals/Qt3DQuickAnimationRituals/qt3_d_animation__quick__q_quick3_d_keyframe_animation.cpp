@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DAnimation::Quick::QQuick3DKeyframeAnimation that Python can take functions over in. Every Qt3DAnimation::Quick::QQuick3DKeyframeAnimation
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,26 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation5Quick25QQuick3DKeyframeAnimation10m
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::Quick::QQuick3DKeyframeAnimation::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation5Quick25QQuick3DKeyframeAnimation11qt_metacastEPKc(
+    Qt3DAnimation::Quick::QQuick3DKeyframeAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::Quick::QQuick3DKeyframeAnimation::qt_metacall(QMetaObj
+//      ect::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation5Quick25QQuick3DKeyframeAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::Quick::QQuick3DKeyframeAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::Quick::QQuick3DKeyframeAnimation::tr(const char
 //      *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -199,12 +221,28 @@ QString *ritual_ZN13Qt3DAnimation5Quick25QQuick3DKeyframeAnimation2trEPKcS3_i(
           n));
 }
 
+//  Qt3DAnimation::Quick::QQuick3DKeyframeAnimation::QQuick3DKeyframeAnimatio
+//      n(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::Quick::QQuick3DKeyframeAnimation *ritual_ZN13Qt3DAnimation5Quick25QQuick3DKeyframeAnimationC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DAnimation_Quick_QQuick3DKeyframeAnimation(parent);
+}
+
 //  QKeyframeAnimation *Qt3DAnimation::Quick::QQuick3DKeyframeAnimation::pare
 //      ntKeyframeAnimation() const
 extern "C" Q_DECL_EXPORT
 Qt3DAnimation::QKeyframeAnimation *ritual_ZNK13Qt3DAnimation5Quick25QQuick3DKeyframeAnimation23parentKeyframeAnimationEv(
     const Qt3DAnimation::Quick::QQuick3DKeyframeAnimation *self) {
   return self->parentKeyframeAnimation();
+}
+
+//  QQmlListProperty<Qt3DCore::QTransform>
+//      Qt3DAnimation::Quick::QQuick3DKeyframeAnimation::keyframes()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DCore::QTransform> *ritual_ZN13Qt3DAnimation5Quick25QQuick3DKeyframeAnimation9keyframesEv(
+    Qt3DAnimation::Quick::QQuick3DKeyframeAnimation *self) {
+  return new QQmlListProperty<Qt3DCore::QTransform>(self->keyframes());
 }
 
 //  a Python function taken by a
@@ -216,4 +254,12 @@ bool ritual_take_Qt3DAnimation_Quick_QQuick3DKeyframeAnimation(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DAnimation_Quick_QQuick3DKeyframeAnimation *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DCore::QTransform> a ritual of
+//      Qt3DAnimation::Quick::QQuick3DKeyframeAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DAnimation_Quick_QQuick3DKeyframeAnimation__QQmlListProperty_Qt3DCore_QTransform(
+    QQmlListProperty<Qt3DCore::QTransform> *self) {
+  delete self;
 }

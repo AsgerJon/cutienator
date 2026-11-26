@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK22QQuickPathInterpolator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathInterpolator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickPathInterpolator11qt_metacastEPKc(
+    QQuickPathInterpolator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathInterpolator::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickPathInterpolator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathInterpolator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathInterpolator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickPathInterpolator2trEPKcS1_i(
@@ -84,6 +103,41 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK22QQuickPathInterpolator5angleEv(
     const QQuickPathInterpolator *self) {
   return self->angle();
+}
+
+//  void QQuickPathInterpolator::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickPathInterpolator11pathChangedEv(
+    QQuickPathInterpolator *self) {
+  self->pathChanged();
+}
+
+//  void QQuickPathInterpolator::progressChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickPathInterpolator15progressChangedEv(
+    QQuickPathInterpolator *self) {
+  self->progressChanged();
+}
+
+//  void QQuickPathInterpolator::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickPathInterpolator8xChangedEv(
+    QQuickPathInterpolator *self) {
+  self->xChanged();
+}
+
+//  void QQuickPathInterpolator::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickPathInterpolator8yChangedEv(
+    QQuickPathInterpolator *self) {
+  self->yChanged();
+}
+
+//  void QQuickPathInterpolator::angleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickPathInterpolator12angleChangedEv(
+    QQuickPathInterpolator *self) {
+  self->angleChanged();
 }
 
 //  void QQuickPathInterpolator::_q_pathUpdated()

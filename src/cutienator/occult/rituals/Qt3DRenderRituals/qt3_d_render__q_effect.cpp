@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QEffect that Python can take functions over in. Every Qt3DRender::QEffect
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender7QEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender7QEffect11qt_metacastEPKc(
+    Qt3DRender::QEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QEffect::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender7QEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QEffect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender7QEffect2trEPKcS2_i(
@@ -186,6 +207,73 @@ QString *ritual_ZN10Qt3DRender7QEffect2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QEffect::tr(s, c, n));
+}
+
+//  Qt3DRender::QEffect::QEffect(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QEffect *ritual_ZN10Qt3DRender7QEffectC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QEffect(parent);
+}
+
+//  Qt3DRender::QEffect::~QEffect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender7QEffectD1Ev(Qt3DRender::QEffect *self) {
+  delete self;
+}
+
+//  void Qt3DRender::QEffect::addParameter(QParameter *parameter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender7QEffect12addParameterEPNS_10QParameterE(
+    Qt3DRender::QEffect *self,
+    Qt3DRender::QParameter *parameter) {
+  self->addParameter(parameter);
+}
+
+//  void Qt3DRender::QEffect::removeParameter(QParameter *parameter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender7QEffect15removeParameterEPNS_10QParameterE(
+    Qt3DRender::QEffect *self,
+    Qt3DRender::QParameter *parameter) {
+  self->removeParameter(parameter);
+}
+
+//  QList<QParameter *> Qt3DRender::QEffect::parameters() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QParameter *> *ritual_ZNK10Qt3DRender7QEffect10parametersEv(
+    const Qt3DRender::QEffect *self) {
+  return new QList<Qt3DRender::QParameter *>(self->parameters());
+}
+
+//  void Qt3DRender::QEffect::addTechnique(QTechnique *t)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender7QEffect12addTechniqueEPNS_10QTechniqueE(
+    Qt3DRender::QEffect *self,
+    Qt3DRender::QTechnique *t) {
+  self->addTechnique(t);
+}
+
+//  void Qt3DRender::QEffect::removeTechnique(QTechnique *t)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender7QEffect15removeTechniqueEPNS_10QTechniqueE(
+    Qt3DRender::QEffect *self,
+    Qt3DRender::QTechnique *t) {
+  self->removeTechnique(t);
+}
+
+//  QList<QTechnique *> Qt3DRender::QEffect::techniques() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QTechnique *> *ritual_ZNK10Qt3DRender7QEffect10techniquesEv(
+    const Qt3DRender::QEffect *self) {
+  return new QList<Qt3DRender::QTechnique *>(self->techniques());
+}
+
+//  Qt3DRender::QEffect::QEffect(QEffectPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QEffect *ritual_ZN10Qt3DRender7QEffectC1ERNS_14QEffectPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QEffectPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QEffect(*dd, parent);
 }
 
 //  QEffectPrivate *Qt3DRender::QEffect::d_func()
@@ -210,4 +298,18 @@ bool ritual_take_Qt3DRender_QEffect(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QEffect *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DRender::QParameter *> a ritual of Qt3DRender::QEffect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QEffect__QList_Qt3DRender_QParameter(
+    QList<Qt3DRender::QParameter *> *self) {
+  delete self;
+}
+
+//  a QList<Qt3DRender::QTechnique *> a ritual of Qt3DRender::QEffect gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QEffect__QList_Qt3DRender_QTechnique(
+    QList<Qt3DRender::QTechnique *> *self) {
+  delete self;
 }

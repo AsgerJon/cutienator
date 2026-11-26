@@ -6,7 +6,12 @@
   ],
   "rows": {
     "ritual_ZN18QCryptographicHashC1ENS_9AlgorithmE": ["address", "int"],
+    "ritual_ZN18QCryptographicHashC1EOS_": ["address", "address"],
     "ritual_ZN18QCryptographicHashD1Ev": ["nothing", "address"],
+    "ritual_ZN18QCryptographicHashaSEOS_": ["address", "address", "address"],
+    "ritual_ZN18QCryptographicHash4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QCryptographicHash5resetEv": ["nothing", "address"],
     "ritual_ZNK18QCryptographicHash9algorithmEv": ["int", "address"],
     "ritual_ZN18QCryptographicHash7addDataEPKcx": [
@@ -22,6 +27,24 @@
     "ritual_ZNK18QCryptographicHash10resultViewEv": ["address", "address"],
     "ritual_ZN18QCryptographicHash4hashE14QByteArrayViewNS_9AlgorithmE": [
       "address", "address", "int"
+    ],
+    "ritual_ZN18QCryptographicHash8hashIntoE5QSpanIcLm18446744073709551615EE14QByteArrayViewNS_9AlgorithmE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QCryptographicHash8hashIntoE5QSpanIhLm18446744073709551615EE14QByteArrayViewNS_9AlgorithmE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QCryptographicHash8hashIntoE5QSpanISt4byteLm18446744073709551615EE14QByteArrayViewNS_9AlgorithmE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QCryptographicHash8hashIntoE5QSpanIcLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EENS_9AlgorithmE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QCryptographicHash8hashIntoE5QSpanIhLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EENS_9AlgorithmE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QCryptographicHash8hashIntoE5QSpanISt4byteLm18446744073709551615EES0_IK14QByteArrayViewLm18446744073709551615EENS_9AlgorithmE": [
+      "address", "address", "address", "int"
     ],
     "ritual_ZN18QCryptographicHash10hashLengthENS_9AlgorithmE": [
       "int", "int"

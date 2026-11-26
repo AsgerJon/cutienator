@@ -8,14 +8,95 @@
     "ritual_ZNK18qdesigner_internal13WidgetFactory10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal13WidgetFactory2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactoryC1EP28QDesignerFormEditorInterfaceP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactoryD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory17containerOfWidgetEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory17widgetOfContainerEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory12createObjectERK7QStringP7QObject": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory12createWidgetERK7QStringP7QWidget": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory12createLayoutEP7QWidgetP7QLayouti": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory19isPassiveInteractorEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory10initializeEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory16initializeCommonEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory17initializePreviewEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory4coreEv": [
+      "address", "address"
     ],
     "ritual_ZN18qdesigner_internal13WidgetFactory11classNameOfEP28QDesignerFormEditorInterfacePK7QObject": [
       "text", "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory17currentFormWindowEP28QDesignerFormWindowInterface": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory21createUnmanagedLayoutEP7QWidgeti": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory9styleNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory12setStyleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory8getStyleERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory5styleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory18applyStyleTopLevelERK7QStringP7QWidget": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory20applyStyleToTopLevelEP6QStyleP7QWidget": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal13WidgetFactory18isFormEditorObjectEPK7QObject": [
       "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory11loadPluginsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory23activeFormWindowChangedEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory15formWindowAddedEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal13WidgetFactory18createCustomWidgetERK7QStringP7QWidgetPb": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory18setFormWindowStyleEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
     ],
     "ritual_take_qdesigner_internal_WidgetFactory": [
       "bool", "address", "chars", "address"

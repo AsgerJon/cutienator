@@ -12,6 +12,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuickKeyframeGroup may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -226,6 +227,25 @@ const QMetaObject *ritual_ZNK19QQuickKeyframeGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickKeyframeGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickKeyframeGroup11qt_metacastEPKc(
+    QQuickKeyframeGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickKeyframeGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickKeyframeGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickKeyframeGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickKeyframeGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickKeyframeGroup2trEPKcS1_i(
@@ -235,11 +255,32 @@ QString *ritual_ZN19QQuickKeyframeGroup2trEPKcS1_i(
   return new QString(QQuickKeyframeGroup::tr(s, c, n));
 }
 
+//  QQuickKeyframeGroupPrivate *QQuickKeyframeGroup::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickKeyframeGroupPrivate *ritual_ZN19QQuickKeyframeGroup6d_funcEv(
+    QQuickKeyframeGroup *self) {
+  return self->d_func();
+}
+
+//  const QQuickKeyframeGroupPrivate *QQuickKeyframeGroup::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickKeyframeGroupPrivate *ritual_ZNK19QQuickKeyframeGroup6d_funcEv(
+    const QQuickKeyframeGroup *self) {
+  return self->d_func();
+}
+
 //  QQuickKeyframeGroup::QQuickKeyframeGroup(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QQuickKeyframeGroup *ritual_ZN19QQuickKeyframeGroupC1EP7QObject(
     QObject *parent) {
   return new CuteQQuickKeyframeGroup(parent);
+}
+
+//  QQmlListProperty<QQuickKeyframe> QQuickKeyframeGroup::keyframes()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickKeyframe> *ritual_ZN19QQuickKeyframeGroup9keyframesEv(
+    QQuickKeyframeGroup *self) {
+  return new QQmlListProperty<QQuickKeyframe>(self->keyframes());
 }
 
 //  QObject *QQuickKeyframeGroup::target() const
@@ -358,6 +399,27 @@ void ritual_ZN19QQuickKeyframeGroup17componentCompleteEv(
   self->componentComplete();
 }
 
+//  void QQuickKeyframeGroup::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickKeyframeGroup13targetChangedEv(
+    QQuickKeyframeGroup *self) {
+  self->targetChanged();
+}
+
+//  void QQuickKeyframeGroup::propertyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickKeyframeGroup15propertyChangedEv(
+    QQuickKeyframeGroup *self) {
+  self->propertyChanged();
+}
+
+//  void QQuickKeyframeGroup::keyframeSourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickKeyframeGroup21keyframeSourceChangedEv(
+    QQuickKeyframeGroup *self) {
+  self->keyframeSourceChanged();
+}
+
 //  QQuickKeyframeGroup as the QQmlParserStatus it is built on
 extern "C" Q_DECL_EXPORT
 QQmlParserStatus *ritual_cast_QQuickKeyframeGroup_QQmlParserStatus(
@@ -387,4 +449,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QQuickKeyframeGroup17componentCompleteEv(
     QQuickKeyframeGroup *self) {
   static_cast<OwnQQuickKeyframeGroup *>(self)->OwnQQuickKeyframeGroup::componentComplete();
+}
+
+//  a QQmlListProperty<QQuickKeyframe> a ritual of QQuickKeyframeGroup gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickKeyframeGroup__QQmlListProperty_QQuickKeyframe(
+    QQmlListProperty<QQuickKeyframe> *self) {
+  delete self;
 }

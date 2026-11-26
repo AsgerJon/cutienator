@@ -9,6 +9,7 @@
     "ritual_ZN12QSqlRelationC1ERK7QStringS2_S2_": [
       "address", "text", "text", "text"
     ],
+    "ritual_ZN12QSqlRelation4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK12QSqlRelation9tableNameEv": ["text", "address"],
     "ritual_ZNK12QSqlRelation11indexColumnEv": ["text", "address"],
     "ritual_ZNK12QSqlRelation13displayColumnEv": ["text", "address"],

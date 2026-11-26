@@ -7,11 +7,45 @@
     "ritual_ZNK10Qt3DRender13QRenderAspect10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender13QRenderAspect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderAspect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender13QRenderAspect2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN10Qt3DRender13QRenderAspectC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderAspectC1ENS0_14SubmissionTypeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderAspectD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender13QRenderAspectC1ERNS_20QRenderAspectPrivateEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender13QRenderAspect6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender13QRenderAspect6d_funcEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender13QRenderAspect13jobsToExecuteEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderAspect14executeCommandERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderAspect12onRegisteredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderAspect14onUnregisteredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QRenderAspect15onEngineStartupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender13QRenderAspect12dependenciesEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DRender_QRenderAspect": [
       "bool", "address", "chars", "address"
     ],
@@ -22,6 +56,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN10Qt3DRender13QRenderAspect15onEngineStartupEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_QRenderAspect__std_vector_Qt3DCore_QAspectJobPtr": [
       "nothing", "address"
     ]
   }

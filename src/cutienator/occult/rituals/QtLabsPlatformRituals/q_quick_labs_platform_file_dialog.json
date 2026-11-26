@@ -8,6 +8,12 @@
     "ritual_ZNK28QQuickLabsPlatformFileDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QQuickLabsPlatformFileDialog20qmlExtendedNamespaceEv": [
       "address"
     ],
@@ -16,6 +22,12 @@
     ],
     "ritual_ZNK28QQuickLabsPlatformFileDialog8fileModeEv": [
       "int", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog4fileEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog5filesEv": [
+      "address", "address"
     ],
     "ritual_ZNK28QQuickLabsPlatformFileDialog11currentFileEv": [
       "address", "address"
@@ -48,6 +60,39 @@
     "ritual_ZNK28QQuickLabsPlatformFileDialog11rejectLabelEv": [
       "text", "address"
     ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog15fileModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog11fileChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog12filesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog18currentFileChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog19currentFilesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog13folderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog14optionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog18nameFiltersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog20defaultSuffixChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog18acceptLabelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog18rejectLabelChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK28QQuickLabsPlatformFileDialog15useNativeDialogEv": [
       "bool", "address"
     ],
@@ -62,6 +107,12 @@
     ],
     "ritual_ZN28QQuickLabsPlatformFileDialog6acceptEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog16addDefaultSuffixERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog18addDefaultSuffixesERK5QListI4QUrlE": [
+      "address", "address", "address"
     ],
     "ritual_own_ZNK28QQuickLabsPlatformFileDialog15useNativeDialogEv": [
       "bool", "address"

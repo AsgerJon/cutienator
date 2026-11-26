@@ -7,6 +7,7 @@
 #include <QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/desktopinputselectioncontrol_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -193,6 +194,26 @@ const QMetaObject *ritual_ZNK17QtVirtualKeyboard28DesktopInputSelectionControl10
   return self->metaObject();
 }
 
+//  void *QtVirtualKeyboard::DesktopInputSelectionControl::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl11qt_metacastEPKc(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtVirtualKeyboard::DesktopInputSelectionControl::qt_metacall(QMetaObj
+//      ect::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtVirtualKeyboard::DesktopInputSelectionControl::tr(const char
 //      *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -207,12 +228,118 @@ QString *ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl2trEPKcS2_i(
           n));
 }
 
+//  QtVirtualKeyboard::DesktopInputSelectionControl::DesktopInputSelectionCon
+//      trol(QObject *parent, QVirtualKeyboardInputContext *inputContext)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::DesktopInputSelectionControl *ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControlC1EP7QObjectP28QVirtualKeyboardInputContext(
+    QObject *parent,
+    QVirtualKeyboardInputContext *inputContext) {
+  return new CuteQtVirtualKeyboard_DesktopInputSelectionControl(
+      parent,
+      inputContext);
+}
+
 //  QtVirtualKeyboard::DesktopInputSelectionControl::~DesktopInputSelectionCo
 //      ntrol()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControlD1Ev(
     QtVirtualKeyboard::DesktopInputSelectionControl *self) {
   delete self;
+}
+
+//  void QtVirtualKeyboard::DesktopInputSelectionControl::createHandles()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl13createHandlesEv(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self) {
+  self->createHandles();
+}
+
+//  void QtVirtualKeyboard::DesktopInputSelectionControl::destroyHandles()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl14destroyHandlesEv(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self) {
+  self->destroyHandles();
+}
+
+//  void QtVirtualKeyboard::DesktopInputSelectionControl::setEnabled(bool
+//      enable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl10setEnabledEb(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self,
+    bool enable) {
+  self->setEnabled(enable);
+}
+
+//  QImage *QtVirtualKeyboard::DesktopInputSelectionControl::handleImage()
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl11handleImageEv(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self) {
+  return self->handleImage();
+}
+
+//  void QtVirtualKeyboard::DesktopInputSelectionControl::updateAnchorHandleP
+//      osition()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl26updateAnchorHandlePositionEv(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self) {
+  self->updateAnchorHandlePosition();
+}
+
+//  void QtVirtualKeyboard::DesktopInputSelectionControl::updateCursorHandleP
+//      osition()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl26updateCursorHandlePositionEv(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self) {
+  self->updateCursorHandlePosition();
+}
+
+//  void QtVirtualKeyboard::DesktopInputSelectionControl::updateVisibility()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl16updateVisibilityEv(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self) {
+  self->updateVisibility();
+}
+
+//  void QtVirtualKeyboard::DesktopInputSelectionControl::reloadGraphics()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl14reloadGraphicsEv(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self) {
+  self->reloadGraphics();
+}
+
+//  bool QtVirtualKeyboard::DesktopInputSelectionControl::eventFilter(QObject
+//      *object, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl11eventFilterEP7QObjectP6QEvent(
+    QtVirtualKeyboard::DesktopInputSelectionControl *self,
+    QObject *object,
+    QEvent *event) {
+  return self->eventFilter(object, event);
+}
+
+//  QRect QtVirtualKeyboard::DesktopInputSelectionControl::anchorHandleRect()
+//      const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK17QtVirtualKeyboard28DesktopInputSelectionControl16anchorHandleRectEv(
+    const QtVirtualKeyboard::DesktopInputSelectionControl *self) {
+  return new QRect(self->anchorHandleRect());
+}
+
+//  QRect QtVirtualKeyboard::DesktopInputSelectionControl::cursorHandleRect()
+//      const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK17QtVirtualKeyboard28DesktopInputSelectionControl16cursorHandleRectEv(
+    const QtVirtualKeyboard::DesktopInputSelectionControl *self) {
+  return new QRect(self->cursorHandleRect());
+}
+
+//  QRect QtVirtualKeyboard::DesktopInputSelectionControl::handleRectForCurso
+//      rRect(const QRectF &cursorRect) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK17QtVirtualKeyboard28DesktopInputSelectionControl23handleRectForCursorRectERK6QRectF(
+    const QtVirtualKeyboard::DesktopInputSelectionControl *self,
+    const QRectF *cursorRect) {
+  return new QRect(self->handleRectForCursorRect(*cursorRect));
 }
 
 //  a Python function taken by a

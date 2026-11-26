@@ -164,6 +164,14 @@ const QRegion *ritual_ZNK13QSGRenderNode11RenderState10clipRegionEv(
   return self->clipRegion();
 }
 
+//  void *QSGRenderNode::RenderState::get(const char *state) const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK13QSGRenderNode11RenderState3getEPKc(
+    const QSGRenderNode::RenderState *self,
+    const char *state) {
+  return self->get(state);
+}
+
 //  a Python function taken by a CuteQSGRenderNode_RenderState, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

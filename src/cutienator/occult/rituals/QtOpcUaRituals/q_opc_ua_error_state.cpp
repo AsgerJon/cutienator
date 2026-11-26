@@ -15,6 +15,15 @@ QOpcUaErrorState *ritual_ZN16QOpcUaErrorStateC1ERKS_(
   return new QOpcUaErrorState(*other);
 }
 
+//  QOpcUaErrorState &QOpcUaErrorState::operator=(const QOpcUaErrorState
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaErrorState *ritual_ZN16QOpcUaErrorStateaSERKS_(
+    QOpcUaErrorState *self,
+    const QOpcUaErrorState *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QOpcUaErrorState::~QOpcUaErrorState()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QOpcUaErrorStateD1Ev(QOpcUaErrorState *self) {

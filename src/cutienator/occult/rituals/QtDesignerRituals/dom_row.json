@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN6DomRowC1Ev": ["address"],
     "ritual_ZN6DomRowD1Ev": ["nothing", "address"],
+    "ritual_ZN6DomRow4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6DomRow5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK6DomRow15elementPropertyEv": ["address", "address"],
     "ritual_ZN6DomRow18setElementPropertyERK5QListIP11DomPropertyE": [
       "nothing", "address", "address"

@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK15QXYLegendMarker10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QXYLegendMarker11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QXYLegendMarker11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QXYLegendMarker2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -14,6 +20,9 @@
     "ritual_ZN15QXYLegendMarkerD1Ev": ["nothing", "address"],
     "ritual_ZN15QXYLegendMarker4typeEv": ["int", "address"],
     "ritual_ZN15QXYLegendMarker6seriesEv": ["address", "address"],
+    "ritual_ZN15QXYLegendMarkerC1ER22QXYLegendMarkerPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN15QXYLegendMarker6d_funcEv": ["address", "address"],
     "ritual_ZNK15QXYLegendMarker6d_funcEv": ["address", "address"],
     "ritual_take_QXYLegendMarker": ["bool", "address", "chars", "address"],

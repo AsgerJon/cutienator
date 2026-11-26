@@ -11,7 +11,9 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlfunctionfilter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -341,6 +343,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18QQmlFunctionFilter10metaObjectEv(
     const QQmlFunctionFilter *self) {
   return self->metaObject();
+}
+
+//  void *QQmlFunctionFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQmlFunctionFilter11qt_metacastEPKc(
+    QQmlFunctionFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlFunctionFilter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQmlFunctionFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlFunctionFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQmlFunctionFilter::tr(const char *s, const char *c, int n)

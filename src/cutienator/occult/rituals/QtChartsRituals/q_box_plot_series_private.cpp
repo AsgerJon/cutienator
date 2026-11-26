@@ -5,14 +5,18 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_boxplot_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_boxplot_chart)
 #include <QtCharts/qboxplotseries.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qboxplotseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCharts/qlegendmarker.h>
+#if QT_CONFIG(charts_boxplot_chart)
 #include <QtCharts/qboxset.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -326,6 +330,25 @@ const QMetaObject *ritual_ZNK21QBoxPlotSeriesPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBoxPlotSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QBoxPlotSeriesPrivate11qt_metacastEPKc(
+    QBoxPlotSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBoxPlotSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QBoxPlotSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBoxPlotSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBoxPlotSeriesPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QBoxPlotSeriesPrivate2trEPKcS1_i(
@@ -368,6 +391,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QBoxPlotSeriesPrivate14initializeAxesEv(
     QBoxPlotSeriesPrivate *self) {
   self->initializeAxes();
+}
+
+//  void QBoxPlotSeriesPrivate::initializeAnimations(QChart::AnimationOptions
+//      options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBoxPlotSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QBoxPlotSeriesPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
 }
 
 //  void QBoxPlotSeriesPrivate::initializeTheme(int index, ChartTheme *theme,
@@ -476,6 +513,70 @@ void ritual_ZN21QBoxPlotSeriesPrivate18populateCategoriesEP16QBarCategoryAxis(
     QBoxPlotSeriesPrivate *self,
     QBarCategoryAxis *axis) {
   self->populateCategories(axis);
+}
+
+//  void QBoxPlotSeriesPrivate::updated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBoxPlotSeriesPrivate7updatedEv(
+    QBoxPlotSeriesPrivate *self) {
+  self->updated();
+}
+
+//  void QBoxPlotSeriesPrivate::clicked(int index, QBoxSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBoxPlotSeriesPrivate7clickedEiP7QBoxSet(
+    QBoxPlotSeriesPrivate *self,
+    int index,
+    QBoxSet *barset) {
+  self->clicked(index, barset);
+}
+
+//  void QBoxPlotSeriesPrivate::pressed(int index, QBoxSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBoxPlotSeriesPrivate7pressedEiP7QBoxSet(
+    QBoxPlotSeriesPrivate *self,
+    int index,
+    QBoxSet *barset) {
+  self->pressed(index, barset);
+}
+
+//  void QBoxPlotSeriesPrivate::released(int index, QBoxSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBoxPlotSeriesPrivate8releasedEiP7QBoxSet(
+    QBoxPlotSeriesPrivate *self,
+    int index,
+    QBoxSet *barset) {
+  self->released(index, barset);
+}
+
+//  void QBoxPlotSeriesPrivate::doubleClicked(int index, QBoxSet *barset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBoxPlotSeriesPrivate13doubleClickedEiP7QBoxSet(
+    QBoxPlotSeriesPrivate *self,
+    int index,
+    QBoxSet *barset) {
+  self->doubleClicked(index, barset);
+}
+
+//  void QBoxPlotSeriesPrivate::updatedBoxes()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBoxPlotSeriesPrivate12updatedBoxesEv(
+    QBoxPlotSeriesPrivate *self) {
+  self->updatedBoxes();
+}
+
+//  void QBoxPlotSeriesPrivate::updatedLayout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBoxPlotSeriesPrivate13updatedLayoutEv(
+    QBoxPlotSeriesPrivate *self) {
+  self->updatedLayout();
+}
+
+//  void QBoxPlotSeriesPrivate::restructuredBoxes()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QBoxPlotSeriesPrivate17restructuredBoxesEv(
+    QBoxPlotSeriesPrivate *self) {
+  self->restructuredBoxes();
 }
 
 //  void QBoxPlotSeriesPrivate::handleSeriesChange(QAbstractSeries *series)

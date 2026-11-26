@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK15QQmlObjectModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlObjectModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQmlObjectModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQmlObjectModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QQmlObjectModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQmlObjectModel6d_funcEv": ["address", "address"],
     "ritual_ZN15QQmlObjectModel21qt_qmlMarker_attachedEv": [
       "nothing", "address"
     ],
@@ -34,6 +42,7 @@
     "ritual_ZNK15QQmlObjectModel7indexOfEP7QObjectS1_": [
       "int", "address", "address", "address"
     ],
+    "ritual_ZN15QQmlObjectModel8childrenEv": ["address", "address"],
     "ritual_ZN15QQmlObjectModel21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
     ],
@@ -51,6 +60,7 @@
       "nothing", "address", "int", "int"
     ],
     "ritual_ZN15QQmlObjectModel5clearEv": ["nothing", "address"],
+    "ritual_ZN15QQmlObjectModel15childrenChangedEv": ["nothing", "address"],
     "ritual_take_QQmlObjectModel": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QQmlObjectModel5countEv": ["int", "address"],
     "ritual_own_ZNK15QQmlObjectModel7isValidEv": ["bool", "address"],
@@ -68,6 +78,9 @@
     ],
     "ritual_own_ZNK15QQmlObjectModel7indexOfEP7QObjectS1_": [
       "int", "address", "address", "address"
+    ],
+    "ritual_drop_QQmlObjectModel__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

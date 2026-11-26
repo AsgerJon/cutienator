@@ -7,6 +7,14 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qwindowcapture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QWindowCapturePrivate *QWindowCapturePrivate::get(QWindowCapture
+//      &capture)
+extern "C" Q_DECL_EXPORT
+QWindowCapturePrivate *ritual_ZN21QWindowCapturePrivate3getER14QWindowCapture(
+    QWindowCapture *capture) {
+  return QWindowCapturePrivate::get(*capture);
+}
+
 //  void QWindowCapturePrivate::setIgnoreCursor(bool a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QWindowCapturePrivate15setIgnoreCursorEb(

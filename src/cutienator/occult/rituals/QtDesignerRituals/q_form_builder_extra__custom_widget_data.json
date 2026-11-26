@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QFormBuilderExtra16CustomWidgetDataC1Ev": ["address"],
     "ritual_ZN17QFormBuilderExtra16CustomWidgetDataC1EPK15DomCustomWidget": [
       "address", "address"
     ],

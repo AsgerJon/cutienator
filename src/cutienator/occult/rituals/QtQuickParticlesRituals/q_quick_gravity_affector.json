@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickGravityAffector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickGravityAffector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickGravityAffector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickGravityAffector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,6 +24,12 @@
     "ritual_ZNK21QQuickGravityAffector5angleEv": ["double", "address"],
     "ritual_ZN21QQuickGravityAffector14affectParticleEP18QQuickParticleDatad": [
       "bool", "address", "address", "double"
+    ],
+    "ritual_ZN21QQuickGravityAffector16magnitudeChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickGravityAffector12angleChangedEd": [
+      "nothing", "address", "double"
     ],
     "ritual_ZN21QQuickGravityAffector12setMagnitudeEd": [
       "nothing", "address", "double"

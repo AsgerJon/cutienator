@@ -11,13 +11,17 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickspriteengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(quick_sprite)
+#include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicksprite_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuickSpriteEngine that Python can take functions over in. Every QQuickSpriteEngine
 //  Python makes is one. Each function below asks the Python
@@ -237,6 +241,25 @@ const QMetaObject *ritual_ZNK18QQuickSpriteEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSpriteEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickSpriteEngine11qt_metacastEPKc(
+    QQuickSpriteEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSpriteEngine::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickSpriteEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSpriteEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSpriteEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickSpriteEngine2trEPKcS1_i(
@@ -266,6 +289,13 @@ QQuickSpriteEngine *ritual_ZN18QQuickSpriteEngineC1ERK5QListIP12QQuickSpriteEP7Q
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickSpriteEngineD1Ev(QQuickSpriteEngine *self) {
   delete self;
+}
+
+//  QQmlListProperty<QQuickSprite> QQuickSpriteEngine::sprites()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickSprite> *ritual_ZN18QQuickSpriteEngine7spritesEv(
+    QQuickSpriteEngine *self) {
+  return new QQmlListProperty<QQuickSprite>(self->sprites());
 }
 
 //  QQuickSprite *QQuickSpriteEngine::sprite(int sprite) const
@@ -455,6 +485,13 @@ void ritual_own_ZN18QQuickSpriteEngine7advanceEi(
     QQuickSpriteEngine *self,
     int index) {
   self->QQuickSpriteEngine::advance(index);
+}
+
+//  a QQmlListProperty<QQuickSprite> a ritual of QQuickSpriteEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickSpriteEngine__QQmlListProperty_QQuickSprite(
+    QQmlListProperty<QQuickSprite> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_sprite)

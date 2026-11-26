@@ -6,10 +6,20 @@
   ],
   "rows": {
     "ritual_ZNK16QtROIoDeviceBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QtROIoDeviceBase11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QtROIoDeviceBase11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QtROIoDeviceBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QtROIoDeviceBaseC1EP7QObject": ["address", "address"],
     "ritual_ZN16QtROIoDeviceBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN16QtROIoDeviceBase4readERN15QtRemoteObjects27QRemoteObjectPacketTypeEnumER7QString": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN16QtROIoDeviceBase5writeERK10QByteArray": [
       "nothing", "address", "address"
     ],
@@ -32,6 +42,12 @@
     "ritual_ZN16QtROIoDeviceBase12removeSourceERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZNK16QtROIoDeviceBase13remoteObjectsEv": ["address", "address"],
+    "ritual_ZN16QtROIoDeviceBase9readyReadEv": ["nothing", "address"],
+    "ritual_ZN16QtROIoDeviceBase12disconnectedEv": ["nothing", "address"],
+    "ritual_ZN16QtROIoDeviceBaseC1ER23QtROIoDeviceBasePrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK16QtROIoDeviceBase10deviceTypeEv": ["text", "address"],
     "ritual_ZN16QtROIoDeviceBase7doCloseEv": ["nothing", "address"],
     "ritual_ZN16QtROIoDeviceBase6d_funcEv": ["address", "address"],
@@ -47,6 +63,7 @@
     "ritual_own_ZN16QtROIoDeviceBase5closeEv": ["nothing", "address"],
     "ritual_own_ZNK16QtROIoDeviceBase14bytesAvailableEv": [
       "long long", "address"
-    ]
+    ],
+    "ritual_drop_QtROIoDeviceBase__QSet_QString": ["nothing", "address"]
   }
 }

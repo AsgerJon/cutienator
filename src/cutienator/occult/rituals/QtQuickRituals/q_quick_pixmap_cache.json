@@ -6,7 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickPixmapCache10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickPixmapCache11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickPixmapCache11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickPixmapCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQuickPixmapCache10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QQuickPixmapCache": ["bool", "address", "chars", "address"]
   }
 }

@@ -19,6 +19,7 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK15QMqttStringPaireqERKS_": ["bool", "address", "address"],
-    "ritual_ZNK15QMqttStringPairneERKS_": ["bool", "address", "address"]
+    "ritual_ZNK15QMqttStringPairneERKS_": ["bool", "address", "address"],
+    "ritual_ZN15QMqttStringPairaSERKS_": ["address", "address", "address"]
   }
 }

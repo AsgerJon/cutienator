@@ -9,6 +9,9 @@
     "ritual_ZN8QNetmask10setAddressERK12QHostAddress": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK8QNetmask7addressEN15QAbstractSocket20NetworkLayerProtocolE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK8QNetmask12prefixLengthEv": ["int", "address"],
     "ritual_ZN8QNetmask15setPrefixLengthEN15QAbstractSocket20NetworkLayerProtocolEi": [
       "nothing", "address", "int", "int"

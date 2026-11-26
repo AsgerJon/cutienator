@@ -10,7 +10,9 @@
 #include <QtGui/6.12.0/QtGui/private/qdbusmenutypes_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtGui/qkeysequence.h>
 #include <QtCore/qlist.h>
+#include <QtGui/QKeySequence>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qdbusmenutypes_p.h>
 #include <QDBusConnection>
@@ -36,6 +38,43 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenutypes.cpp, line 158, as _ZN13QDBusMenuItemC1EPK21QDBusPlatformMenuItem
+inline QDBusMenuItem::QDBusMenuItem(const QDBusPlatformMenuItem *item)
+    : m_id(item->dbusID())
+{
+    if (item->isSeparator()) {
+        m_properties.insert("type"_L1, "separator"_L1);
+    } else {
+        m_properties.insert("label"_L1, convertMnemonic(item->text()));
+        if (item->menu())
+            m_properties.insert("children-display"_L1, "submenu"_L1);
+        m_properties.insert("enabled"_L1, item->isEnabled());
+        if (item->isCheckable()) {
+            QString toggleType = item->hasExclusiveGroup() ? "radio"_L1 : "checkmark"_L1;
+            m_properties.insert("toggle-type"_L1, toggleType);
+            m_properties.insert("toggle-state"_L1, item->isChecked() ? 1 : 0);
+        }
+#ifndef QT_NO_SHORTCUT
+        const QKeySequence &scut = item->shortcut();
+        if (!scut.isEmpty()) {
+            QDBusMenuShortcut shortcut = convertKeySequence(scut);
+            m_properties.insert("shortcut"_L1, QVariant::fromValue(shortcut));
+        }
+#endif
+        const QIcon &icon = item->icon();
+        if (!icon.name().isEmpty()) {
+            m_properties.insert("icon-name"_L1, icon.name());
+        } else if (!icon.isNull()) {
+            QBuffer buf;
+            icon.pixmap(16).save(&buf, "PNG");
+            m_properties.insert("icon-data"_L1, buf.data());
+        }
+    }
+    m_properties.insert("visible"_L1, item->isVisible());
+}
+
 //  from src/gui/platform/unix/dbusmenu/qdbusmenutypes.cpp, line 203, as _ZN13QDBusMenuItem15convertMnemonicERK7QString
 inline QString QDBusMenuItem::convertMnemonic(const QString &label)
 {
@@ -48,6 +87,38 @@ inline QString QDBusMenuItem::convertMnemonic(const QString &label)
     ret[idx] = u'_';
     return ret;
 }
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenutypes.cpp, line 216, as _ZN13QDBusMenuItem18convertKeySequenceERK12QKeySequence
+#if !defined(QT_NO_SHORTCUT)
+inline QDBusMenuShortcut QDBusMenuItem::convertKeySequence(const QKeySequence &sequence)
+{
+    QDBusMenuShortcut shortcut;
+    for (int i = 0; i < sequence.count(); ++i) {
+        QStringList tokens;
+        auto modifiers = sequence[i].keyboardModifiers();
+        if (modifiers & Qt::MetaModifier)
+            tokens << QStringLiteral("Super");
+        if (modifiers & Qt::ControlModifier)
+            tokens << QStringLiteral("Control");
+        if (modifiers & Qt::AltModifier)
+            tokens << QStringLiteral("Alt");
+        if (modifiers & Qt::ShiftModifier)
+            tokens << QStringLiteral("Shift");
+        if (modifiers & Qt::KeypadModifier)
+            tokens << QStringLiteral("Num");
+
+        QString keyName = QKeySequencePrivate::keyName(sequence[i].key(), QKeySequence::PortableText);
+        if (keyName == "+"_L1)
+            tokens << QStringLiteral("plus");
+        else if (keyName == "-"_L1)
+            tokens << QStringLiteral("minus");
+        else
+            tokens << keyName;
+        shortcut << tokens;
+    }
+    return shortcut;
+}
+#endif  // !defined(QT_NO_SHORTCUT)
 //  -----------------------------------------------------------------------
 
 //  QDBusMenuItem::QDBusMenuItem()
@@ -56,12 +127,31 @@ QDBusMenuItem *ritual_ZN13QDBusMenuItemC1Ev() {
   return new QDBusMenuItem();
 }
 
+#if !defined(QT_NO_SHORTCUT)
+//  QDBusMenuItem::QDBusMenuItem(const QDBusPlatformMenuItem *item)
+extern "C" Q_DECL_EXPORT
+QDBusMenuItem *ritual_ZN13QDBusMenuItemC1EPK21QDBusPlatformMenuItem(
+    const QDBusPlatformMenuItem *item) {
+  return new QDBusMenuItem(item);
+}
+#endif  // !defined(QT_NO_SHORTCUT)
+
 //  QString QDBusMenuItem::convertMnemonic(const QString &label)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QDBusMenuItem15convertMnemonicERK7QString(
     const QString *label) {
   return new QString(QDBusMenuItem::convertMnemonic(*label));
 }
+
+#if !defined(QT_NO_SHORTCUT)
+//  QDBusMenuShortcut QDBusMenuItem::convertKeySequence(const QKeySequence
+//      &sequence)
+extern "C" Q_DECL_EXPORT
+QDBusMenuShortcut *ritual_ZN13QDBusMenuItem18convertKeySequenceERK12QKeySequence(
+    const QKeySequence *sequence) {
+  return new QDBusMenuShortcut(QDBusMenuItem::convertKeySequence(*sequence));
+}
+#endif  // !defined(QT_NO_SHORTCUT)
 
 //  QDBusMenuItem::~QDBusMenuItem()
 extern "C" Q_DECL_EXPORT
@@ -100,6 +190,12 @@ QDBusMenuItem *ritual_list_at_QDBusMenuItem(
 //  QList<QDBusMenuItem>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QDBusMenuItem(QList<QDBusMenuItem> *self) {
+  delete self;
+}
+
+//  a QDBusMenuShortcut a ritual of QDBusMenuItem gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDBusMenuItem__QDBusMenuShortcut(QDBusMenuShortcut *self) {
   delete self;
 }
 

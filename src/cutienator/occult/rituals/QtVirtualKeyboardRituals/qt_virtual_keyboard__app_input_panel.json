@@ -8,6 +8,12 @@
     "ritual_ZNK17QtVirtualKeyboard13AppInputPanel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard13AppInputPanel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard13AppInputPanel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard13AppInputPanel2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,24 @@
     ],
     "ritual_ZNK17QtVirtualKeyboard13AppInputPanel6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard13AppInputPanelC1ERNS_20AppInputPanelPrivateEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard13AppInputPanelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard13AppInputPanelD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard13AppInputPanel4showEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard13AppInputPanel4hideEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard13AppInputPanel9isVisibleEv": [
+      "bool", "address"
     ],
     "ritual_take_QtVirtualKeyboard_AppInputPanel": [
       "bool", "address", "chars", "address"

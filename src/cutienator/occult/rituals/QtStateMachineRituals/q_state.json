@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK6QState10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QState11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN6QState11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN6QState2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN6QStateC1EPS_": ["address", "address"],
     "ritual_ZN6QStateC1ENS_9ChildModeEPS_": ["address", "int", "address"],
@@ -13,6 +17,7 @@
     "ritual_ZN6QState13setErrorStateEP14QAbstractState": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN6QState18bindableErrorStateEv": ["address", "address"],
     "ritual_ZN6QState13addTransitionEP19QAbstractTransition": [
       "nothing", "address", "address"
     ],
@@ -30,16 +35,36 @@
     "ritual_ZN6QState15setInitialStateEP14QAbstractState": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN6QState20bindableInitialStateEv": ["address", "address"],
     "ritual_ZNK6QState9childModeEv": ["int", "address"],
     "ritual_ZN6QState12setChildModeENS_9ChildModeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN6QState17bindableChildModeEv": ["address", "address"],
     "ritual_ZN6QState14assignPropertyEP7QObjectPKcRK8QVariant": [
       "nothing", "address", "address", "chars", "address"
+    ],
+    "ritual_ZN6QState8finishedENS_14QPrivateSignalE": ["nothing", "address"],
+    "ritual_ZN6QState18propertiesAssignedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN6QState16childModeChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN6QState19initialStateChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN6QState17errorStateChangedENS_14QPrivateSignalE": [
+      "nothing", "address"
     ],
     "ritual_ZN6QState7onEntryEP6QEvent": ["nothing", "address", "address"],
     "ritual_ZN6QState6onExitEP6QEvent": ["nothing", "address", "address"],
     "ritual_ZN6QState5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN6QStateC1ER13QStatePrivatePS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QState6d_funcEv": ["address", "address"],
+    "ritual_ZNK6QState6d_funcEv": ["address", "address"],
     "ritual_take_QState": ["bool", "address", "chars", "address"],
     "ritual_own_ZN6QState7onEntryEP6QEvent": [
       "nothing", "address", "address"
@@ -47,6 +72,8 @@
     "ritual_own_ZN6QState6onExitEP6QEvent": [
       "nothing", "address", "address"
     ],
-    "ritual_own_ZN6QState5eventEP6QEvent": ["bool", "address", "address"]
+    "ritual_own_ZN6QState5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_drop_QState__QBindable_QAbstractState": ["nothing", "address"],
+    "ritual_drop_QState__QBindable_QState_ChildMode": ["nothing", "address"]
   }
 }

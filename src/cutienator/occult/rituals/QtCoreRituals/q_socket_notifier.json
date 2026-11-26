@@ -5,9 +5,17 @@
   ],
   "rows": {
     "ritual_ZNK15QSocketNotifier10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QSocketNotifier11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QSocketNotifier11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QSocketNotifier2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QSocketNotifier6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QSocketNotifier6d_funcEv": ["address", "address"],
     "ritual_ZN15QSocketNotifierC1ENS_4TypeEP7QObject": [
       "address", "int", "address"
     ],
@@ -24,6 +32,9 @@
     "ritual_ZNK15QSocketNotifier9isEnabledEv": ["bool", "address"],
     "ritual_ZN15QSocketNotifier10setEnabledEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QSocketNotifier9activatedE17QSocketDescriptorNS_4TypeENS_14QPrivateSignalE": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_ZN15QSocketNotifier5eventEP6QEvent": [
       "bool", "address", "address"

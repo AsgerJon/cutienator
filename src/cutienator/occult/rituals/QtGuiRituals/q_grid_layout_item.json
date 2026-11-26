@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QGridLayoutItemC1Eiiii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "address", "int", "int", "int", "int", "int"
+    ],
     "ritual_ZN15QGridLayoutItemD1Ev": ["nothing", "address"],
     "ritual_ZNK15QGridLayoutItem8firstRowEv": ["int", "address"],
     "ritual_ZNK15QGridLayoutItem11firstColumnEv": ["int", "address"],

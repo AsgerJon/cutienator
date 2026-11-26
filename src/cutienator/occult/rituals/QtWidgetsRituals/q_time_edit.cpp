@@ -1152,6 +1152,22 @@ const QMetaObject *ritual_ZNK9QTimeEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTimeEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QTimeEdit11qt_metacastEPKc(QTimeEdit *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTimeEdit::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QTimeEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTimeEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTimeEdit::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QTimeEdit2trEPKcS1_i(
@@ -1179,6 +1195,14 @@ QTimeEdit *ritual_ZN9QTimeEditC1E5QTimeP7QWidget(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTimeEditD1Ev(QTimeEdit *self) {
   delete self;
+}
+
+//  void QTimeEdit::userTimeChanged(QTime time)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTimeEdit15userTimeChangedE5QTime(
+    QTimeEdit *self,
+    const QTime *time) {
+  self->userTimeChanged(*time);
 }
 
 //  a Python function taken by a CuteQTimeEdit, for the function named by the

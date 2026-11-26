@@ -8,6 +8,9 @@
     "ritual_ZN20QtUniqueHandleTraits26FileDescriptorHandleTraits12invalidValueEv": [
       "int"
     ],
+    "ritual_ZN20QtUniqueHandleTraits26FileDescriptorHandleTraits5closeEi": [
+      "bool", "int"
+    ],
     "ritual_ZN20QtUniqueHandleTraits26FileDescriptorHandleTraitsD1Ev": [
       "nothing", "address"
     ]

@@ -10,7 +10,13 @@
       "address", "address", "address", "unsigned short"
     ],
     "ritual_ZN16QNetworkDatagramC1ERKS_": ["address", "address"],
+    "ritual_ZN16QNetworkDatagramaSERKS_": ["address", "address", "address"],
     "ritual_ZN16QNetworkDatagramD1Ev": ["nothing", "address"],
+    "ritual_ZN16QNetworkDatagramC1EOS_": ["address", "address"],
+    "ritual_ZN16QNetworkDatagramaSEOS_": ["address", "address", "address"],
+    "ritual_ZN16QNetworkDatagram4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QNetworkDatagram5clearEv": ["nothing", "address"],
     "ritual_ZNK16QNetworkDatagram7isValidEv": ["bool", "address"],
     "ritual_ZNK16QNetworkDatagram6isNullEv": ["bool", "address"],
@@ -42,6 +48,9 @@
     ],
     "ritual_ZNKR16QNetworkDatagram9makeReplyERK10QByteArray": [
       "address", "address", "address"
+    ],
+    "ritual_ZN16QNetworkDatagramC1ER23QNetworkDatagramPrivate": [
+      "address", "address"
     ],
     "ritual_ZNK16QNetworkDatagram16makeReply_helperERK10QByteArray": [
       "address", "address", "address"

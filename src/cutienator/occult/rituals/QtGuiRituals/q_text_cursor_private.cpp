@@ -132,6 +132,14 @@ QTextBlockFormat *ritual_ZNK18QTextCursorPrivate11blockFormatEv(
   return new QTextBlockFormat(self->blockFormat());
 }
 
+//  QTextLayout *QTextCursorPrivate::blockLayout(QTextBlock &block) const
+extern "C" Q_DECL_EXPORT
+QTextLayout *ritual_ZNK18QTextCursorPrivate11blockLayoutER10QTextBlock(
+    const QTextCursorPrivate *self,
+    QTextBlock *block) {
+  return self->blockLayout(*block);
+}
+
 //  QTextTable *QTextCursorPrivate::complexSelectionTable() const
 extern "C" Q_DECL_EXPORT
 QTextTable *ritual_ZNK18QTextCursorPrivate21complexSelectionTableEv(

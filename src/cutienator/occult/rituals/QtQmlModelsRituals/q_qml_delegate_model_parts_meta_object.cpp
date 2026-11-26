@@ -40,6 +40,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 121, as _ZN32QQmlDelegateModelPartsMetaObject12initialValueEi
+inline QVariant QQmlDelegateModelPartsMetaObject::initialValue(int id)
+{
+    QQmlDelegateModelParts *parts = static_cast<QQmlDelegateModelParts *>(object());
+    QQmlPartsModel *m = new QQmlPartsModel(
+            parts->model, QString::fromUtf8(name(id)), parts);
+    parts->models.append(m);
+    return QVariant::fromValue(static_cast<QObject *>(m));
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 116, as _ZN32QQmlDelegateModelPartsMetaObject15propertyCreatedEiR20QMetaPropertyBuilder
+inline void QQmlDelegateModelPartsMetaObject::propertyCreated(int, QMetaPropertyBuilder &prop)
+{
+    prop.setWritable(false);
+}
+
 //  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3718, as _ZN14QQmlPartsModelC1EP17QQmlDelegateModelRK7QStringP7QObject
 inline QQmlPartsModel::QQmlPartsModel(QQmlDelegateModel *model, const QString &part, QObject *parent)
     : QQmlInstanceModel(*new QObjectPrivate, parent)
@@ -57,21 +73,8 @@ inline QQmlPartsModel::QQmlPartsModel(QQmlDelegateModel *model, const QString &p
     }
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 116, as _ZN32QQmlDelegateModelPartsMetaObject15propertyCreatedEiR20QMetaPropertyBuilder
-inline void QQmlDelegateModelPartsMetaObject::propertyCreated(int, QMetaPropertyBuilder &prop)
-{
-    prop.setWritable(false);
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 121, as _ZN32QQmlDelegateModelPartsMetaObject12initialValueEi
-inline QVariant QQmlDelegateModelPartsMetaObject::initialValue(int id)
-{
-    QQmlDelegateModelParts *parts = static_cast<QQmlDelegateModelParts *>(object());
-    QQmlPartsModel *m = new QQmlPartsModel(
-            parts->model, QString::fromUtf8(name(id)), parts);
-    parts->models.append(m);
-    return QVariant::fromValue(static_cast<QObject *>(m));
-}
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1232, as _ZN29QQmlDelegateModelGroupEmitterD2Ev
+inline QQmlDelegateModelGroupEmitter::~QQmlDelegateModelGroupEmitter() = default;
 //  -----------------------------------------------------------------------
 
 //  A QQmlDelegateModelPartsMetaObject that Python can take functions over in. Every QQmlDelegateModelPartsMetaObject
@@ -91,7 +94,7 @@ typedef void (*CuteQQmlDelegateModelPartsMetaObjectCall6)(const void *, QObject 
 class CuteQQmlDelegateModelPartsMetaObject : public QQmlDelegateModelPartsMetaObject {
 public:
   using QQmlDelegateModelPartsMetaObject::QQmlDelegateModelPartsMetaObject;
-  CuteQQmlDelegateModelPartsMetaObject(const QQmlDelegateModelPartsMetaObject &other) : QQmlDelegateModelPartsMetaObject(other) {}
+  CuteQQmlDelegateModelPartsMetaObject(const QQmlDelegateModelPartsMetaObject & other) : QQmlDelegateModelPartsMetaObject(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
@@ -213,6 +216,16 @@ public:
     QDynamicMetaObjectData::objectDestroyed(a0);
   }
 };
+
+//  void QQmlDelegateModelPartsMetaObject::propertyCreated(int a0,
+//      QMetaPropertyBuilder &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQmlDelegateModelPartsMetaObject15propertyCreatedEiR20QMetaPropertyBuilder(
+    QQmlDelegateModelPartsMetaObject *self,
+    int a0,
+    QMetaPropertyBuilder *a1) {
+  self->propertyCreated(a0, *a1);
+}
 
 //  QVariant QQmlDelegateModelPartsMetaObject::initialValue(int a0)
 extern "C" Q_DECL_EXPORT

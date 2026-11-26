@@ -7,12 +7,33 @@
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <functional>
+#include <QtCore/QString>
 
 //  const QMetaObject *QQStyleKitControlProperties::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK27QQStyleKitControlProperties10metaObjectEv(
     const QQStyleKitControlProperties *self) {
   return self->metaObject();
+}
+
+//  void *QQStyleKitControlProperties::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQStyleKitControlProperties11qt_metacastEPKc(
+    QQStyleKitControlProperties *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitControlProperties::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQStyleKitControlProperties11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitControlProperties *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQStyleKitControlProperties::tr(const char *s, const char *c, int
@@ -50,6 +71,15 @@ void ritual_ZN27QQStyleKitControlProperties32emitChangedForAllStylePropertiesE6Q
     int emitFlags) {
   self->emitChangedForAllStyleProperties(
       QFlags<QQStyleKitPropertyGroup::EmitFlag>::fromInt(emitFlags));
+}
+
+//  void QQStyleKitControlProperties::forEachUsedDelegate(std::function<void
+//      (QQStyleKitDelegateProperties *, QQSK::Delegate, const QString &)> f)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties19forEachUsedDelegateESt8functionIFvP28QQStyleKitDelegatePropertiesN4QQSK8DelegateERK7QStringEE(
+    QQStyleKitControlProperties *self,
+    const std::function<void (QQStyleKitDelegateProperties *, QQSK::Delegate, const QString &)> *f) {
+  self->forEachUsedDelegate(*f);
 }
 
 //  QQStyleKitStyle *QQStyleKitControlProperties::style() const
@@ -215,4 +245,81 @@ extern "C" Q_DECL_EXPORT
 QQStyleKitIndicatorWithSubTypes *ritual_ZNK27QQStyleKitControlProperties9indicatorEv(
     const QQStyleKitControlProperties *self) {
   return self->indicator();
+}
+
+//  void QQStyleKitControlProperties::backgroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties17backgroundChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->backgroundChanged();
+}
+
+//  void QQStyleKitControlProperties::handleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties13handleChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->handleChanged();
+}
+
+//  void QQStyleKitControlProperties::indicatorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties16indicatorChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->indicatorChanged();
+}
+
+//  void QQStyleKitControlProperties::spacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties14spacingChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->spacingChanged();
+}
+
+//  void QQStyleKitControlProperties::paddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties14paddingChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->paddingChanged();
+}
+
+//  void QQStyleKitControlProperties::leftPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties18leftPaddingChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->leftPaddingChanged();
+}
+
+//  void QQStyleKitControlProperties::rightPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties19rightPaddingChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->rightPaddingChanged();
+}
+
+//  void QQStyleKitControlProperties::topPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties17topPaddingChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->topPaddingChanged();
+}
+
+//  void QQStyleKitControlProperties::bottomPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties20bottomPaddingChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->bottomPaddingChanged();
+}
+
+//  void QQStyleKitControlProperties::transitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties17transitionChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->transitionChanged();
+}
+
+//  void QQStyleKitControlProperties::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQStyleKitControlProperties11textChangedEv(
+    QQStyleKitControlProperties *self) {
+  self->textChanged();
 }

@@ -180,6 +180,24 @@ const QMetaObject *ritual_ZNK11QTextObject10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTextObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QTextObject11qt_metacastEPKc(
+    QTextObject *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextObject::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QTextObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTextObject::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QTextObject2trEPKcS1_i(
@@ -231,6 +249,14 @@ QTextDocument *ritual_ZNK11QTextObject8documentEv(const QTextObject *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QTextObject11objectIndexEv(const QTextObject *self) {
   return self->objectIndex();
+}
+
+//  QTextObject::QTextObject(QTextObjectPrivate &p, QTextDocument *doc)
+extern "C" Q_DECL_EXPORT
+QTextObject *ritual_ZN11QTextObjectC1ER18QTextObjectPrivateP13QTextDocument(
+    QTextObjectPrivate *p,
+    QTextDocument *doc) {
+  return new CuteQTextObject(*p, doc);
 }
 
 //  QTextObjectPrivate *QTextObject::d_func()

@@ -8,8 +8,83 @@
     "ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterialC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterialD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial7ambientEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial7diffuseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial8specularEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial9shininessEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial6normalEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial12textureScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras24QDiffuseSpecularMaterial22isAlphaBlendingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial10setAmbientERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial10setDiffuseERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial11setSpecularERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial12setShininessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial9setNormalERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial15setTextureScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial23setAlphaBlendingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial14ambientChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial14diffuseChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial15specularChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial16shininessChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial13normalChangedERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial19textureScaleChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial27alphaBlendingEnabledChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN10Qt3DExtras24QDiffuseSpecularMaterial6d_funcEv": [
       "address", "address"

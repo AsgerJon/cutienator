@@ -21,6 +21,24 @@
     "ritual_ZN24QImagePixmapCleanupHooks14isPixmapCachedERK7QPixmap": [
       "bool", "address"
     ],
+    "ritual_ZN24QImagePixmapCleanupHooks33addPlatformPixmapModificationHookEPFvP15QPlatformPixmapE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks32addPlatformPixmapDestructionHookEPFvP15QPlatformPixmapE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks12addImageHookEPFvxE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks36removePlatformPixmapModificationHookEPFvP15QPlatformPixmapE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks35removePlatformPixmapDestructionHookEPFvP15QPlatformPixmapE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks15removeImageHookEPFvxE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QImagePixmapCleanupHooks38executePlatformPixmapModificationHooksEP15QPlatformPixmap": [
       "nothing", "address"
     ],

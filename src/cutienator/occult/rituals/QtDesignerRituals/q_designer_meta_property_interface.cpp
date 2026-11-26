@@ -226,6 +226,12 @@ public:
   }
 };
 
+//  QDesignerMetaPropertyInterface::QDesignerMetaPropertyInterface()
+extern "C" Q_DECL_EXPORT
+QDesignerMetaPropertyInterface *ritual_ZN30QDesignerMetaPropertyInterfaceC1Ev() {
+  return new CuteQDesignerMetaPropertyInterface();
+}
+
 //  QDesignerMetaPropertyInterface::~QDesignerMetaPropertyInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QDesignerMetaPropertyInterfaceD1Ev(

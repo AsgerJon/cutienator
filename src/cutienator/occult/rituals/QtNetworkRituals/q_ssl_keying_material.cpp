@@ -40,6 +40,31 @@ QSslKeyingMaterial *ritual_ZN18QSslKeyingMaterialC1ERKS_(
   return new QSslKeyingMaterial(*other);
 }
 
+//  QSslKeyingMaterial &QSslKeyingMaterial::operator=(const
+//      QSslKeyingMaterial &other)
+extern "C" Q_DECL_EXPORT
+QSslKeyingMaterial *ritual_ZN18QSslKeyingMaterialaSERKS_(
+    QSslKeyingMaterial *self,
+    const QSslKeyingMaterial *other) {
+  return &(self->operator=(*other));
+}
+
+//  QSslKeyingMaterial::QSslKeyingMaterial(QSslKeyingMaterial &&other)
+extern "C" Q_DECL_EXPORT
+QSslKeyingMaterial *ritual_ZN18QSslKeyingMaterialC1EOS_(
+    QSslKeyingMaterial *other) {
+  return new QSslKeyingMaterial(std::move(*other));
+}
+
+//  QSslKeyingMaterial &QSslKeyingMaterial::operator=(QSslKeyingMaterial
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QSslKeyingMaterial *ritual_ZN18QSslKeyingMaterialaSEOS_(
+    QSslKeyingMaterial *self,
+    QSslKeyingMaterial *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QSslKeyingMaterial::~QSslKeyingMaterial()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QSslKeyingMaterialD1Ev(QSslKeyingMaterial *self) {
@@ -86,6 +111,14 @@ extern "C" Q_DECL_EXPORT
 QSslKeyingMaterial *ritual_ZNK18QSslKeyingMaterial5cloneEv(
     const QSslKeyingMaterial *self) {
   return new QSslKeyingMaterial(self->clone());
+}
+
+//  void QSslKeyingMaterial::swap(QSslKeyingMaterial &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSslKeyingMaterial4swapERS_(
+    QSslKeyingMaterial *self,
+    QSslKeyingMaterial *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QSslKeyingMaterial &lhs, const QSslKeyingMaterial

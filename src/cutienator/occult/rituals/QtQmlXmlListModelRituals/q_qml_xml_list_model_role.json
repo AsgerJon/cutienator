@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQmlXmlListModelRole10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlXmlListModelRole11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlXmlListModelRole11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQmlXmlListModelRole2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,13 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK20QQmlXmlListModelRole7isValidEv": ["bool", "address"],
+    "ritual_ZN20QQmlXmlListModelRole11nameChangedEv": ["nothing", "address"],
+    "ritual_ZN20QQmlXmlListModelRole18elementNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlXmlListModelRole20attributeNameChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQmlXmlListModelRole": [
       "bool", "address", "chars", "address"
     ]

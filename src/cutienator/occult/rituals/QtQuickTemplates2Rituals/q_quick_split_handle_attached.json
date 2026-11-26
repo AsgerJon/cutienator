@@ -8,6 +8,12 @@
     "ritual_ZNK25QQuickSplitHandleAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickSplitHandleAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickSplitHandleAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuickSplitHandleAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,14 @@
     "ritual_ZNK25QQuickSplitHandleAttached9isPressedEv": ["bool", "address"],
     "ritual_ZN25QQuickSplitHandleAttached21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
-    ]
+    ],
+    "ritual_ZN25QQuickSplitHandleAttached14hoveredChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickSplitHandleAttached14pressedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickSplitHandleAttached6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickSplitHandleAttached6d_funcEv": ["address", "address"]
   }
 }

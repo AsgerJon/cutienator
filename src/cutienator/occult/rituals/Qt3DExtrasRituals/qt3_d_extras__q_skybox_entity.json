@@ -7,8 +7,41 @@
     "ritual_ZNK10Qt3DExtras13QSkyboxEntity10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntity11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntity11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras13QSkyboxEntity2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntityC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntityD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras13QSkyboxEntity8baseNameEv": ["text", "address"],
+    "ritual_ZNK10Qt3DExtras13QSkyboxEntity9extensionEv": ["text", "address"],
+    "ritual_ZNK10Qt3DExtras13QSkyboxEntity21isGammaCorrectEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntity11setBaseNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntity12setExtensionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntity22setGammaCorrectEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntity15baseNameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntity16extensionChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DExtras13QSkyboxEntity26gammaCorrectEnabledChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN10Qt3DExtras13QSkyboxEntity6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DExtras13QSkyboxEntity6d_funcEv": ["address", "address"],

@@ -18,5 +18,23 @@ const QMetaObject *ritual_ZNK15QQmlListElement10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlListElement::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQmlListElement11qt_metacastEPKc(
+    QQmlListElement *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlListElement::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlListElement11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlListElement *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 #endif  // QT_CONFIG(qml_list_model)
 #endif  // QT_CONFIG(qml_list_model)

@@ -18,6 +18,17 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_tcpip_backend.cpp, line 84, as _ZN11TcpClientIo14onStateChangedEN15QAbstractSocket11SocketStateE
+inline void TcpClientIo::onStateChanged(QAbstractSocket::SocketState state)
+{
+    if (state == QAbstractSocket::ClosingState && !isClosing()) {
+        m_socket->abort();
+        emit shouldReconnect(this);
+    }
+    if (state == QAbstractSocket::ConnectedState)
+        initializeDataStream();
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_tcpip_backend.cpp, line 20, as _ZN11TcpClientIoD1Ev
 inline TcpClientIo::~TcpClientIo()
 {
@@ -51,17 +62,6 @@ inline bool TcpClientIo::isOpen() const
 {
     return (!isClosing() && (m_socket->state() == QAbstractSocket::ConnectedState
                              || m_socket->state() == QAbstractSocket::ConnectingState));
-}
-
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_tcpip_backend.cpp, line 84, as _ZN11TcpClientIo14onStateChangedEN15QAbstractSocket11SocketStateE
-inline void TcpClientIo::onStateChanged(QAbstractSocket::SocketState state)
-{
-    if (state == QAbstractSocket::ClosingState && !isClosing()) {
-        m_socket->abort();
-        emit shouldReconnect(this);
-    }
-    if (state == QAbstractSocket::ConnectedState)
-        initializeDataStream();
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_tcpip_backend.cpp, line 30, as _ZN11TcpClientIo7doCloseEv
@@ -104,14 +104,6 @@ void ritual_ZN11TcpClientIo15connectToServerEv(TcpClientIo *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11TcpClientIo6isOpenEv(const TcpClientIo *self) {
   return self->isOpen();
-}
-
-//  void TcpClientIo::onStateChanged(QAbstractSocket::SocketState state)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN11TcpClientIo14onStateChangedEN15QAbstractSocket11SocketStateE(
-    TcpClientIo *self,
-    QAbstractSocket::SocketState state) {
-  self->onStateChanged(state);
 }
 
 //  void TcpClientIo::doClose()

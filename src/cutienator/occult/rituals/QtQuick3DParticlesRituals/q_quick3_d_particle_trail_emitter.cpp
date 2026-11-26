@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK28QQuick3DParticleTrailEmitter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleTrailEmitter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuick3DParticleTrailEmitter11qt_metacastEPKc(
+    QQuick3DParticleTrailEmitter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleTrailEmitter::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuick3DParticleTrailEmitter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleTrailEmitter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleTrailEmitter::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -55,6 +74,13 @@ void ritual_ZN28QQuick3DParticleTrailEmitter9setFollowEP16QQuick3DParticle(
     QQuick3DParticleTrailEmitter *self,
     QQuick3DParticle *follow) {
   self->setFollow(follow);
+}
+
+//  void QQuick3DParticleTrailEmitter::followChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuick3DParticleTrailEmitter13followChangedEv(
+    QQuick3DParticleTrailEmitter *self) {
+  self->followChanged();
 }
 
 //  void QQuick3DParticleTrailEmitter::emitTrailParticles(const QVector3D

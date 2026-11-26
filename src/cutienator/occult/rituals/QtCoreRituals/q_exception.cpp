@@ -23,7 +23,7 @@ typedef void * (*CuteQExceptionCall1)(const void *, int *);
 class CuteQException : public QException {
 public:
   using QException::QException;
-  CuteQException(const QException &other) : QException(other) {}
+  CuteQException(const QException & other) : QException(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -93,6 +93,14 @@ void ritual_ZN10QExceptionD1Ev(QException *self) {
 extern "C" Q_DECL_EXPORT
 QException *ritual_ZN10QExceptionC1ERKS_(const QException *a0) {
   return new CuteQException(*a0);
+}
+
+//  QException &QException::operator=(const QException &a0)
+extern "C" Q_DECL_EXPORT
+QException *ritual_ZN10QExceptionaSERKS_(
+    QException *self,
+    const QException *a0) {
+  return &(self->operator=(*a0));
 }
 
 //  void QException::raise() const

@@ -10,6 +10,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtVirtualKeyboard/QVirtualKeyboardInputEngine>
+#include <QtCore/QString>
 
 //  A QtVirtualKeyboard::PlainInputMethod that Python can take functions over in. Every QtVirtualKeyboard::PlainInputMethod
 //  Python makes is one. Each function below asks the Python
@@ -402,6 +405,25 @@ const QMetaObject *ritual_ZNK17QtVirtualKeyboard16PlainInputMethod10metaObjectEv
   return self->metaObject();
 }
 
+//  void *QtVirtualKeyboard::PlainInputMethod::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QtVirtualKeyboard16PlainInputMethod11qt_metacastEPKc(
+    QtVirtualKeyboard::PlainInputMethod *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtVirtualKeyboard::PlainInputMethod::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QtVirtualKeyboard16PlainInputMethod11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtVirtualKeyboard::PlainInputMethod *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtVirtualKeyboard::PlainInputMethod::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -410,6 +432,79 @@ QString *ritual_ZN17QtVirtualKeyboard16PlainInputMethod2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtVirtualKeyboard::PlainInputMethod::tr(s, c, n));
+}
+
+//  QtVirtualKeyboard::PlainInputMethod::PlainInputMethod(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::PlainInputMethod *ritual_ZN17QtVirtualKeyboard16PlainInputMethodC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtVirtualKeyboard_PlainInputMethod(parent);
+}
+
+//  QtVirtualKeyboard::PlainInputMethod::~PlainInputMethod()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard16PlainInputMethodD1Ev(
+    QtVirtualKeyboard::PlainInputMethod *self) {
+  delete self;
+}
+
+//  QList<QVirtualKeyboardInputEngine::InputMode>
+//      QtVirtualKeyboard::PlainInputMethod::inputModes(const QString
+//      &locale)
+extern "C" Q_DECL_EXPORT
+QList<QVirtualKeyboardInputEngine::InputMode> *ritual_ZN17QtVirtualKeyboard16PlainInputMethod10inputModesERK7QString(
+    QtVirtualKeyboard::PlainInputMethod *self,
+    const QString *locale) {
+  return new QList<QVirtualKeyboardInputEngine::InputMode>(
+      self->inputModes(
+          *locale));
+}
+
+//  bool QtVirtualKeyboard::PlainInputMethod::setInputMode(const QString
+//      &locale, QVirtualKeyboardInputEngine::InputMode inputMode)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QtVirtualKeyboard16PlainInputMethod12setInputModeERK7QStringN27QVirtualKeyboardInputEngine9InputModeE(
+    QtVirtualKeyboard::PlainInputMethod *self,
+    const QString *locale,
+    QVirtualKeyboardInputEngine::InputMode inputMode) {
+  return self->setInputMode(*locale, inputMode);
+}
+
+//  bool QtVirtualKeyboard::PlainInputMethod::setTextCase(QVirtualKeyboardInp
+//      utEngine::TextCase textCase)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QtVirtualKeyboard16PlainInputMethod11setTextCaseEN27QVirtualKeyboardInputEngine8TextCaseE(
+    QtVirtualKeyboard::PlainInputMethod *self,
+    QVirtualKeyboardInputEngine::TextCase textCase) {
+  return self->setTextCase(textCase);
+}
+
+//  bool QtVirtualKeyboard::PlainInputMethod::keyEvent(Qt::Key key, const
+//      QString &text, Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QtVirtualKeyboard16PlainInputMethod8keyEventEN2Qt3KeyERK7QString6QFlagsINS1_16KeyboardModifierEE(
+    QtVirtualKeyboard::PlainInputMethod *self,
+    Qt::Key key,
+    const QString *text,
+    int modifiers) {
+  return self->keyEvent(
+      key,
+      *text,
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
+}
+
+//  void QtVirtualKeyboard::PlainInputMethod::reset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard16PlainInputMethod5resetEv(
+    QtVirtualKeyboard::PlainInputMethod *self) {
+  self->reset();
+}
+
+//  void QtVirtualKeyboard::PlainInputMethod::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard16PlainInputMethod6updateEv(
+    QtVirtualKeyboard::PlainInputMethod *self) {
+  self->update();
 }
 
 //  a Python function taken by a CuteQtVirtualKeyboard_PlainInputMethod, for
@@ -469,4 +564,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QtVirtualKeyboard16PlainInputMethod6updateEv(
     QtVirtualKeyboard::PlainInputMethod *self) {
   self->QtVirtualKeyboard::PlainInputMethod::update();
+}
+
+//  a QList<QVirtualKeyboardInputEngine::InputMode> a ritual of
+//      QtVirtualKeyboard::PlainInputMethod gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtVirtualKeyboard_PlainInputMethod__QList_QVirtualKeyboardInputEngine_InputMode(
+    QList<QVirtualKeyboardInputEngine::InputMode> *self) {
+  delete self;
 }

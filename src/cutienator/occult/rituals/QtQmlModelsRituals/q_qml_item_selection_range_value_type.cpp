@@ -11,8 +11,12 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlmodelindexvaluetype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/private/qqmlmodelindexvaluetype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -149,6 +153,21 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK31QQmlItemSelectionRangeValueType6heightEv(
     const QQmlItemSelectionRangeValueType *self) {
   return self->height();
+}
+
+//  QPersistentModelIndex &QQmlItemSelectionRangeValueType::topLeft() const
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_ZNK31QQmlItemSelectionRangeValueType7topLeftEv(
+    const QQmlItemSelectionRangeValueType *self) {
+  return &(self->topLeft());
+}
+
+//  QPersistentModelIndex &QQmlItemSelectionRangeValueType::bottomRight()
+//      const
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_ZNK31QQmlItemSelectionRangeValueType11bottomRightEv(
+    const QQmlItemSelectionRangeValueType *self) {
+  return &(self->bottomRight());
 }
 
 //  QModelIndex QQmlItemSelectionRangeValueType::parent() const

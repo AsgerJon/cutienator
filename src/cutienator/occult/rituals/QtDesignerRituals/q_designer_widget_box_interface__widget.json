@@ -14,6 +14,9 @@
     "ritual_ZN27QDesignerWidgetBoxInterface6WidgetC1ERKS0_": [
       "address", "address"
     ],
+    "ritual_ZN27QDesignerWidgetBoxInterface6WidgetaSERKS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK27QDesignerWidgetBoxInterface6Widget4nameEv": [
       "text", "address"
     ],

@@ -7,6 +7,11 @@
 #include <QtCoap/6.12.0/QtCoap/private/qcoapprotocol_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
+#include <QtCore/QPointer>
+#include <QtCoap/QCoapReply>
+#include <QtCore/QByteArray>
+#include <QtCore/QList>
+#include <QtCore/QSharedPointer>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCoap/private/qcoapinternalmessage_p.h>
 #include <QtCoap/private/qcoaprequest_p.h>
@@ -355,6 +360,27 @@ inline QCoapInternalRequest *QCoapProtocolPrivate::requestForToken(const QCoapTo
     return nullptr;
 }
 
+//  from ../qtcoap/src/coap/qcoapprotocol.cpp, line 411, as _ZNK20QCoapProtocolPrivate17userReplyForTokenERK10QByteArray
+inline QPointer<QCoapReply> QCoapProtocolPrivate::userReplyForToken(const QCoapToken &token) const
+{
+    auto it = exchangeMap.find(token);
+    if (it != exchangeMap.constEnd())
+        return it->userReply;
+
+    return nullptr;
+}
+
+//  from ../qtcoap/src/coap/qcoapprotocol.cpp, line 425, as _ZNK20QCoapProtocolPrivate15repliesForTokenERK10QByteArray
+inline QList<QSharedPointer<QCoapInternalReply>>
+QCoapProtocolPrivate::repliesForToken(const QCoapToken &token) const
+{
+    auto it = exchangeMap.find(token);
+    if (it != exchangeMap.constEnd())
+        return it->replies;
+
+    return {};
+}
+
 //  from ../qtcoap/src/coap/qcoapprotocol.cpp, line 440, as _ZNK20QCoapProtocolPrivate17lastReplyForTokenERK10QByteArray
 inline QCoapInternalReply *QCoapProtocolPrivate::lastReplyForToken(const QCoapToken &token) const
 {
@@ -385,6 +411,17 @@ inline QCoapInternalRequest *QCoapProtocolPrivate::findRequestByUserReply(const 
     }
 
     return nullptr;
+}
+
+//  from ../qtcoap/src/coap/qcoapprotocol.cpp, line 756, as _ZN20QCoapProtocolPrivate16registerExchangeERK10QByteArrayP10QCoapReply14QSharedPointerI20QCoapInternalRequestE
+inline void QCoapProtocolPrivate::registerExchange(const QCoapToken &token, QCoapReply *reply,
+                                            QSharedPointer<QCoapInternalRequest> request)
+{
+    CoapExchangeData data = { reply, request,
+                              QList<QSharedPointer<QCoapInternalReply> >()
+                            };
+
+    exchangeMap.insert(token, data);
 }
 
 //  from ../qtcoap/src/coap/qcoapprotocol.cpp, line 798, as _ZN20QCoapProtocolPrivate14forgetExchangeERK10QByteArray
@@ -474,6 +511,26 @@ QCoapInternalRequest *ritual_ZNK20QCoapProtocolPrivate15requestForTokenERK10QByt
   return self->requestForToken(*token);
 }
 
+//  QPointer<QCoapReply> QCoapProtocolPrivate::userReplyForToken(const
+//      QCoapToken &token) const
+extern "C" Q_DECL_EXPORT
+QPointer<QCoapReply> *ritual_ZNK20QCoapProtocolPrivate17userReplyForTokenERK10QByteArray(
+    const QCoapProtocolPrivate *self,
+    const QByteArray *token) {
+  return new QPointer<QCoapReply>(self->userReplyForToken(*token));
+}
+
+//  QList<QSharedPointer<QCoapInternalReply>>
+//      QCoapProtocolPrivate::repliesForToken(const QCoapToken &token) const
+extern "C" Q_DECL_EXPORT
+QList<QSharedPointer<QCoapInternalReply>> *ritual_ZNK20QCoapProtocolPrivate15repliesForTokenERK10QByteArray(
+    const QCoapProtocolPrivate *self,
+    const QByteArray *token) {
+  return new QList<QSharedPointer<QCoapInternalReply>>(
+      self->repliesForToken(
+          *token));
+}
+
 //  QCoapInternalReply *QCoapProtocolPrivate::lastReplyForToken(const
 //      QCoapToken &token) const
 extern "C" Q_DECL_EXPORT
@@ -500,6 +557,17 @@ QCoapInternalRequest *ritual_ZNK20QCoapProtocolPrivate22findRequestByUserReplyEP
     const QCoapProtocolPrivate *self,
     const QCoapReply *reply) {
   return self->findRequestByUserReply(reply);
+}
+
+//  void QCoapProtocolPrivate::registerExchange(const QCoapToken &token,
+//      QCoapReply *reply, QSharedPointer<QCoapInternalRequest> request)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QCoapProtocolPrivate16registerExchangeERK10QByteArrayP10QCoapReply14QSharedPointerI20QCoapInternalRequestE(
+    QCoapProtocolPrivate *self,
+    const QByteArray *token,
+    QCoapReply *reply,
+    const QSharedPointer<QCoapInternalRequest> *request) {
+  self->registerExchange(*token, reply, *request);
 }
 
 //  bool QCoapProtocolPrivate::forgetExchange(const QCoapToken &token)
@@ -539,4 +607,19 @@ extern "C" Q_DECL_EXPORT
 const QCoapProtocol *ritual_ZNK20QCoapProtocolPrivate6q_funcEv(
     const QCoapProtocolPrivate *self) {
   return self->q_func();
+}
+
+//  a QPointer<QCoapReply> a ritual of QCoapProtocolPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCoapProtocolPrivate__QPointer_QCoapReply(
+    QPointer<QCoapReply> *self) {
+  delete self;
+}
+
+//  a QList<QSharedPointer<QCoapInternalReply>> a ritual of
+//      QCoapProtocolPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCoapProtocolPrivate__QList_QSharedPointer_QCoapInternalReply(
+    QList<QSharedPointer<QCoapInternalReply>> *self) {
+  delete self;
 }

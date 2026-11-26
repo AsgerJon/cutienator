@@ -15,6 +15,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmlanybinding_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/private/qquickdesignersupportmetainfo_p.h>
 #include <QtQuick/private/qquickdesignersupportproperties_p.h>
@@ -31,6 +32,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from ../qtdeclarative/src/quick/designer/qquickdesignercustomobjectdata.cpp, line 112, as _ZN30QQuickDesignerCustomObjectData19populateResetHashesEv
 inline void QQuickDesignerCustomObjectData::populateResetHashes()
@@ -148,6 +151,38 @@ inline bool QQuickDesignerCustomObjectData::hasBindingForProperty(QQmlContext *c
     return hasBinding;
 }
 
+//  from ../qtdeclarative/src/quick/designer/qquickdesignercustomobjectdata.cpp, line 221, as _ZN30QQuickDesignerCustomObjectData18setPropertyBindingEP11QQmlContextRK10QByteArrayRK7QString
+inline void QQuickDesignerCustomObjectData::setPropertyBinding(QQmlContext *context,
+                                                  const QQuickDesignerSupport::PropertyName &propertyName,
+                                                  const QString &expression)
+{
+    QQmlProperty property(object(), QString::fromUtf8(propertyName), context);
+
+    if (!property.isValid())
+        return;
+
+    if (property.isProperty()) {
+        QString url = u"@designer"_s;
+        int lineNumber = 0;
+        QQmlAnyBinding binding = QQmlAnyBinding::createFromCodeString(property,
+                                                                      expression, object(), QQmlContextData::get(context), url, lineNumber);
+
+        binding.installOn(property);
+        if (binding.isAbstractPropertyBinding()) {
+            // for new style properties, we will evaluate during setBinding anyway
+            static_cast<QQmlBinding *>(binding.asAbstractBinding())->update();
+        }
+
+        if (binding.hasError()) {
+            if (property.property().userType() == QMetaType::QString)
+                property.write(QVariant(QLatin1Char('#') + expression + QLatin1Char('#')));
+        }
+
+    } else {
+        qWarning() << Q_FUNC_INFO << ": Cannot set binding for property" << propertyName << ": property is unknown for type";
+    }
+}
+
 //  from ../qtdeclarative/src/quick/designer/qquickdesignercustomobjectdata.cpp, line 252, as _ZN30QQuickDesignerCustomObjectData29keepBindingFromGettingDeletedEP11QQmlContextRK10QByteArray
 inline void QQuickDesignerCustomObjectData::keepBindingFromGettingDeleted(QQmlContext *context,
                                                              const QQuickDesignerSupport::PropertyName &propertyName)
@@ -219,6 +254,18 @@ bool ritual_ZNK30QQuickDesignerCustomObjectData21hasBindingForPropertyEP11QQmlCo
     const QByteArray *propertyName,
     bool *hasChanged) {
   return self->hasBindingForProperty(context, *propertyName, hasChanged);
+}
+
+//  void QQuickDesignerCustomObjectData::setPropertyBinding(QQmlContext
+//      *context, const QQuickDesignerSupport::PropertyName &propertyName,
+//      const QString &expression)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickDesignerCustomObjectData18setPropertyBindingEP11QQmlContextRK10QByteArrayRK7QString(
+    QQuickDesignerCustomObjectData *self,
+    QQmlContext *context,
+    const QByteArray *propertyName,
+    const QString *expression) {
+  self->setPropertyBinding(context, *propertyName, *expression);
 }
 
 //  void

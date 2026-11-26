@@ -16,7 +16,7 @@ from cutienator.occult import System
 from . import HeaderFolder, HeaderReader, Machine, RitualGenerator
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+  from typing import Any, Dict, List, Optional, Set, Tuple
 
   Record = Dict[str, Any]
   Faults = Tuple[str, ...]
@@ -238,17 +238,15 @@ class RitualTester:
     version = HeaderReader.getQtVersion()
     system = System.getHere()
     found = [include]
-    #  The parts in the order of the alphabet, as the generator reads
-    #  them; for a part of 'HeaderReader.getOwnOrderParts' first the
-    #  part and the parts it needs, the nearest first, as the generator
-    #  reads them and 'Rituals.summon' builds them: the compiler takes
-    #  the first file it finds by a name, and two parts may each have
-    #  one, as 'private/qabstractseries_p.h' of QtCharts and of
-    #  QtGraphs.
+    #  First the part and the parts it needs, the nearest first, then
+    #  the others in the order of the alphabet, as 'Rituals.summon'
+    #  builds every part: the compiler takes the first file it finds by
+    #  a name, and two parts may each have one, as
+    #  'private/qabstractseries_p.h' of QtCharts and of QtGraphs, or
+    #  'QTransform' of Qt3DCore and of QtGui, which QtCanvasPainter's
+    #  'qcpaint_p.h' names, meaning QtGui's.
     generator = self.getRitualGenerator()
-    order = ()  # type: Sequence[str]
-    if generator.getPartName() in HeaderReader.getOwnOrderParts():
-      order = HeaderReader.getNeededParts(generator.getPartName())
+    order = HeaderReader.getNeededParts(generator.getPartName())
     names = set()  # type: Set[str]
     if os.path.isdir(include):
       names.update(os.listdir(include))
@@ -516,14 +514,15 @@ class RitualTester:
       infoSpec = """The generator wrote two rituals named '%s'."""
       faults.append(infoSpec % name)
     counted, compilerNames = self._countFunctions(className)
-    #  Three kinds of ritual stand for no function of the header by
+    #  Some kinds of ritual stand for no function of the header by
     #  themselves: the one giving where a part of an object is, the one
-    #  handing a Python function over, and the one running just the
+    #  handing a Python function over, those of a list or a map, the one
+    #  removing a held value Python got, and the one running just the
     #  class's own function, which is named after that function.
-    apart = ('cast', 'take', 'own', 'list', 'map')
+    apart = ('cast', 'take', 'own', 'list', 'map', 'drop')
     for ritual in written:
       name, kind = ritual['ritualName'], ritual['kind']
-      if kind in ('cast', 'take', 'list', 'map'):
+      if kind in ('cast', 'take', 'list', 'map', 'drop'):
         continue
       start = len('ritual_own') if kind == 'own' else len('ritual')
       if name[start:] not in compilerNames:

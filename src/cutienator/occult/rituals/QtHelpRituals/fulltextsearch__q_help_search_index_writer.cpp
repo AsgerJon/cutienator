@@ -200,6 +200,14 @@ const QMetaObject *ritual_ZNK14fulltextsearch22QHelpSearchIndexWriter10metaObjec
   return self->metaObject();
 }
 
+//  void *fulltextsearch::QHelpSearchIndexWriter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14fulltextsearch22QHelpSearchIndexWriter11qt_metacastEPKc(
+    fulltextsearch::QHelpSearchIndexWriter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  a Python function taken by a Cutefulltextsearch_QHelpSearchIndexWriter,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT

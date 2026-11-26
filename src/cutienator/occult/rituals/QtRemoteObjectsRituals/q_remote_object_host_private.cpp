@@ -9,6 +9,77 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/private/qmetaobjectbuilder_p.h>
+#include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
+#include <QtRemoteObjects/qremoteobjectnode.h>
+#include <QtRemoteObjects/private/qremoteobjectnode_p.h>
+#include <QtRemoteObjects/qremoteobjectregistry.h>
+#include <QtRemoteObjects/qremoteobjectdynamicreplica.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
+#include <QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodelreplica_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodeladapter_p.h>
+#include <QtCore/qabstractitemmodel.h>
+#include <memory>
+#include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace QRemoteObjectStringLiterals;
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 264, as local:qremoteobjectnode.cpp:map_contains
+inline template <typename K, typename V, typename Query>
+bool map_contains(const QMap<K,V> &map, const Query &key, typename QMap<K,V>::const_iterator &result)
+{
+    const typename QMap<K,V>::const_iterator it = map.find(key);
+    if (it == map.end())
+        return false;
+    result = it;
+    return true;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2830, as _ZN24QRemoteObjectHostPrivateD2Ev
+inline QRemoteObjectHostPrivate::~QRemoteObjectHostPrivate()
+{ }
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1527, as _ZN28QRemoteObjectHostBasePrivate16handleNewAcquireEPK11QMetaObjectP20QRemoteObjectReplicaRK7QString
+inline QReplicaImplementationInterface *QRemoteObjectHostBasePrivate::handleNewAcquire(const QMetaObject *meta, QRemoteObjectReplica *instance, const QString &name)
+{
+    QMap<QString, QRemoteObjectSourceBase*>::const_iterator mapIt;
+    if (remoteObjectIo && map_contains(remoteObjectIo->m_sourceObjects, name, mapIt)) {
+        Q_Q(QRemoteObjectHostBase);
+        QInProcessReplicaImplementation *rp = new QInProcessReplicaImplementation(name, meta, q);
+        rp->configurePrivate(instance);
+        connectReplica(mapIt.value()->m_object, instance);
+        rp->connectionToSource = mapIt.value();
+        return rp;
+    }
+    return QRemoteObjectNodePrivate::handleNewAcquire(meta, instance, name);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2818, as _ZN28QRemoteObjectHostBasePrivateC2Ev
+inline QRemoteObjectHostBasePrivate::QRemoteObjectHostBasePrivate()
+    : QRemoteObjectNodePrivate()
+    , remoteObjectIo(nullptr)
+{ }
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 305, as _ZNK24QRemoteObjectNodePrivate21remoteObjectAddressesEv
+inline QRemoteObjectSourceLocations QRemoteObjectNodePrivate::remoteObjectAddresses() const
+{
+    if (registry)
+        return registry->sourceLocations();
+    return QRemoteObjectSourceLocations();
+}
+//  -----------------------------------------------------------------------
 
 //  A QRemoteObjectHostPrivate that Python can take functions over in. Every QRemoteObjectHostPrivate
 //  Python makes is one. Each function below asks the Python
@@ -43,6 +114,13 @@ public:
     return QRemoteObjectHostBasePrivate::handleNewAcquire(meta, instance, name);
   }
 };
+
+//  QRemoteObjectHostPrivate::~QRemoteObjectHostPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QRemoteObjectHostPrivateD1Ev(
+    QRemoteObjectHostPrivate *self) {
+  delete self;
+}
 
 //  QRemoteObjectHost *QRemoteObjectHostPrivate::q_func()
 extern "C" Q_DECL_EXPORT

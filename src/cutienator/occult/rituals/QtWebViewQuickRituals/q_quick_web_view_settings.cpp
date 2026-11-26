@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK21QQuickWebViewSettings10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWebViewSettings::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickWebViewSettings11qt_metacastEPKc(
+    QQuickWebViewSettings *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWebViewSettings::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickWebViewSettings11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWebViewSettings *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWebViewSettings::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickWebViewSettings2trEPKcS1_i(
@@ -265,6 +284,34 @@ void ritual_ZN21QQuickWebViewSettings32setLocalContentCanAccessFileUrlsEb(
     QQuickWebViewSettings *self,
     bool enabled) {
   self->setLocalContentCanAccessFileUrls(enabled);
+}
+
+//  void QQuickWebViewSettings::localStorageEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickWebViewSettings26localStorageEnabledChangedEv(
+    QQuickWebViewSettings *self) {
+  self->localStorageEnabledChanged();
+}
+
+//  void QQuickWebViewSettings::javaScriptEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickWebViewSettings24javaScriptEnabledChangedEv(
+    QQuickWebViewSettings *self) {
+  self->javaScriptEnabledChanged();
+}
+
+//  void QQuickWebViewSettings::allowFileAccessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickWebViewSettings22allowFileAccessChangedEv(
+    QQuickWebViewSettings *self) {
+  self->allowFileAccessChanged();
+}
+
+//  void QQuickWebViewSettings::localContentCanAccessFileUrlsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickWebViewSettings36localContentCanAccessFileUrlsChangedEv(
+    QQuickWebViewSettings *self) {
+  self->localContentCanAccessFileUrlsChanged();
 }
 
 //  QQuickWebViewSettings::QQuickWebViewSettings(QWebViewSettings

@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender16QPickingSettings10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QPickingSettings::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender16QPickingSettings11qt_metacastEPKc(
+    Qt3DRender::QPickingSettings *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QPickingSettings::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender16QPickingSettings11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QPickingSettings *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QPickingSettings::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,120 @@ QString *ritual_ZN10Qt3DRender16QPickingSettings2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QPickingSettings::tr(s, c, n));
+}
+
+//  Qt3DRender::QPickingSettings::QPickingSettings(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingSettings *ritual_ZN10Qt3DRender16QPickingSettingsC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QPickingSettings(parent);
+}
+
+//  Qt3DRender::QPickingSettings::~QPickingSettings()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QPickingSettingsD1Ev(
+    Qt3DRender::QPickingSettings *self) {
+  delete self;
+}
+
+//  PickMethod Qt3DRender::QPickingSettings::pickMethod() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingSettings::PickMethod ritual_ZNK10Qt3DRender16QPickingSettings10pickMethodEv(
+    const Qt3DRender::QPickingSettings *self) {
+  return self->pickMethod();
+}
+
+//  PickResultMode Qt3DRender::QPickingSettings::pickResultMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingSettings::PickResultMode ritual_ZNK10Qt3DRender16QPickingSettings14pickResultModeEv(
+    const Qt3DRender::QPickingSettings *self) {
+  return self->pickResultMode();
+}
+
+//  FaceOrientationPickingMode
+//      Qt3DRender::QPickingSettings::faceOrientationPickingMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingSettings::FaceOrientationPickingMode ritual_ZNK10Qt3DRender16QPickingSettings26faceOrientationPickingModeEv(
+    const Qt3DRender::QPickingSettings *self) {
+  return self->faceOrientationPickingMode();
+}
+
+//  float Qt3DRender::QPickingSettings::worldSpaceTolerance() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender16QPickingSettings19worldSpaceToleranceEv(
+    const Qt3DRender::QPickingSettings *self) {
+  return self->worldSpaceTolerance();
+}
+
+//  void Qt3DRender::QPickingSettings::setPickMethod(PickMethod pickMethod)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QPickingSettings13setPickMethodENS0_10PickMethodE(
+    Qt3DRender::QPickingSettings *self,
+    Qt3DRender::QPickingSettings::PickMethod pickMethod) {
+  self->setPickMethod(pickMethod);
+}
+
+//  void Qt3DRender::QPickingSettings::setPickResultMode(PickResultMode
+//      pickResultMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QPickingSettings17setPickResultModeENS0_14PickResultModeE(
+    Qt3DRender::QPickingSettings *self,
+    Qt3DRender::QPickingSettings::PickResultMode pickResultMode) {
+  self->setPickResultMode(pickResultMode);
+}
+
+//  void Qt3DRender::QPickingSettings::setFaceOrientationPickingMode(FaceOrie
+//      ntationPickingMode faceOrientationPickingMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QPickingSettings29setFaceOrientationPickingModeENS0_26FaceOrientationPickingModeE(
+    Qt3DRender::QPickingSettings *self,
+    Qt3DRender::QPickingSettings::FaceOrientationPickingMode faceOrientationPickingMode) {
+  self->setFaceOrientationPickingMode(faceOrientationPickingMode);
+}
+
+//  void Qt3DRender::QPickingSettings::setWorldSpaceTolerance(float
+//      worldSpaceTolerance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QPickingSettings22setWorldSpaceToleranceEf(
+    Qt3DRender::QPickingSettings *self,
+    float worldSpaceTolerance) {
+  self->setWorldSpaceTolerance(worldSpaceTolerance);
+}
+
+//  void Qt3DRender::QPickingSettings::pickMethodChanged(QPickingSettings::Pi
+//      ckMethod pickMethod)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QPickingSettings17pickMethodChangedENS0_10PickMethodE(
+    Qt3DRender::QPickingSettings *self,
+    Qt3DRender::QPickingSettings::PickMethod pickMethod) {
+  self->pickMethodChanged(pickMethod);
+}
+
+//  void Qt3DRender::QPickingSettings::pickResultModeChanged(QPickingSettings
+//      ::PickResultMode pickResult)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QPickingSettings21pickResultModeChangedENS0_14PickResultModeE(
+    Qt3DRender::QPickingSettings *self,
+    Qt3DRender::QPickingSettings::PickResultMode pickResult) {
+  self->pickResultModeChanged(pickResult);
+}
+
+//  void Qt3DRender::QPickingSettings::faceOrientationPickingModeChanged(QPic
+//      kingSettings::FaceOrientationPickingMode faceOrientationPickingMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QPickingSettings33faceOrientationPickingModeChangedENS0_26FaceOrientationPickingModeE(
+    Qt3DRender::QPickingSettings *self,
+    Qt3DRender::QPickingSettings::FaceOrientationPickingMode faceOrientationPickingMode) {
+  self->faceOrientationPickingModeChanged(faceOrientationPickingMode);
+}
+
+//  void Qt3DRender::QPickingSettings::worldSpaceToleranceChanged(float
+//      worldSpaceTolerance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QPickingSettings26worldSpaceToleranceChangedEf(
+    Qt3DRender::QPickingSettings *self,
+    float worldSpaceTolerance) {
+  self->worldSpaceToleranceChanged(worldSpaceTolerance);
 }
 
 //  QPickingSettingsPrivate *Qt3DRender::QPickingSettings::d_func()
@@ -202,6 +335,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QPickingSettingsPrivate *ritual_ZNK10Qt3DRender16QPickingSettings6d_funcEv(
     const Qt3DRender::QPickingSettings *self) {
   return self->d_func();
+}
+
+//  Qt3DRender::QPickingSettings::QPickingSettings(QPickingSettingsPrivate
+//      &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickingSettings *ritual_ZN10Qt3DRender16QPickingSettingsC1ERNS_23QPickingSettingsPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QPickingSettingsPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QPickingSettings(*dd, parent);
 }
 
 //  a Python function taken by a CuteQt3DRender_QPickingSettings, for the

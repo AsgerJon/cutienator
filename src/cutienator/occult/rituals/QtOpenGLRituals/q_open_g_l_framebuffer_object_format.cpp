@@ -17,6 +17,16 @@ QOpenGLFramebufferObjectFormat *ritual_ZN30QOpenGLFramebufferObjectFormatC1ERKS_
   return new QOpenGLFramebufferObjectFormat(*other);
 }
 
+//  QOpenGLFramebufferObjectFormat
+//      &QOpenGLFramebufferObjectFormat::operator=(const
+//      QOpenGLFramebufferObjectFormat &other)
+extern "C" Q_DECL_EXPORT
+QOpenGLFramebufferObjectFormat *ritual_ZN30QOpenGLFramebufferObjectFormataSERKS_(
+    QOpenGLFramebufferObjectFormat *self,
+    const QOpenGLFramebufferObjectFormat *other) {
+  return &(self->operator=(*other));
+}
+
 //  QOpenGLFramebufferObjectFormat::~QOpenGLFramebufferObjectFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QOpenGLFramebufferObjectFormatD1Ev(
@@ -79,6 +89,13 @@ void ritual_ZN30QOpenGLFramebufferObjectFormat16setTextureTargetEj(
   self->setTextureTarget(target);
 }
 
+//  GLenum QOpenGLFramebufferObjectFormat::textureTarget() const
+extern "C" Q_DECL_EXPORT
+GLenum ritual_ZNK30QOpenGLFramebufferObjectFormat13textureTargetEv(
+    const QOpenGLFramebufferObjectFormat *self) {
+  return self->textureTarget();
+}
+
 //  void QOpenGLFramebufferObjectFormat::setInternalTextureFormat(GLenum
 //      internalTextureFormat)
 extern "C" Q_DECL_EXPORT
@@ -86,6 +103,13 @@ void ritual_ZN30QOpenGLFramebufferObjectFormat24setInternalTextureFormatEj(
     QOpenGLFramebufferObjectFormat *self,
     GLenum internalTextureFormat) {
   self->setInternalTextureFormat(internalTextureFormat);
+}
+
+//  GLenum QOpenGLFramebufferObjectFormat::internalTextureFormat() const
+extern "C" Q_DECL_EXPORT
+GLenum ritual_ZNK30QOpenGLFramebufferObjectFormat21internalTextureFormatEv(
+    const QOpenGLFramebufferObjectFormat *self) {
+  return self->internalTextureFormat();
 }
 
 //  bool QOpenGLFramebufferObjectFormat::operator==(const

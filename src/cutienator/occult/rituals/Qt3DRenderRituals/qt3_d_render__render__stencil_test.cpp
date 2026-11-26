@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_StencilTestCall0)(const void *, const Qt3DR
 class CuteQt3DRender_Render_StencilTest : public Qt3DRender::Render::StencilTest {
 public:
   using Qt3DRender::Render::StencilTest::StencilTest;
-  CuteQt3DRender_Render_StencilTest(const Qt3DRender::Render::StencilTest &other) : Qt3DRender::Render::StencilTest(other) {}
+  CuteQt3DRender_Render_StencilTest(const Qt3DRender::Render::StencilTest & other) : Qt3DRender::Render::StencilTest(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::StencilTest::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::StencilTest::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render11StencilTest16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::StencilTest *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::StencilTest::~StencilTest()
 extern "C" Q_DECL_EXPORT

@@ -948,6 +948,20 @@ QVariant *ritual_ZNK20QGraphicsEllipseItem9extensionERK8QVariant(
   return new QVariant(self->extension(*variant));
 }
 
+//  QGraphicsEllipseItemPrivate *QGraphicsEllipseItem::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsEllipseItemPrivate *ritual_ZN20QGraphicsEllipseItem6d_funcEv(
+    QGraphicsEllipseItem *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsEllipseItemPrivate *QGraphicsEllipseItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsEllipseItemPrivate *ritual_ZNK20QGraphicsEllipseItem6d_funcEv(
+    const QGraphicsEllipseItem *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsEllipseItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -66,6 +66,9 @@
     "ritual_ZNK16QCalendarBackend20localeMonthIndexDataEv": [
       "address", "address"
     ],
+    "ritual_ZNK16QCalendarBackend15localeMonthDataEv": [
+      "address", "address"
+    ],
     "ritual_ZN16QCalendarBackend8setIndexEm": [
       "nothing", "address", "size_t"
     ],

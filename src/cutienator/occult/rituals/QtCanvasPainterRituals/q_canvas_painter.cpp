@@ -991,6 +991,14 @@ QCanvasOffscreenCanvas *ritual_ZN14QCanvasPainter12createCanvasE5QSizei6QFlagsIN
           QFlags<QCanvasOffscreenCanvas::Flag>::fromInt(flags)));
 }
 
+//  void QCanvasPainter::destroyCanvas(QCanvasOffscreenCanvas &canvas)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCanvasPainter13destroyCanvasER22QCanvasOffscreenCanvas(
+    QCanvasPainter *self,
+    QCanvasOffscreenCanvas *canvas) {
+  self->destroyCanvas(*canvas);
+}
+
 //  QCanvasPainterPrivate *QCanvasPainter::d_func()
 extern "C" Q_DECL_EXPORT
 QCanvasPainterPrivate *ritual_ZN14QCanvasPainter6d_funcEv(

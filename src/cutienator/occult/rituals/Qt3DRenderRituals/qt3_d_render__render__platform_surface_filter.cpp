@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  Qt3DRender/6.12.0/Qt3DRender/private/platformsurfacefilter_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0. Edited by hand on 2026-11-25: added by hand, instances of
+//  templates of the class: 2. Kept as it is when the generator runs again.
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qt3drender_global_p.h>
 #include <Qt3DRender/Qt3DRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,6 +10,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtGui/qwindow.h>
+#include <QtGui/qoffscreensurface.h>
 
 //  A Qt3DRender::Render::PlatformSurfaceFilter that Python can take functions over in. Every Qt3DRender::Render::PlatformSurfaceFilter
 //  Python makes is one. Each function below asks the Python
@@ -186,6 +189,27 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render21PlatformSurfaceFilter10metaObj
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::PlatformSurfaceFilter::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter11qt_metacastEPKc(
+    Qt3DRender::Render::PlatformSurfaceFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      Qt3DRender::Render::PlatformSurfaceFilter::qt_metacall(QMetaObject::C
+//      all a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::PlatformSurfaceFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::PlatformSurfaceFilter::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -194,6 +218,58 @@ QString *ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter2trEPKcS3_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::Render::PlatformSurfaceFilter::tr(s, c, n));
+}
+
+//  Qt3DRender::Render::PlatformSurfaceFilter::PlatformSurfaceFilter(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::PlatformSurfaceFilter *ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilterC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DRender_Render_PlatformSurfaceFilter(parent);
+}
+
+//  Qt3DRender::Render::PlatformSurfaceFilter::~PlatformSurfaceFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilterD1Ev(
+    Qt3DRender::Render::PlatformSurfaceFilter *self) {
+  delete self;
+}
+
+//  bool Qt3DRender::Render::PlatformSurfaceFilter::eventFilter(QObject *obj,
+//      QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter11eventFilterEP7QObjectP6QEvent(
+    Qt3DRender::Render::PlatformSurfaceFilter *self,
+    QObject *obj,
+    QEvent *e) {
+  return self->eventFilter(obj, e);
+}
+
+//  void Qt3DRender::Render::PlatformSurfaceFilter::lockSurface()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter11lockSurfaceEv() {
+  Qt3DRender::Render::PlatformSurfaceFilter::lockSurface();
+}
+
+//  void Qt3DRender::Render::PlatformSurfaceFilter::releaseSurface()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter14releaseSurfaceEv() {
+  Qt3DRender::Render::PlatformSurfaceFilter::releaseSurface();
+}
+
+//  bool Qt3DRender::Render::PlatformSurfaceFilter::isSurfaceValid(QSurface
+//      *surface)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter14isSurfaceValidEP8QSurface(
+    QSurface *surface) {
+  return Qt3DRender::Render::PlatformSurfaceFilter::isSurfaceValid(surface);
+}
+
+//  void Qt3DRender::Render::PlatformSurfaceFilter::markSurfaceAsValid()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter18markSurfaceAsValidEv(
+    Qt3DRender::Render::PlatformSurfaceFilter *self) {
+  self->markSurfaceAsValid();
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_PlatformSurfaceFilter,
@@ -216,4 +292,24 @@ bool ritual_own_ZN10Qt3DRender6Render21PlatformSurfaceFilter11eventFilterEP7QObj
   return self->Qt3DRender::Render::PlatformSurfaceFilter::eventFilter(
       obj,
       e);
+}
+
+//  void
+//      Qt3DRender::Render::PlatformSurfaceFilter::setSurface<QWindow>(QWindow
+//      *surface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter10setSurfaceI7QWindowEEvPT_(
+    Qt3DRender::Render::PlatformSurfaceFilter *self,
+    QWindow *surface) {
+  self->setSurface<QWindow>(surface);
+}
+
+//  void
+//      Qt3DRender::Render::PlatformSurfaceFilter::setSurface<QOffscreenSurface>(QOffscreenSurface
+//      *surface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render21PlatformSurfaceFilter10setSurfaceI17QOffscreenSurfaceEEvPT_(
+    Qt3DRender::Render::PlatformSurfaceFilter *self,
+    QOffscreenSurface *surface) {
+  self->setSurface<QOffscreenSurface>(surface);
 }

@@ -7,7 +7,9 @@
 #include <QtLocation/6.12.0/QtLocation/private/qdeclarativegeoroutemodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtLocation/qgeoroute.h>
@@ -20,6 +22,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK25QDeclarativeGeoRouteModel10metaObjectEv(
     const QDeclarativeGeoRouteModel *self) {
   return self->metaObject();
+}
+
+//  void *QDeclarativeGeoRouteModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QDeclarativeGeoRouteModel11qt_metacastEPKc(
+    QDeclarativeGeoRouteModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoRouteModel::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QDeclarativeGeoRouteModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoRouteModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QDeclarativeGeoRouteModel::tr(const char *s, const char *c, int
@@ -190,6 +211,69 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN25QDeclarativeGeoRouteModel6cancelEv(
     QDeclarativeGeoRouteModel *self) {
   self->cancel();
+}
+
+//  void QDeclarativeGeoRouteModel::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteModel12countChangedEv(
+    QDeclarativeGeoRouteModel *self) {
+  self->countChanged();
+}
+
+//  void QDeclarativeGeoRouteModel::pluginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteModel13pluginChangedEv(
+    QDeclarativeGeoRouteModel *self) {
+  self->pluginChanged();
+}
+
+//  void QDeclarativeGeoRouteModel::queryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteModel12queryChangedEv(
+    QDeclarativeGeoRouteModel *self) {
+  self->queryChanged();
+}
+
+//  void QDeclarativeGeoRouteModel::autoUpdateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteModel17autoUpdateChangedEv(
+    QDeclarativeGeoRouteModel *self) {
+  self->autoUpdateChanged();
+}
+
+//  void QDeclarativeGeoRouteModel::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteModel13statusChangedEv(
+    QDeclarativeGeoRouteModel *self) {
+  self->statusChanged();
+}
+
+//  void QDeclarativeGeoRouteModel::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteModel12errorChangedEv(
+    QDeclarativeGeoRouteModel *self) {
+  self->errorChanged();
+}
+
+//  void QDeclarativeGeoRouteModel::routesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteModel13routesChangedEv(
+    QDeclarativeGeoRouteModel *self) {
+  self->routesChanged();
+}
+
+//  void QDeclarativeGeoRouteModel::measurementSystemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteModel24measurementSystemChangedEv(
+    QDeclarativeGeoRouteModel *self) {
+  self->measurementSystemChanged();
+}
+
+//  void QDeclarativeGeoRouteModel::abortRequested()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QDeclarativeGeoRouteModel14abortRequestedEv(
+    QDeclarativeGeoRouteModel *self) {
+  self->abortRequested();
 }
 
 //  void QDeclarativeGeoRouteModel::update()

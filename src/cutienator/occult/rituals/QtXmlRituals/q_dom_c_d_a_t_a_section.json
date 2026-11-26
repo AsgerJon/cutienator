@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN16QDomCDATASectionC1Ev": ["address"],
     "ritual_ZN16QDomCDATASectionC1ERKS_": ["address", "address"],
+    "ritual_ZN16QDomCDATASectionaSERKS_": ["address", "address", "address"],
     "ritual_ZNK16QDomCDATASection8nodeTypeEv": ["int", "address"],
     "ritual_ZN16QDomCDATASectionC1EP23QDomCDATASectionPrivate": [
       "address", "address"

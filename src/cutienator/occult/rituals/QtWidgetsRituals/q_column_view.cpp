@@ -6,15 +6,20 @@
 #if QT_CONFIG(columnview)
 #include <QtWidgets/qcolumnview.h>
 #include <QtCore/qstring.h>
-#include <QtCore/qpoint.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
+#include <QtCore/qpoint.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#endif
 #include <QtGui/qregion.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QColumnView may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -2076,6 +2081,24 @@ const QMetaObject *ritual_ZNK11QColumnView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QColumnView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QColumnView11qt_metacastEPKc(
+    QColumnView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QColumnView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QColumnView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QColumnView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QColumnView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QColumnView2trEPKcS1_i(
@@ -2083,6 +2106,14 @@ QString *ritual_ZN11QColumnView2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QColumnView::tr(s, c, n));
+}
+
+//  void QColumnView::updatePreviewWidget(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColumnView19updatePreviewWidgetERK11QModelIndex(
+    QColumnView *self,
+    const QModelIndex *index) {
+  self->updatePreviewWidget(*index);
 }
 
 //  QColumnView::QColumnView(QWidget *parent)
@@ -2199,6 +2230,29 @@ void ritual_ZN11QColumnView16setPreviewWidgetEP7QWidget(
     QColumnView *self,
     QWidget *widget) {
   self->setPreviewWidget(widget);
+}
+
+//  void QColumnView::setColumnWidths(const QList<int> &list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColumnView15setColumnWidthsERK5QListIiE(
+    QColumnView *self,
+    const QList<int> *list) {
+  self->setColumnWidths(*list);
+}
+
+//  QList<int> QColumnView::columnWidths() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK11QColumnView12columnWidthsEv(
+    const QColumnView *self) {
+  return new QList<int>(self->columnWidths());
+}
+
+//  QColumnView::QColumnView(QColumnViewPrivate &dd, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QColumnView *ritual_ZN11QColumnViewC1ER18QColumnViewPrivateP7QWidget(
+    QColumnViewPrivate *dd,
+    QWidget *parent) {
+  return new CuteQColumnView(*dd, parent);
 }
 
 //  bool QColumnView::isIndexHidden(const QModelIndex &index) const
@@ -2492,6 +2546,12 @@ QAbstractItemView *ritual_own_ZN11QColumnView12createColumnERK11QModelIndex(
     const QModelIndex *rootIndex) {
   return static_cast<OwnQColumnView *>(self)->OwnQColumnView::createColumn(
       *rootIndex);
+}
+
+//  a QList<int> a ritual of QColumnView gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QColumnView__QList_int(QList<int> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(columnview)

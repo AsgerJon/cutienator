@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN23QXmlStreamReaderPrivate17BufferAndEncodingC1Ev": ["address"],
+    "ritual_ZN23QXmlStreamReaderPrivate17BufferAndEncodingC1ERK10QByteArrayN16QStringConverter8EncodingE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QXmlStreamReaderPrivate17BufferAndEncodingD1Ev": [
       "nothing", "address"
     ]

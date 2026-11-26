@@ -6,19 +6,49 @@
   ],
   "rows": {
     "ritual_ZN23QXmlSimpleReaderPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QXmlSimpleReaderPrivateC1EP16QXmlSimpleReader": [
+      "address", "address"
+    ],
     "ritual_ZN23QXmlSimpleReaderPrivate22initIncrementalParsingEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QXmlSimpleReaderPrivate6stringEv": ["text", "address"],
     "ritual_ZN23QXmlSimpleReaderPrivate11stringClearEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QXmlSimpleReaderPrivate10stringAddCEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN23QXmlSimpleReaderPrivate9nameClearEv": ["nothing", "address"],
+    "ritual_ZN23QXmlSimpleReaderPrivate8nameAddCEv": ["nothing", "address"],
     "ritual_ZN23QXmlSimpleReaderPrivate8refClearEv": ["nothing", "address"],
+    "ritual_ZN23QXmlSimpleReaderPrivate7refAddCEv": ["nothing", "address"],
     "ritual_ZN23QXmlSimpleReaderPrivate4nextEv": ["nothing", "address"],
     "ritual_ZN23QXmlSimpleReaderPrivate5atEndEv": ["bool", "address"],
+    "ritual_ZN23QXmlSimpleReaderPrivate4initEPK15QXmlInputSource": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN23QXmlSimpleReaderPrivate8initDataEv": ["nothing", "address"],
     "ritual_ZNK23QXmlSimpleReaderPrivate11entityExistERK7QString": [
       "bool", "address", "text"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate22processElementEmptyTagEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate23processElementAttributeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate16processReferenceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate12insertXmlRefERK7QStringS2_b": [
+      "bool", "address", "text", "text", "bool"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate17reportEndEntitiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate16reportParseErrorERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_ZN23QXmlSimpleReaderPrivate29isExpandedEntityValueTooLargeEP7QString": [
       "bool", "address", "address"

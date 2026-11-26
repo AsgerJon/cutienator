@@ -13,6 +13,11 @@
       "address", "address", "long long", "address"
     ],
     "ritual_ZN18QSslKeyingMaterialC1ERKS_": ["address", "address"],
+    "ritual_ZN18QSslKeyingMaterialaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QSslKeyingMaterialC1EOS_": ["address", "address"],
+    "ritual_ZN18QSslKeyingMaterialaSEOS_": ["address", "address", "address"],
     "ritual_ZN18QSslKeyingMaterialD1Ev": ["nothing", "address"],
     "ritual_ZNK18QSslKeyingMaterial7isValidEv": ["bool", "address"],
     "ritual_ZNK18QSslKeyingMaterial5labelEv": ["address", "address"],
@@ -22,6 +27,9 @@
       "long long", "address"
     ],
     "ritual_ZNK18QSslKeyingMaterial5cloneEv": ["address", "address"],
+    "ritual_ZN18QSslKeyingMaterial4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK18QSslKeyingMaterialS1_": ["bool", "address", "address"],
     "ritual_ZneRK18QSslKeyingMaterialS1_": ["bool", "address", "address"],
     "ritual_Zls6QDebugRK18QSslKeyingMaterial": [

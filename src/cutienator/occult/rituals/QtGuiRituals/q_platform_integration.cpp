@@ -11,6 +11,7 @@
 #include <QtGui/qicon.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QPlatformIntegration may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -784,6 +785,14 @@ int ritual_ZNK20QPlatformIntegration22queryKeyboardModifiersEv(
   return static_cast<int>(self->queryKeyboardModifiers().toInt());
 }
 
+//  QList<int> QPlatformIntegration::possibleKeys(const QKeyEvent *a0) const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK20QPlatformIntegration12possibleKeysEPK9QKeyEvent(
+    const QPlatformIntegration *self,
+    const QKeyEvent *a0) {
+  return new QList<int>(self->possibleKeys(a0));
+}
+
 //  QPlatformKeyMapper *QPlatformIntegration::keyMapper() const
 extern "C" Q_DECL_EXPORT
 QPlatformKeyMapper *ritual_ZNK20QPlatformIntegration9keyMapperEv(
@@ -886,6 +895,12 @@ QPlatformVulkanInstance *ritual_ZNK20QPlatformIntegration28createPlatformVulkanI
   return self->createPlatformVulkanInstance(instance);
 }
 #endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+
+//  QPlatformIntegration::QPlatformIntegration()
+extern "C" Q_DECL_EXPORT
+QPlatformIntegration *ritual_ZN20QPlatformIntegrationC1Ev() {
+  return new CuteQPlatformIntegration();
+}
 
 //  a Python function taken by a CuteQPlatformIntegration, for the function
 //      named by the key
@@ -1137,3 +1152,9 @@ QPlatformVulkanInstance *ritual_own_ZNK20QPlatformIntegration28createPlatformVul
   return self->QPlatformIntegration::createPlatformVulkanInstance(instance);
 }
 #endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+
+//  a QList<int> a ritual of QPlatformIntegration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformIntegration__QList_int(QList<int> *self) {
+  delete self;
+}

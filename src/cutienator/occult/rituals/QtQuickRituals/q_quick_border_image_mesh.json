@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickBorderImageMesh10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickBorderImageMesh11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickBorderImageMesh11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickBorderImageMesh18validateAttributesERK5QListI10QByteArrayEPi": [
       "bool", "address", "address", "address"
     ],
@@ -21,6 +27,15 @@
     ],
     "ritual_ZNK21QQuickBorderImageMesh16verticalTileModeEv": [
       "int", "address"
+    ],
+    "ritual_ZN21QQuickBorderImageMesh11sizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickBorderImageMesh25horizontalTileModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickBorderImageMesh23verticalTileModeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_own_ZN21QQuickBorderImageMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_": [
       "address", "address", "address", "int", "int", "address", "address"

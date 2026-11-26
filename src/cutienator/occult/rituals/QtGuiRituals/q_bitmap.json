@@ -10,10 +10,18 @@
     "ritual_ZN7QBitmapC1ERK5QSize": ["address", "address"],
     "ritual_ZN7QBitmapC1ERK7QStringPKc": ["address", "text", "chars"],
     "ritual_ZN7QBitmapD1Ev": ["nothing", "address"],
+    "ritual_ZN7QBitmapaSERK7QPixmap": ["address", "address", "address"],
+    "ritual_ZN7QBitmap4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK7QBitmapcv8QVariantEv": ["address", "address"],
     "ritual_ZN7QBitmap5clearEv": ["nothing", "address"],
     "ritual_ZN7QBitmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
       "address", "address", "int"
+    ],
+    "ritual_ZN7QBitmap9fromImageEO6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QBitmap8fromDataERK5QSizePKhN6QImage6FormatE": [
+      "address", "address", "address", "int"
     ],
     "ritual_ZN7QBitmap10fromPixmapERK7QPixmap": ["address", "address"],
     "ritual_ZNK7QBitmap11transformedERK10QTransform": [

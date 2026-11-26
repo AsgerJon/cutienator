@@ -257,6 +257,25 @@ const QMetaObject *ritual_ZNK23QGraphicsColorizeEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsColorizeEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QGraphicsColorizeEffect11qt_metacastEPKc(
+    QGraphicsColorizeEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsColorizeEffect::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QGraphicsColorizeEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsColorizeEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsColorizeEffect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QGraphicsColorizeEffect2trEPKcS1_i(
@@ -307,6 +326,22 @@ void ritual_ZN23QGraphicsColorizeEffect11setStrengthEd(
     QGraphicsColorizeEffect *self,
     qreal strength) {
   self->setStrength(strength);
+}
+
+//  void QGraphicsColorizeEffect::colorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QGraphicsColorizeEffect12colorChangedERK6QColor(
+    QGraphicsColorizeEffect *self,
+    const QColor *color) {
+  self->colorChanged(*color);
+}
+
+//  void QGraphicsColorizeEffect::strengthChanged(qreal strength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QGraphicsColorizeEffect15strengthChangedEd(
+    QGraphicsColorizeEffect *self,
+    qreal strength) {
+  self->strengthChanged(strength);
 }
 
 //  void QGraphicsColorizeEffect::draw(QPainter *painter)

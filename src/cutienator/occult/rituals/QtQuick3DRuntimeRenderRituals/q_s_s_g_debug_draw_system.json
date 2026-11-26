@@ -27,11 +27,21 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK19QSSGDebugDrawSystem9isEnabledEv": ["bool", "address"],
+    "ritual_ZN19QSSGDebugDrawSystem12generateLineERKNS_8LineDataER5QListINS_10VertexDataEERS3_IjE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGDebugDrawSystem11generateBoxERKNS_10BoundsDataER5QListINS_10VertexDataEERS3_IjE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK19QSSGDebugDrawSystem9isEnabledENS_4ModeE": [
       "bool", "address", "unsigned char"
     ],
     "ritual_ZN19QSSGDebugDrawSystem18levelOfDetailColorEj": [
       "address", "unsigned int"
+    ],
+    "ritual_ZN19QSSGDebugDrawSystem12debugNormalsER17QSSGBufferManagerRK16QSSGModelContextRK16QSSGRenderSubsetjf": [
+      "nothing", "address", "address", "address", "address", "unsigned int",
+      "float"
     ]
   }
 }

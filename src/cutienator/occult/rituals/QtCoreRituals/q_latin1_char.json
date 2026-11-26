@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN11QLatin1CharC1Ec": ["address", "char"],
     "ritual_ZNK11QLatin1Char8toLatin1Ev": ["char", "address"],
+    "ritual_ZNK11QLatin1Char7unicodeEv": ["unsigned short", "address"],
     "ritual_ZeqRK11QLatin1CharS1_": ["bool", "address", "address"],
     "ritual_ZneRK11QLatin1CharS1_": ["bool", "address", "address"],
     "ritual_ZltRK11QLatin1CharS1_": ["bool", "address", "address"],
@@ -24,6 +25,7 @@
     "ritual_ZgtRKcRK11QLatin1Char": ["bool", "char", "address"],
     "ritual_ZleRKcRK11QLatin1Char": ["bool", "char", "address"],
     "ritual_ZgeRKcRK11QLatin1Char": ["bool", "char", "address"],
+    "ritual_ZNK11QLatin1CharcvDsEv": ["unsigned short", "address"],
     "ritual_ZN11QLatin1CharD1Ev": ["nothing", "address"]
   }
 }

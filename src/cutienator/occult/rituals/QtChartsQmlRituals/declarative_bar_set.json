@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17DeclarativeBarSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN17DeclarativeBarSet11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17DeclarativeBarSet11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17DeclarativeBarSet2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,6 +38,15 @@
       "nothing", "address", "int", "double"
     ],
     "ritual_ZN17DeclarativeBarSet2atEi": ["double", "address", "int"],
+    "ritual_ZN17DeclarativeBarSet12countChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17DeclarativeBarSet18borderWidthChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17DeclarativeBarSet20brushFilenameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN17DeclarativeBarSet18handleCountChangedEii": [
       "nothing", "address", "int", "int"
     ],

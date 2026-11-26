@@ -27,6 +27,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/corelib/mimetypes/qmimeglobpattern.cpp, line 26, as _ZN20QMimeGlobMatchResult8addMatchERK7QStringiS2_x
 inline void QMimeGlobMatchResult::addMatch(const QString &mimeType, int weight, const QString &pattern,
                                     qsizetype knownSuffixLength)

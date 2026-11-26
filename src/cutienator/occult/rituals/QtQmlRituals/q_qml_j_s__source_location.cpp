@@ -8,6 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
+#include <utility>
+#include <QtCore/QStringView>
 
 //  bool QQmlJS::SourceLocation::qSizeTypeCanHoldQuint32()
 extern "C" Q_DECL_EXPORT
@@ -55,6 +57,21 @@ quint32 ritual_ZN6QQmlJS14SourceLocation10offsetFromE11QStringViewjjRKS0_(
       line,
       column,
       *startHint);
+}
+
+//  std::pair<quint32, quint32>
+//      QQmlJS::SourceLocation::rowAndColumnFrom(QStringView text, quint32
+//      offset, const SourceLocation &startHint)
+extern "C" Q_DECL_EXPORT
+std::pair<quint32, quint32> *ritual_ZN6QQmlJS14SourceLocation16rowAndColumnFromE11QStringViewjRKS0_(
+    const QString *text,
+    quint32 offset,
+    const QQmlJS::SourceLocation *startHint) {
+  return new std::pair<quint32, quint32>(
+      QQmlJS::SourceLocation::rowAndColumnFrom(
+          QStringView(*text),
+          offset,
+          *startHint));
 }
 
 //  bool QQmlJS::SourceLocation::isValid() const
@@ -115,5 +132,12 @@ bool ritual_ZN6QQmlJSneERKNS_14SourceLocationES2_(
 //  QQmlJS::SourceLocation::~SourceLocation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QQmlJS14SourceLocationD1Ev(QQmlJS::SourceLocation *self) {
+  delete self;
+}
+
+//  a std::pair<quint32, quint32> a ritual of QQmlJS::SourceLocation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJS_SourceLocation__std_pair_quint32_quint32(
+    std::pair<quint32, quint32> *self) {
   delete self;
 }

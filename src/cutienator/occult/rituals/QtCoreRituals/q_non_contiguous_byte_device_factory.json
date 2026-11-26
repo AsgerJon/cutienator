@@ -8,12 +8,27 @@
     "ritual_ZN31QNonContiguousByteDeviceFactory6createEP9QIODevice": [
       "address", "address"
     ],
+    "ritual_ZN31QNonContiguousByteDeviceFactory12createSharedEP9QIODevice": [
+      "address", "address"
+    ],
     "ritual_ZN31QNonContiguousByteDeviceFactory6createERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN31QNonContiguousByteDeviceFactory12createSharedERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN31QNonContiguousByteDeviceFactory6createESt10shared_ptrI11QRingBufferE": [
+      "address", "address"
+    ],
+    "ritual_ZN31QNonContiguousByteDeviceFactory12createSharedESt10shared_ptrI11QRingBufferE": [
       "address", "address"
     ],
     "ritual_ZN31QNonContiguousByteDeviceFactory4wrapEP24QNonContiguousByteDevice": [
       "address", "address"
     ],
-    "ritual_ZN31QNonContiguousByteDeviceFactoryD1Ev": ["nothing", "address"]
+    "ritual_ZN31QNonContiguousByteDeviceFactoryD1Ev": ["nothing", "address"],
+    "ritual_drop_QNonContiguousByteDeviceFactory__std_shared_ptr_QNonContiguousByteDevice": [
+      "nothing", "address"
+    ]
   }
 }

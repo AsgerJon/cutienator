@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK8Q3DTheme10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8Q3DTheme11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Q3DTheme2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8Q3DThemeC1EP7QObject": ["address", "address"],
     "ritual_ZN8Q3DThemeC1ENS_5ThemeEP7QObject": [
@@ -94,6 +98,72 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK8Q3DTheme10colorStyleEv": ["int", "address"],
+    "ritual_ZN8Q3DTheme11typeChangedENS_5ThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Q3DTheme17baseColorsChangedERK5QListI6QColorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme22backgroundColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme18windowColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme21labelTextColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme27labelBackgroundColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme20gridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme27singleHighlightColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme26multiHighlightColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme17lightColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme20baseGradientsChangedERK5QListI15QLinearGradientE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme30singleHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme29multiHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme20lightStrengthChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Q3DTheme27ambientLightStrengthChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Q3DTheme29highlightLightStrengthChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Q3DTheme25labelBorderEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Q3DTheme11fontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DTheme24backgroundEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Q3DTheme18gridEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Q3DTheme29labelBackgroundEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Q3DTheme17colorStyleChangedENS_10ColorStyleE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN8Q3DThemeC1EP15Q3DThemePrivateNS_5ThemeEP7QObject": [
       "address", "address", "int", "address"
     ],

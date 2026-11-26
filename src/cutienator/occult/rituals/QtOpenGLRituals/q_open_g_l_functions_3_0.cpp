@@ -91,6 +91,139 @@ void ritual_ZN20QOpenGLFunctions_3_012glDepthRangeEdd(
   self->glDepthRange(nearVal, farVal);
 }
 
+//  GLboolean QOpenGLFunctions_3_0::glIsEnabled(GLenum cap)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_011glIsEnabledEj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum cap) {
+  return self->glIsEnabled(cap);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexLevelParameteriv(GLenum target, GLint
+//      level, GLenum pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_024glGetTexLevelParameterivEjijPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLenum pname,
+    GLint *params) {
+  self->glGetTexLevelParameteriv(target, level, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexLevelParameterfv(GLenum target, GLint
+//      level, GLenum pname, GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_024glGetTexLevelParameterfvEjijPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetTexLevelParameterfv(target, level, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexParameteriv(GLenum target, GLenum
+//      pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glGetTexParameterivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetTexParameteriv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexParameterfv(GLenum target, GLenum
+//      pname, GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glGetTexParameterfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetTexParameterfv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexImage(GLenum target, GLint level,
+//      GLenum format, GLenum type, GLvoid *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetTexImageEjijjPv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLenum format,
+    GLenum type,
+    GLvoid *pixels) {
+  self->glGetTexImage(target, level, format, type, pixels);
+}
+
+//  const GLubyte *QOpenGLFunctions_3_0::glGetString(GLenum name)
+extern "C" Q_DECL_EXPORT
+const GLubyte *ritual_ZN20QOpenGLFunctions_3_011glGetStringEj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum name) {
+  return self->glGetString(name);
+}
+
+//  void QOpenGLFunctions_3_0::glGetIntegerv(GLenum pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetIntegervEjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    GLint *params) {
+  self->glGetIntegerv(pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetFloatv(GLenum pname, GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glGetFloatvEjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetFloatv(pname, params);
+}
+
+//  GLenum QOpenGLFunctions_3_0::glGetError()
+extern "C" Q_DECL_EXPORT
+GLenum ritual_ZN20QOpenGLFunctions_3_010glGetErrorEv(
+    QOpenGLFunctions_3_0 *self) {
+  return self->glGetError();
+}
+
+//  void QOpenGLFunctions_3_0::glGetDoublev(GLenum pname, GLdouble *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glGetDoublevEjPd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    GLdouble *params) {
+  self->glGetDoublev(pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetBooleanv(GLenum pname, GLboolean *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetBooleanvEjPh(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    GLboolean *params) {
+  self->glGetBooleanv(pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glReadPixels(GLint x, GLint y, GLsizei width,
+//      GLsizei height, GLenum format, GLenum type, GLvoid *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glReadPixelsEiiiijjPv(
+    QOpenGLFunctions_3_0 *self,
+    GLint x,
+    GLint y,
+    GLsizei width,
+    GLsizei height,
+    GLenum format,
+    GLenum type,
+    GLvoid *pixels) {
+  self->glReadPixels(x, y, width, height, format, type, pixels);
+}
+
 //  void QOpenGLFunctions_3_0::glReadBuffer(GLenum mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glReadBufferEj(
@@ -264,6 +397,69 @@ void ritual_ZN20QOpenGLFunctions_3_012glDrawBufferEj(
   self->glDrawBuffer(mode);
 }
 
+//  void QOpenGLFunctions_3_0::glTexImage2D(GLenum target, GLint level, GLint
+//      internalformat, GLsizei width, GLsizei height, GLint border, GLenum
+//      format, GLenum type, const GLvoid *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glTexImage2DEjiiiiijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLint internalformat,
+    GLsizei width,
+    GLsizei height,
+    GLint border,
+    GLenum format,
+    GLenum type,
+    const GLvoid *pixels) {
+  self->glTexImage2D(
+      target,
+      level,
+      internalformat,
+      width,
+      height,
+      border,
+      format,
+      type,
+      pixels);
+}
+
+//  void QOpenGLFunctions_3_0::glTexImage1D(GLenum target, GLint level, GLint
+//      internalformat, GLsizei width, GLint border, GLenum format, GLenum
+//      type, const GLvoid *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glTexImage1DEjiiiijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLint internalformat,
+    GLsizei width,
+    GLint border,
+    GLenum format,
+    GLenum type,
+    const GLvoid *pixels) {
+  self->glTexImage1D(
+      target,
+      level,
+      internalformat,
+      width,
+      border,
+      format,
+      type,
+      pixels);
+}
+
+//  void QOpenGLFunctions_3_0::glTexParameteriv(GLenum target, GLenum pname,
+//      const GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_016glTexParameterivEjjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLint *params) {
+  self->glTexParameteriv(target, pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glTexParameteri(GLenum target, GLenum pname,
 //      GLint param)
 extern "C" Q_DECL_EXPORT
@@ -273,6 +469,17 @@ void ritual_ZN20QOpenGLFunctions_3_015glTexParameteriEjji(
     GLenum pname,
     GLint param) {
   self->glTexParameteri(target, pname, param);
+}
+
+//  void QOpenGLFunctions_3_0::glTexParameterfv(GLenum target, GLenum pname,
+//      const GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_016glTexParameterfvEjjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glTexParameterfv(target, pname, params);
 }
 
 //  void QOpenGLFunctions_3_0::glTexParameterf(GLenum target, GLenum pname,
@@ -348,12 +555,47 @@ void ritual_ZN20QOpenGLFunctions_3_010glCullFaceEj(
   self->glCullFace(mode);
 }
 
+//  void QOpenGLFunctions_3_0::glIndexubv(const GLubyte *c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glIndexubvEPKh(
+    QOpenGLFunctions_3_0 *self,
+    const GLubyte *c) {
+  self->glIndexubv(c);
+}
+
 //  void QOpenGLFunctions_3_0::glIndexub(GLubyte c)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_09glIndexubEh(
     QOpenGLFunctions_3_0 *self,
     GLubyte c) {
   self->glIndexub(c);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glIsTexture(GLuint texture)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_011glIsTextureEj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint texture) {
+  return self->glIsTexture(texture);
+}
+
+//  void QOpenGLFunctions_3_0::glGenTextures(GLsizei n, GLuint *textures)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGenTexturesEiPj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    GLuint *textures) {
+  self->glGenTextures(n, textures);
+}
+
+//  void QOpenGLFunctions_3_0::glDeleteTextures(GLsizei n, const GLuint
+//      *textures)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_016glDeleteTexturesEiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    const GLuint *textures) {
+  self->glDeleteTextures(n, textures);
 }
 
 //  void QOpenGLFunctions_3_0::glBindTexture(GLenum target, GLuint texture)
@@ -363,6 +605,49 @@ void ritual_ZN20QOpenGLFunctions_3_013glBindTextureEjj(
     GLenum target,
     GLuint texture) {
   self->glBindTexture(target, texture);
+}
+
+//  void QOpenGLFunctions_3_0::glTexSubImage2D(GLenum target, GLint level,
+//      GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum
+//      format, GLenum type, const GLvoid *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glTexSubImage2DEjiiiiijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLint xoffset,
+    GLint yoffset,
+    GLsizei width,
+    GLsizei height,
+    GLenum format,
+    GLenum type,
+    const GLvoid *pixels) {
+  self->glTexSubImage2D(
+      target,
+      level,
+      xoffset,
+      yoffset,
+      width,
+      height,
+      format,
+      type,
+      pixels);
+}
+
+//  void QOpenGLFunctions_3_0::glTexSubImage1D(GLenum target, GLint level,
+//      GLint xoffset, GLsizei width, GLenum format, GLenum type, const
+//      GLvoid *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glTexSubImage1DEjiiijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLint xoffset,
+    GLsizei width,
+    GLenum format,
+    GLenum type,
+    const GLvoid *pixels) {
+  self->glTexSubImage1D(target, level, xoffset, width, format, type, pixels);
 }
 
 //  void QOpenGLFunctions_3_0::glCopyTexSubImage2D(GLenum target, GLint
@@ -453,6 +738,27 @@ void ritual_ZN20QOpenGLFunctions_3_015glPolygonOffsetEff(
   self->glPolygonOffset(factor, units);
 }
 
+//  void QOpenGLFunctions_3_0::glGetPointerv(GLenum pname, GLvoid **params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetPointervEjPPv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    GLvoid **params) {
+  self->glGetPointerv(pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glDrawElements(GLenum mode, GLsizei count,
+//      GLenum type, const GLvoid *indices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glDrawElementsEjijPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum mode,
+    GLsizei count,
+    GLenum type,
+    const GLvoid *indices) {
+  self->glDrawElements(mode, count, type, indices);
+}
+
 //  void QOpenGLFunctions_3_0::glDrawArrays(GLenum mode, GLint first, GLsizei
 //      count)
 extern "C" Q_DECL_EXPORT
@@ -491,6 +797,81 @@ void ritual_ZN20QOpenGLFunctions_3_019glCopyTexSubImage3DEjiiiiiiii(
       height);
 }
 
+//  void QOpenGLFunctions_3_0::glTexSubImage3D(GLenum target, GLint level,
+//      GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei
+//      height, GLsizei depth, GLenum format, GLenum type, const GLvoid
+//      *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glTexSubImage3DEjiiiiiiijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLint xoffset,
+    GLint yoffset,
+    GLint zoffset,
+    GLsizei width,
+    GLsizei height,
+    GLsizei depth,
+    GLenum format,
+    GLenum type,
+    const GLvoid *pixels) {
+  self->glTexSubImage3D(
+      target,
+      level,
+      xoffset,
+      yoffset,
+      zoffset,
+      width,
+      height,
+      depth,
+      format,
+      type,
+      pixels);
+}
+
+//  void QOpenGLFunctions_3_0::glTexImage3D(GLenum target, GLint level, GLint
+//      internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint
+//      border, GLenum format, GLenum type, const GLvoid *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glTexImage3DEjiiiiiijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLint internalformat,
+    GLsizei width,
+    GLsizei height,
+    GLsizei depth,
+    GLint border,
+    GLenum format,
+    GLenum type,
+    const GLvoid *pixels) {
+  self->glTexImage3D(
+      target,
+      level,
+      internalformat,
+      width,
+      height,
+      depth,
+      border,
+      format,
+      type,
+      pixels);
+}
+
+//  void QOpenGLFunctions_3_0::glDrawRangeElements(GLenum mode, GLuint start,
+//      GLuint end, GLsizei count, GLenum type, const GLvoid *indices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glDrawRangeElementsEjjjijPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum mode,
+    GLuint start,
+    GLuint end,
+    GLsizei count,
+    GLenum type,
+    const GLvoid *indices) {
+  self->glDrawRangeElements(mode, start, end, count, type, indices);
+}
+
 //  void QOpenGLFunctions_3_0::glBlendEquation(GLenum mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_015glBlendEquationEj(
@@ -511,6 +892,174 @@ void ritual_ZN20QOpenGLFunctions_3_012glBlendColorEffff(
   self->glBlendColor(red, green, blue, alpha);
 }
 
+//  void QOpenGLFunctions_3_0::glGetCompressedTexImage(GLenum target, GLint
+//      level, GLvoid *img)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_023glGetCompressedTexImageEjiPv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLvoid *img) {
+  self->glGetCompressedTexImage(target, level, img);
+}
+
+//  void QOpenGLFunctions_3_0::glCompressedTexSubImage1D(GLenum target, GLint
+//      level, GLint xoffset, GLsizei width, GLenum format, GLsizei
+//      imageSize, const GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_025glCompressedTexSubImage1DEjiiijiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLint xoffset,
+    GLsizei width,
+    GLenum format,
+    GLsizei imageSize,
+    const GLvoid *data) {
+  self->glCompressedTexSubImage1D(
+      target,
+      level,
+      xoffset,
+      width,
+      format,
+      imageSize,
+      data);
+}
+
+//  void QOpenGLFunctions_3_0::glCompressedTexSubImage2D(GLenum target, GLint
+//      level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height,
+//      GLenum format, GLsizei imageSize, const GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_025glCompressedTexSubImage2DEjiiiiijiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLint xoffset,
+    GLint yoffset,
+    GLsizei width,
+    GLsizei height,
+    GLenum format,
+    GLsizei imageSize,
+    const GLvoid *data) {
+  self->glCompressedTexSubImage2D(
+      target,
+      level,
+      xoffset,
+      yoffset,
+      width,
+      height,
+      format,
+      imageSize,
+      data);
+}
+
+//  void QOpenGLFunctions_3_0::glCompressedTexSubImage3D(GLenum target, GLint
+//      level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width,
+//      GLsizei height, GLsizei depth, GLenum format, GLsizei imageSize,
+//      const GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_025glCompressedTexSubImage3DEjiiiiiiijiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLint xoffset,
+    GLint yoffset,
+    GLint zoffset,
+    GLsizei width,
+    GLsizei height,
+    GLsizei depth,
+    GLenum format,
+    GLsizei imageSize,
+    const GLvoid *data) {
+  self->glCompressedTexSubImage3D(
+      target,
+      level,
+      xoffset,
+      yoffset,
+      zoffset,
+      width,
+      height,
+      depth,
+      format,
+      imageSize,
+      data);
+}
+
+//  void QOpenGLFunctions_3_0::glCompressedTexImage1D(GLenum target, GLint
+//      level, GLenum internalformat, GLsizei width, GLint border, GLsizei
+//      imageSize, const GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glCompressedTexImage1DEjijiiiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLenum internalformat,
+    GLsizei width,
+    GLint border,
+    GLsizei imageSize,
+    const GLvoid *data) {
+  self->glCompressedTexImage1D(
+      target,
+      level,
+      internalformat,
+      width,
+      border,
+      imageSize,
+      data);
+}
+
+//  void QOpenGLFunctions_3_0::glCompressedTexImage2D(GLenum target, GLint
+//      level, GLenum internalformat, GLsizei width, GLsizei height, GLint
+//      border, GLsizei imageSize, const GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glCompressedTexImage2DEjijiiiiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLenum internalformat,
+    GLsizei width,
+    GLsizei height,
+    GLint border,
+    GLsizei imageSize,
+    const GLvoid *data) {
+  self->glCompressedTexImage2D(
+      target,
+      level,
+      internalformat,
+      width,
+      height,
+      border,
+      imageSize,
+      data);
+}
+
+//  void QOpenGLFunctions_3_0::glCompressedTexImage3D(GLenum target, GLint
+//      level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei
+//      depth, GLint border, GLsizei imageSize, const GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glCompressedTexImage3DEjijiiiiiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLint level,
+    GLenum internalformat,
+    GLsizei width,
+    GLsizei height,
+    GLsizei depth,
+    GLint border,
+    GLsizei imageSize,
+    const GLvoid *data) {
+  self->glCompressedTexImage3D(
+      target,
+      level,
+      internalformat,
+      width,
+      height,
+      depth,
+      border,
+      imageSize,
+      data);
+}
+
 //  void QOpenGLFunctions_3_0::glSampleCoverage(GLfloat value, GLboolean
 //      invert)
 extern "C" Q_DECL_EXPORT
@@ -529,6 +1078,16 @@ void ritual_ZN20QOpenGLFunctions_3_015glActiveTextureEj(
   self->glActiveTexture(texture);
 }
 
+//  void QOpenGLFunctions_3_0::glPointParameteriv(GLenum pname, const GLint
+//      *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glPointParameterivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    const GLint *params) {
+  self->glPointParameteriv(pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glPointParameteri(GLenum pname, GLint param)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_017glPointParameteriEji(
@@ -538,6 +1097,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glPointParameteriEji(
   self->glPointParameteri(pname, param);
 }
 
+//  void QOpenGLFunctions_3_0::glPointParameterfv(GLenum pname, const GLfloat
+//      *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glPointParameterfvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glPointParameterfv(pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glPointParameterf(GLenum pname, GLfloat param)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_017glPointParameterfEjf(
@@ -545,6 +1114,31 @@ void ritual_ZN20QOpenGLFunctions_3_017glPointParameterfEjf(
     GLenum pname,
     GLfloat param) {
   self->glPointParameterf(pname, param);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiDrawElements(GLenum mode, const GLsizei
+//      *count, GLenum type, const GLvoid *const *indices, GLsizei drawcount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glMultiDrawElementsEjPKijPKPKvi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum mode,
+    const GLsizei *count,
+    GLenum type,
+    const GLvoid *const *indices,
+    GLsizei drawcount) {
+  self->glMultiDrawElements(mode, count, type, indices, drawcount);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiDrawArrays(GLenum mode, const GLint
+//      *first, const GLsizei *count, GLsizei drawcount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glMultiDrawArraysEjPKiS1_i(
+    QOpenGLFunctions_3_0 *self,
+    GLenum mode,
+    const GLint *first,
+    const GLsizei *count,
+    GLsizei drawcount) {
+  self->glMultiDrawArrays(mode, first, count, drawcount);
 }
 
 //  void QOpenGLFunctions_3_0::glBlendFuncSeparate(GLenum sfactorRGB, GLenum
@@ -563,6 +1157,108 @@ void ritual_ZN20QOpenGLFunctions_3_019glBlendFuncSeparateEjjjj(
       dfactorAlpha);
 }
 
+//  void QOpenGLFunctions_3_0::glGetBufferPointerv(GLenum target, GLenum
+//      pname, GLvoid **params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glGetBufferPointervEjjPPv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLvoid **params) {
+  self->glGetBufferPointerv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetBufferParameteriv(GLenum target, GLenum
+//      pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glGetBufferParameterivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetBufferParameteriv(target, pname, params);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glUnmapBuffer(GLenum target)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_013glUnmapBufferEj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target) {
+  return self->glUnmapBuffer(target);
+}
+
+//  GLvoid *QOpenGLFunctions_3_0::glMapBuffer(GLenum target, GLenum access)
+extern "C" Q_DECL_EXPORT
+GLvoid *ritual_ZN20QOpenGLFunctions_3_011glMapBufferEjj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum access) {
+  return self->glMapBuffer(target, access);
+}
+
+//  void QOpenGLFunctions_3_0::glGetBufferSubData(GLenum target, GLintptr
+//      offset, GLsizeiptr size, GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glGetBufferSubDataEjllPv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    long long offset,
+    long long size,
+    GLvoid *data) {
+  self->glGetBufferSubData(target, offset, size, data);
+}
+
+//  void QOpenGLFunctions_3_0::glBufferSubData(GLenum target, GLintptr
+//      offset, GLsizeiptr size, const GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glBufferSubDataEjllPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    long long offset,
+    long long size,
+    const GLvoid *data) {
+  self->glBufferSubData(target, offset, size, data);
+}
+
+//  void QOpenGLFunctions_3_0::glBufferData(GLenum target, GLsizeiptr size,
+//      const GLvoid *data, GLenum usage)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glBufferDataEjlPKvj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    long long size,
+    const GLvoid *data,
+    GLenum usage) {
+  self->glBufferData(target, size, data, usage);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glIsBuffer(GLuint buffer)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_010glIsBufferEj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint buffer) {
+  return self->glIsBuffer(buffer);
+}
+
+//  void QOpenGLFunctions_3_0::glGenBuffers(GLsizei n, GLuint *buffers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glGenBuffersEiPj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    GLuint *buffers) {
+  self->glGenBuffers(n, buffers);
+}
+
+//  void QOpenGLFunctions_3_0::glDeleteBuffers(GLsizei n, const GLuint
+//      *buffers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glDeleteBuffersEiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    const GLuint *buffers) {
+  self->glDeleteBuffers(n, buffers);
+}
+
 //  void QOpenGLFunctions_3_0::glBindBuffer(GLenum target, GLuint buffer)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glBindBufferEjj(
@@ -570,6 +1266,39 @@ void ritual_ZN20QOpenGLFunctions_3_012glBindBufferEjj(
     GLenum target,
     GLuint buffer) {
   self->glBindBuffer(target, buffer);
+}
+
+//  void QOpenGLFunctions_3_0::glGetQueryObjectuiv(GLuint id, GLenum pname,
+//      GLuint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glGetQueryObjectuivEjjPj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint id,
+    GLenum pname,
+    GLuint *params) {
+  self->glGetQueryObjectuiv(id, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetQueryObjectiv(GLuint id, GLenum pname,
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glGetQueryObjectivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint id,
+    GLenum pname,
+    GLint *params) {
+  self->glGetQueryObjectiv(id, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetQueryiv(GLenum target, GLenum pname,
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glGetQueryivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetQueryiv(target, pname, params);
 }
 
 //  void QOpenGLFunctions_3_0::glEndQuery(GLenum target)
@@ -589,12 +1318,183 @@ void ritual_ZN20QOpenGLFunctions_3_012glBeginQueryEjj(
   self->glBeginQuery(target, id);
 }
 
+//  GLboolean QOpenGLFunctions_3_0::glIsQuery(GLuint id)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_09glIsQueryEj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint id) {
+  return self->glIsQuery(id);
+}
+
+//  void QOpenGLFunctions_3_0::glDeleteQueries(GLsizei n, const GLuint *ids)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glDeleteQueriesEiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    const GLuint *ids) {
+  self->glDeleteQueries(n, ids);
+}
+
+//  void QOpenGLFunctions_3_0::glGenQueries(GLsizei n, GLuint *ids)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glGenQueriesEiPj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    GLuint *ids) {
+  self->glGenQueries(n, ids);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribPointer(GLuint index, GLint
+//      size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid
+//      *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_021glVertexAttribPointerEjijhiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    GLint size,
+    GLenum type,
+    GLboolean normalized,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glVertexAttribPointer(
+      index,
+      size,
+      type,
+      normalized,
+      stride,
+      pointer);
+}
+
 //  void QOpenGLFunctions_3_0::glValidateProgram(GLuint program)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_017glValidateProgramEj(
     QOpenGLFunctions_3_0 *self,
     GLuint program) {
   self->glValidateProgram(program);
+}
+
+//  void QOpenGLFunctions_3_0::glUniformMatrix4fv(GLint location, GLsizei
+//      count, GLboolean transpose, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glUniformMatrix4fvEiihPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    GLboolean transpose,
+    const GLfloat *value) {
+  self->glUniformMatrix4fv(location, count, transpose, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniformMatrix3fv(GLint location, GLsizei
+//      count, GLboolean transpose, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glUniformMatrix3fvEiihPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    GLboolean transpose,
+    const GLfloat *value) {
+  self->glUniformMatrix3fv(location, count, transpose, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniformMatrix2fv(GLint location, GLsizei
+//      count, GLboolean transpose, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glUniformMatrix2fvEiihPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    GLboolean transpose,
+    const GLfloat *value) {
+  self->glUniformMatrix2fv(location, count, transpose, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform4iv(GLint location, GLsizei count,
+//      const GLint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glUniform4ivEiiPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLint *value) {
+  self->glUniform4iv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform3iv(GLint location, GLsizei count,
+//      const GLint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glUniform3ivEiiPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLint *value) {
+  self->glUniform3iv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform2iv(GLint location, GLsizei count,
+//      const GLint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glUniform2ivEiiPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLint *value) {
+  self->glUniform2iv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform1iv(GLint location, GLsizei count,
+//      const GLint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glUniform1ivEiiPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLint *value) {
+  self->glUniform1iv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform4fv(GLint location, GLsizei count,
+//      const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glUniform4fvEiiPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLfloat *value) {
+  self->glUniform4fv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform3fv(GLint location, GLsizei count,
+//      const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glUniform3fvEiiPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLfloat *value) {
+  self->glUniform3fv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform2fv(GLint location, GLsizei count,
+//      const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glUniform2fvEiiPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLfloat *value) {
+  self->glUniform2fv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform1fv(GLint location, GLsizei count,
+//      const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glUniform1fvEiiPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLfloat *value) {
+  self->glUniform1fv(location, count, value);
 }
 
 //  void QOpenGLFunctions_3_0::glUniform4i(GLint location, GLint v0, GLint
@@ -695,12 +1595,235 @@ void ritual_ZN20QOpenGLFunctions_3_012glUseProgramEj(
   self->glUseProgram(program);
 }
 
+//  void QOpenGLFunctions_3_0::glShaderSource(GLuint shader, GLsizei count,
+//      const GLchar *const *string, const GLint *length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glShaderSourceEjiPKPKcPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint shader,
+    GLsizei count,
+    const GLchar *const *string,
+    const GLint *length) {
+  self->glShaderSource(shader, count, string, length);
+}
+
 //  void QOpenGLFunctions_3_0::glLinkProgram(GLuint program)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glLinkProgramEj(
     QOpenGLFunctions_3_0 *self,
     GLuint program) {
   self->glLinkProgram(program);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glIsShader(GLuint shader)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_010glIsShaderEj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint shader) {
+  return self->glIsShader(shader);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glIsProgram(GLuint program)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_011glIsProgramEj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program) {
+  return self->glIsProgram(program);
+}
+
+//  void QOpenGLFunctions_3_0::glGetVertexAttribPointerv(GLuint index, GLenum
+//      pname, GLvoid **pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_025glGetVertexAttribPointervEjjPPv(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    GLenum pname,
+    GLvoid **pointer) {
+  self->glGetVertexAttribPointerv(index, pname, pointer);
+}
+
+//  void QOpenGLFunctions_3_0::glGetVertexAttribiv(GLuint index, GLenum
+//      pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glGetVertexAttribivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    GLenum pname,
+    GLint *params) {
+  self->glGetVertexAttribiv(index, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetVertexAttribfv(GLuint index, GLenum
+//      pname, GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glGetVertexAttribfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetVertexAttribfv(index, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetVertexAttribdv(GLuint index, GLenum
+//      pname, GLdouble *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glGetVertexAttribdvEjjPd(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    GLenum pname,
+    GLdouble *params) {
+  self->glGetVertexAttribdv(index, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetUniformiv(GLuint program, GLint location,
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glGetUniformivEjiPi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLint location,
+    GLint *params) {
+  self->glGetUniformiv(program, location, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetUniformfv(GLuint program, GLint location,
+//      GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glGetUniformfvEjiPf(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLint location,
+    GLfloat *params) {
+  self->glGetUniformfv(program, location, params);
+}
+
+//  GLint QOpenGLFunctions_3_0::glGetUniformLocation(GLuint program, const
+//      GLchar *name)
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN20QOpenGLFunctions_3_020glGetUniformLocationEjPKc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    const GLchar *name) {
+  return self->glGetUniformLocation(program, name);
+}
+
+//  void QOpenGLFunctions_3_0::glGetShaderSource(GLuint shader, GLsizei
+//      bufSize, GLsizei *length, GLchar *source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glGetShaderSourceEjiPiPc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint shader,
+    GLsizei bufSize,
+    GLsizei *length,
+    GLchar *source) {
+  self->glGetShaderSource(shader, bufSize, length, source);
+}
+
+//  void QOpenGLFunctions_3_0::glGetShaderInfoLog(GLuint shader, GLsizei
+//      bufSize, GLsizei *length, GLchar *infoLog)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glGetShaderInfoLogEjiPiPc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint shader,
+    GLsizei bufSize,
+    GLsizei *length,
+    GLchar *infoLog) {
+  self->glGetShaderInfoLog(shader, bufSize, length, infoLog);
+}
+
+//  void QOpenGLFunctions_3_0::glGetShaderiv(GLuint shader, GLenum pname,
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetShaderivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint shader,
+    GLenum pname,
+    GLint *params) {
+  self->glGetShaderiv(shader, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetProgramInfoLog(GLuint program, GLsizei
+//      bufSize, GLsizei *length, GLchar *infoLog)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glGetProgramInfoLogEjiPiPc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLsizei bufSize,
+    GLsizei *length,
+    GLchar *infoLog) {
+  self->glGetProgramInfoLog(program, bufSize, length, infoLog);
+}
+
+//  void QOpenGLFunctions_3_0::glGetProgramiv(GLuint program, GLenum pname,
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glGetProgramivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLenum pname,
+    GLint *params) {
+  self->glGetProgramiv(program, pname, params);
+}
+
+//  GLint QOpenGLFunctions_3_0::glGetAttribLocation(GLuint program, const
+//      GLchar *name)
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN20QOpenGLFunctions_3_019glGetAttribLocationEjPKc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    const GLchar *name) {
+  return self->glGetAttribLocation(program, name);
+}
+
+//  void QOpenGLFunctions_3_0::glGetAttachedShaders(GLuint program, GLsizei
+//      maxCount, GLsizei *count, GLuint *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glGetAttachedShadersEjiPiPj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLsizei maxCount,
+    GLsizei *count,
+    GLuint *obj) {
+  self->glGetAttachedShaders(program, maxCount, count, obj);
+}
+
+//  void QOpenGLFunctions_3_0::glGetActiveUniform(GLuint program, GLuint
+//      index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *type,
+//      GLchar *name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glGetActiveUniformEjjiPiS0_PjPc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLuint index,
+    GLsizei bufSize,
+    GLsizei *length,
+    GLint *size,
+    GLenum *type,
+    GLchar *name) {
+  self->glGetActiveUniform(
+      program,
+      index,
+      bufSize,
+      length,
+      size,
+      type,
+      name);
+}
+
+//  void QOpenGLFunctions_3_0::glGetActiveAttrib(GLuint program, GLuint
+//      index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *type,
+//      GLchar *name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glGetActiveAttribEjjiPiS0_PjPc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLuint index,
+    GLsizei bufSize,
+    GLsizei *length,
+    GLint *size,
+    GLenum *type,
+    GLchar *name) {
+  self->glGetActiveAttrib(program, index, bufSize, length, size, type, name);
 }
 
 //  void QOpenGLFunctions_3_0::glEnableVertexAttribArray(GLuint index)
@@ -744,12 +1867,38 @@ void ritual_ZN20QOpenGLFunctions_3_015glDeleteProgramEj(
   self->glDeleteProgram(program);
 }
 
+//  GLuint QOpenGLFunctions_3_0::glCreateShader(GLenum type)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN20QOpenGLFunctions_3_014glCreateShaderEj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum type) {
+  return self->glCreateShader(type);
+}
+
+//  GLuint QOpenGLFunctions_3_0::glCreateProgram()
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN20QOpenGLFunctions_3_015glCreateProgramEv(
+    QOpenGLFunctions_3_0 *self) {
+  return self->glCreateProgram();
+}
+
 //  void QOpenGLFunctions_3_0::glCompileShader(GLuint shader)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_015glCompileShaderEj(
     QOpenGLFunctions_3_0 *self,
     GLuint shader) {
   self->glCompileShader(shader);
+}
+
+//  void QOpenGLFunctions_3_0::glBindAttribLocation(GLuint program, GLuint
+//      index, const GLchar *name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glBindAttribLocationEjjPKc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLuint index,
+    const GLchar *name) {
+  self->glBindAttribLocation(program, index, name);
 }
 
 //  void QOpenGLFunctions_3_0::glAttachShader(GLuint program, GLuint shader)
@@ -795,6 +1944,15 @@ void ritual_ZN20QOpenGLFunctions_3_019glStencilOpSeparateEjjjj(
   self->glStencilOpSeparate(face, sfail, dpfail, dppass);
 }
 
+//  void QOpenGLFunctions_3_0::glDrawBuffers(GLsizei n, const GLenum *bufs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glDrawBuffersEiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    const GLenum *bufs) {
+  self->glDrawBuffers(n, bufs);
+}
+
 //  void QOpenGLFunctions_3_0::glBlendEquationSeparate(GLenum modeRGB, GLenum
 //      modeAlpha)
 extern "C" Q_DECL_EXPORT
@@ -805,12 +1963,134 @@ void ritual_ZN20QOpenGLFunctions_3_023glBlendEquationSeparateEjj(
   self->glBlendEquationSeparate(modeRGB, modeAlpha);
 }
 
+//  void QOpenGLFunctions_3_0::glUniformMatrix4x3fv(GLint location, GLsizei
+//      count, GLboolean transpose, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glUniformMatrix4x3fvEiihPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    GLboolean transpose,
+    const GLfloat *value) {
+  self->glUniformMatrix4x3fv(location, count, transpose, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniformMatrix3x4fv(GLint location, GLsizei
+//      count, GLboolean transpose, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glUniformMatrix3x4fvEiihPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    GLboolean transpose,
+    const GLfloat *value) {
+  self->glUniformMatrix3x4fv(location, count, transpose, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniformMatrix4x2fv(GLint location, GLsizei
+//      count, GLboolean transpose, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glUniformMatrix4x2fvEiihPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    GLboolean transpose,
+    const GLfloat *value) {
+  self->glUniformMatrix4x2fv(location, count, transpose, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniformMatrix2x4fv(GLint location, GLsizei
+//      count, GLboolean transpose, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glUniformMatrix2x4fvEiihPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    GLboolean transpose,
+    const GLfloat *value) {
+  self->glUniformMatrix2x4fv(location, count, transpose, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniformMatrix3x2fv(GLint location, GLsizei
+//      count, GLboolean transpose, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glUniformMatrix3x2fvEiihPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    GLboolean transpose,
+    const GLfloat *value) {
+  self->glUniformMatrix3x2fv(location, count, transpose, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniformMatrix2x3fv(GLint location, GLsizei
+//      count, GLboolean transpose, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glUniformMatrix2x3fvEiihPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    GLboolean transpose,
+    const GLfloat *value) {
+  self->glUniformMatrix2x3fv(location, count, transpose, value);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glIsVertexArray(GLuint array)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_015glIsVertexArrayEj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint array) {
+  return self->glIsVertexArray(array);
+}
+
+//  void QOpenGLFunctions_3_0::glGenVertexArrays(GLsizei n, GLuint *arrays)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glGenVertexArraysEiPj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    GLuint *arrays) {
+  self->glGenVertexArrays(n, arrays);
+}
+
+//  void QOpenGLFunctions_3_0::glDeleteVertexArrays(GLsizei n, const GLuint
+//      *arrays)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glDeleteVertexArraysEiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    const GLuint *arrays) {
+  self->glDeleteVertexArrays(n, arrays);
+}
+
 //  void QOpenGLFunctions_3_0::glBindVertexArray(GLuint array)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_017glBindVertexArrayEj(
     QOpenGLFunctions_3_0 *self,
     GLuint array) {
   self->glBindVertexArray(array);
+}
+
+//  void QOpenGLFunctions_3_0::glFlushMappedBufferRange(GLenum target,
+//      GLintptr offset, GLsizeiptr length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_024glFlushMappedBufferRangeEjll(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    long long offset,
+    long long length) {
+  self->glFlushMappedBufferRange(target, offset, length);
+}
+
+//  GLvoid *QOpenGLFunctions_3_0::glMapBufferRange(GLenum target, GLintptr
+//      offset, GLsizeiptr length, GLbitfield access)
+extern "C" Q_DECL_EXPORT
+GLvoid *ritual_ZN20QOpenGLFunctions_3_016glMapBufferRangeEjllj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    long long offset,
+    long long length,
+    GLbitfield access) {
+  return self->glMapBufferRange(target, offset, length, access);
 }
 
 //  void QOpenGLFunctions_3_0::glFramebufferTextureLayer(GLenum target,
@@ -880,6 +2160,22 @@ void ritual_ZN20QOpenGLFunctions_3_016glGenerateMipmapEj(
     QOpenGLFunctions_3_0 *self,
     GLenum target) {
   self->glGenerateMipmap(target);
+}
+
+//  void QOpenGLFunctions_3_0::glGetFramebufferAttachmentParameteriv(GLenum
+//      target, GLenum attachment, GLenum pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_037glGetFramebufferAttachmentParameterivEjjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum attachment,
+    GLenum pname,
+    GLint *params) {
+  self->glGetFramebufferAttachmentParameteriv(
+      target,
+      attachment,
+      pname,
+      params);
 }
 
 //  void QOpenGLFunctions_3_0::glFramebufferRenderbuffer(GLenum target,
@@ -955,6 +2251,34 @@ void ritual_ZN20QOpenGLFunctions_3_022glFramebufferTexture1DEjjjji(
       level);
 }
 
+//  GLenum QOpenGLFunctions_3_0::glCheckFramebufferStatus(GLenum target)
+extern "C" Q_DECL_EXPORT
+GLenum ritual_ZN20QOpenGLFunctions_3_024glCheckFramebufferStatusEj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target) {
+  return self->glCheckFramebufferStatus(target);
+}
+
+//  void QOpenGLFunctions_3_0::glGenFramebuffers(GLsizei n, GLuint
+//      *framebuffers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glGenFramebuffersEiPj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    GLuint *framebuffers) {
+  self->glGenFramebuffers(n, framebuffers);
+}
+
+//  void QOpenGLFunctions_3_0::glDeleteFramebuffers(GLsizei n, const GLuint
+//      *framebuffers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glDeleteFramebuffersEiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    const GLuint *framebuffers) {
+  self->glDeleteFramebuffers(n, framebuffers);
+}
+
 //  void QOpenGLFunctions_3_0::glBindFramebuffer(GLenum target, GLuint
 //      framebuffer)
 extern "C" Q_DECL_EXPORT
@@ -963,6 +2287,25 @@ void ritual_ZN20QOpenGLFunctions_3_017glBindFramebufferEjj(
     GLenum target,
     GLuint framebuffer) {
   self->glBindFramebuffer(target, framebuffer);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glIsFramebuffer(GLuint framebuffer)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_015glIsFramebufferEj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint framebuffer) {
+  return self->glIsFramebuffer(framebuffer);
+}
+
+//  void QOpenGLFunctions_3_0::glGetRenderbufferParameteriv(GLenum target,
+//      GLenum pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_028glGetRenderbufferParameterivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetRenderbufferParameteriv(target, pname, params);
 }
 
 //  void QOpenGLFunctions_3_0::glRenderbufferStorage(GLenum target, GLenum
@@ -977,6 +2320,26 @@ void ritual_ZN20QOpenGLFunctions_3_021glRenderbufferStorageEjjii(
   self->glRenderbufferStorage(target, internalformat, width, height);
 }
 
+//  void QOpenGLFunctions_3_0::glGenRenderbuffers(GLsizei n, GLuint
+//      *renderbuffers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glGenRenderbuffersEiPj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    GLuint *renderbuffers) {
+  self->glGenRenderbuffers(n, renderbuffers);
+}
+
+//  void QOpenGLFunctions_3_0::glDeleteRenderbuffers(GLsizei n, const GLuint
+//      *renderbuffers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_021glDeleteRenderbuffersEiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    const GLuint *renderbuffers) {
+  self->glDeleteRenderbuffers(n, renderbuffers);
+}
+
 //  void QOpenGLFunctions_3_0::glBindRenderbuffer(GLenum target, GLuint
 //      renderbuffer)
 extern "C" Q_DECL_EXPORT
@@ -985,6 +2348,24 @@ void ritual_ZN20QOpenGLFunctions_3_018glBindRenderbufferEjj(
     GLenum target,
     GLuint renderbuffer) {
   self->glBindRenderbuffer(target, renderbuffer);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glIsRenderbuffer(GLuint renderbuffer)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_016glIsRenderbufferEj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint renderbuffer) {
+  return self->glIsRenderbuffer(renderbuffer);
+}
+
+//  const GLubyte *QOpenGLFunctions_3_0::glGetStringi(GLenum name, GLuint
+//      index)
+extern "C" Q_DECL_EXPORT
+const GLubyte *ritual_ZN20QOpenGLFunctions_3_012glGetStringiEjj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum name,
+    GLuint index) {
+  return self->glGetStringi(name, index);
 }
 
 //  void QOpenGLFunctions_3_0::glClearBufferfi(GLenum buffer, GLint
@@ -997,6 +2378,127 @@ void ritual_ZN20QOpenGLFunctions_3_015glClearBufferfiEjifi(
     GLfloat depth,
     GLint stencil) {
   self->glClearBufferfi(buffer, drawbuffer, depth, stencil);
+}
+
+//  void QOpenGLFunctions_3_0::glClearBufferfv(GLenum buffer, GLint
+//      drawbuffer, const GLfloat *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glClearBufferfvEjiPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum buffer,
+    GLint drawbuffer,
+    const GLfloat *value) {
+  self->glClearBufferfv(buffer, drawbuffer, value);
+}
+
+//  void QOpenGLFunctions_3_0::glClearBufferuiv(GLenum buffer, GLint
+//      drawbuffer, const GLuint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_016glClearBufferuivEjiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum buffer,
+    GLint drawbuffer,
+    const GLuint *value) {
+  self->glClearBufferuiv(buffer, drawbuffer, value);
+}
+
+//  void QOpenGLFunctions_3_0::glClearBufferiv(GLenum buffer, GLint
+//      drawbuffer, const GLint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glClearBufferivEjiPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum buffer,
+    GLint drawbuffer,
+    const GLint *value) {
+  self->glClearBufferiv(buffer, drawbuffer, value);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexParameterIuiv(GLenum target, GLenum
+//      pname, GLuint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_021glGetTexParameterIuivEjjPj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLuint *params) {
+  self->glGetTexParameterIuiv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexParameterIiv(GLenum target, GLenum
+//      pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glGetTexParameterIivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetTexParameterIiv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glTexParameterIuiv(GLenum target, GLenum
+//      pname, const GLuint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glTexParameterIuivEjjPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLuint *params) {
+  self->glTexParameterIuiv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glTexParameterIiv(GLenum target, GLenum pname,
+//      const GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glTexParameterIivEjjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLint *params) {
+  self->glTexParameterIiv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform4uiv(GLint location, GLsizei count,
+//      const GLuint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glUniform4uivEiiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLuint *value) {
+  self->glUniform4uiv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform3uiv(GLint location, GLsizei count,
+//      const GLuint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glUniform3uivEiiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLuint *value) {
+  self->glUniform3uiv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform2uiv(GLint location, GLsizei count,
+//      const GLuint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glUniform2uivEiiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLuint *value) {
+  self->glUniform2uiv(location, count, value);
+}
+
+//  void QOpenGLFunctions_3_0::glUniform1uiv(GLint location, GLsizei count,
+//      const GLuint *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glUniform1uivEiiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLint location,
+    GLsizei count,
+    const GLuint *value) {
+  self->glUniform1uiv(location, count, value);
 }
 
 //  void QOpenGLFunctions_3_0::glUniform4ui(GLint location, GLuint v0, GLuint
@@ -1044,6 +2546,73 @@ void ritual_ZN20QOpenGLFunctions_3_012glUniform1uiEij(
   self->glUniform1ui(location, v0);
 }
 
+//  GLint QOpenGLFunctions_3_0::glGetFragDataLocation(GLuint program, const
+//      GLchar *name)
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN20QOpenGLFunctions_3_021glGetFragDataLocationEjPKc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    const GLchar *name) {
+  return self->glGetFragDataLocation(program, name);
+}
+
+//  void QOpenGLFunctions_3_0::glBindFragDataLocation(GLuint program, GLuint
+//      color, const GLchar *name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glBindFragDataLocationEjjPKc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLuint color,
+    const GLchar *name) {
+  self->glBindFragDataLocation(program, color, name);
+}
+
+//  void QOpenGLFunctions_3_0::glGetUniformuiv(GLuint program, GLint
+//      location, GLuint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glGetUniformuivEjiPj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLint location,
+    GLuint *params) {
+  self->glGetUniformuiv(program, location, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetVertexAttribIuiv(GLuint index, GLenum
+//      pname, GLuint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_021glGetVertexAttribIuivEjjPj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    GLenum pname,
+    GLuint *params) {
+  self->glGetVertexAttribIuiv(index, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetVertexAttribIiv(GLuint index, GLenum
+//      pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glGetVertexAttribIivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    GLenum pname,
+    GLint *params) {
+  self->glGetVertexAttribIiv(index, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribIPointer(GLuint index, GLint
+//      size, GLenum type, GLsizei stride, const GLvoid *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glVertexAttribIPointerEjijiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    GLint size,
+    GLenum type,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glVertexAttribIPointer(index, size, type, stride, pointer);
+}
+
 //  void QOpenGLFunctions_3_0::glEndConditionalRender()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_022glEndConditionalRenderEv(
@@ -1070,6 +2639,41 @@ void ritual_ZN20QOpenGLFunctions_3_012glClampColorEjj(
   self->glClampColor(target, clamp);
 }
 
+//  void QOpenGLFunctions_3_0::glGetTransformFeedbackVarying(GLuint program,
+//      GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum
+//      *type, GLchar *name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_029glGetTransformFeedbackVaryingEjjiPiS0_PjPc(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLuint index,
+    GLsizei bufSize,
+    GLsizei *length,
+    GLsizei *size,
+    GLenum *type,
+    GLchar *name) {
+  self->glGetTransformFeedbackVarying(
+      program,
+      index,
+      bufSize,
+      length,
+      size,
+      type,
+      name);
+}
+
+//  void QOpenGLFunctions_3_0::glTransformFeedbackVaryings(GLuint program,
+//      GLsizei count, const GLchar *const *varyings, GLenum bufferMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_027glTransformFeedbackVaryingsEjiPKPKcj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint program,
+    GLsizei count,
+    const GLchar *const *varyings,
+    GLenum bufferMode) {
+  self->glTransformFeedbackVaryings(program, count, varyings, bufferMode);
+}
+
 //  void QOpenGLFunctions_3_0::glBindBufferBase(GLenum target, GLuint index,
 //      GLuint buffer)
 extern "C" Q_DECL_EXPORT
@@ -1079,6 +2683,19 @@ void ritual_ZN20QOpenGLFunctions_3_016glBindBufferBaseEjjj(
     GLuint index,
     GLuint buffer) {
   self->glBindBufferBase(target, index, buffer);
+}
+
+//  void QOpenGLFunctions_3_0::glBindBufferRange(GLenum target, GLuint index,
+//      GLuint buffer, GLintptr offset, GLsizeiptr size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glBindBufferRangeEjjjll(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLuint index,
+    GLuint buffer,
+    long long offset,
+    long long size) {
+  self->glBindBufferRange(target, index, buffer, offset, size);
 }
 
 //  void QOpenGLFunctions_3_0::glEndTransformFeedback()
@@ -1094,6 +2711,15 @@ void ritual_ZN20QOpenGLFunctions_3_024glBeginTransformFeedbackEj(
     QOpenGLFunctions_3_0 *self,
     GLenum primitiveMode) {
   self->glBeginTransformFeedback(primitiveMode);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glIsEnabledi(GLenum target, GLuint index)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_012glIsEnablediEjj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLuint index) {
+  return self->glIsEnabledi(target, index);
 }
 
 //  void QOpenGLFunctions_3_0::glDisablei(GLenum target, GLuint index)
@@ -1112,6 +2738,28 @@ void ritual_ZN20QOpenGLFunctions_3_09glEnableiEjj(
     GLenum target,
     GLuint index) {
   self->glEnablei(target, index);
+}
+
+//  void QOpenGLFunctions_3_0::glGetIntegeri_v(GLenum target, GLuint index,
+//      GLint *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glGetIntegeri_vEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLuint index,
+    GLint *data) {
+  self->glGetIntegeri_v(target, index, data);
+}
+
+//  void QOpenGLFunctions_3_0::glGetBooleani_v(GLenum target, GLuint index,
+//      GLboolean *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glGetBooleani_vEjjPh(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLuint index,
+    GLboolean *data) {
+  self->glGetBooleani_v(target, index, data);
 }
 
 //  void QOpenGLFunctions_3_0::glColorMaski(GLuint index, GLboolean r,
@@ -1220,12 +2868,44 @@ void ritual_ZN20QOpenGLFunctions_3_07glOrthoEdddddd(
   self->glOrtho(left, right, bottom, top, zNear, zFar);
 }
 
+//  void QOpenGLFunctions_3_0::glMultMatrixd(const GLdouble *m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glMultMatrixdEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *m) {
+  self->glMultMatrixd(m);
+}
+
+//  void QOpenGLFunctions_3_0::glMultMatrixf(const GLfloat *m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glMultMatrixfEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *m) {
+  self->glMultMatrixf(m);
+}
+
 //  void QOpenGLFunctions_3_0::glMatrixMode(GLenum mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glMatrixModeEj(
     QOpenGLFunctions_3_0 *self,
     GLenum mode) {
   self->glMatrixMode(mode);
+}
+
+//  void QOpenGLFunctions_3_0::glLoadMatrixd(const GLdouble *m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glLoadMatrixdEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *m) {
+  self->glLoadMatrixd(m);
+}
+
+//  void QOpenGLFunctions_3_0::glLoadMatrixf(const GLfloat *m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glLoadMatrixfEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *m) {
+  self->glLoadMatrixf(m);
 }
 
 //  void QOpenGLFunctions_3_0::glLoadIdentity()
@@ -1249,6 +2929,204 @@ void ritual_ZN20QOpenGLFunctions_3_09glFrustumEdddddd(
   self->glFrustum(left, right, bottom, top, zNear, zFar);
 }
 
+//  GLboolean QOpenGLFunctions_3_0::glIsList(GLuint list)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_08glIsListEj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint list) {
+  return self->glIsList(list);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexGeniv(GLenum coord, GLenum pname,
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetTexGenivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum coord,
+    GLenum pname,
+    GLint *params) {
+  self->glGetTexGeniv(coord, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexGenfv(GLenum coord, GLenum pname,
+//      GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetTexGenfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum coord,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetTexGenfv(coord, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexGendv(GLenum coord, GLenum pname,
+//      GLdouble *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetTexGendvEjjPd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum coord,
+    GLenum pname,
+    GLdouble *params) {
+  self->glGetTexGendv(coord, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexEnviv(GLenum target, GLenum pname,
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetTexEnvivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetTexEnviv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetTexEnvfv(GLenum target, GLenum pname,
+//      GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glGetTexEnvfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetTexEnvfv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetPolygonStipple(GLubyte *mask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glGetPolygonStippleEPh(
+    QOpenGLFunctions_3_0 *self,
+    GLubyte *mask) {
+  self->glGetPolygonStipple(mask);
+}
+
+//  void QOpenGLFunctions_3_0::glGetPixelMapusv(GLenum map, GLushort *values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_016glGetPixelMapusvEjPt(
+    QOpenGLFunctions_3_0 *self,
+    GLenum map,
+    GLushort *values) {
+  self->glGetPixelMapusv(map, values);
+}
+
+//  void QOpenGLFunctions_3_0::glGetPixelMapuiv(GLenum map, GLuint *values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_016glGetPixelMapuivEjPj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum map,
+    GLuint *values) {
+  self->glGetPixelMapuiv(map, values);
+}
+
+//  void QOpenGLFunctions_3_0::glGetPixelMapfv(GLenum map, GLfloat *values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glGetPixelMapfvEjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum map,
+    GLfloat *values) {
+  self->glGetPixelMapfv(map, values);
+}
+
+//  void QOpenGLFunctions_3_0::glGetMaterialiv(GLenum face, GLenum pname,
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glGetMaterialivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum face,
+    GLenum pname,
+    GLint *params) {
+  self->glGetMaterialiv(face, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetMaterialfv(GLenum face, GLenum pname,
+//      GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glGetMaterialfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum face,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetMaterialfv(face, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetMapiv(GLenum target, GLenum query, GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glGetMapivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum query,
+    GLint *v) {
+  self->glGetMapiv(target, query, v);
+}
+
+//  void QOpenGLFunctions_3_0::glGetMapfv(GLenum target, GLenum query,
+//      GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glGetMapfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum query,
+    GLfloat *v) {
+  self->glGetMapfv(target, query, v);
+}
+
+//  void QOpenGLFunctions_3_0::glGetMapdv(GLenum target, GLenum query,
+//      GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glGetMapdvEjjPd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum query,
+    GLdouble *v) {
+  self->glGetMapdv(target, query, v);
+}
+
+//  void QOpenGLFunctions_3_0::glGetLightiv(GLenum light, GLenum pname, GLint
+//      *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glGetLightivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum light,
+    GLenum pname,
+    GLint *params) {
+  self->glGetLightiv(light, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetLightfv(GLenum light, GLenum pname,
+//      GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glGetLightfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum light,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetLightfv(light, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetClipPlane(GLenum plane, GLdouble
+//      *equation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glGetClipPlaneEjPd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum plane,
+    GLdouble *equation) {
+  self->glGetClipPlane(plane, equation);
+}
+
+//  void QOpenGLFunctions_3_0::glDrawPixels(GLsizei width, GLsizei height,
+//      GLenum format, GLenum type, const GLvoid *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glDrawPixelsEiijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei width,
+    GLsizei height,
+    GLenum format,
+    GLenum type,
+    const GLvoid *pixels) {
+  self->glDrawPixels(width, height, format, type, pixels);
+}
+
 //  void QOpenGLFunctions_3_0::glCopyPixels(GLint x, GLint y, GLsizei width,
 //      GLsizei height, GLenum type)
 extern "C" Q_DECL_EXPORT
@@ -1260,6 +3138,39 @@ void ritual_ZN20QOpenGLFunctions_3_012glCopyPixelsEiiiij(
     GLsizei height,
     GLenum type) {
   self->glCopyPixels(x, y, width, height, type);
+}
+
+//  void QOpenGLFunctions_3_0::glPixelMapusv(GLenum map, GLint mapsize, const
+//      GLushort *values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glPixelMapusvEjiPKt(
+    QOpenGLFunctions_3_0 *self,
+    GLenum map,
+    GLint mapsize,
+    const GLushort *values) {
+  self->glPixelMapusv(map, mapsize, values);
+}
+
+//  void QOpenGLFunctions_3_0::glPixelMapuiv(GLenum map, GLint mapsize, const
+//      GLuint *values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glPixelMapuivEjiPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum map,
+    GLint mapsize,
+    const GLuint *values) {
+  self->glPixelMapuiv(map, mapsize, values);
+}
+
+//  void QOpenGLFunctions_3_0::glPixelMapfv(GLenum map, GLint mapsize, const
+//      GLfloat *values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glPixelMapfvEjiPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum map,
+    GLint mapsize,
+    const GLfloat *values) {
+  self->glPixelMapfv(map, mapsize, values);
 }
 
 //  void QOpenGLFunctions_3_0::glPixelTransferi(GLenum pname, GLint param)
@@ -1338,6 +3249,14 @@ void ritual_ZN20QOpenGLFunctions_3_011glEvalMesh1Ejii(
   self->glEvalMesh1(mode, i1, i2);
 }
 
+//  void QOpenGLFunctions_3_0::glEvalCoord2fv(const GLfloat *u)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glEvalCoord2fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *u) {
+  self->glEvalCoord2fv(u);
+}
+
 //  void QOpenGLFunctions_3_0::glEvalCoord2f(GLfloat u, GLfloat v)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glEvalCoord2fEff(
@@ -1345,6 +3264,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glEvalCoord2fEff(
     GLfloat u,
     GLfloat v) {
   self->glEvalCoord2f(u, v);
+}
+
+//  void QOpenGLFunctions_3_0::glEvalCoord2dv(const GLdouble *u)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glEvalCoord2dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *u) {
+  self->glEvalCoord2dv(u);
 }
 
 //  void QOpenGLFunctions_3_0::glEvalCoord2d(GLdouble u, GLdouble v)
@@ -1356,12 +3283,28 @@ void ritual_ZN20QOpenGLFunctions_3_013glEvalCoord2dEdd(
   self->glEvalCoord2d(u, v);
 }
 
+//  void QOpenGLFunctions_3_0::glEvalCoord1fv(const GLfloat *u)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glEvalCoord1fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *u) {
+  self->glEvalCoord1fv(u);
+}
+
 //  void QOpenGLFunctions_3_0::glEvalCoord1f(GLfloat u)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glEvalCoord1fEf(
     QOpenGLFunctions_3_0 *self,
     GLfloat u) {
   self->glEvalCoord1f(u);
+}
+
+//  void QOpenGLFunctions_3_0::glEvalCoord1dv(const GLdouble *u)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glEvalCoord1dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *u) {
+  self->glEvalCoord1dv(u);
 }
 
 //  void QOpenGLFunctions_3_0::glEvalCoord1d(GLdouble u)
@@ -1419,6 +3362,92 @@ void ritual_ZN20QOpenGLFunctions_3_011glMapGrid1dEidd(
     GLdouble u1,
     GLdouble u2) {
   self->glMapGrid1d(un, u1, u2);
+}
+
+//  void QOpenGLFunctions_3_0::glMap2f(GLenum target, GLfloat u1, GLfloat u2,
+//      GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride,
+//      GLint vorder, const GLfloat *points)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_07glMap2fEjffiiffiiPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLfloat u1,
+    GLfloat u2,
+    GLint ustride,
+    GLint uorder,
+    GLfloat v1,
+    GLfloat v2,
+    GLint vstride,
+    GLint vorder,
+    const GLfloat *points) {
+  self->glMap2f(
+      target,
+      u1,
+      u2,
+      ustride,
+      uorder,
+      v1,
+      v2,
+      vstride,
+      vorder,
+      points);
+}
+
+//  void QOpenGLFunctions_3_0::glMap2d(GLenum target, GLdouble u1, GLdouble
+//      u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint
+//      vstride, GLint vorder, const GLdouble *points)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_07glMap2dEjddiiddiiPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLdouble u1,
+    GLdouble u2,
+    GLint ustride,
+    GLint uorder,
+    GLdouble v1,
+    GLdouble v2,
+    GLint vstride,
+    GLint vorder,
+    const GLdouble *points) {
+  self->glMap2d(
+      target,
+      u1,
+      u2,
+      ustride,
+      uorder,
+      v1,
+      v2,
+      vstride,
+      vorder,
+      points);
+}
+
+//  void QOpenGLFunctions_3_0::glMap1f(GLenum target, GLfloat u1, GLfloat u2,
+//      GLint stride, GLint order, const GLfloat *points)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_07glMap1fEjffiiPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLfloat u1,
+    GLfloat u2,
+    GLint stride,
+    GLint order,
+    const GLfloat *points) {
+  self->glMap1f(target, u1, u2, stride, order, points);
+}
+
+//  void QOpenGLFunctions_3_0::glMap1d(GLenum target, GLdouble u1, GLdouble
+//      u2, GLint stride, GLint order, const GLdouble *points)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_07glMap1dEjddiiPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLdouble u1,
+    GLdouble u2,
+    GLint stride,
+    GLint order,
+    const GLdouble *points) {
+  self->glMap1d(target, u1, u2, stride, order, points);
 }
 
 //  void QOpenGLFunctions_3_0::glPushAttrib(GLbitfield mask)
@@ -1511,6 +3540,45 @@ void ritual_ZN20QOpenGLFunctions_3_011glInitNamesEv(
   self->glInitNames();
 }
 
+//  GLint QOpenGLFunctions_3_0::glRenderMode(GLenum mode)
+extern "C" Q_DECL_EXPORT
+GLint ritual_ZN20QOpenGLFunctions_3_012glRenderModeEj(
+    QOpenGLFunctions_3_0 *self,
+    GLenum mode) {
+  return self->glRenderMode(mode);
+}
+
+//  void QOpenGLFunctions_3_0::glSelectBuffer(GLsizei size, GLuint *buffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glSelectBufferEiPj(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei size,
+    GLuint *buffer) {
+  self->glSelectBuffer(size, buffer);
+}
+
+//  void QOpenGLFunctions_3_0::glFeedbackBuffer(GLsizei size, GLenum type,
+//      GLfloat *buffer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_016glFeedbackBufferEijPf(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei size,
+    GLenum type,
+    GLfloat *buffer) {
+  self->glFeedbackBuffer(size, type, buffer);
+}
+
+//  void QOpenGLFunctions_3_0::glTexGeniv(GLenum coord, GLenum pname, const
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glTexGenivEjjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum coord,
+    GLenum pname,
+    const GLint *params) {
+  self->glTexGeniv(coord, pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glTexGeni(GLenum coord, GLenum pname, GLint
 //      param)
 extern "C" Q_DECL_EXPORT
@@ -1520,6 +3588,17 @@ void ritual_ZN20QOpenGLFunctions_3_09glTexGeniEjji(
     GLenum pname,
     GLint param) {
   self->glTexGeni(coord, pname, param);
+}
+
+//  void QOpenGLFunctions_3_0::glTexGenfv(GLenum coord, GLenum pname, const
+//      GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glTexGenfvEjjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum coord,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glTexGenfv(coord, pname, params);
 }
 
 //  void QOpenGLFunctions_3_0::glTexGenf(GLenum coord, GLenum pname, GLfloat
@@ -1533,6 +3612,17 @@ void ritual_ZN20QOpenGLFunctions_3_09glTexGenfEjjf(
   self->glTexGenf(coord, pname, param);
 }
 
+//  void QOpenGLFunctions_3_0::glTexGendv(GLenum coord, GLenum pname, const
+//      GLdouble *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glTexGendvEjjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum coord,
+    GLenum pname,
+    const GLdouble *params) {
+  self->glTexGendv(coord, pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glTexGend(GLenum coord, GLenum pname, GLdouble
 //      param)
 extern "C" Q_DECL_EXPORT
@@ -1544,6 +3634,17 @@ void ritual_ZN20QOpenGLFunctions_3_09glTexGendEjjd(
   self->glTexGend(coord, pname, param);
 }
 
+//  void QOpenGLFunctions_3_0::glTexEnviv(GLenum target, GLenum pname, const
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glTexEnvivEjjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLint *params) {
+  self->glTexEnviv(target, pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glTexEnvi(GLenum target, GLenum pname, GLint
 //      param)
 extern "C" Q_DECL_EXPORT
@@ -1553,6 +3654,17 @@ void ritual_ZN20QOpenGLFunctions_3_09glTexEnviEjji(
     GLenum pname,
     GLint param) {
   self->glTexEnvi(target, pname, param);
+}
+
+//  void QOpenGLFunctions_3_0::glTexEnvfv(GLenum target, GLenum pname, const
+//      GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glTexEnvfvEjjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glTexEnvfv(target, pname, params);
 }
 
 //  void QOpenGLFunctions_3_0::glTexEnvf(GLenum target, GLenum pname, GLfloat
@@ -1574,6 +3686,25 @@ void ritual_ZN20QOpenGLFunctions_3_012glShadeModelEj(
   self->glShadeModel(mode);
 }
 
+//  void QOpenGLFunctions_3_0::glPolygonStipple(const GLubyte *mask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_016glPolygonStippleEPKh(
+    QOpenGLFunctions_3_0 *self,
+    const GLubyte *mask) {
+  self->glPolygonStipple(mask);
+}
+
+//  void QOpenGLFunctions_3_0::glMaterialiv(GLenum face, GLenum pname, const
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glMaterialivEjjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum face,
+    GLenum pname,
+    const GLint *params) {
+  self->glMaterialiv(face, pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glMateriali(GLenum face, GLenum pname, GLint
 //      param)
 extern "C" Q_DECL_EXPORT
@@ -1583,6 +3714,17 @@ void ritual_ZN20QOpenGLFunctions_3_011glMaterialiEjji(
     GLenum pname,
     GLint param) {
   self->glMateriali(face, pname, param);
+}
+
+//  void QOpenGLFunctions_3_0::glMaterialfv(GLenum face, GLenum pname, const
+//      GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glMaterialfvEjjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum face,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glMaterialfv(face, pname, params);
 }
 
 //  void QOpenGLFunctions_3_0::glMaterialf(GLenum face, GLenum pname, GLfloat
@@ -1605,6 +3747,16 @@ void ritual_ZN20QOpenGLFunctions_3_013glLineStippleEit(
   self->glLineStipple(factor, pattern);
 }
 
+//  void QOpenGLFunctions_3_0::glLightModeliv(GLenum pname, const GLint
+//      *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glLightModelivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    const GLint *params) {
+  self->glLightModeliv(pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glLightModeli(GLenum pname, GLint param)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glLightModeliEji(
@@ -1614,6 +3766,16 @@ void ritual_ZN20QOpenGLFunctions_3_013glLightModeliEji(
   self->glLightModeli(pname, param);
 }
 
+//  void QOpenGLFunctions_3_0::glLightModelfv(GLenum pname, const GLfloat
+//      *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glLightModelfvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glLightModelfv(pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glLightModelf(GLenum pname, GLfloat param)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glLightModelfEjf(
@@ -1621,6 +3783,17 @@ void ritual_ZN20QOpenGLFunctions_3_013glLightModelfEjf(
     GLenum pname,
     GLfloat param) {
   self->glLightModelf(pname, param);
+}
+
+//  void QOpenGLFunctions_3_0::glLightiv(GLenum light, GLenum pname, const
+//      GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_09glLightivEjjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum light,
+    GLenum pname,
+    const GLint *params) {
+  self->glLightiv(light, pname, params);
 }
 
 //  void QOpenGLFunctions_3_0::glLighti(GLenum light, GLenum pname, GLint
@@ -1634,6 +3807,17 @@ void ritual_ZN20QOpenGLFunctions_3_08glLightiEjji(
   self->glLighti(light, pname, param);
 }
 
+//  void QOpenGLFunctions_3_0::glLightfv(GLenum light, GLenum pname, const
+//      GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_09glLightfvEjjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum light,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glLightfv(light, pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glLightf(GLenum light, GLenum pname, GLfloat
 //      param)
 extern "C" Q_DECL_EXPORT
@@ -1645,6 +3829,15 @@ void ritual_ZN20QOpenGLFunctions_3_08glLightfEjjf(
   self->glLightf(light, pname, param);
 }
 
+//  void QOpenGLFunctions_3_0::glFogiv(GLenum pname, const GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_07glFogivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    const GLint *params) {
+  self->glFogiv(pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glFogi(GLenum pname, GLint param)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_06glFogiEji(
@@ -1652,6 +3845,15 @@ void ritual_ZN20QOpenGLFunctions_3_06glFogiEji(
     GLenum pname,
     GLint param) {
   self->glFogi(pname, param);
+}
+
+//  void QOpenGLFunctions_3_0::glFogfv(GLenum pname, const GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_07glFogfvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glFogfv(pname, params);
 }
 
 //  void QOpenGLFunctions_3_0::glFogf(GLenum pname, GLfloat param)
@@ -1672,6 +3874,24 @@ void ritual_ZN20QOpenGLFunctions_3_015glColorMaterialEjj(
   self->glColorMaterial(face, mode);
 }
 
+//  void QOpenGLFunctions_3_0::glClipPlane(GLenum plane, const GLdouble
+//      *equation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glClipPlaneEjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum plane,
+    const GLdouble *equation) {
+  self->glClipPlane(plane, equation);
+}
+
+//  void QOpenGLFunctions_3_0::glVertex4sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex4svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glVertex4sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertex4s(GLshort x, GLshort y, GLshort z,
 //      GLshort w)
 extern "C" Q_DECL_EXPORT
@@ -1684,6 +3904,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex4sEssss(
   self->glVertex4s(x, y, z, w);
 }
 
+//  void QOpenGLFunctions_3_0::glVertex4iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex4ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glVertex4iv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertex4i(GLint x, GLint y, GLint z, GLint w)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glVertex4iEiiii(
@@ -1693,6 +3921,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex4iEiiii(
     GLint z,
     GLint w) {
   self->glVertex4i(x, y, z, w);
+}
+
+//  void QOpenGLFunctions_3_0::glVertex4fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex4fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glVertex4fv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertex4f(GLfloat x, GLfloat y, GLfloat z,
@@ -1707,6 +3943,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex4fEffff(
   self->glVertex4f(x, y, z, w);
 }
 
+//  void QOpenGLFunctions_3_0::glVertex4dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex4dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glVertex4dv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertex4d(GLdouble x, GLdouble y, GLdouble z,
 //      GLdouble w)
 extern "C" Q_DECL_EXPORT
@@ -1719,6 +3963,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex4dEdddd(
   self->glVertex4d(x, y, z, w);
 }
 
+//  void QOpenGLFunctions_3_0::glVertex3sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex3svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glVertex3sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertex3s(GLshort x, GLshort y, GLshort z)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glVertex3sEsss(
@@ -1727,6 +3979,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex3sEsss(
     GLshort y,
     GLshort z) {
   self->glVertex3s(x, y, z);
+}
+
+//  void QOpenGLFunctions_3_0::glVertex3iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex3ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glVertex3iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertex3i(GLint x, GLint y, GLint z)
@@ -1739,6 +3999,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex3iEiii(
   self->glVertex3i(x, y, z);
 }
 
+//  void QOpenGLFunctions_3_0::glVertex3fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex3fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glVertex3fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertex3f(GLfloat x, GLfloat y, GLfloat z)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glVertex3fEfff(
@@ -1747,6 +4015,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex3fEfff(
     GLfloat y,
     GLfloat z) {
   self->glVertex3f(x, y, z);
+}
+
+//  void QOpenGLFunctions_3_0::glVertex3dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex3dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glVertex3dv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertex3d(GLdouble x, GLdouble y, GLdouble z)
@@ -1759,6 +4035,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex3dEddd(
   self->glVertex3d(x, y, z);
 }
 
+//  void QOpenGLFunctions_3_0::glVertex2sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex2svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glVertex2sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertex2s(GLshort x, GLshort y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glVertex2sEss(
@@ -1766,6 +4050,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex2sEss(
     GLshort x,
     GLshort y) {
   self->glVertex2s(x, y);
+}
+
+//  void QOpenGLFunctions_3_0::glVertex2iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex2ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glVertex2iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertex2i(GLint x, GLint y)
@@ -1777,6 +4069,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex2iEii(
   self->glVertex2i(x, y);
 }
 
+//  void QOpenGLFunctions_3_0::glVertex2fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex2fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glVertex2fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertex2f(GLfloat x, GLfloat y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glVertex2fEff(
@@ -1786,6 +4086,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex2fEff(
   self->glVertex2f(x, y);
 }
 
+//  void QOpenGLFunctions_3_0::glVertex2dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glVertex2dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glVertex2dv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertex2d(GLdouble x, GLdouble y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glVertex2dEdd(
@@ -1793,6 +4101,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glVertex2dEdd(
     GLdouble x,
     GLdouble y) {
   self->glVertex2d(x, y);
+}
+
+//  void QOpenGLFunctions_3_0::glTexCoord4sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord4svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glTexCoord4sv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glTexCoord4s(GLshort s, GLshort t, GLshort r,
@@ -1807,6 +4123,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord4sEssss(
   self->glTexCoord4s(s, t, r, q);
 }
 
+//  void QOpenGLFunctions_3_0::glTexCoord4iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord4ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glTexCoord4iv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glTexCoord4i(GLint s, GLint t, GLint r, GLint
 //      q)
 extern "C" Q_DECL_EXPORT
@@ -1817,6 +4141,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord4iEiiii(
     GLint r,
     GLint q) {
   self->glTexCoord4i(s, t, r, q);
+}
+
+//  void QOpenGLFunctions_3_0::glTexCoord4fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord4fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glTexCoord4fv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glTexCoord4f(GLfloat s, GLfloat t, GLfloat r,
@@ -1831,6 +4163,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord4fEffff(
   self->glTexCoord4f(s, t, r, q);
 }
 
+//  void QOpenGLFunctions_3_0::glTexCoord4dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord4dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glTexCoord4dv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glTexCoord4d(GLdouble s, GLdouble t, GLdouble
 //      r, GLdouble q)
 extern "C" Q_DECL_EXPORT
@@ -1843,6 +4183,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord4dEdddd(
   self->glTexCoord4d(s, t, r, q);
 }
 
+//  void QOpenGLFunctions_3_0::glTexCoord3sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord3svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glTexCoord3sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glTexCoord3s(GLshort s, GLshort t, GLshort r)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glTexCoord3sEsss(
@@ -1851,6 +4199,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord3sEsss(
     GLshort t,
     GLshort r) {
   self->glTexCoord3s(s, t, r);
+}
+
+//  void QOpenGLFunctions_3_0::glTexCoord3iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord3ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glTexCoord3iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glTexCoord3i(GLint s, GLint t, GLint r)
@@ -1863,6 +4219,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord3iEiii(
   self->glTexCoord3i(s, t, r);
 }
 
+//  void QOpenGLFunctions_3_0::glTexCoord3fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord3fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glTexCoord3fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glTexCoord3f(GLfloat s, GLfloat t, GLfloat r)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glTexCoord3fEfff(
@@ -1871,6 +4235,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord3fEfff(
     GLfloat t,
     GLfloat r) {
   self->glTexCoord3f(s, t, r);
+}
+
+//  void QOpenGLFunctions_3_0::glTexCoord3dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord3dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glTexCoord3dv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glTexCoord3d(GLdouble s, GLdouble t, GLdouble
@@ -1884,6 +4256,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord3dEddd(
   self->glTexCoord3d(s, t, r);
 }
 
+//  void QOpenGLFunctions_3_0::glTexCoord2sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord2svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glTexCoord2sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glTexCoord2s(GLshort s, GLshort t)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glTexCoord2sEss(
@@ -1891,6 +4271,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord2sEss(
     GLshort s,
     GLshort t) {
   self->glTexCoord2s(s, t);
+}
+
+//  void QOpenGLFunctions_3_0::glTexCoord2iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord2ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glTexCoord2iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glTexCoord2i(GLint s, GLint t)
@@ -1902,6 +4290,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord2iEii(
   self->glTexCoord2i(s, t);
 }
 
+//  void QOpenGLFunctions_3_0::glTexCoord2fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord2fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glTexCoord2fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glTexCoord2f(GLfloat s, GLfloat t)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glTexCoord2fEff(
@@ -1909,6 +4305,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord2fEff(
     GLfloat s,
     GLfloat t) {
   self->glTexCoord2f(s, t);
+}
+
+//  void QOpenGLFunctions_3_0::glTexCoord2dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord2dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glTexCoord2dv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glTexCoord2d(GLdouble s, GLdouble t)
@@ -1920,12 +4324,28 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord2dEdd(
   self->glTexCoord2d(s, t);
 }
 
+//  void QOpenGLFunctions_3_0::glTexCoord1sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord1svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glTexCoord1sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glTexCoord1s(GLshort s)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glTexCoord1sEs(
     QOpenGLFunctions_3_0 *self,
     GLshort s) {
   self->glTexCoord1s(s);
+}
+
+//  void QOpenGLFunctions_3_0::glTexCoord1iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord1ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glTexCoord1iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glTexCoord1i(GLint s)
@@ -1936,6 +4356,14 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord1iEi(
   self->glTexCoord1i(s);
 }
 
+//  void QOpenGLFunctions_3_0::glTexCoord1fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord1fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glTexCoord1fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glTexCoord1f(GLfloat s)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glTexCoord1fEf(
@@ -1944,12 +4372,29 @@ void ritual_ZN20QOpenGLFunctions_3_012glTexCoord1fEf(
   self->glTexCoord1f(s);
 }
 
+//  void QOpenGLFunctions_3_0::glTexCoord1dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_013glTexCoord1dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glTexCoord1dv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glTexCoord1d(GLdouble s)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_012glTexCoord1dEd(
     QOpenGLFunctions_3_0 *self,
     GLdouble s) {
   self->glTexCoord1d(s);
+}
+
+//  void QOpenGLFunctions_3_0::glRectsv(const GLshort *v1, const GLshort *v2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_08glRectsvEPKsS1_(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v1,
+    const GLshort *v2) {
+  self->glRectsv(v1, v2);
 }
 
 //  void QOpenGLFunctions_3_0::glRects(GLshort x1, GLshort y1, GLshort x2,
@@ -1964,6 +4409,15 @@ void ritual_ZN20QOpenGLFunctions_3_07glRectsEssss(
   self->glRects(x1, y1, x2, y2);
 }
 
+//  void QOpenGLFunctions_3_0::glRectiv(const GLint *v1, const GLint *v2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_08glRectivEPKiS1_(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v1,
+    const GLint *v2) {
+  self->glRectiv(v1, v2);
+}
+
 //  void QOpenGLFunctions_3_0::glRecti(GLint x1, GLint y1, GLint x2, GLint
 //      y2)
 extern "C" Q_DECL_EXPORT
@@ -1974,6 +4428,15 @@ void ritual_ZN20QOpenGLFunctions_3_07glRectiEiiii(
     GLint x2,
     GLint y2) {
   self->glRecti(x1, y1, x2, y2);
+}
+
+//  void QOpenGLFunctions_3_0::glRectfv(const GLfloat *v1, const GLfloat *v2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_08glRectfvEPKfS1_(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v1,
+    const GLfloat *v2) {
+  self->glRectfv(v1, v2);
 }
 
 //  void QOpenGLFunctions_3_0::glRectf(GLfloat x1, GLfloat y1, GLfloat x2,
@@ -1988,6 +4451,16 @@ void ritual_ZN20QOpenGLFunctions_3_07glRectfEffff(
   self->glRectf(x1, y1, x2, y2);
 }
 
+//  void QOpenGLFunctions_3_0::glRectdv(const GLdouble *v1, const GLdouble
+//      *v2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_08glRectdvEPKdS1_(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v1,
+    const GLdouble *v2) {
+  self->glRectdv(v1, v2);
+}
+
 //  void QOpenGLFunctions_3_0::glRectd(GLdouble x1, GLdouble y1, GLdouble x2,
 //      GLdouble y2)
 extern "C" Q_DECL_EXPORT
@@ -1998,6 +4471,14 @@ void ritual_ZN20QOpenGLFunctions_3_07glRectdEdddd(
     GLdouble x2,
     GLdouble y2) {
   self->glRectd(x1, y1, x2, y2);
+}
+
+//  void QOpenGLFunctions_3_0::glRasterPos4sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos4svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glRasterPos4sv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glRasterPos4s(GLshort x, GLshort y, GLshort z,
@@ -2012,6 +4493,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos4sEssss(
   self->glRasterPos4s(x, y, z, w);
 }
 
+//  void QOpenGLFunctions_3_0::glRasterPos4iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos4ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glRasterPos4iv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glRasterPos4i(GLint x, GLint y, GLint z, GLint
 //      w)
 extern "C" Q_DECL_EXPORT
@@ -2022,6 +4511,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos4iEiiii(
     GLint z,
     GLint w) {
   self->glRasterPos4i(x, y, z, w);
+}
+
+//  void QOpenGLFunctions_3_0::glRasterPos4fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos4fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glRasterPos4fv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glRasterPos4f(GLfloat x, GLfloat y, GLfloat z,
@@ -2036,6 +4533,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos4fEffff(
   self->glRasterPos4f(x, y, z, w);
 }
 
+//  void QOpenGLFunctions_3_0::glRasterPos4dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos4dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glRasterPos4dv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glRasterPos4d(GLdouble x, GLdouble y, GLdouble
 //      z, GLdouble w)
 extern "C" Q_DECL_EXPORT
@@ -2048,6 +4553,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos4dEdddd(
   self->glRasterPos4d(x, y, z, w);
 }
 
+//  void QOpenGLFunctions_3_0::glRasterPos3sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos3svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glRasterPos3sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glRasterPos3s(GLshort x, GLshort y, GLshort z)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glRasterPos3sEsss(
@@ -2056,6 +4569,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos3sEsss(
     GLshort y,
     GLshort z) {
   self->glRasterPos3s(x, y, z);
+}
+
+//  void QOpenGLFunctions_3_0::glRasterPos3iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos3ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glRasterPos3iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glRasterPos3i(GLint x, GLint y, GLint z)
@@ -2068,6 +4589,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos3iEiii(
   self->glRasterPos3i(x, y, z);
 }
 
+//  void QOpenGLFunctions_3_0::glRasterPos3fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos3fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glRasterPos3fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glRasterPos3f(GLfloat x, GLfloat y, GLfloat z)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glRasterPos3fEfff(
@@ -2076,6 +4605,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos3fEfff(
     GLfloat y,
     GLfloat z) {
   self->glRasterPos3f(x, y, z);
+}
+
+//  void QOpenGLFunctions_3_0::glRasterPos3dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos3dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glRasterPos3dv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glRasterPos3d(GLdouble x, GLdouble y, GLdouble
@@ -2089,6 +4626,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos3dEddd(
   self->glRasterPos3d(x, y, z);
 }
 
+//  void QOpenGLFunctions_3_0::glRasterPos2sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos2svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glRasterPos2sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glRasterPos2s(GLshort x, GLshort y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glRasterPos2sEss(
@@ -2096,6 +4641,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos2sEss(
     GLshort x,
     GLshort y) {
   self->glRasterPos2s(x, y);
+}
+
+//  void QOpenGLFunctions_3_0::glRasterPos2iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos2ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glRasterPos2iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glRasterPos2i(GLint x, GLint y)
@@ -2107,6 +4660,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos2iEii(
   self->glRasterPos2i(x, y);
 }
 
+//  void QOpenGLFunctions_3_0::glRasterPos2fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos2fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glRasterPos2fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glRasterPos2f(GLfloat x, GLfloat y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glRasterPos2fEff(
@@ -2116,6 +4677,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos2fEff(
   self->glRasterPos2f(x, y);
 }
 
+//  void QOpenGLFunctions_3_0::glRasterPos2dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glRasterPos2dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glRasterPos2dv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glRasterPos2d(GLdouble x, GLdouble y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glRasterPos2dEdd(
@@ -2123,6 +4692,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glRasterPos2dEdd(
     GLdouble x,
     GLdouble y) {
   self->glRasterPos2d(x, y);
+}
+
+//  void QOpenGLFunctions_3_0::glNormal3sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glNormal3svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glNormal3sv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glNormal3s(GLshort nx, GLshort ny, GLshort nz)
@@ -2135,6 +4712,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glNormal3sEsss(
   self->glNormal3s(nx, ny, nz);
 }
 
+//  void QOpenGLFunctions_3_0::glNormal3iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glNormal3ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glNormal3iv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glNormal3i(GLint nx, GLint ny, GLint nz)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glNormal3iEiii(
@@ -2145,6 +4730,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glNormal3iEiii(
   self->glNormal3i(nx, ny, nz);
 }
 
+//  void QOpenGLFunctions_3_0::glNormal3fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glNormal3fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glNormal3fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glNormal3f(GLfloat nx, GLfloat ny, GLfloat nz)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glNormal3fEfff(
@@ -2153,6 +4746,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glNormal3fEfff(
     GLfloat ny,
     GLfloat nz) {
   self->glNormal3f(nx, ny, nz);
+}
+
+//  void QOpenGLFunctions_3_0::glNormal3dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glNormal3dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glNormal3dv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glNormal3d(GLdouble nx, GLdouble ny, GLdouble
@@ -2166,6 +4767,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glNormal3dEddd(
   self->glNormal3d(nx, ny, nz);
 }
 
+//  void QOpenGLFunctions_3_0::glNormal3bv(const GLbyte *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glNormal3bvEPKa(
+    QOpenGLFunctions_3_0 *self,
+    const GLbyte *v) {
+  self->glNormal3bv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glNormal3b(GLbyte nx, GLbyte ny, GLbyte nz)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glNormal3bEaaa(
@@ -2176,12 +4785,28 @@ void ritual_ZN20QOpenGLFunctions_3_010glNormal3bEaaa(
   self->glNormal3b(nx, ny, nz);
 }
 
+//  void QOpenGLFunctions_3_0::glIndexsv(const GLshort *c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_09glIndexsvEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *c) {
+  self->glIndexsv(c);
+}
+
 //  void QOpenGLFunctions_3_0::glIndexs(GLshort c)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_08glIndexsEs(
     QOpenGLFunctions_3_0 *self,
     GLshort c) {
   self->glIndexs(c);
+}
+
+//  void QOpenGLFunctions_3_0::glIndexiv(const GLint *c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_09glIndexivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *c) {
+  self->glIndexiv(c);
 }
 
 //  void QOpenGLFunctions_3_0::glIndexi(GLint c)
@@ -2192,12 +4817,28 @@ void ritual_ZN20QOpenGLFunctions_3_08glIndexiEi(
   self->glIndexi(c);
 }
 
+//  void QOpenGLFunctions_3_0::glIndexfv(const GLfloat *c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_09glIndexfvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *c) {
+  self->glIndexfv(c);
+}
+
 //  void QOpenGLFunctions_3_0::glIndexf(GLfloat c)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_08glIndexfEf(
     QOpenGLFunctions_3_0 *self,
     GLfloat c) {
   self->glIndexf(c);
+}
+
+//  void QOpenGLFunctions_3_0::glIndexdv(const GLdouble *c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_09glIndexdvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *c) {
+  self->glIndexdv(c);
 }
 
 //  void QOpenGLFunctions_3_0::glIndexd(GLdouble c)
@@ -2214,12 +4855,28 @@ void ritual_ZN20QOpenGLFunctions_3_05glEndEv(QOpenGLFunctions_3_0 *self) {
   self->glEnd();
 }
 
+//  void QOpenGLFunctions_3_0::glEdgeFlagv(const GLboolean *flag)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glEdgeFlagvEPKh(
+    QOpenGLFunctions_3_0 *self,
+    const GLboolean *flag) {
+  self->glEdgeFlagv(flag);
+}
+
 //  void QOpenGLFunctions_3_0::glEdgeFlag(GLboolean flag)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_010glEdgeFlagEh(
     QOpenGLFunctions_3_0 *self,
     GLboolean flag) {
   self->glEdgeFlag(flag);
+}
+
+//  void QOpenGLFunctions_3_0::glColor4usv(const GLushort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glColor4usvEPKt(
+    QOpenGLFunctions_3_0 *self,
+    const GLushort *v) {
+  self->glColor4usv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glColor4us(GLushort red, GLushort green,
@@ -2234,6 +4891,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glColor4usEtttt(
   self->glColor4us(red, green, blue, alpha);
 }
 
+//  void QOpenGLFunctions_3_0::glColor4uiv(const GLuint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glColor4uivEPKj(
+    QOpenGLFunctions_3_0 *self,
+    const GLuint *v) {
+  self->glColor4uiv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glColor4ui(GLuint red, GLuint green, GLuint
 //      blue, GLuint alpha)
 extern "C" Q_DECL_EXPORT
@@ -2244,6 +4909,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glColor4uiEjjjj(
     GLuint blue,
     GLuint alpha) {
   self->glColor4ui(red, green, blue, alpha);
+}
+
+//  void QOpenGLFunctions_3_0::glColor4ubv(const GLubyte *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glColor4ubvEPKh(
+    QOpenGLFunctions_3_0 *self,
+    const GLubyte *v) {
+  self->glColor4ubv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glColor4ub(GLubyte red, GLubyte green, GLubyte
@@ -2258,6 +4931,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glColor4ubEhhhh(
   self->glColor4ub(red, green, blue, alpha);
 }
 
+//  void QOpenGLFunctions_3_0::glColor4sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor4svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glColor4sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glColor4s(GLshort red, GLshort green, GLshort
 //      blue, GLshort alpha)
 extern "C" Q_DECL_EXPORT
@@ -2268,6 +4949,14 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor4sEssss(
     GLshort blue,
     GLshort alpha) {
   self->glColor4s(red, green, blue, alpha);
+}
+
+//  void QOpenGLFunctions_3_0::glColor4iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor4ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glColor4iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glColor4i(GLint red, GLint green, GLint blue,
@@ -2282,6 +4971,14 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor4iEiiii(
   self->glColor4i(red, green, blue, alpha);
 }
 
+//  void QOpenGLFunctions_3_0::glColor4fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor4fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glColor4fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glColor4f(GLfloat red, GLfloat green, GLfloat
 //      blue, GLfloat alpha)
 extern "C" Q_DECL_EXPORT
@@ -2292,6 +4989,14 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor4fEffff(
     GLfloat blue,
     GLfloat alpha) {
   self->glColor4f(red, green, blue, alpha);
+}
+
+//  void QOpenGLFunctions_3_0::glColor4dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor4dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glColor4dv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glColor4d(GLdouble red, GLdouble green,
@@ -2306,6 +5011,14 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor4dEdddd(
   self->glColor4d(red, green, blue, alpha);
 }
 
+//  void QOpenGLFunctions_3_0::glColor4bv(const GLbyte *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor4bvEPKa(
+    QOpenGLFunctions_3_0 *self,
+    const GLbyte *v) {
+  self->glColor4bv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glColor4b(GLbyte red, GLbyte green, GLbyte
 //      blue, GLbyte alpha)
 extern "C" Q_DECL_EXPORT
@@ -2316,6 +5029,14 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor4bEaaaa(
     GLbyte blue,
     GLbyte alpha) {
   self->glColor4b(red, green, blue, alpha);
+}
+
+//  void QOpenGLFunctions_3_0::glColor3usv(const GLushort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glColor3usvEPKt(
+    QOpenGLFunctions_3_0 *self,
+    const GLushort *v) {
+  self->glColor3usv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glColor3us(GLushort red, GLushort green,
@@ -2329,6 +5050,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glColor3usEttt(
   self->glColor3us(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glColor3uiv(const GLuint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glColor3uivEPKj(
+    QOpenGLFunctions_3_0 *self,
+    const GLuint *v) {
+  self->glColor3uiv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glColor3ui(GLuint red, GLuint green, GLuint
 //      blue)
 extern "C" Q_DECL_EXPORT
@@ -2338,6 +5067,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glColor3uiEjjj(
     GLuint green,
     GLuint blue) {
   self->glColor3ui(red, green, blue);
+}
+
+//  void QOpenGLFunctions_3_0::glColor3ubv(const GLubyte *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glColor3ubvEPKh(
+    QOpenGLFunctions_3_0 *self,
+    const GLubyte *v) {
+  self->glColor3ubv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glColor3ub(GLubyte red, GLubyte green, GLubyte
@@ -2351,6 +5088,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glColor3ubEhhh(
   self->glColor3ub(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glColor3sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor3svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glColor3sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glColor3s(GLshort red, GLshort green, GLshort
 //      blue)
 extern "C" Q_DECL_EXPORT
@@ -2362,6 +5107,14 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor3sEsss(
   self->glColor3s(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glColor3iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor3ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glColor3iv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glColor3i(GLint red, GLint green, GLint blue)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_09glColor3iEiii(
@@ -2370,6 +5123,14 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor3iEiii(
     GLint green,
     GLint blue) {
   self->glColor3i(red, green, blue);
+}
+
+//  void QOpenGLFunctions_3_0::glColor3fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor3fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glColor3fv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glColor3f(GLfloat red, GLfloat green, GLfloat
@@ -2383,6 +5144,14 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor3fEfff(
   self->glColor3f(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glColor3dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor3dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glColor3dv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glColor3d(GLdouble red, GLdouble green,
 //      GLdouble blue)
 extern "C" Q_DECL_EXPORT
@@ -2394,6 +5163,14 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor3dEddd(
   self->glColor3d(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glColor3bv(const GLbyte *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_010glColor3bvEPKa(
+    QOpenGLFunctions_3_0 *self,
+    const GLbyte *v) {
+  self->glColor3bv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glColor3b(GLbyte red, GLbyte green, GLbyte
 //      blue)
 extern "C" Q_DECL_EXPORT
@@ -2403,6 +5180,22 @@ void ritual_ZN20QOpenGLFunctions_3_09glColor3bEaaa(
     GLbyte green,
     GLbyte blue) {
   self->glColor3b(red, green, blue);
+}
+
+//  void QOpenGLFunctions_3_0::glBitmap(GLsizei width, GLsizei height,
+//      GLfloat xorig, GLfloat yorig, GLfloat xmove, GLfloat ymove, const
+//      GLubyte *bitmap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_08glBitmapEiiffffPKh(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei width,
+    GLsizei height,
+    GLfloat xorig,
+    GLfloat yorig,
+    GLfloat xmove,
+    GLfloat ymove,
+    const GLubyte *bitmap) {
+  self->glBitmap(width, height, xorig, yorig, xmove, ymove, bitmap);
 }
 
 //  void QOpenGLFunctions_3_0::glBegin(GLenum mode)
@@ -2421,6 +5214,14 @@ void ritual_ZN20QOpenGLFunctions_3_010glListBaseEj(
   self->glListBase(base);
 }
 
+//  GLuint QOpenGLFunctions_3_0::glGenLists(GLsizei range)
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN20QOpenGLFunctions_3_010glGenListsEi(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei range) {
+  return self->glGenLists(range);
+}
+
 //  void QOpenGLFunctions_3_0::glDeleteLists(GLuint list, GLsizei range)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glDeleteListsEji(
@@ -2428,6 +5229,17 @@ void ritual_ZN20QOpenGLFunctions_3_013glDeleteListsEji(
     GLuint list,
     GLsizei range) {
   self->glDeleteLists(list, range);
+}
+
+//  void QOpenGLFunctions_3_0::glCallLists(GLsizei n, GLenum type, const
+//      GLvoid *lists)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glCallListsEijPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    GLenum type,
+    const GLvoid *lists) {
+  self->glCallLists(n, type, lists);
 }
 
 //  void QOpenGLFunctions_3_0::glCallList(GLuint list)
@@ -2469,6 +5281,85 @@ void ritual_ZN20QOpenGLFunctions_3_017glPopClientAttribEv(
   self->glPopClientAttrib();
 }
 
+//  void QOpenGLFunctions_3_0::glPrioritizeTextures(GLsizei n, const GLuint
+//      *textures, const GLfloat *priorities)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glPrioritizeTexturesEiPKjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    const GLuint *textures,
+    const GLfloat *priorities) {
+  self->glPrioritizeTextures(n, textures, priorities);
+}
+
+//  GLboolean QOpenGLFunctions_3_0::glAreTexturesResident(GLsizei n, const
+//      GLuint *textures, GLboolean *residences)
+extern "C" Q_DECL_EXPORT
+GLboolean ritual_ZN20QOpenGLFunctions_3_021glAreTexturesResidentEiPKjPh(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei n,
+    const GLuint *textures,
+    GLboolean *residences) {
+  return self->glAreTexturesResident(n, textures, residences);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexPointer(GLint size, GLenum type,
+//      GLsizei stride, const GLvoid *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glVertexPointerEijiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLint size,
+    GLenum type,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glVertexPointer(size, type, stride, pointer);
+}
+
+//  void QOpenGLFunctions_3_0::glTexCoordPointer(GLint size, GLenum type,
+//      GLsizei stride, const GLvoid *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glTexCoordPointerEijiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLint size,
+    GLenum type,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glTexCoordPointer(size, type, stride, pointer);
+}
+
+//  void QOpenGLFunctions_3_0::glNormalPointer(GLenum type, GLsizei stride,
+//      const GLvoid *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glNormalPointerEjiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum type,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glNormalPointer(type, stride, pointer);
+}
+
+//  void QOpenGLFunctions_3_0::glInterleavedArrays(GLenum format, GLsizei
+//      stride, const GLvoid *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glInterleavedArraysEjiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum format,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glInterleavedArrays(format, stride, pointer);
+}
+
+//  void QOpenGLFunctions_3_0::glIndexPointer(GLenum type, GLsizei stride,
+//      const GLvoid *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glIndexPointerEjiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum type,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glIndexPointer(type, stride, pointer);
+}
+
 //  void QOpenGLFunctions_3_0::glEnableClientState(GLenum array)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_019glEnableClientStateEj(
@@ -2477,12 +5368,34 @@ void ritual_ZN20QOpenGLFunctions_3_019glEnableClientStateEj(
   self->glEnableClientState(array);
 }
 
+//  void QOpenGLFunctions_3_0::glEdgeFlagPointer(GLsizei stride, const GLvoid
+//      *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glEdgeFlagPointerEiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glEdgeFlagPointer(stride, pointer);
+}
+
 //  void QOpenGLFunctions_3_0::glDisableClientState(GLenum array)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_020glDisableClientStateEj(
     QOpenGLFunctions_3_0 *self,
     GLenum array) {
   self->glDisableClientState(array);
+}
+
+//  void QOpenGLFunctions_3_0::glColorPointer(GLint size, GLenum type,
+//      GLsizei stride, const GLvoid *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glColorPointerEijiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLint size,
+    GLenum type,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glColorPointer(size, type, stride, pointer);
 }
 
 //  void QOpenGLFunctions_3_0::glArrayElement(GLint i)
@@ -2532,6 +5445,149 @@ void ritual_ZN20QOpenGLFunctions_3_011glHistogramEjijh(
   self->glHistogram(target, width, internalformat, sink);
 }
 
+//  void QOpenGLFunctions_3_0::glGetMinmaxParameteriv(GLenum target, GLenum
+//      pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glGetMinmaxParameterivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetMinmaxParameteriv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetMinmaxParameterfv(GLenum target, GLenum
+//      pname, GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glGetMinmaxParameterfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetMinmaxParameterfv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetMinmax(GLenum target, GLboolean reset,
+//      GLenum format, GLenum type, GLvoid *values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_011glGetMinmaxEjhjjPv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLboolean reset,
+    GLenum format,
+    GLenum type,
+    GLvoid *values) {
+  self->glGetMinmax(target, reset, format, type, values);
+}
+
+//  void QOpenGLFunctions_3_0::glGetHistogramParameteriv(GLenum target,
+//      GLenum pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_025glGetHistogramParameterivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetHistogramParameteriv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetHistogramParameterfv(GLenum target,
+//      GLenum pname, GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_025glGetHistogramParameterfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetHistogramParameterfv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetHistogram(GLenum target, GLboolean reset,
+//      GLenum format, GLenum type, GLvoid *values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glGetHistogramEjhjjPv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLboolean reset,
+    GLenum format,
+    GLenum type,
+    GLvoid *values) {
+  self->glGetHistogram(target, reset, format, type, values);
+}
+
+//  void QOpenGLFunctions_3_0::glSeparableFilter2D(GLenum target, GLenum
+//      internalformat, GLsizei width, GLsizei height, GLenum format, GLenum
+//      type, const GLvoid *row, const GLvoid *column)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glSeparableFilter2DEjjiijjPKvS1_(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum internalformat,
+    GLsizei width,
+    GLsizei height,
+    GLenum format,
+    GLenum type,
+    const GLvoid *row,
+    const GLvoid *column) {
+  self->glSeparableFilter2D(
+      target,
+      internalformat,
+      width,
+      height,
+      format,
+      type,
+      row,
+      column);
+}
+
+//  void QOpenGLFunctions_3_0::glGetSeparableFilter(GLenum target, GLenum
+//      format, GLenum type, GLvoid *row, GLvoid *column, GLvoid *span)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glGetSeparableFilterEjjjPvS0_S0_(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum format,
+    GLenum type,
+    GLvoid *row,
+    GLvoid *column,
+    GLvoid *span) {
+  self->glGetSeparableFilter(target, format, type, row, column, span);
+}
+
+//  void QOpenGLFunctions_3_0::glGetConvolutionParameteriv(GLenum target,
+//      GLenum pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_027glGetConvolutionParameterivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetConvolutionParameteriv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetConvolutionParameterfv(GLenum target,
+//      GLenum pname, GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_027glGetConvolutionParameterfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetConvolutionParameterfv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetConvolutionFilter(GLenum target, GLenum
+//      format, GLenum type, GLvoid *image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glGetConvolutionFilterEjjjPv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum format,
+    GLenum type,
+    GLvoid *image) {
+  self->glGetConvolutionFilter(target, format, type, image);
+}
+
 //  void QOpenGLFunctions_3_0::glCopyConvolutionFilter2D(GLenum target,
 //      GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei
 //      height)
@@ -2566,6 +5622,17 @@ void ritual_ZN20QOpenGLFunctions_3_025glCopyConvolutionFilter1DEjjiii(
   self->glCopyConvolutionFilter1D(target, internalformat, x, y, width);
 }
 
+//  void QOpenGLFunctions_3_0::glConvolutionParameteriv(GLenum target, GLenum
+//      pname, const GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_024glConvolutionParameterivEjjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLint *params) {
+  self->glConvolutionParameteriv(target, pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glConvolutionParameteri(GLenum target, GLenum
 //      pname, GLint params)
 extern "C" Q_DECL_EXPORT
@@ -2577,6 +5644,17 @@ void ritual_ZN20QOpenGLFunctions_3_023glConvolutionParameteriEjji(
   self->glConvolutionParameteri(target, pname, params);
 }
 
+//  void QOpenGLFunctions_3_0::glConvolutionParameterfv(GLenum target, GLenum
+//      pname, const GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_024glConvolutionParameterfvEjjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glConvolutionParameterfv(target, pname, params);
+}
+
 //  void QOpenGLFunctions_3_0::glConvolutionParameterf(GLenum target, GLenum
 //      pname, GLfloat params)
 extern "C" Q_DECL_EXPORT
@@ -2586,6 +5664,50 @@ void ritual_ZN20QOpenGLFunctions_3_023glConvolutionParameterfEjjf(
     GLenum pname,
     GLfloat params) {
   self->glConvolutionParameterf(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glConvolutionFilter2D(GLenum target, GLenum
+//      internalformat, GLsizei width, GLsizei height, GLenum format, GLenum
+//      type, const GLvoid *image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_021glConvolutionFilter2DEjjiijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum internalformat,
+    GLsizei width,
+    GLsizei height,
+    GLenum format,
+    GLenum type,
+    const GLvoid *image) {
+  self->glConvolutionFilter2D(
+      target,
+      internalformat,
+      width,
+      height,
+      format,
+      type,
+      image);
+}
+
+//  void QOpenGLFunctions_3_0::glConvolutionFilter1D(GLenum target, GLenum
+//      internalformat, GLsizei width, GLenum format, GLenum type, const
+//      GLvoid *image)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_021glConvolutionFilter1DEjjijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum internalformat,
+    GLsizei width,
+    GLenum format,
+    GLenum type,
+    const GLvoid *image) {
+  self->glConvolutionFilter1D(
+      target,
+      internalformat,
+      width,
+      format,
+      type,
+      image);
 }
 
 //  void QOpenGLFunctions_3_0::glCopyColorSubTable(GLenum target, GLsizei
@@ -2601,6 +5723,54 @@ void ritual_ZN20QOpenGLFunctions_3_019glCopyColorSubTableEjiiii(
   self->glCopyColorSubTable(target, start, x, y, width);
 }
 
+//  void QOpenGLFunctions_3_0::glColorSubTable(GLenum target, GLsizei start,
+//      GLsizei count, GLenum format, GLenum type, const GLvoid *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glColorSubTableEjiijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLsizei start,
+    GLsizei count,
+    GLenum format,
+    GLenum type,
+    const GLvoid *data) {
+  self->glColorSubTable(target, start, count, format, type, data);
+}
+
+//  void QOpenGLFunctions_3_0::glGetColorTableParameteriv(GLenum target,
+//      GLenum pname, GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_026glGetColorTableParameterivEjjPi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLint *params) {
+  self->glGetColorTableParameteriv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetColorTableParameterfv(GLenum target,
+//      GLenum pname, GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_026glGetColorTableParameterfvEjjPf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    GLfloat *params) {
+  self->glGetColorTableParameterfv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glGetColorTable(GLenum target, GLenum format,
+//      GLenum type, GLvoid *table)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_015glGetColorTableEjjjPv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum format,
+    GLenum type,
+    GLvoid *table) {
+  self->glGetColorTable(target, format, type, table);
+}
+
 //  void QOpenGLFunctions_3_0::glCopyColorTable(GLenum target, GLenum
 //      internalformat, GLint x, GLint y, GLsizei width)
 extern "C" Q_DECL_EXPORT
@@ -2612,6 +5782,85 @@ void ritual_ZN20QOpenGLFunctions_3_016glCopyColorTableEjjiii(
     GLint y,
     GLsizei width) {
   self->glCopyColorTable(target, internalformat, x, y, width);
+}
+
+//  void QOpenGLFunctions_3_0::glColorTableParameteriv(GLenum target, GLenum
+//      pname, const GLint *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_023glColorTableParameterivEjjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLint *params) {
+  self->glColorTableParameteriv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glColorTableParameterfv(GLenum target, GLenum
+//      pname, const GLfloat *params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_023glColorTableParameterfvEjjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum pname,
+    const GLfloat *params) {
+  self->glColorTableParameterfv(target, pname, params);
+}
+
+//  void QOpenGLFunctions_3_0::glColorTable(GLenum target, GLenum
+//      internalformat, GLsizei width, GLenum format, GLenum type, const
+//      GLvoid *table)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glColorTableEjjijjPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    GLenum internalformat,
+    GLsizei width,
+    GLenum format,
+    GLenum type,
+    const GLvoid *table) {
+  self->glColorTable(target, internalformat, width, format, type, table);
+}
+
+//  void QOpenGLFunctions_3_0::glMultTransposeMatrixd(const GLdouble *m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glMultTransposeMatrixdEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *m) {
+  self->glMultTransposeMatrixd(m);
+}
+
+//  void QOpenGLFunctions_3_0::glMultTransposeMatrixf(const GLfloat *m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glMultTransposeMatrixfEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *m) {
+  self->glMultTransposeMatrixf(m);
+}
+
+//  void QOpenGLFunctions_3_0::glLoadTransposeMatrixd(const GLdouble *m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glLoadTransposeMatrixdEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *m) {
+  self->glLoadTransposeMatrixd(m);
+}
+
+//  void QOpenGLFunctions_3_0::glLoadTransposeMatrixf(const GLfloat *m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_022glLoadTransposeMatrixfEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *m) {
+  self->glLoadTransposeMatrixf(m);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiTexCoord4sv(GLenum target, const
+//      GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord4svEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLshort *v) {
+  self->glMultiTexCoord4sv(target, v);
 }
 
 //  void QOpenGLFunctions_3_0::glMultiTexCoord4s(GLenum target, GLshort s,
@@ -2627,6 +5876,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord4sEjssss(
   self->glMultiTexCoord4s(target, s, t, r, q);
 }
 
+//  void QOpenGLFunctions_3_0::glMultiTexCoord4iv(GLenum target, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord4ivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLint *v) {
+  self->glMultiTexCoord4iv(target, v);
+}
+
 //  void QOpenGLFunctions_3_0::glMultiTexCoord4i(GLenum target, GLint s,
 //      GLint t, GLint r, GLint q)
 extern "C" Q_DECL_EXPORT
@@ -2638,6 +5897,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord4iEjiiii(
     GLint r,
     GLint q) {
   self->glMultiTexCoord4i(target, s, t, r, q);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiTexCoord4fv(GLenum target, const
+//      GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord4fvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLfloat *v) {
+  self->glMultiTexCoord4fv(target, v);
 }
 
 //  void QOpenGLFunctions_3_0::glMultiTexCoord4f(GLenum target, GLfloat s,
@@ -2653,6 +5922,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord4fEjffff(
   self->glMultiTexCoord4f(target, s, t, r, q);
 }
 
+//  void QOpenGLFunctions_3_0::glMultiTexCoord4dv(GLenum target, const
+//      GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord4dvEjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLdouble *v) {
+  self->glMultiTexCoord4dv(target, v);
+}
+
 //  void QOpenGLFunctions_3_0::glMultiTexCoord4d(GLenum target, GLdouble s,
 //      GLdouble t, GLdouble r, GLdouble q)
 extern "C" Q_DECL_EXPORT
@@ -2664,6 +5943,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord4dEjdddd(
     GLdouble r,
     GLdouble q) {
   self->glMultiTexCoord4d(target, s, t, r, q);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiTexCoord3sv(GLenum target, const
+//      GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord3svEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLshort *v) {
+  self->glMultiTexCoord3sv(target, v);
 }
 
 //  void QOpenGLFunctions_3_0::glMultiTexCoord3s(GLenum target, GLshort s,
@@ -2678,6 +5967,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord3sEjsss(
   self->glMultiTexCoord3s(target, s, t, r);
 }
 
+//  void QOpenGLFunctions_3_0::glMultiTexCoord3iv(GLenum target, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord3ivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLint *v) {
+  self->glMultiTexCoord3iv(target, v);
+}
+
 //  void QOpenGLFunctions_3_0::glMultiTexCoord3i(GLenum target, GLint s,
 //      GLint t, GLint r)
 extern "C" Q_DECL_EXPORT
@@ -2688,6 +5987,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord3iEjiii(
     GLint t,
     GLint r) {
   self->glMultiTexCoord3i(target, s, t, r);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiTexCoord3fv(GLenum target, const
+//      GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord3fvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLfloat *v) {
+  self->glMultiTexCoord3fv(target, v);
 }
 
 //  void QOpenGLFunctions_3_0::glMultiTexCoord3f(GLenum target, GLfloat s,
@@ -2702,6 +6011,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord3fEjfff(
   self->glMultiTexCoord3f(target, s, t, r);
 }
 
+//  void QOpenGLFunctions_3_0::glMultiTexCoord3dv(GLenum target, const
+//      GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord3dvEjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLdouble *v) {
+  self->glMultiTexCoord3dv(target, v);
+}
+
 //  void QOpenGLFunctions_3_0::glMultiTexCoord3d(GLenum target, GLdouble s,
 //      GLdouble t, GLdouble r)
 extern "C" Q_DECL_EXPORT
@@ -2712,6 +6031,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord3dEjddd(
     GLdouble t,
     GLdouble r) {
   self->glMultiTexCoord3d(target, s, t, r);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiTexCoord2sv(GLenum target, const
+//      GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord2svEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLshort *v) {
+  self->glMultiTexCoord2sv(target, v);
 }
 
 //  void QOpenGLFunctions_3_0::glMultiTexCoord2s(GLenum target, GLshort s,
@@ -2725,6 +6054,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord2sEjss(
   self->glMultiTexCoord2s(target, s, t);
 }
 
+//  void QOpenGLFunctions_3_0::glMultiTexCoord2iv(GLenum target, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord2ivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLint *v) {
+  self->glMultiTexCoord2iv(target, v);
+}
+
 //  void QOpenGLFunctions_3_0::glMultiTexCoord2i(GLenum target, GLint s,
 //      GLint t)
 extern "C" Q_DECL_EXPORT
@@ -2734,6 +6073,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord2iEjii(
     GLint s,
     GLint t) {
   self->glMultiTexCoord2i(target, s, t);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiTexCoord2fv(GLenum target, const
+//      GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord2fvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLfloat *v) {
+  self->glMultiTexCoord2fv(target, v);
 }
 
 //  void QOpenGLFunctions_3_0::glMultiTexCoord2f(GLenum target, GLfloat s,
@@ -2747,6 +6096,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord2fEjff(
   self->glMultiTexCoord2f(target, s, t);
 }
 
+//  void QOpenGLFunctions_3_0::glMultiTexCoord2dv(GLenum target, const
+//      GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord2dvEjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLdouble *v) {
+  self->glMultiTexCoord2dv(target, v);
+}
+
 //  void QOpenGLFunctions_3_0::glMultiTexCoord2d(GLenum target, GLdouble s,
 //      GLdouble t)
 extern "C" Q_DECL_EXPORT
@@ -2758,6 +6117,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord2dEjdd(
   self->glMultiTexCoord2d(target, s, t);
 }
 
+//  void QOpenGLFunctions_3_0::glMultiTexCoord1sv(GLenum target, const
+//      GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord1svEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLshort *v) {
+  self->glMultiTexCoord1sv(target, v);
+}
+
 //  void QOpenGLFunctions_3_0::glMultiTexCoord1s(GLenum target, GLshort s)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord1sEjs(
@@ -2765,6 +6134,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord1sEjs(
     GLenum target,
     GLshort s) {
   self->glMultiTexCoord1s(target, s);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiTexCoord1iv(GLenum target, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord1ivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLint *v) {
+  self->glMultiTexCoord1iv(target, v);
 }
 
 //  void QOpenGLFunctions_3_0::glMultiTexCoord1i(GLenum target, GLint s)
@@ -2776,6 +6155,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord1iEji(
   self->glMultiTexCoord1i(target, s);
 }
 
+//  void QOpenGLFunctions_3_0::glMultiTexCoord1fv(GLenum target, const
+//      GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord1fvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLfloat *v) {
+  self->glMultiTexCoord1fv(target, v);
+}
+
 //  void QOpenGLFunctions_3_0::glMultiTexCoord1f(GLenum target, GLfloat s)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord1fEjf(
@@ -2783,6 +6172,16 @@ void ritual_ZN20QOpenGLFunctions_3_017glMultiTexCoord1fEjf(
     GLenum target,
     GLfloat s) {
   self->glMultiTexCoord1f(target, s);
+}
+
+//  void QOpenGLFunctions_3_0::glMultiTexCoord1dv(GLenum target, const
+//      GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glMultiTexCoord1dvEjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLenum target,
+    const GLdouble *v) {
+  self->glMultiTexCoord1dv(target, v);
 }
 
 //  void QOpenGLFunctions_3_0::glMultiTexCoord1d(GLenum target, GLdouble s)
@@ -2802,6 +6201,14 @@ void ritual_ZN20QOpenGLFunctions_3_021glClientActiveTextureEj(
   self->glClientActiveTexture(texture);
 }
 
+//  void QOpenGLFunctions_3_0::glWindowPos3sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glWindowPos3svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glWindowPos3sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glWindowPos3s(GLshort x, GLshort y, GLshort z)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glWindowPos3sEsss(
@@ -2810,6 +6217,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glWindowPos3sEsss(
     GLshort y,
     GLshort z) {
   self->glWindowPos3s(x, y, z);
+}
+
+//  void QOpenGLFunctions_3_0::glWindowPos3iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glWindowPos3ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glWindowPos3iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glWindowPos3i(GLint x, GLint y, GLint z)
@@ -2822,6 +6237,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glWindowPos3iEiii(
   self->glWindowPos3i(x, y, z);
 }
 
+//  void QOpenGLFunctions_3_0::glWindowPos3fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glWindowPos3fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glWindowPos3fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glWindowPos3f(GLfloat x, GLfloat y, GLfloat z)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glWindowPos3fEfff(
@@ -2830,6 +6253,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glWindowPos3fEfff(
     GLfloat y,
     GLfloat z) {
   self->glWindowPos3f(x, y, z);
+}
+
+//  void QOpenGLFunctions_3_0::glWindowPos3dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glWindowPos3dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glWindowPos3dv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glWindowPos3d(GLdouble x, GLdouble y, GLdouble
@@ -2843,6 +6274,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glWindowPos3dEddd(
   self->glWindowPos3d(x, y, z);
 }
 
+//  void QOpenGLFunctions_3_0::glWindowPos2sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glWindowPos2svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glWindowPos2sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glWindowPos2s(GLshort x, GLshort y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glWindowPos2sEss(
@@ -2850,6 +6289,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glWindowPos2sEss(
     GLshort x,
     GLshort y) {
   self->glWindowPos2s(x, y);
+}
+
+//  void QOpenGLFunctions_3_0::glWindowPos2iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glWindowPos2ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glWindowPos2iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glWindowPos2i(GLint x, GLint y)
@@ -2861,6 +6308,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glWindowPos2iEii(
   self->glWindowPos2i(x, y);
 }
 
+//  void QOpenGLFunctions_3_0::glWindowPos2fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glWindowPos2fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glWindowPos2fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glWindowPos2f(GLfloat x, GLfloat y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glWindowPos2fEff(
@@ -2870,6 +6325,14 @@ void ritual_ZN20QOpenGLFunctions_3_013glWindowPos2fEff(
   self->glWindowPos2f(x, y);
 }
 
+//  void QOpenGLFunctions_3_0::glWindowPos2dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_014glWindowPos2dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glWindowPos2dv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glWindowPos2d(GLdouble x, GLdouble y)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_013glWindowPos2dEdd(
@@ -2877,6 +6340,26 @@ void ritual_ZN20QOpenGLFunctions_3_013glWindowPos2dEdd(
     GLdouble x,
     GLdouble y) {
   self->glWindowPos2d(x, y);
+}
+
+//  void QOpenGLFunctions_3_0::glSecondaryColorPointer(GLint size, GLenum
+//      type, GLsizei stride, const GLvoid *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_023glSecondaryColorPointerEijiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLint size,
+    GLenum type,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glSecondaryColorPointer(size, type, stride, pointer);
+}
+
+//  void QOpenGLFunctions_3_0::glSecondaryColor3usv(const GLushort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glSecondaryColor3usvEPKt(
+    QOpenGLFunctions_3_0 *self,
+    const GLushort *v) {
+  self->glSecondaryColor3usv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glSecondaryColor3us(GLushort red, GLushort
@@ -2890,6 +6373,14 @@ void ritual_ZN20QOpenGLFunctions_3_019glSecondaryColor3usEttt(
   self->glSecondaryColor3us(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glSecondaryColor3uiv(const GLuint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glSecondaryColor3uivEPKj(
+    QOpenGLFunctions_3_0 *self,
+    const GLuint *v) {
+  self->glSecondaryColor3uiv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glSecondaryColor3ui(GLuint red, GLuint green,
 //      GLuint blue)
 extern "C" Q_DECL_EXPORT
@@ -2899,6 +6390,14 @@ void ritual_ZN20QOpenGLFunctions_3_019glSecondaryColor3uiEjjj(
     GLuint green,
     GLuint blue) {
   self->glSecondaryColor3ui(red, green, blue);
+}
+
+//  void QOpenGLFunctions_3_0::glSecondaryColor3ubv(const GLubyte *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_020glSecondaryColor3ubvEPKh(
+    QOpenGLFunctions_3_0 *self,
+    const GLubyte *v) {
+  self->glSecondaryColor3ubv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glSecondaryColor3ub(GLubyte red, GLubyte
@@ -2912,6 +6411,14 @@ void ritual_ZN20QOpenGLFunctions_3_019glSecondaryColor3ubEhhh(
   self->glSecondaryColor3ub(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glSecondaryColor3sv(const GLshort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glSecondaryColor3svEPKs(
+    QOpenGLFunctions_3_0 *self,
+    const GLshort *v) {
+  self->glSecondaryColor3sv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glSecondaryColor3s(GLshort red, GLshort green,
 //      GLshort blue)
 extern "C" Q_DECL_EXPORT
@@ -2921,6 +6428,14 @@ void ritual_ZN20QOpenGLFunctions_3_018glSecondaryColor3sEsss(
     GLshort green,
     GLshort blue) {
   self->glSecondaryColor3s(red, green, blue);
+}
+
+//  void QOpenGLFunctions_3_0::glSecondaryColor3iv(const GLint *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glSecondaryColor3ivEPKi(
+    QOpenGLFunctions_3_0 *self,
+    const GLint *v) {
+  self->glSecondaryColor3iv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glSecondaryColor3i(GLint red, GLint green,
@@ -2934,6 +6449,14 @@ void ritual_ZN20QOpenGLFunctions_3_018glSecondaryColor3iEiii(
   self->glSecondaryColor3i(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glSecondaryColor3fv(const GLfloat *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glSecondaryColor3fvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *v) {
+  self->glSecondaryColor3fv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glSecondaryColor3f(GLfloat red, GLfloat green,
 //      GLfloat blue)
 extern "C" Q_DECL_EXPORT
@@ -2943,6 +6466,14 @@ void ritual_ZN20QOpenGLFunctions_3_018glSecondaryColor3fEfff(
     GLfloat green,
     GLfloat blue) {
   self->glSecondaryColor3f(red, green, blue);
+}
+
+//  void QOpenGLFunctions_3_0::glSecondaryColor3dv(const GLdouble *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glSecondaryColor3dvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *v) {
+  self->glSecondaryColor3dv(v);
 }
 
 //  void QOpenGLFunctions_3_0::glSecondaryColor3d(GLdouble red, GLdouble
@@ -2956,6 +6487,14 @@ void ritual_ZN20QOpenGLFunctions_3_018glSecondaryColor3dEddd(
   self->glSecondaryColor3d(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glSecondaryColor3bv(const GLbyte *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glSecondaryColor3bvEPKa(
+    QOpenGLFunctions_3_0 *self,
+    const GLbyte *v) {
+  self->glSecondaryColor3bv(v);
+}
+
 //  void QOpenGLFunctions_3_0::glSecondaryColor3b(GLbyte red, GLbyte green,
 //      GLbyte blue)
 extern "C" Q_DECL_EXPORT
@@ -2967,6 +6506,25 @@ void ritual_ZN20QOpenGLFunctions_3_018glSecondaryColor3bEaaa(
   self->glSecondaryColor3b(red, green, blue);
 }
 
+//  void QOpenGLFunctions_3_0::glFogCoordPointer(GLenum type, GLsizei stride,
+//      const GLvoid *pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glFogCoordPointerEjiPKv(
+    QOpenGLFunctions_3_0 *self,
+    GLenum type,
+    GLsizei stride,
+    const GLvoid *pointer) {
+  self->glFogCoordPointer(type, stride, pointer);
+}
+
+//  void QOpenGLFunctions_3_0::glFogCoorddv(const GLdouble *coord)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glFogCoorddvEPKd(
+    QOpenGLFunctions_3_0 *self,
+    const GLdouble *coord) {
+  self->glFogCoorddv(coord);
+}
+
 //  void QOpenGLFunctions_3_0::glFogCoordd(GLdouble coord)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_011glFogCoorddEd(
@@ -2975,12 +6533,60 @@ void ritual_ZN20QOpenGLFunctions_3_011glFogCoorddEd(
   self->glFogCoordd(coord);
 }
 
+//  void QOpenGLFunctions_3_0::glFogCoordfv(const GLfloat *coord)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_012glFogCoordfvEPKf(
+    QOpenGLFunctions_3_0 *self,
+    const GLfloat *coord) {
+  self->glFogCoordfv(coord);
+}
+
 //  void QOpenGLFunctions_3_0::glFogCoordf(GLfloat coord)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_011glFogCoordfEf(
     QOpenGLFunctions_3_0 *self,
     GLfloat coord) {
   self->glFogCoordf(coord);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4usv(GLuint index, const
+//      GLushort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttrib4usvEjPKt(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLushort *v) {
+  self->glVertexAttrib4usv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4uiv(GLuint index, const GLuint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttrib4uivEjPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLuint *v) {
+  self->glVertexAttrib4uiv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4ubv(GLuint index, const GLubyte
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttrib4ubvEjPKh(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLubyte *v) {
+  self->glVertexAttrib4ubv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4sv(GLuint index, const GLshort
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib4svEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLshort *v) {
+  self->glVertexAttrib4sv(index, v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertexAttrib4s(GLuint index, GLshort x,
@@ -2996,6 +6602,26 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib4sEjssss(
   self->glVertexAttrib4s(index, x, y, z, w);
 }
 
+//  void QOpenGLFunctions_3_0::glVertexAttrib4iv(GLuint index, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib4ivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLint *v) {
+  self->glVertexAttrib4iv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4fv(GLuint index, const GLfloat
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib4fvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLfloat *v) {
+  self->glVertexAttrib4fv(index, v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertexAttrib4f(GLuint index, GLfloat x,
 //      GLfloat y, GLfloat z, GLfloat w)
 extern "C" Q_DECL_EXPORT
@@ -3007,6 +6633,16 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib4fEjffff(
     GLfloat z,
     GLfloat w) {
   self->glVertexAttrib4f(index, x, y, z, w);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4dv(GLuint index, const GLdouble
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib4dvEjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLdouble *v) {
+  self->glVertexAttrib4dv(index, v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertexAttrib4d(GLuint index, GLdouble x,
@@ -3022,6 +6658,46 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib4dEjdddd(
   self->glVertexAttrib4d(index, x, y, z, w);
 }
 
+//  void QOpenGLFunctions_3_0::glVertexAttrib4bv(GLuint index, const GLbyte
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib4bvEjPKa(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLbyte *v) {
+  self->glVertexAttrib4bv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4Nusv(GLuint index, const
+//      GLushort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glVertexAttrib4NusvEjPKt(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLushort *v) {
+  self->glVertexAttrib4Nusv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4Nuiv(GLuint index, const GLuint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glVertexAttrib4NuivEjPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLuint *v) {
+  self->glVertexAttrib4Nuiv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4Nubv(GLuint index, const
+//      GLubyte *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glVertexAttrib4NubvEjPKh(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLubyte *v) {
+  self->glVertexAttrib4Nubv(index, v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertexAttrib4Nub(GLuint index, GLubyte x,
 //      GLubyte y, GLubyte z, GLubyte w)
 extern "C" Q_DECL_EXPORT
@@ -3033,6 +6709,46 @@ void ritual_ZN20QOpenGLFunctions_3_018glVertexAttrib4NubEjhhhh(
     GLubyte z,
     GLubyte w) {
   self->glVertexAttrib4Nub(index, x, y, z, w);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4Nsv(GLuint index, const GLshort
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttrib4NsvEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLshort *v) {
+  self->glVertexAttrib4Nsv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4Niv(GLuint index, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttrib4NivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLint *v) {
+  self->glVertexAttrib4Niv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib4Nbv(GLuint index, const GLbyte
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttrib4NbvEjPKa(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLbyte *v) {
+  self->glVertexAttrib4Nbv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib3sv(GLuint index, const GLshort
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib3svEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLshort *v) {
+  self->glVertexAttrib3sv(index, v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertexAttrib3s(GLuint index, GLshort x,
@@ -3047,6 +6763,16 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib3sEjsss(
   self->glVertexAttrib3s(index, x, y, z);
 }
 
+//  void QOpenGLFunctions_3_0::glVertexAttrib3fv(GLuint index, const GLfloat
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib3fvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLfloat *v) {
+  self->glVertexAttrib3fv(index, v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertexAttrib3f(GLuint index, GLfloat x,
 //      GLfloat y, GLfloat z)
 extern "C" Q_DECL_EXPORT
@@ -3057,6 +6783,16 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib3fEjfff(
     GLfloat y,
     GLfloat z) {
   self->glVertexAttrib3f(index, x, y, z);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib3dv(GLuint index, const GLdouble
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib3dvEjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLdouble *v) {
+  self->glVertexAttrib3dv(index, v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertexAttrib3d(GLuint index, GLdouble x,
@@ -3071,6 +6807,16 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib3dEjddd(
   self->glVertexAttrib3d(index, x, y, z);
 }
 
+//  void QOpenGLFunctions_3_0::glVertexAttrib2sv(GLuint index, const GLshort
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib2svEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLshort *v) {
+  self->glVertexAttrib2sv(index, v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertexAttrib2s(GLuint index, GLshort x,
 //      GLshort y)
 extern "C" Q_DECL_EXPORT
@@ -3080,6 +6826,16 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib2sEjss(
     GLshort x,
     GLshort y) {
   self->glVertexAttrib2s(index, x, y);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib2fv(GLuint index, const GLfloat
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib2fvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLfloat *v) {
+  self->glVertexAttrib2fv(index, v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertexAttrib2f(GLuint index, GLfloat x,
@@ -3093,6 +6849,16 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib2fEjff(
   self->glVertexAttrib2f(index, x, y);
 }
 
+//  void QOpenGLFunctions_3_0::glVertexAttrib2dv(GLuint index, const GLdouble
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib2dvEjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLdouble *v) {
+  self->glVertexAttrib2dv(index, v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertexAttrib2d(GLuint index, GLdouble x,
 //      GLdouble y)
 extern "C" Q_DECL_EXPORT
@@ -3104,6 +6870,16 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib2dEjdd(
   self->glVertexAttrib2d(index, x, y);
 }
 
+//  void QOpenGLFunctions_3_0::glVertexAttrib1sv(GLuint index, const GLshort
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib1svEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLshort *v) {
+  self->glVertexAttrib1sv(index, v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertexAttrib1s(GLuint index, GLshort x)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib1sEjs(
@@ -3111,6 +6887,16 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib1sEjs(
     GLuint index,
     GLshort x) {
   self->glVertexAttrib1s(index, x);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttrib1fv(GLuint index, const GLfloat
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib1fvEjPKf(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLfloat *v) {
+  self->glVertexAttrib1fv(index, v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertexAttrib1f(GLuint index, GLfloat x)
@@ -3122,6 +6908,16 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib1fEjf(
   self->glVertexAttrib1f(index, x);
 }
 
+//  void QOpenGLFunctions_3_0::glVertexAttrib1dv(GLuint index, const GLdouble
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_017glVertexAttrib1dvEjPKd(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLdouble *v) {
+  self->glVertexAttrib1dv(index, v);
+}
+
 //  void QOpenGLFunctions_3_0::glVertexAttrib1d(GLuint index, GLdouble x)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib1dEjd(
@@ -3129,6 +6925,126 @@ void ritual_ZN20QOpenGLFunctions_3_016glVertexAttrib1dEjd(
     GLuint index,
     GLdouble x) {
   self->glVertexAttrib1d(index, x);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI4usv(GLuint index, const
+//      GLushort *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glVertexAttribI4usvEjPKt(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLushort *v) {
+  self->glVertexAttribI4usv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI4ubv(GLuint index, const
+//      GLubyte *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glVertexAttribI4ubvEjPKh(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLubyte *v) {
+  self->glVertexAttribI4ubv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI4sv(GLuint index, const GLshort
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttribI4svEjPKs(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLshort *v) {
+  self->glVertexAttribI4sv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI4bv(GLuint index, const GLbyte
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttribI4bvEjPKa(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLbyte *v) {
+  self->glVertexAttribI4bv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI4uiv(GLuint index, const GLuint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glVertexAttribI4uivEjPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLuint *v) {
+  self->glVertexAttribI4uiv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI3uiv(GLuint index, const GLuint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glVertexAttribI3uivEjPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLuint *v) {
+  self->glVertexAttribI3uiv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI2uiv(GLuint index, const GLuint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glVertexAttribI2uivEjPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLuint *v) {
+  self->glVertexAttribI2uiv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI1uiv(GLuint index, const GLuint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_019glVertexAttribI1uivEjPKj(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLuint *v) {
+  self->glVertexAttribI1uiv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI4iv(GLuint index, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttribI4ivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLint *v) {
+  self->glVertexAttribI4iv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI3iv(GLuint index, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttribI3ivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLint *v) {
+  self->glVertexAttribI3iv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI2iv(GLuint index, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttribI2ivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLint *v) {
+  self->glVertexAttribI2iv(index, v);
+}
+
+//  void QOpenGLFunctions_3_0::glVertexAttribI1iv(GLuint index, const GLint
+//      *v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QOpenGLFunctions_3_018glVertexAttribI1ivEjPKi(
+    QOpenGLFunctions_3_0 *self,
+    GLuint index,
+    const GLint *v) {
+  self->glVertexAttribI1iv(index, v);
 }
 
 //  void QOpenGLFunctions_3_0::glVertexAttribI4ui(GLuint index, GLuint x,

@@ -183,6 +183,25 @@ const QMetaObject *ritual_ZNK26QRemoteObjectSettingsStore10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRemoteObjectSettingsStore::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QRemoteObjectSettingsStore11qt_metacastEPKc(
+    QRemoteObjectSettingsStore *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRemoteObjectSettingsStore::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QRemoteObjectSettingsStore11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRemoteObjectSettingsStore *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRemoteObjectSettingsStore::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -226,6 +245,21 @@ QList<QVariant> *ritual_ZN26QRemoteObjectSettingsStore17restorePropertiesERK7QSt
     const QString *repName,
     const QByteArray *repSig) {
   return new QList<QVariant>(self->restoreProperties(*repName, *repSig));
+}
+
+//  QRemoteObjectSettingsStorePrivate *QRemoteObjectSettingsStore::d_func()
+extern "C" Q_DECL_EXPORT
+QRemoteObjectSettingsStorePrivate *ritual_ZN26QRemoteObjectSettingsStore6d_funcEv(
+    QRemoteObjectSettingsStore *self) {
+  return self->d_func();
+}
+
+//  const QRemoteObjectSettingsStorePrivate
+//      *QRemoteObjectSettingsStore::d_func() const
+extern "C" Q_DECL_EXPORT
+const QRemoteObjectSettingsStorePrivate *ritual_ZNK26QRemoteObjectSettingsStore6d_funcEv(
+    const QRemoteObjectSettingsStore *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQRemoteObjectSettingsStore, for the

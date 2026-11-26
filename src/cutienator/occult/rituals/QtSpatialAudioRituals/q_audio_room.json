@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QAudioRoom10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QAudioRoom11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QAudioRoom11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QAudioRoom2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QAudioRoomC1EP12QAudioEngine": ["address", "address"],
     "ritual_ZN10QAudioRoomD1Ev": ["nothing", "address"],
@@ -43,6 +49,18 @@
       "nothing", "address", "float"
     ],
     "ritual_ZNK10QAudioRoom16reverbBrightnessEv": ["float", "address"],
+    "ritual_ZN10QAudioRoom15positionChangedEv": ["nothing", "address"],
+    "ritual_ZN10QAudioRoom17dimensionsChangedEv": ["nothing", "address"],
+    "ritual_ZN10QAudioRoom15rotationChangedEv": ["nothing", "address"],
+    "ritual_ZN10QAudioRoom12wallsChangedEv": ["nothing", "address"],
+    "ritual_ZN10QAudioRoom21reflectionGainChangedEv": ["nothing", "address"],
+    "ritual_ZN10QAudioRoom17reverbGainChangedEv": ["nothing", "address"],
+    "ritual_ZN10QAudioRoom17reverbTimeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QAudioRoom23reverbBrightnessChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QAudioRoom6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QAudioRoom6d_funcEv": ["address", "address"],
     "ritual_take_QAudioRoom": ["bool", "address", "chars", "address"]
   }
 }

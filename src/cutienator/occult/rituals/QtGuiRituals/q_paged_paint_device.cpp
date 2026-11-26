@@ -285,6 +285,13 @@ QPageRanges *ritual_ZNK17QPagedPaintDevice10pageRangesEv(
   return new QPageRanges(self->pageRanges());
 }
 
+//  QPagedPaintDevice::QPagedPaintDevice(QPagedPaintDevicePrivate *dd)
+extern "C" Q_DECL_EXPORT
+QPagedPaintDevice *ritual_ZN17QPagedPaintDeviceC1EP24QPagedPaintDevicePrivate(
+    QPagedPaintDevicePrivate *dd) {
+  return new CuteQPagedPaintDevice(dd);
+}
+
 //  QPagedPaintDevicePrivate *QPagedPaintDevice::dd()
 extern "C" Q_DECL_EXPORT
 QPagedPaintDevicePrivate *ritual_ZN17QPagedPaintDevice2ddEv(

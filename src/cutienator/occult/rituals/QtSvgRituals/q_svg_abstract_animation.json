@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QSvgAbstractAnimationC1Ev": ["address"],
     "ritual_ZN21QSvgAbstractAnimationD1Ev": ["nothing", "address"],
     "ritual_ZNK21QSvgAbstractAnimation13animationTypeEv": ["int", "address"],
     "ritual_ZN21QSvgAbstractAnimation17evaluateAnimationEd": [

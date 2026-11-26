@@ -18,6 +18,13 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtlocation/src/location/places/qplaceattribute.cpp, line 12, as _ZNK22QPlaceAttributePrivateeqERKS_
+inline bool QPlaceAttributePrivate::operator== (const QPlaceAttributePrivate &other) const
+{
+    return label == other.label
+            && text == other.text;
+}
+
 //  from ../qtlocation/src/location/places/qplaceattribute.cpp, line 18, as _ZNK22QPlaceAttributePrivate7isEmptyEv
 inline bool QPlaceAttributePrivate::isEmpty() const
 {
@@ -25,6 +32,15 @@ inline bool QPlaceAttributePrivate::isEmpty() const
             && text.isEmpty();
 }
 //  -----------------------------------------------------------------------
+
+//  bool QPlaceAttributePrivate::operator==(const QPlaceAttributePrivate
+//      &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK22QPlaceAttributePrivateeqERKS_(
+    const QPlaceAttributePrivate *self,
+    const QPlaceAttributePrivate *other) {
+  return self->operator==(*other);
+}
 
 //  bool QPlaceAttributePrivate::isEmpty() const
 extern "C" Q_DECL_EXPORT

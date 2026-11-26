@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK16QVBarModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVBarModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QVBarModelMapper11qt_metacastEPKc(
+    QVBarModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVBarModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QVBarModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVBarModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVBarModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QVBarModelMapper2trEPKcS1_i(
@@ -282,6 +301,44 @@ void ritual_ZN16QVBarModelMapper11setRowCountEi(
     QVBarModelMapper *self,
     int rowCount) {
   self->setRowCount(rowCount);
+}
+
+//  void QVBarModelMapper::seriesReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVBarModelMapper14seriesReplacedEv(QVBarModelMapper *self) {
+  self->seriesReplaced();
+}
+
+//  void QVBarModelMapper::modelReplaced()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVBarModelMapper13modelReplacedEv(QVBarModelMapper *self) {
+  self->modelReplaced();
+}
+
+//  void QVBarModelMapper::firstBarSetColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVBarModelMapper24firstBarSetColumnChangedEv(
+    QVBarModelMapper *self) {
+  self->firstBarSetColumnChanged();
+}
+
+//  void QVBarModelMapper::lastBarSetColumnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVBarModelMapper23lastBarSetColumnChangedEv(
+    QVBarModelMapper *self) {
+  self->lastBarSetColumnChanged();
+}
+
+//  void QVBarModelMapper::firstRowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVBarModelMapper15firstRowChangedEv(QVBarModelMapper *self) {
+  self->firstRowChanged();
+}
+
+//  void QVBarModelMapper::rowCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVBarModelMapper15rowCountChangedEv(QVBarModelMapper *self) {
+  self->rowCountChanged();
 }
 
 //  a Python function taken by a CuteQVBarModelMapper, for the function named

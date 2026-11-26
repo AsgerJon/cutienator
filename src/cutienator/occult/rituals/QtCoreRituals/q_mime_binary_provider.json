@@ -12,7 +12,22 @@
     "ritual_ZN19QMimeBinaryProvider13knowsMimeTypeERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN19QMimeBinaryProvider15addAllMimeTypesER5QListI9QMimeTypeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QMimeBinaryProvider14localeCommentsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN19QMimeBinaryProvider16hasGlobDeleteAllERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN19QMimeBinaryProvider12globPatternsERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZN19QMimeBinaryProvider16loadMimeTypeListEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QMimeBinaryProvider__QMimeTypePrivate_LocaleHash": [
       "nothing", "address"
     ]
   }

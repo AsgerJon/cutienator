@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN25QCanvasGridPatternPrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK25QCanvasGridPatternPrivate6equalsERK19QCanvasBrushPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QCanvasGridPatternPrivate11createPaintEP14QCanvasPainter": [
+      "address", "address", "address"
+    ],
     "ritual_ZN25QCanvasGridPatternPrivate3getEP18QCanvasGridPattern": [
       "address", "address"
     ],
@@ -18,9 +24,18 @@
     "ritual_ZN25QCanvasGridPatternPrivate18getFromCanvasBrushERK12QCanvasBrush": [
       "address", "address"
     ],
+    "ritual_ZNK25QCanvasGridPatternPrivate17createGridPatternEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN25QCanvasGridPatternPrivateD1Ev": ["nothing", "address"],
     "ritual_take_QCanvasGridPatternPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QCanvasGridPatternPrivate5cloneEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QCanvasGridPatternPrivate11createPaintEP14QCanvasPainter": [
+      "address", "address", "address"
     ]
   }
 }

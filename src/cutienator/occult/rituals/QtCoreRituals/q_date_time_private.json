@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
-    "ritual_ZN16QDateTimePrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN16QDateTimePrivateD1Ev": ["nothing", "address"],
+    "ritual_drop_QDateTimePrivate__QDateTime_Data": ["nothing", "address"]
   }
 }

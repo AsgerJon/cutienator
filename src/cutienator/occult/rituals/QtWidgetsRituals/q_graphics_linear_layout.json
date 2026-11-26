@@ -70,6 +70,8 @@
     "ritual_ZNK21QGraphicsLinearLayout4dumpEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN21QGraphicsLinearLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QGraphicsLinearLayout6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsLinearLayout": [
       "bool", "address", "chars", "address"
     ],

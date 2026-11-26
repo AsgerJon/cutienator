@@ -7,6 +7,9 @@
     "ritual_ZN18QDomImplementationC1Ev": ["address"],
     "ritual_ZN18QDomImplementationC1ERKS_": ["address", "address"],
     "ritual_ZN18QDomImplementationD1Ev": ["nothing", "address"],
+    "ritual_ZN18QDomImplementationaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18QDomImplementationeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK18QDomImplementationneERKS_": ["bool", "address", "address"],
     "ritual_ZNK18QDomImplementation10hasFeatureERK7QStringS2_": [

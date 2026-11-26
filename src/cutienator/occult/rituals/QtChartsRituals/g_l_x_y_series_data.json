@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN14GLXYSeriesDataaSERKS_": ["address", "address", "address"],
     "ritual_ZN14GLXYSeriesDataD1Ev": ["nothing", "address"]
   }
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QQuick3DJoint10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuick3DJoint11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuick3DJoint11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QQuick3DJoint2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QQuick3DJointC1EP12QQuick3DNode": ["address", "address"],
     "ritual_ZN13QQuick3DJointD1Ev": ["nothing", "address"],
@@ -14,6 +20,10 @@
     "ritual_ZN13QQuick3DJoint8setIndexEi": ["nothing", "address", "int"],
     "ritual_ZN13QQuick3DJoint15setSkeletonRootEP16QQuick3DSkeleton": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DJoint12indexChangedEv": ["nothing", "address"],
+    "ritual_ZN13QQuick3DJoint19skeletonRootChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN13QQuick3DJoint17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

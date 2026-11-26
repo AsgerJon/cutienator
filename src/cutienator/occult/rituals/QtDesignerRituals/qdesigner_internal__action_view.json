@@ -8,11 +8,71 @@
     "ritual_ZNK18qdesigner_internal10ActionView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal10ActionView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal10ActionView10initializeEP28QDesignerFormEditorInterface": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK18qdesigner_internal10ActionView8viewModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView11setViewModeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView16setSelectionModeEN17QAbstractItemView13SelectionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal10ActionView13selectionModeEv": [
+      "int", "address"
+    ],
     "ritual_ZNK18qdesigner_internal10ActionView5modelEv": [
       "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10ActionView13currentActionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView15setCurrentIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10ActionView15selectedActionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10ActionView9selectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView6filterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView9selectAllEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView12selectActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView20contextMenuRequestedEP17QContextMenuEventP7QAction": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView20currentActionChangedEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView9activatedEP7QActioni": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView16selectionChangedERK14QItemSelectionS3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView20resourceImageDroppedERK7QStringP7QAction": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ActionView18slotCurrentChangedEP7QAction": [
+      "nothing", "address", "address"
     ]
   }
 }

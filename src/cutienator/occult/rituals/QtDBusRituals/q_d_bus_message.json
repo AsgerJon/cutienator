@@ -6,7 +6,11 @@
   "rows": {
     "ritual_ZN12QDBusMessageC1Ev": ["address"],
     "ritual_ZN12QDBusMessageC1ERKS_": ["address", "address"],
+    "ritual_ZN12QDBusMessageC1EOS_": ["address", "address"],
+    "ritual_ZN12QDBusMessageaSEOS_": ["address", "address", "address"],
+    "ritual_ZN12QDBusMessageaSERKS_": ["address", "address", "address"],
     "ritual_ZN12QDBusMessageD1Ev": ["nothing", "address"],
+    "ritual_ZN12QDBusMessage4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN12QDBusMessage12createSignalERK7QStringS2_S2_": [
       "address", "text", "text", "text"
     ],
@@ -66,6 +70,12 @@
     "ritual_ZN12QDBusMessage12setArgumentsERK5QListI8QVariantE": [
       "nothing", "address", "address"
     ],
-    "ritual_ZNK12QDBusMessage9argumentsEv": ["address", "address"]
+    "ritual_ZNK12QDBusMessage9argumentsEv": ["address", "address"],
+    "ritual_ZN12QDBusMessagelsERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QDBusMessageC1ER19QDBusMessagePrivate": [
+      "address", "address"
+    ]
   }
 }

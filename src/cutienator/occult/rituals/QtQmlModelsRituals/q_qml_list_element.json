@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZNK15QQmlListElement10metaObjectEv": ["address", "address"]
+    "ritual_ZNK15QQmlListElement10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlListElement11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQmlListElement11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ]
   }
 }

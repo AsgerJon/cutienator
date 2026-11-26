@@ -7,8 +7,14 @@
   "rows": {
     "ritual_ZN18QSGCurveGlyphAtlasC1ERK8QRawFont": ["address", "address"],
     "ritual_ZN18QSGCurveGlyphAtlasD1Ev": ["nothing", "address"],
+    "ritual_ZN18QSGCurveGlyphAtlas8populateERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QSGCurveGlyphAtlas8addGlyphEP16QSGCurveFillNodejRK7QPointFd": [
       "nothing", "address", "address", "unsigned int", "address", "double"
+    ],
+    "ritual_ZNK18QSGCurveGlyphAtlas9addStrokeEP18QSGCurveStrokeNodejRK7QPointF": [
+      "nothing", "address", "address", "unsigned int", "address"
     ],
     "ritual_ZNK18QSGCurveGlyphAtlas8fontSizeEv": ["double", "address"]
   }

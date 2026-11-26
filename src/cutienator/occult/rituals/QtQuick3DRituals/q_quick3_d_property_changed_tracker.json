@@ -6,14 +6,26 @@
   ],
   "rows": {
     "ritual_ZN30QQuick3DPropertyChangedTrackerD1Ev": ["nothing", "address"],
+    "ritual_ZN30QQuick3DPropertyChangedTracker17extractPropertiesEv": [
+      "address", "address"
+    ],
     "ritual_ZN30QQuick3DPropertyChangedTracker18addPropertyWatcherE13QMetaPropertyNS_17DirtyPropertyHintEP14QQuick3DObject": [
       "nothing", "address", "address", "int", "address"
     ],
     "ritual_ZN30QQuick3DPropertyChangedTracker24markTrackedPropertyDirtyE13QMetaPropertyNS_17DirtyPropertyHintE": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN30QQuick3DPropertyChangedTracker29createOrUpdateTrackedPropertyE13QMetaPropertyb": [
+      "address", "address", "address", "bool"
+    ],
     "ritual_take_QQuick3DPropertyChangedTracker": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQuick3DPropertyChangedTracker__QList_QQuick3DPropertyChangedTracker_UniformProperty": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuick3DPropertyChangedTracker__std_optional_QQuick3DPropertyChangedTracker_UniformProperty": [
+      "nothing", "address"
     ]
   }
 }

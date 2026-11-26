@@ -54,6 +54,12 @@ public:
   }
 };
 
+//  Qt3DRender::QCameraPrivate::QCameraPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QCameraPrivate *ritual_ZN10Qt3DRender14QCameraPrivateC1Ev() {
+  return new CuteQt3DRender_QCameraPrivate();
+}
+
 //  QCamera *Qt3DRender::QCameraPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QCamera *ritual_ZN10Qt3DRender14QCameraPrivate6q_funcEv(
@@ -66,6 +72,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QCamera *ritual_ZNK10Qt3DRender14QCameraPrivate6q_funcEv(
     const Qt3DRender::QCameraPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DRender::QCameraPrivate::updateViewMatrixAndTransform(bool
+//      doEmit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QCameraPrivate28updateViewMatrixAndTransformEb(
+    Qt3DRender::QCameraPrivate *self,
+    bool doEmit) {
+  self->updateViewMatrixAndTransform(doEmit);
 }
 
 //  a Python function taken by a CuteQt3DRender_QCameraPrivate, for the

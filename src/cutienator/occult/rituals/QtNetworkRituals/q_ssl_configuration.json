@@ -8,6 +8,11 @@
     "ritual_ZN17QSslConfigurationC1Ev": ["address"],
     "ritual_ZN17QSslConfigurationC1ERKS_": ["address", "address"],
     "ritual_ZN17QSslConfigurationD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSslConfigurationaSEOS_": ["address", "address", "address"],
+    "ritual_ZN17QSslConfigurationaSERKS_": ["address", "address", "address"],
+    "ritual_ZN17QSslConfiguration4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QSslConfigurationeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK17QSslConfigurationneERKS_": ["bool", "address", "address"],
     "ritual_ZNK17QSslConfiguration6isNullEv": ["bool", "address"],
@@ -106,8 +111,14 @@
     "ritual_ZN17QSslConfiguration26setDiffieHellmanParametersERK27QSslDiffieHellmanParameters": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK17QSslConfiguration20backendConfigurationEv": [
+      "address", "address"
+    ],
     "ritual_ZN17QSslConfiguration29setBackendConfigurationOptionERK10QByteArrayRK8QVariant": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration23setBackendConfigurationERK4QMapI10QByteArray8QVariantE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17QSslConfiguration20defaultConfigurationEv": ["address"],
     "ritual_ZN17QSslConfiguration23setDefaultConfigurationERKS_": [
@@ -156,11 +167,20 @@
     "ritual_ZN17QSslConfiguration18takeKeyingMaterialEv": [
       "address", "address"
     ],
+    "ritual_ZN17QSslConfiguration18takeKeyingMaterialERK18QSslKeyingMaterial": [
+      "address", "address", "address"
+    ],
     "ritual_ZN17QSslConfiguration17setKeyingMaterialERK5QListI18QSslKeyingMaterialE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN17QSslConfigurationC1EP24QSslConfigurationPrivate": [
       "address", "address"
+    ],
+    "ritual_drop_QSslConfiguration__QMap_QByteArray_QVariant": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSslConfiguration__std_optional_QSslKeyingMaterial": [
+      "nothing", "address"
     ]
   }
 }

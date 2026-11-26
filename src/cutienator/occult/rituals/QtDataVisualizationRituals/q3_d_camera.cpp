@@ -180,6 +180,22 @@ const QMetaObject *ritual_ZNK9Q3DCamera10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DCamera::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Q3DCamera11qt_metacastEPKc(Q3DCamera *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DCamera::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Q3DCamera11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DCamera *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DCamera::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Q3DCamera2trEPKcS1_i(
@@ -251,6 +267,14 @@ void ritual_ZN9Q3DCamera16setWrapYRotationEb(
     Q3DCamera *self,
     bool isEnabled) {
   self->setWrapYRotation(isEnabled);
+}
+
+//  void Q3DCamera::copyValuesFrom(const Q3DObject &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera14copyValuesFromERK9Q3DObject(
+    Q3DCamera *self,
+    const Q3DObject *source) {
+  self->copyValuesFrom(*source);
 }
 
 //  CameraPreset Q3DCamera::cameraPreset() const
@@ -331,6 +355,78 @@ void ritual_ZN9Q3DCamera9setTargetERK9QVector3D(
     Q3DCamera *self,
     const QVector3D *target) {
   self->setTarget(*target);
+}
+
+//  void Q3DCamera::xRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera16xRotationChangedEf(
+    Q3DCamera *self,
+    float rotation) {
+  self->xRotationChanged(rotation);
+}
+
+//  void Q3DCamera::yRotationChanged(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera16yRotationChangedEf(
+    Q3DCamera *self,
+    float rotation) {
+  self->yRotationChanged(rotation);
+}
+
+//  void Q3DCamera::zoomLevelChanged(float zoomLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera16zoomLevelChangedEf(
+    Q3DCamera *self,
+    float zoomLevel) {
+  self->zoomLevelChanged(zoomLevel);
+}
+
+//  void Q3DCamera::cameraPresetChanged(Q3DCamera::CameraPreset preset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera19cameraPresetChangedENS_12CameraPresetE(
+    Q3DCamera *self,
+    Q3DCamera::CameraPreset preset) {
+  self->cameraPresetChanged(preset);
+}
+
+//  void Q3DCamera::wrapXRotationChanged(bool isEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera20wrapXRotationChangedEb(
+    Q3DCamera *self,
+    bool isEnabled) {
+  self->wrapXRotationChanged(isEnabled);
+}
+
+//  void Q3DCamera::wrapYRotationChanged(bool isEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera20wrapYRotationChangedEb(
+    Q3DCamera *self,
+    bool isEnabled) {
+  self->wrapYRotationChanged(isEnabled);
+}
+
+//  void Q3DCamera::targetChanged(const QVector3D &target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera13targetChangedERK9QVector3D(
+    Q3DCamera *self,
+    const QVector3D *target) {
+  self->targetChanged(*target);
+}
+
+//  void Q3DCamera::minZoomLevelChanged(float zoomLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera19minZoomLevelChangedEf(
+    Q3DCamera *self,
+    float zoomLevel) {
+  self->minZoomLevelChanged(zoomLevel);
+}
+
+//  void Q3DCamera::maxZoomLevelChanged(float zoomLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DCamera19maxZoomLevelChangedEf(
+    Q3DCamera *self,
+    float zoomLevel) {
+  self->maxZoomLevelChanged(zoomLevel);
 }
 
 //  a Python function taken by a CuteQ3DCamera, for the function named by the

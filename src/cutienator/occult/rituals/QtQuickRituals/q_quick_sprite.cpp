@@ -212,6 +212,24 @@ const QMetaObject *ritual_ZNK12QQuickSprite10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSprite::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickSprite11qt_metacastEPKc(
+    QQuickSprite *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSprite::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickSprite11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSprite *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSprite::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickSprite2trEPKcS1_i(
@@ -344,6 +362,98 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK12QQuickSprite16devicePixelRatioEv(
     const QQuickSprite *self) {
   return self->devicePixelRatio();
+}
+
+//  void QQuickSprite::sourceChanged(QUrl arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite13sourceChangedE4QUrl(
+    QQuickSprite *self,
+    const QUrl *arg) {
+  self->sourceChanged(*arg);
+}
+
+//  void QQuickSprite::frameHeightChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite18frameHeightChangedEi(
+    QQuickSprite *self,
+    int arg) {
+  self->frameHeightChanged(arg);
+}
+
+//  void QQuickSprite::frameWidthChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite17frameWidthChangedEi(
+    QQuickSprite *self,
+    int arg) {
+  self->frameWidthChanged(arg);
+}
+
+//  void QQuickSprite::reverseChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite14reverseChangedEb(
+    QQuickSprite *self,
+    bool arg) {
+  self->reverseChanged(arg);
+}
+
+//  void QQuickSprite::frameCountChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite17frameCountChangedEi(
+    QQuickSprite *self,
+    int arg) {
+  self->frameCountChanged(arg);
+}
+
+//  void QQuickSprite::frameXChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite13frameXChangedEi(QQuickSprite *self, int arg) {
+  self->frameXChanged(arg);
+}
+
+//  void QQuickSprite::frameYChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite13frameYChangedEi(QQuickSprite *self, int arg) {
+  self->frameYChanged(arg);
+}
+
+//  void QQuickSprite::frameRateChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite16frameRateChangedEd(
+    QQuickSprite *self,
+    qreal arg) {
+  self->frameRateChanged(arg);
+}
+
+//  void QQuickSprite::frameRateVariationChanged(qreal arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite25frameRateVariationChangedEd(
+    QQuickSprite *self,
+    qreal arg) {
+  self->frameRateVariationChanged(arg);
+}
+
+//  void QQuickSprite::frameDurationChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite20frameDurationChangedEi(
+    QQuickSprite *self,
+    int arg) {
+  self->frameDurationChanged(arg);
+}
+
+//  void QQuickSprite::frameDurationVariationChanged(int arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite29frameDurationVariationChangedEi(
+    QQuickSprite *self,
+    int arg) {
+  self->frameDurationVariationChanged(arg);
+}
+
+//  void QQuickSprite::frameSyncChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickSprite16frameSyncChangedEb(
+    QQuickSprite *self,
+    bool arg) {
+  self->frameSyncChanged(arg);
 }
 
 //  void QQuickSprite::setSource(QUrl arg)

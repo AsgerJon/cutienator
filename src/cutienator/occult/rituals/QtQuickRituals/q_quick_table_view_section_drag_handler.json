@@ -8,6 +8,12 @@
     "ritual_ZNK33QQuickTableViewSectionDragHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN33QQuickTableViewSectionDragHandlerD1Ev": [
       "nothing", "address"
     ],
@@ -25,6 +31,9 @@
     ],
     "ritual_ZN33QQuickTableViewSectionDragHandler21setSectionOrientationEN2Qt11OrientationE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler16handleEventPointEP13QPointerEventR11QEventPoint": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN33QQuickTableViewSectionDragHandler13resetDragDataEv": [
       "nothing", "address"

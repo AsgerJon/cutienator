@@ -8,14 +8,98 @@
     "ritual_ZNK13Qt3DAnimation20QAnimationController10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation20QAnimationController2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationControllerC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController18animationGroupListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationController20activeAnimationGroupEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationController8positionEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationController13positionScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationController14positionOffsetEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationController6entityEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationController9recursiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController18setAnimationGroupsERK5QListIPNS_15QAnimationGroupEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController17addAnimationGroupEPNS_15QAnimationGroupE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController20removeAnimationGroupEPNS_15QAnimationGroupE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationController17getAnimationIndexERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK13Qt3DAnimation20QAnimationController8getGroupEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController23setActiveAnimationGroupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController11setPositionEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController16setPositionScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController17setPositionOffsetEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController9setEntityEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController12setRecursiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController27activeAnimationGroupChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController15positionChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController20positionScaleChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController21positionOffsetChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController13entityChangedEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation20QAnimationController16recursiveChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN13Qt3DAnimation20QAnimationController6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation20QAnimationController6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_QAnimationController__QList_Qt3DAnimation_QAnimationGroup": [
+      "nothing", "address"
     ]
   }
 }

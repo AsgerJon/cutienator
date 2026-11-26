@@ -5,8 +5,15 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QDockAreaLayoutC1EP11QMainWindow": ["address", "address"],
     "ritual_ZNK15QDockAreaLayout7isValidEv": ["bool", "address"],
     "ritual_ZN15QDockAreaLayout15constrainedRectE5QRectP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QDockAreaLayout18indexOfPlaceHolderERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK15QDockAreaLayout7indexOfEPK7QWidget": [
       "address", "address", "address"
     ],
     "ritual_ZNK15QDockAreaLayout13separatorRectEi": [
@@ -16,6 +23,12 @@
     "ritual_ZNK15QDockAreaLayout6itemAtEPii": [
       "address", "address", "address", "int"
     ],
-    "ritual_ZN15QDockAreaLayoutD1Ev": ["nothing", "address"]
+    "ritual_ZNK15QDockAreaLayout20usedSeparatorWidgetsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QDockAreaLayoutD1Ev": ["nothing", "address"],
+    "ritual_drop_QDockAreaLayout__QList_int": ["nothing", "address"],
+    "ritual_drop_QDockAreaLayout__QSet_QTabBar": ["nothing", "address"],
+    "ritual_drop_QDockAreaLayout__QSet_QWidget": ["nothing", "address"]
   }
 }

@@ -5,6 +5,14 @@
 #include <QtCore/qassociativeiterable.h>
 #include <QtCore/qvariant.h>
 
+//  QAssociativeConstIterator::QAssociativeConstIterator(QConstIterator<QMeta
+//      Association> &&it)
+extern "C" Q_DECL_EXPORT
+QAssociativeConstIterator *ritual_ZN25QAssociativeConstIteratorC1EO14QConstIteratorI16QMetaAssociationE(
+    QConstIterator<QMetaAssociation> *it) {
+  return new QAssociativeConstIterator(std::move(*it));
+}
+
 //  QVariant QAssociativeConstIterator::key() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK25QAssociativeConstIterator3keyEv(

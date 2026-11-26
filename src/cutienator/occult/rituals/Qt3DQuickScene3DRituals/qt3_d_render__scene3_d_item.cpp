@@ -8,13 +8,391 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DQuickScene3D/6.12.0/Qt3DQuickScene3D/private/scene3ditem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DQuickScene3D/private/scene3ditem_p.h>
+#include <Qt3DCore/qt3dcore_global.h>
+#include <Qt3DCore/qentity.h>
+#include <Qt3DCore/QAspectEngine>
+#if QT_CONFIG(qt3d_input)
+#include <Qt3DInput/QInputAspect>
+#include <Qt3DInput/qinputsettings.h>
+#endif
+#if QT_CONFIG(qt3d_logic)
+#include <Qt3DLogic/qlogicaspect.h>
+#endif
+#if QT_CONFIG(qt3d_animation)
+#include <Qt3DAnimation/qanimationaspect.h>
+#endif
+#include <Qt3DRender/QRenderAspect>
+#include <Qt3DRender/qcamera.h>
+#include <Qt3DRender/qrendersurfaceselector.h>
+#include <QtGui/qguiapplication.h>
+#include <QtGui/qoffscreensurface.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/qquickwindow.h>
+#include <QtQuick/qquickrendercontrol.h>
+#include <Qt3DRender/private/qrendersurfaceselector_p.h>
+#include <Qt3DRender/private/qrenderaspect_p.h>
+#include <Qt3DRender/private/rendersettings_p.h>
+#include <Qt3DRender/qt3drender-config.h>
+#include <Qt3DQuickScene3D/private/scene3dlogging_p.h>
+#include <Qt3DQuickScene3D/private/scene3drenderer_p.h>
+#include <Qt3DQuickScene3D/private/scene3dsgnode_p.h>
+#include <Qt3DCore/private/qaspectengine_p.h>
+#include <Qt3DCore/private/qaspectmanager_p.h>
+#include <QtCore/QThread>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 49, as local:scene3ditem.cpp:AspectEngineDestroyer
+namespace Qt3DRender {
+class AspectEngineDestroyer : public QObject
+{
+    Q_OBJECT
+
+public:
+    AspectEngineDestroyer()
+        : QObject()
+    {}
+
+    ~AspectEngineDestroyer()
+    {
+    }
+
+    void reset(int targetCount)
+    {
+        m_allowed = 0;
+        m_targetAllowed = targetCount;
+    }
+
+    void allowRelease()
+    {
+        ++m_allowed;
+        if (m_allowed == m_targetAllowed) {
+            if (QThread::currentThread() == thread())
+                delete this;
+            else
+                deleteLater();
+        }
+    }
+
+    void setSGNodeAlive(bool alive) { m_sgNodeAlive = alive; }
+    bool sgNodeAlive() const { return m_sgNodeAlive;}
+
+private:
+    int m_allowed = 0;
+    int m_targetAllowed = 0;
+    bool m_sgNodeAlive = false;
+};
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 631, as local:scene3ditem.cpp:Scene3DManagerNode
+namespace Qt3DRender {
+class Scene3DManagerNode : public QSGNode
+{
+public:
+   explicit Scene3DManagerNode(Qt3DCore::QAspectEngine *aspectEngine,
+                               AspectEngineDestroyer *destroyer)
+        : m_aspectEngine(aspectEngine)
+        , m_destroyer(destroyer)
+        , m_renderAspect(new QRenderAspect(QRenderAspect::Manual))
+        , m_renderer(new Scene3DRenderer())
+    {
+        m_destroyer->setSGNodeAlive(true);
+    }
+
+    ~Scene3DManagerNode()
+    {
+        // Stop the Qt3D Simulation Loop
+        auto engineD = Qt3DCore::QAspectEnginePrivate::get(m_aspectEngine);
+        engineD->exitSimulationLoop();
+
+        // Shutdown renderer
+        delete m_renderer;
+
+        m_destroyer->setSGNodeAlive(false);
+
+        // Allow AspectEngine destruction
+        m_destroyer->allowRelease();
+    }
+
+    void init()
+    {
+        m_aspectEngine->registerAspect(m_renderAspect);
+        m_renderer->init(m_aspectEngine, m_renderAspect);
+        m_wasInitialized = true;
+    }
+
+    inline bool isInitialized() const { return m_wasInitialized; }
+    inline QRenderAspect *renderAspect() const { return m_renderAspect; }
+    inline Scene3DRenderer *renderer() const { return m_renderer; }
+private:
+    Qt3DCore::QAspectEngine *m_aspectEngine;
+    AspectEngineDestroyer *m_destroyer;
+    QRenderAspect *m_renderAspect;
+    Scene3DRenderer *m_renderer;
+    bool m_wasInitialized = false;
+};
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 858, as _ZN10Qt3DRender11Scene3DItem15mousePressEventEP11QMouseEvent
+namespace Qt3DRender {
+inline void Scene3DItem::mousePressEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+    //Prevent subsequent move and release events being disregarded my the default event->ignore() from QQuickItem
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 174, as _ZN10Qt3DRender11Scene3DItemD1Ev
+namespace Qt3DRender {
+inline Scene3DItem::~Scene3DItem()
+{
+    // The SceneGraph is non deterministic in the order in which it will
+    // destroy the QSGNode that were created by the item. This unfortunately
+    // makes it difficult to know when it is safe to destroy the QAspectEngine.
+    // To track this we use the AspectEngineDestroyer. It allows keeping the
+    // AspectEngine alive and deleting later when we know that both Scene3DItem
+    // and Scene3DRenderer have been destroyed.
+
+    delete m_aspectToDelete;
+
+    if (m_aspectEngineDestroyer)
+        m_aspectEngineDestroyer->allowRelease();
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 198, as _ZNK10Qt3DRender11Scene3DItem7aspectsEv
+namespace Qt3DRender {
+inline QStringList Scene3DItem::aspects() const
+{
+    return m_aspects;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 210, as _ZNK10Qt3DRender11Scene3DItem6entityEv
+namespace Qt3DRender {
+inline Qt3DCore::QEntity *Scene3DItem::entity() const
+{
+    return m_entity;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 613, as _ZNK10Qt3DRender11Scene3DItem11multisampleEv
+namespace Qt3DRender {
+inline bool Scene3DItem::multisample() const
+{
+    return m_multisample;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 551, as _ZNK10Qt3DRender11Scene3DItem14isHoverEnabledEv
+namespace Qt3DRender {
+inline bool Scene3DItem::isHoverEnabled() const
+{
+    return acceptHoverEvents();
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 340, as _ZNK10Qt3DRender11Scene3DItem21cameraAspectRatioModeEv
+namespace Qt3DRender {
+inline Scene3DItem::CameraAspectRatioMode Scene3DItem::cameraAspectRatioMode() const
+{
+    return m_cameraAspectRatioMode;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 345, as _ZNK10Qt3DRender11Scene3DItem15compositingModeEv
+namespace Qt3DRender {
+inline Scene3DItem::CompositingMode Scene3DItem::compositingMode() const
+{
+    return m_compositingMode;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 447, as _ZN10Qt3DRender11Scene3DItem16prepareQt3DFrameEv
+namespace Qt3DRender {
+inline bool Scene3DItem::prepareQt3DFrame()
+{
+    static bool dontRenderWhenHidden = !qgetenv("QT3D_SCENE3D_STOP_RENDER_HIDDEN").isEmpty();
+
+    // If we are not visible, don't processFrame changes as we would end up
+    // waiting forever for the scene to be rendered which won't happen
+    // if the Scene3D item is not visible
+    if (!isVisible() && dontRenderWhenHidden)
+        return false;
+    if (!m_aspectEngine)
+        return false;
+    Q_ASSERT(QThread::currentThread() == thread());
+
+    // Since we are in manual mode, trigger jobs for the next frame
+    Qt3DCore::QAspectEnginePrivate *aspectEnginePriv = static_cast<Qt3DCore::QAspectEnginePrivate *>(QObjectPrivate::get(m_aspectEngine));
+    if (!aspectEnginePriv->m_initialized)
+        return false;
+
+    Q_ASSERT(m_aspectEngine->runMode() == Qt3DCore::QAspectEngine::Manual);
+    m_aspectEngine->processFrame();
+    // The above essentially sets the number of RV for the RenderQueue and
+    // processes the jobs for the frame (it's blocking) When
+    // Scene3DRender::updatePaintNode is called, following this step, we know
+    // that the RenderQueue target count has been set and that everything
+    // should be ready for rendering
+
+    // processFrame() must absolutely be followed by a single call to
+    // render
+    // At startup, we have no garantee that the QtQuick Render Thread doesn't
+    // start rendering before this function has been called
+    // We add in a safety to skip such frames as this could otherwise
+    // make Qt3D enter a locked state
+
+    // Note: it's too early to request an update at this point as
+    // beforeSync() triggered by afterAnimating  is considered
+    // to be as being part of the current frame update
+    return true;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 511, as _ZN10Qt3DRender11Scene3DItem16setWindowSurfaceEP7QObject
+namespace Qt3DRender {
+inline void Scene3DItem::setWindowSurface(QObject *rootObject)
+{
+    Qt3DRender::QRenderSurfaceSelector *surfaceSelector = Qt3DRender::QRenderSurfaceSelectorPrivate::find(rootObject);
+
+    // Set the item's window surface if it appears
+    // the surface wasn't set on the surfaceSelector
+    if (surfaceSelector && !surfaceSelector->surface()) {
+        // We may not have a real, exposed QQuickWindow when the Quick rendering
+        // is redirected via QQuickRenderControl (f.ex. QQuickWidget).
+        if (QWindow *rw = QQuickRenderControl::renderWindowFor(this->window())) {
+            surfaceSelector->setSurface(rw);
+        } else {
+            surfaceSelector->setSurface(this->window());
+        }
+    }
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 588, as _ZN10Qt3DRender11Scene3DItem23updateCameraAspectRatioEv
+namespace Qt3DRender {
+inline void Scene3DItem::updateCameraAspectRatio()
+{
+    if (m_camera) {
+        if (m_compositingMode == FBO)
+            m_camera->setAspectRatio(static_cast<float>(width()) /
+                                     static_cast<float>(height()));
+        else
+            m_camera->setAspectRatio(static_cast<float>(window()->width()) /
+                                     static_cast<float>(window()->height()));
+    }
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 401, as _ZN10Qt3DRender11Scene3DItem11needsRenderEPNS_13QRenderAspectE
+namespace Qt3DRender {
+inline bool Scene3DItem::needsRender(QRenderAspect *renderAspect)
+{
+    // We need the dirty flag which is connected to the change arbiter
+    // receiving updates to know whether something in the scene has changed
+
+    // Ideally we would use shouldRender() alone but given that it becomes true
+    // only after the arbiter has sync the changes and might be reset before
+    // process jobs is completed, we cannot fully rely on it. It would require
+    // splitting processFrame in 2 parts.
+
+    // We only use it for cases where Qt3D render may require several loops of
+    // the simulation to fully process a frame (e.g shaders are loaded in frame
+    // n and we can only build render commands for the new shader at frame n +
+    // This is where renderer->shouldRender() comes into play as it knows
+    // whether some states remain dirty or not (even after processFrame is
+    // called)
+
+    auto renderAspectPriv = static_cast<QRenderAspectPrivate*>(QRenderAspectPrivate::get(renderAspect));
+    const bool dirty = m_dirty
+            || (renderAspectPriv
+                && renderAspectPriv->m_renderer
+                && renderAspectPriv->m_renderer->shouldRender());
+
+    if (m_dirty) {
+        --m_framesToRender;
+        if (m_framesToRender <= 0)
+            m_dirty = false;
+    }
+    return dirty || m_framesToRender > 0;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 498, as _ZN10Qt3DRender11Scene3DItem19updateWindowSurfaceEv
+namespace Qt3DRender {
+inline void Scene3DItem::updateWindowSurface()
+{
+    if (!m_entity)
+        return;
+    Qt3DRender::QRenderSurfaceSelector *surfaceSelector =
+        Qt3DRender::QRenderSurfaceSelectorPrivate::find(entity());
+    if (surfaceSelector) {
+        if (QWindow *rw = QQuickRenderControl::renderWindowFor(this->window())) {
+            surfaceSelector->setSurface(rw);
+        }
+    }
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3ditem.cpp, line 215, as _ZN10Qt3DRender11Scene3DItem12applyAspectsEv
+namespace Qt3DRender {
+inline void Scene3DItem::applyAspects()
+{
+    if (!m_aspectEngine)
+        return;
+
+    // Aspects are owned by the aspect engine
+    for (const QString &aspect : std::as_const(m_aspects)) {
+        if (aspect == QLatin1String("render")) // This one is hardwired anyway
+            continue;
+        if (aspect == QLatin1String("input"))  {
+#if QT_CONFIG(qt3d_input)
+            m_aspectEngine->registerAspect(new Qt3DInput::QInputAspect);
+            continue;
+#else
+            qFatal("Scene3D requested the Qt 3D input aspect but Qt 3D wasn't configured to build the Qt 3D Input aspect");
+#endif
+        }
+        if (aspect == QLatin1String("logic"))  {
+#if QT_CONFIG(qt3d_logic)
+            m_aspectEngine->registerAspect(new Qt3DLogic::QLogicAspect);
+            continue;
+#else
+            qFatal("Scene3D requested the Qt 3D logic aspect but Qt 3D wasn't configured to build the Qt 3D Logic aspect");
+#endif
+        }
+        if (aspect == QLatin1String("animation"))  {
+#if QT_CONFIG(qt3d_animation)
+            m_aspectEngine->registerAspect(new Qt3DAnimation::QAnimationAspect);
+            continue;
+#else
+            qFatal("Scene3D requested the Qt 3D animation aspect but Qt 3D wasn't configured to build the Qt 3D Animation aspect");
+#endif
+        }
+        m_aspectEngine->registerAspect(aspect);
+    }
+}
+}  // namespace Qt3DRender
+//  -----------------------------------------------------------------------
 
 //  A Qt3DRender::Scene3DItem that Python can take functions over in. Every Qt3DRender::Scene3DItem
 //  Python makes is one. Each function below asks the Python
@@ -785,6 +1163,506 @@ const QMetaObject *ritual_ZNK10Qt3DRender11Scene3DItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Scene3DItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender11Scene3DItem11qt_metacastEPKc(
+    Qt3DRender::Scene3DItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Scene3DItem::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender11Scene3DItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Scene3DItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  Qt3DRender::Scene3DItem::~Scene3DItem()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItemD1Ev(Qt3DRender::Scene3DItem *self) {
+  delete self;
+}
+
+//  QStringList Qt3DRender::Scene3DItem::aspects() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10Qt3DRender11Scene3DItem7aspectsEv(
+    const Qt3DRender::Scene3DItem *self) {
+  return new QList<QString>(self->aspects());
+}
+
+//  Qt3DCore::QEntity *Qt3DRender::Scene3DItem::entity() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEntity *ritual_ZNK10Qt3DRender11Scene3DItem6entityEv(
+    const Qt3DRender::Scene3DItem *self) {
+  return self->entity();
+}
+
+//  bool Qt3DRender::Scene3DItem::multisample() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender11Scene3DItem11multisampleEv(
+    const Qt3DRender::Scene3DItem *self) {
+  return self->multisample();
+}
+
+//  void Qt3DRender::Scene3DItem::setItemAreaAndDevicePixelRatio(QSize area,
+//      qreal devicePixelRatio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem30setItemAreaAndDevicePixelRatioE5QSized(
+    Qt3DRender::Scene3DItem *self,
+    const QSize *area,
+    qreal devicePixelRatio) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setItemAreaAndDevicePixelRatio(QSize,qreal)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setItemAreaAndDevicePixelRatio(QSize,qreal)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(area)),
+      const_cast<void *>(static_cast<const void *>(&devicePixelRatio)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  bool Qt3DRender::Scene3DItem::isHoverEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender11Scene3DItem14isHoverEnabledEv(
+    const Qt3DRender::Scene3DItem *self) {
+  return self->isHoverEnabled();
+}
+
+//  CameraAspectRatioMode Qt3DRender::Scene3DItem::cameraAspectRatioMode()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Scene3DItem::CameraAspectRatioMode ritual_ZNK10Qt3DRender11Scene3DItem21cameraAspectRatioModeEv(
+    const Qt3DRender::Scene3DItem *self) {
+  return self->cameraAspectRatioMode();
+}
+
+//  CompositingMode Qt3DRender::Scene3DItem::compositingMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Scene3DItem::CompositingMode ritual_ZNK10Qt3DRender11Scene3DItem15compositingModeEv(
+    const Qt3DRender::Scene3DItem *self) {
+  return self->compositingMode();
+}
+
+//  void Qt3DRender::Scene3DItem::setAspects(const QStringList &aspects)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem10setAspectsERK5QListI7QStringE(
+    Qt3DRender::Scene3DItem *self,
+    const QList<QString> *aspects) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setAspects(const QStringList &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setAspects(const QStringList &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(aspects)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::setEntity(Qt3DCore::QEntity *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem9setEntityEPN8Qt3DCore7QEntityE(
+    Qt3DRender::Scene3DItem *self,
+    Qt3DCore::QEntity *entity) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setEntity(Qt3DCore::QEntity *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setEntity(Qt3DCore::QEntity *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&entity)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      Qt3DRender::Scene3DItem::setCameraAspectRatioMode(CameraAspectRatioMo
+//      de mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem24setCameraAspectRatioModeENS0_21CameraAspectRatioModeE(
+    Qt3DRender::Scene3DItem *self,
+    Qt3DRender::Scene3DItem::CameraAspectRatioMode mode) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setCameraAspectRatioMode(CameraAspectRatioMode)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setCameraAspectRatioMode(CameraAspectRatioMode)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&mode)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::setHoverEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem15setHoverEnabledEb(
+    Qt3DRender::Scene3DItem *self,
+    bool enabled) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setHoverEnabled(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setHoverEnabled(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&enabled)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::setCompositingMode(CompositingMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem18setCompositingModeENS0_15CompositingModeE(
+    Qt3DRender::Scene3DItem *self,
+    Qt3DRender::Scene3DItem::CompositingMode mode) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setCompositingMode(CompositingMode)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setCompositingMode(CompositingMode)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&mode)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::aspectsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem14aspectsChangedEv(
+    Qt3DRender::Scene3DItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "aspectsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "aspectsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::entityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem13entityChangedEv(
+    Qt3DRender::Scene3DItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "entityChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "entityChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::multisampleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem18multisampleChangedEv(
+    Qt3DRender::Scene3DItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "multisampleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "multisampleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::cameraAspectRatioModeChanged(CameraAspectRa
+//      tioMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem28cameraAspectRatioModeChangedENS0_21CameraAspectRatioModeE(
+    Qt3DRender::Scene3DItem *self,
+    Qt3DRender::Scene3DItem::CameraAspectRatioMode mode) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "cameraAspectRatioModeChanged(CameraAspectRatioMode)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "cameraAspectRatioModeChanged(CameraAspectRatioMode)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&mode)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::hoverEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem19hoverEnabledChangedEv(
+    Qt3DRender::Scene3DItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "hoverEnabledChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "hoverEnabledChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::compositingModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem22compositingModeChangedEv(
+    Qt3DRender::Scene3DItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "compositingModeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "compositingModeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::applyRootEntityChange()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem21applyRootEntityChangeEv(
+    Qt3DRender::Scene3DItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "applyRootEntityChange()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "applyRootEntityChange()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void Qt3DRender::Scene3DItem::requestUpdate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem13requestUpdateEv(
+    Qt3DRender::Scene3DItem *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Qt3DRender::Scene3DItem")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "requestUpdate()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "requestUpdate()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  bool Qt3DRender::Scene3DItem::prepareQt3DFrame()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender11Scene3DItem16prepareQt3DFrameEv(
+    Qt3DRender::Scene3DItem *self) {
+  return self->prepareQt3DFrame();
+}
+
+//  QSGNode *Qt3DRender::Scene3DItem::updatePaintNode(QSGNode *node,
+//      UpdatePaintNodeData *nodeData)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN10Qt3DRender11Scene3DItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE(
+    Qt3DRender::Scene3DItem *self,
+    QSGNode *node,
+    QQuickItem::UpdatePaintNodeData *nodeData) {
+  return self->updatePaintNode(node, nodeData);
+}
+
+//  void Qt3DRender::Scene3DItem::setWindowSurface(QObject *rootObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem16setWindowSurfaceEP7QObject(
+    Qt3DRender::Scene3DItem *self,
+    QObject *rootObject) {
+  self->setWindowSurface(rootObject);
+}
+
+//  void Qt3DRender::Scene3DItem::updateCameraAspectRatio()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem23updateCameraAspectRatioEv(
+    Qt3DRender::Scene3DItem *self) {
+  self->updateCameraAspectRatio();
+}
+
+//  void Qt3DRender::Scene3DItem::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem15mousePressEventEP11QMouseEvent(
+    Qt3DRender::Scene3DItem *self,
+    QMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  bool Qt3DRender::Scene3DItem::needsRender(QRenderAspect *renderAspect)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender11Scene3DItem11needsRenderEPNS_13QRenderAspectE(
+    Qt3DRender::Scene3DItem *self,
+    Qt3DRender::QRenderAspect *renderAspect) {
+  return self->needsRender(renderAspect);
+}
+
+//  void Qt3DRender::Scene3DItem::updateWindowSurface()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem19updateWindowSurfaceEv(
+    Qt3DRender::Scene3DItem *self) {
+  self->updateWindowSurface();
+}
+
+//  void Qt3DRender::Scene3DItem::applyAspects()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11Scene3DItem12applyAspectsEv(
+    Qt3DRender::Scene3DItem *self) {
+  self->applyAspects();
+}
+
 //  a Python function taken by a CuteQt3DRender_Scene3DItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -793,4 +1671,12 @@ bool ritual_take_Qt3DRender_Scene3DItem(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_Scene3DItem *>(self)->take(key, call);
+}
+
+//  void Qt3DRender::Scene3DItem::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN10Qt3DRender11Scene3DItem15mousePressEventEP11QMouseEvent(
+    Qt3DRender::Scene3DItem *self,
+    QMouseEvent *event) {
+  self->Qt3DRender::Scene3DItem::mousePressEvent(event);
 }

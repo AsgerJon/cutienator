@@ -16,6 +16,7 @@ typedef void (*CuteQDropEventCall1)(const void *, bool, int *);
 class CuteQDropEvent : public QDropEvent {
 public:
   using QDropEvent::QDropEvent;
+  CuteQDropEvent(const QDropEvent & other) : QDropEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -56,6 +57,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QDropEvent::QDropEvent(const QDropEvent &a0)
+extern "C" Q_DECL_EXPORT
+QDropEvent *ritual_ZN10QDropEventC1ERKS_(const QDropEvent *a0) {
+  return new CuteQDropEvent(*a0);
+}
+
+//  QDropEvent &QDropEvent::operator=(const QDropEvent &other)
+extern "C" Q_DECL_EXPORT
+QDropEvent *ritual_ZN10QDropEventaSERKS_(
+    QDropEvent *self,
+    const QDropEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QDropEvent *QDropEvent::clone() const
 extern "C" Q_DECL_EXPORT

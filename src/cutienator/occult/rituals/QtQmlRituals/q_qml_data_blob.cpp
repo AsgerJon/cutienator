@@ -156,6 +156,16 @@ public:
   }
 };
 
+//  QQmlDataBlob::QQmlDataBlob(const QUrl &a0, Type a1, QQmlTypeLoader
+//      *manager)
+extern "C" Q_DECL_EXPORT
+QQmlDataBlob *ritual_ZN12QQmlDataBlobC1ERK4QUrlNS_4TypeEP14QQmlTypeLoader(
+    const QUrl *a0,
+    QQmlDataBlob::Type a1,
+    QQmlTypeLoader *manager) {
+  return new CuteQQmlDataBlob(*a0, a1, manager);
+}
+
 //  QQmlDataBlob::~QQmlDataBlob()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQmlDataBlobD1Ev(QQmlDataBlob *self) {
@@ -308,6 +318,14 @@ void ritual_ZN12QQmlDataBlob8setErrorERK7QString(
   self->setError(*description);
 }
 
+//  void QQmlDataBlob::addDependency(const QQmlDataBlob::Ptr &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlDataBlob13addDependencyERK14QQmlRefPointerIS_E(
+    QQmlDataBlob *self,
+    const QQmlDataBlob::Ptr *a0) {
+  self->addDependency(*a0);
+}
+
 //  void QQmlDataBlob::dataReceived(const SourceCodeData &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQmlDataBlob12dataReceivedERKNS_14SourceCodeDataE(
@@ -340,6 +358,22 @@ void ritual_ZN12QQmlDataBlob12networkErrorEN13QNetworkReply12NetworkErrorE(
   self->networkError(a0);
 }
 #endif  // QT_CONFIG(qml_network)
+
+//  void QQmlDataBlob::dependencyError(const QQmlDataBlob::Ptr &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlDataBlob15dependencyErrorERK14QQmlRefPointerIS_E(
+    QQmlDataBlob *self,
+    const QQmlDataBlob::Ptr *a0) {
+  self->dependencyError(*a0);
+}
+
+//  void QQmlDataBlob::dependencyComplete(const QQmlDataBlob::Ptr &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlDataBlob18dependencyCompleteERK14QQmlRefPointerIS_E(
+    QQmlDataBlob *self,
+    const QQmlDataBlob::Ptr *a0) {
+  self->dependencyComplete(*a0);
+}
 
 //  void QQmlDataBlob::allDependenciesDone()
 extern "C" Q_DECL_EXPORT
@@ -377,6 +411,14 @@ void ritual_ZN12QQmlDataBlob19cancelAllWaitingForEv(QQmlDataBlob *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQmlDataBlob20notifyAllWaitingOnMeEv(QQmlDataBlob *self) {
   self->notifyAllWaitingOnMe();
+}
+
+//  void QQmlDataBlob::notifyComplete(const QQmlDataBlob::Ptr &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQmlDataBlob14notifyCompleteERK14QQmlRefPointerIS_E(
+    QQmlDataBlob *self,
+    const QQmlDataBlob::Ptr *a0) {
+  self->notifyComplete(*a0);
 }
 
 //  bool QQmlDataBlob::setStatus(Status status)

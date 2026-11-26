@@ -9,7 +9,9 @@
     "ritual_ZN20BarSeriesRenderCache7cleanupEP13TextureHelper": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20BarSeriesRenderCache11renderArrayEv": ["address", "address"],
     "ritual_ZNK20BarSeriesRenderCache6seriesEv": ["address", "address"],
+    "ritual_ZN20BarSeriesRenderCache10sliceArrayEv": ["address", "address"],
     "ritual_ZN20BarSeriesRenderCache14setVisualIndexEi": [
       "nothing", "address", "int"
     ],

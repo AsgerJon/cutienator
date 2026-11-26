@@ -6,9 +6,33 @@
   ],
   "rows": {
     "ritual_ZNK16QNfcNdefNotifier10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QNfcNdefNotifier11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QNfcNdefNotifier11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QNfcNdefNotifier2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
-    "ritual_ZN16QNfcNdefNotifierC1Ev": ["address"]
+    "ritual_ZN16QNfcNdefNotifierC1Ev": ["address"],
+    "ritual_ZN16QNfcNdefNotifier11tagDetectedEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QNfcNdefNotifier19invalidateWithErrorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QNfcNdefNotifier7tagLostEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QNfcNdefNotifier8tagErrorEN16QNearFieldTarget5ErrorENS0_9RequestIdE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QNfcNdefNotifier18ndefMessageWrittenEN16QNearFieldTarget9RequestIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QNfcNdefNotifier15ndefMessageReadERK12QNdefMessageN16QNearFieldTarget9RequestIdE": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

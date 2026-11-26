@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QQuickView10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QQuickView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QQuickView2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QQuickViewC1EP7QWindow": ["address", "address"],
     "ritual_ZN10QQuickViewC1EP10QQmlEngineP7QWindow": [
@@ -43,6 +49,9 @@
     ],
     "ritual_ZN10QQuickView10setContentERK4QUrlP13QQmlComponentP7QObject": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QQuickView13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN10QQuickView15continueExecuteEv": ["nothing", "address"],
     "ritual_ZN10QQuickView11resizeEventEP12QResizeEvent": [

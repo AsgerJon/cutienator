@@ -11,6 +11,10 @@
     "ritual_ZN13QQmlChangeSetC1Ev": ["address"],
     "ritual_ZN13QQmlChangeSetC1ERKS_": ["address", "address"],
     "ritual_ZN13QQmlChangeSetD1Ev": ["nothing", "address"],
+    "ritual_ZN13QQmlChangeSetaSERKS_": ["address", "address", "address"],
+    "ritual_ZNK13QQmlChangeSet7removesEv": ["address", "address"],
+    "ritual_ZNK13QQmlChangeSet7insertsEv": ["address", "address"],
+    "ritual_ZNK13QQmlChangeSet7changesEv": ["address", "address"],
     "ritual_ZN13QQmlChangeSet6insertEii": [
       "nothing", "address", "int", "int"
     ],
@@ -23,9 +27,27 @@
     "ritual_ZN13QQmlChangeSet6changeEii": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN13QQmlChangeSet6insertERK5QListINS_6ChangeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlChangeSet6removeERK5QListINS_6ChangeEEPS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlChangeSet4moveERK5QListINS_6ChangeEES4_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlChangeSet6changeERK5QListINS_6ChangeEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13QQmlChangeSet5applyERKS_": ["nothing", "address", "address"],
     "ritual_ZNK13QQmlChangeSet7isEmptyEv": ["bool", "address"],
     "ritual_ZN13QQmlChangeSet5clearEv": ["nothing", "address"],
-    "ritual_ZNK13QQmlChangeSet10differenceEv": ["int", "address"]
+    "ritual_ZNK13QQmlChangeSet10differenceEv": ["int", "address"],
+    "ritual_ZN13QQmlChangeSet6removeEP5QListINS_6ChangeEES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlChangeSet6changeEP5QListINS_6ChangeEE": [
+      "nothing", "address", "address"
+    ]
   }
 }

@@ -520,6 +520,25 @@ const QMetaObject *ritual_ZNK29QDesignerIntegrationInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerIntegrationInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QDesignerIntegrationInterface11qt_metacastEPKc(
+    QDesignerIntegrationInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerIntegrationInterface::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QDesignerIntegrationInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerIntegrationInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerIntegrationInterface::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -528,6 +547,15 @@ QString *ritual_ZN29QDesignerIntegrationInterface2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QDesignerIntegrationInterface::tr(s, c, n));
+}
+
+//  QDesignerIntegrationInterface::QDesignerIntegrationInterface(QDesignerFor
+//      mEditorInterface *core, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QDesignerIntegrationInterface *ritual_ZN29QDesignerIntegrationInterfaceC1EP28QDesignerFormEditorInterfaceP7QObject(
+    QDesignerFormEditorInterface *core,
+    QObject *parent) {
+  return new CuteQDesignerIntegrationInterface(core, parent);
 }
 
 //  QDesignerIntegrationInterface::~QDesignerIntegrationInterface()
@@ -693,6 +721,61 @@ void ritual_ZN29QDesignerIntegrationInterface17emitHelpRequestedERK7QStringS2_(
     const QString *manual,
     const QString *document) {
   self->emitHelpRequested(*manual, *document);
+}
+
+//  void QDesignerIntegrationInterface::propertyChanged(QDesignerFormWindowIn
+//      terface *formWindow, const QString &name, const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDesignerIntegrationInterface15propertyChangedEP28QDesignerFormWindowInterfaceRK7QStringRK8QVariant(
+    QDesignerIntegrationInterface *self,
+    QDesignerFormWindowInterface *formWindow,
+    const QString *name,
+    const QVariant *value) {
+  self->propertyChanged(formWindow, *name, *value);
+}
+
+//  void QDesignerIntegrationInterface::objectNameChanged(QDesignerFormWindow
+//      Interface *formWindow, QObject *object, const QString &newName, const
+//      QString &oldName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDesignerIntegrationInterface17objectNameChangedEP28QDesignerFormWindowInterfaceP7QObjectRK7QStringS6_(
+    QDesignerIntegrationInterface *self,
+    QDesignerFormWindowInterface *formWindow,
+    QObject *object,
+    const QString *newName,
+    const QString *oldName) {
+  self->objectNameChanged(formWindow, object, *newName, *oldName);
+}
+
+//  void QDesignerIntegrationInterface::helpRequested(const QString &manual,
+//      const QString &document)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDesignerIntegrationInterface13helpRequestedERK7QStringS2_(
+    QDesignerIntegrationInterface *self,
+    const QString *manual,
+    const QString *document) {
+  self->helpRequested(*manual, *document);
+}
+
+//  void QDesignerIntegrationInterface::navigateToSlot(const QString
+//      &objectName, const QString &signalSignature, const QStringList
+//      &parameterNames)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDesignerIntegrationInterface14navigateToSlotERK7QStringS2_RK5QListIS0_E(
+    QDesignerIntegrationInterface *self,
+    const QString *objectName,
+    const QString *signalSignature,
+    const QList<QString> *parameterNames) {
+  self->navigateToSlot(*objectName, *signalSignature, *parameterNames);
+}
+
+//  void QDesignerIntegrationInterface::navigateToSlot(const QString
+//      &slotSignature)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDesignerIntegrationInterface14navigateToSlotERK7QString(
+    QDesignerIntegrationInterface *self,
+    const QString *slotSignature) {
+  self->navigateToSlot(*slotSignature);
 }
 
 //  void QDesignerIntegrationInterface::setFeatures(Feature f)

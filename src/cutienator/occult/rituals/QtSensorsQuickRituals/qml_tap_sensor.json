@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QmlTapSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QmlTapSensor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QmlTapSensor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QmlTapSensor2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QmlTapSensorC1EP7QObject": ["address", "address"],
     "ritual_ZN12QmlTapSensorD1Ev": ["nothing", "address"],
@@ -14,6 +20,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK12QmlTapSensor6sensorEv": ["address", "address"],
+    "ritual_ZN12QmlTapSensor28returnDoubleTapEventsChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK12QmlTapSensor13createReadingEv": ["address", "address"],
     "ritual_take_QmlTapSensor": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK12QmlTapSensor6sensorEv": ["address", "address"],

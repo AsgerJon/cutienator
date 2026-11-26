@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QWavefrontMesh10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWavefrontMesh11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QWavefrontMesh11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QWavefrontMesh2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -34,7 +40,17 @@
     "ritual_ZN14QWavefrontMesh19setProjectionPlaneWERK9QVector3D": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QWavefrontMesh13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWavefrontMesh16lastErrorChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWavefrontMesh23projectionPlaneVChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWavefrontMesh23projectionPlaneWChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QWavefrontMesh8readDataEv": ["nothing", "address"],
+    "ritual_ZN14QWavefrontMesh6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QWavefrontMesh6d_funcEv": ["address", "address"],
     "ritual_take_QWavefrontMesh": ["bool", "address", "chars", "address"],
     "ritual_own_ZN14QWavefrontMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_": [
       "address", "address", "address", "int", "int", "address", "address"

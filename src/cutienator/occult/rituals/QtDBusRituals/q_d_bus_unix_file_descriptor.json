@@ -8,7 +8,16 @@
     "ritual_ZN23QDBusUnixFileDescriptorC1Ev": ["address"],
     "ritual_ZN23QDBusUnixFileDescriptorC1Ei": ["address", "int"],
     "ritual_ZN23QDBusUnixFileDescriptorC1ERKS_": ["address", "address"],
+    "ritual_ZN23QDBusUnixFileDescriptoraSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QDBusUnixFileDescriptoraSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QDBusUnixFileDescriptorD1Ev": ["nothing", "address"],
+    "ritual_ZN23QDBusUnixFileDescriptor4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK23QDBusUnixFileDescriptor7isValidEv": ["bool", "address"],
     "ritual_ZNK23QDBusUnixFileDescriptor14fileDescriptorEv": [
       "int", "address"

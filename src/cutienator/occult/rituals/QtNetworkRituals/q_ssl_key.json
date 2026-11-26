@@ -11,8 +11,13 @@
     "ritual_ZN7QSslKeyC1EP9QIODeviceN4QSsl12KeyAlgorithmENS2_14EncodingFormatENS2_7KeyTypeERK10QByteArray": [
       "address", "address", "int", "int", "int", "address"
     ],
+    "ritual_ZN7QSslKeyC1EPvN4QSsl7KeyTypeE": ["address", "address", "int"],
     "ritual_ZN7QSslKeyC1ERKS_": ["address", "address"],
+    "ritual_ZN7QSslKeyC1EOS_": ["address", "address"],
+    "ritual_ZN7QSslKeyaSEOS_": ["address", "address", "address"],
+    "ritual_ZN7QSslKeyaSERKS_": ["address", "address", "address"],
     "ritual_ZN7QSslKeyD1Ev": ["nothing", "address"],
+    "ritual_ZN7QSslKey4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK7QSslKey6isNullEv": ["bool", "address"],
     "ritual_ZN7QSslKey5clearEv": ["nothing", "address"],
     "ritual_ZNK7QSslKey6lengthEv": ["int", "address"],
@@ -24,6 +29,7 @@
     "ritual_ZNK7QSslKey5toDerERK10QByteArray": [
       "address", "address", "address"
     ],
+    "ritual_ZNK7QSslKey6handleEv": ["address", "address"],
     "ritual_ZNK7QSslKeyeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK7QSslKeyneERKS_": ["bool", "address", "address"]
   }

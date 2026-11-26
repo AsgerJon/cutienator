@@ -5,9 +5,13 @@
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(async_io)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(async_io)
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qiooperation_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qiooperation_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER

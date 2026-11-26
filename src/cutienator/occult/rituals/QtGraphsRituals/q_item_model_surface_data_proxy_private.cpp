@@ -3,7 +3,7 @@
 //  6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qitemmodelsurfacedataproxy.h>
@@ -12,6 +12,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGraphs/private/qsurface3dseries_p.h>
+#include <QtGraphs/private/surfaceitemmodelhandler_p.h>
+#include <QtGraphs/private/qabstract3daxis_p.h>
+#include <QtGraphs/private/qsurface3dseries_p.h>
+#include <QtGraphs/private/qsurfacedataproxy_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #include <QtGraphs/private/qitemmodelsurfacedataproxy_p.h>
 #include <QtGraphs/private/surfaceitemmodelhandler_p.h>
 #include <QtGraphs/private/qgraphs3dlogging_p.h>
@@ -24,7 +30,37 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtgraphs/src/graphs3d/data/qitemmodelsurfacedataproxy.cpp, line 1294, as _ZN33QItemModelSurfaceDataProxyPrivateD1Ev
+//  from ../qtgraphs/src/graphs3d/data/surfaceitemmodelhandler.cpp, line 25, as _ZN23SurfaceItemModelHandlerC1EP26QItemModelSurfaceDataProxyP7QObject
+inline SurfaceItemModelHandler::SurfaceItemModelHandler(QItemModelSurfaceDataProxy *proxy, QObject *parent)
+    : AbstractItemModelHandler(parent)
+    , m_proxy(proxy)
+    , m_proxyArray(0)
+    , m_xPosRole(noRoleIndex)
+    , m_yPosRole(noRoleIndex)
+    , m_zPosRole(noRoleIndex)
+    , m_haveXPosPattern(false)
+    , m_haveYPosPattern(false)
+    , m_haveZPosPattern(false)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qsurfacedataproxy.cpp, line 652, as _ZN24QSurfaceDataProxyPrivate9setSeriesEP17QAbstract3DSeries
+inline void QSurfaceDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+{
+    Q_Q(QSurfaceDataProxy);
+    QAbstractDataProxyPrivate::setSeries(series);
+    QSurface3DSeries *surfaceSeries = static_cast<QSurface3DSeries *>(series);
+    emit q->seriesChanged(surfaceSeries);
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qsurfacedataproxy.cpp, line 414, as _ZN24QSurfaceDataProxyPrivateC2Ev
+inline QSurfaceDataProxyPrivate::QSurfaceDataProxyPrivate()
+    : QAbstractDataProxyPrivate(QAbstractDataProxy::DataType::Surface)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qsurfacedataproxy.cpp, line 418, as _ZN24QSurfaceDataProxyPrivateD2Ev
+inline QSurfaceDataProxyPrivate::~QSurfaceDataProxyPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qitemmodelsurfacedataproxy.cpp, line 1294, as _ZN33QItemModelSurfaceDataProxyPrivateD2Ev
 inline QItemModelSurfaceDataProxyPrivate::~QItemModelSurfaceDataProxyPrivate()
 {
     delete m_itemModelHandler;
@@ -92,4 +128,4 @@ bool ritual_take_QItemModelSurfaceDataProxyPrivate(
   return static_cast<CuteQItemModelSurfaceDataProxyPrivate *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))

@@ -8,11 +8,20 @@
     "ritual_ZNK25QQuickPathCatmullRomCurve10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickPathCatmullRomCurve11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickPathCatmullRomCurve11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuickPathCatmullRomCurve2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN25QQuickPathCatmullRomCurveC1EP7QObject": [
       "address", "address"
+    ],
+    "ritual_ZN25QQuickPathCatmullRomCurve9addToPathER12QPainterPathRK14QQuickPathData": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_QQuickPathCatmullRomCurve": [
       "bool", "address", "chars", "address"

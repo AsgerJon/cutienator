@@ -213,6 +213,25 @@ const QMetaObject *ritual_ZNK27QPlaceSearchSuggestionReply10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlaceSearchSuggestionReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QPlaceSearchSuggestionReply11qt_metacastEPKc(
+    QPlaceSearchSuggestionReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlaceSearchSuggestionReply::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QPlaceSearchSuggestionReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlaceSearchSuggestionReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlaceSearchSuggestionReply::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -258,6 +277,21 @@ void ritual_ZN27QPlaceSearchSuggestionReply14setSuggestionsERK5QListI7QStringE(
     QPlaceSearchSuggestionReply *self,
     const QList<QString> *suggestions) {
   self->setSuggestions(*suggestions);
+}
+
+//  QPlaceSearchSuggestionReplyPrivate *QPlaceSearchSuggestionReply::d_func()
+extern "C" Q_DECL_EXPORT
+QPlaceSearchSuggestionReplyPrivate *ritual_ZN27QPlaceSearchSuggestionReply6d_funcEv(
+    QPlaceSearchSuggestionReply *self) {
+  return self->d_func();
+}
+
+//  const QPlaceSearchSuggestionReplyPrivate
+//      *QPlaceSearchSuggestionReply::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPlaceSearchSuggestionReplyPrivate *ritual_ZNK27QPlaceSearchSuggestionReply6d_funcEv(
+    const QPlaceSearchSuggestionReply *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQPlaceSearchSuggestionReply, for the

@@ -114,6 +114,12 @@ public:
   }
 };
 
+//  QDesignerSettingsInterface::QDesignerSettingsInterface()
+extern "C" Q_DECL_EXPORT
+QDesignerSettingsInterface *ritual_ZN26QDesignerSettingsInterfaceC1Ev() {
+  return new CuteQDesignerSettingsInterface();
+}
+
 //  QDesignerSettingsInterface::~QDesignerSettingsInterface()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QDesignerSettingsInterfaceD1Ev(

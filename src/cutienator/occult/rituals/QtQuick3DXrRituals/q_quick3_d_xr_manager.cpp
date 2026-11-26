@@ -235,6 +235,39 @@ const QMetaObject *ritual_ZNK17QQuick3DXrManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DXrManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuick3DXrManager11qt_metacastEPKc(
+    QQuick3DXrManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrManager::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuick3DXrManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QQuick3DXrManagerPrivate *QQuick3DXrManager::d_func()
+extern "C" Q_DECL_EXPORT
+QQuick3DXrManagerPrivate *ritual_ZN17QQuick3DXrManager6d_funcEv(
+    QQuick3DXrManager *self) {
+  return self->d_func();
+}
+
+//  const QQuick3DXrManagerPrivate *QQuick3DXrManager::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuick3DXrManagerPrivate *ritual_ZNK17QQuick3DXrManager6d_funcEv(
+    const QQuick3DXrManager *self) {
+  return self->d_func();
+}
+
 //  bool QQuick3DXrManager::isMultiViewRenderingSupported() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QQuick3DXrManager29isMultiViewRenderingSupportedEv(
@@ -246,6 +279,185 @@ bool ritual_ZNK17QQuick3DXrManager29isMultiViewRenderingSupportedEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN17QQuick3DXrManager28isMultiviewRenderingDisabledEv() {
   return QQuick3DXrManager::isMultiviewRenderingDisabled();
+}
+
+//  void QQuick3DXrManager::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DXrManager6updateEv(QQuick3DXrManager *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "update()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "update()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrManager::initialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DXrManager11initializedEv(QQuick3DXrManager *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "initialized()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "initialized()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrManager::sessionEnded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DXrManager12sessionEndedEv(QQuick3DXrManager *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sessionEnded()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sessionEnded()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrManager::xrOriginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DXrManager15xrOriginChangedEv(
+    QQuick3DXrManager *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "xrOriginChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "xrOriginChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrManager::frameReady()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DXrManager10frameReadyEv(QQuick3DXrManager *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "frameReady()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "frameReady()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrManager::referenceSpaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DXrManager21referenceSpaceChangedEv(
+    QQuick3DXrManager *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "referenceSpaceChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "referenceSpaceChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrManager::multiViewRenderingEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DXrManager32multiViewRenderingEnabledChangedEv(
+    QQuick3DXrManager *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrManager")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "multiViewRenderingEnabledChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "multiViewRenderingEnabledChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  bool QQuick3DXrManager::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QQuick3DXrManager5eventEP6QEvent(
+    QQuick3DXrManager *self,
+    QEvent *e) {
+  return self->event(e);
 }
 
 //  void QQuick3DXrManager::preSetupQuickScene()

@@ -15,18 +15,21 @@
 typedef void (*CuteQTlsPrivate_TlsKeyCall0)(const void *, int, int, const QByteArray *, const QByteArray *, bool, int *);
 typedef void (*CuteQTlsPrivate_TlsKeyCall1)(const void *, int, int, const QByteArray *, const QByteArray *, bool, int *);
 typedef const QByteArray * (*CuteQTlsPrivate_TlsKeyCall2)(const void *, const QByteArray *, int *);
-typedef bool (*CuteQTlsPrivate_TlsKeyCall3)(const void *, int *);
-typedef int (*CuteQTlsPrivate_TlsKeyCall4)(const void *, int *);
-typedef int (*CuteQTlsPrivate_TlsKeyCall5)(const void *, int *);
-typedef int (*CuteQTlsPrivate_TlsKeyCall6)(const void *, int *);
-typedef void (*CuteQTlsPrivate_TlsKeyCall7)(const void *, bool, int *);
-typedef bool (*CuteQTlsPrivate_TlsKeyCall8)(const void *, int *);
-typedef const QByteArray * (*CuteQTlsPrivate_TlsKeyCall9)(const void *, int, const QByteArray *, const QByteArray *, const QByteArray *, int *);
-typedef const QByteArray * (*CuteQTlsPrivate_TlsKeyCall10)(const void *, int, const QByteArray *, const QByteArray *, const QByteArray *, int *);
+typedef const QByteArray * (*CuteQTlsPrivate_TlsKeyCall3)(const void *, const QByteArray *, QMap<QByteArray, QByteArray> *, int *);
+typedef void (*CuteQTlsPrivate_TlsKeyCall4)(const void *, Qt::HANDLE, int, int *);
+typedef void * (*CuteQTlsPrivate_TlsKeyCall5)(const void *, int *);
+typedef bool (*CuteQTlsPrivate_TlsKeyCall6)(const void *, int *);
+typedef int (*CuteQTlsPrivate_TlsKeyCall7)(const void *, int *);
+typedef int (*CuteQTlsPrivate_TlsKeyCall8)(const void *, int *);
+typedef int (*CuteQTlsPrivate_TlsKeyCall9)(const void *, int *);
+typedef void (*CuteQTlsPrivate_TlsKeyCall10)(const void *, bool, int *);
+typedef bool (*CuteQTlsPrivate_TlsKeyCall11)(const void *, int *);
+typedef const QByteArray * (*CuteQTlsPrivate_TlsKeyCall12)(const void *, int, const QByteArray *, const QByteArray *, const QByteArray *, int *);
+typedef const QByteArray * (*CuteQTlsPrivate_TlsKeyCall13)(const void *, int, const QByteArray *, const QByteArray *, const QByteArray *, int *);
 class CuteQTlsPrivate_TlsKey : public QTlsPrivate::TlsKey {
 public:
   using QTlsPrivate::TlsKey::TlsKey;
-  void *taken[11] = {};
+  void *taken[14] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN11QTlsPrivate6TlsKey9decodeDerEN4QSsl7KeyTypeENS1_12KeyAlgorithmERK10QByteArrayS6_b")) {
@@ -41,36 +44,48 @@ public:
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey6isNullEv")) {
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey10derFromPemERK10QByteArrayP4QMapIS1_S1_E")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey4typeEv")) {
+    if (!std::strcmp(key, "_ZN11QTlsPrivate6TlsKey10fromHandleEPvN4QSsl7KeyTypeE")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey9algorithmEv")) {
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey6handleEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey6lengthEv")) {
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey6isNullEv")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QTlsPrivate6TlsKey5clearEb")) {
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey4typeEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey7isPkcs8Ev")) {
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey9algorithmEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey7decryptENS_6CipherERK10QByteArrayS4_S4_")) {
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey6lengthEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey7encryptENS_6CipherERK10QByteArrayS4_S4_")) {
+    if (!std::strcmp(key, "_ZN11QTlsPrivate6TlsKey5clearEb")) {
       taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey7isPkcs8Ev")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey7decryptENS_6CipherERK10QByteArrayS4_S4_")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QTlsPrivate6TlsKey7encryptENS_6CipherERK10QByteArrayS4_S4_")) {
+      taken[13] = call;
       return true;
     }
     return false;
@@ -122,11 +137,48 @@ public:
     return {};
   }
 
-  //  bool QTlsPrivate::TlsKey::isNull() const
-  bool isNull() const override {
+  //  QByteArray QTlsPrivate::TlsKey::derFromPem(const QByteArray &pem,
+  //      QMap<QByteArray, QByteArray> *headers) const
+  QByteArray derFromPem(
+      const QByteArray &pem,
+      QMap<QByteArray, QByteArray> *headers) const override {
     if (taken[3]) {
       int handled = 0;
       CuteQTlsPrivate_TlsKeyCall3 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall3>(taken[3]);
+      const QByteArray * given = call(this, &pem, headers, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  void QTlsPrivate::TlsKey::fromHandle(Qt::HANDLE handle, KeyType type)
+  void fromHandle(
+      Qt::HANDLE handle,
+      QTlsPrivate::TlsKey::KeyType type) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQTlsPrivate_TlsKeyCall4 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall4>(taken[4]);
+      call(this, handle, static_cast<int>(type), &handled);
+      if (handled) return;
+    }
+  }
+
+  //  Qt::HANDLE QTlsPrivate::TlsKey::handle() const
+  Qt::HANDLE handle() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQTlsPrivate_TlsKeyCall5 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall5>(taken[5]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<Qt::HANDLE>(given);
+    }
+    return {};
+  }
+
+  //  bool QTlsPrivate::TlsKey::isNull() const
+  bool isNull() const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQTlsPrivate_TlsKeyCall6 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall6>(taken[6]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -135,9 +187,9 @@ public:
 
   //  KeyType QTlsPrivate::TlsKey::type() const
   QTlsPrivate::TlsKey::KeyType type() const override {
-    if (taken[4]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQTlsPrivate_TlsKeyCall4 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall4>(taken[4]);
+      CuteQTlsPrivate_TlsKeyCall7 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall7>(taken[7]);
       int given = call(this, &handled);
       if (handled) return static_cast<QTlsPrivate::TlsKey::KeyType>(given);
     }
@@ -146,9 +198,9 @@ public:
 
   //  KeyAlgorithm QTlsPrivate::TlsKey::algorithm() const
   QTlsPrivate::TlsKey::KeyAlgorithm algorithm() const override {
-    if (taken[5]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQTlsPrivate_TlsKeyCall5 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall5>(taken[5]);
+      CuteQTlsPrivate_TlsKeyCall8 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall8>(taken[8]);
       int given = call(this, &handled);
       if (handled) return static_cast<QTlsPrivate::TlsKey::KeyAlgorithm>(given);
     }
@@ -157,9 +209,9 @@ public:
 
   //  int QTlsPrivate::TlsKey::length() const
   int length() const override {
-    if (taken[6]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQTlsPrivate_TlsKeyCall6 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall6>(taken[6]);
+      CuteQTlsPrivate_TlsKeyCall9 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall9>(taken[9]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -168,9 +220,9 @@ public:
 
   //  void QTlsPrivate::TlsKey::clear(bool deepClear)
   void clear(bool deepClear) override {
-    if (taken[7]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQTlsPrivate_TlsKeyCall7 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall7>(taken[7]);
+      CuteQTlsPrivate_TlsKeyCall10 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall10>(taken[10]);
       call(this, deepClear, &handled);
       if (handled) return;
     }
@@ -178,9 +230,9 @@ public:
 
   //  bool QTlsPrivate::TlsKey::isPkcs8() const
   bool isPkcs8() const override {
-    if (taken[8]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQTlsPrivate_TlsKeyCall8 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall8>(taken[8]);
+      CuteQTlsPrivate_TlsKeyCall11 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall11>(taken[11]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -195,9 +247,9 @@ public:
       const QByteArray &data,
       const QByteArray &passPhrase,
       const QByteArray &iv) const override {
-    if (taken[9]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQTlsPrivate_TlsKeyCall9 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall9>(taken[9]);
+      CuteQTlsPrivate_TlsKeyCall12 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall12>(taken[12]);
       const QByteArray * given = call(this, static_cast<int>(cipher), &data, &passPhrase, &iv, &handled);
       if (handled && given) return *given;
     }
@@ -212,9 +264,9 @@ public:
       const QByteArray &data,
       const QByteArray &key,
       const QByteArray &iv) const override {
-    if (taken[10]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQTlsPrivate_TlsKeyCall10 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall10>(taken[10]);
+      CuteQTlsPrivate_TlsKeyCall13 call = reinterpret_cast<CuteQTlsPrivate_TlsKeyCall13>(taken[13]);
       const QByteArray * given = call(this, static_cast<int>(cipher), &data, &key, &iv, &handled);
       if (handled && given) return *given;
     }
@@ -260,6 +312,42 @@ QByteArray *ritual_ZNK11QTlsPrivate6TlsKey5toPemERK10QByteArray(
     const QTlsPrivate::TlsKey *self,
     const QByteArray *passPhrase) {
   return new QByteArray(self->toPem(*passPhrase));
+}
+
+//  QByteArray QTlsPrivate::TlsKey::derFromPem(const QByteArray &pem,
+//      QMap<QByteArray, QByteArray> *headers) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK11QTlsPrivate6TlsKey10derFromPemERK10QByteArrayP4QMapIS1_S1_E(
+    const QTlsPrivate::TlsKey *self,
+    const QByteArray *pem,
+    QMap<QByteArray, QByteArray> *headers) {
+  return new QByteArray(self->derFromPem(*pem, headers));
+}
+
+//  QByteArray QTlsPrivate::TlsKey::pemFromDer(const QByteArray &der, const
+//      QMap<QByteArray, QByteArray> &headers) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK11QTlsPrivate6TlsKey10pemFromDerERK10QByteArrayRK4QMapIS1_S1_E(
+    const QTlsPrivate::TlsKey *self,
+    const QByteArray *der,
+    const QMap<QByteArray, QByteArray> *headers) {
+  return new QByteArray(self->pemFromDer(*der, *headers));
+}
+
+//  void QTlsPrivate::TlsKey::fromHandle(Qt::HANDLE handle, KeyType type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTlsPrivate6TlsKey10fromHandleEPvN4QSsl7KeyTypeE(
+    QTlsPrivate::TlsKey *self,
+    Qt::HANDLE handle,
+    QTlsPrivate::TlsKey::KeyType type) {
+  self->fromHandle(handle, type);
+}
+
+//  Qt::HANDLE QTlsPrivate::TlsKey::handle() const
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_ZNK11QTlsPrivate6TlsKey6handleEv(
+    const QTlsPrivate::TlsKey *self) {
+  return self->handle();
 }
 
 //  bool QTlsPrivate::TlsKey::isNull() const
@@ -327,6 +415,20 @@ QByteArray *ritual_ZNK11QTlsPrivate6TlsKey7encryptENS_6CipherERK10QByteArrayS4_S
     const QByteArray *key,
     const QByteArray *iv) {
   return new QByteArray(self->encrypt(cipher, *data, *key, *iv));
+}
+
+//  QByteArray QTlsPrivate::TlsKey::pemHeader() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK11QTlsPrivate6TlsKey9pemHeaderEv(
+    const QTlsPrivate::TlsKey *self) {
+  return new QByteArray(self->pemHeader());
+}
+
+//  QByteArray QTlsPrivate::TlsKey::pemFooter() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK11QTlsPrivate6TlsKey9pemFooterEv(
+    const QTlsPrivate::TlsKey *self) {
+  return new QByteArray(self->pemFooter());
 }
 
 //  a Python function taken by a CuteQTlsPrivate_TlsKey, for the function

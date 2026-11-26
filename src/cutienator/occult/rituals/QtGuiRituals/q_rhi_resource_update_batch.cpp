@@ -37,6 +37,18 @@ bool ritual_ZNK23QRhiResourceUpdateBatch18hasOptimalCapacityEv(
 }
 
 //  void QRhiResourceUpdateBatch::updateDynamicBuffer(QRhiBuffer *buf,
+//      quint32 offset, quint32 size, const void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QRhiResourceUpdateBatch19updateDynamicBufferEP10QRhiBufferjjPKv(
+    QRhiResourceUpdateBatch *self,
+    QRhiBuffer *buf,
+    quint32 offset,
+    quint32 size,
+    const void *data) {
+  self->updateDynamicBuffer(buf, offset, size, data);
+}
+
+//  void QRhiResourceUpdateBatch::updateDynamicBuffer(QRhiBuffer *buf,
 //      quint32 offset, QByteArray data)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QRhiResourceUpdateBatch19updateDynamicBufferEP10QRhiBufferj10QByteArray(
@@ -48,6 +60,18 @@ void ritual_ZN23QRhiResourceUpdateBatch19updateDynamicBufferEP10QRhiBufferj10QBy
 }
 
 //  void QRhiResourceUpdateBatch::uploadStaticBuffer(QRhiBuffer *buf, quint32
+//      offset, quint32 size, const void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBufferjjPKv(
+    QRhiResourceUpdateBatch *self,
+    QRhiBuffer *buf,
+    quint32 offset,
+    quint32 size,
+    const void *data) {
+  self->uploadStaticBuffer(buf, offset, size, data);
+}
+
+//  void QRhiResourceUpdateBatch::uploadStaticBuffer(QRhiBuffer *buf, quint32
 //      offset, QByteArray data)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBufferj10QByteArray(
@@ -56,6 +80,16 @@ void ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBufferj10QByt
     quint32 offset,
     const QByteArray *data) {
   self->uploadStaticBuffer(buf, offset, *data);
+}
+
+//  void QRhiResourceUpdateBatch::uploadStaticBuffer(QRhiBuffer *buf, const
+//      void *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBufferPKv(
+    QRhiResourceUpdateBatch *self,
+    QRhiBuffer *buf,
+    const void *data) {
+  self->uploadStaticBuffer(buf, data);
 }
 
 //  void QRhiResourceUpdateBatch::uploadStaticBuffer(QRhiBuffer *buf,

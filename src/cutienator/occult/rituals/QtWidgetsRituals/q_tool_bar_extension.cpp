@@ -26,6 +26,21 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qtoolbarextension.cpp, line 26, as _ZN17QToolBarExtension14setOrientationEN2Qt11OrientationE
+inline void QToolBarExtension::setOrientation(Qt::Orientation o)
+{
+    QStyleOption opt;
+    opt.initFrom(this);
+    if (o == Qt::Horizontal) {
+        setIcon(style()->standardIcon(QStyle::SP_ToolBarHorizontalExtensionButton, &opt, this));
+    } else {
+        setIcon(style()->standardIcon(QStyle::SP_ToolBarVerticalExtensionButton, &opt, this));
+    }
+    m_orientation = o;
+}
+
 //  from src/widgets/widgets/qtoolbarextension.cpp, line 38, as _ZN17QToolBarExtension10paintEventEP11QPaintEvent
 inline void QToolBarExtension::paintEvent(QPaintEvent *)
 {
@@ -44,19 +59,6 @@ inline QSize QToolBarExtension::sizeHint() const
     opt.initFrom(this);
     const int ext = style()->pixelMetric(QStyle::PM_ToolBarExtensionExtent, &opt, this);
     return QSize(ext, ext);
-}
-
-//  from src/widgets/widgets/qtoolbarextension.cpp, line 26, as _ZN17QToolBarExtension14setOrientationEN2Qt11OrientationE
-inline void QToolBarExtension::setOrientation(Qt::Orientation o)
-{
-    QStyleOption opt;
-    opt.initFrom(this);
-    if (o == Qt::Horizontal) {
-        setIcon(style()->standardIcon(QStyle::SP_ToolBarHorizontalExtensionButton, &opt, this));
-    } else {
-        setIcon(style()->standardIcon(QStyle::SP_ToolBarVerticalExtensionButton, &opt, this));
-    }
-    m_orientation = o;
 }
 
 //  from src/widgets/widgets/qtoolbarextension.cpp, line 57, as _ZN17QToolBarExtension5eventEP6QEvent
@@ -86,6 +88,25 @@ const QMetaObject *ritual_ZNK17QToolBarExtension10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QToolBarExtension::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QToolBarExtension11qt_metacastEPKc(
+    QToolBarExtension *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QToolBarExtension::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QToolBarExtension11qt_metacallEN11QMetaObject4CallEiPPv(
+    QToolBarExtension *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QToolBarExtension::paintEvent(QPaintEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QToolBarExtension10paintEventEP11QPaintEvent(
@@ -106,7 +127,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QToolBarExtension14setOrientationEN2Qt11OrientationE(
     QToolBarExtension *self,
     Qt::Orientation o) {
-  self->setOrientation(o);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QToolBarExtension")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setOrientation(Qt::Orientation)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setOrientation(Qt::Orientation)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&o)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  bool QToolBarExtension::event(QEvent *e)

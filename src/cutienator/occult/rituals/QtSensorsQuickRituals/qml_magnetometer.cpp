@@ -248,6 +248,24 @@ const QMetaObject *ritual_ZNK15QmlMagnetometer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlMagnetometer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QmlMagnetometer11qt_metacastEPKc(
+    QmlMagnetometer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlMagnetometer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QmlMagnetometer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlMagnetometer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlMagnetometer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QmlMagnetometer2trEPKcS1_i(
@@ -288,6 +306,14 @@ void ritual_ZN15QmlMagnetometer18setReturnGeoValuesEb(
 extern "C" Q_DECL_EXPORT
 QSensor *ritual_ZNK15QmlMagnetometer6sensorEv(const QmlMagnetometer *self) {
   return self->sensor();
+}
+
+//  void QmlMagnetometer::returnGeoValuesChanged(bool returnGeoValues)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QmlMagnetometer22returnGeoValuesChangedEb(
+    QmlMagnetometer *self,
+    bool returnGeoValues) {
+  self->returnGeoValuesChanged(returnGeoValues);
 }
 
 //  QmlSensorReading *QmlMagnetometer::createReading() const

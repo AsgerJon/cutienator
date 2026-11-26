@@ -6,8 +6,29 @@
   ],
   "rows": {
     "ritual_ZNK20QWaylandQuickSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QWaylandQuickSurface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QWaylandQuickSurface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QWaylandQuickSurface2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QWaylandQuickSurface6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QWaylandQuickSurface6d_funcEv": ["address", "address"],
+    "ritual_ZN20QWaylandQuickSurface4dataEv": ["address", "address"],
+    "ritual_ZN20QWaylandQuickSurface14appendFunctionEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QWaylandQuickSurface13countFunctionEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN20QWaylandQuickSurface10atFunctionEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN20QWaylandQuickSurface13clearFunctionEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
     ],
     "ritual_ZN20QWaylandQuickSurfaceC1Ev": ["address"],
     "ritual_ZN20QWaylandQuickSurfaceC1EP18QWaylandCompositorP14QWaylandClientji": [
@@ -20,8 +41,17 @@
     "ritual_ZN20QWaylandQuickSurface18setUseTextureAlphaEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN20QWaylandQuickSurfaceC1ER27QWaylandQuickSurfacePrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN20QWaylandQuickSurface22useTextureAlphaChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QWaylandQuickSurface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QWaylandQuickSurface__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

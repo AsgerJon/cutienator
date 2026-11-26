@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/cylindergeometry_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/qtquick3dhelpersglobal_p.h>
 #include <QtQuick3DHelpers/QtQuick3DHelpers>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -286,6 +287,25 @@ const QMetaObject *ritual_ZNK16CylinderGeometry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *CylinderGeometry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16CylinderGeometry11qt_metacastEPKc(
+    CylinderGeometry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int CylinderGeometry::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16CylinderGeometry11qt_metacallEN11QMetaObject4CallEiPPv(
+    CylinderGeometry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString CylinderGeometry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16CylinderGeometry2trEPKcS1_i(
@@ -399,12 +419,94 @@ void ritual_ZN16CylinderGeometry15requestFinishedEv(CylinderGeometry *self) {
   self->requestFinished();
 }
 
+//  void CylinderGeometry::radiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16CylinderGeometry13radiusChangedEv(CylinderGeometry *self) {
+  self->radiusChanged();
+}
+
+//  void CylinderGeometry::lengthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16CylinderGeometry13lengthChangedEv(CylinderGeometry *self) {
+  self->lengthChanged();
+}
+
+//  void CylinderGeometry::ringsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16CylinderGeometry12ringsChangedEv(CylinderGeometry *self) {
+  self->ringsChanged();
+}
+
+//  void CylinderGeometry::segmentsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16CylinderGeometry15segmentsChangedEv(CylinderGeometry *self) {
+  self->segmentsChanged();
+}
+
+//  void CylinderGeometry::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16CylinderGeometry19asynchronousChangedEv(
+    CylinderGeometry *self) {
+  self->asynchronousChanged();
+}
+
+//  void CylinderGeometry::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16CylinderGeometry13statusChangedEv(CylinderGeometry *self) {
+  self->statusChanged();
+}
+
 //  void CylinderGeometry::scheduleGeometryUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16CylinderGeometry22scheduleGeometryUpdateEv(
     CylinderGeometry *self) {
   self->scheduleGeometryUpdate();
 }
+
+//  void CylinderGeometry::updateGeometry(const GeometryData &geometryData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16CylinderGeometry14updateGeometryERKNS_12GeometryDataE(
+    CylinderGeometry *self,
+    const CylinderGeometry::GeometryData *geometryData) {
+  self->updateGeometry(*geometryData);
+}
+
+//  CylinderGeometry::GeometryData
+//      CylinderGeometry::generateCylinderGeometry(float radius, float
+//      length, int rings, int slices)
+extern "C" Q_DECL_EXPORT
+CylinderGeometry::GeometryData *ritual_ZN16CylinderGeometry24generateCylinderGeometryEffii(
+    float radius,
+    float length,
+    int rings,
+    int slices) {
+  return new CylinderGeometry::GeometryData(
+      CylinderGeometry::generateCylinderGeometry(
+          radius,
+          length,
+          rings,
+          slices));
+}
+
+#if QT_CONFIG(concurrent)
+//  void CylinderGeometry::generateCylinderGeometryAsync(QPromise<CylinderGeo
+//      metry::GeometryData> &promise, float radius, float length, int rings,
+//      int segments)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16CylinderGeometry29generateCylinderGeometryAsyncER8QPromiseINS_12GeometryDataEEffii(
+    QPromise<CylinderGeometry::GeometryData> *promise,
+    float radius,
+    float length,
+    int rings,
+    int segments) {
+  CylinderGeometry::generateCylinderGeometryAsync(
+      *promise,
+      radius,
+      length,
+      rings,
+      segments);
+}
+#endif  // QT_CONFIG(concurrent)
 
 //  a Python function taken by a CuteCylinderGeometry, for the function named
 //      by the key
@@ -414,4 +516,11 @@ bool ritual_take_CylinderGeometry(
     const char *key,
     void *call) {
   return static_cast<CuteCylinderGeometry *>(self)->take(key, call);
+}
+
+//  a CylinderGeometry::GeometryData a ritual of CylinderGeometry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_CylinderGeometry__CylinderGeometry_GeometryData(
+    CylinderGeometry::GeometryData *self) {
+  delete self;
 }

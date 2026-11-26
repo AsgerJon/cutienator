@@ -188,6 +188,24 @@ const QMetaObject *ritual_ZNK13QMediaDevices10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMediaDevices::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QMediaDevices11qt_metacastEPKc(
+    QMediaDevices *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMediaDevices::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QMediaDevices11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMediaDevices *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMediaDevices::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QMediaDevices2trEPKcS1_i(
@@ -243,6 +261,24 @@ QAudioDevice *ritual_ZN13QMediaDevices18defaultAudioOutputEv() {
 extern "C" Q_DECL_EXPORT
 QCameraDevice *ritual_ZN13QMediaDevices17defaultVideoInputEv() {
   return new QCameraDevice(QMediaDevices::defaultVideoInput());
+}
+
+//  void QMediaDevices::audioInputsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMediaDevices18audioInputsChangedEv(QMediaDevices *self) {
+  self->audioInputsChanged();
+}
+
+//  void QMediaDevices::audioOutputsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMediaDevices19audioOutputsChangedEv(QMediaDevices *self) {
+  self->audioOutputsChanged();
+}
+
+//  void QMediaDevices::videoInputsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMediaDevices18videoInputsChangedEv(QMediaDevices *self) {
+  self->videoInputsChanged();
 }
 
 //  void QMediaDevices::connectNotify(const QMetaMethod &signal)

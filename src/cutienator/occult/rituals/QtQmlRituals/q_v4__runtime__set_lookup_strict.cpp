@@ -5,7 +5,19 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4runtimeapi_p.h>
+#include <QtQml/6.12.0/QtQml/private/qv4value_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  void QV4::Runtime::SetLookupStrict::call(Function *a0, const Value &a1,
+//      int a2, const Value &a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV47Runtime15SetLookupStrict4callEPNS_8FunctionERKNS_5ValueEiS6_(
+    QV4::Function *a0,
+    const QV4::Value *a1,
+    int a2,
+    const QV4::Value *a3) {
+  QV4::Runtime::SetLookupStrict::call(a0, *a1, a2, *a3);
+}
 
 //  QV4::Runtime::SetLookupStrict::~SetLookupStrict()
 extern "C" Q_DECL_EXPORT

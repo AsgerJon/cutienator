@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuickStochasticState10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickStochasticState11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickStochasticState11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickStochasticState2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -22,6 +28,22 @@
       "int", "address"
     ],
     "ritual_ZNK21QQuickStochasticState11randomStartEv": ["bool", "address"],
+    "ritual_ZN21QQuickStochasticState15durationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickStochasticState11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQuickStochasticState9toChangedERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickStochasticState24durationVariationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickStochasticState7enteredEv": ["nothing", "address"],
+    "ritual_ZN21QQuickStochasticState18randomStartChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN21QQuickStochasticState11setDurationEi": [
       "nothing", "address", "int"
     ],

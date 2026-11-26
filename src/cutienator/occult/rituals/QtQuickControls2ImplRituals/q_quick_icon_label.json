@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickIconLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickIconLabel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickIconLabel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickIconLabel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -72,6 +78,12 @@
     ],
     "ritual_ZN15QQuickIconLabel18resetBottomPaddingEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN15QQuickIconLabel23defaultIconColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickIconLabelC1ER22QQuickIconLabelPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QQuickIconLabel17componentCompleteEv": [
       "nothing", "address"

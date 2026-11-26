@@ -20,7 +20,9 @@
 #include <QtGui/private/qtriangulatingstroker_p.h>
 #include <QtGui/private/qrhi_p.h>
 #include <QtQuick/private/qsgcurvefillnode_p.h>
+#include <QtQuick/private/qsgcurvestrokenode_p.h>
 #include <QtQuick/private/qquadpath_p.h>
+#include <QtQuick/private/qsgcurveprocessor_p.h>
 #include <QtQuick/qsgmaterial.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -30,13 +32,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtdeclarative/src/quickshapes/qquickshapecurverenderer.cpp, line 479, as _ZN24QQuickShapeCurveRunnableD1Ev
-inline QQuickShapeCurveRunnable::~QQuickShapeCurveRunnable()
-{
-    qDeleteAll(pathData.fillNodes);
-    qDeleteAll(pathData.strokeNodes);
-}
 
 //  from ../qtdeclarative/src/quickshapes/qquickshapecurverenderer.cpp, line 485, as _ZN24QQuickShapeCurveRunnable3runEv
 inline void QQuickShapeCurveRunnable::run()
@@ -236,6 +231,25 @@ const QMetaObject *ritual_ZNK24QQuickShapeCurveRunnable10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShapeCurveRunnable::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickShapeCurveRunnable11qt_metacastEPKc(
+    QQuickShapeCurveRunnable *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShapeCurveRunnable::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickShapeCurveRunnable11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShapeCurveRunnable *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickShapeCurveRunnable::~QQuickShapeCurveRunnable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickShapeCurveRunnableD1Ev(
@@ -248,6 +262,33 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuickShapeCurveRunnable3runEv(
     QQuickShapeCurveRunnable *self) {
   self->run();
+}
+
+//  void QQuickShapeCurveRunnable::done(QQuickShapeCurveRunnable *self_)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuickShapeCurveRunnable4doneEPS_(
+    QQuickShapeCurveRunnable *self,
+    QQuickShapeCurveRunnable *self_) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickShapeCurveRunnable")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "done(QQuickShapeCurveRunnable *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "done(QQuickShapeCurveRunnable *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&self_)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QQuickShapeCurveRunnable as the QRunnable it is built on

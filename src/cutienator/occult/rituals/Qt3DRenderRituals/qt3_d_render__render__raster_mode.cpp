@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_RasterModeCall0)(const void *, const Qt3DRe
 class CuteQt3DRender_Render_RasterMode : public Qt3DRender::Render::RasterMode {
 public:
   using Qt3DRender::Render::RasterMode::RasterMode;
-  CuteQt3DRender_Render_RasterMode(const Qt3DRender::Render::RasterMode &other) : Qt3DRender::Render::RasterMode(other) {}
+  CuteQt3DRender_Render_RasterMode(const Qt3DRender::Render::RasterMode & other) : Qt3DRender::Render::RasterMode(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::RasterMode::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::RasterMode::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render10RasterMode16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::RasterMode *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::RasterMode::~RasterMode()
 extern "C" Q_DECL_EXPORT

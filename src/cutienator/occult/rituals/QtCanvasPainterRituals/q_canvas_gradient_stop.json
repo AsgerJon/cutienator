@@ -10,6 +10,12 @@
     "ritual_Zls6QDebugRK19QCanvasGradientStop": [
       "address", "address", "address"
     ],
+    "ritual_ZlsR11QDataStreamRK19QCanvasGradientStop": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR19QCanvasGradientStop": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QCanvasGradientStopD1Ev": ["nothing", "address"],
     "ritual_list_make_QCanvasGradientStop": ["address"],
     "ritual_list_add_QCanvasGradientStop": ["nothing", "address", "address"],

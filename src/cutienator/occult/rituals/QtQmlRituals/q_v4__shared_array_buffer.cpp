@@ -56,6 +56,13 @@ uint ritual_ZNK3QV417SharedArrayBuffer15arrayDataLengthEv(
   return self->arrayDataLength();
 }
 
+//  char *QV4::SharedArrayBuffer::arrayData()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN3QV417SharedArrayBuffer9arrayDataEv(
+    QV4::SharedArrayBuffer *self) {
+  return self->arrayData();
+}
+
 //  const char *QV4::SharedArrayBuffer::constArrayData() const
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZNK3QV417SharedArrayBuffer14constArrayDataEv(

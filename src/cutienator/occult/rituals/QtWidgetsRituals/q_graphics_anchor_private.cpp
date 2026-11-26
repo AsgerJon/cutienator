@@ -29,6 +29,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/graphicsview/qgraphicsanchorlayout_p.cpp, line 1749, as _ZN28QGraphicsAnchorLayoutPrivate12removeAnchorEPN22QtGraphicsAnchorLayout12AnchorVertexES2_
 inline void QGraphicsAnchorLayoutPrivate::removeAnchor(AnchorVertex *firstVertex,
                                                 AnchorVertex *secondVertex)

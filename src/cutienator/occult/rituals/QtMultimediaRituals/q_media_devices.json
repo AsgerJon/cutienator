@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QMediaDevices10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QMediaDevices11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QMediaDevices11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QMediaDevices2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QMediaDevicesC1EP7QObject": ["address", "address"],
     "ritual_ZN13QMediaDevicesD1Ev": ["nothing", "address"],
@@ -15,6 +21,11 @@
     "ritual_ZN13QMediaDevices17defaultAudioInputEv": ["address"],
     "ritual_ZN13QMediaDevices18defaultAudioOutputEv": ["address"],
     "ritual_ZN13QMediaDevices17defaultVideoInputEv": ["address"],
+    "ritual_ZN13QMediaDevices18audioInputsChangedEv": ["nothing", "address"],
+    "ritual_ZN13QMediaDevices19audioOutputsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QMediaDevices18videoInputsChangedEv": ["nothing", "address"],
     "ritual_ZN13QMediaDevices13connectNotifyERK11QMetaMethod": [
       "nothing", "address", "address"
     ],

@@ -8,8 +8,52 @@
     "ritual_ZNK9Qt3DInput16QButtonAxisInput10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput16QButtonAxisInput2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInputC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInputD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput16QButtonAxisInput5scaleEv": ["float", "address"],
+    "ritual_ZNK9Qt3DInput16QButtonAxisInput7buttonsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput16QButtonAxisInput12accelerationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK9Qt3DInput16QButtonAxisInput12decelerationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput8setScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput10setButtonsERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput15setAccelerationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput15setDecelerationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput12scaleChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput14buttonsChangedERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput19accelerationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput16QButtonAxisInput19decelerationChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN9Qt3DInput16QButtonAxisInput6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput16QButtonAxisInput6d_funcEv": [
@@ -17,6 +61,9 @@
     ],
     "ritual_take_Qt3DInput_QButtonAxisInput": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DInput_QButtonAxisInput__QList_int": [
+      "nothing", "address"
     ]
   }
 }

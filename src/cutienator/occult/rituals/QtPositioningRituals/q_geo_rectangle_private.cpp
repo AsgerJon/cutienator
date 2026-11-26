@@ -50,11 +50,38 @@ inline QGeoShapePrivate::~QGeoShapePrivate()
 {
 }
 
-//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 248, as _ZNK20QGeoRectanglePrivate7isValidEv
-inline bool QGeoRectanglePrivate::isValid() const
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 590, as _ZNK20QGeoRectanglePrivate20boundingGeoRectangleEv
+inline QGeoRectangle QGeoRectanglePrivate::boundingGeoRectangle() const
 {
-    return topLeft.isValid() && bottomRight.isValid() &&
-           topLeft.latitude() >= bottomRight.latitude();
+    return QGeoRectangle(topLeft, bottomRight);
+}
+
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 915, as _ZNK20QGeoRectanglePrivate4hashEm
+inline size_t QGeoRectanglePrivate::hash(size_t seed) const
+{
+    return qHashMulti(seed, topLeft, bottomRight);
+}
+
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 900, as _ZNK20QGeoRectanglePrivate5cloneEv
+inline QGeoShapePrivate *QGeoRectanglePrivate::clone() const
+{
+    return new QGeoRectanglePrivate(*this);
+}
+
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 575, as _ZNK20QGeoRectanglePrivate6centerEv
+inline QGeoCoordinate QGeoRectanglePrivate::center() const
+{
+    if (!isValid())
+        return QGeoCoordinate();
+
+    double cLat = (topLeft.latitude() + bottomRight.latitude()) / 2.0;
+    double cLon = (bottomRight.longitude() + topLeft.longitude()) / 2.0;
+
+    if (topLeft.longitude() > bottomRight.longitude())
+        cLon = cLon - 180.0;
+
+    cLon = QLocationUtils::wrapLong(cLon);
+    return QGeoCoordinate(cLat, cLon);
 }
 
 //  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 254, as _ZNK20QGeoRectanglePrivate7isEmptyEv
@@ -65,6 +92,13 @@ inline bool QGeoRectanglePrivate::isEmpty() const
 
     return topLeft.latitude() == bottomRight.latitude() ||
            topLeft.longitude() == bottomRight.longitude();
+}
+
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 248, as _ZNK20QGeoRectanglePrivate7isValidEv
+inline bool QGeoRectanglePrivate::isValid() const
+{
+    return topLeft.isValid() && bottomRight.isValid() &&
+           topLeft.latitude() >= bottomRight.latitude();
 }
 
 //  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 540, as _ZNK20QGeoRectanglePrivate8containsERK14QGeoCoordinate
@@ -103,27 +137,38 @@ inline bool QGeoRectanglePrivate::contains(const QGeoCoordinate &coordinate) con
     return true;
 }
 
-//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 575, as _ZNK20QGeoRectanglePrivate6centerEv
-inline QGeoCoordinate QGeoRectanglePrivate::center() const
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 905, as _ZNK20QGeoRectanglePrivateeqERK16QGeoShapePrivate
+inline bool QGeoRectanglePrivate::operator==(const QGeoShapePrivate &other) const
 {
-    if (!isValid())
-        return QGeoCoordinate();
+    if (!QGeoShapePrivate::operator==(other))
+        return false;
 
-    double cLat = (topLeft.latitude() + bottomRight.latitude()) / 2.0;
-    double cLon = (bottomRight.longitude() + topLeft.longitude()) / 2.0;
+    const QGeoRectanglePrivate &otherBox = static_cast<const QGeoRectanglePrivate &>(other);
 
-    if (topLeft.longitude() > bottomRight.longitude())
-        cLon = cLon - 180.0;
-
-    cLon = QLocationUtils::wrapLong(cLon);
-    return QGeoCoordinate(cLat, cLon);
+    return topLeft == otherBox.topLeft && bottomRight == otherBox.bottomRight;
 }
 
-//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 590, as _ZNK20QGeoRectanglePrivate20boundingGeoRectangleEv
-inline QGeoRectangle QGeoRectanglePrivate::boundingGeoRectangle() const
+//  from ../qtpositioning/src/positioning/qgeoshape.cpp, line 34, as _ZNK16QGeoShapePrivateeqERKS_
+inline bool QGeoShapePrivate::operator==(const QGeoShapePrivate &other) const
 {
-    return QGeoRectangle(topLeft, bottomRight);
+    return type == other.type;
 }
+
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 892, as _ZN20QGeoRectanglePrivateC1ERKS_
+inline QGeoRectanglePrivate::QGeoRectanglePrivate(const QGeoRectanglePrivate &other)
+:   QGeoShapePrivate(QGeoShape::RectangleType), topLeft(other.topLeft),
+    bottomRight(other.bottomRight)
+{
+}
+
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 881, as _ZN20QGeoRectanglePrivateC1Ev
+inline QGeoRectanglePrivate::QGeoRectanglePrivate()
+:   QGeoShapePrivate(QGeoShape::RectangleType)
+{
+}
+
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 898, as _ZN20QGeoRectanglePrivateD1Ev
+inline QGeoRectanglePrivate::~QGeoRectanglePrivate() {}
 
 //  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 753, as _ZN20QGeoRectanglePrivate15extendRectangleERK14QGeoCoordinate
 inline void QGeoRectanglePrivate::extendRectangle(const QGeoCoordinate &coordinate)
@@ -165,12 +210,6 @@ inline void QGeoRectanglePrivate::extendRectangle(const QGeoCoordinate &coordina
     topLeft = QGeoCoordinate(top, left);
     bottomRight = QGeoCoordinate(bottom, right);
 }
-
-//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 900, as _ZNK20QGeoRectanglePrivate5cloneEv
-inline QGeoShapePrivate *QGeoRectanglePrivate::clone() const
-{
-    return new QGeoRectanglePrivate(*this);
-}
 //  -----------------------------------------------------------------------
 
 //  A QGeoRectanglePrivate that Python can take functions over in. Every QGeoRectanglePrivate
@@ -182,11 +221,12 @@ typedef bool (*CuteQGeoRectanglePrivateCall2)(const void *, const QGeoCoordinate
 typedef const QGeoCoordinate * (*CuteQGeoRectanglePrivateCall3)(const void *, int *);
 typedef const QGeoRectangle * (*CuteQGeoRectanglePrivateCall4)(const void *, int *);
 typedef void * (*CuteQGeoRectanglePrivateCall5)(const void *, int *);
+typedef size_t (*CuteQGeoRectanglePrivateCall6)(const void *, size_t, int *);
 class CuteQGeoRectanglePrivate : public QGeoRectanglePrivate {
 public:
   using QGeoRectanglePrivate::QGeoRectanglePrivate;
-  CuteQGeoRectanglePrivate(const QGeoRectanglePrivate &other) : QGeoRectanglePrivate(other) {}
-  void *taken[6] = {};
+  CuteQGeoRectanglePrivate(const QGeoRectanglePrivate & other) : QGeoRectanglePrivate(other) {}
+  void *taken[7] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK16QGeoShapePrivate7isValidEv")) {
@@ -211,6 +251,10 @@ public:
     }
     if (!std::strcmp(key, "_ZNK16QGeoShapePrivate5cloneEv")) {
       taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QGeoShapePrivate4hashEm")) {
+      taken[6] = call;
       return true;
     }
     return false;
@@ -282,7 +326,30 @@ public:
     }
     return QGeoRectanglePrivate::clone();
   }
+
+  //  size_t QGeoRectanglePrivate::hash(size_t seed) const
+  size_t hash(size_t seed) const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQGeoRectanglePrivateCall6 call = reinterpret_cast<CuteQGeoRectanglePrivateCall6>(taken[6]);
+      size_t given = call(this, seed, &handled);
+      if (handled) return given;
+    }
+    return QGeoRectanglePrivate::hash(seed);
+  }
 };
+
+//  QGeoRectanglePrivate::QGeoRectanglePrivate()
+extern "C" Q_DECL_EXPORT
+QGeoRectanglePrivate *ritual_ZN20QGeoRectanglePrivateC1Ev() {
+  return new CuteQGeoRectanglePrivate();
+}
+
+//  QGeoRectanglePrivate::~QGeoRectanglePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGeoRectanglePrivateD1Ev(QGeoRectanglePrivate *self) {
+  delete self;
+}
 
 //  bool QGeoRectanglePrivate::isValid() const
 extern "C" Q_DECL_EXPORT
@@ -337,6 +404,23 @@ QGeoShapePrivate *ritual_ZNK20QGeoRectanglePrivate5cloneEv(
   return self->clone();
 }
 
+//  bool QGeoRectanglePrivate::operator==(const QGeoShapePrivate &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QGeoRectanglePrivateeqERK16QGeoShapePrivate(
+    const QGeoRectanglePrivate *self,
+    const QGeoShapePrivate *other) {
+  return self->operator==(*other);
+}
+
+//  size_t QGeoRectanglePrivate::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK20QGeoRectanglePrivate4hashEm(
+    const QGeoRectanglePrivate *self,
+    size_t seed) {
+  return self->hash(seed);
+}
+
 //  a Python function taken by a CuteQGeoRectanglePrivate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -383,4 +467,19 @@ QGeoRectangle *ritual_own_ZNK20QGeoRectanglePrivate20boundingGeoRectangleEv(
     const QGeoRectanglePrivate *self) {
   return new QGeoRectangle(
       self->QGeoRectanglePrivate::boundingGeoRectangle());
+}
+
+//  QGeoShapePrivate *QGeoRectanglePrivate::clone() const
+extern "C" Q_DECL_EXPORT
+QGeoShapePrivate *ritual_own_ZNK20QGeoRectanglePrivate5cloneEv(
+    const QGeoRectanglePrivate *self) {
+  return self->QGeoRectanglePrivate::clone();
+}
+
+//  size_t QGeoRectanglePrivate::hash(size_t seed) const
+extern "C" Q_DECL_EXPORT
+size_t ritual_own_ZNK20QGeoRectanglePrivate4hashEm(
+    const QGeoRectanglePrivate *self,
+    size_t seed) {
+  return self->QGeoRectanglePrivate::hash(seed);
 }

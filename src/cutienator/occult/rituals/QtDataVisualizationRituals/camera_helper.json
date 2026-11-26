@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12CameraHelper10metaObjectEv": ["address", "address"],
+    "ritual_ZN12CameraHelper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12CameraHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12CameraHelperD1Ev": ["nothing", "address"],
     "ritual_ZN12CameraHelper16setRotationSpeedEi": [
       "nothing", "address", "int"

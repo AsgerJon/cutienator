@@ -10,6 +10,7 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  A QQuick3DShaderUtilsRenderPass that Python can take functions over in. Every QQuick3DShaderUtilsRenderPass
 //  Python makes is one. Each function below asks the Python
@@ -286,6 +287,25 @@ const QMetaObject *ritual_ZNK29QQuick3DShaderUtilsRenderPass10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsRenderPass::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuick3DShaderUtilsRenderPass11qt_metacastEPKc(
+    QQuick3DShaderUtilsRenderPass *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsRenderPass::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuick3DShaderUtilsRenderPass11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsRenderPass *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsRenderPass::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -309,6 +329,100 @@ void ritual_ZN29QQuick3DShaderUtilsRenderPassD1Ev(
   delete self;
 }
 
+//  void QQuick3DShaderUtilsRenderPass::qmlAppendCommand(QQmlListProperty<QQu
+//      ick3DShaderUtilsRenderCommand> *list,
+//      QQuick3DShaderUtilsRenderCommand *command)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DShaderUtilsRenderPass16qmlAppendCommandEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandEPS1_(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *list,
+    QQuick3DShaderUtilsRenderCommand *command) {
+  QQuick3DShaderUtilsRenderPass::qmlAppendCommand(list, command);
+}
+
+//  QQuick3DShaderUtilsRenderCommand *QQuick3DShaderUtilsRenderPass::qmlComma
+//      ndAt(QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *list,
+//      qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DShaderUtilsRenderCommand *ritual_ZN29QQuick3DShaderUtilsRenderPass12qmlCommandAtEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandEx(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *list,
+    qsizetype index) {
+  return QQuick3DShaderUtilsRenderPass::qmlCommandAt(list, index);
+}
+
+//  qsizetype QQuick3DShaderUtilsRenderPass::qmlCommandCount(QQmlListProperty
+//      <QQuick3DShaderUtilsRenderCommand> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN29QQuick3DShaderUtilsRenderPass15qmlCommandCountEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandE(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *list) {
+  return QQuick3DShaderUtilsRenderPass::qmlCommandCount(list);
+}
+
+//  void QQuick3DShaderUtilsRenderPass::qmlCommandClear(QQmlListProperty<QQui
+//      ck3DShaderUtilsRenderCommand> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DShaderUtilsRenderPass15qmlCommandClearEP16QQmlListPropertyI32QQuick3DShaderUtilsRenderCommandE(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *list) {
+  QQuick3DShaderUtilsRenderPass::qmlCommandClear(list);
+}
+
+//  void QQuick3DShaderUtilsRenderPass::qmlAppendShader(QQmlListProperty<QQui
+//      ck3DShaderUtilsShader> *list, QQuick3DShaderUtilsShader *shader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DShaderUtilsRenderPass15qmlAppendShaderEP16QQmlListPropertyI25QQuick3DShaderUtilsShaderEPS1_(
+    QQmlListProperty<QQuick3DShaderUtilsShader> *list,
+    QQuick3DShaderUtilsShader *shader) {
+  QQuick3DShaderUtilsRenderPass::qmlAppendShader(list, shader);
+}
+
+//  QQuick3DShaderUtilsShader *QQuick3DShaderUtilsRenderPass::qmlShaderAt(QQm
+//      lListProperty<QQuick3DShaderUtilsShader> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DShaderUtilsShader *ritual_ZN29QQuick3DShaderUtilsRenderPass11qmlShaderAtEP16QQmlListPropertyI25QQuick3DShaderUtilsShaderEx(
+    QQmlListProperty<QQuick3DShaderUtilsShader> *list,
+    qsizetype index) {
+  return QQuick3DShaderUtilsRenderPass::qmlShaderAt(list, index);
+}
+
+//  qsizetype QQuick3DShaderUtilsRenderPass::qmlShaderCount(QQmlListProperty<
+//      QQuick3DShaderUtilsShader> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN29QQuick3DShaderUtilsRenderPass14qmlShaderCountEP16QQmlListPropertyI25QQuick3DShaderUtilsShaderE(
+    QQmlListProperty<QQuick3DShaderUtilsShader> *list) {
+  return QQuick3DShaderUtilsRenderPass::qmlShaderCount(list);
+}
+
+//  void QQuick3DShaderUtilsRenderPass::qmlShaderClear(QQmlListProperty<QQuic
+//      k3DShaderUtilsShader> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DShaderUtilsRenderPass14qmlShaderClearEP16QQmlListPropertyI25QQuick3DShaderUtilsShaderE(
+    QQmlListProperty<QQuick3DShaderUtilsShader> *list) {
+  QQuick3DShaderUtilsRenderPass::qmlShaderClear(list);
+}
+
+//  QQmlListProperty<QQuick3DShaderUtilsRenderCommand>
+//      QQuick3DShaderUtilsRenderPass::commands()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *ritual_ZN29QQuick3DShaderUtilsRenderPass8commandsEv(
+    QQuick3DShaderUtilsRenderPass *self) {
+  return new QQmlListProperty<QQuick3DShaderUtilsRenderCommand>(
+      self->commands());
+}
+
+//  QQmlListProperty<QQuick3DShaderUtilsShader>
+//      QQuick3DShaderUtilsRenderPass::shaders()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DShaderUtilsShader> *ritual_ZN29QQuick3DShaderUtilsRenderPass7shadersEv(
+    QQuick3DShaderUtilsRenderPass *self) {
+  return new QQmlListProperty<QQuick3DShaderUtilsShader>(self->shaders());
+}
+
+//  void QQuick3DShaderUtilsRenderPass::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DShaderUtilsRenderPass7changedEv(
+    QQuick3DShaderUtilsRenderPass *self) {
+  self->changed();
+}
+
 //  a Python function taken by a CuteQQuick3DShaderUtilsRenderPass, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -317,4 +431,20 @@ bool ritual_take_QQuick3DShaderUtilsRenderPass(
     const char *key,
     void *call) {
   return static_cast<CuteQQuick3DShaderUtilsRenderPass *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QQuick3DShaderUtilsRenderCommand> a ritual of
+//      QQuick3DShaderUtilsRenderPass gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DShaderUtilsRenderPass__QQmlListProperty_QQuick3DShaderUtilsRenderCommand(
+    QQmlListProperty<QQuick3DShaderUtilsRenderCommand> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuick3DShaderUtilsShader> a ritual of
+//      QQuick3DShaderUtilsRenderPass gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DShaderUtilsRenderPass__QQmlListProperty_QQuick3DShaderUtilsShader(
+    QQmlListProperty<QQuick3DShaderUtilsShader> *self) {
+  delete self;
 }

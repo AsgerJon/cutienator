@@ -4,6 +4,10 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN23QWindowStateChangeEventC1ERKS_": ["address", "address"],
+    "ritual_ZN23QWindowStateChangeEventaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK23QWindowStateChangeEvent5cloneEv": ["address", "address"],
     "ritual_ZN23QWindowStateChangeEventD1Ev": ["nothing", "address"],
     "ritual_ZN23QWindowStateChangeEventC1E6QFlagsIN2Qt11WindowStateEEb": [

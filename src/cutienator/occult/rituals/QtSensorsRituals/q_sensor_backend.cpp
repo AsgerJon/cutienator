@@ -1,9 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtSensors/qsensorbackend.h, Qt 6.12.0. Changes made here are lost.
+//  QtSensors/qsensorbackend.h, Qt 6.12.0. Edited by hand on 2026-11-25:
+//  added by hand, instances of templates of the class: 5. Kept as it is when
+//  the generator runs again.
 #include <QtSensors/qsensorbackend.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtSensors/qaccelerometer.h>
+#include <QtSensors/qgyroscope.h>
+#include <QtSensors/qmagnetometer.h>
+#include <QtSensors/qlightsensor.h>
+#include <QtSensors/qproximitysensor.h>
 
 //  A QSensorBackend that Python can take functions over in. Every QSensorBackend
 //  Python makes is one. Each function below asks the Python
@@ -226,6 +233,24 @@ const QMetaObject *ritual_ZNK14QSensorBackend10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSensorBackend::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QSensorBackend11qt_metacastEPKc(
+    QSensorBackend *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSensorBackend::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QSensorBackend11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSensorBackend *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSensorBackend::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QSensorBackend2trEPKcS1_i(
@@ -233,6 +258,14 @@ QString *ritual_ZN14QSensorBackend2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSensorBackend::tr(s, c, n));
+}
+
+//  QSensorBackend::QSensorBackend(QSensor *sensor, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSensorBackend *ritual_ZN14QSensorBackendC1EP7QSensorP7QObject(
+    QSensor *sensor,
+    QObject *parent) {
+  return new CuteQSensorBackend(sensor, parent);
 }
 
 //  QSensorBackend::~QSensorBackend()
@@ -348,6 +381,20 @@ void ritual_ZN14QSensorBackend11setReadingsEP14QSensorReadingS1_S1_(
   self->setReadings(device, filter, cache);
 }
 
+//  QSensorBackendPrivate *QSensorBackend::d_func()
+extern "C" Q_DECL_EXPORT
+QSensorBackendPrivate *ritual_ZN14QSensorBackend6d_funcEv(
+    QSensorBackend *self) {
+  return self->d_func();
+}
+
+//  const QSensorBackendPrivate *QSensorBackend::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSensorBackendPrivate *ritual_ZNK14QSensorBackend6d_funcEv(
+    const QSensorBackend *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQSensorBackend, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -364,4 +411,49 @@ bool ritual_own_ZNK14QSensorBackend18isFeatureSupportedEN7QSensor7FeatureE(
     const QSensorBackend *self,
     QSensor::Feature feature) {
   return self->QSensorBackend::isFeatureSupported(feature);
+}
+
+//  QAccelerometerReading *QSensorBackend::setReading<QAccelerometerReading>(
+//      QAccelerometerReading *readingClass)
+extern "C" Q_DECL_EXPORT
+QAccelerometerReading *ritual_ZN14QSensorBackend10setReadingI21QAccelerometerReadingEEPT_S3_(
+    QSensorBackend *self,
+    QAccelerometerReading *readingClass) {
+  return self->setReading<QAccelerometerReading>(readingClass);
+}
+
+//  QGyroscopeReading *QSensorBackend::setReading<QGyroscopeReading>(
+//      QGyroscopeReading *readingClass)
+extern "C" Q_DECL_EXPORT
+QGyroscopeReading *ritual_ZN14QSensorBackend10setReadingI17QGyroscopeReadingEEPT_S3_(
+    QSensorBackend *self,
+    QGyroscopeReading *readingClass) {
+  return self->setReading<QGyroscopeReading>(readingClass);
+}
+
+//  QMagnetometerReading *QSensorBackend::setReading<QMagnetometerReading>(
+//      QMagnetometerReading *readingClass)
+extern "C" Q_DECL_EXPORT
+QMagnetometerReading *ritual_ZN14QSensorBackend10setReadingI20QMagnetometerReadingEEPT_S3_(
+    QSensorBackend *self,
+    QMagnetometerReading *readingClass) {
+  return self->setReading<QMagnetometerReading>(readingClass);
+}
+
+//  QLightReading *QSensorBackend::setReading<QLightReading>(
+//      QLightReading *readingClass)
+extern "C" Q_DECL_EXPORT
+QLightReading *ritual_ZN14QSensorBackend10setReadingI13QLightReadingEEPT_S3_(
+    QSensorBackend *self,
+    QLightReading *readingClass) {
+  return self->setReading<QLightReading>(readingClass);
+}
+
+//  QProximityReading *QSensorBackend::setReading<QProximityReading>(
+//      QProximityReading *readingClass)
+extern "C" Q_DECL_EXPORT
+QProximityReading *ritual_ZN14QSensorBackend10setReadingI17QProximityReadingEEPT_S3_(
+    QSensorBackend *self,
+    QProximityReading *readingClass) {
+  return self->setReading<QProximityReading>(readingClass);
 }

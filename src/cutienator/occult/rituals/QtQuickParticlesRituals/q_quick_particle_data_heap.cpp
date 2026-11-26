@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickParticles/6.12.0/QtQuickParticles/private/qquickparticlesystem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QSet>
 
 //  QQuickParticleDataHeap::QQuickParticleDataHeap()
 extern "C" Q_DECL_EXPORT
@@ -42,6 +43,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK22QQuickParticleDataHeap7isEmptyEv(
     const QQuickParticleDataHeap *self) {
   return self->isEmpty();
+}
+
+//  QSet<QQuickParticleData *> QQuickParticleDataHeap::pop()
+extern "C" Q_DECL_EXPORT
+QSet<QQuickParticleData *> *ritual_ZN22QQuickParticleDataHeap3popEv(
+    QQuickParticleDataHeap *self) {
+  return new QSet<QQuickParticleData *>(self->pop());
 }
 
 //  void QQuickParticleDataHeap::clear()
@@ -93,5 +101,12 @@ void ritual_ZN22QQuickParticleDataHeap10bubbleDownEi(
 //  QQuickParticleDataHeap::~QQuickParticleDataHeap()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickParticleDataHeapD1Ev(QQuickParticleDataHeap *self) {
+  delete self;
+}
+
+//  a QSet<QQuickParticleData *> a ritual of QQuickParticleDataHeap gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickParticleDataHeap__QSet_QQuickParticleData(
+    QSet<QQuickParticleData *> *self) {
   delete self;
 }

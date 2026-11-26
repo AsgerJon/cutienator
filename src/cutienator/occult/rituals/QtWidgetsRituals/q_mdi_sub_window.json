@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QMdiSubWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QMdiSubWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QMdiSubWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QMdiSubWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QMdiSubWindowC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
@@ -42,6 +48,10 @@
     ],
     "ritual_ZNK13QMdiSubWindow10systemMenuEv": ["address", "address"],
     "ritual_ZNK13QMdiSubWindow7mdiAreaEv": ["address", "address"],
+    "ritual_ZN13QMdiSubWindow18windowStateChangedE6QFlagsIN2Qt11WindowStateEES3_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QMdiSubWindow15aboutToActivateEv": ["nothing", "address"],
     "ritual_ZN13QMdiSubWindow14showSystemMenuEv": ["nothing", "address"],
     "ritual_ZN13QMdiSubWindow10showShadedEv": ["nothing", "address"],
     "ritual_ZN13QMdiSubWindow11eventFilterEP7QObjectP6QEvent": [

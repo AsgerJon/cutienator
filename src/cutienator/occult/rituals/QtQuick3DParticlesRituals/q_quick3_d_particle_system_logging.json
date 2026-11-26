@@ -8,6 +8,12 @@
     "ritual_ZNK29QQuick3DParticleSystemLogging10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQuick3DParticleSystemLogging11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQuick3DParticleSystemLogging11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QQuick3DParticleSystemLogging2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -38,6 +44,27 @@
     ],
     "ritual_ZN29QQuick3DParticleSystemLogging18setLoggingIntervalEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN29QQuick3DParticleSystemLogging22loggingIntervalChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleSystemLogging14updatesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleSystemLogging19particlesMaxChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleSystemLogging20particlesUsedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleSystemLogging11timeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleSystemLogging18timeAverageChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleSystemLogging20timeDeviationChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN29QQuick3DParticleSystemLogging11updateTimesEx": [
       "nothing", "address", "long long"

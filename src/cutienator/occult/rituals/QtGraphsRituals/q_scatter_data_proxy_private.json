@@ -10,8 +10,37 @@
   "rows": {
     "ritual_ZN24QScatterDataProxyPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK24QScatterDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QScatterDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QScatterDataProxyPrivate10resetArrayEO5QListI16QScatterDataItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate15resetScaleArrayEO5QListI9QVector3DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate7setItemExO16QScatterDataItem": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate8setItemsExO5QListI16QScatterDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate7addItemEO16QScatterDataItem": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate8addItemsEO5QListI16QScatterDataItemE": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate10insertItemExO16QScatterDataItem": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate11insertItemsExO5QListI16QScatterDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
     "ritual_ZN24QScatterDataProxyPrivate11removeItemsExx": [
       "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZNK24QScatterDataProxyPrivate11limitValuesER9QVector3DS1_P15QAbstract3DAxisS3_S3_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
     ],
     "ritual_ZNK24QScatterDataProxyPrivate12isValidValueEffP15QAbstract3DAxis": [
       "bool", "address", "float", "float", "address"

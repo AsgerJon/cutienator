@@ -1,9 +1,19 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qtextstream.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qtextstream.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
-    "ritual_ZN22QTextStreamManipulatorD1Ev": ["nothing", "address"]
+    "ritual_ZN22QTextStreamManipulator4execER11QTextStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QTextStreamManipulatorD1Ev": ["nothing", "address"],
+    "ritual_ZN22QTextStreamManipulatorC2EM11QTextStreamFviEi": [
+      "address", "chars", "int"
+    ],
+    "ritual_ZN22QTextStreamManipulatorC2EM11QTextStreamFv5QCharES1_": [
+      "address", "chars", "address"
+    ]
   }
 }

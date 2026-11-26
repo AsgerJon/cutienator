@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZN16QSimplexVariableC1Ev": ["address"],
-    "ritual_ZN16QSimplexVariableD1Ev": ["nothing", "address"]
+    "ritual_ZN16QSimplexVariableD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSimplexVariableC1ERKS_": ["address", "address"],
+    "ritual_ZN16QSimplexVariableC1EOS_": ["address", "address"],
+    "ritual_ZN16QSimplexVariableaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QSimplexVariableaSEOS_": ["address", "address", "address"]
   }
 }

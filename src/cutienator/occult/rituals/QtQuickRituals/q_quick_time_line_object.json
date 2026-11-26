@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QQuickTimeLineObjectC1Ev": ["address"],
     "ritual_ZN20QQuickTimeLineObjectD1Ev": ["nothing", "address"]
   }
 }

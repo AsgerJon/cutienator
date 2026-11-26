@@ -4,6 +4,12 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN29QScreenOrientationChangeEventC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN29QScreenOrientationChangeEventaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK29QScreenOrientationChangeEvent5cloneEv": [
       "address", "address"
     ],

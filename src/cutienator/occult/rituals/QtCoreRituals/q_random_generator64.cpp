@@ -24,6 +24,37 @@ QRandomGenerator64 *ritual_ZN18QRandomGenerator64C1Ej(quint32 seedValue) {
 #endif  // !defined(Q_QDOC)
 
 #if !defined(Q_QDOC)
+//  QRandomGenerator64::QRandomGenerator64(const quint32 *seedBuffer,
+//      qsizetype len)
+extern "C" Q_DECL_EXPORT
+QRandomGenerator64 *ritual_ZN18QRandomGenerator64C1EPKjx(
+    const quint32 *seedBuffer,
+    qsizetype len) {
+  return new QRandomGenerator64(seedBuffer, len);
+}
+#endif  // !defined(Q_QDOC)
+
+#if !defined(Q_QDOC)
+//  QRandomGenerator64::QRandomGenerator64(std::seed_seq &sseq)
+extern "C" Q_DECL_EXPORT
+QRandomGenerator64 *ritual_ZN18QRandomGenerator64C1ERSt8seed_seq(
+    std::seed_seq *sseq) {
+  return new QRandomGenerator64(*sseq);
+}
+#endif  // !defined(Q_QDOC)
+
+#if !defined(Q_QDOC)
+//  QRandomGenerator64::QRandomGenerator64(const quint32 *begin, const
+//      quint32 *end)
+extern "C" Q_DECL_EXPORT
+QRandomGenerator64 *ritual_ZN18QRandomGenerator64C1EPKjS1_(
+    const quint32 *begin,
+    const quint32 *end) {
+  return new QRandomGenerator64(begin, end);
+}
+#endif  // !defined(Q_QDOC)
+
+#if !defined(Q_QDOC)
 //  QRandomGenerator64::QRandomGenerator64(const QRandomGenerator &other)
 extern "C" Q_DECL_EXPORT
 QRandomGenerator64 *ritual_ZN18QRandomGenerator64C1ERK16QRandomGenerator(

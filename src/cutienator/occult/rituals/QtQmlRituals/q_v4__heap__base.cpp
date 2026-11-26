@@ -50,6 +50,33 @@ bool ritual_ZNK3QV44Heap4Base5inUseEv(const QV4::Heap::Base *self) {
   return self->inUse();
 }
 
+//  void *QV4::Heap::Base::operator new(size_t a0, Managed *m)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN3QV44Heap4BasenwEmPNS_7ManagedE(
+    QV4::Heap::Base *self,
+    size_t a0,
+    QV4::Managed *m) {
+  return self->operator new(a0, m);
+}
+
+//  void *QV4::Heap::Base::operator new(size_t a0, Base *m)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN3QV44Heap4BasenwEmPS1_(
+    QV4::Heap::Base *self,
+    size_t a0,
+    QV4::Heap::Base *m) {
+  return self->operator new(a0, m);
+}
+
+//  void QV4::Heap::Base::operator delete(void *a0, Base *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV44Heap4BasedlEPvPS1_(
+    QV4::Heap::Base *self,
+    void *a0,
+    QV4::Heap::Base *a1) {
+  self->operator delete(a0, a1);
+}
+
 //  void QV4::Heap::Base::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV44Heap4Base4initEv(QV4::Heap::Base *self) {

@@ -812,6 +812,24 @@ const QMetaObject *ritual_ZNK14QQuickRepeater10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickRepeater::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickRepeater11qt_metacastEPKc(
+    QQuickRepeater *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickRepeater::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickRepeater11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickRepeater *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickRepeater::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickRepeater2trEPKcS1_i(
@@ -892,6 +910,49 @@ void ritual_ZN14QQuickRepeater22setDelegateModelAccessEN17QQmlDelegateModel19Del
     QQuickRepeater *self,
     QQmlDelegateModel::DelegateModelAccess delegateModelAccess) {
   self->setDelegateModelAccess(delegateModelAccess);
+}
+
+//  void QQuickRepeater::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRepeater12modelChangedEv(QQuickRepeater *self) {
+  self->modelChanged();
+}
+
+//  void QQuickRepeater::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRepeater15delegateChangedEv(QQuickRepeater *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickRepeater::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRepeater12countChangedEv(QQuickRepeater *self) {
+  self->countChanged();
+}
+
+//  void QQuickRepeater::itemAdded(int index, QQuickItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRepeater9itemAddedEiP10QQuickItem(
+    QQuickRepeater *self,
+    int index,
+    QQuickItem *item) {
+  self->itemAdded(index, item);
+}
+
+//  void QQuickRepeater::itemRemoved(int index, QQuickItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRepeater11itemRemovedEiP10QQuickItem(
+    QQuickRepeater *self,
+    int index,
+    QQuickItem *item) {
+  self->itemRemoved(index, item);
+}
+
+//  void QQuickRepeater::delegateModelAccessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickRepeater26delegateModelAccessChangedEv(
+    QQuickRepeater *self) {
+  self->delegateModelAccessChanged();
 }
 
 //  void QQuickRepeater::clear()

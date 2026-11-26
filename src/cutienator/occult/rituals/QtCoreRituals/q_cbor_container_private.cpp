@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qcborvalue_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qcborvalue_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, instances of templates of the class: 2. Kept
+//  as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -53,6 +54,36 @@ inline void QCborContainerPrivate::appendNonAsciiString(QStringView s)
 extern "C" Q_DECL_EXPORT
 QCborContainerPrivate *ritual_ZN21QCborContainerPrivateC1Ev() {
   return new QCborContainerPrivate();
+}
+
+//  QCborContainerPrivate::QCborContainerPrivate(const QCborContainerPrivate
+//      &a0)
+extern "C" Q_DECL_EXPORT
+QCborContainerPrivate *ritual_ZN21QCborContainerPrivateC1ERKS_(
+    const QCborContainerPrivate *a0) {
+  return new QCborContainerPrivate(*a0);
+}
+
+//  QCborContainerPrivate::QCborContainerPrivate(QCborContainerPrivate &&a0)
+extern "C" Q_DECL_EXPORT
+QCborContainerPrivate *ritual_ZN21QCborContainerPrivateC1EOS_(
+    QCborContainerPrivate *a0) {
+  return new QCborContainerPrivate(std::move(*a0));
+}
+
+//  qptrdiff QCborContainerPrivate::addByteDataImpl(QByteArray &target,
+//      QByteArray::size_type &targetUsed, const char *block, qsizetype len)
+extern "C" Q_DECL_EXPORT
+qptrdiff ritual_ZN21QCborContainerPrivate15addByteDataImplER10QByteArrayRxPKcx(
+    QByteArray *target,
+    QByteArray::size_type *targetUsed,
+    const char *block,
+    qsizetype len) {
+  return QCborContainerPrivate::addByteDataImpl(
+      *target,
+      *targetUsed,
+      block,
+      len);
 }
 
 //  qptrdiff QCborContainerPrivate::addByteData(const char *block, qsizetype
@@ -194,6 +225,13 @@ QString *ritual_ZNK21QCborContainerPrivate15anyStringViewAtEx(
   return new QString(self->anyStringViewAt(idx).toString());
 }
 
+//  void QCborContainerPrivate::resetValue(QCborValue &v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCborContainerPrivate10resetValueER10QCborValue(
+    QCborValue *v) {
+  QCborContainerPrivate::resetValue(*v);
+}
+
 //  QCborValue QCborContainerPrivate::makeValue(QCborValue::Type type, qint64
 //      n, QCborContainerPrivate *d, ContainerDisposition disp)
 extern "C" Q_DECL_EXPORT
@@ -221,4 +259,26 @@ QtCbor::Element *ritual_ZN21QCborContainerPrivate16elementFromValueERK10QCborVal
   return new QtCbor::Element(
       QCborContainerPrivate::elementFromValue(
           *value));
+}
+
+//  template <typename KeyType> QCborValueConstRef
+//      QCborContainerPrivate::findCborMapKey<qint64>(
+//      qint64 key)
+extern "C" Q_DECL_EXPORT
+QCborValueConstRef *ritual_ZN21QCborContainerPrivate14findCborMapKeyIxEE18QCborValueConstRefT_(
+    QCborContainerPrivate *self,
+    qint64 key) {
+  return new QCborValueConstRef(
+      self->findCborMapKey<qint64>(key));
+}
+
+//  template <typename KeyType> static QCborValue
+//      QCborContainerPrivate::findCborMapKey<qint64>(
+//      const QCborValue &self, qint64 key)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN21QCborContainerPrivate14findCborMapKeyIxEE10QCborValueRKS1_T_(
+    const QCborValue *self,
+    qint64 key) {
+  return new QCborValue(
+      QCborContainerPrivate::findCborMapKey<qint64>(*self, key));
 }

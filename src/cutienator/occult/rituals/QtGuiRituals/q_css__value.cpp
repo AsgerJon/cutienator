@@ -10,11 +10,18 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qcssparser_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 
 //  QCss::Value::Value()
 extern "C" Q_DECL_EXPORT
 QCss::Value *ritual_ZN4QCss5ValueC1Ev() {
   return new QCss::Value();
+}
+
+//  QString QCss::Value::toString() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK4QCss5Value8toStringEv(const QCss::Value *self) {
+  return new QString(self->toString());
 }
 
 //  QCss::Value::~Value()

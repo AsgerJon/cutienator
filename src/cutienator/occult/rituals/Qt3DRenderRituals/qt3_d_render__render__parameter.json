@@ -5,6 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render9ParameterC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render9Parameter7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render9Parameter16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render9Parameter4nameEv": ["text", "address"],
     "ritual_ZNK10Qt3DRender6Render9Parameter6nameIdEv": ["int", "address"],
     "ritual_ZNK10Qt3DRender6Render9Parameter12uniformValueEv": [
       "address", "address"

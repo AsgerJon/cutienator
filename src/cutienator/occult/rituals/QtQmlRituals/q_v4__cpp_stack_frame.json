@@ -10,6 +10,11 @@
     ],
     "ritual_ZNK3QV413CppStackFrame14isJSTypesFrameEv": ["bool", "address"],
     "ritual_ZNK3QV413CppStackFrame16isMetaTypesFrameEv": ["bool", "address"],
+    "ritual_ZNK3QV413CppStackFrame6sourceEv": ["text", "address"],
+    "ritual_ZNK3QV413CppStackFrame8functionEv": ["text", "address"],
+    "ritual_ZNK3QV413CppStackFrame10lineNumberEv": ["int", "address"],
+    "ritual_ZNK3QV413CppStackFrame15statementNumberEv": ["int", "address"],
+    "ritual_ZNK3QV413CppStackFrame17missingLineNumberEv": ["int", "address"],
     "ritual_ZNK3QV413CppStackFrame11parentFrameEv": ["address", "address"],
     "ritual_ZN3QV413CppStackFrame14setParentFrameEPS0_": [
       "nothing", "address", "address"

@@ -8,8 +8,18 @@
     "ritual_ZNK26QWaylandXdgOutputManagerV110metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QWaylandXdgOutputManagerV111qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QWaylandXdgOutputManagerV111qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QWaylandXdgOutputManagerV12trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QWaylandXdgOutputManagerV16d_funcEv": ["address", "address"],
+    "ritual_ZNK26QWaylandXdgOutputManagerV16d_funcEv": [
+      "address", "address"
     ],
     "ritual_ZN26QWaylandXdgOutputManagerV1C1Ev": ["address"],
     "ritual_ZN26QWaylandXdgOutputManagerV1C1EP18QWaylandCompositor": [
@@ -18,6 +28,7 @@
     "ritual_ZN26QWaylandXdgOutputManagerV110initializeEv": [
       "nothing", "address"
     ],
+    "ritual_ZN26QWaylandXdgOutputManagerV19interfaceEv": ["address"],
     "ritual_take_QWaylandXdgOutputManagerV1": [
       "bool", "address", "chars", "address"
     ],

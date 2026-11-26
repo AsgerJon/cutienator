@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
 //  DomColorGroup::DomColorGroup()
@@ -18,6 +19,24 @@ DomColorGroup *ritual_ZN13DomColorGroupC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13DomColorGroupD1Ev(DomColorGroup *self) {
   delete self;
+}
+
+//  void DomColorGroup::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13DomColorGroup4readER16QXmlStreamReader(
+    DomColorGroup *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomColorGroup::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13DomColorGroup5writeER16QXmlStreamWriterRK7QString(
+    const DomColorGroup *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  QList<DomColorRole *> DomColorGroup::elementColorRole() const

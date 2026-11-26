@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender15QFrustumCulling10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QFrustumCulling::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender15QFrustumCulling11qt_metacastEPKc(
+    Qt3DRender::QFrustumCulling *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QFrustumCulling::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender15QFrustumCulling11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QFrustumCulling *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QFrustumCulling::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,20 @@ QString *ritual_ZN10Qt3DRender15QFrustumCulling2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QFrustumCulling::tr(s, c, n));
+}
+
+//  Qt3DRender::QFrustumCulling::QFrustumCulling(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFrustumCulling *ritual_ZN10Qt3DRender15QFrustumCullingC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QFrustumCulling(parent);
+}
+
+//  Qt3DRender::QFrustumCulling::~QFrustumCulling()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QFrustumCullingD1Ev(
+    Qt3DRender::QFrustumCulling *self) {
+  delete self;
 }
 
 //  a Python function taken by a CuteQt3DRender_QFrustumCulling, for the

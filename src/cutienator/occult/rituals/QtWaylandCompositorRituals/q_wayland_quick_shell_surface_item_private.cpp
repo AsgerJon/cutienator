@@ -12,6 +12,71 @@
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwaylandquickshellsurfaceitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWaylandCompositor/qwaylandquickitem.h>
+#include <QtWaylandCompositor/private/qwaylandquickitem_p.h>
+#include <QtWaylandCompositor/qwaylandquicksurface.h>
+#include <QtWaylandCompositor/qwaylandinputmethodcontrol.h>
+#include <QtWaylandCompositor/qwaylandtextinput.h>
+#include <QtWaylandCompositor/qwaylandtextinputv3.h>
+#include <QtWaylandCompositor/qwaylandqttextinputmethod.h>
+#include <QtWaylandCompositor/qwaylandquickoutput.h>
+#include <QtWaylandCompositor/qwaylandcompositor.h>
+#include <QtWaylandCompositor/qwaylandseat.h>
+#include <QtWaylandCompositor/qwaylandbufferref.h>
+#if QT_CONFIG(draganddrop)
+#include <QtWaylandCompositor/QWaylandDrag>
+#endif
+#include <QtWaylandCompositor/private/qwlclientbufferintegration_p.h>
+#if QT_CONFIG(opengl)
+#  include <QtOpenGL/QOpenGLTexture>
+#  include <QtGui/QOpenGLFunctions>
+#endif
+#include <QtGui/QKeyEvent>
+#include <QtGui/QGuiApplication>
+#include <QtGui/QScreen>
+#include <QtQuick/QSGSimpleTextureNode>
+#include <QtQuick/QQuickWindow>
+#include <QtQuick/qsgtexture.h>
+#include <QtCore/QFile>
+#include <QtCore/QMutexLocker>
+#include <QtCore/QMutex>
+#include <wayland-server-core.h>
+#include <QtCore/QThread>
+#if QT_CONFIG(opengl)
+#include <QtGui/private/qshaderdescription_p.h>
+#endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtwayland/src/compositor/compositor_api/qwaylandquickitem.cpp, line 1716, as _ZN24QWaylandQuickItemPrivate5raiseEv
+inline void QWaylandQuickItemPrivate::raise()
+{
+    Q_Q(QWaylandQuickItem);
+    QQuickItem *parent = q->parentItem();
+    Q_ASSERT(parent);
+    QQuickItem *top = parent->childItems().constLast();
+    if (q != top)
+        q->stackAfter(top);
+}
+
+//  from ../qtwayland/src/compositor/compositor_api/qwaylandquickitem.cpp, line 1700, as _ZN24QWaylandQuickItemPrivate5lowerEv
+inline void QWaylandQuickItemPrivate::lower()
+{
+    Q_Q(QWaylandQuickItem);
+    QQuickItem *parent = q->parentItem();
+    Q_ASSERT(parent);
+    QQuickItem *bottom = parent->childItems().constFirst();
+    if (q != bottom)
+        q->stackBefore(bottom);
+}
+//  -----------------------------------------------------------------------
 
 //  A QWaylandQuickShellSurfaceItemPrivate that Python can take functions over in. Every QWaylandQuickShellSurfaceItemPrivate
 //  Python makes is one. Each function below asks the Python
@@ -379,6 +444,13 @@ extern "C" Q_DECL_EXPORT
 const QWaylandQuickShellSurfaceItem *ritual_ZNK36QWaylandQuickShellSurfaceItemPrivate6q_funcEv(
     const QWaylandQuickShellSurfaceItemPrivate *self) {
   return self->q_func();
+}
+
+//  QWaylandQuickShellSurfaceItemPrivate::QWaylandQuickShellSurfaceItemPrivat
+//      e()
+extern "C" Q_DECL_EXPORT
+QWaylandQuickShellSurfaceItemPrivate *ritual_ZN36QWaylandQuickShellSurfaceItemPrivateC1Ev() {
+  return new CuteQWaylandQuickShellSurfaceItemPrivate();
 }
 
 //  void QWaylandQuickShellSurfaceItemPrivate::setShellSurface(QWaylandShellS

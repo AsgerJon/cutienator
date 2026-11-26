@@ -5,7 +5,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -30,6 +30,22 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 17, as _ZN8AxisGrid17componentCompleteEv
+inline void AxisGrid::componentComplete()
+{
+    QQuickShaderEffect::componentComplete();
+    setupShaders();
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 23, as _ZN8AxisGrid14geometryChangeERK6QRectFS2_
+inline void AxisGrid::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
+{
+    m_iResolution = QVector3D(newGeometry.width(), newGeometry.height(), 1.0);
+    emit iResolutionChanged();
+
+    QQuickShaderEffect::geometryChange(newGeometry, oldGeometry);
+}
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 31, as _ZN8AxisGrid12setupShadersEv
 inline void AxisGrid::setupShaders()
@@ -144,22 +160,6 @@ inline qreal AxisGrid::verticalBase() const
 inline qreal AxisGrid::horizontalBase() const
 {
     return m_horizontalBase;
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 17, as _ZN8AxisGrid17componentCompleteEv
-inline void AxisGrid::componentComplete()
-{
-    QQuickShaderEffect::componentComplete();
-    setupShaders();
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 23, as _ZN8AxisGrid14geometryChangeERK6QRectFS2_
-inline void AxisGrid::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
-{
-    m_iResolution = QVector3D(newGeometry.width(), newGeometry.height(), 1.0);
-    emit iResolutionChanged();
-
-    QQuickShaderEffect::geometryChange(newGeometry, oldGeometry);
 }
 //  -----------------------------------------------------------------------
 
@@ -956,6 +956,28 @@ const QMetaObject *ritual_ZNK8AxisGrid10metaObjectEv(const AxisGrid *self) {
   return self->metaObject();
 }
 
+//  void *AxisGrid::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8AxisGrid11qt_metacastEPKc(AxisGrid *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int AxisGrid::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8AxisGrid11qt_metacallEN11QMetaObject4CallEiPPv(
+    AxisGrid *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  AxisGrid::~AxisGrid()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGridD1Ev(AxisGrid *self) {
+  delete self;
+}
+
 //  void AxisGrid::setupShaders()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8AxisGrid12setupShadersEv(AxisGrid *self) {
@@ -1087,6 +1109,448 @@ void ritual_ZN8AxisGrid14geometryChangeERK6QRectFS2_(
   self->geometryChange(*newGeometry, *oldGeometry);
 }
 
+//  void AxisGrid::iResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid18iResolutionChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "iResolutionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "iResolutionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::smoothingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid16smoothingChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "smoothingChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "smoothingChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::origoChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid12origoChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "origoChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "origoChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::gridVisibilityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid21gridVisibilityChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "gridVisibilityChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "gridVisibilityChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::gridWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid16gridWidthChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "gridWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "gridWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::gridHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid17gridHeightChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "gridHeightChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "gridHeightChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::gridMovementChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid19gridMovementChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "gridMovementChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "gridMovementChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::subGridColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid19subGridColorChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "subGridColorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "subGridColorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::gridColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid16gridColorChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "gridColorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "gridColorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::plotAreaBackgroundColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid30plotAreaBackgroundColorChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "plotAreaBackgroundColorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "plotAreaBackgroundColorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::subGridLineWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid23subGridLineWidthChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "subGridLineWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "subGridLineWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::gridLineWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid20gridLineWidthChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "gridLineWidthChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "gridLineWidthChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::verticalSubGridScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid27verticalSubGridScaleChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "verticalSubGridScaleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "verticalSubGridScaleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::horizontalSubGridScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid29horizontalSubGridScaleChangedEv(AxisGrid *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "horizontalSubGridScaleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "horizontalSubGridScaleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::verticalLogarithmicChanged(bool logarithmic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid26verticalLogarithmicChangedEb(
+    AxisGrid *self,
+    bool logarithmic) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "verticalLogarithmicChanged(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "verticalLogarithmicChanged(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&logarithmic)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::horizontalLogarithmicChanged(bool logarithmic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid28horizontalLogarithmicChangedEb(
+    AxisGrid *self,
+    bool logarithmic) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "horizontalLogarithmicChanged(bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "horizontalLogarithmicChanged(bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&logarithmic)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::verticalBaseChanged(qreal base)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid19verticalBaseChangedEd(AxisGrid *self, qreal base) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "verticalBaseChanged(qreal)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "verticalBaseChanged(qreal)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&base)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void AxisGrid::horizontalBaseChanged(qreal base)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid21horizontalBaseChangedEd(
+    AxisGrid *self,
+    qreal base) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "AxisGrid")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "horizontalBaseChanged(qreal)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "horizontalBaseChanged(qreal)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&base)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  a Python function taken by a CuteAxisGrid, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
@@ -1100,4 +1564,4 @@ void ritual_own_ZN8AxisGrid17componentCompleteEv(AxisGrid *self) {
   static_cast<OwnAxisGrid *>(self)->OwnAxisGrid::componentComplete();
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

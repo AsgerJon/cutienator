@@ -15,6 +15,12 @@
     "ritual_ZNK20QXmlNamespaceSupport3uriERK7QString": [
       "text", "address", "text"
     ],
+    "ritual_ZNK20QXmlNamespaceSupport9splitNameERK7QStringRS0_S3_": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZNK20QXmlNamespaceSupport11processNameERK7QStringbRS0_S3_": [
+      "nothing", "address", "text", "bool", "address", "address"
+    ],
     "ritual_ZNK20QXmlNamespaceSupport8prefixesEv": ["address", "address"],
     "ritual_ZNK20QXmlNamespaceSupport8prefixesERK7QString": [
       "address", "address", "text"

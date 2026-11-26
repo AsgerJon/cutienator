@@ -5,6 +5,9 @@
     "derdata_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN36QSSGDefaultMaterialPreparationResultC1E25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EE": [
+      "address", "address"
+    ],
     "ritual_ZN36QSSGDefaultMaterialPreparationResultD1Ev": [
       "nothing", "address"
     ]

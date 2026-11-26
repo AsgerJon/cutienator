@@ -8,6 +8,12 @@
     "ritual_ZNK24QQmlGrpcBidiStreamSender10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQmlGrpcBidiStreamSender11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQmlGrpcBidiStreamSender11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQmlGrpcBidiStreamSender2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,11 @@
     "ritual_ZN24QQmlGrpcBidiStreamSenderC1EP15QGrpcBidiStreamP7QObject": [
       "address", "address", "address"
     ],
+    "ritual_ZNK24QQmlGrpcBidiStreamSender16writeMessageImplERK16QProtobufMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQmlGrpcBidiStreamSender6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QQmlGrpcBidiStreamSender6d_funcEv": ["address", "address"],
     "ritual_take_QQmlGrpcBidiStreamSender": [
       "bool", "address", "chars", "address"
     ]

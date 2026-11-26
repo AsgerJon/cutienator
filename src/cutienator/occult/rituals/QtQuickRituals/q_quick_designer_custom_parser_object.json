@@ -8,6 +8,12 @@
     "ritual_ZNK32QQuickDesignerCustomParserObject10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuickDesignerCustomParserObject11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuickDesignerCustomParserObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_take_QQuickDesignerCustomParserObject": [
       "bool", "address", "chars", "address"
     ]

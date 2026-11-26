@@ -8,6 +8,12 @@
     "ritual_ZNK25QAbstractBarSeriesPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QAbstractBarSeriesPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QAbstractBarSeriesPrivate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,9 @@
     ],
     "ritual_ZN25QAbstractBarSeriesPrivate14initializeAxesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve": [
+      "nothing", "address", "int", "int", "address"
     ],
     "ritual_ZN25QAbstractBarSeriesPrivate15initializeThemeEiP10ChartThemeb": [
       "nothing", "address", "int", "address", "bool"
@@ -106,6 +115,42 @@
     ],
     "ritual_ZNK25QAbstractBarSeriesPrivate11labelsDirtyEv": [
       "bool", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate7clickedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate7pressedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate8releasedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate13doubleClickedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate11updatedBarsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate13updatedLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate16restructuredBarsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate20labelsVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate15setValueChangedEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate13setValueAddedEiiP7QBarSet": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate15setValueRemovedEiiP7QBarSet": [
+      "nothing", "address", "int", "int", "address"
     ],
     "ritual_ZN25QAbstractBarSeriesPrivate20handleSetValueChangeEi": [
       "nothing", "address", "int"

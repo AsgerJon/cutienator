@@ -18,7 +18,7 @@ typedef bool (*CuteQSvgFillStyleCall1)(const void *, int *);
 class CuteQSvgFillStyle : public QSvgFillStyle {
 public:
   using QSvgFillStyle::QSvgFillStyle;
-  CuteQSvgFillStyle(const QSvgFillStyle &other) : QSvgFillStyle(other) {}
+  CuteQSvgFillStyle(const QSvgFillStyle & other) : QSvgFillStyle(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -68,6 +68,26 @@ void ritual_ZN13QSvgFillStyleD1Ev(QSvgFillStyle *self) {
   delete self;
 }
 
+//  void QSvgFillStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSvgFillStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgFillStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgFillStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSvgFillStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgFillStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
+}
+
 //  Type QSvgFillStyle::type() const
 extern "C" Q_DECL_EXPORT
 QSvgStyleProperty::Type ritual_ZNK13QSvgFillStyle4typeEv(
@@ -89,6 +109,14 @@ void ritual_ZN13QSvgFillStyle14setFillOpacityEd(
     QSvgFillStyle *self,
     qreal opacity) {
   self->setFillOpacity(opacity);
+}
+
+//  void QSvgFillStyle::setPaintServer(QSvgPaintServerSharedPtr paintServer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSvgFillStyle14setPaintServerESt10shared_ptrI15QSvgPaintServerE(
+    QSvgFillStyle *self,
+    const QSvgPaintServerSharedPtr *paintServer) {
+  self->setPaintServer(*paintServer);
 }
 
 //  void QSvgFillStyle::setBrush(QBrush brush)

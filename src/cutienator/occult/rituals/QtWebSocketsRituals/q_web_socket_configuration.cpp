@@ -46,6 +46,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 85, as _ZN23QWebSocketConfigurationC1Ev
 inline QWebSocketConfiguration::QWebSocketConfiguration() :
 #ifndef QT_NO_SSL

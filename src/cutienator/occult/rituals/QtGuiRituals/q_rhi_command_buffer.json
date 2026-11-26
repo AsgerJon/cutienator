@@ -18,6 +18,13 @@
     "ritual_ZN17QRhiCommandBuffer19setGraphicsPipelineEP20QRhiGraphicsPipeline": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QRhiCommandBuffer18setShaderResourcesEP26QRhiShaderResourceBindingsiPKSt4pairIijE": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer14setVertexInputEiiPKSt4pairIP10QRhiBufferjES2_jNS_11IndexFormatE": [
+      "nothing", "address", "int", "int", "address", "address",
+      "unsigned int", "int"
+    ],
     "ritual_ZN17QRhiCommandBuffer11setViewportERK12QRhiViewport": [
       "nothing", "address", "address"
     ],
@@ -73,6 +80,9 @@
     "ritual_ZN17QRhiCommandBuffer11endExternalEv": ["nothing", "address"],
     "ritual_ZN17QRhiCommandBuffer20lastCompletedGpuTimeEv": [
       "double", "address"
+    ],
+    "ritual_ZN17QRhiCommandBufferC1EP18QRhiImplementation": [
+      "address", "address"
     ],
     "ritual_take_QRhiCommandBuffer": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QRhiCommandBuffer12resourceTypeEv": ["int", "address"]

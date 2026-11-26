@@ -300,6 +300,24 @@ const QMetaObject *ritual_ZNK12QQuick3DNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuick3DNode11qt_metacastEPKc(
+    QQuick3DNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DNode::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuick3DNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuick3DNode2trEPKcS1_i(
@@ -647,6 +665,128 @@ void ritual_ZN12QQuick3DNode14setStaticFlagsEi(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQuick3DNode9setLayersEi(QQuick3DNode *self, int newLayers) {
   self->setLayers(newLayers);
+}
+
+//  void QQuick3DNode::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode8xChangedEv(QQuick3DNode *self) {
+  self->xChanged();
+}
+
+//  void QQuick3DNode::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode8yChangedEv(QQuick3DNode *self) {
+  self->yChanged();
+}
+
+//  void QQuick3DNode::zChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode8zChangedEv(QQuick3DNode *self) {
+  self->zChanged();
+}
+
+//  void QQuick3DNode::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode15rotationChangedEv(QQuick3DNode *self) {
+  self->rotationChanged();
+}
+
+//  void QQuick3DNode::eulerRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode20eulerRotationChangedEv(QQuick3DNode *self) {
+  self->eulerRotationChanged();
+}
+
+//  void QQuick3DNode::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode15positionChangedEv(QQuick3DNode *self) {
+  self->positionChanged();
+}
+
+//  void QQuick3DNode::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode12scaleChangedEv(QQuick3DNode *self) {
+  self->scaleChanged();
+}
+
+//  void QQuick3DNode::pivotChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode12pivotChangedEv(QQuick3DNode *self) {
+  self->pivotChanged();
+}
+
+//  void QQuick3DNode::localOpacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode19localOpacityChangedEv(QQuick3DNode *self) {
+  self->localOpacityChanged();
+}
+
+//  void QQuick3DNode::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode14visibleChangedEv(QQuick3DNode *self) {
+  self->visibleChanged();
+}
+
+//  void QQuick3DNode::forwardChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode14forwardChangedEv(QQuick3DNode *self) {
+  self->forwardChanged();
+}
+
+//  void QQuick3DNode::upChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode9upChangedEv(QQuick3DNode *self) {
+  self->upChanged();
+}
+
+//  void QQuick3DNode::rightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode12rightChangedEv(QQuick3DNode *self) {
+  self->rightChanged();
+}
+
+//  void QQuick3DNode::sceneTransformChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode21sceneTransformChangedEv(QQuick3DNode *self) {
+  self->sceneTransformChanged();
+}
+
+//  void QQuick3DNode::scenePositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode20scenePositionChangedEv(QQuick3DNode *self) {
+  self->scenePositionChanged();
+}
+
+//  void QQuick3DNode::sceneRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode20sceneRotationChangedEv(QQuick3DNode *self) {
+  self->sceneRotationChanged();
+}
+
+//  void QQuick3DNode::sceneScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode17sceneScaleChangedEv(QQuick3DNode *self) {
+  self->sceneScaleChanged();
+}
+
+//  void QQuick3DNode::staticFlagsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode18staticFlagsChangedEv(QQuick3DNode *self) {
+  self->staticFlagsChanged();
+}
+
+//  void QQuick3DNode::layersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuick3DNode13layersChangedEv(QQuick3DNode *self) {
+  self->layersChanged();
+}
+
+//  QQuick3DNode::QQuick3DNode(QQuick3DNodePrivate &dd, QQuick3DNode *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DNode *ritual_ZN12QQuick3DNodeC1ER19QQuick3DNodePrivatePS_(
+    QQuick3DNodePrivate *dd,
+    QQuick3DNode *parent) {
+  return new CuteQQuick3DNode(*dd, parent);
 }
 
 //  QSSGRenderGraphObject

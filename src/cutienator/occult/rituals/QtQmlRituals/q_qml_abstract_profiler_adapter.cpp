@@ -189,6 +189,25 @@ const QMetaObject *ritual_ZNK27QQmlAbstractProfilerAdapter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlAbstractProfilerAdapter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QQmlAbstractProfilerAdapter11qt_metacastEPKc(
+    QQmlAbstractProfilerAdapter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlAbstractProfilerAdapter::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QQmlAbstractProfilerAdapter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlAbstractProfilerAdapter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlAbstractProfilerAdapter::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -213,6 +232,16 @@ void ritual_ZN27QQmlAbstractProfilerAdapter10setServiceEP19QQmlProfilerService(
     QQmlAbstractProfilerAdapter *self,
     QQmlProfilerService *new_service) {
   self->setService(new_service);
+}
+
+//  qint64 QQmlAbstractProfilerAdapter::sendMessages(qint64 until,
+//      QList<QByteArray> &messages)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN27QQmlAbstractProfilerAdapter12sendMessagesExR5QListI10QByteArrayE(
+    QQmlAbstractProfilerAdapter *self,
+    qint64 until,
+    QList<QByteArray> *messages) {
+  return self->sendMessages(until, *messages);
 }
 
 //  void QQmlAbstractProfilerAdapter::startProfiling(quint64 features)
@@ -271,6 +300,53 @@ void ritual_ZN27QQmlAbstractProfilerAdapter11synchronizeERK13QElapsedTimer(
     QQmlAbstractProfilerAdapter *self,
     const QElapsedTimer *t) {
   self->synchronize(*t);
+}
+
+//  void QQmlAbstractProfilerAdapter::profilingEnabled(quint64 features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQmlAbstractProfilerAdapter16profilingEnabledEy(
+    QQmlAbstractProfilerAdapter *self,
+    quint64 features) {
+  self->profilingEnabled(features);
+}
+
+//  void QQmlAbstractProfilerAdapter::profilingEnabledWhileWaiting(quint64
+//      features)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQmlAbstractProfilerAdapter28profilingEnabledWhileWaitingEy(
+    QQmlAbstractProfilerAdapter *self,
+    quint64 features) {
+  self->profilingEnabledWhileWaiting(features);
+}
+
+//  void QQmlAbstractProfilerAdapter::profilingDisabled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQmlAbstractProfilerAdapter17profilingDisabledEv(
+    QQmlAbstractProfilerAdapter *self) {
+  self->profilingDisabled();
+}
+
+//  void QQmlAbstractProfilerAdapter::profilingDisabledWhileWaiting()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQmlAbstractProfilerAdapter29profilingDisabledWhileWaitingEv(
+    QQmlAbstractProfilerAdapter *self) {
+  self->profilingDisabledWhileWaiting();
+}
+
+//  void QQmlAbstractProfilerAdapter::dataRequested()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQmlAbstractProfilerAdapter13dataRequestedEv(
+    QQmlAbstractProfilerAdapter *self) {
+  self->dataRequested();
+}
+
+//  void QQmlAbstractProfilerAdapter::referenceTimeKnown(const QElapsedTimer
+//      &timer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QQmlAbstractProfilerAdapter18referenceTimeKnownERK13QElapsedTimer(
+    QQmlAbstractProfilerAdapter *self,
+    const QElapsedTimer *timer) {
+  self->referenceTimeKnown(*timer);
 }
 
 //  QQmlAbstractProfilerAdapter as the QQmlProfilerDefinitions it is built on

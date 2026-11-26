@@ -13,6 +13,10 @@
     ],
     "ritual_ZN3QV411ArrayObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
-    ]
+    ],
+    "ritual_ZN3QV411ArrayObject16virtualGetLengthEPKNS_7ManagedE": [
+      "long long", "address"
+    ],
+    "ritual_ZNK3QV411ArrayObject13toQStringListEv": ["address", "address"]
   }
 }

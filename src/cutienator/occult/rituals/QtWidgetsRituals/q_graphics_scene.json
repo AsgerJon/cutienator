@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QGraphicsScene10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QGraphicsScene11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QGraphicsScene2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -258,8 +264,21 @@
     "ritual_ZN14QGraphicsScene14drawForegroundEP8QPainterRK6QRectF": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN14QGraphicsScene9drawItemsEP8QPainteriPP13QGraphicsItemPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "int", "address", "address", "address"
+    ],
     "ritual_ZN14QGraphicsScene18focusNextPrevChildEb": [
       "bool", "address", "bool"
+    ],
+    "ritual_ZN14QGraphicsScene7changedERK5QListI6QRectFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene16sceneRectChangedERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene16selectionChangedEv": ["nothing", "address"],
+    "ritual_ZN14QGraphicsScene16focusItemChangedEP13QGraphicsItemS1_N2Qt11FocusReasonE": [
+      "nothing", "address", "address", "address", "int"
     ],
     "ritual_ZN14QGraphicsScene6d_funcEv": ["address", "address"],
     "ritual_ZNK14QGraphicsScene6d_funcEv": ["address", "address"],

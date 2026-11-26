@@ -5,5 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QVectorPathConverterC1ERK5QListIN12QPainterPath7ElementEEbb": [
+      "address", "address", "bool", "bool"
+    ],
+    "ritual_ZN20QVectorPathConverter10vectorPathEv": ["address", "address"]
   }
 }

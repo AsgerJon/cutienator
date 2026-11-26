@@ -6,10 +6,13 @@
 #include <QtWidgets/qabstractitemdelegate.h>
 #include <QtCore/qstring.h>
 #include <QtWidgets/qstyleoption.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QAbstractItemDelegate that Python can take functions over in. Every QAbstractItemDelegate
 //  Python makes is one. Each function below asks the Python
@@ -420,6 +423,25 @@ const QMetaObject *ritual_ZNK21QAbstractItemDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractItemDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QAbstractItemDelegate11qt_metacastEPKc(
+    QAbstractItemDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractItemDelegate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QAbstractItemDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractItemDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractItemDelegate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QAbstractItemDelegate2trEPKcS1_i(
@@ -427,6 +449,13 @@ QString *ritual_ZN21QAbstractItemDelegate2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractItemDelegate::tr(s, c, n));
+}
+
+//  QAbstractItemDelegate::QAbstractItemDelegate(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractItemDelegate *ritual_ZN21QAbstractItemDelegateC1EP7QObject(
+    QObject *parent) {
+  return new CuteQAbstractItemDelegate(parent);
 }
 
 //  QAbstractItemDelegate::~QAbstractItemDelegate()
@@ -544,6 +573,48 @@ bool ritual_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractItemVie
   return self->helpEvent(event, view, *option, *index);
 }
 
+//  QList<int> QAbstractItemDelegate::paintingRoles() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK21QAbstractItemDelegate13paintingRolesEv(
+    const QAbstractItemDelegate *self) {
+  return new QList<int>(self->paintingRoles());
+}
+
+//  void QAbstractItemDelegate::commitData(QWidget *editor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QAbstractItemDelegate10commitDataEP7QWidget(
+    QAbstractItemDelegate *self,
+    QWidget *editor) {
+  self->commitData(editor);
+}
+
+//  void QAbstractItemDelegate::closeEditor(QWidget *editor,
+//      QAbstractItemDelegate::EndEditHint hint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QAbstractItemDelegate11closeEditorEP7QWidgetNS_11EndEditHintE(
+    QAbstractItemDelegate *self,
+    QWidget *editor,
+    QAbstractItemDelegate::EndEditHint hint) {
+  self->closeEditor(editor, hint);
+}
+
+//  void QAbstractItemDelegate::sizeHintChanged(const QModelIndex &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QAbstractItemDelegate15sizeHintChangedERK11QModelIndex(
+    QAbstractItemDelegate *self,
+    const QModelIndex *a0) {
+  self->sizeHintChanged(*a0);
+}
+
+//  QAbstractItemDelegate::QAbstractItemDelegate(QObjectPrivate &a0, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractItemDelegate *ritual_ZN21QAbstractItemDelegateC1ER14QObjectPrivateP7QObject(
+    QObjectPrivate *a0,
+    QObject *parent) {
+  return new CuteQAbstractItemDelegate(*a0, parent);
+}
+
 //  QAbstractItemDelegatePrivate *QAbstractItemDelegate::d_func()
 extern "C" Q_DECL_EXPORT
 QAbstractItemDelegatePrivate *ritual_ZN21QAbstractItemDelegate6d_funcEv(
@@ -652,6 +723,12 @@ bool ritual_own_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractIte
       view,
       *option,
       *index);
+}
+
+//  a QList<int> a ritual of QAbstractItemDelegate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractItemDelegate__QList_int(QList<int> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(itemviews)

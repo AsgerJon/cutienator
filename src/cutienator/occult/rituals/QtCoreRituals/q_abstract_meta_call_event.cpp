@@ -68,6 +68,16 @@ public:
   }
 };
 
+//  QAbstractMetaCallEvent::QAbstractMetaCallEvent(const QObject *sender, int
+//      signalId, QLatch *latch)
+extern "C" Q_DECL_EXPORT
+QAbstractMetaCallEvent *ritual_ZN22QAbstractMetaCallEventC1EPK7QObjectiP6QLatch(
+    const QObject *sender,
+    int signalId,
+    QLatch *latch) {
+  return new CuteQAbstractMetaCallEvent(sender, signalId, latch);
+}
+
 //  QAbstractMetaCallEvent::~QAbstractMetaCallEvent()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QAbstractMetaCallEventD1Ev(QAbstractMetaCallEvent *self) {

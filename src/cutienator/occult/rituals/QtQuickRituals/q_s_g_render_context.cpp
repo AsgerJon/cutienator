@@ -8,6 +8,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtQuick/qquickgraphicsconfiguration.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/6.12.0/QtQuick/private/qsgrenderer_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qrawfont.h>
 #include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
@@ -473,6 +476,25 @@ const QMetaObject *ritual_ZNK16QSGRenderContext10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGRenderContext::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QSGRenderContext11qt_metacastEPKc(
+    QSGRenderContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGRenderContext::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QSGRenderContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGRenderContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGRenderContext::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QSGRenderContext2trEPKcS1_i(
@@ -480,6 +502,13 @@ QString *ritual_ZN16QSGRenderContext2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSGRenderContext::tr(s, c, n));
+}
+
+//  QSGRenderContext::QSGRenderContext(QSGContext *context)
+extern "C" Q_DECL_EXPORT
+QSGRenderContext *ritual_ZN16QSGRenderContextC1EP10QSGContext(
+    QSGContext *context) {
+  return new CuteQSGRenderContext(context);
 }
 
 //  QSGRenderContext::~QSGRenderContext()
@@ -524,6 +553,26 @@ void ritual_ZN16QSGRenderContext11prepareSyncEdP17QRhiCommandBufferRK27QQuickGra
     QRhiCommandBuffer *cb,
     const QQuickGraphicsConfiguration *config) {
   self->prepareSync(devicePixelRatio, cb, *config);
+}
+
+//  void QSGRenderContext::beginNextFrame(QSGRenderer *renderer, const
+//      QSGRenderTarget &renderTarget, RenderPassCallback
+//      mainPassRecordingStart, RenderPassCallback mainPassRecordingEnd, void
+//      *callbackUserData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGRenderContext14beginNextFrameEP11QSGRendererRK15QSGRenderTargetPFvPvES7_S5_(
+    QSGRenderContext *self,
+    QSGRenderer *renderer,
+    const QSGRenderTarget *renderTarget,
+    void *mainPassRecordingStart,
+    void *mainPassRecordingEnd,
+    void *callbackUserData) {
+  self->beginNextFrame(
+      renderer,
+      *renderTarget,
+      reinterpret_cast<QSGRenderContext::RenderPassCallback>(mainPassRecordingStart),
+      reinterpret_cast<QSGRenderContext::RenderPassCallback>(mainPassRecordingEnd),
+      callbackUserData);
 }
 
 //  void QSGRenderContext::renderNextFrame(QSGRenderer *renderer)
@@ -657,12 +706,40 @@ QRhi *ritual_ZNK16QSGRenderContext3rhiEv(const QSGRenderContext *self) {
   return self->rhi();
 }
 
+//  void QSGRenderContext::initialized()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGRenderContext11initializedEv(QSGRenderContext *self) {
+  self->initialized();
+}
+
+//  void QSGRenderContext::invalidated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGRenderContext11invalidatedEv(QSGRenderContext *self) {
+  self->invalidated();
+}
+
+//  void QSGRenderContext::releaseCachedResourcesRequested()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGRenderContext31releaseCachedResourcesRequestedEv(
+    QSGRenderContext *self) {
+  self->releaseCachedResourcesRequested();
+}
+
 //  void QSGRenderContext::textureFactoryDestroyed(QObject *o)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSGRenderContext23textureFactoryDestroyedEP7QObject(
     QSGRenderContext *self,
     QObject *o) {
   self->textureFactoryDestroyed(o);
+}
+
+//  bool operator==(const QSGRenderContext::FontKey &f1, const
+//      QSGRenderContext::FontKey &f2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN16QSGRenderContext7FontKeyES2_(
+    const QSGRenderContext::FontKey *f1,
+    const QSGRenderContext::FontKey *f2) {
+  return operator==(*f1, *f2);
 }
 
 //  a Python function taken by a CuteQSGRenderContext, for the function named

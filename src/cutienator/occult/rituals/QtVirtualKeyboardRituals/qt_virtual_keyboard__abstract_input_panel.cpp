@@ -281,6 +281,25 @@ const QMetaObject *ritual_ZNK17QtVirtualKeyboard18AbstractInputPanel10metaObject
   return self->metaObject();
 }
 
+//  void *QtVirtualKeyboard::AbstractInputPanel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QtVirtualKeyboard18AbstractInputPanel11qt_metacastEPKc(
+    QtVirtualKeyboard::AbstractInputPanel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtVirtualKeyboard::AbstractInputPanel::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QtVirtualKeyboard18AbstractInputPanel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtVirtualKeyboard::AbstractInputPanel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtVirtualKeyboard::AbstractInputPanel::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -289,6 +308,30 @@ QString *ritual_ZN17QtVirtualKeyboard18AbstractInputPanel2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtVirtualKeyboard::AbstractInputPanel::tr(s, c, n));
+}
+
+//  QtVirtualKeyboard::AbstractInputPanel::AbstractInputPanel(QObjectPrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::AbstractInputPanel *ritual_ZN17QtVirtualKeyboard18AbstractInputPanelC1ER14QObjectPrivateP7QObject(
+    QObjectPrivate *dd,
+    QObject *parent) {
+  return new CuteQtVirtualKeyboard_AbstractInputPanel(*dd, parent);
+}
+
+//  QtVirtualKeyboard::AbstractInputPanel::AbstractInputPanel(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::AbstractInputPanel *ritual_ZN17QtVirtualKeyboard18AbstractInputPanelC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtVirtualKeyboard_AbstractInputPanel(parent);
+}
+
+//  QtVirtualKeyboard::AbstractInputPanel::~AbstractInputPanel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard18AbstractInputPanelD1Ev(
+    QtVirtualKeyboard::AbstractInputPanel *self) {
+  delete self;
 }
 
 //  void QtVirtualKeyboard::AbstractInputPanel::show()

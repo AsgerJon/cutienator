@@ -6,10 +6,14 @@
   ],
   "rows": {
     "ritual_ZN9QXmlUtils9isEncNameE11QStringView": ["bool", "text"],
+    "ritual_ZN9QXmlUtils6isCharEDi": ["bool", "unsigned int"],
     "ritual_ZN9QXmlUtils10isNameCharE5QChar": ["bool", "address"],
     "ritual_ZN9QXmlUtils8isLetterE5QChar": ["bool", "address"],
     "ritual_ZN9QXmlUtils8isNCNameE11QStringView": ["bool", "text"],
     "ritual_ZN9QXmlUtils10isPublicIDE11QStringView": ["bool", "text"],
+    "ritual_ZN9QXmlUtils13rangeContainsEPK13QXmlCharRangeS2_5QChar": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN9QXmlUtils10isBaseCharE5QChar": ["bool", "address"],
     "ritual_ZN9QXmlUtils7isDigitE5QChar": ["bool", "address"],
     "ritual_ZN9QXmlUtils10isExtenderE5QChar": ["bool", "address"],

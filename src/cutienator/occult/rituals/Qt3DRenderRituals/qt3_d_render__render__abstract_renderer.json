@@ -89,6 +89,12 @@
     "ritual_ZN10Qt3DRender6Render16AbstractRenderer15processKeyEventEP7QObjectP9QKeyEvent": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer16preRenderingJobsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer13renderBinJobsEv": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render16AbstractRenderer12setSceneRootEPNS0_6EntityE": [
       "nothing", "address", "address"
     ],
@@ -128,6 +134,12 @@
     "ritual_ZNK10Qt3DRender6Render16AbstractRenderer6screenEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer19accessOpenGLTextureEN8Qt3DCore7QNodeIdEPP14QOpenGLTexturePP6QMutexb": [
+      "bool", "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer16resourceAccessorEv": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render16AbstractRenderer25setOffscreenSurfaceHelperEPNS0_22OffscreenSurfaceHelperE": [
       "nothing", "address", "address"
     ],
@@ -160,6 +172,12 @@
     ],
     "ritual_own_ZNK10Qt3DRender6Render16AbstractRenderer6screenEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_AbstractRenderer__std_vector_Qt3DCore_QAspectJobPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_AbstractRenderer__QSharedPointer_Qt3DRender_Render_RenderBackendResourceAccessor": [
+      "nothing", "address"
     ]
   }
 }

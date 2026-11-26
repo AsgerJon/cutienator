@@ -37,6 +37,27 @@ QColorTrc *ritual_ZN9QColorTrcC1ERK29QColorTransferGenericFunction(
   return new QColorTrc(*hdr);
 }
 
+//  QColorTrc::QColorTrc(QColorTransferFunction &&fun)
+extern "C" Q_DECL_EXPORT
+QColorTrc *ritual_ZN9QColorTrcC1EO22QColorTransferFunction(
+    QColorTransferFunction *fun) {
+  return new QColorTrc(std::move(*fun));
+}
+
+//  QColorTrc::QColorTrc(QColorTransferTable &&table)
+extern "C" Q_DECL_EXPORT
+QColorTrc *ritual_ZN9QColorTrcC1EO19QColorTransferTable(
+    QColorTransferTable *table) {
+  return new QColorTrc(std::move(*table));
+}
+
+//  QColorTrc::QColorTrc(QColorTransferGenericFunction &&hdr)
+extern "C" Q_DECL_EXPORT
+QColorTrc *ritual_ZN9QColorTrcC1EO29QColorTransferGenericFunction(
+    QColorTransferGenericFunction *hdr) {
+  return new QColorTrc(std::move(*hdr));
+}
+
 //  bool QColorTrc::isIdentity() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QColorTrc10isIdentityEv(const QColorTrc *self) {

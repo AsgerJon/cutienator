@@ -1036,6 +1036,24 @@ const QMetaObject *ritual_ZNK15QProgressDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QProgressDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QProgressDialog11qt_metacastEPKc(
+    QProgressDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QProgressDialog::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QProgressDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QProgressDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QProgressDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QProgressDialog2trEPKcS1_i(
@@ -1043,6 +1061,20 @@ QString *ritual_ZN15QProgressDialog2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QProgressDialog::tr(s, c, n));
+}
+
+//  QProgressDialogPrivate *QProgressDialog::d_func()
+extern "C" Q_DECL_EXPORT
+QProgressDialogPrivate *ritual_ZN15QProgressDialog6d_funcEv(
+    QProgressDialog *self) {
+  return self->d_func();
+}
+
+//  const QProgressDialogPrivate *QProgressDialog::d_func() const
+extern "C" Q_DECL_EXPORT
+const QProgressDialogPrivate *ritual_ZNK15QProgressDialog6d_funcEv(
+    const QProgressDialog *self) {
+  return self->d_func();
 }
 
 //  QProgressDialog::QProgressDialog(QWidget *parent, Qt::WindowFlags flags)
@@ -1254,6 +1286,12 @@ void ritual_ZN15QProgressDialog18setMinimumDurationEi(
     QProgressDialog *self,
     int ms) {
   self->setMinimumDuration(ms);
+}
+
+//  void QProgressDialog::canceled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QProgressDialog8canceledEv(QProgressDialog *self) {
+  self->canceled();
 }
 
 //  void QProgressDialog::resizeEvent(QResizeEvent *event)

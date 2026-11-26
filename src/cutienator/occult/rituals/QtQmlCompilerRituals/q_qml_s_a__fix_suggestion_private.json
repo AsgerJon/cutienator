@@ -11,6 +11,51 @@
     "ritual_ZNK6QQmlSA20FixSuggestionPrivate6q_funcEv": [
       "address", "address"
     ],
-    "ritual_ZN6QQmlSA20FixSuggestionPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN6QQmlSA20FixSuggestionPrivateC1EPNS_13FixSuggestionE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA20FixSuggestionPrivateC1EPNS_13FixSuggestionERK7QStringRKNS_14SourceLocationERK5QListINS_12DocumentEditEE": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA20FixSuggestionPrivateC1EPNS_13FixSuggestionERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA20FixSuggestionPrivateC1EPNS_13FixSuggestionEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA20FixSuggestionPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlSA20FixSuggestionPrivate8locationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA20FixSuggestionPrivate11descriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZN6QQmlSA20FixSuggestionPrivate15addDocumentEditERKNS_12DocumentEditE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA20FixSuggestionPrivate13documentEditsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA20FixSuggestionPrivate11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA20FixSuggestionPrivate8fileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN6QQmlSA20FixSuggestionPrivate17setAutoApplicableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK6QQmlSA20FixSuggestionPrivate16isAutoApplicableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN6QQmlSA20FixSuggestionPrivate13fixSuggestionERNS_13FixSuggestionE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA20FixSuggestionPrivate25createQQmlSAFixSuggestionERK19QQmlJSFixSuggestion": [
+      "address", "address"
+    ],
+    "ritual_drop_QQmlSA_FixSuggestionPrivate__QList_QQmlSA_DocumentEdit": [
+      "nothing", "address"
+    ]
   }
 }

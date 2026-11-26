@@ -5,11 +5,48 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJobC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob10setManagerEPNS0_12NodeManagersE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob15setLayerFiltersERK5QListIN8Qt3DCore7QNodeIdEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob16filteredEntitiesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender6Render20FilterLayerEntityJob14hasLayerFilterEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render20FilterLayerEntityJob12layerFiltersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob25filterEntityAgainstLayersEPNS0_6EntityERK5QListIN8Qt3DCore7QNodeIdEENS_12QLayerFilter10FilterModeE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob29filterAcceptAnyMatchingLayersEPNS0_6EntityERK5QListIN8Qt3DCore7QNodeIdEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob29filterAcceptAllMatchingLayersEPNS0_6EntityERK5QListIN8Qt3DCore7QNodeIdEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob30filterDiscardAnyMatchingLayersEPNS0_6EntityERK5QListIN8Qt3DCore7QNodeIdEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob30filterDiscardAllMatchingLayersEPNS0_6EntityERK5QListIN8Qt3DCore7QNodeIdEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob20filterLayerAndEntityEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render20FilterLayerEntityJob17selectAllEntitiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_FilterLayerEntityJob__Qt3DCore_QNodeIdVector": [
+      "nothing", "address"
     ]
   }
 }

@@ -11,6 +11,8 @@
     "ritual_ZNK31QQuickVerticalHeaderViewPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickVerticalHeaderViewPrivateC1Ev": ["address"],
+    "ritual_ZN31QQuickVerticalHeaderViewPrivateD1Ev": ["nothing", "address"],
     "ritual_take_QQuickVerticalHeaderViewPrivate": [
       "bool", "address", "chars", "address"
     ]

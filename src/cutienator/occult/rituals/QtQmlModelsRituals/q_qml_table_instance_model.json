@@ -8,6 +8,12 @@
     "ritual_ZNK22QQmlTableInstanceModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQmlTableInstanceModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQmlTableInstanceModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -89,6 +95,9 @@
     "ritual_ZN22QQmlTableInstanceModel12getModelItemEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN22QQmlTableInstanceModel12modelChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN22QQmlTableInstanceModel15resolveDelegateEi": [
       "address", "address", "int"
     ],
@@ -109,6 +118,9 @@
     ],
     "ritual_ZN22QQmlTableInstanceModel16destroyModelItemEP21QQmlDelegateModelItemNS_15DestructionModeE": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel19dataChangedCallbackERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN22QQmlTableInstanceModel27modelAboutToBeResetCallbackEv": [
       "nothing", "address"

@@ -8,11 +8,73 @@
     "ritual_ZNK10Qt3DRender18QGraphicsApiFilter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender18QGraphicsApiFilter2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN10Qt3DRender18QGraphicsApiFilterC1EP7QObject": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilterD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender18QGraphicsApiFilter3apiEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender18QGraphicsApiFilter7profileEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QGraphicsApiFilter12minorVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QGraphicsApiFilter12majorVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QGraphicsApiFilter10extensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QGraphicsApiFilter6vendorEv": [
+      "text", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter6setApiENS0_3ApiE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter10setProfileENS0_13OpenGLProfileE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter15setMinorVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter15setMajorVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter13setExtensionsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter9setVendorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter10apiChangedENS0_3ApiE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter14profileChangedENS0_13OpenGLProfileE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter19minorVersionChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter19majorVersionChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter17extensionsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter13vendorChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10Qt3DRender18QGraphicsApiFilter24graphicsApiFilterChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN10Qt3DRender18QGraphicsApiFilter6d_funcEv": [
       "address", "address"

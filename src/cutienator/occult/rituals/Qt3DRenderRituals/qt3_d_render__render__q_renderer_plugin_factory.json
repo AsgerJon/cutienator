@@ -5,6 +5,12 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render22QRendererPluginFactory4keysEv": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render22QRendererPluginFactory6createERK7QString": [
+      "address", "text"
+    ],
     "ritual_ZN10Qt3DRender6Render22QRendererPluginFactoryD1Ev": [
       "nothing", "address"
     ]

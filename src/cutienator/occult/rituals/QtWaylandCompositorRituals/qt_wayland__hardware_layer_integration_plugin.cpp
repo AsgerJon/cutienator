@@ -190,6 +190,27 @@ const QMetaObject *ritual_ZNK9QtWayland30HardwareLayerIntegrationPlugin10metaObj
   return self->metaObject();
 }
 
+//  void *QtWayland::HardwareLayerIntegrationPlugin::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QtWayland30HardwareLayerIntegrationPlugin11qt_metacastEPKc(
+    QtWayland::HardwareLayerIntegrationPlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      QtWayland::HardwareLayerIntegrationPlugin::qt_metacall(QMetaObject::C
+//      all a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QtWayland30HardwareLayerIntegrationPlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtWayland::HardwareLayerIntegrationPlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtWayland::HardwareLayerIntegrationPlugin::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -198,6 +219,14 @@ QString *ritual_ZN9QtWayland30HardwareLayerIntegrationPlugin2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtWayland::HardwareLayerIntegrationPlugin::tr(s, c, n));
+}
+
+//  QtWayland::HardwareLayerIntegrationPlugin::~HardwareLayerIntegrationPlugi
+//      n()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtWayland30HardwareLayerIntegrationPluginD1Ev(
+    QtWayland::HardwareLayerIntegrationPlugin *self) {
+  delete self;
 }
 
 //  HardwareLayerIntegration

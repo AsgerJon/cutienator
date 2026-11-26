@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qtextoption.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtextoption.h>
+#include <QtCore/QList>
+#include <QtGui/QTextOption>
 
 //  QTextOption::QTextOption()
 extern "C" Q_DECL_EXPORT
@@ -25,6 +27,14 @@ void ritual_ZN11QTextOptionD1Ev(QTextOption *self) {
 extern "C" Q_DECL_EXPORT
 QTextOption *ritual_ZN11QTextOptionC1ERKS_(const QTextOption *o) {
   return new QTextOption(*o);
+}
+
+//  QTextOption &QTextOption::operator=(const QTextOption &o)
+extern "C" Q_DECL_EXPORT
+QTextOption *ritual_ZN11QTextOptionaSERKS_(
+    QTextOption *self,
+    const QTextOption *o) {
+  return &(self->operator=(*o));
 }
 
 //  void QTextOption::setAlignment(Qt::Alignment alignment)
@@ -99,6 +109,35 @@ qreal ritual_ZNK11QTextOption15tabStopDistanceEv(const QTextOption *self) {
   return self->tabStopDistance();
 }
 
+//  void QTextOption::setTabArray(const QList<qreal> &tabStops)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextOption11setTabArrayERK5QListIdE(
+    QTextOption *self,
+    const QList<qreal> *tabStops) {
+  self->setTabArray(*tabStops);
+}
+
+//  QList<qreal> QTextOption::tabArray() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK11QTextOption8tabArrayEv(const QTextOption *self) {
+  return new QList<qreal>(self->tabArray());
+}
+
+//  void QTextOption::setTabs(const QList<Tab> &tabStops)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextOption7setTabsERK5QListINS_3TabEE(
+    QTextOption *self,
+    const QList<QTextOption::Tab> *tabStops) {
+  self->setTabs(*tabStops);
+}
+
+//  QList<Tab> QTextOption::tabs() const
+extern "C" Q_DECL_EXPORT
+QList<QTextOption::Tab> *ritual_ZNK11QTextOption4tabsEv(
+    const QTextOption *self) {
+  return new QList<QTextOption::Tab>(self->tabs());
+}
+
 //  void QTextOption::setUseDesignMetrics(bool b)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextOption19setUseDesignMetricsEb(
@@ -111,4 +150,17 @@ void ritual_ZN11QTextOption19setUseDesignMetricsEb(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QTextOption16useDesignMetricsEv(const QTextOption *self) {
   return self->useDesignMetrics();
+}
+
+//  a QList<qreal> a ritual of QTextOption gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextOption__QList_qreal(QList<qreal> *self) {
+  delete self;
+}
+
+//  a QList<QTextOption::Tab> a ritual of QTextOption gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextOption__QList_QTextOption_Tab(
+    QList<QTextOption::Tab> *self) {
+  delete self;
 }

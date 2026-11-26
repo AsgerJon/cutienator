@@ -911,6 +911,20 @@ QVariant *ritual_ZNK20QGraphicsPolygonItem9extensionERK8QVariant(
   return new QVariant(self->extension(*variant));
 }
 
+//  QGraphicsPolygonItemPrivate *QGraphicsPolygonItem::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsPolygonItemPrivate *ritual_ZN20QGraphicsPolygonItem6d_funcEv(
+    QGraphicsPolygonItem *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsPolygonItemPrivate *QGraphicsPolygonItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsPolygonItemPrivate *ritual_ZNK20QGraphicsPolygonItem6d_funcEv(
+    const QGraphicsPolygonItem *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsPolygonItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

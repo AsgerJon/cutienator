@@ -5,9 +5,14 @@
   ],
   "rows": {
     "ritual_ZNK7QLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QLayout11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QLayout2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QLayout6d_funcEv": ["address", "address"],
     "ritual_ZNK7QLayout6d_funcEv": ["address", "address"],
+    "ritual_ZN7QLayoutC1EP7QWidget": ["address", "address"],
     "ritual_ZN7QLayoutD1Ev": ["nothing", "address"],
     "ritual_ZNK7QLayout7spacingEv": ["int", "address"],
     "ritual_ZN7QLayout10setSpacingEi": ["nothing", "address", "int"],
@@ -111,6 +116,9 @@
     "ritual_ZN7QLayout11adoptLayoutEPS_": ["bool", "address", "address"],
     "ritual_ZNK7QLayout13alignmentRectERK5QRect": [
       "address", "address", "address"
+    ],
+    "ritual_ZN7QLayoutC1ER14QLayoutPrivatePS_P7QWidget": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZN7QLayout23activateRecursiveHelperEP11QLayoutItem": [
       "nothing", "address"

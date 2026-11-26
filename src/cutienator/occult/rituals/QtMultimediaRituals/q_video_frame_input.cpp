@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK16QVideoFrameInput10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVideoFrameInput::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QVideoFrameInput11qt_metacastEPKc(
+    QVideoFrameInput *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVideoFrameInput::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QVideoFrameInput11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVideoFrameInput *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVideoFrameInput::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QVideoFrameInput2trEPKcS1_i(
@@ -233,6 +252,13 @@ QMediaCaptureSession *ritual_ZNK16QVideoFrameInput14captureSessionEv(
   return self->captureSession();
 }
 
+//  void QVideoFrameInput::readyToSendVideoFrame()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QVideoFrameInput21readyToSendVideoFrameEv(
+    QVideoFrameInput *self) {
+  self->readyToSendVideoFrame();
+}
+
 //  void QVideoFrameInput::setCaptureSession(QMediaCaptureSession
 //      *captureSession)
 extern "C" Q_DECL_EXPORT
@@ -248,6 +274,20 @@ extern "C" Q_DECL_EXPORT
 QPlatformVideoFrameInput *ritual_ZNK16QVideoFrameInput23platformVideoFrameInputEv(
     const QVideoFrameInput *self) {
   return self->platformVideoFrameInput();
+}
+
+//  QVideoFrameInputPrivate *QVideoFrameInput::d_func()
+extern "C" Q_DECL_EXPORT
+QVideoFrameInputPrivate *ritual_ZN16QVideoFrameInput6d_funcEv(
+    QVideoFrameInput *self) {
+  return self->d_func();
+}
+
+//  const QVideoFrameInputPrivate *QVideoFrameInput::d_func() const
+extern "C" Q_DECL_EXPORT
+const QVideoFrameInputPrivate *ritual_ZNK16QVideoFrameInput6d_funcEv(
+    const QVideoFrameInput *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQVideoFrameInput, for the function named

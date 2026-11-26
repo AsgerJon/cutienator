@@ -18,10 +18,34 @@ QFontInfo *ritual_ZN9QFontInfoC1ERKS_(const QFontInfo *a0) {
   return new QFontInfo(*a0);
 }
 
+//  QFontInfo::QFontInfo(QFontInfo &&a0)
+extern "C" Q_DECL_EXPORT
+QFontInfo *ritual_ZN9QFontInfoC1EOS_(QFontInfo *a0) {
+  return new QFontInfo(std::move(*a0));
+}
+
 //  QFontInfo::~QFontInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QFontInfoD1Ev(QFontInfo *self) {
   delete self;
+}
+
+//  QFontInfo &QFontInfo::operator=(const QFontInfo &a0)
+extern "C" Q_DECL_EXPORT
+QFontInfo *ritual_ZN9QFontInfoaSERKS_(QFontInfo *self, const QFontInfo *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QFontInfo &QFontInfo::operator=(QFontInfo &&other)
+extern "C" Q_DECL_EXPORT
+QFontInfo *ritual_ZN9QFontInfoaSEOS_(QFontInfo *self, QFontInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QFontInfo::swap(QFontInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QFontInfo4swapERS_(QFontInfo *self, QFontInfo *other) {
+  self->swap(*other);
 }
 
 //  QString QFontInfo::family() const

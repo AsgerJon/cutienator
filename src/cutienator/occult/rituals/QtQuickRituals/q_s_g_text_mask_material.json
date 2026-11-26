@@ -7,6 +7,15 @@
   "rows": {
     "ritual_ZN19QSGTextMaskMaterialD1Ev": ["nothing", "address"],
     "ritual_ZNK19QSGTextMaskMaterial4typeEv": ["address", "address"],
+    "ritual_ZNK19QSGTextMaskMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QSGTextMaskMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN19QSGTextMaskMaterial8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QSGTextMaskMaterial5colorEv": ["address", "address"],
     "ritual_ZNK19QSGTextMaskMaterial7textureEv": ["address", "address"],
     "ritual_ZN19QSGTextMaskMaterial14ensureUpToDateEv": ["bool", "address"],
@@ -14,9 +23,16 @@
     "ritual_ZNK19QSGTextMaskMaterial13rhiGlyphCacheEv": [
       "address", "address"
     ],
+    "ritual_ZN19QSGTextMaskMaterial8populateERK7QPointFRK5QListIjERKS3_IS0_EP11QSGGeometryP6QRectFPS0_RK8QMargins": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address", "address"
+    ],
     "ritual_take_QSGTextMaskMaterial": [
       "bool", "address", "chars", "address"
     ],
-    "ritual_own_ZNK19QSGTextMaskMaterial4typeEv": ["address", "address"]
+    "ritual_own_ZNK19QSGTextMaskMaterial4typeEv": ["address", "address"],
+    "ritual_own_ZNK19QSGTextMaskMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ]
   }
 }

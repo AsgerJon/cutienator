@@ -108,6 +108,13 @@ public:
   }
 };
 
+//  QDesignerDynamicPropertySheetExtension::QDesignerDynamicPropertySheetExte
+//      nsion()
+extern "C" Q_DECL_EXPORT
+QDesignerDynamicPropertySheetExtension *ritual_ZN38QDesignerDynamicPropertySheetExtensionC1Ev() {
+  return new CuteQDesignerDynamicPropertySheetExtension();
+}
+
 //  QDesignerDynamicPropertySheetExtension::~QDesignerDynamicPropertySheetExt
 //      ension()
 extern "C" Q_DECL_EXPORT

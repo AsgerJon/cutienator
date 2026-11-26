@@ -184,6 +184,24 @@ const QMetaObject *ritual_ZNK14QCustom3DLabel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCustom3DLabel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QCustom3DLabel11qt_metacastEPKc(
+    QCustom3DLabel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCustom3DLabel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QCustom3DLabel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCustom3DLabel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCustom3DLabel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QCustom3DLabel2trEPKcS1_i(
@@ -325,6 +343,62 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14QCustom3DLabel14isFacingCameraEv(
     const QCustom3DLabel *self) {
   return self->isFacingCamera();
+}
+
+//  void QCustom3DLabel::textChanged(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel11textChangedERK7QString(
+    QCustom3DLabel *self,
+    const QString *text) {
+  self->textChanged(*text);
+}
+
+//  void QCustom3DLabel::fontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel11fontChangedERK5QFont(
+    QCustom3DLabel *self,
+    const QFont *font) {
+  self->fontChanged(*font);
+}
+
+//  void QCustom3DLabel::textColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel16textColorChangedERK6QColor(
+    QCustom3DLabel *self,
+    const QColor *color) {
+  self->textColorChanged(*color);
+}
+
+//  void QCustom3DLabel::backgroundColorChanged(const QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel22backgroundColorChangedERK6QColor(
+    QCustom3DLabel *self,
+    const QColor *color) {
+  self->backgroundColorChanged(*color);
+}
+
+//  void QCustom3DLabel::borderEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel20borderEnabledChangedEb(
+    QCustom3DLabel *self,
+    bool enabled) {
+  self->borderEnabledChanged(enabled);
+}
+
+//  void QCustom3DLabel::backgroundEnabledChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel24backgroundEnabledChangedEb(
+    QCustom3DLabel *self,
+    bool enabled) {
+  self->backgroundEnabledChanged(enabled);
+}
+
+//  void QCustom3DLabel::facingCameraChanged(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QCustom3DLabel19facingCameraChangedEb(
+    QCustom3DLabel *self,
+    bool enabled) {
+  self->facingCameraChanged(enabled);
 }
 
 //  QCustom3DLabelPrivate *QCustom3DLabel::dptr()

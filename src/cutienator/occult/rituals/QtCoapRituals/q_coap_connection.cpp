@@ -9,8 +9,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCoap/qcoapsecurityconfiguration.h>
 #include <QtNetwork/qnetworkinterface.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtNetwork/qhostaddress.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -51,17 +52,6 @@ inline QCoapSecurityConfiguration QCoapConnection::securityConfiguration() const
 {
     Q_D(const QCoapConnection);
     return d->securityConfiguration;
-}
-
-//  from ../qtcoap/src/coap/qcoapconnection.cpp, line 270, as _ZN15QCoapConnection10disconnectEv
-inline void QCoapConnection::disconnect()
-{
-    Q_D(QCoapConnection);
-
-    close();
-
-    d->framesToSend.clear();
-    d->state = ConnectionState::Unconnected;
 }
 
 //  from ../qtcoap/src/coap/qcoapconnection.cpp, line 284, as _ZN15QCoapConnection22setUdpNetworkInterfaceERK17QNetworkInterface
@@ -318,6 +308,24 @@ const QMetaObject *ritual_ZNK15QCoapConnection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCoapConnection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QCoapConnection11qt_metacastEPKc(
+    QCoapConnection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCoapConnection::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QCoapConnection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCoapConnection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QCoapConnection::~QCoapConnection()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QCoapConnectionD1Ev(QCoapConnection *self) {
@@ -351,10 +359,56 @@ QCoapSecurityConfiguration *ritual_ZNK15QCoapConnection21securityConfigurationEv
   return new QCoapSecurityConfiguration(self->securityConfiguration());
 }
 
+//  void QCoapConnection::setSecurityConfiguration(const
+//      QCoapSecurityConfiguration &configuration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCoapConnection24setSecurityConfigurationERK26QCoapSecurityConfiguration(
+    QCoapConnection *self,
+    const QCoapSecurityConfiguration *configuration) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setSecurityConfiguration(const QCoapSecurityConfiguration &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setSecurityConfiguration(const QCoapSecurityConfiguration &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(configuration)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QCoapConnection::disconnect()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QCoapConnection10disconnectEv(QCoapConnection *self) {
-  self->disconnect();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "disconnect()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "disconnect()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 #if QT_CONFIG(networkinterface)
@@ -376,6 +430,112 @@ QNetworkInterface *ritual_ZNK15QCoapConnection19udpNetworkInterfaceEv(
   return new QNetworkInterface(self->udpNetworkInterface());
 }
 #endif  // QT_CONFIG(networkinterface)
+
+//  void QCoapConnection::error(QAbstractSocket::SocketError error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCoapConnection5errorEN15QAbstractSocket11SocketErrorE(
+    QCoapConnection *self,
+    QAbstractSocket::SocketError error) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "error(QAbstractSocket::SocketError)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "error(QAbstractSocket::SocketError)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&error)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapConnection::readyRead(const QByteArray &data, const
+//      QHostAddress &sender)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCoapConnection9readyReadERK10QByteArrayRK12QHostAddress(
+    QCoapConnection *self,
+    const QByteArray *data,
+    const QHostAddress *sender) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "readyRead(const QByteArray &,const QHostAddress &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "readyRead(const QByteArray &,const QHostAddress &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(data)),
+      const_cast<void *>(static_cast<const void *>(sender)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapConnection::bound()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCoapConnection5boundEv(QCoapConnection *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "bound()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "bound()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapConnection::securityConfigurationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCoapConnection28securityConfigurationChangedEv(
+    QCoapConnection *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapConnection")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "securityConfigurationChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "securityConfigurationChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
 
 //  void QCoapConnection::startToSendRequest()
 extern "C" Q_DECL_EXPORT

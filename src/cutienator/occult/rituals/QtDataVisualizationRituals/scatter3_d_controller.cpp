@@ -1104,6 +1104,25 @@ const QMetaObject *ritual_ZNK19Scatter3DController10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Scatter3DController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19Scatter3DController11qt_metacastEPKc(
+    Scatter3DController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Scatter3DController::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19Scatter3DController11qt_metacallEN11QMetaObject4CallEiPPv(
+    Scatter3DController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Scatter3DController::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19Scatter3DController2trEPKcS1_i(
@@ -1280,6 +1299,14 @@ void ritual_ZN19Scatter3DController19handleItemsInsertedEii(
     int startIndex,
     int count) {
   self->handleItemsInserted(startIndex, count);
+}
+
+//  void Scatter3DController::selectedSeriesChanged(QScatter3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Scatter3DController21selectedSeriesChangedEP16QScatter3DSeries(
+    Scatter3DController *self,
+    QScatter3DSeries *series) {
+  self->selectedSeriesChanged(series);
 }
 
 //  void Scatter3DController::startRecordingRemovesAndInserts()

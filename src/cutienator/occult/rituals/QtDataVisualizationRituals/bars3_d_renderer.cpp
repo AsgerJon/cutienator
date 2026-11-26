@@ -12,6 +12,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qmatrix4x4.h>
+#include <QtDataVisualization/qbardataitem.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -29,6 +30,7 @@
 #include <QtCore/qmath.h>
 #include <QtGui/QOffscreenSurface>
 #include <QtCore/QThread>
+#include <QtDataVisualization/private/barrenderitem_p.h>
 #include <QtDataVisualization/private/shaderhelper_p.h>
 #include <QtOpenGL/QOpenGLShader>
 #include <QtDataVisualization/private/texturehelper_p.h>
@@ -39,6 +41,15 @@
 #include <QtDataVisualization/private/axisrendercache_p.h>
 #include <QtGui/QFontMetrics>
 #include <QtDataVisualization/private/customrenderitem_p.h>
+#include <QtDataVisualization/private/abstractrenderitem_p.h>
+#include <QtDataVisualization/private/bars3drenderer_p.h>
+#include <QtDataVisualization/private/q3dcamera_p.h>
+#include <QtDataVisualization/private/shaderhelper_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/barseriesrendercache_p.h>
+#include <QtGui/qquaternion.h>
+#include <QtCore/qmath.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -635,6 +646,15 @@ inline void Abstract3DRenderer::initStaticSelectedItemShaders(const QString &ver
     Q_UNUSED(gradientFragmentShader);
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 15, as _ZN13BarRenderItemC1ERKS_
+inline BarRenderItem::BarRenderItem(const BarRenderItem &other)
+    : AbstractRenderItem(other)
+{
+    m_value = other.m_value;
+    m_position = other.m_position;
+    m_height = other.m_height;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 81, as _ZN12ShaderHelper10initializeEv
 inline void ShaderHelper::initialize()
 {
@@ -989,6 +1009,56 @@ inline CustomRenderItem::CustomRenderItem()
       m_drawSliceFrames(false)
 
 {
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 12, as _ZN18AbstractRenderItemC2ERKS_
+inline AbstractRenderItem::AbstractRenderItem(const AbstractRenderItem &other)
+{
+    m_translation = other.m_translation;
+    m_rotation = other.m_rotation;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 23, as _ZN13BarRenderItemD1Ev
+inline BarRenderItem::~BarRenderItem()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 18, as _ZN18AbstractRenderItemD2Ev
+inline AbstractRenderItem::~AbstractRenderItem()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/bars3drenderer.cpp, line 266, as _ZN14Bars3DRenderer16updateRenderItemERK12QBarDataItemR13BarRenderItem
+inline void Bars3DRenderer::updateRenderItem(const QBarDataItem &dataItem, BarRenderItem &renderItem)
+{
+    float value = dataItem.value();
+    float heightValue = m_axisCacheY.formatter()->positionAt(value);
+    if (m_noZeroInRange) {
+        if (m_hasNegativeValues) {
+            heightValue = -1.0f + heightValue;
+            if (heightValue > 0.0f)
+                heightValue = 0.0f;
+        } else {
+            if (heightValue < 0.0f)
+                heightValue = 0.0f;
+        }
+    } else {
+        heightValue -= m_zeroPosition;
+    }
+    if (m_axisCacheY.reversed())
+        heightValue = -heightValue;
+
+    renderItem.setValue(value);
+    renderItem.setHeight(heightValue);
+
+    float angle = dataItem.rotation();
+    if (angle) {
+        renderItem.setRotation(
+                    QQuaternion::fromAxisAndAngle(
+                        upVector, angle));
+    } else {
+        renderItem.setRotation(identityQuaternion);
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -2008,6 +2078,24 @@ const QMetaObject *ritual_ZNK14Bars3DRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Bars3DRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14Bars3DRenderer11qt_metacastEPKc(
+    Bars3DRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Bars3DRenderer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14Bars3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Bars3DRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Bars3DRenderer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14Bars3DRenderer2trEPKcS1_i(
@@ -2045,6 +2133,24 @@ SeriesRenderCache *ritual_ZN14Bars3DRenderer14createNewCacheEP17QAbstract3DSerie
     Bars3DRenderer *self,
     QAbstract3DSeries *series) {
   return self->createNewCache(series);
+}
+
+//  void Bars3DRenderer::updateRows(const QList<Bars3DController::ChangeRow>
+//      &rows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14Bars3DRenderer10updateRowsERK5QListIN16Bars3DController9ChangeRowEE(
+    Bars3DRenderer *self,
+    const QList<Bars3DController::ChangeRow> *rows) {
+  self->updateRows(*rows);
+}
+
+//  void Bars3DRenderer::updateItems(const
+//      QList<Bars3DController::ChangeItem> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14Bars3DRenderer11updateItemsERK5QListIN16Bars3DController10ChangeItemEE(
+    Bars3DRenderer *self,
+    const QList<Bars3DController::ChangeItem> *items) {
+  self->updateItems(*items);
 }
 
 //  void Bars3DRenderer::updateScene(Q3DScene *scene)
@@ -2110,6 +2216,24 @@ void ritual_ZN14Bars3DRenderer14contextCleanupEv(Bars3DRenderer *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14Bars3DRenderer16initializeOpenGLEv(Bars3DRenderer *self) {
   self->initializeOpenGL();
+}
+
+//  void Bars3DRenderer::fixCameraTarget(QVector3D &target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14Bars3DRenderer15fixCameraTargetER9QVector3D(
+    Bars3DRenderer *self,
+    QVector3D *target) {
+  self->fixCameraTarget(*target);
+}
+
+//  void Bars3DRenderer::getVisibleItemBounds(QVector3D &minBounds, QVector3D
+//      &maxBounds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14Bars3DRenderer20getVisibleItemBoundsER9QVector3DS1_(
+    Bars3DRenderer *self,
+    QVector3D *minBounds,
+    QVector3D *maxBounds) {
+  self->getVisibleItemBounds(*minBounds, *maxBounds);
 }
 
 //  void Bars3DRenderer::updateMultiSeriesScaling(bool uniform)
@@ -2226,6 +2350,16 @@ void ritual_ZN14Bars3DRenderer14updateTexturesEv(Bars3DRenderer *self) {
   self->updateTextures();
 }
 
+//  void Bars3DRenderer::fixMeshFileName(QString &fileName,
+//      QAbstract3DSeries::Mesh mesh)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14Bars3DRenderer15fixMeshFileNameER7QStringN17QAbstract3DSeries4MeshE(
+    Bars3DRenderer *self,
+    QString *fileName,
+    QAbstract3DSeries::Mesh mesh) {
+  self->fixMeshFileName(*fileName, mesh);
+}
+
 //  void Bars3DRenderer::drawSlicedScene()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14Bars3DRenderer15drawSlicedSceneEv(Bars3DRenderer *self) {
@@ -2255,6 +2389,39 @@ void ritual_ZN14Bars3DRenderer10drawLabelsEbPK9Q3DCameraRK10QMatrix4x4S5_(
       activeCamera,
       *viewMatrix,
       *projectionMatrix);
+}
+
+//  bool Bars3DRenderer::drawBars(BarRenderItem **selectedBar, const
+//      QMatrix4x4 &depthProjectionViewMatrix, const QMatrix4x4
+//      &projectionViewMatrix, const QMatrix4x4 &viewMatrix, GLint startRow,
+//      GLint stopRow, GLint stepRow, GLint startBar, GLint stopBar, GLint
+//      stepBar, GLfloat reflection)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14Bars3DRenderer8drawBarsEPP13BarRenderItemRK10QMatrix4x4S5_S5_iiiiiif(
+    Bars3DRenderer *self,
+    BarRenderItem **selectedBar,
+    const QMatrix4x4 *depthProjectionViewMatrix,
+    const QMatrix4x4 *projectionViewMatrix,
+    const QMatrix4x4 *viewMatrix,
+    GLint startRow,
+    GLint stopRow,
+    GLint stepRow,
+    GLint startBar,
+    GLint stopBar,
+    GLint stepBar,
+    GLfloat reflection) {
+  return self->drawBars(
+      selectedBar,
+      *depthProjectionViewMatrix,
+      *projectionViewMatrix,
+      *viewMatrix,
+      startRow,
+      stopRow,
+      stepRow,
+      startBar,
+      stopBar,
+      stepBar,
+      reflection);
 }
 
 //  void Bars3DRenderer::drawBackground(GLfloat backgroundRotation, const
@@ -2382,6 +2549,16 @@ QBar3DSeries *ritual_ZN14Bars3DRenderer22selectionColorToSeriesERK9QVector4D(
     Bars3DRenderer *self,
     const QVector4D *selectionColor) {
   return self->selectionColorToSeries(*selectionColor);
+}
+
+//  void Bars3DRenderer::updateRenderItem(const QBarDataItem &dataItem,
+//      BarRenderItem &renderItem)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14Bars3DRenderer16updateRenderItemERK12QBarDataItemR13BarRenderItem(
+    Bars3DRenderer *self,
+    const QBarDataItem *dataItem,
+    BarRenderItem *renderItem) {
+  self->updateRenderItem(*dataItem, *renderItem);
 }
 
 //  a Python function taken by a CuteBars3DRenderer, for the function named

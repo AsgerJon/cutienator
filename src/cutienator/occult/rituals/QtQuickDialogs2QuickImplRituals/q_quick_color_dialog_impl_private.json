@@ -11,6 +11,7 @@
     "ritual_ZNK28QQuickColorDialogImplPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN28QQuickColorDialogImplPrivateC1Ev": ["address"],
     "ritual_ZN28QQuickColorDialogImplPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN28QQuickColorDialogImplPrivate3getEP21QQuickColorDialogImpl": [
       "address", "address"
@@ -20,6 +21,12 @@
     ],
     "ritual_ZN28QQuickColorDialogImplPrivate11handleClickEP20QQuickAbstractButton": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickColorDialogImplPrivate15eyeDropperEnterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickColorDialogImplPrivate15eyeDropperLeaveERK6QPointN27QQuickEyeDropperEventFilter11LeaveReasonE": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_ZN28QQuickColorDialogImplPrivate16alphaSliderMovedEv": [
       "nothing", "address"

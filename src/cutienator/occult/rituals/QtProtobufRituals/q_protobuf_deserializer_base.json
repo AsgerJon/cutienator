@@ -14,8 +14,14 @@
     "ritual_ZN25QProtobufDeserializerBase23deserializeMessageFieldEP16QProtobufMessage": [
       "bool", "address", "address"
     ],
+    "ritual_ZN25QProtobufDeserializerBase15deserializeEnumER8QVariantRKN17QtProtobufPrivate18QProtobufFieldInfoE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN25QProtobufDeserializerBase14nextFieldIndexEP16QProtobufMessage": [
       "int", "address", "address"
+    ],
+    "ritual_ZN25QProtobufDeserializerBase22deserializeScalarFieldER8QVariantRKN17QtProtobufPrivate18QProtobufFieldInfoE": [
+      "bool", "address", "address", "address"
     ],
     "ritual_take_QProtobufDeserializerBase": [
       "bool", "address", "chars", "address"

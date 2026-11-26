@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QScxmlCompilerPrivate13DefaultLoaderC1Ev": ["address"],
+    "ritual_ZN21QScxmlCompilerPrivate13DefaultLoader4loadERK7QStringS3_P5QListIS1_E": [
+      "address", "address", "text", "text", "address"
+    ],
     "ritual_ZN21QScxmlCompilerPrivate13DefaultLoaderD1Ev": [
       "nothing", "address"
     ]

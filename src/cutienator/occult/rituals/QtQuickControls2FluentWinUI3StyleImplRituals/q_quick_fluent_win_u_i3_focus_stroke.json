@@ -9,6 +9,12 @@
     "ritual_ZNK29QQuickFluentWinUI3FocusStroke10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQuickFluentWinUI3FocusStroke11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQuickFluentWinUI3FocusStroke11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK29QQuickFluentWinUI3FocusStroke6radiusEv": ["int", "address"],
     "ritual_ZN29QQuickFluentWinUI3FocusStroke9setRadiusEi": [
       "nothing", "address", "int"

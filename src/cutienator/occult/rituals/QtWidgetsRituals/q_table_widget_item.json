@@ -78,6 +78,13 @@
       "nothing", "address", "int", "address"
     ],
     "ritual_ZNK16QTableWidgetItemltERKS_": ["bool", "address", "address"],
+    "ritual_ZN16QTableWidgetItem4readER11QDataStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTableWidgetItem5writeER11QDataStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QTableWidgetItemaSERKS_": ["address", "address", "address"],
     "ritual_ZNK16QTableWidgetItem4typeEv": ["int", "address"],
     "ritual_ZNK16QTableWidgetItem10tableModelEv": ["address", "address"],
     "ritual_take_QTableWidgetItem": ["bool", "address", "chars", "address"],

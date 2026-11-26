@@ -11,6 +11,12 @@
     ],
     "ritual_ZN10Qt3DRender6Render19RenderTargetManager27removeRenderTargetToCleanupEN8Qt3DCore7QNodeIdE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render19RenderTargetManager28takeRenderTargetIdsToCleanupEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_RenderTargetManager__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

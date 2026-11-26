@@ -8,6 +8,12 @@
     "ritual_ZNK25QGraphicsDropShadowEffect10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QGraphicsDropShadowEffect11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QGraphicsDropShadowEffect2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -44,6 +50,15 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN25QGraphicsDropShadowEffect8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect13offsetChangedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect17blurRadiusChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect12colorChangedERK6QColor": [
       "nothing", "address", "address"
     ],
     "ritual_ZN25QGraphicsDropShadowEffect4drawEP8QPainter": [

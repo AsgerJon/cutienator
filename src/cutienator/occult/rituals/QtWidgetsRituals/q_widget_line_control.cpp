@@ -205,6 +205,25 @@ const QMetaObject *ritual_ZNK18QWidgetLineControl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWidgetLineControl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QWidgetLineControl11qt_metacastEPKc(
+    QWidgetLineControl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWidgetLineControl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QWidgetLineControl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWidgetLineControl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWidgetLineControl::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QWidgetLineControl2trEPKcS1_i(
@@ -1093,6 +1112,14 @@ bool ritual_ZN18QWidgetLineControl20advanceToEnabledItemEi(
 }
 #endif  // QT_CONFIG(completer)
 
+//  void QWidgetLineControl::addCommand(const Command &cmd)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl10addCommandERKNS_7CommandE(
+    QWidgetLineControl *self,
+    const QWidgetLineControl::Command *cmd) {
+  self->addCommand(*cmd);
+}
+
 //  void QWidgetLineControl::separate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetLineControl8separateEv(QWidgetLineControl *self) {
@@ -1176,6 +1203,88 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QWidgetLineControl14redoTextLayoutEv(
     const QWidgetLineControl *self) {
   return self->redoTextLayout();
+}
+
+//  void QWidgetLineControl::cursorPositionChanged(int a0, int a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl21cursorPositionChangedEii(
+    QWidgetLineControl *self,
+    int a0,
+    int a1) {
+  self->cursorPositionChanged(a0, a1);
+}
+
+//  void QWidgetLineControl::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl16selectionChangedEv(
+    QWidgetLineControl *self) {
+  self->selectionChanged();
+}
+
+//  void QWidgetLineControl::displayTextChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl18displayTextChangedERK7QString(
+    QWidgetLineControl *self,
+    const QString *a0) {
+  self->displayTextChanged(*a0);
+}
+
+//  void QWidgetLineControl::textChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl11textChangedERK7QString(
+    QWidgetLineControl *self,
+    const QString *a0) {
+  self->textChanged(*a0);
+}
+
+//  void QWidgetLineControl::textEdited(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl10textEditedERK7QString(
+    QWidgetLineControl *self,
+    const QString *a0) {
+  self->textEdited(*a0);
+}
+
+//  void QWidgetLineControl::resetInputContext()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl17resetInputContextEv(
+    QWidgetLineControl *self) {
+  self->resetInputContext();
+}
+
+//  void QWidgetLineControl::updateMicroFocus()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl16updateMicroFocusEv(
+    QWidgetLineControl *self) {
+  self->updateMicroFocus();
+}
+
+//  void QWidgetLineControl::accepted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl8acceptedEv(QWidgetLineControl *self) {
+  self->accepted();
+}
+
+//  void QWidgetLineControl::editingFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl15editingFinishedEv(
+    QWidgetLineControl *self) {
+  self->editingFinished();
+}
+
+//  void QWidgetLineControl::updateNeeded(const QRect &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl12updateNeededERK5QRect(
+    QWidgetLineControl *self,
+    const QRect *a0) {
+  self->updateNeeded(*a0);
+}
+
+//  void QWidgetLineControl::inputRejected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetLineControl13inputRejectedEv(
+    QWidgetLineControl *self) {
+  self->inputRejected();
 }
 
 //  void QWidgetLineControl::timerEvent(QTimerEvent *event)

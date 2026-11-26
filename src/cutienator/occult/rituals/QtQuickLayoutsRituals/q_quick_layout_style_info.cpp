@@ -70,7 +70,7 @@ typedef void (*CuteQQuickLayoutStyleInfoCall5)(const void *, int *);
 class CuteQQuickLayoutStyleInfo : public QQuickLayoutStyleInfo {
 public:
   using QQuickLayoutStyleInfo::QQuickLayoutStyleInfo;
-  CuteQQuickLayoutStyleInfo(const QQuickLayoutStyleInfo &other) : QQuickLayoutStyleInfo(other) {}
+  CuteQQuickLayoutStyleInfo(const QQuickLayoutStyleInfo & other) : QQuickLayoutStyleInfo(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {

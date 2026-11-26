@@ -242,6 +242,25 @@ const QMetaObject *ritual_ZNK23QPixmapDropShadowFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPixmapDropShadowFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QPixmapDropShadowFilter11qt_metacastEPKc(
+    QPixmapDropShadowFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPixmapDropShadowFilter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QPixmapDropShadowFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPixmapDropShadowFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPixmapDropShadowFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QPixmapDropShadowFilter2trEPKcS1_i(
@@ -249,6 +268,21 @@ QString *ritual_ZN23QPixmapDropShadowFilter2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPixmapDropShadowFilter::tr(s, c, n));
+}
+
+//  QPixmapDropShadowFilterPrivate *QPixmapDropShadowFilter::d_func()
+extern "C" Q_DECL_EXPORT
+QPixmapDropShadowFilterPrivate *ritual_ZN23QPixmapDropShadowFilter6d_funcEv(
+    QPixmapDropShadowFilter *self) {
+  return self->d_func();
+}
+
+//  const QPixmapDropShadowFilterPrivate *QPixmapDropShadowFilter::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QPixmapDropShadowFilterPrivate *ritual_ZNK23QPixmapDropShadowFilter6d_funcEv(
+    const QPixmapDropShadowFilter *self) {
+  return self->d_func();
 }
 
 //  QPixmapDropShadowFilter::QPixmapDropShadowFilter(QObject *parent)

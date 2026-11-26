@@ -11,6 +11,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtPositioning/QGeoPositionInfoSource>
 
 //  A QGeoPositionInfoSource that Python can take functions over in. Every QGeoPositionInfoSource
 //  Python makes is one. Each function below asks the Python
@@ -368,6 +370,25 @@ const QMetaObject *ritual_ZNK22QGeoPositionInfoSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoPositionInfoSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QGeoPositionInfoSource11qt_metacastEPKc(
+    QGeoPositionInfoSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoPositionInfoSource::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QGeoPositionInfoSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoPositionInfoSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoPositionInfoSource::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QGeoPositionInfoSource2trEPKcS1_i(
@@ -375,6 +396,13 @@ QString *ritual_ZN22QGeoPositionInfoSource2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QGeoPositionInfoSource::tr(s, c, n));
+}
+
+//  QGeoPositionInfoSource::QGeoPositionInfoSource(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGeoPositionInfoSource *ritual_ZN22QGeoPositionInfoSourceC1EP7QObject(
+    QObject *parent) {
+  return new CuteQGeoPositionInfoSource(parent);
 }
 
 //  QGeoPositionInfoSource::~QGeoPositionInfoSource()
@@ -398,6 +426,13 @@ int ritual_ZNK22QGeoPositionInfoSource14updateIntervalEv(
   return self->updateInterval();
 }
 
+//  QBindable<int> QGeoPositionInfoSource::bindableUpdateInterval()
+extern "C" Q_DECL_EXPORT
+QBindable<int> *ritual_ZN22QGeoPositionInfoSource22bindableUpdateIntervalEv(
+    QGeoPositionInfoSource *self) {
+  return new QBindable<int>(self->bindableUpdateInterval());
+}
+
 //  void
 //      QGeoPositionInfoSource::setPreferredPositioningMethods(PositioningMet
 //      hods methods)
@@ -415,6 +450,15 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK22QGeoPositionInfoSource27preferredPositioningMethodsEv(
     const QGeoPositionInfoSource *self) {
   return static_cast<int>(self->preferredPositioningMethods().toInt());
+}
+
+//  QBindable<PositioningMethods>
+//      QGeoPositionInfoSource::bindablePreferredPositioningMethods()
+extern "C" Q_DECL_EXPORT
+QBindable<QGeoPositionInfoSource::PositioningMethods> *ritual_ZN22QGeoPositionInfoSource35bindablePreferredPositioningMethodsEv(
+    QGeoPositionInfoSource *self) {
+  return new QBindable<QGeoPositionInfoSource::PositioningMethods>(
+      self->bindablePreferredPositioningMethods());
 }
 
 //  QGeoPositionInfo QGeoPositionInfoSource::lastKnownPosition(bool
@@ -543,6 +587,40 @@ void ritual_ZN22QGeoPositionInfoSource13requestUpdateEi(
   self->requestUpdate(timeout);
 }
 
+//  void QGeoPositionInfoSource::positionUpdated(const QGeoPositionInfo
+//      &update)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGeoPositionInfoSource15positionUpdatedERK16QGeoPositionInfo(
+    QGeoPositionInfoSource *self,
+    const QGeoPositionInfo *update) {
+  self->positionUpdated(*update);
+}
+
+//  void QGeoPositionInfoSource::errorOccurred(QGeoPositionInfoSource::Error
+//      a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGeoPositionInfoSource13errorOccurredENS_5ErrorE(
+    QGeoPositionInfoSource *self,
+    QGeoPositionInfoSource::Error a0) {
+  self->errorOccurred(a0);
+}
+
+//  void QGeoPositionInfoSource::supportedPositioningMethodsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGeoPositionInfoSource34supportedPositioningMethodsChangedEv(
+    QGeoPositionInfoSource *self) {
+  self->supportedPositioningMethodsChanged();
+}
+
+//  QGeoPositionInfoSource::QGeoPositionInfoSource(QGeoPositionInfoSourcePriv
+//      ate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGeoPositionInfoSource *ritual_ZN22QGeoPositionInfoSourceC1ER29QGeoPositionInfoSourcePrivateP7QObject(
+    QGeoPositionInfoSourcePrivate *dd,
+    QObject *parent) {
+  return new CuteQGeoPositionInfoSource(*dd, parent);
+}
+
 //  QGeoPositionInfoSourcePrivate *QGeoPositionInfoSource::d_func()
 extern "C" Q_DECL_EXPORT
 QGeoPositionInfoSourcePrivate *ritual_ZN22QGeoPositionInfoSource6d_funcEv(
@@ -604,4 +682,19 @@ QVariant *ritual_own_ZNK22QGeoPositionInfoSource15backendPropertyERK7QString(
     const QGeoPositionInfoSource *self,
     const QString *name) {
   return new QVariant(self->QGeoPositionInfoSource::backendProperty(*name));
+}
+
+//  a QBindable<int> a ritual of QGeoPositionInfoSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoPositionInfoSource__QBindable_int(
+    QBindable<int> *self) {
+  delete self;
+}
+
+//  a QBindable<QGeoPositionInfoSource::PositioningMethods> a ritual of
+//      QGeoPositionInfoSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoPositionInfoSource__QBindable_QGeoPositionInfoSource_PositioningMethods(
+    QBindable<QGeoPositionInfoSource::PositioningMethods> *self) {
+  delete self;
 }

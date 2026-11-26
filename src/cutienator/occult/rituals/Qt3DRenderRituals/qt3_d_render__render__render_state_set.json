@@ -2,8 +2,54 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DRender/6.12.0/Qt3DRender/private/renderstateset_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render14RenderStateSetC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render14RenderStateSetD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14RenderStateSet10changeCostEPS1_": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderStateSet9stateMaskEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14RenderStateSet5mergeEPKS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderStateSet6statesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14RenderStateSet6statesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderStateSet17canAddStateOfTypeENS0_9StateMaskE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderStateSet8containsERKNS0_12StateVariantE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderStateSet14hasStateOfTypeENS0_9StateMaskE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderStateSet25allowMultipleStatesOfTypeENS0_9StateMaskE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render14RenderStateSet8addStateINS0_9DepthTestEEEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14RenderStateSet8addStateINS0_8CullFaceEEEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14RenderStateSet8addStateINS0_13BlendEquationEEEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14RenderStateSet8addStateINS0_9DitheringEEEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14RenderStateSet8addStateINS0_9LineWidthEEEvRKT_": [
+      "nothing", "address", "address"
+    ]
   }
 }

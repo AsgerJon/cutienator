@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZN19QHttpNetworkRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN19QHttpNetworkRequestaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QHttpNetworkRequesteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK19QHttpNetworkRequest3urlEv": ["address", "address"],
     "ritual_ZN19QHttpNetworkRequest6setUrlERK4QUrl": [
       "nothing", "address", "address"

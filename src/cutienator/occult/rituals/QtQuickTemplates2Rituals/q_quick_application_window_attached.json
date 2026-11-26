@@ -8,6 +8,12 @@
     "ritual_ZNK31QQuickApplicationWindowAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickApplicationWindowAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QQuickApplicationWindowAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,30 @@
       "address", "address"
     ],
     "ritual_ZNK31QQuickApplicationWindowAttached7menuBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttached13windowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttached18contentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttached25activeFocusControlChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttached13headerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttached13footerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttached14menuBarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttached6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickApplicationWindowAttached6d_funcEv": [
       "address", "address"
     ]
   }

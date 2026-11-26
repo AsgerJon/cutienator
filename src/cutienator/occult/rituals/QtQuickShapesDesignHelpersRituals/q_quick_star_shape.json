@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickStarShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickStarShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickStarShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickStarShape2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -51,6 +57,10 @@
     "ritual_ZN15QQuickStarShape14setStrokeStyleEN15QQuickShapePath11StrokeStyleE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK15QQuickStarShape11dashPatternEv": ["address", "address"],
+    "ritual_ZN15QQuickStarShape14setDashPatternERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QQuickStarShape12fillGradientEv": ["address", "address"],
     "ritual_ZN15QQuickStarShape15setFillGradientEP19QQuickShapeGradient": [
       "nothing", "address", "address"
@@ -62,6 +72,35 @@
     "ritual_ZN15QQuickStarShape11setFillItemEP10QQuickItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QQuickStarShape19cornerRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStarShape12ratioChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStarShape17pointCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStarShape18strokeColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStarShape18strokeWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStarShape16fillColorChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStarShape16joinStyleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStarShape15capStyleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStarShape18strokeStyleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStarShape17dashOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStarShape18dashPatternChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStarShape19fillGradientChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStarShape15fillItemChangedEv": ["nothing", "address"],
     "ritual_ZN15QQuickStarShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
     ],
@@ -70,6 +109,7 @@
     "ritual_take_QQuickStarShape": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QQuickStarShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
-    ]
+    ],
+    "ritual_drop_QQuickStarShape__QList_qreal": ["nothing", "address"]
   }
 }

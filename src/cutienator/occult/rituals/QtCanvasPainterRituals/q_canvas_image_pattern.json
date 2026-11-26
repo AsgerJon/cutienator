@@ -16,6 +16,13 @@
       "address", "address", "double", "double", "double", "double"
     ],
     "ritual_ZN19QCanvasImagePatternC1ERKS_": ["address", "address"],
+    "ritual_ZN19QCanvasImagePatternaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QCanvasImagePatternC1EOS_": ["address", "address"],
+    "ritual_ZN19QCanvasImagePatternaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QCanvasImagePatternD1Ev": ["nothing", "address"],
     "ritual_ZNK19QCanvasImagePatterncv12QCanvasBrushEv": [
       "address", "address"
@@ -52,10 +59,19 @@
     "ritual_ZNK19QCanvasImagePattern12serialNumberEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZN19QCanvasImagePattern4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK19QCanvasImagePatternS1_": ["bool", "address", "address"],
     "ritual_ZneRK19QCanvasImagePatternS1_": ["bool", "address", "address"],
     "ritual_ZN19QCanvasImagePatternC1EP26QCanvasImagePatternPrivate": [
       "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK19QCanvasImagePattern": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR19QCanvasImagePattern": [
+      "address", "address", "address"
     ],
     "ritual_Zls6QDebugRK19QCanvasImagePattern": [
       "address", "address", "address"

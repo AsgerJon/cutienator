@@ -1,15 +1,23 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0, from Qt's",
+    "source. Kept as it is when the generator runs again."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST9Statement13statementCastEv": [
+      "address",
+      "address"
+    ],
     "ritual_take_QQmlJS_AST_Statement": [
-      "bool", "address", "chars", "address"
+      "bool",
+      "address",
+      "chars",
+      "address"
     ],
     "ritual_own_ZN6QQmlJS3AST9Statement13statementCastEv": [
-      "address", "address"
+      "address",
+      "address"
     ]
   }
 }

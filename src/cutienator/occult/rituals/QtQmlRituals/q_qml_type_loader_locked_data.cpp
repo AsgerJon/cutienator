@@ -7,12 +7,11 @@
 #include <QtQml/6.12.0/QtQml/private/qqmltypeloaderdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQml/private/qqmlengine_p.h>
-#include <QtQml/private/qqmlextensionplugin_p.h>
-#include <QtQml/private/qqmltypeloaderthread_p.h>
-#if QT_CONFIG(qml_network)
-#include <QtQml/private/qqmltypeloadernetworkreplyproxy_p.h>
-#endif
+#include <QtQml/private/qqmltypeloaderdata_p.h>
+#include <QtQml/private/qqmldirdata_p.h>
+#include <QtQml/private/qqmlprofiler_p.h>
+#include <QtQml/private/qqmlscriptblob_p.h>
+#include <QtQml/private/qqmltypedata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -22,12 +21,19 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/qml/qml/qqmltypeloaderthread.cpp, line 15, as _ZN20QQmlTypeLoaderThreadC1EP14QQmlTypeLoader
-inline QQmlTypeLoaderThread::QQmlTypeLoaderThread(QQmlTypeLoader *loader)
-    : m_loader(loader)
-{
-}
+//  from ../qtdeclarative/src/qml/qml/qqmltypeloaderdata.cpp, line 14, as _ZN24QQmlTypeLoaderLockedDataC1EPN3QV415ExecutionEngineE
+inline QQmlTypeLoaderLockedData::QQmlTypeLoaderLockedData(QV4::ExecutionEngine *engine)
+    : m_engine(engine)
+{}
 //  -----------------------------------------------------------------------
+
+//  QQmlTypeLoaderLockedData::QQmlTypeLoaderLockedData(QV4::ExecutionEngine
+//      *engine)
+extern "C" Q_DECL_EXPORT
+QQmlTypeLoaderLockedData *ritual_ZN24QQmlTypeLoaderLockedDataC1EPN3QV415ExecutionEngineE(
+    QV4::ExecutionEngine *engine) {
+  return new QQmlTypeLoaderLockedData(engine);
+}
 
 //  QQmlTypeLoaderThread *QQmlTypeLoaderLockedData::thread() const
 extern "C" Q_DECL_EXPORT

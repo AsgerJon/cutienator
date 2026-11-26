@@ -53,6 +53,12 @@ public:
   }
 };
 
+//  Scroller::Scroller()
+extern "C" Q_DECL_EXPORT
+Scroller *ritual_ZN8ScrollerC1Ev() {
+  return new CuteScroller();
+}
+
 //  Scroller::~Scroller()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8ScrollerD1Ev(Scroller *self) {
@@ -129,6 +135,15 @@ void ritual_ZN8Scroller11startTickerEi(Scroller *self, int interval) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Scroller10stopTickerEv(Scroller *self) {
   self->stopTicker();
+}
+
+//  void Scroller::lowerSpeed(QPointF &speed, qreal maxSpeed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Scroller10lowerSpeedER7QPointFd(
+    Scroller *self,
+    QPointF *speed,
+    qreal maxSpeed) {
+  self->lowerSpeed(*speed, maxSpeed);
 }
 
 //  a Python function taken by a CuteScroller, for the function named by the

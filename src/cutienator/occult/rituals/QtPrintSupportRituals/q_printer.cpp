@@ -11,6 +11,7 @@
 #include <QtCore/qmargins.h>
 #include <QtGui/qpageranges.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QPrinter may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -507,6 +508,13 @@ QPrinter::DuplexMode ritual_ZNK8QPrinter6duplexEv(const QPrinter *self) {
   return self->duplex();
 }
 
+//  QList<int> QPrinter::supportedResolutions() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK8QPrinter20supportedResolutionsEv(
+    const QPrinter *self) {
+  return new QList<int>(self->supportedResolutions());
+}
+
 //  void QPrinter::setFontEmbeddingEnabled(bool enable)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPrinter23setFontEmbeddingEnabledEb(
@@ -668,6 +676,12 @@ int ritual_own_ZNK8QPrinter6metricEN12QPaintDevice17PaintDeviceMetricE(
     const QPrinter *self,
     QPaintDevice::PaintDeviceMetric a0) {
   return static_cast<const OwnQPrinter *>(self)->OwnQPrinter::metric(a0);
+}
+
+//  a QList<int> a ritual of QPrinter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPrinter__QList_int(QList<int> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_PRINTER)

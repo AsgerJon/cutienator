@@ -831,6 +831,25 @@ const QMetaObject *ritual_ZNK18QQuickShaderEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShaderEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickShaderEffect11qt_metacastEPKc(
+    QQuickShaderEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShaderEffect::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickShaderEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShaderEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShaderEffect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickShaderEffect2trEPKcS1_i(
@@ -972,6 +991,60 @@ bool ritual_ZN18QQuickShaderEffect18updateUniformValueERK10QByteArrayRK8QVariant
     const QByteArray *name,
     const QVariant *value) {
   return self->updateUniformValue(*name, *value);
+}
+
+//  void QQuickShaderEffect::fragmentShaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickShaderEffect21fragmentShaderChangedEv(
+    QQuickShaderEffect *self) {
+  self->fragmentShaderChanged();
+}
+
+//  void QQuickShaderEffect::vertexShaderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickShaderEffect19vertexShaderChangedEv(
+    QQuickShaderEffect *self) {
+  self->vertexShaderChanged();
+}
+
+//  void QQuickShaderEffect::blendingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickShaderEffect15blendingChangedEv(
+    QQuickShaderEffect *self) {
+  self->blendingChanged();
+}
+
+//  void QQuickShaderEffect::meshChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickShaderEffect11meshChangedEv(QQuickShaderEffect *self) {
+  self->meshChanged();
+}
+
+//  void QQuickShaderEffect::cullModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickShaderEffect15cullModeChangedEv(
+    QQuickShaderEffect *self) {
+  self->cullModeChanged();
+}
+
+//  void QQuickShaderEffect::logChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickShaderEffect10logChangedEv(QQuickShaderEffect *self) {
+  self->logChanged();
+}
+
+//  void QQuickShaderEffect::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickShaderEffect13statusChangedEv(
+    QQuickShaderEffect *self) {
+  self->statusChanged();
+}
+
+//  void QQuickShaderEffect::supportsAtlasTexturesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickShaderEffect28supportsAtlasTexturesChangedEv(
+    QQuickShaderEffect *self) {
+  self->supportsAtlasTexturesChanged();
 }
 
 //  bool QQuickShaderEffect::event(QEvent *e)

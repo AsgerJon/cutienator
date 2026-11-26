@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qreadwritelock.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qreadwritelock.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, rituals for functions the generator leaves out: 2. Kept as it is
+//  when the generator runs again.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(thread)
 #include <QtCore/qreadwritelock.h>
@@ -114,6 +116,40 @@ bool ritual_ZN19QBasicReadWriteLock23tryLockForWriteInternalE14QDeadlineTimerj(
   return self->tryLockForWriteInternal(*timeout, tsanFlags);
 }
 
+//  bool QBasicReadWriteLock::contendedTryLockForRead(QDeadlineTimer timeout,
+//      void *dd)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QBasicReadWriteLock23contendedTryLockForReadE14QDeadlineTimerPv(
+    QBasicReadWriteLock *self,
+    const QDeadlineTimer *timeout,
+    void *dd) {
+  return self->contendedTryLockForRead(*timeout, dd);
+}
+
+//  bool QBasicReadWriteLock::contendedTryLockForWrite(QDeadlineTimer
+//      timeout, void *dd)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QBasicReadWriteLock24contendedTryLockForWriteE14QDeadlineTimerPv(
+    QBasicReadWriteLock *self,
+    const QDeadlineTimer *timeout,
+    void *dd) {
+  return self->contendedTryLockForWrite(*timeout, dd);
+}
+
+//  void QBasicReadWriteLock::contendedUnlock(void *dd)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBasicReadWriteLock15contendedUnlockEPv(
+    QBasicReadWriteLock *self,
+    void *dd) {
+  self->contendedUnlock(dd);
+}
+
+//  quintptr QBasicReadWriteLock::describeLockInternal(void *dd)
+extern "C" Q_DECL_EXPORT
+quintptr ritual_ZN19QBasicReadWriteLock20describeLockInternalEPv(void *dd) {
+  return QBasicReadWriteLock::describeLockInternal(dd);
+}
+
 //  uint QBasicReadWriteLock::describeLockForTSan(QReadWriteLockPrivate *d,
 //      uint flags)
 extern "C" Q_DECL_EXPORT
@@ -128,6 +164,22 @@ extern "C" Q_DECL_EXPORT
 QBasicReadWriteLock *ritual_ZN19QBasicReadWriteLockC1EP21QReadWriteLockPrivate(
     QReadWriteLockPrivate *d) {
   return new QBasicReadWriteLock(d);
+}
+
+//  bool QBasicReadWriteLock::fastTryLockForRead(QReadWriteLockPrivate *&d)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QBasicReadWriteLock18fastTryLockForReadERP21QReadWriteLockPrivate(
+    QBasicReadWriteLock *self,
+    QReadWriteLockPrivate **d) {
+  return self->fastTryLockForRead(*d);
+}
+
+//  bool QBasicReadWriteLock::fastTryLockForWrite(QReadWriteLockPrivate *&d)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QBasicReadWriteLock19fastTryLockForWriteERP21QReadWriteLockPrivate(
+    QBasicReadWriteLock *self,
+    QReadWriteLockPrivate **d) {
+  return self->fastTryLockForWrite(*d);
 }
 
 #endif  // QT_CONFIG(thread)

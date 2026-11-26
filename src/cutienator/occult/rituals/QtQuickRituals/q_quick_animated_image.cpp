@@ -1043,6 +1043,25 @@ const QMetaObject *ritual_ZNK19QQuickAnimatedImage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnimatedImage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickAnimatedImage11qt_metacastEPKc(
+    QQuickAnimatedImage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnimatedImage::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickAnimatedImage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnimatedImage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnimatedImage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickAnimatedImage2trEPKcS1_i(
@@ -1168,6 +1187,68 @@ void ritual_ZN19QQuickAnimatedImage17setFinishBehaviorENS_14FinishBehaviorE(
     QQuickAnimatedImage *self,
     QQuickAnimatedImage::FinishBehavior behavior) {
   self->setFinishBehavior(behavior);
+}
+
+//  void QQuickAnimatedImage::playingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickAnimatedImage14playingChangedEv(
+    QQuickAnimatedImage *self) {
+  self->playingChanged();
+}
+
+//  void QQuickAnimatedImage::pausedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickAnimatedImage13pausedChangedEv(
+    QQuickAnimatedImage *self) {
+  self->pausedChanged();
+}
+
+//  void QQuickAnimatedImage::frameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickAnimatedImage12frameChangedEv(
+    QQuickAnimatedImage *self) {
+  self->frameChanged();
+}
+
+//  void QQuickAnimatedImage::currentFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickAnimatedImage19currentFrameChangedEv(
+    QQuickAnimatedImage *self) {
+  self->currentFrameChanged();
+}
+
+//  void QQuickAnimatedImage::frameCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickAnimatedImage17frameCountChangedEv(
+    QQuickAnimatedImage *self) {
+  self->frameCountChanged();
+}
+
+//  void QQuickAnimatedImage::speedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickAnimatedImage12speedChangedEv(
+    QQuickAnimatedImage *self) {
+  self->speedChanged();
+}
+
+//  void QQuickAnimatedImage::loopsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickAnimatedImage12loopsChangedEv(
+    QQuickAnimatedImage *self) {
+  self->loopsChanged();
+}
+
+//  void QQuickAnimatedImage::finishBehaviorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickAnimatedImage21finishBehaviorChangedEv(
+    QQuickAnimatedImage *self) {
+  self->finishBehaviorChanged();
+}
+
+//  void QQuickAnimatedImage::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickAnimatedImage8finishedEv(QQuickAnimatedImage *self) {
+  self->finished();
 }
 
 //  void QQuickAnimatedImage::movieUpdate()

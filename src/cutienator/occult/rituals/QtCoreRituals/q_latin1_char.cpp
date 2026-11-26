@@ -14,6 +14,12 @@ char ritual_ZNK11QLatin1Char8toLatin1Ev(const QLatin1Char *self) {
   return self->toLatin1();
 }
 
+//  char16_t QLatin1Char::unicode() const
+extern "C" Q_DECL_EXPORT
+char16_t ritual_ZNK11QLatin1Char7unicodeEv(const QLatin1Char *self) {
+  return self->unicode();
+}
+
 //  bool operator==(const QLatin1Char &lhs, const QLatin1Char &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK11QLatin1CharS1_(
@@ -132,6 +138,12 @@ bool ritual_ZleRKcRK11QLatin1Char(char lhs, const QLatin1Char *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRKcRK11QLatin1Char(char lhs, const QLatin1Char *rhs) {
   return operator>=(lhs, *rhs);
+}
+
+//  char16_t QLatin1Char::operator char16_t() const
+extern "C" Q_DECL_EXPORT
+char16_t ritual_ZNK11QLatin1CharcvDsEv(const QLatin1Char *self) {
+  return self->operator char16_t();
 }
 
 //  QLatin1Char::~QLatin1Char()

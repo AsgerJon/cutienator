@@ -1098,6 +1098,25 @@ const QMetaObject *ritual_ZNK19Surface3DController10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Surface3DController::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19Surface3DController11qt_metacastEPKc(
+    Surface3DController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Surface3DController::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19Surface3DController11qt_metacallEN11QMetaObject4CallEiPPv(
+    Surface3DController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Surface3DController::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19Surface3DController2trEPKcS1_i(
@@ -1333,6 +1352,22 @@ void ritual_ZN19Surface3DController32handleFlatShadingSupportedChangeEb(
     Surface3DController *self,
     bool supported) {
   self->handleFlatShadingSupportedChange(supported);
+}
+
+//  void Surface3DController::selectedSeriesChanged(QSurface3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Surface3DController21selectedSeriesChangedEP16QSurface3DSeries(
+    Surface3DController *self,
+    QSurface3DSeries *series) {
+  self->selectedSeriesChanged(series);
+}
+
+//  void Surface3DController::flipHorizontalGridChanged(bool flip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19Surface3DController25flipHorizontalGridChangedEb(
+    Surface3DController *self,
+    bool flip) {
+  self->flipHorizontalGridChanged(flip);
 }
 
 //  a Python function taken by a CuteSurface3DController, for the function

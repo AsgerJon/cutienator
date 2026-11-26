@@ -12,6 +12,9 @@
     ],
     "ritual_ZN15QStringHashData12rehashToSizeEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN15QStringHashData10rehashNodeEPP15QStringHashNodeiS1_": [
+      "nothing", "address", "address", "int", "address"
     ]
   }
 }

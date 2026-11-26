@@ -15,12 +15,32 @@
 #include <QtCore/qurl.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
+#include <QtCore/QSharedPointer>
 
 //  const QMetaObject *QQuickFolderDialogImpl::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK22QQuickFolderDialogImpl10metaObjectEv(
     const QQuickFolderDialogImpl *self) {
   return self->metaObject();
+}
+
+//  void *QQuickFolderDialogImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickFolderDialogImpl11qt_metacastEPKc(
+    QQuickFolderDialogImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFolderDialogImpl::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickFolderDialogImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFolderDialogImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickFolderDialogImpl::tr(const char *s, const char *c, int n)
@@ -85,6 +105,23 @@ void ritual_ZN22QQuickFolderDialogImpl17setSelectedFolderERK4QUrl(
   self->setSelectedFolder(*selectedFolder);
 }
 
+//  QSharedPointer<QFileDialogOptions> QQuickFolderDialogImpl::options()
+//      const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QFileDialogOptions> *ritual_ZNK22QQuickFolderDialogImpl7optionsEv(
+    const QQuickFolderDialogImpl *self) {
+  return new QSharedPointer<QFileDialogOptions>(self->options());
+}
+
+//  void QQuickFolderDialogImpl::setOptions(const
+//      QSharedPointer<QFileDialogOptions> &options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFolderDialogImpl10setOptionsERK14QSharedPointerI18QFileDialogOptionsE(
+    QQuickFolderDialogImpl *self,
+    const QSharedPointer<QFileDialogOptions> *options) {
+  self->setOptions(*options);
+}
+
 //  void QQuickFolderDialogImpl::setAcceptLabel(const QString &label)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickFolderDialogImpl14setAcceptLabelERK7QString(
@@ -99,6 +136,29 @@ void ritual_ZN22QQuickFolderDialogImpl14setRejectLabelERK7QString(
     QQuickFolderDialogImpl *self,
     const QString *label) {
   self->setRejectLabel(*label);
+}
+
+//  void QQuickFolderDialogImpl::currentFolderChanged(const QUrl &folderUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFolderDialogImpl20currentFolderChangedERK4QUrl(
+    QQuickFolderDialogImpl *self,
+    const QUrl *folderUrl) {
+  self->currentFolderChanged(*folderUrl);
+}
+
+//  void QQuickFolderDialogImpl::selectedFolderChanged(const QUrl &folderUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFolderDialogImpl21selectedFolderChangedERK4QUrl(
+    QQuickFolderDialogImpl *self,
+    const QUrl *folderUrl) {
+  self->selectedFolderChanged(*folderUrl);
+}
+
+//  void QQuickFolderDialogImpl::nameFiltersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickFolderDialogImpl18nameFiltersChangedEv(
+    QQuickFolderDialogImpl *self) {
+  self->nameFiltersChanged();
 }
 
 //  void QQuickFolderDialogImpl::componentComplete()
@@ -148,6 +208,14 @@ void ritual_own_ZN22QQuickFolderDialogImpl10itemChangeEN10QQuickItem10ItemChange
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->QQuickFolderDialogImpl::itemChange(change, *data);
+}
+
+//  a QSharedPointer<QFileDialogOptions> a ritual of QQuickFolderDialogImpl
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickFolderDialogImpl__QSharedPointer_QFileDialogOptions(
+    QSharedPointer<QFileDialogOptions> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_listview) && QT_CONFIG(quick_draganddrop)

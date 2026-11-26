@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qabstractaxis.h>
@@ -30,6 +30,22 @@ inline QAbstractAxisPrivate::~QAbstractAxisPrivate()
     Q_Q(QAbstractAxis);
     if (m_graph)
         m_graph->removeAxis(q, true);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 310, as _Z8lcAxis2Dv
+inline const QLoggingCategory &lcAxis2D()
+{
+    static const QLoggingCategory category("qt.graphs2d.axis.properties");
+    return category;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 706, as _ZN20QAbstractAxisPrivate8setGraphEP11QGraphsView
+inline void QAbstractAxisPrivate::setGraph(QGraphsView *graph)
+{
+    if (m_graph && graph && m_graph != graph)
+        qCWarning(lcAxis2D, "%p axis already associated with %p", this, m_graph);
+
+    m_graph = graph;
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 714, as _ZN20QAbstractAxisPrivate18handleRangeChangedEdd
@@ -151,6 +167,14 @@ void ritual_ZN20QAbstractAxisPrivateD1Ev(QAbstractAxisPrivate *self) {
   delete self;
 }
 
+//  void QAbstractAxisPrivate::setGraph(QGraphsView *graph)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QAbstractAxisPrivate8setGraphEP11QGraphsView(
+    QAbstractAxisPrivate *self,
+    QGraphsView *graph) {
+  self->setGraph(graph);
+}
+
 //  void QAbstractAxisPrivate::setMin(const QVariant &min)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QAbstractAxisPrivate6setMinERK8QVariant(
@@ -231,4 +255,4 @@ bool ritual_take_QAbstractAxisPrivate(
   return static_cast<CuteQAbstractAxisPrivate *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

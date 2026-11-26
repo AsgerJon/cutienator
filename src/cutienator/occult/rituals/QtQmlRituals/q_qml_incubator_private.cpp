@@ -50,6 +50,22 @@ void ritual_ZN20QQmlIncubatorPrivate5clearEv(QQmlIncubatorPrivate *self) {
   self->clear();
 }
 
+//  void QQmlIncubatorPrivate::forceCompletion(QQmlInstantiationInterrupt &i)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlIncubatorPrivate15forceCompletionER26QQmlInstantiationInterrupt(
+    QQmlIncubatorPrivate *self,
+    QQmlInstantiationInterrupt *i) {
+  self->forceCompletion(*i);
+}
+
+//  void QQmlIncubatorPrivate::incubate(QQmlInstantiationInterrupt &i)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlIncubatorPrivate8incubateER26QQmlInstantiationInterrupt(
+    QQmlIncubatorPrivate *self,
+    QQmlInstantiationInterrupt *i) {
+  self->incubate(*i);
+}
+
 //  void QQmlIncubatorPrivate::incubateCppBasedComponent(QQmlComponent
 //      *component, QQmlContext *context)
 extern "C" Q_DECL_EXPORT

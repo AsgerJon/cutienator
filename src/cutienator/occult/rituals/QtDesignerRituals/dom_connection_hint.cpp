@@ -21,6 +21,24 @@ void ritual_ZN17DomConnectionHintD1Ev(DomConnectionHint *self) {
   delete self;
 }
 
+//  void DomConnectionHint::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DomConnectionHint4readER16QXmlStreamReader(
+    DomConnectionHint *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomConnectionHint::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17DomConnectionHint5writeER16QXmlStreamWriterRK7QString(
+    const DomConnectionHint *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
+}
+
 //  bool DomConnectionHint::hasAttributeType() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17DomConnectionHint16hasAttributeTypeEv(

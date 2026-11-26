@@ -16,6 +16,9 @@
     "ritual_ZN21QQuickTreeViewPrivate12setModelImplERK8QVariant": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN21QQuickTreeViewPrivate19dataChangedCallbackERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN21QQuickTreeViewPrivate20updateItemPropertiesEiP7QObjectb": [
       "nothing", "address", "int", "address", "bool"
     ],

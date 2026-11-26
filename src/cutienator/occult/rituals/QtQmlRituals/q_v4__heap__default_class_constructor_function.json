@@ -8,6 +8,9 @@
     "ritual_ZN3QV44Heap31DefaultClassConstructorFunction11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap31DefaultClassConstructorFunction4initEPNS_16ExecutionContextE": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_DefaultClassConstructorFunction_QV4_Heap_DefaultClassConstructorFunctionData": [
       "address", "address"
     ]

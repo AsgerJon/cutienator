@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK29QQuickParticleSystemAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickParticleSystemAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuickParticleSystemAnimation11qt_metacastEPKc(
+    QQuickParticleSystemAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickParticleSystemAnimation::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuickParticleSystemAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickParticleSystemAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQuickParticleSystemAnimation::updateCurrentTime(int t)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QQuickParticleSystemAnimation17updateCurrentTimeEi(

@@ -10,6 +10,9 @@
     ],
     "ritual_ZNK29QScxmlInvokableServicePrivate11calculateIdEP18QScxmlStateMachineRKN23QScxmlExecutableContent10InvokeInfoEPb": [
       "text", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK29QScxmlInvokableServicePrivate13calculateDataEP18QScxmlStateMachineRK5QListIN23QScxmlExecutableContent13ParameterInfoEERKS2_IiEPb": [
+      "address", "address", "address", "address", "address", "address"
     ]
   }
 }

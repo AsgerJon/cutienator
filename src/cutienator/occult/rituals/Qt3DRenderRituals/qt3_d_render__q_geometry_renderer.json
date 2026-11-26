@@ -8,8 +8,129 @@
     "ritual_ZNK10Qt3DRender17QGeometryRenderer10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender17QGeometryRenderer2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRendererC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRendererD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer13instanceCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer11vertexCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer11indexOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer13firstInstanceEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer11firstVertexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer21indexBufferByteOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer17restartIndexValueEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer16verticesPerPatchEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer23primitiveRestartEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer8geometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer13primitiveTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QGeometryRenderer9sortIndexEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer16setInstanceCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer14setVertexCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer14setIndexOffsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer16setFirstInstanceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer14setFirstVertexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer24setIndexBufferByteOffsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer20setRestartIndexValueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer19setVerticesPerPatchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer26setPrimitiveRestartEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer11setGeometryEPN8Qt3DCore9QGeometryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer16setPrimitiveTypeENS0_13PrimitiveTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer12setSortIndexEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer20instanceCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer18vertexCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer18indexOffsetChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer20firstInstanceChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer18firstVertexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer28indexBufferByteOffsetChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer24restartIndexValueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer23verticesPerPatchChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer30primitiveRestartEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer15geometryChangedEPN8Qt3DCore9QGeometryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer20primitiveTypeChangedENS0_13PrimitiveTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRenderer16sortIndexChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender17QGeometryRendererC1ERNS_24QGeometryRendererPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender17QGeometryRenderer6d_funcEv": [
       "address", "address"

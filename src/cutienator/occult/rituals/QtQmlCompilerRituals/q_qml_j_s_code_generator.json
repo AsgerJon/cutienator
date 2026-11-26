@@ -2,12 +2,25 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
     "mpiler/6.12.0/QtQmlCompiler/private/qqmljscodegenerator_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN19QQmlJSCodeGeneratorC1EPKN3QV48Compiler7ContextEPKNS1_15JSUnitGeneratorEPK18QQmlJSTypeResolverP12QQmlJSLoggerRK8QFlatMapIiN17QQmlJSCompilePass10BasicBlockESt4lessIiE5QListIiESI_ISF_EERKSD_IiNSE_21InstructionAnnotationESH_SJ_SI_ISO_EEb": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "bool"
+    ],
     "ritual_ZN19QQmlJSCodeGeneratorD1Ev": ["nothing", "address"],
     "ritual_ZN19QQmlJSCodeGenerator3runEPKN17QQmlJSCompilePass8FunctionEb": [
       "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK19QQmlJSCodeGenerator16lookupSignaturesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator10metaObjectERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator8metaTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "text", "address", "address"
     ],
     "ritual_ZN19QQmlJSCodeGenerator12generate_RetEv": ["nothing", "address"],
     "ritual_ZN19QQmlJSCodeGenerator14generate_DebugEv": [
@@ -418,6 +431,18 @@
     "ritual_ZN19QQmlJSCodeGenerator10conversionE21QQmlJSRegisterContentS0_RK7QString": [
       "text", "address", "address", "address", "text"
     ],
+    "ritual_ZN19QQmlJSCodeGenerator10conversionERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContentRK7QString": [
+      "text", "address", "address", "address", "text"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator10conversionE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeERK7QString": [
+      "text", "address", "address", "address", "text"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator10conversionERK22QDeferredSharedPointerIK11QQmlJSScopeES5_RK7QString": [
+      "text", "address", "address", "address", "text"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator13convertStoredERK22QDeferredSharedPointerIK11QQmlJSScopeES5_RK7QString": [
+      "text", "address", "address", "address", "text"
+    ],
     "ritual_ZN19QQmlJSCodeGenerator16convertContainedE21QQmlJSRegisterContentS0_RK7QString": [
       "text", "address", "address", "address", "text"
     ],
@@ -429,6 +454,12 @@
     ],
     "ritual_ZN19QQmlJSCodeGenerator4skipERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQmlJSCodeGenerator16metaTypeFromTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK19QQmlJSCodeGenerator16metaTypeFromNameERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "text", "address", "address"
     ],
     "ritual_ZNK19QQmlJSCodeGenerator17compositeMetaTypeERK7QString": [
       "text", "address", "text"
@@ -477,6 +508,15 @@
     ],
     "ritual_ZNK19QQmlJSCodeGenerator18shouldMoveRegisterEi": [
       "bool", "address", "int"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator20recordPropertyLookupERK22QDeferredSharedPointerIK11QQmlJSScopeERK18QQmlJSMetaProperty": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator18recordMethodLookupERK22QDeferredSharedPointerIK11QQmlJSScopeERK16QQmlJSMetaMethod": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator19recordEnumKeyLookupERK22QDeferredSharedPointerIK11QQmlJSScopeERK14QQmlJSMetaEnumRK7QString": [
+      "nothing", "address", "address", "address", "text"
     ],
     "ritual_ZN19QQmlJSCodeGenerator10resetStateEv": ["nothing", "address"],
     "ritual_ZN19QQmlJSCodeGenerator22generateExceptionCheckEv": [
@@ -540,6 +580,9 @@
     "ritual_ZN19QQmlJSCodeGenerator11initAndCallEiiRK7QStringS2_PS0_": [
       "text", "address", "int", "int", "text", "text", "address"
     ],
+    "ritual_ZNK19QQmlJSCodeGenerator14castTargetNameERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "text", "address", "address"
+    ],
     "ritual_ZN19QQmlJSCodeGenerator18inlineStringMethodERK7QStringiii": [
       "bool", "address", "text", "int", "int", "int"
     ],
@@ -558,11 +601,23 @@
     "ritual_ZN19QQmlJSCodeGenerator24generate_GetLookupHelperEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN19QQmlJSCodeGenerator30resolveValueTypeContentPointerERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContentRK7QStringS9_": [
+      "text", "address", "address", "address", "text", "text"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator21resolveQObjectPointerERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContentRK7QStringS9_": [
+      "text", "address", "address", "address", "text", "text"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator27generateContentPointerCheckERK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContentRK7QStringS9_": [
+      "bool", "address", "address", "address", "text", "text"
+    ],
     "ritual_ZN19QQmlJSCodeGenerator23generateCallConstructorERK16QQmlJSMetaMethodRK5QListI21QQmlJSRegisterContentERKS3_I7QStringERKS8_SD_": [
       "text", "address", "address", "address", "address", "text", "text"
     ],
     "ritual_ZN19QQmlJSCodeGenerator27generateVariantMapGetLookupERK7QStringi": [
       "text", "address", "text", "int"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator27generateVariantMapSetLookupERK7QStringiRK22QDeferredSharedPointerIK11QQmlJSScopeES2_": [
+      "text", "address", "text", "int", "address", "text"
     ],
     "ritual_ZN19QQmlJSCodeGenerator12originalTypeE21QQmlJSRegisterContent": [
       "address", "address", "address"
@@ -571,6 +626,9 @@
       "address", "address", "address"
     ],
     "ritual_ZNK19QQmlJSCodeGenerator14originalMethodERK21QQmlJSRegisterContent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator11literalTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
       "address", "address", "address"
     ],
     "ritual_ZN19QQmlJSCodeGenerator31isRegisterAffectedBySideEffectsEi": [
@@ -980,6 +1038,18 @@
     ],
     "ritual_own_ZN19QQmlJSCodeGenerator14endInstructionEN3QV44Moth5Instr4TypeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_drop_QQmlJSCodeGenerator__LookupSignatures": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator6rejectIbEET_RK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator6rejectIiEET_RK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN19QQmlJSCodeGenerator6rejectI7QStringEET_RKS1_": [
+      "text", "address", "text"
     ]
   }
 }

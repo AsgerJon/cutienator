@@ -9,10 +9,21 @@
       "address", "address", "address", "text", "address"
     ],
     "ritual_ZN19QQmlJSImportVisitorD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQmlJSImportVisitor6resultEv": ["address", "address"],
     "ritual_ZNK19QQmlJSImportVisitor6loggerEv": ["address", "address"],
     "ritual_ZN19QQmlJSImportVisitor6loggerEv": ["address", "address"],
     "ritual_ZNK19QQmlJSImportVisitor7importsEv": ["address", "address"],
     "ritual_ZNK19QQmlJSImportVisitor17addressableScopesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor20knownUnresolvedTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQmlJSImportVisitor14signalHandlersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQmlJSImportVisitor8qmlTypesEv": ["address", "address"],
+    "ritual_ZNK19QQmlJSImportVisitor16scopesBylocationEv": [
       "address", "address"
     ],
     "ritual_ZN19QQmlJSImportVisitor23implicitImportDirectoryERK7QStringPK24QQmlJSResourceFileMapper": [
@@ -182,14 +193,29 @@
     "ritual_ZN19QQmlJSImportVisitor24throwRecursionDepthErrorEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QQmlJSImportVisitor17checkCustomParserERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor12setScopeNameER22QDeferredSharedPointerI11QQmlJSScopeEN6QQmlSA9ScopeTypeERK7QString": [
+      "nothing", "address", "address", "int", "text"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor22safeInsertJSIdentifierER22QDeferredSharedPointerI11QQmlJSScopeERK7QStringRKNS1_20JavaScriptIdentifierE": [
+      "bool", "address", "address", "text", "address"
+    ],
     "ritual_ZN19QQmlJSImportVisitor30createAttachedAndGroupedScopesEPN6QQmlJS3AST13UiQualifiedIdE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN19QQmlJSImportVisitor28openAttachedAndGroupedScopesEPN6QQmlJS3AST13UiQualifiedIdE": [
       "int", "address", "address"
     ],
+    "ritual_ZN19QQmlJSImportVisitor23addFunctionOrExpressionERK22QDeferredSharedPointerIK11QQmlJSScopeERK7QString": [
+      "int", "address", "address", "text"
+    ],
     "ritual_ZN19QQmlJSImportVisitor24forgetFunctionExpressionERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQmlJSImportVisitor47synthesizeCompilationUnitRuntimeFunctionIndicesERK22QDeferredSharedPointerI11QQmlJSScopeEi": [
+      "int", "address", "address", "int"
     ],
     "ritual_ZNK19QQmlJSImportVisitor41populateRuntimeFunctionIndicesForDocumentEv": [
       "nothing", "address"
@@ -202,6 +228,15 @@
     ],
     "ritual_ZN19QQmlJSImportVisitor16leaveEnvironmentEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor17checkTypeResolvedERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QQmlJSImportVisitor18warnUnresolvedTypeERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor29warnMissingPropertyForBindingERK7QStringRKN6QQmlJS14SourceLocationERKSt8optionalI19QQmlJSFixSuggestionE": [
+      "nothing", "address", "text", "address", "address"
     ],
     "ritual_ZN19QQmlJSImportVisitor16parseAnnotationsEPN6QQmlJS3AST16UiAnnotationListE": [
       "address", "address", "address"
@@ -233,6 +268,18 @@
     "ritual_ZN19QQmlJSImportVisitor28flushPendingSignalParametersEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QQmlJSImportVisitor22breakInheritanceCyclesERK22QDeferredSharedPointerI11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor16checkDeprecationERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor29checkGroupedAndAttachedScopesE22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor35checkForComponentTypeWithPropertiesERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QQmlJSImportVisitor16rootScopeIsValidEv": [
       "bool", "address"
     ],
@@ -241,6 +288,9 @@
     ],
     "ritual_ZNK19QQmlJSImportVisitor14isImportPrefixE7QString": [
       "bool", "address", "text"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor11checkSignalERK22QDeferredSharedPointerIK11QQmlJSScopeERKN6QQmlJS14SourceLocationERK7QStringRK5QListISA_E": [
+      "nothing", "address", "address", "address", "text", "address"
     ],
     "ritual_ZN19QQmlJSImportVisitor17importBaseModulesEv": [
       "nothing", "address"
@@ -263,6 +313,9 @@
     "ritual_ZN19QQmlJSImportVisitor29visitFunctionExpressionHelperEPN6QQmlJS3AST18FunctionExpressionE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN19QQmlJSImportVisitor21processImportWarningsERK7QStringRK5QListIN6QQmlJS17DiagnosticMessageEERKNS4_14SourceLocationE": [
+      "nothing", "address", "text", "address", "address"
+    ],
     "ritual_ZN19QQmlJSImportVisitor21addImportWithLocationERK7QStringRKN6QQmlJS14SourceLocationEb": [
       "nothing", "address", "text", "address", "bool"
     ],
@@ -271,6 +324,12 @@
     ],
     "ritual_ZN19QQmlJSImportVisitor14enterRootScopeEN6QQmlSA9ScopeTypeERK7QStringRKN6QQmlJS14SourceLocationE": [
       "nothing", "address", "int", "text", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor14importFromHostERK7QStringS2_RKN6QQmlJS14SourceLocationE": [
+      "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor13importFromQrcERK7QStringS2_RKN6QQmlJS14SourceLocationE": [
+      "address", "address", "text", "text", "address"
     ],
     "ritual_take_QQmlJSImportVisitor": [
       "bool", "address", "chars", "address"
@@ -439,6 +498,21 @@
     ],
     "ritual_own_ZN19QQmlJSImportVisitor20handleLiteralBindingERK25QQmlJSMetaPropertyBindingPKN6QQmlJS3AST14UiPublicMemberE": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_drop_QQmlJSImportVisitor__QQmlJSScope_Ptr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSImportVisitor__QHash_QQmlJS_SourceLocation_QQmlJSMetaSignalHandler": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSImportVisitor__QList_QQmlJSScope_ConstPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSImportVisitor__QHash_QV4_CompiledData_Location_QQmlJSScope_ConstPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSImportVisitor__QList_QQmlJS_DiagnosticMessage": [
+      "nothing", "address"
     ]
   }
 }

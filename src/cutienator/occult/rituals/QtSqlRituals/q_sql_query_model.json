@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QSqlQueryModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QSqlQueryModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QSqlQueryModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QSqlQueryModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -36,6 +42,9 @@
       "bool", "address", "int", "int", "address"
     ],
     "ritual_ZN14QSqlQueryModel8setQueryERK9QSqlQuery": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSqlQueryModel8setQueryEO9QSqlQuery": [
       "nothing", "address", "address"
     ],
     "ritual_ZN14QSqlQueryModel8setQueryERK7QStringRK12QSqlDatabase": [
@@ -78,6 +87,9 @@
     ],
     "ritual_ZN14QSqlQueryModel12setLastErrorERK9QSqlError": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSqlQueryModelC1ER21QSqlQueryModelPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QSqlQueryModel": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QSqlQueryModel8rowCountERK11QModelIndex": [

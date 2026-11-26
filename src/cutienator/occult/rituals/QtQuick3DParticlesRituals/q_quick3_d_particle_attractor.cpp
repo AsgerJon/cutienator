@@ -26,6 +26,25 @@ const QMetaObject *ritual_ZNK25QQuick3DParticleAttractor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleAttractor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuick3DParticleAttractor11qt_metacastEPKc(
+    QQuick3DParticleAttractor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleAttractor::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuick3DParticleAttractor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleAttractor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleAttractor::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -151,6 +170,55 @@ void ritual_ZN25QQuick3DParticleAttractor18setPositionsAmountEi(
     QQuick3DParticleAttractor *self,
     int positionsAmount) {
   self->setPositionsAmount(positionsAmount);
+}
+
+//  void QQuick3DParticleAttractor::positionVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleAttractor24positionVariationChangedEv(
+    QQuick3DParticleAttractor *self) {
+  self->positionVariationChanged();
+}
+
+//  void QQuick3DParticleAttractor::shapeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleAttractor12shapeChangedEv(
+    QQuick3DParticleAttractor *self) {
+  self->shapeChanged();
+}
+
+//  void QQuick3DParticleAttractor::durationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleAttractor15durationChangedEv(
+    QQuick3DParticleAttractor *self) {
+  self->durationChanged();
+}
+
+//  void QQuick3DParticleAttractor::durationVariationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleAttractor24durationVariationChangedEv(
+    QQuick3DParticleAttractor *self) {
+  self->durationVariationChanged();
+}
+
+//  void QQuick3DParticleAttractor::hideAtEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleAttractor16hideAtEndChangedEv(
+    QQuick3DParticleAttractor *self) {
+  self->hideAtEndChanged();
+}
+
+//  void QQuick3DParticleAttractor::useCachedPositionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleAttractor25useCachedPositionsChangedEv(
+    QQuick3DParticleAttractor *self) {
+  self->useCachedPositionsChanged();
+}
+
+//  void QQuick3DParticleAttractor::positionsAmountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleAttractor22positionsAmountChangedEv(
+    QQuick3DParticleAttractor *self) {
+  self->positionsAmountChanged();
 }
 
 //  void QQuick3DParticleAttractor::prepareToAffect()

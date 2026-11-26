@@ -860,6 +860,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal15IconThemeEditor10metaObjectEv
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::IconThemeEditor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal15IconThemeEditor11qt_metacastEPKc(
+    qdesigner_internal::IconThemeEditor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::IconThemeEditor::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal15IconThemeEditor11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::IconThemeEditor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::IconThemeEditor::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -868,6 +887,52 @@ QString *ritual_ZN18qdesigner_internal15IconThemeEditor2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::IconThemeEditor::tr(s, c, n));
+}
+
+//  qdesigner_internal::IconThemeEditor::IconThemeEditor(QWidget *parent,
+//      bool wantResetButton)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::IconThemeEditor *ritual_ZN18qdesigner_internal15IconThemeEditorC1EP7QWidgetb(
+    QWidget *parent,
+    bool wantResetButton) {
+  return new Cuteqdesigner_internal_IconThemeEditor(parent, wantResetButton);
+}
+
+//  qdesigner_internal::IconThemeEditor::~IconThemeEditor()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15IconThemeEditorD1Ev(
+    qdesigner_internal::IconThemeEditor *self) {
+  delete self;
+}
+
+//  QString qdesigner_internal::IconThemeEditor::theme() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal15IconThemeEditor5themeEv(
+    const qdesigner_internal::IconThemeEditor *self) {
+  return new QString(self->theme());
+}
+
+//  void qdesigner_internal::IconThemeEditor::setTheme(const QString &theme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15IconThemeEditor8setThemeERK7QString(
+    qdesigner_internal::IconThemeEditor *self,
+    const QString *theme) {
+  self->setTheme(*theme);
+}
+
+//  void qdesigner_internal::IconThemeEditor::edited(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15IconThemeEditor6editedERK7QString(
+    qdesigner_internal::IconThemeEditor *self,
+    const QString *a0) {
+  self->edited(*a0);
+}
+
+//  void qdesigner_internal::IconThemeEditor::reset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal15IconThemeEditor5resetEv(
+    qdesigner_internal::IconThemeEditor *self) {
+  self->reset();
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_IconThemeEditor, for

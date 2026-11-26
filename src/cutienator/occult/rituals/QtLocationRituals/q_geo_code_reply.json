@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QGeoCodeReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QGeoCodeReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QGeoCodeReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QGeoCodeReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QGeoCodeReplyC1ENS_5ErrorERK7QStringP7QObject": [
       "address", "int", "text", "address"
@@ -18,6 +24,11 @@
     "ritual_ZNK13QGeoCodeReply5limitEv": ["long long", "address"],
     "ritual_ZNK13QGeoCodeReply6offsetEv": ["long long", "address"],
     "ritual_ZN13QGeoCodeReply5abortEv": ["nothing", "address"],
+    "ritual_ZN13QGeoCodeReply8finishedEv": ["nothing", "address"],
+    "ritual_ZN13QGeoCodeReply7abortedEv": ["nothing", "address"],
+    "ritual_ZN13QGeoCodeReply13errorOccurredENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
     "ritual_ZN13QGeoCodeReplyC1EP7QObject": ["address", "address"],
     "ritual_ZN13QGeoCodeReply8setErrorENS_5ErrorERK7QString": [
       "nothing", "address", "int", "text"

@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QBlendEquation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QBlendEquation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QBlendEquation11qt_metacastEPKc(
+    Qt3DRender::QBlendEquation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QBlendEquation::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QBlendEquation11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QBlendEquation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QBlendEquation::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,45 @@ QString *ritual_ZN10Qt3DRender14QBlendEquation2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QBlendEquation::tr(s, c, n));
+}
+
+//  Qt3DRender::QBlendEquation::QBlendEquation(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QBlendEquation *ritual_ZN10Qt3DRender14QBlendEquationC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QBlendEquation(parent);
+}
+
+//  Qt3DRender::QBlendEquation::~QBlendEquation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QBlendEquationD1Ev(
+    Qt3DRender::QBlendEquation *self) {
+  delete self;
+}
+
+//  BlendFunction Qt3DRender::QBlendEquation::blendFunction() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QBlendEquation::BlendFunction ritual_ZNK10Qt3DRender14QBlendEquation13blendFunctionEv(
+    const Qt3DRender::QBlendEquation *self) {
+  return self->blendFunction();
+}
+
+//  void Qt3DRender::QBlendEquation::setBlendFunction(BlendFunction
+//      blendFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QBlendEquation16setBlendFunctionENS0_13BlendFunctionE(
+    Qt3DRender::QBlendEquation *self,
+    Qt3DRender::QBlendEquation::BlendFunction blendFunction) {
+  self->setBlendFunction(blendFunction);
+}
+
+//  void Qt3DRender::QBlendEquation::blendFunctionChanged(BlendFunction
+//      blendFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QBlendEquation20blendFunctionChangedENS0_13BlendFunctionE(
+    Qt3DRender::QBlendEquation *self,
+    Qt3DRender::QBlendEquation::BlendFunction blendFunction) {
+  self->blendFunctionChanged(blendFunction);
 }
 
 //  QBlendEquationPrivate *Qt3DRender::QBlendEquation::d_func()

@@ -5,11 +5,88 @@
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore6QJoint10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore6QJoint11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore6QJoint2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore6QJointC1EPNS_5QNodeE": ["address", "address"],
+    "ritual_ZN8Qt3DCore6QJointD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore6QJoint5scaleEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore6QJoint8rotationEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore6QJoint11translationEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore6QJoint17inverseBindMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore6QJoint9rotationXEv": ["float", "address"],
+    "ritual_ZNK8Qt3DCore6QJoint9rotationYEv": ["float", "address"],
+    "ritual_ZNK8Qt3DCore6QJoint9rotationZEv": ["float", "address"],
+    "ritual_ZNK8Qt3DCore6QJoint4nameEv": ["text", "address"],
+    "ritual_ZN8Qt3DCore6QJoint13addChildJointEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint16removeChildJointEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore6QJoint11childJointsEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore6QJoint8setScaleERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint11setRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint14setTranslationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint20setInverseBindMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint12setRotationXEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint12setRotationYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint12setRotationZEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint13setToIdentityEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore6QJoint12scaleChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint15rotationChangedERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint18translationChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint24inverseBindMatrixChangedERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint16rotationXChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint16rotationYChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint16rotationZChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore6QJoint11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN8Qt3DCore6QJoint6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore6QJoint6d_funcEv": ["address", "address"],
-    "ritual_take_Qt3DCore_QJoint": ["bool", "address", "chars", "address"]
+    "ritual_take_Qt3DCore_QJoint": ["bool", "address", "chars", "address"],
+    "ritual_drop_Qt3DCore_QJoint__QList_Qt3DCore_QJoint": [
+      "nothing", "address"
+    ]
   }
 }

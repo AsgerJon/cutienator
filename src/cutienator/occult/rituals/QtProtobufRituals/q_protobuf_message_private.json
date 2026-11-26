@@ -17,11 +17,20 @@
     "ritual_ZN23QProtobufMessagePrivate17storeUnknownEntryEP16QProtobufMessage14QByteArrayViewi": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZNK23QProtobufMessagePrivate12metaPropertyE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK23QProtobufMessagePrivate12metaPropertyEN17QtProtobufPrivate18QProtobufFieldInfoE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN23QProtobufMessagePrivate3getEP16QProtobufMessage": [
       "address", "address"
     ],
     "ritual_ZN23QProtobufMessagePrivate3getEPK16QProtobufMessage": [
       "address", "address"
+    ],
+    "ritual_drop_QProtobufMessagePrivate__std_optional_QMetaProperty": [
+      "nothing", "address"
     ]
   }
 }

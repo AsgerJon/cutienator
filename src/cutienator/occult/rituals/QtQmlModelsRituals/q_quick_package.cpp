@@ -13,6 +13,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A QQuickPackage that Python can take functions over in. Every QQuickPackage
 //  Python makes is one. Each function below asks the Python
@@ -188,6 +190,24 @@ const QMetaObject *ritual_ZNK13QQuickPackage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPackage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickPackage11qt_metacastEPKc(
+    QQuickPackage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPackage::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickPackage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPackage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPackage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickPackage2trEPKcS1_i(
@@ -195,6 +215,20 @@ QString *ritual_ZN13QQuickPackage2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickPackage::tr(s, c, n));
+}
+
+//  QQuickPackagePrivate *QQuickPackage::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickPackagePrivate *ritual_ZN13QQuickPackage6d_funcEv(
+    QQuickPackage *self) {
+  return self->d_func();
+}
+
+//  const QQuickPackagePrivate *QQuickPackage::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickPackagePrivate *ritual_ZNK13QQuickPackage6d_funcEv(
+    const QQuickPackage *self) {
+  return self->d_func();
 }
 
 //  void QQuickPackage::qt_qmlMarker_attached()
@@ -207,6 +241,13 @@ void ritual_ZN13QQuickPackage21qt_qmlMarker_attachedEv(QQuickPackage *self) {
 extern "C" Q_DECL_EXPORT
 QQuickPackage *ritual_ZN13QQuickPackageC1EP7QObject(QObject *parent) {
   return new CuteQQuickPackage(parent);
+}
+
+//  QQmlListProperty<QObject> QQuickPackage::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN13QQuickPackage4dataEv(
+    QQuickPackage *self) {
+  return new QQmlListProperty<QObject>(self->data());
 }
 
 //  QObject *QQuickPackage::part(const QString &a0)
@@ -240,6 +281,13 @@ bool ritual_take_QQuickPackage(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickPackage *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickPackage gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPackage__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(qml_delegate_model)

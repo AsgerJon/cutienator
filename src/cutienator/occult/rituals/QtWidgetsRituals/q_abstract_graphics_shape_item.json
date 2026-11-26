@@ -4,6 +4,9 @@
     "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QAbstractGraphicsShapeItemC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
     "ritual_ZN26QAbstractGraphicsShapeItemD1Ev": ["nothing", "address"],
     "ritual_ZNK26QAbstractGraphicsShapeItem3penEv": ["address", "address"],
     "ritual_ZN26QAbstractGraphicsShapeItem6setPenERK4QPen": [
@@ -17,6 +20,13 @@
       "bool", "address", "address"
     ],
     "ritual_ZNK26QAbstractGraphicsShapeItem10opaqueAreaEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAbstractGraphicsShapeItemC1ER33QAbstractGraphicsShapeItemPrivateP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QAbstractGraphicsShapeItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK26QAbstractGraphicsShapeItem6d_funcEv": [
       "address", "address"
     ],
     "ritual_take_QAbstractGraphicsShapeItem": [

@@ -8,6 +8,12 @@
     "ritual_ZNK24QScrollbarStyleAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QScrollbarStyleAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QScrollbarStyleAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QScrollbarStyleAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

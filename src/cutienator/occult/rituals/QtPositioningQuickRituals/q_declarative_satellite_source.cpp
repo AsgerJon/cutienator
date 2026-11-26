@@ -15,6 +15,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtPositioning/QGeoSatelliteInfoSource>
 
 //  A QDeclarativeSatelliteSource that Python can take functions over in. Every QDeclarativeSatelliteSource
 //  Python makes is one. Each function below asks the Python
@@ -222,6 +224,25 @@ const QMetaObject *ritual_ZNK27QDeclarativeSatelliteSource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeSatelliteSource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QDeclarativeSatelliteSource11qt_metacastEPKc(
+    QDeclarativeSatelliteSource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeSatelliteSource::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QDeclarativeSatelliteSource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeSatelliteSource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeSatelliteSource::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -278,6 +299,15 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK27QDeclarativeSatelliteSource4nameEv(
     const QDeclarativeSatelliteSource *self) {
   return new QString(self->name());
+}
+
+//  QQmlListProperty<QDeclarativePluginParameter>
+//      QDeclarativeSatelliteSource::parameters()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QDeclarativePluginParameter> *ritual_ZN27QDeclarativeSatelliteSource10parametersEv(
+    QDeclarativeSatelliteSource *self) {
+  return new QQmlListProperty<QDeclarativePluginParameter>(
+      self->parameters());
 }
 
 //  QList<QGeoSatelliteInfo> QDeclarativeSatelliteSource::satellitesInUse()
@@ -375,6 +405,64 @@ void ritual_ZN27QDeclarativeSatelliteSource4stopEv(
   self->stop();
 }
 
+//  void QDeclarativeSatelliteSource::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource13activeChangedEv(
+    QDeclarativeSatelliteSource *self) {
+  self->activeChanged();
+}
+
+//  void QDeclarativeSatelliteSource::validityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource15validityChangedEv(
+    QDeclarativeSatelliteSource *self) {
+  self->validityChanged();
+}
+
+//  void QDeclarativeSatelliteSource::updateIntervalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource21updateIntervalChangedEv(
+    QDeclarativeSatelliteSource *self) {
+  self->updateIntervalChanged();
+}
+
+//  void QDeclarativeSatelliteSource::sourceErrorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource18sourceErrorChangedEv(
+    QDeclarativeSatelliteSource *self) {
+  self->sourceErrorChanged();
+}
+
+//  void QDeclarativeSatelliteSource::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource11nameChangedEv(
+    QDeclarativeSatelliteSource *self) {
+  self->nameChanged();
+}
+
+//  void QDeclarativeSatelliteSource::satellitesInUseChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource22satellitesInUseChangedEv(
+    QDeclarativeSatelliteSource *self) {
+  self->satellitesInUseChanged();
+}
+
+//  void QDeclarativeSatelliteSource::satellitesInViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource23satellitesInViewChangedEv(
+    QDeclarativeSatelliteSource *self) {
+  self->satellitesInViewChanged();
+}
+
+//  void QDeclarativeSatelliteSource::sourceErrorReceived(const
+//      QGeoSatelliteInfoSource::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource19sourceErrorReceivedEN23QGeoSatelliteInfoSource5ErrorE(
+    QDeclarativeSatelliteSource *self,
+    const QGeoSatelliteInfoSource::Error *error) {
+  self->sourceErrorReceived(*error);
+}
+
 //  void QDeclarativeSatelliteSource::onParameterInitialized()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QDeclarativeSatelliteSource22onParameterInitializedEv(
@@ -437,6 +525,43 @@ void ritual_ZN27QDeclarativeSatelliteSource19executeSingleUpdateEi(
   self->executeSingleUpdate(timeout);
 }
 
+//  void
+//      QDeclarativeSatelliteSource::parameter_append(PluginParameterProperty
+//      *prop, QDeclarativePluginParameter *parameter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource16parameter_appendEP16QQmlListPropertyI27QDeclarativePluginParameterEPS1_(
+    QDeclarativeSatelliteSource::PluginParameterProperty *prop,
+    QDeclarativePluginParameter *parameter) {
+  QDeclarativeSatelliteSource::parameter_append(prop, parameter);
+}
+
+//  qsizetype
+//      QDeclarativeSatelliteSource::parameter_count(PluginParameterProperty
+//      *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN27QDeclarativeSatelliteSource15parameter_countEP16QQmlListPropertyI27QDeclarativePluginParameterE(
+    QDeclarativeSatelliteSource::PluginParameterProperty *prop) {
+  return QDeclarativeSatelliteSource::parameter_count(prop);
+}
+
+//  QDeclarativePluginParameter
+//      *QDeclarativeSatelliteSource::parameter_at(PluginParameterProperty
+//      *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QDeclarativePluginParameter *ritual_ZN27QDeclarativeSatelliteSource12parameter_atEP16QQmlListPropertyI27QDeclarativePluginParameterEx(
+    QDeclarativeSatelliteSource::PluginParameterProperty *prop,
+    qsizetype index) {
+  return QDeclarativeSatelliteSource::parameter_at(prop, index);
+}
+
+//  void QDeclarativeSatelliteSource::parameter_clear(PluginParameterProperty
+//      *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSatelliteSource15parameter_clearEP16QQmlListPropertyI27QDeclarativePluginParameterE(
+    QDeclarativeSatelliteSource::PluginParameterProperty *prop) {
+  QDeclarativeSatelliteSource::parameter_clear(prop);
+}
+
 //  QDeclarativeSatelliteSource as the QQmlParserStatus it is built on
 extern "C" Q_DECL_EXPORT
 QQmlParserStatus *ritual_cast_QDeclarativeSatelliteSource_QQmlParserStatus(
@@ -466,4 +591,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN27QDeclarativeSatelliteSource17componentCompleteEv(
     QDeclarativeSatelliteSource *self) {
   self->QDeclarativeSatelliteSource::componentComplete();
+}
+
+//  a QQmlListProperty<QDeclarativePluginParameter> a ritual of
+//      QDeclarativeSatelliteSource gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDeclarativeSatelliteSource__QQmlListProperty_QDeclarativePluginParameter(
+    QQmlListProperty<QDeclarativePluginParameter> *self) {
+  delete self;
 }

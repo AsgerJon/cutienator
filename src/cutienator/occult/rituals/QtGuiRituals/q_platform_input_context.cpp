@@ -431,6 +431,25 @@ const QMetaObject *ritual_ZNK21QPlatformInputContext10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformInputContext::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QPlatformInputContext11qt_metacastEPKc(
+    QPlatformInputContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformInputContext::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QPlatformInputContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformInputContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformInputContext::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QPlatformInputContext2trEPKcS1_i(

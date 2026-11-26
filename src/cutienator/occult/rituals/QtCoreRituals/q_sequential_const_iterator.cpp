@@ -5,6 +5,14 @@
 #include <QtCore/qsequentialiterable.h>
 #include <QtCore/qvariant.h>
 
+//  QSequentialConstIterator::QSequentialConstIterator(QConstIterator<QMetaSe
+//      quence> &&it)
+extern "C" Q_DECL_EXPORT
+QSequentialConstIterator *ritual_ZN24QSequentialConstIteratorC1EO14QConstIteratorI13QMetaSequenceE(
+    QConstIterator<QMetaSequence> *it) {
+  return new QSequentialConstIterator(std::move(*it));
+}
+
 //  QVariant QSequentialConstIterator::operator*() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK24QSequentialConstIteratordeEv(

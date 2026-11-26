@@ -8,8 +8,20 @@
     "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput23QAbstractPhysicalDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput23QAbstractPhysicalDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput23QAbstractPhysicalDevice2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput23QAbstractPhysicalDeviceC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QAbstractPhysicalDeviceD1Ev": [
+      "nothing", "address"
     ],
     "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice9axisCountEv": [
       "int", "address"
@@ -28,6 +40,18 @@
     ],
     "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice16buttonIdentifierERK7QString": [
       "int", "address", "text"
+    ],
+    "ritual_ZN9Qt3DInput23QAbstractPhysicalDevice14addAxisSettingEPNS_12QAxisSettingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QAbstractPhysicalDevice17removeAxisSettingEPNS_12QAxisSettingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice12axisSettingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QAbstractPhysicalDeviceC1ERNS_30QAbstractPhysicalDevicePrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN9Qt3DInput23QAbstractPhysicalDevice6d_funcEv": [
       "address", "address"
@@ -49,6 +73,9 @@
     ],
     "ritual_own_ZNK9Qt3DInput23QAbstractPhysicalDevice16buttonIdentifierERK7QString": [
       "int", "address", "text"
+    ],
+    "ritual_drop_Qt3DInput_QAbstractPhysicalDevice__QList_Qt3DInput_QAxisSetting": [
+      "nothing", "address"
     ]
   }
 }

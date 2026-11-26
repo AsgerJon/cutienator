@@ -24,6 +24,24 @@ const QMetaObject *ritual_ZNK13QQuickToolBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickToolBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickToolBar11qt_metacastEPKc(
+    QQuickToolBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickToolBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickToolBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickToolBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickToolBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickToolBar2trEPKcS1_i(
@@ -54,6 +72,12 @@ void ritual_ZN13QQuickToolBar11setPositionENS_8PositionE(
   self->setPosition(position);
 }
 
+//  void QQuickToolBar::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickToolBar15positionChangedEv(QQuickToolBar *self) {
+  self->positionChanged();
+}
+
 //  QFont QQuickToolBar::defaultFont() const
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK13QQuickToolBar11defaultFontEv(const QQuickToolBar *self) {
@@ -68,6 +92,20 @@ QAccessible::Role ritual_ZNK13QQuickToolBar14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickToolBarPrivate *QQuickToolBar::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickToolBarPrivate *ritual_ZN13QQuickToolBar6d_funcEv(
+    QQuickToolBar *self) {
+  return self->d_func();
+}
+
+//  const QQuickToolBarPrivate *QQuickToolBar::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickToolBarPrivate *ritual_ZNK13QQuickToolBar6d_funcEv(
+    const QQuickToolBar *self) {
+  return self->d_func();
+}
 
 //  QFont QQuickToolBar::defaultFont() const
 extern "C" Q_DECL_EXPORT

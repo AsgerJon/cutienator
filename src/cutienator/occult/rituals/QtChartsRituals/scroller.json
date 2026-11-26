@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN8ScrollerC1Ev": ["address"],
     "ritual_ZN8ScrollerD1Ev": ["nothing", "address"],
     "ritual_ZN8Scroller9setOffsetERK7QPointF": [
       "nothing", "address", "address"
@@ -26,6 +27,9 @@
     "ritual_ZN8Scroller10scrollTickEv": ["nothing", "address"],
     "ritual_ZN8Scroller11startTickerEi": ["nothing", "address", "int"],
     "ritual_ZN8Scroller10stopTickerEv": ["nothing", "address"],
+    "ritual_ZN8Scroller10lowerSpeedER7QPointFd": [
+      "nothing", "address", "address", "double"
+    ],
     "ritual_take_Scroller": ["bool", "address", "chars", "address"]
   }
 }

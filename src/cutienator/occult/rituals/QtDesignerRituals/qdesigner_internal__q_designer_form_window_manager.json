@@ -8,11 +8,23 @@
     "ritual_ZNK18qdesigner_internal26QDesignerFormWindowManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal26QDesignerFormWindowManager2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowManagerD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZNK18qdesigner_internal26QDesignerFormWindowManager14previewManagerEv": [
       "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal26QDesignerFormWindowManager16showPluginDialogEv": [
+      "nothing", "address"
     ],
     "ritual_take_qdesigner_internal_QDesignerFormWindowManager": [
       "bool", "address", "chars", "address"

@@ -197,6 +197,24 @@ const QMetaObject *ritual_ZNK15QAbstractSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QAbstractSeries11qt_metacastEPKc(
+    QAbstractSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QAbstractSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QAbstractSeries2trEPKcS1_i(
@@ -204,6 +222,15 @@ QString *ritual_ZN15QAbstractSeries2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractSeries::tr(s, c, n));
+}
+
+//  QAbstractSeries::QAbstractSeries(QAbstractSeriesPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractSeries *ritual_ZN15QAbstractSeriesC1ER22QAbstractSeriesPrivateP7QObject(
+    QAbstractSeriesPrivate *d,
+    QObject *parent) {
+  return new CuteQAbstractSeries(*d, parent);
 }
 
 //  QAbstractSeries::~QAbstractSeries()
@@ -314,6 +341,30 @@ void ritual_ZN15QAbstractSeries4showEv(QAbstractSeries *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAbstractSeries4hideEv(QAbstractSeries *self) {
   self->hide();
+}
+
+//  void QAbstractSeries::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries11nameChangedEv(QAbstractSeries *self) {
+  self->nameChanged();
+}
+
+//  void QAbstractSeries::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries14visibleChangedEv(QAbstractSeries *self) {
+  self->visibleChanged();
+}
+
+//  void QAbstractSeries::opacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries14opacityChangedEv(QAbstractSeries *self) {
+  self->opacityChanged();
+}
+
+//  void QAbstractSeries::useOpenGLChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSeries16useOpenGLChangedEv(QAbstractSeries *self) {
+  self->useOpenGLChanged();
 }
 
 //  a Python function taken by a CuteQAbstractSeries, for the function named

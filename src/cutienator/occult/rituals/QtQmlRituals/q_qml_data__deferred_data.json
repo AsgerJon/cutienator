@@ -5,5 +5,7 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN8QQmlData12DeferredDataC1Ev": ["address"],
+    "ritual_ZN8QQmlData12DeferredDataD1Ev": ["nothing", "address"]
   }
 }

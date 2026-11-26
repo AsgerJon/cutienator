@@ -189,6 +189,24 @@ const QMetaObject *ritual_ZNK14QBarSetPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBarSetPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QBarSetPrivate11qt_metacastEPKc(
+    QBarSetPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarSetPrivate::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QBarSetPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarSetPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBarSetPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QBarSetPrivate2trEPKcS1_i(
@@ -225,6 +243,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QBarSetPrivate6appendERK5QListI7QPointFE(
     QBarSetPrivate *self,
     const QList<QPointF> *values) {
+  self->append(*values);
+}
+
+//  void QBarSetPrivate::append(const QList<qreal> &values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBarSetPrivate6appendERK5QListIdE(
+    QBarSetPrivate *self,
+    const QList<qreal> *values) {
   self->append(*values);
 }
 
@@ -321,6 +347,38 @@ bool ritual_ZNK14QBarSetPrivate13isBarSelectedEi(
     const QBarSetPrivate *self,
     int index) {
   return self->isBarSelected(index);
+}
+
+//  void QBarSetPrivate::updatedBars()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBarSetPrivate11updatedBarsEv(QBarSetPrivate *self) {
+  self->updatedBars();
+}
+
+//  void QBarSetPrivate::valueChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBarSetPrivate12valueChangedEi(
+    QBarSetPrivate *self,
+    int index) {
+  self->valueChanged(index);
+}
+
+//  void QBarSetPrivate::valueAdded(int index, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBarSetPrivate10valueAddedEii(
+    QBarSetPrivate *self,
+    int index,
+    int count) {
+  self->valueAdded(index, count);
+}
+
+//  void QBarSetPrivate::valueRemoved(int index, int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QBarSetPrivate12valueRemovedEii(
+    QBarSetPrivate *self,
+    int index,
+    int count) {
+  self->valueRemoved(index, count);
 }
 
 //  a Python function taken by a CuteQBarSetPrivate, for the function named

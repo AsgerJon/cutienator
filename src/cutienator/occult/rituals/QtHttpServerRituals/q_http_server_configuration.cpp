@@ -2,6 +2,9 @@
 //  QtHttpServer/qhttpserverconfiguration.h, Qt 6.12.0. Changes made here are
 //  lost.
 #include <QtHttpServer/qhttpserverconfiguration.h>
+#include <QtCore/QSpan>
+#include <utility>
+#include <QtNetwork/QHostAddress>
 
 //  QHttpServerConfiguration::QHttpServerConfiguration()
 extern "C" Q_DECL_EXPORT
@@ -15,6 +18,41 @@ extern "C" Q_DECL_EXPORT
 QHttpServerConfiguration *ritual_ZN24QHttpServerConfigurationC1ERKS_(
     const QHttpServerConfiguration *other) {
   return new QHttpServerConfiguration(*other);
+}
+
+//  QHttpServerConfiguration::QHttpServerConfiguration(QHttpServerConfigurati
+//      on &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerConfiguration *ritual_ZN24QHttpServerConfigurationC1EOS_(
+    QHttpServerConfiguration *other) {
+  return new QHttpServerConfiguration(std::move(*other));
+}
+
+//  QHttpServerConfiguration &QHttpServerConfiguration::operator=(const
+//      QHttpServerConfiguration &other)
+extern "C" Q_DECL_EXPORT
+QHttpServerConfiguration *ritual_ZN24QHttpServerConfigurationaSERKS_(
+    QHttpServerConfiguration *self,
+    const QHttpServerConfiguration *other) {
+  return &(self->operator=(*other));
+}
+
+//  QHttpServerConfiguration
+//      &QHttpServerConfiguration::operator=(QHttpServerConfiguration
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerConfiguration *ritual_ZN24QHttpServerConfigurationaSEOS_(
+    QHttpServerConfiguration *self,
+    QHttpServerConfiguration *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QHttpServerConfiguration::swap(QHttpServerConfiguration &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QHttpServerConfiguration4swapERS_(
+    QHttpServerConfiguration *self,
+    QHttpServerConfiguration *other) {
+  self->swap(*other);
 }
 
 //  QHttpServerConfiguration::~QHttpServerConfiguration()
@@ -69,6 +107,56 @@ extern "C" Q_DECL_EXPORT
 quint32 ritual_ZNK24QHttpServerConfiguration18maximumConnectionsEv(
     const QHttpServerConfiguration *self) {
   return self->maximumConnections();
+}
+
+//  void QHttpServerConfiguration::setKeepAliveTimeout(std::chrono::seconds
+//      timeout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QHttpServerConfiguration19setKeepAliveTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1EEEE(
+    QHttpServerConfiguration *self,
+    long long timeout) {
+  self->setKeepAliveTimeout(std::chrono::seconds(timeout));
+}
+
+//  std::chrono::seconds QHttpServerConfiguration::keepAliveTimeout() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK24QHttpServerConfiguration16keepAliveTimeoutEv(
+    const QHttpServerConfiguration *self) {
+  return static_cast<long long>(self->keepAliveTimeout().count());
+}
+
+//  void QHttpServerConfiguration::setWhitelist(QSpan<const
+//      std::pair<QHostAddress, int>> subnetList)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QHttpServerConfiguration12setWhitelistE5QSpanIKSt4pairI12QHostAddressiELm18446744073709551615EE(
+    QHttpServerConfiguration *self,
+    const QSpan<const std::pair<QHostAddress, int>> *subnetList) {
+  self->setWhitelist(*subnetList);
+}
+
+//  QSpan<const std::pair<QHostAddress, int>>
+//      QHttpServerConfiguration::whitelist() const
+extern "C" Q_DECL_EXPORT
+QSpan<const std::pair<QHostAddress, int>> *ritual_ZNK24QHttpServerConfiguration9whitelistEv(
+    const QHttpServerConfiguration *self) {
+  return new QSpan<const std::pair<QHostAddress, int>>(self->whitelist());
+}
+
+//  void QHttpServerConfiguration::setBlacklist(QSpan<const
+//      std::pair<QHostAddress, int>> subnetList)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QHttpServerConfiguration12setBlacklistE5QSpanIKSt4pairI12QHostAddressiELm18446744073709551615EE(
+    QHttpServerConfiguration *self,
+    const QSpan<const std::pair<QHostAddress, int>> *subnetList) {
+  self->setBlacklist(*subnetList);
+}
+
+//  QSpan<const std::pair<QHostAddress, int>>
+//      QHttpServerConfiguration::blacklist() const
+extern "C" Q_DECL_EXPORT
+QSpan<const std::pair<QHostAddress, int>> *ritual_ZNK24QHttpServerConfiguration9blacklistEv(
+    const QHttpServerConfiguration *self) {
+  return new QSpan<const std::pair<QHostAddress, int>>(self->blacklist());
 }
 
 //  void QHttpServerConfiguration::setMaximumUrlSize(qint64 maxUrlSize)
@@ -165,4 +253,12 @@ bool ritual_ZneRK24QHttpServerConfigurationS1_(
     const QHttpServerConfiguration *lhs,
     const QHttpServerConfiguration *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  a QSpan<const std::pair<QHostAddress, int>> a ritual of
+//      QHttpServerConfiguration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHttpServerConfiguration__QSpan_const_std_pair_QHostAddress_int(
+    QSpan<const std::pair<QHostAddress, int>> *self) {
+  delete self;
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13AreaChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN13AreaChartItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13AreaChartItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13AreaChartItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13AreaChartItemC1EP11QAreaSeriesP13QGraphicsItem": [
       "address", "address", "address"
@@ -42,6 +48,21 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN13AreaChartItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13AreaChartItem7clickedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13AreaChartItem7hoveredERK7QPointFb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN13AreaChartItem7pressedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13AreaChartItem8releasedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13AreaChartItem13doubleClickedERK7QPointF": [
       "nothing", "address", "address"
     ],
     "ritual_ZN13AreaChartItem13handleUpdatedEv": ["nothing", "address"],

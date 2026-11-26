@@ -5,6 +5,19 @@
     "h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS16AotStatsReporterC1ERKNS_8AotStatsERK5QListI7QStringES8_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS16AotStatsReporter6formatEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS16AotStatsReporter19formatDetailedStatsER11QTextStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS16AotStatsReporter13formatSummaryER11QTextStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS16AotStatsReporter17formatSuccessRateEiii": [
+      "text", "address", "int", "int", "int"
+    ],
     "ritual_ZN6QQmlJS16AotStatsReporterD1Ev": ["nothing", "address"]
   }
 }

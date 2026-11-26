@@ -5,6 +5,15 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QQuick3DLightmapBaker13BakingControl5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DLightmapBaker13BakingControl13requestCancelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuick3DLightmapBaker13BakingControl11isCancelledEv": [
+      "bool", "address"
+    ],
     "ritual_ZN21QQuick3DLightmapBaker13BakingControlD1Ev": [
       "nothing", "address"
     ]

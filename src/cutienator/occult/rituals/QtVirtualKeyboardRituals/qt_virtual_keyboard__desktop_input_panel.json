@@ -1,8 +1,8 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
-    "alKeyboard/6.12.0/QtVirtualKeyboard/private/desktopinputpanel_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/desktopinputpanel_p.h,",
+    "Qt 6.12.0, from Qt's source."
   ],
   "rows": {
     "ritual_ZNK17QtVirtualKeyboard17DesktopInputPanel10metaObjectEv": [
@@ -10,6 +10,39 @@
     ],
     "ritual_ZN17QtVirtualKeyboard17DesktopInputPanel2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanelD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanel14repositionViewERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanel18focusWindowChangedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanel25focusWindowVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanel23previewRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanel21previewVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanel13screenChangedEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanel17updateInputRegionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard17DesktopInputPanel6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard17DesktopInputPanel6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_QtVirtualKeyboard_DesktopInputPanel": [
       "bool", "address", "chars", "address"

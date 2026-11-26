@@ -26,6 +26,14 @@ QStandardItemData *ritual_ZN17QStandardItemDataC1EiRK8QVariant(
   return new QStandardItemData(r, *v);
 }
 
+//  QStandardItemData::QStandardItemData(const std::pair<const int &, const
+//      QVariant &> &p)
+extern "C" Q_DECL_EXPORT
+QStandardItemData *ritual_ZN17QStandardItemDataC1ERKSt4pairIRKiRK8QVariantE(
+    const std::pair<const int &, const QVariant &> *p) {
+  return new QStandardItemData(*p);
+}
+
 //  bool QStandardItemData::operator==(const QStandardItemData &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QStandardItemDataeqERKS_(

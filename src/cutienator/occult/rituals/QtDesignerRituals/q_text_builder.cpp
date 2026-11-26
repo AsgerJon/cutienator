@@ -18,7 +18,7 @@ typedef void * (*CuteQTextBuilderCall2)(const void *, const QVariant *, int *);
 class CuteQTextBuilder : public QTextBuilder {
 public:
   using QTextBuilder::QTextBuilder;
-  CuteQTextBuilder(const QTextBuilder &other) : QTextBuilder(other) {}
+  CuteQTextBuilder(const QTextBuilder & other) : QTextBuilder(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {

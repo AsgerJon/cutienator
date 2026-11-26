@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <Qt3DRender/Qt3DRender>
+#include <QtCore/QList>
 
 //  A Qt3DRender::QAbstractRayCaster that Python can take functions over in. Every Qt3DRender::QAbstractRayCaster
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender18QAbstractRayCaster10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QAbstractRayCaster::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender18QAbstractRayCaster11qt_metacastEPKc(
+    Qt3DRender::QAbstractRayCaster *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QAbstractRayCaster::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender18QAbstractRayCaster11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QAbstractRayCaster *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QAbstractRayCaster::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,116 @@ QString *ritual_ZN10Qt3DRender18QAbstractRayCaster2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QAbstractRayCaster::tr(s, c, n));
+}
+
+//  Qt3DRender::QAbstractRayCaster::QAbstractRayCaster(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCaster *ritual_ZN10Qt3DRender18QAbstractRayCasterC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QAbstractRayCaster(parent);
+}
+
+//  Qt3DRender::QAbstractRayCaster::~QAbstractRayCaster()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QAbstractRayCasterD1Ev(
+    Qt3DRender::QAbstractRayCaster *self) {
+  delete self;
+}
+
+//  RunMode Qt3DRender::QAbstractRayCaster::runMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCaster::RunMode ritual_ZNK10Qt3DRender18QAbstractRayCaster7runModeEv(
+    const Qt3DRender::QAbstractRayCaster *self) {
+  return self->runMode();
+}
+
+//  FilterMode Qt3DRender::QAbstractRayCaster::filterMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCaster::FilterMode ritual_ZNK10Qt3DRender18QAbstractRayCaster10filterModeEv(
+    const Qt3DRender::QAbstractRayCaster *self) {
+  return self->filterMode();
+}
+
+//  Hits Qt3DRender::QAbstractRayCaster::hits() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCaster::Hits *ritual_ZNK10Qt3DRender18QAbstractRayCaster4hitsEv(
+    const Qt3DRender::QAbstractRayCaster *self) {
+  return new Qt3DRender::QAbstractRayCaster::Hits(self->hits());
+}
+
+//  void Qt3DRender::QAbstractRayCaster::addLayer(QLayer *layer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QAbstractRayCaster8addLayerEPNS_6QLayerE(
+    Qt3DRender::QAbstractRayCaster *self,
+    Qt3DRender::QLayer *layer) {
+  self->addLayer(layer);
+}
+
+//  void Qt3DRender::QAbstractRayCaster::removeLayer(QLayer *layer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QAbstractRayCaster11removeLayerEPNS_6QLayerE(
+    Qt3DRender::QAbstractRayCaster *self,
+    Qt3DRender::QLayer *layer) {
+  self->removeLayer(layer);
+}
+
+//  QList<QLayer *> Qt3DRender::QAbstractRayCaster::layers() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QLayer *> *ritual_ZNK10Qt3DRender18QAbstractRayCaster6layersEv(
+    const Qt3DRender::QAbstractRayCaster *self) {
+  return new QList<Qt3DRender::QLayer *>(self->layers());
+}
+
+//  void Qt3DRender::QAbstractRayCaster::setRunMode(RunMode runMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QAbstractRayCaster10setRunModeENS0_7RunModeE(
+    Qt3DRender::QAbstractRayCaster *self,
+    Qt3DRender::QAbstractRayCaster::RunMode runMode) {
+  self->setRunMode(runMode);
+}
+
+//  void Qt3DRender::QAbstractRayCaster::setFilterMode(FilterMode filterMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QAbstractRayCaster13setFilterModeENS0_10FilterModeE(
+    Qt3DRender::QAbstractRayCaster *self,
+    Qt3DRender::QAbstractRayCaster::FilterMode filterMode) {
+  self->setFilterMode(filterMode);
+}
+
+//  void Qt3DRender::QAbstractRayCaster::runModeChanged(Qt3DRender::QAbstract
+//      RayCaster::RunMode runMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QAbstractRayCaster14runModeChangedENS0_7RunModeE(
+    Qt3DRender::QAbstractRayCaster *self,
+    Qt3DRender::QAbstractRayCaster::RunMode runMode) {
+  self->runModeChanged(runMode);
+}
+
+//  void Qt3DRender::QAbstractRayCaster::hitsChanged(const
+//      Qt3DRender::QAbstractRayCaster::Hits &hits)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QAbstractRayCaster11hitsChangedERK5QListINS_13QRayCasterHitEE(
+    Qt3DRender::QAbstractRayCaster *self,
+    const Qt3DRender::QAbstractRayCaster::Hits *hits) {
+  self->hitsChanged(*hits);
+}
+
+//  void Qt3DRender::QAbstractRayCaster::filterModeChanged(Qt3DRender::QAbstr
+//      actRayCaster::FilterMode filterMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender18QAbstractRayCaster17filterModeChangedENS0_10FilterModeE(
+    Qt3DRender::QAbstractRayCaster *self,
+    Qt3DRender::QAbstractRayCaster::FilterMode filterMode) {
+  self->filterModeChanged(filterMode);
+}
+
+//  Qt3DRender::QAbstractRayCaster::QAbstractRayCaster(QAbstractRayCasterPriv
+//      ate &dd, QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractRayCaster *ritual_ZN10Qt3DRender18QAbstractRayCasterC1ERNS_25QAbstractRayCasterPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QAbstractRayCasterPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QAbstractRayCaster(*dd, parent);
 }
 
 //  QAbstractRayCasterPrivate *Qt3DRender::QAbstractRayCaster::d_func()
@@ -212,4 +343,20 @@ bool ritual_take_Qt3DRender_QAbstractRayCaster(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QAbstractRayCaster *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QAbstractRayCaster::Hits a ritual of
+//      Qt3DRender::QAbstractRayCaster gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QAbstractRayCaster__Qt3DRender_QAbstractRayCaster_Hits(
+    Qt3DRender::QAbstractRayCaster::Hits *self) {
+  delete self;
+}
+
+//  a QList<Qt3DRender::QLayer *> a ritual of Qt3DRender::QAbstractRayCaster
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QAbstractRayCaster__QList_Qt3DRender_QLayer(
+    QList<Qt3DRender::QLayer *> *self) {
+  delete self;
 }

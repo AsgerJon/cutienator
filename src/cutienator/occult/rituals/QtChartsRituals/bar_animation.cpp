@@ -338,6 +338,24 @@ const QMetaObject *ritual_ZNK12BarAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *BarAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12BarAnimation11qt_metacastEPKc(
+    BarAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int BarAnimation::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12BarAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    BarAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString BarAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12BarAnimation2trEPKcS1_i(
@@ -345,6 +363,16 @@ QString *ritual_ZN12BarAnimation2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(BarAnimation::tr(s, c, n));
+}
+
+//  BarAnimation::BarAnimation(AbstractBarChartItem *item, int duration,
+//      QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+BarAnimation *ritual_ZN12BarAnimationC1EP20AbstractBarChartItemiR12QEasingCurve(
+    AbstractBarChartItem *item,
+    int duration,
+    QEasingCurve *curve) {
+  return new CuteBarAnimation(item, duration, *curve);
 }
 
 //  BarAnimation::~BarAnimation()

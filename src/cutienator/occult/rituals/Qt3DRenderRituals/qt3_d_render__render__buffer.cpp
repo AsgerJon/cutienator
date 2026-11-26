@@ -41,6 +41,52 @@ public:
   }
 };
 
+//  Qt3DRender::Render::Buffer::Buffer()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Buffer *ritual_ZN10Qt3DRender6Render6BufferC1Ev() {
+  return new CuteQt3DRender_Render_Buffer();
+}
+
+//  Qt3DRender::Render::Buffer::~Buffer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6BufferD1Ev(
+    Qt3DRender::Render::Buffer *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::Buffer::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Buffer7cleanupEv(
+    Qt3DRender::Render::Buffer *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::Buffer::syncFromFrontEnd(const Qt3DCore::QNode
+//      *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Buffer16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::Buffer *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  void Qt3DRender::Render::Buffer::setManager(BufferManager *manager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Buffer10setManagerEPNS0_13BufferManagerE(
+    Qt3DRender::Render::Buffer *self,
+    Qt3DRender::Render::BufferManager *manager) {
+  self->setManager(manager);
+}
+
+//  void Qt3DRender::Render::Buffer::updateDataFromGPUToCPU(QByteArray data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Buffer22updateDataFromGPUToCPUE10QByteArray(
+    Qt3DRender::Render::Buffer *self,
+    const QByteArray *data) {
+  self->updateDataFromGPUToCPU(*data);
+}
+
 //  Qt3DCore::QBuffer::UsageType Qt3DRender::Render::Buffer::usage() const
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QBuffer::UsageType ritual_ZNK10Qt3DRender6Render6Buffer5usageEv(
@@ -55,6 +101,14 @@ QByteArray *ritual_ZNK10Qt3DRender6Render6Buffer4dataEv(
   return new QByteArray(self->data());
 }
 
+//  std::vector<Qt3DCore::QBufferUpdate>
+//      &Qt3DRender::Render::Buffer::pendingBufferUpdates()
+extern "C" Q_DECL_EXPORT
+std::vector<Qt3DCore::QBufferUpdate> *ritual_ZN10Qt3DRender6Render6Buffer20pendingBufferUpdatesEv(
+    Qt3DRender::Render::Buffer *self) {
+  return &(self->pendingBufferUpdates());
+}
+
 //  bool Qt3DRender::Render::Buffer::isDirty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10Qt3DRender6Render6Buffer7isDirtyEv(
@@ -67,6 +121,20 @@ extern "C" Q_DECL_EXPORT
 Qt3DCore::QBuffer::AccessType ritual_ZNK10Qt3DRender6Render6Buffer6accessEv(
     const Qt3DRender::Render::Buffer *self) {
   return self->access();
+}
+
+//  void Qt3DRender::Render::Buffer::unsetDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Buffer10unsetDirtyEv(
+    Qt3DRender::Render::Buffer *self) {
+  self->unsetDirty();
+}
+
+//  void Qt3DRender::Render::Buffer::forceDataUpload()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render6Buffer15forceDataUploadEv(
+    Qt3DRender::Render::Buffer *self) {
+  self->forceDataUpload();
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_Buffer, for the

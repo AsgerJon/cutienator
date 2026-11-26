@@ -8,11 +8,56 @@
     "ritual_ZNK17QtVirtualKeyboard28DesktopInputSelectionControl10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControlC1EP7QObjectP28QVirtualKeyboardInputContext": [
+      "address", "address", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControlD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl13createHandlesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl14destroyHandlesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl11handleImageEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl26updateAnchorHandlePositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl26updateCursorHandlePositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl16updateVisibilityEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl14reloadGraphicsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard28DesktopInputSelectionControl16anchorHandleRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard28DesktopInputSelectionControl16cursorHandleRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard28DesktopInputSelectionControl23handleRectForCursorRectERK6QRectF": [
+      "address", "address", "address"
     ],
     "ritual_take_QtVirtualKeyboard_DesktopInputSelectionControl": [
       "bool", "address", "chars", "address"

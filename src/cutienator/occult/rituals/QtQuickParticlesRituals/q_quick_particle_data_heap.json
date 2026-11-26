@@ -14,6 +14,7 @@
     ],
     "ritual_ZN22QQuickParticleDataHeap3topEv": ["int", "address"],
     "ritual_ZNK22QQuickParticleDataHeap7isEmptyEv": ["bool", "address"],
+    "ritual_ZN22QQuickParticleDataHeap3popEv": ["address", "address"],
     "ritual_ZN22QQuickParticleDataHeap5clearEv": ["nothing", "address"],
     "ritual_ZN22QQuickParticleDataHeap8containsEP18QQuickParticleData": [
       "bool", "address", "address"
@@ -28,6 +29,9 @@
     "ritual_ZN22QQuickParticleDataHeap10bubbleDownEi": [
       "nothing", "address", "int"
     ],
-    "ritual_ZN22QQuickParticleDataHeapD1Ev": ["nothing", "address"]
+    "ritual_ZN22QQuickParticleDataHeapD1Ev": ["nothing", "address"],
+    "ritual_drop_QQuickParticleDataHeap__QSet_QQuickParticleData": [
+      "nothing", "address"
+    ]
   }
 }

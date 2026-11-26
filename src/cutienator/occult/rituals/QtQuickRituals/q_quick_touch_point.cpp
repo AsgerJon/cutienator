@@ -20,6 +20,25 @@ const QMetaObject *ritual_ZNK16QQuickTouchPoint10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTouchPoint::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickTouchPoint11qt_metacastEPKc(
+    QQuickTouchPoint *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTouchPoint::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickTouchPoint11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTouchPoint *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTouchPoint::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickTouchPoint2trEPKcS1_i(
@@ -275,4 +294,103 @@ void ritual_ZN16QQuickTouchPoint9setSceneYEd(
     QQuickTouchPoint *self,
     qreal sceneY) {
   self->setSceneY(sceneY);
+}
+
+//  void QQuickTouchPoint::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint14pressedChangedEv(QQuickTouchPoint *self) {
+  self->pressedChanged();
+}
+
+//  void QQuickTouchPoint::pointIdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint14pointIdChangedEv(QQuickTouchPoint *self) {
+  self->pointIdChanged();
+}
+
+//  void QQuickTouchPoint::uniqueIdChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint15uniqueIdChangedEv(QQuickTouchPoint *self) {
+  self->uniqueIdChanged();
+}
+
+//  void QQuickTouchPoint::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint8xChangedEv(QQuickTouchPoint *self) {
+  self->xChanged();
+}
+
+//  void QQuickTouchPoint::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint8yChangedEv(QQuickTouchPoint *self) {
+  self->yChanged();
+}
+
+//  void QQuickTouchPoint::ellipseDiametersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint23ellipseDiametersChangedEv(
+    QQuickTouchPoint *self) {
+  self->ellipseDiametersChanged();
+}
+
+//  void QQuickTouchPoint::pressureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint15pressureChangedEv(QQuickTouchPoint *self) {
+  self->pressureChanged();
+}
+
+//  void QQuickTouchPoint::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint15rotationChangedEv(QQuickTouchPoint *self) {
+  self->rotationChanged();
+}
+
+//  void QQuickTouchPoint::velocityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint15velocityChangedEv(QQuickTouchPoint *self) {
+  self->velocityChanged();
+}
+
+//  void QQuickTouchPoint::areaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint11areaChangedEv(QQuickTouchPoint *self) {
+  self->areaChanged();
+}
+
+//  void QQuickTouchPoint::startXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint13startXChangedEv(QQuickTouchPoint *self) {
+  self->startXChanged();
+}
+
+//  void QQuickTouchPoint::startYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint13startYChangedEv(QQuickTouchPoint *self) {
+  self->startYChanged();
+}
+
+//  void QQuickTouchPoint::previousXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint16previousXChangedEv(
+    QQuickTouchPoint *self) {
+  self->previousXChanged();
+}
+
+//  void QQuickTouchPoint::previousYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint16previousYChangedEv(
+    QQuickTouchPoint *self) {
+  self->previousYChanged();
+}
+
+//  void QQuickTouchPoint::sceneXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint13sceneXChangedEv(QQuickTouchPoint *self) {
+  self->sceneXChanged();
+}
+
+//  void QQuickTouchPoint::sceneYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickTouchPoint13sceneYChangedEv(QQuickTouchPoint *self) {
+  self->sceneYChanged();
 }

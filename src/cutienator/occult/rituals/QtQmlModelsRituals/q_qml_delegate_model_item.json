@@ -8,8 +8,17 @@
     "ritual_ZNK21QQmlDelegateModelItem10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQmlDelegateModelItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQmlDelegateModelItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQmlDelegateModelItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQmlDelegateModelItemC1ERK14QQmlRefPointerI29QQmlDelegateModelItemMetaTypeEPN16QQmlAdaptorModel9AccessorsEiii": [
+      "address", "address", "address", "int", "int", "int"
     ],
     "ritual_ZN21QQmlDelegateModelItemD1Ev": ["nothing", "address"],
     "ritual_ZN21QQmlDelegateModelItem19referenceObjectWeakEv": [
@@ -43,6 +52,9 @@
     "ritual_ZN21QQmlDelegateModelItem13dataForObjectEP7QObject": [
       "address", "address"
     ],
+    "ritual_ZN21QQmlDelegateModelItem10groupIndexEN18QQmlListCompositor5GroupE": [
+      "int", "address", "address"
+    ],
     "ritual_ZNK21QQmlDelegateModelItem8modelRowEv": ["int", "address"],
     "ritual_ZNK21QQmlDelegateModelItem11modelColumnEv": ["int", "address"],
     "ritual_ZNK21QQmlDelegateModelItem10modelIndexEv": ["int", "address"],
@@ -67,6 +79,10 @@
     "ritual_ZN21QQmlDelegateModelItem8setValueERK7QStringRK8QVariant": [
       "nothing", "address", "text", "address"
     ],
+    "ritual_ZN21QQmlDelegateModelItem12resolveIndexERK16QQmlAdaptorModeli": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN21QQmlDelegateModelItem9initProxyEv": ["address", "address"],
     "ritual_ZN21QQmlDelegateModelItem9get_modelEPKN3QV414FunctionObjectEPKNS0_5ValueES6_i": [
       "unsigned long long", "address", "address", "address", "int"
     ],
@@ -118,6 +134,12 @@
     "ritual_ZN21QQmlDelegateModelItem11setDelegateEP13QQmlComponent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK21QQmlDelegateModelItem11contextDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQmlDelegateModelItem14setContextDataERK14QQmlRefPointerI15QQmlContextDataE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QQmlDelegateModelItem6groupsEv": ["int", "address"],
     "ritual_ZN21QQmlDelegateModelItem9setGroupsEi": [
       "nothing", "address", "int"
@@ -129,6 +151,14 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN21QQmlDelegateModelItem11clearGroupsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQmlDelegateModelItem8metaTypeEv": ["address", "address"],
+    "ritual_ZN21QQmlDelegateModelItem17modelIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQmlDelegateModelItem10rowChangedEv": ["nothing", "address"],
+    "ritual_ZN21QQmlDelegateModelItem13columnChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN21QQmlDelegateModelItem14referenceSriptEv": [
@@ -155,6 +185,9 @@
     "ritual_list_at_QQmlDelegateModelItem_ptr": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QQmlDelegateModelItem_ptr": ["nothing", "address"]
+    "ritual_list_drop_QQmlDelegateModelItem_ptr": ["nothing", "address"],
+    "ritual_drop_QQmlDelegateModelItem__QQmlRefPointer_QQmlContextData": [
+      "nothing", "address"
+    ]
   }
 }

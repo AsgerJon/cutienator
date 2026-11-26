@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtableview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QSet>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qtableview.h>
 #include <QtWidgets/qheaderview.h>
@@ -40,33 +41,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from src/widgets/itemviews/qtableview.cpp, line 284, as _ZN15QSpanCollection17cleanSpanSubIndexER4QMapIiPNS_4SpanEEib
-inline bool QSpanCollection::cleanSpanSubIndex(QSpanCollection::SubIndex &subindex, int y, bool update)
-{
-    if (subindex.isEmpty())
-        return true;
-
-    bool should_be_deleted = true;
-    SubIndex::iterator it = subindex.end();
-    do {
-        --it;
-        int x = -it.key();
-        Span *span = it.value();
-        if (span->will_be_deleted) {
-            it = subindex.erase(it);
-            continue;
-        }
-        if (update && span->m_left != x) {
-            subindex.insert(-span->m_left, span);
-            it = subindex.erase(it);
-        }
-        if (should_be_deleted && span->m_top == y)
-            should_be_deleted = false;
-    } while (it != subindex.begin());
-
-    return should_be_deleted;
-}
 
 //  from src/widgets/itemviews/qtableview.cpp, line 36, as _ZN15QSpanCollection7addSpanEPNS_4SpanE
 inline void QSpanCollection::addSpan(QSpanCollection::Span *span)
@@ -158,6 +132,32 @@ inline void QSpanCollection::clear()
     qDeleteAll(spans);
     index.clear();
     spans.clear();
+}
+
+//  from src/widgets/itemviews/qtableview.cpp, line 143, as _ZNK15QSpanCollection11spansInRectEiiii
+inline QSet<QSpanCollection::Span *> QSpanCollection::spansInRect(int x, int y, int w, int h) const
+{
+    QSet<Span *> list;
+    Index::const_iterator it_y = index.lowerBound(-y);
+    if (it_y == index.end())
+        --it_y;
+    while(-it_y.key() <= y + h) {
+        SubIndex::const_iterator it_x = (*it_y).lowerBound(-x);
+        if (it_x == (*it_y).end())
+            --it_x;
+        while(-it_x.key() <= x + w) {
+            Span *s = *it_x;
+            if (s->bottom() >= y && s->right() >= x)
+                list << s;
+            if (it_x == (*it_y).begin())
+                break;
+            --it_x;
+        }
+        if (it_y == index.begin())
+            break;
+        --it_y;
+    }
+    return list;
 }
 
 //  from src/widgets/itemviews/qtableview.cpp, line 188, as _ZN15QSpanCollection18updateInsertedRowsEii
@@ -447,6 +447,33 @@ inline void QSpanCollection::updateRemovedColumns(int start, int end)
 #endif
     qDeleteAll(toBeDeleted);
 }
+
+//  from src/widgets/itemviews/qtableview.cpp, line 284, as _ZN15QSpanCollection17cleanSpanSubIndexER4QMapIiPNS_4SpanEEib
+inline bool QSpanCollection::cleanSpanSubIndex(QSpanCollection::SubIndex &subindex, int y, bool update)
+{
+    if (subindex.isEmpty())
+        return true;
+
+    bool should_be_deleted = true;
+    SubIndex::iterator it = subindex.end();
+    do {
+        --it;
+        int x = -it.key();
+        Span *span = it.value();
+        if (span->will_be_deleted) {
+            it = subindex.erase(it);
+            continue;
+        }
+        if (update && span->m_left != x) {
+            subindex.insert(-span->m_left, span);
+            it = subindex.erase(it);
+        }
+        if (should_be_deleted && span->m_top == y)
+            should_be_deleted = false;
+    } while (it != subindex.begin());
+
+    return should_be_deleted;
+}
 //  -----------------------------------------------------------------------
 
 //  QSpanCollection::~QSpanCollection()
@@ -487,6 +514,18 @@ void ritual_ZN15QSpanCollection5clearEv(QSpanCollection *self) {
   self->clear();
 }
 
+//  QSet<Span *> QSpanCollection::spansInRect(int x, int y, int w, int h)
+//      const
+extern "C" Q_DECL_EXPORT
+QSet<QSpanCollection::Span *> *ritual_ZNK15QSpanCollection11spansInRectEiiii(
+    const QSpanCollection *self,
+    int x,
+    int y,
+    int w,
+    int h) {
+  return new QSet<QSpanCollection::Span *>(self->spansInRect(x, y, w, h));
+}
+
 //  void QSpanCollection::updateInsertedRows(int start, int end)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QSpanCollection18updateInsertedRowsEii(
@@ -521,6 +560,24 @@ void ritual_ZN15QSpanCollection20updateRemovedColumnsEii(
     int start,
     int end) {
   self->updateRemovedColumns(start, end);
+}
+
+//  bool QSpanCollection::cleanSpanSubIndex(SubIndex &subindex, int end, bool
+//      update)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QSpanCollection17cleanSpanSubIndexER4QMapIiPNS_4SpanEEib(
+    QSpanCollection *self,
+    QSpanCollection::SubIndex *subindex,
+    int end,
+    bool update) {
+  return self->cleanSpanSubIndex(*subindex, end, update);
+}
+
+//  a QSet<QSpanCollection::Span *> a ritual of QSpanCollection gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSpanCollection__QSet_QSpanCollection_Span(
+    QSet<QSpanCollection::Span *> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(tableview)

@@ -29,6 +29,14 @@ void ritual_ZN24QSSGShaderLibraryManagerD1Ev(
   delete self;
 }
 
+//  QQsbCollection::EntryMap
+//      QSSGShaderLibraryManager::getParticleShaderEntries() const
+extern "C" Q_DECL_EXPORT
+QQsbCollection::EntryMap *ritual_ZNK24QSSGShaderLibraryManager24getParticleShaderEntriesEv(
+    const QSSGShaderLibraryManager *self) {
+  return new QQsbCollection::EntryMap(self->getParticleShaderEntries());
+}
+
 //  void QSSGShaderLibraryManager::setShaderSource(const QByteArray
 //      &inShaderPathKey, QSSGShaderCache::ShaderType type, const QByteArray
 //      &inSource, const QSSGCustomShaderMetaData &meta)
@@ -47,6 +55,16 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QSSGShaderLibraryManager26loadPregeneratedShaderInfoEv(
     QSSGShaderLibraryManager *self) {
   self->loadPregeneratedShaderInfo();
+}
+
+//  void QSSGShaderLibraryManager::resolveIncludeFiles(QByteArray
+//      &theReadBuffer, const QByteArray &inMaterialInfoString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QSSGShaderLibraryManager19resolveIncludeFilesER10QByteArrayRKS0_(
+    QSSGShaderLibraryManager *self,
+    QByteArray *theReadBuffer,
+    const QByteArray *inMaterialInfoString) {
+  self->resolveIncludeFiles(*theReadBuffer, *inMaterialInfoString);
 }
 
 //  QByteArray QSSGShaderLibraryManager::getIncludeContents(const QByteArray
@@ -80,4 +98,20 @@ QSSGCustomShaderMetaData *ritual_ZN24QSSGShaderLibraryManager17getShaderMetaData
       self->getShaderMetaData(
           *inShaderPathKey,
           type));
+}
+
+//  bool QSSGShaderLibraryManager::compare(const QSSGShaderDefaultMaterialKey
+//      &key1, const QSSGShaderDefaultMaterialKey &key2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN24QSSGShaderLibraryManager7compareERK25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EES4_(
+    const QSSGShaderDefaultMaterialKey *key1,
+    const QSSGShaderDefaultMaterialKey *key2) {
+  return QSSGShaderLibraryManager::compare(*key1, *key2);
+}
+
+//  a QQsbCollection::EntryMap a ritual of QSSGShaderLibraryManager gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGShaderLibraryManager__QQsbCollection_EntryMap(
+    QQsbCollection::EntryMap *self) {
+  delete self;
 }

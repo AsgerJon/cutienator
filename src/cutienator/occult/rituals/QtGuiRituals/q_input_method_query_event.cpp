@@ -16,6 +16,7 @@ typedef void (*CuteQInputMethodQueryEventCall1)(const void *, bool, int *);
 class CuteQInputMethodQueryEvent : public QInputMethodQueryEvent {
 public:
   using QInputMethodQueryEvent::QInputMethodQueryEvent;
+  CuteQInputMethodQueryEvent(const QInputMethodQueryEvent & other) : QInputMethodQueryEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -56,6 +57,23 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QInputMethodQueryEvent::QInputMethodQueryEvent(const
+//      QInputMethodQueryEvent &a0)
+extern "C" Q_DECL_EXPORT
+QInputMethodQueryEvent *ritual_ZN22QInputMethodQueryEventC1ERKS_(
+    const QInputMethodQueryEvent *a0) {
+  return new CuteQInputMethodQueryEvent(*a0);
+}
+
+//  QInputMethodQueryEvent &QInputMethodQueryEvent::operator=(const
+//      QInputMethodQueryEvent &other)
+extern "C" Q_DECL_EXPORT
+QInputMethodQueryEvent *ritual_ZN22QInputMethodQueryEventaSERKS_(
+    QInputMethodQueryEvent *self,
+    const QInputMethodQueryEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QInputMethodQueryEvent *QInputMethodQueryEvent::clone() const
 extern "C" Q_DECL_EXPORT

@@ -17,6 +17,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QQuickEllipseShape may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -794,6 +795,25 @@ const QMetaObject *ritual_ZNK18QQuickEllipseShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickEllipseShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickEllipseShape11qt_metacastEPKc(
+    QQuickEllipseShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickEllipseShape::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickEllipseShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickEllipseShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickEllipseShape::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickEllipseShape2trEPKcS1_i(
@@ -997,6 +1017,21 @@ void ritual_ZN18QQuickEllipseShape11setFillRuleEN15QQuickShapePath8FillRuleE(
   self->setFillRule(fillRule);
 }
 
+//  QList<qreal> QQuickEllipseShape::dashPattern() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK18QQuickEllipseShape11dashPatternEv(
+    const QQuickEllipseShape *self) {
+  return new QList<qreal>(self->dashPattern());
+}
+
+//  void QQuickEllipseShape::setDashPattern(const QList<qreal> &array)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape14setDashPatternERK5QListIdE(
+    QQuickEllipseShape *self,
+    const QList<qreal> *array) {
+  self->setDashPattern(*array);
+}
+
 //  QQuickShapeGradient *QQuickEllipseShape::fillGradient() const
 extern "C" Q_DECL_EXPORT
 QQuickShapeGradient *ritual_ZNK18QQuickEllipseShape12fillGradientEv(
@@ -1057,6 +1092,118 @@ void ritual_ZN18QQuickEllipseShape11setFillItemEP10QQuickItem(
   self->setFillItem(newFillItem);
 }
 
+//  void QQuickEllipseShape::innerArcRatioChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape20innerArcRatioChangedEv(
+    QQuickEllipseShape *self) {
+  self->innerArcRatioChanged();
+}
+
+//  void QQuickEllipseShape::cornerRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape19cornerRadiusChangedEv(
+    QQuickEllipseShape *self) {
+  self->cornerRadiusChanged();
+}
+
+//  void QQuickEllipseShape::startAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape17startAngleChangedEv(
+    QQuickEllipseShape *self) {
+  self->startAngleChanged();
+}
+
+//  void QQuickEllipseShape::sweepAngleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape17sweepAngleChangedEv(
+    QQuickEllipseShape *self) {
+  self->sweepAngleChanged();
+}
+
+//  void QQuickEllipseShape::strokeColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape18strokeColorChangedEv(
+    QQuickEllipseShape *self) {
+  self->strokeColorChanged();
+}
+
+//  void QQuickEllipseShape::strokeWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape18strokeWidthChangedEv(
+    QQuickEllipseShape *self) {
+  self->strokeWidthChanged();
+}
+
+//  void QQuickEllipseShape::fillColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape16fillColorChangedEv(
+    QQuickEllipseShape *self) {
+  self->fillColorChanged();
+}
+
+//  void QQuickEllipseShape::joinStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape16joinStyleChangedEv(
+    QQuickEllipseShape *self) {
+  self->joinStyleChanged();
+}
+
+//  void QQuickEllipseShape::capStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape15capStyleChangedEv(
+    QQuickEllipseShape *self) {
+  self->capStyleChanged();
+}
+
+//  void QQuickEllipseShape::fillRuleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape15fillRuleChangedEv(
+    QQuickEllipseShape *self) {
+  self->fillRuleChanged();
+}
+
+//  void QQuickEllipseShape::strokeStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape18strokeStyleChangedEv(
+    QQuickEllipseShape *self) {
+  self->strokeStyleChanged();
+}
+
+//  void QQuickEllipseShape::dashOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape17dashOffsetChangedEv(
+    QQuickEllipseShape *self) {
+  self->dashOffsetChanged();
+}
+
+//  void QQuickEllipseShape::dashPatternChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape18dashPatternChangedEv(
+    QQuickEllipseShape *self) {
+  self->dashPatternChanged();
+}
+
+//  void QQuickEllipseShape::fillGradientChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape19fillGradientChangedEv(
+    QQuickEllipseShape *self) {
+  self->fillGradientChanged();
+}
+
+//  void QQuickEllipseShape::borderModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape17borderModeChangedEv(
+    QQuickEllipseShape *self) {
+  self->borderModeChanged();
+}
+
+//  void QQuickEllipseShape::fillItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickEllipseShape15fillItemChangedEv(
+    QQuickEllipseShape *self) {
+  self->fillItemChanged();
+}
+
 //  void QQuickEllipseShape::itemChange(ItemChange change, const
 //      ItemChangeData &value)
 extern "C" Q_DECL_EXPORT
@@ -1101,4 +1248,10 @@ void ritual_own_ZN18QQuickEllipseShape10itemChangeEN10QQuickItem10ItemChangeERKN
   static_cast<OwnQQuickEllipseShape *>(self)->OwnQQuickEllipseShape::itemChange(
       change,
       *value);
+}
+
+//  a QList<qreal> a ritual of QQuickEllipseShape gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickEllipseShape__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

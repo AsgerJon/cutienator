@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qimage.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qimage.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  rituals for functions the generator leaves out: 2. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qimage.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qstring.h>
@@ -18,6 +20,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtGui/QRgb>
 
 //  Only a class built on QImage may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -37,7 +41,8 @@ typedef void * (*CuteQImageCall5)(const void *, int *);
 class CuteQImage : public QImage {
 public:
   using QImage::QImage;
-  CuteQImage(const QImage &other) : QImage(other) {}
+  CuteQImage(const QImage & other) : QImage(other) {}
+  CuteQImage(QImage && other) : QImage(std::move(other)) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -158,6 +163,96 @@ QImage *ritual_ZN6QImageC1EiiNS_6FormatE(
   return new CuteQImage(width, height, format);
 }
 
+//  QImage::QImage(uchar *data, int width, int height, Format format,
+//      QImageCleanupFunction cleanupFunction, void *cleanupInfo)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN6QImageC1EPhiiNS_6FormatEPFvPvES2_(
+    uchar *data,
+    int width,
+    int height,
+    QImage::Format format,
+    void *cleanupFunction,
+    void *cleanupInfo) {
+  return new CuteQImage(
+      data,
+      width,
+      height,
+      format,
+      reinterpret_cast<QImageCleanupFunction>(cleanupFunction),
+      cleanupInfo);
+}
+
+//  QImage::QImage(const uchar *data, int width, int height, Format format,
+//      QImageCleanupFunction cleanupFunction, void *cleanupInfo)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN6QImageC1EPKhiiNS_6FormatEPFvPvES3_(
+    const uchar *data,
+    int width,
+    int height,
+    QImage::Format format,
+    void *cleanupFunction,
+    void *cleanupInfo) {
+  return new CuteQImage(
+      data,
+      width,
+      height,
+      format,
+      reinterpret_cast<QImageCleanupFunction>(cleanupFunction),
+      cleanupInfo);
+}
+
+//  QImage::QImage(uchar *data, int width, int height, qsizetype
+//      bytesPerLine, Format format, QImageCleanupFunction cleanupFunction,
+//      void *cleanupInfo)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN6QImageC1EPhiixNS_6FormatEPFvPvES2_(
+    uchar *data,
+    int width,
+    int height,
+    qsizetype bytesPerLine,
+    QImage::Format format,
+    void *cleanupFunction,
+    void *cleanupInfo) {
+  return new CuteQImage(
+      data,
+      width,
+      height,
+      bytesPerLine,
+      format,
+      reinterpret_cast<QImageCleanupFunction>(cleanupFunction),
+      cleanupInfo);
+}
+
+//  QImage::QImage(const uchar *data, int width, int height, qsizetype
+//      bytesPerLine, Format format, QImageCleanupFunction cleanupFunction,
+//      void *cleanupInfo)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN6QImageC1EPKhiixNS_6FormatEPFvPvES3_(
+    const uchar *data,
+    int width,
+    int height,
+    qsizetype bytesPerLine,
+    QImage::Format format,
+    void *cleanupFunction,
+    void *cleanupInfo) {
+  return new CuteQImage(
+      data,
+      width,
+      height,
+      bytesPerLine,
+      format,
+      reinterpret_cast<QImageCleanupFunction>(cleanupFunction),
+      cleanupInfo);
+}
+
+#if !defined(QT_NO_IMAGEFORMAT_XPM)
+//  QImage::QImage(const char *const *xpm)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN6QImageC1EPKPKc(const char *const *xpm) {
+  return new CuteQImage(xpm);
+}
+#endif  // !defined(QT_NO_IMAGEFORMAT_XPM)
+
 //  QImage::QImage(const QString &fileName, const char *format)
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN6QImageC1ERK7QStringPKc(
@@ -172,10 +267,34 @@ QImage *ritual_ZN6QImageC1ERKS_(const QImage *a0) {
   return new CuteQImage(*a0);
 }
 
+//  QImage::QImage(QImage &&other)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN6QImageC1EOS_(QImage *other) {
+  return new CuteQImage(std::move(*other));
+}
+
 //  QImage::~QImage()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QImageD1Ev(QImage *self) {
   delete self;
+}
+
+//  QImage &QImage::operator=(const QImage &a0)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN6QImageaSERKS_(QImage *self, const QImage *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QImage &QImage::operator=(QImage &&other)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN6QImageaSEOS_(QImage *self, QImage *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QImage::swap(QImage &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QImage4swapERS_(QImage *self, QImage *other) {
+  self->swap(*other);
 }
 
 //  bool QImage::isNull() const
@@ -255,6 +374,21 @@ QImage *ritual_ZNKR6QImage15convertToFormatENS_6FormatE6QFlagsIN2Qt19ImageConver
   return new QImage(
       self->convertToFormat(
           f,
+          QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
+}
+
+//  QImage QImage::convertToFormat(Format f, const QList<QRgb> &colorTable,
+//      Qt::ImageConversionFlags flags) const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZNK6QImage15convertToFormatENS_6FormatERK5QListIjE6QFlagsIN2Qt19ImageConversionFlagEE(
+    const QImage *self,
+    QImage::Format f,
+    const QList<QRgb> *colorTable,
+    int flags) {
+  return new QImage(
+      self->convertToFormat(
+          f,
+          *colorTable,
           QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
 }
 
@@ -360,10 +494,34 @@ bool ritual_ZNK6QImage11isGrayscaleEv(const QImage *self) {
   return self->isGrayscale();
 }
 
+//  const uchar *QImage::bits() const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK6QImage4bitsEv(const QImage *self) {
+  return self->bits();
+}
+
+//  const uchar *QImage::constBits() const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK6QImage9constBitsEv(const QImage *self) {
+  return self->constBits();
+}
+
 //  qsizetype QImage::sizeInBytes() const
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK6QImage11sizeInBytesEv(const QImage *self) {
   return self->sizeInBytes();
+}
+
+//  const uchar *QImage::scanLine(int a0) const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK6QImage8scanLineEi(const QImage *self, int a0) {
+  return self->scanLine(a0);
+}
+
+//  const uchar *QImage::constScanLine(int a0) const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK6QImage13constScanLineEi(const QImage *self, int a0) {
+  return self->constScanLine(a0);
 }
 
 //  qsizetype QImage::bytesPerLine() const
@@ -464,6 +622,20 @@ void ritual_ZN6QImage13setPixelColorERK6QPointRK6QColor(
     const QPoint *pt,
     const QColor *c) {
   self->setPixelColor(*pt, *c);
+}
+
+//  QList<QRgb> QImage::colorTable() const
+extern "C" Q_DECL_EXPORT
+QList<QRgb> *ritual_ZNK6QImage10colorTableEv(const QImage *self) {
+  return new QList<QRgb>(self->colorTable());
+}
+
+//  void QImage::setColorTable(const QList<QRgb> &colors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QImage13setColorTableERK5QListIjE(
+    QImage *self,
+    const QList<QRgb> *colors) {
+  self->setColorTable(*colors);
 }
 
 //  qreal QImage::devicePixelRatio() const
@@ -798,6 +970,16 @@ bool ritual_ZN6QImage12loadFromDataE14QByteArrayViewPKc(
   return self->loadFromData(*data, format);
 }
 
+//  bool QImage::loadFromData(const uchar *buf, int len, const char *format)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QImage12loadFromDataEPKhiPKc(
+    QImage *self,
+    const uchar *buf,
+    int len,
+    const char *format) {
+  return self->loadFromData(buf, len, format);
+}
+
 //  bool QImage::loadFromData(const QByteArray &data, const char *format)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN6QImage12loadFromDataERK10QByteArrayPKc(
@@ -835,6 +1017,15 @@ QImage *ritual_ZN6QImage8fromDataE14QByteArrayViewPKc(
     const QByteArrayView *data,
     const char *format) {
   return new QImage(QImage::fromData(*data, format));
+}
+
+//  QImage QImage::fromData(const uchar *data, int size, const char *format)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN6QImage8fromDataEPKhiPKc(
+    const uchar *data,
+    int size,
+    const char *format) {
+  return new QImage(QImage::fromData(data, size, format));
 }
 
 //  QImage QImage::fromData(const QByteArray &data, const char *format)
@@ -1014,6 +1205,12 @@ void ritual_ZN6QImage14detachMetadataEb(QImage *self, bool invalidateCache) {
   self->detachMetadata(invalidateCache);
 }
 
+//  DataPtr &QImage::data_ptr()
+extern "C" Q_DECL_EXPORT
+QImage::DataPtr *ritual_ZN6QImage8data_ptrEv(QImage *self) {
+  return &(self->data_ptr());
+}
+
 //  a Python function taken by a CuteQImage, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
@@ -1161,4 +1358,25 @@ QImage *ritual_map_get_QMap_QString_QImage(
 extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QMap_QString_QImage(QMap<QString, QImage> *self) {
   delete self;
+}
+
+//  a QList<QRgb> a ritual of QImage gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QImage__QList_QRgb(QList<QRgb> *self) {
+  delete self;
+}
+
+//  uchar *QImage::bits()
+extern "C" Q_DECL_EXPORT
+uchar *ritual_ZN6QImage4bitsEv(
+    QImage *self) {
+  return self->bits();
+}
+
+//  uchar *QImage::scanLine(int a0)
+extern "C" Q_DECL_EXPORT
+uchar *ritual_ZN6QImage8scanLineEi(
+    QImage *self,
+    int a0) {
+  return self->scanLine(a0);
 }

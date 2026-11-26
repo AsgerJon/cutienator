@@ -18,11 +18,29 @@
 #include <QtCore/qurl.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QBindable>
+#include <QtCore/QString>
 
 //  const QMetaObject *QtObject::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK8QtObject10metaObjectEv(const QtObject *self) {
   return self->metaObject();
+}
+
+//  void *QtObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QtObject11qt_metacastEPKc(QtObject *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtObject::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QtObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QtObject::tr(const char *s, const char *c, int n)
@@ -764,6 +782,36 @@ void ritual_ZN8QtObject9callLaterEP14QQmlV4Function(
   self->callLater(args);
 }
 
+//  double QtObject::enumStringToValue(const QJSManagedValue &enumType, const
+//      QString &string)
+extern "C" Q_DECL_EXPORT
+double ritual_ZN8QtObject17enumStringToValueERK15QJSManagedValueRK7QString(
+    QtObject *self,
+    const QJSManagedValue *enumType,
+    const QString *string) {
+  return self->enumStringToValue(*enumType, *string);
+}
+
+//  QString QtObject::enumValueToString(const QJSManagedValue &enumType,
+//      double value)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN8QtObject17enumValueToStringERK15QJSManagedValued(
+    QtObject *self,
+    const QJSManagedValue *enumType,
+    double value) {
+  return new QString(self->enumValueToString(*enumType, value));
+}
+
+//  QStringList QtObject::enumValueToStrings(const QJSManagedValue &enumType,
+//      double value)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN8QtObject18enumValueToStringsERK15QJSManagedValued(
+    QtObject *self,
+    const QJSManagedValue *enumType,
+    double value) {
+  return new QList<QString>(self->enumValueToStrings(*enumType, value));
+}
+
 #if QT_CONFIG(translation)
 //  QString QtObject::uiLanguage() const
 extern "C" Q_DECL_EXPORT
@@ -779,6 +827,23 @@ void ritual_ZN8QtObject13setUiLanguageERK7QString(
     QtObject *self,
     const QString *uiLanguage) {
   self->setUiLanguage(*uiLanguage);
+}
+#endif  // QT_CONFIG(translation)
+
+#if QT_CONFIG(translation)
+//  QBindable<QString> QtObject::uiLanguageBindable()
+extern "C" Q_DECL_EXPORT
+QBindable<QString> *ritual_ZN8QtObject18uiLanguageBindableEv(
+    QtObject *self) {
+  return new QBindable<QString>(self->uiLanguageBindable());
+}
+#endif  // QT_CONFIG(translation)
+
+#if QT_CONFIG(translation)
+//  void QtObject::uiLanguageChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QtObject17uiLanguageChangedEv(QtObject *self) {
+  self->uiLanguageChanged();
 }
 #endif  // QT_CONFIG(translation)
 
@@ -829,4 +894,23 @@ QJSEngine *ritual_ZNK8QtObject8jsEngineEv(const QtObject *self) {
 extern "C" Q_DECL_EXPORT
 QV4::ExecutionEngine *ritual_ZNK8QtObject8v4EngineEv(const QtObject *self) {
   return self->v4Engine();
+}
+
+//  Contexts QtObject::getContexts() const
+extern "C" Q_DECL_EXPORT
+QtObject::Contexts *ritual_ZNK8QtObject11getContextsEv(
+    const QtObject *self) {
+  return new QtObject::Contexts(self->getContexts());
+}
+
+//  a QBindable<QString> a ritual of QtObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtObject__QBindable_QString(QBindable<QString> *self) {
+  delete self;
+}
+
+//  a QtObject::Contexts a ritual of QtObject gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtObject__QtObject_Contexts(QtObject::Contexts *self) {
+  delete self;
 }

@@ -184,6 +184,24 @@ const QMetaObject *ritual_ZNK12QMediaPlayer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QMediaPlayer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QMediaPlayer11qt_metacastEPKc(
+    QMediaPlayer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMediaPlayer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QMediaPlayer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMediaPlayer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMediaPlayer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QMediaPlayer2trEPKcS1_i(
@@ -541,6 +559,168 @@ void ritual_ZN12QMediaPlayer18setPlaybackOptionsERK16QPlaybackOptions(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QMediaPlayer20resetPlaybackOptionsEv(QMediaPlayer *self) {
   self->resetPlaybackOptions();
+}
+
+//  void QMediaPlayer::sourceChanged(const QUrl &media)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer13sourceChangedERK4QUrl(
+    QMediaPlayer *self,
+    const QUrl *media) {
+  self->sourceChanged(*media);
+}
+
+//  void QMediaPlayer::playbackStateChanged(QMediaPlayer::PlaybackState
+//      newState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer20playbackStateChangedENS_13PlaybackStateE(
+    QMediaPlayer *self,
+    QMediaPlayer::PlaybackState newState) {
+  self->playbackStateChanged(newState);
+}
+
+//  void QMediaPlayer::mediaStatusChanged(QMediaPlayer::MediaStatus status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer18mediaStatusChangedENS_11MediaStatusE(
+    QMediaPlayer *self,
+    QMediaPlayer::MediaStatus status) {
+  self->mediaStatusChanged(status);
+}
+
+//  void QMediaPlayer::durationChanged(qint64 duration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer15durationChangedEx(
+    QMediaPlayer *self,
+    qint64 duration) {
+  self->durationChanged(duration);
+}
+
+//  void QMediaPlayer::positionChanged(qint64 position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer15positionChangedEx(
+    QMediaPlayer *self,
+    qint64 position) {
+  self->positionChanged(position);
+}
+
+//  void QMediaPlayer::hasAudioChanged(bool available)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer15hasAudioChangedEb(
+    QMediaPlayer *self,
+    bool available) {
+  self->hasAudioChanged(available);
+}
+
+//  void QMediaPlayer::hasVideoChanged(bool videoAvailable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer15hasVideoChangedEb(
+    QMediaPlayer *self,
+    bool videoAvailable) {
+  self->hasVideoChanged(videoAvailable);
+}
+
+//  void QMediaPlayer::bufferProgressChanged(float progress)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer21bufferProgressChangedEf(
+    QMediaPlayer *self,
+    float progress) {
+  self->bufferProgressChanged(progress);
+}
+
+//  void QMediaPlayer::seekableChanged(bool seekable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer15seekableChangedEb(
+    QMediaPlayer *self,
+    bool seekable) {
+  self->seekableChanged(seekable);
+}
+
+//  void QMediaPlayer::playingChanged(bool playing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer14playingChangedEb(
+    QMediaPlayer *self,
+    bool playing) {
+  self->playingChanged(playing);
+}
+
+//  void QMediaPlayer::playbackRateChanged(qreal rate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer19playbackRateChangedEd(
+    QMediaPlayer *self,
+    qreal rate) {
+  self->playbackRateChanged(rate);
+}
+
+//  void QMediaPlayer::loopsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer12loopsChangedEv(QMediaPlayer *self) {
+  self->loopsChanged();
+}
+
+//  void QMediaPlayer::metaDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer15metaDataChangedEv(QMediaPlayer *self) {
+  self->metaDataChanged();
+}
+
+//  void QMediaPlayer::videoOutputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer18videoOutputChangedEv(QMediaPlayer *self) {
+  self->videoOutputChanged();
+}
+
+//  void QMediaPlayer::audioOutputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer18audioOutputChangedEv(QMediaPlayer *self) {
+  self->audioOutputChanged();
+}
+
+//  void QMediaPlayer::audioBufferOutputChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer24audioBufferOutputChangedEv(
+    QMediaPlayer *self) {
+  self->audioBufferOutputChanged();
+}
+
+//  void QMediaPlayer::tracksChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer13tracksChangedEv(QMediaPlayer *self) {
+  self->tracksChanged();
+}
+
+//  void QMediaPlayer::activeTracksChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer19activeTracksChangedEv(QMediaPlayer *self) {
+  self->activeTracksChanged();
+}
+
+//  void QMediaPlayer::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer12errorChangedEv(QMediaPlayer *self) {
+  self->errorChanged();
+}
+
+//  void QMediaPlayer::errorOccurred(QMediaPlayer::Error error, const QString
+//      &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer13errorOccurredENS_5ErrorERK7QString(
+    QMediaPlayer *self,
+    QMediaPlayer::Error error,
+    const QString *errorString) {
+  self->errorOccurred(error, *errorString);
+}
+
+//  void QMediaPlayer::pitchCompensationChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer24pitchCompensationChangedEb(
+    QMediaPlayer *self,
+    bool a0) {
+  self->pitchCompensationChanged(a0);
+}
+
+//  void QMediaPlayer::playbackOptionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QMediaPlayer22playbackOptionsChangedEv(QMediaPlayer *self) {
+  self->playbackOptionsChanged();
 }
 
 //  QMediaPlayerPrivate *QMediaPlayer::d_func()

@@ -5,6 +5,8 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtGui/QFont>
 
 //  QFont::QFont()
 extern "C" Q_DECL_EXPORT
@@ -48,10 +50,22 @@ QFont *ritual_ZN5QFontC1ERKS_(const QFont *font) {
   return new QFont(*font);
 }
 
+//  QFont::QFont(QFont &&a0)
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZN5QFontC1EOS_(QFont *a0) {
+  return new QFont(std::move(*a0));
+}
+
 //  QFont::~QFont()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QFontD1Ev(QFont *self) {
   delete self;
+}
+
+//  void QFont::swap(QFont &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QFont4swapERS_(QFont *self, QFont *other) {
+  self->swap(*other);
 }
 
 //  QString QFont::family() const
@@ -376,6 +390,12 @@ bool ritual_ZNK5QFont12isFeatureSetENS_3TagE(
   return self->isFeatureSet(*tag);
 }
 
+//  QList<Tag> QFont::featureTags() const
+extern "C" Q_DECL_EXPORT
+QList<QFont::Tag> *ritual_ZNK5QFont11featureTagsEv(const QFont *self) {
+  return new QList<QFont::Tag>(self->featureTags());
+}
+
 //  void QFont::clearFeatures()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QFont13clearFeaturesEv(QFont *self) {
@@ -421,10 +441,22 @@ void ritual_ZN5QFont17clearVariableAxesEv(QFont *self) {
   self->clearVariableAxes();
 }
 
+//  QList<Tag> QFont::variableAxisTags() const
+extern "C" Q_DECL_EXPORT
+QList<QFont::Tag> *ritual_ZNK5QFont16variableAxisTagsEv(const QFont *self) {
+  return new QList<QFont::Tag>(self->variableAxisTags());
+}
+
 //  bool QFont::exactMatch() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK5QFont10exactMatchEv(const QFont *self) {
   return self->exactMatch();
+}
+
+//  QFont &QFont::operator=(const QFont &a0)
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZN5QFontaSERKS_(QFont *self, const QFont *a0) {
+  return &(self->operator=(*a0));
 }
 
 //  bool QFont::operator==(const QFont &a0) const
@@ -455,6 +487,12 @@ QVariant *ritual_ZNK5QFontcv8QVariantEv(const QFont *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK5QFont8isCopyOfERKS_(const QFont *self, const QFont *a0) {
   return self->isCopyOf(*a0);
+}
+
+//  QFont &QFont::operator=(QFont &&other)
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZN5QFontaSEOS_(QFont *self, QFont *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  QString QFont::key() const
@@ -585,6 +623,24 @@ void ritual_ZN5QFont6detachEv(QFont *self) {
   self->detach();
 }
 
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &a0, const QFont &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK5QFont(
+    QDataStream *a0,
+    const QFont *a1) {
+  return &(operator<<(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &a0, QFont &a1)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR5QFont(QDataStream *a0, QFont *a1) {
+  return &(operator>>(*a0, *a1));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 #if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug a0, const QFont &a1)
 extern "C" Q_DECL_EXPORT
@@ -592,3 +648,9 @@ QDebug *ritual_Zls6QDebugRK5QFont(const QDebug *a0, const QFont *a1) {
   return new QDebug(operator<<(*a0, *a1));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+//  a QList<QFont::Tag> a ritual of QFont gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFont__QList_QFont_Tag(QList<QFont::Tag> *self) {
+  delete self;
+}

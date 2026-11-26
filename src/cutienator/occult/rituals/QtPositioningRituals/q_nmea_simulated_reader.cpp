@@ -31,61 +31,35 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 628, as _ZN30QNmeaPositionInfoSourcePrivate15notifyNewUpdateEP16QGeoPositionInfob
-inline void QNmeaPositionInfoSourcePrivate::notifyNewUpdate(QGeoPositionInfo *update, bool hasFix)
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 26, as local:qnmeapositioninfosource.cpp:QGeoPositionInfoPrivateNmea
+#if USE_POSITION_NMEA_PIMPL
+class QGeoPositionInfoPrivateNmea : public QGeoPositionInfoPrivate
 {
-    // include <QDebug> before uncommenting
-    //qDebug() << "QNmeaPositionInfoSourcePrivate::notifyNewUpdate()" << update->timestamp() << hasFix << m_invokedStart << (m_requestTimer && m_requestTimer->isActive());
+public:
+    virtual ~QGeoPositionInfoPrivateNmea();
 
-    QDate date = update->timestamp().date();
-    if (date.isValid()) {
-        m_currentDate = date;
-    } else {
-        // some sentence have time but no date
-        QTime time = update->timestamp().time();
-        if (time.isValid() && m_currentDate.isValid())
-            update->setTimestamp(QDateTime(m_currentDate, time, QTimeZone::UTC));
-    }
+    QList<QByteArray> nmeaSentences;
+};
+#endif  // USE_POSITION_NMEA_PIMPL
 
-    // Some attributes are sent in separate NMEA sentences. Save and restore the accuracy
-    // measurements.
-    if (update->hasAttribute(QGeoPositionInfo::HorizontalAccuracy))
-        m_horizontalAccuracy = update->attribute(QGeoPositionInfo::HorizontalAccuracy);
-    else if (!qIsNaN(m_horizontalAccuracy))
-        update->setAttribute(QGeoPositionInfo::HorizontalAccuracy, m_horizontalAccuracy);
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 35, as local:qnmeapositioninfosource.cpp:QGeoPositionInfoPrivateNmea::~QGeoPositionInfoPrivateNmea
+#if USE_POSITION_NMEA_PIMPL
+inline QGeoPositionInfoPrivateNmea::~QGeoPositionInfoPrivateNmea()
+{
 
-    if (update->hasAttribute(QGeoPositionInfo::VerticalAccuracy))
-        m_verticalAccuracy = update->attribute(QGeoPositionInfo::VerticalAccuracy);
-    else if (!qIsNaN(m_verticalAccuracy))
-        update->setAttribute(QGeoPositionInfo::VerticalAccuracy, m_verticalAccuracy);
-
-    if (hasFix && update->isValid()) {
-        if (m_requestTimer && m_requestTimer->isActive()) { // User called requestUpdate()
-            m_requestTimer->stop();
-            emitUpdated(*update);
-        } else if (m_invokedStart) { // user called startUpdates()
-            if (m_updateTimer && m_updateTimer->isActive()) { // update interval > 0
-                // for periodic updates, only want the most recent update
-                m_pendingUpdate = *update; // Set what to send in timerEvent()
-                if (m_noUpdateLastInterval) {
-                    // if the update was invalid when timerEvent was last called, a valid update
-                    // should be sent ASAP
-                    emitPendingUpdate();
-                    m_noUpdateLastInterval = false;
-                }
-            } else { // update interval <= 0
-                emitUpdated(*update);
-            }
-        }
-        m_lastUpdate = *update; // Set in any case, if update is valid. Used in lastKnownPosition().
-    }
 }
+#endif  // USE_POSITION_NMEA_PIMPL
 
-//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 269, as _ZN20QNmeaSimulatedReaderD1Ev
-inline QNmeaSimulatedReader::~QNmeaSimulatedReader()
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 126, as _ZN11QNmeaReaderD2Ev
+inline QNmeaReader::~QNmeaReader()
+    = default;
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 424, as _ZN20QNmeaSimulatedReader10timerEventEP11QTimerEvent
+inline void QNmeaSimulatedReader::timerEvent(QTimerEvent *event)
 {
-    if (m_currTimerId > 0)
-        killTimer(m_currTimerId);
+    killTimer(event->timerId());
+    m_currTimerId = -1;
+    simulatePendingUpdate();
 }
 
 //  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 275, as _ZN20QNmeaSimulatedReader17readAvailableDataEv
@@ -112,12 +86,23 @@ inline void QNmeaSimulatedReader::readAvailableData()
     }
 }
 
-//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 424, as _ZN20QNmeaSimulatedReader10timerEventEP11QTimerEvent
-inline void QNmeaSimulatedReader::timerEvent(QTimerEvent *event)
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 413, as _ZN20QNmeaSimulatedReader21simulatePendingUpdateEv
+inline void QNmeaSimulatedReader::simulatePendingUpdate()
 {
-    killTimer(event->timerId());
-    m_currTimerId = -1;
-    simulatePendingUpdate();
+    if (!m_pendingUpdates.isEmpty()) {
+        // will be dequeued in processNextSentence()
+        QPendingGeoPositionInfo &pending = m_pendingUpdates.head();
+        m_proxy->notifyNewUpdate(&pending.info, pending.hasFix);
+    }
+
+    processNextSentence();
+}
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 269, as _ZN20QNmeaSimulatedReaderD1Ev
+inline QNmeaSimulatedReader::~QNmeaSimulatedReader()
+{
+    if (m_currTimerId > 0)
+        killTimer(m_currTimerId);
 }
 //  -----------------------------------------------------------------------
 
@@ -311,6 +296,25 @@ const QMetaObject *ritual_ZNK20QNmeaSimulatedReader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNmeaSimulatedReader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QNmeaSimulatedReader11qt_metacastEPKc(
+    QNmeaSimulatedReader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNmeaSimulatedReader::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QNmeaSimulatedReader11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNmeaSimulatedReader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QNmeaSimulatedReader::~QNmeaSimulatedReader()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QNmeaSimulatedReaderD1Ev(QNmeaSimulatedReader *self) {
@@ -330,6 +334,31 @@ void ritual_ZN20QNmeaSimulatedReader10timerEventEP11QTimerEvent(
     QNmeaSimulatedReader *self,
     QTimerEvent *event) {
   self->timerEvent(event);
+}
+
+//  void QNmeaSimulatedReader::simulatePendingUpdate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QNmeaSimulatedReader21simulatePendingUpdateEv(
+    QNmeaSimulatedReader *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QNmeaSimulatedReader")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "simulatePendingUpdate()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "simulatePendingUpdate()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QNmeaSimulatedReader as the QNmeaReader it is built on

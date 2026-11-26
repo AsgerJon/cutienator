@@ -25,7 +25,7 @@ typedef QString * (*CuteQXmlInputSourceCall6)(const void *, const QByteArray *, 
 class CuteQXmlInputSource : public QXmlInputSource {
 public:
   using QXmlInputSource::QXmlInputSource;
-  CuteQXmlInputSource(const QXmlInputSource &other) : QXmlInputSource(other) {}
+  CuteQXmlInputSource(const QXmlInputSource & other) : QXmlInputSource(other) {}
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {

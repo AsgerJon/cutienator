@@ -11,6 +11,85 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmldebugserviceinterfaces_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/private/qqmldebugserviceinterfaces_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/debugger/qqmldebugserviceinterfaces.cpp, line 55, as _ZN29TranslationBindingInformation6createERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEPKNS1_12CompiledData7BindingEP7QObjectS0_I15QQmlContextDataE
+#if QT_CONFIG(translation)
+inline const TranslationBindingInformation TranslationBindingInformation::create(
+        const QQmlRefPointer<QV4::ExecutableCompilationUnit> &compilationUnit,
+        const QV4::CompiledData::Binding *binding, QObject *scopeObject,
+        QQmlRefPointer<QQmlContextData> ctxt)
+{
+    QQmlTranslation translation;
+    if (binding->type() == QV4::CompiledData::Binding::Type_TranslationById) {
+        const QV4::CompiledData::TranslationData data =
+                compilationUnit->unitData()->translations()[binding->value.translationDataIndex];
+        const QString id = compilationUnit->stringAt(data.stringIndex);
+        const int n = data.number;
+
+        translation = QQmlTranslation(QQmlTranslation::QsTrIdData(id, n));
+    } else {
+        Q_ASSERT(binding->type() == QV4::CompiledData::Binding::Type_Translation);
+
+        const QV4::CompiledData::TranslationData data =
+                compilationUnit->unitData()->translations()[binding->value.translationDataIndex];
+        const QString text = compilationUnit->stringAt(data.stringIndex);
+        const QString comment = compilationUnit->stringAt(data.commentIndex);
+        const bool hasContext
+                = data.contextIndex != QV4::CompiledData::TranslationData::NoContextIndex;
+        const int n = data.number;
+
+        translation = QQmlTranslation(
+                    QQmlTranslation::QsTrData(
+                        hasContext
+                                ? compilationUnit->stringAt(data.contextIndex)
+                                : QQmlTranslation::contextFromQmlFilename(
+                                        compilationUnit->fileName()),
+                        text, comment, n));
+    }
+
+    return { compilationUnit,
+             scopeObject,
+             ctxt,
+
+             compilationUnit->stringAt(binding->propertyNameIndex),
+             translation,
+
+             binding->location.line(),
+             binding->location.column() };
+}
+#endif  // QT_CONFIG(translation)
+//  -----------------------------------------------------------------------
+
+#if QT_CONFIG(translation)
+//  const TranslationBindingInformation
+//      TranslationBindingInformation::create(const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &compilationUnit,
+//      const QV4::CompiledData::Binding *binding, QObject *scopeObject,
+//      QQmlRefPointer<QQmlContextData> ctxt)
+extern "C" Q_DECL_EXPORT
+TranslationBindingInformation *ritual_ZN29TranslationBindingInformation6createERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEPKNS1_12CompiledData7BindingEP7QObjectS0_I15QQmlContextDataE(
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *compilationUnit,
+    const QV4::CompiledData::Binding *binding,
+    QObject *scopeObject,
+    const QQmlRefPointer<QQmlContextData> *ctxt) {
+  return new TranslationBindingInformation(
+      TranslationBindingInformation::create(
+          *compilationUnit,
+          binding,
+          scopeObject,
+          *ctxt));
+}
+#endif  // QT_CONFIG(translation)
 
 //  TranslationBindingInformation::~TranslationBindingInformation()
 extern "C" Q_DECL_EXPORT

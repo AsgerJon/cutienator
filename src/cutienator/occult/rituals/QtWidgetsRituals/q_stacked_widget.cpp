@@ -885,6 +885,24 @@ const QMetaObject *ritual_ZNK14QStackedWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStackedWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QStackedWidget11qt_metacastEPKc(
+    QStackedWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStackedWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QStackedWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStackedWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStackedWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QStackedWidget2trEPKcS1_i(
@@ -982,12 +1000,50 @@ void ritual_ZN14QStackedWidget16setCurrentWidgetEP7QWidget(
   self->setCurrentWidget(w);
 }
 
+//  void QStackedWidget::currentChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStackedWidget14currentChangedEi(
+    QStackedWidget *self,
+    int a0) {
+  self->currentChanged(a0);
+}
+
+//  void QStackedWidget::widgetRemoved(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStackedWidget13widgetRemovedEi(
+    QStackedWidget *self,
+    int index) {
+  self->widgetRemoved(index);
+}
+
+//  void QStackedWidget::widgetAdded(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStackedWidget11widgetAddedEi(
+    QStackedWidget *self,
+    int index) {
+  self->widgetAdded(index);
+}
+
 //  bool QStackedWidget::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN14QStackedWidget5eventEP6QEvent(
     QStackedWidget *self,
     QEvent *e) {
   return self->event(e);
+}
+
+//  QStackedWidgetPrivate *QStackedWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QStackedWidgetPrivate *ritual_ZN14QStackedWidget6d_funcEv(
+    QStackedWidget *self) {
+  return self->d_func();
+}
+
+//  const QStackedWidgetPrivate *QStackedWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QStackedWidgetPrivate *ritual_ZNK14QStackedWidget6d_funcEv(
+    const QStackedWidget *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQStackedWidget, for the function named

@@ -8,6 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/QList>
+#include <array>
 
 //  QShaderDescription::QShaderDescription()
 extern "C" Q_DECL_EXPORT
@@ -20,6 +22,15 @@ extern "C" Q_DECL_EXPORT
 QShaderDescription *ritual_ZN18QShaderDescriptionC1ERKS_(
     const QShaderDescription *other) {
   return new QShaderDescription(*other);
+}
+
+//  QShaderDescription &QShaderDescription::operator=(const
+//      QShaderDescription &other)
+extern "C" Q_DECL_EXPORT
+QShaderDescription *ritual_ZN18QShaderDescriptionaSERKS_(
+    QShaderDescription *self,
+    const QShaderDescription *other) {
+  return &(self->operator=(*other));
 }
 
 //  QShaderDescription::~QShaderDescription()
@@ -70,6 +81,98 @@ QShaderDescription *ritual_ZN18QShaderDescription11deserializeEP11QDataStreami(
           version));
 }
 
+//  QList<InOutVariable> QShaderDescription::inputVariables() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::InOutVariable> *ritual_ZNK18QShaderDescription14inputVariablesEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::InOutVariable>(
+      self->inputVariables());
+}
+
+//  QList<InOutVariable> QShaderDescription::outputVariables() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::InOutVariable> *ritual_ZNK18QShaderDescription15outputVariablesEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::InOutVariable>(
+      self->outputVariables());
+}
+
+//  QList<UniformBlock> QShaderDescription::uniformBlocks() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::UniformBlock> *ritual_ZNK18QShaderDescription13uniformBlocksEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::UniformBlock>(self->uniformBlocks());
+}
+
+//  QList<PushConstantBlock> QShaderDescription::pushConstantBlocks() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::PushConstantBlock> *ritual_ZNK18QShaderDescription18pushConstantBlocksEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::PushConstantBlock>(
+      self->pushConstantBlocks());
+}
+
+//  QList<StorageBlock> QShaderDescription::storageBlocks() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::StorageBlock> *ritual_ZNK18QShaderDescription13storageBlocksEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::StorageBlock>(self->storageBlocks());
+}
+
+//  QList<InOutVariable> QShaderDescription::combinedImageSamplers() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::InOutVariable> *ritual_ZNK18QShaderDescription21combinedImageSamplersEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::InOutVariable>(
+      self->combinedImageSamplers());
+}
+
+//  QList<InOutVariable> QShaderDescription::separateImages() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::InOutVariable> *ritual_ZNK18QShaderDescription14separateImagesEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::InOutVariable>(
+      self->separateImages());
+}
+
+//  QList<InOutVariable> QShaderDescription::separateSamplers() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::InOutVariable> *ritual_ZNK18QShaderDescription16separateSamplersEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::InOutVariable>(
+      self->separateSamplers());
+}
+
+//  QList<InOutVariable> QShaderDescription::storageImages() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::InOutVariable> *ritual_ZNK18QShaderDescription13storageImagesEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::InOutVariable>(self->storageImages());
+}
+
+//  QList<BuiltinVariable> QShaderDescription::inputBuiltinVariables() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::BuiltinVariable> *ritual_ZNK18QShaderDescription21inputBuiltinVariablesEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::BuiltinVariable>(
+      self->inputBuiltinVariables());
+}
+
+//  QList<BuiltinVariable> QShaderDescription::outputBuiltinVariables() const
+extern "C" Q_DECL_EXPORT
+QList<QShaderDescription::BuiltinVariable> *ritual_ZNK18QShaderDescription22outputBuiltinVariablesEv(
+    const QShaderDescription *self) {
+  return new QList<QShaderDescription::BuiltinVariable>(
+      self->outputBuiltinVariables());
+}
+
+//  std::array<uint, 3> QShaderDescription::computeShaderLocalSize() const
+extern "C" Q_DECL_EXPORT
+std::array<uint, 3> *ritual_ZNK18QShaderDescription22computeShaderLocalSizeEv(
+    const QShaderDescription *self) {
+  return new std::array<uint, 3>(self->computeShaderLocalSize());
+}
+
 //  uint QShaderDescription::tessellationOutputVertexCount() const
 extern "C" Q_DECL_EXPORT
 uint ritual_ZNK18QShaderDescription29tessellationOutputVertexCountEv(
@@ -117,4 +220,51 @@ bool ritual_ZeqRK18QShaderDescriptionS1_(
     const QShaderDescription *lhs,
     const QShaderDescription *rhs) {
   return operator==(*lhs, *rhs);
+}
+
+//  a QList<QShaderDescription::InOutVariable> a ritual of QShaderDescription
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QShaderDescription__QList_QShaderDescription_InOutVariable(
+    QList<QShaderDescription::InOutVariable> *self) {
+  delete self;
+}
+
+//  a QList<QShaderDescription::UniformBlock> a ritual of QShaderDescription
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QShaderDescription__QList_QShaderDescription_UniformBlock(
+    QList<QShaderDescription::UniformBlock> *self) {
+  delete self;
+}
+
+//  a QList<QShaderDescription::PushConstantBlock> a ritual of
+//      QShaderDescription gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QShaderDescription__QList_QShaderDescription_PushConstantBlock(
+    QList<QShaderDescription::PushConstantBlock> *self) {
+  delete self;
+}
+
+//  a QList<QShaderDescription::StorageBlock> a ritual of QShaderDescription
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QShaderDescription__QList_QShaderDescription_StorageBlock(
+    QList<QShaderDescription::StorageBlock> *self) {
+  delete self;
+}
+
+//  a QList<QShaderDescription::BuiltinVariable> a ritual of
+//      QShaderDescription gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QShaderDescription__QList_QShaderDescription_BuiltinVariable(
+    QList<QShaderDescription::BuiltinVariable> *self) {
+  delete self;
+}
+
+//  a std::array<uint, 3> a ritual of QShaderDescription gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QShaderDescription__std_array_uint_3(
+    std::array<uint, 3> *self) {
+  delete self;
 }

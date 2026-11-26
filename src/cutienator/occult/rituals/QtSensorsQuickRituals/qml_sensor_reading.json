@@ -6,19 +6,36 @@
   ],
   "rows": {
     "ritual_ZNK16QmlSensorReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QmlSensorReading11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QmlSensorReading11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QmlSensorReading2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN16QmlSensorReading24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
+    "ritual_ZN16QmlSensorReadingC1Ev": ["address"],
     "ritual_ZN16QmlSensorReadingD1Ev": ["nothing", "address"],
     "ritual_ZNK16QmlSensorReading9timestampEv": [
       "unsigned long long", "address"
     ],
+    "ritual_ZNK16QmlSensorReading17bindableTimestampEv": [
+      "address", "address"
+    ],
     "ritual_ZN16QmlSensorReading6updateEv": ["nothing", "address"],
+    "ritual_ZN16QmlSensorReading16timestampChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK16QmlSensorReading7readingEv": ["address", "address"],
     "ritual_ZN16QmlSensorReading13readingUpdateEv": ["nothing", "address"],
-    "ritual_take_QmlSensorReading": ["bool", "address", "chars", "address"]
+    "ritual_ZN16QmlSensorReading31_qt_property_m_timestamp_offsetEv": [
+      "size_t"
+    ],
+    "ritual_take_QmlSensorReading": ["bool", "address", "chars", "address"],
+    "ritual_drop_QmlSensorReading__QBindable_quint64": ["nothing", "address"]
   }
 }

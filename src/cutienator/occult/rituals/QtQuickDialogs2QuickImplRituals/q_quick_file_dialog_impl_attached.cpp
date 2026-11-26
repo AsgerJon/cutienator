@@ -20,6 +20,25 @@ const QMetaObject *ritual_ZNK28QQuickFileDialogImplAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFileDialogImplAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuickFileDialogImplAttached11qt_metacastEPKc(
+    QQuickFileDialogImplAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFileDialogImplAttached::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuickFileDialogImplAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFileDialogImplAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFileDialogImplAttached::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -198,6 +217,69 @@ void ritual_ZN28QQuickFileDialogImplAttached10setSideBarEP13QQuickSideBar(
     QQuickFileDialogImplAttached *self,
     QQuickSideBar *sideBar) {
   self->setSideBar(sideBar);
+}
+
+//  void QQuickFileDialogImplAttached::buttonBoxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFileDialogImplAttached16buttonBoxChangedEv(
+    QQuickFileDialogImplAttached *self) {
+  self->buttonBoxChanged();
+}
+
+//  void QQuickFileDialogImplAttached::nameFiltersComboBoxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFileDialogImplAttached26nameFiltersComboBoxChangedEv(
+    QQuickFileDialogImplAttached *self) {
+  self->nameFiltersComboBoxChanged();
+}
+
+//  void QQuickFileDialogImplAttached::filterLabelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFileDialogImplAttached18filterLabelChangedEv(
+    QQuickFileDialogImplAttached *self) {
+  self->filterLabelChanged();
+}
+
+//  void QQuickFileDialogImplAttached::fileDialogListViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFileDialogImplAttached25fileDialogListViewChangedEv(
+    QQuickFileDialogImplAttached *self) {
+  self->fileDialogListViewChanged();
+}
+
+//  void QQuickFileDialogImplAttached::breadcrumbBarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFileDialogImplAttached20breadcrumbBarChangedEv(
+    QQuickFileDialogImplAttached *self) {
+  self->breadcrumbBarChanged();
+}
+
+//  void QQuickFileDialogImplAttached::fileNameLabelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFileDialogImplAttached20fileNameLabelChangedEv(
+    QQuickFileDialogImplAttached *self) {
+  self->fileNameLabelChanged();
+}
+
+//  void QQuickFileDialogImplAttached::fileNameTextFieldChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFileDialogImplAttached24fileNameTextFieldChangedEv(
+    QQuickFileDialogImplAttached *self) {
+  self->fileNameTextFieldChanged();
+}
+
+//  void QQuickFileDialogImplAttached::overwriteConfirmationDialogChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFileDialogImplAttached34overwriteConfirmationDialogChangedEv(
+    QQuickFileDialogImplAttached *self) {
+  self->overwriteConfirmationDialogChanged();
+}
+
+//  void QQuickFileDialogImplAttached::sideBarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QQuickFileDialogImplAttached14sideBarChangedEv(
+    QQuickFileDialogImplAttached *self) {
+  self->sideBarChanged();
 }
 
 //  QQuickFileDialogImplAttachedPrivate

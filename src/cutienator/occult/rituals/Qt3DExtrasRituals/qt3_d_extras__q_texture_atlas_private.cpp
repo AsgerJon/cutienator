@@ -7,6 +7,54 @@
 #include <Qt3DExtras/6.12.0/Qt3DExtras/private/qtextureatlas_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DExtras/private/areaallocator_p.h>
+#include <QtCore/qglobal.h>
+#include <QtCore/qrect.h>
+#include <QtCore/qpoint.h>
+#include <Qt3DExtras/private/qtextureatlas_p.h>
+#include <Qt3DExtras/private/qtextureatlas_p_p.h>
+#include <Qt3DRender/qtexturedata.h>
+#include <Qt3DRender/qabstracttextureimage.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/extras/text/areaallocator.cpp, line 66, as _ZN10Qt3DExtras13AreaAllocatorD1Ev
+namespace Qt3DExtras {
+inline AreaAllocator::~AreaAllocator()
+{
+    delete m_root;
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/qtextureatlas.cpp, line 85, as _ZN10Qt3DExtras20QTextureAtlasPrivateC1Ev
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline QTextureAtlasPrivate::QTextureAtlasPrivate()
+    : Qt3DRender::QAbstractTexturePrivate()
+{
+    m_target = Qt3DRender::QAbstractTexture::TargetAutomatic;
+    m_format = Qt3DRender::QAbstractTexture::RGBA8_UNorm;
+    m_width = 256;
+    m_height = 256;
+    m_depth = 1;
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/qtextureatlas.cpp, line 95, as _ZN10Qt3DExtras20QTextureAtlasPrivateD1Ev
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline QTextureAtlasPrivate::~QTextureAtlasPrivate()
+{
+}
+}  // namespace Qt3DExtras
+//  -----------------------------------------------------------------------
 
 //  A Qt3DExtras::QTextureAtlasPrivate that Python can take functions over in. Every Qt3DExtras::QTextureAtlasPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +100,19 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DExtras::QTextureAtlasPrivate::QTextureAtlasPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QTextureAtlasPrivate *ritual_ZN10Qt3DExtras20QTextureAtlasPrivateC1Ev() {
+  return new CuteQt3DExtras_QTextureAtlasPrivate();
+}
+
+//  Qt3DExtras::QTextureAtlasPrivate::~QTextureAtlasPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras20QTextureAtlasPrivateD1Ev(
+    Qt3DExtras::QTextureAtlasPrivate *self) {
+  delete self;
+}
 
 //  QTextureAtlas *Qt3DExtras::QTextureAtlasPrivate::q_func()
 extern "C" Q_DECL_EXPORT

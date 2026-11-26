@@ -6,7 +6,15 @@
   ],
   "rows": {
     "ritual_ZNK13QOpenGLWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QOpenGLWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QOpenGLWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QOpenGLWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QOpenGLWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QOpenGLWidget6d_funcEv": ["address", "address"],
     "ritual_ZN13QOpenGLWidgetC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
     ],
@@ -19,6 +27,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK13QOpenGLWidget6formatEv": ["address", "address"],
+    "ritual_ZNK13QOpenGLWidget13textureFormatEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZN13QOpenGLWidget16setTextureFormatEj": [
       "nothing", "address", "unsigned int"
     ],
@@ -29,6 +40,12 @@
     ],
     "ritual_ZN13QOpenGLWidget11doneCurrentEv": ["nothing", "address"],
     "ritual_ZNK13QOpenGLWidget7contextEv": ["address", "address"],
+    "ritual_ZNK13QOpenGLWidget24defaultFramebufferObjectEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QOpenGLWidget24defaultFramebufferObjectENS_12TargetBufferE": [
+      "unsigned int", "address", "unsigned char"
+    ],
     "ritual_ZN13QOpenGLWidget15grabFramebufferEv": ["address", "address"],
     "ritual_ZN13QOpenGLWidget15grabFramebufferENS_12TargetBufferE": [
       "address", "address", "unsigned char"
@@ -36,6 +53,10 @@
     "ritual_ZNK13QOpenGLWidget19currentTargetBufferEv": [
       "unsigned char", "address"
     ],
+    "ritual_ZN13QOpenGLWidget14aboutToComposeEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLWidget12frameSwappedEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLWidget13aboutToResizeEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLWidget7resizedEv": ["nothing", "address"],
     "ritual_ZN13QOpenGLWidget12initializeGLEv": ["nothing", "address"],
     "ritual_ZN13QOpenGLWidget8resizeGLEii": [
       "nothing", "address", "int", "int"

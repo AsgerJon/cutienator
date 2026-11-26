@@ -16,6 +16,8 @@
     ],
     "ritual_ZNK14QAudioListener8rotationEv": ["address", "address"],
     "ritual_ZNK14QAudioListener6engineEv": ["address", "address"],
+    "ritual_ZN14QAudioListener6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QAudioListener6d_funcEv": ["address", "address"],
     "ritual_take_QAudioListener": ["bool", "address", "chars", "address"]
   }
 }

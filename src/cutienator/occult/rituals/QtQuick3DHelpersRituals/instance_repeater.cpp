@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK16InstanceRepeater10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *InstanceRepeater::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16InstanceRepeater11qt_metacastEPKc(
+    InstanceRepeater *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int InstanceRepeater::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16InstanceRepeater11qt_metacallEN11QMetaObject4CallEiPPv(
+    InstanceRepeater *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString InstanceRepeater::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16InstanceRepeater2trEPKcS1_i(
@@ -50,6 +69,13 @@ void ritual_ZN16InstanceRepeater13setInstancingEP18QQuick3DInstancing(
     InstanceRepeater *self,
     QQuick3DInstancing *instancing) {
   self->setInstancing(instancing);
+}
+
+//  void InstanceRepeater::instancingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16InstanceRepeater17instancingChangedEv(
+    InstanceRepeater *self) {
+  self->instancingChanged();
 }
 
 //  void InstanceRepeater::initDelegate(int index, QQuick3DNode *node)

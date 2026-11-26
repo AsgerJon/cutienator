@@ -5,6 +5,15 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV417ScopedPropertyKeyC1ERKNS_5ScopeE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV417ScopedPropertyKeyC1ERKNS_5ScopeERKNS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV417ScopedPropertyKeyaSERKNS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN3QV417ScopedPropertyKeyptEv": ["address", "address"],
     "ritual_ZNK3QV417ScopedPropertyKeycvNS_11PropertyKeyEEv": [
       "address", "address"

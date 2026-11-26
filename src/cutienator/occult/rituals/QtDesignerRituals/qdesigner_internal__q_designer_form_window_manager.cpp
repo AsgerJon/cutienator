@@ -442,6 +442,26 @@ const QMetaObject *ritual_ZNK18qdesigner_internal26QDesignerFormWindowManager10m
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::QDesignerFormWindowManager::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal26QDesignerFormWindowManager11qt_metacastEPKc(
+    qdesigner_internal::QDesignerFormWindowManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::QDesignerFormWindowManager::qt_metacall(QMetaObje
+//      ct::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal26QDesignerFormWindowManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::QDesignerFormWindowManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::QDesignerFormWindowManager::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -456,6 +476,14 @@ QString *ritual_ZN18qdesigner_internal26QDesignerFormWindowManager2trEPKcS2_i(
           n));
 }
 
+//  qdesigner_internal::QDesignerFormWindowManager::~QDesignerFormWindowManag
+//      er()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal26QDesignerFormWindowManagerD1Ev(
+    qdesigner_internal::QDesignerFormWindowManager *self) {
+  delete self;
+}
+
 //  PreviewManager
 //      *qdesigner_internal::QDesignerFormWindowManager::previewManager()
 //      const
@@ -463,6 +491,13 @@ extern "C" Q_DECL_EXPORT
 qdesigner_internal::PreviewManager *ritual_ZNK18qdesigner_internal26QDesignerFormWindowManager14previewManagerEv(
     const qdesigner_internal::QDesignerFormWindowManager *self) {
   return self->previewManager();
+}
+
+//  void qdesigner_internal::QDesignerFormWindowManager::showPluginDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal26QDesignerFormWindowManager16showPluginDialogEv(
+    qdesigner_internal::QDesignerFormWindowManager *self) {
+  self->showPluginDialog();
 }
 
 //  a Python function taken by a

@@ -5,9 +5,16 @@
   ],
   "rows": {
     "ritual_ZNK17QAccessiblePlugin10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QAccessiblePlugin11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QAccessiblePlugin11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QAccessiblePlugin2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN17QAccessiblePluginC1EP7QObject": ["address", "address"],
     "ritual_ZN17QAccessiblePluginD1Ev": ["nothing", "address"],
     "ritual_ZN17QAccessiblePlugin6createERK7QStringP7QObject": [
       "address", "address", "text", "address"

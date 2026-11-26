@@ -5,8 +5,106 @@
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore10QTransform10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QTransform11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore10QTransform2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore10QTransformC1EPNS_5QNodeE": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QTransformD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore10QTransform5scaleEv": ["float", "address"],
+    "ritual_ZNK8Qt3DCore10QTransform7scale3DEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore10QTransform8rotationEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore10QTransform11translationEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QTransform16fromAxisAndAngleERK9QVector3Df": [
+      "address", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform16fromAxisAndAngleEffff": [
+      "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform17fromAxesAndAnglesERK9QVector3DfS3_f": [
+      "address", "address", "float", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform17fromAxesAndAnglesERK9QVector3DfS3_fS3_f": [
+      "address", "address", "float", "address", "float", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform8fromAxesERK9QVector3DS3_S3_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform15fromEulerAnglesERK9QVector3D": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform15fromEulerAnglesEfff": [
+      "address", "float", "float", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform12rotateAroundERK9QVector3DfS3_": [
+      "address", "address", "float", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform14rotateFromAxesERK9QVector3DS3_S3_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore10QTransform6matrixEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore10QTransform11worldMatrixEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore10QTransform9rotationXEv": ["float", "address"],
+    "ritual_ZNK8Qt3DCore10QTransform9rotationYEv": ["float", "address"],
+    "ritual_ZNK8Qt3DCore10QTransform9rotationZEv": ["float", "address"],
+    "ritual_ZN8Qt3DCore10QTransform8setScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform10setScale3DERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform11setRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform14setTranslationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform9setMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform12setRotationXEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform12setRotationYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform12setRotationZEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform12scaleChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform14scale3DChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform15rotationChangedERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform18translationChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform13matrixChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform16rotationXChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform16rotationYChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform16rotationZChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform18worldMatrixChangedERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QTransformC1ERNS_17QTransformPrivateEPNS_5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN8Qt3DCore10QTransform6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore10QTransform6d_funcEv": ["address", "address"],

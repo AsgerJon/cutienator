@@ -178,6 +178,18 @@
     ],
     "ritual_ZNK13QStandardItem5cloneEv": ["address", "address"],
     "ritual_ZNK13QStandardItem4typeEv": ["int", "address"],
+    "ritual_ZN13QStandardItem4readER11QDataStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStandardItem5writeER11QDataStream": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStandardItemltERKS_": ["bool", "address", "address"],
+    "ritual_ZN13QStandardItemC1ERKS_": ["address", "address"],
+    "ritual_ZN13QStandardItemC1ER20QStandardItemPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN13QStandardItemaSERKS_": ["address", "address", "address"],
     "ritual_ZN13QStandardItem15emitDataChangedEv": ["nothing", "address"],
     "ritual_ZN13QStandardItem6d_funcEv": ["address", "address"],
     "ritual_ZNK13QStandardItem6d_funcEv": ["address", "address"],

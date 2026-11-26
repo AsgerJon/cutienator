@@ -6,10 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK13LocalClientIo10metaObjectEv": ["address", "address"],
+    "ritual_ZN13LocalClientIo11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13LocalClientIo11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13LocalClientIoD1Ev": ["nothing", "address"],
     "ritual_ZNK13LocalClientIo10connectionEv": ["address", "address"],
     "ritual_ZN13LocalClientIo15connectToServerEv": ["nothing", "address"],
     "ritual_ZNK13LocalClientIo6isOpenEv": ["bool", "address"],
+    "ritual_ZN13LocalClientIo7onErrorEN12QLocalSocket16LocalSocketErrorE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN13LocalClientIo14onStateChangedEN12QLocalSocket16LocalSocketStateE": [
       "nothing", "address", "int"
     ],

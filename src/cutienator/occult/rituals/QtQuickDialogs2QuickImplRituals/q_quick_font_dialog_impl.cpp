@@ -15,12 +15,32 @@
 #include <QtGui/qfont.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
+#include <QtCore/QSharedPointer>
 
 //  const QMetaObject *QQuickFontDialogImpl::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QQuickFontDialogImpl10metaObjectEv(
     const QQuickFontDialogImpl *self) {
   return self->metaObject();
+}
+
+//  void *QQuickFontDialogImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickFontDialogImpl11qt_metacastEPKc(
+    QQuickFontDialogImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFontDialogImpl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickFontDialogImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFontDialogImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickFontDialogImpl::tr(const char *s, const char *c, int n)
@@ -54,6 +74,22 @@ QQuickFontDialogImplAttached *ritual_ZN20QQuickFontDialogImpl21qmlAttachedProper
   return QQuickFontDialogImpl::qmlAttachedProperties(object);
 }
 
+//  QSharedPointer<QFontDialogOptions> QQuickFontDialogImpl::options() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QFontDialogOptions> *ritual_ZNK20QQuickFontDialogImpl7optionsEv(
+    const QQuickFontDialogImpl *self) {
+  return new QSharedPointer<QFontDialogOptions>(self->options());
+}
+
+//  void QQuickFontDialogImpl::setOptions(const
+//      QSharedPointer<QFontDialogOptions> &options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFontDialogImpl10setOptionsERK14QSharedPointerI18QFontDialogOptionsE(
+    QQuickFontDialogImpl *self,
+    const QSharedPointer<QFontDialogOptions> *options) {
+  self->setOptions(*options);
+}
+
 //  QFont QQuickFontDialogImpl::currentFont() const
 extern "C" Q_DECL_EXPORT
 QFont *ritual_ZNK20QQuickFontDialogImpl11currentFontEv(
@@ -75,6 +111,21 @@ void ritual_ZN20QQuickFontDialogImpl14setCurrentFontERK5QFontb(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickFontDialogImpl4initEv(QQuickFontDialogImpl *self) {
   self->init();
+}
+
+//  void QQuickFontDialogImpl::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFontDialogImpl14optionsChangedEv(
+    QQuickFontDialogImpl *self) {
+  self->optionsChanged();
+}
+
+//  void QQuickFontDialogImpl::currentFontChanged(const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFontDialogImpl18currentFontChangedERK5QFont(
+    QQuickFontDialogImpl *self,
+    const QFont *font) {
+  self->currentFontChanged(*font);
 }
 
 //  void QQuickFontDialogImpl::keyReleaseEvent(QKeyEvent *event)
@@ -141,6 +192,14 @@ void ritual_own_ZN20QQuickFontDialogImpl10itemChangeEN10QQuickItem10ItemChangeER
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->QQuickFontDialogImpl::itemChange(change, *data);
+}
+
+//  a QSharedPointer<QFontDialogOptions> a ritual of QQuickFontDialogImpl
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickFontDialogImpl__QSharedPointer_QFontDialogOptions(
+    QSharedPointer<QFontDialogOptions> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_listview) && QT_CONFIG(quick_draganddrop)

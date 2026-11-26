@@ -42,7 +42,16 @@
     "ritual_ZN21QQuickPathViewPrivate16calcCurrentIndexEv": [
       "int", "address"
     ],
+    "ritual_ZN21QQuickPathViewPrivate17fixOffsetCallbackEPv": [
+      "nothing", "address"
+    ],
     "ritual_ZN21QQuickPathViewPrivate9fixOffsetEv": ["nothing", "address"],
+    "ritual_ZN21QQuickPathViewPrivate9setOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate17setAdjustedOffsetEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZN21QQuickPathViewPrivate11snapToIndexEiNS_14MovementReasonE": [
       "nothing", "address", "int", "int"
     ],

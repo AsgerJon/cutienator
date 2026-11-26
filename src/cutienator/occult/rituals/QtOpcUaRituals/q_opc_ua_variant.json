@@ -8,16 +8,31 @@
     "ritual_ZN13QOpcUaVariantC1ENS_9ValueTypeERK8QVariant": [
       "address", "int", "address"
     ],
+    "ritual_ZN13QOpcUaVariantC1ENS_9ValueTypeERK8QVariant5QListIiE": [
+      "address", "int", "address", "address"
+    ],
     "ritual_ZN13QOpcUaVariantC1ERKS_": ["address", "address"],
     "ritual_ZN13QOpcUaVariantD1Ev": ["nothing", "address"],
+    "ritual_ZN13QOpcUaVariant4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN13QOpcUaVariantaSEOS_": ["address", "address", "address"],
+    "ritual_ZN13QOpcUaVariantC1EOS_": ["address", "address"],
+    "ritual_ZN13QOpcUaVariantaSERKS_": ["address", "address", "address"],
     "ritual_ZNK13QOpcUaVariant5valueEv": ["address", "address"],
     "ritual_ZN13QOpcUaVariant8setValueENS_9ValueTypeERK8QVariant": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN13QOpcUaVariant8setValueENS_9ValueTypeERK8QVariantRK5QListIiE": [
+      "nothing", "address", "int", "address", "address"
+    ],
     "ritual_ZNK13QOpcUaVariant4typeEv": ["int", "address"],
     "ritual_ZNK13QOpcUaVariant7isArrayEv": ["bool", "address"],
+    "ritual_ZNK13QOpcUaVariant15arrayDimensionsEv": ["address", "address"],
+    "ritual_ZN13QOpcUaVariant18setArrayDimensionsERK5QListIiE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK13QOpcUaVariantcv8QVariantEv": ["address", "address"],
     "ritual_ZeqRK13QOpcUaVariantS1_": ["bool", "address", "address"],
-    "ritual_ZneRK13QOpcUaVariantS1_": ["bool", "address", "address"]
+    "ritual_ZneRK13QOpcUaVariantS1_": ["bool", "address", "address"],
+    "ritual_drop_QOpcUaVariant__QList_qint32": ["nothing", "address"]
   }
 }

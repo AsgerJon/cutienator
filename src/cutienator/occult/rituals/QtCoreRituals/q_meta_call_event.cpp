@@ -7,6 +7,59 @@
 #include <QtCore/6.12.0/QtCore/private/qobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qtconfigmacros.h>
+#include <QtCore/qobject.h>
+#include <QtCore/private/qobject_p.h>
+#include <QtCore/private/qobject_p_p.h>
+#include <QtCore/private/qmetaobject_p.h>
+#include <QtCore/private/qtclasshelper_p.h>
+#include <QtCore/qspan.h>
+#include <QtCore/qabstracteventdispatcher.h>
+#include <QtCore/private/qabstracteventdispatcher_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtCore/private/qcoreevent_p.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qmetaobject.h>
+#if QT_CONFIG(regularexpression)
+#  include <QtCore/qregularexpression.h>
+#endif
+#include <QtCore/qthread.h>
+#include <QtCore/private/qthread_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/qscopeguard.h>
+#include <QtCore/qset.h>
+#if QT_CONFIG(thread)
+#include <QtCore/private/qlatch_p.h>
+#endif
+#include <QtCore/private/qorderedmutexlocker_p.h>
+#include <QtCore/private/qhooks_p.h>
+#include <new>
+#include <mutex>
+#include <memory>
+#include <optional>
+#include <iterator>
+#include <ctype.h>
+#include <limits.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/corelib/kernel/qobject.cpp, line 544, as _ZN14QMetaCallEventC1EPK7QObjectiONS_4DataE
+inline QMetaCallEvent::QMetaCallEvent(const QObject *sender, int signalId, Data &&data)
+    : QAbstractMetaCallEvent(sender, signalId),
+      d(std::move(data))
+{
+}
+//  -----------------------------------------------------------------------
 
 //  A QMetaCallEvent that Python can take functions over in. Every QMetaCallEvent
 //  Python makes is one. Each function below asks the Python
@@ -69,6 +122,40 @@ public:
   }
 };
 
+//  QMetaCallEvent::QMetaCallEvent(ushort method_offset, ushort
+//      method_relative, QObjectPrivate::StaticMetaCallFunction callFunction,
+//      const QObject *sender, int signalId, void **args, QLatch *latch)
+extern "C" Q_DECL_EXPORT
+QMetaCallEvent *ritual_ZN14QMetaCallEventC1EttPFvP7QObjectN11QMetaObject4CallEiPPvEPKS0_iS5_P6QLatch(
+    ushort method_offset,
+    ushort method_relative,
+    void *callFunction,
+    const QObject *sender,
+    int signalId,
+    void **args,
+    QLatch *latch) {
+  return new CuteQMetaCallEvent(
+      method_offset,
+      method_relative,
+      reinterpret_cast<QObjectPrivate::StaticMetaCallFunction>(callFunction),
+      sender,
+      signalId,
+      args,
+      latch);
+}
+
+//  QMetaCallEvent::QMetaCallEvent(QtPrivate::QSlotObjectBase *slotObj, const
+//      QObject *sender, int signalId, void **args, QLatch *latch)
+extern "C" Q_DECL_EXPORT
+QMetaCallEvent *ritual_ZN14QMetaCallEventC1EPN9QtPrivate15QSlotObjectBaseEPK7QObjectiPPvP6QLatch(
+    QtPrivate::QSlotObjectBase *slotObj,
+    const QObject *sender,
+    int signalId,
+    void **args,
+    QLatch *latch) {
+  return new CuteQMetaCallEvent(slotObj, sender, signalId, args, latch);
+}
+
 //  void QMetaCallEvent::placeMetaCall(QObject *object)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QMetaCallEvent13placeMetaCallEP7QObject(
@@ -81,6 +168,16 @@ void ritual_ZN14QMetaCallEvent13placeMetaCallEP7QObject(
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK14QMetaCallEvent2idEv(const QMetaCallEvent *self) {
   return self->id();
+}
+
+//  QMetaCallEvent::QMetaCallEvent(const QObject *sender, int signalId, Data
+//      &&data)
+extern "C" Q_DECL_EXPORT
+QMetaCallEvent *ritual_ZN14QMetaCallEventC1EPK7QObjectiONS_4DataE(
+    const QObject *sender,
+    int signalId,
+    QMetaCallEvent::Data *data) {
+  return new CuteQMetaCallEvent(sender, signalId, std::move(*data));
 }
 
 //  a Python function taken by a CuteQMetaCallEvent, for the function named

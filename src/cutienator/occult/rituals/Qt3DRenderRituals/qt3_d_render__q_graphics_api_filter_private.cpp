@@ -13,6 +13,23 @@ Qt3DRender::QGraphicsApiFilterPrivate *ritual_ZN10Qt3DRender25QGraphicsApiFilter
   return new Qt3DRender::QGraphicsApiFilterPrivate();
 }
 
+//  QGraphicsApiFilterPrivate
+//      *Qt3DRender::QGraphicsApiFilterPrivate::get(QGraphicsApiFilter *q)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QGraphicsApiFilterPrivate *ritual_ZN10Qt3DRender25QGraphicsApiFilterPrivate3getEPNS_18QGraphicsApiFilterE(
+    Qt3DRender::QGraphicsApiFilter *q) {
+  return Qt3DRender::QGraphicsApiFilterPrivate::get(q);
+}
+
+//  const QGraphicsApiFilterPrivate
+//      *Qt3DRender::QGraphicsApiFilterPrivate::get(const QGraphicsApiFilter
+//      *q)
+extern "C" Q_DECL_EXPORT
+const Qt3DRender::QGraphicsApiFilterPrivate *ritual_ZN10Qt3DRender25QGraphicsApiFilterPrivate3getEPKNS_18QGraphicsApiFilterE(
+    const Qt3DRender::QGraphicsApiFilter *q) {
+  return Qt3DRender::QGraphicsApiFilterPrivate::get(q);
+}
+
 //  QGraphicsApiFilter *Qt3DRender::QGraphicsApiFilterPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QGraphicsApiFilter *ritual_ZN10Qt3DRender25QGraphicsApiFilterPrivate6q_funcEv(

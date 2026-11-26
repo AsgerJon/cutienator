@@ -6,16 +6,18 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktextnodeengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGui/qtextlayout.h>
-#include <QtCore/qrect.h>
-#include <QtGui/qbrush.h>
-#include <QtGui/qimage.h>
 #include <QtGui/qtextobject.h>
 #include <QtCore/qpoint.h>
+#include <QtGui/qcolor.h>
+#include <QtCore/qrect.h>
+#include <QtGui/qtextlayout.h>
+#include <QtGui/qbrush.h>
+#include <QtGui/qimage.h>
 #include <QtGui/qtextformat.h>
 #include <QtGui/qglyphrun.h>
-#include <QtGui/qcolor.h>
+#include <QtCore/QSpan>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtQuick/private/qquicktextnodeengine_p.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qabstracttextdocumentlayout.h>
@@ -44,62 +46,40 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 151, as _ZN20QQuickTextNodeEngine14BinaryTreeNode7inOrderERK15QVarLengthArrayIS0_Lx16EEPS1_IiLx256EEi
-inline void QQuickTextNodeEngine::BinaryTreeNode::inOrder(const QVarLengthArray<BinaryTreeNode, 16> &binaryTree,
-                                              QVarLengthArray<int> *sortedIndexes, int currentIndex)
+//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 32, as local:qquicktextnodeengine.cpp:resolveUnderlineStyle
+static QTextCharFormat::UnderlineStyle resolveUnderlineStyle(QTextCharFormat::UnderlineStyle style)
 {
-    Q_ASSERT(currentIndex < binaryTree.size());
-
-    const BinaryTreeNode *node = binaryTree.data() + currentIndex;
-    if (node->leftChildIndex >= 0)
-        inOrder(binaryTree, sortedIndexes, node->leftChildIndex);
-
-    sortedIndexes->append(currentIndex);
-
-    if (node->rightChildIndex >= 0)
-        inOrder(binaryTree, sortedIndexes, node->rightChildIndex);
-}
-
-//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 208, as _ZN20QQuickTextNodeEngine18addTextDecorationsE5QSpanIKNS_14TextDecorationELm18446744073709551615EEdd
-inline void QQuickTextNodeEngine::addTextDecorations(QSpan<const TextDecoration> textDecorations,
-                                              qreal offset, qreal thickness)
-{
-    for (auto textDecoration : textDecorations) {
-        QRectF &rect = textDecoration.rect;
-        rect.setY(qRound(rect.y() + m_currentLine.ascent() + offset));
-        rect.setHeight(thickness);
-
-        m_lines.append(textDecoration);
-    }
-}
-
-//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 123, as _ZN20QQuickTextNodeEngine14BinaryTreeNode6insertEP15QVarLengthArrayIS0_Lx16EERKS0_
-inline void QQuickTextNodeEngine::BinaryTreeNode::insert(QVarLengthArray<BinaryTreeNode, 16> *binaryTree, const BinaryTreeNode &binaryTreeNode)
-{
-    int newIndex = binaryTree->size();
-    binaryTree->append(binaryTreeNode);
-    if (newIndex == 0)
-        return;
-
-    int searchIndex = 0;
-    forever {
-        BinaryTreeNode *node = binaryTree->data() + searchIndex;
-        if (binaryTreeNode.boundingRect.left() < node->boundingRect.left()) {
-            if (node->leftChildIndex < 0) {
-                node->leftChildIndex = newIndex;
-                break;
-            } else {
-                searchIndex = node->leftChildIndex;
-            }
-        } else {
-            if (node->rightChildIndex < 0) {
-                node->rightChildIndex = newIndex;
-                break;
-            } else {
-                searchIndex = node->rightChildIndex;
-            }
+    if (style == QTextCharFormat::SpellCheckUnderline) {
+        QPlatformTheme *theme = QGuiApplicationPrivate::platformTheme();
+        if (theme) {
+            style = QTextCharFormat::UnderlineStyle(
+                    theme->themeHint(QPlatformTheme::SpellCheckUnderlineStyle).toInt());
         }
+        if (style == QTextCharFormat::SpellCheckUnderline)
+            style = QTextCharFormat::WaveUnderline;
     }
+
+    switch (style) {
+    case QTextCharFormat::NoUnderline:
+    case QTextCharFormat::SingleUnderline:
+    case QTextCharFormat::DashUnderline:
+    case QTextCharFormat::DotLine:
+    case QTextCharFormat::DashDotLine:
+    case QTextCharFormat::DashDotDotLine:
+    case QTextCharFormat::WaveUnderline:
+        return style;
+    default:
+        qWarning("QQuickTextNodeEngine: unknown underline style %d, falling back to SingleUnderline",
+                 int(style));
+        return QTextCharFormat::SingleUnderline;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdistancefieldglyphnode.cpp, line 11, as _Z8lcSgTextv
+inline const QLoggingCategory &lcSgText()
+{
+    static const QLoggingCategory category("qt.scenegraph.text");
+    return category;
 }
 
 //  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 94, as _ZN20QQuickTextNodeEngine14BinaryTreeNode6insertEP15QVarLengthArrayIS0_Lx16EERK9QGlyphRunNS_14SelectionStateE6QFlagsINS_10DecorationEEN15QTextCharFormat14UnderlineStyleERK6QColorSF_SF_RK7QPointF
@@ -132,6 +112,51 @@ inline void QQuickTextNodeEngine::BinaryTreeNode::insert(QVarLengthArray<BinaryT
                                       ascent));
 }
 
+//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 123, as _ZN20QQuickTextNodeEngine14BinaryTreeNode6insertEP15QVarLengthArrayIS0_Lx16EERKS0_
+inline void QQuickTextNodeEngine::BinaryTreeNode::insert(QVarLengthArray<BinaryTreeNode, 16> *binaryTree, const BinaryTreeNode &binaryTreeNode)
+{
+    int newIndex = binaryTree->size();
+    binaryTree->append(binaryTreeNode);
+    if (newIndex == 0)
+        return;
+
+    int searchIndex = 0;
+    forever {
+        BinaryTreeNode *node = binaryTree->data() + searchIndex;
+        if (binaryTreeNode.boundingRect.left() < node->boundingRect.left()) {
+            if (node->leftChildIndex < 0) {
+                node->leftChildIndex = newIndex;
+                break;
+            } else {
+                searchIndex = node->leftChildIndex;
+            }
+        } else {
+            if (node->rightChildIndex < 0) {
+                node->rightChildIndex = newIndex;
+                break;
+            } else {
+                searchIndex = node->rightChildIndex;
+            }
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 151, as _ZN20QQuickTextNodeEngine14BinaryTreeNode7inOrderERK15QVarLengthArrayIS0_Lx16EEPS1_IiLx256EEi
+inline void QQuickTextNodeEngine::BinaryTreeNode::inOrder(const QVarLengthArray<BinaryTreeNode, 16> &binaryTree,
+                                              QVarLengthArray<int> *sortedIndexes, int currentIndex)
+{
+    Q_ASSERT(currentIndex < binaryTree.size());
+
+    const BinaryTreeNode *node = binaryTree.data() + currentIndex;
+    if (node->leftChildIndex >= 0)
+        inOrder(binaryTree, sortedIndexes, node->leftChildIndex);
+
+    sortedIndexes->append(currentIndex);
+
+    if (node->rightChildIndex >= 0)
+        inOrder(binaryTree, sortedIndexes, node->rightChildIndex);
+}
+
 //  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 68, as _ZN20QQuickTextNodeEngine14BinaryTreeNodeC1ERK9QGlyphRunNS_14SelectionStateERK6QRectFRK6QFlagsINS_10DecorationEEN15QTextCharFormat14UnderlineStyleERK6QColorSH_SH_RK7QPointFd
 inline QQuickTextNodeEngine::BinaryTreeNode::BinaryTreeNode(const QGlyphRun &g,
                                                      SelectionState selState,
@@ -157,6 +182,215 @@ inline QQuickTextNodeEngine::BinaryTreeNode::BinaryTreeNode(const QGlyphRun &g,
 {
     QGlyphRunPrivate *d = QGlyphRunPrivate::get(g);
     ranges.append(std::make_pair(d->textRangeStart, d->textRangeEnd));
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 1032, as _ZN20QQuickTextNodeEngine12addTextBlockEP13QTextDocumentRK10QTextBlockRK7QPointFRK6QColorSA_iiRK6QRectF
+inline void QQuickTextNodeEngine::addTextBlock(QTextDocument *textDocument, const QTextBlock &block, const QPointF &position,
+                                        const QColor &textColor, const QColor &anchorColor, int selectionStart, int selectionEnd, const QRectF &viewport)
+{
+    Q_ASSERT(textDocument);
+#if QT_CONFIG(im)
+    int preeditLength = block.isValid() ? block.layout()->preeditAreaText().size() : 0;
+    int preeditPosition = block.isValid() ? block.layout()->preeditAreaPosition() : -1;
+#endif
+
+    setCurrentTextDirection(block.textDirection());
+
+    QVarLengthArray<QTextLayout::FormatRange> colorChanges;
+    mergeFormats(block.layout(), &colorChanges);
+
+    const QTextCharFormat charFormat = block.charFormat();
+    const QRectF blockBoundingRect = textDocument->documentLayout()->blockBoundingRect(block).translated(position);
+    if (viewport.isValid()) {
+        if (!blockBoundingRect.intersects(viewport))
+            return;
+        qCDebug(lcSgText) << "adding block with length" << block.length() << ':' << blockBoundingRect << "in viewport" << viewport;
+    }
+
+    if (charFormat.background().style() != Qt::NoBrush)
+        m_backgrounds.append(std::make_pair(blockBoundingRect, charFormat.background().color()));
+
+    if (QTextList *textList = block.textList()) {
+        QPointF pos = blockBoundingRect.topLeft();
+        QTextLayout *layout = block.layout();
+        if (layout->lineCount() > 0) {
+            QTextLine firstLine = layout->lineAt(0);
+            Q_ASSERT(firstLine.isValid());
+
+            setCurrentLine(firstLine);
+
+            QRectF textRect = firstLine.naturalTextRect();
+            pos += textRect.topLeft();
+            if (block.textDirection() == Qt::RightToLeft)
+                pos.rx() += textRect.width();
+
+            QFont font(charFormat.font());
+            QFontMetricsF fontMetrics(font);
+            QTextListFormat listFormat = textList->format();
+
+            QString listItemBullet;
+            switch (listFormat.style()) {
+            case QTextListFormat::ListCircle:
+                listItemBullet = QChar(0x25E6); // White bullet
+                break;
+            case QTextListFormat::ListSquare:
+                listItemBullet = QChar(0x25AA); // Black small square
+                break;
+            case QTextListFormat::ListDecimal:
+            case QTextListFormat::ListLowerAlpha:
+            case QTextListFormat::ListUpperAlpha:
+            case QTextListFormat::ListLowerRoman:
+            case QTextListFormat::ListUpperRoman:
+                listItemBullet = textList->itemText(block);
+                break;
+            default:
+                listItemBullet = QChar(0x2022); // Black bullet
+                break;
+            };
+
+            switch (block.blockFormat().marker()) {
+            case QTextBlockFormat::MarkerType::Checked:
+                listItemBullet = QChar(0x2612); // Checked checkbox
+                break;
+            case QTextBlockFormat::MarkerType::Unchecked:
+                listItemBullet = QChar(0x2610); // Unchecked checkbox
+                break;
+            case QTextBlockFormat::MarkerType::NoMarker:
+                break;
+            }
+
+            QSizeF size(fontMetrics.horizontalAdvance(listItemBullet), fontMetrics.height());
+            qreal xoff = fontMetrics.horizontalAdvance(QLatin1Char(' '));
+            if (block.textDirection() == Qt::LeftToRight)
+                xoff = -xoff - size.width();
+
+            QTextLayout layout;
+            layout.setFont(font);
+            layout.setText(listItemBullet); // Bullet
+            layout.beginLayout();
+            QTextLine line = layout.createLine();
+            line.setPosition(QPointF(0, 0));
+            layout.endLayout();
+
+            // Align the marker to the first line's baseline, so it does not float
+            // above taller content such as an inline image or a larger font.
+            const qreal baselineOffset = firstLine.ascent() - line.ascent();
+            setPosition(pos + QPointF(xoff, baselineOffset));
+
+            // set the color for the bullets, instead of using the previous QTextBlock's color.
+            if (charFormat.foreground().style() == Qt::NoBrush)
+                setTextColor(textColor);
+            else
+                setTextColor(charFormat.foreground().color());
+
+            const QList<QGlyphRun> glyphRuns = layout.glyphRuns();
+            for (const auto &e : glyphRuns)
+                addUnselectedGlyphs(e);
+        }
+    }
+
+    int textPos = block.position();
+    QTextBlock::iterator blockIterator = block.begin();
+
+    while (!blockIterator.atEnd()) {
+        QTextFragment fragment = blockIterator.fragment();
+        QString text = fragment.text();
+        if (text.isEmpty())
+            continue;
+
+        QTextCharFormat charFormat = fragment.charFormat();
+        QFont font(charFormat.font());
+        QFontMetricsF fontMetrics(font);
+
+        int fontHeight = fontMetrics.descent() + fontMetrics.ascent();
+        int valign = charFormat.verticalAlignment();
+        if (valign == QTextCharFormat::AlignSuperScript)
+            setPosition(QPointF(blockBoundingRect.x(), blockBoundingRect.y() - fontHeight / 2));
+        else if (valign == QTextCharFormat::AlignSubScript)
+            setPosition(QPointF(blockBoundingRect.x(), blockBoundingRect.y() + fontHeight / 6));
+        else
+            setPosition(blockBoundingRect.topLeft());
+
+        if (text.contains(QChar::ObjectReplacementCharacter) && charFormat.objectType() != QTextFormat::NoObject) {
+            QTextFrame *frame = qobject_cast<QTextFrame *>(textDocument->objectForFormat(charFormat));
+            if (!frame || frame->frameFormat().position() == QTextFrameFormat::InFlow) {
+                int blockRelativePosition = textPos - block.position();
+                QTextLine line = block.layout()->lineForTextPosition(blockRelativePosition);
+                if (!currentLine().isValid()
+                        || line.lineNumber() != currentLine().lineNumber()) {
+                    setCurrentLine(line);
+                }
+
+                QQuickTextNodeEngine::SelectionState selectionState =
+                        (selectionStart < textPos + text.size()
+                         && selectionEnd >= textPos)
+                        ? QQuickTextNodeEngine::Selected
+                        : QQuickTextNodeEngine::Unselected;
+
+                addTextObject(block, QPointF(), charFormat, selectionState, textDocument, textPos);
+            }
+            textPos += text.size();
+        } else {
+            if (charFormat.foreground().style() != Qt::NoBrush)
+                setTextColor(charFormat.foreground().color());
+            else if (charFormat.isAnchor())
+                setTextColor(anchorColor);
+            else
+                setTextColor(textColor);
+
+            int fragmentEnd = textPos + fragment.length();
+#if QT_CONFIG(im)
+            if (preeditPosition >= 0
+                    && (preeditPosition + block.position()) >= textPos
+                    && (preeditPosition + block.position()) <= fragmentEnd) {
+                fragmentEnd += preeditLength;
+            }
+#endif
+            if (charFormat.background().style() != Qt::NoBrush
+                || charFormat.hasProperty(QTextFormat::TextUnderlineColor)
+                || charFormat.hasProperty(QTextFormat::TextUnderlineStyle)) {
+                QTextLayout::FormatRange additionalFormat;
+                additionalFormat.start = textPos - block.position();
+                additionalFormat.length = fragmentEnd - textPos;
+                additionalFormat.format = charFormat;
+                colorChanges << additionalFormat;
+            }
+
+            textPos = addText(block, charFormat, textColor, colorChanges, textPos, fragmentEnd,
+                                                 selectionStart, selectionEnd);
+        }
+
+        ++blockIterator;
+    }
+
+#if QT_CONFIG(im)
+    if (preeditLength >= 0 && textPos <= block.position() + preeditPosition) {
+        setPosition(blockBoundingRect.topLeft());
+        textPos = block.position() + preeditPosition;
+        QTextLine line = block.layout()->lineForTextPosition(preeditPosition);
+        if (!currentLine().isValid()
+                || line.lineNumber() != currentLine().lineNumber()) {
+            setCurrentLine(line);
+        }
+        textPos = addText(block, block.charFormat(), textColor, colorChanges,
+                                             textPos, textPos + preeditLength,
+                                             selectionStart, selectionEnd);
+    }
+#endif
+
+    // Add block decorations (so far only horizontal rules)
+    if (block.blockFormat().hasProperty(QTextFormat::BlockTrailingHorizontalRulerWidth)) {
+        auto ruleLength = qvariant_cast<QTextLength>(block.blockFormat().property(QTextFormat::BlockTrailingHorizontalRulerWidth));
+        QRectF ruleRect(0, 0, ruleLength.value(blockBoundingRect.width()), 1);
+        ruleRect.moveCenter(blockBoundingRect.center());
+        const QColor ruleColor = block.blockFormat().hasProperty(QTextFormat::BackgroundBrush)
+                               ? qvariant_cast<QBrush>(block.blockFormat().property(QTextFormat::BackgroundBrush)).color()
+                               : m_textColor;
+        m_lines.append(TextDecoration(QQuickTextNodeEngine::Unselected, ruleRect, ruleColor));
+    }
+
+    setCurrentLine(QTextLine()); // Reset current line because the text layout changed
+    m_hasContents = true;
 }
 
 //  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 693, as _ZN20QQuickTextNodeEngine9addBorderERK6QRectFdN16QTextFrameFormat11BorderStyleERK6QBrush
@@ -256,6 +490,48 @@ inline void QQuickTextNodeEngine::addImage(const QRectF &rect, const QImage &ima
 
     BinaryTreeNode::insert(&m_currentLineTree, searchRect, image, ascent, selectionState);
     m_hasContents = true;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 167, as _ZN20QQuickTextNodeEngine7addTextERK10QTextBlockRK15QTextCharFormatRK6QColorRK15QVarLengthArrayIN11QTextLayout11FormatRangeELx256EEiiii
+inline int QQuickTextNodeEngine::addText(const QTextBlock &block,
+                                  const QTextCharFormat &charFormat,
+                                  const QColor &textColor,
+                                  const QVarLengthArray<QTextLayout::FormatRange> &colorChanges,
+                                  int textPos, int fragmentEnd,
+                                  int selectionStart, int selectionEnd)
+{
+    if (charFormat.foreground().style() != Qt::NoBrush)
+        setTextColor(charFormat.foreground().color());
+    else
+        setTextColor(textColor);
+
+    while (textPos < fragmentEnd) {
+        int blockRelativePosition = textPos - block.position();
+        QTextLine line = block.layout()->lineForTextPosition(blockRelativePosition);
+        if (!line.isValid())
+            break;
+        if (!currentLine().isValid()
+                || line.lineNumber() != currentLine().lineNumber()) {
+            setCurrentLine(line);
+        }
+
+        Q_ASSERT(line.textLength() > 0);
+        int lineEnd = line.textStart() + block.position() + line.textLength();
+
+        int len = qMin(lineEnd - textPos, fragmentEnd - textPos);
+        Q_ASSERT(len > 0);
+
+        int currentStepEnd = textPos + len;
+
+        addGlyphsForRanges(colorChanges,
+                           textPos - block.position(),
+                           currentStepEnd - block.position(),
+                           selectionStart - block.position(),
+                           selectionEnd - block.position());
+
+        textPos = currentStepEnd;
+    }
+    return textPos;
 }
 
 //  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 481, as _ZN20QQuickTextNodeEngine13addTextObjectERK10QTextBlockRK7QPointFRK15QTextCharFormatNS_14SelectionStateEP13QTextDocumentiN16QTextFrameFormat8PositionE
@@ -419,6 +695,60 @@ inline void QQuickTextNodeEngine::addGlyphsInRange(int rangeStart, int rangeLeng
         m_textColor = oldColor;
 
     m_underlineStyle = oldUnderlineStyle;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 568, as _ZN20QQuickTextNodeEngine18addGlyphsForRangesERK15QVarLengthArrayIN11QTextLayout11FormatRangeELx256EEiiii
+inline void QQuickTextNodeEngine::addGlyphsForRanges(const QVarLengthArray<QTextLayout::FormatRange> &ranges,
+                                              int start, int end,
+                                              int selectionStart, int selectionEnd)
+{
+    int currentPosition = start;
+    int remainingLength = end - start;
+    for (const QTextLayout::FormatRange &range : ranges) {
+        if (range.start + range.length > currentPosition
+                && range.start < currentPosition + remainingLength) {
+
+            if (range.start > currentPosition) {
+                addGlyphsInRange(currentPosition, range.start - currentPosition,
+                                 QTextCharFormat::NoUnderline,
+                                 QColor(), QColor(), QColor(), selectionStart, selectionEnd);
+            }
+            int rangeEnd = qMin(range.start + range.length, currentPosition + remainingLength);
+            QColor rangeColor;
+            if (range.format.hasProperty(QTextFormat::ForegroundBrush))
+                rangeColor = range.format.foreground().color();
+            else if (range.format.isAnchor())
+                rangeColor = m_anchorColor;
+            QColor rangeBackgroundColor = range.format.hasProperty(QTextFormat::BackgroundBrush)
+                    ? range.format.background().color()
+                    : QColor();
+
+            QColor rangeDecorationColor = range.format.hasProperty(QTextFormat::TextUnderlineColor)
+                    ? range.format.underlineColor()
+                    : QColor();
+
+            QTextCharFormat::UnderlineStyle rangeUnderlineStyle = QTextCharFormat::NoUnderline;
+            if (range.format.hasProperty(QTextFormat::TextUnderlineStyle))
+                rangeUnderlineStyle = range.format.underlineStyle();
+
+            addGlyphsInRange(range.start, rangeEnd - range.start, rangeUnderlineStyle,
+                             rangeColor, rangeBackgroundColor,
+                             rangeDecorationColor, selectionStart, selectionEnd);
+
+            currentPosition = range.start + range.length;
+            remainingLength = end - currentPosition;
+
+        } else if (range.start > currentPosition + remainingLength || remainingLength <= 0) {
+            break;
+        }
+    }
+
+    if (remainingLength > 0) {
+        addGlyphsInRange(currentPosition, remainingLength, QTextCharFormat::NoUnderline,
+                         QColor(), QColor(), QColor(),
+                         selectionStart, selectionEnd);
+    }
+
 }
 
 //  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 220, as _ZN20QQuickTextNodeEngine18processCurrentLineEv
@@ -654,6 +984,73 @@ inline void QQuickTextNodeEngine::processCurrentLine()
     m_currentLine = QTextLine();
     m_hasSelection = false;
 }
+
+//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 208, as _ZN20QQuickTextNodeEngine18addTextDecorationsE5QSpanIKNS_14TextDecorationELm18446744073709551615EEdd
+inline void QQuickTextNodeEngine::addTextDecorations(QSpan<const TextDecoration> textDecorations,
+                                              qreal offset, qreal thickness)
+{
+    for (auto textDecoration : textDecorations) {
+        QRectF &rect = textDecoration.rect;
+        rect.setY(qRound(rect.y() + m_currentLine.ascent() + offset));
+        rect.setHeight(thickness);
+
+        m_lines.append(textDecoration);
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktextnodeengine.cpp, line 970, as _ZN20QQuickTextNodeEngine12mergeFormatsEP11QTextLayoutP15QVarLengthArrayINS0_11FormatRangeELx256EE
+inline void QQuickTextNodeEngine::mergeFormats(QTextLayout *textLayout, QVarLengthArray<QTextLayout::FormatRange> *mergedFormats)
+{
+    Q_ASSERT(mergedFormats != nullptr);
+    if (textLayout == nullptr)
+        return;
+
+    const QList<QTextLayout::FormatRange> additionalFormats = textLayout->formats();
+    for (QTextLayout::FormatRange additionalFormat : additionalFormats) {
+        if (additionalFormat.format.hasProperty(QTextFormat::ForegroundBrush)
+         || additionalFormat.format.hasProperty(QTextFormat::BackgroundBrush)
+         || additionalFormat.format.hasProperty(QTextFormat::TextUnderlineStyle)
+         || additionalFormat.format.hasProperty(QTextFormat::TextUnderlineColor)
+         || additionalFormat.format.isAnchor()) {
+            // Merge overlapping formats
+            if (!mergedFormats->isEmpty()) {
+                QTextLayout::FormatRange *lastFormat = mergedFormats->data() + mergedFormats->size() - 1;
+
+                if (additionalFormat.start < lastFormat->start + lastFormat->length) {
+                    QTextLayout::FormatRange *mergedRange = nullptr;
+
+                    int length = additionalFormat.length;
+                    if (additionalFormat.start > lastFormat->start) {
+                        lastFormat->length = additionalFormat.start - lastFormat->start;
+                        length -= lastFormat->length;
+
+                        mergedFormats->append(QTextLayout::FormatRange());
+                        mergedRange = mergedFormats->data() + mergedFormats->size() - 1;
+                        lastFormat = mergedFormats->data() + mergedFormats->size() - 2;
+                    } else {
+                        mergedRange = lastFormat;
+                    }
+
+                    mergedRange->format = lastFormat->format;
+                    mergedRange->format.merge(additionalFormat.format);
+                    mergedRange->start = additionalFormat.start;
+
+                    int end = qMin(additionalFormat.start + additionalFormat.length,
+                                   lastFormat->start + lastFormat->length);
+
+                    mergedRange->length = end - mergedRange->start;
+                    length -= mergedRange->length;
+
+                    additionalFormat.start = end;
+                    additionalFormat.length = length;
+                }
+            }
+
+            if (additionalFormat.length > 0)
+                mergedFormats->append(additionalFormat);
+        }
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  QQuickTextNodeEngine::QQuickTextNodeEngine()
@@ -667,6 +1064,32 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QQuickTextNodeEngine11hasContentsEv(
     const QQuickTextNodeEngine *self) {
   return self->hasContents();
+}
+
+//  void QQuickTextNodeEngine::addTextBlock(QTextDocument *a0, const
+//      QTextBlock &a1, const QPointF &position, const QColor &textColor,
+//      const QColor &anchorColor, int selectionStart, int selectionEnd,
+//      const QRectF &viewport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickTextNodeEngine12addTextBlockEP13QTextDocumentRK10QTextBlockRK7QPointFRK6QColorSA_iiRK6QRectF(
+    QQuickTextNodeEngine *self,
+    QTextDocument *a0,
+    const QTextBlock *a1,
+    const QPointF *position,
+    const QColor *textColor,
+    const QColor *anchorColor,
+    int selectionStart,
+    int selectionEnd,
+    const QRectF *viewport) {
+  self->addTextBlock(
+      a0,
+      *a1,
+      *position,
+      *textColor,
+      *anchorColor,
+      selectionStart,
+      selectionEnd,
+      *viewport);
 }
 
 //  QTextLine QQuickTextNodeEngine::currentLine() const
@@ -727,6 +1150,32 @@ void ritual_ZN20QQuickTextNodeEngine8addImageERK6QRectFRK6QImagedNS_14SelectionS
     QQuickTextNodeEngine::SelectionState selectionState,
     QTextFrameFormat::Position layoutPosition) {
   self->addImage(*rect, *image, ascent, selectionState, layoutPosition);
+}
+
+//  int QQuickTextNodeEngine::addText(const QTextBlock &block, const
+//      QTextCharFormat &charFormat, const QColor &textColor, const
+//      QVarLengthArray<QTextLayout::FormatRange> &colorChanges, int textPos,
+//      int fragmentEnd, int selectionStart, int selectionEnd)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickTextNodeEngine7addTextERK10QTextBlockRK15QTextCharFormatRK6QColorRK15QVarLengthArrayIN11QTextLayout11FormatRangeELx256EEiiii(
+    QQuickTextNodeEngine *self,
+    const QTextBlock *block,
+    const QTextCharFormat *charFormat,
+    const QColor *textColor,
+    const QVarLengthArray<QTextLayout::FormatRange> *colorChanges,
+    int textPos,
+    int fragmentEnd,
+    int selectionStart,
+    int selectionEnd) {
+  return self->addText(
+      *block,
+      *charFormat,
+      *textColor,
+      *colorChanges,
+      textPos,
+      fragmentEnd,
+      selectionStart,
+      selectionEnd);
 }
 
 //  void QQuickTextNodeEngine::addTextObject(const QTextBlock &block, const
@@ -795,6 +1244,25 @@ void ritual_ZN20QQuickTextNodeEngine16addGlyphsInRangeEiiN15QTextCharFormat14Und
       selectionEnd);
 }
 
+//  void QQuickTextNodeEngine::addGlyphsForRanges(const
+//      QVarLengthArray<QTextLayout::FormatRange> &ranges, int start, int
+//      end, int selectionStart, int selectionEnd)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickTextNodeEngine18addGlyphsForRangesERK15QVarLengthArrayIN11QTextLayout11FormatRangeELx256EEiiii(
+    QQuickTextNodeEngine *self,
+    const QVarLengthArray<QTextLayout::FormatRange> *ranges,
+    int start,
+    int end,
+    int selectionStart,
+    int selectionEnd) {
+  self->addGlyphsForRanges(
+      *ranges,
+      start,
+      end,
+      selectionStart,
+      selectionEnd);
+}
+
 //  void QQuickTextNodeEngine::setSelectionColor(const QColor
 //      &selectionColor)
 extern "C" Q_DECL_EXPORT
@@ -850,6 +1318,27 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickTextNodeEngine18processCurrentLineEv(
     QQuickTextNodeEngine *self) {
   self->processCurrentLine();
+}
+
+//  void QQuickTextNodeEngine::addTextDecorations(QSpan<const TextDecoration>
+//      textDecorations, qreal offset, qreal thickness)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickTextNodeEngine18addTextDecorationsE5QSpanIKNS_14TextDecorationELm18446744073709551615EEdd(
+    QQuickTextNodeEngine *self,
+    const QSpan<const QQuickTextNodeEngine::TextDecoration> *textDecorations,
+    qreal offset,
+    qreal thickness) {
+  self->addTextDecorations(*textDecorations, offset, thickness);
+}
+
+//  void QQuickTextNodeEngine::mergeFormats(QTextLayout *textLayout,
+//      QVarLengthArray<QTextLayout::FormatRange> *mergedFormats)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickTextNodeEngine12mergeFormatsEP11QTextLayoutP15QVarLengthArrayINS0_11FormatRangeELx256EE(
+    QQuickTextNodeEngine *self,
+    QTextLayout *textLayout,
+    QVarLengthArray<QTextLayout::FormatRange> *mergedFormats) {
+  self->mergeFormats(textLayout, mergedFormats);
 }
 
 //  QQuickTextNodeEngine::~QQuickTextNodeEngine()

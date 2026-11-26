@@ -34,6 +34,13 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from ../qtscxml/src/scxml/qscxmlcompiler.cpp, line 1144, as _ZN13DocumentModel4NodeD2Ev
+inline DocumentModel::Node::~Node()
+{
+}
+
 //  from ../qtscxml/src/scxml/qscxmlcompiler.cpp, line 1148, as _ZN13DocumentModel4Node15asAbstractStateEv
 inline DocumentModel::AbstractState *DocumentModel::Node::asAbstractState()
 {
@@ -200,6 +207,13 @@ public:
     return DocumentModel::Node::asScxml();
   }
 };
+
+//  DocumentModel::Node::Node(const XmlLocation &theLocation)
+extern "C" Q_DECL_EXPORT
+DocumentModel::Node *ritual_ZN13DocumentModel4NodeC1ERKNS_11XmlLocationE(
+    const DocumentModel::XmlLocation *theLocation) {
+  return new CuteDocumentModel_Node(*theLocation);
+}
 
 //  DocumentModel::Node::~Node()
 extern "C" Q_DECL_EXPORT

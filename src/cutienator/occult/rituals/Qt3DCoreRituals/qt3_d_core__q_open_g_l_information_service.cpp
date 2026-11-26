@@ -202,6 +202,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore25QOpenGLInformationService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QOpenGLInformationService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore25QOpenGLInformationService11qt_metacastEPKc(
+    Qt3DCore::QOpenGLInformationService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QOpenGLInformationService::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore25QOpenGLInformationService11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QOpenGLInformationService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QOpenGLInformationService::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -217,6 +236,22 @@ extern "C" Q_DECL_EXPORT
 QSurfaceFormat *ritual_ZNK8Qt3DCore25QOpenGLInformationService6formatEv(
     const Qt3DCore::QOpenGLInformationService *self) {
   return new QSurfaceFormat(self->format());
+}
+
+//  Qt3DCore::QOpenGLInformationService::QOpenGLInformationService(const
+//      QString &description)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QOpenGLInformationService *ritual_ZN8Qt3DCore25QOpenGLInformationServiceC1ERK7QString(
+    const QString *description) {
+  return new CuteQt3DCore_QOpenGLInformationService(*description);
+}
+
+//  Qt3DCore::QOpenGLInformationService::QOpenGLInformationService(QOpenGLInf
+//      ormationServicePrivate &dd)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QOpenGLInformationService *ritual_ZN8Qt3DCore25QOpenGLInformationServiceC1ERNS_32QOpenGLInformationServicePrivateE(
+    Qt3DCore::QOpenGLInformationServicePrivate *dd) {
+  return new CuteQt3DCore_QOpenGLInformationService(*dd);
 }
 
 //  a Python function taken by a CuteQt3DCore_QOpenGLInformationService, for

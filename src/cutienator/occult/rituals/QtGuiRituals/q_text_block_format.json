@@ -52,11 +52,24 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK16QTextBlockFormat15pageBreakPolicyEv": ["int", "address"],
+    "ritual_ZN16QTextBlockFormat15setTabPositionsERK5QListIN11QTextOption3TabEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTextBlockFormat12tabPositionsEv": ["address", "address"],
     "ritual_ZN16QTextBlockFormat9setMarkerENS_10MarkerTypeE": [
       "nothing", "address", "int"
     ],
     "ritual_ZNK16QTextBlockFormat6markerEv": ["int", "address"],
     "ritual_ZN16QTextBlockFormatC1ERK11QTextFormat": ["address", "address"],
-    "ritual_ZN16QTextBlockFormatD1Ev": ["nothing", "address"]
+    "ritual_ZlsR11QDataStreamRK16QTextBlockFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR16QTextBlockFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QTextBlockFormatD1Ev": ["nothing", "address"],
+    "ritual_drop_QTextBlockFormat__QList_QTextOption_Tab": [
+      "nothing", "address"
+    ]
   }
 }

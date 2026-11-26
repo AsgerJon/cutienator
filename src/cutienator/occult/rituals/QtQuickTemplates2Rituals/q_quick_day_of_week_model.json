@@ -6,9 +6,26 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickDayOfWeekModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickDayOfWeekModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickDayOfWeekModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK20QQuickDayOfWeekModel9roleNamesEv": ["address", "address"],
+    "ritual_ZNK20QQuickDayOfWeekModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK20QQuickDayOfWeekModel8rowCountERK11QModelIndex": [
       "int", "address", "address"
+    ],
+    "ritual_ZN20QQuickDayOfWeekModel13localeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickDayOfWeekModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickDayOfWeekModel6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK20QQuickDayOfWeekModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
     ],
     "ritual_own_ZNK20QQuickDayOfWeekModel8rowCountERK11QModelIndex": [
       "int", "address", "address"

@@ -8,12 +8,39 @@
     "ritual_ZNK27QDBusMenuRegistrarInterface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QDBusMenuRegistrarInterface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QDBusMenuRegistrarInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QDBusMenuRegistrarInterface19staticInterfaceNameEv": [
       "chars"
     ],
     "ritual_ZN27QDBusMenuRegistrarInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN27QDBusMenuRegistrarInterface16GetMenuForWindowEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN27QDBusMenuRegistrarInterface16GetMenuForWindowEjR15QDBusObjectPath": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN27QDBusMenuRegistrarInterface14RegisterWindowEjRK15QDBusObjectPath": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN27QDBusMenuRegistrarInterface16UnregisterWindowEj": [
+      "address", "address", "unsigned int"
+    ],
     "ritual_take_QDBusMenuRegistrarInterface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QDBusMenuRegistrarInterface__QDBusPendingReply_QString_QDBusObjectPath": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusMenuRegistrarInterface__QDBusReply_QString": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDBusMenuRegistrarInterface__QDBusPendingReply": [
+      "nothing", "address"
     ]
   }
 }

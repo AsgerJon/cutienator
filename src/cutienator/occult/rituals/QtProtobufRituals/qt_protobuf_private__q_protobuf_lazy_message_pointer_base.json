@@ -11,6 +11,12 @@
     "ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseC1EP16QProtobufMessage": [
       "address", "address"
     ],
+    "ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseC1EOS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseaSEOS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK17QtProtobufPrivate31QProtobufLazyMessagePointerBase7messageEv": [
       "address", "address"
     ],
@@ -19,6 +25,9 @@
     ],
     "ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBase4swapERS0_": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK17QtProtobufPrivate31QProtobufLazyMessagePointerBasecvbEv": [
       "bool", "address"

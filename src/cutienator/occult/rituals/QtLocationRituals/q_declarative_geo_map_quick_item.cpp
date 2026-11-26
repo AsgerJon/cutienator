@@ -922,6 +922,25 @@ const QMetaObject *ritual_ZNK27QDeclarativeGeoMapQuickItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoMapQuickItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QDeclarativeGeoMapQuickItem11qt_metacastEPKc(
+    QDeclarativeGeoMapQuickItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoMapQuickItem::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QDeclarativeGeoMapQuickItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoMapQuickItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoMapQuickItem::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -1040,6 +1059,34 @@ bool ritual_ZNK27QDeclarativeGeoMapQuickItem8containsERK7QPointF(
     const QDeclarativeGeoMapQuickItem *self,
     const QPointF *point) {
   return self->contains(*point);
+}
+
+//  void QDeclarativeGeoMapQuickItem::coordinateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeGeoMapQuickItem17coordinateChangedEv(
+    QDeclarativeGeoMapQuickItem *self) {
+  self->coordinateChanged();
+}
+
+//  void QDeclarativeGeoMapQuickItem::sourceItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeGeoMapQuickItem17sourceItemChangedEv(
+    QDeclarativeGeoMapQuickItem *self) {
+  self->sourceItemChanged();
+}
+
+//  void QDeclarativeGeoMapQuickItem::anchorPointChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeGeoMapQuickItem18anchorPointChangedEv(
+    QDeclarativeGeoMapQuickItem *self) {
+  self->anchorPointChanged();
+}
+
+//  void QDeclarativeGeoMapQuickItem::zoomLevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeGeoMapQuickItem16zoomLevelChangedEv(
+    QDeclarativeGeoMapQuickItem *self) {
+  self->zoomLevelChanged();
 }
 
 //  void QDeclarativeGeoMapQuickItem::geometryChange(const QRectF

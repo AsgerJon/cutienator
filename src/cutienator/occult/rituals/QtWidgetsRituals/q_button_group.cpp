@@ -5,7 +5,9 @@
 #if QT_CONFIG(buttongroup)
 #include <QtWidgets/qbuttongroup.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(abstractbutton)
 #include <QtWidgets/qabstractbutton.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -184,6 +186,24 @@ const QMetaObject *ritual_ZNK12QButtonGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QButtonGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QButtonGroup11qt_metacastEPKc(
+    QButtonGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QButtonGroup::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QButtonGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QButtonGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QButtonGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QButtonGroup2trEPKcS1_i(
@@ -277,6 +297,66 @@ int ritual_ZNK12QButtonGroup2idEP15QAbstractButton(
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK12QButtonGroup9checkedIdEv(const QButtonGroup *self) {
   return self->checkedId();
+}
+
+//  void QButtonGroup::buttonClicked(QAbstractButton *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QButtonGroup13buttonClickedEP15QAbstractButton(
+    QButtonGroup *self,
+    QAbstractButton *a0) {
+  self->buttonClicked(a0);
+}
+
+//  void QButtonGroup::buttonPressed(QAbstractButton *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QButtonGroup13buttonPressedEP15QAbstractButton(
+    QButtonGroup *self,
+    QAbstractButton *a0) {
+  self->buttonPressed(a0);
+}
+
+//  void QButtonGroup::buttonReleased(QAbstractButton *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QButtonGroup14buttonReleasedEP15QAbstractButton(
+    QButtonGroup *self,
+    QAbstractButton *a0) {
+  self->buttonReleased(a0);
+}
+
+//  void QButtonGroup::buttonToggled(QAbstractButton *a0, bool a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QButtonGroup13buttonToggledEP15QAbstractButtonb(
+    QButtonGroup *self,
+    QAbstractButton *a0,
+    bool a1) {
+  self->buttonToggled(a0, a1);
+}
+
+//  void QButtonGroup::idClicked(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QButtonGroup9idClickedEi(QButtonGroup *self, int a0) {
+  self->idClicked(a0);
+}
+
+//  void QButtonGroup::idPressed(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QButtonGroup9idPressedEi(QButtonGroup *self, int a0) {
+  self->idPressed(a0);
+}
+
+//  void QButtonGroup::idReleased(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QButtonGroup10idReleasedEi(QButtonGroup *self, int a0) {
+  self->idReleased(a0);
+}
+
+//  void QButtonGroup::idToggled(int a0, bool a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QButtonGroup9idToggledEib(
+    QButtonGroup *self,
+    int a0,
+    bool a1) {
+  self->idToggled(a0, a1);
 }
 
 //  QButtonGroupPrivate *QButtonGroup::d_func()

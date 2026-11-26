@@ -2,6 +2,7 @@
 //  Qt3DRender/qtexture.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DRender/qtexture.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QTextureLoader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QTextureLoader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QTextureLoader11qt_metacastEPKc(
+    Qt3DRender::QTextureLoader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QTextureLoader::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QTextureLoader11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QTextureLoader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QTextureLoader::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +207,66 @@ QString *ritual_ZN10Qt3DRender14QTextureLoader2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QTextureLoader::tr(s, c, n));
+}
+
+//  Qt3DRender::QTextureLoader::QTextureLoader(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureLoader *ritual_ZN10Qt3DRender14QTextureLoaderC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QTextureLoader(parent);
+}
+
+//  Qt3DRender::QTextureLoader::~QTextureLoader()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QTextureLoaderD1Ev(
+    Qt3DRender::QTextureLoader *self) {
+  delete self;
+}
+
+//  QUrl Qt3DRender::QTextureLoader::source() const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZNK10Qt3DRender14QTextureLoader6sourceEv(
+    const Qt3DRender::QTextureLoader *self) {
+  return new QUrl(self->source());
+}
+
+//  bool Qt3DRender::QTextureLoader::isMirrored() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender14QTextureLoader10isMirroredEv(
+    const Qt3DRender::QTextureLoader *self) {
+  return self->isMirrored();
+}
+
+//  void Qt3DRender::QTextureLoader::setSource(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QTextureLoader9setSourceERK4QUrl(
+    Qt3DRender::QTextureLoader *self,
+    const QUrl *source) {
+  self->setSource(*source);
+}
+
+//  void Qt3DRender::QTextureLoader::setMirrored(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QTextureLoader11setMirroredEb(
+    Qt3DRender::QTextureLoader *self,
+    bool mirrored) {
+  self->setMirrored(mirrored);
+}
+
+//  void Qt3DRender::QTextureLoader::sourceChanged(const QUrl &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QTextureLoader13sourceChangedERK4QUrl(
+    Qt3DRender::QTextureLoader *self,
+    const QUrl *source) {
+  self->sourceChanged(*source);
+}
+
+//  void Qt3DRender::QTextureLoader::mirroredChanged(bool mirrored)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QTextureLoader15mirroredChangedEb(
+    Qt3DRender::QTextureLoader *self,
+    bool mirrored) {
+  self->mirroredChanged(mirrored);
 }
 
 //  QTextureLoaderPrivate *Qt3DRender::QTextureLoader::d_func()

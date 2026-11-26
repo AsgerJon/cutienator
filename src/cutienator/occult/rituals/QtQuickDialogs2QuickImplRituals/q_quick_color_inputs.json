@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickColorInputs10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickColorInputs11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickColorInputs11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickColorInputs2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -35,9 +41,27 @@
     "ritual_ZN17QQuickColorInputs12setShowAlphaEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN17QQuickColorInputs12colorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickColorInputs13colorModifiedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickColorInputs10hslChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickColorInputs16showAlphaChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickColorInputs18currentModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickColorInputs15delegateChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QQuickColorInputs17componentCompleteEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QQuickColorInputs6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickColorInputs6d_funcEv": ["address", "address"],
     "ritual_own_ZN17QQuickColorInputs17componentCompleteEv": [
       "nothing", "address"
     ]

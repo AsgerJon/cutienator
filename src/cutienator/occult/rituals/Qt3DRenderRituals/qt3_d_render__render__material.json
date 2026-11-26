@@ -5,11 +5,28 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render8MaterialC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render8MaterialD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render8Material7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Material16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Material10parametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Material6effectEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DRender_Render_Material": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render8Material16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_Material__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

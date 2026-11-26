@@ -7,6 +7,26 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhicontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QSSGRhiBuffer::QSSGRhiBuffer(QSSGRhiContext &context, QRhiBuffer::Type
+//      type, QRhiBuffer::UsageFlags usageMask, quint32 stride, qsizetype
+//      size, QRhiCommandBuffer::IndexFormat indexFormat)
+extern "C" Q_DECL_EXPORT
+QSSGRhiBuffer *ritual_ZN13QSSGRhiBufferC1ER14QSSGRhiContextN10QRhiBuffer4TypeE6QFlagsINS2_9UsageFlagEEjxN17QRhiCommandBuffer11IndexFormatE(
+    QSSGRhiContext *context,
+    QRhiBuffer::Type type,
+    int usageMask,
+    quint32 stride,
+    qsizetype size,
+    QRhiCommandBuffer::IndexFormat indexFormat) {
+  return new QSSGRhiBuffer(
+      *context,
+      type,
+      QFlags<QRhiBuffer::UsageFlag>::fromInt(usageMask),
+      stride,
+      size,
+      indexFormat);
+}
+
 //  QSSGRhiBuffer::~QSSGRhiBuffer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSSGRhiBufferD1Ev(QSSGRhiBuffer *self) {

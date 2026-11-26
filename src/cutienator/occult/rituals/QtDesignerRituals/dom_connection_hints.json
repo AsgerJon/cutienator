@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN18DomConnectionHintsC1Ev": ["address"],
     "ritual_ZN18DomConnectionHintsD1Ev": ["nothing", "address"],
+    "ritual_ZN18DomConnectionHints4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18DomConnectionHints5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK18DomConnectionHints11elementHintEv": ["address", "address"],
     "ritual_ZN18DomConnectionHints14setElementHintERK5QListIP17DomConnectionHintE": [
       "nothing", "address", "address"

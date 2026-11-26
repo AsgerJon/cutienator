@@ -9,12 +9,27 @@
       "address", "address", "address", "address", "unsigned int", "address"
     ],
     "ritual_ZN11QSvgPatternD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSvgPattern11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK11QSvgPattern14shouldDrawNodeEP8QPainterR15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN11QSvgPattern12patternImageEP8QPainterR15QSvgExtraStatesPK8QSvgNode": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK11QSvgPattern4typeEv": ["int", "address"],
     "ritual_ZNK11QSvgPattern16appliedTransformEv": ["address", "address"],
     "ritual_ZNK11QSvgPattern9transformEv": ["address", "address"],
     "ritual_ZNK11QSvgPattern4rectEv": ["address", "address"],
     "ritual_ZNK11QSvgPattern7viewBoxEv": ["address", "address"],
     "ritual_ZNK11QSvgPattern12contentUnitsEv": ["unsigned int", "address"],
+    "ritual_ZN11QSvgPattern13renderPatternE5QSizeSt4pairIddERK15QSvgExtraStates": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QSvgPattern25calculateAppliedTransformER10QTransform6QRectF5QSize": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_take_QSvgPattern": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QSvgPattern4typeEv": ["int", "address"]
   }

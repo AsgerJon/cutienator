@@ -6,10 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK15QMqttConnection10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QMqttConnection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QMqttConnection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QMqttConnectionD1Ev": ["nothing", "address"],
     "ritual_ZNK15QMqttConnection9transportEv": ["address", "address"],
     "ritual_ZN15QMqttConnection16setClientPrivateEP18QMqttClientPrivate": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QMqttConnection22unusedPacketIdentifierEv": [
+      "unsigned short", "address"
     ],
     "ritual_ZNK15QMqttConnection13internalStateEv": ["int", "address"],
     "ritual_ZN15QMqttConnection20setClientDestructionEv": [
@@ -21,11 +30,20 @@
     "ritual_ZN15QMqttConnection25transportConnectionClosedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN15QMqttConnection14transportErrorEN15QAbstractSocket11SocketErrorE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN15QMqttConnection10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QMqttConnection10readBufferEPcy": [
+      "bool", "address", "address", "unsigned long long"
+    ],
     "ritual_ZN15QMqttConnection15closeConnectionEN11QMqttClient11ClientErrorE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN15QMqttConnection10readBufferEy": [
+      "address", "address", "unsigned long long"
     ],
     "ritual_ZNK15QMqttConnection20isPendingUnsubscribeEP17QMqttSubscription": [
       "bool", "address", "address"

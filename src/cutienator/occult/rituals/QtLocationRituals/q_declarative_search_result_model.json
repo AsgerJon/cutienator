@@ -8,6 +8,12 @@
     "ritual_ZNK29QDeclarativeSearchResultModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QDeclarativeSearchResultModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QDeclarativeSearchResultModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,6 +26,21 @@
     ],
     "ritual_ZN29QDeclarativeSearchResultModel13setSearchTermERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel10categoriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel17categories_appendEP16QQmlListPropertyI20QDeclarativeCategoryEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel16categories_countEP16QQmlListPropertyI20QDeclarativeCategoryE": [
+      "long long", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel11category_atEP16QQmlListPropertyI20QDeclarativeCategoryEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel16categories_clearEP16QQmlListPropertyI20QDeclarativeCategoryE": [
+      "nothing", "address"
     ],
     "ritual_ZNK29QDeclarativeSearchResultModel16recommendationIdEv": [
       "text", "address"
@@ -68,6 +89,36 @@
     ],
     "ritual_ZN29QDeclarativeSearchResultModel10updateWithEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel17searchTermChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel17categoriesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel23recommendationIdChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel20relevanceHintChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel22visibilityScopeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel15rowCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel22favoritesPluginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel31favoritesMatchParametersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel11dataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel18incrementalChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN29QDeclarativeSearchResultModel9sendQueryEP13QPlaceManagerRK19QPlaceSearchRequest": [
       "address", "address", "address", "address"
@@ -121,6 +172,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN29QDeclarativeSearchResultModel16onContentUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDeclarativeSearchResultModel__QQmlListProperty_QDeclarativeCategory": [
       "nothing", "address"
     ]
   }

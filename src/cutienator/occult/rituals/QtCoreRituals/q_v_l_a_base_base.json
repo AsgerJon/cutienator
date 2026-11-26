@@ -6,6 +6,10 @@
   "rows": {
     "ritual_ZN12QVLABaseBaseC1Ev": ["address"],
     "ritual_ZN12QVLABaseBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN12QVLABaseBaseC1ERKS_": ["address", "address"],
+    "ritual_ZN12QVLABaseBaseC1EOS_": ["address", "address"],
+    "ritual_ZN12QVLABaseBaseaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QVLABaseBaseaSEOS_": ["address", "address", "address"],
     "ritual_ZNK12QVLABaseBase6verifyExx": [
       "nothing", "address", "long long", "long long"
     ],

@@ -9,6 +9,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgsoftwareadaptation_p.h>
+#include <QtQuick/private/qsgsoftwarecontext_p.h>
+#include <QtQuick/private/qsgsoftwarerenderloop_p.h>
+#include <QtQuick/private/qsgsoftwarethreadedrenderloop_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
 #include <QtQuick/private/qsgsoftwarecontext_p.h>
 #include <QtQuick/private/qsgsoftwareinternalrectanglenode_p.h>
 #include <QtQuick/private/qsgsoftwareinternalimagenode_p.h>
@@ -37,12 +43,6 @@
 #include <QtQuick/private/qsgsoftwarerenderer_p.h>
 #include <QtGui/qpa/qplatformbackingstore.h>
 #include <QtGui/QBackingStore>
-#include <QtQuick/private/qsgsoftwareadaptation_p.h>
-#include <QtQuick/private/qsgsoftwarecontext_p.h>
-#include <QtQuick/private/qsgsoftwarerenderloop_p.h>
-#include <QtQuick/private/qsgsoftwarethreadedrenderloop_p.h>
-#include <QtGui/private/qguiapplication_p.h>
-#include <QtGui/qpa/qplatformintegration.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -51,19 +51,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 35, as _ZN18QSGSoftwareContextC1EP7QObject
-inline QSGSoftwareContext::QSGSoftwareContext(QObject *parent)
-    : QSGContext(parent)
-{
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderloop.cpp, line 28, as _ZN21QSGSoftwareRenderLoopC1Ev
-inline QSGSoftwareRenderLoop::QSGSoftwareRenderLoop()
-{
-    sg = new QSGSoftwareContext();
-    rc = sg->createRenderContext();
-}
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareadaptation.cpp, line 20, as _ZNK21QSGSoftwareAdaptation4keysEv
 inline QStringList QSGSoftwareAdaptation::keys() const
@@ -104,6 +91,19 @@ inline QSGRenderLoop *QSGSoftwareAdaptation::createWindowManager()
 #endif
 
     return new QSGSoftwareRenderLoop();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 35, as _ZN18QSGSoftwareContextC1EP7QObject
+inline QSGSoftwareContext::QSGSoftwareContext(QObject *parent)
+    : QSGContext(parent)
+{
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderloop.cpp, line 28, as _ZN21QSGSoftwareRenderLoopC1Ev
+inline QSGSoftwareRenderLoop::QSGSoftwareRenderLoop()
+{
+    sg = new QSGSoftwareContext();
+    rc = sg->createRenderContext();
 }
 //  -----------------------------------------------------------------------
 

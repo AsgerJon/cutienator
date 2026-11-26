@@ -12,6 +12,13 @@
     "ritual_ZN3QV410QmlContext20defaultInternalClassEPNS_10EngineBaseE": [
       "address", "address"
     ],
-    "ritual_ZNK3QV410QmlContext8qmlScopeEv": ["address", "address"]
+    "ritual_ZN3QV410QmlContext6createEPNS_16ExecutionContextE14QQmlRefPointerI15QQmlContextDataEP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV410QmlContext8qmlScopeEv": ["address", "address"],
+    "ritual_ZNK3QV410QmlContext10qmlContextEv": ["address", "address"],
+    "ritual_drop_QV4_QmlContext__QQmlRefPointer_QQmlContextData": [
+      "nothing", "address"
+    ]
   }
 }

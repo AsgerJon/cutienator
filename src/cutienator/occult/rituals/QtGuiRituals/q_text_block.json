@@ -9,6 +9,7 @@
     ],
     "ritual_ZN10QTextBlockC1Ev": ["address"],
     "ritual_ZN10QTextBlockC1ERKS_": ["address", "address"],
+    "ritual_ZN10QTextBlockaSERKS_": ["address", "address", "address"],
     "ritual_ZNK10QTextBlock7isValidEv": ["bool", "address"],
     "ritual_ZNK10QTextBlockeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK10QTextBlockneERKS_": ["bool", "address", "address"],
@@ -24,6 +25,7 @@
     "ritual_ZNK10QTextBlock15charFormatIndexEv": ["int", "address"],
     "ritual_ZNK10QTextBlock13textDirectionEv": ["int", "address"],
     "ritual_ZNK10QTextBlock4textEv": ["text", "address"],
+    "ritual_ZNK10QTextBlock11textFormatsEv": ["address", "address"],
     "ritual_ZNK10QTextBlock8documentEv": ["address", "address"],
     "ritual_ZNK10QTextBlock8textListEv": ["address", "address"],
     "ritual_ZNK10QTextBlock8userDataEv": ["address", "address"],
@@ -50,6 +52,9 @@
     "ritual_list_add_QTextBlock": ["nothing", "address", "address"],
     "ritual_list_size_QTextBlock": ["long long", "address"],
     "ritual_list_at_QTextBlock": ["address", "address", "long long"],
-    "ritual_list_drop_QTextBlock": ["nothing", "address"]
+    "ritual_list_drop_QTextBlock": ["nothing", "address"],
+    "ritual_drop_QTextBlock__QList_QTextLayout_FormatRange": [
+      "nothing", "address"
+    ]
   }
 }

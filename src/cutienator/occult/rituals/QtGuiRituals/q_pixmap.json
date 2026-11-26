@@ -11,8 +11,13 @@
     "ritual_ZN7QPixmapC1ERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
       "address", "text", "chars", "int"
     ],
+    "ritual_ZN7QPixmapC1EPKPKc": ["address", "address"],
     "ritual_ZN7QPixmapC1ERKS_": ["address", "address"],
+    "ritual_ZN7QPixmapC1EOS_": ["address", "address"],
     "ritual_ZN7QPixmapD1Ev": ["nothing", "address"],
+    "ritual_ZN7QPixmapaSERKS_": ["address", "address", "address"],
+    "ritual_ZN7QPixmapaSEOS_": ["address", "address", "address"],
+    "ritual_ZN7QPixmap4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK7QPixmapcv8QVariantEv": ["address", "address"],
     "ritual_ZNK7QPixmap6isNullEv": ["bool", "address"],
     "ritual_ZNK7QPixmap7devTypeEv": ["int", "address"],
@@ -65,8 +70,14 @@
     "ritual_ZN7QPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19ImageConversionFlagEE": [
       "address", "address", "int"
     ],
+    "ritual_ZN7QPixmap9fromImageEO6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN7QPixmap4loadERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
       "bool", "address", "text", "chars", "int"
+    ],
+    "ritual_ZN7QPixmap12loadFromDataEPKhjPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "bool", "address", "address", "unsigned int", "chars", "int"
     ],
     "ritual_ZN7QPixmap12loadFromDataERK10QByteArrayPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
       "bool", "address", "address", "chars", "int"
@@ -100,6 +111,9 @@
     "ritual_ZNK7QPixmap6metricEN12QPaintDevice17PaintDeviceMetricE": [
       "int", "address", "int"
     ],
+    "ritual_ZN7QPixmap16fromImageInPlaceER6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK7QPixmap9doImageIOEP12QImageWriteri": [
       "bool", "address", "address", "int"
     ],
@@ -107,7 +121,9 @@
     "ritual_ZN7QPixmap6doInitEiii": [
       "nothing", "address", "int", "int", "int"
     ],
+    "ritual_ZrsR11QDataStreamR7QPixmap": ["address", "address", "address"],
     "ritual_ZNK7QPixmap6handleEv": ["address", "address"],
+    "ritual_ZN7QPixmap8data_ptrEv": ["address", "address"],
     "ritual_take_QPixmap": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK7QPixmap7devTypeEv": ["int", "address"],
     "ritual_own_ZNK7QPixmap11paintEngineEv": ["address", "address"],

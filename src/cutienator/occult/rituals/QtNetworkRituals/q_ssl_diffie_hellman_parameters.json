@@ -10,7 +10,17 @@
     ],
     "ritual_ZN27QSslDiffieHellmanParametersC1Ev": ["address"],
     "ritual_ZN27QSslDiffieHellmanParametersC1ERKS_": ["address", "address"],
+    "ritual_ZN27QSslDiffieHellmanParametersC1EOS_": ["address", "address"],
     "ritual_ZN27QSslDiffieHellmanParametersD1Ev": ["nothing", "address"],
+    "ritual_ZN27QSslDiffieHellmanParametersaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QSslDiffieHellmanParametersaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QSslDiffieHellmanParameters4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN27QSslDiffieHellmanParameters11fromEncodedERK10QByteArrayN4QSsl14EncodingFormatE": [
       "address", "address", "int"
     ],

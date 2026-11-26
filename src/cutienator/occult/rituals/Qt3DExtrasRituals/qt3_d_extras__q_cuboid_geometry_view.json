@@ -8,8 +8,72 @@
     "ritual_ZNK10Qt3DExtras19QCuboidGeometryView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras19QCuboidGeometryView2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryViewC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras19QCuboidGeometryView7xExtentEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QCuboidGeometryView7yExtentEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QCuboidGeometryView7zExtentEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QCuboidGeometryView16yzMeshResolutionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QCuboidGeometryView16xzMeshResolutionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras19QCuboidGeometryView16xyMeshResolutionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView10setXExtentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView10setYExtentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView10setZExtentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView19setYZMeshResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView19setXZMeshResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView19setXYMeshResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView14xExtentChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView14yExtentChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView14zExtentChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView23yzMeshResolutionChangedERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView23xzMeshResolutionChangedERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QCuboidGeometryView23xyMeshResolutionChangedERK5QSize": [
+      "nothing", "address", "address"
     ],
     "ritual_take_Qt3DExtras_QCuboidGeometryView": [
       "bool", "address", "chars", "address"

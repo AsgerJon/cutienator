@@ -9,6 +9,9 @@
       "address", "address"
     ],
     "ritual_ZN21QOpenGL2GradientCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN21QOpenGL2GradientCache9getBufferERK9QGradientd": [
+      "unsigned int", "address", "address", "double"
+    ],
     "ritual_ZNK21QOpenGL2GradientCache11paletteSizeEv": ["int", "address"],
     "ritual_ZN21QOpenGL2GradientCache18invalidateResourceEv": [
       "nothing", "address"
@@ -22,6 +25,9 @@
     ],
     "ritual_ZNK21QOpenGL2GradientCache26generateGradientColorTableERK9QGradientPjid": [
       "nothing", "address", "address", "address", "int", "double"
+    ],
+    "ritual_ZN21QOpenGL2GradientCache15addCacheElementEyRK9QGradientd": [
+      "unsigned int", "address", "unsigned long long", "address", "double"
     ],
     "ritual_ZN21QOpenGL2GradientCache10cleanCacheEv": ["nothing", "address"],
     "ritual_take_QOpenGL2GradientCache": [

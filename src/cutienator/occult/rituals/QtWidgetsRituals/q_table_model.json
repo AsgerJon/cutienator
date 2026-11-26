@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QTableModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QTableModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QTableModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QTableModelD1Ev": ["nothing", "address"],
     "ritual_ZNK11QTableModel4viewEv": ["address", "address"],
     "ritual_ZN11QTableModel10insertRowsEiiRK11QModelIndex": [
@@ -97,10 +103,22 @@
     "ritual_ZN11QTableModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN11QTableModel12itemLessThanERKSt4pairIP16QTableWidgetItemiES5_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QTableModel15itemGreaterThanERKSt4pairIP16QTableWidgetItemiES5_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN11QTableModel12ensureSortedEiN2Qt9SortOrderEii": [
       "nothing", "address", "int", "int", "int", "int"
     ],
     "ritual_ZNK11QTableModel11columnItemsEi": ["address", "address", "int"],
+    "ritual_ZN11QTableModel16updateRowIndexesER5QListI11QModelIndexEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QTableModel23sortedInsertionIteratorERKN5QListIP16QTableWidgetItemE8iteratorES6_N2Qt9SortOrderES2_": [
+      "address", "address", "address", "int", "address"
+    ],
     "ritual_ZNK11QTableModel7isValidERK11QModelIndex": [
       "bool", "address", "address"
     ],
@@ -109,6 +127,9 @@
     ],
     "ritual_ZN11QTableModel5clearEv": ["nothing", "address"],
     "ritual_ZN11QTableModel13clearContentsEv": ["nothing", "address"],
+    "ritual_ZN11QTableModel11itemChangedEP16QTableWidgetItemRK5QListIiE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK11QTableModel10createItemEv": ["address", "address"],
     "ritual_ZNK11QTableModel13itemPrototypeEv": ["address", "address"],
     "ritual_ZN11QTableModel16setItemPrototypeEPK16QTableWidgetItem": [
@@ -176,6 +197,11 @@
     "ritual_own_ZNK11QTableModel20supportedDropActionsEv": [
       "int", "address"
     ],
-    "ritual_own_ZNK11QTableModel20supportedDragActionsEv": ["int", "address"]
+    "ritual_own_ZNK11QTableModel20supportedDragActionsEv": [
+      "int", "address"
+    ],
+    "ritual_drop_QTableModel__QList_QTableWidgetItem_iterator": [
+      "nothing", "address"
+    ]
   }
 }

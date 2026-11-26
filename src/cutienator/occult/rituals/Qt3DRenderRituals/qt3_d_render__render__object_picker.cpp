@@ -40,6 +40,87 @@ public:
   }
 };
 
+//  Qt3DRender::Render::ObjectPicker::ObjectPicker()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::ObjectPicker *ritual_ZN10Qt3DRender6Render12ObjectPickerC1Ev() {
+  return new CuteQt3DRender_Render_ObjectPicker();
+}
+
+//  Qt3DRender::Render::ObjectPicker::~ObjectPicker()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12ObjectPickerD1Ev(
+    Qt3DRender::Render::ObjectPicker *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::ObjectPicker::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12ObjectPicker7cleanupEv(
+    Qt3DRender::Render::ObjectPicker *self) {
+  self->cleanup();
+}
+
+//  void Qt3DRender::Render::ObjectPicker::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12ObjectPicker16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::ObjectPicker *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  bool Qt3DRender::Render::ObjectPicker::isPressed() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender6Render12ObjectPicker9isPressedEv(
+    const Qt3DRender::Render::ObjectPicker *self) {
+  return self->isPressed();
+}
+
+//  bool Qt3DRender::Render::ObjectPicker::isHoverEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender6Render12ObjectPicker14isHoverEnabledEv(
+    const Qt3DRender::Render::ObjectPicker *self) {
+  return self->isHoverEnabled();
+}
+
+//  bool Qt3DRender::Render::ObjectPicker::isDragEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender6Render12ObjectPicker13isDragEnabledEv(
+    const Qt3DRender::Render::ObjectPicker *self) {
+  return self->isDragEnabled();
+}
+
+//  void Qt3DRender::Render::ObjectPicker::setPressed(bool pressed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12ObjectPicker10setPressedEb(
+    Qt3DRender::Render::ObjectPicker *self,
+    bool pressed) {
+  self->setPressed(pressed);
+}
+
+//  void Qt3DRender::Render::ObjectPicker::setPriority(int priority)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12ObjectPicker11setPriorityEi(
+    Qt3DRender::Render::ObjectPicker *self,
+    int priority) {
+  self->setPriority(priority);
+}
+
+//  int Qt3DRender::Render::ObjectPicker::priority() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender6Render12ObjectPicker8priorityEv(
+    const Qt3DRender::Render::ObjectPicker *self) {
+  return self->priority();
+}
+
+//  void Qt3DRender::Render::ObjectPicker::notifyJob()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12ObjectPicker9notifyJobEv(
+    Qt3DRender::Render::ObjectPicker *self) {
+  self->notifyJob();
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_ObjectPicker, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

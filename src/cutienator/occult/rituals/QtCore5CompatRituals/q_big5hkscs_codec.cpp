@@ -11,6 +11,7 @@
 #include <QtCore5Compat/6.12.0/QtCore5Compat/private/qbig5codec_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -35,6 +36,109 @@ inline int QBig5hkscsCodec::_mibEnum()
 {
     return 2101;
 }
+
+//  from ../qt5compat/src/core5/codecs/qbig5codec.cpp, line 1785, as _ZNK15QBig5hkscsCodec16convertToUnicodeEPKciPN20QStringConverterBase5StateE
+inline QString QBig5hkscsCodec::convertToUnicode(const char* chars, int len, ConverterState *state) const
+{
+    uchar buf[2] = {0};
+    int nbuf = 0;
+    QChar replacement = QChar::ReplacementCharacter;
+    if (state) {
+        if (state->flags & ConvertInvalidToNull)
+            replacement = QChar::Null;
+        nbuf = state->remainingChars;
+        buf[0] = state->state_data[0];
+        buf[1] = state->state_data[1];
+    }
+    int invalid = 0;
+
+    //qDebug("QBig5hkscsCodec::toUnicode(const char* chars = \"%s\", int len = %d)", chars, len);
+    QString result;
+    for (int i=0; i<len; i++) {
+        uchar ch = chars[i];
+        switch (nbuf) {
+        case 0:
+            if (IsLatin(ch)) {
+                // ASCII
+                result += QLatin1Char(ch);
+            } else if (Is1stByte(ch)) {
+                // Big5-HKSCS
+                buf[0] = ch;
+                nbuf = 1;
+            } else {
+                // Invalid
+                result += replacement;
+                ++invalid;
+            }
+            break;
+        case 1:
+            if (IsSecondByte(ch)) {
+                // Big5-HKSCS
+                uint u;
+                buf[1] = ch;
+                if (qt_Big5hkscsToUnicode(buf, &u) == 2)
+                    result += QValidChar(u);
+                else {
+                    // Error
+                    result += replacement;
+                    ++invalid;
+                }
+            } else {
+                // Error
+                result += replacement;
+                ++invalid;
+            }
+            nbuf = 0;
+            break;
+        }
+    }
+    if (state) {
+        state->remainingChars = nbuf;
+        state->state_data[0] = buf[0];
+        state->state_data[1] = buf[1];
+        state->invalidChars += invalid;
+    }
+    return result;
+}
+
+//  from ../qt5compat/src/core5/codecs/qbig5codec.cpp, line 1849, as _ZNK15QBig5hkscsCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE
+inline QByteArray QBig5hkscsCodec::convertFromUnicode(const QChar *uc, int len, ConverterState *state) const
+{
+    char replacement = '?';
+    if (state) {
+        if (state->flags & ConvertInvalidToNull)
+            replacement = 0;
+    }
+
+    int invalid = 0;
+
+    int rlen = 2*len + 1;
+    QByteArray rstr;
+    rstr.resize(rlen);
+    uchar* cursor = (uchar*)rstr.data();
+    for (int i = 0; i < len; i++) {
+        unsigned short ch = uc[i].unicode();
+        uchar c[2];
+        if (ch < 0x80) {
+            // ASCII
+            *cursor++ = ch;
+        } else if (qt_UnicodeToBig5hkscs(ch, c) == 2) {
+            // Big5-HKSCS
+            *cursor++ = c[0];
+            *cursor++ = c[1];
+        } else {
+            // Error
+            *cursor++ = replacement;
+            ++invalid;
+        }
+    }
+    rstr.resize(cursor - (const uchar*)rstr.constData());
+
+    if (state) {
+        state->invalidChars += invalid;
+    }
+    return rstr;
+}
 //  -----------------------------------------------------------------------
 
 //  A QBig5hkscsCodec that Python can take functions over in. Every QBig5hkscsCodec
@@ -50,10 +154,15 @@ typedef const QByteArray * (*CuteQBig5hkscsCodecCall0)(const void *, int *);
 typedef int (*CuteQBig5hkscsCodecCall1)(const void *, int *);
 #endif  // QT_CONFIG(big_codecs)
 #endif  // QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
+#if QT_CONFIG(big_codecs)
+typedef const QByteArray * (*CuteQBig5hkscsCodecCall2)(const void *, const QChar *, int, QTextCodec::ConverterState *, int *);
+#endif  // QT_CONFIG(big_codecs)
+#endif  // QT_CONFIG(textcodec)
 class CuteQBig5hkscsCodec : public QBig5hkscsCodec {
 public:
   using QBig5hkscsCodec::QBig5hkscsCodec;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(textcodec)
@@ -68,6 +177,14 @@ public:
 #if QT_CONFIG(big_codecs)
     if (!std::strcmp(key, "_ZNK10QTextCodec7mibEnumEv")) {
       taken[1] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(big_codecs)
+#endif  // QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
+#if QT_CONFIG(big_codecs)
+    if (!std::strcmp(key, "_ZNK10QTextCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE")) {
+      taken[2] = call;
       return true;
     }
 #endif  // QT_CONFIG(big_codecs)
@@ -101,6 +218,25 @@ public:
       if (handled) return given;
     }
     return QBig5hkscsCodec::mibEnum();
+  }
+#endif  // QT_CONFIG(big_codecs)
+#endif  // QT_CONFIG(textcodec)
+
+#if QT_CONFIG(textcodec)
+#if QT_CONFIG(big_codecs)
+  //  QByteArray QBig5hkscsCodec::convertFromUnicode(const QChar *a0, int
+  //      a1, ConverterState *a2) const
+  QByteArray convertFromUnicode(
+      const QChar *a0,
+      int a1,
+      QTextCodec::ConverterState *a2) const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQBig5hkscsCodecCall2 call = reinterpret_cast<CuteQBig5hkscsCodecCall2>(taken[2]);
+      const QByteArray * given = call(this, a0, a1, a2, &handled);
+      if (handled && given) return *given;
+    }
+    return QBig5hkscsCodec::convertFromUnicode(a0, a1, a2);
   }
 #endif  // QT_CONFIG(big_codecs)
 #endif  // QT_CONFIG(textcodec)
@@ -143,6 +279,28 @@ int ritual_ZNK15QBig5hkscsCodec7mibEnumEv(const QBig5hkscsCodec *self) {
   return self->mibEnum();
 }
 
+//  QString QBig5hkscsCodec::convertToUnicode(const char *a0, int a1,
+//      ConverterState *a2) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK15QBig5hkscsCodec16convertToUnicodeEPKciPN20QStringConverterBase5StateE(
+    const QBig5hkscsCodec *self,
+    const char *a0,
+    int a1,
+    QTextCodec::ConverterState *a2) {
+  return new QString(self->convertToUnicode(a0, a1, a2));
+}
+
+//  QByteArray QBig5hkscsCodec::convertFromUnicode(const QChar *a0, int a1,
+//      ConverterState *a2) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK15QBig5hkscsCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE(
+    const QBig5hkscsCodec *self,
+    const QChar *a0,
+    int a1,
+    QTextCodec::ConverterState *a2) {
+  return new QByteArray(self->convertFromUnicode(a0, a1, a2));
+}
+
 //  a Python function taken by a CuteQBig5hkscsCodec, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -164,6 +322,21 @@ QByteArray *ritual_own_ZNK15QBig5hkscsCodec4nameEv(
 extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK15QBig5hkscsCodec7mibEnumEv(const QBig5hkscsCodec *self) {
   return self->QBig5hkscsCodec::mibEnum();
+}
+
+//  QByteArray QBig5hkscsCodec::convertFromUnicode(const QChar *a0, int a1,
+//      ConverterState *a2) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_own_ZNK15QBig5hkscsCodec18convertFromUnicodeEPK5QChariPN20QStringConverterBase5StateE(
+    const QBig5hkscsCodec *self,
+    const QChar *a0,
+    int a1,
+    QTextCodec::ConverterState *a2) {
+  return new QByteArray(
+      self->QBig5hkscsCodec::convertFromUnicode(
+          a0,
+          a1,
+          a2));
 }
 
 #endif  // QT_CONFIG(big_codecs)

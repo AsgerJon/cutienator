@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN23QGeoRouteSegmentPrivateC1Ev": ["address"],
+    "ritual_ZN23QGeoRouteSegmentPrivate3getER16QGeoRouteSegment": [
+      "address", "address"
+    ],
     "ritual_ZNK23QGeoRouteSegmentPrivate5validEv": ["bool", "address"],
     "ritual_ZN23QGeoRouteSegmentPrivate8setValidEb": [
       "nothing", "address", "bool"
@@ -32,6 +35,15 @@
     "ritual_ZN23QGeoRouteSegmentPrivate11setManeuverERK12QGeoManeuver": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN23QGeoRouteSegmentPrivateD1Ev": ["nothing", "address"]
+    "ritual_ZNK23QGeoRouteSegmentPrivate16nextRouteSegmentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QGeoRouteSegmentPrivate19setNextRouteSegmentERK28QExplicitlySharedDataPointerIS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QGeoRouteSegmentPrivateD1Ev": ["nothing", "address"],
+    "ritual_drop_QGeoRouteSegmentPrivate__QExplicitlySharedDataPointer_QGeoRouteSegmentPrivate": [
+      "nothing", "address"
+    ]
   }
 }

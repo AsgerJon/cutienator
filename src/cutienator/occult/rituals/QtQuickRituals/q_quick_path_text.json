@@ -6,10 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickPathText10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickPathText11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickPathText11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickPathText2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN14QQuickPathTextC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQuickPathText9addToPathER12QPainterPath": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQuickPathText1xEv": ["double", "address"],
     "ritual_ZNK14QQuickPathText1yEv": ["double", "address"],
     "ritual_ZNK14QQuickPathText4textEv": ["text", "address"],
@@ -24,6 +33,10 @@
     ],
     "ritual_ZNK14QQuickPathText5widthEv": ["double", "address"],
     "ritual_ZNK14QQuickPathText6heightEv": ["double", "address"],
+    "ritual_ZN14QQuickPathText8xChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathText8yChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathText11textChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickPathText11fontChangedEv": ["nothing", "address"],
     "ritual_ZN14QQuickPathText10invalidateEv": ["nothing", "address"],
     "ritual_ZNK14QQuickPathText10updatePathEv": ["nothing", "address"]
   }

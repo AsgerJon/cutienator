@@ -5,14 +5,31 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12StateSetNodeC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render12StateSetNodeD1Ev": ["nothing", "address"],
     "ritual_ZNK10Qt3DRender6Render12StateSetNode15hasRenderStatesEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12StateSetNode12renderStatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12StateSetNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render12StateSetNode14addRenderStateEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12StateSetNode17removeRenderStateEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_Qt3DRender_Render_StateSetNode": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN10Qt3DRender6Render12StateSetNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_Qt3DRender_Render_StateSetNode__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

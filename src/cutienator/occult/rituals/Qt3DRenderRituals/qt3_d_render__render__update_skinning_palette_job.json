@@ -5,13 +5,25 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJobC1Ev": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJobD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob7setRootEPNS0_6EntityE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob11setManagersEPNS0_12NodeManagersE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob14setDirtyJointsE5QListIN8Qt3DCore7QHandleINS0_5JointEEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob16clearDirtyJointsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render24UpdateSkinningPaletteJob3runEv": [
       "nothing", "address"
     ],
     "ritual_take_Qt3DRender_Render_UpdateSkinningPaletteJob": [

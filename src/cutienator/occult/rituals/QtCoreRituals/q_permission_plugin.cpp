@@ -10,7 +10,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qpermissions_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(permissions)
 #include <QtCore/qpermissions.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -218,6 +220,16 @@ Qt::PermissionStatus ritual_ZN17QPermissionPlugin15checkPermissionERK11QPermissi
     QPermissionPlugin *self,
     const QPermission *permission) {
   return self->checkPermission(*permission);
+}
+
+//  void QPermissionPlugin::requestPermission(const QPermission &permission,
+//      const QPermissions::Private::PermissionCallback &callback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QPermissionPlugin17requestPermissionERK11QPermissionRKSt8functionIFvN2Qt16PermissionStatusEEE(
+    QPermissionPlugin *self,
+    const QPermission *permission,
+    const QPermissions::Private::PermissionCallback *callback) {
+  self->requestPermission(*permission, *callback);
 }
 
 //  a Python function taken by a CuteQPermissionPlugin, for the function

@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN17DomLayoutFunctionC1Ev": ["address"],
     "ritual_ZN17DomLayoutFunctionD1Ev": ["nothing", "address"],
+    "ritual_ZN17DomLayoutFunction4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17DomLayoutFunction5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK17DomLayoutFunction19hasAttributeSpacingEv": [
       "bool", "address"
     ],

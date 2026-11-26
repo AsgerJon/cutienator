@@ -8,12 +8,21 @@
   ],
   "rows": {
     "ritual_ZNK14QScatterSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QScatterSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QScatterSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QScatterSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN14QScatterSeriesC1EP7QObject": ["address", "address"],
     "ritual_ZN14QScatterSeriesD1Ev": ["nothing", "address"],
     "ritual_ZNK14QScatterSeries4typeEv": ["int", "address"],
+    "ritual_ZN14QScatterSeriesC1ER21QScatterSeriesPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN14QScatterSeries17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN14QScatterSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK14QScatterSeries6d_funcEv": ["address", "address"],

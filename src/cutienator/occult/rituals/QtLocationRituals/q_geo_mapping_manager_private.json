@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN25QGeoMappingManagerPrivateC1Ev": ["address"],
     "ritual_ZN25QGeoMappingManagerPrivateD1Ev": ["nothing", "address"]
   }
 }

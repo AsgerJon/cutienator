@@ -23,6 +23,25 @@ const QMetaObject *ritual_ZNK37QQuickSaturationLightnessPickerCanvas10metaObject
   return self->metaObject();
 }
 
+//  void *QQuickSaturationLightnessPickerCanvas::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN37QQuickSaturationLightnessPickerCanvas11qt_metacastEPKc(
+    QQuickSaturationLightnessPickerCanvas *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSaturationLightnessPickerCanvas::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN37QQuickSaturationLightnessPickerCanvas11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSaturationLightnessPickerCanvas *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSaturationLightnessPickerCanvas::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -54,6 +73,13 @@ void ritual_ZN37QQuickSaturationLightnessPickerCanvas6setHueEd(
     QQuickSaturationLightnessPickerCanvas *self,
     qreal h) {
   self->setHue(h);
+}
+
+//  void QQuickSaturationLightnessPickerCanvas::hueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN37QQuickSaturationLightnessPickerCanvas10hueChangedEv(
+    QQuickSaturationLightnessPickerCanvas *self) {
+  self->hueChanged();
 }
 
 //  QSGNode *QQuickSaturationLightnessPickerCanvas::updatePaintNode(QSGNode

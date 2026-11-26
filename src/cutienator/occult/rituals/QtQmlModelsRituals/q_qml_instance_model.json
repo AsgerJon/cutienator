@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQmlInstanceModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQmlInstanceModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQmlInstanceModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQmlInstanceModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -45,6 +51,28 @@
     ],
     "ritual_ZN17QQmlInstanceModel19setRequiredPropertyEiRK7QStringRK8QVariant": [
       "bool", "address", "int", "text", "address"
+    ],
+    "ritual_ZN17QQmlInstanceModel12countChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQmlInstanceModel12modelUpdatedERK13QQmlChangeSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN17QQmlInstanceModel11createdItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlInstanceModel8initItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlInstanceModel20updateItemPropertiesEiP7QObjectb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN17QQmlInstanceModel14destroyingItemEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlInstanceModel10itemPooledEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlInstanceModel10itemReusedEiP7QObject": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_own_ZN17QQmlInstanceModel6cancelEi": [
       "nothing", "address", "int"

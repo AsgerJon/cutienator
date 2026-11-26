@@ -7,6 +7,24 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  void DepthMapPass::renderPrep(QSSGRenderer &renderer, QSSGLayerRenderData
+//      &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12DepthMapPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData(
+    DepthMapPass *self,
+    QSSGRenderer *renderer,
+    QSSGLayerRenderData *data) {
+  self->renderPrep(*renderer, *data);
+}
+
+//  void DepthMapPass::renderPass(QSSGRenderer &renderer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12DepthMapPass10renderPassER12QSSGRenderer(
+    DepthMapPass *self,
+    QSSGRenderer *renderer) {
+  self->renderPass(*renderer);
+}
+
 //  Type DepthMapPass::passType() const
 extern "C" Q_DECL_EXPORT
 QSSGRenderPass::Type ritual_ZNK12DepthMapPass8passTypeEv(

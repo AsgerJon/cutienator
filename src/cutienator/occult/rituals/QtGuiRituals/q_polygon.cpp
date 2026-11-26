@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qpolygon.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qpolygon.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand:
+//  'ritual_ZN8QPolygon9setPointsEiiiz',
+//  'ritual_ZN8QPolygon9putPointsEiiiiz'. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qpolygon.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
@@ -18,10 +21,28 @@ QPolygon *ritual_ZN8QPolygonC1ERK5QListI6QPointE(const QList<QPoint> *v) {
   return new QPolygon(*v);
 }
 
+//  QPolygon::QPolygon(QList<QPoint> &&v)
+extern "C" Q_DECL_EXPORT
+QPolygon *ritual_ZN8QPolygonC1EO5QListI6QPointE(QList<QPoint> *v) {
+  return new QPolygon(std::move(*v));
+}
+
 //  QPolygon::QPolygon(const QRect &r, bool closed)
 extern "C" Q_DECL_EXPORT
 QPolygon *ritual_ZN8QPolygonC1ERK5QRectb(const QRect *r, bool closed) {
   return new QPolygon(*r, closed);
+}
+
+//  QPolygon::QPolygon(int nPoints, const int *points)
+extern "C" Q_DECL_EXPORT
+QPolygon *ritual_ZN8QPolygonC1EiPKi(int nPoints, const int *points) {
+  return new QPolygon(nPoints, points);
+}
+
+//  void QPolygon::swap(QPolygon &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPolygon4swapERS_(QPolygon *self, QPolygon *other) {
+  self->swap(*other);
 }
 
 //  QVariant QPolygon::operator QVariant() const
@@ -102,6 +123,25 @@ void ritual_ZN8QPolygon8setPointEiRK6QPoint(
   self->setPoint(index, *p);
 }
 
+//  void QPolygon::setPoints(int nPoints, const int *points)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPolygon9setPointsEiPKi(
+    QPolygon *self,
+    int nPoints,
+    const int *points) {
+  self->setPoints(nPoints, points);
+}
+
+//  void QPolygon::putPoints(int index, int nPoints, const int *points)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPolygon9putPointsEiiPKi(
+    QPolygon *self,
+    int index,
+    int nPoints,
+    const int *points) {
+  self->putPoints(index, nPoints, points);
+}
+
 //  void QPolygon::putPoints(int index, int nPoints, const QPolygon &from,
 //      int fromIndex)
 extern "C" Q_DECL_EXPORT
@@ -166,4 +206,24 @@ QPolygonF *ritual_ZNK8QPolygon10toPolygonFEv(const QPolygon *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPolygonD1Ev(QPolygon *self) {
   delete self;
+}
+
+//  void QPolygon::setPoints(int nPoints, int firstx, int firsty, ...)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPolygon9setPointsEiiiz(
+    QPolygon *self,
+    int nPoints,
+    const int *points) {
+  self->setPoints(nPoints, points);
+}
+
+//  void QPolygon::putPoints(int index, int nPoints, int firstx, int
+//      firsty, ...)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPolygon9putPointsEiiiiz(
+    QPolygon *self,
+    int index,
+    int nPoints,
+    const int *points) {
+  self->putPoints(index, nPoints, points);
 }

@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlAccelerometerReading that Python can take functions over in. Every QmlAccelerometerReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK23QmlAccelerometerReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlAccelerometerReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QmlAccelerometerReading11qt_metacastEPKc(
+    QmlAccelerometerReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlAccelerometerReading::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QmlAccelerometerReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlAccelerometerReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlAccelerometerReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QmlAccelerometerReading2trEPKcS1_i(
@@ -252,6 +272,13 @@ qreal ritual_ZNK23QmlAccelerometerReading1xEv(
   return self->x();
 }
 
+//  QBindable<qreal> QmlAccelerometerReading::bindableX() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK23QmlAccelerometerReading9bindableXEv(
+    const QmlAccelerometerReading *self) {
+  return new QBindable<qreal>(self->bindableX());
+}
+
 //  qreal QmlAccelerometerReading::y() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK23QmlAccelerometerReading1yEv(
@@ -259,11 +286,46 @@ qreal ritual_ZNK23QmlAccelerometerReading1yEv(
   return self->y();
 }
 
+//  QBindable<qreal> QmlAccelerometerReading::bindableY() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK23QmlAccelerometerReading9bindableYEv(
+    const QmlAccelerometerReading *self) {
+  return new QBindable<qreal>(self->bindableY());
+}
+
 //  qreal QmlAccelerometerReading::z() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK23QmlAccelerometerReading1zEv(
     const QmlAccelerometerReading *self) {
   return self->z();
+}
+
+//  QBindable<qreal> QmlAccelerometerReading::bindableZ() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK23QmlAccelerometerReading9bindableZEv(
+    const QmlAccelerometerReading *self) {
+  return new QBindable<qreal>(self->bindableZ());
+}
+
+//  void QmlAccelerometerReading::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QmlAccelerometerReading8xChangedEv(
+    QmlAccelerometerReading *self) {
+  self->xChanged();
+}
+
+//  void QmlAccelerometerReading::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QmlAccelerometerReading8yChangedEv(
+    QmlAccelerometerReading *self) {
+  self->yChanged();
+}
+
+//  void QmlAccelerometerReading::zChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QmlAccelerometerReading8zChangedEv(
+    QmlAccelerometerReading *self) {
+  self->zChanged();
 }
 
 //  QSensorReading *QmlAccelerometerReading::reading() const
@@ -278,6 +340,24 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN23QmlAccelerometerReading13readingUpdateEv(
     QmlAccelerometerReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlAccelerometerReading::_qt_property_m_x_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN23QmlAccelerometerReading23_qt_property_m_x_offsetEv() {
+  return QmlAccelerometerReading::_qt_property_m_x_offset();
+}
+
+//  size_t QmlAccelerometerReading::_qt_property_m_y_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN23QmlAccelerometerReading23_qt_property_m_y_offsetEv() {
+  return QmlAccelerometerReading::_qt_property_m_y_offset();
+}
+
+//  size_t QmlAccelerometerReading::_qt_property_m_z_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN23QmlAccelerometerReading23_qt_property_m_z_offsetEv() {
+  return QmlAccelerometerReading::_qt_property_m_z_offset();
 }
 
 //  a Python function taken by a CuteQmlAccelerometerReading, for the
@@ -302,4 +382,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN23QmlAccelerometerReading13readingUpdateEv(
     QmlAccelerometerReading *self) {
   self->QmlAccelerometerReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlAccelerometerReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlAccelerometerReading__QBindable_qreal(
+    QBindable<qreal> *self) {
+  delete self;
 }

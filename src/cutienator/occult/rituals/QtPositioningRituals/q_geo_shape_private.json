@@ -16,6 +16,8 @@
       "address", "address"
     ],
     "ritual_ZNK16QGeoShapePrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK16QGeoShapePrivateeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK16QGeoShapePrivate4hashEm": ["size_t", "address", "size_t"],
     "ritual_take_QGeoShapePrivate": ["bool", "address", "chars", "address"]
   }
 }

@@ -53,6 +53,45 @@ inline QPlatformDialogHelper *QQuickLabsPlatformDialog::handle() const
     return m_handle;
 }
 
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 228, as _ZNK30QQuickLabsPlatformFolderDialog15useNativeDialogEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline bool QQuickLabsPlatformFolderDialog::useNativeDialog() const
+{
+    return QQuickLabsPlatformDialog::useNativeDialog()
+            && !m_options->testOption(QFileDialogOptions::DontUseNativeDialog);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 234, as _ZN30QQuickLabsPlatformFolderDialog8onCreateEP21QPlatformDialogHelper
+#if QT_DEPRECATED_SINCE(6, 9)
+inline void QQuickLabsPlatformFolderDialog::onCreate(QPlatformDialogHelper *dialog)
+{
+    if (QPlatformFileDialogHelper *fileDialog = qobject_cast<QPlatformFileDialogHelper *>(dialog)) {
+        connect(fileDialog, &QPlatformFileDialogHelper::currentChanged, this, &QQuickLabsPlatformFolderDialog::currentFolderChanged);
+        fileDialog->setOptions(m_options);
+    }
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 242, as _ZN30QQuickLabsPlatformFolderDialog6onShowEP21QPlatformDialogHelper
+#if QT_DEPRECATED_SINCE(6, 9)
+inline void QQuickLabsPlatformFolderDialog::onShow(QPlatformDialogHelper *dialog)
+{
+    m_options->setWindowTitle(title());
+    if (QPlatformFileDialogHelper *fileDialog = qobject_cast<QPlatformFileDialogHelper *>(dialog))
+        fileDialog->setOptions(m_options);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 249, as _ZN30QQuickLabsPlatformFolderDialog6acceptEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline void QQuickLabsPlatformFolderDialog::accept()
+{
+    setFolder(currentFolder());
+    QQuickLabsPlatformDialog::accept();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 342, as _ZNK24QQuickLabsPlatformDialog15useNativeDialogEv
 inline bool QQuickLabsPlatformDialog::useNativeDialog() const
 {
@@ -71,6 +110,18 @@ inline void QQuickLabsPlatformDialog::accept()
 {
     done(Accepted);
 }
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 93, as _ZN30QQuickLabsPlatformFolderDialog9setFolderERK4QUrl
+#if QT_DEPRECATED_SINCE(6, 9)
+inline void QQuickLabsPlatformFolderDialog::setFolder(const QUrl &folder)
+{
+    if (m_folder == folder)
+        return;
+
+    m_folder = folder;
+    emit folderChanged();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 88, as _ZNK30QQuickLabsPlatformFolderDialog6folderEv
 #if QT_DEPRECATED_SINCE(6, 9)
@@ -127,45 +178,6 @@ inline QString QQuickLabsPlatformFolderDialog::rejectLabel() const
     return m_options->labelText(QFileDialogOptions::Reject);
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 228, as _ZNK30QQuickLabsPlatformFolderDialog15useNativeDialogEv
-#if QT_DEPRECATED_SINCE(6, 9)
-inline bool QQuickLabsPlatformFolderDialog::useNativeDialog() const
-{
-    return QQuickLabsPlatformDialog::useNativeDialog()
-            && !m_options->testOption(QFileDialogOptions::DontUseNativeDialog);
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 234, as _ZN30QQuickLabsPlatformFolderDialog8onCreateEP21QPlatformDialogHelper
-#if QT_DEPRECATED_SINCE(6, 9)
-inline void QQuickLabsPlatformFolderDialog::onCreate(QPlatformDialogHelper *dialog)
-{
-    if (QPlatformFileDialogHelper *fileDialog = qobject_cast<QPlatformFileDialogHelper *>(dialog)) {
-        connect(fileDialog, &QPlatformFileDialogHelper::currentChanged, this, &QQuickLabsPlatformFolderDialog::currentFolderChanged);
-        fileDialog->setOptions(m_options);
-    }
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 242, as _ZN30QQuickLabsPlatformFolderDialog6onShowEP21QPlatformDialogHelper
-#if QT_DEPRECATED_SINCE(6, 9)
-inline void QQuickLabsPlatformFolderDialog::onShow(QPlatformDialogHelper *dialog)
-{
-    m_options->setWindowTitle(title());
-    if (QPlatformFileDialogHelper *fileDialog = qobject_cast<QPlatformFileDialogHelper *>(dialog))
-        fileDialog->setOptions(m_options);
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfolderdialog.cpp, line 249, as _ZN30QQuickLabsPlatformFolderDialog6acceptEv
-#if QT_DEPRECATED_SINCE(6, 9)
-inline void QQuickLabsPlatformFolderDialog::accept()
-{
-    setFolder(currentFolder());
-    QQuickLabsPlatformDialog::accept();
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickLabsPlatformFolderDialog may call these functions of it.
@@ -180,6 +192,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK30QQuickLabsPlatformFolderDialog10metaObjectEv(
     const QQuickLabsPlatformFolderDialog *self) {
   return self->metaObject();
+}
+
+//  void *QQuickLabsPlatformFolderDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QQuickLabsPlatformFolderDialog11qt_metacastEPKc(
+    QQuickLabsPlatformFolderDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformFolderDialog::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QQuickLabsPlatformFolderDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformFolderDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  const QMetaObject *QQuickLabsPlatformFolderDialog::qmlExtendedNamespace()
@@ -250,6 +281,131 @@ QString *ritual_ZNK30QQuickLabsPlatformFolderDialog11rejectLabelEv(
   return new QString(self->rejectLabel());
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  void QQuickLabsPlatformFolderDialog::folderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickLabsPlatformFolderDialog13folderChangedEv(
+    QQuickLabsPlatformFolderDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformFolderDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "folderChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "folderChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformFolderDialog::currentFolderChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickLabsPlatformFolderDialog20currentFolderChangedEv(
+    QQuickLabsPlatformFolderDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformFolderDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "currentFolderChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "currentFolderChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformFolderDialog::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickLabsPlatformFolderDialog14optionsChangedEv(
+    QQuickLabsPlatformFolderDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformFolderDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "optionsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "optionsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformFolderDialog::acceptLabelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickLabsPlatformFolderDialog18acceptLabelChangedEv(
+    QQuickLabsPlatformFolderDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformFolderDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "acceptLabelChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "acceptLabelChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformFolderDialog::rejectLabelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickLabsPlatformFolderDialog18rejectLabelChangedEv(
+    QQuickLabsPlatformFolderDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformFolderDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "rejectLabelChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "rejectLabelChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
 
 //  bool QQuickLabsPlatformFolderDialog::useNativeDialog() const
 extern "C" Q_DECL_EXPORT

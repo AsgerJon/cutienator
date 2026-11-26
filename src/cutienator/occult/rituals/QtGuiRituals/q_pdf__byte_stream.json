@@ -5,7 +5,21 @@
     "are lost."
   ],
   "rows": {
+    "ritual_ZN4QPdf10ByteStreamC1Eb": ["address", "bool"],
+    "ritual_ZN4QPdf10ByteStreamC1EP10QByteArrayb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN4QPdf10ByteStreamD1Ev": ["nothing", "address"],
+    "ritual_ZN4QPdf10ByteStreamlsEc": ["address", "address", "char"],
+    "ritual_ZN4QPdf10ByteStreamlsEPKc": ["address", "address", "chars"],
+    "ritual_ZN4QPdf10ByteStreamlsERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN4QPdf10ByteStreamlsERKS0_": ["address", "address", "address"],
+    "ritual_ZN4QPdf10ByteStream6streamEv": ["address", "address"],
+    "ritual_ZN4QPdf10ByteStream5clearEv": ["nothing", "address"],
     "ritual_ZN4QPdf10ByteStream13maxMemorySizeEv": ["int"],
-    "ritual_ZN4QPdf10ByteStream9chunkSizeEv": ["int"]
+    "ritual_ZN4QPdf10ByteStream9chunkSizeEv": ["int"],
+    "ritual_ZN4QPdf10ByteStream13prepareBufferEv": ["nothing", "address"]
   }
 }

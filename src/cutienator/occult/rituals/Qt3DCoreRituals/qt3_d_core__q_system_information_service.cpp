@@ -7,6 +7,7 @@
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qsysteminformationservice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -186,6 +187,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore25QSystemInformationService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QSystemInformationService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore25QSystemInformationService11qt_metacastEPKc(
+    Qt3DCore::QSystemInformationService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QSystemInformationService::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore25QSystemInformationService11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QSystemInformationService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QSystemInformationService::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -194,6 +214,35 @@ QString *ritual_ZN8Qt3DCore25QSystemInformationService2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QSystemInformationService::tr(s, c, n));
+}
+
+//  Qt3DCore::QSystemInformationService::QSystemInformationService(QAspectEng
+//      ine *aspectEngine)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QSystemInformationService *ritual_ZN8Qt3DCore25QSystemInformationServiceC1EPNS_13QAspectEngineE(
+    Qt3DCore::QAspectEngine *aspectEngine) {
+  return new CuteQt3DCore_QSystemInformationService(aspectEngine);
+}
+
+//  bool Qt3DCore::QSystemInformationService::isTraceEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore25QSystemInformationService14isTraceEnabledEv(
+    const Qt3DCore::QSystemInformationService *self) {
+  return self->isTraceEnabled();
+}
+
+//  bool Qt3DCore::QSystemInformationService::isGraphicsTraceEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore25QSystemInformationService22isGraphicsTraceEnabledEv(
+    const Qt3DCore::QSystemInformationService *self) {
+  return self->isGraphicsTraceEnabled();
+}
+
+//  bool Qt3DCore::QSystemInformationService::isCommandServerEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore25QSystemInformationService22isCommandServerEnabledEv(
+    const Qt3DCore::QSystemInformationService *self) {
+  return self->isCommandServerEnabled();
 }
 
 //  QStringList Qt3DCore::QSystemInformationService::aspectNames() const
@@ -210,6 +259,75 @@ int ritual_ZNK8Qt3DCore25QSystemInformationService21threadPoolThreadCountEv(
   return self->threadPoolThreadCount();
 }
 
+//  void Qt3DCore::QSystemInformationService::writePreviousFrameTraces()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25QSystemInformationService24writePreviousFrameTracesEv(
+    Qt3DCore::QSystemInformationService *self) {
+  self->writePreviousFrameTraces();
+}
+
+//  void Qt3DCore::QSystemInformationService::revealLogFolder()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25QSystemInformationService15revealLogFolderEv(
+    Qt3DCore::QSystemInformationService *self) {
+  self->revealLogFolder();
+}
+
+//  void Qt3DCore::QSystemInformationService::setTraceEnabled(bool
+//      traceEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25QSystemInformationService15setTraceEnabledEb(
+    Qt3DCore::QSystemInformationService *self,
+    bool traceEnabled) {
+  self->setTraceEnabled(traceEnabled);
+}
+
+//  void Qt3DCore::QSystemInformationService::setGraphicsTraceEnabled(bool
+//      graphicsTraceEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25QSystemInformationService23setGraphicsTraceEnabledEb(
+    Qt3DCore::QSystemInformationService *self,
+    bool graphicsTraceEnabled) {
+  self->setGraphicsTraceEnabled(graphicsTraceEnabled);
+}
+
+//  QVariant Qt3DCore::QSystemInformationService::executeCommand(const
+//      QString &command)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8Qt3DCore25QSystemInformationService14executeCommandERK7QString(
+    Qt3DCore::QSystemInformationService *self,
+    const QString *command) {
+  return new QVariant(self->executeCommand(*command));
+}
+
+//  void Qt3DCore::QSystemInformationService::dumpCommand(const QString
+//      &command)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25QSystemInformationService11dumpCommandERK7QString(
+    Qt3DCore::QSystemInformationService *self,
+    const QString *command) {
+  self->dumpCommand(*command);
+}
+
+//  void Qt3DCore::QSystemInformationService::traceEnabledChanged(bool
+//      traceEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25QSystemInformationService19traceEnabledChangedEb(
+    Qt3DCore::QSystemInformationService *self,
+    bool traceEnabled) {
+  self->traceEnabledChanged(traceEnabled);
+}
+
+//  void
+//      Qt3DCore::QSystemInformationService::graphicsTraceEnabledChanged(bool
+//      graphicsTraceEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore25QSystemInformationService27graphicsTraceEnabledChangedEb(
+    Qt3DCore::QSystemInformationService *self,
+    bool graphicsTraceEnabled) {
+  self->graphicsTraceEnabledChanged(graphicsTraceEnabled);
+}
+
 //  QSystemInformationServicePrivate
 //      *Qt3DCore::QSystemInformationService::d_func()
 extern "C" Q_DECL_EXPORT
@@ -224,6 +342,25 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QSystemInformationServicePrivate *ritual_ZNK8Qt3DCore25QSystemInformationService6d_funcEv(
     const Qt3DCore::QSystemInformationService *self) {
   return self->d_func();
+}
+
+//  Qt3DCore::QSystemInformationService::QSystemInformationService(QAspectEng
+//      ine *aspectEngine, const QString &description)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QSystemInformationService *ritual_ZN8Qt3DCore25QSystemInformationServiceC1EPNS_13QAspectEngineERK7QString(
+    Qt3DCore::QAspectEngine *aspectEngine,
+    const QString *description) {
+  return new CuteQt3DCore_QSystemInformationService(
+      aspectEngine,
+      *description);
+}
+
+//  Qt3DCore::QSystemInformationService::QSystemInformationService(QSystemInf
+//      ormationServicePrivate &dd)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QSystemInformationService *ritual_ZN8Qt3DCore25QSystemInformationServiceC1ERNS_32QSystemInformationServicePrivateE(
+    Qt3DCore::QSystemInformationServicePrivate *dd) {
+  return new CuteQt3DCore_QSystemInformationService(*dd);
 }
 
 //  a Python function taken by a CuteQt3DCore_QSystemInformationService, for

@@ -7,6 +7,7 @@
 #include <QtCore/qbytearray.h>
 #include <QtBluetooth/qlowenergydescriptor.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QSharedPointer>
 
 //  QLowEnergyCharacteristic::QLowEnergyCharacteristic()
 extern "C" Q_DECL_EXPORT
@@ -27,6 +28,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QLowEnergyCharacteristicD1Ev(
     QLowEnergyCharacteristic *self) {
   delete self;
+}
+
+//  QLowEnergyCharacteristic &QLowEnergyCharacteristic::operator=(const
+//      QLowEnergyCharacteristic &other)
+extern "C" Q_DECL_EXPORT
+QLowEnergyCharacteristic *ritual_ZN24QLowEnergyCharacteristicaSERKS_(
+    QLowEnergyCharacteristic *self,
+    const QLowEnergyCharacteristic *other) {
+  return &(self->operator=(*other));
 }
 
 //  bool operator==(const QLowEnergyCharacteristic &a, const
@@ -119,6 +129,15 @@ extern "C" Q_DECL_EXPORT
 QLowEnergyHandle ritual_ZNK24QLowEnergyCharacteristic15attributeHandleEv(
     const QLowEnergyCharacteristic *self) {
   return self->attributeHandle();
+}
+
+//  QLowEnergyCharacteristic::QLowEnergyCharacteristic(QSharedPointer<QLowEne
+//      rgyServicePrivate> p, QLowEnergyHandle handle)
+extern "C" Q_DECL_EXPORT
+QLowEnergyCharacteristic *ritual_ZN24QLowEnergyCharacteristicC1E14QSharedPointerI24QLowEnergyServicePrivateEt(
+    const QSharedPointer<QLowEnergyServicePrivate> *p,
+    QLowEnergyHandle handle) {
+  return new QLowEnergyCharacteristic(*p, handle);
 }
 
 //  bool QLowEnergyCharacteristic::equals(const QLowEnergyCharacteristic &a,

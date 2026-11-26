@@ -5,7 +5,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -24,6 +24,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtGraphs/QScatter3DSeries>
 
 //  Only a class built on QQuickGraphsScatter may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -2143,6 +2145,25 @@ const QMetaObject *ritual_ZNK19QQuickGraphsScatter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGraphsScatter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickGraphsScatter11qt_metacastEPKc(
+    QQuickGraphsScatter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGraphsScatter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickGraphsScatter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGraphsScatter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGraphsScatter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickGraphsScatter2trEPKcS1_i(
@@ -2208,6 +2229,51 @@ extern "C" Q_DECL_EXPORT
 QValue3DAxis *ritual_ZNK19QQuickGraphsScatter5axisZEv(
     const QQuickGraphsScatter *self) {
   return self->axisZ();
+}
+
+//  QQmlListProperty<QScatter3DSeries> QQuickGraphsScatter::seriesList()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QScatter3DSeries> *ritual_ZN19QQuickGraphsScatter10seriesListEv(
+    QQuickGraphsScatter *self) {
+  return new QQmlListProperty<QScatter3DSeries>(self->seriesList());
+}
+
+//  void
+//      QQuickGraphsScatter::appendSeriesFunc(QQmlListProperty<QScatter3DSeri
+//      es> *list, QScatter3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter16appendSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesEPS1_(
+    QQmlListProperty<QScatter3DSeries> *list,
+    QScatter3DSeries *series) {
+  QQuickGraphsScatter::appendSeriesFunc(list, series);
+}
+
+//  qsizetype
+//      QQuickGraphsScatter::countSeriesFunc(QQmlListProperty<QScatter3DSerie
+//      s> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN19QQuickGraphsScatter15countSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesE(
+    QQmlListProperty<QScatter3DSeries> *list) {
+  return QQuickGraphsScatter::countSeriesFunc(list);
+}
+
+//  QScatter3DSeries
+//      *QQuickGraphsScatter::atSeriesFunc(QQmlListProperty<QScatter3DSeries>
+//      *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QScatter3DSeries *ritual_ZN19QQuickGraphsScatter12atSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesEx(
+    QQmlListProperty<QScatter3DSeries> *list,
+    qsizetype index) {
+  return QQuickGraphsScatter::atSeriesFunc(list, index);
+}
+
+//  void
+//      QQuickGraphsScatter::clearSeriesFunc(QQmlListProperty<QScatter3DSerie
+//      s> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter15clearSeriesFuncEP16QQmlListPropertyI16QScatter3DSeriesE(
+    QQmlListProperty<QScatter3DSeries> *list) {
+  QQuickGraphsScatter::clearSeriesFunc(list);
 }
 
 //  void QQuickGraphsScatter::clearSelection()
@@ -2458,6 +2524,38 @@ void ritual_ZN19QQuickGraphsScatter19handleItemsInsertedExx(
   self->handleItemsInserted(startIndex, count);
 }
 
+//  void QQuickGraphsScatter::axisXChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter12axisXChangedEP12QValue3DAxis(
+    QQuickGraphsScatter *self,
+    QValue3DAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void QQuickGraphsScatter::axisYChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter12axisYChangedEP12QValue3DAxis(
+    QQuickGraphsScatter *self,
+    QValue3DAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void QQuickGraphsScatter::axisZChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter12axisZChangedEP12QValue3DAxis(
+    QQuickGraphsScatter *self,
+    QValue3DAxis *axis) {
+  self->axisZChanged(axis);
+}
+
+//  void QQuickGraphsScatter::selectedSeriesChanged(QScatter3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter21selectedSeriesChangedEP16QScatter3DSeries(
+    QQuickGraphsScatter *self,
+    QScatter3DSeries *series) {
+  self->selectedSeriesChanged(series);
+}
+
 //  void QQuickGraphsScatter::calculateSceneScalingFactors()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickGraphsScatter28calculateSceneScalingFactorsEv(
@@ -2555,6 +2653,33 @@ QVector3D *ritual_ZN19QQuickGraphsScatter20selectedItemPositionEv(
   return new QVector3D(self->selectedItemPosition());
 }
 
+//  void QQuickGraphsScatter::updateMaterialReference(ScatterModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter23updateMaterialReferenceEPNS_12ScatterModelE(
+    QQuickGraphsScatter *self,
+    QQuickGraphsScatter::ScatterModel *model) {
+  self->updateMaterialReference(model);
+}
+
+//  void QQuickGraphsScatter::updateInstancedMaterialProperties(ScatterModel
+//      *graphModel, const bool isHighlight, QQuick3DTexture *seriesTexture,
+//      QQuick3DTexture *highlightTexture, const bool transparency)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter33updateInstancedMaterialPropertiesEPNS_12ScatterModelEbP15QQuick3DTextureS3_b(
+    QQuickGraphsScatter *self,
+    QQuickGraphsScatter::ScatterModel *graphModel,
+    bool isHighlight,
+    QQuick3DTexture *seriesTexture,
+    QQuick3DTexture *highlightTexture,
+    bool transparency) {
+  self->updateInstancedMaterialProperties(
+      graphModel,
+      isHighlight,
+      seriesTexture,
+      highlightTexture,
+      transparency);
+}
+
 //  void QQuickGraphsScatter::updateItemMaterial(QQuick3DModel *item, bool
 //      useGradient, bool rangeGradient, bool usePoint, const QString
 //      &materialName)
@@ -2616,6 +2741,26 @@ QQuick3DModel *ritual_ZN19QQuickGraphsScatter14createDataItemEP17QAbstract3DSeri
   return self->createDataItem(series);
 }
 
+//  void QQuickGraphsScatter::removeDataItems(ScatterModel *graphModel,
+//      QtGraphs3D::OptimizationHint optimizationHint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter15removeDataItemsEPNS_12ScatterModelEN10QtGraphs3D16OptimizationHintE(
+    QQuickGraphsScatter *self,
+    QQuickGraphsScatter::ScatterModel *graphModel,
+    QtGraphs3D::OptimizationHint optimizationHint) {
+  self->removeDataItems(graphModel, optimizationHint);
+}
+
+//  void QQuickGraphsScatter::fixMeshFileName(QString &fileName,
+//      QAbstract3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter15fixMeshFileNameER7QStringP17QAbstract3DSeries(
+    QQuickGraphsScatter *self,
+    QString *fileName,
+    QAbstract3DSeries *series) {
+  self->fixMeshFileName(*fileName, series);
+}
+
 //  QString QQuickGraphsScatter::getMeshFileName(QAbstract3DSeries *series)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickGraphsScatter15getMeshFileNameEP17QAbstract3DSeries(
@@ -2632,11 +2777,40 @@ void ritual_ZN19QQuickGraphsScatter14deleteDataItemEP13QQuick3DModel(
   self->deleteDataItem(item);
 }
 
+//  void QQuickGraphsScatter::removeDataItems(QList<QQuick3DModel *> &items,
+//      qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter15removeDataItemsER5QListIP13QQuick3DModelEx(
+    QQuickGraphsScatter *self,
+    QList<QQuick3DModel *> *items,
+    qsizetype count) {
+  self->removeDataItems(*items, count);
+}
+
 //  void QQuickGraphsScatter::recreateDataItems()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickGraphsScatter17recreateDataItemsEv(
     QQuickGraphsScatter *self) {
   self->recreateDataItems();
+}
+
+//  void QQuickGraphsScatter::recreateDataItems(const QList<ScatterModel *>
+//      &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter17recreateDataItemsERK5QListIPNS_12ScatterModelEE(
+    QQuickGraphsScatter *self,
+    const QList<QQuickGraphsScatter::ScatterModel *> *a0) {
+  self->recreateDataItems(*a0);
+}
+
+//  void QQuickGraphsScatter::addPointsToScatterModel(ScatterModel
+//      *graphModel, qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter23addPointsToScatterModelEPNS_12ScatterModelEx(
+    QQuickGraphsScatter *self,
+    QQuickGraphsScatter::ScatterModel *graphModel,
+    qsizetype count) {
+  self->addPointsToScatterModel(graphModel, count);
 }
 
 //  qsizetype QQuickGraphsScatter::sizeDifference(qsizetype size1, qsizetype
@@ -2703,11 +2877,54 @@ void ritual_ZNK19QQuickGraphsScatter16calculatePolarXZEffRfS0_(
   self->calculatePolarXZ(posX, posZ, *x, *z);
 }
 
+//  void QQuickGraphsScatter::updateSpline(ScatterModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter12updateSplineEPNS_12ScatterModelE(
+    QQuickGraphsScatter *self,
+    QQuickGraphsScatter::ScatterModel *model) {
+  self->updateSpline(model);
+}
+
+//  void QQuickGraphsScatter::createSplineModel(ScatterModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter17createSplineModelEPNS_12ScatterModelE(
+    QQuickGraphsScatter *self,
+    QQuickGraphsScatter::ScatterModel *model) {
+  self->createSplineModel(model);
+}
+
 //  void QQuickGraphsScatter::handleSplineChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickGraphsScatter19handleSplineChangedEv(
     QQuickGraphsScatter *self) {
   self->handleSplineChanged();
+}
+
+//  void QQuickGraphsScatter::generatePointsForScatterModel(ScatterModel
+//      *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter29generatePointsForScatterModelEPNS_12ScatterModelE(
+    QQuickGraphsScatter *self,
+    QQuickGraphsScatter::ScatterModel *series) {
+  self->generatePointsForScatterModel(series);
+}
+
+//  void QQuickGraphsScatter::updateScatterGraphItemPositions(ScatterModel
+//      *graphModel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter31updateScatterGraphItemPositionsEPNS_12ScatterModelE(
+    QQuickGraphsScatter *self,
+    QQuickGraphsScatter::ScatterModel *graphModel) {
+  self->updateScatterGraphItemPositions(graphModel);
+}
+
+//  void QQuickGraphsScatter::updateScatterGraphItemVisuals(ScatterModel
+//      *graphModel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickGraphsScatter29updateScatterGraphItemVisualsEPNS_12ScatterModelE(
+    QQuickGraphsScatter *self,
+    QQuickGraphsScatter::ScatterModel *graphModel) {
+  self->updateScatterGraphItemVisuals(graphModel);
 }
 
 //  QQuick3DModel *QQuickGraphsScatter::selected() const
@@ -2798,6 +3015,24 @@ void ritual_ZN19QQuickGraphsScatter37handleSeriesVisibilityChangedBySenderEP7QOb
     QQuickGraphsScatter *self,
     QObject *sender) {
   self->handleSeriesVisibilityChangedBySender(sender);
+}
+
+//  bool QQuickGraphsScatter::selectedItemInRange(const ScatterModel
+//      *graphModel)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QQuickGraphsScatter19selectedItemInRangeEPKNS_12ScatterModelE(
+    QQuickGraphsScatter *self,
+    const QQuickGraphsScatter::ScatterModel *graphModel) {
+  return self->selectedItemInRange(graphModel);
+}
+
+//  ScatterModel *QQuickGraphsScatter::findGraphModel(QScatter3DSeries
+//      *series)
+extern "C" Q_DECL_EXPORT
+QQuickGraphsScatter::ScatterModel *ritual_ZN19QQuickGraphsScatter14findGraphModelEP16QScatter3DSeries(
+    QQuickGraphsScatter *self,
+    QScatter3DSeries *series) {
+  return self->findGraphModel(series);
 }
 
 //  void QQuickGraphsScatter::cameraRotationChanged()
@@ -3016,4 +3251,11 @@ void ritual_own_ZN19QQuickGraphsScatter37handleSeriesVisibilityChangedBySenderEP
   self->QQuickGraphsScatter::handleSeriesVisibilityChangedBySender(sender);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+//  a QQmlListProperty<QScatter3DSeries> a ritual of QQuickGraphsScatter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickGraphsScatter__QQmlListProperty_QScatter3DSeries(
+    QQmlListProperty<QScatter3DSeries> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))

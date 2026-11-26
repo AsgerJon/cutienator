@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlMagnetometerReading that Python can take functions over in. Every QmlMagnetometerReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK22QmlMagnetometerReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlMagnetometerReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QmlMagnetometerReading11qt_metacastEPKc(
+    QmlMagnetometerReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlMagnetometerReading::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QmlMagnetometerReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlMagnetometerReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlMagnetometerReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QmlMagnetometerReading2trEPKcS1_i(
@@ -252,11 +272,25 @@ qreal ritual_ZNK22QmlMagnetometerReading1xEv(
   return self->x();
 }
 
+//  QBindable<qreal> QmlMagnetometerReading::bindableX() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK22QmlMagnetometerReading9bindableXEv(
+    const QmlMagnetometerReading *self) {
+  return new QBindable<qreal>(self->bindableX());
+}
+
 //  qreal QmlMagnetometerReading::y() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK22QmlMagnetometerReading1yEv(
     const QmlMagnetometerReading *self) {
   return self->y();
+}
+
+//  QBindable<qreal> QmlMagnetometerReading::bindableY() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK22QmlMagnetometerReading9bindableYEv(
+    const QmlMagnetometerReading *self) {
+  return new QBindable<qreal>(self->bindableY());
 }
 
 //  qreal QmlMagnetometerReading::z() const
@@ -266,11 +300,53 @@ qreal ritual_ZNK22QmlMagnetometerReading1zEv(
   return self->z();
 }
 
+//  QBindable<qreal> QmlMagnetometerReading::bindableZ() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK22QmlMagnetometerReading9bindableZEv(
+    const QmlMagnetometerReading *self) {
+  return new QBindable<qreal>(self->bindableZ());
+}
+
 //  qreal QmlMagnetometerReading::calibrationLevel() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK22QmlMagnetometerReading16calibrationLevelEv(
     const QmlMagnetometerReading *self) {
   return self->calibrationLevel();
+}
+
+//  QBindable<qreal> QmlMagnetometerReading::bindableCalibrationLevel() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK22QmlMagnetometerReading24bindableCalibrationLevelEv(
+    const QmlMagnetometerReading *self) {
+  return new QBindable<qreal>(self->bindableCalibrationLevel());
+}
+
+//  void QmlMagnetometerReading::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QmlMagnetometerReading8xChangedEv(
+    QmlMagnetometerReading *self) {
+  self->xChanged();
+}
+
+//  void QmlMagnetometerReading::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QmlMagnetometerReading8yChangedEv(
+    QmlMagnetometerReading *self) {
+  self->yChanged();
+}
+
+//  void QmlMagnetometerReading::zChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QmlMagnetometerReading8zChangedEv(
+    QmlMagnetometerReading *self) {
+  self->zChanged();
+}
+
+//  void QmlMagnetometerReading::calibrationLevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QmlMagnetometerReading23calibrationLevelChangedEv(
+    QmlMagnetometerReading *self) {
+  self->calibrationLevelChanged();
 }
 
 //  QSensorReading *QmlMagnetometerReading::reading() const
@@ -285,6 +361,30 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QmlMagnetometerReading13readingUpdateEv(
     QmlMagnetometerReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlMagnetometerReading::_qt_property_m_x_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN22QmlMagnetometerReading23_qt_property_m_x_offsetEv() {
+  return QmlMagnetometerReading::_qt_property_m_x_offset();
+}
+
+//  size_t QmlMagnetometerReading::_qt_property_m_y_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN22QmlMagnetometerReading23_qt_property_m_y_offsetEv() {
+  return QmlMagnetometerReading::_qt_property_m_y_offset();
+}
+
+//  size_t QmlMagnetometerReading::_qt_property_m_z_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN22QmlMagnetometerReading23_qt_property_m_z_offsetEv() {
+  return QmlMagnetometerReading::_qt_property_m_z_offset();
+}
+
+//  size_t QmlMagnetometerReading::_qt_property_m_calibrationLevel_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN22QmlMagnetometerReading38_qt_property_m_calibrationLevel_offsetEv() {
+  return QmlMagnetometerReading::_qt_property_m_calibrationLevel_offset();
 }
 
 //  a Python function taken by a CuteQmlMagnetometerReading, for the function
@@ -309,4 +409,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN22QmlMagnetometerReading13readingUpdateEv(
     QmlMagnetometerReading *self) {
   self->QmlMagnetometerReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlMagnetometerReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlMagnetometerReading__QBindable_qreal(
+    QBindable<qreal> *self) {
+  delete self;
 }

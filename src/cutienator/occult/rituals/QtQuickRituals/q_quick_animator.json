@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuickAnimator10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickAnimator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuickAnimator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuickAnimator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,28 @@
     "ritual_ZNK14QQuickAnimator14threadingModelEv": ["int", "address"],
     "ritual_ZNK14QQuickAnimator9createJobEv": ["address", "address"],
     "ritual_ZNK14QQuickAnimator12propertyNameEv": ["text", "address"],
+    "ritual_ZN14QQuickAnimator10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuickAnimatorC1ER21QQuickAnimatorPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickAnimatorC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQuickAnimator17targetItemChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickAnimator15durationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickAnimator13easingChangedERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickAnimator9toChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickAnimator11fromChangedEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_take_QQuickAnimator": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QQuickAnimator14threadingModelEv": ["int", "address"]
   }

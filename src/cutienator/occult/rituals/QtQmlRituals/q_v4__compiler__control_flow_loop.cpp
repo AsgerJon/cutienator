@@ -14,11 +14,12 @@
 //  function handed over for it, and runs Qt's own without one.
 typedef QString * (*CuteQV4_Compiler_ControlFlowLoopCall0)(const void *, int *);
 typedef bool (*CuteQV4_Compiler_ControlFlowLoopCall1)(const void *, int *);
+typedef void * (*CuteQV4_Compiler_ControlFlowLoopCall2)(const void *, int *);
 class CuteQV4_Compiler_ControlFlowLoop : public QV4::Compiler::ControlFlowLoop {
 public:
   using QV4::Compiler::ControlFlowLoop::ControlFlowLoop;
-  CuteQV4_Compiler_ControlFlowLoop(const QV4::Compiler::ControlFlowLoop &other) : QV4::Compiler::ControlFlowLoop(other) {}
-  void *taken[2] = {};
+  CuteQV4_Compiler_ControlFlowLoop(const QV4::Compiler::ControlFlowLoop & other) : QV4::Compiler::ControlFlowLoop(other) {}
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK3QV48Compiler11ControlFlow5labelEv")) {
@@ -27,6 +28,10 @@ public:
     }
     if (!std::strcmp(key, "_ZN3QV48Compiler11ControlFlow14requiresUnwindEv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN3QV48Compiler11ControlFlow13unwindHandlerEv")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -56,6 +61,18 @@ public:
       if (handled) return given;
     }
     return QV4::Compiler::ControlFlowUnwindCleanup::requiresUnwind();
+  }
+
+  //  BytecodeGenerator::ExceptionHandler
+  //      *QV4::Compiler::ControlFlowUnwind::unwindHandler()
+  BytecodeGenerator::ExceptionHandler *unwindHandler() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQV4_Compiler_ControlFlowLoopCall2 call = reinterpret_cast<CuteQV4_Compiler_ControlFlowLoopCall2>(taken[2]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<BytecodeGenerator::ExceptionHandler *>(given);
+    }
+    return QV4::Compiler::ControlFlowUnwind::unwindHandler();
   }
 };
 

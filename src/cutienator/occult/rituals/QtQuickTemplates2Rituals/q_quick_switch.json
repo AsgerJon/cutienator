@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QQuickSwitch10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickSwitch11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuickSwitch11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuickSwitch2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuickSwitchC1EP10QQuickItem": ["address", "address"],
     "ritual_ZNK12QQuickSwitch8positionEv": ["double", "address"],
@@ -13,6 +19,10 @@
       "nothing", "address", "double"
     ],
     "ritual_ZNK12QQuickSwitch14visualPositionEv": ["double", "address"],
+    "ritual_ZN12QQuickSwitch15positionChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickSwitch21visualPositionChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN12QQuickSwitch14mouseMoveEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],
@@ -25,6 +35,8 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK12QQuickSwitch11defaultFontEv": ["address", "address"],
+    "ritual_ZN12QQuickSwitch6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQuickSwitch6d_funcEv": ["address", "address"],
     "ritual_own_ZN12QQuickSwitch14mouseMoveEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],

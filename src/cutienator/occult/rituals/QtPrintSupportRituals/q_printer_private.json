@@ -22,12 +22,16 @@
     "ritual_ZN15QPrinterPrivate13changeEnginesEN8QPrinter12OutputFormatERK12QPrinterInfo": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZNK15QPrinterPrivate12previewPagesEv": ["address", "address"],
     "ritual_ZN15QPrinterPrivate14setPreviewModeEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZNK15QPrinterPrivate11previewModeEv": ["bool", "address"],
     "ritual_ZN15QPrinterPrivate11setPropertyEN12QPrintEngine22PrintEnginePropertyKeyERK8QVariant": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QPrinterPrivate__QList_const_QPicture": [
+      "nothing", "address"
     ]
   }
 }

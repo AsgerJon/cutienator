@@ -5,8 +5,10 @@
   ],
   "rows": {
     "ritual_ZN11QMetaObject9SuperDataC1Ev": ["address"],
+    "ritual_ZN11QMetaObject9SuperDataC1EDn": ["address"],
     "ritual_ZN11QMetaObject9SuperDataC1EPKS_": ["address", "address"],
     "ritual_ZNK11QMetaObject9SuperDataptEv": ["address", "address"],
+    "ritual_ZN11QMetaObject9SuperDataC1EPFPKS_vE": ["address", "address"],
     "ritual_ZNK11QMetaObject9SuperDatacvPKS_Ev": ["address", "address"],
     "ritual_ZN11QMetaObject9SuperDataD1Ev": ["nothing", "address"]
   }

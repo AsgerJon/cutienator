@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN10QCborValueC1Ev": ["address"],
     "ritual_ZN10QCborValueC1ENS_4TypeE": ["address", "int"],
+    "ritual_ZN10QCborValueC1EDn": ["address"],
     "ritual_ZN10QCborValueC1Eb": ["address", "bool"],
     "ritual_ZN10QCborValueC1Ei": ["address", "int"],
     "ritual_ZN10QCborValueC1Ej": ["address", "unsigned int"],
@@ -20,7 +21,9 @@
     "ritual_ZN10QCborValueC1E13QLatin1String": ["address", "address"],
     "ritual_ZN10QCborValueC1EPKc": ["address", "chars"],
     "ritual_ZN10QCborValueC1ERK10QCborArray": ["address", "address"],
+    "ritual_ZN10QCborValueC1EO10QCborArray": ["address", "address"],
     "ritual_ZN10QCborValueC1ERK8QCborMap": ["address", "address"],
+    "ritual_ZN10QCborValueC1EO8QCborMap": ["address", "address"],
     "ritual_ZN10QCborValueC1E8QCborTagRKS_": [
       "address", "unsigned long long", "address"
     ],
@@ -33,6 +36,10 @@
     "ritual_ZN10QCborValueC1ERK5QUuid": ["address", "address"],
     "ritual_ZN10QCborValueD1Ev": ["nothing", "address"],
     "ritual_ZN10QCborValueC1ERKS_": ["address", "address"],
+    "ritual_ZN10QCborValueC1EOS_": ["address", "address"],
+    "ritual_ZN10QCborValueaSERKS_": ["address", "address", "address"],
+    "ritual_ZN10QCborValueaSEOS_": ["address", "address", "address"],
+    "ritual_ZN10QCborValue4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK10QCborValue4typeEv": ["int", "address"],
     "ritual_ZNK10QCborValue9isIntegerEv": ["bool", "address"],
     "ritual_ZNK10QCborValue11isByteArrayEv": ["bool", "address"],
@@ -116,14 +123,23 @@
       "address", "address"
     ],
     "ritual_ZNK10QCborValue11toJsonValueEv": ["address", "address"],
+    "ritual_ZN10QCborValue8fromCborER17QCborStreamReader": [
+      "address", "address"
+    ],
     "ritual_ZN10QCborValue8fromCborERK10QByteArrayP16QCborParserError": [
       "address", "address", "address"
     ],
     "ritual_ZN10QCborValue8fromCborEPKcxP16QCborParserError": [
       "address", "chars", "long long", "address"
     ],
+    "ritual_ZN10QCborValue8fromCborEPKhxP16QCborParserError": [
+      "address", "address", "long long", "address"
+    ],
     "ritual_ZNK10QCborValue6toCborE6QFlagsINS_14EncodingOptionEE": [
       "address", "address", "int"
+    ],
+    "ritual_ZNK10QCborValue6toCborER17QCborStreamWriter6QFlagsINS_14EncodingOptionEE": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_ZNK10QCborValue20toDiagnosticNotationE6QFlagsINS_24DiagnosticNotationOptionEE": [
       "text", "address", "int"

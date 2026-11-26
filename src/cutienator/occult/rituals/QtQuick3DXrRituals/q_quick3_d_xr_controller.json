@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuick3DXrController10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DXrController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuick3DXrController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuick3DXrController2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -28,6 +34,30 @@
     "ritual_ZNK20QQuick3DXrController14jointRotationsEv": [
       "address", "address"
     ],
-    "ritual_ZNK20QQuick3DXrController8isActiveEv": ["bool", "address"]
+    "ritual_ZNK20QQuick3DXrController8isActiveEv": ["bool", "address"],
+    "ritual_ZN20QQuick3DXrController17controllerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DXrController19actionMapperChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DXrController16poseSpaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DXrController19pokePositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DXrController21jointPositionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DXrController21jointRotationsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DXrController16jointDataUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DXrController15isActiveChangedEv": [
+      "nothing", "address"
+    ]
   }
 }

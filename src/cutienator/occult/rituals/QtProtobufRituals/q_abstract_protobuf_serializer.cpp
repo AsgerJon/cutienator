@@ -93,6 +93,12 @@ public:
   }
 };
 
+//  QAbstractProtobufSerializer::QAbstractProtobufSerializer()
+extern "C" Q_DECL_EXPORT
+QAbstractProtobufSerializer *ritual_ZN27QAbstractProtobufSerializerC1Ev() {
+  return new CuteQAbstractProtobufSerializer();
+}
+
 //  QByteArray QAbstractProtobufSerializer::serialize(const QProtobufMessage
 //      *message) const
 extern "C" Q_DECL_EXPORT

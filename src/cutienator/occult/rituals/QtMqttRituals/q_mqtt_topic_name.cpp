@@ -31,6 +31,32 @@ void ritual_ZN14QMqttTopicNameD1Ev(QMqttTopicName *self) {
   delete self;
 }
 
+//  QMqttTopicName &QMqttTopicName::operator=(const QMqttTopicName &name)
+extern "C" Q_DECL_EXPORT
+QMqttTopicName *ritual_ZN14QMqttTopicNameaSERKS_(
+    QMqttTopicName *self,
+    const QMqttTopicName *name) {
+  return &(self->operator=(*name));
+}
+
+#if defined(Q_COMPILER_RVALUE_REFS)
+//  QMqttTopicName &QMqttTopicName::operator=(QMqttTopicName &&other)
+extern "C" Q_DECL_EXPORT
+QMqttTopicName *ritual_ZN14QMqttTopicNameaSEOS_(
+    QMqttTopicName *self,
+    QMqttTopicName *other) {
+  return &(self->operator=(std::move(*other)));
+}
+#endif  // defined(Q_COMPILER_RVALUE_REFS)
+
+//  void QMqttTopicName::swap(QMqttTopicName &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QMqttTopicName4swapERS_(
+    QMqttTopicName *self,
+    QMqttTopicName *other) {
+  self->swap(*other);
+}
+
 //  QString QMqttTopicName::name() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK14QMqttTopicName4nameEv(const QMqttTopicName *self) {

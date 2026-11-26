@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
 //  DomButtonGroups::DomButtonGroups()
@@ -18,6 +19,24 @@ DomButtonGroups *ritual_ZN15DomButtonGroupsC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15DomButtonGroupsD1Ev(DomButtonGroups *self) {
   delete self;
+}
+
+//  void DomButtonGroups::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15DomButtonGroups4readER16QXmlStreamReader(
+    DomButtonGroups *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomButtonGroups::write(QXmlStreamWriter &writer, const QString
+//      &tagName) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15DomButtonGroups5writeER16QXmlStreamWriterRK7QString(
+    const DomButtonGroups *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  QList<DomButtonGroup *> DomButtonGroups::elementButtonGroup() const

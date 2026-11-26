@@ -180,6 +180,22 @@ const QMetaObject *ritual_ZNK7QSensor10metaObjectEv(const QSensor *self) {
   return self->metaObject();
 }
 
+//  void *QSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QSensor11qt_metacastEPKc(QSensor *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSensor::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QSensor2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -274,6 +290,12 @@ void ritual_ZN7QSensor17setSkipDuplicatesEb(
     QSensor *self,
     bool skipDuplicates) {
   self->setSkipDuplicates(skipDuplicates);
+}
+
+//  qrangelist QSensor::availableDataRates() const
+extern "C" Q_DECL_EXPORT
+qrangelist *ritual_ZNK7QSensor18availableDataRatesEv(const QSensor *self) {
+  return new qrangelist(self->availableDataRates());
 }
 
 //  int QSensor::dataRate() const
@@ -471,6 +493,119 @@ void ritual_ZN7QSensor4stopEv(QSensor *self) {
   self->stop();
 }
 
+//  void QSensor::busyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor11busyChangedEv(QSensor *self) {
+  self->busyChanged();
+}
+
+//  void QSensor::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor13activeChangedEv(QSensor *self) {
+  self->activeChanged();
+}
+
+//  void QSensor::readingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor14readingChangedEv(QSensor *self) {
+  self->readingChanged();
+}
+
+//  void QSensor::sensorError(int error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor11sensorErrorEi(QSensor *self, int error) {
+  self->sensorError(error);
+}
+
+//  void QSensor::availableSensorsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor23availableSensorsChangedEv(QSensor *self) {
+  self->availableSensorsChanged();
+}
+
+//  void QSensor::alwaysOnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor15alwaysOnChangedEv(QSensor *self) {
+  self->alwaysOnChanged();
+}
+
+//  void QSensor::dataRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor15dataRateChangedEv(QSensor *self) {
+  self->dataRateChanged();
+}
+
+//  void QSensor::skipDuplicatesChanged(bool skipDuplicates)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor21skipDuplicatesChangedEb(
+    QSensor *self,
+    bool skipDuplicates) {
+  self->skipDuplicatesChanged(skipDuplicates);
+}
+
+//  void QSensor::axesOrientationModeChanged(AxesOrientationMode
+//      axesOrientationMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor26axesOrientationModeChangedENS_19AxesOrientationModeE(
+    QSensor *self,
+    QSensor::AxesOrientationMode axesOrientationMode) {
+  self->axesOrientationModeChanged(axesOrientationMode);
+}
+
+//  void QSensor::currentOrientationChanged(int currentOrientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor25currentOrientationChangedEi(
+    QSensor *self,
+    int currentOrientation) {
+  self->currentOrientationChanged(currentOrientation);
+}
+
+//  void QSensor::userOrientationChanged(int userOrientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor22userOrientationChangedEi(
+    QSensor *self,
+    int userOrientation) {
+  self->userOrientationChanged(userOrientation);
+}
+
+//  void QSensor::maxBufferSizeChanged(int maxBufferSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor20maxBufferSizeChangedEi(
+    QSensor *self,
+    int maxBufferSize) {
+  self->maxBufferSizeChanged(maxBufferSize);
+}
+
+//  void QSensor::efficientBufferSizeChanged(int efficientBufferSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor26efficientBufferSizeChangedEi(
+    QSensor *self,
+    int efficientBufferSize) {
+  self->efficientBufferSizeChanged(efficientBufferSize);
+}
+
+//  void QSensor::bufferSizeChanged(int bufferSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor17bufferSizeChangedEi(QSensor *self, int bufferSize) {
+  self->bufferSizeChanged(bufferSize);
+}
+
+//  void QSensor::identifierChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSensor17identifierChangedEv(QSensor *self) {
+  self->identifierChanged();
+}
+
+//  QSensor::QSensor(const QByteArray &type, QSensorPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QSensor *ritual_ZN7QSensorC1ERK10QByteArrayR14QSensorPrivateP7QObject(
+    const QByteArray *type,
+    QSensorPrivate *dd,
+    QObject *parent) {
+  return new CuteQSensor(*type, *dd, parent);
+}
+
 //  QSensorBackend *QSensor::backend() const
 extern "C" Q_DECL_EXPORT
 QSensorBackend *ritual_ZNK7QSensor7backendEv(const QSensor *self) {
@@ -500,4 +635,10 @@ const QSensorPrivate *ritual_ZNK7QSensor6d_funcEv(const QSensor *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QSensor(QSensor *self, const char *key, void *call) {
   return static_cast<CuteQSensor *>(self)->take(key, call);
+}
+
+//  a qrangelist a ritual of QSensor gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSensor__qrangelist(qrangelist *self) {
+  delete self;
 }

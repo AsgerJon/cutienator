@@ -242,6 +242,25 @@ const QMetaObject *ritual_ZNK21QOAuthOobReplyHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOAuthOobReplyHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QOAuthOobReplyHandler11qt_metacastEPKc(
+    QOAuthOobReplyHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOAuthOobReplyHandler::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QOAuthOobReplyHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOAuthOobReplyHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOAuthOobReplyHandler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QOAuthOobReplyHandler2trEPKcS1_i(
@@ -277,6 +296,15 @@ void ritual_ZN21QOAuthOobReplyHandler20networkReplyFinishedEP13QNetworkReply(
     QOAuthOobReplyHandler *self,
     QNetworkReply *reply) {
   self->networkReplyFinished(reply);
+}
+
+//  QOAuthOobReplyHandler::QOAuthOobReplyHandler(QOAuthOobReplyHandlerPrivate
+//      &a0, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QOAuthOobReplyHandler *ritual_ZN21QOAuthOobReplyHandlerC1ER28QOAuthOobReplyHandlerPrivateP7QObject(
+    QOAuthOobReplyHandlerPrivate *a0,
+    QObject *parent) {
+  return new CuteQOAuthOobReplyHandler(*a0, parent);
 }
 
 //  QVariantMap QOAuthOobReplyHandler::parseResponse(const QByteArray

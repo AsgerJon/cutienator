@@ -7,11 +7,16 @@
   "rows": {
     "ritual_ZN7icutils4NodeC1Ev": ["address"],
     "ritual_ZN7icutils4NodeC1ERKS0_": ["address", "address"],
+    "ritual_ZN7icutils4NodeC1EOS0_": ["address", "address"],
+    "ritual_ZN7icutils4NodeaSERKS0_": ["address", "address", "address"],
+    "ritual_ZN7icutils4NodeaSEOS0_": ["address", "address", "address"],
     "ritual_ZNK7icutils4NodeeqERKS0_": ["bool", "address", "address"],
+    "ritual_ZN7icutils4NodeC1Em": ["address", "unsigned long long"],
     "ritual_ZNK7icutils4Node16hasPermanentMarkEv": ["bool", "address"],
     "ritual_ZNK7icutils4Node16hasTemporaryMarkEv": ["bool", "address"],
     "ritual_ZN7icutils4Node16setPermanentMarkEv": ["nothing", "address"],
     "ritual_ZN7icutils4Node16setTemporaryMarkEv": ["nothing", "address"],
+    "ritual_ZNK7icutils4Node5indexEv": ["unsigned long long", "address"],
     "ritual_ZN7icutils4NodeD1Ev": ["nothing", "address"]
   }
 }

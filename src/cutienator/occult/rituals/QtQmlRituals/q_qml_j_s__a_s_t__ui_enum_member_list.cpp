@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -201,6 +205,42 @@ public:
   }
 };
 
+//  QQmlJS::AST::UiEnumMemberList::UiEnumMemberList(QStringView member,
+//      double v)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiEnumMemberList *ritual_ZN6QQmlJS3AST16UiEnumMemberListC1E11QStringViewd(
+    QQmlJS::MemoryPool *pool,
+    const QString *member,
+    double v) {
+  return new (pool) CuteQQmlJS_AST_UiEnumMemberList(QStringView(*member), v);
+}
+
+//  QQmlJS::AST::UiEnumMemberList::UiEnumMemberList(UiEnumMemberList
+//      *previous, QStringView member)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiEnumMemberList *ritual_ZN6QQmlJS3AST16UiEnumMemberListC1EPS1_11QStringView(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiEnumMemberList *previous,
+    const QString *member) {
+  return new (pool) CuteQQmlJS_AST_UiEnumMemberList(
+      previous,
+      QStringView(*member));
+}
+
+//  QQmlJS::AST::UiEnumMemberList::UiEnumMemberList(UiEnumMemberList
+//      *previous, QStringView member, double v)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::UiEnumMemberList *ritual_ZN6QQmlJS3AST16UiEnumMemberListC1EPS1_11QStringViewd(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::UiEnumMemberList *previous,
+    const QString *member,
+    double v) {
+  return new (pool) CuteQQmlJS_AST_UiEnumMemberList(
+      previous,
+      QStringView(*member),
+      v);
+}
+
 //  SourceLocation QQmlJS::AST::UiEnumMemberList::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST16UiEnumMemberList19firstSourceLocationEv(
@@ -213,6 +253,14 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST16UiEnumMemberList18lastSourceLocationEv(
     const QQmlJS::AST::UiEnumMemberList *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  void QQmlJS::AST::UiEnumMemberList::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST16UiEnumMemberList7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::UiEnumMemberList *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
 }
 
 //  UiEnumMemberList *QQmlJS::AST::UiEnumMemberList::finish()

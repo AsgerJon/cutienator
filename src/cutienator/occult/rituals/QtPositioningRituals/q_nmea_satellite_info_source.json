@@ -8,6 +8,12 @@
     "ritual_ZNK24QNmeaSatelliteInfoSource10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QNmeaSatelliteInfoSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QNmeaSatelliteInfoSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QNmeaSatelliteInfoSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -41,6 +47,18 @@
     ],
     "ritual_ZN24QNmeaSatelliteInfoSource13requestUpdateEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN24QNmeaSatelliteInfoSource28parseSatellitesInUseFromNmeaEPKciR5QListIiE": [
+      "int", "address", "chars", "int", "address"
+    ],
+    "ritual_ZN24QNmeaSatelliteInfoSource28parseSatellitesInUseFromNmeaE14QByteArrayViewR5QListIiE": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN24QNmeaSatelliteInfoSource26parseSatelliteInfoFromNmeaEPKciR5QListI17QGeoSatelliteInfoERNS3_15SatelliteSystemE": [
+      "int", "address", "chars", "int", "address", "address"
+    ],
+    "ritual_ZN24QNmeaSatelliteInfoSource26parseSatelliteInfoFromNmeaE14QByteArrayViewR5QListI17QGeoSatelliteInfoERNS2_15SatelliteSystemE": [
+      "int", "address", "address", "address", "address"
     ],
     "ritual_ZN24QNmeaSatelliteInfoSource8setErrorEN23QGeoSatelliteInfoSource5ErrorE": [
       "nothing", "address", "int"

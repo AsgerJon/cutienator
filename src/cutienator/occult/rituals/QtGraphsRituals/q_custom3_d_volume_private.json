@@ -10,6 +10,7 @@
   "rows": {
     "ritual_ZN22QCustom3DVolumePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QCustom3DVolumePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QCustom3DVolumePrivateC1Ev": ["address"],
     "ritual_ZN22QCustom3DVolumePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QCustom3DVolumePrivate14resetDirtyBitsEv": [
       "nothing", "address"

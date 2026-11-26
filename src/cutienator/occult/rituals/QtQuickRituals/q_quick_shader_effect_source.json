@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuickShaderEffectSource10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickShaderEffectSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickShaderEffectSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -77,6 +83,42 @@
     "ritual_ZNK24QQuickShaderEffectSource7samplesEv": ["int", "address"],
     "ritual_ZN24QQuickShaderEffectSource10setSamplesEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource15wrapModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource17sourceItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource17sourceRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource18textureSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource13formatChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource11liveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource17hideSourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource13mipmapChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource16recursiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource23textureMirroringChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource14samplesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource24scheduledUpdateCompletedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN24QQuickShaderEffectSource19sourceItemDestroyedEP7QObject": [
       "nothing", "address", "address"

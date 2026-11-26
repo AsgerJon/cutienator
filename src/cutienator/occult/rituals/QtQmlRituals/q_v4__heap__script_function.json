@@ -8,6 +8,9 @@
     "ritual_ZN3QV44Heap14ScriptFunction11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap14ScriptFunction4initEPNS_16ExecutionContextEPNS_8FunctionE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_ScriptFunction_QV4_Heap_ScriptFunctionData": [
       "address", "address"
     ]

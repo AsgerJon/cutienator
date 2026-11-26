@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickApplication10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickApplication11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickApplication11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickApplication2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,12 +27,27 @@
     ],
     "ritual_ZNK17QQuickApplication5stateEv": ["int", "address"],
     "ritual_ZNK17QQuickApplication4fontEv": ["address", "address"],
+    "ritual_ZN17QQuickApplication7screensEv": ["address", "address"],
     "ritual_ZNK17QQuickApplication11displayNameEv": ["text", "address"],
     "ritual_ZN17QQuickApplication14setDisplayNameERK7QString": [
       "nothing", "address", "text"
     ],
     "ritual_ZN17QQuickApplication10styleHintsEv": ["address", "address"],
+    "ritual_ZN17QQuickApplication13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickApplication18displayNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickApplication22layoutDirectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickApplication12stateChangedEN2Qt16ApplicationStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickApplication14screensChangedEv": ["nothing", "address"],
     "ritual_ZN17QQuickApplication13updateScreensEv": ["nothing", "address"],
-    "ritual_take_QQuickApplication": ["bool", "address", "chars", "address"]
+    "ritual_take_QQuickApplication": ["bool", "address", "chars", "address"],
+    "ritual_drop_QQuickApplication__QQmlListProperty_QQuickScreenInfo": [
+      "nothing", "address"
+    ]
   }
 }

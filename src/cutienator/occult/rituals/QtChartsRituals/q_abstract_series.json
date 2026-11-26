@@ -5,8 +5,17 @@
   ],
   "rows": {
     "ritual_ZNK15QAbstractSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QAbstractSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QAbstractSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QAbstractSeriesC1ER22QAbstractSeriesPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN15QAbstractSeriesD1Ev": ["nothing", "address"],
     "ritual_ZNK15QAbstractSeries4typeEv": ["int", "address"],
@@ -36,6 +45,10 @@
     "ritual_ZN15QAbstractSeries12attachedAxesEv": ["address", "address"],
     "ritual_ZN15QAbstractSeries4showEv": ["nothing", "address"],
     "ritual_ZN15QAbstractSeries4hideEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries11nameChangedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries14visibleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries14opacityChangedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries16useOpenGLChangedEv": ["nothing", "address"],
     "ritual_take_QAbstractSeries": ["bool", "address", "chars", "address"],
     "ritual_list_make_QAbstractSeries_ptr": ["address"],
     "ritual_list_add_QAbstractSeries_ptr": ["nothing", "address", "address"],

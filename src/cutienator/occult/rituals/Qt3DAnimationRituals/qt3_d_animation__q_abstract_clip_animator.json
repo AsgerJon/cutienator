@@ -8,8 +8,74 @@
     "ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimatorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator9isRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator13channelMapperEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator9loopCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator5clockEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation21QAbstractClipAnimator14normalizedTimeEv": [
+      "float", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator10setRunningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator16setChannelMapperEPNS_14QChannelMapperE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator12setLoopCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator8setClockEPNS_6QClockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator17setNormalizedTimeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator5startEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator4stopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator14runningChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator20channelMapperChangedEPNS_14QChannelMapperE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator16loopCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator12clockChangedEPNS_6QClockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator21normalizedTimeChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimatorC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation21QAbstractClipAnimatorC1ERNS_28QAbstractClipAnimatorPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation21QAbstractClipAnimator6d_funcEv": [
       "address", "address"

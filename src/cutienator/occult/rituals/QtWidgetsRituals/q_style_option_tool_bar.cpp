@@ -18,6 +18,15 @@ QStyleOptionToolBar *ritual_ZN19QStyleOptionToolBarC1ERKS_(
   return new QStyleOptionToolBar(*other);
 }
 
+//  QStyleOptionToolBar &QStyleOptionToolBar::operator=(const
+//      QStyleOptionToolBar &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionToolBar *ritual_ZN19QStyleOptionToolBaraSERKS_(
+    QStyleOptionToolBar *self,
+    const QStyleOptionToolBar *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionToolBar::QStyleOptionToolBar(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionToolBar *ritual_ZN19QStyleOptionToolBarC1Ei(int version) {

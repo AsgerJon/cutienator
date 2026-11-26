@@ -5,10 +5,109 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettingsC1EP28QDesignerFormEditorInterface": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings11defaultGridEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings14setDefaultGridERKNS_4GridE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings17formTemplatePathsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings20setFormTemplatePathsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings30setAdditionalFormTemplatePathsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings27additionalFormTemplatePathsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings12formTemplateEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings15setFormTemplateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings11newFormSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings14setNewFormSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings26customPreviewConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings29setCustomPreviewConfigurationERKNS_20PreviewConfigurationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings35isCustomPreviewConfigurationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings36setCustomPreviewConfigurationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings15userDeviceSkinsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings18setUserDeviceSkinsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings11zoomEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings14setZoomEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings4zoomEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings7setZoomEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings16objectNamingModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings19setObjectNamingModeENS_16ObjectNamingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings20currentDeviceProfileEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings28setCurrentDeviceProfileIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings25currentDeviceProfileIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings15deviceProfileAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings14deviceProfilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings17setDeviceProfilesERK5QListINS_13DeviceProfileEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings24defaultFormTemplatePathsEv": [
+      "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettings16migrateTemplatesEv": [
+      "nothing"
+    ],
     "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings8settingsEv": [
       "address", "address"
     ],
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings16deviceProfileXmlEv": [
+      "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal23QDesignerSharedSettingsD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_qdesigner_internal_QDesignerSharedSettings__qdesigner_internal_QDesignerSharedSettings_DeviceProfileList": [
       "nothing", "address"
     ]
   }

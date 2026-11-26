@@ -8,6 +8,15 @@
     "ritual_ZNK18qdesigner_internal17SpecialMenuAction10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal17SpecialMenuAction11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal17SpecialMenuAction11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17SpecialMenuActionD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_take_qdesigner_internal_SpecialMenuAction": [
       "bool", "address", "chars", "address"
     ]

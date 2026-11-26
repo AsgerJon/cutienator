@@ -7,11 +7,32 @@
   "rows": {
     "ritual_ZN16QMimeXMLProviderD1Ev": ["nothing", "address"],
     "ritual_ZN16QMimeXMLProvider7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QMimeXMLProvider18isInternalDatabaseEv": [
+      "bool", "address"
+    ],
     "ritual_ZN16QMimeXMLProvider13knowsMimeTypeERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN16QMimeXMLProvider18addFileNameMatchesERK7QStringR20QMimeGlobMatchResult": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN16QMimeXMLProvider10addParentsERK7QStringR5QListIS0_E": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZN16QMimeXMLProvider12resolveAliasERK7QString": [
       "text", "address", "text"
+    ],
+    "ritual_ZN16QMimeXMLProvider10addAliasesERK7QStringR5QListIS0_E": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN16QMimeXMLProvider11findByMagicERK10QByteArrayR16QMimeMagicResult": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QMimeXMLProvider15addAllMimeTypesER5QListI9QMimeTypeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QMimeXMLProvider14localeCommentsERK7QString": [
+      "address", "address", "text"
     ],
     "ritual_ZN16QMimeXMLProvider16hasGlobDeleteAllERK7QString": [
       "bool", "address", "text"
@@ -28,6 +49,9 @@
     "ritual_ZN16QMimeXMLProvider11addMimeTypeERK16QMimeTypeXMLData": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN16QMimeXMLProvider14addGlobPatternERK16QMimeGlobPattern": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QMimeXMLProvider9addParentERK7QStringS2_": [
       "nothing", "address", "text", "text"
     ],
@@ -36,6 +60,9 @@
     ],
     "ritual_ZN16QMimeXMLProvider15addMagicMatcherERK21QMimeMagicRuleMatcher": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QMimeXMLProvider__QMimeTypePrivate_LocaleHash": [
+      "nothing", "address"
     ]
   }
 }

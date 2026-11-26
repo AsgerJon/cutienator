@@ -11,7 +11,9 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlrolefilter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -309,6 +311,24 @@ const QMetaObject *ritual_ZNK14QQmlRoleFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlRoleFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQmlRoleFilter11qt_metacastEPKc(
+    QQmlRoleFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlRoleFilter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQmlRoleFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlRoleFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlRoleFilter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQmlRoleFilter2trEPKcS1_i(
@@ -366,6 +386,12 @@ void ritual_ZN14QQmlRoleFilter6updateEPK24QQmlSortFilterProxyModel(
     QQmlRoleFilter *self,
     const QQmlSortFilterProxyModel *a0) {
   self->update(a0);
+}
+
+//  void QQmlRoleFilter::roleNameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlRoleFilter15roleNameChangedEv(QQmlRoleFilter *self) {
+  self->roleNameChanged();
 }
 
 //  int QQmlRoleFilter::itemRole(const QQmlSortFilterProxyModel *proxyModel)

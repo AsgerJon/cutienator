@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmlmetaobject_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qqmlmetaobject_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN14QQmlMetaObjectC1Ev": ["address"],
@@ -12,6 +12,7 @@
       "address", "address"
     ],
     "ritual_ZN14QQmlMetaObjectC1ERKS_": ["address", "address"],
+    "ritual_ZN14QQmlMetaObjectaSERKS_": ["address", "address", "address"],
     "ritual_ZNK14QQmlMetaObject6isNullEv": ["bool", "address"],
     "ritual_ZNK14QQmlMetaObject9classNameEv": ["chars", "address"],
     "ritual_ZNK14QQmlMetaObject13propertyCountEv": ["int", "address"],
@@ -22,6 +23,27 @@
     "ritual_ZN14QQmlMetaObject10canConvertERKS_S1_": [
       "bool", "address", "address"
     ],
-    "ritual_ZN14QQmlMetaObjectD1Ev": ["nothing", "address"]
+    "ritual_ZN14QQmlMetaObject34resolveGadgetMethodOrPropertyIndexEN11QMetaObject4CallEPPKS0_Pi": [
+      "nothing", "int", "address", "address"
+    ],
+    "ritual_ZN14QQmlMetaObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQmlMetaObject20methodParameterTypesI15QVarLengthArrayI9QMetaTypeLx9EEEEbRK16QQmlPropertyDataPT_P7QString": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlMetaObject20methodParameterTypesI15QVarLengthArrayI9QMetaTypeLx9EEEEbRK11QMetaMethodPT_P7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQmlMetaObject29methodReturnAndParameterTypesI15QVarLengthArrayI9QMetaTypeLx10EEEEbRK16QQmlPropertyDataPT_P7QString": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQmlMetaObject29methodReturnAndParameterTypesI15QVarLengthArrayI9QMetaTypeLx10EEEEbRK16QQmlPropertyDataRK11QMetaMethodPT_P7QString": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQmlMetaObject25constructorParameterTypesI15QVarLengthArrayI9QMetaTypeLx9EEEEbRK16QQmlPropertyDataPT_P7QString": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQmlMetaObject34constructorReturnAndParameterTypesI15QVarLengthArrayI9QMetaTypeLx10EEEEbRK16QQmlPropertyDataPT_P7QString": [
+      "bool", "address", "address", "address", "address"
+    ]
   }
 }

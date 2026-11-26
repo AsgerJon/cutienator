@@ -11,6 +11,19 @@
     "ritual_ZNK23SurfaceItemModelHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23SurfaceItemModelHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23SurfaceItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23SurfaceItemModelHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN23SurfaceItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN23SurfaceItemModelHandler12resolveModelEv": [
+      "nothing", "address"
+    ],
     "ritual_take_SurfaceItemModelHandler": [
       "bool", "address", "chars", "address"
     ]

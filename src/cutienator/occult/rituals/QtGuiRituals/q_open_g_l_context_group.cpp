@@ -182,6 +182,25 @@ const QMetaObject *ritual_ZNK19QOpenGLContextGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLContextGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QOpenGLContextGroup11qt_metacastEPKc(
+    QOpenGLContextGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLContextGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QOpenGLContextGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLContextGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLContextGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QOpenGLContextGroup2trEPKcS1_i(

@@ -8,6 +8,12 @@
     "ritual_ZNK23QWebSocketDataProcessor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QWebSocketDataProcessor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QWebSocketDataProcessorD1Ev": ["nothing", "address"],
     "ritual_ZN23QWebSocketDataProcessor22setMaxAllowedFrameSizeEy": [
       "nothing", "address", "unsigned long long"
@@ -26,6 +32,36 @@
     ],
     "ritual_ZN23QWebSocketDataProcessor12maxFrameSizeEv": [
       "unsigned long long"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor14setIdleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK23QWebSocketDataProcessor11idleTimeoutEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor12pingReceivedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor12pongReceivedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor13closeReceivedEN18QWebSocketProtocol9CloseCodeERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor17textFrameReceivedERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor19binaryFrameReceivedERK10QByteArrayb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor19textMessageReceivedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor21binaryMessageReceivedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor16errorEncounteredEN18QWebSocketProtocol9CloseCodeERK7QString": [
+      "nothing", "address", "int", "text"
     ],
     "ritual_ZN23QWebSocketDataProcessor5clearEv": ["nothing", "address"],
     "ritual_take_QWebSocketDataProcessor": [

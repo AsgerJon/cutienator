@@ -12,6 +12,7 @@
     "ritual_ZN21QTemporaryFilePrivate22materializeUnnamedFileEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QTemporaryFilePrivate19defaultTemplateNameEv": ["text"],
     "ritual_take_QTemporaryFilePrivate": [
       "bool", "address", "chars", "address"
     ]

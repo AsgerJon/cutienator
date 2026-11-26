@@ -6,12 +6,17 @@
   ],
   "rows": {
     "ritual_ZN12QGlyphLayoutC1Ev": ["address"],
+    "ritual_ZN12QGlyphLayoutC1EPci": ["address", "address", "int"],
     "ritual_ZNK12QGlyphLayout3midEii": ["address", "address", "int", "int"],
     "ritual_ZNK12QGlyphLayout16effectiveAdvanceEi": [
       "address", "address", "int"
     ],
     "ritual_ZN12QGlyphLayout5clearEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN12QGlyphLayout4dataEv": ["address", "address"],
     "ritual_ZN12QGlyphLayout4copyEPS_": ["nothing", "address", "address"],
+    "ritual_ZN12QGlyphLayout4growEPci": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN12QGlyphLayoutD1Ev": ["nothing", "address"]
   }
 }

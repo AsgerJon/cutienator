@@ -8,6 +8,12 @@
     "ritual_ZNK26QStatusNotifierItemAdaptor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN26QStatusNotifierItemAdaptor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN26QStatusNotifierItemAdaptorD1Ev": ["nothing", "address"],
     "ritual_ZNK26QStatusNotifierItemAdaptor17attentionIconNameEv": [
       "text", "address"
@@ -32,6 +38,42 @@
     "ritual_ZNK26QStatusNotifierItemAdaptor5titleEv": ["text", "address"],
     "ritual_ZNK26QStatusNotifierItemAdaptor7toolTipEv": [
       "address", "address"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor8ActivateEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor11ContextMenuEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor25ProvideXdgActivationTokenERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor6ScrollEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor17SecondaryActivateEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor16NewAttentionIconEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor7NewIconEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor14NewOverlayIconEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor7NewMenuEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor9NewStatusERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor8NewTitleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QStatusNotifierItemAdaptor10NewToolTipEv": [
+      "nothing", "address"
     ],
     "ritual_take_QStatusNotifierItemAdaptor": [
       "bool", "address", "chars", "address"

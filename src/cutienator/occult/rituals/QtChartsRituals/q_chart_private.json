@@ -9,6 +9,9 @@
       "address", "address", "int"
     ],
     "ritual_ZN13QChartPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN13QChartPrivate10defaultPenEv": ["address"],
+    "ritual_ZN13QChartPrivate12defaultBrushEv": ["address"],
+    "ritual_ZN13QChartPrivate11defaultFontEv": ["address"],
     "ritual_ZN13QChartPrivate4initEv": ["nothing", "address"],
     "ritual_ZN13QChartPrivate6zoomInEd": ["nothing", "address", "double"],
     "ritual_ZN13QChartPrivate7zoomOutEd": ["nothing", "address", "double"],

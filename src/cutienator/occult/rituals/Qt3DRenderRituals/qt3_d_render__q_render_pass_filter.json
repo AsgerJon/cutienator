@@ -8,8 +8,39 @@
     "ritual_ZNK10Qt3DRender17QRenderPassFilter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender17QRenderPassFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender17QRenderPassFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender17QRenderPassFilter2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender17QRenderPassFilterC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QRenderPassFilterD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender17QRenderPassFilter8matchAnyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QRenderPassFilter8addMatchEPNS_10QFilterKeyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QRenderPassFilter11removeMatchEPNS_10QFilterKeyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QRenderPassFilter12addParameterEPNS_10QParameterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QRenderPassFilter15removeParameterEPNS_10QParameterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender17QRenderPassFilter10parametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QRenderPassFilterC1ERNS_24QRenderPassFilterPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender17QRenderPassFilter6d_funcEv": [
       "address", "address"
@@ -19,6 +50,12 @@
     ],
     "ritual_take_Qt3DRender_QRenderPassFilter": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QRenderPassFilter__QList_Qt3DRender_QFilterKey": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_QRenderPassFilter__QList_Qt3DRender_QParameter": [
+      "nothing", "address"
     ]
   }
 }

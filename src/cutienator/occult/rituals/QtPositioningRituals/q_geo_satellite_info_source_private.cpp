@@ -13,3 +13,9 @@ void ritual_ZN30QGeoSatelliteInfoSourcePrivateD1Ev(
     QGeoSatelliteInfoSourcePrivate *self) {
   delete self;
 }
+
+//  size_t QGeoSatelliteInfoSourcePrivate::_qt_property_interval_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN30QGeoSatelliteInfoSourcePrivate28_qt_property_interval_offsetEv() {
+  return QGeoSatelliteInfoSourcePrivate::_qt_property_interval_offset();
+}

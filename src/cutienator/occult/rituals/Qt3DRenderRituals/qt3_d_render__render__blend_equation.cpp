@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_BlendEquationCall0)(const void *, const Qt3
 class CuteQt3DRender_Render_BlendEquation : public Qt3DRender::Render::BlendEquation {
 public:
   using Qt3DRender::Render::BlendEquation::BlendEquation;
-  CuteQt3DRender_Render_BlendEquation(const Qt3DRender::Render::BlendEquation &other) : Qt3DRender::Render::BlendEquation(other) {}
+  CuteQt3DRender_Render_BlendEquation(const Qt3DRender::Render::BlendEquation & other) : Qt3DRender::Render::BlendEquation(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::BlendEquation::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::BlendEquation::updateProperties(const
+//      QRenderState *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render13BlendEquation16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::BlendEquation *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::BlendEquation::~BlendEquation()
 extern "C" Q_DECL_EXPORT

@@ -8,6 +8,12 @@
     "ritual_ZNK30QVideoOutputOrientationHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QVideoOutputOrientationHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QVideoOutputOrientationHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QVideoOutputOrientationHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,9 @@
       "nothing", "bool"
     ],
     "ritual_ZN30QVideoOutputOrientationHandler11isRecordingEv": ["bool"],
+    "ritual_ZN30QVideoOutputOrientationHandler18orientationChangedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN30QVideoOutputOrientationHandler24screenOrientationChangedEN2Qt17ScreenOrientationE": [
       "nothing", "address", "int"
     ]

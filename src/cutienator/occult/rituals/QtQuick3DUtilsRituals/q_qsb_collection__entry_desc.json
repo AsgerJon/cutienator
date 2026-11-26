@@ -8,6 +8,9 @@
     "ritual_ZNK14QQsbCollection9EntryDesc11generateShaEv": [
       "address", "address"
     ],
+    "ritual_ZN14QQsbCollection9EntryDesc11generateShaERK10QByteArrayRK4QMapIS1_bE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN14QQsbCollection9EntryDescD1Ev": ["nothing", "address"]
   }
 }

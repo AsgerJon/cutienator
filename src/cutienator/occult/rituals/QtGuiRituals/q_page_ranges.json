@@ -7,12 +7,17 @@
     "ritual_ZN11QPageRangesC1Ev": ["address"],
     "ritual_ZN11QPageRangesD1Ev": ["nothing", "address"],
     "ritual_ZN11QPageRangesC1ERKS_": ["address", "address"],
+    "ritual_ZN11QPageRangesaSERKS_": ["address", "address", "address"],
+    "ritual_ZN11QPageRangesC1EOS_": ["address", "address"],
+    "ritual_ZN11QPageRangesaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QPageRanges4swapERS_": ["nothing", "address", "address"],
     "ritual_ZeqRK11QPageRangesS1_": ["bool", "address", "address"],
     "ritual_ZneRK11QPageRangesS1_": ["bool", "address", "address"],
     "ritual_ZN11QPageRanges7addPageEi": ["nothing", "address", "int"],
     "ritual_ZN11QPageRanges8addRangeEii": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZNK11QPageRanges11toRangeListEv": ["address", "address"],
     "ritual_ZN11QPageRanges5clearEv": ["nothing", "address"],
     "ritual_ZNK11QPageRanges8toStringEv": ["text", "address"],
     "ritual_ZN11QPageRanges10fromStringERK7QString": ["address", "text"],
@@ -21,6 +26,9 @@
     "ritual_ZNK11QPageRanges9firstPageEv": ["int", "address"],
     "ritual_ZNK11QPageRanges8lastPageEv": ["int", "address"],
     "ritual_ZN11QPageRanges6detachEv": ["nothing", "address"],
-    "ritual_ZNK11QPageRanges7isEqualERKS_": ["bool", "address", "address"]
+    "ritual_ZNK11QPageRanges7isEqualERKS_": ["bool", "address", "address"],
+    "ritual_drop_QPageRanges__QList_QPageRanges_Range": [
+      "nothing", "address"
+    ]
   }
 }

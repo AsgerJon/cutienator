@@ -8,9 +8,24 @@
     "ritual_ZNK27QtBluezPeripheralGattObject10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QtBluezPeripheralGattObject11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QtBluezPeripheralGattObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QtBluezPeripheralGattObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QtBluezPeripheralGattObject10propertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QtBluezPeripheralGattObject23remoteDeviceAccessEventERK7QStringt": [
+      "nothing", "address", "text", "unsigned short"
+    ],
     "ritual_take_QtBluezPeripheralGattObject": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QtBluezPeripheralGattObject__InterfaceList": [
+      "nothing", "address"
     ]
   }
 }

@@ -6,9 +6,18 @@
   ],
   "rows": {
     "ritual_ZNK16QQnxNativeServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQnxNativeServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQnxNativeServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQnxNativeServer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QQnxNativeServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQnxNativeServer6d_funcEv": ["address", "address"],
+    "ritual_ZN16QQnxNativeServer13newConnectionEv": ["nothing", "address"],
     "ritual_ZN16QQnxNativeServerC1EP7QObject": ["address", "address"],
     "ritual_ZN16QQnxNativeServerD1Ev": ["nothing", "address"],
     "ritual_ZN16QQnxNativeServer5closeEv": ["nothing", "address"],
@@ -19,11 +28,17 @@
     "ritual_ZN16QQnxNativeServer6listenERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN16QQnxNativeServer21nextPendingConnectionEv": [
+      "address", "address"
+    ],
     "ritual_ZNK16QQnxNativeServer10serverNameEv": ["text", "address"],
     "ritual_ZN16QQnxNativeServer20waitForNewConnectionEiPb": [
       "bool", "address", "int", "address"
     ],
     "ritual_ZN16QQnxNativeServer14onSourceClosedEv": ["nothing", "address"],
-    "ritual_take_QQnxNativeServer": ["bool", "address", "chars", "address"]
+    "ritual_take_QQnxNativeServer": ["bool", "address", "chars", "address"],
+    "ritual_drop_QQnxNativeServer__QSharedPointer_QIOQnxSource": [
+      "nothing", "address"
+    ]
   }
 }

@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10FxViewItemC1EP10QQuickItemP14QQuickItemViewbP22QQuickItemViewAttached": [
+      "address", "address", "address", "bool", "address"
+    ],
     "ritual_take_FxViewItem": ["bool", "address", "chars", "address"]
   }
 }

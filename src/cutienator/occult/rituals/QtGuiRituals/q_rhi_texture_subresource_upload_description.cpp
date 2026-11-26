@@ -26,6 +26,15 @@ QRhiTextureSubresourceUploadDescription *ritual_ZN39QRhiTextureSubresourceUpload
 }
 
 //  QRhiTextureSubresourceUploadDescription::QRhiTextureSubresourceUploadDesc
+//      ription(const void *data, quint32 size)
+extern "C" Q_DECL_EXPORT
+QRhiTextureSubresourceUploadDescription *ritual_ZN39QRhiTextureSubresourceUploadDescriptionC1EPKvj(
+    const void *data,
+    quint32 size) {
+  return new QRhiTextureSubresourceUploadDescription(data, size);
+}
+
+//  QRhiTextureSubresourceUploadDescription::QRhiTextureSubresourceUploadDesc
 //      ription(const QByteArray &data)
 extern "C" Q_DECL_EXPORT
 QRhiTextureSubresourceUploadDescription *ritual_ZN39QRhiTextureSubresourceUploadDescriptionC1ERK10QByteArray(

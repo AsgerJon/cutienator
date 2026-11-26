@@ -36,6 +36,15 @@ void ritual_ZN24QLowEnergyDescriptorDataD1Ev(
   delete self;
 }
 
+//  QLowEnergyDescriptorData &QLowEnergyDescriptorData::operator=(const
+//      QLowEnergyDescriptorData &other)
+extern "C" Q_DECL_EXPORT
+QLowEnergyDescriptorData *ritual_ZN24QLowEnergyDescriptorDataaSERKS_(
+    QLowEnergyDescriptorData *self,
+    const QLowEnergyDescriptorData *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool operator==(const QLowEnergyDescriptorData &a, const
 //      QLowEnergyDescriptorData &b)
 extern "C" Q_DECL_EXPORT
@@ -143,6 +152,14 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK24QLowEnergyDescriptorData16writeConstraintsEv(
     const QLowEnergyDescriptorData *self) {
   return static_cast<int>(self->writeConstraints().toInt());
+}
+
+//  void QLowEnergyDescriptorData::swap(QLowEnergyDescriptorData &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyDescriptorData4swapERS_(
+    QLowEnergyDescriptorData *self,
+    QLowEnergyDescriptorData *other) {
+  self->swap(*other);
 }
 
 //  bool QLowEnergyDescriptorData::equals(const QLowEnergyDescriptorData &a,

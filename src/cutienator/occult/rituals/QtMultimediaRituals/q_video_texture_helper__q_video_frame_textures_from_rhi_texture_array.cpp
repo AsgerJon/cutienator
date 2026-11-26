@@ -7,6 +7,30 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qvideoframetexturefromsource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtMultimedia/private/qvideoframetexturefromsource_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtmultimedia/src/multimedia/video/qvideoframetexturefromsource.cpp, line 16, as _ZN19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArrayD2Ev
+namespace QVideoTextureHelper {
+inline QVideoFrameTexturesFromRhiTextureArray::~QVideoFrameTexturesFromRhiTextureArray() = default;
+}  // namespace QVideoTextureHelper
+
+//  from ../qtmultimedia/src/multimedia/video/qvideoframetexturefromsource.cpp, line 18, as _ZNK19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArray7textureEj
+namespace QVideoTextureHelper {
+inline QRhiTexture *QVideoFrameTexturesFromRhiTextureArray::texture(uint plane) const
+{
+    return plane < m_rhiTextures.size() ? m_rhiTextures[plane].get() : nullptr;
+}
+}  // namespace QVideoTextureHelper
+//  -----------------------------------------------------------------------
 
 //  A QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray that Python can take functions over in. Every QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray
 //  Python makes is one. Each function below asks the Python
@@ -54,6 +78,31 @@ public:
   }
 };
 
+//  QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray::~QVideoFrame
+//      TexturesFromRhiTextureArray()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArrayD1Ev(
+    QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray *self) {
+  delete self;
+}
+
+//  QRhiTexture *QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray:
+//      :texture(uint plane) const
+extern "C" Q_DECL_EXPORT
+QRhiTexture *ritual_ZNK19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArray7textureEj(
+    const QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray *self,
+    uint plane) {
+  return self->texture(plane);
+}
+
+//  RhiTextureArray &QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureAr
+//      ray::textureArray()
+extern "C" Q_DECL_EXPORT
+QVideoTextureHelper::RhiTextureArray *ritual_ZN19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArray12textureArrayEv(
+    QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray *self) {
+  return &(self->textureArray());
+}
+
 //  a Python function taken by a
 //      CuteQVideoTextureHelper_QVideoFrameTexturesFromRhiTextureArray, for
 //      the function named by the key
@@ -63,4 +112,14 @@ bool ritual_take_QVideoTextureHelper_QVideoFrameTexturesFromRhiTextureArray(
     const char *key,
     void *call) {
   return static_cast<CuteQVideoTextureHelper_QVideoFrameTexturesFromRhiTextureArray *>(self)->take(key, call);
+}
+
+//  QRhiTexture *QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray:
+//      :texture(uint plane) const
+extern "C" Q_DECL_EXPORT
+QRhiTexture *ritual_own_ZNK19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArray7textureEj(
+    const QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray *self,
+    uint plane) {
+  return self->QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray::texture(
+      plane);
 }

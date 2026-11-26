@@ -318,6 +318,24 @@ const QMetaObject *ritual_ZNK15QStyleAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QStyleAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QStyleAnimation11qt_metacastEPKc(
+    QStyleAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStyleAnimation::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QStyleAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStyleAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStyleAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QStyleAnimation2trEPKcS1_i(

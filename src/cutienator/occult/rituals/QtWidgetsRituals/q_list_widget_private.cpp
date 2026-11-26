@@ -120,6 +120,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/itemviews/qlistview.cpp, line 1932, as _ZN16QListViewPrivate6dropOnEP10QDropEventPiS2_P11QModelIndex
 #if QT_CONFIG(draganddrop)
 inline bool QListViewPrivate::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
@@ -410,6 +412,79 @@ inline void QListModel::ensureSorted(int column, Qt::SortOrder order, int start,
 
     if (needsSorting)
         sort(column, order);
+}
+
+//  from src/widgets/itemviews/qlistview.cpp, line 2216, as _ZN17QListModeViewBase6dropOnEP10QDropEventPiS2_P11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QListModeViewBase::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
+{
+    if (event->isAccepted())
+        return false;
+
+    QModelIndex index;
+    if (dd->viewport->rect().contains(event->position().toPoint())) {
+        // can't use indexAt, doesn't account for spacing.
+        QPoint p = event->position().toPoint();
+        QRect rect(p.x() + horizontalOffset(), p.y() + verticalOffset(), 1, 1);
+        rect.adjust(-dd->spacing(), -dd->spacing(), dd->spacing(), dd->spacing());
+        const QList<QModelIndex> intersectVector = dd->intersectingSet(rect);
+        index = intersectVector.size() > 0
+            ? intersectVector.last() : QModelIndex();
+        if (!index.isValid())
+            index = dd->root;
+    }
+
+    // If we are allowed to do the drop
+    if (dd->model->supportedDropActions() & event->dropAction()) {
+        int row = -1;
+        int col = -1;
+        if (index != dd->root) {
+            dd->dropIndicatorPosition = position(event->position().toPoint(), qq->visualRect(index), index);
+            switch (dd->dropIndicatorPosition) {
+            case QAbstractItemView::AboveItem:
+                row = index.row();
+                col = index.column();
+                index = index.parent();
+                break;
+            case QAbstractItemView::BelowItem:
+                row = index.row() + 1;
+                col = index.column();
+                index = index.parent();
+                break;
+            case QAbstractItemView::OnItem:
+            case QAbstractItemView::OnViewport:
+                break;
+            }
+        } else {
+            dd->dropIndicatorPosition = QAbstractItemView::OnViewport;
+        }
+        *dropIndex = index;
+        *dropRow = row;
+        *dropCol = col;
+        if (!dd->droppingOnItself(event, index))
+            return true;
+    }
+    return false;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4458, as _ZN24QAbstractItemViewPrivate14updateGeometryEv
+inline void QAbstractItemViewPrivate::updateGeometry()
+{
+    Q_Q(QAbstractItemView);
+    if (sizeAdjustPolicy == QAbstractScrollArea::AdjustIgnored)
+        return;
+    if (sizeAdjustPolicy == QAbstractScrollArea::AdjustToContents || !shownOnce)
+        q->updateGeometry();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4444, as _ZN24QAbstractItemViewPrivate20doDelayedItemsLayoutEi
+inline void QAbstractItemViewPrivate::doDelayedItemsLayout(int delay)
+{
+    if (!delayedPendingLayout) {
+        delayedPendingLayout = true;
+        delayedLayout.start(delay, q_func());
+    }
 }
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 1104, as _ZN18QListWidgetPrivate16clearConnectionsEv

@@ -16,6 +16,7 @@ typedef void (*CuteQStatusTipEventCall1)(const void *, bool, int *);
 class CuteQStatusTipEvent : public QStatusTipEvent {
 public:
   using QStatusTipEvent::QStatusTipEvent;
+  CuteQStatusTipEvent(const QStatusTipEvent & other) : QStatusTipEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -56,6 +57,21 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QStatusTipEvent::QStatusTipEvent(const QStatusTipEvent &a0)
+extern "C" Q_DECL_EXPORT
+QStatusTipEvent *ritual_ZN15QStatusTipEventC1ERKS_(
+    const QStatusTipEvent *a0) {
+  return new CuteQStatusTipEvent(*a0);
+}
+
+//  QStatusTipEvent &QStatusTipEvent::operator=(const QStatusTipEvent &other)
+extern "C" Q_DECL_EXPORT
+QStatusTipEvent *ritual_ZN15QStatusTipEventaSERKS_(
+    QStatusTipEvent *self,
+    const QStatusTipEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QStatusTipEvent *QStatusTipEvent::clone() const
 extern "C" Q_DECL_EXPORT

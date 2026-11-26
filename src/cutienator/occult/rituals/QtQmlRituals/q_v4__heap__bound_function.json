@@ -8,6 +8,9 @@
     "ritual_ZN3QV44Heap13BoundFunction11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap13BoundFunction4initEPNS_14FunctionObjectERKNS_5ValueEPNS_10MemberDataE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_BoundFunction_QV4_Heap_BoundFunctionData": [
       "address", "address"
     ]

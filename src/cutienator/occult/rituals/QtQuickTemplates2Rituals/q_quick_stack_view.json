@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickStackView10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickStackView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickStackView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickStackView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -100,6 +106,22 @@
     "ritual_ZN15QQuickStackView5clearENS_9OperationE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN15QQuickStackView11busyChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStackView12depthChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStackView18currentItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStackView15popEnterChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStackView14popExitChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStackView16pushEnterChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStackView15pushExitChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickStackView19replaceEnterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStackView18replaceExitChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickStackView12emptyChangedEv": ["nothing", "address"],
     "ritual_ZN15QQuickStackView17componentCompleteEv": [
       "nothing", "address"
     ],

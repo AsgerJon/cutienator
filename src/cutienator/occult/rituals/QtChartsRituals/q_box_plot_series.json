@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QBoxPlotSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QBoxPlotSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QBoxPlotSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QBoxPlotSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -45,6 +51,34 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK14QBoxPlotSeries3penEv": ["address", "address"],
+    "ritual_ZN14QBoxPlotSeries7clickedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries7hoveredEbP7QBoxSet": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries7pressedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries8releasedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries13doubleClickedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries12countChangedEv": ["nothing", "address"],
+    "ritual_ZN14QBoxPlotSeries10penChangedEv": ["nothing", "address"],
+    "ritual_ZN14QBoxPlotSeries12brushChangedEv": ["nothing", "address"],
+    "ritual_ZN14QBoxPlotSeries27boxOutlineVisibilityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries15boxWidthChangedEv": ["nothing", "address"],
+    "ritual_ZN14QBoxPlotSeries12boxsetsAddedERK5QListIP7QBoxSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries14boxsetsRemovedERK5QListIP7QBoxSetE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QBoxPlotSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK14QBoxPlotSeries6d_funcEv": ["address", "address"],
     "ritual_take_QBoxPlotSeries": ["bool", "address", "chars", "address"],

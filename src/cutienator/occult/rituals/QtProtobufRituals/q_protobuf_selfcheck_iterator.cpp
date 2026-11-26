@@ -32,6 +32,23 @@ QProtobufSelfcheckIterator *ritual_ZN26QProtobufSelfcheckIteratorC1ERKS_(
   return new QProtobufSelfcheckIterator(*other);
 }
 
+//  QProtobufSelfcheckIterator &QProtobufSelfcheckIterator::operator=(const
+//      QProtobufSelfcheckIterator &other)
+extern "C" Q_DECL_EXPORT
+QProtobufSelfcheckIterator *ritual_ZN26QProtobufSelfcheckIteratoraSERKS_(
+    QProtobufSelfcheckIterator *self,
+    const QProtobufSelfcheckIterator *other) {
+  return &(self->operator=(*other));
+}
+
+//  QByteArray::const_iterator &QProtobufSelfcheckIterator::operator const
+//      char *&()
+extern "C" Q_DECL_EXPORT
+QByteArray::const_iterator *ritual_ZN26QProtobufSelfcheckIteratorcvRPKcEv(
+    QProtobufSelfcheckIterator *self) {
+  return &(self->operator QByteArray::const_iterator &());
+}
+
 //  QByteArray::const_iterator QProtobufSelfcheckIterator::operator const
 //      char *() const
 extern "C" Q_DECL_EXPORT
@@ -54,12 +71,26 @@ bool ritual_ZNK26QProtobufSelfcheckIterator7isValidEv(
   return self->isValid();
 }
 
+//  QProtobufSelfcheckIterator &QProtobufSelfcheckIterator::operator++()
+extern "C" Q_DECL_EXPORT
+QProtobufSelfcheckIterator *ritual_ZN26QProtobufSelfcheckIteratorppEv(
+    QProtobufSelfcheckIterator *self) {
+  return &(self->operator++());
+}
+
 //  QProtobufSelfcheckIterator QProtobufSelfcheckIterator::operator++(int a0)
 extern "C" Q_DECL_EXPORT
 QProtobufSelfcheckIterator *ritual_ZN26QProtobufSelfcheckIteratorppEi(
     QProtobufSelfcheckIterator *self,
     int a0) {
   return new QProtobufSelfcheckIterator(self->operator++(a0));
+}
+
+//  QProtobufSelfcheckIterator &QProtobufSelfcheckIterator::operator--()
+extern "C" Q_DECL_EXPORT
+QProtobufSelfcheckIterator *ritual_ZN26QProtobufSelfcheckIteratormmEv(
+    QProtobufSelfcheckIterator *self) {
+  return &(self->operator--());
 }
 
 //  QProtobufSelfcheckIterator QProtobufSelfcheckIterator::operator--(int a0)
@@ -126,6 +157,24 @@ bool ritual_ZneRK26QProtobufSelfcheckIteratorS1_(
     const QProtobufSelfcheckIterator *lhs,
     const QProtobufSelfcheckIterator *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QProtobufSelfcheckIterator &lhs, const
+//      QByteArray::const_iterator &other)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK26QProtobufSelfcheckIteratorRKPKc(
+    const QProtobufSelfcheckIterator *lhs,
+    const QByteArray::const_iterator *other) {
+  return operator==(*lhs, *other);
+}
+
+//  bool operator!=(const QProtobufSelfcheckIterator &lhs, const
+//      QByteArray::const_iterator &other)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK26QProtobufSelfcheckIteratorRKPKc(
+    const QProtobufSelfcheckIterator *lhs,
+    const QByteArray::const_iterator *other) {
+  return operator!=(*lhs, *other);
 }
 
 //  qint64 operator-(const QProtobufSelfcheckIterator &lhs, const

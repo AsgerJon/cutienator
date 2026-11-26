@@ -8,6 +8,9 @@
     "ritual_ZN3QV44Heap14MemberFunction11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV44Heap14MemberFunction4initEPNS_16ExecutionContextEPNS_8FunctionEPNS_6StringE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_MemberFunction_QV4_Heap_MemberFunctionData": [
       "address", "address"
     ]

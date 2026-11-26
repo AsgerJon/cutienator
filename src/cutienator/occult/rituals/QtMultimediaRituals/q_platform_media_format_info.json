@@ -7,10 +7,28 @@
   "rows": {
     "ritual_ZN24QPlatformMediaFormatInfoC1Ev": ["address"],
     "ritual_ZN24QPlatformMediaFormatInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QPlatformMediaFormatInfo20supportedFileFormatsERK12QMediaFormatNS0_14ConversionModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK24QPlatformMediaFormatInfo20supportedAudioCodecsERK12QMediaFormatNS0_14ConversionModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK24QPlatformMediaFormatInfo20supportedVideoCodecsERK12QMediaFormatNS0_14ConversionModeE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK24QPlatformMediaFormatInfo11isSupportedERK12QMediaFormatNS0_14ConversionModeE": [
       "bool", "address", "address", "int"
     ],
     "ritual_ZN24QPlatformMediaFormatInfo14fixupCodecMapsEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaFormatInfo__QList_QMediaFormat_FileFormat": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaFormatInfo__QList_QMediaFormat_AudioCodec": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QPlatformMediaFormatInfo__QList_QMediaFormat_VideoCodec": [
       "nothing", "address"
     ]
   }

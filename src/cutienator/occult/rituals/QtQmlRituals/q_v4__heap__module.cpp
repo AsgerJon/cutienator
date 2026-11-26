@@ -15,6 +15,16 @@ void ritual_ZN3QV44Heap6Module11markObjectsEPNS0_4BaseEPNS_9MarkStackE(
   QV4::Heap::Module::markObjects(b, stack);
 }
 
+//  void QV4::Heap::Module::init(ExecutionEngine *engine,
+//      ExecutableCompilationUnit *moduleUnit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV44Heap6Module4initEPNS_15ExecutionEngineEPNS_25ExecutableCompilationUnitE(
+    QV4::Heap::Module *self,
+    QV4::ExecutionEngine *engine,
+    QV4::ExecutableCompilationUnit *moduleUnit) {
+  self->init(engine, moduleUnit);
+}
+
 //  QV4::Heap::Module as the QV4::Heap::ModuleData it is built on
 extern "C" Q_DECL_EXPORT
 QV4::Heap::ModuleData *ritual_cast_QV4_Heap_Module_QV4_Heap_ModuleData(

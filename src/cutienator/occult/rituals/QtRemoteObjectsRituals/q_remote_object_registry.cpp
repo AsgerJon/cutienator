@@ -9,6 +9,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtRemoteObjects/QRemoteObjectSourceLocations>
 
 //  A QRemoteObjectRegistry that Python can take functions over in. Every QRemoteObjectRegistry
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +218,25 @@ const QMetaObject *ritual_ZNK21QRemoteObjectRegistry10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRemoteObjectRegistry::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QRemoteObjectRegistry11qt_metacastEPKc(
+    QRemoteObjectRegistry *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRemoteObjectRegistry::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QRemoteObjectRegistry11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRemoteObjectRegistry *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRemoteObjectRegistry::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QRemoteObjectRegistry2trEPKcS1_i(
@@ -244,6 +265,51 @@ QHash<QString, QRemoteObjectSourceLocationInfo> *ritual_ZNK21QRemoteObjectRegist
     const QRemoteObjectRegistry *self) {
   return new QHash<QString, QRemoteObjectSourceLocationInfo>(
       self->sourceLocations());
+}
+
+//  QBindable<QRemoteObjectSourceLocations>
+//      QRemoteObjectRegistry::bindableSourceLocations() const
+extern "C" Q_DECL_EXPORT
+QBindable<QRemoteObjectSourceLocations> *ritual_ZNK21QRemoteObjectRegistry23bindableSourceLocationsEv(
+    const QRemoteObjectRegistry *self) {
+  return new QBindable<QRemoteObjectSourceLocations>(
+      self->bindableSourceLocations());
+}
+
+//  void QRemoteObjectRegistry::remoteObjectAdded(const
+//      QRemoteObjectSourceLocation &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QRemoteObjectRegistry17remoteObjectAddedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRemoteObjectRegistry *self,
+    const QRemoteObjectSourceLocation *entry) {
+  self->remoteObjectAdded(*entry);
+}
+
+//  void QRemoteObjectRegistry::remoteObjectRemoved(const
+//      QRemoteObjectSourceLocation &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QRemoteObjectRegistry19remoteObjectRemovedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRemoteObjectRegistry *self,
+    const QRemoteObjectSourceLocation *entry) {
+  self->remoteObjectRemoved(*entry);
+}
+
+//  void QRemoteObjectRegistry::addSource(const QRemoteObjectSourceLocation
+//      &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QRemoteObjectRegistry9addSourceERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRemoteObjectRegistry *self,
+    const QRemoteObjectSourceLocation *entry) {
+  self->addSource(*entry);
+}
+
+//  void QRemoteObjectRegistry::removeSource(const
+//      QRemoteObjectSourceLocation &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QRemoteObjectRegistry12removeSourceERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRemoteObjectRegistry *self,
+    const QRemoteObjectSourceLocation *entry) {
+  self->removeSource(*entry);
 }
 
 //  void QRemoteObjectRegistry::pushToRegistryIfNeeded()
@@ -284,6 +350,20 @@ QRemoteObjectRegistry *ritual_ZN21QRemoteObjectRegistryC1EP17QRemoteObjectNodeRK
   return new CuteQRemoteObjectRegistry(node, *name, parent);
 }
 
+//  QRemoteObjectRegistryPrivate *QRemoteObjectRegistry::d_func()
+extern "C" Q_DECL_EXPORT
+QRemoteObjectRegistryPrivate *ritual_ZN21QRemoteObjectRegistry6d_funcEv(
+    QRemoteObjectRegistry *self) {
+  return self->d_func();
+}
+
+//  const QRemoteObjectRegistryPrivate *QRemoteObjectRegistry::d_func() const
+extern "C" Q_DECL_EXPORT
+const QRemoteObjectRegistryPrivate *ritual_ZNK21QRemoteObjectRegistry6d_funcEv(
+    const QRemoteObjectRegistry *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQRemoteObjectRegistry, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -299,4 +379,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN21QRemoteObjectRegistry10initializeEv(
     QRemoteObjectRegistry *self) {
   self->QRemoteObjectRegistry::initialize();
+}
+
+//  a QBindable<QRemoteObjectSourceLocations> a ritual of
+//      QRemoteObjectRegistry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QRemoteObjectRegistry__QBindable_QRemoteObjectSourceLocations(
+    QBindable<QRemoteObjectSourceLocations> *self) {
+  delete self;
 }

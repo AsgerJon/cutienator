@@ -6,11 +6,95 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickCanvasItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickCanvasItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickCanvasItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem10getContextEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem21requestAnimationFrameEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem27cancelRequestAnimationFrameEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem12requestPaintEv": ["nothing", "address"],
+    "ritual_ZN16QQuickCanvasItem9markDirtyERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickCanvasItem9toDataURLERK7QString": [
+      "text", "address", "text"
+    ],
     "ritual_ZNK16QQuickCanvasItem17isTextureProviderEv": ["bool", "address"],
+    "ritual_ZNK16QQuickCanvasItem15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem5paintERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem7paintedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickCanvasItem16availableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem18contextTypeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem14contextChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickCanvasItem17canvasSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem15tileSizeChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickCanvasItem19canvasWindowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem19renderTargetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem21renderStrategyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem11imageLoadedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickCanvasItem9loadImageERK4QUrl6QSizeF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem11unloadImageERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem21sceneGraphInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem23checkAnimationCallbacksEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem20invalidateSceneGraphEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN16QQuickCanvasItem14schedulePolishEv": ["nothing", "address"],
+    "ritual_ZN16QQuickCanvasItem17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem12updatePolishEv": ["nothing", "address"],
+    "ritual_ZN16QQuickCanvasItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem16releaseResourcesEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN16QQuickCanvasItem5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN16QQuickCanvasItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQuickCanvasItem6d_funcEv": ["address", "address"],
+    "ritual_ZN16QQuickCanvasItem13delayedCreateEv": ["nothing", "address"],
     "ritual_ZN16QQuickCanvasItem9tiledRectERK6QRectFRK5QSize": [
       "address", "address", "address"
     ],
@@ -18,8 +102,23 @@
     "ritual_own_ZNK16QQuickCanvasItem17isTextureProviderEv": [
       "bool", "address"
     ],
+    "ritual_own_ZNK16QQuickCanvasItem15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16QQuickCanvasItem17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickCanvasItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN16QQuickCanvasItem16releaseResourcesEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN16QQuickCanvasItem5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QQuickCanvasItem__QQmlRefPointer_QQuickCanvasPixmap": [
+      "nothing", "address"
     ]
   }
 }

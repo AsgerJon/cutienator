@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17Q3DSurfacePrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN17Q3DSurfacePrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17Q3DSurfacePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17Q3DSurfacePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN17Q3DSurfacePrivate18handleAxisXChangedEP15QAbstract3DAxis": [
       "nothing", "address", "address"

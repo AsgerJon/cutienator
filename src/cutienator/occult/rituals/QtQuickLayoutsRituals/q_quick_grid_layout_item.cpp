@@ -9,6 +9,24 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quicklayouts/qquicklayout.cpp, line 63, as _Z14lcQuickLayoutsv
+inline const QLoggingCategory &lcQuickLayouts()
+{
+    static const QLoggingCategory category("qt.quick.layouts");
+    return category;
+}
+//  -----------------------------------------------------------------------
 
 //  QQuickGridLayoutItem::QQuickGridLayoutItem(QQuickItem *item, int row, int
 //      column, int rowSpan, int columnSpan, Qt::Alignment alignment)
@@ -52,6 +70,13 @@ void ritual_ZN20QQuickGridLayoutItem18setCachedSizeHintsEP6QSizeF(
     QQuickGridLayoutItem *self,
     QSizeF *sizeHints) {
   self->setCachedSizeHints(sizeHints);
+}
+
+//  void QQuickGridLayoutItem::invalidate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickGridLayoutItem10invalidateEv(
+    QQuickGridLayoutItem *self) {
+  self->invalidate();
 }
 
 //  QLayoutPolicy::Policy QQuickGridLayoutItem::sizePolicy(Qt::Orientation

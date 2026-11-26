@@ -10,9 +10,37 @@
 #include <QtBluetooth/6.12.0/QtBluetooth/private/adapter1_bluez5_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtDBus/qdbusextratypes.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
+#include <QtDBus/QDBusPendingReply>
+#include <QtDBus/QDBusObjectPath>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QVariant>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtBluetooth/private/adapter1_bluez5_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtconnectivity/src/bluetooth/bluez/adapter1_bluez5.cpp, line 25, as _ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceD1Ev
+namespace QtBluetoothPrivate {
+inline OrgBluezAdapter1Interface::~OrgBluezAdapter1Interface()
+{
+}
+}  // namespace QtBluetoothPrivate
+//  -----------------------------------------------------------------------
 
 //  A QtBluetoothPrivate::OrgBluezAdapter1Interface that Python can take functions over in. Every QtBluetoothPrivate::OrgBluezAdapter1Interface
 //  Python makes is one. Each function below asks the Python
@@ -202,11 +230,39 @@ const QMetaObject *ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface10me
   return self->metaObject();
 }
 
+//  void *QtBluetoothPrivate::OrgBluezAdapter1Interface::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface11qt_metacastEPKc(
+    QtBluetoothPrivate::OrgBluezAdapter1Interface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtBluetoothPrivate::OrgBluezAdapter1Interface::qt_metacall(QMetaObjec
+//      t::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtBluetoothPrivate::OrgBluezAdapter1Interface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  const char
 //      *QtBluetoothPrivate::OrgBluezAdapter1Interface::staticInterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface19staticInterfaceNameEv() {
   return QtBluetoothPrivate::OrgBluezAdapter1Interface::staticInterfaceName();
+}
+
+//  QtBluetoothPrivate::OrgBluezAdapter1Interface::~OrgBluezAdapter1Interface
+//      ()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceD1Ev(
+    QtBluetoothPrivate::OrgBluezAdapter1Interface *self) {
+  delete self;
 }
 
 //  QString QtBluetoothPrivate::OrgBluezAdapter1Interface::address() const
@@ -350,6 +406,42 @@ QList<QString> *ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface5uUIDsE
   return new QList<QString>(self->uUIDs());
 }
 
+//  QDBusPendingReply<>
+//      QtBluetoothPrivate::OrgBluezAdapter1Interface::RemoveDevice(const
+//      QDBusObjectPath &device)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface12RemoveDeviceERK15QDBusObjectPath(
+    QtBluetoothPrivate::OrgBluezAdapter1Interface *self,
+    const QDBusObjectPath *device) {
+  return new QDBusPendingReply<>(self->RemoveDevice(*device));
+}
+
+//  QDBusPendingReply<>
+//      QtBluetoothPrivate::OrgBluezAdapter1Interface::SetDiscoveryFilter(con
+//      st QVariantMap &properties)
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface18SetDiscoveryFilterERK4QMapI7QString8QVariantE(
+    QtBluetoothPrivate::OrgBluezAdapter1Interface *self,
+    const QMap<QString, QVariant> *properties) {
+  return new QDBusPendingReply<>(self->SetDiscoveryFilter(*properties));
+}
+
+//  QDBusPendingReply<>
+//      QtBluetoothPrivate::OrgBluezAdapter1Interface::StartDiscovery()
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface14StartDiscoveryEv(
+    QtBluetoothPrivate::OrgBluezAdapter1Interface *self) {
+  return new QDBusPendingReply<>(self->StartDiscovery());
+}
+
+//  QDBusPendingReply<>
+//      QtBluetoothPrivate::OrgBluezAdapter1Interface::StopDiscovery()
+extern "C" Q_DECL_EXPORT
+QDBusPendingReply<> *ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface13StopDiscoveryEv(
+    QtBluetoothPrivate::OrgBluezAdapter1Interface *self) {
+  return new QDBusPendingReply<>(self->StopDiscovery());
+}
+
 //  a Python function taken by a
 //      CuteQtBluetoothPrivate_OrgBluezAdapter1Interface, for the function
 //      named by the key
@@ -359,6 +451,14 @@ bool ritual_take_QtBluetoothPrivate_OrgBluezAdapter1Interface(
     const char *key,
     void *call) {
   return static_cast<CuteQtBluetoothPrivate_OrgBluezAdapter1Interface *>(self)->take(key, call);
+}
+
+//  a QDBusPendingReply<> a ritual of
+//      QtBluetoothPrivate::OrgBluezAdapter1Interface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QtBluetoothPrivate_OrgBluezAdapter1Interface__QDBusPendingReply(
+    QDBusPendingReply<> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(bluez)

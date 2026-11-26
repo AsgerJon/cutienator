@@ -32,22 +32,6 @@ inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
         m_controller->markSeriesVisualsDirty();
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 665, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
-inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
-{
-    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_ptr->series());
-
-    delete m_dataProxy;
-    m_dataProxy = proxy;
-
-    proxy->d_ptr->setSeries(q_ptr); // also sets parent
-
-    if (m_controller) {
-        connectControllerAndProxy(m_controller);
-        m_controller->markDataDirty();
-    }
-}
-
 //  from ../qtdatavis3d/src/datavisualization/data/qscatter3dseries.cpp, line 273, as _ZN23QScatter3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
 inline void QScatter3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
 {
@@ -129,6 +113,22 @@ inline void QScatter3DSeriesPrivate::createItemLabel()
         m_itemLabel.replace(zLabelTag, valueLabelText);
     }
     m_itemLabel.replace(seriesNameTag, m_name);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 665, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
+inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
+{
+    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_ptr->series());
+
+    delete m_dataProxy;
+    m_dataProxy = proxy;
+
+    proxy->d_ptr->setSeries(q_ptr); // also sets parent
+
+    if (m_controller) {
+        connectControllerAndProxy(m_controller);
+        m_controller->markDataDirty();
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qscatter3dseries.cpp, line 353, as _ZN23QScatter3DSeriesPrivate15setSelectedItemEi
@@ -395,6 +395,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK23QScatter3DSeriesPrivate10metaObjectEv(
     const QScatter3DSeriesPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QScatter3DSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QScatter3DSeriesPrivate11qt_metacastEPKc(
+    QScatter3DSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScatter3DSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QScatter3DSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScatter3DSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QScatter3DSeriesPrivate::~QScatter3DSeriesPrivate()

@@ -1,10 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmldata_p.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtQml/6.12.0/QtQml/private/qqmldata_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, rituals for functions the generator leaves
+//  out: 1. Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmldata_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmlpropertycache_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -33,6 +37,17 @@ void ritual_ZN8QQmlData9destroyedEP24QAbstractDeclarativeDataP7QObject(
     QAbstractDeclarativeData *a0,
     QObject *a1) {
   QQmlData::destroyed(a0, a1);
+}
+
+//  void QQmlData::signalEmitted(QAbstractDeclarativeData *a0, QObject *a1,
+//      int a2, void **a3)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QQmlData13signalEmittedEP24QAbstractDeclarativeDataP7QObjectiPPv(
+    QAbstractDeclarativeData *a0,
+    QObject *a1,
+    int a2,
+    void **a3) {
+  QQmlData::signalEmitted(a0, a1, a2, a3);
 }
 
 //  int QQmlData::receivers(QAbstractDeclarativeData *a0, const QObject *a1,
@@ -167,6 +182,20 @@ void ritual_ZN8QQmlData22clearPendingBindingBitEi(QQmlData *self, int a0) {
   self->clearPendingBindingBit(a0);
 }
 
+//  void QQmlData::deferData(int objectIndex, const
+//      QQmlRefPointer<QV4::ExecutableCompilationUnit> &a1, const
+//      QQmlRefPointer<QQmlContextData> &a2, const QString
+//      &inlineComponentName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QQmlData9deferDataEiRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERKS0_I15QQmlContextDataERK7QString(
+    QQmlData *self,
+    int objectIndex,
+    const QQmlRefPointer<QV4::ExecutableCompilationUnit> *a1,
+    const QQmlRefPointer<QQmlContextData> *a2,
+    const QString *inlineComponentName) {
+  self->deferData(objectIndex, *a1, *a2, *inlineComponentName);
+}
+
 //  void QQmlData::releaseDeferredData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QQmlData19releaseDeferredDataEv(QQmlData *self) {
@@ -211,6 +240,14 @@ bool ritual_ZN8QQmlData32keepAliveDuringGarbageCollectionEPK7QObject(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8QQmlData15hasExtendedDataEv(const QQmlData *self) {
   return self->hasExtendedData();
+}
+
+//  QHash<QQmlAttachedPropertiesFunc, QObject *>
+//      *QQmlData::attachedProperties() const
+extern "C" Q_DECL_EXPORT
+QHash<QQmlAttachedPropertiesFunc, QObject *> *ritual_ZNK8QQmlData18attachedPropertiesEv(
+    const QQmlData *self) {
+  return self->attachedProperties();
 }
 
 //  bool QQmlData::wasDeleted(const QObject *a0)
@@ -336,4 +373,13 @@ void ritual_ZN8QQmlData6setBitEP7QObjecti(
     QObject *obj,
     int bit) {
   self->setBit(obj, bit);
+}
+
+//  BindingBitsType *QQmlData::growBits(QObject *obj, int bit)
+extern "C" Q_DECL_EXPORT
+QQmlData::BindingBitsType *ritual_ZN8QQmlData8growBitsEP7QObjecti(
+    QQmlData *self,
+    QObject *obj,
+    int bit) {
+  return self->growBits(obj, bit);
 }

@@ -8,6 +8,12 @@
     "ritual_ZNK29QScxmlInvokableServiceFactory10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QScxmlInvokableServiceFactory11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QScxmlInvokableServiceFactory11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QScxmlInvokableServiceFactory2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,11 +23,23 @@
     "ritual_ZNK29QScxmlInvokableServiceFactory6d_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN29QScxmlInvokableServiceFactoryC1ERKN23QScxmlExecutableContent10InvokeInfoERK5QListIiERKS4_INS0_13ParameterInfoEEP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN29QScxmlInvokableServiceFactory6invokeEP18QScxmlStateMachine": [
       "address", "address", "address"
     ],
     "ritual_ZNK29QScxmlInvokableServiceFactory10invokeInfoEv": [
       "address", "address"
+    ],
+    "ritual_ZNK29QScxmlInvokableServiceFactory10parametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QScxmlInvokableServiceFactory5namesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QScxmlInvokableServiceFactoryC1ER36QScxmlInvokableServiceFactoryPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QScxmlInvokableServiceFactory": [
       "bool", "address", "chars", "address"

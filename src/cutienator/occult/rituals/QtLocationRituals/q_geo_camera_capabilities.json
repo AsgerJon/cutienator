@@ -7,7 +7,17 @@
   "rows": {
     "ritual_ZN22QGeoCameraCapabilitiesC1Ev": ["address"],
     "ritual_ZN22QGeoCameraCapabilitiesC1ERKS_": ["address", "address"],
+    "ritual_ZN22QGeoCameraCapabilitiesC1EOS_": ["address", "address"],
     "ritual_ZN22QGeoCameraCapabilitiesD1Ev": ["nothing", "address"],
+    "ritual_ZN22QGeoCameraCapabilitiesaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilitiesaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK22QGeoCameraCapabilitiesS1_": [
       "bool", "address", "address"
     ],

@@ -16,6 +16,7 @@ typedef void (*CuteQEnterEventCall5)(const void *, bool, int *);
 class CuteQEnterEvent : public QEnterEvent {
 public:
   using QEnterEvent::QEnterEvent;
+  CuteQEnterEvent(const QEnterEvent & other) : QEnterEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -112,6 +113,20 @@ public:
     QPointerEvent::setAccepted(accepted);
   }
 };
+
+//  QEnterEvent::QEnterEvent(const QEnterEvent &a0)
+extern "C" Q_DECL_EXPORT
+QEnterEvent *ritual_ZN11QEnterEventC1ERKS_(const QEnterEvent *a0) {
+  return new CuteQEnterEvent(*a0);
+}
+
+//  QEnterEvent &QEnterEvent::operator=(const QEnterEvent &other)
+extern "C" Q_DECL_EXPORT
+QEnterEvent *ritual_ZN11QEnterEventaSERKS_(
+    QEnterEvent *self,
+    const QEnterEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QEnterEvent *QEnterEvent::clone() const
 extern "C" Q_DECL_EXPORT

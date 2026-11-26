@@ -6,14 +6,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/6.12.0/QtLocation/private/qplaceresult_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtLocation/qplacesearchresult.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtLocation/qplaceresult.h>
+#include <QtLocation/private/qplaceresult_p.h>
+#include <QtCore/qnumeric.h>
 #include <QtLocation/qplacesearchresult.h>
 #include <QtLocation/private/qplacesearchresult_p.h>
 #include <QtLocation/qplaceresult.h>
-#include <QtCore/qnumeric.h>
-#include <QtLocation/qplaceresult.h>
-#include <QtLocation/private/qplaceresult_p.h>
 #include <QtCore/qnumeric.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -24,13 +25,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtlocation/src/location/places/qplacesearchresult.cpp, line 27, as _ZNK25QPlaceSearchResultPrivate7compareEPKS_
-inline bool QPlaceSearchResultPrivate::compare(const QPlaceSearchResultPrivate *other) const
-{
-    return title == other->title
-            && icon == other->icon;
-}
-
 //  from ../qtlocation/src/location/places/qplaceresult.cpp, line 11, as _ZNK19QPlaceResultPrivate7compareEPK25QPlaceSearchResultPrivate
 inline bool QPlaceResultPrivate::compare(const QPlaceSearchResultPrivate *other) const
 {
@@ -40,6 +34,13 @@ inline bool QPlaceResultPrivate::compare(const QPlaceSearchResultPrivate *other)
                 || QtPrivate::fuzzyCompare(distance, od->distance))
            && place == od->place
            && sponsored == od->sponsored;
+}
+
+//  from ../qtlocation/src/location/places/qplacesearchresult.cpp, line 27, as _ZNK25QPlaceSearchResultPrivate7compareEPKS_
+inline bool QPlaceSearchResultPrivate::compare(const QPlaceSearchResultPrivate *other) const
+{
+    return title == other->title
+            && icon == other->icon;
 }
 //  -----------------------------------------------------------------------
 
@@ -52,7 +53,7 @@ typedef int (*CuteQPlaceResultPrivateCall2)(const void *, int *);
 class CuteQPlaceResultPrivate : public QPlaceResultPrivate {
 public:
   using QPlaceResultPrivate::QPlaceResultPrivate;
-  CuteQPlaceResultPrivate(const QPlaceResultPrivate &other) : QPlaceResultPrivate(other) {}
+  CuteQPlaceResultPrivate(const QPlaceResultPrivate & other) : QPlaceResultPrivate(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -128,6 +129,15 @@ extern "C" Q_DECL_EXPORT
 QPlaceSearchResult::SearchResultType ritual_ZNK19QPlaceResultPrivate4typeEv(
     const QPlaceResultPrivate *self) {
   return self->type();
+}
+
+//  void QPlaceResultPrivate::copyIfPossible(QSharedDataPointer<QPlaceSearchR
+//      esultPrivate> &d_ptr, const QPlaceSearchResult &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QPlaceResultPrivate14copyIfPossibleER18QSharedDataPointerI25QPlaceSearchResultPrivateERK18QPlaceSearchResult(
+    QSharedDataPointer<QPlaceSearchResultPrivate> *d_ptr,
+    const QPlaceSearchResult *other) {
+  QPlaceResultPrivate::copyIfPossible(*d_ptr, *other);
 }
 
 //  QPlaceResultPrivate::~QPlaceResultPrivate()

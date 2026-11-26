@@ -46,6 +46,52 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/xml/dom/qdom.cpp, line 74, as local:qdom.cpp:qt_split_namespace
+#if QT_CONFIG(dom)
+static void qt_split_namespace(QString& prefix, QString& name, const QString& qName, bool hasURI)
+{
+    qsizetype i = qName.indexOf(u':');
+    if (i == -1) {
+        if (hasURI)
+            prefix = u""_s;
+        else
+            prefix.clear();
+        name = qName;
+    } else {
+        prefix = qName.left(i);
+        name = qName.mid(i + 1);
+    }
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1480, as local:qdom.cpp:qNormalizeNode
+#if QT_CONFIG(dom)
+static void qNormalizeNode(QDomNodePrivate* n)
+{
+    QDomNodePrivate* p = n->first;
+    QDomTextPrivate* t = nullptr;
+
+    while (p) {
+        if (p->isText()) {
+            if (t) {
+                QDomNodePrivate* tmp = p->next;
+                t->appendData(p->nodeValue());
+                n->removeChild(p);
+                p = tmp;
+            } else {
+                t = static_cast<QDomTextPrivate *>(p);
+                p = p->next;
+            }
+        } else {
+            p = p->next;
+            t = nullptr;
+        }
+    }
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1454, as _ZN15QDomNodePrivate11appendChildEPS_
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomNodePrivate::appendChild(QDomNodePrivate* newChild)
@@ -404,6 +450,16 @@ inline void QDomNodePrivate::clear()
 }
 #endif  // QT_CONFIG(dom)
 
+//  from src/xml/dom/qdom.cpp, line 1502, as _ZN15QDomNodePrivate9normalizeEv
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::normalize()
+{
+    // ### This one has moved from QDomElementPrivate to this position. It is
+    // not tested.
+    qNormalizeNode(this);
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 2724, as _ZNK23QDomNamedNodeMapPrivate9namedItemERK7QString
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomNamedNodeMapPrivate::namedItem(const QString& name) const
@@ -515,6 +571,28 @@ inline bool QDomNamedNodeMapPrivate::containsNS(const QString& nsURI, const QStr
 inline int QDomNamedNodeMapPrivate::length() const
 {
     return map.size();
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 4051, as _ZN18QDomElementPrivate9cloneNodeEb
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomElementPrivate::cloneNode(bool deep)
+{
+    QDomNodePrivate* p = new QDomElementPrivate(this, deep);
+    // We are not interested in this node
+    p->ref.deref();
+    return p;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 4037, as _ZN18QDomElementPrivateC1EPS_b
+#if QT_CONFIG(dom)
+inline QDomElementPrivate::QDomElementPrivate(QDomElementPrivate* n, bool deep) :
+    QDomNodePrivate(n, deep)
+{
+    m_attr = n->m_attr->clone(this);
+    // Reference is down to 0, so we set it to 1 here.
+    m_attr->ref.ref();
 }
 #endif  // QT_CONFIG(dom)
 
@@ -635,14 +713,32 @@ inline bool QDomElementPrivate::hasAttributeNS(const QString& nsURI, const QStri
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 4051, as _ZN18QDomElementPrivate9cloneNodeEb
+//  from src/xml/dom/qdom.cpp, line 4172, as _ZNK18QDomElementPrivate4textEv
 #if QT_CONFIG(dom)
-inline QDomNodePrivate* QDomElementPrivate::cloneNode(bool deep)
+inline QString QDomElementPrivate::text() const
 {
-    QDomNodePrivate* p = new QDomElementPrivate(this, deep);
-    // We are not interested in this node
-    p->ref.deref();
-    return p;
+    QString t(u""_s);
+
+    // pre-order depth-first-search; visitation is t += nodeValue()
+    if (QDomNodePrivate* p = first) {
+        while (true) {
+            if (p->isText() || p->isCDATASection()) {
+                t += p->nodeValue();
+            } else if (p->isElement() && p->first) {
+                p = p->first;    // descend into Elements
+                continue;
+            }
+
+            while (!p->next) {
+                p = p->parent(); // ascend into visited parent (pre-order DFS)
+                if (p == this)
+                    return t; // done
+            }
+
+            p = p->next;
+        }
+    }
+    return t;
 }
 #endif  // QT_CONFIG(dom)
 //  -----------------------------------------------------------------------
@@ -683,7 +779,7 @@ typedef void (*CuteQDomElementPrivateCall9)(const void *, int *);
 class CuteQDomElementPrivate : public QDomElementPrivate {
 public:
   using QDomElementPrivate::QDomElementPrivate;
-  CuteQDomElementPrivate(const QDomElementPrivate &other) : QDomElementPrivate(other) {}
+  CuteQDomElementPrivate(const QDomElementPrivate & other) : QDomElementPrivate(other) {}
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {
@@ -1010,6 +1106,15 @@ bool ritual_ZNK18QDomElementPrivate14hasAttributeNSERK7QStringS2_(
 }
 #endif  // QT_CONFIG(dom)
 
+#if QT_CONFIG(dom)
+//  QString QDomElementPrivate::text() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18QDomElementPrivate4textEv(
+    const QDomElementPrivate *self) {
+  return new QString(self->text());
+}
+#endif  // QT_CONFIG(dom)
+
 //  QDomNamedNodeMapPrivate *QDomElementPrivate::attributes()
 extern "C" Q_DECL_EXPORT
 QDomNamedNodeMapPrivate *ritual_ZN18QDomElementPrivate10attributesEv(
@@ -1039,6 +1144,26 @@ QDomNodePrivate *ritual_ZN18QDomElementPrivate9cloneNodeEb(
     QDomElementPrivate *self,
     bool deep) {
   return self->cloneNode(deep);
+}
+
+//  void QDomElementPrivate::save(QTextStream &s, int a1, int a2) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18QDomElementPrivate4saveER11QTextStreamii(
+    const QDomElementPrivate *self,
+    QTextStream *s,
+    int a1,
+    int a2) {
+  self->save(*s, a1, a2);
+}
+
+//  void QDomElementPrivate::afterSave(QTextStream &s, int a1, int a2) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18QDomElementPrivate9afterSaveER11QTextStreamii(
+    const QDomElementPrivate *self,
+    QTextStream *s,
+    int a1,
+    int a2) {
+  self->afterSave(*s, a1, a2);
 }
 
 //  a Python function taken by a CuteQDomElementPrivate, for the function

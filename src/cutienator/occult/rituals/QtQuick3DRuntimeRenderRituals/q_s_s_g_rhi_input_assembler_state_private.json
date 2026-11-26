@@ -5,6 +5,12 @@
     "xt_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN33QSSGRhiInputAssemblerStatePrivate3getERK28QSSGRhiGraphicsPipelineState": [
+      "address", "address"
+    ],
+    "ritual_ZN33QSSGRhiInputAssemblerStatePrivate3getER28QSSGRhiGraphicsPipelineState": [
+      "address", "address"
+    ],
     "ritual_ZN33QSSGRhiInputAssemblerStatePrivateD1Ev": [
       "nothing", "address"
     ]

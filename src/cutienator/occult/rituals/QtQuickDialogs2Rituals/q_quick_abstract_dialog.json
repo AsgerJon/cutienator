@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickAbstractDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickAbstractDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickAbstractDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickAbstractDialog2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,7 @@
     ],
     "ritual_ZN20QQuickAbstractDialogD1Ev": ["nothing", "address"],
     "ritual_ZNK20QQuickAbstractDialog6handleEv": ["address", "address"],
+    "ritual_ZN20QQuickAbstractDialog4dataEv": ["address", "address"],
     "ritual_ZNK20QQuickAbstractDialog12parentWindowEv": [
       "address", "address"
     ],
@@ -58,6 +65,29 @@
     "ritual_ZN20QQuickAbstractDialog6acceptEv": ["nothing", "address"],
     "ritual_ZN20QQuickAbstractDialog6rejectEv": ["nothing", "address"],
     "ritual_ZN20QQuickAbstractDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_ZN20QQuickAbstractDialog8acceptedEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractDialog8rejectedEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractDialog19parentWindowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog12titleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog12flagsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog15modalityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog14visibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog13resultChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog16popupTypeChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN20QQuickAbstractDialog10classBeginEv": ["nothing", "address"],
     "ritual_ZN20QQuickAbstractDialog17componentCompleteEv": [
       "nothing", "address"
@@ -117,6 +147,9 @@
     "ritual_own_ZN20QQuickAbstractDialog6onHideEP21QPlatformDialogHelper": [
       "nothing", "address", "address"
     ],
-    "ritual_own_ZNK20QQuickAbstractDialog10dialogCodeEv": ["int", "address"]
+    "ritual_own_ZNK20QQuickAbstractDialog10dialogCodeEv": ["int", "address"],
+    "ritual_drop_QQuickAbstractDialog__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

@@ -1,15 +1,18 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DCore/6.12.0/Qt3DCore/private/qtickclockservice_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore17QTickClockService10metaObjectEv": [
       "address", "address"
     ],
-    "ritual_take_Qt3DCore_QTickClockService": [
-      "bool", "address", "chars", "address"
-    ]
+    "ritual_ZN8Qt3DCore17QTickClockServiceD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore17QTickClockService16waitForNextFrameEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN8Qt3DCore17QTickClockService5startEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore17QTickClockService4stopEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore17QTickClockService6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore17QTickClockService6d_funcEv": ["address", "address"]
   }
 }

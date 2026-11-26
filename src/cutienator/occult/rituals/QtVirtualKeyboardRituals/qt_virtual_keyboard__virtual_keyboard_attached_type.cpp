@@ -17,6 +17,26 @@ const QMetaObject *ritual_ZNK17QtVirtualKeyboard27VirtualKeyboardAttachedType10m
   return self->metaObject();
 }
 
+//  void *QtVirtualKeyboard::VirtualKeyboardAttachedType::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType11qt_metacastEPKc(
+    QtVirtualKeyboard::VirtualKeyboardAttachedType *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtVirtualKeyboard::VirtualKeyboardAttachedType::qt_metacall(QMetaObje
+//      ct::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtVirtualKeyboard::VirtualKeyboardAttachedType *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtVirtualKeyboard::VirtualKeyboardAttachedType::tr(const char *s,
 //      const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -40,6 +60,14 @@ void ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType22qt_qmlMarker_ano
   self->qt_qmlMarker_anonymous();
 }
 
+//  QtVirtualKeyboard::VirtualKeyboardAttachedType::VirtualKeyboardAttachedTy
+//      pe(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::VirtualKeyboardAttachedType *ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedTypeC1EP7QObject(
+    QObject *parent) {
+  return new QtVirtualKeyboard::VirtualKeyboardAttachedType(parent);
+}
+
 //  QStringList
 //      QtVirtualKeyboard::VirtualKeyboardAttachedType::extraDictionaries()
 //      const
@@ -56,4 +84,12 @@ void ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType20setExtraDictiona
     QtVirtualKeyboard::VirtualKeyboardAttachedType *self,
     const QList<QString> *dictionaries) {
   self->setExtraDictionaries(*dictionaries);
+}
+
+//  void QtVirtualKeyboard::VirtualKeyboardAttachedType::extraDictionariesCha
+//      nged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard27VirtualKeyboardAttachedType24extraDictionariesChangedEv(
+    QtVirtualKeyboard::VirtualKeyboardAttachedType *self) {
+  self->extraDictionariesChanged();
 }

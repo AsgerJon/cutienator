@@ -5,11 +5,18 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput23QAxisAccumulatorPrivateC1Ev": ["address"],
     "ritual_ZN9Qt3DInput23QAxisAccumulatorPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK9Qt3DInput23QAxisAccumulatorPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QAxisAccumulatorPrivate8setValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN9Qt3DInput23QAxisAccumulatorPrivate11setVelocityEf": [
+      "nothing", "address", "float"
     ],
     "ritual_take_Qt3DInput_QAxisAccumulatorPrivate": [
       "bool", "address", "chars", "address"

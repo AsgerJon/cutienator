@@ -10,5 +10,59 @@
     "QtQmlIntegration"
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObjectC1EPNS0_14Scene2DManagerE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObjectD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender5Quick19Scene2DSharedObject13isInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject14setInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender5Quick19Scene2DSharedObject10isQuittingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject11setQuittingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject11requestQuitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject17requestInvalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject13requestRenderEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender5Quick19Scene2DSharedObject15isSyncRequestedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject16clearSyncRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject4waitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject4wakeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender5Quick19Scene2DSharedObject10isPreparedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject11setPreparedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject14disallowRenderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender5Quick19Scene2DSharedObject9canRenderEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick19Scene2DSharedObject7cleanupEv": [
+      "nothing", "address"
+    ]
   }
 }

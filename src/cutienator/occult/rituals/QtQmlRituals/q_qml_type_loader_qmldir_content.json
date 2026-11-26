@@ -13,6 +13,9 @@
     ],
     "ritual_ZN27QQmlTypeLoaderQmldirContentC1Ev": ["address"],
     "ritual_ZN27QQmlTypeLoaderQmldirContentC1ERKS_": ["address", "address"],
+    "ritual_ZN27QQmlTypeLoaderQmldirContentaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK27QQmlTypeLoaderQmldirContent10hasContentEv": [
       "bool", "address"
     ],
@@ -27,6 +30,18 @@
     ],
     "ritual_ZNK27QQmlTypeLoaderQmldirContent13typeNamespaceEv": [
       "text", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent10componentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent7scriptsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent7pluginsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent7importsEv": [
+      "address", "address"
     ],
     "ritual_ZNK27QQmlTypeLoaderQmldirContent14qmldirLocationEv": [
       "text", "address"
@@ -46,6 +61,18 @@
     "ritual_ZNK27QQmlTypeLoaderQmldirContent11hasTypeInfoEv": [
       "bool", "address"
     ],
-    "ritual_ZN27QQmlTypeLoaderQmldirContentD1Ev": ["nothing", "address"]
+    "ritual_ZN27QQmlTypeLoaderQmldirContentD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlTypeLoaderQmldirContent__QQmlDirComponents": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlTypeLoaderQmldirContent__QQmlDirScripts": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlTypeLoaderQmldirContent__QQmlDirPlugins": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlTypeLoaderQmldirContent__QQmlDirImports": [
+      "nothing", "address"
+    ]
   }
 }

@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN14QQmlScriptBlobD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQmlScriptBlob10scriptDataEv": ["address", "address"],
     "ritual_ZN14QQmlScriptBlob12dataReceivedERKN12QQmlDataBlob14SourceCodeDataE": [
       "nothing", "address", "address"
     ],
@@ -14,7 +15,13 @@
     ],
     "ritual_ZN14QQmlScriptBlob4doneEv": ["nothing", "address"],
     "ritual_ZNK14QQmlScriptBlob8stringAtEi": ["text", "address", "int"],
+    "ritual_ZN14QQmlScriptBlob14scriptImportedERK14QQmlRefPointerIS_ERKN3QV412CompiledData8LocationERK7QStringSB_": [
+      "nothing", "address", "address", "address", "text", "text"
+    ],
     "ritual_take_QQmlScriptBlob": ["bool", "address", "chars", "address"],
-    "ritual_own_ZNK14QQmlScriptBlob8stringAtEi": ["text", "address", "int"]
+    "ritual_own_ZNK14QQmlScriptBlob8stringAtEi": ["text", "address", "int"],
+    "ritual_drop_QQmlScriptBlob__QQmlRefPointer_QQmlScriptData": [
+      "nothing", "address"
+    ]
   }
 }

@@ -7,6 +7,16 @@
   "rows": {
     "ritual_ZN24QHttpServerConfigurationC1Ev": ["address"],
     "ritual_ZN24QHttpServerConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN24QHttpServerConfigurationC1EOS_": ["address", "address"],
+    "ritual_ZN24QHttpServerConfigurationaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QHttpServerConfigurationaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QHttpServerConfigurationD1Ev": ["nothing", "address"],
     "ritual_ZN24QHttpServerConfiguration21setRateLimitPerSecondEj": [
       "nothing", "address", "unsigned int"
@@ -25,6 +35,24 @@
     ],
     "ritual_ZNK24QHttpServerConfiguration18maximumConnectionsEv": [
       "unsigned int", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration19setKeepAliveTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration16keepAliveTimeoutEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration12setWhitelistE5QSpanIKSt4pairI12QHostAddressiELm18446744073709551615EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration9whitelistEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration12setBlacklistE5QSpanIKSt4pairI12QHostAddressiELm18446744073709551615EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration9blacklistEv": [
+      "address", "address"
     ],
     "ritual_ZN24QHttpServerConfiguration17setMaximumUrlSizeEx": [
       "nothing", "address", "long long"
@@ -61,6 +89,9 @@
     ],
     "ritual_ZneRK24QHttpServerConfigurationS1_": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QHttpServerConfiguration__QSpan_const_std_pair_QHostAddress_int": [
+      "nothing", "address"
     ]
   }
 }

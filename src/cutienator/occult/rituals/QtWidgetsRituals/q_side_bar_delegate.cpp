@@ -10,7 +10,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtWidgets/qstyleoption.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
@@ -39,6 +41,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 23, as _ZNK16QSideBarDelegate15initStyleOptionEP20QStyleOptionViewItemRK11QModelIndex
 inline void QSideBarDelegate::initStyleOption(QStyleOptionViewItem *option,

@@ -5,6 +5,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QAbstractTextureImage that Python can take functions over in. Every Qt3DRender::QAbstractTextureImage
 //  Python makes is one. Each function below asks the Python
@@ -180,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender21QAbstractTextureImage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QAbstractTextureImage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender21QAbstractTextureImage11qt_metacastEPKc(
+    Qt3DRender::QAbstractTextureImage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QAbstractTextureImage::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender21QAbstractTextureImage11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QAbstractTextureImage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QAbstractTextureImage::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -195,6 +215,95 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN10Qt3DRender21QAbstractTextureImageD1Ev(
     Qt3DRender::QAbstractTextureImage *self) {
   delete self;
+}
+
+//  int Qt3DRender::QAbstractTextureImage::mipLevel() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender21QAbstractTextureImage8mipLevelEv(
+    const Qt3DRender::QAbstractTextureImage *self) {
+  return self->mipLevel();
+}
+
+//  int Qt3DRender::QAbstractTextureImage::layer() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender21QAbstractTextureImage5layerEv(
+    const Qt3DRender::QAbstractTextureImage *self) {
+  return self->layer();
+}
+
+//  QAbstractTexture::CubeMapFace Qt3DRender::QAbstractTextureImage::face()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTexture::CubeMapFace ritual_ZNK10Qt3DRender21QAbstractTextureImage4faceEv(
+    const Qt3DRender::QAbstractTextureImage *self) {
+  return self->face();
+}
+
+//  void Qt3DRender::QAbstractTextureImage::setMipLevel(int level)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QAbstractTextureImage11setMipLevelEi(
+    Qt3DRender::QAbstractTextureImage *self,
+    int level) {
+  self->setMipLevel(level);
+}
+
+//  void Qt3DRender::QAbstractTextureImage::setLayer(int layer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QAbstractTextureImage8setLayerEi(
+    Qt3DRender::QAbstractTextureImage *self,
+    int layer) {
+  self->setLayer(layer);
+}
+
+//  void
+//      Qt3DRender::QAbstractTextureImage::setFace(QAbstractTexture::CubeMapF
+//      ace face)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QAbstractTextureImage7setFaceENS_16QAbstractTexture11CubeMapFaceE(
+    Qt3DRender::QAbstractTextureImage *self,
+    Qt3DRender::QAbstractTexture::CubeMapFace face) {
+  self->setFace(face);
+}
+
+//  void Qt3DRender::QAbstractTextureImage::mipLevelChanged(int mipLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QAbstractTextureImage15mipLevelChangedEi(
+    Qt3DRender::QAbstractTextureImage *self,
+    int mipLevel) {
+  self->mipLevelChanged(mipLevel);
+}
+
+//  void Qt3DRender::QAbstractTextureImage::layerChanged(int layer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QAbstractTextureImage12layerChangedEi(
+    Qt3DRender::QAbstractTextureImage *self,
+    int layer) {
+  self->layerChanged(layer);
+}
+
+//  void Qt3DRender::QAbstractTextureImage::faceChanged(QAbstractTexture::Cub
+//      eMapFace face)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QAbstractTextureImage11faceChangedENS_16QAbstractTexture11CubeMapFaceE(
+    Qt3DRender::QAbstractTextureImage *self,
+    Qt3DRender::QAbstractTexture::CubeMapFace face) {
+  self->faceChanged(face);
+}
+
+//  void Qt3DRender::QAbstractTextureImage::notifyDataGeneratorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender21QAbstractTextureImage26notifyDataGeneratorChangedEv(
+    Qt3DRender::QAbstractTextureImage *self) {
+  self->notifyDataGeneratorChanged();
+}
+
+//  QTextureImageDataGeneratorPtr
+//      Qt3DRender::QAbstractTextureImage::dataGenerator() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureImageDataGeneratorPtr *ritual_ZNK10Qt3DRender21QAbstractTextureImage13dataGeneratorEv(
+    const Qt3DRender::QAbstractTextureImage *self) {
+  return new Qt3DRender::QTextureImageDataGeneratorPtr(
+      self->dataGenerator());
 }
 
 //  QAbstractTextureImagePrivate *Qt3DRender::QAbstractTextureImage::d_func()
@@ -220,4 +329,12 @@ bool ritual_take_Qt3DRender_QAbstractTextureImage(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QAbstractTextureImage *>(self)->take(key, call);
+}
+
+//  a Qt3DRender::QTextureImageDataGeneratorPtr a ritual of
+//      Qt3DRender::QAbstractTextureImage gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QAbstractTextureImage__Qt3DRender_QTextureImageDataGeneratorPtr(
+    Qt3DRender::QTextureImageDataGeneratorPtr *self) {
+  delete self;
 }

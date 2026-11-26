@@ -200,6 +200,15 @@ qint64 ritual_ZNK25QIOReadWriteOperationBase17numBytesProcessedEv(
   return self->numBytesProcessed();
 }
 
+//  QIOReadWriteOperationBase::QIOReadWriteOperationBase(QIOOperationPrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QIOReadWriteOperationBase *ritual_ZN25QIOReadWriteOperationBaseC1ER19QIOOperationPrivateP7QObject(
+    QIOOperationPrivate *dd,
+    QObject *parent) {
+  return new CuteQIOReadWriteOperationBase(*dd, parent);
+}
+
 //  a Python function taken by a CuteQIOReadWriteOperationBase, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

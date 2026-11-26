@@ -10,7 +10,11 @@
     "ritual_ZN11QGraphsLine6createERK8QJSValue": ["address", "address"],
     "ritual_ZN11QGraphsLineC1Ev": ["address"],
     "ritual_ZN11QGraphsLineC1ERKS_": ["address", "address"],
+    "ritual_ZN11QGraphsLineC1EOS_": ["address", "address"],
     "ritual_ZN11QGraphsLineD1Ev": ["nothing", "address"],
+    "ritual_ZN11QGraphsLineaSERKS_": ["address", "address", "address"],
+    "ritual_ZN11QGraphsLine4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN11QGraphsLineaSEOS_": ["address", "address", "address"],
     "ritual_ZNK11QGraphsLine9mainColorEv": ["address", "address"],
     "ritual_ZN11QGraphsLine12setMainColorE6QColor": [
       "nothing", "address", "address"

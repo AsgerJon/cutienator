@@ -84,6 +84,12 @@ public:
   }
 };
 
+//  DocumentModel::StateContainer::StateContainer()
+extern "C" Q_DECL_EXPORT
+DocumentModel::StateContainer *ritual_ZN13DocumentModel14StateContainerC1Ev() {
+  return new CuteDocumentModel_StateContainer();
+}
+
 //  DocumentModel::StateContainer::~StateContainer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13DocumentModel14StateContainerD1Ev(

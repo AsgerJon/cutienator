@@ -42,6 +42,14 @@ QUrl *ritual_ZNK3QV44Heap9UrlObject3urlEv(const QV4::Heap::UrlObject *self) {
   return new QUrl(self->url());
 }
 
+//  void QV4::Heap::UrlObject::setUrl(QUrl &&url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV44Heap9UrlObject6setUrlEO4QUrl(
+    QV4::Heap::UrlObject *self,
+    QUrl *url) {
+  self->setUrl(std::move(*url));
+}
+
 //  QV4::Heap::UrlObject as the QV4::Heap::UrlObjectData it is built on
 extern "C" Q_DECL_EXPORT
 QV4::Heap::UrlObjectData *ritual_cast_QV4_Heap_UrlObject_QV4_Heap_UrlObjectData(

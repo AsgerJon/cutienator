@@ -8,6 +8,12 @@
     "ritual_ZNK22QSSGAssetImportManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QSSGAssetImportManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QSSGAssetImportManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QSSGAssetImportManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,10 +25,19 @@
     "ritual_ZN22QSSGAssetImportManager10importFileERK7QStringRK4QDirRK11QJsonObjectPS0_": [
       "unsigned char", "address", "text", "address", "address", "address"
     ],
+    "ritual_ZN22QSSGAssetImportManager10importFileERK4QUrlRN13QSSGSceneDesc5SceneEP7QString": [
+      "unsigned char", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGAssetImportManager10importFileERK4QUrlRN13QSSGSceneDesc5SceneERK11QJsonObjectP7QString": [
+      "unsigned char", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN22QSSGAssetImportManager17getOptionsForFileERK7QString": [
       "address", "address", "text"
     ],
     "ritual_ZNK22QSSGAssetImportManager13getAllOptionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QSSGAssetImportManager22getSupportedExtensionsEv": [
       "address", "address"
     ],
     "ritual_ZNK22QSSGAssetImportManager22getImporterPluginInfosEv": [
@@ -30,6 +45,9 @@
     ],
     "ritual_take_QSSGAssetImportManager": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QSSGAssetImportManager__QHash_QString_QStringList": [
+      "nothing", "address"
     ]
   }
 }

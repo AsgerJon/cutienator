@@ -1,7 +1,7 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qsize.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qsize.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN6QSizeFC1Ev": ["address"],
@@ -52,6 +52,8 @@
     "ritual_ZmldRK6QSizeF": ["address", "double", "address"],
     "ritual_ZdvRK6QSizeFd": ["address", "address", "double"],
     "ritual_ZNK6QSizeF6toSizeEv": ["address", "address"],
-    "ritual_ZN6QSizeFD1Ev": ["nothing", "address"]
+    "ritual_ZN6QSizeFD1Ev": ["nothing", "address"],
+    "ritual_ZN6QSizeF6rwidthEv": ["address", "address"],
+    "ritual_ZN6QSizeF7rheightEv": ["address", "address"]
   }
 }

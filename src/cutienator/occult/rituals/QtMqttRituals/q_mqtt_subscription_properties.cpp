@@ -18,6 +18,15 @@ QMqttSubscriptionProperties *ritual_ZN27QMqttSubscriptionPropertiesC1ERKS_(
   return new QMqttSubscriptionProperties(*a0);
 }
 
+//  QMqttSubscriptionProperties &QMqttSubscriptionProperties::operator=(const
+//      QMqttSubscriptionProperties &a0)
+extern "C" Q_DECL_EXPORT
+QMqttSubscriptionProperties *ritual_ZN27QMqttSubscriptionPropertiesaSERKS_(
+    QMqttSubscriptionProperties *self,
+    const QMqttSubscriptionProperties *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QMqttSubscriptionProperties::~QMqttSubscriptionProperties()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QMqttSubscriptionPropertiesD1Ev(

@@ -16,12 +16,32 @@
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QSharedPointer>
 
 //  const QMetaObject *QQuickFileDialogImpl::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QQuickFileDialogImpl10metaObjectEv(
     const QQuickFileDialogImpl *self) {
   return self->metaObject();
+}
+
+//  void *QQuickFileDialogImpl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickFileDialogImpl11qt_metacastEPKc(
+    QQuickFileDialogImpl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFileDialogImpl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickFileDialogImpl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFileDialogImpl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickFileDialogImpl::tr(const char *s, const char *c, int n)
@@ -96,6 +116,22 @@ void ritual_ZN20QQuickFileDialogImpl38setInitialCurrentFolderAndSelectedFileERK4
   self->setInitialCurrentFolderAndSelectedFile(*file);
 }
 
+//  QSharedPointer<QFileDialogOptions> QQuickFileDialogImpl::options() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QFileDialogOptions> *ritual_ZNK20QQuickFileDialogImpl7optionsEv(
+    const QQuickFileDialogImpl *self) {
+  return new QSharedPointer<QFileDialogOptions>(self->options());
+}
+
+//  void QQuickFileDialogImpl::setOptions(const
+//      QSharedPointer<QFileDialogOptions> &options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFileDialogImpl10setOptionsERK14QSharedPointerI18QFileDialogOptionsE(
+    QQuickFileDialogImpl *self,
+    const QSharedPointer<QFileDialogOptions> *options) {
+  self->setOptions(*options);
+}
+
 //  QStringList QQuickFileDialogImpl::nameFilters() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK20QQuickFileDialogImpl11nameFiltersEv(
@@ -163,6 +199,46 @@ void ritual_ZN20QQuickFileDialogImpl16selectNameFilterERK7QString(
   self->selectNameFilter(*filter);
 }
 
+//  void QQuickFileDialogImpl::currentFolderChanged(const QUrl &folderUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFileDialogImpl20currentFolderChangedERK4QUrl(
+    QQuickFileDialogImpl *self,
+    const QUrl *folderUrl) {
+  self->currentFolderChanged(*folderUrl);
+}
+
+//  void QQuickFileDialogImpl::selectedFileChanged(const QUrl
+//      &selectedFileUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFileDialogImpl19selectedFileChangedERK4QUrl(
+    QQuickFileDialogImpl *self,
+    const QUrl *selectedFileUrl) {
+  self->selectedFileChanged(*selectedFileUrl);
+}
+
+//  void QQuickFileDialogImpl::nameFiltersChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFileDialogImpl18nameFiltersChangedEv(
+    QQuickFileDialogImpl *self) {
+  self->nameFiltersChanged();
+}
+
+//  void QQuickFileDialogImpl::fileSelected(const QUrl &fileUrl)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFileDialogImpl12fileSelectedERK4QUrl(
+    QQuickFileDialogImpl *self,
+    const QUrl *fileUrl) {
+  self->fileSelected(*fileUrl);
+}
+
+//  void QQuickFileDialogImpl::filterSelected(const QString &filter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickFileDialogImpl14filterSelectedERK7QString(
+    QQuickFileDialogImpl *self,
+    const QString *filter) {
+  self->filterSelected(*filter);
+}
+
 //  void QQuickFileDialogImpl::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickFileDialogImpl17componentCompleteEv(
@@ -209,6 +285,14 @@ void ritual_own_ZN20QQuickFileDialogImpl10itemChangeEN10QQuickItem10ItemChangeER
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->QQuickFileDialogImpl::itemChange(change, *data);
+}
+
+//  a QSharedPointer<QFileDialogOptions> a ritual of QQuickFileDialogImpl
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickFileDialogImpl__QSharedPointer_QFileDialogOptions(
+    QSharedPointer<QFileDialogOptions> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_listview) && QT_CONFIG(quick_draganddrop)

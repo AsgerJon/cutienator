@@ -18,6 +18,24 @@ QtProtobufPrivate::QProtobufLazyMessagePointerBase *ritual_ZN17QtProtobufPrivate
   return new QtProtobufPrivate::QProtobufLazyMessagePointerBase(ptr);
 }
 
+//  QtProtobufPrivate::QProtobufLazyMessagePointerBase::QProtobufLazyMessageP
+//      ointerBase(QProtobufLazyMessagePointerBase &&other)
+extern "C" Q_DECL_EXPORT
+QtProtobufPrivate::QProtobufLazyMessagePointerBase *ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseC1EOS0_(
+    QtProtobufPrivate::QProtobufLazyMessagePointerBase *other) {
+  return new QtProtobufPrivate::QProtobufLazyMessagePointerBase(
+      std::move(*other));
+}
+
+//  QProtobufLazyMessagePointerBase &QtProtobufPrivate::QProtobufLazyMessageP
+//      ointerBase::operator=(QProtobufLazyMessagePointerBase &&other)
+extern "C" Q_DECL_EXPORT
+QtProtobufPrivate::QProtobufLazyMessagePointerBase *ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseaSEOS0_(
+    QtProtobufPrivate::QProtobufLazyMessagePointerBase *self,
+    QtProtobufPrivate::QProtobufLazyMessagePointerBase *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QProtobufMessage
 //      *QtProtobufPrivate::QProtobufLazyMessagePointerBase::message() const
 extern "C" Q_DECL_EXPORT
@@ -41,6 +59,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseD1Ev(
     QtProtobufPrivate::QProtobufLazyMessagePointerBase *self) {
   delete self;
+}
+
+//  void QtProtobufPrivate::QProtobufLazyMessagePointerBase::swap(QProtobufLa
+//      zyMessagePointerBase &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBase4swapERS0_(
+    QtProtobufPrivate::QProtobufLazyMessagePointerBase *self,
+    QtProtobufPrivate::QProtobufLazyMessagePointerBase *other) {
+  self->swap(*other);
 }
 
 //  bool QtProtobufPrivate::QProtobufLazyMessagePointerBase::operator bool()

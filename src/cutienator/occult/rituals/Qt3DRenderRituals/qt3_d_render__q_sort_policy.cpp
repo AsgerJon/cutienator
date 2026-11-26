@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QSortPolicy that Python can take functions over in. Every Qt3DRender::QSortPolicy
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender11QSortPolicy10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QSortPolicy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender11QSortPolicy11qt_metacastEPKc(
+    Qt3DRender::QSortPolicy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QSortPolicy::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender11QSortPolicy11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QSortPolicy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QSortPolicy::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender11QSortPolicy2trEPKcS2_i(
@@ -186,6 +207,78 @@ QString *ritual_ZN10Qt3DRender11QSortPolicy2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QSortPolicy::tr(s, c, n));
+}
+
+//  Qt3DRender::QSortPolicy::QSortPolicy(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSortPolicy *ritual_ZN10Qt3DRender11QSortPolicyC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QSortPolicy(parent);
+}
+
+//  Qt3DRender::QSortPolicy::~QSortPolicy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QSortPolicyD1Ev(Qt3DRender::QSortPolicy *self) {
+  delete self;
+}
+
+//  QList<SortType> Qt3DRender::QSortPolicy::sortTypes() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QSortPolicy::SortType> *ritual_ZNK10Qt3DRender11QSortPolicy9sortTypesEv(
+    const Qt3DRender::QSortPolicy *self) {
+  return new QList<Qt3DRender::QSortPolicy::SortType>(self->sortTypes());
+}
+
+//  QList<int> Qt3DRender::QSortPolicy::sortTypesInt() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK10Qt3DRender11QSortPolicy12sortTypesIntEv(
+    const Qt3DRender::QSortPolicy *self) {
+  return new QList<int>(self->sortTypesInt());
+}
+
+//  void Qt3DRender::QSortPolicy::setSortTypes(const QList<SortType>
+//      &sortTypes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QSortPolicy12setSortTypesERK5QListINS0_8SortTypeEE(
+    Qt3DRender::QSortPolicy *self,
+    const QList<Qt3DRender::QSortPolicy::SortType> *sortTypes) {
+  self->setSortTypes(*sortTypes);
+}
+
+//  void Qt3DRender::QSortPolicy::setSortTypes(const QList<int>
+//      &sortTypesInt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QSortPolicy12setSortTypesERK5QListIiE(
+    Qt3DRender::QSortPolicy *self,
+    const QList<int> *sortTypesInt) {
+  self->setSortTypes(*sortTypesInt);
+}
+
+//  void Qt3DRender::QSortPolicy::sortTypesChanged(const QList<SortType>
+//      &sortTypes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QSortPolicy16sortTypesChangedERK5QListINS0_8SortTypeEE(
+    Qt3DRender::QSortPolicy *self,
+    const QList<Qt3DRender::QSortPolicy::SortType> *sortTypes) {
+  self->sortTypesChanged(*sortTypes);
+}
+
+//  void Qt3DRender::QSortPolicy::sortTypesChanged(const QList<int>
+//      &sortTypes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QSortPolicy16sortTypesChangedERK5QListIiE(
+    Qt3DRender::QSortPolicy *self,
+    const QList<int> *sortTypes) {
+  self->sortTypesChanged(*sortTypes);
+}
+
+//  Qt3DRender::QSortPolicy::QSortPolicy(QSortPolicyPrivate &dd,
+//      Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSortPolicy *ritual_ZN10Qt3DRender11QSortPolicyC1ERNS_18QSortPolicyPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QSortPolicyPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QSortPolicy(*dd, parent);
 }
 
 //  QSortPolicyPrivate *Qt3DRender::QSortPolicy::d_func()
@@ -210,4 +303,18 @@ bool ritual_take_Qt3DRender_QSortPolicy(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QSortPolicy *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DRender::QSortPolicy::SortType> a ritual of
+//      Qt3DRender::QSortPolicy gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QSortPolicy__QList_Qt3DRender_QSortPolicy_SortType(
+    QList<Qt3DRender::QSortPolicy::SortType> *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of Qt3DRender::QSortPolicy gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QSortPolicy__QList_int(QList<int> *self) {
+  delete self;
 }

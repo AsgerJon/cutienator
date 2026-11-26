@@ -95,10 +95,29 @@ void ritual_ZN9QSvgImageD1Ev(QSvgImage *self) {
   delete self;
 }
 
+//  void QSvgImage::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSvgImage11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgImage *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
 //  Type QSvgImage::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK9QSvgImage4typeEv(const QSvgImage *self) {
   return self->type();
+}
+
+//  QRectF QSvgImage::internalBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK9QSvgImage14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgImage *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
 }
 
 //  QRectF QSvgImage::rect() const

@@ -8,6 +8,128 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgcompressedatlastexture_p.h>
+#include <QtCore/QVarLengthArray>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QtMath>
+#include <QtGui/QGuiApplication>
+#include <QtGui/QScreen>
+#include <QtGui/QSurface>
+#include <QtGui/QWindow>
+#include <QtCore/QDebug>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qquickprofiler_p.h>
+#include <QtQuick/private/qsgtexture_p.h>
+#include <QtQuick/private/qsgcompressedtexture_p.h>
+#include <QtQuick/private/qsgrhiatlastexture_p.h>
+#include <QtCore/QVarLengthArray>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QtMath>
+#include <QtGui/QWindow>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtQuick/private/qsgtexture_p.h>
+#include <QtQuick/private/qsgcompressedtexture_p.h>
+#include <QtQuick/private/qsgcompressedatlastexture_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 89, as _ZN25QSGCompressedAtlasTexture7TextureC1EPNS_5AtlasERK5QRect14QByteArrayViewRK5QSize
+namespace QSGCompressedAtlasTexture {
+inline Texture::Texture(Atlas *atlas, const QRect &textureRect, QByteArrayView data, const QSize &size)
+    : QSGRhiAtlasTexture::TextureBase(atlas, textureRect),
+      m_nonatlas_texture(nullptr),
+      m_data(data.toByteArray()),
+      m_size(size)
+{
+    float w = atlas->size().width();
+    float h = atlas->size().height();
+    const QRect &r = atlasSubRect();
+    // offset by half-pixel to prevent bleeding when scaling
+    m_texture_coords_rect = QRectF((r.x() + .5) / w,
+                                   (r.y() + .5) / h,
+                                   (size.width() - 1.) / w,
+                                   (size.height() - 1.) / h);
+}
+}  // namespace QSGCompressedAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 50, as _ZN25QSGCompressedAtlasTexture5Atlas15generateTextureEv
+namespace QSGCompressedAtlasTexture {
+inline bool Atlas::generateTexture()
+{
+    QSGCompressedTexture::FormatInfo fmt = QSGCompressedTexture::formatInfo(m_format);
+    QRhiTexture::Flags flags(QRhiTexture::UsedAsTransferSource | QRhiTexture::UsedAsCompressedAtlas);
+    flags.setFlag(QRhiTexture::sRGB, fmt.isSRGB);
+    m_texture = m_rhi->newTexture(fmt.rhiFormat, m_size, 1, flags);
+    if (!m_texture)
+        return false;
+
+    if (!m_texture->create()) {
+        delete m_texture;
+        m_texture = nullptr;
+        return false;
+    }
+
+    qCDebug(QSG_LOG_TEXTUREIO, "Created compressed atlas of size %dx%d for format 0x%x (rhi: %d)",
+            m_size.width(), m_size.height(), m_format, fmt.rhiFormat);
+
+    return true;
+}
+}  // namespace QSGCompressedAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 71, as _ZN25QSGCompressedAtlasTexture5Atlas20enqueueTextureUploadEPN18QSGRhiAtlasTexture11TextureBaseEP23QRhiResourceUpdateBatch
+namespace QSGCompressedAtlasTexture {
+inline void Atlas::enqueueTextureUpload(QSGRhiAtlasTexture::TextureBase *t, QRhiResourceUpdateBatch *rcub)
+{
+    Texture *texture = static_cast<Texture *>(t);
+
+    const QRect &r = texture->atlasSubRect();
+
+    QRhiTextureSubresourceUploadDescription subresDesc(texture->data().constData(),
+                                                       texture->sizeInBytes());
+    subresDesc.setSourceSize(texture->textureSize());
+    subresDesc.setDestinationTopLeft(r.topLeft());
+
+    QRhiTextureUploadDescription desc(QRhiTextureUploadEntry(0, 0, subresDesc));
+    rcub->uploadTexture(m_texture, desc);
+
+    qCDebug(QSG_LOG_TEXTUREIO, "compressed atlastexture upload, size %dx%d format 0x%x",
+            t->textureSize().width(), t->textureSize().height(), m_format);
+}
+}  // namespace QSGCompressedAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 324, as _ZN18QSGRhiAtlasTexture11TextureBaseC2EPNS_9AtlasBaseERK5QRect
+namespace QSGRhiAtlasTexture {
+inline TextureBase::TextureBase(AtlasBase *atlas, const QRect &textureRect)
+    : QSGTexture(*(new QSGTexturePrivate(this)))
+    , m_allocated_rect(textureRect)
+    , m_atlas(atlas)
+{
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 331, as _ZN18QSGRhiAtlasTexture11TextureBaseD2Ev
+namespace QSGRhiAtlasTexture {
+inline TextureBase::~TextureBase()
+{
+    m_atlas->remove(this);
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 32, as _ZN25QSGCompressedAtlasTexture5AtlasD1Ev
+namespace QSGCompressedAtlasTexture {
+inline Atlas::~Atlas()
+{
+}
+}  // namespace QSGCompressedAtlasTexture
+//  -----------------------------------------------------------------------
 
 //  A QSGCompressedAtlasTexture::Atlas that Python can take functions over in. Every QSGCompressedAtlasTexture::Atlas
 //  Python makes is one. Each function below asks the Python
@@ -210,6 +332,30 @@ public:
   }
 #endif  // !defined(QT_NO_QOBJECT)
 };
+
+//  QSGCompressedAtlasTexture::Atlas::~Atlas()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSGCompressedAtlasTexture5AtlasD1Ev(
+    QSGCompressedAtlasTexture::Atlas *self) {
+  delete self;
+}
+
+//  bool QSGCompressedAtlasTexture::Atlas::generateTexture()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QSGCompressedAtlasTexture5Atlas15generateTextureEv(
+    QSGCompressedAtlasTexture::Atlas *self) {
+  return self->generateTexture();
+}
+
+//  void QSGCompressedAtlasTexture::Atlas::enqueueTextureUpload(QSGRhiAtlasTe
+//      xture::TextureBase *t, QRhiResourceUpdateBatch *rcub)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSGCompressedAtlasTexture5Atlas20enqueueTextureUploadEPN18QSGRhiAtlasTexture11TextureBaseEP23QRhiResourceUpdateBatch(
+    QSGCompressedAtlasTexture::Atlas *self,
+    QSGRhiAtlasTexture::TextureBase *t,
+    QRhiResourceUpdateBatch *rcub) {
+  self->enqueueTextureUpload(t, rcub);
+}
 
 //  uint QSGCompressedAtlasTexture::Atlas::format() const
 extern "C" Q_DECL_EXPORT

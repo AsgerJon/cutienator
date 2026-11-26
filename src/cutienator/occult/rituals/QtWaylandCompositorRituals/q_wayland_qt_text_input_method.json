@@ -8,6 +8,14 @@
     "ritual_ZNK25QWaylandQtTextInputMethod10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QWaylandQtTextInputMethod11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QWaylandQtTextInputMethod11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN25QWaylandQtTextInputMethod6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QWaylandQtTextInputMethod6d_funcEv": ["address", "address"],
     "ritual_ZN25QWaylandQtTextInputMethodD1Ev": ["nothing", "address"]
   }
 }

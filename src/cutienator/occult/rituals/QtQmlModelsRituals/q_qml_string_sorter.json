@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQmlStringSorter10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlStringSorter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQmlStringSorter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQmlStringSorter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -29,6 +35,16 @@
     ],
     "ritual_ZNK16QQmlStringSorter7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
       "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQmlStringSorter22caseSensitivityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQmlStringSorter24ignorePunctuationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQmlStringSorter13localeChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlStringSorter18numericModeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN16QQmlStringSorter6d_funcEv": ["address", "address"],
     "ritual_ZNK16QQmlStringSorter6d_funcEv": ["address", "address"],

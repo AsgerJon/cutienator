@@ -8,6 +8,7 @@
     "ritual_ZN11ListElementC1Ei": ["address", "int"],
     "ritual_ZN11ListElementD1Ev": ["nothing", "address"],
     "ritual_ZNK11ListElement6getUidEv": ["int", "address"],
-    "ritual_ZN11ListElement11objectCacheEv": ["address", "address"]
+    "ritual_ZN11ListElement11objectCacheEv": ["address", "address"],
+    "ritual_drop_ListElement__QList_int": ["nothing", "address"]
   }
 }

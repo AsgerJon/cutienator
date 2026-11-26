@@ -29,6 +29,9 @@
     "ritual_ZNK21QBluetoothServiceInfo9attributeEt": [
       "address", "address", "unsigned short"
     ],
+    "ritual_ZNK21QBluetoothServiceInfo10attributesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK21QBluetoothServiceInfo8containsEt": [
       "bool", "address", "unsigned short"
     ],
@@ -76,6 +79,9 @@
     "ritual_ZNK21QBluetoothServiceInfo17serviceClassUuidsEv": [
       "address", "address"
     ],
+    "ritual_ZN21QBluetoothServiceInfoaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK21QBluetoothServiceInfo12isRegisteredEv": ["bool", "address"],
     "ritual_ZN21QBluetoothServiceInfo15registerServiceERK17QBluetoothAddress": [
       "bool", "address", "address"
@@ -97,6 +103,9 @@
     "ritual_list_at_QBluetoothServiceInfo": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QBluetoothServiceInfo": ["nothing", "address"]
+    "ritual_list_drop_QBluetoothServiceInfo": ["nothing", "address"],
+    "ritual_drop_QBluetoothServiceInfo__QList_quint16": [
+      "nothing", "address"
+    ]
   }
 }

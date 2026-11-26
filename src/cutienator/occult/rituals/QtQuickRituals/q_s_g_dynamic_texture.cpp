@@ -347,6 +347,25 @@ const QMetaObject *ritual_ZNK17QSGDynamicTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGDynamicTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QSGDynamicTexture11qt_metacastEPKc(
+    QSGDynamicTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGDynamicTexture::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QSGDynamicTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGDynamicTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGDynamicTexture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QSGDynamicTexture2trEPKcS1_i(
@@ -354,6 +373,12 @@ QString *ritual_ZN17QSGDynamicTexture2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSGDynamicTexture::tr(s, c, n));
+}
+
+//  QSGDynamicTexture::QSGDynamicTexture()
+extern "C" Q_DECL_EXPORT
+QSGDynamicTexture *ritual_ZN17QSGDynamicTextureC1Ev() {
+  return new CuteQSGDynamicTexture();
 }
 
 //  QSGDynamicTexture::~QSGDynamicTexture()
@@ -366,6 +391,13 @@ void ritual_ZN17QSGDynamicTextureD1Ev(QSGDynamicTexture *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN17QSGDynamicTexture13updateTextureEv(QSGDynamicTexture *self) {
   return self->updateTexture();
+}
+
+//  QSGDynamicTexture::QSGDynamicTexture(QSGTexturePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QSGDynamicTexture *ritual_ZN17QSGDynamicTextureC1ER17QSGTexturePrivate(
+    QSGTexturePrivate *dd) {
+  return new CuteQSGDynamicTexture(*dd);
 }
 
 //  a Python function taken by a CuteQSGDynamicTexture, for the function

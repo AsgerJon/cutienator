@@ -17,6 +17,21 @@ void ritual_ZN20QStringConverterBase5StateD1Ev(
   delete self;
 }
 
+//  QStringConverterBase::State::State(State &&other)
+extern "C" Q_DECL_EXPORT
+QStringConverterBase::State *ritual_ZN20QStringConverterBase5StateC1EOS0_(
+    QStringConverterBase::State *other) {
+  return new QStringConverterBase::State(std::move(*other));
+}
+
+//  State &QStringConverterBase::State::operator=(State &&other)
+extern "C" Q_DECL_EXPORT
+QStringConverterBase::State *ritual_ZN20QStringConverterBase5StateaSEOS0_(
+    QStringConverterBase::State *self,
+    QStringConverterBase::State *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  void QStringConverterBase::State::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QStringConverterBase5State5clearEv(

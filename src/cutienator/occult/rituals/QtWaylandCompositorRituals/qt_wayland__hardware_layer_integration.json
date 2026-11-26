@@ -8,6 +8,12 @@
     "ritual_ZNK9QtWayland24HardwareLayerIntegration10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9QtWayland24HardwareLayerIntegration11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9QtWayland24HardwareLayerIntegration11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QtWayland24HardwareLayerIntegration2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],

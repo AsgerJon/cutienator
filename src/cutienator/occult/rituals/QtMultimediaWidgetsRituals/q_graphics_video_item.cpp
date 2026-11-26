@@ -954,6 +954,25 @@ const QMetaObject *ritual_ZNK18QGraphicsVideoItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsVideoItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QGraphicsVideoItem11qt_metacastEPKc(
+    QGraphicsVideoItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsVideoItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QGraphicsVideoItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsVideoItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsVideoItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QGraphicsVideoItem2trEPKcS1_i(
@@ -1059,6 +1078,14 @@ int ritual_ZNK18QGraphicsVideoItem4typeEv(const QGraphicsVideoItem *self) {
   return self->type();
 }
 
+//  void QGraphicsVideoItem::nativeSizeChanged(const QSizeF &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QGraphicsVideoItem17nativeSizeChangedERK6QSizeF(
+    QGraphicsVideoItem *self,
+    const QSizeF *size) {
+  self->nativeSizeChanged(*size);
+}
+
 //  void QGraphicsVideoItem::timerEvent(QTimerEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QGraphicsVideoItem10timerEventEP11QTimerEvent(
@@ -1075,6 +1102,20 @@ QVariant *ritual_ZN18QGraphicsVideoItem10itemChangeEN13QGraphicsItem18GraphicsIt
     QGraphicsItem::GraphicsItemChange change,
     const QVariant *value) {
   return new QVariant(self->itemChange(change, *value));
+}
+
+//  QGraphicsVideoItemPrivate *QGraphicsVideoItem::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsVideoItemPrivate *ritual_ZN18QGraphicsVideoItem6d_funcEv(
+    QGraphicsVideoItem *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsVideoItemPrivate *QGraphicsVideoItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsVideoItemPrivate *ritual_ZNK18QGraphicsVideoItem6d_funcEv(
+    const QGraphicsVideoItem *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQGraphicsVideoItem, for the function

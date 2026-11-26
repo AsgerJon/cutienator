@@ -195,6 +195,25 @@ const QMetaObject *ritual_ZNK16QSqlDriverPlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSqlDriverPlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QSqlDriverPlugin11qt_metacastEPKc(
+    QSqlDriverPlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSqlDriverPlugin::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QSqlDriverPlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSqlDriverPlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSqlDriverPlugin::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QSqlDriverPlugin2trEPKcS1_i(
@@ -202,6 +221,12 @@ QString *ritual_ZN16QSqlDriverPlugin2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSqlDriverPlugin::tr(s, c, n));
+}
+
+//  QSqlDriverPlugin::QSqlDriverPlugin(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSqlDriverPlugin *ritual_ZN16QSqlDriverPluginC1EP7QObject(QObject *parent) {
+  return new CuteQSqlDriverPlugin(parent);
 }
 
 //  QSqlDriverPlugin::~QSqlDriverPlugin()

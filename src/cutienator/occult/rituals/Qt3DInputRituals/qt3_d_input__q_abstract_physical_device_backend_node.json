@@ -5,14 +5,32 @@
     ", Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNodeC1EN8Qt3DCore12QBackendNode4ModeE": [
+      "address", "int"
+    ],
     "ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode7cleanupEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode14setInputAspectEPNS_12QInputAspectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput34QAbstractPhysicalDeviceBackendNode11inputAspectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode18processedAxisValueEi": [
+      "float", "address", "int"
     ],
     "ritual_ZNK9Qt3DInput34QAbstractPhysicalDeviceBackendNode9axisValueEi": [
       "float", "address", "int"
     ],
     "ritual_ZNK9Qt3DInput34QAbstractPhysicalDeviceBackendNode15isButtonPressedEi": [
       "bool", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNodeC1ERNS_41QAbstractPhysicalDeviceBackendNodePrivateE": [
+      "address", "address"
     ],
     "ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode6d_funcEv": [
       "address", "address"

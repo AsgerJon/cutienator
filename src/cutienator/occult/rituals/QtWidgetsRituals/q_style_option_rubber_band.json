@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN22QStyleOptionRubberBandC1Ev": ["address"],
     "ritual_ZN22QStyleOptionRubberBandC1ERKS_": ["address", "address"],
+    "ritual_ZN22QStyleOptionRubberBandaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QStyleOptionRubberBandC1Ei": ["address", "int"],
     "ritual_ZN22QStyleOptionRubberBandD1Ev": ["nothing", "address"]
   }

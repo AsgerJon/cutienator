@@ -251,6 +251,25 @@ const QMetaObject *ritual_ZNK26QPlatformAudioEndpointBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformAudioEndpointBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QPlatformAudioEndpointBase11qt_metacastEPKc(
+    QPlatformAudioEndpointBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformAudioEndpointBase::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QPlatformAudioEndpointBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformAudioEndpointBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformAudioEndpointBase::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -329,6 +348,14 @@ extern "C" Q_DECL_EXPORT
 float ritual_ZNK26QPlatformAudioEndpointBase6volumeEv(
     const QPlatformAudioEndpointBase *self) {
   return self->volume();
+}
+
+//  void QPlatformAudioEndpointBase::stateChanged(QtAudio::State a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QPlatformAudioEndpointBase12stateChangedEN6QAudio5StateE(
+    QPlatformAudioEndpointBase *self,
+    QtAudio::State a0) {
+  self->stateChanged(a0);
 }
 
 //  void QPlatformAudioEndpointBase::updateStreamState(QAudio::State a0)

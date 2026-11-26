@@ -6,10 +6,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtRemoteObjects/qtremoteobjectglobal.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qloggingcategory.h>
 #include <QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
 #include <QtCore/qdatastream.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -21,20 +26,18 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 15, as _ZN15QRegistrySourceD1Ev
-inline QRegistrySource::~QRegistrySource()
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
 {
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 25, as _ZN15QRegistrySource12removeServerERK4QUrl
-inline void QRegistrySource::removeServer(const QUrl &url)
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 19, as _ZNK15QRegistrySource15sourceLocationsEv
+inline QRemoteObjectSourceLocations QRegistrySource::sourceLocations() const
 {
-    for (auto it = m_sourceLocations.begin(), end = m_sourceLocations.end(); it != end; /* erasing */) {
-        if (it.value().hostUrl == url)
-            it = m_sourceLocations.erase(it);
-        else
-            ++it;
-    }
+    qCDebug(QT_REMOTEOBJECT) << "sourceLocations property requested on RegistrySource" << m_sourceLocations;
+    return m_sourceLocations;
 }
 //  -----------------------------------------------------------------------
 
@@ -212,10 +215,147 @@ const QMetaObject *ritual_ZNK15QRegistrySource10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRegistrySource::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QRegistrySource11qt_metacastEPKc(
+    QRegistrySource *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRegistrySource::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QRegistrySource11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRegistrySource *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QRegistrySource::~QRegistrySource()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QRegistrySourceD1Ev(QRegistrySource *self) {
   delete self;
+}
+
+//  QRemoteObjectSourceLocations QRegistrySource::sourceLocations() const
+extern "C" Q_DECL_EXPORT
+QHash<QString, QRemoteObjectSourceLocationInfo> *ritual_ZNK15QRegistrySource15sourceLocationsEv(
+    const QRegistrySource *self) {
+  return new QHash<QString, QRemoteObjectSourceLocationInfo>(
+      self->sourceLocations());
+}
+
+//  void QRegistrySource::remoteObjectAdded(const QRemoteObjectSourceLocation
+//      &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QRegistrySource17remoteObjectAddedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRegistrySource *self,
+    const QRemoteObjectSourceLocation *entry) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QRegistrySource")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "remoteObjectAdded(const QRemoteObjectSourceLocation &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "remoteObjectAdded(const QRemoteObjectSourceLocation &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(entry)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QRegistrySource::remoteObjectRemoved(const
+//      QRemoteObjectSourceLocation &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QRegistrySource19remoteObjectRemovedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRegistrySource *self,
+    const QRemoteObjectSourceLocation *entry) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QRegistrySource")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "remoteObjectRemoved(const QRemoteObjectSourceLocation &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "remoteObjectRemoved(const QRemoteObjectSourceLocation &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(entry)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QRegistrySource::addSource(const QRemoteObjectSourceLocation &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QRegistrySource9addSourceERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRegistrySource *self,
+    const QRemoteObjectSourceLocation *entry) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QRegistrySource")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "addSource(const QRemoteObjectSourceLocation &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "addSource(const QRemoteObjectSourceLocation &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(entry)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QRegistrySource::removeSource(const QRemoteObjectSourceLocation
+//      &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QRegistrySource12removeSourceERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRegistrySource *self,
+    const QRemoteObjectSourceLocation *entry) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QRegistrySource")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "removeSource(const QRemoteObjectSourceLocation &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "removeSource(const QRemoteObjectSourceLocation &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(entry)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QRegistrySource::removeServer(const QUrl &url)
@@ -223,7 +363,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QRegistrySource12removeServerERK4QUrl(
     QRegistrySource *self,
     const QUrl *url) {
-  self->removeServer(*url);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QRegistrySource")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "removeServer(const QUrl &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "removeServer(const QUrl &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(url)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQRegistrySource, for the function named

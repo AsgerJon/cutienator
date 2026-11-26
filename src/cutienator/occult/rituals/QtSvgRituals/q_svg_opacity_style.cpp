@@ -16,7 +16,7 @@ typedef bool (*CuteQSvgOpacityStyleCall1)(const void *, int *);
 class CuteQSvgOpacityStyle : public QSvgOpacityStyle {
 public:
   using QSvgOpacityStyle::QSvgOpacityStyle;
-  CuteQSvgOpacityStyle(const QSvgOpacityStyle &other) : QSvgOpacityStyle(other) {}
+  CuteQSvgOpacityStyle(const QSvgOpacityStyle & other) : QSvgOpacityStyle(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -64,6 +64,26 @@ QSvgOpacityStyle *ritual_ZN16QSvgOpacityStyleC1Ed(qreal opacity) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSvgOpacityStyleD1Ev(QSvgOpacityStyle *self) {
   delete self;
+}
+
+//  void QSvgOpacityStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSvgOpacityStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgOpacityStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgOpacityStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSvgOpacityStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgOpacityStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
 }
 
 //  Type QSvgOpacityStyle::type() const

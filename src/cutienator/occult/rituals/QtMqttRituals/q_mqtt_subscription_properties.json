@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN27QMqttSubscriptionPropertiesC1Ev": ["address"],
     "ritual_ZN27QMqttSubscriptionPropertiesC1ERKS_": ["address", "address"],
+    "ritual_ZN27QMqttSubscriptionPropertiesaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN27QMqttSubscriptionPropertiesD1Ev": ["nothing", "address"],
     "ritual_ZNK27QMqttSubscriptionProperties14userPropertiesEv": [
       "address", "address"

@@ -10,6 +10,9 @@
     "ritual_ZN14QSvgCssHandler15createAnimationE11QStringView": [
       "address", "address", "text"
     ],
+    "ritual_ZN14QSvgCssHandler12createEasingEN13QSvgCssValues14EasingFunctionERKSt7variantIJNS0_19BezierControlPointsENS0_10StepValuesEEE": [
+      "address", "unsigned char", "address"
+    ],
     "ritual_ZN14QSvgCssHandler17collectAnimationsERKN4QCss10StyleSheetE": [
       "nothing", "address", "address"
     ],
@@ -18,6 +21,22 @@
     ],
     "ritual_ZN14QSvgCssHandler17parseDecltoStringERKN4QCss11DeclarationE": [
       "text", "address"
-    ]
+    ],
+    "ritual_ZNK14QSvgCssHandler18parseCSStoXMLAttrsERK5QListIN4QCss11DeclarationEER20QXmlStreamAttributes": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QSvgCssHandler18parseCSStoXMLAttrsERK7QStringR20QXmlStreamAttributes": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK14QSvgCssHandler11styleLookupEP8QSvgNodeR20QXmlStreamAttributes": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QSvgCssHandler23createEasingFromKeywordEN13QSvgCssValues14EasingFunctionE": [
+      "address", "unsigned char"
+    ],
+    "ritual_ZN14QSvgCssHandler17createStepsEasingERKN13QSvgCssValues10StepValuesE": [
+      "address", "address"
+    ],
+    "ritual_drop_QSvgCssHandler__QSvgCssEasingPtr": ["nothing", "address"]
   }
 }

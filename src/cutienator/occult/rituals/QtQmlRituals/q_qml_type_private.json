@@ -1,13 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmltype_p_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtQml/6.12.0/QtQml/private/qqmltype_p_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN15QQmlTypePrivateC1EN8QQmlType16RegistrationTypeE": [
       "address", "int"
     ],
+    "ritual_ZNK15QQmlTypePrivate4initEv": ["address", "address"],
     "ritual_ZNK15QQmlTypePrivate9sourceUrlEv": ["address", "address"],
     "ritual_ZNK15QQmlTypePrivate22attachedPropertiesBaseEP14QQmlTypeLoader": [
       "address", "address", "address"
@@ -23,21 +24,58 @@
     "ritual_ZN15QQmlTypePrivate7setNameERK7QStringS2_": [
       "nothing", "address", "text", "text"
     ],
+    "ritual_ZNK15QQmlTypePrivate10metaObjectEv": ["address", "address"],
     "ritual_ZNK15QQmlTypePrivate22metaObjectForValueTypeEv": [
       "address", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate20visibleQmlTypeByNameERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEERK7QStringP14QQmlTypeLoader": [
+      "address", "address", "text", "address"
     ],
     "ritual_ZN15QQmlTypePrivate20visibleQmlTypeByNameEPKN3QV425ExecutableCompilationUnitEiP14QQmlTypeLoader": [
       "address", "address", "int", "address"
     ],
     "ritual_ZN15QQmlTypePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQmlTypePrivate9initEnumsEP14QQmlTypeLoader": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK15QQmlTypePrivate11insertEnumsEPNS_5EnumsEPK11QMetaObject": [
       "nothing", "address", "address", "address"
     ],
     "ritual_ZNK15QQmlTypePrivate28insertEnumsFromPropertyCacheEPNS_5EnumsERKN17QQmlPropertyCache8ConstPtrE": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZNK15QQmlTypePrivate36createListOfPossibleConflictingItemsEPK11QMetaObjectR5QListINS_8EnumInfoEES3_I7QStringE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK15QQmlTypePrivate24createEnumConflictReportEPK11QMetaObjectRK7QString": [
       "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN15QQmlTypePrivate9enumValueI7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT_Pb": [
+      "int", "address", "address", "text", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate9enumIndexILNS_5Enums7ScopingE0E7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT0_Pb": [
+      "int", "address", "address", "text", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate9enumIndexILNS_5Enums7ScopingE1E7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT0_Pb": [
+      "int", "address", "address", "text", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate9enumValueILNS_5Enums7ScopingE0E7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderiRKT0_Pb": [
+      "int", "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate9enumValueILNS_5Enums7ScopingE1E7QStringEEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderiRKT0_Pb": [
+      "int", "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate9enumValueILNS_5Enums7ScopingE0E7QStringS3_EEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT0_RKT1_Pb": [
+      "int", "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate9enumValueILNS_5Enums7ScopingE1E7QStringS3_EEiRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderRKT0_RKT1_Pb": [
+      "int", "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate7enumKeyILNS_5Enums7ScopingE0EEE7QStringRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderiiPb": [
+      "text", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate7enumKeyILNS_5Enums7ScopingE1EEE7QStringRK14QQmlRefPointerIKS_EP14QQmlTypeLoaderiiPb": [
+      "text", "address", "address", "int", "int", "address"
     ]
   }
 }

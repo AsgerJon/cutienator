@@ -13,6 +13,9 @@
     "ritual_ZN20QCocoaPrinterSupport17createPaintEngineEP12QPrintEngineN8QPrinter11PrinterModeE": [
       "address", "address", "address", "int"
     ],
+    "ritual_ZN20QCocoaPrinterSupport17createPrintDeviceERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK20QCocoaPrinterSupport23availablePrintDeviceIdsEv": [
       "address", "address"
     ],
@@ -30,6 +33,7 @@
     ],
     "ritual_own_ZNK20QCocoaPrinterSupport20defaultPrintDeviceIdEv": [
       "text", "address"
-    ]
+    ],
+    "ritual_drop_QCocoaPrinterSupport__QPrintDevice": ["nothing", "address"]
   }
 }

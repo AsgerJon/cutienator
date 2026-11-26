@@ -8,14 +8,29 @@
     "ritual_ZNK13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapperC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper12parentMapperEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper11qmlMappingsEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DAnimation_Animation_Quick_Quick3DChannelMapper": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_Quick_Quick3DChannelMapper__QQmlListProperty_Qt3DAnimation_QAbstractChannelMapping": [
+      "nothing", "address"
     ]
   }
 }

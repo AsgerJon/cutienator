@@ -4,10 +4,12 @@
 #if QT_CONFIG(mimetype)
 #if QT_CONFIG(mimetype)
 #include <QtCore/qmimetype.h>
+#if QT_CONFIG(mimetype)
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qmimetype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
@@ -21,6 +23,26 @@ QMimeType *ritual_ZN9QMimeTypeC1Ev() {
 extern "C" Q_DECL_EXPORT
 QMimeType *ritual_ZN9QMimeTypeC1ERKS_(const QMimeType *other) {
   return new QMimeType(*other);
+}
+
+//  QMimeType &QMimeType::operator=(const QMimeType &other)
+extern "C" Q_DECL_EXPORT
+QMimeType *ritual_ZN9QMimeTypeaSERKS_(
+    QMimeType *self,
+    const QMimeType *other) {
+  return &(self->operator=(*other));
+}
+
+//  QMimeType &QMimeType::operator=(QMimeType &&other)
+extern "C" Q_DECL_EXPORT
+QMimeType *ritual_ZN9QMimeTypeaSEOS_(QMimeType *self, QMimeType *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QMimeType::swap(QMimeType &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QMimeType4swapERS_(QMimeType *self, QMimeType *other) {
+  self->swap(*other);
 }
 
 //  QMimeType::QMimeType(const QMimeTypePrivate &dd)

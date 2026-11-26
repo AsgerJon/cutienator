@@ -16,7 +16,7 @@ typedef void (*CuteQQmlNotifyingBlob_CallbackCall1)(const void *, QQmlNotifyingB
 class CuteQQmlNotifyingBlob_Callback : public QQmlNotifyingBlob::Callback {
 public:
   using QQmlNotifyingBlob::Callback::Callback;
-  CuteQQmlNotifyingBlob_Callback(const QQmlNotifyingBlob::Callback &other) : QQmlNotifyingBlob::Callback(other) {}
+  CuteQQmlNotifyingBlob_Callback(const QQmlNotifyingBlob::Callback & other) : QQmlNotifyingBlob::Callback(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {

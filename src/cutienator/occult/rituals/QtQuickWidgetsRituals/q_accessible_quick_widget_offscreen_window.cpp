@@ -28,15 +28,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quickwidgets/qaccessiblequickwidget.cpp, line 68, as _ZNK37QAccessibleQuickWidgetOffscreenWindow5childEi
-#if QT_CONFIG(accessibility)
-inline QAccessibleInterface *QAccessibleQuickWidgetOffscreenWindow::child(int index) const
-{
-    Q_UNUSED(index);
-    return nullptr;
-}
-#endif  // QT_CONFIG(accessibility)
-
 //  from ../qtdeclarative/src/quickwidgets/qaccessiblequickwidget.cpp, line 74, as _ZNK37QAccessibleQuickWidgetOffscreenWindow10childCountEv
 #if QT_CONFIG(accessibility)
 inline int QAccessibleQuickWidgetOffscreenWindow::childCount() const
@@ -51,6 +42,15 @@ inline int QAccessibleQuickWidgetOffscreenWindow::indexOfChild(const QAccessible
 {
     Q_UNUSED(iface);
     return -1;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from ../qtdeclarative/src/quickwidgets/qaccessiblequickwidget.cpp, line 68, as _ZNK37QAccessibleQuickWidgetOffscreenWindow5childEi
+#if QT_CONFIG(accessibility)
+inline QAccessibleInterface *QAccessibleQuickWidgetOffscreenWindow::child(int index) const
+{
+    Q_UNUSED(index);
+    return nullptr;
 }
 #endif  // QT_CONFIG(accessibility)
 //  -----------------------------------------------------------------------
@@ -106,10 +106,16 @@ typedef const QColor * (*CuteQAccessibleQuickWidgetOffscreenWindowCall14)(const 
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleQuickWidgetOffscreenWindowCall15)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef void (*CuteQAccessibleQuickWidgetOffscreenWindowCall16)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef void * (*CuteQAccessibleQuickWidgetOffscreenWindowCall17)(const void *, int, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleQuickWidgetOffscreenWindow : public QAccessibleQuickWidgetOffscreenWindow {
 public:
   using QAccessibleQuickWidgetOffscreenWindow::QAccessibleQuickWidgetOffscreenWindow;
-  void *taken[16] = {};
+  void *taken[18] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -205,6 +211,18 @@ public:
 #if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[15] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
+      taken[16] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
+      taken[17] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -427,6 +445,33 @@ public:
     return QAccessibleInterface::backgroundColor();
   }
 #endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQAccessibleQuickWidgetOffscreenWindowCall16 call = reinterpret_cast<CuteQAccessibleQuickWidgetOffscreenWindowCall16>(taken[16]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  void *QAccessibleInterface::interface_cast(QAccessible::InterfaceType
+  //      a0)
+  void *interface_cast(QAccessible::InterfaceType a0) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQAccessibleQuickWidgetOffscreenWindowCall17 call = reinterpret_cast<CuteQAccessibleQuickWidgetOffscreenWindowCall17>(taken[17]);
+      void * given = call(this, static_cast<int>(a0), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleInterface::interface_cast(a0);
+  }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessibleInterface *QAccessibleQuickWidgetOffscreenWindow::child(int
@@ -452,6 +497,16 @@ int ritual_ZNK37QAccessibleQuickWidgetOffscreenWindow12indexOfChildEPK20QAccessi
     const QAccessibleQuickWidgetOffscreenWindow *self,
     const QAccessibleInterface *iface) {
   return self->indexOfChild(iface);
+}
+
+//  QAccessibleInterface *QAccessibleQuickWidgetOffscreenWindow::childAt(int
+//      x, int y) const
+extern "C" Q_DECL_EXPORT
+QAccessibleInterface *ritual_ZNK37QAccessibleQuickWidgetOffscreenWindow7childAtEii(
+    const QAccessibleQuickWidgetOffscreenWindow *self,
+    int x,
+    int y) {
+  return self->childAt(x, y);
 }
 
 //  a Python function taken by a CuteQAccessibleQuickWidgetOffscreenWindow,

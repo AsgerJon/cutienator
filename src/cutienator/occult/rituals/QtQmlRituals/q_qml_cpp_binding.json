@@ -13,6 +13,13 @@
       "nothing", "address", "address", "long long", "address", "int", "int",
       "text"
     ],
+    "ritual_ZN14QQmlCppBinding35createTranslationBindingForBindableERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEP7QObjectiRK15QQmlTranslationRK7QString": [
+      "address", "address", "address", "int", "address", "text"
+    ],
+    "ritual_ZN14QQmlCppBinding38createTranslationBindingForNonBindableERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERK18QQmlSourceLocationRK15QQmlTranslationP7QObjectSD_iRK7QStringi": [
+      "nothing", "address", "address", "address", "address", "address",
+      "int", "text", "int"
+    ],
     "ritual_ZN14QQmlCppBindingD1Ev": ["nothing", "address"]
   }
 }

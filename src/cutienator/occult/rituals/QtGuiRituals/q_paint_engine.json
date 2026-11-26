@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN12QPaintEngine6d_funcEv": ["address", "address"],
     "ritual_ZNK12QPaintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZN12QPaintEngineC1E6QFlagsINS_18PaintEngineFeatureEE": [
+      "address", "int"
+    ],
     "ritual_ZN12QPaintEngineD1Ev": ["nothing", "address"],
     "ritual_ZNK12QPaintEngine8isActiveEv": ["bool", "address"],
     "ritual_ZN12QPaintEngine9setActiveEb": ["nothing", "address", "bool"],
@@ -98,6 +101,9 @@
     ],
     "ritual_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
       "address", "address", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngineC1ER19QPaintEnginePrivate6QFlagsINS_18PaintEngineFeatureEE": [
+      "address", "address", "int"
     ],
     "ritual_ZN12QPaintEngine15setAutoDestructEb": [
       "nothing", "address", "bool"

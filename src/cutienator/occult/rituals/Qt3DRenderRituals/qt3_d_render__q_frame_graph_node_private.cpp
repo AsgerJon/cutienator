@@ -6,7 +6,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qframegraphnode_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A Qt3DRender::QFrameGraphNodePrivate that Python can take functions over in. Every Qt3DRender::QFrameGraphNodePrivate
 //  Python makes is one. Each function below asks the Python
@@ -53,6 +56,21 @@ public:
   }
 };
 
+//  Qt3DRender::QFrameGraphNodePrivate::QFrameGraphNodePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QFrameGraphNodePrivate *ritual_ZN10Qt3DRender22QFrameGraphNodePrivateC1Ev() {
+  return new CuteQt3DRender_QFrameGraphNodePrivate();
+}
+
+//  QList<QFrameGraphNode *>
+//      Qt3DRender::QFrameGraphNodePrivate::childFrameGraphNodes() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QFrameGraphNode *> *ritual_ZNK10Qt3DRender22QFrameGraphNodePrivate20childFrameGraphNodesEv(
+    const Qt3DRender::QFrameGraphNodePrivate *self) {
+  return new QList<Qt3DRender::QFrameGraphNode *>(
+      self->childFrameGraphNodes());
+}
+
 //  QFrameGraphNodePrivate
 //      *Qt3DRender::QFrameGraphNodePrivate::get(QFrameGraphNode *node)
 extern "C" Q_DECL_EXPORT
@@ -67,6 +85,29 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QFrameGraphNodePrivate *ritual_ZN10Qt3DRender22QFrameGraphNodePrivate3getEPKNS_15QFrameGraphNodeE(
     const Qt3DRender::QFrameGraphNode *node) {
   return Qt3DRender::QFrameGraphNodePrivate::get(node);
+}
+
+//  QString Qt3DRender::QFrameGraphNodePrivate::dumpFrameGraph() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK10Qt3DRender22QFrameGraphNodePrivate14dumpFrameGraphEv(
+    const Qt3DRender::QFrameGraphNodePrivate *self) {
+  return new QString(self->dumpFrameGraph());
+}
+
+//  QStringList Qt3DRender::QFrameGraphNodePrivate::dumpFrameGraphPaths()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10Qt3DRender22QFrameGraphNodePrivate19dumpFrameGraphPathsEv(
+    const Qt3DRender::QFrameGraphNodePrivate *self) {
+  return new QList<QString>(self->dumpFrameGraphPaths());
+}
+
+//  QStringList
+//      Qt3DRender::QFrameGraphNodePrivate::dumpFrameGraphFilterState() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10Qt3DRender22QFrameGraphNodePrivate25dumpFrameGraphFilterStateEv(
+    const Qt3DRender::QFrameGraphNodePrivate *self) {
+  return new QList<QString>(self->dumpFrameGraphFilterState());
 }
 
 //  QFrameGraphNode *Qt3DRender::QFrameGraphNodePrivate::q_func()
@@ -91,4 +132,12 @@ bool ritual_take_Qt3DRender_QFrameGraphNodePrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QFrameGraphNodePrivate *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DRender::QFrameGraphNode *> a ritual of
+//      Qt3DRender::QFrameGraphNodePrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QFrameGraphNodePrivate__QList_Qt3DRender_QFrameGraphNode(
+    QList<Qt3DRender::QFrameGraphNode *> *self) {
+  delete self;
 }

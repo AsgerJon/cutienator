@@ -6,6 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK16QQmlDMObjectData10metaObjectEv": ["address", "address"],
-    "ritual_ZNK16QQmlDMObjectData9modelDataEv": ["address", "address"]
+    "ritual_ZN16QQmlDMObjectData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQmlDMObjectData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK16QQmlDMObjectData9modelDataEv": ["address", "address"],
+    "ritual_ZN16QQmlDMObjectData9initProxyEv": ["address", "address"],
+    "ritual_ZN16QQmlDMObjectData16modelDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlDMObjectData__QQmlRefPointer_QQmlContextData": [
+      "nothing", "address"
+    ]
   }
 }

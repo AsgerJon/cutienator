@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN18QShaderDescriptionC1Ev": ["address"],
     "ritual_ZN18QShaderDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN18QShaderDescriptionaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18QShaderDescriptionD1Ev": ["nothing", "address"],
     "ritual_ZN18QShaderDescription6detachEv": ["nothing", "address"],
     "ritual_ZNK18QShaderDescription7isValidEv": ["bool", "address"],
@@ -16,6 +19,42 @@
     "ritual_ZNK18QShaderDescription6toJsonEv": ["address", "address"],
     "ritual_ZN18QShaderDescription11deserializeEP11QDataStreami": [
       "address", "address", "int"
+    ],
+    "ritual_ZNK18QShaderDescription14inputVariablesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription15outputVariablesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription13uniformBlocksEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription18pushConstantBlocksEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription13storageBlocksEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription21combinedImageSamplersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription14separateImagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription16separateSamplersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription13storageImagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription21inputBuiltinVariablesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription22outputBuiltinVariablesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QShaderDescription22computeShaderLocalSizeEv": [
+      "address", "address"
     ],
     "ritual_ZNK18QShaderDescription29tessellationOutputVertexCountEv": [
       "unsigned int", "address"
@@ -30,6 +69,24 @@
     "ritual_Zls6QDebugRK18QShaderDescription": [
       "address", "address", "address"
     ],
-    "ritual_ZeqRK18QShaderDescriptionS1_": ["bool", "address", "address"]
+    "ritual_ZeqRK18QShaderDescriptionS1_": ["bool", "address", "address"],
+    "ritual_drop_QShaderDescription__QList_QShaderDescription_InOutVariable": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QShaderDescription__QList_QShaderDescription_UniformBlock": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QShaderDescription__QList_QShaderDescription_PushConstantBlock": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QShaderDescription__QList_QShaderDescription_StorageBlock": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QShaderDescription__QList_QShaderDescription_BuiltinVariable": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QShaderDescription__std_array_uint_3": [
+      "nothing", "address"
+    ]
   }
 }

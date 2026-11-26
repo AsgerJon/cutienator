@@ -165,6 +165,9 @@
     "ritual_ZN24QQuickMultiEffectPrivate10blurWeightEf": [
       "float", "address", "float"
     ],
+    "ritual_ZN24QQuickMultiEffectPrivate14getBlurWeightsEfR9QVector4DR9QVector2D": [
+      "nothing", "address", "float", "address", "address"
+    ],
     "ritual_ZN24QQuickMultiEffectPrivate17updateBlurWeightsEv": [
       "nothing", "address"
     ],

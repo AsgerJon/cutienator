@@ -10,6 +10,9 @@
     "ritual_ZNK3QV49SetObject1dEv": ["address", "address"],
     "ritual_ZN3QV49SetObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV49SetObject14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
     ]
   }
 }

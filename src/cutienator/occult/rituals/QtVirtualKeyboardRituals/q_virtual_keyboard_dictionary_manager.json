@@ -8,8 +8,20 @@
     "ritual_ZNK33QVirtualKeyboardDictionaryManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN33QVirtualKeyboardDictionaryManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QVirtualKeyboardDictionaryManager6d_funcEv": [
+      "address", "address"
     ],
     "ritual_ZN33QVirtualKeyboardDictionaryManagerC1EP7QObject": [
       "address", "address"
@@ -38,6 +50,18 @@
     ],
     "ritual_ZNK33QVirtualKeyboardDictionaryManager10dictionaryERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager28availableDictionariesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager23baseDictionariesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager24extraDictionariesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager25activeDictionariesChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QVirtualKeyboardDictionaryManager": [
       "bool", "address", "chars", "address"

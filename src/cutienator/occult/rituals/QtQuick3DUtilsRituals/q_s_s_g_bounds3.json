@@ -10,10 +10,19 @@
     "ritual_ZN11QSSGBounds3C1ERK9QVector3DS2_": [
       "address", "address", "address"
     ],
+    "ritual_ZN11QSSGBounds3C1ERKSt5arrayI9QVector3DLm8EE": [
+      "address", "address"
+    ],
     "ritual_ZN11QSSGBounds314boundsOfPointsERK9QVector3DS2_": [
       "address", "address", "address"
     ],
     "ritual_ZN11QSSGBounds313centerExtentsERK9QVector3DS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QSSGBounds311basisExtentERK9QVector3DRK14QGenericMatrixILi3ELi3EfES2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QSSGBounds39transformERK14QGenericMatrixILi3ELi3EfERKS_": [
       "address", "address", "address"
     ],
     "ritual_ZN11QSSGBounds38setEmptyEv": ["nothing", "address"],
@@ -43,12 +52,17 @@
     "ritual_ZN11QSSGBounds35scaleEf": ["nothing", "address", "float"],
     "ritual_ZN11QSSGBounds36fattenEd": ["nothing", "address", "double"],
     "ritual_ZNK11QSSGBounds38isFiniteEv": ["bool", "address"],
+    "ritual_ZNK11QSSGBounds327toQSSGBoxPointsNoEmptyCheckEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QSSGBounds315toQSSGBoxPointsEv": ["address", "address"],
     "ritual_ZN11QSSGBounds39transformERK10QMatrix4x4": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK11QSSGBounds310getSupportERK9QVector3D": [
       "address", "address", "address"
     ],
-    "ritual_ZN11QSSGBounds3D1Ev": ["nothing", "address"]
+    "ritual_ZN11QSSGBounds3D1Ev": ["nothing", "address"],
+    "ritual_drop_QSSGBounds3__QSSGBoxPoints": ["nothing", "address"]
   }
 }

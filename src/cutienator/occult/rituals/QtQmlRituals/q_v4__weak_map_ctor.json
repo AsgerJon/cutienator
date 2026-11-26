@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN3QV411WeakMapCtor10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV411WeakMapCtor11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV411WeakMapCtor1dEv": ["address", "address"]
+    "ritual_ZNK3QV411WeakMapCtor1dEv": ["address", "address"],
+    "ritual_ZN3QV411WeakMapCtor11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

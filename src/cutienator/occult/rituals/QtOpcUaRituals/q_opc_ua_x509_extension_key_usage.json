@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN27QOpcUaX509ExtensionKeyUsageC1Ev": ["address"],
+    "ritual_ZN27QOpcUaX509ExtensionKeyUsageC1ERKS_": ["address", "address"],
+    "ritual_ZN27QOpcUaX509ExtensionKeyUsageaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK27QOpcUaX509ExtensionKeyUsageeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QOpcUaX509ExtensionKeyUsageD1Ev": ["nothing", "address"],
+    "ritual_ZN27QOpcUaX509ExtensionKeyUsage11setKeyUsageENS_8KeyUsageEb": [
+      "nothing", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZNK27QOpcUaX509ExtensionKeyUsage8keyUsageENS_8KeyUsageE": [
+      "bool", "address", "unsigned int"
+    ]
+  }
+}

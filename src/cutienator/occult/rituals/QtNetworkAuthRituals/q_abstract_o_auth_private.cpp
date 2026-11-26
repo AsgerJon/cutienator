@@ -7,8 +7,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetworkAuth/6.12.0/QtNetworkAuth/private/qabstractoauth_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qurl.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qurlquery.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
@@ -34,6 +37,22 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 264, as _ZN21QAbstractOAuthPrivateC1EPKcRK4QUrlRK7QStringP21QNetworkAccessManager
+inline QAbstractOAuthPrivate::QAbstractOAuthPrivate(const char *loggingCategory,
+                                             const QUrl &authorizationUrl,
+                                             const QString &clientIdentifier,
+                                             QNetworkAccessManager *manager) :
+    loggingCategory(loggingCategory),
+    clientIdentifier(clientIdentifier),
+    authorizationUrl(authorizationUrl),
+    defaultReplyHandler(new QOAuthOobReplyHandler),
+    networkAccessManagerPointer(manager)
+{}
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 275, as _ZN21QAbstractOAuthPrivateD1Ev
+inline QAbstractOAuthPrivate::~QAbstractOAuthPrivate()
+{}
 
 //  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 278, as _ZN21QAbstractOAuthPrivate20networkAccessManagerEv
 inline QNetworkAccessManager *QAbstractOAuthPrivate::networkAccessManager()
@@ -125,6 +144,15 @@ inline void QAbstractOAuthPrivate::addContentTypeHeaders(QNetworkRequest *reques
         break;
     }
 }
+
+//  from ../qtnetworkauth/src/oauth/qabstractoauth.cpp, line 365, as _ZN21QAbstractOAuthPrivate11createQueryERK9QMultiMapI7QString8QVariantE
+inline QUrlQuery QAbstractOAuthPrivate::createQuery(const QMultiMap<QString, QVariant> &parameters)
+{
+    QUrlQuery query;
+    for (auto it = parameters.begin(), end = parameters.end(); it != end; ++it)
+        query.addQueryItem(it.key(), it.value().toString());
+    return query;
+}
 //  -----------------------------------------------------------------------
 
 //  QAbstractOAuth *QAbstractOAuthPrivate::q_func()
@@ -139,6 +167,28 @@ extern "C" Q_DECL_EXPORT
 const QAbstractOAuth *ritual_ZNK21QAbstractOAuthPrivate6q_funcEv(
     const QAbstractOAuthPrivate *self) {
   return self->q_func();
+}
+
+//  QAbstractOAuthPrivate::QAbstractOAuthPrivate(const char *loggingCategory,
+//      const QUrl &authorizationUrl, const QString &clientIdentifier,
+//      QNetworkAccessManager *manager)
+extern "C" Q_DECL_EXPORT
+QAbstractOAuthPrivate *ritual_ZN21QAbstractOAuthPrivateC1EPKcRK4QUrlRK7QStringP21QNetworkAccessManager(
+    const char *loggingCategory,
+    const QUrl *authorizationUrl,
+    const QString *clientIdentifier,
+    QNetworkAccessManager *manager) {
+  return new QAbstractOAuthPrivate(
+      loggingCategory,
+      *authorizationUrl,
+      *clientIdentifier,
+      manager);
+}
+
+//  QAbstractOAuthPrivate::~QAbstractOAuthPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QAbstractOAuthPrivateD1Ev(QAbstractOAuthPrivate *self) {
+  delete self;
 }
 
 //  QNetworkAccessManager *QAbstractOAuthPrivate::networkAccessManager()
@@ -190,4 +240,12 @@ void ritual_ZN21QAbstractOAuthPrivate21addContentTypeHeadersEP15QNetworkRequest(
     QAbstractOAuthPrivate *self,
     QNetworkRequest *request) {
   self->addContentTypeHeaders(request);
+}
+
+//  QUrlQuery QAbstractOAuthPrivate::createQuery(const QMultiMap<QString,
+//      QVariant> &parameters)
+extern "C" Q_DECL_EXPORT
+QUrlQuery *ritual_ZN21QAbstractOAuthPrivate11createQueryERK9QMultiMapI7QString8QVariantE(
+    const QMultiMap<QString, QVariant> *parameters) {
+  return new QUrlQuery(QAbstractOAuthPrivate::createQuery(*parameters));
 }

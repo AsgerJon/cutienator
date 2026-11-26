@@ -7,6 +7,8 @@
   "rows": {
     "ritual_ZN3QV415SparseArrayData12staticVTableEv": ["address"],
     "ritual_ZN3QV415SparseArrayData10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV415SparseArrayData1dEv": ["address", "address"],
+    "ritual_ZN3QV415SparseArrayData1dEv": ["address", "address"],
     "ritual_ZN3QV415SparseArrayData20defaultInternalClassEPNS_10EngineBaseE": [
       "address", "address"
     ],
@@ -17,8 +19,44 @@
     "ritual_ZN3QV415SparseArrayData9setSparseEPNS_11SparseArrayE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN3QV415SparseArrayData8allocateEPNS_6ObjectEb": [
+      "unsigned int", "address", "bool"
+    ],
+    "ritual_ZN3QV415SparseArrayData4freeEPNS_4Heap9ArrayDataEj": [
+      "nothing", "address", "unsigned int"
+    ],
     "ritual_ZNK3QV415SparseArrayData11mappedIndexEj": [
       "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SparseArrayData10reallocateEPNS_6ObjectEjb": [
+      "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN3QV415SparseArrayData3getEPKNS_4Heap9ArrayDataEj": [
+      "unsigned long long", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SparseArrayData3putEPNS_6ObjectEjRKNS_5ValueE": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV415SparseArrayData8putArrayEPNS_6ObjectEjPKNS_5ValueEj": [
+      "bool", "address", "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SparseArrayData3delEPNS_6ObjectEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SparseArrayData12setAttributeEPNS_6ObjectEjNS_18PropertyAttributesE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV415SparseArrayData10push_frontEPNS_6ObjectEPKNS_5ValueEj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SparseArrayData9pop_frontEPNS_6ObjectE": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV415SparseArrayData8truncateEPNS_6ObjectEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SparseArrayData6lengthEPKNS_4Heap9ArrayDataE": [
+      "unsigned int", "address"
     ]
   }
 }

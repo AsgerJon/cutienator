@@ -8,6 +8,12 @@
     "ritual_ZNK27QAbstractTextDocumentLayout10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QAbstractTextDocumentLayout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QAbstractTextDocumentLayout2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,9 @@
       "address", "address"
     ],
     "ritual_ZNK27QAbstractTextDocumentLayout6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayoutC1EP13QTextDocument": [
       "address", "address"
     ],
     "ritual_ZN27QAbstractTextDocumentLayoutD1Ev": ["nothing", "address"],
@@ -65,6 +74,21 @@
     ],
     "ritual_ZNK27QAbstractTextDocumentLayout16handlerForObjectEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout6updateERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout11updateBlockERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout19documentSizeChangedERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout16pageCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayoutC1ER34QAbstractTextDocumentLayoutPrivateP13QTextDocument": [
+      "address", "address", "address"
     ],
     "ritual_ZN27QAbstractTextDocumentLayout15documentChangedEiii": [
       "nothing", "address", "int", "int", "int"

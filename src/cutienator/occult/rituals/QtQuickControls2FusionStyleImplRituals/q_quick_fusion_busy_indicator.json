@@ -9,6 +9,12 @@
     "ritual_ZNK25QQuickFusionBusyIndicator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickFusionBusyIndicator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickFusionBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK25QQuickFusionBusyIndicator5colorEv": ["address", "address"],
     "ritual_ZN25QQuickFusionBusyIndicator8setColorERK6QColor": [
       "nothing", "address", "address"

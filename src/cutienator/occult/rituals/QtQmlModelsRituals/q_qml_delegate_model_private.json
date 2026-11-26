@@ -21,6 +21,9 @@
     "ritual_ZN24QQmlDelegateModelPrivate22requestMoreIfNecessaryEv": [
       "nothing", "address"
     ],
+    "ritual_ZN24QQmlDelegateModelPrivate18emitCreatedPackageEP18QQDMIncubationTaskP13QQuickPackage": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN24QQmlDelegateModelPrivate15emitCreatedItemEP18QQDMIncubationTaskP7QObject": [
       "nothing", "address", "address", "address"
     ],
@@ -33,14 +36,32 @@
     "ritual_ZN24QQmlDelegateModelPrivate16destroyCacheItemEP21QQmlDelegateModelItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN24QQmlDelegateModelPrivate22drainReusableItemsPoolEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN24QQmlDelegateModelPrivate15resolveDelegateEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate13itemsInsertedERK5QListIN18QQmlListCompositor6InsertEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate12itemsChangedERK5QListIN18QQmlListCompositor6ChangeEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24QQmlDelegateModelPrivate16emitModelUpdatedERK13QQmlChangeSetb": [
       "nothing", "address", "address", "bool"
     ],
     "ritual_ZNK24QQmlDelegateModelPrivate17adaptorModelCountEv": [
       "int", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate12group_appendEP16QQmlListPropertyI22QQmlDelegateModelGroupEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate11group_countEP16QQmlListPropertyI22QQmlDelegateModelGroupE": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate8group_atEP16QQmlListPropertyI22QQmlDelegateModelGroupEx": [
+      "address", "address", "long long"
     ],
     "ritual_ZN24QQmlDelegateModelPrivate16releaseIncubatorEP18QQDMIncubationTask": [
       "nothing", "address", "address"
@@ -53,6 +74,9 @@
     ],
     "ritual_own_ZN24QQmlDelegateModelPrivate16emitModelUpdatedERK13QQmlChangeSetb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_drop_QQmlDelegateModelPrivate__QQmlDelegateModel_ReleaseFlags": [
+      "nothing", "address"
     ]
   }
 }

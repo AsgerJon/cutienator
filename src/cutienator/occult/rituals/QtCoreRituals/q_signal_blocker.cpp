@@ -10,10 +10,30 @@ QSignalBlocker *ritual_ZN14QSignalBlockerC1EP7QObject(QObject *o) {
   return new QSignalBlocker(o);
 }
 
+//  QSignalBlocker::QSignalBlocker(QObject &o)
+extern "C" Q_DECL_EXPORT
+QSignalBlocker *ritual_ZN14QSignalBlockerC1ER7QObject(QObject *o) {
+  return new QSignalBlocker(*o);
+}
+
 //  QSignalBlocker::~QSignalBlocker()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSignalBlockerD1Ev(QSignalBlocker *self) {
   delete self;
+}
+
+//  QSignalBlocker::QSignalBlocker(QSignalBlocker &&other)
+extern "C" Q_DECL_EXPORT
+QSignalBlocker *ritual_ZN14QSignalBlockerC1EOS_(QSignalBlocker *other) {
+  return new QSignalBlocker(std::move(*other));
+}
+
+//  QSignalBlocker &QSignalBlocker::operator=(QSignalBlocker &&other)
+extern "C" Q_DECL_EXPORT
+QSignalBlocker *ritual_ZN14QSignalBlockeraSEOS_(
+    QSignalBlocker *self,
+    QSignalBlocker *other) {
+  return &(self->operator=(std::move(*other)));
 }
 
 //  void QSignalBlocker::reblock()

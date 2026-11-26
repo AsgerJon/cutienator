@@ -9,6 +9,7 @@
 #include <QtGui/qmatrix4x4.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
 
 //  QRhi::~QRhi()
 extern "C" Q_DECL_EXPORT
@@ -99,6 +100,30 @@ QRhiDriverInfo *ritual_ZNK4QRhi10driverInfoEv(const QRhi *self) {
 extern "C" Q_DECL_EXPORT
 QThread *ritual_ZNK4QRhi6threadEv(const QRhi *self) {
   return self->thread();
+}
+
+//  void QRhi::addCleanupCallback(const CleanupCallback &callback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QRhi18addCleanupCallbackERKSt8functionIFvPS_EE(
+    QRhi *self,
+    const QRhi::CleanupCallback *callback) {
+  self->addCleanupCallback(*callback);
+}
+
+//  void QRhi::addCleanupCallback(const void *key, const CleanupCallback
+//      &callback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QRhi18addCleanupCallbackEPKvRKSt8functionIFvPS_EE(
+    QRhi *self,
+    const void *key,
+    const QRhi::CleanupCallback *callback) {
+  self->addCleanupCallback(key, *callback);
+}
+
+//  void QRhi::removeCleanupCallback(const void *key)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QRhi21removeCleanupCallbackEPKv(QRhi *self, const void *key) {
+  self->removeCleanupCallback(key);
 }
 
 //  QRhiGraphicsPipeline *QRhi::newGraphicsPipeline()
@@ -291,6 +316,18 @@ int ritual_ZNK4QRhi16currentFrameSlotEv(const QRhi *self) {
   return self->currentFrameSlot();
 }
 
+//  FrameOpResult QRhi::beginOffscreenFrame(QRhiCommandBuffer **cb,
+//      BeginFrameFlags flags)
+extern "C" Q_DECL_EXPORT
+QRhi::FrameOpResult ritual_ZN4QRhi19beginOffscreenFrameEPP17QRhiCommandBuffer6QFlagsINS_14BeginFrameFlagEE(
+    QRhi *self,
+    QRhiCommandBuffer **cb,
+    int flags) {
+  return self->beginOffscreenFrame(
+      cb,
+      QFlags<QRhi::BeginFrameFlag>::fromInt(flags));
+}
+
 //  FrameOpResult QRhi::endOffscreenFrame(EndFrameFlags flags)
 extern "C" Q_DECL_EXPORT
 QRhi::FrameOpResult ritual_ZN4QRhi17endOffscreenFrameE6QFlagsINS_12EndFrameFlagEE(
@@ -310,6 +347,12 @@ extern "C" Q_DECL_EXPORT
 QRhiResourceUpdateBatch *ritual_ZN4QRhi23nextResourceUpdateBatchEv(
     QRhi *self) {
   return self->nextResourceUpdateBatch();
+}
+
+//  QList<int> QRhi::supportedSampleCounts() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK4QRhi21supportedSampleCountsEv(const QRhi *self) {
+  return new QList<int>(self->supportedSampleCounts());
 }
 
 //  int QRhi::ubufAlignment() const
@@ -466,4 +509,10 @@ QList<QSize> *ritual_ZNK4QRhi21supportedShadingRatesEi(
 extern "C" Q_DECL_EXPORT
 QRhi *ritual_ZN4QRhiC1Ev() {
   return new QRhi();
+}
+
+//  a QList<int> a ritual of QRhi gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QRhi__QList_int(QList<int> *self) {
+  delete self;
 }

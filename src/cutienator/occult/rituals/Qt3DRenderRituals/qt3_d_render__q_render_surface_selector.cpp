@@ -3,6 +3,7 @@
 //  lost.
 #include <Qt3DRender/qrendersurfaceselector.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -180,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender22QRenderSurfaceSelector10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QRenderSurfaceSelector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender22QRenderSurfaceSelector11qt_metacastEPKc(
+    Qt3DRender::QRenderSurfaceSelector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QRenderSurfaceSelector::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender22QRenderSurfaceSelector11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QRenderSurfaceSelector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QRenderSurfaceSelector::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -188,6 +208,98 @@ QString *ritual_ZN10Qt3DRender22QRenderSurfaceSelector2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QRenderSurfaceSelector::tr(s, c, n));
+}
+
+//  Qt3DRender::QRenderSurfaceSelector::QRenderSurfaceSelector(Qt3DCore::QNod
+//      e *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderSurfaceSelector *ritual_ZN10Qt3DRender22QRenderSurfaceSelectorC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRenderSurfaceSelector(parent);
+}
+
+//  Qt3DRender::QRenderSurfaceSelector::~QRenderSurfaceSelector()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSurfaceSelectorD1Ev(
+    Qt3DRender::QRenderSurfaceSelector *self) {
+  delete self;
+}
+
+//  QObject *Qt3DRender::QRenderSurfaceSelector::surface() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK10Qt3DRender22QRenderSurfaceSelector7surfaceEv(
+    const Qt3DRender::QRenderSurfaceSelector *self) {
+  return self->surface();
+}
+
+//  QSize Qt3DRender::QRenderSurfaceSelector::externalRenderTargetSize()
+//      const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DRender22QRenderSurfaceSelector24externalRenderTargetSizeEv(
+    const Qt3DRender::QRenderSurfaceSelector *self) {
+  return new QSize(self->externalRenderTargetSize());
+}
+
+//  float Qt3DRender::QRenderSurfaceSelector::surfacePixelRatio() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender22QRenderSurfaceSelector17surfacePixelRatioEv(
+    const Qt3DRender::QRenderSurfaceSelector *self) {
+  return self->surfacePixelRatio();
+}
+
+//  void Qt3DRender::QRenderSurfaceSelector::setSurface(QObject
+//      *surfaceObject)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSurfaceSelector10setSurfaceEP7QObject(
+    Qt3DRender::QRenderSurfaceSelector *self,
+    QObject *surfaceObject) {
+  self->setSurface(surfaceObject);
+}
+
+//  void Qt3DRender::QRenderSurfaceSelector::setSurfacePixelRatio(float
+//      ratio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSurfaceSelector20setSurfacePixelRatioEf(
+    Qt3DRender::QRenderSurfaceSelector *self,
+    float ratio) {
+  self->setSurfacePixelRatio(ratio);
+}
+
+//  void
+//      Qt3DRender::QRenderSurfaceSelector::setExternalRenderTargetSize(const
+//      QSize &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSurfaceSelector27setExternalRenderTargetSizeERK5QSize(
+    Qt3DRender::QRenderSurfaceSelector *self,
+    const QSize *size) {
+  self->setExternalRenderTargetSize(*size);
+}
+
+//  void Qt3DRender::QRenderSurfaceSelector::surfaceChanged(QObject *surface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSurfaceSelector14surfaceChangedEP7QObject(
+    Qt3DRender::QRenderSurfaceSelector *self,
+    QObject *surface) {
+  self->surfaceChanged(surface);
+}
+
+//  void
+//      Qt3DRender::QRenderSurfaceSelector::externalRenderTargetSizeChanged(c
+//      onst QSize &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSurfaceSelector31externalRenderTargetSizeChangedERK5QSize(
+    Qt3DRender::QRenderSurfaceSelector *self,
+    const QSize *size) {
+  self->externalRenderTargetSizeChanged(*size);
+}
+
+//  void Qt3DRender::QRenderSurfaceSelector::surfacePixelRatioChanged(float
+//      ratio)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSurfaceSelector24surfacePixelRatioChangedEf(
+    Qt3DRender::QRenderSurfaceSelector *self,
+    float ratio) {
+  self->surfacePixelRatioChanged(ratio);
 }
 
 //  QRenderSurfaceSelectorPrivate
@@ -204,6 +316,15 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QRenderSurfaceSelectorPrivate *ritual_ZNK10Qt3DRender22QRenderSurfaceSelector6d_funcEv(
     const Qt3DRender::QRenderSurfaceSelector *self) {
   return self->d_func();
+}
+
+//  Qt3DRender::QRenderSurfaceSelector::QRenderSurfaceSelector(QRenderSurface
+//      SelectorPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderSurfaceSelector *ritual_ZN10Qt3DRender22QRenderSurfaceSelectorC1ERNS_29QRenderSurfaceSelectorPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QRenderSurfaceSelectorPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRenderSurfaceSelector(*dd, parent);
 }
 
 //  a Python function taken by a CuteQt3DRender_QRenderSurfaceSelector, for

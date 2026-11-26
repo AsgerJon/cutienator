@@ -28,21 +28,9 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 21, as _ZN19QQuickLoaderPrivateC1Ev
-inline QQuickLoaderPrivate::QQuickLoaderPrivate()
-    : item(nullptr), object(nullptr), itemContext(nullptr), incubator(nullptr), updatingSize(false),
-      active(true), loadingFromSource(false), asynchronous(false), status(computeStatus())
-{
-}
-
-//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 27, as _ZN19QQuickLoaderPrivateD1Ev
-inline QQuickLoaderPrivate::~QQuickLoaderPrivate()
-{
-    delete itemContext;
-    itemContext = nullptr;
-    delete incubator;
-    disposeInitialPropertyValues();
-}
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 18, as local:qquickloader.cpp:watchedChanges
+static const QQuickItemPrivate::ChangeTypes watchedChanges
+    = QQuickItemPrivate::Geometry | QQuickItemPrivate::ImplicitWidth | QQuickItemPrivate::ImplicitHeight;
 
 //  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 35, as _ZN19QQuickLoaderPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
 inline void QQuickLoaderPrivate::itemGeometryChanged(QQuickItem *resizeItem, QQuickGeometryChange change,
@@ -65,6 +53,208 @@ inline void QQuickLoaderPrivate::itemImplicitHeightChanged(QQuickItem *)
 {
     Q_Q(QQuickLoader);
     q->setImplicitHeight(getImplicitHeight());
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 110, as _ZNK19QQuickLoaderPrivate16getImplicitWidthEv
+inline qreal QQuickLoaderPrivate::getImplicitWidth() const
+{
+    Q_Q(const QQuickLoader);
+    // If the Loader has a valid width then Loader has set an explicit width on the
+    // item, and we want the item's implicitWidth.  If the Loader's width has
+    // not been set then its implicitWidth is the width of the item.
+    if (item)
+        return q->widthValid() ? item->implicitWidth() : item->width();
+    return QQuickImplicitSizeItemPrivate::getImplicitWidth();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 121, as _ZNK19QQuickLoaderPrivate17getImplicitHeightEv
+inline qreal QQuickLoaderPrivate::getImplicitHeight() const
+{
+    Q_Q(const QQuickLoader);
+    // If the Loader has a valid height then Loader has set an explicit height on the
+    // item, and we want the item's implicitHeight.  If the Loader's height has
+    // not been set then its implicitHeight is the height of the item.
+    if (item)
+        return q->heightValid() ? item->implicitHeight() : item->height();
+    return QQuickImplicitSizeItemPrivate::getImplicitHeight();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 657, as _ZN21QQuickLoaderIncubator13statusChangedEN13QQmlIncubator6StatusE
+inline void QQuickLoaderIncubator::statusChanged(Status status)
+{
+    loader->incubatorStateChanged(status);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 615, as _ZN21QQuickLoaderIncubator15setInitialStateEP7QObject
+inline void QQuickLoaderIncubator::setInitialState(QObject *o)
+{
+    loader->setInitialState(o);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 101, as _ZN19QQuickLoaderPrivate10initResizeEv
+inline void QQuickLoaderPrivate::initResize()
+{
+    if (!item)
+        return;
+    QQuickItemPrivate *p = QQuickItemPrivate::get(item);
+    p->addItemChangeListener(this, watchedChanges);
+    _q_updateSize();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 693, as _ZN19QQuickLoaderPrivate15_q_sourceLoadedEv
+inline void QQuickLoaderPrivate::_q_sourceLoaded()
+{
+    Q_Q(QQuickLoader);
+    if (!component || !component->errors().isEmpty()) {
+        if (component)
+            QQmlEnginePrivate::warning(qmlEngine(q), component->errors());
+        if (loadingFromSource)
+            emit q->sourceChanged();
+        else
+            emit q->sourceComponentChanged();
+        updateStatus();
+        emit q->progressChanged();
+        emit q->itemChanged(); //Like clearing source, emit itemChanged even if previous item was also null
+        disposeInitialPropertyValues(); // cleanup
+        return;
+    }
+
+    if (!active)
+        return;
+
+    QQmlContext *creationContext = component->creationContext();
+    if (!creationContext)
+        creationContext = qmlContext(q);
+
+    QQmlComponentPrivate *cp = QQmlComponentPrivate::get(component);
+    QQmlContext *context = [&](){
+        if (cp->isBound())
+            return creationContext;
+        itemContext = new QQmlContext(creationContext);
+        itemContext->setContextObject(q);
+        return itemContext;
+    }();
+
+    delete incubator;
+    incubator = new QQuickLoaderIncubator(this, asynchronous ? QQmlIncubator::Asynchronous : QQmlIncubator::AsynchronousIfNested);
+
+    component->create(*incubator, context);
+
+    if (incubator && incubator->status() == QQmlIncubator::Loading)
+        updateStatus();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 27, as _ZN19QQuickLoaderPrivateD1Ev
+inline QQuickLoaderPrivate::~QQuickLoaderPrivate()
+{
+    delete itemContext;
+    itemContext = nullptr;
+    delete incubator;
+    disposeInitialPropertyValues();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 55, as _ZN19QQuickLoaderPrivate5clearEv
+inline void QQuickLoaderPrivate::clear()
+{
+    Q_Q(QQuickLoader);
+    disposeInitialPropertyValues();
+
+    if (incubator)
+        incubator->clear();
+
+    delete itemContext;
+    itemContext = nullptr;
+
+    // Prevent any bindings from running while waiting for deletion. Without
+    // this we may get transient errors from use of 'parent', for example.
+    QQmlContext *context = qmlContext(object);
+    if (context)
+        QQmlContextData::get(context)->clearContextRecursively();
+
+    if (loadingFromSource && component) {
+        // disconnect since we deleteLater
+        QObject::disconnect(component, SIGNAL(statusChanged(QQmlComponent::Status)),
+                q, SLOT(_q_sourceLoaded()));
+        QObject::disconnect(component, SIGNAL(progressChanged(qreal)),
+                q, SIGNAL(progressChanged()));
+        component->deleteLater();
+        component.setObject(nullptr, q);
+    } else if (component) {
+        component.setObject(nullptr, q);
+    }
+    source = QUrl();
+
+    if (item) {
+        QQuickItemPrivate *p = QQuickItemPrivate::get(item);
+        p->removeItemChangeListener(this, watchedChanges);
+
+        // We can't delete immediately because our item may have triggered
+        // the Loader to load a different item.
+        item->setParentItem(nullptr);
+        item->setVisible(false);
+        item = nullptr;
+    }
+    if (object) {
+        object->deleteLater();
+        object = nullptr;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 591, as _ZN19QQuickLoaderPrivate4loadEv
+inline void QQuickLoaderPrivate::load()
+{
+    Q_Q(QQuickLoader);
+
+    if (!q->isComponentComplete() || !component)
+        return;
+
+    if (!component->isLoading()) {
+        _q_sourceLoaded();
+    } else {
+        QObject::connect(component, SIGNAL(statusChanged(QQmlComponent::Status)),
+                q, SLOT(_q_sourceLoaded()));
+        QObject::connect(component, SIGNAL(progressChanged(qreal)),
+                q, SIGNAL(progressChanged()));
+        updateStatus();
+        emit q->progressChanged();
+        if (loadingFromSource)
+            emit q->sourceChanged();
+        else
+            emit q->sourceComponentChanged();
+        emit q->itemChanged();
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 662, as _ZN19QQuickLoaderPrivate21incubatorStateChangedEN13QQmlIncubator6StatusE
+inline void QQuickLoaderPrivate::incubatorStateChanged(QQmlIncubator::Status status)
+{
+    Q_Q(QQuickLoader);
+    if (status == QQmlIncubator::Loading || status == QQmlIncubator::Null)
+        return;
+
+    if (status == QQmlIncubator::Ready) {
+        object = incubator->object();
+        item = qmlobject_cast<QQuickItem*>(object);
+        emit q->itemChanged();
+        initResize();
+        incubator->clear();
+    } else if (status == QQmlIncubator::Error) {
+        if (!incubator->errors().isEmpty())
+            QQmlEnginePrivate::warning(qmlEngine(q), incubator->errors());
+        delete itemContext;
+        itemContext = nullptr;
+        delete incubator->object();
+        source = QUrl();
+        emit q->itemChanged();
+    }
+    if (loadingFromSource)
+        emit q->sourceChanged();
+    else
+        emit q->sourceComponentChanged();
+    updateStatus();
+    emit q->progressChanged();
+    if (status == QQmlIncubator::Ready)
+        emit q->loaded();
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 620, as _ZN19QQuickLoaderPrivate15setInitialStateEP7QObject
@@ -174,30 +364,6 @@ inline void QQuickLoaderPrivate::createComponent()
     }
 
     qmlWarning(q) << "createComponent: Cannot find a QML engine.";
-}
-
-//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 110, as _ZNK19QQuickLoaderPrivate16getImplicitWidthEv
-inline qreal QQuickLoaderPrivate::getImplicitWidth() const
-{
-    Q_Q(const QQuickLoader);
-    // If the Loader has a valid width then Loader has set an explicit width on the
-    // item, and we want the item's implicitWidth.  If the Loader's width has
-    // not been set then its implicitWidth is the width of the item.
-    if (item)
-        return q->widthValid() ? item->implicitWidth() : item->width();
-    return QQuickImplicitSizeItemPrivate::getImplicitWidth();
-}
-
-//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 121, as _ZNK19QQuickLoaderPrivate17getImplicitHeightEv
-inline qreal QQuickLoaderPrivate::getImplicitHeight() const
-{
-    Q_Q(const QQuickLoader);
-    // If the Loader has a valid height then Loader has set an explicit height on the
-    // item, and we want the item's implicitHeight.  If the Loader's height has
-    // not been set then its implicitHeight is the height of the item.
-    if (item)
-        return q->heightValid() ? item->implicitHeight() : item->height();
-    return QQuickImplicitSizeItemPrivate::getImplicitHeight();
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 900, as _ZN19QQuickLoaderPrivate13_q_updateSizeEb
@@ -626,12 +792,6 @@ const QQuickLoader *ritual_ZNK19QQuickLoaderPrivate6q_funcEv(
   return self->q_func();
 }
 
-//  QQuickLoaderPrivate::QQuickLoaderPrivate()
-extern "C" Q_DECL_EXPORT
-QQuickLoaderPrivate *ritual_ZN19QQuickLoaderPrivateC1Ev() {
-  return new CuteQQuickLoaderPrivate();
-}
-
 //  QQuickLoaderPrivate::~QQuickLoaderPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickLoaderPrivateD1Ev(QQuickLoaderPrivate *self) {
@@ -663,6 +823,27 @@ void ritual_ZN19QQuickLoaderPrivate25itemImplicitHeightChangedEP10QQuickItem(
     QQuickLoaderPrivate *self,
     QQuickItem *a0) {
   self->itemImplicitHeightChanged(a0);
+}
+
+//  void QQuickLoaderPrivate::clear()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickLoaderPrivate5clearEv(QQuickLoaderPrivate *self) {
+  self->clear();
+}
+
+//  void QQuickLoaderPrivate::load()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickLoaderPrivate4loadEv(QQuickLoaderPrivate *self) {
+  self->load();
+}
+
+//  void QQuickLoaderPrivate::incubatorStateChanged(QQmlIncubator::Status
+//      status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickLoaderPrivate21incubatorStateChangedEN13QQmlIncubator6StatusE(
+    QQuickLoaderPrivate *self,
+    QQmlIncubator::Status status) {
+  self->incubatorStateChanged(status);
 }
 
 //  void QQuickLoaderPrivate::setInitialState(QObject *o)

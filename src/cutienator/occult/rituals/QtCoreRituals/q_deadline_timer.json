@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qdeadlinetimer.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qdeadlinetimer.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN14QDeadlineTimerC1Ev": ["address"],
@@ -12,6 +13,7 @@
     "ritual_ZN14QDeadlineTimerC1ExN2Qt9TimerTypeE": [
       "address", "long long", "int"
     ],
+    "ritual_ZN14QDeadlineTimer4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK14QDeadlineTimer9isForeverEv": ["bool", "address"],
     "ritual_ZNK14QDeadlineTimer10hasExpiredEv": ["bool", "address"],
     "ritual_ZNK14QDeadlineTimer9timerTypeEv": ["int", "address"],
@@ -46,6 +48,9 @@
     "ritual_Zmi14QDeadlineTimerS_": ["long long", "address", "address"],
     "ritual_ZN14QDeadlineTimerpLEx": ["nothing", "address", "long long"],
     "ritual_ZN14QDeadlineTimermIEx": ["nothing", "address", "long long"],
+    "ritual_ZNK14QDeadlineTimer23remainingTimeAsDurationEv": [
+      "long long", "address"
+    ],
     "ritual_ZeqRK14QDeadlineTimerS1_": ["bool", "address", "address"],
     "ritual_ZneRK14QDeadlineTimerS1_": ["bool", "address", "address"],
     "ritual_ZltRK14QDeadlineTimerS1_": ["bool", "address", "address"],
@@ -55,6 +60,15 @@
     "ritual_ZNK14QDeadlineTimer21rawRemainingTimeNSecsEv": [
       "long long", "address"
     ],
-    "ritual_ZN14QDeadlineTimerD1Ev": ["nothing", "address"]
+    "ritual_ZN14QDeadlineTimerD1Ev": ["nothing", "address"],
+    "ritual_ZN14QDeadlineTimerC2IlSt5ratioILl1ELl1000EEEENSt6chrono8durationIT_T0_EEN2Qt9TimerTypeE": [
+      "address", "long long", "int"
+    ],
+    "ritual_ZN14QDeadlineTimeraSIlSt5ratioILl1ELl1000EEEERS_NSt6chrono8durationIT_T0_EE": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN14QDeadlineTimer16setRemainingTimeIlSt5ratioILl1ELl1000EEEEvNSt6chrono8durationIT_T0_EEN2Qt9TimerTypeE": [
+      "nothing", "address", "long long", "int"
+    ]
   }
 }

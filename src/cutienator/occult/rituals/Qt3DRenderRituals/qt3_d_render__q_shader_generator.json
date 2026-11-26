@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK10Qt3DRender16QShaderGenerator16createShaderCodeERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender16QShaderGeneratorD1Ev": ["nothing", "address"]
   }
 }

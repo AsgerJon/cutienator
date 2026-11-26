@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickSwitchDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickSwitchDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickSwitchDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickSwitchDelegate2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -18,6 +24,12 @@
     ],
     "ritual_ZNK20QQuickSwitchDelegate14visualPositionEv": [
       "double", "address"
+    ],
+    "ritual_ZN20QQuickSwitchDelegate15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickSwitchDelegate21visualPositionChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN20QQuickSwitchDelegate14mouseMoveEventEP11QMouseEvent": [
       "nothing", "address", "address"
@@ -37,6 +49,8 @@
     "ritual_ZN20QQuickSwitchDelegate12buttonChangeEN20QQuickAbstractButton12ButtonChangeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN20QQuickSwitchDelegate6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickSwitchDelegate6d_funcEv": ["address", "address"],
     "ritual_own_ZN20QQuickSwitchDelegate14mouseMoveEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],

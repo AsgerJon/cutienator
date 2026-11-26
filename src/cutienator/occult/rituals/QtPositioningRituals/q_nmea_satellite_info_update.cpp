@@ -113,6 +113,52 @@ inline void QNmeaSatelliteInfoUpdate::setSatellitesInView(QGeoSatelliteInfo::Sat
     m_fresh = true;
 }
 
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 737, as _ZN24QNmeaSatelliteInfoUpdate18setSatellitesInUseEN17QGeoSatelliteInfo15SatelliteSystemERK5QListIiE
+inline bool QNmeaSatelliteInfoUpdate::setSatellitesInUse(QGeoSatelliteInfo::SatelliteSystem system,
+                                                  const QList<int> &inUse)
+{
+    if (system == QGeoSatelliteInfo::Undefined || system == QGeoSatelliteInfo::Multiple)
+        return false; // No way to determine satellite system
+
+    SatelliteInfo &info = m_satellites[system];
+    info.satellitesInUse.clear();
+
+    info.satellitesInUseReceived = true;
+    info.inUseIds = inUse;
+
+    if (info.updatingGSV) {
+        info.validInView = false;
+        m_validInView = false;
+        return false;
+    }
+
+    for (const auto id : inUse) {
+        bool found = false;
+        for (const auto &s : std::as_const(info.satellitesInView)) {
+            if (s.satelliteIdentifier() == id) {
+                info.satellitesInUse.append(s);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            // satellites in use are not in view -> related GSV is not yet received
+            info.satellitesInView.clear();
+            info.validInView = false;
+            m_validInView = false;
+            return false;
+        }
+    }
+
+    info.inUseIds.clear(); // make sure we remove all obsolete cache
+
+    info.validInUse = true;
+    m_fresh = true;
+    m_validInUse = calculateValidInUse();
+
+    return true;
+}
+
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 782, as _ZN24QNmeaSatelliteInfoUpdate7consumeEv
 inline void QNmeaSatelliteInfoUpdate::consume()
 {
@@ -191,6 +237,16 @@ void ritual_ZN24QNmeaSatelliteInfoUpdate19setSatellitesInViewEN17QGeoSatelliteIn
     QGeoSatelliteInfo::SatelliteSystem system,
     const QList<QGeoSatelliteInfo> *inView) {
   self->setSatellitesInView(system, *inView);
+}
+
+//  bool QNmeaSatelliteInfoUpdate::setSatellitesInUse(QGeoSatelliteInfo::Sate
+//      lliteSystem system, const QList<int> &inUse)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN24QNmeaSatelliteInfoUpdate18setSatellitesInUseEN17QGeoSatelliteInfo15SatelliteSystemERK5QListIiE(
+    QNmeaSatelliteInfoUpdate *self,
+    QGeoSatelliteInfo::SatelliteSystem system,
+    const QList<int> *inUse) {
+  return self->setSatellitesInUse(system, *inUse);
 }
 
 //  void QNmeaSatelliteInfoUpdate::consume()

@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN22QGraphicsLayoutPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QGraphicsLayoutPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QGraphicsLayoutPrivateC1Ev": ["address"],
     "ritual_ZN22QGraphicsLayoutPrivate18reparentChildItemsEP13QGraphicsItem": [
       "nothing", "address", "address"
     ],
@@ -15,6 +16,9 @@
     ],
     "ritual_ZNK22QGraphicsLayoutPrivate15visualDirectionEv": [
       "int", "address"
+    ],
+    "ritual_ZN22QGraphicsLayoutPrivate18addChildLayoutItemEP19QGraphicsLayoutItem": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN22QGraphicsLayoutPrivate17activateRecursiveEP19QGraphicsLayoutItem": [
       "nothing", "address", "address"

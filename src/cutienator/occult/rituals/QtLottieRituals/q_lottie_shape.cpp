@@ -34,7 +34,7 @@ typedef const QSize * (*CuteQLottieShapeCall11)(const void *, int *);
 class CuteQLottieShape : public QLottieShape {
 public:
   using QLottieShape::QLottieShape;
-  CuteQLottieShape(const QLottieShape &other) : QLottieShape(other) {}
+  CuteQLottieShape(const QLottieShape & other) : QLottieShape(other) {}
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {

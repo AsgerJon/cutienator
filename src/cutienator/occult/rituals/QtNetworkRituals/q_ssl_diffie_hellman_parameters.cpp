@@ -31,11 +31,47 @@ QSslDiffieHellmanParameters *ritual_ZN27QSslDiffieHellmanParametersC1ERKS_(
   return new QSslDiffieHellmanParameters(*other);
 }
 
+//  QSslDiffieHellmanParameters::QSslDiffieHellmanParameters(QSslDiffieHellma
+//      nParameters &&other)
+extern "C" Q_DECL_EXPORT
+QSslDiffieHellmanParameters *ritual_ZN27QSslDiffieHellmanParametersC1EOS_(
+    QSslDiffieHellmanParameters *other) {
+  return new QSslDiffieHellmanParameters(std::move(*other));
+}
+
 //  QSslDiffieHellmanParameters::~QSslDiffieHellmanParameters()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QSslDiffieHellmanParametersD1Ev(
     QSslDiffieHellmanParameters *self) {
   delete self;
+}
+
+//  QSslDiffieHellmanParameters &QSslDiffieHellmanParameters::operator=(const
+//      QSslDiffieHellmanParameters &other)
+extern "C" Q_DECL_EXPORT
+QSslDiffieHellmanParameters *ritual_ZN27QSslDiffieHellmanParametersaSERKS_(
+    QSslDiffieHellmanParameters *self,
+    const QSslDiffieHellmanParameters *other) {
+  return &(self->operator=(*other));
+}
+
+//  QSslDiffieHellmanParameters
+//      &QSslDiffieHellmanParameters::operator=(QSslDiffieHellmanParameters
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QSslDiffieHellmanParameters *ritual_ZN27QSslDiffieHellmanParametersaSEOS_(
+    QSslDiffieHellmanParameters *self,
+    QSslDiffieHellmanParameters *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QSslDiffieHellmanParameters::swap(QSslDiffieHellmanParameters
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QSslDiffieHellmanParameters4swapERS_(
+    QSslDiffieHellmanParameters *self,
+    QSslDiffieHellmanParameters *other) {
+  self->swap(*other);
 }
 
 //  QSslDiffieHellmanParameters

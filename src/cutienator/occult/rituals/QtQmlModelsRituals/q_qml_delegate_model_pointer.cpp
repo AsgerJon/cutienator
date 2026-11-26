@@ -25,6 +25,32 @@ QQmlDelegateModelPointer *ritual_ZN24QQmlDelegateModelPointerC1ERKS_(
   return new QQmlDelegateModelPointer(*a0);
 }
 
+//  QQmlDelegateModelPointer::QQmlDelegateModelPointer(QQmlDelegateModelPoint
+//      er &&a0)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModelPointer *ritual_ZN24QQmlDelegateModelPointerC1EOS_(
+    QQmlDelegateModelPointer *a0) {
+  return new QQmlDelegateModelPointer(std::move(*a0));
+}
+
+//  QQmlDelegateModelPointer &QQmlDelegateModelPointer::operator=(const
+//      QQmlDelegateModelPointer &a0)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModelPointer *ritual_ZN24QQmlDelegateModelPointeraSERKS_(
+    QQmlDelegateModelPointer *self,
+    const QQmlDelegateModelPointer *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QQmlDelegateModelPointer
+//      &QQmlDelegateModelPointer::operator=(QQmlDelegateModelPointer &&a0)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModelPointer *ritual_ZN24QQmlDelegateModelPointeraSEOS_(
+    QQmlDelegateModelPointer *self,
+    QQmlDelegateModelPointer *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QQmlDelegateModelPointer::QQmlDelegateModelPointer(QQmlInstanceModel
 //      *model)
 extern "C" Q_DECL_EXPORT
@@ -39,6 +65,26 @@ extern "C" Q_DECL_EXPORT
 QQmlDelegateModelPointer *ritual_ZN24QQmlDelegateModelPointerC1EP17QQmlDelegateModel(
     QQmlDelegateModel *model) {
   return new QQmlDelegateModelPointer(model);
+}
+
+//  QQmlDelegateModelPointer
+//      &QQmlDelegateModelPointer::operator=(QQmlInstanceModel
+//      *instanceModel)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModelPointer *ritual_ZN24QQmlDelegateModelPointeraSEP17QQmlInstanceModel(
+    QQmlDelegateModelPointer *self,
+    QQmlInstanceModel *instanceModel) {
+  return &(self->operator=(instanceModel));
+}
+
+//  QQmlDelegateModelPointer
+//      &QQmlDelegateModelPointer::operator=(QQmlDelegateModel
+//      *delegateModel)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModelPointer *ritual_ZN24QQmlDelegateModelPointeraSEP17QQmlDelegateModel(
+    QQmlDelegateModelPointer *self,
+    QQmlDelegateModel *delegateModel) {
+  return &(self->operator=(delegateModel));
 }
 
 //  QQmlDelegateModel *QQmlDelegateModelPointer::delegateModel()

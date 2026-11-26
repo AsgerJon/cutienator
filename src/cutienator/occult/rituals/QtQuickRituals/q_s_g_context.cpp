@@ -586,6 +586,24 @@ const QMetaObject *ritual_ZNK10QSGContext10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGContext::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QSGContext11qt_metacastEPKc(
+    QSGContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGContext::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QSGContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGContext::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QSGContext2trEPKcS1_i(
@@ -593,6 +611,12 @@ QString *ritual_ZN10QSGContext2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSGContext::tr(s, c, n));
+}
+
+//  QSGContext::QSGContext(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSGContext *ritual_ZN10QSGContextC1EP7QObject(QObject *parent) {
+  return new CuteQSGContext(parent);
 }
 
 //  QSGContext::~QSGContext()

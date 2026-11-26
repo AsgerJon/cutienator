@@ -1,11 +1,27 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DRender/6.12.0/Qt3DRender/private/nodemanagers_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  Qt3DRender/6.12.0/Qt3DRender/private/nodemanagers_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-25: added by hand, instances of templates of the
+//  class: 11. Kept as it is when the generator runs again.
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qt3drender_global_p.h>
 #include <Qt3DRender/Qt3DRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/nodemanagers_p.h>
+#include <Qt3DRender/6.12.0/Qt3DRender/private/managers_p.h>
+#include <Qt3DCore/qnodeid.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt3DRender::Render::NodeManagers::NodeManagers()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::NodeManagers *ritual_ZN10Qt3DRender6Render12NodeManagersC1Ev() {
+  return new Qt3DRender::Render::NodeManagers();
+}
+
+//  Qt3DRender::Render::NodeManagers::~NodeManagers()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render12NodeManagersD1Ev(
+    Qt3DRender::Render::NodeManagers *self) {
+  delete self;
+}
 
 //  CameraManager *Qt3DRender::Render::NodeManagers::cameraManager() const
 extern "C" Q_DECL_EXPORT
@@ -284,4 +300,121 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::Render::PickingProxyManager *ritual_ZNK10Qt3DRender6Render12NodeManagers19pickingProxyManagerEv(
     const Qt3DRender::Render::NodeManagers *self) {
   return self->pickingProxyManager();
+}
+
+//  Qt3DRender::Render::EntityManager
+//      *Qt3DRender::Render::NodeManagers::manager<Entity, EntityManager>()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::EntityManager * ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_6EntityENS0_13EntityManagerEEEPT0_v(
+    const Qt3DRender::Render::NodeManagers *self) {
+  return self->manager<Qt3DRender::Render::Entity, Qt3DRender::Render::EntityManager>();
+}
+
+//  Qt3DRender::Render::MaterialManager
+//      *Qt3DRender::Render::NodeManagers::manager<Material,
+//      MaterialManager>() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::MaterialManager * ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_8MaterialENS0_15MaterialManagerEEEPT0_v(
+    const Qt3DRender::Render::NodeManagers *self) {
+  return self->manager<Qt3DRender::Render::Material, Qt3DRender::Render::MaterialManager>();
+}
+
+//  Qt3DRender::Render::TextureManager
+//      *Qt3DRender::Render::NodeManagers::manager<Texture, TextureManager>()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::TextureManager * ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_7TextureENS0_14TextureManagerEEEPT0_v(
+    const Qt3DRender::Render::NodeManagers *self) {
+  return self->manager<Qt3DRender::Render::Texture, Qt3DRender::Render::TextureManager>();
+}
+
+//  Qt3DRender::Render::ShaderManager
+//      *Qt3DRender::Render::NodeManagers::manager<Shader, ShaderManager>()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::ShaderManager * ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_6ShaderENS0_13ShaderManagerEEEPT0_v(
+    const Qt3DRender::Render::NodeManagers *self) {
+  return self->manager<Qt3DRender::Render::Shader, Qt3DRender::Render::ShaderManager>();
+}
+
+//  Qt3DRender::Render::TransformManager
+//      *Qt3DRender::Render::NodeManagers::manager<Transform,
+//      TransformManager>() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::TransformManager * ritual_ZNK10Qt3DRender6Render12NodeManagers7managerINS0_9TransformENS0_16TransformManagerEEEPT0_v(
+    const Qt3DRender::Render::NodeManagers *self) {
+  return self->manager<Qt3DRender::Render::Transform, Qt3DRender::Render::TransformManager>();
+}
+
+//  Qt3DRender::Render::Entity
+//      *Qt3DRender::Render::NodeManagers::lookupResource<Qt3DRender::Render::Entity,
+//      Qt3DRender::Render::EntityManager, Qt3DCore::QNodeId>(const
+//      Qt3DCore::QNodeId &id) const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Entity * ritual_ZNK10Qt3DRender6Render12NodeManagers14lookupResourceINS0_6EntityENS0_13EntityManagerEN8Qt3DCore7QNodeIdEEEPT_RKT1_(
+    const Qt3DRender::Render::NodeManagers *self,
+    const Qt3DCore::QNodeId *id) {
+  return self->lookupResource<Qt3DRender::Render::Entity, Qt3DRender::Render::EntityManager, Qt3DCore::QNodeId>(*id);
+}
+
+//  Qt3DCore::QHandle<Qt3DRender::Render::Entity>
+//      Qt3DRender::Render::NodeManagers::lookupHandle<Qt3DRender::Render::Entity,
+//      Qt3DRender::Render::EntityManager,
+//      Qt3DCore::QHandle<Qt3DRender::Render::Entity>,
+//      Qt3DCore::QNodeId>(const Qt3DCore::QNodeId &id) const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QHandle<Qt3DRender::Render::Entity> * ritual_ZNK10Qt3DRender6Render12NodeManagers12lookupHandleINS0_6EntityENS0_13EntityManagerEN8Qt3DCore7QHandleIS3_EENS5_7QNodeIdEEET1_RKT2_(
+    const Qt3DRender::Render::NodeManagers *self,
+    const Qt3DCore::QNodeId *id) {
+  return new Qt3DCore::QHandle<Qt3DRender::Render::Entity>(self->lookupHandle<Qt3DRender::Render::Entity, Qt3DRender::Render::EntityManager, Qt3DCore::QHandle<Qt3DRender::Render::Entity>,
+      Qt3DCore::QNodeId>(*id));
+}
+
+//  Qt3DRender::Render::Entity
+//      *Qt3DRender::Render::NodeManagers::data<Qt3DRender::Render::Entity,
+//      Qt3DRender::Render::EntityManager,
+//      Qt3DCore::QHandle<Qt3DRender::Render::Entity>>(Qt3DCore::QHandle<Qt3DRender::Render::Entity>
+//      handle)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Entity * ritual_ZN10Qt3DRender6Render12NodeManagers4dataINS0_6EntityENS0_13EntityManagerEN8Qt3DCore7QHandleIS3_EEEEPT_T1_(
+    Qt3DRender::Render::NodeManagers *self,
+    const Qt3DCore::QHandle<Qt3DRender::Render::Entity> *handle) {
+  return self->data<Qt3DRender::Render::Entity, Qt3DRender::Render::EntityManager, Qt3DCore::QHandle<Qt3DRender::Render::Entity>>(*handle);
+}
+
+//  Qt3DRender::Render::Material
+//      *Qt3DRender::Render::NodeManagers::lookupResource<Qt3DRender::Render::Material,
+//      Qt3DRender::Render::MaterialManager, Qt3DCore::QNodeId>(const
+//      Qt3DCore::QNodeId &id) const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Material * ritual_ZNK10Qt3DRender6Render12NodeManagers14lookupResourceINS0_8MaterialENS0_15MaterialManagerEN8Qt3DCore7QNodeIdEEEPT_RKT1_(
+    const Qt3DRender::Render::NodeManagers *self,
+    const Qt3DCore::QNodeId *id) {
+  return self->lookupResource<Qt3DRender::Render::Material, Qt3DRender::Render::MaterialManager, Qt3DCore::QNodeId>(*id);
+}
+
+//  Qt3DCore::QHandle<Qt3DRender::Render::Material>
+//      Qt3DRender::Render::NodeManagers::lookupHandle<Qt3DRender::Render::Material,
+//      Qt3DRender::Render::MaterialManager,
+//      Qt3DCore::QHandle<Qt3DRender::Render::Material>,
+//      Qt3DCore::QNodeId>(const Qt3DCore::QNodeId &id) const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QHandle<Qt3DRender::Render::Material> * ritual_ZNK10Qt3DRender6Render12NodeManagers12lookupHandleINS0_8MaterialENS0_15MaterialManagerEN8Qt3DCore7QHandleIS3_EENS5_7QNodeIdEEET1_RKT2_(
+    const Qt3DRender::Render::NodeManagers *self,
+    const Qt3DCore::QNodeId *id) {
+  return new Qt3DCore::QHandle<Qt3DRender::Render::Material>(self->lookupHandle<Qt3DRender::Render::Material, Qt3DRender::Render::MaterialManager, Qt3DCore::QHandle<Qt3DRender::Render::Material>,
+      Qt3DCore::QNodeId>(*id));
+}
+
+//  Qt3DRender::Render::Material
+//      *Qt3DRender::Render::NodeManagers::data<Qt3DRender::Render::Material,
+//      Qt3DRender::Render::MaterialManager,
+//      Qt3DCore::QHandle<Qt3DRender::Render::Material>>(Qt3DCore::QHandle<Qt3DRender::Render::Material>
+//      handle)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::Material * ritual_ZN10Qt3DRender6Render12NodeManagers4dataINS0_8MaterialENS0_15MaterialManagerEN8Qt3DCore7QHandleIS3_EEEEPT_T1_(
+    Qt3DRender::Render::NodeManagers *self,
+    const Qt3DCore::QHandle<Qt3DRender::Render::Material> *handle) {
+  return self->data<Qt3DRender::Render::Material, Qt3DRender::Render::MaterialManager, Qt3DCore::QHandle<Qt3DRender::Render::Material>>(*handle);
 }

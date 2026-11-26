@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickProgressBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickProgressBar11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickProgressBar11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickProgressBar2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,11 +32,25 @@
     "ritual_ZN17QQuickProgressBar16setIndeterminateEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN17QQuickProgressBar11fromChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickProgressBar9toChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickProgressBar12valueChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickProgressBar15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickProgressBar21visualPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickProgressBar20indeterminateChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QQuickProgressBar12mirrorChangeEv": ["nothing", "address"],
     "ritual_ZN17QQuickProgressBar17componentCompleteEv": [
       "nothing", "address"
     ],
     "ritual_ZNK17QQuickProgressBar14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN17QQuickProgressBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickProgressBar6d_funcEv": ["address", "address"],
     "ritual_own_ZN17QQuickProgressBar12mirrorChangeEv": [
       "nothing", "address"
     ],

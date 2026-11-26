@@ -53,6 +53,64 @@ public:
   }
 };
 
+//  Qt3DRender::QRenderSettingsPrivate::QRenderSettingsPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderSettingsPrivate *ritual_ZN10Qt3DRender22QRenderSettingsPrivateC1Ev() {
+  return new CuteQt3DRender_QRenderSettingsPrivate();
+}
+
+//  void Qt3DRender::QRenderSettingsPrivate::init()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSettingsPrivate4initEv(
+    Qt3DRender::QRenderSettingsPrivate *self) {
+  self->init();
+}
+
+//  void Qt3DRender::QRenderSettingsPrivate::invalidateFrame()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSettingsPrivate15invalidateFrameEv(
+    Qt3DRender::QRenderSettingsPrivate *self) {
+  self->invalidateFrame();
+}
+
+//  void Qt3DRender::QRenderSettingsPrivate::_q_onPickingMethodChanged(QPicki
+//      ngSettings::PickMethod pickMethod)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSettingsPrivate25_q_onPickingMethodChangedENS_16QPickingSettings10PickMethodE(
+    Qt3DRender::QRenderSettingsPrivate *self,
+    Qt3DRender::QPickingSettings::PickMethod pickMethod) {
+  self->_q_onPickingMethodChanged(pickMethod);
+}
+
+//  void Qt3DRender::QRenderSettingsPrivate::_q_onPickResultModeChanged(QPick
+//      ingSettings::PickResultMode pickResultMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSettingsPrivate26_q_onPickResultModeChangedENS_16QPickingSettings14PickResultModeE(
+    Qt3DRender::QRenderSettingsPrivate *self,
+    Qt3DRender::QPickingSettings::PickResultMode pickResultMode) {
+  self->_q_onPickResultModeChanged(pickResultMode);
+}
+
+//  void Qt3DRender::QRenderSettingsPrivate::_q_onFaceOrientationPickingModeC
+//      hanged(QPickingSettings::FaceOrientationPickingMode
+//      faceOrientationPickingMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSettingsPrivate38_q_onFaceOrientationPickingModeChangedENS_16QPickingSettings26FaceOrientationPickingModeE(
+    Qt3DRender::QRenderSettingsPrivate *self,
+    Qt3DRender::QPickingSettings::FaceOrientationPickingMode faceOrientationPickingMode) {
+  self->_q_onFaceOrientationPickingModeChanged(faceOrientationPickingMode);
+}
+
+//  void
+//      Qt3DRender::QRenderSettingsPrivate::_q_onWorldSpaceToleranceChanged(f
+//      loat worldSpaceTolerance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender22QRenderSettingsPrivate31_q_onWorldSpaceToleranceChangedEf(
+    Qt3DRender::QRenderSettingsPrivate *self,
+    float worldSpaceTolerance) {
+  self->_q_onWorldSpaceToleranceChanged(worldSpaceTolerance);
+}
+
 //  QRenderSettings *Qt3DRender::QRenderSettingsPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QRenderSettings *ritual_ZN10Qt3DRender22QRenderSettingsPrivate6q_funcEv(

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QmlLidSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QmlLidSensor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QmlLidSensor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QmlLidSensor2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QmlLidSensorC1EP7QObject": ["address", "address"],
     "ritual_ZN12QmlLidSensorD1Ev": ["nothing", "address"],

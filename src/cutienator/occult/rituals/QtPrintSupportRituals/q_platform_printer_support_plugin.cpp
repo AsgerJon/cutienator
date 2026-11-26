@@ -210,6 +210,25 @@ const QMetaObject *ritual_ZNK29QPlatformPrinterSupportPlugin10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlatformPrinterSupportPlugin::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QPlatformPrinterSupportPlugin11qt_metacastEPKc(
+    QPlatformPrinterSupportPlugin *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlatformPrinterSupportPlugin::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QPlatformPrinterSupportPlugin11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlatformPrinterSupportPlugin *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlatformPrinterSupportPlugin::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -218,6 +237,14 @@ QString *ritual_ZN29QPlatformPrinterSupportPlugin2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPlatformPrinterSupportPlugin::tr(s, c, n));
+}
+
+//  QPlatformPrinterSupportPlugin::QPlatformPrinterSupportPlugin(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformPrinterSupportPlugin *ritual_ZN29QPlatformPrinterSupportPluginC1EP7QObject(
+    QObject *parent) {
+  return new CuteQPlatformPrinterSupportPlugin(parent);
 }
 
 //  QPlatformPrinterSupportPlugin::~QPlatformPrinterSupportPlugin()

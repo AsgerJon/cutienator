@@ -363,6 +363,24 @@ const QMetaObject *ritual_ZNK15QV4DebugService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QV4DebugService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QV4DebugService11qt_metacastEPKc(
+    QV4DebugService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QV4DebugService::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QV4DebugService11qt_metacallEN11QMetaObject4CallEiPPv(
+    QV4DebugService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QV4DebugService::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QV4DebugService2trEPKcS1_i(
@@ -384,6 +402,14 @@ void ritual_ZN15QV4DebugService13signalEmittedERK7QString(
     QV4DebugService *self,
     const QString *signal) {
   self->signalEmitted(*signal);
+}
+
+//  QV4DebugService::QV4DebugService(float version, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QV4DebugService *ritual_ZN15QV4DebugServiceC1EfP7QObject(
+    float version,
+    QObject *parent) {
+  return new CuteQV4DebugService(version, parent);
 }
 
 //  a Python function taken by a CuteQV4DebugService, for the function named

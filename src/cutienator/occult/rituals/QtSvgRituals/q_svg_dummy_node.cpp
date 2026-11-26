@@ -79,6 +79,15 @@ void ritual_ZN13QSvgDummyNodeD1Ev(QSvgDummyNode *self) {
   delete self;
 }
 
+//  void QSvgDummyNode::drawCommand(QPainter *a0, QSvgExtraStates &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSvgDummyNode11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgDummyNode *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  self->drawCommand(a0, *a1);
+}
+
 //  Type QSvgDummyNode::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK13QSvgDummyNode4typeEv(const QSvgDummyNode *self) {

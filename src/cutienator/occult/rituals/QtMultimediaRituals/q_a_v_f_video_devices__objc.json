@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-26 from",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qavfvideodevices_p.h, Qt",
+    "6.12.0, from Qt's source: Objective-C++, built on Apple's systems",
+    "only. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_callback_ZN16QAVFVideoDevicesC1EP25QPlatformMediaIntegrationOSt8functionIFbjEE": ["address", "address", "address", "address"],
+    "ritual_ZN16QAVFVideoDevicesD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QAVFVideoDevices15findVideoInputsEv": ["address", "address"],
+    "ritual_ZN16QAVFVideoDevices25onAvCaptureDevicesChangedEv": ["nothing", "address"],
+    "ritual_ZN16QAVFVideoDevices33rebuildObserveredAvCaptureDevicesEv": ["nothing", "address"]
+  }
+}

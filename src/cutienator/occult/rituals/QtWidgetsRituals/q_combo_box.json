@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QComboBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QComboBox11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QComboBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QComboBox2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QComboBoxC1EP7QWidget": ["address", "address"],
     "ritual_ZN9QComboBoxD1Ev": ["nothing", "address"],
@@ -138,6 +142,23 @@
     "ritual_ZN9QComboBox14setCurrentTextERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN9QComboBox15editTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QComboBox9activatedEi": ["nothing", "address", "int"],
+    "ritual_ZN9QComboBox13textActivatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QComboBox11highlightedEi": ["nothing", "address", "int"],
+    "ritual_ZN9QComboBox15textHighlightedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QComboBox19currentIndexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QComboBox18currentTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN9QComboBox12focusInEventEP11QFocusEvent": [
       "nothing", "address", "address"
     ],
@@ -182,6 +203,9 @@
     ],
     "ritual_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBoxC1ER16QComboBoxPrivateP7QWidget": [
+      "address", "address", "address"
     ],
     "ritual_ZN9QComboBox6d_funcEv": ["address", "address"],
     "ritual_ZNK9QComboBox6d_funcEv": ["address", "address"],

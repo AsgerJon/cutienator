@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QOpcUaClientImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QOpcUaClientImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QOpcUaClientImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QOpcUaClientImpl2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -38,6 +44,12 @@
     "ritual_ZN16QOpcUaClientImpl17readHistoryEventsERK29QOpcUaHistoryReadEventRequest": [
       "address", "address", "address"
     ],
+    "ritual_ZN16QOpcUaClientImpl12registerNodeE8QPointerI14QOpcUaNodeImplE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl14unregisterNodeE8QPointerI14QOpcUaNodeImplE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QOpcUaClientImpl7addNodeERK17QOpcUaAddNodeItem": [
       "bool", "address", "address"
     ],
@@ -54,6 +66,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK16QOpcUaClientImpl25supportedSecurityPoliciesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QOpcUaClientImpl23supportedUserTokenTypesEv": [
       "address", "address"
     ],
     "ritual_ZN16QOpcUaClientImpl13registerNodesERK5QListI7QStringE": [
@@ -92,6 +107,53 @@
     "ritual_ZN16QOpcUaClientImpl14handleNewEventEy5QListI8QVariantE": [
       "nothing", "address", "unsigned long long", "address"
     ],
-    "ritual_take_QOpcUaClientImpl": ["bool", "address", "chars", "address"]
+    "ritual_ZN16QOpcUaClientImpl9connectedEv": ["nothing", "address"],
+    "ritual_ZN16QOpcUaClientImpl12disconnectedEv": ["nothing", "address"],
+    "ritual_ZN16QOpcUaClientImpl22stateAndOrErrorChangedEN12QOpcUaClient11ClientStateENS0_11ClientErrorE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl24endpointsRequestFinishedE5QListI25QOpcUaEndpointDescriptionEN6QOpcUa12UaStatusCodeE4QUrl": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl19findServersFinishedE5QListI28QOpcUaApplicationDescriptionEN6QOpcUa12UaStatusCodeE4QUrl": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl26readNodeAttributesFinishedE5QListI16QOpcUaReadResultEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl27writeNodeAttributesFinishedE5QListI17QOpcUaWriteResultEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl15addNodeFinishedE20QOpcUaExpandedNodeId7QStringN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl18deleteNodeFinishedE7QStringN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl20addReferenceFinishedE7QStringS0_20QOpcUaExpandedNodeIdbN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "text", "text", "address", "bool", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl23deleteReferenceFinishedE7QStringS0_20QOpcUaExpandedNodeIdbN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "text", "text", "address", "bool", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl12connectErrorEP16QOpcUaErrorState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl29passwordForPrivateKeyRequiredE7QStringPS0_b": [
+      "nothing", "address", "text", "address", "bool"
+    ],
+    "ritual_ZN16QOpcUaClientImpl21registerNodesFinishedE5QListI7QStringES2_N6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl23unregisterNodesFinishedE5QListI7QStringEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl25connectionSettingsChangedE24QOpcUaConnectionSettings": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QOpcUaClientImpl": ["bool", "address", "chars", "address"],
+    "ritual_drop_QOpcUaClientImpl__QList_QOpcUaUserTokenPolicy_TokenType": [
+      "nothing", "address"
+    ]
   }
 }

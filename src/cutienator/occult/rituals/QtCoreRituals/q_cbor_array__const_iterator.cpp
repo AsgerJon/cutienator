@@ -26,6 +26,15 @@ QCborArray::ConstIterator *ritual_ZN10QCborArray13ConstIteratorC1ERKS0_(
   return new QCborArray::ConstIterator(*a0);
 }
 
+//  ConstIterator &QCborArray::ConstIterator::operator=(const ConstIterator
+//      &other)
+extern "C" Q_DECL_EXPORT
+QCborArray::ConstIterator *ritual_ZN10QCborArray13ConstIteratoraSERKS0_(
+    QCborArray::ConstIterator *self,
+    const QCborArray::ConstIterator *other) {
+  return &(self->operator=(*other));
+}
+
 //  QCborValueConstRef QCborArray::ConstIterator::operator*() const
 extern "C" Q_DECL_EXPORT
 QCborValueConstRef *ritual_ZNK10QCborArray13ConstIteratordeEv(
@@ -49,12 +58,26 @@ QCborValueConstRef *ritual_ZNK10QCborArray13ConstIteratorixEx(
   return new QCborValueConstRef(self->operator[](j));
 }
 
+//  ConstIterator &QCborArray::ConstIterator::operator++()
+extern "C" Q_DECL_EXPORT
+QCborArray::ConstIterator *ritual_ZN10QCborArray13ConstIteratorppEv(
+    QCborArray::ConstIterator *self) {
+  return &(self->operator++());
+}
+
 //  ConstIterator QCborArray::ConstIterator::operator++(int a0)
 extern "C" Q_DECL_EXPORT
 QCborArray::ConstIterator *ritual_ZN10QCborArray13ConstIteratorppEi(
     QCborArray::ConstIterator *self,
     int a0) {
   return new QCborArray::ConstIterator(self->operator++(a0));
+}
+
+//  ConstIterator &QCborArray::ConstIterator::operator--()
+extern "C" Q_DECL_EXPORT
+QCborArray::ConstIterator *ritual_ZN10QCborArray13ConstIteratormmEv(
+    QCborArray::ConstIterator *self) {
+  return &(self->operator--());
 }
 
 //  ConstIterator QCborArray::ConstIterator::operator--(int a0)

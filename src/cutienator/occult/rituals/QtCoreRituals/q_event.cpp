@@ -2,6 +2,7 @@
 //  QtCore/qcoreevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qcoreevent.h>
 #include <cstring>
+#include <QtCore/QEvent>
 
 //  A QEvent that Python can take functions over in. Every QEvent
 //  Python makes is one. Each function below asks the Python
@@ -11,6 +12,7 @@ typedef void * (*CuteQEventCall1)(const void *, int *);
 class CuteQEvent : public QEvent {
 public:
   using QEvent::QEvent;
+  CuteQEvent(const QEvent & other) : QEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -47,6 +49,18 @@ public:
     return QEvent::clone();
   }
 };
+
+//  QEvent::QEvent(const QEvent &a0)
+extern "C" Q_DECL_EXPORT
+QEvent *ritual_ZN6QEventC1ERKS_(const QEvent *a0) {
+  return new CuteQEvent(*a0);
+}
+
+//  QEvent &QEvent::operator=(const QEvent &other)
+extern "C" Q_DECL_EXPORT
+QEvent *ritual_ZN6QEventaSERKS_(QEvent *self, const QEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QEvent::QEvent(Type type)
 extern "C" Q_DECL_EXPORT
@@ -124,6 +138,30 @@ int ritual_ZN6QEvent17registerEventTypeEi(int hint) {
 extern "C" Q_DECL_EXPORT
 QEvent *ritual_ZNK6QEvent5cloneEv(const QEvent *self) {
   return self->clone();
+}
+
+//  QEvent::QEvent(Type type, InputEventTag a1)
+extern "C" Q_DECL_EXPORT
+QEvent *ritual_ZN6QEventC1ENS_4TypeENS_13InputEventTagE(
+    QEvent::Type type,
+    const QEvent::InputEventTag *a1) {
+  return new CuteQEvent(type, *a1);
+}
+
+//  QEvent::QEvent(Type type, PointerEventTag a1)
+extern "C" Q_DECL_EXPORT
+QEvent *ritual_ZN6QEventC1ENS_4TypeENS_15PointerEventTagE(
+    QEvent::Type type,
+    const QEvent::PointerEventTag *a1) {
+  return new CuteQEvent(type, *a1);
+}
+
+//  QEvent::QEvent(Type type, SinglePointEventTag a1)
+extern "C" Q_DECL_EXPORT
+QEvent *ritual_ZN6QEventC1ENS_4TypeENS_19SinglePointEventTagE(
+    QEvent::Type type,
+    const QEvent::SinglePointEventTag *a1) {
+  return new CuteQEvent(type, *a1);
 }
 
 //  void QEvent::setSpontaneous()

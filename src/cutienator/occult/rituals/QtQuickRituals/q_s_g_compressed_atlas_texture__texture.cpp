@@ -11,6 +11,111 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgrhiatlastexture_p.h>
+#include <QtCore/QVarLengthArray>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QtMath>
+#include <QtGui/QWindow>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtQuick/private/qsgtexture_p.h>
+#include <QtQuick/private/qsgcompressedtexture_p.h>
+#include <QtQuick/private/qsgcompressedatlastexture_p.h>
+#include <QtQuick/private/qsgcompressedatlastexture_p.h>
+#include <QtCore/QVarLengthArray>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QtMath>
+#include <QtGui/QGuiApplication>
+#include <QtGui/QScreen>
+#include <QtGui/QSurface>
+#include <QtGui/QWindow>
+#include <QtCore/QDebug>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qquickprofiler_p.h>
+#include <QtQuick/private/qsgtexture_p.h>
+#include <QtQuick/private/qsgcompressedtexture_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 354, as _ZN18QSGRhiAtlasTexture11TextureBase23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch
+namespace QSGRhiAtlasTexture {
+inline void TextureBase::commitTextureOperations(QRhi *rhi, QRhiResourceUpdateBatch *resourceUpdates)
+{
+#ifdef QT_NO_DEBUG
+    Q_UNUSED(rhi);
+#endif
+    Q_ASSERT(rhi == m_atlas->m_rhi);
+    m_atlas->commitTextureOperations(resourceUpdates);
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 324, as _ZN18QSGRhiAtlasTexture11TextureBaseC2EPNS_9AtlasBaseERK5QRect
+namespace QSGRhiAtlasTexture {
+inline TextureBase::TextureBase(AtlasBase *atlas, const QRect &textureRect)
+    : QSGTexture(*(new QSGTexturePrivate(this)))
+    , m_allocated_rect(textureRect)
+    , m_atlas(atlas)
+{
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 331, as _ZN18QSGRhiAtlasTexture11TextureBaseD2Ev
+namespace QSGRhiAtlasTexture {
+inline TextureBase::~TextureBase()
+{
+    m_atlas->remove(this);
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 110, as _ZNK25QSGCompressedAtlasTexture7Texture15hasAlphaChannelEv
+namespace QSGCompressedAtlasTexture {
+inline bool Texture::hasAlphaChannel() const
+{
+    return !QSGCompressedTexture::formatIsOpaque(static_cast<Atlas*>(m_atlas)->format());
+}
+}  // namespace QSGCompressedAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 115, as _ZNK25QSGCompressedAtlasTexture7Texture16removedFromAtlasEP23QRhiResourceUpdateBatch
+namespace QSGCompressedAtlasTexture {
+inline QSGTexture *Texture::removedFromAtlas(QRhiResourceUpdateBatch *) const
+{
+    if (m_nonatlas_texture) {
+        m_nonatlas_texture->setMipmapFiltering(mipmapFiltering());
+        m_nonatlas_texture->setFiltering(filtering());
+        return m_nonatlas_texture;
+    }
+
+    if (!m_data.isEmpty()) {
+        QTextureFileData texData;
+        texData.setData(m_data);
+        texData.setSize(m_size);
+        texData.setGLInternalFormat(static_cast<Atlas*>(m_atlas)->format());
+        texData.setDataLength(m_data.size());
+        texData.setDataOffset(0);
+        m_nonatlas_texture = new QSGCompressedTexture(texData);
+        m_nonatlas_texture->setMipmapFiltering(mipmapFiltering());
+        m_nonatlas_texture->setFiltering(filtering());
+    }
+
+    return m_nonatlas_texture;
+}
+}  // namespace QSGCompressedAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 105, as _ZN25QSGCompressedAtlasTexture7TextureD1Ev
+namespace QSGCompressedAtlasTexture {
+inline Texture::~Texture()
+{
+    delete m_nonatlas_texture;
+}
+}  // namespace QSGCompressedAtlasTexture
+//  -----------------------------------------------------------------------
 
 //  A QSGCompressedAtlasTexture::Texture that Python can take functions over in. Every QSGCompressedAtlasTexture::Texture
 //  Python makes is one. Each function below asks the Python
@@ -335,11 +440,44 @@ const QMetaObject *ritual_ZNK25QSGCompressedAtlasTexture7Texture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGCompressedAtlasTexture::Texture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QSGCompressedAtlasTexture7Texture11qt_metacastEPKc(
+    QSGCompressedAtlasTexture::Texture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGCompressedAtlasTexture::Texture::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QSGCompressedAtlasTexture7Texture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGCompressedAtlasTexture::Texture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QSGCompressedAtlasTexture::Texture::~Texture()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSGCompressedAtlasTexture7TextureD1Ev(
+    QSGCompressedAtlasTexture::Texture *self) {
+  delete self;
+}
+
 //  QSize QSGCompressedAtlasTexture::Texture::textureSize() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK25QSGCompressedAtlasTexture7Texture11textureSizeEv(
     const QSGCompressedAtlasTexture::Texture *self) {
   return new QSize(self->textureSize());
+}
+
+//  bool QSGCompressedAtlasTexture::Texture::hasAlphaChannel() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK25QSGCompressedAtlasTexture7Texture15hasAlphaChannelEv(
+    const QSGCompressedAtlasTexture::Texture *self) {
+  return self->hasAlphaChannel();
 }
 
 //  bool QSGCompressedAtlasTexture::Texture::hasMipmaps() const
@@ -355,6 +493,15 @@ extern "C" Q_DECL_EXPORT
 QRectF *ritual_ZNK25QSGCompressedAtlasTexture7Texture24normalizedTextureSubRectEv(
     const QSGCompressedAtlasTexture::Texture *self) {
   return new QRectF(self->normalizedTextureSubRect());
+}
+
+//  QSGTexture *QSGCompressedAtlasTexture::Texture::removedFromAtlas(QRhiReso
+//      urceUpdateBatch *a0) const
+extern "C" Q_DECL_EXPORT
+QSGTexture *ritual_ZNK25QSGCompressedAtlasTexture7Texture16removedFromAtlasEP23QRhiResourceUpdateBatch(
+    const QSGCompressedAtlasTexture::Texture *self,
+    QRhiResourceUpdateBatch *a0) {
+  return self->removedFromAtlas(a0);
 }
 
 //  const QByteArray &QSGCompressedAtlasTexture::Texture::data() const
@@ -388,6 +535,13 @@ QSize *ritual_own_ZNK25QSGCompressedAtlasTexture7Texture11textureSizeEv(
   return new QSize(self->QSGCompressedAtlasTexture::Texture::textureSize());
 }
 
+//  bool QSGCompressedAtlasTexture::Texture::hasAlphaChannel() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK25QSGCompressedAtlasTexture7Texture15hasAlphaChannelEv(
+    const QSGCompressedAtlasTexture::Texture *self) {
+  return self->QSGCompressedAtlasTexture::Texture::hasAlphaChannel();
+}
+
 //  bool QSGCompressedAtlasTexture::Texture::hasMipmaps() const
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK25QSGCompressedAtlasTexture7Texture10hasMipmapsEv(
@@ -402,4 +556,13 @@ QRectF *ritual_own_ZNK25QSGCompressedAtlasTexture7Texture24normalizedTextureSubR
     const QSGCompressedAtlasTexture::Texture *self) {
   return new QRectF(
       self->QSGCompressedAtlasTexture::Texture::normalizedTextureSubRect());
+}
+
+//  QSGTexture *QSGCompressedAtlasTexture::Texture::removedFromAtlas(QRhiReso
+//      urceUpdateBatch *a0) const
+extern "C" Q_DECL_EXPORT
+QSGTexture *ritual_own_ZNK25QSGCompressedAtlasTexture7Texture16removedFromAtlasEP23QRhiResourceUpdateBatch(
+    const QSGCompressedAtlasTexture::Texture *self,
+    QRhiResourceUpdateBatch *a0) {
+  return self->QSGCompressedAtlasTexture::Texture::removedFromAtlas(a0);
 }

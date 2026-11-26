@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK7QSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QSensor11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QSensor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QSensor2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QSensorC1ERK10QByteArrayP7QObject": [
       "address", "address", "address"
@@ -24,6 +28,7 @@
     "ritual_ZN7QSensor11setAlwaysOnEb": ["nothing", "address", "bool"],
     "ritual_ZNK7QSensor14skipDuplicatesEv": ["bool", "address"],
     "ritual_ZN7QSensor17setSkipDuplicatesEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QSensor18availableDataRatesEv": ["address", "address"],
     "ritual_ZNK7QSensor8dataRateEv": ["int", "address"],
     "ritual_ZN7QSensor11setDataRateEi": ["nothing", "address", "int"],
     "ritual_ZNK7QSensor12outputRangesEv": ["address", "address"],
@@ -69,10 +74,41 @@
     "ritual_ZN7QSensor13setBufferSizeEi": ["nothing", "address", "int"],
     "ritual_ZN7QSensor5startEv": ["bool", "address"],
     "ritual_ZN7QSensor4stopEv": ["nothing", "address"],
+    "ritual_ZN7QSensor11busyChangedEv": ["nothing", "address"],
+    "ritual_ZN7QSensor13activeChangedEv": ["nothing", "address"],
+    "ritual_ZN7QSensor14readingChangedEv": ["nothing", "address"],
+    "ritual_ZN7QSensor11sensorErrorEi": ["nothing", "address", "int"],
+    "ritual_ZN7QSensor23availableSensorsChangedEv": ["nothing", "address"],
+    "ritual_ZN7QSensor15alwaysOnChangedEv": ["nothing", "address"],
+    "ritual_ZN7QSensor15dataRateChangedEv": ["nothing", "address"],
+    "ritual_ZN7QSensor21skipDuplicatesChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN7QSensor26axesOrientationModeChangedENS_19AxesOrientationModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QSensor25currentOrientationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QSensor22userOrientationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QSensor20maxBufferSizeChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QSensor26efficientBufferSizeChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QSensor17bufferSizeChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QSensor17identifierChangedEv": ["nothing", "address"],
+    "ritual_ZN7QSensorC1ERK10QByteArrayR14QSensorPrivateP7QObject": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK7QSensor7backendEv": ["address", "address"],
     "ritual_ZN7QSensor16registerInstanceEv": ["nothing", "address"],
     "ritual_ZN7QSensor6d_funcEv": ["address", "address"],
     "ritual_ZNK7QSensor6d_funcEv": ["address", "address"],
-    "ritual_take_QSensor": ["bool", "address", "chars", "address"]
+    "ritual_take_QSensor": ["bool", "address", "chars", "address"],
+    "ritual_drop_QSensor__qrangelist": ["nothing", "address"]
   }
 }

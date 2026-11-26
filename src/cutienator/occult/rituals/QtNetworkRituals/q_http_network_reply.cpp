@@ -15,11 +15,15 @@
 #include <QtNetwork/qhttpheaders.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qbytearray.h>
+#if QT_CONFIG(http)
+#include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkrequest_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtNetwork/qsslconfiguration.h>
 #include <QtNetwork/qsslerror.h>
+#include <QtNetwork/qnetworkproxy.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -402,6 +406,25 @@ const QMetaObject *ritual_ZNK17QHttpNetworkReply10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHttpNetworkReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QHttpNetworkReply11qt_metacastEPKc(
+    QHttpNetworkReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHttpNetworkReply::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QHttpNetworkReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHttpNetworkReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHttpNetworkReply::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QHttpNetworkReply2trEPKcS1_i(
@@ -667,6 +690,21 @@ bool ritual_ZN17QHttpNetworkReply34supportsUserProvidedDownloadBufferEv(
   return self->supportsUserProvidedDownloadBuffer();
 }
 
+//  void QHttpNetworkReply::setUserProvidedDownloadBuffer(char *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply29setUserProvidedDownloadBufferEPc(
+    QHttpNetworkReply *self,
+    char *a0) {
+  self->setUserProvidedDownloadBuffer(a0);
+}
+
+//  char *QHttpNetworkReply::userProvidedDownloadBuffer()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN17QHttpNetworkReply26userProvidedDownloadBufferEv(
+    QHttpNetworkReply *self) {
+  return self->userProvidedDownloadBuffer();
+}
+
 //  void QHttpNetworkReply::abort()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QHttpNetworkReply5abortEv(QHttpNetworkReply *self) {
@@ -796,6 +834,137 @@ void ritual_ZN17QHttpNetworkReply15ignoreSslErrorsERK5QListI9QSslErrorE(
   self->ignoreSslErrors(*errors);
 }
 #endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QHttpNetworkReply::encrypted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply9encryptedEv(QHttpNetworkReply *self) {
+  self->encrypted();
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QHttpNetworkReply::sslErrors(const QList<QSslError> &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply9sslErrorsERK5QListI9QSslErrorE(
+    QHttpNetworkReply *self,
+    const QList<QSslError> *errors) {
+  self->sslErrors(*errors);
+}
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+//  void QHttpNetworkReply::preSharedKeyAuthenticationRequired(QSslPreSharedK
+//      eyAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator(
+    QHttpNetworkReply *self,
+    QSslPreSharedKeyAuthenticator *authenticator) {
+  self->preSharedKeyAuthenticationRequired(authenticator);
+}
+#endif  // !defined(QT_NO_SSL)
+
+//  void QHttpNetworkReply::socketStartedConnecting()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply23socketStartedConnectingEv(
+    QHttpNetworkReply *self) {
+  self->socketStartedConnecting();
+}
+
+//  void QHttpNetworkReply::requestSent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply11requestSentEv(QHttpNetworkReply *self) {
+  self->requestSent();
+}
+
+//  void QHttpNetworkReply::readyRead()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply9readyReadEv(QHttpNetworkReply *self) {
+  self->readyRead();
+}
+
+//  void QHttpNetworkReply::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply8finishedEv(QHttpNetworkReply *self) {
+  self->finished();
+}
+
+//  void QHttpNetworkReply::finishedWithError(QNetworkReply::NetworkError
+//      errorCode, const QString &detail)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply17finishedWithErrorEN13QNetworkReply12NetworkErrorERK7QString(
+    QHttpNetworkReply *self,
+    QNetworkReply::NetworkError errorCode,
+    const QString *detail) {
+  self->finishedWithError(errorCode, *detail);
+}
+
+//  void QHttpNetworkReply::headerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply13headerChangedEv(QHttpNetworkReply *self) {
+  self->headerChanged();
+}
+
+//  void QHttpNetworkReply::dataReadProgress(qint64 done, qint64 total)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply16dataReadProgressExx(
+    QHttpNetworkReply *self,
+    qint64 done,
+    qint64 total) {
+  self->dataReadProgress(done, total);
+}
+
+//  void QHttpNetworkReply::dataSendProgress(qint64 done, qint64 total)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply16dataSendProgressExx(
+    QHttpNetworkReply *self,
+    qint64 done,
+    qint64 total) {
+  self->dataSendProgress(done, total);
+}
+
+//  void QHttpNetworkReply::cacheCredentials(const QHttpNetworkRequest
+//      &request, QAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply16cacheCredentialsERK19QHttpNetworkRequestP14QAuthenticator(
+    QHttpNetworkReply *self,
+    const QHttpNetworkRequest *request,
+    QAuthenticator *authenticator) {
+  self->cacheCredentials(*request, authenticator);
+}
+
+#if !defined(QT_NO_NETWORKPROXY)
+//  void QHttpNetworkReply::proxyAuthenticationRequired(const QNetworkProxy
+//      &proxy, QAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator(
+    QHttpNetworkReply *self,
+    const QNetworkProxy *proxy,
+    QAuthenticator *authenticator) {
+  self->proxyAuthenticationRequired(*proxy, authenticator);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
+
+//  void QHttpNetworkReply::authenticationRequired(const QHttpNetworkRequest
+//      &request, QAuthenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply22authenticationRequiredERK19QHttpNetworkRequestP14QAuthenticator(
+    QHttpNetworkReply *self,
+    const QHttpNetworkRequest *request,
+    QAuthenticator *authenticator) {
+  self->authenticationRequired(*request, authenticator);
+}
+
+//  void QHttpNetworkReply::redirected(const QUrl &url, int httpStatus, int
+//      maxRedirectsRemaining)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QHttpNetworkReply10redirectedERK4QUrlii(
+    QHttpNetworkReply *self,
+    const QUrl *url,
+    int httpStatus,
+    int maxRedirectsRemaining) {
+  self->redirected(*url, httpStatus, maxRedirectsRemaining);
+}
 
 //  QHttpNetworkReplyPrivate *QHttpNetworkReply::d_func()
 extern "C" Q_DECL_EXPORT

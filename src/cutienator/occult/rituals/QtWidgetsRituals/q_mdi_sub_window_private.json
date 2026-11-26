@@ -10,17 +10,48 @@
     "ritual_ZN20QMdiSubWindowPrivate23_q_updateStaysOnTopHintEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QMdiSubWindowPrivate23_q_enterInteractiveModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate20leaveInteractiveModeEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN20QMdiSubWindowPrivate16removeBaseWidgetEv": [
       "nothing", "address"
     ],
     "ritual_ZN20QMdiSubWindowPrivate16initOperationMapEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QMdiSubWindowPrivate12updateCursorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate18updateDirtyRegionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate25updateGeometryConstraintsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate10updateMaskEv": ["nothing", "address"],
     "ritual_ZNK20QMdiSubWindowPrivate12getOperationERK6QPoint": [
       "int", "address", "address"
     ],
+    "ritual_ZNK20QMdiSubWindowPrivate15titleBarOptionsEv": [
+      "address", "address"
+    ],
     "ritual_ZN20QMdiSubWindowPrivate17ensureWindowStateEN2Qt11WindowStateE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate14titleBarHeightERK20QStyleOptionTitleBar": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate25drawTitleBarWhenMaximizedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate17updateWindowTitleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate19enterRubberBandModeEv": [
+      "nothing", "address"
     ],
     "ritual_ZN20QMdiSubWindowPrivate19leaveRubberBandModeEv": [
       "nothing", "address"
@@ -35,17 +66,31 @@
     "ritual_ZN20QMdiSubWindowPrivate16storeFocusWidgetEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QMdiSubWindowPrivate14setWindowFlagsE6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN20QMdiSubWindowPrivate10setEnabledENS_17WindowStateActionEb": [
       "nothing", "address", "int", "bool"
     ],
     "ritual_ZN20QMdiSubWindowPrivate15addToSystemMenuENS_17WindowStateActionERK7QStringPKc": [
       "nothing", "address", "int", "text", "chars"
     ],
+    "ritual_ZNK20QMdiSubWindowPrivate8iconSizeEv": ["address", "address"],
     "ritual_ZNK20QMdiSubWindowPrivate18setSizeGripVisibleEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN20QMdiSubWindowPrivate19originalWindowTitleEv": [
+      "text", "address"
+    ],
     "ritual_ZNK20QMdiSubWindowPrivate25originalWindowTitleHelperEv": [
       "text", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate17setNewWindowTitleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate14titleBarHeightEv": ["int", "address"],
+    "ritual_ZNK20QMdiSubWindowPrivate13getSubControlERK6QPoint": [
+      "int", "address", "address"
     ],
     "ritual_ZN20QMdiSubWindowPrivate14setNewGeometryEP5QRect": [
       "nothing", "address", "address"

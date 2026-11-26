@@ -6,6 +6,19 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendershadowmap_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qsize.h>
+#include <QtCore/qstring.h>
+#include <QtCore/QSize>
+#include <QtCore/QVector>
+#include <QtCore/QString>
+
+//  QSSGRenderShadowMap::QSSGRenderShadowMap(const QSSGRenderContextInterface
+//      &inContext)
+extern "C" Q_DECL_EXPORT
+QSSGRenderShadowMap *ritual_ZN19QSSGRenderShadowMapC1ERK26QSSGRenderContextInterface(
+    const QSSGRenderContextInterface *inContext) {
+  return new QSSGRenderShadowMap(*inContext);
+}
 
 //  QSSGRenderShadowMap::~QSSGRenderShadowMap()
 extern "C" Q_DECL_EXPORT
@@ -18,6 +31,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QSSGRenderShadowMap22releaseCachedResourcesEv(
     QSSGRenderShadowMap *self) {
   self->releaseCachedResources();
+}
+
+//  void QSSGRenderShadowMap::addShadowMaps(const QSSGShaderLightList
+//      &renderableLights)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSSGRenderShadowMap13addShadowMapsERK15QVarLengthArrayI15QSSGShaderLightLx16EE(
+    QSSGRenderShadowMap *self,
+    const QSSGShaderLightList *renderableLights) {
+  self->addShadowMaps(*renderableLights);
 }
 
 //  QSSGShadowMapEntry *QSSGRenderShadowMap::shadowMapEntry(int lightIdx)
@@ -72,4 +94,28 @@ extern "C" Q_DECL_EXPORT
 QRhiShaderResourceBindings *ritual_ZNK19QSSGRenderShadowMap14shadowClearSrbEv(
     const QSSGRenderShadowMap *self) {
   return self->shadowClearSrb();
+}
+
+//  QSSGShadowMapEntry *QSSGRenderShadowMap::addShadowMap(quint32 lightIdx,
+//      QSize size, QVector<QSSGShadowMapEntry::AtlasEntry> atlasEntries,
+//      quint32 csmNumSplits, QRhiTexture::Format format, bool isPointLight,
+//      const QString &renderNodeObjName)
+extern "C" Q_DECL_EXPORT
+QSSGShadowMapEntry *ritual_ZN19QSSGRenderShadowMap12addShadowMapEj5QSize5QListIN18QSSGShadowMapEntry10AtlasEntryEEjN11QRhiTexture6FormatEbRK7QString(
+    QSSGRenderShadowMap *self,
+    quint32 lightIdx,
+    const QSize *size,
+    const QVector<QSSGShadowMapEntry::AtlasEntry> *atlasEntries,
+    quint32 csmNumSplits,
+    QRhiTexture::Format format,
+    bool isPointLight,
+    const QString *renderNodeObjName) {
+  return self->addShadowMap(
+      lightIdx,
+      *size,
+      *atlasEntries,
+      csmNumSplits,
+      format,
+      isPointLight,
+      *renderNodeObjName);
 }

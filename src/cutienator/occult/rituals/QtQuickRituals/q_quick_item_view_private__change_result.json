@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN21QQuickItemViewPrivate12ChangeResultC1Ev": ["address"],
+    "ritual_ZN21QQuickItemViewPrivate12ChangeResultC1ERK17QQmlNullableValueIdE": [
+      "address", "address"
+    ],
     "ritual_ZN21QQuickItemViewPrivate12ChangeResultpLERKS0_": [
       "nothing", "address", "address"
     ],

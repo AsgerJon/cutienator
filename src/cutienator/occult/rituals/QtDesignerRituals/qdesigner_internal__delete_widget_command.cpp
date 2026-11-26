@@ -110,6 +110,45 @@ public:
 #endif  // QT_CONFIG(undocommand)
 };
 
+//  qdesigner_internal::DeleteWidgetCommand::DeleteWidgetCommand(QDesignerFor
+//      mWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::DeleteWidgetCommand *ritual_ZN18qdesigner_internal19DeleteWidgetCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_DeleteWidgetCommand(formWindow);
+}
+
+//  qdesigner_internal::DeleteWidgetCommand::~DeleteWidgetCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19DeleteWidgetCommandD1Ev(
+    qdesigner_internal::DeleteWidgetCommand *self) {
+  delete self;
+}
+
+//  void qdesigner_internal::DeleteWidgetCommand::init(QWidget *widget,
+//      unsigned int flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19DeleteWidgetCommand4initEP7QWidgetj(
+    qdesigner_internal::DeleteWidgetCommand *self,
+    QWidget *widget,
+    unsigned int flags) {
+  self->init(widget, flags);
+}
+
+//  void qdesigner_internal::DeleteWidgetCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19DeleteWidgetCommand4redoEv(
+    qdesigner_internal::DeleteWidgetCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::DeleteWidgetCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19DeleteWidgetCommand4undoEv(
+    qdesigner_internal::DeleteWidgetCommand *self) {
+  self->undo();
+}
+
 //  a Python function taken by a Cuteqdesigner_internal_DeleteWidgetCommand,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT

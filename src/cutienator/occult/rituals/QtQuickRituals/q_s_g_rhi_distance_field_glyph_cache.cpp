@@ -110,6 +110,15 @@ void ritual_ZN29QSGRhiDistanceFieldGlyphCacheD1Ev(
   delete self;
 }
 
+//  void QSGRhiDistanceFieldGlyphCache::requestGlyphs(const QSet<glyph_t>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGRhiDistanceFieldGlyphCache13requestGlyphsERK4QSetIjE(
+    QSGRhiDistanceFieldGlyphCache *self,
+    const QSet<glyph_t> *glyphs) {
+  self->requestGlyphs(*glyphs);
+}
+
 //  void QSGRhiDistanceFieldGlyphCache::storeGlyphs(const
 //      QList<QDistanceField> &glyphs)
 extern "C" Q_DECL_EXPORT
@@ -117,6 +126,24 @@ void ritual_ZN29QSGRhiDistanceFieldGlyphCache11storeGlyphsERK5QListI14QDistanceF
     QSGRhiDistanceFieldGlyphCache *self,
     const QList<QDistanceField> *glyphs) {
   self->storeGlyphs(*glyphs);
+}
+
+//  void QSGRhiDistanceFieldGlyphCache::referenceGlyphs(const QSet<glyph_t>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGRhiDistanceFieldGlyphCache15referenceGlyphsERK4QSetIjE(
+    QSGRhiDistanceFieldGlyphCache *self,
+    const QSet<glyph_t> *glyphs) {
+  self->referenceGlyphs(*glyphs);
+}
+
+//  void QSGRhiDistanceFieldGlyphCache::releaseGlyphs(const QSet<glyph_t>
+//      &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGRhiDistanceFieldGlyphCache13releaseGlyphsERK4QSetIjE(
+    QSGRhiDistanceFieldGlyphCache *self,
+    const QSet<glyph_t> *glyphs) {
+  self->releaseGlyphs(*glyphs);
 }
 
 //  bool QSGRhiDistanceFieldGlyphCache::useTextureResizeWorkaround() const
@@ -193,6 +220,48 @@ bool ritual_ZN29QSGRhiDistanceFieldGlyphCache21loadPregeneratedCacheERK8QRawFont
     QSGRhiDistanceFieldGlyphCache *self,
     const QRawFont *font) {
   return self->loadPregeneratedCache(*font);
+}
+
+//  void QSGRhiDistanceFieldGlyphCache::createTexture(TextureInfo *texInfo,
+//      int width, int height, const void *pixels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEiiPKv(
+    QSGRhiDistanceFieldGlyphCache *self,
+    QSGRhiDistanceFieldGlyphCache::TextureInfo *texInfo,
+    int width,
+    int height,
+    const void *pixels) {
+  self->createTexture(texInfo, width, height, pixels);
+}
+
+//  void QSGRhiDistanceFieldGlyphCache::createTexture(TextureInfo *texInfo,
+//      int width, int height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGRhiDistanceFieldGlyphCache13createTextureEPNS_11TextureInfoEii(
+    QSGRhiDistanceFieldGlyphCache *self,
+    QSGRhiDistanceFieldGlyphCache::TextureInfo *texInfo,
+    int width,
+    int height) {
+  self->createTexture(texInfo, width, height);
+}
+
+//  void QSGRhiDistanceFieldGlyphCache::resizeTexture(TextureInfo *texInfo,
+//      int width, int height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QSGRhiDistanceFieldGlyphCache13resizeTextureEPNS_11TextureInfoEii(
+    QSGRhiDistanceFieldGlyphCache *self,
+    QSGRhiDistanceFieldGlyphCache::TextureInfo *texInfo,
+    int width,
+    int height) {
+  self->resizeTexture(texInfo, width, height);
+}
+
+//  TextureInfo *QSGRhiDistanceFieldGlyphCache::textureInfo(int index)
+extern "C" Q_DECL_EXPORT
+QSGRhiDistanceFieldGlyphCache::TextureInfo *ritual_ZN29QSGRhiDistanceFieldGlyphCache11textureInfoEi(
+    QSGRhiDistanceFieldGlyphCache *self,
+    int index) {
+  return self->textureInfo(index);
 }
 
 //  a Python function taken by a CuteQSGRhiDistanceFieldGlyphCache, for the

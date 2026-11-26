@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender7QNoDraw10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QNoDraw::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender7QNoDraw11qt_metacastEPKc(
+    Qt3DRender::QNoDraw *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QNoDraw::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender7QNoDraw11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QNoDraw *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QNoDraw::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender7QNoDraw2trEPKcS2_i(
@@ -186,6 +205,19 @@ QString *ritual_ZN10Qt3DRender7QNoDraw2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QNoDraw::tr(s, c, n));
+}
+
+//  Qt3DRender::QNoDraw::QNoDraw(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QNoDraw *ritual_ZN10Qt3DRender7QNoDrawC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QNoDraw(parent);
+}
+
+//  Qt3DRender::QNoDraw::~QNoDraw()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender7QNoDrawD1Ev(Qt3DRender::QNoDraw *self) {
+  delete self;
 }
 
 //  a Python function taken by a CuteQt3DRender_QNoDraw, for the function

@@ -13,9 +13,12 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qbrush.h>
 #include <QtGui/qpen.h>
+#if QT_CONFIG(charts_boxplot_chart)
+#include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/boxwhiskersdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
@@ -949,6 +952,24 @@ const QMetaObject *ritual_ZNK11BoxWhiskers10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *BoxWhiskers::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11BoxWhiskers11qt_metacastEPKc(
+    BoxWhiskers *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int BoxWhiskers::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11BoxWhiskers11qt_metacallEN11QMetaObject4CallEiPPv(
+    BoxWhiskers *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString BoxWhiskers::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11BoxWhiskers2trEPKcS1_i(
@@ -1093,6 +1114,47 @@ void ritual_ZN11BoxWhiskers11setGeometryERK6QRectF(
     BoxWhiskers *self,
     const QRectF *rect) {
   self->setGeometry(*rect);
+}
+
+//  void BoxWhiskers::clicked(QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11BoxWhiskers7clickedEP7QBoxSet(
+    BoxWhiskers *self,
+    QBoxSet *boxset) {
+  self->clicked(boxset);
+}
+
+//  void BoxWhiskers::hovered(bool status, QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11BoxWhiskers7hoveredEbP7QBoxSet(
+    BoxWhiskers *self,
+    bool status,
+    QBoxSet *boxset) {
+  self->hovered(status, boxset);
+}
+
+//  void BoxWhiskers::pressed(QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11BoxWhiskers7pressedEP7QBoxSet(
+    BoxWhiskers *self,
+    QBoxSet *boxset) {
+  self->pressed(boxset);
+}
+
+//  void BoxWhiskers::released(QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11BoxWhiskers8releasedEP7QBoxSet(
+    BoxWhiskers *self,
+    QBoxSet *boxset) {
+  self->released(boxset);
+}
+
+//  void BoxWhiskers::doubleClicked(QBoxSet *boxset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11BoxWhiskers13doubleClickedEP7QBoxSet(
+    BoxWhiskers *self,
+    QBoxSet *boxset) {
+  self->doubleClicked(boxset);
 }
 
 //  a Python function taken by a CuteBoxWhiskers, for the function named by

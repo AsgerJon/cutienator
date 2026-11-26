@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QQuick3DInstanceList10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DInstanceList11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuick3DInstanceList11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuick3DInstanceList2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,7 +22,11 @@
     "ritual_ZN20QQuick3DInstanceList17getInstanceBufferEPi": [
       "address", "address", "address"
     ],
+    "ritual_ZN20QQuick3DInstanceList9instancesEv": ["address", "address"],
     "ritual_ZNK20QQuick3DInstanceList13instanceCountEv": ["int", "address"],
+    "ritual_ZN20QQuick3DInstanceList20instanceCountChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN20QQuick3DInstanceList20handleInstanceChangeEv": [
       "nothing", "address"
     ],
@@ -26,8 +36,23 @@
     "ritual_ZN20QQuick3DInstanceList20generateInstanceDataEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QQuick3DInstanceList26qmlAppendInstanceListEntryEP16QQmlListPropertyI25QQuick3DInstanceListEntryEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuick3DInstanceList22qmlInstanceListEntryAtEP16QQmlListPropertyI25QQuick3DInstanceListEntryEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN20QQuick3DInstanceList27qmlInstanceListEntriesCountEP16QQmlListPropertyI25QQuick3DInstanceListEntryE": [
+      "long long", "address"
+    ],
+    "ritual_ZN20QQuick3DInstanceList27qmlClearInstanceListEntriesEP16QQmlListPropertyI25QQuick3DInstanceListEntryE": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuick3DInstanceList": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QQuick3DInstanceList__QQmlListProperty_QQuick3DInstanceListEntry": [
+      "nothing", "address"
     ]
   }
 }

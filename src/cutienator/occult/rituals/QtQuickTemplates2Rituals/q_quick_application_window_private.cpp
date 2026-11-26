@@ -15,6 +15,8 @@
 #include <QtGui/qpalette.h>
 #include <QtGui/qfont.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A QQuickApplicationWindowPrivate that Python can take functions over in. Every QQuickApplicationWindowPrivate
 //  Python makes is one. Each function below asks the Python
@@ -323,6 +325,13 @@ QQuickApplicationWindowPrivate *ritual_ZN30QQuickApplicationWindowPrivate3getEP2
   return QQuickApplicationWindowPrivate::get(window);
 }
 
+//  QQmlListProperty<QObject> QQuickApplicationWindowPrivate::contentData()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN30QQuickApplicationWindowPrivate11contentDataEv(
+    QQuickApplicationWindowPrivate *self) {
+  return new QQmlListProperty<QObject>(self->contentData());
+}
+
 //  void QQuickApplicationWindowPrivate::updateHasBackgroundFlags()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QQuickApplicationWindowPrivate24updateHasBackgroundFlagsEv(
@@ -419,6 +428,15 @@ void ritual_ZN30QQuickApplicationWindowPrivate21setActiveFocusControlEP10QQuickI
     QQuickApplicationWindowPrivate *self,
     QQuickItem *item) {
   self->setActiveFocusControl(item);
+}
+
+//  void QQuickApplicationWindowPrivate::contentData_append(QQmlListProperty<
+//      QObject> *prop, QObject *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuickApplicationWindowPrivate18contentData_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *prop,
+    QObject *obj) {
+  QQuickApplicationWindowPrivate::contentData_append(prop, obj);
 }
 
 //  void QQuickApplicationWindowPrivate::cancelBackground()
@@ -526,4 +544,12 @@ void ritual_own_ZN30QQuickApplicationWindowPrivate22updateChildrenPalettesERK8QP
     const QPalette *parentPalette) {
   self->QQuickApplicationWindowPrivate::updateChildrenPalettes(
       *parentPalette);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickApplicationWindowPrivate
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickApplicationWindowPrivate__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquickpositioners_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquickpositioners_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25:
+//  took out the ritual of the protected constructor
+//  QQuickFlow(QQuickFlowPrivate &, QQuickItem *), which Qt declares
+//  but its library does not offer (undefined reference when
+//  linking), and its row.
+//  Kept as it is when the generator runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_positioners)
@@ -24,6 +29,14 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK10QQuickFlow10metaObjectEv(
     const QQuickFlow *self) {
   return self->metaObject();
+}
+
+//  void *QQuickFlow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickFlow11qt_metacastEPKc(
+    QQuickFlow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
 }
 
 //  QString QQuickFlow::tr(const char *s, const char *c, int n)
@@ -89,6 +102,19 @@ void ritual_ZN10QQuickFlow13doPositioningEP6QSizeF(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickFlow24reportConflictingAnchorsEv(QQuickFlow *self) {
   self->reportConflictingAnchors();
+}
+
+//  QQuickFlowPrivate *QQuickFlow::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickFlowPrivate *ritual_ZN10QQuickFlow6d_funcEv(QQuickFlow *self) {
+  return self->d_func();
+}
+
+//  const QQuickFlowPrivate *QQuickFlow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickFlowPrivate *ritual_ZNK10QQuickFlow6d_funcEv(
+    const QQuickFlow *self) {
+  return self->d_func();
 }
 
 //  void QQuickFlow::doPositioning(QSizeF *contentSize)

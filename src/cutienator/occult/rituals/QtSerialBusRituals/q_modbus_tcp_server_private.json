@@ -13,6 +13,12 @@
     "ritual_ZN23QModbusTcpServerPrivate12forwardErrorERK7QStringN13QModbusDevice5ErrorE": [
       "nothing", "address", "text", "int"
     ],
+    "ritual_ZNK23QModbusTcpServerPrivate21matchingServerAddressEh": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZN23QModbusTcpServerPrivate14setupTcpServerEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QModbusTcpServerPrivate": [
       "bool", "address", "chars", "address"
     ]

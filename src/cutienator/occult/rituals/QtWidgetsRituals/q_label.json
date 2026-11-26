@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK6QLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QLabel11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN6QLabel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN6QLabel2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN6QLabelC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
@@ -26,6 +30,10 @@
     "ritual_ZNK6QLabel10textFormatEv": ["int", "address"],
     "ritual_ZN6QLabel13setTextFormatEN2Qt10TextFormatE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QLabel16resourceProviderEv": ["address", "address"],
+    "ritual_ZN6QLabel19setResourceProviderERKSt8functionIF8QVariantRK4QUrlEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK6QLabel9alignmentEv": ["int", "address"],
     "ritual_ZN6QLabel12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
@@ -69,6 +77,12 @@
     "ritual_ZN6QLabel6setNumEi": ["nothing", "address", "int"],
     "ritual_ZN6QLabel6setNumEd": ["nothing", "address", "double"],
     "ritual_ZN6QLabel5clearEv": ["nothing", "address"],
+    "ritual_ZN6QLabel13linkActivatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN6QLabel11linkHoveredERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN6QLabel5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN6QLabel13keyPressEventEP9QKeyEvent": [
       "nothing", "address", "address"
@@ -132,6 +146,11 @@
     "ritual_own_ZN6QLabel13focusOutEventEP11QFocusEvent": [
       "nothing", "address", "address"
     ],
-    "ritual_own_ZN6QLabel18focusNextPrevChildEb": ["bool", "address", "bool"]
+    "ritual_own_ZN6QLabel18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_drop_QLabel__QTextDocument_ResourceProvider": [
+      "nothing", "address"
+    ]
   }
 }

@@ -10,6 +10,14 @@
 #include <QtDBus/6.12.0/QtDBus/private/qdbusintegrator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  void QDBusSlotCache::swap(QDBusSlotCache &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QDBusSlotCache4swapERS_(
+    QDBusSlotCache *self,
+    QDBusSlotCache *other) {
+  self->swap(*other);
+}
+
 //  QDBusSlotCache::~QDBusSlotCache()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QDBusSlotCacheD1Ev(QDBusSlotCache *self) {

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qdeadlinetimer.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qdeadlinetimer.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, instances of templates of the class: 3. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qdeadlinetimer.h>
+#include <chrono>
 
 //  QDeadlineTimer::QDeadlineTimer()
 extern "C" Q_DECL_EXPORT
@@ -29,6 +32,14 @@ QDeadlineTimer *ritual_ZN14QDeadlineTimerC1ExN2Qt9TimerTypeE(
     qint64 msecs,
     Qt::TimerType type) {
   return new QDeadlineTimer(msecs, type);
+}
+
+//  void QDeadlineTimer::swap(QDeadlineTimer &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QDeadlineTimer4swapERS_(
+    QDeadlineTimer *self,
+    QDeadlineTimer *other) {
+  self->swap(*other);
 }
 
 //  bool QDeadlineTimer::isForever() const
@@ -184,6 +195,13 @@ void ritual_ZN14QDeadlineTimermIEx(QDeadlineTimer *self, qint64 msecs) {
   self->operator-=(msecs);
 }
 
+//  std::chrono::nanoseconds QDeadlineTimer::remainingTimeAsDuration() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK14QDeadlineTimer23remainingTimeAsDurationEv(
+    const QDeadlineTimer *self) {
+  return static_cast<long long>(self->remainingTimeAsDuration().count());
+}
+
 //  bool operator==(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK14QDeadlineTimerS1_(
@@ -243,4 +261,34 @@ qint64 ritual_ZNK14QDeadlineTimer21rawRemainingTimeNSecsEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QDeadlineTimerD1Ev(QDeadlineTimer *self) {
   delete self;
+}
+
+//  QDeadlineTimer::QDeadlineTimer<long, std::ratio<1l, 1000l> >(
+//      std::chrono::duration<long, std::ratio<1l, 1000l> > remaining,
+//      Qt::TimerType type_)
+extern "C" Q_DECL_EXPORT
+QDeadlineTimer *ritual_ZN14QDeadlineTimerC2IlSt5ratioILl1ELl1000EEEENSt6chrono8durationIT_T0_EEN2Qt9TimerTypeE(
+    long long remaining,
+    Qt::TimerType type_) {
+  return new QDeadlineTimer(std::chrono::milliseconds(remaining), type_);
+}
+
+//  QDeadlineTimer &QDeadlineTimer::operator=<long, std::ratio<1l, 1000l> >(
+//      std::chrono::duration<long, std::ratio<1l, 1000l> > remaining)
+extern "C" Q_DECL_EXPORT
+QDeadlineTimer *ritual_ZN14QDeadlineTimeraSIlSt5ratioILl1ELl1000EEEERS_NSt6chrono8durationIT_T0_EE(
+    QDeadlineTimer *self,
+    long long remaining) {
+  return &(*self = std::chrono::milliseconds(remaining));
+}
+
+//  void QDeadlineTimer::setRemainingTime<long, std::ratio<1l, 1000l> >(
+//      std::chrono::duration<long, std::ratio<1l, 1000l> > remaining,
+//      Qt::TimerType type_)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QDeadlineTimer16setRemainingTimeIlSt5ratioILl1ELl1000EEEEvNSt6chrono8durationIT_T0_EEN2Qt9TimerTypeE(
+    QDeadlineTimer *self,
+    long long remaining,
+    Qt::TimerType type_) {
+  self->setRemainingTime(std::chrono::milliseconds(remaining), type_);
 }

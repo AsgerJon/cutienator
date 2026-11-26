@@ -92,6 +92,16 @@
     "ritual_ZNK15QTextCharFormat21fontHintingPreferenceEv": [
       "int", "address"
     ],
+    "ritual_ZN15QTextCharFormat15setFontFeaturesERK4QMapIN5QFont3TagEjE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QTextCharFormat12fontFeaturesEv": ["address", "address"],
+    "ritual_ZN15QTextCharFormat19setFontVariableAxesERK4QMapIN5QFont3TagEfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QTextCharFormat16fontVariableAxesEv": [
+      "address", "address"
+    ],
     "ritual_ZN15QTextCharFormat14setFontKerningEb": [
       "nothing", "address", "bool"
     ],
@@ -147,6 +157,18 @@
     ],
     "ritual_ZNK15QTextCharFormat19tableCellColumnSpanEv": ["int", "address"],
     "ritual_ZN15QTextCharFormatC1ERK11QTextFormat": ["address", "address"],
-    "ritual_ZN15QTextCharFormatD1Ev": ["nothing", "address"]
+    "ritual_ZlsR11QDataStreamRK15QTextCharFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR15QTextCharFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QTextCharFormatD1Ev": ["nothing", "address"],
+    "ritual_drop_QTextCharFormat__QMap_QFont_Tag_quint32": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QTextCharFormat__QMap_QFont_Tag_float": [
+      "nothing", "address"
+    ]
   }
 }

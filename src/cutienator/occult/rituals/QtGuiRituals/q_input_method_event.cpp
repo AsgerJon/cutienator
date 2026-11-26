@@ -16,6 +16,7 @@ typedef void (*CuteQInputMethodEventCall1)(const void *, bool, int *);
 class CuteQInputMethodEvent : public QInputMethodEvent {
 public:
   using QInputMethodEvent::QInputMethodEvent;
+  CuteQInputMethodEvent(const QInputMethodEvent & other) : QInputMethodEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -57,6 +58,22 @@ public:
   }
 };
 
+//  QInputMethodEvent::QInputMethodEvent(const QInputMethodEvent &a0)
+extern "C" Q_DECL_EXPORT
+QInputMethodEvent *ritual_ZN17QInputMethodEventC1ERKS_(
+    const QInputMethodEvent *a0) {
+  return new CuteQInputMethodEvent(*a0);
+}
+
+//  QInputMethodEvent &QInputMethodEvent::operator=(const QInputMethodEvent
+//      &other)
+extern "C" Q_DECL_EXPORT
+QInputMethodEvent *ritual_ZN17QInputMethodEventaSERKS_(
+    QInputMethodEvent *self,
+    const QInputMethodEvent *other) {
+  return &(self->operator=(*other));
+}
+
 //  QInputMethodEvent *QInputMethodEvent::clone() const
 extern "C" Q_DECL_EXPORT
 QInputMethodEvent *ritual_ZNK17QInputMethodEvent5cloneEv(
@@ -76,6 +93,15 @@ QInputMethodEvent *ritual_ZN17QInputMethodEventC1Ev() {
   return new CuteQInputMethodEvent();
 }
 
+//  QInputMethodEvent::QInputMethodEvent(const QString &preeditText, const
+//      QList<Attribute> &attributes)
+extern "C" Q_DECL_EXPORT
+QInputMethodEvent *ritual_ZN17QInputMethodEventC1ERK7QStringRK5QListINS_9AttributeEE(
+    const QString *preeditText,
+    const QList<QInputMethodEvent::Attribute> *attributes) {
+  return new CuteQInputMethodEvent(*preeditText, *attributes);
+}
+
 //  void QInputMethodEvent::setCommitString(const QString &commitString, int
 //      replaceFrom, int replaceLength)
 extern "C" Q_DECL_EXPORT
@@ -85,6 +111,13 @@ void ritual_ZN17QInputMethodEvent15setCommitStringERK7QStringii(
     int replaceFrom,
     int replaceLength) {
   self->setCommitString(*commitString, replaceFrom, replaceLength);
+}
+
+//  const QList<Attribute> &QInputMethodEvent::attributes() const
+extern "C" Q_DECL_EXPORT
+const QList<QInputMethodEvent::Attribute> *ritual_ZNK17QInputMethodEvent10attributesEv(
+    const QInputMethodEvent *self) {
+  return &(self->attributes());
 }
 
 //  const QString &QInputMethodEvent::preeditString() const

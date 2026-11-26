@@ -8,7 +8,9 @@
 #include <QtNetwork/qsslconfiguration.h>
 #include <QtNetwork/qsslcertificate.h>
 #include <QtNetwork/qsslcipher.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qocspresponse.h>
+#endif
 #include <QtNetwork/qsslkey.h>
 #include <QtCore/qbytearray.h>
 #include <QtNetwork/qsslerror.h>
@@ -16,10 +18,14 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtNetwork/QSsl>
+#include <QtCore/QString>
 
 //  Only a class built on QSslSocket may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
 struct OwnQSslSocket : QSslSocket {
+  using QSslSocket::readData;
   using QSslSocket::skipData;
 };
 
@@ -75,41 +81,45 @@ typedef bool (*CuteQSslSocketCall14)(const void *, int, int *);
 typedef bool (*CuteQSslSocketCall15)(const void *, int, int *);
 #endif  // !defined(QT_NO_SSL)
 #if !defined(QT_NO_SSL)
-typedef qint64 (*CuteQSslSocketCall16)(const void *, qint64, int *);
+typedef qint64 (*CuteQSslSocketCall16)(const void *, char *, qint64, int *);
 #endif  // !defined(QT_NO_SSL)
-typedef bool (*CuteQSslSocketCall17)(const void *, const QHostAddress *, quint16, int, int *);
-typedef qintptr (*CuteQSslSocketCall18)(const void *, int *);
-typedef bool (*CuteQSslSocketCall19)(const void *, int *);
-typedef bool (*CuteQSslSocketCall20)(const void *, int, int *);
-typedef qint64 (*CuteQSslSocketCall21)(const void *, int *);
-typedef qint64 (*CuteQSslSocketCall22)(const void *, int *);
-typedef bool (*CuteQSslSocketCall23)(const void *, qint64, int *);
-typedef bool (*CuteQSslSocketCall24)(const void *, int *);
+#if !defined(QT_NO_SSL)
+typedef qint64 (*CuteQSslSocketCall17)(const void *, qint64, int *);
+#endif  // !defined(QT_NO_SSL)
+typedef bool (*CuteQSslSocketCall18)(const void *, const QHostAddress *, quint16, int, int *);
+typedef qintptr (*CuteQSslSocketCall19)(const void *, int *);
+typedef bool (*CuteQSslSocketCall20)(const void *, int *);
+typedef qint64 (*CuteQSslSocketCall21)(const void *, char *, qint64, int *);
+typedef bool (*CuteQSslSocketCall22)(const void *, int, int *);
+typedef qint64 (*CuteQSslSocketCall23)(const void *, int *);
+typedef qint64 (*CuteQSslSocketCall24)(const void *, int *);
+typedef bool (*CuteQSslSocketCall25)(const void *, qint64, int *);
+typedef bool (*CuteQSslSocketCall26)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSslSocketCall25)(const void *, QEvent *, int *);
+typedef bool (*CuteQSslSocketCall27)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQSslSocketCall26)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQSslSocketCall28)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSslSocketCall27)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQSslSocketCall29)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSslSocketCall28)(const void *, QChildEvent *, int *);
+typedef void (*CuteQSslSocketCall30)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSslSocketCall29)(const void *, QEvent *, int *);
+typedef void (*CuteQSslSocketCall31)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSslSocketCall30)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSslSocketCall32)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQSslSocketCall31)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSslSocketCall33)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQSslSocket : public QSslSocket {
 public:
   using QSslSocket::QSslSocket;
-  void *taken[32] = {};
+  void *taken[34] = {};
 
   bool take(const char *key, void *call) {
 #if !defined(QT_NO_SSL)
@@ -209,82 +219,92 @@ public:
     }
 #endif  // !defined(QT_NO_SSL)
 #if !defined(QT_NO_SSL)
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZN9QIODevice8readDataEPcx")) {
       taken[16] = call;
       return true;
     }
 #endif  // !defined(QT_NO_SSL)
-    if (!std::strcmp(key, "_ZN15QAbstractSocket4bindERK12QHostAddresst6QFlagsINS_8BindFlagEE")) {
+#if !defined(QT_NO_SSL)
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK15QAbstractSocket16socketDescriptorEv")) {
+#endif  // !defined(QT_NO_SSL)
+    if (!std::strcmp(key, "_ZN15QAbstractSocket4bindERK12QHostAddresst6QFlagsINS_8BindFlagEE")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
+    if (!std::strcmp(key, "_ZNK15QAbstractSocket16socketDescriptorEv")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice12readLineDataEPcx")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
       taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+      taken[26] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[25] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[26] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[27] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[28] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[29] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[30] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[31] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[32] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[33] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -513,11 +533,24 @@ public:
 #endif  // !defined(QT_NO_SSL)
 
 #if !defined(QT_NO_SSL)
-  //  qint64 QSslSocket::skipData(qint64 maxSize)
-  qint64 skipData(qint64 maxSize) override {
+  //  qint64 QSslSocket::readData(char *data, qint64 maxlen)
+  qint64 readData(char *data, qint64 maxlen) override {
     if (taken[16]) {
       int handled = 0;
       CuteQSslSocketCall16 call = reinterpret_cast<CuteQSslSocketCall16>(taken[16]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QSslSocket::readData(data, maxlen);
+  }
+#endif  // !defined(QT_NO_SSL)
+
+#if !defined(QT_NO_SSL)
+  //  qint64 QSslSocket::skipData(qint64 maxSize)
+  qint64 skipData(qint64 maxSize) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQSslSocketCall17 call = reinterpret_cast<CuteQSslSocketCall17>(taken[17]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -531,9 +564,9 @@ public:
       const QHostAddress &address,
       quint16 port,
       QAbstractSocket::BindMode mode) override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQSslSocketCall17 call = reinterpret_cast<CuteQSslSocketCall17>(taken[17]);
+      CuteQSslSocketCall18 call = reinterpret_cast<CuteQSslSocketCall18>(taken[18]);
       bool given = call(this, &address, port, static_cast<int>(mode.toInt()), &handled);
       if (handled) return given;
     }
@@ -542,9 +575,9 @@ public:
 
   //  qintptr QAbstractSocket::socketDescriptor() const
   qintptr socketDescriptor() const override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQSslSocketCall18 call = reinterpret_cast<CuteQSslSocketCall18>(taken[18]);
+      CuteQSslSocketCall19 call = reinterpret_cast<CuteQSslSocketCall19>(taken[19]);
       qintptr given = call(this, &handled);
       if (handled) return given;
     }
@@ -553,20 +586,31 @@ public:
 
   //  bool QAbstractSocket::isSequential() const
   bool isSequential() const override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQSslSocketCall19 call = reinterpret_cast<CuteQSslSocketCall19>(taken[19]);
+      CuteQSslSocketCall20 call = reinterpret_cast<CuteQSslSocketCall20>(taken[20]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
     return QAbstractSocket::isSequential();
   }
 
+  //  qint64 QAbstractSocket::readLineData(char *data, qint64 maxlen)
+  qint64 readLineData(char *data, qint64 maxlen) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQSslSocketCall21 call = reinterpret_cast<CuteQSslSocketCall21>(taken[21]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QAbstractSocket::readLineData(data, maxlen);
+  }
+
   //  bool QIODevice::open(QIODeviceBase::OpenMode mode)
   bool open(QIODeviceBase::OpenMode mode) override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQSslSocketCall20 call = reinterpret_cast<CuteQSslSocketCall20>(taken[20]);
+      CuteQSslSocketCall22 call = reinterpret_cast<CuteQSslSocketCall22>(taken[22]);
       bool given = call(this, static_cast<int>(mode.toInt()), &handled);
       if (handled) return given;
     }
@@ -575,9 +619,9 @@ public:
 
   //  qint64 QIODevice::pos() const
   qint64 pos() const override {
-    if (taken[21]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQSslSocketCall21 call = reinterpret_cast<CuteQSslSocketCall21>(taken[21]);
+      CuteQSslSocketCall23 call = reinterpret_cast<CuteQSslSocketCall23>(taken[23]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -586,9 +630,9 @@ public:
 
   //  qint64 QIODevice::size() const
   qint64 size() const override {
-    if (taken[22]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQSslSocketCall22 call = reinterpret_cast<CuteQSslSocketCall22>(taken[22]);
+      CuteQSslSocketCall24 call = reinterpret_cast<CuteQSslSocketCall24>(taken[24]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -597,9 +641,9 @@ public:
 
   //  bool QIODevice::seek(qint64 pos)
   bool seek(qint64 pos) override {
-    if (taken[23]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQSslSocketCall23 call = reinterpret_cast<CuteQSslSocketCall23>(taken[23]);
+      CuteQSslSocketCall25 call = reinterpret_cast<CuteQSslSocketCall25>(taken[25]);
       bool given = call(this, pos, &handled);
       if (handled) return given;
     }
@@ -608,9 +652,9 @@ public:
 
   //  bool QIODevice::reset()
   bool reset() override {
-    if (taken[24]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQSslSocketCall24 call = reinterpret_cast<CuteQSslSocketCall24>(taken[24]);
+      CuteQSslSocketCall26 call = reinterpret_cast<CuteQSslSocketCall26>(taken[26]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -620,9 +664,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[25]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQSslSocketCall25 call = reinterpret_cast<CuteQSslSocketCall25>(taken[25]);
+      CuteQSslSocketCall27 call = reinterpret_cast<CuteQSslSocketCall27>(taken[27]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -633,9 +677,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[26]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQSslSocketCall26 call = reinterpret_cast<CuteQSslSocketCall26>(taken[26]);
+      CuteQSslSocketCall28 call = reinterpret_cast<CuteQSslSocketCall28>(taken[28]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -646,9 +690,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[27]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQSslSocketCall27 call = reinterpret_cast<CuteQSslSocketCall27>(taken[27]);
+      CuteQSslSocketCall29 call = reinterpret_cast<CuteQSslSocketCall29>(taken[29]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -659,9 +703,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[28]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQSslSocketCall28 call = reinterpret_cast<CuteQSslSocketCall28>(taken[28]);
+      CuteQSslSocketCall30 call = reinterpret_cast<CuteQSslSocketCall30>(taken[30]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -672,9 +716,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[29]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQSslSocketCall29 call = reinterpret_cast<CuteQSslSocketCall29>(taken[29]);
+      CuteQSslSocketCall31 call = reinterpret_cast<CuteQSslSocketCall31>(taken[31]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -685,9 +729,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[30]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQSslSocketCall30 call = reinterpret_cast<CuteQSslSocketCall30>(taken[30]);
+      CuteQSslSocketCall32 call = reinterpret_cast<CuteQSslSocketCall32>(taken[32]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -698,9 +742,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[31]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQSslSocketCall31 call = reinterpret_cast<CuteQSslSocketCall31>(taken[31]);
+      CuteQSslSocketCall33 call = reinterpret_cast<CuteQSslSocketCall33>(taken[33]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -714,6 +758,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK10QSslSocket10metaObjectEv(
     const QSslSocket *self) {
   return self->metaObject();
+}
+
+//  void *QSslSocket::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QSslSocket11qt_metacastEPKc(
+    QSslSocket *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSslSocket::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QSslSocket11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSslSocket *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QSslSocket::tr(const char *s, const char *c, int n)
@@ -1160,6 +1222,16 @@ bool ritual_ZN10QSslSocket16setActiveBackendERK7QString(
   return QSslSocket::setActiveBackend(*backendName);
 }
 
+//  QList<QSsl::SslProtocol> QSslSocket::supportedProtocols(const QString
+//      &backendName)
+extern "C" Q_DECL_EXPORT
+QList<QSsl::SslProtocol> *ritual_ZN10QSslSocket18supportedProtocolsERK7QString(
+    const QString *backendName) {
+  return new QList<QSsl::SslProtocol>(
+      QSslSocket::supportedProtocols(
+          *backendName));
+}
+
 //  bool QSslSocket::isProtocolSupported(QSsl::SslProtocol protocol, const
 //      QString &backendName)
 extern "C" Q_DECL_EXPORT
@@ -1169,6 +1241,16 @@ bool ritual_ZN10QSslSocket19isProtocolSupportedEN4QSsl11SslProtocolERK7QString(
   return QSslSocket::isProtocolSupported(protocol, *backendName);
 }
 
+//  QList<QSsl::ImplementedClass> QSslSocket::implementedClasses(const
+//      QString &backendName)
+extern "C" Q_DECL_EXPORT
+QList<QSsl::ImplementedClass> *ritual_ZN10QSslSocket18implementedClassesERK7QString(
+    const QString *backendName) {
+  return new QList<QSsl::ImplementedClass>(
+      QSslSocket::implementedClasses(
+          *backendName));
+}
+
 //  bool QSslSocket::isClassImplemented(QSsl::ImplementedClass cl, const
 //      QString &backendName)
 extern "C" Q_DECL_EXPORT
@@ -1176,6 +1258,16 @@ bool ritual_ZN10QSslSocket18isClassImplementedEN4QSsl16ImplementedClassERK7QStri
     QSsl::ImplementedClass cl,
     const QString *backendName) {
   return QSslSocket::isClassImplemented(cl, *backendName);
+}
+
+//  QList<QSsl::SupportedFeature> QSslSocket::supportedFeatures(const QString
+//      &backendName)
+extern "C" Q_DECL_EXPORT
+QList<QSsl::SupportedFeature> *ritual_ZN10QSslSocket17supportedFeaturesERK7QString(
+    const QString *backendName) {
+  return new QList<QSsl::SupportedFeature>(
+      QSslSocket::supportedFeatures(
+          *backendName));
 }
 
 //  bool QSslSocket::isFeatureSupported(QSsl::SupportedFeature feat, const
@@ -1218,6 +1310,98 @@ void ritual_ZN10QSslSocket21startServerEncryptionEv(QSslSocket *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QSslSocket15ignoreSslErrorsEv(QSslSocket *self) {
   self->ignoreSslErrors();
+}
+
+//  void QSslSocket::encrypted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket9encryptedEv(QSslSocket *self) {
+  self->encrypted();
+}
+
+//  void QSslSocket::peerVerifyError(const QSslError &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket15peerVerifyErrorERK9QSslError(
+    QSslSocket *self,
+    const QSslError *error) {
+  self->peerVerifyError(*error);
+}
+
+//  void QSslSocket::sslErrors(const QList<QSslError> &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket9sslErrorsERK5QListI9QSslErrorE(
+    QSslSocket *self,
+    const QList<QSslError> *errors) {
+  self->sslErrors(*errors);
+}
+
+//  void QSslSocket::modeChanged(QSslSocket::SslMode newMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket11modeChangedENS_7SslModeE(
+    QSslSocket *self,
+    QSslSocket::SslMode newMode) {
+  self->modeChanged(newMode);
+}
+
+//  void QSslSocket::encryptedBytesWritten(qint64 totalBytes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket21encryptedBytesWrittenEx(
+    QSslSocket *self,
+    qint64 totalBytes) {
+  self->encryptedBytesWritten(totalBytes);
+}
+
+//  void QSslSocket::preSharedKeyAuthenticationRequired(QSslPreSharedKeyAuthe
+//      nticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator(
+    QSslSocket *self,
+    QSslPreSharedKeyAuthenticator *authenticator) {
+  self->preSharedKeyAuthenticationRequired(authenticator);
+}
+
+//  void QSslSocket::newSessionTicketReceived()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket24newSessionTicketReceivedEv(QSslSocket *self) {
+  self->newSessionTicketReceived();
+}
+
+//  void QSslSocket::alertSent(QSsl::AlertLevel level, QSsl::AlertType type,
+//      const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket9alertSentEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString(
+    QSslSocket *self,
+    QSsl::AlertLevel level,
+    QSsl::AlertType type,
+    const QString *description) {
+  self->alertSent(level, type, *description);
+}
+
+//  void QSslSocket::alertReceived(QSsl::AlertLevel level, QSsl::AlertType
+//      type, const QString &description)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket13alertReceivedEN4QSsl10AlertLevelENS0_9AlertTypeERK7QString(
+    QSslSocket *self,
+    QSsl::AlertLevel level,
+    QSsl::AlertType type,
+    const QString *description) {
+  self->alertReceived(level, type, *description);
+}
+
+//  void QSslSocket::handshakeInterruptedOnError(const QSslError &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QSslSocket27handshakeInterruptedOnErrorERK9QSslError(
+    QSslSocket *self,
+    const QSslError *error) {
+  self->handshakeInterruptedOnError(*error);
+}
+
+//  qint64 QSslSocket::readData(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN10QSslSocket8readDataEPcx(
+    QSslSocket *self,
+    char *data,
+    qint64 maxlen) {
+  return self->readData(data, maxlen);
 }
 
 //  qint64 QSslSocket::skipData(qint64 maxSize)
@@ -1385,6 +1569,17 @@ bool ritual_own_ZN10QSslSocket19waitForDisconnectedEi(
   return self->QSslSocket::waitForDisconnected(msecs);
 }
 
+//  qint64 QSslSocket::readData(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN10QSslSocket8readDataEPcx(
+    QSslSocket *self,
+    char *data,
+    qint64 maxlen) {
+  return static_cast<OwnQSslSocket *>(self)->OwnQSslSocket::readData(
+      data,
+      maxlen);
+}
+
 //  qint64 QSslSocket::skipData(qint64 maxSize)
 extern "C" Q_DECL_EXPORT
 qint64 ritual_own_ZN10QSslSocket8skipDataEx(
@@ -1392,6 +1587,27 @@ qint64 ritual_own_ZN10QSslSocket8skipDataEx(
     qint64 maxSize) {
   return static_cast<OwnQSslSocket *>(self)->OwnQSslSocket::skipData(
       maxSize);
+}
+
+//  a QList<QSsl::SslProtocol> a ritual of QSslSocket gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSslSocket__QList_QSsl_SslProtocol(
+    QList<QSsl::SslProtocol> *self) {
+  delete self;
+}
+
+//  a QList<QSsl::ImplementedClass> a ritual of QSslSocket gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSslSocket__QList_QSsl_ImplementedClass(
+    QList<QSsl::ImplementedClass> *self) {
+  delete self;
+}
+
+//  a QList<QSsl::SupportedFeature> a ritual of QSslSocket gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSslSocket__QList_QSsl_SupportedFeature(
+    QList<QSsl::SupportedFeature> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_SSL)

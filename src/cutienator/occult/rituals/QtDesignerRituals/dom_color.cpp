@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
 //  DomColor::DomColor()
@@ -18,6 +19,24 @@ DomColor *ritual_ZN8DomColorC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8DomColorD1Ev(DomColor *self) {
   delete self;
+}
+
+//  void DomColor::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8DomColor4readER16QXmlStreamReader(
+    DomColor *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomColor::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8DomColor5writeER16QXmlStreamWriterRK7QString(
+    const DomColor *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  bool DomColor::hasAttributeAlpha() const

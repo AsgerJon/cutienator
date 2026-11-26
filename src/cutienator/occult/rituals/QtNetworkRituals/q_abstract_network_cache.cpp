@@ -308,6 +308,25 @@ const QMetaObject *ritual_ZNK21QAbstractNetworkCache10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractNetworkCache::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QAbstractNetworkCache11qt_metacastEPKc(
+    QAbstractNetworkCache *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractNetworkCache::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QAbstractNetworkCache11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractNetworkCache *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractNetworkCache::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QAbstractNetworkCache2trEPKcS1_i(
@@ -384,6 +403,22 @@ void ritual_ZN21QAbstractNetworkCache6insertEP9QIODevice(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QAbstractNetworkCache5clearEv(QAbstractNetworkCache *self) {
   self->clear();
+}
+
+//  QAbstractNetworkCache::QAbstractNetworkCache(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractNetworkCache *ritual_ZN21QAbstractNetworkCacheC1EP7QObject(
+    QObject *parent) {
+  return new CuteQAbstractNetworkCache(parent);
+}
+
+//  QAbstractNetworkCache::QAbstractNetworkCache(QAbstractNetworkCachePrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractNetworkCache *ritual_ZN21QAbstractNetworkCacheC1ER28QAbstractNetworkCachePrivateP7QObject(
+    QAbstractNetworkCachePrivate *dd,
+    QObject *parent) {
+  return new CuteQAbstractNetworkCache(*dd, parent);
 }
 
 //  QAbstractNetworkCachePrivate *QAbstractNetworkCache::d_func()

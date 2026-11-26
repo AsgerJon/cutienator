@@ -1262,6 +1262,25 @@ const QMetaObject *ritual_ZNK19QQuickFlexboxLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFlexboxLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickFlexboxLayout11qt_metacastEPKc(
+    QQuickFlexboxLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFlexboxLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickFlexboxLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFlexboxLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFlexboxLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickFlexboxLayout2trEPKcS1_i(
@@ -1545,11 +1564,88 @@ void ritual_ZNK19QQuickFlexboxLayout12checkAnchorsEP10QQuickItem(
   self->checkAnchors(item);
 }
 
+//  void QQuickFlexboxLayout::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickFlexboxLayout12countChangedEv(
+    QQuickFlexboxLayout *self) {
+  self->countChanged();
+}
+
+//  void QQuickFlexboxLayout::directionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickFlexboxLayout16directionChangedEv(
+    QQuickFlexboxLayout *self) {
+  self->directionChanged();
+}
+
+//  void QQuickFlexboxLayout::wrapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickFlexboxLayout11wrapChangedEv(
+    QQuickFlexboxLayout *self) {
+  self->wrapChanged();
+}
+
+//  void QQuickFlexboxLayout::alignItemsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickFlexboxLayout17alignItemsChangedEv(
+    QQuickFlexboxLayout *self) {
+  self->alignItemsChanged();
+}
+
+//  void QQuickFlexboxLayout::alignContentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickFlexboxLayout19alignContentChangedEv(
+    QQuickFlexboxLayout *self) {
+  self->alignContentChanged();
+}
+
+//  void QQuickFlexboxLayout::justifyContentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickFlexboxLayout21justifyContentChangedEv(
+    QQuickFlexboxLayout *self) {
+  self->justifyContentChanged();
+}
+
+//  void QQuickFlexboxLayout::gapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickFlexboxLayout10gapChangedEv(
+    QQuickFlexboxLayout *self) {
+  self->gapChanged();
+}
+
+//  void QQuickFlexboxLayout::rowGapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickFlexboxLayout13rowGapChangedEv(
+    QQuickFlexboxLayout *self) {
+  self->rowGapChanged();
+}
+
+//  void QQuickFlexboxLayout::columnGapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickFlexboxLayout16columnGapChangedEv(
+    QQuickFlexboxLayout *self) {
+  self->columnGapChanged();
+}
+
 //  void QQuickFlexboxLayout::childItemsChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuickFlexboxLayout17childItemsChangedEv(
     QQuickFlexboxLayout *self) {
   self->childItemsChanged();
+}
+
+//  QQuickFlexboxLayoutPrivate *QQuickFlexboxLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickFlexboxLayoutPrivate *ritual_ZN19QQuickFlexboxLayout6d_funcEv(
+    QQuickFlexboxLayout *self) {
+  return self->d_func();
+}
+
+//  const QQuickFlexboxLayoutPrivate *QQuickFlexboxLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickFlexboxLayoutPrivate *ritual_ZNK19QQuickFlexboxLayout6d_funcEv(
+    const QQuickFlexboxLayout *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQuickFlexboxLayout, for the function

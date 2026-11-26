@@ -153,6 +153,14 @@ void ritual_ZN35QQuickGeoCoordinateAnimationPrivate16directionChangedEv(
   self->directionChanged();
 }
 
+//  size_t
+//      QQuickGeoCoordinateAnimationPrivate::_qt_property_m_direction_offset(
+//      )
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN35QQuickGeoCoordinateAnimationPrivate31_qt_property_m_direction_offsetEv() {
+  return QQuickGeoCoordinateAnimationPrivate::_qt_property_m_direction_offset();
+}
+
 //  a Python function taken by a CuteQQuickGeoCoordinateAnimationPrivate, for
 //      the function named by the key
 extern "C" Q_DECL_EXPORT

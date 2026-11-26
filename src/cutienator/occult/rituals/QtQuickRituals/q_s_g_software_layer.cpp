@@ -13,13 +13,13 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgsoftwarelayer_p.h>
+#include <QtQuick/private/qsgsoftwarecontext_p.h>
+#include <QtQuick/private/qsgsoftwarepixmaprenderer_p.h>
 #include <QtQuick/private/qsgsoftwarepixmaprenderer_p.h>
 #include <QtQuick/private/qsgsoftwarecontext_p.h>
 #include <QtQuick/QSGSimpleRectNode>
 #include <QtCore/QElapsedTimer>
-#include <QtQuick/private/qsgsoftwarelayer_p.h>
-#include <QtQuick/private/qsgsoftwarecontext_p.h>
-#include <QtQuick/private/qsgsoftwarepixmaprenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -28,6 +28,13 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarelayer.cpp, line 165, as _ZN16QSGSoftwareLayer11invalidatedEv
+inline void QSGSoftwareLayer::invalidated()
+{
+    delete m_renderer;
+    m_renderer = nullptr;
+}
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepixmaprenderer.cpp, line 27, as _ZN25QSGSoftwarePixmapRenderer11renderSceneEv
 inline void QSGSoftwarePixmapRenderer::renderScene()
@@ -46,12 +53,6 @@ inline QSGSoftwarePixmapRenderer::QSGSoftwarePixmapRenderer(QSGRenderContext *co
     : QSGAbstractSoftwareRenderer(context)
 {
 
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarelayer.cpp, line 28, as _ZN16QSGSoftwareLayerD1Ev
-inline QSGSoftwareLayer::~QSGSoftwareLayer()
-{
-    invalidated();
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarelayer.cpp, line 33, as _ZNK16QSGSoftwareLayer13comparisonKeyEv
@@ -204,11 +205,10 @@ inline void QSGSoftwareLayer::markDirtyTexture()
     }
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarelayer.cpp, line 165, as _ZN16QSGSoftwareLayer11invalidatedEv
-inline void QSGSoftwareLayer::invalidated()
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarelayer.cpp, line 28, as _ZN16QSGSoftwareLayerD1Ev
+inline QSGSoftwareLayer::~QSGSoftwareLayer()
 {
-    delete m_renderer;
-    m_renderer = nullptr;
+    invalidated();
 }
 //  -----------------------------------------------------------------------
 
@@ -789,6 +789,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QSGSoftwareLayer10metaObjectEv(
     const QSGSoftwareLayer *self) {
   return self->metaObject();
+}
+
+//  void *QSGSoftwareLayer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QSGSoftwareLayer11qt_metacastEPKc(
+    QSGSoftwareLayer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGSoftwareLayer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QSGSoftwareLayer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGSoftwareLayer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QSGSoftwareLayer::~QSGSoftwareLayer()

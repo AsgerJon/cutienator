@@ -8,8 +8,35 @@
     "ritual_ZNK10Qt3DRender14QAbstractLight10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender14QAbstractLight11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender14QAbstractLight11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender14QAbstractLight2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QAbstractLightD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender14QAbstractLight4typeEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender14QAbstractLight5colorEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender14QAbstractLight9intensityEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QAbstractLight8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QAbstractLight12setIntensityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender14QAbstractLightC1ERNS_21QAbstractLightPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QAbstractLight12colorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QAbstractLight16intensityChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_ZN10Qt3DRender14QAbstractLight6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender14QAbstractLight6d_funcEv": [

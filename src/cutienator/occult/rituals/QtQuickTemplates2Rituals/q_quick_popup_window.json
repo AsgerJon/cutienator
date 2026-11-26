@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickPopupWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickPopupWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickPopupWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickPopupWindow2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,9 @@
     "ritual_ZN17QQuickPopupWindow13windowChangedEP7QWindow": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK17QQuickPopupWindow12global2LocalERK6QPoint": [
+      "address", "address", "address"
+    ],
     "ritual_ZN17QQuickPopupWindow20parentWindowXChangedEi": [
       "nothing", "address", "int"
     ],
@@ -49,6 +58,8 @@
     "ritual_ZNK17QQuickPopupWindow21parentControlGeometryEv": [
       "address", "address"
     ],
+    "ritual_ZN17QQuickPopupWindow6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickPopupWindow6d_funcEv": ["address", "address"],
     "ritual_own_ZN17QQuickPopupWindow9hideEventEP10QHideEvent": [
       "nothing", "address", "address"
     ],
@@ -60,6 +71,9 @@
     ],
     "ritual_own_ZN17QQuickPopupWindow5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_drop_QQuickPopupWindow__std_optional_QPoint": [
+      "nothing", "address"
     ]
   }
 }

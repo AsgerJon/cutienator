@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN27QOpcUaX509DistinguishedNameC1Ev": ["address"],
+    "ritual_ZN27QOpcUaX509DistinguishedNameC1ERKS_": ["address", "address"],
+    "ritual_ZN27QOpcUaX509DistinguishedNameaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK27QOpcUaX509DistinguishedNameeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QOpcUaX509DistinguishedNameD1Ev": ["nothing", "address"],
+    "ritual_ZN27QOpcUaX509DistinguishedName8setEntryENS_4TypeERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK27QOpcUaX509DistinguishedName5entryENS_4TypeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN27QOpcUaX509DistinguishedName9typeToOidENS_4TypeE": [
+      "text", "int"
+    ]
+  }
+}

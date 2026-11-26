@@ -9,9 +9,22 @@
       "bool", "unsigned short"
     ],
     "ritual_ZN20QSharedMemorySystemV19runtimeSupportCheckEv": ["bool"],
+    "ritual_ZN20QSharedMemorySystemV6handleEP20QSharedMemoryPrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QSharedMemorySystemV11cleanHandleEP20QSharedMemoryPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QSharedMemorySystemV6attachEP20QSharedMemoryPrivateN13QSharedMemory10AccessModeE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN20QSharedMemorySystemV6detachEP20QSharedMemoryPrivate": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN20QSharedMemorySystemV19updateNativeKeyFileERK13QNativeIpcKey": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN20QSharedMemorySystemVD1Ev": ["nothing", "address"]
+    "ritual_ZN20QSharedMemorySystemVD1Ev": ["nothing", "address"],
+    "ritual_drop_QSharedMemorySystemV__key_t": ["nothing", "address"]
   }
 }

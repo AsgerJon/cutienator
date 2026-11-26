@@ -1,16 +1,21 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qbytearrayview.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qbytearrayview.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN14QByteArrayView21lengthHelperCharArrayEPKcm": [
       "long long", "chars", "size_t"
     ],
+    "ritual_ZN14QByteArrayView10castHelperEPKc": ["address", "address"],
     "ritual_ZN14QByteArrayViewC1Ev": ["address"],
+    "ritual_ZN14QByteArrayViewC1EDn": ["address"],
     "ritual_ZNK14QByteArrayView11toByteArrayEv": ["address", "address"],
     "ritual_ZN14QByteArrayView7maxSizeEv": ["long long"],
     "ritual_ZNK14QByteArrayView4sizeEv": ["long long", "address"],
+    "ritual_ZNK14QByteArrayView4dataEv": ["address", "address"],
+    "ritual_ZNK14QByteArrayView9constDataEv": ["address", "address"],
     "ritual_ZNK14QByteArrayViewixEx": ["char", "address", "long long"],
     "ritual_ZNK14QByteArrayView2atEx": ["char", "address", "long long"],
     "ritual_ZNK14QByteArrayView5firstEx": [
@@ -21,6 +26,10 @@
       "address", "address", "long long"
     ],
     "ritual_ZNK14QByteArrayView6slicedExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN14QByteArrayView5sliceEx": ["address", "address", "long long"],
+    "ritual_ZN14QByteArrayView5sliceExx": [
       "address", "address", "long long", "long long"
     ],
     "ritual_ZNK14QByteArrayView7choppedEx": [
@@ -98,9 +107,20 @@
       "int", "address", "address", "int"
     ],
     "ritual_ZNK14QByteArrayView11isValidUtf8Ev": ["bool", "address"],
+    "ritual_ZNK14QByteArrayView5beginEv": ["address", "address"],
+    "ritual_ZNK14QByteArrayView3endEv": ["address", "address"],
+    "ritual_ZNK14QByteArrayView6cbeginEv": ["address", "address"],
+    "ritual_ZNK14QByteArrayView4cendEv": ["address", "address"],
+    "ritual_ZNK14QByteArrayView6rbeginEv": ["address", "address"],
+    "ritual_ZNK14QByteArrayView4rendEv": ["address", "address"],
+    "ritual_ZNK14QByteArrayView7crbeginEv": ["address", "address"],
+    "ritual_ZNK14QByteArrayView5crendEv": ["address", "address"],
     "ritual_ZNK14QByteArrayView5emptyEv": ["bool", "address"],
     "ritual_ZNK14QByteArrayView5frontEv": ["char", "address"],
     "ritual_ZNK14QByteArrayView4backEv": ["char", "address"],
+    "ritual_ZNK14QByteArrayViewcvSt17basic_string_viewIcSt11char_traitsIcEEEv": [
+      "address", "address"
+    ],
     "ritual_ZNK14QByteArrayView8max_sizeEv": ["long long", "address"],
     "ritual_ZNK14QByteArrayView6isNullEv": ["bool", "address"],
     "ritual_ZNK14QByteArrayView7isEmptyEv": ["bool", "address"],
@@ -140,11 +160,61 @@
     "ritual_ZgtRK5QCharRK14QByteArrayView": ["bool", "address", "address"],
     "ritual_ZleRK5QCharRK14QByteArrayView": ["bool", "address", "address"],
     "ritual_ZgeRK5QCharRK14QByteArrayView": ["bool", "address", "address"],
+    "ritual_ZeqRK14QByteArrayViewRKDs": [
+      "bool", "address", "unsigned short"
+    ],
+    "ritual_ZneRK14QByteArrayViewRKDs": [
+      "bool", "address", "unsigned short"
+    ],
+    "ritual_ZltRK14QByteArrayViewRKDs": [
+      "bool", "address", "unsigned short"
+    ],
+    "ritual_ZgtRK14QByteArrayViewRKDs": [
+      "bool", "address", "unsigned short"
+    ],
+    "ritual_ZleRK14QByteArrayViewRKDs": [
+      "bool", "address", "unsigned short"
+    ],
+    "ritual_ZgeRK14QByteArrayViewRKDs": [
+      "bool", "address", "unsigned short"
+    ],
+    "ritual_ZeqRKDsRK14QByteArrayView": [
+      "bool", "unsigned short", "address"
+    ],
+    "ritual_ZneRKDsRK14QByteArrayView": [
+      "bool", "unsigned short", "address"
+    ],
+    "ritual_ZltRKDsRK14QByteArrayView": [
+      "bool", "unsigned short", "address"
+    ],
+    "ritual_ZgtRKDsRK14QByteArrayView": [
+      "bool", "unsigned short", "address"
+    ],
+    "ritual_ZleRKDsRK14QByteArrayView": [
+      "bool", "unsigned short", "address"
+    ],
+    "ritual_ZgeRKDsRK14QByteArrayView": [
+      "bool", "unsigned short", "address"
+    ],
     "ritual_ZN14QByteArrayViewD1Ev": ["nothing", "address"],
     "ritual_list_make_QByteArrayView": ["address"],
     "ritual_list_add_QByteArrayView": ["nothing", "address", "address"],
     "ritual_list_size_QByteArrayView": ["long long", "address"],
     "ritual_list_at_QByteArrayView": ["address", "address", "long long"],
-    "ritual_list_drop_QByteArrayView": ["nothing", "address"]
+    "ritual_list_drop_QByteArrayView": ["nothing", "address"],
+    "ritual_drop_QByteArrayView__QByteArrayView_const_reverse_iterator": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QByteArrayView__std_string_view": ["nothing", "address"],
+    "ritual_ZN14QByteArrayViewC1IcLb1EEEPKT_x": [
+      "address", "chars", "long long"
+    ],
+    "ritual_ZN14QByteArrayViewC1IcLb1EEEPKT_S3_": [
+      "address", "chars", "chars"
+    ],
+    "ritual_ZN14QByteArrayViewC1IPKcLb1EEERKT_": ["address", "chars"],
+    "ritual_ZN14QByteArrayViewC1I10QByteArrayLb1EEERKT_": [
+      "address", "address"
+    ]
   }
 }

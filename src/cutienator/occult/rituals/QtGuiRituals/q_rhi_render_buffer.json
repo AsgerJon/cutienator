@@ -27,6 +27,9 @@
       "bool", "address", "address"
     ],
     "ritual_ZNK16QRhiRenderBuffer13backingFormatEv": ["int", "address"],
+    "ritual_ZN16QRhiRenderBufferC1EP18QRhiImplementationNS_4TypeERK5QSizei6QFlagsINS_4FlagEEN11QRhiTexture6FormatE": [
+      "address", "address", "int", "address", "int", "int", "int"
+    ],
     "ritual_take_QRhiRenderBuffer": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK16QRhiRenderBuffer12resourceTypeEv": ["int", "address"],
     "ritual_own_ZN16QRhiRenderBuffer10createFromENS_18NativeRenderBufferE": [

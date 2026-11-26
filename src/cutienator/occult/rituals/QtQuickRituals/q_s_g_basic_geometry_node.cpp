@@ -114,6 +114,15 @@ QSGBasicGeometryNode *ritual_ZN20QSGBasicGeometryNodeC1EN7QSGNode8NodeTypeE(
   return new CuteQSGBasicGeometryNode(type);
 }
 
+//  QSGBasicGeometryNode::QSGBasicGeometryNode(QSGBasicGeometryNodePrivate
+//      &dd, NodeType type)
+extern "C" Q_DECL_EXPORT
+QSGBasicGeometryNode *ritual_ZN20QSGBasicGeometryNodeC1ER27QSGBasicGeometryNodePrivateN7QSGNode8NodeTypeE(
+    QSGBasicGeometryNodePrivate *dd,
+    QSGNode::NodeType type) {
+  return new CuteQSGBasicGeometryNode(*dd, type);
+}
+
 //  a Python function taken by a CuteQSGBasicGeometryNode, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

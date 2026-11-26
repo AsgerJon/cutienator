@@ -9,6 +9,14 @@
   ],
   "rows": {
     "ritual_ZNK12AxisRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12AxisRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12AxisRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN12AxisRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN12AxisRenderer10initializeEv": ["nothing", "address"],
     "ritual_ZN12AxisRenderer11handleWheelEP11QWheelEvent": [
       "bool", "address", "address"
     ],
@@ -19,6 +27,12 @@
       "nothing", "address", "int", "address"
     ],
     "ritual_ZN12AxisRenderer16updateAxisTitlesEv": ["nothing", "address"],
+    "ritual_ZNK12AxisRenderer12hasAxisTitleERKNS_14AxisPropertiesE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12AxisRenderer19isAxisBottomOrRightERKNS_14AxisPropertiesE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK12AxisRenderer16formatValueLabelEdiRK7QStringc": [
       "text", "address", "double", "int", "text", "char"
     ],
@@ -45,6 +59,12 @@
       "bool", "address", "address", "double"
     ],
     "ritual_ZN12AxisRenderer4zoomEd": ["bool", "address", "double"],
+    "ritual_ZNK12AxisRenderer8getAxisXEP15QAbstractSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12AxisRenderer8getAxisYEP15QAbstractSeries": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK12AxisRenderer5themeEv": ["address", "address"],
     "ritual_take_AxisRenderer": ["bool", "address", "chars", "address"]
   }

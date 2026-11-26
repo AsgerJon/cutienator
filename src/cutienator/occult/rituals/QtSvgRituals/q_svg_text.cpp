@@ -13,6 +13,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 
@@ -102,6 +103,24 @@ void ritual_ZN8QSvgText11setTextAreaERK6QSizeF(
   self->setTextArea(*size);
 }
 
+//  void QSvgText::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSvgText11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgText *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
+//  bool QSvgText::shouldDrawNode(QPainter *p, QSvgExtraStates &states) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QSvgText14shouldDrawNodeEP8QPainterR15QSvgExtraStates(
+    const QSvgText *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return self->shouldDrawNode(p, *states);
+}
+
 //  Type QSvgText::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK8QSvgText4typeEv(const QSvgText *self) {
@@ -154,6 +173,26 @@ void ritual_ZN8QSvgText17setWhitespaceModeENS_14WhitespaceModeE(
   self->setWhitespaceMode(mode);
 }
 
+//  QRectF QSvgText::internalFastBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgText18internalFastBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgText *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalFastBounds(p, *states));
+}
+
+//  QRectF QSvgText::internalBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK8QSvgText14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgText *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
+}
+
 //  QPointF QSvgText::position() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK8QSvgText8positionEv(const QSvgText *self) {
@@ -171,6 +210,17 @@ extern "C" Q_DECL_EXPORT
 QSvgText::WhitespaceMode ritual_ZNK8QSvgText14whitespaceModeEv(
     const QSvgText *self) {
   return self->whitespaceMode();
+}
+
+//  void QSvgText::draw_helper(QPainter *p, QSvgExtraStates &states, QRectF
+//      *boundingRect) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QSvgText11draw_helperEP8QPainterR15QSvgExtraStatesP6QRectF(
+    const QSvgText *self,
+    QPainter *p,
+    QSvgExtraStates *states,
+    QRectF *boundingRect) {
+  self->draw_helper(p, *states, boundingRect);
 }
 
 //  a Python function taken by a CuteQSvgText, for the function named by the

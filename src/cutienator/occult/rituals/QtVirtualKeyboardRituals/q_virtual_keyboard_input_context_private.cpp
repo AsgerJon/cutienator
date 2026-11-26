@@ -190,6 +190,25 @@ const QMetaObject *ritual_ZNK35QVirtualKeyboardInputContextPrivate10metaObjectEv
   return self->metaObject();
 }
 
+//  void *QVirtualKeyboardInputContextPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN35QVirtualKeyboardInputContextPrivate11qt_metacastEPKc(
+    QVirtualKeyboardInputContextPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVirtualKeyboardInputContextPrivate::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN35QVirtualKeyboardInputContextPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVirtualKeyboardInputContextPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVirtualKeyboardInputContextPrivate::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -401,6 +420,68 @@ QtVirtualKeyboard::KeyboardFunctionKey ritual_ZNK35QVirtualKeyboardInputContextP
   return self->keyboardFunctionKey(keyboardFunction);
 }
 
+//  void QVirtualKeyboardInputContextPrivate::focusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate12focusChangedEv(
+    QVirtualKeyboardInputContextPrivate *self) {
+  self->focusChanged();
+}
+
+//  void QVirtualKeyboardInputContextPrivate::keyboardRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate24keyboardRectangleChangedEv(
+    QVirtualKeyboardInputContextPrivate *self) {
+  self->keyboardRectangleChanged();
+}
+
+//  void QVirtualKeyboardInputContextPrivate::previewRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate23previewRectangleChangedEv(
+    QVirtualKeyboardInputContextPrivate *self) {
+  self->previewRectangleChanged();
+}
+
+//  void QVirtualKeyboardInputContextPrivate::previewVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate21previewVisibleChangedEv(
+    QVirtualKeyboardInputContextPrivate *self) {
+  self->previewVisibleChanged();
+}
+
+//  void QVirtualKeyboardInputContextPrivate::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate13localeChangedEv(
+    QVirtualKeyboardInputContextPrivate *self) {
+  self->localeChanged();
+}
+
+//  void QVirtualKeyboardInputContextPrivate::inputItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate16inputItemChangedEv(
+    QVirtualKeyboardInputContextPrivate *self) {
+  self->inputItemChanged();
+}
+
+//  void QVirtualKeyboardInputContextPrivate::navigationKeyPressed(int key,
+//      bool isAutoRepeat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate20navigationKeyPressedEib(
+    QVirtualKeyboardInputContextPrivate *self,
+    int key,
+    bool isAutoRepeat) {
+  self->navigationKeyPressed(key, isAutoRepeat);
+}
+
+//  void QVirtualKeyboardInputContextPrivate::navigationKeyReleased(int key,
+//      bool isAutoRepeat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate21navigationKeyReleasedEib(
+    QVirtualKeyboardInputContextPrivate *self,
+    int key,
+    bool isAutoRepeat) {
+  self->navigationKeyReleased(key, isAutoRepeat);
+}
+
 //  void QVirtualKeyboardInputContextPrivate::hideInputPanel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN35QVirtualKeyboardInputContextPrivate14hideInputPanelEv(
@@ -432,6 +513,19 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN35QVirtualKeyboardInputContextPrivate18onInputItemChangedEv(
     QVirtualKeyboardInputContextPrivate *self) {
   self->onInputItemChanged();
+}
+
+//  void QVirtualKeyboardInputContextPrivate::sendPreedit(const QString
+//      &text, const QList<QInputMethodEvent::Attribute> &attributes, int
+//      replaceFrom, int replaceLength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate11sendPreeditERK7QStringRK5QListIN17QInputMethodEvent9AttributeEEii(
+    QVirtualKeyboardInputContextPrivate *self,
+    const QString *text,
+    const QList<QInputMethodEvent::Attribute> *attributes,
+    int replaceFrom,
+    int replaceLength) {
+  self->sendPreedit(*text, *attributes, replaceFrom, replaceLength);
 }
 
 //  void QVirtualKeyboardInputContextPrivate::sendInputMethodEvent(QInputMeth
@@ -491,6 +585,62 @@ bool ritual_ZN35QVirtualKeyboardInputContextPrivate11filterEventEPK6QEvent(
     QVirtualKeyboardInputContextPrivate *self,
     const QEvent *event) {
   return self->filterEvent(event);
+}
+
+//  void QVirtualKeyboardInputContextPrivate::addSelectionAttribute(QList<QIn
+//      putMethodEvent::Attribute> &attributes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate21addSelectionAttributeER5QListIN17QInputMethodEvent9AttributeEE(
+    QVirtualKeyboardInputContextPrivate *self,
+    QList<QInputMethodEvent::Attribute> *attributes) {
+  self->addSelectionAttribute(*attributes);
+}
+
+//  bool QVirtualKeyboardInputContextPrivate::testAttribute(const
+//      QList<QInputMethodEvent::Attribute> &attributes,
+//      QInputMethodEvent::AttributeType attributeType) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK35QVirtualKeyboardInputContextPrivate13testAttributeERK5QListIN17QInputMethodEvent9AttributeEENS1_13AttributeTypeE(
+    const QVirtualKeyboardInputContextPrivate *self,
+    const QList<QInputMethodEvent::Attribute> *attributes,
+    QInputMethodEvent::AttributeType attributeType) {
+  return self->testAttribute(*attributes, attributeType);
+}
+
+//  int QVirtualKeyboardInputContextPrivate::findAttribute(const
+//      QList<QInputMethodEvent::Attribute> &attributes,
+//      QInputMethodEvent::AttributeType attributeType) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK35QVirtualKeyboardInputContextPrivate13findAttributeERK5QListIN17QInputMethodEvent9AttributeEENS1_13AttributeTypeE(
+    const QVirtualKeyboardInputContextPrivate *self,
+    const QList<QInputMethodEvent::Attribute> *attributes,
+    QInputMethodEvent::AttributeType attributeType) {
+  return self->findAttribute(*attributes, attributeType);
+}
+
+//  void QVirtualKeyboardInputContextPrivate::setState(const State &state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate8setStateERKNS_5StateE(
+    QVirtualKeyboardInputContextPrivate *self,
+    const QVirtualKeyboardInputContextPrivate::State *state) {
+  self->setState(*state);
+}
+
+//  void QVirtualKeyboardInputContextPrivate::clearState(const State &state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN35QVirtualKeyboardInputContextPrivate10clearStateERKNS_5StateE(
+    QVirtualKeyboardInputContextPrivate *self,
+    const QVirtualKeyboardInputContextPrivate::State *state) {
+  self->clearState(*state);
+}
+
+//  bool QVirtualKeyboardInputContextPrivate::testState(const State &state)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK35QVirtualKeyboardInputContextPrivate9testStateERKNS_5StateE(
+    const QVirtualKeyboardInputContextPrivate *self,
+    const QVirtualKeyboardInputContextPrivate::State *state) {
+  return self->testState(*state);
 }
 
 //  bool QVirtualKeyboardInputContextPrivate::isEmptyState() const

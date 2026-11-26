@@ -9,6 +9,9 @@
     "ritual_ZN17QSSGSubRenderPass10setSubPassE14QSSGResourceId": [
       "nothing", "address", "unsigned long long"
     ],
+    "ritual_ZNK17QSSGSubRenderPass8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QSSGSubRenderPassD1Ev": ["nothing", "address"]
   }
 }

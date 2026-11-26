@@ -30,6 +30,7 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <memory>
 #include <algorithm>
+#include <QtCore/qloggingcategory.h>
 #include <QtRemoteObjects/qremoteobjectreplica.h>
 #include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -54,6 +55,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace QRemoteObjectStringLiterals;
+
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1478, as _ZN24QRemoteObjectNodePrivate16handleNewAcquireEPK11QMetaObjectP20QRemoteObjectReplicaRK7QString
 inline QReplicaImplementationInterface *QRemoteObjectNodePrivate::handleNewAcquire(const QMetaObject *meta, QRemoteObjectReplica *instance, const QString &name)
 {
@@ -74,142 +77,124 @@ inline QReplicaImplementationInterface *QRemoteObjectNodePrivate::handleNewAcqui
     return rp;
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1331, as _ZN24QRemoteObjectNodePrivate14initConnectionERK4QUrl
-inline bool QRemoteObjectNodePrivate::initConnection(const QUrl &address)
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 301, as _ZN24QRemoteObjectNodePrivateD2Ev
+inline QRemoteObjectNodePrivate::~QRemoteObjectNodePrivate()
 {
-    Q_Q(QRemoteObjectNode);
-    if (requestedUrls.contains(address)) {
-        qROPrivDebug() << "Connection already requested for " << address.toString();
-        return true;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 305, as _ZNK24QRemoteObjectNodePrivate21remoteObjectAddressesEv
+inline QRemoteObjectSourceLocations QRemoteObjectNodePrivate::remoteObjectAddresses() const
+{
+    if (registry)
+        return registry->sourceLocations();
+    return QRemoteObjectSourceLocations();
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
+{
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 480, as _ZN31QConnectedReplicaImplementation15setDisconnectedEv
+inline void QConnectedReplicaImplementation::setDisconnected()
+{
+    Q_ASSERT(connectionToSource);
+    connectionToSource.clear();
+    setState(QRemoteObjectReplica::State::Suspect);
+    const auto childIds = childIndices();
+    for (const int index : childIds) {
+        auto pointerToQObject = qvariant_cast<QObject *>(getProperty(index));
+        auto child = qobject_cast<QRemoteObjectReplica *>(pointerToQObject);
+        if (child) {
+            QConnectedReplicaImplementation *childReplicaImplData
+                    = static_cast<QConnectedReplicaImplementation *>(child->d_impl.data());
+            if (childReplicaImplData && !childReplicaImplData->connectionToSource.isNull())
+                childReplicaImplData->setDisconnected();
+        }
+    }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 471, as _ZN31QConnectedReplicaImplementation13setConnectionEP16QtROIoDeviceBase
+inline void QConnectedReplicaImplementation::setConnection(QtROIoDeviceBase *conn)
+{
+    if (connectionToSource.isNull()) {
+        connectionToSource = conn;
+        qCDebug(QT_REMOTEOBJECT) << "setConnection started" << conn << m_objectName;
+    }
+    requestRemoteObjectSource();
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 135, as _ZN34QRemoteObjectReplicaImplementation8setStateEN20QRemoteObjectReplica5StateE
+inline void QRemoteObjectReplicaImplementation::setState(QRemoteObjectReplica::State state)
+{
+    if (m_state.loadAcquire() != QRemoteObjectReplica::Suspect && m_state.loadAcquire() >= state)
+        return;
+
+    int oldState = m_state.loadAcquire();
+    m_state.storeRelease(state);
+
+    // We should emit initialized before emitting any changed signals in case connections are made in a
+    // Slot responding to initialized/validChanged.
+    if (m_state.loadAcquire() == QRemoteObjectReplica::Valid) {
+        // we're initialized now, emit signal
+        emitInitialized();
     }
 
-    requestedUrls.insert(address);
+    const static int stateChangedIndex = QRemoteObjectReplica::staticMetaObject.indexOfMethod("stateChanged(State,State)");
+    Q_ASSERT(stateChangedIndex != -1);
+    void *args[] = {nullptr, &state, &oldState};
+    QMetaObject::activate(this, metaObject(), stateChangedIndex, args);
+}
 
-    if (schemaHandlers.contains(address.scheme())) {
-        schemaHandlers[address.scheme()](address);
-        return true;
-    }
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 221, as _ZN34QRemoteObjectReplicaImplementation15emitInitializedEv
+inline void QRemoteObjectReplicaImplementation::emitInitialized()
+{
+    const static int initializedIndex = QRemoteObjectReplica::staticMetaObject.indexOfMethod("initialized()");
+    Q_ASSERT(initializedIndex != -1);
+    void *noArgs[] = {nullptr};
+    QMetaObject::activate(this, metaObject(), initializedIndex, noArgs);
+}
 
-    QtROClientIoDevice *connection = QtROClientFactory::instance()->create(address, q);
-    if (!connection) {
-        qROPrivWarning() << "Could not create QtROClientIoDevice for client. Invalid url/scheme provided?" << address;
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 453, as _ZNK31QConnectedReplicaImplementation11getPropertyEi
+inline const QVariant QConnectedReplicaImplementation::getProperty(int i) const
+{
+    Q_ASSERT_X(i >= 0 && i < m_propertyStorage.size(), __FUNCTION__, qPrintable(QString(QLatin1String("0 <= %1 < %2")).arg(i).arg(m_propertyStorage.size())));
+    return m_propertyStorage[i];
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 176, as _ZNK31QConnectedReplicaImplementation12childIndicesEv
+inline QList<int> QConnectedReplicaImplementation::childIndices() const
+{
+    return m_childIndices;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 498, as _ZN31QConnectedReplicaImplementation25requestRemoteObjectSourceEv
+inline void QConnectedReplicaImplementation::requestRemoteObjectSource()
+{
+    Q_ASSERT(connectionToSource);
+    connectionToSource->d_func()->m_codec->serializeAddObjectPacket(m_objectName, needsDynamicInitialization());
+    sendCommand();
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 164, as _ZN31QConnectedReplicaImplementation11sendCommandEv
+inline bool QConnectedReplicaImplementation::sendCommand()
+{
+    Q_ASSERT(connectionToSource);
+    if (!connectionToSource->isOpen())
         return false;
-    }
-    qROPrivDebug() << "Opening connection to" << address.toString();
-    qROPrivDebug() << "Replica Connection isValid" << connection->isOpen();
-    QObject::connect(connection, &QtROClientIoDevice::shouldReconnect, q, [this, connection]() {
-        onShouldReconnect(connection);
-    });
-    QObject::connect(connection, &QtROIoDeviceBase::readyRead, q, [this, connection]() {
-        onClientRead(connection);
-    });
-    connect(connection, &QtROClientIoDevice::setError, this,
-            &QRemoteObjectNodePrivate::setLastError);
-    connection->connectToServer();
 
+    connectionToSource->d_func()->m_codec->send(connectionToSource);
+    if (m_heartbeatTimer.interval())
+        m_heartbeatTimer.start();
     return true;
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1515, as _ZN24QRemoteObjectNodePrivate23handleReplicaConnectionERK10QByteArrayP31QConnectedReplicaImplementationP16QtROIoDeviceBase
-inline void QRemoteObjectNodePrivate::handleReplicaConnection(const QByteArray &sourceSignature, QConnectedReplicaImplementation *rep, QtROIoDeviceBase *connection)
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 130, as _ZNK34QRemoteObjectReplicaImplementation26needsDynamicInitializationEv
+inline bool QRemoteObjectReplicaImplementation::needsDynamicInitialization() const
 {
-    if (!checkSignatures(rep->m_objectSignature, sourceSignature)) {
-        qROPrivWarning() << "Signature mismatch for" << rep->m_metaObject->className() << (rep->m_objectName.isEmpty() ? QLatin1String("(unnamed)") : rep->m_objectName);
-        rep->setState(QRemoteObjectReplica::SignatureMismatch);
-        return;
-    }
-    rep->setConnection(connection);
-}
-
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 566, as _ZN31QConnectedReplicaImplementation16configurePrivateEP20QRemoteObjectReplica
-inline void QConnectedReplicaImplementation::configurePrivate(QRemoteObjectReplica *rep)
-{
-    if (m_metaObject) {
-        // see QRemoteObjectReplicaImplementation::configurePrivate
-        const bool firstReplicaInstance = (m_methodOffset == 0);
-
-        QRemoteObjectReplicaImplementation::configurePrivate(rep);
-
-        // ensure that notify signals are emitted for the new replica, when
-        // we are initializing an nth replica of the same type
-        if (!firstReplicaInstance) {
-            const int offset = m_propertyOffset;
-            const int nParam = int(m_propertyStorage.size());
-            void *args[] = {nullptr, nullptr};
-            for (int i = 0; i < nParam; ++i) {
-                const int notifyIndex = m_metaObject->property(i+offset).notifySignalIndex();
-                if (notifyIndex < 0)
-                    continue;
-                qCDebug(QT_REMOTEOBJECT) << " Before activate" << notifyIndex << m_metaObject->property(i+offset).name();
-                args[1] = m_propertyStorage[i].data();
-                // NOTE: this over-emits (assumes all values have changed)
-                QMetaObject::activate(rep, rep->metaObject(), notifyIndex - m_signalOffset, args);
-            }
-        }
-    } else
-        m_parentsNeedingConnect.append(rep);
-}
-
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 59, as _ZN31QConnectedReplicaImplementationC1ERK7QStringPK11QMetaObjectP17QRemoteObjectNode
-inline QConnectedReplicaImplementation::QConnectedReplicaImplementation(const QString &name, const QMetaObject *meta, QRemoteObjectNode *node)
-    : QRemoteObjectReplicaImplementation(name, meta, node), connectionToSource(nullptr)
-{
-    m_heartbeatTimer.setTimerType(Qt::CoarseTimer);
-    m_heartbeatTimer.setSingleShot(true);
-    m_heartbeatTimer.setInterval(node->heartbeatInterval());
-
-    connect(node, &QRemoteObjectNode::heartbeatIntervalChanged, this, [this](int interval) {
-        m_heartbeatTimer.stop();
-        m_heartbeatTimer.setInterval(interval);
-        if (interval)
-            m_heartbeatTimer.start();
-    });
-    connect(&m_heartbeatTimer, &QTimer::timeout, this, [this] {
-        // TODO: Revisit if a baseclass method can be used to avoid specialized cast
-        // conditional logic.
-
-        if (m_pendingCalls.contains(0)) {
-            m_pendingCalls.take(0);
-            // The source didn't respond in time, disconnect the connection
-            if (connectionToSource) {
-                auto clientIo = qobject_cast<QtROClientIoDevice *>(connectionToSource);
-                if (clientIo)
-                    clientIo->disconnectFromServer();
-                else
-                    connectionToSource->close();
-            }
-        } else {
-            if (connectionToSource.isNull()) {
-                qCDebug(QT_REMOTEOBJECT) << "Ignoring heartbeat as there is no source connected.";
-                return;
-            }
-            connectionToSource->d_func()->m_codec->serializePingPacket(m_objectName);
-            if (sendCommandWithReply(0).d->serialId == -1) {
-                m_heartbeatTimer.stop();
-                auto clientIo = qobject_cast<QtROClientIoDevice *>(connectionToSource);
-                if (clientIo)
-                    clientIo->disconnectFromServer();
-                else
-                    connectionToSource->close();
-            }
-        }
-    });
-
-    if (!meta)
-        return;
-
-    auto offsetMeta = m_metaObject;
-    QtRemoteObjects::getTypeNameAndMetaobjectFromClassInfo(offsetMeta);
-    for (int index = offsetMeta->propertyOffset(); index < offsetMeta->propertyCount(); ++index) {
-        const QMetaProperty property = offsetMeta->property(index);
-        if (property.metaType().flags().testFlag(QMetaType::PointerToQObject))
-            m_childIndices << index - offsetMeta->propertyOffset();
-    }
-}
-
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 301, as _ZN24QRemoteObjectNodePrivateD1Ev
-inline QRemoteObjectNodePrivate::~QRemoteObjectNodePrivate()
-{
+    return m_metaObject == nullptr;
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 619, as _ZN24QRemoteObjectNodePrivate12setLastErrorEN17QRemoteObjectNode9ErrorCodeE
@@ -218,6 +203,39 @@ inline void QRemoteObjectNodePrivate::setLastError(QRemoteObjectNode::ErrorCode 
     Q_Q(QRemoteObjectNode);
     lastError = errorCode;
     emit q->error(lastError);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1287, as _ZN24QRemoteObjectNodePrivate14connectReplicaEP7QObjectP20QRemoteObjectReplica
+inline void QRemoteObjectNodePrivate::connectReplica(QObject *object, QRemoteObjectReplica *instance)
+{
+    int nConnections = 0;
+    const QMetaObject *us = instance->metaObject();
+    const QMetaObject *them = object->metaObject();
+
+    static const int memberOffset = QRemoteObjectReplica::staticMetaObject.methodCount();
+    for (int idx = memberOffset; idx < us->methodCount(); ++idx) {
+        const QMetaMethod mm = us->method(idx);
+
+        qROPrivDebug() << idx << mm.name();
+        if (mm.methodType() != QMetaMethod::Signal)
+            continue;
+
+        // try to connect to a signal on the parent that has the same method signature
+        QByteArray sig = QMetaObject::normalizedSignature(mm.methodSignature().constData());
+        qROPrivDebug() << sig;
+        if (them->indexOfSignal(sig.constData()) == -1)
+            continue;
+
+        sig.prepend(QSIGNAL_CODE + '0');
+        const char * const csig = sig.constData();
+        const bool res = QObject::connect(object, csig, instance, csig);
+        Q_UNUSED(res)
+        ++nConnections;
+
+        qROPrivDebug() << sig << res;
+    }
+
+    qROPrivDebug() << "# connections =" << nConnections;
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1366, as _ZN24QRemoteObjectNodePrivate11hasInstanceERK7QString
@@ -233,6 +251,49 @@ inline bool QRemoteObjectNodePrivate::hasInstance(const QString &name)
     }
 
     return true;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1416, as _ZN24QRemoteObjectNodePrivate27onRemoteObjectSourceRemovedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE
+inline void QRemoteObjectNodePrivate::onRemoteObjectSourceRemoved(const QRemoteObjectSourceLocation &entry)
+{
+    if (!entry.first.isEmpty()) {
+        QRemoteObjectSourceLocations locs = registry->sourceLocations();
+        locs.remove(entry.first);
+        registry->d_impl->setProperty(0, QVariant::fromValue(locs));
+        registry->notifySourceLocationsChanged();
+    }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1445, as _ZN24QRemoteObjectNodePrivate17onShouldReconnectEP18QtROClientIoDevice
+inline void QRemoteObjectNodePrivate::onShouldReconnect(QtROClientIoDevice *ioDevice)
+{
+    Q_Q(QRemoteObjectNode);
+
+    const auto remoteObjects = ioDevice->remoteObjects();
+    for (const QString &remoteObject : remoteObjects) {
+        connectedSources.remove(remoteObject);
+        ioDevice->removeSource(remoteObject);
+        if (replicas.contains(remoteObject)) { //We have a replica waiting on this remoteObject
+            QSharedPointer<QConnectedReplicaImplementation> rep = qSharedPointerCast<QConnectedReplicaImplementation>(replicas.value(remoteObject).toStrongRef());
+            if (rep && !rep->connectionToSource.isNull()) {
+                rep->setDisconnected();
+            } else if (!rep) {
+                replicas.remove(remoteObject);
+            }
+        }
+    }
+    if (requestedUrls.contains(ioDevice->url())) {
+        // Only try to reconnect to URLs requested via connectToNode
+        // If we connected via registry, wait for the registry to see the node/source again
+        pendingReconnect.insert(ioDevice);
+        if (!reconnectTimer.isActive()) {
+            reconnectTimer.start(retryInterval, q);
+            qROPrivDebug() << "Starting reconnect timer";
+        }
+    } else {
+        qROPrivDebug() << "Url" << ioDevice->url().toDisplayString().toLatin1()
+                       << "lost.  We will reconnect Replicas if they reappear on the Registry.";
+    }
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 1890, as _ZN24QRemoteObjectNodePrivate15checkSignaturesERK10QByteArrayS2_
@@ -304,12 +365,40 @@ void ritual_ZN24QRemoteObjectNodePrivate12setLastErrorEN17QRemoteObjectNode9Erro
   self->setLastError(errorCode);
 }
 
+//  void QRemoteObjectNodePrivate::connectReplica(QObject *object,
+//      QRemoteObjectReplica *instance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QRemoteObjectNodePrivate14connectReplicaEP7QObjectP20QRemoteObjectReplica(
+    QRemoteObjectNodePrivate *self,
+    QObject *object,
+    QRemoteObjectReplica *instance) {
+  self->connectReplica(object, instance);
+}
+
 //  bool QRemoteObjectNodePrivate::hasInstance(const QString &name)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN24QRemoteObjectNodePrivate11hasInstanceERK7QString(
     QRemoteObjectNodePrivate *self,
     const QString *name) {
   return self->hasInstance(*name);
+}
+
+//  void QRemoteObjectNodePrivate::onRemoteObjectSourceRemoved(const
+//      QRemoteObjectSourceLocation &entry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QRemoteObjectNodePrivate27onRemoteObjectSourceRemovedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE(
+    QRemoteObjectNodePrivate *self,
+    const QRemoteObjectSourceLocation *entry) {
+  self->onRemoteObjectSourceRemoved(*entry);
+}
+
+//  void QRemoteObjectNodePrivate::onShouldReconnect(QtROClientIoDevice
+//      *ioDevice)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QRemoteObjectNodePrivate17onShouldReconnectEP18QtROClientIoDevice(
+    QRemoteObjectNodePrivate *self,
+    QtROClientIoDevice *ioDevice) {
+  self->onShouldReconnect(ioDevice);
 }
 
 //  QReplicaImplementationInterface

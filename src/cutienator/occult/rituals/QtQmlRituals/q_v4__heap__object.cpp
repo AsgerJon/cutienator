@@ -9,6 +9,14 @@
 #include <QtQml/6.12.0/QtQml/private/qv4property_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  void QV4::Heap::Object::markObjects(Heap::Base *base, MarkStack *stack)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV44Heap6Object11markObjectsEPNS0_4BaseEPNS_9MarkStackE(
+    QV4::Heap::Base *base,
+    QV4::MarkStack *stack) {
+  QV4::Heap::Object::markObjects(base, stack);
+}
+
 //  void QV4::Heap::Object::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV44Heap6Object4initEv(QV4::Heap::Object *self) {
@@ -97,6 +105,12 @@ void ritual_ZN3QV44Heap6Object11setPropertyEPNS_15ExecutionEngineEjPNS0_4BaseE(
     uint index,
     QV4::Heap::Base *b) {
   self->setProperty(e, index, b);
+}
+
+//  void QV4::Heap::Object::setUsedAsProto()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV44Heap6Object14setUsedAsProtoEv(QV4::Heap::Object *self) {
+  self->setUsedAsProto();
 }
 
 //  Heap::Object *QV4::Heap::Object::prototype() const

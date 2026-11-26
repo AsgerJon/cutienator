@@ -330,6 +330,24 @@ const QMetaObject *ritual_ZNK14AbstractDomain10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *AbstractDomain::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14AbstractDomain11qt_metacastEPKc(
+    AbstractDomain *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int AbstractDomain::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14AbstractDomain11qt_metacallEN11QMetaObject4CallEiPPv(
+    AbstractDomain *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString AbstractDomain::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14AbstractDomain2trEPKcS1_i(
@@ -605,6 +623,30 @@ bool ritual_ZNK14AbstractDomain10isReverseXEv(const AbstractDomain *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14AbstractDomain10isReverseYEv(const AbstractDomain *self) {
   return self->isReverseY();
+}
+
+//  void AbstractDomain::updated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14AbstractDomain7updatedEv(AbstractDomain *self) {
+  self->updated();
+}
+
+//  void AbstractDomain::rangeHorizontalChanged(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14AbstractDomain22rangeHorizontalChangedEdd(
+    AbstractDomain *self,
+    qreal min,
+    qreal max) {
+  self->rangeHorizontalChanged(min, max);
+}
+
+//  void AbstractDomain::rangeVerticalChanged(qreal min, qreal max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14AbstractDomain20rangeVerticalChangedEdd(
+    AbstractDomain *self,
+    qreal min,
+    qreal max) {
+  self->rangeVerticalChanged(min, max);
 }
 
 //  void AbstractDomain::handleVerticalAxisRangeChanged(qreal min, qreal max)

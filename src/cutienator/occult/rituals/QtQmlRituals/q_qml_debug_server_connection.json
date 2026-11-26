@@ -8,8 +8,17 @@
     "ritual_ZNK25QQmlDebugServerConnection10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQmlDebugServerConnection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQmlDebugServerConnection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQmlDebugServerConnection2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQmlDebugServerConnectionC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN25QQmlDebugServerConnectionD1Ev": ["nothing", "address"],
     "ritual_ZN25QQmlDebugServerConnection9setServerEP15QQmlDebugServer": [

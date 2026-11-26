@@ -7,7 +7,13 @@
   "rows": {
     "ritual_ZN16QFileSystemEntryC1Ev": ["address"],
     "ritual_ZNK16QFileSystemEntry8filePathEv": ["text", "address"],
+    "ritual_ZNK16QFileSystemEntry8fileNameEv": ["text", "address"],
+    "ritual_ZNK16QFileSystemEntry4pathEv": ["text", "address"],
     "ritual_ZNK16QFileSystemEntry14nativeFilePathEv": ["address", "address"],
+    "ritual_ZNK16QFileSystemEntry8baseNameEv": ["text", "address"],
+    "ritual_ZNK16QFileSystemEntry16completeBaseNameEv": ["text", "address"],
+    "ritual_ZNK16QFileSystemEntry6suffixEv": ["text", "address"],
+    "ritual_ZNK16QFileSystemEntry14completeSuffixEv": ["text", "address"],
     "ritual_ZNK16QFileSystemEntry6isRootEv": ["bool", "address"],
     "ritual_ZNK16QFileSystemEntry7isEmptyEv": ["bool", "address"],
     "ritual_ZN16QFileSystemEntry5clearEv": ["nothing", "address"],

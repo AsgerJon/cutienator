@@ -56,6 +56,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qabstractspinbox.cpp, line 1738, as _ZN23QAbstractSpinBoxPrivate10updateEditEv
 inline void QAbstractSpinBoxPrivate::updateEdit()
 {
@@ -251,9 +253,62 @@ inline QVariant QAbstractSpinBoxPrivate::bound(const QVariant &val, const QVaria
     return v;
 }
 
+//  from src/widgets/widgets/qabstractspinbox.cpp, line 1902, as _ZN17QSpinBoxValidatorC1EP16QAbstractSpinBoxP23QAbstractSpinBoxPrivate
+inline QSpinBoxValidator::QSpinBoxValidator(QAbstractSpinBox *qp, QAbstractSpinBoxPrivate *dp)
+    : QValidator(qp), qptr(qp), dptr(dp)
+{
+    setObjectName("qt_spinboxvalidator"_L1);
+}
+
+//  from src/widgets/widgets/qabstractspinbox.cpp, line 1915, as _ZNK17QSpinBoxValidator8validateER7QStringRi
+inline QValidator::State QSpinBoxValidator::validate(QString &input, int &pos) const
+{
+    if (dptr->specialValueText.size() > 0 && input == dptr->specialValueText)
+        return QValidator::Acceptable;
+
+    if (!dptr->prefix.isEmpty() && !input.startsWith(dptr->prefix)) {
+        input.prepend(dptr->prefix);
+        pos += dptr->prefix.size();
+    }
+
+    if (!dptr->suffix.isEmpty() && !input.endsWith(dptr->suffix))
+        input.append(dptr->suffix);
+
+    return qptr->validate(input, pos);
+}
+
+//  from src/widgets/widgets/qabstractspinbox.cpp, line 1935, as _ZNK17QSpinBoxValidator5fixupER7QString
+inline void QSpinBoxValidator::fixup(QString &input) const
+{
+    qptr->fixup(input);
+}
+
 //  from src/widgets/widgets/qabstractspinbox.cpp, line 1369, as _ZN23QAbstractSpinBoxPrivateD1Ev
 inline QAbstractSpinBoxPrivate::~QAbstractSpinBoxPrivate()
 {
+}
+
+//  from src/widgets/widgets/qabstractspinbox.cpp, line 1553, as _ZN23QAbstractSpinBoxPrivate4initEv
+inline void QAbstractSpinBoxPrivate::init()
+{
+    Q_Q(QAbstractSpinBox);
+
+    q->setLineEdit(new QLineEdit(q));
+    edit->setObjectName("qt_spinbox_lineedit"_L1);
+    validator = new QSpinBoxValidator(q, this);
+    edit->setValidator(validator);
+
+    QStyleOptionSpinBox opt;
+    // ### This is called from the ctor and thus we shouldn't call initStyleOption yet
+    // ### as we only call the base class implementation of initStyleOption called.
+    q->initStyleOption(&opt);
+    spinClickTimerInterval = q->style()->styleHint(QStyle::SH_SpinBox_ClickAutoRepeatRate, &opt, q);
+    spinClickThresholdTimerInterval = q->style()->styleHint(QStyle::SH_SpinBox_ClickAutoRepeatThreshold, &opt, q);
+    q->setFocusPolicy(Qt::WheelFocus);
+    q->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed, QSizePolicy::SpinBox));
+    q->setAttribute(Qt::WA_InputMethodEnabled);
+
+    q->setAttribute(Qt::WA_MacShowFocusRect);
 }
 
 //  from src/widgets/widgets/qabstractspinbox.cpp, line 1582, as _ZN23QAbstractSpinBoxPrivate5resetEv
@@ -1083,6 +1138,13 @@ const QAbstractSpinBox *ritual_ZNK23QAbstractSpinBoxPrivate6q_funcEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QAbstractSpinBoxPrivateD1Ev(QAbstractSpinBoxPrivate *self) {
   delete self;
+}
+
+//  void QAbstractSpinBoxPrivate::init()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QAbstractSpinBoxPrivate4initEv(
+    QAbstractSpinBoxPrivate *self) {
+  self->init();
 }
 
 //  void QAbstractSpinBoxPrivate::reset()

@@ -7,6 +7,7 @@
     "ritual_ZN12QOpcUaXValueC1Ev": ["address"],
     "ritual_ZN12QOpcUaXValueC1ERKS_": ["address", "address"],
     "ritual_ZN12QOpcUaXValueC1Edf": ["address", "double", "float"],
+    "ritual_ZN12QOpcUaXValueaSERKS_": ["address", "address", "address"],
     "ritual_ZNK12QOpcUaXValueeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QOpcUaXValuecv8QVariantEv": ["address", "address"],
     "ritual_ZN12QOpcUaXValueD1Ev": ["nothing", "address"],

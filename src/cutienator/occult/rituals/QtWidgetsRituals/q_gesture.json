@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK8QGesture10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QGesture11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QGesture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QGesture2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QGesture6d_funcEv": ["address", "address"],
     "ritual_ZNK8QGesture6d_funcEv": ["address", "address"],
@@ -22,6 +26,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK8QGesture19gestureCancelPolicyEv": ["int", "address"],
+    "ritual_ZN8QGestureC1ER15QGesturePrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QGesture": ["bool", "address", "chars", "address"],
     "ritual_list_make_QGesture_ptr": ["address"],
     "ritual_list_add_QGesture_ptr": ["nothing", "address", "address"],

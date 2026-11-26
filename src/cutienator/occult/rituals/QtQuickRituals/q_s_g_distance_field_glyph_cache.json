@@ -33,6 +33,12 @@
     "ritual_ZN26QSGDistanceFieldGlyphCache12glyphTextureEj": [
       "address", "address", "unsigned int"
     ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache8populateERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache7releaseERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QSGDistanceFieldGlyphCache6updateEv": ["nothing", "address"],
     "ritual_ZN26QSGDistanceFieldGlyphCache17registerGlyphNodeEP29QSGDistanceFieldGlyphConsumer": [
       "nothing", "address", "address"
@@ -50,7 +56,25 @@
       "bool", "address"
     ],
     "ritual_ZNK26QSGDistanceFieldGlyphCache8isActiveEv": ["bool", "address"],
+    "ritual_ZN26QSGDistanceFieldGlyphCache13requestGlyphsERK4QSetIjE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN26QSGDistanceFieldGlyphCache11storeGlyphsERK5QListI14QDistanceFieldE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache15referenceGlyphsERK4QSetIjE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache13releaseGlyphsERK4QSetIjE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache17setGlyphsPositionERK5QListINS_13GlyphPositionEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache16setGlyphsTextureERK5QListIjERKNS_7TextureE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache18markGlyphsToRenderERK5QListIjE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN26QSGDistanceFieldGlyphCache11removeGlyphEj": [
@@ -61,6 +85,12 @@
     ],
     "ritual_ZN26QSGDistanceFieldGlyphCache13containsGlyphEj": [
       "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache9glyphDataEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache9emptyDataEj": [
+      "address", "address", "unsigned int"
     ],
     "ritual_ZNK26QSGDistanceFieldGlyphCache12baseFontSizeEv": [
       "int", "address"

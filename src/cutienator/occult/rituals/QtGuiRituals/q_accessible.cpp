@@ -4,6 +4,44 @@
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
+#include <QtGui/qtextcursor.h>
+#include <utility>
+#include <QtGui/QTextCursor>
+
+//  void QAccessible::installFactory(InterfaceFactory a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAccessible14installFactoryEPFP20QAccessibleInterfaceRK7QStringP7QObjectE(
+    void *a0) {
+  QAccessible::installFactory(
+      reinterpret_cast<QAccessible::InterfaceFactory>(a0));
+}
+
+//  void QAccessible::removeFactory(InterfaceFactory a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAccessible13removeFactoryEPFP20QAccessibleInterfaceRK7QStringP7QObjectE(
+    void *a0) {
+  QAccessible::removeFactory(
+      reinterpret_cast<QAccessible::InterfaceFactory>(a0));
+}
+
+//  UpdateHandler QAccessible::installUpdateHandler(UpdateHandler a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QAccessible20installUpdateHandlerEPFvP16QAccessibleEventE(
+    void *a0) {
+  return reinterpret_cast<void *>(
+      QAccessible::installUpdateHandler(
+          reinterpret_cast<QAccessible::UpdateHandler>(a0)));
+}
+
+//  RootObjectHandler QAccessible::installRootObjectHandler(RootObjectHandler
+//      a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QAccessible24installRootObjectHandlerEPFvP7QObjectE(
+    void *a0) {
+  return reinterpret_cast<void *>(
+      QAccessible::installRootObjectHandler(
+          reinterpret_cast<QAccessible::RootObjectHandler>(a0)));
+}
 
 //  void QAccessible::installActivationObserver(ActivationObserver *a0)
 extern "C" Q_DECL_EXPORT
@@ -85,6 +123,18 @@ void ritual_ZN11QAccessible7cleanupEv() {
   QAccessible::cleanup();
 }
 
+//  std::pair<int, int> QAccessible::qAccessibleTextBoundaryHelper(const
+//      QTextCursor &cursor, TextBoundaryType boundaryType)
+extern "C" Q_DECL_EXPORT
+std::pair<int, int> *ritual_ZN11QAccessible29qAccessibleTextBoundaryHelperERK11QTextCursorNS_16TextBoundaryTypeE(
+    const QTextCursor *cursor,
+    QAccessible::TextBoundaryType boundaryType) {
+  return new std::pair<int, int>(
+      QAccessible::qAccessibleTextBoundaryHelper(
+          *cursor,
+          boundaryType));
+}
+
 //  QAccessible::QAccessible()
 extern "C" Q_DECL_EXPORT
 QAccessible *ritual_ZN11QAccessibleC1Ev() {
@@ -94,6 +144,12 @@ QAccessible *ritual_ZN11QAccessibleC1Ev() {
 //  QAccessible::~QAccessible()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QAccessibleD1Ev(QAccessible *self) {
+  delete self;
+}
+
+//  a std::pair<int, int> a ritual of QAccessible gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessible__std_pair_int_int(std::pair<int, int> *self) {
   delete self;
 }
 

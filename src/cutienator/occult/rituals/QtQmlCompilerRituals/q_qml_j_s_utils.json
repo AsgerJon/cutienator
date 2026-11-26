@@ -2,12 +2,36 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsutils_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN11QQmlJSUtils11constRefifyE7QString": ["text", "text"],
+    "ritual_ZN11QQmlJSUtils21changeHandlerPropertyERK22QDeferredSharedPointerIK11QQmlJSScopeE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSUtils26propertyFromChangedHandlerERK22QDeferredSharedPointerIK11QQmlJSScopeE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSUtils16hasCompositeBaseERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "bool", "address"
+    ],
     "ritual_ZN11QQmlJSUtils34bindablePropertyHasDefaultAccessorERK18QQmlJSMetaPropertyNS_16PropertyAccessorE": [
       "bool", "address", "int"
+    ],
+    "ritual_ZN11QQmlJSUtils12resolveAliasEPK18QQmlJSTypeResolverRK18QQmlJSMetaPropertyRK22QDeferredSharedPointerIK11QQmlJSScopeERKNS_22AliasResolutionVisitorE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlJSUtils12resolveAliasERK16QQmlJSScopesByIdRK18QQmlJSMetaPropertyRK22QDeferredSharedPointerIK11QQmlJSScopeERKNS_22AliasResolutionVisitorE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlJSUtils10didYouMeanERK7QString5QListIS0_ES2_RKN6QQmlJS14SourceLocationE": [
+      "address", "text", "address", "text", "address"
+    ],
+    "ritual_ZN11QQmlJSUtils19sourceDirectoryPathEPK14QQmlJSImporterRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSUtils10cleanPathsEO5QListI7QStringE": [
+      "address", "address"
     ],
     "ritual_ZN11QQmlJSUtils29resourceFilesFromBuildFoldersERK5QListI7QStringE": [
       "address", "address"
@@ -18,6 +42,36 @@
     "ritual_ZN11QQmlJSUtils26qmlBuildPathFromSourcePathEPK24QQmlJSResourceFileMapperRK7QString": [
       "text", "address", "text"
     ],
-    "ritual_ZN11QQmlJSUtilsD1Ev": ["nothing", "address"]
+    "ritual_ZN11QQmlJSUtils12getScopeNameERK22QDeferredSharedPointerIK11QQmlJSScopeEN6QQmlSA9ScopeTypeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN11QQmlJSUtils15fileSelectorForERK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "text", "address"
+    ],
+    "ritual_ZN11QQmlJSUtilsD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlJSUtils__std_optional_QQmlJSMetaProperty": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSUtils__std_optional_QQmlJSFixSuggestion": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSUtils__std_variant_QString_QQmlJS_DiagnosticMessage": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQmlJSUtils12escapeStringI7QString11QLatin1Char13QLatin1StringEET_S4_": [
+      "text", "text"
+    ],
+    "ritual_ZN11QQmlJSUtils9toLiteralI7QString11QLatin1Char13QLatin1StringEET_RKS4_T1_": [
+      "text", "text", "address"
+    ],
+    "ritual_ZN11QQmlJSUtils11deduplicateI5QListI7QStringEEEvRT_": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQmlJSUtils11deduplicateI5QListIiEEEvRT_": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQmlJSUtils11deduplicateI5QListIdEEEvRT_": [
+      "nothing", "address"
+    ]
   }
 }

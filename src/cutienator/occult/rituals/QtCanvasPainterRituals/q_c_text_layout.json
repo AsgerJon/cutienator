@@ -14,9 +14,13 @@
     "ritual_ZN12QCTextLayout26calculateVerticalAlignmentEN14QCanvasPainter12TextBaselineERK6QRectFRK13QFontMetricsFS4_": [
       "float", "unsigned char", "address", "address", "address"
     ],
+    "ritual_ZN12QCTextLayout28calculateHorizontalAlignmentEN14QCanvasPainter9TextAlignERK6QRectFfS4_": [
+      "address", "unsigned char", "address", "float", "address"
+    ],
     "ritual_ZN12QCTextLayout20convertToQtDirectionEN14QCanvasPainter13TextDirectionE": [
       "int", "unsigned char"
     ],
-    "ritual_ZN12QCTextLayoutD1Ev": ["nothing", "address"]
+    "ritual_ZN12QCTextLayoutD1Ev": ["nothing", "address"],
+    "ritual_drop_QCTextLayout__std_pair_float_float": ["nothing", "address"]
   }
 }

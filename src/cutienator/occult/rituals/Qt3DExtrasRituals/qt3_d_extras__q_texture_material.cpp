@@ -2,8 +2,10 @@
 //  Qt3DExtras/qtexturematerial.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qtexturematerial.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtGui/QMatrix3x3>
 
 //  A Qt3DExtras::QTextureMaterial that Python can take functions over in. Every Qt3DExtras::QTextureMaterial
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras16QTextureMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QTextureMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras16QTextureMaterial11qt_metacastEPKc(
+    Qt3DExtras::QTextureMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QTextureMaterial::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras16QTextureMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QTextureMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QTextureMaterial::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,122 @@ QString *ritual_ZN10Qt3DExtras16QTextureMaterial2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QTextureMaterial::tr(s, c, n));
+}
+
+//  Qt3DExtras::QTextureMaterial::QTextureMaterial(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QTextureMaterial *ritual_ZN10Qt3DExtras16QTextureMaterialC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QTextureMaterial(parent);
+}
+
+//  Qt3DExtras::QTextureMaterial::~QTextureMaterial()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QTextureMaterialD1Ev(
+    Qt3DExtras::QTextureMaterial *self) {
+  delete self;
+}
+
+//  Qt3DRender::QAbstractTexture *Qt3DExtras::QTextureMaterial::texture()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QAbstractTexture *ritual_ZNK10Qt3DExtras16QTextureMaterial7textureEv(
+    const Qt3DExtras::QTextureMaterial *self) {
+  return self->texture();
+}
+
+//  QVector2D Qt3DExtras::QTextureMaterial::textureOffset() const
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_ZNK10Qt3DExtras16QTextureMaterial13textureOffsetEv(
+    const Qt3DExtras::QTextureMaterial *self) {
+  return new QVector2D(self->textureOffset());
+}
+
+//  QMatrix3x3 Qt3DExtras::QTextureMaterial::textureTransform() const
+extern "C" Q_DECL_EXPORT
+QMatrix3x3 *ritual_ZNK10Qt3DExtras16QTextureMaterial16textureTransformEv(
+    const Qt3DExtras::QTextureMaterial *self) {
+  return new QMatrix3x3(self->textureTransform());
+}
+
+//  bool Qt3DExtras::QTextureMaterial::isAlphaBlendingEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras16QTextureMaterial22isAlphaBlendingEnabledEv(
+    const Qt3DExtras::QTextureMaterial *self) {
+  return self->isAlphaBlendingEnabled();
+}
+
+//  void
+//      Qt3DExtras::QTextureMaterial::setTexture(Qt3DRender::QAbstractTexture
+//      *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QTextureMaterial10setTextureEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QTextureMaterial *self,
+    Qt3DRender::QAbstractTexture *texture) {
+  self->setTexture(texture);
+}
+
+//  void Qt3DExtras::QTextureMaterial::setTextureOffset(QVector2D
+//      textureOffset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QTextureMaterial16setTextureOffsetE9QVector2D(
+    Qt3DExtras::QTextureMaterial *self,
+    const QVector2D *textureOffset) {
+  self->setTextureOffset(*textureOffset);
+}
+
+//  void Qt3DExtras::QTextureMaterial::setTextureTransform(const QMatrix3x3
+//      &matrix)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QTextureMaterial19setTextureTransformERK14QGenericMatrixILi3ELi3EfE(
+    Qt3DExtras::QTextureMaterial *self,
+    const QMatrix3x3 *matrix) {
+  self->setTextureTransform(*matrix);
+}
+
+//  void Qt3DExtras::QTextureMaterial::setAlphaBlendingEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QTextureMaterial23setAlphaBlendingEnabledEb(
+    Qt3DExtras::QTextureMaterial *self,
+    bool enabled) {
+  self->setAlphaBlendingEnabled(enabled);
+}
+
+//  void
+//      Qt3DExtras::QTextureMaterial::textureChanged(Qt3DRender::QAbstractTex
+//      ture *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QTextureMaterial14textureChangedEPN10Qt3DRender16QAbstractTextureE(
+    Qt3DExtras::QTextureMaterial *self,
+    Qt3DRender::QAbstractTexture *texture) {
+  self->textureChanged(texture);
+}
+
+//  void Qt3DExtras::QTextureMaterial::textureOffsetChanged(QVector2D
+//      textureOffset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QTextureMaterial20textureOffsetChangedE9QVector2D(
+    Qt3DExtras::QTextureMaterial *self,
+    const QVector2D *textureOffset) {
+  self->textureOffsetChanged(*textureOffset);
+}
+
+//  void Qt3DExtras::QTextureMaterial::textureTransformChanged(const
+//      QMatrix3x3 &textureTransform)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QTextureMaterial23textureTransformChangedERK14QGenericMatrixILi3ELi3EfE(
+    Qt3DExtras::QTextureMaterial *self,
+    const QMatrix3x3 *textureTransform) {
+  self->textureTransformChanged(*textureTransform);
+}
+
+//  void Qt3DExtras::QTextureMaterial::alphaBlendingEnabledChanged(bool
+//      enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QTextureMaterial27alphaBlendingEnabledChangedEb(
+    Qt3DExtras::QTextureMaterial *self,
+    bool enabled) {
+  self->alphaBlendingEnabledChanged(enabled);
 }
 
 //  QTextureMaterialPrivate *Qt3DExtras::QTextureMaterial::d_func()
@@ -212,4 +349,10 @@ bool ritual_take_Qt3DExtras_QTextureMaterial(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DExtras_QTextureMaterial *>(self)->take(key, call);
+}
+
+//  a QMatrix3x3 a ritual of Qt3DExtras::QTextureMaterial gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DExtras_QTextureMaterial__QMatrix3x3(QMatrix3x3 *self) {
+  delete self;
 }

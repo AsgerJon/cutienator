@@ -5,6 +5,8 @@
 #include <QtPositioning/qgeorectangle.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtLocation/QGeoRouteRequest>
 
 //  QGeoRouteRequest::QGeoRouteRequest(const QList<QGeoCoordinate>
 //      &waypoints)
@@ -30,10 +32,42 @@ QGeoRouteRequest *ritual_ZN16QGeoRouteRequestC1ERKS_(
   return new QGeoRouteRequest(*other);
 }
 
+//  QGeoRouteRequest::QGeoRouteRequest(QGeoRouteRequest &&other)
+extern "C" Q_DECL_EXPORT
+QGeoRouteRequest *ritual_ZN16QGeoRouteRequestC1EOS_(
+    QGeoRouteRequest *other) {
+  return new QGeoRouteRequest(std::move(*other));
+}
+
 //  QGeoRouteRequest::~QGeoRouteRequest()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QGeoRouteRequestD1Ev(QGeoRouteRequest *self) {
   delete self;
+}
+
+//  QGeoRouteRequest &QGeoRouteRequest::operator=(const QGeoRouteRequest
+//      &other)
+extern "C" Q_DECL_EXPORT
+QGeoRouteRequest *ritual_ZN16QGeoRouteRequestaSERKS_(
+    QGeoRouteRequest *self,
+    const QGeoRouteRequest *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoRouteRequest &QGeoRouteRequest::operator=(QGeoRouteRequest &&other)
+extern "C" Q_DECL_EXPORT
+QGeoRouteRequest *ritual_ZN16QGeoRouteRequestaSEOS_(
+    QGeoRouteRequest *self,
+    QGeoRouteRequest *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoRouteRequest::swap(QGeoRouteRequest &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QGeoRouteRequest4swapERS_(
+    QGeoRouteRequest *self,
+    QGeoRouteRequest *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoRouteRequest &lhs, const QGeoRouteRequest &rhs)
@@ -133,6 +167,13 @@ QGeoRouteRequest::FeatureWeight ritual_ZNK16QGeoRouteRequest13featureWeightENS_1
   return self->featureWeight(featureType);
 }
 
+//  QList<FeatureType> QGeoRouteRequest::featureTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QGeoRouteRequest::FeatureType> *ritual_ZNK16QGeoRouteRequest12featureTypesEv(
+    const QGeoRouteRequest *self) {
+  return new QList<QGeoRouteRequest::FeatureType>(self->featureTypes());
+}
+
 //  void QGeoRouteRequest::setRouteOptimization(RouteOptimizations
 //      optimization)
 extern "C" Q_DECL_EXPORT
@@ -201,4 +242,11 @@ bool ritual_ZNK16QGeoRouteRequest7isEqualERKS_(
     const QGeoRouteRequest *self,
     const QGeoRouteRequest *other) {
   return self->isEqual(*other);
+}
+
+//  a QList<QGeoRouteRequest::FeatureType> a ritual of QGeoRouteRequest gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoRouteRequest__QList_QGeoRouteRequest_FeatureType(
+    QList<QGeoRouteRequest::FeatureType> *self) {
+  delete self;
 }

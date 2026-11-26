@@ -650,6 +650,24 @@ const QMetaObject *ritual_ZNK11QFormLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QFormLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QFormLayout11qt_metacastEPKc(
+    QFormLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QFormLayout::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QFormLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QFormLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QFormLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QFormLayout2trEPKcS1_i(
@@ -657,6 +675,19 @@ QString *ritual_ZN11QFormLayout2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QFormLayout::tr(s, c, n));
+}
+
+//  QFormLayoutPrivate *QFormLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QFormLayoutPrivate *ritual_ZN11QFormLayout6d_funcEv(QFormLayout *self) {
+  return self->d_func();
+}
+
+//  const QFormLayoutPrivate *QFormLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFormLayoutPrivate *ritual_ZNK11QFormLayout6d_funcEv(
+    const QFormLayout *self) {
+  return self->d_func();
 }
 
 //  QFormLayout::QFormLayout(QWidget *parent)
@@ -1015,6 +1046,39 @@ QLayoutItem *ritual_ZNK11QFormLayout6itemAtEiNS_8ItemRoleE(
     int row,
     QFormLayout::ItemRole role) {
   return self->itemAt(row, role);
+}
+
+//  void QFormLayout::getItemPosition(int index, int *rowPtr, ItemRole
+//      *rolePtr) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QFormLayout15getItemPositionEiPiPNS_8ItemRoleE(
+    const QFormLayout *self,
+    int index,
+    int *rowPtr,
+    QFormLayout::ItemRole *rolePtr) {
+  self->getItemPosition(index, rowPtr, rolePtr);
+}
+
+//  void QFormLayout::getWidgetPosition(QWidget *widget, int *rowPtr,
+//      ItemRole *rolePtr) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QFormLayout17getWidgetPositionEP7QWidgetPiPNS_8ItemRoleE(
+    const QFormLayout *self,
+    QWidget *widget,
+    int *rowPtr,
+    QFormLayout::ItemRole *rolePtr) {
+  self->getWidgetPosition(widget, rowPtr, rolePtr);
+}
+
+//  void QFormLayout::getLayoutPosition(QLayout *layout, int *rowPtr,
+//      ItemRole *rolePtr) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QFormLayout17getLayoutPositionEP7QLayoutPiPNS_8ItemRoleE(
+    const QFormLayout *self,
+    QLayout *layout,
+    int *rowPtr,
+    QFormLayout::ItemRole *rolePtr) {
+  self->getLayoutPosition(layout, rowPtr, rolePtr);
 }
 
 //  QWidget *QFormLayout::labelForField(QWidget *field) const

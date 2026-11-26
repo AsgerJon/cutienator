@@ -998,6 +998,22 @@ const QMetaObject *ritual_ZNK5QMenu10metaObjectEv(const QMenu *self) {
   return self->metaObject();
 }
 
+//  void *QMenu::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN5QMenu11qt_metacastEPKc(QMenu *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QMenu::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN5QMenu11qt_metacallEN11QMetaObject4CallEiPPv(
+    QMenu *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QMenu::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN5QMenu2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1367,6 +1383,30 @@ void ritual_ZN5QMenu18setToolTipsVisibleEb(QMenu *self, bool visible) {
   self->setToolTipsVisible(visible);
 }
 
+//  void QMenu::aboutToShow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu11aboutToShowEv(QMenu *self) {
+  self->aboutToShow();
+}
+
+//  void QMenu::aboutToHide()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu11aboutToHideEv(QMenu *self) {
+  self->aboutToHide();
+}
+
+//  void QMenu::triggered(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu9triggeredEP7QAction(QMenu *self, QAction *action) {
+  self->triggered(action);
+}
+
+//  void QMenu::hovered(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu7hoveredEP7QAction(QMenu *self, QAction *action) {
+  self->hovered(action);
+}
+
 //  int QMenu::columnCount() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK5QMenu11columnCountEv(const QMenu *self) {
@@ -1489,6 +1529,14 @@ void ritual_ZNK5QMenu15initStyleOptionEP20QStyleOptionMenuItemPK7QAction(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QMenu20internalDelayedPopupEv(QMenu *self) {
   self->internalDelayedPopup();
+}
+
+//  QMenu::QMenu(QMenuPrivate &dd, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QMenu *ritual_ZN5QMenuC1ER12QMenuPrivateP7QWidget(
+    QMenuPrivate *dd,
+    QWidget *parent) {
+  return new CuteQMenu(*dd, parent);
 }
 
 //  a Python function taken by a CuteQMenu, for the function named by the key

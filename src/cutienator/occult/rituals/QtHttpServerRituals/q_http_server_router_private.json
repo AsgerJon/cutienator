@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QHttpServerRouterPrivateC1EP19QAbstractHttpServer": [
+      "address", "address"
+    ],
     "ritual_ZN24QHttpServerRouterPrivateD1Ev": ["nothing", "address"]
   }
 }

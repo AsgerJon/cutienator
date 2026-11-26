@@ -13,8 +13,47 @@
     "ritual_ZNK10Qt3DRender5Quick14Scene2DManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManagerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager13requestRenderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager17requestRenderSyncEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager12doRenderSyncEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager18startIfInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager12stopAndCleanEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager11updateSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager7setItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager7cleanupEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DRender_Quick_Scene2DManager": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender5Quick14Scene2DManager5eventEP6QEvent": [
+      "bool", "address", "address"
     ]
   }
 }

@@ -23,6 +23,9 @@
     "ritual_ZN29QWindowSystemInterfacePrivate23removeWindowSystemEventEPNS_17WindowSystemEventE": [
       "nothing", "address"
     ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21fromNativeTouchPointsERK5QListIN22QWindowSystemInterface10TouchPointEEPK7QWindowPN6QEvent4TypeE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN29QWindowSystemInterfacePrivate18toNativeTouchPointERK11QEventPointPK7QWindow": [
       "address", "address", "address"
     ],

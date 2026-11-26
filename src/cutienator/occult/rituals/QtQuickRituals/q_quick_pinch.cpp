@@ -15,6 +15,24 @@ const QMetaObject *ritual_ZNK11QQuickPinch10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPinch::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickPinch11qt_metacastEPKc(
+    QQuickPinch *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPinch::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickPinch11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPinch *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPinch::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickPinch2trEPKcS1_i(
@@ -174,4 +192,70 @@ bool ritual_ZNK11QQuickPinch6activeEv(const QQuickPinch *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQuickPinch9setActiveEb(QQuickPinch *self, bool a) {
   self->setActive(a);
+}
+
+//  void QQuickPinch::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch13targetChangedEv(QQuickPinch *self) {
+  self->targetChanged();
+}
+
+//  void QQuickPinch::minimumScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch19minimumScaleChangedEv(QQuickPinch *self) {
+  self->minimumScaleChanged();
+}
+
+//  void QQuickPinch::maximumScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch19maximumScaleChangedEv(QQuickPinch *self) {
+  self->maximumScaleChanged();
+}
+
+//  void QQuickPinch::minimumRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch22minimumRotationChangedEv(QQuickPinch *self) {
+  self->minimumRotationChanged();
+}
+
+//  void QQuickPinch::maximumRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch22maximumRotationChangedEv(QQuickPinch *self) {
+  self->maximumRotationChanged();
+}
+
+//  void QQuickPinch::dragAxisChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch15dragAxisChangedEv(QQuickPinch *self) {
+  self->dragAxisChanged();
+}
+
+//  void QQuickPinch::minimumXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch15minimumXChangedEv(QQuickPinch *self) {
+  self->minimumXChanged();
+}
+
+//  void QQuickPinch::maximumXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch15maximumXChangedEv(QQuickPinch *self) {
+  self->maximumXChanged();
+}
+
+//  void QQuickPinch::minimumYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch15minimumYChangedEv(QQuickPinch *self) {
+  self->minimumYChanged();
+}
+
+//  void QQuickPinch::maximumYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch15maximumYChangedEv(QQuickPinch *self) {
+  self->maximumYChanged();
+}
+
+//  void QQuickPinch::activeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPinch13activeChangedEv(QQuickPinch *self) {
+  self->activeChanged();
 }

@@ -1006,6 +1006,24 @@ const QMetaObject *ritual_ZNK15QQuickImageBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickImageBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickImageBase11qt_metacastEPKc(
+    QQuickImageBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickImageBase::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickImageBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickImageBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickImageBase::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickImageBase2trEPKcS1_i(
@@ -1256,6 +1274,95 @@ void ritual_ZN15QQuickImageBase28emitAutoTransformBaseChangedEv(
   self->emitAutoTransformBaseChanged();
 }
 
+//  void QQuickImageBase::sourceChanged(const QUrl &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase13sourceChangedERK4QUrl(
+    QQuickImageBase *self,
+    const QUrl *a0) {
+  self->sourceChanged(*a0);
+}
+
+//  void QQuickImageBase::sourceSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase17sourceSizeChangedEv(QQuickImageBase *self) {
+  self->sourceSizeChanged();
+}
+
+//  void QQuickImageBase::statusChanged(QQuickImageBase::Status a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase13statusChangedENS_6StatusE(
+    QQuickImageBase *self,
+    QQuickImageBase::Status a0) {
+  self->statusChanged(a0);
+}
+
+//  void QQuickImageBase::progressChanged(qreal progress)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase15progressChangedEd(
+    QQuickImageBase *self,
+    qreal progress) {
+  self->progressChanged(progress);
+}
+
+//  void QQuickImageBase::asynchronousChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase19asynchronousChangedEv(
+    QQuickImageBase *self) {
+  self->asynchronousChanged();
+}
+
+//  void QQuickImageBase::cacheChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase12cacheChangedEv(QQuickImageBase *self) {
+  self->cacheChanged();
+}
+
+//  void QQuickImageBase::mirrorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase13mirrorChangedEv(QQuickImageBase *self) {
+  self->mirrorChanged();
+}
+
+//  void QQuickImageBase::currentFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase19currentFrameChangedEv(
+    QQuickImageBase *self) {
+  self->currentFrameChanged();
+}
+
+//  void QQuickImageBase::frameCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase17frameCountChangedEv(QQuickImageBase *self) {
+  self->frameCountChanged();
+}
+
+//  void QQuickImageBase::sourceClipRectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase21sourceClipRectChangedEv(
+    QQuickImageBase *self) {
+  self->sourceClipRectChanged();
+}
+
+//  void QQuickImageBase::colorSpaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase17colorSpaceChangedEv(QQuickImageBase *self) {
+  self->colorSpaceChanged();
+}
+
+//  void QQuickImageBase::mirrorVerticallyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase23mirrorVerticallyChangedEv(
+    QQuickImageBase *self) {
+  self->mirrorVerticallyChanged();
+}
+
+//  void QQuickImageBase::retainWhileLoadingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickImageBase25retainWhileLoadingChangedEv(
+    QQuickImageBase *self) {
+  self->retainWhileLoadingChanged();
+}
+
 //  void QQuickImageBase::loadEmptyUrl()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickImageBase12loadEmptyUrlEv(QQuickImageBase *self) {
@@ -1300,6 +1407,15 @@ void ritual_ZN15QQuickImageBase10itemChangeEN10QQuickItem10ItemChangeERKNS0_14It
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *value) {
   self->itemChange(change, *value);
+}
+
+//  QQuickImageBase::QQuickImageBase(QQuickImageBasePrivate &dd, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickImageBase *ritual_ZN15QQuickImageBaseC1ER22QQuickImageBasePrivateP10QQuickItem(
+    QQuickImageBasePrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickImageBase(*dd, parent);
 }
 
 //  void QQuickImageBase::requestFinished()

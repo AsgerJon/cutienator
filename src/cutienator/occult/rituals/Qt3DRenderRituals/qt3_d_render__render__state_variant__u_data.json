@@ -9,6 +9,9 @@
     "ritual_ZN10Qt3DRender6Render12StateVariant6u_DataC1ERKS2_": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender6Render12StateVariant6u_DataaSERKS2_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render12StateVariant6u_DataD1Ev": [
       "nothing", "address"
     ]

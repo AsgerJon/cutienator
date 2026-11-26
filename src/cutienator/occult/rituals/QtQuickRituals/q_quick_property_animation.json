@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickPropertyAnimation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickPropertyAnimation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickPropertyAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickPropertyAnimation2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -43,12 +49,45 @@
     "ritual_ZN23QQuickPropertyAnimation13setPropertiesERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN23QQuickPropertyAnimation7targetsEv": ["address", "address"],
+    "ritual_ZN23QQuickPropertyAnimation7excludeEv": ["address", "address"],
+    "ritual_ZN23QQuickPropertyAnimation23createTransitionActionsER5QListI17QQuickStateActionERS0_I12QQmlPropertyEP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickPropertyAnimationC1ER30QQuickPropertyAnimationPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickPropertyAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject": [
+      "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN23QQuickPropertyAnimation15durationChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuickPropertyAnimation11fromChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickPropertyAnimation9toChangedEv": ["nothing", "address"],
+    "ritual_ZN23QQuickPropertyAnimation13easingChangedERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickPropertyAnimation17propertiesChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QQuickPropertyAnimation13targetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickPropertyAnimation15propertyChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuickPropertyAnimation": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZNK23QQuickPropertyAnimation8durationEv": ["int", "address"],
     "ritual_own_ZN23QQuickPropertyAnimation11setDurationEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_drop_QQuickPropertyAnimation__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

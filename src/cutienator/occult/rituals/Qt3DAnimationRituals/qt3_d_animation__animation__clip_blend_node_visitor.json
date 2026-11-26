@@ -5,6 +5,24 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation20ClipBlendNodeVisitorC1EPNS0_20ClipBlendNodeManagerENS1_14TraversalOrderENS1_10NodeFilterE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation20ClipBlendNodeVisitor8traverseEN8Qt3DCore7QNodeIdERKSt8functionIFvPNS0_13ClipBlendNodeEEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation20ClipBlendNodeVisitor21visitPreOrderAllNodesEPNS0_13ClipBlendNodeERKSt8functionIFvS3_EE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation20ClipBlendNodeVisitor22visitPostOrderAllNodesEPNS0_13ClipBlendNodeERKSt8functionIFvS3_EE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation20ClipBlendNodeVisitor28visitPreOrderDependencyNodesEPNS0_13ClipBlendNodeERKSt8functionIFvS3_EE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation20ClipBlendNodeVisitor29visitPostOrderDependencyNodesEPNS0_13ClipBlendNodeERKSt8functionIFvS3_EE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation20ClipBlendNodeVisitorD1Ev": [
       "nothing", "address"
     ]

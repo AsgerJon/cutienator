@@ -1031,6 +1031,22 @@ const QMetaObject *ritual_ZNK9QLineEdit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLineEdit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QLineEdit11qt_metacastEPKc(QLineEdit *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLineEdit::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QLineEdit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLineEdit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLineEdit::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QLineEdit2trEPKcS1_i(
@@ -1517,6 +1533,55 @@ QMenu *ritual_ZN9QLineEdit25createStandardContextMenuEv(QLineEdit *self) {
   return self->createStandardContextMenu();
 }
 #endif  // !defined(QT_NO_CONTEXTMENU)
+
+//  void QLineEdit::textChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit11textChangedERK7QString(
+    QLineEdit *self,
+    const QString *a0) {
+  self->textChanged(*a0);
+}
+
+//  void QLineEdit::textEdited(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit10textEditedERK7QString(
+    QLineEdit *self,
+    const QString *a0) {
+  self->textEdited(*a0);
+}
+
+//  void QLineEdit::cursorPositionChanged(int a0, int a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit21cursorPositionChangedEii(
+    QLineEdit *self,
+    int a0,
+    int a1) {
+  self->cursorPositionChanged(a0, a1);
+}
+
+//  void QLineEdit::returnPressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit13returnPressedEv(QLineEdit *self) {
+  self->returnPressed();
+}
+
+//  void QLineEdit::editingFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit15editingFinishedEv(QLineEdit *self) {
+  self->editingFinished();
+}
+
+//  void QLineEdit::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit16selectionChangedEv(QLineEdit *self) {
+  self->selectionChanged();
+}
+
+//  void QLineEdit::inputRejected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit13inputRejectedEv(QLineEdit *self) {
+  self->inputRejected();
+}
 
 //  void QLineEdit::mousePressEvent(QMouseEvent *a0)
 extern "C" Q_DECL_EXPORT

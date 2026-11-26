@@ -626,6 +626,24 @@ const QMetaObject *ritual_ZNK12QCommonStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCommonStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QCommonStyle11qt_metacastEPKc(
+    QCommonStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCommonStyle::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QCommonStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCommonStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCommonStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QCommonStyle2trEPKcS1_i(
@@ -805,6 +823,14 @@ int ritual_ZNK12QCommonStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt1
       widget);
 }
 
+//  void QCommonStyle::polish(QPalette &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QCommonStyle6polishER8QPalette(
+    QCommonStyle *self,
+    QPalette *a0) {
+  self->polish(*a0);
+}
+
 //  void QCommonStyle::polish(QApplication *app)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QCommonStyle6polishEP12QApplication(
@@ -835,6 +861,13 @@ void ritual_ZN12QCommonStyle8unpolishEP12QApplication(
     QCommonStyle *self,
     QApplication *application) {
   self->unpolish(application);
+}
+
+//  QCommonStyle::QCommonStyle(QCommonStylePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QCommonStyle *ritual_ZN12QCommonStyleC1ER19QCommonStylePrivate(
+    QCommonStylePrivate *dd) {
+  return new CuteQCommonStyle(*dd);
 }
 
 //  QCommonStylePrivate *QCommonStyle::d_func()

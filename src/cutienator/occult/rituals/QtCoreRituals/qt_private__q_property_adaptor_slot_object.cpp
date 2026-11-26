@@ -8,6 +8,22 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 
+//  const QPropertyBindingData
+//      &QtPrivate::QPropertyAdaptorSlotObject::bindingData() const
+extern "C" Q_DECL_EXPORT
+const QtPrivate::QPropertyBindingData *ritual_ZNK9QtPrivate26QPropertyAdaptorSlotObject11bindingDataEv(
+    const QtPrivate::QPropertyAdaptorSlotObject *self) {
+  return &(self->bindingData());
+}
+
+//  QPropertyBindingData
+//      &QtPrivate::QPropertyAdaptorSlotObject::bindingData()
+extern "C" Q_DECL_EXPORT
+QtPrivate::QPropertyBindingData *ritual_ZN9QtPrivate26QPropertyAdaptorSlotObject11bindingDataEv(
+    QtPrivate::QPropertyAdaptorSlotObject *self) {
+  return &(self->bindingData());
+}
+
 //  QObject *QtPrivate::QPropertyAdaptorSlotObject::object() const
 extern "C" Q_DECL_EXPORT
 QObject *ritual_ZNK9QtPrivate26QPropertyAdaptorSlotObject6objectEv(

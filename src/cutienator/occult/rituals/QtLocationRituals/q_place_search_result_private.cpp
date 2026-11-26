@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/6.12.0/QtLocation/private/qplacesearchresult_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtLocation/qplacesearchresult.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLocation/qplacesearchresult.h>
@@ -38,7 +39,7 @@ typedef int (*CuteQPlaceSearchResultPrivateCall2)(const void *, int *);
 class CuteQPlaceSearchResultPrivate : public QPlaceSearchResultPrivate {
 public:
   using QPlaceSearchResultPrivate::QPlaceSearchResultPrivate;
-  CuteQPlaceSearchResultPrivate(const QPlaceSearchResultPrivate &other) : QPlaceSearchResultPrivate(other) {}
+  CuteQPlaceSearchResultPrivate(const QPlaceSearchResultPrivate & other) : QPlaceSearchResultPrivate(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -107,6 +108,15 @@ bool ritual_ZNK25QPlaceSearchResultPrivate7compareEPKS_(
     const QPlaceSearchResultPrivate *self,
     const QPlaceSearchResultPrivate *other) {
   return self->compare(other);
+}
+
+//  const QSharedDataPointer<QPlaceSearchResultPrivate>
+//      &QPlaceSearchResultPrivate::extract_d(const QPlaceSearchResult
+//      &other)
+extern "C" Q_DECL_EXPORT
+const QSharedDataPointer<QPlaceSearchResultPrivate> *ritual_ZN25QPlaceSearchResultPrivate9extract_dERK18QPlaceSearchResult(
+    const QPlaceSearchResult *other) {
+  return &(QPlaceSearchResultPrivate::extract_d(*other));
 }
 
 //  QPlaceSearchResultPrivate *QPlaceSearchResultPrivate::clone() const

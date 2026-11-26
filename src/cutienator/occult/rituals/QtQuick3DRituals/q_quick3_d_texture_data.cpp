@@ -291,6 +291,25 @@ const QMetaObject *ritual_ZNK19QQuick3DTextureData10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DTextureData::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuick3DTextureData11qt_metacastEPKc(
+    QQuick3DTextureData *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DTextureData::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuick3DTextureData11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DTextureData *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DTextureData::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuick3DTextureData2trEPKcS1_i(
@@ -407,6 +426,13 @@ void ritual_ZN19QQuick3DTextureData18setHasTransparencyEb(
     QQuick3DTextureData *self,
     bool hasTransparency) {
   self->setHasTransparency(hasTransparency);
+}
+
+//  void QQuick3DTextureData::textureDataNodeDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DTextureData20textureDataNodeDirtyEv(
+    QQuick3DTextureData *self) {
+  self->textureDataNodeDirty();
 }
 
 //  QSSGRenderGraphObject

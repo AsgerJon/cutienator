@@ -795,6 +795,24 @@ const QMetaObject *ritual_ZNK15QQuickPinchArea10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPinchArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickPinchArea11qt_metacastEPKc(
+    QQuickPinchArea *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPinchArea::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickPinchArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPinchArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPinchArea::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickPinchArea2trEPKcS1_i(
@@ -835,6 +853,44 @@ void ritual_ZN15QQuickPinchArea10setEnabledEb(
 extern "C" Q_DECL_EXPORT
 QQuickPinch *ritual_ZN15QQuickPinchArea5pinchEv(QQuickPinchArea *self) {
   return self->pinch();
+}
+
+//  void QQuickPinchArea::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPinchArea14enabledChangedEv(QQuickPinchArea *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickPinchArea::pinchStarted(QQuickPinchEvent *pinch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPinchArea12pinchStartedEP16QQuickPinchEvent(
+    QQuickPinchArea *self,
+    QQuickPinchEvent *pinch) {
+  self->pinchStarted(pinch);
+}
+
+//  void QQuickPinchArea::pinchUpdated(QQuickPinchEvent *pinch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPinchArea12pinchUpdatedEP16QQuickPinchEvent(
+    QQuickPinchArea *self,
+    QQuickPinchEvent *pinch) {
+  self->pinchUpdated(pinch);
+}
+
+//  void QQuickPinchArea::pinchFinished(QQuickPinchEvent *pinch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPinchArea13pinchFinishedEP16QQuickPinchEvent(
+    QQuickPinchArea *self,
+    QQuickPinchEvent *pinch) {
+  self->pinchFinished(pinch);
+}
+
+//  void QQuickPinchArea::smartZoom(QQuickPinchEvent *pinch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickPinchArea9smartZoomEP16QQuickPinchEvent(
+    QQuickPinchArea *self,
+    QQuickPinchEvent *pinch) {
+  self->smartZoom(pinch);
 }
 
 //  bool QQuickPinchArea::childMouseEventFilter(QQuickItem *i, QEvent *e)

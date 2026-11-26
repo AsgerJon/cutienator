@@ -295,6 +295,25 @@ const QMetaObject *ritual_ZNK21QQuick3DAbstractLight10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DAbstractLight::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DAbstractLight11qt_metacastEPKc(
+    QQuick3DAbstractLight *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DAbstractLight::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DAbstractLight11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DAbstractLight *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DAbstractLight::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuick3DAbstractLight2trEPKcS1_i(
@@ -529,6 +548,113 @@ void ritual_ZN21QQuick3DAbstractLight20setUse32BitShadowmapEb(
     QQuick3DAbstractLight *self,
     bool use32BitShadowmap) {
   self->setUse32BitShadowmap(use32BitShadowmap);
+}
+
+//  void QQuick3DAbstractLight::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight12colorChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->colorChanged();
+}
+
+//  void QQuick3DAbstractLight::ambientColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight19ambientColorChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->ambientColorChanged();
+}
+
+//  void QQuick3DAbstractLight::brightnessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight17brightnessChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->brightnessChanged();
+}
+
+//  void QQuick3DAbstractLight::scopeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight12scopeChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->scopeChanged();
+}
+
+//  void QQuick3DAbstractLight::castsShadowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight18castsShadowChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->castsShadowChanged();
+}
+
+//  void QQuick3DAbstractLight::shadowBiasChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight17shadowBiasChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->shadowBiasChanged();
+}
+
+//  void QQuick3DAbstractLight::shadowFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight19shadowFactorChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->shadowFactorChanged();
+}
+
+//  void QQuick3DAbstractLight::shadowMapQualityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight23shadowMapQualityChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->shadowMapQualityChanged();
+}
+
+//  void QQuick3DAbstractLight::shadowMapFarChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight19shadowMapFarChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->shadowMapFarChanged();
+}
+
+//  void QQuick3DAbstractLight::shadowFilterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight19shadowFilterChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->shadowFilterChanged();
+}
+
+//  void QQuick3DAbstractLight::bakeModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight15bakeModeChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->bakeModeChanged();
+}
+
+//  void QQuick3DAbstractLight::softShadowQualityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight24softShadowQualityChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->softShadowQualityChanged();
+}
+
+//  void QQuick3DAbstractLight::pcfFactorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight16pcfFactorChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->pcfFactorChanged();
+}
+
+//  void QQuick3DAbstractLight::use32BitShadowmapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuick3DAbstractLight24use32BitShadowmapChangedEv(
+    QQuick3DAbstractLight *self) {
+  self->use32BitShadowmapChanged();
+}
+
+//  QQuick3DAbstractLight::QQuick3DAbstractLight(QQuick3DNodePrivate &dd,
+//      QQuick3DNode *parent)
+extern "C" Q_DECL_EXPORT
+QQuick3DAbstractLight *ritual_ZN21QQuick3DAbstractLightC1ER19QQuick3DNodePrivateP12QQuick3DNode(
+    QQuick3DNodePrivate *dd,
+    QQuick3DNode *parent) {
+  return new CuteQQuick3DAbstractLight(*dd, parent);
 }
 
 //  QSSGRenderGraphObject

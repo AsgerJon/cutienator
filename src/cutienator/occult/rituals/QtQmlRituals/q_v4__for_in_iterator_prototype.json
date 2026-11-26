@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN3QV422ForInIteratorPrototype16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV422ForInIteratorPrototype4initEPNS_15ExecutionEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV422ForInIteratorPrototype11method_nextEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
     ]
   }
 }

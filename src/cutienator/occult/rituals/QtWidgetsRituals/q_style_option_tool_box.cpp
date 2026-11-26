@@ -16,6 +16,15 @@ QStyleOptionToolBox *ritual_ZN19QStyleOptionToolBoxC1ERKS_(
   return new QStyleOptionToolBox(*other);
 }
 
+//  QStyleOptionToolBox &QStyleOptionToolBox::operator=(const
+//      QStyleOptionToolBox &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionToolBox *ritual_ZN19QStyleOptionToolBoxaSERKS_(
+    QStyleOptionToolBox *self,
+    const QStyleOptionToolBox *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionToolBox::QStyleOptionToolBox(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionToolBox *ritual_ZN19QStyleOptionToolBoxC1Ei(int version) {

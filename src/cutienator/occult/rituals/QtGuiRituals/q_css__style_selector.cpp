@@ -13,6 +13,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QCss::StyleSelector that Python can take functions over in. Every QCss::StyleSelector
 //  Python makes is one. Each function below asks the Python
@@ -221,6 +222,27 @@ void ritual_ZN4QCss13StyleSelectorD1Ev(QCss::StyleSelector *self) {
   delete self;
 }
 
+//  QList<StyleRule> QCss::StyleSelector::styleRulesForNode(NodePtr node)
+extern "C" Q_DECL_EXPORT
+QList<QCss::StyleRule> *ritual_ZN4QCss13StyleSelector17styleRulesForNodeENS0_7NodePtrE(
+    QCss::StyleSelector *self,
+    const QCss::StyleSelector::NodePtr *node) {
+  return new QList<QCss::StyleRule>(self->styleRulesForNode(*node));
+}
+
+//  QList<Declaration> QCss::StyleSelector::declarationsForNode(NodePtr node,
+//      const char *extraPseudo)
+extern "C" Q_DECL_EXPORT
+QList<QCss::Declaration> *ritual_ZN4QCss13StyleSelector19declarationsForNodeENS0_7NodePtrEPKc(
+    QCss::StyleSelector *self,
+    const QCss::StyleSelector::NodePtr *node,
+    const char *extraPseudo) {
+  return new QList<QCss::Declaration>(
+      self->declarationsForNode(
+          *node,
+          extraPseudo));
+}
+
 //  bool QCss::StyleSelector::nodeNameEquals(NodePtr node, const QString
 //      &nodeName) const
 extern "C" Q_DECL_EXPORT
@@ -305,6 +327,40 @@ void ritual_ZNK4QCss13StyleSelector8freeNodeENS0_7NodePtrE(
   self->freeNode(*node);
 }
 
+//  void QCss::StyleSelector::matchRule(NodePtr node, const StyleRule &rules,
+//      StyleSheetOrigin origin, int depth, std::multimap<uint64_t,
+//      StyleRule> *weightedRules) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK4QCss13StyleSelector9matchRuleENS0_7NodePtrERKNS_9StyleRuleENS_16StyleSheetOriginEiPSt8multimapImS2_St4lessImESaISt4pairIKmS2_EEE(
+    const QCss::StyleSelector *self,
+    const QCss::StyleSelector::NodePtr *node,
+    const QCss::StyleRule *rules,
+    QCss::StyleSheetOrigin origin,
+    int depth,
+    std::multimap<uint64_t, QCss::StyleRule> *weightedRules) {
+  self->matchRule(*node, *rules, origin, depth, weightedRules);
+}
+
+//  bool QCss::StyleSelector::selectorMatches(const Selector &rule, NodePtr
+//      node) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK4QCss13StyleSelector15selectorMatchesERKNS_8SelectorENS0_7NodePtrE(
+    const QCss::StyleSelector *self,
+    const QCss::Selector *rule,
+    const QCss::StyleSelector::NodePtr *node) {
+  return self->selectorMatches(*rule, *node);
+}
+
+//  bool QCss::StyleSelector::basicSelectorMatches(const BasicSelector &rule,
+//      NodePtr node) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK4QCss13StyleSelector20basicSelectorMatchesERKNS_13BasicSelectorENS0_7NodePtrE(
+    const QCss::StyleSelector *self,
+    const QCss::BasicSelector *rule,
+    const QCss::StyleSelector::NodePtr *node) {
+  return self->basicSelectorMatches(*rule, *node);
+}
+
 //  a Python function taken by a CuteQCss_StyleSelector, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -323,6 +379,20 @@ bool ritual_own_ZNK4QCss13StyleSelector14nodeNameEqualsENS0_7NodePtrERK7QString(
     const QCss::StyleSelector::NodePtr *node,
     const QString *nodeName) {
   return self->QCss::StyleSelector::nodeNameEquals(*node, *nodeName);
+}
+
+//  a QList<QCss::StyleRule> a ritual of QCss::StyleSelector gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCss_StyleSelector__QList_QCss_StyleRule(
+    QList<QCss::StyleRule> *self) {
+  delete self;
+}
+
+//  a QList<QCss::Declaration> a ritual of QCss::StyleSelector gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCss_StyleSelector__QList_QCss_Declaration(
+    QList<QCss::Declaration> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_CSSPARSER)

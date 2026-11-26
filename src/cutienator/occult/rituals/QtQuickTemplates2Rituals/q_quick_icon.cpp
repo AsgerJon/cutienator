@@ -34,6 +34,14 @@ void ritual_ZN10QQuickIconD1Ev(QQuickIcon *self) {
   delete self;
 }
 
+//  QQuickIcon &QQuickIcon::operator=(const QQuickIcon &other)
+extern "C" Q_DECL_EXPORT
+QQuickIcon *ritual_ZN10QQuickIconaSERKS_(
+    QQuickIcon *self,
+    const QQuickIcon *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QQuickIcon::operator==(const QQuickIcon &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10QQuickIconeqERKS_(

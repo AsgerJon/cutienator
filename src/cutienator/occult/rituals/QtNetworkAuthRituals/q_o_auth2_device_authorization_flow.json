@@ -8,6 +8,12 @@
     "ritual_ZNK30QOAuth2DeviceAuthorizationFlow10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN30QOAuth2DeviceAuthorizationFlow2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -42,6 +48,24 @@
     ],
     "ritual_ZN30QOAuth2DeviceAuthorizationFlow16stopTokenPollingEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow21authorizeWithUserCodeERK4QUrlRK7QStringS2_": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow15userCodeChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow22verificationUrlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow30completeVerificationUrlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow14pollingChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow27userCodeExpirationAtChangedERK9QDateTime": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN30QOAuth2DeviceAuthorizationFlow5eventEP6QEvent": [
       "bool", "address", "address"

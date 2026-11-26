@@ -198,6 +198,22 @@ const QMetaObject *ritual_ZNK9QSettings10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSettings::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QSettings11qt_metacastEPKc(QSettings *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSettings::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QSettings11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSettings *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSettings::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QSettings2trEPKcS1_i(
@@ -565,6 +581,23 @@ void ritual_ZN9QSettings7setPathENS_6FormatENS_5ScopeERK7QString(
     QSettings::Scope scope,
     const QString *path) {
   QSettings::setPath(format, scope, *path);
+}
+#endif  // QT_CONFIG(settings)
+
+#if QT_CONFIG(settings)
+//  Format QSettings::registerFormat(const QString &extension, ReadFunc
+//      readFunc, WriteFunc writeFunc, Qt::CaseSensitivity caseSensitivity)
+extern "C" Q_DECL_EXPORT
+QSettings::Format ritual_ZN9QSettings14registerFormatERK7QStringPFbR9QIODeviceR4QMapIS0_8QVariantEEPFbS4_RKS7_EN2Qt15CaseSensitivityE(
+    const QString *extension,
+    void *readFunc,
+    void *writeFunc,
+    Qt::CaseSensitivity caseSensitivity) {
+  return QSettings::registerFormat(
+      *extension,
+      reinterpret_cast<QSettings::ReadFunc>(readFunc),
+      reinterpret_cast<QSettings::WriteFunc>(writeFunc),
+      caseSensitivity);
 }
 #endif  // QT_CONFIG(settings)
 

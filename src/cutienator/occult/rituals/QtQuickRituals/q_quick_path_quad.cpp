@@ -19,6 +19,24 @@ const QMetaObject *ritual_ZNK14QQuickPathQuad10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathQuad::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickPathQuad11qt_metacastEPKc(
+    QQuickPathQuad *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathQuad::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickPathQuad11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathQuad *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathQuad::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickPathQuad2trEPKcS1_i(
@@ -102,6 +120,42 @@ void ritual_ZN14QQuickPathQuad19setRelativeControlYEd(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN14QQuickPathQuad19hasRelativeControlYEv(QQuickPathQuad *self) {
   return self->hasRelativeControlY();
+}
+
+//  void QQuickPathQuad::addToPath(QPainterPath &path, const QQuickPathData
+//      &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathQuad9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickPathQuad *self,
+    QPainterPath *path,
+    const QQuickPathData *a1) {
+  self->addToPath(*path, *a1);
+}
+
+//  void QQuickPathQuad::controlXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathQuad15controlXChangedEv(QQuickPathQuad *self) {
+  self->controlXChanged();
+}
+
+//  void QQuickPathQuad::controlYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathQuad15controlYChangedEv(QQuickPathQuad *self) {
+  self->controlYChanged();
+}
+
+//  void QQuickPathQuad::relativeControlXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathQuad23relativeControlXChangedEv(
+    QQuickPathQuad *self) {
+  self->relativeControlXChanged();
+}
+
+//  void QQuickPathQuad::relativeControlYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickPathQuad23relativeControlYChangedEv(
+    QQuickPathQuad *self) {
+  self->relativeControlYChanged();
 }
 
 #endif  // QT_CONFIG(quick_path)

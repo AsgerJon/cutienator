@@ -12,6 +12,10 @@
     "ritual_ZN14QReadWriteLock15tryLockForWriteEi": [
       "bool", "address", "int"
     ],
+    "ritual_ZN14QReadWriteLock19initRecursiveHelperEv": ["address"],
+    "ritual_ZN14QReadWriteLock22destroyRecursiveHelperEPv": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QReadWriteLock19initRecursiveInlineEv": ["address"],
     "ritual_ZN14QReadWriteLock22destroyRecursiveInlineEP21QReadWriteLockPrivate": [
       "nothing", "address"

@@ -183,6 +183,24 @@ const QMetaObject *ritual_ZNK14QHttpMultiPart10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QHttpMultiPart::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QHttpMultiPart11qt_metacastEPKc(
+    QHttpMultiPart *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHttpMultiPart::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QHttpMultiPart11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHttpMultiPart *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QHttpMultiPart::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QHttpMultiPart2trEPKcS1_i(

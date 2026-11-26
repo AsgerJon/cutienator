@@ -6,6 +6,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QAccessibleTableInterface that Python can take functions over in. Every QAccessibleTableInterface
 //  Python makes is one. Each function below asks the Python
@@ -494,6 +495,20 @@ int ritual_ZNK25QAccessibleTableInterface8rowCountEv(
   return self->rowCount();
 }
 
+//  QList<int> QAccessibleTableInterface::selectedColumns() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK25QAccessibleTableInterface15selectedColumnsEv(
+    const QAccessibleTableInterface *self) {
+  return new QList<int>(self->selectedColumns());
+}
+
+//  QList<int> QAccessibleTableInterface::selectedRows() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK25QAccessibleTableInterface12selectedRowsEv(
+    const QAccessibleTableInterface *self) {
+  return new QList<int>(self->selectedRows());
+}
+
 //  bool QAccessibleTableInterface::isColumnSelected(int column) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK25QAccessibleTableInterface16isColumnSelectedEi(
@@ -560,6 +575,12 @@ bool ritual_take_QAccessibleTableInterface(
     const char *key,
     void *call) {
   return static_cast<CuteQAccessibleTableInterface *>(self)->take(key, call);
+}
+
+//  a QList<int> a ritual of QAccessibleTableInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAccessibleTableInterface__QList_int(QList<int> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(accessibility)

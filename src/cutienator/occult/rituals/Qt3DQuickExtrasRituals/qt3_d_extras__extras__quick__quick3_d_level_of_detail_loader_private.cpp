@@ -7,6 +7,30 @@
 #include <Qt3DQuickExtras/6.12.0/Qt3DQuickExtras/private/quick3dlevelofdetailloader_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DQuickExtras/private/quick3dlevelofdetailloader_p_p.h>
+#include <Qt3DRender/qlevelofdetailboundingsphere.h>
+#include <Qt3DRender/qcamera.h>
+#include <Qt3DQuick/private/quick3dentityloader_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/quick3d/quick3dextras/items/quick3dlevelofdetailloader.cpp, line 15, as _ZN10Qt3DExtras6Extras5Quick33Quick3DLevelOfDetailLoaderPrivateC1Ev
+namespace Qt3DExtras::Extras::Quick {
+inline Quick3DLevelOfDetailLoaderPrivate::Quick3DLevelOfDetailLoaderPrivate()
+    : QEntityPrivate()
+    , m_loader(new Qt3DCore::Quick::Quick3DEntityLoader)
+    , m_lod(new Qt3DRender::QLevelOfDetail)
+{
+}
+}  // namespace Qt3DExtras::Extras::Quick
+//  -----------------------------------------------------------------------
 
 //  A Qt3DExtras::Extras::Quick::Quick3DLevelOfDetailLoaderPrivate that Python can take functions over in. Every Qt3DExtras::Extras::Quick::Quick3DLevelOfDetailLoaderPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +76,13 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DExtras::Extras::Quick::Quick3DLevelOfDetailLoaderPrivate::Quick3DLeve
+//      lOfDetailLoaderPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::Extras::Quick::Quick3DLevelOfDetailLoaderPrivate *ritual_ZN10Qt3DExtras6Extras5Quick33Quick3DLevelOfDetailLoaderPrivateC1Ev() {
+  return new CuteQt3DExtras_Extras_Quick_Quick3DLevelOfDetailLoaderPrivate();
+}
 
 //  Quick3DLevelOfDetailLoader
 //      *Qt3DExtras::Extras::Quick::Quick3DLevelOfDetailLoaderPrivate::q_func

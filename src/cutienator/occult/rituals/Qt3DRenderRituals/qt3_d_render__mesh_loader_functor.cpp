@@ -10,6 +10,56 @@
 #include <QtCore/qurl.h>
 #include <Qt3DCore/qnodeid.h>
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DRender/qmesh.h>
+#include <Qt3DRender/private/qmesh_p.h>
+#include <QtCore/private/qfactoryloader_p.h>
+#include <QtCore/QDebug>
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtCore/QScopedPointer>
+#if QT_CONFIG(mimetype)
+#include <QtCore/QMimeDatabase>
+#include <QtCore/QMimeType>
+#endif
+#include <QtCore/QBuffer>
+#include <Qt3DRender/QRenderAspect>
+#include <Qt3DCore/QAspectEngine>
+#include <Qt3DCore/private/qscene_p.h>
+#include <Qt3DCore/private/qdownloadhelperservice_p.h>
+#include <Qt3DCore/private/qurlhelper_p.h>
+#include <Qt3DRender/private/qrenderaspect_p.h>
+#include <Qt3DRender/private/nodemanagers_p.h>
+#include <Qt3DRender/private/qgeometryloaderinterface_p.h>
+#include <Qt3DRender/private/renderlogging_p.h>
+#include <Qt3DRender/private/qgeometryloaderfactory_p.h>
+#include <Qt3DRender/private/geometryrenderermanager_p.h>
+#include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/render/geometry/qmesh.cpp, line 359, as _ZNK10Qt3DRender17MeshLoaderFunctor6equalsERKN8Qt3DCore16QGeometryFactoryE
+namespace Qt3DRender {
+using namespace Qt3DCore;
+inline bool MeshLoaderFunctor::equals(const QGeometryFactory &other) const
+{
+    const MeshLoaderFunctor *otherFunctor = functor_cast<MeshLoaderFunctor>(&other);
+    if (otherFunctor != nullptr)
+        return (otherFunctor->m_sourcePath == m_sourcePath &&
+                otherFunctor->m_sourceData.isEmpty() == m_sourceData.isEmpty() &&
+                otherFunctor->m_meshName == m_meshName &&
+                otherFunctor->m_downloaderService == m_downloaderService &&
+                otherFunctor->m_nodeManagers == m_nodeManagers);
+    return false;
+}
+}  // namespace Qt3DRender
+//  -----------------------------------------------------------------------
 
 //  void Qt3DRender::MeshLoaderFunctor::setNodeManagers(Render::NodeManagers
 //      *managers)
@@ -85,6 +135,22 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QMesh::Status ritual_ZNK10Qt3DRender17MeshLoaderFunctor6statusEv(
     const Qt3DRender::MeshLoaderFunctor *self) {
   return self->status();
+}
+
+//  Qt3DCore::QGeometry *Qt3DRender::MeshLoaderFunctor::operator()()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QGeometry *ritual_ZN10Qt3DRender17MeshLoaderFunctorclEv(
+    Qt3DRender::MeshLoaderFunctor *self) {
+  return self->operator()();
+}
+
+//  bool Qt3DRender::MeshLoaderFunctor::equals(const
+//      Qt3DCore::QGeometryFactory &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender17MeshLoaderFunctor6equalsERKN8Qt3DCore16QGeometryFactoryE(
+    const Qt3DRender::MeshLoaderFunctor *self,
+    const Qt3DCore::QGeometryFactory *other) {
+  return self->equals(*other);
 }
 
 //  qintptr Qt3DRender::MeshLoaderFunctor::id() const

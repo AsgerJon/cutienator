@@ -8,24 +8,26 @@
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/qbluetoothuuid.h>
+#include <QtCore/qbytearray.h>
 #include <QtBluetooth/qlowenergyadvertisingparameters.h>
 #include <QtBluetooth/qlowenergyadvertisingdata.h>
 #include <QtBluetooth/qlowenergyconnectionparameters.h>
 #include <QtBluetooth/qlowenergyservicedata.h>
 #include <QtBluetooth/qlowenergycharacteristic.h>
 #include <QtBluetooth/qlowenergydescriptor.h>
-#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QByteArray>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtBluetooth/private/qlowenergyserviceprivate_p.h>
+#include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #include <QtCore/QLoggingCategory>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QLowEnergyCharacteristicData>
 #include <QtBluetooth/QLowEnergyDescriptorData>
 #include <QtBluetooth/QLowEnergyServiceData>
-#include <QtBluetooth/private/qlowenergyserviceprivate_p.h>
-#include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -34,23 +36,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 114, as _ZN27QLowEnergyControllerPrivate16serviceForHandleEt
-inline QSharedPointer<QLowEnergyServicePrivate> QLowEnergyControllerPrivate::serviceForHandle(
-        QLowEnergyHandle handle)
-{
-    ServiceDataMap &currentList = serviceList;
-    if (role == QLowEnergyController::PeripheralRole)
-        currentList = localServices;
-
-    const QList<QSharedPointer<QLowEnergyServicePrivate>> values = currentList.values();
-    for (const auto &service: values) {
-        if (service->startHandle <= handle && handle <= service->endHandle)
-            return service;
-    }
-
-    return QSharedPointer<QLowEnergyServicePrivate>();
-}
 
 //  from ../qtconnectivity/src/bluetooth/qlowenergyserviceprivate.cpp, line 19, as _ZN24QLowEnergyServicePrivate13setControllerEP27QLowEnergyControllerPrivate
 inline void QLowEnergyServicePrivate::setController(QLowEnergyControllerPrivate *control)
@@ -141,6 +126,23 @@ inline void QLowEnergyControllerPrivate::setError(
     }
 
     emit q->errorOccurred(newError);
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 114, as _ZN27QLowEnergyControllerPrivate16serviceForHandleEt
+inline QSharedPointer<QLowEnergyServicePrivate> QLowEnergyControllerPrivate::serviceForHandle(
+        QLowEnergyHandle handle)
+{
+    ServiceDataMap &currentList = serviceList;
+    if (role == QLowEnergyController::PeripheralRole)
+        currentList = localServices;
+
+    const QList<QSharedPointer<QLowEnergyServicePrivate>> values = currentList.values();
+    for (const auto &service: values) {
+        if (service->startHandle <= handle && handle <= service->endHandle)
+            return service;
+    }
+
+    return QSharedPointer<QLowEnergyServicePrivate>();
 }
 
 //  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 134, as _ZN27QLowEnergyControllerPrivate23characteristicForHandleEt
@@ -614,6 +616,25 @@ const QMetaObject *ritual_ZNK27QLowEnergyControllerPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLowEnergyControllerPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QLowEnergyControllerPrivate11qt_metacastEPKc(
+    QLowEnergyControllerPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLowEnergyControllerPrivate::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QLowEnergyControllerPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLowEnergyControllerPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QLowEnergyControllerPrivate::~QLowEnergyControllerPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QLowEnergyControllerPrivateD1Ev(
@@ -657,6 +678,57 @@ void ritual_ZN27QLowEnergyControllerPrivate22discoverServiceDetailsERK14QBluetoo
     const QBluetoothUuid *service,
     QLowEnergyService::DiscoveryMode mode) {
   self->discoverServiceDetails(*service, mode);
+}
+
+//  void QLowEnergyControllerPrivate::readCharacteristic(const
+//      QSharedPointer<QLowEnergyServicePrivate> service, const
+//      QLowEnergyHandle charHandle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QLowEnergyControllerPrivate18readCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEt(
+    QLowEnergyControllerPrivate *self,
+    const QSharedPointer<QLowEnergyServicePrivate> *service,
+    QLowEnergyHandle charHandle) {
+  self->readCharacteristic(*service, charHandle);
+}
+
+//  void QLowEnergyControllerPrivate::readDescriptor(const
+//      QSharedPointer<QLowEnergyServicePrivate> service, const
+//      QLowEnergyHandle charHandle, const QLowEnergyHandle descriptorHandle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QLowEnergyControllerPrivate14readDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEtt(
+    QLowEnergyControllerPrivate *self,
+    const QSharedPointer<QLowEnergyServicePrivate> *service,
+    QLowEnergyHandle charHandle,
+    QLowEnergyHandle descriptorHandle) {
+  self->readDescriptor(*service, charHandle, descriptorHandle);
+}
+
+//  void QLowEnergyControllerPrivate::writeCharacteristic(const
+//      QSharedPointer<QLowEnergyServicePrivate> service, const
+//      QLowEnergyHandle charHandle, const QByteArray &newValue,
+//      QLowEnergyService::WriteMode writeMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QLowEnergyControllerPrivate19writeCharacteristicE14QSharedPointerI24QLowEnergyServicePrivateEtRK10QByteArrayN17QLowEnergyService9WriteModeE(
+    QLowEnergyControllerPrivate *self,
+    const QSharedPointer<QLowEnergyServicePrivate> *service,
+    QLowEnergyHandle charHandle,
+    const QByteArray *newValue,
+    QLowEnergyService::WriteMode writeMode) {
+  self->writeCharacteristic(*service, charHandle, *newValue, writeMode);
+}
+
+//  void QLowEnergyControllerPrivate::writeDescriptor(const
+//      QSharedPointer<QLowEnergyServicePrivate> service, const
+//      QLowEnergyHandle charHandle, const QLowEnergyHandle descriptorHandle,
+//      const QByteArray &newValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QLowEnergyControllerPrivate15writeDescriptorE14QSharedPointerI24QLowEnergyServicePrivateEttRK10QByteArray(
+    QLowEnergyControllerPrivate *self,
+    const QSharedPointer<QLowEnergyServicePrivate> *service,
+    QLowEnergyHandle charHandle,
+    QLowEnergyHandle descriptorHandle,
+    const QByteArray *newValue) {
+  self->writeDescriptor(*service, charHandle, descriptorHandle, *newValue);
 }
 
 //  void QLowEnergyControllerPrivate::startAdvertising(const
@@ -739,6 +811,18 @@ void ritual_ZN27QLowEnergyControllerPrivate8setErrorEN20QLowEnergyController5Err
   self->setError(newError);
 }
 
+//  QSharedPointer<QLowEnergyServicePrivate>
+//      QLowEnergyControllerPrivate::serviceForHandle(QLowEnergyHandle
+//      handle)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QLowEnergyServicePrivate> *ritual_ZN27QLowEnergyControllerPrivate16serviceForHandleEt(
+    QLowEnergyControllerPrivate *self,
+    QLowEnergyHandle handle) {
+  return new QSharedPointer<QLowEnergyServicePrivate>(
+      self->serviceForHandle(
+          handle));
+}
+
 //  QLowEnergyCharacteristic
 //      QLowEnergyControllerPrivate::characteristicForHandle(QLowEnergyHandle
 //      handle)
@@ -811,4 +895,12 @@ bool ritual_take_QLowEnergyControllerPrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQLowEnergyControllerPrivate *>(self)->take(key, call);
+}
+
+//  a QSharedPointer<QLowEnergyServicePrivate> a ritual of
+//      QLowEnergyControllerPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLowEnergyControllerPrivate__QSharedPointer_QLowEnergyServicePrivate(
+    QSharedPointer<QLowEnergyServicePrivate> *self) {
+  delete self;
 }

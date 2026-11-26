@@ -26,6 +26,17 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrols/universal/impl/qquickuniversalprogressbar.cpp, line 16, as local:qquickuniversalprogressbar.cpp:QupbPhaseCount
+static const int QupbPhaseCount = 4;
+
+//  from ../qtdeclarative/src/quickcontrols/universal/impl/qquickuniversalprogressbar.cpp, line 285, as _ZN26QQuickUniversalProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickUniversalProgressBar::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
+{
+    QQuickItem::itemChange(change, data);
+    if (change == ItemVisibleHasChanged)
+        update();
+}
+
 //  from ../qtdeclarative/src/quickcontrols/universal/impl/qquickuniversalprogressbar.cpp, line 242, as _ZNK26QQuickUniversalProgressBar5colorEv
 inline QColor QQuickUniversalProgressBar::color() const
 {
@@ -74,14 +85,6 @@ inline void QQuickUniversalProgressBar::setIndeterminate(bool indeterminate)
     setClip(m_indeterminate);
     update();
 }
-
-//  from ../qtdeclarative/src/quickcontrols/universal/impl/qquickuniversalprogressbar.cpp, line 285, as _ZN26QQuickUniversalProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
-inline void QQuickUniversalProgressBar::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
-{
-    QQuickItem::itemChange(change, data);
-    if (change == ItemVisibleHasChanged)
-        update();
-}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickUniversalProgressBar may call these functions of it.
@@ -95,6 +98,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK26QQuickUniversalProgressBar10metaObjectEv(
     const QQuickUniversalProgressBar *self) {
   return self->metaObject();
+}
+
+//  void *QQuickUniversalProgressBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuickUniversalProgressBar11qt_metacastEPKc(
+    QQuickUniversalProgressBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickUniversalProgressBar::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuickUniversalProgressBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickUniversalProgressBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QColor QQuickUniversalProgressBar::color() const
@@ -150,6 +172,16 @@ void ritual_ZN26QQuickUniversalProgressBar10itemChangeEN10QQuickItem10ItemChange
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->itemChange(change, *data);
+}
+
+//  QSGNode *QQuickUniversalProgressBar::updatePaintNode(QSGNode *oldNode,
+//      UpdatePaintNodeData *a1)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN26QQuickUniversalProgressBar15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE(
+    QQuickUniversalProgressBar *self,
+    QSGNode *oldNode,
+    QQuickItem::UpdatePaintNodeData *a1) {
+  return self->updatePaintNode(oldNode, a1);
 }
 
 //  void QQuickUniversalProgressBar::itemChange(ItemChange change, const

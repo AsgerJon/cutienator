@@ -9,10 +9,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtGui/qtransform.h>
+#include <QtGui/qimage.h>
+#include <QtCore/qsize.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <QtGui/QImage>
+#include <QtCore/QSize>
+#include <utility>
 
 //  A QSvgPattern that Python can take functions over in. Every QSvgPattern
 //  Python makes is one. Each function below asks the Python
@@ -101,6 +106,35 @@ void ritual_ZN11QSvgPatternD1Ev(QSvgPattern *self) {
   delete self;
 }
 
+//  void QSvgPattern::drawCommand(QPainter *a0, QSvgExtraStates &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSvgPattern11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgPattern *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  self->drawCommand(a0, *a1);
+}
+
+//  bool QSvgPattern::shouldDrawNode(QPainter *a0, QSvgExtraStates &a1) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QSvgPattern14shouldDrawNodeEP8QPainterR15QSvgExtraStates(
+    const QSvgPattern *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  return self->shouldDrawNode(a0, *a1);
+}
+
+//  QImage QSvgPattern::patternImage(QPainter *p, QSvgExtraStates &states,
+//      const QSvgNode *patternElement)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN11QSvgPattern12patternImageEP8QPainterR15QSvgExtraStatesPK8QSvgNode(
+    QSvgPattern *self,
+    QPainter *p,
+    QSvgExtraStates *states,
+    const QSvgNode *patternElement) {
+  return new QImage(self->patternImage(p, *states, patternElement));
+}
+
 //  Type QSvgPattern::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK11QSvgPattern4typeEv(const QSvgPattern *self) {
@@ -137,6 +171,28 @@ extern "C" Q_DECL_EXPORT
 QtSvg::UnitTypes ritual_ZNK11QSvgPattern12contentUnitsEv(
     const QSvgPattern *self) {
   return self->contentUnits();
+}
+
+//  QImage QSvgPattern::renderPattern(QSize size, std::pair<qreal, qreal>
+//      contentScale, const QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZN11QSvgPattern13renderPatternE5QSizeSt4pairIddERK15QSvgExtraStates(
+    QSvgPattern *self,
+    const QSize *size,
+    const std::pair<qreal, qreal> *contentScale,
+    const QSvgExtraStates *states) {
+  return new QImage(self->renderPattern(*size, *contentScale, *states));
+}
+
+//  void QSvgPattern::calculateAppliedTransform(QTransform &worldTransform,
+//      QRectF peLocalBB, QSize imageSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSvgPattern25calculateAppliedTransformER10QTransform6QRectF5QSize(
+    QSvgPattern *self,
+    QTransform *worldTransform,
+    const QRectF *peLocalBB,
+    const QSize *imageSize) {
+  self->calculateAppliedTransform(*worldTransform, *peLocalBB, *imageSize);
 }
 
 //  a Python function taken by a CuteQSvgPattern, for the function named by

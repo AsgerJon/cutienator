@@ -5,8 +5,14 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QCapturableWindowPrivateC1EmO7QString": [
+      "address", "unsigned long long", "address"
+    ],
     "ritual_ZN24QCapturableWindowPrivate6handleERK17QCapturableWindow": [
       "address", "address"
+    ],
+    "ritual_ZN24QCapturableWindowPrivate6createEmO7QString": [
+      "address", "unsigned long long", "address"
     ],
     "ritual_ZN24QCapturableWindowPrivateD1Ev": ["nothing", "address"]
   }

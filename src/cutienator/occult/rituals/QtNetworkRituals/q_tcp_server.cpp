@@ -236,6 +236,24 @@ const QMetaObject *ritual_ZNK10QTcpServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTcpServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QTcpServer11qt_metacastEPKc(
+    QTcpServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTcpServer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QTcpServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTcpServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTcpServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QTcpServer2trEPKcS1_i(
@@ -413,6 +431,37 @@ void ritual_ZN10QTcpServer20addPendingConnectionEP10QTcpSocket(
     QTcpServer *self,
     QTcpSocket *socket) {
   self->addPendingConnection(socket);
+}
+
+//  QTcpServer::QTcpServer(QAbstractSocket::SocketType socketType,
+//      QTcpServerPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QTcpServer *ritual_ZN10QTcpServerC1EN15QAbstractSocket10SocketTypeER17QTcpServerPrivateP7QObject(
+    QAbstractSocket::SocketType socketType,
+    QTcpServerPrivate *dd,
+    QObject *parent) {
+  return new CuteQTcpServer(socketType, *dd, parent);
+}
+
+//  void QTcpServer::newConnection()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTcpServer13newConnectionEv(QTcpServer *self) {
+  self->newConnection();
+}
+
+//  void QTcpServer::pendingConnectionAvailable(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTcpServer26pendingConnectionAvailableENS_14QPrivateSignalE(
+    QTcpServer *self) {
+  self->pendingConnectionAvailable(QTcpServer::QPrivateSignal());
+}
+
+//  void QTcpServer::acceptError(QAbstractSocket::SocketError socketError)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTcpServer11acceptErrorEN15QAbstractSocket11SocketErrorE(
+    QTcpServer *self,
+    QAbstractSocket::SocketError socketError) {
+  self->acceptError(socketError);
 }
 
 //  QTcpServerPrivate *QTcpServer::d_func()

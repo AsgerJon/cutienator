@@ -6,7 +6,9 @@
 #if QT_CONFIG(dnslookup)
 #if QT_CONFIG(dnslookup)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(dnslookup)
 #include <QtNetwork/qdnslookup.h>
+#endif
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qdnslookup_p.h>
@@ -24,6 +26,12 @@ void ritual_ZN17QDnsLookupPrivate11nameChangedEv(QDnsLookupPrivate *self) {
   self->nameChanged();
 }
 
+//  size_t QDnsLookupPrivate::_qt_property_name_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QDnsLookupPrivate24_qt_property_name_offsetEv() {
+  return QDnsLookupPrivate::_qt_property_name_offset();
+}
+
 //  void QDnsLookupPrivate::nameserverChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QDnsLookupPrivate17nameserverChangedEv(
@@ -31,10 +39,22 @@ void ritual_ZN17QDnsLookupPrivate17nameserverChangedEv(
   self->nameserverChanged();
 }
 
+//  size_t QDnsLookupPrivate::_qt_property_nameserver_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QDnsLookupPrivate30_qt_property_nameserver_offsetEv() {
+  return QDnsLookupPrivate::_qt_property_nameserver_offset();
+}
+
 //  void QDnsLookupPrivate::typeChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QDnsLookupPrivate11typeChangedEv(QDnsLookupPrivate *self) {
   self->typeChanged();
+}
+
+//  size_t QDnsLookupPrivate::_qt_property_type_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QDnsLookupPrivate24_qt_property_type_offsetEv() {
+  return QDnsLookupPrivate::_qt_property_type_offset();
 }
 
 //  void QDnsLookupPrivate::nameserverPortChanged()
@@ -44,11 +64,23 @@ void ritual_ZN17QDnsLookupPrivate21nameserverPortChangedEv(
   self->nameserverPortChanged();
 }
 
+//  size_t QDnsLookupPrivate::_qt_property_port_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QDnsLookupPrivate24_qt_property_port_offsetEv() {
+  return QDnsLookupPrivate::_qt_property_port_offset();
+}
+
 //  void QDnsLookupPrivate::nameserverProtocolChanged()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QDnsLookupPrivate25nameserverProtocolChangedEv(
     QDnsLookupPrivate *self) {
   self->nameserverProtocolChanged();
+}
+
+//  size_t QDnsLookupPrivate::_qt_property_protocol_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN17QDnsLookupPrivate28_qt_property_protocol_offsetEv() {
+  return QDnsLookupPrivate::_qt_property_protocol_offset();
 }
 
 //  QDnsLookup *QDnsLookupPrivate::q_func()

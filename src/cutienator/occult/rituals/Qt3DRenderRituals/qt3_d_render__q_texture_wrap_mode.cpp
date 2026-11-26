@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DRender/qtexturewrapmode.h, Qt 6.12.0. Changes made here are lost.
+//  Qt3DRender/qtexturewrapmode.h, Qt 6.12.0. Edited by hand on 2026-11-25:
+//  QTextureWrapModePrivate is written Qt3DRender::QTextureWrapModePrivate in
+//  the two d_func rituals, as Qt declares it. Kept as it is when the
+//  generator runs again.
 #include <Qt3DRender/qtexturewrapmode.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -179,6 +182,14 @@ const QMetaObject *ritual_ZNK10Qt3DRender16QTextureWrapMode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QTextureWrapMode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender16QTextureWrapMode11qt_metacastEPKc(
+    Qt3DRender::QTextureWrapMode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString Qt3DRender::QTextureWrapMode::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +198,22 @@ QString *ritual_ZN10Qt3DRender16QTextureWrapMode2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QTextureWrapMode::tr(s, c, n));
+}
+
+//  Qt3DRender::QTextureWrapModePrivate
+//      *Qt3DRender::QTextureWrapMode::d_func()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QTextureWrapModePrivate *ritual_ZN10Qt3DRender16QTextureWrapMode6d_funcEv(
+    Qt3DRender::QTextureWrapMode *self) {
+  return self->d_func();
+}
+
+//  const Qt3DRender::QTextureWrapModePrivate
+//      *Qt3DRender::QTextureWrapMode::d_func() const
+extern "C" Q_DECL_EXPORT
+const Qt3DRender::QTextureWrapModePrivate *ritual_ZNK10Qt3DRender16QTextureWrapMode6d_funcEv(
+    const Qt3DRender::QTextureWrapMode *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQt3DRender_QTextureWrapMode, for the

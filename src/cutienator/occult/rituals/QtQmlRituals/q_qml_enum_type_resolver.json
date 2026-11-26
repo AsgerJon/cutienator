@@ -11,11 +11,17 @@
     "ritual_ZN20QQmlEnumTypeResolverC1EP16QQmlTypeCompiler": [
       "address", "address"
     ],
+    "ritual_ZN20QQmlEnumTypeResolver19resolveEnumBindingsEv": [
+      "bool", "address"
+    ],
     "ritual_ZN20QQmlEnumTypeResolver19assignEnumToBindingEPN5QmlIR7BindingE11QStringViewi": [
       "bool", "address", "address", "text", "int"
     ],
     "ritual_ZN20QQmlEnumTypeResolver19assignEnumToBindingEPN5QmlIR7BindingERK7QStringi": [
       "bool", "address", "address", "text", "int"
+    ],
+    "ritual_ZN20QQmlEnumTypeResolver26tryQualifiedEnumAssignmentEPKN5QmlIR6ObjectERKN17QQmlPropertyCache8ConstPtrEPK16QQmlPropertyDataPNS0_7BindingE": [
+      "bool", "address", "address", "address", "address", "address"
     ],
     "ritual_ZNK20QQmlEnumTypeResolver12evaluateEnumERK7QString11QStringViewS3_Pb": [
       "int", "address", "text", "text", "text", "address"

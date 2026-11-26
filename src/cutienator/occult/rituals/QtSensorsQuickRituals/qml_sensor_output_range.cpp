@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK20QmlSensorOutputRange10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlSensorOutputRange::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QmlSensorOutputRange11qt_metacastEPKc(
+    QmlSensorOutputRange *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlSensorOutputRange::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QmlSensorOutputRange11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlSensorOutputRange *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlSensorOutputRange::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QmlSensorOutputRange2trEPKcS1_i(

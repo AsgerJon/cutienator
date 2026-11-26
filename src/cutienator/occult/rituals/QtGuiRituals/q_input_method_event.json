@@ -4,12 +4,18 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QInputMethodEventC1ERKS_": ["address", "address"],
+    "ritual_ZN17QInputMethodEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK17QInputMethodEvent5cloneEv": ["address", "address"],
     "ritual_ZN17QInputMethodEventD1Ev": ["nothing", "address"],
     "ritual_ZN17QInputMethodEventC1Ev": ["address"],
+    "ritual_ZN17QInputMethodEventC1ERK7QStringRK5QListINS_9AttributeEE": [
+      "address", "text", "address"
+    ],
     "ritual_ZN17QInputMethodEvent15setCommitStringERK7QStringii": [
       "nothing", "address", "text", "int", "int"
     ],
+    "ritual_ZNK17QInputMethodEvent10attributesEv": ["address", "address"],
     "ritual_ZNK17QInputMethodEvent13preeditStringEv": ["text", "address"],
     "ritual_ZNK17QInputMethodEvent12commitStringEv": ["text", "address"],
     "ritual_ZNK17QInputMethodEvent16replacementStartEv": ["int", "address"],

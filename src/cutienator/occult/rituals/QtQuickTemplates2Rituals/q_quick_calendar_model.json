@@ -6,10 +6,39 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickCalendarModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickCalendarModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickCalendarModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK19QQuickCalendarModel7indexOfEii": [
+      "int", "address", "int", "int"
+    ],
     "ritual_ZNK19QQuickCalendarModel9roleNamesEv": ["address", "address"],
+    "ritual_ZNK19QQuickCalendarModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK19QQuickCalendarModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN19QQuickCalendarModel11fromChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickCalendarModel9toChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickCalendarModel12countChangedEv": ["nothing", "address"],
     "ritual_ZN19QQuickCalendarModel10classBeginEv": ["nothing", "address"],
+    "ritual_ZN19QQuickCalendarModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickCalendarModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickCalendarModel6d_funcEv": ["address", "address"],
     "ritual_cast_QQuickCalendarModel_QQmlParserStatus": [
       "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickCalendarModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK19QQuickCalendarModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
     ],
     "ritual_own_ZN19QQuickCalendarModel10classBeginEv": [
       "nothing", "address"

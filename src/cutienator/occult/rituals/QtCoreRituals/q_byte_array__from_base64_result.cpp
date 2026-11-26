@@ -2,11 +2,27 @@
 //  QtCore/qbytearray.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qbytearray.h>
 
+//  void QByteArray::FromBase64Result::swap(QByteArray::FromBase64Result
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QByteArray16FromBase64Result4swapERS0_(
+    QByteArray::FromBase64Result *self,
+    QByteArray::FromBase64Result *other) {
+  self->swap(*other);
+}
+
 //  bool QByteArray::FromBase64Result::operator bool() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10QByteArray16FromBase64ResultcvbEv(
     const QByteArray::FromBase64Result *self) {
   return self->operator bool();
+}
+
+//  QByteArray &QByteArray::FromBase64Result::operator*()
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNR10QByteArray16FromBase64ResultdeEv(
+    QByteArray::FromBase64Result *self) {
+  return &(self->operator*());
 }
 
 //  const QByteArray &QByteArray::FromBase64Result::operator*() const

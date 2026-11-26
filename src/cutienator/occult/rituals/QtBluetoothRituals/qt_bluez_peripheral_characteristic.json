@@ -7,6 +7,27 @@
   "rows": {
     "ritual_ZNK31QtBluezPeripheralCharacteristic10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN31QtBluezPeripheralCharacteristic11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QtBluezPeripheralCharacteristic11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK31QtBluezPeripheralCharacteristic10propertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QtBluezPeripheralCharacteristic11StartNotifyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QtBluezPeripheralCharacteristic10StopNotifyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QtBluezPeripheralCharacteristic20valueUpdatedByRemoteEtRK10QByteArray": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_drop_QtBluezPeripheralCharacteristic__InterfaceList": [
+      "nothing", "address"
     ]
   }
 }

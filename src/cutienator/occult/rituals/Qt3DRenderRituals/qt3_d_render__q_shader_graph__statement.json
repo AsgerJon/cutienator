@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK10Qt3DRender12QShaderGraph9Statement4uuidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender12QShaderGraph9Statement9portIndexENS_15QShaderNodePort9DirectionERK7QString": [
+      "int", "address", "char", "text"
+    ],
     "ritual_ZN10Qt3DRender12QShaderGraph9StatementD1Ev": [
       "nothing", "address"
     ]

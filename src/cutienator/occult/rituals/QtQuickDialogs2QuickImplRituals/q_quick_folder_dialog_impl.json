@@ -8,6 +8,12 @@
     "ritual_ZNK22QQuickFolderDialogImpl10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickFolderDialogImpl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickFolderDialogImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickFolderDialogImpl2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,11 +36,24 @@
     "ritual_ZN22QQuickFolderDialogImpl17setSelectedFolderERK4QUrl": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK22QQuickFolderDialogImpl7optionsEv": ["address", "address"],
+    "ritual_ZN22QQuickFolderDialogImpl10setOptionsERK14QSharedPointerI18QFileDialogOptionsE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QQuickFolderDialogImpl14setAcceptLabelERK7QString": [
       "nothing", "address", "text"
     ],
     "ritual_ZN22QQuickFolderDialogImpl14setRejectLabelERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN22QQuickFolderDialogImpl20currentFolderChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickFolderDialogImpl21selectedFolderChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickFolderDialogImpl18nameFiltersChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN22QQuickFolderDialogImpl17componentCompleteEv": [
       "nothing", "address"
@@ -49,6 +68,9 @@
     ],
     "ritual_own_ZN22QQuickFolderDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QQuickFolderDialogImpl__QSharedPointer_QFileDialogOptions": [
+      "nothing", "address"
     ]
   }
 }

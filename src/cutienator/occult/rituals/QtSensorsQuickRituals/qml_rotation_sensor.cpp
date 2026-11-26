@@ -248,6 +248,25 @@ const QMetaObject *ritual_ZNK17QmlRotationSensor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlRotationSensor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QmlRotationSensor11qt_metacastEPKc(
+    QmlRotationSensor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlRotationSensor::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QmlRotationSensor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlRotationSensor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlRotationSensor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QmlRotationSensor2trEPKcS1_i(
@@ -281,6 +300,14 @@ extern "C" Q_DECL_EXPORT
 QSensor *ritual_ZNK17QmlRotationSensor6sensorEv(
     const QmlRotationSensor *self) {
   return self->sensor();
+}
+
+//  void QmlRotationSensor::hasZChanged(bool hasZ)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QmlRotationSensor11hasZChangedEb(
+    QmlRotationSensor *self,
+    bool hasZ) {
+  self->hasZChanged(hasZ);
 }
 
 //  QmlSensorReading *QmlRotationSensor::createReading() const

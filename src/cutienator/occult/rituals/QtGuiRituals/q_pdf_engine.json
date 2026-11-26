@@ -8,6 +8,7 @@
     "ritual_ZN10QPdfEngine6d_funcEv": ["address", "address"],
     "ritual_ZNK10QPdfEngine6d_funcEv": ["address", "address"],
     "ritual_ZN10QPdfEngineC1Ev": ["address"],
+    "ritual_ZN10QPdfEngineC1ER17QPdfEnginePrivate": ["address", "address"],
     "ritual_ZN10QPdfEngineD1Ev": ["nothing", "address"],
     "ritual_ZN10QPdfEngine17setOutputFilenameERK7QString": [
       "nothing", "address", "text"

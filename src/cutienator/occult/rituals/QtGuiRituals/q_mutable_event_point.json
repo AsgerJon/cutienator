@@ -9,11 +9,71 @@
       "address", "unsigned long", "int", "unsigned char", "address",
       "address", "address"
     ],
+    "ritual_ZN18QMutableEventPoint6updateERK11QEventPointRS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint6detachER11QEventPoint": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint5setIdER11QEventPointi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QMutableEventPoint9setDeviceER11QEventPointPK15QPointingDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint12setTimestampER11QEventPointm": [
+      "nothing", "address", "unsigned long"
+    ],
+    "ritual_ZN18QMutableEventPoint17setPressTimestampER11QEventPointm": [
+      "nothing", "address", "unsigned long"
+    ],
+    "ritual_ZN18QMutableEventPoint8setStateER11QEventPointNS0_5StateE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN18QMutableEventPoint11setUniqueIdER11QEventPoint23QPointingDeviceUniqueId": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint11setPositionER11QEventPoint7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint16setScenePositionER11QEventPoint7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint17setGlobalPositionER11QEventPoint7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint22setGlobalPressPositionER11QEventPoint7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint21setGlobalGrabPositionER11QEventPoint7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint21setGlobalLastPositionER11QEventPoint7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint19setEllipseDiametersER11QEventPoint6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint11setPressureER11QEventPointd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QMutableEventPoint11setRotationER11QEventPointd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QMutableEventPoint11setVelocityER11QEventPoint9QVector2D": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QMutableEventPoint6windowERK11QEventPoint": [
       "address", "address"
     ],
+    "ritual_ZN18QMutableEventPoint9setWindowER11QEventPointP7QWindow": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QMutableEventPoint6targetERK11QEventPoint": [
       "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint9setTargetER11QEventPointP7QObject": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN18QMutableEventPointD1Ev": ["nothing", "address"]
   }

@@ -14,6 +14,9 @@
     "ritual_ZNK3QV419ProxyFunctionObject1dEv": ["address", "address"],
     "ritual_ZN3QV419ProxyFunctionObject20defaultInternalClassEPNS_10EngineBaseE": [
       "address", "address"
+    ],
+    "ritual_ZN3QV419ProxyFunctionObject11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
     ]
   }
 }

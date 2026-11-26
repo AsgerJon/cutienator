@@ -11,6 +11,9 @@
     "ritual_ZN20QOpcUaExpandedNodeIdC1ERK7QStringS2_j": [
       "address", "text", "text", "unsigned int"
     ],
+    "ritual_ZN20QOpcUaExpandedNodeIdaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK20QOpcUaExpandedNodeIdeqERKS_": [
       "bool", "address", "address"
     ],

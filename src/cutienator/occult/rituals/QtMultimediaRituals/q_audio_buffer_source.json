@@ -6,8 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK18QAudioBufferSource10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QAudioBufferSource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QAudioBufferSource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QAudioBufferSource2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QAudioBufferSource14newAudioBufferERK12QAudioBuffer": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QAudioBufferSource": ["bool", "address", "chars", "address"]
   }

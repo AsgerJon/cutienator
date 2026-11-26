@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal10ConnectionC1EPNS_14ConnectionEditE": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10ConnectionC1EPNS_14ConnectionEditEP7QObjectS4_": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal10ConnectionD1Ev": ["nothing", "address"],
     "ritual_ZNK18qdesigner_internal10Connection6objectENS_7CETypes8EndPoint4TypeE": [
       "address", "address", "int"
@@ -12,20 +18,47 @@
     "ritual_ZNK18qdesigner_internal10Connection6widgetENS_7CETypes8EndPoint4TypeE": [
       "address", "address", "int"
     ],
+    "ritual_ZNK18qdesigner_internal10Connection11endPointPosENS_7CETypes8EndPoint4TypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal10Connection12endPointRectENS_7CETypes8EndPoint4TypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN18qdesigner_internal10Connection11setEndPointENS_7CETypes8EndPoint4TypeEP7QObjectRK6QPoint": [
       "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10Connection9isVisibleEv": [
+      "bool", "address"
     ],
     "ritual_ZN18qdesigner_internal10Connection16updateVisibilityEv": [
       "nothing", "address"
     ],
+    "ritual_ZN18qdesigner_internal10Connection10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK18qdesigner_internal10Connection6regionEv": [
       "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10Connection8containsERK6QPoint": [
+      "bool", "address", "address"
     ],
     "ritual_ZNK18qdesigner_internal10Connection5paintEP8QPainter": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK18qdesigner_internal10Connection6updateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal10Connection12checkWidgetsEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK18qdesigner_internal10Connection5labelENS_7CETypes8EndPoint4TypeE": [
       "text", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal10Connection8setLabelENS_7CETypes8EndPoint4TypeERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal10Connection9labelRectENS_7CETypes8EndPoint4TypeE": [
+      "address", "address", "int"
     ],
     "ritual_ZNK18qdesigner_internal10Connection11labelPixmapENS_7CETypes8EndPoint4TypeE": [
       "address", "address", "int"
@@ -38,6 +71,30 @@
     ],
     "ritual_ZN18qdesigner_internal10Connection7removedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10Connection9setSourceEP7QObjectRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10Connection9setTargetEP7QObjectRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10Connection14updateKneeListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10Connection8trimLineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal10Connection12updatePixmapENS_7CETypes8EndPoint4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal10Connection8labelDirENS_7CETypes8EndPoint4TypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal10Connection6groundEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal10Connection10groundRectEv": [
+      "address", "address"
     ],
     "ritual_take_qdesigner_internal_Connection": [
       "bool", "address", "chars", "address"

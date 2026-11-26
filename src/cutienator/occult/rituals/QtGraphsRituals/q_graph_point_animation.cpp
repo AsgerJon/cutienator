@@ -4,7 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,6 +14,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGraphs/private/qxyseriesanimation_p.h>
 #include <QtCore/QPointF>
 #include <QtGraphs/qgraphsglobal.h>
 #if QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line)
@@ -29,6 +30,14 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtgraphs/src/graphs2d/animation/qxyseriesanimation.cpp, line 25, as _ZN18QXYSeriesAnimationC2EP7QObject
+inline QXYSeriesAnimation::QXYSeriesAnimation(QObject *parent)
+    : QGraphAnimation(parent)
+{}
+
+//  from ../qtgraphs/src/graphs2d/animation/qxyseriesanimation.cpp, line 29, as _ZN18QXYSeriesAnimationD2Ev
+inline QXYSeriesAnimation::~QXYSeriesAnimation() {}
 
 //  from ../qtgraphs/src/graphs2d/animation/qgraphpointanimation.cpp, line 53, as _ZN20QGraphPointAnimation13animationTypeEv
 inline QGraphAnimation::GraphAnimationType QGraphPointAnimation::animationType()
@@ -464,6 +473,31 @@ const QMetaObject *ritual_ZNK20QGraphPointAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphPointAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QGraphPointAnimation11qt_metacastEPKc(
+    QGraphPointAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphPointAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QGraphPointAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphPointAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QGraphPointAnimation::~QGraphPointAnimation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphPointAnimationD1Ev(QGraphPointAnimation *self) {
+  delete self;
+}
+
 //  GraphAnimationType QGraphPointAnimation::animationType()
 extern "C" Q_DECL_EXPORT
 QGraphAnimation::GraphAnimationType ritual_ZN20QGraphPointAnimation13animationTypeEv(
@@ -490,6 +524,26 @@ QVariant *ritual_ZNK20QGraphPointAnimation12interpolatedERK8QVariantS2_d(
     const QVariant *end,
     qreal progress) {
   return new QVariant(self->interpolated(*start, *end, progress));
+}
+
+//  void QGraphPointAnimation::animate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphPointAnimation7animateEv(QGraphPointAnimation *self) {
+  self->animate();
+}
+
+//  void QGraphPointAnimation::end()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphPointAnimation3endEv(QGraphPointAnimation *self) {
+  self->end();
+}
+
+//  void QGraphPointAnimation::valueUpdated(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphPointAnimation12valueUpdatedERK8QVariant(
+    QGraphPointAnimation *self,
+    const QVariant *value) {
+  self->valueUpdated(*value);
 }
 
 //  a Python function taken by a CuteQGraphPointAnimation, for the function
@@ -534,4 +588,4 @@ QVariant *ritual_own_ZNK20QGraphPointAnimation12interpolatedERK8QVariantS2_d(
           progress));
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))

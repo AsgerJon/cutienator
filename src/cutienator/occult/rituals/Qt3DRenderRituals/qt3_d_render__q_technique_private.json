@@ -5,11 +5,16 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender17QTechniquePrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender17QTechniquePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN10Qt3DRender17QTechniquePrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender17QTechniquePrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender17QTechniquePrivate27_q_graphicsApiFilterChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_Qt3DRender_QTechniquePrivate": [
       "bool", "address", "chars", "address"

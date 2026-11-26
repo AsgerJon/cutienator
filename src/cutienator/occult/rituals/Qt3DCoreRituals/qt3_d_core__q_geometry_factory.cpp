@@ -51,6 +51,23 @@ Qt3DCore::QGeometry *ritual_ZN8Qt3DCore16QGeometryFactoryclEv(
   return self->operator()();
 }
 
+//  bool Qt3DCore::QGeometryFactory::equals(const QGeometryFactory &other)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8Qt3DCore16QGeometryFactory6equalsERKS0_(
+    const Qt3DCore::QGeometryFactory *self,
+    const Qt3DCore::QGeometryFactory *other) {
+  return self->equals(*other);
+}
+
+//  bool operator==(const QGeometryFactory &lhs, const QGeometryFactory &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8Qt3DCoreeqERKNS_16QGeometryFactoryES2_(
+    const Qt3DCore::QGeometryFactory *lhs,
+    const Qt3DCore::QGeometryFactory *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
 //  a Python function taken by a CuteQt3DCore_QGeometryFactory, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

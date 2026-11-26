@@ -5,7 +5,9 @@
 #if QT_CONFIG(datawidgetmapper)
 #include <QtWidgets/qdatawidgetmapper.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -204,6 +206,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17QDataWidgetMapper10metaObjectEv(
     const QDataWidgetMapper *self) {
   return self->metaObject();
+}
+
+//  void *QDataWidgetMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QDataWidgetMapper11qt_metacastEPKc(
+    QDataWidgetMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDataWidgetMapper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QDataWidgetMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDataWidgetMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QDataWidgetMapper::tr(const char *s, const char *c, int n)
@@ -418,6 +439,28 @@ void ritual_ZN17QDataWidgetMapper20setCurrentModelIndexERK11QModelIndex(
     QDataWidgetMapper *self,
     const QModelIndex *index) {
   self->setCurrentModelIndex(*index);
+}
+
+//  void QDataWidgetMapper::currentIndexChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QDataWidgetMapper19currentIndexChangedEi(
+    QDataWidgetMapper *self,
+    int index) {
+  self->currentIndexChanged(index);
+}
+
+//  QDataWidgetMapperPrivate *QDataWidgetMapper::d_func()
+extern "C" Q_DECL_EXPORT
+QDataWidgetMapperPrivate *ritual_ZN17QDataWidgetMapper6d_funcEv(
+    QDataWidgetMapper *self) {
+  return self->d_func();
+}
+
+//  const QDataWidgetMapperPrivate *QDataWidgetMapper::d_func() const
+extern "C" Q_DECL_EXPORT
+const QDataWidgetMapperPrivate *ritual_ZNK17QDataWidgetMapper6d_funcEv(
+    const QDataWidgetMapper *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQDataWidgetMapper, for the function

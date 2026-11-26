@@ -282,6 +282,25 @@ const QMetaObject *ritual_ZNK21QQuickSpringAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSpringAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickSpringAnimation11qt_metacastEPKc(
+    QQuickSpringAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSpringAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickSpringAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSpringAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSpringAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickSpringAnimation2trEPKcS1_i(
@@ -289,6 +308,20 @@ QString *ritual_ZN21QQuickSpringAnimation2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQuickSpringAnimation::tr(s, c, n));
+}
+
+//  QQuickSpringAnimationPrivate *QQuickSpringAnimation::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSpringAnimationPrivate *ritual_ZN21QQuickSpringAnimation6d_funcEv(
+    QQuickSpringAnimation *self) {
+  return self->d_func();
+}
+
+//  const QQuickSpringAnimationPrivate *QQuickSpringAnimation::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSpringAnimationPrivate *ritual_ZNK21QQuickSpringAnimation6d_funcEv(
+    const QQuickSpringAnimation *self) {
+  return self->d_func();
 }
 
 //  QQuickSpringAnimation::QQuickSpringAnimation(QObject *parent)
@@ -392,6 +425,41 @@ void ritual_ZN21QQuickSpringAnimation10setModulusEd(
     QQuickSpringAnimation *self,
     qreal modulus) {
   self->setModulus(modulus);
+}
+
+//  QAbstractAnimationJob
+//      *QQuickSpringAnimation::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN21QQuickSpringAnimation10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickSpringAnimation *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
+}
+
+//  void QQuickSpringAnimation::modulusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickSpringAnimation14modulusChangedEv(
+    QQuickSpringAnimation *self) {
+  self->modulusChanged();
+}
+
+//  void QQuickSpringAnimation::massChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickSpringAnimation11massChangedEv(
+    QQuickSpringAnimation *self) {
+  self->massChanged();
+}
+
+//  void QQuickSpringAnimation::syncChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickSpringAnimation11syncChangedEv(
+    QQuickSpringAnimation *self) {
+  self->syncChanged();
 }
 
 //  a Python function taken by a CuteQQuickSpringAnimation, for the function

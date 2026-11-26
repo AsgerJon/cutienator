@@ -26,11 +26,44 @@ struct OwnQTextDocumentLayout : QTextDocumentLayout {
   using QTextDocumentLayout::timerEvent;
 };
 
+//  QTextDocumentLayoutPrivate *QTextDocumentLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QTextDocumentLayoutPrivate *ritual_ZN19QTextDocumentLayout6d_funcEv(
+    QTextDocumentLayout *self) {
+  return self->d_func();
+}
+
+//  const QTextDocumentLayoutPrivate *QTextDocumentLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTextDocumentLayoutPrivate *ritual_ZNK19QTextDocumentLayout6d_funcEv(
+    const QTextDocumentLayout *self) {
+  return self->d_func();
+}
+
 //  const QMetaObject *QTextDocumentLayout::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK19QTextDocumentLayout10metaObjectEv(
     const QTextDocumentLayout *self) {
   return self->metaObject();
+}
+
+//  void *QTextDocumentLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QTextDocumentLayout11qt_metacastEPKc(
+    QTextDocumentLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextDocumentLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QTextDocumentLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextDocumentLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QTextDocumentLayout::tr(const char *s, const char *c, int n)

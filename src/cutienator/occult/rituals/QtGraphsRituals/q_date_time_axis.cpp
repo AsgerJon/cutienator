@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qdatetimeaxis.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qdatetimeaxis.h>
 #include <QtCore/qstring.h>
@@ -200,6 +200,24 @@ const QMetaObject *ritual_ZNK13QDateTimeAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDateTimeAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QDateTimeAxis11qt_metacastEPKc(
+    QDateTimeAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDateTimeAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QDateTimeAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDateTimeAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDateTimeAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QDateTimeAxis2trEPKcS1_i(
@@ -219,6 +237,14 @@ QDateTimeAxis *ritual_ZN13QDateTimeAxisC1EP7QObject(QObject *parent) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QDateTimeAxisD1Ev(QDateTimeAxis *self) {
   delete self;
+}
+
+//  QDateTimeAxis::QDateTimeAxis(QDateTimeAxisPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QDateTimeAxis *ritual_ZN13QDateTimeAxisC1ER20QDateTimeAxisPrivateP7QObject(
+    QDateTimeAxisPrivate *d,
+    QObject *parent) {
+  return new CuteQDateTimeAxis(*d, parent);
 }
 
 //  AxisType QDateTimeAxis::type() const
@@ -382,6 +408,92 @@ void ritual_ZN13QDateTimeAxis12setTickCountEx(
   self->setTickCount(count);
 }
 
+//  void QDateTimeAxis::minChanged(const QDateTime &min)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis10minChangedERK9QDateTime(
+    QDateTimeAxis *self,
+    const QDateTime *min) {
+  self->minChanged(*min);
+}
+
+//  void QDateTimeAxis::maxChanged(const QDateTime &max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis10maxChangedERK9QDateTime(
+    QDateTimeAxis *self,
+    const QDateTime *max) {
+  self->maxChanged(*max);
+}
+
+//  void QDateTimeAxis::labelFormatChanged(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis18labelFormatChangedERK7QString(
+    QDateTimeAxis *self,
+    const QString *format) {
+  self->labelFormatChanged(*format);
+}
+
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 15)
+//  void QDateTimeAxis::tickIntervalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis19tickIntervalChangedEv(QDateTimeAxis *self) {
+  self->tickIntervalChanged();
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 15)
+
+//  void QDateTimeAxis::subTickCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis19subTickCountChangedEv(QDateTimeAxis *self) {
+  self->subTickCountChanged();
+}
+
+//  void QDateTimeAxis::timeZoneChanged(const QTimeZone &newTimeZone)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis15timeZoneChangedERK9QTimeZone(
+    QDateTimeAxis *self,
+    const QTimeZone *newTimeZone) {
+  self->timeZoneChanged(*newTimeZone);
+}
+
+//  void QDateTimeAxis::zoomChanged(qreal newZoom)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis11zoomChangedEd(
+    QDateTimeAxis *self,
+    qreal newZoom) {
+  self->zoomChanged(newZoom);
+}
+
+//  void QDateTimeAxis::panChanged(qreal newPan)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis10panChangedEd(
+    QDateTimeAxis *self,
+    qreal newPan) {
+  self->panChanged(newPan);
+}
+
+//  void QDateTimeAxis::visualMinChanged(const QDateTime &newMin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis16visualMinChangedERK9QDateTime(
+    QDateTimeAxis *self,
+    const QDateTime *newMin) {
+  self->visualMinChanged(*newMin);
+}
+
+//  void QDateTimeAxis::visualMaxChanged(const QDateTime &newMax)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis16visualMaxChangedERK9QDateTime(
+    QDateTimeAxis *self,
+    const QDateTime *newMax) {
+  self->visualMaxChanged(*newMax);
+}
+
+//  void QDateTimeAxis::tickCountChanged(qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis16tickCountChangedEx(
+    QDateTimeAxis *self,
+    qsizetype count) {
+  self->tickCountChanged(count);
+}
+
 //  QDateTimeAxisPrivate *QDateTimeAxis::d_func()
 extern "C" Q_DECL_EXPORT
 QDateTimeAxisPrivate *ritual_ZN13QDateTimeAxis6d_funcEv(
@@ -413,4 +525,4 @@ QAbstractAxis::AxisType ritual_own_ZNK13QDateTimeAxis4typeEv(
   return self->QDateTimeAxis::type();
 }
 
-#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

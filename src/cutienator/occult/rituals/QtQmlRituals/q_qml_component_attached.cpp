@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK21QQmlComponentAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlComponentAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQmlComponentAttached11qt_metacastEPKc(
+    QQmlComponentAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlComponentAttached::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQmlComponentAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlComponentAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlComponentAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQmlComponentAttached2trEPKcS1_i(
@@ -206,6 +225,15 @@ void ritual_ZN21QQmlComponentAttachedD1Ev(QQmlComponentAttached *self) {
   delete self;
 }
 
+//  void QQmlComponentAttached::insertIntoList(QQmlComponentAttached
+//      **listHead)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlComponentAttached14insertIntoListEPPS_(
+    QQmlComponentAttached *self,
+    QQmlComponentAttached **listHead) {
+  self->insertIntoList(listHead);
+}
+
 //  void QQmlComponentAttached::removeFromList()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQmlComponentAttached14removeFromListEv(
@@ -218,6 +246,20 @@ extern "C" Q_DECL_EXPORT
 QQmlComponentAttached *ritual_ZNK21QQmlComponentAttached4nextEv(
     const QQmlComponentAttached *self) {
   return self->next();
+}
+
+//  void QQmlComponentAttached::completed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlComponentAttached9completedEv(
+    QQmlComponentAttached *self) {
+  self->completed();
+}
+
+//  void QQmlComponentAttached::destruction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQmlComponentAttached11destructionEv(
+    QQmlComponentAttached *self) {
+  self->destruction();
 }
 
 //  a Python function taken by a CuteQQmlComponentAttached, for the function

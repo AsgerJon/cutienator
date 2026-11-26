@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK13QCapsuleShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCapsuleShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QCapsuleShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QCapsuleShape2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QCapsuleShapeC1Ev": ["address"],
     "ritual_ZN13QCapsuleShapeD1Ev": ["nothing", "address"],
@@ -15,11 +21,17 @@
     ],
     "ritual_ZNK13QCapsuleShape6heightEv": ["float", "address"],
     "ritual_ZN13QCapsuleShape9setHeightEf": ["nothing", "address", "float"],
+    "ritual_ZN13QCapsuleShape16getPhysXGeometryEv": ["address", "address"],
     "ritual_ZNK13QCapsuleShape13isStaticShapeEv": ["bool", "address"],
+    "ritual_ZN13QCapsuleShape15diameterChangedEv": ["nothing", "address"],
+    "ritual_ZN13QCapsuleShape13heightChangedEv": ["nothing", "address"],
     "ritual_ZN13QCapsuleShape19updatePhysXGeometryEv": [
       "nothing", "address"
     ],
     "ritual_take_QCapsuleShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QCapsuleShape16getPhysXGeometryEv": [
+      "address", "address"
+    ],
     "ritual_own_ZNK13QCapsuleShape13isStaticShapeEv": ["bool", "address"]
   }
 }

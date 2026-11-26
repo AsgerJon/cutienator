@@ -24,6 +24,15 @@ QQuickGraphicsDevice *ritual_ZN20QQuickGraphicsDeviceC1ERKS_(
   return new QQuickGraphicsDevice(*other);
 }
 
+//  QQuickGraphicsDevice &QQuickGraphicsDevice::operator=(const
+//      QQuickGraphicsDevice &other)
+extern "C" Q_DECL_EXPORT
+QQuickGraphicsDevice *ritual_ZN20QQuickGraphicsDeviceaSERKS_(
+    QQuickGraphicsDevice *self,
+    const QQuickGraphicsDevice *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QQuickGraphicsDevice::isNull() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QQuickGraphicsDevice6isNullEv(
@@ -42,6 +51,54 @@ QQuickGraphicsDevice *ritual_ZN20QQuickGraphicsDevice17fromOpenGLContextEP14QOpe
           context));
 }
 #endif  // QT_CONFIG(opengl) || defined(Q_QDOC)
+
+#if QT_CONFIG(metal) || defined(Q_QDOC)
+//  QQuickGraphicsDevice
+//      QQuickGraphicsDevice::fromDeviceAndCommandQueue(MTLDevice *device,
+//      MTLCommandQueue *commandQueue)
+extern "C" Q_DECL_EXPORT
+QQuickGraphicsDevice *ritual_ZN20QQuickGraphicsDevice25fromDeviceAndCommandQueueEP9MTLDeviceP15MTLCommandQueue(
+    MTLDevice *device,
+    MTLCommandQueue *commandQueue) {
+  return new QQuickGraphicsDevice(
+      QQuickGraphicsDevice::fromDeviceAndCommandQueue(
+          device,
+          commandQueue));
+}
+#endif  // QT_CONFIG(metal) || defined(Q_QDOC)
+
+#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+//  QQuickGraphicsDevice
+//      QQuickGraphicsDevice::fromPhysicalDevice(VkPhysicalDevice
+//      physicalDevice)
+extern "C" Q_DECL_EXPORT
+QQuickGraphicsDevice *ritual_ZN20QQuickGraphicsDevice18fromPhysicalDeviceEP18VkPhysicalDevice_T(
+    VkPhysicalDevice physicalDevice) {
+  return new QQuickGraphicsDevice(
+      QQuickGraphicsDevice::fromPhysicalDevice(
+          physicalDevice));
+}
+#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+
+#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+//  QQuickGraphicsDevice
+//      QQuickGraphicsDevice::fromDeviceObjects(VkPhysicalDevice
+//      physicalDevice, VkDevice device, int queueFamilyIndex, int
+//      queueIndex)
+extern "C" Q_DECL_EXPORT
+QQuickGraphicsDevice *ritual_ZN20QQuickGraphicsDevice17fromDeviceObjectsEP18VkPhysicalDevice_TP10VkDevice_Tii(
+    VkPhysicalDevice physicalDevice,
+    VkDevice device,
+    int queueFamilyIndex,
+    int queueIndex) {
+  return new QQuickGraphicsDevice(
+      QQuickGraphicsDevice::fromDeviceObjects(
+          physicalDevice,
+          device,
+          queueFamilyIndex,
+          queueIndex));
+}
+#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
 
 //  QQuickGraphicsDevice QQuickGraphicsDevice::fromRhi(QRhi *rhi)
 extern "C" Q_DECL_EXPORT

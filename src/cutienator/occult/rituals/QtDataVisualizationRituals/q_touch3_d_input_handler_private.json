@@ -8,7 +8,19 @@
     "ritual_ZNK27QTouch3DInputHandlerPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QTouch3DInputHandlerPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QTouch3DInputHandlerPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QTouch3DInputHandlerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN27QTouch3DInputHandlerPrivate15handlePinchZoomEfRK6QPoint": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN27QTouch3DInputHandlerPrivate16handleTapAndHoldEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QTouch3DInputHandlerPrivate": [
       "bool", "address", "chars", "address"
     ]

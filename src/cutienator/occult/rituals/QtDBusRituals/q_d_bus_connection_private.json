@@ -8,8 +8,17 @@
     "ritual_ZNK22QDBusConnectionPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QDBusConnectionPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QDBusConnectionPrivate18shouldWatchServiceERK7QString": [
       "bool", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate16unregisterObjectERK7QStringN15QDBusConnection14UnregisterModeE": [
+      "nothing", "address", "text", "int"
     ],
     "ritual_ZN22QDBusConnectionPrivate15registerServiceERK7QString": [
       "nothing", "address", "text"
@@ -20,17 +29,59 @@
     "ritual_ZN22QDBusConnectionPrivate17postEventToThreadEiP7QObjectP6QEvent": [
       "nothing", "address", "int", "address", "address"
     ],
+    "ritual_ZN22QDBusConnectionPrivate17collectAllObjectsERNS_14ObjectTreeNodeER4QSetIP7QObjectE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN22QDBusConnectionPrivate27isServiceRegisteredByThreadERK7QString": [
       "bool", "address", "text"
     ],
     "ritual_ZN22QDBusConnectionPrivate10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QDBusConnectionPrivate18setDispatchEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate10doDispatchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate10socketReadEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate11socketWriteEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate15objectDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate11relaySignalEP7QObjectPK11QMetaObjectiRK5QListI8QVariantE": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate25serviceOwnerChangedNoLockERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
     "ritual_ZN22QDBusConnectionPrivate21registerServiceNoLockERK7QString": [
       "nothing", "address", "text"
     ],
     "ritual_ZN22QDBusConnectionPrivate23unregisterServiceNoLockERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate23handleDBusDisconnectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate21dispatchStatusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate16spyHooksFinishedERK12QDBusMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate19messageNeedsSendingEP23QDBusPendingCallPrivatePvi": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate19serviceOwnerChangedERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate22callWithCallbackFailedERK10QDBusErrorRK12QDBusMessage": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK22QDBusConnectionPrivate22connectionCapabilitiesEv": [
       "int", "address"

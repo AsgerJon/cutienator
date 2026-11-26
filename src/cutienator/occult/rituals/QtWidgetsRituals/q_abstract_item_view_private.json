@@ -199,6 +199,9 @@
     "ritual_ZNK24QAbstractItemViewPrivate20accessibleChildIndexERK11QModelIndex": [
       "int", "address", "address"
     ],
+    "ritual_ZN24QAbstractItemViewPrivate23updateItemAccessibilityERK11QModelIndexRK5QListIiE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK24QAbstractItemViewPrivate14contentsOffsetEv": [
       "address", "address"
     ],

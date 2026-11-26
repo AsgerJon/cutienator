@@ -6,10 +6,20 @@
   ],
   "rows": {
     "ritual_ZNK15QCustom3DVolume10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QCustom3DVolume11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QCustom3DVolume11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QCustom3DVolume2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN15QCustom3DVolumeC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QCustom3DVolumeC1ERK9QVector3DS2_RK11QQuaternioniiiP5QListIhEN6QImage6FormatERKS6_IjEP7QObject": [
+      "address", "address", "address", "address", "int", "int", "int",
+      "address", "int", "address", "address"
+    ],
     "ritual_ZN15QCustom3DVolumeD1Ev": ["nothing", "address"],
     "ritual_ZN15QCustom3DVolume15setTextureWidthEi": [
       "nothing", "address", "int"
@@ -41,6 +51,20 @@
     "ritual_ZNK15QCustom3DVolume11sliceIndexZEv": ["int", "address"],
     "ritual_ZN15QCustom3DVolume15setSliceIndicesEiii": [
       "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN15QCustom3DVolume13setColorTableERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCustom3DVolume10colorTableEv": ["address", "address"],
+    "ritual_ZN15QCustom3DVolume14setTextureDataEP5QListIhE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCustom3DVolume17createTextureDataERK5QListIP6QImageE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QCustom3DVolume11textureDataEv": ["address", "address"],
+    "ritual_ZN15QCustom3DVolume17setSubTextureDataEN2Qt4AxisEiPKh": [
+      "nothing", "address", "int", "int", "address"
     ],
     "ritual_ZN15QCustom3DVolume17setSubTextureDataEN2Qt4AxisEiRK6QImage": [
       "nothing", "address", "int", "int", "address"
@@ -92,8 +116,63 @@
     "ritual_ZN15QCustom3DVolume11renderSliceEN2Qt4AxisEi": [
       "address", "address", "int", "int"
     ],
+    "ritual_ZN15QCustom3DVolume19textureWidthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QCustom3DVolume20textureHeightChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QCustom3DVolume19textureDepthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QCustom3DVolume18sliceIndexXChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QCustom3DVolume18sliceIndexYChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QCustom3DVolume18sliceIndexZChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QCustom3DVolume17colorTableChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QCustom3DVolume18textureDataChangedEP5QListIhE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCustom3DVolume20textureFormatChangedEN6QImage6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QCustom3DVolume22alphaMultiplierChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QCustom3DVolume22preserveOpacityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QCustom3DVolume23useHighDefShaderChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QCustom3DVolume17drawSlicesChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QCustom3DVolume22drawSliceFramesChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QCustom3DVolume22sliceFrameColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCustom3DVolume23sliceFrameWidthsChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCustom3DVolume21sliceFrameGapsChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCustom3DVolume28sliceFrameThicknessesChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QCustom3DVolume4dptrEv": ["address", "address"],
     "ritual_ZNK15QCustom3DVolume5dptrcEv": ["address", "address"],
-    "ritual_take_QCustom3DVolume": ["bool", "address", "chars", "address"]
+    "ritual_take_QCustom3DVolume": ["bool", "address", "chars", "address"],
+    "ritual_drop_QCustom3DVolume__QList_QRgb": ["nothing", "address"]
   }
 }

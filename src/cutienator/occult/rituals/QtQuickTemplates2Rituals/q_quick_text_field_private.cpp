@@ -40,6 +40,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtdeclarative/src/quicktemplates/qquicktextfield.cpp, line 259, as _ZN22QQuickTextFieldPrivate15readOnlyChangedEb
 inline void QQuickTextFieldPrivate::readOnlyChanged(bool isReadOnly)
 {

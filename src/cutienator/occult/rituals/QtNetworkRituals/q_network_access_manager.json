@@ -8,6 +8,12 @@
     "ritual_ZNK21QNetworkAccessManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QNetworkAccessManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QNetworkAccessManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QNetworkAccessManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -76,11 +82,17 @@
     "ritual_ZN21QNetworkAccessManager4postERK15QNetworkRequestRK10QByteArray": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN21QNetworkAccessManager4postERK15QNetworkRequestDn": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QNetworkAccessManager3putERK15QNetworkRequestP9QIODevice": [
       "address", "address", "address", "address"
     ],
     "ritual_ZN21QNetworkAccessManager3putERK15QNetworkRequestRK10QByteArray": [
       "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager3putERK15QNetworkRequestDn": [
+      "address", "address", "address"
     ],
     "ritual_ZN21QNetworkAccessManager14deleteResourceERK15QNetworkRequest": [
       "address", "address", "address"
@@ -126,6 +138,30 @@
     ],
     "ritual_ZN21QNetworkAccessManager18setTransferTimeoutEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QNetworkAccessManager25transferTimeoutAsDurationEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager18setTransferTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QNetworkAccessManager27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager22authenticationRequiredEP13QNetworkReplyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager8finishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager9encryptedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager9sslErrorsEP13QNetworkReplyRK5QListI9QSslErrorE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager34preSharedKeyAuthenticationRequiredEP13QNetworkReplyP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN21QNetworkAccessManager13createRequestENS_9OperationERK15QNetworkRequestP9QIODevice": [
       "address", "address", "int", "address", "address"

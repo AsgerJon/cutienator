@@ -35,6 +35,25 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/graphicsview/qgraphicslayout_p.cpp, line 79, as local:qgraphicslayout_p.cpp:removeLayoutItemFromLayout
+static bool removeLayoutItemFromLayout(QGraphicsLayout *lay, QGraphicsLayoutItem *layoutItem)
+{
+    if (!lay)
+        return false;
+
+    for (int i = lay->count() - 1; i >= 0; --i) {
+        QGraphicsLayoutItem *child = lay->itemAt(i);
+        if (child && child->isLayout()) {
+            if (removeLayoutItemFromLayout(static_cast<QGraphicsLayout*>(child), layoutItem))
+                return true;
+        } else if (child == layoutItem) {
+            lay->removeAt(i);
+            return true;
+        }
+    }
+    return false;
+}
+
 //  from src/widgets/graphicsview/qgraphicslayoutitem.cpp, line 73, as _ZN26QGraphicsLayoutItemPrivateC2EP19QGraphicsLayoutItemb
 inline QGraphicsLayoutItemPrivate::QGraphicsLayoutItemPrivate(QGraphicsLayoutItem *par, bool layout)
     : parent(par), userSizeHints(nullptr), isLayout(layout), ownedByLayout(false), graphicsItem(nullptr)
@@ -123,6 +142,39 @@ inline Qt::LayoutDirection QGraphicsLayoutPrivate::visualDirection() const
     return QGuiApplication::layoutDirection();
 }
 
+//  from src/widgets/graphicsview/qgraphicslayout_p.cpp, line 108, as _ZN22QGraphicsLayoutPrivate18addChildLayoutItemEP19QGraphicsLayoutItem
+inline void QGraphicsLayoutPrivate::addChildLayoutItem(QGraphicsLayoutItem *layoutItem)
+{
+    Q_Q(QGraphicsLayout);
+    if (QGraphicsLayoutItem *maybeLayout = layoutItem->parentLayoutItem()) {
+        if (maybeLayout->isLayout())
+            removeLayoutItemFromLayout(static_cast<QGraphicsLayout*>(maybeLayout), layoutItem);
+    }
+    layoutItem->setParentLayoutItem(q);
+    if (layoutItem->isLayout()) {
+        if (QGraphicsItem *parItem = parentItem()) {
+            static_cast<QGraphicsLayout*>(layoutItem)->d_func()->reparentChildItems(parItem);
+        }
+    } else {
+        if (QGraphicsItem *item = layoutItem->graphicsItem()) {
+            QGraphicsItem *newParent = parentItem();
+            QGraphicsItem *oldParent = item->parentItem();
+            if (oldParent == newParent || !newParent)
+                return;
+
+#ifdef QT_DEBUG
+            if (oldParent && item->isWidget()) {
+                QGraphicsWidget *w = static_cast<QGraphicsWidget*>(item);
+                qWarning("QGraphicsLayout::addChildLayoutItem: %s \"%s\" in wrong parent; moved to correct parent",
+                    w->metaObject()->className(), w->objectName().toLocal8Bit().constData());
+            }
+#endif
+
+            item->setParentItem(newParent);
+        }
+    }
+}
+
 //  from src/widgets/graphicsview/qgraphicslayout_p.cpp, line 140, as _ZN22QGraphicsLayoutPrivate17activateRecursiveEP19QGraphicsLayoutItem
 inline void QGraphicsLayoutPrivate::activateRecursive(QGraphicsLayoutItem *item)
 {
@@ -160,6 +212,12 @@ const QGraphicsLayout *ritual_ZNK22QGraphicsLayoutPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QGraphicsLayoutPrivate::QGraphicsLayoutPrivate()
+extern "C" Q_DECL_EXPORT
+QGraphicsLayoutPrivate *ritual_ZN22QGraphicsLayoutPrivateC1Ev() {
+  return new QGraphicsLayoutPrivate();
+}
+
 //  void QGraphicsLayoutPrivate::reparentChildItems(QGraphicsItem *newParent)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QGraphicsLayoutPrivate18reparentChildItemsEP13QGraphicsItem(
@@ -184,6 +242,15 @@ extern "C" Q_DECL_EXPORT
 Qt::LayoutDirection ritual_ZNK22QGraphicsLayoutPrivate15visualDirectionEv(
     const QGraphicsLayoutPrivate *self) {
   return self->visualDirection();
+}
+
+//  void QGraphicsLayoutPrivate::addChildLayoutItem(QGraphicsLayoutItem
+//      *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGraphicsLayoutPrivate18addChildLayoutItemEP19QGraphicsLayoutItem(
+    QGraphicsLayoutPrivate *self,
+    QGraphicsLayoutItem *item) {
+  self->addChildLayoutItem(item);
 }
 
 //  void QGraphicsLayoutPrivate::activateRecursive(QGraphicsLayoutItem *item)

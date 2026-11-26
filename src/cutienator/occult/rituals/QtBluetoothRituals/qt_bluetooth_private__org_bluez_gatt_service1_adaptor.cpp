@@ -9,8 +9,65 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/gattservice1adaptor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDBus/qdbusextratypes.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtBluetooth/private/gattservice1adaptor_p.h>
+#include <QtCore/QMetaObject>
+#include <QtCore/QByteArray>
+#include <QtCore/QList>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QVariant>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtconnectivity/src/bluetooth/bluez/gattservice1adaptor.cpp, line 38, as _ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor6deviceEv
+namespace QtBluetoothPrivate {
+inline QDBusObjectPath OrgBluezGattService1Adaptor::device() const
+{
+    // get the value of property Device
+    return qvariant_cast< QDBusObjectPath >(parent()->property("Device"));
+}
+}  // namespace QtBluetoothPrivate
+
+//  from ../qtconnectivity/src/bluetooth/bluez/gattservice1adaptor.cpp, line 44, as _ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor8includesEv
+namespace QtBluetoothPrivate {
+inline QList<QDBusObjectPath> OrgBluezGattService1Adaptor::includes() const
+{
+    // get the value of property Includes
+    return qvariant_cast< QList<QDBusObjectPath> >(parent()->property("Includes"));
+}
+}  // namespace QtBluetoothPrivate
+
+//  from ../qtconnectivity/src/bluetooth/bluez/gattservice1adaptor.cpp, line 50, as _ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor7primaryEv
+namespace QtBluetoothPrivate {
+inline bool OrgBluezGattService1Adaptor::primary() const
+{
+    // get the value of property Primary
+    return qvariant_cast< bool >(parent()->property("Primary"));
+}
+}  // namespace QtBluetoothPrivate
+
+//  from ../qtconnectivity/src/bluetooth/bluez/gattservice1adaptor.cpp, line 56, as _ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor4uUIDEv
+namespace QtBluetoothPrivate {
+inline QString OrgBluezGattService1Adaptor::uUID() const
+{
+    // get the value of property UUID
+    return qvariant_cast< QString >(parent()->property("UUID"));
+}
+}  // namespace QtBluetoothPrivate
+//  -----------------------------------------------------------------------
 
 //  A QtBluetoothPrivate::OrgBluezGattService1Adaptor that Python can take functions over in. Every QtBluetoothPrivate::OrgBluezGattService1Adaptor
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +242,64 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor10metaObjectEv(
     const QtBluetoothPrivate::OrgBluezGattService1Adaptor *self) {
   return self->metaObject();
+}
+
+//  void *QtBluetoothPrivate::OrgBluezGattService1Adaptor::qt_metacast(const
+//      char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QtBluetoothPrivate27OrgBluezGattService1Adaptor11qt_metacastEPKc(
+    QtBluetoothPrivate::OrgBluezGattService1Adaptor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtBluetoothPrivate::OrgBluezGattService1Adaptor::qt_metacall(QMetaObj
+//      ect::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QtBluetoothPrivate27OrgBluezGattService1Adaptor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtBluetoothPrivate::OrgBluezGattService1Adaptor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QtBluetoothPrivate::OrgBluezGattService1Adaptor::~OrgBluezGattService1Ada
+//      ptor()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QtBluetoothPrivate27OrgBluezGattService1AdaptorD1Ev(
+    QtBluetoothPrivate::OrgBluezGattService1Adaptor *self) {
+  delete self;
+}
+
+//  QDBusObjectPath QtBluetoothPrivate::OrgBluezGattService1Adaptor::device()
+//      const
+extern "C" Q_DECL_EXPORT
+QDBusObjectPath *ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor6deviceEv(
+    const QtBluetoothPrivate::OrgBluezGattService1Adaptor *self) {
+  return new QDBusObjectPath(self->device());
+}
+
+//  QList<QDBusObjectPath>
+//      QtBluetoothPrivate::OrgBluezGattService1Adaptor::includes() const
+extern "C" Q_DECL_EXPORT
+QList<QDBusObjectPath> *ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor8includesEv(
+    const QtBluetoothPrivate::OrgBluezGattService1Adaptor *self) {
+  return new QList<QDBusObjectPath>(self->includes());
+}
+
+//  bool QtBluetoothPrivate::OrgBluezGattService1Adaptor::primary() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor7primaryEv(
+    const QtBluetoothPrivate::OrgBluezGattService1Adaptor *self) {
+  return self->primary();
+}
+
+//  QString QtBluetoothPrivate::OrgBluezGattService1Adaptor::uUID() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18QtBluetoothPrivate27OrgBluezGattService1Adaptor4uUIDEv(
+    const QtBluetoothPrivate::OrgBluezGattService1Adaptor *self) {
+  return new QString(self->uUID());
 }
 
 //  a Python function taken by a

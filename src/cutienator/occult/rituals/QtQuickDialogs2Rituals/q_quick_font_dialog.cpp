@@ -24,6 +24,25 @@ const QMetaObject *ritual_ZNK16QQuickFontDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFontDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickFontDialog11qt_metacastEPKc(
+    QQuickFontDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFontDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickFontDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFontDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFontDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQuickFontDialog2trEPKcS1_i(
@@ -102,6 +121,26 @@ void ritual_ZN16QQuickFontDialog10setOptionsE6QFlagsIN18QFontDialogOptions16Font
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQuickFontDialog12resetOptionsEv(QQuickFontDialog *self) {
   self->resetOptions();
+}
+
+//  void QQuickFontDialog::selectedFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFontDialog19selectedFontChangedEv(
+    QQuickFontDialog *self) {
+  self->selectedFontChanged();
+}
+
+//  void QQuickFontDialog::currentFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFontDialog18currentFontChangedEv(
+    QQuickFontDialog *self) {
+  self->currentFontChanged();
+}
+
+//  void QQuickFontDialog::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQuickFontDialog14optionsChangedEv(QQuickFontDialog *self) {
+  self->optionsChanged();
 }
 
 //  bool QQuickFontDialog::useNativeDialog() const

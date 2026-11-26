@@ -7,11 +7,15 @@
   "rows": {
     "ritual_ZN11QGeoMapTypeC1Ev": ["address"],
     "ritual_ZN11QGeoMapTypeC1ERKS_": ["address", "address"],
+    "ritual_ZN11QGeoMapTypeC1EOS_": ["address", "address"],
     "ritual_ZN11QGeoMapTypeC1ENS_8MapStyleERK7QStringS3_bbiRK10QByteArrayRK22QGeoCameraCapabilitiesRK4QMapIS1_8QVariantE": [
       "address", "int", "text", "text", "bool", "bool", "int", "address",
       "address", "address"
     ],
     "ritual_ZN11QGeoMapTypeD1Ev": ["nothing", "address"],
+    "ritual_ZN11QGeoMapTypeaSERKS_": ["address", "address", "address"],
+    "ritual_ZN11QGeoMapTypeaSEOS_": ["address", "address", "address"],
+    "ritual_ZN11QGeoMapType4swapERS_": ["nothing", "address", "address"],
     "ritual_ZeqRK11QGeoMapTypeS1_": ["bool", "address", "address"],
     "ritual_ZneRK11QGeoMapTypeS1_": ["bool", "address", "address"],
     "ritual_ZNK11QGeoMapType5styleEv": ["int", "address"],

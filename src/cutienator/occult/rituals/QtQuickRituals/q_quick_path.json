@@ -6,9 +6,16 @@
   ],
   "rows": {
     "ritual_ZNK10QQuickPath10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickPath11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QQuickPath11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QQuickPath2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QQuickPathC1EP7QObject": ["address", "address"],
     "ritual_ZN10QQuickPathD1Ev": ["nothing", "address"],
+    "ritual_ZN10QQuickPath12pathElementsEv": ["address", "address"],
     "ritual_ZNK10QQuickPath6startXEv": ["double", "address"],
     "ritual_ZN10QQuickPath9setStartXEd": ["nothing", "address", "double"],
     "ritual_ZNK10QQuickPath9hasStartXEv": ["bool", "address"],
@@ -44,6 +51,15 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZN10QQuickPath11processPathEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath7changedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath13startXChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath13startYChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath15simplifyChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath12scaleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath19asynchronousChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPathC1ER17QQuickPathPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10QQuickPath17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN10QQuickPath10classBeginEv": ["nothing", "address"],
     "ritual_ZN10QQuickPath22disconnectPathElementsEv": [
@@ -51,6 +67,24 @@
     ],
     "ritual_ZN10QQuickPath19connectPathElementsEv": ["nothing", "address"],
     "ritual_ZN10QQuickPath16gatherAttributesEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath15pathElements_atEP16QQmlListPropertyI17QQuickPathElementEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN10QQuickPath19pathElements_appendEP16QQmlListPropertyI17QQuickPathElementEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickPath18pathElements_countEP16QQmlListPropertyI17QQuickPathElementE": [
+      "long long", "address"
+    ],
+    "ritual_ZN10QQuickPath18pathElements_clearEP16QQmlListPropertyI17QQuickPathElementE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickPath20pathElements_replaceEP16QQmlListPropertyI17QQuickPathElementExPS1_": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN10QQuickPath23pathElements_removeLastEP16QQmlListPropertyI17QQuickPathElementE": [
+      "nothing", "address"
+    ],
     "ritual_ZN10QQuickPath13doProcessPathEv": ["nothing", "address"],
     "ritual_ZN10QQuickPath11interpolateEiRK7QStringd": [
       "nothing", "address", "int", "text", "double"
@@ -59,14 +93,39 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK10QQuickPath16createPointCacheEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath11interpolateER5QListINS_14AttributePointEEiRK7QStringd": [
+      "nothing", "address", "int", "text", "double"
+    ],
+    "ritual_ZN10QQuickPath8endpointER5QListINS_14AttributePointEERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQuickPath15forwardsPointAtERK12QPainterPathRKdRK5QListINS_14AttributePointEER18QQuickCachedBezierdPd": [
+      "address", "address", "double", "address", "address", "double",
+      "address"
+    ],
+    "ritual_ZN10QQuickPath16backwardsPointAtERK12QPainterPathRKdRK5QListINS_14AttributePointEER18QQuickCachedBezierdPd": [
+      "address", "address", "double", "address", "address", "double",
+      "address"
+    ],
     "ritual_ZN10QQuickPath6d_funcEv": ["address", "address"],
     "ritual_ZNK10QQuickPath6d_funcEv": ["address", "address"],
+    "ritual_ZN10QQuickPath10createPathERK7QPointFS2_RK5QListI7QStringERdRS3_INS_14AttributePointEEPb": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
     "ritual_ZN10QQuickPath15createShapePathERK7QPointFS2_RdPb": [
       "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QQuickPath17sequentialPointAtERK12QPainterPathRKdRK5QListINS_14AttributePointEER18QQuickCachedBezierdPd": [
+      "address", "address", "double", "address", "address", "double",
+      "address"
     ],
     "ritual_cast_QQuickPath_QQmlParserStatus": ["address", "address"],
     "ritual_take_QQuickPath": ["bool", "address", "chars", "address"],
     "ritual_own_ZN10QQuickPath17componentCompleteEv": ["nothing", "address"],
-    "ritual_own_ZN10QQuickPath10classBeginEv": ["nothing", "address"]
+    "ritual_own_ZN10QQuickPath10classBeginEv": ["nothing", "address"],
+    "ritual_drop_QQuickPath__QQmlListProperty_QQuickPathElement": [
+      "nothing", "address"
+    ]
   }
 }

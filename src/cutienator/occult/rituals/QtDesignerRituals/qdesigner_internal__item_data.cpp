@@ -13,6 +13,66 @@ qdesigner_internal::ItemData *ritual_ZN18qdesigner_internal8ItemDataC1Ev() {
   return new qdesigner_internal::ItemData();
 }
 
+//  qdesigner_internal::ItemData::ItemData(const QListWidgetItem *item, bool
+//      editor)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ItemData *ritual_ZN18qdesigner_internal8ItemDataC1EPK15QListWidgetItemb(
+    const QListWidgetItem *item,
+    bool editor) {
+  return new qdesigner_internal::ItemData(item, editor);
+}
+
+//  qdesigner_internal::ItemData::ItemData(const QTableWidgetItem *item, bool
+//      editor)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ItemData *ritual_ZN18qdesigner_internal8ItemDataC1EPK16QTableWidgetItemb(
+    const QTableWidgetItem *item,
+    bool editor) {
+  return new qdesigner_internal::ItemData(item, editor);
+}
+
+//  qdesigner_internal::ItemData::ItemData(const QTreeWidgetItem *item, int
+//      column)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ItemData *ritual_ZN18qdesigner_internal8ItemDataC1EPK15QTreeWidgetItemi(
+    const QTreeWidgetItem *item,
+    int column) {
+  return new qdesigner_internal::ItemData(item, column);
+}
+
+//  QListWidgetItem
+//      *qdesigner_internal::ItemData::createListItem(DesignerIconCache
+//      *iconCache, bool editor) const
+extern "C" Q_DECL_EXPORT
+QListWidgetItem *ritual_ZNK18qdesigner_internal8ItemData14createListItemEPNS_17DesignerIconCacheEb(
+    const qdesigner_internal::ItemData *self,
+    qdesigner_internal::DesignerIconCache *iconCache,
+    bool editor) {
+  return self->createListItem(iconCache, editor);
+}
+
+//  QTableWidgetItem
+//      *qdesigner_internal::ItemData::createTableItem(DesignerIconCache
+//      *iconCache, bool editor) const
+extern "C" Q_DECL_EXPORT
+QTableWidgetItem *ritual_ZNK18qdesigner_internal8ItemData15createTableItemEPNS_17DesignerIconCacheEb(
+    const qdesigner_internal::ItemData *self,
+    qdesigner_internal::DesignerIconCache *iconCache,
+    bool editor) {
+  return self->createTableItem(iconCache, editor);
+}
+
+//  void qdesigner_internal::ItemData::fillTreeItemColumn(QTreeWidgetItem
+//      *item, int column, DesignerIconCache *iconCache) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal8ItemData18fillTreeItemColumnEP15QTreeWidgetItemiPNS_17DesignerIconCacheE(
+    const qdesigner_internal::ItemData *self,
+    QTreeWidgetItem *item,
+    int column,
+    qdesigner_internal::DesignerIconCache *iconCache) {
+  self->fillTreeItemColumn(item, column, iconCache);
+}
+
 //  bool qdesigner_internal::ItemData::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK18qdesigner_internal8ItemData7isValidEv(

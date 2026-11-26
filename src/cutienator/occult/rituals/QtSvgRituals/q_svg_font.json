@@ -15,10 +15,27 @@
     "ritual_ZN8QSvgFont15addMissingGlyphERK12QPainterPathd": [
       "bool", "address", "address", "double"
     ],
+    "ritual_ZN8QSvgFont11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgFont4drawEP8QPainterRK7QPointFRK5QListIPK9QSvgGlyphEd6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "address", "address", "double", "int"
+    ],
+    "ritual_ZNK8QSvgFont12boundingRectEP8QPainterRK7QPointFRK5QListIPK9QSvgGlyphEd6QFlagsIN2Qt13AlignmentFlagEE": [
+      "address", "address", "address", "address", "address", "double", "int"
+    ],
     "ritual_ZNK8QSvgFont17findFirstGlyphForE11QStringView": [
       "address", "address", "text"
     ],
+    "ritual_ZNK8QSvgFont8toGlyphsE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK8QSvgFont11draw_helperEP8QPainterRK7QPointFRK5QListIPK9QSvgGlyphEd6QFlagsIN2Qt13AlignmentFlagEEP6QRectF": [
+      "nothing", "address", "address", "address", "address", "double", "int",
+      "address"
+    ],
     "ritual_take_QSvgFont": ["bool", "address", "chars", "address"],
-    "ritual_own_ZNK8QSvgFont4typeEv": ["int", "address"]
+    "ritual_own_ZNK8QSvgFont4typeEv": ["int", "address"],
+    "ritual_drop_QSvgFont__QList_const_QSvgGlyph": ["nothing", "address"]
   }
 }

@@ -1,16 +1,35 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qbitarray.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qbitarray.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZanRK9QBitArrayS1_": ["address", "address", "address"],
+    "ritual_ZanO9QBitArrayRKS_": ["address", "address", "address"],
+    "ritual_ZanRK9QBitArrayOS_": ["address", "address", "address"],
+    "ritual_ZanO9QBitArrayS0_": ["address", "address", "address"],
     "ritual_ZorRK9QBitArrayS1_": ["address", "address", "address"],
+    "ritual_ZorO9QBitArrayRKS_": ["address", "address", "address"],
+    "ritual_ZorRK9QBitArrayOS_": ["address", "address", "address"],
+    "ritual_ZorO9QBitArrayS0_": ["address", "address", "address"],
     "ritual_ZeoRK9QBitArrayS1_": ["address", "address", "address"],
+    "ritual_ZeoO9QBitArrayRKS_": ["address", "address", "address"],
+    "ritual_ZeoRK9QBitArrayOS_": ["address", "address", "address"],
+    "ritual_ZeoO9QBitArrayS0_": ["address", "address", "address"],
+    "ritual_ZlsR11QDataStreamRK9QBitArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR9QBitArray": ["address", "address", "address"],
     "ritual_Zco9QBitArray": ["address", "address"],
+    "ritual_ZN9QBitArrayC1EO17QArrayDataPointerIcE": ["address", "address"],
     "ritual_ZN9QBitArrayC1Ev": ["address"],
     "ritual_ZN9QBitArrayC1Exb": ["address", "long long", "bool"],
     "ritual_ZN9QBitArrayC1ERKS_": ["address", "address"],
+    "ritual_ZN9QBitArrayaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QBitArrayC1EOS_": ["address", "address"],
+    "ritual_ZN9QBitArrayaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QBitArray4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QBitArray4sizeEv": ["long long", "address"],
     "ritual_ZNK9QBitArray5countEv": ["long long", "address"],
     "ritual_ZNK9QBitArray5countEb": ["long long", "address", "bool"],
@@ -30,6 +49,9 @@
     "ritual_ZNK9QBitArray2atEx": ["bool", "address", "long long"],
     "ritual_ZN9QBitArrayixEx": ["address", "address", "long long"],
     "ritual_ZNK9QBitArrayixEx": ["bool", "address", "long long"],
+    "ritual_ZN9QBitArrayaNEOS_": ["nothing", "address", "address"],
+    "ritual_ZN9QBitArrayoREOS_": ["nothing", "address", "address"],
+    "ritual_ZN9QBitArrayeOEOS_": ["nothing", "address", "address"],
     "ritual_ZN9QBitArrayaNERKS_": ["nothing", "address", "address"],
     "ritual_ZN9QBitArrayoRERKS_": ["nothing", "address", "address"],
     "ritual_ZN9QBitArrayeOERKS_": ["nothing", "address", "address"],
@@ -43,8 +65,11 @@
     "ritual_ZNK9QBitArray8toUInt32EN8QSysInfo6EndianEPb": [
       "unsigned int", "address", "int", "address"
     ],
+    "ritual_ZN9QBitArray8data_ptrEv": ["address", "address"],
+    "ritual_ZNK9QBitArray8data_ptrEv": ["address", "address"],
     "ritual_ZeqRK9QBitArrayS1_": ["bool", "address", "address"],
     "ritual_ZneRK9QBitArrayS1_": ["bool", "address", "address"],
-    "ritual_ZN9QBitArrayD1Ev": ["nothing", "address"]
+    "ritual_ZN9QBitArrayD1Ev": ["nothing", "address"],
+    "ritual_ZNO9QBitArray16inverted_inplaceEv": ["address", "address"]
   }
 }

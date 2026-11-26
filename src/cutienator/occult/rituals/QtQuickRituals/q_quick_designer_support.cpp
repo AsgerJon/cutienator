@@ -16,6 +16,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qobject.h>
 #include <QtCore/qlist.h>
+#include <utility>
+#include <QtCore/QString>
+#include <QtCore/QObject>
 
 //  QQuickDesignerSupport::QQuickDesignerSupport()
 extern "C" Q_DECL_EXPORT
@@ -151,6 +154,21 @@ QQuickItem *ritual_ZN21QQuickDesignerSupport24anchorCenterInTargetItemEP10QQuick
   return QQuickDesignerSupport::anchorCenterInTargetItem(item);
 }
 
+//  std::pair<QString, QObject *>
+//      QQuickDesignerSupport::anchorLineTarget(QQuickItem *item, const
+//      QString &name, QQmlContext *context)
+extern "C" Q_DECL_EXPORT
+std::pair<QString, QObject *> *ritual_ZN21QQuickDesignerSupport16anchorLineTargetEP10QQuickItemRK7QStringP11QQmlContext(
+    QQuickItem *item,
+    const QString *name,
+    QQmlContext *context) {
+  return new std::pair<QString, QObject *>(
+      QQuickDesignerSupport::anchorLineTarget(
+          item,
+          *name,
+          context));
+}
+
 //  void QQuickDesignerSupport::resetAnchor(QQuickItem *item, const QString
 //      &name)
 extern "C" Q_DECL_EXPORT
@@ -250,6 +268,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickDesignerSupport11polishItemsEP12QQuickWindow(
     QQuickWindow *window) {
   QQuickDesignerSupport::polishItems(window);
+}
+
+//  a std::pair<QString, QObject *> a ritual of QQuickDesignerSupport gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickDesignerSupport__std_pair_QString_QObject(
+    std::pair<QString, QObject *> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_designer)

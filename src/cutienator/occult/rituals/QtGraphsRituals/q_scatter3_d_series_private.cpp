@@ -3,7 +3,7 @@
 //  made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qscatter3dseries.h>
@@ -15,15 +15,16 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGraphs/private/qabstract3dseries_p.h>
-#include <QtGraphs/private/qabstractdataproxy_p.h>
-#include <QtGraphs/private/qquickgraphsitem_p.h>
-#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #include <QtGraphs/qcategory3daxis.h>
 #include <QtGraphs/private/qquickgraphsscatter_p.h>
 #include <QtGraphs/private/qscatter3dseries_p.h>
 #include <QtGraphs/qvalue3daxis.h>
 #include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtGraphs/private/qabstract3dseries_p.h>
+#include <QtGraphs/private/qabstractdataproxy_p.h>
+#include <QtGraphs/private/qquickgraphsitem_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -32,39 +33,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 902, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
-inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
-{
-    Q_Q(QAbstract3DSeries);
-    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_func()->series());
-
-    delete m_dataProxy;
-    m_dataProxy = proxy;
-
-    proxy->d_func()->setSeries(q); // also sets parent
-
-    if (m_graph) {
-        connectGraphAndProxy(m_graph);
-        m_graph->markDataDirty();
-    }
-}
-
-//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 918, as _ZN24QAbstract3DSeriesPrivate8setGraphEP16QQuickGraphsItem
-inline void QAbstract3DSeriesPrivate::setGraph(QQuickGraphsItem *graph)
-{
-    Q_Q(QAbstract3DSeries);
-    m_graph = graph;
-    q->setParent(graph);
-    connectGraphAndProxy(graph);
-    markItemLabelDirty();
-}
-
-//  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 534, as _ZN23QScatter3DSeriesPrivateD1Ev
-inline QScatter3DSeriesPrivate::~QScatter3DSeriesPrivate()
-{
-    clearArray();
-}
 
 //  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 539, as _ZN23QScatter3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
 inline void QScatter3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
@@ -75,47 +43,6 @@ inline void QScatter3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
     QAbstract3DSeriesPrivate::setDataProxy(proxy);
 
     emit q->dataProxyChanged(static_cast<QScatterDataProxy *>(proxy));
-}
-
-//  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 549, as _ZN23QScatter3DSeriesPrivate20connectGraphAndProxyEP16QQuickGraphsItem
-inline void QScatter3DSeriesPrivate::connectGraphAndProxy(QQuickGraphsItem *newGraph)
-{
-    Q_Q(QScatter3DSeries);
-    QScatterDataProxy *scatterDataProxy = static_cast<QScatterDataProxy *>(m_dataProxy);
-
-    if (m_graph && scatterDataProxy) {
-        // Disconnect old graph/old proxy
-        QObject::disconnect(scatterDataProxy, 0, m_graph, 0);
-        QObject::disconnect(q, 0, m_graph, 0);
-    }
-
-    if (newGraph && scatterDataProxy) {
-        QQuickGraphsScatter *graph = static_cast<QQuickGraphsScatter *>(newGraph);
-        QObject::connect(scatterDataProxy,
-                         &QScatterDataProxy::arrayReset,
-                         graph,
-                         &QQuickGraphsScatter::handleArrayReset);
-        QObject::connect(scatterDataProxy,
-                         &QScatterDataProxy::itemsAdded,
-                         graph,
-                         &QQuickGraphsScatter::handleItemsAdded);
-        QObject::connect(scatterDataProxy,
-                         &QScatterDataProxy::itemsChanged,
-                         graph,
-                         &QQuickGraphsScatter::handleItemsChanged);
-        QObject::connect(scatterDataProxy,
-                         &QScatterDataProxy::itemsRemoved,
-                         graph,
-                         &QQuickGraphsScatter::handleItemsRemoved);
-        QObject::connect(scatterDataProxy,
-                         &QScatterDataProxy::itemsInserted,
-                         graph,
-                         &QQuickGraphsScatter::handleItemsInserted);
-        QObject::connect(q,
-                         &QScatter3DSeries::dataProxyChanged,
-                         graph,
-                         &QQuickGraphsScatter::handleArrayReset);
-    }
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 589, as _ZN23QScatter3DSeriesPrivate15createItemLabelEv
@@ -162,6 +89,128 @@ inline void QScatter3DSeriesPrivate::createItemLabel()
         m_itemLabel.replace(zLabelTag, valueLabelText);
     }
     m_itemLabel.replace(seriesNameTag, m_name);
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 549, as _ZN23QScatter3DSeriesPrivate20connectGraphAndProxyEP16QQuickGraphsItem
+inline void QScatter3DSeriesPrivate::connectGraphAndProxy(QQuickGraphsItem *newGraph)
+{
+    Q_Q(QScatter3DSeries);
+    QScatterDataProxy *scatterDataProxy = static_cast<QScatterDataProxy *>(m_dataProxy);
+
+    if (m_graph && scatterDataProxy) {
+        // Disconnect old graph/old proxy
+        QObject::disconnect(scatterDataProxy, 0, m_graph, 0);
+        QObject::disconnect(q, 0, m_graph, 0);
+    }
+
+    if (newGraph && scatterDataProxy) {
+        QQuickGraphsScatter *graph = static_cast<QQuickGraphsScatter *>(newGraph);
+        QObject::connect(scatterDataProxy,
+                         &QScatterDataProxy::arrayReset,
+                         graph,
+                         &QQuickGraphsScatter::handleArrayReset);
+        QObject::connect(scatterDataProxy,
+                         &QScatterDataProxy::itemsAdded,
+                         graph,
+                         &QQuickGraphsScatter::handleItemsAdded);
+        QObject::connect(scatterDataProxy,
+                         &QScatterDataProxy::itemsChanged,
+                         graph,
+                         &QQuickGraphsScatter::handleItemsChanged);
+        QObject::connect(scatterDataProxy,
+                         &QScatterDataProxy::itemsRemoved,
+                         graph,
+                         &QQuickGraphsScatter::handleItemsRemoved);
+        QObject::connect(scatterDataProxy,
+                         &QScatterDataProxy::itemsInserted,
+                         graph,
+                         &QQuickGraphsScatter::handleItemsInserted);
+        QObject::connect(q,
+                         &QScatter3DSeries::dataProxyChanged,
+                         graph,
+                         &QQuickGraphsScatter::handleArrayReset);
+    }
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 534, as _ZN23QScatter3DSeriesPrivateD2Ev
+inline QScatter3DSeriesPrivate::~QScatter3DSeriesPrivate()
+{
+    clearArray();
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 918, as _ZN24QAbstract3DSeriesPrivate8setGraphEP16QQuickGraphsItem
+inline void QAbstract3DSeriesPrivate::setGraph(QQuickGraphsItem *graph)
+{
+    Q_Q(QAbstract3DSeries);
+    m_graph = graph;
+    q->setParent(graph);
+    connectGraphAndProxy(graph);
+    markItemLabelDirty();
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 879, as _ZN24QAbstract3DSeriesPrivateC2EN17QAbstract3DSeries10SeriesTypeE
+inline QAbstract3DSeriesPrivate::QAbstract3DSeriesPrivate(QAbstract3DSeries::SeriesType type)
+    : m_type(type)
+    , m_dataProxy(0)
+    , m_visible(true)
+    , m_graph(0)
+    , m_mesh(QAbstract3DSeries::Mesh::Cube)
+    , m_meshSmooth(false)
+    , m_colorStyle(QGraphsTheme::ColorStyle::Uniform)
+    , m_baseColor(Qt::black)
+    , m_singleHighlightColor(Qt::black)
+    , m_multiHighlightColor(Qt::black)
+    , m_itemLabelDirty(true)
+    , m_itemLabelVisible(true)
+    , m_lightingMode(QAbstract3DSeries::LightingMode::Shaded)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 895, as _ZN24QAbstract3DSeriesPrivateD2Ev
+inline QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/utils/qgraphs3dlogging.cpp, line 13, as _Z14lcProperties3Dv
+inline const QLoggingCategory &lcProperties3D()
+{
+    static const QLoggingCategory category("qt.graphs3d.properties");
+    return category;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 1117, as _ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv
+inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
+{
+    m_itemLabelDirty = true;
+    m_changeTracker.itemLabelChanged = true;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 902, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
+inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
+{
+    Q_Q(QAbstract3DSeries);
+    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_func()->series());
+
+    delete m_dataProxy;
+    m_dataProxy = proxy;
+
+    proxy->d_func()->setSeries(q); // also sets parent
+
+    if (m_graph) {
+        connectGraphAndProxy(m_graph);
+        m_graph->markDataDirty();
+    }
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 634, as _ZN23QScatter3DSeriesPrivate15setSelectedItemEx
+inline void QScatter3DSeriesPrivate::setSelectedItem(qsizetype index)
+{
+    Q_Q(QScatter3DSeries);
+    if (index == m_selectedItem) {
+        qCDebug(lcProperties3D, "%s Value is already set to: %" PRIdQSIZETYPE,
+                qUtf8Printable(QLatin1String(__FUNCTION__)), index);
+        return;
+    }
+    markItemLabelDirty();
+    m_selectedItem = index;
+    emit q->selectedItemChanged(m_selectedItem);
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 647, as _ZN23QScatter3DSeriesPrivate11setItemSizeEf
@@ -355,6 +404,14 @@ void ritual_ZN23QScatter3DSeriesPrivate15createItemLabelEv(
   self->createItemLabel();
 }
 
+//  void QScatter3DSeriesPrivate::setSelectedItem(qsizetype index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QScatter3DSeriesPrivate15setSelectedItemEx(
+    QScatter3DSeriesPrivate *self,
+    qsizetype index) {
+  self->setSelectedItem(index);
+}
+
 //  void QScatter3DSeriesPrivate::setItemSize(float size)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QScatter3DSeriesPrivate11setItemSizeEf(
@@ -474,4 +531,4 @@ void ritual_own_ZN23QScatter3DSeriesPrivate15createItemLabelEv(
   self->QScatter3DSeriesPrivate::createItemLabel();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))

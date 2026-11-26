@@ -8,8 +8,38 @@
     "ritual_ZNK17QtVirtualKeyboard16PlainInputMethod10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethod11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethod11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard16PlainInputMethod2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethodC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethodD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethod10inputModesERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethod12setInputModeERK7QStringN27QVirtualKeyboardInputEngine9InputModeE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethod11setTextCaseEN27QVirtualKeyboardInputEngine8TextCaseE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethod8keyEventEN2Qt3KeyERK7QString6QFlagsINS1_16KeyboardModifierEE": [
+      "bool", "address", "int", "text", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethod5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethod6updateEv": [
+      "nothing", "address"
     ],
     "ritual_take_QtVirtualKeyboard_PlainInputMethod": [
       "bool", "address", "chars", "address"
@@ -27,6 +57,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN17QtVirtualKeyboard16PlainInputMethod6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtVirtualKeyboard_PlainInputMethod__QList_QVirtualKeyboardInputEngine_InputMode": [
       "nothing", "address"
     ]
   }

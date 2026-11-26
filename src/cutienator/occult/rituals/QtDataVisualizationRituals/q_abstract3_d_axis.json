@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QAbstract3DAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstract3DAxis11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QAbstract3DAxis11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QAbstract3DAxis2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -46,6 +52,34 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK15QAbstract3DAxis12isTitleFixedEv": ["bool", "address"],
+    "ritual_ZN15QAbstract3DAxis12titleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QAbstract3DAxis13labelsChangedEv": ["nothing", "address"],
+    "ritual_ZN15QAbstract3DAxis18orientationChangedENS_15AxisOrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstract3DAxis10minChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QAbstract3DAxis10maxChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QAbstract3DAxis12rangeChangedEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN15QAbstract3DAxis22autoAdjustRangeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QAbstract3DAxis24labelAutoRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QAbstract3DAxis22titleVisibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QAbstract3DAxis17titleFixedChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_QAbstract3DAxis": ["bool", "address", "chars", "address"],
     "ritual_list_make_QAbstract3DAxis_ptr": ["address"],
     "ritual_list_add_QAbstract3DAxis_ptr": ["nothing", "address", "address"],

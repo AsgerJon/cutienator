@@ -8,6 +8,10 @@
   ],
   "rows": {
     "ritual_ZNK7QBarSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QBarSet11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QBarSet11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QBarSet2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QBarSet6d_funcEv": ["address", "address"],
     "ritual_ZNK7QBarSet6d_funcEv": ["address", "address"],
@@ -19,6 +23,9 @@
     "ritual_ZN7QBarSet8setLabelERK7QString": ["nothing", "address", "text"],
     "ritual_ZNK7QBarSet5labelEv": ["text", "address"],
     "ritual_ZN7QBarSet6appendEd": ["nothing", "address", "double"],
+    "ritual_ZN7QBarSet6appendERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN7QBarSet6insertExd": [
       "nothing", "address", "long long", "double"
     ],
@@ -33,6 +40,7 @@
     "ritual_ZNK7QBarSet3sumEv": ["double", "address"],
     "ritual_ZN7QBarSet5clearEv": ["nothing", "address"],
     "ritual_ZNK7QBarSetixEx": ["double", "address", "long long"],
+    "ritual_ZN7QBarSetlsEd": ["address", "address", "double"],
     "ritual_ZNK7QBarSet5colorEv": ["address", "address"],
     "ritual_ZN7QBarSet8setColorE6QColor": ["nothing", "address", "address"],
     "ritual_ZNK7QBarSet11borderColorEv": ["address", "address"],
@@ -61,11 +69,58 @@
     ],
     "ritual_ZN7QBarSet13selectAllBarsEv": ["nothing", "address"],
     "ritual_ZN7QBarSet15deselectAllBarsEv": ["nothing", "address"],
+    "ritual_ZN7QBarSet10selectBarsERK5QListIxE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBarSet12deselectBarsERK5QListIxE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBarSet15toggleSelectionERK5QListIxE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QBarSet12selectedBarsEv": ["address", "address"],
+    "ritual_ZN7QBarSet6updateEv": ["nothing", "address"],
+    "ritual_ZN7QBarSet12labelChangedEv": ["nothing", "address"],
+    "ritual_ZN7QBarSet12colorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBarSet18borderColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBarSet17labelColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBarSet13valuesChangedEv": ["nothing", "address"],
+    "ritual_ZN7QBarSet20selectedColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBarSet12countChangedEv": ["nothing", "address"],
+    "ritual_ZN7QBarSet18borderWidthChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN7QBarSet11valuesAddedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN7QBarSet13valuesRemovedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN7QBarSet12valueChangedEx": ["nothing", "address", "long long"],
+    "ritual_ZN7QBarSet11updatedBarsEv": ["nothing", "address"],
+    "ritual_ZN7QBarSet10valueAddedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN7QBarSet12valueRemovedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN7QBarSet19selectedBarsChangedERK5QListIxE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QBarSet": ["bool", "address", "chars", "address"],
     "ritual_list_make_QBarSet_ptr": ["address"],
     "ritual_list_add_QBarSet_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QBarSet_ptr": ["long long", "address"],
     "ritual_list_at_QBarSet_ptr": ["address", "address", "long long"],
-    "ritual_list_drop_QBarSet_ptr": ["nothing", "address"]
+    "ritual_list_drop_QBarSet_ptr": ["nothing", "address"],
+    "ritual_drop_QBarSet__QList_qsizetype": ["nothing", "address"]
   }
 }

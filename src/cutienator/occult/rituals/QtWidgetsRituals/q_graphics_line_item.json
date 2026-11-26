@@ -47,6 +47,8 @@
     "ritual_ZNK17QGraphicsLineItem9extensionERK8QVariant": [
       "address", "address", "address"
     ],
+    "ritual_ZN17QGraphicsLineItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsLineItem6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsLineItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QGraphicsLineItem12boundingRectEv": [
       "address", "address"

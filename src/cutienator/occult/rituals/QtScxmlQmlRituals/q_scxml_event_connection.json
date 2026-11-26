@@ -8,6 +8,12 @@
     "ritual_ZNK21QScxmlEventConnection10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QScxmlEventConnection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QScxmlEventConnection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QScxmlEventConnection2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,11 +23,32 @@
     "ritual_ZN21QScxmlEventConnection9setEventsERK5QListI7QStringE": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN21QScxmlEventConnection14bindableEventsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK21QScxmlEventConnection12stateMachineEv": [
       "address", "address"
     ],
     "ritual_ZN21QScxmlEventConnection15setStateMachineEP18QScxmlStateMachine": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN21QScxmlEventConnection20bindableStateMachineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QScxmlEventConnection13eventsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QScxmlEventConnection19stateMachineChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QScxmlEventConnection8occurredERK11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QScxmlEventConnection34_qt_property_m_stateMachine_offsetEv": [
+      "size_t"
+    ],
+    "ritual_ZN21QScxmlEventConnection28_qt_property_m_events_offsetEv": [
+      "size_t"
     ],
     "ritual_ZN21QScxmlEventConnection9doConnectEv": ["nothing", "address"],
     "ritual_ZN21QScxmlEventConnection10classBeginEv": ["nothing", "address"],
@@ -38,6 +65,12 @@
       "nothing", "address"
     ],
     "ritual_own_ZN21QScxmlEventConnection17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlEventConnection__QBindable_QStringList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QScxmlEventConnection__QBindable_QScxmlStateMachine": [
       "nothing", "address"
     ]
   }

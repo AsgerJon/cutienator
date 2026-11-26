@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DAnimation/Qt3DAnimation>
 
 //  A Qt3DAnimation::Animation::Quick::Quick3DChannelMapper that Python can take functions over in. Every Qt3DAnimation::Animation::Quick::Quick3DChannelMapper
 //  Python makes is one. Each function below asks the Python
@@ -186,6 +188,27 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation9Animation5Quick20Quick3DChannelMapp
   return self->metaObject();
 }
 
+//  void
+//      *Qt3DAnimation::Animation::Quick::Quick3DChannelMapper::qt_metacast(c
+//      onst char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper11qt_metacastEPKc(
+    Qt3DAnimation::Animation::Quick::Quick3DChannelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::Animation::Quick::Quick3DChannelMapper::qt_metacall(QM
+//      etaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::Animation::Quick::Quick3DChannelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::Animation::Quick::Quick3DChannelMapper::tr(const
 //      char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -200,6 +223,14 @@ QString *ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper2trEPKcS4
           n));
 }
 
+//  Qt3DAnimation::Animation::Quick::Quick3DChannelMapper::Quick3DChannelMapp
+//      er(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::Animation::Quick::Quick3DChannelMapper *ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapperC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DAnimation_Animation_Quick_Quick3DChannelMapper(parent);
+}
+
 //  QChannelMapper
 //      *Qt3DAnimation::Animation::Quick::Quick3DChannelMapper::parentMapper(
 //      ) const
@@ -207,6 +238,15 @@ extern "C" Q_DECL_EXPORT
 Qt3DAnimation::QChannelMapper *ritual_ZNK13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper12parentMapperEv(
     const Qt3DAnimation::Animation::Quick::Quick3DChannelMapper *self) {
   return self->parentMapper();
+}
+
+//  QQmlListProperty<QAbstractChannelMapping>
+//      Qt3DAnimation::Animation::Quick::Quick3DChannelMapper::qmlMappings()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DAnimation::QAbstractChannelMapping> *ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper11qmlMappingsEv(
+    Qt3DAnimation::Animation::Quick::Quick3DChannelMapper *self) {
+  return new QQmlListProperty<Qt3DAnimation::QAbstractChannelMapping>(
+      self->qmlMappings());
 }
 
 //  a Python function taken by a
@@ -218,4 +258,12 @@ bool ritual_take_Qt3DAnimation_Animation_Quick_Quick3DChannelMapper(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DAnimation_Animation_Quick_Quick3DChannelMapper *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DAnimation::QAbstractChannelMapping> a ritual of
+//      Qt3DAnimation::Animation::Quick::Quick3DChannelMapper gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DAnimation_Animation_Quick_Quick3DChannelMapper__QQmlListProperty_Qt3DAnimation_QAbstractChannelMapping(
+    QQmlListProperty<Qt3DAnimation::QAbstractChannelMapping> *self) {
+  delete self;
 }

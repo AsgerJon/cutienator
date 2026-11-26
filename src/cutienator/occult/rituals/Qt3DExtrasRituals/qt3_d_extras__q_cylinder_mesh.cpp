@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras13QCylinderMesh10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QCylinderMesh::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras13QCylinderMesh11qt_metacastEPKc(
+    Qt3DExtras::QCylinderMesh *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QCylinderMesh::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras13QCylinderMesh11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QCylinderMesh *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QCylinderMesh::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,112 @@ QString *ritual_ZN10Qt3DExtras13QCylinderMesh2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QCylinderMesh::tr(s, c, n));
+}
+
+//  Qt3DExtras::QCylinderMesh::QCylinderMesh(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QCylinderMesh *ritual_ZN10Qt3DExtras13QCylinderMeshC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QCylinderMesh(parent);
+}
+
+//  Qt3DExtras::QCylinderMesh::~QCylinderMesh()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QCylinderMeshD1Ev(
+    Qt3DExtras::QCylinderMesh *self) {
+  delete self;
+}
+
+//  int Qt3DExtras::QCylinderMesh::rings() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras13QCylinderMesh5ringsEv(
+    const Qt3DExtras::QCylinderMesh *self) {
+  return self->rings();
+}
+
+//  int Qt3DExtras::QCylinderMesh::slices() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras13QCylinderMesh6slicesEv(
+    const Qt3DExtras::QCylinderMesh *self) {
+  return self->slices();
+}
+
+//  float Qt3DExtras::QCylinderMesh::radius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras13QCylinderMesh6radiusEv(
+    const Qt3DExtras::QCylinderMesh *self) {
+  return self->radius();
+}
+
+//  float Qt3DExtras::QCylinderMesh::length() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras13QCylinderMesh6lengthEv(
+    const Qt3DExtras::QCylinderMesh *self) {
+  return self->length();
+}
+
+//  void Qt3DExtras::QCylinderMesh::setRings(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QCylinderMesh8setRingsEi(
+    Qt3DExtras::QCylinderMesh *self,
+    int rings) {
+  self->setRings(rings);
+}
+
+//  void Qt3DExtras::QCylinderMesh::setSlices(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QCylinderMesh9setSlicesEi(
+    Qt3DExtras::QCylinderMesh *self,
+    int slices) {
+  self->setSlices(slices);
+}
+
+//  void Qt3DExtras::QCylinderMesh::setRadius(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QCylinderMesh9setRadiusEf(
+    Qt3DExtras::QCylinderMesh *self,
+    float radius) {
+  self->setRadius(radius);
+}
+
+//  void Qt3DExtras::QCylinderMesh::setLength(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QCylinderMesh9setLengthEf(
+    Qt3DExtras::QCylinderMesh *self,
+    float length) {
+  self->setLength(length);
+}
+
+//  void Qt3DExtras::QCylinderMesh::radiusChanged(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QCylinderMesh13radiusChangedEf(
+    Qt3DExtras::QCylinderMesh *self,
+    float radius) {
+  self->radiusChanged(radius);
+}
+
+//  void Qt3DExtras::QCylinderMesh::ringsChanged(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QCylinderMesh12ringsChangedEi(
+    Qt3DExtras::QCylinderMesh *self,
+    int rings) {
+  self->ringsChanged(rings);
+}
+
+//  void Qt3DExtras::QCylinderMesh::slicesChanged(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QCylinderMesh13slicesChangedEi(
+    Qt3DExtras::QCylinderMesh *self,
+    int slices) {
+  self->slicesChanged(slices);
+}
+
+//  void Qt3DExtras::QCylinderMesh::lengthChanged(float length)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras13QCylinderMesh13lengthChangedEf(
+    Qt3DExtras::QCylinderMesh *self,
+    float length) {
+  self->lengthChanged(length);
 }
 
 //  a Python function taken by a CuteQt3DExtras_QCylinderMesh, for the

@@ -7,6 +7,18 @@
   "rows": {
     "ritual_ZNK14QScxmlInternal16ScxmlEventRouter10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN14QScxmlInternal16ScxmlEventRouter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QScxmlInternal16ScxmlEventRouter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QScxmlInternal16ScxmlEventRouter13eventOccurredERK11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QScxmlInternal16ScxmlEventRouter16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
     ]
   }
 }

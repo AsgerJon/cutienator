@@ -5,7 +5,17 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN7QSvgUseD1Ev": ["nothing", "address"],
+    "ritual_ZN7QSvgUse11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK7QSvgUse4typeEv": ["int", "address"],
+    "ritual_ZNK7QSvgUse14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK7QSvgUse23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK7QSvgUse10isResolvedEv": ["bool", "address"],
     "ritual_ZNK7QSvgUse6linkIdEv": ["text", "address"],
     "ritual_ZN7QSvgUse7setLinkEP8QSvgNode": [

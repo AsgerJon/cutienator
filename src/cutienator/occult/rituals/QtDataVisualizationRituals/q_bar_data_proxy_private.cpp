@@ -11,11 +11,12 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QPair>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtDataVisualization/private/qabstractdataproxy_p.h>
-#include <QtDataVisualization/private/qabstract3dseries_p.h>
 #include <QtDataVisualization/private/qbardataproxy_p.h>
 #include <QtDataVisualization/private/qbar3dseries_p.h>
+#include <QtDataVisualization/private/qabstractdataproxy_p.h>
+#include <QtDataVisualization/private/qabstract3dseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -25,11 +26,67 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 757, as _ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries
+inline void QBarDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+{
+    QAbstractDataProxyPrivate::setSeries(series);
+    QBar3DSeries *barSeries = static_cast<QBar3DSeries *>(series);
+    emit qptr()->seriesChanged(barSeries);
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 97, as _ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries
 inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
 {
     q_ptr->setParent(series);
     m_series = series;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 540, as _ZN20QBarDataProxyPrivate10resetArrayEP5QListIPS0_I12QBarDataItemEEPKS0_I7QStringES9_
+inline void QBarDataProxyPrivate::resetArray(QBarDataArray *newArray, const QStringList *rowLabels,
+                                      const QStringList *columnLabels)
+{
+    if (rowLabels)
+        qptr()->setRowLabels(*rowLabels);
+    if (columnLabels)
+        qptr()->setColumnLabels(*columnLabels);
+
+    if (!newArray)
+        newArray = new QBarDataArray;
+
+    if (newArray != m_dataArray) {
+        clearArray();
+        m_dataArray = newArray;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 557, as _ZN20QBarDataProxyPrivate6setRowEiP5QListI12QBarDataItemEPK7QString
+inline void QBarDataProxyPrivate::setRow(int rowIndex, QBarDataRow *row, const QString *label)
+{
+    Q_ASSERT(rowIndex >= 0 && rowIndex < m_dataArray->size());
+
+    if (label)
+        fixRowLabels(rowIndex, 1, QStringList(*label), false);
+    if (row != m_dataArray->at(rowIndex)) {
+        clearRow(rowIndex);
+        (*m_dataArray)[rowIndex] = row;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 569, as _ZN20QBarDataProxyPrivate7setRowsEiRK5QListIPS0_I12QBarDataItemEEPKS0_I7QStringE
+inline void QBarDataProxyPrivate::setRows(int rowIndex, const QBarDataArray &rows,
+                                   const QStringList *labels)
+{
+    QBarDataArray &dataArray = *m_dataArray;
+    Q_ASSERT(rowIndex >= 0 && (rowIndex + rows.size()) <= dataArray.size());
+    if (labels)
+        fixRowLabels(rowIndex, rows.size(), *labels, false);
+    for (int i = 0; i < rows.size(); i++) {
+        if (rows.at(i) != dataArray.at(rowIndex)) {
+            clearRow(rowIndex);
+            dataArray[rowIndex] = rows.at(i);
+        }
+        rowIndex++;
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 585, as _ZN20QBarDataProxyPrivate7setItemEiiRK12QBarDataItem
@@ -39,6 +96,47 @@ inline void QBarDataProxyPrivate::setItem(int rowIndex, int columnIndex, const Q
     QBarDataRow &row = *(*m_dataArray)[rowIndex];
     Q_ASSERT(columnIndex < row.size());
     row[columnIndex] = item;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 593, as _ZN20QBarDataProxyPrivate6addRowEP5QListI12QBarDataItemEPK7QString
+inline int QBarDataProxyPrivate::addRow(QBarDataRow *row, const QString *label)
+{
+    int currentSize = m_dataArray->size();
+    if (label)
+        fixRowLabels(currentSize, 1, QStringList(*label), false);
+    m_dataArray->append(row);
+    return currentSize;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 602, as _ZN20QBarDataProxyPrivate7addRowsERK5QListIPS0_I12QBarDataItemEEPKS0_I7QStringE
+inline int QBarDataProxyPrivate::addRows(const QBarDataArray &rows, const QStringList *labels)
+{
+    int currentSize = m_dataArray->size();
+    if (labels)
+        fixRowLabels(currentSize, rows.size(), *labels, false);
+    for (int i = 0; i < rows.size(); i++)
+        m_dataArray->append(rows.at(i));
+    return currentSize;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 612, as _ZN20QBarDataProxyPrivate9insertRowEiP5QListI12QBarDataItemEPK7QString
+inline void QBarDataProxyPrivate::insertRow(int rowIndex, QBarDataRow *row, const QString *label)
+{
+    Q_ASSERT(rowIndex >= 0 && rowIndex <= m_dataArray->size());
+    if (label)
+        fixRowLabels(rowIndex, 1, QStringList(*label), true);
+    m_dataArray->insert(rowIndex, row);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 620, as _ZN20QBarDataProxyPrivate10insertRowsEiRK5QListIPS0_I12QBarDataItemEEPKS0_I7QStringE
+inline void QBarDataProxyPrivate::insertRows(int rowIndex, const QBarDataArray &rows,
+                                      const QStringList *labels)
+{
+    Q_ASSERT(rowIndex >= 0 && rowIndex <= m_dataArray->size());
+    if (labels)
+        fixRowLabels(rowIndex, rows.size(), *labels, true);
+    for (int i = 0; i < rows.size(); i++)
+        m_dataArray->insert(rowIndex++, rows.at(i));
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 630, as _ZN20QBarDataProxyPrivate10removeRowsEiib
@@ -60,12 +158,27 @@ inline void QBarDataProxyPrivate::removeRows(int rowIndex, int removeCount, bool
         emit qptr()->rowLabelsChanged();
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 757, as _ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries
-inline void QBarDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 735, as _ZNK20QBarDataProxyPrivate11limitValuesEiiii
+inline QPair<GLfloat, GLfloat> QBarDataProxyPrivate::limitValues(int startRow, int endRow,
+                                                          int startColumn, int endColumn) const
 {
-    QAbstractDataProxyPrivate::setSeries(series);
-    QBar3DSeries *barSeries = static_cast<QBar3DSeries *>(series);
-    emit qptr()->seriesChanged(barSeries);
+    QPair<GLfloat, GLfloat> limits = qMakePair(0.0f, 0.0f);
+    endRow = qMin(endRow, m_dataArray->size() - 1);
+    for (int i = startRow; i <= endRow; i++) {
+        QBarDataRow *row = m_dataArray->at(i);
+        if (row) {
+            int lastColumn = qMin(endColumn, row->size() - 1);
+            for (int j = startColumn; j <= lastColumn; j++) {
+                const QBarDataItem &item = row->at(j);
+                float itemValue = item.value();
+                if (limits.second < itemValue)
+                    limits.second = itemValue;
+                if (limits.first > itemValue)
+                    limits.first = itemValue;
+            }
+        }
+    }
+    return limits;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 648, as _ZN20QBarDataProxyPrivate4qptrEv
@@ -346,10 +459,62 @@ const QMetaObject *ritual_ZNK20QBarDataProxyPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBarDataProxyPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QBarDataProxyPrivate11qt_metacastEPKc(
+    QBarDataProxyPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarDataProxyPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QBarDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarDataProxyPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QBarDataProxyPrivate::~QBarDataProxyPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QBarDataProxyPrivateD1Ev(QBarDataProxyPrivate *self) {
   delete self;
+}
+
+//  void QBarDataProxyPrivate::resetArray(QBarDataArray *newArray, const
+//      QStringList *rowLabels, const QStringList *columnLabels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QBarDataProxyPrivate10resetArrayEP5QListIPS0_I12QBarDataItemEEPKS0_I7QStringES9_(
+    QBarDataProxyPrivate *self,
+    QBarDataArray *newArray,
+    const QStringList *rowLabels,
+    const QStringList *columnLabels) {
+  self->resetArray(newArray, rowLabels, columnLabels);
+}
+
+//  void QBarDataProxyPrivate::setRow(int rowIndex, QBarDataRow *row, const
+//      QString *label)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QBarDataProxyPrivate6setRowEiP5QListI12QBarDataItemEPK7QString(
+    QBarDataProxyPrivate *self,
+    int rowIndex,
+    QBarDataRow *row,
+    const QString *label) {
+  self->setRow(rowIndex, row, label);
+}
+
+//  void QBarDataProxyPrivate::setRows(int rowIndex, const QBarDataArray
+//      &rows, const QStringList *labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QBarDataProxyPrivate7setRowsEiRK5QListIPS0_I12QBarDataItemEEPKS0_I7QStringE(
+    QBarDataProxyPrivate *self,
+    int rowIndex,
+    const QBarDataArray *rows,
+    const QStringList *labels) {
+  self->setRows(rowIndex, *rows, labels);
 }
 
 //  void QBarDataProxyPrivate::setItem(int rowIndex, int columnIndex, const
@@ -363,6 +528,47 @@ void ritual_ZN20QBarDataProxyPrivate7setItemEiiRK12QBarDataItem(
   self->setItem(rowIndex, columnIndex, *item);
 }
 
+//  int QBarDataProxyPrivate::addRow(QBarDataRow *row, const QString *label)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QBarDataProxyPrivate6addRowEP5QListI12QBarDataItemEPK7QString(
+    QBarDataProxyPrivate *self,
+    QBarDataRow *row,
+    const QString *label) {
+  return self->addRow(row, label);
+}
+
+//  int QBarDataProxyPrivate::addRows(const QBarDataArray &rows, const
+//      QStringList *labels)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QBarDataProxyPrivate7addRowsERK5QListIPS0_I12QBarDataItemEEPKS0_I7QStringE(
+    QBarDataProxyPrivate *self,
+    const QBarDataArray *rows,
+    const QStringList *labels) {
+  return self->addRows(*rows, labels);
+}
+
+//  void QBarDataProxyPrivate::insertRow(int rowIndex, QBarDataRow *row,
+//      const QString *label)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QBarDataProxyPrivate9insertRowEiP5QListI12QBarDataItemEPK7QString(
+    QBarDataProxyPrivate *self,
+    int rowIndex,
+    QBarDataRow *row,
+    const QString *label) {
+  self->insertRow(rowIndex, row, label);
+}
+
+//  void QBarDataProxyPrivate::insertRows(int rowIndex, const QBarDataArray
+//      &rows, const QStringList *labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QBarDataProxyPrivate10insertRowsEiRK5QListIPS0_I12QBarDataItemEEPKS0_I7QStringE(
+    QBarDataProxyPrivate *self,
+    int rowIndex,
+    const QBarDataArray *rows,
+    const QStringList *labels) {
+  self->insertRows(rowIndex, *rows, labels);
+}
+
 //  void QBarDataProxyPrivate::removeRows(int rowIndex, int removeCount, bool
 //      removeLabels)
 extern "C" Q_DECL_EXPORT
@@ -372,6 +578,23 @@ void ritual_ZN20QBarDataProxyPrivate10removeRowsEiib(
     int removeCount,
     bool removeLabels) {
   self->removeRows(rowIndex, removeCount, removeLabels);
+}
+
+//  QPair<GLfloat, GLfloat> QBarDataProxyPrivate::limitValues(int startRow,
+//      int startColumn, int rowCount, int columnCount) const
+extern "C" Q_DECL_EXPORT
+QPair<GLfloat, GLfloat> *ritual_ZNK20QBarDataProxyPrivate11limitValuesEiiii(
+    const QBarDataProxyPrivate *self,
+    int startRow,
+    int startColumn,
+    int rowCount,
+    int columnCount) {
+  return new QPair<GLfloat, GLfloat>(
+      self->limitValues(
+          startRow,
+          startColumn,
+          rowCount,
+          columnCount));
 }
 
 //  void QBarDataProxyPrivate::setSeries(QAbstract3DSeries *series)
@@ -432,4 +655,11 @@ void ritual_own_ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries(
     QBarDataProxyPrivate *self,
     QAbstract3DSeries *series) {
   self->QBarDataProxyPrivate::setSeries(series);
+}
+
+//  a QPair<GLfloat, GLfloat> a ritual of QBarDataProxyPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QBarDataProxyPrivate__QPair_GLfloat_GLfloat(
+    QPair<GLfloat, GLfloat> *self) {
+  delete self;
 }

@@ -7,8 +7,27 @@
     "ritual_ZNK8Qt3DCore13QCoreSettings10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore13QCoreSettings11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore13QCoreSettings11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore13QCoreSettings2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore13QCoreSettingsC1EPNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QCoreSettingsD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore13QCoreSettings22boundingVolumesEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore13QCoreSettings25setBoundingVolumesEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore13QCoreSettings29boundingVolumesEnabledChangedEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN8Qt3DCore13QCoreSettings6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore13QCoreSettings6d_funcEv": ["address", "address"],

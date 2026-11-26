@@ -11,6 +11,30 @@
     "ritual_ZN3QV416GlobalExtensions25currentTranslationContextEPNS_15ExecutionEngineE": [
       "text", "address"
     ],
+    "ritual_ZN3QV416GlobalExtensions18method_qsTranslateEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV416GlobalExtensions22method_qsTranslateNoOpEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV416GlobalExtensions11method_qsTrEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV416GlobalExtensions15method_qsTrNoOpEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV416GlobalExtensions13method_qsTrIdEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV416GlobalExtensions17method_qsTrIdNoOpEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV416GlobalExtensions9method_gcEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV416GlobalExtensions17method_string_argEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
     "ritual_ZN3QV416GlobalExtensionsD1Ev": ["nothing", "address"]
   }
 }

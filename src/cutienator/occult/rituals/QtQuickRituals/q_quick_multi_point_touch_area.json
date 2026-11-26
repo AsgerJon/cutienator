@@ -8,6 +8,12 @@
     "ritual_ZNK25QQuickMultiPointTouchArea10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuickMultiPointTouchArea11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuickMultiPointTouchArea2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -32,6 +38,45 @@
     ],
     "ritual_ZN25QQuickMultiPointTouchArea15setMouseEnabledEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea11touchPointsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea17touchPoint_appendEP16QQmlListPropertyI16QQuickTouchPointEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea16touchPoint_countEP16QQmlListPropertyI16QQuickTouchPointE": [
+      "long long", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea13touchPoint_atEP16QQmlListPropertyI16QQuickTouchPointEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea7pressedERK5QListIP7QObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea7updatedERK5QListIP7QObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea8releasedERK5QListIP7QObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea8canceledERK5QListIP7QObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea14gestureStartedEP22QQuickGrabGestureEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea12touchUpdatedERK5QListIP7QObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea25minimumTouchPointsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea25maximumTouchPointsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea19mouseEnabledChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN25QQuickMultiPointTouchArea10touchEventEP11QTouchEvent": [
       "nothing", "address", "address"
@@ -116,6 +161,9 @@
     ],
     "ritual_own_ZN25QQuickMultiPointTouchArea15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
       "address", "address", "address", "address"
+    ],
+    "ritual_drop_QQuickMultiPointTouchArea__QQmlListProperty_QQuickTouchPoint": [
+      "nothing", "address"
     ]
   }
 }

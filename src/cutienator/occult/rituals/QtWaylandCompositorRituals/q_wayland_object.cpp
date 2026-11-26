@@ -182,6 +182,24 @@ const QMetaObject *ritual_ZNK14QWaylandObject10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QWaylandObject11qt_metacastEPKc(
+    QWaylandObject *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandObject::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QWaylandObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandObject::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QWaylandObject2trEPKcS1_i(
@@ -204,6 +222,15 @@ QWaylandCompositorExtension *ritual_ZN14QWaylandObject9extensionERK10QByteArray(
     QWaylandObject *self,
     const QByteArray *name) {
   return self->extension(*name);
+}
+
+//  QWaylandCompositorExtension *QWaylandObject::extension(const wl_interface
+//      *interface)
+extern "C" Q_DECL_EXPORT
+QWaylandCompositorExtension *ritual_ZN14QWaylandObject9extensionEPK12wl_interface(
+    QWaylandObject *self,
+    const wl_interface *interface) {
+  return self->extension(interface);
 }
 
 //  QList<QWaylandCompositorExtension *> QWaylandObject::extensions() const
@@ -234,6 +261,14 @@ void ritual_ZN14QWaylandObject15removeExtensionEP27QWaylandCompositorExtension(
 extern "C" Q_DECL_EXPORT
 QWaylandObject *ritual_ZN14QWaylandObjectC1EP7QObject(QObject *parent) {
   return new CuteQWaylandObject(parent);
+}
+
+//  QWaylandObject::QWaylandObject(QObjectPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QWaylandObject *ritual_ZN14QWaylandObjectC1ER14QObjectPrivateP7QObject(
+    QObjectPrivate *d,
+    QObject *parent) {
+  return new CuteQWaylandObject(*d, parent);
 }
 
 //  a Python function taken by a CuteQWaylandObject, for the function named

@@ -297,6 +297,25 @@ const QMetaObject *ritual_ZNK23QQuick3DDefaultMaterial10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DDefaultMaterial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuick3DDefaultMaterial11qt_metacastEPKc(
+    QQuick3DDefaultMaterial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DDefaultMaterial::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuick3DDefaultMaterial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DDefaultMaterial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DDefaultMaterial::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuick3DDefaultMaterial2trEPKcS1_i(
@@ -770,6 +789,257 @@ void ritual_ZN23QQuick3DDefaultMaterial12setLineWidthEf(
     QQuick3DDefaultMaterial *self,
     float width) {
   self->setLineWidth(width);
+}
+
+//  void QQuick3DDefaultMaterial::lightingChanged(QQuick3DDefaultMaterial::Li
+//      ghting lighting)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial15lightingChangedENS_8LightingE(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DDefaultMaterial::Lighting lighting) {
+  self->lightingChanged(lighting);
+}
+
+//  void QQuick3DDefaultMaterial::blendModeChanged(QQuick3DDefaultMaterial::B
+//      lendMode blendMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial16blendModeChangedENS_9BlendModeE(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DDefaultMaterial::BlendMode blendMode) {
+  self->blendModeChanged(blendMode);
+}
+
+//  void QQuick3DDefaultMaterial::diffuseColorChanged(QColor diffuseColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial19diffuseColorChangedE6QColor(
+    QQuick3DDefaultMaterial *self,
+    const QColor *diffuseColor) {
+  self->diffuseColorChanged(*diffuseColor);
+}
+
+//  void QQuick3DDefaultMaterial::diffuseMapChanged(QQuick3DTexture
+//      *diffuseMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial17diffuseMapChangedEP15QQuick3DTexture(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DTexture *diffuseMap) {
+  self->diffuseMapChanged(diffuseMap);
+}
+
+//  void QQuick3DDefaultMaterial::emissiveFactorChanged(QVector3D
+//      emissiveFactor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial21emissiveFactorChangedE9QVector3D(
+    QQuick3DDefaultMaterial *self,
+    const QVector3D *emissiveFactor) {
+  self->emissiveFactorChanged(*emissiveFactor);
+}
+
+//  void QQuick3DDefaultMaterial::emissiveMapChanged(QQuick3DTexture
+//      *emissiveMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial18emissiveMapChangedEP15QQuick3DTexture(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DTexture *emissiveMap) {
+  self->emissiveMapChanged(emissiveMap);
+}
+
+//  void
+//      QQuick3DDefaultMaterial::specularReflectionMapChanged(QQuick3DTexture
+//      *specularReflectionMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial28specularReflectionMapChangedEP15QQuick3DTexture(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DTexture *specularReflectionMap) {
+  self->specularReflectionMapChanged(specularReflectionMap);
+}
+
+//  void QQuick3DDefaultMaterial::specularMapChanged(QQuick3DTexture
+//      *specularMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial18specularMapChangedEP15QQuick3DTexture(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DTexture *specularMap) {
+  self->specularMapChanged(specularMap);
+}
+
+//  void QQuick3DDefaultMaterial::specularModelChanged(QQuick3DDefaultMateria
+//      l::SpecularModel specularModel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial20specularModelChangedENS_13SpecularModelE(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DDefaultMaterial::SpecularModel specularModel) {
+  self->specularModelChanged(specularModel);
+}
+
+//  void QQuick3DDefaultMaterial::specularTintChanged(QColor specularTint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial19specularTintChangedE6QColor(
+    QQuick3DDefaultMaterial *self,
+    const QColor *specularTint) {
+  self->specularTintChanged(*specularTint);
+}
+
+//  void QQuick3DDefaultMaterial::indexOfRefractionChanged(float
+//      indexOfRefraction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial24indexOfRefractionChangedEf(
+    QQuick3DDefaultMaterial *self,
+    float indexOfRefraction) {
+  self->indexOfRefractionChanged(indexOfRefraction);
+}
+
+//  void QQuick3DDefaultMaterial::fresnelPowerChanged(float fresnelPower)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial19fresnelPowerChangedEf(
+    QQuick3DDefaultMaterial *self,
+    float fresnelPower) {
+  self->fresnelPowerChanged(fresnelPower);
+}
+
+//  void QQuick3DDefaultMaterial::specularAmountChanged(float specularAmount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial21specularAmountChangedEf(
+    QQuick3DDefaultMaterial *self,
+    float specularAmount) {
+  self->specularAmountChanged(specularAmount);
+}
+
+//  void QQuick3DDefaultMaterial::specularRoughnessChanged(float
+//      specularRoughness)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial24specularRoughnessChangedEf(
+    QQuick3DDefaultMaterial *self,
+    float specularRoughness) {
+  self->specularRoughnessChanged(specularRoughness);
+}
+
+//  void QQuick3DDefaultMaterial::roughnessMapChanged(QQuick3DTexture
+//      *roughnessMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial19roughnessMapChangedEP15QQuick3DTexture(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DTexture *roughnessMap) {
+  self->roughnessMapChanged(roughnessMap);
+}
+
+//  void QQuick3DDefaultMaterial::opacityChanged(float opacity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial14opacityChangedEf(
+    QQuick3DDefaultMaterial *self,
+    float opacity) {
+  self->opacityChanged(opacity);
+}
+
+//  void QQuick3DDefaultMaterial::opacityMapChanged(QQuick3DTexture
+//      *opacityMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial17opacityMapChangedEP15QQuick3DTexture(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DTexture *opacityMap) {
+  self->opacityMapChanged(opacityMap);
+}
+
+//  void QQuick3DDefaultMaterial::bumpMapChanged(QQuick3DTexture *bumpMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial14bumpMapChangedEP15QQuick3DTexture(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DTexture *bumpMap) {
+  self->bumpMapChanged(bumpMap);
+}
+
+//  void QQuick3DDefaultMaterial::bumpAmountChanged(float bumpAmount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial17bumpAmountChangedEf(
+    QQuick3DDefaultMaterial *self,
+    float bumpAmount) {
+  self->bumpAmountChanged(bumpAmount);
+}
+
+//  void QQuick3DDefaultMaterial::normalMapChanged(QQuick3DTexture
+//      *normalMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial16normalMapChangedEP15QQuick3DTexture(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DTexture *normalMap) {
+  self->normalMapChanged(normalMap);
+}
+
+//  void QQuick3DDefaultMaterial::translucencyMapChanged(QQuick3DTexture
+//      *translucencyMap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial22translucencyMapChangedEP15QQuick3DTexture(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DTexture *translucencyMap) {
+  self->translucencyMapChanged(translucencyMap);
+}
+
+//  void QQuick3DDefaultMaterial::translucentFalloffChanged(float
+//      translucentFalloff)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial25translucentFalloffChangedEf(
+    QQuick3DDefaultMaterial *self,
+    float translucentFalloff) {
+  self->translucentFalloffChanged(translucentFalloff);
+}
+
+//  void QQuick3DDefaultMaterial::diffuseLightWrapChanged(float
+//      diffuseLightWrap)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial23diffuseLightWrapChangedEf(
+    QQuick3DDefaultMaterial *self,
+    float diffuseLightWrap) {
+  self->diffuseLightWrapChanged(diffuseLightWrap);
+}
+
+//  void QQuick3DDefaultMaterial::vertexColorsEnabledChanged(bool
+//      vertexColorsEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial26vertexColorsEnabledChangedEb(
+    QQuick3DDefaultMaterial *self,
+    bool vertexColorsEnabled) {
+  self->vertexColorsEnabledChanged(vertexColorsEnabled);
+}
+
+//  void QQuick3DDefaultMaterial::roughnessChannelChanged(QQuick3DMaterial::T
+//      extureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial23roughnessChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->roughnessChannelChanged(channel);
+}
+
+//  void QQuick3DDefaultMaterial::opacityChannelChanged(QQuick3DMaterial::Tex
+//      tureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial21opacityChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->opacityChannelChanged(channel);
+}
+
+//  void QQuick3DDefaultMaterial::translucencyChannelChanged(QQuick3DMaterial
+//      ::TextureChannelMapping channel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial26translucencyChannelChangedEN16QQuick3DMaterial21TextureChannelMappingE(
+    QQuick3DDefaultMaterial *self,
+    QQuick3DMaterial::TextureChannelMapping channel) {
+  self->translucencyChannelChanged(channel);
+}
+
+//  void QQuick3DDefaultMaterial::pointSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial16pointSizeChangedEv(
+    QQuick3DDefaultMaterial *self) {
+  self->pointSizeChanged();
+}
+
+//  void QQuick3DDefaultMaterial::lineWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuick3DDefaultMaterial16lineWidthChangedEv(
+    QQuick3DDefaultMaterial *self) {
+  self->lineWidthChanged();
 }
 
 //  QSSGRenderGraphObject

@@ -366,6 +366,25 @@ const QMetaObject *ritual_ZNK23QWaylandQuickCompositor10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandQuickCompositor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QWaylandQuickCompositor11qt_metacastEPKc(
+    QWaylandQuickCompositor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandQuickCompositor::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QWaylandQuickCompositor11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandQuickCompositor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandQuickCompositor::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QWaylandQuickCompositor2trEPKcS1_i(

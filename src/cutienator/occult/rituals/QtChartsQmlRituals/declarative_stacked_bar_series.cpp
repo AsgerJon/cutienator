@@ -15,6 +15,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A DeclarativeStackedBarSeries that Python can take functions over in. Every DeclarativeStackedBarSeries
 //  Python makes is one. Each function below asks the Python
@@ -238,6 +240,25 @@ const QMetaObject *ritual_ZNK27DeclarativeStackedBarSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeStackedBarSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27DeclarativeStackedBarSeries11qt_metacastEPKc(
+    DeclarativeStackedBarSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeStackedBarSeries::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27DeclarativeStackedBarSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeStackedBarSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeStackedBarSeries::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -316,6 +337,13 @@ void ritual_ZN27DeclarativeStackedBarSeries13setAxisYRightEP13QAbstractAxis(
   self->setAxisYRight(axis);
 }
 
+//  QQmlListProperty<QObject> DeclarativeStackedBarSeries::seriesChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN27DeclarativeStackedBarSeries14seriesChildrenEv(
+    DeclarativeStackedBarSeries *self) {
+  return new QQmlListProperty<QObject>(self->seriesChildren());
+}
+
 //  DeclarativeBarSet *DeclarativeStackedBarSeries::at(int index)
 extern "C" Q_DECL_EXPORT
 DeclarativeBarSet *ritual_ZN27DeclarativeStackedBarSeries2atEi(
@@ -374,6 +402,47 @@ void ritual_ZN27DeclarativeStackedBarSeries17componentCompleteEv(
   self->componentComplete();
 }
 
+//  void DeclarativeStackedBarSeries::axisXChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27DeclarativeStackedBarSeries12axisXChangedEP13QAbstractAxis(
+    DeclarativeStackedBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeStackedBarSeries::axisYChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27DeclarativeStackedBarSeries12axisYChangedEP13QAbstractAxis(
+    DeclarativeStackedBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeStackedBarSeries::axisXTopChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27DeclarativeStackedBarSeries15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeStackedBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void DeclarativeStackedBarSeries::axisYRightChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27DeclarativeStackedBarSeries17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeStackedBarSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
+}
+
+//  void DeclarativeStackedBarSeries::appendSeriesChildren(QQmlListProperty<Q
+//      Object> *list, QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27DeclarativeStackedBarSeries20appendSeriesChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  DeclarativeStackedBarSeries::appendSeriesChildren(list, element);
+}
+
 //  DeclarativeStackedBarSeries as the QQmlParserStatus it is built on
 extern "C" Q_DECL_EXPORT
 QQmlParserStatus *ritual_cast_DeclarativeStackedBarSeries_QQmlParserStatus(
@@ -403,6 +472,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN27DeclarativeStackedBarSeries17componentCompleteEv(
     DeclarativeStackedBarSeries *self) {
   self->DeclarativeStackedBarSeries::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of DeclarativeStackedBarSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeStackedBarSeries__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_bar_chart)

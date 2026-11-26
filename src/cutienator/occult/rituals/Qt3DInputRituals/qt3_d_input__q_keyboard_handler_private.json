@@ -5,6 +5,10 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput23QKeyboardHandlerPrivateC1Ev": ["address"],
+    "ritual_ZN9Qt3DInput23QKeyboardHandlerPrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN9Qt3DInput23QKeyboardHandlerPrivate6q_funcEv": [
       "address", "address"
     ],

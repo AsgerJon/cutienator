@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/QFile>
 
 //  QZipWriter::QZipWriter(const QString &fileName, QIODevice::OpenMode mode)
 extern "C" Q_DECL_EXPORT
@@ -79,6 +80,13 @@ void ritual_ZN10QZipWriter22setCreationPermissionsE6QFlagsIN11QFileDevice10Permi
       QFlags<QFileDevice::Permission>::fromInt(permissions));
 }
 
+//  QFile::Permissions QZipWriter::creationPermissions() const
+extern "C" Q_DECL_EXPORT
+QFile::Permissions *ritual_ZNK10QZipWriter19creationPermissionsEv(
+    const QZipWriter *self) {
+  return new QFile::Permissions(self->creationPermissions());
+}
+
 //  void QZipWriter::addFile(const QString &fileName, const QByteArray &data)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QZipWriter7addFileERK7QStringRK10QByteArray(
@@ -119,4 +127,10 @@ void ritual_ZN10QZipWriter10addSymLinkERK7QStringS2_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QZipWriter5closeEv(QZipWriter *self) {
   self->close();
+}
+
+//  a QFile::Permissions a ritual of QZipWriter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QZipWriter__QFile_Permissions(QFile::Permissions *self) {
+  delete self;
 }

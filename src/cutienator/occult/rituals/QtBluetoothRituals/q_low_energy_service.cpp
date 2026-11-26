@@ -9,6 +9,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
 
 //  A QLowEnergyService that Python can take functions over in. Every QLowEnergyService
 //  Python makes is one. Each function below asks the Python
@@ -184,6 +185,25 @@ const QMetaObject *ritual_ZNK17QLowEnergyService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLowEnergyService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QLowEnergyService11qt_metacastEPKc(
+    QLowEnergyService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLowEnergyService::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QLowEnergyService11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLowEnergyService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLowEnergyService::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QLowEnergyService2trEPKcS1_i(
@@ -323,6 +343,74 @@ void ritual_ZN17QLowEnergyService15writeDescriptorERK20QLowEnergyDescriptorRK10Q
   self->writeDescriptor(*descriptor, *newValue);
 }
 
+//  void QLowEnergyService::stateChanged(QLowEnergyService::ServiceState
+//      newState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QLowEnergyService12stateChangedENS_12ServiceStateE(
+    QLowEnergyService *self,
+    QLowEnergyService::ServiceState newState) {
+  self->stateChanged(newState);
+}
+
+//  void QLowEnergyService::characteristicChanged(const
+//      QLowEnergyCharacteristic &info, const QByteArray &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QLowEnergyService21characteristicChangedERK24QLowEnergyCharacteristicRK10QByteArray(
+    QLowEnergyService *self,
+    const QLowEnergyCharacteristic *info,
+    const QByteArray *value) {
+  self->characteristicChanged(*info, *value);
+}
+
+//  void QLowEnergyService::characteristicRead(const QLowEnergyCharacteristic
+//      &info, const QByteArray &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QLowEnergyService18characteristicReadERK24QLowEnergyCharacteristicRK10QByteArray(
+    QLowEnergyService *self,
+    const QLowEnergyCharacteristic *info,
+    const QByteArray *value) {
+  self->characteristicRead(*info, *value);
+}
+
+//  void QLowEnergyService::characteristicWritten(const
+//      QLowEnergyCharacteristic &info, const QByteArray &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QLowEnergyService21characteristicWrittenERK24QLowEnergyCharacteristicRK10QByteArray(
+    QLowEnergyService *self,
+    const QLowEnergyCharacteristic *info,
+    const QByteArray *value) {
+  self->characteristicWritten(*info, *value);
+}
+
+//  void QLowEnergyService::descriptorRead(const QLowEnergyDescriptor &info,
+//      const QByteArray &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QLowEnergyService14descriptorReadERK20QLowEnergyDescriptorRK10QByteArray(
+    QLowEnergyService *self,
+    const QLowEnergyDescriptor *info,
+    const QByteArray *value) {
+  self->descriptorRead(*info, *value);
+}
+
+//  void QLowEnergyService::descriptorWritten(const QLowEnergyDescriptor
+//      &info, const QByteArray &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QLowEnergyService17descriptorWrittenERK20QLowEnergyDescriptorRK10QByteArray(
+    QLowEnergyService *self,
+    const QLowEnergyDescriptor *info,
+    const QByteArray *value) {
+  self->descriptorWritten(*info, *value);
+}
+
+//  void QLowEnergyService::errorOccurred(QLowEnergyService::ServiceError
+//      error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QLowEnergyService13errorOccurredENS_12ServiceErrorE(
+    QLowEnergyService *self,
+    QLowEnergyService::ServiceError error) {
+  self->errorOccurred(error);
+}
+
 //  QLowEnergyServicePrivate *QLowEnergyService::d_func()
 extern "C" Q_DECL_EXPORT
 QLowEnergyServicePrivate *ritual_ZN17QLowEnergyService6d_funcEv(
@@ -335,6 +423,15 @@ extern "C" Q_DECL_EXPORT
 const QLowEnergyServicePrivate *ritual_ZNK17QLowEnergyService6d_funcEv(
     const QLowEnergyService *self) {
   return self->d_func();
+}
+
+//  QLowEnergyService::QLowEnergyService(QSharedPointer<QLowEnergyServicePriv
+//      ate> p, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QLowEnergyService *ritual_ZN17QLowEnergyServiceC1E14QSharedPointerI24QLowEnergyServicePrivateEP7QObject(
+    const QSharedPointer<QLowEnergyServicePrivate> *p,
+    QObject *parent) {
+  return new CuteQLowEnergyService(*p, parent);
 }
 
 //  a Python function taken by a CuteQLowEnergyService, for the function

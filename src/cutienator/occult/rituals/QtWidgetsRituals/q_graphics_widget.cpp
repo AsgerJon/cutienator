@@ -10,8 +10,12 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qmargins.h>
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
+#if QT_CONFIG(action)
 #include <QtGui/qaction.h>
+#endif
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qpoint.h>
@@ -1450,6 +1454,24 @@ const QMetaObject *ritual_ZNK15QGraphicsWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QGraphicsWidget11qt_metacastEPKc(
+    QGraphicsWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QGraphicsWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QGraphicsWidget2trEPKcS1_i(
@@ -1950,6 +1972,18 @@ QPainterPath *ritual_ZNK15QGraphicsWidget5shapeEv(
   return new QPainterPath(self->shape());
 }
 
+//  void QGraphicsWidget::geometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget15geometryChangedEv(QGraphicsWidget *self) {
+  self->geometryChanged();
+}
+
+//  void QGraphicsWidget::layoutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget13layoutChangedEv(QGraphicsWidget *self) {
+  self->layoutChanged();
+}
+
 //  bool QGraphicsWidget::close()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QGraphicsWidget5closeEv(QGraphicsWidget *self) {
@@ -2157,6 +2191,19 @@ void ritual_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent(
     QGraphicsWidget *self,
     QEvent *event) {
   self->ungrabKeyboardEvent(event);
+}
+
+//  QGraphicsWidget::QGraphicsWidget(QGraphicsWidgetPrivate &a0,
+//      QGraphicsItem *parent, Qt::WindowFlags wFlags)
+extern "C" Q_DECL_EXPORT
+QGraphicsWidget *ritual_ZN15QGraphicsWidgetC1ER22QGraphicsWidgetPrivateP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE(
+    QGraphicsWidgetPrivate *a0,
+    QGraphicsItem *parent,
+    int wFlags) {
+  return new CuteQGraphicsWidget(
+      *a0,
+      parent,
+      QFlags<Qt::WindowType>::fromInt(wFlags));
 }
 
 //  QGraphicsWidgetPrivate *QGraphicsWidget::d_func()

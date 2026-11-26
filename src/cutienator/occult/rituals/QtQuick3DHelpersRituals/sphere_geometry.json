@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14SphereGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN14SphereGeometry11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14SphereGeometry11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14SphereGeometry2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -26,9 +32,28 @@
     "ritual_ZNK14SphereGeometry6statusEv": ["int", "address"],
     "ritual_ZN14SphereGeometry16doUpdateGeometryEv": ["nothing", "address"],
     "ritual_ZN14SphereGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN14SphereGeometry13radiusChangedEv": ["nothing", "address"],
+    "ritual_ZN14SphereGeometry12ringsChangedEv": ["nothing", "address"],
+    "ritual_ZN14SphereGeometry15segmentsChangedEv": ["nothing", "address"],
+    "ritual_ZN14SphereGeometry19asynchronousChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14SphereGeometry13statusChangedEv": ["nothing", "address"],
     "ritual_ZN14SphereGeometry22scheduleGeometryUpdateEv": [
       "nothing", "address"
     ],
-    "ritual_take_SphereGeometry": ["bool", "address", "chars", "address"]
+    "ritual_ZN14SphereGeometry14updateGeometryERKNS_12GeometryDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14SphereGeometry22generateSphereGeometryEfii": [
+      "address", "float", "int", "int"
+    ],
+    "ritual_ZN14SphereGeometry27generateSphereGeometryAsyncER8QPromiseINS_12GeometryDataEEfii": [
+      "nothing", "address", "float", "int", "int"
+    ],
+    "ritual_take_SphereGeometry": ["bool", "address", "chars", "address"],
+    "ritual_drop_SphereGeometry__SphereGeometry_GeometryData": [
+      "nothing", "address"
+    ]
   }
 }

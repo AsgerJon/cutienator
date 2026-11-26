@@ -15,11 +15,17 @@
     "ritual_ZN24QPropertyObserverPointer25setBindingToNotify_unsafeEP23QPropertyBindingPrivate": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN24QPropertyObserverPointer16setChangeHandlerEPFvP17QPropertyObserverP20QUntypedPropertyDataE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QPropertyObserverPointer6notifyEP20QUntypedPropertyData": [
       "nothing", "address", "address"
     ],
     "ritual_ZN24QPropertyObserverPointer18noSelfDependenciesEP23QPropertyBindingPrivate": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN24QPropertyObserverPointer16evaluateBindingsER15QVarLengthArrayI26QPropertyBindingPrivatePtrLx256EEP14QBindingStatus": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK24QPropertyObserverPointercvbEv": ["bool", "address"],
     "ritual_ZNK24QPropertyObserverPointer12nextObserverEv": [

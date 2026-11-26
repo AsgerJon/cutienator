@@ -53,6 +53,12 @@ public:
   }
 };
 
+//  Qt3DRender::QPointLightPrivate::QPointLightPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPointLightPrivate *ritual_ZN10Qt3DRender18QPointLightPrivateC1Ev() {
+  return new CuteQt3DRender_QPointLightPrivate();
+}
+
 //  QPointLight *Qt3DRender::QPointLightPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QPointLight *ritual_ZN10Qt3DRender18QPointLightPrivate6q_funcEv(

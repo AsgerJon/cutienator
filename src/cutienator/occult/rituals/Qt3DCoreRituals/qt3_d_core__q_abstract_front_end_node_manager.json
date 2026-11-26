@@ -11,8 +11,14 @@
     "ritual_ZNK8Qt3DCore28QAbstractFrontEndNodeManager10lookupNodeENS_7QNodeIdE": [
       "address", "address", "address"
     ],
+    "ritual_ZNK8Qt3DCore28QAbstractFrontEndNodeManager11lookupNodesERK5QListINS_7QNodeIdEE": [
+      "address", "address", "address"
+    ],
     "ritual_take_Qt3DCore_QAbstractFrontEndNodeManager": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DCore_QAbstractFrontEndNodeManager__QList_Qt3DCore_QNode": [
+      "nothing", "address"
     ]
   }
 }

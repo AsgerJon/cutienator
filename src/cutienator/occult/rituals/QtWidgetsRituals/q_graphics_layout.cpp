@@ -221,6 +221,13 @@ public:
 #endif  // QT_CONFIG(graphicsview)
 };
 
+//  QGraphicsLayout::QGraphicsLayout(QGraphicsLayoutItem *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsLayout *ritual_ZN15QGraphicsLayoutC1EP19QGraphicsLayoutItem(
+    QGraphicsLayoutItem *parent) {
+  return new CuteQGraphicsLayout(parent);
+}
+
 //  QGraphicsLayout::~QGraphicsLayout()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsLayoutD1Ev(QGraphicsLayout *self) {
@@ -317,6 +324,15 @@ void ritual_ZN15QGraphicsLayout31setInstantInvalidatePropagationEb(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QGraphicsLayout28instantInvalidatePropagationEv() {
   return QGraphicsLayout::instantInvalidatePropagation();
+}
+
+//  QGraphicsLayout::QGraphicsLayout(QGraphicsLayoutPrivate &a0,
+//      QGraphicsLayoutItem *a1)
+extern "C" Q_DECL_EXPORT
+QGraphicsLayout *ritual_ZN15QGraphicsLayoutC1ER22QGraphicsLayoutPrivateP19QGraphicsLayoutItem(
+    QGraphicsLayoutPrivate *a0,
+    QGraphicsLayoutItem *a1) {
+  return new CuteQGraphicsLayout(*a0, a1);
 }
 
 //  void QGraphicsLayout::addChildLayoutItem(QGraphicsLayoutItem *layoutItem)

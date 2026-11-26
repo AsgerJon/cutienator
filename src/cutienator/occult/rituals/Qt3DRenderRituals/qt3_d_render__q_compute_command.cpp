@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender15QComputeCommand10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QComputeCommand::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender15QComputeCommand11qt_metacastEPKc(
+    Qt3DRender::QComputeCommand *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QComputeCommand::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender15QComputeCommand11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QComputeCommand *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QComputeCommand::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,128 @@ QString *ritual_ZN10Qt3DRender15QComputeCommand2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QComputeCommand::tr(s, c, n));
+}
+
+//  Qt3DRender::QComputeCommand::QComputeCommand(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QComputeCommand *ritual_ZN10Qt3DRender15QComputeCommandC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QComputeCommand(parent);
+}
+
+//  Qt3DRender::QComputeCommand::~QComputeCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommandD1Ev(
+    Qt3DRender::QComputeCommand *self) {
+  delete self;
+}
+
+//  int Qt3DRender::QComputeCommand::workGroupX() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender15QComputeCommand10workGroupXEv(
+    const Qt3DRender::QComputeCommand *self) {
+  return self->workGroupX();
+}
+
+//  int Qt3DRender::QComputeCommand::workGroupY() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender15QComputeCommand10workGroupYEv(
+    const Qt3DRender::QComputeCommand *self) {
+  return self->workGroupY();
+}
+
+//  int Qt3DRender::QComputeCommand::workGroupZ() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender15QComputeCommand10workGroupZEv(
+    const Qt3DRender::QComputeCommand *self) {
+  return self->workGroupZ();
+}
+
+//  RunType Qt3DRender::QComputeCommand::runType() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QComputeCommand::RunType ritual_ZNK10Qt3DRender15QComputeCommand7runTypeEv(
+    const Qt3DRender::QComputeCommand *self) {
+  return self->runType();
+}
+
+//  void Qt3DRender::QComputeCommand::setWorkGroupX(int workGroupX)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand13setWorkGroupXEi(
+    Qt3DRender::QComputeCommand *self,
+    int workGroupX) {
+  self->setWorkGroupX(workGroupX);
+}
+
+//  void Qt3DRender::QComputeCommand::setWorkGroupY(int workGroupY)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand13setWorkGroupYEi(
+    Qt3DRender::QComputeCommand *self,
+    int workGroupY) {
+  self->setWorkGroupY(workGroupY);
+}
+
+//  void Qt3DRender::QComputeCommand::setWorkGroupZ(int workGroupZ)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand13setWorkGroupZEi(
+    Qt3DRender::QComputeCommand *self,
+    int workGroupZ) {
+  self->setWorkGroupZ(workGroupZ);
+}
+
+//  void Qt3DRender::QComputeCommand::setRunType(RunType runType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand10setRunTypeENS0_7RunTypeE(
+    Qt3DRender::QComputeCommand *self,
+    Qt3DRender::QComputeCommand::RunType runType) {
+  self->setRunType(runType);
+}
+
+//  void Qt3DRender::QComputeCommand::trigger(int frameCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand7triggerEi(
+    Qt3DRender::QComputeCommand *self,
+    int frameCount) {
+  self->trigger(frameCount);
+}
+
+//  void Qt3DRender::QComputeCommand::trigger(int workGroupX, int workGroupY,
+//      int workGroupZ, int frameCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand7triggerEiiii(
+    Qt3DRender::QComputeCommand *self,
+    int workGroupX,
+    int workGroupY,
+    int workGroupZ,
+    int frameCount) {
+  self->trigger(workGroupX, workGroupY, workGroupZ, frameCount);
+}
+
+//  void Qt3DRender::QComputeCommand::workGroupXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand17workGroupXChangedEv(
+    Qt3DRender::QComputeCommand *self) {
+  self->workGroupXChanged();
+}
+
+//  void Qt3DRender::QComputeCommand::workGroupYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand17workGroupYChangedEv(
+    Qt3DRender::QComputeCommand *self) {
+  self->workGroupYChanged();
+}
+
+//  void Qt3DRender::QComputeCommand::workGroupZChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand17workGroupZChangedEv(
+    Qt3DRender::QComputeCommand *self) {
+  self->workGroupZChanged();
+}
+
+//  void Qt3DRender::QComputeCommand::runTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QComputeCommand14runTypeChangedEv(
+    Qt3DRender::QComputeCommand *self) {
+  self->runTypeChanged();
 }
 
 //  QComputeCommandPrivate *Qt3DRender::QComputeCommand::d_func()

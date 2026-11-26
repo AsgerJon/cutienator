@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -200,6 +204,22 @@ public:
     return QQmlJS::AST::Node::asClassDefinition();
   }
 };
+
+//  QQmlJS::AST::ContinueStatement::ContinueStatement(QStringView l)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ContinueStatement *ritual_ZN6QQmlJS3AST17ContinueStatementC1E11QStringView(
+    QQmlJS::MemoryPool *pool,
+    const QString *l) {
+  return new (pool) CuteQQmlJS_AST_ContinueStatement(QStringView(*l));
+}
+
+//  void QQmlJS::AST::ContinueStatement::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST17ContinueStatement7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ContinueStatement *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
 
 //  SourceLocation QQmlJS::AST::ContinueStatement::firstSourceLocation()
 //      const

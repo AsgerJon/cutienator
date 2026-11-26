@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QGeoTiledMapReplyPrivateC1ERK12QGeoTileSpec": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGeoTiledMapReplyPrivateC1EN17QGeoTiledMapReply5ErrorERK7QString": [
+      "address", "int", "text"
+    ],
     "ritual_ZN24QGeoTiledMapReplyPrivateD1Ev": ["nothing", "address"]
   }
 }

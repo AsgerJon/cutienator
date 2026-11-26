@@ -10,6 +10,9 @@
     "ritual_ZN20QOpcUaLiteralOperandC1ERK8QVariantN6QOpcUa5TypesE": [
       "address", "address", "int"
     ],
+    "ritual_ZN20QOpcUaLiteralOperandaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK20QOpcUaLiteralOperandcv8QVariantEv": ["address", "address"],
     "ritual_ZN20QOpcUaLiteralOperandD1Ev": ["nothing", "address"],
     "ritual_ZNK20QOpcUaLiteralOperand5valueEv": ["address", "address"],

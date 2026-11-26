@@ -48,6 +48,18 @@ QRingChunk *ritual_ZN10QRingChunkC1ERK10QByteArray(const QByteArray *qba) {
   return new QRingChunk(*qba);
 }
 
+//  QRingChunk::QRingChunk(QByteArray &&qba)
+extern "C" Q_DECL_EXPORT
+QRingChunk *ritual_ZN10QRingChunkC1EO10QByteArray(QByteArray *qba) {
+  return new QRingChunk(std::move(*qba));
+}
+
+//  void QRingChunk::swap(QRingChunk &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRingChunk4swapERS_(QRingChunk *self, QRingChunk *other) {
+  self->swap(*other);
+}
+
 //  void QRingChunk::allocate(qsizetype alloc)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QRingChunk8allocateEx(QRingChunk *self, qsizetype alloc) {
@@ -96,6 +108,12 @@ const char *ritual_ZNK10QRingChunk4dataEv(const QRingChunk *self) {
   return self->data();
 }
 
+//  char *QRingChunk::data()
+extern "C" Q_DECL_EXPORT
+char *ritual_ZN10QRingChunk4dataEv(QRingChunk *self) {
+  return self->data();
+}
+
 //  void QRingChunk::advance(qsizetype offset)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QRingChunk7advanceEx(QRingChunk *self, qsizetype offset) {
@@ -114,6 +132,14 @@ void ritual_ZN10QRingChunk6assignERK10QByteArray(
     QRingChunk *self,
     const QByteArray *qba) {
   self->assign(*qba);
+}
+
+//  void QRingChunk::assign(QByteArray &&qba)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRingChunk6assignEO10QByteArray(
+    QRingChunk *self,
+    QByteArray *qba) {
+  self->assign(std::move(*qba));
 }
 
 //  void QRingChunk::reset()

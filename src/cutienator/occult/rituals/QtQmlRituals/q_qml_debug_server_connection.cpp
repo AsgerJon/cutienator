@@ -301,6 +301,25 @@ const QMetaObject *ritual_ZNK25QQmlDebugServerConnection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDebugServerConnection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQmlDebugServerConnection11qt_metacastEPKc(
+    QQmlDebugServerConnection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDebugServerConnection::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQmlDebugServerConnection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDebugServerConnection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlDebugServerConnection::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -309,6 +328,13 @@ QString *ritual_ZN25QQmlDebugServerConnection2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QQmlDebugServerConnection::tr(s, c, n));
+}
+
+//  QQmlDebugServerConnection::QQmlDebugServerConnection(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQmlDebugServerConnection *ritual_ZN25QQmlDebugServerConnectionC1EP7QObject(
+    QObject *parent) {
+  return new CuteQQmlDebugServerConnection(parent);
 }
 
 //  QQmlDebugServerConnection::~QQmlDebugServerConnection()

@@ -6,6 +6,15 @@
   ],
   "rows": {
     "ritual_ZN16QCosmeticStrokerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QCosmeticStroker10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN16QCosmeticStroker11renderCubicERK7QPointFS2_S2_S2_i": [
+      "nothing", "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QCosmeticStroker22renderCubicSubdivisionEPNS_6PointFEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZN16QCosmeticStroker8clipLineERdS0_S0_S0_": [
       "bool", "address", "address", "address", "address", "address"
     ]

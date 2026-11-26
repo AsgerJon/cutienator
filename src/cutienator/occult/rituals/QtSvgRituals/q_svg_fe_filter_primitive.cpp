@@ -104,6 +104,46 @@ void ritual_ZN21QSvgFeFilterPrimitiveD1Ev(QSvgFeFilterPrimitive *self) {
   delete self;
 }
 
+//  void QSvgFeFilterPrimitive::drawCommand(QPainter *a0, QSvgExtraStates
+//      &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSvgFeFilterPrimitive11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgFeFilterPrimitive *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  self->drawCommand(a0, *a1);
+}
+
+//  bool QSvgFeFilterPrimitive::shouldDrawNode(QPainter *a0, QSvgExtraStates
+//      &a1) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QSvgFeFilterPrimitive14shouldDrawNodeEP8QPainterR15QSvgExtraStates(
+    const QSvgFeFilterPrimitive *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  return self->shouldDrawNode(a0, *a1);
+}
+
+//  QRectF QSvgFeFilterPrimitive::internalFastBounds(QPainter *a0,
+//      QSvgExtraStates &a1) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK21QSvgFeFilterPrimitive18internalFastBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgFeFilterPrimitive *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  return new QRectF(self->internalFastBounds(a0, *a1));
+}
+
+//  QRectF QSvgFeFilterPrimitive::internalBounds(QPainter *a0,
+//      QSvgExtraStates &a1) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK21QSvgFeFilterPrimitive14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgFeFilterPrimitive *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  return new QRectF(self->internalBounds(a0, *a1));
+}
+
 //  QRectF QSvgFeFilterPrimitive::localSubRegion(const QRectF &itemBounds,
 //      const QRectF &filterBounds, QtSvg::UnitTypes primitiveUnits,
 //      QtSvg::UnitTypes filterUnits) const

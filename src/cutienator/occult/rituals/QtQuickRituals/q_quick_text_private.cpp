@@ -11,8 +11,10 @@
 #include <QtCore/qsize.h>
 #include <QtGui/qtextlayout.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QQuickTextPrivate that Python can take functions over in. Every QQuickTextPrivate
 //  Python makes is one. Each function below asks the Python
@@ -424,6 +426,27 @@ bool ritual_ZN17QQuickTextPrivate22isLineLaidOutConnectedEv(
   return self->isLineLaidOutConnected();
 }
 
+//  void QQuickTextPrivate::setLineGeometry(QTextLine &line, qreal lineWidth,
+//      qreal &height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextPrivate15setLineGeometryER9QTextLinedRd(
+    QQuickTextPrivate *self,
+    QTextLine *line,
+    qreal lineWidth,
+    qreal *height) {
+  self->setLineGeometry(*line, lineWidth, *height);
+}
+
+//  void QQuickTextPrivate::positionInlineImages(const QTextLine &line, const
+//      QList<QTextLayout::FormatRange> &formats)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextPrivate20positionInlineImagesERK9QTextLineRK5QListIN11QTextLayout11FormatRangeEE(
+    QQuickTextPrivate *self,
+    const QTextLine *line,
+    const QList<QTextLayout::FormatRange> *formats) {
+  self->positionInlineImages(*line, *formats);
+}
+
 //  int QQuickTextPrivate::lineHeightOffset() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK17QQuickTextPrivate16lineHeightOffsetEv(
@@ -439,6 +462,18 @@ QString *ritual_ZNK17QQuickTextPrivate10elidedTextEdRK9QTextLine(
     qreal lineWidth,
     const QTextLine *line) {
   return new QString(self->elidedText(lineWidth, *line));
+}
+
+//  void QQuickTextPrivate::elideFormats(int start, int length, int offset,
+//      QList<QTextLayout::FormatRange> *elidedFormats)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextPrivate12elideFormatsEiiiP5QListIN11QTextLayout11FormatRangeEE(
+    QQuickTextPrivate *self,
+    int start,
+    int length,
+    int offset,
+    QList<QTextLayout::FormatRange> *elidedFormats) {
+  self->elideFormats(start, length, offset, elidedFormats);
 }
 
 //  void QQuickTextPrivate::clearFormats()
@@ -547,6 +582,30 @@ void ritual_ZN17QQuickTextPrivate18updateDocumentTextEv(
   self->updateDocumentText();
 }
 
+//  QRectF QQuickTextPrivate::setupTextLayout(qreal *const baseline)
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZN17QQuickTextPrivate15setupTextLayoutEPd(
+    QQuickTextPrivate *self,
+    qreal *const baseline) {
+  return new QRectF(self->setupTextLayout(baseline));
+}
+
+//  void QQuickTextPrivate::setupCustomLineGeometry(QTextLine &line, qreal
+//      &height, int fullLayoutTextLength, int lineOffset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickTextPrivate23setupCustomLineGeometryER9QTextLineRdii(
+    QQuickTextPrivate *self,
+    QTextLine *line,
+    qreal *height,
+    int fullLayoutTextLength,
+    int lineOffset) {
+  self->setupCustomLineGeometry(
+      *line,
+      *height,
+      fullLayoutTextLength,
+      lineOffset);
+}
+
 //  bool QQuickTextPrivate::isLinkActivatedConnected()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN17QQuickTextPrivate24isLinkActivatedConnectedEv(
@@ -559,6 +618,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN17QQuickTextPrivate22isLinkHoveredConnectedEv(
     QQuickTextPrivate *self) {
   return self->isLinkHoveredConnected();
+}
+
+//  QList<LinkDesc> QQuickTextPrivate::getLinks() const
+extern "C" Q_DECL_EXPORT
+QList<QQuickTextPrivate::LinkDesc> *ritual_ZNK17QQuickTextPrivate8getLinksEv(
+    const QQuickTextPrivate *self) {
+  return new QList<QQuickTextPrivate::LinkDesc>(self->getLinks());
 }
 
 //  QString QQuickTextPrivate::anchorAt(const QTextLayout *layout, const
@@ -671,4 +737,11 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_own_ZNK17QQuickTextPrivate17getImplicitHeightEv(
     const QQuickTextPrivate *self) {
   return self->QQuickTextPrivate::getImplicitHeight();
+}
+
+//  a QList<QQuickTextPrivate::LinkDesc> a ritual of QQuickTextPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickTextPrivate__QList_QQuickTextPrivate_LinkDesc(
+    QList<QQuickTextPrivate::LinkDesc> *self) {
+  delete self;
 }

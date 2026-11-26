@@ -930,6 +930,24 @@ const QMetaObject *ritual_ZNK11QRubberBand10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRubberBand::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QRubberBand11qt_metacastEPKc(
+    QRubberBand *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRubberBand::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QRubberBand11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRubberBand *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRubberBand::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QRubberBand2trEPKcS1_i(
@@ -1058,6 +1076,19 @@ void ritual_ZNK11QRubberBand15initStyleOptionEP22QStyleOptionRubberBand(
     const QRubberBand *self,
     QStyleOptionRubberBand *option) {
   self->initStyleOption(option);
+}
+
+//  QRubberBandPrivate *QRubberBand::d_func()
+extern "C" Q_DECL_EXPORT
+QRubberBandPrivate *ritual_ZN11QRubberBand6d_funcEv(QRubberBand *self) {
+  return self->d_func();
+}
+
+//  const QRubberBandPrivate *QRubberBand::d_func() const
+extern "C" Q_DECL_EXPORT
+const QRubberBandPrivate *ritual_ZNK11QRubberBand6d_funcEv(
+    const QRubberBand *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQRubberBand, for the function named by

@@ -5,12 +5,42 @@
     "mmaterialsystem_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QSSGCustomMaterialSystem18setShaderResourcesEPcRK24QSSGRenderCustomMaterialRK10QByteArrayRK8QVariantN21QSSGRenderShaderValue4TypeER21QSSGRhiShaderPipeline": [
+      "nothing", "address", "address", "address", "address", "address",
+      "unsigned int", "address"
+    ],
     "ritual_ZN24QSSGCustomMaterialSystemC1Ev": ["address"],
     "ritual_ZN24QSSGCustomMaterialSystemD1Ev": ["nothing", "address"],
     "ritual_ZN24QSSGCustomMaterialSystem25setRenderContextInterfaceEP26QSSGRenderContextInterface": [
       "nothing", "address", "address"
     ],
     "ritual_ZN24QSSGCustomMaterialSystem22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSSGCustomMaterialSystem16prepareForRenderERK15QSSGRenderModelRK16QSSGRenderSubsetR24QSSGRenderCustomMaterial": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QSSGCustomMaterialSystem24shadersForCustomMaterialEP28QSSGRhiGraphicsPipelineStateRK24QSSGRenderCustomMaterialR20QSSGSubsetRenderableRK38QSSGShaderDefaultMaterialKeyPropertiesRK18QSSGShaderFeaturesRK26QSSGUserShaderAugmentation": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN24QSSGCustomMaterialSystem31updateUniformsForCustomMaterialER21QSSGRhiShaderPipelineP14QSSGRhiContextRK19QSSGLayerRenderDataPcP28QSSGRhiGraphicsPipelineStateRK24QSSGRenderCustomMaterialR20QSSGSubsetRenderableRK15QVarLengthArrayIP16QSSGRenderCameraLx2EEPK9QVector2DPK10QMatrix4x4": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QSSGCustomMaterialSystem20rhiPrepareRenderableEP28QSSGRhiGraphicsPipelineStatePvR20QSSGSubsetRenderableRK18QSSGShaderFeaturesRK24QSSGRenderCustomMaterialRK19QSSGLayerRenderDataP24QRhiRenderPassDescriptoriibP16QSSGRenderCamera25QSSGRenderTextureCubeFaceP10QMatrix4x4P22QSSGReflectionMapEntryb": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address", "address", "int", "int", "bool", "address",
+      "unsigned char", "address", "address", "bool"
+    ],
+    "ritual_ZN24QSSGCustomMaterialSystem28applyRhiShaderPropertyValuesEPcRK24QSSGRenderCustomMaterialR21QSSGRhiShaderPipeline": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QSSGCustomMaterialSystem19rhiRenderRenderableEP14QSSGRhiContextR20QSSGSubsetRenderablePb25QSSGRenderTextureCubeFaceRK28QSSGRhiGraphicsPipelineStatex": [
+      "nothing", "address", "address", "address", "address", "unsigned char",
+      "address", "long long"
+    ],
+    "ritual_drop_QSSGCustomMaterialSystem__QSSGRhiShaderPipelinePtr": [
       "nothing", "address"
     ]
   }

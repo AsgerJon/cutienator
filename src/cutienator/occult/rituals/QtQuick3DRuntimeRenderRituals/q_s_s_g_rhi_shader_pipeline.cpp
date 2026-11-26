@@ -10,7 +10,23 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/QPair>
+
+//  QSSGRhiShaderPipeline::QSSGRhiShaderPipeline(QSSGRhiContext &context)
+extern "C" Q_DECL_EXPORT
+QSSGRhiShaderPipeline *ritual_ZN21QSSGRhiShaderPipelineC1ER14QSSGRhiContext(
+    QSSGRhiContext *context) {
+  return new QSSGRhiShaderPipeline(*context);
+}
+
+//  QSSGRhiContext &QSSGRhiShaderPipeline::context() const
+extern "C" Q_DECL_EXPORT
+QSSGRhiContext *ritual_ZNK21QSSGRhiShaderPipeline7contextEv(
+    const QSSGRhiShaderPipeline *self) {
+  return &(self->context());
+}
 
 //  bool QSSGRhiShaderPipeline::isNull() const
 extern "C" Q_DECL_EXPORT
@@ -80,6 +96,62 @@ int ritual_ZNK21QSSGRhiShaderPipeline29ub0DirectionalLightDataOffsetEv(
   return self->ub0DirectionalLightDataOffset();
 }
 
+//  const QHash<QSSGRhiInputAssemblerState::InputSemantic,
+//      QShaderDescription::InOutVariable>
+//      &QSSGRhiShaderPipeline::vertexInputs() const
+extern "C" Q_DECL_EXPORT
+const QHash<QSSGRhiInputAssemblerState::InputSemantic, QShaderDescription::InOutVariable> *ritual_ZNK21QSSGRhiShaderPipeline12vertexInputsEv(
+    const QSSGRhiShaderPipeline *self) {
+  return &(self->vertexInputs());
+}
+
+//  void QSSGRhiShaderPipeline::setUniformValue(char *ubufData, const char
+//      *name, const QVariant &value, QSSGRenderShaderValue::Type type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSSGRhiShaderPipeline15setUniformValueEPcPKcRK8QVariantN21QSSGRenderShaderValue4TypeE(
+    QSSGRhiShaderPipeline *self,
+    char *ubufData,
+    const char *name,
+    const QVariant *value,
+    QSSGRenderShaderValue::Type type) {
+  self->setUniformValue(ubufData, name, *value, type);
+}
+
+//  void QSSGRhiShaderPipeline::setUniform(char *ubufData, const char *name,
+//      const void *data, size_t size, int *storeIndex, UniformFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSSGRhiShaderPipeline10setUniformEPcPKcPKvmPi6QFlagsINS_11UniformFlagEE(
+    QSSGRhiShaderPipeline *self,
+    char *ubufData,
+    const char *name,
+    const void *data,
+    size_t size,
+    int *storeIndex,
+    int flags) {
+  self->setUniform(
+      ubufData,
+      name,
+      data,
+      size,
+      storeIndex,
+      QFlags<QSSGRhiShaderPipeline::UniformFlag>::fromInt(flags));
+}
+
+//  void QSSGRhiShaderPipeline::setUniformArray(char *ubufData, const char
+//      *name, const void *data, size_t itemCount,
+//      QSSGRenderShaderValue::Type type, int *storeIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSSGRhiShaderPipeline15setUniformArrayEPcPKcPKvmN21QSSGRenderShaderValue4TypeEPi(
+    QSSGRhiShaderPipeline *self,
+    char *ubufData,
+    const char *name,
+    const void *data,
+    size_t itemCount,
+    QSSGRenderShaderValue::Type type,
+    int *storeIndex) {
+  self->setUniformArray(ubufData, name, data, itemCount, type, storeIndex);
+}
+
 //  int QSSGRhiShaderPipeline::bindingForTexture(const char *name, int hint)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN21QSSGRhiShaderPipeline17bindingForTextureEPKci(
@@ -97,6 +169,26 @@ int ritual_ZN21QSSGRhiShaderPipeline15bindingForImageEPKc(
   return self->bindingForImage(name);
 }
 
+//  void QSSGRhiShaderPipeline::setShaderResources(char *ubufData,
+//      QSSGBufferManager &theBufferManager, const QByteArray
+//      &inPropertyName, const QVariant &propertyValue,
+//      QSSGRenderShaderValue::Type inPropertyType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSSGRhiShaderPipeline18setShaderResourcesEPcR17QSSGBufferManagerRK10QByteArrayRK8QVariantN21QSSGRenderShaderValue4TypeE(
+    QSSGRhiShaderPipeline *self,
+    char *ubufData,
+    QSSGBufferManager *theBufferManager,
+    const QByteArray *inPropertyName,
+    const QVariant *propertyValue,
+    QSSGRenderShaderValue::Type inPropertyType) {
+  self->setShaderResources(
+      ubufData,
+      *theBufferManager,
+      *inPropertyName,
+      *propertyValue,
+      inPropertyType);
+}
+
 //  void QSSGRhiShaderPipeline::setLightsEnabled(bool enable)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QSSGRhiShaderPipeline16setLightsEnabledEb(
@@ -110,6 +202,23 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QSSGRhiShaderPipeline17isLightingEnabledEv(
     const QSSGRhiShaderPipeline *self) {
   return self->isLightingEnabled();
+}
+
+//  void QSSGRhiShaderPipeline::ensureCombinedUniformBuffer(QRhiBuffer
+//      **ubuf)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSSGRhiShaderPipeline27ensureCombinedUniformBufferEPP10QRhiBuffer(
+    QSSGRhiShaderPipeline *self,
+    QRhiBuffer **ubuf) {
+  self->ensureCombinedUniformBuffer(ubuf);
+}
+
+//  void QSSGRhiShaderPipeline::ensureUniformBuffer(QRhiBuffer **ubuf)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSSGRhiShaderPipeline19ensureUniformBufferEPP10QRhiBuffer(
+    QSSGRhiShaderPipeline *self,
+    QRhiBuffer **ubuf) {
+  self->ensureUniformBuffer(ubuf);
 }
 
 //  void QSSGRhiShaderPipeline::setLightProbeTexture(QRhiTexture *texture,
@@ -128,6 +237,15 @@ extern "C" Q_DECL_EXPORT
 QRhiTexture *ritual_ZNK21QSSGRhiShaderPipeline17lightProbeTextureEv(
     const QSSGRhiShaderPipeline *self) {
   return self->lightProbeTexture();
+}
+
+//  QPair<QSSGRenderTextureCoordOp, QSSGRenderTextureCoordOp>
+//      QSSGRhiShaderPipeline::lightProbeTiling() const
+extern "C" Q_DECL_EXPORT
+QPair<QSSGRenderTextureCoordOp, QSSGRenderTextureCoordOp> *ritual_ZNK21QSSGRhiShaderPipeline16lightProbeTilingEv(
+    const QSSGRhiShaderPipeline *self) {
+  return new QPair<QSSGRenderTextureCoordOp, QSSGRenderTextureCoordOp>(
+      self->lightProbeTiling());
 }
 
 //  void QSSGRhiShaderPipeline::setScreenTexture(QRhiTexture *texture)
@@ -263,6 +381,13 @@ void ritual_ZN21QSSGRhiShaderPipeline12setOITImagesEP11QRhiTextureS1_S1_(
   self->setOITImages(accumulator, auxiliary, counter);
 }
 
+//  QRhiTexture **QSSGRhiShaderPipeline::oitImages()
+extern "C" Q_DECL_EXPORT
+QRhiTexture **ritual_ZN21QSSGRhiShaderPipeline9oitImagesEv(
+    QSSGRhiShaderPipeline *self) {
+  return self->oitImages();
+}
+
 //  void QSSGRhiShaderPipeline::resetExtraTextures()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QSSGRhiShaderPipeline18resetExtraTexturesEv(
@@ -294,6 +419,29 @@ QSSGRhiTexture *ritual_ZNK21QSSGRhiShaderPipeline14extraTextureAtEi(
   return new QSSGRhiTexture(self->extraTextureAt(index));
 }
 
+//  QSSGRhiTexture &QSSGRhiShaderPipeline::extraTextureAt(int index)
+extern "C" Q_DECL_EXPORT
+QSSGRhiTexture *ritual_ZN21QSSGRhiShaderPipeline14extraTextureAtEi(
+    QSSGRhiShaderPipeline *self,
+    int index) {
+  return &(self->extraTextureAt(index));
+}
+
+//  QSSGShaderLightsUniformData &QSSGRhiShaderPipeline::lightsUniformData()
+extern "C" Q_DECL_EXPORT
+QSSGShaderLightsUniformData *ritual_ZN21QSSGRhiShaderPipeline17lightsUniformDataEv(
+    QSSGRhiShaderPipeline *self) {
+  return &(self->lightsUniformData());
+}
+
+//  QSSGShaderDirectionalLightsUniformData
+//      &QSSGRhiShaderPipeline::directionalLightsUniformData()
+extern "C" Q_DECL_EXPORT
+QSSGShaderDirectionalLightsUniformData *ritual_ZN21QSSGRhiShaderPipeline28directionalLightsUniformDataEv(
+    QSSGRhiShaderPipeline *self) {
+  return &(self->directionalLightsUniformData());
+}
+
 //  InstanceLocations QSSGRhiShaderPipeline::instanceBufferLocations() const
 extern "C" Q_DECL_EXPORT
 QSSGRhiShaderPipeline::InstanceLocations *ritual_ZNK21QSSGRhiShaderPipeline23instanceBufferLocationsEv(
@@ -308,4 +456,12 @@ int ritual_ZN21QSSGRhiShaderPipeline15offsetOfUniformERK10QByteArray(
     QSSGRhiShaderPipeline *self,
     const QByteArray *name) {
   return self->offsetOfUniform(*name);
+}
+
+//  a QPair<QSSGRenderTextureCoordOp, QSSGRenderTextureCoordOp> a ritual of
+//      QSSGRhiShaderPipeline gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGRhiShaderPipeline__QPair_QSSGRenderTextureCoordOp_QSSGRenderTextureCoordOp(
+    QPair<QSSGRenderTextureCoordOp, QSSGRenderTextureCoordOp> *self) {
+  delete self;
 }

@@ -8,8 +8,17 @@
     "ritual_ZNK18qdesigner_internal15InvisibleWidget10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal15InvisibleWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal15InvisibleWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal15InvisibleWidget2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal15InvisibleWidgetC1EP7QWidget": [
+      "address", "address"
     ],
     "ritual_take_qdesigner_internal_InvisibleWidget": [
       "bool", "address", "chars", "address"

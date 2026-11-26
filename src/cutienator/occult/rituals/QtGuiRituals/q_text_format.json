@@ -7,7 +7,9 @@
     "ritual_ZN11QTextFormatC1Ev": ["address"],
     "ritual_ZN11QTextFormatC1Ei": ["address", "int"],
     "ritual_ZN11QTextFormatC1ERKS_": ["address", "address"],
+    "ritual_ZN11QTextFormataSERKS_": ["address", "address", "address"],
     "ritual_ZN11QTextFormatD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTextFormat4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN11QTextFormat5mergeERKS_": ["nothing", "address", "address"],
     "ritual_ZNK11QTextFormat7isValidEv": ["bool", "address"],
     "ritual_ZNK11QTextFormat7isEmptyEv": ["bool", "address"],
@@ -79,6 +81,12 @@
     ],
     "ritual_ZNK11QTextFormat10foregroundEv": ["address", "address"],
     "ritual_ZN11QTextFormat15clearForegroundEv": ["nothing", "address"],
+    "ritual_ZlsR11QDataStreamRK11QTextFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR11QTextFormat": [
+      "address", "address", "address"
+    ],
     "ritual_list_make_QTextFormat": ["address"],
     "ritual_list_add_QTextFormat": ["nothing", "address", "address"],
     "ritual_list_size_QTextFormat": ["long long", "address"],

@@ -211,6 +211,24 @@ const QMetaObject *ritual_ZNK11QPlaceReply10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlaceReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QPlaceReply11qt_metacastEPKc(
+    QPlaceReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlaceReply::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QPlaceReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlaceReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlaceReply::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QPlaceReply2trEPKcS1_i(
@@ -260,6 +278,34 @@ QPlaceReply::Error ritual_ZNK11QPlaceReply5errorEv(const QPlaceReply *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QPlaceReply5abortEv(QPlaceReply *self) {
   self->abort();
+}
+
+//  void QPlaceReply::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPlaceReply8finishedEv(QPlaceReply *self) {
+  self->finished();
+}
+
+//  void QPlaceReply::contentUpdated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPlaceReply14contentUpdatedEv(QPlaceReply *self) {
+  self->contentUpdated();
+}
+
+//  void QPlaceReply::aborted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPlaceReply7abortedEv(QPlaceReply *self) {
+  self->aborted();
+}
+
+//  void QPlaceReply::errorOccurred(QPlaceReply::Error error, const QString
+//      &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPlaceReply13errorOccurredENS_5ErrorERK7QString(
+    QPlaceReply *self,
+    QPlaceReply::Error error,
+    const QString *errorString) {
+  self->errorOccurred(error, *errorString);
 }
 
 //  QPlaceReply::QPlaceReply(QPlaceReplyPrivate *a0, QObject *parent)

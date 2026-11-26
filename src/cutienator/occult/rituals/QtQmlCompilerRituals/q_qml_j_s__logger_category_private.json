@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS21LoggerCategoryPrivateC1Ev": ["address"],
+    "ritual_ZNK6QQmlJS21LoggerCategoryPrivate2idEv": ["address", "address"],
+    "ritual_ZNK6QQmlJS21LoggerCategoryPrivate4nameEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS21LoggerCategoryPrivate12settingsNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK6QQmlJS21LoggerCategoryPrivate11descriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK6QQmlJS21LoggerCategoryPrivate11isEssentialEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS21LoggerCategoryPrivate8severityEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK6QQmlJS21LoggerCategoryPrivate10hasChangedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS21LoggerCategoryPrivateeqEN6QQmlSA15LoggerWarningIdE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS21LoggerCategoryPrivateD1Ev": ["nothing", "address"]
+  }
+}

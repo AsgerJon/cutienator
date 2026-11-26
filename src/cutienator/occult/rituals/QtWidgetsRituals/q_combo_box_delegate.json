@@ -6,12 +6,31 @@
   ],
   "rows": {
     "ritual_ZNK17QComboBoxDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QComboBoxDelegate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QComboBoxDelegate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QComboBoxDelegateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QComboBoxDelegate11isSeparatorERK11QModelIndex": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QComboBoxDelegate12setSeparatorEP18QAbstractItemModelRK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QComboBoxDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
       "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZNK17QComboBoxDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex": [
       "address", "address", "address", "address"
     ],
-    "ritual_take_QComboBoxDelegate": ["bool", "address", "chars", "address"]
+    "ritual_take_QComboBoxDelegate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QComboBoxDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QComboBoxDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address"
+    ]
   }
 }

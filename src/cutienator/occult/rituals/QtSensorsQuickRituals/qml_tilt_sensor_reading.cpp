@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlTiltSensorReading that Python can take functions over in. Every QmlTiltSensorReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +217,25 @@ const QMetaObject *ritual_ZNK20QmlTiltSensorReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlTiltSensorReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QmlTiltSensorReading11qt_metacastEPKc(
+    QmlTiltSensorReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlTiltSensorReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QmlTiltSensorReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlTiltSensorReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlTiltSensorReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QmlTiltSensorReading2trEPKcS1_i(
@@ -252,11 +272,39 @@ qreal ritual_ZNK20QmlTiltSensorReading9yRotationEv(
   return self->yRotation();
 }
 
+//  QBindable<qreal> QmlTiltSensorReading::bindableYRotation() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK20QmlTiltSensorReading17bindableYRotationEv(
+    const QmlTiltSensorReading *self) {
+  return new QBindable<qreal>(self->bindableYRotation());
+}
+
 //  qreal QmlTiltSensorReading::xRotation() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK20QmlTiltSensorReading9xRotationEv(
     const QmlTiltSensorReading *self) {
   return self->xRotation();
+}
+
+//  QBindable<qreal> QmlTiltSensorReading::bindableXRotation() const
+extern "C" Q_DECL_EXPORT
+QBindable<qreal> *ritual_ZNK20QmlTiltSensorReading17bindableXRotationEv(
+    const QmlTiltSensorReading *self) {
+  return new QBindable<qreal>(self->bindableXRotation());
+}
+
+//  void QmlTiltSensorReading::yRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QmlTiltSensorReading16yRotationChangedEv(
+    QmlTiltSensorReading *self) {
+  self->yRotationChanged();
+}
+
+//  void QmlTiltSensorReading::xRotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QmlTiltSensorReading16xRotationChangedEv(
+    QmlTiltSensorReading *self) {
+  self->xRotationChanged();
 }
 
 //  QSensorReading *QmlTiltSensorReading::reading() const
@@ -271,6 +319,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QmlTiltSensorReading13readingUpdateEv(
     QmlTiltSensorReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlTiltSensorReading::_qt_property_m_yRotation_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN20QmlTiltSensorReading31_qt_property_m_yRotation_offsetEv() {
+  return QmlTiltSensorReading::_qt_property_m_yRotation_offset();
+}
+
+//  size_t QmlTiltSensorReading::_qt_property_m_xRotation_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN20QmlTiltSensorReading31_qt_property_m_xRotation_offsetEv() {
+  return QmlTiltSensorReading::_qt_property_m_xRotation_offset();
 }
 
 //  a Python function taken by a CuteQmlTiltSensorReading, for the function
@@ -295,4 +355,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN20QmlTiltSensorReading13readingUpdateEv(
     QmlTiltSensorReading *self) {
   self->QmlTiltSensorReading::readingUpdate();
+}
+
+//  a QBindable<qreal> a ritual of QmlTiltSensorReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlTiltSensorReading__QBindable_qreal(
+    QBindable<qreal> *self) {
+  delete self;
 }

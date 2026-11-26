@@ -6,6 +6,8 @@
 #include <QtCore/qdebug.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtMultimedia/QMediaMetaData>
 
 //  QVariant QMediaMetaData::value(Key k) const
 extern "C" Q_DECL_EXPORT
@@ -30,6 +32,21 @@ void ritual_ZN14QMediaMetaData6removeENS_3KeyE(
     QMediaMetaData *self,
     QMediaMetaData::Key k) {
   self->remove(k);
+}
+
+//  QList<Key> QMediaMetaData::keys() const
+extern "C" Q_DECL_EXPORT
+QList<QMediaMetaData::Key> *ritual_ZNK14QMediaMetaData4keysEv(
+    const QMediaMetaData *self) {
+  return new QList<QMediaMetaData::Key>(self->keys());
+}
+
+//  QVariant &QMediaMetaData::operator[](Key k)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN14QMediaMetaDataixENS_3KeyE(
+    QMediaMetaData *self,
+    QMediaMetaData::Key k) {
+  return &(self->operator[](k));
 }
 
 //  void QMediaMetaData::clear()
@@ -128,5 +145,12 @@ QMediaMetaData *ritual_list_at_QMediaMetaData(
 //  QList<QMediaMetaData>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QMediaMetaData(QList<QMediaMetaData> *self) {
+  delete self;
+}
+
+//  a QList<QMediaMetaData::Key> a ritual of QMediaMetaData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMediaMetaData__QList_QMediaMetaData_Key(
+    QList<QMediaMetaData::Key> *self) {
   delete self;
 }

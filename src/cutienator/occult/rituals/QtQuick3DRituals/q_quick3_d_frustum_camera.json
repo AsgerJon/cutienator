@@ -8,6 +8,12 @@
     "ritual_ZNK21QQuick3DFrustumCamera10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuick3DFrustumCamera11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuick3DFrustumCamera11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuick3DFrustumCamera2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -29,6 +35,16 @@
     ],
     "ritual_ZN21QQuick3DFrustumCamera7setLeftEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DFrustumCamera10topChangedEv": ["nothing", "address"],
+    "ritual_ZN21QQuick3DFrustumCamera13bottomChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DFrustumCamera12rightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DFrustumCamera11leftChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN21QQuick3DFrustumCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

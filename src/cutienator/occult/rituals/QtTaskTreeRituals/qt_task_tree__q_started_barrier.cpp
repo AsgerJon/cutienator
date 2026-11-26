@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK10QtTaskTree15QStartedBarrier10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QtTaskTree::QStartedBarrier::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QtTaskTree15QStartedBarrier11qt_metacastEPKc(
+    QtTaskTree::QStartedBarrier *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QtTaskTree::QStartedBarrier::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QtTaskTree15QStartedBarrier11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtTaskTree::QStartedBarrier *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtTaskTree::QStartedBarrier::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -199,6 +218,37 @@ QString *ritual_ZN10QtTaskTree15QStartedBarrier2trEPKcS2_i(
 extern "C" Q_DECL_EXPORT
 QtTaskTree::QStartedBarrier *ritual_ZN10QtTaskTree15QStartedBarrierC1Ev() {
   return new CuteQtTaskTree_QStartedBarrier();
+}
+
+//  QtTaskTree::QStartedBarrier::QStartedBarrier(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtTaskTree::QStartedBarrier *ritual_ZN10QtTaskTree15QStartedBarrierC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtTaskTree_QStartedBarrier(parent);
+}
+
+//  QtTaskTree::QStartedBarrier::QStartedBarrier(qsizetype limit, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QtTaskTree::QStartedBarrier *ritual_ZN10QtTaskTree15QStartedBarrierC1ExP7QObject(
+    qsizetype limit,
+    QObject *parent) {
+  return new CuteQtTaskTree_QStartedBarrier(limit, parent);
+}
+
+//  QtTaskTree::QStartedBarrier::~QStartedBarrier()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QtTaskTree15QStartedBarrierD1Ev(
+    QtTaskTree::QStartedBarrier *self) {
+  delete self;
+}
+
+//  bool QtTaskTree::QStartedBarrier::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QtTaskTree15QStartedBarrier5eventEP6QEvent(
+    QtTaskTree::QStartedBarrier *self,
+    QEvent *event) {
+  return self->event(event);
 }
 
 //  a Python function taken by a CuteQtTaskTree_QStartedBarrier, for the

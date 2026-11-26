@@ -298,6 +298,25 @@ const QMetaObject *ritual_ZNK32QQuick3DShaderUtilsSubRenderPass10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsSubRenderPass::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QQuick3DShaderUtilsSubRenderPass11qt_metacastEPKc(
+    QQuick3DShaderUtilsSubRenderPass *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsSubRenderPass::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QQuick3DShaderUtilsSubRenderPass11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsSubRenderPass *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsSubRenderPass::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -342,6 +361,13 @@ extern "C" Q_DECL_EXPORT
 QSSGCommand *ritual_ZN32QQuick3DShaderUtilsSubRenderPass12cloneCommandEv(
     QQuick3DShaderUtilsSubRenderPass *self) {
   return self->cloneCommand();
+}
+
+//  void QQuick3DShaderUtilsSubRenderPass::renderPassChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuick3DShaderUtilsSubRenderPass17renderPassChangedEv(
+    QQuick3DShaderUtilsSubRenderPass *self) {
+  self->renderPassChanged();
 }
 
 //  QSSGRenderGraphObject *QQuick3DShaderUtilsSubRenderPass::updateSpatialNod

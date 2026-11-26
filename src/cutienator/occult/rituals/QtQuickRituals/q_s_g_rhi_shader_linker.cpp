@@ -9,6 +9,7 @@
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/rhi/qshader.h>
+#include <QtQuick/6.12.0/QtQuick/private/qsgadaptationlayer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/private/qsgrhishadereffectnode_p.h>
@@ -52,6 +53,85 @@ inline void QSGRhiShaderLinker::reset(const QShader &vs, const QShader &fs)
     m_samplerNameMap.reserve(4);
 }
 
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 41, as _ZN18QSGRhiShaderLinker13feedConstantsERKN19QSGShaderEffectNode10ShaderDataEPK4QSetIiE
+inline void QSGRhiShaderLinker::feedConstants(const QSGShaderEffectNode::ShaderData &shader, const QSet<int> *dirtyIndices)
+{
+    Q_ASSERT(shader.shaderInfo.variables.size() == shader.varData.size());
+    static bool shaderEffectDebug = qEnvironmentVariableIntValue("QSG_RHI_SHADEREFFECT_DEBUG");
+    if (!dirtyIndices) {
+        for (int i = 0; i < shader.shaderInfo.variables.size(); ++i) {
+            const QSGGuiThreadShaderEffectManager::ShaderInfo::Variable &var(shader.shaderInfo.variables.at(i));
+            if (var.type == QSGGuiThreadShaderEffectManager::ShaderInfo::Constant) {
+                const QSGShaderEffectNode::VariableData &vd(shader.varData.at(i));
+                Constant c;
+                c.size = var.size;
+                c.specialType = vd.specialType;
+                if (c.specialType != QSGShaderEffectNode::VariableData::SubRect) {
+                    c.value = vd.value;
+                    if (shaderEffectDebug) {
+                        if (c.specialType == QSGShaderEffectNode::VariableData::None) {
+                            qDebug() << "cbuf prepare" << shader.shaderInfo.name << var.name
+                                     << "offset" << var.offset << "value" << c.value;
+                        } else {
+                            qDebug() << "cbuf prepare" << shader.shaderInfo.name << var.name
+                                     << "offset" << var.offset << "special" << c.specialType;
+                        }
+                    }
+                } else {
+                    Q_ASSERT(var.name.startsWith(QByteArrayLiteral("qt_SubRect_")));
+                    c.value = var.name.mid(11);
+                }
+                m_constants[var.offset] = c;
+            }
+        }
+    } else {
+        for (int idx : *dirtyIndices) {
+            const int offset = shader.shaderInfo.variables.at(idx).offset;
+            const QVariant value = shader.varData.at(idx).value;
+            m_constants[offset].value = value;
+            if (shaderEffectDebug) {
+                qDebug() << "cbuf update" << shader.shaderInfo.name
+                         << "offset" << offset << "value" << value;
+            }
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 84, as _ZN18QSGRhiShaderLinker12feedSamplersERKN19QSGShaderEffectNode10ShaderDataEPK4QSetIiE
+inline void QSGRhiShaderLinker::feedSamplers(const QSGShaderEffectNode::ShaderData &shader, const QSet<int> *dirtyIndices)
+{
+    if (!dirtyIndices) {
+        for (int i = 0; i < shader.shaderInfo.variables.size(); ++i) {
+            const QSGGuiThreadShaderEffectManager::ShaderInfo::Variable &var(shader.shaderInfo.variables.at(i));
+            const QSGShaderEffectNode::VariableData &vd(shader.varData.at(i));
+            if (var.type == QSGGuiThreadShaderEffectManager::ShaderInfo::Sampler) {
+                Q_ASSERT(vd.specialType == QSGShaderEffectNode::VariableData::Source);
+
+#ifndef QT_NO_DEBUG
+                int existingBindPoint = m_samplerNameMap.value(var.name, -1);
+                Q_ASSERT(existingBindPoint < 0 || existingBindPoint == var.bindPoint);
+#endif
+
+                m_samplers.insert(var.bindPoint, vd.value);
+                m_samplerNameMap.insert(var.name, var.bindPoint);
+            }
+        }
+    } else {
+        for (int idx : *dirtyIndices) {
+            const QSGGuiThreadShaderEffectManager::ShaderInfo::Variable &var(shader.shaderInfo.variables.at(idx));
+            const QSGShaderEffectNode::VariableData &vd(shader.varData.at(idx));
+
+#ifndef QT_NO_DEBUG
+            int existingBindPoint = m_samplerNameMap.value(var.name, -1);
+            Q_ASSERT(existingBindPoint < 0 || existingBindPoint == var.bindPoint);
+#endif
+
+            m_samplers.insert(var.bindPoint, vd.value);
+            m_samplerNameMap.insert(var.name, var.bindPoint);
+        }
+    }
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/qsgrhishadereffectnode.cpp, line 118, as _ZN18QSGRhiShaderLinker19linkTextureSubRectsEv
 inline void QSGRhiShaderLinker::linkTextureSubRects()
 {
@@ -80,6 +160,28 @@ void ritual_ZN18QSGRhiShaderLinker5resetERK7QShaderS2_(
     const QShader *vs,
     const QShader *fs) {
   self->reset(*vs, *fs);
+}
+
+//  void QSGRhiShaderLinker::feedConstants(const
+//      QSGShaderEffectNode::ShaderData &shader, const QSet<int>
+//      *dirtyIndices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSGRhiShaderLinker13feedConstantsERKN19QSGShaderEffectNode10ShaderDataEPK4QSetIiE(
+    QSGRhiShaderLinker *self,
+    const QSGShaderEffectNode::ShaderData *shader,
+    const QSet<int> *dirtyIndices) {
+  self->feedConstants(*shader, dirtyIndices);
+}
+
+//  void QSGRhiShaderLinker::feedSamplers(const
+//      QSGShaderEffectNode::ShaderData &shader, const QSet<int>
+//      *dirtyIndices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSGRhiShaderLinker12feedSamplersERKN19QSGShaderEffectNode10ShaderDataEPK4QSetIiE(
+    QSGRhiShaderLinker *self,
+    const QSGShaderEffectNode::ShaderData *shader,
+    const QSet<int> *dirtyIndices) {
+  self->feedSamplers(*shader, dirtyIndices);
 }
 
 //  void QSGRhiShaderLinker::linkTextureSubRects()

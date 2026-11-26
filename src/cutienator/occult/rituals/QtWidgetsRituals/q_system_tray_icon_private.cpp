@@ -45,6 +45,145 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/util/qsystemtrayicon_x11.cpp, line 42, as local:qsystemtrayicon_x11.cpp:QSystemTrayIconSys
+#if !defined(QT_NO_SYSTEMTRAYICON)
+class QSystemTrayIconSys : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit QSystemTrayIconSys(QSystemTrayIcon *q);
+
+    inline void updateIcon() { update(); }
+    inline QSystemTrayIcon *systemTrayIcon() const { return q; }
+
+    QRect globalGeometry() const;
+
+protected:
+    virtual void mousePressEvent(QMouseEvent *ev) override;
+    virtual void mouseDoubleClickEvent(QMouseEvent *ev) override;
+    virtual bool event(QEvent *) override;
+    virtual void paintEvent(QPaintEvent *) override;
+    virtual void resizeEvent(QResizeEvent *) override;
+    virtual void moveEvent(QMoveEvent *) override;
+
+private:
+    QSystemTrayIcon *q;
+};
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/widgets/util/qsystemtrayicon_x11.cpp, line 65, as local:qsystemtrayicon_x11.cpp:QSystemTrayIconSys::QSystemTrayIconSys
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline QSystemTrayIconSys::QSystemTrayIconSys(QSystemTrayIcon *qIn)
+    : QWidget(nullptr, Qt::Window | Qt::FramelessWindowHint | Qt::BypassWindowManagerHint)
+    , q(qIn)
+{
+    setObjectName(QStringLiteral("QSystemTrayIconSys"));
+#if QT_CONFIG(tooltip)
+    setToolTip(q->toolTip());
+#endif
+    setAttribute(Qt::WA_AlwaysShowToolTips, true);
+    setAttribute(Qt::WA_QuitOnClose, false);
+    const QSize size(22, 22); // Gnome, standard size
+    setGeometry(QRect(QPoint(0, 0), size));
+    setMinimumSize(size);
+    setAttribute(Qt::WA_TranslucentBackground);
+    setMouseTracking(true);
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/widgets/util/qsystemtrayicon_x11.cpp, line 82, as local:qsystemtrayicon_x11.cpp:QSystemTrayIconSys::globalGeometry
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline QRect QSystemTrayIconSys::globalGeometry() const
+{
+    return QRect(mapToGlobal(QPoint(0, 0)), size());
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/widgets/util/qsystemtrayicon_x11.cpp, line 87, as local:qsystemtrayicon_x11.cpp:QSystemTrayIconSys::mousePressEvent
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline void QSystemTrayIconSys::mousePressEvent(QMouseEvent *ev)
+{
+#ifndef QT_NO_CONTEXTMENU
+    if (ev->button() == Qt::RightButton && q->contextMenu()) {
+        const QPoint globalPos = ev->globalPosition().toPoint();
+        q->contextMenu()->popup(globalPos);
+    }
+#endif // QT_NO_CONTEXTMENU
+
+    if (QBalloonTip::isBalloonVisible()) {
+        emit q->messageClicked();
+        QBalloonTip::hideBalloon();
+    }
+
+    if (ev->button() == Qt::LeftButton)
+        emit q->activated(QSystemTrayIcon::Trigger);
+    else if (ev->button() == Qt::RightButton)
+        emit q->activated(QSystemTrayIcon::Context);
+    else if (ev->button() == Qt::MiddleButton)
+        emit q->activated(QSystemTrayIcon::MiddleClick);
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/widgets/util/qsystemtrayicon_x11.cpp, line 109, as local:qsystemtrayicon_x11.cpp:QSystemTrayIconSys::mouseDoubleClickEvent
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline void QSystemTrayIconSys::mouseDoubleClickEvent(QMouseEvent *ev)
+{
+    if (ev->button() == Qt::LeftButton)
+        emit q->activated(QSystemTrayIcon::DoubleClick);
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/widgets/util/qsystemtrayicon_x11.cpp, line 115, as local:qsystemtrayicon_x11.cpp:QSystemTrayIconSys::event
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline bool QSystemTrayIconSys::event(QEvent *e)
+{
+    switch (e->type()) {
+    case QEvent::ToolTip:
+        QCoreApplication::sendEvent(q, e);
+        break;
+#if QT_CONFIG(wheelevent)
+    case QEvent::Wheel:
+        return QCoreApplication::sendEvent(q, e);
+#endif
+    default:
+        break;
+    }
+    return QWidget::event(e);
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/widgets/util/qsystemtrayicon_x11.cpp, line 131, as local:qsystemtrayicon_x11.cpp:QSystemTrayIconSys::paintEvent
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline void QSystemTrayIconSys::paintEvent(QPaintEvent *)
+{
+    const QRect rect(QPoint(0, 0), geometry().size());
+    QPainter painter(this);
+
+    q->icon().paint(&painter, rect);
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/widgets/util/qsystemtrayicon_x11.cpp, line 139, as local:qsystemtrayicon_x11.cpp:QSystemTrayIconSys::moveEvent
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline void QSystemTrayIconSys::moveEvent(QMoveEvent *event)
+{
+    QWidget::moveEvent(event);
+    if (QBalloonTip::isBalloonVisible())
+        QBalloonTip::updateBalloonPosition(globalGeometry().center());
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
+//  from src/widgets/util/qsystemtrayicon_x11.cpp, line 146, as local:qsystemtrayicon_x11.cpp:QSystemTrayIconSys::resizeEvent
+#if !defined(QT_NO_SYSTEMTRAYICON)
+inline void QSystemTrayIconSys::resizeEvent(QResizeEvent *event)
+{
+    update();
+    QWidget::resizeEvent(event);
+    if (QBalloonTip::isBalloonVisible())
+        QBalloonTip::updateBalloonPosition(globalGeometry().center());
+}
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+
 //  from src/widgets/util/qsystemtrayicon.cpp, line 417, as _ZN22QSystemTrayIconPrivate16_q_emitActivatedEN23QPlatformSystemTrayIcon16ActivationReasonE
 #if !defined(QT_NO_SYSTEMTRAYICON)
 inline void QSystemTrayIconPrivate::_q_emitActivated(QPlatformSystemTrayIcon::ActivationReason reason)

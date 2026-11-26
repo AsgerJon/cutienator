@@ -21,22 +21,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusiondial.cpp, line 19, as _ZNK16QQuickFusionDial9highlightEv
-inline bool QQuickFusionDial::highlight() const
-{
-    return m_highlight;
-}
-
-//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusiondial.cpp, line 24, as _ZN16QQuickFusionDial12setHighlightEb
-inline void QQuickFusionDial::setHighlight(bool highlight)
-{
-    if (m_highlight == highlight)
-        return;
-
-    m_highlight = highlight;
-    update();
-}
-
 //  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusiondial.cpp, line 34, as _ZN16QQuickFusionDial5paintEP8QPainter
 inline void QQuickFusionDial::paint(QPainter *painter)
 {
@@ -110,6 +94,22 @@ inline void QQuickFusionDial::paint(QPainter *painter)
         painter->drawEllipse(br.adjusted(-1, -1, 1, 1));
     }
 }
+
+//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusiondial.cpp, line 19, as _ZNK16QQuickFusionDial9highlightEv
+inline bool QQuickFusionDial::highlight() const
+{
+    return m_highlight;
+}
+
+//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusiondial.cpp, line 24, as _ZN16QQuickFusionDial12setHighlightEb
+inline void QQuickFusionDial::setHighlight(bool highlight)
+{
+    if (m_highlight == highlight)
+        return;
+
+    m_highlight = highlight;
+    update();
+}
 //  -----------------------------------------------------------------------
 
 //  const QMetaObject *QQuickFusionDial::metaObject() const
@@ -117,6 +117,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QQuickFusionDial10metaObjectEv(
     const QQuickFusionDial *self) {
   return self->metaObject();
+}
+
+//  void *QQuickFusionDial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQuickFusionDial11qt_metacastEPKc(
+    QQuickFusionDial *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFusionDial::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQuickFusionDial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFusionDial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  bool QQuickFusionDial::highlight() const

@@ -4,8 +4,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtMultimedia/qmediametadata.h>
+#include <QtGui/qimage.h>
+#include <QtMultimedia/qvideoframe.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtMultimedia/QImageCapture>
 
 //  A QImageCapture that Python can take functions over in. Every QImageCapture
 //  Python makes is one. Each function below asks the Python
@@ -181,6 +185,24 @@ const QMetaObject *ritual_ZNK13QImageCapture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QImageCapture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QImageCapture11qt_metacastEPKc(
+    QImageCapture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QImageCapture::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QImageCapture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QImageCapture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QImageCapture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QImageCapture2trEPKcS1_i(
@@ -249,6 +271,13 @@ void ritual_ZN13QImageCapture13setFileFormatENS_10FileFormatE(
     QImageCapture *self,
     QImageCapture::FileFormat format) {
   self->setFileFormat(format);
+}
+
+//  QList<FileFormat> QImageCapture::supportedFormats()
+extern "C" Q_DECL_EXPORT
+QList<QImageCapture::FileFormat> *ritual_ZN13QImageCapture16supportedFormatsEv() {
+  return new QList<QImageCapture::FileFormat>(
+      QImageCapture::supportedFormats());
 }
 
 //  QString QImageCapture::fileFormatName(FileFormat c)
@@ -340,12 +369,125 @@ int ritual_ZN13QImageCapture7captureEv(QImageCapture *self) {
   return self->capture();
 }
 
+//  void QImageCapture::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture12errorChangedEv(QImageCapture *self) {
+  self->errorChanged();
+}
+
+//  void QImageCapture::errorOccurred(int id, QImageCapture::Error error,
+//      const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture13errorOccurredEiNS_5ErrorERK7QString(
+    QImageCapture *self,
+    int id,
+    QImageCapture::Error error,
+    const QString *errorString) {
+  self->errorOccurred(id, error, *errorString);
+}
+
+//  void QImageCapture::readyForCaptureChanged(bool ready)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture22readyForCaptureChangedEb(
+    QImageCapture *self,
+    bool ready) {
+  self->readyForCaptureChanged(ready);
+}
+
+//  void QImageCapture::metaDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture15metaDataChangedEv(QImageCapture *self) {
+  self->metaDataChanged();
+}
+
+//  void QImageCapture::fileFormatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture17fileFormatChangedEv(QImageCapture *self) {
+  self->fileFormatChanged();
+}
+
+//  void QImageCapture::qualityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture14qualityChangedEv(QImageCapture *self) {
+  self->qualityChanged();
+}
+
+//  void QImageCapture::resolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture17resolutionChangedEv(QImageCapture *self) {
+  self->resolutionChanged();
+}
+
+//  void QImageCapture::imageExposed(int id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture12imageExposedEi(QImageCapture *self, int id) {
+  self->imageExposed(id);
+}
+
+//  void QImageCapture::imageCaptured(int id, const QImage &preview)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture13imageCapturedEiRK6QImage(
+    QImageCapture *self,
+    int id,
+    const QImage *preview) {
+  self->imageCaptured(id, *preview);
+}
+
+//  void QImageCapture::imageMetadataAvailable(int id, const QMediaMetaData
+//      &metaData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture22imageMetadataAvailableEiRK14QMediaMetaData(
+    QImageCapture *self,
+    int id,
+    const QMediaMetaData *metaData) {
+  self->imageMetadataAvailable(id, *metaData);
+}
+
+//  void QImageCapture::imageAvailable(int id, const QVideoFrame &frame)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture14imageAvailableEiRK11QVideoFrame(
+    QImageCapture *self,
+    int id,
+    const QVideoFrame *frame) {
+  self->imageAvailable(id, *frame);
+}
+
+//  void QImageCapture::imageSaved(int id, const QString &fileName)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QImageCapture10imageSavedEiRK7QString(
+    QImageCapture *self,
+    int id,
+    const QString *fileName) {
+  self->imageSaved(id, *fileName);
+}
+
+//  class QPlatformImageCapture *QImageCapture::platformImageCapture()
+extern "C" Q_DECL_EXPORT
+class QPlatformImageCapture *ritual_ZN13QImageCapture20platformImageCaptureEv(
+    QImageCapture *self) {
+  return self->platformImageCapture();
+}
+
 //  void QImageCapture::setCaptureSession(QMediaCaptureSession *session)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QImageCapture17setCaptureSessionEP20QMediaCaptureSession(
     QImageCapture *self,
     QMediaCaptureSession *session) {
   self->setCaptureSession(session);
+}
+
+//  QImageCapturePrivate *QImageCapture::d_func()
+extern "C" Q_DECL_EXPORT
+QImageCapturePrivate *ritual_ZN13QImageCapture6d_funcEv(
+    QImageCapture *self) {
+  return self->d_func();
+}
+
+//  const QImageCapturePrivate *QImageCapture::d_func() const
+extern "C" Q_DECL_EXPORT
+const QImageCapturePrivate *ritual_ZNK13QImageCapture6d_funcEv(
+    const QImageCapture *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQImageCapture, for the function named by
@@ -356,4 +498,11 @@ bool ritual_take_QImageCapture(
     const char *key,
     void *call) {
   return static_cast<CuteQImageCapture *>(self)->take(key, call);
+}
+
+//  a QList<QImageCapture::FileFormat> a ritual of QImageCapture gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QImageCapture__QList_QImageCapture_FileFormat(
+    QList<QImageCapture::FileFormat> *self) {
+  delete self;
 }

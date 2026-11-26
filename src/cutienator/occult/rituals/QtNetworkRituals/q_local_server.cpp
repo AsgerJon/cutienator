@@ -8,6 +8,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtNetwork/QLocalServer>
 
 //  Only a class built on QLocalServer may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -255,6 +257,24 @@ const QMetaObject *ritual_ZNK12QLocalServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLocalServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QLocalServer11qt_metacastEPKc(
+    QLocalServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLocalServer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QLocalServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLocalServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLocalServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QLocalServer2trEPKcS1_i(
@@ -275,6 +295,12 @@ extern "C" Q_DECL_EXPORT
 const QLocalServerPrivate *ritual_ZNK12QLocalServer6d_funcEv(
     const QLocalServer *self) {
   return self->d_func();
+}
+
+//  void QLocalServer::newConnection()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QLocalServer13newConnectionEv(QLocalServer *self) {
+  self->newConnection();
 }
 
 //  QLocalServer::QLocalServer(QObject *parent)
@@ -416,6 +442,14 @@ int ritual_ZNK12QLocalServer13socketOptionsEv(const QLocalServer *self) {
   return static_cast<int>(self->socketOptions().toInt());
 }
 
+//  QBindable<SocketOptions> QLocalServer::bindableSocketOptions()
+extern "C" Q_DECL_EXPORT
+QBindable<QLocalServer::SocketOptions> *ritual_ZN12QLocalServer21bindableSocketOptionsEv(
+    QLocalServer *self) {
+  return new QBindable<QLocalServer::SocketOptions>(
+      self->bindableSocketOptions());
+}
+
 //  qintptr QLocalServer::socketDescriptor() const
 extern "C" Q_DECL_EXPORT
 qintptr ritual_ZNK12QLocalServer16socketDescriptorEv(
@@ -504,6 +538,13 @@ QLocalServer *ritual_list_at_QLocalServer_ptr(
 //  QList<QLocalServer *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QLocalServer_ptr(QList<QLocalServer *> *self) {
+  delete self;
+}
+
+//  a QBindable<QLocalServer::SocketOptions> a ritual of QLocalServer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLocalServer__QBindable_QLocalServer_SocketOptions(
+    QBindable<QLocalServer::SocketOptions> *self) {
   delete self;
 }
 

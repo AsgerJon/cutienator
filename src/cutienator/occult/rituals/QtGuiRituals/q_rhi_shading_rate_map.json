@@ -12,6 +12,9 @@
     "ritual_ZN18QRhiShadingRateMap10createFromEP11QRhiTexture": [
       "bool", "address", "address"
     ],
+    "ritual_ZN18QRhiShadingRateMapC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
     "ritual_take_QRhiShadingRateMap": [
       "bool", "address", "chars", "address"
     ],

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qscreen.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qscreen.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by hand,
+//  instances of templates of the class: 4. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qscreen.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -10,6 +12,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtGui/qscreen_platform.h>
 
 //  A QScreen that Python can take functions over in. Every QScreen
 //  Python makes is one. Each function below asks the Python
@@ -182,6 +185,22 @@ public:
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK7QScreen10metaObjectEv(const QScreen *self) {
   return self->metaObject();
+}
+
+//  void *QScreen::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QScreen11qt_metacastEPKc(QScreen *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScreen::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QScreen11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScreen *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QScreen::tr(const char *s, const char *c, int n)
@@ -442,6 +461,88 @@ qreal ritual_ZNK7QScreen11refreshRateEv(const QScreen *self) {
   return self->refreshRate();
 }
 
+//  void *QScreen::resolveInterface(const char *name, int revision) const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK7QScreen16resolveInterfaceEPKci(
+    const QScreen *self,
+    const char *name,
+    int revision) {
+  return self->resolveInterface(name, revision);
+}
+
+//  void QScreen::geometryChanged(const QRect &geometry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QScreen15geometryChangedERK5QRect(
+    QScreen *self,
+    const QRect *geometry) {
+  self->geometryChanged(*geometry);
+}
+
+//  void QScreen::availableGeometryChanged(const QRect &geometry)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QScreen24availableGeometryChangedERK5QRect(
+    QScreen *self,
+    const QRect *geometry) {
+  self->availableGeometryChanged(*geometry);
+}
+
+//  void QScreen::physicalSizeChanged(const QSizeF &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QScreen19physicalSizeChangedERK6QSizeF(
+    QScreen *self,
+    const QSizeF *size) {
+  self->physicalSizeChanged(*size);
+}
+
+//  void QScreen::physicalDotsPerInchChanged(qreal dpi)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QScreen26physicalDotsPerInchChangedEd(
+    QScreen *self,
+    qreal dpi) {
+  self->physicalDotsPerInchChanged(dpi);
+}
+
+//  void QScreen::logicalDotsPerInchChanged(qreal dpi)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QScreen25logicalDotsPerInchChangedEd(
+    QScreen *self,
+    qreal dpi) {
+  self->logicalDotsPerInchChanged(dpi);
+}
+
+//  void QScreen::virtualGeometryChanged(const QRect &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QScreen22virtualGeometryChangedERK5QRect(
+    QScreen *self,
+    const QRect *rect) {
+  self->virtualGeometryChanged(*rect);
+}
+
+//  void QScreen::primaryOrientationChanged(Qt::ScreenOrientation
+//      orientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QScreen25primaryOrientationChangedEN2Qt17ScreenOrientationE(
+    QScreen *self,
+    Qt::ScreenOrientation orientation) {
+  self->primaryOrientationChanged(orientation);
+}
+
+//  void QScreen::orientationChanged(Qt::ScreenOrientation orientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QScreen18orientationChangedEN2Qt17ScreenOrientationE(
+    QScreen *self,
+    Qt::ScreenOrientation orientation) {
+  self->orientationChanged(orientation);
+}
+
+//  void QScreen::refreshRateChanged(qreal refreshRate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QScreen18refreshRateChangedEd(
+    QScreen *self,
+    qreal refreshRate) {
+  self->refreshRateChanged(refreshRate);
+}
+
 //  QScreen::QScreen(QPlatformScreen *screen)
 extern "C" Q_DECL_EXPORT
 QScreen *ritual_ZN7QScreenC1EP15QPlatformScreen(QPlatformScreen *screen) {
@@ -486,3 +587,43 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QScreen_ptr(QList<QScreen *> *self) {
   delete self;
 }
+
+#if defined(Q_OS_WIN32)
+//  QNativeInterface::QWindowsScreen
+//      *QScreen::nativeInterface<QNativeInterface::QWindowsScreen>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QWindowsScreen *ritual_ZNK7QScreen15nativeInterfaceIN16QNativeInterface14QWindowsScreenENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QScreen *self) {
+  return self->nativeInterface<QNativeInterface::QWindowsScreen>();
+}
+#endif  // defined(Q_OS_WIN32)
+
+#if QT_CONFIG(wayland)
+//  QNativeInterface::QWaylandScreen
+//      *QScreen::nativeInterface<QNativeInterface::QWaylandScreen>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QWaylandScreen *ritual_ZNK7QScreen15nativeInterfaceIN16QNativeInterface14QWaylandScreenENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QScreen *self) {
+  return self->nativeInterface<QNativeInterface::QWaylandScreen>();
+}
+#endif  // QT_CONFIG(wayland)
+
+#if defined(Q_OS_ANDROID)
+//  QNativeInterface::QAndroidScreen
+//      *QScreen::nativeInterface<QNativeInterface::QAndroidScreen>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QAndroidScreen *ritual_ZNK7QScreen15nativeInterfaceIN16QNativeInterface14QAndroidScreenENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QScreen *self) {
+  return self->nativeInterface<QNativeInterface::QAndroidScreen>();
+}
+#endif  // defined(Q_OS_ANDROID)
+
+#if defined(Q_OS_MACOS)
+//  QNativeInterface::QCocoaScreen
+//      *QScreen::nativeInterface<QNativeInterface::QCocoaScreen>() const
+extern "C" Q_DECL_EXPORT
+QNativeInterface::QCocoaScreen *ritual_ZNK7QScreen15nativeInterfaceIN16QNativeInterface12QCocoaScreenENS1_7Private15NativeInterfaceIS2_EES_Lb1EEEPT_v(
+    const QScreen *self) {
+  return self->nativeInterface<QNativeInterface::QCocoaScreen>();
+}
+#endif  // defined(Q_OS_MACOS)

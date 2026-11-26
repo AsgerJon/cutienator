@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN15QSvgOffsetStyleC1Ev": ["address"],
     "ritual_ZN15QSvgOffsetStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSvgOffsetStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QSvgOffsetStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK15QSvgOffsetStyle4typeEv": ["unsigned char", "address"],
     "ritual_ZN15QSvgOffsetStyle7setPathERK12QPainterPath": [
       "nothing", "address", "address"

@@ -4,6 +4,10 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QScrollPrepareEventC1ERKS_": ["address", "address"],
+    "ritual_ZN19QScrollPrepareEventaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QScrollPrepareEvent5cloneEv": ["address", "address"],
     "ritual_ZN19QScrollPrepareEventD1Ev": ["nothing", "address"],
     "ritual_ZN19QScrollPrepareEventC1ERK7QPointF": ["address", "address"],

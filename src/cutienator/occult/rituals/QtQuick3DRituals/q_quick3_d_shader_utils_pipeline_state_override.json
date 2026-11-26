@@ -8,6 +8,12 @@
     "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -193,6 +199,66 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend7Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride23depthTestEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride24depthWriteEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19blendEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride27usesStencilReferenceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride18usesScissorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride20depthFunctionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15cullModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride18polygonModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride23stencilWriteMaskChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride23stencilReferenceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15viewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride14scissorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend0ChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend1ChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend2ChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend3ChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend4ChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend5ChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend6ChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19targetBlend7ChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride12cloneCommandEv": [

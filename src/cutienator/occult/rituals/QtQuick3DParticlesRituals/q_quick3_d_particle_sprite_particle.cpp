@@ -11,6 +11,7 @@
 #include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
 
 //  Only a class built on QQuick3DParticleSpriteParticle may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -477,6 +478,25 @@ const QMetaObject *ritual_ZNK30QQuick3DParticleSpriteParticle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleSpriteParticle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QQuick3DParticleSpriteParticle11qt_metacastEPKc(
+    QQuick3DParticleSpriteParticle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleSpriteParticle::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QQuick3DParticleSpriteParticle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleSpriteParticle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleSpriteParticle::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -543,6 +563,14 @@ extern "C" Q_DECL_EXPORT
 QQuick3DTexture *ritual_ZNK30QQuick3DParticleSpriteParticle10colorTableEv(
     const QQuick3DParticleSpriteParticle *self) {
   return self->colorTable();
+}
+
+//  QQmlListProperty<QQuick3DAbstractLight>
+//      QQuick3DParticleSpriteParticle::lights()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuick3DAbstractLight> *ritual_ZN30QQuick3DParticleSpriteParticle6lightsEv(
+    QQuick3DParticleSpriteParticle *self) {
+  return new QQmlListProperty<QQuick3DAbstractLight>(self->lights());
 }
 
 //  float QQuick3DParticleSpriteParticle::offsetX() const
@@ -642,6 +670,76 @@ void ritual_ZN30QQuick3DParticleSpriteParticle19setCastsReflectionsEb(
   self->setCastsReflections(castsReflections);
 }
 
+//  void QQuick3DParticleSpriteParticle::blendModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle16blendModeChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->blendModeChanged();
+}
+
+//  void QQuick3DParticleSpriteParticle::spriteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle13spriteChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->spriteChanged();
+}
+
+//  void QQuick3DParticleSpriteParticle::spriteSequenceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle21spriteSequenceChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->spriteSequenceChanged();
+}
+
+//  void QQuick3DParticleSpriteParticle::billboardChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle16billboardChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->billboardChanged();
+}
+
+//  void QQuick3DParticleSpriteParticle::particleScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle20particleScaleChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->particleScaleChanged();
+}
+
+//  void QQuick3DParticleSpriteParticle::colorTableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle17colorTableChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->colorTableChanged();
+}
+
+//  void QQuick3DParticleSpriteParticle::lightsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle13lightsChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->lightsChanged();
+}
+
+//  void QQuick3DParticleSpriteParticle::offsetXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle14offsetXChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->offsetXChanged();
+}
+
+//  void QQuick3DParticleSpriteParticle::offsetYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle14offsetYChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->offsetYChanged();
+}
+
+//  void QQuick3DParticleSpriteParticle::castsReflectionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle23castsReflectionsChangedEv(
+    QQuick3DParticleSpriteParticle *self) {
+  self->castsReflectionsChanged();
+}
+
 //  void QQuick3DParticleSpriteParticle::itemChange(ItemChange a0, const
 //      ItemChangeData &a1)
 extern "C" Q_DECL_EXPORT
@@ -728,6 +826,24 @@ void ritual_ZN30QQuick3DParticleSpriteParticle16onLightDestroyedEP7QObject(
     QQuick3DParticleSpriteParticle *self,
     QObject *object) {
   self->onLightDestroyed(object);
+}
+
+//  PerEmitterData &QQuick3DParticleSpriteParticle::perEmitterData(const
+//      QQuick3DNode *updateNode)
+extern "C" Q_DECL_EXPORT
+QQuick3DParticleSpriteParticle::PerEmitterData *ritual_ZN30QQuick3DParticleSpriteParticle14perEmitterDataEPK12QQuick3DNode(
+    QQuick3DParticleSpriteParticle *self,
+    const QQuick3DNode *updateNode) {
+  return &(self->perEmitterData(updateNode));
+}
+
+//  PerEmitterData &QQuick3DParticleSpriteParticle::perEmitterData(int
+//      emitterIndex)
+extern "C" Q_DECL_EXPORT
+QQuick3DParticleSpriteParticle::PerEmitterData *ritual_ZN30QQuick3DParticleSpriteParticle14perEmitterDataEi(
+    QQuick3DParticleSpriteParticle *self,
+    int emitterIndex) {
+  return &(self->perEmitterData(emitterIndex));
 }
 
 //  QSSGRenderGraphObject
@@ -830,6 +946,40 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN30QQuick3DParticleSpriteParticle18updateFeatureLevelEv(
     QQuick3DParticleSpriteParticle *self) {
   self->updateFeatureLevel();
+}
+
+//  void QQuick3DParticleSpriteParticle::qmlAppendLight(QQmlListProperty<QQui
+//      ck3DAbstractLight> *list, QQuick3DAbstractLight *light)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle14qmlAppendLightEP16QQmlListPropertyI21QQuick3DAbstractLightEPS1_(
+    QQmlListProperty<QQuick3DAbstractLight> *list,
+    QQuick3DAbstractLight *light) {
+  QQuick3DParticleSpriteParticle::qmlAppendLight(list, light);
+}
+
+//  QQuick3DAbstractLight *QQuick3DParticleSpriteParticle::qmlLightAt(QQmlLis
+//      tProperty<QQuick3DAbstractLight> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuick3DAbstractLight *ritual_ZN30QQuick3DParticleSpriteParticle10qmlLightAtEP16QQmlListPropertyI21QQuick3DAbstractLightEx(
+    QQmlListProperty<QQuick3DAbstractLight> *list,
+    qsizetype index) {
+  return QQuick3DParticleSpriteParticle::qmlLightAt(list, index);
+}
+
+//  qsizetype QQuick3DParticleSpriteParticle::qmlLightsCount(QQmlListProperty
+//      <QQuick3DAbstractLight> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN30QQuick3DParticleSpriteParticle14qmlLightsCountEP16QQmlListPropertyI21QQuick3DAbstractLightE(
+    QQmlListProperty<QQuick3DAbstractLight> *list) {
+  return QQuick3DParticleSpriteParticle::qmlLightsCount(list);
+}
+
+//  void QQuick3DParticleSpriteParticle::qmlClearLights(QQmlListProperty<QQui
+//      ck3DAbstractLight> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QQuick3DParticleSpriteParticle14qmlClearLightsEP16QQmlListPropertyI21QQuick3DAbstractLightE(
+    QQmlListProperty<QQuick3DAbstractLight> *list) {
+  QQuick3DParticleSpriteParticle::qmlClearLights(list);
 }
 
 //  a Python function taken by a CuteQQuick3DParticleSpriteParticle, for the
@@ -952,4 +1102,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN30QQuick3DParticleSpriteParticle16updateNodeLayersEv(
     QQuick3DParticleSpriteParticle *self) {
   static_cast<OwnQQuick3DParticleSpriteParticle *>(self)->OwnQQuick3DParticleSpriteParticle::updateNodeLayers();
+}
+
+//  a QQmlListProperty<QQuick3DAbstractLight> a ritual of
+//      QQuick3DParticleSpriteParticle gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DParticleSpriteParticle__QQmlListProperty_QQuick3DAbstractLight(
+    QQmlListProperty<QQuick3DAbstractLight> *self) {
+  delete self;
 }

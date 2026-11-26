@@ -17,6 +17,9 @@
     "ritual_ZNK21QSqlTableModelPrivate11ModifiedRow3recEv": [
       "address", "address"
     ],
+    "ritual_ZN21QSqlTableModelPrivate11ModifiedRow6recRefEv": [
+      "address", "address"
+    ],
     "ritual_ZN21QSqlTableModelPrivate11ModifiedRow8setValueEiRK8QVariant": [
       "nothing", "address", "int", "address"
     ],
@@ -37,6 +40,9 @@
     ],
     "ritual_ZNK21QSqlTableModelPrivate11ModifiedRow13primaryValuesERK10QSqlRecord": [
       "address", "address", "address"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate11ModifiedRow12setGeneratedER10QSqlRecordb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN21QSqlTableModelPrivate11ModifiedRowD1Ev": [
       "nothing", "address"

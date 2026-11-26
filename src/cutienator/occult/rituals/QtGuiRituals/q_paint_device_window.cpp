@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK18QPaintDeviceWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPaintDeviceWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QPaintDeviceWindow11qt_metacastEPKc(
+    QPaintDeviceWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPaintDeviceWindow::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QPaintDeviceWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPaintDeviceWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPaintDeviceWindow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QPaintDeviceWindow2trEPKcS1_i(
@@ -96,6 +115,15 @@ bool ritual_ZN18QPaintDeviceWindow5eventEP6QEvent(
     QPaintDeviceWindow *self,
     QEvent *event) {
   return self->event(event);
+}
+
+//  QPaintDeviceWindow::QPaintDeviceWindow(QPaintDeviceWindowPrivate &dd,
+//      QWindow *parent)
+extern "C" Q_DECL_EXPORT
+QPaintDeviceWindow *ritual_ZN18QPaintDeviceWindowC1ER25QPaintDeviceWindowPrivateP7QWindow(
+    QPaintDeviceWindowPrivate *dd,
+    QWindow *parent) {
+  return new QPaintDeviceWindow(*dd, parent);
 }
 
 //  QPaintEngine *QPaintDeviceWindow::paintEngine() const

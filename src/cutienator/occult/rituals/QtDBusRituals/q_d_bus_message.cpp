@@ -20,10 +20,40 @@ QDBusMessage *ritual_ZN12QDBusMessageC1ERKS_(const QDBusMessage *other) {
   return new QDBusMessage(*other);
 }
 
+//  QDBusMessage::QDBusMessage(QDBusMessage &&other)
+extern "C" Q_DECL_EXPORT
+QDBusMessage *ritual_ZN12QDBusMessageC1EOS_(QDBusMessage *other) {
+  return new QDBusMessage(std::move(*other));
+}
+
+//  QDBusMessage &QDBusMessage::operator=(QDBusMessage &&other)
+extern "C" Q_DECL_EXPORT
+QDBusMessage *ritual_ZN12QDBusMessageaSEOS_(
+    QDBusMessage *self,
+    QDBusMessage *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDBusMessage &QDBusMessage::operator=(const QDBusMessage &other)
+extern "C" Q_DECL_EXPORT
+QDBusMessage *ritual_ZN12QDBusMessageaSERKS_(
+    QDBusMessage *self,
+    const QDBusMessage *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDBusMessage::~QDBusMessage()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QDBusMessageD1Ev(QDBusMessage *self) {
   delete self;
+}
+
+//  void QDBusMessage::swap(QDBusMessage &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QDBusMessage4swapERS_(
+    QDBusMessage *self,
+    QDBusMessage *other) {
+  self->swap(*other);
 }
 
 //  QDBusMessage QDBusMessage::createSignal(const QString &path, const
@@ -253,6 +283,21 @@ extern "C" Q_DECL_EXPORT
 QList<QVariant> *ritual_ZNK12QDBusMessage9argumentsEv(
     const QDBusMessage *self) {
   return new QList<QVariant>(self->arguments());
+}
+
+//  QDBusMessage &QDBusMessage::operator<<(const QVariant &arg)
+extern "C" Q_DECL_EXPORT
+QDBusMessage *ritual_ZN12QDBusMessagelsERK8QVariant(
+    QDBusMessage *self,
+    const QVariant *arg) {
+  return &(self->operator<<(*arg));
+}
+
+//  QDBusMessage::QDBusMessage(QDBusMessagePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QDBusMessage *ritual_ZN12QDBusMessageC1ER19QDBusMessagePrivate(
+    QDBusMessagePrivate *dd) {
+  return new QDBusMessage(*dd);
 }
 
 #endif  // !defined(QT_NO_DBUS) && !defined(QT_BOOTSTRAPPED)

@@ -33,6 +33,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/widgets/effects/qgraphicseffect.cpp, line 345, as _ZN28QGraphicsEffectSourcePrivateD2Ev
+inline QGraphicsEffectSourcePrivate::~QGraphicsEffectSourcePrivate()
+{
+    invalidateCache();
+}
+
 //  from src/widgets/effects/qgraphicseffect.cpp, line 350, as _ZN28QGraphicsEffectSourcePrivate15setCachedOffsetERK6QPoint
 inline void QGraphicsEffectSourcePrivate::setCachedOffset(const QPoint &offset)
 {

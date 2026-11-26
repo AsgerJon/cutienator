@@ -954,6 +954,22 @@ const QMetaObject *ritual_ZNK9QGroupBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGroupBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QGroupBox11qt_metacastEPKc(QGroupBox *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGroupBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QGroupBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGroupBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGroupBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QGroupBox2trEPKcS1_i(
@@ -1051,6 +1067,18 @@ void ritual_ZN9QGroupBox10setCheckedEb(QGroupBox *self, bool checked) {
   self->setChecked(checked);
 }
 
+//  void QGroupBox::clicked(bool checked)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox7clickedEb(QGroupBox *self, bool checked) {
+  self->clicked(checked);
+}
+
+//  void QGroupBox::toggled(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox7toggledEb(QGroupBox *self, bool a0) {
+  self->toggled(a0);
+}
+
 //  bool QGroupBox::event(QEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QGroupBox5eventEP6QEvent(QGroupBox *self, QEvent *event) {
@@ -1127,6 +1155,19 @@ void ritual_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox(
     const QGroupBox *self,
     QStyleOptionGroupBox *option) {
   self->initStyleOption(option);
+}
+
+//  QGroupBoxPrivate *QGroupBox::d_func()
+extern "C" Q_DECL_EXPORT
+QGroupBoxPrivate *ritual_ZN9QGroupBox6d_funcEv(QGroupBox *self) {
+  return self->d_func();
+}
+
+//  const QGroupBoxPrivate *QGroupBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGroupBoxPrivate *ritual_ZNK9QGroupBox6d_funcEv(
+    const QGroupBox *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQGroupBox, for the function named by the

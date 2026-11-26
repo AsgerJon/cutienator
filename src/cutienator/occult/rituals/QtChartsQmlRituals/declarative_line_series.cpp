@@ -17,6 +17,8 @@
 #include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A DeclarativeLineSeries that Python can take functions over in. Every DeclarativeLineSeries
 //  Python makes is one. Each function below asks the Python
@@ -326,6 +328,25 @@ const QMetaObject *ritual_ZNK21DeclarativeLineSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeLineSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21DeclarativeLineSeries11qt_metacastEPKc(
+    DeclarativeLineSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeLineSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21DeclarativeLineSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeLineSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeLineSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21DeclarativeLineSeries2trEPKcS1_i(
@@ -484,6 +505,13 @@ void ritual_ZN21DeclarativeLineSeries11setCapStyleEN2Qt11PenCapStyleE(
   self->setCapStyle(capStyle);
 }
 
+//  QQmlListProperty<QObject> DeclarativeLineSeries::declarativeChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN21DeclarativeLineSeries19declarativeChildrenEv(
+    DeclarativeLineSeries *self) {
+  return new QQmlListProperty<QObject>(self->declarativeChildren());
+}
+
 //  void DeclarativeLineSeries::classBegin()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21DeclarativeLineSeries10classBeginEv(
@@ -579,12 +607,101 @@ QPointF *ritual_ZN21DeclarativeLineSeries2atEi(
   return new QPointF(self->at(index));
 }
 
+//  void DeclarativeLineSeries::countChanged(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries12countChangedEi(
+    DeclarativeLineSeries *self,
+    int count) {
+  self->countChanged(count);
+}
+
+//  void DeclarativeLineSeries::axisXChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries12axisXChangedEP13QAbstractAxis(
+    DeclarativeLineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeLineSeries::axisYChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries12axisYChangedEP13QAbstractAxis(
+    DeclarativeLineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeLineSeries::axisXTopChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeLineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void DeclarativeLineSeries::axisYRightChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeLineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
+}
+
+//  void DeclarativeLineSeries::axisAngularChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries18axisAngularChangedEP13QAbstractAxis(
+    DeclarativeLineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisAngularChanged(axis);
+}
+
+//  void DeclarativeLineSeries::axisRadialChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries17axisRadialChangedEP13QAbstractAxis(
+    DeclarativeLineSeries *self,
+    QAbstractAxis *axis) {
+  self->axisRadialChanged(axis);
+}
+
+//  void DeclarativeLineSeries::widthChanged(qreal width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries12widthChangedEd(
+    DeclarativeLineSeries *self,
+    qreal width) {
+  self->widthChanged(width);
+}
+
+//  void DeclarativeLineSeries::styleChanged(Qt::PenStyle style)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries12styleChangedEN2Qt8PenStyleE(
+    DeclarativeLineSeries *self,
+    Qt::PenStyle style) {
+  self->styleChanged(style);
+}
+
+//  void DeclarativeLineSeries::capStyleChanged(Qt::PenCapStyle capStyle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries15capStyleChangedEN2Qt11PenCapStyleE(
+    DeclarativeLineSeries *self,
+    Qt::PenCapStyle capStyle) {
+  self->capStyleChanged(capStyle);
+}
+
 //  void DeclarativeLineSeries::handleCountChanged(int index)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21DeclarativeLineSeries18handleCountChangedEi(
     DeclarativeLineSeries *self,
     int index) {
   self->handleCountChanged(index);
+}
+
+//  void DeclarativeLineSeries::appendDeclarativeChildren(QQmlListProperty<QO
+//      bject> *list, QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeLineSeries25appendDeclarativeChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  DeclarativeLineSeries::appendDeclarativeChildren(list, element);
 }
 
 //  DeclarativeLineSeries as the DeclarativeXySeries it is built on
@@ -630,6 +747,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN21DeclarativeLineSeries17componentCompleteEv(
     DeclarativeLineSeries *self) {
   self->DeclarativeLineSeries::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of DeclarativeLineSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeLineSeries__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_line_chart)

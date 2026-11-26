@@ -289,6 +289,25 @@ const QMetaObject *ritual_ZNK22QQuick3DFileInstancing10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DFileInstancing::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuick3DFileInstancing11qt_metacastEPKc(
+    QQuick3DFileInstancing *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DFileInstancing::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuick3DFileInstancing11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DFileInstancing *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DFileInstancing::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuick3DFileInstancing2trEPKcS1_i(
@@ -355,6 +374,20 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK22QQuick3DFileInstancing13instanceCountEv(
     const QQuick3DFileInstancing *self) {
   return self->instanceCount();
+}
+
+//  void QQuick3DFileInstancing::instanceCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DFileInstancing20instanceCountChangedEv(
+    QQuick3DFileInstancing *self) {
+  self->instanceCountChanged();
+}
+
+//  void QQuick3DFileInstancing::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuick3DFileInstancing13sourceChangedEv(
+    QQuick3DFileInstancing *self) {
+  self->sourceChanged();
 }
 
 //  QByteArray QQuick3DFileInstancing::getInstanceBuffer(int *instanceCount)

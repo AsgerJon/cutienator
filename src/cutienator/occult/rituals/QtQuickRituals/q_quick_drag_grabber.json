@@ -13,8 +13,17 @@
     ],
     "ritual_ZN17QQuickDragGrabber11resetTargetEv": ["nothing", "address"],
     "ritual_ZNK17QQuickDragGrabber7isEmptyEv": ["bool", "address"],
+    "ritual_ZN17QQuickDragGrabber5beginEv": ["address", "address"],
+    "ritual_ZN17QQuickDragGrabber3endEv": ["address", "address"],
     "ritual_ZN17QQuickDragGrabber4grabEP10QQuickItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickDragGrabber7releaseEN14QIntrusiveListINS_4ItemEXadL_ZNS1_4nodeEEEE8iteratorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickDragGrabber10ignoreListEv": ["address", "address"],
+    "ritual_drop_QQuickDragGrabber__QQuickDragGrabber_iterator": [
+      "nothing", "address"
     ]
   }
 }

@@ -42,6 +42,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/sql/models/qsqlquerymodel.cpp, line 53, as _ZN21QSqlQueryModelPrivateD2Ev
 inline QSqlQueryModelPrivate::~QSqlQueryModelPrivate()
 {

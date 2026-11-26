@@ -366,11 +366,550 @@ public:
 #endif  // !defined(QT_NO_QOBJECT)
 };
 
+//  QSGBatchRenderer::Renderer::Renderer(QSGDefaultRenderContext *ctx,
+//      QSGRendererInterface::RenderMode renderMode)
+extern "C" Q_DECL_EXPORT
+QSGBatchRenderer::Renderer *ritual_ZN16QSGBatchRenderer8RendererC1EP23QSGDefaultRenderContextN20QSGRendererInterface10RenderModeE(
+    QSGDefaultRenderContext *ctx,
+    QSGRendererInterface::RenderMode renderMode) {
+  return new CuteQSGBatchRenderer_Renderer(ctx, renderMode);
+}
+
+//  QSGBatchRenderer::Renderer::~Renderer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8RendererD1Ev(
+    QSGBatchRenderer::Renderer *self) {
+  delete self;
+}
+
+//  void QSGBatchRenderer::Renderer::nodeChanged(QSGNode *node,
+//      QSGNode::DirtyState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer11nodeChangedEP7QSGNode6QFlagsINS1_13DirtyStateBitEE(
+    QSGBatchRenderer::Renderer *self,
+    QSGNode *node,
+    int state) {
+  self->nodeChanged(node, QFlags<QSGNode::DirtyStateBit>::fromInt(state));
+}
+
+//  void QSGBatchRenderer::Renderer::render()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer6renderEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->render();
+}
+
+//  void QSGBatchRenderer::Renderer::prepareInline()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer13prepareInlineEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->prepareInline();
+}
+
+//  void QSGBatchRenderer::Renderer::renderInline()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer12renderInlineEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->renderInline();
+}
+
+//  void QSGBatchRenderer::Renderer::releaseCachedResources()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer22releaseCachedResourcesEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->releaseCachedResources();
+}
+
+//  void QSGBatchRenderer::Renderer::prepareRenderPass(RenderPassContext
+//      *ctx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer17prepareRenderPassEPNS0_17RenderPassContextE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Renderer::RenderPassContext *ctx) {
+  self->prepareRenderPass(ctx);
+}
+
+//  void QSGBatchRenderer::Renderer::beginRenderPass(RenderPassContext *ctx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer15beginRenderPassEPNS0_17RenderPassContextE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Renderer::RenderPassContext *ctx) {
+  self->beginRenderPass(ctx);
+}
+
+//  void QSGBatchRenderer::Renderer::recordRenderPass(RenderPassContext *ctx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer16recordRenderPassEPNS0_17RenderPassContextE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Renderer::RenderPassContext *ctx) {
+  self->recordRenderPass(ctx);
+}
+
+//  void QSGBatchRenderer::Renderer::endRenderPass(RenderPassContext *ctx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer13endRenderPassEPNS0_17RenderPassContextE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Renderer::RenderPassContext *ctx) {
+  self->endRenderPass(ctx);
+}
+
+//  void QSGBatchRenderer::Renderer::destroyGraphicsResources()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer24destroyGraphicsResourcesEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->destroyGraphicsResources();
+}
+
+//  void QSGBatchRenderer::Renderer::map(Buffer *buffer, quint32 byteSize,
+//      bool isIndexBuf)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer3mapEPNS_6BufferEjb(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Buffer *buffer,
+    quint32 byteSize,
+    bool isIndexBuf) {
+  self->map(buffer, byteSize, isIndexBuf);
+}
+
+//  void QSGBatchRenderer::Renderer::unmap(Buffer *buffer, bool isIndexBuf)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer5unmapEPNS_6BufferEb(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Buffer *buffer,
+    bool isIndexBuf) {
+  self->unmap(buffer, isIndexBuf);
+}
+
+//  void QSGBatchRenderer::Renderer::buildRenderListsFromScratch()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer27buildRenderListsFromScratchEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->buildRenderListsFromScratch();
+}
+
+//  void QSGBatchRenderer::Renderer::buildRenderListsForTaggedRoots()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer30buildRenderListsForTaggedRootsEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->buildRenderListsForTaggedRoots();
+}
+
+//  void QSGBatchRenderer::Renderer::tagSubRoots(Node *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer11tagSubRootsEPNS_4NodeE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Node *node) {
+  self->tagSubRoots(node);
+}
+
+//  void QSGBatchRenderer::Renderer::buildRenderLists(QSGNode *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer16buildRenderListsEP7QSGNode(
+    QSGBatchRenderer::Renderer *self,
+    QSGNode *node) {
+  self->buildRenderLists(node);
+}
+
+//  void QSGBatchRenderer::Renderer::deleteRemovedElements()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer21deleteRemovedElementsEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->deleteRemovedElements();
+}
+
+//  void QSGBatchRenderer::Renderer::cleanupBatches(QDataBuffer<Batch *>
+//      *batches)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer14cleanupBatchesEP11QDataBufferIPNS_5BatchEE(
+    QSGBatchRenderer::Renderer *self,
+    QDataBuffer<QSGBatchRenderer::Batch *> *batches) {
+  self->cleanupBatches(batches);
+}
+
+//  void QSGBatchRenderer::Renderer::prepareOpaqueBatches()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer20prepareOpaqueBatchesEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->prepareOpaqueBatches();
+}
+
+//  bool QSGBatchRenderer::Renderer::checkOverlap(int first, int last, const
+//      Rect &bounds)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSGBatchRenderer8Renderer12checkOverlapEiiRKNS_4RectE(
+    QSGBatchRenderer::Renderer *self,
+    int first,
+    int last,
+    const QSGBatchRenderer::Rect *bounds) {
+  return self->checkOverlap(first, last, *bounds);
+}
+
+//  void QSGBatchRenderer::Renderer::prepareAlphaBatches()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer19prepareAlphaBatchesEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->prepareAlphaBatches();
+}
+
+//  void QSGBatchRenderer::Renderer::invalidateBatchAndOverlappingRenderOrder
+//      s(Batch *batch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer41invalidateBatchAndOverlappingRenderOrdersEPNS_5BatchE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Batch *batch) {
+  self->invalidateBatchAndOverlappingRenderOrders(batch);
+}
+
+//  void QSGBatchRenderer::Renderer::uploadBatch(Batch *b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer11uploadBatchEPNS_5BatchE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Batch *b) {
+  self->uploadBatch(b);
+}
+
+//  void QSGBatchRenderer::Renderer::uploadMergedElement(Element *e, int
+//      vaOffset, char **vertexData, char **zData, char **indexData, void
+//      *iBasePtr, int *indexCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer19uploadMergedElementEPNS_7ElementEiPPcS4_S4_PvPi(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Element *e,
+    int vaOffset,
+    char **vertexData,
+    char **zData,
+    char **indexData,
+    void *iBasePtr,
+    int *indexCount) {
+  self->uploadMergedElement(
+      e,
+      vaOffset,
+      vertexData,
+      zData,
+      indexData,
+      iBasePtr,
+      indexCount);
+}
+
+//  bool QSGBatchRenderer::Renderer::ensurePipelineState(Element *e, const
+//      ShaderManager::Shader *sms, bool depthPostPass)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSGBatchRenderer8Renderer19ensurePipelineStateEPNS_7ElementEPKNS_19ShaderManagerShaderEb(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Element *e,
+    const QSGBatchRenderer::ShaderManager::Shader *sms,
+    bool depthPostPass) {
+  return self->ensurePipelineState(e, sms, depthPostPass);
+}
+
+//  QRhiTexture *QSGBatchRenderer::Renderer::dummyTexture()
+extern "C" Q_DECL_EXPORT
+QRhiTexture *ritual_ZN16QSGBatchRenderer8Renderer12dummyTextureEv(
+    QSGBatchRenderer::Renderer *self) {
+  return self->dummyTexture();
+}
+
+//  void QSGBatchRenderer::Renderer::updateMaterialDynamicData(ShaderManager:
+//      :Shader *sms, QSGMaterialShader::RenderState &renderState,
+//      QSGMaterial *material, const Batch *batch, Element *e, int
+//      ubufOffset, char *directUpdatePtr)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer25updateMaterialDynamicDataEPNS_19ShaderManagerShaderERN17QSGMaterialShader11RenderStateEP11QSGMaterialPKNS_5BatchEPNS_7ElementEiPc(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::ShaderManager::Shader *sms,
+    QSGMaterialShader::RenderState *renderState,
+    QSGMaterial *material,
+    const QSGBatchRenderer::Batch *batch,
+    QSGBatchRenderer::Element *e,
+    int ubufOffset,
+    char *directUpdatePtr) {
+  self->updateMaterialDynamicData(
+      sms,
+      *renderState,
+      material,
+      batch,
+      e,
+      ubufOffset,
+      directUpdatePtr);
+}
+
+//  void QSGBatchRenderer::Renderer::updateMaterialStaticData(ShaderManager::
+//      Shader *sms, QSGMaterialShader::RenderState &renderState, QSGMaterial
+//      *material, Batch *batch, bool *gstateChanged)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer24updateMaterialStaticDataEPNS_19ShaderManagerShaderERN17QSGMaterialShader11RenderStateEP11QSGMaterialPNS_5BatchEPb(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::ShaderManager::Shader *sms,
+    QSGMaterialShader::RenderState *renderState,
+    QSGMaterial *material,
+    QSGBatchRenderer::Batch *batch,
+    bool *gstateChanged) {
+  self->updateMaterialStaticData(
+      sms,
+      *renderState,
+      material,
+      batch,
+      gstateChanged);
+}
+
+//  void QSGBatchRenderer::Renderer::checkLineWidth(QSGGeometry *g)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer14checkLineWidthEP11QSGGeometry(
+    QSGBatchRenderer::Renderer *self,
+    QSGGeometry *g) {
+  self->checkLineWidth(g);
+}
+
+//  bool QSGBatchRenderer::Renderer::prepareRenderMergedBatch(Batch *batch,
+//      PreparedRenderBatch *renderBatch)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSGBatchRenderer8Renderer24prepareRenderMergedBatchEPNS_5BatchEPNS0_19PreparedRenderBatchE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Batch *batch,
+    QSGBatchRenderer::Renderer::PreparedRenderBatch *renderBatch) {
+  return self->prepareRenderMergedBatch(batch, renderBatch);
+}
+
+//  void QSGBatchRenderer::Renderer::renderMergedBatch(PreparedRenderBatch
+//      *renderBatch, bool depthPostPass)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer17renderMergedBatchEPNS0_19PreparedRenderBatchEb(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Renderer::PreparedRenderBatch *renderBatch,
+    bool depthPostPass) {
+  self->renderMergedBatch(renderBatch, depthPostPass);
+}
+
+//  bool QSGBatchRenderer::Renderer::prepareRenderUnmergedBatch(Batch *batch,
+//      PreparedRenderBatch *renderBatch)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSGBatchRenderer8Renderer26prepareRenderUnmergedBatchEPNS_5BatchEPNS0_19PreparedRenderBatchE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Batch *batch,
+    QSGBatchRenderer::Renderer::PreparedRenderBatch *renderBatch) {
+  return self->prepareRenderUnmergedBatch(batch, renderBatch);
+}
+
+//  void QSGBatchRenderer::Renderer::renderUnmergedBatch(PreparedRenderBatch
+//      *renderBatch, bool depthPostPass)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer19renderUnmergedBatchEPNS0_19PreparedRenderBatchEb(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Renderer::PreparedRenderBatch *renderBatch,
+    bool depthPostPass) {
+  self->renderUnmergedBatch(renderBatch, depthPostPass);
+}
+
+//  void QSGBatchRenderer::Renderer::setViewportAndScissors(QRhiCommandBuffer
+//      *cb, const Batch *batch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer22setViewportAndScissorsEP17QRhiCommandBufferPKNS_5BatchE(
+    QSGBatchRenderer::Renderer *self,
+    QRhiCommandBuffer *cb,
+    const QSGBatchRenderer::Batch *batch) {
+  self->setViewportAndScissors(cb, batch);
+}
+
+//  void QSGBatchRenderer::Renderer::setGraphicsPipeline(QRhiCommandBuffer
+//      *cb, const Batch *batch, Element *e, bool depthPostPass)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer19setGraphicsPipelineEP17QRhiCommandBufferPKNS_5BatchEPNS_7ElementEb(
+    QSGBatchRenderer::Renderer *self,
+    QRhiCommandBuffer *cb,
+    const QSGBatchRenderer::Batch *batch,
+    QSGBatchRenderer::Element *e,
+    bool depthPostPass) {
+  self->setGraphicsPipeline(cb, batch, e, depthPostPass);
+}
+
+//  void QSGBatchRenderer::Renderer::applyClipStateToGraphicsState()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer29applyClipStateToGraphicsStateEv(
+    QSGBatchRenderer::Renderer *self) {
+  self->applyClipStateToGraphicsState();
+}
+
+//  QRhiGraphicsPipeline
+//      *QSGBatchRenderer::Renderer::buildStencilPipeline(const Batch *batch,
+//      bool firstStencilClipInBatch)
+extern "C" Q_DECL_EXPORT
+QRhiGraphicsPipeline *ritual_ZN16QSGBatchRenderer8Renderer20buildStencilPipelineEPKNS_5BatchEb(
+    QSGBatchRenderer::Renderer *self,
+    const QSGBatchRenderer::Batch *batch,
+    bool firstStencilClipInBatch) {
+  return self->buildStencilPipeline(batch, firstStencilClipInBatch);
+}
+
+//  void QSGBatchRenderer::Renderer::updateClipState(const QSGClipNode
+//      *clipList, Batch *batch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer15updateClipStateEPK11QSGClipNodePNS_5BatchE(
+    QSGBatchRenderer::Renderer *self,
+    const QSGClipNode *clipList,
+    QSGBatchRenderer::Batch *batch) {
+  self->updateClipState(clipList, batch);
+}
+
+//  void QSGBatchRenderer::Renderer::enqueueStencilDraw(const Batch *batch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer18enqueueStencilDrawEPKNS_5BatchE(
+    QSGBatchRenderer::Renderer *self,
+    const QSGBatchRenderer::Batch *batch) {
+  self->enqueueStencilDraw(batch);
+}
+
+//  bool QSGBatchRenderer::Renderer::prepareRhiRenderNode(Batch *batch,
+//      PreparedRenderBatch *renderBatch)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSGBatchRenderer8Renderer20prepareRhiRenderNodeEPNS_5BatchEPNS0_19PreparedRenderBatchE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Batch *batch,
+    QSGBatchRenderer::Renderer::PreparedRenderBatch *renderBatch) {
+  return self->prepareRhiRenderNode(batch, renderBatch);
+}
+
+//  void QSGBatchRenderer::Renderer::renderRhiRenderNode(const Batch *batch)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer19renderRhiRenderNodeEPKNS_5BatchE(
+    QSGBatchRenderer::Renderer *self,
+    const QSGBatchRenderer::Batch *batch) {
+  self->renderRhiRenderNode(batch);
+}
+
+//  void QSGBatchRenderer::Renderer::setActiveRhiShader(QSGMaterialShader
+//      *program, ShaderManager::Shader *shader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer18setActiveRhiShaderEP17QSGMaterialShaderPNS_19ShaderManagerShaderE(
+    QSGBatchRenderer::Renderer *self,
+    QSGMaterialShader *program,
+    QSGBatchRenderer::ShaderManager::Shader *shader) {
+  self->setActiveRhiShader(program, shader);
+}
+
+//  bool QSGBatchRenderer::Renderer::changeBatchRoot(Node *node, Node
+//      *newRoot)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QSGBatchRenderer8Renderer15changeBatchRootEPNS_4NodeES2_(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Node *node,
+    QSGBatchRenderer::Node *newRoot) {
+  return self->changeBatchRoot(node, newRoot);
+}
+
+//  void QSGBatchRenderer::Renderer::registerBatchRoot(Node *childRoot, Node
+//      *parentRoot)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer17registerBatchRootEPNS_4NodeES2_(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Node *childRoot,
+    QSGBatchRenderer::Node *parentRoot) {
+  self->registerBatchRoot(childRoot, parentRoot);
+}
+
+//  void QSGBatchRenderer::Renderer::removeBatchRootFromParent(Node
+//      *childRoot)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer25removeBatchRootFromParentEPNS_4NodeE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Node *childRoot) {
+  self->removeBatchRootFromParent(childRoot);
+}
+
+//  void QSGBatchRenderer::Renderer::nodeChangedBatchRoot(Node *node, Node
+//      *root)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer20nodeChangedBatchRootEPNS_4NodeES2_(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Node *node,
+    QSGBatchRenderer::Node *root) {
+  self->nodeChangedBatchRoot(node, root);
+}
+
+//  void QSGBatchRenderer::Renderer::turnNodeIntoBatchRoot(Node *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer21turnNodeIntoBatchRootEPNS_4NodeE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Node *node) {
+  self->turnNodeIntoBatchRoot(node);
+}
+
+//  void QSGBatchRenderer::Renderer::nodeWasTransformed(Node *node, int
+//      *vertexCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer18nodeWasTransformedEPNS_4NodeEPi(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Node *node,
+    int *vertexCount) {
+  self->nodeWasTransformed(node, vertexCount);
+}
+
+//  void QSGBatchRenderer::Renderer::nodeWasRemoved(Node *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer14nodeWasRemovedEPNS_4NodeE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Node *node) {
+  self->nodeWasRemoved(node);
+}
+
+//  void QSGBatchRenderer::Renderer::nodeWasAdded(QSGNode *node, Node
+//      *shadowParent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer12nodeWasAddedEP7QSGNodePNS_4NodeE(
+    QSGBatchRenderer::Renderer *self,
+    QSGNode *node,
+    QSGBatchRenderer::Node *shadowParent) {
+  self->nodeWasAdded(node, shadowParent);
+}
+
+//  BatchRootInfo *QSGBatchRenderer::Renderer::batchRootInfo(Node *node)
+extern "C" Q_DECL_EXPORT
+QSGBatchRenderer::BatchRootInfo *ritual_ZN16QSGBatchRenderer8Renderer13batchRootInfoEPNS_4NodeE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Node *node) {
+  return self->batchRootInfo(node);
+}
+
 //  Batch *QSGBatchRenderer::Renderer::newBatch()
 extern "C" Q_DECL_EXPORT
 QSGBatchRenderer::Batch *ritual_ZN16QSGBatchRenderer8Renderer8newBatchEv(
     QSGBatchRenderer::Renderer *self) {
   return self->newBatch();
+}
+
+//  void QSGBatchRenderer::Renderer::invalidateAndRecycleBatch(Batch *b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer25invalidateAndRecycleBatchEPNS_5BatchE(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Batch *b) {
+  self->invalidateAndRecycleBatch(b);
+}
+
+//  void QSGBatchRenderer::Renderer::releaseElement(Element *e, bool
+//      inDestructor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer14releaseElementEPNS_7ElementEb(
+    QSGBatchRenderer::Renderer *self,
+    QSGBatchRenderer::Element *e,
+    bool inDestructor) {
+  self->releaseElement(e, inDestructor);
+}
+
+//  void QSGBatchRenderer::Renderer::setVisualizationMode(const QByteArray
+//      &mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSGBatchRenderer8Renderer20setVisualizationModeERK10QByteArray(
+    QSGBatchRenderer::Renderer *self,
+    const QByteArray *mode) {
+  self->setVisualizationMode(*mode);
+}
+
+//  bool
+//      QSGBatchRenderer::Renderer::hasVisualizationModeWithContinuousUpdate(
+//      ) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QSGBatchRenderer8Renderer40hasVisualizationModeWithContinuousUpdateEv(
+    const QSGBatchRenderer::Renderer *self) {
+  return self->hasVisualizationModeWithContinuousUpdate();
 }
 
 //  int QSGBatchRenderer::Renderer::mergedIndexElemSize() const

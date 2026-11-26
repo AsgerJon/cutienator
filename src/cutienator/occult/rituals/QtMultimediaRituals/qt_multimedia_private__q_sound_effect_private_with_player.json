@@ -5,8 +5,95 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer12getEngineForERK12QAudioDeviceRK12QAudioFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayerC1EP12QSoundEffect12QAudioDevice": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer14setAudioDeviceE12QAudioDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer11audioDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer9setSourceE4QUrlR12QSampleCache": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer6statusEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer9loopCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer12setLoopCountEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer14loopsRemainingEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer6volumeEv": [
+      "float", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer9setVolumeEf": [
+      "bool", "address", "float"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer5mutedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer8setMutedEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer4playEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer4stopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer7playingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer6playerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer6voicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer4playESt10shared_ptrINS_17QSoundEffectVoiceEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer9setStatusEN12QSoundEffect6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer12updatePlayerERKSt10shared_ptrI7QSampleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer11activeVoiceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer17formatIsSupportedERK12QAudioFormat": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer22setResolvedAudioDeviceE12QAudioDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer18resolveAudioDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate29QSoundEffectPrivateWithPlayer17setLoopsRemainingEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_cast_QtMultimediaPrivate_QSoundEffectPrivateWithPlayer_QSoundEffectPrivate": [
       "address", "address"
+    ],
+    "ritual_drop_QtMultimediaPrivate_QSoundEffectPrivateWithPlayer__std_shared_ptr_QtMultimediaPrivate_QRtAudioEngine": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QtMultimediaPrivate_QSoundEffectPrivateWithPlayer__std_optional_QtMultimediaPrivate_VoiceId": [
+      "nothing", "address"
     ]
   }
 }

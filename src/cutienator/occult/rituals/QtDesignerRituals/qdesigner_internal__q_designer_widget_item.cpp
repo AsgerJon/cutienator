@@ -17,6 +17,15 @@ const QMetaObject *ritual_ZNK18qdesigner_internal19QDesignerWidgetItem10metaObje
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::QDesignerWidgetItem::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal19QDesignerWidgetItem11qt_metacastEPKc(
+    qdesigner_internal::QDesignerWidgetItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
 //  QString qdesigner_internal::QDesignerWidgetItem::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -32,6 +41,19 @@ extern "C" Q_DECL_EXPORT
 QWidget *ritual_ZNK18qdesigner_internal19QDesignerWidgetItem11constWidgetEv(
     const qdesigner_internal::QDesignerWidgetItem *self) {
   return self->constWidget();
+}
+
+//  bool qdesigner_internal::QDesignerWidgetItem::check(const QLayout
+//      *layout, QWidget *w, Qt::Orientations *ptrToOrientations)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal19QDesignerWidgetItem5checkEPK7QLayoutP7QWidgetP6QFlagsIN2Qt11OrientationEE(
+    const QLayout *layout,
+    QWidget *w,
+    Qt::Orientations *ptrToOrientations) {
+  return qdesigner_internal::QDesignerWidgetItem::check(
+      layout,
+      w,
+      ptrToOrientations);
 }
 
 //  qdesigner_internal::QDesignerWidgetItem as the QWidgetItemV2 it is built

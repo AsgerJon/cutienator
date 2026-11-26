@@ -9,11 +9,20 @@
 #include <QtPositioning/qgeocoordinate.h>
 #include <QtLocation/qgeomaneuver.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QExplicitlySharedDataPointer>
 
 //  QGeoRouteSegmentPrivate::QGeoRouteSegmentPrivate()
 extern "C" Q_DECL_EXPORT
 QGeoRouteSegmentPrivate *ritual_ZN23QGeoRouteSegmentPrivateC1Ev() {
   return new QGeoRouteSegmentPrivate();
+}
+
+//  QGeoRouteSegmentPrivate *QGeoRouteSegmentPrivate::get(QGeoRouteSegment
+//      &segment)
+extern "C" Q_DECL_EXPORT
+QGeoRouteSegmentPrivate *ritual_ZN23QGeoRouteSegmentPrivate3getER16QGeoRouteSegment(
+    QGeoRouteSegment *segment) {
+  return QGeoRouteSegmentPrivate::get(*segment);
 }
 
 //  bool QGeoRouteSegmentPrivate::valid() const
@@ -106,8 +115,34 @@ void ritual_ZN23QGeoRouteSegmentPrivate11setManeuverERK12QGeoManeuver(
   self->setManeuver(*maneuver);
 }
 
+//  QExplicitlySharedDataPointer<QGeoRouteSegmentPrivate>
+//      QGeoRouteSegmentPrivate::nextRouteSegment() const
+extern "C" Q_DECL_EXPORT
+QExplicitlySharedDataPointer<QGeoRouteSegmentPrivate> *ritual_ZNK23QGeoRouteSegmentPrivate16nextRouteSegmentEv(
+    const QGeoRouteSegmentPrivate *self) {
+  return new QExplicitlySharedDataPointer<QGeoRouteSegmentPrivate>(
+      self->nextRouteSegment());
+}
+
+//  void QGeoRouteSegmentPrivate::setNextRouteSegment(const
+//      QExplicitlySharedDataPointer<QGeoRouteSegmentPrivate> &next)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QGeoRouteSegmentPrivate19setNextRouteSegmentERK28QExplicitlySharedDataPointerIS_E(
+    QGeoRouteSegmentPrivate *self,
+    const QExplicitlySharedDataPointer<QGeoRouteSegmentPrivate> *next) {
+  self->setNextRouteSegment(*next);
+}
+
 //  QGeoRouteSegmentPrivate::~QGeoRouteSegmentPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QGeoRouteSegmentPrivateD1Ev(QGeoRouteSegmentPrivate *self) {
+  delete self;
+}
+
+//  a QExplicitlySharedDataPointer<QGeoRouteSegmentPrivate> a ritual of
+//      QGeoRouteSegmentPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoRouteSegmentPrivate__QExplicitlySharedDataPointer_QGeoRouteSegmentPrivate(
+    QExplicitlySharedDataPointer<QGeoRouteSegmentPrivate> *self) {
   delete self;
 }

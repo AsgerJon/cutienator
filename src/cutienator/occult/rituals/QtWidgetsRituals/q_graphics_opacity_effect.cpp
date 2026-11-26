@@ -257,6 +257,25 @@ const QMetaObject *ritual_ZNK22QGraphicsOpacityEffect10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsOpacityEffect::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QGraphicsOpacityEffect11qt_metacastEPKc(
+    QGraphicsOpacityEffect *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsOpacityEffect::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QGraphicsOpacityEffect11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsOpacityEffect *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsOpacityEffect::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QGraphicsOpacityEffect2trEPKcS1_i(
@@ -307,6 +326,22 @@ void ritual_ZN22QGraphicsOpacityEffect14setOpacityMaskERK6QBrush(
     QGraphicsOpacityEffect *self,
     const QBrush *mask) {
   self->setOpacityMask(*mask);
+}
+
+//  void QGraphicsOpacityEffect::opacityChanged(qreal opacity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGraphicsOpacityEffect14opacityChangedEd(
+    QGraphicsOpacityEffect *self,
+    qreal opacity) {
+  self->opacityChanged(opacity);
+}
+
+//  void QGraphicsOpacityEffect::opacityMaskChanged(const QBrush &mask)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGraphicsOpacityEffect18opacityMaskChangedERK6QBrush(
+    QGraphicsOpacityEffect *self,
+    const QBrush *mask) {
+  self->opacityMaskChanged(*mask);
 }
 
 //  void QGraphicsOpacityEffect::draw(QPainter *painter)

@@ -95,6 +95,59 @@ QQuickStatePrivate *ritual_ZN18QQuickStatePrivateC1Ev() {
   return new QQuickStatePrivate();
 }
 
+//  void QQuickStatePrivate::operations_append(QQmlListProperty<QQuickStateOp
+//      eration> *prop, QQuickStateOperation *op)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickStatePrivate17operations_appendEP16QQmlListPropertyI20QQuickStateOperationEPS1_(
+    QQmlListProperty<QQuickStateOperation> *prop,
+    QQuickStateOperation *op) {
+  QQuickStatePrivate::operations_append(prop, op);
+}
+
+//  void QQuickStatePrivate::operations_clear(QQmlListProperty<QQuickStateOpe
+//      ration> *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickStatePrivate16operations_clearEP16QQmlListPropertyI20QQuickStateOperationE(
+    QQmlListProperty<QQuickStateOperation> *prop) {
+  QQuickStatePrivate::operations_clear(prop);
+}
+
+//  qsizetype QQuickStatePrivate::operations_count(QQmlListProperty<QQuickSta
+//      teOperation> *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN18QQuickStatePrivate16operations_countEP16QQmlListPropertyI20QQuickStateOperationE(
+    QQmlListProperty<QQuickStateOperation> *prop) {
+  return QQuickStatePrivate::operations_count(prop);
+}
+
+//  QQuickStateOperation
+//      *QQuickStatePrivate::operations_at(QQmlListProperty<QQuickStateOperat
+//      ion> *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickStateOperation *ritual_ZN18QQuickStatePrivate13operations_atEP16QQmlListPropertyI20QQuickStateOperationEx(
+    QQmlListProperty<QQuickStateOperation> *prop,
+    qsizetype index) {
+  return QQuickStatePrivate::operations_at(prop, index);
+}
+
+//  void QQuickStatePrivate::operations_replace(QQmlListProperty<QQuickStateO
+//      peration> *prop, qsizetype index, QQuickStateOperation *op)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickStatePrivate18operations_replaceEP16QQmlListPropertyI20QQuickStateOperationExPS1_(
+    QQmlListProperty<QQuickStateOperation> *prop,
+    qsizetype index,
+    QQuickStateOperation *op) {
+  QQuickStatePrivate::operations_replace(prop, index, op);
+}
+
+//  void QQuickStatePrivate::operations_removeLast(QQmlListProperty<QQuickSta
+//      teOperation> *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickStatePrivate21operations_removeLastEP16QQmlListPropertyI20QQuickStateOperationE(
+    QQmlListProperty<QQuickStateOperation> *prop) {
+  QQuickStatePrivate::operations_removeLast(prop);
+}
+
 //  QQuickStateOperation::ActionList QQuickStatePrivate::generateActionList()
 //      const
 extern "C" Q_DECL_EXPORT

@@ -5,23 +5,66 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClipC1Ev": ["address"],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip7cleanupEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN13Qt3DAnimation9Animation13AnimationClip9setSourceERK4QUrl": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation9Animation13AnimationClip6sourceEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip9setStatusENS_20QAnimationClipLoader6StatusE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK13Qt3DAnimation9Animation13AnimationClip6statusEv": [
       "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip24addDependingClipAnimatorERKN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip31addDependingBlendedClipAnimatorERKN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation9Animation13AnimationClip4nameEv": [
       "text", "address"
     ],
+    "ritual_ZNK13Qt3DAnimation9Animation13AnimationClip8channelsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip11setDurationEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZNK13Qt3DAnimation9Animation13AnimationClip8durationEv": [
       "float", "address"
     ],
+    "ritual_ZNK13Qt3DAnimation9Animation13AnimationClip12channelIndexERK7QStringx": [
+      "long long", "address", "text", "long long"
+    ],
     "ritual_ZNK13Qt3DAnimation9Animation13AnimationClip12channelCountEv": [
       "long long", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation13AnimationClip25channelComponentBaseIndexEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip21loadAnimationFromDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip9clearDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip12findDurationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13AnimationClip25findChannelComponentCountEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN13Qt3DAnimation9Animation13AnimationClip16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ]
   }
 }

@@ -4,6 +4,16 @@
     "QtTaskTree/qtasktree.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK10QtTaskTree14ExecutableItem11withTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFvvEE": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZNK10QtTaskTree14ExecutableItem7withLogERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN10QtTaskTree14ExecutableItemC1Ev": ["address"],
+    "ritual_ZN10QtTaskTree14ExecutableItemC1ERKNS_9GroupItem11TaskHandlerE": [
+      "address", "address"
+    ],
     "ritual_ZN10QtTaskTreentERKNS_14ExecutableItemE": ["address", "address"],
     "ritual_ZN10QtTaskTreeaaERKNS_14ExecutableItemES2_": [
       "address", "address", "address"
@@ -16,6 +26,12 @@
     ],
     "ritual_ZN10QtTaskTreeooERKNS_14ExecutableItemENS_10DoneResultE": [
       "address", "address", "int"
+    ],
+    "ritual_ZNK10QtTaskTree14ExecutableItem14withCancelImplERKSt8functionIFvP7QObjectRKS1_IFvvEEEERK5QListINS_9GroupItemEE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK10QtTaskTree14ExecutableItem14withAcceptImplERKSt8functionIFvP7QObjectRKS1_IFvvEEEE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10QtTaskTree14ExecutableItemD1Ev": ["nothing", "address"]
   }

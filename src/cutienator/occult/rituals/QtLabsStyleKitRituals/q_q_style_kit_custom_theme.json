@@ -8,8 +8,20 @@
     "ritual_ZNK21QQStyleKitCustomTheme10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQStyleKitCustomTheme11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQStyleKitCustomTheme11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK21QQStyleKitCustomTheme4nameEv": ["text", "address"],
     "ritual_ZNK21QQStyleKitCustomTheme5themeEv": ["address", "address"],
+    "ritual_ZN21QQStyleKitCustomTheme11nameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQStyleKitCustomTheme12themeChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_list_make_QQStyleKitCustomTheme_ptr": ["address"],
     "ritual_list_add_QQStyleKitCustomTheme_ptr": [
       "nothing", "address", "address"

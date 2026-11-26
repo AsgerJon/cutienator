@@ -10,7 +10,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qaccessiblequickpopupitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
+#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
@@ -143,27 +145,33 @@ typedef void (*CuteQAccessibleQuickPopupItemCall28)(const void *, int, int, int 
 typedef const QVariant * (*CuteQAccessibleQuickPopupItemCall29)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef void * (*CuteQAccessibleQuickPopupItemCall30)(const void *, int *);
+typedef void * (*CuteQAccessibleQuickPopupItemCall30)(const void *, int, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef void * (*CuteQAccessibleQuickPopupItemCall31)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef const QColor * (*CuteQAccessibleQuickPopupItemCall32)(const void *, int *);
+typedef void * (*CuteQAccessibleQuickPopupItemCall32)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 typedef const QColor * (*CuteQAccessibleQuickPopupItemCall33)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleQuickPopupItemCall34)(const void *, const QString *, int *);
+typedef const QColor * (*CuteQAccessibleQuickPopupItemCall34)(const void *, int *);
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-typedef QString * (*CuteQAccessibleQuickPopupItemCall35)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleQuickPopupItemCall35)(const void *, int, void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleQuickPopupItemCall36)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+typedef QString * (*CuteQAccessibleQuickPopupItemCall37)(const void *, const QString *, int *);
 #endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleQuickPopupItem : public QAccessibleQuickPopupItem {
 public:
   using QAccessibleQuickPopupItem::QAccessibleQuickPopupItem;
-  void *taken[36] = {};
+  void *taken[38] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(accessibility)
@@ -347,38 +355,50 @@ public:
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface14interface_castEN11QAccessible13InterfaceTypeE")) {
       taken[30] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
       taken[31] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
       taken[32] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
       taken[33] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[34] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
-    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface12virtual_hookEiPv")) {
       taken[35] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[36] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+      taken[37] = call;
       return true;
     }
 #endif  // QT_CONFIG(accessibility)
@@ -794,11 +814,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
-  //  QObject *QAccessibleObject::object() const
-  QObject *object() const override {
+  //  void *QAccessibleQuickItem::interface_cast(QAccessible::InterfaceType
+  //      t)
+  void *interface_cast(QAccessible::InterfaceType t) override {
     if (taken[30]) {
       int handled = 0;
       CuteQAccessibleQuickPopupItemCall30 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall30>(taken[30]);
+      void * given = call(this, static_cast<int>(t), &handled);
+      if (handled) return static_cast<void *>(given);
+    }
+    return QAccessibleQuickItem::interface_cast(t);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+  //  QObject *QAccessibleObject::object() const
+  QObject *object() const override {
+    if (taken[31]) {
+      int handled = 0;
+      CuteQAccessibleQuickPopupItemCall31 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall31>(taken[31]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QObject *>(given);
     }
@@ -809,9 +843,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleInterface::focusChild() const
   QAccessibleInterface *focusChild() const override {
-    if (taken[31]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQAccessibleQuickPopupItemCall31 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall31>(taken[31]);
+      CuteQAccessibleQuickPopupItemCall32 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall32>(taken[32]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -822,9 +856,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleInterface::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[32]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQAccessibleQuickPopupItemCall32 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall32>(taken[32]);
+      CuteQAccessibleQuickPopupItemCall33 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall33>(taken[33]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -835,9 +869,9 @@ public:
 #if QT_CONFIG(accessibility)
   //  QColor QAccessibleInterface::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[33]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQAccessibleQuickPopupItemCall33 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall33>(taken[33]);
+      CuteQAccessibleQuickPopupItemCall34 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall34>(taken[34]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -846,12 +880,25 @@ public:
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+  //  void QAccessibleInterface::virtual_hook(int id, void *data)
+  void virtual_hook(int id, void *data) override {
+    if (taken[35]) {
+      int handled = 0;
+      CuteQAccessibleQuickPopupItemCall35 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall35>(taken[35]);
+      call(this, id, data, &handled);
+      if (handled) return;
+    }
+    QAccessibleInterface::virtual_hook(id, data);
+  }
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionName(const QString
   //      &name) const
   QString localizedActionName(const QString &name) const override {
-    if (taken[34]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQAccessibleQuickPopupItemCall34 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall34>(taken[34]);
+      CuteQAccessibleQuickPopupItemCall36 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall36>(taken[36]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);
@@ -867,9 +914,9 @@ public:
   //  QString QAccessibleActionInterface::localizedActionDescription(const
   //      QString &name) const
   QString localizedActionDescription(const QString &name) const override {
-    if (taken[35]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQAccessibleQuickPopupItemCall35 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall35>(taken[35]);
+      CuteQAccessibleQuickPopupItemCall37 call = reinterpret_cast<CuteQAccessibleQuickPopupItemCall37>(taken[37]);
       QString * given = call(this, &name, &handled);
       if (handled && given) {
         QString back(*given);

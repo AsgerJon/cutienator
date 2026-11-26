@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/scatterpointbufferhelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/private/abstractobjecthelper_p.h>
 #include <QtDataVisualization/private/scatterpointbufferhelper_p.h>
@@ -19,6 +20,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 43, as _ZN20AbstractObjectHelper5uvBufEv
+inline GLuint AbstractObjectHelper::uvBuf()
+{
+    if (!m_meshDataLoaded)
+        qFatal("No loaded object");
+    return m_uvbuffer;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 8, as _ZN20AbstractObjectHelperC2Ev
 inline AbstractObjectHelper::AbstractObjectHelper()
     : m_vertexbuffer(0),
@@ -31,25 +40,19 @@ inline AbstractObjectHelper::AbstractObjectHelper()
     initializeOpenGLFunctions();
 }
 
-//  from ../qtdatavis3d/src/datavisualization/utils/scatterpointbufferhelper.cpp, line 173, as _ZN24ScatterPointBufferHelper22createRangeGradientUVsEP24ScatterSeriesRenderCacheR5QListI9QVector2DE
-inline void ScatterPointBufferHelper::createRangeGradientUVs(ScatterSeriesRenderCache *cache,
-                                                      QList<QVector2D> &buffered_uvs)
+//  from ../qtdatavis3d/src/datavisualization/utils/scatterpointbufferhelper.cpp, line 17, as _ZN24ScatterPointBufferHelperD2Ev
+inline ScatterPointBufferHelper::~ScatterPointBufferHelper()
 {
-    const ScatterRenderItemArray &renderArray = cache->renderArray();
-    const bool updateAll = (cache->updateIndices().size() == 0);
-    const int updateSize = updateAll ? renderArray.size() : cache->updateIndices().size();
-    buffered_uvs.resize(updateSize);
+    if (QOpenGLContext::currentContext())
+        glDeleteBuffers(1, &m_pointbuffer);
+}
 
-    QVector2D uv;
-    uv.setX(0.0f);
-    for (int i = 0; i < updateSize; i++) {
-        int index = updateAll ? i : cache->updateIndices().at(i);
-        const ScatterRenderItem &item = renderArray.at(index);
-
-        float y = ((item.translation().y() + m_scaleY) * 0.5f) / m_scaleY;
-        uv.setY(y);
-        buffered_uvs[i] = uv;
-    }
+//  from ../qtdatavis3d/src/datavisualization/utils/scatterpointbufferhelper.cpp, line 23, as _ZN24ScatterPointBufferHelper8pointBufEv
+inline GLuint ScatterPointBufferHelper::pointBuf()
+{
+    if (!m_meshDataLoaded)
+        qFatal("No loaded object");
+    return m_pointbuffer;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/scatterpointbufferhelper.cpp, line 49, as _ZN24ScatterPointBufferHelper8popPointEv
@@ -96,13 +99,71 @@ inline void ScatterPointBufferHelper::updateUVs(ScatterSeriesRenderCache *cache)
         }
     }
 }
+
+//  from ../qtdatavis3d/src/datavisualization/utils/scatterpointbufferhelper.cpp, line 173, as _ZN24ScatterPointBufferHelper22createRangeGradientUVsEP24ScatterSeriesRenderCacheR5QListI9QVector2DE
+inline void ScatterPointBufferHelper::createRangeGradientUVs(ScatterSeriesRenderCache *cache,
+                                                      QList<QVector2D> &buffered_uvs)
+{
+    const ScatterRenderItemArray &renderArray = cache->renderArray();
+    const bool updateAll = (cache->updateIndices().size() == 0);
+    const int updateSize = updateAll ? renderArray.size() : cache->updateIndices().size();
+    buffered_uvs.resize(updateSize);
+
+    QVector2D uv;
+    uv.setX(0.0f);
+    for (int i = 0; i < updateSize; i++) {
+        int index = updateAll ? i : cache->updateIndices().at(i);
+        const ScatterRenderItem &item = renderArray.at(index);
+
+        float y = ((item.translation().y() + m_scaleY) * 0.5f) / m_scaleY;
+        uv.setY(y);
+        buffered_uvs[i] = uv;
+    }
+}
 //  -----------------------------------------------------------------------
+
+//  A ScatterPointBufferHelper that Python can take functions over in. Every ScatterPointBufferHelper
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef GLuint (*CuteScatterPointBufferHelperCall0)(const void *, int *);
+class CuteScatterPointBufferHelper : public ScatterPointBufferHelper {
+public:
+  using ScatterPointBufferHelper::ScatterPointBufferHelper;
+  CuteScatterPointBufferHelper(const ScatterPointBufferHelper & other) : ScatterPointBufferHelper(other) {}
+  void *taken[1] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN20AbstractObjectHelper5uvBufEv")) {
+      taken[0] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  GLuint AbstractObjectHelper::uvBuf()
+  GLuint uvBuf() override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteScatterPointBufferHelperCall0 call = reinterpret_cast<CuteScatterPointBufferHelperCall0>(taken[0]);
+      GLuint given = call(this, &handled);
+      if (handled) return given;
+    }
+    return AbstractObjectHelper::uvBuf();
+  }
+};
 
 //  ScatterPointBufferHelper::~ScatterPointBufferHelper()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24ScatterPointBufferHelperD1Ev(
     ScatterPointBufferHelper *self) {
   delete self;
+}
+
+//  GLuint ScatterPointBufferHelper::pointBuf()
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZN24ScatterPointBufferHelper8pointBufEv(
+    ScatterPointBufferHelper *self) {
+  return self->pointBuf();
 }
 
 //  void ScatterPointBufferHelper::popPoint()
@@ -126,4 +187,25 @@ void ritual_ZN24ScatterPointBufferHelper9updateUVsEP24ScatterSeriesRenderCache(
     ScatterPointBufferHelper *self,
     ScatterSeriesRenderCache *cache) {
   self->updateUVs(cache);
+}
+
+//  void
+//      ScatterPointBufferHelper::createRangeGradientUVs(ScatterSeriesRenderC
+//      ache *cache, QList<QVector2D> &buffered_uvs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24ScatterPointBufferHelper22createRangeGradientUVsEP24ScatterSeriesRenderCacheR5QListI9QVector2DE(
+    ScatterPointBufferHelper *self,
+    ScatterSeriesRenderCache *cache,
+    QList<QVector2D> *buffered_uvs) {
+  self->createRangeGradientUVs(cache, *buffered_uvs);
+}
+
+//  a Python function taken by a CuteScatterPointBufferHelper, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_ScatterPointBufferHelper(
+    ScatterPointBufferHelper *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteScatterPointBufferHelper *>(self)->take(key, call);
 }

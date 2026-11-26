@@ -829,6 +829,25 @@ const QMetaObject *ritual_ZNK16QLottieAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLottieAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QLottieAnimation11qt_metacastEPKc(
+    QLottieAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLottieAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QLottieAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLottieAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLottieAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QLottieAnimation2trEPKcS1_i(
@@ -1032,6 +1051,76 @@ extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK16QLottieAnimation10jsonSourceEv(
     const QLottieAnimation *self) {
   return new QByteArray(self->jsonSource());
+}
+
+//  void QLottieAnimation::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation13statusChangedEv(QLottieAnimation *self) {
+  self->statusChanged();
+}
+
+//  void QLottieAnimation::qualityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation14qualityChangedEv(QLottieAnimation *self) {
+  self->qualityChanged();
+}
+
+//  void QLottieAnimation::sourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation13sourceChangedEv(QLottieAnimation *self) {
+  self->sourceChanged();
+}
+
+//  void QLottieAnimation::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation8finishedEv(QLottieAnimation *self) {
+  self->finished();
+}
+
+//  void QLottieAnimation::frameRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation16frameRateChangedEv(
+    QLottieAnimation *self) {
+  self->frameRateChanged();
+}
+
+//  void QLottieAnimation::autoPlayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation15autoPlayChangedEv(QLottieAnimation *self) {
+  self->autoPlayChanged();
+}
+
+//  void QLottieAnimation::loopsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation12loopsChangedEv(QLottieAnimation *self) {
+  self->loopsChanged();
+}
+
+//  void QLottieAnimation::directionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation16directionChangedEv(
+    QLottieAnimation *self) {
+  self->directionChanged();
+}
+
+//  void QLottieAnimation::startFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation17startFrameChangedEv(
+    QLottieAnimation *self) {
+  self->startFrameChanged();
+}
+
+//  void QLottieAnimation::endFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation15endFrameChangedEv(QLottieAnimation *self) {
+  self->endFrameChanged();
+}
+
+//  void QLottieAnimation::currentFrameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLottieAnimation19currentFrameChangedEv(
+    QLottieAnimation *self) {
+  self->currentFrameChanged();
 }
 
 //  void QLottieAnimation::loadFinished(const QByteArray &json)

@@ -24,8 +24,22 @@
     "ritual_ZNK21QOpenGLTexturePrivate7isBoundEj": [
       "bool", "address", "unsigned int"
     ],
+    "ritual_ZN21QOpenGLTexturePrivate15allocateStorageEN14QOpenGLTexture11PixelFormatENS0_9PixelTypeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QOpenGLTexturePrivate22allocateMutableStorageEN14QOpenGLTexture11PixelFormatENS0_9PixelTypeE": [
+      "nothing", "address", "int", "int"
+    ],
     "ritual_ZN21QOpenGLTexturePrivate24allocateImmutableStorageEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGLTexturePrivate7setDataEiiiN14QOpenGLTexture11CubeMapFaceENS0_11PixelFormatENS0_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "int",
+      "address", "address"
+    ],
+    "ritual_ZN21QOpenGLTexturePrivate7setDataEiiiiiiiiiN14QOpenGLTexture11CubeMapFaceENS0_11PixelFormatENS0_9PixelTypeEPKvPK27QOpenGLPixelTransferOptions": [
+      "nothing", "address", "int", "int", "int", "int", "int", "int", "int",
+      "int", "int", "int", "int", "int", "address", "address"
     ],
     "ritual_ZN21QOpenGLTexturePrivate11setWrapModeEN14QOpenGLTexture8WrapModeE": [
       "nothing", "address", "int"
@@ -47,6 +61,9 @@
     ],
     "ritual_ZN21QOpenGLTexturePrivate12mipLevelSizeEii": [
       "int", "int", "int"
+    ],
+    "ritual_ZNK21QOpenGLTexturePrivate23isUsingImmutableStorageEv": [
+      "bool", "address"
     ]
   }
 }

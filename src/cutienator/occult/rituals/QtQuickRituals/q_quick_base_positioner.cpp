@@ -857,6 +857,25 @@ const QMetaObject *ritual_ZNK20QQuickBasePositioner10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickBasePositioner::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickBasePositioner11qt_metacastEPKc(
+    QQuickBasePositioner *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickBasePositioner::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickBasePositioner11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickBasePositioner *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickBasePositioner::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickBasePositioner2trEPKcS1_i(
@@ -878,6 +897,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickBasePositioner21qt_qmlMarker_attachedEv(
     QQuickBasePositioner *self) {
   self->qt_qmlMarker_attached();
+}
+
+//  QQuickBasePositioner::QQuickBasePositioner(PositionerType a0, QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickBasePositioner *ritual_ZN20QQuickBasePositionerC1ENS_14PositionerTypeEP10QQuickItem(
+    QQuickBasePositioner::PositionerType a0,
+    QQuickItem *parent) {
+  return new CuteQQuickBasePositioner(a0, parent);
 }
 
 //  QQuickBasePositioner::~QQuickBasePositioner()
@@ -1094,6 +1122,16 @@ void ritual_ZN20QQuickBasePositioner11forceLayoutEv(
   self->forceLayout();
 }
 
+//  QQuickBasePositioner::QQuickBasePositioner(QQuickBasePositionerPrivate
+//      &dd, PositionerType at, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickBasePositioner *ritual_ZN20QQuickBasePositionerC1ER27QQuickBasePositionerPrivateNS_14PositionerTypeEP10QQuickItem(
+    QQuickBasePositionerPrivate *dd,
+    QQuickBasePositioner::PositionerType at,
+    QQuickItem *parent) {
+  return new CuteQQuickBasePositioner(*dd, at, parent);
+}
+
 //  void QQuickBasePositioner::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickBasePositioner17componentCompleteEv(
@@ -1118,6 +1156,76 @@ void ritual_ZN20QQuickBasePositioner12updatePolishEv(
   self->updatePolish();
 }
 
+//  void QQuickBasePositioner::spacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner14spacingChangedEv(
+    QQuickBasePositioner *self) {
+  self->spacingChanged();
+}
+
+//  void QQuickBasePositioner::populateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner15populateChangedEv(
+    QQuickBasePositioner *self) {
+  self->populateChanged();
+}
+
+//  void QQuickBasePositioner::moveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner11moveChangedEv(
+    QQuickBasePositioner *self) {
+  self->moveChanged();
+}
+
+//  void QQuickBasePositioner::addChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner10addChangedEv(
+    QQuickBasePositioner *self) {
+  self->addChanged();
+}
+
+//  void QQuickBasePositioner::paddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner14paddingChangedEv(
+    QQuickBasePositioner *self) {
+  self->paddingChanged();
+}
+
+//  void QQuickBasePositioner::topPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner17topPaddingChangedEv(
+    QQuickBasePositioner *self) {
+  self->topPaddingChanged();
+}
+
+//  void QQuickBasePositioner::leftPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner18leftPaddingChangedEv(
+    QQuickBasePositioner *self) {
+  self->leftPaddingChanged();
+}
+
+//  void QQuickBasePositioner::rightPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner19rightPaddingChangedEv(
+    QQuickBasePositioner *self) {
+  self->rightPaddingChanged();
+}
+
+//  void QQuickBasePositioner::bottomPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner20bottomPaddingChangedEv(
+    QQuickBasePositioner *self) {
+  self->bottomPaddingChanged();
+}
+
+//  void QQuickBasePositioner::positioningComplete()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner19positioningCompleteEv(
+    QQuickBasePositioner *self) {
+  self->positioningComplete();
+}
+
 //  void QQuickBasePositioner::prePositioning()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickBasePositioner14prePositioningEv(
@@ -1138,6 +1246,37 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQuickBasePositioner24reportConflictingAnchorsEv(
     QQuickBasePositioner *self) {
   self->reportConflictingAnchors();
+}
+
+//  void QQuickBasePositioner::positionItem(qreal x, qreal y, PositionedItem
+//      *target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner12positionItemEddPNS_14PositionedItemE(
+    QQuickBasePositioner *self,
+    qreal x,
+    qreal y,
+    QQuickBasePositioner::PositionedItem *target) {
+  self->positionItem(x, y, target);
+}
+
+//  void QQuickBasePositioner::positionItemX(qreal a0, PositionedItem
+//      *target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner13positionItemXEdPNS_14PositionedItemE(
+    QQuickBasePositioner *self,
+    qreal a0,
+    QQuickBasePositioner::PositionedItem *target) {
+  self->positionItemX(a0, target);
+}
+
+//  void QQuickBasePositioner::positionItemY(qreal a0, PositionedItem
+//      *target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickBasePositioner13positionItemYEdPNS_14PositionedItemE(
+    QQuickBasePositioner *self,
+    qreal a0,
+    QQuickBasePositioner::PositionedItem *target) {
+  self->positionItemY(a0, target);
 }
 
 //  QQuickBasePositionerPrivate *QQuickBasePositioner::d_func()

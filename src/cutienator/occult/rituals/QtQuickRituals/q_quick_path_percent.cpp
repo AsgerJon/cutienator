@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK17QQuickPathPercent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathPercent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuickPathPercent11qt_metacastEPKc(
+    QQuickPathPercent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathPercent::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuickPathPercent11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathPercent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathPercent::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QQuickPathPercent2trEPKcS1_i(
@@ -47,6 +66,12 @@ void ritual_ZN17QQuickPathPercent8setValueEd(
     QQuickPathPercent *self,
     qreal value) {
   self->setValue(value);
+}
+
+//  void QQuickPathPercent::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickPathPercent12valueChangedEv(QQuickPathPercent *self) {
+  self->valueChanged();
 }
 
 #endif  // QT_CONFIG(quick_path)

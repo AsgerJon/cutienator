@@ -18,7 +18,7 @@ typedef int (*CuteQLottieGFillCall2)(const void *, const QJsonObject *, int *);
 class CuteQLottieGFill : public QLottieGFill {
 public:
   using QLottieGFill::QLottieGFill;
-  CuteQLottieGFill(const QLottieGFill &other) : QLottieGFill(other) {}
+  CuteQLottieGFill(const QLottieGFill & other) : QLottieGFill(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -101,6 +101,14 @@ void ritual_ZN12QLottieGFill16updatePropertiesEi(
     QLottieGFill *self,
     int frame) {
   self->updateProperties(frame);
+}
+
+//  void QLottieGFill::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QLottieGFill6renderER15QLottieRenderer(
+    const QLottieGFill *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
 }
 
 //  int QLottieGFill::parse(const QJsonObject &definition)

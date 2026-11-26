@@ -2,19 +2,60 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DCore/6.12.0/Qt3DCore/private/qabstractaspect_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate21setRootAndCreateNodesEPNS_7QEntityERK5QListINS_14NodeTreeChangeEE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore22QAbstractAspectPrivate8servicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore22QAbstractAspectPrivate10jobManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate13jobsToExecuteEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate8jobsDoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate9frameDoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK8Qt3DCore22QAbstractAspectPrivate17createBackendNodeERKNS_14NodeTreeChangeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore22QAbstractAspectPrivate16clearBackendNodeERKNS_14NodeTreeChangeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate22syncDirtyFrontEndNodesERK5QListIPNS_5QNodeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate29syncDirtyEntityComponentNodesERK5QListINS_27ComponentRelationshipChangeEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK8Qt3DCore22QAbstractAspectPrivate21syncDirtyFrontEndNodeEPNS_5QNodeEPNS_12QBackendNodeEb": [
       "nothing", "address", "address", "address", "bool"
     ],
     "ritual_ZN8Qt3DCore22QAbstractAspectPrivate23onEngineAboutToShutdownEv": [
       "nothing", "address"
     ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate21unregisterBackendTypeERK11QMetaObject": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore22QAbstractAspectPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK8Qt3DCore22QAbstractAspectPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore22QAbstractAspectPrivate13mapperForNodeEPK11QMetaObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate3getEPNS_15QAbstractAspectE": [
       "address", "address"
     ],
     "ritual_cast_Qt3DCore_QAbstractAspectPrivate_Qt3DCore_QAspectJobProviderInterface": [
@@ -33,6 +74,21 @@
       "nothing", "address", "address", "address", "bool"
     ],
     "ritual_own_ZN8Qt3DCore22QAbstractAspectPrivate23onEngineAboutToShutdownEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DCore_QAbstractAspectPrivate__std_vector_Qt3DCore_QAspectJobPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DCore_QAbstractAspectPrivate__Qt3DCore_QBackendNodeMapperPtr": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate21unregisterBackendTypeINS_5QNodeEEEvv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate21unregisterBackendTypeINS_7QEntityEEEvv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QAbstractAspectPrivate21unregisterBackendTypeINS_10QComponentEEEvv": [
       "nothing", "address"
     ]
   }

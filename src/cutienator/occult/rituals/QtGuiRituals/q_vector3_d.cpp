@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qvectornd.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qvectornd.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, rituals for functions the generator leaves out: 1. Kept as it is
+//  when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #if !defined(QT_NO_VECTOR3D)
 #include <QtGui/qvectornd.h>
@@ -411,6 +413,14 @@ QVector3D *ritual_list_at_QVector3D(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QVector3D(QList<QVector3D> *self) {
   delete self;
+}
+
+//  float &QVector3D::operator[](int i)
+extern "C" Q_DECL_EXPORT
+float *ritual_ZN9QVector3DixEi(
+    QVector3D *self,
+    int i) {
+  return &((*self)[i]);
 }
 
 #endif  // !defined(QT_NO_VECTOR3D)

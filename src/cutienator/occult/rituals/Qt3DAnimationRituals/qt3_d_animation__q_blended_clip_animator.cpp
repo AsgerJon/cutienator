@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK13Qt3DAnimation20QBlendedClipAnimator10metaObjectEv
   return self->metaObject();
 }
 
+//  void *Qt3DAnimation::QBlendedClipAnimator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13Qt3DAnimation20QBlendedClipAnimator11qt_metacastEPKc(
+    Qt3DAnimation::QBlendedClipAnimator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DAnimation::QBlendedClipAnimator::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13Qt3DAnimation20QBlendedClipAnimator11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DAnimation::QBlendedClipAnimator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DAnimation::QBlendedClipAnimator::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -189,6 +208,57 @@ QString *ritual_ZN13Qt3DAnimation20QBlendedClipAnimator2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DAnimation::QBlendedClipAnimator::tr(s, c, n));
+}
+
+//  Qt3DAnimation::QBlendedClipAnimator::QBlendedClipAnimator(Qt3DCore::QNode
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QBlendedClipAnimator *ritual_ZN13Qt3DAnimation20QBlendedClipAnimatorC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QBlendedClipAnimator(parent);
+}
+
+//  Qt3DAnimation::QBlendedClipAnimator::~QBlendedClipAnimator()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation20QBlendedClipAnimatorD1Ev(
+    Qt3DAnimation::QBlendedClipAnimator *self) {
+  delete self;
+}
+
+//  QAbstractClipBlendNode *Qt3DAnimation::QBlendedClipAnimator::blendTree()
+//      const
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QAbstractClipBlendNode *ritual_ZNK13Qt3DAnimation20QBlendedClipAnimator9blendTreeEv(
+    const Qt3DAnimation::QBlendedClipAnimator *self) {
+  return self->blendTree();
+}
+
+//  void
+//      Qt3DAnimation::QBlendedClipAnimator::setBlendTree(QAbstractClipBlendN
+//      ode *blendTree)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation20QBlendedClipAnimator12setBlendTreeEPNS_22QAbstractClipBlendNodeE(
+    Qt3DAnimation::QBlendedClipAnimator *self,
+    Qt3DAnimation::QAbstractClipBlendNode *blendTree) {
+  self->setBlendTree(blendTree);
+}
+
+//  void Qt3DAnimation::QBlendedClipAnimator::blendTreeChanged(QAbstractClipB
+//      lendNode *blendTree)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation20QBlendedClipAnimator16blendTreeChangedEPNS_22QAbstractClipBlendNodeE(
+    Qt3DAnimation::QBlendedClipAnimator *self,
+    Qt3DAnimation::QAbstractClipBlendNode *blendTree) {
+  self->blendTreeChanged(blendTree);
+}
+
+//  Qt3DAnimation::QBlendedClipAnimator::QBlendedClipAnimator(QBlendedClipAni
+//      matorPrivate &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QBlendedClipAnimator *ritual_ZN13Qt3DAnimation20QBlendedClipAnimatorC1ERNS_27QBlendedClipAnimatorPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DAnimation::QBlendedClipAnimatorPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DAnimation_QBlendedClipAnimator(*dd, parent);
 }
 
 //  QBlendedClipAnimatorPrivate

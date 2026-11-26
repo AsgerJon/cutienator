@@ -18,6 +18,16 @@ QMqttUnsubscriptionProperties *ritual_ZN29QMqttUnsubscriptionPropertiesC1ERKS_(
   return new QMqttUnsubscriptionProperties(*a0);
 }
 
+//  QMqttUnsubscriptionProperties
+//      &QMqttUnsubscriptionProperties::operator=(const
+//      QMqttUnsubscriptionProperties &rhs)
+extern "C" Q_DECL_EXPORT
+QMqttUnsubscriptionProperties *ritual_ZN29QMqttUnsubscriptionPropertiesaSERKS_(
+    QMqttUnsubscriptionProperties *self,
+    const QMqttUnsubscriptionProperties *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QMqttUnsubscriptionProperties::~QMqttUnsubscriptionProperties()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QMqttUnsubscriptionPropertiesD1Ev(

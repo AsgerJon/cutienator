@@ -7,7 +7,9 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickanimator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
 #include <QtQml/QtQml>
 #include <QtQml/qqmlproperty.h>
 #include <QtCore/qmetaobject.h>
@@ -293,6 +295,24 @@ const QMetaObject *ritual_ZNK14QQuickAnimator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnimator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickAnimator11qt_metacastEPKc(
+    QQuickAnimator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnimator::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickAnimator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnimator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnimator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickAnimator2trEPKcS1_i(
@@ -410,6 +430,72 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK14QQuickAnimator12propertyNameEv(
     const QQuickAnimator *self) {
   return new QString(self->propertyName());
+}
+
+//  QAbstractAnimationJob *QQuickAnimator::transition(QQuickStateActions
+//      &actions, QQmlProperties &modified, TransitionDirection a2, QObject
+//      *a3)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN14QQuickAnimator10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickAnimator *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection a2,
+    QObject *a3) {
+  return self->transition(*actions, *modified, a2, a3);
+}
+
+//  QQuickAnimator::QQuickAnimator(QQuickAnimatorPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickAnimator *ritual_ZN14QQuickAnimatorC1ER21QQuickAnimatorPrivateP7QObject(
+    QQuickAnimatorPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickAnimator(*dd, parent);
+}
+
+//  QQuickAnimator::QQuickAnimator(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickAnimator *ritual_ZN14QQuickAnimatorC1EP7QObject(QObject *parent) {
+  return new CuteQQuickAnimator(parent);
+}
+
+//  void QQuickAnimator::targetItemChanged(QQuickItem *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickAnimator17targetItemChangedEP10QQuickItem(
+    QQuickAnimator *self,
+    QQuickItem *a0) {
+  self->targetItemChanged(a0);
+}
+
+//  void QQuickAnimator::durationChanged(int duration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickAnimator15durationChangedEi(
+    QQuickAnimator *self,
+    int duration) {
+  self->durationChanged(duration);
+}
+
+//  void QQuickAnimator::easingChanged(const QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickAnimator13easingChangedERK12QEasingCurve(
+    QQuickAnimator *self,
+    const QEasingCurve *curve) {
+  self->easingChanged(*curve);
+}
+
+//  void QQuickAnimator::toChanged(qreal to)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickAnimator9toChangedEd(QQuickAnimator *self, qreal to) {
+  self->toChanged(to);
+}
+
+//  void QQuickAnimator::fromChanged(qreal from)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickAnimator11fromChangedEd(
+    QQuickAnimator *self,
+    qreal from) {
+  self->fromChanged(from);
 }
 
 //  a Python function taken by a CuteQQuickAnimator, for the function named

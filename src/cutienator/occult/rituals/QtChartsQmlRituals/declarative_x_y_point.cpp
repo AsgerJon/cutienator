@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK18DeclarativeXYPoint10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeXYPoint::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18DeclarativeXYPoint11qt_metacastEPKc(
+    DeclarativeXYPoint *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeXYPoint::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18DeclarativeXYPoint11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeXYPoint *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeXYPoint::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18DeclarativeXYPoint2trEPKcS1_i(

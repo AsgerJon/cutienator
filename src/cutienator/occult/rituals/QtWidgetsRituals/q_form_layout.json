@@ -5,7 +5,15 @@
   ],
   "rows": {
     "ritual_ZNK11QFormLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QFormLayout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QFormLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QFormLayout2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QFormLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QFormLayout6d_funcEv": ["address", "address"],
     "ritual_ZN11QFormLayoutC1EP7QWidget": ["address", "address"],
     "ritual_ZN11QFormLayoutD1Ev": ["nothing", "address"],
     "ritual_ZN11QFormLayout20setFieldGrowthPolicyENS_17FieldGrowthPolicyE": [
@@ -111,6 +119,15 @@
     ],
     "ritual_ZNK11QFormLayout6itemAtEiNS_8ItemRoleE": [
       "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QFormLayout15getItemPositionEiPiPNS_8ItemRoleE": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK11QFormLayout17getWidgetPositionEP7QWidgetPiPNS_8ItemRoleE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QFormLayout17getLayoutPositionEP7QLayoutPiPNS_8ItemRoleE": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZNK11QFormLayout13labelForFieldEP7QWidget": [
       "address", "address", "address"

@@ -8,6 +8,9 @@
     "ritual_ZN18QQuickRenderTargetC1Ev": ["address"],
     "ritual_ZN18QQuickRenderTargetD1Ev": ["nothing", "address"],
     "ritual_ZN18QQuickRenderTargetC1ERKS_": ["address", "address"],
+    "ritual_ZN18QQuickRenderTargetaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18QQuickRenderTarget6isNullEv": ["bool", "address"],
     "ritual_ZNK18QQuickRenderTarget16devicePixelRatioEv": [
       "double", "address"
@@ -37,6 +40,26 @@
     ],
     "ritual_ZN18QQuickRenderTarget22fromOpenGLRenderBufferEjRK5QSizei": [
       "address", "unsigned int", "address", "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget16fromMetalTextureEP10MTLTextureRK5QSizei": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget16fromMetalTextureEP10MTLTexturejRK5QSizei": [
+      "address", "address", "unsigned int", "address", "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget16fromMetalTextureEP10MTLTexturejj5QSizeii6QFlagsINS_4FlagEE": [
+      "address", "address", "unsigned int", "unsigned int", "address", "int",
+      "int", "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget15fromVulkanImageEP9VkImage_T13VkImageLayoutRK5QSizei": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget15fromVulkanImageEP9VkImage_T13VkImageLayout8VkFormatRK5QSizei": [
+      "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget15fromVulkanImageEP9VkImage_T13VkImageLayout8VkFormatS3_5QSizeii6QFlagsINS_4FlagEE": [
+      "address", "address", "address", "address", "address", "address",
+      "int", "int", "int"
     ],
     "ritual_ZN18QQuickRenderTarget19fromRhiRenderTargetEP16QRhiRenderTarget": [
       "address", "address"

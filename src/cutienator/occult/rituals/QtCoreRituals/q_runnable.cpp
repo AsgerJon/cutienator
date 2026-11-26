@@ -37,6 +37,12 @@ void ritual_ZN9QRunnable3runEv(QRunnable *self) {
   self->run();
 }
 
+//  QRunnable::QRunnable()
+extern "C" Q_DECL_EXPORT
+QRunnable *ritual_ZN9QRunnableC1Ev() {
+  return new CuteQRunnable();
+}
+
 //  QRunnable::~QRunnable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QRunnableD1Ev(QRunnable *self) {

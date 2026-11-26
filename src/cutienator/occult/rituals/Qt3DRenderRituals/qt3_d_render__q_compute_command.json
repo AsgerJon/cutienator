@@ -8,8 +8,58 @@
     "ritual_ZNK10Qt3DRender15QComputeCommand10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender15QComputeCommand11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender15QComputeCommand2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommandC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommandD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender15QComputeCommand10workGroupXEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender15QComputeCommand10workGroupYEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender15QComputeCommand10workGroupZEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender15QComputeCommand7runTypeEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender15QComputeCommand13setWorkGroupXEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand13setWorkGroupYEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand13setWorkGroupZEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand10setRunTypeENS0_7RunTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand7triggerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand7triggerEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand17workGroupXChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand17workGroupYChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand17workGroupZChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender15QComputeCommand14runTypeChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN10Qt3DRender15QComputeCommand6d_funcEv": [
       "address", "address"

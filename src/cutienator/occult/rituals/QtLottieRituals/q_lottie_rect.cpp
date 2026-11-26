@@ -36,7 +36,7 @@ typedef const QSize * (*CuteQLottieRectCall11)(const void *, int *);
 class CuteQLottieRect : public QLottieRect {
 public:
   using QLottieRect::QLottieRect;
-  CuteQLottieRect(const QLottieRect &other) : QLottieRect(other) {}
+  CuteQLottieRect(const QLottieRect & other) : QLottieRect(other) {}
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {
@@ -263,6 +263,14 @@ void ritual_ZN11QLottieRect16updatePropertiesEi(
   self->updateProperties(frame);
 }
 
+//  void QLottieRect::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QLottieRect6renderER15QLottieRenderer(
+    const QLottieRect *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  bool QLottieRect::acceptsTrim() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QLottieRect11acceptsTrimEv(const QLottieRect *self) {
@@ -306,6 +314,13 @@ extern "C" Q_DECL_EXPORT
 QPainterPath *ritual_ZNK11QLottieRect12fallbackPathEv(
     const QLottieRect *self) {
   return new QPainterPath(self->fallbackPath());
+}
+
+//  const QLottieProperty2D<QSizeF> &QLottieRect::sizeProperty() const
+extern "C" Q_DECL_EXPORT
+const QLottieProperty2D<QSizeF> *ritual_ZNK11QLottieRect12sizePropertyEv(
+    const QLottieRect *self) {
+  return &(self->sizeProperty());
 }
 
 //  const QLottieSpatialProperty &QLottieRect::positionProperty() const

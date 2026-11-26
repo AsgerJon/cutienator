@@ -39,6 +39,14 @@ bool ritual_ZNK11QLocaleData11NumericData7isValidENS_10NumberModeE(
   return self->isValid(mode);
 }
 
+//  qint8 QLocaleData::NumericData::digitValue(char32_t digit) const
+extern "C" Q_DECL_EXPORT
+qint8 ritual_ZNK11QLocaleData11NumericData10digitValueEDi(
+    const QLocaleData::NumericData *self,
+    char32_t digit) {
+  return self->digitValue(digit);
+}
+
 //  bool QLocaleData::NumericData::fractionalIsGroup() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QLocaleData11NumericData17fractionalIsGroupEv(

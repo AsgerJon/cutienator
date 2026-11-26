@@ -15,7 +15,14 @@
       "address", "unsigned short", "text", "int"
     ],
     "ritual_ZN18QNetworkProxyQueryC1ERKS_": ["address", "address"],
+    "ritual_ZN18QNetworkProxyQueryaSEOS_": ["address", "address", "address"],
+    "ritual_ZN18QNetworkProxyQueryaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18QNetworkProxyQueryD1Ev": ["nothing", "address"],
+    "ritual_ZN18QNetworkProxyQuery4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK18QNetworkProxyQueryeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK18QNetworkProxyQueryneERKS_": ["bool", "address", "address"],
     "ritual_ZNK18QNetworkProxyQuery9queryTypeEv": ["int", "address"],

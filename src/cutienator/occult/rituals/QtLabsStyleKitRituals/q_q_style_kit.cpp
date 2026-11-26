@@ -14,6 +14,24 @@ const QMetaObject *ritual_ZNK10QQStyleKit10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKit::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQStyleKit11qt_metacastEPKc(
+    QQStyleKit *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKit::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQStyleKit11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKit *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  void QQStyleKit::qt_qmlMarker_attached()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQStyleKit21qt_qmlMarker_attachedEv(QQStyleKit *self) {

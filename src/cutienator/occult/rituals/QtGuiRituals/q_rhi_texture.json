@@ -47,6 +47,9 @@
     "ritual_ZN11QRhiTexture15setNativeLayoutEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN11QRhiTextureC1EP18QRhiImplementationNS_6FormatERK5QSizeiii6QFlagsINS_4FlagEE": [
+      "address", "address", "int", "address", "int", "int", "int", "int"
+    ],
     "ritual_take_QRhiTexture": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QRhiTexture12resourceTypeEv": ["int", "address"],
     "ritual_own_ZN11QRhiTexture13nativeTextureEv": ["address", "address"],

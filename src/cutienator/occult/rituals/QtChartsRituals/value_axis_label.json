@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14ValueAxisLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14ValueAxisLabel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14ValueAxisLabel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14ValueAxisLabel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -23,6 +29,9 @@
     "ritual_ZN14ValueAxisLabel13finishEditingEv": ["nothing", "address"],
     "ritual_ZN14ValueAxisLabel20resetBeforeEditValueEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN14ValueAxisLabel12valueChangedEdd": [
+      "nothing", "address", "double", "double"
     ],
     "ritual_take_ValueAxisLabel": ["bool", "address", "chars", "address"],
     "ritual_own_ZN14ValueAxisLabel13keyPressEventEP9QKeyEvent": [

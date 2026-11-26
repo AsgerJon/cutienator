@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QPlatformVideoSink10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QPlatformVideoSink11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QPlatformVideoSink11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QPlatformVideoSink2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -56,6 +62,7 @@
     "ritual_ZN18QPlatformVideoSink19onVideoFrameChangedERK11QVideoFrame": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QPlatformVideoSink10rhiChangedEv": ["nothing", "address"],
     "ritual_take_QPlatformVideoSink": [
       "bool", "address", "chars", "address"
     ],

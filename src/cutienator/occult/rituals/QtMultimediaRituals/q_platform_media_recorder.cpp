@@ -206,6 +206,14 @@ QMediaRecorder::RecorderState ritual_ZNK22QPlatformMediaRecorder5stateEv(
   return self->state();
 }
 
+//  void QPlatformMediaRecorder::record(QMediaEncoderSettings &settings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QPlatformMediaRecorder6recordER21QMediaEncoderSettings(
+    QPlatformMediaRecorder *self,
+    QMediaEncoderSettings *settings) {
+  self->record(*settings);
+}
+
 //  void QPlatformMediaRecorder::pause()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QPlatformMediaRecorder5pauseEv(

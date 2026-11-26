@@ -110,6 +110,47 @@ public:
 #endif  // QT_CONFIG(undocommand)
 };
 
+//  qdesigner_internal::DeleteContainerWidgetPageCommand::DeleteContainerWidg
+//      etPageCommand(QDesignerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::DeleteContainerWidgetPageCommand *ritual_ZN18qdesigner_internal32DeleteContainerWidgetPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_DeleteContainerWidgetPageCommand(
+      formWindow);
+}
+
+//  qdesigner_internal::DeleteContainerWidgetPageCommand::~DeleteContainerWid
+//      getPageCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal32DeleteContainerWidgetPageCommandD1Ev(
+    qdesigner_internal::DeleteContainerWidgetPageCommand *self) {
+  delete self;
+}
+
+//  void qdesigner_internal::DeleteContainerWidgetPageCommand::init(QWidget
+//      *containerWidget, ContainerType ct)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal32DeleteContainerWidgetPageCommand4initEP7QWidgetNS_13ContainerTypeE(
+    qdesigner_internal::DeleteContainerWidgetPageCommand *self,
+    QWidget *containerWidget,
+    qdesigner_internal::ContainerType ct) {
+  self->init(containerWidget, ct);
+}
+
+//  void qdesigner_internal::DeleteContainerWidgetPageCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal32DeleteContainerWidgetPageCommand4redoEv(
+    qdesigner_internal::DeleteContainerWidgetPageCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::DeleteContainerWidgetPageCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal32DeleteContainerWidgetPageCommand4undoEv(
+    qdesigner_internal::DeleteContainerWidgetPageCommand *self) {
+  self->undo();
+}
+
 //  a Python function taken by a
 //      Cuteqdesigner_internal_DeleteContainerWidgetPageCommand, for the
 //      function named by the key

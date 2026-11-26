@@ -39,6 +39,9 @@
     "ritual_ZN19QSSGBaseTypeHelpers11displayNameE25QSSGRenderTextureCubeFace": [
       "chars", "unsigned char"
     ],
+    "ritual_ZN19QSSGBaseTypeHelpers13getSizeOfTypeE23QSSGRenderComponentType": [
+      "size_t", "int"
+    ],
     "ritual_ZN19QSSGBaseTypeHelpers4nextE25QSSGRenderTextureCubeFace": [
       "unsigned char", "unsigned char"
     ],

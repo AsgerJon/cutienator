@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN21QOpcUaUserTokenPolicyC1Ev": ["address"],
     "ritual_ZN21QOpcUaUserTokenPolicyC1ERKS_": ["address", "address"],
+    "ritual_ZN21QOpcUaUserTokenPolicyaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK21QOpcUaUserTokenPolicyeqERKS_": [
       "bool", "address", "address"
     ],

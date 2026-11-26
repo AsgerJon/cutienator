@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <optional>
 
 //  A QScreenCapture that Python can take functions over in. Every QScreenCapture
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +180,24 @@ const QMetaObject *ritual_ZNK14QScreenCapture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScreenCapture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QScreenCapture11qt_metacastEPKc(
+    QScreenCapture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScreenCapture::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QScreenCapture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScreenCapture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScreenCapture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QScreenCapture2trEPKcS1_i(
@@ -241,6 +260,21 @@ QString *ritual_ZNK14QScreenCapture11errorStringEv(
   return new QString(self->errorString());
 }
 
+//  void QScreenCapture::setMaximumFrameRate(std::optional<qreal> frameRate)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScreenCapture19setMaximumFrameRateESt8optionalIdE(
+    QScreenCapture *self,
+    const std::optional<qreal> *frameRate) {
+  self->setMaximumFrameRate(*frameRate);
+}
+
+//  std::optional<qreal> QScreenCapture::maximumFrameRate() const
+extern "C" Q_DECL_EXPORT
+std::optional<qreal> *ritual_ZNK14QScreenCapture16maximumFrameRateEv(
+    const QScreenCapture *self) {
+  return new std::optional<qreal>(self->maximumFrameRate());
+}
+
 //  void QScreenCapture::setActive(bool active)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QScreenCapture9setActiveEb(
@@ -261,6 +295,45 @@ void ritual_ZN14QScreenCapture4stopEv(QScreenCapture *self) {
   self->stop();
 }
 
+//  void QScreenCapture::activeChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScreenCapture13activeChangedEb(
+    QScreenCapture *self,
+    bool a0) {
+  self->activeChanged(a0);
+}
+
+//  void QScreenCapture::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScreenCapture12errorChangedEv(QScreenCapture *self) {
+  self->errorChanged();
+}
+
+//  void QScreenCapture::screenChanged(QScreen *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScreenCapture13screenChangedEP7QScreen(
+    QScreenCapture *self,
+    QScreen *a0) {
+  self->screenChanged(a0);
+}
+
+//  void QScreenCapture::errorOccurred(QScreenCapture::Error error, const
+//      QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScreenCapture13errorOccurredENS_5ErrorERK7QString(
+    QScreenCapture *self,
+    QScreenCapture::Error error,
+    const QString *errorString) {
+  self->errorOccurred(error, *errorString);
+}
+
+//  void QScreenCapture::maximumFrameRateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QScreenCapture23maximumFrameRateChangedEv(
+    QScreenCapture *self) {
+  self->maximumFrameRateChanged();
+}
+
 //  void QScreenCapture::setCaptureSession(QMediaCaptureSession
 //      *captureSession)
 extern "C" Q_DECL_EXPORT
@@ -277,6 +350,20 @@ QPlatformSurfaceCapture *ritual_ZNK14QScreenCapture21platformScreenCaptureEv(
   return self->platformScreenCapture();
 }
 
+//  QScreenCapturePrivate *QScreenCapture::d_func()
+extern "C" Q_DECL_EXPORT
+QScreenCapturePrivate *ritual_ZN14QScreenCapture6d_funcEv(
+    QScreenCapture *self) {
+  return self->d_func();
+}
+
+//  const QScreenCapturePrivate *QScreenCapture::d_func() const
+extern "C" Q_DECL_EXPORT
+const QScreenCapturePrivate *ritual_ZNK14QScreenCapture6d_funcEv(
+    const QScreenCapture *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQScreenCapture, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -285,4 +372,11 @@ bool ritual_take_QScreenCapture(
     const char *key,
     void *call) {
   return static_cast<CuteQScreenCapture *>(self)->take(key, call);
+}
+
+//  a std::optional<qreal> a ritual of QScreenCapture gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QScreenCapture__std_optional_qreal(
+    std::optional<qreal> *self) {
+  delete self;
 }

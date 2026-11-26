@@ -159,6 +159,13 @@ QMetaMethodBuilder *ritual_ZN18QMetaMethodBuilderC1EPK18QMetaObjectBuilderiN11QM
   return new QMetaMethodBuilder(mobj, index, type);
 }
 
+//  QMetaMethodBuilderPrivate *QMetaMethodBuilder::d_func() const
+extern "C" Q_DECL_EXPORT
+QMetaMethodBuilderPrivate *ritual_ZNK18QMetaMethodBuilder6d_funcEv(
+    const QMetaMethodBuilder *self) {
+  return self->d_func();
+}
+
 //  QMetaMethodBuilder::~QMetaMethodBuilder()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QMetaMethodBuilderD1Ev(QMetaMethodBuilder *self) {

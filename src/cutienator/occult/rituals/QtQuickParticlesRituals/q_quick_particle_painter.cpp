@@ -861,6 +861,25 @@ const QMetaObject *ritual_ZNK21QQuickParticlePainter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickParticlePainter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickParticlePainter11qt_metacastEPKc(
+    QQuickParticlePainter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickParticlePainter::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickParticlePainter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickParticlePainter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickParticlePainter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickParticlePainter2trEPKcS1_i(
@@ -942,6 +961,13 @@ QList<QString> *ritual_ZNK21QQuickParticlePainter6groupsEv(
   return new QList<QString>(self->groups());
 }
 
+//  const GroupIDs &QQuickParticlePainter::groupIds() const
+extern "C" Q_DECL_EXPORT
+const QQuickParticlePainter::GroupIDs *ritual_ZNK21QQuickParticlePainter8groupIdsEv(
+    const QQuickParticlePainter *self) {
+  return &(self->groupIds());
+}
+
 //  void QQuickParticlePainter::itemChange(ItemChange a0, const
 //      ItemChangeData &a1)
 extern "C" Q_DECL_EXPORT
@@ -950,6 +976,29 @@ void ritual_ZN21QQuickParticlePainter10itemChangeEN10QQuickItem10ItemChangeERKNS
     QQuickItem::ItemChange a0,
     const QQuickItem::ItemChangeData *a1) {
   self->itemChange(a0, *a1);
+}
+
+//  void QQuickParticlePainter::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticlePainter12countChangedEv(
+    QQuickParticlePainter *self) {
+  self->countChanged();
+}
+
+//  void QQuickParticlePainter::systemChanged(QQuickParticleSystem *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticlePainter13systemChangedEP20QQuickParticleSystem(
+    QQuickParticlePainter *self,
+    QQuickParticleSystem *arg) {
+  self->systemChanged(arg);
+}
+
+//  void QQuickParticlePainter::groupsChanged(const QStringList &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickParticlePainter13groupsChangedERK5QListI7QStringE(
+    QQuickParticlePainter *self,
+    const QList<QString> *arg) {
+  self->groupsChanged(*arg);
 }
 
 //  void QQuickParticlePainter::setSystem(QQuickParticleSystem *arg)

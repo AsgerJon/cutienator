@@ -22,6 +22,7 @@
     ],
     "ritual_ZN22QMainWindowLayoutState5clearEv": ["nothing", "address"],
     "ritual_ZNK22QMainWindowLayoutState7isValidEv": ["bool", "address"],
-    "ritual_ZN22QMainWindowLayoutStateD1Ev": ["nothing", "address"]
+    "ritual_ZN22QMainWindowLayoutStateD1Ev": ["nothing", "address"],
+    "ritual_drop_QMainWindowLayoutState__QList_int": ["nothing", "address"]
   }
 }

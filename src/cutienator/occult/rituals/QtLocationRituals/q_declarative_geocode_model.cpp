@@ -975,6 +975,25 @@ const QMetaObject *ritual_ZNK24QDeclarativeGeocodeModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeocodeModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QDeclarativeGeocodeModel11qt_metacastEPKc(
+    QDeclarativeGeocodeModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeocodeModel::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QDeclarativeGeocodeModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeocodeModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeocodeModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QDeclarativeGeocodeModel2trEPKcS1_i(
@@ -1176,6 +1195,76 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QDeclarativeGeocodeModel6cancelEv(
     QDeclarativeGeocodeModel *self) {
   self->cancel();
+}
+
+//  void QDeclarativeGeocodeModel::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel12countChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->countChanged();
+}
+
+//  void QDeclarativeGeocodeModel::pluginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel13pluginChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->pluginChanged();
+}
+
+//  void QDeclarativeGeocodeModel::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel13statusChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->statusChanged();
+}
+
+//  void QDeclarativeGeocodeModel::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel12errorChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->errorChanged();
+}
+
+//  void QDeclarativeGeocodeModel::locationsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel16locationsChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->locationsChanged();
+}
+
+//  void QDeclarativeGeocodeModel::autoUpdateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel17autoUpdateChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->autoUpdateChanged();
+}
+
+//  void QDeclarativeGeocodeModel::boundsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel13boundsChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->boundsChanged();
+}
+
+//  void QDeclarativeGeocodeModel::queryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel12queryChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->queryChanged();
+}
+
+//  void QDeclarativeGeocodeModel::limitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel12limitChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->limitChanged();
+}
+
+//  void QDeclarativeGeocodeModel::offsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDeclarativeGeocodeModel13offsetChangedEv(
+    QDeclarativeGeocodeModel *self) {
+  self->offsetChanged();
 }
 
 //  void QDeclarativeGeocodeModel::update()

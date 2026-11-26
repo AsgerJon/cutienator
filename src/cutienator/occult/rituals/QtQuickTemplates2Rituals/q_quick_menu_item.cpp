@@ -30,6 +30,24 @@ const QMetaObject *ritual_ZNK14QQuickMenuItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMenuItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQuickMenuItem11qt_metacastEPKc(
+    QQuickMenuItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMenuItem::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQuickMenuItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMenuItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMenuItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQuickMenuItem2trEPKcS1_i(
@@ -107,6 +125,49 @@ void ritual_ZN14QQuickMenuItem22setImplicitTextPaddingEd(
     QQuickMenuItem *self,
     qreal newImplicitTextPadding) {
   self->setImplicitTextPadding(newImplicitTextPadding);
+}
+
+//  void QQuickMenuItem::triggered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickMenuItem9triggeredEv(QQuickMenuItem *self) {
+  self->triggered();
+}
+
+//  void QQuickMenuItem::highlightedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickMenuItem18highlightedChangedEv(QQuickMenuItem *self) {
+  self->highlightedChanged();
+}
+
+//  void QQuickMenuItem::arrowChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickMenuItem12arrowChangedEv(QQuickMenuItem *self) {
+  self->arrowChanged();
+}
+
+//  void QQuickMenuItem::menuChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickMenuItem11menuChangedEv(QQuickMenuItem *self) {
+  self->menuChanged();
+}
+
+//  void QQuickMenuItem::subMenuChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickMenuItem14subMenuChangedEv(QQuickMenuItem *self) {
+  self->subMenuChanged();
+}
+
+//  void QQuickMenuItem::implicitTextPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickMenuItem26implicitTextPaddingChangedEv(
+    QQuickMenuItem *self) {
+  self->implicitTextPaddingChanged();
+}
+
+//  void QQuickMenuItem::textPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQuickMenuItem18textPaddingChangedEv(QQuickMenuItem *self) {
+  self->textPaddingChanged();
 }
 
 //  void QQuickMenuItem::componentComplete()

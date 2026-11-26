@@ -9,6 +9,13 @@
     "ritual_ZN20QMimeDatabasePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK20QMimeDatabasePrivate15defaultMimeTypeEv": [
       "text", "address"
+    ],
+    "ritual_ZN20QMimeDatabasePrivate11shouldCheckEv": ["bool", "address"],
+    "ritual_ZNK20QMimeDatabasePrivate14fallbackParentERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_drop_QMimeDatabasePrivate__QMimeTypePrivate_LocaleHash": [
+      "nothing", "address"
     ]
   }
 }

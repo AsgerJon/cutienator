@@ -1104,6 +1104,24 @@ const QMetaObject *ritual_ZNK13QQuickSpinBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSpinBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickSpinBox11qt_metacastEPKc(
+    QQuickSpinBox *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSpinBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickSpinBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSpinBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSpinBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickSpinBox2trEPKcS1_i(
@@ -1191,6 +1209,94 @@ void ritual_ZN13QQuickSpinBox8increaseEv(QQuickSpinBox *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQuickSpinBox8decreaseEv(QQuickSpinBox *self) {
   self->decrease();
+}
+
+//  void QQuickSpinBox::fromChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox11fromChangedEv(QQuickSpinBox *self) {
+  self->fromChanged();
+}
+
+//  void QQuickSpinBox::toChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox9toChangedEv(QQuickSpinBox *self) {
+  self->toChanged();
+}
+
+//  void QQuickSpinBox::valueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox12valueChangedEv(QQuickSpinBox *self) {
+  self->valueChanged();
+}
+
+//  void QQuickSpinBox::stepSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox15stepSizeChangedEv(QQuickSpinBox *self) {
+  self->stepSizeChanged();
+}
+
+//  void QQuickSpinBox::editableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox15editableChangedEv(QQuickSpinBox *self) {
+  self->editableChanged();
+}
+
+//  void QQuickSpinBox::liveChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox11liveChangedEv(QQuickSpinBox *self) {
+  self->liveChanged();
+}
+
+#if QT_CONFIG(validator)
+//  void QQuickSpinBox::validatorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox16validatorChangedEv(QQuickSpinBox *self) {
+  self->validatorChanged();
+}
+#endif  // QT_CONFIG(validator)
+
+//  void QQuickSpinBox::textFromValueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox20textFromValueChangedEv(QQuickSpinBox *self) {
+  self->textFromValueChanged();
+}
+
+//  void QQuickSpinBox::valueFromTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox20valueFromTextChangedEv(QQuickSpinBox *self) {
+  self->valueFromTextChanged();
+}
+
+//  void QQuickSpinBox::valueModified()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox13valueModifiedEv(QQuickSpinBox *self) {
+  self->valueModified();
+}
+
+//  void QQuickSpinBox::inputMethodHintsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox23inputMethodHintsChangedEv(
+    QQuickSpinBox *self) {
+  self->inputMethodHintsChanged();
+}
+
+//  void QQuickSpinBox::inputMethodComposingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox27inputMethodComposingChangedEv(
+    QQuickSpinBox *self) {
+  self->inputMethodComposingChanged();
+}
+
+//  void QQuickSpinBox::wrapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox11wrapChangedEv(QQuickSpinBox *self) {
+  self->wrapChanged();
+}
+
+//  void QQuickSpinBox::displayTextChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickSpinBox18displayTextChangedEv(QQuickSpinBox *self) {
+  self->displayTextChanged();
 }
 
 //  void QQuickSpinBox::focusInEvent(QFocusEvent *event)
@@ -1325,6 +1431,20 @@ void ritual_ZN13QQuickSpinBox26accessibilityActiveChangedEb(
   self->accessibilityActiveChanged(active);
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickSpinBoxPrivate *QQuickSpinBox::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSpinBoxPrivate *ritual_ZN13QQuickSpinBox6d_funcEv(
+    QQuickSpinBox *self) {
+  return self->d_func();
+}
+
+//  const QQuickSpinBoxPrivate *QQuickSpinBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSpinBoxPrivate *ritual_ZNK13QQuickSpinBox6d_funcEv(
+    const QQuickSpinBox *self) {
+  return self->d_func();
+}
 
 //  QQuickControlPrivate *QQuickSpinBox::d_base_func()
 extern "C" Q_DECL_EXPORT

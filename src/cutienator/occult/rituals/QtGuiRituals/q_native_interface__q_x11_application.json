@@ -7,6 +7,16 @@
   "rows": {
     "ritual_ZN16QNativeInterface15QX11ApplicationD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN16QNativeInterface15QX11ApplicationC1Ev": ["address"],
+    "ritual_ZNK16QNativeInterface15QX11Application7displayEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNativeInterface15QX11Application10connectionEv": [
+      "address", "address"
+    ],
+    "ritual_take_QNativeInterface_QX11Application": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

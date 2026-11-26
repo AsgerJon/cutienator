@@ -35,6 +35,7 @@
     "ritual_ZN19QQuickWidgetPrivate28handleContextCreationFailureERK14QSurfaceFormat": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK19QQuickWidgetPrivate9rhiConfigEv": ["address", "address"],
     "ritual_ZNK19QQuickWidgetPrivate7textureEv": ["address", "address"],
     "ritual_ZN19QQuickWidgetPrivate16textureListFlagsEv": ["int", "address"],
     "ritual_ZN19QQuickWidgetPrivate15grabFramebufferEv": [

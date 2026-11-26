@@ -421,6 +421,25 @@ const QMetaObject *ritual_ZNK24QPlainTextDocumentLayout10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPlainTextDocumentLayout::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QPlainTextDocumentLayout11qt_metacastEPKc(
+    QPlainTextDocumentLayout *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPlainTextDocumentLayout::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QPlainTextDocumentLayout11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPlainTextDocumentLayout *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPlainTextDocumentLayout::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QPlainTextDocumentLayout2trEPKcS1_i(
@@ -428,6 +447,21 @@ QString *ritual_ZN24QPlainTextDocumentLayout2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QPlainTextDocumentLayout::tr(s, c, n));
+}
+
+//  QPlainTextDocumentLayoutPrivate *QPlainTextDocumentLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QPlainTextDocumentLayoutPrivate *ritual_ZN24QPlainTextDocumentLayout6d_funcEv(
+    QPlainTextDocumentLayout *self) {
+  return self->d_func();
+}
+
+//  const QPlainTextDocumentLayoutPrivate *QPlainTextDocumentLayout::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QPlainTextDocumentLayoutPrivate *ritual_ZNK24QPlainTextDocumentLayout6d_funcEv(
+    const QPlainTextDocumentLayout *self) {
+  return self->d_func();
 }
 
 //  QPlainTextDocumentLayout::QPlainTextDocumentLayout(QTextDocument
@@ -566,6 +600,13 @@ qreal ritual_ZN24QPlainTextDocumentLayout10blockWidthERK10QTextBlock(
     QPlainTextDocumentLayout *self,
     const QTextBlock *block) {
   return self->blockWidth(*block);
+}
+
+//  QPlainTextDocumentLayoutPrivate *QPlainTextDocumentLayout::priv() const
+extern "C" Q_DECL_EXPORT
+QPlainTextDocumentLayoutPrivate *ritual_ZNK24QPlainTextDocumentLayout4privEv(
+    const QPlainTextDocumentLayout *self) {
+  return self->priv();
 }
 
 //  a Python function taken by a CuteQPlainTextDocumentLayout, for the

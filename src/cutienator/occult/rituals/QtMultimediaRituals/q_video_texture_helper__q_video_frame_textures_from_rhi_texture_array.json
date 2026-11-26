@@ -5,8 +5,20 @@
     ", Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArrayD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArray7textureEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArray12textureArrayEv": [
+      "address", "address"
+    ],
     "ritual_take_QVideoTextureHelper_QVideoFrameTexturesFromRhiTextureArray": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArray7textureEj": [
+      "address", "address", "unsigned int"
     ]
   }
 }

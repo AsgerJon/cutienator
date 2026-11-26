@@ -8,6 +8,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtSerialBus/QCanBusDevice>
 
 //  A QCanBusDevice that Python can take functions over in. Every QCanBusDevice
 //  Python makes is one. Each function below asks the Python
@@ -366,6 +368,24 @@ const QMetaObject *ritual_ZNK13QCanBusDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCanBusDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QCanBusDevice11qt_metacastEPKc(
+    QCanBusDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCanBusDevice::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QCanBusDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCanBusDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCanBusDevice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QCanBusDevice2trEPKcS1_i(
@@ -389,6 +409,12 @@ const QCanBusDevicePrivate *ritual_ZNK13QCanBusDevice6d_funcEv(
   return self->d_func();
 }
 
+//  QCanBusDevice::QCanBusDevice(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCanBusDevice *ritual_ZN13QCanBusDeviceC1EP7QObject(QObject *parent) {
+  return new CuteQCanBusDevice(parent);
+}
+
 //  void QCanBusDevice::setConfigurationParameter(ConfigurationKey key, const
 //      QVariant &value)
 extern "C" Q_DECL_EXPORT
@@ -406,6 +432,14 @@ QVariant *ritual_ZNK13QCanBusDevice22configurationParameterENS_16ConfigurationKe
     const QCanBusDevice *self,
     QCanBusDevice::ConfigurationKey key) {
   return new QVariant(self->configurationParameter(key));
+}
+
+//  QList<ConfigurationKey> QCanBusDevice::configurationKeys() const
+extern "C" Q_DECL_EXPORT
+QList<QCanBusDevice::ConfigurationKey> *ritual_ZNK13QCanBusDevice17configurationKeysEv(
+    const QCanBusDevice *self) {
+  return new QList<QCanBusDevice::ConfigurationKey>(
+      self->configurationKeys());
 }
 
 //  bool QCanBusDevice::writeFrame(const QCanBusFrame &frame)
@@ -533,6 +567,36 @@ extern "C" Q_DECL_EXPORT
 QCanBusDeviceInfo *ritual_ZNK13QCanBusDevice10deviceInfoEv(
     const QCanBusDevice *self) {
   return new QCanBusDeviceInfo(self->deviceInfo());
+}
+
+//  void QCanBusDevice::errorOccurred(QCanBusDevice::CanBusError a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCanBusDevice13errorOccurredENS_11CanBusErrorE(
+    QCanBusDevice *self,
+    QCanBusDevice::CanBusError a0) {
+  self->errorOccurred(a0);
+}
+
+//  void QCanBusDevice::framesReceived()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCanBusDevice14framesReceivedEv(QCanBusDevice *self) {
+  self->framesReceived();
+}
+
+//  void QCanBusDevice::framesWritten(qint64 framesCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCanBusDevice13framesWrittenEx(
+    QCanBusDevice *self,
+    qint64 framesCount) {
+  self->framesWritten(framesCount);
+}
+
+//  void QCanBusDevice::stateChanged(QCanBusDevice::CanBusDeviceState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCanBusDevice12stateChangedENS_17CanBusDeviceStateE(
+    QCanBusDevice *self,
+    QCanBusDevice::CanBusDeviceState state) {
+  self->stateChanged(state);
 }
 
 //  void QCanBusDevice::setState(QCanBusDevice::CanBusDeviceState newState)
@@ -705,4 +769,11 @@ extern "C" Q_DECL_EXPORT
 QCanBusDeviceInfo *ritual_own_ZNK13QCanBusDevice10deviceInfoEv(
     const QCanBusDevice *self) {
   return new QCanBusDeviceInfo(self->QCanBusDevice::deviceInfo());
+}
+
+//  a QList<QCanBusDevice::ConfigurationKey> a ritual of QCanBusDevice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCanBusDevice__QList_QCanBusDevice_ConfigurationKey(
+    QList<QCanBusDevice::ConfigurationKey> *self) {
+  delete self;
 }

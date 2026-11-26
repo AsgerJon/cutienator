@@ -5,12 +5,16 @@
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(identityproxymodel) && QT_CONFIG(proxymodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(identityproxymodel) && QT_CONFIG(proxymodel)
 #include <QtCore/qidentityproxymodel.h>
+#endif
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qidentityproxymodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qlist.h>
 #include <cstring>
 
@@ -260,6 +264,17 @@ void ritual_ZN26QIdentityProxyModelPrivate18sourceColumnsMovedERK11QModelIndexii
       sourceEnd,
       *destParent,
       dest);
+}
+
+//  void QIdentityProxyModelPrivate::sourceDataChanged(const QModelIndex
+//      &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QIdentityProxyModelPrivate17sourceDataChangedERK11QModelIndexS2_RK5QListIiE(
+    QIdentityProxyModelPrivate *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->sourceDataChanged(*topLeft, *bottomRight, *roles);
 }
 
 //  void QIdentityProxyModelPrivate::sourceHeaderDataChanged(Qt::Orientation

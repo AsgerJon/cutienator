@@ -1198,6 +1198,24 @@ const QMetaObject *ritual_ZNK13QQuickMenuBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMenuBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickMenuBar11qt_metacastEPKc(
+    QQuickMenuBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMenuBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickMenuBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMenuBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMenuBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickMenuBar2trEPKcS1_i(
@@ -1273,6 +1291,18 @@ QQuickMenu *ritual_ZN13QQuickMenuBar8takeMenuEi(
     QQuickMenuBar *self,
     int index) {
   return self->takeMenu(index);
+}
+
+//  void QQuickMenuBar::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickMenuBar15delegateChangedEv(QQuickMenuBar *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickMenuBar::menusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickMenuBar12menusChangedEv(QQuickMenuBar *self) {
+  self->menusChanged();
 }
 
 //  bool QQuickMenuBar::eventFilter(QObject *object, QEvent *event)

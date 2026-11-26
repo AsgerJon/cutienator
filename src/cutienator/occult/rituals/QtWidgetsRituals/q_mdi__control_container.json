@@ -5,7 +5,11 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN4QMdi16ControlContainerD1Ev": ["nothing", "address"],
     "ritual_ZNK4QMdi16ControlContainer7menuBarEv": ["address", "address"],
+    "ritual_ZN4QMdi16ControlContainer16updateWindowIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK4QMdi16ControlContainer16controllerWidgetEv": [
       "address", "address"
     ],

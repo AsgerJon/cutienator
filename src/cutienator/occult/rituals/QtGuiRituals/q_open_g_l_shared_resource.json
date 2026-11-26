@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QOpenGLSharedResourceC1EP19QOpenGLContextGroup": [
+      "address", "address"
+    ],
     "ritual_ZN21QOpenGLSharedResourceD1Ev": ["nothing", "address"],
     "ritual_ZNK21QOpenGLSharedResource5groupEv": ["address", "address"],
     "ritual_ZN21QOpenGLSharedResource4freeEv": ["nothing", "address"],

@@ -29,6 +29,15 @@ QQuickGraphicsConfiguration *ritual_ZN27QQuickGraphicsConfigurationC1ERKS_(
   return new QQuickGraphicsConfiguration(*other);
 }
 
+//  QQuickGraphicsConfiguration &QQuickGraphicsConfiguration::operator=(const
+//      QQuickGraphicsConfiguration &other)
+extern "C" Q_DECL_EXPORT
+QQuickGraphicsConfiguration *ritual_ZN27QQuickGraphicsConfigurationaSERKS_(
+    QQuickGraphicsConfiguration *self,
+    const QQuickGraphicsConfiguration *other) {
+  return &(self->operator=(*other));
+}
+
 //  QByteArrayList QQuickGraphicsConfiguration::preferredInstanceExtensions()
 extern "C" Q_DECL_EXPORT
 QList<QByteArray> *ritual_ZN27QQuickGraphicsConfiguration27preferredInstanceExtensionsEv() {

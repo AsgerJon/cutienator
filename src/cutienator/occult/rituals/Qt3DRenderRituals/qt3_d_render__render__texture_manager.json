@@ -11,6 +11,12 @@
     ],
     "ritual_ZN10Qt3DRender6Render14TextureManager24removeTextureIdToCleanupEN8Qt3DCore7QNodeIdE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14TextureManager24takeTexturesIdsToCleanupEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_TextureManager__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

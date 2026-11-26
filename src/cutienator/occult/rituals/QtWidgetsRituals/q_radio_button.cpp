@@ -1040,6 +1040,24 @@ const QMetaObject *ritual_ZNK12QRadioButton10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRadioButton::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QRadioButton11qt_metacastEPKc(
+    QRadioButton *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRadioButton::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QRadioButton11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRadioButton *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRadioButton::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QRadioButton2trEPKcS1_i(
@@ -1118,6 +1136,19 @@ void ritual_ZNK12QRadioButton15initStyleOptionEP18QStyleOptionButton(
     const QRadioButton *self,
     QStyleOptionButton *button) {
   self->initStyleOption(button);
+}
+
+//  QRadioButtonPrivate *QRadioButton::d_func()
+extern "C" Q_DECL_EXPORT
+QRadioButtonPrivate *ritual_ZN12QRadioButton6d_funcEv(QRadioButton *self) {
+  return self->d_func();
+}
+
+//  const QRadioButtonPrivate *QRadioButton::d_func() const
+extern "C" Q_DECL_EXPORT
+const QRadioButtonPrivate *ritual_ZNK12QRadioButton6d_funcEv(
+    const QRadioButton *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQRadioButton, for the function named by

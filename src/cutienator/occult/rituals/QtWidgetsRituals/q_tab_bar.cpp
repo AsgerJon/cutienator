@@ -1109,6 +1109,22 @@ const QMetaObject *ritual_ZNK7QTabBar10metaObjectEv(const QTabBar *self) {
   return self->metaObject();
 }
 
+//  void *QTabBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QTabBar11qt_metacastEPKc(QTabBar *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTabBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QTabBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTabBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTabBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QTabBar2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1541,6 +1557,36 @@ void ritual_ZN7QTabBar20setAccessibleTabNameEiRK7QString(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QTabBar15setCurrentIndexEi(QTabBar *self, int index) {
   self->setCurrentIndex(index);
+}
+
+//  void QTabBar::currentChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar14currentChangedEi(QTabBar *self, int index) {
+  self->currentChanged(index);
+}
+
+//  void QTabBar::tabCloseRequested(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar17tabCloseRequestedEi(QTabBar *self, int index) {
+  self->tabCloseRequested(index);
+}
+
+//  void QTabBar::tabMoved(int from, int to)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar8tabMovedEii(QTabBar *self, int from, int to) {
+  self->tabMoved(from, to);
+}
+
+//  void QTabBar::tabBarClicked(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar13tabBarClickedEi(QTabBar *self, int index) {
+  self->tabBarClicked(index);
+}
+
+//  void QTabBar::tabBarDoubleClicked(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar19tabBarDoubleClickedEi(QTabBar *self, int index) {
+  self->tabBarDoubleClicked(index);
 }
 
 //  QSize QTabBar::tabSizeHint(int index) const

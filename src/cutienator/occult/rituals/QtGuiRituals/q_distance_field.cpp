@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qdistancefield_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtGui/6.12.0/QtGui/private/qdistancefield_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25: added by hand, rituals for functions the generator leaves
+//  out: 2. Kept as it is when the generator runs again.
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -131,6 +132,35 @@ QDistanceField *ritual_ZNK14QDistanceField4copyEiiii(
   return new QDistanceField(self->copy(x, y, w, h));
 }
 
+//  const uchar *QDistanceField::bits() const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK14QDistanceField4bitsEv(const QDistanceField *self) {
+  return self->bits();
+}
+
+//  const uchar *QDistanceField::constBits() const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK14QDistanceField9constBitsEv(
+    const QDistanceField *self) {
+  return self->constBits();
+}
+
+//  const uchar *QDistanceField::scanLine(int a0) const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK14QDistanceField8scanLineEi(
+    const QDistanceField *self,
+    int a0) {
+  return self->scanLine(a0);
+}
+
+//  const uchar *QDistanceField::constScanLine(int a0) const
+extern "C" Q_DECL_EXPORT
+const uchar *ritual_ZNK14QDistanceField13constScanLineEi(
+    const QDistanceField *self,
+    int a0) {
+  return self->constScanLine(a0);
+}
+
 //  QImage QDistanceField::toImage(QImage::Format format) const
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZNK14QDistanceField7toImageEN6QImage6FormatE(
@@ -185,4 +215,19 @@ QDistanceField *ritual_list_at_QDistanceField(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QDistanceField(QList<QDistanceField> *self) {
   delete self;
+}
+
+//  uchar *QDistanceField::bits()
+extern "C" Q_DECL_EXPORT
+uchar *ritual_ZN14QDistanceField4bitsEv(
+    QDistanceField *self) {
+  return self->bits();
+}
+
+//  uchar *QDistanceField::scanLine(int a0)
+extern "C" Q_DECL_EXPORT
+uchar *ritual_ZN14QDistanceField8scanLineEi(
+    QDistanceField *self,
+    int a0) {
+  return self->scanLine(a0);
 }

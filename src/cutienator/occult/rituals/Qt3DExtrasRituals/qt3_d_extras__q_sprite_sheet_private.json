@@ -5,11 +5,29 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK10Qt3DExtras19QSpriteSheetPrivate8maxIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QSpriteSheetPrivate11updateSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras19QSpriteSheetPrivate15updateTransformEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DExtras19QSpriteSheetPrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DExtras19QSpriteSheetPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_own_ZNK10Qt3DExtras19QSpriteSheetPrivate8maxIndexEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN10Qt3DExtras19QSpriteSheetPrivate11updateSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN10Qt3DExtras19QSpriteSheetPrivate15updateTransformEv": [
+      "nothing", "address"
     ]
   }
 }

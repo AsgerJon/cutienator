@@ -197,6 +197,25 @@ const QMetaObject *ritual_ZNK28QWebChannelAbstractTransport10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWebChannelAbstractTransport::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QWebChannelAbstractTransport11qt_metacastEPKc(
+    QWebChannelAbstractTransport *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWebChannelAbstractTransport::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QWebChannelAbstractTransport11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWebChannelAbstractTransport *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWebChannelAbstractTransport::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -205,6 +224,14 @@ QString *ritual_ZN28QWebChannelAbstractTransport2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWebChannelAbstractTransport::tr(s, c, n));
+}
+
+//  QWebChannelAbstractTransport::QWebChannelAbstractTransport(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QWebChannelAbstractTransport *ritual_ZN28QWebChannelAbstractTransportC1EP7QObject(
+    QObject *parent) {
+  return new CuteQWebChannelAbstractTransport(parent);
 }
 
 //  QWebChannelAbstractTransport::~QWebChannelAbstractTransport()
@@ -221,6 +248,16 @@ void ritual_ZN28QWebChannelAbstractTransport11sendMessageERK11QJsonObject(
     QWebChannelAbstractTransport *self,
     const QJsonObject *message) {
   self->sendMessage(*message);
+}
+
+//  void QWebChannelAbstractTransport::messageReceived(const QJsonObject
+//      &message, QWebChannelAbstractTransport *transport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QWebChannelAbstractTransport15messageReceivedERK11QJsonObjectPS_(
+    QWebChannelAbstractTransport *self,
+    const QJsonObject *message,
+    QWebChannelAbstractTransport *transport) {
+  self->messageReceived(*message, transport);
 }
 
 //  a Python function taken by a CuteQWebChannelAbstractTransport, for the

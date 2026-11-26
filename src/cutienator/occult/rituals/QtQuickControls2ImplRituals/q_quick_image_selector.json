@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickImageSelector10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickImageSelector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickImageSelector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK19QQuickImageSelector6sourceEv": ["address", "address"],
     "ritual_ZNK19QQuickImageSelector4nameEv": ["text", "address"],
     "ritual_ZNK19QQuickImageSelector4pathEv": ["text", "address"],
@@ -20,6 +26,9 @@
     ],
     "ritual_ZN19QQuickImageSelector9setTargetERK12QQmlProperty": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickImageSelector13sourceChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN19QQuickImageSelector10classBeginEv": ["nothing", "address"],
     "ritual_ZN19QQuickImageSelector17componentCompleteEv": [

@@ -9,6 +9,9 @@
   ],
   "rows": {
     "ritual_ZN20QAbstractAxisPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QAbstractAxisPrivate8setGraphEP11QGraphsView": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QAbstractAxisPrivate6setMinERK8QVariant": [
       "nothing", "address", "address"
     ],

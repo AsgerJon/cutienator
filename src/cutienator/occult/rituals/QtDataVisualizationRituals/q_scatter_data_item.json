@@ -12,6 +12,7 @@
     ],
     "ritual_ZN16QScatterDataItemC1ERKS_": ["address", "address"],
     "ritual_ZN16QScatterDataItemD1Ev": ["nothing", "address"],
+    "ritual_ZN16QScatterDataItemaSERKS_": ["address", "address", "address"],
     "ritual_ZN16QScatterDataItem11setPositionERK9QVector3D": [
       "nothing", "address", "address"
     ],

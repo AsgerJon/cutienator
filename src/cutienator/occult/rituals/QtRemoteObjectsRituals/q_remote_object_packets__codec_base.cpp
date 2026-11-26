@@ -11,6 +11,49 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qabstractitemmodel.h>
+#include <QtCore/qbytearrayview.h>
+#include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
+#include <QtRemoteObjects/qremoteobjectsource.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
+#include <QtRemoteObjects/qconnectionfactories.h>
+#include <QtRemoteObjects/private/qconnectionfactories_p.h>
+#include <cstring>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 1110, as _ZN20QRemoteObjectPackets9CodecBase4sendERK4QSetIP16QtROIoDeviceBaseE
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void CodecBase::send(const QSet<QtROIoDeviceBase *> &connections)
+{
+    const auto bytearray = getPayload();
+    for (auto conn : connections)
+        conn->write(bytearray);
+    reset();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 1126, as _ZN20QRemoteObjectPackets9CodecBase4sendEP16QtROIoDeviceBase
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void CodecBase::send(QtROIoDeviceBase *connection)
+{
+    const auto bytearray = getPayload();
+    connection->write(bytearray);
+    reset();
+}
+}  // namespace QRemoteObjectPackets
+//  -----------------------------------------------------------------------
 
 //  Only a class built on QRemoteObjectPackets::CodecBase may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -235,11 +278,48 @@ public:
   }
 };
 
+//  CodecBase &QRemoteObjectPackets::CodecBase::operator=(const CodecBase
+//      &a0)
+extern "C" Q_DECL_EXPORT
+QRemoteObjectPackets::CodecBase *ritual_ZN20QRemoteObjectPackets9CodecBaseaSERKS0_(
+    QRemoteObjectPackets::CodecBase *self,
+    const QRemoteObjectPackets::CodecBase *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  CodecBase &QRemoteObjectPackets::CodecBase::operator=(CodecBase &&a0)
+extern "C" Q_DECL_EXPORT
+QRemoteObjectPackets::CodecBase *ritual_ZN20QRemoteObjectPackets9CodecBaseaSEOS0_(
+    QRemoteObjectPackets::CodecBase *self,
+    QRemoteObjectPackets::CodecBase *a0) {
+  return &(self->operator=(std::move(*a0)));
+}
+
 //  QRemoteObjectPackets::CodecBase::~CodecBase()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QRemoteObjectPackets9CodecBaseD1Ev(
     QRemoteObjectPackets::CodecBase *self) {
   delete self;
+}
+
+//  void QRemoteObjectPackets::CodecBase::serializeObjectListPacket(const
+//      ObjectInfoList &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectPackets9CodecBase25serializeObjectListPacketERK5QListINS_10ObjectInfoEE(
+    QRemoteObjectPackets::CodecBase *self,
+    const QRemoteObjectPackets::ObjectInfoList *a0) {
+  self->serializeObjectListPacket(*a0);
+}
+
+//  void
+//      QRemoteObjectPackets::CodecBase::deserializeObjectListPacket(QDataStr
+//      eam &in, ObjectInfoList &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectPackets9CodecBase27deserializeObjectListPacketER11QDataStreamR5QListINS_10ObjectInfoEE(
+    QRemoteObjectPackets::CodecBase *self,
+    QDataStream *in,
+    QRemoteObjectPackets::ObjectInfoList *a1) {
+  self->deserializeObjectListPacket(*in, *a1);
 }
 
 //  void QRemoteObjectPackets::CodecBase::serializeInitPacket(const
@@ -268,6 +348,17 @@ void ritual_ZN20QRemoteObjectPackets9CodecBase29serializePropertyChangePacketEP2
     QRemoteObjectSourceBase *source,
     int signalIndex) {
   self->serializePropertyChangePacket(source, signalIndex);
+}
+
+//  void QRemoteObjectPackets::CodecBase::deserializePropertyChangePacket(QDa
+//      taStream &in, int &index, QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectPackets9CodecBase31deserializePropertyChangePacketER11QDataStreamRiR8QVariant(
+    QRemoteObjectPackets::CodecBase *self,
+    QDataStream *in,
+    int *index,
+    QVariant *value) {
+  self->deserializePropertyChangePacket(*in, *index, *value);
 }
 
 //  void QRemoteObjectPackets::CodecBase::serializeProperty(const
@@ -319,6 +410,27 @@ void ritual_ZN20QRemoteObjectPackets9CodecBase21serializeInvokePacketERK7QString
       propertyIndex);
 }
 
+//  void QRemoteObjectPackets::CodecBase::deserializeInvokePacket(QDataStream
+//      &in, int &call, int &index, QVariantList &args, int &serialId, int
+//      &propertyIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectPackets9CodecBase23deserializeInvokePacketER11QDataStreamRiS3_R5QListI8QVariantES3_S3_(
+    QRemoteObjectPackets::CodecBase *self,
+    QDataStream *in,
+    int *call,
+    int *index,
+    QVariantList *args,
+    int *serialId,
+    int *propertyIndex) {
+  self->deserializeInvokePacket(
+      *in,
+      *call,
+      *index,
+      *args,
+      *serialId,
+      *propertyIndex);
+}
+
 //  void QRemoteObjectPackets::CodecBase::serializeInvokeReplyPacket(const
 //      QString &name, int ackedSerialId, const QVariant &value)
 extern "C" Q_DECL_EXPORT
@@ -354,6 +466,56 @@ void ritual_ZN20QRemoteObjectPackets9CodecBase24serializeAddObjectPacketERK7QStr
     const QString *name,
     bool isDynamic) {
   self->serializeAddObjectPacket(*name, isDynamic);
+}
+
+//  void
+//      QRemoteObjectPackets::CodecBase::deserializeAddObjectPacket(QDataStre
+//      am &a0, bool &isDynamic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectPackets9CodecBase26deserializeAddObjectPacketER11QDataStreamRb(
+    QRemoteObjectPackets::CodecBase *self,
+    QDataStream *a0,
+    bool *isDynamic) {
+  self->deserializeAddObjectPacket(*a0, *isDynamic);
+}
+
+//  void QRemoteObjectPackets::CodecBase::deserializeInitPacket(QDataStream
+//      &a0, QVariantList &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectPackets9CodecBase21deserializeInitPacketER11QDataStreamR5QListI8QVariantE(
+    QRemoteObjectPackets::CodecBase *self,
+    QDataStream *a0,
+    QVariantList *a1) {
+  self->deserializeInitPacket(*a0, *a1);
+}
+
+//  void
+//      QRemoteObjectPackets::CodecBase::deserializeInvokeReplyPacket(QDataSt
+//      ream &in, int &ackedSerialId, QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectPackets9CodecBase28deserializeInvokeReplyPacketER11QDataStreamRiR8QVariant(
+    QRemoteObjectPackets::CodecBase *self,
+    QDataStream *in,
+    int *ackedSerialId,
+    QVariant *value) {
+  self->deserializeInvokeReplyPacket(*in, *ackedSerialId, *value);
+}
+
+//  void QRemoteObjectPackets::CodecBase::send(const QSet<QtROIoDeviceBase *>
+//      &connections)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectPackets9CodecBase4sendERK4QSetIP16QtROIoDeviceBaseE(
+    QRemoteObjectPackets::CodecBase *self,
+    const QSet<QtROIoDeviceBase *> *connections) {
+  self->send(*connections);
+}
+
+//  void QRemoteObjectPackets::CodecBase::send(QtROIoDeviceBase *connection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QRemoteObjectPackets9CodecBase4sendEP16QtROIoDeviceBase(
+    QRemoteObjectPackets::CodecBase *self,
+    QtROIoDeviceBase *connection) {
+  self->send(connection);
 }
 
 //  const QByteArray &QRemoteObjectPackets::CodecBase::getPayload()

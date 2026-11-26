@@ -37,6 +37,12 @@
     ],
     "ritual_ZNK14QQmlTypeModule4typeEPKN3QV46StringE13QTypeRevision": [
       "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTypeModule23walkCompositeSingletonsERKSt8functionIFvRK8QQmlTypeEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeModule8findTypeEPK5QListIP15QQmlTypePrivateE13QTypeRevision": [
+      "address", "address", "address"
     ]
   }
 }

@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN7QSampleD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QSample5stateEv": ["unsigned char", "address"],
+    "ritual_ZNK7QSample4dataEv": ["address", "address"],
+    "ritual_ZNK7QSample6formatEv": ["address", "address"],
+    "ritual_ZNK7QSample10frameCountEv": ["long long", "address"],
+    "ritual_ZN7QSample8setErrorEv": ["nothing", "address"],
+    "ritual_ZN7QSample7setDataE10QByteArray12QAudioFormat": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN7QSampleC1E4QUrlP12QSampleCache": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QSampleC1E10QByteArray12QAudioFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QSample11clearParentEv": ["nothing", "address"]
+  }
+}

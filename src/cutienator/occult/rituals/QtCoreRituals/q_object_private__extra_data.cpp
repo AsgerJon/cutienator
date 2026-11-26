@@ -32,6 +32,12 @@ void ritual_ZN14QObjectPrivate9ExtraData20nameChangedForwarderERK7QString(
   self->nameChangedForwarder(*name);
 }
 
+//  size_t QObjectPrivate::ExtraData::_qt_property_objectName_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN14QObjectPrivate9ExtraData30_qt_property_objectName_offsetEv() {
+  return QObjectPrivate::ExtraData::_qt_property_objectName_offset();
+}
+
 //  QObjectPrivate::ExtraData::~ExtraData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QObjectPrivate9ExtraDataD1Ev(

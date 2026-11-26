@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQmlDebugConnector10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQmlDebugConnector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQmlDebugConnector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQmlDebugConnector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

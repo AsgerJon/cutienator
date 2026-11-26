@@ -28,6 +28,8 @@
 #include <QtCore/qmargins.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  Only a class built on QQuickMenu may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -974,6 +976,24 @@ const QMetaObject *ritual_ZNK10QQuickMenu10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMenu::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQuickMenu11qt_metacastEPKc(
+    QQuickMenu *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMenu::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQuickMenu11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMenu *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMenu::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQuickMenu2trEPKcS1_i(
@@ -1038,6 +1058,13 @@ void ritual_ZN10QQuickMenu10removeItemEP10QQuickItem(
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK10QQuickMenu12contentModelEv(const QQuickMenu *self) {
   return new QVariant(self->contentModel());
+}
+
+//  QQmlListProperty<QObject> QQuickMenu::contentData()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN10QQuickMenu11contentDataEv(
+    QQuickMenu *self) {
+  return new QQmlListProperty<QObject>(self->contentData());
 }
 
 //  QString QQuickMenu::title() const
@@ -1340,6 +1367,61 @@ void ritual_ZN10QQuickMenu13keyPressEventEP9QKeyEvent(
   self->keyPressEvent(event);
 }
 
+//  void QQuickMenu::titleChanged(const QString &title)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickMenu12titleChangedERK7QString(
+    QQuickMenu *self,
+    const QString *title) {
+  self->titleChanged(*title);
+}
+
+//  void QQuickMenu::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickMenu12countChangedEv(QQuickMenu *self) {
+  self->countChanged();
+}
+
+//  void QQuickMenu::cascadeChanged(bool cascade)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickMenu14cascadeChangedEb(
+    QQuickMenu *self,
+    bool cascade) {
+  self->cascadeChanged(cascade);
+}
+
+//  void QQuickMenu::overlapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickMenu14overlapChangedEv(QQuickMenu *self) {
+  self->overlapChanged();
+}
+
+//  void QQuickMenu::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickMenu15delegateChangedEv(QQuickMenu *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickMenu::currentIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickMenu19currentIndexChangedEv(QQuickMenu *self) {
+  self->currentIndexChanged();
+}
+
+//  void QQuickMenu::iconChanged(const QQuickIcon &icon)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickMenu11iconChangedERK10QQuickIcon(
+    QQuickMenu *self,
+    const QQuickIcon *icon) {
+  self->iconChanged(*icon);
+}
+
+//  void QQuickMenu::separatorsCollapsibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QQuickMenu28separatorsCollapsibleChangedEv(
+    QQuickMenu *self) {
+  self->separatorsCollapsibleChanged();
+}
+
 //  void QQuickMenu::timerEvent(QTimerEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QQuickMenu10timerEventEP11QTimerEvent(
@@ -1458,6 +1540,13 @@ QAccessible::Role ritual_own_ZNK10QQuickMenu14accessibleRoleEv(
   return static_cast<const OwnQQuickMenu *>(self)->OwnQQuickMenu::accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  a QQmlListProperty<QObject> a ritual of QQuickMenu gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickMenu__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
+}
 
 #endif  // QT_CONFIG(qml_object_model)
 #endif  // QT_CONFIG(qml_object_model)

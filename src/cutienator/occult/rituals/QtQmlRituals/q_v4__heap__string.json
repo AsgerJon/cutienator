@@ -5,11 +5,23 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap6String11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK3QV44Heap6String6vtableEv": ["address", "address"],
+    "ritual_ZN3QV44Heap6String4initERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK3QV44Heap6String14simplifyStringEv": ["nothing", "address"],
     "ritual_ZNK3QV44Heap6String6lengthEv": ["int", "address"],
+    "ritual_ZNK3QV44Heap6String16retainedTextSizeEv": ["size_t", "address"],
     "ritual_ZNK3QV44Heap6String9toQStringEv": ["text", "address"],
     "ritual_ZNK3QV44Heap6String9isEqualToEPKS1_": [
       "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap6String15startsWithUpperEv": ["bool", "address"],
+    "ritual_ZN3QV44Heap6String6appendEPKS1_P5QChar": [
+      "nothing", "address", "address"
     ]
   }
 }

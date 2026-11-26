@@ -178,6 +178,24 @@ QList<QByteArray> *ritual_ZN31QQuickDesignerSupportProperties37propertyNameListF
           object));
 }
 
+//  QQuickDesignerSupport::PropertyNameList
+//      QQuickDesignerSupportProperties::allPropertyNames(QObject *object,
+//      const QQuickDesignerSupport::PropertyName &baseName, QObjectList
+//      *inspectedObjects, int depth)
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN31QQuickDesignerSupportProperties16allPropertyNamesEP7QObjectRK10QByteArrayP5QListIS1_Ei(
+    QObject *object,
+    const QByteArray *baseName,
+    QObjectList *inspectedObjects,
+    int depth) {
+  return new QList<QByteArray>(
+      QQuickDesignerSupportProperties::allPropertyNames(
+          object,
+          *baseName,
+          inspectedObjects,
+          depth));
+}
+
 //  bool
 //      QQuickDesignerSupportProperties::hasFullImplementedListInterface(cons
 //      t QQmlListReference &list)

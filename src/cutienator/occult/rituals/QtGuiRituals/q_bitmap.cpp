@@ -21,7 +21,7 @@ typedef void * (*CuteQBitmapCall5)(const void *, int *);
 class CuteQBitmap : public QBitmap {
 public:
   using QBitmap::QBitmap;
-  CuteQBitmap(const QBitmap &other) : QBitmap(other) {}
+  CuteQBitmap(const QBitmap & other) : QBitmap(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -159,6 +159,20 @@ void ritual_ZN7QBitmapD1Ev(QBitmap *self) {
   delete self;
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
+//  QBitmap &QBitmap::operator=(const QPixmap &a0)
+extern "C" Q_DECL_EXPORT
+QBitmap *ritual_ZN7QBitmapaSERK7QPixmap(QBitmap *self, const QPixmap *a0) {
+  return &(self->operator=(*a0));
+}
+#endif  // QT_DEPRECATED_SINCE(6, 0)
+
+//  void QBitmap::swap(QBitmap &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBitmap4swapERS_(QBitmap *self, QBitmap *other) {
+  self->swap(*other);
+}
+
 //  QVariant QBitmap::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK7QBitmapcv8QVariantEv(const QBitmap *self) {
@@ -181,6 +195,28 @@ QBitmap *ritual_ZN7QBitmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagE
       QBitmap::fromImage(
           *image,
           QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
+}
+
+//  QBitmap QBitmap::fromImage(QImage &&image, Qt::ImageConversionFlags
+//      flags)
+extern "C" Q_DECL_EXPORT
+QBitmap *ritual_ZN7QBitmap9fromImageEO6QImage6QFlagsIN2Qt19ImageConversionFlagEE(
+    QImage *image,
+    int flags) {
+  return new QBitmap(
+      QBitmap::fromImage(
+          std::move(*image),
+          QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
+}
+
+//  QBitmap QBitmap::fromData(const QSize &size, const uchar *bits,
+//      QImage::Format monoFormat)
+extern "C" Q_DECL_EXPORT
+QBitmap *ritual_ZN7QBitmap8fromDataERK5QSizePKhN6QImage6FormatE(
+    const QSize *size,
+    const uchar *bits,
+    QImage::Format monoFormat) {
+  return new QBitmap(QBitmap::fromData(*size, bits, monoFormat));
 }
 
 //  QBitmap QBitmap::fromPixmap(const QPixmap &pixmap)

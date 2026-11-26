@@ -5,6 +5,15 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV412CompiledData15CompilationUnitC1EPKNS0_4UnitEPKN11QQmlPrivate19AOTCompiledFunctionEPFbP10QQmlEnginePS1_ERK7QStringSG_": [
+      "address", "address", "address", "address", "text", "text"
+    ],
+    "ritual_ZN3QV412CompiledData15CompilationUnitC1EPKNS0_4UnitERK7QStringS7_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN3QV412CompiledData15CompilationUnitD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit8unitDataEv": [
       "address", "address"
     ],
@@ -29,11 +38,23 @@
     "ritual_ZNK3QV412CompiledData15CompilationUnit20bindingValueAsNumberEPKNS0_7BindingE": [
       "double", "address", "address"
     ],
+    "ritual_ZN3QV412CompiledData15CompilationUnit18localCacheFilePathERK4QUrl": [
+      "text", "address"
+    ],
+    "ritual_ZN3QV412CompiledData15CompilationUnit12loadFromDiskERK4QUrlRK9QDateTimeN3qxp12function_refIJKF10QByteArrayvEEEEP7QString": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit10saveToDiskERK4QUrlN3qxp12function_refIJKF10QByteArrayvEEEEP7QString": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit11importCountEv": [
       "int", "address"
     ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit8importAtEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit14moduleRequestsEv": [
+      "address", "address"
     ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit3urlEv": [
       "address", "address"
@@ -44,6 +65,9 @@
     "ritual_ZNK3QV412CompiledData15CompilationUnit12resolvedTypeEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit12resolvedTypeE9QMetaType": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit17rootPropertyCacheEv": [
       "address", "address"
     ],
@@ -53,11 +77,20 @@
     "ritual_ZNK3QV412CompiledData15CompilationUnit13resolvedIndexEi": [
       "int", "address", "int"
     ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit8objectAtEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit26implicitComponentForObjectEi": [
       "int", "address", "int"
     ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit17inlineComponentIdERK7QString": [
       "int", "address", "text"
+    ],
+    "ritual_ZN3QV412CompiledData15CompilationUnit21finalizeCompositeTypeERK8QQmlType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit14verifyChecksumERKSt8functionIF10QByteArrayvEE": [
+      "bool", "address", "address"
     ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit26listPropertyAssignBehaviorEv": [
       "int", "address"
@@ -85,6 +118,15 @@
     ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit15isSharedLibraryEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit20objectFunctionsBeginEPKNS0_6ObjectE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit18objectFunctionsEndEPKNS0_6ObjectE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit19qmlTypeForComponentERK7QString": [
+      "address", "address", "text"
     ],
     "ritual_ZNK3QV412CompiledData15CompilationUnit8metaTypeEv": [
       "address", "address"

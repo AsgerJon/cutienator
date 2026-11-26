@@ -962,6 +962,22 @@ const QMetaObject *ritual_ZNK5QDial10metaObjectEv(const QDial *self) {
   return self->metaObject();
 }
 
+//  void *QDial::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN5QDial11qt_metacastEPKc(QDial *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDial::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN5QDial11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDial *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDial::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN5QDial2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -1094,6 +1110,18 @@ void ritual_ZNK5QDial15initStyleOptionEP18QStyleOptionSlider(
     const QDial *self,
     QStyleOptionSlider *option) {
   self->initStyleOption(option);
+}
+
+//  QDialPrivate *QDial::d_func()
+extern "C" Q_DECL_EXPORT
+QDialPrivate *ritual_ZN5QDial6d_funcEv(QDial *self) {
+  return self->d_func();
+}
+
+//  const QDialPrivate *QDial::d_func() const
+extern "C" Q_DECL_EXPORT
+const QDialPrivate *ritual_ZNK5QDial6d_funcEv(const QDial *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQDial, for the function named by the key

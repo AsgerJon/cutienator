@@ -10,6 +10,12 @@
   ],
   "rows": {
     "ritual_ZNK17Q3DBarsWidgetItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17Q3DBarsWidgetItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17Q3DBarsWidgetItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -86,6 +92,42 @@
     ],
     "ritual_ZN17Q3DBarsWidgetItem5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem25multiSeriesUniformChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem19barThicknessChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem17barSpacingChangedE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem25barSpacingRelativeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem22barSeriesMarginChangedE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem14rowAxisChangedEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem17columnAxisChangedEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem16valueAxisChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem20primarySeriesChangedEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem21selectedSeriesChangedEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem17floorLevelChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem17sliceImageChangedERK6QImage": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17Q3DBarsWidgetItem6d_funcEv": ["address", "address"],
     "ritual_ZNK17Q3DBarsWidgetItem6d_funcEv": ["address", "address"],

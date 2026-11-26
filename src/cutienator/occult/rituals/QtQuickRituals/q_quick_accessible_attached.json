@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuickAccessibleAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickAccessibleAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickAccessibleAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -174,6 +180,9 @@
     "ritual_ZN24QQuickAccessibleAttached8doActionERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZNK24QQuickAccessibleAttached16availableActionsEP5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QQuickAccessibleAttached9stripHtmlERK7QString": [
       "text", "text"
     ],
@@ -191,6 +200,60 @@
     ],
     "ritual_ZN24QQuickAccessibleAttached10setIgnoredEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached11roleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached11nameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached18descriptionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached9idChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14ignoredChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached17labelledByChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached15labelForChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached11pressActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached12toggleActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14increaseActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14decreaseActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached18showOnScreenActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14scrollUpActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached16scrollDownActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached16scrollLeftActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached17scrollRightActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached18previousPageActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14nextPageActionEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK24QQuickAccessibleAttached12findRelationE6QFlagsIN11QAccessible12RelationFlagEE": [
       "address", "address", "int"

@@ -50,6 +50,12 @@ inline void LabelItem::setTextureId(GLuint textureId)
     m_textureId = textureId;
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 35, as _ZNK9LabelItem9textureIdEv
+inline GLuint LabelItem::textureId() const
+{
+    return m_textureId;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 40, as _ZN9LabelItem5clearEv
 inline void LabelItem::clear()
 {
@@ -90,6 +96,12 @@ QSize *ritual_ZNK9LabelItem4sizeEv(const LabelItem *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9LabelItem12setTextureIdEj(LabelItem *self, GLuint textureId) {
   self->setTextureId(textureId);
+}
+
+//  GLuint LabelItem::textureId() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK9LabelItem9textureIdEv(const LabelItem *self) {
+  return self->textureId();
 }
 
 //  void LabelItem::clear()

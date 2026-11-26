@@ -11,6 +11,8 @@
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/QMap>
+#include <QtCore/QByteArray>
 
 //  QTextureFileData::QTextureFileData(Mode mode)
 extern "C" Q_DECL_EXPORT
@@ -26,10 +28,41 @@ QTextureFileData *ritual_ZN16QTextureFileDataC1ERKS_(
   return new QTextureFileData(*other);
 }
 
+//  QTextureFileData::QTextureFileData(QTextureFileData &&a0)
+extern "C" Q_DECL_EXPORT
+QTextureFileData *ritual_ZN16QTextureFileDataC1EOS_(QTextureFileData *a0) {
+  return new QTextureFileData(std::move(*a0));
+}
+
+//  QTextureFileData &QTextureFileData::operator=(const QTextureFileData
+//      &other)
+extern "C" Q_DECL_EXPORT
+QTextureFileData *ritual_ZN16QTextureFileDataaSERKS_(
+    QTextureFileData *self,
+    const QTextureFileData *other) {
+  return &(self->operator=(*other));
+}
+
+//  QTextureFileData &QTextureFileData::operator=(QTextureFileData &&other)
+extern "C" Q_DECL_EXPORT
+QTextureFileData *ritual_ZN16QTextureFileDataaSEOS_(
+    QTextureFileData *self,
+    QTextureFileData *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QTextureFileData::~QTextureFileData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextureFileDataD1Ev(QTextureFileData *self) {
   delete self;
+}
+
+//  void QTextureFileData::swap(QTextureFileData &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QTextureFileData4swapERS_(
+    QTextureFileData *self,
+    QTextureFileData *other) {
+  self->swap(*other);
 }
 
 //  bool QTextureFileData::isNull() const
@@ -224,10 +257,33 @@ void ritual_ZN16QTextureFileData10setLogNameERK10QByteArray(
   self->setLogName(*name);
 }
 
+//  QMap<QByteArray, QByteArray> QTextureFileData::keyValueMetadata() const
+extern "C" Q_DECL_EXPORT
+QMap<QByteArray, QByteArray> *ritual_ZNK16QTextureFileData16keyValueMetadataEv(
+    const QTextureFileData *self) {
+  return new QMap<QByteArray, QByteArray>(self->keyValueMetadata());
+}
+
+//  void QTextureFileData::setKeyValueMetadata(const QMap<QByteArray,
+//      QByteArray> &keyValues)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QTextureFileData19setKeyValueMetadataERK4QMapI10QByteArrayS1_E(
+    QTextureFileData *self,
+    const QMap<QByteArray, QByteArray> *keyValues) {
+  self->setKeyValueMetadata(*keyValues);
+}
+
 //  QDebug operator<<(QDebug dbg, const QTextureFileData &d)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK16QTextureFileData(
     const QDebug *dbg,
     const QTextureFileData *d) {
   return new QDebug(operator<<(*dbg, *d));
+}
+
+//  a QMap<QByteArray, QByteArray> a ritual of QTextureFileData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextureFileData__QMap_QByteArray_QByteArray(
+    QMap<QByteArray, QByteArray> *self) {
+  delete self;
 }

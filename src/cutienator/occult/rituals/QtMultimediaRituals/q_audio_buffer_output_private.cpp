@@ -15,3 +15,13 @@ QAudioBufferOutputPrivate *ritual_ZN25QAudioBufferOutputPrivateC1ERK12QAudioForm
     const QAudioFormat *format) {
   return new QAudioBufferOutputPrivate(*format);
 }
+
+//  QMediaPlayer
+//      *QAudioBufferOutputPrivate::exchangeMediaPlayer(QAudioBufferOutput
+//      &output, QMediaPlayer *player)
+extern "C" Q_DECL_EXPORT
+QMediaPlayer *ritual_ZN25QAudioBufferOutputPrivate19exchangeMediaPlayerER18QAudioBufferOutputP12QMediaPlayer(
+    QAudioBufferOutput *output,
+    QMediaPlayer *player) {
+  return QAudioBufferOutputPrivate::exchangeMediaPlayer(*output, player);
+}

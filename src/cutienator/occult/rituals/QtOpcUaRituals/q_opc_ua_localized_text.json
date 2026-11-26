@@ -10,6 +10,9 @@
     "ritual_ZN19QOpcUaLocalizedTextC1ERK7QStringS2_": [
       "address", "text", "text"
     ],
+    "ritual_ZN19QOpcUaLocalizedTextaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QOpcUaLocalizedTexteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK19QOpcUaLocalizedTextcv8QVariantEv": ["address", "address"],
     "ritual_ZN19QOpcUaLocalizedTextD1Ev": ["nothing", "address"],

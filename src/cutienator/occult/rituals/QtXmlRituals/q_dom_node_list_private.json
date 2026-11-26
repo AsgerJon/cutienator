@@ -15,6 +15,7 @@
       "address", "address", "text", "text"
     ],
     "ritual_ZN19QDomNodeListPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QDomNodeListPrivateeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK19QDomNodeListPrivate10createListEv": ["nothing", "address"],
     "ritual_ZNK19QDomNodeListPrivate9checkNodeEP15QDomNodePrivate": [
       "bool", "address", "address"
@@ -24,6 +25,9 @@
     ],
     "ritual_ZNK19QDomNodeListPrivate15findPrevInOrderEP15QDomNodePrivate": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK19QDomNodeListPrivate11forEachNodeEN3qxp12function_refIJFvP15QDomNodePrivateEEEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK19QDomNodeListPrivate15maybeCreateListEv": [
       "bool", "address"

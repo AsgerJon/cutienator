@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN4QCss6SymbolC1Ev": ["address"],
+    "ritual_ZNK4QCss6Symbol5lexemEv": ["text", "address"],
     "ritual_ZN4QCss6SymbolD1Ev": ["nothing", "address"]
   }
 }

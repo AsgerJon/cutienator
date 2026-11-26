@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK15QScxmlDataModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QScxmlDataModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QScxmlDataModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QScxmlDataModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK15QScxmlDataModel12stateMachineEv": ["address", "address"],
+    "ritual_ZN15QScxmlDataModel20bindableStateMachineEv": [
+      "address", "address"
+    ],
     "ritual_ZN15QScxmlDataModel5setupERK4QMapI7QString8QVariantE": [
       "bool", "address", "address"
     ],
@@ -53,6 +62,12 @@
     "ritual_ZN15QScxmlDataModel16setScxmlPropertyERK7QStringRK8QVariantS2_": [
       "bool", "address", "text", "address", "text"
     ],
-    "ritual_take_QScxmlDataModel": ["bool", "address", "chars", "address"]
+    "ritual_ZN15QScxmlDataModel19stateMachineChangedEP18QScxmlStateMachine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QScxmlDataModel": ["bool", "address", "chars", "address"],
+    "ritual_drop_QScxmlDataModel__QBindable_QScxmlStateMachine": [
+      "nothing", "address"
+    ]
   }
 }

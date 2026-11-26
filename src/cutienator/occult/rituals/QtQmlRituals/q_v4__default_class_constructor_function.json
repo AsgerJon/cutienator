@@ -16,6 +16,12 @@
     ],
     "ritual_ZNK3QV431DefaultClassConstructorFunction5scopeEv": [
       "address", "address"
+    ],
+    "ritual_ZN3QV431DefaultClassConstructorFunction24virtualCallAsConstructorEPKNS_14FunctionObjectEPKNS_5ValueEiS6_": [
+      "unsigned long long", "address", "address", "int", "address"
+    ],
+    "ritual_ZN3QV431DefaultClassConstructorFunction11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
     ]
   }
 }

@@ -24,6 +24,9 @@
     "ritual_ZNK16QTreeViewPrivate25adjustViewOptionsForIndexEP20QStyleOptionViewItemRK11QModelIndex": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN16QTreeViewPrivate24prepareAnimatedOperationEiN18QAbstractAnimation9DirectionE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN16QTreeViewPrivate22beginAnimatedOperationEv": [
       "nothing", "address"
     ],
@@ -112,10 +115,19 @@
     "ritual_ZNK16QTreeViewPrivate18itemDecorationRectERK11QModelIndex": [
       "address", "address", "address"
     ],
+    "ritual_ZNK16QTreeViewPrivate12columnRangesERK11QModelIndexS2_": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN16QTreeViewPrivate6selectERK11QModelIndexS2_6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
       "nothing", "address", "address", "address", "int"
     ],
+    "ritual_ZNK16QTreeViewPrivate18startAndEndColumnsERK5QRect": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK16QTreeViewPrivate25paintAlternatingRowColorsEP8QPainterP20QStyleOptionViewItemii": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate18calcLogicalIndicesEP5QListIiEPS0_IN20QStyleOptionViewItem16ViewItemPositionEEii": [
       "nothing", "address", "address", "address", "int", "int"
     ],
     "ritual_ZNK16QTreeViewPrivate17widthHintForIndexERK11QModelIndexiRK20QStyleOptionViewItemi": [
@@ -177,6 +189,10 @@
     ],
     "ritual_own_ZNK16QTreeViewPrivate20accessibleChildIndexERK11QModelIndex": [
       "int", "address", "address"
-    ]
+    ],
+    "ritual_drop_QTreeViewPrivate__QList_std_pair_int_int": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QTreeViewPrivate__std_pair_int_int": ["nothing", "address"]
   }
 }

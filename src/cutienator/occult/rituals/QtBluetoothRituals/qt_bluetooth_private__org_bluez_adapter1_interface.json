@@ -8,8 +8,17 @@
     "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface19staticInterfaceNameEv": [
       "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceD1Ev": [
+      "nothing", "address"
     ],
     "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface7addressEv": [
       "text", "address"
@@ -65,8 +74,23 @@
     "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface5uUIDsEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface12RemoveDeviceERK15QDBusObjectPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface18SetDiscoveryFilterERK4QMapI7QString8QVariantE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface14StartDiscoveryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface13StopDiscoveryEv": [
+      "address", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgBluezAdapter1Interface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QtBluetoothPrivate_OrgBluezAdapter1Interface__QDBusPendingReply": [
+      "nothing", "address"
     ]
   }
 }

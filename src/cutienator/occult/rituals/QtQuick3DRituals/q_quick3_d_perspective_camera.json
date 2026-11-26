@@ -8,6 +8,12 @@
     "ritual_ZNK25QQuick3DPerspectiveCamera10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuick3DPerspectiveCamera11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuick3DPerspectiveCamera2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,21 @@
     ],
     "ritual_ZN25QQuick3DPerspectiveCamera25setFieldOfViewOrientationENS_22FieldOfViewOrientationE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera15clipNearChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera14clipFarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera18fieldOfViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera29fieldOfViewOrientationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCameraC1ER19QQuick3DNodePrivateP12QQuick3DNode": [
+      "address", "address", "address"
     ],
     "ritual_ZN25QQuick3DPerspectiveCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

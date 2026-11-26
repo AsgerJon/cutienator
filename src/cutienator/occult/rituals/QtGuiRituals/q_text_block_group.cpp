@@ -236,6 +236,24 @@ const QMetaObject *ritual_ZNK15QTextBlockGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTextBlockGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QTextBlockGroup11qt_metacastEPKc(
+    QTextBlockGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTextBlockGroup::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QTextBlockGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTextBlockGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTextBlockGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QTextBlockGroup2trEPKcS1_i(
@@ -287,6 +305,15 @@ extern "C" Q_DECL_EXPORT
 QList<QTextBlock> *ritual_ZNK15QTextBlockGroup9blockListEv(
     const QTextBlockGroup *self) {
   return new QList<QTextBlock>(self->blockList());
+}
+
+//  QTextBlockGroup::QTextBlockGroup(QTextBlockGroupPrivate &p, QTextDocument
+//      *doc)
+extern "C" Q_DECL_EXPORT
+QTextBlockGroup *ritual_ZN15QTextBlockGroupC1ER22QTextBlockGroupPrivateP13QTextDocument(
+    QTextBlockGroupPrivate *p,
+    QTextDocument *doc) {
+  return new CuteQTextBlockGroup(*p, doc);
 }
 
 //  QTextBlockGroupPrivate *QTextBlockGroup::d_func()

@@ -32,17 +32,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/kernel/qstandardgestures.cpp, line 465, as _ZN28QTapAndHoldGestureRecognizer6createEP7QObject
-#if !defined(QT_NO_GESTURES)
-inline QGesture *QTapAndHoldGestureRecognizer::create(QObject *target)
-{
-    if (target && target->isWidgetType()) {
-        static_cast<QWidget *>(target)->setAttribute(Qt::WA_AcceptTouchEvents);
-    }
-    return new QTapAndHoldGesture;
-}
-#endif  // !defined(QT_NO_GESTURES)
-
 //  from src/widgets/kernel/qstandardgestures.cpp, line 548, as _ZN28QTapAndHoldGestureRecognizer5resetEP8QGesture
 #if !defined(QT_NO_GESTURES)
 inline void QTapAndHoldGestureRecognizer::reset(QGesture *state)
@@ -54,6 +43,17 @@ inline void QTapAndHoldGestureRecognizer::reset(QGesture *state)
     d->tapAndHoldTimer.stop();
 
     QGestureRecognizer::reset(state);
+}
+#endif  // !defined(QT_NO_GESTURES)
+
+//  from src/widgets/kernel/qstandardgestures.cpp, line 465, as _ZN28QTapAndHoldGestureRecognizer6createEP7QObject
+#if !defined(QT_NO_GESTURES)
+inline QGesture *QTapAndHoldGestureRecognizer::create(QObject *target)
+{
+    if (target && target->isWidgetType()) {
+        static_cast<QWidget *>(target)->setAttribute(Qt::WA_AcceptTouchEvents);
+    }
+    return new QTapAndHoldGesture;
 }
 #endif  // !defined(QT_NO_GESTURES)
 //  -----------------------------------------------------------------------
@@ -73,7 +73,7 @@ typedef void (*CuteQTapAndHoldGestureRecognizerCall2)(const void *, QGesture *, 
 class CuteQTapAndHoldGestureRecognizer : public QTapAndHoldGestureRecognizer {
 public:
   using QTapAndHoldGestureRecognizer::QTapAndHoldGestureRecognizer;
-  CuteQTapAndHoldGestureRecognizer(const QTapAndHoldGestureRecognizer &other) : QTapAndHoldGestureRecognizer(other) {}
+  CuteQTapAndHoldGestureRecognizer(const QTapAndHoldGestureRecognizer & other) : QTapAndHoldGestureRecognizer(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -149,6 +149,18 @@ QGesture *ritual_ZN28QTapAndHoldGestureRecognizer6createEP7QObject(
     QTapAndHoldGestureRecognizer *self,
     QObject *target) {
   return self->create(target);
+}
+
+//  QGestureRecognizer::Result
+//      QTapAndHoldGestureRecognizer::recognize(QGesture *state, QObject
+//      *watched, QEvent *event)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QTapAndHoldGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent(
+    QTapAndHoldGestureRecognizer *self,
+    QGesture *state,
+    QObject *watched,
+    QEvent *event) {
+  return static_cast<int>(self->recognize(state, watched, event).toInt());
 }
 
 //  void QTapAndHoldGestureRecognizer::reset(QGesture *state)

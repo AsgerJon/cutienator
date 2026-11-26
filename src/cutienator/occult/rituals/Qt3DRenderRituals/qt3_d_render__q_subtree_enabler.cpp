@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender15QSubtreeEnabler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QSubtreeEnabler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender15QSubtreeEnabler11qt_metacastEPKc(
+    Qt3DRender::QSubtreeEnabler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QSubtreeEnabler::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender15QSubtreeEnabler11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QSubtreeEnabler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QSubtreeEnabler::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,51 @@ QString *ritual_ZN10Qt3DRender15QSubtreeEnabler2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QSubtreeEnabler::tr(s, c, n));
+}
+
+//  Qt3DRender::QSubtreeEnabler::QSubtreeEnabler(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSubtreeEnabler *ritual_ZN10Qt3DRender15QSubtreeEnablerC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QSubtreeEnabler(parent);
+}
+
+//  Qt3DRender::QSubtreeEnabler::~QSubtreeEnabler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QSubtreeEnablerD1Ev(
+    Qt3DRender::QSubtreeEnabler *self) {
+  delete self;
+}
+
+//  Enablement Qt3DRender::QSubtreeEnabler::enablement() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSubtreeEnabler::Enablement ritual_ZNK10Qt3DRender15QSubtreeEnabler10enablementEv(
+    const Qt3DRender::QSubtreeEnabler *self) {
+  return self->enablement();
+}
+
+//  void Qt3DRender::QSubtreeEnabler::setEnablement(Enablement enablement)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QSubtreeEnabler13setEnablementENS0_10EnablementE(
+    Qt3DRender::QSubtreeEnabler *self,
+    Qt3DRender::QSubtreeEnabler::Enablement enablement) {
+  self->setEnablement(enablement);
+}
+
+//  void Qt3DRender::QSubtreeEnabler::requestUpdate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QSubtreeEnabler13requestUpdateEv(
+    Qt3DRender::QSubtreeEnabler *self) {
+  self->requestUpdate();
+}
+
+//  void Qt3DRender::QSubtreeEnabler::enablementChanged(Qt3DRender::QSubtreeE
+//      nabler::Enablement enablement)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender15QSubtreeEnabler17enablementChangedENS0_10EnablementE(
+    Qt3DRender::QSubtreeEnabler *self,
+    Qt3DRender::QSubtreeEnabler::Enablement enablement) {
+  self->enablementChanged(enablement);
 }
 
 //  QSubtreeEnablerPrivate *Qt3DRender::QSubtreeEnabler::d_func()

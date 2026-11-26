@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN11QDomElementC1Ev": ["address"],
     "ritual_ZN11QDomElementC1ERKS_": ["address", "address"],
+    "ritual_ZN11QDomElementaSERKS_": ["address", "address", "address"],
     "ritual_ZNK11QDomElement9attributeERK7QStringS2_": [
       "text", "address", "text", "text"
     ],

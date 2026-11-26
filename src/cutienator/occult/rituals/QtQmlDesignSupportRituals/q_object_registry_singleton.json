@@ -8,6 +8,12 @@
     "ritual_ZNK24QObjectRegistrySingleton10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QObjectRegistrySingleton11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QObjectRegistrySingleton11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QObjectRegistrySingleton2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,9 @@
     "ritual_ZN24QObjectRegistrySingleton6removeERK7QStringP7QObject": [
       "nothing", "address", "text", "address"
     ],
+    "ritual_ZNK24QObjectRegistrySingleton7objectsERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZN24QObjectRegistrySingleton17registryForObjectEP7QObject": [
       "address", "address"
     ],
@@ -41,6 +50,9 @@
     ],
     "ritual_take_QObjectRegistrySingleton": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QObjectRegistrySingleton__QSet_QObject": [
+      "nothing", "address"
     ]
   }
 }

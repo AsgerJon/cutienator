@@ -9,6 +9,23 @@
     "ritual_ZN20QQuickTextNodeEngine14BinaryTreeNodeC1ERK6QRectFRK6QImageNS_14SelectionStateEd": [
       "address", "address", "address", "int", "double"
     ],
+    "ritual_ZN20QQuickTextNodeEngine14BinaryTreeNodeC1ERK9QGlyphRunNS_14SelectionStateERK6QRectFRK6QFlagsINS_10DecorationEEN15QTextCharFormat14UnderlineStyleERK6QColorSH_SH_RK7QPointFd": [
+      "address", "address", "int", "address", "address", "int", "address",
+      "address", "address", "address", "double"
+    ],
+    "ritual_ZN20QQuickTextNodeEngine14BinaryTreeNode6insertEP15QVarLengthArrayIS0_Lx16EERK6QRectFRK6QImagedNS_14SelectionStateE": [
+      "nothing", "address", "address", "address", "double", "int"
+    ],
+    "ritual_ZN20QQuickTextNodeEngine14BinaryTreeNode6insertEP15QVarLengthArrayIS0_Lx16EERK9QGlyphRunNS_14SelectionStateE6QFlagsINS_10DecorationEEN15QTextCharFormat14UnderlineStyleERK6QColorSF_SF_RK7QPointF": [
+      "nothing", "address", "address", "int", "int", "int", "address",
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickTextNodeEngine14BinaryTreeNode6insertEP15QVarLengthArrayIS0_Lx16EERKS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickTextNodeEngine14BinaryTreeNode7inOrderERK15QVarLengthArrayIS0_Lx16EEPS1_IiLx256EEi": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN20QQuickTextNodeEngine14BinaryTreeNodeD1Ev": [
       "nothing", "address"
     ]

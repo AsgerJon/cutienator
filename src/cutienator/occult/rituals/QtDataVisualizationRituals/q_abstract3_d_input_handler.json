@@ -8,6 +8,12 @@
     "ritual_ZNK23QAbstract3DInputHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QAbstract3DInputHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QAbstract3DInputHandler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -43,6 +49,15 @@
     ],
     "ritual_ZNK23QAbstract3DInputHandler5sceneEv": ["address", "address"],
     "ritual_ZN23QAbstract3DInputHandler8setSceneEP8Q3DScene": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler15positionChangedERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler16inputViewChangedENS_9InputViewE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler12sceneChangedEP8Q3DScene": [
       "nothing", "address", "address"
     ],
     "ritual_ZN23QAbstract3DInputHandler15setPrevDistanceEi": [

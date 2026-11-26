@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_BlendEquationArgumentsCall0)(const void *, 
 class CuteQt3DRender_Render_BlendEquationArguments : public Qt3DRender::Render::BlendEquationArguments {
 public:
   using Qt3DRender::Render::BlendEquationArguments::BlendEquationArguments;
-  CuteQt3DRender_Render_BlendEquationArguments(const Qt3DRender::Render::BlendEquationArguments &other) : Qt3DRender::Render::BlendEquationArguments(other) {}
+  CuteQt3DRender_Render_BlendEquationArguments(const Qt3DRender::Render::BlendEquationArguments & other) : Qt3DRender::Render::BlendEquationArguments(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -39,6 +39,15 @@ public:
     Qt3DRender::Render::BlendEquationArguments::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::BlendEquationArguments::updateProperties(const
+//      QRenderState *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render22BlendEquationArguments16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::BlendEquationArguments *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::BlendEquationArguments::~BlendEquationArguments()
 extern "C" Q_DECL_EXPORT

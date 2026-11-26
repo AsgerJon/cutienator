@@ -8,6 +8,12 @@ QHashSeed *ritual_ZN9QHashSeedC1Em(size_t d) {
   return new QHashSeed(d);
 }
 
+//  size_t QHashSeed::operator unsigned long() const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK9QHashSeedcvmEv(const QHashSeed *self) {
+  return self->operator size_t();
+}
+
 //  QHashSeed QHashSeed::globalSeed()
 extern "C" Q_DECL_EXPORT
 QHashSeed *ritual_ZN9QHashSeed10globalSeedEv() {

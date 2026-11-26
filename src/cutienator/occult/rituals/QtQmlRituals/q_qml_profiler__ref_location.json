@@ -19,6 +19,9 @@
       "address", "address"
     ],
     "ritual_ZN12QQmlProfiler11RefLocationC1ERKS0_": ["address", "address"],
+    "ritual_ZN12QQmlProfiler11RefLocationaSERKS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN12QQmlProfiler11RefLocationD1Ev": ["nothing", "address"],
     "ritual_ZN12QQmlProfiler11RefLocation6addrefEv": ["nothing", "address"],
     "ritual_ZN12QQmlProfiler11RefLocation7releaseEv": ["nothing", "address"],

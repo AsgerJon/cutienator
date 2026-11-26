@@ -5,6 +5,12 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZNK3QV415SparseArrayNode8nextNodeEv": ["address", "address"],
+    "ritual_ZN3QV415SparseArrayNode8nextNodeEv": ["address", "address"],
+    "ritual_ZNK3QV415SparseArrayNode12previousNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415SparseArrayNode12previousNodeEv": ["address", "address"],
     "ritual_ZNK3QV415SparseArrayNode5colorEv": ["int", "address"],
     "ritual_ZN3QV415SparseArrayNode8setColorENS0_5ColorE": [
       "nothing", "address", "int"
@@ -14,6 +20,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK3QV415SparseArrayNode3keyEv": ["unsigned int", "address"],
+    "ritual_ZNK3QV415SparseArrayNode4copyEPNS_11SparseArrayE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN3QV415SparseArrayNode10lowerBoundEj": [
       "address", "address", "unsigned int"
     ],

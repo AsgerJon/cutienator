@@ -11,6 +11,7 @@ typedef void (*CuteQPlatformSurfaceEventCall1)(const void *, bool, int *);
 class CuteQPlatformSurfaceEvent : public QPlatformSurfaceEvent {
 public:
   using QPlatformSurfaceEvent::QPlatformSurfaceEvent;
+  CuteQPlatformSurfaceEvent(const QPlatformSurfaceEvent & other) : QPlatformSurfaceEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -47,6 +48,23 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QPlatformSurfaceEvent::QPlatformSurfaceEvent(const QPlatformSurfaceEvent
+//      &a0)
+extern "C" Q_DECL_EXPORT
+QPlatformSurfaceEvent *ritual_ZN21QPlatformSurfaceEventC1ERKS_(
+    const QPlatformSurfaceEvent *a0) {
+  return new CuteQPlatformSurfaceEvent(*a0);
+}
+
+//  QPlatformSurfaceEvent &QPlatformSurfaceEvent::operator=(const
+//      QPlatformSurfaceEvent &other)
+extern "C" Q_DECL_EXPORT
+QPlatformSurfaceEvent *ritual_ZN21QPlatformSurfaceEventaSERKS_(
+    QPlatformSurfaceEvent *self,
+    const QPlatformSurfaceEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QPlatformSurfaceEvent *QPlatformSurfaceEvent::clone() const
 extern "C" Q_DECL_EXPORT

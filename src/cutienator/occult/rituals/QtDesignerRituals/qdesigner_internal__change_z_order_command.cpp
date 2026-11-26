@@ -9,6 +9,28 @@
 #include <QtWidgets/qwidget.h>
 #include <QtCore/qlist.h>
 
+//  void qdesigner_internal::ChangeZOrderCommand::init(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19ChangeZOrderCommand4initEP7QWidget(
+    qdesigner_internal::ChangeZOrderCommand *self,
+    QWidget *widget) {
+  self->init(widget);
+}
+
+//  void qdesigner_internal::ChangeZOrderCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19ChangeZOrderCommand4redoEv(
+    qdesigner_internal::ChangeZOrderCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::ChangeZOrderCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal19ChangeZOrderCommand4undoEv(
+    qdesigner_internal::ChangeZOrderCommand *self) {
+  self->undo();
+}
+
 //  QWidgetList qdesigner_internal::ChangeZOrderCommand::reorderWidget(const
 //      QWidgetList &list, QWidget *widget) const
 extern "C" Q_DECL_EXPORT

@@ -47,6 +47,12 @@ public:
   }
 };
 
+//  QQmlParserStatus::QQmlParserStatus()
+extern "C" Q_DECL_EXPORT
+QQmlParserStatus *ritual_ZN16QQmlParserStatusC1Ev() {
+  return new CuteQQmlParserStatus();
+}
+
 //  QQmlParserStatus::~QQmlParserStatus()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QQmlParserStatusD1Ev(QQmlParserStatus *self) {

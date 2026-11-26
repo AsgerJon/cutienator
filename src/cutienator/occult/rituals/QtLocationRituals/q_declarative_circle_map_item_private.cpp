@@ -165,6 +165,14 @@ public:
   }
 };
 
+//  QDeclarativeCircleMapItemPrivate::QDeclarativeCircleMapItemPrivate(QDecla
+//      rativeCircleMapItem &circle)
+extern "C" Q_DECL_EXPORT
+QDeclarativeCircleMapItemPrivate *ritual_ZN32QDeclarativeCircleMapItemPrivateC1ER25QDeclarativeCircleMapItem(
+    QDeclarativeCircleMapItem *circle) {
+  return new CuteQDeclarativeCircleMapItemPrivate(*circle);
+}
+
 //  QDeclarativeCircleMapItemPrivate::~QDeclarativeCircleMapItemPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN32QDeclarativeCircleMapItemPrivateD1Ev(
@@ -254,6 +262,58 @@ int ritual_ZN32QDeclarativeCircleMapItemPrivate14crossEarthPoleERK14QGeoCoordina
     const QGeoCoordinate *center,
     qreal distance) {
   return QDeclarativeCircleMapItemPrivate::crossEarthPole(*center, distance);
+}
+
+//  void QDeclarativeCircleMapItemPrivate::includeOnePoleInPath(QList<QDouble
+//      Vector2D> &path, const QGeoCoordinate &center, qreal distance, const
+//      QGeoProjectionWebMercator &p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QDeclarativeCircleMapItemPrivate20includeOnePoleInPathER5QListI15QDoubleVector2DERK14QGeoCoordinatedRK25QGeoProjectionWebMercator(
+    QList<QDoubleVector2D> *path,
+    const QGeoCoordinate *center,
+    qreal distance,
+    const QGeoProjectionWebMercator *p) {
+  QDeclarativeCircleMapItemPrivate::includeOnePoleInPath(
+      *path,
+      *center,
+      distance,
+      *p);
+}
+
+//  void QDeclarativeCircleMapItemPrivate::calculatePeripheralPointsSimple(QL
+//      ist<QDoubleVector2D> &path, const QGeoCoordinate &center, qreal
+//      distance, const QGeoProjectionWebMercator &p, int steps)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QDeclarativeCircleMapItemPrivate31calculatePeripheralPointsSimpleER5QListI15QDoubleVector2DERK14QGeoCoordinatedRK25QGeoProjectionWebMercatori(
+    QList<QDoubleVector2D> *path,
+    const QGeoCoordinate *center,
+    qreal distance,
+    const QGeoProjectionWebMercator *p,
+    int steps) {
+  QDeclarativeCircleMapItemPrivate::calculatePeripheralPointsSimple(
+      *path,
+      *center,
+      distance,
+      *p,
+      steps);
+}
+
+//  void QDeclarativeCircleMapItemPrivate::calculatePeripheralPointsGreatCirc
+//      le(QList<QDoubleVector2D> &path, const QGeoCoordinate &center, qreal
+//      distance, const QGeoProjectionWebMercator &p, int steps)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QDeclarativeCircleMapItemPrivate36calculatePeripheralPointsGreatCircleER5QListI15QDoubleVector2DERK14QGeoCoordinatedRK25QGeoProjectionWebMercatori(
+    QList<QDoubleVector2D> *path,
+    const QGeoCoordinate *center,
+    qreal distance,
+    const QGeoProjectionWebMercator *p,
+    int steps) {
+  QDeclarativeCircleMapItemPrivate::calculatePeripheralPointsGreatCircle(
+      *path,
+      *center,
+      distance,
+      *p,
+      steps);
 }
 
 //  a Python function taken by a CuteQDeclarativeCircleMapItemPrivate, for

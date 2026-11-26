@@ -4,6 +4,8 @@
 #include <QtGui/qtextformat.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
+#include <QtGui/QTextLayout>
 
 //  QTextBlock::QTextBlock(QTextDocumentPrivate *priv, int b)
 extern "C" Q_DECL_EXPORT
@@ -23,6 +25,14 @@ QTextBlock *ritual_ZN10QTextBlockC1Ev() {
 extern "C" Q_DECL_EXPORT
 QTextBlock *ritual_ZN10QTextBlockC1ERKS_(const QTextBlock *o) {
   return new QTextBlock(*o);
+}
+
+//  QTextBlock &QTextBlock::operator=(const QTextBlock &o)
+extern "C" Q_DECL_EXPORT
+QTextBlock *ritual_ZN10QTextBlockaSERKS_(
+    QTextBlock *self,
+    const QTextBlock *o) {
+  return &(self->operator=(*o));
 }
 
 //  bool QTextBlock::isValid() const
@@ -124,6 +134,13 @@ Qt::LayoutDirection ritual_ZNK10QTextBlock13textDirectionEv(
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK10QTextBlock4textEv(const QTextBlock *self) {
   return new QString(self->text());
+}
+
+//  QList<QTextLayout::FormatRange> QTextBlock::textFormats() const
+extern "C" Q_DECL_EXPORT
+QList<QTextLayout::FormatRange> *ritual_ZNK10QTextBlock11textFormatsEv(
+    const QTextBlock *self) {
+  return new QList<QTextLayout::FormatRange>(self->textFormats());
 }
 
 //  const QTextDocument *QTextBlock::document() const
@@ -282,5 +299,12 @@ QTextBlock *ritual_list_at_QTextBlock(
 //  QList<QTextBlock>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QTextBlock(QList<QTextBlock> *self) {
+  delete self;
+}
+
+//  a QList<QTextLayout::FormatRange> a ritual of QTextBlock gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTextBlock__QList_QTextLayout_FormatRange(
+    QList<QTextLayout::FormatRange> *self) {
   delete self;
 }

@@ -28,6 +28,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/gui/accessible/linux/qspidbuscache.cpp, line 52, as _ZN13QSpiDBusCache8GetItemsEv
 #if QT_CONFIG(accessibility)
 inline QSpiAccessibleCacheArray QSpiDBusCache::GetItems()
@@ -209,6 +211,80 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK13QSpiDBusCache10metaObjectEv(
     const QSpiDBusCache *self) {
   return self->metaObject();
+}
+
+//  void *QSpiDBusCache::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QSpiDBusCache11qt_metacastEPKc(
+    QSpiDBusCache *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSpiDBusCache::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QSpiDBusCache11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSpiDBusCache *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QSpiDBusCache::AddAccessible(const QSpiAccessibleCacheItem
+//      &nodeAdded)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpiDBusCache13AddAccessibleERK23QSpiAccessibleCacheItem(
+    QSpiDBusCache *self,
+    const QSpiAccessibleCacheItem *nodeAdded) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSpiDBusCache")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "AddAccessible(const QSpiAccessibleCacheItem &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "AddAccessible(const QSpiAccessibleCacheItem &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(nodeAdded)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QSpiDBusCache::RemoveAccessible(const QSpiObjectReference
+//      &nodeRemoved)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSpiDBusCache16RemoveAccessibleERK19QSpiObjectReference(
+    QSpiDBusCache *self,
+    const QSpiObjectReference *nodeRemoved) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSpiDBusCache")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "RemoveAccessible(const QSpiObjectReference &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "RemoveAccessible(const QSpiObjectReference &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(nodeRemoved)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 #if QT_CONFIG(accessibility)

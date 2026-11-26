@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QCustom3DItemPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QCustom3DItemPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QCustom3DItemPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QCustom3DItemPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QCustom3DItemPrivate12textureImageEv": [
       "address", "address"
@@ -16,6 +22,7 @@
     "ritual_ZN20QCustom3DItemPrivate14resetDirtyBitsEv": [
       "nothing", "address"
     ],
+    "ritual_ZN20QCustom3DItemPrivate10needUpdateEv": ["nothing", "address"],
     "ritual_take_QCustom3DItemPrivate": [
       "bool", "address", "chars", "address"
     ]

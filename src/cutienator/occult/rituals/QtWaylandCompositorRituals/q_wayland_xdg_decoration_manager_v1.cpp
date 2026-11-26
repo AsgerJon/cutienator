@@ -41,6 +41,25 @@ const QMetaObject *ritual_ZNK30QWaylandXdgDecorationManagerV110metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandXdgDecorationManagerV1::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QWaylandXdgDecorationManagerV111qt_metacastEPKc(
+    QWaylandXdgDecorationManagerV1 *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandXdgDecorationManagerV1::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QWaylandXdgDecorationManagerV111qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandXdgDecorationManagerV1 *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandXdgDecorationManagerV1::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -49,6 +68,22 @@ QString *ritual_ZN30QWaylandXdgDecorationManagerV12trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandXdgDecorationManagerV1::tr(s, c, n));
+}
+
+//  QWaylandXdgDecorationManagerV1Private
+//      *QWaylandXdgDecorationManagerV1::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandXdgDecorationManagerV1Private *ritual_ZN30QWaylandXdgDecorationManagerV16d_funcEv(
+    QWaylandXdgDecorationManagerV1 *self) {
+  return self->d_func();
+}
+
+//  const QWaylandXdgDecorationManagerV1Private
+//      *QWaylandXdgDecorationManagerV1::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandXdgDecorationManagerV1Private *ritual_ZNK30QWaylandXdgDecorationManagerV16d_funcEv(
+    const QWaylandXdgDecorationManagerV1 *self) {
+  return self->d_func();
 }
 
 //  QWaylandXdgDecorationManagerV1::QWaylandXdgDecorationManagerV1()
@@ -79,6 +114,19 @@ void ritual_ZN30QWaylandXdgDecorationManagerV116setPreferredModeEN19QWaylandXdgT
     QWaylandXdgDecorationManagerV1 *self,
     QWaylandXdgToplevel::DecorationMode preferredMode) {
   self->setPreferredMode(preferredMode);
+}
+
+//  const struct wl_interface *QWaylandXdgDecorationManagerV1::interface()
+extern "C" Q_DECL_EXPORT
+const struct wl_interface *ritual_ZN30QWaylandXdgDecorationManagerV19interfaceEv() {
+  return QWaylandXdgDecorationManagerV1::interface();
+}
+
+//  void QWaylandXdgDecorationManagerV1::preferredModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QWaylandXdgDecorationManagerV120preferredModeChangedEv(
+    QWaylandXdgDecorationManagerV1 *self) {
+  self->preferredModeChanged();
 }
 
 //  a Python function taken by a CuteQWaylandXdgDecorationManagerV1, for the

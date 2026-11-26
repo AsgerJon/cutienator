@@ -8,6 +8,12 @@
     "ritual_ZNK17QtVirtualKeyboard15VirtualKeyboard10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN17QtVirtualKeyboard15VirtualKeyboard11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QtVirtualKeyboard15VirtualKeyboard11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QtVirtualKeyboard15VirtualKeyboard2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,9 @@
     ],
     "ritual_ZN17QtVirtualKeyboard15VirtualKeyboard21qt_qmlMarker_attachedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard15VirtualKeyboard21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
     ],
     "ritual_take_QtVirtualKeyboard_VirtualKeyboard": [
       "bool", "address", "chars", "address"

@@ -17,6 +17,15 @@ QStyleOptionSlider *ritual_ZN18QStyleOptionSliderC1ERKS_(
   return new QStyleOptionSlider(*other);
 }
 
+//  QStyleOptionSlider &QStyleOptionSlider::operator=(const
+//      QStyleOptionSlider &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionSlider *ritual_ZN18QStyleOptionSlideraSERKS_(
+    QStyleOptionSlider *self,
+    const QStyleOptionSlider *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionSlider::QStyleOptionSlider(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionSlider *ritual_ZN18QStyleOptionSliderC1Ei(int version) {

@@ -8,6 +8,9 @@
     "ritual_ZN11QLocaleData20convertDoubleToFloatEdPb": [
       "float", "double", "address"
     ],
+    "ritual_ZN11QLocaleData19bytearrayToLongLongE14QByteArrayViewi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK11QLocaleData13validateCharsE11QStringViewNS_10NumberModeEi6QFlagsIN7QLocale12NumberOptionEE": [
       "address", "address", "text", "int", "int", "int"
     ],
@@ -58,6 +61,12 @@
     ],
     "ritual_ZNK11QLocaleData15endonymLanguageEv": ["address", "address"],
     "ritual_ZNK11QLocaleData16endonymTerritoryEv": ["address", "address"],
-    "ritual_ZN11QLocaleDataD1Ev": ["nothing", "address"]
+    "ritual_ZN11QLocaleDataD1Ev": ["nothing", "address"],
+    "ritual_drop_QLocaleData__QSimpleParsedNumber_qint64": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QLocaleData__QSimpleParsedNumber_quint64": [
+      "nothing", "address"
+    ]
   }
 }

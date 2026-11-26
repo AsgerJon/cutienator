@@ -9,6 +9,9 @@
     "ritual_ZN17QStandardItemDataC1EiRK8QVariant": [
       "address", "int", "address"
     ],
+    "ritual_ZN17QStandardItemDataC1ERKSt4pairIRKiRK8QVariantE": [
+      "address", "address"
+    ],
     "ritual_ZNK17QStandardItemDataeqERKS_": ["bool", "address", "address"],
     "ritual_ZN17QStandardItemDataD1Ev": ["nothing", "address"]
   }

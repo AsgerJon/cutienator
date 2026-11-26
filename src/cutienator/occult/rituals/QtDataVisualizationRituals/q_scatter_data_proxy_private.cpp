@@ -11,11 +11,11 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtDataVisualization/private/qabstractdataproxy_p.h>
-#include <QtDataVisualization/private/qabstract3dseries_p.h>
 #include <QtDataVisualization/private/qscatterdataproxy_p.h>
 #include <QtDataVisualization/private/qscatter3dseries_p.h>
 #include <QtDataVisualization/private/qabstract3daxis_p.h>
+#include <QtDataVisualization/private/qabstractdataproxy_p.h>
+#include <QtDataVisualization/private/qabstract3dseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -25,11 +25,32 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/data/qscatterdataproxy.cpp, line 416, as _ZN24QScatterDataProxyPrivate9setSeriesEP17QAbstract3DSeries
+inline void QScatterDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+{
+    QAbstractDataProxyPrivate::setSeries(series);
+    QScatter3DSeries *scatterSeries = static_cast<QScatter3DSeries *>(series);
+    emit qptr()->seriesChanged(scatterSeries);
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 97, as _ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries
 inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
 {
     q_ptr->setParent(series);
     m_series = series;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qscatterdataproxy.cpp, line 293, as _ZN24QScatterDataProxyPrivate10resetArrayEP5QListI16QScatterDataItemE
+inline void QScatterDataProxyPrivate::resetArray(QScatterDataArray *newArray)
+{
+    if (!newArray)
+        newArray = new QScatterDataArray;
+
+    if (newArray != m_dataArray) {
+        m_dataArray->clear();
+        delete m_dataArray;
+        m_dataArray = newArray;
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qscatterdataproxy.cpp, line 305, as _ZN24QScatterDataProxyPrivate7setItemEiRK16QScatterDataItem
@@ -87,6 +108,62 @@ inline void QScatterDataProxyPrivate::removeItems(int index, int removeCount)
     m_dataArray->remove(index, removeCount);
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/qscatterdataproxy.cpp, line 353, as _ZNK24QScatterDataProxyPrivate11limitValuesER9QVector3DS1_P15QAbstract3DAxisS3_S3_
+inline void QScatterDataProxyPrivate::limitValues(QVector3D &minValues, QVector3D &maxValues,
+                                           QAbstract3DAxis *axisX, QAbstract3DAxis *axisY,
+                                           QAbstract3DAxis *axisZ) const
+{
+    if (m_dataArray->isEmpty())
+        return;
+
+    const QVector3D &firstPos = m_dataArray->at(0).position();
+
+    float minX = firstPos.x();
+    float maxX = minX;
+    float minY = firstPos.y();
+    float maxY = minY;
+    float minZ = firstPos.z();
+    float maxZ = minZ;
+
+    if (m_dataArray->size() > 1) {
+        for (int i = 1; i < m_dataArray->size(); i++) {
+            const QVector3D &pos = m_dataArray->at(i).position();
+
+            float value = pos.x();
+            if (qIsNaN(value) || qIsInf(value))
+                continue;
+            if (isValidValue(minX, value, axisX))
+                minX = value;
+            if (maxX < value)
+                maxX = value;
+
+            value = pos.y();
+            if (qIsNaN(value) || qIsInf(value))
+                continue;
+            if (isValidValue(minY, value, axisY))
+                minY = value;
+            if (maxY < value)
+                maxY = value;
+
+            value = pos.z();
+            if (qIsNaN(value) || qIsInf(value))
+                continue;
+            if (isValidValue(minZ, value, axisZ))
+                minZ = value;
+            if (maxZ < value)
+                maxZ = value;
+        }
+    }
+
+    minValues.setX(minX);
+    minValues.setY(minY);
+    minValues.setZ(minZ);
+
+    maxValues.setX(maxX);
+    maxValues.setY(maxY);
+    maxValues.setZ(maxZ);
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qscatterdataproxy.cpp, line 408, as _ZNK24QScatterDataProxyPrivate12isValidValueEffP15QAbstract3DAxis
 inline bool QScatterDataProxyPrivate::isValidValue(float axisValue, float value,
                                             QAbstract3DAxis *axis) const
@@ -94,14 +171,6 @@ inline bool QScatterDataProxyPrivate::isValidValue(float axisValue, float value,
     return (axisValue > value && (value > 0.0f
                                   || (value == 0.0f && axis->d_ptr->allowZero())
                                   || (value < 0.0f && axis->d_ptr->allowNegatives())));
-}
-
-//  from ../qtdatavis3d/src/datavisualization/data/qscatterdataproxy.cpp, line 416, as _ZN24QScatterDataProxyPrivate9setSeriesEP17QAbstract3DSeries
-inline void QScatterDataProxyPrivate::setSeries(QAbstract3DSeries *series)
-{
-    QAbstractDataProxyPrivate::setSeries(series);
-    QScatter3DSeries *scatterSeries = static_cast<QScatter3DSeries *>(series);
-    emit qptr()->seriesChanged(scatterSeries);
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qscatterdataproxy.cpp, line 423, as _ZN24QScatterDataProxyPrivate4qptrEv
@@ -301,11 +370,38 @@ const QMetaObject *ritual_ZNK24QScatterDataProxyPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScatterDataProxyPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QScatterDataProxyPrivate11qt_metacastEPKc(
+    QScatterDataProxyPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScatterDataProxyPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QScatterDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScatterDataProxyPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QScatterDataProxyPrivate::~QScatterDataProxyPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QScatterDataProxyPrivateD1Ev(
     QScatterDataProxyPrivate *self) {
   delete self;
+}
+
+//  void QScatterDataProxyPrivate::resetArray(QScatterDataArray *newArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QScatterDataProxyPrivate10resetArrayEP5QListI16QScatterDataItemE(
+    QScatterDataProxyPrivate *self,
+    QScatterDataArray *newArray) {
+  self->resetArray(newArray);
 }
 
 //  void QScatterDataProxyPrivate::setItem(int index, const QScatterDataItem
@@ -371,6 +467,20 @@ void ritual_ZN24QScatterDataProxyPrivate11removeItemsEii(
     int index,
     int removeCount) {
   self->removeItems(index, removeCount);
+}
+
+//  void QScatterDataProxyPrivate::limitValues(QVector3D &minValues,
+//      QVector3D &maxValues, QAbstract3DAxis *axisX, QAbstract3DAxis *axisY,
+//      QAbstract3DAxis *axisZ) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK24QScatterDataProxyPrivate11limitValuesER9QVector3DS1_P15QAbstract3DAxisS3_S3_(
+    const QScatterDataProxyPrivate *self,
+    QVector3D *minValues,
+    QVector3D *maxValues,
+    QAbstract3DAxis *axisX,
+    QAbstract3DAxis *axisY,
+    QAbstract3DAxis *axisZ) {
+  self->limitValues(*minValues, *maxValues, axisX, axisY, axisZ);
 }
 
 //  bool QScatterDataProxyPrivate::isValidValue(float axisValue, float value,

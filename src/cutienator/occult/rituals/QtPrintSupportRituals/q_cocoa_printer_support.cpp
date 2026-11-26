@@ -13,6 +13,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QString>
 
 //  A QCocoaPrinterSupport that Python can take functions over in. Every QCocoaPrinterSupport
 //  Python makes is one. Each function below asks the Python
@@ -29,7 +30,7 @@ typedef QString * (*CuteQCocoaPrinterSupportCall2)(const void *, int *);
 class CuteQCocoaPrinterSupport : public QCocoaPrinterSupport {
 public:
   using QCocoaPrinterSupport::QCocoaPrinterSupport;
-  CuteQCocoaPrinterSupport(const QCocoaPrinterSupport &other) : QCocoaPrinterSupport(other) {}
+  CuteQCocoaPrinterSupport(const QCocoaPrinterSupport & other) : QCocoaPrinterSupport(other) {}
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
@@ -138,6 +139,14 @@ QPaintEngine *ritual_ZN20QCocoaPrinterSupport17createPaintEngineEP12QPrintEngine
   return self->createPaintEngine(a0, printerMode);
 }
 
+//  QPrintDevice QCocoaPrinterSupport::createPrintDevice(const QString &id)
+extern "C" Q_DECL_EXPORT
+QPrintDevice *ritual_ZN20QCocoaPrinterSupport17createPrintDeviceERK7QString(
+    QCocoaPrinterSupport *self,
+    const QString *id) {
+  return new QPrintDevice(self->createPrintDevice(*id));
+}
+
 //  QStringList QCocoaPrinterSupport::availablePrintDeviceIds() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK20QCocoaPrinterSupport23availablePrintDeviceIdsEv(
@@ -190,6 +199,12 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_own_ZNK20QCocoaPrinterSupport20defaultPrintDeviceIdEv(
     const QCocoaPrinterSupport *self) {
   return new QString(self->QCocoaPrinterSupport::defaultPrintDeviceId());
+}
+
+//  a QPrintDevice a ritual of QCocoaPrinterSupport gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCocoaPrinterSupport__QPrintDevice(QPrintDevice *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_PRINTER)

@@ -16,7 +16,9 @@
 #include <QtGui/qicon.h>
 #include <QtCore/qsize.h>
 #include <QtGui/qpixmap.h>
+#if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
+#endif
 #include <QtCore/qlist.h>
 #include <cstring>
 
@@ -376,6 +378,19 @@ public:
     return QPlatformTheme::motionPreference();
   }
 };
+
+//  QKdeThemePrivate *QKdeTheme::d_func()
+extern "C" Q_DECL_EXPORT
+QKdeThemePrivate *ritual_ZN9QKdeTheme6d_funcEv(QKdeTheme *self) {
+  return self->d_func();
+}
+
+//  const QKdeThemePrivate *QKdeTheme::d_func() const
+extern "C" Q_DECL_EXPORT
+const QKdeThemePrivate *ritual_ZNK9QKdeTheme6d_funcEv(
+    const QKdeTheme *self) {
+  return self->d_func();
+}
 
 //  QKdeTheme::QKdeTheme(const QStringList &kdeDirs, int kdeVersion)
 extern "C" Q_DECL_EXPORT

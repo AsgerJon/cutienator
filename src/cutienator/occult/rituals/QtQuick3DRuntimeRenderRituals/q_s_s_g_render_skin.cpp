@@ -18,3 +18,9 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSSGRenderSkinD1Ev(QSSGRenderSkin *self) {
   delete self;
 }
+
+//  QByteArray &QSSGRenderSkin::boneData()
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN14QSSGRenderSkin8boneDataEv(QSSGRenderSkin *self) {
+  return &(self->boneData());
+}

@@ -32,6 +32,118 @@ QString *ritual_ZN3QV416GlobalExtensions25currentTranslationContextEPNS_15Execut
 }
 #endif  // QT_CONFIG(translation)
 
+#if QT_CONFIG(translation)
+//  ReturnedValue QV4::GlobalExtensions::method_qsTranslate(const
+//      FunctionObject *b, const Value *thisObject, const Value *argv, int
+//      argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV416GlobalExtensions18method_qsTranslateEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *b,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::GlobalExtensions::method_qsTranslate(
+      b,
+      thisObject,
+      argv,
+      argc);
+}
+#endif  // QT_CONFIG(translation)
+
+#if QT_CONFIG(translation)
+//  ReturnedValue QV4::GlobalExtensions::method_qsTranslateNoOp(const
+//      FunctionObject *b, const Value *thisObject, const Value *argv, int
+//      argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV416GlobalExtensions22method_qsTranslateNoOpEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *b,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::GlobalExtensions::method_qsTranslateNoOp(
+      b,
+      thisObject,
+      argv,
+      argc);
+}
+#endif  // QT_CONFIG(translation)
+
+#if QT_CONFIG(translation)
+//  ReturnedValue QV4::GlobalExtensions::method_qsTr(const FunctionObject *b,
+//      const Value *thisObject, const Value *argv, int argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV416GlobalExtensions11method_qsTrEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *b,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::GlobalExtensions::method_qsTr(b, thisObject, argv, argc);
+}
+#endif  // QT_CONFIG(translation)
+
+#if QT_CONFIG(translation)
+//  ReturnedValue QV4::GlobalExtensions::method_qsTrNoOp(const FunctionObject
+//      *b, const Value *thisObject, const Value *argv, int argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV416GlobalExtensions15method_qsTrNoOpEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *b,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::GlobalExtensions::method_qsTrNoOp(b, thisObject, argv, argc);
+}
+#endif  // QT_CONFIG(translation)
+
+#if QT_CONFIG(translation)
+//  ReturnedValue QV4::GlobalExtensions::method_qsTrId(const FunctionObject
+//      *b, const Value *thisObject, const Value *argv, int argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV416GlobalExtensions13method_qsTrIdEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *b,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::GlobalExtensions::method_qsTrId(b, thisObject, argv, argc);
+}
+#endif  // QT_CONFIG(translation)
+
+#if QT_CONFIG(translation)
+//  ReturnedValue QV4::GlobalExtensions::method_qsTrIdNoOp(const
+//      FunctionObject *b, const Value *thisObject, const Value *argv, int
+//      argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV416GlobalExtensions17method_qsTrIdNoOpEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *b,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::GlobalExtensions::method_qsTrIdNoOp(b, thisObject, argv, argc);
+}
+#endif  // QT_CONFIG(translation)
+
+//  ReturnedValue QV4::GlobalExtensions::method_gc(const FunctionObject *b,
+//      const Value *thisObject, const Value *argv, int argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV416GlobalExtensions9method_gcEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *b,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::GlobalExtensions::method_gc(b, thisObject, argv, argc);
+}
+
+//  ReturnedValue QV4::GlobalExtensions::method_string_arg(const
+//      FunctionObject *b, const Value *thisObject, const Value *argv, int
+//      argc)
+extern "C" Q_DECL_EXPORT
+QV4::ReturnedValue ritual_ZN3QV416GlobalExtensions17method_string_argEPKNS_14FunctionObjectEPKNS_5ValueES6_i(
+    const QV4::FunctionObject *b,
+    const QV4::Value *thisObject,
+    const QV4::Value *argv,
+    int argc) {
+  return QV4::GlobalExtensions::method_string_arg(b, thisObject, argv, argc);
+}
+
 //  QV4::GlobalExtensions::~GlobalExtensions()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV416GlobalExtensionsD1Ev(QV4::GlobalExtensions *self) {

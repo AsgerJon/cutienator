@@ -31,6 +31,22 @@ QNdefMessage *ritual_ZN12QNdefMessageC1ERK5QListI11QNdefRecordE(
   return new QNdefMessage(*records);
 }
 
+//  QNdefMessage &QNdefMessage::operator=(const QNdefMessage &other)
+extern "C" Q_DECL_EXPORT
+QNdefMessage *ritual_ZN12QNdefMessageaSERKS_(
+    QNdefMessage *self,
+    const QNdefMessage *other) {
+  return &(self->operator=(*other));
+}
+
+//  QNdefMessage &QNdefMessage::operator=(QNdefMessage &&other)
+extern "C" Q_DECL_EXPORT
+QNdefMessage *ritual_ZN12QNdefMessageaSEOS_(
+    QNdefMessage *self,
+    QNdefMessage *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  bool QNdefMessage::operator==(const QNdefMessage &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QNdefMessageeqERKS_(

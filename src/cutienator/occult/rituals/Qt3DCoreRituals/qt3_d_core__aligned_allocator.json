@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore16AlignedAllocator8allocateEj": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN8Qt3DCore16AlignedAllocator7releaseEPv": [
+      "nothing", "address"
+    ],
     "ritual_ZN8Qt3DCore16AlignedAllocatorD1Ev": ["nothing", "address"]
   }
 }

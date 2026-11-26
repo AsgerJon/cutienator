@@ -11,9 +11,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qlabel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qpoint.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/qpa/qplatformbackingstore.h>
@@ -58,6 +59,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
 inline QFramePrivate::QFramePrivate()
     : frect(0, 0, 0, 0),
@@ -72,6 +75,23 @@ inline QFramePrivate::QFramePrivate()
 
 //  from src/widgets/widgets/qframe.cpp, line 30, as _ZN13QFramePrivateD2Ev
 inline QFramePrivate::~QFramePrivate()
+{
+}
+
+//  from src/widgets/widgets/qlabel.cpp, line 28, as _ZN13QLabelPrivateC1Ev
+inline QLabelPrivate::QLabelPrivate()
+    : QFramePrivate(),
+      valid_hints(false),
+      scaledcontents(false),
+      textLayoutDirty(false),
+      textDirty(false),
+      isTextLabel(false),
+      hasShortcut(false),
+#ifndef QT_NO_CURSOR
+      validCursor(false),
+      onAnchor(false),
+#endif
+      openExternalLinks(false)
 {
 }
 
@@ -146,6 +166,97 @@ inline void QLabelPrivate::updateLabel()
     q->update(q->contentsRect());
 }
 
+//  from src/widgets/widgets/qlabel.cpp, line 533, as _ZNK13QLabelPrivate12sizeForWidthEi
+inline QSize QLabelPrivate::sizeForWidth(int w) const
+{
+    Q_Q(const QLabel);
+    if (q->minimumWidth() > 0)
+        w = qMax(w, q->minimumWidth());
+    QSize contentsMargin(leftmargin + rightmargin, topmargin + bottommargin);
+
+    QRect br;
+
+    int hextra = 2 * margin;
+    int vextra = hextra;
+    QFontMetrics fm = q->fontMetrics();
+
+    if (icon && !icon->isNull()) {
+        br = QRect(QPoint(0, 0), pixmapSize);
+#ifndef QT_NO_PICTURE
+    } else if (picture && !picture->isNull()) {
+        br = picture->boundingRect();
+#endif
+#if QT_CONFIG(movie)
+    } else if (movie && !movie->currentPixmap().isNull()) {
+        br = movie->currentPixmap().rect();
+        br.setSize(movie->currentPixmap().deviceIndependentSize().toSize());
+#endif
+    } else if (isTextLabel) {
+        int align = QStyle::visualAlignment(textDirection(), QFlag(this->align));
+        // Add indentation
+        int m = indent;
+
+        if (m < 0 && q->frameWidth()) // no indent, but we do have a frame
+            m = fm.horizontalAdvance(u'x') - margin*2;
+        if (m > 0) {
+            if ((align & Qt::AlignLeft) || (align & Qt::AlignRight))
+                hextra += m;
+            if ((align & Qt::AlignTop) || (align & Qt::AlignBottom))
+                vextra += m;
+        }
+
+        if (control) {
+            ensureTextLayouted();
+            const qreal oldTextWidth = control->textWidth();
+            // Calculate the length of document if w is the width
+            if (align & Qt::TextWordWrap) {
+                if (w >= 0) {
+                    w = qMax(w-hextra-contentsMargin.width(), 0); // strip margin and indent
+                    control->setTextWidth(w);
+                } else {
+                    control->adjustSize();
+                }
+            } else {
+                control->setTextWidth(-1);
+            }
+
+            QSizeF controlSize = control->size();
+            br = QRect(QPoint(0, 0), QSize(qCeil(controlSize.width()), qCeil(controlSize.height())));
+
+            // restore state
+            control->setTextWidth(oldTextWidth);
+        } else {
+            // Turn off center alignment in order to avoid rounding errors for centering,
+            // since centering involves a division by 2. At the end, all we want is the size.
+            int flags = align & ~(Qt::AlignVCenter | Qt::AlignHCenter);
+            if (hasShortcut) {
+                flags |= Qt::TextShowMnemonic;
+                QStyleOption opt;
+                opt.initFrom(q);
+                if (!q->style()->styleHint(QStyle::SH_UnderlineShortcut, &opt, q))
+                    flags |= Qt::TextHideMnemonic;
+            }
+
+            bool tryWidth = (w < 0) && (align & Qt::TextWordWrap);
+            if (tryWidth)
+                w = qMin(fm.averageCharWidth() * 80, q->maximumSize().width());
+            else if (w < 0)
+                w = 2000;
+            w -= (hextra + contentsMargin.width());
+            br = fm.boundingRect(0, 0, w ,2000, flags, text);
+            if (tryWidth && br.height() < 4*fm.lineSpacing() && br.width() > w/2)
+                br = fm.boundingRect(0, 0, w/2, 2000, flags, text);
+            if (tryWidth && br.height() < 2*fm.lineSpacing() && br.width() > w/4)
+                br = fm.boundingRect(0, 0, w/4, 2000, flags, text);
+        }
+    } else {
+        br = QRect(QPoint(0, 0), QSize(fm.averageCharWidth(), fm.lineSpacing()));
+    }
+
+    const QSize contentsSize(br.width() + hextra, br.height() + vextra);
+    return (contentsSize + contentsMargin).expandedTo(q->minimumSize());
+}
+
 //  from src/widgets/widgets/qlabel.cpp, line 1230, as _ZN13QLabelPrivate12movieUpdatedERK5QRect
 #if QT_CONFIG(movie)
 inline void QLabelPrivate::movieUpdated(const QRect &rect)
@@ -212,6 +323,78 @@ inline void QLabelPrivate::buddyDeleted()
 }
 #endif  // !defined(QT_NO_SHORTCUT)
 
+//  from src/widgets/widgets/qlabel.cpp, line 1492, as _ZNK13QLabelPrivate19ensureTextPopulatedEv
+inline void QLabelPrivate::ensureTextPopulated() const
+{
+    if (!textDirty)
+        return;
+    if (control) {
+        QTextDocument *doc = control->document();
+        if (textDirty) {
+            if (effectiveTextFormat == Qt::PlainText) {
+                doc->setPlainText(text);
+#if QT_CONFIG(texthtmlparser)
+            } else if (effectiveTextFormat == Qt::RichText) {
+                doc->setHtml(text);
+#endif
+#if QT_CONFIG(textmarkdownreader)
+            } else if (effectiveTextFormat == Qt::MarkdownText) {
+                doc->setMarkdown(text);
+#endif
+            } else {
+                doc->setPlainText(text);
+            }
+            doc->setUndoRedoEnabled(false);
+
+#ifndef QT_NO_SHORTCUT
+            if (hasShortcut) {
+                // Underline the first character that follows an ampersand (and remove the others ampersands)
+                int from = 0;
+                bool found = false;
+                QTextCursor cursor;
+                while (!(cursor = control->document()->find(("&"_L1), from)).isNull()) {
+                    cursor.deleteChar(); // remove the ampersand
+                    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+                    from = cursor.position();
+                    if (!found && cursor.selectedText() != "&"_L1) { //not a second &
+                        found = true;
+                        shortcutCursor = cursor;
+                    }
+                }
+            }
+#endif
+        }
+    }
+    textDirty = false;
+}
+
+//  from src/widgets/widgets/qlabel.cpp, line 1536, as _ZNK13QLabelPrivate18ensureTextLayoutedEv
+inline void QLabelPrivate::ensureTextLayouted() const
+{
+    if (!textLayoutDirty)
+        return;
+    ensureTextPopulated();
+    if (control) {
+        QTextDocument *doc = control->document();
+        QTextOption opt = doc->defaultTextOption();
+
+        opt.setAlignment(QFlag(this->align));
+
+        if (this->align & Qt::TextWordWrap)
+            opt.setWrapMode(QTextOption::WordWrap);
+        else
+            opt.setWrapMode(QTextOption::ManualWrap);
+
+        doc->setDefaultTextOption(opt);
+
+        QTextFrameFormat fmt = doc->rootFrame()->frameFormat();
+        fmt.setMargin(0);
+        doc->rootFrame()->setFrameFormat(fmt);
+        doc->setTextWidth(documentRect().width());
+    }
+    textLayoutDirty = false;
+}
+
 //  from src/widgets/widgets/qlabel.cpp, line 1562, as _ZNK13QLabelPrivate17ensureTextControlEv
 inline void QLabelPrivate::ensureTextControl() const
 {
@@ -239,6 +422,17 @@ inline void QLabelPrivate::ensureTextControl() const
     }
 }
 
+//  from src/widgets/widgets/qlabel.cpp, line 1588, as _ZN13QLabelPrivate16sendControlEventEP6QEvent
+inline void QLabelPrivate::sendControlEvent(QEvent *e)
+{
+    Q_Q(QLabel);
+    if (!isTextLabel || !control || textInteractionFlags == Qt::NoTextInteraction) {
+        e->ignore();
+        return;
+    }
+    control->processEvent(e, -layoutRect().topLeft(), q);
+}
+
 //  from src/widgets/widgets/qlabel.cpp, line 1598, as _ZN13QLabelPrivate11linkHoveredERK7QString
 inline void QLabelPrivate::linkHovered(const QString &anchor)
 {
@@ -260,6 +454,23 @@ inline void QLabelPrivate::linkHovered(const QString &anchor)
     }
 #endif
     emit q->linkHovered(anchor);
+}
+
+//  from src/widgets/widgets/qlabel.cpp, line 1623, as _ZNK13QLabelPrivate10layoutRectEv
+inline QRectF QLabelPrivate::layoutRect() const
+{
+    QRectF cr = documentRect();
+    if (!control)
+        return cr;
+    ensureTextLayouted();
+    // Calculate y position manually
+    qreal rh = control->document()->documentLayout()->documentSize().height();
+    qreal yo = 0;
+    if (align & Qt::AlignVCenter)
+        yo = qMax((cr.height()-rh)/2, qreal(0));
+    else if (align & Qt::AlignBottom)
+        yo = qMax(cr.height()-rh, qreal(0));
+    return QRectF(cr.x(), yo + cr.y(), cr.width(), cr.height());
 }
 
 //  from src/widgets/widgets/qlabel.cpp, line 1468, as _ZNK13QLabelPrivate12documentRectEv
@@ -287,6 +498,13 @@ inline QRect QLabelPrivate::documentRect() const
     return cr;
 }
 
+//  from src/widgets/widgets/qlabel.cpp, line 1640, as _ZNK13QLabelPrivate11layoutPointERK6QPoint
+inline QPoint QLabelPrivate::layoutPoint(const QPoint& p) const
+{
+    QRect lr = layoutRect().toRect();
+    return p - lr.topLeft();
+}
+
 //  from src/widgets/widgets/qlabel.cpp, line 1456, as _ZNK13QLabelPrivate13textDirectionEv
 inline Qt::LayoutDirection QLabelPrivate::textDirection() const
 {
@@ -297,6 +515,18 @@ inline Qt::LayoutDirection QLabelPrivate::textDirection() const
 
     return text.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight;
 }
+
+//  from src/widgets/widgets/qlabel.cpp, line 1647, as _ZN13QLabelPrivate25createStandardContextMenuERK6QPoint
+#if !defined(QT_NO_CONTEXTMENU)
+inline QMenu *QLabelPrivate::createStandardContextMenu(const QPoint &pos)
+{
+    if (!control)
+        return nullptr;
+
+    const QPoint p = layoutPoint(pos);
+    return control->createStandardContextMenu(p, q_func());
+}
+#endif  // !defined(QT_NO_CONTEXTMENU)
 //  -----------------------------------------------------------------------
 
 //  A QLabelPrivate that Python can take functions over in. Every QLabelPrivate
@@ -612,6 +842,12 @@ const QLabel *ritual_ZNK13QLabelPrivate6q_funcEv(const QLabelPrivate *self) {
   return self->q_func();
 }
 
+//  QLabelPrivate::QLabelPrivate()
+extern "C" Q_DECL_EXPORT
+QLabelPrivate *ritual_ZN13QLabelPrivateC1Ev() {
+  return new CuteQLabelPrivate();
+}
+
 //  QLabelPrivate::~QLabelPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QLabelPrivateD1Ev(QLabelPrivate *self) {
@@ -634,6 +870,14 @@ void ritual_ZN13QLabelPrivate13clearContentsEv(QLabelPrivate *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QLabelPrivate11updateLabelEv(QLabelPrivate *self) {
   self->updateLabel();
+}
+
+//  QSize QLabelPrivate::sizeForWidth(int w) const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK13QLabelPrivate12sizeForWidthEi(
+    const QLabelPrivate *self,
+    int w) {
+  return new QSize(self->sizeForWidth(w));
 }
 
 #if QT_CONFIG(movie)
@@ -679,11 +923,33 @@ bool ritual_ZNK13QLabelPrivate15needTextControlEv(
   return self->needTextControl();
 }
 
+//  void QLabelPrivate::ensureTextPopulated() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QLabelPrivate19ensureTextPopulatedEv(
+    const QLabelPrivate *self) {
+  self->ensureTextPopulated();
+}
+
+//  void QLabelPrivate::ensureTextLayouted() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QLabelPrivate18ensureTextLayoutedEv(
+    const QLabelPrivate *self) {
+  self->ensureTextLayouted();
+}
+
 //  void QLabelPrivate::ensureTextControl() const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK13QLabelPrivate17ensureTextControlEv(
     const QLabelPrivate *self) {
   self->ensureTextControl();
+}
+
+//  void QLabelPrivate::sendControlEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLabelPrivate16sendControlEventEP6QEvent(
+    QLabelPrivate *self,
+    QEvent *e) {
+  self->sendControlEvent(e);
 }
 
 //  void QLabelPrivate::linkHovered(const QString &link)
@@ -694,10 +960,24 @@ void ritual_ZN13QLabelPrivate11linkHoveredERK7QString(
   self->linkHovered(*link);
 }
 
+//  QRectF QLabelPrivate::layoutRect() const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK13QLabelPrivate10layoutRectEv(const QLabelPrivate *self) {
+  return new QRectF(self->layoutRect());
+}
+
 //  QRect QLabelPrivate::documentRect() const
 extern "C" Q_DECL_EXPORT
 QRect *ritual_ZNK13QLabelPrivate12documentRectEv(const QLabelPrivate *self) {
   return new QRect(self->documentRect());
+}
+
+//  QPoint QLabelPrivate::layoutPoint(const QPoint &p) const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZNK13QLabelPrivate11layoutPointERK6QPoint(
+    const QLabelPrivate *self,
+    const QPoint *p) {
+  return new QPoint(self->layoutPoint(*p));
 }
 
 //  Qt::LayoutDirection QLabelPrivate::textDirection() const
@@ -706,6 +986,16 @@ Qt::LayoutDirection ritual_ZNK13QLabelPrivate13textDirectionEv(
     const QLabelPrivate *self) {
   return self->textDirection();
 }
+
+#if !defined(QT_NO_CONTEXTMENU)
+//  QMenu *QLabelPrivate::createStandardContextMenu(const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+QMenu *ritual_ZN13QLabelPrivate25createStandardContextMenuERK6QPoint(
+    QLabelPrivate *self,
+    const QPoint *pos) {
+  return self->createStandardContextMenu(*pos);
+}
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  a Python function taken by a CuteQLabelPrivate, for the function named by
 //      the key

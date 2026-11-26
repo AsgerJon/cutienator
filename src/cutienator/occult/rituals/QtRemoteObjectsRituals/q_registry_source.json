@@ -6,7 +6,26 @@
   ],
   "rows": {
     "ritual_ZNK15QRegistrySource10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QRegistrySource11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QRegistrySource11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QRegistrySourceD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QRegistrySource15sourceLocationsEv": ["address", "address"],
+    "ritual_ZN15QRegistrySource17remoteObjectAddedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QRegistrySource19remoteObjectRemovedERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QRegistrySource9addSourceERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QRegistrySource12removeSourceERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QRegistrySource12removeServerERK4QUrl": [
       "nothing", "address", "address"
     ],

@@ -9,11 +9,16 @@
 #include <QtCore/qstring.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmlirbuilder_p.h>
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #include <QtQml/6.12.0/QtQml/private/qqmljsdiagnosticmessage_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <variant>
+#include <QtCore/QList>
+#include <QtCore/QString>
+#include <optional>
 
 //  Only a class built on QQmlJSAotCompiler may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -151,11 +156,51 @@ void ritual_ZN17QQmlJSAotCompiler8setScopeEPKN5QmlIR6ObjectES3_(
   self->setScope(object, scope);
 }
 
+//  std::variant<QQmlJSAotFunction, QList<QQmlJS::DiagnosticMessage>>
+//      QQmlJSAotCompiler::compileBinding(const QV4::Compiler::Context
+//      *context, const QmlIR::Binding &irBinding, QQmlJS::AST::Node
+//      *astNode)
+extern "C" Q_DECL_EXPORT
+std::variant<QQmlJSAotFunction, QList<QQmlJS::DiagnosticMessage>> *ritual_ZN17QQmlJSAotCompiler14compileBindingEPKN3QV48Compiler7ContextERKN5QmlIR7BindingEPN6QQmlJS3AST4NodeE(
+    QQmlJSAotCompiler *self,
+    const QV4::Compiler::Context *context,
+    const QmlIR::Binding *irBinding,
+    QQmlJS::AST::Node *astNode) {
+  return new std::variant<QQmlJSAotFunction, QList<QQmlJS::DiagnosticMessage>>(
+      self->compileBinding(
+          context,
+          *irBinding,
+          astNode));
+}
+
+//  std::variant<QQmlJSAotFunction, QList<QQmlJS::DiagnosticMessage>>
+//      QQmlJSAotCompiler::compileFunction(const QV4::Compiler::Context
+//      *context, const QString &name, QQmlJS::AST::Node *astNode)
+extern "C" Q_DECL_EXPORT
+std::variant<QQmlJSAotFunction, QList<QQmlJS::DiagnosticMessage>> *ritual_ZN17QQmlJSAotCompiler15compileFunctionEPKN3QV48Compiler7ContextERK7QStringPN6QQmlJS3AST4NodeE(
+    QQmlJSAotCompiler *self,
+    const QV4::Compiler::Context *context,
+    const QString *name,
+    QQmlJS::AST::Node *astNode) {
+  return new std::variant<QQmlJSAotFunction, QList<QQmlJS::DiagnosticMessage>>(
+      self->compileFunction(
+          context,
+          *name,
+          astNode));
+}
+
 //  QQmlJSAotFunction QQmlJSAotCompiler::globalCode() const
 extern "C" Q_DECL_EXPORT
 QQmlJSAotFunction *ritual_ZNK17QQmlJSAotCompiler10globalCodeEv(
     const QQmlJSAotCompiler *self) {
   return new QQmlJSAotFunction(self->globalCode());
+}
+
+//  LookupSignatures QQmlJSAotCompiler::lookupSignatures() const
+extern "C" Q_DECL_EXPORT
+LookupSignatures *ritual_ZNK17QQmlJSAotCompiler16lookupSignaturesEv(
+    const QQmlJSAotCompiler *self) {
+  return new LookupSignatures(self->lookupSignatures());
 }
 
 //  bool QQmlJSAotCompiler::isLintCompiler() const
@@ -170,6 +215,15 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QQmlJSAotCompiler15noAotValidationEv(
     const QQmlJSAotCompiler *self) {
   return self->noAotValidation();
+}
+
+//  std::optional<QList<QQmlJS::DiagnosticMessage>>
+//      QQmlJSAotCompiler::finalizeBindingOrFunction()
+extern "C" Q_DECL_EXPORT
+std::optional<QList<QQmlJS::DiagnosticMessage>> *ritual_ZN17QQmlJSAotCompiler25finalizeBindingOrFunctionEv(
+    QQmlJSAotCompiler *self) {
+  return new std::optional<QList<QQmlJS::DiagnosticMessage>>(
+      self->finalizeBindingOrFunction());
 }
 
 //  QQmlJS::DiagnosticMessage QQmlJSAotCompiler::diagnose(const QString
@@ -268,4 +322,27 @@ QQmlJS::DiagnosticMessage *ritual_own_ZNK17QQmlJSAotCompiler8diagnoseERK7QString
           *message,
           type,
           *location));
+}
+
+//  a std::variant<QQmlJSAotFunction, QList<QQmlJS::DiagnosticMessage>> a
+//      ritual of QQmlJSAotCompiler gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSAotCompiler__std_variant_QQmlJSAotFunction_QList_QQmlJS_DiagnosticMessage(
+    std::variant<QQmlJSAotFunction, QList<QQmlJS::DiagnosticMessage>> *self) {
+  delete self;
+}
+
+//  a LookupSignatures a ritual of QQmlJSAotCompiler gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSAotCompiler__LookupSignatures(
+    LookupSignatures *self) {
+  delete self;
+}
+
+//  a std::optional<QList<QQmlJS::DiagnosticMessage>> a ritual of
+//      QQmlJSAotCompiler gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSAotCompiler__std_optional_QList_QQmlJS_DiagnosticMessage(
+    std::optional<QList<QQmlJS::DiagnosticMessage>> *self) {
+  delete self;
 }

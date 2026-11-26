@@ -13,6 +13,19 @@ int ritual_ZN3QV412CompiledData14TemplateObject13calculateSizeEi(int size) {
   return QV4::CompiledData::TemplateObject::calculateSize(size);
 }
 
+//  size_t QV4::CompiledData::TemplateObject::align(size_t a)
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN3QV412CompiledData14TemplateObject5alignEm(size_t a) {
+  return QV4::CompiledData::TemplateObject::align(a);
+}
+
+//  const quint32_le *QV4::CompiledData::TemplateObject::stringTable() const
+extern "C" Q_DECL_EXPORT
+const quint32_le *ritual_ZNK3QV412CompiledData14TemplateObject11stringTableEv(
+    const QV4::CompiledData::TemplateObject *self) {
+  return self->stringTable();
+}
+
 //  uint QV4::CompiledData::TemplateObject::stringIndexAt(uint i) const
 extern "C" Q_DECL_EXPORT
 uint ritual_ZNK3QV412CompiledData14TemplateObject13stringIndexAtEj(

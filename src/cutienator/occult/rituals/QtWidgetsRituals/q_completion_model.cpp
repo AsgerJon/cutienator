@@ -52,6 +52,152 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/util/qcompleter.cpp, line 611, as _ZN18QSortedModelEngine6filterERK7QStringRK11QModelIndexi
+inline QMatchData QSortedModelEngine::filter(const QString& part, const QModelIndex& parent, int)
+{
+    const QAbstractItemModel *model = c->proxy->sourceModel();
+
+    QMatchData hint;
+    if (lookupCache(part, parent, &hint))
+        return hint;
+
+    QIndexMapper indices;
+    Qt::SortOrder order = sortOrder(parent);
+
+    if (matchHint(part, parent, &hint)) {
+        if (!hint.isValid())
+            return QMatchData();
+        indices = hint.indices;
+    } else {
+        indices = indexHint(part, parent, order);
+    }
+
+    // binary search the model within 'indices' for 'part' under 'parent'
+    int high = indices.to() + 1;
+    int low = indices.from() - 1;
+    int probe;
+    QModelIndex probeIndex;
+    QString probeData;
+
+    while (high - low > 1)
+    {
+        probe = (high + low) / 2;
+        probeIndex = model->index(probe, c->column, parent);
+        probeData = model->data(probeIndex, c->role).toString();
+        const int cmp = QString::compare(probeData, part, c->cs);
+        if ((order == Qt::AscendingOrder && cmp >= 0)
+            || (order == Qt::DescendingOrder && cmp < 0)) {
+            high = probe;
+        } else {
+            low = probe;
+        }
+    }
+
+    if ((order == Qt::AscendingOrder && low == indices.to())
+        || (order == Qt::DescendingOrder && high == indices.from())) { // not found
+        saveInCache(part, parent, QMatchData());
+        return QMatchData();
+    }
+
+    probeIndex = model->index(order == Qt::AscendingOrder ? low+1 : high-1, c->column, parent);
+    probeData = model->data(probeIndex, c->role).toString();
+    if (!probeData.startsWith(part, c->cs)) {
+        saveInCache(part, parent, QMatchData());
+        return QMatchData();
+    }
+
+    const bool exactMatch = QString::compare(probeData, part, c->cs) == 0;
+    int emi =  exactMatch ? (order == Qt::AscendingOrder ? low+1 : high-1) : -1;
+
+    int from = 0;
+    int to = 0;
+    if (order == Qt::AscendingOrder) {
+        from = low + 1;
+        high = indices.to() + 1;
+        low = from;
+    } else {
+        to = high - 1;
+        low = indices.from() - 1;
+        high = to;
+    }
+
+    while (high - low > 1)
+    {
+        probe = (high + low) / 2;
+        probeIndex = model->index(probe, c->column, parent);
+        probeData = model->data(probeIndex, c->role).toString();
+        const bool startsWith = probeData.startsWith(part, c->cs);
+        if ((order == Qt::AscendingOrder && startsWith)
+            || (order == Qt::DescendingOrder && !startsWith)) {
+            low = probe;
+        } else {
+            high = probe;
+        }
+    }
+
+    QMatchData m(order == Qt::AscendingOrder ? QIndexMapper(from, high - 1) : QIndexMapper(low+1, to), emi, false);
+    saveInCache(part, parent, m);
+    return m;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 749, as _ZN20QUnsortedModelEngine14filterOnDemandEi
+inline void QUnsortedModelEngine::filterOnDemand(int n)
+{
+    Q_ASSERT(matchCount());
+    if (!curMatch.partial)
+        return;
+    Q_ASSERT(n >= -1);
+    const QAbstractItemModel *model = c->proxy->sourceModel();
+    int lastRow = model->rowCount(curParent) - 1;
+    QIndexMapper im(curMatch.indices.last() + 1, lastRow);
+    int lastIndex = buildIndices(curParts.constLast(), curParent, n, im, &curMatch);
+    curMatch.partial = (lastRow != lastIndex);
+    saveInCache(curParts.constLast(), curParent, curMatch);
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 763, as _ZN20QUnsortedModelEngine6filterERK7QStringRK11QModelIndexi
+inline QMatchData QUnsortedModelEngine::filter(const QString& part, const QModelIndex& parent, int n)
+{
+    QMatchData hint;
+
+    QList<int> v;
+    QIndexMapper im(v);
+    QMatchData m(im, -1, true);
+
+    const QAbstractItemModel *model = c->proxy->sourceModel();
+    bool foundInCache = lookupCache(part, parent, &m);
+
+    if (!foundInCache) {
+        if (matchHint(part, parent, &hint) && !hint.isValid())
+            return QMatchData();
+    }
+
+    if (!foundInCache && !hint.isValid()) {
+        const int lastRow = model->rowCount(parent) - 1;
+        QIndexMapper all(0, lastRow);
+        int lastIndex = buildIndices(part, parent, n, all, &m);
+        m.partial = (lastIndex != lastRow);
+    } else {
+        if (!foundInCache) { // build from hint as much as we can
+            buildIndices(part, parent, INT_MAX, hint.indices, &m);
+            m.partial = hint.partial;
+        }
+        if (m.partial && ((n == -1 && m.exactMatchIndex == -1) || (m.indices.count() < n))) {
+            // need more and have more
+            const int lastRow = model->rowCount(parent) - 1;
+            QIndexMapper rest(hint.indices.last() + 1, lastRow);
+            int want = n == -1 ? -1 : n - m.indices.count();
+            int lastIndex = buildIndices(part, parent, want, rest, &m);
+            m.partial = (lastRow != lastIndex);
+        }
+    }
+
+    saveInCache(part, parent, m);
+    return m;
+}
+
 //  from src/widgets/util/qcompleter.cpp, line 412, as _ZN17QCompletionEngine6filterERK5QListI7QStringE
 inline void QCompletionEngine::filter(const QStringList& parts)
 {
@@ -85,114 +231,6 @@ inline void QCompletionEngine::filter(const QStringList& parts)
     else
         curMatch = filter(curParts.constLast(), curParent, 1); // build at least one
     curRow = curMatch.isValid() ? 0 : -1;
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 446, as _ZN17QCompletionEngine13filterHistoryEv
-#if defined(Q_OS_LINUX)
-inline QMatchData QCompletionEngine::filterHistory()
-{
-    QAbstractItemModel *source = c->proxy->sourceModel();
-    if (curParts.size() <= 1 || c->proxy->showAll || !source)
-        return QMatchData();
-
-#if QT_CONFIG(filesystemmodel)
-    const bool isFsModel = (qobject_cast<QFileSystemModel *>(source) != nullptr);
-#else
-    const bool isFsModel = false;
-#endif
-    Q_UNUSED(isFsModel);
-    QList<int> v;
-    QIndexMapper im(v);
-    QMatchData m(im, -1, true);
-
-    for (int i = 0; i < source->rowCount(); i++) {
-        QString str = source->index(i, c->column).data().toString();
-        if (str.startsWith(c->prefix, c->cs)
-#if !defined(Q_OS_WIN)
-            && (!isFsModel || QDir::toNativeSeparators(str) != QDir::separator())
-#endif
-            )
-            m.indices.append(i);
-    }
-    return m;
-}
-#endif  // defined(Q_OS_LINUX)
-
-//  from src/widgets/util/qcompleter.cpp, line 339, as _ZN16QCompletionModel11setFilteredEb
-inline void QCompletionModel::setFiltered(bool filtered)
-{
-    if (showAll == !filtered)
-        return;
-    beginResetModel();
-    showAll = !filtered;
-    endResetModel();
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 387, as _ZN16QCompletionModel6filterERK5QListI7QStringE
-inline void QCompletionModel::filter(const QStringList& parts)
-{
-    Q_D(QCompletionModel);
-    beginResetModel();
-    engine->filter(parts);
-    endResetModel();
-
-    if (d->model->canFetchMore(engine->curParent))
-        d->model->fetchMore(engine->curParent);
-
-#if QT_CONFIG(filesystemmodel)
-    // No match can mean the directory being completed within was never listed by
-    // the QFileSystemModel (e.g. a path set via setText() and then edited). Start
-    // its listing so directoryLoaded() re-runs the completion. (QTBUG-148220)
-    if (engine->matchCount() == 0 && parts.size() > 1) {
-        if (auto *fsModel = qobject_cast<QFileSystemModel *>(d->model)) {
-            const QModelIndex dirIndex = fsModel->index(QFileInfo(c->prefix).path());
-            if (dirIndex.isValid() && fsModel->canFetchMore(dirIndex))
-                fsModel->fetchMore(dirIndex);
-        }
-    }
-#endif
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 313, as _ZNK16QCompletionModel15completionCountEv
-inline int QCompletionModel::completionCount() const
-{
-    if (!engine->matchCount())
-        return 0;
-
-    engine->filterOnDemand(INT_MAX);
-    return engine->matchCount();
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 259, as _ZN16QCompletionModel13setCurrentRowEi
-inline bool QCompletionModel::setCurrentRow(int row)
-{
-    if (row < 0 || !engine->matchCount())
-        return false;
-
-    if (row >= engine->matchCount())
-        engine->filterOnDemand(row + 1 - engine->matchCount());
-
-    if (row >= engine->matchCount()) // invalid row
-        return false;
-
-    engine->curRow = row;
-    return true;
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 274, as _ZNK16QCompletionModel12currentIndexEb
-inline QModelIndex QCompletionModel::currentIndex(bool sourceIndex) const
-{
-    if (!engine->matchCount())
-        return QModelIndex();
-
-    int row = engine->curRow;
-    if (showAll)
-        row = engine->curMatch.indices[engine->curRow];
-
-    QModelIndex idx = createIndex(row, c->column);
-    if (!sourceIndex)
-        return idx;
-    return mapToSource(idx);
 }
 
 //  from src/widgets/util/qcompleter.cpp, line 289, as _ZNK16QCompletionModel5indexEiiRK11QModelIndex
@@ -358,6 +396,227 @@ inline QModelIndex QCompletionModel::mapFromSource(const QModelIndex& idx) const
     return createIndex(row, idx.column());
 }
 
+//  from src/widgets/util/qcompleter.cpp, line 523, as _ZN17QCompletionEngine11saveInCacheE7QStringRK11QModelIndexRK10QMatchData
+inline void QCompletionEngine::saveInCache(QString part, const QModelIndex& parent, const QMatchData& m)
+{
+    if (c->filterMode == Qt::MatchEndsWith)
+        return;
+    QMatchData old = cache[parent].take(part);
+    cost = cost + m.indices.cost() - old.indices.cost();
+    if (cost * sizeof(int) > 1024 * 1024) {
+        QMap<QModelIndex, CacheItem>::iterator it1 = cache.begin();
+        while (it1 != cache.end()) {
+            CacheItem& ci = it1.value();
+            int sz = ci.size()/2;
+            QMap<QString, QMatchData>::iterator it2 = ci.begin();
+            int i = 0;
+            while (it2 != ci.end() && i < sz) {
+                cost -= it2.value().indices.cost();
+                it2 = ci.erase(it2);
+                i++;
+            }
+            if (ci.size() == 0) {
+              it1 = cache.erase(it1);
+            } else {
+              ++it1;
+            }
+        }
+    }
+
+    if (c->cs == Qt::CaseInsensitive)
+        part = std::move(part).toLower();
+    cache[parent][part] = m;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 555, as _ZN18QSortedModelEngine9indexHintE7QStringRK11QModelIndexN2Qt9SortOrderE
+inline QIndexMapper QSortedModelEngine::indexHint(QString part, const QModelIndex& parent, Qt::SortOrder order)
+{
+    const QAbstractItemModel *model = c->proxy->sourceModel();
+
+    if (c->cs == Qt::CaseInsensitive)
+        part = std::move(part).toLower();
+
+    const CacheItem& map = cache[parent];
+
+    // Try to find a lower and upper bound for the search from previous results
+    int to = model->rowCount(parent) - 1;
+    int from = 0;
+    const CacheItem::const_iterator it = map.lowerBound(part);
+
+    // look backward for first valid hint
+    for (CacheItem::const_iterator it1 = it; it1 != map.constBegin();) {
+        --it1;
+        const QMatchData& value = it1.value();
+        if (value.isValid()) {
+            if (order == Qt::AscendingOrder) {
+                from = value.indices.last() + 1;
+            } else {
+                to = value.indices.first() - 1;
+            }
+            break;
+        }
+    }
+
+    // look forward for first valid hint
+    for(CacheItem::const_iterator it2 = it; it2 != map.constEnd(); ++it2) {
+        const QMatchData& value = it2.value();
+        if (value.isValid() && !it2.key().startsWith(part)) {
+            if (order == Qt::AscendingOrder) {
+                to = value.indices.first() - 1;
+            } else {
+                from = value.indices.first() + 1;
+            }
+            break;
+        }
+    }
+
+    return QIndexMapper(from, to);
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 699, as _ZN20QUnsortedModelEngine12buildIndicesERK7QStringRK11QModelIndexiRK12QIndexMapperP10QMatchData
+inline int QUnsortedModelEngine::buildIndices(const QString& str, const QModelIndex& parent, int n,
+                                      const QIndexMapper& indices, QMatchData* m)
+{
+    Q_ASSERT(m->partial);
+    Q_ASSERT(n != -1 || m->exactMatchIndex == -1);
+    const QAbstractItemModel *model = c->proxy->sourceModel();
+    int i, count = 0;
+
+    for (i = 0; i < indices.count() && count != n; ++i) {
+        QModelIndex idx = model->index(indices[i], c->column, parent);
+
+        if (!(model->flags(idx) & Qt::ItemIsSelectable))
+            continue;
+
+        QString data = model->data(idx, c->role).toString();
+
+        switch (c->filterMode) {
+        case Qt::MatchStartsWith:
+            if (!data.startsWith(str, c->cs))
+                continue;
+            break;
+        case Qt::MatchContains:
+            if (!data.contains(str, c->cs))
+                continue;
+            break;
+        case Qt::MatchEndsWith:
+            if (!data.endsWith(str, c->cs))
+                continue;
+            break;
+        case Qt::MatchExactly:
+        case Qt::MatchFixedString:
+        case Qt::MatchCaseSensitive:
+        case Qt::MatchRegularExpression:
+        case Qt::MatchWildcard:
+        case Qt::MatchWrap:
+        case Qt::MatchRecursive:
+            Q_UNREACHABLE();
+            break;
+        }
+        m->indices.append(indices[i]);
+        ++count;
+        if (m->exactMatchIndex == -1 && QString::compare(data, str, c->cs) == 0) {
+            m->exactMatchIndex = indices[i];
+            if (n == -1)
+                return indices[i];
+        }
+    }
+    return indices[i-1];
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 501, as _ZNK17QCompletionEngine11lookupCacheERK7QStringRK11QModelIndexP10QMatchData
+inline bool QCompletionEngine::lookupCache(const QString &part, const QModelIndex &parent, QMatchData *m) const
+{
+    if (part.isEmpty())
+        return false; // early out to avoid cache[parent] lookup costs
+
+    const auto cit = cache.find(parent);
+    if (cit == cache.end())
+        return false;
+
+    const CacheItem& map = *cit;
+
+    const QString key = c->cs == Qt::CaseInsensitive ? part.toLower() : part;
+
+    const auto it = map.find(key);
+    if (it == map.end())
+        return false;
+
+    *m = it.value();
+    return true;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 475, as _ZNK17QCompletionEngine9matchHintERK7QStringRK11QModelIndexP10QMatchData
+inline bool QCompletionEngine::matchHint(const QString &part, const QModelIndex &parent, QMatchData *hint) const
+{
+    if (part.isEmpty())
+        return false; // early out to avoid cache[parent] lookup costs
+
+    const auto cit = cache.find(parent);
+    if (cit == cache.end())
+        return false;
+
+    const CacheItem& map = *cit;
+    const auto mapEnd = map.end();
+
+    QString key = c->cs == Qt::CaseInsensitive ? part.toLower() : part;
+
+    while (!key.isEmpty()) {
+        key.chop(1);
+        const auto it = map.find(key);
+        if (it != mapEnd) {
+            *hint = *it;
+            return true;
+        }
+    }
+
+    return false;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 599, as _ZNK18QSortedModelEngine9sortOrderERK11QModelIndex
+inline Qt::SortOrder QSortedModelEngine::sortOrder(const QModelIndex &parent) const
+{
+    const QAbstractItemModel *model = c->proxy->sourceModel();
+
+    int rowCount = model->rowCount(parent);
+    if (rowCount < 2)
+        return Qt::AscendingOrder;
+    QString first = model->data(model->index(0, c->column, parent), c->role).toString();
+    QString last = model->data(model->index(rowCount - 1, c->column, parent), c->role).toString();
+    return QString::compare(first, last, c->cs) <= 0 ? Qt::AscendingOrder : Qt::DescendingOrder;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 446, as _ZN17QCompletionEngine13filterHistoryEv
+#if defined(Q_OS_LINUX)
+inline QMatchData QCompletionEngine::filterHistory()
+{
+    QAbstractItemModel *source = c->proxy->sourceModel();
+    if (curParts.size() <= 1 || c->proxy->showAll || !source)
+        return QMatchData();
+
+#if QT_CONFIG(filesystemmodel)
+    const bool isFsModel = (qobject_cast<QFileSystemModel *>(source) != nullptr);
+#else
+    const bool isFsModel = false;
+#endif
+    Q_UNUSED(isFsModel);
+    QList<int> v;
+    QIndexMapper im(v);
+    QMatchData m(im, -1, true);
+
+    for (int i = 0; i < source->rowCount(); i++) {
+        QString str = source->index(i, c->column).data().toString();
+        if (str.startsWith(c->prefix, c->cs)
+#if !defined(Q_OS_WIN)
+            && (!isFsModel || QDir::toNativeSeparators(str) != QDir::separator())
+#endif
+            )
+            m.indices.append(i);
+    }
+    return m;
+}
+#endif  // defined(Q_OS_LINUX)
+
 //  from src/widgets/util/qcompleter.cpp, line 381, as _ZN16QCompletionModel10invalidateEv
 inline void QCompletionModel::invalidate()
 {
@@ -365,11 +624,105 @@ inline void QCompletionModel::invalidate()
     filter(engine->curParts);
 }
 
-//  from src/widgets/util/qcompleter.cpp, line 369, as _ZN16QCompletionModel14modelDestroyedEv
-inline void QCompletionModel::modelDestroyed()
+//  from src/widgets/util/qcompleter.cpp, line 173, as _ZN16QCompletionModel12createEngineEv
+inline void QCompletionModel::createEngine()
 {
-    QAbstractProxyModel::setSourceModel(nullptr); // switch to static empty model
-    invalidate();
+    bool sortedEngine = false;
+    if (c->filterMode == Qt::MatchStartsWith) {
+        switch (c->sorting) {
+        case QCompleter::UnsortedModel:
+            sortedEngine = false;
+            break;
+        case QCompleter::CaseSensitivelySortedModel:
+            sortedEngine = c->cs == Qt::CaseSensitive;
+            break;
+        case QCompleter::CaseInsensitivelySortedModel:
+            sortedEngine = c->cs == Qt::CaseInsensitive;
+            break;
+        }
+    }
+
+    if (sortedEngine)
+        engine.reset(new QSortedModelEngine(c));
+    else
+        engine.reset(new QUnsortedModelEngine(c));
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 339, as _ZN16QCompletionModel11setFilteredEb
+inline void QCompletionModel::setFiltered(bool filtered)
+{
+    if (showAll == !filtered)
+        return;
+    beginResetModel();
+    showAll = !filtered;
+    endResetModel();
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 387, as _ZN16QCompletionModel6filterERK5QListI7QStringE
+inline void QCompletionModel::filter(const QStringList& parts)
+{
+    Q_D(QCompletionModel);
+    beginResetModel();
+    engine->filter(parts);
+    endResetModel();
+
+    if (d->model->canFetchMore(engine->curParent))
+        d->model->fetchMore(engine->curParent);
+
+#if QT_CONFIG(filesystemmodel)
+    // No match can mean the directory being completed within was never listed by
+    // the QFileSystemModel (e.g. a path set via setText() and then edited). Start
+    // its listing so directoryLoaded() re-runs the completion. (QTBUG-148220)
+    if (engine->matchCount() == 0 && parts.size() > 1) {
+        if (auto *fsModel = qobject_cast<QFileSystemModel *>(d->model)) {
+            const QModelIndex dirIndex = fsModel->index(QFileInfo(c->prefix).path());
+            if (dirIndex.isValid() && fsModel->canFetchMore(dirIndex))
+                fsModel->fetchMore(dirIndex);
+        }
+    }
+#endif
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 313, as _ZNK16QCompletionModel15completionCountEv
+inline int QCompletionModel::completionCount() const
+{
+    if (!engine->matchCount())
+        return 0;
+
+    engine->filterOnDemand(INT_MAX);
+    return engine->matchCount();
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 259, as _ZN16QCompletionModel13setCurrentRowEi
+inline bool QCompletionModel::setCurrentRow(int row)
+{
+    if (row < 0 || !engine->matchCount())
+        return false;
+
+    if (row >= engine->matchCount())
+        engine->filterOnDemand(row + 1 - engine->matchCount());
+
+    if (row >= engine->matchCount()) // invalid row
+        return false;
+
+    engine->curRow = row;
+    return true;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 274, as _ZNK16QCompletionModel12currentIndexEb
+inline QModelIndex QCompletionModel::currentIndex(bool sourceIndex) const
+{
+    if (!engine->matchCount())
+        return QModelIndex();
+
+    int row = engine->curRow;
+    if (showAll)
+        row = engine->curMatch.indices[engine->curRow];
+
+    QModelIndex idx = createIndex(row, c->column);
+    if (!sourceIndex)
+        return idx;
+    return mapToSource(idx);
 }
 //  -----------------------------------------------------------------------
 
@@ -1568,6 +1921,31 @@ const QMetaObject *ritual_ZNK16QCompletionModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCompletionModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QCompletionModel11qt_metacastEPKc(
+    QCompletionModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCompletionModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QCompletionModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCompletionModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QCompletionModel::createEngine()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCompletionModel12createEngineEv(QCompletionModel *self) {
+  self->createEngine();
+}
+
 //  void QCompletionModel::setFiltered(bool a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QCompletionModel11setFilteredEb(
@@ -1708,21 +2086,101 @@ const QCompletionModelPrivate *ritual_ZNK16QCompletionModel6d_funcEv(
   return self->d_func();
 }
 
-#if defined(Q_OS_LINUX)
+//  void QCompletionModel::rowsAdded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCompletionModel9rowsAddedEv(QCompletionModel *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCompletionModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "rowsAdded()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "rowsAdded()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QCompletionModel::invalidate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QCompletionModel10invalidateEv(QCompletionModel *self) {
-  self->invalidate();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCompletionModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "invalidate()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "invalidate()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
+//  void QCompletionModel::rowsInserted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCompletionModel12rowsInsertedEv(QCompletionModel *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCompletionModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "rowsInserted()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "rowsInserted()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QCompletionModel::modelDestroyed()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QCompletionModel14modelDestroyedEv(QCompletionModel *self) {
-  self->modelDestroyed();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCompletionModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "modelDestroyed()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "modelDestroyed()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  a Python function taken by a CuteQCompletionModel, for the function named
 //      by the key

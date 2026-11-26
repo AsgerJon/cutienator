@@ -27,11 +27,15 @@
     "ritual_ZN19QQuickWindowPrivate4initEP12QQuickWindowP19QQuickRenderControl": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN19QQuickWindowPrivate4dataEv": ["address", "address"],
     "ritual_ZNK19QQuickWindowPrivate20deliveryAgentPrivateEv": [
       "address", "address"
     ],
     "ritual_ZN19QQuickWindowPrivate12updateCursorERK7QPointFP10QQuickItem": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWindowPrivate24findCursorItemAndHandlerEP10QQuickItemRK7QPointFS4_": [
+      "address", "address", "address", "address", "address"
     ],
     "ritual_ZN19QQuickWindowPrivate16clearFocusObjectEv": [
       "nothing", "address"
@@ -100,8 +104,32 @@
     "ritual_ZN19QQuickWindowPrivate27activeCustomRhiRenderTargetEv": [
       "address", "address"
     ],
+    "ritual_ZN19QQuickWindowPrivate11data_appendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate10data_countEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate7data_atEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN19QQuickWindowPrivate10data_clearEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate15data_removeLastEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QQuickWindowPrivate25rhiCreationFailureMessageERK7QStringPS0_S3_": [
       "nothing", "text", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate29emitBeforeRenderPassRecordingEPv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate28emitAfterRenderPassRecordingEPv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate15runAndClearJobsEP5QListIP9QRunnableE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN19QQuickWindowPrivate13openglContextEv": [
       "address", "address"
@@ -126,6 +154,12 @@
     ],
     "ritual_own_ZN19QQuickWindowPrivate31maybeSynthesizeContextMenuEventEP11QMouseEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QQuickWindowPrivate__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickWindowPrivate__std_pair_QQuickItem_QQuickPointerHandler": [
+      "nothing", "address"
     ]
   }
 }

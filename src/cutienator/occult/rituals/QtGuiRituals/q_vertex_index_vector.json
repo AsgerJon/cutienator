@@ -6,6 +6,13 @@
   ],
   "rows": {
     "ritual_ZNK18QVertexIndexVector4typeEv": ["int", "address"],
+    "ritual_ZN18QVertexIndexVector11setDataUintERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QVertexIndexVector13setDataUshortERK5QListItE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QVertexIndexVector4dataEv": ["address", "address"],
     "ritual_ZNK18QVertexIndexVector4sizeEv": ["int", "address"],
     "ritual_ZN18QVertexIndexVectorD1Ev": ["nothing", "address"]
   }

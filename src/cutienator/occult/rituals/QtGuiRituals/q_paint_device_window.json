@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK18QPaintDeviceWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QPaintDeviceWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QPaintDeviceWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QPaintDeviceWindow2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -28,6 +34,9 @@
     ],
     "ritual_ZN18QPaintDeviceWindow5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN18QPaintDeviceWindowC1ER25QPaintDeviceWindowPrivateP7QWindow": [
+      "address", "address", "address"
     ],
     "ritual_ZNK18QPaintDeviceWindow11paintEngineEv": ["address", "address"],
     "ritual_cast_QPaintDeviceWindow_QPaintDevice": ["address", "address"],

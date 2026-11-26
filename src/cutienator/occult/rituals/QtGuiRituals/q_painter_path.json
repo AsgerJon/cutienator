@@ -7,7 +7,11 @@
     "ritual_ZN12QPainterPathC1Ev": ["address"],
     "ritual_ZN12QPainterPathC1ERK7QPointF": ["address", "address"],
     "ritual_ZN12QPainterPathC1ERKS_": ["address", "address"],
+    "ritual_ZN12QPainterPathaSERKS_": ["address", "address", "address"],
+    "ritual_ZN12QPainterPathC1EOS_": ["address", "address"],
+    "ritual_ZN12QPainterPathaSEOS_": ["address", "address", "address"],
     "ritual_ZN12QPainterPathD1Ev": ["nothing", "address"],
+    "ritual_ZN12QPainterPath4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN12QPainterPath5clearEv": ["nothing", "address"],
     "ritual_ZN12QPainterPath7reserveEi": ["nothing", "address", "int"],
     "ritual_ZNK12QPainterPath8capacityEv": ["int", "address"],
@@ -188,6 +192,12 @@
       "nothing", "address"
     ],
     "ritual_ZNK12QPainterPath6d_funcEv": ["address", "address"],
+    "ritual_ZlsR11QDataStreamRK12QPainterPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR12QPainterPath": [
+      "address", "address", "address"
+    ],
     "ritual_list_make_QPainterPath": ["address"],
     "ritual_list_add_QPainterPath": ["nothing", "address", "address"],
     "ritual_list_size_QPainterPath": ["long long", "address"],

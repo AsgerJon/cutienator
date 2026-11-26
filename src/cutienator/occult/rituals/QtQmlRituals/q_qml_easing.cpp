@@ -188,6 +188,24 @@ const QMetaObject *ritual_ZNK10QQmlEasing10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlEasing::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QQmlEasing11qt_metacastEPKc(
+    QQmlEasing *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlEasing::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QQmlEasing11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlEasing *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlEasing::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QQmlEasing2trEPKcS1_i(

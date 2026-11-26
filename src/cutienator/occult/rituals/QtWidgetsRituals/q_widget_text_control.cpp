@@ -15,7 +15,9 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qtextcursor.h>
 #include <QtGui/qtextformat.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/qurl.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qpoint.h>
@@ -27,6 +29,8 @@
 #include <QtGui/qtransform.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtWidgets/QTextEdit>
 
 //  Only a class built on QWidgetTextControl may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -457,6 +461,25 @@ const QMetaObject *ritual_ZNK18QWidgetTextControl10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWidgetTextControl::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QWidgetTextControl11qt_metacastEPKc(
+    QWidgetTextControl *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWidgetTextControl::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QWidgetTextControl11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWidgetTextControl *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWidgetTextControl::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QWidgetTextControl2trEPKcS1_i(
@@ -780,6 +803,27 @@ void ritual_ZN18QWidgetTextControl17setAcceptRichTextEb(
   self->setAcceptRichText(accept);
 }
 
+#if QT_CONFIG(textedit)
+//  void QWidgetTextControl::setExtraSelections(const
+//      QList<QTextEdit::ExtraSelection> &selections)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl18setExtraSelectionsERK5QListIN9QTextEdit14ExtraSelectionEE(
+    QWidgetTextControl *self,
+    const QList<QTextEdit::ExtraSelection> *selections) {
+  self->setExtraSelections(*selections);
+}
+#endif  // QT_CONFIG(textedit)
+
+#if QT_CONFIG(textedit)
+//  QList<QTextEdit::ExtraSelection> QWidgetTextControl::extraSelections()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QTextEdit::ExtraSelection> *ritual_ZNK18QWidgetTextControl15extraSelectionsEv(
+    const QWidgetTextControl *self) {
+  return new QList<QTextEdit::ExtraSelection>(self->extraSelections());
+}
+#endif  // QT_CONFIG(textedit)
+
 //  void QWidgetTextControl::setTextWidth(qreal width)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetTextControl12setTextWidthEd(
@@ -1063,6 +1107,130 @@ void ritual_ZN18QWidgetTextControl10adjustSizeEv(QWidgetTextControl *self) {
   self->adjustSize();
 }
 
+//  void QWidgetTextControl::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl11textChangedEv(QWidgetTextControl *self) {
+  self->textChanged();
+}
+
+//  void QWidgetTextControl::undoAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl13undoAvailableEb(
+    QWidgetTextControl *self,
+    bool b) {
+  self->undoAvailable(b);
+}
+
+//  void QWidgetTextControl::redoAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl13redoAvailableEb(
+    QWidgetTextControl *self,
+    bool b) {
+  self->redoAvailable(b);
+}
+
+//  void QWidgetTextControl::currentCharFormatChanged(const QTextCharFormat
+//      &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl24currentCharFormatChangedERK15QTextCharFormat(
+    QWidgetTextControl *self,
+    const QTextCharFormat *format) {
+  self->currentCharFormatChanged(*format);
+}
+
+//  void QWidgetTextControl::copyAvailable(bool b)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl13copyAvailableEb(
+    QWidgetTextControl *self,
+    bool b) {
+  self->copyAvailable(b);
+}
+
+//  void QWidgetTextControl::selectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl16selectionChangedEv(
+    QWidgetTextControl *self) {
+  self->selectionChanged();
+}
+
+//  void QWidgetTextControl::cursorPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl21cursorPositionChangedEv(
+    QWidgetTextControl *self) {
+  self->cursorPositionChanged();
+}
+
+//  void QWidgetTextControl::updateRequest(const QRectF &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl13updateRequestERK6QRectF(
+    QWidgetTextControl *self,
+    const QRectF *rect) {
+  self->updateRequest(*rect);
+}
+
+//  void QWidgetTextControl::documentSizeChanged(const QSizeF &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl19documentSizeChangedERK6QSizeF(
+    QWidgetTextControl *self,
+    const QSizeF *a0) {
+  self->documentSizeChanged(*a0);
+}
+
+//  void QWidgetTextControl::blockCountChanged(int newBlockCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl17blockCountChangedEi(
+    QWidgetTextControl *self,
+    int newBlockCount) {
+  self->blockCountChanged(newBlockCount);
+}
+
+//  void QWidgetTextControl::visibilityRequest(const QRectF &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl17visibilityRequestERK6QRectF(
+    QWidgetTextControl *self,
+    const QRectF *rect) {
+  self->visibilityRequest(*rect);
+}
+
+//  void QWidgetTextControl::microFocusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl17microFocusChangedEv(
+    QWidgetTextControl *self) {
+  self->microFocusChanged();
+}
+
+//  void QWidgetTextControl::linkActivated(const QString &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl13linkActivatedERK7QString(
+    QWidgetTextControl *self,
+    const QString *link) {
+  self->linkActivated(*link);
+}
+
+//  void QWidgetTextControl::linkHovered(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl11linkHoveredERK7QString(
+    QWidgetTextControl *self,
+    const QString *a0) {
+  self->linkHovered(*a0);
+}
+
+//  void QWidgetTextControl::blockMarkerHovered(const QTextBlock &block)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl18blockMarkerHoveredERK10QTextBlock(
+    QWidgetTextControl *self,
+    const QTextBlock *block) {
+  self->blockMarkerHovered(*block);
+}
+
+//  void QWidgetTextControl::modificationChanged(bool m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QWidgetTextControl19modificationChangedEb(
+    QWidgetTextControl *self,
+    bool m) {
+  self->modificationChanged(m);
+}
+
 //  QPalette QWidgetTextControl::palette() const
 extern "C" Q_DECL_EXPORT
 QPalette *ritual_ZNK18QWidgetTextControl7paletteEv(
@@ -1168,6 +1336,17 @@ bool ritual_ZN18QWidgetTextControl30setFocusToNextOrPreviousAnchorEb(
     QWidgetTextControl *self,
     bool next) {
   return self->setFocusToNextOrPreviousAnchor(next);
+}
+
+//  bool QWidgetTextControl::findNextPrevAnchor(const QTextCursor &from, bool
+//      next, QTextCursor &newAnchor)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QWidgetTextControl18findNextPrevAnchorERK11QTextCursorbRS0_(
+    QWidgetTextControl *self,
+    const QTextCursor *from,
+    bool next,
+    QTextCursor *newAnchor) {
+  return self->findNextPrevAnchor(*from, next, *newAnchor);
 }
 
 //  void QWidgetTextControl::timerEvent(QTimerEvent *e)
@@ -1303,6 +1482,13 @@ bool ritual_own_ZN18QWidgetTextControl5eventEP6QEvent(
     QEvent *e) {
   return static_cast<OwnQWidgetTextControl *>(self)->OwnQWidgetTextControl::event(
       e);
+}
+
+//  a QList<QTextEdit::ExtraSelection> a ritual of QWidgetTextControl gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWidgetTextControl__QList_QTextEdit_ExtraSelection(
+    QList<QTextEdit::ExtraSelection> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(widgettextcontrol)

@@ -53,6 +53,45 @@ public:
   }
 };
 
+//  Qt3DRender::Render::UpdateShaderDataTransformJob::UpdateShaderDataTransfo
+//      rmJob()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::UpdateShaderDataTransformJob *ritual_ZN10Qt3DRender6Render28UpdateShaderDataTransformJobC1Ev() {
+  return new CuteQt3DRender_Render_UpdateShaderDataTransformJob();
+}
+
+//  Qt3DRender::Render::UpdateShaderDataTransformJob::~UpdateShaderDataTransf
+//      ormJob()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render28UpdateShaderDataTransformJobD1Ev(
+    Qt3DRender::Render::UpdateShaderDataTransformJob *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::UpdateShaderDataTransformJob::setManagers(NodeMa
+//      nagers *manager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render28UpdateShaderDataTransformJob11setManagersEPNS0_12NodeManagersE(
+    Qt3DRender::Render::UpdateShaderDataTransformJob *self,
+    Qt3DRender::Render::NodeManagers *manager) {
+  self->setManagers(manager);
+}
+
+//  NodeManagers
+//      *Qt3DRender::Render::UpdateShaderDataTransformJob::managers() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::NodeManagers *ritual_ZNK10Qt3DRender6Render28UpdateShaderDataTransformJob8managersEv(
+    const Qt3DRender::Render::UpdateShaderDataTransformJob *self) {
+  return self->managers();
+}
+
+//  void Qt3DRender::Render::UpdateShaderDataTransformJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render28UpdateShaderDataTransformJob3runEv(
+    Qt3DRender::Render::UpdateShaderDataTransformJob *self) {
+  self->run();
+}
+
 //  a Python function taken by a
 //      CuteQt3DRender_Render_UpdateShaderDataTransformJob, for the function
 //      named by the key

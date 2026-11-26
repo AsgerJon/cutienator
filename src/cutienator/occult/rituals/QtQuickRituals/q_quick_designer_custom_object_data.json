@@ -26,6 +26,9 @@
     "ritual_ZNK30QQuickDesignerCustomObjectData21hasBindingForPropertyEP11QQmlContextRK10QByteArrayPb": [
       "bool", "address", "address", "address", "address"
     ],
+    "ritual_ZN30QQuickDesignerCustomObjectData18setPropertyBindingEP11QQmlContextRK10QByteArrayRK7QString": [
+      "nothing", "address", "address", "address", "text"
+    ],
     "ritual_ZN30QQuickDesignerCustomObjectData29keepBindingFromGettingDeletedEP11QQmlContextRK10QByteArray": [
       "nothing", "address", "address", "address"
     ],

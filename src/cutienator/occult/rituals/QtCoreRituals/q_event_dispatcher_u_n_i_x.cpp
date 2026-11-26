@@ -13,6 +13,8 @@
 #include <QtCore/qdeadlinetimer.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <QtCore/QAbstractEventDispatcher>
 
 //  A QEventDispatcherUNIX that Python can take functions over in. Every QEventDispatcherUNIX
 //  Python makes is one. Each function below asks the Python
@@ -279,6 +281,25 @@ const QMetaObject *ritual_ZNK20QEventDispatcherUNIX10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QEventDispatcherUNIX::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QEventDispatcherUNIX11qt_metacastEPKc(
+    QEventDispatcherUNIX *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QEventDispatcherUNIX::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QEventDispatcherUNIX11qt_metacallEN11QMetaObject4CallEiPPv(
+    QEventDispatcherUNIX *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QEventDispatcherUNIX::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QEventDispatcherUNIX2trEPKcS1_i(
@@ -343,6 +364,22 @@ void ritual_ZN20QEventDispatcherUNIX24unregisterSocketNotifierEP15QSocketNotifie
   self->unregisterSocketNotifier(notifier);
 }
 
+//  void QEventDispatcherUNIX::registerTimer(Qt::TimerId timerId, Duration
+//      interval, Qt::TimerType timerType, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QEventDispatcherUNIX13registerTimerEN2Qt7TimerIdENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS0_9TimerTypeEP7QObject(
+    QEventDispatcherUNIX *self,
+    Qt::TimerId timerId,
+    long long interval,
+    Qt::TimerType timerType,
+    QObject *object) {
+  self->registerTimer(
+      timerId,
+      QAbstractEventDispatcher::Duration(interval),
+      timerType,
+      object);
+}
+
 //  bool QEventDispatcherUNIX::unregisterTimer(Qt::TimerId timerId)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QEventDispatcherUNIX15unregisterTimerEN2Qt7TimerIdE(
@@ -359,6 +396,25 @@ bool ritual_ZN20QEventDispatcherUNIX16unregisterTimersEP7QObject(
   return self->unregisterTimers(object);
 }
 
+//  QList<TimerInfoV2> QEventDispatcherUNIX::timersForObject(QObject *object)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractEventDispatcher::TimerInfoV2> *ritual_ZNK20QEventDispatcherUNIX15timersForObjectEP7QObject(
+    const QEventDispatcherUNIX *self,
+    QObject *object) {
+  return new QList<QAbstractEventDispatcher::TimerInfoV2>(
+      self->timersForObject(
+          object));
+}
+
+//  Duration QEventDispatcherUNIX::remainingTime(Qt::TimerId timerId) const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK20QEventDispatcherUNIX13remainingTimeEN2Qt7TimerIdE(
+    const QEventDispatcherUNIX *self,
+    Qt::TimerId timerId) {
+  return static_cast<long long>(self->remainingTime(timerId).count());
+}
+
 //  void QEventDispatcherUNIX::wakeUp()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QEventDispatcherUNIX6wakeUpEv(QEventDispatcherUNIX *self) {
@@ -370,6 +426,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QEventDispatcherUNIX9interruptEv(
     QEventDispatcherUNIX *self) {
   self->interrupt();
+}
+
+//  QEventDispatcherUNIX::QEventDispatcherUNIX(QEventDispatcherUNIXPrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QEventDispatcherUNIX *ritual_ZN20QEventDispatcherUNIXC1ER27QEventDispatcherUNIXPrivateP7QObject(
+    QEventDispatcherUNIXPrivate *dd,
+    QObject *parent) {
+  return new CuteQEventDispatcherUNIX(*dd, parent);
 }
 
 //  a Python function taken by a CuteQEventDispatcherUNIX, for the function
@@ -397,6 +462,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN20QEventDispatcherUNIX6wakeUpEv(
     QEventDispatcherUNIX *self) {
   self->QEventDispatcherUNIX::wakeUp();
+}
+
+//  a QList<QAbstractEventDispatcher::TimerInfoV2> a ritual of
+//      QEventDispatcherUNIX gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QEventDispatcherUNIX__QList_QAbstractEventDispatcher_TimerInfoV2(
+    QList<QAbstractEventDispatcher::TimerInfoV2> *self) {
+  delete self;
 }
 
 #endif  // defined(Q_OS_UNIX) && !defined(Q_OS_WASM)

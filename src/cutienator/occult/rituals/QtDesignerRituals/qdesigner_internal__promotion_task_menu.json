@@ -8,8 +8,80 @@
     "ritual_ZNK18qdesigner_internal17PromotionTaskMenu10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal17PromotionTaskMenu2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenuC1EP7QWidgetNS0_4ModeEP7QObject": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17PromotionTaskMenu4modeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu7setModeENS0_4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu9setWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu15setPromoteLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu21setEditPromoteToLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu14setDemoteLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu10addActionsEP28QDesignerFormWindowInterfacejR5QListIP7QActionE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu10addActionsEjR5QListIP7QActionE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu10addActionsEP28QDesignerFormWindowInterfacejP5QMenu": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu10addActionsEjP5QMenu": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu19editPromotedWidgetsEP28QDesignerFormEditorInterfaceP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu25slotPromoteToCustomWidgetERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu26slotDemoteFromCustomWidgetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu23slotEditPromotedWidgetsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu17slotEditPromoteToEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu20slotEditSignalsSlotsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu9promoteToEP28QDesignerFormWindowInterfaceRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal17PromotionTaskMenu22createPromotionActionsEP28QDesignerFormWindowInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17PromotionTaskMenu10formWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17PromotionTaskMenu22promotionSelectionListEP28QDesignerFormWindowInterface": [
+      "address", "address", "address"
+    ],
+    "ritual_drop_qdesigner_internal_PromotionTaskMenu__qdesigner_internal_PromotionTaskMenu_PromotionSelectionList": [
+      "nothing", "address"
     ]
   }
 }

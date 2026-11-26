@@ -591,6 +591,24 @@ const QMetaObject *ritual_ZNK12QVideoWindow10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVideoWindow::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QVideoWindow11qt_metacastEPKc(
+    QVideoWindow *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVideoWindow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QVideoWindow11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVideoWindow *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVideoWindow::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QVideoWindow2trEPKcS1_i(
@@ -637,6 +655,14 @@ void ritual_ZN12QVideoWindow18setAspectRatioModeEN2Qt15AspectRatioModeE(
     QVideoWindow *self,
     Qt::AspectRatioMode mode) {
   self->setAspectRatioMode(mode);
+}
+
+//  void QVideoWindow::aspectRatioModeChanged(Qt::AspectRatioMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QVideoWindow22aspectRatioModeChangedEN2Qt15AspectRatioModeE(
+    QVideoWindow *self,
+    Qt::AspectRatioMode mode) {
+  self->aspectRatioModeChanged(mode);
 }
 
 //  bool QVideoWindow::event(QEvent *e)

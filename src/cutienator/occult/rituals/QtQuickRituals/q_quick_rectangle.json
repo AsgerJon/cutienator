@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickRectangle10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickRectangle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickRectangle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickRectangle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -53,6 +59,20 @@
       "nothing", "address", "double"
     ],
     "ritual_ZN15QQuickRectangle22resetBottomRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickRectangle12colorChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickRectangle13radiusChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickRectangle20topLeftRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickRectangle21topRightRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickRectangle23bottomLeftRadiusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickRectangle24bottomRightRadiusChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN15QQuickRectangle15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [

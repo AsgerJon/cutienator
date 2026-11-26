@@ -79,11 +79,6 @@ inline QQuickContext2DTile::~QQuickContext2DTile()
         m_painter.end();
 }
 
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 66, as _ZN24QQuickContext2DImageTileD1Ev
-inline QQuickContext2DImageTile::~QQuickContext2DImageTile()
-{
-}
-
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 70, as _ZN24QQuickContext2DImageTile7setRectERK5QRect
 inline void QQuickContext2DImageTile::setRect(const QRect& r)
 {
@@ -95,6 +90,17 @@ inline void QQuickContext2DImageTile::setRect(const QRect& r)
         m_image = QImage(r.size(), QImage::Format_ARGB32_Premultiplied);
     }
     m_device = &m_image;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 61, as _ZN24QQuickContext2DImageTileC1Ev
+inline QQuickContext2DImageTile::QQuickContext2DImageTile()
+    : QQuickContext2DTile()
+{
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 66, as _ZN24QQuickContext2DImageTileD1Ev
+inline QQuickContext2DImageTile::~QQuickContext2DImageTile()
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -199,6 +205,12 @@ public:
   }
 #endif  // QT_CONFIG(quick_canvas)
 };
+
+//  QQuickContext2DImageTile::QQuickContext2DImageTile()
+extern "C" Q_DECL_EXPORT
+QQuickContext2DImageTile *ritual_ZN24QQuickContext2DImageTileC1Ev() {
+  return new CuteQQuickContext2DImageTile();
+}
 
 //  QQuickContext2DImageTile::~QQuickContext2DImageTile()
 extern "C" Q_DECL_EXPORT

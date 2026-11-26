@@ -3,7 +3,9 @@
 //  here are lost.
 #include <QtDataVisualization/qitemmodelscatterdataproxy.h>
 #include <QtCore/qstring.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
+#endif
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +181,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK26QItemModelScatterDataProxy10metaObjectEv(
     const QItemModelScatterDataProxy *self) {
   return self->metaObject();
+}
+
+//  void *QItemModelScatterDataProxy::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QItemModelScatterDataProxy11qt_metacastEPKc(
+    QItemModelScatterDataProxy *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QItemModelScatterDataProxy::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QItemModelScatterDataProxy11qt_metacallEN11QMetaObject4CallEiPPv(
+    QItemModelScatterDataProxy *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QItemModelScatterDataProxy::tr(const char *s, const char *c, int
@@ -468,6 +489,119 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK26QItemModelScatterDataProxy19rotationRoleReplaceEv(
     const QItemModelScatterDataProxy *self) {
   return new QString(self->rotationRoleReplace());
+}
+
+//  void QItemModelScatterDataProxy::itemModelChanged(const
+//      QAbstractItemModel *itemModel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy16itemModelChangedEPK18QAbstractItemModel(
+    QItemModelScatterDataProxy *self,
+    const QAbstractItemModel *itemModel) {
+  self->itemModelChanged(itemModel);
+}
+
+//  void QItemModelScatterDataProxy::xPosRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy15xPosRoleChangedERK7QString(
+    QItemModelScatterDataProxy *self,
+    const QString *role) {
+  self->xPosRoleChanged(*role);
+}
+
+//  void QItemModelScatterDataProxy::yPosRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy15yPosRoleChangedERK7QString(
+    QItemModelScatterDataProxy *self,
+    const QString *role) {
+  self->yPosRoleChanged(*role);
+}
+
+//  void QItemModelScatterDataProxy::zPosRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy15zPosRoleChangedERK7QString(
+    QItemModelScatterDataProxy *self,
+    const QString *role) {
+  self->zPosRoleChanged(*role);
+}
+
+//  void QItemModelScatterDataProxy::rotationRoleChanged(const QString &role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy19rotationRoleChangedERK7QString(
+    QItemModelScatterDataProxy *self,
+    const QString *role) {
+  self->rotationRoleChanged(*role);
+}
+
+//  void QItemModelScatterDataProxy::xPosRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy22xPosRolePatternChangedERK18QRegularExpression(
+    QItemModelScatterDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->xPosRolePatternChanged(*pattern);
+}
+
+//  void QItemModelScatterDataProxy::yPosRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy22yPosRolePatternChangedERK18QRegularExpression(
+    QItemModelScatterDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->yPosRolePatternChanged(*pattern);
+}
+
+//  void QItemModelScatterDataProxy::zPosRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy22zPosRolePatternChangedERK18QRegularExpression(
+    QItemModelScatterDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->zPosRolePatternChanged(*pattern);
+}
+
+//  void QItemModelScatterDataProxy::rotationRolePatternChanged(const
+//      QRegularExpression &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy26rotationRolePatternChangedERK18QRegularExpression(
+    QItemModelScatterDataProxy *self,
+    const QRegularExpression *pattern) {
+  self->rotationRolePatternChanged(*pattern);
+}
+
+//  void QItemModelScatterDataProxy::rotationRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy26rotationRoleReplaceChangedERK7QString(
+    QItemModelScatterDataProxy *self,
+    const QString *replace) {
+  self->rotationRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelScatterDataProxy::xPosRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy22xPosRoleReplaceChangedERK7QString(
+    QItemModelScatterDataProxy *self,
+    const QString *replace) {
+  self->xPosRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelScatterDataProxy::yPosRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy22yPosRoleReplaceChangedERK7QString(
+    QItemModelScatterDataProxy *self,
+    const QString *replace) {
+  self->yPosRoleReplaceChanged(*replace);
+}
+
+//  void QItemModelScatterDataProxy::zPosRoleReplaceChanged(const QString
+//      &replace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QItemModelScatterDataProxy22zPosRoleReplaceChangedERK7QString(
+    QItemModelScatterDataProxy *self,
+    const QString *replace) {
+  self->zPosRoleReplaceChanged(*replace);
 }
 
 //  QItemModelScatterDataProxyPrivate *QItemModelScatterDataProxy::dptr()

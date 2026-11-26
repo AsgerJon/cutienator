@@ -13,6 +13,13 @@
     ],
     "ritual_ZN3QV412StringObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZNK3QV412StringObject8getIndexEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412StringObject6lengthEv": ["unsigned int", "address"],
+    "ritual_ZN3QV412StringObject21virtualGetOwnPropertyEPKNS_7ManagedENS_11PropertyKeyEPNS_8PropertyE": [
+      "address", "address", "address", "address"
     ]
   }
 }

@@ -7,6 +7,15 @@
   "rows": {
     "ritual_ZN17QSGMaterialShaderC1Ev": ["address"],
     "ritual_ZN17QSGMaterialShaderD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSGMaterialShader17updateUniformDataERNS_11RenderStateEP11QSGMaterialS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QSGMaterialShader18updateSampledImageERNS_11RenderStateEiPP10QSGTextureP11QSGMaterialS6_": [
+      "nothing", "address", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZN17QSGMaterialShader27updateGraphicsPipelineStateERNS_11RenderStateEPNS_21GraphicsPipelineStateEP11QSGMaterialS5_": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK17QSGMaterialShader5flagsEv": ["int", "address"],
     "ritual_ZN17QSGMaterialShader7setFlagE6QFlagsINS_4FlagEEb": [
       "nothing", "address", "int", "bool"
@@ -19,6 +28,9 @@
     ],
     "ritual_ZN17QSGMaterialShader6d_funcEv": ["address", "address"],
     "ritual_ZNK17QSGMaterialShader6d_funcEv": ["address", "address"],
+    "ritual_ZN17QSGMaterialShaderC1ER24QSGMaterialShaderPrivate": [
+      "address", "address"
+    ],
     "ritual_ZN17QSGMaterialShader17setShaderFileNameENS_5StageERK7QString": [
       "nothing", "address", "int", "text"
     ],

@@ -181,6 +181,24 @@ const QMetaObject *ritual_ZNK13QOpenGLShader10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QOpenGLShader::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QOpenGLShader11qt_metacastEPKc(
+    QOpenGLShader *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QOpenGLShader::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QOpenGLShader11qt_metacallEN11QMetaObject4CallEiPPv(
+    QOpenGLShader *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QOpenGLShader::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QOpenGLShader2trEPKcS1_i(
@@ -264,6 +282,12 @@ QString *ritual_ZNK13QOpenGLShader3logEv(const QOpenGLShader *self) {
   return new QString(self->log());
 }
 
+//  GLuint QOpenGLShader::shaderId() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK13QOpenGLShader8shaderIdEv(const QOpenGLShader *self) {
+  return self->shaderId();
+}
+
 //  bool QOpenGLShader::hasOpenGLShaders(ShaderType type, QOpenGLContext
 //      *context)
 extern "C" Q_DECL_EXPORT
@@ -273,6 +297,20 @@ bool ritual_ZN13QOpenGLShader16hasOpenGLShadersE6QFlagsINS_13ShaderTypeBitEEP14Q
   return QOpenGLShader::hasOpenGLShaders(
       QFlags<QOpenGLShader::ShaderTypeBit>::fromInt(type),
       context);
+}
+
+//  QOpenGLShaderPrivate *QOpenGLShader::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLShaderPrivate *ritual_ZN13QOpenGLShader6d_funcEv(
+    QOpenGLShader *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLShaderPrivate *QOpenGLShader::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOpenGLShaderPrivate *ritual_ZNK13QOpenGLShader6d_funcEv(
+    const QOpenGLShader *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQOpenGLShader, for the function named by

@@ -40,6 +40,14 @@ public:
   }
 };
 
+//  const QHash<QString, PropertyValue>
+//      &Qt3DRender::Render::ShaderData::properties() const
+extern "C" Q_DECL_EXPORT
+const QHash<QString, Qt3DRender::Render::ShaderData::PropertyValue> *ritual_ZNK10Qt3DRender6Render10ShaderData10propertiesEv(
+    const Qt3DRender::Render::ShaderData *self) {
+  return &(self->properties());
+}
+
 //  a Python function taken by a CuteQt3DRender_Render_ShaderData, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

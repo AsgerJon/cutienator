@@ -339,6 +339,27 @@ const QMetaObject *ritual_ZNK51QQuick3DShaderUtilsRenderPassDepthStencilAttachme
   return self->metaObject();
 }
 
+//  void
+//      *QQuick3DShaderUtilsRenderPassDepthStencilAttachment::qt_metacast(con
+//      st char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN51QQuick3DShaderUtilsRenderPassDepthStencilAttachment11qt_metacastEPKc(
+    QQuick3DShaderUtilsRenderPassDepthStencilAttachment *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsRenderPassDepthStencilAttachment::qt_metacall(QMet
+//      aObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN51QQuick3DShaderUtilsRenderPassDepthStencilAttachment11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsRenderPassDepthStencilAttachment *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsRenderPassDepthStencilAttachment::tr(const
 //      char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT

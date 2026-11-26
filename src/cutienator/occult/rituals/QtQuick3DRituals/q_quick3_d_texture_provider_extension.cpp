@@ -289,6 +289,25 @@ const QMetaObject *ritual_ZNK32QQuick3DTextureProviderExtension10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DTextureProviderExtension::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QQuick3DTextureProviderExtension11qt_metacastEPKc(
+    QQuick3DTextureProviderExtension *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DTextureProviderExtension::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QQuick3DTextureProviderExtension11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DTextureProviderExtension *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DTextureProviderExtension::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -351,6 +370,20 @@ void ritual_ZN32QQuick3DTextureProviderExtension14setSamplerHintENS_11SamplerHin
     QQuick3DTextureProviderExtension *self,
     QQuick3DTextureProviderExtension::SamplerHint newSamplerHint) {
   self->setSamplerHint(newSamplerHint);
+}
+
+//  void QQuick3DTextureProviderExtension::samplerHintChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuick3DTextureProviderExtension18samplerHintChangedEv(
+    QQuick3DTextureProviderExtension *self) {
+  self->samplerHintChanged();
+}
+
+//  void QQuick3DTextureProviderExtension::surfaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuick3DTextureProviderExtension14surfaceChangedEv(
+    QQuick3DTextureProviderExtension *self) {
+  self->surfaceChanged();
 }
 
 //  bool QQuick3DTextureProviderExtension::event(QEvent *event)

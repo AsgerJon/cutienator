@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QGestureManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGestureManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QGestureManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QGestureManagerD1Ev": ["nothing", "address"],
     "ritual_ZN15QGestureManager25registerGestureRecognizerEP18QGestureRecognizer": [
       "int", "address", "address"
@@ -21,6 +27,9 @@
     ],
     "ritual_ZN15QGestureManager35cleanupGesturesForRemovedRecognizerEP8QGesture": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGestureManager17getGestureTargetsERK4QSetIP8QGestureEP5QHashIP7QWidget5QListIS2_EESC_": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_take_QGestureManager": ["bool", "address", "chars", "address"]
   }

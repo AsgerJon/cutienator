@@ -53,11 +53,14 @@ inline QSGSoftwareContext::QSGSoftwareContext(QObject *parent)
 {
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderloop.cpp, line 34, as _ZN21QSGSoftwareRenderLoopD1Ev
-inline QSGSoftwareRenderLoop::~QSGSoftwareRenderLoop()
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderloop.cpp, line 232, as _ZN21QSGSoftwareRenderLoop11maybeUpdateEP12QQuickWindow
+inline void QSGSoftwareRenderLoop::maybeUpdate(QQuickWindow *window)
 {
-    delete rc;
-    delete sg;
+    if (!m_windows.contains(window))
+        return;
+
+    m_windows[window].updatePending = true;
+    window->requestUpdate();
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderloop.cpp, line 40, as _ZN21QSGSoftwareRenderLoop4showEP12QQuickWindow
@@ -136,16 +139,6 @@ inline QImage QSGSoftwareRenderLoop::grab(QQuickWindow *window)
     return grabbed;
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderloop.cpp, line 232, as _ZN21QSGSoftwareRenderLoop11maybeUpdateEP12QQuickWindow
-inline void QSGSoftwareRenderLoop::maybeUpdate(QQuickWindow *window)
-{
-    if (!m_windows.contains(window))
-        return;
-
-    m_windows[window].updatePending = true;
-    window->requestUpdate();
-}
-
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderloop.cpp, line 254, as _ZN21QSGSoftwareRenderLoop19handleUpdateRequestEP12QQuickWindow
 inline void QSGSoftwareRenderLoop::handleUpdateRequest(QQuickWindow *window)
 {
@@ -162,6 +155,13 @@ inline QSurface::SurfaceType QSGSoftwareRenderLoop::windowSurfaceType() const
 inline QSGContext *QSGSoftwareRenderLoop::sceneGraphContext() const
 {
     return sg;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarerenderloop.cpp, line 34, as _ZN21QSGSoftwareRenderLoopD1Ev
+inline QSGSoftwareRenderLoop::~QSGSoftwareRenderLoop()
+{
+    delete rc;
+    delete sg;
 }
 //  -----------------------------------------------------------------------
 
@@ -611,6 +611,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK21QSGSoftwareRenderLoop10metaObjectEv(
     const QSGSoftwareRenderLoop *self) {
   return self->metaObject();
+}
+
+//  void *QSGSoftwareRenderLoop::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QSGSoftwareRenderLoop11qt_metacastEPKc(
+    QSGSoftwareRenderLoop *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGSoftwareRenderLoop::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QSGSoftwareRenderLoop11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGSoftwareRenderLoop *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QSGSoftwareRenderLoop::~QSGSoftwareRenderLoop()

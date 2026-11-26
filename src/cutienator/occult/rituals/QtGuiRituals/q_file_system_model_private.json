@@ -81,6 +81,9 @@
     "ritual_ZN23QFileSystemModelPrivate18performDelayedSortEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QFileSystemModelPrivate17fileSystemChangedERK7QStringRK5QListISt4pairIS0_9QFileInfoEE": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZN23QFileSystemModelPrivate12resolvedNameERK7QStringS2_": [
       "nothing", "address", "text", "text"
     ],

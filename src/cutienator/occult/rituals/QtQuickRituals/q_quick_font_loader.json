@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickFontLoader10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickFontLoader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickFontLoader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickFontLoader2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QQuickFontLoader6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQuickFontLoader6d_funcEv": ["address", "address"],
     "ritual_ZN16QQuickFontLoaderC1EP7QObject": ["address", "address"],
     "ritual_ZNK16QQuickFontLoader6sourceEv": ["address", "address"],
     "ritual_ZN16QQuickFontLoader9setSourceERK4QUrl": [
@@ -20,6 +28,10 @@
     "ritual_ZN16QQuickFontLoader14updateFontInfoEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN16QQuickFontLoader13sourceChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickFontLoader11nameChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickFontLoader11fontChangedEv": ["nothing", "address"],
+    "ritual_ZN16QQuickFontLoader13statusChangedEv": ["nothing", "address"],
     "ritual_take_QQuickFontLoader": ["bool", "address", "chars", "address"]
   }
 }

@@ -5,8 +5,21 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render5LayerC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render5LayerD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render5Layer7cleanupEv": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender6Render5Layer9recursiveEv": ["bool", "address"],
+    "ritual_ZN10Qt3DRender6Render5Layer12setRecursiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Layer16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_take_Qt3DRender_Render_Layer": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render5Layer16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
     ]
   }
 }

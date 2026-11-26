@@ -9,7 +9,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtLocation/qplacecontent.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qsize.h>
@@ -975,6 +977,25 @@ const QMetaObject *ritual_ZNK29QDeclarativePlaceContentModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativePlaceContentModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QDeclarativePlaceContentModel11qt_metacastEPKc(
+    QDeclarativePlaceContentModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativePlaceContentModel::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QDeclarativePlaceContentModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativePlaceContentModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativePlaceContentModel::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1110,6 +1131,27 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN29QDeclarativePlaceContentModel17componentCompleteEv(
     QDeclarativePlaceContentModel *self) {
   self->componentComplete();
+}
+
+//  void QDeclarativePlaceContentModel::placeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativePlaceContentModel12placeChangedEv(
+    QDeclarativePlaceContentModel *self) {
+  self->placeChanged();
+}
+
+//  void QDeclarativePlaceContentModel::batchSizeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativePlaceContentModel16batchSizeChangedEv(
+    QDeclarativePlaceContentModel *self) {
+  self->batchSizeChanged();
+}
+
+//  void QDeclarativePlaceContentModel::totalCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QDeclarativePlaceContentModel17totalCountChangedEv(
+    QDeclarativePlaceContentModel *self) {
+  self->totalCountChanged();
 }
 
 //  void QDeclarativePlaceContentModel::fetchFinished()

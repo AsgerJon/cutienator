@@ -19,6 +19,9 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3dphysics/src/quick3dphysics/qcollisiondebugmeshbuilder.cpp, line 9, as _ZN26QCollisionDebugMeshBuilderC1Ev
+inline QCollisionDebugMeshBuilder::QCollisionDebugMeshBuilder() { }
+
 //  from ../qtquick3dphysics/src/quick3dphysics/qcollisiondebugmeshbuilder.cpp, line 11, as _ZN26QCollisionDebugMeshBuilder5resetEv
 inline void QCollisionDebugMeshBuilder::reset()
 {
@@ -76,6 +79,12 @@ inline QByteArray QCollisionDebugMeshBuilder::generateVertexArray()
     return output;
 }
 //  -----------------------------------------------------------------------
+
+//  QCollisionDebugMeshBuilder::QCollisionDebugMeshBuilder()
+extern "C" Q_DECL_EXPORT
+QCollisionDebugMeshBuilder *ritual_ZN26QCollisionDebugMeshBuilderC1Ev() {
+  return new QCollisionDebugMeshBuilder();
+}
 
 //  void QCollisionDebugMeshBuilder::reset()
 extern "C" Q_DECL_EXPORT

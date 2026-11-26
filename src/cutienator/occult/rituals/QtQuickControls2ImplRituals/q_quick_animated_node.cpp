@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK18QQuickAnimatedNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnimatedNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickAnimatedNode11qt_metacastEPKc(
+    QQuickAnimatedNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnimatedNode::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickAnimatedNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnimatedNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnimatedNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickAnimatedNode2trEPKcS1_i(
@@ -122,6 +141,18 @@ void ritual_ZN18QQuickAnimatedNode7restartEv(QQuickAnimatedNode *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickAnimatedNode4stopEv(QQuickAnimatedNode *self) {
   self->stop();
+}
+
+//  void QQuickAnimatedNode::started()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickAnimatedNode7startedEv(QQuickAnimatedNode *self) {
+  self->started();
+}
+
+//  void QQuickAnimatedNode::stopped()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickAnimatedNode7stoppedEv(QQuickAnimatedNode *self) {
+  self->stopped();
 }
 
 //  void QQuickAnimatedNode::updateCurrentTime(int time)

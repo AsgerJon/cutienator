@@ -1,13 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qlineseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_area))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_area))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qlineseries.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on QLineSeries may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -237,6 +238,24 @@ const QMetaObject *ritual_ZNK11QLineSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLineSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QLineSeries11qt_metacastEPKc(
+    QLineSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLineSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QLineSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLineSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLineSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QLineSeries2trEPKcS1_i(
@@ -350,6 +369,21 @@ void ritual_ZN11QLineSeries13setDashOffsetEd(
   self->setDashOffset(newDashOffset);
 }
 
+//  QList<qreal> QLineSeries::dashPattern() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK11QLineSeries11dashPatternEv(
+    const QLineSeries *self) {
+  return new QList<qreal>(self->dashPattern());
+}
+
+//  void QLineSeries::setDashPattern(const QList<qreal> &pattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QLineSeries14setDashPatternERK5QListIdE(
+    QLineSeries *self,
+    const QList<qreal> *pattern) {
+  self->setDashPattern(*pattern);
+}
+
 //  QPointF QLineSeries::dataPointCoordinatesAt(qreal x, qreal y)
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZN11QLineSeries22dataPointCoordinatesAtEdd(
@@ -357,6 +391,67 @@ QPointF *ritual_ZN11QLineSeries22dataPointCoordinatesAtEdd(
     qreal x,
     qreal y) {
   return new QPointF(self->dataPointCoordinatesAt(x, y));
+}
+
+//  void QLineSeries::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QLineSeries12widthChangedEv(QLineSeries *self) {
+  self->widthChanged();
+}
+
+//  void QLineSeries::capStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QLineSeries15capStyleChangedEv(QLineSeries *self) {
+  self->capStyleChanged();
+}
+
+//  void QLineSeries::joinStyleChanged(Qt::PenJoinStyle newJoinStyle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QLineSeries16joinStyleChangedEN2Qt12PenJoinStyleE(
+    QLineSeries *self,
+    Qt::PenJoinStyle newJoinStyle) {
+  self->joinStyleChanged(newJoinStyle);
+}
+
+//  void QLineSeries::lineStyleChanged(QLineSeries::LineStyle newLineStyle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QLineSeries16lineStyleChangedENS_9LineStyleE(
+    QLineSeries *self,
+    QLineSeries::LineStyle newLineStyle) {
+  self->lineStyleChanged(newLineStyle);
+}
+
+//  void QLineSeries::strokeStyleChanged(QLineSeries::StrokeStyle
+//      newStrokeStyle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QLineSeries18strokeStyleChangedENS_11StrokeStyleE(
+    QLineSeries *self,
+    QLineSeries::StrokeStyle newStrokeStyle) {
+  self->strokeStyleChanged(newStrokeStyle);
+}
+
+//  void QLineSeries::dashOffsetChanged(qreal newDashOffset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QLineSeries17dashOffsetChangedEd(
+    QLineSeries *self,
+    qreal newDashOffset) {
+  self->dashOffsetChanged(newDashOffset);
+}
+
+//  void QLineSeries::dashPatternChanged(const QList<qreal> &newDashPattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QLineSeries18dashPatternChangedERK5QListIdE(
+    QLineSeries *self,
+    const QList<qreal> *newDashPattern) {
+  self->dashPatternChanged(*newDashPattern);
+}
+
+//  QLineSeries::QLineSeries(QLineSeriesPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QLineSeries *ritual_ZN11QLineSeriesC1ER18QLineSeriesPrivateP7QObject(
+    QLineSeriesPrivate *dd,
+    QObject *parent) {
+  return new CuteQLineSeries(*dd, parent);
 }
 
 //  void QLineSeries::componentComplete()
@@ -401,4 +496,10 @@ void ritual_own_ZN11QLineSeries17componentCompleteEv(QLineSeries *self) {
   static_cast<OwnQLineSeries *>(self)->OwnQLineSeries::componentComplete();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_area))
+//  a QList<qreal> a ritual of QLineSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QLineSeries__QList_qreal(QList<qreal> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_area))

@@ -16,6 +16,8 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  Only a class built on QGraphsTheme may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -228,6 +230,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK12QGraphsTheme10metaObjectEv(
     const QGraphsTheme *self) {
   return self->metaObject();
+}
+
+//  void *QGraphsTheme::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QGraphsTheme11qt_metacastEPKc(
+    QGraphsTheme *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphsTheme::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QGraphsTheme11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphsTheme *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QGraphsTheme::tr(const char *s, const char *c, int n)
@@ -714,6 +734,225 @@ void ritual_ZN12QGraphsTheme8setAxisZERK11QGraphsLine(
   self->setAxisZ(*newAxisZ);
 }
 
+//  void QGraphsTheme::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme6updateEv(QGraphsTheme *self) {
+  self->update();
+}
+
+//  void QGraphsTheme::colorSchemeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme18colorSchemeChangedEv(QGraphsTheme *self) {
+  self->colorSchemeChanged();
+}
+
+//  void QGraphsTheme::themeChanged(QGraphsTheme::Theme theme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme12themeChangedENS_5ThemeE(
+    QGraphsTheme *self,
+    QGraphsTheme::Theme theme) {
+  self->themeChanged(theme);
+}
+
+//  void QGraphsTheme::colorStyleChanged(QGraphsTheme::ColorStyle type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme17colorStyleChangedENS_10ColorStyleE(
+    QGraphsTheme *self,
+    QGraphsTheme::ColorStyle type) {
+  self->colorStyleChanged(type);
+}
+
+//  void QGraphsTheme::backgroundColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme22backgroundColorChangedEv(QGraphsTheme *self) {
+  self->backgroundColorChanged();
+}
+
+//  void QGraphsTheme::backgroundVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme24backgroundVisibleChangedEv(
+    QGraphsTheme *self) {
+  self->backgroundVisibleChanged();
+}
+
+//  void QGraphsTheme::plotAreaBackgroundColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme30plotAreaBackgroundColorChangedEv(
+    QGraphsTheme *self) {
+  self->plotAreaBackgroundColorChanged();
+}
+
+//  void QGraphsTheme::plotAreaBackgroundVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme32plotAreaBackgroundVisibleChangedEv(
+    QGraphsTheme *self) {
+  self->plotAreaBackgroundVisibleChanged();
+}
+
+//  void QGraphsTheme::gridVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme18gridVisibleChangedEv(QGraphsTheme *self) {
+  self->gridVisibleChanged();
+}
+
+//  void QGraphsTheme::labelsVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme20labelsVisibleChangedEv(QGraphsTheme *self) {
+  self->labelsVisibleChanged();
+}
+
+//  void QGraphsTheme::labelBackgroundColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme27labelBackgroundColorChangedEv(
+    QGraphsTheme *self) {
+  self->labelBackgroundColorChanged();
+}
+
+//  void QGraphsTheme::labelTextColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme21labelTextColorChangedEv(QGraphsTheme *self) {
+  self->labelTextColorChanged();
+}
+
+//  void QGraphsTheme::singleHighlightColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme27singleHighlightColorChangedE6QColor(
+    QGraphsTheme *self,
+    const QColor *color) {
+  self->singleHighlightColorChanged(*color);
+}
+
+//  void QGraphsTheme::multiHighlightColorChanged(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme26multiHighlightColorChangedE6QColor(
+    QGraphsTheme *self,
+    const QColor *color) {
+  self->multiHighlightColorChanged(*color);
+}
+
+//  void QGraphsTheme::singleHighlightGradientChanged(const QLinearGradient
+//      &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme30singleHighlightGradientChangedERK15QLinearGradient(
+    QGraphsTheme *self,
+    const QLinearGradient *gradient) {
+  self->singleHighlightGradientChanged(*gradient);
+}
+
+//  void QGraphsTheme::multiHighlightGradientChanged(const QLinearGradient
+//      &gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme29multiHighlightGradientChangedERK15QLinearGradient(
+    QGraphsTheme *self,
+    const QLinearGradient *gradient) {
+  self->multiHighlightGradientChanged(*gradient);
+}
+
+//  void QGraphsTheme::labelFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme16labelFontChangedEv(QGraphsTheme *self) {
+  self->labelFontChanged();
+}
+
+//  void QGraphsTheme::labelBackgroundVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme29labelBackgroundVisibleChangedEv(
+    QGraphsTheme *self) {
+  self->labelBackgroundVisibleChanged();
+}
+
+//  void QGraphsTheme::labelBorderVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme25labelBorderVisibleChangedEv(
+    QGraphsTheme *self) {
+  self->labelBorderVisibleChanged();
+}
+
+//  void QGraphsTheme::seriesColorsChanged(const QList<QColor> &list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme19seriesColorsChangedERK5QListI6QColorE(
+    QGraphsTheme *self,
+    const QList<QColor> *list) {
+  self->seriesColorsChanged(*list);
+}
+
+//  void QGraphsTheme::seriesGradientsChanged(const QList<QLinearGradient>
+//      &list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme22seriesGradientsChangedERK5QListI15QLinearGradientE(
+    QGraphsTheme *self,
+    const QList<QLinearGradient> *list) {
+  self->seriesGradientsChanged(*list);
+}
+
+//  void QGraphsTheme::borderColorsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme19borderColorsChangedEv(QGraphsTheme *self) {
+  self->borderColorsChanged();
+}
+
+//  void QGraphsTheme::borderWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme18borderWidthChangedEv(QGraphsTheme *self) {
+  self->borderWidthChanged();
+}
+
+//  void QGraphsTheme::singleHighlightGradientQMLChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme33singleHighlightGradientQMLChangedEv(
+    QGraphsTheme *self) {
+  self->singleHighlightGradientQMLChanged();
+}
+
+//  void QGraphsTheme::multiHighlightGradientQMLChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme32multiHighlightGradientQMLChangedEv(
+    QGraphsTheme *self) {
+  self->multiHighlightGradientQMLChanged();
+}
+
+//  void QGraphsTheme::axisXLabelFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme21axisXLabelFontChangedEv(QGraphsTheme *self) {
+  self->axisXLabelFontChanged();
+}
+
+//  void QGraphsTheme::axisYLabelFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme21axisYLabelFontChangedEv(QGraphsTheme *self) {
+  self->axisYLabelFontChanged();
+}
+
+//  void QGraphsTheme::axisZLabelFontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme21axisZLabelFontChangedEv(QGraphsTheme *self) {
+  self->axisZLabelFontChanged();
+}
+
+//  void QGraphsTheme::gridChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme11gridChangedEv(QGraphsTheme *self) {
+  self->gridChanged();
+}
+
+//  void QGraphsTheme::axisXChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme12axisXChangedEv(QGraphsTheme *self) {
+  self->axisXChanged();
+}
+
+//  void QGraphsTheme::axisYChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme12axisYChangedEv(QGraphsTheme *self) {
+  self->axisYChanged();
+}
+
+//  void QGraphsTheme::axisZChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme12axisZChangedEv(QGraphsTheme *self) {
+  self->axisZChanged();
+}
+
 //  void QGraphsTheme::handleBaseColorUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QGraphsTheme21handleBaseColorUpdateEv(QGraphsTheme *self) {
@@ -725,6 +964,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN12QGraphsTheme24handleBaseGradientUpdateEv(
     QGraphsTheme *self) {
   self->handleBaseGradientUpdate();
+}
+
+//  QGraphsTheme::QGraphsTheme(QGraphsThemePrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGraphsTheme *ritual_ZN12QGraphsThemeC1ER19QGraphsThemePrivateP7QObject(
+    QGraphsThemePrivate *dd,
+    QObject *parent) {
+  return new CuteQGraphsTheme(*dd, parent);
 }
 
 //  void QGraphsTheme::classBegin()
@@ -784,6 +1031,112 @@ QLinearGradient *ritual_ZN12QGraphsTheme15convertGradientEP14QQuickGradient(
     QGraphsTheme *self,
     QQuickGradient *gradient) {
   return new QLinearGradient(self->convertGradient(gradient));
+}
+
+//  QQmlListProperty<QQuickGraphsColor> QGraphsTheme::baseColorsQML()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickGraphsColor> *ritual_ZN12QGraphsTheme13baseColorsQMLEv(
+    QGraphsTheme *self) {
+  return new QQmlListProperty<QQuickGraphsColor>(self->baseColorsQML());
+}
+
+//  void
+//      QGraphsTheme::appendBaseColorsFunc(QQmlListProperty<QQuickGraphsColor
+//      > *list, QQuickGraphsColor *color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme20appendBaseColorsFuncEP16QQmlListPropertyI17QQuickGraphsColorEPS1_(
+    QQmlListProperty<QQuickGraphsColor> *list,
+    QQuickGraphsColor *color) {
+  QGraphsTheme::appendBaseColorsFunc(list, color);
+}
+
+//  qsizetype
+//      QGraphsTheme::countBaseColorsFunc(QQmlListProperty<QQuickGraphsColor>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN12QGraphsTheme19countBaseColorsFuncEP16QQmlListPropertyI17QQuickGraphsColorE(
+    QQmlListProperty<QQuickGraphsColor> *list) {
+  return QGraphsTheme::countBaseColorsFunc(list);
+}
+
+//  QQuickGraphsColor
+//      *QGraphsTheme::atBaseColorsFunc(QQmlListProperty<QQuickGraphsColor>
+//      *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickGraphsColor *ritual_ZN12QGraphsTheme16atBaseColorsFuncEP16QQmlListPropertyI17QQuickGraphsColorEx(
+    QQmlListProperty<QQuickGraphsColor> *list,
+    qsizetype index) {
+  return QGraphsTheme::atBaseColorsFunc(list, index);
+}
+
+//  void
+//      QGraphsTheme::clearBaseColorsFunc(QQmlListProperty<QQuickGraphsColor>
+//      *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme19clearBaseColorsFuncEP16QQmlListPropertyI17QQuickGraphsColorE(
+    QQmlListProperty<QQuickGraphsColor> *list) {
+  QGraphsTheme::clearBaseColorsFunc(list);
+}
+
+//  QQmlListProperty<QQuickGradient> QGraphsTheme::baseGradientsQML()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQuickGradient> *ritual_ZN12QGraphsTheme16baseGradientsQMLEv(
+    QGraphsTheme *self) {
+  return new QQmlListProperty<QQuickGradient>(self->baseGradientsQML());
+}
+
+//  void
+//      QGraphsTheme::appendBaseGradientsFunc(QQmlListProperty<QQuickGradient
+//      > *list, QQuickGradient *gradient)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme23appendBaseGradientsFuncEP16QQmlListPropertyI14QQuickGradientEPS1_(
+    QQmlListProperty<QQuickGradient> *list,
+    QQuickGradient *gradient) {
+  QGraphsTheme::appendBaseGradientsFunc(list, gradient);
+}
+
+//  qsizetype
+//      QGraphsTheme::countBaseGradientsFunc(QQmlListProperty<QQuickGradient>
+//      *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN12QGraphsTheme22countBaseGradientsFuncEP16QQmlListPropertyI14QQuickGradientE(
+    QQmlListProperty<QQuickGradient> *list) {
+  return QGraphsTheme::countBaseGradientsFunc(list);
+}
+
+//  QQuickGradient
+//      *QGraphsTheme::atBaseGradientsFunc(QQmlListProperty<QQuickGradient>
+//      *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QQuickGradient *ritual_ZN12QGraphsTheme19atBaseGradientsFuncEP16QQmlListPropertyI14QQuickGradientEx(
+    QQmlListProperty<QQuickGradient> *list,
+    qsizetype index) {
+  return QGraphsTheme::atBaseGradientsFunc(list, index);
+}
+
+//  void
+//      QGraphsTheme::clearBaseGradientsFunc(QQmlListProperty<QQuickGradient>
+//      *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme22clearBaseGradientsFuncEP16QQmlListPropertyI14QQuickGradientE(
+    QQmlListProperty<QQuickGradient> *list) {
+  QGraphsTheme::clearBaseGradientsFunc(list);
+}
+
+//  QQmlListProperty<QObject> QGraphsTheme::themeChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN12QGraphsTheme13themeChildrenEv(
+    QGraphsTheme *self) {
+  return new QQmlListProperty<QObject>(self->themeChildren());
+}
+
+//  void QGraphsTheme::appendThemeChildren(QQmlListProperty<QObject> *list,
+//      QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGraphsTheme19appendThemeChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  QGraphsTheme::appendThemeChildren(list, element);
 }
 
 //  void QGraphsTheme::addColor(QQuickGraphsColor *color)
@@ -939,5 +1292,26 @@ QGraphsTheme *ritual_list_at_QGraphsTheme_ptr(
 //  QList<QGraphsTheme *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QGraphsTheme_ptr(QList<QGraphsTheme *> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickGraphsColor> a ritual of QGraphsTheme gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGraphsTheme__QQmlListProperty_QQuickGraphsColor(
+    QQmlListProperty<QQuickGraphsColor> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QQuickGradient> a ritual of QGraphsTheme gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGraphsTheme__QQmlListProperty_QQuickGradient(
+    QQmlListProperty<QQuickGradient> *self) {
+  delete self;
+}
+
+//  a QQmlListProperty<QObject> a ritual of QGraphsTheme gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGraphsTheme__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
   delete self;
 }

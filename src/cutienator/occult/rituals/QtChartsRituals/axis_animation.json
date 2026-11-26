@@ -5,12 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13AxisAnimationC1EP16ChartAxisElementiR12QEasingCurve": [
+      "address", "address", "int", "address"
+    ],
     "ritual_ZN13AxisAnimationD1Ev": ["nothing", "address"],
     "ritual_ZN13AxisAnimation16setAnimationTypeENS_9AnimationE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN13AxisAnimation17setAnimationPointERK7QPointF": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN13AxisAnimation9setValuesER5QListIdERKS1_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK13AxisAnimation12interpolatedERK8QVariantS2_d": [
       "address", "address", "address", "address", "double"

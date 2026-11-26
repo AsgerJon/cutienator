@@ -8,6 +8,12 @@
     "ritual_ZNK24QQuickVerticalHeaderView10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QQuickVerticalHeaderView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickVerticalHeaderView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QQuickVerticalHeaderView2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -22,6 +28,12 @@
     ],
     "ritual_ZN24QQuickVerticalHeaderView14setMovableRowsEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QQuickVerticalHeaderView18movableRowsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickVerticalHeaderViewC1ER31QQuickVerticalHeaderViewPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_take_QQuickVerticalHeaderView": [
       "bool", "address", "chars", "address"

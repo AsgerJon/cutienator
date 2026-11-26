@@ -17,6 +17,7 @@ typedef void (*CuteQSinglePointEventCall5)(const void *, bool, int *);
 class CuteQSinglePointEvent : public QSinglePointEvent {
 public:
   using QSinglePointEvent::QSinglePointEvent;
+  CuteQSinglePointEvent(const QSinglePointEvent & other) : QSinglePointEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -113,6 +114,22 @@ public:
     QPointerEvent::setAccepted(accepted);
   }
 };
+
+//  QSinglePointEvent::QSinglePointEvent(const QSinglePointEvent &a0)
+extern "C" Q_DECL_EXPORT
+QSinglePointEvent *ritual_ZN17QSinglePointEventC1ERKS_(
+    const QSinglePointEvent *a0) {
+  return new CuteQSinglePointEvent(*a0);
+}
+
+//  QSinglePointEvent &QSinglePointEvent::operator=(const QSinglePointEvent
+//      &other)
+extern "C" Q_DECL_EXPORT
+QSinglePointEvent *ritual_ZN17QSinglePointEventaSERKS_(
+    QSinglePointEvent *self,
+    const QSinglePointEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QSinglePointEvent *QSinglePointEvent::clone() const
 extern "C" Q_DECL_EXPORT

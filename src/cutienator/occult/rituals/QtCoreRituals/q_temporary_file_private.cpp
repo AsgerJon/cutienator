@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qtemporaryfile_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -30,14 +31,6 @@
 #if defined(QT_BUILD_CORE_LIB)
 # include <QtCore/qcoreapplication.h>
 #endif
-#include <QtCore/private/qfilesystementry_p.h>
-#include <QtCore/qdir.h>
-#include <QtCore/private/qdir_p.h>
-#include <QtCore/qfile.h>
-#include <QtCore/private/qfsfileengine_p.h>
-#ifdef Q_OS_WIN
-#include <QtCore/qstringbuilder.h>
-#endif
 #include "qplatformdefs.h"
 #include <QtCore/qfiledevice.h>
 #include <QtCore/private/qfiledevice_p.h>
@@ -56,6 +49,14 @@
 #include <QtCore/qcoreapplication.h>
 #else
 #endif
+#include <QtCore/private/qfilesystementry_p.h>
+#include <QtCore/qdir.h>
+#include <QtCore/private/qdir_p.h>
+#include <QtCore/qfile.h>
+#include <QtCore/private/qfsfileengine_p.h>
+#ifdef Q_OS_WIN
+#include <QtCore/qstringbuilder.h>
+#endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -65,6 +66,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/io/qfilesystementry.cpp, line 21, as local:qfilesystementry.cpp:Uninitialized
+constexpr int Uninitialized = -2;
+
 //  from src/corelib/io/qfile.cpp, line 40, as _ZN12QFilePrivateC2Ev
 inline QFilePrivate::QFilePrivate()
 {
@@ -72,14 +78,6 @@ inline QFilePrivate::QFilePrivate()
 
 //  from src/corelib/io/qfile.cpp, line 44, as _ZN12QFilePrivateD2Ev
 inline QFilePrivate::~QFilePrivate()
-{
-}
-
-//  from src/corelib/io/qfilesystementry.cpp, line 46, as _ZN16QFileSystemEntryC1Ev
-inline QFileSystemEntry::QFileSystemEntry()
-    : m_lastSeparator(-1),
-    m_firstDotInFileName(-1),
-    m_lastDotInFileName(-1)
 {
 }
 
@@ -168,6 +166,34 @@ inline QFileDevice::Permissions QFileDevicePrivate::permissions() const
     return QFile::Permissions::fromInt(perms.toInt()); //ewww
 }
 
+//  from src/corelib/io/qtemporaryfile.cpp, line 520, as _ZNK21QTemporaryFilePrivate6engineEv
+#if QT_CONFIG(temporaryfile)
+inline QAbstractFileEngine *QTemporaryFilePrivate::engine() const
+{
+    if (!fileEngine) {
+        fileEngine.reset(new QTemporaryFileEngine(&templateName));
+        resetFileEngine();
+    }
+    return fileEngine.get();
+}
+#endif  // QT_CONFIG(temporaryfile)
+
+//  from src/corelib/io/qfile.cpp, line 78, as _ZNK12QFilePrivate6engineEv
+inline QAbstractFileEngine *QFilePrivate::engine() const
+{
+    if (!fileEngine)
+        fileEngine = QAbstractFileEngine::create(fileName);
+    return fileEngine.get();
+}
+
+//  from src/corelib/io/qfilesystementry.cpp, line 46, as _ZN16QFileSystemEntryC1Ev
+inline QFileSystemEntry::QFileSystemEntry()
+    : m_lastSeparator(-1),
+    m_firstDotInFileName(-1),
+    m_lastDotInFileName(-1)
+{
+}
+
 //  from src/corelib/io/qtemporaryfile.cpp, line 289, as _ZNK20QTemporaryFileEngine12isReallyOpenEv
 #if QT_CONFIG(temporaryfile)
 #if defined(Q_OS_LINUX)
@@ -195,18 +221,6 @@ inline QTemporaryFilePrivate::~QTemporaryFilePrivate()
 }
 #endif  // QT_CONFIG(temporaryfile)
 
-//  from src/corelib/io/qtemporaryfile.cpp, line 520, as _ZNK21QTemporaryFilePrivate6engineEv
-#if QT_CONFIG(temporaryfile)
-inline QAbstractFileEngine *QTemporaryFilePrivate::engine() const
-{
-    if (!fileEngine) {
-        fileEngine.reset(new QTemporaryFileEngine(&templateName));
-        resetFileEngine();
-    }
-    return fileEngine.get();
-}
-#endif  // QT_CONFIG(temporaryfile)
-
 //  from src/corelib/io/qtemporaryfile.cpp, line 541, as _ZN21QTemporaryFilePrivate22materializeUnnamedFileEv
 #if QT_CONFIG(temporaryfile)
 inline void QTemporaryFilePrivate::materializeUnnamedFile()
@@ -220,6 +234,21 @@ inline void QTemporaryFilePrivate::materializeUnnamedFile()
 #endif
 }
 #endif  // QT_CONFIG(temporaryfile)
+
+//  from src/corelib/io/qtemporaryfile.cpp, line 552, as _ZN21QTemporaryFilePrivate19defaultTemplateNameEv
+#if QT_CONFIG(temporaryfile)
+inline QString QTemporaryFilePrivate::defaultTemplateName()
+{
+    QString baseName;
+#if defined(QT_BUILD_CORE_LIB)
+    baseName = QCoreApplication::applicationName();
+    if (baseName.isEmpty())
+#endif
+        baseName = "qt_temp"_L1;
+
+    return QDir::tempPath() + u'/' + baseName + ".XXXXXX"_L1;
+}
+#endif  // QT_CONFIG(temporaryfile)
 //  -----------------------------------------------------------------------
 
 //  A QTemporaryFilePrivate that Python can take functions over in. Every QTemporaryFilePrivate
@@ -231,11 +260,12 @@ typedef void * (*CuteQTemporaryFilePrivateCall0)(const void *, int *);
 typedef int (*CuteQTemporaryFilePrivateCall1)(const void *, int *);
 typedef bool (*CuteQTemporaryFilePrivateCall2)(const void *, int, int *);
 typedef bool (*CuteQTemporaryFilePrivateCall3)(const void *, char, int *);
-typedef const QByteArray * (*CuteQTemporaryFilePrivateCall4)(const void *, qint64, int *);
+typedef qint64 (*CuteQTemporaryFilePrivateCall4)(const void *, char *, qint64, int *);
+typedef const QByteArray * (*CuteQTemporaryFilePrivateCall5)(const void *, qint64, int *);
 class CuteQTemporaryFilePrivate : public QTemporaryFilePrivate {
 public:
   using QTemporaryFilePrivate::QTemporaryFilePrivate;
-  void *taken[5] = {};
+  void *taken[6] = {};
 
   bool take(const char *key, void *call) {
 #if QT_CONFIG(temporaryfile)
@@ -256,8 +286,12 @@ public:
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEPcx")) {
       taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QIODevicePrivate4peekEx")) {
+      taken[5] = call;
       return true;
     }
     return false;
@@ -310,11 +344,22 @@ public:
     return QFileDevicePrivate::putCharHelper(c);
   }
 
-  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
-  QByteArray peek(qint64 maxSize) override {
+  //  qint64 QIODevicePrivate::peek(char *data, qint64 maxSize)
+  qint64 peek(char *data, qint64 maxSize) override {
     if (taken[4]) {
       int handled = 0;
       CuteQTemporaryFilePrivateCall4 call = reinterpret_cast<CuteQTemporaryFilePrivateCall4>(taken[4]);
+      qint64 given = call(this, data, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevicePrivate::peek(data, maxSize);
+  }
+
+  //  QByteArray QIODevicePrivate::peek(qint64 maxSize)
+  QByteArray peek(qint64 maxSize) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQTemporaryFilePrivateCall5 call = reinterpret_cast<CuteQTemporaryFilePrivateCall5>(taken[5]);
       const QByteArray * given = call(this, maxSize, &handled);
       if (handled && given) return *given;
     }
@@ -355,6 +400,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QTemporaryFilePrivate22materializeUnnamedFileEv(
     QTemporaryFilePrivate *self) {
   self->materializeUnnamedFile();
+}
+#endif  // QT_CONFIG(temporaryfile)
+
+#if QT_CONFIG(temporaryfile)
+//  QString QTemporaryFilePrivate::defaultTemplateName()
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN21QTemporaryFilePrivate19defaultTemplateNameEv() {
+  return new QString(QTemporaryFilePrivate::defaultTemplateName());
 }
 #endif  // QT_CONFIG(temporaryfile)
 

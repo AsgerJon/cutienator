@@ -7,7 +7,17 @@
   "rows": {
     "ritual_ZN21QCanSignalDescriptionC1Ev": ["address"],
     "ritual_ZN21QCanSignalDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN21QCanSignalDescriptionC1EOS_": ["address", "address"],
     "ritual_ZN21QCanSignalDescriptionD1Ev": ["nothing", "address"],
+    "ritual_ZN21QCanSignalDescriptionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QCanSignalDescriptionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QCanSignalDescription7isValidEv": ["bool", "address"],
     "ritual_ZNK21QCanSignalDescription4nameEv": ["text", "address"],
     "ritual_ZN21QCanSignalDescription7setNameERK7QString": [
@@ -76,8 +86,17 @@
     "ritual_ZN21QCanSignalDescription17setMultiplexStateEN8QtCanBus14MultiplexStateE": [
       "nothing", "address", "unsigned char"
     ],
+    "ritual_ZNK21QCanSignalDescription16multiplexSignalsEv": [
+      "address", "address"
+    ],
     "ritual_ZN21QCanSignalDescription21clearMultiplexSignalsEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription19setMultiplexSignalsERK5QHashI7QString5QListINS_19MultiplexValueRangeEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription18addMultiplexSignalERK7QStringRK5QListINS_19MultiplexValueRangeEE": [
+      "nothing", "address", "text", "address"
     ],
     "ritual_ZN21QCanSignalDescription18addMultiplexSignalERK7QStringRK8QVariant": [
       "nothing", "address", "text", "address"
@@ -96,6 +115,9 @@
     "ritual_list_at_QCanSignalDescription": [
       "address", "address", "long long"
     ],
-    "ritual_list_drop_QCanSignalDescription": ["nothing", "address"]
+    "ritual_list_drop_QCanSignalDescription": ["nothing", "address"],
+    "ritual_drop_QCanSignalDescription__QCanSignalDescription_MultiplexSignalValues": [
+      "nothing", "address"
+    ]
   }
 }

@@ -6,6 +6,24 @@
   ],
   "rows": {
     "ritual_ZN16QSGBatchRenderer5BatchC1Ev": ["address"],
+    "ritual_ZN16QSGBatchRenderer5Batch18geometryWasChangedEP15QSGGeometryNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QSGBatchRenderer5Batch20isMaterialCompatibleEPNS_7ElementE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer5Batch10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer5Batch22cleanupRemovedElementsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QSGBatchRenderer5Batch21isTranslateOnlyToRootEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QSGBatchRenderer5Batch13isSafeToBatchEv": [
+      "bool", "address"
+    ],
     "ritual_ZN16QSGBatchRenderer5Batch4initEv": ["nothing", "address"]
   }
 }

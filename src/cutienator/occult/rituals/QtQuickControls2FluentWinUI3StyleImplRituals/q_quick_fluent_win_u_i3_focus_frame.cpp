@@ -16,6 +16,25 @@ const QMetaObject *ritual_ZNK28QQuickFluentWinUI3FocusFrame10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickFluentWinUI3FocusFrame::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QQuickFluentWinUI3FocusFrame11qt_metacastEPKc(
+    QQuickFluentWinUI3FocusFrame *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickFluentWinUI3FocusFrame::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QQuickFluentWinUI3FocusFrame11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickFluentWinUI3FocusFrame *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickFluentWinUI3FocusFrame::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT

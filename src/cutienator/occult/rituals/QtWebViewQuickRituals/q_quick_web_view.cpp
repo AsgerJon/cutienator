@@ -798,6 +798,24 @@ const QMetaObject *ritual_ZNK13QQuickWebView10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickWebView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickWebView11qt_metacastEPKc(
+    QQuickWebView *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickWebView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickWebView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWebView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickWebView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickWebView2trEPKcS1_i(
@@ -838,6 +856,12 @@ void ritual_ZN13QQuickWebView16setHttpUserAgentERK7QString(
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK13QQuickWebView3urlEv(const QQuickWebView *self) {
   return new QUrl(self->url());
+}
+
+//  QWebView &QQuickWebView::webView() const
+extern "C" Q_DECL_EXPORT
+QWebView *ritual_ZNK13QQuickWebView7webViewEv(const QQuickWebView *self) {
+  return &(self->webView());
 }
 
 //  void QQuickWebView::setUrl(const QUrl &url)
@@ -959,6 +983,58 @@ void ritual_ZN13QQuickWebView12deleteCookieERK7QStringS2_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQuickWebView16deleteAllCookiesEv(QQuickWebView *self) {
   self->deleteAllCookies();
+}
+
+//  void QQuickWebView::titleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickWebView12titleChangedEv(QQuickWebView *self) {
+  self->titleChanged();
+}
+
+//  void QQuickWebView::urlChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickWebView10urlChangedEv(QQuickWebView *self) {
+  self->urlChanged();
+}
+
+//  void QQuickWebView::loadingChanged(QQuickWebViewLoadRequest *loadRequest)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickWebView14loadingChangedEP24QQuickWebViewLoadRequest(
+    QQuickWebView *self,
+    QQuickWebViewLoadRequest *loadRequest) {
+  self->loadingChanged(loadRequest);
+}
+
+//  void QQuickWebView::loadProgressChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickWebView19loadProgressChangedEv(QQuickWebView *self) {
+  self->loadProgressChanged();
+}
+
+//  void QQuickWebView::httpUserAgentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickWebView20httpUserAgentChangedEv(QQuickWebView *self) {
+  self->httpUserAgentChanged();
+}
+
+//  void QQuickWebView::cookieAdded(const QString &domain, const QString
+//      &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickWebView11cookieAddedERK7QStringS2_(
+    QQuickWebView *self,
+    const QString *domain,
+    const QString *name) {
+  self->cookieAdded(*domain, *name);
+}
+
+//  void QQuickWebView::cookieRemoved(const QString &domain, const QString
+//      &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickWebView13cookieRemovedERK7QStringS2_(
+    QQuickWebView *self,
+    const QString *domain,
+    const QString *name) {
+  self->cookieRemoved(*domain, *name);
 }
 
 //  void QQuickWebView::onLoadingChanged(const QWebViewLoadingInfo

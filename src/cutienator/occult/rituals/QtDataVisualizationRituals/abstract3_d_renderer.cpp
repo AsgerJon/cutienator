@@ -15,9 +15,24 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtGui/QImage>
+#include <QtGui/QPainter>
+#include <QtCore/QTime>
 #include <QtDataVisualization/private/labelitem_p.h>
 #include <QtDataVisualization/private/shaderhelper_p.h>
 #include <QtOpenGL/QOpenGLShader>
+#include <QtDataVisualization/private/drawer_p.h>
+#include <QtDataVisualization/private/shaderhelper_p.h>
+#include <QtDataVisualization/private/surfaceobject_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/abstract3drenderer_p.h>
+#include <QtDataVisualization/private/scatterpointbufferhelper_p.h>
+#include <QtGui/QMatrix4x4>
+#include <QtGui/qquaternion.h>
+#include <QtCore/qmath.h>
 #include <QtDataVisualization/private/meshloader_p.h>
 #include <QtDataVisualization/private/vertexindexer_p.h>
 #include <QtDataVisualization/private/objecthelper_p.h>
@@ -50,23 +65,8 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QRegularExpression>
 #include <QtCore/QLocale>
-#include <QtDataVisualization/private/drawer_p.h>
-#include <QtDataVisualization/private/shaderhelper_p.h>
-#include <QtDataVisualization/private/surfaceobject_p.h>
-#include <QtDataVisualization/private/utils_p.h>
-#include <QtDataVisualization/private/texturehelper_p.h>
-#include <QtDataVisualization/private/abstract3drenderer_p.h>
-#include <QtDataVisualization/private/scatterpointbufferhelper_p.h>
-#include <QtGui/QMatrix4x4>
-#include <QtGui/qquaternion.h>
-#include <QtCore/qmath.h>
 #include <QtDataVisualization/private/axisrendercache_p.h>
 #include <QtGui/QFontMetrics>
-#include <QtDataVisualization/private/texturehelper_p.h>
-#include <QtDataVisualization/private/utils_p.h>
-#include <QtGui/QImage>
-#include <QtGui/QPainter>
-#include <QtCore/QTime>
 #include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
 #include <QtDataVisualization/private/qvalue3daxis_p.h>
 #include <QtDataVisualization/private/qcustom3ditem_p.h>
@@ -80,6 +80,61 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 16, as local:objecthelper.cpp:ObjectHelperRef
+struct ObjectHelperRef {
+    int refCount;
+    ObjectHelper *obj;
+};
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 17, as local:utils.cpp:NUM_IN_POWER
+#define NUM_IN_POWER(y, x) for (;y<x;y<<=1)
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 18, as local:utils.cpp:MIN_POWER
+#define MIN_POWER 2
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 325, as _ZN13TextureHelper13deleteTextureEPj
+inline void TextureHelper::deleteTexture(GLuint *texture)
+{
+    if (texture && *texture) {
+        if (QOpenGLContext::currentContext())
+            glDeleteTextures(1, texture);
+        *texture = 0;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 242, as _ZN13TextureHelper20createUniformTextureERK6QColor
+inline GLuint TextureHelper::createUniformTexture(const QColor &color)
+{
+    QImage image(QSize(int(uniformTextureWidth), int(uniformTextureHeight)),
+                 QImage::Format_RGB32);
+    QPainter pmp(&image);
+    pmp.setBrush(QBrush(color));
+    pmp.setPen(Qt::NoPen);
+    pmp.drawRect(0, 0, int(uniformTextureWidth), int(uniformTextureHeight));
+
+    return create2DTexture(image, false, true, false, true);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 254, as _ZN13TextureHelper21createGradientTextureERK15QLinearGradient
+inline GLuint TextureHelper::createGradientTexture(const QLinearGradient &gradient)
+{
+    QImage image(QSize(int(gradientTextureWidth), int(gradientTextureHeight)),
+                 QImage::Format_RGB32);
+    QPainter pmp(&image);
+    pmp.setBrush(QBrush(gradient));
+    pmp.setPen(Qt::NoPen);
+    pmp.drawRect(0, 0, int(gradientTextureWidth), int(gradientTextureHeight));
+
+    return create2DTexture(image, false, true, false, true);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 8, as _ZN9LabelItemC1Ev
+inline LabelItem::LabelItem()
+    : m_size(QSize(0, 0)),
+      m_textureId(0)
+{
+}
 
 //  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 40, as _ZN9LabelItem5clearEv
 inline void LabelItem::clear()
@@ -130,6 +185,134 @@ inline GLint ShaderHelper::preserveOpacity()
     return m_preserveOpacityUniform;
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 280, as _ZN6Drawer9drawLabelERK18AbstractRenderItemRK9LabelItemRK10QMatrix4x4S8_RK9QVector3DRK11QQuaternionf6QFlagsIN16QAbstract3DGraph13SelectionFlagEEP12ShaderHelperP12ObjectHelperPK9Q3DCamerabbNS_13LabelPositionESF_IN2Qt13AlignmentFlagEEbb
+inline void Drawer::drawLabel(const AbstractRenderItem &item, const LabelItem &labelItem,
+                       const QMatrix4x4 &viewmatrix, const QMatrix4x4 &projectionmatrix,
+                       const QVector3D &positionComp, const QQuaternion &rotation,
+                       GLfloat itemHeight, QAbstract3DGraph::SelectionFlags mode,
+                       ShaderHelper *shader, ObjectHelper *object,
+                       const Q3DCamera *camera, bool useDepth, bool rotateAlong,
+                       LabelPosition position, Qt::Alignment alignment, bool isSlicing,
+                       bool isSelecting)
+{
+    // Draw label
+    if (!labelItem.textureId())
+        return; // No texture, skip
+
+    QSize textureSize = labelItem.size();
+    QMatrix4x4 modelMatrix;
+    QMatrix4x4 MVPMatrix;
+    GLfloat xPosition = 0.0f;
+    GLfloat yPosition = 0.0f;
+    GLfloat zPosition = positionComp.z();
+
+    switch (position) {
+    case LabelBelow: {
+        yPosition = item.translation().y() - (positionComp.y() / 2.0f) + itemHeight - 0.1f;
+        break;
+    }
+    case LabelLow: {
+        yPosition = -positionComp.y();
+        break;
+    }
+    case LabelMid: {
+        yPosition = item.translation().y();
+        break;
+    }
+    case LabelHigh: {
+        yPosition = item.translation().y() + itemHeight / 2.0f;
+        break;
+    }
+    case LabelOver: {
+        yPosition = item.translation().y() - (positionComp.y() / 2.0f) + itemHeight + 0.1f;
+        break;
+    }
+    case LabelBottom: {
+        yPosition = -2.75f + positionComp.y();
+        xPosition = 0.0f;
+        break;
+    }
+    case LabelTop: {
+        yPosition = 2.75f - positionComp.y();
+        xPosition = 0.0f;
+        break;
+    }
+    case LabelLeft: {
+        yPosition = 0.0f;
+        xPosition = -2.75f;
+        break;
+    }
+    case LabelRight: {
+        yPosition = 0.0f;
+        xPosition = 2.75f;
+        break;
+    }
+    }
+
+    // Calculate scale factor to get uniform font size
+    GLfloat scaleFactor = m_scaledFontSize / (GLfloat)textureSize.height();
+
+    // Apply alignment
+    QVector3D anchorPoint;
+
+    if (alignment & Qt::AlignLeft)
+        anchorPoint.setX(float(textureSize.width()) * scaleFactor);
+    else if (alignment & Qt::AlignRight)
+        anchorPoint.setX(float(-textureSize.width()) * scaleFactor);
+
+    if (alignment & Qt::AlignTop)
+        anchorPoint.setY(float(-textureSize.height()) * scaleFactor);
+    else if (alignment & Qt::AlignBottom)
+        anchorPoint.setY(float(textureSize.height()) * scaleFactor);
+
+    if (position < LabelBottom) {
+        xPosition = item.translation().x();
+        if (useDepth)
+            zPosition = item.translation().z();
+        else if (mode.testFlag(QAbstract3DGraph::SelectionColumn) && isSlicing)
+            xPosition = -(item.translation().z()) + positionComp.z(); // flip first to left
+    }
+
+    // Position label
+    modelMatrix.translate(xPosition, yPosition, zPosition);
+
+    // Rotate
+    if (useDepth && !rotateAlong) {
+        float yComp = float(qRadiansToDegrees(qTan(positionComp.y() / cameraDistance)));
+        // Apply negative camera rotations to keep labels facing camera
+        float camRotationX = camera->xRotation();
+        float camRotationY = camera->yRotation();
+        modelMatrix.rotate(-camRotationX, 0.0f, 1.0f, 0.0f);
+        modelMatrix.rotate(-camRotationY - yComp, 1.0f, 0.0f, 0.0f);
+    } else {
+        modelMatrix.rotate(rotation);
+    }
+    modelMatrix.translate(anchorPoint);
+
+    // Scale label based on text size
+    modelMatrix.scale(QVector3D((GLfloat)textureSize.width() * scaleFactor,
+                                m_scaledFontSize,
+                                0.0f));
+
+    MVPMatrix = projectionmatrix * viewmatrix * modelMatrix;
+
+    shader->setUniformValue(shader->MVP(), MVPMatrix);
+
+    if (isSelecting) {
+        // Draw the selection object
+        drawSelectionObject(shader, object);
+    } else {
+        // Draw the object
+        drawObject(shader, object, labelItem.textureId());
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 24, as _ZNK9LabelItem4sizeEv
+inline QSize LabelItem::size() const
+{
+    return m_size;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 28, as _ZN12ObjectHelper17resetObjectHelperEPK18Abstract3DRendererRPS_RK7QString
 inline void ObjectHelper::resetObjectHelper(const Abstract3DRenderer *cacheId, ObjectHelper *&obj,
                                      const QString &meshFile)
@@ -143,12 +326,6 @@ inline void ObjectHelper::resetObjectHelper(const Abstract3DRenderer *cacheId, O
         releaseObjectHelper(cacheId, obj);
     }
     obj = getObjectHelper(cacheId, meshFile);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 24, as _ZNK9LabelItem4sizeEv
-inline QSize LabelItem::size() const
-{
-    return m_size;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 781, as _ZN16Q3DCameraPrivate16updateViewMatrixEf
@@ -926,6 +1103,50 @@ inline void Abstract3DRenderer::lowerShadowQuality()
     updateShadowQuality(newQuality);
 }
 
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 44, as _ZN13TextureHelper15create2DTextureERK6QImagebbbb
+inline GLuint TextureHelper::create2DTexture(const QImage &image, bool useTrilinearFiltering,
+                                      bool convert, bool smoothScale, bool clampY)
+{
+    if (image.isNull())
+        return 0;
+
+    QImage texImage = image;
+
+    if (Utils::isOpenGLES()) {
+        GLuint imageWidth = Utils::getNearestPowerOfTwo(image.width());
+        GLuint imageHeight = Utils::getNearestPowerOfTwo(image.height());
+        if (smoothScale) {
+            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio,
+                                    Qt::SmoothTransformation);
+        } else {
+            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio);
+        }
+    }
+
+    GLuint textureId;
+    glGenTextures(1, &textureId);
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    if (convert)
+        texImage = convertToGLFormat(texImage);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texImage.width(), texImage.height(),
+                 0, GL_RGBA, GL_UNSIGNED_BYTE, texImage.bits());
+    if (smoothScale)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    else
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    if (useTrilinearFiltering) {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    }
+    if (clampY)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    return textureId;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 820, as _ZN16Q3DCameraPrivate13setViewMatrixERK10QMatrix4x4
 inline void Q3DCameraPrivate::setViewMatrix(const QMatrix4x4 &viewMatrix)
 {
@@ -1089,16 +1310,6 @@ inline ShaderHelper::~ShaderHelper()
     delete m_program;
 }
 
-//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 325, as _ZN13TextureHelper13deleteTextureEPj
-inline void TextureHelper::deleteTexture(GLuint *texture)
-{
-    if (texture && *texture) {
-        if (QOpenGLContext::currentContext())
-            glDeleteTextures(1, texture);
-        *texture = 0;
-    }
-}
-
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 217, as _ZN13TextureHelper27createCursorPositionTextureERK5QSizeRj
 inline GLuint TextureHelper::createCursorPositionTexture(const QSize &size, GLuint &frameBuffer)
 {
@@ -1145,23 +1356,6 @@ inline void AxisRenderCache::setType(QAbstract3DAxis::AxisType type)
     m_labelItems.clear();
 }
 
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 767, as _ZN18Abstract3DRenderer23axisCacheForOrientationEN15QAbstract3DAxis15AxisOrientationE
-inline AxisRenderCache &Abstract3DRenderer::axisCacheForOrientation(
-        QAbstract3DAxis::AxisOrientation orientation)
-{
-    switch (orientation) {
-    case QAbstract3DAxis::AxisOrientationX:
-        return m_axisCacheX;
-    case QAbstract3DAxis::AxisOrientationY:
-        return m_axisCacheY;
-    case QAbstract3DAxis::AxisOrientationZ:
-        return m_axisCacheZ;
-    default:
-        qFatal("Abstract3DRenderer::axisCacheForOrientation");
-        return m_axisCacheX;
-    }
-}
-
 //  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 68, as _ZN15AxisRenderCache8setTitleERK7QString
 inline void AxisRenderCache::setTitle(const QString &title)
 {
@@ -1178,50 +1372,6 @@ inline void QValue3DAxisFormatterPrivate::populateCopy(QValue3DAxisFormatter &co
 {
     recalculate();
     q_ptr->populateCopy(copy);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 44, as _ZN13TextureHelper15create2DTextureERK6QImagebbbb
-inline GLuint TextureHelper::create2DTexture(const QImage &image, bool useTrilinearFiltering,
-                                      bool convert, bool smoothScale, bool clampY)
-{
-    if (image.isNull())
-        return 0;
-
-    QImage texImage = image;
-
-    if (Utils::isOpenGLES()) {
-        GLuint imageWidth = Utils::getNearestPowerOfTwo(image.width());
-        GLuint imageHeight = Utils::getNearestPowerOfTwo(image.height());
-        if (smoothScale) {
-            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio,
-                                    Qt::SmoothTransformation);
-        } else {
-            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio);
-        }
-    }
-
-    GLuint textureId;
-    glGenTextures(1, &textureId);
-    glBindTexture(GL_TEXTURE_2D, textureId);
-    if (convert)
-        texImage = convertToGLFormat(texImage);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texImage.width(), texImage.height(),
-                 0, GL_RGBA, GL_UNSIGNED_BYTE, texImage.bits());
-    if (smoothScale)
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    else
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    if (useTrilinearFiltering) {
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    } else {
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    }
-    if (clampY)
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glBindTexture(GL_TEXTURE_2D, 0);
-
-    return textureId;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 87, as _ZN13TextureHelper15create3DTextureEPK5QListIhEiiiN6QImage6FormatE
@@ -1374,6 +1524,39 @@ inline void AxisRenderCache::setDrawer(Drawer *drawer)
         updateTextures();
 }
 
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 334, as _ZN13TextureHelper17convertToGLFormatERK6QImage
+inline QImage TextureHelper::convertToGLFormat(const QImage &srcImage)
+{
+    QImage res(srcImage.size(), QImage::Format_ARGB32);
+    convertToGLFormatHelper(res, srcImage.convertToFormat(QImage::Format_ARGB32), GL_RGBA);
+    return res;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 25, as _ZN5Utils20getNearestPowerOfTwoEj
+inline GLuint Utils::getNearestPowerOfTwo(GLuint value)
+{
+    GLuint powOfTwoValue = MIN_POWER;
+    NUM_IN_POWER(powOfTwoValue, value);
+    return powOfTwoValue;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 30, as _ZN17SeriesRenderCacheD1Ev
+inline SeriesRenderCache::~SeriesRenderCache()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 172, as _ZN17SeriesRenderCache7cleanupEP13TextureHelper
+inline void SeriesRenderCache::cleanup(TextureHelper *texHelper)
+{
+    ObjectHelper::releaseObjectHelper(m_renderer, m_object);
+    if (QOpenGLContext::currentContext()) {
+        texHelper->deleteTexture(&m_baseUniformTexture);
+        texHelper->deleteTexture(&m_baseGradientTexture);
+        texHelper->deleteTexture(&m_singleHighlightGradientTexture);
+        texHelper->deleteTexture(&m_multiHighlightGradientTexture);
+    }
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 407, as _ZN6Drawer17generateLabelItemER9LabelItemRK7QStringi
 inline void Drawer::generateLabelItem(LabelItem &item, const QString &text, int widestLabel)
 {
@@ -1439,35 +1622,6 @@ inline void QValue3DAxisFormatterPrivate::recalculate()
         q_ptr->recalculate();
         m_needsRecalculate = false;
     }
-}
-
-//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 334, as _ZN13TextureHelper17convertToGLFormatERK6QImage
-inline QImage TextureHelper::convertToGLFormat(const QImage &srcImage)
-{
-    QImage res(srcImage.size(), QImage::Format_ARGB32);
-    convertToGLFormatHelper(res, srcImage.convertToFormat(QImage::Format_ARGB32), GL_RGBA);
-    return res;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 54, as _ZN6Drawer16initializeOpenGLEv
-inline void Drawer::initializeOpenGL()
-{
-    initializeOpenGLFunctions();
-    if (!m_textureHelper)
-        m_textureHelper = new TextureHelper();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 29, as _ZN9LabelItem12setTextureIdEj
-inline void LabelItem::setTextureId(GLuint textureId)
-{
-    QOpenGLContext::currentContext()->functions()->glDeleteTextures(1, &m_textureId);
-    m_textureId = textureId;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 19, as _ZN9LabelItem7setSizeERK5QSize
-inline void LabelItem::setSize(const QSize &size)
-{
-    m_size = size;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 341, as _ZN13TextureHelper23convertToGLFormatHelperER6QImageRKS0_j
@@ -1564,12 +1718,26 @@ inline void TextureHelper::convertToGLFormatHelper(QImage &dstImage, const QImag
     }
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1101, as _ZN18Abstract3DRenderer18selectionLabelItemEv
+inline LabelItem &Abstract3DRenderer::selectionLabelItem()
+{
+    if (!m_selectionLabelItem)
+        m_selectionLabelItem = new LabelItem;
+    return *m_selectionLabelItem;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1108, as _ZN18Abstract3DRenderer17setSelectionLabelERK7QString
 inline void Abstract3DRenderer::setSelectionLabel(const QString &label)
 {
     if (m_selectionLabelItem)
         m_selectionLabelItem->clear();
     m_selectionLabel = label;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1115, as _ZN18Abstract3DRenderer14selectionLabelEv
+inline QString &Abstract3DRenderer::selectionLabel()
+{
+    return m_selectionLabel;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1120, as _ZN18Abstract3DRenderer21indexToSelectionColorEi
@@ -1656,6 +1824,23 @@ inline void Abstract3DRenderer::reInitShaders()
                               QStringLiteral(":/shaders/fragmentES2"));
         initCustomItemShaders(QStringLiteral(":/shaders/vertexTexture"),
                               QStringLiteral(":/shaders/fragmentTextureES2"));
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 767, as _ZN18Abstract3DRenderer23axisCacheForOrientationEN15QAbstract3DAxis15AxisOrientationE
+inline AxisRenderCache &Abstract3DRenderer::axisCacheForOrientation(
+        QAbstract3DAxis::AxisOrientation orientation)
+{
+    switch (orientation) {
+    case QAbstract3DAxis::AxisOrientationX:
+        return m_axisCacheX;
+    case QAbstract3DAxis::AxisOrientationY:
+        return m_axisCacheY;
+    case QAbstract3DAxis::AxisOrientationZ:
+        return m_axisCacheZ;
+    default:
+        qFatal("Abstract3DRenderer::axisCacheForOrientation");
+        return m_axisCacheX;
     }
 }
 
@@ -2780,6 +2965,25 @@ const QMetaObject *ritual_ZNK18Abstract3DRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Abstract3DRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18Abstract3DRenderer11qt_metacastEPKc(
+    Abstract3DRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Abstract3DRenderer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18Abstract3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Abstract3DRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  Abstract3DRenderer::~Abstract3DRenderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18Abstract3DRendererD1Ev(Abstract3DRenderer *self) {
@@ -3165,6 +3369,16 @@ void ritual_ZN18Abstract3DRenderer18modifiedSeriesListERK5QListIP17QAbstract3DSe
   self->modifiedSeriesList(*seriesList);
 }
 
+//  void Abstract3DRenderer::fixMeshFileName(QString &fileName,
+//      QAbstract3DSeries::Mesh mesh)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18Abstract3DRenderer15fixMeshFileNameER7QStringN17QAbstract3DSeries4MeshE(
+    Abstract3DRenderer *self,
+    QString *fileName,
+    QAbstract3DSeries::Mesh mesh) {
+  self->fixMeshFileName(*fileName, mesh);
+}
+
 //  CustomRenderItem *Abstract3DRenderer::addCustomItem(QCustom3DItem *item)
 extern "C" Q_DECL_EXPORT
 CustomRenderItem *ritual_ZN18Abstract3DRenderer13addCustomItemEP13QCustom3DItem(
@@ -3297,6 +3511,13 @@ QPoint *ritual_ZNK18Abstract3DRenderer24cachedGraphPositionQueryEv(
   return new QPoint(self->cachedGraphPositionQuery());
 }
 
+//  LabelItem &Abstract3DRenderer::selectionLabelItem()
+extern "C" Q_DECL_EXPORT
+LabelItem *ritual_ZN18Abstract3DRenderer18selectionLabelItemEv(
+    Abstract3DRenderer *self) {
+  return &(self->selectionLabelItem());
+}
+
 //  void Abstract3DRenderer::setSelectionLabel(const QString &label)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18Abstract3DRenderer17setSelectionLabelERK7QString(
@@ -3305,12 +3526,72 @@ void ritual_ZN18Abstract3DRenderer17setSelectionLabelERK7QString(
   self->setSelectionLabel(*label);
 }
 
+//  QString &Abstract3DRenderer::selectionLabel()
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18Abstract3DRenderer14selectionLabelEv(
+    Abstract3DRenderer *self) {
+  return &(self->selectionLabel());
+}
+
 //  QVector4D Abstract3DRenderer::indexToSelectionColor(GLint index)
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZN18Abstract3DRenderer21indexToSelectionColorEi(
     Abstract3DRenderer *self,
     GLint index) {
   return new QVector4D(self->indexToSelectionColor(index));
+}
+
+//  void Abstract3DRenderer::needRender()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18Abstract3DRenderer10needRenderEv(Abstract3DRenderer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Abstract3DRenderer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "needRender()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "needRender()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void
+//      Abstract3DRenderer::requestShadowQuality(QAbstract3DGraph::ShadowQual
+//      ity quality)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18Abstract3DRenderer20requestShadowQualityEN16QAbstract3DGraph13ShadowQualityE(
+    Abstract3DRenderer *self,
+    QAbstract3DGraph::ShadowQuality quality) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Abstract3DRenderer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "requestShadowQuality(QAbstract3DGraph::ShadowQuality)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "requestShadowQuality(QAbstract3DGraph::ShadowQuality)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&quality)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void Abstract3DRenderer::contextCleanup()
@@ -3348,6 +3629,15 @@ void ritual_ZN18Abstract3DRenderer12handleResizeEv(
   self->handleResize();
 }
 
+//  AxisRenderCache &Abstract3DRenderer::axisCacheForOrientation(QAbstract3DA
+//      xis::AxisOrientation orientation)
+extern "C" Q_DECL_EXPORT
+AxisRenderCache *ritual_ZN18Abstract3DRenderer23axisCacheForOrientationEN15QAbstract3DAxis15AxisOrientationE(
+    Abstract3DRenderer *self,
+    QAbstract3DAxis::AxisOrientation orientation) {
+  return &(self->axisCacheForOrientation(orientation));
+}
+
 //  void Abstract3DRenderer::lowerShadowQuality()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18Abstract3DRenderer18lowerShadowQualityEv(
@@ -3369,6 +3659,14 @@ float ritual_ZN18Abstract3DRenderer30calculatePolarBackgroundMarginEv(
   return self->calculatePolarBackgroundMargin();
 }
 
+//  void Abstract3DRenderer::fixCameraTarget(QVector3D &target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18Abstract3DRenderer15fixCameraTargetER9QVector3D(
+    Abstract3DRenderer *self,
+    QVector3D *target) {
+  self->fixCameraTarget(*target);
+}
+
 //  void
 //      Abstract3DRenderer::recalculateCustomItemScalingAndPos(CustomRenderIt
 //      em *item)
@@ -3377,6 +3675,16 @@ void ritual_ZN18Abstract3DRenderer34recalculateCustomItemScalingAndPosEP16Custom
     Abstract3DRenderer *self,
     CustomRenderItem *item) {
   self->recalculateCustomItemScalingAndPos(item);
+}
+
+//  void Abstract3DRenderer::getVisibleItemBounds(QVector3D &minBounds,
+//      QVector3D &maxBounds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18Abstract3DRenderer20getVisibleItemBoundsER9QVector3DS1_(
+    Abstract3DRenderer *self,
+    QVector3D *minBounds,
+    QVector3D *maxBounds) {
+  self->getVisibleItemBounds(*minBounds, *maxBounds);
 }
 
 //  Abstract3DRenderer as the QOpenGLFunctions it is built on

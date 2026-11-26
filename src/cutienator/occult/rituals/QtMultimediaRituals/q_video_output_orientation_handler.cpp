@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK30QVideoOutputOrientationHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QVideoOutputOrientationHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN30QVideoOutputOrientationHandler11qt_metacastEPKc(
+    QVideoOutputOrientationHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QVideoOutputOrientationHandler::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN30QVideoOutputOrientationHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QVideoOutputOrientationHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QVideoOutputOrientationHandler::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -51,6 +70,14 @@ void ritual_ZN30QVideoOutputOrientationHandler14setIsRecordingEb(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN30QVideoOutputOrientationHandler11isRecordingEv() {
   return QVideoOutputOrientationHandler::isRecording();
+}
+
+//  void QVideoOutputOrientationHandler::orientationChanged(int angle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN30QVideoOutputOrientationHandler18orientationChangedEi(
+    QVideoOutputOrientationHandler *self,
+    int angle) {
+  self->orientationChanged(angle);
 }
 
 //  void QVideoOutputOrientationHandler::screenOrientationChanged(Qt::ScreenO

@@ -6,7 +6,9 @@
 #if QT_CONFIG(graphicseffect)
 #if QT_CONFIG(graphicseffect)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(graphicseffect)
 #include <QtWidgets/qgraphicseffect.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicseffect_p.h>

@@ -7,6 +7,7 @@
 #include <QtSerialPort/6.12.0/QtSerialPort/private/qserialportinfo_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
 
 //  QSerialPortInfoPrivate *QSerialPortInfo::d_func()
 extern "C" Q_DECL_EXPORT
@@ -28,6 +29,13 @@ QSerialPortInfo *ritual_ZN15QSerialPortInfoC1Ev() {
   return new QSerialPortInfo();
 }
 
+//  QSerialPortInfo::QSerialPortInfo(const QSerialPort &port)
+extern "C" Q_DECL_EXPORT
+QSerialPortInfo *ritual_ZN15QSerialPortInfoC1ERK11QSerialPort(
+    const QSerialPort *port) {
+  return new QSerialPortInfo(*port);
+}
+
 //  QSerialPortInfo::QSerialPortInfo(const QString &name)
 extern "C" Q_DECL_EXPORT
 QSerialPortInfo *ritual_ZN15QSerialPortInfoC1ERK7QString(
@@ -46,6 +54,22 @@ QSerialPortInfo *ritual_ZN15QSerialPortInfoC1ERKS_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QSerialPortInfoD1Ev(QSerialPortInfo *self) {
   delete self;
+}
+
+//  QSerialPortInfo &QSerialPortInfo::operator=(const QSerialPortInfo &other)
+extern "C" Q_DECL_EXPORT
+QSerialPortInfo *ritual_ZN15QSerialPortInfoaSERKS_(
+    QSerialPortInfo *self,
+    const QSerialPortInfo *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QSerialPortInfo::swap(QSerialPortInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSerialPortInfo4swapERS_(
+    QSerialPortInfo *self,
+    QSerialPortInfo *other) {
+  self->swap(*other);
 }
 
 //  QString QSerialPortInfo::portName() const
@@ -117,6 +141,12 @@ bool ritual_ZNK15QSerialPortInfo6isNullEv(const QSerialPortInfo *self) {
   return self->isNull();
 }
 
+//  QList<qint32> QSerialPortInfo::standardBaudRates()
+extern "C" Q_DECL_EXPORT
+QList<qint32> *ritual_ZN15QSerialPortInfo17standardBaudRatesEv() {
+  return new QList<qint32>(QSerialPortInfo::standardBaudRates());
+}
+
 //  QList<QSerialPortInfo> QSerialPortInfo::availablePorts()
 extern "C" Q_DECL_EXPORT
 QList<QSerialPortInfo> *ritual_ZN15QSerialPortInfo14availablePortsEv() {
@@ -162,5 +192,11 @@ QSerialPortInfo *ritual_list_at_QSerialPortInfo(
 //  QList<QSerialPortInfo>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QSerialPortInfo(QList<QSerialPortInfo> *self) {
+  delete self;
+}
+
+//  a QList<qint32> a ritual of QSerialPortInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSerialPortInfo__QList_qint32(QList<qint32> *self) {
   delete self;
 }

@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender16QSharedGLTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QSharedGLTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender16QSharedGLTexture11qt_metacastEPKc(
+    Qt3DRender::QSharedGLTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QSharedGLTexture::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender16QSharedGLTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QSharedGLTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QSharedGLTexture::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,43 @@ QString *ritual_ZN10Qt3DRender16QSharedGLTexture2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QSharedGLTexture::tr(s, c, n));
+}
+
+//  Qt3DRender::QSharedGLTexture::QSharedGLTexture(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSharedGLTexture *ritual_ZN10Qt3DRender16QSharedGLTextureC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QSharedGLTexture(parent);
+}
+
+//  Qt3DRender::QSharedGLTexture::~QSharedGLTexture()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QSharedGLTextureD1Ev(
+    Qt3DRender::QSharedGLTexture *self) {
+  delete self;
+}
+
+//  int Qt3DRender::QSharedGLTexture::textureId() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender16QSharedGLTexture9textureIdEv(
+    const Qt3DRender::QSharedGLTexture *self) {
+  return self->textureId();
+}
+
+//  void Qt3DRender::QSharedGLTexture::setTextureId(int id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QSharedGLTexture12setTextureIdEi(
+    Qt3DRender::QSharedGLTexture *self,
+    int id) {
+  self->setTextureId(id);
+}
+
+//  void Qt3DRender::QSharedGLTexture::textureIdChanged(int textureId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QSharedGLTexture16textureIdChangedEi(
+    Qt3DRender::QSharedGLTexture *self,
+    int textureId) {
+  self->textureIdChanged(textureId);
 }
 
 //  a Python function taken by a CuteQt3DRender_QSharedGLTexture, for the

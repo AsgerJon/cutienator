@@ -29,6 +29,32 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 22, as local:qnmeasatelliteinfosource.cpp:QGeoSatelliteInfoPrivateNmea
+#if USE_SATELLITE_NMEA_PIMPL
+class QGeoSatelliteInfoPrivateNmea : public QGeoSatelliteInfoPrivate
+{
+public:
+    QGeoSatelliteInfoPrivateNmea(const QGeoSatelliteInfoPrivate &other);
+    QGeoSatelliteInfoPrivateNmea(const QGeoSatelliteInfoPrivateNmea &other);
+    virtual ~QGeoSatelliteInfoPrivateNmea();
+
+    QList<QByteArray> nmeaSentences;
+};
+#endif  // USE_SATELLITE_NMEA_PIMPL
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 32, as local:qnmeasatelliteinfosource.cpp:QGeoSatelliteInfoPrivateNmea::QGeoSatelliteInfoPrivateNmea
+#if USE_SATELLITE_NMEA_PIMPL
+inline QGeoSatelliteInfoPrivateNmea::QGeoSatelliteInfoPrivateNmea(const QGeoSatelliteInfoPrivate &other)
+    : QGeoSatelliteInfoPrivate(other)
+{
+}
+#endif  // USE_SATELLITE_NMEA_PIMPL
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 43, as local:qnmeasatelliteinfosource.cpp:QGeoSatelliteInfoPrivateNmea::~QGeoSatelliteInfoPrivateNmea
+#if USE_SATELLITE_NMEA_PIMPL
+inline QGeoSatelliteInfoPrivateNmea::~QGeoSatelliteInfoPrivateNmea() {}
+#endif  // USE_SATELLITE_NMEA_PIMPL
+
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 829, as _ZN20QNmeaSatelliteReaderC2EP31QNmeaSatelliteInfoSourcePrivate
 inline QNmeaSatelliteReader::QNmeaSatelliteReader(QNmeaSatelliteInfoSourcePrivate *sourcePrivate)
     : m_proxy(sourcePrivate)
@@ -38,6 +64,14 @@ inline QNmeaSatelliteReader::QNmeaSatelliteReader(QNmeaSatelliteInfoSourcePrivat
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 834, as _ZN20QNmeaSatelliteReaderD2Ev
 inline QNmeaSatelliteReader::~QNmeaSatelliteReader()
 {
+}
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 843, as _ZN28QNmeaSatelliteRealTimeReader17readAvailableDataEv
+inline void QNmeaSatelliteRealTimeReader::readAvailableData()
+{
+    while (m_proxy->m_device->canReadLine())
+        m_proxy->processNmeaData(m_proxy->m_pendingUpdate);
+    m_proxy->notifyNewUpdate();
 }
 
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 54, as _ZN31QNmeaSatelliteInfoSourcePrivate15notifyNewUpdateEv
@@ -100,14 +134,6 @@ inline bool QNmeaSatelliteInfoSourcePrivate::emitUpdated(QNmeaSatelliteInfoUpdat
     }
     return emitted;
 }
-
-//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 843, as _ZN28QNmeaSatelliteRealTimeReader17readAvailableDataEv
-inline void QNmeaSatelliteRealTimeReader::readAvailableData()
-{
-    while (m_proxy->m_device->canReadLine())
-        m_proxy->processNmeaData(m_proxy->m_pendingUpdate);
-    m_proxy->notifyNewUpdate();
-}
 //  -----------------------------------------------------------------------
 
 //  A QNmeaSatelliteRealTimeReader that Python can take functions over in. Every QNmeaSatelliteRealTimeReader
@@ -117,7 +143,7 @@ typedef void (*CuteQNmeaSatelliteRealTimeReaderCall0)(const void *, int *);
 class CuteQNmeaSatelliteRealTimeReader : public QNmeaSatelliteRealTimeReader {
 public:
   using QNmeaSatelliteRealTimeReader::QNmeaSatelliteRealTimeReader;
-  CuteQNmeaSatelliteRealTimeReader(const QNmeaSatelliteRealTimeReader &other) : QNmeaSatelliteRealTimeReader(other) {}
+  CuteQNmeaSatelliteRealTimeReader(const QNmeaSatelliteRealTimeReader & other) : QNmeaSatelliteRealTimeReader(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {

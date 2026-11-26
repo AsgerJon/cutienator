@@ -7,34 +7,6 @@
 #include <QtMultimediaQuick/6.12.0/QtMultimediaQuick/private/qsgvideonode_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtMultimediaQuick/private/qsgvideonode_p.h>
-#include <QtMultimedia/private/qhwvideobuffer_p.h>
-#include <QtMultimedia/private/qvideoframetexturepool_p.h>
-#include <QtMultimedia/private/qvideotexturehelper_p.h>
-#include <QtMultimediaQuick/private/qsgvideotexture_p.h>
-#include <QtMultimediaQuick/private/qquickvideooutput_p.h>
-#include <QtQuick/qsgmaterial.h>
-#include <QtQuick/private/qquickitem_p.h>
-#include <QtQuick/private/qsginternaltextnode_p.h>
-#if QT_CONFIG(opengles2)
-#include <QtGui/private/qshaderdescription_p.h>
-#endif
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-
-//  Qt's own code, from here to the line of dashes: taken from
-//  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it where Qt did not write it.
-
-//  from ../qtmultimedia/src/multimediaquick/qsgvideonode_p.cpp, line 266, as _ZN12QSGVideoNodeD1Ev
-inline QSGVideoNode::~QSGVideoNode()
-{
-    delete m_subtitleTextNode;
-}
-//  -----------------------------------------------------------------------
 
 //  A QSGVideoNode that Python can take functions over in. Every QSGVideoNode
 //  Python makes is one. Each function below asks the Python

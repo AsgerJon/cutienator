@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qmetatype.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qmetatype.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, rituals for functions the generator leaves out: 4. Kept as it is
+//  when the generator runs again.
 #include <QtCore/qmetatype.h>
 
 //  bool QtPrivate::QTypeNormalizer::is_ident_char(char s)
@@ -102,4 +104,45 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN9QtPrivate15QTypeNormalizerD1Ev(
     QtPrivate::QTypeNormalizer *self) {
   delete self;
+}
+
+//  static bool QtPrivate::QTypeNormalizer::skipToken(const char *&x, const
+//      char *e, const char *token, bool msvcKw)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QtPrivate15QTypeNormalizer9skipTokenERPKcS2_S2_b(
+    const char **x,
+    const char *e,
+    const char *token,
+    bool msvcKw) {
+  return QtPrivate::QTypeNormalizer::skipToken(*x, e, token, msvcKw);
+}
+
+//  void QtPrivate::QTypeNormalizer::normalizeIntegerTypes(const char
+//      *&begin, const char *end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtPrivate15QTypeNormalizer21normalizeIntegerTypesERPKcS2_(
+    QtPrivate::QTypeNormalizer *self,
+    const char **begin,
+    const char *end) {
+  self->normalizeIntegerTypes(*begin, end);
+}
+
+//  void QtPrivate::QTypeNormalizer::skipStructClassOrEnum(const char
+//      *&begin, const char *end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtPrivate15QTypeNormalizer21skipStructClassOrEnumERPKcS2_(
+    QtPrivate::QTypeNormalizer *self,
+    const char **begin,
+    const char *end) {
+  self->skipStructClassOrEnum(*begin, end);
+}
+
+//  void QtPrivate::QTypeNormalizer::skipQtNamespace(const char *&begin,
+//      const char *end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QtPrivate15QTypeNormalizer15skipQtNamespaceERPKcS2_(
+    QtPrivate::QTypeNormalizer *self,
+    const char **begin,
+    const char *end) {
+  self->skipQtNamespace(*begin, end);
 }

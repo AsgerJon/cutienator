@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QRangeModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QRangeModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QRangeModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QRangeModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QRangeModelD1Ev": ["nothing", "address"],
     "ritual_ZNK11QRangeModel5indexEiiRK11QModelIndex": [
@@ -129,11 +135,29 @@
     "ritual_ZN11QRangeModel20setAutoConnectPolicyENS_17AutoConnectPolicyE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN11QRangeModel16roleNamesChangedEv": ["nothing", "address"],
+    "ritual_ZN11QRangeModel24autoConnectPolicyChangedENS_17AutoConnectPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QRangeModel15sortRoleChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QRangeModel19sortCollatorChangedERK9QCollator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QRangeModel27supportedDragActionsChangedE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QRangeModel27supportedDropActionsChangedE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN11QRangeModel17resetInternalDataEv": ["nothing", "address"],
     "ritual_ZN11QRangeModel5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN11QRangeModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QRangeModel6d_funcEv": ["address", "address"],
     "ritual_ZN11QRangeModelC1EP19QRangeModelImplBaseP7QObject": [
       "address", "address", "address"
     ],

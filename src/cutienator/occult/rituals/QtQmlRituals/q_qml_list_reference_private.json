@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN24QQmlListReferencePrivateC1Ev": ["address"],
+    "ritual_ZN24QQmlListReferencePrivate4initERK16QQmlListPropertyI7QObjectE9QMetaType": [
+      "address", "address", "address"
+    ],
     "ritual_ZN24QQmlListReferencePrivate6addrefEv": ["nothing", "address"],
     "ritual_ZN24QQmlListReferencePrivate7releaseEv": ["nothing", "address"],
     "ritual_ZN24QQmlListReferencePrivate3getEP17QQmlListReference": [

@@ -55,8 +55,14 @@
     "ritual_ZN25QAbstractItemModelPrivate9allowMoveERK11QModelIndexiiS2_iN2Qt11OrientationE": [
       "bool", "address", "address", "int", "int", "address", "int", "int"
     ],
+    "ritual_ZN25QAbstractItemModelPrivate10dropOnItemERK11QModelIndexR11QDataStream": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK25QAbstractItemModelPrivate24executePendingOperationsEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelPrivate11createIndexEiiPv": [
+      "address", "address", "int", "int", "address"
     ],
     "ritual_ZNK25QAbstractItemModelPrivate11createIndexEiii": [
       "address", "address", "int", "int", "int"

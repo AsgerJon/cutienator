@@ -15,6 +15,24 @@ const QMetaObject *ritual_ZNK11QQuickSwipe10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSwipe::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickSwipe11qt_metacastEPKc(
+    QQuickSwipe *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSwipe::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickSwipe11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSwipe *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSwipe::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickSwipe2trEPKcS1_i(
@@ -188,4 +206,95 @@ void ritual_ZN11QQuickSwipe4openEN19QQuickSwipeDelegate4SideE(
     QQuickSwipe *self,
     QQuickSwipeDelegate::Side side) {
   self->open(side);
+}
+
+//  void QQuickSwipe::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe15positionChangedEv(QQuickSwipe *self) {
+  self->positionChanged();
+}
+
+//  void QQuickSwipe::completeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe15completeChangedEv(QQuickSwipe *self) {
+  self->completeChanged();
+}
+
+//  void QQuickSwipe::leftChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe11leftChangedEv(QQuickSwipe *self) {
+  self->leftChanged();
+}
+
+//  void QQuickSwipe::behindChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe13behindChangedEv(QQuickSwipe *self) {
+  self->behindChanged();
+}
+
+//  void QQuickSwipe::rightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe12rightChangedEv(QQuickSwipe *self) {
+  self->rightChanged();
+}
+
+//  void QQuickSwipe::leftItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe15leftItemChangedEv(QQuickSwipe *self) {
+  self->leftItemChanged();
+}
+
+//  void QQuickSwipe::behindItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe17behindItemChangedEv(QQuickSwipe *self) {
+  self->behindItemChanged();
+}
+
+//  void QQuickSwipe::rightItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe16rightItemChangedEv(QQuickSwipe *self) {
+  self->rightItemChanged();
+}
+
+//  void QQuickSwipe::completed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe9completedEv(QQuickSwipe *self) {
+  self->completed();
+}
+
+//  void QQuickSwipe::opened()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe6openedEv(QQuickSwipe *self) {
+  self->opened();
+}
+
+//  void QQuickSwipe::closed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe6closedEv(QQuickSwipe *self) {
+  self->closed();
+}
+
+//  void QQuickSwipe::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe14enabledChangedEv(QQuickSwipe *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickSwipe::transitionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickSwipe17transitionChangedEv(QQuickSwipe *self) {
+  self->transitionChanged();
+}
+
+//  QQuickSwipePrivate *QQuickSwipe::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSwipePrivate *ritual_ZN11QQuickSwipe6d_funcEv(QQuickSwipe *self) {
+  return self->d_func();
+}
+
+//  const QQuickSwipePrivate *QQuickSwipe::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSwipePrivate *ritual_ZNK11QQuickSwipe6d_funcEv(
+    const QQuickSwipe *self) {
+  return self->d_func();
 }

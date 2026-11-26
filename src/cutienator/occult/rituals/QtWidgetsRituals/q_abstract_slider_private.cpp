@@ -6,7 +6,9 @@
 #if QT_CONFIG(abstractslider)
 #if QT_CONFIG(abstractslider)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(abstractslider)
 #include <QtWidgets/qabstractslider.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qabstractslider_p.h>

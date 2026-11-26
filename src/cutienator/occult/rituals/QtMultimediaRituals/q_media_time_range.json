@@ -10,9 +10,17 @@
     "ritual_ZN15QMediaTimeRangeC1ERKNS_8IntervalE": ["address", "address"],
     "ritual_ZN15QMediaTimeRangeC1ERKS_": ["address", "address"],
     "ritual_ZN15QMediaTimeRangeD1Ev": ["nothing", "address"],
+    "ritual_ZN15QMediaTimeRangeaSERKS_": ["address", "address", "address"],
+    "ritual_ZN15QMediaTimeRangeC1EOS_": ["address", "address"],
+    "ritual_ZN15QMediaTimeRangeaSEOS_": ["address", "address", "address"],
+    "ritual_ZN15QMediaTimeRange4swapERS_": ["nothing", "address", "address"],
     "ritual_ZN15QMediaTimeRange6detachEv": ["nothing", "address"],
+    "ritual_ZN15QMediaTimeRangeaSERKNS_8IntervalE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK15QMediaTimeRange12earliestTimeEv": ["long long", "address"],
     "ritual_ZNK15QMediaTimeRange10latestTimeEv": ["long long", "address"],
+    "ritual_ZNK15QMediaTimeRange9intervalsEv": ["address", "address"],
     "ritual_ZNK15QMediaTimeRange7isEmptyEv": ["bool", "address"],
     "ritual_ZNK15QMediaTimeRange12isContinuousEv": ["bool", "address"],
     "ritual_ZNK15QMediaTimeRange8containsEx": [
@@ -46,6 +54,9 @@
     ],
     "ritual_ZN15QMediaTimeRange5clearEv": ["nothing", "address"],
     "ritual_ZeqRK15QMediaTimeRangeS1_": ["bool", "address", "address"],
-    "ritual_ZneRK15QMediaTimeRangeS1_": ["bool", "address", "address"]
+    "ritual_ZneRK15QMediaTimeRangeS1_": ["bool", "address", "address"],
+    "ritual_drop_QMediaTimeRange__QList_QMediaTimeRange_Interval": [
+      "nothing", "address"
+    ]
   }
 }

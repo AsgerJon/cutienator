@@ -5,9 +5,15 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18BarRenderSliceItemaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18BarRenderSliceItemD1Ev": ["nothing", "address"],
     "ritual_ZN18BarRenderSliceItem7setItemERK13BarRenderItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18BarRenderSliceItem14sliceLabelItemEv": [
+      "address", "address"
     ],
     "ritual_ZN18BarRenderSliceItem13setSliceLabelERK7QString": [
       "nothing", "address", "text"

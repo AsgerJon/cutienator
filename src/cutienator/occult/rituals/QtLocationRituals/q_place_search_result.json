@@ -8,6 +8,9 @@
     "ritual_ZN18QPlaceSearchResultC1Ev": ["address"],
     "ritual_ZN18QPlaceSearchResultC1ERKS_": ["address", "address"],
     "ritual_ZN18QPlaceSearchResultD1Ev": ["nothing", "address"],
+    "ritual_ZN18QPlaceSearchResultaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK18QPlaceSearchResulteqERKS_": ["bool", "address", "address"],
     "ritual_ZNK18QPlaceSearchResultneERKS_": ["bool", "address", "address"],
     "ritual_ZNK18QPlaceSearchResult4typeEv": ["int", "address"],

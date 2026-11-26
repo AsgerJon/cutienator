@@ -23,6 +23,25 @@ const QMetaObject *ritual_ZNK19QQuickBusyIndicator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickBusyIndicator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickBusyIndicator11qt_metacastEPKc(
+    QQuickBusyIndicator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickBusyIndicator::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickBusyIndicator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickBusyIndicator::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickBusyIndicator2trEPKcS1_i(
@@ -54,6 +73,13 @@ void ritual_ZN19QQuickBusyIndicator10setRunningEb(
   self->setRunning(running);
 }
 
+//  void QQuickBusyIndicator::runningChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickBusyIndicator14runningChangedEv(
+    QQuickBusyIndicator *self) {
+  self->runningChanged();
+}
+
 #if QT_CONFIG(quicktemplates2_multitouch)
 //  void QQuickBusyIndicator::touchEvent(QTouchEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -72,6 +98,20 @@ QAccessible::Role ritual_ZNK19QQuickBusyIndicator14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickBusyIndicatorPrivate *QQuickBusyIndicator::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickBusyIndicatorPrivate *ritual_ZN19QQuickBusyIndicator6d_funcEv(
+    QQuickBusyIndicator *self) {
+  return self->d_func();
+}
+
+//  const QQuickBusyIndicatorPrivate *QQuickBusyIndicator::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickBusyIndicatorPrivate *ritual_ZNK19QQuickBusyIndicator6d_funcEv(
+    const QQuickBusyIndicator *self) {
+  return self->d_func();
+}
 
 #if QT_CONFIG(quicktemplates2_multitouch)
 //  void QQuickBusyIndicator::touchEvent(QTouchEvent *event)

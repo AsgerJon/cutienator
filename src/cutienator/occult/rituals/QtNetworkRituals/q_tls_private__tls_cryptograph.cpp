@@ -11,10 +11,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/qsslerror.h>
 #include <QtNetwork/qsslcipher.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qocspresponse.h>
+#endif
+#include <QtNetwork/qsslcertificate.h>
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <memory>
 
 //  A QTlsPrivate::TlsCryptograph that Python can take functions over in. Every QTlsPrivate::TlsCryptograph
 //  Python makes is one. Each function below asks the Python
@@ -459,6 +464,23 @@ void ritual_ZN11QTlsPrivate14TlsCryptograph4initEP10QSslSocketP17QSslSocketPriva
   self->init(q, d);
 }
 
+//  void QTlsPrivate::TlsCryptograph::checkSettingSslContext(std::shared_ptr<
+//      QSslContext> tlsContext)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTlsPrivate14TlsCryptograph22checkSettingSslContextESt10shared_ptrI11QSslContextE(
+    QTlsPrivate::TlsCryptograph *self,
+    const std::shared_ptr<QSslContext> *tlsContext) {
+  self->checkSettingSslContext(*tlsContext);
+}
+
+//  std::shared_ptr<QSslContext> QTlsPrivate::TlsCryptograph::sslContext()
+//      const
+extern "C" Q_DECL_EXPORT
+std::shared_ptr<QSslContext> *ritual_ZNK11QTlsPrivate14TlsCryptograph10sslContextEv(
+    const QTlsPrivate::TlsCryptograph *self) {
+  return new std::shared_ptr<QSslContext>(self->sslContext());
+}
+
 //  QList<QSslError> QTlsPrivate::TlsCryptograph::tlsErrors() const
 extern "C" Q_DECL_EXPORT
 QList<QSslError> *ritual_ZNK11QTlsPrivate14TlsCryptograph9tlsErrorsEv(
@@ -550,6 +572,27 @@ QList<QOcspResponse> *ritual_ZNK11QTlsPrivate14TlsCryptograph5ocspsEv(
   return new QList<QOcspResponse>(self->ocsps());
 }
 
+//  bool QTlsPrivate::TlsCryptograph::isMatchingHostname(const
+//      QSslCertificate &cert, const QString &peerName)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QTlsPrivate14TlsCryptograph18isMatchingHostnameERK15QSslCertificateRK7QString(
+    const QSslCertificate *cert,
+    const QString *peerName) {
+  return QTlsPrivate::TlsCryptograph::isMatchingHostname(*cert, *peerName);
+}
+
+//  void QTlsPrivate::TlsCryptograph::setErrorAndEmit(QSslSocketPrivate *d,
+//      QAbstractSocket::SocketError errorCode, const QString
+//      &errorDescription) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QTlsPrivate14TlsCryptograph15setErrorAndEmitEP17QSslSocketPrivateN15QAbstractSocket11SocketErrorERK7QString(
+    const QTlsPrivate::TlsCryptograph *self,
+    QSslSocketPrivate *d,
+    QAbstractSocket::SocketError errorCode,
+    const QString *errorDescription) {
+  self->setErrorAndEmit(d, errorCode, *errorDescription);
+}
+
 //  a Python function taken by a CuteQTlsPrivate_TlsCryptograph, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -579,6 +622,14 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK11QTlsPrivate14TlsCryptograph18hasUndecryptedDataEv(
     const QTlsPrivate::TlsCryptograph *self) {
   return self->QTlsPrivate::TlsCryptograph::hasUndecryptedData();
+}
+
+//  a std::shared_ptr<QSslContext> a ritual of QTlsPrivate::TlsCryptograph
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTlsPrivate_TlsCryptograph__std_shared_ptr_QSslContext(
+    std::shared_ptr<QSslContext> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(ssl)

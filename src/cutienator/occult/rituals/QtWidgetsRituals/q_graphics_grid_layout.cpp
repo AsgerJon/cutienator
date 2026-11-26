@@ -635,6 +635,20 @@ QSizeF *ritual_ZNK19QGraphicsGridLayout8sizeHintEN2Qt8SizeHintERK6QSizeF(
   return new QSizeF(self->sizeHint(which, *constraint));
 }
 
+//  QGraphicsGridLayoutPrivate *QGraphicsGridLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsGridLayoutPrivate *ritual_ZN19QGraphicsGridLayout6d_funcEv(
+    QGraphicsGridLayout *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsGridLayoutPrivate *QGraphicsGridLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsGridLayoutPrivate *ritual_ZNK19QGraphicsGridLayout6d_funcEv(
+    const QGraphicsGridLayout *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsGridLayout, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

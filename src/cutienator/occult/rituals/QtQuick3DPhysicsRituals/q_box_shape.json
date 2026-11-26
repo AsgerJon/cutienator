@@ -6,16 +6,25 @@
   ],
   "rows": {
     "ritual_ZNK9QBoxShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QBoxShape11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QBoxShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QBoxShape2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QBoxShapeC1Ev": ["address"],
     "ritual_ZN9QBoxShapeD1Ev": ["nothing", "address"],
     "ritual_ZNK9QBoxShape7extentsEv": ["address", "address"],
+    "ritual_ZN9QBoxShape16getPhysXGeometryEv": ["address", "address"],
     "ritual_ZNK9QBoxShape13isStaticShapeEv": ["bool", "address"],
     "ritual_ZN9QBoxShape10setExtentsE9QVector3D": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN9QBoxShape14extentsChangedE9QVector3D": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QBoxShape19updatePhysXGeometryEv": ["nothing", "address"],
     "ritual_take_QBoxShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QBoxShape16getPhysXGeometryEv": ["address", "address"],
     "ritual_own_ZNK9QBoxShape13isStaticShapeEv": ["bool", "address"]
   }
 }

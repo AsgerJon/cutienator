@@ -19,6 +19,7 @@
     "ritual_ZNK12QSGTransformeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QSGTransformneERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QSGTransform9compareToERKS_": ["int", "address", "address"],
+    "ritual_ZNK12QSGTransform12invertedDataEv": ["address", "address"],
     "ritual_ZN12QSGTransformD1Ev": ["nothing", "address"]
   }
 }

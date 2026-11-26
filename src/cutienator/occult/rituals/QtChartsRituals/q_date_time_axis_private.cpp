@@ -335,6 +335,25 @@ const QMetaObject *ritual_ZNK20QDateTimeAxisPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDateTimeAxisPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QDateTimeAxisPrivate11qt_metacastEPKc(
+    QDateTimeAxisPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDateTimeAxisPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QDateTimeAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDateTimeAxisPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDateTimeAxisPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QDateTimeAxisPrivate2trEPKcS1_i(

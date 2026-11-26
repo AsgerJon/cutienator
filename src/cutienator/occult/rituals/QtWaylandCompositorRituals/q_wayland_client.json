@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK14QWaylandClient10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWaylandClient11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QWaylandClient11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QWaylandClient2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QWaylandClient6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QWaylandClient6d_funcEv": ["address", "address"],
     "ritual_ZN14QWaylandClient24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -17,12 +25,19 @@
     "ritual_ZN14QWaylandClient21setTextInputProtocolsE6QFlagsINS_17TextInputProtocolEE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN14QWaylandClient12fromWlClientEP18QWaylandCompositorP9wl_client": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK14QWaylandClient10compositorEv": ["address", "address"],
+    "ritual_ZNK14QWaylandClient6clientEv": ["address", "address"],
     "ritual_ZNK14QWaylandClient6userIdEv": ["long long", "address"],
     "ritual_ZNK14QWaylandClient7groupIdEv": ["long long", "address"],
     "ritual_ZNK14QWaylandClient9processIdEv": ["long long", "address"],
     "ritual_ZN14QWaylandClient4killEi": ["nothing", "address", "int"],
     "ritual_ZN14QWaylandClient5closeEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandClientC1EP18QWaylandCompositorP9wl_client": [
+      "address", "address", "address"
+    ],
     "ritual_take_QWaylandClient": ["bool", "address", "chars", "address"],
     "ritual_list_make_QWaylandClient_ptr": ["address"],
     "ritual_list_add_QWaylandClient_ptr": ["nothing", "address", "address"],

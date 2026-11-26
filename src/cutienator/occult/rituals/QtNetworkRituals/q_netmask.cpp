@@ -39,6 +39,21 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/network/kernel/qhostaddress.cpp, line 285, as local:qhostaddress.cpp:clearBits
+static void clearBits(quint8 *where, int start, int end)
+{
+    Q_ASSERT(end == 32 || end == 128);
+    if (start == end)
+        return;
+
+    // for the byte where 'start' is, clear the lower bits only
+    quint8 bytemask = 256 - (1 << (8 - (start & 7)));
+    where[start / 8] &= bytemask;
+
+    // for the tail part, clear everything
+    memset(where + (start + 7) / 8, 0, end / 8 - (start + 7) / 8);
+}
+
 //  from src/network/kernel/qhostaddress.cpp, line 217, as _ZN8QNetmask10setAddressERK12QHostAddress
 inline bool QNetmask::setAddress(const QHostAddress &address)
 {
@@ -107,6 +122,29 @@ inline bool QNetmask::setAddress(const QHostAddress &address)
     length = netmask;
     return true;
 }
+
+//  from src/network/kernel/qhostaddress.cpp, line 299, as _ZNK8QNetmask7addressEN15QAbstractSocket20NetworkLayerProtocolE
+inline QHostAddress QNetmask::address(QHostAddress::NetworkLayerProtocol protocol) const
+{
+    if (length == 255 || protocol == QHostAddress::AnyIPProtocol ||
+            protocol == QHostAddress::UnknownNetworkLayerProtocol) {
+        return QHostAddress();
+    } else if (protocol == QHostAddress::IPv4Protocol) {
+        quint32 a;
+        if (length == 0)
+            a = 0;
+        else if (length == 32)
+            a = quint32(0xffffffff);
+        else
+            a = quint32(0xffffffff) >> (32 - length) << (32 - length);
+        return QHostAddress(a);
+    } else {
+        Q_IPV6ADDR a6;
+        memset(a6.c, 0xFF, sizeof(a6));
+        clearBits(a6.c, length, 128);
+        return QHostAddress(a6);
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  QNetmask::QNetmask()
@@ -121,6 +159,15 @@ bool ritual_ZN8QNetmask10setAddressERK12QHostAddress(
     QNetmask *self,
     const QHostAddress *address) {
   return self->setAddress(*address);
+}
+
+//  QHostAddress QNetmask::address(QAbstractSocket::NetworkLayerProtocol
+//      protocol) const
+extern "C" Q_DECL_EXPORT
+QHostAddress *ritual_ZNK8QNetmask7addressEN15QAbstractSocket20NetworkLayerProtocolE(
+    const QNetmask *self,
+    QAbstractSocket::NetworkLayerProtocol protocol) {
+  return new QHostAddress(self->address(protocol));
 }
 
 //  int QNetmask::prefixLength() const

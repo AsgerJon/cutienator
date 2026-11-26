@@ -8,6 +8,12 @@
     "ritual_ZNK31QQuickLabsPlatformMenuSeparator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickLabsPlatformMenuSeparator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuSeparator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_take_QQuickLabsPlatformMenuSeparator": [
       "bool", "address", "chars", "address"
     ]

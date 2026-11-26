@@ -2,9 +2,12 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qqmltypenamecache_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN17QQmlTypeNameCacheC1ERK14QQmlRefPointerI11QQmlImportsE": [
+      "address", "address"
+    ],
     "ritual_ZN17QQmlTypeNameCacheD1Ev": ["nothing", "address"],
     "ritual_ZNK17QQmlTypeNameCache7isEmptyEv": ["bool", "address"],
     "ritual_ZN17QQmlTypeNameCache3addERK13QHashedStringiS2_": [
@@ -24,6 +27,18 @@
     ],
     "ritual_ZN17QQmlTypeNameCache9toQStringEPKN3QV46StringE": [
       "text", "address"
+    ],
+    "ritual_ZNK17QQmlTypeNameCache5queryILN10QQmlImport20RecursionRestrictionE0EEENS_6ResultERK16QHashedStringRefP14QQmlTypeLoader": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QQmlTypeNameCache5queryILN10QQmlImport20RecursionRestrictionE0EEENS_6ResultEPKN3QV46StringEP14QQmlTypeLoader": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QQmlTypeNameCache5queryILNS_15QueryNamespacedE1EEENS_6ResultERK16QHashedStringRefPK13QQmlImportRefP14QQmlTypeLoader": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QQmlTypeNameCache5queryILNS_15QueryNamespacedE1EEENS_6ResultEPKN3QV46StringEPK13QQmlImportRefP14QQmlTypeLoader": [
+      "address", "address", "address", "address", "address"
     ]
   }
 }

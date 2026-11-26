@@ -11,6 +11,7 @@ typedef void (*CuteQFocusEventCall1)(const void *, bool, int *);
 class CuteQFocusEvent : public QFocusEvent {
 public:
   using QFocusEvent::QFocusEvent;
+  CuteQFocusEvent(const QFocusEvent & other) : QFocusEvent(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -47,6 +48,20 @@ public:
     QEvent::setAccepted(accepted);
   }
 };
+
+//  QFocusEvent::QFocusEvent(const QFocusEvent &a0)
+extern "C" Q_DECL_EXPORT
+QFocusEvent *ritual_ZN11QFocusEventC1ERKS_(const QFocusEvent *a0) {
+  return new CuteQFocusEvent(*a0);
+}
+
+//  QFocusEvent &QFocusEvent::operator=(const QFocusEvent &other)
+extern "C" Q_DECL_EXPORT
+QFocusEvent *ritual_ZN11QFocusEventaSERKS_(
+    QFocusEvent *self,
+    const QFocusEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QFocusEvent *QFocusEvent::clone() const
 extern "C" Q_DECL_EXPORT

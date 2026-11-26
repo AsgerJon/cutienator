@@ -20,8 +20,6 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQmlModels/private/qqmllistcompositor_p.h>
-#include <QtCore/qvarlengtharray.h>
 #include <QtQmlModels/private/qqmldelegatemodel_p_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtCore/private/qabstractitemmodel_p.h>
@@ -40,6 +38,8 @@
 #include <QtQml/private/qv4functionobject_p.h>
 #include <QtQml/private/qv4objectiterator_p.h>
 #include <QtQml/private/qv4value_p.h>
+#include <QtQmlModels/private/qqmllistcompositor_p.h>
+#include <QtCore/qvarlengtharray.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -48,6 +48,24 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 933, as local:qqmldelegatemodel.cpp:isDoneIncubating
+static bool isDoneIncubating(QQmlIncubator::Status status)
+{
+     return status == QQmlIncubator::Ready || status == QQmlIncubator::Error;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 2992, as local:qqmldelegatemodel.cpp:GroupEmitterListIt
+typedef QQmlDelegateModelGroupEmitterList::iterator GroupEmitterListIt;
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3926, as _ZN14QQmlPartsModel11initPackageEiP13QQuickPackage
+inline void QQmlPartsModel::initPackage(int index, QQuickPackage *package)
+{
+    if (m_modelUpdatePending)
+        m_pendingPackageInitializations << index;
+    else
+        emit initItem(index, package->part(m_part));
+}
 
 //  from ../qtdeclarative/src/qmlmodels/qqmllistcompositor.cpp, line 1305, as _ZN18QQmlListCompositor10transitionENS_5GroupES0_P5QListIN13QQmlChangeSet6ChangeEES5_
 inline void QQmlListCompositor::transition(
@@ -65,219 +83,6 @@ inline void QQmlListCompositor::transition(
             inserts->append(QQmlChangeSet::Change(it.index[to], it->count));
         }
         it.incrementIndexes(it->count);
-    }
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmllistcompositor.cpp, line 316, as _ZNK18QQmlListCompositor5countENS_5GroupE
-inline int QQmlListCompositor::count(Group group) const
-{
-    return m_end.index[group];
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 927, as _ZN24QQmlDelegateModelPrivate21emitDestroyingPackageEP13QQuickPackage
-inline void QQmlDelegateModelPrivate::emitDestroyingPackage(QQuickPackage *package)
-{
-    for (int i = 1; i < m_groupCount; ++i)
-        QQmlDelegateModelGroupPrivate::get(m_groups[i])->destroyingPackage(package);
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 615, as _ZN24QQmlDelegateModelPrivate7releaseEP7QObjectN17QQmlInstanceModel12ReusableFlagE
-inline QQmlDelegateModel::ReleaseFlags QQmlDelegateModelPrivate::release(QObject *object, QQmlInstanceModel::ReusableFlag reusableFlag)
-{
-    if (!object)
-        return QQmlDelegateModel::ReleaseFlags{};
-
-    QQmlDelegateModelItem *cacheItem = QQmlDelegateModelItem::dataForObject(object);
-    if (!cacheItem)
-        return QQmlDelegateModel::ReleaseFlags{};
-
-    if (!cacheItem->releaseObjectWeak())
-        return QQmlDelegateModel::Referenced;
-
-    if (reusableFlag == QQmlInstanceModel::Reusable && m_reusableItemsPool.insertItem(cacheItem)) {
-        removeCacheItem(cacheItem);
-        emit q_func()->itemPooled(cacheItem->modelIndex(), cacheItem->object());
-        return QQmlInstanceModel::Pooled;
-    }
-
-    destroyCacheItem(cacheItem);
-    return QQmlInstanceModel::Destroyed;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1414, as _ZN24QQmlDelegateModelPrivate12variantValueEN18QQmlListCompositor5GroupEiRK7QString
-inline QVariant QQmlDelegateModelPrivate::variantValue(QQmlListCompositor::Group group, int index, const QString &name)
-{
-    Compositor::iterator it = m_compositor.find(group, index);
-    if (QQmlAdaptorModel *model = it.list<QQmlAdaptorModel>()) {
-        QString role = name;
-        int dot = name.indexOf(QLatin1Char('.'));
-        if (dot > 0)
-            role = name.left(dot);
-        QVariant value = model->value(it.modelIndex(), role);
-        while (dot > 0) {
-            const int from = dot + 1;
-            dot = name.indexOf(QLatin1Char('.'), from);
-            QStringView propertyName = QStringView{name}.mid(from, dot - from);
-            if (QObject *obj = qvariant_cast<QObject*>(value)) {
-                value = obj->property(propertyName.toUtf8());
-            } else if (const QMetaObject *metaObject = QQmlMetaType::metaObjectForValueType(value.metaType())) {
-                // Q_GADGET
-                const int propertyIndex = metaObject->indexOfProperty(propertyName.toUtf8());
-                if (propertyIndex >= 0)
-                    value = metaObject->property(propertyIndex).readOnGadget(value.constData());
-            } else {
-                return QVariant();
-            }
-        }
-        return value;
-    }
-    return QVariant();
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1180, as _ZN24QQmlDelegateModelPrivate15removeCacheItemEP21QQmlDelegateModelItem
-inline void QQmlDelegateModelPrivate::removeCacheItem(QQmlDelegateModelItem *cacheItem)
-{
-    int cidx = m_cache.lastIndexOf(cacheItem);
-    if (cidx >= 0) {
-        m_compositor.clearFlags(Compositor::Cache, cidx, 1, Compositor::CacheFlag);
-        m_cache.removeAt(cidx);
-    }
-    Q_ASSERT(m_cache.size() == m_compositor.count(Compositor::Cache));
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 637, as _ZN24QQmlDelegateModelPrivate16destroyCacheItemEP21QQmlDelegateModelItem
-inline void QQmlDelegateModelPrivate::destroyCacheItem(QQmlDelegateModelItem *cacheItem)
-{
-    if (QObject *object = cacheItem->object()) {
-        emitDestroyingItem(object);
-        cacheItem->destroyObjectLater();
-    }
-
-    if (QQDMIncubationTask *incubationTask = cacheItem->incubationTask()) {
-        releaseIncubator(incubationTask);
-        cacheItem->clearIncubationTask();
-    }
-    cacheItem->dispose();
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3961, as _ZN34QQmlReusableDelegateModelItemsPool10insertItemEP21QQmlDelegateModelItem
-inline bool QQmlReusableDelegateModelItemsPool::insertItem(QQmlDelegateModelItem *modelItem)
-{
-    // We can only hold INT_MAX items, due to the return type of size().
-    if (Q_UNLIKELY(m_reusableItemsPool.size() == QQmlReusableDelegateModelItemsPool::MaxSize))
-        return false;
-
-    Q_ASSERT(m_reusableItemsPool.size() < QQmlReusableDelegateModelItemsPool::MaxSize);
-
-    // Currently, the only way for a view to reuse items is to call release()
-    // in the model class with the second argument explicitly set to
-    // QQmlReuseableDelegateModelItemsPool::Reusable. If the released item is
-    // no longer referenced, it will be added to the pool. Reusing of items can
-    // be specified per item, in case certain items cannot be recycled. A
-    // QQmlDelegateModelItem knows which delegate its object was created from.
-    // So when we are about to create a new item, we first check if the pool
-    // contains an item based on the same delegate from before. If so, we take
-    // it out of the pool (instead of creating a new item), and update all its
-    // context properties and attached properties.
-
-    // When a view is recycling items, it should call drain() regularly. As
-    // there is currently no logic to 'hibernate' items in the pool, they are
-    // only meant to rest there for a short while, ideally only from the time
-    // e.g a row is unloaded on one side of the view, and until a new row is
-    // loaded on the opposite side. Between these times, the application will
-    // see the item as fully functional and 'alive' (just not visible on
-    // screen). Since this time is supposed to be short, we don't take any
-    // action to notify the application about it, since we don't want to
-    // trigger any bindings that can disturb performance.
-
-    // A recommended time for calling drain() is each time a view has finished
-    // loading e.g a new row or column. If there are more items in the pool
-    // after that, it means that the view most likely doesn't need them anytime
-    // soon. Those items should be destroyed to reduce resource consumption.
-
-    // Depending on if a view is a list or a table, it can sometimes be
-    // performant to keep items in the pool for a bit longer than one "row
-    // out/row in" cycle. E.g for a table, if the number of visible rows in a
-    // view is much larger than the number of visible columns. In that case, if
-    // you flick out a row, and then flick in a column, you would throw away a
-    // lot of items in the pool if completely draining it. The reason is that
-    // unloading a row places more items in the pool than what ends up being
-    // recycled when loading a new column. And then, when you next flick in a
-    // new row, you would need to load all those drained items again from
-    // scratch. For that reason, you can specify a maxPoolTime to the
-    // drainReusableItemsPool() that allows you to keep items in the pool for a
-    // bit longer, effectively keeping more items in circulation. A recommended
-    // maxPoolTime would be equal to the number of dimensions in the view,
-    // which means 1 for a list view and 2 for a table view. If you specify 0,
-    // all items will be drained.
-
-    Q_ASSERT(!modelItem->incubationTask());
-    Q_ASSERT(!modelItem->isObjectReferenced());
-    Q_ASSERT(modelItem->object());
-    Q_ASSERT(modelItem->delegate());
-
-    m_reusableItemsPool.push_back({modelItem, 0});
-
-    qCDebug(lcItemViewDelegateRecycling)
-            << "item:" << modelItem
-            << "delegate:" << modelItem->delegate()
-            << "index:" << modelItem->modelIndex()
-            << "row:" << modelItem->modelRow()
-            << "column:" << modelItem->modelColumn()
-            << "pool size:" << m_reusableItemsPool.size();
-
-    return true;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3734, as _ZN14QQmlPartsModelD1Ev
-inline QQmlPartsModel::~QQmlPartsModel()
-{
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3738, as _ZNK14QQmlPartsModel11filterGroupEv
-inline QString QQmlPartsModel::filterGroup() const
-{
-    if (m_inheritGroup)
-        return m_model->filterGroup();
-    return m_filterGroup;
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3770, as _ZN14QQmlPartsModel17updateFilterGroupEv
-inline void QQmlPartsModel::updateFilterGroup()
-{
-    QQmlDelegateModelPrivate *model = QQmlDelegateModelPrivate::get(m_model);
-    if (!model->m_cacheMetaType)
-        return;
-
-    if (m_inheritGroup) {
-        if (m_filterGroup == model->m_filterGroup)
-            return;
-        m_filterGroup = model->m_filterGroup;
-    }
-
-    QQmlListCompositor::Group previousGroup = m_compositorGroup;
-    m_compositorGroup = Compositor::Default;
-    QQmlDelegateModelGroupPrivate::get(model->m_groups[Compositor::Default])->emitters.insert(this);
-    for (int i = 1; i < model->m_groupCount; ++i) {
-        if (m_filterGroup == model->m_cacheMetaType->groupNames.at(i - 1)) {
-            m_compositorGroup = Compositor::Group(i);
-            break;
-        }
-    }
-
-    QQmlDelegateModelGroupPrivate::get(model->m_groups[m_compositorGroup])->emitters.insert(this);
-    if (m_compositorGroup != previousGroup) {
-        QList<QQmlChangeSet::Change> removes;
-        QList<QQmlChangeSet::Change> inserts;
-        model->m_compositor.transition(previousGroup, m_compositorGroup, &removes, &inserts);
-
-        QQmlChangeSet changeSet;
-        changeSet.move(removes, inserts);
-        if (!changeSet.isEmpty())
-            emit modelUpdated(changeSet, false);
-
-        if (changeSet.difference() != 0)
-            emit countChanged();
     }
 }
 
@@ -351,14 +156,6 @@ inline QVariant QQmlPartsModel::variantValue(int index, const QString &role)
     return QQmlDelegateModelPrivate::get(m_model)->variantValue(m_compositorGroup, index, role);
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3891, as _ZN14QQmlPartsModel15setWatchedRolesERK5QListI10QByteArrayE
-inline void QQmlPartsModel::setWatchedRoles(const QList<QByteArray> &roles)
-{
-    QQmlDelegateModelPrivate *model = QQmlDelegateModelPrivate::get(m_model);
-    model->m_adaptorModel.replaceWatchedRoles(m_watchedRoles, roles);
-    m_watchedRoles = roles;
-}
-
 //  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3898, as _ZN14QQmlPartsModel16incubationStatusEi
 inline QQmlIncubator::Status QQmlPartsModel::incubationStatus(int index)
 {
@@ -411,21 +208,383 @@ inline void QQmlPartsModel::createdPackage(int index, QQuickPackage *package)
     emit createdItem(index, package->part(m_part));
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3926, as _ZN14QQmlPartsModel11initPackageEiP13QQuickPackage
-inline void QQmlPartsModel::initPackage(int index, QQuickPackage *package)
-{
-    if (m_modelUpdatePending)
-        m_pendingPackageInitializations << index;
-    else
-        emit initItem(index, package->part(m_part));
-}
-
 //  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3934, as _ZN14QQmlPartsModel17destroyingPackageEP13QQuickPackage
 inline void QQmlPartsModel::destroyingPackage(QQuickPackage *package)
 {
     QObject *item = package->part(m_part);
     Q_ASSERT(!m_packaged.contains(item));
     emit destroyingItem(item);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmllistcompositor.cpp, line 316, as _ZNK18QQmlListCompositor5countENS_5GroupE
+inline int QQmlListCompositor::count(Group group) const
+{
+    return m_end.index[group];
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 927, as _ZN24QQmlDelegateModelPrivate21emitDestroyingPackageEP13QQuickPackage
+inline void QQmlDelegateModelPrivate::emitDestroyingPackage(QQuickPackage *package)
+{
+    for (int i = 1; i < m_groupCount; ++i)
+        QQmlDelegateModelGroupPrivate::get(m_groups[i])->destroyingPackage(package);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 615, as _ZN24QQmlDelegateModelPrivate7releaseEP7QObjectN17QQmlInstanceModel12ReusableFlagE
+inline QQmlDelegateModel::ReleaseFlags QQmlDelegateModelPrivate::release(QObject *object, QQmlInstanceModel::ReusableFlag reusableFlag)
+{
+    if (!object)
+        return QQmlDelegateModel::ReleaseFlags{};
+
+    QQmlDelegateModelItem *cacheItem = QQmlDelegateModelItem::dataForObject(object);
+    if (!cacheItem)
+        return QQmlDelegateModel::ReleaseFlags{};
+
+    if (!cacheItem->releaseObjectWeak())
+        return QQmlDelegateModel::Referenced;
+
+    if (reusableFlag == QQmlInstanceModel::Reusable && m_reusableItemsPool.insertItem(cacheItem)) {
+        removeCacheItem(cacheItem);
+        emit q_func()->itemPooled(cacheItem->modelIndex(), cacheItem->object());
+        return QQmlInstanceModel::Pooled;
+    }
+
+    destroyCacheItem(cacheItem);
+    return QQmlInstanceModel::Destroyed;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1414, as _ZN24QQmlDelegateModelPrivate12variantValueEN18QQmlListCompositor5GroupEiRK7QString
+inline QVariant QQmlDelegateModelPrivate::variantValue(QQmlListCompositor::Group group, int index, const QString &name)
+{
+    Compositor::iterator it = m_compositor.find(group, index);
+    if (QQmlAdaptorModel *model = it.list<QQmlAdaptorModel>()) {
+        QString role = name;
+        int dot = name.indexOf(QLatin1Char('.'));
+        if (dot > 0)
+            role = name.left(dot);
+        QVariant value = model->value(it.modelIndex(), role);
+        while (dot > 0) {
+            const int from = dot + 1;
+            dot = name.indexOf(QLatin1Char('.'), from);
+            QStringView propertyName = QStringView{name}.mid(from, dot - from);
+            if (QObject *obj = qvariant_cast<QObject*>(value)) {
+                value = obj->property(propertyName.toUtf8());
+            } else if (const QMetaObject *metaObject = QQmlMetaType::metaObjectForValueType(value.metaType())) {
+                // Q_GADGET
+                const int propertyIndex = metaObject->indexOfProperty(propertyName.toUtf8());
+                if (propertyIndex >= 0)
+                    value = metaObject->property(propertyIndex).readOnGadget(value.constData());
+            } else {
+                return QVariant();
+            }
+        }
+        return value;
+    }
+    return QVariant();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1250, as _ZN24QQmlDelegateModelPrivate6objectEN18QQmlListCompositor5GroupEiN13QQmlIncubator14IncubationModeE
+inline QObject *QQmlDelegateModelPrivate::object(Compositor::Group group, int index, QQmlIncubator::IncubationMode incubationMode)
+{
+    if (!m_delegate || index < 0 || index >= m_compositor.count(group)) {
+        qWarning() << "DelegateModel::item: index out range" << index << m_compositor.count(group);
+        return nullptr;
+    } else if (!m_context || !m_context->isValid()) {
+        return nullptr;
+    }
+
+    Compositor::iterator it = m_compositor.find(group, index);
+    const auto flags = it->flags;
+    const auto modelIndex = it.modelIndex();
+
+    QQmlDelegateModelItem *cacheItem = it->inCache() ? m_cache.at(it.cacheIndex()) : 0;
+
+    if (!cacheItem || !cacheItem->delegate()) {
+        QQmlComponent *delegate = resolveDelegate(modelIndex);
+        if (!delegate)
+            return nullptr;
+
+        if (!cacheItem) {
+            cacheItem = m_reusableItemsPool.takeItem(delegate, index);
+            if (cacheItem) {
+                // Move the pooled item back into the cache, update
+                // all related properties, and return the object (which
+                // has already been incubated, otherwise it wouldn't be in the pool).
+                addCacheItem(cacheItem, it);
+                reuseItem(cacheItem, index, flags);
+
+                if (index == m_compositor.count(group) - 1)
+                    requestMoreIfNecessary();
+                return cacheItem->referenceObjectWeak();
+            }
+
+            // Since we could't find an available item in the pool, we create a new one
+            cacheItem = m_adaptorModel.createItem(m_cacheMetaType, modelIndex);
+            if (!cacheItem)
+                return nullptr;
+
+            cacheItem->setGroups(flags);
+            addCacheItem(cacheItem, it);
+        }
+
+        cacheItem->setDelegate(delegate);
+    }
+
+    {
+        // Bump the reference counts temporarily so neither the content data or the delegate object
+        // are deleted if incubatorStatusChanged() is called synchronously.
+        QQmlDelegateModelItem::ScriptReference scriptRef(cacheItem);
+        QQmlDelegateModelItem::ObjectReference objectRef(cacheItem);
+
+        if (QQDMIncubationTask *incubationTask = cacheItem->incubationTask()) {
+            bool sync = (incubationMode == QQmlIncubator::Synchronous
+                         || incubationMode == QQmlIncubator::AsynchronousIfNested);
+            if (sync && incubationTask->incubationMode() == QQmlIncubator::Asynchronous) {
+                // previously requested async - now needed immediately
+                incubationTask->forceCompletion();
+            }
+        } else if (!cacheItem->object()) {
+            QQmlContext *creationContext = cacheItem->delegate()->creationContext();
+
+            QQDMIncubationTask *incubationTask = new QQDMIncubationTask(this, incubationMode);
+            cacheItem->setIncubationTask(incubationTask);
+            incubationTask->incubating = cacheItem;
+            incubationTask->clear();
+
+            for (int i = 1; i < m_groupCount; ++i)
+                incubationTask->index[i] = it.index[i];
+
+            const QQmlRefPointer<QQmlContextData> componentContext
+                    = QQmlContextData::get(creationContext  ? creationContext : m_context.data());
+            QQmlComponentPrivate *cp = QQmlComponentPrivate::get(cacheItem->delegate());
+
+            if (cp->isBound()) {
+                cacheItem->setContextData(componentContext);
+
+                // Ignore return value of initProxy. We want to know the proxy when assigning required
+                // properties, but we don't want it to pollute our context. The context is bound.
+                if (m_adaptorModel.hasProxyObject())
+                    cacheItem->initProxy();
+
+                cp->incubateObject(
+                        incubationTask, cacheItem->delegate(), m_context->engine(),
+                        componentContext, QQmlContextData::get(m_context));
+            } else {
+                QQmlRefPointer<QQmlContextData> ctxt
+                        = QQmlContextData::createRefCounted(componentContext);
+                ctxt->setContextObject(cacheItem);
+                cacheItem->setContextData(ctxt);
+
+                // If the model is read-only we cannot just expose the object as context
+                // We actually need a separate model object to moderate access.
+                if (m_adaptorModel.hasProxyObject()) {
+                    if (m_adaptorModel.delegateModelAccess == QQmlDelegateModel::ReadOnly)
+                        cacheItem->initProxy();
+                    else
+                        ctxt = cacheItem->initProxy();
+                }
+
+                cp->incubateObject(
+                        cacheItem->incubationTask(), cacheItem->delegate(), m_context->engine(),
+                        ctxt, QQmlContextData::get(m_context));
+            }
+        }
+
+        if (index == m_compositor.count(group) - 1)
+            requestMoreIfNecessary();
+
+
+        if (cacheItem->object()) {
+            QQDMIncubationTask *incubationTask = cacheItem->incubationTask();
+            if (!incubationTask || isDoneIncubating(incubationTask->status()))
+                return cacheItem->referenceObjectWeak();
+        }
+    }
+
+    if (!cacheItem->isScriptReferenced()) {
+
+        // If it had an object and no incubationTask we would have returned above.
+        // If it had an incubationTask it would be referenced, no matter if it has an object.
+        Q_ASSERT(!cacheItem->object());
+
+        removeCacheItem(cacheItem);
+        delete cacheItem;
+    }
+
+    return nullptr;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1180, as _ZN24QQmlDelegateModelPrivate15removeCacheItemEP21QQmlDelegateModelItem
+inline void QQmlDelegateModelPrivate::removeCacheItem(QQmlDelegateModelItem *cacheItem)
+{
+    int cidx = m_cache.lastIndexOf(cacheItem);
+    if (cidx >= 0) {
+        m_compositor.clearFlags(Compositor::Cache, cidx, 1, Compositor::CacheFlag);
+        m_cache.removeAt(cidx);
+    }
+    Q_ASSERT(m_cache.size() == m_compositor.count(Compositor::Cache));
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 637, as _ZN24QQmlDelegateModelPrivate16destroyCacheItemEP21QQmlDelegateModelItem
+inline void QQmlDelegateModelPrivate::destroyCacheItem(QQmlDelegateModelItem *cacheItem)
+{
+    if (QObject *object = cacheItem->object()) {
+        emitDestroyingItem(object);
+        cacheItem->destroyObjectLater();
+    }
+
+    if (QQDMIncubationTask *incubationTask = cacheItem->incubationTask()) {
+        releaseIncubator(incubationTask);
+        cacheItem->clearIncubationTask();
+    }
+    cacheItem->dispose();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3006, as _ZN29QQmlDelegateModelGroupPrivate17destroyingPackageEP13QQuickPackage
+inline void QQmlDelegateModelGroupPrivate::destroyingPackage(QQuickPackage *package)
+{
+    for (GroupEmitterListIt it = emitters.begin(), end = emitters.end(); it != end; ++it)
+        it->destroyingPackage(package);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3961, as _ZN34QQmlReusableDelegateModelItemsPool10insertItemEP21QQmlDelegateModelItem
+inline bool QQmlReusableDelegateModelItemsPool::insertItem(QQmlDelegateModelItem *modelItem)
+{
+    // We can only hold INT_MAX items, due to the return type of size().
+    if (Q_UNLIKELY(m_reusableItemsPool.size() == QQmlReusableDelegateModelItemsPool::MaxSize))
+        return false;
+
+    Q_ASSERT(m_reusableItemsPool.size() < QQmlReusableDelegateModelItemsPool::MaxSize);
+
+    // Currently, the only way for a view to reuse items is to call release()
+    // in the model class with the second argument explicitly set to
+    // QQmlReuseableDelegateModelItemsPool::Reusable. If the released item is
+    // no longer referenced, it will be added to the pool. Reusing of items can
+    // be specified per item, in case certain items cannot be recycled. A
+    // QQmlDelegateModelItem knows which delegate its object was created from.
+    // So when we are about to create a new item, we first check if the pool
+    // contains an item based on the same delegate from before. If so, we take
+    // it out of the pool (instead of creating a new item), and update all its
+    // context properties and attached properties.
+
+    // When a view is recycling items, it should call drain() regularly. As
+    // there is currently no logic to 'hibernate' items in the pool, they are
+    // only meant to rest there for a short while, ideally only from the time
+    // e.g a row is unloaded on one side of the view, and until a new row is
+    // loaded on the opposite side. Between these times, the application will
+    // see the item as fully functional and 'alive' (just not visible on
+    // screen). Since this time is supposed to be short, we don't take any
+    // action to notify the application about it, since we don't want to
+    // trigger any bindings that can disturb performance.
+
+    // A recommended time for calling drain() is each time a view has finished
+    // loading e.g a new row or column. If there are more items in the pool
+    // after that, it means that the view most likely doesn't need them anytime
+    // soon. Those items should be destroyed to reduce resource consumption.
+
+    // Depending on if a view is a list or a table, it can sometimes be
+    // performant to keep items in the pool for a bit longer than one "row
+    // out/row in" cycle. E.g for a table, if the number of visible rows in a
+    // view is much larger than the number of visible columns. In that case, if
+    // you flick out a row, and then flick in a column, you would throw away a
+    // lot of items in the pool if completely draining it. The reason is that
+    // unloading a row places more items in the pool than what ends up being
+    // recycled when loading a new column. And then, when you next flick in a
+    // new row, you would need to load all those drained items again from
+    // scratch. For that reason, you can specify a maxPoolTime to the
+    // drainReusableItemsPool() that allows you to keep items in the pool for a
+    // bit longer, effectively keeping more items in circulation. A recommended
+    // maxPoolTime would be equal to the number of dimensions in the view,
+    // which means 1 for a list view and 2 for a table view. If you specify 0,
+    // all items will be drained.
+
+    Q_ASSERT(!modelItem->incubationTask());
+    Q_ASSERT(!modelItem->isObjectReferenced());
+    Q_ASSERT(modelItem->object());
+    Q_ASSERT(modelItem->delegate());
+
+    m_reusableItemsPool.push_back({modelItem, 0});
+
+    qCDebug(lcItemViewDelegateRecycling)
+            << "item:" << modelItem
+            << "delegate:" << modelItem->delegate()
+            << "index:" << modelItem->modelIndex()
+            << "row:" << modelItem->modelRow()
+            << "column:" << modelItem->modelColumn()
+            << "pool size:" << m_reusableItemsPool.size();
+
+    return true;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 28, as _Z27lcItemViewDelegateRecyclingv
+inline const QLoggingCategory &lcItemViewDelegateRecycling()
+{
+    static const QLoggingCategory category("qt.qml.delegatemodel.recycling");
+    return category;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1096, as _ZN24QQmlDelegateModelPrivate16releaseIncubatorEP18QQDMIncubationTask
+inline void QQmlDelegateModelPrivate::releaseIncubator(QQDMIncubationTask *incubationTask)
+{
+    Q_Q(QQmlDelegateModel);
+    if (!incubationTask->isError())
+        incubationTask->clear();
+    m_finishedIncubating.append(incubationTask);
+    if (!m_incubatorCleanupScheduled) {
+        m_incubatorCleanupScheduled = true;
+        QCoreApplication::postEvent(q, new QEvent(QEvent::User));
+    }
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3734, as _ZN14QQmlPartsModelD1Ev
+inline QQmlPartsModel::~QQmlPartsModel()
+{
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3738, as _ZNK14QQmlPartsModel11filterGroupEv
+inline QString QQmlPartsModel::filterGroup() const
+{
+    if (m_inheritGroup)
+        return m_model->filterGroup();
+    return m_filterGroup;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3770, as _ZN14QQmlPartsModel17updateFilterGroupEv
+inline void QQmlPartsModel::updateFilterGroup()
+{
+    QQmlDelegateModelPrivate *model = QQmlDelegateModelPrivate::get(m_model);
+    if (!model->m_cacheMetaType)
+        return;
+
+    if (m_inheritGroup) {
+        if (m_filterGroup == model->m_filterGroup)
+            return;
+        m_filterGroup = model->m_filterGroup;
+    }
+
+    QQmlListCompositor::Group previousGroup = m_compositorGroup;
+    m_compositorGroup = Compositor::Default;
+    QQmlDelegateModelGroupPrivate::get(model->m_groups[Compositor::Default])->emitters.insert(this);
+    for (int i = 1; i < model->m_groupCount; ++i) {
+        if (m_filterGroup == model->m_cacheMetaType->groupNames.at(i - 1)) {
+            m_compositorGroup = Compositor::Group(i);
+            break;
+        }
+    }
+
+    QQmlDelegateModelGroupPrivate::get(model->m_groups[m_compositorGroup])->emitters.insert(this);
+    if (m_compositorGroup != previousGroup) {
+        QList<QQmlChangeSet::Change> removes;
+        QList<QQmlChangeSet::Change> inserts;
+        model->m_compositor.transition(previousGroup, m_compositorGroup, &removes, &inserts);
+
+        QQmlChangeSet changeSet;
+        changeSet.move(removes, inserts);
+        if (!changeSet.isEmpty())
+            emit modelUpdated(changeSet, false);
+
+        if (changeSet.difference() != 0)
+            emit countChanged();
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -1013,6 +1172,24 @@ const QMetaObject *ritual_ZNK14QQmlPartsModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlPartsModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQmlPartsModel11qt_metacastEPKc(
+    QQmlPartsModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlPartsModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQmlPartsModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlPartsModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQmlPartsModel::~QQmlPartsModel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QQmlPartsModelD1Ev(QQmlPartsModel *self) {
@@ -1139,6 +1316,30 @@ void ritual_ZN14QQmlPartsModel17destroyingPackageEP13QQuickPackage(
     QQmlPartsModel *self,
     QQuickPackage *package) {
   self->destroyingPackage(package);
+}
+
+//  void QQmlPartsModel::filterGroupChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlPartsModel18filterGroupChangedEv(QQmlPartsModel *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQmlPartsModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "filterGroupChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "filterGroupChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QQmlPartsModel as the QQmlDelegateModelGroupEmitter it is built on

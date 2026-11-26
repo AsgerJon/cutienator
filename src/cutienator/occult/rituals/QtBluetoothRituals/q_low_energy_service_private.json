@@ -8,7 +8,34 @@
     "ritual_ZNK24QLowEnergyServicePrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QLowEnergyServicePrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QLowEnergyServicePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QLowEnergyServicePrivate12stateChangedEN17QLowEnergyService12ServiceStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivate13errorOccurredEN17QLowEnergyService12ServiceErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivate21characteristicChangedERK24QLowEnergyCharacteristicRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivate18characteristicReadERK24QLowEnergyCharacteristicRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivate21characteristicWrittenERK24QLowEnergyCharacteristicRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivate14descriptorReadERK20QLowEnergyDescriptorRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivate17descriptorWrittenERK20QLowEnergyDescriptorRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_take_QLowEnergyServicePrivate": [
       "bool", "address", "chars", "address"
     ]

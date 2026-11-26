@@ -28,6 +28,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/corelib/itemmodels/qtransposeproxymodel.cpp, line 17, as _ZN27QTransposeProxyModelPrivateD1Ev
+inline QTransposeProxyModelPrivate::~QTransposeProxyModelPrivate()
+    = default;
+
+//  from src/corelib/itemmodels/qtransposeproxymodel.cpp, line 14, as _ZN27QTransposeProxyModelPrivateC1Ev
+inline QTransposeProxyModelPrivate::QTransposeProxyModelPrivate()
+    = default;
+
 //  from src/corelib/itemmodels/qtransposeproxymodel.cpp, line 20, as _ZNK27QTransposeProxyModelPrivate20uncheckedMapToSourceERK11QModelIndex
 inline QModelIndex QTransposeProxyModelPrivate::uncheckedMapToSource(const QModelIndex &proxyIndex) const
 {
@@ -105,6 +113,14 @@ inline void QTransposeProxyModelPrivate::onLayoutAboutToBeChanged(const QList<QP
     }
 }
 
+//  from src/corelib/itemmodels/qtransposeproxymodel.cpp, line 93, as _ZN27QTransposeProxyModelPrivate13onDataChangedERK11QModelIndexS2_RK5QListIiE
+inline void QTransposeProxyModelPrivate::onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight,
+                                                const QList<int> &roles)
+{
+    Q_Q(QTransposeProxyModel);
+    emit q->dataChanged(q->mapFromSource(topLeft), q->mapFromSource(bottomRight), roles);
+}
+
 //  from src/corelib/itemmodels/qtransposeproxymodel.cpp, line 100, as _ZN27QTransposeProxyModelPrivate19onHeaderDataChangedEN2Qt11OrientationEii
 inline void QTransposeProxyModelPrivate::onHeaderDataChanged(Qt::Orientation orientation, int first, int last)
 {
@@ -169,6 +185,19 @@ const QTransposeProxyModel *ritual_ZNK27QTransposeProxyModelPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QTransposeProxyModelPrivate::QTransposeProxyModelPrivate()
+extern "C" Q_DECL_EXPORT
+QTransposeProxyModelPrivate *ritual_ZN27QTransposeProxyModelPrivateC1Ev() {
+  return new QTransposeProxyModelPrivate();
+}
+
+//  QTransposeProxyModelPrivate::~QTransposeProxyModelPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QTransposeProxyModelPrivateD1Ev(
+    QTransposeProxyModelPrivate *self) {
+  delete self;
+}
+
 //  QModelIndex QTransposeProxyModelPrivate::uncheckedMapToSource(const
 //      QModelIndex &proxyIndex) const
 extern "C" Q_DECL_EXPORT
@@ -207,6 +236,17 @@ void ritual_ZN27QTransposeProxyModelPrivate24onLayoutAboutToBeChangedERK5QListI2
     const QList<QPersistentModelIndex> *parents,
     QAbstractItemModel::LayoutChangeHint hint) {
   self->onLayoutAboutToBeChanged(*parents, hint);
+}
+
+//  void QTransposeProxyModelPrivate::onDataChanged(const QModelIndex
+//      &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QTransposeProxyModelPrivate13onDataChangedERK11QModelIndexS2_RK5QListIiE(
+    QTransposeProxyModelPrivate *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight,
+    const QList<int> *roles) {
+  self->onDataChanged(*topLeft, *bottomRight, *roles);
 }
 
 //  void QTransposeProxyModelPrivate::onHeaderDataChanged(Qt::Orientation

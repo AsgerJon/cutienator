@@ -8,6 +8,7 @@
 #include <QtLocation/6.12.0/QtLocation/private/qgeotiledmapscene_p_p.h>
 #include <QtLocation/6.12.0/QtLocation/private/qgeotilespec_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QSharedPointer>
 
 //  QGeoTiledMapScene *QGeoTiledMapScenePrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -36,6 +37,34 @@ void ritual_ZN24QGeoTiledMapScenePrivateD1Ev(
   delete self;
 }
 
+//  void QGeoTiledMapScenePrivate::addTile(const QGeoTileSpec &spec,
+//      QSharedPointer<QGeoTileTexture> texture)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoTiledMapScenePrivate7addTileERK12QGeoTileSpec14QSharedPointerI15QGeoTileTextureE(
+    QGeoTiledMapScenePrivate *self,
+    const QGeoTileSpec *spec,
+    const QSharedPointer<QGeoTileTexture> *texture) {
+  self->addTile(*spec, *texture);
+}
+
+//  void QGeoTiledMapScenePrivate::setVisibleTiles(const QSet<QGeoTileSpec>
+//      &visibleTiles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoTiledMapScenePrivate15setVisibleTilesERK4QSetI12QGeoTileSpecE(
+    QGeoTiledMapScenePrivate *self,
+    const QSet<QGeoTileSpec> *visibleTiles) {
+  self->setVisibleTiles(*visibleTiles);
+}
+
+//  void QGeoTiledMapScenePrivate::removeTiles(const QSet<QGeoTileSpec>
+//      &oldTiles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoTiledMapScenePrivate11removeTilesERK4QSetI12QGeoTileSpecE(
+    QGeoTiledMapScenePrivate *self,
+    const QSet<QGeoTileSpec> *oldTiles) {
+  self->removeTiles(*oldTiles);
+}
+
 //  bool QGeoTiledMapScenePrivate::buildGeometry(const QGeoTileSpec &spec,
 //      QSGImageNode *imageNode, bool &overzooming)
 extern "C" Q_DECL_EXPORT
@@ -45,6 +74,15 @@ bool ritual_ZN24QGeoTiledMapScenePrivate13buildGeometryERK12QGeoTileSpecP12QSGIm
     QSGImageNode *imageNode,
     bool *overzooming) {
   return self->buildGeometry(*spec, imageNode, *overzooming);
+}
+
+//  void QGeoTiledMapScenePrivate::updateTileBounds(const QSet<QGeoTileSpec>
+//      &tiles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoTiledMapScenePrivate16updateTileBoundsERK4QSetI12QGeoTileSpecE(
+    QGeoTiledMapScenePrivate *self,
+    const QSet<QGeoTileSpec> *tiles) {
+  self->updateTileBounds(*tiles);
 }
 
 //  void QGeoTiledMapScenePrivate::setupCamera()

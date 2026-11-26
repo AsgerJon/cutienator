@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQmlRegExpFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlRegExpFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQmlRegExpFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQmlRegExpFilter2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,7 @@
     "ritual_ZNK16QQmlRegExpFilter24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
       "bool", "address", "int", "address", "address"
     ],
+    "ritual_ZN16QQmlRegExpFilter13regExpChangedEv": ["nothing", "address"],
     "ritual_ZN16QQmlRegExpFilter6d_funcEv": ["address", "address"],
     "ritual_ZNK16QQmlRegExpFilter6d_funcEv": ["address", "address"],
     "ritual_own_ZNK16QQmlRegExpFilter24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [

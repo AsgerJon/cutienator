@@ -283,6 +283,25 @@ const QMetaObject *ritual_ZNK20QQuickColorAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickColorAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickColorAnimation11qt_metacastEPKc(
+    QQuickColorAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickColorAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickColorAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickColorAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickColorAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickColorAnimation2trEPKcS1_i(

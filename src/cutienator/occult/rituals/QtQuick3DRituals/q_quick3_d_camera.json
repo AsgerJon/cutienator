@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuick3DCamera10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DCamera11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuick3DCamera11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuick3DCamera2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -46,6 +52,16 @@
     ],
     "ritual_ZN14QQuick3DCamera20setLevelOfDetailBiasEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN14QQuick3DCamera28frustumCullingEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DCamera17lookAtNodeChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DCamera24levelOfDetailBiasChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DCameraC1ER19QQuick3DNodePrivateP12QQuick3DNode": [
+      "address", "address", "address"
     ],
     "ritual_ZN14QQuick3DCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"

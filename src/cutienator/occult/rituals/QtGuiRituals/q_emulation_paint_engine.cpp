@@ -6,9 +6,12 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qemulationpaintengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qbrush.h>
+#include <QtGui/qpen.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qpixmap.h>
 #include <QtCore/qpoint.h>
+#include <QtGui/qpaintengine.h>
 #include <QtGui/qimage.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qemulationpaintengine_p.h>
@@ -24,10 +27,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/gui/painting/qemulationpaintengine.cpp, line 112, as _ZN21QEmulationPaintEngine4clipERK11QVectorPathN2Qt13ClipOperationE
-inline void QEmulationPaintEngine::clip(const QVectorPath &path, Qt::ClipOperation op)
+//  from src/gui/painting/qemulationpaintengine.cpp, line 40, as local:qemulationpaintengine.cpp:combineXForm
+static inline void combineXForm(QBrush *brush, const QRectF &r)
 {
-    real_engine->clip(path, op);
+    QTransform t(r.width(), 0, 0, r.height(), r.x(), r.y());
+    if (brush->gradient() && brush->gradient()->coordinateMode() != QGradient::ObjectMode)
+        brush->setTransform(t * brush->transform()); // compat mode
+    else
+        brush->setTransform(brush->transform() * t);
 }
 
 //  from src/gui/painting/qemulationpaintengine.cpp, line 24, as _ZN21QEmulationPaintEngine5beginEP12QPaintDevice
@@ -60,6 +67,45 @@ inline void QEmulationPaintEngine::drawPixmap(const QRectF &r, const QPixmap &pm
     if (state()->bgMode == Qt::OpaqueMode && pm.isQBitmap())
         fillBGRect(r);
     real_engine->drawPixmap(r, pm, sr);
+}
+
+//  from src/gui/painting/qemulationpaintengine.cpp, line 124, as _ZN21QEmulationPaintEngine12drawTextItemERK7QPointFRK9QTextItem
+inline void QEmulationPaintEngine::drawTextItem(const QPointF &p, const QTextItem &textItem)
+{
+    if (state()->bgMode == Qt::OpaqueMode) {
+        const QTextItemInt &ti = static_cast<const QTextItemInt &>(textItem);
+        QRectF rect(p.x(), p.y() - ti.ascent.toReal(), ti.width.toReal(), (ti.ascent + ti.descent).toReal());
+        fillBGRect(rect);
+    }
+
+    QPainterState *s = state();
+    Qt::BrushStyle style = qbrush_style(s->pen.brush());
+    if (style >= Qt::LinearGradientPattern && style <= Qt::ConicalGradientPattern)
+    {
+        QPen savedPen = s->pen;
+        QGradient g = *s->pen.brush().gradient();
+
+        if (g.coordinateMode() > QGradient::LogicalMode) {
+            QBrush copy = s->pen.brush();
+            const QPaintDevice *d = real_engine->painter()->device();
+            const QTextItemInt &ti = static_cast<const QTextItemInt &>(textItem);
+            QRectF r = (g.coordinateMode() == QGradient::StretchToDeviceMode) ?
+                        QRectF(0, 0, d->width(), d->height()) :
+                        QRectF(p.x(), p.y() - ti.ascent.toReal(), ti.width.toReal(), (ti.ascent + ti.descent + 1).toReal());
+            combineXForm(&copy, r);
+            g.setCoordinateMode(QGradient::LogicalMode);
+            QBrush brush(g);
+            brush.setTransform(copy.transform());
+            s->pen.setBrush(brush);
+            penChanged();
+            real_engine->drawTextItem(p, textItem);
+            s->pen = savedPen;
+            penChanged();
+            return;
+        }
+    }
+
+    real_engine->drawTextItem(p, textItem);
 }
 
 //  from src/gui/painting/qemulationpaintengine.cpp, line 162, as _ZN21QEmulationPaintEngine18drawStaticTextItemEP15QStaticTextItem
@@ -189,6 +235,36 @@ QPainterState *ritual_ZNK21QEmulationPaintEngine11createStateEP13QPainterState(
   return self->createState(orig);
 }
 
+//  void QEmulationPaintEngine::fill(const QVectorPath &path, const QBrush
+//      &brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QEmulationPaintEngine4fillERK11QVectorPathRK6QBrush(
+    QEmulationPaintEngine *self,
+    const QVectorPath *path,
+    const QBrush *brush) {
+  self->fill(*path, *brush);
+}
+
+//  void QEmulationPaintEngine::stroke(const QVectorPath &path, const QPen
+//      &pen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QEmulationPaintEngine6strokeERK11QVectorPathRK4QPen(
+    QEmulationPaintEngine *self,
+    const QVectorPath *path,
+    const QPen *pen) {
+  self->stroke(*path, *pen);
+}
+
+//  void QEmulationPaintEngine::clip(const QVectorPath &path,
+//      Qt::ClipOperation op)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QEmulationPaintEngine4clipERK11QVectorPathN2Qt13ClipOperationE(
+    QEmulationPaintEngine *self,
+    const QVectorPath *path,
+    Qt::ClipOperation op) {
+  self->clip(*path, op);
+}
+
 //  void QEmulationPaintEngine::drawPixmap(const QRectF &r, const QPixmap
 //      &pm, const QRectF &sr)
 extern "C" Q_DECL_EXPORT
@@ -198,6 +274,16 @@ void ritual_ZN21QEmulationPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_(
     const QPixmap *pm,
     const QRectF *sr) {
   self->drawPixmap(*r, *pm, *sr);
+}
+
+//  void QEmulationPaintEngine::drawTextItem(const QPointF &p, const
+//      QTextItem &textItem)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QEmulationPaintEngine12drawTextItemERK7QPointFRK9QTextItem(
+    QEmulationPaintEngine *self,
+    const QPointF *p,
+    const QTextItem *textItem) {
+  self->drawTextItem(*p, *textItem);
 }
 
 //  void QEmulationPaintEngine::drawStaticTextItem(QStaticTextItem *item)
@@ -382,6 +468,16 @@ void ritual_own_ZN21QEmulationPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_(
     const QPixmap *pm,
     const QRectF *sr) {
   self->QEmulationPaintEngine::drawPixmap(*r, *pm, *sr);
+}
+
+//  void QEmulationPaintEngine::drawTextItem(const QPointF &p, const
+//      QTextItem &textItem)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN21QEmulationPaintEngine12drawTextItemERK7QPointFRK9QTextItem(
+    QEmulationPaintEngine *self,
+    const QPointF *p,
+    const QTextItem *textItem) {
+  self->QEmulationPaintEngine::drawTextItem(*p, *textItem);
 }
 
 //  void QEmulationPaintEngine::drawStaticTextItem(QStaticTextItem *item)

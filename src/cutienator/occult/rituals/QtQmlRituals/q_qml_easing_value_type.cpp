@@ -10,7 +10,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
+#endif
+#include <QtCore/QList>
 
 //  void QQmlEasingValueType::qt_qmlMarker_foreign()
 extern "C" Q_DECL_EXPORT
@@ -114,9 +117,30 @@ void ritual_ZN19QQmlEasingValueType9setPeriodEd(
   self->setPeriod(a0);
 }
 
+//  void QQmlEasingValueType::setBezierCurve(const QList<qreal> &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQmlEasingValueType14setBezierCurveERK5QListIdE(
+    QQmlEasingValueType *self,
+    const QList<qreal> *a0) {
+  self->setBezierCurve(*a0);
+}
+
+//  QList<qreal> QQmlEasingValueType::bezierCurve() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK19QQmlEasingValueType11bezierCurveEv(
+    const QQmlEasingValueType *self) {
+  return new QList<qreal>(self->bezierCurve());
+}
+
 //  QQmlEasingValueType::~QQmlEasingValueType()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQmlEasingValueTypeD1Ev(QQmlEasingValueType *self) {
+  delete self;
+}
+
+//  a QList<qreal> a ritual of QQmlEasingValueType gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlEasingValueType__QList_qreal(QList<qreal> *self) {
   delete self;
 }
 

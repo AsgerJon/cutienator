@@ -34,6 +34,15 @@ QOpcUaEUInformation *ritual_ZN19QOpcUaEUInformationC1ERK7QStringiRK19QOpcUaLocal
       *description);
 }
 
+//  QOpcUaEUInformation &QOpcUaEUInformation::operator=(const
+//      QOpcUaEUInformation &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaEUInformation *ritual_ZN19QOpcUaEUInformationaSERKS_(
+    QOpcUaEUInformation *self,
+    const QOpcUaEUInformation *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaEUInformation::operator==(const QOpcUaEUInformation &rhs)
 //      const
 extern "C" Q_DECL_EXPORT

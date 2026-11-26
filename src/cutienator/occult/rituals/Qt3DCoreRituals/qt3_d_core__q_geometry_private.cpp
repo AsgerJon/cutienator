@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qgeometry_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qvectornd.h>
 #include <cstring>
 
 //  A Qt3DCore::QGeometryPrivate that Python can take functions over in. Every Qt3DCore::QGeometryPrivate
@@ -65,6 +66,51 @@ extern "C" Q_DECL_EXPORT
 const Qt3DCore::QGeometry *ritual_ZNK8Qt3DCore16QGeometryPrivate6q_funcEv(
     const Qt3DCore::QGeometryPrivate *self) {
   return self->q_func();
+}
+
+//  Qt3DCore::QGeometryPrivate::QGeometryPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QGeometryPrivate *ritual_ZN8Qt3DCore16QGeometryPrivateC1Ev() {
+  return new CuteQt3DCore_QGeometryPrivate();
+}
+
+//  Qt3DCore::QGeometryPrivate::~QGeometryPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore16QGeometryPrivateD1Ev(
+    Qt3DCore::QGeometryPrivate *self) {
+  delete self;
+}
+
+//  void Qt3DCore::QGeometryPrivate::setScene(QScene *scene)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore16QGeometryPrivate8setSceneEPNS_6QSceneE(
+    Qt3DCore::QGeometryPrivate *self,
+    Qt3DCore::QScene *scene) {
+  self->setScene(scene);
+}
+
+//  void Qt3DCore::QGeometryPrivate::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore16QGeometryPrivate6updateEv(
+    Qt3DCore::QGeometryPrivate *self) {
+  self->update();
+}
+
+//  void Qt3DCore::QGeometryPrivate::setExtent(const QVector3D &minExtent,
+//      const QVector3D &maxExtent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore16QGeometryPrivate9setExtentERK9QVector3DS3_(
+    Qt3DCore::QGeometryPrivate *self,
+    const QVector3D *minExtent,
+    const QVector3D *maxExtent) {
+  self->setExtent(*minExtent, *maxExtent);
+}
+
+//  QGeometryPrivate *Qt3DCore::QGeometryPrivate::get(QGeometry *q)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QGeometryPrivate *ritual_ZN8Qt3DCore16QGeometryPrivate3getEPNS_9QGeometryE(
+    Qt3DCore::QGeometry *q) {
+  return Qt3DCore::QGeometryPrivate::get(q);
 }
 
 //  a Python function taken by a CuteQt3DCore_QGeometryPrivate, for the

@@ -37,6 +37,9 @@
     ],
     "ritual_ZN15QWebViewPrivate16deleteAllCookiesEv": ["nothing", "address"],
     "ritual_ZNK15QWebViewPrivate12nativeWindowEv": ["address", "address"],
+    "ritual_ZN15QWebViewPrivate13runJavaScriptERK7QStringRKSt8functionIFvRK8QVariantEE": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_take_QWebViewPrivate": ["bool", "address", "chars", "address"]
   }
 }

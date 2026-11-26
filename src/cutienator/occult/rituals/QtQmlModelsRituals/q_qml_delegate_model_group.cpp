@@ -190,6 +190,25 @@ const QMetaObject *ritual_ZNK22QQmlDelegateModelGroup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDelegateModelGroup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQmlDelegateModelGroup11qt_metacastEPKc(
+    QQmlDelegateModelGroup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDelegateModelGroup::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQmlDelegateModelGroup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDelegateModelGroup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlDelegateModelGroup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQmlDelegateModelGroup2trEPKcS1_i(
@@ -334,6 +353,37 @@ void ritual_ZN22QQmlDelegateModelGroup4moveEP14QQmlV4Function(
     QQmlDelegateModelGroup *self,
     QQmlV4FunctionPtr a0) {
   self->move(a0);
+}
+
+//  void QQmlDelegateModelGroup::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlDelegateModelGroup12countChangedEv(
+    QQmlDelegateModelGroup *self) {
+  self->countChanged();
+}
+
+//  void QQmlDelegateModelGroup::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlDelegateModelGroup11nameChangedEv(
+    QQmlDelegateModelGroup *self) {
+  self->nameChanged();
+}
+
+//  void QQmlDelegateModelGroup::defaultIncludeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlDelegateModelGroup21defaultIncludeChangedEv(
+    QQmlDelegateModelGroup *self) {
+  self->defaultIncludeChanged();
+}
+
+//  void QQmlDelegateModelGroup::changed(const QJSValue &removed, const
+//      QJSValue &inserted)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlDelegateModelGroup7changedERK8QJSValueS2_(
+    QQmlDelegateModelGroup *self,
+    const QJSValue *removed,
+    const QJSValue *inserted) {
+  self->changed(*removed, *inserted);
 }
 
 //  QQmlDelegateModelGroupPrivate *QQmlDelegateModelGroup::d_func()

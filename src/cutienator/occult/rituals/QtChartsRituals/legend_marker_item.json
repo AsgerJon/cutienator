@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16LegendMarkerItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN16LegendMarkerItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16LegendMarkerItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16LegendMarkerItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -77,6 +83,9 @@
       "double", "address"
     ],
     "ritual_ZNK16LegendMarkerItem8itemTypeEv": ["int", "address"],
+    "ritual_ZN16LegendMarkerItem17markerRectChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN16LegendMarkerItem18setItemBrushAndPenEv": [
       "nothing", "address"
     ],

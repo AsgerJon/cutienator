@@ -8,45 +8,6 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQuick3D/private/qquick3dscenemanager_p.h>
-#include <QtQuick3D/private/qquick3dobject_p.h>
-#include <QtQuick3D/private/qquick3dviewport_p.h>
-#include <QtQuick3D/private/qquick3dmodel_p.h>
-#include <QtQuick/QQuickWindow>
-#include <QtQuick3DRuntimeRender/private/qssgrenderlayer_p.h>
-#include <QtQuick3DRuntimeRender/ssg/qssgrendercontextcore.h>
-#include <QtQuick3DRuntimeRender/private/qssgrendermodel_p.h>
-#include <QtQuick3DRuntimeRender/private/qssgrenderer_p.h>
-#include <QtQuick3DRuntimeRender/private/qssgrenderimage_p.h>
-#include <QtQuick3DRuntimeRender/private/qssgrenderlayer_p.h>
-#include <QtQuick3DRuntimeRender/private/qssgrenderroot_p.h>
-#include <QtQuick3DRuntimeRender/ssg/qssgrenderextensions.h>
-#include <QtQuick3DRuntimeRender/private/qssgrenderuserpass_p.h>
-#include <QtQuick3DUtils/private/qssgassert_p.h>
-#include <QtQuick3D/qquick3drenderextensions.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-
-//  Qt's own code, from here to the line of dashes: taken from
-//  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it where Qt did not write it.
-
-//  from ../qtquick3d/src/quick3d/qquick3dscenemanager.cpp, line 46, as _ZN17QSSGCleanupObjectD1Ev
-inline QSSGCleanupObject::~QSSGCleanupObject()
-{
-    QSSG_CHECK(QSSG_DEBUG_COND(m_resourceCleanupQueue.isEmpty()));
-}
-
-//  from ../qtquick3d/src/quick3d/qquick3dscenemanager.cpp, line 51, as _ZN17QSSGCleanupObject16cleanupResourcesEv
-inline void QSSGCleanupObject::cleanupResources()
-{
-    m_rci->renderer()->cleanupResources(m_resourceCleanupQueue);
-    deleteLater();
-}
-//  -----------------------------------------------------------------------
 
 //  A QSSGCleanupObject that Python can take functions over in. Every QSSGCleanupObject
 //  Python makes is one. Each function below asks the Python
@@ -222,6 +183,25 @@ const QMetaObject *ritual_ZNK17QSSGCleanupObject10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSSGCleanupObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QSSGCleanupObject11qt_metacastEPKc(
+    QSSGCleanupObject *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSSGCleanupObject::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QSSGCleanupObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSSGCleanupObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QSSGCleanupObject::~QSSGCleanupObject()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QSSGCleanupObjectD1Ev(QSSGCleanupObject *self) {
@@ -232,7 +212,25 @@ void ritual_ZN17QSSGCleanupObjectD1Ev(QSSGCleanupObject *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QSSGCleanupObject16cleanupResourcesEv(
     QSSGCleanupObject *self) {
-  self->cleanupResources();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSSGCleanupObject")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "cleanupResources()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "cleanupResources()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQSSGCleanupObject, for the function

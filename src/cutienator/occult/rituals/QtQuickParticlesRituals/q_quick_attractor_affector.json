@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickAttractorAffector10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickAttractorAffector11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickAttractorAffector11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickAttractorAffector2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -22,6 +28,21 @@
     ],
     "ritual_ZNK23QQuickAttractorAffector22proportionalToDistanceEv": [
       "int", "address"
+    ],
+    "ritual_ZN23QQuickAttractorAffector15strengthChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickAttractorAffector13pointXChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickAttractorAffector13pointYChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickAttractorAffector24affectedParameterChangedENS_20AffectableParametersE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuickAttractorAffector29proportionalToDistanceChangedENS_10ProportionE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN23QQuickAttractorAffector11setStrengthEd": [
       "nothing", "address", "double"

@@ -207,6 +207,15 @@ bool ritual_ZN16QNativeInterface7Private11QVsp2Screen11removeLayerEi(
   return self->removeLayer(id);
 }
 
+//  void QNativeInterface::Private::QVsp2Screen::addBlendListener(void (*)()
+//      callback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QNativeInterface7Private11QVsp2Screen16addBlendListenerEPFvvE(
+    QNativeInterface::Private::QVsp2Screen *self,
+    void *callback) {
+  self->addBlendListener(reinterpret_cast<void (*)()>(callback));
+}
+
 //  a Python function taken by a CuteQNativeInterface_Private_QVsp2Screen,
 //      for the function named by the key
 extern "C" Q_DECL_EXPORT

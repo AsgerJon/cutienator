@@ -6,12 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK8GLWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN8GLWidget11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8GLWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8GLWidgetD1Ev": ["nothing", "address"],
     "ritual_ZNK8GLWidget10needsResetEv": ["bool", "address"],
     "ritual_ZN8GLWidget7cleanupEv": ["nothing", "address"],
     "ritual_ZN8GLWidget22cleanXYSeriesResourcesEPK9QXYSeries": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8GLWidget12initializeGLEv": ["nothing", "address"],
     "ritual_ZN8GLWidget7paintGLEv": ["nothing", "address"],
     "ritual_ZN8GLWidget8resizeGLEii": ["nothing", "address", "int", "int"],
     "ritual_ZN8GLWidget21mouseDoubleClickEventEP11QMouseEvent": [

@@ -5,6 +5,10 @@
     ".h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QQuickStackElementD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuickStackElement4loadEPN3QV415ExecutionEngineEP15QQuickStackView": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN18QQuickStackElement8incubateEPN3QV415ExecutionEngineEP7QObjectP18RequiredProperties": [
       "nothing", "address", "address", "address", "address"
     ],
@@ -16,6 +20,9 @@
     ],
     "ritual_ZN18QQuickStackElement17prepareTransitionEP26QQuickItemViewTransitionerRK6QRectF": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickStackElement15startTransitionEP26QQuickItemViewTransitionerN15QQuickStackView6StatusE": [
+      "nothing", "address", "address", "int"
     ],
     "ritual_ZN18QQuickStackElement18completeTransitionEP16QQuickTransition": [
       "nothing", "address", "address"

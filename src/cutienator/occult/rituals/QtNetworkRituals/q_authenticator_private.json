@@ -6,15 +6,27 @@
   ],
   "rows": {
     "ritual_ZN21QAuthenticatorPrivateC1Ev": ["address"],
+    "ritual_ZN21QAuthenticatorPrivateaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QAuthenticatorPrivate4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QAuthenticatorPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN21QAuthenticatorPrivate17calculateResponseE14QByteArrayViewS0_11QStringView": [
       "address", "address", "address", "address", "text"
+    ],
+    "ritual_ZN21QAuthenticatorPrivate10getPrivateER14QAuthenticator": [
+      "address", "address"
     ],
     "ritual_ZN21QAuthenticatorPrivate10getPrivateERK14QAuthenticator": [
       "address", "address"
     ],
     "ritual_ZN21QAuthenticatorPrivate17digestMd5ResponseE14QByteArrayViewS0_S0_": [
       "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QAuthenticatorPrivate34parseDigestAuthenticationChallengeE14QByteArrayView": [
+      "address", "address"
     ],
     "ritual_ZN21QAuthenticatorPrivate17parseHttpResponseERK12QHttpHeadersb11QStringView": [
       "nothing", "address", "address", "bool", "text"
@@ -24,6 +36,9 @@
     ],
     "ritual_ZN21QAuthenticatorPrivate17isMethodSupportedE14QByteArrayView": [
       "bool", "address"
+    ],
+    "ritual_drop_QAuthenticatorPrivate__QHash_QByteArray_QByteArray": [
+      "nothing", "address"
     ]
   }
 }

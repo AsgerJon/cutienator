@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK20QQuick3DCustomCamera10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DCustomCamera::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuick3DCustomCamera11qt_metacastEPKc(
+    QQuick3DCustomCamera *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DCustomCamera::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuick3DCustomCamera11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DCustomCamera *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DCustomCamera::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuick3DCustomCamera2trEPKcS1_i(
@@ -51,6 +70,13 @@ void ritual_ZN20QQuick3DCustomCamera13setProjectionERK10QMatrix4x4(
     QQuick3DCustomCamera *self,
     const QMatrix4x4 *projection) {
   self->setProjection(*projection);
+}
+
+//  void QQuick3DCustomCamera::projectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuick3DCustomCamera17projectionChangedEv(
+    QQuick3DCustomCamera *self) {
+  self->projectionChanged();
 }
 
 //  QSSGRenderGraphObject

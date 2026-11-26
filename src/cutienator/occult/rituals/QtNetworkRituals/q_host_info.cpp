@@ -17,10 +17,34 @@ QHostInfo *ritual_ZN9QHostInfoC1ERKS_(const QHostInfo *d) {
   return new QHostInfo(*d);
 }
 
+//  QHostInfo::QHostInfo(QHostInfo &&other)
+extern "C" Q_DECL_EXPORT
+QHostInfo *ritual_ZN9QHostInfoC1EOS_(QHostInfo *other) {
+  return new QHostInfo(std::move(*other));
+}
+
+//  QHostInfo &QHostInfo::operator=(const QHostInfo &d)
+extern "C" Q_DECL_EXPORT
+QHostInfo *ritual_ZN9QHostInfoaSERKS_(QHostInfo *self, const QHostInfo *d) {
+  return &(self->operator=(*d));
+}
+
+//  QHostInfo &QHostInfo::operator=(QHostInfo &&other)
+extern "C" Q_DECL_EXPORT
+QHostInfo *ritual_ZN9QHostInfoaSEOS_(QHostInfo *self, QHostInfo *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QHostInfo::~QHostInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QHostInfoD1Ev(QHostInfo *self) {
   delete self;
+}
+
+//  void QHostInfo::swap(QHostInfo &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QHostInfo4swapERS_(QHostInfo *self, QHostInfo *other) {
+  self->swap(*other);
 }
 
 //  QString QHostInfo::hostName() const

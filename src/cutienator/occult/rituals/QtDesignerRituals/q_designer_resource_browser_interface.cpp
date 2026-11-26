@@ -891,6 +891,25 @@ const QMetaObject *ritual_ZNK33QDesignerResourceBrowserInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerResourceBrowserInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN33QDesignerResourceBrowserInterface11qt_metacastEPKc(
+    QDesignerResourceBrowserInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerResourceBrowserInterface::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN33QDesignerResourceBrowserInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerResourceBrowserInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerResourceBrowserInterface::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -899,6 +918,14 @@ QString *ritual_ZN33QDesignerResourceBrowserInterface2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QDesignerResourceBrowserInterface::tr(s, c, n));
+}
+
+//  QDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface(QWid
+//      get *parent)
+extern "C" Q_DECL_EXPORT
+QDesignerResourceBrowserInterface *ritual_ZN33QDesignerResourceBrowserInterfaceC1EP7QWidget(
+    QWidget *parent) {
+  return new CuteQDesignerResourceBrowserInterface(parent);
 }
 
 //  QDesignerResourceBrowserInterface::~QDesignerResourceBrowserInterface()
@@ -922,6 +949,24 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK33QDesignerResourceBrowserInterface11currentPathEv(
     const QDesignerResourceBrowserInterface *self) {
   return new QString(self->currentPath());
+}
+
+//  void QDesignerResourceBrowserInterface::currentPathChanged(const QString
+//      &filePath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QDesignerResourceBrowserInterface18currentPathChangedERK7QString(
+    QDesignerResourceBrowserInterface *self,
+    const QString *filePath) {
+  self->currentPathChanged(*filePath);
+}
+
+//  void QDesignerResourceBrowserInterface::pathActivated(const QString
+//      &filePath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QDesignerResourceBrowserInterface13pathActivatedERK7QString(
+    QDesignerResourceBrowserInterface *self,
+    const QString *filePath) {
+  self->pathActivated(*filePath);
 }
 
 //  a Python function taken by a CuteQDesignerResourceBrowserInterface, for

@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK14QWaylandOutput10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWaylandOutput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QWaylandOutput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QWaylandOutput2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QWaylandOutput6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QWaylandOutput6d_funcEv": ["address", "address"],
     "ritual_ZN14QWaylandOutput24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -17,6 +25,12 @@
       "address", "address", "address"
     ],
     "ritual_ZN14QWaylandOutputD1Ev": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput12fromResourceEP11wl_resource": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QWaylandOutput17resourceForClientEP14QWaylandClient": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK14QWaylandOutput10compositorEv": ["address", "address"],
     "ritual_ZN14QWaylandOutput13setCompositorEP18QWaylandCompositor": [
       "nothing", "address", "address"
@@ -57,7 +71,13 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK14QWaylandOutput8subpixelEv": ["int", "address"],
+    "ritual_ZN14QWaylandOutput11setSubpixelERKNS_8SubpixelE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QWaylandOutput9transformEv": ["int", "address"],
+    "ritual_ZN14QWaylandOutput12setTransformERKNS_9TransformE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QWaylandOutput11scaleFactorEv": ["int", "address"],
     "ritual_ZN14QWaylandOutput14setScaleFactorEi": [
       "nothing", "address", "int"
@@ -77,6 +97,36 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN14QWaylandOutput6updateEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput17compositorChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput13windowChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput15positionChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput15geometryChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput9modeAddedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput18currentModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWaylandOutput24availableGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWaylandOutput19physicalSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWaylandOutput18scaleFactorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWaylandOutput15subpixelChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput16transformChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput24sizeFollowsWindowChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWaylandOutput30physicalSizeFollowsSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWaylandOutput19manufacturerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWaylandOutput12modelChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput15windowDestroyedEv": ["nothing", "address"],
     "ritual_ZN14QWaylandOutput5eventEP6QEvent": [
       "bool", "address", "address"
     ],

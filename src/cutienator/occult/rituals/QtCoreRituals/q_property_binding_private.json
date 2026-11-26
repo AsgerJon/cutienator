@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN23QPropertyBindingPrivate24getSizeEnsuringAlignmentEv": [
+      "size_t"
+    ],
     "ritual_ZNK23QPropertyBindingPrivate21bindingFunctionVTableEv": [
       "address", "address"
     ],
@@ -22,6 +25,9 @@
     "ritual_ZN23QPropertyBindingPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN23QPropertyBindingPrivate11setPropertyEP20QUntypedPropertyData": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate17setStaticObserverEPFvP20QUntypedPropertyDataEPFb9QMetaTypeS1_N9QtPrivate24QPropertyBindingFunctionEE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN23QPropertyBindingPrivate15prependObserverE24QPropertyObserverPointer": [
       "nothing", "address", "address"
@@ -50,6 +56,15 @@
     "ritual_ZN23QPropertyBindingPrivate14unlinkAndDerefEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QPropertyBindingPrivate17evaluateRecursiveER15QVarLengthArrayI26QPropertyBindingPrivatePtrLx256EEP14QBindingStatus": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate24evaluateRecursive_inlineER15QVarLengthArrayI26QPropertyBindingPrivatePtrLx256EEP14QBindingStatus": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate18notifyNonRecursiveERK15QVarLengthArrayI26QPropertyBindingPrivatePtrLx256EE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN23QPropertyBindingPrivate18notifyNonRecursiveEv": [
       "bool", "address"
     ],
@@ -58,6 +73,9 @@
     ],
     "ritual_ZN23QPropertyBindingPrivate11makeUntypedEPS_": [
       "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate8setErrorEO21QPropertyBindingError": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN23QPropertyBindingPrivate18detachFromPropertyEv": [
       "nothing", "address"

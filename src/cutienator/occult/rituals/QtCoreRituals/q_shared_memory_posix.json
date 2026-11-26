@@ -9,7 +9,19 @@
       "bool", "unsigned short"
     ],
     "ritual_ZN18QSharedMemoryPosix19runtimeSupportCheckEv": ["bool"],
+    "ritual_ZN18QSharedMemoryPosix6handleEP20QSharedMemoryPrivate": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN18QSharedMemoryPosix11cleanHandleEP20QSharedMemoryPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QSharedMemoryPosix6createEP20QSharedMemoryPrivatex": [
+      "bool", "address", "address", "long long"
+    ],
+    "ritual_ZN18QSharedMemoryPosix6attachEP20QSharedMemoryPrivateN13QSharedMemory10AccessModeE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN18QSharedMemoryPosix6detachEP20QSharedMemoryPrivate": [
       "bool", "address", "address"
     ],
     "ritual_ZN18QSharedMemoryPosixD1Ev": ["nothing", "address"]

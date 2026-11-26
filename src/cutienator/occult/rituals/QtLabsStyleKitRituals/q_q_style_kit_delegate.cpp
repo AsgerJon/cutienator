@@ -51,11 +51,55 @@ const QMetaObject *ritual_ZNK18QQStyleKitDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQStyleKitDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQStyleKitDelegate11qt_metacastEPKc(
+    QQStyleKitDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQStyleKitDelegate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQStyleKitDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQStyleKitDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQStyleKitDelegateProperties *QQStyleKitDelegate::delegateStyle() const
 extern "C" Q_DECL_EXPORT
 QQStyleKitDelegateProperties *ritual_ZNK18QQStyleKitDelegate13delegateStyleEv(
     const QQStyleKitDelegate *self) {
   return self->delegateStyle();
+}
+
+//  void QQStyleKitDelegate::delegateStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQStyleKitDelegate20delegateStyleChangedEv(
+    QQStyleKitDelegate *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQStyleKitDelegate")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "delegateStyleChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "delegateStyleChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQStyleKitDelegate::updateImplicitSize()

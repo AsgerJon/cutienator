@@ -13,6 +13,12 @@
     ],
     "ritual_ZNK18QAccessibleDisplay4roleEv": ["int", "address"],
     "ritual_ZNK18QAccessibleDisplay5stateEv": ["address", "address"],
+    "ritual_ZNK18QAccessibleDisplay9relationsE6QFlagsIN11QAccessible12RelationFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QAccessibleDisplay14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK18QAccessibleDisplay16imageDescriptionEv": [
       "text", "address"
     ],
@@ -31,12 +37,18 @@
     ],
     "ritual_own_ZNK18QAccessibleDisplay4roleEv": ["int", "address"],
     "ritual_own_ZNK18QAccessibleDisplay5stateEv": ["address", "address"],
+    "ritual_own_ZN18QAccessibleDisplay14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_own_ZNK18QAccessibleDisplay16imageDescriptionEv": [
       "text", "address"
     ],
     "ritual_own_ZNK18QAccessibleDisplay9imageSizeEv": ["address", "address"],
     "ritual_own_ZNK18QAccessibleDisplay13imagePositionEv": [
       "address", "address"
+    ],
+    "ritual_drop_QAccessibleDisplay__QList_std_pair_QAccessibleInterface_QAccessible_Relation": [
+      "nothing", "address"
     ]
   }
 }

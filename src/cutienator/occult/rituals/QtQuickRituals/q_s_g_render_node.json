@@ -4,6 +4,7 @@
     "QtQuick/qsgrendernode.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QSGRenderNodeC1Ev": ["address"],
     "ritual_ZN13QSGRenderNodeD1Ev": ["nothing", "address"],
     "ritual_ZNK13QSGRenderNode13changedStatesEv": ["int", "address"],
     "ritual_ZN13QSGRenderNode7prepareEv": ["nothing", "address"],

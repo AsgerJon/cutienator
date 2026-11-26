@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK21QQuickPaddedRectangle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPaddedRectangle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickPaddedRectangle11qt_metacastEPKc(
+    QQuickPaddedRectangle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPaddedRectangle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickPaddedRectangle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPaddedRectangle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPaddedRectangle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickPaddedRectangle2trEPKcS1_i(
@@ -145,6 +164,41 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickPaddedRectangle18resetBottomPaddingEv(
     QQuickPaddedRectangle *self) {
   self->resetBottomPadding();
+}
+
+//  void QQuickPaddedRectangle::paddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPaddedRectangle14paddingChangedEv(
+    QQuickPaddedRectangle *self) {
+  self->paddingChanged();
+}
+
+//  void QQuickPaddedRectangle::topPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPaddedRectangle17topPaddingChangedEv(
+    QQuickPaddedRectangle *self) {
+  self->topPaddingChanged();
+}
+
+//  void QQuickPaddedRectangle::leftPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPaddedRectangle18leftPaddingChangedEv(
+    QQuickPaddedRectangle *self) {
+  self->leftPaddingChanged();
+}
+
+//  void QQuickPaddedRectangle::rightPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPaddedRectangle19rightPaddingChangedEv(
+    QQuickPaddedRectangle *self) {
+  self->rightPaddingChanged();
+}
+
+//  void QQuickPaddedRectangle::bottomPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPaddedRectangle20bottomPaddingChangedEv(
+    QQuickPaddedRectangle *self) {
+  self->bottomPaddingChanged();
 }
 
 //  QSGNode *QQuickPaddedRectangle::updatePaintNode(QSGNode *a0,

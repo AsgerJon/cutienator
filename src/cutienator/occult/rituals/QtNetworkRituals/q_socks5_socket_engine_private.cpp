@@ -45,6 +45,43 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 47, as local:qsocks5socketengine.cpp:S5_VERSION_5
+#define S5_VERSION_5 0x05
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 48, as local:qsocks5socketengine.cpp:S5_CONNECT
+#define S5_CONNECT 0x01
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 49, as local:qsocks5socketengine.cpp:S5_BIND
+#define S5_BIND 0x02
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 50, as local:qsocks5socketengine.cpp:S5_UDP_ASSOCIATE
+#define S5_UDP_ASSOCIATE 0x03
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 72, as local:qsocks5socketengine.cpp:QSOCKS5_D_DEBUG
+#if defined(QSOCKS5SOCKETLAYER_DEBUG)
+#  define QSOCKS5_D_DEBUG qDebug() << q_ptr
+#endif  // defined(QSOCKS5SOCKETLAYER_DEBUG)
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 73, as local:qsocks5socketengine.cpp:QSOCKS5_DEBUG
+#if defined(QSOCKS5SOCKETLAYER_DEBUG)
+#  define QSOCKS5_DEBUG qDebug() << "[QSocks5]"
+#endif  // defined(QSOCKS5SOCKETLAYER_DEBUG)
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 261, as local:qsocks5socketengine.cpp:QSocks5Data
+struct QSocks5Data
+{
+    QTcpSocket *controlSocket;
+    QSocks5Authenticator *authenticator;
+};
+
+//  from src/network/socket/qsocks5socketengine.cpp, line 267, as local:qsocks5socketengine.cpp:QSocks5ConnectData
+struct QSocks5ConnectData : public QSocks5Data
+{
+    QRingBuffer readBuffer;
+};
+
 //  from src/network/socket/qabstractsocketengine.cpp, line 40, as _ZN28QAbstractSocketEnginePrivateC2Ev
 inline QAbstractSocketEnginePrivate::QAbstractSocketEnginePrivate()
     : socketError(QAbstractSocket::UnknownSocketError)

@@ -7,13 +7,42 @@
     "ritual_ZNK10Qt3DExtras12QSpriteSheet10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras12QSpriteSheet11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras12QSpriteSheet11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras12QSpriteSheet2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras12QSpriteSheetC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras12QSpriteSheetD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras12QSpriteSheet7spritesEv": ["address", "address"],
+    "ritual_ZN10Qt3DExtras12QSpriteSheet9addSpriteEiiii": [
+      "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN10Qt3DExtras12QSpriteSheet9addSpriteEPNS_16QSpriteSheetItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras12QSpriteSheet12removeSpriteEPNS_16QSpriteSheetItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras12QSpriteSheet10setSpritesE5QListIPNS_16QSpriteSheetItemEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras12QSpriteSheet14spritesChangedE5QListIPNS_16QSpriteSheetItemEE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN10Qt3DExtras12QSpriteSheet6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DExtras12QSpriteSheet6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DExtras_QSpriteSheet": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DExtras_QSpriteSheet__QList_Qt3DExtras_QSpriteSheetItem": [
+      "nothing", "address"
     ]
   }
 }

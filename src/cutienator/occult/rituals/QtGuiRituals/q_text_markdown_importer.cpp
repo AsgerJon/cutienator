@@ -41,6 +41,42 @@ void ritual_ZN21QTextMarkdownImporter6importERK7QString(
   self->import(*markdown);
 }
 
+//  int QTextMarkdownImporter::cbEnterBlock(int blockType, void *detail)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QTextMarkdownImporter12cbEnterBlockEiPv(
+    QTextMarkdownImporter *self,
+    int blockType,
+    void *detail) {
+  return self->cbEnterBlock(blockType, detail);
+}
+
+//  int QTextMarkdownImporter::cbLeaveBlock(int blockType, void *detail)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QTextMarkdownImporter12cbLeaveBlockEiPv(
+    QTextMarkdownImporter *self,
+    int blockType,
+    void *detail) {
+  return self->cbLeaveBlock(blockType, detail);
+}
+
+//  int QTextMarkdownImporter::cbEnterSpan(int spanType, void *detail)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QTextMarkdownImporter11cbEnterSpanEiPv(
+    QTextMarkdownImporter *self,
+    int spanType,
+    void *detail) {
+  return self->cbEnterSpan(spanType, detail);
+}
+
+//  int QTextMarkdownImporter::cbLeaveSpan(int spanType, void *detail)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QTextMarkdownImporter11cbLeaveSpanEiPv(
+    QTextMarkdownImporter *self,
+    int spanType,
+    void *detail) {
+  return self->cbLeaveSpan(spanType, detail);
+}
+
 //  int QTextMarkdownImporter::cbText(int textType, const char *text,
 //      unsigned int size)
 extern "C" Q_DECL_EXPORT

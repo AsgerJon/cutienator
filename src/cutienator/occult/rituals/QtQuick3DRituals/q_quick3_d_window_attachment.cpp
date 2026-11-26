@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK24QQuick3DWindowAttachment10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DWindowAttachment::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuick3DWindowAttachment11qt_metacastEPKc(
+    QQuick3DWindowAttachment *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DWindowAttachment::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuick3DWindowAttachment11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DWindowAttachment *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DWindowAttachment::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQuick3DWindowAttachment2trEPKcS1_i(
@@ -221,6 +240,16 @@ void ritual_ZN24QQuick3DWindowAttachment16cleanupResourcesEv(
   self->cleanupResources();
 }
 
+//  SyncResult
+//      QQuick3DWindowAttachment::synchronize(QSet<QSSGRenderGraphObject *>
+//      &resourceLoaders)
+extern "C" Q_DECL_EXPORT
+QQuick3DWindowAttachment::SyncResult ritual_ZN24QQuick3DWindowAttachment11synchronizeER4QSetIP21QSSGRenderGraphObjectE(
+    QQuick3DWindowAttachment *self,
+    QSet<QSSGRenderGraphObject *> *resourceLoaders) {
+  return self->synchronize(*resourceLoaders);
+}
+
 //  void QQuick3DWindowAttachment::requestUpdate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QQuick3DWindowAttachment13requestUpdateEv(
@@ -249,6 +278,42 @@ QSSGRenderRoot *ritual_ZNK24QQuick3DWindowAttachment8rootNodeEv(
   return self->rootNode();
 }
 
+//  const std::shared_ptr<QSSGRenderContextInterface>
+//      &QQuick3DWindowAttachment::rci() const
+extern "C" Q_DECL_EXPORT
+const std::shared_ptr<QSSGRenderContextInterface> *ritual_ZNK24QQuick3DWindowAttachment3rciEv(
+    const QQuick3DWindowAttachment *self) {
+  return &(self->rci());
+}
+
+//  void QQuick3DWindowAttachment::setRci(const
+//      std::shared_ptr<QSSGRenderContextInterface> &rciptr)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DWindowAttachment6setRciERKSt10shared_ptrI26QSSGRenderContextInterfaceE(
+    QQuick3DWindowAttachment *self,
+    const std::shared_ptr<QSSGRenderContextInterface> *rciptr) {
+  self->setRci(*rciptr);
+}
+
+//  void QQuick3DWindowAttachment::registerSceneManager(QQuick3DSceneManager
+//      &manager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DWindowAttachment20registerSceneManagerER20QQuick3DSceneManager(
+    QQuick3DWindowAttachment *self,
+    QQuick3DSceneManager *manager) {
+  self->registerSceneManager(*manager);
+}
+
+//  void
+//      QQuick3DWindowAttachment::unregisterSceneManager(QQuick3DSceneManager
+//      &manager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DWindowAttachment22unregisterSceneManagerER20QQuick3DSceneManager(
+    QQuick3DWindowAttachment *self,
+    QQuick3DSceneManager *manager) {
+  self->unregisterSceneManager(*manager);
+}
+
 //  void QQuick3DWindowAttachment::queueForCleanup(QSSGRenderGraphObject
 //      *obj)
 extern "C" Q_DECL_EXPORT
@@ -273,6 +338,20 @@ void ritual_ZN24QQuick3DWindowAttachment15queueForCleanupEP15QSSGRenderLayer(
     QQuick3DWindowAttachment *self,
     QSSGRenderLayer *layer) {
   self->queueForCleanup(layer);
+}
+
+//  void QQuick3DWindowAttachment::releaseCachedResources()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DWindowAttachment22releaseCachedResourcesEv(
+    QQuick3DWindowAttachment *self) {
+  self->releaseCachedResources();
+}
+
+//  void QQuick3DWindowAttachment::renderContextInterfaceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QQuick3DWindowAttachment29renderContextInterfaceChangedEv(
+    QQuick3DWindowAttachment *self) {
+  self->renderContextInterfaceChanged();
 }
 
 //  void QQuick3DWindowAttachment::onReleaseCachedResources()

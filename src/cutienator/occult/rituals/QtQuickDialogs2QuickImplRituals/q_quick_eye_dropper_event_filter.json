@@ -5,6 +5,9 @@
     "lordialogimpl_p_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QQuickEyeDropperEventFilterC1ESt8functionIFv6QPointNS_11LeaveReasonEEES0_IFvS1_EE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN27QQuickEyeDropperEventFilter11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],

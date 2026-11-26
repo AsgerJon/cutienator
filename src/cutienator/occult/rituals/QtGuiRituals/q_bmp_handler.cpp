@@ -9,6 +9,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qbmphandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qimage.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -27,6 +28,67 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/image/qbmphandler.cpp, line 45, as local:qbmphandler.cpp:BMP_FILEHDR_SIZE
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+const int BMP_FILEHDR_SIZE = 14;
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
+//  from src/gui/image/qbmphandler.cpp, line 62, as local:qbmphandler.cpp:BMP_OLD
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+const int BMP_OLD  = 12;
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
+//  from src/gui/image/qbmphandler.cpp, line 63, as local:qbmphandler.cpp:BMP_WIN
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+const int BMP_WIN  = 40;
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
+//  from src/gui/image/qbmphandler.cpp, line 65, as local:qbmphandler.cpp:BMP_WIN4
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+const int BMP_WIN4 = 108;
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
+//  from src/gui/image/qbmphandler.cpp, line 68, as local:qbmphandler.cpp:BMP_RGB
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+const int BMP_RGB  = 0;
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
+//  from src/gui/image/qbmphandler.cpp, line 71, as local:qbmphandler.cpp:BMP_BITFIELDS
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+const int BMP_BITFIELDS = 3;
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
+//  from src/gui/image/qbmphandler.cpp, line 72, as local:qbmphandler.cpp:BMP_ALPHABITFIELDS
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+const int BMP_ALPHABITFIELDS = 4;
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
+//  from src/gui/image/qbmphandler.cpp, line 139, as local:qbmphandler.cpp:calc_shift
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+static uint calc_shift(uint mask)
+{
+    uint result = 0;
+    while ((mask >= 0x100) || (!(mask & 1) && mask)) {
+        result++;
+        mask >>= 1;
+    }
+    return result;
+}
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
+//  from src/gui/image/qbmphandler.cpp, line 149, as local:qbmphandler.cpp:calc_scale
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+static uint calc_scale(uint low_mask)
+{
+    uint result = 8;
+    while (low_mask && result) {
+        result--;
+        low_mask >>= 1;
+    }
+    return result;
+}
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
 //  from src/gui/image/qbmphandler.cpp, line 702, as _ZNK11QBmpHandler7canReadEv
 #if !defined(QT_NO_IMAGEFORMAT_BMP)
 inline bool QBmpHandler::canRead() const
@@ -40,23 +102,6 @@ inline bool QBmpHandler::canRead() const
     }
 
     return false;
-}
-#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
-
-//  from src/gui/image/qbmphandler.cpp, line 715, as _ZN11QBmpHandler7canReadEP9QIODevice
-#if !defined(QT_NO_IMAGEFORMAT_BMP)
-inline bool QBmpHandler::canRead(QIODevice *device)
-{
-    if (!device) {
-        qWarning("QBmpHandler::canRead() called with 0 pointer");
-        return false;
-    }
-
-    char head[2];
-    if (device->peek(head, sizeof(head)) != sizeof(head))
-        return false;
-
-    return (qstrncmp(head, "BM", 2) == 0);
 }
 #endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
 
@@ -78,6 +123,23 @@ inline bool QBmpHandler::supportsOption(ImageOption option) const
 }
 #endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
 
+//  from src/gui/image/qbmphandler.cpp, line 715, as _ZN11QBmpHandler7canReadEP9QIODevice
+#if !defined(QT_NO_IMAGEFORMAT_BMP)
+inline bool QBmpHandler::canRead(QIODevice *device)
+{
+    if (!device) {
+        qWarning("QBmpHandler::canRead() called with 0 pointer");
+        return false;
+    }
+
+    char head[2];
+    if (device->peek(head, sizeof(head)) != sizeof(head))
+        return false;
+
+    return (qstrncmp(head, "BM", 2) == 0);
+}
+#endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
 //  from src/gui/image/qbmphandler.cpp, line 674, as _ZNK11QBmpHandler10formatNameEv
 #if !defined(QT_NO_IMAGEFORMAT_BMP)
 inline QByteArray QBmpHandler::formatName() const
@@ -93,6 +155,20 @@ bool ritual_ZNK11QBmpHandler7canReadEv(const QBmpHandler *self) {
   return self->canRead();
 }
 
+//  bool QBmpHandler::read(QImage *image)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QBmpHandler4readEP6QImage(QBmpHandler *self, QImage *image) {
+  return self->read(image);
+}
+
+//  bool QBmpHandler::write(const QImage &image)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QBmpHandler5writeERK6QImage(
+    QBmpHandler *self,
+    const QImage *image) {
+  return self->write(*image);
+}
+
 #if !defined(QT_NO_IMAGEFORMAT_BMP)
 //  bool QBmpHandler::canRead(QIODevice *device)
 extern "C" Q_DECL_EXPORT
@@ -100,6 +176,14 @@ bool ritual_ZN11QBmpHandler7canReadEP9QIODevice(QIODevice *device) {
   return QBmpHandler::canRead(device);
 }
 #endif  // !defined(QT_NO_IMAGEFORMAT_BMP)
+
+//  QVariant QBmpHandler::option(ImageOption option) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK11QBmpHandler6optionEN15QImageIOHandler11ImageOptionE(
+    const QBmpHandler *self,
+    QImageIOHandler::ImageOption option) {
+  return new QVariant(self->option(option));
+}
 
 //  void QBmpHandler::setOption(ImageOption option, const QVariant &value)
 extern "C" Q_DECL_EXPORT

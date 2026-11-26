@@ -9,12 +9,6 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DXr/private/qquick3dxrhandinput_p.h>
 #include <QtQuick3DXr/private/qquick3dxrinputmanager_p.h>
-#if defined(Q_OS_VISIONOS)
-#include "visionos/qquick3dxrinputmanager_visionos_p.h"
-#else
-#endif
-#include <QtQuick3DXr/private/qquick3dxrhandinput_p.h>
-#include <QtQuick3DXr/private/qquick3dxrinputmanager_p.h>
 #include <QtQuick3DXr/private/qquick3dxrhandmodel_p.h>
 #if defined(Q_OS_VISIONOS)
 # include "visionos/qquick3dxrinputmanager_visionos_p.h"
@@ -29,18 +23,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrhandinput.cpp, line 52, as _ZNK19QQuick3DXrHandInput14jointPositionsEv
-inline QList<QVector3D> QQuick3DXrHandInput::jointPositions() const
-{
-    return m_jointPositions;
-}
-
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrhandinput.cpp, line 57, as _ZNK19QQuick3DXrHandInput14jointRotationsEv
-inline QList<QQuaternion> QQuick3DXrHandInput::jointRotations() const
-{
-    return m_jointRotations;
-}
-
 //  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrhandmodel.cpp, line 102, as _ZN19QQuick3DXrHandModel17componentCompleteEv
 inline void QQuick3DXrHandModel::componentComplete()
 {
@@ -53,28 +35,6 @@ inline QQuick3DXrHandModel::Hand QQuick3DXrHandModel::hand() const
 {
     return m_hand;
 }
-
-//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxrhandmodel.cpp, line 57, as _ZN19QQuick3DXrHandModel10updatePoseEv
-inline void QQuick3DXrHandModel::updatePose()
-{
-    if (auto *skin = QQuick3DModel::skin()) {
-        auto jointListProp = skin->joints();
-        int count = jointListProp.count(&jointListProp);
-        const auto positions = m_handTracker->jointPositions();
-        const auto rotations = m_handTracker->jointRotations();
-        for (int i = 0; i < count; ++i) {
-            auto *joint = jointListProp.at(&jointListProp, i);
-            joint->setPosition(positions.at(i));
-            joint->setRotation(rotations.at(i));
-        }
-    } else {
-        static bool warned = false;
-        if (!warned) {
-            qWarning() << "No skin available for hand model";
-            warned = true;
-        }
-    }
-}
 //  -----------------------------------------------------------------------
 
 //  const QMetaObject *QQuick3DXrHandModel::metaObject() const
@@ -82,6 +42,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK19QQuick3DXrHandModel10metaObjectEv(
     const QQuick3DXrHandModel *self) {
   return self->metaObject();
+}
+
+//  void *QQuick3DXrHandModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuick3DXrHandModel11qt_metacastEPKc(
+    QQuick3DXrHandModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DXrHandModel::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuick3DXrHandModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DXrHandModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  void QQuick3DXrHandModel::componentComplete()
@@ -98,9 +77,77 @@ QQuick3DXrHandModel::Hand ritual_ZNK19QQuick3DXrHandModel4handEv(
   return self->hand();
 }
 
+//  void QQuick3DXrHandModel::handChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandModel11handChangedEv(
+    QQuick3DXrHandModel *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DXrHandModel::handTrackerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuick3DXrHandModel18handTrackerChangedEv(
+    QQuick3DXrHandModel *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "handTrackerChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "handTrackerChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuick3DXrHandModel::updatePose()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QQuick3DXrHandModel10updatePoseEv(
     QQuick3DXrHandModel *self) {
-  self->updatePose();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DXrHandModel")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updatePose()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updatePose()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }

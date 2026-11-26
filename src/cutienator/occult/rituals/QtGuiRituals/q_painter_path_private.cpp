@@ -7,6 +7,10 @@
 #include <QtGui/6.12.0/QtGui/private/qpainterpath_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qpoint.h>
+#include <QtGui/qpainterpath.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/private/qbezier_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qpainterpath.h>
 #include <QtGui/private/qpainterpath_p.h>
@@ -40,6 +44,62 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from src/gui/painting/qpainterpath.cpp, line 3064, as local:qpainterpath.cpp:uncached_bezierAtT
+static inline QBezier uncached_bezierAtT(const QPainterPath &path, qreal t, qreal *startingLength,
+                                         qreal *bezierLength)
+{
+    *startingLength = 0;
+    if (t > 1)
+        return QBezier();
+
+    qreal curLen = 0;
+    qreal totalLength = path.length();
+
+    const int lastElement = path.elementCount() - 1;
+    for (int i=0; i <= lastElement; ++i) {
+        const QPainterPath::Element &e = path.elementAt(i);
+
+        switch (e.type) {
+        case QPainterPath::MoveToElement:
+            break;
+        case QPainterPath::LineToElement:
+        {
+            QLineF line(path.elementAt(i-1), e);
+            qreal llen = line.length();
+            curLen += llen;
+            if (i == lastElement || curLen/totalLength >= t) {
+                *bezierLength = llen;
+                QPointF a = path.elementAt(i-1);
+                QPointF delta = e - a;
+                return QBezier::fromPoints(a, a + delta / 3, a + 2 * delta / 3, e);
+            }
+            break;
+        }
+        case QPainterPath::CurveToElement:
+        {
+            QBezier b = QBezier::fromPoints(path.elementAt(i-1),
+                                            e,
+                                            path.elementAt(i+1),
+                                            path.elementAt(i+2));
+            qreal blen = b.length();
+            curLen += blen;
+
+            if (i + 2 == lastElement || curLen/totalLength >= t) {
+                *bezierLength = blen;
+                return b;
+            }
+
+            i += 2;
+            break;
+        }
+        default:
+            break;
+        }
+        *startingLength = curLen;
+    }
+    return QBezier();
+}
 
 //  from src/gui/painting/qpainterpath.cpp, line 3706, as _ZN19QPainterPathPrivate17computeRunLengthsEv
 inline void QPainterPathPrivate::computeRunLengths()
@@ -77,6 +137,36 @@ inline void QPainterPathPrivate::computeRunLengths()
     Q_ASSERT(m_runLengths.size() == elements.size());
 
     dirtyRunLengths = false;
+}
+
+//  from src/gui/painting/qpainterpath.cpp, line 3119, as _ZNK19QPainterPathPrivate9bezierAtTERK12QPainterPathdPdS3_
+inline QBezier QPainterPathPrivate::bezierAtT(const QPainterPath &path, qreal t, qreal *startingLength,
+                                       qreal *bezierLength) const
+{
+    Q_ASSERT(t >= 0 && t <= 1);
+    QPainterPathPrivate *d = path.d_func();
+    if (!path.isEmpty() && d->cacheEnabled) {
+        const int ei = qMax(d->elementAtT(t), 1); // Avoid the initial MoveTo element
+        const qreal prevRunLength = d->m_runLengths[ei - 1];
+        *startingLength = prevRunLength;
+        *bezierLength = d->m_runLengths[ei] - prevRunLength;
+        const QPointF prev = d->elements[ei - 1];
+        const QPainterPath::Element &e = d->elements[ei];
+        switch (e.type) {
+        case QPainterPath::LineToElement:
+        {
+            QPointF delta = (e - prev) / 3;
+            return QBezier::fromPoints(prev, prev + delta, prev + 2 * delta, e);
+        }
+        case QPainterPath::CurveToElement:
+            return QBezier::fromPoints(prev, e, elements[ei + 1], elements[ei + 2]);
+            break;
+        default:
+            Q_UNREACHABLE();
+        }
+    }
+
+    return uncached_bezierAtT(path, t, startingLength, bezierLength);
 }
 
 //  from src/gui/painting/qpainterpath.cpp, line 3369, as _ZN19QPainterPathPrivate20appendTrimmedElementEP12QPainterPathiidd
@@ -232,6 +322,23 @@ int ritual_ZN19QPainterPathPrivate10elementAtTEd(
   return self->elementAtT(t);
 }
 
+//  QBezier QPainterPathPrivate::bezierAtT(const QPainterPath &path, qreal t,
+//      qreal *startingLength, qreal *bezierLength) const
+extern "C" Q_DECL_EXPORT
+QBezier *ritual_ZNK19QPainterPathPrivate9bezierAtTERK12QPainterPathdPdS3_(
+    const QPainterPathPrivate *self,
+    const QPainterPath *path,
+    qreal t,
+    qreal *startingLength,
+    qreal *bezierLength) {
+  return new QBezier(
+      self->bezierAtT(
+          *path,
+          t,
+          startingLength,
+          bezierLength));
+}
+
 //  void QPainterPathPrivate::appendTrimmedElement(QPainterPath *to, int
 //      elemIdx, int trimFlags, qreal startLen, qreal endLen)
 extern "C" Q_DECL_EXPORT
@@ -288,4 +395,11 @@ void ritual_ZN19QPainterPathPrivate18appendElementRangeEP12QPainterPathii(
     int first,
     int last) {
   self->appendElementRange(to, first, last);
+}
+
+//  const QVectorPath &QPainterPathPrivate::vectorPath()
+extern "C" Q_DECL_EXPORT
+const QVectorPath *ritual_ZN19QPainterPathPrivate10vectorPathEv(
+    QPainterPathPrivate *self) {
+  return &(self->vectorPath());
 }

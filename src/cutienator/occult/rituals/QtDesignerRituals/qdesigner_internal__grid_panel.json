@@ -8,8 +8,45 @@
     "ritual_ZNK18qdesigner_internal9GridPanel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal9GridPanel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal9GridPanel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal9GridPanel2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal9GridPanelC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal9GridPanelD1Ev": ["nothing", "address"],
+    "ritual_ZN18qdesigner_internal9GridPanel8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal9GridPanel7setGridERKNS_4GridE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal9GridPanel4gridEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal9GridPanel12setCheckableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal9GridPanel11isCheckableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal9GridPanel9isCheckedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal9GridPanel10setCheckedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal9GridPanel21setResetButtonVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal9GridPanel5resetEv": [
+      "nothing", "address"
     ],
     "ritual_take_qdesigner_internal_GridPanel": [
       "bool", "address", "chars", "address"

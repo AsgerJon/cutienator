@@ -6,6 +6,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QPair>
 
 //  A QDesignerLayoutDecorationExtension that Python can take functions over in. Every QDesignerLayoutDecorationExtension
 //  Python makes is one. Each function below asks the Python
@@ -268,6 +269,23 @@ int ritual_ZNK34QDesignerLayoutDecorationExtension12currentIndexEv(
   return self->currentIndex();
 }
 
+//  QPair<int, int> QDesignerLayoutDecorationExtension::currentCell() const
+extern "C" Q_DECL_EXPORT
+QPair<int, int> *ritual_ZNK34QDesignerLayoutDecorationExtension11currentCellEv(
+    const QDesignerLayoutDecorationExtension *self) {
+  return new QPair<int, int>(self->currentCell());
+}
+
+//  void QDesignerLayoutDecorationExtension::insertWidget(QWidget *widget,
+//      const QPair<int, int> &cell)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN34QDesignerLayoutDecorationExtension12insertWidgetEP7QWidgetRKSt4pairIiiE(
+    QDesignerLayoutDecorationExtension *self,
+    QWidget *widget,
+    const QPair<int, int> *cell) {
+  self->insertWidget(widget, *cell);
+}
+
 //  void QDesignerLayoutDecorationExtension::removeWidget(QWidget *widget)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN34QDesignerLayoutDecorationExtension12removeWidgetEP7QWidget(
@@ -336,4 +354,11 @@ bool ritual_take_QDesignerLayoutDecorationExtension(
     const char *key,
     void *call) {
   return static_cast<CuteQDesignerLayoutDecorationExtension *>(self)->take(key, call);
+}
+
+//  a QPair<int, int> a ritual of QDesignerLayoutDecorationExtension gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDesignerLayoutDecorationExtension__QPair_int_int(
+    QPair<int, int> *self) {
+  delete self;
 }

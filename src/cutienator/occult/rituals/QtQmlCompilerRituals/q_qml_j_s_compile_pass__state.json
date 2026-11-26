@@ -29,6 +29,12 @@
     "ritual_ZN17QQmlJSCompilePass5State18addReadAccumulatorE21QQmlJSRegisterContent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK17QQmlJSCompilePass5State17takeReadRegistersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State16setReadRegistersE8QFlatMapIiNS_15VirtualRegisterESt4lessIiE5QListIiES5_IS2_EE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QQmlJSCompilePass5State12readRegisterEi": [
       "address", "address", "int"
     ],
@@ -78,6 +84,9 @@
     "ritual_ZN17QQmlJSCompilePass5State15applyAnnotationERKNS_21InstructionAnnotationE": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN17QQmlJSCompilePass5StateD1Ev": ["nothing", "address"]
+    "ritual_ZN17QQmlJSCompilePass5StateD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlJSCompilePass_State__QQmlJSCompilePass_VirtualRegisters": [
+      "nothing", "address"
+    ]
   }
 }

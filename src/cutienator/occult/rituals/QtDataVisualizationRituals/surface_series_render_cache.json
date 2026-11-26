@@ -40,11 +40,20 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK24SurfaceSeriesRenderCache6seriesEv": ["address", "address"],
+    "ritual_ZN24SurfaceSeriesRenderCache9dataArrayEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache14sliceDataArrayEv": [
+      "address", "address"
+    ],
     "ritual_ZNK24SurfaceSeriesRenderCache10renderableEv": [
       "bool", "address"
     ],
     "ritual_ZN24SurfaceSeriesRenderCache19setSelectionTextureEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache16selectionTextureEv": [
+      "unsigned int", "address"
     ],
     "ritual_ZN24SurfaceSeriesRenderCache19setSelectionIdRangeEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
@@ -93,6 +102,9 @@
     ],
     "ritual_ZN24SurfaceSeriesRenderCache17setSurfaceTextureEj": [
       "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache14surfaceTextureEv": [
+      "unsigned int", "address"
     ],
     "ritual_take_SurfaceSeriesRenderCache": [
       "bool", "address", "chars", "address"

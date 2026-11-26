@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQuick/qsggeometry.h, Qt 6.12.0. Changes made here are lost."
+    "QtQuick/qsggeometry.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN11QSGGeometry25defaultAttributes_Point2DEv": ["address"],
@@ -26,6 +27,7 @@
     "ritual_ZN11QSGGeometry14setVertexCountEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN11QSGGeometry10vertexDataEv": ["address", "address"],
     "ritual_ZN11QSGGeometry19vertexDataAsPoint2DEv": ["address", "address"],
     "ritual_ZN11QSGGeometry27vertexDataAsTexturedPoint2DEv": [
       "address", "address"
@@ -33,6 +35,7 @@
     "ritual_ZN11QSGGeometry26vertexDataAsColoredPoint2DEv": [
       "address", "address"
     ],
+    "ritual_ZNK11QSGGeometry10vertexDataEv": ["address", "address"],
     "ritual_ZNK11QSGGeometry19vertexDataAsPoint2DEv": ["address", "address"],
     "ritual_ZNK11QSGGeometry27vertexDataAsTexturedPoint2DEv": [
       "address", "address"
@@ -43,7 +46,11 @@
     "ritual_ZNK11QSGGeometry9indexTypeEv": ["int", "address"],
     "ritual_ZNK11QSGGeometry10indexCountEv": ["int", "address"],
     "ritual_ZN11QSGGeometry13setIndexCountEi": ["nothing", "address", "int"],
+    "ritual_ZN11QSGGeometry9indexDataEv": ["address", "address"],
     "ritual_ZNK11QSGGeometry11sizeOfIndexEv": ["int", "address"],
+    "ritual_ZNK11QSGGeometry9indexDataEv": ["address", "address"],
+    "ritual_ZNK11QSGGeometry15indexDataAsUIntEv": ["address", "address"],
+    "ritual_ZNK11QSGGeometry17indexDataAsUShortEv": ["address", "address"],
     "ritual_ZNK11QSGGeometry14attributeCountEv": ["int", "address"],
     "ritual_ZNK11QSGGeometry10attributesEv": ["address", "address"],
     "ritual_ZNK11QSGGeometry12sizeOfVertexEv": ["int", "address"],
@@ -67,6 +74,10 @@
     "ritual_ZN11QSGGeometry18markIndexDataDirtyEv": ["nothing", "address"],
     "ritual_ZN11QSGGeometry19markVertexDataDirtyEv": ["nothing", "address"],
     "ritual_ZNK11QSGGeometry9lineWidthEv": ["float", "address"],
-    "ritual_ZN11QSGGeometry12setLineWidthEf": ["nothing", "address", "float"]
+    "ritual_ZN11QSGGeometry12setLineWidthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN11QSGGeometry17indexDataAsUShortEv": ["address", "address"],
+    "ritual_ZN11QSGGeometry15indexDataAsUIntEv": ["address", "address"]
   }
 }

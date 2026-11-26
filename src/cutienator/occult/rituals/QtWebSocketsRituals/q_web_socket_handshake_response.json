@@ -8,6 +8,12 @@
     "ritual_ZNK27QWebSocketHandshakeResponse10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QWebSocketHandshakeResponse11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QWebSocketHandshakeResponse11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QWebSocketHandshakeResponseD1Ev": ["nothing", "address"],
     "ritual_ZNK27QWebSocketHandshakeResponse7isValidEv": ["bool", "address"],
     "ritual_ZNK27QWebSocketHandshakeResponse10canUpgradeEv": [
@@ -28,6 +34,9 @@
     ],
     "ritual_ZNK27QWebSocketHandshakeResponse18calculateAcceptKeyERK7QString": [
       "text", "address", "text"
+    ],
+    "ritual_ZNK27QWebSocketHandshakeResponse13writeToStreamER11QTextStream": [
+      "address", "address", "address"
     ],
     "ritual_take_QWebSocketHandshakeResponse": [
       "bool", "address", "chars", "address"

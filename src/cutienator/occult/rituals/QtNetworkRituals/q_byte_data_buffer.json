@@ -5,19 +5,34 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QByteDataBuffer8popFrontER10QByteArrayx": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZN15QByteDataBuffer12squeezeFirstEv": ["nothing", "address"],
     "ritual_ZN15QByteDataBuffer6appendERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QByteDataBuffer6appendEOS_": [
       "nothing", "address", "address"
     ],
     "ritual_ZN15QByteDataBuffer6appendERK10QByteArray": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QByteDataBuffer6appendEO10QByteArray": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QByteDataBuffer7prependERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QByteDataBuffer7prependEO10QByteArray": [
       "nothing", "address", "address"
     ],
     "ritual_ZN15QByteDataBuffer4readEv": ["address", "address"],
     "ritual_ZN15QByteDataBuffer7readAllEv": ["address", "address"],
     "ritual_ZN15QByteDataBuffer4readEx": ["address", "address", "long long"],
+    "ritual_ZN15QByteDataBuffer4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZNK15QByteDataBuffer11readPointerEv": ["address", "address"],
     "ritual_ZN15QByteDataBuffer18advanceReadPointerEx": [
       "nothing", "address", "long long"
@@ -28,6 +43,7 @@
     "ritual_ZNK15QByteDataBuffer11bufferCountEv": ["long long", "address"],
     "ritual_ZNK15QByteDataBuffer7isEmptyEv": ["bool", "address"],
     "ritual_ZNK15QByteDataBuffer13sizeNextBlockEv": ["long long", "address"],
+    "ritual_ZN15QByteDataBufferixEx": ["address", "address", "long long"],
     "ritual_ZNK15QByteDataBuffer11canReadLineEv": ["bool", "address"],
     "ritual_ZNK15QByteDataBuffer4lastEv": ["address", "address"],
     "ritual_ZN15QByteDataBufferD1Ev": ["nothing", "address"]

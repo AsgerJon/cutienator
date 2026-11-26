@@ -11,7 +11,9 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlfilterbase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qlist.h>
 
 //  const QMetaObject *QQmlFilterBase::metaObject() const
@@ -19,6 +21,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK14QQmlFilterBase10metaObjectEv(
     const QQmlFilterBase *self) {
   return self->metaObject();
+}
+
+//  void *QQmlFilterBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQmlFilterBase11qt_metacastEPKc(
+    QQmlFilterBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlFilterBase::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQmlFilterBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlFilterBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQmlFilterBase::tr(const char *s, const char *c, int n)
@@ -120,6 +140,38 @@ bool ritual_ZNK14QQmlFilterBase22supportColumnFilteringEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14QQmlFilterBase8isActiveEv(const QQmlFilterBase *self) {
   return self->isActive();
+}
+
+//  void QQmlFilterBase::invalidateModel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlFilterBase15invalidateModelEv(QQmlFilterBase *self) {
+  self->invalidateModel();
+}
+
+//  void QQmlFilterBase::invalidateCache(QQmlFilterBase *filter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlFilterBase15invalidateCacheEPS_(
+    QQmlFilterBase *self,
+    QQmlFilterBase *filter) {
+  self->invalidateCache(filter);
+}
+
+//  void QQmlFilterBase::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlFilterBase14enabledChangedEv(QQmlFilterBase *self) {
+  self->enabledChanged();
+}
+
+//  void QQmlFilterBase::invertedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlFilterBase15invertedChangedEv(QQmlFilterBase *self) {
+  self->invertedChanged();
+}
+
+//  void QQmlFilterBase::columnChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlFilterBase13columnChangedEv(QQmlFilterBase *self) {
+  self->columnChanged();
 }
 
 //  QQmlFilterBase::QQmlFilterBase(QQmlFilterBasePrivate *privObj, QObject

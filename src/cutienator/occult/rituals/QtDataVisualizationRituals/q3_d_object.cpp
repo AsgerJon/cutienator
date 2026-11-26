@@ -180,6 +180,22 @@ const QMetaObject *ritual_ZNK9Q3DObject10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DObject::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Q3DObject11qt_metacastEPKc(Q3DObject *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DObject::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Q3DObject11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DObject *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DObject::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9Q3DObject2trEPKcS1_i(
@@ -201,6 +217,14 @@ void ritual_ZN9Q3DObjectD1Ev(Q3DObject *self) {
   delete self;
 }
 
+//  void Q3DObject::copyValuesFrom(const Q3DObject &source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DObject14copyValuesFromERKS_(
+    Q3DObject *self,
+    const Q3DObject *source) {
+  self->copyValuesFrom(*source);
+}
+
 //  Q3DScene *Q3DObject::parentScene()
 extern "C" Q_DECL_EXPORT
 Q3DScene *ritual_ZN9Q3DObject11parentSceneEv(Q3DObject *self) {
@@ -219,6 +243,14 @@ void ritual_ZN9Q3DObject11setPositionERK9QVector3D(
     Q3DObject *self,
     const QVector3D *position) {
   self->setPosition(*position);
+}
+
+//  void Q3DObject::positionChanged(const QVector3D &position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Q3DObject15positionChangedERK9QVector3D(
+    Q3DObject *self,
+    const QVector3D *position) {
+  self->positionChanged(*position);
 }
 
 //  void Q3DObject::setDirty(bool dirty)

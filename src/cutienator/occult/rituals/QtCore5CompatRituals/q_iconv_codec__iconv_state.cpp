@@ -33,6 +33,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qt5compat/src/core5/codecs/qiconvcodec.cpp, line 63, as _ZN11QIconvCodec10IconvStateC1EPv
+inline QIconvCodec::IconvState::IconvState(iconv_t x)
+    : buffer(array), bufferLen(sizeof array), cd(x)
+{
+}
+
 //  from ../qt5compat/src/core5/codecs/qiconvcodec.cpp, line 68, as _ZN11QIconvCodec10IconvStateD1Ev
 inline QIconvCodec::IconvState::~IconvState()
 {
@@ -54,6 +60,12 @@ inline void QIconvCodec::IconvState::saveChars(const char *c, int count)
     memcpy(buffer, c, count);
 }
 //  -----------------------------------------------------------------------
+
+//  QIconvCodec::IconvState::IconvState(iconv_t x)
+extern "C" Q_DECL_EXPORT
+QIconvCodec::IconvState *ritual_ZN11QIconvCodec10IconvStateC1EPv(iconv_t x) {
+  return new QIconvCodec::IconvState(x);
+}
 
 //  QIconvCodec::IconvState::~IconvState()
 extern "C" Q_DECL_EXPORT

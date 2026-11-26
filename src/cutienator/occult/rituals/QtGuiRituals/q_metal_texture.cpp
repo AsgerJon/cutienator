@@ -121,6 +121,33 @@ public:
   }
 };
 
+//  void QMetalTexture::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMetalTexture7destroyEv(QMetalTexture *self) {
+  self->destroy();
+}
+
+//  bool QMetalTexture::create()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QMetalTexture6createEv(QMetalTexture *self) {
+  return self->create();
+}
+
+//  bool QMetalTexture::createFrom(NativeTexture src)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QMetalTexture10createFromEN11QRhiTexture13NativeTextureE(
+    QMetalTexture *self,
+    const QRhiTexture::NativeTexture *src) {
+  return self->createFrom(*src);
+}
+
+//  NativeTexture QMetalTexture::nativeTexture()
+extern "C" Q_DECL_EXPORT
+QRhiTexture::NativeTexture *ritual_ZN13QMetalTexture13nativeTextureEv(
+    QMetalTexture *self) {
+  return new QRhiTexture::NativeTexture(self->nativeTexture());
+}
+
 //  a Python function taken by a CuteQMetalTexture, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

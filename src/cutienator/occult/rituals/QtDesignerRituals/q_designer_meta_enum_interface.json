@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QDesignerMetaEnumInterfaceC1Ev": ["address"],
     "ritual_ZN26QDesignerMetaEnumInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK26QDesignerMetaEnumInterface6isFlagEv": ["bool", "address"],
     "ritual_ZNK26QDesignerMetaEnumInterface3keyEi": [

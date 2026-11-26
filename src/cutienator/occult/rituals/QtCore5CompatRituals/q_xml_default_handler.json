@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore5Compat/qxml.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN18QXmlDefaultHandlerC1Ev": ["address"],
@@ -159,6 +160,12 @@
     "ritual_own_ZN18QXmlDefaultHandler18externalEntityDeclERK7QStringS2_S2_": [
       "bool", "address", "text", "text", "text"
     ],
-    "ritual_own_ZNK18QXmlDefaultHandler11errorStringEv": ["text", "address"]
+    "ritual_own_ZNK18QXmlDefaultHandler11errorStringEv": ["text", "address"],
+    "ritual_ZN18QXmlDefaultHandler13resolveEntityERK7QStringS2_RP15QXmlInputSource": [
+      "bool", "address", "text", "text", "address"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler13resolveEntityERK7QStringS2_RP15QXmlInputSource": [
+      "bool", "address", "text", "text", "address"
+    ]
   }
 }

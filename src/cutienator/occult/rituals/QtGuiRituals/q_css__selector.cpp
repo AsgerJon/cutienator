@@ -10,6 +10,28 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qcssparser_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+
+//  int QCss::Selector::specificity() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK4QCss8Selector11specificityEv(const QCss::Selector *self) {
+  return self->specificity();
+}
+
+//  quint64 QCss::Selector::pseudoClass(quint64 *negated) const
+extern "C" Q_DECL_EXPORT
+quint64 ritual_ZNK4QCss8Selector11pseudoClassEPy(
+    const QCss::Selector *self,
+    quint64 *negated) {
+  return self->pseudoClass(negated);
+}
+
+//  QString QCss::Selector::pseudoElement() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK4QCss8Selector13pseudoElementEv(
+    const QCss::Selector *self) {
+  return new QString(self->pseudoElement());
+}
 
 //  QCss::Selector::~Selector()
 extern "C" Q_DECL_EXPORT

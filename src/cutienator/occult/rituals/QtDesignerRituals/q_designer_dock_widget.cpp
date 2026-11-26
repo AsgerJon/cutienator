@@ -907,6 +907,25 @@ const QMetaObject *ritual_ZNK19QDesignerDockWidget10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerDockWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QDesignerDockWidget11qt_metacastEPKc(
+    QDesignerDockWidget *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerDockWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QDesignerDockWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerDockWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerDockWidget::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QDesignerDockWidget2trEPKcS1_i(

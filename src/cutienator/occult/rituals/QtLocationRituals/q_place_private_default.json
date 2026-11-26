@@ -54,6 +54,11 @@
     "ritual_ZNK20QPlacePrivateDefault18extendedAttributesEv": [
       "address", "address"
     ],
+    "ritual_ZN20QPlacePrivateDefault18extendedAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault8contactsEv": ["address", "address"],
+    "ritual_ZN20QPlacePrivateDefault8contactsEv": ["address", "address"],
     "ritual_take_QPlacePrivateDefault": [
       "bool", "address", "chars", "address"
     ],
@@ -101,6 +106,9 @@
     ],
     "ritual_own_ZN20QPlacePrivateDefault17setDetailsFetchedEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_drop_QPlacePrivateDefault__QMap_QString_QList_QPlaceContactDetail": [
+      "nothing", "address"
     ]
   }
 }

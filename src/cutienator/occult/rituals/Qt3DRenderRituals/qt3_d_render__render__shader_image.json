@@ -5,6 +5,13 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render11ShaderImageC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render11ShaderImage7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render11ShaderImage16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render11ShaderImage9textureIdEv": [
       "address", "address"
     ],
@@ -18,6 +25,11 @@
     "ritual_ZNK10Qt3DRender6Render11ShaderImage6accessEv": [
       "int", "address"
     ],
-    "ritual_ZNK10Qt3DRender6Render11ShaderImage6formatEv": ["int", "address"]
+    "ritual_ZNK10Qt3DRender6Render11ShaderImage6formatEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render11ShaderImage16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ]
   }
 }

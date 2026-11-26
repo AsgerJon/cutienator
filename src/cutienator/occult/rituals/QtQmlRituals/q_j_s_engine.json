@@ -1,15 +1,22 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/qjsengine.h, Qt 6.12.0. Changes made here are lost."
+    "QtQml/qjsengine.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK9QJSEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QJSEngine11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QJSEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QJSEngine2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QJSEngineC1Ev": ["address"],
     "ritual_ZN9QJSEngineC1EP7QObject": ["address", "address"],
     "ritual_ZN9QJSEngineD1Ev": ["nothing", "address"],
     "ritual_ZNK9QJSEngine12globalObjectEv": ["address", "address"],
+    "ritual_ZN9QJSEngine8evaluateERK7QStringS2_iP5QListIS0_E": [
+      "address", "address", "text", "text", "int", "address"
+    ],
     "ritual_ZN9QJSEngine12importModuleERK7QString": [
       "address", "address", "text"
     ],
@@ -56,6 +63,37 @@
     "ritual_ZN9QJSEngine13setUiLanguageERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN9QJSEngine17uiLanguageChangedEv": ["nothing", "address"],
+    "ritual_ZN9QJSEngine15createPrimitiveE9QMetaTypePKv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine13createManagedE9QMetaTypePKv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine6createE9QMetaTypePKv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine16convertPrimitiveERK17QJSPrimitiveValue9QMetaTypePv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine14convertManagedERK15QJSManagedValueiPv": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN9QJSEngine14convertManagedERK15QJSManagedValue9QMetaTypePv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine9convertV2ERK8QJSValue9QMetaTypePv": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine13convertStringERK7QString9QMetaTypePv": [
+      "bool", "text", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine14convertVariantERK8QVariant9QMetaTypePv": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine15convertMetaTypeE9QMetaTypePKvS0_Pv": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN9QJSEngine22convertQObjectToStringEP7QObject": [
       "text", "address", "address"
     ],
@@ -68,8 +106,138 @@
     "ritual_ZN9QJSEngine21convertDateTimeToDateERK9QDateTime": [
       "address", "address"
     ],
+    "ritual_ZN9QJSEngineC1ER16QJSEnginePrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QJSEngine6d_funcEv": ["address", "address"],
     "ritual_ZNK9QJSEngine6d_funcEv": ["address", "address"],
-    "ritual_take_QJSEngine": ["bool", "address", "chars", "address"]
+    "ritual_take_QJSEngine": ["bool", "address", "chars", "address"],
+    "ritual_drop_QJSEngine__QJSManagedValue": ["nothing", "address"],
+    "ritual_ZN9QJSEngine13toScriptValueIiEE8QJSValueRKT_": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN9QJSEngine13toScriptValueIdEE8QJSValueRKT_": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN9QJSEngine13toScriptValueIbEE8QJSValueRKT_": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN9QJSEngine13toScriptValueI7QStringEE8QJSValueRKT_": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN9QJSEngine13toScriptValueI8QVariantEE8QJSValueRKT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine14toManagedValueIiEE15QJSManagedValueRKT_": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN9QJSEngine14toManagedValueIdEE15QJSManagedValueRKT_": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN9QJSEngine14toManagedValueIbEE15QJSManagedValueRKT_": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN9QJSEngine14toManagedValueI7QStringEE15QJSManagedValueRKT_": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN9QJSEngine14toManagedValueI8QVariantEE15QJSManagedValueRKT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine16toPrimitiveValueIiEE17QJSPrimitiveValueRKT_": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN9QJSEngine16toPrimitiveValueIdEE17QJSPrimitiveValueRKT_": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN9QJSEngine16toPrimitiveValueIbEE17QJSPrimitiveValueRKT_": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN9QJSEngine16toPrimitiveValueI7QStringEE17QJSPrimitiveValueRKT_": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN9QJSEngine16toPrimitiveValueI8QVariantEE17QJSPrimitiveValueRKT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine15fromScriptValueIiEET_RK8QJSValue": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine15fromScriptValueIdEET_RK8QJSValue": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine15fromScriptValueIbEET_RK8QJSValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine15fromScriptValueI7QStringEET_RK8QJSValue": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine15fromScriptValueI8QVariantEET_RK8QJSValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine16fromManagedValueIiEET_RK15QJSManagedValue": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine16fromManagedValueIdEET_RK15QJSManagedValue": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine16fromManagedValueIbEET_RK15QJSManagedValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine16fromManagedValueI7QStringEET_RK15QJSManagedValue": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine16fromManagedValueI8QVariantEET_RK15QJSManagedValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine18fromPrimitiveValueIiEET_RK17QJSPrimitiveValue": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine18fromPrimitiveValueIdEET_RK17QJSPrimitiveValue": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine18fromPrimitiveValueIbEET_RK17QJSPrimitiveValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine18fromPrimitiveValueI7QStringEET_RK17QJSPrimitiveValue": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine18fromPrimitiveValueI8QVariantEET_RK17QJSPrimitiveValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11fromVariantIiEET_RK8QVariant": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11fromVariantIdEET_RK8QVariant": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11fromVariantIbEET_RK8QVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11fromVariantI7QStringEET_RK8QVariant": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11fromVariantI8QVariantEET_RKS1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine14newQMetaObjectI7QObjectEE8QJSValuev": [
+      "address", "address"
+    ],
+    "ritual_ZN9QJSEngine14newQMetaObjectIS_EE8QJSValuev": [
+      "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11coerceValueI9QDateTime5QDateEET0_RKT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11coerceValueI5QDate9QDateTimeEET0_RKT_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11coerceValueI9QDateTime7QStringEET0_RKT_": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11coerceValueI5QDate7QStringEET0_RKT_": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine11coerceValueI8QVariant7QStringEET0_RKT_": [
+      "text", "address", "address"
+    ]
   }
 }

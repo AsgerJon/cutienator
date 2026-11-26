@@ -26,6 +26,12 @@
     "ritual_ZNK34QDesignerLayoutDecorationExtension12currentIndexEv": [
       "int", "address"
     ],
+    "ritual_ZNK34QDesignerLayoutDecorationExtension11currentCellEv": [
+      "address", "address"
+    ],
+    "ritual_ZN34QDesignerLayoutDecorationExtension12insertWidgetEP7QWidgetRKSt4pairIiiE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN34QDesignerLayoutDecorationExtension12removeWidgetEP7QWidget": [
       "nothing", "address", "address"
     ],
@@ -49,6 +55,9 @@
     ],
     "ritual_take_QDesignerLayoutDecorationExtension": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QDesignerLayoutDecorationExtension__QPair_int_int": [
+      "nothing", "address"
     ]
   }
 }

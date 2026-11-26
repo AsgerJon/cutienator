@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qcategory3daxis.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qcategory3daxis.h>
 #include <QtCore/qstring.h>
@@ -183,6 +183,24 @@ const QMetaObject *ritual_ZNK15QCategory3DAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCategory3DAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QCategory3DAxis11qt_metacastEPKc(
+    QCategory3DAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCategory3DAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QCategory3DAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCategory3DAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCategory3DAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QCategory3DAxis2trEPKcS1_i(
@@ -233,6 +251,19 @@ QList<QString> *ritual_ZNK15QCategory3DAxis6labelsEv(
   return new QList<QString>(self->labels());
 }
 
+//  void QCategory3DAxis::rowLabelsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCategory3DAxis16rowLabelsChangedEv(QCategory3DAxis *self) {
+  self->rowLabelsChanged();
+}
+
+//  void QCategory3DAxis::columnLabelsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCategory3DAxis19columnLabelsChangedEv(
+    QCategory3DAxis *self) {
+  self->columnLabelsChanged();
+}
+
 //  a Python function taken by a CuteQCategory3DAxis, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -243,4 +274,4 @@ bool ritual_take_QCategory3DAxis(
   return static_cast<CuteQCategory3DAxis *>(self)->take(key, call);
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

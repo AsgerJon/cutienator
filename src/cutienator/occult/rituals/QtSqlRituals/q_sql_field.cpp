@@ -21,10 +21,36 @@ QSqlField *ritual_ZN9QSqlFieldC1ERKS_(const QSqlField *other) {
   return new QSqlField(*other);
 }
 
+//  QSqlField &QSqlField::operator=(const QSqlField &other)
+extern "C" Q_DECL_EXPORT
+QSqlField *ritual_ZN9QSqlFieldaSERKS_(
+    QSqlField *self,
+    const QSqlField *other) {
+  return &(self->operator=(*other));
+}
+
+//  QSqlField::QSqlField(QSqlField &&other)
+extern "C" Q_DECL_EXPORT
+QSqlField *ritual_ZN9QSqlFieldC1EOS_(QSqlField *other) {
+  return new QSqlField(std::move(*other));
+}
+
+//  QSqlField &QSqlField::operator=(QSqlField &&other)
+extern "C" Q_DECL_EXPORT
+QSqlField *ritual_ZN9QSqlFieldaSEOS_(QSqlField *self, QSqlField *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  QSqlField::~QSqlField()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QSqlFieldD1Ev(QSqlField *self) {
   delete self;
+}
+
+//  void QSqlField::swap(QSqlField &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSqlField4swapERS_(QSqlField *self, QSqlField *other) {
+  self->swap(*other);
 }
 
 //  bool QSqlField::operator==(const QSqlField &other) const

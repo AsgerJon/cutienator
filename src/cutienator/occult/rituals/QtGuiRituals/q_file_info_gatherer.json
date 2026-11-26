@@ -6,8 +6,26 @@
   ],
   "rows": {
     "ritual_ZNK17QFileInfoGatherer10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QFileInfoGatherer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QFileInfoGatherer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QFileInfoGatherer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QFileInfoGatherer7updatesERK7QStringRK5QListISt4pairIS0_9QFileInfoEE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK17QFileInfoGatherer14newListOfFilesERK7QStringRK5QListIS0_E": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK17QFileInfoGatherer12nameResolvedERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN17QFileInfoGatherer15directoryLoadedERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_ZN17QFileInfoGathererC1EP7QObject": ["address", "address"],
     "ritual_ZN17QFileInfoGathererD1Ev": ["nothing", "address"],
@@ -58,6 +76,10 @@
     "ritual_ZN17QFileInfoGatherer3runEv": ["nothing", "address"],
     "ritual_ZN17QFileInfoGatherer12getFileInfosERK7QStringRK5QListIS0_E": [
       "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN17QFileInfoGatherer5fetchERK9QFileInfoR13QElapsedTimerRbR5QListISt4pairI7QStringS0_EERKS8_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "text"
     ],
     "ritual_ZN17QFileInfoGatherer13createWatcherEv": ["nothing", "address"],
     "ritual_take_QFileInfoGatherer": ["bool", "address", "chars", "address"],

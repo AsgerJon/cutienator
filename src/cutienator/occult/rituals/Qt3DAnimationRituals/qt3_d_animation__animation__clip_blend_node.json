@@ -5,14 +5,44 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation13ClipBlendNodeD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13ClipBlendNode23setClipBlendNodeManagerEPNS0_20ClipBlendNodeManagerE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK13Qt3DAnimation9Animation13ClipBlendNode20clipBlendNodeManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13ClipBlendNode5blendEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation13ClipBlendNode14setClipResultsEN8Qt3DCore7QNodeIdERK5QListIfE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation13ClipBlendNode11clipResultsEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation13ClipBlendNode16allDependencyIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation13ClipBlendNode20currentDependencyIdsEv": [
       "address", "address"
     ],
     "ritual_ZNK13Qt3DAnimation9Animation13ClipBlendNode8durationEv": [
       "double", "address"
     ],
+    "ritual_ZNK13Qt3DAnimation9Animation13ClipBlendNode7doBlendERK5QListIS2_IfEE": [
+      "address", "address", "address"
+    ],
     "ritual_take_Qt3DAnimation_Animation_ClipBlendNode": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_ClipBlendNode__Qt3DAnimation_Animation_ClipResults": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_ClipBlendNode__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
     ]
   }
 }

@@ -10,14 +10,14 @@
 #include <QtCoap/qcoapoption.h>
 #include <QtNetwork/qhostaddress.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCoap/private/qcoapinternalmessage_p.h>
-#include <QtCoap/private/qcoaprequest_p.h>
-#include <QtCoap/qcoaprequest.h>
-#include <QtCore/qloggingcategory.h>
 #include <QtCoap/private/qcoapinternalreply_p.h>
 #include <QtCore/qendian.h>
 #include <QtCore/qmath.h>
 #include <memory>
+#include <QtCoap/private/qcoapinternalmessage_p.h>
+#include <QtCoap/private/qcoaprequest_p.h>
+#include <QtCoap/qcoaprequest.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -26,6 +26,15 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtcoap/src/coap/qcoapinternalreply.cpp, line 173, as _ZN18QCoapInternalReply9addOptionERK11QCoapOption
+inline void QCoapInternalReply::addOption(const QCoapOption &option)
+{
+    if (option.name() == QCoapOption::Block2)
+        setFromDescriptiveBlockOption(option);
+
+    QCoapInternalMessage::addOption(option);
+}
 
 //  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 87, as _ZN20QCoapInternalMessage29setFromDescriptiveBlockOptionERK11QCoapOption
 inline void QCoapInternalMessage::setFromDescriptiveBlockOption(const QCoapOption &option)
@@ -58,6 +67,13 @@ inline void QCoapInternalMessage::addOption(const QCoapOption &option)
 {
     Q_D(QCoapInternalMessage);
     d->message.addOption(option);
+}
+
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 14, as _Z14lcCoapExchangev
+inline const QLoggingCategory &lcCoapExchange()
+{
+    static const QLoggingCategory category("qt.coap.exchange");
+    return category;
 }
 
 //  from ../qtcoap/src/coap/qcoapinternalreply.cpp, line 163, as _ZN18QCoapInternalReply10appendDataERK10QByteArray
@@ -100,15 +116,6 @@ inline int QCoapInternalReply::nextBlockToSend() const
     return static_cast<int>(blockNumber) + 1;
 }
 
-//  from ../qtcoap/src/coap/qcoapinternalreply.cpp, line 173, as _ZN18QCoapInternalReply9addOptionERK11QCoapOption
-inline void QCoapInternalReply::addOption(const QCoapOption &option)
-{
-    if (option.name() == QCoapOption::Block2)
-        setFromDescriptiveBlockOption(option);
-
-    QCoapInternalMessage::addOption(option);
-}
-
 //  from ../qtcoap/src/coap/qcoapinternalreply.cpp, line 185, as _ZN18QCoapInternalReply16setSenderAddressERK12QHostAddress
 inline void QCoapInternalReply::setSenderAddress(const QHostAddress &address)
 {
@@ -136,6 +143,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18QCoapInternalReply10metaObjectEv(
     const QCoapInternalReply *self) {
   return self->metaObject();
+}
+
+//  void *QCoapInternalReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QCoapInternalReply11qt_metacastEPKc(
+    QCoapInternalReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCoapInternalReply::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QCoapInternalReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCoapInternalReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  void QCoapInternalReply::appendData(const QByteArray &data)
@@ -202,4 +228,12 @@ extern "C" Q_DECL_EXPORT
 const QCoapInternalReplyPrivate *ritual_ZNK18QCoapInternalReply6d_funcEv(
     const QCoapInternalReply *self) {
   return self->d_func();
+}
+
+//  void QCoapInternalReply::addOption(const QCoapOption &option)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN18QCoapInternalReply9addOptionERK11QCoapOption(
+    QCoapInternalReply *self,
+    const QCoapOption *option) {
+  self->QCoapInternalReply::addOption(*option);
 }

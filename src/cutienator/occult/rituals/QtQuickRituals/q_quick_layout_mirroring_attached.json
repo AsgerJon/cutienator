@@ -8,6 +8,12 @@
     "ritual_ZNK29QQuickLayoutMirroringAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29QQuickLayoutMirroringAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29QQuickLayoutMirroringAttached24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -25,6 +31,12 @@
     ],
     "ritual_ZNK29QQuickLayoutMirroringAttached15childrenInheritEv": [
       "bool", "address"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttached14enabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttached22childrenInheritChangedEv": [
+      "nothing", "address"
     ]
   }
 }

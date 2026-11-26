@@ -291,6 +291,25 @@ const QMetaObject *ritual_ZNK36QQuick3DShaderUtilsRenderPassTexture10metaObjectE
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsRenderPassTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN36QQuick3DShaderUtilsRenderPassTexture11qt_metacastEPKc(
+    QQuick3DShaderUtilsRenderPassTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsRenderPassTexture::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN36QQuick3DShaderUtilsRenderPassTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsRenderPassTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsRenderPassTexture::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT

@@ -28,6 +28,19 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/corelib/thread/qfuturewatcher.cpp, line 470, as _ZN25QFutureWatcherBasePrivate16postCallOutEventERK19QFutureCallOutEvent
+inline void QFutureWatcherBasePrivate::postCallOutEvent(const QFutureCallOutEvent &callOutEvent)
+{
+    Q_Q(QFutureWatcherBase);
+
+    if (callOutEvent.callOutType == QFutureCallOutEvent::ResultsReady) {
+        if (pendingResultsReady.fetchAndAddRelaxed(1) >= maximumPendingResultsReady)
+            q->futureInterface().d->internal_setThrottled(true);
+    }
+
+    QCoreApplication::postEvent(q, callOutEvent.clone());
+}
+
 //  from src/corelib/thread/qfuturewatcher.cpp, line 482, as _ZN25QFutureWatcherBasePrivate28callOutInterfaceDisconnectedEv
 inline void QFutureWatcherBasePrivate::callOutInterfaceDisconnected()
 {
@@ -153,6 +166,15 @@ extern "C" Q_DECL_EXPORT
 const QFutureWatcherBase *ritual_ZNK25QFutureWatcherBasePrivate6q_funcEv(
     const QFutureWatcherBasePrivate *self) {
   return self->q_func();
+}
+
+//  void QFutureWatcherBasePrivate::postCallOutEvent(const
+//      QFutureCallOutEvent &callOutEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QFutureWatcherBasePrivate16postCallOutEventERK19QFutureCallOutEvent(
+    QFutureWatcherBasePrivate *self,
+    const QFutureCallOutEvent *callOutEvent) {
+  self->postCallOutEvent(*callOutEvent);
 }
 
 //  void QFutureWatcherBasePrivate::callOutInterfaceDisconnected()

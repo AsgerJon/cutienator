@@ -5,6 +5,9 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN25QAssociativeConstIteratorC1EO14QConstIteratorI16QMetaAssociationE": [
+      "address", "address"
+    ],
     "ritual_ZNK25QAssociativeConstIterator3keyEv": ["address", "address"],
     "ritual_ZNK25QAssociativeConstIterator5valueEv": ["address", "address"],
     "ritual_ZNK25QAssociativeConstIteratordeEv": ["address", "address"]

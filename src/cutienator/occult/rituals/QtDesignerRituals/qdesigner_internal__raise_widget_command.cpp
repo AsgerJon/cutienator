@@ -7,6 +7,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_command_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/qwidget.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on qdesigner_internal::RaiseWidgetCommand may call these functions of it.
@@ -132,6 +134,41 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::RaiseWidgetCommand::RaiseWidgetCommand(QDesignerFormW
+//      indowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::RaiseWidgetCommand *ritual_ZN18qdesigner_internal18RaiseWidgetCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_RaiseWidgetCommand(formWindow);
+}
+
+//  void qdesigner_internal::RaiseWidgetCommand::init(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal18RaiseWidgetCommand4initEP7QWidget(
+    qdesigner_internal::RaiseWidgetCommand *self,
+    QWidget *widget) {
+  self->init(widget);
+}
+
+//  QWidgetList qdesigner_internal::RaiseWidgetCommand::reorderWidget(const
+//      QWidgetList &list, QWidget *widget) const
+extern "C" Q_DECL_EXPORT
+QList<QWidget *> *ritual_ZNK18qdesigner_internal18RaiseWidgetCommand13reorderWidgetERK5QListIP7QWidgetES3_(
+    const qdesigner_internal::RaiseWidgetCommand *self,
+    const QList<QWidget *> *list,
+    QWidget *widget) {
+  return new QList<QWidget *>(self->reorderWidget(*list, widget));
+}
+
+//  void qdesigner_internal::RaiseWidgetCommand::reorder(QWidget *widget)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18qdesigner_internal18RaiseWidgetCommand7reorderEP7QWidget(
+    const qdesigner_internal::RaiseWidgetCommand *self,
+    QWidget *widget) {
+  self->reorder(widget);
+}
 
 //  a Python function taken by a Cuteqdesigner_internal_RaiseWidgetCommand,
 //      for the function named by the key

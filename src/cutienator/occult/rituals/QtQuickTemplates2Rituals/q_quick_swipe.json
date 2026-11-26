@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QQuickSwipe10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickSwipe11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QQuickSwipe11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QQuickSwipe2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QQuickSwipe22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
@@ -52,6 +58,21 @@
     ],
     "ritual_ZN11QQuickSwipe4openEN19QQuickSwipeDelegate4SideE": [
       "nothing", "address", "int"
-    ]
+    ],
+    "ritual_ZN11QQuickSwipe15positionChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe15completeChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe11leftChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe13behindChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe12rightChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe15leftItemChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe17behindItemChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe16rightItemChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe9completedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe6openedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe6closedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe17transitionChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickSwipe6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QQuickSwipe6d_funcEv": ["address", "address"]
   }
 }

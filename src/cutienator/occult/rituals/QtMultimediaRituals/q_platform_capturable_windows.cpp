@@ -12,6 +12,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtMultimedia/QCapturableWindow>
+#include <QtCore/QString>
 
 //  A QPlatformCapturableWindows that Python can take functions over in. Every QPlatformCapturableWindows
 //  Python makes is one. Each function below asks the Python
@@ -72,6 +74,17 @@ bool ritual_ZNK26QPlatformCapturableWindows13isWindowValidERK24QCapturableWindow
   return self->isWindowValid(*a0);
 }
 
+//  q23::expected<QCapturableWindow, QString>
+//      QPlatformCapturableWindows::fromQWindow(QWindow *a0) const
+extern "C" Q_DECL_EXPORT
+q23::expected<QCapturableWindow, QString> *ritual_ZNK26QPlatformCapturableWindows11fromQWindowEP7QWindow(
+    const QPlatformCapturableWindows *self,
+    QWindow *a0) {
+  return new q23::expected<QCapturableWindow, QString>(
+      self->fromQWindow(
+          a0));
+}
+
 //  a Python function taken by a CuteQPlatformCapturableWindows, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -89,4 +102,12 @@ bool ritual_own_ZNK26QPlatformCapturableWindows13isWindowValidERK24QCapturableWi
     const QPlatformCapturableWindows *self,
     const QCapturableWindowPrivate *a0) {
   return self->QPlatformCapturableWindows::isWindowValid(*a0);
+}
+
+//  a q23::expected<QCapturableWindow, QString> a ritual of
+//      QPlatformCapturableWindows gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPlatformCapturableWindows__q23_expected_QCapturableWindow_QString(
+    q23::expected<QCapturableWindow, QString> *self) {
+  delete self;
 }

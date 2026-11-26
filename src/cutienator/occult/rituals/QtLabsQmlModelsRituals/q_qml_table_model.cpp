@@ -14,7 +14,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
@@ -1100,6 +1102,24 @@ const QMetaObject *ritual_ZNK14QQmlTableModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlTableModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QQmlTableModel11qt_metacastEPKc(
+    QQmlTableModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlTableModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QQmlTableModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlTableModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlTableModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QQmlTableModel2trEPKcS1_i(
@@ -1227,6 +1247,12 @@ QModelIndex *ritual_ZNK14QQmlTableModel6parentERK11QModelIndex(
     const QQmlTableModel *self,
     const QModelIndex *index) {
   return new QModelIndex(self->parent(*index));
+}
+
+//  void QQmlTableModel::rowCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QQmlTableModel15rowCountChangedEv(QQmlTableModel *self) {
+  self->rowCountChanged();
 }
 
 //  QVariant QQmlTableModel::firstRow() const

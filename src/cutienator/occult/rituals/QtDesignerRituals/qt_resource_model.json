@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QtResourceModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QtResourceModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QtResourceModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QtResourceModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -37,6 +43,7 @@
     "ritual_ZN15QtResourceModel6reloadEPiP7QString": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZNK15QtResourceModel8contentsEv": ["address", "address"],
     "ritual_ZNK15QtResourceModel7qrcPathERK7QString": [
       "text", "address", "text"
     ],
@@ -50,6 +57,17 @@
     "ritual_ZN15QtResourceModel16isWatcherEnabledERK7QString": [
       "bool", "address", "text"
     ],
-    "ritual_take_QtResourceModel": ["bool", "address", "chars", "address"]
+    "ritual_ZN15QtResourceModel20resourceSetActivatedEP13QtResourceSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN15QtResourceModel25qrcFileModifiedExternallyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QtResourceModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QtResourceModel6d_funcEv": ["address", "address"],
+    "ritual_take_QtResourceModel": ["bool", "address", "chars", "address"],
+    "ritual_drop_QtResourceModel__QMap_QString_QString": [
+      "nothing", "address"
+    ]
   }
 }

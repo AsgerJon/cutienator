@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickfocusframe_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickFocusFrameDescriptionC1Ev": ["address"],
+    "ritual_ZN27QQuickFocusFrameDescriptionD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QQuickFocusFrameDescription7isValidEv": [
+      "bool", "address"
+    ]
+  }
+}

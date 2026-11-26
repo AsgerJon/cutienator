@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK25QQuickStackLayoutAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickStackLayoutAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuickStackLayoutAttached11qt_metacastEPKc(
+    QQuickStackLayoutAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickStackLayoutAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuickStackLayoutAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickStackLayoutAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickStackLayoutAttached::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -75,4 +94,25 @@ void ritual_ZN25QQuickStackLayoutAttached9setLayoutEP17QQuickStackLayout(
     QQuickStackLayoutAttached *self,
     QQuickStackLayout *layout) {
   self->setLayout(layout);
+}
+
+//  void QQuickStackLayoutAttached::indexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickStackLayoutAttached12indexChangedEv(
+    QQuickStackLayoutAttached *self) {
+  self->indexChanged();
+}
+
+//  void QQuickStackLayoutAttached::isCurrentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickStackLayoutAttached20isCurrentItemChangedEv(
+    QQuickStackLayoutAttached *self) {
+  self->isCurrentItemChanged();
+}
+
+//  void QQuickStackLayoutAttached::layoutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickStackLayoutAttached13layoutChangedEv(
+    QQuickStackLayoutAttached *self) {
+  self->layoutChanged();
 }

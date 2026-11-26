@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK24QQmlGrpcBidiStreamSender10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlGrpcBidiStreamSender::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQmlGrpcBidiStreamSender11qt_metacastEPKc(
+    QQmlGrpcBidiStreamSender *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlGrpcBidiStreamSender::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQmlGrpcBidiStreamSender11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlGrpcBidiStreamSender *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlGrpcBidiStreamSender::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN24QQmlGrpcBidiStreamSender2trEPKcS1_i(
@@ -204,6 +223,30 @@ QQmlGrpcBidiStreamSender *ritual_ZN24QQmlGrpcBidiStreamSenderC1EP15QGrpcBidiStre
     QGrpcBidiStream *stream,
     QObject *parent) {
   return new CuteQQmlGrpcBidiStreamSender(stream, parent);
+}
+
+//  void QQmlGrpcBidiStreamSender::writeMessageImpl(const QProtobufMessage
+//      &message) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK24QQmlGrpcBidiStreamSender16writeMessageImplERK16QProtobufMessage(
+    const QQmlGrpcBidiStreamSender *self,
+    const QProtobufMessage *message) {
+  self->writeMessageImpl(*message);
+}
+
+//  QQmlGrpcBidiStreamSenderPrivate *QQmlGrpcBidiStreamSender::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlGrpcBidiStreamSenderPrivate *ritual_ZN24QQmlGrpcBidiStreamSender6d_funcEv(
+    QQmlGrpcBidiStreamSender *self) {
+  return self->d_func();
+}
+
+//  const QQmlGrpcBidiStreamSenderPrivate *QQmlGrpcBidiStreamSender::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QQmlGrpcBidiStreamSenderPrivate *ritual_ZNK24QQmlGrpcBidiStreamSender6d_funcEv(
+    const QQmlGrpcBidiStreamSender *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQmlGrpcBidiStreamSender, for the

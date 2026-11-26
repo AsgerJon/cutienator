@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QQuickDial10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickDial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QQuickDial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QQuickDial2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QQuickDialC1EP10QQuickItem": ["address", "address"],
     "ritual_ZNK10QQuickDial4fromEv": ["double", "address"],
@@ -44,6 +50,24 @@
     ],
     "ritual_ZN10QQuickDial8increaseEv": ["nothing", "address"],
     "ritual_ZN10QQuickDial8decreaseEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial11fromChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial9toChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial12valueChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial15positionChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial12angleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial15stepSizeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial15snapModeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial11wrapChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial14pressedChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial13handleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial5movedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial11liveChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial16inputModeChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial17startAngleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial15endAngleChangedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDial7wrappedENS_13WrapDirectionE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN10QQuickDial13keyPressEventEP9QKeyEvent": [
       "nothing", "address", "address"
     ],
@@ -65,6 +89,8 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK10QQuickDial14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN10QQuickDial6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QQuickDial6d_funcEv": ["address", "address"],
     "ritual_own_ZN10QQuickDial13keyPressEventEP9QKeyEvent": [
       "nothing", "address", "address"
     ],

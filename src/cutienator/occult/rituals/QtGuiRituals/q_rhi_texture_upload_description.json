@@ -9,6 +9,12 @@
     "ritual_ZN28QRhiTextureUploadDescriptionC1ERK22QRhiTextureUploadEntry": [
       "address", "address"
     ],
+    "ritual_ZN28QRhiTextureUploadDescriptionC1ESt16initializer_listI22QRhiTextureUploadEntryE": [
+      "address", "address"
+    ],
+    "ritual_ZN28QRhiTextureUploadDescription10setEntriesESt16initializer_listI22QRhiTextureUploadEntryE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK28QRhiTextureUploadDescription13cbeginEntriesEv": [
       "address", "address"
     ],

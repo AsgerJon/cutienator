@@ -5,7 +5,12 @@
 #if !defined(QT_NO_HTTP)
 #include <QtNetworkAuth/qabstractoauthreplyhandler.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A QAbstractOAuthReplyHandler that Python can take functions over in. Every QAbstractOAuthReplyHandler
@@ -230,6 +235,25 @@ const QMetaObject *ritual_ZNK26QAbstractOAuthReplyHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractOAuthReplyHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QAbstractOAuthReplyHandler11qt_metacastEPKc(
+    QAbstractOAuthReplyHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractOAuthReplyHandler::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QAbstractOAuthReplyHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractOAuthReplyHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractOAuthReplyHandler::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -238,6 +262,13 @@ QString *ritual_ZN26QAbstractOAuthReplyHandler2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractOAuthReplyHandler::tr(s, c, n));
+}
+
+//  QAbstractOAuthReplyHandler::QAbstractOAuthReplyHandler(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractOAuthReplyHandler *ritual_ZN26QAbstractOAuthReplyHandlerC1EP7QObject(
+    QObject *parent) {
+  return new CuteQAbstractOAuthReplyHandler(parent);
 }
 
 //  QAbstractOAuthReplyHandler::~QAbstractOAuthReplyHandler()
@@ -261,6 +292,61 @@ void ritual_ZN26QAbstractOAuthReplyHandler20networkReplyFinishedEP13QNetworkRepl
     QAbstractOAuthReplyHandler *self,
     QNetworkReply *reply) {
   self->networkReplyFinished(reply);
+}
+
+//  void QAbstractOAuthReplyHandler::callbackReceived(const QVariantMap
+//      &values)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractOAuthReplyHandler16callbackReceivedERK4QMapI7QString8QVariantE(
+    QAbstractOAuthReplyHandler *self,
+    const QMap<QString, QVariant> *values) {
+  self->callbackReceived(*values);
+}
+
+//  void QAbstractOAuthReplyHandler::tokensReceived(const QVariantMap
+//      &tokens)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractOAuthReplyHandler14tokensReceivedERK4QMapI7QString8QVariantE(
+    QAbstractOAuthReplyHandler *self,
+    const QMap<QString, QVariant> *tokens) {
+  self->tokensReceived(*tokens);
+}
+
+//  void QAbstractOAuthReplyHandler::tokenRequestErrorOccurred(QAbstractOAuth
+//      ::Error error, const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractOAuthReplyHandler25tokenRequestErrorOccurredEN14QAbstractOAuth5ErrorERK7QString(
+    QAbstractOAuthReplyHandler *self,
+    QAbstractOAuth::Error error,
+    const QString *errorString) {
+  self->tokenRequestErrorOccurred(error, *errorString);
+}
+
+//  void QAbstractOAuthReplyHandler::replyDataReceived(const QByteArray
+//      &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractOAuthReplyHandler17replyDataReceivedERK10QByteArray(
+    QAbstractOAuthReplyHandler *self,
+    const QByteArray *data) {
+  self->replyDataReceived(*data);
+}
+
+//  void QAbstractOAuthReplyHandler::callbackDataReceived(const QByteArray
+//      &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractOAuthReplyHandler20callbackDataReceivedERK10QByteArray(
+    QAbstractOAuthReplyHandler *self,
+    const QByteArray *data) {
+  self->callbackDataReceived(*data);
+}
+
+//  QAbstractOAuthReplyHandler::QAbstractOAuthReplyHandler(QObjectPrivate &d,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QAbstractOAuthReplyHandler *ritual_ZN26QAbstractOAuthReplyHandlerC1ER14QObjectPrivateP7QObject(
+    QObjectPrivate *d,
+    QObject *parent) {
+  return new CuteQAbstractOAuthReplyHandler(*d, parent);
 }
 
 //  a Python function taken by a CuteQAbstractOAuthReplyHandler, for the

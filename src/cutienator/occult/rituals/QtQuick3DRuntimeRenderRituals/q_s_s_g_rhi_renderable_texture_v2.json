@@ -5,6 +5,9 @@
     "xt_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QSSGRhiRenderableTextureV2C1ERKSt10shared_ptrI25QSSGUserRenderPassManagerENS_7PrivateE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN26QSSGRhiRenderableTextureV2D1Ev": ["nothing", "address"],
     "ritual_ZN26QSSGRhiRenderableTextureV214setDescriptionEP4QRhi34QRhiTextureRenderTargetDescription6QFlagsIN23QRhiTextureRenderTarget4FlagEE": [
       "nothing", "address", "address", "address", "int"
@@ -14,6 +17,24 @@
     ],
     "ritual_ZNK26QSSGRhiRenderableTextureV27getNameEv": [
       "address", "address"
+    ],
+    "ritual_ZNK26QSSGRhiRenderableTextureV215getDepthTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRhiRenderableTextureV215getDepthStencilEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRhiRenderableTextureV223getRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRhiRenderableTextureV215getRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRhiRenderableTextureV220colorAttachmentCountEv": [
+      "size_t", "address"
+    ],
+    "ritual_ZNK26QSSGRhiRenderableTextureV215getColorTextureEi": [
+      "address", "address", "int"
     ],
     "ritual_ZNK26QSSGRhiRenderableTextureV27isValidEv": ["bool", "address"],
     "ritual_ZN26QSSGRhiRenderableTextureV217resetRenderTargetEv": [

@@ -5,7 +5,9 @@
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #if QT_CONFIG(charts_area_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_area_chart)
 #include <QtCharts/qareaseries.h>
+#endif
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/qareaseries_p.h>
@@ -19,6 +21,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18QAreaSeriesPrivate10metaObjectEv(
     const QAreaSeriesPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QAreaSeriesPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QAreaSeriesPrivate11qt_metacastEPKc(
+    QAreaSeriesPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAreaSeriesPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QAreaSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAreaSeriesPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QAreaSeriesPrivate::tr(const char *s, const char *c, int n)
@@ -73,6 +94,20 @@ void ritual_ZN18QAreaSeriesPrivate15initializeThemeEiP10ChartThemeb(
   self->initializeTheme(index, theme, forced);
 }
 
+//  void QAreaSeriesPrivate::initializeAnimations(QChart::AnimationOptions
+//      options, int duration, QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAreaSeriesPrivate20initializeAnimationsE6QFlagsIN6QChart15AnimationOptionEEiR12QEasingCurve(
+    QAreaSeriesPrivate *self,
+    int options,
+    int duration,
+    QEasingCurve *curve) {
+  self->initializeAnimations(
+      QFlags<QChart::AnimationOption>::fromInt(options),
+      duration,
+      *curve);
+}
+
 //  QList<QLegendMarker *> QAreaSeriesPrivate::createLegendMarkers(QLegend
 //      *legend)
 extern "C" Q_DECL_EXPORT
@@ -99,6 +134,12 @@ QAbstractAxis *ritual_ZNK18QAreaSeriesPrivate17createDefaultAxisEN2Qt11Orientati
     const QAreaSeriesPrivate *self,
     Qt::Orientation a0) {
   return self->createDefaultAxis(a0);
+}
+
+//  void QAreaSeriesPrivate::updated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAreaSeriesPrivate7updatedEv(QAreaSeriesPrivate *self) {
+  self->updated();
 }
 
 //  QAreaSeries *QAreaSeriesPrivate::q_func()

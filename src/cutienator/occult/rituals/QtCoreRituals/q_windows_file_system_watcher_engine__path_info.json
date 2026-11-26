@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN31QWindowsFileSystemWatcherEngine8PathInfoaSERK9QFileInfo": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK31QWindowsFileSystemWatcherEngine8PathInfoneERK9QFileInfo": [
       "bool", "address", "address"
     ],

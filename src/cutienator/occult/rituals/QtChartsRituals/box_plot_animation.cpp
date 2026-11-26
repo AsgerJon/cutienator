@@ -187,6 +187,25 @@ const QMetaObject *ritual_ZNK16BoxPlotAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *BoxPlotAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16BoxPlotAnimation11qt_metacastEPKc(
+    BoxPlotAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int BoxPlotAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16BoxPlotAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    BoxPlotAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString BoxPlotAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16BoxPlotAnimation2trEPKcS1_i(
@@ -194,6 +213,16 @@ QString *ritual_ZN16BoxPlotAnimation2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(BoxPlotAnimation::tr(s, c, n));
+}
+
+//  BoxPlotAnimation::BoxPlotAnimation(BoxPlotChartItem *item, int duration,
+//      QEasingCurve &curve)
+extern "C" Q_DECL_EXPORT
+BoxPlotAnimation *ritual_ZN16BoxPlotAnimationC1EP16BoxPlotChartItemiR12QEasingCurve(
+    BoxPlotChartItem *item,
+    int duration,
+    QEasingCurve *curve) {
+  return new CuteBoxPlotAnimation(item, duration, *curve);
 }
 
 //  BoxPlotAnimation::~BoxPlotAnimation()

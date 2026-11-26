@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK13QSplashScreen10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QSplashScreen11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QSplashScreen11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QSplashScreen2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QSplashScreenC1ERK7QPixmap6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
@@ -26,6 +32,9 @@
       "nothing", "address", "text", "int", "address"
     ],
     "ritual_ZN13QSplashScreen12clearMessageEv": ["nothing", "address"],
+    "ritual_ZN13QSplashScreen14messageChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN13QSplashScreen5eventEP6QEvent": [
       "bool", "address", "address"
     ],
@@ -35,6 +44,8 @@
     "ritual_ZN13QSplashScreen15mousePressEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QSplashScreen6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QSplashScreen6d_funcEv": ["address", "address"],
     "ritual_take_QSplashScreen": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QSplashScreen5eventEP6QEvent": [
       "bool", "address", "address"

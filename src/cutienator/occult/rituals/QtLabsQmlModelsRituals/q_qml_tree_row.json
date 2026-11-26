@@ -18,12 +18,18 @@
     ],
     "ritual_ZNK11QQmlTreeRow6getRowEi": ["address", "address", "int"],
     "ritual_ZN11QQmlTreeRow8addChildEPS_": ["nothing", "address", "address"],
+    "ritual_ZNK11QQmlTreeRow8rowCountEv": ["size_t", "address"],
     "ritual_ZNK11QQmlTreeRow11subTreeSizeEv": ["int", "address"],
     "ritual_ZNK11QQmlTreeRow4dataEv": ["address", "address"],
     "ritual_ZNK11QQmlTreeRow4dataERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZNK11QQmlTreeRow8childrenEv": ["address", "address"],
+    "ritual_ZN11QQmlTreeRow11removeChildERN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIS_St14default_deleteIS_EESt6vectorIS5_SaIS5_EEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QQmlTreeRow13removeChildAtEi": ["nothing", "address", "int"],
+    "ritual_ZN11QQmlTreeRow9takeChildEi": ["address", "address", "int"],
     "ritual_ZN11QQmlTreeRow7setDataERK8QVariant": [
       "nothing", "address", "address"
     ],
@@ -37,6 +43,9 @@
     "ritual_ZN11QQmlTreeRow16unpackVariantMapERK4QMapI7QString8QVariantE": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN11QQmlTreeRowD1Ev": ["nothing", "address"]
+    "ritual_ZN11QQmlTreeRowD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlTreeRow__std_unique_ptr_QQmlTreeRow": [
+      "nothing", "address"
+    ]
   }
 }

@@ -59,11 +59,45 @@ QRandomGenerator *ritual_ZN16QRandomGeneratorC1Ej(quint32 seedValue) {
   return new QRandomGenerator(seedValue);
 }
 
+//  QRandomGenerator::QRandomGenerator(const quint32 *seedBuffer, qsizetype
+//      len)
+extern "C" Q_DECL_EXPORT
+QRandomGenerator *ritual_ZN16QRandomGeneratorC1EPKjx(
+    const quint32 *seedBuffer,
+    qsizetype len) {
+  return new QRandomGenerator(seedBuffer, len);
+}
+
+//  QRandomGenerator::QRandomGenerator(std::seed_seq &sseq)
+extern "C" Q_DECL_EXPORT
+QRandomGenerator *ritual_ZN16QRandomGeneratorC1ERSt8seed_seq(
+    std::seed_seq *sseq) {
+  return new QRandomGenerator(*sseq);
+}
+
+//  QRandomGenerator::QRandomGenerator(const quint32 *begin, const quint32
+//      *end)
+extern "C" Q_DECL_EXPORT
+QRandomGenerator *ritual_ZN16QRandomGeneratorC1EPKjS1_(
+    const quint32 *begin,
+    const quint32 *end) {
+  return new QRandomGenerator(begin, end);
+}
+
 //  QRandomGenerator::QRandomGenerator(const QRandomGenerator &other)
 extern "C" Q_DECL_EXPORT
 QRandomGenerator *ritual_ZN16QRandomGeneratorC1ERKS_(
     const QRandomGenerator *other) {
   return new QRandomGenerator(*other);
+}
+
+//  QRandomGenerator &QRandomGenerator::operator=(const QRandomGenerator
+//      &other)
+extern "C" Q_DECL_EXPORT
+QRandomGenerator *ritual_ZN16QRandomGeneratoraSERKS_(
+    QRandomGenerator *self,
+    const QRandomGenerator *other) {
+  return &(self->operator=(*other));
 }
 
 //  QRandomGenerator::~QRandomGenerator()
@@ -243,6 +277,14 @@ void ritual_ZN16QRandomGenerator4seedEj(QRandomGenerator *self, quint32 s) {
   self->seed(s);
 }
 
+//  void QRandomGenerator::seed(std::seed_seq &sseq)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QRandomGenerator4seedERSt8seed_seq(
+    QRandomGenerator *self,
+    std::seed_seq *sseq) {
+  self->seed(*sseq);
+}
+
 //  void QRandomGenerator::discard(unsigned long long z)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QRandomGenerator7discardEy(
@@ -286,4 +328,13 @@ extern "C" Q_DECL_EXPORT
 QRandomGenerator *ritual_ZN16QRandomGeneratorC1ENS_6SystemE(
     QRandomGenerator::System a0) {
   return new QRandomGenerator(a0);
+}
+
+//  quint64 QRandomGenerator::_fillRange(void *buffer, qptrdiff count)
+extern "C" Q_DECL_EXPORT
+quint64 ritual_ZN16QRandomGenerator10_fillRangeEPvx(
+    QRandomGenerator *self,
+    void *buffer,
+    qptrdiff count) {
+  return self->_fillRange(buffer, count);
 }

@@ -68,6 +68,9 @@
       "unsigned char", "address", "unsigned char"
     ],
     "ritual_ZNK17QSGDefaultContext11graphicsApiEv": ["int", "address"],
+    "ritual_ZNK17QSGDefaultContext11getResourceEP12QQuickWindowN20QSGRendererInterface8ResourceE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK17QSGDefaultContext10shaderTypeEv": ["int", "address"],
     "ritual_ZNK17QSGDefaultContext21shaderCompilationTypeEv": [
       "int", "address"
@@ -132,6 +135,9 @@
       "unsigned char", "address", "unsigned char"
     ],
     "ritual_own_ZNK17QSGDefaultContext11graphicsApiEv": ["int", "address"],
+    "ritual_own_ZNK17QSGDefaultContext11getResourceEP12QQuickWindowN20QSGRendererInterface8ResourceE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_own_ZNK17QSGDefaultContext10shaderTypeEv": ["int", "address"],
     "ritual_own_ZNK17QSGDefaultContext21shaderCompilationTypeEv": [
       "int", "address"

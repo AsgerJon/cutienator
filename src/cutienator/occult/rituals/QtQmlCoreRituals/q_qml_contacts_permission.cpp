@@ -188,6 +188,25 @@ const QMetaObject *ritual_ZNK22QQmlContactsPermission10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlContactsPermission::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQmlContactsPermission11qt_metacastEPKc(
+    QQmlContactsPermission *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlContactsPermission::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQmlContactsPermission11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlContactsPermission *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  Qt::PermissionStatus QQmlContactsPermission::status() const
 extern "C" Q_DECL_EXPORT
 Qt::PermissionStatus ritual_ZNK22QQmlContactsPermission6statusEv(

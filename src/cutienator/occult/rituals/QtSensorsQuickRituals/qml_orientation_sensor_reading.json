@@ -8,6 +8,12 @@
     "ritual_ZNK27QmlOrientationSensorReading10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QmlOrientationSensorReading11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QmlOrientationSensorReading11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QmlOrientationSensorReading2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,11 +27,20 @@
     "ritual_ZNK27QmlOrientationSensorReading11orientationEv": [
       "int", "address"
     ],
+    "ritual_ZNK27QmlOrientationSensorReading19bindableOrientationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QmlOrientationSensorReading18orientationChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK27QmlOrientationSensorReading7readingEv": [
       "address", "address"
     ],
     "ritual_ZN27QmlOrientationSensorReading13readingUpdateEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN27QmlOrientationSensorReading33_qt_property_m_orientation_offsetEv": [
+      "size_t"
     ],
     "ritual_take_QmlOrientationSensorReading": [
       "bool", "address", "chars", "address"
@@ -34,6 +49,9 @@
       "address", "address"
     ],
     "ritual_own_ZN27QmlOrientationSensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QmlOrientationSensorReading__QBindable_QOrientationReading_Orientation": [
       "nothing", "address"
     ]
   }

@@ -36,7 +36,7 @@ typedef void (*CuteQQuickItemChangeListenerCall19)(const void *, QQuickItem *, i
 class CuteQQuickItemChangeListener : public QQuickItemChangeListener {
 public:
   using QQuickItemChangeListener::QQuickItemChangeListener;
-  CuteQQuickItemChangeListener(const QQuickItemChangeListener &other) : QQuickItemChangeListener(other) {}
+  CuteQQuickItemChangeListener(const QQuickItemChangeListener & other) : QQuickItemChangeListener(other) {}
   void *taken[20] = {};
 
   bool take(const char *key, void *call) {

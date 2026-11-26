@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QScreenCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QScreenCapture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QScreenCapture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QScreenCapture2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,15 +25,35 @@
     "ritual_ZNK14QScreenCapture8isActiveEv": ["bool", "address"],
     "ritual_ZNK14QScreenCapture5errorEv": ["int", "address"],
     "ritual_ZNK14QScreenCapture11errorStringEv": ["text", "address"],
+    "ritual_ZN14QScreenCapture19setMaximumFrameRateESt8optionalIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QScreenCapture16maximumFrameRateEv": ["address", "address"],
     "ritual_ZN14QScreenCapture9setActiveEb": ["nothing", "address", "bool"],
     "ritual_ZN14QScreenCapture5startEv": ["nothing", "address"],
     "ritual_ZN14QScreenCapture4stopEv": ["nothing", "address"],
+    "ritual_ZN14QScreenCapture13activeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QScreenCapture12errorChangedEv": ["nothing", "address"],
+    "ritual_ZN14QScreenCapture13screenChangedEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QScreenCapture13errorOccurredENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN14QScreenCapture23maximumFrameRateChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QScreenCapture17setCaptureSessionEP20QMediaCaptureSession": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK14QScreenCapture21platformScreenCaptureEv": [
       "address", "address"
     ],
-    "ritual_take_QScreenCapture": ["bool", "address", "chars", "address"]
+    "ritual_ZN14QScreenCapture6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QScreenCapture6d_funcEv": ["address", "address"],
+    "ritual_take_QScreenCapture": ["bool", "address", "chars", "address"],
+    "ritual_drop_QScreenCapture__std_optional_qreal": ["nothing", "address"]
   }
 }

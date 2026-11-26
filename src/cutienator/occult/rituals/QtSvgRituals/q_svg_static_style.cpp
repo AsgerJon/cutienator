@@ -19,6 +19,26 @@ void ritual_ZN15QSvgStaticStyleD1Ev(QSvgStaticStyle *self) {
   delete self;
 }
 
+//  void QSvgStaticStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgStaticStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgStaticStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgStaticStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSvgStaticStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgStaticStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
+}
+
 //  QSvgStyleProperty *QSvgStaticStyle::property(QSvgStyleProperty::Type
 //      type) const
 extern "C" Q_DECL_EXPORT

@@ -1240,6 +1240,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal16StyleSheetEditor10metaObjectE
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::StyleSheetEditor::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal16StyleSheetEditor11qt_metacastEPKc(
+    qdesigner_internal::StyleSheetEditor *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::StyleSheetEditor::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal16StyleSheetEditor11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::StyleSheetEditor *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::StyleSheetEditor::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -1248,6 +1267,13 @@ QString *ritual_ZN18qdesigner_internal16StyleSheetEditor2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::StyleSheetEditor::tr(s, c, n));
+}
+
+//  qdesigner_internal::StyleSheetEditor::StyleSheetEditor(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::StyleSheetEditor *ritual_ZN18qdesigner_internal16StyleSheetEditorC1EP7QWidget(
+    QWidget *parent) {
+  return new Cuteqdesigner_internal_StyleSheetEditor(parent);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_StyleSheetEditor, for

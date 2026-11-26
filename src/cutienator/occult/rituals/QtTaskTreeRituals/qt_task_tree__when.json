@@ -4,6 +4,15 @@
     "QtTaskTree/qbarriertask.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QtTaskTree4WhenC1ERKSt8functionIFNS_14ExecutableItemERKNS_7StorageINS_15QStartedBarrierEEEEENS_14WorkflowPolicyE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10QtTaskTree4WhenC1ERKS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree4WhenaSERKS0_": ["address", "address", "address"],
+    "ritual_ZN10QtTaskTree4WhenC1EOS0_": ["address", "address"],
+    "ritual_ZN10QtTaskTree4When4swapERS0_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QtTaskTreersERKNS_4WhenERKNS_2DoE": [
       "address", "address", "address"
     ]

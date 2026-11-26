@@ -8,6 +8,19 @@
     "ritual_ZNK10Qt3DExtras15QText2DMaterial10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras15QText2DMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras15QText2DMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras15QText2DMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DExtras15QText2DMaterial8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras15QText2DMaterial23setDistanceFieldTextureEPN10Qt3DRender16QAbstractTextureE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DExtras15QText2DMaterial6d_funcEv": [
       "address", "address"
     ],

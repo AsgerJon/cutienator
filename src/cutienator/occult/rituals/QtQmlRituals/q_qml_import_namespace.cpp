@@ -40,6 +40,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::Literals::StringLiterals;
+
 //  from ../qtdeclarative/src/qml/qml/qqmlimport.cpp, line 786, as _ZNK19QQmlImportNamespace21findImportByModuleUriERK7QString13QTypeRevision
 inline QQmlImportInstance *QQmlImportNamespace::findImportByModuleUri(
         const QString &moduleUri, QTypeRevision version) const

@@ -5,6 +5,12 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK9Qt3DInput5Input30PhysicalDeviceProxyNodeFunctor3getEN8Qt3DCore7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input30PhysicalDeviceProxyNodeFunctor7destroyEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9Qt3DInput5Input30PhysicalDeviceProxyNodeFunctorD1Ev": [
       "nothing", "address"
     ]

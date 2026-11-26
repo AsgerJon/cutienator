@@ -7,6 +7,7 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qhostaddress_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/qhostaddress.h>
+#include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/qhostaddress.h>
 #include <QtNetwork/private/qhostaddress_p.h>
@@ -39,6 +40,54 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/network/kernel/qhostaddress.cpp, line 58, as local:qhostaddress.cpp:convertToIpv4
+static bool convertToIpv4(quint32& a, const Q_IPV6ADDR &a6, const QHostAddress::ConversionMode mode)
+{
+    if (mode == QHostAddress::StrictConversion)
+        return false;
+
+    const uchar *ptr = a6.c;
+    if (qFromUnaligned<quint64>(ptr) != 0)
+        return false;
+
+    const quint32 mid = qFromBigEndian<quint32>(ptr + 8);
+    if ((mid == 0xffff) && (mode & QHostAddress::ConvertV4MappedToIPv4)) {
+        a = qFromBigEndian<quint32>(ptr + 12);
+        return true;
+    }
+    if (mid != 0)
+        return false;
+
+    const quint32 low = qFromBigEndian<quint32>(ptr + 12);
+    if ((low == 0) && (mode & QHostAddress::ConvertUnspecifiedAddress)) {
+        a = 0;
+        return true;
+    }
+    if ((low == 1) && (mode & QHostAddress::ConvertLocalHost)) {
+        a = INADDR_LOOPBACK;
+        return true;
+    }
+    if ((low != 1) && (mode & QHostAddress::ConvertV4CompatToIPv4)) {
+        a = low;
+        return true;
+    }
+    return false;
+}
+
+//  from src/network/kernel/qhostaddress.cpp, line 105, as local:qhostaddress.cpp:parseIp6
+static bool parseIp6(const QString &address, QIPAddressUtils::IPv6Address &addr, QString *scopeId)
+{
+    QStringView tmp(address);
+    qsizetype scopeIdPos = tmp.lastIndexOf(u'%');
+    if (scopeIdPos != -1) {
+        *scopeId = tmp.mid(scopeIdPos + 1).toString();
+        tmp.chop(tmp.size() - scopeIdPos);
+    } else {
+        scopeId->clear();
+    }
+    return QIPAddressUtils::parseIp6(addr, tmp.begin(), tmp.end()) == nullptr;
+}
+
 //  from src/network/kernel/qhostaddress.cpp, line 41, as _ZN19QHostAddressPrivate10setAddressEj
 inline void QHostAddressPrivate::setAddress(quint32 a_)
 {
@@ -53,6 +102,48 @@ inline void QHostAddressPrivate::setAddress(quint32 a_)
     } else {
         a6_64.c[1] = 0;
     }
+}
+
+//  from src/network/kernel/qhostaddress.cpp, line 91, as _ZN19QHostAddressPrivate10setAddressEPKh
+inline void QHostAddressPrivate::setAddress(const quint8 *a_)
+{
+    protocol = QHostAddress::IPv6Protocol;
+    memcpy(a6.c, a_, sizeof(a6));
+    a = 0;
+    convertToIpv4(a, a6, (QHostAddress::ConvertV4MappedToIPv4
+                          | QHostAddress::ConvertUnspecifiedAddress));
+}
+
+//  from src/network/kernel/qhostaddress.cpp, line 100, as _ZN19QHostAddressPrivate10setAddressERK12QIPv6Address
+inline void QHostAddressPrivate::setAddress(const Q_IPV6ADDR &a_)
+{
+    setAddress(a_.c);
+}
+
+//  from src/network/kernel/qhostaddress.cpp, line 118, as _ZN19QHostAddressPrivate5parseERK7QString
+inline bool QHostAddressPrivate::parse(const QString &ipString)
+{
+    protocol = QHostAddress::UnknownNetworkLayerProtocol;
+    QString a = ipString.simplified();
+    if (a.isEmpty())
+        return false;
+
+    // All IPv6 addresses contain a ':', and may contain a '.'.
+    if (a.contains(u':')) {
+        quint8 maybeIp6[16];
+        if (parseIp6(a, maybeIp6, &scopeId)) {
+            setAddress(maybeIp6);
+            return true;
+        }
+    }
+
+    quint32 maybeIp4 = 0;
+    if (QIPAddressUtils::parseIp4(maybeIp4, a.constBegin(), a.constEnd())) {
+        setAddress(maybeIp4);
+        return true;
+    }
+
+    return false;
 }
 
 //  from src/network/kernel/qhostaddress.cpp, line 143, as _ZNK19QHostAddressPrivate8classifyEv
@@ -137,6 +228,30 @@ void ritual_ZN19QHostAddressPrivate10setAddressEj(
     QHostAddressPrivate *self,
     quint32 a_) {
   self->setAddress(a_);
+}
+
+//  void QHostAddressPrivate::setAddress(const quint8 *a_)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QHostAddressPrivate10setAddressEPKh(
+    QHostAddressPrivate *self,
+    const quint8 *a_) {
+  self->setAddress(a_);
+}
+
+//  void QHostAddressPrivate::setAddress(const Q_IPV6ADDR &a_)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QHostAddressPrivate10setAddressERK12QIPv6Address(
+    QHostAddressPrivate *self,
+    const QIPv6Address *a_) {
+  self->setAddress(*a_);
+}
+
+//  bool QHostAddressPrivate::parse(const QString &ipString)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QHostAddressPrivate5parseERK7QString(
+    QHostAddressPrivate *self,
+    const QString *ipString) {
+  return self->parse(*ipString);
 }
 
 //  void QHostAddressPrivate::clear()

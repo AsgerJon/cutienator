@@ -187,6 +187,25 @@ const QMetaObject *ritual_ZNK18QObjectRegistryRef10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QObjectRegistryRef::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QObjectRegistryRef11qt_metacastEPKc(
+    QObjectRegistryRef *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QObjectRegistryRef::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QObjectRegistryRef11qt_metacallEN11QMetaObject4CallEiPPv(
+    QObjectRegistryRef *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QObjectRegistryRef::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QObjectRegistryRef2trEPKcS1_i(
@@ -255,6 +274,14 @@ bool ritual_ZN18QObjectRegistryRef5eventEP6QEvent(
     QObjectRegistryRef *self,
     QEvent *a0) {
   return self->event(a0);
+}
+
+//  void QObjectRegistryRef::objectChanged(QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QObjectRegistryRef13objectChangedEP7QObject(
+    QObjectRegistryRef *self,
+    QObject *object) {
+  self->objectChanged(object);
 }
 
 //  a Python function taken by a CuteQObjectRegistryRef, for the function

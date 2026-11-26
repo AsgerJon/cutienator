@@ -37,6 +37,24 @@ const QMetaObject *ritual_ZNK12QQuickTabBar10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTabBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickTabBar11qt_metacastEPKc(
+    QQuickTabBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTabBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickTabBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTabBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTabBar::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickTabBar2trEPKcS1_i(
@@ -79,6 +97,12 @@ extern "C" Q_DECL_EXPORT
 QQuickTabBarAttached *ritual_ZN12QQuickTabBar21qmlAttachedPropertiesEP7QObject(
     QObject *object) {
   return QQuickTabBar::qmlAttachedProperties(object);
+}
+
+//  void QQuickTabBar::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickTabBar15positionChangedEv(QQuickTabBar *self) {
+  self->positionChanged();
 }
 
 //  void QQuickTabBar::updatePolish()
@@ -162,6 +186,19 @@ QAccessible::Role ritual_ZNK12QQuickTabBar14accessibleRoleEv(
   return self->accessibleRole();
 }
 #endif  // QT_CONFIG(accessibility)
+
+//  QQuickTabBarPrivate *QQuickTabBar::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickTabBarPrivate *ritual_ZN12QQuickTabBar6d_funcEv(QQuickTabBar *self) {
+  return self->d_func();
+}
+
+//  const QQuickTabBarPrivate *QQuickTabBar::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickTabBarPrivate *ritual_ZNK12QQuickTabBar6d_funcEv(
+    const QQuickTabBar *self) {
+  return self->d_func();
+}
 
 //  void QQuickTabBar::updatePolish()
 extern "C" Q_DECL_EXPORT

@@ -16,6 +16,22 @@ const QMetaObject *ritual_ZNK5Timer10metaObjectEv(const Timer *self) {
   return self->metaObject();
 }
 
+//  void *Timer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN5Timer11qt_metacastEPKc(Timer *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Timer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN5Timer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Timer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  int Timer::start(int msec)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN5Timer5startEi(Timer *self, int msec) {
@@ -32,6 +48,31 @@ void ritual_ZN5Timer4stopEv(Timer *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK5Timer8isActiveEv(const Timer *self) {
   return self->isActive();
+}
+
+//  void Timer::timeout(int timerId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5Timer7timeoutEi(Timer *self, int timerId) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "Timer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "timeout(int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "timeout(int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&timerId)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void Timer::timerEvent(QTimerEvent *event)

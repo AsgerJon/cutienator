@@ -8,6 +8,12 @@
     "ritual_ZNK22QDeclarativeGeoAddress10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QDeclarativeGeoAddress11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QDeclarativeGeoAddress2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -63,6 +69,39 @@
     ],
     "ritual_ZNK22QDeclarativeGeoAddress15isTextGeneratedEv": [
       "bool", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress11textChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress14countryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress18countryCodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress12stateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress13countyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress11cityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress15districtChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress13streetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress19streetNumberChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress17postalCodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress22isTextGeneratedChangedEv": [
+      "nothing", "address"
     ]
   }
 }

@@ -278,7 +278,7 @@ typedef int (*CuteQSGRhiTextureGlyphCacheCall7)(const void *, int *);
 class CuteQSGRhiTextureGlyphCache : public QSGRhiTextureGlyphCache {
 public:
   using QSGRhiTextureGlyphCache::QSGRhiTextureGlyphCache;
-  CuteQSGRhiTextureGlyphCache(const QSGRhiTextureGlyphCache &other) : QSGRhiTextureGlyphCache(other) {}
+  CuteQSGRhiTextureGlyphCache(const QSGRhiTextureGlyphCache & other) : QSGRhiTextureGlyphCache(other) {}
   void *taken[8] = {};
 
   bool take(const char *key, void *call) {

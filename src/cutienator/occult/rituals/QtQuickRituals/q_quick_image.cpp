@@ -1005,6 +1005,24 @@ const QMetaObject *ritual_ZNK11QQuickImage10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickImage::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickImage11qt_metacastEPKc(
+    QQuickImage *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickImage::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickImage11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickImage *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickImage::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickImage2trEPKcS1_i(
@@ -1121,10 +1139,60 @@ void ritual_ZN11QQuickImage28emitAutoTransformBaseChangedEv(
   self->emitAutoTransformBaseChanged();
 }
 
+//  void QQuickImage::fillModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickImage15fillModeChangedEv(QQuickImage *self) {
+  self->fillModeChanged();
+}
+
+//  void QQuickImage::paintedGeometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickImage22paintedGeometryChangedEv(QQuickImage *self) {
+  self->paintedGeometryChanged();
+}
+
+//  void QQuickImage::horizontalAlignmentChanged(QQuickImage::HAlignment
+//      alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickImage26horizontalAlignmentChangedENS_10HAlignmentE(
+    QQuickImage *self,
+    QQuickImage::HAlignment alignment) {
+  self->horizontalAlignmentChanged(alignment);
+}
+
+//  void QQuickImage::verticalAlignmentChanged(QQuickImage::VAlignment
+//      alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickImage24verticalAlignmentChangedENS_10VAlignmentE(
+    QQuickImage *self,
+    QQuickImage::VAlignment alignment) {
+  self->verticalAlignmentChanged(alignment);
+}
+
+//  void QQuickImage::mipmapChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickImage13mipmapChangedEb(QQuickImage *self, bool a0) {
+  self->mipmapChanged(a0);
+}
+
+//  void QQuickImage::autoTransformChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickImage20autoTransformChangedEv(QQuickImage *self) {
+  self->autoTransformChanged();
+}
+
 //  void QQuickImage::invalidateSceneGraph()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQuickImage20invalidateSceneGraphEv(QQuickImage *self) {
   self->invalidateSceneGraph();
+}
+
+//  QQuickImage::QQuickImage(QQuickImagePrivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickImage *ritual_ZN11QQuickImageC1ER18QQuickImagePrivateP10QQuickItem(
+    QQuickImagePrivate *dd,
+    QQuickItem *parent) {
+  return new CuteQQuickImage(*dd, parent);
 }
 
 //  void QQuickImage::pixmapChange()

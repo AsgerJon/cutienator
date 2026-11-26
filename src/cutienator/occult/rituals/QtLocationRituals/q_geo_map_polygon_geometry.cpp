@@ -53,6 +53,17 @@ void ritual_ZN22QGeoMapPolygonGeometry15setAssumeSimpleEb(
   self->setAssumeSimple(value);
 }
 
+//  void QGeoMapPolygonGeometry::updateSourcePoints(const QGeoMap &map, const
+//      QList<QList<QDoubleVector2D>> &path, MapBorderBehaviour wrapping)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGeoMapPolygonGeometry18updateSourcePointsERK7QGeoMapRK5QListIS3_I15QDoubleVector2DEENS_18MapBorderBehaviourE(
+    QGeoMapPolygonGeometry *self,
+    const QGeoMap *map,
+    const QList<QList<QDoubleVector2D>> *path,
+    QGeoMapPolygonGeometry::MapBorderBehaviour wrapping) {
+  self->updateSourcePoints(*map, *path, wrapping);
+}
+
 //  QPainterPath QGeoMapPolygonGeometry::srcPath() const
 extern "C" Q_DECL_EXPORT
 QPainterPath *ritual_ZNK22QGeoMapPolygonGeometry7srcPathEv(

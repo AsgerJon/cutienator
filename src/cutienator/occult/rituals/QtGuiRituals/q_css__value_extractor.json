@@ -5,6 +5,69 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN4QCss14ValueExtractorC1ERK5QListINS_11DeclarationEERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor11extractFontEP5QFontPi": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss14ValueExtractor17extractBackgroundEP6QBrushP7QStringPNS_6RepeatEP6QFlagsIN2Qt13AlignmentFlagEEPNS_6OriginEPNS_10AttachmentESD_": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor15extractGeometryEPiS1_S1_S1_S1_S1_": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor15extractPositionEPiS1_S1_S1_PNS_6OriginEP6QFlagsIN2Qt13AlignmentFlagEEPNS_12PositionModeES8_": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor10extractBoxEPiS1_S1_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor13extractBorderEPiP6QBrushPNS_11BorderStyleEP5QSize": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor14extractOutlineEPiP6QBrushPNS_11BorderStyleEP5QSizeS1_": [
+      "bool", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZNK4QCss14ValueExtractor14extractPaletteEP6QBrushS2_S2_S2_S2_S2_": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZNK4QCss14ValueExtractor20extractStyleFeaturesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK4QCss14ValueExtractor12extractImageEP5QIconP6QFlagsIN2Qt13AlignmentFlagEEP5QSize": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss14ValueExtractor11extractIconEP5QIconP5QSize": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor12lengthValuesERKNS_11DeclarationEPi": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor10textLengthERKNS_11DeclarationE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor11extractFontEv": ["nothing", "address"],
+    "ritual_ZN4QCss14ValueExtractor11borderValueERKNS_11DeclarationEPiPNS_11BorderStyleEP6QBrush": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor11lengthValueERKNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor11lengthValueERKNS_11DeclarationE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor9sizeValueERKNS_11DeclarationE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN4QCss14ValueExtractor10sizeValuesERKNS_11DeclarationEP5QSize": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN4QCss14ValueExtractorD1Ev": ["nothing", "address"]
   }
 }

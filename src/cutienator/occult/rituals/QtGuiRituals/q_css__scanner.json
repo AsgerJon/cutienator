@@ -5,6 +5,12 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN4QCss7Scanner10preprocessERK7QStringPb": [
+      "text", "text", "address"
+    ],
+    "ritual_ZN4QCss7Scanner4scanERK7QStringP5QListINS_6SymbolEE": [
+      "nothing", "text", "address"
+    ],
     "ritual_ZN4QCss7ScannerD1Ev": ["nothing", "address"]
   }
 }

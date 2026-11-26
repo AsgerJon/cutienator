@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13VertexIndexer26getSimilarVertexIndex_fastERKNS_12PackedVertexER4QMapIS0_jERj": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN13VertexIndexerD1Ev": ["nothing", "address"]
   }
 }

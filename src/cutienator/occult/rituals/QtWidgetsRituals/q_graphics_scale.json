@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QGraphicsScale10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScale11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QGraphicsScale11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QGraphicsScale2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -30,6 +36,13 @@
     "ritual_ZNK14QGraphicsScale7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QGraphicsScale13originChangedEv": ["nothing", "address"],
+    "ritual_ZN14QGraphicsScale13xScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN14QGraphicsScale13yScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN14QGraphicsScale13zScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN14QGraphicsScale12scaleChangedEv": ["nothing", "address"],
+    "ritual_ZN14QGraphicsScale6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QGraphicsScale6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsScale": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QGraphicsScale7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"

@@ -7,7 +7,13 @@
   "rows": {
     "ritual_ZN16QTextureFileDataC1ENS_4ModeE": ["address", "int"],
     "ritual_ZN16QTextureFileDataC1ERKS_": ["address", "address"],
+    "ritual_ZN16QTextureFileDataC1EOS_": ["address", "address"],
+    "ritual_ZN16QTextureFileDataaSERKS_": ["address", "address", "address"],
+    "ritual_ZN16QTextureFileDataaSEOS_": ["address", "address", "address"],
     "ritual_ZN16QTextureFileDataD1Ev": ["nothing", "address"],
+    "ritual_ZN16QTextureFileData4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK16QTextureFileData6isNullEv": ["bool", "address"],
     "ritual_ZNK16QTextureFileData7isValidEv": ["bool", "address"],
     "ritual_ZN16QTextureFileData5clearEv": ["nothing", "address"],
@@ -65,8 +71,17 @@
     "ritual_ZN16QTextureFileData10setLogNameERK10QByteArray": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK16QTextureFileData16keyValueMetadataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QTextureFileData19setKeyValueMetadataERK4QMapI10QByteArrayS1_E": [
+      "nothing", "address", "address"
+    ],
     "ritual_Zls6QDebugRK16QTextureFileData": [
       "address", "address", "address"
+    ],
+    "ritual_drop_QTextureFileData__QMap_QByteArray_QByteArray": [
+      "nothing", "address"
     ]
   }
 }

@@ -1,0 +1,373 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN22QWindowSystemInterface19handleShortcutEventEP7QWindowmi6QFlagsIN2Qt16KeyboardModifierEEjjjRK7QStringbt": [
+      "bool", "address", "unsigned long", "int", "int", "unsigned int",
+      "unsigned int", "unsigned int", "text", "bool", "unsigned short"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleExtendedKeyEventEP7QWindowN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEEjjjRK7QStringbt": [
+      "bool", "address", "int", "int", "int", "unsigned int", "unsigned int",
+      "unsigned int", "text", "bool", "unsigned short"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleExtendedKeyEventEP7QWindowmN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEEjjjRK7QStringbt": [
+      "bool", "address", "unsigned long", "int", "int", "int",
+      "unsigned int", "unsigned int", "unsigned int", "text", "bool",
+      "unsigned short"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleWheelEventEP7QWindowRK7QPointFS4_6QPointS5_6QFlagsIN2Qt16KeyboardModifierEENS7_11ScrollPhaseENS7_16MouseEventSourceE": [
+      "bool", "address", "address", "address", "address", "address", "int",
+      "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleWheelEventEP7QWindowmRK7QPointFS4_6QPointS5_6QFlagsIN2Qt16KeyboardModifierEENS7_11ScrollPhaseENS7_16MouseEventSourceEb": [
+      "bool", "address", "unsigned long", "address", "address", "address",
+      "address", "int", "int", "int", "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleWheelEventEP7QWindowmPK15QPointingDeviceRK7QPointFS7_6QPointS8_6QFlagsIN2Qt16KeyboardModifierEENSA_11ScrollPhaseENSA_16MouseEventSourceEb": [
+      "bool", "address", "unsigned long", "address", "address", "address",
+      "address", "address", "int", "int", "int", "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface19registerInputDeviceEPK12QInputDevice": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface21handleEnterLeaveEventEP7QWindowS1_RK7QPointFS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface10handleDragEP7QWindowPK9QMimeDataRK6QPoint6QFlagsIN2Qt10DropActionEES8_INS9_11MouseButtonEES8_INS9_16KeyboardModifierEE": [
+      "address", "address", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface10handleDropEP7QWindowPK9QMimeDataRK6QPoint6QFlagsIN2Qt10DropActionEES8_INS9_11MouseButtonEES8_INS9_16KeyboardModifierEE": [
+      "address", "address", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleNativeEventEP7QWindowRK10QByteArrayPvPx": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleScreenAddedEP15QPlatformScreenb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface19handleScreenRemovedEP15QPlatformScreen": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface26handlePrimaryScreenChangedEP15QPlatformScreen": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface29handleScreenOrientationChangeEP7QScreenN2Qt17ScreenOrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface26handleScreenGeometryChangeEP7QScreenRK5QRectS4_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface36handleScreenLogicalDotsPerInchChangeEP7QScreendd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN22QWindowSystemInterface29handleScreenRefreshRateChangeEP7QScreend": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QWindowSystemInterface19handleFileOpenEventERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN22QWindowSystemInterface19handleFileOpenEventERK4QUrl": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleTabletEventEP7QWindowmPK15QPointingDeviceRK7QPointFS7_6QFlagsIN2Qt11MouseButtonEEddddddS8_INS9_16KeyboardModifierEE": [
+      "bool", "address", "unsigned long", "address", "address", "address",
+      "int", "double", "double", "double", "double", "double", "double",
+      "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleTabletEventEP7QWindowPK15QPointingDeviceRK7QPointFS7_6QFlagsIN2Qt11MouseButtonEEddddddS8_INS9_16KeyboardModifierEE": [
+      "bool", "address", "address", "address", "address", "int", "double",
+      "double", "double", "double", "double", "double", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleTabletEventEP7QWindowmRK7QPointFS4_ii6QFlagsIN2Qt11MouseButtonEEddddddxS5_INS6_16KeyboardModifierEE": [
+      "bool", "address", "unsigned long", "address", "address", "int", "int",
+      "int", "double", "double", "double", "double", "double", "double",
+      "long long", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleTabletEventEP7QWindowRK7QPointFS4_ii6QFlagsIN2Qt11MouseButtonEEddddddxS5_INS6_16KeyboardModifierEE": [
+      "bool", "address", "address", "address", "int", "int", "int", "double",
+      "double", "double", "double", "double", "double", "long long", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface36handleTabletEnterLeaveProximityEventEP7QWindowmPK15QPointingDevicebRK7QPointFS7_6QFlagsIN2Qt11MouseButtonEEdddddS8_INS9_16KeyboardModifierEE": [
+      "bool", "address", "unsigned long", "address", "bool", "address",
+      "address", "int", "double", "double", "double", "double", "double",
+      "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface36handleTabletEnterLeaveProximityEventEP7QWindowPK15QPointingDevicebRK7QPointFS7_6QFlagsIN2Qt11MouseButtonEEdddddS8_INS9_16KeyboardModifierEE": [
+      "bool", "address", "address", "bool", "address", "address", "int",
+      "double", "double", "double", "double", "double", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface31handleTabletEnterProximityEventEmiix": [
+      "bool", "unsigned long", "int", "int", "long long"
+    ],
+    "ritual_ZN22QWindowSystemInterface31handleTabletEnterProximityEventEiix": [
+      "nothing", "int", "int", "long long"
+    ],
+    "ritual_ZN22QWindowSystemInterface31handleTabletLeaveProximityEventEmiix": [
+      "bool", "unsigned long", "int", "int", "long long"
+    ],
+    "ritual_ZN22QWindowSystemInterface31handleTabletLeaveProximityEventEiix": [
+      "nothing", "int", "int", "long long"
+    ],
+    "ritual_ZN22QWindowSystemInterface18handleGestureEventEP7QWindowmPK15QPointingDeviceN2Qt17NativeGestureTypeERK7QPointFS9_i": [
+      "bool", "address", "unsigned long", "address", "int", "address",
+      "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface31handleGestureEventWithRealValueEP7QWindowmPK15QPointingDeviceN2Qt17NativeGestureTypeEdRK7QPointFS9_i": [
+      "bool", "address", "unsigned long", "address", "int", "double",
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface35handleGestureEventWithValueAndDeltaEP7QWindowmPK15QPointingDeviceN2Qt17NativeGestureTypeEdRK7QPointFS9_S9_i": [
+      "bool", "address", "unsigned long", "address", "int", "double",
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface24handlePlatformPanelEventEP7QWindow": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface25handleEnterWhatsThisEventEv": [
+      "nothing"
+    ],
+    "ritual_ZN22QWindowSystemInterface22sendWindowSystemEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface32setSynchronousWindowSystemEventsEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface23flushWindowSystemEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface31deferredFlushWindowSystemEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface24windowSystemEventsQueuedEv": ["int"],
+    "ritual_ZN22QWindowSystemInterface24nonUserInputEventsQueuedEv": [
+      "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN22QWindowSystemInterface14handleKeyEventINS_15DefaultDeliveryEEEbP7QWindowmN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt": [
+      "bool", "address", "unsigned long", "int", "int", "int", "text",
+      "bool", "unsigned short"
+    ],
+    "ritual_ZN22QWindowSystemInterface14handleKeyEventINS_15DefaultDeliveryEEEbP7QWindowN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt": [
+      "bool", "address", "int", "int", "int", "text", "bool",
+      "unsigned short"
+    ],
+    "ritual_ZN22QWindowSystemInterface14handleKeyEventINS_19SynchronousDeliveryEEEbP7QWindowmN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt": [
+      "bool", "address", "unsigned long", "int", "int", "int", "text",
+      "bool", "unsigned short"
+    ],
+    "ritual_ZN22QWindowSystemInterface14handleKeyEventINS_19SynchronousDeliveryEEEbP7QWindowN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt": [
+      "bool", "address", "int", "int", "int", "text", "bool",
+      "unsigned short"
+    ],
+    "ritual_ZN22QWindowSystemInterface14handleKeyEventINS_20AsynchronousDeliveryEEEbP7QWindowmN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt": [
+      "bool", "address", "unsigned long", "int", "int", "int", "text",
+      "bool", "unsigned short"
+    ],
+    "ritual_ZN22QWindowSystemInterface14handleKeyEventINS_20AsynchronousDeliveryEEEbP7QWindowN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEERK7QStringbt": [
+      "bool", "address", "int", "int", "int", "text", "bool",
+      "unsigned short"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleCloseEventINS_15DefaultDeliveryEEEbP7QWindow": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleCloseEventINS_19SynchronousDeliveryEEEbP7QWindow": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleCloseEventINS_20AsynchronousDeliveryEEEbP7QWindow": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleEnterEventINS_15DefaultDeliveryEEEvP7QWindowRK7QPointFS6_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleEnterEventINS_19SynchronousDeliveryEEEvP7QWindowRK7QPointFS6_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleEnterEventINS_20AsynchronousDeliveryEEEvP7QWindowRK7QPointFS6_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleLeaveEventINS_15DefaultDeliveryEEEvP7QWindow": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleLeaveEventINS_19SynchronousDeliveryEEEvP7QWindow": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleLeaveEventINS_20AsynchronousDeliveryEEEvP7QWindow": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_15DefaultDeliveryEEEbP7QWindowmPK15QPointingDeviceRK7QPointFS9_6QFlagsIN2Qt11MouseButtonEESC_N6QEvent4TypeESA_INSB_16KeyboardModifierEENSB_16MouseEventSourceE": [
+      "bool", "address", "unsigned long", "address", "address", "address",
+      "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_15DefaultDeliveryEEEbP7QWindowmRK7QPointFS6_6QFlagsIN2Qt11MouseButtonEES9_N6QEvent4TypeES7_INS8_16KeyboardModifierEENS8_16MouseEventSourceE": [
+      "bool", "address", "unsigned long", "address", "address", "int", "int",
+      "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_15DefaultDeliveryEEEbP7QWindowPK15QPointingDeviceRK7QPointFS9_6QFlagsIN2Qt11MouseButtonEESC_N6QEvent4TypeESA_INSB_16KeyboardModifierEENSB_16MouseEventSourceE": [
+      "bool", "address", "address", "address", "address", "int", "int",
+      "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_15DefaultDeliveryEEEbP7QWindowRK7QPointFS6_6QFlagsIN2Qt11MouseButtonEES9_N6QEvent4TypeES7_INS8_16KeyboardModifierEENS8_16MouseEventSourceE": [
+      "bool", "address", "address", "address", "int", "int", "int", "int",
+      "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_19SynchronousDeliveryEEEbP7QWindowmPK15QPointingDeviceRK7QPointFS9_6QFlagsIN2Qt11MouseButtonEESC_N6QEvent4TypeESA_INSB_16KeyboardModifierEENSB_16MouseEventSourceE": [
+      "bool", "address", "unsigned long", "address", "address", "address",
+      "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_19SynchronousDeliveryEEEbP7QWindowmRK7QPointFS6_6QFlagsIN2Qt11MouseButtonEES9_N6QEvent4TypeES7_INS8_16KeyboardModifierEENS8_16MouseEventSourceE": [
+      "bool", "address", "unsigned long", "address", "address", "int", "int",
+      "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_19SynchronousDeliveryEEEbP7QWindowPK15QPointingDeviceRK7QPointFS9_6QFlagsIN2Qt11MouseButtonEESC_N6QEvent4TypeESA_INSB_16KeyboardModifierEENSB_16MouseEventSourceE": [
+      "bool", "address", "address", "address", "address", "int", "int",
+      "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_19SynchronousDeliveryEEEbP7QWindowRK7QPointFS6_6QFlagsIN2Qt11MouseButtonEES9_N6QEvent4TypeES7_INS8_16KeyboardModifierEENS8_16MouseEventSourceE": [
+      "bool", "address", "address", "address", "int", "int", "int", "int",
+      "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_20AsynchronousDeliveryEEEbP7QWindowmPK15QPointingDeviceRK7QPointFS9_6QFlagsIN2Qt11MouseButtonEESC_N6QEvent4TypeESA_INSB_16KeyboardModifierEENSB_16MouseEventSourceE": [
+      "bool", "address", "unsigned long", "address", "address", "address",
+      "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_20AsynchronousDeliveryEEEbP7QWindowmRK7QPointFS6_6QFlagsIN2Qt11MouseButtonEES9_N6QEvent4TypeES7_INS8_16KeyboardModifierEENS8_16MouseEventSourceE": [
+      "bool", "address", "unsigned long", "address", "address", "int", "int",
+      "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_20AsynchronousDeliveryEEEbP7QWindowPK15QPointingDeviceRK7QPointFS9_6QFlagsIN2Qt11MouseButtonEESC_N6QEvent4TypeESA_INSB_16KeyboardModifierEENSB_16MouseEventSourceE": [
+      "bool", "address", "address", "address", "address", "int", "int",
+      "int", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handleMouseEventINS_20AsynchronousDeliveryEEEbP7QWindowRK7QPointFS6_6QFlagsIN2Qt11MouseButtonEES9_N6QEvent4TypeES7_INS8_16KeyboardModifierEENS8_16MouseEventSourceE": [
+      "bool", "address", "address", "address", "int", "int", "int", "int",
+      "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handlePaintEventINS_15DefaultDeliveryEEEbP7QWindowRK7QRegion": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handlePaintEventINS_19SynchronousDeliveryEEEbP7QWindowRK7QRegion": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface16handlePaintEventINS_20AsynchronousDeliveryEEEbP7QWindowRK7QRegion": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleExposeEventINS_15DefaultDeliveryEEEbP7QWindowRK7QRegion": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleExposeEventINS_19SynchronousDeliveryEEEbP7QWindowRK7QRegion": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleExposeEventINS_20AsynchronousDeliveryEEEbP7QWindowRK7QRegion": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleThemeChangeINS_15DefaultDeliveryEEEvv": [
+      "nothing"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleThemeChangeINS_19SynchronousDeliveryEEEvv": [
+      "nothing"
+    ],
+    "ritual_ZN22QWindowSystemInterface17handleThemeChangeINS_20AsynchronousDeliveryEEEvv": [
+      "nothing"
+    ],
+    "ritual_ZN22QWindowSystemInterface20handleGeometryChangeINS_15DefaultDeliveryEEEvP7QWindowRK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface20handleGeometryChangeINS_19SynchronousDeliveryEEEvP7QWindowRK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface20handleGeometryChangeINS_20AsynchronousDeliveryEEEvP7QWindowRK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleContextMenuEventINS_15DefaultDeliveryEEEbP7QWindowbRK6QPointS6_6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "bool", "address", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleContextMenuEventINS_19SynchronousDeliveryEEEbP7QWindowbRK6QPointS6_6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "bool", "address", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleContextMenuEventINS_20AsynchronousDeliveryEEEbP7QWindowbRK6QPointS6_6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "bool", "address", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleTouchCancelEventINS_15DefaultDeliveryEEEbP7QWindowmPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "unsigned long", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleTouchCancelEventINS_15DefaultDeliveryEEEbP7QWindowPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleTouchCancelEventINS_19SynchronousDeliveryEEEbP7QWindowmPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "unsigned long", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleTouchCancelEventINS_19SynchronousDeliveryEEEbP7QWindowPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleTouchCancelEventINS_20AsynchronousDeliveryEEEbP7QWindowmPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "unsigned long", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface22handleTouchCancelEventINS_20AsynchronousDeliveryEEEbP7QWindowPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface24handleFocusWindowChangedINS_15DefaultDeliveryEEEvP7QWindowN2Qt11FocusReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface24handleFocusWindowChangedINS_19SynchronousDeliveryEEEvP7QWindowN2Qt11FocusReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface24handleFocusWindowChangedINS_20AsynchronousDeliveryEEEvP7QWindowN2Qt11FocusReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface24handleWindowStateChangedINS_15DefaultDeliveryEEEvP7QWindow6QFlagsIN2Qt11WindowStateEEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface24handleWindowStateChangedINS_19SynchronousDeliveryEEEvP7QWindow6QFlagsIN2Qt11WindowStateEEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface24handleWindowStateChangedINS_20AsynchronousDeliveryEEEvP7QWindow6QFlagsIN2Qt11WindowStateEEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QWindowSystemInterface25handleWindowScreenChangedINS_15DefaultDeliveryEEEvP7QWindowP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface25handleWindowScreenChangedINS_19SynchronousDeliveryEEEvP7QWindowP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface25handleWindowScreenChangedINS_20AsynchronousDeliveryEEEvP7QWindowP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface28handleApplicationTerminationINS_15DefaultDeliveryEEEbv": [
+      "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface28handleApplicationTerminationINS_19SynchronousDeliveryEEEbv": [
+      "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface28handleApplicationTerminationINS_20AsynchronousDeliveryEEEbv": [
+      "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface28handleSafeAreaMarginsChangedINS_15DefaultDeliveryEEEvP7QWindow": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface28handleSafeAreaMarginsChangedINS_19SynchronousDeliveryEEEvP7QWindow": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface28handleSafeAreaMarginsChangedINS_20AsynchronousDeliveryEEEvP7QWindow": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface29handleApplicationStateChangedINS_15DefaultDeliveryEEEvN2Qt16ApplicationStateEb": [
+      "nothing", "int", "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface29handleApplicationStateChangedINS_19SynchronousDeliveryEEEvN2Qt16ApplicationStateEb": [
+      "nothing", "int", "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface29handleApplicationStateChangedINS_20AsynchronousDeliveryEEEvN2Qt16ApplicationStateEb": [
+      "nothing", "int", "bool"
+    ],
+    "ritual_ZN22QWindowSystemInterface35handleWindowDevicePixelRatioChangedINS_15DefaultDeliveryEEEvP7QWindow": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface35handleWindowDevicePixelRatioChangedINS_19SynchronousDeliveryEEEvP7QWindow": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWindowSystemInterface35handleWindowDevicePixelRatioChangedINS_20AsynchronousDeliveryEEEvP7QWindow": [
+      "nothing", "address"
+    ]
+  }
+}

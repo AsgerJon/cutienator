@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK7QWizard10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QWizard11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN7QWizard11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN7QWizard2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN7QWizardC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
@@ -19,6 +23,8 @@
     "ritual_ZN7QWizard10removePageEi": ["nothing", "address", "int"],
     "ritual_ZNK7QWizard4pageEi": ["address", "address", "int"],
     "ritual_ZNK7QWizard14hasVisitedPageEi": ["bool", "address", "int"],
+    "ritual_ZNK7QWizard10visitedIdsEv": ["address", "address"],
+    "ritual_ZNK7QWizard7pageIdsEv": ["address", "address"],
     "ritual_ZN7QWizard10setStartIdEi": ["nothing", "address", "int"],
     "ritual_ZNK7QWizard7startIdEv": ["int", "address"],
     "ritual_ZNK7QWizard11currentPageEv": ["address", "address"],
@@ -49,6 +55,9 @@
     "ritual_ZNK7QWizard10buttonTextENS_12WizardButtonE": [
       "text", "address", "int"
     ],
+    "ritual_ZN7QWizard15setButtonLayoutERK5QListINS_12WizardButtonEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN7QWizard9setButtonENS_12WizardButtonEP15QAbstractButton": [
       "nothing", "address", "int", "address"
     ],
@@ -78,6 +87,13 @@
     ],
     "ritual_ZN7QWizard10setVisibleEb": ["nothing", "address", "bool"],
     "ritual_ZNK7QWizard8sizeHintEv": ["address", "address"],
+    "ritual_ZN7QWizard16currentIdChangedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWizard13helpRequestedEv": ["nothing", "address"],
+    "ritual_ZN7QWizard19customButtonClickedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWizard9pageAddedEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWizard11pageRemovedEi": ["nothing", "address", "int"],
     "ritual_ZN7QWizard4backEv": ["nothing", "address"],
     "ritual_ZN7QWizard4nextEv": ["nothing", "address"],
     "ritual_ZN7QWizard12setCurrentIdEi": ["nothing", "address", "int"],
@@ -92,6 +108,8 @@
     "ritual_ZN7QWizard4doneEi": ["nothing", "address", "int"],
     "ritual_ZN7QWizard14initializePageEi": ["nothing", "address", "int"],
     "ritual_ZN7QWizard11cleanupPageEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWizard6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QWizard6d_funcEv": ["address", "address"],
     "ritual_take_QWizard": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QWizard19validateCurrentPageEv": ["bool", "address"],
     "ritual_own_ZNK7QWizard6nextIdEv": ["int", "address"],
@@ -106,6 +124,7 @@
     ],
     "ritual_own_ZN7QWizard4doneEi": ["nothing", "address", "int"],
     "ritual_own_ZN7QWizard14initializePageEi": ["nothing", "address", "int"],
-    "ritual_own_ZN7QWizard11cleanupPageEi": ["nothing", "address", "int"]
+    "ritual_own_ZN7QWizard11cleanupPageEi": ["nothing", "address", "int"],
+    "ritual_drop_QWizard__QList_int": ["nothing", "address"]
   }
 }

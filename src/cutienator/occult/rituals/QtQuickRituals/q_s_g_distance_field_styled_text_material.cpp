@@ -90,11 +90,33 @@ public:
   }
 };
 
+//  QSGDistanceFieldStyledTextMaterial::QSGDistanceFieldStyledTextMaterial()
+extern "C" Q_DECL_EXPORT
+QSGDistanceFieldStyledTextMaterial *ritual_ZN34QSGDistanceFieldStyledTextMaterialC1Ev() {
+  return new CuteQSGDistanceFieldStyledTextMaterial();
+}
+
 //  QSGDistanceFieldStyledTextMaterial::~QSGDistanceFieldStyledTextMaterial()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN34QSGDistanceFieldStyledTextMaterialD1Ev(
     QSGDistanceFieldStyledTextMaterial *self) {
   delete self;
+}
+
+//  QSGMaterialType *QSGDistanceFieldStyledTextMaterial::type() const
+extern "C" Q_DECL_EXPORT
+QSGMaterialType *ritual_ZNK34QSGDistanceFieldStyledTextMaterial4typeEv(
+    const QSGDistanceFieldStyledTextMaterial *self) {
+  return self->type();
+}
+
+//  QSGMaterialShader *QSGDistanceFieldStyledTextMaterial::createShader(QSGRe
+//      ndererInterface::RenderMode renderMode) const
+extern "C" Q_DECL_EXPORT
+QSGMaterialShader *ritual_ZNK34QSGDistanceFieldStyledTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE(
+    const QSGDistanceFieldStyledTextMaterial *self,
+    QSGRendererInterface::RenderMode renderMode) {
+  return self->createShader(renderMode);
 }
 
 //  int QSGDistanceFieldStyledTextMaterial::compare(const QSGMaterial *other)

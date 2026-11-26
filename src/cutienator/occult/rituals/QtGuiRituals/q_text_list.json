@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK9QTextList10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QTextList11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QTextList11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QTextList2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QTextListC1EP13QTextDocument": ["address", "address"],
     "ritual_ZN9QTextListD1Ev": ["nothing", "address"],
@@ -27,6 +31,8 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK9QTextList6formatEv": ["address", "address"],
+    "ritual_ZN9QTextList6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QTextList6d_funcEv": ["address", "address"],
     "ritual_take_QTextList": ["bool", "address", "chars", "address"]
   }
 }

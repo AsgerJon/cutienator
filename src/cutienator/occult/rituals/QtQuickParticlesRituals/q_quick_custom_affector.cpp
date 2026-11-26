@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuickParticles/6.12.0/QtQuickParticles/private/qquickv4particledata_p.h>
 #include <QtQuickParticles/6.12.0/QtQuickParticles/private/qquickparticlesystem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
@@ -23,6 +24,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK20QQuickCustomAffector10metaObjectEv(
     const QQuickCustomAffector *self) {
   return self->metaObject();
+}
+
+//  void *QQuickCustomAffector::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickCustomAffector11qt_metacastEPKc(
+    QQuickCustomAffector *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickCustomAffector::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickCustomAffector11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickCustomAffector *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QQuickCustomAffector::tr(const char *s, const char *c, int n)
@@ -96,6 +116,48 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QQuickCustomAffector8relativeEv(
     const QQuickCustomAffector *self) {
   return self->relative();
+}
+
+//  void QQuickCustomAffector::affectParticles(const
+//      QList<QQuickV4ParticleData> &particles, qreal dt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickCustomAffector15affectParticlesERK5QListI20QQuickV4ParticleDataEd(
+    QQuickCustomAffector *self,
+    const QList<QQuickV4ParticleData> *particles,
+    qreal dt) {
+  self->affectParticles(*particles, dt);
+}
+
+//  void QQuickCustomAffector::positionChanged(QQuickDirection *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickCustomAffector15positionChangedEP15QQuickDirection(
+    QQuickCustomAffector *self,
+    QQuickDirection *arg) {
+  self->positionChanged(arg);
+}
+
+//  void QQuickCustomAffector::velocityChanged(QQuickDirection *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickCustomAffector15velocityChangedEP15QQuickDirection(
+    QQuickCustomAffector *self,
+    QQuickDirection *arg) {
+  self->velocityChanged(arg);
+}
+
+//  void QQuickCustomAffector::accelerationChanged(QQuickDirection *arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickCustomAffector19accelerationChangedEP15QQuickDirection(
+    QQuickCustomAffector *self,
+    QQuickDirection *arg) {
+  self->accelerationChanged(arg);
+}
+
+//  void QQuickCustomAffector::relativeChanged(bool arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickCustomAffector15relativeChangedEb(
+    QQuickCustomAffector *self,
+    bool arg) {
+  self->relativeChanged(arg);
 }
 
 //  void QQuickCustomAffector::setPosition(QQuickDirection *arg)

@@ -8,8 +8,17 @@
     "ritual_ZNK42QWaylandIdleInhibitManagerV1QuickExtension10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN42QWaylandIdleInhibitManagerV1QuickExtension11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN42QWaylandIdleInhibitManagerV1QuickExtension11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN42QWaylandIdleInhibitManagerV1QuickExtension2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN42QWaylandIdleInhibitManagerV1QuickExtension4dataEv": [
+      "address", "address"
     ],
     "ritual_ZN42QWaylandIdleInhibitManagerV1QuickExtension10classBeginEv": [
       "nothing", "address"
@@ -24,6 +33,9 @@
       "nothing", "address"
     ],
     "ritual_own_ZN42QWaylandIdleInhibitManagerV1QuickExtension17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QWaylandIdleInhibitManagerV1QuickExtension__QQmlListProperty_QObject": [
       "nothing", "address"
     ]
   }

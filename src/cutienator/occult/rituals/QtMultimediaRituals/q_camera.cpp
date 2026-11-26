@@ -180,6 +180,22 @@ const QMetaObject *ritual_ZNK7QCamera10metaObjectEv(const QCamera *self) {
   return self->metaObject();
 }
 
+//  void *QCamera::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QCamera11qt_metacastEPKc(QCamera *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCamera::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QCamera11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCamera *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCamera::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QCamera2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -575,6 +591,190 @@ void ritual_ZN7QCamera19setColorTemperatureEi(
     QCamera *self,
     int colorTemperature) {
   self->setColorTemperature(colorTemperature);
+}
+
+//  void QCamera::activeChanged(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera13activeChangedEb(QCamera *self, bool a0) {
+  self->activeChanged(a0);
+}
+
+//  void QCamera::errorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera12errorChangedEv(QCamera *self) {
+  self->errorChanged();
+}
+
+//  void QCamera::errorOccurred(QCamera::Error error, const QString
+//      &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera13errorOccurredENS_5ErrorERK7QString(
+    QCamera *self,
+    QCamera::Error error,
+    const QString *errorString) {
+  self->errorOccurred(error, *errorString);
+}
+
+//  void QCamera::cameraDeviceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera19cameraDeviceChangedEv(QCamera *self) {
+  self->cameraDeviceChanged();
+}
+
+//  void QCamera::cameraFormatChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera19cameraFormatChangedEv(QCamera *self) {
+  self->cameraFormatChanged();
+}
+
+//  void QCamera::supportedFeaturesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera24supportedFeaturesChangedEv(QCamera *self) {
+  self->supportedFeaturesChanged();
+}
+
+//  void QCamera::focusModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera16focusModeChangedEv(QCamera *self) {
+  self->focusModeChanged();
+}
+
+//  void QCamera::zoomFactorChanged(float a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera17zoomFactorChangedEf(QCamera *self, float a0) {
+  self->zoomFactorChanged(a0);
+}
+
+//  void QCamera::minimumZoomFactorChanged(float a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera24minimumZoomFactorChangedEf(QCamera *self, float a0) {
+  self->minimumZoomFactorChanged(a0);
+}
+
+//  void QCamera::maximumZoomFactorChanged(float a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera24maximumZoomFactorChangedEf(QCamera *self, float a0) {
+  self->maximumZoomFactorChanged(a0);
+}
+
+//  void QCamera::focusDistanceChanged(float a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera20focusDistanceChangedEf(QCamera *self, float a0) {
+  self->focusDistanceChanged(a0);
+}
+
+//  void QCamera::focusPointChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera17focusPointChangedEv(QCamera *self) {
+  self->focusPointChanged();
+}
+
+//  void QCamera::customFocusPointChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera23customFocusPointChangedEv(QCamera *self) {
+  self->customFocusPointChanged();
+}
+
+//  void QCamera::flashReady(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera10flashReadyEb(QCamera *self, bool a0) {
+  self->flashReady(a0);
+}
+
+//  void QCamera::flashModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera16flashModeChangedEv(QCamera *self) {
+  self->flashModeChanged();
+}
+
+//  void QCamera::torchModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera16torchModeChangedEv(QCamera *self) {
+  self->torchModeChanged();
+}
+
+//  void QCamera::exposureTimeChanged(float speed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera19exposureTimeChangedEf(QCamera *self, float speed) {
+  self->exposureTimeChanged(speed);
+}
+
+//  void QCamera::manualExposureTimeChanged(float speed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera25manualExposureTimeChangedEf(
+    QCamera *self,
+    float speed) {
+  self->manualExposureTimeChanged(speed);
+}
+
+//  void QCamera::isoSensitivityChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera21isoSensitivityChangedEi(QCamera *self, int a0) {
+  self->isoSensitivityChanged(a0);
+}
+
+//  void QCamera::manualIsoSensitivityChanged(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera27manualIsoSensitivityChangedEi(
+    QCamera *self,
+    int a0) {
+  self->manualIsoSensitivityChanged(a0);
+}
+
+//  void QCamera::exposureCompensationChanged(float a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera27exposureCompensationChangedEf(
+    QCamera *self,
+    float a0) {
+  self->exposureCompensationChanged(a0);
+}
+
+//  void QCamera::exposureModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera19exposureModeChangedEv(QCamera *self) {
+  self->exposureModeChanged();
+}
+
+//  void QCamera::whiteBalanceModeChanged() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK7QCamera23whiteBalanceModeChangedEv(const QCamera *self) {
+  self->whiteBalanceModeChanged();
+}
+
+//  void QCamera::colorTemperatureChanged() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK7QCamera23colorTemperatureChangedEv(const QCamera *self) {
+  self->colorTemperatureChanged();
+}
+
+//  void QCamera::brightnessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera17brightnessChangedEv(QCamera *self) {
+  self->brightnessChanged();
+}
+
+//  void QCamera::contrastChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera15contrastChangedEv(QCamera *self) {
+  self->contrastChanged();
+}
+
+//  void QCamera::saturationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera17saturationChangedEv(QCamera *self) {
+  self->saturationChanged();
+}
+
+//  void QCamera::hueChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QCamera10hueChangedEv(QCamera *self) {
+  self->hueChanged();
+}
+
+//  class QPlatformCamera *QCamera::platformCamera()
+extern "C" Q_DECL_EXPORT
+class QPlatformCamera *ritual_ZN7QCamera14platformCameraEv(QCamera *self) {
+  return self->platformCamera();
 }
 
 //  void QCamera::setCaptureSession(QMediaCaptureSession *session)

@@ -409,6 +409,24 @@ const QMetaObject *ritual_ZNK10QPdfWriter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPdfWriter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QPdfWriter11qt_metacastEPKc(
+    QPdfWriter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPdfWriter::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QPdfWriter11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPdfWriter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPdfWriter::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QPdfWriter2trEPKcS1_i(
@@ -595,6 +613,19 @@ int ritual_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMetricE(
     const QPdfWriter *self,
     QPaintDevice::PaintDeviceMetric id) {
   return self->metric(id);
+}
+
+//  QPdfWriterPrivate *QPdfWriter::d_func()
+extern "C" Q_DECL_EXPORT
+QPdfWriterPrivate *ritual_ZN10QPdfWriter6d_funcEv(QPdfWriter *self) {
+  return self->d_func();
+}
+
+//  const QPdfWriterPrivate *QPdfWriter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPdfWriterPrivate *ritual_ZNK10QPdfWriter6d_funcEv(
+    const QPdfWriter *self) {
+  return self->d_func();
 }
 
 //  QPdfWriter as the QPagedPaintDevice it is built on

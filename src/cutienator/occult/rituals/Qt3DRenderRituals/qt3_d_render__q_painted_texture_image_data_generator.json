@@ -5,6 +5,18 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender33QPaintedTextureImageDataGeneratorC1ERK6QImageiN8Qt3DCore7QNodeIdE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender33QPaintedTextureImageDataGeneratorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender33QPaintedTextureImageDataGeneratorclEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender33QPaintedTextureImageDataGeneratoreqERKNS_26QTextureImageDataGeneratorE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK10Qt3DRender33QPaintedTextureImageDataGenerator2idEv": [
       "long long", "address"
     ],
@@ -13,6 +25,9 @@
     ],
     "ritual_own_ZNK10Qt3DRender33QPaintedTextureImageDataGenerator2idEv": [
       "long long", "address"
+    ],
+    "ritual_drop_Qt3DRender_QPaintedTextureImageDataGenerator__Qt3DRender_QTextureImageDataPtr": [
+      "nothing", "address"
     ]
   }
 }

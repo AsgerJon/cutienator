@@ -1,12 +1,13 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DInput/6.12.0/Qt3DInput/private/axisaccumulatorjob_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "Qt3DInput/6.12.0/Qt3DInput/private/axisaccumulatorjob_p.h,",
+    "Qt 6.12.0, from Qt's source."
   ],
   "rows": {
     "ritual_ZN9Qt3DInput5Input18AxisAccumulatorJob12setDeltaTimeEf": [
       "nothing", "address", "float"
-    ]
+    ],
+    "ritual_ZN9Qt3DInput5Input18AxisAccumulatorJob3runEv": ["nothing", "address"]
   }
 }

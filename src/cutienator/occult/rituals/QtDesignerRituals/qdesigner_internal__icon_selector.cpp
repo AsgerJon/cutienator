@@ -1,6 +1,9 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtDesigner/6.12.0/QtDesigner/private/iconselector_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  Written by hand on 2026-11-25 from
+//  QtDesigner/6.12.0/QtDesigner/private/iconselector_p.h,
+//  Qt 6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again.
+//  Not written: 'qt_metacast'. The class declares no virtual function
+//  but its destructor, so it has no 'own_' rituals.
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtDesigner/QtDesigner>
@@ -11,11 +14,13 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_utils_p.h>
 #include <cstring>
 
-//  A qdesigner_internal::IconSelector that Python can take functions over in. Every qdesigner_internal::IconSelector
-//  Python makes is one. Each function below asks the Python
-//  function handed over for it, and runs Qt's own without one.
+//  A qdesigner_internal::IconSelector that Python can take functions over
+//  in. Every qdesigner_internal::IconSelector Python makes is one. Each
+//  function below asks the Python function handed over for it, and runs Qt's
+//  own without one.
 typedef int (*Cuteqdesigner_internal_IconSelectorCall0)(const void *, int *);
 typedef void (*Cuteqdesigner_internal_IconSelectorCall1)(const void *, bool, int *);
 typedef const QSize * (*Cuteqdesigner_internal_IconSelectorCall2)(const void *, int *);
@@ -869,8 +874,114 @@ QString *ritual_ZN18qdesigner_internal12IconSelector2trEPKcS2_i(
   return new QString(qdesigner_internal::IconSelector::tr(s, c, n));
 }
 
-//  a Python function taken by a Cuteqdesigner_internal_IconSelector, for the
-//      function named by the key
+//  IconSelectorPrivate *qdesigner_internal::IconSelector::d_func()
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::IconSelectorPrivate *ritual_ZN18qdesigner_internal12IconSelector6d_funcEv(
+    qdesigner_internal::IconSelector *self) {
+  return self->d_func();
+}
+
+//  const IconSelectorPrivate *qdesigner_internal::IconSelector::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const qdesigner_internal::IconSelectorPrivate *ritual_ZNK18qdesigner_internal12IconSelector6d_funcEv(
+    const qdesigner_internal::IconSelector *self) {
+  return self->d_func();
+}
+
+//  qdesigner_internal::IconSelector::IconSelector(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::IconSelector *ritual_ZN18qdesigner_internal12IconSelectorC1EP7QWidget(
+    QWidget *parent) {
+  return new Cuteqdesigner_internal_IconSelector(parent);
+}
+
+//  qdesigner_internal::IconSelector::~IconSelector()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12IconSelectorD1Ev(
+    qdesigner_internal::IconSelector *self) {
+  delete self;
+}
+
+//  void
+//      qdesigner_internal::IconSelector::setFormEditor(QDesignerFormEditorInterface
+//      *core)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12IconSelector13setFormEditorEP28QDesignerFormEditorInterface(
+    qdesigner_internal::IconSelector *self,
+    QDesignerFormEditorInterface *core) {
+  self->setFormEditor(core);
+}
+
+//  void qdesigner_internal::IconSelector::setIconCache(DesignerIconCache
+//      *iconCache)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12IconSelector12setIconCacheEPNS_17DesignerIconCacheE(
+    qdesigner_internal::IconSelector *self,
+    qdesigner_internal::DesignerIconCache *iconCache) {
+  self->setIconCache(iconCache);
+}
+
+//  void qdesigner_internal::IconSelector::setIcon(const
+//      PropertySheetIconValue &icon)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12IconSelector7setIconERKNS_22PropertySheetIconValueE(
+    qdesigner_internal::IconSelector *self,
+    const qdesigner_internal::PropertySheetIconValue *icon) {
+  self->setIcon(*icon);
+}
+
+//  PropertySheetIconValue qdesigner_internal::IconSelector::icon() const
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::PropertySheetIconValue *ritual_ZNK18qdesigner_internal12IconSelector4iconEv(
+    const qdesigner_internal::IconSelector *self) {
+  return new qdesigner_internal::PropertySheetIconValue(self->icon());
+}
+
+//  bool qdesigner_internal::IconSelector::checkPixmap(const QString
+//      &fileName, CheckMode cm, QString *errorMessage)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal12IconSelector11checkPixmapERK7QStringNS0_9CheckModeEPS1_(
+    const QString *fileName,
+    qdesigner_internal::IconSelector::CheckMode cm,
+    QString *errorMessage) {
+  return qdesigner_internal::IconSelector::checkPixmap(*fileName, cm, errorMessage);
+}
+
+//  QString qdesigner_internal::IconSelector::choosePixmapFile(const QString
+//      &directory, QDesignerDialogGuiInterface *dlgGui, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal12IconSelector16choosePixmapFileERK7QStringP27QDesignerDialogGuiInterfaceP7QWidget(
+    const QString *directory,
+    QDesignerDialogGuiInterface *dlgGui,
+    QWidget *parent) {
+  return new QString(qdesigner_internal::IconSelector::choosePixmapFile(*directory, dlgGui, parent));
+}
+
+//  QString
+//      qdesigner_internal::IconSelector::choosePixmapResource(QDesignerFormEditorInterface
+//      *core, QtResourceModel *resourceModel, const QString &oldPath,
+//      QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal12IconSelector20choosePixmapResourceEP28QDesignerFormEditorInterfaceP15QtResourceModelRK7QStringP7QWidget(
+    QDesignerFormEditorInterface *core,
+    QtResourceModel *resourceModel,
+    const QString *oldPath,
+    QWidget *parent) {
+  return new QString(qdesigner_internal::IconSelector::choosePixmapResource(core, resourceModel, *oldPath, parent));
+}
+
+//  void qdesigner_internal::IconSelector::iconChanged(const
+//      PropertySheetIconValue &icon)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal12IconSelector11iconChangedERKNS_22PropertySheetIconValueE(
+    qdesigner_internal::IconSelector *self,
+    const qdesigner_internal::PropertySheetIconValue *icon) {
+  self->iconChanged(*icon);
+}
+
+//  a Python function taken by a Cuteqdesigner_internal_IconSelector, for
+//      the function named by the key
 extern "C" Q_DECL_EXPORT
 bool ritual_take_qdesigner_internal_IconSelector(
     qdesigner_internal::IconSelector *self,

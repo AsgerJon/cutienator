@@ -10,6 +10,8 @@
   "rows": {
     "ritual_ZN21QXYModelMapperPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QXYModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QXYModelMapperPrivateC1Ev": ["address"],
+    "ritual_ZN21QXYModelMapperPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN21QXYModelMapperPrivate16onModelRowsAddedE11QModelIndexxx": [
       "nothing", "address", "address", "long long", "long long"
     ],

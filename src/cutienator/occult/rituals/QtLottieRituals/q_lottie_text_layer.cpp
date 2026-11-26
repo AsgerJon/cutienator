@@ -33,6 +33,14 @@ QLottieBase *ritual_ZNK16QLottieTextLayer5cloneEv(
   return self->clone();
 }
 
+//  void QLottieTextLayer::render(QLottieRenderer &renderer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QLottieTextLayer6renderER15QLottieRenderer(
+    const QLottieTextLayer *self,
+    QLottieRenderer *renderer) {
+  self->render(*renderer);
+}
+
 //  int QLottieTextLayer::parse(const QJsonObject &definition)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN16QLottieTextLayer5parseERK11QJsonObject(

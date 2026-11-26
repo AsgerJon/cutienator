@@ -5,6 +5,10 @@
     "made here are lost."
   ],
   "rows": {
-    "ritual_ZN3QV47RuntimeD1Ev": ["nothing", "address"]
+    "ritual_ZN3QV47Runtime11symbolTableEv": ["address"],
+    "ritual_ZN3QV47RuntimeD1Ev": ["nothing", "address"],
+    "ritual_drop_QV4_Runtime__QHash_const_void_const_char": [
+      "nothing", "address"
+    ]
   }
 }

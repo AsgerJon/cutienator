@@ -63,6 +63,14 @@ ObjectInCreationGCAnchorList *ritual_ZN28ObjectInCreationGCAnchorListC1Ev() {
   return new ObjectInCreationGCAnchorList();
 }
 
+//  ObjectInCreationGCAnchorList::ObjectInCreationGCAnchorList(const
+//      QV4::Scope &scope)
+extern "C" Q_DECL_EXPORT
+ObjectInCreationGCAnchorList *ritual_ZN28ObjectInCreationGCAnchorListC1ERKN3QV45ScopeE(
+    const QV4::Scope *scope) {
+  return new ObjectInCreationGCAnchorList(*scope);
+}
+
 //  void ObjectInCreationGCAnchorList::trackObject(QV4::ExecutionEngine
 //      *engine, QObject *instance)
 extern "C" Q_DECL_EXPORT

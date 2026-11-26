@@ -5,6 +5,27 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK4QMdi16MinOverlapPlacer5placeERK5QSizeRK5QListI5QRectERKS5_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN4QMdi16MinOverlapPlacer18accumulatedOverlapERK5QRectRK5QListIS1_E": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN4QMdi16MinOverlapPlacer18findMinOverlapRectERK5QListI5QRectES5_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN4QMdi16MinOverlapPlacer22getCandidatePlacementsERK5QSizeRK5QListI5QRectERKS5_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN4QMdi16MinOverlapPlacer17findBestPlacementERK5QRectRK5QListIS1_ERS5_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN4QMdi16MinOverlapPlacer15findNonInsidersERK5QRectR5QListIS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN4QMdi16MinOverlapPlacer18findMaxOverlappersERK5QRectRK5QListIS1_E": [
+      "address", "address", "address"
+    ],
     "ritual_ZN4QMdi16MinOverlapPlacerD1Ev": ["nothing", "address"]
   }
 }

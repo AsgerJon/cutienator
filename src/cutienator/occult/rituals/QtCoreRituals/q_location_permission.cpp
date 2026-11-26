@@ -49,10 +49,43 @@ QLocationPermission *ritual_ZN19QLocationPermissionC1ERKS_(
   return new QLocationPermission(*other);
 }
 
+//  QLocationPermission::QLocationPermission(QLocationPermission &&other)
+extern "C" Q_DECL_EXPORT
+QLocationPermission *ritual_ZN19QLocationPermissionC1EOS_(
+    QLocationPermission *other) {
+  return new QLocationPermission(std::move(*other));
+}
+
 //  QLocationPermission::~QLocationPermission()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QLocationPermissionD1Ev(QLocationPermission *self) {
   delete self;
+}
+
+//  QLocationPermission &QLocationPermission::operator=(const
+//      QLocationPermission &other)
+extern "C" Q_DECL_EXPORT
+QLocationPermission *ritual_ZN19QLocationPermissionaSERKS_(
+    QLocationPermission *self,
+    const QLocationPermission *other) {
+  return &(self->operator=(*other));
+}
+
+//  QLocationPermission &QLocationPermission::operator=(QLocationPermission
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QLocationPermission *ritual_ZN19QLocationPermissionaSEOS_(
+    QLocationPermission *self,
+    QLocationPermission *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QLocationPermission::swap(QLocationPermission &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QLocationPermission4swapERS_(
+    QLocationPermission *self,
+    QLocationPermission *other) {
+  self->swap(*other);
 }
 
 #endif  // QT_CONFIG(permissions)

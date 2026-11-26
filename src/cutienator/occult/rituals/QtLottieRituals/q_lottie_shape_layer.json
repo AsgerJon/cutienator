@@ -11,6 +11,9 @@
     "ritual_ZN17QLottieShapeLayer16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK17QLottieShapeLayer6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QLottieShapeLayer5parseERK11QJsonObject": [
       "int", "address", "address"
     ],

@@ -23,6 +23,12 @@ int ritual_ZN3QV412CompiledData5Class13calculateSizeEii(
   return QV4::CompiledData::Class::calculateSize(nStaticMethods, nMethods);
 }
 
+//  size_t QV4::CompiledData::Class::align(size_t a)
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN3QV412CompiledData5Class5alignEm(size_t a) {
+  return QV4::CompiledData::Class::align(a);
+}
+
 //  QV4::CompiledData::Class::~Class()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV412CompiledData5ClassD1Ev(QV4::CompiledData::Class *self) {

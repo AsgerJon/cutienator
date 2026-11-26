@@ -11,6 +11,87 @@
     "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType21qt_qmlMarker_extendedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType6createERK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType8toStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType5alphaEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType7lighterEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType6darkerEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType4tintE8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType1rEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType1gEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType1bEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType1aEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType6hsvHueEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType13hsvSaturationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType8hsvValueEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType6hslHueEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType13hslSaturationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType12hslLightnessEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick22QQuick3DColorValueType7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType4setREd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType4setGEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType4setBEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType4setAEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType9setHsvHueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType16setHsvSaturationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType11setHsvValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType9setHslHueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType16setHslSaturationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueType15setHslLightnessEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZN8Qt3DCore5Quick22QQuick3DColorValueTypeD1Ev": [
       "nothing", "address"
     ]

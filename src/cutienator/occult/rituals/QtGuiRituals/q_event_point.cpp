@@ -32,6 +32,28 @@ QEventPoint *ritual_ZN11QEventPointC1ERKS_(const QEventPoint *other) {
   return new QEventPoint(*other);
 }
 
+//  QEventPoint &QEventPoint::operator=(const QEventPoint &other)
+extern "C" Q_DECL_EXPORT
+QEventPoint *ritual_ZN11QEventPointaSERKS_(
+    QEventPoint *self,
+    const QEventPoint *other) {
+  return &(self->operator=(*other));
+}
+
+//  QEventPoint::QEventPoint(QEventPoint &&other)
+extern "C" Q_DECL_EXPORT
+QEventPoint *ritual_ZN11QEventPointC1EOS_(QEventPoint *other) {
+  return new QEventPoint(std::move(*other));
+}
+
+//  QEventPoint &QEventPoint::operator=(QEventPoint &&other)
+extern "C" Q_DECL_EXPORT
+QEventPoint *ritual_ZN11QEventPointaSEOS_(
+    QEventPoint *self,
+    QEventPoint *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
 //  bool QEventPoint::operator==(const QEventPoint &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QEventPointeqERKS_(
@@ -52,6 +74,12 @@ bool ritual_ZNK11QEventPointneERKS_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QEventPointD1Ev(QEventPoint *self) {
   delete self;
+}
+
+//  void QEventPoint::swap(QEventPoint &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QEventPoint4swapERS_(QEventPoint *self, QEventPoint *other) {
+  self->swap(*other);
 }
 
 //  QPointF QEventPoint::position() const

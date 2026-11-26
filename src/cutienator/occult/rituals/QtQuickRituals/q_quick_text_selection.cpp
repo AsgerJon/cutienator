@@ -58,6 +58,25 @@ const QMetaObject *ritual_ZNK19QQuickTextSelection10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTextSelection::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickTextSelection11qt_metacastEPKc(
+    QQuickTextSelection *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTextSelection::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickTextSelection11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTextSelection *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTextSelection::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickTextSelection2trEPKcS1_i(
@@ -223,6 +242,55 @@ void ritual_ZN19QQuickTextSelection6linkToERK4QUrl(
     QQuickTextSelection *self,
     const QUrl *destination) {
   self->linkTo(*destination);
+}
+
+//  void QQuickTextSelection::documentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickTextSelection15documentChangedEv(
+    QQuickTextSelection *self) {
+  self->documentChanged();
+}
+
+//  void QQuickTextSelection::selectionStartChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickTextSelection21selectionStartChangedEv(
+    QQuickTextSelection *self) {
+  self->selectionStartChanged();
+}
+
+//  void QQuickTextSelection::selectionEndChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickTextSelection19selectionEndChangedEv(
+    QQuickTextSelection *self) {
+  self->selectionEndChanged();
+}
+
+//  void QQuickTextSelection::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickTextSelection11textChangedEv(
+    QQuickTextSelection *self) {
+  self->textChanged();
+}
+
+//  void QQuickTextSelection::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickTextSelection11fontChangedEv(
+    QQuickTextSelection *self) {
+  self->fontChanged();
+}
+
+//  void QQuickTextSelection::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickTextSelection12colorChangedEv(
+    QQuickTextSelection *self) {
+  self->colorChanged();
+}
+
+//  void QQuickTextSelection::alignmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickTextSelection16alignmentChangedEv(
+    QQuickTextSelection *self) {
+  self->alignmentChanged();
 }
 
 //  QTextCursor QQuickTextSelection::cursor() const

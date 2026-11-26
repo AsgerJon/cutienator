@@ -7,6 +7,18 @@
   "rows": {
     "ritual_ZN8Qt3DCore16QGeometryPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore16QGeometryPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore16QGeometryPrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore16QGeometryPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore16QGeometryPrivate8setSceneEPNS_6QSceneE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore16QGeometryPrivate6updateEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore16QGeometryPrivate9setExtentERK9QVector3DS3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore16QGeometryPrivate3getEPNS_9QGeometryE": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DCore_QGeometryPrivate": [
       "bool", "address", "chars", "address"
     ],

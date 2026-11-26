@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QmlLightSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QmlLightSensor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QmlLightSensor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QmlLightSensor2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -13,6 +19,9 @@
     "ritual_ZN14QmlLightSensorD1Ev": ["nothing", "address"],
     "ritual_ZNK14QmlLightSensor11fieldOfViewEv": ["double", "address"],
     "ritual_ZNK14QmlLightSensor6sensorEv": ["address", "address"],
+    "ritual_ZN14QmlLightSensor18fieldOfViewChangedEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK14QmlLightSensor13createReadingEv": ["address", "address"],
     "ritual_take_QmlLightSensor": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QmlLightSensor6sensorEv": ["address", "address"],

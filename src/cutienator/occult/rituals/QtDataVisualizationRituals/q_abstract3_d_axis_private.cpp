@@ -476,6 +476,25 @@ const QMetaObject *ritual_ZNK22QAbstract3DAxisPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstract3DAxisPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QAbstract3DAxisPrivate11qt_metacastEPKc(
+    QAbstract3DAxisPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstract3DAxisPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QAbstract3DAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstract3DAxisPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QAbstract3DAxisPrivate::~QAbstract3DAxisPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QAbstract3DAxisPrivateD1Ev(QAbstract3DAxisPrivate *self) {

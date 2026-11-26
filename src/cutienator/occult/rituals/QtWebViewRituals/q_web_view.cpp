@@ -4,6 +4,7 @@
 #include <QtWebView/qwebview.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
+#include <QtWebView/qwebviewloadinginfo.h>
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
@@ -584,6 +585,22 @@ const QMetaObject *ritual_ZNK8QWebView10metaObjectEv(const QWebView *self) {
   return self->metaObject();
 }
 
+//  void *QWebView::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8QWebView11qt_metacastEPKc(QWebView *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWebView::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QWebView11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWebView *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWebView::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QWebView2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -654,6 +671,16 @@ bool ritual_ZNK8QWebView9isLoadingEv(const QWebView *self) {
 extern "C" Q_DECL_EXPORT
 QWebViewSettings *ritual_ZNK8QWebView8settingsEv(const QWebView *self) {
   return self->settings();
+}
+
+//  void QWebView::runJavaScript(const QString &script, const
+//      std::function<void (const QVariant &)> &resultCallback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QWebView13runJavaScriptERK7QStringRKSt8functionIFvRK8QVariantEE(
+    QWebView *self,
+    const QString *script,
+    const std::function<void (const QVariant &)> *resultCallback) {
+  self->runJavaScript(*script, *resultCallback);
 }
 
 //  void QWebView::setHttpUserAgentString(const QString &httpUserAgent)
@@ -727,6 +754,64 @@ void ritual_ZN8QWebView12deleteCookieERK7QStringS2_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QWebView16deleteAllCookiesEv(QWebView *self) {
   self->deleteAllCookies();
+}
+
+//  void QWebView::titleChanged(const QString &title)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QWebView12titleChangedERK7QString(
+    QWebView *self,
+    const QString *title) {
+  self->titleChanged(*title);
+}
+
+//  void QWebView::urlChanged(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QWebView10urlChangedERK4QUrl(
+    QWebView *self,
+    const QUrl *url) {
+  self->urlChanged(*url);
+}
+
+//  void QWebView::loadingChanged(const QWebViewLoadingInfo &loadingInfo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QWebView14loadingChangedERK19QWebViewLoadingInfo(
+    QWebView *self,
+    const QWebViewLoadingInfo *loadingInfo) {
+  self->loadingChanged(*loadingInfo);
+}
+
+//  void QWebView::loadProgressChanged(int loadProgress)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QWebView19loadProgressChangedEi(
+    QWebView *self,
+    int loadProgress) {
+  self->loadProgressChanged(loadProgress);
+}
+
+//  void QWebView::httpUserAgentStringChanged(const QString &userAgent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QWebView26httpUserAgentStringChangedERK7QString(
+    QWebView *self,
+    const QString *userAgent) {
+  self->httpUserAgentStringChanged(*userAgent);
+}
+
+//  void QWebView::cookieAdded(const QString &domain, const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QWebView11cookieAddedERK7QStringS2_(
+    QWebView *self,
+    const QString *domain,
+    const QString *name) {
+  self->cookieAdded(*domain, *name);
+}
+
+//  void QWebView::cookieRemoved(const QString &domain, const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QWebView13cookieRemovedERK7QStringS2_(
+    QWebView *self,
+    const QString *domain,
+    const QString *name) {
+  self->cookieRemoved(*domain, *name);
 }
 
 //  bool QWebView::event(QEvent *a0)

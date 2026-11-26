@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK12QQuickButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickButton11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuickButton11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuickButton2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuickButtonC1EP10QQuickItem": ["address", "address"],
     "ritual_ZNK12QQuickButton13isHighlightedEv": ["bool", "address"],
@@ -14,6 +20,11 @@
     ],
     "ritual_ZNK12QQuickButton6isFlatEv": ["bool", "address"],
     "ritual_ZN12QQuickButton7setFlatEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QQuickButton18highlightedChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickButton11flatChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickButtonC1ER19QQuickButtonPrivateP10QQuickItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK12QQuickButton11defaultFontEv": ["address", "address"],
     "ritual_ZN12QQuickButton6d_funcEv": ["address", "address"],
     "ritual_ZNK12QQuickButton6d_funcEv": ["address", "address"],

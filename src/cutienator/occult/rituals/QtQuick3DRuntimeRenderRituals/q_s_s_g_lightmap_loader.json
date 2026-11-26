@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZN18QSSGLightmapLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZN18QSSGLightmapLoader4openERK14QSharedPointerI9QIODeviceE": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSSGLightmapLoader4openERK7QString": ["address", "text"],
     "ritual_ZNK18QSSGLightmapLoader12readF32ImageERK7QString21QSSGLightmapIODataTag": [
       "address", "address", "text", "unsigned int"
     ],
@@ -18,6 +22,16 @@
     "ritual_ZNK18QSSGLightmapLoader7readMapERK7QString21QSSGLightmapIODataTag": [
       "address", "address", "text", "unsigned int"
     ],
-    "ritual_ZN18QSSGLightmapLoaderC1Ev": ["address"]
+    "ritual_ZNK18QSSGLightmapLoader7getKeysEv": ["address", "address"],
+    "ritual_ZN18QSSGLightmapLoader13createTextureE14QSharedPointerI9QIODeviceERK23QSSGRenderTextureFormatRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN18QSSGLightmapLoaderC1Ev": ["address"],
+    "ritual_drop_QSSGLightmapLoader__QSharedPointer_QSSGLightmapLoader": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGLightmapLoader__QList_std_pair_QString_QSSGLightmapIODataTag": [
+      "nothing", "address"
+    ]
   }
 }

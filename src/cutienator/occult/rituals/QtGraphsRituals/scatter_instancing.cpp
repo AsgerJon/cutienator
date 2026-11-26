@@ -3,7 +3,7 @@
 //  Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -18,6 +18,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK17ScatterInstancing10metaObjectEv(
     const ScatterInstancing *self) {
   return self->metaObject();
+}
+
+//  void *ScatterInstancing::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17ScatterInstancing11qt_metacastEPKc(
+    ScatterInstancing *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ScatterInstancing::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17ScatterInstancing11qt_metacallEN11QMetaObject4CallEiPPv(
+    ScatterInstancing *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString ScatterInstancing::tr(const char *s, const char *c, int n)
@@ -73,6 +92,21 @@ void ritual_ZN17ScatterInstancing14resetVisibiltyEv(
   self->resetVisibilty();
 }
 
+//  const QList<float> &ScatterInstancing::customData() const
+extern "C" Q_DECL_EXPORT
+const QList<float> *ritual_ZNK17ScatterInstancing10customDataEv(
+    const ScatterInstancing *self) {
+  return &(self->customData());
+}
+
+//  void ScatterInstancing::setCustomData(const QList<float> &newCustomData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17ScatterInstancing13setCustomDataERK5QListIfE(
+    ScatterInstancing *self,
+    const QList<float> *newCustomData) {
+  self->setCustomData(*newCustomData);
+}
+
 //  void ScatterInstancing::markDataDirty()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17ScatterInstancing13markDataDirtyEv(ScatterInstancing *self) {
@@ -116,4 +150,4 @@ QByteArray *ritual_ZN17ScatterInstancing17getInstanceBufferEPi(
   return new QByteArray(self->getInstanceBuffer(instanceCount));
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_scatter3d))

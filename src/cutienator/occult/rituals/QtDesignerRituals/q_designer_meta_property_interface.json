@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN30QDesignerMetaPropertyInterfaceC1Ev": ["address"],
     "ritual_ZN30QDesignerMetaPropertyInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK30QDesignerMetaPropertyInterface10enumeratorEv": [
       "address", "address"

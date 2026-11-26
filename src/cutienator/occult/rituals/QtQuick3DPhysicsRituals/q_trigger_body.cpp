@@ -15,6 +15,24 @@ const QMetaObject *ritual_ZNK12QTriggerBody10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QTriggerBody::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QTriggerBody11qt_metacastEPKc(
+    QTriggerBody *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QTriggerBody::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QTriggerBody11qt_metacallEN11QMetaObject4CallEiPPv(
+    QTriggerBody *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QTriggerBody::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QTriggerBody2trEPKcS1_i(
@@ -50,4 +68,33 @@ void ritual_ZN12QTriggerBody19deregisterCollisionEP20QAbstractPhysicsNode(
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK12QTriggerBody14collisionCountEv(const QTriggerBody *self) {
   return self->collisionCount();
+}
+
+//  QAbstractPhysXNode *QTriggerBody::createPhysXBackend()
+extern "C" Q_DECL_EXPORT
+QAbstractPhysXNode *ritual_ZN12QTriggerBody18createPhysXBackendEv(
+    QTriggerBody *self) {
+  return self->createPhysXBackend();
+}
+
+//  void QTriggerBody::bodyEntered(QAbstractPhysicsNode *body)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTriggerBody11bodyEnteredEP20QAbstractPhysicsNode(
+    QTriggerBody *self,
+    QAbstractPhysicsNode *body) {
+  self->bodyEntered(body);
+}
+
+//  void QTriggerBody::bodyExited(QAbstractPhysicsNode *body)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTriggerBody10bodyExitedEP20QAbstractPhysicsNode(
+    QTriggerBody *self,
+    QAbstractPhysicsNode *body) {
+  self->bodyExited(body);
+}
+
+//  void QTriggerBody::collisionCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTriggerBody21collisionCountChangedEv(QTriggerBody *self) {
+  self->collisionCountChanged();
 }

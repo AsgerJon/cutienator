@@ -252,6 +252,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QSceneImporter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QSceneImporter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QSceneImporter11qt_metacastEPKc(
+    Qt3DRender::QSceneImporter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QSceneImporter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QSceneImporter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QSceneImporter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QSceneImporter::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -310,6 +329,60 @@ Qt3DCore::QEntity *ritual_ZN10Qt3DRender14QSceneImporter4nodeERK7QString(
     Qt3DRender::QSceneImporter *self,
     const QString *id) {
   return self->node(*id);
+}
+
+//  ParserStatus Qt3DRender::QSceneImporter::status() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSceneImporter::ParserStatus ritual_ZNK10Qt3DRender14QSceneImporter6statusEv(
+    const Qt3DRender::QSceneImporter *self) {
+  return self->status();
+}
+
+//  QStringList Qt3DRender::QSceneImporter::errors() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10Qt3DRender14QSceneImporter6errorsEv(
+    const Qt3DRender::QSceneImporter *self) {
+  return new QList<QString>(self->errors());
+}
+
+//  void Qt3DRender::QSceneImporter::statusChanged(ParserStatus status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QSceneImporter13statusChangedENS0_12ParserStatusE(
+    Qt3DRender::QSceneImporter *self,
+    Qt3DRender::QSceneImporter::ParserStatus status) {
+  self->statusChanged(status);
+}
+
+//  void Qt3DRender::QSceneImporter::errorsChanged(const QStringList &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QSceneImporter13errorsChangedERK5QListI7QStringE(
+    Qt3DRender::QSceneImporter *self,
+    const QList<QString> *errors) {
+  self->errorsChanged(*errors);
+}
+
+//  void Qt3DRender::QSceneImporter::setStatus(ParserStatus status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QSceneImporter9setStatusENS0_12ParserStatusE(
+    Qt3DRender::QSceneImporter *self,
+    Qt3DRender::QSceneImporter::ParserStatus status) {
+  self->setStatus(status);
+}
+
+//  void Qt3DRender::QSceneImporter::logError(const QString &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QSceneImporter8logErrorERK7QString(
+    Qt3DRender::QSceneImporter *self,
+    const QString *error) {
+  self->logError(*error);
+}
+
+//  void Qt3DRender::QSceneImporter::logInfo(const QString &info)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QSceneImporter7logInfoERK7QString(
+    Qt3DRender::QSceneImporter *self,
+    const QString *info) {
+  self->logInfo(*info);
 }
 
 //  a Python function taken by a CuteQt3DRender_QSceneImporter, for the

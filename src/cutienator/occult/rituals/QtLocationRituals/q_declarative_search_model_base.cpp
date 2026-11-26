@@ -10,7 +10,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtLocation/qplacesearchrequest.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -1059,6 +1061,25 @@ const QMetaObject *ritual_ZNK27QDeclarativeSearchModelBase10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeSearchModelBase::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QDeclarativeSearchModelBase11qt_metacastEPKc(
+    QDeclarativeSearchModelBase *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeSearchModelBase::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QDeclarativeSearchModelBase11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeSearchModelBase *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeSearchModelBase::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -1067,6 +1088,13 @@ QString *ritual_ZN27QDeclarativeSearchModelBase2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QDeclarativeSearchModelBase::tr(s, c, n));
+}
+
+//  QDeclarativeSearchModelBase::QDeclarativeSearchModelBase(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QDeclarativeSearchModelBase *ritual_ZN27QDeclarativeSearchModelBaseC1EP7QObject(
+    QObject *parent) {
+  return new CuteQDeclarativeSearchModelBase(parent);
 }
 
 //  QDeclarativeSearchModelBase::~QDeclarativeSearchModelBase()
@@ -1218,6 +1246,48 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN27QDeclarativeSearchModelBase17componentCompleteEv(
     QDeclarativeSearchModelBase *self) {
   self->componentComplete();
+}
+
+//  void QDeclarativeSearchModelBase::pluginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSearchModelBase13pluginChangedEv(
+    QDeclarativeSearchModelBase *self) {
+  self->pluginChanged();
+}
+
+//  void QDeclarativeSearchModelBase::searchAreaChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSearchModelBase17searchAreaChangedEv(
+    QDeclarativeSearchModelBase *self) {
+  self->searchAreaChanged();
+}
+
+//  void QDeclarativeSearchModelBase::limitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSearchModelBase12limitChangedEv(
+    QDeclarativeSearchModelBase *self) {
+  self->limitChanged();
+}
+
+//  void QDeclarativeSearchModelBase::previousPagesAvailableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSearchModelBase29previousPagesAvailableChangedEv(
+    QDeclarativeSearchModelBase *self) {
+  self->previousPagesAvailableChanged();
+}
+
+//  void QDeclarativeSearchModelBase::nextPagesAvailableChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSearchModelBase25nextPagesAvailableChangedEv(
+    QDeclarativeSearchModelBase *self) {
+  self->nextPagesAvailableChanged();
+}
+
+//  void QDeclarativeSearchModelBase::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QDeclarativeSearchModelBase13statusChangedEv(
+    QDeclarativeSearchModelBase *self) {
+  self->statusChanged();
 }
 
 //  void QDeclarativeSearchModelBase::initializePlugin(QDeclarativeGeoService

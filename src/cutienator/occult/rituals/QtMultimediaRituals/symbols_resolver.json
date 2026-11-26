@@ -8,8 +8,20 @@
     "ritual_ZN15SymbolsResolver17isLazyLoadEnabledEv": ["bool"],
     "ritual_ZNK15SymbolsResolver8isLoadedEv": ["bool", "address"],
     "ritual_ZN15SymbolsResolverD1Ev": ["nothing", "address"],
+    "ritual_ZN15SymbolsResolverC1EPKcPFSt10unique_ptrI8QLibrarySt14default_deleteIS3_EEvE": [
+      "address", "chars", "address"
+    ],
     "ritual_ZN15SymbolsResolverC1EPKcS1_S1_": [
       "address", "chars", "chars", "chars"
+    ],
+    "ritual_ZN15SymbolsResolver20initOptionalFunctionEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15SymbolsResolver12initFunctionEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15SymbolsResolver20checkLibrariesLoadedEPNS_13SymbolsMarkerES1_": [
+      "nothing", "address", "address", "address"
     ]
   }
 }

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QHttpSocketEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QHttpSocketEngine11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QHttpSocketEngine11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QHttpSocketEngineD1Ev": ["nothing", "address"],
     "ritual_ZN17QHttpSocketEngine10initializeEN15QAbstractSocket10SocketTypeENS0_20NetworkLayerProtocolE": [
       "bool", "address", "int", "int"
@@ -26,21 +32,44 @@
     "ritual_ZN17QHttpSocketEngine19connectToHostByNameERK7QStringt": [
       "bool", "address", "text", "unsigned short"
     ],
+    "ritual_ZN17QHttpSocketEngine4bindERK12QHostAddresst": [
+      "bool", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN17QHttpSocketEngine6listenEi": ["bool", "address", "int"],
+    "ritual_ZN17QHttpSocketEngine6acceptEv": ["long long", "address"],
     "ritual_ZN17QHttpSocketEngine5closeEv": ["nothing", "address"],
     "ritual_ZNK17QHttpSocketEngine14bytesAvailableEv": [
       "long long", "address"
     ],
+    "ritual_ZN17QHttpSocketEngine4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN17QHttpSocketEngine5writeEPKcx": [
       "long long", "address", "chars", "long long"
     ],
+    "ritual_ZN17QHttpSocketEngine18joinMulticastGroupERK12QHostAddressRK17QNetworkInterface": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpSocketEngine19leaveMulticastGroupERK12QHostAddressRK17QNetworkInterface": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK17QHttpSocketEngine18multicastInterfaceEv": [
       "address", "address"
+    ],
+    "ritual_ZN17QHttpSocketEngine21setMulticastInterfaceERK17QNetworkInterface": [
+      "bool", "address", "address"
     ],
     "ritual_ZNK17QHttpSocketEngine19hasPendingDatagramsEv": [
       "bool", "address"
     ],
     "ritual_ZNK17QHttpSocketEngine19pendingDatagramSizeEv": [
       "long long", "address"
+    ],
+    "ritual_ZN17QHttpSocketEngine12readDatagramEPcxP15QIpPacketHeader6QFlagsIN21QAbstractSocketEngine18PacketHeaderOptionEE": [
+      "long long", "address", "address", "long long", "address", "int"
+    ],
+    "ritual_ZN17QHttpSocketEngine13writeDatagramEPKcxRK15QIpPacketHeader": [
+      "long long", "address", "chars", "long long", "address"
     ],
     "ritual_ZNK17QHttpSocketEngine12bytesToWriteEv": [
       "long long", "address"
@@ -88,8 +117,14 @@
     "ritual_ZN17QHttpSocketEngine22slotSocketDisconnectedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QHttpSocketEngine26slotSocketReadNotificationEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN17QHttpSocketEngine22slotSocketBytesWrittenEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QHttpSocketEngine15slotSocketErrorEN15QAbstractSocket11SocketErrorE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN17QHttpSocketEngine22slotSocketStateChangedEN15QAbstractSocket11SocketStateE": [
       "nothing", "address", "int"
@@ -116,28 +151,42 @@
     "ritual_ZN17QHttpSocketEngine6d_funcEv": ["address", "address"],
     "ritual_ZNK17QHttpSocketEngine6d_funcEv": ["address", "address"],
     "ritual_take_QHttpSocketEngine": ["bool", "address", "chars", "address"],
-    "ritual_own_ZN17QHttpSocketEngine10initializeEN15QAbstractSocket10SocketTypeENS0_20NetworkLayerProtocolE": [
-      "bool", "address", "int", "int"
-    ],
-    "ritual_own_ZN17QHttpSocketEngine10initializeExN15QAbstractSocket11SocketStateE": [
-      "bool", "address", "long long", "int"
-    ],
     "ritual_own_ZNK17QHttpSocketEngine16socketDescriptorEv": [
       "long long", "address"
     ],
     "ritual_own_ZNK17QHttpSocketEngine7isValidEv": ["bool", "address"],
+    "ritual_own_ZN17QHttpSocketEngine4bindERK12QHostAddresst": [
+      "bool", "address", "address", "unsigned short"
+    ],
+    "ritual_own_ZN17QHttpSocketEngine6listenEi": ["bool", "address", "int"],
+    "ritual_own_ZN17QHttpSocketEngine6acceptEv": ["long long", "address"],
     "ritual_own_ZN17QHttpSocketEngine5closeEv": ["nothing", "address"],
     "ritual_own_ZNK17QHttpSocketEngine14bytesAvailableEv": [
       "long long", "address"
     ],
+    "ritual_own_ZN17QHttpSocketEngine4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_own_ZN17QHttpSocketEngine18joinMulticastGroupERK12QHostAddressRK17QNetworkInterface": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QHttpSocketEngine19leaveMulticastGroupERK12QHostAddressRK17QNetworkInterface": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_own_ZNK17QHttpSocketEngine18multicastInterfaceEv": [
       "address", "address"
+    ],
+    "ritual_own_ZN17QHttpSocketEngine21setMulticastInterfaceERK17QNetworkInterface": [
+      "bool", "address", "address"
     ],
     "ritual_own_ZNK17QHttpSocketEngine19hasPendingDatagramsEv": [
       "bool", "address"
     ],
     "ritual_own_ZNK17QHttpSocketEngine19pendingDatagramSizeEv": [
       "long long", "address"
+    ],
+    "ritual_own_ZN17QHttpSocketEngine12readDatagramEPcxP15QIpPacketHeader6QFlagsIN21QAbstractSocketEngine18PacketHeaderOptionEE": [
+      "long long", "address", "address", "long long", "address", "int"
     ],
     "ritual_own_ZNK17QHttpSocketEngine12bytesToWriteEv": [
       "long long", "address"

@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK20QQuickItemGrabResult10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickItemGrabResult11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QQuickItemGrabResult11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QQuickItemGrabResult2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN20QQuickItemGrabResult6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickItemGrabResult6d_funcEv": ["address", "address"],
     "ritual_ZN20QQuickItemGrabResult22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
@@ -23,6 +31,7 @@
     "ritual_ZN20QQuickItemGrabResult5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN20QQuickItemGrabResult5readyEv": ["nothing", "address"],
     "ritual_ZN20QQuickItemGrabResult5setupEv": ["nothing", "address"],
     "ritual_ZN20QQuickItemGrabResult6renderEv": ["nothing", "address"],
     "ritual_ZN20QQuickItemGrabResultC1EP7QObject": ["address", "address"],

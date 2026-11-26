@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qshaderprogrambuilder_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
 #include <cstring>
 
 //  A Qt3DRender::QShaderProgramBuilderPrivate that Python can take functions over in. Every Qt3DRender::QShaderProgramBuilderPrivate
@@ -53,6 +54,12 @@ public:
   }
 };
 
+//  Qt3DRender::QShaderProgramBuilderPrivate::QShaderProgramBuilderPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QShaderProgramBuilderPrivate *ritual_ZN10Qt3DRender28QShaderProgramBuilderPrivateC1Ev() {
+  return new CuteQt3DRender_QShaderProgramBuilderPrivate();
+}
+
 //  QShaderProgramBuilder *Qt3DRender::QShaderProgramBuilderPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QShaderProgramBuilder *ritual_ZN10Qt3DRender28QShaderProgramBuilderPrivate6q_funcEv(
@@ -66,6 +73,16 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::QShaderProgramBuilder *ritual_ZNK10Qt3DRender28QShaderProgramBuilderPrivate6q_funcEv(
     const Qt3DRender::QShaderProgramBuilderPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DRender::QShaderProgramBuilderPrivate::setShaderCode(const
+//      QByteArray &code, QShaderProgram::ShaderType type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender28QShaderProgramBuilderPrivate13setShaderCodeERK10QByteArrayNS_14QShaderProgram10ShaderTypeE(
+    Qt3DRender::QShaderProgramBuilderPrivate *self,
+    const QByteArray *code,
+    Qt3DRender::QShaderProgram::ShaderType type) {
+  self->setShaderCode(*code, type);
 }
 
 //  a Python function taken by a CuteQt3DRender_QShaderProgramBuilderPrivate,

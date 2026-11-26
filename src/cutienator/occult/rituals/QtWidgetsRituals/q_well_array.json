@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK10QWellArray10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QWellArray11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QWellArray11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QWellArrayD1Ev": ["nothing", "address"],
     "ritual_ZNK10QWellArray13currentColumnEv": ["int", "address"],
     "ritual_ZNK10QWellArray10currentRowEv": ["int", "address"],
@@ -33,6 +39,12 @@
       "address", "address", "int", "int"
     ],
     "ritual_ZN10QWellArray10updateCellEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QWellArray8selectedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QWellArray14currentChangedEii": [
       "nothing", "address", "int", "int"
     ],
     "ritual_ZN10QWellArray9paintCellEP8QPainteriiRK5QRect": [

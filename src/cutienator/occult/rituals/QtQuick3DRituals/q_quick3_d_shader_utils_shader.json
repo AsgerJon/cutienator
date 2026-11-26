@@ -8,11 +8,23 @@
     "ritual_ZNK25QQuick3DShaderUtilsShader10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QQuick3DShaderUtilsShader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsShader11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQuick3DShaderUtilsShader2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN25QQuick3DShaderUtilsShaderC1Ev": ["address"],
     "ritual_ZN25QQuick3DShaderUtilsShaderD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQuick3DShaderUtilsShader13shaderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsShader12stageChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QQuick3DShaderUtilsShader": [
       "bool", "address", "chars", "address"
     ]

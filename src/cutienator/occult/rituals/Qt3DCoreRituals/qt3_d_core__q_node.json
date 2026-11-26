@@ -5,10 +5,42 @@
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore5QNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore5QNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN8Qt3DCore5QNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8Qt3DCore5QNode2trEPKcS2_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8Qt3DCore5QNodeC1EPS0_": ["address", "address"],
     "ritual_ZN8Qt3DCore5QNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore5QNode2idEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore5QNode10parentNodeEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore5QNode20notificationsBlockedEv": ["bool", "address"],
+    "ritual_ZN8Qt3DCore5QNode18blockNotificationsEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZNK8Qt3DCore5QNode10childNodesEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore5QNode9isEnabledEv": ["bool", "address"],
+    "ritual_ZN8Qt3DCore5QNode9setParentEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5QNode10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZN8Qt3DCore5QNode13parentChangedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5QNode14enabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore5QNode13nodeDestroyedEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore5QNodeC1ERNS_12QNodePrivateEPS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore5QNode6d_funcEv": ["address", "address"],
     "ritual_ZNK8Qt3DCore5QNode6d_funcEv": ["address", "address"],
-    "ritual_take_Qt3DCore_QNode": ["bool", "address", "chars", "address"]
+    "ritual_take_Qt3DCore_QNode": ["bool", "address", "chars", "address"],
+    "ritual_drop_Qt3DCore_QNode__Qt3DCore_QNodeVector": [
+      "nothing", "address"
+    ]
   }
 }

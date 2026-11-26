@@ -5,6 +5,7 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN19QGraphicsLayoutItemC1EPS_b": ["address", "address", "bool"],
     "ritual_ZN19QGraphicsLayoutItemD1Ev": ["nothing", "address"],
     "ritual_ZN19QGraphicsLayoutItem13setSizePolicyERK11QSizePolicy": [
       "nothing", "address", "address"
@@ -101,6 +102,9 @@
     ],
     "ritual_ZN19QGraphicsLayoutItem16setOwnedByLayoutEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QGraphicsLayoutItemC1ER26QGraphicsLayoutItemPrivate": [
+      "address", "address"
     ],
     "ritual_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
       "address", "address", "int", "address"

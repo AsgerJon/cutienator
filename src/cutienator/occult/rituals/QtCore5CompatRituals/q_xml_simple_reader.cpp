@@ -9,27 +9,28 @@
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQXmlSimpleReaderCall0)(const void *, const QString *, bool, int *);
 typedef bool (*CuteQXmlSimpleReaderCall1)(const void *, const QString *, int *);
-typedef bool (*CuteQXmlSimpleReaderCall2)(const void *, const QString *, int *);
-typedef void (*CuteQXmlSimpleReaderCall3)(const void *, QXmlEntityResolver *, int *);
-typedef void * (*CuteQXmlSimpleReaderCall4)(const void *, int *);
-typedef void (*CuteQXmlSimpleReaderCall5)(const void *, QXmlDTDHandler *, int *);
-typedef void * (*CuteQXmlSimpleReaderCall6)(const void *, int *);
-typedef void (*CuteQXmlSimpleReaderCall7)(const void *, QXmlContentHandler *, int *);
-typedef void * (*CuteQXmlSimpleReaderCall8)(const void *, int *);
-typedef void (*CuteQXmlSimpleReaderCall9)(const void *, QXmlErrorHandler *, int *);
-typedef void * (*CuteQXmlSimpleReaderCall10)(const void *, int *);
-typedef void (*CuteQXmlSimpleReaderCall11)(const void *, QXmlLexicalHandler *, int *);
-typedef void * (*CuteQXmlSimpleReaderCall12)(const void *, int *);
-typedef void (*CuteQXmlSimpleReaderCall13)(const void *, QXmlDeclHandler *, int *);
-typedef void * (*CuteQXmlSimpleReaderCall14)(const void *, int *);
-typedef bool (*CuteQXmlSimpleReaderCall15)(const void *, const QXmlInputSource *, int *);
+typedef void (*CuteQXmlSimpleReaderCall2)(const void *, const QString *, void *, int *);
+typedef bool (*CuteQXmlSimpleReaderCall3)(const void *, const QString *, int *);
+typedef void (*CuteQXmlSimpleReaderCall4)(const void *, QXmlEntityResolver *, int *);
+typedef void * (*CuteQXmlSimpleReaderCall5)(const void *, int *);
+typedef void (*CuteQXmlSimpleReaderCall6)(const void *, QXmlDTDHandler *, int *);
+typedef void * (*CuteQXmlSimpleReaderCall7)(const void *, int *);
+typedef void (*CuteQXmlSimpleReaderCall8)(const void *, QXmlContentHandler *, int *);
+typedef void * (*CuteQXmlSimpleReaderCall9)(const void *, int *);
+typedef void (*CuteQXmlSimpleReaderCall10)(const void *, QXmlErrorHandler *, int *);
+typedef void * (*CuteQXmlSimpleReaderCall11)(const void *, int *);
+typedef void (*CuteQXmlSimpleReaderCall12)(const void *, QXmlLexicalHandler *, int *);
+typedef void * (*CuteQXmlSimpleReaderCall13)(const void *, int *);
+typedef void (*CuteQXmlSimpleReaderCall14)(const void *, QXmlDeclHandler *, int *);
+typedef void * (*CuteQXmlSimpleReaderCall15)(const void *, int *);
 typedef bool (*CuteQXmlSimpleReaderCall16)(const void *, const QXmlInputSource *, int *);
-typedef bool (*CuteQXmlSimpleReaderCall17)(const void *, const QXmlInputSource *, bool, int *);
-typedef bool (*CuteQXmlSimpleReaderCall18)(const void *, int *);
+typedef bool (*CuteQXmlSimpleReaderCall17)(const void *, const QXmlInputSource *, int *);
+typedef bool (*CuteQXmlSimpleReaderCall18)(const void *, const QXmlInputSource *, bool, int *);
+typedef bool (*CuteQXmlSimpleReaderCall19)(const void *, int *);
 class CuteQXmlSimpleReader : public QXmlSimpleReader {
 public:
   using QXmlSimpleReader::QXmlSimpleReader;
-  void *taken[19] = {};
+  void *taken[20] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN10QXmlReader10setFeatureERK7QStringb")) {
@@ -40,72 +41,76 @@ public:
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK10QXmlReader11hasPropertyERK7QString")) {
+    if (!std::strcmp(key, "_ZN10QXmlReader11setPropertyERK7QStringPv")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QXmlReader17setEntityResolverEP18QXmlEntityResolver")) {
+    if (!std::strcmp(key, "_ZNK10QXmlReader11hasPropertyERK7QString")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK10QXmlReader14entityResolverEv")) {
+    if (!std::strcmp(key, "_ZN10QXmlReader17setEntityResolverEP18QXmlEntityResolver")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QXmlReader13setDTDHandlerEP14QXmlDTDHandler")) {
+    if (!std::strcmp(key, "_ZNK10QXmlReader14entityResolverEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK10QXmlReader10DTDHandlerEv")) {
+    if (!std::strcmp(key, "_ZN10QXmlReader13setDTDHandlerEP14QXmlDTDHandler")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QXmlReader17setContentHandlerEP18QXmlContentHandler")) {
+    if (!std::strcmp(key, "_ZNK10QXmlReader10DTDHandlerEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK10QXmlReader14contentHandlerEv")) {
+    if (!std::strcmp(key, "_ZN10QXmlReader17setContentHandlerEP18QXmlContentHandler")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QXmlReader15setErrorHandlerEP16QXmlErrorHandler")) {
+    if (!std::strcmp(key, "_ZNK10QXmlReader14contentHandlerEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK10QXmlReader12errorHandlerEv")) {
+    if (!std::strcmp(key, "_ZN10QXmlReader15setErrorHandlerEP16QXmlErrorHandler")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QXmlReader17setLexicalHandlerEP18QXmlLexicalHandler")) {
+    if (!std::strcmp(key, "_ZNK10QXmlReader12errorHandlerEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK10QXmlReader14lexicalHandlerEv")) {
+    if (!std::strcmp(key, "_ZN10QXmlReader17setLexicalHandlerEP18QXmlLexicalHandler")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QXmlReader14setDeclHandlerEP15QXmlDeclHandler")) {
+    if (!std::strcmp(key, "_ZNK10QXmlReader14lexicalHandlerEv")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK10QXmlReader11declHandlerEv")) {
+    if (!std::strcmp(key, "_ZN10QXmlReader14setDeclHandlerEP15QXmlDeclHandler")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QXmlReader5parseERK15QXmlInputSource")) {
+    if (!std::strcmp(key, "_ZNK10QXmlReader11declHandlerEv")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN10QXmlReader5parseEPK15QXmlInputSource")) {
+    if (!std::strcmp(key, "_ZN10QXmlReader5parseERK15QXmlInputSource")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QXmlSimpleReader5parseEPK15QXmlInputSourceb")) {
+    if (!std::strcmp(key, "_ZN10QXmlReader5parseEPK15QXmlInputSource")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN16QXmlSimpleReader13parseContinueEv")) {
+    if (!std::strcmp(key, "_ZN16QXmlSimpleReader5parseEPK15QXmlInputSourceb")) {
       taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QXmlSimpleReader13parseContinueEv")) {
+      taken[19] = call;
       return true;
     }
     return false;
@@ -133,11 +138,22 @@ public:
     return QXmlSimpleReader::hasFeature(name);
   }
 
-  //  bool QXmlSimpleReader::hasProperty(const QString &name) const
-  bool hasProperty(const QString &name) const override {
+  //  void QXmlSimpleReader::setProperty(const QString &name, void *value)
+  void setProperty(const QString &name, void *value) override {
     if (taken[2]) {
       int handled = 0;
       CuteQXmlSimpleReaderCall2 call = reinterpret_cast<CuteQXmlSimpleReaderCall2>(taken[2]);
+      call(this, &name, value, &handled);
+      if (handled) return;
+    }
+    QXmlSimpleReader::setProperty(name, value);
+  }
+
+  //  bool QXmlSimpleReader::hasProperty(const QString &name) const
+  bool hasProperty(const QString &name) const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQXmlSimpleReaderCall3 call = reinterpret_cast<CuteQXmlSimpleReaderCall3>(taken[3]);
       bool given = call(this, &name, &handled);
       if (handled) return given;
     }
@@ -146,9 +162,9 @@ public:
 
   //  void QXmlSimpleReader::setEntityResolver(QXmlEntityResolver *handler)
   void setEntityResolver(QXmlEntityResolver *handler) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall3 call = reinterpret_cast<CuteQXmlSimpleReaderCall3>(taken[3]);
+      CuteQXmlSimpleReaderCall4 call = reinterpret_cast<CuteQXmlSimpleReaderCall4>(taken[4]);
       call(this, handler, &handled);
       if (handled) return;
     }
@@ -157,9 +173,9 @@ public:
 
   //  QXmlEntityResolver *QXmlSimpleReader::entityResolver() const
   QXmlEntityResolver *entityResolver() const override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall4 call = reinterpret_cast<CuteQXmlSimpleReaderCall4>(taken[4]);
+      CuteQXmlSimpleReaderCall5 call = reinterpret_cast<CuteQXmlSimpleReaderCall5>(taken[5]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QXmlEntityResolver *>(given);
     }
@@ -168,9 +184,9 @@ public:
 
   //  void QXmlSimpleReader::setDTDHandler(QXmlDTDHandler *handler)
   void setDTDHandler(QXmlDTDHandler *handler) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall5 call = reinterpret_cast<CuteQXmlSimpleReaderCall5>(taken[5]);
+      CuteQXmlSimpleReaderCall6 call = reinterpret_cast<CuteQXmlSimpleReaderCall6>(taken[6]);
       call(this, handler, &handled);
       if (handled) return;
     }
@@ -179,9 +195,9 @@ public:
 
   //  QXmlDTDHandler *QXmlSimpleReader::DTDHandler() const
   QXmlDTDHandler *DTDHandler() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall6 call = reinterpret_cast<CuteQXmlSimpleReaderCall6>(taken[6]);
+      CuteQXmlSimpleReaderCall7 call = reinterpret_cast<CuteQXmlSimpleReaderCall7>(taken[7]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QXmlDTDHandler *>(given);
     }
@@ -190,9 +206,9 @@ public:
 
   //  void QXmlSimpleReader::setContentHandler(QXmlContentHandler *handler)
   void setContentHandler(QXmlContentHandler *handler) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall7 call = reinterpret_cast<CuteQXmlSimpleReaderCall7>(taken[7]);
+      CuteQXmlSimpleReaderCall8 call = reinterpret_cast<CuteQXmlSimpleReaderCall8>(taken[8]);
       call(this, handler, &handled);
       if (handled) return;
     }
@@ -201,9 +217,9 @@ public:
 
   //  QXmlContentHandler *QXmlSimpleReader::contentHandler() const
   QXmlContentHandler *contentHandler() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall8 call = reinterpret_cast<CuteQXmlSimpleReaderCall8>(taken[8]);
+      CuteQXmlSimpleReaderCall9 call = reinterpret_cast<CuteQXmlSimpleReaderCall9>(taken[9]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QXmlContentHandler *>(given);
     }
@@ -212,9 +228,9 @@ public:
 
   //  void QXmlSimpleReader::setErrorHandler(QXmlErrorHandler *handler)
   void setErrorHandler(QXmlErrorHandler *handler) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall9 call = reinterpret_cast<CuteQXmlSimpleReaderCall9>(taken[9]);
+      CuteQXmlSimpleReaderCall10 call = reinterpret_cast<CuteQXmlSimpleReaderCall10>(taken[10]);
       call(this, handler, &handled);
       if (handled) return;
     }
@@ -223,9 +239,9 @@ public:
 
   //  QXmlErrorHandler *QXmlSimpleReader::errorHandler() const
   QXmlErrorHandler *errorHandler() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall10 call = reinterpret_cast<CuteQXmlSimpleReaderCall10>(taken[10]);
+      CuteQXmlSimpleReaderCall11 call = reinterpret_cast<CuteQXmlSimpleReaderCall11>(taken[11]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QXmlErrorHandler *>(given);
     }
@@ -234,9 +250,9 @@ public:
 
   //  void QXmlSimpleReader::setLexicalHandler(QXmlLexicalHandler *handler)
   void setLexicalHandler(QXmlLexicalHandler *handler) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall11 call = reinterpret_cast<CuteQXmlSimpleReaderCall11>(taken[11]);
+      CuteQXmlSimpleReaderCall12 call = reinterpret_cast<CuteQXmlSimpleReaderCall12>(taken[12]);
       call(this, handler, &handled);
       if (handled) return;
     }
@@ -245,9 +261,9 @@ public:
 
   //  QXmlLexicalHandler *QXmlSimpleReader::lexicalHandler() const
   QXmlLexicalHandler *lexicalHandler() const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall12 call = reinterpret_cast<CuteQXmlSimpleReaderCall12>(taken[12]);
+      CuteQXmlSimpleReaderCall13 call = reinterpret_cast<CuteQXmlSimpleReaderCall13>(taken[13]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QXmlLexicalHandler *>(given);
     }
@@ -256,9 +272,9 @@ public:
 
   //  void QXmlSimpleReader::setDeclHandler(QXmlDeclHandler *handler)
   void setDeclHandler(QXmlDeclHandler *handler) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall13 call = reinterpret_cast<CuteQXmlSimpleReaderCall13>(taken[13]);
+      CuteQXmlSimpleReaderCall14 call = reinterpret_cast<CuteQXmlSimpleReaderCall14>(taken[14]);
       call(this, handler, &handled);
       if (handled) return;
     }
@@ -267,9 +283,9 @@ public:
 
   //  QXmlDeclHandler *QXmlSimpleReader::declHandler() const
   QXmlDeclHandler *declHandler() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall14 call = reinterpret_cast<CuteQXmlSimpleReaderCall14>(taken[14]);
+      CuteQXmlSimpleReaderCall15 call = reinterpret_cast<CuteQXmlSimpleReaderCall15>(taken[15]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QXmlDeclHandler *>(given);
     }
@@ -278,9 +294,9 @@ public:
 
   //  bool QXmlSimpleReader::parse(const QXmlInputSource &input)
   bool parse(const QXmlInputSource &input) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall15 call = reinterpret_cast<CuteQXmlSimpleReaderCall15>(taken[15]);
+      CuteQXmlSimpleReaderCall16 call = reinterpret_cast<CuteQXmlSimpleReaderCall16>(taken[16]);
       bool given = call(this, &input, &handled);
       if (handled) return given;
     }
@@ -289,9 +305,9 @@ public:
 
   //  bool QXmlSimpleReader::parse(const QXmlInputSource *input)
   bool parse(const QXmlInputSource *input) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall16 call = reinterpret_cast<CuteQXmlSimpleReaderCall16>(taken[16]);
+      CuteQXmlSimpleReaderCall17 call = reinterpret_cast<CuteQXmlSimpleReaderCall17>(taken[17]);
       bool given = call(this, input, &handled);
       if (handled) return given;
     }
@@ -301,9 +317,9 @@ public:
   //  bool QXmlSimpleReader::parse(const QXmlInputSource *input, bool
   //      incremental)
   bool parse(const QXmlInputSource *input, bool incremental) override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall17 call = reinterpret_cast<CuteQXmlSimpleReaderCall17>(taken[17]);
+      CuteQXmlSimpleReaderCall18 call = reinterpret_cast<CuteQXmlSimpleReaderCall18>(taken[18]);
       bool given = call(this, input, incremental, &handled);
       if (handled) return given;
     }
@@ -312,9 +328,9 @@ public:
 
   //  bool QXmlSimpleReader::parseContinue()
   bool parseContinue() override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQXmlSimpleReaderCall18 call = reinterpret_cast<CuteQXmlSimpleReaderCall18>(taken[18]);
+      CuteQXmlSimpleReaderCall19 call = reinterpret_cast<CuteQXmlSimpleReaderCall19>(taken[19]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -358,6 +374,24 @@ bool ritual_ZNK16QXmlSimpleReader10hasFeatureERK7QString(
     const QXmlSimpleReader *self,
     const QString *name) {
   return self->hasFeature(*name);
+}
+
+//  void *QXmlSimpleReader::property(const QString &name, bool *ok) const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK16QXmlSimpleReader8propertyERK7QStringPb(
+    const QXmlSimpleReader *self,
+    const QString *name,
+    bool *ok) {
+  return self->property(*name, ok);
+}
+
+//  void QXmlSimpleReader::setProperty(const QString &name, void *value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QXmlSimpleReader11setPropertyERK7QStringPv(
+    QXmlSimpleReader *self,
+    const QString *name,
+    void *value) {
+  self->setProperty(*name, value);
 }
 
 //  bool QXmlSimpleReader::hasProperty(const QString &name) const
@@ -529,6 +563,15 @@ bool ritual_own_ZNK16QXmlSimpleReader10hasFeatureERK7QString(
     const QXmlSimpleReader *self,
     const QString *name) {
   return self->QXmlSimpleReader::hasFeature(*name);
+}
+
+//  void QXmlSimpleReader::setProperty(const QString &name, void *value)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN16QXmlSimpleReader11setPropertyERK7QStringPv(
+    QXmlSimpleReader *self,
+    const QString *name,
+    void *value) {
+  self->QXmlSimpleReader::setProperty(*name, value);
 }
 
 //  bool QXmlSimpleReader::hasProperty(const QString &name) const

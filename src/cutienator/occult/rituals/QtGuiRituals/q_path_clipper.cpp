@@ -54,3 +54,23 @@ QPainterPath *ritual_ZN12QPathClipper9intersectERK12QPainterPathRK6QRectF(
     const QRectF *rect) {
   return new QPainterPath(QPathClipper::intersect(*path, *rect));
 }
+
+//  bool QPathClipper::handleCrossingEdges(QWingedEdge &list, qreal y,
+//      ClipperMode mode)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QPathClipper19handleCrossingEdgesER11QWingedEdgedNS_11ClipperModeE(
+    QPathClipper *self,
+    QWingedEdge *list,
+    qreal y,
+    QPathClipper::ClipperMode mode) {
+  return self->handleCrossingEdges(*list, y, mode);
+}
+
+//  bool QPathClipper::doClip(QWingedEdge &list, ClipperMode mode)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QPathClipper6doClipER11QWingedEdgeNS_11ClipperModeE(
+    QPathClipper *self,
+    QWingedEdge *list,
+    QPathClipper::ClipperMode mode) {
+  return self->doClip(*list, mode);
+}

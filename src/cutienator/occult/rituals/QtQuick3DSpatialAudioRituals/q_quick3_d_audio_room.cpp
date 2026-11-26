@@ -23,12 +23,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3daudioroom.cpp, line 45, as _ZN17QQuick3DAudioRoomD1Ev
-inline QQuick3DAudioRoom::~QQuick3DAudioRoom()
-{
-    delete m_room;
-}
-
 //  from ../qtmultimedia/src/spatialaudioquick3d/qquick3daudioroom.cpp, line 58, as _ZN17QQuick3DAudioRoom13setDimensionsE9QVector3D
 inline void QQuick3DAudioRoom::setDimensions(QVector3D dim)
 {
@@ -159,18 +153,6 @@ inline void QQuick3DAudioRoom::setReverbBrightness(float factor)
 inline float QQuick3DAudioRoom::reverbBrightness() const
 {
     return m_room->reverbBrightness();
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3daudioroom.cpp, line 261, as _ZN17QQuick3DAudioRoom14updatePositionEv
-inline void QQuick3DAudioRoom::updatePosition()
-{
-    m_room->setPosition(scenePosition());
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3daudioroom.cpp, line 266, as _ZN17QQuick3DAudioRoom14updateRotationEv
-inline void QQuick3DAudioRoom::updateRotation()
-{
-    m_room->setRotation(sceneRotation());
 }
 //  -----------------------------------------------------------------------
 
@@ -449,6 +431,25 @@ const QMetaObject *ritual_ZNK17QQuick3DAudioRoom10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DAudioRoom::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QQuick3DAudioRoom11qt_metacastEPKc(
+    QQuick3DAudioRoom *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DAudioRoom::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QQuick3DAudioRoom11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DAudioRoom *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuick3DAudioRoom::~QQuick3DAudioRoom()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuick3DAudioRoomD1Ev(QQuick3DAudioRoom *self) {
@@ -620,18 +621,253 @@ float ritual_ZNK17QQuick3DAudioRoom16reverbBrightnessEv(
   return self->reverbBrightness();
 }
 
+//  void QQuick3DAudioRoom::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DAudioRoom15positionChangedEv(
+    QQuick3DAudioRoom *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "positionChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "positionChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioRoom::dimensionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DAudioRoom17dimensionsChangedEv(
+    QQuick3DAudioRoom *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "dimensionsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "dimensionsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioRoom::rotationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DAudioRoom15rotationChangedEv(
+    QQuick3DAudioRoom *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "rotationChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "rotationChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioRoom::wallsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DAudioRoom12wallsChangedEv(QQuick3DAudioRoom *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "wallsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "wallsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioRoom::reflectionGainChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DAudioRoom21reflectionGainChangedEv(
+    QQuick3DAudioRoom *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "reflectionGainChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "reflectionGainChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioRoom::reverbGainChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DAudioRoom17reverbGainChangedEv(
+    QQuick3DAudioRoom *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "reverbGainChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "reverbGainChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioRoom::reverbTimeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DAudioRoom17reverbTimeChangedEv(
+    QQuick3DAudioRoom *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "reverbTimeChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "reverbTimeChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuick3DAudioRoom::reverbBrightnessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuick3DAudioRoom23reverbBrightnessChangedEv(
+    QQuick3DAudioRoom *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "reverbBrightnessChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "reverbBrightnessChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QQuick3DAudioRoom::updatePosition()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuick3DAudioRoom14updatePositionEv(
     QQuick3DAudioRoom *self) {
-  self->updatePosition();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updatePosition()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updatePosition()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DAudioRoom::updateRotation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuick3DAudioRoom14updateRotationEv(
     QQuick3DAudioRoom *self) {
-  self->updateRotation();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioRoom")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateRotation()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateRotation()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuick3DAudioRoom, for the function

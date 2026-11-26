@@ -251,6 +251,25 @@ const QMetaObject *ritual_ZNK19QSGAbstractRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGAbstractRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QSGAbstractRenderer11qt_metacastEPKc(
+    QSGAbstractRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGAbstractRenderer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QSGAbstractRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGAbstractRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGAbstractRenderer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QSGAbstractRenderer2trEPKcS1_i(
@@ -461,6 +480,20 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QSGAbstractRenderer17renderSceneInlineEv(
     QSGAbstractRenderer *self) {
   self->renderSceneInline();
+}
+
+//  void QSGAbstractRenderer::sceneGraphChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSGAbstractRenderer17sceneGraphChangedEv(
+    QSGAbstractRenderer *self) {
+  self->sceneGraphChanged();
+}
+
+//  QSGAbstractRenderer::QSGAbstractRenderer(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSGAbstractRenderer *ritual_ZN19QSGAbstractRendererC1EP7QObject(
+    QObject *parent) {
+  return new CuteQSGAbstractRenderer(parent);
 }
 
 //  void QSGAbstractRenderer::nodeChanged(QSGNode *node, QSGNode::DirtyState

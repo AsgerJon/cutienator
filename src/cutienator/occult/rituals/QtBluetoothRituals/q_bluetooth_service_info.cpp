@@ -9,6 +9,7 @@
 #include <QtBluetooth/qbluetoothaddress.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QList>
 
 //  QBluetoothServiceInfo::QBluetoothServiceInfo()
 extern "C" Q_DECL_EXPORT
@@ -105,6 +106,13 @@ QVariant *ritual_ZNK21QBluetoothServiceInfo9attributeEt(
     const QBluetoothServiceInfo *self,
     quint16 attributeId) {
   return new QVariant(self->attribute(attributeId));
+}
+
+//  QList<quint16> QBluetoothServiceInfo::attributes() const
+extern "C" Q_DECL_EXPORT
+QList<quint16> *ritual_ZNK21QBluetoothServiceInfo10attributesEv(
+    const QBluetoothServiceInfo *self) {
+  return new QList<quint16>(self->attributes());
 }
 
 //  bool QBluetoothServiceInfo::contains(quint16 attributeId) const
@@ -240,6 +248,15 @@ QList<QBluetoothUuid> *ritual_ZNK21QBluetoothServiceInfo17serviceClassUuidsEv(
   return new QList<QBluetoothUuid>(self->serviceClassUuids());
 }
 
+//  QBluetoothServiceInfo &QBluetoothServiceInfo::operator=(const
+//      QBluetoothServiceInfo &other)
+extern "C" Q_DECL_EXPORT
+QBluetoothServiceInfo *ritual_ZN21QBluetoothServiceInfoaSERKS_(
+    QBluetoothServiceInfo *self,
+    const QBluetoothServiceInfo *other) {
+  return &(self->operator=(*other));
+}
+
 //  bool QBluetoothServiceInfo::isRegistered() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QBluetoothServiceInfo12isRegisteredEv(
@@ -319,5 +336,11 @@ QBluetoothServiceInfo *ritual_list_at_QBluetoothServiceInfo(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QBluetoothServiceInfo(
     QList<QBluetoothServiceInfo> *self) {
+  delete self;
+}
+
+//  a QList<quint16> a ritual of QBluetoothServiceInfo gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QBluetoothServiceInfo__QList_quint16(QList<quint16> *self) {
   delete self;
 }

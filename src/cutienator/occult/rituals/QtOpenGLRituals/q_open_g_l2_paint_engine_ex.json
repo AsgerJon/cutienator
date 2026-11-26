@@ -1,0 +1,171 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglpaintengine_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator",
+    "runs again."
+  ],
+  "rows": {
+    "ritual_ZN21QOpenGL2PaintEngineEx6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QOpenGL2PaintEngineEx6d_funcEv": ["address", "address"],
+    "ritual_ZN21QOpenGL2PaintEngineExC1Ev": ["address"],
+    "ritual_ZN21QOpenGL2PaintEngineExD1Ev": ["nothing", "address"],
+    "ritual_ZN21QOpenGL2PaintEngineEx5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx12ensureActiveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx3endEv": ["bool", "address"],
+    "ritual_ZN21QOpenGL2PaintEngineEx18clipEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx10penChangedEv": ["nothing", "address"],
+    "ritual_ZN21QOpenGL2PaintEngineEx12brushChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx18brushOriginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx22compositionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx18renderHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx19drawPixmapFragmentsEPKN8QPainter14PixmapFragmentEiRK7QPixmap6QFlagsINS0_18PixmapFragmentHintEE": [
+      "nothing", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx4fillERK11QVectorPathRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx6strokeERK11QVectorPathRK4QPen": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx4clipERK11QVectorPathN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx11drawTextureERK6QRectFjRK5QSizeS2_": [
+      "bool", "address", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK21QOpenGL2PaintEngineEx4typeEv": ["int", "address"],
+    "ritual_ZN21QOpenGL2PaintEngineEx8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QOpenGL2PaintEngineEx11createStateEP13QPainterState": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx5stateEv": ["address", "address"],
+    "ritual_ZNK21QOpenGL2PaintEngineEx5stateEv": ["address", "address"],
+    "ritual_ZN21QOpenGL2PaintEngineEx19beginNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx17endNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2PaintEngineEx15invalidateStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QOpenGL2PaintEngineEx22isNativePaintingActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QOpenGL2PaintEngineEx36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK21QOpenGL2PaintEngineEx22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_take_QOpenGL2PaintEngineEx": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx3endEv": ["bool", "address"],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx18clipEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx10penChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx12brushChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx18brushOriginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx22compositionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx18renderHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx19drawPixmapFragmentsEPKN8QPainter14PixmapFragmentEiRK7QPixmap6QFlagsINS0_18PixmapFragmentHintEE": [
+      "nothing", "address", "address", "int", "address", "int"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx4fillERK11QVectorPathRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx6strokeERK11QVectorPathRK4QPen": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx4clipERK11QVectorPathN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QOpenGL2PaintEngineEx4typeEv": ["int", "address"],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QOpenGL2PaintEngineEx11createStateEP13QPainterState": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx19beginNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2PaintEngineEx17endNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK21QOpenGL2PaintEngineEx36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZNK21QOpenGL2PaintEngineEx22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

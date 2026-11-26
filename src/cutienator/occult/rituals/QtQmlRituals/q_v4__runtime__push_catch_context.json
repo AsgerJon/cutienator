@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV47Runtime16PushCatchContext4callEPNS_15ExecutionEngineEii": [
+      "nothing", "address", "int", "int"
+    ],
     "ritual_ZN3QV47Runtime16PushCatchContextD1Ev": ["nothing", "address"]
   }
 }

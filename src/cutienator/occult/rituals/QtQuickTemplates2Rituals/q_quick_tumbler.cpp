@@ -1056,6 +1056,24 @@ const QMetaObject *ritual_ZNK13QQuickTumbler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTumbler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickTumbler11qt_metacastEPKc(
+    QQuickTumbler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTumbler::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickTumbler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTumbler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTumbler::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickTumbler2trEPKcS1_i(
@@ -1215,6 +1233,62 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN13QQuickTumbler22resetFlickDecelerationEv(
     QQuickTumbler *self) {
   self->resetFlickDeceleration();
+}
+
+//  void QQuickTumbler::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickTumbler12modelChangedEv(QQuickTumbler *self) {
+  self->modelChanged();
+}
+
+//  void QQuickTumbler::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickTumbler12countChangedEv(QQuickTumbler *self) {
+  self->countChanged();
+}
+
+//  void QQuickTumbler::currentIndexChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickTumbler19currentIndexChangedEv(QQuickTumbler *self) {
+  self->currentIndexChanged();
+}
+
+//  void QQuickTumbler::currentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickTumbler18currentItemChangedEv(QQuickTumbler *self) {
+  self->currentItemChanged();
+}
+
+//  void QQuickTumbler::delegateChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickTumbler15delegateChangedEv(QQuickTumbler *self) {
+  self->delegateChanged();
+}
+
+//  void QQuickTumbler::visibleItemCountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickTumbler23visibleItemCountChangedEv(
+    QQuickTumbler *self) {
+  self->visibleItemCountChanged();
+}
+
+//  void QQuickTumbler::wrapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickTumbler11wrapChangedEv(QQuickTumbler *self) {
+  self->wrapChanged();
+}
+
+//  void QQuickTumbler::movingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickTumbler13movingChangedEv(QQuickTumbler *self) {
+  self->movingChanged();
+}
+
+//  void QQuickTumbler::flickDecelerationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickTumbler24flickDecelerationChangedEv(
+    QQuickTumbler *self) {
+  self->flickDecelerationChanged();
 }
 
 //  void QQuickTumbler::geometryChange(const QRectF &newGeometry, const

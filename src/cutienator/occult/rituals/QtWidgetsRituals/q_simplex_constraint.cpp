@@ -26,6 +26,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/graphicsview/qsimplex_p.cpp, line 621, as _ZN18QSimplexConstraint6invertEv
 inline void QSimplexConstraint::invert()
 {

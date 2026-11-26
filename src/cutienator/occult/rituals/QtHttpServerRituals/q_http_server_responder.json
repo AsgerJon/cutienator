@@ -7,7 +7,14 @@
   "rows": {
     "ritual_ZN20QHttpServerResponder6d_funcEv": ["address", "address"],
     "ritual_ZNK20QHttpServerResponder6d_funcEv": ["address", "address"],
+    "ritual_ZN20QHttpServerResponderC1EOS_": ["address", "address"],
+    "ritual_ZN20QHttpServerResponderaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QHttpServerResponderD1Ev": ["nothing", "address"],
+    "ritual_ZN20QHttpServerResponder4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QHttpServerResponder5writeEP9QIODeviceRK12QHttpHeadersNS_10StatusCodeE": [
       "nothing", "address", "address", "address", "int"
     ],
@@ -32,11 +39,17 @@
     "ritual_ZN20QHttpServerResponder5writeENS_10StatusCodeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN20QHttpServerResponder12sendResponseERK19QHttpServerResponse": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QHttpServerResponder17writeBeginChunkedERK12QHttpHeadersNS_10StatusCodeE": [
       "nothing", "address", "address", "int"
     ],
     "ritual_ZN20QHttpServerResponder17writeBeginChunkedERK10QByteArrayNS_10StatusCodeE": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder17writeBeginChunkedERK12QHttpHeaders5QListINS0_15WellKnownHeaderEENS_10StatusCodeE": [
+      "nothing", "address", "address", "address", "int"
     ],
     "ritual_ZN20QHttpServerResponder10writeChunkERK10QByteArray": [
       "nothing", "address", "address"

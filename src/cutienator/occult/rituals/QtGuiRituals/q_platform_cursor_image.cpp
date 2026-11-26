@@ -9,6 +9,19 @@
 #include <QtCore/qpoint.h>
 #include <QtGui/qimage.h>
 
+//  QPlatformCursorImage::QPlatformCursorImage(const uchar *data, const uchar
+//      *mask, int width, int height, int hotX, int hotY)
+extern "C" Q_DECL_EXPORT
+QPlatformCursorImage *ritual_ZN20QPlatformCursorImageC1EPKhS1_iiii(
+    const uchar *data,
+    const uchar *mask,
+    int width,
+    int height,
+    int hotX,
+    int hotY) {
+  return new QPlatformCursorImage(data, mask, width, height, hotX, hotY);
+}
+
 //  QImage *QPlatformCursorImage::image()
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN20QPlatformCursorImage5imageEv(QPlatformCursorImage *self) {
@@ -20,6 +33,20 @@ extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK20QPlatformCursorImage7hotspotEv(
     const QPlatformCursorImage *self) {
   return new QPoint(self->hotspot());
+}
+
+//  void QPlatformCursorImage::set(const uchar *data, const uchar *mask, int
+//      width, int height, int hotX, int hotY)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QPlatformCursorImage3setEPKhS1_iiii(
+    QPlatformCursorImage *self,
+    const uchar *data,
+    const uchar *mask,
+    int width,
+    int height,
+    int hotX,
+    int hotY) {
+  self->set(data, mask, width, height, hotX, hotY);
 }
 
 //  void QPlatformCursorImage::set(const QImage &image, int hx, int hy)

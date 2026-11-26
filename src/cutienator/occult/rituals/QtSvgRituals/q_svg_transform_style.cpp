@@ -17,7 +17,7 @@ typedef bool (*CuteQSvgTransformStyleCall1)(const void *, int *);
 class CuteQSvgTransformStyle : public QSvgTransformStyle {
 public:
   using QSvgTransformStyle::QSvgTransformStyle;
-  CuteQSvgTransformStyle(const QSvgTransformStyle &other) : QSvgTransformStyle(other) {}
+  CuteQSvgTransformStyle(const QSvgTransformStyle & other) : QSvgTransformStyle(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -66,6 +66,26 @@ QSvgTransformStyle *ritual_ZN18QSvgTransformStyleC1ERK10QTransform(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QSvgTransformStyleD1Ev(QSvgTransformStyle *self) {
   delete self;
+}
+
+//  void QSvgTransformStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSvgTransformStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgTransformStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgTransformStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSvgTransformStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgTransformStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
 }
 
 //  Type QSvgTransformStyle::type() const

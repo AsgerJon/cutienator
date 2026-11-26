@@ -1,11 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtCore/qdir.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0. Edited by hand on 2026-11-25: added by hand, instances of
+//  templates of the class: 4. Kept as it is when the generator runs again.
 #include <QtCore/qdir.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qnamespace.h>
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qchar.h>
 #include <QtCore/qlist.h>
+#include <filesystem>
+#include <QtCore/QString>
+#include <optional>
+#include <QtCore/QFile>
 
 //  QDir::QDir(const QDir &a0)
 extern "C" Q_DECL_EXPORT
@@ -40,6 +45,24 @@ void ritual_ZN4QDirD1Ev(QDir *self) {
   delete self;
 }
 
+//  QDir &QDir::operator=(const QDir &a0)
+extern "C" Q_DECL_EXPORT
+QDir *ritual_ZN4QDiraSERKS_(QDir *self, const QDir *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QDir &QDir::operator=(QDir &&other)
+extern "C" Q_DECL_EXPORT
+QDir *ritual_ZN4QDiraSEOS_(QDir *self, QDir *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QDir::swap(QDir &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QDir4swapERS_(QDir *self, QDir *other) {
+  self->swap(*other);
+}
+
 //  void QDir::setPath(const QString &path)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN4QDir7setPathERK7QString(QDir *self, const QString *path) {
@@ -63,6 +86,33 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK4QDir13canonicalPathEv(const QDir *self) {
   return new QString(self->canonicalPath());
 }
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QDir::filesystemPath() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK4QDir14filesystemPathB5cxx11Ev(
+    const QDir *self) {
+  return new std::filesystem::path(self->filesystemPath());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QDir::filesystemAbsolutePath() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK4QDir22filesystemAbsolutePathB5cxx11Ev(
+    const QDir *self) {
+  return new std::filesystem::path(self->filesystemAbsolutePath());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+
+#if QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
+//  std::filesystem::path QDir::filesystemCanonicalPath() const
+extern "C" Q_DECL_EXPORT
+std::filesystem::path *ritual_ZNK4QDir23filesystemCanonicalPathB5cxx11Ev(
+    const QDir *self) {
+  return new std::filesystem::path(self->filesystemCanonicalPath());
+}
+#endif  // QT_CONFIG(cxx17_filesystem) || defined(Q_QDOC)
 
 #if !defined(QT_BOOTSTRAPPED)
 //  void QDir::setSearchPaths(const QString &prefix, const QStringList
@@ -273,12 +323,32 @@ QList<QFileInfo> *ritual_ZNK4QDir13entryInfoListERK5QListI7QStringE6QFlagsINS_6F
           QFlags<QDir::SortFlag>::fromInt(sort)));
 }
 
+//  bool QDir::mkdir(const QString &dirName,
+//      std::optional<QFile::Permissions> p) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK4QDir5mkdirERK7QStringSt8optionalI6QFlagsIN11QFileDevice10PermissionEEE(
+    const QDir *self,
+    const QString *dirName,
+    const std::optional<QFile::Permissions> *p) {
+  return self->mkdir(*dirName, *p);
+}
+
 //  bool QDir::rmdir(const QString &dirName) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK4QDir5rmdirERK7QString(
     const QDir *self,
     const QString *dirName) {
   return self->rmdir(*dirName);
+}
+
+//  bool QDir::mkpath(const QString &dirPath,
+//      std::optional<QFile::Permissions> p) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK4QDir6mkpathERK7QStringSt8optionalI6QFlagsIN11QFileDevice10PermissionEEE(
+    const QDir *self,
+    const QString *dirPath,
+    const std::optional<QFile::Permissions> *p) {
+  return self->mkpath(*dirPath, *p);
 }
 
 //  bool QDir::rmpath(const QString &dirPath) const
@@ -470,6 +540,12 @@ void ritual_ZNK4QDir7refreshEv(const QDir *self) {
   self->refresh();
 }
 
+//  QDir::QDir(QDirPrivate &d)
+extern "C" Q_DECL_EXPORT
+QDir *ritual_ZN4QDirC1ER11QDirPrivate(QDirPrivate *d) {
+  return new QDir(*d);
+}
+
 //  bool operator==(const QDir &lhs, const QDir &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK4QDirS1_(const QDir *lhs, const QDir *rhs) {
@@ -493,3 +569,49 @@ extern "C" Q_DECL_EXPORT
 const QDirPrivate *ritual_ZNK4QDir6d_funcEv(const QDir *self) {
   return self->d_func();
 }
+
+//  a std::filesystem::path a ritual of QDir gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDir__std_filesystem_path(std::filesystem::path *self) {
+  delete self;
+}
+
+#if QT_CONFIG(cxx17_filesystem)
+//  QDir::QDir<std::filesystem::path, 0>(const std::filesystem::path &path)
+extern "C" Q_DECL_EXPORT
+QDir *ritual_ZN4QDirC1INSt10filesystem7__cxx114pathELi0EEERKT_(
+    const std::filesystem::path *path) {
+  return new QDir(*path);
+}
+
+//  QDir::QDir<std::filesystem::path, 0>(const std::filesystem::path &path,
+//      const QString &nameFilter, SortFlags sort, Filters filter)
+extern "C" Q_DECL_EXPORT
+QDir *ritual_ZN4QDirC1INSt10filesystem7__cxx114pathELi0EEERKT_RK7QString6QFlagsINS_8SortFlagEES9_INS_6FilterEE(
+    const std::filesystem::path *path,
+    const QString *nameFilter,
+    QDir::SortFlags sort,
+    QDir::Filters filter) {
+  return new QDir(*path, *nameFilter, sort, filter);
+}
+
+//  void QDir::setPath<std::filesystem::path, 0>(
+//      const std::filesystem::path &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QDir7setPathINSt10filesystem7__cxx114pathELi0EEEvRKT_(
+    QDir *self,
+    const std::filesystem::path *path) {
+  self->setPath(*path);
+}
+
+#if !defined(QT_BOOTSTRAPPED)
+//  static void QDir::addSearchPath<std::filesystem::path, 0>(
+//      const QString &prefix, const std::filesystem::path &path)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QDir13addSearchPathINSt10filesystem7__cxx114pathELi0EEEvRK7QStringRKT_(
+    const QString *prefix,
+    const std::filesystem::path *path) {
+  QDir::addSearchPath(*prefix, *path);
+}
+#endif  // !defined(QT_BOOTSTRAPPED)
+#endif  // QT_CONFIG(cxx17_filesystem)

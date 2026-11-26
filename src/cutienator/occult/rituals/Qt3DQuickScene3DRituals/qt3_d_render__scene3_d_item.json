@@ -8,8 +8,98 @@
     "ritual_ZNK10Qt3DRender11Scene3DItem10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender11Scene3DItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender11Scene3DItem7aspectsEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender11Scene3DItem6entityEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender11Scene3DItem11multisampleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem30setItemAreaAndDevicePixelRatioE5QSized": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZNK10Qt3DRender11Scene3DItem14isHoverEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11Scene3DItem21cameraAspectRatioModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender11Scene3DItem15compositingModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem10setAspectsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem9setEntityEPN8Qt3DCore7QEntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem24setCameraAspectRatioModeENS0_21CameraAspectRatioModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem15setHoverEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem18setCompositingModeENS0_15CompositingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem14aspectsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem13entityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem18multisampleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem28cameraAspectRatioModeChangedENS0_21CameraAspectRatioModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem19hoverEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem22compositingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem21applyRootEntityChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem13requestUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem16prepareQt3DFrameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem16setWindowSurfaceEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem23updateCameraAspectRatioEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem11needsRenderEPNS_13QRenderAspectE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem19updateWindowSurfaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender11Scene3DItem12applyAspectsEv": [
+      "nothing", "address"
+    ],
     "ritual_take_Qt3DRender_Scene3DItem": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender11Scene3DItem15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
     ]
   }
 }

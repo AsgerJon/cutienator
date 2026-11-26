@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN26QOpenGLEngineSharedShadersC1EP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineSharedShadersD1Ev": ["nothing", "address"],
+    "ritual_ZN26QOpenGLEngineSharedShaders13simpleProgramEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineSharedShaders11blitProgramEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineSharedShaders18findProgramInCacheERK23QOpenGLEngineShaderProg": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineSharedShaders17shadersForContextEP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineSharedShaders18cleanupCustomStageEP24QOpenGLCustomShaderStage": [
+      "nothing", "address", "address"
+    ]
+  }
+}

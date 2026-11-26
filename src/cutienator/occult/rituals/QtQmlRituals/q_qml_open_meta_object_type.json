@@ -24,6 +24,13 @@
     ],
     "ritual_ZNK22QQmlOpenMetaObjectType12propertyNameEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZNK22QQmlOpenMetaObjectType5cacheEv": ["address", "address"],
+    "ritual_ZN22QQmlOpenMetaObjectType15propertyCreatedEiR20QMetaPropertyBuilder": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_drop_QQmlOpenMetaObjectType__QQmlPropertyCache_Ptr": [
+      "nothing", "address"
     ]
   }
 }

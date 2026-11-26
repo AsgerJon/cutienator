@@ -8,6 +8,9 @@
     "ritual_ZN21QLowEnergyServiceDataC1Ev": ["address"],
     "ritual_ZN21QLowEnergyServiceDataC1ERKS_": ["address", "address"],
     "ritual_ZN21QLowEnergyServiceDataD1Ev": ["nothing", "address"],
+    "ritual_ZN21QLowEnergyServiceDataaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK21QLowEnergyServiceDataS1_": ["bool", "address", "address"],
     "ritual_ZneRK21QLowEnergyServiceDataS1_": ["bool", "address", "address"],
     "ritual_ZNK21QLowEnergyServiceData4typeEv": ["int", "address"],
@@ -37,6 +40,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK21QLowEnergyServiceData7isValidEv": ["bool", "address"],
+    "ritual_ZN21QLowEnergyServiceData4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QLowEnergyServiceData6equalsERKS_S1_": [
       "bool", "address", "address"
     ]

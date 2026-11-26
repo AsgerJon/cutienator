@@ -14,6 +14,7 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
 
 //  Only a class built on QGeoTiledMappingManagerEngine may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -252,6 +253,25 @@ const QMetaObject *ritual_ZNK29QGeoTiledMappingManagerEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoTiledMappingManagerEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QGeoTiledMappingManagerEngine11qt_metacastEPKc(
+    QGeoTiledMappingManagerEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoTiledMappingManagerEngine::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QGeoTiledMappingManagerEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoTiledMappingManagerEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoTiledMappingManagerEngine::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -313,11 +333,33 @@ int ritual_ZNK29QGeoTiledMappingManagerEngine11tileVersionEv(
   return self->tileVersion();
 }
 
+//  void QGeoTiledMappingManagerEngine::updateTileRequests(QGeoTiledMap *map,
+//      const QSet<QGeoTileSpec> &tilesAdded, const QSet<QGeoTileSpec>
+//      &tilesRemoved)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QGeoTiledMappingManagerEngine18updateTileRequestsEP12QGeoTiledMapRK4QSetI12QGeoTileSpecES6_(
+    QGeoTiledMappingManagerEngine *self,
+    QGeoTiledMap *map,
+    const QSet<QGeoTileSpec> *tilesAdded,
+    const QSet<QGeoTileSpec> *tilesRemoved) {
+  self->updateTileRequests(map, *tilesAdded, *tilesRemoved);
+}
+
 //  QAbstractGeoTileCache *QGeoTiledMappingManagerEngine::tileCache()
 extern "C" Q_DECL_EXPORT
 QAbstractGeoTileCache *ritual_ZN29QGeoTiledMappingManagerEngine9tileCacheEv(
     QGeoTiledMappingManagerEngine *self) {
   return self->tileCache();
+}
+
+//  QSharedPointer<QGeoTileTexture>
+//      QGeoTiledMappingManagerEngine::getTileTexture(const QGeoTileSpec
+//      &spec)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QGeoTileTexture> *ritual_ZN29QGeoTiledMappingManagerEngine14getTileTextureERK12QGeoTileSpec(
+    QGeoTiledMappingManagerEngine *self,
+    const QGeoTileSpec *spec) {
+  return new QSharedPointer<QGeoTileTexture>(self->getTileTexture(*spec));
 }
 
 //  QAbstractGeoTileCache::CacheAreas
@@ -347,6 +389,23 @@ void ritual_ZN29QGeoTiledMappingManagerEngine15engineTileErrorERK12QGeoTileSpecR
     const QGeoTileSpec *spec,
     const QString *errorString) {
   self->engineTileError(*spec, *errorString);
+}
+
+//  void QGeoTiledMappingManagerEngine::tileError(const QGeoTileSpec &spec,
+//      const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QGeoTiledMappingManagerEngine9tileErrorERK12QGeoTileSpecRK7QString(
+    QGeoTiledMappingManagerEngine *self,
+    const QGeoTileSpec *spec,
+    const QString *errorString) {
+  self->tileError(*spec, *errorString);
+}
+
+//  void QGeoTiledMappingManagerEngine::tileVersionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QGeoTiledMappingManagerEngine18tileVersionChangedEv(
+    QGeoTiledMappingManagerEngine *self) {
+  self->tileVersionChanged();
 }
 
 //  void QGeoTiledMappingManagerEngine::setTileFetcher(QGeoTileFetcher
@@ -450,4 +509,12 @@ void ritual_own_ZN29QGeoTiledMappingManagerEngine15engineTileErrorERK12QGeoTileS
   static_cast<OwnQGeoTiledMappingManagerEngine *>(self)->OwnQGeoTiledMappingManagerEngine::engineTileError(
       *spec,
       *errorString);
+}
+
+//  a QSharedPointer<QGeoTileTexture> a ritual of
+//      QGeoTiledMappingManagerEngine gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoTiledMappingManagerEngine__QSharedPointer_QGeoTileTexture(
+    QSharedPointer<QGeoTileTexture> *self) {
+  delete self;
 }

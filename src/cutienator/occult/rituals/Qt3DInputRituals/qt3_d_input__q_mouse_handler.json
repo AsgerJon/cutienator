@@ -7,8 +7,59 @@
     "ritual_ZNK9Qt3DInput13QMouseHandler10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN9Qt3DInput13QMouseHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9Qt3DInput13QMouseHandler2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandlerC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK9Qt3DInput13QMouseHandler12sourceDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput13QMouseHandler13containsMouseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler15setSourceDeviceEPNS_12QMouseDeviceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler19sourceDeviceChangedEPNS_12QMouseDeviceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler20containsMouseChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler7clickedEPNS_11QMouseEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler13doubleClickedEPNS_11QMouseEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler7enteredEv": ["nothing", "address"],
+    "ritual_ZN9Qt3DInput13QMouseHandler6exitedEv": ["nothing", "address"],
+    "ritual_ZN9Qt3DInput13QMouseHandler7pressedEPNS_11QMouseEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler8releasedEPNS_11QMouseEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler12pressAndHoldEPNS_11QMouseEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler15positionChangedEPNS_11QMouseEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler5wheelEPNS_11QWheelEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QMouseHandler16setContainsMouseEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN9Qt3DInput13QMouseHandler6d_funcEv": ["address", "address"],
     "ritual_ZNK9Qt3DInput13QMouseHandler6d_funcEv": ["address", "address"],

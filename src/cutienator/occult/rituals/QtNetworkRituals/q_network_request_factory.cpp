@@ -41,6 +41,40 @@ QNetworkRequestFactory *ritual_ZN22QNetworkRequestFactoryC1ERKS_(
   return new QNetworkRequestFactory(*other);
 }
 
+//  QNetworkRequestFactory::QNetworkRequestFactory(QNetworkRequestFactory
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkRequestFactory *ritual_ZN22QNetworkRequestFactoryC1EOS_(
+    QNetworkRequestFactory *other) {
+  return new QNetworkRequestFactory(std::move(*other));
+}
+
+//  QNetworkRequestFactory &QNetworkRequestFactory::operator=(const
+//      QNetworkRequestFactory &other)
+extern "C" Q_DECL_EXPORT
+QNetworkRequestFactory *ritual_ZN22QNetworkRequestFactoryaSERKS_(
+    QNetworkRequestFactory *self,
+    const QNetworkRequestFactory *other) {
+  return &(self->operator=(*other));
+}
+
+//  QNetworkRequestFactory
+//      &QNetworkRequestFactory::operator=(QNetworkRequestFactory &&other)
+extern "C" Q_DECL_EXPORT
+QNetworkRequestFactory *ritual_ZN22QNetworkRequestFactoryaSEOS_(
+    QNetworkRequestFactory *self,
+    QNetworkRequestFactory *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QNetworkRequestFactory::swap(QNetworkRequestFactory &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QNetworkRequestFactory4swapERS_(
+    QNetworkRequestFactory *self,
+    QNetworkRequestFactory *other) {
+  self->swap(*other);
+}
+
 //  QUrl QNetworkRequestFactory::baseUrl() const
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK22QNetworkRequestFactory7baseUrlEv(
@@ -198,6 +232,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QNetworkRequestFactory13clearPasswordEv(
     QNetworkRequestFactory *self) {
   self->clearPassword();
+}
+
+//  void QNetworkRequestFactory::setTransferTimeout(std::chrono::milliseconds
+//      timeout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QNetworkRequestFactory18setTransferTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(
+    QNetworkRequestFactory *self,
+    long long timeout) {
+  self->setTransferTimeout(std::chrono::milliseconds(timeout));
+}
+
+//  std::chrono::milliseconds QNetworkRequestFactory::transferTimeout() const
+extern "C" Q_DECL_EXPORT
+long long ritual_ZNK22QNetworkRequestFactory15transferTimeoutEv(
+    const QNetworkRequestFactory *self) {
+  return static_cast<long long>(self->transferTimeout().count());
 }
 
 //  QUrlQuery QNetworkRequestFactory::queryParameters() const

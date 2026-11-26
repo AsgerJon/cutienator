@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN14QSSGRenderPassD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSSGRenderPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QSSGRenderPass10renderPassER12QSSGRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QSSGRenderPass8passTypeEv": ["int", "address"],
     "ritual_ZN14QSSGRenderPass13resetForFrameEv": ["nothing", "address"],
     "ritual_take_QSSGRenderPass": ["bool", "address", "chars", "address"]

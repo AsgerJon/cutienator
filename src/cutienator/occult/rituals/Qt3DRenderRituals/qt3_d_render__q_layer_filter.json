@@ -7,13 +7,43 @@
     "ritual_ZNK10Qt3DRender12QLayerFilter10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender12QLayerFilter11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender12QLayerFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender12QLayerFilter2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QLayerFilterC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QLayerFilterD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender12QLayerFilter8addLayerEPNS_6QLayerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender12QLayerFilter11removeLayerEPNS_6QLayerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender12QLayerFilter6layersEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender12QLayerFilter10filterModeEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender12QLayerFilter13setFilterModeENS0_10FilterModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QLayerFilter17filterModeChangedENS0_10FilterModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender12QLayerFilterC1ERNS_19QLayerFilterPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender12QLayerFilter6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender12QLayerFilter6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DRender_QLayerFilter": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QLayerFilter__QList_Qt3DRender_QLayer": [
+      "nothing", "address"
     ]
   }
 }

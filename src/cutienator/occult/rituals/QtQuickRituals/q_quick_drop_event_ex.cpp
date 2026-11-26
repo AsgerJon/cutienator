@@ -23,7 +23,7 @@ typedef void (*CuteQQuickDropEventExCall1)(const void *, bool, int *);
 class CuteQQuickDropEventEx : public QQuickDropEventEx {
 public:
   using QQuickDropEventEx::QQuickDropEventEx;
-  CuteQQuickDropEventEx(const QQuickDropEventEx &other) : QQuickDropEventEx(other) {}
+  CuteQQuickDropEventEx(const QQuickDropEventEx & other) : QQuickDropEventEx(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -80,6 +80,23 @@ void ritual_ZN17QQuickDropEventEx17setProposedActionEP10QDropEventN2Qt10DropActi
     QDropEvent *event,
     Qt::DropAction action) {
   QQuickDropEventEx::setProposedAction(event, action);
+}
+
+//  void QQuickDropEventEx::copyActions(const QDropEvent &from)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickDropEventEx11copyActionsERK10QDropEvent(
+    QQuickDropEventEx *self,
+    const QDropEvent *from) {
+  self->copyActions(*from);
+}
+
+//  void QQuickDropEventEx::copyActions(QDropEvent *to, const QDropEvent
+//      &from)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickDropEventEx11copyActionsEP10QDropEventRKS0_(
+    QDropEvent *to,
+    const QDropEvent *from) {
+  QQuickDropEventEx::copyActions(to, *from);
 }
 
 //  QQuickDropEventEx::~QQuickDropEventEx()

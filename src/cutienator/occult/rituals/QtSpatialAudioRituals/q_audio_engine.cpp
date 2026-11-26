@@ -180,6 +180,24 @@ const QMetaObject *ritual_ZNK12QAudioEngine10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAudioEngine::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QAudioEngine11qt_metacastEPKc(
+    QAudioEngine *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAudioEngine::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QAudioEngine11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAudioEngine *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAudioEngine::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QAudioEngine2trEPKcS1_i(
@@ -304,6 +322,36 @@ void ritual_ZN12QAudioEngine16setDistanceScaleEf(
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK12QAudioEngine13distanceScaleEv(const QAudioEngine *self) {
   return self->distanceScale();
+}
+
+//  void QAudioEngine::outputModeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QAudioEngine17outputModeChangedEv(QAudioEngine *self) {
+  self->outputModeChanged();
+}
+
+//  void QAudioEngine::outputDeviceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QAudioEngine19outputDeviceChangedEv(QAudioEngine *self) {
+  self->outputDeviceChanged();
+}
+
+//  void QAudioEngine::masterVolumeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QAudioEngine19masterVolumeChangedEv(QAudioEngine *self) {
+  self->masterVolumeChanged();
+}
+
+//  void QAudioEngine::pausedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QAudioEngine13pausedChangedEv(QAudioEngine *self) {
+  self->pausedChanged();
+}
+
+//  void QAudioEngine::distanceScaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QAudioEngine20distanceScaleChangedEv(QAudioEngine *self) {
+  self->distanceScaleChanged();
 }
 
 //  void QAudioEngine::start()

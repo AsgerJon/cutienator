@@ -5,6 +5,17 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render12PickingProxyC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render12PickingProxyD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render12PickingProxy7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12PickingProxy10setManagerEPNS0_19PickingProxyManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12PickingProxy16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_ZNK10Qt3DRender6Render12PickingProxy10geometryIdEv": [
       "address", "address"
     ],
@@ -43,6 +54,9 @@
     ],
     "ritual_ZNK10Qt3DRender6Render12PickingProxy7isDirtyEv": [
       "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12PickingProxy10unsetDirtyEv": [
+      "nothing", "address"
     ],
     "ritual_take_Qt3DRender_Render_PickingProxy": [
       "bool", "address", "chars", "address"

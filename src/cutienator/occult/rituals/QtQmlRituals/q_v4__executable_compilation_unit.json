@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qv4executablecompilationunit_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK3QV425ExecutableCompilationUnit14finalUrlStringEv": [
@@ -17,17 +17,20 @@
     "ritual_ZNK3QV425ExecutableCompilationUnit8finalUrlEv": [
       "address", "address"
     ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit13typeNameCacheEv": [
+      "address", "address"
+    ],
     "ritual_ZN3QV425ExecutableCompilationUnit17propertyCachesPtrEv": [
       "address", "address"
     ],
     "ritual_ZNK3QV425ExecutableCompilationUnit17rootPropertyCacheEv": [
       "address", "address"
     ],
-    "ritual_ZN3QV425ExecutableCompilationUnit24namedObjectsPerComponentEi": [
-      "address", "address", "int"
-    ],
     "ritual_ZNK3QV425ExecutableCompilationUnit12resolvedTypeEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit19qmlTypeForComponentERK7QString": [
+      "address", "address", "text"
     ],
     "ritual_ZNK3QV425ExecutableCompilationUnit8metaTypeEv": [
       "address", "address"
@@ -65,20 +68,50 @@
     "ritual_ZNK3QV425ExecutableCompilationUnit26implicitComponentForObjectEi": [
       "int", "address", "int"
     ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit8objectAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit16templateObjectAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV425ExecutableCompilationUnit11instantiateEv": [
+      "address", "address"
+    ],
     "ritual_ZNK3QV425ExecutableCompilationUnit13resolveExportEPNS_6StringE": [
       "address", "address", "address"
     ],
     "ritual_ZNK3QV425ExecutableCompilationUnit13exportedNamesEv": [
       "address", "address"
     ],
+    "ritual_ZN3QV425ExecutableCompilationUnit8evaluateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV425ExecutableCompilationUnit22evaluateModuleRequestsEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK3QV425ExecutableCompilationUnit4markEPNS_9MarkStackE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit11markObjectsEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit20bindingValueAsStringEPKNS_12CompiledData7BindingE": [
+      "text", "address", "address"
     ],
     "ritual_ZNK3QV425ExecutableCompilationUnit20bindingValueAsNumberEPKNS_12CompiledData7BindingE": [
       "double", "address", "address"
     ],
     "ritual_ZNK3QV425ExecutableCompilationUnit26bindingValueAsScriptStringEPKNS_12CompiledData7BindingE": [
       "text", "address", "address"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit13translateFromENS0_20TranslationDataIndexE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit6moduleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV425ExecutableCompilationUnit9setModuleEPNS_4Heap6ModuleE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK3QV425ExecutableCompilationUnit5valueEv": [
       "unsigned long long", "address"
@@ -92,14 +125,58 @@
     "ritual_ZNK3QV425ExecutableCompilationUnit8stringAtEj": [
       "text", "address", "unsigned int"
     ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit19dependentScriptsPtrEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit30bindingPropertyDataPerObjectAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit19baseCompilationUnitEv": [
+      "address", "address"
+    ],
     "ritual_ZN3QV425ExecutableCompilationUnit12rootFunctionEv": [
       "address", "address"
+    ],
+    "ritual_ZN3QV425ExecutableCompilationUnit8populateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV425ExecutableCompilationUnit5clearEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK3QV425ExecutableCompilationUnit16totalStringCountEv": [
       "unsigned int", "address"
     ],
+    "ritual_ZN3QV425ExecutableCompilationUnitC1Ev": ["address"],
+    "ritual_ZN3QV425ExecutableCompilationUnitC1EO14QQmlRefPointerINS_12CompiledData15CompilationUnitEE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV425ExecutableCompilationUnitD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV425ExecutableCompilationUnit6createEO14QQmlRefPointerINS_12CompiledData15CompilationUnitEEPNS_15ExecutionEngineE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit24resolveExportRecursivelyEPNS_6StringEP5QListINS0_15ResolveSetEntryEE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK3QV425ExecutableCompilationUnit5urlAtEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZN3QV425ExecutableCompilationUnit30createNamedObjectsPerComponentEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit23lookupNameInExportTableEPKNS_12CompiledData11ExportEntryEiPNS_6StringE": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit27getExportedNamesRecursivelyEP5QListI7QStringEPS1_IPKS0_Eb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_drop_QV4_ExecutableCompilationUnit__QQmlRefPointer_QQmlTypeNameCache": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QV4_ExecutableCompilationUnit__QQmlRefPointer_QV4_ExecutableCompilationUnit": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV425ExecutableCompilationUnit15dependentModuleINS_15ExecutionEngineEEE14QQmlRefPointerIS0_ERK4QUrl": [
+      "address", "address", "address"
     ]
   }
 }

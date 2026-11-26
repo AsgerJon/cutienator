@@ -15,6 +15,8 @@
       "unsigned short", "address"
     ],
     "ritual_ZN14QLocalePrivate3getERK7QLocale": ["address", "address"],
-    "ritual_ZNK14QLocalePrivate17measurementSystemEv": ["int", "address"]
+    "ritual_ZNK14QLocalePrivate17measurementSystemEv": ["int", "address"],
+    "ritual_drop_QLocalePrivate__std_array_char_4": ["nothing", "address"],
+    "ritual_drop_QLocalePrivate__QLocale_Territory": ["nothing", "address"]
   }
 }

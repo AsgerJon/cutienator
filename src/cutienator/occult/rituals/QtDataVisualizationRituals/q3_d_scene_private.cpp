@@ -187,6 +187,24 @@ const QMetaObject *ritual_ZNK15Q3DScenePrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Q3DScenePrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15Q3DScenePrivate11qt_metacastEPKc(
+    Q3DScenePrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DScenePrivate::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15Q3DScenePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DScenePrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DScenePrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15Q3DScenePrivate2trEPKcS1_i(
@@ -206,6 +224,14 @@ Q3DScenePrivate *ritual_ZN15Q3DScenePrivateC1EP8Q3DScene(Q3DScene *q) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15Q3DScenePrivateD1Ev(Q3DScenePrivate *self) {
   delete self;
+}
+
+//  void Q3DScenePrivate::sync(Q3DScenePrivate &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15Q3DScenePrivate4syncERS_(
+    Q3DScenePrivate *self,
+    Q3DScenePrivate *other) {
+  self->sync(*other);
 }
 
 //  void Q3DScenePrivate::setViewport(const QRect &viewport)
@@ -308,6 +334,12 @@ bool ritual_ZNK15Q3DScenePrivate8isInAreaERK5QRectii(
     int x,
     int y) {
   return self->isInArea(*area, x, y);
+}
+
+//  void Q3DScenePrivate::needRender()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15Q3DScenePrivate10needRenderEv(Q3DScenePrivate *self) {
+  self->needRender();
 }
 
 //  a Python function taken by a CuteQ3DScenePrivate, for the function named

@@ -5,6 +5,15 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN13QSSGSceneDesc12PropertyCallD1Ev": ["nothing", "address"]
+    "ritual_ZN13QSSGSceneDesc12PropertyCallD1Ev": ["nothing", "address"],
+    "ritual_ZN13QSSGSceneDesc12PropertyCall3setER14QQuick3DObjectPKcPKv": [
+      "bool", "address", "address", "chars", "address"
+    ],
+    "ritual_ZN13QSSGSceneDesc12PropertyCall3setER14QQuick3DObjectPKcRK8QVariant": [
+      "bool", "address", "address", "chars", "address"
+    ],
+    "ritual_ZNK13QSSGSceneDesc12PropertyCall3getERK14QQuick3DObjectPPKv": [
+      "bool", "address", "address", "address"
+    ]
   }
 }

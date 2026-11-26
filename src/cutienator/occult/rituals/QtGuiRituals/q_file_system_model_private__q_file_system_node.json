@@ -20,6 +20,9 @@
     "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode12lastModifiedERK9QTimeZone": [
       "address", "address", "address"
     ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode11permissionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode10isReadableEv": [
       "bool", "address"
     ],
@@ -53,6 +56,9 @@
     "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode4iconEv": [
       "address", "address"
     ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNodeltERKS0_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNodegtERK7QString": [
       "bool", "address", "text"
     ],
@@ -82,6 +88,9 @@
     ],
     "ritual_ZN23QFileSystemModelPrivate15QFileSystemNode18retranslateStringsEP25QAbstractFileIconProviderRK7QString": [
       "nothing", "address", "address", "text"
+    ],
+    "ritual_drop_QFileSystemModelPrivate_QFileSystemNode__QFile_Permissions": [
+      "nothing", "address"
     ]
   }
 }

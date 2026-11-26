@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QQuick3DFog10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuick3DFog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QQuick3DFog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QQuick3DFog2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZNK11QQuick3DFog9isEnabledEv": ["bool", "address"],
     "ritual_ZNK11QQuick3DFog5colorEv": ["address", "address"],
@@ -52,6 +58,22 @@
     ],
     "ritual_ZN11QQuick3DFog16setTransmitCurveEf": [
       "nothing", "address", "float"
-    ]
+    ],
+    "ritual_ZN11QQuick3DFog7changedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog12colorChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog14densityChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog19depthEnabledChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog16depthNearChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog15depthFarChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog17depthCurveChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog20heightEnabledChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog20leastIntenseYChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog19mostIntenseYChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog18heightCurveChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuick3DFog22transmitEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuick3DFog20transmitCurveChangedEv": ["nothing", "address"]
   }
 }

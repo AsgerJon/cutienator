@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK17QPlaceUserPrivateeqERKS_": ["bool", "address", "address"],
     "ritual_ZN17QPlaceUserPrivateD1Ev": ["nothing", "address"]
   }
 }

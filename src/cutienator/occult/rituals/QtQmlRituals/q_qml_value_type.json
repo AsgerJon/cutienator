@@ -10,6 +10,16 @@
       "address", "address", "address"
     ],
     "ritual_ZN13QQmlValueTypeD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQmlValueType6createEv": ["address", "address"],
+    "ritual_ZNK13QQmlValueType7destroyEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQmlValueType9constructEPvPKv": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13QQmlValueType8destructEPv": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK13QQmlValueType8metaTypeEv": ["address", "address"],
     "ritual_ZNK13QQmlValueType16staticMetaObjectEv": ["address", "address"],
     "ritual_ZN13QQmlValueType19toDynamicMetaObjectEP7QObject": [
@@ -17,6 +27,9 @@
     ],
     "ritual_ZN13QQmlValueType15objectDestroyedEP7QObject": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlValueType8metaCallEP7QObjectN11QMetaObject4CallEiPPv": [
+      "int", "address", "address", "int", "int", "address"
     ],
     "ritual_take_QQmlValueType": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QQmlValueType19toDynamicMetaObjectEP7QObject": [

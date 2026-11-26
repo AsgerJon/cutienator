@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QLowEnergyService10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QLowEnergyService11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QLowEnergyService11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QLowEnergyService2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -45,8 +51,32 @@
     "ritual_ZN17QLowEnergyService15writeDescriptorERK20QLowEnergyDescriptorRK10QByteArray": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN17QLowEnergyService12stateChangedENS_12ServiceStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QLowEnergyService21characteristicChangedERK24QLowEnergyCharacteristicRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService18characteristicReadERK24QLowEnergyCharacteristicRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService21characteristicWrittenERK24QLowEnergyCharacteristicRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService14descriptorReadERK20QLowEnergyDescriptorRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService17descriptorWrittenERK20QLowEnergyDescriptorRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService13errorOccurredENS_12ServiceErrorE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN17QLowEnergyService6d_funcEv": ["address", "address"],
     "ritual_ZNK17QLowEnergyService6d_funcEv": ["address", "address"],
+    "ritual_ZN17QLowEnergyServiceC1E14QSharedPointerI24QLowEnergyServicePrivateEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QLowEnergyService": ["bool", "address", "chars", "address"],
     "ritual_list_make_QLowEnergyService_ptr": ["address"],
     "ritual_list_add_QLowEnergyService_ptr": [

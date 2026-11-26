@@ -271,6 +271,24 @@ const QMetaObject *ritual_ZNK11QLineSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLineSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QLineSeries11qt_metacastEPKc(
+    QLineSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLineSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QLineSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLineSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLineSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QLineSeries2trEPKcS1_i(
@@ -297,6 +315,14 @@ extern "C" Q_DECL_EXPORT
 QAbstractSeries::SeriesType ritual_ZNK11QLineSeries4typeEv(
     const QLineSeries *self) {
   return self->type();
+}
+
+//  QLineSeries::QLineSeries(QLineSeriesPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QLineSeries *ritual_ZN11QLineSeriesC1ER18QLineSeriesPrivateP7QObject(
+    QLineSeriesPrivate *d,
+    QObject *parent) {
+  return new CuteQLineSeries(*d, parent);
 }
 
 //  QLineSeriesPrivate *QLineSeries::d_func()

@@ -4,7 +4,9 @@
 #if QT_CONFIG(itemmodel)
 #if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qlist.h>
 
 //  QItemSelection::QItemSelection(const QModelIndex &topLeft, const

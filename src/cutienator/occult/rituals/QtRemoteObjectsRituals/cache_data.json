@@ -5,5 +5,19 @@
     "odelreplica_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9CacheDataC1EP39QAbstractItemModelReplicaImplementationPS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9CacheDataD1Ev": ["nothing", "address"],
+    "ritual_ZN9CacheData14ensureChildrenEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9CacheData14insertChildrenEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9CacheData14removeChildrenEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9CacheData5clearEv": ["nothing", "address"]
   }
 }

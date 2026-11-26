@@ -805,6 +805,24 @@ const QMetaObject *ritual_ZNK15QQuickMouseArea10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickMouseArea::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickMouseArea11qt_metacastEPKc(
+    QQuickMouseArea *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickMouseArea::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickMouseArea11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickMouseArea *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickMouseArea::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickMouseArea2trEPKcS1_i(
@@ -1001,6 +1019,181 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickMouseArea25resetPressAndHoldIntervalEv(
     QQuickMouseArea *self) {
   self->resetPressAndHoldInterval();
+}
+
+//  void QQuickMouseArea::hoveredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea14hoveredChangedEv(QQuickMouseArea *self) {
+  self->hoveredChanged();
+}
+
+//  void QQuickMouseArea::pressedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea14pressedChangedEv(QQuickMouseArea *self) {
+  self->pressedChanged();
+}
+
+//  void QQuickMouseArea::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea14enabledChangedEv(QQuickMouseArea *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickMouseArea::scrollGestureEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea27scrollGestureEnabledChangedEv(
+    QQuickMouseArea *self) {
+  self->scrollGestureEnabledChanged();
+}
+
+//  void QQuickMouseArea::pressedButtonsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea21pressedButtonsChangedEv(
+    QQuickMouseArea *self) {
+  self->pressedButtonsChanged();
+}
+
+//  void QQuickMouseArea::acceptedButtonsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea22acceptedButtonsChangedEv(
+    QQuickMouseArea *self) {
+  self->acceptedButtonsChanged();
+}
+
+//  void QQuickMouseArea::hoverEnabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea19hoverEnabledChangedEv(
+    QQuickMouseArea *self) {
+  self->hoverEnabledChanged();
+}
+
+#if QT_CONFIG(cursor)
+//  void QQuickMouseArea::cursorShapeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea18cursorShapeChangedEv(
+    QQuickMouseArea *self) {
+  self->cursorShapeChanged();
+}
+#endif  // QT_CONFIG(cursor)
+
+//  void QQuickMouseArea::positionChanged(QQuickMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea15positionChangedEP16QQuickMouseEvent(
+    QQuickMouseArea *self,
+    QQuickMouseEvent *mouse) {
+  self->positionChanged(mouse);
+}
+
+//  void QQuickMouseArea::mouseXChanged(QQuickMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea13mouseXChangedEP16QQuickMouseEvent(
+    QQuickMouseArea *self,
+    QQuickMouseEvent *mouse) {
+  self->mouseXChanged(mouse);
+}
+
+//  void QQuickMouseArea::mouseYChanged(QQuickMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea13mouseYChangedEP16QQuickMouseEvent(
+    QQuickMouseArea *self,
+    QQuickMouseEvent *mouse) {
+  self->mouseYChanged(mouse);
+}
+
+//  void QQuickMouseArea::preventStealingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea22preventStealingChangedEv(
+    QQuickMouseArea *self) {
+  self->preventStealingChanged();
+}
+
+//  void QQuickMouseArea::propagateComposedEventsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea30propagateComposedEventsChangedEv(
+    QQuickMouseArea *self) {
+  self->propagateComposedEventsChanged();
+}
+
+//  void QQuickMouseArea::pressed(QQuickMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea7pressedEP16QQuickMouseEvent(
+    QQuickMouseArea *self,
+    QQuickMouseEvent *mouse) {
+  self->pressed(mouse);
+}
+
+//  void QQuickMouseArea::pressAndHold(QQuickMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea12pressAndHoldEP16QQuickMouseEvent(
+    QQuickMouseArea *self,
+    QQuickMouseEvent *mouse) {
+  self->pressAndHold(mouse);
+}
+
+//  void QQuickMouseArea::released(QQuickMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea8releasedEP16QQuickMouseEvent(
+    QQuickMouseArea *self,
+    QQuickMouseEvent *mouse) {
+  self->released(mouse);
+}
+
+//  void QQuickMouseArea::clicked(QQuickMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea7clickedEP16QQuickMouseEvent(
+    QQuickMouseArea *self,
+    QQuickMouseEvent *mouse) {
+  self->clicked(mouse);
+}
+
+//  void QQuickMouseArea::doubleClicked(QQuickMouseEvent *mouse)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea13doubleClickedEP16QQuickMouseEvent(
+    QQuickMouseArea *self,
+    QQuickMouseEvent *mouse) {
+  self->doubleClicked(mouse);
+}
+
+#if QT_CONFIG(wheelevent)
+//  void QQuickMouseArea::wheel(QQuickWheelEvent *wheel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea5wheelEP16QQuickWheelEvent(
+    QQuickMouseArea *self,
+    QQuickWheelEvent *wheel) {
+  self->wheel(wheel);
+}
+#endif  // QT_CONFIG(wheelevent)
+
+//  void QQuickMouseArea::entered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea7enteredEv(QQuickMouseArea *self) {
+  self->entered();
+}
+
+//  void QQuickMouseArea::exited()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea6exitedEv(QQuickMouseArea *self) {
+  self->exited();
+}
+
+//  void QQuickMouseArea::canceled()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea8canceledEv(QQuickMouseArea *self) {
+  self->canceled();
+}
+
+//  void QQuickMouseArea::containsPressChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea20containsPressChangedEv(
+    QQuickMouseArea *self) {
+  self->containsPressChanged();
+}
+
+//  void QQuickMouseArea::pressAndHoldIntervalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickMouseArea27pressAndHoldIntervalChangedEv(
+    QQuickMouseArea *self) {
+  self->pressAndHoldIntervalChanged();
 }
 
 //  void QQuickMouseArea::setHovered(bool a0)

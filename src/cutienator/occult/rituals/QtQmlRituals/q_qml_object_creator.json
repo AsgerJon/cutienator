@@ -8,12 +8,18 @@
     "ritual_ZN17QQmlObjectCreator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN17QQmlObjectCreatorC1ERK14QQmlRefPointerI15QQmlContextDataERKS0_IN3QV425ExecutableCompilationUnitEES4_RK7QStringP20QQmlIncubatorPrivate": [
+      "address", "address", "address", "address", "text", "address"
+    ],
     "ritual_ZN17QQmlObjectCreatorD1Ev": ["nothing", "address"],
     "ritual_ZN17QQmlObjectCreator6createEiP7QObjectP26QQmlInstantiationInterrupti": [
       "address", "address", "int", "address", "address", "int"
     ],
     "ritual_ZN17QQmlObjectCreator26populateDeferredPropertiesEP7QObjectPKN8QQmlData12DeferredDataE": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator21beginPopulateDeferredERK14QQmlRefPointerI15QQmlContextDataE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17QQmlObjectCreator23populateDeferredBindingERK12QQmlPropertyiPKN3QV412CompiledData7BindingE": [
       "nothing", "address", "address", "int", "address"
@@ -25,15 +31,43 @@
     "ritual_ZN17QQmlObjectCreator24finalizePopulateDeferredEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QQmlObjectCreator8finalizeER26QQmlInstantiationInterrupt": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN17QQmlObjectCreator5clearEv": ["nothing", "address"],
+    "ritual_ZN17QQmlObjectCreator21createObjectInContextEiP7QObjectRK14QQmlRefPointerI15QQmlContextDataE": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK17QQmlObjectCreator11rootContextEv": ["address", "address"],
+    "ritual_ZN17QQmlObjectCreator19componentAttachmentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlObjectCreator17parentContextDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator17allCreatedObjectsEv": [
+      "address", "address"
+    ],
     "ritual_ZN17QQmlObjectCreator18requiredPropertiesEv": [
       "address", "address"
     ],
     "ritual_ZNK17QQmlObjectCreator38componentHadTopLevelRequiredPropertiesEv": [
       "bool", "address"
     ],
+    "ritual_ZN17QQmlObjectCreator15createComponentEP10QQmlEnginePN3QV425ExecutableCompilationUnitEiP7QObjectRK14QQmlRefPointerI15QQmlContextDataE": [
+      "address", "address", "address", "int", "address", "address"
+    ],
     "ritual_ZNK17QQmlObjectCreator20removePendingBindingEP7QObjecti": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator18repopulateBindingsEiP7QObjectRK14QQmlRefPointerI15QQmlContextDataE6QFlagsINS_8InitFlagEE": [
+      "nothing", "address", "int", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreatorC1ERK14QQmlRefPointerI15QQmlContextDataERKS0_IN3QV425ExecutableCompilationUnitEE7QStringP28QQmlObjectCreatorSharedStateb": [
+      "address", "address", "address", "text", "address", "bool"
+    ],
+    "ritual_ZN17QQmlObjectCreator4initERK14QQmlRefPointerI15QQmlContextDataE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17QQmlObjectCreator15initializeDDataEPKN3QV412CompiledData6ObjectEP7QObjectP8QQmlData6QFlagsINS_8InitFlagEE": [
       "nothing", "address", "address", "address", "address", "int"
@@ -95,6 +129,9 @@
     ],
     "ritual_ZN17QQmlObjectCreator33registerPostHocRequiredPropertiesEPKN3QV412CompiledData7BindingE": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QQmlObjectCreator__QQmlRefPointer_QQmlContextData": [
+      "nothing", "address"
     ]
   }
 }

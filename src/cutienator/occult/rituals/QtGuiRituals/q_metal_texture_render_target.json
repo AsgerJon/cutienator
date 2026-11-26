@@ -5,6 +5,20 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN25QMetalTextureRenderTarget7destroyEv": ["nothing", "address"],
+    "ritual_ZNK25QMetalTextureRenderTarget9pixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QMetalTextureRenderTarget16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK25QMetalTextureRenderTarget11sampleCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QMetalTextureRenderTarget33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QMetalTextureRenderTarget6createEv": ["bool", "address"],
     "ritual_take_QMetalTextureRenderTarget": [
       "bool", "address", "chars", "address"
     ]

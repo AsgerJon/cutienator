@@ -13,11 +13,6 @@
 #include <QtDataVisualization/private/surfaceobject_p.h>
 #include <QtDataVisualization/private/surface3drenderer_p.h>
 #include <QtGui/QVector2D>
-#include <QtDataVisualization/private/texturehelper_p.h>
-#include <QtDataVisualization/private/utils_p.h>
-#include <QtGui/QImage>
-#include <QtGui/QPainter>
-#include <QtCore/QTime>
 #include <QtDataVisualization/private/seriesrendercache_p.h>
 #include <QtDataVisualization/private/abstract3drenderer_p.h>
 #include <QtDataVisualization/private/texturehelper_p.h>
@@ -25,6 +20,11 @@
 #include <QtDataVisualization/private/surfaceseriesrendercache_p.h>
 #include <QtDataVisualization/private/surface3drenderer_p.h>
 #include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtGui/QImage>
+#include <QtGui/QPainter>
+#include <QtCore/QTime>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -33,6 +33,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/utils/objecthelper.cpp, line 16, as local:objecthelper.cpp:ObjectHelperRef
+struct ObjectHelperRef {
+    int refCount;
+    ObjectHelper *obj;
+};
 
 //  from ../qtdatavis3d/src/datavisualization/utils/surfaceobject.cpp, line 11, as _ZN13SurfaceObjectC1EP17Surface3DRenderer
 inline SurfaceObject::SurfaceObject(Surface3DRenderer *renderer)
@@ -47,28 +53,6 @@ inline SurfaceObject::SurfaceObject(Surface3DRenderer *renderer)
     glGenBuffers(1, &m_elementbuffer);
     glGenBuffers(1, &m_gridElementbuffer);
     glGenBuffers(1, &m_uvTextureBuffer);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 325, as _ZN13TextureHelper13deleteTextureEPj
-inline void TextureHelper::deleteTexture(GLuint *texture)
-{
-    if (texture && *texture) {
-        if (QOpenGLContext::currentContext())
-            glDeleteTextures(1, texture);
-        *texture = 0;
-    }
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 172, as _ZN17SeriesRenderCache7cleanupEP13TextureHelper
-inline void SeriesRenderCache::cleanup(TextureHelper *texHelper)
-{
-    ObjectHelper::releaseObjectHelper(m_renderer, m_object);
-    if (QOpenGLContext::currentContext()) {
-        texHelper->deleteTexture(&m_baseUniformTexture);
-        texHelper->deleteTexture(&m_baseGradientTexture);
-        texHelper->deleteTexture(&m_singleHighlightGradientTexture);
-        texHelper->deleteTexture(&m_multiHighlightGradientTexture);
-    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 13, as _ZN17SeriesRenderCacheC2EP17QAbstract3DSeriesP18Abstract3DRenderer
@@ -94,29 +78,6 @@ inline SeriesRenderCache::~SeriesRenderCache()
 {
 }
 
-//  from ../qtdatavis3d/src/datavisualization/engine/surfaceseriesrendercache.cpp, line 32, as _ZN24SurfaceSeriesRenderCacheD2Ev
-inline SurfaceSeriesRenderCache::~SurfaceSeriesRenderCache()
-{
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/surfaceseriesrendercache.cpp, line 36, as _ZN24SurfaceSeriesRenderCache8populateEb
-inline void SurfaceSeriesRenderCache::populate(bool newSeries)
-{
-    SeriesRenderCache::populate(newSeries);
-
-    QSurface3DSeries::DrawFlags drawMode = series()->drawMode();
-    m_surfaceVisible = drawMode.testFlag(QSurface3DSeries::DrawSurface);
-    m_surfaceGridVisible = drawMode.testFlag(QSurface3DSeries::DrawWireframe);
-    QColor lineColor = series()->wireframeColor();
-    m_surfaceObj->setLineColor(lineColor);
-    m_sliceSurfaceObj->setLineColor(lineColor);
-
-    if (m_flatChangeAllowed && m_surfaceFlatShading != series()->isFlatShadingEnabled()) {
-        m_surfaceFlatShading = series()->isFlatShadingEnabled();
-        m_flatStatusDirty = true;
-    }
-}
-
 //  from ../qtdatavis3d/src/datavisualization/engine/surfaceseriesrendercache.cpp, line 53, as _ZN24SurfaceSeriesRenderCache7cleanupEP13TextureHelper
 inline void SurfaceSeriesRenderCache::cleanup(TextureHelper *texHelper)
 {
@@ -140,6 +101,51 @@ inline void SurfaceSeriesRenderCache::cleanup(TextureHelper *texHelper)
 
     SeriesRenderCache::cleanup(texHelper);
 }
+
+//  from ../qtdatavis3d/src/datavisualization/engine/surfaceseriesrendercache.cpp, line 36, as _ZN24SurfaceSeriesRenderCache8populateEb
+inline void SurfaceSeriesRenderCache::populate(bool newSeries)
+{
+    SeriesRenderCache::populate(newSeries);
+
+    QSurface3DSeries::DrawFlags drawMode = series()->drawMode();
+    m_surfaceVisible = drawMode.testFlag(QSurface3DSeries::DrawSurface);
+    m_surfaceGridVisible = drawMode.testFlag(QSurface3DSeries::DrawWireframe);
+    QColor lineColor = series()->wireframeColor();
+    m_surfaceObj->setLineColor(lineColor);
+    m_sliceSurfaceObj->setLineColor(lineColor);
+
+    if (m_flatChangeAllowed && m_surfaceFlatShading != series()->isFlatShadingEnabled()) {
+        m_surfaceFlatShading = series()->isFlatShadingEnabled();
+        m_flatStatusDirty = true;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/surfaceseriesrendercache.cpp, line 32, as _ZN24SurfaceSeriesRenderCacheD2Ev
+inline SurfaceSeriesRenderCache::~SurfaceSeriesRenderCache()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 325, as _ZN13TextureHelper13deleteTextureEPj
+inline void TextureHelper::deleteTexture(GLuint *texture)
+{
+    if (texture && *texture) {
+        if (QOpenGLContext::currentContext())
+            glDeleteTextures(1, texture);
+        *texture = 0;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 172, as _ZN17SeriesRenderCache7cleanupEP13TextureHelper
+inline void SeriesRenderCache::cleanup(TextureHelper *texHelper)
+{
+    ObjectHelper::releaseObjectHelper(m_renderer, m_object);
+    if (QOpenGLContext::currentContext()) {
+        texHelper->deleteTexture(&m_baseUniformTexture);
+        texHelper->deleteTexture(&m_baseGradientTexture);
+        texHelper->deleteTexture(&m_singleHighlightGradientTexture);
+        texHelper->deleteTexture(&m_multiHighlightGradientTexture);
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  A SurfaceSeriesRenderCache that Python can take functions over in. Every SurfaceSeriesRenderCache
@@ -150,7 +156,7 @@ typedef void (*CuteSurfaceSeriesRenderCacheCall1)(const void *, TextureHelper *,
 class CuteSurfaceSeriesRenderCache : public SurfaceSeriesRenderCache {
 public:
   using SurfaceSeriesRenderCache::SurfaceSeriesRenderCache;
-  CuteSurfaceSeriesRenderCache(const SurfaceSeriesRenderCache &other) : SurfaceSeriesRenderCache(other) {}
+  CuteSurfaceSeriesRenderCache(const SurfaceSeriesRenderCache & other) : SurfaceSeriesRenderCache(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -284,6 +290,20 @@ QSurface3DSeries *ritual_ZNK24SurfaceSeriesRenderCache6seriesEv(
   return self->series();
 }
 
+//  QSurfaceDataArray &SurfaceSeriesRenderCache::dataArray()
+extern "C" Q_DECL_EXPORT
+QSurfaceDataArray *ritual_ZN24SurfaceSeriesRenderCache9dataArrayEv(
+    SurfaceSeriesRenderCache *self) {
+  return &(self->dataArray());
+}
+
+//  QSurfaceDataArray &SurfaceSeriesRenderCache::sliceDataArray()
+extern "C" Q_DECL_EXPORT
+QSurfaceDataArray *ritual_ZN24SurfaceSeriesRenderCache14sliceDataArrayEv(
+    SurfaceSeriesRenderCache *self) {
+  return &(self->sliceDataArray());
+}
+
 //  bool SurfaceSeriesRenderCache::renderable() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK24SurfaceSeriesRenderCache10renderableEv(
@@ -297,6 +317,13 @@ void ritual_ZN24SurfaceSeriesRenderCache19setSelectionTextureEj(
     SurfaceSeriesRenderCache *self,
     GLuint texture) {
   self->setSelectionTexture(texture);
+}
+
+//  GLuint SurfaceSeriesRenderCache::selectionTexture() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK24SurfaceSeriesRenderCache16selectionTextureEv(
+    const SurfaceSeriesRenderCache *self) {
+  return self->selectionTexture();
 }
 
 //  void SurfaceSeriesRenderCache::setSelectionIdRange(uint start, uint end)
@@ -421,6 +448,13 @@ void ritual_ZN24SurfaceSeriesRenderCache17setSurfaceTextureEj(
     SurfaceSeriesRenderCache *self,
     GLuint texture) {
   self->setSurfaceTexture(texture);
+}
+
+//  GLuint SurfaceSeriesRenderCache::surfaceTexture() const
+extern "C" Q_DECL_EXPORT
+GLuint ritual_ZNK24SurfaceSeriesRenderCache14surfaceTextureEv(
+    const SurfaceSeriesRenderCache *self) {
+  return self->surfaceTexture();
 }
 
 //  a Python function taken by a CuteSurfaceSeriesRenderCache, for the

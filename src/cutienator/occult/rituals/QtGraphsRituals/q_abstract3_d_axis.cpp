@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qabstract3daxis.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qabstract3daxis.h>
 #include <QtCore/qstring.h>
@@ -183,6 +183,24 @@ const QMetaObject *ritual_ZNK15QAbstract3DAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstract3DAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QAbstract3DAxis11qt_metacastEPKc(
+    QAbstract3DAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstract3DAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QAbstract3DAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstract3DAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstract3DAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QAbstract3DAxis2trEPKcS1_i(
@@ -211,6 +229,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAbstract3DAxis24qt_qmlMarker_uncreatableEv(
     QAbstract3DAxis *self) {
   self->qt_qmlMarker_uncreatable();
+}
+
+//  QAbstract3DAxis::QAbstract3DAxis(QAbstract3DAxisPrivate &d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAbstract3DAxis *ritual_ZN15QAbstract3DAxisC1ER22QAbstract3DAxisPrivateP7QObject(
+    QAbstract3DAxisPrivate *d,
+    QObject *parent) {
+  return new CuteQAbstract3DAxis(*d, parent);
 }
 
 //  QAbstract3DAxis::~QAbstract3DAxis()
@@ -414,6 +441,118 @@ float ritual_ZNK15QAbstract3DAxis11titleOffsetEv(
   return self->titleOffset();
 }
 
+//  void QAbstract3DAxis::titleChanged(const QString &newTitle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis12titleChangedERK7QString(
+    QAbstract3DAxis *self,
+    const QString *newTitle) {
+  self->titleChanged(*newTitle);
+}
+
+//  void QAbstract3DAxis::labelsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis13labelsChangedEv(QAbstract3DAxis *self) {
+  self->labelsChanged();
+}
+
+//  void QAbstract3DAxis::orientationChanged(QAbstract3DAxis::AxisOrientation
+//      orientation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis18orientationChangedENS_15AxisOrientationE(
+    QAbstract3DAxis *self,
+    QAbstract3DAxis::AxisOrientation orientation) {
+  self->orientationChanged(orientation);
+}
+
+//  void QAbstract3DAxis::minChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis10minChangedEf(
+    QAbstract3DAxis *self,
+    float value) {
+  self->minChanged(value);
+}
+
+//  void QAbstract3DAxis::maxChanged(float value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis10maxChangedEf(
+    QAbstract3DAxis *self,
+    float value) {
+  self->maxChanged(value);
+}
+
+//  void QAbstract3DAxis::rangeChanged(float min, float max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis12rangeChangedEff(
+    QAbstract3DAxis *self,
+    float min,
+    float max) {
+  self->rangeChanged(min, max);
+}
+
+//  void QAbstract3DAxis::autoAdjustRangeChanged(bool autoAdjust)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis22autoAdjustRangeChangedEb(
+    QAbstract3DAxis *self,
+    bool autoAdjust) {
+  self->autoAdjustRangeChanged(autoAdjust);
+}
+
+//  void QAbstract3DAxis::scaleLabelsByCountChanged(bool adjust)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis25scaleLabelsByCountChangedEb(
+    QAbstract3DAxis *self,
+    bool adjust) {
+  self->scaleLabelsByCountChanged(adjust);
+}
+
+//  void QAbstract3DAxis::labelSizeChanged(qreal size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis16labelSizeChangedEd(
+    QAbstract3DAxis *self,
+    qreal size) {
+  self->labelSizeChanged(size);
+}
+
+//  void QAbstract3DAxis::labelAutoAngleChanged(float angle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis21labelAutoAngleChangedEf(
+    QAbstract3DAxis *self,
+    float angle) {
+  self->labelAutoAngleChanged(angle);
+}
+
+//  void QAbstract3DAxis::titleVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis19titleVisibleChangedEb(
+    QAbstract3DAxis *self,
+    bool visible) {
+  self->titleVisibleChanged(visible);
+}
+
+//  void QAbstract3DAxis::labelVisibleChanged(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis19labelVisibleChangedEb(
+    QAbstract3DAxis *self,
+    bool visible) {
+  self->labelVisibleChanged(visible);
+}
+
+//  void QAbstract3DAxis::titleFixedChanged(bool fixed)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis17titleFixedChangedEb(
+    QAbstract3DAxis *self,
+    bool fixed) {
+  self->titleFixedChanged(fixed);
+}
+
+//  void QAbstract3DAxis::titleOffsetChanged(float offset)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstract3DAxis18titleOffsetChangedEf(
+    QAbstract3DAxis *self,
+    float offset) {
+  self->titleOffsetChanged(offset);
+}
+
 //  a Python function taken by a CuteQAbstract3DAxis, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -459,4 +598,4 @@ void ritual_list_drop_QAbstract3DAxis_ptr(QList<QAbstract3DAxis *> *self) {
   delete self;
 }
 
-#endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d)))

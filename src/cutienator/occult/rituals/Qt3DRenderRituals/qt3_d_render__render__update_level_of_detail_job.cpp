@@ -1,6 +1,8 @@
-//  Written by dev_tooling.RitualGenerator from the records of
+//  Written by hand on 2026-11-25 from
 //  Qt3DRender/6.12.0/Qt3DRender/private/updatelevelofdetailjob_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0, from Qt's source. Kept as it is when the generator runs
+//  again. Left out: d_func() (the private class is only declared where
+//  the header is read, so it cannot be named).
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qt3drender_global_p.h>
 #include <Qt3DRender/Qt3DRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,9 +10,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 
-//  A Qt3DRender::Render::UpdateLevelOfDetailJob that Python can take functions over in. Every Qt3DRender::Render::UpdateLevelOfDetailJob
-//  Python makes is one. Each function below asks the Python
-//  function handed over for it, and runs Qt's own without one.
+//  A Qt3DRender::Render::UpdateLevelOfDetailJob that Python can take
+//      functions over in. Every Qt3DRender::Render::UpdateLevelOfDetailJob
+//      Python makes is one. Each function below asks the Python function
+//      handed over for it, and runs Qt's own without one.
 typedef void (*CuteQt3DRender_Render_UpdateLevelOfDetailJobCall0)(const void *, Qt3DCore::QAspectEngine *, int *);
 typedef bool (*CuteQt3DRender_Render_UpdateLevelOfDetailJobCall1)(const void *, int *);
 class CuteQt3DRender_Render_UpdateLevelOfDetailJob : public Qt3DRender::Render::UpdateLevelOfDetailJob {
@@ -53,19 +56,66 @@ public:
   }
 };
 
+//  Qt3DRender::Render::UpdateLevelOfDetailJob::UpdateLevelOfDetailJob()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::UpdateLevelOfDetailJob *ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJobC1Ev() {
+  return new CuteQt3DRender_Render_UpdateLevelOfDetailJob();
+}
+
+//  Qt3DRender::Render::UpdateLevelOfDetailJob::~UpdateLevelOfDetailJob()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJobD1Ev(
+    Qt3DRender::Render::UpdateLevelOfDetailJob *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::UpdateLevelOfDetailJob::setManagers(NodeManagers
+//      *manager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJob11setManagersEPNS0_12NodeManagersE(
+    Qt3DRender::Render::UpdateLevelOfDetailJob *self,
+    Qt3DRender::Render::NodeManagers *manager) {
+  self->setManagers(manager);
+}
+
+//  void
+//      Qt3DRender::Render::UpdateLevelOfDetailJob::setFrameGraphRoot(FrameGraphNode
+//      *frameGraphRoot)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJob17setFrameGraphRootEPNS0_14FrameGraphNodeE(
+    Qt3DRender::Render::UpdateLevelOfDetailJob *self,
+    Qt3DRender::Render::FrameGraphNode *frameGraphRoot) {
+  self->setFrameGraphRoot(frameGraphRoot);
+}
+
+//  void Qt3DRender::Render::UpdateLevelOfDetailJob::setRoot(Entity *root)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJob7setRootEPNS0_6EntityE(
+    Qt3DRender::Render::UpdateLevelOfDetailJob *self,
+    Qt3DRender::Render::Entity *root) {
+  self->setRoot(root);
+}
+
 //  NodeManagers *Qt3DRender::Render::UpdateLevelOfDetailJob::managers()
 //      const
 extern "C" Q_DECL_EXPORT
-Qt3DRender::Render::NodeManagers *ritual_ZNK10Qt3DRender6Render22UpdateLevelOfDetailJob8managersEv(
+Qt3DRender::Render::NodeManagers * ritual_ZNK10Qt3DRender6Render22UpdateLevelOfDetailJob8managersEv(
     const Qt3DRender::Render::UpdateLevelOfDetailJob *self) {
   return self->managers();
 }
 
 //  Entity *Qt3DRender::Render::UpdateLevelOfDetailJob::root() const
 extern "C" Q_DECL_EXPORT
-Qt3DRender::Render::Entity *ritual_ZNK10Qt3DRender6Render22UpdateLevelOfDetailJob4rootEv(
+Qt3DRender::Render::Entity * ritual_ZNK10Qt3DRender6Render22UpdateLevelOfDetailJob4rootEv(
     const Qt3DRender::Render::UpdateLevelOfDetailJob *self) {
   return self->root();
+}
+
+//  void Qt3DRender::Render::UpdateLevelOfDetailJob::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render22UpdateLevelOfDetailJob3runEv(
+    Qt3DRender::Render::UpdateLevelOfDetailJob *self) {
+  self->run();
 }
 
 //  a Python function taken by a

@@ -8,6 +8,12 @@
     "ritual_ZNK28QConcatenateTablesProxyModel10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28QConcatenateTablesProxyModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QConcatenateTablesProxyModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28QConcatenateTablesProxyModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -76,6 +82,12 @@
       "address", "address", "address"
     ],
     "ritual_ZNK28QConcatenateTablesProxyModel9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QConcatenateTablesProxyModel6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QConcatenateTablesProxyModel6d_funcEv": [
       "address", "address"
     ],
     "ritual_take_QConcatenateTablesProxyModel": [

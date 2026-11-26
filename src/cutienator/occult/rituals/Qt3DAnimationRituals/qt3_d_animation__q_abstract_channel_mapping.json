@@ -8,8 +8,20 @@
     "ritual_ZNK13Qt3DAnimation23QAbstractChannelMapping10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN13Qt3DAnimation23QAbstractChannelMapping11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13Qt3DAnimation23QAbstractChannelMapping11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13Qt3DAnimation23QAbstractChannelMapping2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation23QAbstractChannelMappingD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation23QAbstractChannelMappingC1ERNS_30QAbstractChannelMappingPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN13Qt3DAnimation23QAbstractChannelMapping6d_funcEv": [
       "address", "address"

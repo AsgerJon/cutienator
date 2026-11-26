@@ -1,7 +1,7 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/qvectornd.h, Qt 6.12.0. Changes made here are lost."
+    "QtGui/qvectornd.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN9QVector2DC1Ev": ["address"],
@@ -54,6 +54,7 @@
     "ritual_list_add_QVector2D": ["nothing", "address", "address"],
     "ritual_list_size_QVector2D": ["long long", "address"],
     "ritual_list_at_QVector2D": ["address", "address", "long long"],
-    "ritual_list_drop_QVector2D": ["nothing", "address"]
+    "ritual_list_drop_QVector2D": ["nothing", "address"],
+    "ritual_ZN9QVector2DixEi": ["address", "address", "int"]
   }
 }

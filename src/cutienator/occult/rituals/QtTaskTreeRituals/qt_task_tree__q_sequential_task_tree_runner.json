@@ -1,9 +1,32 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtTaskTree/qtasktreerunner.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN10QtTaskTree25QSequentialTaskTreeRunnerC1Ev": ["address"],
+    "ritual_ZN10QtTaskTree25QSequentialTaskTreeRunnerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10QtTaskTree25QSequentialTaskTreeRunner9isRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10QtTaskTree25QSequentialTaskTreeRunner6cancelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QtTaskTree25QSequentialTaskTreeRunner5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QtTaskTree25QSequentialTaskTreeRunner13cancelCurrentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QtTaskTree25QSequentialTaskTreeRunner12resetCurrentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QtTaskTree25QSequentialTaskTreeRunner6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QtTaskTree25QSequentialTaskTreeRunner6d_funcEv": [
+      "address", "address"
+    ]
   }
 }

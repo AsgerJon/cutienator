@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN21QStyleOptionFocusRectC1Ev": ["address"],
     "ritual_ZN21QStyleOptionFocusRectC1ERKS_": ["address", "address"],
+    "ritual_ZN21QStyleOptionFocusRectaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN21QStyleOptionFocusRectC1Ei": ["address", "int"],
     "ritual_ZN21QStyleOptionFocusRectD1Ev": ["nothing", "address"]
   }

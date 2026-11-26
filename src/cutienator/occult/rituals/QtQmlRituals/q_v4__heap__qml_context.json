@@ -9,6 +9,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN3QV44Heap10QmlContext3qmlEv": ["address", "address"],
+    "ritual_ZN3QV44Heap10QmlContext4initEPNS_16ExecutionContextEPNS_18QQmlContextWrapperE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_cast_QV4_Heap_QmlContext_QV4_Heap_QmlContextData": [
       "address", "address"
     ]

@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK19QBoxPlotModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBoxPlotModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QBoxPlotModelMapper11qt_metacastEPKc(
+    QBoxPlotModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBoxPlotModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QBoxPlotModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBoxPlotModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBoxPlotModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QBoxPlotModelMapper2trEPKcS1_i(

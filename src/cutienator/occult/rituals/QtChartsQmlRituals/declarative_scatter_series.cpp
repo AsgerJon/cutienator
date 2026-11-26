@@ -13,12 +13,33 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qbrush.h>
 #include <QtCore/qpoint.h>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  const QMetaObject *DeclarativeScatterSeries::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK24DeclarativeScatterSeries10metaObjectEv(
     const DeclarativeScatterSeries *self) {
   return self->metaObject();
+}
+
+//  void *DeclarativeScatterSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24DeclarativeScatterSeries11qt_metacastEPKc(
+    DeclarativeScatterSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeScatterSeries::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24DeclarativeScatterSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeScatterSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString DeclarativeScatterSeries::tr(const char *s, const char *c, int n)
@@ -149,6 +170,13 @@ void ritual_ZN24DeclarativeScatterSeries14setBorderWidthEd(
   self->setBorderWidth(borderWidth);
 }
 
+//  QQmlListProperty<QObject> DeclarativeScatterSeries::declarativeChildren()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN24DeclarativeScatterSeries19declarativeChildrenEv(
+    DeclarativeScatterSeries *self) {
+  return new QQmlListProperty<QObject>(self->declarativeChildren());
+}
+
 //  QString DeclarativeScatterSeries::brushFilename() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK24DeclarativeScatterSeries13brushFilenameEv(
@@ -276,6 +304,86 @@ QPointF *ritual_ZN24DeclarativeScatterSeries2atEi(
   return new QPointF(self->at(index));
 }
 
+//  void DeclarativeScatterSeries::countChanged(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries12countChangedEi(
+    DeclarativeScatterSeries *self,
+    int count) {
+  self->countChanged(count);
+}
+
+//  void DeclarativeScatterSeries::axisXChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries12axisXChangedEP13QAbstractAxis(
+    DeclarativeScatterSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeScatterSeries::axisYChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries12axisYChangedEP13QAbstractAxis(
+    DeclarativeScatterSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeScatterSeries::borderWidthChanged(qreal width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries18borderWidthChangedEd(
+    DeclarativeScatterSeries *self,
+    qreal width) {
+  self->borderWidthChanged(width);
+}
+
+//  void DeclarativeScatterSeries::axisXTopChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeScatterSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void DeclarativeScatterSeries::axisYRightChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeScatterSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
+}
+
+//  void DeclarativeScatterSeries::axisAngularChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries18axisAngularChangedEP13QAbstractAxis(
+    DeclarativeScatterSeries *self,
+    QAbstractAxis *axis) {
+  self->axisAngularChanged(axis);
+}
+
+//  void DeclarativeScatterSeries::axisRadialChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries17axisRadialChangedEP13QAbstractAxis(
+    DeclarativeScatterSeries *self,
+    QAbstractAxis *axis) {
+  self->axisRadialChanged(axis);
+}
+
+//  void DeclarativeScatterSeries::brushFilenameChanged(const QString
+//      &brushFilename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries20brushFilenameChangedERK7QString(
+    DeclarativeScatterSeries *self,
+    const QString *brushFilename) {
+  self->brushFilenameChanged(*brushFilename);
+}
+
+//  void DeclarativeScatterSeries::brushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries12brushChangedEv(
+    DeclarativeScatterSeries *self) {
+  self->brushChanged();
+}
+
 //  void DeclarativeScatterSeries::handleCountChanged(int index)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24DeclarativeScatterSeries18handleCountChangedEi(
@@ -289,6 +397,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24DeclarativeScatterSeries18handleBrushChangedEv(
     DeclarativeScatterSeries *self) {
   self->handleBrushChanged();
+}
+
+//  void DeclarativeScatterSeries::appendDeclarativeChildren(QQmlListProperty
+//      <QObject> *list, QObject *element)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24DeclarativeScatterSeries25appendDeclarativeChildrenEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *element) {
+  DeclarativeScatterSeries::appendDeclarativeChildren(list, element);
 }
 
 //  DeclarativeScatterSeries as the DeclarativeXySeries it is built on
@@ -332,6 +449,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN24DeclarativeScatterSeries17componentCompleteEv(
     DeclarativeScatterSeries *self) {
   self->DeclarativeScatterSeries::componentComplete();
+}
+
+//  a QQmlListProperty<QObject> a ritual of DeclarativeScatterSeries gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_DeclarativeScatterSeries__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_scatter_chart)

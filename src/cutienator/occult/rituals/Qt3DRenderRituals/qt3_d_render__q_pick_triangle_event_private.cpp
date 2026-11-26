@@ -12,3 +12,19 @@ extern "C" Q_DECL_EXPORT
 Qt3DRender::QPickTriangleEventPrivate *ritual_ZN10Qt3DRender25QPickTriangleEventPrivateC1Ev() {
   return new Qt3DRender::QPickTriangleEventPrivate();
 }
+
+//  const QPickTriangleEventPrivate
+//      *Qt3DRender::QPickTriangleEventPrivate::get(const QPickTriangleEvent
+//      *ev)
+extern "C" Q_DECL_EXPORT
+const Qt3DRender::QPickTriangleEventPrivate *ritual_ZN10Qt3DRender25QPickTriangleEventPrivate3getEPKNS_18QPickTriangleEventE(
+    const Qt3DRender::QPickTriangleEvent *ev) {
+  return Qt3DRender::QPickTriangleEventPrivate::get(ev);
+}
+
+//  QPickTriangleEvent *Qt3DRender::QPickTriangleEventPrivate::clone() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickTriangleEvent *ritual_ZNK10Qt3DRender25QPickTriangleEventPrivate5cloneEv(
+    const Qt3DRender::QPickTriangleEventPrivate *self) {
+  return self->clone();
+}

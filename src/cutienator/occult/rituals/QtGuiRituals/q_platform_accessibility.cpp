@@ -29,7 +29,7 @@ typedef void (*CuteQPlatformAccessibilityCall3)(const void *, int *);
 class CuteQPlatformAccessibility : public QPlatformAccessibility {
 public:
   using QPlatformAccessibility::QPlatformAccessibility;
-  CuteQPlatformAccessibility(const QPlatformAccessibility &other) : QPlatformAccessibility(other) {}
+  CuteQPlatformAccessibility(const QPlatformAccessibility & other) : QPlatformAccessibility(other) {}
   void *taken[4] = {};
 
   bool take(const char *key, void *call) {

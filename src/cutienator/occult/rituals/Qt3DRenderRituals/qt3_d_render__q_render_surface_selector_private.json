@@ -5,8 +5,15 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender29QRenderSurfaceSelectorPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender29QRenderSurfaceSelectorPrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender29QRenderSurfaceSelectorPrivate4findEP7QObject": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender29QRenderSurfaceSelectorPrivate27setExternalRenderTargetSizeERK5QSize": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK10Qt3DRender29QRenderSurfaceSelectorPrivate24externalRenderTargetSizeEv": [
       "address", "address"

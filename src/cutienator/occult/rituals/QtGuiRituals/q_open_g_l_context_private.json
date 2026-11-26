@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN21QOpenGLContextPrivate6q_funcEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZNK21QOpenGLContextPrivate6q_funcEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLContextPrivateC1Ev": [
+      "address"
+    ],
+    "ritual_ZN21QOpenGLContextPrivateD1Ev": [
+      "nothing",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLContextPrivate5adoptEP22QPlatformOpenGLContext": [
+      "nothing",
+      "address",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLContextPrivate17setCurrentContextEP14QOpenGLContext": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLContextPrivate14maxTextureSizeEv": [
+      "int",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLContextPrivate3getEP14QOpenGLContext": [
+      "address",
+      "address"
+    ],
+    "ritual_ZN21QOpenGLContextPrivate18_q_screenDestroyedEP7QObject": [
+      "nothing",
+      "address",
+      "address"
+    ]
+  }
+}

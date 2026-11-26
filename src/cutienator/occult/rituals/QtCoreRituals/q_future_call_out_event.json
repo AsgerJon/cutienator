@@ -5,6 +5,10 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QFutureCallOutEventC1ERKS_": ["address", "address"],
+    "ritual_ZN19QFutureCallOutEventaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QFutureCallOutEvent5cloneEv": ["address", "address"],
     "ritual_ZN19QFutureCallOutEventD1Ev": ["nothing", "address"],
     "ritual_ZN19QFutureCallOutEventC1Ev": ["address"],

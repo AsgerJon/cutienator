@@ -1319,6 +1319,24 @@ const QMetaObject *ritual_ZNK14PolarChartAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *PolarChartAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14PolarChartAxis11qt_metacastEPKc(
+    PolarChartAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int PolarChartAxis::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14PolarChartAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    PolarChartAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString PolarChartAxis::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14PolarChartAxis2trEPKcS1_i(
@@ -1370,12 +1388,28 @@ bool ritual_ZNK14PolarChartAxis9emptyAxisEv(const PolarChartAxis *self) {
   return self->emptyAxis();
 }
 
+//  void PolarChartAxis::updateLayout(const QList<qreal> &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14PolarChartAxis12updateLayoutERK5QListIdE(
+    PolarChartAxis *self,
+    const QList<qreal> *layout) {
+  self->updateLayout(*layout);
+}
+
 //  void PolarChartAxis::createItems(int count)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14PolarChartAxis11createItemsEi(
     PolarChartAxis *self,
     int count) {
   self->createItems(count);
+}
+
+//  void PolarChartAxis::createAxisLabels(const QList<qreal> &layout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14PolarChartAxis16createAxisLabelsERK5QListIdE(
+    PolarChartAxis *self,
+    const QList<qreal> *layout) {
+  self->createAxisLabels(*layout);
 }
 
 //  void PolarChartAxis::updateMinorTickItems()

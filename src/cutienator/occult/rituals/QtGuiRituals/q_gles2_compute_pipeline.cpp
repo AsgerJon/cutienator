@@ -31,6 +31,178 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/rhi/qrhigles2.cpp, line 674, as local:qrhigles2.cpp:currentSurfaceForCurrentContext
+static inline QSurface *currentSurfaceForCurrentContext(QOpenGLContext *ctx)
+{
+    static const bool doNotTrustCurrentContext =
+        qEnvironmentVariableIntValue("QT_GL_BROKEN_CONTEXT_TRACKING") != 0;
+    if (doNotTrustCurrentContext)
+        return nullptr; // -> makeCurrent all the time -> may have perf. implications
+
+    if (QOpenGLContext::currentContext() != ctx)
+        return nullptr;
+
+    QSurface *currentSurface = ctx->surface();
+    if (!currentSurface)
+        return nullptr;
+
+    if (currentSurface->surfaceClass() == QSurface::Window && !currentSurface->surfaceHandle())
+        return nullptr;
+
+    return currentSurface;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 5388, as local:qrhigles2.cpp:toGlShaderType
+static inline GLenum toGlShaderType(QRhiShaderStage::Type type)
+{
+    switch (type) {
+    case QRhiShaderStage::Vertex:
+        return GL_VERTEX_SHADER;
+    case QRhiShaderStage::TessellationControl:
+        return GL_TESS_CONTROL_SHADER;
+    case QRhiShaderStage::TessellationEvaluation:
+        return GL_TESS_EVALUATION_SHADER;
+    case QRhiShaderStage::Geometry:
+        return GL_GEOMETRY_SHADER;
+    case QRhiShaderStage::Fragment:
+        return GL_FRAGMENT_SHADER;
+    case QRhiShaderStage::Compute:
+        return GL_COMPUTE_SHADER;
+    default:
+        Q_UNREACHABLE_RETURN(GL_VERTEX_SHADER);
+    }
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 5408, as local:qrhigles2.cpp:isGraphicsStage
+static inline bool isGraphicsStage(const QRhiShaderStage &shaderStage)
+{
+    const QRhiShaderStage::Type t = shaderStage.type();
+    return t == QRhiShaderStage::Vertex
+            || t == QRhiShaderStage::TessellationControl
+            || t == QRhiShaderStage::TessellationEvaluation
+            || t == QRhiShaderStage::Geometry
+            || t == QRhiShaderStage::Fragment;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 5728, as local:qrhigles2.cpp:toShaderStage
+static inline QShader::Stage toShaderStage(QRhiShaderStage::Type type)
+{
+    switch (type) {
+    case QRhiShaderStage::Vertex:
+        return QShader::VertexStage;
+    case QRhiShaderStage::TessellationControl:
+        return QShader::TessellationControlStage;
+    case QRhiShaderStage::TessellationEvaluation:
+        return QShader::TessellationEvaluationStage;
+    case QRhiShaderStage::Geometry:
+        return QShader::GeometryStage;
+    case QRhiShaderStage::Fragment:
+        return QShader::FragmentStage;
+    case QRhiShaderStage::Compute:
+        return QShader::ComputeStage;
+    default:
+        Q_UNREACHABLE_RETURN(QShader::VertexStage);
+    }
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7120, as _ZN21QGles2ComputePipeline6createEv
+inline bool QGles2ComputePipeline::create()
+{
+    QRHI_RES_RHI(QRhiGles2);
+
+    if (program)
+        destroy();
+
+    if (!rhiD->ensureContext())
+        return false;
+
+    rhiD->pipelineCreationStart();
+
+    const QShaderDescription csDesc = m_shaderStage.shader().description();
+    QShader::SeparateToCombinedImageSamplerMappingList csSamplerMappingList;
+    QShaderVersion shaderVersion;
+    if (!rhiD->shaderSource(m_shaderStage, &shaderVersion).isEmpty()) {
+        csSamplerMappingList = m_shaderStage.shader().separateToCombinedImageSamplerMappingList(
+                    { QShader::GlslShader, shaderVersion, m_shaderStage.shaderVariant() });
+    }
+
+    program = rhiD->f->glCreateProgram();
+
+    QByteArray cacheKey;
+    QRhiGles2::ProgramCacheResult cacheResult = rhiD->tryLoadFromDiskOrPipelineCache(&m_shaderStage, 1, program, {}, &cacheKey);
+    if (cacheResult == QRhiGles2::ProgramCacheError)
+        return false;
+
+    if (cacheResult == QRhiGles2::ProgramCacheMiss) {
+        if (!rhiD->compileShader(program, m_shaderStage, nullptr))
+            return false;
+
+        if (!rhiD->linkProgram(program))
+            return false;
+
+        if (rhiD->rhiFlags.testFlag(QRhi::EnablePipelineCacheDataSave)) {
+            // force replacing existing cache entry (if there is one, then
+            // something is wrong with it, as there was no hit)
+            rhiD->trySaveToPipelineCache(program, cacheKey, true);
+        } else {
+            // legacy QOpenGLShaderProgram style behavior: the "pipeline cache"
+            // was not enabled, so instead store to the Qt 5 disk cache
+            rhiD->trySaveToDiskCache(program, cacheKey);
+        }
+    } else {
+        Q_ASSERT(cacheResult == QRhiGles2::ProgramCacheHit);
+        if (rhiD->rhiFlags.testFlag(QRhi::EnablePipelineCacheDataSave)) {
+            // just so that it ends up in the pipeline cache also when the hit was
+            // from the disk cache
+            rhiD->trySaveToPipelineCache(program, cacheKey);
+        }
+    }
+
+    QRhiGles2::ActiveUniformLocationTracker activeUniformLocations;
+    const auto csUniformBlocks = csDesc.uniformBlocks();
+    for (const QShaderDescription::UniformBlock &ub : csUniformBlocks)
+        rhiD->gatherUniforms(program, ub, &activeUniformLocations, &uniforms);
+    const auto csCombinedImageSamplers = csDesc.combinedImageSamplers();
+    for (const QShaderDescription::InOutVariable &v : csCombinedImageSamplers)
+        rhiD->gatherSamplers(program, v, &samplers);
+    for (const QShader::SeparateToCombinedImageSamplerMapping &mapping : std::as_const(csSamplerMappingList))
+        rhiD->gatherGeneratedSamplers(program, mapping, &samplers);
+
+    // storage images and buffers need no special steps here
+
+    memset(uniformState, 0, sizeof(uniformState));
+
+    currentSrb = nullptr;
+    currentSrbGeneration = 0;
+
+    rhiD->pipelineCreationEnd();
+    generation += 1;
+    rhiD->registerResource(this);
+    return true;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 7099, as _ZN21QGles2ComputePipeline7destroyEv
+inline void QGles2ComputePipeline::destroy()
+{
+    if (!program)
+        return;
+
+    QRhiGles2::DeferredReleaseEntry e;
+    e.type = QRhiGles2::DeferredReleaseEntry::Pipeline;
+
+    e.pipeline.program = program;
+
+    program = 0;
+    uniforms.clear();
+    samplers.clear();
+
+    QRHI_RES_RHI(QRhiGles2);
+    if (rhiD) {
+        rhiD->releaseQueue.append(e);
+        rhiD->unregisterResource(this);
+    }
+}
+
 //  from src/gui/rhi/qrhigles2.cpp, line 5569, as _ZN9QRhiGles211linkProgramEj
 inline bool QRhiGles2::linkProgram(GLuint program)
 {
@@ -75,6 +247,56 @@ inline QByteArray QRhiGles2::shaderSource(const QRhiShaderStage &shaderStage, QS
                    << ") in baked shader" << bakedShader;
     }
     return source;
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 5520, as _ZN9QRhiGles213compileShaderEjRK15QRhiShaderStageP14QShaderVersionSt8optionalIS3_E
+inline bool QRhiGles2::compileShader(GLuint program, const QRhiShaderStage &shaderStage, QShaderVersion *shaderVersion,
+                              std::optional<QShaderVersion> commonVersion)
+{
+    QShaderVersion actualVersion;
+    const QByteArray source = shaderSource(shaderStage, &actualVersion, commonVersion);
+    if (source.isEmpty())
+        return false;
+    if (shaderVersion)
+        *shaderVersion = actualVersion;
+
+    GLuint shader;
+    const auto cacheKey = std::make_pair(shaderStage, actualVersion);
+    auto cacheIt = m_shaderCache.constFind(cacheKey);
+    if (cacheIt != m_shaderCache.constEnd()) {
+        shader = *cacheIt;
+    } else {
+        shader = f->glCreateShader(toGlShaderType(shaderStage.type()));
+        const char *srcStr = source.constData();
+        const GLint srcLength = source.size();
+        f->glShaderSource(shader, 1, &srcStr, &srcLength);
+        f->glCompileShader(shader);
+        GLint compiled = 0;
+        f->glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
+        if (!compiled) {
+            GLint infoLogLength = 0;
+            f->glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLogLength);
+            QByteArray log;
+            if (infoLogLength > 1) {
+                GLsizei length = 0;
+                log.resize(infoLogLength);
+                f->glGetShaderInfoLog(shader, infoLogLength, &length, log.data());
+            }
+            qWarning("Failed to compile shader: %s\nSource was:\n%s", log.constData(), source.constData());
+            return false;
+        }
+        if (m_shaderCache.size() >= MAX_SHADER_CACHE_ENTRIES) {
+            // Use the simplest strategy: too many cached shaders -> drop them all.
+            for (uint shader : std::as_const(m_shaderCache))
+                f->glDeleteShader(shader); // does not actually get released yet when attached to a not-yet-released program
+            m_shaderCache.clear();
+        }
+        m_shaderCache.insert(cacheKey, shader);
+    }
+
+    f->glAttachShader(program, shader);
+
+    return true;
 }
 
 //  from src/gui/rhi/qrhigles2.cpp, line 5667, as _ZN9QRhiGles214gatherSamplersEjRKN18QShaderDescription13InOutVariableEP15QVarLengthArrayI24QGles2SamplerDescriptionLx4EE
@@ -172,104 +394,6 @@ inline void QRhiGles2::gatherGeneratedSamplers(GLuint program,
 inline QGles2ComputePipeline::~QGles2ComputePipeline()
 {
     destroy();
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7099, as _ZN21QGles2ComputePipeline7destroyEv
-inline void QGles2ComputePipeline::destroy()
-{
-    if (!program)
-        return;
-
-    QRhiGles2::DeferredReleaseEntry e;
-    e.type = QRhiGles2::DeferredReleaseEntry::Pipeline;
-
-    e.pipeline.program = program;
-
-    program = 0;
-    uniforms.clear();
-    samplers.clear();
-
-    QRHI_RES_RHI(QRhiGles2);
-    if (rhiD) {
-        rhiD->releaseQueue.append(e);
-        rhiD->unregisterResource(this);
-    }
-}
-
-//  from src/gui/rhi/qrhigles2.cpp, line 7120, as _ZN21QGles2ComputePipeline6createEv
-inline bool QGles2ComputePipeline::create()
-{
-    QRHI_RES_RHI(QRhiGles2);
-
-    if (program)
-        destroy();
-
-    if (!rhiD->ensureContext())
-        return false;
-
-    rhiD->pipelineCreationStart();
-
-    const QShaderDescription csDesc = m_shaderStage.shader().description();
-    QShader::SeparateToCombinedImageSamplerMappingList csSamplerMappingList;
-    QShaderVersion shaderVersion;
-    if (!rhiD->shaderSource(m_shaderStage, &shaderVersion).isEmpty()) {
-        csSamplerMappingList = m_shaderStage.shader().separateToCombinedImageSamplerMappingList(
-                    { QShader::GlslShader, shaderVersion, m_shaderStage.shaderVariant() });
-    }
-
-    program = rhiD->f->glCreateProgram();
-
-    QByteArray cacheKey;
-    QRhiGles2::ProgramCacheResult cacheResult = rhiD->tryLoadFromDiskOrPipelineCache(&m_shaderStage, 1, program, {}, &cacheKey);
-    if (cacheResult == QRhiGles2::ProgramCacheError)
-        return false;
-
-    if (cacheResult == QRhiGles2::ProgramCacheMiss) {
-        if (!rhiD->compileShader(program, m_shaderStage, nullptr))
-            return false;
-
-        if (!rhiD->linkProgram(program))
-            return false;
-
-        if (rhiD->rhiFlags.testFlag(QRhi::EnablePipelineCacheDataSave)) {
-            // force replacing existing cache entry (if there is one, then
-            // something is wrong with it, as there was no hit)
-            rhiD->trySaveToPipelineCache(program, cacheKey, true);
-        } else {
-            // legacy QOpenGLShaderProgram style behavior: the "pipeline cache"
-            // was not enabled, so instead store to the Qt 5 disk cache
-            rhiD->trySaveToDiskCache(program, cacheKey);
-        }
-    } else {
-        Q_ASSERT(cacheResult == QRhiGles2::ProgramCacheHit);
-        if (rhiD->rhiFlags.testFlag(QRhi::EnablePipelineCacheDataSave)) {
-            // just so that it ends up in the pipeline cache also when the hit was
-            // from the disk cache
-            rhiD->trySaveToPipelineCache(program, cacheKey);
-        }
-    }
-
-    QRhiGles2::ActiveUniformLocationTracker activeUniformLocations;
-    const auto csUniformBlocks = csDesc.uniformBlocks();
-    for (const QShaderDescription::UniformBlock &ub : csUniformBlocks)
-        rhiD->gatherUniforms(program, ub, &activeUniformLocations, &uniforms);
-    const auto csCombinedImageSamplers = csDesc.combinedImageSamplers();
-    for (const QShaderDescription::InOutVariable &v : csCombinedImageSamplers)
-        rhiD->gatherSamplers(program, v, &samplers);
-    for (const QShader::SeparateToCombinedImageSamplerMapping &mapping : std::as_const(csSamplerMappingList))
-        rhiD->gatherGeneratedSamplers(program, mapping, &samplers);
-
-    // storage images and buffers need no special steps here
-
-    memset(uniformState, 0, sizeof(uniformState));
-
-    currentSrb = nullptr;
-    currentSrbGeneration = 0;
-
-    rhiD->pipelineCreationEnd();
-    generation += 1;
-    rhiD->registerResource(this);
-    return true;
 }
 //  -----------------------------------------------------------------------
 

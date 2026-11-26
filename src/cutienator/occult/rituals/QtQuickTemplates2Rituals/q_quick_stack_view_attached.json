@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickStackViewAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickStackViewAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickStackViewAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickStackViewAttached2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,29 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZN23QQuickStackViewAttached12resetVisibleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickStackViewAttached12indexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickStackViewAttached11viewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickStackViewAttached13statusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickStackViewAttached9activatedEv": ["nothing", "address"],
+    "ritual_ZN23QQuickStackViewAttached10activatingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickStackViewAttached11deactivatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickStackViewAttached12deactivatingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickStackViewAttached7removedEv": ["nothing", "address"],
+    "ritual_ZN23QQuickStackViewAttached14visibleChangedEv": [
       "nothing", "address"
     ],
     "ritual_ZN23QQuickStackViewAttached6d_funcEv": ["address", "address"],

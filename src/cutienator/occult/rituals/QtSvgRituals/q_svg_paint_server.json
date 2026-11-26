@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN15QSvgPaintServerD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSvgPaintServer5brushEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK15QSvgPaintServer4typeEv": ["signed char", "address"],
     "ritual_take_QSvgPaintServer": ["bool", "address", "chars", "address"]
   }

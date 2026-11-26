@@ -1,18 +1,97 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtProtobuf/qprotobufoneof.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "Written by hand on 2026-11-25 from",
+    "QtProtobuf/qprotobufoneof.h, Qt 6.12.0, from Qt's source. Kept as it",
+    "is when the generator runs again."
   ],
   "rows": {
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneofC1Ev": ["address"],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneofD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneofC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneofC1EOS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof4swapERS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof11fieldNumberEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof10holdsFieldEi": [
+      "bool", "address", "int"
+    ],
     "ritual_ZN17QtProtobufPrivate14QProtobufOneof14ensureMetaTypeE9QMetaTypeS1_": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof14ensureRawValueE9QMetaType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof8setValueERK8QVarianti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof8rawValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof8rawValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate13comparesEqualERKNS_14QProtobufOneofES2_": [
+      "bool", "address", "address"
     ],
     "ritual_ZN17QtProtobufPrivateeqERKNS_14QProtobufOneofES2_": [
       "bool", "address", "address"
     ],
     "ritual_ZN17QtProtobufPrivateneERKNS_14QProtobufOneofES2_": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof8setValueIiLb1EEEvRKT_i": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof5valueIiLb1EEET_v": [
+      "int", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof7isEqualIiLb1EEEbRKT_i": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof8setValueIdLb1EEEvRKT_i": [
+      "nothing", "address", "double", "int"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof5valueIdLb1EEET_v": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof7isEqualIdLb1EEEbRKT_i": [
+      "bool", "address", "double", "int"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof8setValueIbLb1EEEvRKT_i": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof5valueIbLb1EEET_v": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof7isEqualIbLb1EEEbRKT_i": [
+      "bool", "address", "bool", "int"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof8setValueI7QStringLb1EEEvRKT_i": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof5valueI7QStringLb1EEET_v": [
+      "text", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof7isEqualI7QStringLb1EEEbRKT_i": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof8setValueI10QByteArrayLb1EEEvRKT_i": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof5valueI10QByteArrayLb1EEET_v": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate14QProtobufOneof7isEqualI10QByteArrayLb1EEEbRKT_i": [
+      "bool", "address", "address", "int"
     ]
   }
 }

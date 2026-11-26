@@ -6,11 +6,24 @@
   ],
   "rows": {
     "ritual_ZNK12QIOOperation10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QIOOperation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QIOOperation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QIOOperation2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QIOOperationD1Ev": ["nothing", "address"],
     "ritual_ZNK12QIOOperation4typeEv": ["unsigned char", "address"],
     "ritual_ZNK12QIOOperation5errorEv": ["int", "address"],
     "ritual_ZNK12QIOOperation10isFinishedEv": ["bool", "address"],
+    "ritual_ZN12QIOOperation8finishedEv": ["nothing", "address"],
+    "ritual_ZN12QIOOperation13errorOccurredENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QIOOperationC1ER19QIOOperationPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN12QIOOperation24ensureCompleteOrCanceledEv": [
       "nothing", "address"
     ],

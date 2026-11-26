@@ -11,6 +11,15 @@
 #include <QtCore/qchar.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qtexttable.h>
+#include <QtGui/qtextcursor.h>
+#include <QtGui/qtextformat.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/private/qtextcursor_p.h>
+#include <QtGui/private/qtexttable_p.h>
+#include <QtCore/qvarlengtharray.h>
+#include <algorithm>
+#include <stdlib.h>
 #include <QtGui/qtextobject.h>
 #include <QtGui/private/qtextobject_p.h>
 #include <QtGui/private/qtextcursor_p.h>
@@ -23,15 +32,6 @@
 #include <QtGui/private/qtextengine_p.h>
 #include <QtCore/qdebug.h>
 #include <algorithm>
-#include <QtGui/qtexttable.h>
-#include <QtGui/qtextcursor.h>
-#include <QtGui/qtextformat.h>
-#include <QtCore/qdebug.h>
-#include <QtGui/private/qtextcursor_p.h>
-#include <QtGui/private/qtexttable_p.h>
-#include <QtCore/qvarlengtharray.h>
-#include <algorithm>
-#include <stdlib.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -40,6 +40,35 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/gui/text/qtexttable.cpp, line 333, as local:qtexttable.cpp:QFragmentFindHelper
+struct QFragmentFindHelper
+{
+    inline QFragmentFindHelper(int _pos, const QTextDocumentPrivate::FragmentMap &map)
+        : pos(_pos), fragmentMap(map) {}
+    uint pos;
+    const QTextDocumentPrivate::FragmentMap &fragmentMap;
+};
+
+//  from src/gui/text/qtexttable.cpp, line 379, as _ZN17QTextTablePrivate15fragmentRemovedE5QCharj
+inline void QTextTablePrivate::fragmentRemoved(QChar type, uint fragment)
+{
+    dirty = true;
+    if (blockFragmentUpdates)
+        return;
+    if (type == QTextBeginningOfFrame) {
+        Q_ASSERT(cells.indexOf(int(fragment)) != -1);
+        cells.removeAll(int(fragment));
+        if (fragment_start == fragment && cells.size()) {
+            fragment_start = cells.at(0);
+        }
+        if (fragment_start != fragment)
+            return;
+    }
+    QTextFramePrivate::fragmentRemoved(type, fragment);
+}
 
 //  from src/gui/text/qtextobject.cpp, line 509, as _ZN17QTextFramePrivate15fragmentRemovedE5QCharj
 inline void QTextFramePrivate::fragmentRemoved(QChar type, uint fragment)
@@ -134,24 +163,6 @@ inline QTextTable *QTextTablePrivate::createTable(QTextDocumentPrivate *pieceTab
     pieceTable->endEditBlock();
 
     return table;
-}
-
-//  from src/gui/text/qtexttable.cpp, line 379, as _ZN17QTextTablePrivate15fragmentRemovedE5QCharj
-inline void QTextTablePrivate::fragmentRemoved(QChar type, uint fragment)
-{
-    dirty = true;
-    if (blockFragmentUpdates)
-        return;
-    if (type == QTextBeginningOfFrame) {
-        Q_ASSERT(cells.indexOf(int(fragment)) != -1);
-        cells.removeAll(int(fragment));
-        if (fragment_start == fragment && cells.size()) {
-            fragment_start = cells.at(0);
-        }
-        if (fragment_start != fragment)
-            return;
-    }
-    QTextFramePrivate::fragmentRemoved(type, fragment);
 }
 
 //  from src/gui/text/qtexttable.cpp, line 401, as _ZNK17QTextTablePrivate6updateEv
@@ -272,6 +283,15 @@ QTextTable *ritual_ZN17QTextTablePrivate11createTableEP20QTextDocumentPrivateiii
     int cols,
     const QTextTableFormat *tableFormat) {
   return QTextTablePrivate::createTable(a0, pos, rows, cols, *tableFormat);
+}
+
+//  void QTextTablePrivate::fragmentAdded(QChar type, uint fragment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QTextTablePrivate13fragmentAddedE5QCharj(
+    QTextTablePrivate *self,
+    const QChar *type,
+    uint fragment) {
+  self->fragmentAdded(*type, fragment);
 }
 
 //  void QTextTablePrivate::fragmentRemoved(QChar type, uint fragment)

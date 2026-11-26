@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras11QSphereMesh10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QSphereMesh::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras11QSphereMesh11qt_metacastEPKc(
+    Qt3DExtras::QSphereMesh *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QSphereMesh::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras11QSphereMesh11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QSphereMesh *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QSphereMesh::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DExtras11QSphereMesh2trEPKcS2_i(
@@ -186,6 +205,112 @@ QString *ritual_ZN10Qt3DExtras11QSphereMesh2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QSphereMesh::tr(s, c, n));
+}
+
+//  Qt3DExtras::QSphereMesh::QSphereMesh(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QSphereMesh *ritual_ZN10Qt3DExtras11QSphereMeshC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QSphereMesh(parent);
+}
+
+//  Qt3DExtras::QSphereMesh::~QSphereMesh()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSphereMeshD1Ev(Qt3DExtras::QSphereMesh *self) {
+  delete self;
+}
+
+//  int Qt3DExtras::QSphereMesh::rings() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras11QSphereMesh5ringsEv(
+    const Qt3DExtras::QSphereMesh *self) {
+  return self->rings();
+}
+
+//  int Qt3DExtras::QSphereMesh::slices() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DExtras11QSphereMesh6slicesEv(
+    const Qt3DExtras::QSphereMesh *self) {
+  return self->slices();
+}
+
+//  float Qt3DExtras::QSphereMesh::radius() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras11QSphereMesh6radiusEv(
+    const Qt3DExtras::QSphereMesh *self) {
+  return self->radius();
+}
+
+//  bool Qt3DExtras::QSphereMesh::generateTangents() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras11QSphereMesh16generateTangentsEv(
+    const Qt3DExtras::QSphereMesh *self) {
+  return self->generateTangents();
+}
+
+//  void Qt3DExtras::QSphereMesh::setRings(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSphereMesh8setRingsEi(
+    Qt3DExtras::QSphereMesh *self,
+    int rings) {
+  self->setRings(rings);
+}
+
+//  void Qt3DExtras::QSphereMesh::setSlices(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSphereMesh9setSlicesEi(
+    Qt3DExtras::QSphereMesh *self,
+    int slices) {
+  self->setSlices(slices);
+}
+
+//  void Qt3DExtras::QSphereMesh::setRadius(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSphereMesh9setRadiusEf(
+    Qt3DExtras::QSphereMesh *self,
+    float radius) {
+  self->setRadius(radius);
+}
+
+//  void Qt3DExtras::QSphereMesh::setGenerateTangents(bool gen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSphereMesh19setGenerateTangentsEb(
+    Qt3DExtras::QSphereMesh *self,
+    bool gen) {
+  self->setGenerateTangents(gen);
+}
+
+//  void Qt3DExtras::QSphereMesh::radiusChanged(float radius)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSphereMesh13radiusChangedEf(
+    Qt3DExtras::QSphereMesh *self,
+    float radius) {
+  self->radiusChanged(radius);
+}
+
+//  void Qt3DExtras::QSphereMesh::ringsChanged(int rings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSphereMesh12ringsChangedEi(
+    Qt3DExtras::QSphereMesh *self,
+    int rings) {
+  self->ringsChanged(rings);
+}
+
+//  void Qt3DExtras::QSphereMesh::slicesChanged(int slices)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSphereMesh13slicesChangedEi(
+    Qt3DExtras::QSphereMesh *self,
+    int slices) {
+  self->slicesChanged(slices);
+}
+
+//  void Qt3DExtras::QSphereMesh::generateTangentsChanged(bool
+//      generateTangents)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras11QSphereMesh23generateTangentsChangedEb(
+    Qt3DExtras::QSphereMesh *self,
+    bool generateTangents) {
+  self->generateTangentsChanged(generateTangents);
 }
 
 //  a Python function taken by a CuteQt3DExtras_QSphereMesh, for the function

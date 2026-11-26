@@ -5,5 +5,9 @@
     "leobjects_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN23QSSGParticlesRenderableC1E25QSSGRenderableObjectFlagsRK9QVector3DP12QSSGRendererRK10QMatrix4x4RK19QSSGRenderParticlesP19QSSGRenderableImageSD_RK12QSSGDataViewI15QSSGShaderLightEf25QSSGShaderBaseMaterialKeyI39QSSGShaderParticleMaterialKeyPropertiesLm1EE": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address", "float", "address"
+    ]
   }
 }

@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN14QBluetoothUuidC1Ev": ["address"],
+    "ritual_ZN14QBluetoothUuidC1ENS_12ProtocolUuidE": ["address", "int"],
+    "ritual_ZN14QBluetoothUuidC1ENS_16ServiceClassUuidE": ["address", "int"],
+    "ritual_ZN14QBluetoothUuidC1ENS_18CharacteristicTypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN14QBluetoothUuidC1ENS_14DescriptorTypeE": ["address", "int"],
+    "ritual_ZN14QBluetoothUuidC1Et": ["address", "unsigned short"],
+    "ritual_ZN14QBluetoothUuidC1Ej": ["address", "unsigned int"],
+    "ritual_ZN14QBluetoothUuidC1ERKS_": ["address", "address"],
+    "ritual_ZN14QBluetoothUuidC1ERK5QUuid": ["address", "address"],
+    "ritual_ZN14QBluetoothUuidD1Ev": ["nothing", "address"],
+    "ritual_ZN14QBluetoothUuidaSERKS_": ["address", "address", "address"],
+    "ritual_ZeqRK14QBluetoothUuidS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QBluetoothUuidS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK14QBluetoothUuid": ["address", "address", "address"],
+    "ritual_ZNK14QBluetoothUuid11minimumSizeEv": ["int", "address"],
+    "ritual_ZNK14QBluetoothUuid8toUInt16EPb": [
+      "unsigned short", "address", "address"
+    ],
+    "ritual_ZNK14QBluetoothUuid8toUInt32EPb": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN14QBluetoothUuid20serviceClassToStringENS_16ServiceClassUuidE": [
+      "text", "int"
+    ],
+    "ritual_ZN14QBluetoothUuid16protocolToStringENS_12ProtocolUuidE": [
+      "text", "int"
+    ],
+    "ritual_ZN14QBluetoothUuid22characteristicToStringENS_18CharacteristicTypeE": [
+      "text", "int"
+    ],
+    "ritual_ZN14QBluetoothUuid18descriptorToStringENS_14DescriptorTypeE": [
+      "text", "int"
+    ],
+    "ritual_list_make_QBluetoothUuid": ["address"],
+    "ritual_list_add_QBluetoothUuid": ["nothing", "address", "address"],
+    "ritual_list_size_QBluetoothUuid": ["long long", "address"],
+    "ritual_list_at_QBluetoothUuid": ["address", "address", "long long"],
+    "ritual_list_drop_QBluetoothUuid": ["nothing", "address"],
+    "ritual_ZN14QBluetoothUuidCI25QUuidE14QAnyStringView": [
+      "address", "text"
+    ],
+    "ritual_ZN14QBluetoothUuidCI25QUuidEjtthhhhhhhh": [
+      "address", "unsigned int", "unsigned short", "unsigned short",
+      "unsigned char", "unsigned char", "unsigned char", "unsigned char",
+      "unsigned char", "unsigned char", "unsigned char", "unsigned char"
+    ]
+  }
+}

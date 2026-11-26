@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qsplineseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_spline))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_spline))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qsplineseries.h>
 #include <QtCore/qstring.h>
@@ -236,6 +236,24 @@ const QMetaObject *ritual_ZNK13QSplineSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSplineSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QSplineSeries11qt_metacastEPKc(
+    QSplineSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSplineSeries::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QSplineSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSplineSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSplineSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QSplineSeries2trEPKcS1_i(
@@ -307,6 +325,41 @@ void ritual_ZN13QSplineSeries12setOptimizedEb(
   self->setOptimized(optimized);
 }
 
+//  QList<QPointF> &QSplineSeries::getControlPoints()
+extern "C" Q_DECL_EXPORT
+QList<QPointF> *ritual_ZN13QSplineSeries16getControlPointsEv(
+    QSplineSeries *self) {
+  return &(self->getControlPoints());
+}
+
+//  void QSplineSeries::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSplineSeries12widthChangedEv(QSplineSeries *self) {
+  self->widthChanged();
+}
+
+//  void QSplineSeries::capStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSplineSeries15capStyleChangedEv(QSplineSeries *self) {
+  self->capStyleChanged();
+}
+
+//  void QSplineSeries::optimizedChanged(bool newOptimized)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSplineSeries16optimizedChangedEb(
+    QSplineSeries *self,
+    bool newOptimized) {
+  self->optimizedChanged(newOptimized);
+}
+
+//  QSplineSeries::QSplineSeries(QSplineSeriesPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSplineSeries *ritual_ZN13QSplineSeriesC1ER20QSplineSeriesPrivateP7QObject(
+    QSplineSeriesPrivate *dd,
+    QObject *parent) {
+  return new CuteQSplineSeries(*dd, parent);
+}
+
 //  void QSplineSeries::componentComplete()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QSplineSeries17componentCompleteEv(QSplineSeries *self) {
@@ -350,4 +403,4 @@ void ritual_own_ZN13QSplineSeries17componentCompleteEv(QSplineSeries *self) {
   static_cast<OwnQSplineSeries *>(self)->OwnQSplineSeries::componentComplete();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_spline))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_spline))

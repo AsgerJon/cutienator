@@ -9,11 +9,18 @@
       "address", "int"
     ],
     "ritual_ZN25QSSGUserRenderPassManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN25QSSGUserRenderPassManager6createEv": ["address"],
     "ritual_ZN25QSSGUserRenderPassManager16scheduleUserPassEP18QSSGRenderUserPass": [
       "nothing", "address", "address"
     ],
     "ritual_ZN25QSSGUserRenderPassManager18unscheduleUserPassEPK18QSSGRenderUserPass": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSSGUserRenderPassManager28getOrCreateRenderableTextureERK18QSSGRenderUserPass": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QSSGUserRenderPassManager23getUserPassTexureResultERK18QSSGRenderUserPass": [
+      "address", "address", "address"
     ],
     "ritual_ZN25QSSGUserRenderPassManager19updateUserPassOrderEb": [
       "nothing", "address", "bool"
@@ -30,6 +37,7 @@
     "ritual_ZN25QSSGUserRenderPassManager22registerManagedTextureEP21QSSGManagedRhiTexture": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN25QSSGUserRenderPassManager16maxUserPassSlotsEv": ["size_t"],
     "ritual_ZN25QSSGUserRenderPassManager19acquireUserPassSlotEv": [
       "long long", "address"
     ],
@@ -41,6 +49,18 @@
     ],
     "ritual_ZN25QSSGUserRenderPassManager10refTextureEP11QRhiTexture": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSSGUserRenderPassManager12derefTextureERKSt10unique_ptrI11QRhiTextureSt14default_deleteIS1_EE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QSSGUserRenderPassManager10refTextureERKSt10unique_ptrI11QRhiTextureSt14default_deleteIS1_EE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_drop_QSSGUserRenderPassManager__std_shared_ptr_QSSGUserRenderPassManager": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QSSGUserRenderPassManager__QSSGRhiRenderableTextureV2Ptr": [
+      "nothing", "address"
     ]
   }
 }

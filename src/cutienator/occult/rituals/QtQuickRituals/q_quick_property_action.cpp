@@ -12,6 +12,8 @@
 #include <QtQml/qqmlproperty.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A QQuickPropertyAction that Python can take functions over in. Every QQuickPropertyAction
 //  Python makes is one. Each function below asks the Python
@@ -251,6 +253,25 @@ const QMetaObject *ritual_ZNK20QQuickPropertyAction10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPropertyAction::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickPropertyAction11qt_metacastEPKc(
+    QQuickPropertyAction *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPropertyAction::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickPropertyAction11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPropertyAction *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPropertyAction::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickPropertyAction2trEPKcS1_i(
@@ -332,6 +353,20 @@ void ritual_ZN20QQuickPropertyAction13setPropertiesERK7QString(
   self->setProperties(*a0);
 }
 
+//  QQmlListProperty<QObject> QQuickPropertyAction::targets()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN20QQuickPropertyAction7targetsEv(
+    QQuickPropertyAction *self) {
+  return new QQmlListProperty<QObject>(self->targets());
+}
+
+//  QQmlListProperty<QObject> QQuickPropertyAction::exclude()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN20QQuickPropertyAction7excludeEv(
+    QQuickPropertyAction *self) {
+  return new QQmlListProperty<QObject>(self->exclude());
+}
+
 //  QVariant QQuickPropertyAction::value() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK20QQuickPropertyAction5valueEv(
@@ -347,6 +382,50 @@ void ritual_ZN20QQuickPropertyAction8setValueERK8QVariant(
   self->setValue(*a0);
 }
 
+//  void QQuickPropertyAction::valueChanged(const QVariant &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPropertyAction12valueChangedERK8QVariant(
+    QQuickPropertyAction *self,
+    const QVariant *a0) {
+  self->valueChanged(*a0);
+}
+
+//  void QQuickPropertyAction::propertiesChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPropertyAction17propertiesChangedERK7QString(
+    QQuickPropertyAction *self,
+    const QString *a0) {
+  self->propertiesChanged(*a0);
+}
+
+//  void QQuickPropertyAction::targetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPropertyAction13targetChangedEv(
+    QQuickPropertyAction *self) {
+  self->targetChanged();
+}
+
+//  void QQuickPropertyAction::propertyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickPropertyAction15propertyChangedEv(
+    QQuickPropertyAction *self) {
+  self->propertyChanged();
+}
+
+//  QAbstractAnimationJob
+//      *QQuickPropertyAction::transition(QQuickStateActions &actions,
+//      QQmlProperties &modified, TransitionDirection direction, QObject
+//      *defaultTarget)
+extern "C" Q_DECL_EXPORT
+QAbstractAnimationJob *ritual_ZN20QQuickPropertyAction10transitionER5QListI17QQuickStateActionERS0_I12QQmlPropertyEN23QQuickAbstractAnimation19TransitionDirectionEP7QObject(
+    QQuickPropertyAction *self,
+    QQuickStateActions *actions,
+    QQmlProperties *modified,
+    QQuickAbstractAnimation::TransitionDirection direction,
+    QObject *defaultTarget) {
+  return self->transition(*actions, *modified, direction, defaultTarget);
+}
+
 //  a Python function taken by a CuteQQuickPropertyAction, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -355,4 +434,11 @@ bool ritual_take_QQuickPropertyAction(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickPropertyAction *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QQuickPropertyAction gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickPropertyAction__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

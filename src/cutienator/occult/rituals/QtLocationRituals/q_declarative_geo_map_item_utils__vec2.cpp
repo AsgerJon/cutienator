@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPositioning/6.12.0/QtPositioning/private/qdoublevector2d_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qpoint.h>
 
 //  QDeclarativeGeoMapItemUtils::vec2::vec2(const QDoubleVector2D &p)
 extern "C" Q_DECL_EXPORT
@@ -22,6 +23,23 @@ QDeclarativeGeoMapItemUtils::vec2 *ritual_ZN27QDeclarativeGeoMapItemUtils4vec2C1
 extern "C" Q_DECL_EXPORT
 QDeclarativeGeoMapItemUtils::vec2 *ritual_ZN27QDeclarativeGeoMapItemUtils4vec2C1Ev() {
   return new QDeclarativeGeoMapItemUtils::vec2();
+}
+
+//  vec2 &QDeclarativeGeoMapItemUtils::vec2::operator=(const QPointF &p)
+extern "C" Q_DECL_EXPORT
+QDeclarativeGeoMapItemUtils::vec2 *ritual_ZN27QDeclarativeGeoMapItemUtils4vec2aSERK7QPointF(
+    QDeclarativeGeoMapItemUtils::vec2 *self,
+    const QPointF *p) {
+  return &(self->operator=(*p));
+}
+
+//  vec2 &QDeclarativeGeoMapItemUtils::vec2::operator=(const QDoubleVector2D
+//      &p)
+extern "C" Q_DECL_EXPORT
+QDeclarativeGeoMapItemUtils::vec2 *ritual_ZN27QDeclarativeGeoMapItemUtils4vec2aSERK15QDoubleVector2D(
+    QDeclarativeGeoMapItemUtils::vec2 *self,
+    const QDoubleVector2D *p) {
+  return &(self->operator=(*p));
 }
 
 //  QDoubleVector2D QDeclarativeGeoMapItemUtils::vec2::toDoubleVector2D()

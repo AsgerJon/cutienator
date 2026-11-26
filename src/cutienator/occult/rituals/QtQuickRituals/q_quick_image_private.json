@@ -11,6 +11,9 @@
     "ritual_ZN18QQuickImagePrivate8setImageERK6QImage": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QQuickImagePrivate9setPixmapERK12QQuickPixmap": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QQuickImagePrivate": ["bool", "address", "chars", "address"]
   }
 }

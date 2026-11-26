@@ -4,11 +4,23 @@
     "QtCore/qobjectdefs.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QMetaObject10ConnectionC1EPv": ["address", "address"],
     "ritual_ZNK11QMetaObject10Connection18isConnected_helperEv": [
       "bool", "address"
     ],
     "ritual_ZN11QMetaObject10ConnectionD1Ev": ["nothing", "address"],
     "ritual_ZN11QMetaObject10ConnectionC1Ev": ["address"],
-    "ritual_ZN11QMetaObject10ConnectionC1ERKS0_": ["address", "address"]
+    "ritual_ZN11QMetaObject10ConnectionC1ERKS0_": ["address", "address"],
+    "ritual_ZN11QMetaObject10ConnectionaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QMetaObject10ConnectioncvMS0_PvEv": ["address", "address"],
+    "ritual_ZN11QMetaObject10ConnectionC1EOS0_": ["address", "address"],
+    "ritual_ZN11QMetaObject10ConnectionaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QMetaObject10Connection4swapERS0_": [
+      "nothing", "address", "address"
+    ]
   }
 }

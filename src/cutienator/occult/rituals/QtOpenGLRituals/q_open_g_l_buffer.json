@@ -7,7 +7,11 @@
     "ritual_ZN13QOpenGLBufferC1Ev": ["address"],
     "ritual_ZN13QOpenGLBufferC1ENS_4TypeE": ["address", "int"],
     "ritual_ZN13QOpenGLBufferC1ERKS_": ["address", "address"],
+    "ritual_ZN13QOpenGLBufferC1EOS_": ["address", "address"],
     "ritual_ZN13QOpenGLBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN13QOpenGLBufferaSERKS_": ["address", "address", "address"],
+    "ritual_ZN13QOpenGLBufferaSEOS_": ["address", "address", "address"],
+    "ritual_ZN13QOpenGLBuffer4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK13QOpenGLBuffer4typeEv": ["int", "address"],
     "ritual_ZNK13QOpenGLBuffer12usagePatternEv": ["int", "address"],
     "ritual_ZN13QOpenGLBuffer15setUsagePatternENS_12UsagePatternE": [
@@ -19,8 +23,26 @@
     "ritual_ZN13QOpenGLBuffer4bindEv": ["bool", "address"],
     "ritual_ZN13QOpenGLBuffer7releaseEv": ["nothing", "address"],
     "ritual_ZN13QOpenGLBuffer7releaseENS_4TypeE": ["nothing", "int"],
+    "ritual_ZNK13QOpenGLBuffer8bufferIdEv": ["unsigned int", "address"],
     "ritual_ZNK13QOpenGLBuffer4sizeEv": ["int", "address"],
+    "ritual_ZN13QOpenGLBuffer4readEiPvi": [
+      "bool", "address", "int", "address", "int"
+    ],
+    "ritual_ZN13QOpenGLBuffer5writeEiPKvi": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN13QOpenGLBuffer8allocateEPKvi": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN13QOpenGLBuffer8allocateEi": ["nothing", "address", "int"],
-    "ritual_ZN13QOpenGLBuffer5unmapEv": ["bool", "address"]
+    "ritual_ZN13QOpenGLBuffer3mapENS_6AccessE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QOpenGLBuffer8mapRangeEii6QFlagsINS_15RangeAccessFlagEE": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN13QOpenGLBuffer5unmapEv": ["bool", "address"],
+    "ritual_ZN13QOpenGLBuffer6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QOpenGLBuffer6d_funcEv": ["address", "address"]
   }
 }

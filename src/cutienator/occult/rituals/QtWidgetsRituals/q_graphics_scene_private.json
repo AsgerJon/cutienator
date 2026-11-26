@@ -23,6 +23,9 @@
     "ritual_ZN21QGraphicsScenePrivate14_q_polishItemsEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QGraphicsScenePrivate20_q_processDirtyItemsEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN21QGraphicsScenePrivate22setScenePosItemEnabledEP13QGraphicsItemb": [
       "nothing", "address", "address", "bool"
     ],
@@ -71,9 +74,19 @@
     "ritual_ZN21QGraphicsScenePrivate18cloneDragDropEventEP27QGraphicsSceneDragDropEventS1_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN21QGraphicsScenePrivate9drawItemsEP8QPainterPK10QTransformP7QRegionP7QWidget": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate20drawSubtreeRecursiveEP13QGraphicsItemP8QPainterPK10QTransformP7QRegionP7QWidgetdS6_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "double", "address"
+    ],
     "ritual_ZN21QGraphicsScenePrivate9markDirtyEP13QGraphicsItemRK6QRectFbbbbb": [
       "nothing", "address", "address", "address", "bool", "bool", "bool",
       "bool", "bool"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate26processDirtyItemsRecursiveEP13QGraphicsItembd": [
+      "nothing", "address", "address", "bool", "double"
     ],
     "ritual_ZN21QGraphicsScenePrivate14resetDirtyItemEP13QGraphicsItemb": [
       "nothing", "address", "address", "bool"
@@ -110,6 +123,10 @@
     ],
     "ritual_ZN21QGraphicsScenePrivate24enableTouchEventsOnViewsEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate24gestureTargetsAtHotSpotsERK4QSetIP8QGestureEN2Qt11GestureFlagEP5QHashIP15QGraphicsObjectS3_EPS0_ISA_EPS3_SF_": [
+      "nothing", "address", "address", "int", "address", "address",
+      "address", "address"
     ],
     "ritual_ZN21QGraphicsScenePrivate35updateInputMethodSensitivityInViewsEv": [
       "nothing", "address"

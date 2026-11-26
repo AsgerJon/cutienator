@@ -1,8 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDesigner/6.12.0/QtDesigner/private/codedialog_p.h, Qt 6.12.0. Changes
 //  made here are lost.
-#include <QtWidgets/qtwidgetsglobal.h>
 #include <QtGui/qtguiglobal.h>
+#include <QtWidgets/qtwidgetsglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtDesigner/QtDesigner>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -1024,6 +1024,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal10CodeDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::CodeDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal10CodeDialog11qt_metacastEPKc(
+    qdesigner_internal::CodeDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::CodeDialog::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal10CodeDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::CodeDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::CodeDialog::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -1032,6 +1051,114 @@ QString *ritual_ZN18qdesigner_internal10CodeDialog2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::CodeDialog::tr(s, c, n));
+}
+
+//  qdesigner_internal::CodeDialog::CodeDialog(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::CodeDialog *ritual_ZN18qdesigner_internal10CodeDialogC1EP7QWidget(
+    QWidget *parent) {
+  return new Cuteqdesigner_internal_CodeDialog(parent);
+}
+
+//  qdesigner_internal::CodeDialog::~CodeDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10CodeDialogD1Ev(
+    qdesigner_internal::CodeDialog *self) {
+  delete self;
+}
+
+//  bool qdesigner_internal::CodeDialog::generateCode(const
+//      QDesignerFormWindowInterface *fw, UicLanguage language, QString
+//      *code, QString *errorMessage)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal10CodeDialog12generateCodeEPK28QDesignerFormWindowInterfaceNS_11UicLanguageEP7QStringS6_(
+    const QDesignerFormWindowInterface *fw,
+    qdesigner_internal::UicLanguage language,
+    QString *code,
+    QString *errorMessage) {
+  return qdesigner_internal::CodeDialog::generateCode(
+      fw,
+      language,
+      code,
+      errorMessage);
+}
+
+//  bool qdesigner_internal::CodeDialog::showCodeDialog(const
+//      QDesignerFormWindowInterface *fw, UicLanguage language, QWidget
+//      *parent, QString *errorMessage)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal10CodeDialog14showCodeDialogEPK28QDesignerFormWindowInterfaceNS_11UicLanguageEP7QWidgetP7QString(
+    const QDesignerFormWindowInterface *fw,
+    qdesigner_internal::UicLanguage language,
+    QWidget *parent,
+    QString *errorMessage) {
+  return qdesigner_internal::CodeDialog::showCodeDialog(
+      fw,
+      language,
+      parent,
+      errorMessage);
+}
+
+//  void qdesigner_internal::CodeDialog::slotSaveAs()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10CodeDialog10slotSaveAsEv(
+    qdesigner_internal::CodeDialog *self) {
+  self->slotSaveAs();
+}
+
+#if QT_CONFIG(clipboard)
+//  void qdesigner_internal::CodeDialog::copyAll()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10CodeDialog7copyAllEv(
+    qdesigner_internal::CodeDialog *self) {
+  self->copyAll();
+}
+#endif  // QT_CONFIG(clipboard)
+
+//  void qdesigner_internal::CodeDialog::setCode(const QString &code)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10CodeDialog7setCodeERK7QString(
+    qdesigner_internal::CodeDialog *self,
+    const QString *code) {
+  self->setCode(*code);
+}
+
+//  QString qdesigner_internal::CodeDialog::code() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal10CodeDialog4codeEv(
+    const qdesigner_internal::CodeDialog *self) {
+  return new QString(self->code());
+}
+
+//  void qdesigner_internal::CodeDialog::setFormFileName(const QString &f)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10CodeDialog15setFormFileNameERK7QString(
+    qdesigner_internal::CodeDialog *self,
+    const QString *f) {
+  self->setFormFileName(*f);
+}
+
+//  QString qdesigner_internal::CodeDialog::formFileName() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18qdesigner_internal10CodeDialog12formFileNameEv(
+    const qdesigner_internal::CodeDialog *self) {
+  return new QString(self->formFileName());
+}
+
+//  void qdesigner_internal::CodeDialog::setMimeType(const QString &m)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10CodeDialog11setMimeTypeERK7QString(
+    qdesigner_internal::CodeDialog *self,
+    const QString *m) {
+  self->setMimeType(*m);
+}
+
+//  void qdesigner_internal::CodeDialog::warning(const QString &msg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal10CodeDialog7warningERK7QString(
+    qdesigner_internal::CodeDialog *self,
+    const QString *msg) {
+  self->warning(*msg);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_CodeDialog, for the

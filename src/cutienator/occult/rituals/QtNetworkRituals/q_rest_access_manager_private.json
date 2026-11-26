@@ -5,7 +5,17 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN25QRestAccessManagerPrivateC1Ev": ["address"],
     "ritual_ZN25QRestAccessManagerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QRestAccessManagerPrivate19handleReplyFinishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QRestAccessManagerPrivate14executeRequestEN3qxp12function_refIJKFP13QNetworkReplyP21QNetworkAccessManagerEEEEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QRestAccessManagerPrivate20verifyThreadAffinityEPK7QObject": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN25QRestAccessManagerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QRestAccessManagerPrivate6q_funcEv": ["address", "address"]
   }

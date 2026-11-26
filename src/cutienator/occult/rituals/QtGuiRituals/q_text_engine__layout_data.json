@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QTextEngine10LayoutDataC1ERK7QStringPPvx": [
+      "address", "text", "address", "long long"
+    ],
     "ritual_ZN11QTextEngine10LayoutDataC1Ev": ["address"],
     "ritual_ZN11QTextEngine10LayoutDataD1Ev": ["nothing", "address"],
     "ritual_ZN11QTextEngine10LayoutData10reallocateEi": [

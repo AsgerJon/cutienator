@@ -183,6 +183,24 @@ const QMetaObject *ritual_ZNK11SizeWatcher10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *SizeWatcher::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11SizeWatcher11qt_metacastEPKc(
+    SizeWatcher *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int SizeWatcher::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11SizeWatcher11qt_metacallEN11QMetaObject4CallEiPPv(
+    SizeWatcher *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  a Python function taken by a CuteSizeWatcher, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

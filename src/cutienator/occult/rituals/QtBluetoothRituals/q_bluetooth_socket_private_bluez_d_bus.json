@@ -14,6 +14,9 @@
     "ritual_ZN32QBluetoothSocketPrivateBluezDBus9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
+    "ritual_ZN32QBluetoothSocketPrivateBluezDBus8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_ZN32QBluetoothSocketPrivateBluezDBus19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int", "int", "int", "int"
     ],

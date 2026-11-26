@@ -9,6 +9,18 @@
     "ritual_ZNK3QV417FunctionPrototype11d_uncheckedEv": [
       "address", "address"
     ],
-    "ritual_ZNK3QV417FunctionPrototype1dEv": ["address", "address"]
+    "ritual_ZNK3QV417FunctionPrototype1dEv": ["address", "address"],
+    "ritual_ZN3QV417FunctionPrototype11virtualCallEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417FunctionPrototype15method_toStringEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417FunctionPrototype11method_callEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV417FunctionPrototype18method_hasInstanceEPKNS_14FunctionObjectEPKNS_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ]
   }
 }

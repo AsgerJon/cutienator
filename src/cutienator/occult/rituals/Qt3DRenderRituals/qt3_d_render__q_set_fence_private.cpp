@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qsetfence_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qvariant.h>
 #include <cstring>
 
 //  A Qt3DRender::QSetFencePrivate that Python can take functions over in. Every Qt3DRender::QSetFencePrivate
@@ -52,6 +53,29 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DRender::QSetFencePrivate::QSetFencePrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QSetFencePrivate *ritual_ZN10Qt3DRender16QSetFencePrivateC1Ev() {
+  return new CuteQt3DRender_QSetFencePrivate();
+}
+
+//  void Qt3DRender::QSetFencePrivate::setHandleType(QSetFence::HandleType
+//      type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QSetFencePrivate13setHandleTypeENS_9QSetFence10HandleTypeE(
+    Qt3DRender::QSetFencePrivate *self,
+    Qt3DRender::QSetFence::HandleType type) {
+  self->setHandleType(type);
+}
+
+//  void Qt3DRender::QSetFencePrivate::setHandle(QVariant handle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QSetFencePrivate9setHandleE8QVariant(
+    Qt3DRender::QSetFencePrivate *self,
+    const QVariant *handle) {
+  self->setHandle(*handle);
+}
 
 //  QSetFence *Qt3DRender::QSetFencePrivate::q_func()
 extern "C" Q_DECL_EXPORT

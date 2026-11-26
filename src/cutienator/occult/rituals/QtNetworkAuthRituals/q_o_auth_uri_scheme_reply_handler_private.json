@@ -1,8 +1,9 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of QtNetwo",
-    "rkAuth/6.12.0/QtNetworkAuth/private/qoauthurischemereplyhandler_p.",
-    "h, Qt 6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtNetworkAuth/6.12.0/QtNetworkAuth/private/qoauthurischemereplyhandler_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
   ],
   "rows": {
     "ritual_ZN34QOAuthUriSchemeReplyHandlerPrivate6q_funcEv": [

@@ -126,6 +126,10 @@ class Linux(System):
     """
     return ('-fPIC', '-fvisibility=hidden', '-fvisibility-inlines-hidden',)
 
+  def buildsObjectiveC(self) -> bool:
+    """No: Objective-C++ is for Apple's systems."""
+    return False
+
   def getLinkerFlags(self, qtFolder: str) -> Paths:
     """
     Gives what the linker is told on Linux.

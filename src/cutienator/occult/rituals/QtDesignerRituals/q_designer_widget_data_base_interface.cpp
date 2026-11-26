@@ -319,6 +319,25 @@ const QMetaObject *ritual_ZNK32QDesignerWidgetDataBaseInterface10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDesignerWidgetDataBaseInterface::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QDesignerWidgetDataBaseInterface11qt_metacastEPKc(
+    QDesignerWidgetDataBaseInterface *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerWidgetDataBaseInterface::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QDesignerWidgetDataBaseInterface11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerWidgetDataBaseInterface *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDesignerWidgetDataBaseInterface::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -434,6 +453,13 @@ bool ritual_ZNK32QDesignerWidgetDataBaseInterface8isCustomEP7QObjectb(
     QObject *object,
     bool resolveName) {
   return self->isCustom(object, resolveName);
+}
+
+//  void QDesignerWidgetDataBaseInterface::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QDesignerWidgetDataBaseInterface7changedEv(
+    QDesignerWidgetDataBaseInterface *self) {
+  self->changed();
 }
 
 //  a Python function taken by a CuteQDesignerWidgetDataBaseInterface, for

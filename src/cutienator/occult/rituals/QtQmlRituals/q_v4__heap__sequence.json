@@ -5,10 +5,33 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN3QV44Heap8Sequence4initE9QMetaType13QMetaSequencePKv": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap8Sequence4initE9QMetaType13QMetaSequencePKvPNS0_6ObjectEi6QFlagsINS0_15ReferenceObject4FlagEE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "int", "int"
+    ],
+    "ritual_ZN3QV44Heap8Sequence8detachedEv": ["address", "address"],
+    "ritual_ZN3QV44Heap8Sequence7destroyEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap8Sequence14storagePointerEv": ["address", "address"],
+    "ritual_ZNK3QV44Heap8Sequence14storagePointerEv": ["address", "address"],
     "ritual_ZNK3QV44Heap8Sequence14isStoredInlineEv": ["bool", "address"],
     "ritual_ZNK3QV44Heap8Sequence10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN3QV44Heap8Sequence10setVariantERK8QVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap8Sequence9toVariantEv": ["address", "address"],
     "ritual_ZNK3QV44Heap8Sequence8listTypeEv": ["address", "address"],
     "ritual_ZNK3QV44Heap8Sequence13valueMetaTypeEv": ["address", "address"],
-    "ritual_ZNK3QV44Heap8Sequence12metaSequenceEv": ["address", "address"]
+    "ritual_ZNK3QV44Heap8Sequence12metaSequenceEv": ["address", "address"],
+    "ritual_ZN3QV44Heap8Sequence9initTypesE9QMetaType13QMetaSequence": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap8Sequence19createInlineStorageEPKv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap8Sequence13loadReferenceEv": ["bool", "address"],
+    "ritual_ZN3QV44Heap8Sequence14storeReferenceEv": ["bool", "address"]
   }
 }

@@ -8,12 +8,28 @@
     "ritual_ZN24QGrpcSerializationFormatC1EN6QtGrpc19SerializationFormatE": [
       "address", "unsigned char"
     ],
+    "ritual_ZN24QGrpcSerializationFormatC1E14QByteArrayViewSt10shared_ptrI27QAbstractProtobufSerializerE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN24QGrpcSerializationFormatD1Ev": ["nothing", "address"],
     "ritual_ZN24QGrpcSerializationFormatC1ERKS_": ["address", "address"],
+    "ritual_ZN24QGrpcSerializationFormataSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QGrpcSerializationFormatC1EOS_": ["address", "address"],
+    "ritual_ZN24QGrpcSerializationFormataSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK24QGrpcSerializationFormatcv8QVariantEv": [
       "address", "address"
     ],
+    "ritual_ZN24QGrpcSerializationFormat4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK24QGrpcSerializationFormat6suffixEv": ["address", "address"],
+    "ritual_ZNK24QGrpcSerializationFormat10serializerEv": [
+      "address", "address"
+    ],
     "ritual_ZeqRK24QGrpcSerializationFormatS1_": [
       "bool", "address", "address"
     ],
@@ -22,6 +38,11 @@
     ],
     "ritual_Zls6QDebugRK24QGrpcSerializationFormat": [
       "address", "address", "address"
+    ],
+    "ritual_ZN24QGrpcSerializationFormat6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QGrpcSerializationFormat6d_funcEv": ["address", "address"],
+    "ritual_drop_QGrpcSerializationFormat__std_shared_ptr_QAbstractProtobufSerializer": [
+      "nothing", "address"
     ]
   }
 }

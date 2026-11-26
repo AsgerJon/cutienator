@@ -9,6 +9,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qconnection_qnx_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QSharedPointer>
+#include <QtRemoteObjects/QIOQnxSource>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/private/qconnection_qnx_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -19,6 +21,14 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_qnx_backend.cpp, line 87, as _ZN11QnxServerIoC1E14QSharedPointerI12QIOQnxSourceEP7QObject
+inline QnxServerIo::QnxServerIo(QSharedPointer<QIOQnxSource> conn, QObject *parent)
+    : QtROServerIoDevice(parent), m_connection(conn)
+{
+    connect(conn.data(), &QIODevice::readyRead, this, &QtROServerIoDevice::readyRead);
+    connect(conn.data(), &QIOQnxSource::disconnected, this, &QtROServerIoDevice::disconnected);
+}
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_qnx_backend.cpp, line 94, as _ZNK11QnxServerIo10connectionEv
 inline QIODevice *QnxServerIo::connection() const
@@ -32,6 +42,15 @@ inline void QnxServerIo::doClose()
     m_connection->close();
 }
 //  -----------------------------------------------------------------------
+
+//  QnxServerIo::QnxServerIo(QSharedPointer<QIOQnxSource> conn, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QnxServerIo *ritual_ZN11QnxServerIoC1E14QSharedPointerI12QIOQnxSourceEP7QObject(
+    const QSharedPointer<QIOQnxSource> *conn,
+    QObject *parent) {
+  return new QnxServerIo(*conn, parent);
+}
 
 //  QIODevice *QnxServerIo::connection() const
 extern "C" Q_DECL_EXPORT

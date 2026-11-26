@@ -215,6 +215,24 @@ const QMetaObject *ritual_ZNK13QLegendMarker10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLegendMarker::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QLegendMarker11qt_metacastEPKc(
+    QLegendMarker *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLegendMarker::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QLegendMarker11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLegendMarker *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLegendMarker::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QLegendMarker2trEPKcS1_i(
@@ -340,6 +358,68 @@ void ritual_ZN13QLegendMarker8setShapeEN7QLegend11MarkerShapeE(
 extern "C" Q_DECL_EXPORT
 QAbstractSeries *ritual_ZN13QLegendMarker6seriesEv(QLegendMarker *self) {
   return self->series();
+}
+
+//  void QLegendMarker::clicked()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLegendMarker7clickedEv(QLegendMarker *self) {
+  self->clicked();
+}
+
+//  void QLegendMarker::hovered(bool status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLegendMarker7hoveredEb(QLegendMarker *self, bool status) {
+  self->hovered(status);
+}
+
+//  void QLegendMarker::labelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLegendMarker12labelChangedEv(QLegendMarker *self) {
+  self->labelChanged();
+}
+
+//  void QLegendMarker::labelBrushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLegendMarker17labelBrushChangedEv(QLegendMarker *self) {
+  self->labelBrushChanged();
+}
+
+//  void QLegendMarker::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLegendMarker11fontChangedEv(QLegendMarker *self) {
+  self->fontChanged();
+}
+
+//  void QLegendMarker::penChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLegendMarker10penChangedEv(QLegendMarker *self) {
+  self->penChanged();
+}
+
+//  void QLegendMarker::brushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLegendMarker12brushChangedEv(QLegendMarker *self) {
+  self->brushChanged();
+}
+
+//  void QLegendMarker::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLegendMarker14visibleChangedEv(QLegendMarker *self) {
+  self->visibleChanged();
+}
+
+//  void QLegendMarker::shapeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QLegendMarker12shapeChangedEv(QLegendMarker *self) {
+  self->shapeChanged();
+}
+
+//  QLegendMarker::QLegendMarker(QLegendMarkerPrivate &d, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QLegendMarker *ritual_ZN13QLegendMarkerC1ER20QLegendMarkerPrivateP7QObject(
+    QLegendMarkerPrivate *d,
+    QObject *parent) {
+  return new CuteQLegendMarker(*d, parent);
 }
 
 //  a Python function taken by a CuteQLegendMarker, for the function named by

@@ -8,6 +8,12 @@
     "ritual_ZNK31QQuickLabsPlatformMessageDialog10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QQuickLabsPlatformMessageDialog20qmlExtendedNamespaceEv": [
       "address"
     ],
@@ -26,11 +32,83 @@
     "ritual_ZNK31QQuickLabsPlatformMessageDialog7buttonsEv": [
       "int", "address"
     ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog11textChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog22informativeTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog19detailedTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog14buttonsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog7clickedEN21QPlatformDialogHelper14StandardButtonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog9okClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog11saveClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog14saveAllClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog11openClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog10yesClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog15yesToAllClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog9noClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog14noToAllClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog12abortClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog12retryClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog13ignoreClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog12closeClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog13cancelClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog14discardClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog11helpClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog12applyClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog12resetClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog22restoreDefaultsClickedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN31QQuickLabsPlatformMessageDialog8onCreateEP21QPlatformDialogHelper": [
       "nothing", "address", "address"
     ],
     "ritual_ZN31QQuickLabsPlatformMessageDialog6onShowEP21QPlatformDialogHelper": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog11handleClickEN21QPlatformDialogHelper14StandardButtonE": [
+      "nothing", "address", "int"
     ],
     "ritual_own_ZN31QQuickLabsPlatformMessageDialog6onShowEP21QPlatformDialogHelper": [
       "nothing", "address", "address"

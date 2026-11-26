@@ -6,6 +6,20 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhieffectsystem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
+
+//  size_t QSSGEffectSceneCacheKey::generateHashCode(const QByteArray
+//      &shaderPathKey, quintptr cmd, int ubufIndex)
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN23QSSGEffectSceneCacheKey16generateHashCodeERK10QByteArrayyi(
+    const QByteArray *shaderPathKey,
+    quintptr cmd,
+    int ubufIndex) {
+  return QSSGEffectSceneCacheKey::generateHashCode(
+      *shaderPathKey,
+      cmd,
+      ubufIndex);
+}
 
 //  void QSSGEffectSceneCacheKey::updateHashCode()
 extern "C" Q_DECL_EXPORT

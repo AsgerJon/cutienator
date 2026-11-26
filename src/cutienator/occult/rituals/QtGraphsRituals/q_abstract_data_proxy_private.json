@@ -10,6 +10,7 @@
   "rows": {
     "ritual_ZN25QAbstractDataProxyPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QAbstractDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QAbstractDataProxyPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK25QAbstractDataProxyPrivate6seriesEv": ["address", "address"],
     "ritual_ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
       "nothing", "address", "address"

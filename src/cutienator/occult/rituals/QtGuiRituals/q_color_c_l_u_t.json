@@ -8,6 +8,9 @@
     "ritual_ZN10QColorCLUT11interpolateERK12QColorVectorS2_f": [
       "address", "address", "address", "float"
     ],
+    "ritual_ZN10QColorCLUT13interpolateInER12QColorVectorRKS0_f": [
+      "nothing", "address", "address", "float"
+    ],
     "ritual_ZNK10QColorCLUT7isEmptyEv": ["bool", "address"],
     "ritual_ZNK10QColorCLUT5applyERK12QColorVector": [
       "address", "address", "address"

@@ -1,0 +1,135 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitreader_p.h,",
+    "Qt 6.12.0. Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK16QQStyleKitReader10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQStyleKitReader11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQStyleKitReader2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQStyleKitReaderC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QQStyleKitReaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQStyleKitReader11controlTypeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader14setControlTypeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QQStyleKitReader7hoveredEv": ["bool", "address"],
+    "ritual_ZN16QQStyleKitReader10setHoveredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQStyleKitReader7enabledEv": ["bool", "address"],
+    "ritual_ZN16QQStyleKitReader10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQStyleKitReader7focusedEv": ["bool", "address"],
+    "ritual_ZN16QQStyleKitReader10setFocusedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQStyleKitReader7checkedEv": ["bool", "address"],
+    "ritual_ZN16QQStyleKitReader10setCheckedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQStyleKitReader7pressedEv": ["bool", "address"],
+    "ritual_ZN16QQStyleKitReader10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQStyleKitReader7paletteEv": ["address", "address"],
+    "ritual_ZN16QQStyleKitReader10setPaletteEP13QQuickPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQStyleKitReader16effectivePaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QQStyleKitReader8verticalEv": ["bool", "address"],
+    "ritual_ZN16QQStyleKitReader11setVerticalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQStyleKitReader11highlightedEv": ["bool", "address"],
+    "ritual_ZN16QQStyleKitReader14setHighlightedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQStyleKitReader13explicitStyleEv": ["address", "address"],
+    "ritual_ZN16QQStyleKitReader16setExplicitStyleEP15QQStyleKitStyle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQStyleKitReader4fontEv": ["address", "address"],
+    "ritual_ZNK16QQStyleKitReader6globalEv": ["address", "address"],
+    "ritual_ZNK16QQStyleKitReader17readStylePropertyEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN16QQStyleKitReader18writeStylePropertyEjRK8QVariant": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader17clearLocalStorageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQStyleKitReader12controlStateEv": ["int", "address"],
+    "ritual_ZN16QQStyleKitReader22setControlTypeAndStateEj6QFlagsIN4QQSK9StateFlagEEb": [
+      "nothing", "address", "unsigned int", "int", "bool"
+    ],
+    "ritual_ZNK16QQStyleKitReader6targetEv": ["address", "address"],
+    "ritual_ZN16QQStyleKitReader9setTargetEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader12setCompletedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQStyleKitReader18transitionsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader21setTransitionsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQStyleKitReader20resetReadersForStyleEPK15QQStyleKitStyle": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader16onPaletteChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader10classBeginEv": ["nothing", "address"],
+    "ritual_ZN16QQStyleKitReader17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader13updateControlEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQStyleKitReader20populateLocalStorageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQStyleKitReader22dontEmitChangedSignalsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader10stateGroupEv": ["address", "address"],
+    "ritual_ZNK16QQStyleKitReader29createControlChangesComponentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QQStyleKitReader30createDelegateChangesComponentERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN16QQStyleKitReader26instantiatePropertyChangesEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader19maybeTrackDelegatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader23rebuildEffectivePaletteEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQStyleKitReader20rebuildEffectiveFontEv": [
+      "bool", "address"
+    ],
+    "ritual_cast_QQStyleKitReader_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQStyleKitReader": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQStyleKitReader10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN16QQStyleKitReader17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

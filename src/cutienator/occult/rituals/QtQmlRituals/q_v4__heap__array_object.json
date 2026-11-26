@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN3QV44Heap11ArrayObject4initEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap11ArrayObject4initERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN3QV44Heap11ArrayObject10commonInitEv": ["nothing", "address"]
   }
 }

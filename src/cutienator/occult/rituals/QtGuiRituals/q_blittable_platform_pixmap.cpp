@@ -417,6 +417,12 @@ public:
   }
 };
 
+//  QBlittablePlatformPixmap::QBlittablePlatformPixmap()
+extern "C" Q_DECL_EXPORT
+QBlittablePlatformPixmap *ritual_ZN24QBlittablePlatformPixmapC1Ev() {
+  return new CuteQBlittablePlatformPixmap();
+}
+
 //  QBlittablePlatformPixmap::~QBlittablePlatformPixmap()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QBlittablePlatformPixmapD1Ev(
@@ -544,6 +550,14 @@ void ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayERK7QPointFRK9QTextIt
     const QPointF *a0,
     const QTextItem *a1) {
   self->markRasterOverlay(*a0, *a1);
+}
+
+//  void QBlittablePlatformPixmap::markRasterOverlay(const QVectorPath &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayERK11QVectorPath(
+    QBlittablePlatformPixmap *self,
+    const QVectorPath *a0) {
+  self->markRasterOverlay(*a0);
 }
 
 //  void QBlittablePlatformPixmap::markRasterOverlay(const QPainterPath &a0)

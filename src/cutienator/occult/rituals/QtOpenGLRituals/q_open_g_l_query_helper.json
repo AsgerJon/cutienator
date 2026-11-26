@@ -8,11 +8,38 @@
     "ritual_ZN18QOpenGLQueryHelperC1EP14QOpenGLContext": [
       "address", "address"
     ],
+    "ritual_ZN18QOpenGLQueryHelper19glGetQueryObjectuivEjjPj": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper18glGetQueryObjectivEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper12glGetQueryivEjjPi": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
     "ritual_ZN18QOpenGLQueryHelper10glEndQueryEj": [
       "nothing", "address", "unsigned int"
     ],
     "ritual_ZN18QOpenGLQueryHelper12glBeginQueryEjj": [
       "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper9glIsQueryEj": [
+      "unsigned char", "address", "unsigned int"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper15glDeleteQueriesEiPKj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper12glGenQueriesEiPj": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper15glGetInteger64vEjPl": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper21glGetQueryObjectui64vEjjPm": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper20glGetQueryObjecti64vEjjPl": [
+      "nothing", "address", "unsigned int", "unsigned int", "address"
     ],
     "ritual_ZN18QOpenGLQueryHelper14glQueryCounterEjj": [
       "nothing", "address", "unsigned int", "unsigned int"

@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK20QWaylandMouseTracker10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QWaylandMouseTracker11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QWaylandMouseTracker11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QWaylandMouseTracker2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN20QWaylandMouseTracker6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QWaylandMouseTracker6d_funcEv": ["address", "address"],
     "ritual_ZN20QWaylandMouseTrackerC1EP10QQuickItem": [
       "address", "address"
     ],
@@ -21,6 +29,18 @@
       "bool", "address"
     ],
     "ritual_ZNK20QWaylandMouseTracker7hoveredEv": ["bool", "address"],
+    "ritual_ZN20QWaylandMouseTracker13mouseXChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QWaylandMouseTracker13mouseYChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QWaylandMouseTracker32windowSystemCursorEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QWaylandMouseTracker14hoveredChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN20QWaylandMouseTracker21childMouseEventFilterEP10QQuickItemP6QEvent": [
       "bool", "address", "address", "address"
     ],

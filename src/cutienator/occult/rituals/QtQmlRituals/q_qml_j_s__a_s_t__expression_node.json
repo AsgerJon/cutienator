@@ -1,15 +1,32 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "Written by hand on 2026-11-25 from",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0, from Qt's",
+    "source. Kept as it is when the generator runs again."
   ],
   "rows": {
+    "ritual_ZN6QQmlJS3AST14ExpressionNode14expressionCastEv": [
+      "address",
+      "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14ExpressionNode21containsOptionalChainEv": [
+      "bool",
+      "address"
+    ],
+    "ritual_ZN6QQmlJS3AST14ExpressionNode28reparseAsFormalParameterListEPNS_10MemoryPoolE": [
+      "address",
+      "address",
+      "address"
+    ],
     "ritual_take_QQmlJS_AST_ExpressionNode": [
-      "bool", "address", "chars", "address"
+      "bool",
+      "address",
+      "chars",
+      "address"
     ],
     "ritual_own_ZN6QQmlJS3AST14ExpressionNode14expressionCastEv": [
-      "address", "address"
+      "address",
+      "address"
     ]
   }
 }

@@ -16,6 +16,7 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qimage.h>
 #include <QtCore/qpoint.h>
+#include <QtGui/qpainterpath.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
@@ -23,19 +24,6 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQuick/private/qquickcontext2dtexture_p.h>
-#include <QtQuick/private/qquickcontext2dtile_p.h>
-#include <QtQuick/private/qquickcanvasitem_p.h>
-#include <QtQuick/private/qsgplaintexture_p.h>
-#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
-#include <QtCore/QThread>
-#include <QtGui/QGuiApplication>
-#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
-#include <QtQuick/private/qquickcanvasitem_p.h>
-#include <QtQml/qqml.h>
-#include <QtCore/QMutex>
-#include <QtQuick/qsgtexture.h>
-#include <QtGui/QPaintEngine>
 #include <QtQuick/private/qquickcontext2d_p.h>
 #include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
 #include <QtQuick/private/qquickcanvasitem_p.h>
@@ -54,7 +42,6 @@
 #include <QtQml/qqmlengine.h>
 #include <QtQml/private/qv4domerrors_p.h>
 #include <QtQml/private/qv4engine_p.h>
-#include <QtQml/private/qv4object_p.h>
 #include <QtQml/private/qv4qobjectwrapper_p.h>
 #include <QtQuick/private/qquickwindow_p.h>
 #include <QtQml/private/qv4value_p.h>
@@ -75,6 +62,40 @@
 #if defined(Q_OS_QNX) || defined(Q_OS_ANDROID)
 #include <ctype.h>
 #endif
+#include <QtQuick/private/qsgadaptationlayer_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
+#include <QtQuick/private/qquickcanvascontext_p.h>
+#include <QtQuick/private/qquickcontext2d_p.h>
+#include <QtQuick/private/qquickcontext2dtexture_p.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
+#include <QtQuick/qsgtextureprovider.h>
+#include <QtQuick/private/qquickpixmap_p.h>
+#include <QtGui/QGuiApplication>
+#include <QtQuick/qsgtextureprovider.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtCore/QBuffer>
+#include <QtCore/QDir>
+#include <QtCore/qdatetime.h>
+#include <QtQml/private/qv4value_p.h>
+#include <QtQml/private/qv4functionobject_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
+#include <QtQml/private/qv4jscall_p.h>
+#include <QtQml/private/qv4qobjectwrapper_p.h>
+#include <QtQml/private/qjsvalue_p.h>
+#include <QtQuick/private/qquickcontext2dtexture_p.h>
+#include <QtQuick/private/qquickcontext2dtile_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
+#include <QtQuick/private/qsgplaintexture_p.h>
+#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
+#include <QtCore/QThread>
+#include <QtGui/QGuiApplication>
+#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
+#include <QtQml/qqml.h>
+#include <QtCore/QMutex>
+#include <QtQuick/qsgtexture.h>
+#include <QtGui/QPaintEngine>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -83,6 +104,193 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 32, as local:qquickcanvasitem.cpp:QQuickCanvasTextureProvider
+class QQuickCanvasTextureProvider : public QSGTextureProvider
+{
+public:
+    QSGTexture *tex;
+    QSGTexture *texture() const override { return tex; }
+    void fireTextureChanged() { emit textureChanged(); }
+};
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 435, as local:qquickcontext2d.cpp:QQuickContext2DEngineData
+class QQuickContext2DEngineData : public QV4::ExecutionEngine::Deletable
+{
+public:
+    QQuickContext2DEngineData(QV4::ExecutionEngine *engine);
+    ~QQuickContext2DEngineData();
+
+    QV4::PersistentValue contextPrototype;
+    QV4::PersistentValue gradientProto;
+    QV4::PersistentValue pixelArrayProto;
+};
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 451, as local:qquickcontext2d.cpp:QQuickJSContext2D
+namespace QV4::Heap {
+struct QQuickJSContext2D : Object {
+    void init()
+    {
+        Object::init();
+        m_context = nullptr;
+    }
+
+    void destroy()
+    {
+        delete m_context;
+        Object::destroy();
+    }
+
+    QQuickContext2D *context() { return m_context ? *m_context : nullptr; }
+    void setContext(QQuickContext2D *context)
+    {
+        if (m_context)
+            *m_context = context;
+        else
+            m_context = new QPointer<QQuickContext2D>(context);
+    }
+
+private:
+    QPointer<QQuickContext2D>* m_context;
+};
+}  // namespace QV4::Heap
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 477, as local:qquickcontext2d.cpp:QQuickJSContext2DPrototype
+namespace QV4::Heap {
+struct QQuickJSContext2DPrototype : Object {
+    void init() { Object::init(); }
+};
+}  // namespace QV4::Heap
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4125, as local:qquickcontext2d.cpp:baseLineOffset
+inline int baseLineOffset(QQuickContext2D::TextBaseLineType value, const QFontMetrics &metrics)
+{
+    int offset = 0;
+    switch (value) {
+    case QQuickContext2D::Top:
+    case QQuickContext2D::Hanging:
+        break;
+    case QQuickContext2D::Middle:
+        offset = (metrics.ascent() >> 1) + metrics.height() - metrics.ascent();
+        break;
+    case QQuickContext2D::Alphabetic:
+        offset = metrics.ascent();
+        break;
+    case QQuickContext2D::Bottom:
+        offset = metrics.height();
+       break;
+    }
+    return offset;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4145, as local:qquickcontext2d.cpp:textAlignOffset
+static int textAlignOffset(QQuickContext2D::TextAlignType value, const QFontMetrics &metrics, const QString &text)
+{
+    int offset = 0;
+    if (value == QQuickContext2D::Start)
+        value = QGuiApplication::layoutDirection() == Qt::LeftToRight ? QQuickContext2D::Left : QQuickContext2D::Right;
+    else if (value == QQuickContext2D::End)
+        value = QGuiApplication::layoutDirection() == Qt::LeftToRight ? QQuickContext2D::Right: QQuickContext2D::Left;
+    switch (value) {
+    case QQuickContext2D::Center:
+        offset = metrics.horizontalAdvance(text) / 2;
+        break;
+    case QQuickContext2D::Right:
+        offset = metrics.horizontalAdvance(text);
+        break;
+    case QQuickContext2D::Left:
+    default:
+        break;
+    }
+    return offset;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4190, as local:qquickcontext2d.cpp:areCollinear
+static inline bool areCollinear(const QPointF& a, const QPointF& b, const QPointF& c)
+{
+    // Solved from comparing the slopes of a to b and b to c: (ay-by)/(ax-bx) == (cy-by)/(cx-bx)
+    return qFuzzyCompare((c.y() - b.y()) * (a.x() - b.x()), (a.y() - b.y()) * (c.x() - b.x()));
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4196, as local:qquickcontext2d.cpp:withinRange
+static inline bool withinRange(qreal p, qreal a, qreal b)
+{
+    return (p >= a && p <= b) || (p >= b && p <= a);
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4409, as local:qquickcontext2d.cpp:QQuickContext2DEngineData::~QQuickContext2DEngineData
+inline QQuickContext2DEngineData::~QQuickContext2DEngineData()
+{
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4319, as _ZN15QQuickContext2D7prepareERK5QSizeS2_RK5QRectS5_bb
+inline void QQuickContext2D::prepare(const QSize& canvasSize, const QSize& tileSize, const QRect& canvasWindow, const QRect& dirtyRect, bool smooth, bool antialiasing)
+{
+    if (m_texture->thread() == QThread::currentThread()) {
+        m_texture->canvasChanged(canvasSize, tileSize, canvasWindow, dirtyRect, smooth, antialiasing);
+    } else {
+        QEvent *e =  new QQuickContext2DTexture::CanvasChangeEvent(canvasSize,
+                                                                   tileSize,
+                                                                   canvasWindow,
+                                                                   dirtyRect,
+                                                                   smooth,
+                                                                   antialiasing);
+        QCoreApplication::postEvent(m_texture, e);
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4334, as _ZN15QQuickContext2D5flushEv
+inline void QQuickContext2D::flush()
+{
+    if (m_buffer) {
+        if (m_texture->thread() == QThread::currentThread())
+            m_texture->paint(m_buffer);
+        else
+            QCoreApplication::postEvent(m_texture, new QQuickContext2DTexture::PaintEvent(m_buffer));
+    }
+    m_buffer = new QQuickContext2DCommandBuffer();
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4350, as _ZN15QQuickContext2D7toImageERK6QRectF
+inline QImage QQuickContext2D::toImage(const QRectF& bounds)
+{
+    if (m_texture->thread() == QThread::currentThread()) {
+            flush();
+            m_texture->grabImage(bounds);
+    } else if (m_renderStrategy == QQuickCanvasItem::Cooperative) {
+        qWarning() << "Pixel readback is not supported in Cooperative mode, please try Threaded or Immediate mode";
+        return QImage();
+    } else {
+        flush();
+        QCoreApplication::postEvent(m_texture, new QEvent(QEvent::Type(QEvent::User + 10)));
+        QMetaObject::invokeMethod(m_texture,
+                                  "grabImage",
+                                  Qt::BlockingQueuedConnection,
+                                  Q_ARG(QRectF, bounds));
+    }
+    QImage img = m_grabbedImage;
+    m_grabbedImage = QImage();
+    m_grabbed = false;
+    return img;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4267, as _ZNK15QQuickContext2D7v4valueEv
+inline QV4::ReturnedValue QQuickContext2D::v4value() const
+{
+    return m_v4value.value();
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4488, as _ZNK15QQuickContext2D8v4EngineEv
+inline QV4::ExecutionEngine *QQuickContext2D::v4Engine() const
+{
+    return m_v4engine;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvasitem.cpp, line 53, as _ZN18QQuickCanvasPixmapD1Ev
+inline QQuickCanvasPixmap::~QQuickCanvasPixmap()
+{
+    delete m_pixmap;
+}
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 129, as _ZN22QQuickContext2DTexture13canvasChangedERK5QSizeS2_RK5QRectS5_bb
 inline void QQuickContext2DTexture::canvasChanged(const QSize& canvasSize, const QSize& tileSize, const QRect& canvasWindow, const QRect& dirtyRect, bool smooth, bool antialiasing)
@@ -238,122 +446,10 @@ inline QQuickContext2D::~QQuickContext2D()
     mutex.unlock();
 }
 
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4272, as _ZNK15QQuickContext2D12contextNamesEv
-inline QStringList QQuickContext2D::contextNames() const
-{
-    return QStringList() << QStringLiteral("2d");
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4277, as _ZN15QQuickContext2D4initEP16QQuickCanvasItemRK4QMapI7QString8QVariantE
-inline void QQuickContext2D::init(QQuickCanvasItem *canvasItem, const QVariantMap &args)
-{
-    Q_UNUSED(args);
-
-    m_canvas = canvasItem;
-    m_renderTarget = canvasItem->renderTarget();
-    m_renderStrategy = canvasItem->renderStrategy();
-
-    // Disable threaded background rendering if the platform has issues with it
-    if (m_renderTarget == QQuickCanvasItem::FramebufferObject
-            && m_renderStrategy == QQuickCanvasItem::Threaded
-            && !QGuiApplicationPrivate::platformIntegration()->hasCapability(QPlatformIntegration::ThreadedOpenGL)) {
-        m_renderTarget = QQuickCanvasItem::Image;
-    }
-
-    // Disable framebuffer object based rendering always in Qt 6. It
-    // is not implemented in the new RHI-based graphics stack, but the
-    // enum value is still present. Switch to Image instead.
-    if (m_renderTarget == QQuickCanvasItem::FramebufferObject)
-        m_renderTarget = QQuickCanvasItem::Image;
-
-    m_texture = new QQuickContext2DImageTexture;
-
-    m_texture->setItem(canvasItem);
-    m_texture->setCanvasWindow(canvasItem->canvasWindow().toRect());
-    m_texture->setTileSize(canvasItem->tileSize());
-    m_texture->setCanvasSize(canvasItem->canvasSize().toSize());
-    m_texture->setSmooth(canvasItem->smooth());
-    m_texture->setAntialiasing(canvasItem->antialiasing());
-    m_texture->setOnCustomThread(m_renderStrategy == QQuickCanvasItem::Threaded);
-    m_thread = QThread::currentThread();
-
-    QThread *renderThread = m_thread;
-    if (m_renderStrategy == QQuickCanvasItem::Threaded)
-        renderThread = QQuickContext2DRenderThread::instance(qmlEngine(canvasItem));
-    if (renderThread && renderThread != QThread::currentThread())
-        m_texture->moveToThread(renderThread);
-    connect(m_texture, SIGNAL(textureChanged()), SIGNAL(textureChanged()));
-
-    reset();
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4319, as _ZN15QQuickContext2D7prepareERK5QSizeS2_RK5QRectS5_bb
-inline void QQuickContext2D::prepare(const QSize& canvasSize, const QSize& tileSize, const QRect& canvasWindow, const QRect& dirtyRect, bool smooth, bool antialiasing)
-{
-    if (m_texture->thread() == QThread::currentThread()) {
-        m_texture->canvasChanged(canvasSize, tileSize, canvasWindow, dirtyRect, smooth, antialiasing);
-    } else {
-        QEvent *e =  new QQuickContext2DTexture::CanvasChangeEvent(canvasSize,
-                                                                   tileSize,
-                                                                   canvasWindow,
-                                                                   dirtyRect,
-                                                                   smooth,
-                                                                   antialiasing);
-        QCoreApplication::postEvent(m_texture, e);
-    }
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4334, as _ZN15QQuickContext2D5flushEv
-inline void QQuickContext2D::flush()
-{
-    if (m_buffer) {
-        if (m_texture->thread() == QThread::currentThread())
-            m_texture->paint(m_buffer);
-        else
-            QCoreApplication::postEvent(m_texture, new QQuickContext2DTexture::PaintEvent(m_buffer));
-    }
-    m_buffer = new QQuickContext2DCommandBuffer();
-}
-
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4345, as _ZNK15QQuickContext2D7textureEv
 inline QQuickContext2DTexture *QQuickContext2D::texture() const
 {
     return m_texture;
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4350, as _ZN15QQuickContext2D7toImageERK6QRectF
-inline QImage QQuickContext2D::toImage(const QRectF& bounds)
-{
-    if (m_texture->thread() == QThread::currentThread()) {
-            flush();
-            m_texture->grabImage(bounds);
-    } else if (m_renderStrategy == QQuickCanvasItem::Cooperative) {
-        qWarning() << "Pixel readback is not supported in Cooperative mode, please try Threaded or Immediate mode";
-        return QImage();
-    } else {
-        flush();
-        QCoreApplication::postEvent(m_texture, new QEvent(QEvent::Type(QEvent::User + 10)));
-        QMetaObject::invokeMethod(m_texture,
-                                  "grabImage",
-                                  Qt::BlockingQueuedConnection,
-                                  Q_ARG(QRectF, bounds));
-    }
-    QImage img = m_grabbedImage;
-    m_grabbedImage = QImage();
-    m_grabbed = false;
-    return img;
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4267, as _ZNK15QQuickContext2D7v4valueEv
-inline QV4::ReturnedValue QQuickContext2D::v4value() const
-{
-    return m_v4value.value();
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4488, as _ZNK15QQuickContext2D8v4EngineEv
-inline QV4::ExecutionEngine *QQuickContext2D::v4Engine() const
-{
-    return m_v4engine;
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4413, as _ZN15QQuickContext2D8popStateEv
@@ -511,6 +607,22 @@ inline void QQuickContext2D::clearRect(qreal x, qreal y, qreal w, qreal h)
         return;
 
     buffer()->clearRect(QRectF(x, y, w, h));
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 3846, as _ZN15QQuickContext2D8drawTextERK7QStringddb
+inline void QQuickContext2D::drawText(const QString& text, qreal x, qreal y, bool fill)
+{
+    if (!state.invertibleCTM)
+        return;
+
+    if (!qt_is_finite(x) || !qt_is_finite(y))
+        return;
+
+    QPainterPath textPath = createTextGlyphs(x, y, text);
+    if (fill)
+        buffer()->fill(textPath);
+    else
+        buffer()->stroke(textPath);
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 3655, as _ZN15QQuickContext2D5scaleEdd
@@ -736,7 +848,8 @@ inline void QQuickContext2D::arcTo(qreal x1, qreal y1,
         addArcTo(st, end, radius);
  }
 
-void QQuickContext2D::rect(qreal x, qreal y, qreal w, qreal h)
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4006, as _ZN15QQuickContext2D4rectEdddd
+inline void QQuickContext2D::rect(qreal x, qreal y, qreal w, qreal h)
 {
     if (!state.invertibleCTM)
         return;
@@ -911,6 +1024,19 @@ inline void QQuickContext2D::addArcTo(const QPointF& p1, const QPointF& p2, qrea
         anticlockwise = true;
 
     arc(p.x(), p.y(), radius, sa, ea, anticlockwise);
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4177, as _ZN15QQuickContext2D16createTextGlyphsEddRK7QString
+inline QPainterPath QQuickContext2D::createTextGlyphs(qreal x, qreal y, const QString& text)
+{
+    const QFontMetrics metrics(state.font);
+    int yoffset = baseLineOffset(static_cast<QQuickContext2D::TextBaseLineType>(state.textBaseline), metrics);
+    int xoffset = textAlignOffset(static_cast<QQuickContext2D::TextAlignType>(state.textAlign), metrics, text);
+
+    QPainterPath textPath;
+
+    textPath.addText(x - xoffset, y - yoffset+metrics.ascent(), state.font, text);
+    return textPath;
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4166, as _ZN15QQuickContext2D15setGrabbedImageERK6QImage
@@ -1235,6 +1361,24 @@ const QMetaObject *ritual_ZNK15QQuickContext2D10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickContext2D::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickContext2D11qt_metacastEPKc(
+    QQuickContext2D *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickContext2D::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickContext2D11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickContext2D *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickContext2D::~QQuickContext2D()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickContext2DD1Ev(QQuickContext2D *self) {
@@ -1318,6 +1462,14 @@ extern "C" Q_DECL_EXPORT
 QV4::ExecutionEngine *ritual_ZNK15QQuickContext2D8v4EngineEv(
     const QQuickContext2D *self) {
   return self->v4Engine();
+}
+
+//  void QQuickContext2D::setV4Engine(QV4::ExecutionEngine *eng)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickContext2D11setV4EngineEPN3QV415ExecutionEngineE(
+    QQuickContext2D *self,
+    QV4::ExecutionEngine *eng) {
+  self->setV4Engine(eng);
 }
 
 //  QQuickCanvasItem *QQuickContext2D::canvas() const
@@ -1408,6 +1560,18 @@ void ritual_ZN15QQuickContext2D9clearRectEdddd(
     qreal w,
     qreal h) {
   self->clearRect(x, y, w, h);
+}
+
+//  void QQuickContext2D::drawText(const QString &text, qreal x, qreal y,
+//      bool fill)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickContext2D8drawTextERK7QStringddb(
+    QQuickContext2D *self,
+    const QString *text,
+    qreal x,
+    qreal y,
+    bool fill) {
+  self->drawText(*text, x, y, fill);
 }
 
 //  void QQuickContext2D::scale(qreal x, qreal y)
@@ -1542,6 +1706,17 @@ void ritual_ZN15QQuickContext2D5arcToEddddd(
   self->arcTo(x1, y1, x2, y2, radius);
 }
 
+//  void QQuickContext2D::rect(qreal x, qreal y, qreal w, qreal h)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickContext2D4rectEdddd(
+    QQuickContext2D *self,
+    qreal x,
+    qreal y,
+    qreal w,
+    qreal h) {
+  self->rect(x, y, w, h);
+}
+
 //  void QQuickContext2D::roundedRect(qreal x, qreal y, qreal w, qreal h,
 //      qreal xr, qreal yr)
 extern "C" Q_DECL_EXPORT
@@ -1602,6 +1777,17 @@ void ritual_ZN15QQuickContext2D8addArcToERK7QPointFS2_d(
   self->addArcTo(*p1, *p2, radius);
 }
 
+//  QPainterPath QQuickContext2D::createTextGlyphs(qreal x, qreal y, const
+//      QString &text)
+extern "C" Q_DECL_EXPORT
+QPainterPath *ritual_ZN15QQuickContext2D16createTextGlyphsEddRK7QString(
+    QQuickContext2D *self,
+    qreal x,
+    qreal y,
+    const QString *text) {
+  return new QPainterPath(self->createTextGlyphs(x, y, *text));
+}
+
 //  QSurface *QQuickContext2D::surface() const
 extern "C" Q_DECL_EXPORT
 QSurface *ritual_ZNK15QQuickContext2D7surfaceEv(
@@ -1647,6 +1833,13 @@ extern "C" Q_DECL_EXPORT
 QV4::ExecutionEngine *ritual_own_ZNK15QQuickContext2D8v4EngineEv(
     const QQuickContext2D *self) {
   return self->QQuickContext2D::v4Engine();
+}
+
+//  a QQmlRefPointer<QQuickCanvasPixmap> a ritual of QQuickContext2D gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickContext2D__QQmlRefPointer_QQuickCanvasPixmap(
+    QQmlRefPointer<QQuickCanvasPixmap> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(quick_canvas)

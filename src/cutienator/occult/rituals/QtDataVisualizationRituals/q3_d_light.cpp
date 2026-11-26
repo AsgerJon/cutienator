@@ -178,6 +178,22 @@ const QMetaObject *ritual_ZNK8Q3DLight10metaObjectEv(const Q3DLight *self) {
   return self->metaObject();
 }
 
+//  void *Q3DLight::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Q3DLight11qt_metacastEPKc(Q3DLight *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Q3DLight::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Q3DLight11qt_metacallEN11QMetaObject4CallEiPPv(
+    Q3DLight *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Q3DLight::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Q3DLight2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -206,6 +222,14 @@ void ritual_ZN8Q3DLight15setAutoPositionEb(Q3DLight *self, bool enabled) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN8Q3DLight14isAutoPositionEv(Q3DLight *self) {
   return self->isAutoPosition();
+}
+
+//  void Q3DLight::autoPositionChanged(bool autoPosition)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Q3DLight19autoPositionChangedEb(
+    Q3DLight *self,
+    bool autoPosition) {
+  self->autoPositionChanged(autoPosition);
 }
 
 //  a Python function taken by a CuteQ3DLight, for the function named by the

@@ -140,6 +140,9 @@
     "ritual_ZN20QGraphicsItemPrivate30updatePaintedViewBoundingRectsEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN20QGraphicsItemPrivate29ensureSceneTransformRecursiveEPP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QGraphicsItemPrivate20ensureSceneTransformEv": [
       "nothing", "address"
     ],

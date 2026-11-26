@@ -53,6 +53,13 @@ public:
   }
 };
 
+//  Qt3DCore::QDownloadRequest::QDownloadRequest(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QDownloadRequest *ritual_ZN8Qt3DCore16QDownloadRequestC1ERK4QUrl(
+    const QUrl *url) {
+  return new CuteQt3DCore_QDownloadRequest(*url);
+}
+
 //  Qt3DCore::QDownloadRequest::~QDownloadRequest()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore16QDownloadRequestD1Ev(

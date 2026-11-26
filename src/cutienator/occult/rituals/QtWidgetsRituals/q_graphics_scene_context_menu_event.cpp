@@ -142,6 +142,22 @@ void ritual_ZN30QGraphicsSceneContextMenuEvent9setReasonENS_6ReasonE(
   self->setReason(reason);
 }
 
+//  QGraphicsSceneContextMenuEventPrivate
+//      *QGraphicsSceneContextMenuEvent::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneContextMenuEventPrivate *ritual_ZN30QGraphicsSceneContextMenuEvent6d_funcEv(
+    QGraphicsSceneContextMenuEvent *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneContextMenuEventPrivate
+//      *QGraphicsSceneContextMenuEvent::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneContextMenuEventPrivate *ritual_ZNK30QGraphicsSceneContextMenuEvent6d_funcEv(
+    const QGraphicsSceneContextMenuEvent *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSceneContextMenuEvent, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

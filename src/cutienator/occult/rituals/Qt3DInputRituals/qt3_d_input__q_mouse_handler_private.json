@@ -5,6 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput20QMouseHandlerPrivateC1Ev": ["address"],
+    "ritual_ZN9Qt3DInput20QMouseHandlerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN9Qt3DInput20QMouseHandlerPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9Qt3DInput20QMouseHandlerPrivate10mouseEventERK14QSharedPointerINS_11QMouseEventEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9Qt3DInput20QMouseHandlerPrivate6q_funcEv": [
       "address", "address"
     ],

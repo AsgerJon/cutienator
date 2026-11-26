@@ -20,11 +20,12 @@ struct OwnQV4_Compiler_ControlFlow : QV4::Compiler::ControlFlow {
 //  function handed over for it, and runs Qt's own without one.
 typedef QString * (*CuteQV4_Compiler_ControlFlowCall0)(const void *, int *);
 typedef bool (*CuteQV4_Compiler_ControlFlowCall1)(const void *, int *);
+typedef void * (*CuteQV4_Compiler_ControlFlowCall2)(const void *, int *);
 class CuteQV4_Compiler_ControlFlow : public QV4::Compiler::ControlFlow {
 public:
   using QV4::Compiler::ControlFlow::ControlFlow;
-  CuteQV4_Compiler_ControlFlow(const QV4::Compiler::ControlFlow &other) : QV4::Compiler::ControlFlow(other) {}
-  void *taken[2] = {};
+  CuteQV4_Compiler_ControlFlow(const QV4::Compiler::ControlFlow & other) : QV4::Compiler::ControlFlow(other) {}
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK3QV48Compiler11ControlFlow5labelEv")) {
@@ -33,6 +34,10 @@ public:
     }
     if (!std::strcmp(key, "_ZN3QV48Compiler11ControlFlow14requiresUnwindEv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN3QV48Compiler11ControlFlow13unwindHandlerEv")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -62,6 +67,18 @@ public:
       if (handled) return given;
     }
     return QV4::Compiler::ControlFlow::requiresUnwind();
+  }
+
+  //  BytecodeGenerator::ExceptionHandler
+  //      *QV4::Compiler::ControlFlow::unwindHandler()
+  BytecodeGenerator::ExceptionHandler *unwindHandler() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQV4_Compiler_ControlFlowCall2 call = reinterpret_cast<CuteQV4_Compiler_ControlFlowCall2>(taken[2]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<BytecodeGenerator::ExceptionHandler *>(given);
+    }
+    return QV4::Compiler::ControlFlow::unwindHandler();
   }
 };
 
@@ -119,6 +136,13 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK3QV48Compiler11ControlFlow9loopLabelEv(
     const QV4::Compiler::ControlFlow *self) {
   return new QString(self->loopLabel());
+}
+
+//  BytecodeGenerator *QV4::Compiler::ControlFlow::generator() const
+extern "C" Q_DECL_EXPORT
+QV4::Compiler::ControlFlow::BytecodeGenerator *ritual_ZNK3QV48Compiler11ControlFlow9generatorEv(
+    const QV4::Compiler::ControlFlow *self) {
+  return self->generator();
 }
 
 //  a Python function taken by a CuteQV4_Compiler_ControlFlow, for the

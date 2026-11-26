@@ -9,7 +9,9 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_menubar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(action)
 #include <QtGui/qaction.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
@@ -984,6 +986,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QDesignerMenuBar10metaObjectEv(
     const QDesignerMenuBar *self) {
   return self->metaObject();
+}
+
+//  void *QDesignerMenuBar::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QDesignerMenuBar11qt_metacastEPKc(
+    QDesignerMenuBar *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDesignerMenuBar::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QDesignerMenuBar11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDesignerMenuBar *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QDesignerMenuBar::tr(const char *s, const char *c, int n)

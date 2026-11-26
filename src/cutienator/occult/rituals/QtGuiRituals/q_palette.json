@@ -18,6 +18,10 @@
     ],
     "ritual_ZN8QPaletteC1ERKS_": ["address", "address"],
     "ritual_ZN8QPaletteD1Ev": ["nothing", "address"],
+    "ritual_ZN8QPaletteaSERKS_": ["address", "address", "address"],
+    "ritual_ZN8QPaletteC1EOS_": ["address", "address"],
+    "ritual_ZN8QPaletteaSEOS_": ["address", "address", "address"],
+    "ritual_ZN8QPalette4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK8QPalettecv8QVariantEv": ["address", "address"],
     "ritual_ZNK8QPalette17currentColorGroupEv": ["int", "address"],
     "ritual_ZN8QPalette20setCurrentColorGroupENS_10ColorGroupE": [
@@ -100,6 +104,7 @@
       "address", "address", "address", "address"
     ],
     "ritual_ZN8QPalette4initEv": ["nothing", "address"],
-    "ritual_ZN8QPalette6detachEv": ["nothing", "address"]
+    "ritual_ZN8QPalette6detachEv": ["nothing", "address"],
+    "ritual_ZlsR11QDataStreamRK8QPalette": ["address", "address", "address"]
   }
 }

@@ -8,6 +8,15 @@
     "ritual_ZN11QSSGMeshBVHC1Ev": ["address"],
     "ritual_ZN11QSSGMeshBVHD1Ev": ["nothing", "address"],
     "ritual_ZN11QSSGMeshBVH9newHandleEv": ["address", "address"],
+    "ritual_ZNK11QSSGMeshBVH9trianglesEv": ["address", "address"],
+    "ritual_ZNK11QSSGMeshBVH5rootsEv": ["address", "address"],
+    "ritual_ZNK11QSSGMeshBVH5nodesEv": ["address", "address"],
+    "ritual_ZNK11QSSGMeshBVH12getNodeIndexEmN15QSSGMeshBVHNode13FallbackIndexE": [
+      "size_t", "address", "size_t", "unsigned char"
+    ],
+    "ritual_ZN11QSSGMeshBVH12mutableValueEx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZNK11QSSGMeshBVH5valueEx": ["address", "address", "long long"]
   }
 }

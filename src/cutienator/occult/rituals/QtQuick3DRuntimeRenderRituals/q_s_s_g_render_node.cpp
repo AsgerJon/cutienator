@@ -9,6 +9,10 @@
 #include <QtGui/qvectornd.h>
 #include <QtGui/qquaternion.h>
 #include <QtGui/qmatrix4x4.h>
+#include <QtQuick3DUtils/QtQuick3DUtils>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgbounds3_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  QSSGRenderNode::QSSGRenderNode()
 extern "C" Q_DECL_EXPORT
@@ -79,6 +83,22 @@ bool ritual_ZNK14QSSGRenderNode14getGlobalStateENS_11GlobalStateE(
   return self->getGlobalState(stateFlag);
 }
 
+//  void QSSGRenderNode::addChild(QSSGRenderNode &inChild)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSSGRenderNode8addChildERS_(
+    QSSGRenderNode *self,
+    QSSGRenderNode *inChild) {
+  self->addChild(*inChild);
+}
+
+//  void QSSGRenderNode::removeChild(QSSGRenderNode &inChild)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSSGRenderNode11removeChildERS_(
+    QSSGRenderNode *self,
+    QSSGRenderNode *inChild) {
+  self->removeChild(*inChild);
+}
+
 //  void QSSGRenderNode::removeFromGraph()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSSGRenderNode15removeFromGraphEv(QSSGRenderNode *self) {
@@ -99,6 +119,25 @@ QMatrix4x4 *ritual_ZN14QSSGRenderNode24calculateTransformMatrixE9QVector3DS0_S0_
           *scale,
           *pivot,
           *rotation));
+}
+
+//  QSSGBounds3 QSSGRenderNode::getBounds(QSSGBufferManager &inManager, bool
+//      inIncludeChildren) const
+extern "C" Q_DECL_EXPORT
+QSSGBounds3 *ritual_ZNK14QSSGRenderNode9getBoundsER17QSSGBufferManagerb(
+    const QSSGRenderNode *self,
+    QSSGBufferManager *inManager,
+    bool inIncludeChildren) {
+  return new QSSGBounds3(self->getBounds(*inManager, inIncludeChildren));
+}
+
+//  QSSGBounds3 QSSGRenderNode::getChildBounds(QSSGBufferManager &inManager)
+//      const
+extern "C" Q_DECL_EXPORT
+QSSGBounds3 *ritual_ZNK14QSSGRenderNode14getChildBoundsER17QSSGBufferManager(
+    const QSSGRenderNode *self,
+    QSSGBufferManager *inManager) {
+  return new QSSGBounds3(self->getChildBounds(*inManager));
 }
 
 //  QVector3D QSSGRenderNode::getGlobalPos(const QMatrix4x4 &globalTransform)
@@ -123,6 +162,41 @@ QVector3D *ritual_ZN14QSSGRenderNode26getScalingCorrectDirectionERK10QMatrix4x4(
   return new QVector3D(
       QSSGRenderNode::getScalingCorrectDirection(
           *globalTransform));
+}
+
+//  void QSSGRenderNode::calculateMVP(const QMatrix4x4 &globalTransform,
+//      const QMatrix4x4 &inViewProjection, QMatrix4x4 &outMVP)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSSGRenderNode12calculateMVPERK10QMatrix4x4S2_RS0_(
+    const QMatrix4x4 *globalTransform,
+    const QMatrix4x4 *inViewProjection,
+    QMatrix4x4 *outMVP) {
+  QSSGRenderNode::calculateMVP(*globalTransform, *inViewProjection, *outMVP);
+}
+
+//  void QSSGRenderNode::calculateNormalMatrix(const QMatrix4x4
+//      &globalTransform, QMatrix3x3 &outNormalMatrix)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSSGRenderNode21calculateNormalMatrixERK10QMatrix4x4R14QGenericMatrixILi3ELi3EfE(
+    const QMatrix4x4 *globalTransform,
+    QMatrix3x3 *outNormalMatrix) {
+  QSSGRenderNode::calculateNormalMatrix(*globalTransform, *outNormalMatrix);
+}
+
+//  void QSSGRenderNode::calculateMVPAndNormalMatrix(const QMatrix4x4
+//      &globalTransfor, const QMatrix4x4 &inViewProjection, QMatrix4x4
+//      &outMVP, QMatrix3x3 &outNormalMatrix)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSSGRenderNode27calculateMVPAndNormalMatrixERK10QMatrix4x4S2_RS0_R14QGenericMatrixILi3ELi3EfE(
+    const QMatrix4x4 *globalTransfor,
+    const QMatrix4x4 *inViewProjection,
+    QMatrix4x4 *outMVP,
+    QMatrix3x3 *outNormalMatrix) {
+  QSSGRenderNode::calculateMVPAndNormalMatrix(
+      *globalTransfor,
+      *inViewProjection,
+      *outMVP,
+      *outNormalMatrix);
 }
 
 //  float QSSGRenderNode::signedSquared(float val)

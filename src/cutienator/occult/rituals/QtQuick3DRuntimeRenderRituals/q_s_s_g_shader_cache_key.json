@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN18QSSGShaderCacheKeyC1ERK10QByteArray": ["address", "address"],
     "ritual_ZN18QSSGShaderCacheKeyC1ERKS_": ["address", "address"],
+    "ritual_ZN18QSSGShaderCacheKeyaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QSSGShaderCacheKey16generateHashCodeERK10QByteArray18QSSGShaderFeatures": [
+      "size_t", "address", "address"
+    ],
     "ritual_ZN18QSSGShaderCacheKey14updateHashCodeEv": [
       "nothing", "address"
     ],

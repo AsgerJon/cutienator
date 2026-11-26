@@ -5,8 +5,14 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render19LoadSceneJobPrivateC1EPNS0_12LoadSceneJobE": [
+      "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render19LoadSceneJobPrivateD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render19LoadSceneJobPrivate9postFrameEPN8Qt3DCore14QAspectManagerE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN10Qt3DRender6Render19LoadSceneJobPrivate6q_funcEv": [
       "address", "address"
@@ -16,6 +22,9 @@
     ],
     "ritual_take_Qt3DRender_Render_LoadSceneJobPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render19LoadSceneJobPrivate9postFrameEPN8Qt3DCore14QAspectManagerE": [
+      "nothing", "address", "address"
     ]
   }
 }

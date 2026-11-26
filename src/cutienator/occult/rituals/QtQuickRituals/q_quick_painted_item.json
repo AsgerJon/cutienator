@@ -6,12 +6,19 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickPaintedItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickPaintedItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickPaintedItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickPaintedItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN17QQuickPaintedItem24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QQuickPaintedItemC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN17QQuickPaintedItemD1Ev": ["nothing", "address"],
     "ritual_ZN17QQuickPaintedItem6updateERK5QRect": [
       "nothing", "address", "address"
@@ -69,6 +76,24 @@
     ],
     "ritual_ZNK17QQuickPaintedItem15textureProviderEv": [
       "address", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem16fillColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem19contentsSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem20contentsScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem19renderTargetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem18textureSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItemC1ER24QQuickPaintedItemPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN17QQuickPaintedItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
       "address", "address", "address", "address"

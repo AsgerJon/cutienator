@@ -429,6 +429,24 @@ const QMetaObject *ritual_ZNK15AxisRenderCache10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *AxisRenderCache::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15AxisRenderCache11qt_metacastEPKc(
+    AxisRenderCache *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int AxisRenderCache::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15AxisRenderCache11qt_metacallEN11QMetaObject4CallEiPPv(
+    AxisRenderCache *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  AxisRenderCache::~AxisRenderCache()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15AxisRenderCacheD1Ev(AxisRenderCache *self) {
@@ -574,6 +592,19 @@ extern "C" Q_DECL_EXPORT
 QValue3DAxisFormatter *ritual_ZNK15AxisRenderCache13ctrlFormatterEv(
     const AxisRenderCache *self) {
   return self->ctrlFormatter();
+}
+
+//  LabelItem &AxisRenderCache::titleItem()
+extern "C" Q_DECL_EXPORT
+LabelItem *ritual_ZN15AxisRenderCache9titleItemEv(AxisRenderCache *self) {
+  return &(self->titleItem());
+}
+
+//  QList<LabelItem *> &AxisRenderCache::labelItems()
+extern "C" Q_DECL_EXPORT
+QList<LabelItem *> *ritual_ZN15AxisRenderCache10labelItemsEv(
+    AxisRenderCache *self) {
+  return &(self->labelItems());
 }
 
 //  float AxisRenderCache::gridLinePosition(int index)

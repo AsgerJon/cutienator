@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMultimedia/qmediatimerange.h, Qt 6.12.0. Changes made here are lost.
 #include <QtMultimedia/qmediatimerange.h>
+#include <QtCore/QList>
+#include <QtMultimedia/QMediaTimeRange>
 
 //  QMediaTimeRange::QMediaTimeRange()
 extern "C" Q_DECL_EXPORT
@@ -34,10 +36,48 @@ void ritual_ZN15QMediaTimeRangeD1Ev(QMediaTimeRange *self) {
   delete self;
 }
 
+//  QMediaTimeRange &QMediaTimeRange::operator=(const QMediaTimeRange &a0)
+extern "C" Q_DECL_EXPORT
+QMediaTimeRange *ritual_ZN15QMediaTimeRangeaSERKS_(
+    QMediaTimeRange *self,
+    const QMediaTimeRange *a0) {
+  return &(self->operator=(*a0));
+}
+
+//  QMediaTimeRange::QMediaTimeRange(QMediaTimeRange &&other)
+extern "C" Q_DECL_EXPORT
+QMediaTimeRange *ritual_ZN15QMediaTimeRangeC1EOS_(QMediaTimeRange *other) {
+  return new QMediaTimeRange(std::move(*other));
+}
+
+//  QMediaTimeRange &QMediaTimeRange::operator=(QMediaTimeRange &&other)
+extern "C" Q_DECL_EXPORT
+QMediaTimeRange *ritual_ZN15QMediaTimeRangeaSEOS_(
+    QMediaTimeRange *self,
+    QMediaTimeRange *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QMediaTimeRange::swap(QMediaTimeRange &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMediaTimeRange4swapERS_(
+    QMediaTimeRange *self,
+    QMediaTimeRange *other) {
+  self->swap(*other);
+}
+
 //  void QMediaTimeRange::detach()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMediaTimeRange6detachEv(QMediaTimeRange *self) {
   self->detach();
+}
+
+//  QMediaTimeRange &QMediaTimeRange::operator=(const Interval &a0)
+extern "C" Q_DECL_EXPORT
+QMediaTimeRange *ritual_ZN15QMediaTimeRangeaSERKNS_8IntervalE(
+    QMediaTimeRange *self,
+    const QMediaTimeRange::Interval *a0) {
+  return &(self->operator=(*a0));
 }
 
 //  qint64 QMediaTimeRange::earliestTime() const
@@ -52,6 +92,13 @@ extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK15QMediaTimeRange10latestTimeEv(
     const QMediaTimeRange *self) {
   return self->latestTime();
+}
+
+//  QList<QMediaTimeRange::Interval> QMediaTimeRange::intervals() const
+extern "C" Q_DECL_EXPORT
+QList<QMediaTimeRange::Interval> *ritual_ZNK15QMediaTimeRange9intervalsEv(
+    const QMediaTimeRange *self) {
+  return new QList<QMediaTimeRange::Interval>(self->intervals());
 }
 
 //  bool QMediaTimeRange::isEmpty() const
@@ -177,4 +224,11 @@ bool ritual_ZneRK15QMediaTimeRangeS1_(
     const QMediaTimeRange *lhs,
     const QMediaTimeRange *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  a QList<QMediaTimeRange::Interval> a ritual of QMediaTimeRange gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QMediaTimeRange__QList_QMediaTimeRange_Interval(
+    QList<QMediaTimeRange::Interval> *self) {
+  delete self;
 }

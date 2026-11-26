@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qqmlmetatype_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qqmlmetatype_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN12QQmlMetaType18inlineComponentUrlERK4QUrlRK7QString": [
@@ -12,14 +12,35 @@
       "bool", "address", "address"
     ],
     "ritual_ZN12QQmlMetaType13normalizedUrlERK4QUrl": ["address", "address"],
+    "ritual_ZN12QQmlMetaType17findCompositeTypeERK4QUrlRK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEENS_23CompositeTypeLookupModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN12QQmlMetaType38findOrCreateFactualInlineComponentTypeERK4QUrlRK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType38findOrCreateFactualInlineComponentTypeERK4QUrlRK7QStringRK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE": [
+      "address", "address", "text", "address"
+    ],
     "ritual_ZN12QQmlMetaType12registerTypeERKN11QQmlPrivate12RegisterTypeE": [
       "address", "address"
     ],
     "ritual_ZN12QQmlMetaType17registerInterfaceERKN11QQmlPrivate17RegisterInterfaceE": [
       "address", "address"
     ],
+    "ritual_ZN12QQmlMetaType21registerSingletonTypeERKN11QQmlPrivate21RegisterSingletonTypeERK14QQmlRefPointerIKN8QQmlType21SingletonInstanceInfoEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType30registerCompositeSingletonTypeERKN11QQmlPrivate30RegisterCompositeSingletonTypeERK14QQmlRefPointerIKN8QQmlType21SingletonInstanceInfoEE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN12QQmlMetaType21registerCompositeTypeERKN11QQmlPrivate21RegisterCompositeTypeE": [
       "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType19registerPluginTypesEP7QObjectRK7QStringS4_S4_13QTypeRevisionP5QListI9QQmlErrorE": [
+      "int", "address", "text", "text", "text", "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType10typeForUrlERK4QUrlRK16QHashedStringRefNS_23CompositeTypeLookupModeEP5QListI9QQmlErrorE13QTypeRevision": [
+      "address", "address", "address", "int", "address", "address"
     ],
     "ritual_ZN12QQmlMetaType42findOrCreateSpeculativeInlineComponentTypeERK4QUrl": [
       "address", "address"
@@ -42,6 +63,9 @@
     ],
     "ritual_ZN12QQmlMetaType22unregisterModuleImportERK7QString13QTypeRevisionRKN13QQmlDirParser6ImportE": [
       "nothing", "text", "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType13moduleImportsERK7QString13QTypeRevision": [
+      "address", "text", "address"
     ],
     "ritual_ZN12QQmlMetaType6typeIdEPKc13QTypeRevisionS1_": [
       "int", "chars", "address", "chars"
@@ -123,6 +147,9 @@
     "ritual_ZN12QQmlMetaType13listValueTypeE9QMetaType": [
       "address", "address"
     ],
+    "ritual_ZN12QQmlMetaType22attachedPropertiesFuncEP14QQmlTypeLoaderPK11QMetaObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN12QQmlMetaType11isInterfaceE9QMetaType": ["bool", "address"],
     "ritual_ZN12QQmlMetaType12interfaceIIdE9QMetaType": ["chars", "address"],
     "ritual_ZN12QQmlMetaType6isListE9QMetaType": ["bool", "address"],
@@ -138,14 +165,30 @@
     "ritual_ZN12QQmlMetaType10typeModuleERK7QString13QTypeRevision": [
       "address", "text", "address"
     ],
+    "ritual_ZN12QQmlMetaType15parentFunctionsEv": ["address"],
+    "ritual_ZN12QQmlMetaType25findCachedCompilationUnitERK4QUrlNS_9CacheModeEPNS_21CachedUnitLookupErrorE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN12QQmlMetaType31prependCachedUnitLookupFunctionEPFPKN11QQmlPrivate13CachedQmlUnitERK4QUrlE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQmlMetaType30removeCachedUnitLookupFunctionEPFPKN11QQmlPrivate13CachedQmlUnitERK4QUrlE": [
+      "nothing", "address"
+    ],
     "ritual_ZN12QQmlMetaType14prettyTypeNameEPK7QObject": [
       "text", "address"
+    ],
+    "ritual_ZN12QQmlMetaType26removeFromInlineComponentsER4QSetI4QUrlEPK15QQmlTypePrivate": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN12QQmlMetaType17registerTypeAliasEiRK7QString": [
       "nothing", "int", "text"
     ],
     "ritual_ZN12QQmlMetaType26registerAutoParentFunctionERKN11QQmlPrivate18RegisterAutoParentE": [
       "int", "address"
+    ],
+    "ritual_ZN12QQmlMetaType28unregisterAutoParentFunctionERKPFN11QQmlPrivate16AutoParentResultEP7QObjectS3_E": [
+      "nothing", "address"
     ],
     "ritual_ZN12QQmlMetaType27registerSequentialContainerERKN11QQmlPrivate27RegisterSequentialContainerE": [
       "address", "address"
@@ -157,6 +200,15 @@
       "int", "address"
     ],
     "ritual_ZN12QQmlMetaType22clearTypeRegistrationsEv": ["nothing"],
+    "ritual_ZN12QQmlMetaType9proxyDataEPK11QMetaObjectS2_PS0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType5cloneER18QMetaObjectBuilderPK11QMetaObjectS4_S4_NS_11ClonePolicyE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN12QQmlMetaType27qmlInsertModuleRegistrationERK7QStringPFvvE": [
+      "nothing", "text", "address"
+    ],
     "ritual_ZN12QQmlMetaType27qmlRemoveModuleRegistrationERK7QString": [
       "nothing", "text"
     ],
@@ -171,6 +223,42 @@
     "ritual_ZN12QQmlMetaType33findPropertyCacheInCompositeTypesE9QMetaType": [
       "address", "address"
     ],
-    "ritual_ZN12QQmlMetaTypeD1Ev": ["nothing", "address"]
+    "ritual_ZN12QQmlMetaType29registerInternalCompositeTypeERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQmlMetaType31unregisterInternalCompositeTypeERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQmlMetaType22deepClearCompositeTypeERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQmlMetaType40countInternalCompositeTypeSelfReferencesERK14QQmlRefPointerIN3QV412CompiledData15CompilationUnitEE": [
+      "int", "address"
+    ],
+    "ritual_ZN12QQmlMetaTypeD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlMetaType__QList_QQmlDirParser_Import": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlMetaType__QList_QQmlPrivate_AutoParentFunction": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlMetaType__QList_QQmlProxyMetaObject_ProxyData": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQmlMetaType21removeQQmlTypePrivateI5QHashIiP15QQmlTypePrivateEEEvRT_PKS2_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType21removeQQmlTypePrivateI10QMultiHashI7QStringPK15QQmlTypePrivateEEEvRT_S5_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType21removeQQmlTypePrivateI5QHashI4QUrlPK15QQmlTypePrivateEEEvRT_S5_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType21removeQQmlTypePrivateI10QMultiHashIPK11QMetaObjectPK15QQmlTypePrivateEEEvRT_S7_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlMetaType26removeFromInlineComponentsI5QHashI4QUrlPK15QQmlTypePrivateEEEvRT_S5_": [
+      "nothing", "address", "address"
+    ]
   }
 }

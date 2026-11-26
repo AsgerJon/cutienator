@@ -5,6 +5,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtCore/QObject>
 
 //  A QWaylandKeymap that Python can take functions over in. Every QWaylandKeymap
 //  Python makes is one. Each function below asks the Python
@@ -180,6 +182,24 @@ const QMetaObject *ritual_ZNK14QWaylandKeymap10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandKeymap::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QWaylandKeymap11qt_metacastEPKc(
+    QWaylandKeymap *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandKeymap::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QWaylandKeymap11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandKeymap *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandKeymap::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QWaylandKeymap2trEPKcS1_i(
@@ -202,6 +222,55 @@ const QWaylandKeymapPrivate *ritual_ZNK14QWaylandKeymap6d_funcEv(
     const QWaylandKeymap *self) {
   return self->d_func();
 }
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  QQmlListProperty<QObject> QWaylandKeymap::data()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QObject> *ritual_ZN14QWaylandKeymap4dataEv(
+    QWaylandKeymap *self) {
+  return new QQmlListProperty<QObject>(self->data());
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  void QWaylandKeymap::appendFunction(QQmlListProperty<QObject> *list,
+//      QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandKeymap14appendFunctionEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *list,
+    QObject *object) {
+  QWaylandKeymap::appendFunction(list, object);
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  qsizetype QWaylandKeymap::countFunction(QQmlListProperty<QObject> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN14QWaylandKeymap13countFunctionEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  return QWaylandKeymap::countFunction(list);
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  QObject *QWaylandKeymap::atFunction(QQmlListProperty<QObject> *list,
+//      qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN14QWaylandKeymap10atFunctionEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *list,
+    qsizetype index) {
+  return QWaylandKeymap::atFunction(list, index);
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
+
+#if QT_CONFIG(wayland_compositor_quick)
+//  void QWaylandKeymap::clearFunction(QQmlListProperty<QObject> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandKeymap13clearFunctionEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *list) {
+  QWaylandKeymap::clearFunction(list);
+}
+#endif  // QT_CONFIG(wayland_compositor_quick)
 
 //  QWaylandKeymap::QWaylandKeymap(const QString &layout, const QString
 //      &variant, const QString &options, const QString &model, const QString
@@ -293,6 +362,36 @@ void ritual_ZN14QWaylandKeymap8setModelERK7QString(
   self->setModel(*model);
 }
 
+//  void QWaylandKeymap::layoutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandKeymap13layoutChangedEv(QWaylandKeymap *self) {
+  self->layoutChanged();
+}
+
+//  void QWaylandKeymap::variantChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandKeymap14variantChangedEv(QWaylandKeymap *self) {
+  self->variantChanged();
+}
+
+//  void QWaylandKeymap::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandKeymap14optionsChangedEv(QWaylandKeymap *self) {
+  self->optionsChanged();
+}
+
+//  void QWaylandKeymap::rulesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandKeymap12rulesChangedEv(QWaylandKeymap *self) {
+  self->rulesChanged();
+}
+
+//  void QWaylandKeymap::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QWaylandKeymap12modelChangedEv(QWaylandKeymap *self) {
+  self->modelChanged();
+}
+
 //  a Python function taken by a CuteQWaylandKeymap, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -301,4 +400,11 @@ bool ritual_take_QWaylandKeymap(
     const char *key,
     void *call) {
   return static_cast<CuteQWaylandKeymap *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<QObject> a ritual of QWaylandKeymap gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QWaylandKeymap__QQmlListProperty_QObject(
+    QQmlListProperty<QObject> *self) {
+  delete self;
 }

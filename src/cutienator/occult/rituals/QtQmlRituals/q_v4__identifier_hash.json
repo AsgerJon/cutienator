@@ -2,11 +2,62 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qv4identifierhash_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV414IdentifierHashC1Ev": ["address"],
+    "ritual_ZN3QV414IdentifierHashC1EPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV414IdentifierHashC1ERKS0_": ["address", "address"],
+    "ritual_ZN3QV414IdentifierHashC1EOS0_": ["address", "address"],
     "ritual_ZN3QV414IdentifierHashD1Ev": ["nothing", "address"],
-    "ritual_ZNK3QV414IdentifierHash7isValidEv": ["bool", "address"]
+    "ritual_ZN3QV414IdentifierHash4swapERS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV414IdentifierHashaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV414IdentifierHash7isValidEv": ["bool", "address"],
+    "ritual_ZNK3QV414IdentifierHash4sizeEv": ["int", "address"],
+    "ritual_ZN3QV414IdentifierHash3addERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN3QV414IdentifierHash3addEPNS_4Heap6StringEi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK3QV414IdentifierHash5valueERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK3QV414IdentifierHash5valueEPNS_4Heap6StringE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN3QV414IdentifierHash8addEntryENS_11PropertyKeyEi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK3QV414IdentifierHash6lookupENS_11PropertyKeyE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK3QV414IdentifierHash13reverseLookupEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV414IdentifierHash12toIdentifierERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK3QV414IdentifierHash12toIdentifierEPNS_4Heap6StringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV414IdentifierHash3keyI7QStringEET_i": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK3QV414IdentifierHash3keyIPNS_4Heap6StringEEET_i": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV414IdentifierHash8toStringI7QStringEET_NS_11PropertyKeyE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK3QV414IdentifierHash8toStringIPNS_4Heap6StringEEET_NS_11PropertyKeyE": [
+      "address", "address", "address"
+    ]
   }
 }

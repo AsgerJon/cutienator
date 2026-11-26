@@ -8,6 +8,12 @@
     "ritual_ZNK24QDeclarativeRouteMapItem10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QDeclarativeRouteMapItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QDeclarativeRouteMapItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QDeclarativeRouteMapItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,9 @@
     "ritual_ZN24QDeclarativeRouteMapItemD1Ev": ["nothing", "address"],
     "ritual_ZNK24QDeclarativeRouteMapItem5routeEv": ["address", "address"],
     "ritual_ZN24QDeclarativeRouteMapItem8setRouteERK9QGeoRoute": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QDeclarativeRouteMapItem12routeChangedERK9QGeoRoute": [
       "nothing", "address", "address"
     ],
     "ritual_ZN24QDeclarativeRouteMapItem15updateRoutePathEv": [

@@ -8,6 +8,12 @@
     "ritual_ZNK27QQmlDMAbstractItemModelData10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQmlDMAbstractItemModelData11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQmlDMAbstractItemModelData11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK27QQmlDMAbstractItemModelData16hasModelChildrenEv": [
       "bool", "address"
     ],
@@ -17,15 +23,18 @@
     "ritual_ZN27QQmlDMAbstractItemModelData8setValueERK7QStringRK8QVariant": [
       "nothing", "address", "text", "address"
     ],
+    "ritual_ZN27QQmlDMAbstractItemModelData12resolveIndexERK16QQmlAdaptorModeli": [
+      "bool", "address", "address", "int"
+    ],
     "ritual_ZNK27QQmlDMAbstractItemModelData4typeEv": ["address", "address"],
+    "ritual_ZN27QQmlDMAbstractItemModelData16modelDataChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK27QQmlDMAbstractItemModelData5valueEi": [
       "address", "address", "int"
     ],
     "ritual_ZN27QQmlDMAbstractItemModelData8setValueEiRK8QVariant": [
       "nothing", "address", "int", "address"
-    ],
-    "ritual_own_ZN27QQmlDMAbstractItemModelData8setValueERK7QStringRK8QVariant": [
-      "nothing", "address", "text", "address"
     ]
   }
 }

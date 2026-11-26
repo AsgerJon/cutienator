@@ -7,6 +7,27 @@
   "rows": {
     "ritual_ZNK18qdesigner_internal14PromotionModel10metaObjectEv": [
       "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14PromotionModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal14PromotionModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14PromotionModel9modelDataERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14PromotionModel9modelDataEPK13QStandardItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14PromotionModel18includeFileChangedEP36QDesignerWidgetDataBaseItemInterfaceRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal14PromotionModel16classNameChangedEP36QDesignerWidgetDataBaseItemInterfaceRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal14PromotionModel15slotItemChangedEP13QStandardItem": [
+      "nothing", "address", "address"
     ]
   }
 }

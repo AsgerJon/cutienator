@@ -26,6 +26,25 @@ const QMetaObject *ritual_ZNK20QQuickSwitchDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickSwitchDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QQuickSwitchDelegate11qt_metacastEPKc(
+    QQuickSwitchDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickSwitchDelegate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QQuickSwitchDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickSwitchDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickSwitchDelegate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QQuickSwitchDelegate2trEPKcS1_i(
@@ -62,6 +81,20 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK20QQuickSwitchDelegate14visualPositionEv(
     const QQuickSwitchDelegate *self) {
   return self->visualPosition();
+}
+
+//  void QQuickSwitchDelegate::positionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickSwitchDelegate15positionChangedEv(
+    QQuickSwitchDelegate *self) {
+  self->positionChanged();
+}
+
+//  void QQuickSwitchDelegate::visualPositionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQuickSwitchDelegate21visualPositionChangedEv(
+    QQuickSwitchDelegate *self) {
+  self->visualPositionChanged();
 }
 
 //  void QQuickSwitchDelegate::mouseMoveEvent(QMouseEvent *event)
@@ -109,6 +142,20 @@ void ritual_ZN20QQuickSwitchDelegate12buttonChangeEN20QQuickAbstractButton12Butt
     QQuickSwitchDelegate *self,
     QQuickAbstractButton::ButtonChange change) {
   self->buttonChange(change);
+}
+
+//  QQuickSwitchDelegatePrivate *QQuickSwitchDelegate::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickSwitchDelegatePrivate *ritual_ZN20QQuickSwitchDelegate6d_funcEv(
+    QQuickSwitchDelegate *self) {
+  return self->d_func();
+}
+
+//  const QQuickSwitchDelegatePrivate *QQuickSwitchDelegate::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickSwitchDelegatePrivate *ritual_ZNK20QQuickSwitchDelegate6d_funcEv(
+    const QQuickSwitchDelegate *self) {
+  return self->d_func();
 }
 
 //  void QQuickSwitchDelegate::mouseMoveEvent(QMouseEvent *event)

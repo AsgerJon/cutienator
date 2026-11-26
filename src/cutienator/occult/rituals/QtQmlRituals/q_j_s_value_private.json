@@ -1,11 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qjsvalue_p.h, Qt 6.12.0. Changes made",
-    "here are lost."
+    "QtQml/6.12.0/QtQml/private/qjsvalue_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN15QJSValuePrivate3tagEy": ["int", "unsigned long long"],
+    "ritual_ZN15QJSValuePrivate7pointerEy": [
+      "address", "unsigned long long"
+    ],
+    "ritual_ZN15QJSValuePrivate13encodePointerEPvNS_4KindE": [
+      "unsigned long long", "address", "int"
+    ],
     "ritual_ZN15QJSValuePrivate15encodeUndefinedEv": ["unsigned long long"],
     "ritual_ZN15QJSValuePrivate10encodeNullEv": ["unsigned long long"],
     "ritual_ZN15QJSValuePrivate8intValueEy": ["int", "unsigned long long"],
@@ -66,6 +72,12 @@
       "bool", "address", "address"
     ],
     "ritual_ZN15QJSValuePrivate4freeEP8QJSValue": ["nothing", "address"],
-    "ritual_ZN15QJSValuePrivateD1Ev": ["nothing", "address"]
+    "ritual_ZN15QJSValuePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN15QJSValuePrivate13asManagedTypeIN3QV47ManagedEEEPKT_PK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate9doublePtrEy": [
+      "address", "unsigned long long"
+    ]
   }
 }

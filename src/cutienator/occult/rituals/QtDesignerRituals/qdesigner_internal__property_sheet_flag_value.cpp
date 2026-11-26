@@ -7,6 +7,21 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_utils_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  qdesigner_internal::PropertySheetFlagValue::PropertySheetFlagValue(int v,
+//      const DesignerMetaFlags &mf)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::PropertySheetFlagValue *ritual_ZN18qdesigner_internal22PropertySheetFlagValueC1EiRKNS_17DesignerMetaFlagsE(
+    int v,
+    const qdesigner_internal::DesignerMetaFlags *mf) {
+  return new qdesigner_internal::PropertySheetFlagValue(v, *mf);
+}
+
+//  qdesigner_internal::PropertySheetFlagValue::PropertySheetFlagValue()
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::PropertySheetFlagValue *ritual_ZN18qdesigner_internal22PropertySheetFlagValueC1Ev() {
+  return new qdesigner_internal::PropertySheetFlagValue();
+}
+
 //  qdesigner_internal::PropertySheetFlagValue::~PropertySheetFlagValue()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18qdesigner_internal22PropertySheetFlagValueD1Ev(

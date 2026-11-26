@@ -15,16 +15,50 @@
       "address", "address"
     ],
     "ritual_ZNK3QV49UrlObject4hashEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject7setHashERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK3QV49UrlObject4hostEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject7setHostERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK3QV49UrlObject8hostnameEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject11setHostnameERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK3QV49UrlObject4hrefEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject7setHrefERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK3QV49UrlObject6originEv": ["text", "address"],
     "ritual_ZNK3QV49UrlObject8passwordEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject11setPasswordERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK3QV49UrlObject8pathnameEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject11setPathnameERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK3QV49UrlObject4portEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject7setPortERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK3QV49UrlObject8protocolEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject11setProtocolERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK3QV49UrlObject6searchEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject9setSearchERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK3QV49UrlObject8usernameEv": ["text", "address"],
+    "ritual_ZN3QV49UrlObject11setUsernameERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK3QV49UrlObject6toQUrlEv": ["address", "address"],
+    "ritual_ZN3QV49UrlObject6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK3QV49UrlObject6constDEv": ["address", "address"]
   }
 }

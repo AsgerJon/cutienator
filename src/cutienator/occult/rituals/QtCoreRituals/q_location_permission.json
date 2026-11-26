@@ -18,6 +18,16 @@
     ],
     "ritual_ZN19QLocationPermissionC1Ev": ["address"],
     "ritual_ZN19QLocationPermissionC1ERKS_": ["address", "address"],
-    "ritual_ZN19QLocationPermissionD1Ev": ["nothing", "address"]
+    "ritual_ZN19QLocationPermissionC1EOS_": ["address", "address"],
+    "ritual_ZN19QLocationPermissionD1Ev": ["nothing", "address"],
+    "ritual_ZN19QLocationPermissionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QLocationPermissionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QLocationPermission4swapERS_": [
+      "nothing", "address", "address"
+    ]
   }
 }

@@ -13,11 +13,22 @@
     "ritual_ZNK23QRhiResourceUpdateBatch18hasOptimalCapacityEv": [
       "bool", "address"
     ],
+    "ritual_ZN23QRhiResourceUpdateBatch19updateDynamicBufferEP10QRhiBufferjjPKv": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "address"
+    ],
     "ritual_ZN23QRhiResourceUpdateBatch19updateDynamicBufferEP10QRhiBufferj10QByteArray": [
       "nothing", "address", "address", "unsigned int", "address"
     ],
+    "ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBufferjjPKv": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "address"
+    ],
     "ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBufferj10QByteArray": [
       "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBufferPKv": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBuffer10QByteArray": [
       "nothing", "address", "address", "address"

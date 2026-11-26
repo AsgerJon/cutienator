@@ -25,6 +25,218 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickitemchangelistener_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuickTemplates2/private/qquickheaderview_p_p.h>
+#include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 84, as local:qquickheaderview.cpp:kRequiredProperty_headerView
+static const char *kRequiredProperty_headerView = "headerView";
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 85, as local:qquickheaderview.cpp:kRequiredProperty_model
+static const char *kRequiredProperty_model = "model";
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 121, as _ZN27QQuickHeaderViewBasePrivate12setModelImplERK8QVariant
+inline void QQuickHeaderViewBasePrivate::setModelImpl(const QVariant &newModel)
+{
+    m_modelExplicitlySet = newModel.isValid();
+
+    auto asTableModel = [](QAbstractItemModel *model) -> QAbstractItemModel* {
+        if (qobject_cast<QAbstractTableModel *>(model))
+            return model;
+
+        // Since QQmlTableModel is not derived from QAbstractTableModel (QATM),
+        // we have to check for this model separately. We want it to behave like
+        // QATM to keep existing code working. This model is in the Labs module,
+        // and we cannot link to it to make a qobject_cast. Therefore, we are checking
+        // the class name.
+        // TODO: When QQmlTableModel leaves Labs, change to qobject_cast?
+        if (model && QByteArrayView(model->metaObject()->className()) == "QQmlTableModel")
+            return model;
+        return nullptr;
+    };
+
+    if (auto qabstracttablemodel = asTableModel(qaim(newModel))) {
+        if (qabstracttablemodel != m_headerDataProxyModel.sourceModel()) {
+            m_headerDataProxyModel.setSourceModel(qabstracttablemodel);
+            assignedModel = QVariant::fromValue(std::addressof(m_headerDataProxyModel));
+            scheduleRebuildTable(QQuickTableViewPrivate::RebuildOption::All);
+            emit q_func()->modelChanged();
+        }
+        return;
+    }
+
+    m_headerDataProxyModel.setSourceModel(nullptr);
+    QQuickTableViewPrivate::setModelImpl(newModel);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 185, as _ZN27QQuickHeaderViewBasePrivate12syncSyncViewEv
+inline void QQuickHeaderViewBasePrivate::syncSyncView()
+{
+    if (assignedSyncDirection != orientation()) {
+        qmlWarning(q_func()) << "Setting syncDirection other than Qt::"
+                             << QVariant::fromValue(orientation()).toString()
+                             << " is invalid.";
+        assignedSyncDirection = orientation();
+    }
+    QQuickTableViewPrivate::syncSyncView();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 284, as _ZN27QQuickHeaderViewBasePrivate14setOrientationEN2Qt11OrientationE
+inline void QQuickHeaderViewBasePrivate::setOrientation(Qt::Orientation orientation)
+{
+    if (QQuickHeaderViewBasePrivate::orientation() == orientation)
+        return;
+    m_headerDataProxyModel.setOrientation(orientation);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 206, as _ZN27QQuickHeaderViewBasePrivate16initItemCallbackEiP7QObject
+inline void QQuickHeaderViewBasePrivate::initItemCallback(int modelIndex, QObject *object)
+{
+    Q_Q(QQuickHeaderViewBase);
+
+    QQuickTableViewPrivate::initItemCallback(modelIndex, object);
+
+    auto item = qobject_cast<QQuickItem *>(object);
+    if (!item)
+        return;
+
+    QQmlDelegateModelItem *modelItem = tableModel->getModelItem(modelIndex);
+
+    setRequiredProperty(kRequiredProperty_headerView, QVariant::fromValue(q),
+                        modelIndex, item, true);
+    setRequiredProperty(kRequiredProperty_model, QVariant::fromValue(modelItem->modelObject()),
+                        modelIndex, item, true);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 196, as _ZN27QQuickHeaderViewBasePrivate20selectionSourceModelEv
+inline QAbstractItemModel *QQuickHeaderViewBasePrivate::selectionSourceModel()
+{
+    // Our proxy model shares no common model items with HeaderView.model. So
+    // selections done in HeaderView cannot be represented in an ItemSelectionModel
+    // that is shared with the syncView (and for the same reason, the mapping functions
+    // modelIndex(cell) and cellAtIndex(index) have not been overridden either).
+    // Instead, we set the internal proxy model as selection source model.
+    return &m_headerDataProxyModel;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 154, as _ZN27QQuickHeaderViewBasePrivate9syncModelEv
+inline void QQuickHeaderViewBasePrivate::syncModel()
+{
+    if (!m_modelExplicitlySet && assignedSyncView) {
+        // When no model has been explicitly set, but we have a syncView, we
+        // should use the headerData() from the syncView's model as model.
+        // If the model is not a QAbstractItemModel, or if it doesn't contain
+        // any header data, header view will be empty.
+        auto syncView_d = QQuickTableViewPrivate::get(assignedSyncView);
+        auto syncViewModelAsQaim = qaim(syncView_d->assignedModel);
+        if (syncViewModelAsQaim != m_headerDataProxyModel.sourceModel()) {
+            m_headerDataProxyModel.setSourceModel(syncViewModelAsQaim); // can be nullptr
+            assignedModel = QVariant::fromValue(std::addressof(m_headerDataProxyModel));
+            emit q_func()->modelChanged();
+        }
+    }
+
+    QQuickTableViewPrivate::syncModel();
+
+    // For models that are just a list or a number, and especially not a
+    // table, we transpose the view when the orientation is horizontal.
+    // The model (list) will then be laid out horizontally rather than
+    // vertically, which is otherwise the default.
+    isTransposed = false;
+    const auto aim = model->abstractItemModel();
+    if (orientation() == Qt::Horizontal)
+        isTransposed = !aim || aim->columnCount() == 1;
+
+    if (m_textRole.isEmpty() && aim)
+        m_textRole = QLatin1String("display");
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 87, as _ZN27QQuickHeaderViewBasePrivateC2Ev
+inline QQuickHeaderViewBasePrivate::QQuickHeaderViewBasePrivate()
+    : QQuickTableViewPrivate()
+{
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 92, as _ZN27QQuickHeaderViewBasePrivateD2Ev
+inline QQuickHeaderViewBasePrivate::~QQuickHeaderViewBasePrivate()
+{
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 234, as _ZNK27QQuickHeaderViewBasePrivate14visualRowIndexEi
+inline int QQuickHeaderViewBasePrivate::visualRowIndex(const int logicalIndex) const
+{
+    return (m_headerDataProxyModel.orientation() == Qt::Horizontal) ? logicalIndex : QQuickTableViewPrivate::visualRowIndex(logicalIndex);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 224, as _ZNK27QQuickHeaderViewBasePrivate15logicalRowIndexEi
+inline int QQuickHeaderViewBasePrivate::logicalRowIndex(const int visualIndex) const
+{
+    return (m_headerDataProxyModel.orientation() == Qt::Horizontal) ? visualIndex : QQuickTableViewPrivate::logicalRowIndex(visualIndex);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 239, as _ZNK27QQuickHeaderViewBasePrivate17visualColumnIndexEi
+inline int QQuickHeaderViewBasePrivate::visualColumnIndex(const int logicalIndex) const
+{
+    return (m_headerDataProxyModel.orientation() == Qt::Vertical) ? logicalIndex : QQuickTableViewPrivate::visualColumnIndex(logicalIndex);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 229, as _ZNK27QQuickHeaderViewBasePrivate18logicalColumnIndexEi
+inline int QQuickHeaderViewBasePrivate::logicalColumnIndex(const int visualIndex) const
+{
+    return (m_headerDataProxyModel.orientation() == Qt::Vertical) ? visualIndex : QQuickTableViewPrivate::logicalColumnIndex(visualIndex);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 110, as _ZNK27QQuickHeaderViewBasePrivate9modelImplEv
+inline QVariant QQuickHeaderViewBasePrivate::modelImpl() const
+{
+    // modelImpl is supposed to return the actual model that is
+    // is used (that is, the proxy model), and not the source model.
+    if (m_headerDataProxyModel.sourceModel())
+        return QVariant::fromValue(&m_headerDataProxyModel);
+
+    // If we're not using the proxy model, use the assigned model
+    return QQuickTableViewPrivate::modelImpl();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 397, as _ZN21QHeaderDataProxyModel14setOrientationEN2Qt11OrientationE
+inline void QHeaderDataProxyModel::setOrientation(Qt::Orientation o)
+{
+    if (o == m_orientation)
+        return;
+    beginResetModel();
+    m_orientation = o;
+    endResetModel();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 406, as _ZNK21QHeaderDataProxyModel11orientationEv
+inline Qt::Orientation QHeaderDataProxyModel::orientation() const
+{
+    return m_orientation;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 279, as _ZNK27QQuickHeaderViewBasePrivate11orientationEv
+inline Qt::Orientation QQuickHeaderViewBasePrivate::orientation() const
+{
+    return m_headerDataProxyModel.orientation();
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 549, as _ZN33QQuickHorizontalHeaderViewPrivateC1Ev
+inline QQuickHorizontalHeaderViewPrivate::QQuickHorizontalHeaderViewPrivate()
+{
+    setOrientation(Qt::Horizontal);
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickheaderview.cpp, line 554, as _ZN33QQuickHorizontalHeaderViewPrivateD1Ev
+inline QQuickHorizontalHeaderViewPrivate::~QQuickHorizontalHeaderViewPrivate() = default;
+//  -----------------------------------------------------------------------
 
 //  A QQuickHorizontalHeaderViewPrivate that Python can take functions over in. Every QQuickHorizontalHeaderViewPrivate
 //  Python makes is one. Each function below asks the Python
@@ -818,6 +1030,19 @@ extern "C" Q_DECL_EXPORT
 const QQuickHorizontalHeaderView *ritual_ZNK33QQuickHorizontalHeaderViewPrivate6q_funcEv(
     const QQuickHorizontalHeaderViewPrivate *self) {
   return self->q_func();
+}
+
+//  QQuickHorizontalHeaderViewPrivate::QQuickHorizontalHeaderViewPrivate()
+extern "C" Q_DECL_EXPORT
+QQuickHorizontalHeaderViewPrivate *ritual_ZN33QQuickHorizontalHeaderViewPrivateC1Ev() {
+  return new CuteQQuickHorizontalHeaderViewPrivate();
+}
+
+//  QQuickHorizontalHeaderViewPrivate::~QQuickHorizontalHeaderViewPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QQuickHorizontalHeaderViewPrivateD1Ev(
+    QQuickHorizontalHeaderViewPrivate *self) {
+  delete self;
 }
 
 //  a Python function taken by a CuteQQuickHorizontalHeaderViewPrivate, for

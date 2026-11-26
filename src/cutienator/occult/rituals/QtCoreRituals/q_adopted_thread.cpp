@@ -25,10 +25,35 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/thread/qthread.cpp, line 130, as _ZN14QAdoptedThreadD1Ev
-inline QAdoptedThread::~QAdoptedThread()
+using namespace Qt::StringLiterals;
+
+//  from src/corelib/thread/qthread.cpp, line 46, as _ZN11QThreadDataD1Ev
+inline QThreadData::~QThreadData()
 {
-    // fprintf(stderr, "~QAdoptedThread = %p\n", this);
+#if QT_CONFIG(thread)
+    Q_ASSERT(_ref.loadRelaxed() == 0);
+#endif
+
+    if (threadId.loadAcquire() == QCoreApplicationPrivate::theMainThreadId.loadAcquire()) {
+        QCoreApplicationPrivate::theMainThread.storeRelease(nullptr);
+        QCoreApplicationPrivate::theMainThreadId.storeRelaxed(nullptr);
+        QThreadData::clearCurrentThreadData();
+    }
+
+    // ~QThread() sets thread to nullptr, so if it isn't null here, it's
+    // because we're being run before the main object itself. This can only
+    // happen for QAdoptedThread. Note that both ~QThreadPrivate() and
+    // ~QObjectPrivate() will deref this object again, but that is acceptable
+    // because this destructor is still running (the _ref sub-object has not
+    // been destroyed) and there's no reentrancy. The refcount will become
+    // negative, but that's acceptable.
+    QThread *t = thread.loadAcquire();
+    thread.storeRelease(nullptr);
+    delete t;
+
+    clearEvents();
+
+    // fprintf(stderr, "QThreadData %p destroyed\n", this);
 }
 
 //  from src/corelib/thread/qthread.cpp, line 136, as _ZN14QAdoptedThread3runEv
@@ -39,6 +64,12 @@ inline void QAdoptedThread::run()
     qFatal("QAdoptedThread::run(): Internal error, this implementation should never be called.");
 }
 #endif  // QT_CONFIG(thread)
+
+//  from src/corelib/thread/qthread.cpp, line 130, as _ZN14QAdoptedThreadD1Ev
+inline QAdoptedThread::~QAdoptedThread()
+{
+    // fprintf(stderr, "~QAdoptedThread = %p\n", this);
+}
 //  -----------------------------------------------------------------------
 
 //  A QAdoptedThread that Python can take functions over in. Every QAdoptedThread

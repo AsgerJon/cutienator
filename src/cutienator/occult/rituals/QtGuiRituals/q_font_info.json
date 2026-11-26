@@ -6,7 +6,11 @@
   "rows": {
     "ritual_ZN9QFontInfoC1ERK5QFont": ["address", "address"],
     "ritual_ZN9QFontInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN9QFontInfoC1EOS_": ["address", "address"],
     "ritual_ZN9QFontInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN9QFontInfoaSERKS_": ["address", "address", "address"],
+    "ritual_ZN9QFontInfoaSEOS_": ["address", "address", "address"],
+    "ritual_ZN9QFontInfo4swapERS_": ["nothing", "address", "address"],
     "ritual_ZNK9QFontInfo6familyEv": ["text", "address"],
     "ritual_ZNK9QFontInfo9styleNameEv": ["text", "address"],
     "ritual_ZNK9QFontInfo9pixelSizeEv": ["int", "address"],

@@ -8,6 +8,12 @@
     "ritual_ZNK31QQuick3DParticleTargetDirection10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN31QQuick3DParticleTargetDirection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuick3DParticleTargetDirection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN31QQuick3DParticleTargetDirection2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -43,6 +49,21 @@
     ],
     "ritual_ZN31QQuick3DParticleTargetDirection21setMagnitudeVariationEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN31QQuick3DParticleTargetDirection15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuick3DParticleTargetDirection24positionVariationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuick3DParticleTargetDirection17normalizedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuick3DParticleTargetDirection16magnitudeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuick3DParticleTargetDirection25magnitudeChangedVariationEv": [
+      "nothing", "address"
     ],
     "ritual_ZN31QQuick3DParticleTargetDirection6sampleERK20QQuick3DParticleData": [
       "address", "address", "address"

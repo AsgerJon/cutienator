@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/qnodeid.h>
 #include <cstring>
+#include <Qt3DCore/Qt3DCore>
 
 //  A Qt3DRender::Render::GeometryRenderer that Python can take functions over in. Every Qt3DRender::Render::GeometryRenderer
 //  Python makes is one. Each function below asks the Python
@@ -40,6 +41,55 @@ public:
     Qt3DRender::Render::GeometryRenderer::syncFromFrontEnd(frontEnd, firstTime);
   }
 };
+
+//  Qt3DRender::Render::GeometryRenderer::GeometryRenderer()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::GeometryRenderer *ritual_ZN10Qt3DRender6Render16GeometryRendererC1Ev() {
+  return new CuteQt3DRender_Render_GeometryRenderer();
+}
+
+//  Qt3DRender::Render::GeometryRenderer::~GeometryRenderer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render16GeometryRendererD1Ev(
+    Qt3DRender::Render::GeometryRenderer *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::GeometryRenderer::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render16GeometryRenderer7cleanupEv(
+    Qt3DRender::Render::GeometryRenderer *self) {
+  self->cleanup();
+}
+
+//  void
+//      Qt3DRender::Render::GeometryRenderer::setManager(GeometryRendererMana
+//      ger *manager)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render16GeometryRenderer10setManagerEPNS0_23GeometryRendererManagerE(
+    Qt3DRender::Render::GeometryRenderer *self,
+    Qt3DRender::Render::GeometryRendererManager *manager) {
+  self->setManager(manager);
+}
+
+//  void Qt3DRender::Render::GeometryRenderer::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render16GeometryRenderer16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::GeometryRenderer *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  GeometryFunctorResult
+//      Qt3DRender::Render::GeometryRenderer::executeFunctor()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::GeometryFunctorResult *ritual_ZN10Qt3DRender6Render16GeometryRenderer14executeFunctorEv(
+    Qt3DRender::Render::GeometryRenderer *self) {
+  return new Qt3DRender::Render::GeometryFunctorResult(
+      self->executeFunctor());
+}
 
 //  Qt3DCore::QNodeId Qt3DRender::Render::GeometryRenderer::geometryId()
 //      const
@@ -128,6 +178,21 @@ bool ritual_ZNK10Qt3DRender6Render16GeometryRenderer7isDirtyEv(
   return self->isDirty();
 }
 
+//  Qt3DCore::QGeometryFactoryPtr
+//      Qt3DRender::Render::GeometryRenderer::geometryFactory() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QGeometryFactoryPtr *ritual_ZNK10Qt3DRender6Render16GeometryRenderer15geometryFactoryEv(
+    const Qt3DRender::Render::GeometryRenderer *self) {
+  return new Qt3DCore::QGeometryFactoryPtr(self->geometryFactory());
+}
+
+//  void Qt3DRender::Render::GeometryRenderer::unsetDirty()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render16GeometryRenderer10unsetDirtyEv(
+    Qt3DRender::Render::GeometryRenderer *self) {
+  self->unsetDirty();
+}
+
 //  bool Qt3DRender::Render::GeometryRenderer::hasView() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10Qt3DRender6Render16GeometryRenderer7hasViewEv(
@@ -162,4 +227,12 @@ void ritual_own_ZN10Qt3DRender6Render16GeometryRenderer16syncFromFrontEndEPKN8Qt
   self->Qt3DRender::Render::GeometryRenderer::syncFromFrontEnd(
       frontEnd,
       firstTime);
+}
+
+//  a Qt3DCore::QGeometryFactoryPtr a ritual of
+//      Qt3DRender::Render::GeometryRenderer gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_Render_GeometryRenderer__Qt3DCore_QGeometryFactoryPtr(
+    Qt3DCore::QGeometryFactoryPtr *self) {
+  delete self;
 }

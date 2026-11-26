@@ -56,6 +56,12 @@
     "ritual_ZN12QCanBusFrame12setLocalEchoEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZlsR11QDataStreamRK12QCanBusFrame": [
+      "address", "address", "address"
+    ],
+    "ritual_ZrsR11QDataStreamR12QCanBusFrame": [
+      "address", "address", "address"
+    ],
     "ritual_ZN12QCanBusFrameD1Ev": ["nothing", "address"],
     "ritual_list_make_QCanBusFrame": ["address"],
     "ritual_list_add_QCanBusFrame": ["nothing", "address", "address"],

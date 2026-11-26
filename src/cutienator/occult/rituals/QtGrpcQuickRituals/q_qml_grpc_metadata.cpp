@@ -188,6 +188,25 @@ const QMetaObject *ritual_ZNK16QQmlGrpcMetadata10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlGrpcMetadata::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QQmlGrpcMetadata11qt_metacastEPKc(
+    QQmlGrpcMetadata *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlGrpcMetadata::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QQmlGrpcMetadata11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlGrpcMetadata *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlGrpcMetadata::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QQmlGrpcMetadata2trEPKcS1_i(
@@ -209,6 +228,14 @@ void ritual_ZN16QQmlGrpcMetadataD1Ev(QQmlGrpcMetadata *self) {
   delete self;
 }
 
+//  const QMultiHash<QByteArray, QByteArray> &QQmlGrpcMetadata::metadata()
+//      const
+extern "C" Q_DECL_EXPORT
+const QMultiHash<QByteArray, QByteArray> *ritual_ZNKR16QQmlGrpcMetadata8metadataEv(
+    const QQmlGrpcMetadata *self) {
+  return &(self->metadata());
+}
+
 //  const QVariantMap &QQmlGrpcMetadata::data() const
 extern "C" Q_DECL_EXPORT
 QMap<QString, QVariant> *ritual_ZNK16QQmlGrpcMetadata4dataEv(
@@ -222,6 +249,12 @@ void ritual_ZN16QQmlGrpcMetadata7setDataERK4QMapI7QString8QVariantE(
     QQmlGrpcMetadata *self,
     const QMap<QString, QVariant> *data) {
   self->setData(*data);
+}
+
+//  void QQmlGrpcMetadata::dataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QQmlGrpcMetadata11dataChangedEv(QQmlGrpcMetadata *self) {
+  self->dataChanged();
 }
 
 //  a Python function taken by a CuteQQmlGrpcMetadata, for the function named

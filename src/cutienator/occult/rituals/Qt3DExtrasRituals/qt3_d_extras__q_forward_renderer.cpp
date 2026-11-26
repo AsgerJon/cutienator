@@ -2,6 +2,9 @@
 //  Qt3DExtras/qforwardrenderer.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DExtras/qforwardrenderer.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
+#include <QtGui/qcolor.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +182,25 @@ const QMetaObject *ritual_ZNK10Qt3DExtras16QForwardRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QForwardRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras16QForwardRenderer11qt_metacastEPKc(
+    Qt3DExtras::QForwardRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DExtras::QForwardRenderer::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras16QForwardRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QForwardRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QForwardRenderer::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +209,240 @@ QString *ritual_ZN10Qt3DExtras16QForwardRenderer2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QForwardRenderer::tr(s, c, n));
+}
+
+//  Qt3DExtras::QForwardRenderer::QForwardRenderer(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QForwardRenderer *ritual_ZN10Qt3DExtras16QForwardRendererC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QForwardRenderer(parent);
+}
+
+//  Qt3DExtras::QForwardRenderer::~QForwardRenderer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRendererD1Ev(
+    Qt3DExtras::QForwardRenderer *self) {
+  delete self;
+}
+
+//  QRectF Qt3DExtras::QForwardRenderer::viewportRect() const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK10Qt3DExtras16QForwardRenderer12viewportRectEv(
+    const Qt3DExtras::QForwardRenderer *self) {
+  return new QRectF(self->viewportRect());
+}
+
+//  QColor Qt3DExtras::QForwardRenderer::clearColor() const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_ZNK10Qt3DExtras16QForwardRenderer10clearColorEv(
+    const Qt3DExtras::QForwardRenderer *self) {
+  return new QColor(self->clearColor());
+}
+
+//  Qt3DRender::QClearBuffers::BufferType
+//      Qt3DExtras::QForwardRenderer::buffersToClear() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QClearBuffers::BufferType ritual_ZNK10Qt3DExtras16QForwardRenderer14buffersToClearEv(
+    const Qt3DExtras::QForwardRenderer *self) {
+  return self->buffersToClear();
+}
+
+//  Qt3DCore::QEntity *Qt3DExtras::QForwardRenderer::camera() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEntity *ritual_ZNK10Qt3DExtras16QForwardRenderer6cameraEv(
+    const Qt3DExtras::QForwardRenderer *self) {
+  return self->camera();
+}
+
+//  QObject *Qt3DExtras::QForwardRenderer::surface() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK10Qt3DExtras16QForwardRenderer7surfaceEv(
+    const Qt3DExtras::QForwardRenderer *self) {
+  return self->surface();
+}
+
+//  QSize Qt3DExtras::QForwardRenderer::externalRenderTargetSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10Qt3DExtras16QForwardRenderer24externalRenderTargetSizeEv(
+    const Qt3DExtras::QForwardRenderer *self) {
+  return new QSize(self->externalRenderTargetSize());
+}
+
+//  bool Qt3DExtras::QForwardRenderer::isFrustumCullingEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras16QForwardRenderer23isFrustumCullingEnabledEv(
+    const Qt3DExtras::QForwardRenderer *self) {
+  return self->isFrustumCullingEnabled();
+}
+
+//  float Qt3DExtras::QForwardRenderer::gamma() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DExtras16QForwardRenderer5gammaEv(
+    const Qt3DExtras::QForwardRenderer *self) {
+  return self->gamma();
+}
+
+//  bool Qt3DExtras::QForwardRenderer::showDebugOverlay() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DExtras16QForwardRenderer16showDebugOverlayEv(
+    const Qt3DExtras::QForwardRenderer *self) {
+  return self->showDebugOverlay();
+}
+
+//  void Qt3DExtras::QForwardRenderer::setViewportRect(const QRectF
+//      &viewportRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer15setViewportRectERK6QRectF(
+    Qt3DExtras::QForwardRenderer *self,
+    const QRectF *viewportRect) {
+  self->setViewportRect(*viewportRect);
+}
+
+//  void Qt3DExtras::QForwardRenderer::setClearColor(const QColor
+//      &clearColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer13setClearColorERK6QColor(
+    Qt3DExtras::QForwardRenderer *self,
+    const QColor *clearColor) {
+  self->setClearColor(*clearColor);
+}
+
+//  void Qt3DExtras::QForwardRenderer::setBuffersToClear(Qt3DRender::QClearBu
+//      ffers::BufferType a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer17setBuffersToClearEN10Qt3DRender13QClearBuffers10BufferTypeE(
+    Qt3DExtras::QForwardRenderer *self,
+    Qt3DRender::QClearBuffers::BufferType a0) {
+  self->setBuffersToClear(a0);
+}
+
+//  void Qt3DExtras::QForwardRenderer::setCamera(Qt3DCore::QEntity *camera)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer9setCameraEPN8Qt3DCore7QEntityE(
+    Qt3DExtras::QForwardRenderer *self,
+    Qt3DCore::QEntity *camera) {
+  self->setCamera(camera);
+}
+
+//  void Qt3DExtras::QForwardRenderer::setSurface(QObject *surface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer10setSurfaceEP7QObject(
+    Qt3DExtras::QForwardRenderer *self,
+    QObject *surface) {
+  self->setSurface(surface);
+}
+
+//  void Qt3DExtras::QForwardRenderer::setExternalRenderTargetSize(const
+//      QSize &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer27setExternalRenderTargetSizeERK5QSize(
+    Qt3DExtras::QForwardRenderer *self,
+    const QSize *size) {
+  self->setExternalRenderTargetSize(*size);
+}
+
+//  void Qt3DExtras::QForwardRenderer::setFrustumCullingEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer24setFrustumCullingEnabledEb(
+    Qt3DExtras::QForwardRenderer *self,
+    bool enabled) {
+  self->setFrustumCullingEnabled(enabled);
+}
+
+//  void Qt3DExtras::QForwardRenderer::setGamma(float gamma)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer8setGammaEf(
+    Qt3DExtras::QForwardRenderer *self,
+    float gamma) {
+  self->setGamma(gamma);
+}
+
+//  void Qt3DExtras::QForwardRenderer::setShowDebugOverlay(bool
+//      showDebugOverlay)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer19setShowDebugOverlayEb(
+    Qt3DExtras::QForwardRenderer *self,
+    bool showDebugOverlay) {
+  self->setShowDebugOverlay(showDebugOverlay);
+}
+
+//  void Qt3DExtras::QForwardRenderer::viewportRectChanged(const QRectF
+//      &viewportRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer19viewportRectChangedERK6QRectF(
+    Qt3DExtras::QForwardRenderer *self,
+    const QRectF *viewportRect) {
+  self->viewportRectChanged(*viewportRect);
+}
+
+//  void Qt3DExtras::QForwardRenderer::clearColorChanged(const QColor
+//      &clearColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer17clearColorChangedERK6QColor(
+    Qt3DExtras::QForwardRenderer *self,
+    const QColor *clearColor) {
+  self->clearColorChanged(*clearColor);
+}
+
+//  void Qt3DExtras::QForwardRenderer::buffersToClearChanged(Qt3DRender::QCle
+//      arBuffers::BufferType a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer21buffersToClearChangedEN10Qt3DRender13QClearBuffers10BufferTypeE(
+    Qt3DExtras::QForwardRenderer *self,
+    Qt3DRender::QClearBuffers::BufferType a0) {
+  self->buffersToClearChanged(a0);
+}
+
+//  void Qt3DExtras::QForwardRenderer::cameraChanged(Qt3DCore::QEntity
+//      *camera)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer13cameraChangedEPN8Qt3DCore7QEntityE(
+    Qt3DExtras::QForwardRenderer *self,
+    Qt3DCore::QEntity *camera) {
+  self->cameraChanged(camera);
+}
+
+//  void Qt3DExtras::QForwardRenderer::surfaceChanged(QObject *surface)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer14surfaceChangedEP7QObject(
+    Qt3DExtras::QForwardRenderer *self,
+    QObject *surface) {
+  self->surfaceChanged(surface);
+}
+
+//  void Qt3DExtras::QForwardRenderer::externalRenderTargetSizeChanged(const
+//      QSize &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer31externalRenderTargetSizeChangedERK5QSize(
+    Qt3DExtras::QForwardRenderer *self,
+    const QSize *size) {
+  self->externalRenderTargetSizeChanged(*size);
+}
+
+//  void Qt3DExtras::QForwardRenderer::frustumCullingEnabledChanged(bool
+//      enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer28frustumCullingEnabledChangedEb(
+    Qt3DExtras::QForwardRenderer *self,
+    bool enabled) {
+  self->frustumCullingEnabledChanged(enabled);
+}
+
+//  void Qt3DExtras::QForwardRenderer::gammaChanged(float gamma)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer12gammaChangedEf(
+    Qt3DExtras::QForwardRenderer *self,
+    float gamma) {
+  self->gammaChanged(gamma);
+}
+
+//  void Qt3DExtras::QForwardRenderer::showDebugOverlayChanged(bool
+//      showDebugOverlay)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras16QForwardRenderer23showDebugOverlayChangedEb(
+    Qt3DExtras::QForwardRenderer *self,
+    bool showDebugOverlay) {
+  self->showDebugOverlayChanged(showDebugOverlay);
 }
 
 //  QForwardRendererPrivate *Qt3DExtras::QForwardRenderer::d_func()

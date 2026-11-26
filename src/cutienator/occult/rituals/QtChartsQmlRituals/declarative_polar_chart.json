@@ -8,6 +8,12 @@
     "ritual_ZNK21DeclarativePolarChart10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21DeclarativePolarChart11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21DeclarativePolarChart11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21DeclarativePolarChart2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

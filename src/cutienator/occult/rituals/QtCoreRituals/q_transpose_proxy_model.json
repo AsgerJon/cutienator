@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QTransposeProxyModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QTransposeProxyModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QTransposeProxyModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QTransposeProxyModel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -69,6 +75,9 @@
     ],
     "ritual_ZN20QTransposeProxyModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QTransposeProxyModelC1ER27QTransposeProxyModelPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_take_QTransposeProxyModel": [
       "bool", "address", "chars", "address"

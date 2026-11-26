@@ -53,6 +53,34 @@ public:
   }
 };
 
+//  Qt3DCore::QGeometryViewPrivate::QGeometryViewPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QGeometryViewPrivate *ritual_ZN8Qt3DCore20QGeometryViewPrivateC1Ev() {
+  return new CuteQt3DCore_QGeometryViewPrivate();
+}
+
+//  Qt3DCore::QGeometryViewPrivate::~QGeometryViewPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QGeometryViewPrivateD1Ev(
+    Qt3DCore::QGeometryViewPrivate *self) {
+  delete self;
+}
+
+//  QGeometryViewPrivate *Qt3DCore::QGeometryViewPrivate::get(QGeometryView
+//      *q)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QGeometryViewPrivate *ritual_ZN8Qt3DCore20QGeometryViewPrivate3getEPNS_13QGeometryViewE(
+    Qt3DCore::QGeometryView *q) {
+  return Qt3DCore::QGeometryViewPrivate::get(q);
+}
+
+//  void Qt3DCore::QGeometryViewPrivate::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore20QGeometryViewPrivate6updateEv(
+    Qt3DCore::QGeometryViewPrivate *self) {
+  self->update();
+}
+
 //  QGeometryView *Qt3DCore::QGeometryViewPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DCore::QGeometryView *ritual_ZN8Qt3DCore20QGeometryViewPrivate6q_funcEv(

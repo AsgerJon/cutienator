@@ -179,6 +179,14 @@ public:
   }
 };
 
+//  QDeclarativePolylineMapItemPrivate::QDeclarativePolylineMapItemPrivate(QD
+//      eclarativePolylineMapItem &poly)
+extern "C" Q_DECL_EXPORT
+QDeclarativePolylineMapItemPrivate *ritual_ZN34QDeclarativePolylineMapItemPrivateC1ER27QDeclarativePolylineMapItem(
+    QDeclarativePolylineMapItem *poly) {
+  return new CuteQDeclarativePolylineMapItemPrivate(*poly);
+}
+
 //  QDeclarativePolylineMapItemPrivate::~QDeclarativePolylineMapItemPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN34QDeclarativePolylineMapItemPrivateD1Ev(

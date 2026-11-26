@@ -16,6 +16,9 @@
     "ritual_ZNK25QStandardItemModelPrivate13itemFromIndexERK11QModelIndex": [
       "address", "address", "address"
     ],
+    "ritual_ZN25QStandardItemModelPrivate11itemChangedEP13QStandardItemRK5QListIiE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN25QStandardItemModelPrivate21rowsAboutToBeInsertedEP13QStandardItemii": [
       "nothing", "address", "address", "int", "int"
     ],
@@ -42,6 +45,12 @@
     ],
     "ritual_ZN25QStandardItemModelPrivate18_q_emitItemChangedERK11QModelIndexS2_": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate19decodeDataRecursiveER11QDataStreamP13QStandardItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate28_qt_property_sortRole_offsetEv": [
+      "size_t"
     ],
     "ritual_take_QStandardItemModelPrivate": [
       "bool", "address", "chars", "address"

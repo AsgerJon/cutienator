@@ -8,20 +8,105 @@
     "ritual_ZN19QGrpcChannelOptionsC1Ev": ["address"],
     "ritual_ZN19QGrpcChannelOptionsD1Ev": ["nothing", "address"],
     "ritual_ZN19QGrpcChannelOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZN19QGrpcChannelOptionsaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptionsC1EOS_": ["address", "address"],
+    "ritual_ZN19QGrpcChannelOptionsaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK19QGrpcChannelOptionscv8QVariantEv": ["address", "address"],
+    "ritual_ZN19QGrpcChannelOptions4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGrpcChannelOptions15deadlineTimeoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions18setDeadlineTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNKR19QGrpcChannelOptions8metadataEv": ["address", "address"],
+    "ritual_ZN19QGrpcChannelOptions11setMetadataERK5QHashI10QByteArrayS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions11setMetadataEO5QHashI10QByteArrayS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNKR19QGrpcChannelOptions8metadataEN6QtGrpc12MultiValue_tE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions11setMetadataERK10QMultiHashI10QByteArrayS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions11setMetadataEO10QMultiHashI10QByteArrayS1_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions11setMetadataESt16initializer_listISt4pairI10QByteArrayS2_EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions11addMetadataE14QByteArrayViewS0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QGrpcChannelOptions20filterServerMetadataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions23setFilterServerMetadataEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK19QGrpcChannelOptions25maximumReceiveMessageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions28setMaximumReceiveMessageSizeEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK19QGrpcChannelOptions18requestCompressionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions21setRequestCompressionEN6QtGrpc20CompressionAlgorithmE": [
+      "address", "address", "unsigned int"
+    ],
     "ritual_ZN19QGrpcChannelOptions30supportedCompressionAlgorithmsEv": [
       "int"
     ],
     "ritual_ZNK19QGrpcChannelOptions29acceptedCompressionAlgorithmsEv": [
       "int", "address"
     ],
+    "ritual_ZN19QGrpcChannelOptions32setAcceptedCompressionAlgorithmsE6QFlagsIN6QtGrpc20CompressionAlgorithmEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK19QGrpcChannelOptions19serializationFormatEv": [
       "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions22setSerializationFormatERK24QGrpcSerializationFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QGrpcChannelOptions16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions19setSslConfigurationERK17QSslConfiguration": [
+      "address", "address", "address"
     ],
     "ritual_ZeqRK19QGrpcChannelOptionsS1_": ["bool", "address", "address"],
     "ritual_ZneRK19QGrpcChannelOptionsS1_": ["bool", "address", "address"],
     "ritual_Zls6QDebugRK19QGrpcChannelOptions": [
       "address", "address", "address"
+    ],
+    "ritual_ZN19QGrpcChannelOptions6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QGrpcChannelOptions6d_funcEv": ["address", "address"],
+    "ritual_drop_QGrpcChannelOptions__std_optional_std_chrono_milliseconds": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcChannelOptions__std_optional_bool": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcChannelOptions__std_optional_quint64": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcChannelOptions__std_optional_QtGrpc_CompressionAlgorithm": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QGrpcChannelOptions__std_optional_QSslConfiguration": [
+      "nothing", "address"
     ]
   }
 }

@@ -5,6 +5,9 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN24QSequentialConstIteratorC1EO14QConstIteratorI13QMetaSequenceE": [
+      "address", "address"
+    ],
     "ritual_ZNK24QSequentialConstIteratordeEv": ["address", "address"]
   }
 }

@@ -5,6 +5,48 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal16MetaDataBaseItemC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16MetaDataBaseItemD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal16MetaDataBaseItem4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16MetaDataBaseItem7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal16MetaDataBaseItem8tabOrderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16MetaDataBaseItem11setTabOrderERK5QListIP7QWidgetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal16MetaDataBaseItem7enabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16MetaDataBaseItem10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal16MetaDataBaseItem15customClassNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16MetaDataBaseItem18setCustomClassNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal16MetaDataBaseItem9fakeSlotsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16MetaDataBaseItem12setFakeSlotsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal16MetaDataBaseItem11fakeSignalsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal16MetaDataBaseItem14setFakeSignalsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_qdesigner_internal_MetaDataBaseItem": [
       "bool", "address", "chars", "address"
     ],

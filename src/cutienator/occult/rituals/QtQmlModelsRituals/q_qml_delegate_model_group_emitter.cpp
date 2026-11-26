@@ -12,6 +12,43 @@
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlchangeset_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQmlModels/private/qqmldelegatemodel_p_p.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtQml/private/qjsvalue_p.h>
+#include <QtCore/private/qmetaobjectbuilder_p.h>
+#include <QtQmlModels/private/qqmlabstractdelegatecomponent_p.h>
+#include <QtQmlModels/private/qqmladaptormodel_p.h>
+#include <QtQml/private/qqmlanybinding_p.h>
+#include <QtQmlModels/private/qqmlchangeset_p.h>
+#include <QtQml/private/qqmlcomponent_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlpropertytopropertybinding_p.h>
+#include <QtQmlModels/private/qqmltableinstancemodel_p.h>
+#include <QtQmlModels/private/qquickpackage_p.h>
+#include <QtQml/private/qv4functionobject_p.h>
+#include <QtQml/private/qv4objectiterator_p.h>
+#include <QtQml/private/qv4value_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1233, as _ZN29QQmlDelegateModelGroupEmitter14createdPackageEiP13QQuickPackage
+inline void QQmlDelegateModelGroupEmitter::createdPackage(int, QQuickPackage *) {}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1234, as _ZN29QQmlDelegateModelGroupEmitter11initPackageEiP13QQuickPackage
+inline void QQmlDelegateModelGroupEmitter::initPackage(int, QQuickPackage *) {}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1235, as _ZN29QQmlDelegateModelGroupEmitter17destroyingPackageEP13QQuickPackage
+inline void QQmlDelegateModelGroupEmitter::destroyingPackage(QQuickPackage *) {}
+//  -----------------------------------------------------------------------
 
 //  A QQmlDelegateModelGroupEmitter that Python can take functions over in. Every QQmlDelegateModelGroupEmitter
 //  Python makes is one. Each function below asks the Python
@@ -172,6 +209,34 @@ bool ritual_take_QQmlDelegateModelGroupEmitter(
     const char *key,
     void *call) {
   return static_cast<CuteQQmlDelegateModelGroupEmitter *>(self)->take(key, call);
+}
+
+//  void QQmlDelegateModelGroupEmitter::createdPackage(int a0, QQuickPackage
+//      *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QQmlDelegateModelGroupEmitter14createdPackageEiP13QQuickPackage(
+    QQmlDelegateModelGroupEmitter *self,
+    int a0,
+    QQuickPackage *a1) {
+  self->QQmlDelegateModelGroupEmitter::createdPackage(a0, a1);
+}
+
+//  void QQmlDelegateModelGroupEmitter::initPackage(int a0, QQuickPackage
+//      *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QQmlDelegateModelGroupEmitter11initPackageEiP13QQuickPackage(
+    QQmlDelegateModelGroupEmitter *self,
+    int a0,
+    QQuickPackage *a1) {
+  self->QQmlDelegateModelGroupEmitter::initPackage(a0, a1);
+}
+
+//  void QQmlDelegateModelGroupEmitter::destroyingPackage(QQuickPackage *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN29QQmlDelegateModelGroupEmitter17destroyingPackageEP13QQuickPackage(
+    QQmlDelegateModelGroupEmitter *self,
+    QQuickPackage *a0) {
+  self->QQmlDelegateModelGroupEmitter::destroyingPackage(a0);
 }
 
 #endif  // QT_CONFIG(qml_delegate_model)

@@ -15,7 +15,7 @@ typedef void (*CuteQt3DRender_Render_MSAAEnabledCall0)(const void *, const Qt3DR
 class CuteQt3DRender_Render_MSAAEnabled : public Qt3DRender::Render::MSAAEnabled {
 public:
   using Qt3DRender::Render::MSAAEnabled::MSAAEnabled;
-  CuteQt3DRender_Render_MSAAEnabled(const Qt3DRender::Render::MSAAEnabled &other) : Qt3DRender::Render::MSAAEnabled(other) {}
+  CuteQt3DRender_Render_MSAAEnabled(const Qt3DRender::Render::MSAAEnabled & other) : Qt3DRender::Render::MSAAEnabled(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -38,6 +38,15 @@ public:
     Qt3DRender::Render::MSAAEnabled::updateProperties(node);
   }
 };
+
+//  void Qt3DRender::Render::MSAAEnabled::updateProperties(const QRenderState
+//      *node)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render11MSAAEnabled16updatePropertiesEPKNS_12QRenderStateE(
+    Qt3DRender::Render::MSAAEnabled *self,
+    const Qt3DRender::QRenderState *node) {
+  self->updateProperties(node);
+}
 
 //  Qt3DRender::Render::MSAAEnabled::~MSAAEnabled()
 extern "C" Q_DECL_EXPORT

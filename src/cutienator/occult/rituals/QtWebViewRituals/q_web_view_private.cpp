@@ -644,6 +644,16 @@ QWindow *ritual_ZNK15QWebViewPrivate12nativeWindowEv(
   return self->nativeWindow();
 }
 
+//  void QWebViewPrivate::runJavaScript(const QString &script, const
+//      std::function<void (const QVariant &)> &resultCallback)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QWebViewPrivate13runJavaScriptERK7QStringRKSt8functionIFvRK8QVariantEE(
+    QWebViewPrivate *self,
+    const QString *script,
+    const std::function<void (const QVariant &)> *resultCallback) {
+  self->runJavaScript(*script, *resultCallback);
+}
+
 //  a Python function taken by a CuteQWebViewPrivate, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

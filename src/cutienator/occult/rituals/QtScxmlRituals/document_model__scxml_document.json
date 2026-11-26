@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlcompiler_p.h, Qt 6.12.0.",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN13DocumentModel13ScxmlDocumentC1ERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN13DocumentModel13ScxmlDocumentD1Ev": ["nothing", "address"],
+    "ritual_ZN13DocumentModel13ScxmlDocument8newStateEPNS_14StateContainerENS_5State4TypeERKNS_11XmlLocationE": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN13DocumentModel13ScxmlDocument15newHistoryStateEPNS_14StateContainerERKNS_11XmlLocationE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel13ScxmlDocument13newTransitionEPNS_14StateContainerERKNS_11XmlLocationE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel13ScxmlDocument11newSequenceEP5QListIPS1_IPNS_11InstructionEEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel13ScxmlDocument7newNodeINS_5StateEEEPT_RKNS_11XmlLocationE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel13ScxmlDocument7newNodeINS_12HistoryStateEEEPT_RKNS_11XmlLocationE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel13ScxmlDocument7newNodeINS_10TransitionEEEPT_RKNS_11XmlLocationE": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11SizeWatcher10metaObjectEv": ["address", "address"],
+    "ritual_ZN11SizeWatcher11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11SizeWatcher11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_take_SizeWatcher": ["bool", "address", "chars", "address"]
   }
 }

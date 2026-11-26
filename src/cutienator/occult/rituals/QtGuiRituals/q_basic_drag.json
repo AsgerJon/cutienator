@@ -11,6 +11,7 @@
     "ritual_ZN10QBasicDrag11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN10QBasicDragC1Ev": ["address"],
     "ritual_ZN10QBasicDrag9startDragEv": ["nothing", "address"],
     "ritual_ZN10QBasicDrag6cancelEv": ["nothing", "address"],
     "ritual_ZN10QBasicDrag4moveERK6QPoint6QFlagsIN2Qt11MouseButtonEES3_INS4_16KeyboardModifierEE": [

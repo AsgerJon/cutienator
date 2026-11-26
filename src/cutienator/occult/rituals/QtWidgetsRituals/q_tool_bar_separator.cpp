@@ -30,15 +30,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/widgets/qtoolbarseparator.cpp, line 34, as _ZNK17QToolBarSeparator8sizeHintEv
-inline QSize QToolBarSeparator::sizeHint() const
-{
-    QStyleOption opt;
-    initStyleOption(&opt);
-    const int extent = style()->pixelMetric(QStyle::PM_ToolBarSeparatorExtent, &opt, parentWidget());
-    return QSize(extent, extent);
-}
-
 //  from src/widgets/widgets/qtoolbarseparator.cpp, line 42, as _ZN17QToolBarSeparator10paintEventEP11QPaintEvent
 inline void QToolBarSeparator::paintEvent(QPaintEvent *)
 {
@@ -48,11 +39,25 @@ inline void QToolBarSeparator::paintEvent(QPaintEvent *)
     style()->drawPrimitive(QStyle::PE_IndicatorToolBarSeparator, &opt, &p, parentWidget());
 }
 
-//  from src/widgets/widgets/qtoolbarseparator.cpp, line 25, as _ZN17QToolBarSeparator14setOrientationEN2Qt11OrientationE
-inline void QToolBarSeparator::setOrientation(Qt::Orientation orientation)
+//  from src/widgets/widgets/qtoolbarseparator.cpp, line 34, as _ZNK17QToolBarSeparator8sizeHintEv
+inline QSize QToolBarSeparator::sizeHint() const
 {
-    orient = orientation;
-    update();
+    QStyleOption opt;
+    initStyleOption(&opt);
+    const int extent = style()->pixelMetric(QStyle::PM_ToolBarSeparatorExtent, &opt, parentWidget());
+    return QSize(extent, extent);
+}
+
+//  from src/widgets/widgets/qtoolbarseparator.cpp, line 31, as _ZNK17QToolBarSeparator11orientationEv
+inline Qt::Orientation QToolBarSeparator::orientation() const
+{ return orient; }
+
+//  from src/widgets/widgets/qtoolbarseparator.cpp, line 14, as _ZNK17QToolBarSeparator15initStyleOptionEP12QStyleOption
+inline void QToolBarSeparator::initStyleOption(QStyleOption *option) const
+{
+    option->initFrom(this);
+    if (orientation() == Qt::Horizontal)
+        option->state |= QStyle::State_Horizontal;
 }
 //  -----------------------------------------------------------------------
 
@@ -914,6 +919,32 @@ const QMetaObject *ritual_ZNK17QToolBarSeparator10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QToolBarSeparator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QToolBarSeparator11qt_metacastEPKc(
+    QToolBarSeparator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QToolBarSeparator::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QToolBarSeparator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QToolBarSeparator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  Qt::Orientation QToolBarSeparator::orientation() const
+extern "C" Q_DECL_EXPORT
+Qt::Orientation ritual_ZNK17QToolBarSeparator11orientationEv(
+    const QToolBarSeparator *self) {
+  return self->orientation();
+}
+
 //  QSize QToolBarSeparator::sizeHint() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK17QToolBarSeparator8sizeHintEv(
@@ -929,12 +960,39 @@ void ritual_ZN17QToolBarSeparator10paintEventEP11QPaintEvent(
   self->paintEvent(a0);
 }
 
+//  void QToolBarSeparator::initStyleOption(QStyleOption *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QToolBarSeparator15initStyleOptionEP12QStyleOption(
+    const QToolBarSeparator *self,
+    QStyleOption *option) {
+  self->initStyleOption(option);
+}
+
 //  void QToolBarSeparator::setOrientation(Qt::Orientation orientation)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QToolBarSeparator14setOrientationEN2Qt11OrientationE(
     QToolBarSeparator *self,
     Qt::Orientation orientation) {
-  self->setOrientation(orientation);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QToolBarSeparator")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setOrientation(Qt::Orientation)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setOrientation(Qt::Orientation)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&orientation)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQToolBarSeparator, for the function
@@ -945,6 +1003,21 @@ bool ritual_take_QToolBarSeparator(
     const char *key,
     void *call) {
   return static_cast<CuteQToolBarSeparator *>(self)->take(key, call);
+}
+
+//  QSize QToolBarSeparator::sizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK17QToolBarSeparator8sizeHintEv(
+    const QToolBarSeparator *self) {
+  return new QSize(self->QToolBarSeparator::sizeHint());
+}
+
+//  void QToolBarSeparator::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN17QToolBarSeparator10paintEventEP11QPaintEvent(
+    QToolBarSeparator *self,
+    QPaintEvent *a0) {
+  self->QToolBarSeparator::paintEvent(a0);
 }
 
 #endif  // QT_CONFIG(toolbar)

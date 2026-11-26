@@ -70,6 +70,21 @@ public:
   }
 };
 
+//  QPlatformOffscreenSurfacePrivate *QPlatformOffscreenSurface::d_func()
+extern "C" Q_DECL_EXPORT
+QPlatformOffscreenSurfacePrivate *ritual_ZN25QPlatformOffscreenSurface6d_funcEv(
+    QPlatformOffscreenSurface *self) {
+  return self->d_func();
+}
+
+//  const QPlatformOffscreenSurfacePrivate
+//      *QPlatformOffscreenSurface::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPlatformOffscreenSurfacePrivate *ritual_ZNK25QPlatformOffscreenSurface6d_funcEv(
+    const QPlatformOffscreenSurface *self) {
+  return self->d_func();
+}
+
 //  QPlatformOffscreenSurface::QPlatformOffscreenSurface(QOffscreenSurface
 //      *offscreenSurface)
 extern "C" Q_DECL_EXPORT

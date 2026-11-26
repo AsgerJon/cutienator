@@ -11,6 +11,15 @@
     "ritual_ZNK3QV413VariantObject1dEv": ["address", "address"],
     "ritual_ZN3QV413VariantObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
+    ],
+    "ritual_ZNK3QV413VariantObject23addVmePropertyReferenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV413VariantObject26removeVmePropertyReferenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV413VariantObject16virtualIsEqualToEPNS_7ManagedES2_": [
+      "bool", "address", "address"
     ]
   }
 }

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qbytearraymatcher.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qbytearraymatcher.h>
+#include <QtCore/QStaticByteArrayMatcherBase>
 
 //  QStaticByteArrayMatcherBase::QStaticByteArrayMatcherBase(const char
 //      *pattern, size_t n)
@@ -30,4 +31,24 @@ qsizetype ritual_ZNK27QStaticByteArrayMatcherBase9indexOfInEPKcmS1_xx(
     qsizetype hlen,
     qsizetype from) {
   return self->indexOfIn(needle, nlen, haystack, hlen, from);
+}
+
+//  Skiptable QStaticByteArrayMatcherBase::generate(const char *pattern,
+//      size_t n)
+extern "C" Q_DECL_EXPORT
+QStaticByteArrayMatcherBase::Skiptable *ritual_ZN27QStaticByteArrayMatcherBase8generateEPKcm(
+    const char *pattern,
+    size_t n) {
+  return new QStaticByteArrayMatcherBase::Skiptable(
+      QStaticByteArrayMatcherBase::generate(
+          pattern,
+          n));
+}
+
+//  a QStaticByteArrayMatcherBase::Skiptable a ritual of
+//      QStaticByteArrayMatcherBase gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QStaticByteArrayMatcherBase__QStaticByteArrayMatcherBase_Skiptable(
+    QStaticByteArrayMatcherBase::Skiptable *self) {
+  delete self;
 }

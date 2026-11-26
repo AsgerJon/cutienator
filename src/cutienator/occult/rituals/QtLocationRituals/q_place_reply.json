@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK11QPlaceReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QPlaceReply11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QPlaceReply11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QPlaceReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QPlaceReplyC1EP7QObject": ["address", "address"],
     "ritual_ZN11QPlaceReplyD1Ev": ["nothing", "address"],
@@ -13,6 +19,12 @@
     "ritual_ZNK11QPlaceReply11errorStringEv": ["text", "address"],
     "ritual_ZNK11QPlaceReply5errorEv": ["int", "address"],
     "ritual_ZN11QPlaceReply5abortEv": ["nothing", "address"],
+    "ritual_ZN11QPlaceReply8finishedEv": ["nothing", "address"],
+    "ritual_ZN11QPlaceReply14contentUpdatedEv": ["nothing", "address"],
+    "ritual_ZN11QPlaceReply7abortedEv": ["nothing", "address"],
+    "ritual_ZN11QPlaceReply13errorOccurredENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
     "ritual_ZN11QPlaceReplyC1EP18QPlaceReplyPrivateP7QObject": [
       "address", "address", "address"
     ],

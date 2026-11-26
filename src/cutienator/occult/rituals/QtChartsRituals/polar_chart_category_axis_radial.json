@@ -8,6 +8,12 @@
     "ritual_ZNK28PolarChartCategoryAxisRadial10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN28PolarChartCategoryAxisRadial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28PolarChartCategoryAxisRadial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN28PolarChartCategoryAxisRadial2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,11 +21,20 @@
       "address", "address", "address"
     ],
     "ritual_ZN28PolarChartCategoryAxisRadialD1Ev": ["nothing", "address"],
+    "ritual_ZNK28PolarChartCategoryAxisRadial15calculateLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28PolarChartCategoryAxisRadial16createAxisLabelsERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN28PolarChartCategoryAxisRadial23handleCategoriesChangedEv": [
       "nothing", "address"
     ],
     "ritual_take_PolarChartCategoryAxisRadial": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_PolarChartCategoryAxisRadial__QList_qreal": [
+      "nothing", "address"
     ]
   }
 }

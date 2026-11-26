@@ -18,6 +18,15 @@ QOpcUaAddReferenceItem *ritual_ZN22QOpcUaAddReferenceItemC1ERKS_(
   return new QOpcUaAddReferenceItem(*other);
 }
 
+//  QOpcUaAddReferenceItem &QOpcUaAddReferenceItem::operator=(const
+//      QOpcUaAddReferenceItem &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaAddReferenceItem *ritual_ZN22QOpcUaAddReferenceItemaSERKS_(
+    QOpcUaAddReferenceItem *self,
+    const QOpcUaAddReferenceItem *rhs) {
+  return &(self->operator=(*rhs));
+}
+
 //  QOpcUaAddReferenceItem::~QOpcUaAddReferenceItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QOpcUaAddReferenceItemD1Ev(QOpcUaAddReferenceItem *self) {

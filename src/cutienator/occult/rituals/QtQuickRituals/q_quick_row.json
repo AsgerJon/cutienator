@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZNK9QQuickRow10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QQuickRow11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QQuickRow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QQuickRow2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QQuickRowC1EP10QQuickItem": ["address", "address"],
     "ritual_ZNK9QQuickRow15layoutDirectionEv": ["int", "address"],
@@ -13,12 +17,18 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK9QQuickRow24effectiveLayoutDirectionEv": ["int", "address"],
+    "ritual_ZN9QQuickRow22layoutDirectionChangedEv": ["nothing", "address"],
+    "ritual_ZN9QQuickRow31effectiveLayoutDirectionChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN9QQuickRow13doPositioningEP6QSizeF": [
       "nothing", "address", "address"
     ],
     "ritual_ZN9QQuickRow24reportConflictingAnchorsEv": [
       "nothing", "address"
     ],
+    "ritual_ZN9QQuickRow6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QQuickRow6d_funcEv": ["address", "address"],
     "ritual_own_ZN9QQuickRow13doPositioningEP6QSizeF": [
       "nothing", "address", "address"
     ],

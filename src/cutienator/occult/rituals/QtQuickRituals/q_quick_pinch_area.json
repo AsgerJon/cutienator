@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QQuickPinchArea10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickPinchArea11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QQuickPinchArea11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QQuickPinchArea2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,19 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZN15QQuickPinchArea5pinchEv": ["address", "address"],
+    "ritual_ZN15QQuickPinchArea14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickPinchArea12pinchStartedEP16QQuickPinchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickPinchArea12pinchUpdatedEP16QQuickPinchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickPinchArea13pinchFinishedEP16QQuickPinchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickPinchArea9smartZoomEP16QQuickPinchEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QQuickPinchArea21childMouseEventFilterEP10QQuickItemP6QEvent": [
       "bool", "address", "address", "address"
     ],

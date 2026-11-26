@@ -6,15 +6,23 @@
   ],
   "rows": {
     "ritual_ZNK13QCanBusDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCanBusDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QCanBusDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN13QCanBusDevice2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN13QCanBusDevice6d_funcEv": ["address", "address"],
     "ritual_ZNK13QCanBusDevice6d_funcEv": ["address", "address"],
+    "ritual_ZN13QCanBusDeviceC1EP7QObject": ["address", "address"],
     "ritual_ZN13QCanBusDevice25setConfigurationParameterENS_16ConfigurationKeyERK8QVariant": [
       "nothing", "address", "int", "address"
     ],
     "ritual_ZNK13QCanBusDevice22configurationParameterENS_16ConfigurationKeyE": [
       "address", "address", "int"
     ],
+    "ritual_ZNK13QCanBusDevice17configurationKeysEv": ["address", "address"],
     "ritual_ZN13QCanBusDevice10writeFrameERK12QCanBusFrame": [
       "bool", "address", "address"
     ],
@@ -43,6 +51,16 @@
       "text", "address", "address"
     ],
     "ritual_ZNK13QCanBusDevice10deviceInfoEv": ["address", "address"],
+    "ritual_ZN13QCanBusDevice13errorOccurredENS_11CanBusErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QCanBusDevice14framesReceivedEv": ["nothing", "address"],
+    "ritual_ZN13QCanBusDevice13framesWrittenEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN13QCanBusDevice12stateChangedENS_17CanBusDeviceStateE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN13QCanBusDevice8setStateENS_17CanBusDeviceStateE": [
       "nothing", "address", "int"
     ],
@@ -84,6 +102,9 @@
     "ritual_own_ZN13QCanBusDevice21waitForFramesReceivedEi": [
       "bool", "address", "int"
     ],
-    "ritual_own_ZNK13QCanBusDevice10deviceInfoEv": ["address", "address"]
+    "ritual_own_ZNK13QCanBusDevice10deviceInfoEv": ["address", "address"],
+    "ritual_drop_QCanBusDevice__QList_QCanBusDevice_ConfigurationKey": [
+      "nothing", "address"
+    ]
   }
 }

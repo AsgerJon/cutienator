@@ -5,6 +5,24 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QGraphicsFrameCaptureMetal6setRhiEP4QRhi": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QGraphicsFrameCaptureMetal17startCaptureFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QGraphicsFrameCaptureMetal15endCaptureFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QGraphicsFrameCaptureMetal11initializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QGraphicsFrameCaptureMetal11isCapturingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QGraphicsFrameCaptureMetal11openCaptureEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QGraphicsFrameCaptureMetal": [
       "bool", "address", "chars", "address"
     ],

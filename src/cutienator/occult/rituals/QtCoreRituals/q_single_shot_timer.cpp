@@ -45,6 +45,33 @@ inline void QSingleShotTimer::timerEvent(QTimerEvent *event)
         timerFinished();
     }
 }
+
+//  from src/corelib/kernel/qsingleshottimer.cpp, line 61, as _ZN16QSingleShotTimer13timerFinishedEv
+inline void QSingleShotTimer::timerFinished()
+{
+    Q_EMIT timeout();
+    delete this;
+}
+
+//  from src/corelib/kernel/qsingleshottimer.cpp, line 42, as _ZN16QSingleShotTimer21startTimerForReceiverENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObject
+inline void QSingleShotTimer::startTimerForReceiver(Duration interval, Qt::TimerType timerType,
+                                             const QObject *receiver)
+{
+    if (receiver && receiver->thread() != thread()) {
+        QObjectPrivate *d_ptr = QObjectPrivate::get(this);
+        d_ptr->sendChildEvents = false;
+
+        setParent(nullptr);
+        moveToThread(receiver->thread());
+
+        QCoreApplication::postEvent(this,
+                                    new StartTimerEvent(this, QDeadlineTimer(interval, timerType)));
+        // the event owns "this" and is handled concurrently, so unsafe to
+        // access "this" beyond this point
+    } else {
+        timer.start(interval, timerType, this);
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  A QSingleShotTimer that Python can take functions over in. Every QSingleShotTimer
@@ -219,6 +246,69 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK16QSingleShotTimer10metaObjectEv(
     const QSingleShotTimer *self) {
   return self->metaObject();
+}
+
+//  void *QSingleShotTimer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QSingleShotTimer11qt_metacastEPKc(
+    QSingleShotTimer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSingleShotTimer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QSingleShotTimer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSingleShotTimer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QSingleShotTimer::~QSingleShotTimer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSingleShotTimerD1Ev(QSingleShotTimer *self) {
+  delete self;
+}
+
+//  void QSingleShotTimer::startTimerForReceiver(Duration interval,
+//      Qt::TimerType timerType, const QObject *receiver)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSingleShotTimer21startTimerForReceiverENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObject(
+    QSingleShotTimer *self,
+    long long interval,
+    Qt::TimerType timerType,
+    const QObject *receiver) {
+  self->startTimerForReceiver(
+      QSingleShotTimer::Duration(interval),
+      timerType,
+      receiver);
+}
+
+//  void QSingleShotTimer::timeout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSingleShotTimer7timeoutEv(QSingleShotTimer *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QSingleShotTimer")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "timeout()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "timeout()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QSingleShotTimer::timerEvent(QTimerEvent *a0)

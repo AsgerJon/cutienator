@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtSensors/QTapReading>
 
 //  A QmlTapSensorReading that Python can take functions over in. Every QmlTapSensorReading
 //  Python makes is one. Each function below asks the Python
@@ -216,6 +218,25 @@ const QMetaObject *ritual_ZNK19QmlTapSensorReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlTapSensorReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QmlTapSensorReading11qt_metacastEPKc(
+    QmlTapSensorReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlTapSensorReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QmlTapSensorReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlTapSensorReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlTapSensorReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QmlTapSensorReading2trEPKcS1_i(
@@ -252,11 +273,41 @@ QTapReading::TapDirection ritual_ZNK19QmlTapSensorReading12tapDirectionEv(
   return self->tapDirection();
 }
 
+//  QBindable<QTapReading::TapDirection>
+//      QmlTapSensorReading::bindableTapDirection() const
+extern "C" Q_DECL_EXPORT
+QBindable<QTapReading::TapDirection> *ritual_ZNK19QmlTapSensorReading20bindableTapDirectionEv(
+    const QmlTapSensorReading *self) {
+  return new QBindable<QTapReading::TapDirection>(
+      self->bindableTapDirection());
+}
+
 //  bool QmlTapSensorReading::isDoubleTap() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QmlTapSensorReading11isDoubleTapEv(
     const QmlTapSensorReading *self) {
   return self->isDoubleTap();
+}
+
+//  QBindable<bool> QmlTapSensorReading::bindableDoubleTap() const
+extern "C" Q_DECL_EXPORT
+QBindable<bool> *ritual_ZNK19QmlTapSensorReading17bindableDoubleTapEv(
+    const QmlTapSensorReading *self) {
+  return new QBindable<bool>(self->bindableDoubleTap());
+}
+
+//  void QmlTapSensorReading::tapDirectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QmlTapSensorReading19tapDirectionChangedEv(
+    QmlTapSensorReading *self) {
+  self->tapDirectionChanged();
+}
+
+//  void QmlTapSensorReading::isDoubleTapChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QmlTapSensorReading18isDoubleTapChangedEv(
+    QmlTapSensorReading *self) {
+  self->isDoubleTapChanged();
 }
 
 //  QSensorReading *QmlTapSensorReading::reading() const
@@ -271,6 +322,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QmlTapSensorReading13readingUpdateEv(
     QmlTapSensorReading *self) {
   self->readingUpdate();
+}
+
+//  size_t QmlTapSensorReading::_qt_property_m_tapDirection_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN19QmlTapSensorReading34_qt_property_m_tapDirection_offsetEv() {
+  return QmlTapSensorReading::_qt_property_m_tapDirection_offset();
+}
+
+//  size_t QmlTapSensorReading::_qt_property_m_isDoubleTap_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN19QmlTapSensorReading33_qt_property_m_isDoubleTap_offsetEv() {
+  return QmlTapSensorReading::_qt_property_m_isDoubleTap_offset();
 }
 
 //  a Python function taken by a CuteQmlTapSensorReading, for the function
@@ -295,4 +358,18 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QmlTapSensorReading13readingUpdateEv(
     QmlTapSensorReading *self) {
   self->QmlTapSensorReading::readingUpdate();
+}
+
+//  a QBindable<QTapReading::TapDirection> a ritual of QmlTapSensorReading
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlTapSensorReading__QBindable_QTapReading_TapDirection(
+    QBindable<QTapReading::TapDirection> *self) {
+  delete self;
+}
+
+//  a QBindable<bool> a ritual of QmlTapSensorReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlTapSensorReading__QBindable_bool(QBindable<bool> *self) {
+  delete self;
 }

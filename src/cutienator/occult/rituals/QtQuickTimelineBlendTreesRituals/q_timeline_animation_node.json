@@ -8,6 +8,12 @@
     "ritual_ZNK22QTimelineAnimationNode10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QTimelineAnimationNode11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QTimelineAnimationNode11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QTimelineAnimationNode2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,6 +31,15 @@
     ],
     "ritual_ZN22QTimelineAnimationNode15setCurrentFrameEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN22QTimelineAnimationNode16animationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QTimelineAnimationNode15timelineChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QTimelineAnimationNode19currentFrameChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN22QTimelineAnimationNode15updateFrameDataEv": [
       "nothing", "address"

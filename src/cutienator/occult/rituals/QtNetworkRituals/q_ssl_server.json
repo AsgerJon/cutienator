@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QSslServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSslServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QSslServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QSslServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QSslServerC1EP7QObject": ["address", "address"],
     "ritual_ZN10QSslServerD1Ev": ["nothing", "address"],
@@ -16,6 +22,30 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK10QSslServer16handshakeTimeoutEv": ["int", "address"],
+    "ritual_ZN10QSslServer9sslErrorsEP10QSslSocketRK5QListI9QSslErrorE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QSslServer15peerVerifyErrorEP10QSslSocketRK9QSslError": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QSslServer13errorOccurredEP10QSslSocketN15QAbstractSocket11SocketErrorE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN10QSslServer34preSharedKeyAuthenticationRequiredEP10QSslSocketP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QSslServer9alertSentEP10QSslSocketN4QSsl10AlertLevelENS2_9AlertTypeERK7QString": [
+      "nothing", "address", "address", "int", "int", "text"
+    ],
+    "ritual_ZN10QSslServer13alertReceivedEP10QSslSocketN4QSsl10AlertLevelENS2_9AlertTypeERK7QString": [
+      "nothing", "address", "address", "int", "int", "text"
+    ],
+    "ritual_ZN10QSslServer27handshakeInterruptedOnErrorEP10QSslSocketRK9QSslError": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QSslServer26startedEncryptionHandshakeEP10QSslSocket": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QSslServer18incomingConnectionEx": [
       "nothing", "address", "long long"
     ],

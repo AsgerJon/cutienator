@@ -35,32 +35,33 @@ typedef void (*CuteQNetworkAccessBackendCall5)(const void *, int *);
 typedef qint64 (*CuteQNetworkAccessBackendCall6)(const void *, int *);
 typedef const QByteArrayView * (*CuteQNetworkAccessBackendCall7)(const void *, int *);
 typedef void (*CuteQNetworkAccessBackendCall8)(const void *, qint64, int *);
-typedef bool (*CuteQNetworkAccessBackendCall9)(const void *, int *);
+typedef qint64 (*CuteQNetworkAccessBackendCall9)(const void *, char *, qint64, int *);
+typedef bool (*CuteQNetworkAccessBackendCall10)(const void *, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQNetworkAccessBackendCall10)(const void *, QEvent *, int *);
+typedef bool (*CuteQNetworkAccessBackendCall11)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQNetworkAccessBackendCall11)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQNetworkAccessBackendCall12)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkAccessBackendCall12)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQNetworkAccessBackendCall13)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkAccessBackendCall13)(const void *, QChildEvent *, int *);
+typedef void (*CuteQNetworkAccessBackendCall14)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkAccessBackendCall14)(const void *, QEvent *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkAccessBackendCall15)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQNetworkAccessBackendCall15)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQNetworkAccessBackendCall16)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQNetworkAccessBackendCall17)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQNetworkAccessBackend : public QNetworkAccessBackend {
 public:
   using QNetworkAccessBackend::QNetworkAccessBackend;
-  void *taken[17] = {};
+  void *taken[18] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN21QNetworkAccessBackend5startEv")) {
@@ -103,49 +104,53 @@ public:
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QNetworkAccessBackend10wantToReadEv")) {
+    if (!std::strcmp(key, "_ZN21QNetworkAccessBackend4readEPcx")) {
       taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN21QNetworkAccessBackend10wantToReadEv")) {
+      taken[10] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[10] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[11] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[12] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[13] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[14] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[15] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[16] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[17] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -254,11 +259,22 @@ public:
     QNetworkAccessBackend::advanceReadPointer(distance);
   }
 
-  //  bool QNetworkAccessBackend::wantToRead()
-  bool wantToRead() override {
+  //  qint64 QNetworkAccessBackend::read(char *data, qint64 maxlen)
+  qint64 read(char *data, qint64 maxlen) override {
     if (taken[9]) {
       int handled = 0;
       CuteQNetworkAccessBackendCall9 call = reinterpret_cast<CuteQNetworkAccessBackendCall9>(taken[9]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QNetworkAccessBackend::read(data, maxlen);
+  }
+
+  //  bool QNetworkAccessBackend::wantToRead()
+  bool wantToRead() override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQNetworkAccessBackendCall10 call = reinterpret_cast<CuteQNetworkAccessBackendCall10>(taken[10]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -268,9 +284,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQNetworkAccessBackendCall10 call = reinterpret_cast<CuteQNetworkAccessBackendCall10>(taken[10]);
+      CuteQNetworkAccessBackendCall11 call = reinterpret_cast<CuteQNetworkAccessBackendCall11>(taken[11]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -281,9 +297,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQNetworkAccessBackendCall11 call = reinterpret_cast<CuteQNetworkAccessBackendCall11>(taken[11]);
+      CuteQNetworkAccessBackendCall12 call = reinterpret_cast<CuteQNetworkAccessBackendCall12>(taken[12]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -294,9 +310,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQNetworkAccessBackendCall12 call = reinterpret_cast<CuteQNetworkAccessBackendCall12>(taken[12]);
+      CuteQNetworkAccessBackendCall13 call = reinterpret_cast<CuteQNetworkAccessBackendCall13>(taken[13]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -307,9 +323,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQNetworkAccessBackendCall13 call = reinterpret_cast<CuteQNetworkAccessBackendCall13>(taken[13]);
+      CuteQNetworkAccessBackendCall14 call = reinterpret_cast<CuteQNetworkAccessBackendCall14>(taken[14]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -320,9 +336,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQNetworkAccessBackendCall14 call = reinterpret_cast<CuteQNetworkAccessBackendCall14>(taken[14]);
+      CuteQNetworkAccessBackendCall15 call = reinterpret_cast<CuteQNetworkAccessBackendCall15>(taken[15]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -333,9 +349,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQNetworkAccessBackendCall15 call = reinterpret_cast<CuteQNetworkAccessBackendCall15>(taken[15]);
+      CuteQNetworkAccessBackendCall16 call = reinterpret_cast<CuteQNetworkAccessBackendCall16>(taken[16]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -346,9 +362,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQNetworkAccessBackendCall16 call = reinterpret_cast<CuteQNetworkAccessBackendCall16>(taken[16]);
+      CuteQNetworkAccessBackendCall17 call = reinterpret_cast<CuteQNetworkAccessBackendCall17>(taken[17]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -364,6 +380,25 @@ const QMetaObject *ritual_ZNK21QNetworkAccessBackend10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QNetworkAccessBackend::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QNetworkAccessBackend11qt_metacastEPKc(
+    QNetworkAccessBackend *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNetworkAccessBackend::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QNetworkAccessBackend11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNetworkAccessBackend *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QNetworkAccessBackend::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QNetworkAccessBackend2trEPKcS1_i(
@@ -371,6 +406,63 @@ QString *ritual_ZN21QNetworkAccessBackend2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QNetworkAccessBackend::tr(s, c, n));
+}
+
+//  QNetworkAccessBackendPrivate *QNetworkAccessBackend::d_func()
+extern "C" Q_DECL_EXPORT
+QNetworkAccessBackendPrivate *ritual_ZN21QNetworkAccessBackend6d_funcEv(
+    QNetworkAccessBackend *self) {
+  return self->d_func();
+}
+
+//  const QNetworkAccessBackendPrivate *QNetworkAccessBackend::d_func() const
+extern "C" Q_DECL_EXPORT
+const QNetworkAccessBackendPrivate *ritual_ZNK21QNetworkAccessBackend6d_funcEv(
+    const QNetworkAccessBackend *self) {
+  return self->d_func();
+}
+
+//  QNetworkAccessBackend::QNetworkAccessBackend(TargetTypes targetTypes,
+//      SecurityFeatures securityFeatures, IOFeatures ioFeatures)
+extern "C" Q_DECL_EXPORT
+QNetworkAccessBackend *ritual_ZN21QNetworkAccessBackendC1E6QFlagsINS_10TargetTypeEES0_INS_15SecurityFeatureEES0_INS_9IOFeatureEE(
+    int targetTypes,
+    int securityFeatures,
+    int ioFeatures) {
+  return new CuteQNetworkAccessBackend(
+      QFlags<QNetworkAccessBackend::TargetType>::fromInt(targetTypes),
+      QFlags<QNetworkAccessBackend::SecurityFeature>::fromInt(securityFeatures),
+      QFlags<QNetworkAccessBackend::IOFeature>::fromInt(ioFeatures));
+}
+
+//  QNetworkAccessBackend::QNetworkAccessBackend(TargetTypes targetTypes)
+extern "C" Q_DECL_EXPORT
+QNetworkAccessBackend *ritual_ZN21QNetworkAccessBackendC1E6QFlagsINS_10TargetTypeEE(
+    int targetTypes) {
+  return new CuteQNetworkAccessBackend(
+      QFlags<QNetworkAccessBackend::TargetType>::fromInt(targetTypes));
+}
+
+//  QNetworkAccessBackend::QNetworkAccessBackend(TargetTypes targetTypes,
+//      SecurityFeatures securityFeatures)
+extern "C" Q_DECL_EXPORT
+QNetworkAccessBackend *ritual_ZN21QNetworkAccessBackendC1E6QFlagsINS_10TargetTypeEES0_INS_15SecurityFeatureEE(
+    int targetTypes,
+    int securityFeatures) {
+  return new CuteQNetworkAccessBackend(
+      QFlags<QNetworkAccessBackend::TargetType>::fromInt(targetTypes),
+      QFlags<QNetworkAccessBackend::SecurityFeature>::fromInt(securityFeatures));
+}
+
+//  QNetworkAccessBackend::QNetworkAccessBackend(TargetTypes targetTypes,
+//      IOFeatures ioFeatures)
+extern "C" Q_DECL_EXPORT
+QNetworkAccessBackend *ritual_ZN21QNetworkAccessBackendC1E6QFlagsINS_10TargetTypeEES0_INS_9IOFeatureEE(
+    int targetTypes,
+    int ioFeatures) {
+  return new CuteQNetworkAccessBackend(
+      QFlags<QNetworkAccessBackend::TargetType>::fromInt(targetTypes),
+      QFlags<QNetworkAccessBackend::IOFeature>::fromInt(ioFeatures));
 }
 
 //  QNetworkAccessBackend::~QNetworkAccessBackend()
@@ -483,6 +575,15 @@ void ritual_ZN21QNetworkAccessBackend18advanceReadPointerEx(
   self->advanceReadPointer(distance);
 }
 
+//  qint64 QNetworkAccessBackend::read(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN21QNetworkAccessBackend4readEPcx(
+    QNetworkAccessBackend *self,
+    char *data,
+    qint64 maxlen) {
+  return self->read(data, maxlen);
+}
+
 //  bool QNetworkAccessBackend::wantToRead()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN21QNetworkAccessBackend10wantToReadEv(
@@ -565,6 +666,14 @@ void ritual_ZN21QNetworkAccessBackend10setHeadersERK12QHttpHeaders(
     QNetworkAccessBackend *self,
     const QHttpHeaders *newHeaders) {
   self->setHeaders(*newHeaders);
+}
+
+//  void QNetworkAccessBackend::setHeaders(QHttpHeaders &&newHeaders)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QNetworkAccessBackend10setHeadersEO12QHttpHeaders(
+    QNetworkAccessBackend *self,
+    QHttpHeaders *newHeaders) {
+  self->setHeaders(std::move(*newHeaders));
 }
 
 //  QNetworkAccessManager::Operation QNetworkAccessBackend::operation() const
@@ -771,6 +880,15 @@ void ritual_own_ZN21QNetworkAccessBackend18advanceReadPointerEx(
     QNetworkAccessBackend *self,
     qint64 distance) {
   self->QNetworkAccessBackend::advanceReadPointer(distance);
+}
+
+//  qint64 QNetworkAccessBackend::read(char *data, qint64 maxlen)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN21QNetworkAccessBackend4readEPcx(
+    QNetworkAccessBackend *self,
+    char *data,
+    qint64 maxlen) {
+  return self->QNetworkAccessBackend::read(data, maxlen);
 }
 
 //  bool QNetworkAccessBackend::wantToRead()

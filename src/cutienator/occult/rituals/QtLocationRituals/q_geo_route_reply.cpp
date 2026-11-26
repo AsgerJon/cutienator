@@ -198,6 +198,24 @@ const QMetaObject *ritual_ZNK14QGeoRouteReply10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoRouteReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QGeoRouteReply11qt_metacastEPKc(
+    QGeoRouteReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoRouteReply::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QGeoRouteReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoRouteReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoRouteReply::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QGeoRouteReply2trEPKcS1_i(
@@ -261,6 +279,28 @@ QList<QGeoRoute> *ritual_ZNK14QGeoRouteReply6routesEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QGeoRouteReply5abortEv(QGeoRouteReply *self) {
   self->abort();
+}
+
+//  void QGeoRouteReply::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGeoRouteReply8finishedEv(QGeoRouteReply *self) {
+  self->finished();
+}
+
+//  void QGeoRouteReply::aborted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGeoRouteReply7abortedEv(QGeoRouteReply *self) {
+  self->aborted();
+}
+
+//  void QGeoRouteReply::errorOccurred(QGeoRouteReply::Error error, const
+//      QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGeoRouteReply13errorOccurredENS_5ErrorERK7QString(
+    QGeoRouteReply *self,
+    QGeoRouteReply::Error error,
+    const QString *errorString) {
+  self->errorOccurred(error, *errorString);
 }
 
 //  QGeoRouteReply::QGeoRouteReply(const QGeoRouteRequest &request, QObject

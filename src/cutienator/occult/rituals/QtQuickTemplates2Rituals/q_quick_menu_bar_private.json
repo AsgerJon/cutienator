@@ -10,6 +10,8 @@
     "ritual_ZN20QQuickMenuBarPrivate3getEP13QQuickMenuBar": [
       "address", "address"
     ],
+    "ritual_ZN20QQuickMenuBarPrivate5menusEv": ["address", "address"],
+    "ritual_ZN20QQuickMenuBarPrivate11contentDataEv": ["address", "address"],
     "ritual_ZN20QQuickMenuBarPrivate22createItemFromDelegateEv": [
       "address", "address"
     ],
@@ -92,6 +94,21 @@
     "ritual_ZN20QQuickMenuBarPrivate25itemImplicitHeightChangedEP10QQuickItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QQuickMenuBarPrivate18contentData_appendEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate12menus_appendEP16QQmlListPropertyI10QQuickMenuEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate11menus_countEP16QQmlListPropertyI10QQuickMenuE": [
+      "long long", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate8menus_atEP16QQmlListPropertyI10QQuickMenuEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate11menus_clearEP16QQmlListPropertyI10QQuickMenuE": [
+      "nothing", "address"
+    ],
     "ritual_ZNK20QQuickMenuBarPrivate14defaultPaletteEv": [
       "address", "address"
     ],
@@ -109,6 +126,12 @@
     ],
     "ritual_own_ZNK20QQuickMenuBarPrivate14defaultPaletteEv": [
       "address", "address"
+    ],
+    "ritual_drop_QQuickMenuBarPrivate__QQmlListProperty_QQuickMenu": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQuickMenuBarPrivate__QQmlListProperty_QObject": [
+      "nothing", "address"
     ]
   }
 }

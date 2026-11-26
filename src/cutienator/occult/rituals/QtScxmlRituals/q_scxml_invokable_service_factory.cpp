@@ -199,6 +199,25 @@ const QMetaObject *ritual_ZNK29QScxmlInvokableServiceFactory10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScxmlInvokableServiceFactory::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QScxmlInvokableServiceFactory11qt_metacastEPKc(
+    QScxmlInvokableServiceFactory *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScxmlInvokableServiceFactory::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QScxmlInvokableServiceFactory11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScxmlInvokableServiceFactory *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScxmlInvokableServiceFactory::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -225,6 +244,24 @@ const QScxmlInvokableServiceFactoryPrivate *ritual_ZNK29QScxmlInvokableServiceFa
   return self->d_func();
 }
 
+//  QScxmlInvokableServiceFactory::QScxmlInvokableServiceFactory(const
+//      QScxmlExecutableContent::InvokeInfo &invokeInfo, const
+//      QList<QScxmlExecutableContent::StringId> &names, const
+//      QList<QScxmlExecutableContent::ParameterInfo> &parameters, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QScxmlInvokableServiceFactory *ritual_ZN29QScxmlInvokableServiceFactoryC1ERKN23QScxmlExecutableContent10InvokeInfoERK5QListIiERKS4_INS0_13ParameterInfoEEP7QObject(
+    const QScxmlExecutableContent::InvokeInfo *invokeInfo,
+    const QList<QScxmlExecutableContent::StringId> *names,
+    const QList<QScxmlExecutableContent::ParameterInfo> *parameters,
+    QObject *parent) {
+  return new CuteQScxmlInvokableServiceFactory(
+      *invokeInfo,
+      *names,
+      *parameters,
+      parent);
+}
+
 //  QScxmlInvokableService
 //      *QScxmlInvokableServiceFactory::invoke(QScxmlStateMachine
 //      *parentStateMachine)
@@ -241,6 +278,31 @@ extern "C" Q_DECL_EXPORT
 QScxmlExecutableContent::InvokeInfo *ritual_ZNK29QScxmlInvokableServiceFactory10invokeInfoEv(
     const QScxmlInvokableServiceFactory *self) {
   return new QScxmlExecutableContent::InvokeInfo(self->invokeInfo());
+}
+
+//  const QList<QScxmlExecutableContent::ParameterInfo>
+//      &QScxmlInvokableServiceFactory::parameters() const
+extern "C" Q_DECL_EXPORT
+const QList<QScxmlExecutableContent::ParameterInfo> *ritual_ZNK29QScxmlInvokableServiceFactory10parametersEv(
+    const QScxmlInvokableServiceFactory *self) {
+  return &(self->parameters());
+}
+
+//  const QList<QScxmlExecutableContent::StringId>
+//      &QScxmlInvokableServiceFactory::names() const
+extern "C" Q_DECL_EXPORT
+const QList<QScxmlExecutableContent::StringId> *ritual_ZNK29QScxmlInvokableServiceFactory5namesEv(
+    const QScxmlInvokableServiceFactory *self) {
+  return &(self->names());
+}
+
+//  QScxmlInvokableServiceFactory::QScxmlInvokableServiceFactory(QScxmlInvoka
+//      bleServiceFactoryPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QScxmlInvokableServiceFactory *ritual_ZN29QScxmlInvokableServiceFactoryC1ER36QScxmlInvokableServiceFactoryPrivateP7QObject(
+    QScxmlInvokableServiceFactoryPrivate *dd,
+    QObject *parent) {
+  return new CuteQScxmlInvokableServiceFactory(*dd, parent);
 }
 
 //  a Python function taken by a CuteQScxmlInvokableServiceFactory, for the

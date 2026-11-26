@@ -13,6 +13,9 @@
     "ritual_ZN26QNativeSocketEnginePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK26QNativeSocketEnginePrivate21adjustAddressProtocolERK12QHostAddress": [
       "address", "address", "address"
+    ],
+    "ritual_ZN26QNativeSocketEnginePrivate17setPortAndAddressEtRK12QHostAddressP11qt_sockaddrPj": [
+      "nothing", "address", "unsigned short", "address", "address", "address"
     ]
   }
 }

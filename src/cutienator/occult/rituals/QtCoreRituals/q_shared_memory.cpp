@@ -182,6 +182,24 @@ const QMetaObject *ritual_ZNK13QSharedMemory10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSharedMemory::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QSharedMemory11qt_metacastEPKc(
+    QSharedMemory *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSharedMemory::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QSharedMemory11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSharedMemory *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSharedMemory::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QSharedMemory2trEPKcS1_i(
@@ -311,6 +329,25 @@ bool ritual_ZNK13QSharedMemory10isAttachedEv(const QSharedMemory *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN13QSharedMemory6detachEv(QSharedMemory *self) {
   return self->detach();
+}
+
+//  void *QSharedMemory::data()
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QSharedMemory4dataEv(QSharedMemory *self) {
+  return self->data();
+}
+
+//  const void *QSharedMemory::constData() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK13QSharedMemory9constDataEv(
+    const QSharedMemory *self) {
+  return self->constData();
+}
+
+//  const void *QSharedMemory::data() const
+extern "C" Q_DECL_EXPORT
+const void *ritual_ZNK13QSharedMemory4dataEv(const QSharedMemory *self) {
+  return self->data();
 }
 
 #if QT_CONFIG(systemsemaphore)

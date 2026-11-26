@@ -15,7 +15,7 @@ typedef bool (*CuteQWindowSystemEventHandlerCall0)(const void *, QWindowSystemIn
 class CuteQWindowSystemEventHandler : public QWindowSystemEventHandler {
 public:
   using QWindowSystemEventHandler::QWindowSystemEventHandler;
-  CuteQWindowSystemEventHandler(const QWindowSystemEventHandler &other) : QWindowSystemEventHandler(other) {}
+  CuteQWindowSystemEventHandler(const QWindowSystemEventHandler & other) : QWindowSystemEventHandler(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {

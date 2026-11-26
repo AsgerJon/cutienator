@@ -5,12 +5,21 @@
   ],
   "rows": {
     "ritual_ZNK10QTapSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTapSensor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QTapSensor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QTapSensor2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QTapSensorC1EP7QObject": ["address", "address"],
     "ritual_ZN10QTapSensorD1Ev": ["nothing", "address"],
     "ritual_ZNK10QTapSensor7readingEv": ["address", "address"],
     "ritual_ZNK10QTapSensor21returnDoubleTapEventsEv": ["bool", "address"],
     "ritual_ZN10QTapSensor24setReturnDoubleTapEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QTapSensor28returnDoubleTapEventsChangedEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZN10QTapSensor6d_funcEv": ["address", "address"],

@@ -777,6 +777,24 @@ const QMetaObject *ritual_ZNK11QProxyStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QProxyStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QProxyStyle11qt_metacastEPKc(
+    QProxyStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QProxyStyle::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QProxyStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QProxyStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QProxyStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QProxyStyle2trEPKcS1_i(
@@ -1043,6 +1061,14 @@ void ritual_ZN11QProxyStyle6polishEP7QWidget(
     QProxyStyle *self,
     QWidget *widget) {
   self->polish(widget);
+}
+
+//  void QProxyStyle::polish(QPalette &pal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QProxyStyle6polishER8QPalette(
+    QProxyStyle *self,
+    QPalette *pal) {
+  self->polish(*pal);
 }
 
 //  void QProxyStyle::polish(QApplication *app)

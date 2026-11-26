@@ -8,6 +8,7 @@
 #include <QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljscompilepass_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QQmlJSBasicBlocks that Python can take functions over in. Every QQmlJSBasicBlocks
 //  Python makes is one. Each function below asks the Python
@@ -2232,6 +2233,15 @@ QQmlJSBasicBlocks::BasicBlocksValidationResult *ritual_ZN17QQmlJSBasicBlocks21ba
       self->basicBlocksValidation());
 }
 
+//  QList<ObjectOrArrayDefinition>
+//      QQmlJSBasicBlocks::objectAndArrayDefinitions() const
+extern "C" Q_DECL_EXPORT
+QList<QQmlJSCompilePass::ObjectOrArrayDefinition> *ritual_ZNK17QQmlJSBasicBlocks25objectAndArrayDefinitionsEv(
+    const QQmlJSBasicBlocks *self) {
+  return new QList<QQmlJSCompilePass::ObjectOrArrayDefinition>(
+      self->objectAndArrayDefinitions());
+}
+
 //  QV4::Moth::ByteCodeHandler::Verdict
 //      QQmlJSBasicBlocks::startInstruction(QV4::Moth::Instr::Type type)
 extern "C" Q_DECL_EXPORT
@@ -2493,4 +2503,12 @@ void ritual_own_ZN17QQmlJSBasicBlocks18generate_ConstructEiii(
     int argc,
     int argv) {
   self->QQmlJSBasicBlocks::generate_Construct(func, argc, argv);
+}
+
+//  a QList<QQmlJSCompilePass::ObjectOrArrayDefinition> a ritual of
+//      QQmlJSBasicBlocks gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlJSBasicBlocks__QList_QQmlJSCompilePass_ObjectOrArrayDefinition(
+    QList<QQmlJSCompilePass::ObjectOrArrayDefinition> *self) {
+  delete self;
 }

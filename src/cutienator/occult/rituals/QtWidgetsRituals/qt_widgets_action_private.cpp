@@ -2,12 +2,15 @@
 //  QtWidgets/6.12.0/QtWidgets/private/qaction_widgets_p.h, Qt 6.12.0.
 //  Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(action)
 #if QT_CONFIG(action)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(action)
 #include <QtGui/qaction.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qaction_widgets_p.h>
@@ -137,6 +140,16 @@ void ritual_ZN22QtWidgetsActionPrivate7destroyEv(
     QtWidgetsActionPrivate *self) {
   self->destroy();
 }
+
+#if QT_CONFIG(shortcut)
+//  QShortcutMap::ContextMatcher QtWidgetsActionPrivate::contextMatcher()
+//      const
+extern "C" Q_DECL_EXPORT
+void *ritual_ZNK22QtWidgetsActionPrivate14contextMatcherEv(
+    const QtWidgetsActionPrivate *self) {
+  return reinterpret_cast<void *>(self->contextMatcher());
+}
+#endif  // QT_CONFIG(shortcut)
 
 #if QT_CONFIG(menu)
 //  QObject *QtWidgetsActionPrivate::menu() const

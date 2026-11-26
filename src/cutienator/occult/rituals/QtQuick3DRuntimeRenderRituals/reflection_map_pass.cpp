@@ -4,6 +4,7 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qtquick3druntimerenderglobal_p.h>
 #include <QtQuick3DRuntimeRender/QtQuick3DRuntimeRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrendercontextcore.h>
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -23,6 +24,48 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 52, as _ZN14QSSGRenderPassD2Ev
+inline QSSGRenderPass::~QSSGRenderPass()
+{
+
+}
+
+//  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 258, as _ZN17ReflectionMapPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData
+inline void ReflectionMapPass::renderPrep(QSSGRenderer &renderer, QSSGLayerRenderData &data)
+{
+    Q_UNUSED(renderer);
+    Q_UNUSED(data);
+
+    QSSG_ASSERT(!data.renderedCameras.isEmpty(), return);
+    QSSGRenderCamera *camera = data.renderedCameras[0];
+
+    ps = data.getPipelineState();
+    ps.flags |= { QSSGRhiGraphicsPipelineState::Flag::DepthTestEnabled,
+                  QSSGRhiGraphicsPipelineState::Flag::DepthWriteEnabled,
+                  QSSGRhiGraphicsPipelineState::Flag::BlendEnabled };
+
+    QSSG_ASSERT(data.reflectionProbesView.size() != 0, return);
+
+    reflectionProbes = { data.reflectionProbesView.begin(), data.reflectionProbesView.end() };
+    reflectionMapManager = data.requestReflectionMapManager();
+
+    const auto &sortedOpaqueObjects = data.getSortedOpaqueRenderableObjects(*camera);
+    const auto &sortedTransparentObjects = data.getSortedTransparentRenderableObjects(*camera);
+    QSSGRenderableObjectList emptyList{};
+    const auto &sortedScreenTextureObjects = m_includeSTO ? data.getSortedScreenTextureRenderableObjects(*camera) : emptyList;
+
+    QSSG_ASSERT(reflectionPassObjects.isEmpty(), reflectionPassObjects.clear());
+
+    // NOTE: We should consider keeping track of the reflection casting objects to avoid
+    // filtering this list on each prep.
+    for (const auto &handles : { &sortedOpaqueObjects, &sortedTransparentObjects, &sortedScreenTextureObjects }) {
+        for (const auto &handle : *handles) {
+            if (handle.obj->renderableFlags.testFlag(QSSGRenderableObjectFlag::CastsReflections))
+                reflectionPassObjects.push_back(handle);
+        }
+    }
+}
+
 //  from ../qtquick3d/src/runtimerender/rendererimpl/qssgrenderpass.cpp, line 326, as _ZN17ReflectionMapPass13resetForFrameEv
 inline void ReflectionMapPass::resetForFrame()
 {
@@ -31,6 +74,16 @@ inline void ReflectionMapPass::resetForFrame()
     reflectionPassObjects.clear();
 }
 //  -----------------------------------------------------------------------
+
+//  void ReflectionMapPass::renderPrep(QSSGRenderer &renderer,
+//      QSSGLayerRenderData &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17ReflectionMapPass10renderPrepER12QSSGRendererR19QSSGLayerRenderData(
+    ReflectionMapPass *self,
+    QSSGRenderer *renderer,
+    QSSGLayerRenderData *data) {
+  self->renderPrep(*renderer, *data);
+}
 
 //  Type ReflectionMapPass::passType() const
 extern "C" Q_DECL_EXPORT

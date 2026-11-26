@@ -17,7 +17,7 @@ typedef bool (*CuteQSvgViewportFillStyleCall1)(const void *, int *);
 class CuteQSvgViewportFillStyle : public QSvgViewportFillStyle {
 public:
   using QSvgViewportFillStyle::QSvgViewportFillStyle;
-  CuteQSvgViewportFillStyle(const QSvgViewportFillStyle &other) : QSvgViewportFillStyle(other) {}
+  CuteQSvgViewportFillStyle(const QSvgViewportFillStyle & other) : QSvgViewportFillStyle(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -66,6 +66,26 @@ QSvgViewportFillStyle *ritual_ZN21QSvgViewportFillStyleC1ERK6QBrush(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QSvgViewportFillStyleD1Ev(QSvgViewportFillStyle *self) {
   delete self;
+}
+
+//  void QSvgViewportFillStyle::apply(QPainter *p, const QSvgNode *node,
+//      QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSvgViewportFillStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates(
+    QSvgViewportFillStyle *self,
+    QPainter *p,
+    const QSvgNode *node,
+    QSvgExtraStates *states) {
+  self->apply(p, node, *states);
+}
+
+//  void QSvgViewportFillStyle::revert(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSvgViewportFillStyle6revertEP8QPainterR15QSvgExtraStates(
+    QSvgViewportFillStyle *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->revert(p, *states);
 }
 
 //  Type QSvgViewportFillStyle::type() const

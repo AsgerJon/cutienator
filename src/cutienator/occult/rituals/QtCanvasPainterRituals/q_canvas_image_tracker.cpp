@@ -4,10 +4,23 @@
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCanvasPainter/QtCanvasPainter>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcpainterengine_p.h>
+#include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcdistancefieldglyphcache_p.h>
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvaspainter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasimage.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCanvasPainter/private/qcpainterengine_p.h>
+#include <QtCanvasPainter/private/qcpainterrhirenderer_p.h>
+#include <QtCanvasPainter/qcanvascustombrush.h>
+#include <QtCanvasPainter/private/qcanvascustombrush_p.h>
+#ifndef QCPAINTER_DISABLE_TEXT_SUPPORT
+#include <QtCanvasPainter/private/qctextlayout_p.h>
+#include <QtGui/private/qdistancefield_p.h>
+#endif
+#include <QtCore/qdebug.h>
+#include <float.h>
+#include <QtGui/private/qvectorpath_p.h>
 #include <QtCanvasPainter/qcanvaspainter.h>
 #include <QtCanvasPainter/private/qcanvaspainter_p.h>
 #include <QtGui/rhi/qrhi.h>
@@ -24,6 +37,27 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterrhirenderer.cpp, line 135, as local:qcpainterrhirenderer.cpp:QCRHIVertUniforms
+struct QCRHIVertUniforms {
+    // Total size 256 bytes.
+    // This is often the minimum uniform buffer offset alignment.
+    float vertMat[12]; // matrices are actually 3 vec4s
+    float unused[52];
+};
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterrhirenderer.cpp, line 321, as local:qcpainterrhirenderer.cpp:QCRHISrbKey
+struct QCRHISrbKey {
+    int passId;
+    int imageId;
+    int fontId;
+};
+
+//  from ../qtcanvaspainter/src/canvaspainter/engine/qcpainterengine.cpp, line 362, as _ZN15QCPainterEngine11deleteImageEi
+inline bool QCPainterEngine::deleteImage(int imageId)
+{
+    return m_renderer->renderDeleteTexture(imageId);
+}
 
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvaspainter.cpp, line 2933, as _ZN19QCanvasImageTracker24removeTemporaryResourcesEv
 inline void QCanvasImageTracker::removeTemporaryResources()

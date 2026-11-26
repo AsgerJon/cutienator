@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK29QQuick3DParticleSystemLogging10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleSystemLogging::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuick3DParticleSystemLogging11qt_metacastEPKc(
+    QQuick3DParticleSystemLogging *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleSystemLogging::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuick3DParticleSystemLogging11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleSystemLogging *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleSystemLogging::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -95,6 +114,55 @@ void ritual_ZN29QQuick3DParticleSystemLogging18setLoggingIntervalEi(
     QQuick3DParticleSystemLogging *self,
     int interval) {
   self->setLoggingInterval(interval);
+}
+
+//  void QQuick3DParticleSystemLogging::loggingIntervalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleSystemLogging22loggingIntervalChangedEv(
+    QQuick3DParticleSystemLogging *self) {
+  self->loggingIntervalChanged();
+}
+
+//  void QQuick3DParticleSystemLogging::updatesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleSystemLogging14updatesChangedEv(
+    QQuick3DParticleSystemLogging *self) {
+  self->updatesChanged();
+}
+
+//  void QQuick3DParticleSystemLogging::particlesMaxChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleSystemLogging19particlesMaxChangedEv(
+    QQuick3DParticleSystemLogging *self) {
+  self->particlesMaxChanged();
+}
+
+//  void QQuick3DParticleSystemLogging::particlesUsedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleSystemLogging20particlesUsedChangedEv(
+    QQuick3DParticleSystemLogging *self) {
+  self->particlesUsedChanged();
+}
+
+//  void QQuick3DParticleSystemLogging::timeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleSystemLogging11timeChangedEv(
+    QQuick3DParticleSystemLogging *self) {
+  self->timeChanged();
+}
+
+//  void QQuick3DParticleSystemLogging::timeAverageChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleSystemLogging18timeAverageChangedEv(
+    QQuick3DParticleSystemLogging *self) {
+  self->timeAverageChanged();
+}
+
+//  void QQuick3DParticleSystemLogging::timeDeviationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuick3DParticleSystemLogging20timeDeviationChangedEv(
+    QQuick3DParticleSystemLogging *self) {
+  self->timeDeviationChanged();
 }
 
 //  void QQuick3DParticleSystemLogging::updateTimes(qint64 time)

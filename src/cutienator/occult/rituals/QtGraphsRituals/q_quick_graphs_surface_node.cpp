@@ -3,20 +3,25 @@
 //  Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
-#if (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qquickgraphssurfacenode_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+#include <QtGraphs/QtGraphs>
 #include <QtGraphs/qsurface3dseries.h>
+#endif
 #include <QtCore/qpoint.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <QtQuick3D/qquick3dobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <QtGraphs/QSurface3DSeries>
 
 //  Only a class built on QQuickGraphsSurfaceNode may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -561,6 +566,25 @@ const QMetaObject *ritual_ZNK23QQuickGraphsSurfaceNode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickGraphsSurfaceNode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickGraphsSurfaceNode11qt_metacastEPKc(
+    QQuickGraphsSurfaceNode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickGraphsSurfaceNode::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickGraphsSurfaceNode11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickGraphsSurfaceNode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickGraphsSurfaceNode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickGraphsSurfaceNode2trEPKcS1_i(
@@ -666,6 +690,48 @@ QList<QSurface3DSeries *> *ritual_ZN23QQuickGraphsSurfaceNode17surfaceSeriesList
   return new QList<QSurface3DSeries *>(self->surfaceSeriesList());
 }
 
+//  QQmlListProperty<QSurface3DSeries> QQuickGraphsSurfaceNode::seriesList()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QSurface3DSeries> *ritual_ZN23QQuickGraphsSurfaceNode10seriesListEv(
+    QQuickGraphsSurfaceNode *self) {
+  return new QQmlListProperty<QSurface3DSeries>(self->seriesList());
+}
+
+//  void QQuickGraphsSurfaceNode::appendSeriesFunc(QQmlListProperty<QSurface3
+//      DSeries> *list, QSurface3DSeries *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGraphsSurfaceNode16appendSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesEPS1_(
+    QQmlListProperty<QSurface3DSeries> *list,
+    QSurface3DSeries *series) {
+  QQuickGraphsSurfaceNode::appendSeriesFunc(list, series);
+}
+
+//  qsizetype QQuickGraphsSurfaceNode::countSeriesFunc(QQmlListProperty<QSurf
+//      ace3DSeries> *list)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN23QQuickGraphsSurfaceNode15countSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesE(
+    QQmlListProperty<QSurface3DSeries> *list) {
+  return QQuickGraphsSurfaceNode::countSeriesFunc(list);
+}
+
+//  QSurface3DSeries
+//      *QQuickGraphsSurfaceNode::atSeriesFunc(QQmlListProperty<QSurface3DSer
+//      ies> *list, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QSurface3DSeries *ritual_ZN23QQuickGraphsSurfaceNode12atSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesEx(
+    QQmlListProperty<QSurface3DSeries> *list,
+    qsizetype index) {
+  return QQuickGraphsSurfaceNode::atSeriesFunc(list, index);
+}
+
+//  void QQuickGraphsSurfaceNode::clearSeriesFunc(QQmlListProperty<QSurface3D
+//      Series> *list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGraphsSurfaceNode15clearSeriesFuncEP16QQmlListPropertyI16QSurface3DSeriesE(
+    QQmlListProperty<QSurface3DSeries> *list) {
+  QQuickGraphsSurfaceNode::clearSeriesFunc(list);
+}
+
 //  void QQuickGraphsSurfaceNode::addSeries(QSurface3DSeries *series)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuickGraphsSurfaceNode9addSeriesEP16QSurface3DSeries(
@@ -712,6 +778,47 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN23QQuickGraphsSurfaceNode17componentCompleteEv(
     QQuickGraphsSurfaceNode *self) {
   self->componentComplete();
+}
+
+//  void QQuickGraphsSurfaceNode::axisXChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGraphsSurfaceNode12axisXChangedEP12QValue3DAxis(
+    QQuickGraphsSurfaceNode *self,
+    QValue3DAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void QQuickGraphsSurfaceNode::axisYChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGraphsSurfaceNode12axisYChangedEP12QValue3DAxis(
+    QQuickGraphsSurfaceNode *self,
+    QValue3DAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void QQuickGraphsSurfaceNode::axisZChanged(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGraphsSurfaceNode12axisZChangedEP12QValue3DAxis(
+    QQuickGraphsSurfaceNode *self,
+    QValue3DAxis *axis) {
+  self->axisZChanged(axis);
+}
+
+//  void QQuickGraphsSurfaceNode::selectedSeriesChanged(QSurface3DSeries
+//      *series)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGraphsSurfaceNode21selectedSeriesChangedEP16QSurface3DSeries(
+    QQuickGraphsSurfaceNode *self,
+    QSurface3DSeries *series) {
+  self->selectedSeriesChanged(series);
+}
+
+//  void QQuickGraphsSurfaceNode::flipHorizontalGridChanged(bool flip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickGraphsSurfaceNode25flipHorizontalGridChangedEb(
+    QQuickGraphsSurfaceNode *self,
+    bool flip) {
+  self->flipHorizontalGridChanged(flip);
 }
 
 //  QQuickGraphsSurface *QQuickGraphsSurfaceNode::graphSurface()
@@ -780,4 +887,12 @@ void ritual_own_ZN23QQuickGraphsSurfaceNode17componentCompleteEv(
   static_cast<OwnQQuickGraphsSurfaceNode *>(self)->OwnQQuickGraphsSurfaceNode::componentComplete();
 }
 
-#endif  // (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))
+//  a QQmlListProperty<QSurface3DSeries> a ritual of QQuickGraphsSurfaceNode
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickGraphsSurfaceNode__QQmlListProperty_QSurface3DSeries(
+    QQmlListProperty<QSurface3DSeries> *self) {
+  delete self;
+}
+
+#endif  // (QT_CONFIG(graphs_3d)) && (!(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))) && (QT_CONFIG(graphs_3d_surface3d))

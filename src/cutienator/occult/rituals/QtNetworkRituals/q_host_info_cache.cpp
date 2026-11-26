@@ -38,6 +38,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/network/kernel/qhostinfo.cpp, line 1156, as _ZN14QHostInfoCacheC1Ev
 #if defined(QT_BUILD_INTERNAL) || QT_CONFIG(hostinfocache)
 inline QHostInfoCache::QHostInfoCache() : max_age(60), enabled(true), cache(128)

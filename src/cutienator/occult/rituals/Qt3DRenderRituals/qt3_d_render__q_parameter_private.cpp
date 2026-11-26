@@ -70,6 +70,12 @@ public:
   }
 };
 
+//  Qt3DRender::QParameterPrivate::QParameterPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QParameterPrivate *ritual_ZN10Qt3DRender17QParameterPrivateC1Ev() {
+  return new CuteQt3DRender_QParameterPrivate();
+}
+
 //  QParameter *Qt3DRender::QParameterPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 Qt3DRender::QParameter *ritual_ZN10Qt3DRender17QParameterPrivate6q_funcEv(

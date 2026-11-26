@@ -55,6 +55,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from ../qtdeclarative/src/qml/qml/qqmlengine.cpp, line 1678, as _ZN10LoadHelper16registerCallbackEP20QQmlComponentPrivate
 inline void LoadHelper::registerCallback(QQmlComponentPrivate *callback)
 {

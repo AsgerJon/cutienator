@@ -5,21 +5,29 @@
   ],
   "rows": {
     "ritual_ZNK6QTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QTimer11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN6QTimer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN6QTimer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN6QTimerC1EP7QObject": ["address", "address"],
     "ritual_ZN6QTimerD1Ev": ["nothing", "address"],
     "ritual_ZNK6QTimer8isActiveEv": ["bool", "address"],
+    "ritual_ZN6QTimer14bindableActiveEv": ["address", "address"],
     "ritual_ZNK6QTimer7timerIdEv": ["int", "address"],
     "ritual_ZNK6QTimer2idEv": ["int", "address"],
     "ritual_ZN6QTimer11setIntervalEi": ["nothing", "address", "int"],
     "ritual_ZNK6QTimer8intervalEv": ["int", "address"],
+    "ritual_ZN6QTimer16bindableIntervalEv": ["address", "address"],
     "ritual_ZNK6QTimer13remainingTimeEv": ["int", "address"],
     "ritual_ZN6QTimer12setTimerTypeEN2Qt9TimerTypeE": [
       "nothing", "address", "int"
     ],
     "ritual_ZNK6QTimer9timerTypeEv": ["int", "address"],
+    "ritual_ZN6QTimer17bindableTimerTypeEv": ["address", "address"],
     "ritual_ZN6QTimer13setSingleShotEb": ["nothing", "address", "bool"],
     "ritual_ZNK6QTimer12isSingleShotEv": ["bool", "address"],
+    "ritual_ZN6QTimer18bindableSingleShotEv": ["address", "address"],
     "ritual_ZN6QTimer10singleShotEiPK7QObjectPKc": [
       "nothing", "int", "address", "chars"
     ],
@@ -29,17 +37,48 @@
     "ritual_ZN6QTimer5startEi": ["nothing", "address", "int"],
     "ritual_ZN6QTimer5startEv": ["nothing", "address"],
     "ritual_ZN6QTimer4stopEv": ["nothing", "address"],
+    "ritual_ZN6QTimer7timeoutENS_14QPrivateSignalE": ["nothing", "address"],
+    "ritual_ZN6QTimer11setIntervalENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK6QTimer18intervalAsDurationEv": ["long long", "address"],
+    "ritual_ZNK6QTimer23remainingTimeAsDurationEv": ["long long", "address"],
+    "ritual_ZN6QTimer10singleShotENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEPK7QObjectPKc": [
+      "nothing", "long long", "address", "chars"
+    ],
+    "ritual_ZN6QTimer10singleShotENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObjectPKc": [
+      "nothing", "long long", "int", "address", "chars"
+    ],
+    "ritual_ZN6QTimer5startENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZN6QTimer10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
     "ritual_ZN6QTimer6d_funcEv": ["address", "address"],
     "ritual_ZNK6QTimer6d_funcEv": ["address", "address"],
+    "ritual_ZN6QTimer10from_msecsENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE": [
+      "long long", "long long"
+    ],
+    "ritual_ZN6QTimer10toDurationEi": ["long long", "int"],
+    "ritual_ZN6QTimer10toDurationENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE": [
+      "long long", "long long"
+    ],
     "ritual_ZN6QTimer10startTimerEi": ["int", "address", "int"],
     "ritual_ZN6QTimer9killTimerEi": ["nothing", "address", "int"],
     "ritual_ZN6QTimer14defaultTypeForEi": ["int", "int"],
+    "ritual_ZN6QTimer14defaultTypeForENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE": [
+      "int", "long long"
+    ],
+    "ritual_ZN6QTimer14singleShotImplENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "nothing", "long long", "int", "address", "address"
+    ],
     "ritual_take_QTimer": ["bool", "address", "chars", "address"],
     "ritual_own_ZN6QTimer10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_drop_QTimer__QBindable_bool": ["nothing", "address"],
+    "ritual_drop_QTimer__QBindable_int": ["nothing", "address"],
+    "ritual_drop_QTimer__QBindable_Qt_TimerType": ["nothing", "address"]
   }
 }

@@ -6,6 +6,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstructure_p.h>
 #include <QtSvg/6.12.0/QtSvg/private/qsvghelper_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qimage.h>
+#include <QtCore/qrect.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -90,10 +94,52 @@ void ritual_ZN8QSvgMaskD1Ev(QSvgMask *self) {
   delete self;
 }
 
+//  void QSvgMask::drawCommand(QPainter *a0, QSvgExtraStates &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSvgMask11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgMask *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  self->drawCommand(a0, *a1);
+}
+
+//  bool QSvgMask::shouldDrawNode(QPainter *a0, QSvgExtraStates &a1) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QSvgMask14shouldDrawNodeEP8QPainterR15QSvgExtraStates(
+    const QSvgMask *self,
+    QPainter *a0,
+    QSvgExtraStates *a1) {
+  return self->shouldDrawNode(a0, *a1);
+}
+
 //  Type QSvgMask::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK8QSvgMask4typeEv(const QSvgMask *self) {
   return self->type();
+}
+
+//  QImage QSvgMask::createMask(QPainter *p, QSvgExtraStates &states,
+//      QSvgNode *targetNode, QRectF *globalRect) const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZNK8QSvgMask10createMaskEP8QPainterR15QSvgExtraStatesP8QSvgNodeP6QRectF(
+    const QSvgMask *self,
+    QPainter *p,
+    QSvgExtraStates *states,
+    QSvgNode *targetNode,
+    QRectF *globalRect) {
+  return new QImage(self->createMask(p, *states, targetNode, globalRect));
+}
+
+//  QImage QSvgMask::createMask(QPainter *p, QSvgExtraStates &states, const
+//      QRectF &localRect, QRectF *globalRect) const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZNK8QSvgMask10createMaskEP8QPainterR15QSvgExtraStatesRK6QRectFPS4_(
+    const QSvgMask *self,
+    QPainter *p,
+    QSvgExtraStates *states,
+    const QRectF *localRect,
+    QRectF *globalRect) {
+  return new QImage(self->createMask(p, *states, *localRect, globalRect));
 }
 
 //  QSvgRectF QSvgMask::rect() const

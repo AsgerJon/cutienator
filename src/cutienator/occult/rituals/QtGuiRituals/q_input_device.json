@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QInputDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QInputDevice11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QInputDevice11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QInputDevice2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QInputDevice6d_funcEv": ["address", "address"],
     "ritual_ZNK12QInputDevice6d_funcEv": ["address", "address"],
@@ -25,9 +31,23 @@
       "address", "address"
     ],
     "ritual_ZN12QInputDevice9seatNamesEv": ["address"],
+    "ritual_ZN12QInputDevice7devicesEv": ["address"],
     "ritual_ZN12QInputDevice15primaryKeyboardERK7QString": [
       "address", "text"
     ],
-    "ritual_take_QInputDevice": ["bool", "address", "chars", "address"]
+    "ritual_ZNK12QInputDeviceeqERKS_": ["bool", "address", "address"],
+    "ritual_ZN12QInputDevice31availableVirtualGeometryChangedE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QInputDevice19capabilitiesChangedE6QFlagsINS_10CapabilityEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QInputDeviceC1ER19QInputDevicePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QInputDevice": ["bool", "address", "chars", "address"],
+    "ritual_drop_QInputDevice__QList_const_QInputDevice": [
+      "nothing", "address"
+    ]
   }
 }

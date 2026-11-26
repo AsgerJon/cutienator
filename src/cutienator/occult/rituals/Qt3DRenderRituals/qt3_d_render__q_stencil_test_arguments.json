@@ -8,8 +8,53 @@
     "ritual_ZNK10Qt3DRender21QStencilTestArguments10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender21QStencilTestArguments11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArguments11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender21QStencilTestArguments2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArgumentsD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QStencilTestArguments14comparisonMaskEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QStencilTestArguments14referenceValueEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QStencilTestArguments15stencilFunctionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QStencilTestArguments8faceModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArguments17setComparisonMaskEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArguments17setReferenceValueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArguments18setStencilFunctionENS0_15StencilFunctionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArguments21comparisonMaskChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArguments22stencilFunctionChangedENS0_15StencilFunctionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArguments21referenceValueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArguments15faceModeChangedENS0_15StencilFaceModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender21QStencilTestArgumentsC1ENS0_15StencilFaceModeEP7QObject": [
+      "address", "int", "address"
     ],
     "ritual_ZN10Qt3DRender21QStencilTestArguments6d_funcEv": [
       "address", "address"

@@ -9,6 +9,9 @@
       "bool", "address", "address"
     ],
     "ritual_ZNK19QSoundEffectPrivate11audioDeviceEv": ["address", "address"],
+    "ritual_ZN19QSoundEffectPrivate19resolveAndSetSourceERK4QUrlR12QSampleCache": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK19QSoundEffectPrivate3urlEv": ["address", "address"],
     "ritual_ZNK19QSoundEffectPrivate6statusEv": ["int", "address"],
     "ritual_ZNK19QSoundEffectPrivate9loopCountEv": ["int", "address"],
@@ -27,6 +30,9 @@
     "ritual_ZNK19QSoundEffectPrivate7playingEv": ["bool", "address"],
     "ritual_ZN19QSoundEffectPrivate3getEP12QSoundEffect": [
       "address", "address"
+    ],
+    "ritual_ZN19QSoundEffectPrivate9setSourceE4QUrlR12QSampleCache": [
+      "nothing", "address", "address", "address"
     ]
   }
 }

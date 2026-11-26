@@ -9,7 +9,13 @@
       "address", "address", "address", "text", "address"
     ],
     "ritual_ZN9QSvgImageD1Ev": ["nothing", "address"],
+    "ritual_ZN9QSvgImage11drawCommandEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK9QSvgImage4typeEv": ["int", "address"],
+    "ritual_ZNK9QSvgImage14internalBoundsEP8QPainterR15QSvgExtraStates": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZNK9QSvgImage4rectEv": ["address", "address"],
     "ritual_ZNK9QSvgImage5imageEv": ["address", "address"],
     "ritual_ZNK9QSvgImage8filenameEv": ["text", "address"],

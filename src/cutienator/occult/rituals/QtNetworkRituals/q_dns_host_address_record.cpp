@@ -22,10 +22,36 @@ QDnsHostAddressRecord *ritual_ZN21QDnsHostAddressRecordC1ERKS_(
   return new QDnsHostAddressRecord(*other);
 }
 
+//  QDnsHostAddressRecord
+//      &QDnsHostAddressRecord::operator=(QDnsHostAddressRecord &&other)
+extern "C" Q_DECL_EXPORT
+QDnsHostAddressRecord *ritual_ZN21QDnsHostAddressRecordaSEOS_(
+    QDnsHostAddressRecord *self,
+    QDnsHostAddressRecord *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QDnsHostAddressRecord &QDnsHostAddressRecord::operator=(const
+//      QDnsHostAddressRecord &other)
+extern "C" Q_DECL_EXPORT
+QDnsHostAddressRecord *ritual_ZN21QDnsHostAddressRecordaSERKS_(
+    QDnsHostAddressRecord *self,
+    const QDnsHostAddressRecord *other) {
+  return &(self->operator=(*other));
+}
+
 //  QDnsHostAddressRecord::~QDnsHostAddressRecord()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QDnsHostAddressRecordD1Ev(QDnsHostAddressRecord *self) {
   delete self;
+}
+
+//  void QDnsHostAddressRecord::swap(QDnsHostAddressRecord &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QDnsHostAddressRecord4swapERS_(
+    QDnsHostAddressRecord *self,
+    QDnsHostAddressRecord *other) {
+  self->swap(*other);
 }
 
 //  QString QDnsHostAddressRecord::name() const

@@ -61,3 +61,60 @@ QObjectRegistrySingleton *ritual_ZNK33QAbstractObjectRegistryRefPrivate8registry
     const QAbstractObjectRegistryRefPrivate *self) {
   return self->registry();
 }
+
+//  void
+//      QAbstractObjectRegistryRefPrivate::dataAppend(QQmlListProperty<QObjec
+//      t> *l, QObject *o)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QAbstractObjectRegistryRefPrivate10dataAppendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *l,
+    QObject *o) {
+  QAbstractObjectRegistryRefPrivate::dataAppend(l, o);
+}
+
+//  qsizetype
+//      QAbstractObjectRegistryRefPrivate::dataCount(QQmlListProperty<QObject
+//      > *l)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN33QAbstractObjectRegistryRefPrivate9dataCountEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *l) {
+  return QAbstractObjectRegistryRefPrivate::dataCount(l);
+}
+
+//  QObject
+//      *QAbstractObjectRegistryRefPrivate::dataAt(QQmlListProperty<QObject>
+//      *l, qsizetype i)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN33QAbstractObjectRegistryRefPrivate6dataAtEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *l,
+    qsizetype i) {
+  return QAbstractObjectRegistryRefPrivate::dataAt(l, i);
+}
+
+//  void
+//      QAbstractObjectRegistryRefPrivate::dataClear(QQmlListProperty<QObject
+//      > *l)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QAbstractObjectRegistryRefPrivate9dataClearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *l) {
+  QAbstractObjectRegistryRefPrivate::dataClear(l);
+}
+
+//  void
+//      QAbstractObjectRegistryRefPrivate::dataReplace(QQmlListProperty<QObje
+//      ct> *l, qsizetype i, QObject *o)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QAbstractObjectRegistryRefPrivate11dataReplaceEP16QQmlListPropertyI7QObjectExPS1_(
+    QQmlListProperty<QObject> *l,
+    qsizetype i,
+    QObject *o) {
+  QAbstractObjectRegistryRefPrivate::dataReplace(l, i, o);
+}
+
+//  void QAbstractObjectRegistryRefPrivate::dataRemoveLast(QQmlListProperty<Q
+//      Object> *l)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QAbstractObjectRegistryRefPrivate14dataRemoveLastEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *l) {
+  QAbstractObjectRegistryRefPrivate::dataRemoveLast(l);
+}

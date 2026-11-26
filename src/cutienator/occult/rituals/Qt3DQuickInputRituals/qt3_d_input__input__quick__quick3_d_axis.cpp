@@ -9,6 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtQml/QQmlListProperty>
+#include <Qt3DInput/Qt3DInput>
 
 //  A Qt3DInput::Input::Quick::Quick3DAxis that Python can take functions over in. Every Qt3DInput::Input::Quick::Quick3DAxis
 //  Python makes is one. Each function below asks the Python
@@ -185,6 +187,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput5Input5Quick11Quick3DAxis10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::Input::Quick::Quick3DAxis::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxis11qt_metacastEPKc(
+    Qt3DInput::Input::Quick::Quick3DAxis *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::Input::Quick::Quick3DAxis::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxis11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::Input::Quick::Quick3DAxis *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::Input::Quick::Quick3DAxis::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -195,11 +216,27 @@ QString *ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxis2trEPKcS4_i(
   return new QString(Qt3DInput::Input::Quick::Quick3DAxis::tr(s, c, n));
 }
 
+//  Qt3DInput::Input::Quick::Quick3DAxis::Quick3DAxis(QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::Quick::Quick3DAxis *ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxisC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DInput_Input_Quick_Quick3DAxis(parent);
+}
+
 //  QAxis *Qt3DInput::Input::Quick::Quick3DAxis::parentAxis() const
 extern "C" Q_DECL_EXPORT
 Qt3DInput::QAxis *ritual_ZNK9Qt3DInput5Input5Quick11Quick3DAxis10parentAxisEv(
     const Qt3DInput::Input::Quick::Quick3DAxis *self) {
   return self->parentAxis();
+}
+
+//  QQmlListProperty<QAbstractAxisInput>
+//      Qt3DInput::Input::Quick::Quick3DAxis::qmlAxisInputs()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<Qt3DInput::QAbstractAxisInput> *ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxis13qmlAxisInputsEv(
+    Qt3DInput::Input::Quick::Quick3DAxis *self) {
+  return new QQmlListProperty<Qt3DInput::QAbstractAxisInput>(
+      self->qmlAxisInputs());
 }
 
 //  a Python function taken by a CuteQt3DInput_Input_Quick_Quick3DAxis, for
@@ -210,4 +247,12 @@ bool ritual_take_Qt3DInput_Input_Quick_Quick3DAxis(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_Input_Quick_Quick3DAxis *>(self)->take(key, call);
+}
+
+//  a QQmlListProperty<Qt3DInput::QAbstractAxisInput> a ritual of
+//      Qt3DInput::Input::Quick::Quick3DAxis gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_Input_Quick_Quick3DAxis__QQmlListProperty_Qt3DInput_QAbstractAxisInput(
+    QQmlListProperty<Qt3DInput::QAbstractAxisInput> *self) {
+  delete self;
 }

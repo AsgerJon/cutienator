@@ -18,6 +18,7 @@
 #include <QtGui/qpalette.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QRect>
 
 //  A QPixmapStyle that Python can take functions over in. Every QPixmapStyle
 //  Python makes is one. Each function below asks the Python
@@ -638,6 +639,24 @@ const QMetaObject *ritual_ZNK12QPixmapStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPixmapStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QPixmapStyle11qt_metacastEPKc(
+    QPixmapStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPixmapStyle::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QPixmapStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPixmapStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPixmapStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QPixmapStyle2trEPKcS1_i(
@@ -665,6 +684,14 @@ void ritual_ZN12QPixmapStyle6polishEP12QApplication(
     QPixmapStyle *self,
     QApplication *application) {
   self->polish(application);
+}
+
+//  void QPixmapStyle::polish(QPalette &palette)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPixmapStyle6polishER8QPalette(
+    QPixmapStyle *self,
+    QPalette *palette) {
+  self->polish(*palette);
 }
 
 //  void QPixmapStyle::polish(QWidget *widget)
@@ -1088,6 +1115,35 @@ QSize *ritual_ZNK12QPixmapStyle24itemViewSizeFromContentsEPK12QStyleOptionRK5QSi
           option,
           *contentsSize,
           widget));
+}
+
+//  QRect QPixmapStyle::comboBoxSubControlRect(const QStyleOptionComplex
+//      *option, QPixmapStyle::SubControl sc, const QWidget *widget) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK12QPixmapStyle22comboBoxSubControlRectEPK19QStyleOptionComplexN6QStyle10SubControlEPK7QWidget(
+    const QPixmapStyle *self,
+    const QStyleOptionComplex *option,
+    const QPixmapStyle::SubControl *sc,
+    const QWidget *widget) {
+  return new QRect(self->comboBoxSubControlRect(option, *sc, widget));
+}
+
+//  QRect QPixmapStyle::scrollBarSubControlRect(const QStyleOptionComplex
+//      *option, QPixmapStyle::SubControl sc, const QWidget *widget) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK12QPixmapStyle23scrollBarSubControlRectEPK19QStyleOptionComplexN6QStyle10SubControlEPK7QWidget(
+    const QPixmapStyle *self,
+    const QStyleOptionComplex *option,
+    const QPixmapStyle::SubControl *sc,
+    const QWidget *widget) {
+  return new QRect(self->scrollBarSubControlRect(option, *sc, widget));
+}
+
+//  QPixmapStyle::QPixmapStyle(QPixmapStylePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QPixmapStyle *ritual_ZN12QPixmapStyleC1ER19QPixmapStylePrivate(
+    QPixmapStylePrivate *dd) {
+  return new CuteQPixmapStyle(*dd);
 }
 
 //  QPixmapStylePrivate *QPixmapStyle::d_func()

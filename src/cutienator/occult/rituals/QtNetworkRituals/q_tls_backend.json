@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QTlsBackend10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QTlsBackend11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QTlsBackend11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QTlsBackend2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QTlsBackendD1Ev": ["nothing", "address"],
     "ritual_ZNK11QTlsBackend7isValidEv": ["bool", "address"],
@@ -23,6 +29,9 @@
     ],
     "ritual_ZNK11QTlsBackend17ensureInitializedEv": ["nothing", "address"],
     "ritual_ZNK11QTlsBackend11backendNameEv": ["text", "address"],
+    "ritual_ZNK11QTlsBackend18supportedProtocolsEv": ["address", "address"],
+    "ritual_ZNK11QTlsBackend17supportedFeaturesEv": ["address", "address"],
+    "ritual_ZNK11QTlsBackend18implementedClassesEv": ["address", "address"],
     "ritual_ZNK11QTlsBackend9createKeyEv": ["address", "address"],
     "ritual_ZNK11QTlsBackend17createCertificateEv": ["address", "address"],
     "ritual_ZNK11QTlsBackend20systemCaCertificatesEv": [
@@ -31,9 +40,17 @@
     "ritual_ZNK11QTlsBackend20createTlsCryptographEv": [
       "address", "address"
     ],
+    "ritual_ZNK11QTlsBackend21createDtlsCryptographEP5QDtlsi": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK11QTlsBackend24createDtlsCookieVerifierEv": [
       "address", "address"
     ],
+    "ritual_ZNK11QTlsBackend12X509VerifierEv": ["address", "address"],
+    "ritual_ZNK11QTlsBackend13X509PemReaderEv": ["address", "address"],
+    "ritual_ZNK11QTlsBackend13X509DerReaderEv": ["address", "address"],
+    "ritual_ZNK11QTlsBackend16X509Pkcs12ReaderEv": ["address", "address"],
+    "ritual_ZNK11QTlsBackend17ellipticCurvesIdsEv": ["address", "address"],
     "ritual_ZNK11QTlsBackend20curveIdFromShortNameERK7QString": [
       "int", "address", "text"
     ],
@@ -53,6 +70,18 @@
     "ritual_ZN11QTlsBackend18defaultBackendNameEv": ["text"],
     "ritual_ZN11QTlsBackend11findBackendERK7QString": ["address", "text"],
     "ritual_ZN11QTlsBackend18activeOrAnyBackendEv": ["address"],
+    "ritual_ZN11QTlsBackend18supportedProtocolsERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN11QTlsBackend17supportedFeaturesERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN11QTlsBackend18implementedClassesERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN11QTlsBackend12resetBackendER7QSslKeyPN11QTlsPrivate6TlsKeyE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QTlsBackend18setupClientPskAuthEP29QSslPreSharedKeyAuthenticatorPKcijj": [
       "nothing", "address", "chars", "int", "unsigned int", "unsigned int"
     ],
@@ -85,6 +114,15 @@
     ],
     "ritual_ZN11QTlsBackend26rootLoadingOnDemandAllowedERK17QSslConfiguration": [
       "bool", "address"
+    ],
+    "ritual_ZN11QTlsBackend20storePeerCertificateER17QSslConfigurationRK15QSslCertificate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTlsBackend25storePeerCertificateChainER17QSslConfigurationRK5QListI15QSslCertificateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTlsBackend21clearPeerCertificatesER17QSslConfiguration": [
+      "nothing", "address"
     ],
     "ritual_ZN11QTlsBackend21clearPeerCertificatesEP17QSslSocketPrivate": [
       "nothing", "address"
@@ -143,6 +181,9 @@
     "ritual_own_ZNK11QTlsBackend20createTlsCryptographEv": [
       "address", "address"
     ],
+    "ritual_own_ZNK11QTlsBackend21createDtlsCryptographEP5QDtlsi": [
+      "address", "address", "address", "int"
+    ],
     "ritual_own_ZNK11QTlsBackend24createDtlsCookieVerifierEv": [
       "address", "address"
     ],
@@ -169,6 +210,16 @@
     ],
     "ritual_own_ZN11QTlsBackend26forceAutotestSecurityLevelEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_drop_QTlsBackend__QList_QSsl_SslProtocol": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QTlsBackend__QList_QSsl_SupportedFeature": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QTlsBackend__QList_QSsl_ImplementedClass": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QTlsBackend__QList_int": ["nothing", "address"]
   }
 }

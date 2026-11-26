@@ -5,6 +5,9 @@
     "derdata_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN22QSSGBakedLightingModelC1EPK15QSSGRenderModelRK5QListI26QSSGRenderableObjectHandleE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QSSGBakedLightingModelD1Ev": ["nothing", "address"]
   }
 }

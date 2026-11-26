@@ -5,6 +5,7 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN27QAbstractProtobufSerializerC1Ev": ["address"],
     "ritual_ZNK27QAbstractProtobufSerializer9serializeEPK16QProtobufMessage": [
       "address", "address", "address"
     ],

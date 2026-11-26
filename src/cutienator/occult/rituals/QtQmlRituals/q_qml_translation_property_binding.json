@@ -5,6 +5,18 @@
     "Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN30QQmlTranslationPropertyBindingD1Ev": ["nothing", "address"]
+    "ritual_ZN30QQmlTranslationPropertyBinding6createEPK16QQmlPropertyDataRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEPKNS4_12CompiledData7BindingE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN30QQmlTranslationPropertyBinding6createERK9QMetaTypeRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEERK15QQmlTranslation": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN30QQmlTranslationPropertyBinding15compilationUnitEPK23QPropertyBindingPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQmlTranslationPropertyBindingD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlTranslationPropertyBinding__QQmlRefPointer_QV4_ExecutableCompilationUnit": [
+      "nothing", "address"
+    ]
   }
 }

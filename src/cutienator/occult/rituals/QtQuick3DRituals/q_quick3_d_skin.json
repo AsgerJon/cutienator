@@ -6,12 +6,34 @@
   ],
   "rows": {
     "ritual_ZNK12QQuick3DSkin10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuick3DSkin11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuick3DSkin11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuick3DSkin2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuick3DSkinC1EP14QQuick3DObject": ["address", "address"],
     "ritual_ZN12QQuick3DSkinD1Ev": ["nothing", "address"],
+    "ritual_ZN12QQuick3DSkin6jointsEv": ["address", "address"],
     "ritual_ZNK12QQuick3DSkin16inverseBindPosesEv": ["address", "address"],
     "ritual_ZN12QQuick3DSkin19setInverseBindPosesERK5QListI10QMatrix4x4E": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DSkin23inverseBindPosesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuick3DSkin14qmlAppendJointEP16QQmlListPropertyI12QQuick3DNodeEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DSkin10qmlJointAtEP16QQmlListPropertyI12QQuick3DNodeEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN12QQuick3DSkin14qmlJointsCountEP16QQmlListPropertyI12QQuick3DNodeE": [
+      "long long", "address"
+    ],
+    "ritual_ZN12QQuick3DSkin14qmlClearJointsEP16QQmlListPropertyI12QQuick3DNodeE": [
+      "nothing", "address"
     ],
     "ritual_ZN12QQuick3DSkin17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
@@ -19,6 +41,9 @@
     "ritual_take_QQuick3DSkin": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QQuick3DSkin17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
+    ],
+    "ritual_drop_QQuick3DSkin__QQmlListProperty_QQuick3DNode": [
+      "nothing", "address"
     ]
   }
 }

@@ -19,6 +19,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdatavis3d/src/datavisualization/data/qheightmapsurfacedataproxy.cpp, line 9, as local:qheightmapsurfacedataproxy.cpp:defaultMinValue
+const float defaultMinValue = 0.0f;
+
+//  from ../qtdatavis3d/src/datavisualization/data/qheightmapsurfacedataproxy.cpp, line 10, as local:qheightmapsurfacedataproxy.cpp:defaultMaxValue
+const float defaultMaxValue = 10.0f;
+
 //  from ../qtdatavis3d/src/datavisualization/data/qheightmapsurfacedataproxy.cpp, line 441, as _ZN33QHeightMapSurfaceDataProxyPrivate14setValueRangesEffff
 inline void QHeightMapSurfaceDataProxyPrivate::setValueRanges(float minX, float maxX,
                                                        float minZ, float maxZ)
@@ -535,6 +541,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK33QHeightMapSurfaceDataProxyPrivate10metaObjectEv(
     const QHeightMapSurfaceDataProxyPrivate *self) {
   return self->metaObject();
+}
+
+//  void *QHeightMapSurfaceDataProxyPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN33QHeightMapSurfaceDataProxyPrivate11qt_metacastEPKc(
+    QHeightMapSurfaceDataProxyPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QHeightMapSurfaceDataProxyPrivate::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN33QHeightMapSurfaceDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QHeightMapSurfaceDataProxyPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QHeightMapSurfaceDataProxyPrivate::~QHeightMapSurfaceDataProxyPrivate()

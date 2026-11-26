@@ -13,6 +13,9 @@
     ],
     "ritual_ZN12QQmlNotifier6notifyEP8QQmlDatai": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQmlNotifier10emitNotifyEP20QQmlNotifierEndpointPPv": [
+      "nothing", "address", "address"
     ]
   }
 }

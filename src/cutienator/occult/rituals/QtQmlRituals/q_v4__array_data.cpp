@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4arraydata_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtQml/6.12.0/QtQml/private/qv4arraydata_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: added by hand, rituals for functions the generator leaves
+//  out: 1. Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -45,6 +46,13 @@ uint ritual_ZNK3QV49ArrayData5allocEv(const QV4::ArrayData *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN3QV49ArrayData8setAllocEj(QV4::ArrayData *self, uint a) {
   self->setAlloc(a);
+}
+
+//  Type QV4::ArrayData::type() const
+extern "C" Q_DECL_EXPORT
+QV4::ArrayData::Type *ritual_ZNK3QV49ArrayData4typeEv(
+    const QV4::ArrayData *self) {
+  return new QV4::ArrayData::Type(self->type());
 }
 
 //  void QV4::ArrayData::setType(Type t)
@@ -135,6 +143,12 @@ QV4::ReturnedValue ritual_ZNK3QV49ArrayData3getEj(
   return self->get(i);
 }
 
+//  void QV4::ArrayData::ensureAttributes(Object *o)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV49ArrayData16ensureAttributesEPNS_6ObjectE(QV4::Object *o) {
+  QV4::ArrayData::ensureAttributes(o);
+}
+
 //  void QV4::ArrayData::realloc(Object *o, Type newType, uint alloc, bool
 //      enforceAttributes)
 extern "C" Q_DECL_EXPORT
@@ -144,4 +158,49 @@ void ritual_ZN3QV49ArrayData7reallocEPNS_6ObjectENS_4Heap9ArrayData4TypeEjb(
     uint alloc,
     bool enforceAttributes) {
   QV4::ArrayData::realloc(o, newType, alloc, enforceAttributes);
+}
+
+//  void QV4::ArrayData::sort(ExecutionEngine *engine, Object *thisObject,
+//      const Value &comparefn, uint dataLen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV49ArrayData4sortEPNS_15ExecutionEngineEPNS_6ObjectERKNS_5ValueEj(
+    QV4::ExecutionEngine *engine,
+    QV4::Object *thisObject,
+    const QV4::Value *comparefn,
+    uint dataLen) {
+  QV4::ArrayData::sort(engine, thisObject, *comparefn, dataLen);
+}
+
+//  uint QV4::ArrayData::append(Object *obj, ArrayObject *otherObj, uint n)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN3QV49ArrayData6appendEPNS_6ObjectEPNS_11ArrayObjectEj(
+    QV4::Object *obj,
+    QV4::ArrayObject *otherObj,
+    uint n) {
+  return QV4::ArrayData::append(obj, otherObj, n);
+}
+
+//  void QV4::ArrayData::insert(Object *o, uint index, const Value *v, bool
+//      isAccessor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN3QV49ArrayData6insertEPNS_6ObjectEjPKNS_5ValueEb(
+    QV4::Object *o,
+    uint index,
+    const QV4::Value *v,
+    bool isAccessor) {
+  QV4::ArrayData::insert(o, index, v, isAccessor);
+}
+
+//  a QV4::ArrayData::Type a ritual of QV4::ArrayData gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QV4_ArrayData__QV4_ArrayData_Type(
+    QV4::ArrayData::Type *self) {
+  delete self;
+}
+
+//  uint &QV4::ArrayData::alloc()
+extern "C" Q_DECL_EXPORT
+uint *ritual_ZN3QV49ArrayData5allocEv(
+    QV4::ArrayData *self) {
+  return &(self->alloc());
 }

@@ -8,14 +8,32 @@
     "ritual_ZNK10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet2trEPKcS4_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheetC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheetD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet7spritesEv": [
+      "address", "address"
     ],
     "ritual_ZNK10Qt3DExtras6Extras5Quick18Quick3DSpriteSheet17parentSpriteSheetEv": [
       "address", "address"
     ],
     "ritual_take_Qt3DExtras_Extras_Quick_Quick3DSpriteSheet": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DExtras_Extras_Quick_Quick3DSpriteSheet__QQmlListProperty_Qt3DExtras_QSpriteSheetItem": [
+      "nothing", "address"
     ]
   }
 }

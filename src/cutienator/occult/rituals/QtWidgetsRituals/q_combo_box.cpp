@@ -8,7 +8,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtGui/qicon.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -1076,6 +1078,22 @@ const QMetaObject *ritual_ZNK9QComboBox10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QComboBox::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9QComboBox11qt_metacastEPKc(QComboBox *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QComboBox::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QComboBox11qt_metacallEN11QMetaObject4CallEiPPv(
+    QComboBox *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QComboBox::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QComboBox2trEPKcS1_i(
@@ -1618,6 +1636,56 @@ void ritual_ZN9QComboBox14setCurrentTextERK7QString(
   self->setCurrentText(*text);
 }
 
+//  void QComboBox::editTextChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox15editTextChangedERK7QString(
+    QComboBox *self,
+    const QString *a0) {
+  self->editTextChanged(*a0);
+}
+
+//  void QComboBox::activated(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox9activatedEi(QComboBox *self, int index) {
+  self->activated(index);
+}
+
+//  void QComboBox::textActivated(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox13textActivatedERK7QString(
+    QComboBox *self,
+    const QString *a0) {
+  self->textActivated(*a0);
+}
+
+//  void QComboBox::highlighted(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox11highlightedEi(QComboBox *self, int index) {
+  self->highlighted(index);
+}
+
+//  void QComboBox::textHighlighted(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox15textHighlightedERK7QString(
+    QComboBox *self,
+    const QString *a0) {
+  self->textHighlighted(*a0);
+}
+
+//  void QComboBox::currentIndexChanged(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox19currentIndexChangedEi(QComboBox *self, int index) {
+  self->currentIndexChanged(index);
+}
+
+//  void QComboBox::currentTextChanged(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox18currentTextChangedERK7QString(
+    QComboBox *self,
+    const QString *a0) {
+  self->currentTextChanged(*a0);
+}
+
 //  void QComboBox::focusInEvent(QFocusEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QComboBox12focusInEventEP11QFocusEvent(
@@ -1738,6 +1806,14 @@ void ritual_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox(
     const QComboBox *self,
     QStyleOptionComboBox *option) {
   self->initStyleOption(option);
+}
+
+//  QComboBox::QComboBox(QComboBoxPrivate &a0, QWidget *a1)
+extern "C" Q_DECL_EXPORT
+QComboBox *ritual_ZN9QComboBoxC1ER16QComboBoxPrivateP7QWidget(
+    QComboBoxPrivate *a0,
+    QWidget *a1) {
+  return new CuteQComboBox(*a0, a1);
 }
 
 //  QComboBoxPrivate *QComboBox::d_func()

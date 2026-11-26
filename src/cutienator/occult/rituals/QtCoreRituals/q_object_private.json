@@ -40,6 +40,9 @@
     "ritual_ZN14QObjectPrivate17deleteInOwnThreadEP7QObject": [
       "nothing", "address"
     ],
+    "ritual_ZNK14QObjectPrivate11signalIndexEPKcPPK11QMetaObject": [
+      "int", "address", "chars", "address"
+    ],
     "ritual_ZNK14QObjectPrivate17isSignalConnectedEjb": [
       "bool", "address", "unsigned int", "bool"
     ],
@@ -58,14 +61,31 @@
     "ritual_ZN14QObjectPrivate35reinitBindingStorageAfterThreadMoveEv": [
       "nothing", "address"
     ],
+    "ritual_ZN14QObjectPrivate11connectImplEPK7QObjectiS2_PPvPN9QtPrivate15QSlotObjectBaseEiPKiPK11QMetaObject": [
+      "address", "address", "int", "address", "address", "address", "int",
+      "address", "address"
+    ],
     "ritual_ZN14QObjectPrivate7connectEPK7QObjectiPN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeE": [
       "address", "address", "int", "address", "int"
     ],
     "ritual_ZN14QObjectPrivate7connectEPK7QObjectiS2_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeE": [
       "address", "address", "int", "address", "address", "int"
     ],
+    "ritual_ZN14QObjectPrivate10disconnectEPK7QObjectiPPv": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN14QObjectPrivate10disconnectEPK7QObjectiS2_PPv": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK14QObjectPrivate15flagsForDumpingB5cxx11Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QObjectPrivate18writeToDebugStreamER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QObjectPrivate28getPropertyAdaptorSlotObjectERK13QMetaProperty": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_drop_QObjectPrivate__std_string": ["nothing", "address"]
   }
 }

@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtSerialBus/qmodbusdataunit.h>
+#include <QtSerialBus/qmodbuspdu.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -299,6 +300,24 @@ const QMetaObject *ritual_ZNK13QModbusServer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QModbusServer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QModbusServer11qt_metacastEPKc(
+    QModbusServer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QModbusServer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QModbusServer11qt_metacallEN11QMetaObject4CallEiPPv(
+    QModbusServer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QModbusServer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QModbusServer2trEPKcS1_i(
@@ -322,6 +341,12 @@ const QModbusServerPrivate *ritual_ZNK13QModbusServer6d_funcEv(
   return self->d_func();
 }
 
+//  QModbusServer::QModbusServer(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QModbusServer *ritual_ZN13QModbusServerC1EP7QObject(QObject *parent) {
+  return new CuteQModbusServer(parent);
+}
+
 //  QModbusServer::~QModbusServer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QModbusServerD1Ev(QModbusServer *self) {
@@ -340,6 +365,14 @@ void ritual_ZN13QModbusServer16setServerAddressEi(
     QModbusServer *self,
     int serverAddress) {
   self->setServerAddress(serverAddress);
+}
+
+//  bool QModbusServer::setMap(const QModbusDataUnitMap &map)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QModbusServer6setMapERK4QMapIN15QModbusDataUnit12RegisterTypeES1_E(
+    QModbusServer *self,
+    const QModbusDataUnitMap *map) {
+  return self->setMap(*map);
 }
 
 //  bool QModbusServer::processesBroadcast() const
@@ -404,6 +437,25 @@ bool ritual_ZNK13QModbusServer4dataEN15QModbusDataUnit12RegisterTypeEtPt(
   return self->data(table, address, data);
 }
 
+//  void QModbusServer::dataWritten(QModbusDataUnit::RegisterType table, int
+//      address, int size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QModbusServer11dataWrittenEN15QModbusDataUnit12RegisterTypeEii(
+    QModbusServer *self,
+    QModbusDataUnit::RegisterType table,
+    int address,
+    int size) {
+  self->dataWritten(table, address, size);
+}
+
+//  QModbusServer::QModbusServer(QModbusServerPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QModbusServer *ritual_ZN13QModbusServerC1ER20QModbusServerPrivateP7QObject(
+    QModbusServerPrivate *dd,
+    QObject *parent) {
+  return new CuteQModbusServer(*dd, parent);
+}
+
 //  bool QModbusServer::writeData(const QModbusDataUnit &unit)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN13QModbusServer9writeDataERK15QModbusDataUnit(
@@ -418,6 +470,23 @@ bool ritual_ZNK13QModbusServer8readDataEP15QModbusDataUnit(
     const QModbusServer *self,
     QModbusDataUnit *newData) {
   return self->readData(newData);
+}
+
+//  QModbusResponse QModbusServer::processRequest(const QModbusPdu &request)
+extern "C" Q_DECL_EXPORT
+QModbusResponse *ritual_ZN13QModbusServer14processRequestERK10QModbusPdu(
+    QModbusServer *self,
+    const QModbusPdu *request) {
+  return new QModbusResponse(self->processRequest(*request));
+}
+
+//  QModbusResponse QModbusServer::processPrivateRequest(const QModbusPdu
+//      &request)
+extern "C" Q_DECL_EXPORT
+QModbusResponse *ritual_ZN13QModbusServer21processPrivateRequestERK10QModbusPdu(
+    QModbusServer *self,
+    const QModbusPdu *request) {
+  return new QModbusResponse(self->processPrivateRequest(*request));
 }
 
 //  a Python function taken by a CuteQModbusServer, for the function named by

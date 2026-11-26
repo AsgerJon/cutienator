@@ -8,9 +8,17 @@
     "ritual_ZNK21QVirtualKeyboardTrace10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QVirtualKeyboardTrace11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QVirtualKeyboardTrace2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN21QVirtualKeyboardTrace6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QVirtualKeyboardTrace6d_funcEv": ["address", "address"],
     "ritual_ZN21QVirtualKeyboardTrace24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
@@ -54,6 +62,24 @@
     ],
     "ritual_ZN21QVirtualKeyboardTrace10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace14traceIdChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace15channelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace13lengthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace12finalChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace15canceledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace14opacityChangedEd": [
+      "nothing", "address", "double"
     ],
     "ritual_take_QVirtualKeyboardTrace": [
       "bool", "address", "chars", "address"

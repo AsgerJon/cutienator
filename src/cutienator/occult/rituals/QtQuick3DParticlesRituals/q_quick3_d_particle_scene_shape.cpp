@@ -255,6 +255,25 @@ const QMetaObject *ritual_ZNK26QQuick3DParticleSceneShape10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleSceneShape::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN26QQuick3DParticleSceneShape11qt_metacastEPKc(
+    QQuick3DParticleSceneShape *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleSceneShape::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QQuick3DParticleSceneShape11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleSceneShape *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleSceneShape::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -377,6 +396,48 @@ QVector3D *ritual_ZN26QQuick3DParticleSceneShape16getSurfaceNormalEi(
     QQuick3DParticleSceneShape *self,
     int particleIndex) {
   return new QVector3D(self->getSurfaceNormal(particleIndex));
+}
+
+//  void QQuick3DParticleSceneShape::sceneChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DParticleSceneShape12sceneChangedEv(
+    QQuick3DParticleSceneShape *self) {
+  self->sceneChanged();
+}
+
+//  void QQuick3DParticleSceneShape::sceneCenterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DParticleSceneShape18sceneCenterChangedEv(
+    QQuick3DParticleSceneShape *self) {
+  self->sceneCenterChanged();
+}
+
+//  void QQuick3DParticleSceneShape::sceneExtentsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DParticleSceneShape19sceneExtentsChangedEv(
+    QQuick3DParticleSceneShape *self) {
+  self->sceneExtentsChanged();
+}
+
+//  void QQuick3DParticleSceneShape::shapeResolutionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DParticleSceneShape22shapeResolutionChangedEv(
+    QQuick3DParticleSceneShape *self) {
+  self->shapeResolutionChanged();
+}
+
+//  void QQuick3DParticleSceneShape::geometryChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DParticleSceneShape15geometryChangedEv(
+    QQuick3DParticleSceneShape *self) {
+  self->geometryChanged();
+}
+
+//  void QQuick3DParticleSceneShape::excludedNodesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuick3DParticleSceneShape20excludedNodesChangedEv(
+    QQuick3DParticleSceneShape *self) {
+  self->excludedNodesChanged();
 }
 
 //  QVector3D QQuick3DParticleSceneShape::randomPositionModel(int

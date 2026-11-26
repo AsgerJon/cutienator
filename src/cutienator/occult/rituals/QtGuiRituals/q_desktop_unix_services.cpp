@@ -55,6 +55,148 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/gui/platform/unix/qdesktopunixservices.cpp, line 92, as local:qdesktopunixservices.cpp:checkExecutable
+#if QT_CONFIG(multiprocess)
+static inline bool checkExecutable(const QString &candidate, QString *result)
+{
+    *result = QStandardPaths::findExecutable(candidate);
+    return !result->isEmpty();
+}
+#endif  // QT_CONFIG(multiprocess)
+
+//  from src/gui/platform/unix/qdesktopunixservices.cpp, line 182, as local:qdesktopunixservices.cpp:xdgDesktopPortalOpenFile
+#if QT_CONFIG(multiprocess)
+#if QT_CONFIG(dbus)
+static inline QDBusMessage xdgDesktopPortalOpenFile(const QUrl &url, const QString &parentWindow,
+                                                    const QString &xdgActivationToken)
+{
+    // DBus signature:
+    // OpenFile (IN   s      parent_window,
+    //           IN   h      fd,
+    //           IN   a{sv}  options,
+    //           OUT  o      handle)
+    // Options:
+    // handle_token (s) -  A string that will be used as the last element of the @handle.
+    // writable (b) - Whether to allow the chosen application to write to the file.
+
+    const int fd = qt_safe_open(QFile::encodeName(url.toLocalFile()), O_RDONLY);
+    if (fd != -1) {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.portal.Desktop"_L1,
+                                                              "/org/freedesktop/portal/desktop"_L1,
+                                                              "org.freedesktop.portal.OpenURI"_L1,
+                                                              "OpenFile"_L1);
+
+        QDBusUnixFileDescriptor descriptor;
+        descriptor.giveFileDescriptor(fd);
+
+        QVariantMap options = {};
+
+        if (!xdgActivationToken.isEmpty()) {
+            options.insert("activation_token"_L1, xdgActivationToken);
+        }
+
+        message << parentWindow << QVariant::fromValue(descriptor) << options;
+
+        return QDBusConnection::sessionBus().call(message);
+    }
+
+    return QDBusMessage::createError(QDBusError::InternalError, qt_error_string());
+}
+#endif  // QT_CONFIG(dbus)
+#endif  // QT_CONFIG(multiprocess)
+
+//  from src/gui/platform/unix/qdesktopunixservices.cpp, line 218, as local:qdesktopunixservices.cpp:xdgDesktopPortalOpenUrl
+#if QT_CONFIG(multiprocess)
+#if QT_CONFIG(dbus)
+static inline QDBusMessage xdgDesktopPortalOpenUrl(const QUrl &url, const QString &parentWindow,
+                                                   const QString &xdgActivationToken)
+{
+    // DBus signature:
+    // OpenURI (IN   s      parent_window,
+    //          IN   s      uri,
+    //          IN   a{sv}  options,
+    //          OUT  o      handle)
+    // Options:
+    // handle_token (s) -  A string that will be used as the last element of the @handle.
+    // writable (b) - Whether to allow the chosen application to write to the file.
+    //                This key only takes effect the uri points to a local file that is exported in the document portal,
+    //                and the chosen application is sandboxed itself.
+
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.portal.Desktop"_L1,
+                                                          "/org/freedesktop/portal/desktop"_L1,
+                                                          "org.freedesktop.portal.OpenURI"_L1,
+                                                          "OpenURI"_L1);
+    // FIXME parent_window_id and handle writable option
+    QVariantMap options;
+
+    if (!xdgActivationToken.isEmpty()) {
+        options.insert("activation_token"_L1, xdgActivationToken);
+    }
+
+    message << parentWindow << url.toString() << options;
+
+    return QDBusConnection::sessionBus().call(message);
+}
+#endif  // QT_CONFIG(dbus)
+#endif  // QT_CONFIG(multiprocess)
+
+//  from src/gui/platform/unix/qdesktopunixservices.cpp, line 248, as local:qdesktopunixservices.cpp:xdgDesktopPortalSendEmail
+#if QT_CONFIG(multiprocess)
+#if QT_CONFIG(dbus)
+static inline QDBusMessage xdgDesktopPortalSendEmail(const QUrl &url, const QString &parentWindow,
+                                                     const QString &xdgActivationToken)
+{
+    // DBus signature:
+    // ComposeEmail (IN   s      parent_window,
+    //               IN   a{sv}  options,
+    //               OUT  o      handle)
+    // Options:
+    // address (s) - The email address to send to.
+    // subject (s) - The subject for the email.
+    // body (s) - The body for the email.
+    // attachment_fds (ah) - File descriptors for files to attach.
+
+    QUrlQuery urlQuery(url);
+    QVariantMap options;
+    options.insert("address"_L1, url.path());
+    options.insert("subject"_L1, urlQuery.queryItemValue("subject"_L1));
+    options.insert("body"_L1, urlQuery.queryItemValue("body"_L1));
+
+    // O_PATH seems to be present since Linux 2.6.39, which is not case of RHEL 6
+#ifdef O_PATH
+    QList<QDBusUnixFileDescriptor> attachments;
+    const QStringList attachmentUris = urlQuery.allQueryItemValues("attachment"_L1);
+
+    for (const QString &attachmentUri : attachmentUris) {
+        const int fd = qt_safe_open(QFile::encodeName(attachmentUri), O_PATH);
+        if (fd != -1) {
+            QDBusUnixFileDescriptor descriptor(fd);
+            attachments << descriptor;
+            qt_safe_close(fd);
+        }
+    }
+
+    options.insert("attachment_fds"_L1, QVariant::fromValue(attachments));
+#endif
+
+    if (!xdgActivationToken.isEmpty()) {
+        options.insert("activation_token"_L1, xdgActivationToken);
+    }
+
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.portal.Desktop"_L1,
+                                                          "/org/freedesktop/portal/desktop"_L1,
+                                                          "org.freedesktop.portal.Email"_L1,
+                                                          "ComposeEmail"_L1);
+
+    message << parentWindow << options;
+
+    return QDBusConnection::sessionBus().call(message);
+}
+#endif  // QT_CONFIG(dbus)
+#endif  // QT_CONFIG(multiprocess)
+
 //  from src/gui/platform/unix/qdesktopunixservices.cpp, line 504, as _ZN20QDesktopUnixServices27portalFocusWindowIdentifierEv
 #if QT_CONFIG(multiprocess)
 inline QString QDesktopUnixServices::portalFocusWindowIdentifier()

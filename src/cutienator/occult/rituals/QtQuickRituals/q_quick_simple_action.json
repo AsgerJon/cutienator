@@ -10,6 +10,9 @@
     ],
     "ritual_ZN18QQuickSimpleActionD1Ev": ["nothing", "address"],
     "ritual_ZN18QQuickSimpleActionC1ERKS_": ["address", "address"],
+    "ritual_ZN18QQuickSimpleActionaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18QQuickSimpleAction11setPropertyERK12QQmlProperty": [
       "nothing", "address", "address"
     ],

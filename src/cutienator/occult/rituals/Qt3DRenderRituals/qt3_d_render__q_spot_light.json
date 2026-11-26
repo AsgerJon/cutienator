@@ -7,11 +7,66 @@
     "ritual_ZNK10Qt3DRender10QSpotLight10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender10QSpotLight11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender10QSpotLight2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN10Qt3DRender10QSpotLightC1EPN8Qt3DCore5QNodeE": [
       "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLightD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender10QSpotLight14localDirectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QSpotLight11cutOffAngleEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QSpotLight19constantAttenuationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QSpotLight17linearAttenuationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10QSpotLight20quadraticAttenuationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight22setConstantAttenuationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight20setLinearAttenuationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight23setQuadraticAttenuationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight17setLocalDirectionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight14setCutOffAngleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight26constantAttenuationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight24linearAttenuationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight27quadraticAttenuationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight21localDirectionChangedERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLight18cutOffAngleChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QSpotLightC1ERNS_17QSpotLightPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender10QSpotLight6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender10QSpotLight6d_funcEv": ["address", "address"],

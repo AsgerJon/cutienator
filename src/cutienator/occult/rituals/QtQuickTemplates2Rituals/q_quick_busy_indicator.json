@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickBusyIndicator10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickBusyIndicator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickBusyIndicator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -14,10 +20,15 @@
     "ritual_ZN19QQuickBusyIndicator10setRunningEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN19QQuickBusyIndicator14runningChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QQuickBusyIndicator10touchEventEP11QTouchEvent": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK19QQuickBusyIndicator14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN19QQuickBusyIndicator6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickBusyIndicator6d_funcEv": ["address", "address"],
     "ritual_own_ZN19QQuickBusyIndicator10touchEventEP11QTouchEvent": [
       "nothing", "address", "address"
     ],

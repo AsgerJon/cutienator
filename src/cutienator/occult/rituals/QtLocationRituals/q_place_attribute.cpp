@@ -19,10 +19,40 @@ QPlaceAttribute *ritual_ZN15QPlaceAttributeC1ERKS_(
   return new QPlaceAttribute(*other);
 }
 
+//  QPlaceAttribute::QPlaceAttribute(QPlaceAttribute &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceAttribute *ritual_ZN15QPlaceAttributeC1EOS_(QPlaceAttribute *other) {
+  return new QPlaceAttribute(std::move(*other));
+}
+
 //  QPlaceAttribute::~QPlaceAttribute()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QPlaceAttributeD1Ev(QPlaceAttribute *self) {
   delete self;
+}
+
+//  QPlaceAttribute &QPlaceAttribute::operator=(const QPlaceAttribute &other)
+extern "C" Q_DECL_EXPORT
+QPlaceAttribute *ritual_ZN15QPlaceAttributeaSERKS_(
+    QPlaceAttribute *self,
+    const QPlaceAttribute *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlaceAttribute &QPlaceAttribute::operator=(QPlaceAttribute &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceAttribute *ritual_ZN15QPlaceAttributeaSEOS_(
+    QPlaceAttribute *self,
+    QPlaceAttribute *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlaceAttribute::swap(QPlaceAttribute &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPlaceAttribute4swapERS_(
+    QPlaceAttribute *self,
+    QPlaceAttribute *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPlaceAttribute &lhs, const QPlaceAttribute &rhs)

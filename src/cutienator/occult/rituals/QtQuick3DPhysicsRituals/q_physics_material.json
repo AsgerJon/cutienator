@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QPhysicsMaterial10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QPhysicsMaterial11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QPhysicsMaterial11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QPhysicsMaterial2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -21,6 +27,15 @@
     "ritual_ZNK16QPhysicsMaterial11restitutionEv": ["float", "address"],
     "ritual_ZN16QPhysicsMaterial14setRestitutionEf": [
       "nothing", "address", "float"
+    ],
+    "ritual_ZN16QPhysicsMaterial21staticFrictionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QPhysicsMaterial22dynamicFrictionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QPhysicsMaterial18restitutionChangedEv": [
+      "nothing", "address"
     ]
   }
 }

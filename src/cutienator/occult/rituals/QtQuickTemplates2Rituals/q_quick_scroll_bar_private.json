@@ -55,6 +55,9 @@
     "ritual_ZN22QQuickScrollBarPrivate16visualAreaChangeERKNS_10VisualAreaES2_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN22QQuickScrollBarPrivate11updateHoverERK7QPointFSt8optionalIbE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_take_QQuickScrollBarPrivate": [
       "bool", "address", "chars", "address"
     ],

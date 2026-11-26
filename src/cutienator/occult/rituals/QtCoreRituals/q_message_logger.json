@@ -1,7 +1,7 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qlogging.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qlogging.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN14QMessageLoggerC1Ev": ["address"],
@@ -12,9 +12,82 @@
       "address", "chars", "int", "chars", "chars"
     ],
     "ritual_ZNK14QMessageLogger5debugEv": ["address", "address"],
+    "ritual_ZNK14QMessageLogger5debugERK16QLoggingCategory": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QMessageLogger5debugEPFRK16QLoggingCategoryvE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK14QMessageLogger4infoEv": ["address", "address"],
+    "ritual_ZNK14QMessageLogger4infoERK16QLoggingCategory": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QMessageLogger4infoEPFRK16QLoggingCategoryvE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK14QMessageLogger7warningEv": ["address", "address"],
+    "ritual_ZNK14QMessageLogger7warningERK16QLoggingCategory": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QMessageLogger7warningEPFRK16QLoggingCategoryvE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK14QMessageLogger8criticalEv": ["address", "address"],
-    "ritual_ZNK14QMessageLogger5fatalEv": ["address", "address"]
+    "ritual_ZNK14QMessageLogger8criticalERK16QLoggingCategory": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QMessageLogger8criticalEPFRK16QLoggingCategoryvE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QMessageLogger5fatalEv": ["address", "address"],
+    "ritual_ZNK14QMessageLogger5fatalERK16QLoggingCategory": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QMessageLogger5fatalEPFRK16QLoggingCategoryvE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QMessageLogger5debugEPKcz": ["nothing", "address", "chars"],
+    "ritual_ZNK14QMessageLogger5debugERK16QLoggingCategoryPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger5debugEPFRK16QLoggingCategoryvEPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger7noDebugEPKcz": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger4infoEPKcz": ["nothing", "address", "chars"],
+    "ritual_ZNK14QMessageLogger4infoERK16QLoggingCategoryPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger4infoEPFRK16QLoggingCategoryvEPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger7warningEPKcz": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger7warningERK16QLoggingCategoryPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger7warningEPFRK16QLoggingCategoryvEPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger8criticalEPKcz": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger8criticalERK16QLoggingCategoryPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger8criticalEPFRK16QLoggingCategoryvEPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger5fatalEPKcz": ["nothing", "address", "chars"],
+    "ritual_ZNK14QMessageLogger5fatalERK16QLoggingCategoryPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger5fatalEPFRK16QLoggingCategoryvEPKcz": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK14QMessageLogger7noDebugEz": ["nothing", "address"]
   }
 }

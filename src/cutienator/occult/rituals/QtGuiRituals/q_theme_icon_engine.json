@@ -5,6 +5,15 @@
     "made here are lost."
   ],
   "rows": {
-    "ritual_ZNK16QThemeIconEngine5cloneEv": ["address", "address"]
+    "ritual_ZNK16QThemeIconEngine5cloneEv": ["address", "address"],
+    "ritual_ZN16QThemeIconEngine4readER11QDataStream": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QThemeIconEngine5writeER11QDataStream": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QThemeIconEngine13proxiedEngineEv": ["address", "address"],
+    "ritual_ZNK16QThemeIconEngine3keyEv": ["text", "address"],
+    "ritual_own_ZNK16QThemeIconEngine3keyEv": ["text", "address"]
   }
 }

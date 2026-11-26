@@ -12,6 +12,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
+#include <QtNetworkAuth/QAbstractOAuth>
 
 //  A QAbstractOAuth that Python can take functions over in. Every QAbstractOAuth
 //  Python makes is one. Each function below asks the Python
@@ -233,6 +234,24 @@ const QMetaObject *ritual_ZNK14QAbstractOAuth10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAbstractOAuth::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN14QAbstractOAuth11qt_metacastEPKc(
+    QAbstractOAuth *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAbstractOAuth::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN14QAbstractOAuth11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAbstractOAuth *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAbstractOAuth::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QAbstractOAuth2trEPKcS1_i(
@@ -398,6 +417,23 @@ void ritual_ZN14QAbstractOAuth14prepareRequestEP15QNetworkRequestRK10QByteArrayS
   self->prepareRequest(request, *verb, *body);
 }
 
+//  ModifyParametersFunction QAbstractOAuth::modifyParametersFunction() const
+extern "C" Q_DECL_EXPORT
+QAbstractOAuth::ModifyParametersFunction *ritual_ZNK14QAbstractOAuth24modifyParametersFunctionEv(
+    const QAbstractOAuth *self) {
+  return new QAbstractOAuth::ModifyParametersFunction(
+      self->modifyParametersFunction());
+}
+
+//  void QAbstractOAuth::setModifyParametersFunction(const
+//      ModifyParametersFunction &modifyParametersFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth27setModifyParametersFunctionERKSt8functionIFvNS_5StageEP9QMultiMapI7QString8QVariantEEE(
+    QAbstractOAuth *self,
+    const QAbstractOAuth::ModifyParametersFunction *modifyParametersFunction) {
+  self->setModifyParametersFunction(*modifyParametersFunction);
+}
+
 //  ContentType QAbstractOAuth::contentType() const
 extern "C" Q_DECL_EXPORT
 QAbstractOAuth::ContentType ritual_ZNK14QAbstractOAuth11contentTypeEv(
@@ -419,6 +455,93 @@ void ritual_ZN14QAbstractOAuth5grantEv(QAbstractOAuth *self) {
   self->grant();
 }
 
+//  void QAbstractOAuth::clientIdentifierChanged(const QString
+//      &clientIdentifier)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth23clientIdentifierChangedERK7QString(
+    QAbstractOAuth *self,
+    const QString *clientIdentifier) {
+  self->clientIdentifierChanged(*clientIdentifier);
+}
+
+//  void QAbstractOAuth::tokenChanged(const QString &token)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth12tokenChangedERK7QString(
+    QAbstractOAuth *self,
+    const QString *token) {
+  self->tokenChanged(*token);
+}
+
+//  void QAbstractOAuth::statusChanged(Status status)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth13statusChangedENS_6StatusE(
+    QAbstractOAuth *self,
+    QAbstractOAuth::Status status) {
+  self->statusChanged(status);
+}
+
+//  void QAbstractOAuth::authorizationUrlChanged(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth23authorizationUrlChangedERK4QUrl(
+    QAbstractOAuth *self,
+    const QUrl *url) {
+  self->authorizationUrlChanged(*url);
+}
+
+//  void QAbstractOAuth::extraTokensChanged(const QVariantMap &tokens)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth18extraTokensChangedERK4QMapI7QString8QVariantE(
+    QAbstractOAuth *self,
+    const QMap<QString, QVariant> *tokens) {
+  self->extraTokensChanged(*tokens);
+}
+
+//  void QAbstractOAuth::contentTypeChanged(ContentType contentType)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth18contentTypeChangedENS_11ContentTypeE(
+    QAbstractOAuth *self,
+    QAbstractOAuth::ContentType contentType) {
+  self->contentTypeChanged(contentType);
+}
+
+//  void QAbstractOAuth::requestFailed(const Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth13requestFailedENS_5ErrorE(
+    QAbstractOAuth *self,
+    const QAbstractOAuth::Error *error) {
+  self->requestFailed(*error);
+}
+
+//  void QAbstractOAuth::authorizeWithBrowser(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth20authorizeWithBrowserERK4QUrl(
+    QAbstractOAuth *self,
+    const QUrl *url) {
+  self->authorizeWithBrowser(*url);
+}
+
+//  void QAbstractOAuth::granted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth7grantedEv(QAbstractOAuth *self) {
+  self->granted();
+}
+
+//  void QAbstractOAuth::finished(QNetworkReply *reply)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth8finishedEP13QNetworkReply(
+    QAbstractOAuth *self,
+    QNetworkReply *reply) {
+  self->finished(reply);
+}
+
+//  void QAbstractOAuth::replyDataReceived(const QByteArray &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth17replyDataReceivedERK10QByteArray(
+    QAbstractOAuth *self,
+    const QByteArray *data) {
+  self->replyDataReceived(*data);
+}
+
 //  void QAbstractOAuth::setStatus(Status status)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QAbstractOAuth9setStatusENS_6StatusE(
@@ -431,6 +554,16 @@ void ritual_ZN14QAbstractOAuth9setStatusENS_6StatusE(
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK14QAbstractOAuth8callbackEv(const QAbstractOAuth *self) {
   return new QString(self->callback());
+}
+
+//  void QAbstractOAuth::resourceOwnerAuthorization(const QUrl &url, const
+//      QMultiMap<QString, QVariant> &parameters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QAbstractOAuth26resourceOwnerAuthorizationERK4QUrlRK9QMultiMapI7QString8QVariantE(
+    QAbstractOAuth *self,
+    const QUrl *url,
+    const QMultiMap<QString, QVariant> *parameters) {
+  self->resourceOwnerAuthorization(*url, *parameters);
 }
 
 //  QByteArray QAbstractOAuth::generateRandomString(quint8 length)
@@ -462,6 +595,14 @@ bool ritual_take_QAbstractOAuth(
     const char *key,
     void *call) {
   return static_cast<CuteQAbstractOAuth *>(self)->take(key, call);
+}
+
+//  a QAbstractOAuth::ModifyParametersFunction a ritual of QAbstractOAuth
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QAbstractOAuth__QAbstractOAuth_ModifyParametersFunction(
+    QAbstractOAuth::ModifyParametersFunction *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_HTTP)

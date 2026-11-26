@@ -11,6 +11,7 @@
 #include <QtDataVisualization/qsurface3dseries.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qvectornd.h>
+#include <QtCore/qrect.h>
 #include <QtGui/qmatrix4x4.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -1991,6 +1992,25 @@ const QMetaObject *ritual_ZNK17Surface3DRenderer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Surface3DRenderer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17Surface3DRenderer11qt_metacastEPKc(
+    Surface3DRenderer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Surface3DRenderer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17Surface3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Surface3DRenderer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Surface3DRenderer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17Surface3DRenderer2trEPKcS1_i(
@@ -2056,6 +2076,24 @@ void ritual_ZN17Surface3DRenderer19updateSelectionModeE6QFlagsIN16QAbstract3DGra
     int mode) {
   self->updateSelectionMode(
       QFlags<QAbstract3DGraph::SelectionFlag>::fromInt(mode));
+}
+
+//  void Surface3DRenderer::updateRows(const
+//      QList<Surface3DController::ChangeRow> &rows)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Surface3DRenderer10updateRowsERK5QListIN19Surface3DController9ChangeRowEE(
+    Surface3DRenderer *self,
+    const QList<Surface3DController::ChangeRow> *rows) {
+  self->updateRows(*rows);
+}
+
+//  void Surface3DRenderer::updateItems(const
+//      QList<Surface3DController::ChangeItem> &points)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Surface3DRenderer11updateItemsERK5QListIN19Surface3DController10ChangeItemEE(
+    Surface3DRenderer *self,
+    const QList<Surface3DController::ChangeItem> *points) {
+  self->updateItems(*points);
 }
 
 //  void Surface3DRenderer::updateScene(Q3DScene *scene)
@@ -2169,6 +2207,32 @@ void ritual_ZN17Surface3DRenderer16initializeOpenGLEv(
   self->initializeOpenGL();
 }
 
+//  void Surface3DRenderer::fixCameraTarget(QVector3D &target)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Surface3DRenderer15fixCameraTargetER9QVector3D(
+    Surface3DRenderer *self,
+    QVector3D *target) {
+  self->fixCameraTarget(*target);
+}
+
+//  void Surface3DRenderer::getVisibleItemBounds(QVector3D &minBounds,
+//      QVector3D &maxBounds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Surface3DRenderer20getVisibleItemBoundsER9QVector3DS1_(
+    Surface3DRenderer *self,
+    QVector3D *minBounds,
+    QVector3D *maxBounds) {
+  self->getVisibleItemBounds(*minBounds, *maxBounds);
+}
+
+//  void Surface3DRenderer::flatShadingSupportedChanged(bool supported)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Surface3DRenderer27flatShadingSupportedChangedEb(
+    Surface3DRenderer *self,
+    bool supported) {
+  self->flatShadingSupportedChanged(supported);
+}
+
 //  void Surface3DRenderer::checkFlatSupport(SurfaceSeriesRenderCache *cache)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17Surface3DRenderer16checkFlatSupportEP24SurfaceSeriesRenderCache(
@@ -2203,6 +2267,30 @@ QPoint *ritual_ZN17Surface3DRenderer22mapCoordsToSampleSpaceEP24SurfaceSeriesRen
     SurfaceSeriesRenderCache *cache,
     const QPointF *coords) {
   return new QPoint(self->mapCoordsToSampleSpace(cache, *coords));
+}
+
+//  void Surface3DRenderer::findMatchingRow(float z, int &sample, int
+//      direction, QSurfaceDataArray &dataArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Surface3DRenderer15findMatchingRowEfRiiR5QListIPS1_I16QSurfaceDataItemEE(
+    Surface3DRenderer *self,
+    float z,
+    int *sample,
+    int direction,
+    QSurfaceDataArray *dataArray) {
+  self->findMatchingRow(z, *sample, direction, *dataArray);
+}
+
+//  void Surface3DRenderer::findMatchingColumn(float x, int &sample, int
+//      direction, QSurfaceDataArray &dataArray)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17Surface3DRenderer18findMatchingColumnEfRiiR5QListIPS1_I16QSurfaceDataItemEE(
+    Surface3DRenderer *self,
+    float x,
+    int *sample,
+    int direction,
+    QSurfaceDataArray *dataArray) {
+  self->findMatchingColumn(x, *sample, direction, *dataArray);
 }
 
 //  void Surface3DRenderer::updateSliceObject(SurfaceSeriesRenderCache
@@ -2240,6 +2328,15 @@ void ritual_ZN17Surface3DRenderer11initShadersERK7QStringS2_(
     const QString *vertexShader,
     const QString *fragmentShader) {
   self->initShaders(*vertexShader, *fragmentShader);
+}
+
+//  QRect Surface3DRenderer::calculateSampleRect(const QSurfaceDataArray
+//      &array)
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZN17Surface3DRenderer19calculateSampleRectERK5QListIPS0_I16QSurfaceDataItemEE(
+    Surface3DRenderer *self,
+    const QSurfaceDataArray *array) {
+  return new QRect(self->calculateSampleRect(*array));
 }
 
 //  void Surface3DRenderer::loadBackgroundMesh()

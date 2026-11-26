@@ -1026,6 +1026,25 @@ const QMetaObject *ritual_ZNK18qdesigner_internal16SignalSlotDialog10metaObjectE
   return self->metaObject();
 }
 
+//  void *qdesigner_internal::SignalSlotDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18qdesigner_internal16SignalSlotDialog11qt_metacastEPKc(
+    qdesigner_internal::SignalSlotDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int qdesigner_internal::SignalSlotDialog::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18qdesigner_internal16SignalSlotDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    qdesigner_internal::SignalSlotDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString qdesigner_internal::SignalSlotDialog::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -1034,6 +1053,97 @@ QString *ritual_ZN18qdesigner_internal16SignalSlotDialog2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(qdesigner_internal::SignalSlotDialog::tr(s, c, n));
+}
+
+//  qdesigner_internal::SignalSlotDialog::SignalSlotDialog(QDesignerDialogGui
+//      Interface *dialogGui, QWidget *parent, FocusMode m)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::SignalSlotDialog *ritual_ZN18qdesigner_internal16SignalSlotDialogC1EP27QDesignerDialogGuiInterfaceP7QWidgetNS0_9FocusModeE(
+    QDesignerDialogGuiInterface *dialogGui,
+    QWidget *parent,
+    qdesigner_internal::SignalSlotDialog::FocusMode m) {
+  return new Cuteqdesigner_internal_SignalSlotDialog(dialogGui, parent, m);
+}
+
+//  qdesigner_internal::SignalSlotDialog::~SignalSlotDialog()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal16SignalSlotDialogD1Ev(
+    qdesigner_internal::SignalSlotDialog *self) {
+  delete self;
+}
+
+//  DialogCode
+//      qdesigner_internal::SignalSlotDialog::showDialog(SignalSlotDialogData
+//      &slotData, SignalSlotDialogData &signalData)
+extern "C" Q_DECL_EXPORT
+QDialog::DialogCode ritual_ZN18qdesigner_internal16SignalSlotDialog10showDialogERNS_20SignalSlotDialogDataES2_(
+    qdesigner_internal::SignalSlotDialog *self,
+    qdesigner_internal::SignalSlotDialogData *slotData,
+    qdesigner_internal::SignalSlotDialogData *signalData) {
+  return self->showDialog(*slotData, *signalData);
+}
+
+//  bool qdesigner_internal::SignalSlotDialog::editMetaDataBase(QDesignerForm
+//      WindowInterface *fw, QObject *object, QWidget *parent, FocusMode m)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal16SignalSlotDialog16editMetaDataBaseEP28QDesignerFormWindowInterfaceP7QObjectP7QWidgetNS0_9FocusModeE(
+    QDesignerFormWindowInterface *fw,
+    QObject *object,
+    QWidget *parent,
+    qdesigner_internal::SignalSlotDialog::FocusMode m) {
+  return qdesigner_internal::SignalSlotDialog::editMetaDataBase(
+      fw,
+      object,
+      parent,
+      m);
+}
+
+//  bool qdesigner_internal::SignalSlotDialog::editPromotedClass(QDesignerFor
+//      mEditorInterface *core, const QString &promotedClassName, QWidget
+//      *parent, FocusMode m)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal16SignalSlotDialog17editPromotedClassEP28QDesignerFormEditorInterfaceRK7QStringP7QWidgetNS0_9FocusModeE(
+    QDesignerFormEditorInterface *core,
+    const QString *promotedClassName,
+    QWidget *parent,
+    qdesigner_internal::SignalSlotDialog::FocusMode m) {
+  return qdesigner_internal::SignalSlotDialog::editPromotedClass(
+      core,
+      *promotedClassName,
+      parent,
+      m);
+}
+
+//  bool qdesigner_internal::SignalSlotDialog::editPromotedClass(QDesignerFor
+//      mEditorInterface *core, QObject *baseObject, QWidget *parent,
+//      FocusMode m)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal16SignalSlotDialog17editPromotedClassEP28QDesignerFormEditorInterfaceP7QObjectP7QWidgetNS0_9FocusModeE(
+    QDesignerFormEditorInterface *core,
+    QObject *baseObject,
+    QWidget *parent,
+    qdesigner_internal::SignalSlotDialog::FocusMode m) {
+  return qdesigner_internal::SignalSlotDialog::editPromotedClass(
+      core,
+      baseObject,
+      parent,
+      m);
+}
+
+//  void qdesigner_internal::SignalSlotDialog::fakeMethodsFromMetaDataBase(QD
+//      esignerFormEditorInterface *core, QObject *o, QStringList &slotList,
+//      QStringList &signalList)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal16SignalSlotDialog27fakeMethodsFromMetaDataBaseEP28QDesignerFormEditorInterfaceP7QObjectR5QListI7QStringES8_(
+    QDesignerFormEditorInterface *core,
+    QObject *o,
+    QStringList *slotList,
+    QStringList *signalList) {
+  qdesigner_internal::SignalSlotDialog::fakeMethodsFromMetaDataBase(
+      core,
+      o,
+      *slotList,
+      *signalList);
 }
 
 //  void qdesigner_internal::SignalSlotDialog::fakeMethodsToMetaDataBase(QDes
@@ -1050,6 +1160,50 @@ void ritual_ZN18qdesigner_internal16SignalSlotDialog25fakeMethodsToMetaDataBaseE
       o,
       *slotList,
       *signalList);
+}
+
+//  void qdesigner_internal::SignalSlotDialog::existingMethodsFromMemberSheet
+//      (QDesignerFormEditorInterface *core, QObject *o, QStringList
+//      &slotList, QStringList &signalList)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal16SignalSlotDialog30existingMethodsFromMemberSheetEP28QDesignerFormEditorInterfaceP7QObjectR5QListI7QStringES8_(
+    QDesignerFormEditorInterface *core,
+    QObject *o,
+    QStringList *slotList,
+    QStringList *signalList) {
+  qdesigner_internal::SignalSlotDialog::existingMethodsFromMemberSheet(
+      core,
+      o,
+      *slotList,
+      *signalList);
+}
+
+//  void qdesigner_internal::SignalSlotDialog::slotCheckSignature(const
+//      QString &signature, bool *ok)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal16SignalSlotDialog18slotCheckSignatureERK7QStringPb(
+    qdesigner_internal::SignalSlotDialog *self,
+    const QString *signature,
+    bool *ok) {
+  self->slotCheckSignature(*signature, ok);
+}
+
+//  bool qdesigner_internal::SignalSlotDialog::editPromotedClass(QDesignerFor
+//      mEditorInterface *core, const QString &promotedClassName, QObject
+//      *baseObject, QWidget *parent, FocusMode m)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18qdesigner_internal16SignalSlotDialog17editPromotedClassEP28QDesignerFormEditorInterfaceRK7QStringP7QObjectP7QWidgetNS0_9FocusModeE(
+    QDesignerFormEditorInterface *core,
+    const QString *promotedClassName,
+    QObject *baseObject,
+    QWidget *parent,
+    qdesigner_internal::SignalSlotDialog::FocusMode m) {
+  return qdesigner_internal::SignalSlotDialog::editPromotedClass(
+      core,
+      *promotedClassName,
+      baseObject,
+      parent,
+      m);
 }
 
 //  a Python function taken by a Cuteqdesigner_internal_SignalSlotDialog, for

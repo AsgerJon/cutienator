@@ -5,6 +5,8 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN9QKdeTheme6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QKdeTheme6d_funcEv": ["address", "address"],
     "ritual_ZN9QKdeThemeC1ERK5QListI7QStringEi": [
       "address", "address", "int"
     ],

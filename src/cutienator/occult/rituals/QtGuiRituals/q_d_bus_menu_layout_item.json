@@ -5,6 +5,12 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QDBusMenuLayoutItem8populateEPK17QDBusPlatformMenuiRK5QListI7QStringE": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QDBusMenuLayoutItem8populateEPK21QDBusPlatformMenuItemiRK5QListI7QStringE": [
+      "nothing", "address", "address", "int", "address"
+    ],
     "ritual_ZN19QDBusMenuLayoutItemD1Ev": ["nothing", "address"]
   }
 }

@@ -5,9 +5,16 @@
   ],
   "rows": {
     "ritual_ZNK15QGraphicsObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGraphicsObject11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QGraphicsObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QGraphicsObject2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QGraphicsObjectC1EP13QGraphicsItem": ["address", "address"],
     "ritual_ZN15QGraphicsObjectD1Ev": ["nothing", "address"],
     "ritual_ZN15QGraphicsObject11grabGestureEN2Qt11GestureTypeE6QFlagsINS0_11GestureFlagEE": [
       "nothing", "address", "int", "int"
@@ -16,6 +23,21 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN15QGraphicsObject16updateMicroFocusEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject13parentChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject14opacityChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject14visibleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject8xChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject8yChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject8zChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject15rotationChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject12scaleChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject15childrenChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject12widthChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObject13heightChangedEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsObjectC1ER20QGraphicsItemPrivateP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
     "ritual_ZN15QGraphicsObject5eventEP6QEvent": [
       "bool", "address", "address"
     ],

@@ -232,6 +232,25 @@ const QMetaObject *ritual_ZNK20QLegendMarkerPrivate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLegendMarkerPrivate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN20QLegendMarkerPrivate11qt_metacastEPKc(
+    QLegendMarkerPrivate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLegendMarkerPrivate::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN20QLegendMarkerPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLegendMarkerPrivate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLegendMarkerPrivate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN20QLegendMarkerPrivate2trEPKcS1_i(
@@ -239,6 +258,15 @@ QString *ritual_ZN20QLegendMarkerPrivate2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QLegendMarkerPrivate::tr(s, c, n));
+}
+
+//  QLegendMarkerPrivate::QLegendMarkerPrivate(QLegendMarker *q, QLegend
+//      *legend)
+extern "C" Q_DECL_EXPORT
+QLegendMarkerPrivate *ritual_ZN20QLegendMarkerPrivateC1EP13QLegendMarkerP7QLegend(
+    QLegendMarker *q,
+    QLegend *legend) {
+  return new CuteQLegendMarkerPrivate(q, legend);
 }
 
 //  QLegendMarkerPrivate::~QLegendMarkerPrivate()

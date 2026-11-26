@@ -8,15 +8,26 @@
 #include <QtNetwork/qsslkey.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qsslellipticcurve.h>
+#endif
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qssldiffiehellmanparameters.h>
+#endif
 #include <QtCore/qvariant.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qsslkeyingmaterial.h>
+#endif
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qsslconfiguration_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlist.h>
+#include <QtCore/QMap>
+#include <QtCore/QByteArray>
+#include <QtCore/QVariant>
+#include <optional>
+#include <QtNetwork/QSslKeyingMaterial>
 
 //  QSslConfiguration::QSslConfiguration()
 extern "C" Q_DECL_EXPORT
@@ -35,6 +46,32 @@ QSslConfiguration *ritual_ZN17QSslConfigurationC1ERKS_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QSslConfigurationD1Ev(QSslConfiguration *self) {
   delete self;
+}
+
+//  QSslConfiguration &QSslConfiguration::operator=(QSslConfiguration
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QSslConfiguration *ritual_ZN17QSslConfigurationaSEOS_(
+    QSslConfiguration *self,
+    QSslConfiguration *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QSslConfiguration &QSslConfiguration::operator=(const QSslConfiguration
+//      &other)
+extern "C" Q_DECL_EXPORT
+QSslConfiguration *ritual_ZN17QSslConfigurationaSERKS_(
+    QSslConfiguration *self,
+    const QSslConfiguration *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QSslConfiguration::swap(QSslConfiguration &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSslConfiguration4swapERS_(
+    QSslConfiguration *self,
+    QSslConfiguration *other) {
+  self->swap(*other);
 }
 
 //  bool QSslConfiguration::operator==(const QSslConfiguration &other) const
@@ -363,6 +400,14 @@ void ritual_ZN17QSslConfiguration26setDiffieHellmanParametersERK27QSslDiffieHell
   self->setDiffieHellmanParameters(*dhparams);
 }
 
+//  QMap<QByteArray, QVariant> QSslConfiguration::backendConfiguration()
+//      const
+extern "C" Q_DECL_EXPORT
+QMap<QByteArray, QVariant> *ritual_ZNK17QSslConfiguration20backendConfigurationEv(
+    const QSslConfiguration *self) {
+  return new QMap<QByteArray, QVariant>(self->backendConfiguration());
+}
+
 //  void QSslConfiguration::setBackendConfigurationOption(const QByteArray
 //      &name, const QVariant &value)
 extern "C" Q_DECL_EXPORT
@@ -371,6 +416,15 @@ void ritual_ZN17QSslConfiguration29setBackendConfigurationOptionERK10QByteArrayR
     const QByteArray *name,
     const QVariant *value) {
   self->setBackendConfigurationOption(*name, *value);
+}
+
+//  void QSslConfiguration::setBackendConfiguration(const QMap<QByteArray,
+//      QVariant> &backendConfiguration)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSslConfiguration23setBackendConfigurationERK4QMapI10QByteArray8QVariantE(
+    QSslConfiguration *self,
+    const QMap<QByteArray, QVariant> *backendConfiguration) {
+  self->setBackendConfiguration(*backendConfiguration);
 }
 
 //  QSslConfiguration QSslConfiguration::defaultConfiguration()
@@ -508,6 +562,18 @@ QList<QSslKeyingMaterial> *ritual_ZN17QSslConfiguration18takeKeyingMaterialEv(
   return new QList<QSslKeyingMaterial>(self->takeKeyingMaterial());
 }
 
+//  std::optional<QSslKeyingMaterial>
+//      QSslConfiguration::takeKeyingMaterial(const QSslKeyingMaterial
+//      &material)
+extern "C" Q_DECL_EXPORT
+std::optional<QSslKeyingMaterial> *ritual_ZN17QSslConfiguration18takeKeyingMaterialERK18QSslKeyingMaterial(
+    QSslConfiguration *self,
+    const QSslKeyingMaterial *material) {
+  return new std::optional<QSslKeyingMaterial>(
+      self->takeKeyingMaterial(
+          *material));
+}
+
 //  void QSslConfiguration::setKeyingMaterial(const QList<QSslKeyingMaterial>
 //      &keyMaterial)
 extern "C" Q_DECL_EXPORT
@@ -522,6 +588,20 @@ extern "C" Q_DECL_EXPORT
 QSslConfiguration *ritual_ZN17QSslConfigurationC1EP24QSslConfigurationPrivate(
     QSslConfigurationPrivate *dd) {
   return new QSslConfiguration(dd);
+}
+
+//  a QMap<QByteArray, QVariant> a ritual of QSslConfiguration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSslConfiguration__QMap_QByteArray_QVariant(
+    QMap<QByteArray, QVariant> *self) {
+  delete self;
+}
+
+//  a std::optional<QSslKeyingMaterial> a ritual of QSslConfiguration gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSslConfiguration__std_optional_QSslKeyingMaterial(
+    std::optional<QSslKeyingMaterial> *self) {
+  delete self;
 }
 
 #endif  // !defined(QT_NO_SSL)

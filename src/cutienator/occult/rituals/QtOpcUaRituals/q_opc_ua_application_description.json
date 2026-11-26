@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN28QOpcUaApplicationDescriptionC1Ev": ["address"],
     "ritual_ZN28QOpcUaApplicationDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN28QOpcUaApplicationDescriptionaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK28QOpcUaApplicationDescriptioneqERKS_": [
       "bool", "address", "address"
     ],
@@ -48,6 +51,9 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK28QOpcUaApplicationDescription13discoveryUrlsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpcUaApplicationDescription16discoveryUrlsRefEv": [
       "address", "address"
     ],
     "ritual_ZN28QOpcUaApplicationDescription16setDiscoveryUrlsERK5QListI7QStringE": [

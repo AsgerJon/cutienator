@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtSerialBus/qmodbusdeviceidentification.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/QList>
 
 //  QModbusDeviceIdentification::QModbusDeviceIdentification()
 extern "C" Q_DECL_EXPORT
@@ -15,6 +16,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK27QModbusDeviceIdentification7isValidEv(
     const QModbusDeviceIdentification *self) {
   return self->isValid();
+}
+
+//  QList<int> QModbusDeviceIdentification::objectIds() const
+extern "C" Q_DECL_EXPORT
+QList<int> *ritual_ZNK27QModbusDeviceIdentification9objectIdsEv(
+    const QModbusDeviceIdentification *self) {
+  return new QList<int>(self->objectIds());
 }
 
 //  void QModbusDeviceIdentification::remove(uint objectId)
@@ -81,5 +89,11 @@ QModbusDeviceIdentification *ritual_ZN27QModbusDeviceIdentification13fromByteArr
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QModbusDeviceIdentificationD1Ev(
     QModbusDeviceIdentification *self) {
+  delete self;
+}
+
+//  a QList<int> a ritual of QModbusDeviceIdentification gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QModbusDeviceIdentification__QList_int(QList<int> *self) {
   delete self;
 }

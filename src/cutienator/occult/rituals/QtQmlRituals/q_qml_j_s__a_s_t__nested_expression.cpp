@@ -203,6 +203,23 @@ public:
   }
 };
 
+//  QQmlJS::AST::NestedExpression::NestedExpression(ExpressionNode
+//      *expression)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::NestedExpression *ritual_ZN6QQmlJS3AST16NestedExpressionC1EPNS0_14ExpressionNodeE(
+    QQmlJS::MemoryPool *pool,
+    QQmlJS::AST::ExpressionNode *expression) {
+  return new (pool) CuteQQmlJS_AST_NestedExpression(expression);
+}
+
+//  void QQmlJS::AST::NestedExpression::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST16NestedExpression7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::NestedExpression *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::NestedExpression::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST16NestedExpression19firstSourceLocationEv(
@@ -215,6 +232,20 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST16NestedExpression18lastSourceLocationEv(
     const QQmlJS::AST::NestedExpression *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  FunctionExpression *QQmlJS::AST::NestedExpression::asFunctionDefinition()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::FunctionExpression *ritual_ZN6QQmlJS3AST16NestedExpression20asFunctionDefinitionEv(
+    QQmlJS::AST::NestedExpression *self) {
+  return self->asFunctionDefinition();
+}
+
+//  ClassExpression *QQmlJS::AST::NestedExpression::asClassDefinition()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ClassExpression *ritual_ZN6QQmlJS3AST16NestedExpression17asClassDefinitionEv(
+    QQmlJS::AST::NestedExpression *self) {
+  return self->asClassDefinition();
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_NestedExpression, for the

@@ -21,6 +21,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  Only a class built on ChartDateTimeAxisY may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -1289,6 +1290,25 @@ const QMetaObject *ritual_ZNK18ChartDateTimeAxisY10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *ChartDateTimeAxisY::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18ChartDateTimeAxisY11qt_metacastEPKc(
+    ChartDateTimeAxisY *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int ChartDateTimeAxisY::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18ChartDateTimeAxisY11qt_metacallEN11QMetaObject4CallEiPPv(
+    ChartDateTimeAxisY *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString ChartDateTimeAxisY::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18ChartDateTimeAxisY2trEPKcS1_i(
@@ -1321,6 +1341,13 @@ QSizeF *ritual_ZNK18ChartDateTimeAxisY8sizeHintEN2Qt8SizeHintERK6QSizeF(
     Qt::SizeHint which,
     const QSizeF *constraint) {
   return new QSizeF(self->sizeHint(which, *constraint));
+}
+
+//  QList<qreal> ChartDateTimeAxisY::calculateLayout() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK18ChartDateTimeAxisY15calculateLayoutEv(
+    const ChartDateTimeAxisY *self) {
+  return new QList<qreal>(self->calculateLayout());
 }
 
 //  void ChartDateTimeAxisY::updateGeometry()
@@ -1371,6 +1398,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN18ChartDateTimeAxisY14updateGeometryEv(
     ChartDateTimeAxisY *self) {
   static_cast<OwnChartDateTimeAxisY *>(self)->OwnChartDateTimeAxisY::updateGeometry();
+}
+
+//  a QList<qreal> a ritual of ChartDateTimeAxisY gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_ChartDateTimeAxisY__QList_qreal(QList<qreal> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(charts_datetime_axis)

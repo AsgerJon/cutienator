@@ -65,6 +65,23 @@ void ritual_ZN12QShaderBaker15setSourceStringERK10QByteArrayN7QShader5StageERK7Q
   self->setSourceString(*sourceString, stage, *fileName);
 }
 
+//  void QShaderBaker::setGeneratedShaders(const QList<GeneratedShader> &v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QShaderBaker19setGeneratedShadersERK5QListISt4pairIN7QShader6SourceE14QShaderVersionEE(
+    QShaderBaker *self,
+    const QList<QShaderBaker::GeneratedShader> *v) {
+  self->setGeneratedShaders(*v);
+}
+
+//  void QShaderBaker::setGeneratedShaderVariants(const
+//      QList<QShader::Variant> &v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QShaderBaker26setGeneratedShaderVariantsERK5QListIN7QShader7VariantEE(
+    QShaderBaker *self,
+    const QList<QShader::Variant> *v) {
+  self->setGeneratedShaderVariants(*v);
+}
+
 //  void QShaderBaker::setPreamble(const QByteArray &preamble)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QShaderBaker11setPreambleERK10QByteArray(

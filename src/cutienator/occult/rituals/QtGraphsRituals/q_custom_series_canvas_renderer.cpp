@@ -2,7 +2,7 @@
 //  QtGraphs/qcustomseriescanvasrenderer.h, Qt 6.12.0. Changes made here are
 //  lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_high_performance_backend))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_high_performance_backend))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qcustomseriescanvasrenderer.h>
 #include <cstring>
@@ -89,6 +89,12 @@ public:
   }
 };
 
+//  QCustomSeriesCanvasRenderer::QCustomSeriesCanvasRenderer()
+extern "C" Q_DECL_EXPORT
+QCustomSeriesCanvasRenderer *ritual_ZN27QCustomSeriesCanvasRendererC1Ev() {
+  return new CuteQCustomSeriesCanvasRenderer();
+}
+
 //  QCustomSeriesCanvasRenderer::~QCustomSeriesCanvasRenderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QCustomSeriesCanvasRendererD1Ev(
@@ -170,4 +176,4 @@ void ritual_own_ZN27QCustomSeriesCanvasRenderer14canvasPrePaintEP14QCanvasPainte
   self->QCustomSeriesCanvasRenderer::canvasPrePaint(p);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_high_performance_backend))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_high_performance_backend))

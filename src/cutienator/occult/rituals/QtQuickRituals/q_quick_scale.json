@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK11QQuickScale10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickScale11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QQuickScale11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QQuickScale2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QQuickScaleC1EP7QObject": ["address", "address"],
     "ritual_ZNK11QQuickScale6originEv": ["address", "address"],
@@ -21,6 +27,13 @@
     "ritual_ZNK11QQuickScale7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN11QQuickScale13originChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickScale13xScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickScale13yScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickScale13zScaleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickScale12scaleChangedEv": ["nothing", "address"],
+    "ritual_ZN11QQuickScale6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QQuickScale6d_funcEv": ["address", "address"],
     "ritual_own_ZNK11QQuickScale7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ]

@@ -1,8 +1,6 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "QtWidgets/qscrollerproperties.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN19QScrollerPropertiesC1Ev": ["address"],

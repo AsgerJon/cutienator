@@ -8,6 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtHttpServer/qhttpserverconfiguration.h>
 #include <QtNetwork/qhostaddress.h>
+#include <QtCore/QHash>
+#include <QtNetwork/QHostAddress>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtHttpServer/private/qhttpserverrequestfilter_p.h>
 #include <QtCore/qdatetime.h>
@@ -20,6 +22,39 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qthttpserver/src/httpserver/qhttpserverrequestfilter.cpp, line 16, as local:qhttpserverrequestfilter.cpp:cCleanupThreshold
+static constexpr int cCleanupThreshold = 10;
+
+//  from ../qthttpserver/src/httpserver/qhttpserverrequestfilter.cpp, line 146, as _ZNK24QHttpServerRequestFilter6IpInfo9isGarbageEx
+inline bool QHttpServerRequestFilter::IpInfo::isGarbage(qint64 currTime) const
+{
+    // ip info is garbage if we got no requests during next period
+    return (currTime >= m_thisPeriodEnd + QHttpServerRequestFilterPrivate::cPeriodDurationMSec);
+}
+
+//  from ../qthttpserver/src/httpserver/qhttpserverrequestfilter.cpp, line 124, as _ZN24QHttpServerRequestFilter18cleanIpInfoGarbageEN5QHashI12QHostAddressNS_6IpInfoEE8iteratorEx
+inline void QHttpServerRequestFilter::cleanIpInfoGarbage(QHash<QHostAddress, IpInfo>::iterator it,
+                                                  qint64 currTime)
+{
+    Q_ASSERT(ipInfo.begin() != ipInfo.end());
+
+    const auto myIp = it.key();
+    ++it;
+    // check the range after the current ip
+    for (int i = 0; i < cCleanupThreshold; ++i) {
+        if (it == ipInfo.end())
+            it = ipInfo.begin();
+
+        if (it.key() == myIp)
+            break;
+
+        if (it->isGarbage(currTime))
+            it = ipInfo.erase(it);
+        else
+            ++it;
+    }
+}
 
 //  from ../qthttpserver/src/httpserver/qhttpserverrequestfilter.cpp, line 18, as _ZNK24QHttpServerRequestFilter19maxRequestPerPeriodEv
 inline unsigned int QHttpServerRequestFilter::maxRequestPerPeriod() const
@@ -106,6 +141,16 @@ bool ritual_ZNK24QHttpServerRequestFilter17isBodySizeAllowedEx(
     const QHttpServerRequestFilter *self,
     qint64 bodySize) {
   return self->isBodySizeAllowed(bodySize);
+}
+
+//  void QHttpServerRequestFilter::cleanIpInfoGarbage(QHash<QHostAddress,
+//      IpInfo>::iterator it, qint64 currTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QHttpServerRequestFilter18cleanIpInfoGarbageEN5QHashI12QHostAddressNS_6IpInfoEE8iteratorEx(
+    QHttpServerRequestFilter *self,
+    const QHash<QHostAddress, QHttpServerRequestFilter::IpInfo>::iterator *it,
+    qint64 currTime) {
+  self->cleanIpInfoGarbage(*it, currTime);
 }
 
 //  unsigned int QHttpServerRequestFilter::maxRequestPerPeriod() const

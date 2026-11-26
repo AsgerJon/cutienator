@@ -8,6 +8,38 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrenderextensions.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  QSSGRenderablesId QSSGRenderHelpers::createRenderables(const
+//      QSSGFrameData &frameData, QSSGPrepContextId prepId, const
+//      QSSGNodeIdList &nodes, CreateFlags flags)
+extern "C" Q_DECL_EXPORT
+QSSGRenderablesId ritual_ZN17QSSGRenderHelpers17createRenderablesERK13QSSGFrameData17QSSGPrepContextIdRK5QListI10QSSGNodeIdE6QFlagsINS_10CreateFlagEE(
+    const QSSGFrameData *frameData,
+    QSSGPrepContextId prepId,
+    const QSSGNodeIdList *nodes,
+    int flags) {
+  return QSSGRenderHelpers::createRenderables(
+      *frameData,
+      prepId,
+      *nodes,
+      QFlags<QSSGRenderHelpers::CreateFlag>::fromInt(flags));
+}
+
+//  QSSGPrepContextId QSSGRenderHelpers::prepareForRender(const QSSGFrameData
+//      &frameData, const QSSGRenderExtension &ext, QSSGCameraId cameraId,
+//      quint32 slot)
+extern "C" Q_DECL_EXPORT
+QSSGPrepContextId ritual_ZN17QSSGRenderHelpers16prepareForRenderERK13QSSGFrameDataRK19QSSGRenderExtension12QSSGCameraIdj(
+    const QSSGFrameData *frameData,
+    const QSSGRenderExtension *ext,
+    QSSGCameraId cameraId,
+    quint32 slot) {
+  return QSSGRenderHelpers::prepareForRender(
+      *frameData,
+      *ext,
+      cameraId,
+      slot);
+}
+
 //  QSSGPrepResultId QSSGRenderHelpers::commit(const QSSGFrameData
 //      &frameData, QSSGPrepContextId prepId, QSSGRenderablesId
 //      renderablesId, float lodThreshold)
@@ -22,6 +54,25 @@ QSSGPrepResultId ritual_ZN17QSSGRenderHelpers6commitERK13QSSGFrameData17QSSGPrep
       prepId,
       renderablesId,
       lodThreshold);
+}
+
+//  void QSSGRenderHelpers::prepareRenderables(const QSSGFrameData
+//      &frameData, QSSGPrepResultId prepId, QRhiRenderPassDescriptor
+//      *renderPassDescriptor, QSSGRhiGraphicsPipelineState &ps,
+//      QSSGRenderablesFilters filter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QSSGRenderHelpers18prepareRenderablesERK13QSSGFrameData16QSSGPrepResultIdP24QRhiRenderPassDescriptorR28QSSGRhiGraphicsPipelineState6QFlagsI21QSSGRenderablesFilterE(
+    const QSSGFrameData *frameData,
+    QSSGPrepResultId prepId,
+    QRhiRenderPassDescriptor *renderPassDescriptor,
+    QSSGRhiGraphicsPipelineState *ps,
+    int filter) {
+  QSSGRenderHelpers::prepareRenderables(
+      *frameData,
+      prepId,
+      renderPassDescriptor,
+      *ps,
+      QFlags<QSSGRenderablesFilter>::fromInt(filter));
 }
 
 //  void QSSGRenderHelpers::renderRenderables(const QSSGFrameData &frameData,

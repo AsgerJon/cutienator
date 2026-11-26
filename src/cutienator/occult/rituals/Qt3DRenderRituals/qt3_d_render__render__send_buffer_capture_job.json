@@ -1,15 +1,16 @@
 {
   "about": [
-    "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DRender/6.12.0/Qt3DRender/private/sendbuffercapturejob_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "Written by hand on 2026-11-25 from",
+    "Qt3DRender/6.12.0/Qt3DRender/private/sendbuffercapturejob_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator",
+    "runs again."
   ],
   "rows": {
-    "ritual_ZN10Qt3DRender6Render20SendBufferCaptureJob11setManagersEPNS0_12NodeManagersE": [
-      "nothing", "address", "address"
-    ],
-    "ritual_take_Qt3DRender_Render_SendBufferCaptureJob": [
-      "bool", "address", "chars", "address"
-    ]
+    "ritual_ZN10Qt3DRender6Render20SendBufferCaptureJobC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render20SendBufferCaptureJobD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender6Render20SendBufferCaptureJob11setManagersEPNS0_12NodeManagersE": ["nothing", "address", "address"],
+    "ritual_ZNK10Qt3DRender6Render20SendBufferCaptureJob11hasRequestsEv": ["bool", "address"],
+    "ritual_ZN10Qt3DRender6Render20SendBufferCaptureJob3runEv": ["nothing", "address"],
+    "ritual_take_Qt3DRender_Render_SendBufferCaptureJob": ["bool", "address", "chars", "address"]
   }
 }

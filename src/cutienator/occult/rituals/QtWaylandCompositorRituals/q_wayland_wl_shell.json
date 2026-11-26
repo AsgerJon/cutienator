@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK15QWaylandWlShell10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QWaylandWlShell11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QWaylandWlShell11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QWaylandWlShell2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QWaylandWlShell6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QWaylandWlShell6d_funcEv": ["address", "address"],
     "ritual_ZN15QWaylandWlShellC1Ev": ["address"],
     "ritual_ZN15QWaylandWlShellC1EP18QWaylandCompositor": [
       "address", "address"
@@ -20,8 +28,15 @@
     ],
     "ritual_ZNK15QWaylandWlShell12mappedPopupsEv": ["address", "address"],
     "ritual_ZNK15QWaylandWlShell11popupClientEv": ["address", "address"],
+    "ritual_ZN15QWaylandWlShell9interfaceEv": ["address"],
     "ritual_ZN15QWaylandWlShell13interfaceNameEv": ["address"],
     "ritual_ZN15QWaylandWlShell14closeAllPopupsEv": ["nothing", "address"],
+    "ritual_ZN15QWaylandWlShell23wlShellSurfaceRequestedEP15QWaylandSurfaceRK16QWaylandResource": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QWaylandWlShell21wlShellSurfaceCreatedEP22QWaylandWlShellSurface": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QWaylandWlShell": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QWaylandWlShell10initializeEv": ["nothing", "address"]
   }

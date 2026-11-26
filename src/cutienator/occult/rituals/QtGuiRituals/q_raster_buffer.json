@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/6.12.0/QtGui/private/qpaintengine_raster_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN13QRasterBufferC1Ev": ["address"],
@@ -17,6 +17,11 @@
     "ritual_ZNK13QRasterBuffer13bytesPerPixelEv": ["int", "address"],
     "ritual_ZN13QRasterBuffer14colorizeBitmapERK6QImageRK6QColor": [
       "address", "address", "address", "address"
-    ]
+    ],
+    "ritual_ZN13QRasterBuffer6strideIhEEiv": ["int", "address"],
+    "ritual_ZN13QRasterBuffer6strideItEEiv": ["int", "address"],
+    "ritual_ZN13QRasterBuffer6strideIjEEiv": ["int", "address"],
+    "ritual_ZN13QRasterBuffer8scanLineEi": ["address", "address", "int"],
+    "ritual_ZNK13QRasterBuffer6bufferEv": ["address", "address"]
   }
 }

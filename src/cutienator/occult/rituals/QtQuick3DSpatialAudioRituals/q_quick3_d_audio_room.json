@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuick3DAudioRoom10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuick3DAudioRoom11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuick3DAudioRoom11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuick3DAudioRoomD1Ev": ["nothing", "address"],
     "ritual_ZN17QQuick3DAudioRoom13setDimensionsE9QVector3D": [
       "nothing", "address", "address"
@@ -52,6 +58,28 @@
     ],
     "ritual_ZNK17QQuick3DAudioRoom16reverbBrightnessEv": [
       "float", "address"
+    ],
+    "ritual_ZN17QQuick3DAudioRoom15positionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuick3DAudioRoom17dimensionsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuick3DAudioRoom15rotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuick3DAudioRoom12wallsChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuick3DAudioRoom21reflectionGainChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuick3DAudioRoom17reverbGainChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuick3DAudioRoom17reverbTimeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuick3DAudioRoom23reverbBrightnessChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZN17QQuick3DAudioRoom14updatePositionEv": ["nothing", "address"],
     "ritual_ZN17QQuick3DAudioRoom14updateRotationEv": ["nothing", "address"],

@@ -8,12 +8,21 @@
     "ritual_ZNK27QQmlDebugTranslationService10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQmlDebugTranslationService11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQmlDebugTranslationService11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN27QQmlDebugTranslationService2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN27QQmlDebugTranslationServiceD1Ev": ["nothing", "address"],
     "ritual_ZN27QQmlDebugTranslationService23foundTranslationBindingERK29TranslationBindingInformation": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQmlDebugTranslationServiceC1EfP7QObject": [
+      "address", "float", "address"
     ],
     "ritual_take_QQmlDebugTranslationService": [
       "bool", "address", "chars", "address"

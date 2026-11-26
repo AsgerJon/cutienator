@@ -443,6 +443,24 @@ const QMetaObject *ritual_ZNK12QGeoTiledMap10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGeoTiledMap::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QGeoTiledMap11qt_metacastEPKc(
+    QGeoTiledMap *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGeoTiledMap::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QGeoTiledMap11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGeoTiledMap *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGeoTiledMap::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QGeoTiledMap2trEPKcS1_i(
@@ -550,6 +568,25 @@ QSGNode *ritual_ZN12QGeoTiledMap16updateSceneGraphEP7QSGNodeP12QQuickWindow(
     QSGNode *a0,
     QQuickWindow *window) {
   return self->updateSceneGraph(a0, window);
+}
+
+//  void QGeoTiledMap::evaluateCopyrights(const QSet<QGeoTileSpec>
+//      &visibleTiles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QGeoTiledMap18evaluateCopyrightsERK4QSetI12QGeoTileSpecE(
+    QGeoTiledMap *self,
+    const QSet<QGeoTileSpec> *visibleTiles) {
+  self->evaluateCopyrights(*visibleTiles);
+}
+
+//  QGeoTiledMap::QGeoTiledMap(QGeoTiledMapPrivate &dd,
+//      QGeoTiledMappingManagerEngine *engine, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QGeoTiledMap *ritual_ZN12QGeoTiledMapC1ER19QGeoTiledMapPrivateP29QGeoTiledMappingManagerEngineP7QObject(
+    QGeoTiledMapPrivate *dd,
+    QGeoTiledMappingManagerEngine *engine,
+    QObject *parent) {
+  return new CuteQGeoTiledMap(*dd, engine, parent);
 }
 
 //  void QGeoTiledMap::handleTileVersionChanged()

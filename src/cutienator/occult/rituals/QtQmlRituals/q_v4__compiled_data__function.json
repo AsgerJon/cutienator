@@ -5,7 +5,16 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZNK3QV412CompiledData8Function28lineAndStatementNumberOffsetEv": [
+      "size_t", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData8Function16labelInfosOffsetEv": [
+      "size_t", "address"
+    ],
     "ritual_ZNK3QV412CompiledData8Function12formalsTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData8Function11localsTableEv": [
       "address", "address"
     ],
     "ritual_ZNK3QV412CompiledData8Function27lineAndStatementNumberTableEv": [
@@ -17,10 +26,14 @@
     "ritual_ZNK3QV412CompiledData8Function10formalsEndEv": [
       "address", "address"
     ],
+    "ritual_ZNK3QV412CompiledData8Function14labelInfoTableEv": [
+      "address", "address"
+    ],
     "ritual_ZNK3QV412CompiledData8Function4codeEv": ["chars", "address"],
     "ritual_ZN3QV412CompiledData8Function13calculateSizeEiiiii": [
       "int", "int", "int", "int", "int", "int"
     ],
+    "ritual_ZN3QV412CompiledData8Function5alignEm": ["size_t", "size_t"],
     "ritual_ZN3QV412CompiledData8FunctionD1Ev": ["nothing", "address"]
   }
 }

@@ -18,6 +18,14 @@ QDomEntity *ritual_ZN10QDomEntityC1ERKS_(const QDomEntity *entity) {
   return new QDomEntity(*entity);
 }
 
+//  QDomEntity &QDomEntity::operator=(const QDomEntity &other)
+extern "C" Q_DECL_EXPORT
+QDomEntity *ritual_ZN10QDomEntityaSERKS_(
+    QDomEntity *self,
+    const QDomEntity *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QDomEntity::publicId() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK10QDomEntity8publicIdEv(const QDomEntity *self) {

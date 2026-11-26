@@ -5,6 +5,7 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QWebSocketHandshakeRequestC1Eib": ["address", "int", "bool"],
     "ritual_ZN26QWebSocketHandshakeRequestD1Ev": ["nothing", "address"],
     "ritual_ZN26QWebSocketHandshakeRequest5clearEv": ["nothing", "address"],
     "ritual_ZNK26QWebSocketHandshakeRequest4portEv": ["int", "address"],
@@ -15,6 +16,9 @@
     ],
     "ritual_ZNK26QWebSocketHandshakeRequest9hasHeaderERK10QByteArray": [
       "bool", "address", "address"
+    ],
+    "ritual_ZNK26QWebSocketHandshakeRequest8versionsEv": [
+      "address", "address"
     ],
     "ritual_ZNK26QWebSocketHandshakeRequest3keyEv": ["text", "address"],
     "ritual_ZNK26QWebSocketHandshakeRequest6originEv": ["text", "address"],
@@ -30,6 +34,9 @@
     "ritual_ZNK26QWebSocketHandshakeRequest12resourceNameEv": [
       "text", "address"
     ],
-    "ritual_ZNK26QWebSocketHandshakeRequest4hostEv": ["text", "address"]
+    "ritual_ZNK26QWebSocketHandshakeRequest4hostEv": ["text", "address"],
+    "ritual_drop_QWebSocketHandshakeRequest__QList_QWebSocketProtocol_Version": [
+      "nothing", "address"
+    ]
   }
 }

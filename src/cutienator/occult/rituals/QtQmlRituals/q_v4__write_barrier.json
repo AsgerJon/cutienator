@@ -8,6 +8,15 @@
     "ritual_ZN3QV412WriteBarrier5writeEPNS_10EngineBaseEPNS_4Heap4BaseEPyy": [
       "nothing", "address", "address", "address", "unsigned long long"
     ],
+    "ritual_ZN3QV412WriteBarrier14write_slowpathEPNS_10EngineBaseEPNS_4Heap4BaseEPyy": [
+      "nothing", "address", "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV412WriteBarrier5writeEPNS_10EngineBaseEPNS_4Heap4BaseEPS5_S5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV412WriteBarrier14write_slowpathEPNS_10EngineBaseEPNS_4Heap4BaseEPS5_S5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN3QV412WriteBarrierD1Ev": ["nothing", "address"]
   }
 }

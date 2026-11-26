@@ -52,61 +52,6 @@ inline QPlatformDialogHelper *QQuickLabsPlatformDialog::handle() const
     return m_handle;
 }
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 342, as _ZNK24QQuickLabsPlatformDialog15useNativeDialogEv
-inline bool QQuickLabsPlatformDialog::useNativeDialog() const
-{
-    return !QCoreApplication::testAttribute(Qt::AA_DontUseNativeDialogs)
-            && QGuiApplicationPrivate::platformTheme()->usePlatformNativeDialog(m_type);
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 122, as _ZNK24QQuickLabsPlatformDialog5titleEv
-inline QString QQuickLabsPlatformDialog::title() const
-{
-    return m_title;
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 268, as _ZN24QQuickLabsPlatformDialog6acceptEv
-inline void QQuickLabsPlatformDialog::accept()
-{
-    done(Accepted);
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 83, as _ZNK29QQuickLabsPlatformColorDialog5colorEv
-#if QT_DEPRECATED_SINCE(6, 9)
-inline QColor QQuickLabsPlatformColorDialog::color() const
-{
-    return m_color;
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 109, as _ZNK29QQuickLabsPlatformColorDialog12currentColorEv
-#if QT_DEPRECATED_SINCE(6, 9)
-inline QColor QQuickLabsPlatformColorDialog::currentColor() const
-{
-    if (QPlatformColorDialogHelper *colorDialog = qobject_cast<QPlatformColorDialogHelper *>(handle()))
-        return colorDialog->currentColor();
-    return m_currentColor;
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 116, as _ZN29QQuickLabsPlatformColorDialog15setCurrentColorERK6QColor
-#if QT_DEPRECATED_SINCE(6, 9)
-inline void QQuickLabsPlatformColorDialog::setCurrentColor(const QColor &color)
-{
-    if (QPlatformColorDialogHelper *colorDialog = qobject_cast<QPlatformColorDialogHelper *>(handle()))
-        colorDialog->setCurrentColor(color);
-    m_currentColor = color;
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 138, as _ZNK29QQuickLabsPlatformColorDialog7optionsEv
-#if QT_DEPRECATED_SINCE(6, 9)
-inline QColorDialogOptions::ColorDialogOptions QQuickLabsPlatformColorDialog::options() const
-{
-    return m_options->options();
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 152, as _ZNK29QQuickLabsPlatformColorDialog15useNativeDialogEv
 #if QT_DEPRECATED_SINCE(6, 9)
 inline bool QQuickLabsPlatformColorDialog::useNativeDialog() const
@@ -146,6 +91,74 @@ inline void QQuickLabsPlatformColorDialog::accept()
     QQuickLabsPlatformDialog::accept();
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 342, as _ZNK24QQuickLabsPlatformDialog15useNativeDialogEv
+inline bool QQuickLabsPlatformDialog::useNativeDialog() const
+{
+    return !QCoreApplication::testAttribute(Qt::AA_DontUseNativeDialogs)
+            && QGuiApplicationPrivate::platformTheme()->usePlatformNativeDialog(m_type);
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 122, as _ZNK24QQuickLabsPlatformDialog5titleEv
+inline QString QQuickLabsPlatformDialog::title() const
+{
+    return m_title;
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 268, as _ZN24QQuickLabsPlatformDialog6acceptEv
+inline void QQuickLabsPlatformDialog::accept()
+{
+    done(Accepted);
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 88, as _ZN29QQuickLabsPlatformColorDialog8setColorERK6QColor
+#if QT_DEPRECATED_SINCE(6, 9)
+inline void QQuickLabsPlatformColorDialog::setColor(const QColor &color)
+{
+    if (m_color == color)
+        return;
+
+    m_color = color;
+    setCurrentColor(color);
+    emit colorChanged();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 83, as _ZNK29QQuickLabsPlatformColorDialog5colorEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline QColor QQuickLabsPlatformColorDialog::color() const
+{
+    return m_color;
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 109, as _ZNK29QQuickLabsPlatformColorDialog12currentColorEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline QColor QQuickLabsPlatformColorDialog::currentColor() const
+{
+    if (QPlatformColorDialogHelper *colorDialog = qobject_cast<QPlatformColorDialogHelper *>(handle()))
+        return colorDialog->currentColor();
+    return m_currentColor;
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 116, as _ZN29QQuickLabsPlatformColorDialog15setCurrentColorERK6QColor
+#if QT_DEPRECATED_SINCE(6, 9)
+inline void QQuickLabsPlatformColorDialog::setCurrentColor(const QColor &color)
+{
+    if (QPlatformColorDialogHelper *colorDialog = qobject_cast<QPlatformColorDialogHelper *>(handle()))
+        colorDialog->setCurrentColor(color);
+    m_currentColor = color;
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformcolordialog.cpp, line 138, as _ZNK29QQuickLabsPlatformColorDialog7optionsEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline QColorDialogOptions::ColorDialogOptions QQuickLabsPlatformColorDialog::options() const
+{
+    return m_options->options();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickLabsPlatformColorDialog may call these functions of it.
@@ -160,6 +173,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK29QQuickLabsPlatformColorDialog10metaObjectEv(
     const QQuickLabsPlatformColorDialog *self) {
   return self->metaObject();
+}
+
+//  void *QQuickLabsPlatformColorDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN29QQuickLabsPlatformColorDialog11qt_metacastEPKc(
+    QQuickLabsPlatformColorDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickLabsPlatformColorDialog::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN29QQuickLabsPlatformColorDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickLabsPlatformColorDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  const QMetaObject *QQuickLabsPlatformColorDialog::qmlExtendedNamespace()
@@ -212,6 +244,81 @@ int ritual_ZNK29QQuickLabsPlatformColorDialog7optionsEv(
   return static_cast<int>(self->options().toInt());
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  void QQuickLabsPlatformColorDialog::colorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickLabsPlatformColorDialog12colorChangedEv(
+    QQuickLabsPlatformColorDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformColorDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "colorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "colorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformColorDialog::currentColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickLabsPlatformColorDialog19currentColorChangedEv(
+    QQuickLabsPlatformColorDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformColorDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "currentColorChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "currentColorChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickLabsPlatformColorDialog::optionsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QQuickLabsPlatformColorDialog14optionsChangedEv(
+    QQuickLabsPlatformColorDialog *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickLabsPlatformColorDialog")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "optionsChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "optionsChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
 
 //  bool QQuickLabsPlatformColorDialog::useNativeDialog() const
 extern "C" Q_DECL_EXPORT

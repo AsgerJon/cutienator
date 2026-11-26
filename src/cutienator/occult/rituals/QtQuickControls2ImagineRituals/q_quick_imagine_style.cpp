@@ -22,6 +22,25 @@ const QMetaObject *ritual_ZNK18QQuickImagineStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickImagineStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QQuickImagineStyle11qt_metacastEPKc(
+    QQuickImagineStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickImagineStyle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QQuickImagineStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickImagineStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickImagineStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QQuickImagineStyle2trEPKcS1_i(
@@ -100,6 +119,12 @@ void ritual_ZN18QQuickImagineStyle9resetPathEv(QQuickImagineStyle *self) {
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK18QQuickImagineStyle3urlEv(const QQuickImagineStyle *self) {
   return new QUrl(self->url());
+}
+
+//  void QQuickImagineStyle::pathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QQuickImagineStyle11pathChangedEv(QQuickImagineStyle *self) {
+  self->pathChanged();
 }
 
 //  void

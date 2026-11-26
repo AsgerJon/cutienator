@@ -6,9 +6,16 @@
   "rows": {
     "ritual_ZN12QPixmapCache3KeyC1Ev": ["address"],
     "ritual_ZN12QPixmapCache3KeyC1ERKS0_": ["address", "address"],
+    "ritual_ZN12QPixmapCache3KeyC1EOS0_": ["address", "address"],
+    "ritual_ZN12QPixmapCache3KeyaSEOS0_": ["address", "address", "address"],
     "ritual_ZN12QPixmapCache3KeyD1Ev": ["nothing", "address"],
     "ritual_ZNK12QPixmapCache3KeyeqERKS0_": ["bool", "address", "address"],
     "ritual_ZNK12QPixmapCache3KeyneERKS0_": ["bool", "address", "address"],
-    "ritual_ZNK12QPixmapCache3Key7isValidEv": ["bool", "address"]
+    "ritual_ZN12QPixmapCache3KeyaSERKS0_": ["address", "address", "address"],
+    "ritual_ZN12QPixmapCache3Key4swapERS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QPixmapCache3Key7isValidEv": ["bool", "address"],
+    "ritual_ZNK12QPixmapCache3Key4hashEm": ["size_t", "address", "size_t"]
   }
 }

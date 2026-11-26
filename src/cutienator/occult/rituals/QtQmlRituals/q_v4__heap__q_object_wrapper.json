@@ -9,6 +9,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN3QV44Heap14QObjectWrapper7destroyEv": ["nothing", "address"],
-    "ritual_ZNK3QV44Heap14QObjectWrapper6objectEv": ["address", "address"]
+    "ritual_ZNK3QV44Heap14QObjectWrapper6objectEv": ["address", "address"],
+    "ritual_ZN3QV44Heap14QObjectWrapper11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ]
   }
 }

@@ -2,6 +2,7 @@
 //  Qt3DCore/qbuffer.h, Qt 6.12.0. Changes made here are lost.
 #include <Qt3DCore/qbuffer.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -179,6 +180,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore7QBuffer10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QBuffer::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore7QBuffer11qt_metacastEPKc(
+    Qt3DCore::QBuffer *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QBuffer::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore7QBuffer11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QBuffer *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QBuffer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore7QBuffer2trEPKcS2_i(
@@ -186,6 +206,103 @@ QString *ritual_ZN8Qt3DCore7QBuffer2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DCore::QBuffer::tr(s, c, n));
+}
+
+//  Qt3DCore::QBuffer::QBuffer(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBuffer *ritual_ZN8Qt3DCore7QBufferC1EPNS_5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QBuffer(parent);
+}
+
+//  Qt3DCore::QBuffer::~QBuffer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QBufferD1Ev(Qt3DCore::QBuffer *self) {
+  delete self;
+}
+
+//  UsageType Qt3DCore::QBuffer::usage() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBuffer::UsageType ritual_ZNK8Qt3DCore7QBuffer5usageEv(
+    const Qt3DCore::QBuffer *self) {
+  return self->usage();
+}
+
+//  AccessType Qt3DCore::QBuffer::accessType() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBuffer::AccessType ritual_ZNK8Qt3DCore7QBuffer10accessTypeEv(
+    const Qt3DCore::QBuffer *self) {
+  return self->accessType();
+}
+
+//  void Qt3DCore::QBuffer::setData(const QByteArray &bytes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QBuffer7setDataERK10QByteArray(
+    Qt3DCore::QBuffer *self,
+    const QByteArray *bytes) {
+  self->setData(*bytes);
+}
+
+//  QByteArray Qt3DCore::QBuffer::data() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK8Qt3DCore7QBuffer4dataEv(
+    const Qt3DCore::QBuffer *self) {
+  return new QByteArray(self->data());
+}
+
+//  void Qt3DCore::QBuffer::updateData(int offset, const QByteArray &bytes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QBuffer10updateDataEiRK10QByteArray(
+    Qt3DCore::QBuffer *self,
+    int offset,
+    const QByteArray *bytes) {
+  self->updateData(offset, *bytes);
+}
+
+//  void Qt3DCore::QBuffer::setUsage(UsageType usage)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QBuffer8setUsageENS0_9UsageTypeE(
+    Qt3DCore::QBuffer *self,
+    Qt3DCore::QBuffer::UsageType usage) {
+  self->setUsage(usage);
+}
+
+//  void Qt3DCore::QBuffer::setAccessType(AccessType access)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QBuffer13setAccessTypeENS0_10AccessTypeE(
+    Qt3DCore::QBuffer *self,
+    Qt3DCore::QBuffer::AccessType access) {
+  self->setAccessType(access);
+}
+
+//  void Qt3DCore::QBuffer::dataChanged(const QByteArray &bytes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QBuffer11dataChangedERK10QByteArray(
+    Qt3DCore::QBuffer *self,
+    const QByteArray *bytes) {
+  self->dataChanged(*bytes);
+}
+
+//  void Qt3DCore::QBuffer::usageChanged(UsageType usage)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QBuffer12usageChangedENS0_9UsageTypeE(
+    Qt3DCore::QBuffer *self,
+    Qt3DCore::QBuffer::UsageType usage) {
+  self->usageChanged(usage);
+}
+
+//  void Qt3DCore::QBuffer::accessTypeChanged(AccessType access)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QBuffer17accessTypeChangedENS0_10AccessTypeE(
+    Qt3DCore::QBuffer *self,
+    Qt3DCore::QBuffer::AccessType access) {
+  self->accessTypeChanged(access);
+}
+
+//  void Qt3DCore::QBuffer::dataAvailable()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QBuffer13dataAvailableEv(Qt3DCore::QBuffer *self) {
+  self->dataAvailable();
 }
 
 //  QBufferPrivate *Qt3DCore::QBuffer::d_func()

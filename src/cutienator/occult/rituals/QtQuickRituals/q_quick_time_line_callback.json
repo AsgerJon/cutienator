@@ -6,7 +6,13 @@
   ],
   "rows": {
     "ritual_ZN22QQuickTimeLineCallbackC1Ev": ["address"],
+    "ritual_ZN22QQuickTimeLineCallbackC1EP20QQuickTimeLineObjectPFvPvES2_": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN22QQuickTimeLineCallbackC1ERKS_": ["address", "address"],
+    "ritual_ZN22QQuickTimeLineCallbackaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK22QQuickTimeLineCallback14callbackObjectEv": [
       "address", "address"
     ],

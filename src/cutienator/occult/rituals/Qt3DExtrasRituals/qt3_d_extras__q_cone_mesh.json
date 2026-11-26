@@ -5,8 +5,69 @@
   ],
   "rows": {
     "ritual_ZNK10Qt3DExtras9QConeMesh10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Qt3DExtras9QConeMesh11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DExtras9QConeMesh2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMeshC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMeshD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DExtras9QConeMesh5ringsEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras9QConeMesh6slicesEv": ["int", "address"],
+    "ritual_ZNK10Qt3DExtras9QConeMesh12hasTopEndcapEv": ["bool", "address"],
+    "ritual_ZNK10Qt3DExtras9QConeMesh15hasBottomEndcapEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras9QConeMesh9topRadiusEv": ["float", "address"],
+    "ritual_ZNK10Qt3DExtras9QConeMesh12bottomRadiusEv": ["float", "address"],
+    "ritual_ZNK10Qt3DExtras9QConeMesh6lengthEv": ["float", "address"],
+    "ritual_ZN10Qt3DExtras9QConeMesh15setHasTopEndcapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh18setHasBottomEndcapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh12setTopRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh15setBottomRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh8setRingsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh9setSlicesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh9setLengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh19hasTopEndcapChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh22hasBottomEndcapChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh16topRadiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh19bottomRadiusChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh12ringsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh13slicesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DExtras9QConeMesh13lengthChangedEf": [
+      "nothing", "address", "float"
     ],
     "ritual_take_Qt3DExtras_QConeMesh": [
       "bool", "address", "chars", "address"

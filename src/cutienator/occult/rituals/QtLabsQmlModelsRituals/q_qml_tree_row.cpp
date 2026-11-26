@@ -16,6 +16,7 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <memory>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLabsQmlModels/private/qqmltreerow_p.h>
 #include <QtCore/qjsonobject.h>
@@ -27,6 +28,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::Literals::StringLiterals;
 
 //  from ../qtdeclarative/src/labs/models/qqmltreerow.cpp, line 13, as _ZN11QQmlTreeRowC1EPS_
 inline QQmlTreeRow::QQmlTreeRow(QQmlTreeRow *parentItem)
@@ -68,10 +71,25 @@ inline int QQmlTreeRow::subTreeSize() const
     return size;
 }
 
+//  from ../qtdeclarative/src/labs/models/qqmltreerow.cpp, line 60, as _ZN11QQmlTreeRow11removeChildERN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIS_St14default_deleteIS_EESt6vectorIS5_SaIS5_EEEE
+inline void QQmlTreeRow::removeChild(std::vector<std::unique_ptr<QQmlTreeRow>>::const_iterator &child)
+{
+    m_children.erase(child);
+}
+
 //  from ../qtdeclarative/src/labs/models/qqmltreerow.cpp, line 65, as _ZN11QQmlTreeRow13removeChildAtEi
 inline void QQmlTreeRow::removeChildAt(int i)
 {
     m_children.erase(std::next(m_children.begin(), i));
+}
+
+//  from ../qtdeclarative/src/labs/models/qqmltreerow.cpp, line 70, as _ZN11QQmlTreeRow9takeChildEi
+inline std::unique_ptr<QQmlTreeRow> QQmlTreeRow::takeChild(int i)
+{
+    auto it = std::next(m_children.begin(), i);
+    std::unique_ptr<QQmlTreeRow> child = std::move(*it);
+    m_children.erase(it);
+    return child;
 }
 
 //  from ../qtdeclarative/src/labs/models/qqmltreerow.cpp, line 78, as _ZN11QQmlTreeRow7setDataERK8QVariant
@@ -183,6 +201,12 @@ void ritual_ZN11QQmlTreeRow8addChildEPS_(
   self->addChild(child);
 }
 
+//  size_t QQmlTreeRow::rowCount() const
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZNK11QQmlTreeRow8rowCountEv(const QQmlTreeRow *self) {
+  return self->rowCount();
+}
+
 //  int QQmlTreeRow::subTreeSize() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QQmlTreeRow11subTreeSizeEv(const QQmlTreeRow *self) {
@@ -204,10 +228,35 @@ QVariant *ritual_ZNK11QQmlTreeRow4dataERK7QString(
   return new QVariant(self->data(*key));
 }
 
+//  const std::vector<std::unique_ptr<QQmlTreeRow>> &QQmlTreeRow::children()
+//      const
+extern "C" Q_DECL_EXPORT
+const std::vector<std::unique_ptr<QQmlTreeRow>> *ritual_ZNK11QQmlTreeRow8childrenEv(
+    const QQmlTreeRow *self) {
+  return &(self->children());
+}
+
+//  void QQmlTreeRow::removeChild(std::vector<std::unique_ptr<QQmlTreeRow>>::
+//      const_iterator &child)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQmlTreeRow11removeChildERN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIS_St14default_deleteIS_EESt6vectorIS5_SaIS5_EEEE(
+    QQmlTreeRow *self,
+    std::vector<std::unique_ptr<QQmlTreeRow>>::const_iterator *child) {
+  self->removeChild(*child);
+}
+
 //  void QQmlTreeRow::removeChildAt(int i)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQmlTreeRow13removeChildAtEi(QQmlTreeRow *self, int i) {
   self->removeChildAt(i);
+}
+
+//  std::unique_ptr<QQmlTreeRow> QQmlTreeRow::takeChild(int i)
+extern "C" Q_DECL_EXPORT
+std::unique_ptr<QQmlTreeRow> *ritual_ZN11QQmlTreeRow9takeChildEi(
+    QQmlTreeRow *self,
+    int i) {
+  return new std::unique_ptr<QQmlTreeRow>(self->takeChild(i));
 }
 
 //  void QQmlTreeRow::setData(const QVariant &data)
@@ -252,6 +301,13 @@ void ritual_ZN11QQmlTreeRow16unpackVariantMapERK4QMapI7QString8QVariantE(
 //  QQmlTreeRow::~QQmlTreeRow()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQmlTreeRowD1Ev(QQmlTreeRow *self) {
+  delete self;
+}
+
+//  a std::unique_ptr<QQmlTreeRow> a ritual of QQmlTreeRow gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQmlTreeRow__std_unique_ptr_QQmlTreeRow(
+    std::unique_ptr<QQmlTreeRow> *self) {
   delete self;
 }
 

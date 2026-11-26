@@ -645,6 +645,24 @@ const QMetaObject *ritual_ZNK11QRangeModel10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QRangeModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QRangeModel11qt_metacastEPKc(
+    QRangeModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QRangeModel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QRangeModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QRangeModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QRangeModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QRangeModel2trEPKcS1_i(
@@ -1099,6 +1117,52 @@ void ritual_ZN11QRangeModel20setAutoConnectPolicyENS_17AutoConnectPolicyE(
   self->setAutoConnectPolicy(policy);
 }
 
+//  void QRangeModel::roleNamesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRangeModel16roleNamesChangedEv(QRangeModel *self) {
+  self->roleNamesChanged();
+}
+
+//  void QRangeModel::autoConnectPolicyChanged(AutoConnectPolicy policy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRangeModel24autoConnectPolicyChangedENS_17AutoConnectPolicyE(
+    QRangeModel *self,
+    QRangeModel::AutoConnectPolicy policy) {
+  self->autoConnectPolicyChanged(policy);
+}
+
+//  void QRangeModel::sortRoleChanged(int role)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRangeModel15sortRoleChangedEi(QRangeModel *self, int role) {
+  self->sortRoleChanged(role);
+}
+
+//  void QRangeModel::sortCollatorChanged(const QCollator &collator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRangeModel19sortCollatorChangedERK9QCollator(
+    QRangeModel *self,
+    const QCollator *collator) {
+  self->sortCollatorChanged(*collator);
+}
+
+//  void QRangeModel::supportedDragActionsChanged(Qt::DropActions actions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRangeModel27supportedDragActionsChangedE6QFlagsIN2Qt10DropActionEE(
+    QRangeModel *self,
+    int actions) {
+  self->supportedDragActionsChanged(
+      QFlags<Qt::DropAction>::fromInt(actions));
+}
+
+//  void QRangeModel::supportedDropActionsChanged(Qt::DropActions actions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRangeModel27supportedDropActionsChangedE6QFlagsIN2Qt10DropActionEE(
+    QRangeModel *self,
+    int actions) {
+  self->supportedDropActionsChanged(
+      QFlags<Qt::DropAction>::fromInt(actions));
+}
+
 //  void QRangeModel::resetInternalData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QRangeModel17resetInternalDataEv(QRangeModel *self) {
@@ -1118,6 +1182,19 @@ bool ritual_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent(
     QObject *a0,
     QEvent *a1) {
   return self->eventFilter(a0, a1);
+}
+
+//  QRangeModelPrivate *QRangeModel::d_func()
+extern "C" Q_DECL_EXPORT
+QRangeModelPrivate *ritual_ZN11QRangeModel6d_funcEv(QRangeModel *self) {
+  return self->d_func();
+}
+
+//  const QRangeModelPrivate *QRangeModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QRangeModelPrivate *ritual_ZNK11QRangeModel6d_funcEv(
+    const QRangeModel *self) {
+  return self->d_func();
 }
 
 //  QRangeModel::QRangeModel(QRangeModelImplBase *impl, QObject *parent)

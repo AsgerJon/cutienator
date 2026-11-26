@@ -8,14 +8,35 @@
     "ritual_ZNK18qdesigner_internal18QDesignerWidgetBox10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18qdesigner_internal18QDesignerWidgetBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerWidgetBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18qdesigner_internal18QDesignerWidgetBox2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal18QDesignerWidgetBox8loadModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerWidgetBox11setLoadModeENS0_8LoadModeE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN18qdesigner_internal18QDesignerWidgetBox12loadContentsERK7QString": [
       "bool", "address", "text"
     ],
     "ritual_ZNK18qdesigner_internal18QDesignerWidgetBox13iconForWidgetERK7QStringS3_": [
       "address", "address", "text", "text"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerWidgetBox10findWidgetEPK27QDesignerWidgetBoxInterfaceRK7QStringS6_PNS1_6WidgetE": [
+      "bool", "address", "text", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerWidgetBox7xmlToUiERK7QStringS3_bPS1_": [
+      "address", "text", "text", "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerWidgetBox7xmlToUiERK7QStringS3_b": [
+      "address", "text", "text", "bool"
     ]
   }
 }

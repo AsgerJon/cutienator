@@ -8,6 +8,12 @@
   ],
   "rows": {
     "ritual_ZNK12QBar3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QBar3DSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QBar3DSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QBar3DSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QBar3DSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK12QBar3DSeries6d_funcEv": ["address", "address"],
@@ -42,10 +48,14 @@
     "ritual_ZN12QBar3DSeries23setValueColoringEnabledEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN12QBar3DSeries12setDataArrayERK5QListIS0_I12QBarDataItemEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QBar3DSeries8clearRowEx": [
       "nothing", "address", "long long"
     ],
     "ritual_ZN12QBar3DSeries10clearArrayEv": ["nothing", "address"],
+    "ritual_ZNKR12QBar3DSeries9dataArrayEv": ["address", "address"],
     "ritual_ZNK12QBar3DSeries9rowLabelsEv": ["address", "address"],
     "ritual_ZN12QBar3DSeries12setRowLabelsERK5QListI7QStringE": [
       "nothing", "address", "address"
@@ -77,6 +87,41 @@
     "ritual_ZN12QBar3DSeries12resetRowAxisEv": ["nothing", "address"],
     "ritual_ZN12QBar3DSeries14resetValueAxisEv": ["nothing", "address"],
     "ritual_ZN12QBar3DSeries15resetColumnAxisEv": ["nothing", "address"],
+    "ritual_ZN12QBar3DSeries16dataProxyChangedEP13QBarDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeries18selectedBarChangedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeries16meshAngleChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN12QBar3DSeries16rowColorsChangedERK5QListI6QColorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeries16rowLabelsChangedEv": ["nothing", "address"],
+    "ritual_ZN12QBar3DSeries19columnLabelsChangedEv": ["nothing", "address"],
+    "ritual_ZN12QBar3DSeries16dataArrayChangedERK5QListIS0_I12QBarDataItemEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeries27valueColoringEnabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QBar3DSeries22customRowLabelsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeries25customColumnLabelsChangedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeries14rowAxisChangedEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeries16valueAxisChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeries17columnAxisChangedEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QBar3DSeries14connectSignalsEv": ["nothing", "address"],
     "ritual_ZN12QBar3DSeries25handleMeshRotationChangedERK11QQuaternion": [
       "nothing", "address", "address"

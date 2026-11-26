@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlsorterbase_p.h,",
+    "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
+    "again."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlSorterBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlSorterBase2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN14QQmlSorterBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQmlSorterBase7enabledEv": ["bool", "address"],
+    "ritual_ZN14QQmlSorterBase10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZNK14QQmlSorterBase9sortOrderEv": ["int", "address"],
+    "ritual_ZN14QQmlSorterBase12setSortOrderEN2Qt9SortOrderE": ["nothing", "address", "int"],
+    "ritual_ZNK14QQmlSorterBase8priorityEv": ["int", "address"],
+    "ritual_ZN14QQmlSorterBase11setPriorityEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QQmlSorterBase6columnEv": ["int", "address"],
+    "ritual_ZN14QQmlSorterBase9setColumnEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QQmlSorterBase7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": ["address", "address", "address", "address", "address"],
+    "ritual_ZN14QQmlSorterBase6updateEPK24QQmlSortFilterProxyModel": ["nothing", "address", "address"],
+    "ritual_ZN14QQmlSorterBase14enabledChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQmlSorterBase16sortOrderChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQmlSorterBase15priorityChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQmlSorterBase13columnChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQmlSorterBase15invalidateModelEv": ["nothing", "address"],
+    "ritual_ZN14QQmlSorterBase15invalidateCacheEPS_": ["nothing", "address", "address"],
+    "ritual_ZN14QQmlSorterBase10invalidateEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QQmlSorterBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQmlSorterBase6d_funcEv": ["address", "address"]
+  }
+}

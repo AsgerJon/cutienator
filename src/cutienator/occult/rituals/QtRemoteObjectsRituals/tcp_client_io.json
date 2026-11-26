@@ -9,9 +9,6 @@
     "ritual_ZNK11TcpClientIo10connectionEv": ["address", "address"],
     "ritual_ZN11TcpClientIo15connectToServerEv": ["nothing", "address"],
     "ritual_ZNK11TcpClientIo6isOpenEv": ["bool", "address"],
-    "ritual_ZN11TcpClientIo14onStateChangedEN15QAbstractSocket11SocketStateE": [
-      "nothing", "address", "int"
-    ],
     "ritual_ZN11TcpClientIo7doCloseEv": ["nothing", "address"],
     "ritual_ZN11TcpClientIo22doDisconnectFromServerEv": [
       "nothing", "address"

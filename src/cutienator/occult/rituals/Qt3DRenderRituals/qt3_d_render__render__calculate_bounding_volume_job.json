@@ -5,6 +5,27 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render26CalculateBoundingVolumeJobC1Ev": [
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26CalculateBoundingVolumeJob7setRootEPNS0_6EntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26CalculateBoundingVolumeJob11setManagersEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26CalculateBoundingVolumeJob22setFrontEndNodeManagerEPN8Qt3DCore28QAbstractFrontEndNodeManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26CalculateBoundingVolumeJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26CalculateBoundingVolumeJob9postFrameEPN8Qt3DCore13QAspectEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render26CalculateBoundingVolumeJob7processERKN8Qt3DCore27BoundingVolumeComputeResultEb": [
+      "nothing", "address", "address", "bool"
+    ],
     "ritual_cast_Qt3DRender_Render_CalculateBoundingVolumeJob_Qt3DCore_BoundingVolumeJobProcessor": [
       "address", "address"
     ],

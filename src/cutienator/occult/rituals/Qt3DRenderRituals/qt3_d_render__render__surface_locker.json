@@ -5,5 +5,14 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render13SurfaceLockerC1EP8QSurface": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render13SurfaceLockerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13SurfaceLocker14isSurfaceValidEv": [
+      "bool", "address"
+    ]
   }
 }

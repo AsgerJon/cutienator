@@ -100,10 +100,49 @@ bool ritual_ZNK11QSvgEllipse18separateFillStrokeEPK8QPainterRK15QSvgExtraStates(
   return self->separateFillStroke(a0, *a1);
 }
 
+//  void QSvgEllipse::drawCommand(QPainter *p, QSvgExtraStates &states)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QSvgEllipse11drawCommandEP8QPainterR15QSvgExtraStates(
+    QSvgEllipse *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  self->drawCommand(p, *states);
+}
+
 //  Type QSvgEllipse::type() const
 extern "C" Q_DECL_EXPORT
 QSvgNode::Type ritual_ZNK11QSvgEllipse4typeEv(const QSvgEllipse *self) {
   return self->type();
+}
+
+//  QRectF QSvgEllipse::internalFastBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK11QSvgEllipse18internalFastBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgEllipse *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalFastBounds(p, *states));
+}
+
+//  QRectF QSvgEllipse::internalBounds(QPainter *p, QSvgExtraStates &states)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK11QSvgEllipse14internalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgEllipse *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->internalBounds(p, *states));
+}
+
+//  QRectF QSvgEllipse::decoratedInternalBounds(QPainter *p, QSvgExtraStates
+//      &states) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK11QSvgEllipse23decoratedInternalBoundsEP8QPainterR15QSvgExtraStates(
+    const QSvgEllipse *self,
+    QPainter *p,
+    QSvgExtraStates *states) {
+  return new QRectF(self->decoratedInternalBounds(p, *states));
 }
 
 //  QRectF QSvgEllipse::rect() const

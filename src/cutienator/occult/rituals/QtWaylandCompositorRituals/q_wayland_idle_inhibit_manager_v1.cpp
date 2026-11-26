@@ -41,6 +41,25 @@ const QMetaObject *ritual_ZNK28QWaylandIdleInhibitManagerV110metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWaylandIdleInhibitManagerV1::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN28QWaylandIdleInhibitManagerV111qt_metacastEPKc(
+    QWaylandIdleInhibitManagerV1 *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWaylandIdleInhibitManagerV1::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN28QWaylandIdleInhibitManagerV111qt_metacallEN11QMetaObject4CallEiPPv(
+    QWaylandIdleInhibitManagerV1 *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWaylandIdleInhibitManagerV1::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -49,6 +68,22 @@ QString *ritual_ZN28QWaylandIdleInhibitManagerV12trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWaylandIdleInhibitManagerV1::tr(s, c, n));
+}
+
+//  QWaylandIdleInhibitManagerV1Private
+//      *QWaylandIdleInhibitManagerV1::d_func()
+extern "C" Q_DECL_EXPORT
+QWaylandIdleInhibitManagerV1Private *ritual_ZN28QWaylandIdleInhibitManagerV16d_funcEv(
+    QWaylandIdleInhibitManagerV1 *self) {
+  return self->d_func();
+}
+
+//  const QWaylandIdleInhibitManagerV1Private
+//      *QWaylandIdleInhibitManagerV1::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWaylandIdleInhibitManagerV1Private *ritual_ZNK28QWaylandIdleInhibitManagerV16d_funcEv(
+    const QWaylandIdleInhibitManagerV1 *self) {
+  return self->d_func();
 }
 
 //  QWaylandIdleInhibitManagerV1::QWaylandIdleInhibitManagerV1()
@@ -77,6 +112,12 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN28QWaylandIdleInhibitManagerV110initializeEv(
     QWaylandIdleInhibitManagerV1 *self) {
   self->initialize();
+}
+
+//  const struct wl_interface *QWaylandIdleInhibitManagerV1::interface()
+extern "C" Q_DECL_EXPORT
+const struct wl_interface *ritual_ZN28QWaylandIdleInhibitManagerV19interfaceEv() {
+  return QWaylandIdleInhibitManagerV1::interface();
 }
 
 //  a Python function taken by a CuteQWaylandIdleInhibitManagerV1, for the

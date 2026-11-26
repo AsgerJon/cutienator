@@ -7,6 +7,9 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtStateMachine/QAbstractState>
+#include <QtStateMachine/QState>
 
 //  Only a class built on QState may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -221,6 +224,22 @@ const QMetaObject *ritual_ZNK6QState10metaObjectEv(const QState *self) {
   return self->metaObject();
 }
 
+//  void *QState::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6QState11qt_metacastEPKc(QState *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QState::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6QState11qt_metacallEN11QMetaObject4CallEiPPv(
+    QState *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QState::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN6QState2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -259,6 +278,13 @@ void ritual_ZN6QState13setErrorStateEP14QAbstractState(
     QState *self,
     QAbstractState *state) {
   self->setErrorState(state);
+}
+
+//  QBindable<QAbstractState *> QState::bindableErrorState()
+extern "C" Q_DECL_EXPORT
+QBindable<QAbstractState *> *ritual_ZN6QState18bindableErrorStateEv(
+    QState *self) {
+  return new QBindable<QAbstractState *>(self->bindableErrorState());
 }
 
 //  void QState::addTransition(QAbstractTransition *transition)
@@ -317,6 +343,13 @@ void ritual_ZN6QState15setInitialStateEP14QAbstractState(
   self->setInitialState(state);
 }
 
+//  QBindable<QAbstractState *> QState::bindableInitialState()
+extern "C" Q_DECL_EXPORT
+QBindable<QAbstractState *> *ritual_ZN6QState20bindableInitialStateEv(
+    QState *self) {
+  return new QBindable<QAbstractState *>(self->bindableInitialState());
+}
+
 //  ChildMode QState::childMode() const
 extern "C" Q_DECL_EXPORT
 QState::ChildMode ritual_ZNK6QState9childModeEv(const QState *self) {
@@ -331,6 +364,13 @@ void ritual_ZN6QState12setChildModeENS_9ChildModeE(
   self->setChildMode(mode);
 }
 
+//  QBindable<QState::ChildMode> QState::bindableChildMode()
+extern "C" Q_DECL_EXPORT
+QBindable<QState::ChildMode> *ritual_ZN6QState17bindableChildModeEv(
+    QState *self) {
+  return new QBindable<QState::ChildMode>(self->bindableChildMode());
+}
+
 #if !defined(QT_NO_PROPERTIES)
 //  void QState::assignProperty(QObject *object, const char *name, const
 //      QVariant &value)
@@ -343,6 +383,38 @@ void ritual_ZN6QState14assignPropertyEP7QObjectPKcRK8QVariant(
   self->assignProperty(object, name, *value);
 }
 #endif  // !defined(QT_NO_PROPERTIES)
+
+//  void QState::finished(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QState8finishedENS_14QPrivateSignalE(QState *self) {
+  self->finished(QState::QPrivateSignal());
+}
+
+//  void QState::propertiesAssigned(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QState18propertiesAssignedENS_14QPrivateSignalE(
+    QState *self) {
+  self->propertiesAssigned(QState::QPrivateSignal());
+}
+
+//  void QState::childModeChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QState16childModeChangedENS_14QPrivateSignalE(QState *self) {
+  self->childModeChanged(QState::QPrivateSignal());
+}
+
+//  void QState::initialStateChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QState19initialStateChangedENS_14QPrivateSignalE(
+    QState *self) {
+  self->initialStateChanged(QState::QPrivateSignal());
+}
+
+//  void QState::errorStateChanged(QPrivateSignal a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QState17errorStateChangedENS_14QPrivateSignalE(QState *self) {
+  self->errorStateChanged(QState::QPrivateSignal());
+}
 
 //  void QState::onEntry(QEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -360,6 +432,26 @@ void ritual_ZN6QState6onExitEP6QEvent(QState *self, QEvent *event) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN6QState5eventEP6QEvent(QState *self, QEvent *e) {
   return self->event(e);
+}
+
+//  QState::QState(QStatePrivate &dd, QState *parent)
+extern "C" Q_DECL_EXPORT
+QState *ritual_ZN6QStateC1ER13QStatePrivatePS_(
+    QStatePrivate *dd,
+    QState *parent) {
+  return new CuteQState(*dd, parent);
+}
+
+//  QStatePrivate *QState::d_func()
+extern "C" Q_DECL_EXPORT
+QStatePrivate *ritual_ZN6QState6d_funcEv(QState *self) {
+  return self->d_func();
+}
+
+//  const QStatePrivate *QState::d_func() const
+extern "C" Q_DECL_EXPORT
+const QStatePrivate *ritual_ZNK6QState6d_funcEv(const QState *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQState, for the function named by the
@@ -385,4 +477,18 @@ void ritual_own_ZN6QState6onExitEP6QEvent(QState *self, QEvent *event) {
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN6QState5eventEP6QEvent(QState *self, QEvent *e) {
   return static_cast<OwnQState *>(self)->OwnQState::event(e);
+}
+
+//  a QBindable<QAbstractState *> a ritual of QState gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QState__QBindable_QAbstractState(
+    QBindable<QAbstractState *> *self) {
+  delete self;
+}
+
+//  a QBindable<QState::ChildMode> a ritual of QState gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QState__QBindable_QState_ChildMode(
+    QBindable<QState::ChildMode> *self) {
+  delete self;
 }

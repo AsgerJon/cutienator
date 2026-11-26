@@ -5,6 +5,10 @@
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljsast_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstringview.h>
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
@@ -201,6 +205,28 @@ public:
   }
 };
 
+//  QQmlJS::AST::ClassExpression::ClassExpression(QStringView n,
+//      ExpressionNode *heritage, ClassElementList *elements)
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ClassExpression *ritual_ZN6QQmlJS3AST15ClassExpressionC1E11QStringViewPNS0_14ExpressionNodeEPNS0_16ClassElementListE(
+    QQmlJS::MemoryPool *pool,
+    const QString *n,
+    QQmlJS::AST::ExpressionNode *heritage,
+    QQmlJS::AST::ClassElementList *elements) {
+  return new (pool) CuteQQmlJS_AST_ClassExpression(
+      QStringView(*n),
+      heritage,
+      elements);
+}
+
+//  void QQmlJS::AST::ClassExpression::accept0(BaseVisitor *visitor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QQmlJS3AST15ClassExpression7accept0EPNS0_11BaseVisitorE(
+    QQmlJS::AST::ClassExpression *self,
+    QQmlJS::AST::BaseVisitor *visitor) {
+  self->accept0(visitor);
+}
+
 //  SourceLocation QQmlJS::AST::ClassExpression::firstSourceLocation() const
 extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST15ClassExpression19firstSourceLocationEv(
@@ -213,6 +239,13 @@ extern "C" Q_DECL_EXPORT
 QQmlJS::SourceLocation *ritual_ZNK6QQmlJS3AST15ClassExpression18lastSourceLocationEv(
     const QQmlJS::AST::ClassExpression *self) {
   return new QQmlJS::SourceLocation(self->lastSourceLocation());
+}
+
+//  ClassExpression *QQmlJS::AST::ClassExpression::asClassDefinition()
+extern "C" Q_DECL_EXPORT
+QQmlJS::AST::ClassExpression *ritual_ZN6QQmlJS3AST15ClassExpression17asClassDefinitionEv(
+    QQmlJS::AST::ClassExpression *self) {
+  return self->asClassDefinition();
 }
 
 //  a Python function taken by a CuteQQmlJS_AST_ClassExpression, for the

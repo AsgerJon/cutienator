@@ -1,9 +1,13 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qstringconverter.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qstringconverter.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
+    "ritual_ZN14QStringDecoderC1EPKN16QStringConverter9InterfaceE": [
+      "address", "address"
+    ],
     "ritual_ZN14QStringDecoderC1EN16QStringConverter8EncodingE6QFlagsIN20QStringConverterBase4FlagEE": [
       "address", "int", "int"
     ],
@@ -17,6 +21,16 @@
     "ritual_ZN14QStringDecoder14appendToBufferEP5QChar14QByteArrayView": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN14QStringDecoder8finalizeEP5QCharx": [
+      "address", "address", "address", "long long"
+    ],
+    "ritual_ZN14QStringDecoder8finalizeEPDsx": [
+      "address", "address", "address", "long long"
+    ],
+    "ritual_ZN14QStringDecoder8finalizeEv": ["address", "address"],
+    "ritual_ZN14QStringDecoder14decoderForHtmlE14QByteArrayView": [
+      "address", "address"
+    ],
     "ritual_ZN14QStringDecoder23invalidateAndReturnNullEv": [
       "text", "address"
     ],
@@ -25,6 +39,28 @@
     ],
     "ritual_ZN14QStringDecoder14decodeAsStringE14QByteArrayView": [
       "text", "address", "address"
+    ],
+    "ritual_drop_QStringDecoder__QStringDecoder_FinalizeResultQChar": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QStringDecoder__QStringDecoder_FinalizeResult": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QStringDecoder__QStringDecoder": ["nothing", "address"],
+    "ritual_ZN14QStringDecoder6decodeIvEENS_11EncodedDataIRK10QByteArrayEES4_": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN14QStringDecoder6decodeE14QByteArrayView": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN14QStringDecoderclIvEENS_11EncodedDataIRK10QByteArrayEES4_": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN14QStringDecoderclE14QByteArrayView": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN14QStringDecoder14appendToBufferEPDs14QByteArrayView": [
+      "address", "address", "address", "address"
     ]
   }
 }

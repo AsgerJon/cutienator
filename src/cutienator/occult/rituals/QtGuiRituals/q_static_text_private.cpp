@@ -24,6 +24,102 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from src/gui/text/qstatictext.cpp, line 398, as local:qstatictext.cpp:DrawTextItemRecorder
+namespace {
+class DrawTextItemRecorder: public QPaintEngine
+    {
+    public:
+        DrawTextItemRecorder(bool untransformedCoordinates, bool useBackendOptimizations)
+                : m_dirtyPen(false), m_useBackendOptimizations(useBackendOptimizations),
+                  m_untransformedCoordinates(untransformedCoordinates), m_currentColor(0, 0, 0, 0)
+        {
+        }
+
+        virtual void updateState(const QPaintEngineState &newState) override
+        {
+            if (newState.state() & QPaintEngine::DirtyPen
+                && newState.pen().color() != m_currentColor) {
+                m_dirtyPen = true;
+                m_currentColor = newState.pen().color();
+            }
+        }
+
+        virtual void drawTextItem(const QPointF &position, const QTextItem &textItem) override
+        {
+            const QTextItemInt &ti = static_cast<const QTextItemInt &>(textItem);
+
+            QStaticTextItem currentItem;
+            currentItem.setFontEngine(ti.fontEngine);
+            currentItem.font = ti.font();
+            currentItem.glyphOffset = m_glyphs.size(); // Store offset into glyph pool
+            currentItem.positionOffset = m_glyphs.size(); // Offset into position pool
+            currentItem.useBackendOptimizations = m_useBackendOptimizations;
+            if (m_dirtyPen)
+                currentItem.color = m_currentColor;
+
+            QTransform matrix = m_untransformedCoordinates ? QTransform() : state->transform();
+            matrix.translate(position.x(), position.y());
+
+            QVarLengthArray<glyph_t> glyphs;
+            QVarLengthArray<QFixedPoint> positions;
+            ti.fontEngine->getGlyphPositions(ti.glyphs, matrix, ti.flags, glyphs, positions);
+
+            int size = glyphs.size();
+            Q_ASSERT(size == positions.size());
+            currentItem.numGlyphs = size;
+
+            m_glyphs.resize(m_glyphs.size() + size);
+            m_positions.resize(m_glyphs.size());
+
+            glyph_t *glyphsDestination = m_glyphs.data() + currentItem.glyphOffset;
+            memcpy(glyphsDestination, glyphs.constData(), sizeof(glyph_t) * currentItem.numGlyphs);
+
+            QFixedPoint *positionsDestination = m_positions.data() + currentItem.positionOffset;
+            memcpy(positionsDestination, positions.constData(), sizeof(QFixedPoint) * currentItem.numGlyphs);
+
+            m_items.append(currentItem);
+        }
+
+        virtual void drawPolygon(const QPointF *, int , PolygonDrawMode ) override
+        {
+            /* intentionally empty */
+        }
+
+        virtual bool begin(QPaintDevice *) override  { return true; }
+        virtual bool end() override { return true; }
+        virtual void drawPixmap(const QRectF &, const QPixmap &, const QRectF &) override {}
+        virtual Type type() const override
+        {
+            return User;
+        }
+
+        QList<QStaticTextItem> items() const
+        {
+            return m_items;
+        }
+
+        QList<QFixedPoint> positions() const
+        {
+            return m_positions;
+        }
+
+        QList<glyph_t> glyphs() const
+        {
+            return m_glyphs;
+        }
+
+    private:
+        QList<QStaticTextItem> m_items;
+        QList<QFixedPoint> m_positions;
+        QList<glyph_t> m_glyphs;
+
+        bool m_dirtyPen;
+        bool m_useBackendOptimizations;
+        bool m_untransformedCoordinates;
+        QColor m_currentColor;
+    };
+}  // namespace
+
 //  from src/gui/text/qstatictext.cpp, line 369, as _ZN18QStaticTextPrivateC1Ev
 inline QStaticTextPrivate::QStaticTextPrivate()
         : textWidth(-1.0), items(nullptr), itemCount(0), glyphPool(nullptr), positionPool(nullptr),

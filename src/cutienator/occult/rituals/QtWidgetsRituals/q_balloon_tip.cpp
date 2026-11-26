@@ -61,6 +61,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qlabel.cpp, line 1562, as _ZNK13QLabelPrivate17ensureTextControlEv
 inline void QLabelPrivate::ensureTextControl() const
 {
@@ -144,6 +146,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK11QBalloonTip10metaObjectEv(
     const QBalloonTip *self) {
   return self->metaObject();
+}
+
+//  void *QBalloonTip::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QBalloonTip11qt_metacastEPKc(
+    QBalloonTip *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBalloonTip::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QBalloonTip11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBalloonTip *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  void QBalloonTip::paintEvent(QPaintEvent *a0)

@@ -8,10 +8,16 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtQuick/qquickgraphicsconfiguration.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/6.12.0/QtQuick/private/qsgrenderer_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qrawfont.h>
 #include <QtGui/qimage.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QSize>
 
 //  A QSGDefaultRenderContext that Python can take functions over in. Every QSGDefaultRenderContext
 //  Python makes is one. Each function below asks the Python
@@ -494,6 +500,25 @@ const QMetaObject *ritual_ZNK23QSGDefaultRenderContext10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QSGDefaultRenderContext::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QSGDefaultRenderContext11qt_metacastEPKc(
+    QSGDefaultRenderContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGDefaultRenderContext::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QSGDefaultRenderContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGDefaultRenderContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QSGDefaultRenderContext::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QSGDefaultRenderContext2trEPKcS1_i(
@@ -549,6 +574,26 @@ void ritual_ZN23QSGDefaultRenderContext11prepareSyncEdP17QRhiCommandBufferRK27QQ
     QRhiCommandBuffer *cb,
     const QQuickGraphicsConfiguration *config) {
   self->prepareSync(devicePixelRatio, cb, *config);
+}
+
+//  void QSGDefaultRenderContext::beginNextFrame(QSGRenderer *renderer, const
+//      QSGRenderTarget &renderTarget, RenderPassCallback
+//      mainPassRecordingStart, RenderPassCallback mainPassRecordingEnd, void
+//      *callbackUserData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QSGDefaultRenderContext14beginNextFrameEP11QSGRendererRK15QSGRenderTargetPFvPvES7_S5_(
+    QSGDefaultRenderContext *self,
+    QSGRenderer *renderer,
+    const QSGRenderTarget *renderTarget,
+    void *mainPassRecordingStart,
+    void *mainPassRecordingEnd,
+    void *callbackUserData) {
+  self->beginNextFrame(
+      renderer,
+      *renderTarget,
+      reinterpret_cast<QSGRenderContext::RenderPassCallback>(mainPassRecordingStart),
+      reinterpret_cast<QSGRenderContext::RenderPassCallback>(mainPassRecordingEnd),
+      callbackUserData);
 }
 
 //  void QSGDefaultRenderContext::renderNextFrame(QSGRenderer *renderer)
@@ -724,6 +769,29 @@ void ritual_ZN23QSGDefaultRenderContext24resetGlyphCacheResourcesEv(
   self->resetGlyphCacheResources();
 }
 
+//  QSharedPointer<QSGDepthStencilBuffer>
+//      QSGDefaultRenderContext::getDepthStencilBuffer(const QSize &size, int
+//      sampleCount)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QSGDepthStencilBuffer> *ritual_ZN23QSGDefaultRenderContext21getDepthStencilBufferERK5QSizei(
+    QSGDefaultRenderContext *self,
+    const QSize *size,
+    int sampleCount) {
+  return new QSharedPointer<QSGDepthStencilBuffer>(
+      self->getDepthStencilBuffer(
+          *size,
+          sampleCount));
+}
+
+//  void QSGDefaultRenderContext::addDepthStencilBuffer(const
+//      QSharedPointer<QSGDepthStencilBuffer> &ds)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QSGDefaultRenderContext21addDepthStencilBufferERK14QSharedPointerI21QSGDepthStencilBufferE(
+    QSGDefaultRenderContext *self,
+    const QSharedPointer<QSGDepthStencilBuffer> *ds) {
+  self->addDepthStencilBuffer(*ds);
+}
+
 //  a Python function taken by a CuteQSGDefaultRenderContext, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -878,4 +946,12 @@ extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK23QSGDefaultRenderContext14maxTextureSizeEv(
     const QSGDefaultRenderContext *self) {
   return self->QSGDefaultRenderContext::maxTextureSize();
+}
+
+//  a QSharedPointer<QSGDepthStencilBuffer> a ritual of
+//      QSGDefaultRenderContext gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSGDefaultRenderContext__QSharedPointer_QSGDepthStencilBuffer(
+    QSharedPointer<QSGDepthStencilBuffer> *self) {
+  delete self;
 }

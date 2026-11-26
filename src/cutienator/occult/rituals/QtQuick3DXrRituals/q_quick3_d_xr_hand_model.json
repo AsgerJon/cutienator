@@ -6,10 +6,20 @@
   ],
   "rows": {
     "ritual_ZNK19QQuick3DXrHandModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DXrHandModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuick3DXrHandModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuick3DXrHandModel17componentCompleteEv": [
       "nothing", "address"
     ],
     "ritual_ZNK19QQuick3DXrHandModel4handEv": ["int", "address"],
+    "ritual_ZN19QQuick3DXrHandModel11handChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuick3DXrHandModel18handTrackerChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QQuick3DXrHandModel10updatePoseEv": ["nothing", "address"]
   }
 }

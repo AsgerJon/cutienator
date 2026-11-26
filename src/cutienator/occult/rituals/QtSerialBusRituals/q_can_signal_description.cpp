@@ -6,6 +6,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
+#include <QtSerialBus/QCanSignalDescription>
 
 //  QCanSignalDescription::QCanSignalDescription()
 extern "C" Q_DECL_EXPORT
@@ -21,10 +22,44 @@ QCanSignalDescription *ritual_ZN21QCanSignalDescriptionC1ERKS_(
   return new QCanSignalDescription(*other);
 }
 
+//  QCanSignalDescription::QCanSignalDescription(QCanSignalDescription
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QCanSignalDescription *ritual_ZN21QCanSignalDescriptionC1EOS_(
+    QCanSignalDescription *other) {
+  return new QCanSignalDescription(std::move(*other));
+}
+
 //  QCanSignalDescription::~QCanSignalDescription()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QCanSignalDescriptionD1Ev(QCanSignalDescription *self) {
   delete self;
+}
+
+//  QCanSignalDescription &QCanSignalDescription::operator=(const
+//      QCanSignalDescription &other)
+extern "C" Q_DECL_EXPORT
+QCanSignalDescription *ritual_ZN21QCanSignalDescriptionaSERKS_(
+    QCanSignalDescription *self,
+    const QCanSignalDescription *other) {
+  return &(self->operator=(*other));
+}
+
+//  QCanSignalDescription
+//      &QCanSignalDescription::operator=(QCanSignalDescription &&other)
+extern "C" Q_DECL_EXPORT
+QCanSignalDescription *ritual_ZN21QCanSignalDescriptionaSEOS_(
+    QCanSignalDescription *self,
+    QCanSignalDescription *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QCanSignalDescription::swap(QCanSignalDescription &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCanSignalDescription4swapERS_(
+    QCanSignalDescription *self,
+    QCanSignalDescription *other) {
+  self->swap(*other);
 }
 
 //  bool QCanSignalDescription::isValid() const
@@ -253,11 +288,38 @@ void ritual_ZN21QCanSignalDescription17setMultiplexStateEN8QtCanBus14MultiplexSt
   self->setMultiplexState(state);
 }
 
+//  MultiplexSignalValues QCanSignalDescription::multiplexSignals() const
+extern "C" Q_DECL_EXPORT
+QCanSignalDescription::MultiplexSignalValues *ritual_ZNK21QCanSignalDescription16multiplexSignalsEv(
+    const QCanSignalDescription *self) {
+  return new QCanSignalDescription::MultiplexSignalValues(
+      self->multiplexSignals());
+}
+
 //  void QCanSignalDescription::clearMultiplexSignals()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QCanSignalDescription21clearMultiplexSignalsEv(
     QCanSignalDescription *self) {
   self->clearMultiplexSignals();
+}
+
+//  void QCanSignalDescription::setMultiplexSignals(const
+//      MultiplexSignalValues &multiplexorSignals)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCanSignalDescription19setMultiplexSignalsERK5QHashI7QString5QListINS_19MultiplexValueRangeEEE(
+    QCanSignalDescription *self,
+    const QCanSignalDescription::MultiplexSignalValues *multiplexorSignals) {
+  self->setMultiplexSignals(*multiplexorSignals);
+}
+
+//  void QCanSignalDescription::addMultiplexSignal(const QString &name, const
+//      MultiplexValues &ranges)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCanSignalDescription18addMultiplexSignalERK7QStringRK5QListINS_19MultiplexValueRangeEE(
+    QCanSignalDescription *self,
+    const QString *name,
+    const QCanSignalDescription::MultiplexValues *ranges) {
+  self->addMultiplexSignal(*name, *ranges);
 }
 
 //  void QCanSignalDescription::addMultiplexSignal(const QString &name, const
@@ -326,5 +388,13 @@ QCanSignalDescription *ritual_list_at_QCanSignalDescription(
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QCanSignalDescription(
     QList<QCanSignalDescription> *self) {
+  delete self;
+}
+
+//  a QCanSignalDescription::MultiplexSignalValues a ritual of
+//      QCanSignalDescription gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCanSignalDescription__QCanSignalDescription_MultiplexSignalValues(
+    QCanSignalDescription::MultiplexSignalValues *self) {
   delete self;
 }

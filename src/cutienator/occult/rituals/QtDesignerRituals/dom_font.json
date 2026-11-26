@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN7DomFontC1Ev": ["address"],
     "ritual_ZN7DomFontD1Ev": ["nothing", "address"],
+    "ritual_ZN7DomFont4readER16QXmlStreamReader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7DomFont5writeER16QXmlStreamWriterRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
     "ritual_ZNK7DomFont13elementFamilyEv": ["text", "address"],
     "ritual_ZN7DomFont16setElementFamilyERK7QString": [
       "nothing", "address", "text"

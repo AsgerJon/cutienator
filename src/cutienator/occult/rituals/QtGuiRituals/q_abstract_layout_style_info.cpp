@@ -129,6 +129,12 @@ public:
   }
 };
 
+//  QAbstractLayoutStyleInfo::QAbstractLayoutStyleInfo()
+extern "C" Q_DECL_EXPORT
+QAbstractLayoutStyleInfo *ritual_ZN24QAbstractLayoutStyleInfoC1Ev() {
+  return new CuteQAbstractLayoutStyleInfo();
+}
+
 //  QAbstractLayoutStyleInfo::~QAbstractLayoutStyleInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QAbstractLayoutStyleInfoD1Ev(

@@ -219,6 +219,25 @@ const QMetaObject *ritual_ZNK22QQuickParticleExtruder10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickParticleExtruder::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickParticleExtruder11qt_metacastEPKc(
+    QQuickParticleExtruder *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickParticleExtruder::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickParticleExtruder11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickParticleExtruder *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickParticleExtruder::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuickParticleExtruder2trEPKcS1_i(

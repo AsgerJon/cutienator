@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QLocalSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QLocalSocket11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QLocalSocket11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QLocalSocket2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QLocalSocket6d_funcEv": ["address", "address"],
     "ritual_ZNK12QLocalSocket6d_funcEv": ["address", "address"],
@@ -48,6 +54,9 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK12QLocalSocket13socketOptionsEv": ["int", "address"],
+    "ritual_ZN12QLocalSocket21bindableSocketOptionsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK12QLocalSocket5stateEv": ["int", "address"],
     "ritual_ZN12QLocalSocket19waitForBytesWrittenEi": [
       "bool", "address", "int"
@@ -60,6 +69,20 @@
     ],
     "ritual_ZN12QLocalSocket16waitForReadyReadEi": [
       "bool", "address", "int"
+    ],
+    "ritual_ZN12QLocalSocket9connectedEv": ["nothing", "address"],
+    "ritual_ZN12QLocalSocket12disconnectedEv": ["nothing", "address"],
+    "ritual_ZN12QLocalSocket13errorOccurredENS_16LocalSocketErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QLocalSocket12stateChangedENS_16LocalSocketStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QLocalSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN12QLocalSocket12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_ZN12QLocalSocket8skipDataEx": [
       "long long", "address", "long long"
@@ -84,8 +107,17 @@
     "ritual_own_ZN12QLocalSocket16waitForReadyReadEi": [
       "bool", "address", "int"
     ],
+    "ritual_own_ZN12QLocalSocket8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_own_ZN12QLocalSocket12readLineDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
     "ritual_own_ZN12QLocalSocket8skipDataEx": [
       "long long", "address", "long long"
+    ],
+    "ritual_drop_QLocalSocket__QBindable_QLocalSocket_SocketOptions": [
+      "nothing", "address"
     ]
   }
 }

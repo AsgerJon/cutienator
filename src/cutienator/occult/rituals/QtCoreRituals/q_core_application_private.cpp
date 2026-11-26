@@ -13,66 +13,89 @@
 //  A QCoreApplicationPrivate that Python can take functions over in. Every QCoreApplicationPrivate
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-#if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCoreApplicationPrivateCall0)(const void *, int *);
-#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(commandlineparser)
+typedef void (*CuteQCoreApplicationPrivateCall0)(const void *, QList<QCommandLineOption> *, int *);
+#endif  // QT_CONFIG(commandlineparser)
 #if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQCoreApplicationPrivateCall1)(const void *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQCoreApplicationPrivateCall2)(const void *, QEvent *, QObject *, QPostEventList *, int *);
+typedef void (*CuteQCoreApplicationPrivateCall2)(const void *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQCoreApplicationPrivateCall3)(const void *, int *);
+typedef bool (*CuteQCoreApplicationPrivateCall3)(const void *, QEvent *, QObject *, QPostEventList *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQCoreApplicationPrivateCall4)(const void *, int *);
+typedef bool (*CuteQCoreApplicationPrivateCall4)(const void *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQCoreApplicationPrivateCall5)(const void *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQCoreApplicationPrivate : public QCoreApplicationPrivate {
 public:
   using QCoreApplicationPrivate::QCoreApplicationPrivate;
-  void *taken[5] = {};
+  void *taken[6] = {};
 
   bool take(const char *key, void *call) {
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate21createEventDispatcherEv")) {
+#if QT_CONFIG(commandlineparser)
+    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE")) {
       taken[0] = call;
       return true;
     }
-#endif  // !defined(QT_NO_QOBJECT)
+#endif  // QT_CONFIG(commandlineparser)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate20eventDispatcherReadyEv")) {
+    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate21createEventDispatcherEv")) {
       taken[1] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate13compressEventEP6QEventP7QObjectP14QPostEventList")) {
+    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate20eventDispatcherReadyEv")) {
       taken[2] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate20canQuitAutomaticallyEv")) {
+    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate13compressEventEP6QEventP7QObjectP14QPostEventList")) {
       taken[3] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate4quitEv")) {
+    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate20canQuitAutomaticallyEv")) {
       taken[4] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN23QCoreApplicationPrivate4quitEv")) {
+      taken[5] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
-#if !defined(QT_NO_QOBJECT)
-  //  void QCoreApplicationPrivate::createEventDispatcher()
-  void createEventDispatcher() override {
+#if QT_CONFIG(commandlineparser)
+  //  void QCoreApplicationPrivate::addQtOptions(QList<QCommandLineOption>
+  //      *options)
+  void addQtOptions(QList<QCommandLineOption> *options) override {
     if (taken[0]) {
       int handled = 0;
       CuteQCoreApplicationPrivateCall0 call = reinterpret_cast<CuteQCoreApplicationPrivateCall0>(taken[0]);
+      call(this, options, &handled);
+      if (handled) return;
+    }
+    QCoreApplicationPrivate::addQtOptions(options);
+  }
+#endif  // QT_CONFIG(commandlineparser)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QCoreApplicationPrivate::createEventDispatcher()
+  void createEventDispatcher() override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQCoreApplicationPrivateCall1 call = reinterpret_cast<CuteQCoreApplicationPrivateCall1>(taken[1]);
       call(this, &handled);
       if (handled) return;
     }
@@ -83,9 +106,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QCoreApplicationPrivate::eventDispatcherReady()
   void eventDispatcherReady() override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQCoreApplicationPrivateCall1 call = reinterpret_cast<CuteQCoreApplicationPrivateCall1>(taken[1]);
+      CuteQCoreApplicationPrivateCall2 call = reinterpret_cast<CuteQCoreApplicationPrivateCall2>(taken[2]);
       call(this, &handled);
       if (handled) return;
     }
@@ -100,9 +123,9 @@ public:
       QEvent *event,
       QObject *receiver,
       QPostEventList *postedEvents) override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQCoreApplicationPrivateCall2 call = reinterpret_cast<CuteQCoreApplicationPrivateCall2>(taken[2]);
+      CuteQCoreApplicationPrivateCall3 call = reinterpret_cast<CuteQCoreApplicationPrivateCall3>(taken[3]);
       bool given = call(this, event, receiver, postedEvents, &handled);
       if (handled) return given;
     }
@@ -113,9 +136,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QCoreApplicationPrivate::canQuitAutomatically()
   bool canQuitAutomatically() override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQCoreApplicationPrivateCall3 call = reinterpret_cast<CuteQCoreApplicationPrivateCall3>(taken[3]);
+      CuteQCoreApplicationPrivateCall4 call = reinterpret_cast<CuteQCoreApplicationPrivateCall4>(taken[4]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -126,9 +149,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QCoreApplicationPrivate::quit()
   void quit() override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQCoreApplicationPrivateCall4 call = reinterpret_cast<CuteQCoreApplicationPrivateCall4>(taken[4]);
+      CuteQCoreApplicationPrivateCall5 call = reinterpret_cast<CuteQCoreApplicationPrivateCall5>(taken[5]);
       call(this, &handled);
       if (handled) return;
     }
@@ -199,6 +222,17 @@ bool ritual_ZN23QCoreApplicationPrivate13checkInstanceEPKc(
     const char *method) {
   return QCoreApplicationPrivate::checkInstance(method);
 }
+
+#if QT_CONFIG(commandlineparser)
+//  void QCoreApplicationPrivate::addQtOptions(QList<QCommandLineOption>
+//      *options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QCoreApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE(
+    QCoreApplicationPrivate *self,
+    QList<QCommandLineOption> *options) {
+  self->addQtOptions(options);
+}
+#endif  // QT_CONFIG(commandlineparser)
 
 #if !defined(QT_NO_QOBJECT)
 //  bool QCoreApplicationPrivate::sendThroughApplicationEventFilters(QObject
@@ -368,6 +402,18 @@ void ritual_ZN23QCoreApplicationPrivate17cleanupThreadDataEv(
 #endif  // !defined(QT_NO_QOBJECT)
 
 #if !defined(QT_NO_QOBJECT)
+//  QPostEventListLocker
+//      QCoreApplicationPrivate::lockThreadPostEventList(QObject *object)
+extern "C" Q_DECL_EXPORT
+QCoreApplicationPrivate::QPostEventListLocker *ritual_ZN23QCoreApplicationPrivate23lockThreadPostEventListEP7QObject(
+    QObject *object) {
+  return new QCoreApplicationPrivate::QPostEventListLocker(
+      QCoreApplicationPrivate::lockThreadPostEventList(
+          object));
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
 //  void QCoreApplicationPrivate::execCleanup()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QCoreApplicationPrivate11execCleanupEv(
@@ -408,6 +454,17 @@ bool ritual_take_QCoreApplicationPrivate(
     void *call) {
   return static_cast<CuteQCoreApplicationPrivate *>(self)->take(key, call);
 }
+
+#if QT_CONFIG(commandlineparser)
+//  void QCoreApplicationPrivate::addQtOptions(QList<QCommandLineOption>
+//      *options)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN23QCoreApplicationPrivate12addQtOptionsEP5QListI18QCommandLineOptionE(
+    QCoreApplicationPrivate *self,
+    QList<QCommandLineOption> *options) {
+  self->QCoreApplicationPrivate::addQtOptions(options);
+}
+#endif  // QT_CONFIG(commandlineparser)
 
 #if !defined(QT_NO_QOBJECT)
 //  void QCoreApplicationPrivate::createEventDispatcher()
@@ -460,3 +517,11 @@ void ritual_own_ZN23QCoreApplicationPrivate4quitEv(
   self->QCoreApplicationPrivate::quit();
 }
 #endif  // !defined(QT_NO_QOBJECT)
+
+//  a QCoreApplicationPrivate::QPostEventListLocker a ritual of
+//      QCoreApplicationPrivate gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCoreApplicationPrivate__QCoreApplicationPrivate_QPostEventListLocker(
+    QCoreApplicationPrivate::QPostEventListLocker *self) {
+  delete self;
+}

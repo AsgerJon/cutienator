@@ -6,7 +6,9 @@
 #if QT_CONFIG(keysequenceedit)
 #if QT_CONFIG(keysequenceedit)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(keysequenceedit)
 #include <QtWidgets/qkeysequenceedit.h>
+#endif
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qkeysequenceedit_p.h>

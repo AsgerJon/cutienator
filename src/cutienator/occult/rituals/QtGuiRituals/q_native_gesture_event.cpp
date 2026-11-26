@@ -21,6 +21,7 @@ typedef void (*CuteQNativeGestureEventCall5)(const void *, bool, int *);
 class CuteQNativeGestureEvent : public QNativeGestureEvent {
 public:
   using QNativeGestureEvent::QNativeGestureEvent;
+  CuteQNativeGestureEvent(const QNativeGestureEvent & other) : QNativeGestureEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -121,6 +122,22 @@ public:
     QPointerEvent::setAccepted(accepted);
   }
 };
+
+//  QNativeGestureEvent::QNativeGestureEvent(const QNativeGestureEvent &a0)
+extern "C" Q_DECL_EXPORT
+QNativeGestureEvent *ritual_ZN19QNativeGestureEventC1ERKS_(
+    const QNativeGestureEvent *a0) {
+  return new CuteQNativeGestureEvent(*a0);
+}
+
+//  QNativeGestureEvent &QNativeGestureEvent::operator=(const
+//      QNativeGestureEvent &other)
+extern "C" Q_DECL_EXPORT
+QNativeGestureEvent *ritual_ZN19QNativeGestureEventaSERKS_(
+    QNativeGestureEvent *self,
+    const QNativeGestureEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QNativeGestureEvent *QNativeGestureEvent::clone() const
 extern "C" Q_DECL_EXPORT

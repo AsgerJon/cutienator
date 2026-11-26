@@ -14,6 +14,9 @@
     "ritual_ZN21QLottiePrecomposition5parseERK11QJsonObject": [
       "int", "address", "address"
     ],
+    "ritual_ZNK21QLottiePrecomposition6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QLottiePrecomposition5refIdEv": ["text", "address"],
     "ritual_ZN21QLottiePrecompositionD1Ev": ["nothing", "address"],
     "ritual_take_QLottiePrecomposition": [

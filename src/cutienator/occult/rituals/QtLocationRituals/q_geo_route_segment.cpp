@@ -18,10 +18,42 @@ QGeoRouteSegment *ritual_ZN16QGeoRouteSegmentC1ERKS_(
   return new QGeoRouteSegment(*other);
 }
 
+//  QGeoRouteSegment::QGeoRouteSegment(QGeoRouteSegment &&other)
+extern "C" Q_DECL_EXPORT
+QGeoRouteSegment *ritual_ZN16QGeoRouteSegmentC1EOS_(
+    QGeoRouteSegment *other) {
+  return new QGeoRouteSegment(std::move(*other));
+}
+
 //  QGeoRouteSegment::~QGeoRouteSegment()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QGeoRouteSegmentD1Ev(QGeoRouteSegment *self) {
   delete self;
+}
+
+//  QGeoRouteSegment &QGeoRouteSegment::operator=(const QGeoRouteSegment
+//      &other)
+extern "C" Q_DECL_EXPORT
+QGeoRouteSegment *ritual_ZN16QGeoRouteSegmentaSERKS_(
+    QGeoRouteSegment *self,
+    const QGeoRouteSegment *other) {
+  return &(self->operator=(*other));
+}
+
+//  QGeoRouteSegment &QGeoRouteSegment::operator=(QGeoRouteSegment &&other)
+extern "C" Q_DECL_EXPORT
+QGeoRouteSegment *ritual_ZN16QGeoRouteSegmentaSEOS_(
+    QGeoRouteSegment *self,
+    QGeoRouteSegment *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QGeoRouteSegment::swap(QGeoRouteSegment &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QGeoRouteSegment4swapERS_(
+    QGeoRouteSegment *self,
+    QGeoRouteSegment *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QGeoRouteSegment &lhs, const QGeoRouteSegment &rhs)
@@ -126,6 +158,14 @@ extern "C" Q_DECL_EXPORT
 QGeoManeuver *ritual_ZNK16QGeoRouteSegment8maneuverEv(
     const QGeoRouteSegment *self) {
   return new QGeoManeuver(self->maneuver());
+}
+
+//  QGeoRouteSegment::QGeoRouteSegment(QExplicitlySharedDataPointer<QGeoRoute
+//      SegmentPrivate> &&dd)
+extern "C" Q_DECL_EXPORT
+QGeoRouteSegment *ritual_ZN16QGeoRouteSegmentC1EO28QExplicitlySharedDataPointerI23QGeoRouteSegmentPrivateE(
+    QExplicitlySharedDataPointer<QGeoRouteSegmentPrivate> *dd) {
+  return new QGeoRouteSegment(std::move(*dd));
 }
 
 //  bool QGeoRouteSegment::isEqual(const QGeoRouteSegment &other) const

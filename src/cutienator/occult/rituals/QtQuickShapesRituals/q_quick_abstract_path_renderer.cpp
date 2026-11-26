@@ -346,6 +346,16 @@ void ritual_ZN26QQuickAbstractPathRenderer7endSyncEb(
   self->endSync(async);
 }
 
+//  void QQuickAbstractPathRenderer::setAsyncCallback(void (*)(void *) a0,
+//      void *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickAbstractPathRenderer16setAsyncCallbackEPFvPvES0_(
+    QQuickAbstractPathRenderer *self,
+    void *a0,
+    void *a1) {
+  self->setAsyncCallback(reinterpret_cast<void (*)(void *)>(a0), a1);
+}
+
 //  Flags QQuickAbstractPathRenderer::flags() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK26QQuickAbstractPathRenderer5flagsEv(
@@ -424,6 +434,19 @@ void ritual_ZN26QQuickAbstractPathRenderer11setCapStyleEiN15QQuickShapePath8CapS
     int index,
     QQuickShapePath::CapStyle capStyle) {
   self->setCapStyle(index, capStyle);
+}
+
+//  void QQuickAbstractPathRenderer::setStrokeStyle(int index,
+//      QQuickShapePath::StrokeStyle strokeStyle, qreal dashOffset, const
+//      QList<qreal> &dashPattern)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickAbstractPathRenderer14setStrokeStyleEiN15QQuickShapePath11StrokeStyleEdRK5QListIdE(
+    QQuickAbstractPathRenderer *self,
+    int index,
+    QQuickShapePath::StrokeStyle strokeStyle,
+    qreal dashOffset,
+    const QList<qreal> *dashPattern) {
+  self->setStrokeStyle(index, strokeStyle, dashOffset, *dashPattern);
 }
 
 //  void QQuickAbstractPathRenderer::setFillColor(int index, const QColor

@@ -812,6 +812,24 @@ const QMetaObject *ritual_ZNK13QQuickOverlay10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickOverlay::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QQuickOverlay11qt_metacastEPKc(
+    QQuickOverlay *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickOverlay::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QQuickOverlay11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickOverlay *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickOverlay::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QQuickOverlay2trEPKcS1_i(
@@ -890,6 +908,30 @@ extern "C" Q_DECL_EXPORT
 QQuickOverlayAttached *ritual_ZN13QQuickOverlay21qmlAttachedPropertiesEP7QObject(
     QObject *object) {
   return QQuickOverlay::qmlAttachedProperties(object);
+}
+
+//  void QQuickOverlay::modalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickOverlay12modalChangedEv(QQuickOverlay *self) {
+  self->modalChanged();
+}
+
+//  void QQuickOverlay::modelessChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickOverlay15modelessChangedEv(QQuickOverlay *self) {
+  self->modelessChanged();
+}
+
+//  void QQuickOverlay::pressed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickOverlay7pressedEv(QQuickOverlay *self) {
+  self->pressed();
+}
+
+//  void QQuickOverlay::released()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickOverlay8releasedEv(QQuickOverlay *self) {
+  self->released();
 }
 
 //  void QQuickOverlay::itemChange(ItemChange change, const ItemChangeData

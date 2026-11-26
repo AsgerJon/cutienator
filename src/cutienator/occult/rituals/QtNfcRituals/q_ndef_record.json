@@ -1,12 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtNfc/qndefrecord.h, Qt 6.12.0. Changes made here are lost."
+    "QtNfc/qndefrecord.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN11QNdefRecordC1Ev": ["address"],
     "ritual_ZN11QNdefRecordD1Ev": ["nothing", "address"],
     "ritual_ZN11QNdefRecordC1ERKS_": ["address", "address"],
+    "ritual_ZN11QNdefRecordaSERKS_": ["address", "address", "address"],
     "ritual_ZN11QNdefRecord17setTypeNameFormatENS_14TypeNameFormatE": [
       "nothing", "address", "int"
     ],
@@ -40,6 +42,15 @@
     "ritual_list_add_QNdefRecord": ["nothing", "address", "address"],
     "ritual_list_size_QNdefRecord": ["long long", "address"],
     "ritual_list_at_QNdefRecord": ["address", "address", "long long"],
-    "ritual_list_drop_QNdefRecord": ["nothing", "address"]
+    "ritual_list_drop_QNdefRecord": ["nothing", "address"],
+    "ritual_ZNK11QNdefRecord12isRecordTypeI18QNdefNfcTextRecordEEbv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK11QNdefRecord12isRecordTypeI17QNdefNfcUriRecordEEbv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK11QNdefRecord12isRecordTypeI25QNdefNfcSmartPosterRecordEEbv": [
+      "bool", "address"
+    ]
   }
 }

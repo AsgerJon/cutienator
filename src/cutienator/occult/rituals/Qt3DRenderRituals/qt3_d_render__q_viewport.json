@@ -5,8 +5,37 @@
   ],
   "rows": {
     "ritual_ZNK10Qt3DRender9QViewport10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender9QViewport11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender9QViewport11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender9QViewport2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender9QViewportC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender9QViewportD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender9QViewport14normalizedRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender9QViewport5gammaEv": ["float", "address"],
+    "ritual_ZN10Qt3DRender9QViewport17setNormalizedRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender9QViewport8setGammaEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender9QViewport21normalizedRectChangedERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender9QViewport12gammaChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender9QViewportC1ERNS_16QViewportPrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
     ],
     "ritual_ZN10Qt3DRender9QViewport6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender9QViewport6d_funcEv": ["address", "address"],

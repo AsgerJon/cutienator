@@ -2,11 +2,17 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtMultimedia/6.12.0/QtMultimedia/private/qmultimedia_ranges_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN19QtMultimediaPrivate6ranges4impl14upper_bound_fnD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate6ranges4impl14upper_bound_fnclIR5QListIiEEiSt4lessIvEEEDaOT_RKT0_T1_": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate6ranges4impl14upper_bound_fnclIR5QListIdEEdSt4lessIvEEEDaOT_RKT0_T1_": [
+      "address", "address", "address", "double"
     ]
   }
 }

@@ -31,6 +31,9 @@
     "ritual_ZN25QSGDistanceFieldGlyphNode10preprocessEv": [
       "nothing", "address"
     ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode16invalidateGlyphsERK5QListIjE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN25QSGDistanceFieldGlyphNode7recycleEv": ["nothing", "address"],
     "ritual_ZN25QSGDistanceFieldGlyphNode7cleanupEv": ["nothing", "address"],
     "ritual_ZN25QSGDistanceFieldGlyphNode16setGlyphNodeTypeENS_26DistanceFieldGlyphNodeTypeE": [
@@ -47,6 +50,9 @@
     ],
     "ritual_own_ZNK25QSGDistanceFieldGlyphNode8baseLineEv": [
       "address", "address"
+    ],
+    "ritual_own_ZN25QSGDistanceFieldGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_own_ZN25QSGDistanceFieldGlyphNode8setColorERK6QColor": [
       "nothing", "address", "address"

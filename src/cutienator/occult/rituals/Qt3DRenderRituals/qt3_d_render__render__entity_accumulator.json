@@ -5,7 +5,19 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render17EntityAccumulatorC1EPNS0_12NodeManagersE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render17EntityAccumulatorC1ESt8functionIFbPNS0_6EntityEEEPNS0_12NodeManagersE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render17EntityAccumulator5applyEPNS0_6EntityE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10Qt3DRender6Render17EntityAccumulatorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_EntityAccumulator__QList_Qt3DRender_Render_Entity": [
       "nothing", "address"
     ]
   }

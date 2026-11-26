@@ -134,6 +134,14 @@ void ritual_ZN21QCanvasPainterPrivate14setStencilClipERK5QListI6QRectFE(
   self->setStencilClip(*rects);
 }
 
+//  void QCanvasPainterPrivate::setStencilClip(const QVectorPath &clipPath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCanvasPainterPrivate14setStencilClipERK11QVectorPath(
+    QCanvasPainterPrivate *self,
+    const QVectorPath *clipPath) {
+  self->setStencilClip(*clipPath);
+}
+
 //  void QCanvasPainterPrivate::setBrushTransform(const QTransform
 //      &transform)
 extern "C" Q_DECL_EXPORT
@@ -171,6 +179,19 @@ void ritual_ZN21QCanvasPainterPrivate8fillTextERK7QStringRK6QRectF(
     const QString *text,
     const QRectF *rect) {
   self->fillText(*text, *rect);
+}
+
+//  void QCanvasPainterPrivate::fillShapedText(QFontEngine *fontEngine, const
+//      quint32 *glyphIndexes, const QFixedPoint *glyphPositions, int
+//      glyphCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QCanvasPainterPrivate14fillShapedTextEP11QFontEnginePKjPK11QFixedPointi(
+    QCanvasPainterPrivate *self,
+    QFontEngine *fontEngine,
+    const quint32 *glyphIndexes,
+    const QFixedPoint *glyphPositions,
+    int glyphCount) {
+  self->fillShapedText(fontEngine, glyphIndexes, glyphPositions, glyphCount);
 }
 
 //  QRectF QCanvasPainterPrivate::textBoundingBox(const QString &text, qreal

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK14QWindowCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWindowCapture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QWindowCapture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QWindowCapture2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -20,9 +26,26 @@
     "ritual_ZNK14QWindowCapture8isActiveEv": ["bool", "address"],
     "ritual_ZNK14QWindowCapture5errorEv": ["int", "address"],
     "ritual_ZNK14QWindowCapture11errorStringEv": ["text", "address"],
+    "ritual_ZN14QWindowCapture19setMaximumFrameRateESt8optionalIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWindowCapture16maximumFrameRateEv": ["address", "address"],
     "ritual_ZN14QWindowCapture9setActiveEb": ["nothing", "address", "bool"],
     "ritual_ZN14QWindowCapture5startEv": ["nothing", "address"],
     "ritual_ZN14QWindowCapture4stopEv": ["nothing", "address"],
+    "ritual_ZN14QWindowCapture13activeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWindowCapture13windowChangedE17QCapturableWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWindowCapture12errorChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWindowCapture13errorOccurredENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN14QWindowCapture23maximumFrameRateChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QWindowCapture17setCaptureSessionEP20QMediaCaptureSession": [
       "nothing", "address", "address"
     ],
@@ -31,6 +54,7 @@
     ],
     "ritual_ZN14QWindowCapture6d_funcEv": ["address", "address"],
     "ritual_ZNK14QWindowCapture6d_funcEv": ["address", "address"],
-    "ritual_take_QWindowCapture": ["bool", "address", "chars", "address"]
+    "ritual_take_QWindowCapture": ["bool", "address", "chars", "address"],
+    "ritual_drop_QWindowCapture__std_optional_qreal": ["nothing", "address"]
   }
 }

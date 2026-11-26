@@ -623,6 +623,22 @@ const QMetaObject *ritual_ZNK6QStyle10metaObjectEv(const QStyle *self) {
   return self->metaObject();
 }
 
+//  void *QStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN6QStyle11qt_metacastEPKc(QStyle *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStyle::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6QStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN6QStyle2trEPKcS1_i(const char *s, const char *c, int n) {
@@ -639,6 +655,18 @@ QStylePrivate *ritual_ZN6QStyle6d_funcEv(QStyle *self) {
 extern "C" Q_DECL_EXPORT
 const QStylePrivate *ritual_ZNK6QStyle6d_funcEv(const QStyle *self) {
   return self->d_func();
+}
+
+//  QStyle::QStyle(QStylePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QStyle *ritual_ZN6QStyleC1ER13QStylePrivate(QStylePrivate *dd) {
+  return new CuteQStyle(*dd);
+}
+
+//  QStyle::QStyle()
+extern "C" Q_DECL_EXPORT
+QStyle *ritual_ZN6QStyleC1Ev() {
+  return new CuteQStyle();
 }
 
 //  QStyle::~QStyle()
@@ -679,6 +707,12 @@ void ritual_ZN6QStyle8unpolishEP12QApplication(
     QStyle *self,
     QApplication *application) {
   self->unpolish(application);
+}
+
+//  void QStyle::polish(QPalette &palette)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QStyle6polishER8QPalette(QStyle *self, QPalette *palette) {
+  self->polish(*palette);
 }
 
 //  QRect QStyle::itemTextRect(const QFontMetrics &fm, const QRect &r, int

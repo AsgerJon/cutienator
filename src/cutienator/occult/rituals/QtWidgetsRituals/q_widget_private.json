@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtWidgets/6.12.0/QtWidgets/private/qwidget_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtWidgets/6.12.0/QtWidgets/private/qwidget_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN14QWidgetPrivate6q_funcEv": ["address", "address"],
@@ -144,6 +144,15 @@
     "ritual_ZN14QWidgetPrivate13setSystemClipEP12QPaintEnginedRK7QRegion": [
       "nothing", "address", "address", "double", "address"
     ],
+    "ritual_ZNK14QWidgetPrivate22subtractOpaqueChildrenER7QRegionRK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate22subtractOpaqueSiblingsER7QRegionPbb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK14QWidgetPrivate19clipToEffectiveMaskER7QRegion": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QWidgetPrivate14updateIsOpaqueEv": ["nothing", "address"],
     "ritual_ZN14QWidgetPrivate9setOpaqueEb": ["nothing", "address", "bool"],
     "ritual_ZN14QWidgetPrivate19updateIsTranslucentEv": [
@@ -256,6 +265,9 @@
     ],
     "ritual_ZN14QWidgetPrivate17setEnabled_helperEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate11adjustFlagsER6QFlagsIN2Qt10WindowTypeEEP7QWidget": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN14QWidgetPrivate16updateFrameStrutEv": ["nothing", "address"],
     "ritual_ZNK14QWidgetPrivate10frameStrutEv": ["address", "address"],
@@ -420,6 +432,9 @@
     "ritual_ZN14QWidgetPrivate21setWidgetParentHelperEP7QObjectS1_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK14QWidgetPrivate15flagsForDumpingB5cxx11Ev": [
+      "address", "address"
+    ],
     "ritual_ZNK14QWidgetPrivate35closestParentWidgetWithWindowHandleEv": [
       "address", "address"
     ],
@@ -505,6 +520,16 @@
     "ritual_own_ZN14QWidgetPrivate15isStereoEnabledEv": ["bool", "address"],
     "ritual_own_ZN14QWidgetPrivate24toggleStereoTargetBufferEv": [
       "bool", "address"
+    ],
+    "ritual_drop_QWidgetPrivate__std_string": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate6updateI5QRectEEvT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate6updateI7QRegionEEvT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate22invalidateBackingStoreI5QRectEEvRKT_": [
+      "nothing", "address", "address"
     ]
   }
 }

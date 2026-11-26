@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QDeclarativeCategory10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QDeclarativeCategory11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QDeclarativeCategory11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QDeclarativeCategory2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -51,6 +57,20 @@
       "nothing", "address", "text"
     ],
     "ritual_ZN20QDeclarativeCategory6removeEv": ["nothing", "address"],
+    "ritual_ZN20QDeclarativeCategory13pluginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QDeclarativeCategory17categoryIdChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QDeclarativeCategory11nameChangedEv": ["nothing", "address"],
+    "ritual_ZN20QDeclarativeCategory17visibilityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QDeclarativeCategory11iconChangedEv": ["nothing", "address"],
+    "ritual_ZN20QDeclarativeCategory13statusChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN20QDeclarativeCategory13replyFinishedEv": [
       "nothing", "address"
     ],

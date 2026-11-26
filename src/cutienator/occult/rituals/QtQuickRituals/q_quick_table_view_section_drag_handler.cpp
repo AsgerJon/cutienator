@@ -539,6 +539,25 @@ const QMetaObject *ritual_ZNK33QQuickTableViewSectionDragHandler10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTableViewSectionDragHandler::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN33QQuickTableViewSectionDragHandler11qt_metacastEPKc(
+    QQuickTableViewSectionDragHandler *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTableViewSectionDragHandler::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN33QQuickTableViewSectionDragHandler11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTableViewSectionDragHandler *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickTableViewSectionDragHandler::~QQuickTableViewSectionDragHandler()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN33QQuickTableViewSectionDragHandlerD1Ev(
@@ -597,6 +616,16 @@ void ritual_ZN33QQuickTableViewSectionDragHandler21setSectionOrientationEN2Qt11O
     QQuickTableViewSectionDragHandler *self,
     Qt::Orientation orientation) {
   self->setSectionOrientation(orientation);
+}
+
+//  void QQuickTableViewSectionDragHandler::handleEventPoint(QPointerEvent
+//      *event, QEventPoint &point)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QQuickTableViewSectionDragHandler16handleEventPointEP13QPointerEventR11QEventPoint(
+    QQuickTableViewSectionDragHandler *self,
+    QPointerEvent *event,
+    QEventPoint *point) {
+  self->handleEventPoint(event, *point);
 }
 
 #if QT_CONFIG(quick_draganddrop)

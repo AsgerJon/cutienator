@@ -157,6 +157,12 @@ public:
   }
 };
 
+//  QDesignerContainerExtension::QDesignerContainerExtension()
+extern "C" Q_DECL_EXPORT
+QDesignerContainerExtension *ritual_ZN27QDesignerContainerExtensionC1Ev() {
+  return new CuteQDesignerContainerExtension();
+}
+
 //  QDesignerContainerExtension::~QDesignerContainerExtension()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QDesignerContainerExtensionD1Ev(

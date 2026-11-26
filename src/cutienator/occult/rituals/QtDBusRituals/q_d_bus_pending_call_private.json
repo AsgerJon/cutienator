@@ -10,6 +10,12 @@
     ],
     "ritual_ZN23QDBusPendingCallPrivate15waitForFinishedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN23QDBusPendingCallPrivate12setMetaTypesEiPK9QMetaType": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN23QDBusPendingCallPrivate22checkReceivedSignatureEv": [
+      "nothing", "address"
     ]
   }
 }

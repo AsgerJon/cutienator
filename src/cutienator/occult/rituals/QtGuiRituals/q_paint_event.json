@@ -4,6 +4,8 @@
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QPaintEventC1ERKS_": ["address", "address"],
+    "ritual_ZN11QPaintEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK11QPaintEvent5cloneEv": ["address", "address"],
     "ritual_ZN11QPaintEventD1Ev": ["nothing", "address"],
     "ritual_ZN11QPaintEventC1ERK7QRegion": ["address", "address"],

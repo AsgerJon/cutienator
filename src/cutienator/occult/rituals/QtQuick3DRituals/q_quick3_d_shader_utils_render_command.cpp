@@ -335,6 +335,25 @@ const QMetaObject *ritual_ZNK32QQuick3DShaderUtilsRenderCommand10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DShaderUtilsRenderCommand::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN32QQuick3DShaderUtilsRenderCommand11qt_metacastEPKc(
+    QQuick3DShaderUtilsRenderCommand *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DShaderUtilsRenderCommand::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN32QQuick3DShaderUtilsRenderCommand11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DShaderUtilsRenderCommand *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DShaderUtilsRenderCommand::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -379,6 +398,13 @@ QQuick3DShaderUtilsBuffer *ritual_ZNK32QQuick3DShaderUtilsRenderCommand8bufferAt
     const QQuick3DShaderUtilsRenderCommand *self,
     int idx) {
   return self->bufferAt(idx);
+}
+
+//  void QQuick3DShaderUtilsRenderCommand::changed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN32QQuick3DShaderUtilsRenderCommand7changedEv(
+    QQuick3DShaderUtilsRenderCommand *self) {
+  self->changed();
 }
 
 //  a Python function taken by a CuteQQuick3DShaderUtilsRenderCommand, for

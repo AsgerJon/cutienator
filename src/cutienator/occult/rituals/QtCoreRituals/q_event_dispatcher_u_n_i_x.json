@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK20QEventDispatcherUNIX10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QEventDispatcherUNIX11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN20QEventDispatcherUNIX11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN20QEventDispatcherUNIX2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -22,20 +28,35 @@
     "ritual_ZN20QEventDispatcherUNIX24unregisterSocketNotifierEP15QSocketNotifier": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QEventDispatcherUNIX13registerTimerEN2Qt7TimerIdENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS0_9TimerTypeEP7QObject": [
+      "nothing", "address", "int", "long long", "int", "address"
+    ],
     "ritual_ZN20QEventDispatcherUNIX15unregisterTimerEN2Qt7TimerIdE": [
       "bool", "address", "int"
     ],
     "ritual_ZN20QEventDispatcherUNIX16unregisterTimersEP7QObject": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK20QEventDispatcherUNIX15timersForObjectEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QEventDispatcherUNIX13remainingTimeEN2Qt7TimerIdE": [
+      "long long", "address", "int"
+    ],
     "ritual_ZN20QEventDispatcherUNIX6wakeUpEv": ["nothing", "address"],
     "ritual_ZN20QEventDispatcherUNIX9interruptEv": ["nothing", "address"],
+    "ritual_ZN20QEventDispatcherUNIXC1ER27QEventDispatcherUNIXPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QEventDispatcherUNIX": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZN20QEventDispatcherUNIX13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
       "bool", "address", "int"
     ],
-    "ritual_own_ZN20QEventDispatcherUNIX6wakeUpEv": ["nothing", "address"]
+    "ritual_own_ZN20QEventDispatcherUNIX6wakeUpEv": ["nothing", "address"],
+    "ritual_drop_QEventDispatcherUNIX__QList_QAbstractEventDispatcher_TimerInfoV2": [
+      "nothing", "address"
+    ]
   }
 }

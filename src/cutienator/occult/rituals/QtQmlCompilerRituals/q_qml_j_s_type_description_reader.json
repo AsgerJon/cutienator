@@ -11,6 +11,9 @@
     "ritual_ZN27QQmlJSTypeDescriptionReaderC1E7QStringS0_": [
       "address", "text", "text"
     ],
+    "ritual_ZN27QQmlJSTypeDescriptionReaderclEP5QListIN6QQmlJS13ExportedScopeI22QDeferredSharedPointerI11QQmlJSScopeEEEEPS0_I7QStringE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZNK27QQmlJSTypeDescriptionReader12errorMessageEv": [
       "text", "address"
     ],
@@ -28,6 +31,15 @@
     ],
     "ritual_ZN27QQmlJSTypeDescriptionReader13readComponentEPN6QQmlJS3AST18UiObjectDefinitionE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader18readSignalOrMethodEPN6QQmlJS3AST18UiObjectDefinitionEbRK22QDeferredSharedPointerI11QQmlJSScopeE": [
+      "nothing", "address", "address", "bool", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader12readPropertyEPN6QQmlJS3AST18UiObjectDefinitionERK22QDeferredSharedPointerI11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader8readEnumEPN6QQmlJS3AST18UiObjectDefinitionERK22QDeferredSharedPointerI11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN27QQmlJSTypeDescriptionReader13readParameterEPN6QQmlJS3AST18UiObjectDefinitionEP16QQmlJSMetaMethod": [
       "nothing", "address", "address", "address"
@@ -47,8 +59,26 @@
     "ritual_ZN27QQmlJSTypeDescriptionReader14readIntBindingEPN6QQmlJS3AST15UiScriptBindingE": [
       "int", "address", "address"
     ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader11readExportsEPN6QQmlJS3AST15UiScriptBindingE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader11readAliasesEPN6QQmlJS3AST15UiScriptBindingERK22QDeferredSharedPointerI11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader14readInterfacesEPN6QQmlJS3AST15UiScriptBindingERK22QDeferredSharedPointerI11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader24checkMetaObjectRevisionsEPN6QQmlJS3AST15UiScriptBindingEP5QListINS0_6ExportEE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN27QQmlJSTypeDescriptionReader14readStringListEPN6QQmlJS3AST15UiScriptBindingE": [
       "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader17readDeferredNamesEPN6QQmlJS3AST15UiScriptBindingERK22QDeferredSharedPointerI11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader18readImmediateNamesEPN6QQmlJS3AST15UiScriptBindingERK22QDeferredSharedPointerI11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN27QQmlJSTypeDescriptionReader14readEnumValuesEPN6QQmlJS3AST15UiScriptBindingEP14QQmlJSMetaEnum": [
       "nothing", "address", "address", "address"
@@ -61,6 +91,9 @@
     ],
     "ritual_ZN27QQmlJSTypeDescriptionReader8getArrayEPN6QQmlJS3AST15UiScriptBindingE": [
       "address", "address", "address"
+    ],
+    "ritual_drop_QQmlJSTypeDescriptionReader__QList_QQmlJSScope_Export": [
+      "nothing", "address"
     ]
   }
 }

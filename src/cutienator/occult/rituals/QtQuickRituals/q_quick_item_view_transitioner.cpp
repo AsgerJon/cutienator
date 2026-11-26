@@ -77,6 +77,15 @@ QQuickTransition *ritual_ZNK26QQuickItemViewTransitioner16transitionObjectENS_14
   return self->transitionObject(type, asTarget);
 }
 
+//  const QList<int> &QQuickItemViewTransitioner::targetIndexes(QQuickItemVie
+//      wTransitioner::TransitionType type) const
+extern "C" Q_DECL_EXPORT
+const QList<int> *ritual_ZNK26QQuickItemViewTransitioner13targetIndexesENS_14TransitionTypeE(
+    const QQuickItemViewTransitioner *self,
+    QQuickItemViewTransitioner::TransitionType type) {
+  return &(self->targetIndexes(type));
+}
+
 //  const QList<QObject *> &QQuickItemViewTransitioner::targetItems(QQuickIte
 //      mViewTransitioner::TransitionType type) const
 extern "C" Q_DECL_EXPORT
@@ -108,6 +117,16 @@ void ritual_ZN26QQuickItemViewTransitioner17setChangeListenerEP38QQuickItemViewT
     QQuickItemViewTransitioner *self,
     QQuickItemViewTransitionChangeListener *obj) {
   self->setChangeListener(obj);
+}
+
+//  void QQuickItemViewTransitioner::finishedTransition(QQuickItemViewTransit
+//      ionJob *job, QQuickItemViewTransitionableItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickItemViewTransitioner18finishedTransitionEP27QQuickItemViewTransitionJobP32QQuickItemViewTransitionableItem(
+    QQuickItemViewTransitioner *self,
+    QQuickItemViewTransitionJob *job,
+    QQuickItemViewTransitionableItem *item) {
+  self->finishedTransition(job, item);
 }
 
 #endif  // QT_CONFIG(quick_viewtransitions)

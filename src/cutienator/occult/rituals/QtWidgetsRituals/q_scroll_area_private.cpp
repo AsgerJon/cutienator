@@ -45,6 +45,16 @@
 #  include <QtCore/qt_windows.h>
 #endif
 #endif
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
 #include <QtWidgets/qscrollarea.h>
 #include <QtWidgets/private/qscrollarea_p.h>
 #include <QtWidgets/qscrollbar.h>
@@ -63,6 +73,8 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 133, as _ZN26QAbstractScrollAreaPrivateC2Ev
 #if QT_CONFIG(scrollarea)
@@ -113,6 +125,23 @@ inline bool QAbstractScrollAreaPrivate::canStartScrollingAt(const QPoint &startP
     return true;
 }
 #endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
+inline QFramePrivate::QFramePrivate()
+    : frect(0, 0, 0, 0),
+      frameStyle(QFrame::NoFrame | QFrame::Plain),
+      lineWidth(1),
+      midLineWidth(0),
+      frameWidth(0),
+      leftFrameWidth(0), rightFrameWidth(0),
+      topFrameWidth(0), bottomFrameWidth(0)
+{
+}
+
+//  from src/widgets/widgets/qframe.cpp, line 30, as _ZN13QFramePrivateD2Ev
+inline QFramePrivate::~QFramePrivate()
+{
+}
 
 //  from src/widgets/widgets/qscrollarea.cpp, line 146, as _ZN18QScrollAreaPrivate16updateScrollBarsEv
 inline void QScrollAreaPrivate::updateScrollBars()
@@ -563,6 +592,14 @@ const QScrollArea *ritual_ZNK18QScrollAreaPrivate6q_funcEv(
     const QScrollAreaPrivate *self) {
   return self->q_func();
 }
+
+#if QT_CONFIG(scrollarea)
+//  QScrollAreaPrivate::QScrollAreaPrivate()
+extern "C" Q_DECL_EXPORT
+QScrollAreaPrivate *ritual_ZN18QScrollAreaPrivateC1Ev() {
+  return new CuteQScrollAreaPrivate();
+}
+#endif  // QT_CONFIG(scrollarea)
 
 //  void QScrollAreaPrivate::updateScrollBars()
 extern "C" Q_DECL_EXPORT

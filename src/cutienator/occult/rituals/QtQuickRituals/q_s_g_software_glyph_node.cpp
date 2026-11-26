@@ -21,6 +21,48 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareglyphnode.cpp, line 20, as local:qsgsoftwareglyphnode.cpp:calculateBoundingRect
+namespace {
+inline QRectF calculateBoundingRect(const QPointF &position, const QGlyphRun &glyphs)
+{
+    QFixed minX;
+    QFixed minY;
+    QFixed maxX;
+    QFixed maxY;
+
+    QRawFontPrivate *rawFontD = QRawFontPrivate::get(glyphs.rawFont());
+    QFontEngine *fontEngine = rawFontD->fontEngine;
+
+    QFontEngine::GlyphFormat glyphFormat = fontEngine->glyphFormat != QFontEngine::Format_None ? fontEngine->glyphFormat : QFontEngine::Format_A32;
+
+    int margin = fontEngine->glyphMargin(glyphFormat);
+
+    const QList<uint> glyphIndexes = glyphs.glyphIndexes();
+    const QList<QPointF> glyphPositions = glyphs.positions();
+    for (int i = 0, n = qMin(glyphIndexes.size(), glyphPositions.size()); i < n; ++i) {
+        glyph_metrics_t gm = fontEngine->alphaMapBoundingBox(glyphIndexes.at(i), QFixedPoint(), QTransform(), glyphFormat);
+
+        gm.x += QFixed::fromReal(glyphPositions.at(i).x()) - margin;
+        gm.y += QFixed::fromReal(glyphPositions.at(i).y()) - margin;
+
+        if (i == 0) {
+            minX = gm.x;
+            minY = gm.y;
+            maxX = gm.x + gm.width;
+            maxY = gm.y + gm.height;
+        } else {
+            minX = qMin(gm.x, minX);
+            minY = qMin(gm.y, minY);
+            maxX = qMax(gm.x + gm.width, maxX);
+            maxY = qMax(gm.y + gm.height, maxY);
+        }
+    }
+
+    QRectF boundingRect(QPointF(minX.toReal(), minY.toReal()), QPointF(maxX.toReal(), maxY.toReal()));
+    return boundingRect.translated(position - QPointF(0.0, glyphs.rawFont().ascent()));
+}
+}  // namespace
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareglyphnode.cpp, line 60, as _ZN20QSGSoftwareGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun
 inline void QSGSoftwareGlyphNode::setGlyphs(const QPointF &position, const QGlyphRun &glyphs)
 {
@@ -74,6 +116,29 @@ inline void QSGSoftwareGlyphNode::update()
     }
 }
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareglyphnode.cpp, line 148, as _ZN20QSGSoftwareGlyphNode7recycleEv
+inline void QSGSoftwareGlyphNode::recycle()
+{
+    QSGGlyphNode::recycle();
+    m_position = QPointF{};
+    m_glyphRun = QGlyphRun{};
+    m_color = QColor{};
+    m_geometry.allocate(0, 0);
+    m_style = QQuickText::Normal;
+    m_styleColor = QColor{};
+    m_recycled = true;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareglyphnode.cpp, line 10, as _ZN20QSGSoftwareGlyphNodeC1Ev
+inline QSGSoftwareGlyphNode::QSGSoftwareGlyphNode()
+    : QSGGlyphNode(QSGTextNode::NativeRendering)
+    , m_geometry(QSGGeometry::defaultAttributes_TexturedPoint2D(), 0)
+    , m_style(QQuickText::Normal)
+{
+    setMaterial((QSGMaterial*)1);
+    setGeometry(&m_geometry);
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareglyphnode.cpp, line 116, as _ZN20QSGSoftwareGlyphNode5paintEP8QPainter
 inline void QSGSoftwareGlyphNode::paint(QPainter *painter)
 {
@@ -107,19 +172,23 @@ inline void QSGSoftwareGlyphNode::paint(QPainter *painter)
     painter->drawGlyphRun(pos, m_glyphRun);
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareglyphnode.cpp, line 148, as _ZN20QSGSoftwareGlyphNode7recycleEv
-inline void QSGSoftwareGlyphNode::recycle()
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareglyphnode.cpp, line 72, as _ZN20QSGSoftwareGlyphNode23recalculateBoundingRectEv
+inline void QSGSoftwareGlyphNode::recalculateBoundingRect()
 {
-    QSGGlyphNode::recycle();
-    m_position = QPointF{};
-    m_glyphRun = QGlyphRun{};
-    m_color = QColor{};
-    m_geometry.allocate(0, 0);
-    m_style = QQuickText::Normal;
-    m_styleColor = QColor{};
-    m_recycled = true;
+    int x1Offset = m_style == QQuickText::Outline ? -1 : 0;
+    int x2Offset = m_style == QQuickText::Outline ? 1 : 0;
+    int y1Offset = m_style == QQuickText::Outline || m_style == QQuickText::Sunken ? -1 : 0;
+    int y2Offset = m_style == QQuickText::Outline || m_style == QQuickText::Raised ? 1 : 0;
+
+    m_bounding_rect = calculateBoundingRect(m_position, m_glyphRun).adjusted(x1Offset, y1Offset, x2Offset, y2Offset);
 }
 //  -----------------------------------------------------------------------
+
+//  QSGSoftwareGlyphNode::QSGSoftwareGlyphNode()
+extern "C" Q_DECL_EXPORT
+QSGSoftwareGlyphNode *ritual_ZN20QSGSoftwareGlyphNodeC1Ev() {
+  return new QSGSoftwareGlyphNode();
+}
 
 //  void QSGSoftwareGlyphNode::setGlyphs(const QPointF &position, const
 //      QGlyphRun &glyphs)
@@ -191,12 +260,37 @@ void ritual_ZN20QSGSoftwareGlyphNode7recycleEv(QSGSoftwareGlyphNode *self) {
   self->recycle();
 }
 
+//  void QSGSoftwareGlyphNode::recalculateBoundingRect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QSGSoftwareGlyphNode23recalculateBoundingRectEv(
+    QSGSoftwareGlyphNode *self) {
+  self->recalculateBoundingRect();
+}
+
+//  void QSGSoftwareGlyphNode::setGlyphs(const QPointF &position, const
+//      QGlyphRun &glyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN20QSGSoftwareGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun(
+    QSGSoftwareGlyphNode *self,
+    const QPointF *position,
+    const QGlyphRun *glyphs) {
+  self->QSGSoftwareGlyphNode::setGlyphs(*position, *glyphs);
+}
+
 //  void QSGSoftwareGlyphNode::setColor(const QColor &color)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN20QSGSoftwareGlyphNode8setColorERK6QColor(
     QSGSoftwareGlyphNode *self,
     const QColor *color) {
   self->QSGSoftwareGlyphNode::setColor(*color);
+}
+
+//  void QSGSoftwareGlyphNode::setStyle(QQuickText::TextStyle style)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN20QSGSoftwareGlyphNode8setStyleEN10QQuickText9TextStyleE(
+    QSGSoftwareGlyphNode *self,
+    QQuickText::TextStyle style) {
+  self->QSGSoftwareGlyphNode::setStyle(style);
 }
 
 //  void QSGSoftwareGlyphNode::setStyleColor(const QColor &color)

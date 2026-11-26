@@ -15,6 +15,9 @@
     "ritual_ZN34QRhiTextureRenderTargetDescriptionC1ERK19QRhiColorAttachmentP11QRhiTexture": [
       "address", "address", "address"
     ],
+    "ritual_ZN34QRhiTextureRenderTargetDescription19setColorAttachmentsESt16initializer_listI19QRhiColorAttachmentE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK34QRhiTextureRenderTargetDescription22cbeginColorAttachmentsEv": [
       "address", "address"
     ],

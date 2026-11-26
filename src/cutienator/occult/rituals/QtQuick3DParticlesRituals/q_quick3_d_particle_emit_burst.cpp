@@ -223,6 +223,25 @@ const QMetaObject *ritual_ZNK25QQuick3DParticleEmitBurst10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DParticleEmitBurst::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN25QQuick3DParticleEmitBurst11qt_metacastEPKc(
+    QQuick3DParticleEmitBurst *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DParticleEmitBurst::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN25QQuick3DParticleEmitBurst11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DParticleEmitBurst *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DParticleEmitBurst::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -290,6 +309,27 @@ void ritual_ZN25QQuick3DParticleEmitBurst11setDurationEi(
     QQuick3DParticleEmitBurst *self,
     int duration) {
   self->setDuration(duration);
+}
+
+//  void QQuick3DParticleEmitBurst::timeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleEmitBurst11timeChangedEv(
+    QQuick3DParticleEmitBurst *self) {
+  self->timeChanged();
+}
+
+//  void QQuick3DParticleEmitBurst::amountChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleEmitBurst13amountChangedEv(
+    QQuick3DParticleEmitBurst *self) {
+  self->amountChanged();
+}
+
+//  void QQuick3DParticleEmitBurst::durationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuick3DParticleEmitBurst15durationChangedEv(
+    QQuick3DParticleEmitBurst *self) {
+  self->durationChanged();
 }
 
 //  void QQuick3DParticleEmitBurst::componentComplete()

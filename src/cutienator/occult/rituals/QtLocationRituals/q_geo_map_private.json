@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN14QGeoMapPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK14QGeoMapPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QGeoMapPrivateC1EP24QGeoMappingManagerEngineP14QGeoProjection": [
+      "address", "address", "address"
+    ],
     "ritual_ZN14QGeoMapPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN14QGeoMapPrivate21setCameraCapabilitiesERK22QGeoCameraCapabilities": [
       "nothing", "address", "address"
@@ -14,6 +17,7 @@
     "ritual_ZNK14QGeoMapPrivate18cameraCapabilitiesEv": [
       "address", "address"
     ],
+    "ritual_ZN14QGeoMapPrivate3getERK7QGeoMap": ["address", "address"],
     "ritual_ZNK14QGeoMapPrivate21supportedMapItemTypesEv": [
       "int", "address"
     ],

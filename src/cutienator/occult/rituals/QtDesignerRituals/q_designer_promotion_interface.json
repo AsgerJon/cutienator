@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN27QDesignerPromotionInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QDesignerPromotionInterface15promotedClassesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QDesignerPromotionInterface28referencedPromotedClassNamesEv": [
+      "address", "address"
+    ],
     "ritual_ZN27QDesignerPromotionInterface16addPromotedClassERK7QStringS2_S2_PS0_": [
       "bool", "address", "text", "text", "text", "address"
     ],
@@ -23,6 +29,12 @@
     ],
     "ritual_take_QDesignerPromotionInterface": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QDesignerPromotionInterface__QDesignerPromotionInterface_PromotedClasses": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QDesignerPromotionInterface__QSet_QString": [
+      "nothing", "address"
     ]
   }
 }

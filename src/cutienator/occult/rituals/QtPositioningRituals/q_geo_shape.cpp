@@ -110,6 +110,14 @@ bool ritual_ZneRK9QGeoShapeS1_(const QGeoShape *lhs, const QGeoShape *rhs) {
   return operator!=(*lhs, *rhs);
 }
 
+//  QGeoShape &QGeoShape::operator=(const QGeoShape &other)
+extern "C" Q_DECL_EXPORT
+QGeoShape *ritual_ZN9QGeoShapeaSERKS_(
+    QGeoShape *self,
+    const QGeoShape *other) {
+  return &(self->operator=(*other));
+}
+
 //  QString QGeoShape::toString() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK9QGeoShape8toStringEv(const QGeoShape *self) {
@@ -162,3 +170,45 @@ QDebug *ritual_ZN9QGeoShape14debugStreamingE6QDebugRKS_(
   return new QDebug(QGeoShape::debugStreaming(*dbg, *shape));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &stream, const QGeoShape &shape)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK9QGeoShape(
+    QDataStream *stream,
+    const QGeoShape *shape) {
+  return &(operator<<(*stream, *shape));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &stream, QGeoShape &shape)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR9QGeoShape(
+    QDataStream *stream,
+    QGeoShape *shape) {
+  return &(operator>>(*stream, *shape));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoShape::dataStreamOut(QDataStream &stream, const
+//      QGeoShape &shape)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN9QGeoShape13dataStreamOutER11QDataStreamRKS_(
+    QDataStream *stream,
+    const QGeoShape *shape) {
+  return &(QGeoShape::dataStreamOut(*stream, *shape));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &QGeoShape::dataStreamIn(QDataStream &stream, QGeoShape
+//      &shape)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZN9QGeoShape12dataStreamInER11QDataStreamRS_(
+    QDataStream *stream,
+    QGeoShape *shape) {
+  return &(QGeoShape::dataStreamIn(*stream, *shape));
+}
+#endif  // !defined(QT_NO_DATASTREAM)

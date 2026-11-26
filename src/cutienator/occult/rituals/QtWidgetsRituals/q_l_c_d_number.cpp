@@ -898,6 +898,24 @@ const QMetaObject *ritual_ZNK10QLCDNumber10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QLCDNumber::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10QLCDNumber11qt_metacastEPKc(
+    QLCDNumber *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QLCDNumber::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10QLCDNumber11qt_metacallEN11QMetaObject4CallEiPPv(
+    QLCDNumber *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QLCDNumber::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10QLCDNumber2trEPKcS1_i(
@@ -1060,6 +1078,12 @@ void ritual_ZN10QLCDNumber20setSmallDecimalPointEb(
   self->setSmallDecimalPoint(a0);
 }
 
+//  void QLCDNumber::overflow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QLCDNumber8overflowEv(QLCDNumber *self) {
+  self->overflow();
+}
+
 //  bool QLCDNumber::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN10QLCDNumber5eventEP6QEvent(QLCDNumber *self, QEvent *e) {
@@ -1072,6 +1096,19 @@ void ritual_ZN10QLCDNumber10paintEventEP11QPaintEvent(
     QLCDNumber *self,
     QPaintEvent *a0) {
   self->paintEvent(a0);
+}
+
+//  QLCDNumberPrivate *QLCDNumber::d_func()
+extern "C" Q_DECL_EXPORT
+QLCDNumberPrivate *ritual_ZN10QLCDNumber6d_funcEv(QLCDNumber *self) {
+  return self->d_func();
+}
+
+//  const QLCDNumberPrivate *QLCDNumber::d_func() const
+extern "C" Q_DECL_EXPORT
+const QLCDNumberPrivate *ritual_ZNK10QLCDNumber6d_funcEv(
+    const QLCDNumber *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQLCDNumber, for the function named by

@@ -8,6 +8,42 @@
     "ritual_ZN17QTextHtmlExporterC1EPK13QTextDocument": [
       "address", "address"
     ],
+    "ritual_ZN17QTextHtmlExporter6toHtmlENS_10ExportModeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN17QTextHtmlExporter9emitFrameERKN10QTextFrame8iteratorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QTextHtmlExporter13emitTextFrameEPK10QTextFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QTextHtmlExporter9emitBlockERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QTextHtmlExporter12emitFragmentERK13QTextFragment": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QTextHtmlExporter14emitTextLengthEPKcRK11QTextLength": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZN17QTextHtmlExporter13emitAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QTextHtmlExporter14emitFloatStyleEN16QTextFrameFormat8PositionENS_9StyleModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QTextHtmlExporter11emitMarginsERK7QStringS2_S2_S2_": [
+      "nothing", "address", "text", "text", "text", "text"
+    ],
+    "ritual_ZN17QTextHtmlExporter13emitAttributeEPKcRK7QString": [
+      "nothing", "address", "chars", "text"
+    ],
+    "ritual_ZN17QTextHtmlExporter19emitPageBreakPolicyE6QFlagsIN11QTextFormat13PageBreakFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QTextHtmlExporter14emitFontFamilyERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QTextHtmlExporter15findUrlForImageEPK13QTextDocumentxb": [
       "text", "address", "address", "long long", "bool"
     ],

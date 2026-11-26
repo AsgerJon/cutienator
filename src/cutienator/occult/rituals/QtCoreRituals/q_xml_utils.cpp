@@ -16,6 +16,12 @@ bool ritual_ZN9QXmlUtils9isEncNameE11QStringView(const QString *encName) {
   return QXmlUtils::isEncName(QStringView(*encName));
 }
 
+//  bool QXmlUtils::isChar(const char32_t c)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QXmlUtils6isCharEDi(char32_t c) {
+  return QXmlUtils::isChar(c);
+}
+
 //  bool QXmlUtils::isNameChar(const QChar c)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QXmlUtils10isNameCharE5QChar(const QChar *c) {
@@ -39,6 +45,16 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QXmlUtils10isPublicIDE11QStringView(
     const QString *candidate) {
   return QXmlUtils::isPublicID(QStringView(*candidate));
+}
+
+//  bool QXmlUtils::rangeContains(RangeIter begin, RangeIter end, const QChar
+//      c)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QXmlUtils13rangeContainsEPK13QXmlCharRangeS2_5QChar(
+    QXmlUtils::RangeIter begin,
+    QXmlUtils::RangeIter end,
+    const QChar *c) {
+  return QXmlUtils::rangeContains(begin, end, *c);
 }
 
 //  bool QXmlUtils::isBaseChar(const QChar c)

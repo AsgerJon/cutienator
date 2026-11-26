@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore5Compat/qxml.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, rituals for functions the generator leaves out: 2. Kept as it is
+//  when the generator runs again.
 #include <QtCore5Compat/qxml.h>
 #include <QtCore/qstring.h>
 #include <cstring>
@@ -1056,4 +1058,27 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_own_ZNK18QXmlDefaultHandler11errorStringEv(
     const QXmlDefaultHandler *self) {
   return new QString(self->QXmlDefaultHandler::errorString());
+}
+
+//  bool QXmlDefaultHandler::resolveEntity(const QString &publicId, const
+//      QString &systemId, QXmlInputSource *&ret)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QXmlDefaultHandler13resolveEntityERK7QStringS2_RP15QXmlInputSource(
+    QXmlDefaultHandler *self,
+    const QString *publicId,
+    const QString *systemId,
+    QXmlInputSource **ret) {
+  return self->resolveEntity(*publicId, *systemId, *ret);
+}
+
+//  bool QXmlDefaultHandler::resolveEntity(const QString &publicId, const
+//      QString &systemId, QXmlInputSource *&ret)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN18QXmlDefaultHandler13resolveEntityERK7QStringS2_RP15QXmlInputSource(
+    QXmlDefaultHandler *self,
+    const QString *publicId,
+    const QString *systemId,
+    QXmlInputSource **ret) {
+  return self->QXmlDefaultHandler::resolveEntity(
+      *publicId, *systemId, *ret);
 }

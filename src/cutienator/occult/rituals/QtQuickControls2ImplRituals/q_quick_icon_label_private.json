@@ -7,14 +7,30 @@
   "rows": {
     "ritual_ZN22QQuickIconLabelPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QQuickIconLabelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickIconLabelPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK22QQuickIconLabelPrivate7hasIconEv": ["bool", "address"],
     "ritual_ZNK22QQuickIconLabelPrivate7hasTextEv": ["bool", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate11createImageEv": ["bool", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate12destroyImageEv": ["bool", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate11updateImageEv": ["bool", "address"],
     "ritual_ZN22QQuickIconLabelPrivate9syncImageEv": ["nothing", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate17updateOrSyncImageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickIconLabelPrivate11createLabelEv": ["bool", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate12destroyLabelEv": ["bool", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate11updateLabelEv": ["bool", "address"],
     "ritual_ZN22QQuickIconLabelPrivate9syncLabelEv": ["nothing", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate17updateOrSyncLabelEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN22QQuickIconLabelPrivate18updateImplicitSizeEv": [
       "nothing", "address"
     ],
     "ritual_ZN22QQuickIconLabelPrivate6layoutEv": ["nothing", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate12watchChangesEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN22QQuickIconLabelPrivate24itemImplicitWidthChangedEP10QQuickItem": [
       "nothing", "address", "address"
     ],
@@ -50,6 +66,9 @@
       "nothing", "address", "address"
     ],
     "ritual_own_ZN22QQuickIconLabelPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickIconLabelPrivate13itemDestroyedEP10QQuickItem": [
       "nothing", "address", "address"
     ],
     "ritual_own_ZN22QQuickIconLabelPrivate10textChangeEv": [

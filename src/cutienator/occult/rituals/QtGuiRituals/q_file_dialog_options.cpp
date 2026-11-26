@@ -9,11 +9,33 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QSharedPointer>
+
+//  QFileDialogOptions::QFileDialogOptions(QFileDialogOptionsPrivate *dd)
+extern "C" Q_DECL_EXPORT
+QFileDialogOptions *ritual_ZN18QFileDialogOptionsC1EP25QFileDialogOptionsPrivate(
+    QFileDialogOptionsPrivate *dd) {
+  return new QFileDialogOptions(dd);
+}
 
 //  QFileDialogOptions::~QFileDialogOptions()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFileDialogOptionsD1Ev(QFileDialogOptions *self) {
   delete self;
+}
+
+//  QSharedPointer<QFileDialogOptions> QFileDialogOptions::create()
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QFileDialogOptions> *ritual_ZN18QFileDialogOptions6createEv() {
+  return new QSharedPointer<QFileDialogOptions>(
+      QFileDialogOptions::create());
+}
+
+//  QSharedPointer<QFileDialogOptions> QFileDialogOptions::clone() const
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QFileDialogOptions> *ritual_ZNK18QFileDialogOptions5cloneEv(
+    const QFileDialogOptions *self) {
+  return new QSharedPointer<QFileDialogOptions>(self->clone());
 }
 
 //  QString QFileDialogOptions::windowTitle() const
@@ -320,4 +342,11 @@ QList<QString> *ritual_ZNK18QFileDialogOptions16supportedSchemesEv(
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QFileDialogOptions23defaultNameFilterStringEv() {
   return new QString(QFileDialogOptions::defaultNameFilterString());
+}
+
+//  a QSharedPointer<QFileDialogOptions> a ritual of QFileDialogOptions gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QFileDialogOptions__QSharedPointer_QFileDialogOptions(
+    QSharedPointer<QFileDialogOptions> *self) {
+  delete self;
 }

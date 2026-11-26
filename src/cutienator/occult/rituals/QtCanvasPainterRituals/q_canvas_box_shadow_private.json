@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN23QCanvasBoxShadowPrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK23QCanvasBoxShadowPrivate6equalsERK19QCanvasBrushPrivate": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN23QCanvasBoxShadowPrivate3getEP16QCanvasBoxShadow": [
       "address", "address"
     ],
@@ -16,6 +19,9 @@
     "ritual_ZN23QCanvasBoxShadowPrivate18getFromCanvasBrushERK12QCanvasBrush": [
       "address", "address"
     ],
+    "ritual_ZNK23QCanvasBoxShadowPrivate11createPaintEP14QCanvasPainter": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK23QCanvasBoxShadowPrivate15createBoxShadowEddddRK9QVector4Dd6QColor": [
       "nothing", "address", "double", "double", "double", "double",
       "address", "double", "address"
@@ -23,9 +29,16 @@
     "ritual_ZNK23QCanvasBoxShadowPrivate13clampedRadiusEddd": [
       "double", "address", "double", "double", "double"
     ],
+    "ritual_ZNK23QCanvasBoxShadowPrivate12clampedColorEv": [
+      "address", "address"
+    ],
     "ritual_ZN23QCanvasBoxShadowPrivateD1Ev": ["nothing", "address"],
     "ritual_take_QCanvasBoxShadowPrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QCanvasBoxShadowPrivate5cloneEv": ["address", "address"],
+    "ritual_own_ZNK23QCanvasBoxShadowPrivate11createPaintEP14QCanvasPainter": [
+      "address", "address", "address"
     ]
   }
 }

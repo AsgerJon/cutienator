@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickMaskExtruder10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickMaskExtruder11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickMaskExtruder11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickMaskExtruder2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -17,6 +23,9 @@
       "bool", "address", "address", "address"
     ],
     "ritual_ZNK18QQuickMaskExtruder6sourceEv": ["address", "address"],
+    "ritual_ZN18QQuickMaskExtruder13sourceChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QQuickMaskExtruder9setSourceERK4QUrl": [
       "nothing", "address", "address"
     ],

@@ -8,6 +8,12 @@
     "ritual_ZNK23QQuickApplicationWindow10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QQuickApplicationWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickApplicationWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QQuickApplicationWindow2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -54,6 +60,39 @@
     "ritual_ZNK23QQuickApplicationWindow7menuBarEv": ["address", "address"],
     "ritual_ZN23QQuickApplicationWindow10setMenuBarEP10QQuickItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow17backgroundChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow25activeFocusControlChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow13headerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow13footerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow11fontChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow13localeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow14menuBarChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow17topPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow18leftPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow19rightPaddingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow20bottomPaddingChangedEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK23QQuickApplicationWindow19isComponentCompleteEv": [
       "bool", "address"

@@ -7,6 +7,14 @@
 #include <QtCharts/6.12.0/QtCharts/private/glxyseriesdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  GLXYSeriesData &GLXYSeriesData::operator=(const GLXYSeriesData &data)
+extern "C" Q_DECL_EXPORT
+GLXYSeriesData *ritual_ZN14GLXYSeriesDataaSERKS_(
+    GLXYSeriesData *self,
+    const GLXYSeriesData *data) {
+  return &(self->operator=(*data));
+}
+
 //  GLXYSeriesData::~GLXYSeriesData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14GLXYSeriesDataD1Ev(GLXYSeriesData *self) {

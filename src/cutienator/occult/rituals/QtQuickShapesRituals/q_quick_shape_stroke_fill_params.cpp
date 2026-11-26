@@ -12,6 +12,7 @@
 #include <QtQuickShapes/private/qquickshapegenericrenderer_p.h>
 #include <QtQuickShapes/private/qquickshapesoftwarerenderer_p.h>
 #include <QtQuickShapes/private/qquickshapecurverenderer_p.h>
+#include <private/qsgcurvestrokenode_p.h>
 #include <private/qsgplaintexture_p.h>
 #include <QtGui/private/qdrawhelper_p.h>
 #include <QOpenGLFunctions>

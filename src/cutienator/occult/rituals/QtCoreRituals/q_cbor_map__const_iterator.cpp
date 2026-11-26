@@ -3,6 +3,7 @@
 #include <QtCore/qcbormap.h>
 #include <QtCore/qcborvalue.h>
 #include <QtCore/qcompare.h>
+#include <QtCore/QCborMap>
 
 //  QCborMap::ConstIterator::ConstIterator(QCborValueConstRef it)
 extern "C" Q_DECL_EXPORT
@@ -39,6 +40,30 @@ void ritual_ZN8QCborMap13ConstIteratorD1Ev(QCborMap::ConstIterator *self) {
   delete self;
 }
 
+//  ConstIterator &QCborMap::ConstIterator::operator=(const ConstIterator
+//      &other)
+extern "C" Q_DECL_EXPORT
+QCborMap::ConstIterator *ritual_ZN8QCborMap13ConstIteratoraSERKS0_(
+    QCborMap::ConstIterator *self,
+    const QCborMap::ConstIterator *other) {
+  return &(self->operator=(*other));
+}
+
+//  value_type QCborMap::ConstIterator::operator*() const
+extern "C" Q_DECL_EXPORT
+QCborMap::ConstIterator::value_type *ritual_ZNK8QCborMap13ConstIteratordeEv(
+    const QCborMap::ConstIterator *self) {
+  return new QCborMap::ConstIterator::value_type(self->operator*());
+}
+
+//  value_type QCborMap::ConstIterator::operator[](qsizetype j) const
+extern "C" Q_DECL_EXPORT
+QCborMap::ConstIterator::value_type *ritual_ZNK8QCborMap13ConstIteratorixEx(
+    const QCborMap::ConstIterator *self,
+    qsizetype j) {
+  return new QCborMap::ConstIterator::value_type(self->operator[](j));
+}
+
 //  const QCborValueConstRef *QCborMap::ConstIterator::operator->() const
 extern "C" Q_DECL_EXPORT
 const QCborValueConstRef *ritual_ZNK8QCborMap13ConstIteratorptEv(
@@ -67,12 +92,26 @@ QCborValueConstRef *ritual_ZNK8QCborMap13ConstIterator5valueEv(
   return new QCborValueConstRef(self->value());
 }
 
+//  ConstIterator &QCborMap::ConstIterator::operator++()
+extern "C" Q_DECL_EXPORT
+QCborMap::ConstIterator *ritual_ZN8QCborMap13ConstIteratorppEv(
+    QCborMap::ConstIterator *self) {
+  return &(self->operator++());
+}
+
 //  ConstIterator QCborMap::ConstIterator::operator++(int a0)
 extern "C" Q_DECL_EXPORT
 QCborMap::ConstIterator *ritual_ZN8QCborMap13ConstIteratorppEi(
     QCborMap::ConstIterator *self,
     int a0) {
   return new QCborMap::ConstIterator(self->operator++(a0));
+}
+
+//  ConstIterator &QCborMap::ConstIterator::operator--()
+extern "C" Q_DECL_EXPORT
+QCborMap::ConstIterator *ritual_ZN8QCborMap13ConstIteratormmEv(
+    QCborMap::ConstIterator *self) {
+  return &(self->operator--());
 }
 
 //  ConstIterator QCborMap::ConstIterator::operator--(int a0)
@@ -190,4 +229,12 @@ bool ritual_ZgeRKN8QCborMap13ConstIteratorES2_(
     const QCborMap::ConstIterator *lhs,
     const QCborMap::ConstIterator *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  a QCborMap::ConstIterator::value_type a ritual of QCborMap::ConstIterator
+//      gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QCborMap_ConstIterator__QCborMap_ConstIterator_value_type(
+    QCborMap::ConstIterator::value_type *self) {
+  delete self;
 }

@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DRender/Qt3DRender>
 
 //  A Qt3DRender::QRenderPassFilter that Python can take functions over in. Every Qt3DRender::QRenderPassFilter
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender17QRenderPassFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QRenderPassFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender17QRenderPassFilter11qt_metacastEPKc(
+    Qt3DRender::QRenderPassFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QRenderPassFilter::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender17QRenderPassFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QRenderPassFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QRenderPassFilter::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,76 @@ QString *ritual_ZN10Qt3DRender17QRenderPassFilter2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QRenderPassFilter::tr(s, c, n));
+}
+
+//  Qt3DRender::QRenderPassFilter::QRenderPassFilter(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderPassFilter *ritual_ZN10Qt3DRender17QRenderPassFilterC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRenderPassFilter(parent);
+}
+
+//  Qt3DRender::QRenderPassFilter::~QRenderPassFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QRenderPassFilterD1Ev(
+    Qt3DRender::QRenderPassFilter *self) {
+  delete self;
+}
+
+//  QList<QFilterKey *> Qt3DRender::QRenderPassFilter::matchAny() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QFilterKey *> *ritual_ZNK10Qt3DRender17QRenderPassFilter8matchAnyEv(
+    const Qt3DRender::QRenderPassFilter *self) {
+  return new QList<Qt3DRender::QFilterKey *>(self->matchAny());
+}
+
+//  void Qt3DRender::QRenderPassFilter::addMatch(QFilterKey *filterKey)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QRenderPassFilter8addMatchEPNS_10QFilterKeyE(
+    Qt3DRender::QRenderPassFilter *self,
+    Qt3DRender::QFilterKey *filterKey) {
+  self->addMatch(filterKey);
+}
+
+//  void Qt3DRender::QRenderPassFilter::removeMatch(QFilterKey *filterKey)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QRenderPassFilter11removeMatchEPNS_10QFilterKeyE(
+    Qt3DRender::QRenderPassFilter *self,
+    Qt3DRender::QFilterKey *filterKey) {
+  self->removeMatch(filterKey);
+}
+
+//  void Qt3DRender::QRenderPassFilter::addParameter(QParameter *parameter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QRenderPassFilter12addParameterEPNS_10QParameterE(
+    Qt3DRender::QRenderPassFilter *self,
+    Qt3DRender::QParameter *parameter) {
+  self->addParameter(parameter);
+}
+
+//  void Qt3DRender::QRenderPassFilter::removeParameter(QParameter
+//      *parameter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender17QRenderPassFilter15removeParameterEPNS_10QParameterE(
+    Qt3DRender::QRenderPassFilter *self,
+    Qt3DRender::QParameter *parameter) {
+  self->removeParameter(parameter);
+}
+
+//  QList<QParameter *> Qt3DRender::QRenderPassFilter::parameters() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DRender::QParameter *> *ritual_ZNK10Qt3DRender17QRenderPassFilter10parametersEv(
+    const Qt3DRender::QRenderPassFilter *self) {
+  return new QList<Qt3DRender::QParameter *>(self->parameters());
+}
+
+//  Qt3DRender::QRenderPassFilter::QRenderPassFilter(QRenderPassFilterPrivate
+//      &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRenderPassFilter *ritual_ZN10Qt3DRender17QRenderPassFilterC1ERNS_24QRenderPassFilterPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QRenderPassFilterPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRenderPassFilter(*dd, parent);
 }
 
 //  QRenderPassFilterPrivate *Qt3DRender::QRenderPassFilter::d_func()
@@ -212,4 +303,20 @@ bool ritual_take_Qt3DRender_QRenderPassFilter(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DRender_QRenderPassFilter *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DRender::QFilterKey *> a ritual of
+//      Qt3DRender::QRenderPassFilter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QRenderPassFilter__QList_Qt3DRender_QFilterKey(
+    QList<Qt3DRender::QFilterKey *> *self) {
+  delete self;
+}
+
+//  a QList<Qt3DRender::QParameter *> a ritual of
+//      Qt3DRender::QRenderPassFilter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DRender_QRenderPassFilter__QList_Qt3DRender_QParameter(
+    QList<Qt3DRender::QParameter *> *self) {
+  delete self;
 }

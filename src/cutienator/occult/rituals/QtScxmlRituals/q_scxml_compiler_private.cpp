@@ -9,7 +9,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtScxml/qscxmlerror.h>
+#if QT_CONFIG(xmlstream)
 #include <QtCore/qxmlstream.h>
+#endif
 #include <QtCore/qlist.h>
 
 //  QScxmlCompilerPrivate *QScxmlCompilerPrivate::get(QScxmlCompiler
@@ -597,6 +599,20 @@ bool ritual_ZN21QScxmlCompilerPrivate15checkAttributesERK20QXmlStreamAttributesN
     const QXmlStreamAttributes *attributes,
     QScxmlCompilerPrivate::ParserState::Kind kind) {
   return self->checkAttributes(*attributes, kind);
+}
+
+//  ParserState &QScxmlCompilerPrivate::current()
+extern "C" Q_DECL_EXPORT
+QScxmlCompilerPrivate::ParserState *ritual_ZN21QScxmlCompilerPrivate7currentEv(
+    QScxmlCompilerPrivate *self) {
+  return &(self->current());
+}
+
+//  ParserState &QScxmlCompilerPrivate::previous()
+extern "C" Q_DECL_EXPORT
+QScxmlCompilerPrivate::ParserState *ritual_ZN21QScxmlCompilerPrivate8previousEv(
+    QScxmlCompilerPrivate *self) {
+  return &(self->previous());
 }
 
 //  bool QScxmlCompilerPrivate::hasPrevious() const

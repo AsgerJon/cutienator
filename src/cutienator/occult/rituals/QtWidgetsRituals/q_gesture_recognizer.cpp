@@ -88,6 +88,12 @@ public:
 #endif  // !defined(QT_NO_GESTURES)
 };
 
+//  QGestureRecognizer::QGestureRecognizer()
+extern "C" Q_DECL_EXPORT
+QGestureRecognizer *ritual_ZN18QGestureRecognizerC1Ev() {
+  return new CuteQGestureRecognizer();
+}
+
 //  QGestureRecognizer::~QGestureRecognizer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QGestureRecognizerD1Ev(QGestureRecognizer *self) {

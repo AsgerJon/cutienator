@@ -8,6 +8,12 @@
     "ritual_ZNK32QQuickAttachedPropertyPropagator10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuickAttachedPropertyPropagator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuickAttachedPropertyPropagator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN32QQuickAttachedPropertyPropagator2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -31,6 +37,12 @@
     ],
     "ritual_Zls6QDebugPK32QQuickAttachedPropertyPropagator": [
       "address", "address", "address"
+    ],
+    "ritual_ZN32QQuickAttachedPropertyPropagator6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickAttachedPropertyPropagator6d_funcEv": [
+      "address", "address"
     ],
     "ritual_take_QQuickAttachedPropertyPropagator": [
       "bool", "address", "chars", "address"

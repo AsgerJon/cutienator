@@ -24,6 +24,23 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/private/qmdiarea_p.h>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QStyle>
+#include <QtCore/QChildEvent>
+#include <QtGui/QResizeEvent>
+#include <QtWidgets/QScrollBar>
+#include <QtCore/QtAlgorithms>
+#include <QtGui/QPainter>
+#include <QtGui/QFontMetrics>
+#include <QtWidgets/QStyleOption>
+#include <QtCore/QDebug>
+#include <QtCore/qmath.h>
+#if QT_CONFIG(menu)
+#include <QtWidgets/qmenu.h>
+#endif
+#include <QtWidgets/private/qlayoutengine_p.h>
+#include <algorithm>
 #include <QtWidgets/qabstractscrollarea.h>
 #if QT_CONFIG(scrollarea)
 #include <QtWidgets/qscrollbar.h>
@@ -74,23 +91,6 @@
 #include <QtWidgets/QMenu>
 #endif
 #include <QtWidgets/QProxyStyle>
-#include <QtWidgets/private/qmdiarea_p.h>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QStyle>
-#include <QtCore/QChildEvent>
-#include <QtGui/QResizeEvent>
-#include <QtWidgets/QScrollBar>
-#include <QtCore/QtAlgorithms>
-#include <QtGui/QPainter>
-#include <QtGui/QFontMetrics>
-#include <QtWidgets/QStyleOption>
-#include <QtCore/QDebug>
-#include <QtCore/qmath.h>
-#if QT_CONFIG(menu)
-#include <QtWidgets/qmenu.h>
-#endif
-#include <QtWidgets/private/qlayoutengine_p.h>
-#include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -99,6 +99,187 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 147, as local:qmdiarea.cpp:sanityCheck
+static bool sanityCheck(const QMdiSubWindow * const child, const char *where)
+{
+    if (Q_UNLIKELY(!child)) {
+        const char error[] = "null pointer";
+        Q_ASSERT_X(false, where, error);
+        qWarning("%s:%s", where, error);
+        return false;
+    }
+    return true;
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 175, as local:qmdiarea.cpp:setIndex
+static void setIndex(int *index, int candidate, int min, int max, bool isIncreasing)
+{
+    if (!index)
+        return;
+
+    if (isIncreasing) {
+        if (candidate > max)
+            *index = min;
+        else
+            *index = qMax(candidate, min);
+    } else {
+        if (candidate < min)
+            *index = max;
+        else
+            *index = qMin(candidate, max);
+    }
+    Q_ASSERT(*index >= min && *index <= max);
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 194, as local:qmdiarea.cpp:useScrollBar
+static inline bool useScrollBar(const QRect &childrenRect, const QSize &maxViewportSize,
+                                Qt::Orientation orientation)
+{
+    if (orientation == Qt::Horizontal)
+        return  childrenRect.width() > maxViewportSize.width()
+                || childrenRect.left() < 0
+                || childrenRect.right() >= maxViewportSize.width();
+    else
+        return childrenRect.height() > maxViewportSize.height()
+               || childrenRect.top() < 0
+               || childrenRect.bottom() >= maxViewportSize.height();
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 518, as local:qmdiarea.cpp:QMdiAreaTabBar
+#if QT_CONFIG(tabbar)
+class QMdiAreaTabBar : public QTabBar
+{
+public:
+    QMdiAreaTabBar(QWidget *parent) : QTabBar(parent) {}
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
+#ifndef QT_NO_CONTEXTMENU
+    void contextMenuEvent(QContextMenuEvent *event) override;
+#endif
+
+private:
+    QMdiSubWindow *subWindowFromIndex(int index) const;
+};
+#endif  // QT_CONFIG(tabbar)
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 536, as local:qmdiarea.cpp:QMdiAreaTabBar::mousePressEvent
+#if QT_CONFIG(tabbar)
+inline void QMdiAreaTabBar::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() != Qt::MiddleButton) {
+        QTabBar::mousePressEvent(event);
+        return;
+    }
+
+    QMdiSubWindow *subWindow = subWindowFromIndex(tabAt(event->position().toPoint()));
+    if (!subWindow) {
+        event->ignore();
+        return;
+    }
+
+    subWindow->close();
+}
+#endif  // QT_CONFIG(tabbar)
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 556, as local:qmdiarea.cpp:QMdiAreaTabBar::contextMenuEvent
+#if QT_CONFIG(tabbar)
+#if !defined(QT_NO_CONTEXTMENU)
+inline void QMdiAreaTabBar::contextMenuEvent(QContextMenuEvent *event)
+{
+    QPointer<QMdiSubWindow> subWindow = subWindowFromIndex(tabAt(event->pos()));
+    if (!subWindow || subWindow->isHidden()) {
+        event->ignore();
+        return;
+    }
+
+#if QT_CONFIG(menu)
+    QMdiSubWindowPrivate *subWindowPrivate = subWindow->d_func();
+    if (!subWindowPrivate->systemMenu) {
+        event->ignore();
+        return;
+    }
+
+    QMdiSubWindow *currentSubWindow = subWindowFromIndex(currentIndex());
+    Q_ASSERT(currentSubWindow);
+
+    // We don't want these actions to show up in the system menu when the
+    // current sub-window is maximized, i.e. covers the entire viewport.
+    if (currentSubWindow->isMaximized()) {
+        subWindowPrivate->setVisible(QMdiSubWindowPrivate::MoveAction, false);
+        subWindowPrivate->setVisible(QMdiSubWindowPrivate::ResizeAction, false);
+        subWindowPrivate->setVisible(QMdiSubWindowPrivate::MinimizeAction, false);
+        subWindowPrivate->setVisible(QMdiSubWindowPrivate::MaximizeAction, false);
+        subWindowPrivate->setVisible(QMdiSubWindowPrivate::RestoreAction, false);
+        subWindowPrivate->setVisible(QMdiSubWindowPrivate::StayOnTopAction, false);
+    }
+
+    // Show system menu.
+    subWindowPrivate->systemMenu->exec(event->globalPos());
+    if (!subWindow)
+        return;
+
+    // Restore action visibility.
+    subWindowPrivate->updateActions();
+#endif // QT_CONFIG(menu)
+}
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#endif  // QT_CONFIG(tabbar)
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 599, as local:qmdiarea.cpp:QMdiAreaTabBar::subWindowFromIndex
+#if QT_CONFIG(tabbar)
+inline QMdiSubWindow *QMdiAreaTabBar::subWindowFromIndex(int index) const
+{
+    if (index < 0 || index >= count())
+        return nullptr;
+
+    QMdiArea *mdiArea = qobject_cast<QMdiArea *>(parentWidget());
+    Q_ASSERT(mdiArea);
+
+    const QList<QMdiSubWindow *> subWindows = mdiArea->subWindowList();
+    Q_ASSERT(index < subWindows.size());
+
+    QMdiSubWindow *subWindow = mdiArea->subWindowList().at(index);
+    Q_ASSERT(subWindow);
+
+    return subWindow;
+}
+#endif  // QT_CONFIG(tabbar)
+
+//  from src/widgets/widgets/qmdisubwindow.cpp, line 215, as local:qmdisubwindow.cpp:isChildOfTabbedQMdiArea
+static inline bool isChildOfTabbedQMdiArea(const QMdiSubWindow *child)
+{
+    Q_ASSERT(child);
+    if (QMdiArea *mdiArea = child->mdiArea()) {
+        if (mdiArea->viewMode() == QMdiArea::TabbedView)
+            return true;
+    }
+    return false;
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 1334, as _ZN15QMdiAreaPrivate22scrollBarPolicyChangedEN2Qt11OrientationENS0_15ScrollBarPolicyE
+inline void QMdiAreaPrivate::scrollBarPolicyChanged(Qt::Orientation orientation, Qt::ScrollBarPolicy policy)
+{
+    if (childWindows.isEmpty())
+        return;
+
+    const QMdiSubWindow::SubWindowOption option = orientation == Qt::Horizontal ?
+        QMdiSubWindow::AllowOutsideAreaHorizontally : QMdiSubWindow::AllowOutsideAreaVertically;
+    const bool enable = policy != Qt::ScrollBarAlwaysOff;
+    // Take a copy because child->setOption() may indirectly call QCoreApplication::sendEvent(),
+    // the latter could call unknown code that could e.g. recurse into the class
+    // modifying childWindows.
+    const auto subWindows = childWindows;
+    for (QMdiSubWindow *child : subWindows) {
+        if (!sanityCheck(child, "QMdiArea::scrollBarPolicyChanged"))
+            continue;
+        child->setOption(option, enable);
+    }
+    updateScrollBars();
+}
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 133, as _ZN26QAbstractScrollAreaPrivateC2Ev
 #if QT_CONFIG(scrollarea)
@@ -207,6 +388,156 @@ inline void QMdiSubWindowPrivate::setActive(bool activate, bool changeFocus)
 
     q->update(windowDecoration);
 }
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 1006, as _ZN15QMdiAreaPrivate19emitWindowActivatedEP13QMdiSubWindow
+inline void QMdiAreaPrivate::emitWindowActivated(QMdiSubWindow *activeWindow)
+{
+    Q_Q(QMdiArea);
+    Q_ASSERT(activeWindow);
+    if (activeWindow == active)
+        return;
+    Q_ASSERT(activeWindow->d_func()->isActive);
+
+    if (!aboutToBecomeActive)
+        _q_deactivateAllWindows(activeWindow);
+    Q_ASSERT(aboutToBecomeActive);
+
+    // This is true only if 'DontMaximizeSubWindowOnActivation' is disabled
+    // and the previous active window was maximized.
+    if (showActiveWindowMaximized) {
+        if (!activeWindow->isMaximized())
+            activeWindow->showMaximized();
+        showActiveWindowMaximized = false;
+    }
+
+    // Put in front to update activation order.
+    const int indexToActiveWindow = childWindows.indexOf(activeWindow);
+    Q_ASSERT(indexToActiveWindow != -1);
+    const int index = indicesToActivatedChildren.indexOf(indexToActiveWindow);
+    Q_ASSERT(index != -1);
+    indicesToActivatedChildren.move(index, 0);
+    internalRaise(activeWindow);
+
+    if (updatesDisabledByUs) {
+        q->setUpdatesEnabled(true);
+        updatesDisabledByUs = false;
+    }
+
+    Q_ASSERT(aboutToBecomeActive == activeWindow);
+    active = activeWindow;
+    aboutToBecomeActive = nullptr;
+    Q_ASSERT(active->d_func()->isActive);
+
+#if QT_CONFIG(tabbar)
+    if (tabBar && tabBar->currentIndex() != indexToActiveWindow)
+        tabBar->setCurrentIndex(indexToActiveWindow);
+#endif
+
+    if (active->isMaximized() && scrollBarsEnabled())
+        updateScrollBars();
+
+    emit q->subWindowActivated(active);
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 1200, as _ZNK15QMdiAreaPrivate13internalRaiseEP13QMdiSubWindow
+inline void QMdiAreaPrivate::internalRaise(QMdiSubWindow *mdiChild) const
+{
+    if (!sanityCheck(mdiChild, "QMdiArea::internalRaise") || childWindows.size() < 2)
+        return;
+
+    QMdiSubWindow *stackUnderChild = nullptr;
+    if (!windowStaysOnTop(mdiChild)) {
+        const auto children = viewport->children(); // take a copy, as raising/stacking under changes the order
+        for (QObject *object : children) {
+            QMdiSubWindow *child = qobject_cast<QMdiSubWindow *>(object);
+            if (!child || !childWindows.contains(child))
+                continue;
+            if (!child->isHidden() && windowStaysOnTop(child)) {
+                if (stackUnderChild)
+                    child->stackUnder(stackUnderChild);
+                else
+                    child->raise();
+                stackUnderChild = child;
+            }
+        }
+    }
+
+    if (stackUnderChild)
+        mdiChild->stackUnder(stackUnderChild);
+    else
+        mdiChild->raise();
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 1411, as _ZNK15QMdiAreaPrivate20nextVisibleSubWindowEiN8QMdiArea11WindowOrderEii
+inline QMdiSubWindow *QMdiAreaPrivate::nextVisibleSubWindow(int increaseFactor, QMdiArea::WindowOrder order,
+                                                     int removedIndex, int fromIndex) const
+{
+    if (childWindows.isEmpty())
+        return nullptr;
+
+    Q_Q(const QMdiArea);
+    const QList<QMdiSubWindow *> subWindows = q->subWindowList(order);
+    QMdiSubWindow *current = nullptr;
+
+    if (removedIndex < 0) {
+        if (fromIndex >= 0 && fromIndex < subWindows.size())
+            current = childWindows.at(fromIndex);
+        else
+            current = q->currentSubWindow();
+    }
+
+    // There's no current sub-window (removed or deactivated),
+    // so we have to pick the last active or the next in creation order.
+    if (!current) {
+        if (removedIndex >= 0 && order == QMdiArea::CreationOrder) {
+            int candidateIndex = -1;
+            setIndex(&candidateIndex, removedIndex, 0, subWindows.size() - 1, true);
+            current = childWindows.at(candidateIndex);
+        } else {
+            current = subWindows.back();
+        }
+    }
+    Q_ASSERT(current);
+
+    // Find the index for the current sub-window in the given activation order
+    const int indexToCurrent = subWindows.indexOf(current);
+    const bool increasing = increaseFactor > 0;
+
+    // and use that index + increseFactor as a candidate.
+    int index = -1;
+    setIndex(&index, indexToCurrent + increaseFactor, 0, subWindows.size() - 1, increasing);
+    Q_ASSERT(index != -1);
+
+    // Try to find another window if the candidate is hidden.
+    while (subWindows.at(index)->isHidden()) {
+        setIndex(&index, index + increaseFactor, 0, subWindows.size() - 1, increasing);
+        if (index == indexToCurrent)
+            break;
+    }
+
+    if (!subWindows.at(index)->isHidden())
+        return subWindows.at(index);
+    return nullptr;
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 1506, as _ZN15QMdiAreaPrivate17showRubberBandForEP13QMdiSubWindow
+#if QT_CONFIG(rubberband)
+inline void QMdiAreaPrivate::showRubberBandFor(QMdiSubWindow *subWindow)
+{
+    if (!subWindow || !rubberBand)
+        return;
+
+#if QT_CONFIG(tabbar)
+    if (viewMode == QMdiArea::TabbedView)
+        rubberBand->setGeometry(tabBar->tabRect(childWindows.indexOf(subWindow)));
+    else
+#endif
+        rubberBand->setGeometry(subWindow->geometry());
+
+    rubberBand->raise();
+    rubberBand->show();
+}
+#endif  // QT_CONFIG(rubberband)
 
 //  from src/widgets/widgets/qmdisubwindow.cpp, line 1965, as _ZN20QMdiSubWindowPrivate14setFocusWidgetEv
 inline void QMdiSubWindowPrivate::setFocusWidget()
@@ -362,6 +693,72 @@ inline QStyleOptionTitleBar QMdiSubWindowPrivate::titleBarOptions() const
     return titleBarOptions;
 }
 
+//  from src/widgets/widgets/qmdiarea.cpp, line 1132, as _ZN15QMdiAreaPrivate16updateScrollBarsEv
+inline void QMdiAreaPrivate::updateScrollBars()
+{
+    if (ignoreGeometryChange || !scrollBarsEnabled())
+        return;
+
+    Q_Q(QMdiArea);
+    QSize maxSize = q->maximumViewportSize();
+    QSize hbarExtent = hbar->sizeHint();
+    QSize vbarExtent = vbar->sizeHint();
+
+    if (q->style()->styleHint(QStyle::SH_ScrollView_FrameOnlyAroundContents, nullptr, q)) {
+        const int doubleFrameWidth = frameWidth * 2;
+        if (hbarpolicy == Qt::ScrollBarAlwaysOn)
+            maxSize.rheight() -= doubleFrameWidth;
+        if (vbarpolicy == Qt::ScrollBarAlwaysOn)
+            maxSize.rwidth() -= doubleFrameWidth;
+        hbarExtent.rheight() += doubleFrameWidth;
+        vbarExtent.rwidth() += doubleFrameWidth;
+    }
+
+    const QRect childrenRect = active && active->isMaximized()
+                               ? active->geometry() : viewport->childrenRect();
+    bool useHorizontalScrollBar = useScrollBar(childrenRect, maxSize, Qt::Horizontal);
+    bool useVerticalScrollBar = useScrollBar(childrenRect, maxSize, Qt::Vertical);
+
+    if (useHorizontalScrollBar && !useVerticalScrollBar) {
+        const QSize max = maxSize - QSize(0, hbarExtent.height());
+        useVerticalScrollBar = useScrollBar(childrenRect, max, Qt::Vertical);
+    }
+
+    if (useVerticalScrollBar && !useHorizontalScrollBar) {
+        const QSize max = maxSize - QSize(vbarExtent.width(), 0);
+        useHorizontalScrollBar = useScrollBar(childrenRect, max, Qt::Horizontal);
+    }
+
+    if (useHorizontalScrollBar && hbarpolicy != Qt::ScrollBarAlwaysOn)
+        maxSize.rheight() -= hbarExtent.height();
+    if (useVerticalScrollBar && vbarpolicy != Qt::ScrollBarAlwaysOn)
+        maxSize.rwidth() -= vbarExtent.width();
+
+    QRect viewportRect(QPoint(0, 0), maxSize);
+    const int startX = q->isLeftToRight() ? childrenRect.left() : viewportRect.right()
+                                                                  - childrenRect.right();
+
+    const auto singleStep = defaultSingleStep();
+
+    // Horizontal scroll bar.
+    if (isSubWindowsTiled && hbar->value() != 0)
+        hbar->setValue(0);
+    const int xOffset = startX + hbar->value();
+    hbar->setRange(qMin(0, xOffset),
+                   qMax(0, xOffset + childrenRect.width() - viewportRect.width()));
+    hbar->setPageStep(childrenRect.width());
+    hbar->setSingleStep(childrenRect.width() / singleStep);
+
+    // Vertical scroll bar.
+    if (isSubWindowsTiled && vbar->value() != 0)
+        vbar->setValue(0);
+    const int yOffset = childrenRect.top() + vbar->value();
+    vbar->setRange(qMin(0, yOffset),
+                   qMax(0, yOffset + childrenRect.height() - viewportRect.height()));
+    vbar->setPageStep(childrenRect.height());
+    vbar->setSingleStep(childrenRect.height() / singleStep);
+}
+
 //  from src/widgets/widgets/qmdisubwindow.cpp, line 2012, as _ZN20QMdiSubWindowPrivate12restoreFocusEv
 inline bool QMdiSubWindowPrivate::restoreFocus()
 {
@@ -378,6 +775,15 @@ inline bool QMdiSubWindowPrivate::restoreFocus()
     return candidate->hasFocus();
 }
 
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1485, as _ZNK26QAbstractScrollAreaPrivate17defaultSingleStepEv
+#if QT_CONFIG(scrollarea)
+inline int QAbstractScrollAreaPrivate::defaultSingleStep() const
+{
+    auto *platformTheme = QGuiApplicationPrivate::platformTheme();
+    return platformTheme->themeHint(QPlatformTheme::ScrollSingleStepDistance).value<int>();
+}
+#endif  // QT_CONFIG(scrollarea)
+
 //  from src/widgets/widgets/qmdiarea.cpp, line 757, as _ZN15QMdiAreaPrivate11_q_closeTabEi
 inline void QMdiAreaPrivate::_q_closeTab(int index)
 {
@@ -387,6 +793,28 @@ inline void QMdiAreaPrivate::_q_closeTab(int index)
     QMdiSubWindow *subWindow = childWindows.at(index);
     Q_ASSERT(subWindow);
     subWindow->close();
+#endif // QT_CONFIG(tabbar)
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 768, as _ZN15QMdiAreaPrivate10_q_moveTabEii
+inline void QMdiAreaPrivate::_q_moveTab(int from, int to)
+{
+#if !QT_CONFIG(tabbar)
+    Q_UNUSED(from);
+    Q_UNUSED(to);
+#else
+    childWindows.move(from, to);
+
+    // Put the active window in front to update activation order.
+    const int indexToActiveWindow = childWindows.indexOf(active);
+    if (indexToActiveWindow != -1) {
+        const int index = indicesToActivatedChildren.indexOf(indexToActiveWindow);
+        Q_ASSERT(index != -1);
+        if (index != 0) { // if it's not in front
+            indicesToActivatedChildren.move(index, 0);
+            internalRaise(active);
+        }
+    }
 #endif // QT_CONFIG(tabbar)
 }
 
@@ -508,6 +936,47 @@ inline QRect QMdiAreaPrivate::resizeToMinimumTileSize(const QSize &minSubWindowS
             vbar->setValue(0);
     }
     return domain;
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 1465, as _ZN15QMdiAreaPrivate22highlightNextSubWindowEi
+inline void QMdiAreaPrivate::highlightNextSubWindow(int increaseFactor)
+{
+    if (childWindows.size() == 1)
+        return;
+
+    Q_Q(QMdiArea);
+    // There's no highlighted sub-window atm, use current.
+    if (indexToHighlighted < 0) {
+        QMdiSubWindow *current = q->currentSubWindow();
+        if (!current)
+            return;
+        indexToHighlighted = childWindows.indexOf(current);
+    }
+
+    Q_ASSERT(indexToHighlighted >= 0);
+    Q_ASSERT(indexToHighlighted < childWindows.size());
+
+    QMdiSubWindow *highlight = nextVisibleSubWindow(increaseFactor, activationOrder, -1, indexToHighlighted);
+    if (!highlight)
+        return;
+
+#if QT_CONFIG(rubberband)
+    if (!rubberBand) {
+        rubberBand = new QRubberBand(QRubberBand::Rectangle, q);
+        // For accessibility to identify this special widget.
+        rubberBand->setObjectName("qt_rubberband"_L1);
+        rubberBand->setWindowFlags(rubberBand->windowFlags() | Qt::WindowStaysOnTopHint);
+    }
+#endif
+
+    // Only highlight if we're not switching back to the previously active window (Ctrl-Tab once).
+#if QT_CONFIG(rubberband)
+    if (!tabToPreviousTimer.isActive())
+        showRubberBandFor(highlight);
+#endif
+
+    indexToHighlighted = childWindows.indexOf(highlight);
+    Q_ASSERT(indexToHighlighted >= 0);
 }
 
 //  from src/widgets/widgets/qmdiarea.cpp, line 1354, as _ZNK15QMdiAreaPrivate13subWindowListEN8QMdiArea11WindowOrderEb
@@ -962,6 +1431,15 @@ void ritual_ZN15QMdiAreaPrivate11_q_closeTabEi(
   self->_q_closeTab(index);
 }
 
+//  void QMdiAreaPrivate::_q_moveTab(int from, int to)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMdiAreaPrivate10_q_moveTabEii(
+    QMdiAreaPrivate *self,
+    int from,
+    int to) {
+  self->_q_moveTab(from, to);
+}
+
 //  void QMdiAreaPrivate::resetActiveWindow(QMdiSubWindow *child)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMdiAreaPrivate17resetActiveWindowEP13QMdiSubWindow(
@@ -1006,6 +1484,26 @@ QRect *ritual_ZN15QMdiAreaPrivate23resizeToMinimumTileSizeERK5QSizei(
           *minSubWindowSize,
           subWindowCount));
 }
+
+//  void QMdiAreaPrivate::scrollBarPolicyChanged(Qt::Orientation a0,
+//      Qt::ScrollBarPolicy a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMdiAreaPrivate22scrollBarPolicyChangedEN2Qt11OrientationENS0_15ScrollBarPolicyE(
+    QMdiAreaPrivate *self,
+    Qt::Orientation a0,
+    Qt::ScrollBarPolicy a1) {
+  self->scrollBarPolicyChanged(a0, a1);
+}
+
+#if QT_CONFIG(rubberband)
+//  void QMdiAreaPrivate::highlightNextSubWindow(int increaseFactor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QMdiAreaPrivate22highlightNextSubWindowEi(
+    QMdiAreaPrivate *self,
+    int increaseFactor) {
+  self->highlightNextSubWindow(increaseFactor);
+}
+#endif  // QT_CONFIG(rubberband)
 
 //  QList<QMdiSubWindow *>
 //      QMdiAreaPrivate::subWindowList(QMdiArea::WindowOrder a0, bool
@@ -1073,6 +1571,18 @@ bool ritual_take_QMdiAreaPrivate(
     void *call) {
   return static_cast<CuteQMdiAreaPrivate *>(self)->take(key, call);
 }
+
+#if QT_CONFIG(scrollarea)
+//  void QMdiAreaPrivate::scrollBarPolicyChanged(Qt::Orientation a0,
+//      Qt::ScrollBarPolicy a1)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN15QMdiAreaPrivate22scrollBarPolicyChangedEN2Qt11OrientationENS0_15ScrollBarPolicyE(
+    QMdiAreaPrivate *self,
+    Qt::Orientation a0,
+    Qt::ScrollBarPolicy a1) {
+  self->QMdiAreaPrivate::scrollBarPolicyChanged(a0, a1);
+}
+#endif  // QT_CONFIG(scrollarea)
 
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(mdiarea)

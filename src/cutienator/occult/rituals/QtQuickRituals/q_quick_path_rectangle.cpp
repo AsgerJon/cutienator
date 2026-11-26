@@ -19,6 +19,25 @@ const QMetaObject *ritual_ZNK19QQuickPathRectangle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPathRectangle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickPathRectangle11qt_metacastEPKc(
+    QQuickPathRectangle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPathRectangle::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickPathRectangle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPathRectangle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPathRectangle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickPathRectangle2trEPKcS1_i(
@@ -336,6 +355,107 @@ void ritual_ZN19QQuickPathRectangle16resetCornerBevelEN2Qt6CornerE(
     QQuickPathRectangle *self,
     Qt::Corner corner) {
   self->resetCornerBevel(corner);
+}
+
+//  void QQuickPathRectangle::addToPath(QPainterPath &path, const
+//      QQuickPathData &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle9addToPathER12QPainterPathRK14QQuickPathData(
+    QQuickPathRectangle *self,
+    QPainterPath *path,
+    const QQuickPathData *a1) {
+  self->addToPath(*path, *a1);
+}
+
+//  void QQuickPathRectangle::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle12widthChangedEv(
+    QQuickPathRectangle *self) {
+  self->widthChanged();
+}
+
+//  void QQuickPathRectangle::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle13heightChangedEv(
+    QQuickPathRectangle *self) {
+  self->heightChanged();
+}
+
+//  void QQuickPathRectangle::strokeAdjustmentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle23strokeAdjustmentChangedEv(
+    QQuickPathRectangle *self) {
+  self->strokeAdjustmentChanged();
+}
+
+//  void QQuickPathRectangle::radiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle13radiusChangedEv(
+    QQuickPathRectangle *self) {
+  self->radiusChanged();
+}
+
+//  void QQuickPathRectangle::topLeftRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle20topLeftRadiusChangedEv(
+    QQuickPathRectangle *self) {
+  self->topLeftRadiusChanged();
+}
+
+//  void QQuickPathRectangle::topRightRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle21topRightRadiusChangedEv(
+    QQuickPathRectangle *self) {
+  self->topRightRadiusChanged();
+}
+
+//  void QQuickPathRectangle::bottomLeftRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle23bottomLeftRadiusChangedEv(
+    QQuickPathRectangle *self) {
+  self->bottomLeftRadiusChanged();
+}
+
+//  void QQuickPathRectangle::bottomRightRadiusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle24bottomRightRadiusChangedEv(
+    QQuickPathRectangle *self) {
+  self->bottomRightRadiusChanged();
+}
+
+//  void QQuickPathRectangle::bevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle12bevelChangedEv(
+    QQuickPathRectangle *self) {
+  self->bevelChanged();
+}
+
+//  void QQuickPathRectangle::topLeftBevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle19topLeftBevelChangedEv(
+    QQuickPathRectangle *self) {
+  self->topLeftBevelChanged();
+}
+
+//  void QQuickPathRectangle::topRightBevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle20topRightBevelChangedEv(
+    QQuickPathRectangle *self) {
+  self->topRightBevelChanged();
+}
+
+//  void QQuickPathRectangle::bottomLeftBevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle22bottomLeftBevelChangedEv(
+    QQuickPathRectangle *self) {
+  self->bottomLeftBevelChanged();
+}
+
+//  void QQuickPathRectangle::bottomRightBevelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickPathRectangle23bottomRightBevelChangedEv(
+    QQuickPathRectangle *self) {
+  self->bottomRightBevelChanged();
 }
 
 //  void QQuickPathRectangle::emitCornerRadiusChanged(Qt::Corner corner)

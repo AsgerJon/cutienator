@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
 
 //  A QmlSensorReading that Python can take functions over in. Every QmlSensorReading
 //  Python makes is one. Each function below asks the Python
@@ -215,6 +216,25 @@ const QMetaObject *ritual_ZNK16QmlSensorReading10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QmlSensorReading::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QmlSensorReading11qt_metacastEPKc(
+    QmlSensorReading *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QmlSensorReading::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QmlSensorReading11qt_metacallEN11QMetaObject4CallEiPPv(
+    QmlSensorReading *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QmlSensorReading::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QmlSensorReading2trEPKcS1_i(
@@ -231,6 +251,12 @@ void ritual_ZN16QmlSensorReading24qt_qmlMarker_uncreatableEv(
   self->qt_qmlMarker_uncreatable();
 }
 
+//  QmlSensorReading::QmlSensorReading()
+extern "C" Q_DECL_EXPORT
+QmlSensorReading *ritual_ZN16QmlSensorReadingC1Ev() {
+  return new CuteQmlSensorReading();
+}
+
 //  QmlSensorReading::~QmlSensorReading()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QmlSensorReadingD1Ev(QmlSensorReading *self) {
@@ -244,10 +270,24 @@ quint64 ritual_ZNK16QmlSensorReading9timestampEv(
   return self->timestamp();
 }
 
+//  QBindable<quint64> QmlSensorReading::bindableTimestamp() const
+extern "C" Q_DECL_EXPORT
+QBindable<quint64> *ritual_ZNK16QmlSensorReading17bindableTimestampEv(
+    const QmlSensorReading *self) {
+  return new QBindable<quint64>(self->bindableTimestamp());
+}
+
 //  void QmlSensorReading::update()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QmlSensorReading6updateEv(QmlSensorReading *self) {
   self->update();
+}
+
+//  void QmlSensorReading::timestampChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QmlSensorReading16timestampChangedEv(
+    QmlSensorReading *self) {
+  self->timestampChanged();
 }
 
 //  QSensorReading *QmlSensorReading::reading() const
@@ -263,6 +303,12 @@ void ritual_ZN16QmlSensorReading13readingUpdateEv(QmlSensorReading *self) {
   self->readingUpdate();
 }
 
+//  size_t QmlSensorReading::_qt_property_m_timestamp_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN16QmlSensorReading31_qt_property_m_timestamp_offsetEv() {
+  return QmlSensorReading::_qt_property_m_timestamp_offset();
+}
+
 //  a Python function taken by a CuteQmlSensorReading, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -271,4 +317,11 @@ bool ritual_take_QmlSensorReading(
     const char *key,
     void *call) {
   return static_cast<CuteQmlSensorReading *>(self)->take(key, call);
+}
+
+//  a QBindable<quint64> a ritual of QmlSensorReading gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QmlSensorReading__QBindable_quint64(
+    QBindable<quint64> *self) {
+  delete self;
 }

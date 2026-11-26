@@ -16,6 +16,15 @@ QStyleOptionTitleBar *ritual_ZN20QStyleOptionTitleBarC1ERKS_(
   return new QStyleOptionTitleBar(*other);
 }
 
+//  QStyleOptionTitleBar &QStyleOptionTitleBar::operator=(const
+//      QStyleOptionTitleBar &a0)
+extern "C" Q_DECL_EXPORT
+QStyleOptionTitleBar *ritual_ZN20QStyleOptionTitleBaraSERKS_(
+    QStyleOptionTitleBar *self,
+    const QStyleOptionTitleBar *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QStyleOptionTitleBar::QStyleOptionTitleBar(int version)
 extern "C" Q_DECL_EXPORT
 QStyleOptionTitleBar *ritual_ZN20QStyleOptionTitleBarC1Ei(int version) {

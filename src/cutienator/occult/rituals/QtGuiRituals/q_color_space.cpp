@@ -31,6 +31,15 @@ QColorSpace *ritual_ZN11QColorSpaceC1E7QPointFNS_16TransferFunctionEf(
   return new QColorSpace(*whitePoint, transferFunction, gamma);
 }
 
+//  QColorSpace::QColorSpace(QPointF whitePoint, const QList<uint16_t>
+//      &transferFunctionTable)
+extern "C" Q_DECL_EXPORT
+QColorSpace *ritual_ZN11QColorSpaceC1E7QPointFRK5QListItE(
+    const QPointF *whitePoint,
+    const QList<uint16_t> *transferFunctionTable) {
+  return new QColorSpace(*whitePoint, *transferFunctionTable);
+}
+
 //  QColorSpace::QColorSpace(Primaries primaries, TransferFunction
 //      transferFunction, float gamma)
 extern "C" Q_DECL_EXPORT
@@ -47,6 +56,15 @@ QColorSpace *ritual_ZN11QColorSpaceC1ENS_9PrimariesEf(
     QColorSpace::Primaries primaries,
     float gamma) {
   return new QColorSpace(primaries, gamma);
+}
+
+//  QColorSpace::QColorSpace(Primaries primaries, const QList<uint16_t>
+//      &transferFunctionTable)
+extern "C" Q_DECL_EXPORT
+QColorSpace *ritual_ZN11QColorSpaceC1ENS_9PrimariesERK5QListItE(
+    QColorSpace::Primaries primaries,
+    const QList<uint16_t> *transferFunctionTable) {
+  return new QColorSpace(primaries, *transferFunctionTable);
 }
 
 //  QColorSpace::QColorSpace(const QPointF &whitePoint, const QPointF
@@ -79,6 +97,48 @@ QColorSpace *ritual_ZN11QColorSpaceC1ERKNS_13PrimaryPointsENS_16TransferFunction
   return new QColorSpace(*primaryPoints, transferFunction, gamma);
 }
 
+//  QColorSpace::QColorSpace(const QPointF &whitePoint, const QPointF
+//      &redPoint, const QPointF &greenPoint, const QPointF &bluePoint, const
+//      QList<uint16_t> &transferFunctionTable)
+extern "C" Q_DECL_EXPORT
+QColorSpace *ritual_ZN11QColorSpaceC1ERK7QPointFS2_S2_S2_RK5QListItE(
+    const QPointF *whitePoint,
+    const QPointF *redPoint,
+    const QPointF *greenPoint,
+    const QPointF *bluePoint,
+    const QList<uint16_t> *transferFunctionTable) {
+  return new QColorSpace(
+      *whitePoint,
+      *redPoint,
+      *greenPoint,
+      *bluePoint,
+      *transferFunctionTable);
+}
+
+//  QColorSpace::QColorSpace(const QPointF &whitePoint, const QPointF
+//      &redPoint, const QPointF &greenPoint, const QPointF &bluePoint, const
+//      QList<uint16_t> &redTransferFunctionTable, const QList<uint16_t>
+//      &greenTransferFunctionTable, const QList<uint16_t>
+//      &blueTransferFunctionTable)
+extern "C" Q_DECL_EXPORT
+QColorSpace *ritual_ZN11QColorSpaceC1ERK7QPointFS2_S2_S2_RK5QListItES6_S6_(
+    const QPointF *whitePoint,
+    const QPointF *redPoint,
+    const QPointF *greenPoint,
+    const QPointF *bluePoint,
+    const QList<uint16_t> *redTransferFunctionTable,
+    const QList<uint16_t> *greenTransferFunctionTable,
+    const QList<uint16_t> *blueTransferFunctionTable) {
+  return new QColorSpace(
+      *whitePoint,
+      *redPoint,
+      *greenPoint,
+      *bluePoint,
+      *redTransferFunctionTable,
+      *greenTransferFunctionTable,
+      *blueTransferFunctionTable);
+}
+
 //  QColorSpace::~QColorSpace()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QColorSpaceD1Ev(QColorSpace *self) {
@@ -89,6 +149,36 @@ void ritual_ZN11QColorSpaceD1Ev(QColorSpace *self) {
 extern "C" Q_DECL_EXPORT
 QColorSpace *ritual_ZN11QColorSpaceC1ERKS_(const QColorSpace *colorSpace) {
   return new QColorSpace(*colorSpace);
+}
+
+//  QColorSpace &QColorSpace::operator=(const QColorSpace &colorSpace)
+extern "C" Q_DECL_EXPORT
+QColorSpace *ritual_ZN11QColorSpaceaSERKS_(
+    QColorSpace *self,
+    const QColorSpace *colorSpace) {
+  return &(self->operator=(*colorSpace));
+}
+
+//  QColorSpace::QColorSpace(QColorSpace &&colorSpace)
+extern "C" Q_DECL_EXPORT
+QColorSpace *ritual_ZN11QColorSpaceC1EOS_(QColorSpace *colorSpace) {
+  return new QColorSpace(std::move(*colorSpace));
+}
+
+//  QColorSpace &QColorSpace::operator=(QColorSpace &&other)
+extern "C" Q_DECL_EXPORT
+QColorSpace *ritual_ZN11QColorSpaceaSEOS_(
+    QColorSpace *self,
+    QColorSpace *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QColorSpace::swap(QColorSpace &colorSpace)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColorSpace4swapERS_(
+    QColorSpace *self,
+    QColorSpace *colorSpace) {
+  self->swap(*colorSpace);
 }
 
 //  Primaries QColorSpace::primaries() const
@@ -135,6 +225,31 @@ void ritual_ZN11QColorSpace19setTransferFunctionENS_16TransferFunctionEf(
   self->setTransferFunction(transferFunction, gamma);
 }
 
+//  void QColorSpace::setTransferFunction(const QList<uint16_t>
+//      &transferFunctionTable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColorSpace19setTransferFunctionERK5QListItE(
+    QColorSpace *self,
+    const QList<uint16_t> *transferFunctionTable) {
+  self->setTransferFunction(*transferFunctionTable);
+}
+
+//  void QColorSpace::setTransferFunctions(const QList<uint16_t>
+//      &redTransferFunctionTable, const QList<uint16_t>
+//      &greenTransferFunctionTable, const QList<uint16_t>
+//      &blueTransferFunctionTable)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColorSpace20setTransferFunctionsERK5QListItES3_S3_(
+    QColorSpace *self,
+    const QList<uint16_t> *redTransferFunctionTable,
+    const QList<uint16_t> *greenTransferFunctionTable,
+    const QList<uint16_t> *blueTransferFunctionTable) {
+  self->setTransferFunctions(
+      *redTransferFunctionTable,
+      *greenTransferFunctionTable,
+      *blueTransferFunctionTable);
+}
+
 //  QColorSpace QColorSpace::withTransferFunction(TransferFunction
 //      transferFunction, float gamma) const
 extern "C" Q_DECL_EXPORT
@@ -146,6 +261,32 @@ QColorSpace *ritual_ZNK11QColorSpace20withTransferFunctionENS_16TransferFunction
       self->withTransferFunction(
           transferFunction,
           gamma));
+}
+
+//  QColorSpace QColorSpace::withTransferFunction(const QList<uint16_t>
+//      &transferFunctionTable) const
+extern "C" Q_DECL_EXPORT
+QColorSpace *ritual_ZNK11QColorSpace20withTransferFunctionERK5QListItE(
+    const QColorSpace *self,
+    const QList<uint16_t> *transferFunctionTable) {
+  return new QColorSpace(self->withTransferFunction(*transferFunctionTable));
+}
+
+//  QColorSpace QColorSpace::withTransferFunctions(const QList<uint16_t>
+//      &redTransferFunctionTable, const QList<uint16_t>
+//      &greenTransferFunctionTable, const QList<uint16_t>
+//      &blueTransferFunctionTable) const
+extern "C" Q_DECL_EXPORT
+QColorSpace *ritual_ZNK11QColorSpace21withTransferFunctionsERK5QListItES3_S3_(
+    const QColorSpace *self,
+    const QList<uint16_t> *redTransferFunctionTable,
+    const QList<uint16_t> *greenTransferFunctionTable,
+    const QList<uint16_t> *blueTransferFunctionTable) {
+  return new QColorSpace(
+      self->withTransferFunctions(
+          *redTransferFunctionTable,
+          *greenTransferFunctionTable,
+          *blueTransferFunctionTable));
 }
 
 //  void QColorSpace::setPrimaries(Primaries primariesId)

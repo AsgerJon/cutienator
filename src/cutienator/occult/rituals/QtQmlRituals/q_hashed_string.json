@@ -11,6 +11,7 @@
       "address", "text", "unsigned int"
     ],
     "ritual_ZN13QHashedStringC1ERKS_": ["address", "address"],
+    "ritual_ZN13QHashedStringaSERKS_": ["address", "address", "address"],
     "ritual_ZNK13QHashedStringeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK13QHashedStringeqERK16QHashedStringRef": [
       "bool", "address", "address"

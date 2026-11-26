@@ -29,13 +29,34 @@
     "ritual_ZNK16QQmlJSScopesById23valueTypesAreAssertableEv": [
       "bool", "address"
     ],
+    "ritual_ZNK16QQmlJSScopesById2idERK22QDeferredSharedPointerIK11QQmlJSScopeES5_6QFlagsI22QQmlJSScopesByIdOptionE": [
+      "text", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK16QQmlJSScopesById5scopeERK7QStringRK22QDeferredSharedPointerIK11QQmlJSScopeE6QFlagsI22QQmlJSScopesByIdOptionE": [
+      "address", "address", "text", "address", "int"
+    ],
+    "ritual_ZN16QQmlJSScopesById6insertERK7QStringRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZN16QQmlJSScopesById5clearEv": ["nothing", "address"],
     "ritual_ZNK16QQmlJSScopesById24existsAnywhereInDocumentERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN16QQmlJSScopesById26computeComponentRootsToIdsEv": [
+      "address", "address"
+    ],
     "ritual_ZN16QQmlJSScopesById10confidenceEN11QQmlJSScope15IsComponentRootES1_": [
       "unsigned char", "unsigned char", "unsigned char"
     ],
-    "ritual_ZN16QQmlJSScopesByIdD1Ev": ["nothing", "address"]
+    "ritual_ZNK16QQmlJSScopesById18isComponentVisibleERK22QDeferredSharedPointerIK11QQmlJSScopeES5_6QFlagsI22QQmlJSScopesByIdOptionE": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QQmlJSScopesByIdD1Ev": ["nothing", "address"],
+    "ritual_drop_QQmlJSScopesById__QQmlJSScope_ConstPtr": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QQmlJSScopesById__std_multimap_QQmlJSScope_ConstPtr_QQmlJSScopesById_IdWithScope": [
+      "nothing", "address"
+    ]
   }
 }

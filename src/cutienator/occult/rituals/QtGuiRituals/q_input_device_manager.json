@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QInputDeviceManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QInputDeviceManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QInputDeviceManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QInputDeviceManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,12 @@
     ],
     "ritual_ZN19QInputDeviceManager20setKeyboardModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN19QInputDeviceManager17deviceListChangedENS_10DeviceTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QInputDeviceManager29cursorPositionChangeRequestedERK6QPoint": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QInputDeviceManager": [
       "bool", "address", "chars", "address"

@@ -18,6 +18,30 @@ QSharedMemoryLocker *ritual_ZN19QSharedMemoryLockerC1EP13QSharedMemory(
   return new QSharedMemoryLocker(sharedMemory);
 }
 
+//  QSharedMemoryLocker::QSharedMemoryLocker(QSharedMemoryLocker &&other)
+extern "C" Q_DECL_EXPORT
+QSharedMemoryLocker *ritual_ZN19QSharedMemoryLockerC1EOS_(
+    QSharedMemoryLocker *other) {
+  return new QSharedMemoryLocker(std::move(*other));
+}
+
+//  QSharedMemoryLocker &QSharedMemoryLocker::operator=(QSharedMemoryLocker
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QSharedMemoryLocker *ritual_ZN19QSharedMemoryLockeraSEOS_(
+    QSharedMemoryLocker *self,
+    QSharedMemoryLocker *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QSharedMemoryLocker::swap(QSharedMemoryLocker &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSharedMemoryLocker4swapERS_(
+    QSharedMemoryLocker *self,
+    QSharedMemoryLocker *other) {
+  self->swap(*other);
+}
+
 //  QSharedMemoryLocker::~QSharedMemoryLocker()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QSharedMemoryLockerD1Ev(QSharedMemoryLocker *self) {

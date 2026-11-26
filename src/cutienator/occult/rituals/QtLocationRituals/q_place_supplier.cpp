@@ -18,10 +18,40 @@ QPlaceSupplier *ritual_ZN14QPlaceSupplierC1ERKS_(
   return new QPlaceSupplier(*other);
 }
 
+//  QPlaceSupplier::QPlaceSupplier(QPlaceSupplier &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceSupplier *ritual_ZN14QPlaceSupplierC1EOS_(QPlaceSupplier *other) {
+  return new QPlaceSupplier(std::move(*other));
+}
+
 //  QPlaceSupplier::~QPlaceSupplier()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QPlaceSupplierD1Ev(QPlaceSupplier *self) {
   delete self;
+}
+
+//  QPlaceSupplier &QPlaceSupplier::operator=(const QPlaceSupplier &other)
+extern "C" Q_DECL_EXPORT
+QPlaceSupplier *ritual_ZN14QPlaceSupplieraSERKS_(
+    QPlaceSupplier *self,
+    const QPlaceSupplier *other) {
+  return &(self->operator=(*other));
+}
+
+//  QPlaceSupplier &QPlaceSupplier::operator=(QPlaceSupplier &&other)
+extern "C" Q_DECL_EXPORT
+QPlaceSupplier *ritual_ZN14QPlaceSupplieraSEOS_(
+    QPlaceSupplier *self,
+    QPlaceSupplier *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QPlaceSupplier::swap(QPlaceSupplier &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlaceSupplier4swapERS_(
+    QPlaceSupplier *self,
+    QPlaceSupplier *other) {
+  self->swap(*other);
 }
 
 //  bool operator==(const QPlaceSupplier &lhs, const QPlaceSupplier &rhs)

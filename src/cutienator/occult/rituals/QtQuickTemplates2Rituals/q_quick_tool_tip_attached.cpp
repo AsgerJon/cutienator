@@ -15,6 +15,25 @@ const QMetaObject *ritual_ZNK21QQuickToolTipAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickToolTipAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickToolTipAttached11qt_metacastEPKc(
+    QQuickToolTipAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickToolTipAttached::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickToolTipAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickToolTipAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickToolTipAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickToolTipAttached2trEPKcS1_i(
@@ -126,6 +145,41 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickToolTipAttached18resetVisiblePolicyEv(
     QQuickToolTipAttached *self) {
   self->resetVisiblePolicy();
+}
+
+//  void QQuickToolTipAttached::textChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickToolTipAttached11textChangedEv(
+    QQuickToolTipAttached *self) {
+  self->textChanged();
+}
+
+//  void QQuickToolTipAttached::delayChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickToolTipAttached12delayChangedEv(
+    QQuickToolTipAttached *self) {
+  self->delayChanged();
+}
+
+//  void QQuickToolTipAttached::timeoutChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickToolTipAttached14timeoutChangedEv(
+    QQuickToolTipAttached *self) {
+  self->timeoutChanged();
+}
+
+//  void QQuickToolTipAttached::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickToolTipAttached14visibleChangedEv(
+    QQuickToolTipAttached *self) {
+  self->visibleChanged();
+}
+
+//  void QQuickToolTipAttached::policyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickToolTipAttached13policyChangedEv(
+    QQuickToolTipAttached *self) {
+  self->policyChanged();
 }
 
 //  void QQuickToolTipAttached::show(const QString &text, int ms)

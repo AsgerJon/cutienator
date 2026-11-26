@@ -27,6 +27,25 @@ const QMetaObject *ritual_ZNK23QQuickTableViewDelegate10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickTableViewDelegate::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN23QQuickTableViewDelegate11qt_metacastEPKc(
+    QQuickTableViewDelegate *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickTableViewDelegate::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN23QQuickTableViewDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickTableViewDelegate *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickTableViewDelegate::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN23QQuickTableViewDelegate2trEPKcS1_i(
@@ -101,6 +120,43 @@ void ritual_ZN23QQuickTableViewDelegate12setTableViewEP15QQuickTableView(
     QQuickTableViewDelegate *self,
     QQuickTableView *tableView) {
   self->setTableView(tableView);
+}
+
+//  void QQuickTableViewDelegate::tableViewChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTableViewDelegate16tableViewChangedEv(
+    QQuickTableViewDelegate *self) {
+  self->tableViewChanged();
+}
+
+//  void QQuickTableViewDelegate::currentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTableViewDelegate14currentChangedEv(
+    QQuickTableViewDelegate *self) {
+  self->currentChanged();
+}
+
+//  void QQuickTableViewDelegate::selectedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTableViewDelegate15selectedChangedEv(
+    QQuickTableViewDelegate *self) {
+  self->selectedChanged();
+}
+
+//  void QQuickTableViewDelegate::editingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQuickTableViewDelegate14editingChangedEv(
+    QQuickTableViewDelegate *self) {
+  self->editingChanged();
+}
+
+//  QQuickTableViewDelegate::QQuickTableViewDelegate(QQuickTableViewDelegateP
+//      rivate &dd, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickTableViewDelegate *ritual_ZN23QQuickTableViewDelegateC1ER30QQuickTableViewDelegatePrivateP10QQuickItem(
+    QQuickTableViewDelegatePrivate *dd,
+    QQuickItem *parent) {
+  return new QQuickTableViewDelegate(*dd, parent);
 }
 
 //  QFont QQuickTableViewDelegate::defaultFont() const

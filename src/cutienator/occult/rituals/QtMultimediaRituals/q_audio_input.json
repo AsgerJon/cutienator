@@ -1,10 +1,17 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtMultimedia/qaudioinput.h, Qt 6.12.0. Changes made here are lost."
+    "QtMultimedia/qaudioinput.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZNK11QAudioInput10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QAudioInput11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11QAudioInput11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QAudioInput2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QAudioInputC1EP7QObject": ["address", "address"],
     "ritual_ZN11QAudioInputC1ERK12QAudioDeviceP7QObject": [
@@ -19,7 +26,18 @@
     ],
     "ritual_ZN11QAudioInput9setVolumeEf": ["nothing", "address", "float"],
     "ritual_ZN11QAudioInput8setMutedEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QAudioInput13deviceChangedEv": ["nothing", "address"],
+    "ritual_ZN11QAudioInput13volumeChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN11QAudioInput12mutedChangedEb": ["nothing", "address", "bool"],
     "ritual_ZNK11QAudioInput6handleEv": ["address", "address"],
-    "ritual_take_QAudioInput": ["bool", "address", "chars", "address"]
+    "ritual_ZN11QAudioInput21setDisconnectFunctionESt8functionIFvvEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAudioInput": ["bool", "address", "chars", "address"],
+    "ritual_callback_ZN11QAudioInput21setDisconnectFunctionESt8functionIFvvEE": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

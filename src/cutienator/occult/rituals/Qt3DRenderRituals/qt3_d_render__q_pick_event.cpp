@@ -181,6 +181,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QPickEvent10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QPickEvent::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QPickEvent11qt_metacastEPKc(
+    Qt3DRender::QPickEvent *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QPickEvent::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QPickEvent11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QPickEvent *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QPickEvent::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QPickEvent2trEPKcS2_i(
@@ -232,6 +251,106 @@ Qt3DRender::QPickEvent *ritual_ZN10Qt3DRender10QPickEventC1ERK7QPointFRK9QVector
       button,
       buttons,
       modifiers);
+}
+
+//  Qt3DRender::QPickEvent::~QPickEvent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QPickEventD1Ev(Qt3DRender::QPickEvent *self) {
+  delete self;
+}
+
+//  bool Qt3DRender::QPickEvent::isAccepted() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender10QPickEvent10isAcceptedEv(
+    const Qt3DRender::QPickEvent *self) {
+  return self->isAccepted();
+}
+
+//  void Qt3DRender::QPickEvent::setAccepted(bool accepted)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QPickEvent11setAcceptedEb(
+    Qt3DRender::QPickEvent *self,
+    bool accepted) {
+  self->setAccepted(accepted);
+}
+
+//  QPointF Qt3DRender::QPickEvent::position() const
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZNK10Qt3DRender10QPickEvent8positionEv(
+    const Qt3DRender::QPickEvent *self) {
+  return new QPointF(self->position());
+}
+
+//  float Qt3DRender::QPickEvent::distance() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender10QPickEvent8distanceEv(
+    const Qt3DRender::QPickEvent *self) {
+  return self->distance();
+}
+
+//  QVector3D Qt3DRender::QPickEvent::worldIntersection() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK10Qt3DRender10QPickEvent17worldIntersectionEv(
+    const Qt3DRender::QPickEvent *self) {
+  return new QVector3D(self->worldIntersection());
+}
+
+//  QVector3D Qt3DRender::QPickEvent::localIntersection() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK10Qt3DRender10QPickEvent17localIntersectionEv(
+    const Qt3DRender::QPickEvent *self) {
+  return new QVector3D(self->localIntersection());
+}
+
+//  Buttons Qt3DRender::QPickEvent::button() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickEvent::Buttons ritual_ZNK10Qt3DRender10QPickEvent6buttonEv(
+    const Qt3DRender::QPickEvent *self) {
+  return self->button();
+}
+
+//  int Qt3DRender::QPickEvent::buttons() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender10QPickEvent7buttonsEv(
+    const Qt3DRender::QPickEvent *self) {
+  return self->buttons();
+}
+
+//  int Qt3DRender::QPickEvent::modifiers() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10Qt3DRender10QPickEvent9modifiersEv(
+    const Qt3DRender::QPickEvent *self) {
+  return self->modifiers();
+}
+
+//  QViewport *Qt3DRender::QPickEvent::viewport() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QViewport *ritual_ZNK10Qt3DRender10QPickEvent8viewportEv(
+    const Qt3DRender::QPickEvent *self) {
+  return self->viewport();
+}
+
+//  Qt3DCore::QEntity *Qt3DRender::QPickEvent::entity() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEntity *ritual_ZNK10Qt3DRender10QPickEvent6entityEv(
+    const Qt3DRender::QPickEvent *self) {
+  return self->entity();
+}
+
+//  void Qt3DRender::QPickEvent::acceptedChanged(bool accepted)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QPickEvent15acceptedChangedEb(
+    Qt3DRender::QPickEvent *self,
+    bool accepted) {
+  self->acceptedChanged(accepted);
+}
+
+//  Qt3DRender::QPickEvent::QPickEvent(QObjectPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QPickEvent *ritual_ZN10Qt3DRender10QPickEventC1ER14QObjectPrivateP7QObject(
+    QObjectPrivate *dd,
+    QObject *parent) {
+  return new CuteQt3DRender_QPickEvent(*dd, parent);
 }
 
 //  QPickEventPrivate *Qt3DRender::QPickEvent::d_func()

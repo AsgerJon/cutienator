@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender11QRasterMode10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QRasterMode::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender11QRasterMode11qt_metacastEPKc(
+    Qt3DRender::QRasterMode *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QRasterMode::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender11QRasterMode11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QRasterMode *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QRasterMode::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender11QRasterMode2trEPKcS2_i(
@@ -186,6 +205,65 @@ QString *ritual_ZN10Qt3DRender11QRasterMode2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QRasterMode::tr(s, c, n));
+}
+
+//  Qt3DRender::QRasterMode::QRasterMode(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRasterMode *ritual_ZN10Qt3DRender11QRasterModeC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QRasterMode(parent);
+}
+
+//  Qt3DRender::QRasterMode::~QRasterMode()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRasterModeD1Ev(Qt3DRender::QRasterMode *self) {
+  delete self;
+}
+
+//  RasterMode Qt3DRender::QRasterMode::rasterMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRasterMode::RasterMode ritual_ZNK10Qt3DRender11QRasterMode10rasterModeEv(
+    const Qt3DRender::QRasterMode *self) {
+  return self->rasterMode();
+}
+
+//  FaceMode Qt3DRender::QRasterMode::faceMode() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QRasterMode::FaceMode ritual_ZNK10Qt3DRender11QRasterMode8faceModeEv(
+    const Qt3DRender::QRasterMode *self) {
+  return self->faceMode();
+}
+
+//  void Qt3DRender::QRasterMode::setRasterMode(RasterMode rasterMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRasterMode13setRasterModeENS0_10RasterModeE(
+    Qt3DRender::QRasterMode *self,
+    Qt3DRender::QRasterMode::RasterMode rasterMode) {
+  self->setRasterMode(rasterMode);
+}
+
+//  void Qt3DRender::QRasterMode::setFaceMode(FaceMode faceMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRasterMode11setFaceModeENS0_8FaceModeE(
+    Qt3DRender::QRasterMode *self,
+    Qt3DRender::QRasterMode::FaceMode faceMode) {
+  self->setFaceMode(faceMode);
+}
+
+//  void Qt3DRender::QRasterMode::rasterModeChanged(RasterMode rasterMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRasterMode17rasterModeChangedENS0_10RasterModeE(
+    Qt3DRender::QRasterMode *self,
+    Qt3DRender::QRasterMode::RasterMode rasterMode) {
+  self->rasterModeChanged(rasterMode);
+}
+
+//  void Qt3DRender::QRasterMode::faceModeChanged(FaceMode faceMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender11QRasterMode15faceModeChangedENS0_8FaceModeE(
+    Qt3DRender::QRasterMode *self,
+    Qt3DRender::QRasterMode::FaceMode faceMode) {
+  self->faceModeChanged(faceMode);
 }
 
 //  QRasterModePrivate *Qt3DRender::QRasterMode::d_func()

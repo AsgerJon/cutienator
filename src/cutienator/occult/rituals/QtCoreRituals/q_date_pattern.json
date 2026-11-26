@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QDatePatternC1ERK5QListIN17QtTemporalPattern13TemporalFieldEE": [
+      "address", "address"
+    ],
+    "ritual_ZN12QDatePatternC1ERK5QListIN17QtTemporalPattern13TemporalFieldEEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK12QDatePattern11dateSupportEv": ["int", "address"],
     "ritual_ZNK12QDatePattern7isValidEv": ["bool", "address"],
     "ritual_ZN12QDatePattern9setLocaleERK7QLocale": [
@@ -13,10 +19,14 @@
     "ritual_ZNK12QDatePattern6localeEv": ["address", "address"],
     "ritual_ZN12QDatePattern11setBaseYearEi": ["nothing", "address", "int"],
     "ritual_ZN12QDatePattern13clearBaseYearEv": ["nothing", "address"],
+    "ritual_ZNK12QDatePattern8baseYearEv": ["address", "address"],
     "ritual_ZN12QDatePattern11setCalendarE9QCalendar": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK12QDatePattern8calendarEv": ["address", "address"],
+    "ritual_ZNK12QDatePattern5parseE11QStringView5QDate": [
+      "address", "address", "text", "address"
+    ],
     "ritual_ZNK12QDatePattern9serializeERK5QDate": [
       "text", "address", "address"
     ],
@@ -26,6 +36,10 @@
     "ritual_ZN12QDatePattern9forLocaleERK7QLocaleNS0_10FormatTypeE": [
       "address", "address", "int"
     ],
-    "ritual_ZN12QDatePatternD1Ev": ["nothing", "address"]
+    "ritual_ZN12QDatePatternD1Ev": ["nothing", "address"],
+    "ritual_drop_QDatePattern__std_optional_int": ["nothing", "address"],
+    "ritual_drop_QDatePattern__QtTemporalPattern_ParseResult_QDate": [
+      "nothing", "address"
+    ]
   }
 }

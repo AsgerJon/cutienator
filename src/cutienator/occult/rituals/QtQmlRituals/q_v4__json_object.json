@@ -7,6 +7,33 @@
   "rows": {
     "ritual_ZN3QV410JsonObject10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV410JsonObject11d_uncheckedEv": ["address", "address"],
-    "ritual_ZNK3QV410JsonObject1dEv": ["address", "address"]
+    "ritual_ZNK3QV410JsonObject1dEv": ["address", "address"],
+    "ritual_ZN3QV410JsonObject13fromJsonValueEPNS_15ExecutionEngineERK10QJsonValue": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV410JsonObject14fromJsonObjectEPNS_15ExecutionEngineERK11QJsonObject": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV410JsonObject13fromJsonArrayEPNS_15ExecutionEngineERK10QJsonArray": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV410JsonObject11toJsonValueERKNS_5ValueE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV410JsonObject12toJsonObjectEPKNS_6ObjectE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV410JsonObject11toJsonArrayEPKNS_6ObjectE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV410JsonObject11toJsonValueERKNS_5ValueER4QSetINS_10ObjectItemEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV410JsonObject12toJsonObjectEPKNS_6ObjectER4QSetINS_10ObjectItemEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV410JsonObject11toJsonArrayEPKNS_6ObjectER4QSetINS_10ObjectItemEE": [
+      "address", "address", "address"
+    ]
   }
 }

@@ -34,6 +34,12 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qml/qml/qqmljavascriptexpression.cpp, line 532, as _ZN22QPropertyChangeTrigger7triggerEP17QPropertyObserverP20QUntypedPropertyData
+inline void QPropertyChangeTrigger::trigger(QPropertyObserver *observer, QUntypedPropertyData *) {
+    auto This = static_cast<QPropertyChangeTrigger *>(observer);
+    This->m_expression->expressionChanged();
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmljavascriptexpression.cpp, line 537, as _ZNK22QPropertyChangeTrigger8propertyEv
 inline QMetaProperty QPropertyChangeTrigger::property() const
 {
@@ -45,6 +51,23 @@ inline QMetaProperty QPropertyChangeTrigger::property() const
     return mo->property(propertyIndex);
 }
 //  -----------------------------------------------------------------------
+
+//  QPropertyChangeTrigger::QPropertyChangeTrigger(QQmlJavaScriptExpression
+//      *expression)
+extern "C" Q_DECL_EXPORT
+QPropertyChangeTrigger *ritual_ZN22QPropertyChangeTriggerC1EP24QQmlJavaScriptExpression(
+    QQmlJavaScriptExpression *expression) {
+  return new QPropertyChangeTrigger(expression);
+}
+
+//  void QPropertyChangeTrigger::trigger(QPropertyObserver *a0,
+//      QUntypedPropertyData *a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QPropertyChangeTrigger7triggerEP17QPropertyObserverP20QUntypedPropertyData(
+    QPropertyObserver *a0,
+    QUntypedPropertyData *a1) {
+  QPropertyChangeTrigger::trigger(a0, a1);
+}
 
 //  QMetaProperty QPropertyChangeTrigger::property() const
 extern "C" Q_DECL_EXPORT

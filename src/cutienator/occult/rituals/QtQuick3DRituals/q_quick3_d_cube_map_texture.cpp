@@ -628,6 +628,25 @@ const QMetaObject *ritual_ZNK22QQuick3DCubeMapTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DCubeMapTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuick3DCubeMapTexture11qt_metacastEPKc(
+    QQuick3DCubeMapTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DCubeMapTexture::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuick3DCubeMapTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DCubeMapTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuick3DCubeMapTexture::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQuick3DCubeMapTexture2trEPKcS1_i(

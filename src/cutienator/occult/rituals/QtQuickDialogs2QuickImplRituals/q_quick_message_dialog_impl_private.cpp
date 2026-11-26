@@ -25,17 +25,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickmessagedialogimpl.cpp, line 27, as _ZN30QQuickMessageDialogImplPrivate14attachedOrWarnEv
-inline QQuickMessageDialogImplAttached *QQuickMessageDialogImplPrivate::attachedOrWarn()
-{
-    Q_Q(QQuickMessageDialogImpl);
-    QQuickMessageDialogImplAttached *attached = static_cast<QQuickMessageDialogImplAttached *>(
-            qmlAttachedPropertiesObject<QQuickMessageDialogImpl>(q));
-    if (!attached)
-        qmlWarning(q) << "Expected MessageDialogImpl attached object to be present on" << this;
-    return attached;
-}
-
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickmessagedialogimpl.cpp, line 14, as _ZN30QQuickMessageDialogImplPrivate11handleClickEP20QQuickAbstractButton
 inline void QQuickMessageDialogImplPrivate::handleClick(QQuickAbstractButton *button)
 {
@@ -48,6 +37,17 @@ inline void QQuickMessageDialogImplPrivate::handleClick(QQuickAbstractButton *bu
 
         emit q->buttonClicked(standardButton, role);
     }
+}
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickmessagedialogimpl.cpp, line 27, as _ZN30QQuickMessageDialogImplPrivate14attachedOrWarnEv
+inline QQuickMessageDialogImplAttached *QQuickMessageDialogImplPrivate::attachedOrWarn()
+{
+    Q_Q(QQuickMessageDialogImpl);
+    QQuickMessageDialogImplAttached *attached = static_cast<QQuickMessageDialogImplAttached *>(
+            qmlAttachedPropertiesObject<QQuickMessageDialogImpl>(q));
+    if (!attached)
+        qmlWarning(q) << "Expected MessageDialogImpl attached object to be present on" << this;
+    return attached;
 }
 //  -----------------------------------------------------------------------
 

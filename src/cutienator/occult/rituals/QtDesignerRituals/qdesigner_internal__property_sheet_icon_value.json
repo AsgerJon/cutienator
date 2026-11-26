@@ -5,6 +5,64 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValueC1ERKNS_24PropertySheetPixmapValueE": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValueC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValueD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValueC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValueaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValueC1EOS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValueaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22PropertySheetIconValue7isEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22PropertySheetIconValue5themeEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValue8setThemeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal22PropertySheetIconValue9themeEnumEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValue12setThemeEnumEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal22PropertySheetIconValue6pixmapEN5QIcon4ModeENS1_5StateE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValue9setPixmapEN5QIcon4ModeENS1_5StateERKNS_24PropertySheetPixmapValueE": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22PropertySheetIconValue4maskEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22PropertySheetIconValue7compareERKS0_": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22PropertySheetIconValue6assignERKS0_j": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK18qdesigner_internal22PropertySheetIconValue6themedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22PropertySheetIconValue8unthemedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal22PropertySheetIconValue5pathsEv": [
+      "address", "address"
+    ],
     "ritual_ZN18qdesigner_internaleqERKNS_22PropertySheetIconValueES2_": [
       "bool", "address", "address"
     ],

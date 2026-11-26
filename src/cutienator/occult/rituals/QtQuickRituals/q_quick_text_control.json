@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK17QQuickTextControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickTextControl11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQuickTextControl11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QQuickTextControl6d_funcEv": ["address", "address"],
     "ritual_ZNK17QQuickTextControl6d_funcEv": ["address", "address"],
     "ritual_ZN17QQuickTextControlD1Ev": ["nothing", "address"],
@@ -20,6 +26,11 @@
     "ritual_ZNK17QQuickTextControl10hasImStateEv": ["bool", "address"],
     "ritual_ZNK17QQuickTextControl13overwriteModeEv": ["bool", "address"],
     "ritual_ZNK17QQuickTextControl13cursorVisibleEv": ["bool", "address"],
+    "ritual_ZNK17QQuickTextControl10anchorRectEv": ["address", "address"],
+    "ritual_ZNK17QQuickTextControl10cursorRectERK11QTextCursor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextControl10cursorRectEv": ["address", "address"],
     "ritual_ZNK17QQuickTextControl11hoveredLinkEv": ["text", "address"],
     "ritual_ZNK17QQuickTextControl8anchorAtERK7QPointF": [
       "text", "address", "address"
@@ -44,12 +55,69 @@
       "address", "address", "address"
     ],
     "ritual_ZNK17QQuickTextControl11preeditTextEv": ["text", "address"],
+    "ritual_ZN17QQuickTextControl12setPlainTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QQuickTextControl15setMarkdownTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QQuickTextControl7setHtmlERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN17QQuickTextControl3cutEv": ["nothing", "address"],
     "ritual_ZN17QQuickTextControl4copyEv": ["nothing", "address"],
     "ritual_ZN17QQuickTextControl5pasteEN10QClipboard4ModeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN17QQuickTextControl4undoEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextControl4redoEv": ["nothing", "address"],
     "ritual_ZN17QQuickTextControl5clearEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextControl9selectAllEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextControl11textChangedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextControl18preeditTextChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTextControl14contentsChangeEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQuickTextControl13undoAvailableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickTextControl13redoAvailableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickTextControl24currentCharFormatChangedERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickTextControl13copyAvailableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickTextControl16selectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTextControl21cursorPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTextControl20overwriteModeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickTextControl19updateCursorRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTextControl13updateRequestEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextControl22cursorRectangleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTextControl13linkActivatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QQuickTextControl11linkHoveredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QQuickTextControl13markerClickedEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextControl13markerHoveredEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN17QQuickTextControl12processEventEP6QEventRK10QTransform": [
       "nothing", "address", "address", "address"
     ],
@@ -58,6 +126,9 @@
     ],
     "ritual_ZNK17QQuickTextControl16inputMethodQueryEN2Qt16InputMethodQueryE": [
       "address", "address", "int"
+    ],
+    "ritual_ZNK17QQuickTextControl16inputMethodQueryEN2Qt16InputMethodQueryERK8QVariant": [
+      "address", "address", "int", "address"
     ],
     "ritual_ZNK17QQuickTextControl27createMimeDataFromSelectionEv": [
       "address", "address"
@@ -82,6 +153,12 @@
     ],
     "ritual_own_ZNK17QQuickTextControl17blockBoundingRectERK10QTextBlock": [
       "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QQuickTextControl16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QQuickTextControl27createMimeDataFromSelectionEv": [
+      "address", "address"
     ],
     "ritual_own_ZNK17QQuickTextControl21canInsertFromMimeDataEPK9QMimeData": [
       "bool", "address", "address"

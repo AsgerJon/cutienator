@@ -10,11 +10,29 @@
     "ritual_ZN19QGStreamerInterface25makeCustomGStreamerCameraERK10QByteArrayP7QObject": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN19QGStreamerInterface25makeCustomGStreamerCameraEP11_GstElementP7QObject": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN19QGStreamerInterface29makeCustomGStreamerAudioInputERK10QByteArray": [
       "address", "address", "address"
     ],
     "ritual_ZN19QGStreamerInterface30makeCustomGStreamerAudioOutputERK10QByteArray": [
       "address", "address", "address"
+    ],
+    "ritual_ZN19QGStreamerInterface11gstPipelineEP12QMediaPlayer": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGStreamerInterface11gstPipelineEP20QMediaCaptureSession": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGStreamerInterface9gstBufferERK11QVideoFrame": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGStreamerInterface24createFrameFromGstBufferEP10_GstBufferRK13_GstVideoInfo": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QGStreamerInterface24createFrameFromGstBufferEP10_GstBufferRK19_GstVideoInfoDmaDrm": [
+      "address", "address", "address", "address"
     ],
     "ritual_take_QGStreamerInterface": [
       "bool", "address", "chars", "address"

@@ -6,9 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK15QWaylandPointer10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QWaylandPointer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QWaylandPointer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QWaylandPointer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QWaylandPointer6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QWaylandPointer6d_funcEv": ["address", "address"],
     "ritual_ZN15QWaylandPointerC1EP12QWaylandSeatP7QObject": [
       "address", "address", "address"
     ],
@@ -40,6 +48,21 @@
     "ritual_ZNK15QWaylandPointer15isButtonPressedEv": ["bool", "address"],
     "ritual_ZN15QWaylandPointer9addClientEP14QWaylandClientjj": [
       "nothing", "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK15QWaylandPointer13focusResourceEv": ["address", "address"],
+    "ritual_ZN15QWaylandPointer15toWaylandButtonEN2Qt11MouseButtonE": [
+      "unsigned int", "int"
+    ],
+    "ritual_ZN15QWaylandPointer10sendButtonEP11wl_resourcejN2Qt11MouseButtonEj": [
+      "unsigned int", "address", "address", "unsigned int", "int",
+      "unsigned int"
+    ],
+    "ritual_ZN15QWaylandPointer13outputChangedEv": ["nothing", "address"],
+    "ritual_ZN15QWaylandPointer20buttonPressedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandPointer23enteredSurfaceDestroyedEPv": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN15QWaylandPointer19pointerFocusChangedEP12QWaylandViewS1_": [
       "nothing", "address", "address", "address"

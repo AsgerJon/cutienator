@@ -68,6 +68,14 @@ void ritual_ZN10QGeoCircleD1Ev(QGeoCircle *self) {
   delete self;
 }
 
+//  QGeoCircle &QGeoCircle::operator=(const QGeoCircle &other)
+extern "C" Q_DECL_EXPORT
+QGeoCircle *ritual_ZN10QGeoCircleaSERKS_(
+    QGeoCircle *self,
+    const QGeoCircle *other) {
+  return &(self->operator=(*other));
+}
+
 //  void QGeoCircle::setCenter(const QGeoCoordinate &center)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QGeoCircle9setCenterERK14QGeoCoordinate(
@@ -140,3 +148,23 @@ const QGeoCirclePrivate *ritual_ZNK10QGeoCircle6d_funcEv(
     const QGeoCircle *self) {
   return self->d_func();
 }
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &stream, const QGeoCircle &circle)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK10QGeoCircle(
+    QDataStream *stream,
+    const QGeoCircle *circle) {
+  return &(operator<<(*stream, *circle));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator>>(QDataStream &stream, QGeoCircle &circle)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZrsR11QDataStreamR10QGeoCircle(
+    QDataStream *stream,
+    QGeoCircle *circle) {
+  return &(operator>>(*stream, *circle));
+}
+#endif  // !defined(QT_NO_DATASTREAM)

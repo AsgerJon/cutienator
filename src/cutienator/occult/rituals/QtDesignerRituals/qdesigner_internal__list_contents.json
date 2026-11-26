@@ -6,6 +6,24 @@
   ],
   "rows": {
     "ritual_ZN18qdesigner_internal12ListContentsC1Ev": ["address"],
+    "ritual_ZN18qdesigner_internal12ListContentsC1EPK15QTreeWidgetItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12ListContents14createTreeItemEPNS_17DesignerIconCacheE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ListContents20createFromListWidgetEPK11QListWidgetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal12ListContents17applyToListWidgetEP11QListWidgetPNS_17DesignerIconCacheEb6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "address", "bool", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12ListContents18createFromComboBoxEPK9QComboBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12ListContents15applyToComboBoxEP9QComboBoxPNS_17DesignerIconCacheE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN18qdesigner_internaleqERKNS_12ListContentsES2_": [
       "bool", "address", "address"
     ],

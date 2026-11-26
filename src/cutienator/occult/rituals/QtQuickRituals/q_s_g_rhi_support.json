@@ -17,6 +17,15 @@
       "address", "address", "address", "address"
     ],
     "ritual_ZN13QSGRhiSupport15checkEnvQSgInfoEv": ["nothing"],
+    "ritual_ZN13QSGRhiSupport24toRhiTextureFormatFromGLEjP6QFlagsIN11QRhiTexture4FlagEE": [
+      "int", "unsigned int", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport28toRhiTextureFormatFromVulkanEjP6QFlagsIN11QRhiTexture4FlagEE": [
+      "int", "unsigned int", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport27toRhiTextureFormatFromMetalEjP6QFlagsIN11QRhiTexture4FlagEE": [
+      "int", "unsigned int", "address"
+    ],
     "ritual_ZN13QSGRhiSupport9configureEN20QSGRendererInterface11GraphicsApiE": [
       "nothing", "address", "int"
     ],
@@ -24,6 +33,9 @@
     "ritual_ZNK13QSGRhiSupport14rhiBackendNameEv": ["text", "address"],
     "ritual_ZNK13QSGRhiSupport11graphicsApiEv": ["int", "address"],
     "ritual_ZNK13QSGRhiSupport17windowSurfaceTypeEv": ["int", "address"],
+    "ritual_ZN13QSGRhiSupport11rifResourceEN20QSGRendererInterface8ResourceEPK23QSGDefaultRenderContextPK12QQuickWindow": [
+      "address", "address", "int", "address", "address"
+    ],
     "ritual_ZN13QSGRhiSupport27maybeCreateOffscreenSurfaceEP7QWindow": [
       "address", "address", "address"
     ],
@@ -41,6 +53,9 @@
     ],
     "ritual_ZN13QSGRhiSupport20applySwapChainFormatEP13QRhiSwapChainP12QQuickWindow": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13QSGRhiSupport18toRhiTextureFormatEjP6QFlagsIN11QRhiTexture4FlagEE": [
+      "int", "address", "unsigned int", "address"
     ],
     "ritual_ZNK13QSGRhiSupport31attemptReinitWithSwRastUponFailEv": [
       "bool", "address"

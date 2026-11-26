@@ -15,6 +15,9 @@
     "ritual_ZN18QFontDialogPrivate7getFontEPbRK5QFontP7QWidgetRK7QString6QFlagsIN11QFontDialog16FontDialogOptionEE": [
       "address", "address", "address", "address", "text", "int"
     ],
+    "ritual_ZN18QFontDialogPrivate24writingSystemHighlightedEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN18QFontDialogPrivate16updateSampleFontERK5QFont": [
       "nothing", "address", "address"
     ],

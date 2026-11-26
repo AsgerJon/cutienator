@@ -8,6 +8,9 @@
     "ritual_ZN14QSSGApplyValueC1ERK10QByteArray": ["address", "address"],
     "ritual_ZN14QSSGApplyValueC1ERKS_": ["address", "address"],
     "ritual_ZN14QSSGApplyValueC1Ev": ["address"],
+    "ritual_ZNK14QSSGApplyValue8addDebugER6QDebug": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QSSGApplyValueD1Ev": ["nothing", "address"]
   }
 }

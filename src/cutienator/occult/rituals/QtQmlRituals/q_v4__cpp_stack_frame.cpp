@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qv4stackframe_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 
 //  void QV4::CppStackFrame::init(Function *v4Function, int argc, Kind kind)
 extern "C" Q_DECL_EXPORT
@@ -29,6 +30,41 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK3QV413CppStackFrame16isMetaTypesFrameEv(
     const QV4::CppStackFrame *self) {
   return self->isMetaTypesFrame();
+}
+
+//  QString QV4::CppStackFrame::source() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK3QV413CppStackFrame6sourceEv(
+    const QV4::CppStackFrame *self) {
+  return new QString(self->source());
+}
+
+//  QString QV4::CppStackFrame::function() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK3QV413CppStackFrame8functionEv(
+    const QV4::CppStackFrame *self) {
+  return new QString(self->function());
+}
+
+//  int QV4::CppStackFrame::lineNumber() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK3QV413CppStackFrame10lineNumberEv(
+    const QV4::CppStackFrame *self) {
+  return self->lineNumber();
+}
+
+//  int QV4::CppStackFrame::statementNumber() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK3QV413CppStackFrame15statementNumberEv(
+    const QV4::CppStackFrame *self) {
+  return self->statementNumber();
+}
+
+//  int QV4::CppStackFrame::missingLineNumber() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK3QV413CppStackFrame17missingLineNumberEv(
+    const QV4::CppStackFrame *self) {
+  return self->missingLineNumber();
 }
 
 //  CppStackFrame *QV4::CppStackFrame::parentFrame() const

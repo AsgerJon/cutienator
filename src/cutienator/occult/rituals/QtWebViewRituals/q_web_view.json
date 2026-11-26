@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZNK8QWebView10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QWebView11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QWebView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN8QWebView2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QWebViewC1EP7QScreen": ["address", "address"],
     "ritual_ZN8QWebViewC1EP7QWindow": ["address", "address"],
@@ -17,6 +21,9 @@
     "ritual_ZNK8QWebView12loadProgressEv": ["int", "address"],
     "ritual_ZNK8QWebView9isLoadingEv": ["bool", "address"],
     "ritual_ZNK8QWebView8settingsEv": ["address", "address"],
+    "ritual_ZN8QWebView13runJavaScriptERK7QStringRKSt8functionIFvRK8QVariantEE": [
+      "nothing", "address", "text", "address"
+    ],
     "ritual_ZN8QWebView22setHttpUserAgentStringERK7QString": [
       "nothing", "address", "text"
     ],
@@ -35,6 +42,27 @@
       "nothing", "address", "text", "text"
     ],
     "ritual_ZN8QWebView16deleteAllCookiesEv": ["nothing", "address"],
+    "ritual_ZN8QWebView12titleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8QWebView10urlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QWebView14loadingChangedERK19QWebViewLoadingInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QWebView19loadProgressChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QWebView26httpUserAgentStringChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8QWebView11cookieAddedERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN8QWebView13cookieRemovedERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
     "ritual_ZN8QWebView5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN8QWebViewC1EN15QWebViewFactory4HintE": ["address", "int"],
     "ritual_take_QWebView": ["bool", "address", "chars", "address"],

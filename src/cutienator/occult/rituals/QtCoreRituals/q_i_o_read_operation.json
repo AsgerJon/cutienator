@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN16QIOReadOperationD1Ev": ["nothing", "address"],
     "ritual_ZNK16QIOReadOperation4dataEv": ["address", "address"],
+    "ritual_ZN16QIOReadOperationC1ER19QIOOperationPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QIOReadOperation": ["bool", "address", "chars", "address"]
   }
 }

@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN33QDeclarativePolygonMapItemPrivateC1ER26QDeclarativePolygonMapItem": [
+      "address", "address"
+    ],
     "ritual_ZN33QDeclarativePolygonMapItemPrivateD1Ev": [
       "nothing", "address"
     ],

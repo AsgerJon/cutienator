@@ -4,6 +4,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
+#include <Qt3DInput/Qt3DInput>
 
 //  A Qt3DInput::QLogicalDevice that Python can take functions over in. Every Qt3DInput::QLogicalDevice
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +181,25 @@ const QMetaObject *ritual_ZNK9Qt3DInput14QLogicalDevice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DInput::QLogicalDevice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN9Qt3DInput14QLogicalDevice11qt_metacastEPKc(
+    Qt3DInput::QLogicalDevice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DInput::QLogicalDevice::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9Qt3DInput14QLogicalDevice11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DInput::QLogicalDevice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DInput::QLogicalDevice::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +208,66 @@ QString *ritual_ZN9Qt3DInput14QLogicalDevice2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DInput::QLogicalDevice::tr(s, c, n));
+}
+
+//  Qt3DInput::QLogicalDevice::QLogicalDevice(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QLogicalDevice *ritual_ZN9Qt3DInput14QLogicalDeviceC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DInput_QLogicalDevice(parent);
+}
+
+//  Qt3DInput::QLogicalDevice::~QLogicalDevice()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QLogicalDeviceD1Ev(
+    Qt3DInput::QLogicalDevice *self) {
+  delete self;
+}
+
+//  void Qt3DInput::QLogicalDevice::addAction(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QLogicalDevice9addActionEPNS_7QActionE(
+    Qt3DInput::QLogicalDevice *self,
+    Qt3DInput::QAction *action) {
+  self->addAction(action);
+}
+
+//  void Qt3DInput::QLogicalDevice::removeAction(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QLogicalDevice12removeActionEPNS_7QActionE(
+    Qt3DInput::QLogicalDevice *self,
+    Qt3DInput::QAction *action) {
+  self->removeAction(action);
+}
+
+//  QList<QAction *> Qt3DInput::QLogicalDevice::actions() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DInput::QAction *> *ritual_ZNK9Qt3DInput14QLogicalDevice7actionsEv(
+    const Qt3DInput::QLogicalDevice *self) {
+  return new QList<Qt3DInput::QAction *>(self->actions());
+}
+
+//  void Qt3DInput::QLogicalDevice::addAxis(QAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QLogicalDevice7addAxisEPNS_5QAxisE(
+    Qt3DInput::QLogicalDevice *self,
+    Qt3DInput::QAxis *axis) {
+  self->addAxis(axis);
+}
+
+//  void Qt3DInput::QLogicalDevice::removeAxis(QAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9Qt3DInput14QLogicalDevice10removeAxisEPNS_5QAxisE(
+    Qt3DInput::QLogicalDevice *self,
+    Qt3DInput::QAxis *axis) {
+  self->removeAxis(axis);
+}
+
+//  QList<QAxis *> Qt3DInput::QLogicalDevice::axes() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DInput::QAxis *> *ritual_ZNK9Qt3DInput14QLogicalDevice4axesEv(
+    const Qt3DInput::QLogicalDevice *self) {
+  return new QList<Qt3DInput::QAxis *>(self->axes());
 }
 
 //  QLogicalDevicePrivate *Qt3DInput::QLogicalDevice::d_func()
@@ -211,4 +292,18 @@ bool ritual_take_Qt3DInput_QLogicalDevice(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DInput_QLogicalDevice *>(self)->take(key, call);
+}
+
+//  a QList<Qt3DInput::QAction *> a ritual of Qt3DInput::QLogicalDevice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QLogicalDevice__QList_Qt3DInput_QAction(
+    QList<Qt3DInput::QAction *> *self) {
+  delete self;
+}
+
+//  a QList<Qt3DInput::QAxis *> a ritual of Qt3DInput::QLogicalDevice gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DInput_QLogicalDevice__QList_Qt3DInput_QAxis(
+    QList<Qt3DInput::QAxis *> *self) {
+  delete self;
 }

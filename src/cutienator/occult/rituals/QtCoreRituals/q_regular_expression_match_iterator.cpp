@@ -26,6 +26,43 @@ QRegularExpressionMatchIterator *ritual_ZN31QRegularExpressionMatchIteratorC1ERK
   return new QRegularExpressionMatchIterator(*iterator);
 }
 
+//  QRegularExpressionMatchIterator::QRegularExpressionMatchIterator(QRegular
+//      ExpressionMatchIterator &&iterator)
+extern "C" Q_DECL_EXPORT
+QRegularExpressionMatchIterator *ritual_ZN31QRegularExpressionMatchIteratorC1EOS_(
+    QRegularExpressionMatchIterator *iterator) {
+  return new QRegularExpressionMatchIterator(std::move(*iterator));
+}
+
+//  QRegularExpressionMatchIterator
+//      &QRegularExpressionMatchIterator::operator=(const
+//      QRegularExpressionMatchIterator &iterator)
+extern "C" Q_DECL_EXPORT
+QRegularExpressionMatchIterator *ritual_ZN31QRegularExpressionMatchIteratoraSERKS_(
+    QRegularExpressionMatchIterator *self,
+    const QRegularExpressionMatchIterator *iterator) {
+  return &(self->operator=(*iterator));
+}
+
+//  QRegularExpressionMatchIterator &QRegularExpressionMatchIterator::operato
+//      r=(QRegularExpressionMatchIterator &&iterator)
+extern "C" Q_DECL_EXPORT
+QRegularExpressionMatchIterator *ritual_ZN31QRegularExpressionMatchIteratoraSEOS_(
+    QRegularExpressionMatchIterator *self,
+    QRegularExpressionMatchIterator *iterator) {
+  return &(self->operator=(std::move(*iterator)));
+}
+
+//  void
+//      QRegularExpressionMatchIterator::swap(QRegularExpressionMatchIterator
+//      &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QRegularExpressionMatchIterator4swapERS_(
+    QRegularExpressionMatchIterator *self,
+    QRegularExpressionMatchIterator *other) {
+  self->swap(*other);
+}
+
 //  bool QRegularExpressionMatchIterator::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK31QRegularExpressionMatchIterator7isValidEv(
@@ -76,6 +113,14 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK31QRegularExpressionMatchIterator12matchOptionsEv(
     const QRegularExpressionMatchIterator *self) {
   return static_cast<int>(self->matchOptions().toInt());
+}
+
+//  QRegularExpressionMatchIterator::QRegularExpressionMatchIterator(QRegular
+//      ExpressionMatchIteratorPrivate &dd)
+extern "C" Q_DECL_EXPORT
+QRegularExpressionMatchIterator *ritual_ZN31QRegularExpressionMatchIteratorC1ER38QRegularExpressionMatchIteratorPrivate(
+    QRegularExpressionMatchIteratorPrivate *dd) {
+  return new QRegularExpressionMatchIterator(*dd);
 }
 
 #endif  // QT_CONFIG(regularexpression)

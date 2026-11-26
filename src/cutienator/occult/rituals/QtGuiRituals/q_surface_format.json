@@ -9,6 +9,7 @@
       "address", "int"
     ],
     "ritual_ZN14QSurfaceFormatC1ERKS_": ["address", "address"],
+    "ritual_ZN14QSurfaceFormataSERKS_": ["address", "address", "address"],
     "ritual_ZN14QSurfaceFormatD1Ev": ["nothing", "address"],
     "ritual_ZN14QSurfaceFormat18setDepthBufferSizeEi": [
       "nothing", "address", "int"
@@ -57,6 +58,7 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK14QSurfaceFormat12minorVersionEv": ["int", "address"],
+    "ritual_ZNK14QSurfaceFormat7versionEv": ["address", "address"],
     "ritual_ZN14QSurfaceFormat10setVersionEii": [
       "nothing", "address", "int", "int"
     ],
@@ -91,6 +93,7 @@
     "ritual_ZNK14QSurfaceFormat6equalsERKS_": ["bool", "address", "address"],
     "ritual_ZeqRK14QSurfaceFormatS1_": ["bool", "address", "address"],
     "ritual_ZneRK14QSurfaceFormatS1_": ["bool", "address", "address"],
-    "ritual_Zls6QDebugRK14QSurfaceFormat": ["address", "address", "address"]
+    "ritual_Zls6QDebugRK14QSurfaceFormat": ["address", "address", "address"],
+    "ritual_drop_QSurfaceFormat__std_pair_int_int": ["nothing", "address"]
   }
 }

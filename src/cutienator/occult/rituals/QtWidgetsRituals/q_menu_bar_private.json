@@ -9,8 +9,30 @@
     "ritual_ZNK15QMenuBarPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN15QMenuBarPrivateC1Ev": ["address"],
     "ritual_ZN15QMenuBarPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QMenuBarPrivate13getNextActionExx": [
+      "address", "address", "long long", "long long"
+    ],
     "ritual_ZNK15QMenuBarPrivate15calcActionRectsEii": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK15QMenuBarPrivate10actionRectEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QMenuBarPrivate25mouseRelaseEventFromQMenuEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QMenuBarPrivate8actionAtE6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QMenuBarPrivate16setCurrentActionEP7QActionbb": [
+      "nothing", "address", "address", "bool", "bool"
+    ],
+    "ritual_ZN15QMenuBarPrivate11popupActionEP7QActionb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN15QMenuBarPrivate16focusFirstActionEv": ["nothing", "address"],
+    "ritual_ZN15QMenuBarPrivate15setKeyboardModeEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN15QMenuBarPrivate14activateActionEP7QActionNS0_11ActionEventE": [
       "nothing", "address", "address", "int"
@@ -19,6 +41,10 @@
       "nothing", "address"
     ],
     "ritual_ZN15QMenuBarPrivate16_q_actionHoveredEv": ["nothing", "address"],
+    "ritual_ZN15QMenuBarPrivate28_q_internalShortcutActivatedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QMenuBarPrivate15_q_updateLayoutEv": ["nothing", "address"],
     "ritual_ZN15QMenuBarPrivate9isVisibleEP7QAction": [
       "bool", "address", "address"
     ],

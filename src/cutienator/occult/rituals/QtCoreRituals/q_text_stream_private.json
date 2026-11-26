@@ -16,15 +16,31 @@
     "ritual_ZN18QTextStreamPrivate20disconnectFromDeviceEv": [
       "nothing", "address"
     ],
+    "ritual_ZN18QTextStreamPrivate4readEx": ["text", "address", "long long"],
+    "ritual_ZN18QTextStreamPrivate4scanEPPK5QCharPxxNS_14TokenDelimiterE": [
+      "bool", "address", "address", "address", "long long", "int"
+    ],
     "ritual_ZNK18QTextStreamPrivate7readPtrEv": ["address", "address"],
+    "ritual_ZN18QTextStreamPrivate16consumeLastTokenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QTextStreamPrivate7consumeEx": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZN18QTextStreamPrivate18saveConverterStateEx": [
       "nothing", "address", "long long"
     ],
     "ritual_ZN18QTextStreamPrivate28restoreToSavedConverterStateEv": [
       "nothing", "address"
     ],
+    "ritual_ZN18QTextStreamPrivate7getCharEP5QChar": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN18QTextStreamPrivate9ungetCharE5QChar": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTextStreamPrivate7getRealEPd": [
+      "bool", "address", "address"
     ],
     "ritual_ZNK18QTextStreamPrivate7paddingEx": [
       "address", "address", "long long"

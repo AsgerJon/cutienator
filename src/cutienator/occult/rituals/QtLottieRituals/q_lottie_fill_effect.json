@@ -14,6 +14,9 @@
     "ritual_ZN17QLottieFillEffect16updatePropertiesEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK17QLottieFillEffect6renderER15QLottieRenderer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QLottieFillEffect5colorEv": ["address", "address"],
     "ritual_ZNK17QLottieFillEffect7opacityEv": ["double", "address"],
     "ritual_ZN17QLottieFillEffectD1Ev": ["nothing", "address"],

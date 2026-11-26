@@ -9,6 +9,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QBindable>
+#include <QtCore/QObject>
+#include <QtCore/QByteArray>
 
 //  Only a class built on QPropertyAnimation may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -339,6 +342,25 @@ const QMetaObject *ritual_ZNK18QPropertyAnimation10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QPropertyAnimation::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QPropertyAnimation11qt_metacastEPKc(
+    QPropertyAnimation *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QPropertyAnimation::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QPropertyAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
+    QPropertyAnimation *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QPropertyAnimation::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QPropertyAnimation2trEPKcS1_i(
@@ -386,6 +408,13 @@ void ritual_ZN18QPropertyAnimation15setTargetObjectEP7QObject(
   self->setTargetObject(target);
 }
 
+//  QBindable<QObject *> QPropertyAnimation::bindableTargetObject()
+extern "C" Q_DECL_EXPORT
+QBindable<QObject *> *ritual_ZN18QPropertyAnimation20bindableTargetObjectEv(
+    QPropertyAnimation *self) {
+  return new QBindable<QObject *>(self->bindableTargetObject());
+}
+
 //  QByteArray QPropertyAnimation::propertyName() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK18QPropertyAnimation12propertyNameEv(
@@ -399,6 +428,13 @@ void ritual_ZN18QPropertyAnimation15setPropertyNameERK10QByteArray(
     QPropertyAnimation *self,
     const QByteArray *propertyName) {
   self->setPropertyName(*propertyName);
+}
+
+//  QBindable<QByteArray> QPropertyAnimation::bindablePropertyName()
+extern "C" Q_DECL_EXPORT
+QBindable<QByteArray> *ritual_ZN18QPropertyAnimation20bindablePropertyNameEv(
+    QPropertyAnimation *self) {
+  return new QBindable<QByteArray>(self->bindablePropertyName());
 }
 
 //  bool QPropertyAnimation::event(QEvent *event)
@@ -479,6 +515,20 @@ void ritual_own_ZN18QPropertyAnimation11updateStateEN18QAbstractAnimation5StateE
   static_cast<OwnQPropertyAnimation *>(self)->OwnQPropertyAnimation::updateState(
       newState,
       oldState);
+}
+
+//  a QBindable<QObject *> a ritual of QPropertyAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPropertyAnimation__QBindable_QObject(
+    QBindable<QObject *> *self) {
+  delete self;
+}
+
+//  a QBindable<QByteArray> a ritual of QPropertyAnimation gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QPropertyAnimation__QBindable_QByteArray(
+    QBindable<QByteArray> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(animation)

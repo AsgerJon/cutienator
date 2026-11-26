@@ -44,6 +44,12 @@ inline QQuickTimeLineObject::~QQuickTimeLineObject()
 }
 //  -----------------------------------------------------------------------
 
+//  QQuickTimeLineValue::QQuickTimeLineValue(qreal v)
+extern "C" Q_DECL_EXPORT
+QQuickTimeLineValue *ritual_ZN19QQuickTimeLineValueC1Ed(qreal v) {
+  return new QQuickTimeLineValue(v);
+}
+
 //  qreal QQuickTimeLineValue::value() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK19QQuickTimeLineValue5valueEv(
@@ -70,6 +76,14 @@ QQuickTimeLine *ritual_ZNK19QQuickTimeLineValue8timeLineEv(
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK19QQuickTimeLineValuecvdEv(const QQuickTimeLineValue *self) {
   return self->operator qreal();
+}
+
+//  QQuickTimeLineValue &QQuickTimeLineValue::operator=(qreal v)
+extern "C" Q_DECL_EXPORT
+QQuickTimeLineValue *ritual_ZN19QQuickTimeLineValueaSEd(
+    QQuickTimeLineValue *self,
+    qreal v) {
+  return &(self->operator=(v));
 }
 
 //  QQuickTimeLineValue::~QQuickTimeLineValue()

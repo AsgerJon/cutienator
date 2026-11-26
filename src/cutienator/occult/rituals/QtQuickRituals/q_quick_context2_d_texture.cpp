@@ -33,10 +33,112 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dcommandbuffer.cpp, line 12, as local:qquickcontext2dcommandbuffer.cpp:HAS_SHADOW
+#define HAS_SHADOW(offsetX, offsetY, blur, color) (color.isValid() && color.alpha() && (blur || offsetX || offsetY))
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 37, as _ZN22QQuickContext2DTexture16markDirtyTextureEv
+inline void QQuickContext2DTexture::markDirtyTexture()
+{
+    if (m_onCustomThread)
+        m_mutex.lock();
+    m_dirtyTexture = true;
+    emit textureChanged();
+    if (m_onCustomThread)
+        m_mutex.unlock();
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 305, as _ZN22QQuickContext2DTexture5eventEP6QEvent
+inline bool QQuickContext2DTexture::event(QEvent *e)
+{
+    if ((int) e->type() == QEvent::User + 1) {
+        PaintEvent *pe = static_cast<PaintEvent *>(e);
+        paint(pe->buffer);
+        return true;
+    } else if ((int) e->type() == QEvent::User + 2) {
+        CanvasChangeEvent *ce = static_cast<CanvasChangeEvent *>(e);
+        canvasChanged(ce->canvasSize, ce->tileSize, ce->canvasWindow, ce->dirtyRect, ce->smooth, ce->antialiasing);
+        return true;
+    }
+    return QObject::event(e);
+}
+
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 300, as _ZN22QQuickContext2DTexture16adjustedTileSizeERK5QSize
 inline QSize QQuickContext2DTexture::adjustedTileSize(const QSize &ts)
 {
     return ts;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 129, as _ZN22QQuickContext2DTexture13canvasChangedERK5QSizeS2_RK5QRectS5_bb
+inline void QQuickContext2DTexture::canvasChanged(const QSize& canvasSize, const QSize& tileSize, const QRect& canvasWindow, const QRect& dirtyRect, bool smooth, bool antialiasing)
+{
+    QSize ts = tileSize;
+    if (ts.width() > canvasSize.width())
+        ts.setWidth(canvasSize.width());
+
+    if (ts.height() > canvasSize.height())
+        ts.setHeight(canvasSize.height());
+
+    setCanvasSize(canvasSize);
+    setTileSize(ts);
+    setCanvasWindow(canvasWindow);
+
+    if (canvasSize == canvasWindow.size()) {
+        m_tiledCanvas = false;
+    } else {
+        m_tiledCanvas = true;
+    }
+
+    if (dirtyRect.isValid())
+        setDirtyRect(dirtyRect);
+
+    setSmooth(smooth);
+    setAntialiasing(antialiasing);
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 183, as _ZN22QQuickContext2DTexture5paintEP28QQuickContext2DCommandBuffer
+inline void QQuickContext2DTexture::paint(QQuickContext2DCommandBuffer *ccb)
+{
+    QQuickContext2D::mutex.lock();
+    if (canvasDestroyed()) {
+        delete ccb;
+        QQuickContext2D::mutex.unlock();
+        return;
+    }
+    QQuickContext2D::mutex.unlock();
+    if (!m_tiledCanvas) {
+        paintWithoutTiles(ccb);
+        delete ccb;
+        return;
+    }
+
+    QRect tiledRegion = createTiles(m_canvasWindow.intersected(QRect(QPoint(0, 0), m_canvasSize)));
+    if (!tiledRegion.isEmpty()) {
+        QRect dirtyRect;
+        for (QQuickContext2DTile* tile : std::as_const(m_tiles)) {
+            if (tile->dirty()) {
+                if (dirtyRect.isEmpty())
+                    dirtyRect = tile->rect();
+                else
+                    dirtyRect |= tile->rect();
+            }
+        }
+
+        if (beginPainting()) {
+            QQuickContext2D::State oldState = m_state;
+            for (QQuickContext2DTile* tile : std::as_const(m_tiles)) {
+                if (tile->dirty()) {
+                    ccb->replay(tile->createPainter(m_smooth, m_antialiasing), oldState, scaleFactor());
+                    tile->drawFinished();
+                    tile->markDirty(false);
+                }
+                compositeTile(tile);
+            }
+            endPainting();
+            m_state = oldState;
+            markDirtyTexture();
+        }
+    }
+    delete ccb;
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 32, as _ZN22QQuickContext2DTextureD1Ev
@@ -115,21 +217,6 @@ inline bool QQuickContext2DTexture::setDirtyRect(const QRect &r)
 inline bool QQuickContext2DTexture::canvasDestroyed()
 {
     return m_item == nullptr;
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 305, as _ZN22QQuickContext2DTexture5eventEP6QEvent
-inline bool QQuickContext2DTexture::event(QEvent *e)
-{
-    if ((int) e->type() == QEvent::User + 1) {
-        PaintEvent *pe = static_cast<PaintEvent *>(e);
-        paint(pe->buffer);
-        return true;
-    } else if ((int) e->type() == QEvent::User + 2) {
-        CanvasChangeEvent *ce = static_cast<CanvasChangeEvent *>(e);
-        canvasChanged(ce->canvasSize, ce->tileSize, ce->canvasWindow, ce->dirtyRect, ce->smooth, ce->antialiasing);
-        return true;
-    }
-    return QObject::event(e);
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 294, as _ZN22QQuickContext2DTexture10clearTilesEv
@@ -580,6 +667,25 @@ const QMetaObject *ritual_ZNK22QQuickContext2DTexture10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickContext2DTexture::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQuickContext2DTexture11qt_metacastEPKc(
+    QQuickContext2DTexture *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickContext2DTexture::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQuickContext2DTexture11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickContext2DTexture *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuickContext2DTexture::~QQuickContext2DTexture()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QQuickContext2DTextureD1Ev(QQuickContext2DTexture *self) {
@@ -681,6 +787,149 @@ bool ritual_ZN22QQuickContext2DTexture5eventEP6QEvent(
     QQuickContext2DTexture *self,
     QEvent *e) {
   return self->event(e);
+}
+
+//  void QQuickContext2DTexture::textureChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickContext2DTexture14textureChangedEv(
+    QQuickContext2DTexture *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickContext2DTexture")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "textureChanged()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "textureChanged()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickContext2DTexture::canvasChanged(const QSize &canvasSize, const
+//      QSize &tileSize, const QRect &canvasWindow, const QRect &dirtyRect,
+//      bool smooth, bool antialiasing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickContext2DTexture13canvasChangedERK5QSizeS2_RK5QRectS5_bb(
+    QQuickContext2DTexture *self,
+    const QSize *canvasSize,
+    const QSize *tileSize,
+    const QRect *canvasWindow,
+    const QRect *dirtyRect,
+    bool smooth,
+    bool antialiasing) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickContext2DTexture")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "canvasChanged(const QSize &,const QSize &,const QRect &,const QRect &,bool,bool)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "canvasChanged(const QSize &,const QSize &,const QRect &,const QRect &,bool,bool)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(canvasSize)),
+      const_cast<void *>(static_cast<const void *>(tileSize)),
+      const_cast<void *>(static_cast<const void *>(canvasWindow)),
+      const_cast<void *>(static_cast<const void *>(dirtyRect)),
+      const_cast<void *>(static_cast<const void *>(&smooth)),
+      const_cast<void *>(static_cast<const void *>(&antialiasing)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickContext2DTexture::paint(QQuickContext2DCommandBuffer *ccb)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickContext2DTexture5paintEP28QQuickContext2DCommandBuffer(
+    QQuickContext2DTexture *self,
+    QQuickContext2DCommandBuffer *ccb) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickContext2DTexture")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "paint(QQuickContext2DCommandBuffer *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "paint(QQuickContext2DCommandBuffer *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&ccb)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickContext2DTexture::markDirtyTexture()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickContext2DTexture16markDirtyTextureEv(
+    QQuickContext2DTexture *self) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickContext2DTexture")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "markDirtyTexture()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "markDirtyTexture()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QQuickContext2DTexture::setItem(QQuickCanvasItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQuickContext2DTexture7setItemEP16QQuickCanvasItem(
+    QQuickContext2DTexture *self,
+    QQuickCanvasItem *item) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuickContext2DTexture")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setItem(QQuickCanvasItem *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setItem(QQuickCanvasItem *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&item)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuickContext2DTexture::grabImage(const QRectF &region)

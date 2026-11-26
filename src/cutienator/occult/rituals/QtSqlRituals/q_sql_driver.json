@@ -5,9 +5,16 @@
   ],
   "rows": {
     "ritual_ZNK10QSqlDriver10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSqlDriver11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QSqlDriver11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QSqlDriver2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QSqlDriver6d_funcEv": ["address", "address"],
     "ritual_ZNK10QSqlDriver6d_funcEv": ["address", "address"],
+    "ritual_ZN10QSqlDriverC1EP7QObject": ["address", "address"],
     "ritual_ZN10QSqlDriverD1Ev": ["nothing", "address"],
     "ritual_ZNK10QSqlDriver6isOpenEv": ["bool", "address"],
     "ritual_ZNK10QSqlDriver11isOpenErrorEv": ["bool", "address"],
@@ -67,6 +74,12 @@
     ],
     "ritual_ZNK10QSqlDriver14connectionNameEv": ["text", "address"],
     "ritual_ZN10QSqlDriver11cancelQueryEv": ["bool", "address"],
+    "ritual_ZN10QSqlDriver12notificationERK7QStringNS_18NotificationSourceERK8QVariant": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZN10QSqlDriverC1ER17QSqlDriverPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10QSqlDriver7setOpenEb": ["nothing", "address", "bool"],
     "ritual_ZN10QSqlDriver12setOpenErrorEb": ["nothing", "address", "bool"],
     "ritual_ZN10QSqlDriver12setLastErrorERK9QSqlError": [

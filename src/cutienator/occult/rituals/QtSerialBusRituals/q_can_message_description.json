@@ -7,7 +7,17 @@
   "rows": {
     "ritual_ZN22QCanMessageDescriptionC1Ev": ["address"],
     "ritual_ZN22QCanMessageDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN22QCanMessageDescriptionC1EOS_": ["address", "address"],
     "ritual_ZN22QCanMessageDescriptionD1Ev": ["nothing", "address"],
+    "ritual_ZN22QCanMessageDescriptionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QCanMessageDescriptionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QCanMessageDescription4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK22QCanMessageDescription7isValidEv": ["bool", "address"],
     "ritual_ZNK22QCanMessageDescription8uniqueIdEv": [
       "unsigned int", "address"

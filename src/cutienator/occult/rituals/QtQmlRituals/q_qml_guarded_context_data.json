@@ -7,10 +7,33 @@
   "rows": {
     "ritual_ZN22QQmlGuardedContextDataC1Ev": ["address"],
     "ritual_ZN22QQmlGuardedContextDataD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQmlGuardedContextDataC1EOS_": ["address", "address"],
+    "ritual_ZN22QQmlGuardedContextDataaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQmlGuardedContextDataC1E14QQmlRefPointerI15QQmlContextDataE": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQmlGuardedContextDataaSE14QQmlRefPointerI15QQmlContextDataE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QQmlGuardedContextData11contextDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQmlGuardedContextData14setContextDataE14QQmlRefPointerI15QQmlContextDataE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK22QQmlGuardedContextData6isNullEv": ["bool", "address"],
+    "ritual_ZNK22QQmlGuardedContextDatacvRK14QQmlRefPointerI15QQmlContextDataEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQmlGuardedContextDatadeEv": ["address", "address"],
     "ritual_ZNK22QQmlGuardedContextDataptEv": ["address", "address"],
     "ritual_ZNK22QQmlGuardedContextData4nextEv": ["address", "address"],
     "ritual_ZN22QQmlGuardedContextData5resetEv": ["nothing", "address"],
-    "ritual_ZN22QQmlGuardedContextData6unlinkEv": ["nothing", "address"]
+    "ritual_ZN22QQmlGuardedContextData6unlinkEv": ["nothing", "address"],
+    "ritual_drop_QQmlGuardedContextData__QQmlRefPointer_QQmlContextData": [
+      "nothing", "address"
+    ]
   }
 }

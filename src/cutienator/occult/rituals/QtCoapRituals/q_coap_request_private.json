@@ -7,6 +7,15 @@
   "rows": {
     "ritual_ZN19QCoapRequestPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK19QCoapRequestPrivate5cloneEv": ["address", "address"],
+    "ritual_ZN19QCoapRequestPrivate6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QCoapRequestPrivate9adjustUrlEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QCoapRequestPrivate13createRequestERK12QCoapRequestN6QtCoap6MethodEb": [
+      "address", "address", "unsigned char", "bool"
+    ],
     "ritual_take_QCoapRequestPrivate": [
       "bool", "address", "chars", "address"
     ]

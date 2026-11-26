@@ -8,13 +8,25 @@
     "ritual_ZNK23QAbstractCollisionShape10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN23QAbstractCollisionShape11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QAbstractCollisionShape11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN23QAbstractCollisionShape2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN23QAbstractCollisionShape24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QAbstractCollisionShapeC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
     "ritual_ZN23QAbstractCollisionShapeD1Ev": ["nothing", "address"],
+    "ritual_ZN23QAbstractCollisionShape16getPhysXGeometryEv": [
+      "address", "address"
+    ],
     "ritual_ZNK23QAbstractCollisionShape15enableDebugDrawEv": [
       "bool", "address"
     ],
@@ -23,6 +35,12 @@
     ],
     "ritual_ZN23QAbstractCollisionShape18setEnableDebugDrawEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QAbstractCollisionShape22enableDebugDrawChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QAbstractCollisionShape12needsRebuildEP7QObject": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN23QAbstractCollisionShape17handleScaleChangeEv": [
       "nothing", "address"

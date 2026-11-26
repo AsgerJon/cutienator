@@ -7,9 +7,17 @@
     "ritual_ZNK24QPlainTextDocumentLayout10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN24QPlainTextDocumentLayout11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QPlainTextDocumentLayout11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN24QPlainTextDocumentLayout2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN24QPlainTextDocumentLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QPlainTextDocumentLayout6d_funcEv": ["address", "address"],
     "ritual_ZN24QPlainTextDocumentLayoutC1EP13QTextDocument": [
       "address", "address"
     ],
@@ -57,6 +65,7 @@
     "ritual_ZN24QPlainTextDocumentLayout10blockWidthERK10QTextBlock": [
       "double", "address", "address"
     ],
+    "ritual_ZNK24QPlainTextDocumentLayout4privEv": ["address", "address"],
     "ritual_take_QPlainTextDocumentLayout": [
       "bool", "address", "chars", "address"
     ],

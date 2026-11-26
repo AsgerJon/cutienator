@@ -32,5 +32,11 @@ QLocalServerPrivate *ritual_ZN19QLocalServerPrivateC1Ev() {
   return new QLocalServerPrivate();
 }
 
+//  size_t QLocalServerPrivate::_qt_property_socketOptions_offset()
+extern "C" Q_DECL_EXPORT
+size_t ritual_ZN19QLocalServerPrivate33_qt_property_socketOptions_offsetEv() {
+  return QLocalServerPrivate::_qt_property_socketOptions_offset();
+}
+
 #endif  // QT_CONFIG(localserver)
 #endif  // QT_CONFIG(localserver)

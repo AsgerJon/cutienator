@@ -63,12 +63,26 @@ bool ritual_ZNK10QTextFrame8iteratorneERKS0_(
   return self->operator!=(*o);
 }
 
+//  iterator &QTextFrame::iterator::operator++()
+extern "C" Q_DECL_EXPORT
+QTextFrame::iterator *ritual_ZN10QTextFrame8iteratorppEv(
+    QTextFrame::iterator *self) {
+  return &(self->operator++());
+}
+
 //  iterator QTextFrame::iterator::operator++(int a0)
 extern "C" Q_DECL_EXPORT
 QTextFrame::iterator *ritual_ZN10QTextFrame8iteratorppEi(
     QTextFrame::iterator *self,
     int a0) {
   return new QTextFrame::iterator(self->operator++(a0));
+}
+
+//  iterator &QTextFrame::iterator::operator--()
+extern "C" Q_DECL_EXPORT
+QTextFrame::iterator *ritual_ZN10QTextFrame8iteratormmEv(
+    QTextFrame::iterator *self) {
+  return &(self->operator--());
 }
 
 //  iterator QTextFrame::iterator::operator--(int a0)

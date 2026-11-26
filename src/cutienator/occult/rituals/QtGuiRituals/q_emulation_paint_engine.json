@@ -13,8 +13,20 @@
     "ritual_ZNK21QEmulationPaintEngine11createStateEP13QPainterState": [
       "address", "address", "address"
     ],
+    "ritual_ZN21QEmulationPaintEngine4fillERK11QVectorPathRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine6strokeERK11QVectorPathRK4QPen": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine4clipERK11QVectorPathN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN21QEmulationPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN21QEmulationPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
       "nothing", "address", "address"
@@ -72,6 +84,9 @@
     ],
     "ritual_own_ZN21QEmulationPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
       "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_own_ZN21QEmulationPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
       "nothing", "address", "address"

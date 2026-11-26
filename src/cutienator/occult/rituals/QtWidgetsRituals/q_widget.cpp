@@ -26,6 +26,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtWidgets/QWidget>
 
 //  Only a class built on QWidget may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -907,6 +908,22 @@ public:
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK7QWidget10metaObjectEv(const QWidget *self) {
   return self->metaObject();
+}
+
+//  void *QWidget::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN7QWidget11qt_metacastEPKc(QWidget *self, const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QWidget11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWidget *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QWidget::tr(const char *s, const char *c, int n)
@@ -1974,6 +1991,13 @@ void ritual_ZN7QWidget11setTabOrderEPS_S0_(QWidget *a0, QWidget *a1) {
   QWidget::setTabOrder(a0, a1);
 }
 
+//  void QWidget::setTabOrder(std::initializer_list<QWidget *> widgets)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWidget11setTabOrderESt16initializer_listIPS_E(
+    const std::initializer_list<QWidget *> *widgets) {
+  QWidget::setTabOrder(*widgets);
+}
+
 //  void QWidget::setFocusProxy(QWidget *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget13setFocusProxyEPS_(QWidget *self, QWidget *a0) {
@@ -2862,6 +2886,38 @@ QWidget *ritual_ZN7QWidget21createWindowContainerEP7QWindowPS_6QFlagsIN2Qt10Wind
       QFlags<Qt::WindowType>::fromInt(flags));
 }
 
+//  void QWidget::windowTitleChanged(const QString &title)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWidget18windowTitleChangedERK7QString(
+    QWidget *self,
+    const QString *title) {
+  self->windowTitleChanged(*title);
+}
+
+//  void QWidget::windowIconChanged(const QIcon &icon)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWidget17windowIconChangedERK5QIcon(
+    QWidget *self,
+    const QIcon *icon) {
+  self->windowIconChanged(*icon);
+}
+
+//  void QWidget::windowIconTextChanged(const QString &iconText)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWidget21windowIconTextChangedERK7QString(
+    QWidget *self,
+    const QString *iconText) {
+  self->windowIconTextChanged(*iconText);
+}
+
+//  void QWidget::customContextMenuRequested(const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWidget26customContextMenuRequestedERK6QPoint(
+    QWidget *self,
+    const QPoint *pos) {
+  self->customContextMenuRequested(*pos);
+}
+
 //  bool QWidget::event(QEvent *event)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN7QWidget5eventEP6QEvent(QWidget *self, QEvent *event) {
@@ -3074,6 +3130,17 @@ void ritual_ZN7QWidget9hideEventEP10QHideEvent(
   self->hideEvent(event);
 }
 
+//  bool QWidget::nativeEvent(const QByteArray &eventType, void *message,
+//      qintptr *result)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QWidget11nativeEventERK10QByteArrayPvPx(
+    QWidget *self,
+    const QByteArray *eventType,
+    void *message,
+    qintptr *result) {
+  return self->nativeEvent(*eventType, message, result);
+}
+
 //  void QWidget::changeEvent(QEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget11changeEventEP6QEvent(QWidget *self, QEvent *a0) {
@@ -3184,6 +3251,15 @@ bool ritual_ZN7QWidget14focusNextChildEv(QWidget *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN7QWidget18focusPreviousChildEv(QWidget *self) {
   return self->focusPreviousChild();
+}
+
+//  QWidget::QWidget(QWidgetPrivate &d, QWidget *parent, Qt::WindowFlags f)
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZN7QWidgetC1ER14QWidgetPrivatePS_6QFlagsIN2Qt10WindowTypeEE(
+    QWidgetPrivate *d,
+    QWidget *parent,
+    int f) {
+  return new CuteQWidget(*d, parent, QFlags<Qt::WindowType>::fromInt(f));
 }
 
 //  void QWidget::setBackingStore(QBackingStore *store)

@@ -31,6 +31,16 @@ QOpcUaMonitoringParameters::DataChangeFilter *ritual_ZN26QOpcUaMonitoringParamet
       deadbandValue);
 }
 
+//  DataChangeFilter
+//      &QOpcUaMonitoringParameters::DataChangeFilter::operator=(const
+//      DataChangeFilter &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaMonitoringParameters::DataChangeFilter *ritual_ZN26QOpcUaMonitoringParameters16DataChangeFilteraSERKS0_(
+    QOpcUaMonitoringParameters::DataChangeFilter *self,
+    const QOpcUaMonitoringParameters::DataChangeFilter *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  bool QOpcUaMonitoringParameters::DataChangeFilter::operator==(const
 //      DataChangeFilter &rhs) const
 extern "C" Q_DECL_EXPORT

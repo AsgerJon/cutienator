@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK14QQuick3DObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DObject11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QQuick3DObject11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QQuick3DObject2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -25,12 +31,18 @@
     "ritual_ZN14QQuick3DObject13setParentItemEPS_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QQuick3DObject13parentChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DObject15childrenChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DObject12stateChangedEv": ["nothing", "address"],
     "ritual_ZN14QQuick3DObject17updateSpatialNodeEP21QSSGRenderGraphObject": [
       "address", "address", "address"
     ],
     "ritual_ZN14QQuick3DObject12markAllDirtyEv": ["nothing", "address"],
     "ritual_ZN14QQuick3DObject10itemChangeENS_10ItemChangeERKNS_14ItemChangeDataE": [
       "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuick3DObjectC1ER21QQuick3DObjectPrivatePS_": [
+      "address", "address", "address"
     ],
     "ritual_ZN14QQuick3DObject10classBeginEv": ["nothing", "address"],
     "ritual_ZN14QQuick3DObject17componentCompleteEv": ["nothing", "address"],

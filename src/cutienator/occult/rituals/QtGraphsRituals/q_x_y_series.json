@@ -8,7 +8,14 @@
   ],
   "rows": {
     "ritual_ZNK9QXYSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QXYSeries11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN9QXYSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN9QXYSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QXYSeriesC1ER16QXYSeriesPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QXYSeries6appendEdd": [
       "nothing", "address", "double", "double"
     ],
@@ -50,6 +57,10 @@
     "ritual_ZN9QXYSeries4takeE7QPointF": ["bool", "address", "address"],
     "ritual_ZN9QXYSeriesD1Ev": ["nothing", "address"],
     "ritual_ZNK9QXYSeries6pointsEv": ["address", "address"],
+    "ritual_ZN9QXYSerieslsE7QPointF": ["address", "address", "address"],
+    "ritual_ZN9QXYSerieslsERK5QListI7QPointFE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QXYSeries8setColorE6QColor": [
       "nothing", "address", "address"
     ],
@@ -77,6 +88,16 @@
     ],
     "ritual_ZN9QXYSeries15selectAllPointsEv": ["nothing", "address"],
     "ritual_ZN9QXYSeries17deselectAllPointsEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries12selectPointsERK5QListIxE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries14deselectPointsERK5QListIxE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries15toggleSelectionERK5QListIxE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries14selectedPointsEv": ["address", "address"],
     "ritual_ZNK9QXYSeries13pointDelegateEv": ["address", "address"],
     "ritual_ZN9QXYSeries16setPointDelegateEP13QQmlComponent": [
       "nothing", "address", "address"
@@ -94,8 +115,54 @@
     "ritual_ZN9QXYSeries11setValueMinEd": ["nothing", "address", "double"],
     "ritual_ZNK9QXYSeries8stepSizeEv": ["double", "address"],
     "ritual_ZN9QXYSeries11setStepSizeEd": ["nothing", "address", "double"],
+    "ritual_ZN9QXYSeries13pointReplacedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN9QXYSeries12pointRemovedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN9QXYSeries10pointAddedEx": ["nothing", "address", "long long"],
+    "ritual_ZN9QXYSeries11pointsAddedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN9QXYSeries12colorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries20selectedColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries14pointsReplacedEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries13pointsRemovedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN9QXYSeries21selectedPointsChangedEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries20pointDelegateChangedEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries16draggableChangedEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries13seriesUpdatedEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries12countChangedEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries7clickedE6QPoint": ["nothing", "address", "address"],
+    "ritual_ZN9QXYSeries13doubleClickedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries7pressedE6QPoint": ["nothing", "address", "address"],
+    "ritual_ZN9QXYSeries8releasedE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries13valuesChangedERK5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries19valueMappingChangedENS_12ValueMappingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QXYSeries15valueMinChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN9QXYSeries15stepSizeChangedEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZN9QXYSeries6d_funcEv": ["address", "address"],
     "ritual_ZNK9QXYSeries6d_funcEv": ["address", "address"],
-    "ritual_take_QXYSeries": ["bool", "address", "chars", "address"]
+    "ritual_take_QXYSeries": ["bool", "address", "chars", "address"],
+    "ritual_drop_QXYSeries__QList_qsizetype": ["nothing", "address"]
   }
 }

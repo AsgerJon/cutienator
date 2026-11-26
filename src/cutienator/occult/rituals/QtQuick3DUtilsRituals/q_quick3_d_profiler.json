@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuick3DProfiler10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DProfiler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuick3DProfiler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuick3DProfiler2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,6 +25,9 @@
     ],
     "ritual_ZN16QQuick3DProfiler14registerStringERK10QByteArray": [
       "int", "address"
+    ],
+    "ritual_ZN16QQuick3DProfiler9dataReadyERK5QListI20QQuick3DProfilerDataERK5QHashIi10QByteArrayE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN16QQuick3DProfilerC1EP7QObject": ["address", "address"],
     "ritual_ZN16QQuick3DProfiler14processMessageERK20QQuick3DProfilerData": [

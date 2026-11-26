@@ -6,7 +6,16 @@
   "rows": {
     "ritual_ZN22QDnsMailExchangeRecordC1Ev": ["address"],
     "ritual_ZN22QDnsMailExchangeRecordC1ERKS_": ["address", "address"],
+    "ritual_ZN22QDnsMailExchangeRecordaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QDnsMailExchangeRecordaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QDnsMailExchangeRecordD1Ev": ["nothing", "address"],
+    "ritual_ZN22QDnsMailExchangeRecord4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK22QDnsMailExchangeRecord8exchangeEv": ["text", "address"],
     "ritual_ZNK22QDnsMailExchangeRecord4nameEv": ["text", "address"],
     "ritual_ZNK22QDnsMailExchangeRecord10preferenceEv": [

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16SelectionPointer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16SelectionPointer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16SelectionPointer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16SelectionPointerD1Ev": ["nothing", "address"],
     "ritual_ZN16SelectionPointer11setPositionERK9QVector3D": [
       "nothing", "address", "address"

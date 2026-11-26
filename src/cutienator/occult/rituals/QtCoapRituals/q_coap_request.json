@@ -12,6 +12,7 @@
     ],
     "ritual_ZN12QCoapRequestC1ERKS_": ["address", "address"],
     "ritual_ZN12QCoapRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN12QCoapRequestaSERKS_": ["address", "address", "address"],
     "ritual_ZNK12QCoapRequest3urlEv": ["address", "address"],
     "ritual_ZNK12QCoapRequest8proxyUrlEv": ["address", "address"],
     "ritual_ZNK12QCoapRequest6methodEv": ["unsigned char", "address"],

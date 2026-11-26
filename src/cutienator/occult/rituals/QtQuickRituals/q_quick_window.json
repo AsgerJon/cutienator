@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK12QQuickWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QQuickWindow11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN12QQuickWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQuickWindow6d_funcEv": ["address", "address"],
     "ritual_ZNK12QQuickWindow6d_funcEv": ["address", "address"],
@@ -98,8 +104,54 @@
     ],
     "ritual_ZNK12QQuickWindow3rhiEv": ["address", "address"],
     "ritual_ZNK12QQuickWindow9swapChainEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow12frameSwappedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow21sceneGraphInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickWindow21sceneGraphInvalidatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickWindow19beforeSynchronizingEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow18afterSynchronizingEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow15beforeRenderingEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow14afterRenderingEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow14afterAnimatingEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow21sceneGraphAboutToStopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickWindow7closingEP16QQuickCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow12colorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow22activeFocusItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickWindow15sceneGraphErrorENS_15SceneGraphErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN12QQuickWindow25beforeRenderPassRecordingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickWindow24afterRenderPassRecordingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickWindow14paletteChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow14paletteCreatedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow16beforeFrameBeginEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow13afterFrameEndEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow23devicePixelRatioChangedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN12QQuickWindow6updateEv": ["nothing", "address"],
     "ritual_ZN12QQuickWindow16releaseResourcesEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindowC1ER19QQuickWindowPrivateP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindowC1ER19QQuickWindowPrivateP19QQuickRenderControl": [
+      "address", "address", "address"
+    ],
     "ritual_ZN12QQuickWindow11exposeEventEP12QExposeEvent": [
       "nothing", "address", "address"
     ],

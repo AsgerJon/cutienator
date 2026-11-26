@@ -7,6 +7,7 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/dialoggui_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A qdesigner_internal::DialogGui that Python can take functions over in. Every qdesigner_internal::DialogGui
@@ -220,6 +221,250 @@ public:
     return qdesigner_internal::DialogGui::getOpenImageFileName(parent, caption, dir, filter, selectedFilter, options);
   }
 };
+
+//  qdesigner_internal::DialogGui::DialogGui()
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::DialogGui *ritual_ZN18qdesigner_internal9DialogGuiC1Ev() {
+  return new Cuteqdesigner_internal_DialogGui();
+}
+
+//  qdesigner_internal::DialogGui::~DialogGui()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal9DialogGuiD1Ev(
+    qdesigner_internal::DialogGui *self) {
+  delete self;
+}
+
+//  QMessageBox::StandardButton
+//      qdesigner_internal::DialogGui::message(QWidget *parent, Message
+//      context, QMessageBox::Icon icon, const QString &title, const QString
+//      &text, QMessageBox::StandardButtons buttons,
+//      QMessageBox::StandardButton defaultButton)
+extern "C" Q_DECL_EXPORT
+QMessageBox::StandardButton ritual_ZN18qdesigner_internal9DialogGui7messageEP7QWidgetN27QDesignerDialogGuiInterface7MessageEN11QMessageBox4IconERK7QStringS9_6QFlagsINS5_14StandardButtonEESB_(
+    qdesigner_internal::DialogGui *self,
+    QWidget *parent,
+    QDesignerDialogGuiInterface::Message context,
+    QMessageBox::Icon icon,
+    const QString *title,
+    const QString *text,
+    int buttons,
+    QMessageBox::StandardButton defaultButton) {
+  return self->message(
+      parent,
+      context,
+      icon,
+      *title,
+      *text,
+      QFlags<QMessageBox::StandardButton>::fromInt(buttons),
+      defaultButton);
+}
+
+//  QMessageBox::StandardButton
+//      qdesigner_internal::DialogGui::message(QWidget *parent, Message
+//      context, QMessageBox::Icon icon, const QString &title, const QString
+//      &text, const QString &informativeText, QMessageBox::StandardButtons
+//      buttons, QMessageBox::StandardButton defaultButton)
+extern "C" Q_DECL_EXPORT
+QMessageBox::StandardButton ritual_ZN18qdesigner_internal9DialogGui7messageEP7QWidgetN27QDesignerDialogGuiInterface7MessageEN11QMessageBox4IconERK7QStringS9_S9_6QFlagsINS5_14StandardButtonEESB_(
+    qdesigner_internal::DialogGui *self,
+    QWidget *parent,
+    QDesignerDialogGuiInterface::Message context,
+    QMessageBox::Icon icon,
+    const QString *title,
+    const QString *text,
+    const QString *informativeText,
+    int buttons,
+    QMessageBox::StandardButton defaultButton) {
+  return self->message(
+      parent,
+      context,
+      icon,
+      *title,
+      *text,
+      *informativeText,
+      QFlags<QMessageBox::StandardButton>::fromInt(buttons),
+      defaultButton);
+}
+
+//  QMessageBox::StandardButton
+//      qdesigner_internal::DialogGui::message(QWidget *parent, Message
+//      context, QMessageBox::Icon icon, const QString &title, const QString
+//      &text, const QString &informativeText, const QString &detailedText,
+//      QMessageBox::StandardButtons buttons, QMessageBox::StandardButton
+//      defaultButton)
+extern "C" Q_DECL_EXPORT
+QMessageBox::StandardButton ritual_ZN18qdesigner_internal9DialogGui7messageEP7QWidgetN27QDesignerDialogGuiInterface7MessageEN11QMessageBox4IconERK7QStringS9_S9_S9_6QFlagsINS5_14StandardButtonEESB_(
+    qdesigner_internal::DialogGui *self,
+    QWidget *parent,
+    QDesignerDialogGuiInterface::Message context,
+    QMessageBox::Icon icon,
+    const QString *title,
+    const QString *text,
+    const QString *informativeText,
+    const QString *detailedText,
+    int buttons,
+    QMessageBox::StandardButton defaultButton) {
+  return self->message(
+      parent,
+      context,
+      icon,
+      *title,
+      *text,
+      *informativeText,
+      *detailedText,
+      QFlags<QMessageBox::StandardButton>::fromInt(buttons),
+      defaultButton);
+}
+
+//  QString qdesigner_internal::DialogGui::getExistingDirectory(QWidget
+//      *parent, const QString &caption, const QString &dir,
+//      QFileDialog::Options options)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal9DialogGui20getExistingDirectoryEP7QWidgetRK7QStringS5_6QFlagsIN11QFileDialog6OptionEE(
+    qdesigner_internal::DialogGui *self,
+    QWidget *parent,
+    const QString *caption,
+    const QString *dir,
+    int options) {
+  return new QString(
+      self->getExistingDirectory(
+          parent,
+          *caption,
+          *dir,
+          QFlags<QFileDialog::Option>::fromInt(options)));
+}
+
+//  QString qdesigner_internal::DialogGui::getOpenFileName(QWidget *parent,
+//      const QString &caption, const QString &dir, const QString &filter,
+//      QString *selectedFilter, QFileDialog::Options options)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal9DialogGui15getOpenFileNameEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE(
+    qdesigner_internal::DialogGui *self,
+    QWidget *parent,
+    const QString *caption,
+    const QString *dir,
+    const QString *filter,
+    QString *selectedFilter,
+    int options) {
+  return new QString(
+      self->getOpenFileName(
+          parent,
+          *caption,
+          *dir,
+          *filter,
+          selectedFilter,
+          QFlags<QFileDialog::Option>::fromInt(options)));
+}
+
+//  QStringList qdesigner_internal::DialogGui::getOpenFileNames(QWidget
+//      *parent, const QString &caption, const QString &dir, const QString
+//      &filter, QString *selectedFilter, QFileDialog::Options options)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN18qdesigner_internal9DialogGui16getOpenFileNamesEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE(
+    qdesigner_internal::DialogGui *self,
+    QWidget *parent,
+    const QString *caption,
+    const QString *dir,
+    const QString *filter,
+    QString *selectedFilter,
+    int options) {
+  return new QList<QString>(
+      self->getOpenFileNames(
+          parent,
+          *caption,
+          *dir,
+          *filter,
+          selectedFilter,
+          QFlags<QFileDialog::Option>::fromInt(options)));
+}
+
+//  QString qdesigner_internal::DialogGui::getSaveFileName(QWidget *parent,
+//      const QString &caption, const QString &dir, const QString &filter,
+//      QString *selectedFilter, QFileDialog::Options options)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal9DialogGui15getSaveFileNameEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE(
+    qdesigner_internal::DialogGui *self,
+    QWidget *parent,
+    const QString *caption,
+    const QString *dir,
+    const QString *filter,
+    QString *selectedFilter,
+    int options) {
+  return new QString(
+      self->getSaveFileName(
+          parent,
+          *caption,
+          *dir,
+          *filter,
+          selectedFilter,
+          QFlags<QFileDialog::Option>::fromInt(options)));
+}
+
+//  QString qdesigner_internal::DialogGui::getOpenImageFileName(QWidget
+//      *parent, const QString &caption, const QString &dir, const QString
+//      &filter, QString *selectedFilter, QFileDialog::Options options)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal9DialogGui20getOpenImageFileNameEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE(
+    qdesigner_internal::DialogGui *self,
+    QWidget *parent,
+    const QString *caption,
+    const QString *dir,
+    const QString *filter,
+    QString *selectedFilter,
+    int options) {
+  return new QString(
+      self->getOpenImageFileName(
+          parent,
+          *caption,
+          *dir,
+          *filter,
+          selectedFilter,
+          QFlags<QFileDialog::Option>::fromInt(options)));
+}
+
+//  QStringList qdesigner_internal::DialogGui::getOpenImageFileNames(QWidget
+//      *parent, const QString &caption, const QString &dir, const QString
+//      &filter, QString *selectedFilter, QFileDialog::Options options)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN18qdesigner_internal9DialogGui21getOpenImageFileNamesEP7QWidgetRK7QStringS5_S5_PS3_6QFlagsIN11QFileDialog6OptionEE(
+    qdesigner_internal::DialogGui *self,
+    QWidget *parent,
+    const QString *caption,
+    const QString *dir,
+    const QString *filter,
+    QString *selectedFilter,
+    int options) {
+  return new QList<QString>(
+      self->getOpenImageFileNames(
+          parent,
+          *caption,
+          *dir,
+          *filter,
+          selectedFilter,
+          QFlags<QFileDialog::Option>::fromInt(options)));
+}
+
+//  QFileIconProvider *qdesigner_internal::DialogGui::ensureIconProvider()
+extern "C" Q_DECL_EXPORT
+QFileIconProvider *ritual_ZN18qdesigner_internal9DialogGui18ensureIconProviderEv(
+    qdesigner_internal::DialogGui *self) {
+  return self->ensureIconProvider();
+}
+
+//  void qdesigner_internal::DialogGui::initializeImageFileDialog(QFileDialog
+//      &fd, QFileDialog::Options options, QFileDialog::FileMode a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal9DialogGui25initializeImageFileDialogER11QFileDialog6QFlagsINS1_6OptionEENS1_8FileModeE(
+    qdesigner_internal::DialogGui *self,
+    QFileDialog *fd,
+    int options,
+    QFileDialog::FileMode a2) {
+  self->initializeImageFileDialog(
+      *fd,
+      QFlags<QFileDialog::Option>::fromInt(options),
+      a2);
+}
 
 //  a Python function taken by a Cuteqdesigner_internal_DialogGui, for the
 //      function named by the key

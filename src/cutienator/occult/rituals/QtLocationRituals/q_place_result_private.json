@@ -10,6 +10,9 @@
     ],
     "ritual_ZNK19QPlaceResultPrivate5cloneEv": ["address", "address"],
     "ritual_ZNK19QPlaceResultPrivate4typeEv": ["int", "address"],
+    "ritual_ZN19QPlaceResultPrivate14copyIfPossibleER18QSharedDataPointerI25QPlaceSearchResultPrivateERK18QPlaceSearchResult": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QPlaceResultPrivateD1Ev": ["nothing", "address"],
     "ritual_take_QPlaceResultPrivate": [
       "bool", "address", "chars", "address"

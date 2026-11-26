@@ -7,6 +7,16 @@
   "rows": {
     "ritual_ZN16QNativeInterface15QSGMetalTextureD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZN16QNativeInterface15QSGMetalTextureC1Ev": ["address"],
+    "ritual_ZNK16QNativeInterface15QSGMetalTexture13nativeTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QNativeInterface15QSGMetalTexture10fromNativeEP11objc_objectP12QQuickWindowRK5QSize6QFlagsINS3_19CreateTextureOptionEE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_take_QNativeInterface_QSGMetalTexture": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

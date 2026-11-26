@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK18QQuickImagineStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickImagineStyle11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QQuickImagineStyle11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN18QQuickImagineStyle2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -29,6 +35,7 @@
     "ritual_ZN18QQuickImagineStyle13propagatePathEv": ["nothing", "address"],
     "ritual_ZN18QQuickImagineStyle9resetPathEv": ["nothing", "address"],
     "ritual_ZNK18QQuickImagineStyle3urlEv": ["address", "address"],
+    "ritual_ZN18QQuickImagineStyle11pathChangedEv": ["nothing", "address"],
     "ritual_ZN18QQuickImagineStyle20attachedParentChangeEP32QQuickAttachedPropertyPropagatorS1_": [
       "nothing", "address", "address", "address"
     ],

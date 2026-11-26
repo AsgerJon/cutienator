@@ -10,6 +10,12 @@
     "ritual_ZN20QQuickAnchorsPrivate9clearItemEP10QQuickItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QQuickAnchorsPrivate9addDependEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAnchorsPrivate9remDependEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QQuickAnchorsPrivate14isItemCompleteEv": [
       "bool", "address"
     ],

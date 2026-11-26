@@ -10,6 +10,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtGui/qimage.h>
+#include <QtGui/qcolor.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qrect.h>
@@ -814,6 +815,25 @@ const QMetaObject *ritual_ZNK33QDeclarativeGeoMapCopyrightNotice10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDeclarativeGeoMapCopyrightNotice::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN33QDeclarativeGeoMapCopyrightNotice11qt_metacastEPKc(
+    QDeclarativeGeoMapCopyrightNotice *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeGeoMapCopyrightNotice::qt_metacall(QMetaObject::Call a0,
+//      int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN33QDeclarativeGeoMapCopyrightNotice11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeGeoMapCopyrightNotice *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeGeoMapCopyrightNotice::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -930,6 +950,47 @@ void ritual_ZN33QDeclarativeGeoMapCopyrightNotice29onCopyrightsStyleSheetChanged
   self->onCopyrightsStyleSheetChanged(*styleSheet);
 }
 
+//  void QDeclarativeGeoMapCopyrightNotice::linkActivated(const QString
+//      &link)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QDeclarativeGeoMapCopyrightNotice13linkActivatedERK7QString(
+    QDeclarativeGeoMapCopyrightNotice *self,
+    const QString *link) {
+  self->linkActivated(*link);
+}
+
+//  void QDeclarativeGeoMapCopyrightNotice::mapSourceChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QDeclarativeGeoMapCopyrightNotice16mapSourceChangedEv(
+    QDeclarativeGeoMapCopyrightNotice *self) {
+  self->mapSourceChanged();
+}
+
+//  void QDeclarativeGeoMapCopyrightNotice::backgroundColorChanged(const
+//      QColor &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QDeclarativeGeoMapCopyrightNotice22backgroundColorChangedERK6QColor(
+    QDeclarativeGeoMapCopyrightNotice *self,
+    const QColor *color) {
+  self->backgroundColorChanged(*color);
+}
+
+//  void QDeclarativeGeoMapCopyrightNotice::styleSheetChanged(const QString
+//      &styleSheet)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QDeclarativeGeoMapCopyrightNotice17styleSheetChangedERK7QString(
+    QDeclarativeGeoMapCopyrightNotice *self,
+    const QString *styleSheet) {
+  self->styleSheetChanged(*styleSheet);
+}
+
+//  void QDeclarativeGeoMapCopyrightNotice::copyrightsVisibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QDeclarativeGeoMapCopyrightNotice24copyrightsVisibleChangedEv(
+    QDeclarativeGeoMapCopyrightNotice *self) {
+  self->copyrightsVisibleChanged();
+}
+
 //  void QDeclarativeGeoMapCopyrightNotice::paint(QPainter *painter)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN33QDeclarativeGeoMapCopyrightNotice5paintEP8QPainter(
@@ -975,6 +1036,22 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN33QDeclarativeGeoMapCopyrightNotice15createCopyrightEv(
     QDeclarativeGeoMapCopyrightNotice *self) {
   self->createCopyright();
+}
+
+//  QDeclarativeGeoMapCopyrightNoticePrivate
+//      *QDeclarativeGeoMapCopyrightNotice::d_func()
+extern "C" Q_DECL_EXPORT
+QDeclarativeGeoMapCopyrightNoticePrivate *ritual_ZN33QDeclarativeGeoMapCopyrightNotice6d_funcEv(
+    QDeclarativeGeoMapCopyrightNotice *self) {
+  return self->d_func();
+}
+
+//  const QDeclarativeGeoMapCopyrightNoticePrivate
+//      *QDeclarativeGeoMapCopyrightNotice::d_func() const
+extern "C" Q_DECL_EXPORT
+const QDeclarativeGeoMapCopyrightNoticePrivate *ritual_ZNK33QDeclarativeGeoMapCopyrightNotice6d_funcEv(
+    const QDeclarativeGeoMapCopyrightNotice *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQDeclarativeGeoMapCopyrightNotice, for

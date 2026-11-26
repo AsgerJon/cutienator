@@ -31,6 +31,14 @@ void ritual_ZN17QOpcUaHistoryDataD1Ev(QOpcUaHistoryData *self) {
   delete self;
 }
 
+//  void QOpcUaHistoryData::swap(QOpcUaHistoryData &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QOpcUaHistoryData4swapERS_(
+    QOpcUaHistoryData *self,
+    QOpcUaHistoryData *other) {
+  self->swap(*other);
+}
+
 //  QOpcUa::UaStatusCode QOpcUaHistoryData::statusCode() const
 extern "C" Q_DECL_EXPORT
 QOpcUa::UaStatusCode ritual_ZNK17QOpcUaHistoryData10statusCodeEv(
@@ -80,6 +88,15 @@ void ritual_ZN17QOpcUaHistoryData9setNodeIdERK7QString(
     QOpcUaHistoryData *self,
     const QString *nodeId) {
   self->setNodeId(*nodeId);
+}
+
+//  QOpcUaHistoryData &QOpcUaHistoryData::operator=(const QOpcUaHistoryData
+//      &other)
+extern "C" Q_DECL_EXPORT
+QOpcUaHistoryData *ritual_ZN17QOpcUaHistoryDataaSERKS_(
+    QOpcUaHistoryData *self,
+    const QOpcUaHistoryData *other) {
+  return &(self->operator=(*other));
 }
 
 //  QList<QOpcUaHistoryData>::QList()

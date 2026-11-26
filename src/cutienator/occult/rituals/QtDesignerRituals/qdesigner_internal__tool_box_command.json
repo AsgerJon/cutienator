@@ -5,6 +5,18 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal14ToolBoxCommandD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ToolBoxCommand4initEP8QToolBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ToolBoxCommand10removePageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ToolBoxCommand7addPageEv": [
+      "nothing", "address"
+    ],
     "ritual_take_qdesigner_internal_ToolBoxCommand": [
       "bool", "address", "chars", "address"
     ]

@@ -24,6 +24,7 @@
     "ritual_ZN12QPaintDevice13encodeMetricFENS_17PaintDeviceMetricEd": [
       "int", "int", "double"
     ],
+    "ritual_ZN12QPaintDeviceC1Ev": ["address"],
     "ritual_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE": [
       "int", "address", "int"
     ],

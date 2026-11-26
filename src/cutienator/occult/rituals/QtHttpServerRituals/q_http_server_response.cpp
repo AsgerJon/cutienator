@@ -7,6 +7,8 @@
 #include <QtCore/qjsonobject.h>
 #include <QtCore/qjsonarray.h>
 #include <QtNetwork/qhttpheaders.h>
+#include <QtHttpServer/QHttpServerResponse>
+#include <QtCore/QString>
 
 //  QHttpServerResponsePrivate *QHttpServerResponse::d_func()
 extern "C" Q_DECL_EXPORT
@@ -20,6 +22,30 @@ extern "C" Q_DECL_EXPORT
 const QHttpServerResponsePrivate *ritual_ZNK19QHttpServerResponse6d_funcEv(
     const QHttpServerResponse *self) {
   return self->d_func();
+}
+
+//  QHttpServerResponse::QHttpServerResponse(QHttpServerResponse &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerResponse *ritual_ZN19QHttpServerResponseC1EOS_(
+    QHttpServerResponse *other) {
+  return new QHttpServerResponse(std::move(*other));
+}
+
+//  QHttpServerResponse &QHttpServerResponse::operator=(QHttpServerResponse
+//      &&other)
+extern "C" Q_DECL_EXPORT
+QHttpServerResponse *ritual_ZN19QHttpServerResponseaSEOS_(
+    QHttpServerResponse *self,
+    QHttpServerResponse *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QHttpServerResponse::swap(QHttpServerResponse &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QHttpServerResponse4swapERS_(
+    QHttpServerResponse *self,
+    QHttpServerResponse *other) {
+  self->swap(*other);
 }
 
 //  QHttpServerResponse::QHttpServerResponse(StatusCode statusCode)
@@ -56,6 +82,15 @@ QHttpServerResponse *ritual_ZN19QHttpServerResponseC1ERK10QByteArrayN20QHttpServ
   return new QHttpServerResponse(*data, status);
 }
 
+//  QHttpServerResponse::QHttpServerResponse(QByteArray &&data, StatusCode
+//      status)
+extern "C" Q_DECL_EXPORT
+QHttpServerResponse *ritual_ZN19QHttpServerResponseC1EO10QByteArrayN20QHttpServerResponder10StatusCodeE(
+    QByteArray *data,
+    QHttpServerResponse::StatusCode status) {
+  return new QHttpServerResponse(std::move(*data), status);
+}
+
 //  QHttpServerResponse::QHttpServerResponse(const QJsonObject &data,
 //      StatusCode status)
 extern "C" Q_DECL_EXPORT
@@ -84,10 +119,28 @@ QHttpServerResponse *ritual_ZN19QHttpServerResponseC1ERK10QByteArrayS2_N20QHttpS
   return new QHttpServerResponse(*mimeType, *data, status);
 }
 
+//  QHttpServerResponse::QHttpServerResponse(const QByteArray &mimeType,
+//      QByteArray &&data, StatusCode status)
+extern "C" Q_DECL_EXPORT
+QHttpServerResponse *ritual_ZN19QHttpServerResponseC1ERK10QByteArrayOS0_N20QHttpServerResponder10StatusCodeE(
+    const QByteArray *mimeType,
+    QByteArray *data,
+    QHttpServerResponse::StatusCode status) {
+  return new QHttpServerResponse(*mimeType, std::move(*data), status);
+}
+
 //  QHttpServerResponse::~QHttpServerResponse()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QHttpServerResponseD1Ev(QHttpServerResponse *self) {
   delete self;
+}
+
+//  QHttpServerResponse QHttpServerResponse::fromFile(const QString
+//      &fileName)
+extern "C" Q_DECL_EXPORT
+QHttpServerResponse *ritual_ZN19QHttpServerResponse8fromFileERK7QString(
+    const QString *fileName) {
+  return new QHttpServerResponse(QHttpServerResponse::fromFile(*fileName));
 }
 
 //  QByteArray QHttpServerResponse::data() const
@@ -124,4 +177,19 @@ void ritual_ZN19QHttpServerResponse10setHeadersERK12QHttpHeaders(
     QHttpServerResponse *self,
     const QHttpHeaders *newHeaders) {
   self->setHeaders(*newHeaders);
+}
+
+//  void QHttpServerResponse::setHeaders(QHttpHeaders &&newHeaders)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QHttpServerResponse10setHeadersEO12QHttpHeaders(
+    QHttpServerResponse *self,
+    QHttpHeaders *newHeaders) {
+  self->setHeaders(std::move(*newHeaders));
+}
+
+//  a QHttpServerResponse a ritual of QHttpServerResponse gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QHttpServerResponse__QHttpServerResponse(
+    QHttpServerResponse *self) {
+  delete self;
 }

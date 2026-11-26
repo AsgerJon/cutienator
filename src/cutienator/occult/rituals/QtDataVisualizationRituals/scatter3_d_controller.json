@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19Scatter3DController10metaObjectEv": ["address", "address"],
+    "ritual_ZN19Scatter3DController11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19Scatter3DController11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19Scatter3DController2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -67,6 +73,9 @@
     ],
     "ritual_ZN19Scatter3DController19handleItemsInsertedEii": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19Scatter3DController21selectedSeriesChangedEP16QScatter3DSeries": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN19Scatter3DController31startRecordingRemovesAndInsertsEv": [
       "nothing", "address"

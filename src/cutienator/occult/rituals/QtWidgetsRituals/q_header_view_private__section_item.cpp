@@ -40,6 +40,26 @@ int ritual_ZNK18QHeaderViewPrivate11SectionItem16calculatedEndPosEv(
   return self->calculatedEndPos();
 }
 
+#if !defined(QT_NO_DATASTREAM)
+//  void QHeaderViewPrivate::SectionItem::write(QDataStream &out) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK18QHeaderViewPrivate11SectionItem5writeER11QDataStream(
+    const QHeaderViewPrivate::SectionItem *self,
+    QDataStream *out) {
+  self->write(*out);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
+#if !defined(QT_NO_DATASTREAM)
+//  void QHeaderViewPrivate::SectionItem::read(QDataStream &in)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QHeaderViewPrivate11SectionItem4readER11QDataStream(
+    QHeaderViewPrivate::SectionItem *self,
+    QDataStream *in) {
+  self->read(*in);
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 //  QHeaderViewPrivate::SectionItem::~SectionItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QHeaderViewPrivate11SectionItemD1Ev(

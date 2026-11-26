@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZNK10QTableView10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTableView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10QTableView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10QTableView2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN10QTableViewC1EP7QWidget": ["address", "address"],
     "ritual_ZN10QTableViewD1Ev": ["nothing", "address"],
@@ -119,6 +125,9 @@
     ],
     "ritual_ZN10QTableView18columnCountChangedEii": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QTableViewC1ER17QTableViewPrivateP7QWidget": [
+      "address", "address", "address"
     ],
     "ritual_ZN10QTableView16scrollContentsByEii": [
       "nothing", "address", "int", "int"

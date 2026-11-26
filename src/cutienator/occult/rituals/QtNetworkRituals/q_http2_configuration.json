@@ -7,6 +7,13 @@
   "rows": {
     "ritual_ZN19QHttp2ConfigurationC1Ev": ["address"],
     "ritual_ZN19QHttp2ConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN19QHttp2ConfigurationC1EOS_": ["address", "address"],
+    "ritual_ZN19QHttp2ConfigurationaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QHttp2ConfigurationaSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QHttp2ConfigurationD1Ev": ["nothing", "address"],
     "ritual_ZN19QHttp2Configuration20setServerPushEnabledEb": [
       "nothing", "address", "bool"
@@ -43,6 +50,9 @@
     ],
     "ritual_ZNK19QHttp2Configuration20maxConcurrentStreamsEv": [
       "unsigned int", "address"
+    ],
+    "ritual_ZN19QHttp2Configuration4swapERS_": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK19QHttp2Configuration7isEqualERKS_": [
       "bool", "address", "address"

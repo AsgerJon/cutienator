@@ -5,7 +5,19 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QRemoteObjectPackets9CodecBaseaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBaseaSEOS0_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN20QRemoteObjectPackets9CodecBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase25serializeObjectListPacketERK5QListINS_10ObjectInfoEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase27deserializeObjectListPacketER11QDataStreamR5QListINS_10ObjectInfoEE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN20QRemoteObjectPackets9CodecBase19serializeInitPacketEPK23QRemoteObjectRootSource": [
       "nothing", "address", "address"
     ],
@@ -14,6 +26,9 @@
     ],
     "ritual_ZN20QRemoteObjectPackets9CodecBase29serializePropertyChangePacketEP23QRemoteObjectSourceBasei": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase31deserializePropertyChangePacketER11QDataStreamRiR8QVariant": [
+      "nothing", "address", "address", "address", "address"
     ],
     "ritual_ZN20QRemoteObjectPackets9CodecBase17serializePropertyEPK23QRemoteObjectSourceBasei": [
       "nothing", "address", "address", "int"
@@ -27,6 +42,10 @@
     "ritual_ZN20QRemoteObjectPackets9CodecBase21serializeInvokePacketERK7QStringiiRK5QListI8QVariantEii": [
       "nothing", "address", "text", "int", "int", "address", "int", "int"
     ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase23deserializeInvokePacketER11QDataStreamRiS3_R5QListI8QVariantES3_S3_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
     "ritual_ZN20QRemoteObjectPackets9CodecBase26serializeInvokeReplyPacketERK7QStringiRK8QVariant": [
       "nothing", "address", "text", "int", "address"
     ],
@@ -38,6 +57,21 @@
     ],
     "ritual_ZN20QRemoteObjectPackets9CodecBase24serializeAddObjectPacketERK7QStringb": [
       "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase26deserializeAddObjectPacketER11QDataStreamRb": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase21deserializeInitPacketER11QDataStreamR5QListI8QVariantE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase28deserializeInvokeReplyPacketER11QDataStreamRiR8QVariant": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase4sendERK4QSetIP16QtROIoDeviceBaseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase4sendEP16QtROIoDeviceBase": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN20QRemoteObjectPackets9CodecBase10getPayloadEv": [
       "address", "address"

@@ -8,11 +8,20 @@
     "ritual_ZNK22QQuickImplicitSizeItem10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN22QQuickImplicitSizeItem11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickImplicitSizeItem11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN22QQuickImplicitSizeItem2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN22QQuickImplicitSizeItem22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN22QQuickImplicitSizeItemC1ER29QQuickImplicitSizeItemPrivateP10QQuickItem": [
+      "address", "address", "address"
     ],
     "ritual_ZN22QQuickImplicitSizeItem6d_funcEv": ["address", "address"],
     "ritual_ZNK22QQuickImplicitSizeItem6d_funcEv": ["address", "address"]

@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK19QQuickScreenCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickScreenCapture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickScreenCapture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QQuickScreenCapture2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -24,6 +30,9 @@
     ],
     "ritual_ZN19QQuickScreenCapture24qmlResetMaximumFrameRateEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN19QQuickScreenCapture13screenChangedEP16QQuickScreenInfo": [
+      "nothing", "address", "address"
     ]
   }
 }

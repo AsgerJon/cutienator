@@ -8,6 +8,9 @@
     "ritual_ZN18QBluetoothHostInfoC1Ev": ["address"],
     "ritual_ZN18QBluetoothHostInfoC1ERKS_": ["address", "address"],
     "ritual_ZN18QBluetoothHostInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN18QBluetoothHostInfoaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK18QBluetoothHostInfoS1_": ["bool", "address", "address"],
     "ritual_ZneRK18QBluetoothHostInfoS1_": ["bool", "address", "address"],
     "ritual_ZNK18QBluetoothHostInfo7addressEv": ["address", "address"],

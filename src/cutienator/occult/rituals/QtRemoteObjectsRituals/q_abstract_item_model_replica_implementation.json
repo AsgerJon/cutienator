@@ -8,26 +8,140 @@
     "ritual_ZNK39QAbstractItemModelReplicaImplementation10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN39QAbstractItemModelReplicaImplementationD1Ev": [
       "nothing", "address"
     ],
     "ritual_ZN39QAbstractItemModelReplicaImplementation10initializeEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK39QAbstractItemModelReplicaImplementation14availableRolesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation10clearCacheERK5QListIN9QtPrivate10ModelIndexEES5_RKS0_IiE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation21availableRolesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation11dataChangedE5QListIN9QtPrivate10ModelIndexEES3_S0_IiE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation12rowsInsertedE5QListIN9QtPrivate10ModelIndexEEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation11rowsRemovedE5QListIN9QtPrivate10ModelIndexEEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation9rowsMovedE5QListIN9QtPrivate10ModelIndexEEiiS3_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation14currentChangedE5QListIN9QtPrivate10ModelIndexEES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation10modelResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation17headerDataChangedEN2Qt11OrientationEii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation15columnsInsertedE5QListIN9QtPrivate10ModelIndexEEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation13layoutChangedE5QListIN9QtPrivate10ModelIndexEEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN39QAbstractItemModelReplicaImplementation19onHeaderDataChangedEN2Qt11OrientationEii": [
       "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation13onDataChangedERK5QListIN9QtPrivate10ModelIndexEES5_RKS0_IiE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation14onRowsInsertedERK5QListIN9QtPrivate10ModelIndexEEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation13onRowsRemovedERK5QListIN9QtPrivate10ModelIndexEEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation17onColumnsInsertedERK5QListIN9QtPrivate10ModelIndexEEii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation11onRowsMovedE5QListIN9QtPrivate10ModelIndexEEiiS3_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation16onCurrentChangedE5QListIN9QtPrivate10ModelIndexEES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation12onModelResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation13requestedDataEP31QRemoteObjectPendingCallWatcher": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation19requestedHeaderDataEP31QRemoteObjectPendingCallWatcher": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation16fetchPendingDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation22fetchPendingHeaderDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation14handleInitDoneEP31QRemoteObjectPendingCallWatcher": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation20handleModelResetDoneEP31QRemoteObjectPendingCallWatcher": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN39QAbstractItemModelReplicaImplementation14handleSizeDoneEP31QRemoteObjectPendingCallWatcher": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation23onReplicaCurrentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation9fillCacheERKN9QtPrivate14IndexValuePairERK5QListIiE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN39QAbstractItemModelReplicaImplementation15onLayoutChangedERK5QListIN9QtPrivate10ModelIndexEEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZNK39QAbstractItemModelReplicaImplementation9cacheDataERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK39QAbstractItemModelReplicaImplementation9cacheDataERK5QListIN9QtPrivate10ModelIndexEE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK39QAbstractItemModelReplicaImplementation15createCacheDataERK5QListIN9QtPrivate10ModelIndexEE": [
       "address", "address", "address"
     ],
     "ritual_ZNK39QAbstractItemModelReplicaImplementation10cacheEntryERK11QModelIndex": [
       "address", "address", "address"
     ],
+    "ritual_ZNK39QAbstractItemModelReplicaImplementation10cacheEntryERK5QListIN9QtPrivate10ModelIndexEE": [
+      "address", "address", "address"
+    ],
     "ritual_take_QAbstractItemModelReplicaImplementation": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QAbstractItemModelReplicaImplementation__QRemoteObjectPendingReply_QSize": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractItemModelReplicaImplementation__QRemoteObjectPendingReply_QtPrivate_DataEntries": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractItemModelReplicaImplementation__QRemoteObjectPendingReply_QVariantList": [
+      "nothing", "address"
+    ],
+    "ritual_drop_QAbstractItemModelReplicaImplementation__QRemoteObjectPendingReply_QtPrivate_MetaAndDataEntries": [
+      "nothing", "address"
     ]
   }
 }

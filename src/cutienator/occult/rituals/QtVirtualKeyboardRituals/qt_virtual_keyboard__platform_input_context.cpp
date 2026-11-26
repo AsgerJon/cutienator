@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qlocale.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -437,6 +438,27 @@ const QMetaObject *ritual_ZNK17QtVirtualKeyboard20PlatformInputContext10metaObje
   return self->metaObject();
 }
 
+//  void *QtVirtualKeyboard::PlatformInputContext::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17QtVirtualKeyboard20PlatformInputContext11qt_metacastEPKc(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      QtVirtualKeyboard::PlatformInputContext::qt_metacall(QMetaObject::Cal
+//      l a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17QtVirtualKeyboard20PlatformInputContext11qt_metacallEN11QMetaObject4CallEiPPv(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QtVirtualKeyboard::PlatformInputContext::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -445,6 +467,225 @@ QString *ritual_ZN17QtVirtualKeyboard20PlatformInputContext2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(QtVirtualKeyboard::PlatformInputContext::tr(s, c, n));
+}
+
+//  QtVirtualKeyboard::PlatformInputContext::PlatformInputContext()
+extern "C" Q_DECL_EXPORT
+QtVirtualKeyboard::PlatformInputContext *ritual_ZN17QtVirtualKeyboard20PlatformInputContextC1Ev() {
+  return new CuteQtVirtualKeyboard_PlatformInputContext();
+}
+
+//  QtVirtualKeyboard::PlatformInputContext::~PlatformInputContext()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContextD1Ev(
+    QtVirtualKeyboard::PlatformInputContext *self) {
+  delete self;
+}
+
+//  bool QtVirtualKeyboard::PlatformInputContext::isValid() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard20PlatformInputContext7isValidEv(
+    const QtVirtualKeyboard::PlatformInputContext *self) {
+  return self->isValid();
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::reset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext5resetEv(
+    QtVirtualKeyboard::PlatformInputContext *self) {
+  self->reset();
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::commit()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext6commitEv(
+    QtVirtualKeyboard::PlatformInputContext *self) {
+  self->commit();
+}
+
+//  void
+//      QtVirtualKeyboard::PlatformInputContext::update(Qt::InputMethodQuerie
+//      s queries)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext6updateE6QFlagsIN2Qt16InputMethodQueryEE(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    int queries) {
+  self->update(QFlags<Qt::InputMethodQuery>::fromInt(queries));
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::invokeAction(QInputMethod::
+//      Action action, int cursorPosition)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext12invokeActionEN12QInputMethod6ActionEi(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    QInputMethod::Action action,
+    int cursorPosition) {
+  self->invokeAction(action, cursorPosition);
+}
+
+//  QRectF QtVirtualKeyboard::PlatformInputContext::keyboardRect() const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK17QtVirtualKeyboard20PlatformInputContext12keyboardRectEv(
+    const QtVirtualKeyboard::PlatformInputContext *self) {
+  return new QRectF(self->keyboardRect());
+}
+
+//  bool QtVirtualKeyboard::PlatformInputContext::isAnimating() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard20PlatformInputContext11isAnimatingEv(
+    const QtVirtualKeyboard::PlatformInputContext *self) {
+  return self->isAnimating();
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::showInputPanel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext14showInputPanelEv(
+    QtVirtualKeyboard::PlatformInputContext *self) {
+  self->showInputPanel();
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::hideInputPanel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext14hideInputPanelEv(
+    QtVirtualKeyboard::PlatformInputContext *self) {
+  self->hideInputPanel();
+}
+
+//  bool QtVirtualKeyboard::PlatformInputContext::isInputPanelVisible() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard20PlatformInputContext19isInputPanelVisibleEv(
+    const QtVirtualKeyboard::PlatformInputContext *self) {
+  return self->isInputPanelVisible();
+}
+
+//  QLocale QtVirtualKeyboard::PlatformInputContext::locale() const
+extern "C" Q_DECL_EXPORT
+QLocale *ritual_ZNK17QtVirtualKeyboard20PlatformInputContext6localeEv(
+    const QtVirtualKeyboard::PlatformInputContext *self) {
+  return new QLocale(self->locale());
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::setLocale(QLocale locale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext9setLocaleE7QLocale(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    const QLocale *locale) {
+  self->setLocale(*locale);
+}
+
+//  Qt::LayoutDirection
+//      QtVirtualKeyboard::PlatformInputContext::inputDirection() const
+extern "C" Q_DECL_EXPORT
+Qt::LayoutDirection ritual_ZNK17QtVirtualKeyboard20PlatformInputContext14inputDirectionEv(
+    const QtVirtualKeyboard::PlatformInputContext *self) {
+  return self->inputDirection();
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::setInputDirection(Qt::Layou
+//      tDirection direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext17setInputDirectionEN2Qt15LayoutDirectionE(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    Qt::LayoutDirection direction) {
+  self->setInputDirection(direction);
+}
+
+//  QObject *QtVirtualKeyboard::PlatformInputContext::focusObject()
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN17QtVirtualKeyboard20PlatformInputContext11focusObjectEv(
+    QtVirtualKeyboard::PlatformInputContext *self) {
+  return self->focusObject();
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::setFocusObject(QObject
+//      *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext14setFocusObjectEP7QObject(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    QObject *object) {
+  self->setFocusObject(object);
+}
+
+//  QVirtualKeyboardInputContext
+//      *QtVirtualKeyboard::PlatformInputContext::inputContext() const
+extern "C" Q_DECL_EXPORT
+QVirtualKeyboardInputContext *ritual_ZNK17QtVirtualKeyboard20PlatformInputContext12inputContextEv(
+    const QtVirtualKeyboard::PlatformInputContext *self) {
+  return self->inputContext();
+}
+
+//  bool QtVirtualKeyboard::PlatformInputContext::eventFilter(QObject
+//      *object, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QtVirtualKeyboard20PlatformInputContext11eventFilterEP7QObjectP6QEvent(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    QObject *object,
+    QEvent *event) {
+  return self->eventFilter(object, event);
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::focusObjectChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext18focusObjectChangedEv(
+    QtVirtualKeyboard::PlatformInputContext *self) {
+  self->focusObjectChanged();
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::sendEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext9sendEventEP6QEvent(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    QEvent *event) {
+  self->sendEvent(event);
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::sendKeyEvent(QKeyEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext12sendKeyEventEP9QKeyEvent(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    QKeyEvent *event) {
+  self->sendKeyEvent(event);
+}
+
+//  QVariant QtVirtualKeyboard::PlatformInputContext::inputMethodQuery(Qt::In
+//      putMethodQuery query)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN17QtVirtualKeyboard20PlatformInputContext16inputMethodQueryEN2Qt16InputMethodQueryE(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    Qt::InputMethodQuery query) {
+  return new QVariant(self->inputMethodQuery(query));
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::setInputContext(QVirtualKey
+//      boardInputContext *context)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext15setInputContextEP28QVirtualKeyboardInputContext(
+    QtVirtualKeyboard::PlatformInputContext *self,
+    QVirtualKeyboardInputContext *context) {
+  self->setInputContext(context);
+}
+
+//  bool QtVirtualKeyboard::PlatformInputContext::evaluateInputPanelVisible()
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QtVirtualKeyboard20PlatformInputContext25evaluateInputPanelVisibleEv(
+    const QtVirtualKeyboard::PlatformInputContext *self) {
+  return self->evaluateInputPanelVisible();
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::keyboardRectangleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext24keyboardRectangleChangedEv(
+    QtVirtualKeyboard::PlatformInputContext *self) {
+  self->keyboardRectangleChanged();
+}
+
+//  void QtVirtualKeyboard::PlatformInputContext::updateInputPanelVisible()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QtVirtualKeyboard20PlatformInputContext23updateInputPanelVisibleEv(
+    QtVirtualKeyboard::PlatformInputContext *self) {
+  self->updateInputPanelVisible();
 }
 
 //  a Python function taken by a CuteQtVirtualKeyboard_PlatformInputContext,

@@ -7,6 +7,28 @@
 #include <Qt3DInput/6.12.0/Qt3DInput/private/qinputchord_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DInput/qinputchord.h>
+#include <Qt3DInput/private/qinputchord_p.h>
+#include <Qt3DInput/qabstractphysicaldevice.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/input/frontend/qinputchord.cpp, line 151, as _ZN9Qt3DInput18QInputChordPrivateC1Ev
+namespace Qt3DInput {
+inline QInputChordPrivate::QInputChordPrivate()
+    : QAbstractActionInputPrivate(),
+      m_timeout(0)
+{
+}
+}  // namespace Qt3DInput
+//  -----------------------------------------------------------------------
 
 //  A Qt3DInput::QInputChordPrivate that Python can take functions over in. Every Qt3DInput::QInputChordPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +74,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DInput::QInputChordPrivate::QInputChordPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::QInputChordPrivate *ritual_ZN9Qt3DInput18QInputChordPrivateC1Ev() {
+  return new CuteQt3DInput_QInputChordPrivate();
+}
 
 //  a Python function taken by a CuteQt3DInput_QInputChordPrivate, for the
 //      function named by the key

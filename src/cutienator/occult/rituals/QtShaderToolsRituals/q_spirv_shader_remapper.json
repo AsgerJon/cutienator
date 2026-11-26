@@ -9,6 +9,12 @@
       "address", "address", "address", "int"
     ],
     "ritual_ZNK20QSpirvShaderRemapper12errorMessageEv": ["text", "address"],
+    "ritual_ZN20QSpirvShaderRemapper17remapErrorHandlerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSpirvShaderRemapper15remapLogHandlerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QSpirvShaderRemapperD1Ev": ["nothing", "address"]
   }
 }

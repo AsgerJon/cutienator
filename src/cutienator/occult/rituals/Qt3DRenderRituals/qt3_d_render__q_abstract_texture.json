@@ -8,8 +8,176 @@
     "ritual_ZNK10Qt3DRender16QAbstractTexture10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN10Qt3DRender16QAbstractTexture2trEPKcS2_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTextureD1Ev": ["nothing", "address"],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture6targetEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture6formatEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture15generateMipMapsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture6statusEv": ["int", "address"],
+    "ritual_ZN10Qt3DRender16QAbstractTexture15addTextureImageEPNS_21QAbstractTextureImageE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture18removeTextureImageEPNS_21QAbstractTextureImageE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture13textureImagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture11setWrapModeERKNS_16QTextureWrapModeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture8wrapModeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture7setSizeEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture18minificationFilterEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture19magnificationFilterEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture17maximumAnisotropyEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture18comparisonFunctionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture14comparisonModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture5widthEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture6heightEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture5depthEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture6layersEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture7samplesEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture9mipLevelsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture10handleTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender16QAbstractTexture6handleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture10updateDataERKNS_18QTextureDataUpdateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture9setFormatENS0_13TextureFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture18setGenerateMipMapsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture8setWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture9setHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture8setDepthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture21setMinificationFilterENS0_6FilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture22setMagnificationFilterENS0_6FilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture20setMaximumAnisotropyEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture21setComparisonFunctionENS0_18ComparisonFunctionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture17setComparisonModeENS0_14ComparisonModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture9setLayersEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture10setSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture12setMipLevelsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture13formatChangedENS0_13TextureFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture13statusChangedENS0_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture22generateMipMapsChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture12widthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture13heightChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture12depthChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture26magnificationFilterChangedENS0_6FilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture25minificationFilterChangedENS0_6FilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture24maximumAnisotropyChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture25comparisonFunctionChangedENS0_18ComparisonFunctionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture21comparisonModeChangedENS0_14ComparisonModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture13layersChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture14samplesChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture17handleTypeChangedENS0_10HandleTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture13handleChangedE8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture16mipLevelsChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTextureC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTextureC1ENS0_6TargetEPN8Qt3DCore5QNodeE": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTextureC1ERNS_23QAbstractTexturePrivateEPN8Qt3DCore5QNodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture9setStatusENS0_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture9setHandleERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender16QAbstractTexture13setHandleTypeENS0_10HandleTypeE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN10Qt3DRender16QAbstractTexture6d_funcEv": [
       "address", "address"
@@ -19,6 +187,9 @@
     ],
     "ritual_take_Qt3DRender_QAbstractTexture": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QAbstractTexture__QList_Qt3DRender_QAbstractTextureImage": [
+      "nothing", "address"
     ]
   }
 }

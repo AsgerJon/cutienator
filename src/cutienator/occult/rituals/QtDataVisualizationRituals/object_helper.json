@@ -7,8 +7,10 @@
   "rows": {
     "ritual_ZN12ObjectHelperD1Ev": ["nothing", "address"],
     "ritual_ZN12ObjectHelper10objectFileEv": ["text", "address"],
+    "ritual_ZNK12ObjectHelper7indicesEv": ["address", "address"],
     "ritual_ZNK12ObjectHelper15indexedverticesEv": ["address", "address"],
     "ritual_ZNK12ObjectHelper10indexedUVsEv": ["address", "address"],
-    "ritual_ZNK12ObjectHelper14indexedNormalsEv": ["address", "address"]
+    "ritual_ZNK12ObjectHelper14indexedNormalsEv": ["address", "address"],
+    "ritual_take_ObjectHelper": ["bool", "address", "chars", "address"]
   }
 }

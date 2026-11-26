@@ -8,6 +8,12 @@
     "ritual_ZNK25QAbstractDataProxyPrivate10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QAbstractDataProxyPrivate11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QAbstractDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QAbstractDataProxyPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN25QAbstractDataProxyPrivate6seriesEv": ["address", "address"],
     "ritual_ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [

@@ -11,6 +11,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -72,6 +73,16 @@
 #include <limits.h>
 #include <QtGui/qtexttable.h>
 #include <QtCore/qvariant.h>
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -80,6 +91,53 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 48, as local:qplaintextedit.cpp:QPlainTextDocumentLayoutPrivate
+class QPlainTextDocumentLayoutPrivate : public QAbstractTextDocumentLayoutPrivate
+{
+    Q_DECLARE_PUBLIC(QPlainTextDocumentLayout)
+public:
+    QPlainTextDocumentLayoutPrivate() {
+        mainViewPrivate = nullptr;
+        width = 0;
+        maximumWidth = 0;
+        maximumWidthBlockNumber = 0;
+        blockCount = 1;
+        blockUpdate = blockDocumentSizeChanged = false;
+        cursorWidth = 1;
+        textLayoutFlags = 0;
+    }
+
+    qreal width;
+    qreal maximumWidth;
+    int maximumWidthBlockNumber;
+    int blockCount;
+    QPlainTextEditPrivate *mainViewPrivate;
+    bool blockUpdate;
+    bool blockDocumentSizeChanged;
+    int cursorWidth;
+    int textLayoutFlags;
+
+    void layoutBlock(const QTextBlock &block);
+    qreal blockWidth(const QTextBlock &block);
+
+    void relayout();
+};
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 243, as local:qplaintextedit.cpp:QPlainTextDocumentLayoutPrivate::relayout
+inline void QPlainTextDocumentLayoutPrivate::relayout()
+{
+    Q_Q(QPlainTextDocumentLayout);
+    QTextBlock block = q->document()->firstBlock();
+    while (block.isValid()) {
+        block.layout()->clearLayout();
+        block.setLineCount(block.isVisible() ? 1 : 0);
+        block = block.next();
+    }
+    emit q->update();
+}
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 133, as _ZN26QAbstractScrollAreaPrivateC2Ev
 #if QT_CONFIG(scrollarea)
@@ -139,6 +197,139 @@ inline QPlainTextEditControl::QPlainTextEditControl(QPlainTextEdit *parent)
     setAcceptRichText(false);
 }
 
+//  from src/widgets/widgets/qplaintextedit.cpp, line 945, as _ZN21QPlainTextEditPrivate16adjustScrollbarsEv
+#if QT_CONFIG(scrollbar)
+inline void QPlainTextEditPrivate::adjustScrollbars()
+{
+    Q_Q(QPlainTextEdit);
+    QTextDocument *doc = control->document();
+    QPlainTextDocumentLayout *documentLayout = qobject_cast<QPlainTextDocumentLayout*>(doc->documentLayout());
+    Q_ASSERT(documentLayout);
+    bool documentSizeChangedBlocked = documentLayout->priv()->blockDocumentSizeChanged;
+    documentLayout->priv()->blockDocumentSizeChanged = true;
+    qreal margin = doc->documentMargin();
+
+    int vmax = 0;
+
+    int vSliderLength = 0;
+    if (!centerOnScroll && q->isVisible()) {
+        QTextBlock block = doc->lastBlock();
+        const qreal visible = viewport->rect().height() - margin - 1;
+        qreal y = 0;
+        int visibleFromBottom = 0;
+
+        while (block.isValid()) {
+            if (!block.isVisible()) {
+                block = block.previous();
+                continue;
+            }
+            y += documentLayout->blockBoundingRect(block).height();
+
+            QTextLayout *layout = block.layout();
+            int layoutLineCount = layout->lineCount();
+            if (y > visible) {
+                int lineNumber = 0;
+                while (lineNumber < layoutLineCount) {
+                    QTextLine line = layout->lineAt(lineNumber);
+                    const QRectF lr = line.naturalTextRect();
+                    if (lr.top() >= y - visible)
+                        break;
+                    ++lineNumber;
+                }
+                if (lineNumber < layoutLineCount)
+                    visibleFromBottom += (layoutLineCount - lineNumber);
+                break;
+
+            }
+            visibleFromBottom += layoutLineCount;
+            block = block.previous();
+        }
+        vmax = qMax(0, doc->lineCount() - visibleFromBottom);
+        vSliderLength = visibleFromBottom;
+
+    } else {
+        vmax = qMax(0, doc->lineCount() - 1);
+        int lineSpacing = q->fontMetrics().lineSpacing();
+        vSliderLength = lineSpacing != 0 ? viewport->height() / lineSpacing : 0;
+    }
+
+    QSizeF documentSize = documentLayout->documentSize();
+    vbar->setRange(0, qMax(0, vmax));
+    vbar->setPageStep(vSliderLength);
+    int visualTopLine = vmax;
+    QTextBlock firstVisibleBlock = q->firstVisibleBlock();
+    if (firstVisibleBlock.isValid())
+        visualTopLine = firstVisibleBlock.firstLineNumber() + topLine;
+
+    vbar->setValue(visualTopLine);
+
+    hbar->setRange(0, (int)documentSize.width() - viewport->width());
+    hbar->setPageStep(viewport->width());
+    documentLayout->priv()->blockDocumentSizeChanged = documentSizeChangedBlocked;
+    setTopLine(vbar->value());
+}
+#endif  // QT_CONFIG(scrollbar)
+
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1485, as _ZNK26QAbstractScrollAreaPrivate17defaultSingleStepEv
+#if QT_CONFIG(scrollarea)
+inline int QAbstractScrollAreaPrivate::defaultSingleStep() const
+{
+    auto *platformTheme = QGuiApplicationPrivate::platformTheme();
+    return platformTheme->themeHint(QPlatformTheme::ScrollSingleStepDistance).value<int>();
+}
+#endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
+inline QFramePrivate::QFramePrivate()
+    : frect(0, 0, 0, 0),
+      frameStyle(QFrame::NoFrame | QFrame::Plain),
+      lineWidth(1),
+      midLineWidth(0),
+      frameWidth(0),
+      leftFrameWidth(0), rightFrameWidth(0),
+      topFrameWidth(0), bottomFrameWidth(0)
+{
+}
+
+//  from src/widgets/widgets/qframe.cpp, line 30, as _ZN13QFramePrivateD2Ev
+inline QFramePrivate::~QFramePrivate()
+{
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 727, as _ZN21QPlainTextEditPrivateC1Ev
+inline QPlainTextEditPrivate::QPlainTextEditPrivate()
+    : tabChangesFocus(false)
+    , showCursorOnInitialShow(false)
+    , backgroundVisible(false)
+    , centerOnScroll(false)
+    , inDrag(false)
+    , clickCausedFocus(false)
+    , pageUpDownLastCursorYIsValid(false)
+    , placeholderTextShown(false)
+{
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 812, as _ZN21QPlainTextEditPrivate15repaintContentsERK6QRectF
+inline void QPlainTextEditPrivate::repaintContents(const QRectF &contentsRect)
+{
+    Q_Q(QPlainTextEdit);
+    if (!contentsRect.isValid()) {
+        updateViewport();
+        return;
+    }
+    const int xOffset = horizontalOffset();
+    const int yOffset = (int)verticalOffset();
+    const QRect visibleRect(xOffset, yOffset, viewport->width(), viewport->height());
+
+    QRect r = contentsRect.adjusted(-1, -1, 1, 1).intersected(visibleRect).toAlignedRect();
+    if (r.isEmpty())
+        return;
+
+    r.translate(-xOffset, -yOffset);
+    viewport->update(r);
+    emit q->updateRequest(r, 0);
+}
+
 //  from src/widgets/widgets/qplaintextedit.cpp, line 800, as _ZN21QPlainTextEditPrivate27updatePlaceholderVisibilityEv
 inline void QPlainTextEditPrivate::updatePlaceholderVisibility()
 {
@@ -152,9 +343,137 @@ inline void QPlainTextEditPrivate::updatePlaceholderVisibility()
     }
 }
 
+//  from src/widgets/widgets/qplaintextedit.cpp, line 432, as _ZN21QPlainTextEditPrivate32verticalScrollbarActionTriggeredEi
+inline void QPlainTextEditPrivate::verticalScrollbarActionTriggered(int action) {
+
+    const auto a = static_cast<QAbstractSlider::SliderAction>(action);
+    switch (a) {
+    case QAbstractSlider::SliderPageStepAdd:
+        pageUpDown(QTextCursor::Down, QTextCursor::MoveAnchor, false);
+        break;
+    case QAbstractSlider::SliderPageStepSub:
+        pageUpDown(QTextCursor::Up, QTextCursor::MoveAnchor, false);
+        break;
+    default:
+        break;
+    }
+}
+
 //  from src/widgets/widgets/qplaintextedit.cpp, line 1018, as _ZN21QPlainTextEditPrivate22ensureViewportLayoutedEv
 inline void QPlainTextEditPrivate::ensureViewportLayouted()
 {
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 832, as _ZN21QPlainTextEditPrivate10pageUpDownEN11QTextCursor13MoveOperationENS0_8MoveModeEb
+inline void QPlainTextEditPrivate::pageUpDown(QTextCursor::MoveOperation op, QTextCursor::MoveMode moveMode, bool moveCursor)
+{
+
+    Q_Q(QPlainTextEdit);
+
+    QTextCursor cursor = control->textCursor();
+    if (moveCursor) {
+        ensureCursorVisible();
+        if (!pageUpDownLastCursorYIsValid)
+            pageUpDownLastCursorY = control->cursorRect(cursor).top() - verticalOffset();
+    }
+
+    qreal lastY = pageUpDownLastCursorY;
+
+
+    if (op == QTextCursor::Down) {
+        QRectF visible = QRectF(viewport->rect()).translated(-q->contentOffset());
+        QTextBlock firstVisibleBlock = q->firstVisibleBlock();
+        QTextBlock block = firstVisibleBlock;
+        QRectF br = q->blockBoundingRect(block);
+        qreal h = 0;
+        int atEnd = false;
+        while (h + br.height() <= visible.bottom()) {
+            if (!block.next().isValid()) {
+                atEnd = true;
+                lastY = visible.bottom(); // set cursor to last line
+                break;
+            }
+            h += br.height();
+            block = block.next();
+            br = q->blockBoundingRect(block);
+        }
+
+        if (!atEnd) {
+            int line = 0;
+            qreal diff = visible.bottom() - h;
+            int lineCount = block.layout()->lineCount();
+            while (line < lineCount - 1) {
+                if (block.layout()->lineAt(line).naturalTextRect().bottom() > diff) {
+                    // the first line that did not completely fit the screen
+                    break;
+                }
+                ++line;
+            }
+            setTopBlock(block.blockNumber(), line);
+        }
+
+        if (moveCursor) {
+            // move using movePosition to keep the cursor's x
+            lastY += verticalOffset();
+            bool moved = false;
+            do {
+                moved = cursor.movePosition(op, moveMode);
+            } while (moved && control->cursorRect(cursor).top() < lastY);
+        }
+
+    } else if (op == QTextCursor::Up) {
+
+        QRectF visible = QRectF(viewport->rect()).translated(-q->contentOffset());
+        visible.translate(0, -visible.height()); // previous page
+        QTextBlock block = q->firstVisibleBlock();
+        qreal h = 0;
+        while (h >= visible.top()) {
+            if (!block.previous().isValid()) {
+                if (control->topBlock == 0 && topLine == 0) {
+                    lastY = 0; // set cursor to first line
+                }
+                break;
+            }
+            block = block.previous();
+            QRectF br = q->blockBoundingRect(block);
+            h -= br.height();
+        }
+
+        int line = 0;
+        if (block.isValid()) {
+            qreal diff = visible.top() - h;
+            int lineCount = block.layout()->lineCount();
+            while (line < lineCount) {
+                if (block.layout()->lineAt(line).naturalTextRect().top() >= diff)
+                    break;
+                ++line;
+            }
+            if (line == lineCount) {
+                if (block.next().isValid() && block.next() != q->firstVisibleBlock()) {
+                    block = block.next();
+                    line = 0;
+                } else {
+                    --line;
+                }
+            }
+        }
+        setTopBlock(block.blockNumber(), line);
+
+        if (moveCursor) {
+            cursor.setVisualNavigation(true);
+            // move using movePosition to keep the cursor's x
+            lastY += verticalOffset();
+            bool moved = false;
+            do {
+                moved = cursor.movePosition(op, moveMode);
+            } while (moved && control->cursorRect(cursor).top() > lastY);
+        }
+    }
+
+    if (moveCursor) {
+        control->setTextCursor(cursor, moveMode == QTextCursor::KeepAnchor);
+        pageUpDownLastCursorYIsValid = true;
+    }
 }
 
 //  from src/widgets/widgets/qplaintextedit.cpp, line 467, as _ZNK21QPlainTextEditPrivate14verticalOffsetEii
@@ -181,6 +500,11 @@ inline qreal QPlainTextEditPrivate::verticalOffset(int topBlock, int topLine) co
     return offset;
 }
 
+//  from src/widgets/widgets/qplaintextedit.cpp, line 491, as _ZNK21QPlainTextEditPrivate14verticalOffsetEv
+inline qreal QPlainTextEditPrivate::verticalOffset() const {
+    return verticalOffset(control->topBlock, topLine) + topLineFracture;
+}
+
 //  from src/widgets/widgets/qplaintextedit.cpp, line 1903, as _ZN21QPlainTextEditPrivate23updateDefaultTextOptionEv
 inline void QPlainTextEditPrivate::updateDefaultTextOption()
 {
@@ -196,6 +520,137 @@ inline void QPlainTextEditPrivate::updateDefaultTextOption()
 
     if (opt.wrapMode() != oldWrapMode)
         doc->setDefaultTextOption(opt);
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 606, as _ZN21QPlainTextEditPrivate10setTopLineEii
+inline void QPlainTextEditPrivate::setTopLine(int visualTopLine, int dx)
+{
+    QTextDocument *doc = control->document();
+    QTextBlock block = doc->findBlockByLineNumber(visualTopLine);
+    int blockNumber = block.blockNumber();
+    int lineNumber = visualTopLine - block.firstLineNumber();
+    setTopBlock(blockNumber, lineNumber, dx);
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 615, as _ZN21QPlainTextEditPrivate11setTopBlockEiii
+inline void QPlainTextEditPrivate::setTopBlock(int blockNumber, int lineNumber, int dx)
+{
+    Q_Q(QPlainTextEdit);
+    blockNumber = qMax(0, blockNumber);
+    lineNumber = qMax(0, lineNumber);
+    QTextDocument *doc = control->document();
+    QTextBlock block = doc->findBlockByNumber(blockNumber);
+
+    int newTopLine = block.firstLineNumber() + lineNumber;
+    int maxTopLine = vbar->maximum();
+
+    if (newTopLine > maxTopLine) {
+        block = doc->findBlockByLineNumber(maxTopLine);
+        blockNumber = block.blockNumber();
+        lineNumber = maxTopLine - block.firstLineNumber();
+    }
+
+    vbar->setValue(newTopLine);
+
+    if (!dx && blockNumber == control->topBlock && lineNumber == topLine)
+        return;
+
+    if (viewport->updatesEnabled() && viewport->isVisible()) {
+        int dy = 0;
+        if (doc->findBlockByNumber(control->topBlock).isValid()) {
+            qreal realdy = -q->blockBoundingGeometry(block).y()
+                    + verticalOffset() - verticalOffset(blockNumber, lineNumber);
+            dy = (int)realdy;
+            topLineFracture = realdy - dy;
+        }
+        control->topBlock = blockNumber;
+        topLine = lineNumber;
+
+        vbar->setValue(block.firstLineNumber() + lineNumber);
+
+        if (dx || dy) {
+            viewport->scroll(q->isRightToLeft() ? -dx : dx, dy);
+            QGuiApplication::inputMethod()->update(Qt::ImCursorRectangle | Qt::ImAnchorRectangle);
+        } else {
+            viewport->update();
+            topLineFracture = 0;
+        }
+        emit q->updateRequest(viewport->rect(), dy);
+    } else {
+        control->topBlock = blockNumber;
+        topLine = lineNumber;
+        topLineFracture = 0;
+    }
+
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 668, as _ZN21QPlainTextEditPrivate13ensureVisibleEibb
+inline void QPlainTextEditPrivate::ensureVisible(int position, bool center, bool forceCenter) {
+    Q_Q(QPlainTextEdit);
+    QRectF visible = QRectF(viewport->rect()).translated(-q->contentOffset());
+    QTextBlock block = control->document()->findBlock(position);
+    if (!block.isValid())
+        return;
+    QRectF br = control->blockBoundingRect(block);
+    if (!br.isValid())
+        return;
+    QTextLine line = block.layout()->lineForTextPosition(position - block.position());
+    Q_ASSERT(line.isValid());
+    QRectF lr = line.naturalTextRect().translated(br.topLeft());
+
+    if (lr.bottom() >= visible.bottom() || (center && lr.top() < visible.top()) || forceCenter){
+
+        qreal height = visible.height();
+        if (center)
+            height /= 2;
+
+        qreal h = center ? line.naturalTextRect().center().y() : line.naturalTextRect().bottom();
+
+        QTextBlock previousVisibleBlock = block;
+        while (h < height && block.previous().isValid()) {
+            previousVisibleBlock = block;
+            do {
+                block = block.previous();
+            } while (!block.isVisible() && block.previous().isValid());
+            h += q->blockBoundingRect(block).height();
+        }
+
+        int l = 0;
+        int lineCount = block.layout()->lineCount();
+        qreal voffset = verticalOffset(block.blockNumber(), 0);
+        while (l < lineCount) {
+            QRectF lineRect = block.layout()->lineAt(l).naturalTextRect();
+            if (h - voffset - lineRect.top() <= height)
+                break;
+            ++l;
+        }
+
+        if (l >= lineCount) {
+            block = previousVisibleBlock;
+            l = 0;
+        }
+        setTopBlock(block.blockNumber(), l);
+    } else if (lr.top() < visible.top()) {
+        setTopBlock(block.blockNumber(), line.lineNumber());
+    }
+
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 2944, as _ZN21QPlainTextEditPrivate19ensureCursorVisibleEb
+inline void QPlainTextEditPrivate::ensureCursorVisible(bool center)
+{
+    Q_Q(QPlainTextEdit);
+    QRect visible = viewport->rect();
+    QRect cr = q->cursorRect();
+    if (cr.top() < visible.top() || cr.bottom() > visible.bottom()) {
+        ensureVisible(control->textCursor().position(), center);
+    }
+
+    const bool rtl = q->isRightToLeft();
+    if (cr.left() < visible.left() || cr.right() > visible.right()) {
+        int x = cr.center().x() + horizontalOffset() - visible.width()/2;
+        hbar->setValue(rtl ? hbar->maximum() - x : x);
+    }
 }
 
 //  from src/widgets/widgets/qplaintextedit.cpp, line 720, as _ZN21QPlainTextEditPrivate14updateViewportEv
@@ -605,6 +1060,22 @@ const QPlainTextEdit *ritual_ZNK21QPlainTextEditPrivate6q_funcEv(
   return self->q_func();
 }
 
+#if QT_CONFIG(scrollarea)
+//  QPlainTextEditPrivate::QPlainTextEditPrivate()
+extern "C" Q_DECL_EXPORT
+QPlainTextEditPrivate *ritual_ZN21QPlainTextEditPrivateC1Ev() {
+  return new CuteQPlainTextEditPrivate();
+}
+#endif  // QT_CONFIG(scrollarea)
+
+//  void QPlainTextEditPrivate::repaintContents(const QRectF &contentsRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditPrivate15repaintContentsERK6QRectF(
+    QPlainTextEditPrivate *self,
+    const QRectF *contentsRect) {
+  self->repaintContents(*contentsRect);
+}
+
 //  void QPlainTextEditPrivate::updatePlaceholderVisibility()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QPlainTextEditPrivate27updatePlaceholderVisibilityEv(
@@ -612,11 +1083,38 @@ void ritual_ZN21QPlainTextEditPrivate27updatePlaceholderVisibilityEv(
   self->updatePlaceholderVisibility();
 }
 
+//  QPoint QPlainTextEditPrivate::mapToContents(const QPoint &point) const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZNK21QPlainTextEditPrivate13mapToContentsERK6QPoint(
+    const QPlainTextEditPrivate *self,
+    const QPoint *point) {
+  return new QPoint(self->mapToContents(*point));
+}
+
+//  void QPlainTextEditPrivate::verticalScrollbarActionTriggered(int action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditPrivate32verticalScrollbarActionTriggeredEi(
+    QPlainTextEditPrivate *self,
+    int action) {
+  self->verticalScrollbarActionTriggered(action);
+}
+
 //  void QPlainTextEditPrivate::ensureViewportLayouted()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QPlainTextEditPrivate22ensureViewportLayoutedEv(
     QPlainTextEditPrivate *self) {
   self->ensureViewportLayouted();
+}
+
+//  void QPlainTextEditPrivate::pageUpDown(QTextCursor::MoveOperation op,
+//      QTextCursor::MoveMode moveMode, bool moveCursor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditPrivate10pageUpDownEN11QTextCursor13MoveOperationENS0_8MoveModeEb(
+    QPlainTextEditPrivate *self,
+    QTextCursor::MoveOperation op,
+    QTextCursor::MoveMode moveMode,
+    bool moveCursor) {
+  self->pageUpDown(op, moveMode, moveCursor);
 }
 
 //  int QPlainTextEditPrivate::horizontalOffset() const
@@ -636,11 +1134,65 @@ qreal ritual_ZNK21QPlainTextEditPrivate14verticalOffsetEii(
   return self->verticalOffset(topBlock, topLine);
 }
 
+//  qreal QPlainTextEditPrivate::verticalOffset() const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK21QPlainTextEditPrivate14verticalOffsetEv(
+    const QPlainTextEditPrivate *self) {
+  return self->verticalOffset();
+}
+
+//  void QPlainTextEditPrivate::sendControlEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditPrivate16sendControlEventEP6QEvent(
+    QPlainTextEditPrivate *self,
+    QEvent *e) {
+  self->sendControlEvent(e);
+}
+
 //  void QPlainTextEditPrivate::updateDefaultTextOption()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QPlainTextEditPrivate23updateDefaultTextOptionEv(
     QPlainTextEditPrivate *self) {
   self->updateDefaultTextOption();
+}
+
+//  void QPlainTextEditPrivate::setTopLine(int visualTopLine, int dx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditPrivate10setTopLineEii(
+    QPlainTextEditPrivate *self,
+    int visualTopLine,
+    int dx) {
+  self->setTopLine(visualTopLine, dx);
+}
+
+//  void QPlainTextEditPrivate::setTopBlock(int newTopBlock, int newTopLine,
+//      int dx)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditPrivate11setTopBlockEiii(
+    QPlainTextEditPrivate *self,
+    int newTopBlock,
+    int newTopLine,
+    int dx) {
+  self->setTopBlock(newTopBlock, newTopLine, dx);
+}
+
+//  void QPlainTextEditPrivate::ensureVisible(int position, bool center, bool
+//      forceCenter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditPrivate13ensureVisibleEibb(
+    QPlainTextEditPrivate *self,
+    int position,
+    bool center,
+    bool forceCenter) {
+  self->ensureVisible(position, center, forceCenter);
+}
+
+//  void QPlainTextEditPrivate::ensureCursorVisible(bool center)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditPrivate19ensureCursorVisibleEb(
+    QPlainTextEditPrivate *self,
+    bool center) {
+  self->ensureCursorVisible(center);
 }
 
 //  void QPlainTextEditPrivate::updateViewport()

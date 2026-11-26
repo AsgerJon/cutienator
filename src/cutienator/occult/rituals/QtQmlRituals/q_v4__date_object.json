@@ -11,6 +11,13 @@
     "ritual_ZN3QV410DateObject16defaultPrototypeEPNS_15ExecutionEngineE": [
       "address", "address"
     ],
-    "ritual_ZNK3QV410DateObject4dateEv": ["double", "address"]
+    "ritual_ZNK3QV410DateObject4dateEv": ["double", "address"],
+    "ritual_ZNK3QV410DateObject11toQDateTimeEv": ["address", "address"],
+    "ritual_ZN3QV410DateObject14dateTimeToDateERK9QDateTime": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV410DateObject19timestampToDateTimeEd9QTimeZone": [
+      "address", "double", "address"
+    ]
   }
 }

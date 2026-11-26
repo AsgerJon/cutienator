@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuick3DXrOrigin10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DXrOrigin11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuick3DXrOrigin11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuick3DXrOrigin2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,7 @@
     "ritual_ZN16QQuick3DXrOrigin9setCameraEP16QQuick3DXrCamera": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN16QQuick3DXrOrigin13cameraChangedEv": ["nothing", "address"],
     "ritual_ZNK16QQuick3DXrOrigin9eyeCameraEi": [
       "address", "address", "int"
     ],

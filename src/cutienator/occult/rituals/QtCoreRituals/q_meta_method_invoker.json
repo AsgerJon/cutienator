@@ -5,6 +5,10 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN18QMetaMethodInvoker10invokeImplE11QMetaMethodPvN2Qt14ConnectionTypeExPKPKvPKPKcPKPKN9QtPrivate18QMetaTypeInterfaceE": [
+      "int", "address", "address", "int", "long long", "address", "address",
+      "address"
+    ],
     "ritual_ZN18QMetaMethodInvokerD1Ev": ["nothing", "address"]
   }
 }

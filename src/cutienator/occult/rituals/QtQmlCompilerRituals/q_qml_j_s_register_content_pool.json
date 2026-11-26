@@ -7,20 +7,57 @@
   "rows": {
     "ritual_ZN25QQmlJSRegisterContentPoolC1Ev": ["address"],
     "ritual_ZN25QQmlJSRegisterContentPoolD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQmlJSRegisterContentPool10createTypeERK22QDeferredSharedPointerIK11QQmlJSScopeEiN21QQmlJSRegisterContent14ContentVariantES6_": [
+      "address", "address", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QQmlJSRegisterContentPool14createPropertyERK18QQmlJSMetaPropertyiiN21QQmlJSRegisterContent14ContentVariantES3_": [
       "address", "address", "address", "int", "int", "int", "address"
     ],
     "ritual_ZN25QQmlJSRegisterContentPool17createEnumerationERK14QQmlJSMetaEnumRK7QStringN21QQmlJSRegisterContent14ContentVariantES6_": [
       "address", "address", "address", "text", "int", "address"
     ],
+    "ritual_ZN25QQmlJSRegisterContentPool12createMethodERK5QListI16QQmlJSMetaMethodERK22QDeferredSharedPointerIK11QQmlJSScopeEN21QQmlJSRegisterContent14ContentVariantESB_": [
+      "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool16createMethodCallERK16QQmlJSMetaMethodRK22QDeferredSharedPointerIK11QQmlJSScopeE21QQmlJSRegisterContent": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool21createImportNamespaceEjRK22QDeferredSharedPointerIK11QQmlJSScopeEN21QQmlJSRegisterContent14ContentVariantES6_": [
+      "address", "address", "unsigned int", "address", "int", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool16createConversionERK5QListI21QQmlJSRegisterContentERK22QDeferredSharedPointerIK11QQmlJSScopeES1_NS1_14ContentVariantES1_": [
+      "address", "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool8storedInE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool6castToE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN25QQmlJSRegisterContentPool5cloneE21QQmlJSRegisterContent": [
       "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool9storeTypeE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool10adjustTypeE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool14generalizeTypeE21QQmlJSRegisterContentRK22QDeferredSharedPointerIK11QQmlJSScopeE": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN25QQmlJSRegisterContentPool17setAllocationModeENS_14AllocationModeE": [
       "nothing", "address", "int"
     ],
     "ritual_ZN25QQmlJSRegisterContentPool16clearTemporariesEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool5cloneEPK28QQmlJSRegisterContentPrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool6createEv": ["address", "address"],
+    "ritual_ZN25QQmlJSRegisterContentPool6createE21QQmlJSRegisterContentNS0_14ContentVariantE": [
+      "address", "address", "address", "int"
     ]
   }
 }

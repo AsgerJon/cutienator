@@ -5,5 +5,8 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN38QScxmlStaticScxmlServiceFactoryPrivateC1EPK11QMetaObjectRKN23QScxmlExecutableContent10InvokeInfoERK5QListIiERKS7_INS3_13ParameterInfoEE": [
+      "address", "address", "address", "address", "address"
+    ]
   }
 }

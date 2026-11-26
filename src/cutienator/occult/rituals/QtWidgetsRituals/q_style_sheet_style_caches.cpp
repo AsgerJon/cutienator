@@ -13,116 +13,6 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qglobal.h>
-#include <QtWidgets/private/qstylesheetstyle_p.h>
-#if QT_CONFIG(style_stylesheet)
-#include <QtGui/private/qcssutil_p.h>
-#include <QtCore/qdebug.h>
-#include <QtCore/qdir.h>
-#include <QtWidgets/qapplication.h>
-#if QT_CONFIG(menu)
-#include <QtWidgets/qmenu.h>
-#endif
-#if QT_CONFIG(menubar)
-#include <QtWidgets/qmenubar.h>
-#endif
-#include <QtGui/qpainter.h>
-#include <QtWidgets/qstyleoption.h>
-#if QT_CONFIG(lineedit)
-#include <QtWidgets/qlineedit.h>
-#endif
-#if QT_CONFIG(textedit)
-#include <QtWidgets/qtextedit.h>
-#include <QtWidgets/qplaintextedit.h>
-#endif
-#include <QtWidgets/private/qwindowsstyle_p.h>
-#if QT_CONFIG(combobox)
-#include <QtWidgets/qcombobox.h>
-#endif
-#include <QtGui/private/qcssparser_p.h>
-#include <QtGui/private/qmath_p.h>
-#include <QtWidgets/qabstractscrollarea.h>
-#include <QtWidgets/private/qabstractscrollarea_p.h>
-#if QT_CONFIG(tooltip)
-#include <QtWidgets/private/qtooltip_p.h>
-#endif
-#include <QtCore/qshareddata.h>
-#if QT_CONFIG(toolbutton)
-#include <QtWidgets/qtoolbutton.h>
-#endif
-#if QT_CONFIG(scrollbar)
-#include <QtWidgets/qscrollbar.h>
-#endif
-#if QT_CONFIG(abstractslider)
-#include <QtWidgets/qabstractslider.h>
-#endif
-#include <QtCore/qstring.h>
-#include <QtCore/qfile.h>
-#if QT_CONFIG(checkbox)
-#include <QtWidgets/qcheckbox.h>
-#endif
-#if QT_CONFIG(itemviews)
-#include <QtWidgets/qheaderview.h>
-#endif
-#include <QtWidgets/private/qwindowsstyle_p_p.h>
-#if QT_CONFIG(animation)
-#include <QtWidgets/private/qstyleanimation_p.h>
-#endif
-#if QT_CONFIG(tabbar)
-#include <QtWidgets/private/qtabbar_p.h>
-#endif
-#include <QtCore/QMetaProperty>
-#if QT_CONFIG(mainwindow)
-#include <QtWidgets/qmainwindow.h>
-#endif
-#if QT_CONFIG(dockwidget)
-#include <QtWidgets/qdockwidget.h>
-#endif
-#if QT_CONFIG(mdiarea)
-#include <QtWidgets/qmdisubwindow.h>
-#endif
-#if QT_CONFIG(dialog)
-#include <QtWidgets/qdialog.h>
-#endif
-#include <QtWidgets/private/qwidget_p.h>
-#if QT_CONFIG(spinbox)
-#include <QtWidgets/QAbstractSpinBox>
-#endif
-#if QT_CONFIG(label)
-#include <QtWidgets/QLabel>
-#endif
-#include <QtWidgets/qdrawutil.h>
-#include <QtWidgets/private/qstylehelper_p.h>
-#include <limits.h>
-#if QT_CONFIG(toolbar)
-#include <QtWidgets/qtoolbar.h>
-#endif
-#if QT_CONFIG(pushbutton)
-#include <QtWidgets/qpushbutton.h>
-#endif
-#include <QtGui/qpainterpath.h>
-#include <QtGui/qpainterstateguard.h>
-#include <QtGui/qscreen.h>
-#include <QtCore/private/qduplicatetracker_p.h>
-#endif
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-
-//  Qt's own code, from here to the line of dashes: taken from
-//  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it where Qt did not write it.
-
-//  from src/widgets/styles/qstylesheetstyle.cpp, line 2852, as _ZN22QStyleSheetStyleCaches14styleDestroyedEP7QObject
-#if QT_CONFIG(style_stylesheet)
-inline void QStyleSheetStyleCaches::styleDestroyed(QObject *o)
-{
-    styleSheetCache.remove(o);
-}
-#endif  // QT_CONFIG(style_stylesheet)
-//  -----------------------------------------------------------------------
 
 //  A QStyleSheetStyleCaches that Python can take functions over in. Every QStyleSheetStyleCaches
 //  Python makes is one. Each function below asks the Python
@@ -298,15 +188,78 @@ const QMetaObject *ritual_ZNK22QStyleSheetStyleCaches10metaObjectEv(
   return self->metaObject();
 }
 
-#if QT_CONFIG(style_stylesheet)
+//  void *QStyleSheetStyleCaches::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QStyleSheetStyleCaches11qt_metacastEPKc(
+    QStyleSheetStyleCaches *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QStyleSheetStyleCaches::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QStyleSheetStyleCaches11qt_metacallEN11QMetaObject4CallEiPPv(
+    QStyleSheetStyleCaches *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  void QStyleSheetStyleCaches::objectDestroyed(QObject *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QStyleSheetStyleCaches15objectDestroyedEP7QObject(
+    QStyleSheetStyleCaches *self,
+    QObject *a0) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStyleSheetStyleCaches")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "objectDestroyed(QObject *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "objectDestroyed(QObject *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QStyleSheetStyleCaches::styleDestroyed(QObject *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QStyleSheetStyleCaches14styleDestroyedEP7QObject(
     QStyleSheetStyleCaches *self,
     QObject *a0) {
-  self->styleDestroyed(a0);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QStyleSheetStyleCaches")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "styleDestroyed(QObject *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "styleDestroyed(QObject *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&a0)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
-#endif  // QT_CONFIG(style_stylesheet)
 
 //  a Python function taken by a CuteQStyleSheetStyleCaches, for the function
 //      named by the key

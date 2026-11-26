@@ -8,6 +8,79 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgrhiatlastexture_p.h>
+#include <QtCore/QVarLengthArray>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QtMath>
+#include <QtGui/QWindow>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtQuick/private/qsgtexture_p.h>
+#include <QtQuick/private/qsgcompressedtexture_p.h>
+#include <QtQuick/private/qsgcompressedatlastexture_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 189, as _ZN18QSGRhiAtlasTexture5Atlas6createERK6QImage
+namespace QSGRhiAtlasTexture {
+inline Texture *Atlas::create(const QImage &image)
+{
+    // No need to lock, as manager already locked it.
+    QRect rect = m_allocator.allocate(QSize(image.width() + 2, image.height() + 2));
+    if (rect.width() > 0 && rect.height() > 0) {
+        Texture *t = new Texture(this, rect, image);
+        m_pending_uploads << t;
+        return t;
+    }
+    return nullptr;
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 131, as _ZN18QSGRhiAtlasTexture9AtlasBase10invalidateEv
+namespace QSGRhiAtlasTexture {
+inline void AtlasBase::invalidate()
+{
+    delete m_texture;
+    m_texture = nullptr;
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 57, as _ZN18QSGRhiAtlasTexture7ManagerD1Ev
+namespace QSGRhiAtlasTexture {
+inline Manager::~Manager()
+{
+    Q_ASSERT(m_atlas == nullptr);
+    Q_ASSERT(m_atlases.isEmpty());
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 63, as _ZN18QSGRhiAtlasTexture7Manager10invalidateEv
+namespace QSGRhiAtlasTexture {
+inline void Manager::invalidate()
+{
+    if (m_atlas) {
+        m_atlas->invalidate();
+        m_atlas->deleteLater();
+        m_atlas = nullptr;
+    }
+
+    QHash<unsigned int, QSGCompressedAtlasTexture::Atlas*>::iterator i = m_atlases.begin();
+    while (i != m_atlases.end()) {
+        i.value()->invalidate();
+        i.value()->deleteLater();
+        ++i;
+    }
+    m_atlases.clear();
+}
+}  // namespace QSGRhiAtlasTexture
+//  -----------------------------------------------------------------------
 
 //  A QSGRhiAtlasTexture::Manager that Python can take functions over in. Every QSGRhiAtlasTexture::Manager
 //  Python makes is one. Each function below asks the Python
@@ -181,6 +254,39 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18QSGRhiAtlasTexture7Manager10metaObjectEv(
     const QSGRhiAtlasTexture::Manager *self) {
   return self->metaObject();
+}
+
+//  void *QSGRhiAtlasTexture::Manager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QSGRhiAtlasTexture7Manager11qt_metacastEPKc(
+    QSGRhiAtlasTexture::Manager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QSGRhiAtlasTexture::Manager::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QSGRhiAtlasTexture7Manager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QSGRhiAtlasTexture::Manager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QSGRhiAtlasTexture::Manager::~Manager()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSGRhiAtlasTexture7ManagerD1Ev(
+    QSGRhiAtlasTexture::Manager *self) {
+  delete self;
+}
+
+//  void QSGRhiAtlasTexture::Manager::invalidate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSGRhiAtlasTexture7Manager10invalidateEv(
+    QSGRhiAtlasTexture::Manager *self) {
+  self->invalidate();
 }
 
 //  a Python function taken by a CuteQSGRhiAtlasTexture_Manager, for the

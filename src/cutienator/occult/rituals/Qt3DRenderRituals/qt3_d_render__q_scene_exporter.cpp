@@ -9,6 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
@@ -188,6 +189,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender14QSceneExporter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QSceneExporter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender14QSceneExporter11qt_metacastEPKc(
+    Qt3DRender::QSceneExporter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QSceneExporter::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender14QSceneExporter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QSceneExporter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QSceneExporter::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -216,6 +236,37 @@ bool ritual_ZN10Qt3DRender14QSceneExporter11exportSceneEPN8Qt3DCore7QEntityERK7Q
     const QString *exportName,
     const QHash<QString, QVariant> *options) {
   return self->exportScene(sceneRoot, *outDir, *exportName, *options);
+}
+
+//  QStringList Qt3DRender::QSceneExporter::errors() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10Qt3DRender14QSceneExporter6errorsEv(
+    const Qt3DRender::QSceneExporter *self) {
+  return new QList<QString>(self->errors());
+}
+
+//  void Qt3DRender::QSceneExporter::errorsChanged(const QStringList &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QSceneExporter13errorsChangedERK5QListI7QStringE(
+    Qt3DRender::QSceneExporter *self,
+    const QList<QString> *errors) {
+  self->errorsChanged(*errors);
+}
+
+//  void Qt3DRender::QSceneExporter::logError(const QString &error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QSceneExporter8logErrorERK7QString(
+    Qt3DRender::QSceneExporter *self,
+    const QString *error) {
+  self->logError(*error);
+}
+
+//  void Qt3DRender::QSceneExporter::logInfo(const QString &info)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender14QSceneExporter7logInfoERK7QString(
+    Qt3DRender::QSceneExporter *self,
+    const QString *info) {
+  self->logInfo(*info);
 }
 
 //  a Python function taken by a CuteQt3DRender_QSceneExporter, for the

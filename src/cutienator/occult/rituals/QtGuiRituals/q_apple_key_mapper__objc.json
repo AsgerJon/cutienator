@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by hand on 2026-11-26 from",
+    "QtGui/6.12.0/QtGui/private/qapplekeymapper_p.h, Qt 6.12.0, from",
+    "Qt's source: Objective-C++, built on Apple's systems only. Kept as",
+    "it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK15QAppleKeyMapper22queryKeyboardModifiersEv": ["int", "address"],
+    "ritual_ZNK15QAppleKeyMapper23possibleKeyCombinationsEPK9QKeyEvent": ["address", "address", "address"],
+    "ritual_ZN15QAppleKeyMapper18fromCocoaModifiersEm": ["int", "unsigned long"],
+    "ritual_ZN15QAppleKeyMapper16toCocoaModifiersE6QFlagsIN2Qt16KeyboardModifierEE": ["unsigned long", "int"],
+    "ritual_ZN15QAppleKeyMapper10toCocoaKeyEN2Qt3KeyE": ["address", "int"],
+    "ritual_ZN15QAppleKeyMapper12fromCocoaKeyE5QChar": ["int", "address"]
+  }
+}

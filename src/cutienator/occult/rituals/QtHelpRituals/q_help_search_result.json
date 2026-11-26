@@ -10,6 +10,7 @@
       "address", "address", "text", "text"
     ],
     "ritual_ZN17QHelpSearchResultD1Ev": ["nothing", "address"],
+    "ritual_ZN17QHelpSearchResultaSERKS_": ["address", "address", "address"],
     "ritual_ZNK17QHelpSearchResult5titleEv": ["text", "address"],
     "ritual_ZNK17QHelpSearchResult3urlEv": ["address", "address"],
     "ritual_ZNK17QHelpSearchResult7snippetEv": ["text", "address"],

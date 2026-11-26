@@ -5,5 +5,11 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal22ActionInsertionCommandC1ERK7QStringP28QDesignerFormWindowInterface": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22ActionInsertionCommand4initEP7QWidgetP7QActionS4_b": [
+      "nothing", "address", "address", "address", "address", "bool"
+    ]
   }
 }

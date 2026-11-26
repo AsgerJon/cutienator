@@ -12,6 +12,7 @@
 #include <QtGui/qmatrix4x4.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QQuickShapePath that Python can take functions over in. Every QQuickShapePath
 //  Python makes is one. Each function below asks the Python
@@ -231,6 +232,24 @@ const QMetaObject *ritual_ZNK15QQuickShapePath10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShapePath::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickShapePath11qt_metacastEPKc(
+    QQuickShapePath *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShapePath::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickShapePath11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShapePath *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShapePath::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickShapePath2trEPKcS1_i(
@@ -408,6 +427,21 @@ void ritual_ZN15QQuickShapePath13setDashOffsetEd(
   self->setDashOffset(offset);
 }
 
+//  QList<qreal> QQuickShapePath::dashPattern() const
+extern "C" Q_DECL_EXPORT
+QList<qreal> *ritual_ZNK15QQuickShapePath11dashPatternEv(
+    const QQuickShapePath *self) {
+  return new QList<qreal>(self->dashPattern());
+}
+
+//  void QQuickShapePath::setDashPattern(const QList<qreal> &array)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath14setDashPatternERK5QListIdE(
+    QQuickShapePath *self,
+    const QList<qreal> *array) {
+  self->setDashPattern(*array);
+}
+
 //  QQuickShapeGradient *QQuickShapePath::fillGradient() const
 extern "C" Q_DECL_EXPORT
 QQuickShapeGradient *ritual_ZNK15QQuickShapePath12fillGradientEv(
@@ -501,6 +535,116 @@ void ritual_ZN15QQuickShapePath17setCosmeticStrokeEb(
   self->setCosmeticStroke(c);
 }
 
+//  void QQuickShapePath::shapePathChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath16shapePathChangedEv(QQuickShapePath *self) {
+  self->shapePathChanged();
+}
+
+//  void QQuickShapePath::strokeColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath18strokeColorChangedEv(
+    QQuickShapePath *self) {
+  self->strokeColorChanged();
+}
+
+//  void QQuickShapePath::strokeWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath18strokeWidthChangedEv(
+    QQuickShapePath *self) {
+  self->strokeWidthChanged();
+}
+
+//  void QQuickShapePath::fillColorChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath16fillColorChangedEv(QQuickShapePath *self) {
+  self->fillColorChanged();
+}
+
+//  void QQuickShapePath::fillRuleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath15fillRuleChangedEv(QQuickShapePath *self) {
+  self->fillRuleChanged();
+}
+
+//  void QQuickShapePath::joinStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath16joinStyleChangedEv(QQuickShapePath *self) {
+  self->joinStyleChanged();
+}
+
+//  void QQuickShapePath::miterLimitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath17miterLimitChangedEv(QQuickShapePath *self) {
+  self->miterLimitChanged();
+}
+
+//  void QQuickShapePath::capStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath15capStyleChangedEv(QQuickShapePath *self) {
+  self->capStyleChanged();
+}
+
+//  void QQuickShapePath::strokeStyleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath18strokeStyleChangedEv(
+    QQuickShapePath *self) {
+  self->strokeStyleChanged();
+}
+
+//  void QQuickShapePath::dashOffsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath17dashOffsetChangedEv(QQuickShapePath *self) {
+  self->dashOffsetChanged();
+}
+
+//  void QQuickShapePath::dashPatternChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath18dashPatternChangedEv(
+    QQuickShapePath *self) {
+  self->dashPatternChanged();
+}
+
+//  void QQuickShapePath::fillGradientChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath19fillGradientChangedEv(
+    QQuickShapePath *self) {
+  self->fillGradientChanged();
+}
+
+//  void QQuickShapePath::pathHintsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath16pathHintsChangedEv(QQuickShapePath *self) {
+  self->pathHintsChanged();
+}
+
+//  void QQuickShapePath::fillTransformChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath20fillTransformChangedEv(
+    QQuickShapePath *self) {
+  self->fillTransformChanged();
+}
+
+//  void QQuickShapePath::fillItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath15fillItemChangedEv(QQuickShapePath *self) {
+  self->fillItemChanged();
+}
+
+//  void QQuickShapePath::cosmeticStrokeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath21cosmeticStrokeChangedEv(
+    QQuickShapePath *self) {
+  self->cosmeticStrokeChanged();
+}
+
+//  void QQuickShapePath::strokeGradientChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapePath21strokeGradientChangedEv(
+    QQuickShapePath *self) {
+  self->strokeGradientChanged();
+}
+
 //  QQuickShapePathPrivate *QQuickShapePath::d_func()
 extern "C" Q_DECL_EXPORT
 QQuickShapePathPrivate *ritual_ZN15QQuickShapePath6d_funcEv(
@@ -523,4 +667,10 @@ bool ritual_take_QQuickShapePath(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickShapePath *>(self)->take(key, call);
+}
+
+//  a QList<qreal> a ritual of QQuickShapePath gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuickShapePath__QList_qreal(QList<qreal> *self) {
+  delete self;
 }

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "NativeStyle/6.12.0/QtQuickNativeStyle/private/qqc2qcommonstyle_p_p",
+    "Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN4QQC219QCommonStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK4QQC219QCommonStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN4QQC219QCommonStylePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK4QQC219QCommonStylePrivate16isViewItemCachedERKNS_20QStyleOptionViewItemE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK4QQC219QCommonStylePrivate9tabLayoutEPKNS_15QStyleOptionTabEP5QRectS5_": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

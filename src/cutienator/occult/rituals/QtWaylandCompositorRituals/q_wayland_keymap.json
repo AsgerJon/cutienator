@@ -6,11 +6,30 @@
   ],
   "rows": {
     "ritual_ZNK14QWaylandKeymap10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWaylandKeymap11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QWaylandKeymap11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QWaylandKeymap2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN14QWaylandKeymap6d_funcEv": ["address", "address"],
     "ritual_ZNK14QWaylandKeymap6d_funcEv": ["address", "address"],
+    "ritual_ZN14QWaylandKeymap4dataEv": ["address", "address"],
+    "ritual_ZN14QWaylandKeymap14appendFunctionEP16QQmlListPropertyI7QObjectEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWaylandKeymap13countFunctionEP16QQmlListPropertyI7QObjectE": [
+      "long long", "address"
+    ],
+    "ritual_ZN14QWaylandKeymap10atFunctionEP16QQmlListPropertyI7QObjectEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN14QWaylandKeymap13clearFunctionEP16QQmlListPropertyI7QObjectE": [
+      "nothing", "address"
+    ],
     "ritual_ZN14QWaylandKeymapC1ERK7QStringS2_S2_S2_S2_P7QObject": [
       "address", "text", "text", "text", "text", "text", "address"
     ],
@@ -34,6 +53,14 @@
     "ritual_ZN14QWaylandKeymap8setModelERK7QString": [
       "nothing", "address", "text"
     ],
-    "ritual_take_QWaylandKeymap": ["bool", "address", "chars", "address"]
+    "ritual_ZN14QWaylandKeymap13layoutChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandKeymap14variantChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandKeymap14optionsChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandKeymap12rulesChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandKeymap12modelChangedEv": ["nothing", "address"],
+    "ritual_take_QWaylandKeymap": ["bool", "address", "chars", "address"],
+    "ritual_drop_QWaylandKeymap__QQmlListProperty_QObject": [
+      "nothing", "address"
+    ]
   }
 }

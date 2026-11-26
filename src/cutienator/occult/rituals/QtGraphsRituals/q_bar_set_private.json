@@ -10,10 +10,15 @@
   "rows": {
     "ritual_ZN14QBarSetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK14QBarSetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QBarSetPrivateC1ERK7QString": ["address", "text"],
+    "ritual_ZN14QBarSetPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN14QBarSetPrivate6appendE7QPointF": [
       "nothing", "address", "address"
     ],
     "ritual_ZN14QBarSetPrivate6appendERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBarSetPrivate6appendERK5QListIdE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN14QBarSetPrivate6insertExd": [

@@ -6,8 +6,10 @@
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if 1
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if 1
 #include <QtCanvasPainter/QtCanvasPainter>
 #include <QtCanvasPainter/qcanvaspainteritem.h>
+#endif
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvaspainteritem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

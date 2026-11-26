@@ -21,6 +21,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/Qt>
 
 //  Only a class built on QQuickPopup may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -938,6 +939,24 @@ const QMetaObject *ritual_ZNK11QQuickPopup10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPopup::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QQuickPopup11qt_metacastEPKc(
+    QQuickPopup *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPopup::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QQuickPopup11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPopup *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPopup::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QQuickPopup2trEPKcS1_i(
@@ -1784,6 +1803,14 @@ void ritual_ZN11QQuickPopup16resetBottomInsetEv(QQuickPopup *self) {
   self->resetBottomInset();
 }
 
+//  void QQuickPopup::setWindowModality(const Qt::WindowModality modality)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup17setWindowModalityEN2Qt14WindowModalityE(
+    QQuickPopup *self,
+    const Qt::WindowModality *modality) {
+  self->setWindowModality(*modality);
+}
+
 //  PopupType QQuickPopup::popupType() const
 extern "C" Q_DECL_EXPORT
 QQuickPopup::PopupType ritual_ZNK11QQuickPopup9popupTypeEv(
@@ -1809,6 +1836,380 @@ void ritual_ZN11QQuickPopup4openEv(QQuickPopup *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQuickPopup5closeEv(QQuickPopup *self) {
   self->close();
+}
+
+//  void QQuickPopup::opened()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup6openedEv(QQuickPopup *self) {
+  self->opened();
+}
+
+//  void QQuickPopup::closed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup6closedEv(QQuickPopup *self) {
+  self->closed();
+}
+
+//  void QQuickPopup::aboutToShow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup11aboutToShowEv(QQuickPopup *self) {
+  self->aboutToShow();
+}
+
+//  void QQuickPopup::aboutToHide()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup11aboutToHideEv(QQuickPopup *self) {
+  self->aboutToHide();
+}
+
+//  void QQuickPopup::xChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup8xChangedEv(QQuickPopup *self) {
+  self->xChanged();
+}
+
+//  void QQuickPopup::yChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup8yChangedEv(QQuickPopup *self) {
+  self->yChanged();
+}
+
+//  void QQuickPopup::zChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup8zChangedEv(QQuickPopup *self) {
+  self->zChanged();
+}
+
+//  void QQuickPopup::widthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup12widthChangedEv(QQuickPopup *self) {
+  self->widthChanged();
+}
+
+//  void QQuickPopup::heightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup13heightChangedEv(QQuickPopup *self) {
+  self->heightChanged();
+}
+
+//  void QQuickPopup::implicitWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup20implicitWidthChangedEv(QQuickPopup *self) {
+  self->implicitWidthChanged();
+}
+
+//  void QQuickPopup::implicitHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup21implicitHeightChangedEv(QQuickPopup *self) {
+  self->implicitHeightChanged();
+}
+
+//  void QQuickPopup::contentWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup19contentWidthChangedEv(QQuickPopup *self) {
+  self->contentWidthChanged();
+}
+
+//  void QQuickPopup::contentHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup20contentHeightChangedEv(QQuickPopup *self) {
+  self->contentHeightChanged();
+}
+
+//  void QQuickPopup::availableWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup21availableWidthChangedEv(QQuickPopup *self) {
+  self->availableWidthChanged();
+}
+
+//  void QQuickPopup::availableHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup22availableHeightChangedEv(QQuickPopup *self) {
+  self->availableHeightChanged();
+}
+
+//  void QQuickPopup::marginsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup14marginsChangedEv(QQuickPopup *self) {
+  self->marginsChanged();
+}
+
+//  void QQuickPopup::topMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup16topMarginChangedEv(QQuickPopup *self) {
+  self->topMarginChanged();
+}
+
+//  void QQuickPopup::leftMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup17leftMarginChangedEv(QQuickPopup *self) {
+  self->leftMarginChanged();
+}
+
+//  void QQuickPopup::rightMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup18rightMarginChangedEv(QQuickPopup *self) {
+  self->rightMarginChanged();
+}
+
+//  void QQuickPopup::bottomMarginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup19bottomMarginChangedEv(QQuickPopup *self) {
+  self->bottomMarginChanged();
+}
+
+//  void QQuickPopup::paddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup14paddingChangedEv(QQuickPopup *self) {
+  self->paddingChanged();
+}
+
+//  void QQuickPopup::topPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup17topPaddingChangedEv(QQuickPopup *self) {
+  self->topPaddingChanged();
+}
+
+//  void QQuickPopup::leftPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup18leftPaddingChangedEv(QQuickPopup *self) {
+  self->leftPaddingChanged();
+}
+
+//  void QQuickPopup::rightPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup19rightPaddingChangedEv(QQuickPopup *self) {
+  self->rightPaddingChanged();
+}
+
+//  void QQuickPopup::bottomPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup20bottomPaddingChangedEv(QQuickPopup *self) {
+  self->bottomPaddingChanged();
+}
+
+//  void QQuickPopup::fontChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup11fontChangedEv(QQuickPopup *self) {
+  self->fontChanged();
+}
+
+//  void QQuickPopup::localeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup13localeChangedEv(QQuickPopup *self) {
+  self->localeChanged();
+}
+
+//  void QQuickPopup::parentChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup13parentChangedEv(QQuickPopup *self) {
+  self->parentChanged();
+}
+
+//  void QQuickPopup::backgroundChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup17backgroundChangedEv(QQuickPopup *self) {
+  self->backgroundChanged();
+}
+
+//  void QQuickPopup::contentItemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup18contentItemChangedEv(QQuickPopup *self) {
+  self->contentItemChanged();
+}
+
+//  void QQuickPopup::contentChildrenChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup22contentChildrenChangedEv(QQuickPopup *self) {
+  self->contentChildrenChanged();
+}
+
+//  void QQuickPopup::clipChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup11clipChangedEv(QQuickPopup *self) {
+  self->clipChanged();
+}
+
+//  void QQuickPopup::focusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup12focusChangedEv(QQuickPopup *self) {
+  self->focusChanged();
+}
+
+//  void QQuickPopup::activeFocusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup18activeFocusChangedEv(QQuickPopup *self) {
+  self->activeFocusChanged();
+}
+
+//  void QQuickPopup::modalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup12modalChangedEv(QQuickPopup *self) {
+  self->modalChanged();
+}
+
+//  void QQuickPopup::dimChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup10dimChangedEv(QQuickPopup *self) {
+  self->dimChanged();
+}
+
+//  void QQuickPopup::visibleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup14visibleChangedEv(QQuickPopup *self) {
+  self->visibleChanged();
+}
+
+//  void QQuickPopup::opacityChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup14opacityChangedEv(QQuickPopup *self) {
+  self->opacityChanged();
+}
+
+//  void QQuickPopup::scaleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup12scaleChangedEv(QQuickPopup *self) {
+  self->scaleChanged();
+}
+
+//  void QQuickPopup::closePolicyChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup18closePolicyChangedEv(QQuickPopup *self) {
+  self->closePolicyChanged();
+}
+
+//  void QQuickPopup::enterChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup12enterChangedEv(QQuickPopup *self) {
+  self->enterChanged();
+}
+
+//  void QQuickPopup::exitChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup11exitChangedEv(QQuickPopup *self) {
+  self->exitChanged();
+}
+
+//  void QQuickPopup::windowChanged(QQuickWindow *window)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup13windowChangedEP12QQuickWindow(
+    QQuickPopup *self,
+    QQuickWindow *window) {
+  self->windowChanged(window);
+}
+
+//  void QQuickPopup::spacingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup14spacingChangedEv(QQuickPopup *self) {
+  self->spacingChanged();
+}
+
+//  void QQuickPopup::openedChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup13openedChangedEv(QQuickPopup *self) {
+  self->openedChanged();
+}
+
+//  void QQuickPopup::mirroredChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup15mirroredChangedEv(QQuickPopup *self) {
+  self->mirroredChanged();
+}
+
+//  void QQuickPopup::enabledChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup14enabledChangedEv(QQuickPopup *self) {
+  self->enabledChanged();
+}
+
+//  void QQuickPopup::paletteChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup14paletteChangedEv(QQuickPopup *self) {
+  self->paletteChanged();
+}
+
+//  void QQuickPopup::paletteCreated()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup14paletteCreatedEv(QQuickPopup *self) {
+  self->paletteCreated();
+}
+
+//  void QQuickPopup::horizontalPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup24horizontalPaddingChangedEv(QQuickPopup *self) {
+  self->horizontalPaddingChanged();
+}
+
+//  void QQuickPopup::verticalPaddingChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup22verticalPaddingChangedEv(QQuickPopup *self) {
+  self->verticalPaddingChanged();
+}
+
+//  void QQuickPopup::implicitContentWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup27implicitContentWidthChangedEv(
+    QQuickPopup *self) {
+  self->implicitContentWidthChanged();
+}
+
+//  void QQuickPopup::implicitContentHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup28implicitContentHeightChangedEv(
+    QQuickPopup *self) {
+  self->implicitContentHeightChanged();
+}
+
+//  void QQuickPopup::implicitBackgroundWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup30implicitBackgroundWidthChangedEv(
+    QQuickPopup *self) {
+  self->implicitBackgroundWidthChanged();
+}
+
+//  void QQuickPopup::implicitBackgroundHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup31implicitBackgroundHeightChangedEv(
+    QQuickPopup *self) {
+  self->implicitBackgroundHeightChanged();
+}
+
+//  void QQuickPopup::topInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup15topInsetChangedEv(QQuickPopup *self) {
+  self->topInsetChanged();
+}
+
+//  void QQuickPopup::leftInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup16leftInsetChangedEv(QQuickPopup *self) {
+  self->leftInsetChanged();
+}
+
+//  void QQuickPopup::rightInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup17rightInsetChangedEv(QQuickPopup *self) {
+  self->rightInsetChanged();
+}
+
+//  void QQuickPopup::bottomInsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup18bottomInsetChangedEv(QQuickPopup *self) {
+  self->bottomInsetChanged();
+}
+
+//  void QQuickPopup::popupTypeChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuickPopup16popupTypeChangedEv(QQuickPopup *self) {
+  self->popupTypeChanged();
+}
+
+//  QQuickPopup::QQuickPopup(QQuickPopupPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPopup *ritual_ZN11QQuickPopupC1ER18QQuickPopupPrivateP7QObject(
+    QQuickPopupPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickPopup(*dd, parent);
 }
 
 //  void QQuickPopup::classBegin()

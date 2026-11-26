@@ -8,7 +8,9 @@
 #include <QtLocation/6.12.0/QtLocation/private/qdeclarativesupportedcategoriesmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
+#endif
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtLocation/qplacecategory.h>
@@ -977,6 +979,25 @@ const QMetaObject *ritual_ZNK36QDeclarativeSupportedCategoriesModel10metaObjectE
   return self->metaObject();
 }
 
+//  void *QDeclarativeSupportedCategoriesModel::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN36QDeclarativeSupportedCategoriesModel11qt_metacastEPKc(
+    QDeclarativeSupportedCategoriesModel *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDeclarativeSupportedCategoriesModel::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN36QDeclarativeSupportedCategoriesModel11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDeclarativeSupportedCategoriesModel *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDeclarativeSupportedCategoriesModel::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -1130,6 +1151,34 @@ void ritual_ZN36QDeclarativeSupportedCategoriesModel9setStatusENS_6StatusERK7QSt
   self->setStatus(status, *errorString);
 }
 
+//  void QDeclarativeSupportedCategoriesModel::pluginChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel13pluginChangedEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->pluginChanged();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::hierarchicalChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel19hierarchicalChangedEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->hierarchicalChanged();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::statusChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel13statusChangedEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->statusChanged();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::dataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel11dataChangedEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->dataChanged();
+}
+
 //  void QDeclarativeSupportedCategoriesModel::update()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN36QDeclarativeSupportedCategoriesModel6updateEv(
@@ -1199,6 +1248,16 @@ QModelIndex *ritual_ZNK36QDeclarativeSupportedCategoriesModel5indexERK7QString(
     const QDeclarativeSupportedCategoriesModel *self,
     const QString *categoryId) {
   return new QModelIndex(self->index(*categoryId));
+}
+
+//  int QDeclarativeSupportedCategoriesModel::rowToAddChild(PlaceCategoryNode
+//      *a0, const QPlaceCategory &category)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN36QDeclarativeSupportedCategoriesModel13rowToAddChildEPNS_17PlaceCategoryNodeERK14QPlaceCategory(
+    QDeclarativeSupportedCategoriesModel *self,
+    QDeclarativeSupportedCategoriesModel::PlaceCategoryNode *a0,
+    const QPlaceCategory *category) {
+  return self->rowToAddChild(a0, *category);
 }
 
 //  void QDeclarativeSupportedCategoriesModel::updateLayout()

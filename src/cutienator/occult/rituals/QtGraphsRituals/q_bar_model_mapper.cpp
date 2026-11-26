@@ -1,7 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/qbarmodelmapper.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGraphs/qgraphsglobal.h>
-#if (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
 #include <QtGraphs/QtGraphs>
 #include <QtGraphs/qbarmodelmapper.h>
 #include <QtCore/qstring.h>
@@ -182,6 +182,24 @@ const QMetaObject *ritual_ZNK15QBarModelMapper10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QBarModelMapper::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QBarModelMapper11qt_metacastEPKc(
+    QBarModelMapper *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QBarModelMapper::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QBarModelMapper11qt_metacallEN11QMetaObject4CallEiPPv(
+    QBarModelMapper *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QBarModelMapper::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QBarModelMapper2trEPKcS1_i(
@@ -322,6 +340,60 @@ void ritual_ZN15QBarModelMapper14setOrientationEN2Qt11OrientationE(
   self->setOrientation(orientation);
 }
 
+//  void QBarModelMapper::seriesChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QBarModelMapper13seriesChangedEv(QBarModelMapper *self) {
+  self->seriesChanged();
+}
+
+//  void QBarModelMapper::modelChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QBarModelMapper12modelChangedEv(QBarModelMapper *self) {
+  self->modelChanged();
+}
+
+//  void QBarModelMapper::firstBarSetSectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QBarModelMapper25firstBarSetSectionChangedEv(
+    QBarModelMapper *self) {
+  self->firstBarSetSectionChanged();
+}
+
+//  void QBarModelMapper::lastBarSetSectionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QBarModelMapper24lastBarSetSectionChangedEv(
+    QBarModelMapper *self) {
+  self->lastBarSetSectionChanged();
+}
+
+//  void QBarModelMapper::firstChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QBarModelMapper12firstChangedEv(QBarModelMapper *self) {
+  self->firstChanged();
+}
+
+//  void QBarModelMapper::countChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QBarModelMapper12countChangedEv(QBarModelMapper *self) {
+  self->countChanged();
+}
+
+//  void QBarModelMapper::orientationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QBarModelMapper18orientationChangedEv(
+    QBarModelMapper *self) {
+  self->orientationChanged();
+}
+
+//  QBarModelMapper::QBarModelMapper(QBarModelMapperPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QBarModelMapper *ritual_ZN15QBarModelMapperC1ER22QBarModelMapperPrivateP7QObject(
+    QBarModelMapperPrivate *dd,
+    QObject *parent) {
+  return new CuteQBarModelMapper(*dd, parent);
+}
+
 //  void QBarModelMapper::onValuesAdded(qsizetype index, qsizetype count)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QBarModelMapper13onValuesAddedExx(
@@ -355,4 +427,4 @@ bool ritual_take_QBarModelMapper(
   return static_cast<CuteQBarModelMapper *>(self)->take(key, call);
 }
 
-#endif  // (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))
+#endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_bar))

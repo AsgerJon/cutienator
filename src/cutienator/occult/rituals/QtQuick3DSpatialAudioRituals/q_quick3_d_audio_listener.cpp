@@ -9,37 +9,6 @@
 #include <QtCore/qmetaobject.h>
 #include <QtQuick3D/qquick3dobject.h>
 #include <cstring>
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtQuick3DSpatialAudio/private/qquick3daudiolistener_p.h>
-#include <QtQuick3DSpatialAudio/private/qquick3dspatialsound_p.h>
-#include <QtQuick3DSpatialAudio/private/qquick3daudioengine_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-
-//  Qt's own code, from here to the line of dashes: taken from
-//  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it where Qt did not write it.
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3daudiolistener.cpp, line 35, as _ZN21QQuick3DAudioListenerD1Ev
-inline QQuick3DAudioListener::~QQuick3DAudioListener()
-{
-    delete m_listener;
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3daudiolistener.cpp, line 40, as _ZN21QQuick3DAudioListener14updatePositionEv
-inline void QQuick3DAudioListener::updatePosition()
-{
-    m_listener->setPosition(scenePosition());
-}
-
-//  from ../qtmultimedia/src/spatialaudioquick3d/qquick3daudiolistener.cpp, line 45, as _ZN21QQuick3DAudioListener14updateRotationEv
-inline void QQuick3DAudioListener::updateRotation()
-{
-    m_listener->setRotation(sceneRotation());
-}
-//  -----------------------------------------------------------------------
 
 //  Only a class built on QQuick3DAudioListener may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -323,6 +292,25 @@ const QMetaObject *ritual_ZNK21QQuick3DAudioListener10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuick3DAudioListener::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuick3DAudioListener11qt_metacastEPKc(
+    QQuick3DAudioListener *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuick3DAudioListener::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuick3DAudioListener11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuick3DAudioListener *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QQuick3DAudioListener::~QQuick3DAudioListener()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuick3DAudioListenerD1Ev(QQuick3DAudioListener *self) {
@@ -349,14 +337,50 @@ QSSGRenderGraphObject *ritual_ZN21QQuick3DAudioListener17updateSpatialNodeEP21QS
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuick3DAudioListener14updatePositionEv(
     QQuick3DAudioListener *self) {
-  self->updatePosition();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioListener")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updatePosition()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updatePosition()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QQuick3DAudioListener::updateRotation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuick3DAudioListener14updateRotationEv(
     QQuick3DAudioListener *self) {
-  self->updateRotation();
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QQuick3DAudioListener")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "updateRotation()").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "updateRotation()");
+  void *arguments[] = {
+      nullptr,
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  a Python function taken by a CuteQQuick3DAudioListener, for the function

@@ -22,6 +22,13 @@ QCoapPrivateKey *ritual_ZN15QCoapPrivateKeyC1ERK10QByteArrayN4QSsl12KeyAlgorithm
   return new QCoapPrivateKey(*key, algorithm, format, *passPhrase);
 }
 
+//  QCoapPrivateKey::QCoapPrivateKey(const Qt::HANDLE &handle)
+extern "C" Q_DECL_EXPORT
+QCoapPrivateKey *ritual_ZN15QCoapPrivateKeyC1ERKPv(
+    const Qt::HANDLE *handle) {
+  return new QCoapPrivateKey(*handle);
+}
+
 //  QCoapPrivateKey::QCoapPrivateKey(const QCoapPrivateKey &other)
 extern "C" Q_DECL_EXPORT
 QCoapPrivateKey *ritual_ZN15QCoapPrivateKeyC1ERKS_(
@@ -29,10 +36,40 @@ QCoapPrivateKey *ritual_ZN15QCoapPrivateKeyC1ERKS_(
   return new QCoapPrivateKey(*other);
 }
 
+//  QCoapPrivateKey::QCoapPrivateKey(QCoapPrivateKey &&other)
+extern "C" Q_DECL_EXPORT
+QCoapPrivateKey *ritual_ZN15QCoapPrivateKeyC1EOS_(QCoapPrivateKey *other) {
+  return new QCoapPrivateKey(std::move(*other));
+}
+
 //  QCoapPrivateKey::~QCoapPrivateKey()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QCoapPrivateKeyD1Ev(QCoapPrivateKey *self) {
   delete self;
+}
+
+//  QCoapPrivateKey &QCoapPrivateKey::operator=(QCoapPrivateKey &&other)
+extern "C" Q_DECL_EXPORT
+QCoapPrivateKey *ritual_ZN15QCoapPrivateKeyaSEOS_(
+    QCoapPrivateKey *self,
+    QCoapPrivateKey *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  QCoapPrivateKey &QCoapPrivateKey::operator=(const QCoapPrivateKey &other)
+extern "C" Q_DECL_EXPORT
+QCoapPrivateKey *ritual_ZN15QCoapPrivateKeyaSERKS_(
+    QCoapPrivateKey *self,
+    const QCoapPrivateKey *other) {
+  return &(self->operator=(*other));
+}
+
+//  void QCoapPrivateKey::swap(QCoapPrivateKey &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCoapPrivateKey4swapERS_(
+    QCoapPrivateKey *self,
+    QCoapPrivateKey *other) {
+  self->swap(*other);
 }
 
 //  bool QCoapPrivateKey::isNull() const
@@ -45,6 +82,13 @@ bool ritual_ZNK15QCoapPrivateKey6isNullEv(const QCoapPrivateKey *self) {
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK15QCoapPrivateKey3keyEv(const QCoapPrivateKey *self) {
   return new QByteArray(self->key());
+}
+
+//  Qt::HANDLE QCoapPrivateKey::handle() const
+extern "C" Q_DECL_EXPORT
+Qt::HANDLE ritual_ZNK15QCoapPrivateKey6handleEv(
+    const QCoapPrivateKey *self) {
+  return self->handle();
 }
 
 //  QSsl::KeyAlgorithm QCoapPrivateKey::algorithm() const

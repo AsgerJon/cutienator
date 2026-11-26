@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QSvgEasingInterfaceC1Ev": ["address"],
     "ritual_ZN19QSvgEasingInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK19QSvgEasingInterface8progressEd": [
       "double", "address", "double"

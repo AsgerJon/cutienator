@@ -18,6 +18,7 @@
 #include <QtGui/qvectornd.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtCore/QList>
 
 //  A QGeoMapItemGeometry that Python can take functions over in. Every QGeoMapItemGeometry
 //  Python makes is one. Each function below asks the Python
@@ -204,6 +205,13 @@ QList<QPointF> *ritual_ZNK19QGeoMapItemGeometry8verticesEv(
   return new QList<QPointF>(self->vertices());
 }
 
+//  QList<quint32> QGeoMapItemGeometry::indices() const
+extern "C" Q_DECL_EXPORT
+QList<quint32> *ritual_ZNK19QGeoMapItemGeometry7indicesEv(
+    const QGeoMapItemGeometry *self) {
+  return new QList<quint32>(self->indices());
+}
+
 //  bool QGeoMapItemGeometry::isIndexed() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QGeoMapItemGeometry9isIndexedEv(
@@ -240,4 +248,10 @@ bool ritual_own_ZNK19QGeoMapItemGeometry8containsERK7QPointF(
     const QGeoMapItemGeometry *self,
     const QPointF *screenPoint) {
   return self->QGeoMapItemGeometry::contains(*screenPoint);
+}
+
+//  a QList<quint32> a ritual of QGeoMapItemGeometry gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QGeoMapItemGeometry__QList_quint32(QList<quint32> *self) {
+  delete self;
 }

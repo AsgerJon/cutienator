@@ -186,6 +186,24 @@ const QMetaObject *ritual_ZNK15QQuickAnchorSet10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickAnchorSet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickAnchorSet11qt_metacastEPKc(
+    QQuickAnchorSet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickAnchorSet::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickAnchorSet11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickAnchorSet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickAnchorSet::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickAnchorSet2trEPKcS1_i(
@@ -361,6 +379,20 @@ void ritual_ZN15QQuickAnchorSet11setBaselineERK16QQmlScriptString(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickAnchorSet13resetBaselineEv(QQuickAnchorSet *self) {
   self->resetBaseline();
+}
+
+//  QQuickAnchorSetPrivate *QQuickAnchorSet::d_func()
+extern "C" Q_DECL_EXPORT
+QQuickAnchorSetPrivate *ritual_ZN15QQuickAnchorSet6d_funcEv(
+    QQuickAnchorSet *self) {
+  return self->d_func();
+}
+
+//  const QQuickAnchorSetPrivate *QQuickAnchorSet::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickAnchorSetPrivate *ritual_ZNK15QQuickAnchorSet6d_funcEv(
+    const QQuickAnchorSet *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQuickAnchorSet, for the function named

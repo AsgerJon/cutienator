@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender16QProximityFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QProximityFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender16QProximityFilter11qt_metacastEPKc(
+    Qt3DRender::QProximityFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QProximityFilter::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender16QProximityFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QProximityFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QProximityFilter::tr(const char *s, const char *c,
 //      int n)
 extern "C" Q_DECL_EXPORT
@@ -187,6 +206,78 @@ QString *ritual_ZN10Qt3DRender16QProximityFilter2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QProximityFilter::tr(s, c, n));
+}
+
+//  Qt3DRender::QProximityFilter::QProximityFilter(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QProximityFilter *ritual_ZN10Qt3DRender16QProximityFilterC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QProximityFilter(parent);
+}
+
+//  Qt3DRender::QProximityFilter::~QProximityFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QProximityFilterD1Ev(
+    Qt3DRender::QProximityFilter *self) {
+  delete self;
+}
+
+//  Qt3DCore::QEntity *Qt3DRender::QProximityFilter::entity() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEntity *ritual_ZNK10Qt3DRender16QProximityFilter6entityEv(
+    const Qt3DRender::QProximityFilter *self) {
+  return self->entity();
+}
+
+//  float Qt3DRender::QProximityFilter::distanceThreshold() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK10Qt3DRender16QProximityFilter17distanceThresholdEv(
+    const Qt3DRender::QProximityFilter *self) {
+  return self->distanceThreshold();
+}
+
+//  void Qt3DRender::QProximityFilter::setEntity(Qt3DCore::QEntity *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QProximityFilter9setEntityEPN8Qt3DCore7QEntityE(
+    Qt3DRender::QProximityFilter *self,
+    Qt3DCore::QEntity *entity) {
+  self->setEntity(entity);
+}
+
+//  void Qt3DRender::QProximityFilter::setDistanceThreshold(float
+//      distanceThreshold)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QProximityFilter20setDistanceThresholdEf(
+    Qt3DRender::QProximityFilter *self,
+    float distanceThreshold) {
+  self->setDistanceThreshold(distanceThreshold);
+}
+
+//  void Qt3DRender::QProximityFilter::entityChanged(Qt3DCore::QEntity
+//      *entity)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QProximityFilter13entityChangedEPN8Qt3DCore7QEntityE(
+    Qt3DRender::QProximityFilter *self,
+    Qt3DCore::QEntity *entity) {
+  self->entityChanged(entity);
+}
+
+//  void Qt3DRender::QProximityFilter::distanceThresholdChanged(float
+//      distanceThreshold)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender16QProximityFilter24distanceThresholdChangedEf(
+    Qt3DRender::QProximityFilter *self,
+    float distanceThreshold) {
+  self->distanceThresholdChanged(distanceThreshold);
+}
+
+//  Qt3DRender::QProximityFilter::QProximityFilter(QProximityFilterPrivate
+//      &dd, Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QProximityFilter *ritual_ZN10Qt3DRender16QProximityFilterC1ERNS_23QProximityFilterPrivateEPN8Qt3DCore5QNodeE(
+    Qt3DRender::QProximityFilterPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QProximityFilter(*dd, parent);
 }
 
 //  QProximityFilterPrivate *Qt3DRender::QProximityFilter::d_func()

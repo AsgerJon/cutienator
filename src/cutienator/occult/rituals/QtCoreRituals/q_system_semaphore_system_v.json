@@ -9,6 +9,13 @@
       "bool", "unsigned short"
     ],
     "ritual_ZN23QSystemSemaphoreSystemV19runtimeSupportCheckEv": ["bool"],
-    "ritual_ZN23QSystemSemaphoreSystemVD1Ev": ["nothing", "address"]
+    "ritual_ZN23QSystemSemaphoreSystemV6handleEP23QSystemSemaphorePrivateN16QSystemSemaphore10AccessModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN23QSystemSemaphoreSystemV11cleanHandleEP23QSystemSemaphorePrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QSystemSemaphoreSystemVD1Ev": ["nothing", "address"],
+    "ritual_drop_QSystemSemaphoreSystemV__key_t": ["nothing", "address"]
   }
 }

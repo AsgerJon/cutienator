@@ -14,6 +14,9 @@
     "ritual_ZN16QSettingsPrivate3setERK7QStringRK8QVariant": [
       "nothing", "address", "text", "address"
     ],
+    "ritual_ZNK16QSettingsPrivate3getERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK16QSettingsPrivate8childrenERK7QStringNS_9ChildSpecE": [
       "address", "address", "text", "int"
     ],
@@ -30,9 +33,30 @@
     ],
     "ritual_ZN16QSettingsPrivate13requestUpdateEv": ["nothing", "address"],
     "ritual_ZN16QSettingsPrivate6updateEv": ["nothing", "address"],
+    "ritual_ZN16QSettingsPrivate12processChildE11QStringViewNS_9ChildSpecER5QListI7QStringE": [
+      "nothing", "text", "int", "address"
+    ],
+    "ritual_ZN16QSettingsPrivate23variantListToStringListERK5QListI8QVariantE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QSettingsPrivate23stringListToVariantListERK5QListI7QStringE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QSettingsPrivate15variantToStringERK8QVariant": [
+      "text", "address"
+    ],
+    "ritual_ZN16QSettingsPrivate15stringToVariantERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN16QSettingsPrivate15iniUnescapedKeyE14QByteArrayViewR7QString": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN16QSettingsPrivate9splitArgsERK7QStringx": [
       "address", "text", "long long"
     ],
-    "ritual_take_QSettingsPrivate": ["bool", "address", "chars", "address"]
+    "ritual_take_QSettingsPrivate": ["bool", "address", "chars", "address"],
+    "ritual_drop_QSettingsPrivate__std_optional_QVariant": [
+      "nothing", "address"
+    ]
   }
 }

@@ -5,6 +5,15 @@
     "adedtexture_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN13QSSGInputUtilD1Ev": ["nothing", "address"]
+    "ritual_ZN13QSSGInputUtil16getStreamForFileERK7QStringbPS0_": [
+      "address", "text", "bool", "address"
+    ],
+    "ritual_ZN13QSSGInputUtil23getStreamForTextureFileERK7QStringbPS0_PNS_8FileTypeE": [
+      "address", "text", "bool", "address", "address"
+    ],
+    "ritual_ZN13QSSGInputUtilD1Ev": ["nothing", "address"],
+    "ritual_drop_QSSGInputUtil__QSharedPointer_QIODevice": [
+      "nothing", "address"
+    ]
   }
 }

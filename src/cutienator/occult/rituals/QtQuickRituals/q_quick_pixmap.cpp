@@ -164,6 +164,14 @@ void ritual_ZN12QQuickPixmap8setImageERK6QImage(
   self->setImage(*a0);
 }
 
+//  void QQuickPixmap::setPixmap(const QQuickPixmap &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickPixmap9setPixmapERKS_(
+    QQuickPixmap *self,
+    const QQuickPixmap *other) {
+  self->setPixmap(*other);
+}
+
 //  QColorSpace QQuickPixmap::colorSpace() const
 extern "C" Q_DECL_EXPORT
 QColorSpace *ritual_ZNK12QQuickPixmap10colorSpaceEv(

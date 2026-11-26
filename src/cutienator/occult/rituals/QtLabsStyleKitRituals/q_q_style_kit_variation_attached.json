@@ -8,11 +8,23 @@
     "ritual_ZNK27QQStyleKitVariationAttached10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQStyleKitVariationAttached11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QQStyleKitVariationAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK27QQStyleKitVariationAttached10variationsEv": [
       "address", "address"
     ],
     "ritual_ZNK27QQStyleKitVariationAttached11controlTypeEv": [
       "unsigned int", "address"
+    ],
+    "ritual_ZN27QQStyleKitVariationAttached17variationsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitVariationAttached18controlTypeChangedEv": [
+      "nothing", "address"
     ]
   }
 }

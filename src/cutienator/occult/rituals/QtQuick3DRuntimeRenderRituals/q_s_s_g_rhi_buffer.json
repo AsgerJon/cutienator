@@ -5,6 +5,9 @@
     "xt_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QSSGRhiBufferC1ER14QSSGRhiContextN10QRhiBuffer4TypeE6QFlagsINS2_9UsageFlagEEjxN17QRhiCommandBuffer11IndexFormatE": [
+      "address", "address", "int", "int", "unsigned int", "long long", "int"
+    ],
     "ritual_ZN13QSSGRhiBufferD1Ev": ["nothing", "address"],
     "ritual_ZNK13QSSGRhiBuffer6bufferEv": ["address", "address"],
     "ritual_ZNK13QSSGRhiBuffer6strideEv": ["unsigned int", "address"],

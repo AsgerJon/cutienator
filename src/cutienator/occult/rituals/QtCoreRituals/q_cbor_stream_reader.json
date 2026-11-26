@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN17QCborStreamReaderC1Ev": ["address"],
     "ritual_ZN17QCborStreamReaderC1EPKcx": ["address", "chars", "long long"],
+    "ritual_ZN17QCborStreamReaderC1EPKhx": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN17QCborStreamReaderC1ERK10QByteArray": ["address", "address"],
     "ritual_ZN17QCborStreamReaderC1EP9QIODevice": ["address", "address"],
     "ritual_ZN17QCborStreamReaderD1Ev": ["nothing", "address"],
@@ -18,6 +21,9 @@
     ],
     "ritual_ZN17QCborStreamReader7addDataEPKcx": [
       "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN17QCborStreamReader7addDataEPKhx": [
+      "nothing", "address", "address", "long long"
     ],
     "ritual_ZN17QCborStreamReader7reparseEv": ["nothing", "address"],
     "ritual_ZN17QCborStreamReader5clearEv": ["nothing", "address"],
@@ -66,6 +72,15 @@
     "ritual_ZNK17QCborStreamReader11isContainerEv": ["bool", "address"],
     "ritual_ZN17QCborStreamReader14enterContainerEv": ["bool", "address"],
     "ritual_ZN17QCborStreamReader14leaveContainerEv": ["bool", "address"],
+    "ritual_ZN17QCborStreamReader21readAndAppendToStringER7QString": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QCborStreamReader25readAndAppendToUtf8StringER10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QCborStreamReader24readAndAppendToByteArrayER10QByteArray": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK17QCborStreamReader22currentStringChunkSizeEv": [
       "long long", "address"
     ],
@@ -98,6 +113,15 @@
     ],
     "ritual_ZNK17QCborStreamReader23_currentStringChunkSizeEv": [
       "long long", "address"
+    ],
+    "ritual_ZN17QCborStreamReader29_readAndAppendToString_helperER7QString": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QCborStreamReader33_readAndAppendToUtf8String_helperER10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QCborStreamReader32_readAndAppendToByteArray_helperER10QByteArray": [
+      "bool", "address", "address"
     ]
   }
 }

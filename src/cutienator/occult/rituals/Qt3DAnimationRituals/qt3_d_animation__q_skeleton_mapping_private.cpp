@@ -7,6 +7,40 @@
 #include <Qt3DAnimation/6.12.0/Qt3DAnimation/private/qskeletonmapping_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DAnimation/qabstractchannelmapping.h>
+#include <Qt3DAnimation/private/qabstractchannelmapping_p.h>
+#include <Qt3DAnimation/qskeletonmapping.h>
+#include <Qt3DAnimation/private/qskeletonmapping_p.h>
+#include <Qt3DCore/qabstractskeleton.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/animation/frontend/qabstractchannelmapping.cpp, line 11, as _ZN13Qt3DAnimation30QAbstractChannelMappingPrivateC2Ev
+namespace Qt3DAnimation {
+inline QAbstractChannelMappingPrivate::QAbstractChannelMappingPrivate()
+    : Qt3DCore::QNodePrivate()
+    , m_mappingType(ChannelMapping)
+{
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qskeletonmapping.cpp, line 12, as _ZN13Qt3DAnimation23QSkeletonMappingPrivateC1Ev
+namespace Qt3DAnimation {
+inline QSkeletonMappingPrivate::QSkeletonMappingPrivate()
+    : QAbstractChannelMappingPrivate()
+    , m_skeleton(nullptr)
+{
+    m_mappingType = QAbstractChannelMappingPrivate::SkeletonMapping;
+}
+}  // namespace Qt3DAnimation
+//  -----------------------------------------------------------------------
 
 //  A Qt3DAnimation::QSkeletonMappingPrivate that Python can take functions over in. Every Qt3DAnimation::QSkeletonMappingPrivate
 //  Python makes is one. Each function below asks the Python
@@ -52,6 +86,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DAnimation::QSkeletonMappingPrivate::QSkeletonMappingPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QSkeletonMappingPrivate *ritual_ZN13Qt3DAnimation23QSkeletonMappingPrivateC1Ev() {
+  return new CuteQt3DAnimation_QSkeletonMappingPrivate();
+}
 
 //  QSkeletonMapping *Qt3DAnimation::QSkeletonMappingPrivate::q_func()
 extern "C" Q_DECL_EXPORT

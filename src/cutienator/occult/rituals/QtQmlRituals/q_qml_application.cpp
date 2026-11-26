@@ -16,6 +16,24 @@ const QMetaObject *ritual_ZNK15QQmlApplication10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlApplication::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQmlApplication11qt_metacastEPKc(
+    QQmlApplication *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlApplication::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlApplication11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlApplication *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlApplication::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQmlApplication2trEPKcS1_i(
@@ -99,6 +117,46 @@ void ritual_ZN15QQmlApplication9setDomainERK7QString(
     QQmlApplication *self,
     const QString *arg) {
   self->setDomain(*arg);
+}
+
+//  void QQmlApplication::aboutToQuit()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlApplication11aboutToQuitEv(QQmlApplication *self) {
+  self->aboutToQuit();
+}
+
+//  void QQmlApplication::nameChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlApplication11nameChangedEv(QQmlApplication *self) {
+  self->nameChanged();
+}
+
+//  void QQmlApplication::versionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlApplication14versionChangedEv(QQmlApplication *self) {
+  self->versionChanged();
+}
+
+//  void QQmlApplication::organizationChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlApplication19organizationChangedEv(
+    QQmlApplication *self) {
+  self->organizationChanged();
+}
+
+//  void QQmlApplication::domainChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlApplication13domainChangedEv(QQmlApplication *self) {
+  self->domainChanged();
+}
+
+//  QQmlApplication::QQmlApplication(QQmlApplicationPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQmlApplication *ritual_ZN15QQmlApplicationC1ER22QQmlApplicationPrivateP7QObject(
+    QQmlApplicationPrivate *dd,
+    QObject *parent) {
+  return new QQmlApplication(*dd, parent);
 }
 
 //  QQmlApplicationPrivate *QQmlApplication::d_func()

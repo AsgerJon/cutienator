@@ -8,10 +8,20 @@
     "ritual_ZNK25QNetworkAccessFileBackend10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QNetworkAccessFileBackend11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QNetworkAccessFileBackend11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QNetworkAccessFileBackendD1Ev": ["nothing", "address"],
+    "ritual_ZN25QNetworkAccessFileBackend4openEv": ["nothing", "address"],
     "ritual_ZN25QNetworkAccessFileBackend5closeEv": ["nothing", "address"],
     "ritual_ZNK25QNetworkAccessFileBackend14bytesAvailableEv": [
       "long long", "address"
+    ],
+    "ritual_ZN25QNetworkAccessFileBackend4readEPcx": [
+      "long long", "address", "address", "long long"
     ],
     "ritual_ZN25QNetworkAccessFileBackend19uploadReadyReadSlotEv": [
       "nothing", "address"
@@ -22,11 +32,17 @@
     "ritual_take_QNetworkAccessFileBackend": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZN25QNetworkAccessFileBackend4openEv": [
+      "nothing", "address"
+    ],
     "ritual_own_ZN25QNetworkAccessFileBackend5closeEv": [
       "nothing", "address"
     ],
     "ritual_own_ZNK25QNetworkAccessFileBackend14bytesAvailableEv": [
       "long long", "address"
+    ],
+    "ritual_own_ZN25QNetworkAccessFileBackend4readEPcx": [
+      "long long", "address", "address", "long long"
     ]
   }
 }

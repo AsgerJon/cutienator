@@ -5,12 +5,17 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8QBspTreeC1Ev": ["address"],
     "ritual_ZN8QBspTree6createEii": ["nothing", "address", "int", "int"],
     "ritual_ZN8QBspTree7destroyEv": ["nothing", "address"],
     "ritual_ZN8QBspTree4initERK5QRectNS_4Node4TypeE": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN8QBspTree9climbTreeERK5QRectPFvR5QListIiES2_jNS_4DataEES6_": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZNK8QBspTree9leafCountEv": ["int", "address"],
+    "ritual_ZN8QBspTree4leafEi": ["address", "address", "int"],
     "ritual_ZN8QBspTree10insertLeafERK5QRecti": [
       "nothing", "address", "address", "int"
     ],
@@ -20,8 +25,17 @@
     "ritual_ZN8QBspTree4initERK5QRectiNS_4Node4TypeEi": [
       "nothing", "address", "address", "int", "int", "int"
     ],
+    "ritual_ZN8QBspTree9climbTreeERK5QRectPFvR5QListIiES2_jNS_4DataEES6_i": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
     "ritual_ZNK8QBspTree11parentIndexEi": ["int", "address", "int"],
     "ritual_ZNK8QBspTree15firstChildIndexEi": ["int", "address", "int"],
+    "ritual_ZN8QBspTree6insertER5QListIiERK5QRectjNS_4DataE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN8QBspTree6removeER5QListIiERK5QRectjNS_4DataE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
     "ritual_ZN8QBspTreeD1Ev": ["nothing", "address"]
   }
 }

@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN32QRemoteObjectRegistryHostPrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZNK32QRemoteObjectRegistryHostPrivate21remoteObjectAddressesEv": [
       "address", "address"
     ],

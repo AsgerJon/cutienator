@@ -8,6 +8,12 @@
     "ritual_ZNK25QAbstractItemModelReplica10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QAbstractItemModelReplica11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QAbstractItemModelReplica11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QAbstractItemModelReplica2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -45,6 +51,9 @@
     "ritual_ZNK25QAbstractItemModelReplica5flagsERK11QModelIndex": [
       "int", "address", "address"
     ],
+    "ritual_ZNK25QAbstractItemModelReplica14availableRolesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK25QAbstractItemModelReplica9roleNamesEv": [
       "address", "address"
     ],
@@ -54,8 +63,17 @@
     "ritual_ZNK25QAbstractItemModelReplica7hasDataERK11QModelIndexi": [
       "bool", "address", "address", "int"
     ],
+    "ritual_ZNK25QAbstractItemModelReplica13rootCacheSizeEv": [
+      "size_t", "address"
+    ],
     "ritual_ZN25QAbstractItemModelReplica16setRootCacheSizeEm": [
       "nothing", "address", "size_t"
+    ],
+    "ritual_ZN25QAbstractItemModelReplica11initializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelReplicaC1EP39QAbstractItemModelReplicaImplementationN15QtRemoteObjects13InitialActionERK5QListIiE": [
+      "address", "address", "int", "address"
     ],
     "ritual_take_QAbstractItemModelReplica": [
       "bool", "address", "chars", "address"
@@ -86,6 +104,9 @@
     ],
     "ritual_own_ZNK25QAbstractItemModelReplica5flagsERK11QModelIndex": [
       "int", "address", "address"
+    ],
+    "ritual_drop_QAbstractItemModelReplica__QList_int": [
+      "nothing", "address"
     ]
   }
 }

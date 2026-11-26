@@ -14,6 +14,8 @@
     "ritual_ZN14QMediaMetaData6removeENS_3KeyE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK14QMediaMetaData4keysEv": ["address", "address"],
+    "ritual_ZN14QMediaMetaDataixENS_3KeyE": ["address", "address", "int"],
     "ritual_ZN14QMediaMetaData5clearEv": ["nothing", "address"],
     "ritual_ZNK14QMediaMetaData7isEmptyEv": ["bool", "address"],
     "ritual_ZNK14QMediaMetaData11stringValueENS_3KeyE": [
@@ -31,6 +33,9 @@
     "ritual_list_add_QMediaMetaData": ["nothing", "address", "address"],
     "ritual_list_size_QMediaMetaData": ["long long", "address"],
     "ritual_list_at_QMediaMetaData": ["address", "address", "long long"],
-    "ritual_list_drop_QMediaMetaData": ["nothing", "address"]
+    "ritual_list_drop_QMediaMetaData": ["nothing", "address"],
+    "ritual_drop_QMediaMetaData__QList_QMediaMetaData_Key": [
+      "nothing", "address"
+    ]
   }
 }

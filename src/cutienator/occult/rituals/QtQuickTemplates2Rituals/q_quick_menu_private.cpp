@@ -6,9 +6,13 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
 #if QT_CONFIG(qml_object_model)
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
+#if QT_CONFIG(qml_object_model)
 #include <QtQuickTemplates2/QtQuickTemplates2>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickmenu_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickmenu_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/QtQuick>
@@ -891,6 +895,40 @@ extern "C" Q_DECL_EXPORT
 QQuickMenuItem *ritual_ZNK17QQuickMenuPrivate20firstEnabledMenuItemEv(
     const QQuickMenuPrivate *self) {
   return self->firstEnabledMenuItem();
+}
+
+//  void QQuickMenuPrivate::contentData_append(QQmlListProperty<QObject>
+//      *prop, QObject *obj)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMenuPrivate18contentData_appendEP16QQmlListPropertyI7QObjectEPS1_(
+    QQmlListProperty<QObject> *prop,
+    QObject *obj) {
+  QQuickMenuPrivate::contentData_append(prop, obj);
+}
+
+//  qsizetype QQuickMenuPrivate::contentData_count(QQmlListProperty<QObject>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN17QQuickMenuPrivate17contentData_countEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  return QQuickMenuPrivate::contentData_count(prop);
+}
+
+//  QObject *QQuickMenuPrivate::contentData_at(QQmlListProperty<QObject>
+//      *prop, qsizetype index)
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN17QQuickMenuPrivate14contentData_atEP16QQmlListPropertyI7QObjectEx(
+    QQmlListProperty<QObject> *prop,
+    qsizetype index) {
+  return QQuickMenuPrivate::contentData_at(prop, index);
+}
+
+//  void QQuickMenuPrivate::contentData_clear(QQmlListProperty<QObject>
+//      *prop)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickMenuPrivate17contentData_clearEP16QQmlListPropertyI7QObjectE(
+    QQmlListProperty<QObject> *prop) {
+  QQuickMenuPrivate::contentData_clear(prop);
 }
 
 //  QPalette QQuickMenuPrivate::defaultPalette() const

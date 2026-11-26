@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZNK15QRotationSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QRotationSensor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QRotationSensor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN15QRotationSensor2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -14,6 +20,9 @@
     "ritual_ZNK15QRotationSensor7readingEv": ["address", "address"],
     "ritual_ZNK15QRotationSensor4hasZEv": ["bool", "address"],
     "ritual_ZN15QRotationSensor7setHasZEb": ["nothing", "address", "bool"],
+    "ritual_ZN15QRotationSensor11hasZChangedEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN15QRotationSensor6d_funcEv": ["address", "address"],
     "ritual_ZNK15QRotationSensor6d_funcEv": ["address", "address"],
     "ritual_take_QRotationSensor": ["bool", "address", "chars", "address"]

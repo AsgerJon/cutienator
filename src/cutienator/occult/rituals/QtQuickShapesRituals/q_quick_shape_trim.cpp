@@ -15,6 +15,24 @@ const QMetaObject *ritual_ZNK15QQuickShapeTrim10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickShapeTrim::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQuickShapeTrim11qt_metacastEPKc(
+    QQuickShapeTrim *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickShapeTrim::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQuickShapeTrim11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickShapeTrim *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickShapeTrim::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQuickShapeTrim2trEPKcS1_i(
@@ -71,4 +89,22 @@ qreal ritual_ZNK15QQuickShapeTrim6offsetEv(const QQuickShapeTrim *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQuickShapeTrim9setOffsetEd(QQuickShapeTrim *self, qreal t) {
   self->setOffset(t);
+}
+
+//  void QQuickShapeTrim::startChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapeTrim12startChangedEv(QQuickShapeTrim *self) {
+  self->startChanged();
+}
+
+//  void QQuickShapeTrim::endChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapeTrim10endChangedEv(QQuickShapeTrim *self) {
+  self->endChanged();
+}
+
+//  void QQuickShapeTrim::offsetChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQuickShapeTrim13offsetChangedEv(QQuickShapeTrim *self) {
+  self->offsetChanged();
 }

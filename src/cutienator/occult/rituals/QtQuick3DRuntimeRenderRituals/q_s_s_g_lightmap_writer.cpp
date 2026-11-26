@@ -12,11 +12,33 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QString>
 
 //  QSSGLightmapWriter::~QSSGLightmapWriter()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QSSGLightmapWriterD1Ev(QSSGLightmapWriter *self) {
   delete self;
+}
+
+//  QSharedPointer<QSSGLightmapWriter> QSSGLightmapWriter::open(const
+//      QSharedPointer<QIODevice> &stream)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QSSGLightmapWriter> *ritual_ZN18QSSGLightmapWriter4openERK14QSharedPointerI9QIODeviceE(
+    const QSharedPointer<QIODevice> *stream) {
+  return new QSharedPointer<QSSGLightmapWriter>(
+      QSSGLightmapWriter::open(
+          *stream));
+}
+
+//  QSharedPointer<QSSGLightmapWriter> QSSGLightmapWriter::open(const QString
+//      &path)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QSSGLightmapWriter> *ritual_ZN18QSSGLightmapWriter4openERK7QString(
+    const QString *path) {
+  return new QSharedPointer<QSSGLightmapWriter>(
+      QSSGLightmapWriter::open(
+          *path));
 }
 
 //  bool QSSGLightmapWriter::writeF32Image(const QString &key,
@@ -73,4 +95,11 @@ bool ritual_ZNK18QSSGLightmapWriter5closeEv(const QSSGLightmapWriter *self) {
 extern "C" Q_DECL_EXPORT
 QSSGLightmapWriter *ritual_ZN18QSSGLightmapWriterC1Ev() {
   return new QSSGLightmapWriter();
+}
+
+//  a QSharedPointer<QSSGLightmapWriter> a ritual of QSSGLightmapWriter gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGLightmapWriter__QSharedPointer_QSSGLightmapWriter(
+    QSharedPointer<QSSGLightmapWriter> *self) {
+  delete self;
 }

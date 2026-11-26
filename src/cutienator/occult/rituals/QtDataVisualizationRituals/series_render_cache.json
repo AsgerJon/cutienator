@@ -13,18 +13,32 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK17SeriesRenderCache6seriesEv": ["address", "address"],
+    "ritual_ZNK17SeriesRenderCache4meshEv": ["address", "address"],
     "ritual_ZNK17SeriesRenderCache12meshRotationEv": ["address", "address"],
     "ritual_ZN17SeriesRenderCache15setMeshRotationERK11QQuaternion": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK17SeriesRenderCache6objectEv": ["address", "address"],
+    "ritual_ZNK17SeriesRenderCache10colorStyleEv": ["address", "address"],
     "ritual_ZNK17SeriesRenderCache9baseColorEv": ["address", "address"],
+    "ritual_ZNK17SeriesRenderCache18baseUniformTextureEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK17SeriesRenderCache19baseGradientTextureEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZNK17SeriesRenderCache13gradientImageEv": ["address", "address"],
     "ritual_ZNK17SeriesRenderCache20singleHighlightColorEv": [
       "address", "address"
     ],
+    "ritual_ZNK17SeriesRenderCache30singleHighlightGradientTextureEv": [
+      "unsigned int", "address"
+    ],
     "ritual_ZNK17SeriesRenderCache19multiHighlightColorEv": [
       "address", "address"
+    ],
+    "ritual_ZNK17SeriesRenderCache29multiHighlightGradientTextureEv": [
+      "unsigned int", "address"
     ],
     "ritual_ZNK17SeriesRenderCache4nameEv": ["text", "address"],
     "ritual_ZNK17SeriesRenderCache9itemLabelEv": ["text", "address"],

@@ -10,6 +10,18 @@
     ],
     "ritual_ZNK13Qt3DAnimation9Animation28EvaluateBlendClipAnimatorJob7handlerEv": [
       "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation28EvaluateBlendClipAnimatorJob20setBlendClipAnimatorERKN8Qt3DCore7QHandleINS0_19BlendedClipAnimatorEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation28EvaluateBlendClipAnimatorJob17blendClipAnimatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation28EvaluateBlendClipAnimatorJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DAnimation_Animation_EvaluateBlendClipAnimatorJob__Qt3DAnimation_Animation_HBlendedClipAnimator": [
+      "nothing", "address"
     ]
   }
 }

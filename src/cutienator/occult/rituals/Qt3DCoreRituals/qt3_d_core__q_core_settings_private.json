@@ -11,6 +11,10 @@
     "ritual_ZNK8Qt3DCore20QCoreSettingsPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN8Qt3DCore20QCoreSettingsPrivateC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore20QCoreSettingsPrivate3getEPNS_13QCoreSettingsE": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DCore_QCoreSettingsPrivate": [
       "bool", "address", "chars", "address"
     ]

@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QQmlJavaScriptExpressionC1Ev": ["address"],
     "ritual_ZN24QQmlJavaScriptExpressionD1Ev": ["nothing", "address"],
     "ritual_ZNK24QQmlJavaScriptExpression20expressionIdentifierEv": [
       "text", "address"
@@ -17,6 +18,9 @@
     ],
     "ritual_ZN24QQmlJavaScriptExpression8evaluateEPN3QV48CallDataEPb": [
       "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression8evaluateEPPvPK9QMetaTypei": [
+      "bool", "address", "address", "address", "int"
     ],
     "ritual_ZNK24QQmlJavaScriptExpression20notifyOnValueChangedEv": [
       "bool", "address"
@@ -44,6 +48,13 @@
     ],
     "ritual_ZNK24QQmlJavaScriptExpression13publicContextEv": [
       "address", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression7contextEv": ["address", "address"],
+    "ritual_ZN24QQmlJavaScriptExpression10setContextERK14QQmlRefPointerI15QQmlContextDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression14insertIntoListEPPS_": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK24QQmlJavaScriptExpression8functionEv": [
       "address", "address"
@@ -77,6 +88,10 @@
     "ritual_ZNK24QQmlJavaScriptExpression27mustCaptureBindablePropertyEv": [
       "bool", "address"
     ],
+    "ritual_ZN24QQmlJavaScriptExpression12evalFunctionERK14QQmlRefPointerI15QQmlContextDataEP7QObjectRK7QStringS9_t": [
+      "unsigned long long", "address", "address", "text", "text",
+      "unsigned short"
+    ],
     "ritual_ZNK24QQmlJavaScriptExpression6engineEv": ["address", "address"],
     "ritual_ZNK24QQmlJavaScriptExpression18hasUnresolvedNamesEv": [
       "bool", "address"
@@ -87,8 +102,15 @@
     "ritual_ZN24QQmlJavaScriptExpression29allocatePropertyChangeTriggerEP7QObjecti": [
       "address", "address", "address", "int"
     ],
+    "ritual_ZN24QQmlJavaScriptExpression16createQmlBindingERK14QQmlRefPointerI15QQmlContextDataEP7QObjectRK7QStringS9_t": [
+      "nothing", "address", "address", "address", "text", "text",
+      "unsigned short"
+    ],
     "ritual_ZN24QQmlJavaScriptExpression13setupFunctionEPN3QV416ExecutionContextEPNS0_8FunctionE": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression18setCompilationUnitERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QQmlJavaScriptExpression": [
       "bool", "address", "chars", "address"
@@ -104,6 +126,9 @@
     ],
     "ritual_own_ZNK24QQmlJavaScriptExpression27mustCaptureBindablePropertyEv": [
       "bool", "address"
+    ],
+    "ritual_drop_QQmlJavaScriptExpression__QQmlRefPointer_QQmlContextData": [
+      "nothing", "address"
     ]
   }
 }

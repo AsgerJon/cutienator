@@ -5,10 +5,19 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore30QDestructionIdAndTypeCollectorC1EPNS_5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore30QDestructionIdAndTypeCollector18subtreeIdsAndTypesEv": [
+      "address", "address"
+    ],
     "ritual_ZN8Qt3DCore30QDestructionIdAndTypeCollector16collectIdAndTypeEPNS_5QNodeE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN8Qt3DCore30QDestructionIdAndTypeCollectorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_drop_Qt3DCore_QDestructionIdAndTypeCollector__QList_Qt3DCore_QNodeIdTypePair": [
       "nothing", "address"
     ]
   }

@@ -8,6 +8,12 @@
     "ritual_ZNK29PolarChartLogValueAxisAngular10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN29PolarChartLogValueAxisAngular11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN29PolarChartLogValueAxisAngular11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN29PolarChartLogValueAxisAngular2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -15,6 +21,12 @@
       "address", "address", "address"
     ],
     "ritual_ZN29PolarChartLogValueAxisAngularD1Ev": ["nothing", "address"],
+    "ritual_ZNK29PolarChartLogValueAxisAngular15calculateLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29PolarChartLogValueAxisAngular16createAxisLabelsERK5QListIdE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN29PolarChartLogValueAxisAngular17handleBaseChangedEd": [
       "nothing", "address", "double"
     ],
@@ -23,6 +35,9 @@
     ],
     "ritual_take_PolarChartLogValueAxisAngular": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_PolarChartLogValueAxisAngular__QList_qreal": [
+      "nothing", "address"
     ]
   }
 }

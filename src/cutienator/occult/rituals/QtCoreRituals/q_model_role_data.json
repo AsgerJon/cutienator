@@ -1,14 +1,30 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "QtCore/qabstractitemmodel.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZN14QModelRoleDataC1Ei": ["address", "int"],
     "ritual_ZNK14QModelRoleData4roleEv": ["int", "address"],
+    "ritual_ZN14QModelRoleData4dataEv": ["address", "address"],
     "ritual_ZNK14QModelRoleData4dataEv": ["address", "address"],
     "ritual_ZN14QModelRoleData9clearDataEv": ["nothing", "address"],
-    "ritual_ZN14QModelRoleDataD1Ev": ["nothing", "address"]
+    "ritual_ZN14QModelRoleDataD1Ev": ["nothing", "address"],
+    "ritual_ZN14QModelRoleData7setDataIiEEvOT_": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QModelRoleData7setDataIdEEvOT_": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QModelRoleData7setDataIbEEvOT_": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QModelRoleData7setDataI7QStringEEvOT_": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QModelRoleData7setDataI8QVariantEEvOT_": [
+      "nothing", "address", "address"
+    ]
   }
 }

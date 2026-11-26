@@ -4,19 +4,69 @@
     "QtCore/qpropertyprivate.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK26QPropertyBindingPrivatePtrdeEv": ["address", "address"],
+    "ritual_ZN26QPropertyBindingPrivatePtrptEv": ["address", "address"],
+    "ritual_ZNK26QPropertyBindingPrivatePtrptEv": ["address", "address"],
+    "ritual_ZN26QPropertyBindingPrivatePtrcvPN9QtPrivate10RefCountedEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QPropertyBindingPrivatePtrcvPKN9QtPrivate10RefCountedEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QPropertyBindingPrivatePtr4dataEv": ["address", "address"],
+    "ritual_ZNK26QPropertyBindingPrivatePtr3getEv": ["address", "address"],
+    "ritual_ZNK26QPropertyBindingPrivatePtr9constDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QPropertyBindingPrivatePtr4takeEv": ["address", "address"],
     "ritual_ZN26QPropertyBindingPrivatePtrC1Ev": ["address"],
     "ritual_ZN26QPropertyBindingPrivatePtrD1Ev": ["nothing", "address"],
     "ritual_ZN26QPropertyBindingPrivatePtr20destroyAndFreeMemoryEv": [
       "nothing", "address"
     ],
+    "ritual_ZN26QPropertyBindingPrivatePtrC1EPN9QtPrivate10RefCountedE": [
+      "address", "address"
+    ],
     "ritual_ZN26QPropertyBindingPrivatePtrC1ERKS_": ["address", "address"],
+    "ritual_ZN26QPropertyBindingPrivatePtr5resetEPN9QtPrivate10RefCountedE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QPropertyBindingPrivatePtraSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QPropertyBindingPrivatePtraSEPN9QtPrivate10RefCountedE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QPropertyBindingPrivatePtrC1EOS_": ["address", "address"],
+    "ritual_ZN26QPropertyBindingPrivatePtraSEOS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK26QPropertyBindingPrivatePtrcvbEv": ["bool", "address"],
     "ritual_ZNK26QPropertyBindingPrivatePtrntEv": ["bool", "address"],
+    "ritual_ZN26QPropertyBindingPrivatePtr4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZeqRK26QPropertyBindingPrivatePtrS1_": [
       "bool", "address", "address"
     ],
     "ritual_ZneRK26QPropertyBindingPrivatePtrS1_": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_ZeqRK26QPropertyBindingPrivatePtrRKPN9QtPrivate10RefCountedE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK26QPropertyBindingPrivatePtrRKPN9QtPrivate10RefCountedE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRKPN9QtPrivate10RefCountedERK26QPropertyBindingPrivatePtr": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKPN9QtPrivate10RefCountedERK26QPropertyBindingPrivatePtr": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK26QPropertyBindingPrivatePtrRKDn": ["bool", "address"],
+    "ritual_ZneRK26QPropertyBindingPrivatePtrRKDn": ["bool", "address"],
+    "ritual_ZeqRKDnRK26QPropertyBindingPrivatePtr": ["bool", "address"],
+    "ritual_ZneRKDnRK26QPropertyBindingPrivatePtr": ["bool", "address"]
   }
 }

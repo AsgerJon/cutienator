@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from QtBluetooth/6.12.0/QtBluetooth/",
+    "private/btraii_p.h, Qt 6.12.0, from Qt's source: Objective-C++,",
+    "built on Apple's systems only. Kept as it is when the generator",
+    "runs again."
+  ],
+  "rows": {
+    "ritual_ZN15DarwinBluetooth15StrongReferenceC1EPvNS_12RetainPolicyE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15DarwinBluetooth15StrongReferenceC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth15StrongReferenceC1EOS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth15StrongReferenceD1Ev": ["nothing", "address"],
+    "ritual_ZN15DarwinBluetooth15StrongReferenceaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth15StrongReferenceaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth15StrongReference7releaseEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth15StrongReference5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15DarwinBluetooth15StrongReference5resetEPvNS_12RetainPolicyE": [
+      "nothing", "address", "address", "int"
+    ]
+  }
+}

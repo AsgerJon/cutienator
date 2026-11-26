@@ -5,5 +5,21 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras24QDistanceFieldGlyphCacheC1Ev": ["address"],
+    "ritual_ZN10Qt3DExtras24QDistanceFieldGlyphCacheD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDistanceFieldGlyphCache11setRootNodeEPN8Qt3DCore5QNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras24QDistanceFieldGlyphCache8rootNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras24QDistanceFieldGlyphCache7fontKeyERK8QRawFont": [
+      "text", "address"
+    ],
+    "ritual_drop_Qt3DExtras_QDistanceFieldGlyphCache__QList_Qt3DExtras_QDistanceFieldGlyphCache_Glyph": [
+      "nothing", "address"
+    ]
   }
 }

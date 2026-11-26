@@ -9,6 +9,12 @@
   ],
   "rows": {
     "ritual_ZNK16QQuickGraphsBars10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBars11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QQuickGraphsBars11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN16QQuickGraphsBars2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -65,6 +71,19 @@
       "nothing", "address", "float"
     ],
     "ritual_ZNK16QQuickGraphsBars10floorLevelEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsBars10seriesListEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBars16appendSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesEPS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars15countSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesE": [
+      "long long", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars12atSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsBars15clearSeriesFuncEP16QQmlListPropertyI12QBar3DSeriesE": [
+      "nothing", "address"
+    ],
     "ritual_ZN16QQuickGraphsBars9addSeriesEP12QBar3DSeries": [
       "nothing", "address", "address"
     ],
@@ -231,6 +250,45 @@
     "ritual_ZN16QQuickGraphsBars26handleValueColoringChangedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN16QQuickGraphsBars14rowAxisChangedEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars16valueAxisChangedEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars17columnAxisChangedEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars25multiSeriesUniformChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars19barThicknessChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QQuickGraphsBars17barSpacingChangedE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars25barSpacingRelativeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars22barSeriesMarginChangedE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars19meshFileNameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QQuickGraphsBars20primarySeriesChangedEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars21selectedSeriesChangedEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars17floorLevelChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QQuickGraphsBars17sliceImageChangedERK6QImage": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QQuickGraphsBars25calculateHeightAdjustmentEv": [
       "nothing", "address"
     ],
@@ -243,10 +301,16 @@
     "ritual_ZN16QQuickGraphsBars16disconnectSeriesEP12QBar3DSeries": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN16QQuickGraphsBars12generateBarsER5QListIP12QBar3DSeriesE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN16QQuickGraphsBars14createDataItemEP12QQuick3DNodeP17QAbstract3DSeries": [
       "address", "address", "address", "address"
     ],
     "ritual_ZN16QQuickGraphsBars15getMeshFileNameEv": ["text", "address"],
+    "ritual_ZN16QQuickGraphsBars15fixMeshFileNameER7QStringN17QAbstract3DSeries4MeshE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_ZN16QQuickGraphsBars18updateBarVisualityEP12QBar3DSeriesi": [
       "nothing", "address", "address", "int"
     ],
@@ -286,11 +350,17 @@
     "ritual_ZN16QQuickGraphsBars21removeSlicedBarModelsEv": [
       "nothing", "address"
     ],
+    "ritual_ZN16QQuickGraphsBars20createBarItemHoldersEP12QBar3DSeries5QListIPNS_8BarModelEEb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
     "ritual_ZN16QQuickGraphsBars14updateBarSpecsEf6QSizeFb": [
       "nothing", "address", "float", "address", "bool"
     ],
     "ritual_ZN16QQuickGraphsBars21updateBarSeriesMarginE6QSizeF": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars23adjustSelectionPositionER6QPointPK12QBar3DSeries": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_QQuickGraphsBars": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QQuickGraphsBars14clearSelectionEv": [
@@ -378,6 +448,9 @@
     ],
     "ritual_own_ZN16QQuickGraphsBars18handleAxisZChangedEP15QAbstract3DAxis": [
       "nothing", "address", "address"
+    ],
+    "ritual_drop_QQuickGraphsBars__QQmlListProperty_QBar3DSeries": [
+      "nothing", "address"
     ]
   }
 }

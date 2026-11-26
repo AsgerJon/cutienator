@@ -8,6 +8,12 @@
     "ritual_ZNK21GLXYSeriesDataManager10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21GLXYSeriesDataManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21GLXYSeriesDataManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -19,6 +25,7 @@
     "ritual_ZN21GLXYSeriesDataManager12removeSeriesEPK9QXYSeries": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN21GLXYSeriesDataManager7dataMapEv": ["address", "address"],
     "ritual_ZNK21GLXYSeriesDataManager8mapDirtyEv": ["bool", "address"],
     "ritual_ZN21GLXYSeriesDataManager13clearAllDirtyEv": [
       "nothing", "address"
@@ -41,6 +48,9 @@
     ],
     "ritual_ZN21GLXYSeriesDataManager29handleScatterMarkerSizeChangeEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager13seriesRemovedEPK9QXYSeries": [
+      "nothing", "address", "address"
     ],
     "ritual_take_GLXYSeriesDataManager": [
       "bool", "address", "chars", "address"

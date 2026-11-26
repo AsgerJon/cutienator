@@ -5,6 +5,52 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender18QTextureDataUpdateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdateC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdateaSERKS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdateaSEOS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdateD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdate4swapERS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QTextureDataUpdate1xEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender18QTextureDataUpdate1yEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender18QTextureDataUpdate1zEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender18QTextureDataUpdate5layerEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender18QTextureDataUpdate8mipLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QTextureDataUpdate4faceEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender18QTextureDataUpdate4dataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdate4setXEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdate4setYEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdate4setZEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdate8setLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdate11setMipLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdate7setFaceENS_16QAbstractTexture11CubeMapFaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QTextureDataUpdate7setDataERK14QSharedPointerINS_17QTextureImageDataEE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10Qt3DRendereqERKNS_18QTextureDataUpdateES2_": [
       "bool", "address", "address"
     ],
@@ -13,6 +59,9 @@
     ],
     "ritual_ZNK10Qt3DRender18QTextureDataUpdate6d_funcEv": [
       "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_QTextureDataUpdate__Qt3DRender_QTextureImageDataPtr": [
+      "nothing", "address"
     ]
   }
 }

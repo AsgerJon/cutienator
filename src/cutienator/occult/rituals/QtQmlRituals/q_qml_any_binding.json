@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN14QQmlAnyBindingC1Ev": ["address"],
+    "ritual_ZN14QQmlAnyBindingC1EDn": ["address"],
     "ritual_ZN14QQmlAnyBinding10ofPropertyERK12QQmlProperty": [
       "address", "address"
     ],
@@ -15,11 +16,21 @@
     "ritual_ZN14QQmlAnyBinding8takeFromERK12QQmlProperty": [
       "address", "address"
     ],
+    "ritual_ZN14QQmlAnyBinding18createFromFunctionERK12QQmlPropertyPN3QV48FunctionEP7QObjectRK14QQmlRefPointerI15QQmlContextDataEPNS3_16ExecutionContextE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
     "ritual_ZN14QQmlAnyBinding22createFromScriptStringERK12QQmlPropertyRK16QQmlScriptStringP7QObjectP11QQmlContext": [
       "address", "address", "address", "address", "address"
     ],
     "ritual_ZN14QQmlAnyBinding17removeBindingFromERK12QQmlProperty": [
       "nothing", "address"
+    ],
+    "ritual_ZN14QQmlAnyBinding20createFromCodeStringERK12QQmlPropertyRK7QStringP7QObjectRK14QQmlRefPointerI15QQmlContextDataES5_t": [
+      "address", "address", "text", "address", "address", "text",
+      "unsigned short"
+    ],
+    "ritual_ZN14QQmlAnyBinding24createTranslationBindingERK12QQmlPropertyRK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEPKNS4_12CompiledData7BindingEP7QObjectS3_I15QQmlContextDataE": [
+      "address", "address", "address", "address", "address", "address"
     ],
     "ritual_ZN14QQmlAnyBinding9installOnERK12QQmlPropertyNS_15InterceptorModeE": [
       "nothing", "address", "address", "bool"
@@ -27,6 +38,7 @@
     "ritual_ZN14QQmlAnyBinding8hasErrorEv": ["bool", "address"],
     "ritual_ZNK14QQmlAnyBinding8isStickyEv": ["bool", "address"],
     "ritual_ZN14QQmlAnyBinding9setStickyEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QQmlAnyBindingaSEDn": ["address", "address"],
     "ritual_ZNK14QQmlAnyBindingcvbEv": ["bool", "address"],
     "ritual_ZNK14QQmlAnyBinding25isAbstractPropertyBindingEv": [
       "bool", "address"
@@ -41,7 +53,26 @@
       "address", "address"
     ],
     "ritual_ZN14QQmlAnyBinding7refreshEv": ["nothing", "address"],
+    "ritual_ZN14QQmlAnyBindingaSEP19QQmlAbstractBinding": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBindingaSERK28QExplicitlySharedDataPointerI19QQmlAbstractBindingE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBindingaSEO28QExplicitlySharedDataPointerI19QQmlAbstractBindingE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBindingaSERK23QUntypedPropertyBinding": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBindingaSEO23QUntypedPropertyBinding": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBindingC1EOS_": ["address", "address"],
     "ritual_ZN14QQmlAnyBindingC1ERKS_": ["address", "address"],
+    "ritual_ZN14QQmlAnyBindingaSEOS_": ["address", "address", "address"],
+    "ritual_ZN14QQmlAnyBinding4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZN14QQmlAnyBindingaSERKS_": ["address", "address", "address"],
     "ritual_ZeqRK14QQmlAnyBindingS1_": ["bool", "address", "address"],
     "ritual_ZneRK14QQmlAnyBindingS1_": ["bool", "address", "address"],
     "ritual_ZN14QQmlAnyBindingD1Ev": ["nothing", "address"],

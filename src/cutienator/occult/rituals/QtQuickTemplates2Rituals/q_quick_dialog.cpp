@@ -1000,6 +1000,24 @@ const QMetaObject *ritual_ZNK12QQuickDialog10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickDialog::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QQuickDialog11qt_metacastEPKc(
+    QQuickDialog *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickDialog::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QQuickDialog11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickDialog *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickDialog::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QQuickDialog2trEPKcS1_i(
@@ -1168,6 +1186,108 @@ void ritual_ZN12QQuickDialog6rejectEv(QQuickDialog *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QQuickDialog4doneEi(QQuickDialog *self, int result) {
   self->done(result);
+}
+
+//  void QQuickDialog::accepted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog8acceptedEv(QQuickDialog *self) {
+  self->accepted();
+}
+
+//  void QQuickDialog::rejected()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog8rejectedEv(QQuickDialog *self) {
+  self->rejected();
+}
+
+//  void QQuickDialog::titleChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog12titleChangedEv(QQuickDialog *self) {
+  self->titleChanged();
+}
+
+//  void QQuickDialog::headerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog13headerChangedEv(QQuickDialog *self) {
+  self->headerChanged();
+}
+
+//  void QQuickDialog::footerChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog13footerChangedEv(QQuickDialog *self) {
+  self->footerChanged();
+}
+
+//  void QQuickDialog::standardButtonsChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog22standardButtonsChangedEv(QQuickDialog *self) {
+  self->standardButtonsChanged();
+}
+
+//  void QQuickDialog::applied()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog7appliedEv(QQuickDialog *self) {
+  self->applied();
+}
+
+//  void QQuickDialog::reset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog5resetEv(QQuickDialog *self) {
+  self->reset();
+}
+
+//  void QQuickDialog::discarded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog9discardedEv(QQuickDialog *self) {
+  self->discarded();
+}
+
+//  void QQuickDialog::helpRequested()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog13helpRequestedEv(QQuickDialog *self) {
+  self->helpRequested();
+}
+
+//  void QQuickDialog::resultChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog13resultChangedEv(QQuickDialog *self) {
+  self->resultChanged();
+}
+
+//  void QQuickDialog::implicitHeaderWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog26implicitHeaderWidthChangedEv(
+    QQuickDialog *self) {
+  self->implicitHeaderWidthChanged();
+}
+
+//  void QQuickDialog::implicitHeaderHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog27implicitHeaderHeightChangedEv(
+    QQuickDialog *self) {
+  self->implicitHeaderHeightChanged();
+}
+
+//  void QQuickDialog::implicitFooterWidthChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog26implicitFooterWidthChangedEv(
+    QQuickDialog *self) {
+  self->implicitFooterWidthChanged();
+}
+
+//  void QQuickDialog::implicitFooterHeightChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QQuickDialog27implicitFooterHeightChangedEv(
+    QQuickDialog *self) {
+  self->implicitFooterHeightChanged();
+}
+
+//  QQuickDialog::QQuickDialog(QQuickDialogPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickDialog *ritual_ZN12QQuickDialogC1ER19QQuickDialogPrivateP7QObject(
+    QQuickDialogPrivate *dd,
+    QObject *parent) {
+  return new CuteQQuickDialog(*dd, parent);
 }
 
 //  void QQuickDialog::itemChange(QQuickItem::ItemChange change, const

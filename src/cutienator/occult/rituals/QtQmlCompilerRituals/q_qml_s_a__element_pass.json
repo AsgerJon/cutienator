@@ -4,6 +4,9 @@
     "QtQmlCompiler/qqmlsa.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN6QQmlSA11ElementPassC1EPNS_11PassManagerE": [
+      "address", "address"
+    ],
     "ritual_ZN6QQmlSA11ElementPass9shouldRunERKNS_7ElementE": [
       "bool", "address", "address"
     ],

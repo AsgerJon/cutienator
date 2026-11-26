@@ -1,12 +1,22 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtSensors/qsensorbackend.h, Qt 6.12.0. Changes made here are lost."
+    "QtSensors/qsensorbackend.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
   "rows": {
     "ritual_ZNK14QSensorBackend10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QSensorBackend11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QSensorBackend11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN14QSensorBackend2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QSensorBackendC1EP7QSensorP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN14QSensorBackendD1Ev": ["nothing", "address"],
     "ritual_ZN14QSensorBackend5startEv": ["nothing", "address"],
@@ -41,9 +51,26 @@
     "ritual_ZN14QSensorBackend11setReadingsEP14QSensorReadingS1_S1_": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_ZN14QSensorBackend6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QSensorBackend6d_funcEv": ["address", "address"],
     "ritual_take_QSensorBackend": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QSensorBackend18isFeatureSupportedEN7QSensor7FeatureE": [
       "bool", "address", "int"
+    ],
+    "ritual_ZN14QSensorBackend10setReadingI21QAccelerometerReadingEEPT_S3_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QSensorBackend10setReadingI17QGyroscopeReadingEEPT_S3_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QSensorBackend10setReadingI20QMagnetometerReadingEEPT_S3_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QSensorBackend10setReadingI13QLightReadingEEPT_S3_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QSensorBackend10setReadingI17QProximityReadingEEPT_S3_": [
+      "address", "address", "address"
     ]
   }
 }

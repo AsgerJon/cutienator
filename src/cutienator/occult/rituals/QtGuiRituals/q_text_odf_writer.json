@@ -5,10 +5,29 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN14QTextOdfWriterC1ERK13QTextDocumentP9QIODevice": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QTextOdfWriter8writeAllEv": ["bool", "address"],
     "ritual_ZN14QTextOdfWriter16setCreateArchiveEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZNK14QTextOdfWriter13createArchiveEv": ["bool", "address"],
+    "ritual_ZN14QTextOdfWriter10writeBlockER16QXmlStreamWriterRK10QTextBlock": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QTextOdfWriter12writeFormatsER16QXmlStreamWriterRK4QSetIiE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QTextOdfWriter16writeTableFormatER16QXmlStreamWriterRK16QTextTableFormati": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QTextOdfWriter20writeTableCellFormatER16QXmlStreamWriterRK20QTextTableCellFormatiRK5QListI11QTextFormatE": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN14QTextOdfWriter10writeFrameER16QXmlStreamWriterPK10QTextFrame": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN14QTextOdfWriter12mergeFormatsERK20QTextTableCellFormatRK16QTextTableFormat": [
       "address", "address", "address"
     ],

@@ -11,6 +11,9 @@
     ],
     "ritual_ZN24QLowEnergyDescriptorDataC1ERKS_": ["address", "address"],
     "ritual_ZN24QLowEnergyDescriptorDataD1Ev": ["nothing", "address"],
+    "ritual_ZN24QLowEnergyDescriptorDataaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK24QLowEnergyDescriptorDataS1_": [
       "bool", "address", "address"
     ],
@@ -43,6 +46,9 @@
     ],
     "ritual_ZNK24QLowEnergyDescriptorData16writeConstraintsEv": [
       "int", "address"
+    ],
+    "ritual_ZN24QLowEnergyDescriptorData4swapERS_": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN24QLowEnergyDescriptorData6equalsERKS_S1_": [
       "bool", "address", "address"

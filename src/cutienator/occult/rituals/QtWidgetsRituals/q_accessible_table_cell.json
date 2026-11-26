@@ -5,6 +5,12 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QAccessibleTableCellC1EP17QAbstractItemViewRK11QModelIndexN11QAccessible4RoleE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QAccessibleTableCell14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK20QAccessibleTableCell6objectEv": ["address", "address"],
     "ritual_ZNK20QAccessibleTableCell4roleEv": ["int", "address"],
     "ritual_ZNK20QAccessibleTableCell5stateEv": ["address", "address"],
@@ -64,6 +70,9 @@
     "ritual_cast_QAccessibleTableCell_QAccessibleActionInterface": [
       "address", "address"
     ],
+    "ritual_own_ZN20QAccessibleTableCell14interface_castEN11QAccessible13InterfaceTypeE": [
+      "address", "address", "int"
+    ],
     "ritual_own_ZNK20QAccessibleTableCell6objectEv": ["address", "address"],
     "ritual_own_ZNK20QAccessibleTableCell4roleEv": ["int", "address"],
     "ritual_own_ZNK20QAccessibleTableCell5stateEv": ["address", "address"],
@@ -86,9 +95,13 @@
     "ritual_own_ZNK20QAccessibleTableCell5childEi": [
       "address", "address", "int"
     ],
+    "ritual_own_ZNK20QAccessibleTableCell12columnExtentEv": [
+      "int", "address"
+    ],
     "ritual_own_ZNK20QAccessibleTableCell11columnIndexEv": [
       "int", "address"
     ],
+    "ritual_own_ZNK20QAccessibleTableCell9rowExtentEv": ["int", "address"],
     "ritual_own_ZNK20QAccessibleTableCell8rowIndexEv": ["int", "address"],
     "ritual_own_ZNK20QAccessibleTableCell10isSelectedEv": [
       "bool", "address"

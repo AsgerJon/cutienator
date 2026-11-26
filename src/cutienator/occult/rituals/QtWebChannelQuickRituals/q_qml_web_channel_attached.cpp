@@ -184,6 +184,25 @@ const QMetaObject *ritual_ZNK22QQmlWebChannelAttached10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlWebChannelAttached::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQmlWebChannelAttached11qt_metacastEPKc(
+    QQmlWebChannelAttached *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlWebChannelAttached::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQmlWebChannelAttached11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlWebChannelAttached *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlWebChannelAttached::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN22QQmlWebChannelAttached2trEPKcS1_i(
@@ -226,6 +245,14 @@ void ritual_ZN22QQmlWebChannelAttached5setIdERK7QString(
     QQmlWebChannelAttached *self,
     const QString *id) {
   self->setId(*id);
+}
+
+//  void QQmlWebChannelAttached::idChanged(const QString &id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QQmlWebChannelAttached9idChangedERK7QString(
+    QQmlWebChannelAttached *self,
+    const QString *id) {
+  self->idChanged(*id);
 }
 
 //  a Python function taken by a CuteQQmlWebChannelAttached, for the function

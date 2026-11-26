@@ -20,6 +20,7 @@ typedef void (*CuteQTabletEventCall5)(const void *, bool, int *);
 class CuteQTabletEvent : public QTabletEvent {
 public:
   using QTabletEvent::QTabletEvent;
+  CuteQTabletEvent(const QTabletEvent & other) : QTabletEvent(other) {}
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
@@ -120,6 +121,20 @@ public:
     QPointerEvent::setAccepted(accepted);
   }
 };
+
+//  QTabletEvent::QTabletEvent(const QTabletEvent &a0)
+extern "C" Q_DECL_EXPORT
+QTabletEvent *ritual_ZN12QTabletEventC1ERKS_(const QTabletEvent *a0) {
+  return new CuteQTabletEvent(*a0);
+}
+
+//  QTabletEvent &QTabletEvent::operator=(const QTabletEvent &other)
+extern "C" Q_DECL_EXPORT
+QTabletEvent *ritual_ZN12QTabletEventaSERKS_(
+    QTabletEvent *self,
+    const QTabletEvent *other) {
+  return &(self->operator=(*other));
+}
 
 //  QTabletEvent *QTabletEvent::clone() const
 extern "C" Q_DECL_EXPORT

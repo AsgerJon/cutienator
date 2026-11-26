@@ -6,8 +6,15 @@
   ],
   "rows": {
     "ritual_ZN10Qt3DRender17QTextureGeneratorD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender17QTextureGeneratorclEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender17QTextureGeneratoreqERKS0_": [
+      "bool", "address", "address"
+    ],
     "ritual_take_Qt3DRender_QTextureGenerator": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QTextureGenerator__Qt3DRender_QTextureDataPtr": [
+      "nothing", "address"
     ]
   }
 }

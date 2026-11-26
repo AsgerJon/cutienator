@@ -11,6 +11,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qfileinfo.h>
 
+//  PathInfo &QWindowsFileSystemWatcherEngine::PathInfo::operator=(const
+//      QFileInfo &fileInfo)
+extern "C" Q_DECL_EXPORT
+QWindowsFileSystemWatcherEngine::PathInfo *ritual_ZN31QWindowsFileSystemWatcherEngine8PathInfoaSERK9QFileInfo(
+    QWindowsFileSystemWatcherEngine::PathInfo *self,
+    const QFileInfo *fileInfo) {
+  return &(self->operator=(*fileInfo));
+}
+
 //  bool QWindowsFileSystemWatcherEngine::PathInfo::operator!=(const
 //      QFileInfo &fileInfo) const
 extern "C" Q_DECL_EXPORT

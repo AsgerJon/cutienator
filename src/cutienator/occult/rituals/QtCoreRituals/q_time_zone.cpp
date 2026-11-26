@@ -2,12 +2,25 @@
 //  QtCore/qtimezone.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qtimezone.h>
 #include <QtCore/qbytearray.h>
-#include <QtCore/qbytearrayview.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearrayview.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlocale.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QTimeZone>
+#include <QtCore/QByteArray>
+#include <QtCore/QString>
+#include <QtCore/QLocale>
+#include <QtCore/QDateTime>
+#include <QtCore/QList>
+
+//  QTimeZone::QTimeZone(ShortData sd)
+extern "C" Q_DECL_EXPORT
+QTimeZone *ritual_ZN9QTimeZoneC1ENS_9ShortDataE(
+    const QTimeZone::ShortData *sd) {
+  return new QTimeZone(*sd);
+}
 
 //  QTimeZone::QTimeZone()
 extern "C" Q_DECL_EXPORT
@@ -38,10 +51,38 @@ QTimeZone *ritual_ZN9QTimeZoneC1ERK10QByteArray(const QByteArray *ianaId) {
 }
 #endif  // QT_CONFIG(timezone)
 
+#if QT_CONFIG(timezone)
+//  QTimeZone::QTimeZone(const QByteArray &zoneId, int offsetSeconds, const
+//      QString &name, const QString &abbreviation, QLocale::Territory
+//      territory, const QString &comment)
+extern "C" Q_DECL_EXPORT
+QTimeZone *ritual_ZN9QTimeZoneC1ERK10QByteArrayiRK7QStringS5_N7QLocale7CountryES5_(
+    const QByteArray *zoneId,
+    int offsetSeconds,
+    const QString *name,
+    const QString *abbreviation,
+    const QLocale::Territory *territory,
+    const QString *comment) {
+  return new QTimeZone(
+      *zoneId,
+      offsetSeconds,
+      *name,
+      *abbreviation,
+      *territory,
+      *comment);
+}
+#endif  // QT_CONFIG(timezone)
+
 //  QTimeZone::QTimeZone(const QTimeZone &other)
 extern "C" Q_DECL_EXPORT
 QTimeZone *ritual_ZN9QTimeZoneC1ERKS_(const QTimeZone *other) {
   return new QTimeZone(*other);
+}
+
+//  QTimeZone::QTimeZone(QTimeZone &&other)
+extern "C" Q_DECL_EXPORT
+QTimeZone *ritual_ZN9QTimeZoneC1EOS_(QTimeZone *other) {
+  return new QTimeZone(std::move(*other));
 }
 
 //  QTimeZone::~QTimeZone()
@@ -50,10 +91,39 @@ void ritual_ZN9QTimeZoneD1Ev(QTimeZone *self) {
   delete self;
 }
 
+//  QTimeZone &QTimeZone::operator=(const QTimeZone &other)
+extern "C" Q_DECL_EXPORT
+QTimeZone *ritual_ZN9QTimeZoneaSERKS_(
+    QTimeZone *self,
+    const QTimeZone *other) {
+  return &(self->operator=(*other));
+}
+
+//  QTimeZone &QTimeZone::operator=(QTimeZone &&other)
+extern "C" Q_DECL_EXPORT
+QTimeZone *ritual_ZN9QTimeZoneaSEOS_(QTimeZone *self, QTimeZone *other) {
+  return &(self->operator=(std::move(*other)));
+}
+
+//  void QTimeZone::swap(QTimeZone &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTimeZone4swapERS_(QTimeZone *self, QTimeZone *other) {
+  self->swap(*other);
+}
+
 //  bool QTimeZone::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QTimeZone7isValidEv(const QTimeZone *self) {
   return self->isValid();
+}
+
+//  QTimeZone QTimeZone::fromDurationAheadOfUtc(std::chrono::seconds offset)
+extern "C" Q_DECL_EXPORT
+QTimeZone *ritual_ZN9QTimeZone22fromDurationAheadOfUtcENSt6chrono8durationIlSt5ratioILl1ELl1EEEE(
+    long long offset) {
+  return new QTimeZone(
+      QTimeZone::fromDurationAheadOfUtc(
+          std::chrono::seconds(offset)));
 }
 
 //  QTimeZone QTimeZone::fromSecondsAheadOfUtc(int offset)
@@ -110,6 +180,14 @@ bool ritual_ZNK9QTimeZone18hasAlternativeNameE14QByteArrayView(
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK9QTimeZone2idEv(const QTimeZone *self) {
   return new QByteArray(self->id());
+}
+#endif  // QT_CONFIG(timezone)
+
+#if QT_CONFIG(timezone)
+//  QLocale::Territory QTimeZone::territory() const
+extern "C" Q_DECL_EXPORT
+QLocale::Territory *ritual_ZNK9QTimeZone9territoryEv(const QTimeZone *self) {
+  return new QLocale::Territory(self->territory());
 }
 #endif  // QT_CONFIG(timezone)
 
@@ -258,6 +336,21 @@ QTimeZone::OffsetData *ritual_ZNK9QTimeZone18previousTransitionERK9QDateTime(
 #endif  // QT_CONFIG(timezone)
 
 #if QT_CONFIG(timezone)
+//  OffsetDataList QTimeZone::transitions(const QDateTime &fromDateTime,
+//      const QDateTime &toDateTime) const
+extern "C" Q_DECL_EXPORT
+QTimeZone::OffsetDataList *ritual_ZNK9QTimeZone11transitionsERK9QDateTimeS2_(
+    const QTimeZone *self,
+    const QDateTime *fromDateTime,
+    const QDateTime *toDateTime) {
+  return new QTimeZone::OffsetDataList(
+      self->transitions(
+          *fromDateTime,
+          *toDateTime));
+}
+#endif  // QT_CONFIG(timezone)
+
+#if QT_CONFIG(timezone)
 //  QByteArray QTimeZone::systemTimeZoneId()
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN9QTimeZone16systemTimeZoneIdEv() {
@@ -299,6 +392,16 @@ QList<QByteArray> *ritual_ZN9QTimeZone20availableTimeZoneIdsEv() {
 #endif  // QT_CONFIG(timezone)
 
 #if QT_CONFIG(timezone)
+//  QList<QByteArray> QTimeZone::availableTimeZoneIds(QLocale::Territory
+//      territory)
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN9QTimeZone20availableTimeZoneIdsEN7QLocale7CountryE(
+    const QLocale::Territory *territory) {
+  return new QList<QByteArray>(QTimeZone::availableTimeZoneIds(*territory));
+}
+#endif  // QT_CONFIG(timezone)
+
+#if QT_CONFIG(timezone)
 //  QList<QByteArray> QTimeZone::availableTimeZoneIds(int offsetSeconds)
 extern "C" Q_DECL_EXPORT
 QList<QByteArray> *ritual_ZN9QTimeZone20availableTimeZoneIdsEi(
@@ -329,12 +432,40 @@ QByteArray *ritual_ZN9QTimeZone24windowsIdToDefaultIanaIdERK10QByteArray(
 #endif  // QT_CONFIG(timezone)
 
 #if QT_CONFIG(timezone)
+//  QByteArray QTimeZone::windowsIdToDefaultIanaId(const QByteArray
+//      &windowsId, QLocale::Territory territory)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN9QTimeZone24windowsIdToDefaultIanaIdERK10QByteArrayN7QLocale7CountryE(
+    const QByteArray *windowsId,
+    const QLocale::Territory *territory) {
+  return new QByteArray(
+      QTimeZone::windowsIdToDefaultIanaId(
+          *windowsId,
+          *territory));
+}
+#endif  // QT_CONFIG(timezone)
+
+#if QT_CONFIG(timezone)
 //  QList<QByteArray> QTimeZone::windowsIdToIanaIds(const QByteArray
 //      &windowsId)
 extern "C" Q_DECL_EXPORT
 QList<QByteArray> *ritual_ZN9QTimeZone18windowsIdToIanaIdsERK10QByteArray(
     const QByteArray *windowsId) {
   return new QList<QByteArray>(QTimeZone::windowsIdToIanaIds(*windowsId));
+}
+#endif  // QT_CONFIG(timezone)
+
+#if QT_CONFIG(timezone)
+//  QList<QByteArray> QTimeZone::windowsIdToIanaIds(const QByteArray
+//      &windowsId, QLocale::Territory territory)
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN9QTimeZone18windowsIdToIanaIdsERK10QByteArrayN7QLocale7CountryE(
+    const QByteArray *windowsId,
+    const QLocale::Territory *territory) {
+  return new QList<QByteArray>(
+      QTimeZone::windowsIdToIanaIds(
+          *windowsId,
+          *territory));
 }
 #endif  // QT_CONFIG(timezone)
 
@@ -350,6 +481,16 @@ bool ritual_ZneRK9QTimeZoneS1_(const QTimeZone *lhs, const QTimeZone *rhs) {
   return operator!=(*lhs, *rhs);
 }
 
+#if !defined(QT_NO_DATASTREAM)
+//  QDataStream &operator<<(QDataStream &ds, const QTimeZone &tz)
+extern "C" Q_DECL_EXPORT
+QDataStream *ritual_ZlsR11QDataStreamRK9QTimeZone(
+    QDataStream *ds,
+    const QTimeZone *tz) {
+  return &(operator<<(*ds, *tz));
+}
+#endif  // !defined(QT_NO_DATASTREAM)
+
 #if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug dbg, const QTimeZone &tz)
 extern "C" Q_DECL_EXPORT
@@ -359,3 +500,22 @@ QDebug *ritual_Zls6QDebugRK9QTimeZone(
   return new QDebug(operator<<(*dbg, *tz));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+//  QTimeZone::QTimeZone(QTimeZonePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QTimeZone *ritual_ZN9QTimeZoneC1ER16QTimeZonePrivate(QTimeZonePrivate *dd) {
+  return new QTimeZone(*dd);
+}
+
+//  a QLocale::Territory a ritual of QTimeZone gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTimeZone__QLocale_Territory(QLocale::Territory *self) {
+  delete self;
+}
+
+//  a QTimeZone::OffsetDataList a ritual of QTimeZone gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QTimeZone__QTimeZone_OffsetDataList(
+    QTimeZone::OffsetDataList *self) {
+  delete self;
+}

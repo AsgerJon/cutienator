@@ -8,6 +8,12 @@
     "ritual_ZNK25QOpcUaHistoryReadResponse10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN25QOpcUaHistoryReadResponse11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QOpcUaHistoryReadResponse11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN25QOpcUaHistoryReadResponse2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -33,6 +39,15 @@
     "ritual_ZNK25QOpcUaHistoryReadResponse6eventsEv": ["address", "address"],
     "ritual_ZNK25QOpcUaHistoryReadResponse13serviceResultEv": [
       "unsigned int", "address"
+    ],
+    "ritual_ZN25QOpcUaHistoryReadResponse23readHistoryDataFinishedERK5QListI17QOpcUaHistoryDataEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN25QOpcUaHistoryReadResponse25readHistoryEventsFinishedERK5QListI18QOpcUaHistoryEventEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN25QOpcUaHistoryReadResponse12stateChangedENS_5StateE": [
+      "nothing", "address", "unsigned int"
     ],
     "ritual_take_QOpcUaHistoryReadResponse": [
       "bool", "address", "chars", "address"

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qxmlstream.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 2. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(xmlstream)
 #if QT_CONFIG(xmlstream)
@@ -10,6 +12,8 @@
 #include <QtCore/qstringview.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
+#include <QtCore/QByteArray>
+#include <QtCore/QXmlStreamReader>
 
 //  QXmlStreamReader::QXmlStreamReader()
 extern "C" Q_DECL_EXPORT
@@ -438,6 +442,15 @@ QXmlStreamEntityResolver *ritual_ZNK16QXmlStreamReader14entityResolverEv(
   return self->entityResolver();
 }
 
+//  QXmlStreamReader::QXmlStreamReader(const QByteArray &data,
+//      PrivateConstructorTag a1)
+extern "C" Q_DECL_EXPORT
+QXmlStreamReader *ritual_ZN16QXmlStreamReaderC1ERK10QByteArrayNS_21PrivateConstructorTagE(
+    const QByteArray *data,
+    const QXmlStreamReader::PrivateConstructorTag *a1) {
+  return new QXmlStreamReader(*data, *a1);
+}
+
 //  void QXmlStreamReader::addDataImpl(const QByteArray &data)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QXmlStreamReader11addDataImplERK10QByteArray(
@@ -459,6 +472,24 @@ const QXmlStreamReaderPrivate *ritual_ZNK16QXmlStreamReader6d_funcEv(
     const QXmlStreamReader *self) {
   return self->d_func();
 }
+
+#if !(QT_CORE_REMOVED_SINCE(6, 5))
+//  explicit QXmlStreamReader::QXmlStreamReader<void>(
+//      const QByteArray &data)
+extern "C" Q_DECL_EXPORT
+QXmlStreamReader *ritual_ZN16QXmlStreamReaderC2IvEERK10QByteArray(
+    const QByteArray *data) {
+  return new QXmlStreamReader(*data);
+}
+
+//  void QXmlStreamReader::addData<void>(const QByteArray &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QXmlStreamReader7addDataIvEEvRK10QByteArray(
+    QXmlStreamReader *self,
+    const QByteArray *data) {
+  self->addData<void>(*data);
+}
+#endif
 
 #endif  // QT_CONFIG(xmlstreamreader)
 #endif  // QT_CONFIG(xmlstream)

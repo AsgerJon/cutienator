@@ -2,11 +2,14 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtMultimedia/6.12.0/QtMultimedia/private/qvideoframe_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN18QVideoFramePrivateC1Ev": ["address"],
     "ritual_ZN18QVideoFramePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QVideoFramePrivate6handleER11QVideoFrame": [
+      "address", "address"
+    ],
     "ritual_ZN18QVideoFramePrivate8hwBufferERK11QVideoFrame": [
       "address", "address"
     ],
@@ -18,6 +21,18 @@
     ],
     "ritual_ZN18QVideoFramePrivate21adoptThisByVideoFrameEv": [
       "address", "address"
+    ],
+    "ritual_ZN18QVideoFramePrivateC2I20QAbstractVideoBufferEE17QVideoFrameFormatSt10unique_ptrIT_St14default_deleteIS4_EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QVideoFramePrivateC2I14QHwVideoBufferEE17QVideoFrameFormatSt10unique_ptrIT_St14default_deleteIS4_EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QVideoFramePrivate11createFrameI20QAbstractVideoBufferEE11QVideoFrameSt10unique_ptrIT_St14default_deleteIS4_EE17QVideoFrameFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QVideoFramePrivate11createFrameI14QHwVideoBufferEE11QVideoFrameSt10unique_ptrIT_St14default_deleteIS4_EE17QVideoFrameFormat": [
+      "address", "address", "address"
     ]
   }
 }

@@ -12,6 +12,12 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN18QDrWavAudioDecoder4readEv": ["address", "address"],
-    "ritual_ZNK18QDrWavAudioDecoder10canReadQrcEv": ["bool", "address"]
+    "ritual_ZNK18QDrWavAudioDecoder10canReadQrcEv": ["bool", "address"],
+    "ritual_ZN18QDrWavAudioDecoder16onDecodeFinishedEN3q238expectedI12QAudioBufferSt4pairIN13QAudioDecoder5ErrorE7QStringEEERKSt6atomicIbE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_drop_QDrWavAudioDecoder__QDrWavAudioDecoder_QDrWavDecodeResult": [
+      "nothing", "address"
+    ]
   }
 }

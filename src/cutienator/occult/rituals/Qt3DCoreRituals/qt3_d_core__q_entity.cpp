@@ -1,9 +1,15 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DCore/qentity.h, Qt 6.12.0. Changes made here are lost.
+//  Qt3DCore/qentity.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
+//  hand, instances of templates of the class: 3. Kept as it is when the
+//  generator runs again.
 #include <Qt3DCore/qentity.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <Qt3DCore/Qt3DCore>
+#include <Qt3DCore/qcomponent.h>
+#include <Qt3DCore/qtransform.h>
+#include <QtCore/qlist.h>
 
 //  A Qt3DCore::QEntity that Python can take functions over in. Every Qt3DCore::QEntity
 //  Python makes is one. Each function below asks the Python
@@ -179,6 +185,25 @@ const QMetaObject *ritual_ZNK8Qt3DCore7QEntity10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DCore::QEntity::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN8Qt3DCore7QEntity11qt_metacastEPKc(
+    Qt3DCore::QEntity *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DCore::QEntity::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8Qt3DCore7QEntity11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DCore::QEntity *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DCore::QEntity::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8Qt3DCore7QEntity2trEPKcS2_i(
@@ -188,10 +213,63 @@ QString *ritual_ZN8Qt3DCore7QEntity2trEPKcS2_i(
   return new QString(Qt3DCore::QEntity::tr(s, c, n));
 }
 
+//  Qt3DCore::QEntity::QEntity(QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEntity *ritual_ZN8Qt3DCore7QEntityC1EPNS_5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QEntity(parent);
+}
+
 //  Qt3DCore::QEntity::~QEntity()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8Qt3DCore7QEntityD1Ev(Qt3DCore::QEntity *self) {
   delete self;
+}
+
+//  QComponentVector Qt3DCore::QEntity::components() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QComponentVector *ritual_ZNK8Qt3DCore7QEntity10componentsEv(
+    const Qt3DCore::QEntity *self) {
+  return new Qt3DCore::QComponentVector(self->components());
+}
+
+//  void Qt3DCore::QEntity::addComponent(QComponent *comp)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QEntity12addComponentEPNS_10QComponentE(
+    Qt3DCore::QEntity *self,
+    Qt3DCore::QComponent *comp) {
+  self->addComponent(comp);
+}
+
+//  void Qt3DCore::QEntity::removeComponent(QComponent *comp)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QEntity15removeComponentEPNS_10QComponentE(
+    Qt3DCore::QEntity *self,
+    Qt3DCore::QComponent *comp) {
+  self->removeComponent(comp);
+}
+
+//  QEntity *Qt3DCore::QEntity::parentEntity() const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEntity *ritual_ZNK8Qt3DCore7QEntity12parentEntityEv(
+    const Qt3DCore::QEntity *self) {
+  return self->parentEntity();
+}
+
+//  Qt3DCore::QEntity::QEntity(QEntityPrivate &dd, QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QEntity *ritual_ZN8Qt3DCore7QEntityC1ERNS_14QEntityPrivateEPNS_5QNodeE(
+    Qt3DCore::QEntityPrivate *dd,
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DCore_QEntity(*dd, parent);
+}
+
+//  void Qt3DCore::QEntity::onParentChanged(QObject *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8Qt3DCore7QEntity15onParentChangedEP7QObject(
+    Qt3DCore::QEntity *self,
+    QObject *a0) {
+  self->onParentChanged(a0);
 }
 
 //  QEntityPrivate *Qt3DCore::QEntity::d_func()
@@ -216,4 +294,34 @@ bool ritual_take_Qt3DCore_QEntity(
     const char *key,
     void *call) {
   return static_cast<CuteQt3DCore_QEntity *>(self)->take(key, call);
+}
+
+//  a Qt3DCore::QComponentVector a ritual of Qt3DCore::QEntity gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_Qt3DCore_QEntity__Qt3DCore_QComponentVector(
+    Qt3DCore::QComponentVector *self) {
+  delete self;
+}
+
+//  QList<QObject *> Qt3DCore::QEntity::componentsOfType<QObject>() const
+extern "C" Q_DECL_EXPORT
+QList<QObject *> * ritual_ZNK8Qt3DCore7QEntity16componentsOfTypeI7QObjectEE5QListIPT_Ev(
+    const Qt3DCore::QEntity *self) {
+  return new QList<QObject *>(self->componentsOfType<QObject>());
+}
+
+//  QList<Qt3DCore::QComponent *>
+//      Qt3DCore::QEntity::componentsOfType<Qt3DCore::QComponent>() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QComponent *> * ritual_ZNK8Qt3DCore7QEntity16componentsOfTypeINS_10QComponentEEE5QListIPT_Ev(
+    const Qt3DCore::QEntity *self) {
+  return new QList<Qt3DCore::QComponent *>(self->componentsOfType<Qt3DCore::QComponent>());
+}
+
+//  QList<Qt3DCore::QTransform *>
+//      Qt3DCore::QEntity::componentsOfType<Qt3DCore::QTransform>() const
+extern "C" Q_DECL_EXPORT
+QList<Qt3DCore::QTransform *> * ritual_ZNK8Qt3DCore7QEntity16componentsOfTypeINS_10QTransformEEE5QListIPT_Ev(
+    const Qt3DCore::QEntity *self) {
+  return new QList<Qt3DCore::QTransform *>(self->componentsOfType<Qt3DCore::QTransform>());
 }

@@ -9,14 +9,43 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qvariant.h>
+#include <QtQuick3DUtils/QtQuick3DUtils>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgrenderbasetypes_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QString>
+#include <QtCore/QList>
+#include <utility>
+#include <QtCore/QIODevice>
 
 //  QSSGLightmapLoader::~QSSGLightmapLoader()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QSSGLightmapLoaderD1Ev(QSSGLightmapLoader *self) {
   delete self;
+}
+
+//  QSharedPointer<QSSGLightmapLoader> QSSGLightmapLoader::open(const
+//      QSharedPointer<QIODevice> &stream)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QSSGLightmapLoader> *ritual_ZN18QSSGLightmapLoader4openERK14QSharedPointerI9QIODeviceE(
+    const QSharedPointer<QIODevice> *stream) {
+  return new QSharedPointer<QSSGLightmapLoader>(
+      QSSGLightmapLoader::open(
+          *stream));
+}
+
+//  QSharedPointer<QSSGLightmapLoader> QSSGLightmapLoader::open(const QString
+//      &path)
+extern "C" Q_DECL_EXPORT
+QSharedPointer<QSSGLightmapLoader> *ritual_ZN18QSSGLightmapLoader4openERK7QString(
+    const QString *path) {
+  return new QSharedPointer<QSSGLightmapLoader>(
+      QSSGLightmapLoader::open(
+          *path));
 }
 
 //  QByteArray QSSGLightmapLoader::readF32Image(const QString &key,
@@ -59,8 +88,43 @@ QMap<QString, QVariant> *ritual_ZNK18QSSGLightmapLoader7readMapERK7QString21QSSG
   return new QMap<QString, QVariant>(self->readMap(*key, tag));
 }
 
+//  QList<std::pair<QString, QSSGLightmapIODataTag>>
+//      QSSGLightmapLoader::getKeys() const
+extern "C" Q_DECL_EXPORT
+QList<std::pair<QString, QSSGLightmapIODataTag>> *ritual_ZNK18QSSGLightmapLoader7getKeysEv(
+    const QSSGLightmapLoader *self) {
+  return new QList<std::pair<QString, QSSGLightmapIODataTag>>(
+      self->getKeys());
+}
+
+//  QSSGLoadedTexture
+//      *QSSGLightmapLoader::createTexture(QSharedPointer<QIODevice> stream,
+//      const QSSGRenderTextureFormat &format, const QString &key)
+extern "C" Q_DECL_EXPORT
+QSSGLoadedTexture *ritual_ZN18QSSGLightmapLoader13createTextureE14QSharedPointerI9QIODeviceERK23QSSGRenderTextureFormatRK7QString(
+    const QSharedPointer<QIODevice> *stream,
+    const QSSGRenderTextureFormat *format,
+    const QString *key) {
+  return QSSGLightmapLoader::createTexture(*stream, *format, *key);
+}
+
 //  QSSGLightmapLoader::QSSGLightmapLoader()
 extern "C" Q_DECL_EXPORT
 QSSGLightmapLoader *ritual_ZN18QSSGLightmapLoaderC1Ev() {
   return new QSSGLightmapLoader();
+}
+
+//  a QSharedPointer<QSSGLightmapLoader> a ritual of QSSGLightmapLoader gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGLightmapLoader__QSharedPointer_QSSGLightmapLoader(
+    QSharedPointer<QSSGLightmapLoader> *self) {
+  delete self;
+}
+
+//  a QList<std::pair<QString, QSSGLightmapIODataTag>> a ritual of
+//      QSSGLightmapLoader gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QSSGLightmapLoader__QList_std_pair_QString_QSSGLightmapIODataTag(
+    QList<std::pair<QString, QSSGLightmapIODataTag>> *self) {
+  delete self;
 }

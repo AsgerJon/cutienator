@@ -110,6 +110,54 @@ public:
 #endif  // QT_CONFIG(undocommand)
 };
 
+//  qdesigner_internal::ChangeCurrentPageCommand::ChangeCurrentPageCommand(QD
+//      esignerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ChangeCurrentPageCommand *ritual_ZN18qdesigner_internal24ChangeCurrentPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_ChangeCurrentPageCommand(formWindow);
+}
+
+//  qdesigner_internal::ChangeCurrentPageCommand::~ChangeCurrentPageCommand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal24ChangeCurrentPageCommandD1Ev(
+    qdesigner_internal::ChangeCurrentPageCommand *self) {
+  delete self;
+}
+
+//  QDesignerContainerExtension
+//      *qdesigner_internal::ChangeCurrentPageCommand::containerExtension()
+//      const
+extern "C" Q_DECL_EXPORT
+QDesignerContainerExtension *ritual_ZNK18qdesigner_internal24ChangeCurrentPageCommand18containerExtensionEv(
+    const qdesigner_internal::ChangeCurrentPageCommand *self) {
+  return self->containerExtension();
+}
+
+//  void qdesigner_internal::ChangeCurrentPageCommand::init(QWidget
+//      *containerWidget, int newIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal24ChangeCurrentPageCommand4initEP7QWidgeti(
+    qdesigner_internal::ChangeCurrentPageCommand *self,
+    QWidget *containerWidget,
+    int newIndex) {
+  self->init(containerWidget, newIndex);
+}
+
+//  void qdesigner_internal::ChangeCurrentPageCommand::redo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal24ChangeCurrentPageCommand4redoEv(
+    qdesigner_internal::ChangeCurrentPageCommand *self) {
+  self->redo();
+}
+
+//  void qdesigner_internal::ChangeCurrentPageCommand::undo()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18qdesigner_internal24ChangeCurrentPageCommand4undoEv(
+    qdesigner_internal::ChangeCurrentPageCommand *self) {
+  self->undo();
+}
+
 //  a Python function taken by a
 //      Cuteqdesigner_internal_ChangeCurrentPageCommand, for the function
 //      named by the key

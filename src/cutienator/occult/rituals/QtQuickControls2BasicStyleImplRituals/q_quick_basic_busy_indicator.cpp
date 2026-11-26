@@ -23,6 +23,67 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicbusyindicator.cpp, line 13, as local:qquickbasicbusyindicator.cpp:CircleCount
+static const int CircleCount = 10;
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicbusyindicator.cpp, line 14, as local:qquickbasicbusyindicator.cpp:QbbiTotalDuration
+static const int QbbiTotalDuration = 100 * CircleCount * 2;
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicbusyindicator.cpp, line 22, as local:qquickbasicbusyindicator.cpp:QQuickBasicBusyIndicatorNode
+class QQuickBasicBusyIndicatorNode : public QQuickAnimatedNode
+{
+public:
+    QQuickBasicBusyIndicatorNode(QQuickBasicBusyIndicator *item);
+
+    void updateCurrentTime(int time) override;
+    void sync(QQuickItem *item) override;
+
+private:
+    QColor m_pen;
+    QColor m_fill;
+};
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicbusyindicator.cpp, line 35, as local:qquickbasicbusyindicator.cpp:QQuickBasicBusyIndicatorNode::QQuickBasicBusyIndicatorNode
+inline QQuickBasicBusyIndicatorNode::QQuickBasicBusyIndicatorNode(QQuickBasicBusyIndicator *item)
+    : QQuickAnimatedNode(item)
+{
+    setLoopCount(Infinite);
+    setDuration(QbbiTotalDuration);
+    setCurrentTime(item->elapsed());
+
+    for (int i = 0; i < CircleCount; ++i) {
+        QSGTransformNode *transformNode = new QSGTransformNode;
+        appendChildNode(transformNode);
+
+        QQuickItemPrivate *d = QQuickItemPrivate::get(item);
+        QSGInternalRectangleNode *rectNode = d->sceneGraphContext()->createInternalRectangleNode();
+        rectNode->setAntialiasing(true);
+        transformNode->appendChildNode(rectNode);
+    }
+}
+
+//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicbusyindicator.cpp, line 161, as _ZN24QQuickBasicBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickBasicBusyIndicator::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
+{
+    QQuickItem::itemChange(change, data);
+    switch (change) {
+    case ItemOpacityHasChanged:
+        // If running is set to false and then true within a short period (QTBUG-85860), our
+        // OpacityAnimator cancels the 1 => 0 animation (which was for running being set to false),
+        // setting opacity to 0 and hence visible to false. This happens _after_ setRunning(true)
+        // was called, because the properties were set synchronously but the animation is
+        // asynchronous. To account for this situation, we only hide ourselves if we're not running.
+        if (qFuzzyIsNull(data.realValue) && !m_running)
+            setVisible(false);
+        break;
+    case ItemVisibleHasChanged:
+        update();
+        break;
+    default:
+        break;
+    }
+}
+
 //  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicbusyindicator.cpp, line 114, as _ZNK24QQuickBasicBusyIndicator3penEv
 inline QColor QQuickBasicBusyIndicator::pen() const
 {
@@ -76,28 +137,6 @@ inline int QQuickBasicBusyIndicator::elapsed() const
 {
     return m_elapsed;
 }
-
-//  from ../qtdeclarative/src/quickcontrols/basic/impl/qquickbasicbusyindicator.cpp, line 161, as _ZN24QQuickBasicBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
-inline void QQuickBasicBusyIndicator::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &data)
-{
-    QQuickItem::itemChange(change, data);
-    switch (change) {
-    case ItemOpacityHasChanged:
-        // If running is set to false and then true within a short period (QTBUG-85860), our
-        // OpacityAnimator cancels the 1 => 0 animation (which was for running being set to false),
-        // setting opacity to 0 and hence visible to false. This happens _after_ setRunning(true)
-        // was called, because the properties were set synchronously but the animation is
-        // asynchronous. To account for this situation, we only hide ourselves if we're not running.
-        if (qFuzzyIsNull(data.realValue) && !m_running)
-            setVisible(false);
-        break;
-    case ItemVisibleHasChanged:
-        update();
-        break;
-    default:
-        break;
-    }
-}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickBasicBusyIndicator may call these functions of it.
@@ -111,6 +150,25 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK24QQuickBasicBusyIndicator10metaObjectEv(
     const QQuickBasicBusyIndicator *self) {
   return self->metaObject();
+}
+
+//  void *QQuickBasicBusyIndicator::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN24QQuickBasicBusyIndicator11qt_metacastEPKc(
+    QQuickBasicBusyIndicator *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickBasicBusyIndicator::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN24QQuickBasicBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickBasicBusyIndicator *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QColor QQuickBasicBusyIndicator::pen() const
@@ -173,6 +231,16 @@ void ritual_ZN24QQuickBasicBusyIndicator10itemChangeEN10QQuickItem10ItemChangeER
     QQuickItem::ItemChange change,
     const QQuickItem::ItemChangeData *data) {
   self->itemChange(change, *data);
+}
+
+//  QSGNode *QQuickBasicBusyIndicator::updatePaintNode(QSGNode *oldNode,
+//      UpdatePaintNodeData *a1)
+extern "C" Q_DECL_EXPORT
+QSGNode *ritual_ZN24QQuickBasicBusyIndicator15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE(
+    QQuickBasicBusyIndicator *self,
+    QSGNode *oldNode,
+    QQuickItem::UpdatePaintNodeData *a1) {
+  return self->updatePaintNode(oldNode, a1);
 }
 
 //  void QQuickBasicBusyIndicator::itemChange(ItemChange change, const

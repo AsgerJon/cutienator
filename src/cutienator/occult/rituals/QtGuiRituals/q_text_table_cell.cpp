@@ -23,6 +23,14 @@ QTextTableCell *ritual_ZN14QTextTableCellC1ERKS_(const QTextTableCell *o) {
   return new QTextTableCell(*o);
 }
 
+//  QTextTableCell &QTextTableCell::operator=(const QTextTableCell &o)
+extern "C" Q_DECL_EXPORT
+QTextTableCell *ritual_ZN14QTextTableCellaSERKS_(
+    QTextTableCell *self,
+    const QTextTableCell *o) {
+  return &(self->operator=(*o));
+}
+
 //  void QTextTableCell::setFormat(const QTextCharFormat &format)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QTextTableCell9setFormatERK15QTextCharFormat(

@@ -179,6 +179,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender10QDepthTest10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::QDepthTest::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender10QDepthTest11qt_metacastEPKc(
+    Qt3DRender::QDepthTest *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::QDepthTest::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender10QDepthTest11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::QDepthTest *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::QDepthTest::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN10Qt3DRender10QDepthTest2trEPKcS2_i(
@@ -186,6 +205,44 @@ QString *ritual_ZN10Qt3DRender10QDepthTest2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::QDepthTest::tr(s, c, n));
+}
+
+//  Qt3DRender::QDepthTest::QDepthTest(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QDepthTest *ritual_ZN10Qt3DRender10QDepthTestC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DRender_QDepthTest(parent);
+}
+
+//  Qt3DRender::QDepthTest::~QDepthTest()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QDepthTestD1Ev(Qt3DRender::QDepthTest *self) {
+  delete self;
+}
+
+//  DepthFunction Qt3DRender::QDepthTest::depthFunction() const
+extern "C" Q_DECL_EXPORT
+Qt3DRender::QDepthTest::DepthFunction ritual_ZNK10Qt3DRender10QDepthTest13depthFunctionEv(
+    const Qt3DRender::QDepthTest *self) {
+  return self->depthFunction();
+}
+
+//  void Qt3DRender::QDepthTest::setDepthFunction(DepthFunction
+//      depthFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QDepthTest16setDepthFunctionENS0_13DepthFunctionE(
+    Qt3DRender::QDepthTest *self,
+    Qt3DRender::QDepthTest::DepthFunction depthFunction) {
+  self->setDepthFunction(depthFunction);
+}
+
+//  void Qt3DRender::QDepthTest::depthFunctionChanged(DepthFunction
+//      depthFunction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender10QDepthTest20depthFunctionChangedENS0_13DepthFunctionE(
+    Qt3DRender::QDepthTest *self,
+    Qt3DRender::QDepthTest::DepthFunction depthFunction) {
+  self->depthFunctionChanged(depthFunction);
 }
 
 //  QDepthTestPrivate *Qt3DRender::QDepthTest::d_func()

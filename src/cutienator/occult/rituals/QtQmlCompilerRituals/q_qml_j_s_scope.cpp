@@ -1,6 +1,10 @@
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsscope_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Written by hand on 2026-11-25 from
+//  QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsscope_p.h, Qt 6.12.0,
+//  from Qt's source. Kept as it is when the generator runs again.
+//  Not written: 'nonCompositeBaseRevision' and 'findType', which take or
+//  give 'QQmlJS::ImportedScope<...>', a template (the generator wrote
+//  its name without the namespace 'QQmlJS', which the compiler refused),
+//  and every other function taking or giving a 'ConstPtr', a template.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtQmlCompiler/QtQmlCompiler>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER

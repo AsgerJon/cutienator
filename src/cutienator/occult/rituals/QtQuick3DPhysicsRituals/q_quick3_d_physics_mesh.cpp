@@ -7,6 +7,8 @@
 #include <QtQuick3DPhysics/6.12.0/QtQuick3DPhysics/private/qphysicsmeshutils_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/QPair>
+#include <QtGui/QVector3D>
 
 //  QQuick3DPhysicsMesh::QQuick3DPhysicsMesh(const QString &qmlSource)
 extern "C" Q_DECL_EXPORT
@@ -39,4 +41,11 @@ void ritual_ZN19QQuick3DPhysicsMesh3refEv(QQuick3DPhysicsMesh *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZN19QQuick3DPhysicsMesh5derefEv(QQuick3DPhysicsMesh *self) {
   return self->deref();
+}
+
+//  a QPair<QVector3D, QVector3D> a ritual of QQuick3DPhysicsMesh gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QQuick3DPhysicsMesh__QPair_QVector3D_QVector3D(
+    QPair<QVector3D, QVector3D> *self) {
+  delete self;
 }

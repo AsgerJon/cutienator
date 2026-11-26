@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/qqmlpropertymap.h, Qt 6.12.0. Changes made here are lost.
+//  QtQml/qqmlpropertymap.h, Qt 6.12.0. Edited by hand on 2026-11-25: added
+//  by hand, instances of templates of the class: 1. Kept as it is when the
+//  generator runs again.
 #include <QtQml/QtQml>
 #include <QtQml/qqmlpropertymap.h>
 #include <QtCore/qstring.h>
@@ -208,6 +210,24 @@ const QMetaObject *ritual_ZNK15QQmlPropertyMap10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlPropertyMap::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN15QQmlPropertyMap11qt_metacastEPKc(
+    QQmlPropertyMap *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlPropertyMap::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QQmlPropertyMap11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlPropertyMap *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQmlPropertyMap::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN15QQmlPropertyMap2trEPKcS1_i(
@@ -317,12 +337,30 @@ bool ritual_ZNK15QQmlPropertyMap8containsERK7QString(
   return self->contains(*key);
 }
 
+//  QVariant &QQmlPropertyMap::operator[](const QString &key)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN15QQmlPropertyMapixERK7QString(
+    QQmlPropertyMap *self,
+    const QString *key) {
+  return &(self->operator[](*key));
+}
+
 //  QVariant QQmlPropertyMap::operator[](const QString &key) const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK15QQmlPropertyMapixERK7QString(
     const QQmlPropertyMap *self,
     const QString *key) {
   return new QVariant(self->operator[](*key));
+}
+
+//  void QQmlPropertyMap::valueChanged(const QString &key, const QVariant
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQmlPropertyMap12valueChangedERK7QStringRK8QVariant(
+    QQmlPropertyMap *self,
+    const QString *key,
+    const QVariant *value) {
+  self->valueChanged(*key, *value);
 }
 
 //  QVariant QQmlPropertyMap::updateValue(const QString &key, const QVariant
@@ -342,6 +380,20 @@ QQmlPropertyMap *ritual_ZN15QQmlPropertyMapC1EPK11QMetaObjectP7QObject(
     const QMetaObject *staticMetaObject,
     QObject *parent) {
   return new CuteQQmlPropertyMap(staticMetaObject, parent);
+}
+
+//  QQmlPropertyMapPrivate *QQmlPropertyMap::d_func()
+extern "C" Q_DECL_EXPORT
+QQmlPropertyMapPrivate *ritual_ZN15QQmlPropertyMap6d_funcEv(
+    QQmlPropertyMap *self) {
+  return self->d_func();
+}
+
+//  const QQmlPropertyMapPrivate *QQmlPropertyMap::d_func() const
+extern "C" Q_DECL_EXPORT
+const QQmlPropertyMapPrivate *ritual_ZNK15QQmlPropertyMap6d_funcEv(
+    const QQmlPropertyMap *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQQmlPropertyMap, for the function named
@@ -365,4 +417,13 @@ QVariant *ritual_own_ZN15QQmlPropertyMap11updateValueERK7QStringRK8QVariant(
       static_cast<OwnQQmlPropertyMap *>(self)->OwnQQmlPropertyMap::updateValue(
           *key,
           *input));
+}
+
+//  QQmlPropertyMap::QQmlPropertyMap<QQmlPropertyMap>(QQmlPropertyMap
+//      *derived, QObject *parentObj)
+extern "C" Q_DECL_EXPORT
+QQmlPropertyMap * ritual_ZN15QQmlPropertyMapC2IS_EEPT_P7QObject(
+    QQmlPropertyMap *derived,
+    QObject *parentObj) {
+  return new QQmlPropertyMap(derived, parentObj);
 }

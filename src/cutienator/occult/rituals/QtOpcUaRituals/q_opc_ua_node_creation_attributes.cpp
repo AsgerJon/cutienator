@@ -5,6 +5,7 @@
 #include <QtCore/qstring.h>
 #include <QtOpcUa/qopcualocalizedtext.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/QList>
 
 //  QOpcUaNodeCreationAttributes::QOpcUaNodeCreationAttributes()
 extern "C" Q_DECL_EXPORT
@@ -18,6 +19,16 @@ extern "C" Q_DECL_EXPORT
 QOpcUaNodeCreationAttributes *ritual_ZN28QOpcUaNodeCreationAttributesC1ERKS_(
     const QOpcUaNodeCreationAttributes *other) {
   return new QOpcUaNodeCreationAttributes(*other);
+}
+
+//  QOpcUaNodeCreationAttributes
+//      &QOpcUaNodeCreationAttributes::operator=(const
+//      QOpcUaNodeCreationAttributes &rhs)
+extern "C" Q_DECL_EXPORT
+QOpcUaNodeCreationAttributes *ritual_ZN28QOpcUaNodeCreationAttributesaSERKS_(
+    QOpcUaNodeCreationAttributes *self,
+    const QOpcUaNodeCreationAttributes *rhs) {
+  return &(self->operator=(*rhs));
 }
 
 //  QOpcUaNodeCreationAttributes::~QOpcUaNodeCreationAttributes()
@@ -48,6 +59,22 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK28QOpcUaNodeCreationAttributes14hasAccessLevelEv(
     const QOpcUaNodeCreationAttributes *self) {
   return self->hasAccessLevel();
+}
+
+//  QList<quint32> QOpcUaNodeCreationAttributes::arrayDimensions() const
+extern "C" Q_DECL_EXPORT
+QList<quint32> *ritual_ZNK28QOpcUaNodeCreationAttributes15arrayDimensionsEv(
+    const QOpcUaNodeCreationAttributes *self) {
+  return new QList<quint32>(self->arrayDimensions());
+}
+
+//  void QOpcUaNodeCreationAttributes::setArrayDimensions(const
+//      QList<quint32> &arrayDimensions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QOpcUaNodeCreationAttributes18setArrayDimensionsERK5QListIjE(
+    QOpcUaNodeCreationAttributes *self,
+    const QList<quint32> *arrayDimensions) {
+  self->setArrayDimensions(*arrayDimensions);
 }
 
 //  bool QOpcUaNodeCreationAttributes::hasArrayDimensions() const
@@ -451,4 +478,11 @@ extern "C" Q_DECL_EXPORT
 QOpcUa::Types ritual_ZNK28QOpcUaNodeCreationAttributes9valueTypeEv(
     const QOpcUaNodeCreationAttributes *self) {
   return self->valueType();
+}
+
+//  a QList<quint32> a ritual of QOpcUaNodeCreationAttributes gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QOpcUaNodeCreationAttributes__QList_quint32(
+    QList<quint32> *self) {
+  delete self;
 }

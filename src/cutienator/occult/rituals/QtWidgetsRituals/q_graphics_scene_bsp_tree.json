@@ -11,6 +11,9 @@
       "nothing", "address", "address", "int"
     ],
     "ritual_ZN21QGraphicsSceneBspTree5clearEv": ["nothing", "address"],
+    "ritual_ZN21QGraphicsSceneBspTree11removeItemsERK4QSetIP13QGraphicsItemE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QGraphicsSceneBspTree9leafCountEv": ["int", "address"],
     "ritual_ZNK21QGraphicsSceneBspTree15firstChildIndexEi": [
       "int", "address", "int"

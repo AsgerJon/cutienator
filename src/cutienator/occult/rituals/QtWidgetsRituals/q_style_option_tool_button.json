@@ -6,6 +6,9 @@
   "rows": {
     "ritual_ZN22QStyleOptionToolButtonC1Ev": ["address"],
     "ritual_ZN22QStyleOptionToolButtonC1ERKS_": ["address", "address"],
+    "ritual_ZN22QStyleOptionToolButtonaSERKS_": [
+      "address", "address", "address"
+    ],
     "ritual_ZN22QStyleOptionToolButtonC1Ei": ["address", "int"],
     "ritual_ZN22QStyleOptionToolButtonD1Ev": ["nothing", "address"]
   }

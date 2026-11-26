@@ -5,5 +5,14 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QVideoTextureHelper14SubtitleLayout6updateERK5QSize7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZNK19QVideoTextureHelper14SubtitleLayout4drawEP8QPainterRK7QPointF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QVideoTextureHelper14SubtitleLayout7toImageEv": [
+      "address", "address"
+    ]
   }
 }

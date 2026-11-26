@@ -6,10 +6,17 @@
   ],
   "rows": {
     "ritual_ZNK19QAbstractHttpServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QAbstractHttpServer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QAbstractHttpServer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN19QAbstractHttpServer2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN19QAbstractHttpServerD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QAbstractHttpServer11serverPortsEv": ["address", "address"],
     "ritual_ZN19QAbstractHttpServer4bindEP10QTcpServer": [
       "bool", "address", "address"
     ],
@@ -32,10 +39,17 @@
     "ritual_ZNK19QAbstractHttpServer13configurationEv": [
       "address", "address"
     ],
+    "ritual_ZN19QAbstractHttpServer13handleRequestERK18QHttpServerRequestR20QHttpServerResponder": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QAbstractHttpServer14missingHandlerERK18QHttpServerRequestR20QHttpServerResponder": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN19QAbstractHttpServer6d_funcEv": ["address", "address"],
     "ritual_ZNK19QAbstractHttpServer6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractHttpServer": [
       "bool", "address", "chars", "address"
-    ]
+    ],
+    "ritual_drop_QAbstractHttpServer__QList_quint16": ["nothing", "address"]
   }
 }

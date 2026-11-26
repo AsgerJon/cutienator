@@ -6,9 +6,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmlpropertytopropertybinding_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/qqmlproperty.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qstring.h>
-#include <QtQml/qqmlproperty.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/private/qqmlpropertytopropertybinding_p.h>
@@ -26,6 +26,15 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/qml/qqmlpropertytopropertybinding.cpp, line 52, as _ZN29QQmlPropertyToPropertyBindingC1EP10QQmlEngineRK12QQmlProperty
+inline QQmlPropertyToPropertyBinding::QQmlPropertyToPropertyBinding(
+        QQmlEngine *engine, const QQmlProperty &source)
+    : engine(engine)
+    , sourceObject(source.object())
+    , sourcePropertyIndex(QQmlPropertyPrivate::get(source)->encodedIndex())
+{
+}
 
 //  from ../qtdeclarative/src/qml/qml/qqmlpropertytopropertybinding.cpp, line 67, as _ZNK39QQmlPropertyToUnbindablePropertyBinding4kindEv
 inline QQmlAbstractBinding::Kind QQmlPropertyToUnbindablePropertyBinding::kind() const
@@ -97,6 +106,14 @@ inline void QQmlPropertyToUnbindablePropertyBinding::update(QQmlPropertyData::Wr
 
     QQmlPropertyPrivate::writeValueProperty(target, *d, vtd, value, {}, flags);
     setUpdatingFlag(false);
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmlpropertytopropertybinding.cpp, line 136, as _ZN39QQmlPropertyToUnbindablePropertyBindingC1EP10QQmlEngineRK12QQmlPropertyS4_
+inline QQmlPropertyToUnbindablePropertyBinding::QQmlPropertyToUnbindablePropertyBinding(
+        QQmlEngine *engine, const QQmlProperty &source, const QQmlProperty &target)
+    : m_binding(engine, source)
+{
+    setTarget(target);
 }
 //  -----------------------------------------------------------------------
 
@@ -200,6 +217,20 @@ extern "C" Q_DECL_EXPORT
 QObject *ritual_ZNK39QQmlPropertyToUnbindablePropertyBinding6sourceEv(
     const QQmlPropertyToUnbindablePropertyBinding *self) {
   return self->source();
+}
+
+//  QQmlPropertyToUnbindablePropertyBinding::QQmlPropertyToUnbindableProperty
+//      Binding(QQmlEngine *engine, const QQmlProperty &source, const
+//      QQmlProperty &target)
+extern "C" Q_DECL_EXPORT
+QQmlPropertyToUnbindablePropertyBinding *ritual_ZN39QQmlPropertyToUnbindablePropertyBindingC1EP10QQmlEngineRK12QQmlPropertyS4_(
+    QQmlEngine *engine,
+    const QQmlProperty *source,
+    const QQmlProperty *target) {
+  return new CuteQQmlPropertyToUnbindablePropertyBinding(
+      engine,
+      *source,
+      *target);
 }
 
 //  void QQmlPropertyToUnbindablePropertyBinding::captureProperty(const

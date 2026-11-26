@@ -187,6 +187,25 @@ const QMetaObject *ritual_ZNK22QQmlDelegateModelParts10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQmlDelegateModelParts::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN22QQmlDelegateModelParts11qt_metacastEPKc(
+    QQmlDelegateModelParts *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQmlDelegateModelParts::qt_metacall(QMetaObject::Call a0, int a1,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QQmlDelegateModelParts11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQmlDelegateModelParts *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  a Python function taken by a CuteQQmlDelegateModelParts, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

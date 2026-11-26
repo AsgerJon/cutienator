@@ -163,6 +163,25 @@ const QMetaObject *ritual_ZNK10Qt3DRender6Render15PickEventFilter10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *Qt3DRender::Render::PickEventFilter::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DRender6Render15PickEventFilter11qt_metacastEPKc(
+    Qt3DRender::Render::PickEventFilter *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int Qt3DRender::Render::PickEventFilter::qt_metacall(QMetaObject::Call
+//      a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DRender6Render15PickEventFilter11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DRender::Render::PickEventFilter *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DRender::Render::PickEventFilter::tr(const char *s, const char
 //      *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -171,6 +190,32 @@ QString *ritual_ZN10Qt3DRender6Render15PickEventFilter2trEPKcS3_i(
     const char *c,
     int n) {
   return new QString(Qt3DRender::Render::PickEventFilter::tr(s, c, n));
+}
+
+//  Qt3DRender::Render::PickEventFilter::PickEventFilter(QRenderAspectPrivate
+//      *aspect, QObject *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::PickEventFilter *ritual_ZN10Qt3DRender6Render15PickEventFilterC1EPNS_20QRenderAspectPrivateEP7QObject(
+    Qt3DRender::QRenderAspectPrivate *aspect,
+    QObject *parent) {
+  return new CuteQt3DRender_Render_PickEventFilter(aspect, parent);
+}
+
+//  Qt3DRender::Render::PickEventFilter::~PickEventFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render15PickEventFilterD1Ev(
+    Qt3DRender::Render::PickEventFilter *self) {
+  delete self;
+}
+
+//  bool Qt3DRender::Render::PickEventFilter::eventFilter(QObject *obj,
+//      QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender6Render15PickEventFilter11eventFilterEP7QObjectP6QEvent(
+    Qt3DRender::Render::PickEventFilter *self,
+    QObject *obj,
+    QEvent *e) {
+  return self->eventFilter(obj, e);
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_PickEventFilter, for

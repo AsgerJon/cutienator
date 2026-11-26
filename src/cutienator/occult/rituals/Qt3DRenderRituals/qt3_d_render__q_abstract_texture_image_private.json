@@ -5,14 +5,24 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender28QAbstractTextureImagePrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender28QAbstractTextureImagePrivateD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN10Qt3DRender28QAbstractTextureImagePrivate6q_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK10Qt3DRender28QAbstractTextureImagePrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZNK10Qt3DRender28QAbstractTextureImagePrivate13dataGeneratorEv": [
+      "address", "address"
+    ],
     "ritual_take_Qt3DRender_QAbstractTextureImagePrivate": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_Qt3DRender_QAbstractTextureImagePrivate__Qt3DRender_QTextureImageDataGeneratorPtr": [
+      "nothing", "address"
     ]
   }
 }

@@ -14,6 +14,25 @@ const QMetaObject *ritual_ZNK27QCoapResourceDiscoveryReply10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCoapResourceDiscoveryReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN27QCoapResourceDiscoveryReply11qt_metacastEPKc(
+    QCoapResourceDiscoveryReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCoapResourceDiscoveryReply::qt_metacall(QMetaObject::Call a0, int
+//      a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QCoapResourceDiscoveryReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCoapResourceDiscoveryReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QCoapResourceDiscoveryReply::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -29,6 +48,16 @@ extern "C" Q_DECL_EXPORT
 QList<QCoapResource> *ritual_ZNK27QCoapResourceDiscoveryReply9resourcesEv(
     const QCoapResourceDiscoveryReply *self) {
   return new QList<QCoapResource>(self->resources());
+}
+
+//  void QCoapResourceDiscoveryReply::discovered(QCoapResourceDiscoveryReply
+//      *reply, QList<QCoapResource> resources)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QCoapResourceDiscoveryReply10discoveredEPS_5QListI13QCoapResourceE(
+    QCoapResourceDiscoveryReply *self,
+    QCoapResourceDiscoveryReply *reply,
+    const QList<QCoapResource> *resources) {
+  self->discovered(reply, *resources);
 }
 
 //  QCoapResourceDiscoveryReply::QCoapResourceDiscoveryReply(const

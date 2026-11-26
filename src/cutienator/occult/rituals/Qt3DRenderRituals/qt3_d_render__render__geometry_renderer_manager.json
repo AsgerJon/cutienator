@@ -5,5 +5,18 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DRender6Render23GeometryRendererManagerC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender6Render23GeometryRendererManagerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render23GeometryRendererManager24addDirtyGeometryRendererEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render23GeometryRendererManager22dirtyGeometryRenderersEv": [
+      "address", "address"
+    ],
+    "ritual_drop_Qt3DRender_Render_GeometryRendererManager__QList_Qt3DCore_QNodeId": [
+      "nothing", "address"
+    ]
   }
 }

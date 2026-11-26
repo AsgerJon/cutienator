@@ -256,6 +256,25 @@ const QMetaObject *ritual_ZNK18QScxmlScxmlService10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QScxmlScxmlService::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN18QScxmlScxmlService11qt_metacastEPKc(
+    QScxmlScxmlService *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QScxmlScxmlService::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN18QScxmlScxmlService11qt_metacallEN11QMetaObject4CallEiPPv(
+    QScxmlScxmlService *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QScxmlScxmlService::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QScxmlScxmlService2trEPKcS1_i(

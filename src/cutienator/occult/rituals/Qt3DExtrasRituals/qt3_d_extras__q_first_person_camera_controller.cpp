@@ -201,6 +201,27 @@ const QMetaObject *ritual_ZNK10Qt3DExtras28QFirstPersonCameraController10metaObj
   return self->metaObject();
 }
 
+//  void *Qt3DExtras::QFirstPersonCameraController::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN10Qt3DExtras28QFirstPersonCameraController11qt_metacastEPKc(
+    Qt3DExtras::QFirstPersonCameraController *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      Qt3DExtras::QFirstPersonCameraController::qt_metacall(QMetaObject::Ca
+//      ll a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN10Qt3DExtras28QFirstPersonCameraController11qt_metacallEN11QMetaObject4CallEiPPv(
+    Qt3DExtras::QFirstPersonCameraController *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString Qt3DExtras::QFirstPersonCameraController::tr(const char *s, const
 //      char *c, int n)
 extern "C" Q_DECL_EXPORT
@@ -209,6 +230,31 @@ QString *ritual_ZN10Qt3DExtras28QFirstPersonCameraController2trEPKcS2_i(
     const char *c,
     int n) {
   return new QString(Qt3DExtras::QFirstPersonCameraController::tr(s, c, n));
+}
+
+//  Qt3DExtras::QFirstPersonCameraController::QFirstPersonCameraController(Qt
+//      3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QFirstPersonCameraController *ritual_ZN10Qt3DExtras28QFirstPersonCameraControllerC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QFirstPersonCameraController(parent);
+}
+
+//  Qt3DExtras::QFirstPersonCameraController::~QFirstPersonCameraController()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras28QFirstPersonCameraControllerD1Ev(
+    Qt3DExtras::QFirstPersonCameraController *self) {
+  delete self;
+}
+
+//  void Qt3DExtras::QFirstPersonCameraController::moveCamera(const
+//      QAbstractCameraController::InputState &state, float dt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras28QFirstPersonCameraController10moveCameraERKNS_25QAbstractCameraController10InputStateEf(
+    Qt3DExtras::QFirstPersonCameraController *self,
+    const Qt3DExtras::QAbstractCameraController::InputState *state,
+    float dt) {
+  self->moveCamera(*state, dt);
 }
 
 //  a Python function taken by a CuteQt3DExtras_QFirstPersonCameraController,

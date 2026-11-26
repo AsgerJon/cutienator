@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK21QQuickPlaceholderText10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPlaceholderText::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21QQuickPlaceholderText11qt_metacastEPKc(
+    QQuickPlaceholderText *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPlaceholderText::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21QQuickPlaceholderText11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPlaceholderText *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPlaceholderText::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21QQuickPlaceholderText2trEPKcS1_i(

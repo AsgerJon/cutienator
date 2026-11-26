@@ -8,9 +8,17 @@
     "ritual_ZNK21QQuickPropertyChanges10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN21QQuickPropertyChanges11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QQuickPropertyChanges11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN21QQuickPropertyChanges2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN21QQuickPropertyChanges6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickPropertyChanges6d_funcEv": ["address", "address"],
     "ritual_ZN21QQuickPropertyChangesC1Ev": ["address"],
     "ritual_ZN21QQuickPropertyChangesD1Ev": ["nothing", "address"],
     "ritual_ZNK21QQuickPropertyChanges6objectEv": ["address", "address"],
@@ -60,6 +68,15 @@
     ],
     "ritual_ZNK21QQuickPropertyChanges8propertyERK7QString": [
       "address", "address", "text"
+    ],
+    "ritual_ZN21QQuickPropertyChanges13objectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickPropertyChanges25restoreEntryValuesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickPropertyChanges17isExplicitChangedEv": [
+      "nothing", "address"
     ],
     "ritual_take_QQuickPropertyChanges": [
       "bool", "address", "chars", "address"

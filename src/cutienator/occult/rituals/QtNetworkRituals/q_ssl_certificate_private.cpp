@@ -35,6 +35,11 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from src/network/ssl/qsslcertificate.cpp, line 136, as _ZN22QSslCertificatePrivateD1Ev
+inline QSslCertificatePrivate::~QSslCertificatePrivate() = default;
+
 //  from src/network/ssl/qsslcertificate.cpp, line 845, as _ZNK22QSslCertificatePrivate10extensionsEv
 inline QList<QSslCertificateExtension> QSslCertificatePrivate::extensions() const
 {
@@ -56,6 +61,12 @@ inline QList<QSslCertificateExtension> QSslCertificatePrivate::extensions() cons
     return result;
 }
 //  -----------------------------------------------------------------------
+
+//  QSslCertificatePrivate::~QSslCertificatePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QSslCertificatePrivateD1Ev(QSslCertificatePrivate *self) {
+  delete self;
+}
 
 //  QList<QSslCertificateExtension> QSslCertificatePrivate::extensions()
 //      const

@@ -18,7 +18,7 @@ typedef void (*CuteQAbstractDynamicMetaObjectCall1)(const void *, QObject *, int
 class CuteQAbstractDynamicMetaObject : public QAbstractDynamicMetaObject {
 public:
   using QAbstractDynamicMetaObject::QAbstractDynamicMetaObject;
-  CuteQAbstractDynamicMetaObject(const QAbstractDynamicMetaObject &other) : QAbstractDynamicMetaObject(other) {}
+  CuteQAbstractDynamicMetaObject(const QAbstractDynamicMetaObject & other) : QAbstractDynamicMetaObject(other) {}
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
@@ -86,6 +86,29 @@ int ritual_ZN26QAbstractDynamicMetaObject14createPropertyEPKcS1_(
     const char *a0,
     const char *a1) {
   return self->createProperty(a0, a1);
+}
+
+//  int QAbstractDynamicMetaObject::metaCall(QObject *a0, QMetaObject::Call
+//      c, int _id, void **a)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QAbstractDynamicMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv(
+    QAbstractDynamicMetaObject *self,
+    QObject *a0,
+    QMetaObject::Call c,
+    int _id,
+    void **a) {
+  return self->metaCall(a0, c, _id, a);
+}
+
+//  int QAbstractDynamicMetaObject::metaCall(QMetaObject::Call a0, int _id,
+//      void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QAbstractDynamicMetaObject8metaCallEN11QMetaObject4CallEiPPv(
+    QAbstractDynamicMetaObject *self,
+    QMetaObject::Call a0,
+    int _id,
+    void **a2) {
+  return self->metaCall(a0, _id, a2);
 }
 
 //  QAbstractDynamicMetaObject as the QMetaObject it is built on

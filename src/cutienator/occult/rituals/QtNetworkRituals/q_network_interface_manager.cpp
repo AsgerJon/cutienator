@@ -9,6 +9,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qnetworkinterface_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/QSharedDataPointer>
+#include <QtCore/QList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/qnetworkinterface.h>
 #include <QtNetwork/private/qnetworkinterface_p.h>
@@ -23,6 +25,38 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from src/network/kernel/qnetworkinterface.cpp, line 17, as local:qnetworkinterface.cpp:postProcess
+#if !defined(QT_NO_NETWORKINTERFACE)
+inline QT_IMPL_METATYPE_EXTERN(QNetworkAddressEntry)
+QT_IMPL_METATYPE_EXTERN(QNetworkInterface)
+
+static QList<QNetworkInterfacePrivate *> postProcess(QList<QNetworkInterfacePrivate *> list)
+{
+    // Some platforms report a netmask but don't report a broadcast address
+    // Go through all available addresses and calculate the broadcast address
+    // from the IP and the netmask
+    //
+    // This is an IPv4-only thing -- IPv6 has no concept of broadcasts
+    // The math is:
+    //    broadcast = IP | ~netmask
+
+    for (QNetworkInterfacePrivate *iface : list) {
+        for (QNetworkAddressEntry &address : iface->addressEntries) {
+            if (address.ip().protocol() != QAbstractSocket::IPv4Protocol)
+                continue;
+
+            if (!address.netmask().isNull() && address.broadcast().isNull()) {
+                QHostAddress bcast = address.ip();
+                bcast = QHostAddress(bcast.toIPv4Address() | ~address.netmask().toIPv4Address());
+                address.setBroadcast(bcast);
+            }
+        }
+    }
+
+    return list;
+}
+#endif  // !defined(QT_NO_NETWORKINTERFACE)
 
 //  from src/network/kernel/qnetworkinterface.cpp, line 48, as _ZN24QNetworkInterfaceManagerC1Ev
 #if !defined(QT_NO_NETWORKINTERFACE)
@@ -49,6 +83,22 @@ QNetworkInterfaceManager *ritual_ZN24QNetworkInterfaceManagerC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QNetworkInterfaceManagerD1Ev(
     QNetworkInterfaceManager *self) {
+  delete self;
+}
+
+//  a QSharedDataPointer<QNetworkInterfacePrivate> a ritual of
+//      QNetworkInterfaceManager gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QNetworkInterfaceManager__QSharedDataPointer_QNetworkInterfacePrivate(
+    QSharedDataPointer<QNetworkInterfacePrivate> *self) {
+  delete self;
+}
+
+//  a QList<QSharedDataPointer<QNetworkInterfacePrivate>> a ritual of
+//      QNetworkInterfaceManager gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QNetworkInterfaceManager__QList_QSharedDataPointer_QNetworkInterfacePrivate(
+    QList<QSharedDataPointer<QNetworkInterfacePrivate>> *self) {
   delete self;
 }
 

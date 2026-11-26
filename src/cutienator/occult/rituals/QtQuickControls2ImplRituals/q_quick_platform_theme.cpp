@@ -185,6 +185,25 @@ const QMetaObject *ritual_ZNK19QQuickPlatformTheme10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QQuickPlatformTheme::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN19QQuickPlatformTheme11qt_metacastEPKc(
+    QQuickPlatformTheme *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QQuickPlatformTheme::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN19QQuickPlatformTheme11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickPlatformTheme *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QQuickPlatformTheme::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN19QQuickPlatformTheme2trEPKcS1_i(

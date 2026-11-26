@@ -6,6 +6,9 @@
 #include <QtDesigner/abstractwidgetdatabase.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#include <QtDesigner/QDesignerPromotionInterface>
+#include <QtCore/QSet>
+#include <QtCore/QString>
 
 //  A QDesignerPromotionInterface that Python can take functions over in. Every QDesignerPromotionInterface
 //  Python makes is one. Each function below asks the Python
@@ -110,6 +113,22 @@ void ritual_ZN27QDesignerPromotionInterfaceD1Ev(
   delete self;
 }
 
+//  PromotedClasses QDesignerPromotionInterface::promotedClasses() const
+extern "C" Q_DECL_EXPORT
+QDesignerPromotionInterface::PromotedClasses *ritual_ZNK27QDesignerPromotionInterface15promotedClassesEv(
+    const QDesignerPromotionInterface *self) {
+  return new QDesignerPromotionInterface::PromotedClasses(
+      self->promotedClasses());
+}
+
+//  QSet<QString> QDesignerPromotionInterface::referencedPromotedClassNames()
+//      const
+extern "C" Q_DECL_EXPORT
+QSet<QString> *ritual_ZNK27QDesignerPromotionInterface28referencedPromotedClassNamesEv(
+    const QDesignerPromotionInterface *self) {
+  return new QSet<QString>(self->referencedPromotedClassNames());
+}
+
 //  bool QDesignerPromotionInterface::addPromotedClass(const QString
 //      &baseClass, const QString &className, const QString &includeFile,
 //      QString *errorMessage)
@@ -183,4 +202,19 @@ bool ritual_take_QDesignerPromotionInterface(
     const char *key,
     void *call) {
   return static_cast<CuteQDesignerPromotionInterface *>(self)->take(key, call);
+}
+
+//  a QDesignerPromotionInterface::PromotedClasses a ritual of
+//      QDesignerPromotionInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDesignerPromotionInterface__QDesignerPromotionInterface_PromotedClasses(
+    QDesignerPromotionInterface::PromotedClasses *self) {
+  delete self;
+}
+
+//  a QSet<QString> a ritual of QDesignerPromotionInterface gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDesignerPromotionInterface__QSet_QString(
+    QSet<QString> *self) {
+  delete self;
 }

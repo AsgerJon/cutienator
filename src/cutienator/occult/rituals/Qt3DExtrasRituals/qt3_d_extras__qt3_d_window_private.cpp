@@ -9,6 +9,57 @@
 #include <QtGui/qpalette.h>
 #include <QtCore/qrect.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DExtras/qt3dwindow.h>
+#include <Qt3DExtras/private/qt3dwindow_p.h>
+#include <QtGui/qtguiglobal.h>
+#include <Qt3DCore/qaspectengine.h>
+#include <Qt3DCore/qentity.h>
+#include <Qt3DCore/qcoreaspect.h>
+#include <Qt3DExtras/qforwardrenderer.h>
+#include <Qt3DRender/qrendersettings.h>
+#include <Qt3DRender/qrenderaspect.h>
+#include <Qt3DInput/qinputaspect.h>
+#include <Qt3DInput/qinputsettings.h>
+#include <Qt3DLogic/qlogicaspect.h>
+#include <Qt3DRender/qcamera.h>
+#if QT_CONFIG(vulkan)
+#  include <Qt3DRender/private/vulkaninstance_p.h>
+#endif
+#include <Qt3DRender/qt3drender-config.h>
+#include <QtGui/qopenglcontext.h>
+#include <Qt3DRender/private/qrendersettings_p.h>
+#include <QtCore/QEvent>
+#if QT_CONFIG(qt3d_vulkan)
+#include <QtGui/QVulkanInstance>
+#endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/extras/defaults/qt3dwindow.cpp, line 42, as _ZN10Qt3DExtras17Qt3DWindowPrivateC1Ev
+namespace Qt3DExtras {
+inline Qt3DWindowPrivate::Qt3DWindowPrivate()
+    : m_aspectEngine(new Qt3DCore::QAspectEngine)
+    , m_renderAspect(new Qt3DRender::QRenderAspect)
+    , m_inputAspect(new Qt3DInput::QInputAspect)
+    , m_logicAspect(new Qt3DLogic::QLogicAspect)
+    , m_renderSettings(new Qt3DRender::QRenderSettings)
+    , m_forwardRenderer(new Qt3DExtras::QForwardRenderer)
+    , m_defaultCamera(new Qt3DRender::QCamera)
+    , m_inputSettings(new Qt3DInput::QInputSettings)
+    , m_root(new Qt3DCore::QEntity)
+    , m_userRoot(nullptr)
+    , m_initialized(false)
+{
+}
+}  // namespace Qt3DExtras
+//  -----------------------------------------------------------------------
 
 //  A Qt3DExtras::Qt3DWindowPrivate that Python can take functions over in. Every Qt3DExtras::Qt3DWindowPrivate
 //  Python makes is one. Each function below asks the Python
@@ -171,6 +222,12 @@ public:
     QWindowPrivate::maybeSynthesizeContextMenuEvent(event);
   }
 };
+
+//  Qt3DExtras::Qt3DWindowPrivate::Qt3DWindowPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::Qt3DWindowPrivate *ritual_ZN10Qt3DExtras17Qt3DWindowPrivateC1Ev() {
+  return new CuteQt3DExtras_Qt3DWindowPrivate();
+}
 
 //  Qt3DWindow *Qt3DExtras::Qt3DWindowPrivate::q_func()
 extern "C" Q_DECL_EXPORT

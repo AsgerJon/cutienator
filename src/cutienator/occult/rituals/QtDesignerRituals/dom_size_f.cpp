@@ -6,6 +6,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/ui4_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 
 //  DomSizeF::DomSizeF()
 extern "C" Q_DECL_EXPORT
@@ -17,6 +18,24 @@ DomSizeF *ritual_ZN8DomSizeFC1Ev() {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8DomSizeFD1Ev(DomSizeF *self) {
   delete self;
+}
+
+//  void DomSizeF::read(QXmlStreamReader &reader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8DomSizeF4readER16QXmlStreamReader(
+    DomSizeF *self,
+    QXmlStreamReader *reader) {
+  self->read(*reader);
+}
+
+//  void DomSizeF::write(QXmlStreamWriter &writer, const QString &tagName)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8DomSizeF5writeER16QXmlStreamWriterRK7QString(
+    const DomSizeF *self,
+    QXmlStreamWriter *writer,
+    const QString *tagName) {
+  self->write(*writer, *tagName);
 }
 
 //  double DomSizeF::elementWidth() const

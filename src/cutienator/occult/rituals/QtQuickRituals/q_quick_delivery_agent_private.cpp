@@ -13,6 +13,11 @@
 #include <QtQuick/qquickitem.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qlist.h>
+#include <optional>
+#include <QtCore/QPointF>
+#include <QtCore/QList>
+#include <QtQuick/QQuickItem>
+#include <QtCore/QEvent>
 
 //  QQuickDeliveryAgent *QQuickDeliveryAgentPrivate::q_func()
 extern "C" Q_DECL_EXPORT
@@ -80,6 +85,19 @@ void ritual_ZN26QQuickDeliveryAgentPrivate17clearFocusInScopeEP10QQuickItemS1_N2
       item,
       reason,
       QFlags<QQuickDeliveryAgentPrivate::FocusOption>::fromInt(a3));
+}
+
+//  void QQuickDeliveryAgentPrivate::notifyFocusChangesRecur(QQuickItem
+//      **item, int remaining, Qt::FocusReason reason)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickDeliveryAgentPrivate23notifyFocusChangesRecurEPP10QQuickItemiN2Qt11FocusReasonE(
+    QQuickItem **item,
+    int remaining,
+    Qt::FocusReason reason) {
+  QQuickDeliveryAgentPrivate::notifyFocusChangesRecur(
+      item,
+      remaining,
+      reason);
 }
 
 //  void QQuickDeliveryAgentPrivate::clearFocusObject()
@@ -210,6 +228,29 @@ void ritual_ZN26QQuickDeliveryAgentPrivate13onGrabChangedEP7QObjectN15QPointingD
     const QPointerEvent *event,
     const QEventPoint *point) {
   self->onGrabChanged(grabber, transition, event, *point);
+}
+
+//  QPointerEvent
+//      *QQuickDeliveryAgentPrivate::clonePointerEvent(QPointerEvent *event,
+//      std::optional<QPointF> transformedLocalPos)
+extern "C" Q_DECL_EXPORT
+QPointerEvent *ritual_ZN26QQuickDeliveryAgentPrivate17clonePointerEventEP13QPointerEventSt8optionalI7QPointFE(
+    QPointerEvent *event,
+    const std::optional<QPointF> *transformedLocalPos) {
+  return QQuickDeliveryAgentPrivate::clonePointerEvent(
+      event,
+      *transformedLocalPos);
+}
+
+//  void QQuickDeliveryAgentPrivate::deliverToPassiveGrabbers(const
+//      QList<QPointer<QObject>> &passiveGrabbers, QPointerEvent
+//      *pointerEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QQuickDeliveryAgentPrivate24deliverToPassiveGrabbersERK5QListI8QPointerI7QObjectEEP13QPointerEvent(
+    QQuickDeliveryAgentPrivate *self,
+    const QList<QPointer<QObject>> *passiveGrabbers,
+    QPointerEvent *pointerEvent) {
+  self->deliverToPassiveGrabbers(*passiveGrabbers, pointerEvent);
 }
 
 //  bool QQuickDeliveryAgentPrivate::sendFilteredMouseEvent(QEvent *event,
@@ -516,6 +557,53 @@ void ritual_ZN26QQuickDeliveryAgentPrivate27deliverMatchingPointsToItemEP10QQuic
       handlersOnly);
 }
 
+//  QList<QQuickItem *> QQuickDeliveryAgentPrivate::eventTargets(QQuickItem
+//      *a0, const QEvent *event, int pointId, QPointF localPos, QPointF
+//      scenePos, qxp::function_ref<std::optional<bool> (QQuickItem *, const
+//      QEvent *)> predicate) const
+extern "C" Q_DECL_EXPORT
+QList<QQuickItem *> *ritual_ZNK26QQuickDeliveryAgentPrivate12eventTargetsEP10QQuickItemPK6QEventi7QPointFS5_N3qxp12function_refIJFSt8optionalIbES1_S4_EEEE(
+    const QQuickDeliveryAgentPrivate *self,
+    QQuickItem *a0,
+    const QEvent *event,
+    int pointId,
+    const QPointF *localPos,
+    const QPointF *scenePos,
+    const qxp::function_ref<std::optional<bool> (QQuickItem *, const QEvent *)> *predicate) {
+  return new QList<QQuickItem *>(
+      self->eventTargets(
+          a0,
+          event,
+          pointId,
+          *localPos,
+          *scenePos,
+          *predicate));
+}
+
+//  void QQuickDeliveryAgentPrivate::eventTargetsAppend(QQuickItem *a0, const
+//      QEvent *event, int pointId, QPointF localPos, QPointF scenePos,
+//      qxp::function_ref<std::optional<bool> (QQuickItem *, const QEvent *)>
+//      predicate, QList<QQuickItem *> &targets) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK26QQuickDeliveryAgentPrivate18eventTargetsAppendEP10QQuickItemPK6QEventi7QPointFS5_N3qxp12function_refIJFSt8optionalIbES1_S4_EEEER5QListIS1_E(
+    const QQuickDeliveryAgentPrivate *self,
+    QQuickItem *a0,
+    const QEvent *event,
+    int pointId,
+    const QPointF *localPos,
+    const QPointF *scenePos,
+    const qxp::function_ref<std::optional<bool> (QQuickItem *, const QEvent *)> *predicate,
+    QList<QQuickItem *> *targets) {
+  self->eventTargetsAppend(
+      a0,
+      event,
+      pointId,
+      *localPos,
+      *scenePos,
+      *predicate,
+      *targets);
+}
+
 //  QList<QQuickItem *> QQuickDeliveryAgentPrivate::pointerTargets(QQuickItem
 //      *a0, const QPointerEvent *event, const QEventPoint &point, bool
 //      checkMouseButtons, bool checkAcceptsTouch) const
@@ -657,6 +745,22 @@ void ritual_ZN26QQuickDeliveryAgentPrivate16deliverDragEventEP17QQuickDragGrabbe
     QQuickDragGrabber *a0,
     QEvent *a1) {
   self->deliverDragEvent(a0, a1);
+}
+#endif  // QT_CONFIG(quick_draganddrop)
+
+#if QT_CONFIG(quick_draganddrop)
+//  bool QQuickDeliveryAgentPrivate::deliverDragEvent(QQuickDragGrabber *a0,
+//      QQuickItem *a1, QDragMoveEvent *a2, QVarLengthArray<QQuickItem *, 64>
+//      *currentGrabItems, QObject *formerTarget)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN26QQuickDeliveryAgentPrivate16deliverDragEventEP17QQuickDragGrabberP10QQuickItemP14QDragMoveEventP15QVarLengthArrayIS3_Lx64EEP7QObject(
+    QQuickDeliveryAgentPrivate *self,
+    QQuickDragGrabber *a0,
+    QQuickItem *a1,
+    QDragMoveEvent *a2,
+    QVarLengthArray<QQuickItem *, 64> *currentGrabItems,
+    QObject *formerTarget) {
+  return self->deliverDragEvent(a0, a1, a2, currentGrabItems, formerTarget);
 }
 #endif  // QT_CONFIG(quick_draganddrop)
 

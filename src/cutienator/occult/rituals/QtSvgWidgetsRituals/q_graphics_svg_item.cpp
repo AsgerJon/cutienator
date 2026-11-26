@@ -958,6 +958,25 @@ const QMetaObject *ritual_ZNK16QGraphicsSvgItem10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QGraphicsSvgItem::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QGraphicsSvgItem11qt_metacastEPKc(
+    QGraphicsSvgItem *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QGraphicsSvgItem::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QGraphicsSvgItem11qt_metacallEN11QMetaObject4CallEiPPv(
+    QGraphicsSvgItem *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QGraphicsSvgItem::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QGraphicsSvgItem2trEPKcS1_i(
@@ -1071,6 +1090,20 @@ void ritual_ZN16QGraphicsSvgItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7Q
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK16QGraphicsSvgItem4typeEv(const QGraphicsSvgItem *self) {
   return self->type();
+}
+
+//  QGraphicsSvgItemPrivate *QGraphicsSvgItem::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSvgItemPrivate *ritual_ZN16QGraphicsSvgItem6d_funcEv(
+    QGraphicsSvgItem *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSvgItemPrivate *QGraphicsSvgItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSvgItemPrivate *ritual_ZNK16QGraphicsSvgItem6d_funcEv(
+    const QGraphicsSvgItem *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQGraphicsSvgItem, for the function named

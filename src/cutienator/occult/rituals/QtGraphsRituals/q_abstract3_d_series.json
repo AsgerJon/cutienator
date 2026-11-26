@@ -9,6 +9,12 @@
   ],
   "rows": {
     "ritual_ZNK17QAbstract3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QAbstract3DSeries11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QAbstract3DSeries11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN17QAbstract3DSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
@@ -16,6 +22,9 @@
     "ritual_ZNK17QAbstract3DSeries6d_funcEv": ["address", "address"],
     "ritual_ZN17QAbstract3DSeries24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeriesC1ER24QAbstract3DSeriesPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN17QAbstract3DSeriesD1Ev": ["nothing", "address"],
     "ritual_ZNK17QAbstract3DSeries4typeEv": ["int", "address"],
@@ -96,6 +105,57 @@
     ],
     "ritual_ZNK17QAbstract3DSeries18isItemLabelVisibleEv": [
       "bool", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries22itemLabelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QAbstract3DSeries14visibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QAbstract3DSeries11meshChangedENS_4MeshE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QAbstract3DSeries17meshSmoothChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QAbstract3DSeries19meshRotationChangedERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries22userDefinedMeshChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QAbstract3DSeries17colorStyleChangedEN12QGraphsTheme10ColorStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QAbstract3DSeries16baseColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries19baseGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries27singleHighlightColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries30singleHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries26multiHighlightColorChangedE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries29multiHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries11nameChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QAbstract3DSeries16itemLabelChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QAbstract3DSeries23itemLabelVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QAbstract3DSeries19lightingModeChangedENS_12LightingModeE": [
+      "nothing", "address", "bool"
     ],
     "ritual_take_QAbstract3DSeries": ["bool", "address", "chars", "address"],
     "ritual_list_make_QAbstract3DSeries_ptr": ["address"],

@@ -13,6 +13,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QPointer>
+#include <QtGui/QDrag>
 
 //  A QDragManager that Python can take functions over in. Every QDragManager
 //  Python makes is one. Each function below asks the Python
@@ -188,6 +190,24 @@ const QMetaObject *ritual_ZNK12QDragManager10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QDragManager::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN12QDragManager11qt_metacastEPKc(
+    QDragManager *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QDragManager::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QDragManager11qt_metacallEN11QMetaObject4CallEiPPv(
+    QDragManager *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QDragManager::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QDragManager2trEPKcS1_i(
@@ -239,6 +259,13 @@ QObject *ritual_ZNK12QDragManager13currentTargetEv(
   return self->currentTarget();
 }
 
+//  QPointer<QDrag> QDragManager::object() const
+extern "C" Q_DECL_EXPORT
+QPointer<QDrag> *ritual_ZNK12QDragManager6objectEv(
+    const QDragManager *self) {
+  return new QPointer<QDrag>(self->object());
+}
+
 //  QObject *QDragManager::source() const
 extern "C" Q_DECL_EXPORT
 QObject *ritual_ZNK12QDragManager6sourceEv(const QDragManager *self) {
@@ -253,6 +280,12 @@ bool ritual_take_QDragManager(
     const char *key,
     void *call) {
   return static_cast<CuteQDragManager *>(self)->take(key, call);
+}
+
+//  a QPointer<QDrag> a ritual of QDragManager gave
+extern "C" Q_DECL_EXPORT
+void ritual_drop_QDragManager__QPointer_QDrag(QPointer<QDrag> *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(draganddrop)

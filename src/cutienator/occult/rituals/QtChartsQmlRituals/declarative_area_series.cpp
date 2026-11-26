@@ -20,6 +20,25 @@ const QMetaObject *ritual_ZNK21DeclarativeAreaSeries10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeAreaSeries::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN21DeclarativeAreaSeries11qt_metacastEPKc(
+    DeclarativeAreaSeries *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeAreaSeries::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN21DeclarativeAreaSeries11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeAreaSeries *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeAreaSeries::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN21DeclarativeAreaSeries2trEPKcS1_i(
@@ -200,6 +219,78 @@ extern "C" Q_DECL_EXPORT
 QBrush *ritual_ZNK21DeclarativeAreaSeries5brushEv(
     const DeclarativeAreaSeries *self) {
   return new QBrush(self->brush());
+}
+
+//  void DeclarativeAreaSeries::axisXChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeAreaSeries12axisXChangedEP13QAbstractAxis(
+    DeclarativeAreaSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXChanged(axis);
+}
+
+//  void DeclarativeAreaSeries::axisYChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeAreaSeries12axisYChangedEP13QAbstractAxis(
+    DeclarativeAreaSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYChanged(axis);
+}
+
+//  void DeclarativeAreaSeries::borderWidthChanged(qreal width)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeAreaSeries18borderWidthChangedEd(
+    DeclarativeAreaSeries *self,
+    qreal width) {
+  self->borderWidthChanged(width);
+}
+
+//  void DeclarativeAreaSeries::axisXTopChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeAreaSeries15axisXTopChangedEP13QAbstractAxis(
+    DeclarativeAreaSeries *self,
+    QAbstractAxis *axis) {
+  self->axisXTopChanged(axis);
+}
+
+//  void DeclarativeAreaSeries::axisYRightChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeAreaSeries17axisYRightChangedEP13QAbstractAxis(
+    DeclarativeAreaSeries *self,
+    QAbstractAxis *axis) {
+  self->axisYRightChanged(axis);
+}
+
+//  void DeclarativeAreaSeries::axisAngularChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeAreaSeries18axisAngularChangedEP13QAbstractAxis(
+    DeclarativeAreaSeries *self,
+    QAbstractAxis *axis) {
+  self->axisAngularChanged(axis);
+}
+
+//  void DeclarativeAreaSeries::axisRadialChanged(QAbstractAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeAreaSeries17axisRadialChangedEP13QAbstractAxis(
+    DeclarativeAreaSeries *self,
+    QAbstractAxis *axis) {
+  self->axisRadialChanged(axis);
+}
+
+//  void DeclarativeAreaSeries::brushChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeAreaSeries12brushChangedEv(
+    DeclarativeAreaSeries *self) {
+  self->brushChanged();
+}
+
+//  void DeclarativeAreaSeries::brushFilenameChanged(const QString
+//      &brushFilename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21DeclarativeAreaSeries20brushFilenameChangedERK7QString(
+    DeclarativeAreaSeries *self,
+    const QString *brushFilename) {
+  self->brushFilenameChanged(*brushFilename);
 }
 
 //  void DeclarativeAreaSeries::handleBrushChanged()

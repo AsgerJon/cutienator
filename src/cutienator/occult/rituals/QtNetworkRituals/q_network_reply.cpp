@@ -43,32 +43,34 @@ typedef qint64 (*CuteQNetworkReplyCall13)(const void *, int *);
 typedef bool (*CuteQNetworkReplyCall14)(const void *, int *);
 typedef bool (*CuteQNetworkReplyCall15)(const void *, int, int *);
 typedef bool (*CuteQNetworkReplyCall16)(const void *, int, int *);
-typedef qint64 (*CuteQNetworkReplyCall17)(const void *, qint64, int *);
+typedef qint64 (*CuteQNetworkReplyCall17)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQNetworkReplyCall18)(const void *, char *, qint64, int *);
+typedef qint64 (*CuteQNetworkReplyCall19)(const void *, qint64, int *);
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQNetworkReplyCall18)(const void *, QEvent *, int *);
+typedef bool (*CuteQNetworkReplyCall20)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef bool (*CuteQNetworkReplyCall19)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQNetworkReplyCall21)(const void *, QObject *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyCall20)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQNetworkReplyCall22)(const void *, QTimerEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyCall21)(const void *, QChildEvent *, int *);
+typedef void (*CuteQNetworkReplyCall23)(const void *, QChildEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyCall22)(const void *, QEvent *, int *);
+typedef void (*CuteQNetworkReplyCall24)(const void *, QEvent *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyCall23)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQNetworkReplyCall25)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-typedef void (*CuteQNetworkReplyCall24)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQNetworkReplyCall26)(const void *, const QMetaMethod *, int *);
 #endif  // !defined(QT_NO_QOBJECT)
 class CuteQNetworkReply : public QNetworkReply {
 public:
   using QNetworkReply::QNetworkReply;
-  void *taken[25] = {};
+  void *taken[27] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
@@ -141,49 +143,57 @@ public:
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZN9QIODevice8readDataEPcx")) {
       taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice12readLineDataEPcx")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+      taken[19] = call;
       return true;
     }
 #if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
-      taken[18] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
-      taken[19] = call;
-      return true;
-    }
-#endif  // !defined(QT_NO_QOBJECT)
-#if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[20] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[21] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[22] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[23] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
 #if !defined(QT_NO_QOBJECT)
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[24] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[25] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[26] = call;
       return true;
     }
 #endif  // !defined(QT_NO_QOBJECT)
@@ -380,11 +390,33 @@ public:
     return QIODevice::waitForBytesWritten(msecs);
   }
 
-  //  qint64 QIODevice::skipData(qint64 maxSize)
-  qint64 skipData(qint64 maxSize) override {
+  //  qint64 QIODevice::readData(char *data, qint64 maxlen)
+  qint64 readData(char *data, qint64 maxlen) override {
     if (taken[17]) {
       int handled = 0;
       CuteQNetworkReplyCall17 call = reinterpret_cast<CuteQNetworkReplyCall17>(taken[17]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  qint64 QIODevice::readLineData(char *data, qint64 maxlen)
+  qint64 readLineData(char *data, qint64 maxlen) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQNetworkReplyCall18 call = reinterpret_cast<CuteQNetworkReplyCall18>(taken[18]);
+      qint64 given = call(this, data, maxlen, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::readLineData(data, maxlen);
+  }
+
+  //  qint64 QIODevice::skipData(qint64 maxSize)
+  qint64 skipData(qint64 maxSize) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQNetworkReplyCall19 call = reinterpret_cast<CuteQNetworkReplyCall19>(taken[19]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -394,9 +426,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQNetworkReplyCall18 call = reinterpret_cast<CuteQNetworkReplyCall18>(taken[18]);
+      CuteQNetworkReplyCall20 call = reinterpret_cast<CuteQNetworkReplyCall20>(taken[20]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -407,9 +439,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQNetworkReplyCall19 call = reinterpret_cast<CuteQNetworkReplyCall19>(taken[19]);
+      CuteQNetworkReplyCall21 call = reinterpret_cast<CuteQNetworkReplyCall21>(taken[21]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -420,9 +452,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQNetworkReplyCall20 call = reinterpret_cast<CuteQNetworkReplyCall20>(taken[20]);
+      CuteQNetworkReplyCall22 call = reinterpret_cast<CuteQNetworkReplyCall22>(taken[22]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -433,9 +465,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[21]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQNetworkReplyCall21 call = reinterpret_cast<CuteQNetworkReplyCall21>(taken[21]);
+      CuteQNetworkReplyCall23 call = reinterpret_cast<CuteQNetworkReplyCall23>(taken[23]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -446,9 +478,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[22]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQNetworkReplyCall22 call = reinterpret_cast<CuteQNetworkReplyCall22>(taken[22]);
+      CuteQNetworkReplyCall24 call = reinterpret_cast<CuteQNetworkReplyCall24>(taken[24]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -459,9 +491,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[23]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQNetworkReplyCall23 call = reinterpret_cast<CuteQNetworkReplyCall23>(taken[23]);
+      CuteQNetworkReplyCall25 call = reinterpret_cast<CuteQNetworkReplyCall25>(taken[25]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -472,9 +504,9 @@ public:
 #if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[24]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQNetworkReplyCall24 call = reinterpret_cast<CuteQNetworkReplyCall24>(taken[24]);
+      CuteQNetworkReplyCall26 call = reinterpret_cast<CuteQNetworkReplyCall26>(taken[26]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -488,6 +520,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK13QNetworkReply10metaObjectEv(
     const QNetworkReply *self) {
   return self->metaObject();
+}
+
+//  void *QNetworkReply::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QNetworkReply11qt_metacastEPKc(
+    QNetworkReply *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QNetworkReply::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QNetworkReply11qt_metacallEN11QMetaObject4CallEiPPv(
+    QNetworkReply *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QNetworkReply::tr(const char *s, const char *c, int n)
@@ -610,6 +660,13 @@ QByteArray *ritual_ZNK13QNetworkReply9rawHeaderE14QAnyStringView(
   return new QByteArray(self->rawHeader(QAnyStringView(*headerName)));
 }
 
+//  const QList<RawHeaderPair> &QNetworkReply::rawHeaderPairs() const
+extern "C" Q_DECL_EXPORT
+const QList<QNetworkReply::RawHeaderPair> *ritual_ZNK13QNetworkReply14rawHeaderPairsEv(
+    const QNetworkReply *self) {
+  return &(self->rawHeaderPairs());
+}
+
 //  QHttpHeaders QNetworkReply::headers() const
 extern "C" Q_DECL_EXPORT
 QHttpHeaders *ritual_ZNK13QNetworkReply7headersEv(
@@ -665,6 +722,115 @@ void ritual_ZN13QNetworkReply5abortEv(QNetworkReply *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QNetworkReply15ignoreSslErrorsEv(QNetworkReply *self) {
   self->ignoreSslErrors();
+}
+
+//  void QNetworkReply::socketStartedConnecting()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply23socketStartedConnectingEv(
+    QNetworkReply *self) {
+  self->socketStartedConnecting();
+}
+
+//  void QNetworkReply::requestSent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply11requestSentEv(QNetworkReply *self) {
+  self->requestSent();
+}
+
+//  void QNetworkReply::metaDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply15metaDataChangedEv(QNetworkReply *self) {
+  self->metaDataChanged();
+}
+
+//  void QNetworkReply::finished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply8finishedEv(QNetworkReply *self) {
+  self->finished();
+}
+
+//  void QNetworkReply::errorOccurred(QNetworkReply::NetworkError a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply13errorOccurredENS_12NetworkErrorE(
+    QNetworkReply *self,
+    QNetworkReply::NetworkError a0) {
+  self->errorOccurred(a0);
+}
+
+#if QT_CONFIG(ssl)
+//  void QNetworkReply::encrypted()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply9encryptedEv(QNetworkReply *self) {
+  self->encrypted();
+}
+#endif  // QT_CONFIG(ssl)
+
+#if QT_CONFIG(ssl)
+//  void QNetworkReply::sslErrors(const QList<QSslError> &errors)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply9sslErrorsERK5QListI9QSslErrorE(
+    QNetworkReply *self,
+    const QList<QSslError> *errors) {
+  self->sslErrors(*errors);
+}
+#endif  // QT_CONFIG(ssl)
+
+#if QT_CONFIG(ssl)
+//  void QNetworkReply::preSharedKeyAuthenticationRequired(QSslPreSharedKeyAu
+//      thenticator *authenticator)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply34preSharedKeyAuthenticationRequiredEP29QSslPreSharedKeyAuthenticator(
+    QNetworkReply *self,
+    QSslPreSharedKeyAuthenticator *authenticator) {
+  self->preSharedKeyAuthenticationRequired(authenticator);
+}
+#endif  // QT_CONFIG(ssl)
+
+//  void QNetworkReply::redirected(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply10redirectedERK4QUrl(
+    QNetworkReply *self,
+    const QUrl *url) {
+  self->redirected(*url);
+}
+
+//  void QNetworkReply::redirectAllowed()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply15redirectAllowedEv(QNetworkReply *self) {
+  self->redirectAllowed();
+}
+
+//  void QNetworkReply::uploadProgress(qint64 bytesSent, qint64 bytesTotal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply14uploadProgressExx(
+    QNetworkReply *self,
+    qint64 bytesSent,
+    qint64 bytesTotal) {
+  self->uploadProgress(bytesSent, bytesTotal);
+}
+
+//  void QNetworkReply::downloadProgress(qint64 bytesReceived, qint64
+//      bytesTotal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply16downloadProgressExx(
+    QNetworkReply *self,
+    qint64 bytesReceived,
+    qint64 bytesTotal) {
+  self->downloadProgress(bytesReceived, bytesTotal);
+}
+
+//  QNetworkReply::QNetworkReply(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QNetworkReply *ritual_ZN13QNetworkReplyC1EP7QObject(QObject *parent) {
+  return new CuteQNetworkReply(parent);
+}
+
+//  QNetworkReply::QNetworkReply(QNetworkReplyPrivate &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QNetworkReply *ritual_ZN13QNetworkReplyC1ER20QNetworkReplyPrivateP7QObject(
+    QNetworkReplyPrivate *dd,
+    QObject *parent) {
+  return new CuteQNetworkReply(*dd, parent);
 }
 
 //  qint64 QNetworkReply::writeData(const char *data, qint64 len)
@@ -745,6 +911,14 @@ void ritual_ZN13QNetworkReply10setHeadersERK12QHttpHeaders(
   self->setHeaders(*newHeaders);
 }
 
+//  void QNetworkReply::setHeaders(QHttpHeaders &&newHeaders)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNetworkReply10setHeadersEO12QHttpHeaders(
+    QNetworkReply *self,
+    QHttpHeaders *newHeaders) {
+  self->setHeaders(std::move(*newHeaders));
+}
+
 //  void QNetworkReply::setWellKnownHeader(QHttpHeaders::WellKnownHeader
 //      name, QByteArrayView value)
 extern "C" Q_DECL_EXPORT
@@ -764,6 +938,17 @@ void ritual_ZN13QNetworkReply12setAttributeEN15QNetworkRequest9AttributeERK8QVar
     const QVariant *value) {
   self->setAttribute(code, *value);
 }
+
+#if QT_CONFIG(ssl)
+//  void QNetworkReply::sslConfigurationImplementation(QSslConfiguration &a0)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QNetworkReply30sslConfigurationImplementationER17QSslConfiguration(
+    const QNetworkReply *self,
+    QSslConfiguration *a0) {
+  self->sslConfigurationImplementation(*a0);
+}
+#endif  // QT_CONFIG(ssl)
 
 #if QT_CONFIG(ssl)
 //  void QNetworkReply::setSslConfigurationImplementation(const

@@ -277,6 +277,25 @@ const QMetaObject *ritual_ZNK16QAnimationDriver10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QAnimationDriver::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN16QAnimationDriver11qt_metacastEPKc(
+    QAnimationDriver *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QAnimationDriver::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN16QAnimationDriver11qt_metacallEN11QMetaObject4CallEiPPv(
+    QAnimationDriver *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QAnimationDriver::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QAnimationDriver2trEPKcS1_i(
@@ -342,6 +361,18 @@ qint64 ritual_ZNK16QAnimationDriver7elapsedEv(const QAnimationDriver *self) {
   return self->elapsed();
 }
 
+//  void QAnimationDriver::started()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAnimationDriver7startedEv(QAnimationDriver *self) {
+  self->started();
+}
+
+//  void QAnimationDriver::stopped()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAnimationDriver7stoppedEv(QAnimationDriver *self) {
+  self->stopped();
+}
+
 //  void QAnimationDriver::advanceAnimation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QAnimationDriver16advanceAnimationEv(
@@ -359,6 +390,15 @@ void ritual_ZN16QAnimationDriver5startEv(QAnimationDriver *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QAnimationDriver4stopEv(QAnimationDriver *self) {
   self->stop();
+}
+
+//  QAnimationDriver::QAnimationDriver(QAnimationDriverPrivate &dd, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QAnimationDriver *ritual_ZN16QAnimationDriverC1ER23QAnimationDriverPrivateP7QObject(
+    QAnimationDriverPrivate *dd,
+    QObject *parent) {
+  return new CuteQAnimationDriver(*dd, parent);
 }
 
 //  a Python function taken by a CuteQAnimationDriver, for the function named

@@ -12,6 +12,9 @@
     "ritual_ZNK25QIOReadWriteOperationBase17numBytesProcessedEv": [
       "long long", "address"
     ],
+    "ritual_ZN25QIOReadWriteOperationBaseC1ER19QIOOperationPrivateP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QIOReadWriteOperationBase": [
       "bool", "address", "chars", "address"
     ]

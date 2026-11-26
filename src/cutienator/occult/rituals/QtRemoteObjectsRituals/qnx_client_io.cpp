@@ -60,37 +60,6 @@ inline bool QnxClientIo::isOpen() const
                             || m_socket->state() == QAbstractSocket::ConnectingState);
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_qnx_backend.cpp, line 58, as _ZN11QnxClientIo7onErrorEN15QAbstractSocket11SocketErrorE
-inline void QnxClientIo::onError(QAbstractSocket::SocketError error)
-{
-    qCDebug(QT_REMOTEOBJECT) << "onError" << error << m_socket->serverName();
-
-    switch (error) {
-    case QAbstractSocket::RemoteHostClosedError:
-        m_socket->close();
-        qCWarning(QT_REMOTEOBJECT) << "RemoteHostClosedError";
-        Q_FALLTHROUGH();
-    case QAbstractSocket::HostNotFoundError:     //Host not there, wait and try again
-    case QAbstractSocket::AddressInUseError:
-    case QAbstractSocket::ConnectionRefusedError:
-        //... TODO error reporting
-        emit shouldReconnect(this);
-        break;
-    default:
-        break;
-    }
-}
-
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_qnx_backend.cpp, line 78, as _ZN11QnxClientIo14onStateChangedEN15QAbstractSocket11SocketStateE
-inline void QnxClientIo::onStateChanged(QAbstractSocket::SocketState state)
-{
-    if (state == QAbstractSocket::ClosingState && !isClosing()) {
-        m_socket->abort();
-        emit shouldReconnect(this);
-    } else if (state == QAbstractSocket::ConnectedState)
-        initializeDataStream();
-}
-
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_qnx_backend.cpp, line 31, as _ZN11QnxClientIo7doCloseEv
 inline void QnxClientIo::doClose()
 {
@@ -114,6 +83,24 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK11QnxClientIo10metaObjectEv(
     const QnxClientIo *self) {
   return self->metaObject();
+}
+
+//  void *QnxClientIo::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN11QnxClientIo11qt_metacastEPKc(
+    QnxClientIo *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QnxClientIo::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN11QnxClientIo11qt_metacallEN11QMetaObject4CallEiPPv(
+    QnxClientIo *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
 }
 
 //  QString QnxClientIo::tr(const char *s, const char *c, int n)
@@ -160,7 +147,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN11QnxClientIo7onErrorEN15QAbstractSocket11SocketErrorE(
     QnxClientIo *self,
     QAbstractSocket::SocketError error) {
-  self->onError(error);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QnxClientIo")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onError(QAbstractSocket::SocketError)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onError(QAbstractSocket::SocketError)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&error)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QnxClientIo::onStateChanged(QAbstractSocket::SocketState state)
@@ -168,7 +174,26 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN11QnxClientIo14onStateChangedEN15QAbstractSocket11SocketStateE(
     QnxClientIo *self,
     QAbstractSocket::SocketState state) {
-  self->onStateChanged(state);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QnxClientIo")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "onStateChanged(QAbstractSocket::SocketState)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "onStateChanged(QAbstractSocket::SocketState)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&state)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QnxClientIo::doClose()

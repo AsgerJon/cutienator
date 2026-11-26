@@ -7,6 +7,41 @@
 #include <Qt3DAnimation/6.12.0/Qt3DAnimation/private/qblendedclipanimator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <Qt3DAnimation/qabstractclipanimator.h>
+#include <Qt3DAnimation/private/qabstractclipanimator_p.h>
+#include <Qt3DAnimation/qchannelmapper.h>
+#include <Qt3DAnimation/qclock.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qt3d/src/animation/frontend/qabstractclipanimator.cpp, line 13, as _ZN13Qt3DAnimation28QAbstractClipAnimatorPrivateC2Ev
+namespace Qt3DAnimation {
+inline QAbstractClipAnimatorPrivate::QAbstractClipAnimatorPrivate()
+    : Qt3DCore::QComponentPrivate()
+    , m_mapper(nullptr)
+    , m_clock(nullptr)
+    , m_running(false)
+    , m_loops(1)
+    , m_normalizedTime(0.0f)
+{
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qabstractclipanimator.cpp, line 23, as _ZNK13Qt3DAnimation28QAbstractClipAnimatorPrivate7canPlayEv
+namespace Qt3DAnimation {
+inline bool QAbstractClipAnimatorPrivate::canPlay() const
+{
+    return true;
+}
+}  // namespace Qt3DAnimation
+//  -----------------------------------------------------------------------
 
 //  A Qt3DAnimation::QBlendedClipAnimatorPrivate that Python can take functions over in. Every Qt3DAnimation::QBlendedClipAnimatorPrivate
 //  Python makes is one. Each function below asks the Python

@@ -21,6 +21,25 @@ const QMetaObject *ritual_ZNK17DeclarativeBoxSet10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *DeclarativeBoxSet::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN17DeclarativeBoxSet11qt_metacastEPKc(
+    DeclarativeBoxSet *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int DeclarativeBoxSet::qt_metacall(QMetaObject::Call a0, int a1, void
+//      **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN17DeclarativeBoxSet11qt_metacallEN11QMetaObject4CallEiPPv(
+    DeclarativeBoxSet *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString DeclarativeBoxSet::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17DeclarativeBoxSet2trEPKcS1_i(
@@ -96,6 +115,29 @@ void ritual_ZN17DeclarativeBoxSet8setValueEid(
     int index,
     qreal value) {
   self->setValue(index, value);
+}
+
+//  void DeclarativeBoxSet::changedValues()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DeclarativeBoxSet13changedValuesEv(DeclarativeBoxSet *self) {
+  self->changedValues();
+}
+
+//  void DeclarativeBoxSet::changedValue(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DeclarativeBoxSet12changedValueEi(
+    DeclarativeBoxSet *self,
+    int index) {
+  self->changedValue(index);
+}
+
+//  void DeclarativeBoxSet::brushFilenameChanged(const QString
+//      &brushFilename)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17DeclarativeBoxSet20brushFilenameChangedERK7QString(
+    DeclarativeBoxSet *self,
+    const QString *brushFilename) {
+  self->brushFilenameChanged(*brushFilename);
 }
 
 //  void DeclarativeBoxSet::handleBrushChanged()

@@ -7,6 +7,12 @@
   "rows": {
     "ritual_ZN13QSvgFontStyleC1Ev": ["address"],
     "ritual_ZN13QSvgFontStyleD1Ev": ["nothing", "address"],
+    "ritual_ZN13QSvgFontStyle5applyEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QSvgFontStyle6revertEP8QPainterR15QSvgExtraStates": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK13QSvgFontStyle4typeEv": ["unsigned char", "address"],
     "ritual_ZN13QSvgFontStyle7setSizeEd": ["nothing", "address", "double"],
     "ritual_ZN13QSvgFontStyle13setTextAnchorE6QFlagsIN2Qt13AlignmentFlagEE": [

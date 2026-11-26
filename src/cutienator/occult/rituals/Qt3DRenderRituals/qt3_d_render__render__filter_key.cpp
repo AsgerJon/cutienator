@@ -42,6 +42,26 @@ public:
   }
 };
 
+//  Qt3DRender::Render::FilterKey::FilterKey()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::FilterKey *ritual_ZN10Qt3DRender6Render9FilterKeyC1Ev() {
+  return new CuteQt3DRender_Render_FilterKey();
+}
+
+//  Qt3DRender::Render::FilterKey::~FilterKey()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9FilterKeyD1Ev(
+    Qt3DRender::Render::FilterKey *self) {
+  delete self;
+}
+
+//  void Qt3DRender::Render::FilterKey::cleanup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9FilterKey7cleanupEv(
+    Qt3DRender::Render::FilterKey *self) {
+  self->cleanup();
+}
+
 //  const QVariant &Qt3DRender::Render::FilterKey::value() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK10Qt3DRender6Render9FilterKey5valueEv(
@@ -54,6 +74,40 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK10Qt3DRender6Render9FilterKey4nameEv(
     const Qt3DRender::Render::FilterKey *self) {
   return new QString(self->name());
+}
+
+//  void Qt3DRender::Render::FilterKey::syncFromFrontEnd(const
+//      Qt3DCore::QNode *frontEnd, bool firstTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DRender6Render9FilterKey16syncFromFrontEndEPKN8Qt3DCore5QNodeEb(
+    Qt3DRender::Render::FilterKey *self,
+    const Qt3DCore::QNode *frontEnd,
+    bool firstTime) {
+  self->syncFromFrontEnd(frontEnd, firstTime);
+}
+
+//  bool operator==(const FilterKey &lhs, const FilterKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender6RendereqERKNS0_9FilterKeyES3_(
+    const Qt3DRender::Render::FilterKey *lhs,
+    const Qt3DRender::Render::FilterKey *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const FilterKey &lhs, const FilterKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10Qt3DRender6RenderneERKNS0_9FilterKeyES3_(
+    const Qt3DRender::Render::FilterKey *lhs,
+    const Qt3DRender::Render::FilterKey *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool Qt3DRender::Render::FilterKey::equals(const FilterKey &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10Qt3DRender6Render9FilterKey6equalsERKS1_(
+    const Qt3DRender::Render::FilterKey *self,
+    const Qt3DRender::Render::FilterKey *other) {
+  return self->equals(*other);
 }
 
 //  a Python function taken by a CuteQt3DRender_Render_FilterKey, for the

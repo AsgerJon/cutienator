@@ -10,6 +10,15 @@
     ],
     "ritual_ZN19QProcessEnvironmentC1ERKS_": ["address", "address"],
     "ritual_ZN19QProcessEnvironmentD1Ev": ["nothing", "address"],
+    "ritual_ZN19QProcessEnvironmentaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QProcessEnvironmentaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QProcessEnvironment4swapERS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QProcessEnvironment7isEmptyEv": ["bool", "address"],
     "ritual_ZNK19QProcessEnvironment18inheritsFromParentEv": [
       "bool", "address"

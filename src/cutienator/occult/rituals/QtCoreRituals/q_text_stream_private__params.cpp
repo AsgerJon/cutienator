@@ -31,6 +31,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/corelib/serialization/qtextstream.cpp, line 281, as _ZN18QTextStreamPrivate6Params5resetEv
 inline void QTextStreamPrivate::Params::reset()
 {

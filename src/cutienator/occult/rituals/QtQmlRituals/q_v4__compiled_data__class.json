@@ -11,6 +11,7 @@
     "ritual_ZN3QV412CompiledData5Class13calculateSizeEii": [
       "int", "int", "int"
     ],
+    "ritual_ZN3QV412CompiledData5Class5alignEm": ["size_t", "size_t"],
     "ritual_ZN3QV412CompiledData5ClassD1Ev": ["nothing", "address"]
   }
 }

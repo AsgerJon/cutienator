@@ -725,6 +725,24 @@ const QMetaObject *ritual_ZNK13QWindowsStyle10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QWindowsStyle::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QWindowsStyle11qt_metacastEPKc(
+    QWindowsStyle *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QWindowsStyle::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QWindowsStyle11qt_metacallEN11QMetaObject4CallEiPPv(
+    QWindowsStyle *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QString QWindowsStyle::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QWindowsStyle2trEPKcS1_i(
@@ -776,6 +794,14 @@ void ritual_ZN13QWindowsStyle8unpolishEP7QWidget(
     QWindowsStyle *self,
     QWidget *a0) {
   self->unpolish(a0);
+}
+
+//  void QWindowsStyle::polish(QPalette &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QWindowsStyle6polishER8QPalette(
+    QWindowsStyle *self,
+    QPalette *a0) {
+  self->polish(*a0);
 }
 
 //  void QWindowsStyle::drawPrimitive(PrimitiveElement pe, const QStyleOption
@@ -889,6 +915,13 @@ bool ritual_ZN13QWindowsStyle11eventFilterEP7QObjectP6QEvent(
     QObject *o,
     QEvent *e) {
   return self->eventFilter(o, e);
+}
+
+//  QWindowsStyle::QWindowsStyle(QWindowsStylePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QWindowsStyle *ritual_ZN13QWindowsStyleC1ER20QWindowsStylePrivate(
+    QWindowsStylePrivate *dd) {
+  return new CuteQWindowsStyle(*dd);
 }
 
 //  QWindowsStylePrivate *QWindowsStyle::d_func()

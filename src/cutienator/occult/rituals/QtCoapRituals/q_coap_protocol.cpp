@@ -6,8 +6,12 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCoap/6.12.0/QtCoap/private/qcoapprotocol_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCoap/qcoapmessage.h>
+#include <QtNetwork/qhostaddress.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtCore/QPointer>
+#include <QtCoap/QCoapReply>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCoap/private/qcoapprotocol_p.h>
 #include <QtCoap/private/qcoapinternalrequest_p.h>
@@ -111,20 +115,6 @@ inline uint QCoapProtocol::maximumServerResponseDelay() const
 {
     Q_D(const QCoapProtocol);
     return d->maximumServerResponseDelay;
-}
-
-//  from ../qtcoap/src/coap/qcoapprotocol.cpp, line 1056, as _ZN13QCoapProtocol13setAckTimeoutEj
-inline void QCoapProtocol::setAckTimeout(uint ackTimeout)
-{
-    Q_D(QCoapProtocol);
-    d->ackTimeout = ackTimeout;
-}
-
-//  from ../qtcoap/src/coap/qcoapprotocol.cpp, line 1140, as _ZN13QCoapProtocol29setMaximumServerResponseDelayEj
-inline void QCoapProtocol::setMaximumServerResponseDelay(uint responseDelay)
-{
-    Q_D(QCoapProtocol);
-    d->maximumServerResponseDelay = responseDelay;
 }
 //  -----------------------------------------------------------------------
 
@@ -302,6 +292,24 @@ const QMetaObject *ritual_ZNK13QCoapProtocol10metaObjectEv(
   return self->metaObject();
 }
 
+//  void *QCoapProtocol::qt_metacast(const char *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN13QCoapProtocol11qt_metacastEPKc(
+    QCoapProtocol *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int QCoapProtocol::qt_metacall(QMetaObject::Call a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QCoapProtocol11qt_metacallEN11QMetaObject4CallEiPPv(
+    QCoapProtocol *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
 //  QCoapProtocol::~QCoapProtocol()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QCoapProtocolD1Ev(QCoapProtocol *self) {
@@ -380,12 +388,201 @@ uint ritual_ZNK13QCoapProtocol26maximumServerResponseDelayEv(
   return self->maximumServerResponseDelay();
 }
 
+//  void QCoapProtocol::finished(QCoapReply *reply)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCoapProtocol8finishedEP10QCoapReply(
+    QCoapProtocol *self,
+    QCoapReply *reply) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "finished(QCoapReply *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "finished(QCoapReply *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&reply)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapProtocol::responseToMulticastReceived(QCoapReply *reply, const
+//      QCoapMessage &message, const QHostAddress &sender)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCoapProtocol27responseToMulticastReceivedEP10QCoapReplyRK12QCoapMessageRK12QHostAddress(
+    QCoapProtocol *self,
+    QCoapReply *reply,
+    const QCoapMessage *message,
+    const QHostAddress *sender) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "responseToMulticastReceived(QCoapReply *,const QCoapMessage &,const QHostAddress &)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "responseToMulticastReceived(QCoapReply *,const QCoapMessage &,const QHostAddress &)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&reply)),
+      const_cast<void *>(static_cast<const void *>(message)),
+      const_cast<void *>(static_cast<const void *>(sender)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapProtocol::error(QCoapReply *reply, QtCoap::Error error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCoapProtocol5errorEP10QCoapReplyN6QtCoap5ErrorE(
+    QCoapProtocol *self,
+    QCoapReply *reply,
+    QtCoap::Error error) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "error(QCoapReply *,QtCoap::Error)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "error(QCoapReply *,QtCoap::Error)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&reply)),
+      const_cast<void *>(static_cast<const void *>(&error)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
 //  void QCoapProtocol::setAckTimeout(uint ackTimeout)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QCoapProtocol13setAckTimeoutEj(
     QCoapProtocol *self,
     uint ackTimeout) {
-  self->setAckTimeout(ackTimeout);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setAckTimeout(uint)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setAckTimeout(uint)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&ackTimeout)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapProtocol::setAckRandomFactor(double ackRandomFactor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCoapProtocol18setAckRandomFactorEd(
+    QCoapProtocol *self,
+    double ackRandomFactor) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setAckRandomFactor(double)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setAckRandomFactor(double)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&ackRandomFactor)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapProtocol::setMaximumRetransmitCount(uint
+//      maximumRetransmitCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCoapProtocol25setMaximumRetransmitCountEj(
+    QCoapProtocol *self,
+    uint maximumRetransmitCount) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setMaximumRetransmitCount(uint)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setMaximumRetransmitCount(uint)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&maximumRetransmitCount)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapProtocol::setBlockSize(quint16 blockSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCoapProtocol12setBlockSizeEt(
+    QCoapProtocol *self,
+    quint16 blockSize) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setBlockSize(quint16)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setBlockSize(quint16)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&blockSize)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  void QCoapProtocol::setMaximumServerResponseDelay(uint responseDelay)
@@ -393,7 +590,83 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN13QCoapProtocol29setMaximumServerResponseDelayEj(
     QCoapProtocol *self,
     uint responseDelay) {
-  self->setMaximumServerResponseDelay(responseDelay);
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setMaximumServerResponseDelay(uint)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setMaximumServerResponseDelay(uint)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&responseDelay)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapProtocol::setMinimumTokenSize(int tokenSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCoapProtocol19setMinimumTokenSizeEi(
+    QCoapProtocol *self,
+    int tokenSize) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "setMinimumTokenSize(int)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "setMinimumTokenSize(int)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(&tokenSize)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  void QCoapProtocol::sendRequest(QPointer<QCoapReply> reply,
+//      QCoapConnection *connection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCoapProtocol11sendRequestE8QPointerI10QCoapReplyEP15QCoapConnection(
+    QCoapProtocol *self,
+    const QPointer<QCoapReply> *reply,
+    QCoapConnection *connection) {
+  const QObject *object = self;
+  const QMetaObject *meta = object->metaObject();
+  for (const QMetaObject *up = meta; up; up = up->superClass()) {
+    if (!qstrcmp(up->className(), "QCoapProtocol")) {
+      meta = up;
+      break;
+    }
+  }
+  const int index = meta->indexOfMethod(
+      QMetaObject::normalizedSignature(
+          "sendRequest(QPointer<QCoapReply>,QCoapConnection *)").constData());
+  if (index < 0)
+    qFatal("cutienator: the meta-object of %s has no %s",
+           meta->className(), "sendRequest(QPointer<QCoapReply>,QCoapConnection *)");
+  void *arguments[] = {
+      nullptr,
+      const_cast<void *>(static_cast<const void *>(reply)),
+      const_cast<void *>(static_cast<const void *>(&connection)),
+  };
+  static_cast<QObject *>(self)->qt_metacall(
+      QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
 //  QCoapProtocolPrivate *QCoapProtocol::d_func()

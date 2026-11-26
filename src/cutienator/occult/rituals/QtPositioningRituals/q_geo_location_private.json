@@ -8,6 +8,7 @@
     "ritual_ZN19QGeoLocationPrivateC1Ev": ["address"],
     "ritual_ZN19QGeoLocationPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN19QGeoLocationPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QGeoLocationPrivateeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK19QGeoLocationPrivate7isEmptyEv": ["bool", "address"]
   }
 }

@@ -8,6 +8,42 @@
     "ritual_ZNK18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor10metaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1AdaptorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor5flagsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor9notifyingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor7serviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor4uUIDEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor5valueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor9ReadValueERK4QMapI7QString8QVariantERK12QDBusMessage": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor11StartNotifyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor10StopNotifyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor10WriteValueERK10QByteArrayRK4QMapI7QString8QVariantERK12QDBusMessage": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_take_QtBluetoothPrivate_OrgBluezGattCharacteristic1Adaptor": [
       "bool", "address", "chars", "address"
     ]

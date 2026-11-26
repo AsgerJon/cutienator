@@ -52,6 +52,21 @@ public:
   }
 };
 
+//  QGraphicsSceneResizeEventPrivate *QGraphicsSceneResizeEvent::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneResizeEventPrivate *ritual_ZN25QGraphicsSceneResizeEvent6d_funcEv(
+    QGraphicsSceneResizeEvent *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneResizeEventPrivate
+//      *QGraphicsSceneResizeEvent::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneResizeEventPrivate *ritual_ZNK25QGraphicsSceneResizeEvent6d_funcEv(
+    const QGraphicsSceneResizeEvent *self) {
+  return self->d_func();
+}
+
 //  QGraphicsSceneResizeEvent::QGraphicsSceneResizeEvent()
 extern "C" Q_DECL_EXPORT
 QGraphicsSceneResizeEvent *ritual_ZN25QGraphicsSceneResizeEventC1Ev() {

@@ -26,6 +26,15 @@ QOpcUaLiteralOperand *ritual_ZN20QOpcUaLiteralOperandC1ERK8QVariantN6QOpcUa5Type
   return new QOpcUaLiteralOperand(*value, type);
 }
 
+//  QOpcUaLiteralOperand &QOpcUaLiteralOperand::operator=(const
+//      QOpcUaLiteralOperand &a0)
+extern "C" Q_DECL_EXPORT
+QOpcUaLiteralOperand *ritual_ZN20QOpcUaLiteralOperandaSERKS_(
+    QOpcUaLiteralOperand *self,
+    const QOpcUaLiteralOperand *a0) {
+  return &(self->operator=(*a0));
+}
+
 //  QVariant QOpcUaLiteralOperand::operator QVariant() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK20QOpcUaLiteralOperandcv8QVariantEv(

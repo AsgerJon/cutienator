@@ -9,6 +9,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmlpropertycache_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/private/qqmltypecompiler_p.h>
 #include <QtQml/private/qqmlobjectcreator_p.h>
 #include <QtQml/private/qqmlcustomparser_p.h>
@@ -26,6 +29,9 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 17, as local:qqmltypecompiler.cpp:COMPILE_EXCEPTION
+#define COMPILE_EXCEPTION(token, desc) \
 
 //  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 280, as _ZN15QQmlCompilePassC2EP16QQmlTypeCompiler
 inline QQmlCompilePass::QQmlCompilePass(QQmlTypeCompiler *typeCompiler)
@@ -51,6 +57,12 @@ inline const QQmlImports *QQmlTypeCompiler::imports() const
     return typeData->imports();
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 249, as _ZNK16QQmlTypeCompiler15bindingAsStringEPKN5QmlIR6ObjectEi
+inline QString QQmlTypeCompiler::bindingAsString(const QmlIR::Object *object, int scriptIndex) const
+{
+    return object->bindingAsString(document, scriptIndex);
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 174, as _ZNK16QQmlTypeCompiler8stringAtEi
 inline QString QQmlTypeCompiler::stringAt(int idx) const
 {
@@ -66,6 +78,44 @@ inline QQmlEnumTypeResolver::QQmlEnumTypeResolver(QQmlTypeCompiler *typeCompiler
 {
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 473, as _ZN20QQmlEnumTypeResolver19resolveEnumBindingsEv
+inline bool QQmlEnumTypeResolver::resolveEnumBindings()
+{
+    for (int i = 0; i < qmlObjects.size(); ++i) {
+        QQmlPropertyCache::ConstPtr propertyCache = propertyCaches->at(i);
+        if (!propertyCache)
+            continue;
+        const QmlIR::Object *obj = qmlObjects.at(i);
+
+        QQmlPropertyResolver resolver(propertyCache);
+
+        for (QmlIR::Binding *binding = obj->firstBinding(); binding; binding = binding->next) {
+            const QV4::CompiledData::Binding::Flags bindingFlags = binding->flags();
+            if (bindingFlags & QV4::CompiledData::Binding::IsSignalHandlerExpression
+                    || bindingFlags & QV4::CompiledData::Binding::IsSignalHandlerObject
+                    || bindingFlags & QV4::CompiledData::Binding::IsPropertyObserver)
+                continue;
+
+            if (binding->type() != QV4::CompiledData::Binding::Type_Script)
+                continue;
+
+            const QString propertyName = stringAt(binding->propertyNameIndex);
+            bool notInRevision = false;
+            const QQmlPropertyData *pd = resolver.property(propertyName, &notInRevision);
+            if (!pd || pd->isQList())
+                continue;
+
+            if (!pd->isEnum() && pd->propType().id() != QMetaType::Int)
+                continue;
+
+            if (!tryQualifiedEnumAssignment(obj, propertyCache, pd, binding))
+                return false;
+        }
+    }
+
+    return true;
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 510, as _ZN20QQmlEnumTypeResolver19assignEnumToBindingEPN5QmlIR7BindingE11QStringViewi
 inline bool QQmlEnumTypeResolver::assignEnumToBinding(QmlIR::Binding *binding, QStringView, int enumValue)
 {
@@ -77,6 +127,109 @@ inline bool QQmlEnumTypeResolver::assignEnumToBinding(QmlIR::Binding *binding, Q
     binding->value.resolvedEnumValue = enumValue;
     binding->setFlag(QV4::CompiledData::Binding::IsResolvedEnum);
     return true;
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 522, as _ZN20QQmlEnumTypeResolver26tryQualifiedEnumAssignmentEPKN5QmlIR6ObjectERKN17QQmlPropertyCache8ConstPtrEPK16QQmlPropertyDataPNS0_7BindingE
+inline bool QQmlEnumTypeResolver::tryQualifiedEnumAssignment(
+        const QmlIR::Object *obj, const QQmlPropertyCache::ConstPtr &propertyCache,
+        const QQmlPropertyData *prop, QmlIR::Binding *binding)
+{
+    bool isIntProp = (prop->propType().id() == QMetaType::Int) && !prop->isEnum();
+    if (!prop->isEnum() && !isIntProp)
+        return true;
+
+    if (!prop->isWritable()
+            && !(binding->hasFlag(QV4::CompiledData::Binding::InitializerForReadOnlyDeclaration))) {
+        COMPILE_EXCEPTION(binding, tr("Invalid property assignment: \"%1\" is a read-only property")
+                                           .arg(stringAt(binding->propertyNameIndex)));
+    }
+
+    Q_ASSERT(binding->type() == QV4::CompiledData::Binding::Type_Script);
+    const QString string = compiler->bindingAsString(obj, binding->value.compiledScriptIndex);
+    const int dot = QmlIR::qualifiedEnumDot(string);
+    if (dot == -1)
+        return true;
+
+    int dot2 = string.indexOf(QLatin1Char('.'), dot+1);
+    if (dot2 != -1 && dot2 != string.size()-1) {
+        if (!string.at(dot+1).isUpper())
+            return true;
+        if (string.indexOf(QLatin1Char('.'), dot2+1) != -1)
+            return true;
+    }
+
+    QHashedStringRef typeName(string.constData(), dot);
+    const bool isQtObject = (typeName == QLatin1String("Qt"));
+    const QStringView scopedEnumName = (dot2 != -1 ? QStringView{string}.mid(dot + 1, dot2 - dot - 1) : QStringView());
+    // ### consider supporting scoped enums in Qt namespace
+    const QStringView enumValue = QStringView{string}.mid(!isQtObject && dot2 != -1 ? dot2 + 1 : dot + 1);
+
+    if (isIntProp) { // ### C++11 allows enums to be other integral types. Should we support other integral types here?
+        // Allow enum assignment to ints.
+        bool ok;
+        int enumval = evaluateEnum(typeName.toString(), scopedEnumName, enumValue, &ok);
+        if (ok) {
+            if (!assignEnumToBinding(binding, enumValue, enumval))
+                return false;
+        }
+        return true;
+    }
+    QQmlType type;
+    imports->resolveType(compiler->typeLoader(), typeName, &type, nullptr, nullptr);
+
+    if (!type.isValid() && !isQtObject)
+        return true;
+
+    int value = 0;
+    bool ok = false;
+
+    auto *tr = resolvedType(obj->inheritedTypeNameIndex);
+
+    // When these two match, we can short cut the search, unless...
+    bool useFastPath = type.isValid() && tr && tr->type() == type;
+    QMetaProperty mprop;
+    QMetaEnum menum;
+    if (useFastPath) {
+        mprop = propertyCache->firstCppMetaObject()->property(prop->coreIndex());
+        menum = mprop.enumerator();
+        // ...the enumerator merely comes from a related metaobject, but the enum scope does not match
+        // the typename we resolved
+        if (!menum.isScoped() && scopedEnumName.isEmpty() && typeName != QString::fromUtf8(menum.scope()))
+            useFastPath = false;;
+    }
+    if (useFastPath) {
+        QByteArray enumName = enumValue.toUtf8();
+        if (menum.isScoped() && !scopedEnumName.isEmpty() && enumName != scopedEnumName.toUtf8())
+            return true;
+
+        if (mprop.isFlagType()) {
+            value = menum.keysToValue(enumName.constData(), &ok);
+        } else {
+            value = menum.keyToValue(enumName.constData(), &ok);
+        }
+    } else {
+        // Otherwise we have to search the whole type
+        if (type.isValid()) {
+            if (!scopedEnumName.isEmpty()) {
+                value = type.scopedEnumValue(
+                        compiler->typeLoader(), scopedEnumName, enumValue, &ok);
+            } else {
+                value = type.enumValue(compiler->typeLoader(), QHashedStringRef(enumValue), &ok);
+            }
+        } else {
+            QByteArray enumName = enumValue.toUtf8();
+            const QMetaObject *metaObject = &Qt::staticMetaObject;
+            for (int ii = metaObject->enumeratorCount() - 1; !ok && ii >= 0; --ii) {
+                QMetaEnum e = metaObject->enumerator(ii);
+                value = e.keyToValue(enumName.constData(), &ok);
+            }
+        }
+    }
+
+    if (!ok)
+        return true;
+
+    return assignEnumToBinding(binding, enumValue, value);
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmltypecompiler.cpp, line 624, as _ZNK20QQmlEnumTypeResolver12evaluateEnumERK7QString11QStringViewS3_Pb
@@ -131,6 +284,13 @@ QQmlEnumTypeResolver *ritual_ZN20QQmlEnumTypeResolverC1EP16QQmlTypeCompiler(
   return new QQmlEnumTypeResolver(typeCompiler);
 }
 
+//  bool QQmlEnumTypeResolver::resolveEnumBindings()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QQmlEnumTypeResolver19resolveEnumBindingsEv(
+    QQmlEnumTypeResolver *self) {
+  return self->resolveEnumBindings();
+}
+
 //  bool QQmlEnumTypeResolver::assignEnumToBinding(QmlIR::Binding *binding,
 //      QStringView enumName, int enumValue)
 extern "C" Q_DECL_EXPORT
@@ -154,6 +314,23 @@ bool ritual_ZN20QQmlEnumTypeResolver19assignEnumToBindingEPN5QmlIR7BindingERK7QS
     const QString *enumName,
     int enumValue) {
   return self->assignEnumToBinding(binding, *enumName, enumValue);
+}
+
+//  bool QQmlEnumTypeResolver::tryQualifiedEnumAssignment(const QmlIR::Object
+//      *obj, const QQmlPropertyCache::ConstPtr &propertyCache, const
+//      QQmlPropertyData *prop, QmlIR::Binding *binding)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QQmlEnumTypeResolver26tryQualifiedEnumAssignmentEPKN5QmlIR6ObjectERKN17QQmlPropertyCache8ConstPtrEPK16QQmlPropertyDataPNS0_7BindingE(
+    QQmlEnumTypeResolver *self,
+    const QmlIR::Object *obj,
+    const QQmlPropertyCache::ConstPtr *propertyCache,
+    const QQmlPropertyData *prop,
+    QmlIR::Binding *binding) {
+  return self->tryQualifiedEnumAssignment(
+      obj,
+      *propertyCache,
+      prop,
+      binding);
 }
 
 //  int QQmlEnumTypeResolver::evaluateEnum(const QString &scope, QStringView

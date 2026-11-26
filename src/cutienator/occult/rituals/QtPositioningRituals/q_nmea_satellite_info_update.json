@@ -14,6 +14,9 @@
     "ritual_ZN24QNmeaSatelliteInfoUpdate19setSatellitesInViewEN17QGeoSatelliteInfo15SatelliteSystemERK5QListIS0_E": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN24QNmeaSatelliteInfoUpdate18setSatellitesInUseEN17QGeoSatelliteInfo15SatelliteSystemERK5QListIiE": [
+      "bool", "address", "int", "address"
+    ],
     "ritual_ZN24QNmeaSatelliteInfoUpdate7consumeEv": ["nothing", "address"],
     "ritual_ZNK24QNmeaSatelliteInfoUpdate7isFreshEv": ["bool", "address"],
     "ritual_ZN24QNmeaSatelliteInfoUpdate5clearEv": ["nothing", "address"],

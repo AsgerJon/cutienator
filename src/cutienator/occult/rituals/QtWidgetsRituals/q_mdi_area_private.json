@@ -10,6 +10,9 @@
     "ritual_ZN15QMdiAreaPrivate11_q_closeTabEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN15QMdiAreaPrivate10_q_moveTabEii": [
+      "nothing", "address", "int", "int"
+    ],
     "ritual_ZN15QMdiAreaPrivate17resetActiveWindowEP13QMdiSubWindow": [
       "nothing", "address", "address"
     ],
@@ -22,6 +25,12 @@
     ],
     "ritual_ZN15QMdiAreaPrivate23resizeToMinimumTileSizeERK5QSizei": [
       "address", "address", "address", "int"
+    ],
+    "ritual_ZN15QMdiAreaPrivate22scrollBarPolicyChangedEN2Qt11OrientationENS0_15ScrollBarPolicyE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QMdiAreaPrivate22highlightNextSubWindowEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZNK15QMdiAreaPrivate13subWindowListEN8QMdiArea11WindowOrderEb": [
       "address", "address", "int", "bool"
@@ -40,6 +49,9 @@
       "bool", "address", "address"
     ],
     "ritual_ZN15QMdiAreaPrivate14hideRubberBandEv": ["nothing", "address"],
-    "ritual_take_QMdiAreaPrivate": ["bool", "address", "chars", "address"]
+    "ritual_take_QMdiAreaPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QMdiAreaPrivate22scrollBarPolicyChangedEN2Qt11OrientationENS0_15ScrollBarPolicyE": [
+      "nothing", "address", "int", "int"
+    ]
   }
 }
